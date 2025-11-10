@@ -1,38 +1,36 @@
 ---
-title: "AudioTrack: language Eigenschaft"
+title: "AudioTrack: language-Eigenschaft"
 short-title: language
 slug: Web/API/AudioTrack/language
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
-Eigenschaft **`language`** gibt einen String zurück, der die
-Sprache identifiziert, die im Audiotrack verwendet wird.
+Eigenschaft **`language`** gibt eine Zeichenkette zurück, die die im Audiotrack verwendete Sprache identifiziert.
 
-Bei Tracks, die mehrere Sprachen enthalten
-(zum Beispiel ein Film auf Englisch, in dem einige Zeilen in anderen Sprachen gesprochen werden), sollte dies die Hauptsprache des Videos sein.
+Für Tracks, die mehrere Sprachen enthalten
+(zum Beispiel ein Film in Englisch, in dem einige Zeilen in anderen Sprachen gesprochen werden), sollte dies die primäre Sprache des Videos sein.
 
 ## Wert
 
-Ein String, der das BCP 47 ({{RFC(5646)}}) Format des Sprach-Tags der
-primären Sprache angibt, die im Audiotrack verwendet wird, oder ein leerer String (`""`),
-wenn die Sprache nicht spezifiziert oder bekannt ist oder wenn der Track keine Sprache enthält.
+Eine Zeichenkette, die das {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}} der
+primären Sprache angibt, die im Audiotrack verwendet wird, oder eine leere Zeichenkette (`""`), wenn
+die Sprache nicht angegeben oder bekannt ist, oder wenn der Track keine Sprache enthält.
 
-Zum Beispiel, wenn die primäre Sprache des Tracks Amerikanisches Englisch ist, wäre
-dieser Wert `"en-US"`. Für brasilianisches Portugiesisch wäre der Wert
+Zum Beispiel, wenn die primäre Sprache im Track US-Englisch ist, wäre dieser
+Wert `"en-US"`. Für brasilianisches Portugiesisch wäre der Wert
 `"pt-BR"`.
 
 ## Beispiele
 
-Das folgende Beispiel sucht alle Hauptsprach- und übersetzten Audiotracks eines Mediaelements
-und gibt eine Liste von Objekten zurück, die jeweils die Tracks
+Dieses Beispiel lokalisiert alle primären Sprachen- und übersetzten Audiotracks eines Media-Elements und gibt eine Liste von Objekten zurück, die die
 [`id`](/de/docs/Web/API/AudioTrack/id), [`kind`](/de/docs/Web/API/AudioTrack/kind) und
-`language` enthalten.
+`language` jedes dieser Tracks enthalten.
 
-Dies könnte dann verwendet werden, um eine Benutzeroberfläche zu erstellen, über die der Benutzer die Sprache auswählen kann, die er beim Ansehen eines Films hören möchte.
+Dies könnte dann verwendet werden, um eine Benutzeroberfläche zu erstellen, über die der Nutzer die Sprache auswählen kann, die er beim Ansehen eines Films hören möchte.
 
 ```js
 function getAvailableLanguages(el) {

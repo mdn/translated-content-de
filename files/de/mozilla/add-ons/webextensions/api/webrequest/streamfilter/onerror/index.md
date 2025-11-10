@@ -2,20 +2,14 @@
 title: webRequest.StreamFilter.onerror
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/onerror
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein Ereignishandler, der aufgerufen wird, wenn ein Fehler auftritt. Dies geschieht meist, weil eine ungültige Anforderungs-ID an {{WebExtAPIRef("webRequest.filterResponseData()")}} übergeben wurde.
 
-Ein Ereignishandler, der aufgerufen wird, wenn ein Fehler auftritt. Dies geschieht meist, wenn eine ungültige Anfrage-ID an {{WebExtAPIRef("webRequest.filterResponseData()")}} übergeben wurde.
-
-Nach diesem Ereignis beinhaltet die Eigenschaft {{WebExtAPIRef("webRequest.StreamFilter.error")}} eine Nachricht, die weitere Informationen über den Fehler gibt.
+Nachdem dieses Ereignis ausgelöst wurde, enthält die Eigenschaft {{WebExtAPIRef("webRequest.StreamFilter.error")}} eine Nachricht mit weiteren Informationen über den Fehler.
 
 Beachten Sie, dass dieses Ereignis **nicht** bei Netzwerkfehlern ausgelöst wird.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -57,3 +51,7 @@ browser.webRequest.onBeforeRequest.addListener(listener, {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

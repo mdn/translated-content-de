@@ -1,18 +1,16 @@
 ---
-title: Relying party
+title: Vertrauenswürdige Partei
 slug: Glossary/Relying_party
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 8cd7f0fdcb2ea8d53ec7dae071eb2eb76bf5bfaf
 ---
 
-{{GlossarySidebar}}
+Eine **Vertrauenswürdige Partei** (Relying Party, RP) ist eine Einheit, die den Zugriff auf eine Ressource kontrollieren muss und dafür andere Einheiten {{Glossary("authentication", "authentifizieren")}} muss, die versuchen, auf diese Ressource zuzugreifen. Im Web ist eine vertrauenswürdige Partei in der Regel eine Website, die es Nutzern ermöglicht, sich anzumelden, und die Nutzer authentifizieren muss (zum Beispiel durch Überprüfung eines Passworts), bevor entschieden wird, ob ihnen Zugang gewährt wird.
 
-Eine **relying party** ist eine Entität, die den Zugang zu einer Ressource kontrollieren muss und dafür andere Entitäten, die auf diese Ressource zugreifen möchten, {{Glossary("authentication", "authentifizieren")}} muss. Im Web ist eine relying party in der Regel eine Website, die es Nutzern ermöglicht, sich anzumelden und die Nutzer authentifizieren muss (zum Beispiel durch Überprüfung eines Passworts), bevor entschieden wird, ob ihnen Zugriff gewährt wird.
-
-Die Website _vertraut auf_ die Gültigkeit der Anmeldeinformationen, die der Browser vorlegt, wenn er Zugang zu ihren Ressourcen gewährt.
+Die RP-Website _vertraut auf_ die Gültigkeit der Anmeldeinformationen, die der Browser präsentiert, wenn er Zugriff auf ihre Ressourcen gewährt. Die Authentifizierung und Anmeldeinformationen werden oft von einem Drittanbieter-{{Glossary("Identity_provider", "Identitätsanbieter")}} (IdP) bereitgestellt.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Federated_identity", "Federated identity")}}
-  - {{Glossary("Identity_provider", "Identity provider")}}
+  - {{Glossary("Federated_identity", "Verbundene Identität")}}
+  - {{Glossary("Identity_provider", "Identitätsanbieter")}}

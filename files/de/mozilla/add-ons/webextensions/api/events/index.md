@@ -2,48 +2,55 @@
 title: events
 slug: Mozilla/Add-ons/WebExtensions/API/events
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gewöhnliche Typen, die von APIs verwendet werden, die Ereignisse auslösen.
+Häufige Typen, die von APIs verwendet werden, die Ereignisse auslösen.
 
 ## Typen
 
 - {{WebExtAPIRef("events.Rule")}}
-  - : Beschreibung einer deklarativen Regel zur Verarbeitung von Ereignissen.
+  - : Beschreibung einer deklarativen Regel zur Handhabung von Ereignissen.
 - {{WebExtAPIRef("events.Event")}}
   - : Ein Objekt, das das Hinzufügen und Entfernen von Listenern für ein Browser-Ereignis ermöglicht.
 - {{WebExtAPIRef("events.UrlFilter")}}
-  - : Filtert URLs nach verschiedenen Kriterien. Wenn eines der angegebenen Kriterien übereinstimmt, dann entspricht der gesamte Filter.
+  - : Filtert URLs nach verschiedenen Kriterien. Wenn eines der angegebenen Kriterien übereinstimmt, passt der gesamte Filter.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events) API. Diese Dokumentation stammt aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
-// Urheberrecht 2015 Die Chromium Autoren. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Nutzung in Quell- und Binärformen, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen erlaubt:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitung von Quellcode muss den obigen Urheberrechtshinweis,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverbreitung in binärer Form muss den obigen
-// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
-// in der Dokumentation und/oder anderen Materialien, die mit der
-// Verteilung bereitgestellt werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser Software abgeleitet wurden, zu unterstützen oder zu bewerben, ohne vorherige schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF STILLSCHWEIGENDE GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN ABGELEHNT. UNTER KEINEN UMSTÄNDEN HAFTET DER URHEBERRECHTSINHABER ODER DIE MITWIRKENDEN FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE,
-// SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) JEDER ART UND WEISE, DIE DURCH DIE NUTZUNG DIESER SOFTWARE ENTSTEHT, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

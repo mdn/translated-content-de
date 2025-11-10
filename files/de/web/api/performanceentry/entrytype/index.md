@@ -1,110 +1,110 @@
 ---
-title: "PerformanceEntry: entryType Eigenschaft"
+title: "PerformanceEntry: entryType-Eigenschaft"
 short-title: entryType
 slug: Web/API/PerformanceEntry/entryType
 l10n:
-  sourceCommit: 0598721ab3f672c66a8357d9e6b27ec8644a2b21
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`entryType`**-Eigenschaft gibt einen String zurück, der den Typ des Performance-Metrik darstellt, den dieser Eintrag repräsentiert.
+Die schreibgeschützte **`entryType`**-Eigenschaft gibt einen Zeichenfolgenwert zurück, der den Typ der Leistungsmetrik darstellt, den dieser Eintrag repräsentiert.
 
-Alle unterstützten `entryTypes` sind durch die statische Eigenschaft [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) verfügbar.
+Alle unterstützten `entryTypes` sind über die statische Eigenschaft [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) verfügbar.
 
 ## Wert
 
-Ein String. Der Rückgabewert hängt vom Subtyp des `PerformanceEntry`-Objekts ab. Einige Subtypen haben mehr als einen `entryType`.
+Eine Zeichenfolge. Der Rückgabewert hängt vom Subtyp des `PerformanceEntry`-Objekts ab. Einige Subtypen haben mehr als einen `entryType`.
 
 - `element`
 
-  - : Meldet die Ladezeit von Elementen.
+  - : Berichtet die Ladezeit von Elementen.
 
-    Die Instanz des Eintrags ist ein [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekt sein.
 
 - `event`
 
-  - : Meldet Latenzen von Ereignissen.
+  - : Berichtet über Ereignisverzögerungen.
 
-    Die Instanz des Eintrags ist ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt sein.
 
 - `first-input`
 
-  - : Meldet die {{Glossary("First_Input_Delay", "First Input Delay")}} (FID).
+  - : Berichtet über die {{Glossary("First_Input_Delay", "First Input Delay")}} (FID).
 
-    Die Instanz des Eintrags ist ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt sein.
 
 - `largest-contentful-paint`
 
-  - : Meldet das größte Rendering eines Elements auf dem Bildschirm.
+  - : Berichtet über das größte Rendering, das ein Element auf dem Bildschirm ausgelöst hat.
 
-    Die Instanz des Eintrags ist ein [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Objekt.
+    Die Eintragsinstanz wird ein [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Objekt sein.
 
 - `layout-shift`
 
-  - : Meldet die Layout-Stabilität von Webseiten basierend auf den Bewegungen der Elemente auf der Seite.
+  - : Berichtet über die Stabilität des Layouts von Webseiten basierend auf Bewegungen der Elemente auf der Seite.
 
-    Die Instanz des Eintrags ist ein [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekt.
+    Die Eintragsinstanz wird ein [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekt sein.
 
 - `long-animation-frame`
 
-  - : Meldet Instanzen von [langen Animationsframes (LoAFs)](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#what_is_a_long_animation_frame).
+  - : Berichtet über Instanzen von [langen Animationsrahmen (LoAFs)](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#what_is_a_long_animation_frame).
 
-    Die Instanz des Eintrags ist ein [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Objekt sein.
 
 - `longtask`
 
-  - : Meldet Instanzen von langen Aufgaben.
+  - : Berichtet über Instanzen langer Aufgaben.
 
-    Die Instanz des Eintrags ist ein [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Objekt sein.
 
 - `mark`
 
-  - : Meldet Ihre eigenen benutzerdefinierten Performance-Markierungen.
+  - : Berichtet über eigene, benutzerdefinierte Leistungsmarkierungen.
 
-    Die Instanz des Eintrags ist ein [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekt sein.
 
 - `measure`
 
-  - : Meldet Ihre eigenen benutzerdefinierten Performance-Maßnahmen.
+  - : Berichtet über eigene, benutzerdefinierte Leistungsmaße.
 
-    Die Instanz des Eintrags ist ein [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt sein.
 
 - `navigation`
 
-  - : Meldet das Timing der Dokumentennavigation.
+  - : Berichtet über das Timing der Dokumentennavigation.
 
-    Die Instanz des Eintrags ist ein [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekt sein.
 
 - `paint`
 
-  - : Meldet wichtige Momente der Dokumenten-Rendering während des Seitenladevorgangs (erste Zeichnung, erste inhaltsreiche Zeichnung).
+  - : Berichtet über wichtige Momente des Dokumentenrenderings (erster Anstrich, erster inhaltlicher Anstrich) während des Seitenladevorgangs.
 
-    Die Instanz des Eintrags ist ein [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)-Objekt sein.
 
 - `resource`
 
-  - : Meldet Timing-Informationen für Ressourcen in einem Dokument.
+  - : Berichtet über Timing-Informationen für Ressourcen in einem Dokument.
 
-    Die Instanz des Eintrags ist ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt sein.
 
 - `taskattribution`
 
-  - : Meldet die Art der Arbeit, die maßgeblich zu der langen Aufgabe beigetragen hat.
+  - : Berichtet über die Art der Arbeit, die wesentlich zur langen Aufgabe beigetragen hat.
 
-    Die Instanz des Eintrags ist ein [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekt.
+    Die Eintragsinstanz wird ein [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekt sein.
 
 - `visibility-state`
 
-  - : Meldet das Timing von Änderungen des Sichtbarkeitsstatus der Seite, d.h. wenn ein Tab von Vordergrund zu Hintergrund wechselt oder umgekehrt.
+  - : Berichtet über das Timing von Sichtbarkeitszustandsänderungen der Seite, d.h. wenn ein Tab von Vordergrund zu Hintergrund oder umgekehrt wechselt.
 
-    Die Instanz des Eintrags ist ein [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)-Objekt.
+    Die Eintragsinstanz wird ein [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)-Objekt sein.
 
 ## Beispiele
 
-### Filtern von Performance-Einträgen nach Typ
+### Leistungs-Einträge nach Typ filtern
 
-Die `entryType`-Eigenschaft kann nützlich sein, wenn spezifische Performance-Einträge herausgefiltert werden sollen. Zum Beispiel möchten Sie vielleicht alle Skript-Ressourcen überprüfen, daher würden Sie nach einem `entryType` von `"resource"` und einem [`initiatorType`](/de/docs/Web/API/PerformanceResourceTiming/initiatorType) von `"script"` suchen.
+Die `entryType`-Eigenschaft kann nützlich sein, wenn Sie bestimmte Leistungs-Einträge herausfiltern. Zum Beispiel könnten Sie alle Skriptressourcen überprüfen wollen, indem Sie nach einem `entryType` von `"resource"` und einem [`initiatorType`](/de/docs/Web/API/PerformanceResourceTiming/initiatorType) von `"script"` suchen.
 
 ```js
 const scriptResources = performance
@@ -116,11 +116,11 @@ const scriptResources = performance
 console.log(scriptResources);
 ```
 
-### Abrufen von Performance-Einträgen nach Typ
+### Leistungs-Einträge nach Typ erhalten
 
-Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, die es ermöglichen, Performance-Einträge direkt nach Typ abzurufen. Sie benötigen nicht unbedingt die `entryType`-Eigenschaft dafür, stattdessen können Sie [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) oder [`PerformanceObserverEntryList.getEntriesByType()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByType) verwenden.
+Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, die es Ihnen ermöglichen, Leistungs-Einträge direkt nach Typ zu erhalten. Sie benötigen die `entryType`-Eigenschaft nicht unbedingt dafür, sondern können [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) oder [`PerformanceObserverEntryList.getEntriesByType()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByType) verwenden.
 
-Außerdem, wenn Sie mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) beobachten, nimmt die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode ein Array von `entryTypes` in ihrem Optionsobjekt an, bei dem Sie entscheiden können, welche Typen von Einträgen beobachtet werden sollen.
+Auch beim Beobachten mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) nimmt die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode ein Array von `entryTypes` in ihrem Optionsobjekt entgegen, in dem Sie entscheiden können, welche Eintragsarten beobachtet werden sollen.
 
 ```js
 // Log all resource entries at this point

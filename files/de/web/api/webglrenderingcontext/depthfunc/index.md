@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: depthFunc() Methode"
 short-title: depthFunc()
 slug: Web/API/WebGLRenderingContext/depthFunc
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.depthFunc()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert eine Funktion, die die Tiefe des eintreffenden Pixels mit dem aktuellen Wert im Tiefenpuffer vergleicht.
+Die **`WebGLRenderingContext.depthFunc()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt eine Funktion fest, die die Tiefe der eingehenden Pixel mit dem aktuellen Wert des Tiefenpuffers vergleicht.
 
 ## Syntax
 
@@ -19,17 +19,15 @@ depthFunc(func)
 ### Parameter
 
 - `func`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Vergleichsfunktion für die Tiefe angibt und die Bedingungen festlegt, unter denen das Pixel gezeichnet wird. Der Standardwert ist `gl.LESS`. Mögliche Werte sind:
-
-    - `gl.NEVER` (nie passieren)
-    - `gl.LESS` (passieren, wenn der eintreffende Wert kleiner als der Wert im Tiefenpuffer ist)
-    - `gl.EQUAL` (passieren, wenn der eintreffende Wert gleich dem Wert im Tiefenpuffer ist)
-    - `gl.LEQUAL` (passieren, wenn der eintreffende Wert kleiner oder gleich dem Wert im Tiefenpuffer ist)
-    - `gl.GREATER` (passieren, wenn der eintreffende Wert größer als der Wert im Tiefenpuffer ist)
-    - `gl.NOTEQUAL` (passieren, wenn der eintreffende Wert ungleich dem Wert im Tiefenpuffer ist)
-    - `gl.GEQUAL` (passieren, wenn der eintreffende Wert größer oder gleich dem Wert im Tiefenpuffer ist)
-    - `gl.ALWAYS` (immer passieren)
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Tiefenvergleichsfunktion angibt, welche die Bedingungen festlegt, unter denen das Pixel gezeichnet wird. Der Standardwert ist `gl.LESS`. Mögliche Werte sind:
+    - `gl.NEVER` (niemals durchlassen)
+    - `gl.LESS` (durchlassen, wenn der eingehende Wert kleiner als der Tie­fen­puf­fer­wert ist)
+    - `gl.EQUAL` (durchlassen, wenn der eingehende Wert dem Tiefenpufferwert entspricht)
+    - `gl.LEQUAL` (durchlassen, wenn der eingehende Wert kleiner oder gleich dem Tiefenpufferwert ist)
+    - `gl.GREATER` (durchlassen, wenn der eingehende Wert größer als der Tiefenpufferwert ist)
+    - `gl.NOTEQUAL` (durchlassen, wenn der eingehende Wert ungleich dem Tiefenpufferwert ist)
+    - `gl.GEQUAL` (durchlassen, wenn der eingehende Wert größer oder gleich dem Tiefenpufferwert ist)
+    - `gl.ALWAYS` (immer durchlassen)
 
 ### Rückgabewert
 
@@ -37,14 +35,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das Tiefentest ist standardmäßig deaktiviert. Um das Tiefentest zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und [`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument `gl.DEPTH_TEST`.
+Die Tiefenprüfung ist standardmäßig deaktiviert. Um die Tiefenprüfung zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und [`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument `gl.DEPTH_TEST`.
 
 ```js
 gl.enable(gl.DEPTH_TEST);
 gl.depthFunc(gl.NEVER);
 ```
 
-Um die aktuelle Tiefenfunktion zu überprüfen, fragen Sie die Konstante `DEPTH_FUNC` ab.
+Um die aktuelle Tiefenfunktion zu überprüfen, fragen Sie die `DEPTH_FUNC`-Konstante ab.
 
 ```js
 gl.getParameter(gl.DEPTH_FUNC) === gl.NEVER;

@@ -1,13 +1,11 @@
 ---
-title: 'TypeError: kann nicht konfigurierbare Eigenschaft "x" neu definieren'
+title: 'TypeError: can''t redefine non-configurable property "x"'
 slug: Web/JavaScript/Reference/Errors/Cant_redefine_property
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "kann nicht konfigurierbare Eigenschaft neu definieren" tritt auf, wenn versucht wurde, eine Eigenschaft neu zu definieren, die [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties) ist.
+Die JavaScript-Ausnahme "can't redefine non-configurable property" tritt auf, wenn versucht wurde, eine Eigenschaft neu zu definieren, aber diese Eigenschaft ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties).
 
 ## Meldung
 
@@ -23,13 +21,13 @@ TypeError: Attempting to change value of a readonly property. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, eine Eigenschaft neu zu definieren, die [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties) ist. Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können. Normalerweise sind Eigenschaften in einem Objekt, das mit einem [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellt wurde, konfigurierbar. Wenn jedoch zum Beispiel {{jsxref("Object.defineProperty()")}} verwendet wird, ist die Eigenschaft standardmäßig nicht konfigurierbar.
+Es wurde versucht, eine Eigenschaft neu zu definieren, aber diese Eigenschaft ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Guide/Data_structures#properties). Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können. Normalerweise sind Eigenschaften in einem durch einen [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) erstellten Objekt konfigurierbar. Wenn jedoch z. B. {{jsxref("Object.defineProperty()")}} verwendet wird, ist die Eigenschaft standardmäßig nicht konfigurierbar.
 
 ## Beispiele
 
-### Nicht konfigurierbare Eigenschaften, erstellt mit Object.defineProperty
+### Nicht-konfigurierbare Eigenschaften erstellt durch Object.defineProperty
 
-Die {{jsxref("Object.defineProperty()")}}-Methode erstellt nicht konfigurierbare Eigenschaften, wenn Sie diese nicht als konfigurierbar festgelegt haben.
+Die {{jsxref("Object.defineProperty()")}} erstellt nicht-konfigurierbare Eigenschaften, wenn Sie sie nicht als konfigurierbar angegeben haben.
 
 ```js example-bad
 const obj = Object.create({});
@@ -49,5 +47,5 @@ Object.defineProperty(obj, "foo", { value: "baz", configurable: true });
 
 ## Siehe auch
 
-- [\[\[Konfigurierbar\]\]](/de/docs/Web/JavaScript/Data_structures#properties)
+- [\[\[Configurable\]\]](/de/docs/Web/JavaScript/Guide/Data_structures#properties)
 - {{jsxref("Object.defineProperty()")}}

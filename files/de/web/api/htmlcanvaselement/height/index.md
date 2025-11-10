@@ -3,16 +3,16 @@ title: "HTMLCanvasElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/HTMLCanvasElement/height
 l10n:
-  sourceCommit: 4aa077d26c6b1f7168af634082b6e6f71e11bb99
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Canvas API")}}
 
-Die Eigenschaft **`HTMLCanvasElement.height`** ist eine positive `integer`, die das [`height`](/de/docs/Web/HTML/Element/canvas#height)-HTML-Attribut des {{HTMLElement("canvas")}}-Elements in CSS-Pixeln interpretiert. Wenn das Attribut nicht angegeben ist oder einen ungültigen Wert, wie etwa einen negativen, enthält, wird der Standardwert `150` verwendet.
+Die **`HTMLCanvasElement.height`**-Eigenschaft ist eine positive `integer` und spiegelt das [`height`](/de/docs/Web/HTML/Reference/Elements/canvas#height)-HTML-Attribut des {{HTMLElement("canvas")}}-Elements wider, interpretiert in CSS-Pixeln. Wenn das Attribut nicht angegeben ist oder auf einen ungültigen Wert wie einen negativen gesetzt wird, wird der Standardwert `150` verwendet.
 
-Wenn die `height`-Eigenschaft gesetzt wird, wird der Zeichenpuffer immer auf leer zurückgesetzt – dies gilt für alle Kontexttypen, auch wenn die Höhe auf denselben Wert gesetzt wird. Möchten Sie den vorherigen Inhalt wiederherstellen, können Sie ihn über [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) speichern und über [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) wiederherstellen.
+Das Setzen der `height`-Eigenschaft setzt den gesamten Rendering-Kontext auf seinen Standardzustand zurück. Dies schließt das Löschen des Canvas (Backpuffer), das Zurücksetzen des aktuellen Pfads und das Zurücksetzen _aller_ Eigenschaften wie `fillStyle` und `globalCompositeOperation` ein. Dieses Zurücksetzen erfolgt für alle Kontexttypen und tritt selbst dann auf, wenn `height` auf den aktuellen Wert gesetzt wird. Um den vorherigen Inhalt nach einer Höhenänderung wiederherzustellen, verwenden Sie [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) und [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData). Kontexteigenschaften müssen separat verfolgt und wiederhergestellt werden.
 
-Dies ist eine von zwei Eigenschaften, die andere ist [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width), welche die Größe des Canvas steuern.
+Dies ist eine von zwei Eigenschaften, die andere ist [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width), die die Größe des Canvas steuern.
 
 ## Wert
 
@@ -26,7 +26,7 @@ Gegeben ist dieses {{HTMLElement("canvas")}}-Element:
 <canvas id="canvas" width="300" height="300"></canvas>
 ```
 
-Sie können die Höhe des Canvas mit dem folgenden Code abrufen:
+Sie können die Höhe des Canvas mit folgendem Code abrufen:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -44,7 +44,7 @@ console.log(canvas.height); // 300
 ## Siehe auch
 
 - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement): Schnittstelle, die verwendet wird, um die `HTMLCanvasElement.height`-Eigenschaft zu definieren
-- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width): Andere Eigenschaft zur Steuerung der Canvas-Größe
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width): Andere Eigenschaft, die verwendet wird, um die Größe des Canvas zu steuern
 - [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
 - [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
 - [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)

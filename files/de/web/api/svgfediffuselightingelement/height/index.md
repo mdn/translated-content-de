@@ -3,14 +3,14 @@ title: "SVGFEDiffuseLightingElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEDiffuseLightingElement/height
 l10n:
-  sourceCommit: 6f958c59155cfa5142076187384690a679f346ec
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`height`**-Eigenschaft des [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement) Interfaces beschreibt die vertikale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`height`** schreibgeschützte Eigenschaft der [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feDiffuseLighting")}}-Element und das {{SVGAttr("height")}}-Filterprimitive-Attribut wider. Der Filter beleuchtet ein Bild, indem er den Alphakanal als Bump-Map verwendet. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
+Sie spiegelt das {{SVGElement("feDiffuseLighting")}}-Element-Attribut der Filterprimitive {{SVGAttr("height")}} wider. Der Filter beleuchtet ein Bild unter Verwendung des Alphakanals als Höhenkarte. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
 ## Wert
 

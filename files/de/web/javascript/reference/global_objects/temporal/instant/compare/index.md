@@ -1,13 +1,14 @@
 ---
 title: Temporal.Instant.compare()
+short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/compare
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Instant.compare()`** gibt eine Zahl zurück (-1, 0 oder 1), die angibt, ob der erste Zeitpunkt vor, gleich oder nach dem zweiten Zeitpunkt kommt. Dies entspricht dem Vergleich der {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} der beiden Zeitpunkte.
+Die statische Methode **`Temporal.Instant.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die anzeigt, ob der erste Zeitpunkt vor, zur gleichen Zeit oder nach dem zweiten Zeitpunkt liegt. Sie entspricht dem Vergleich der {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} der beiden Zeitpunkte.
 
 ## Syntax
 
@@ -18,17 +19,17 @@ Temporal.Instant.compare(instant1, instant2)
 ### Parameter
 
 - `instant1`
-  - : Ein String oder eine {{jsxref("Temporal.Instant")}} Instanz, die den ersten zu vergleichenden Zeitpunkt repräsentiert. Sie wird unter Verwendung desselben Algorithmus wie {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} in ein `Temporal.Instant` Objekt umgewandelt.
+  - : Ein String oder eine {{jsxref("Temporal.Instant")}}-Instanz, die den ersten zu vergleichenden Zeitpunkt darstellt. Er wird zu einem `Temporal.Instant`-Objekt konvertiert, indem derselbe Algorithmus wie bei {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} verwendet wird.
 - `instant2`
-  - : Der zweite zu vergleichende Zeitpunkt, der mit demselben Algorithmus wie `instant1` in ein `Temporal.Instant` Objekt umgewandelt wird.
+  - : Der zweite zu vergleichende Zeitpunkt, konvertiert zu einem `Temporal.Instant`-Objekt, indem derselbe Algorithmus wie bei `instant1` verwendet wird.
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `instant1` vor `instant2` kommt, `0` wenn sie gleich sind, und `1` wenn `instant1` nach `instant2` kommt.
+Gibt `-1` zurück, wenn `instant1` vor `instant2` liegt, `0` wenn sie identisch sind, und `1` wenn `instant1` nach `instant2` liegt.
 
 ## Beispiele
 
-### Nutzung von Temporal.Instant.compare()
+### Verwendung von Temporal.Instant.compare()
 
 ```js
 const instant1 = Temporal.Instant.from("2021-08-01T12:34:56Z");
@@ -42,7 +43,7 @@ console.log(Temporal.Instant.compare(instant1, instant3)); // -1
 
 ### Sortieren eines Arrays von Zeitpunkten
 
-Der Zweck dieser `compare()` Funktion besteht darin, als Comparator zu fungieren, der an {{jsxref("Array.prototype.sort()")}} und ähnliche Funktionen übergeben wird.
+Der Zweck dieser `compare()`-Funktion ist es, als Vergleichsfunktion für {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen zu dienen.
 
 ```js
 const instants = [

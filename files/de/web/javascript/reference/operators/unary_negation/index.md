@@ -1,15 +1,13 @@
 ---
-title: Unary-Negation (-)
+title: Unäres Minus (-)
 slug: Web/JavaScript/Reference/Operators/Unary_negation
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **unäre Minus-Operator (`-`)** steht vor seinem Operanden und negiert ihn.
 
-Der **Unary-Negation-Operator (`-`)** steht vor seinem Operanden und negiert diesen.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Unary negation operator")}}
+{{InteractiveExample("JavaScript Demo: Unäres Minus (-) Operator")}}
 
 ```js interactive-example
 const x = 4;
@@ -33,7 +31,7 @@ console.log(b);
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt den Operanden zunächst zu einem numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft dessen Typ. Wenn der Operand zu einem BigInt wird, wird die BigInt-Negation durchgeführt; andernfalls erfolgt die Zahlen-Negation.
+Der `-` Operator ist für zwei Arten von Operanden überladen: Nummern und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er erzwingt zuerst, [dass der Operand in einen numerischen Wert umgewandelt wird](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und überprüft dann dessen Typ. Wenn der Operand zu einem BigInt wird, führt er die BigInt-Negation durch; andernfalls führt er die Negation einer Zahl durch.
 
 ## Beispiele
 
@@ -47,7 +45,7 @@ const y = -x;
 
 ### Nicht-Zahlen negieren
 
-Der Unary-Negation-Operator kann eine Nicht-Zahl in eine Zahl umwandeln.
+Der unäre Minus-Operator kann eine Nicht-Zahl in eine Zahl umwandeln.
 
 ```js
 const x = "4";
@@ -56,7 +54,7 @@ const y = -x;
 // y is -4
 ```
 
-BigInts können mit dem Unary-Negation-Operator negiert werden.
+BigInts können mit dem unären Minus-Operator negiert werden.
 
 ```js
 const x = 4n;
@@ -83,4 +81,4 @@ const y = -x;
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unary-Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

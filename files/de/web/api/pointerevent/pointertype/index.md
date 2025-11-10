@@ -3,57 +3,47 @@ title: "PointerEvent: pointerType-Eigenschaft"
 short-title: pointerType
 slug: Web/API/PointerEvent/pointerType
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte Eigenschaft **`pointerType`** des
-[`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces gibt den Gerätetyp (Maus, Stift oder Berührung) an,
-der ein bestimmtes Zeigerereignis verursacht hat.
+Die **`pointerType`**-Schreibgeschützte Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces zeigt den Gerätetyp (Maus, Stift oder Berührung) an, der ein bestimmtes Pointer-Ereignis verursacht hat.
 
 ## Wert
 
 Der Zeigertyp des Ereignisses. Die unterstützten Werte sind die folgenden Zeichenfolgen:
 
 - `"mouse"`
-  - : Das Ereignis wurde durch ein Mausgerät erzeugt.
+  - : Das Ereignis wurde durch ein Mausgerät generiert.
 - `"pen"`
-  - : Das Ereignis wurde durch ein Stift- oder Stylusgerät erzeugt.
+  - : Das Ereignis wurde durch ein Stift- oder Stylusgerät generiert.
 - `"touch"`
-  - : Das Ereignis wurde durch eine Berührung, wie z.B. einen Finger, erzeugt.
+  - : Das Ereignis wurde durch eine Berührung, wie zum Beispiel einen Finger, generiert.
 
-Kann der Gerätetyp durch den Browser nicht erkannt werden, kann der Wert eine leere Zeichenfolge
-(`""`) sein. Wenn der Browser Zeigereingabegerätetypen unterstützt, die nicht oben aufgeführt sind,
-sollte der Wert _anbieterspezifisch_ sein, um Konflikte bei der Namensgebung für
-verschiedene Gerätetypen zu vermeiden.
+Wenn der Gerätetyp vom Browser nicht erkannt werden kann, kann der Wert eine leere Zeichenfolge (`""`) sein. Wenn der Browser andere Zeigertypen als die oben aufgeführten unterstützt, sollte der Wert _herstellerspezifisch_ sein, um Konflikte mit Namen für verschiedene Gerätetypen zu vermeiden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung des Werts der `pointerType`-Eigenschaft, um die
-entsprechende Verarbeitungsfunktion für den Zeigertyp aufzurufen.
+Dieses Beispiel zeigt die Verwendung des Werts der `pointerType`-Eigenschaft, um die entsprechende Zeigertyp-Verarbeitungsfunktion aufzurufen.
 
 ```js
-targetElement.addEventListener(
-  "pointerdown",
-  (event) => {
-    // Call the appropriate pointer type handler
-    switch (event.pointerType) {
-      case "mouse":
-        process_pointer_mouse(event);
-        break;
-      case "pen":
-        process_pointer_pen(event);
-        break;
-      case "touch":
-        process_pointer_touch(event);
-        break;
-      default:
-        console.log(`pointerType ${event.pointerType} is not supported`);
-    }
-  },
-  false,
-);
+targetElement.addEventListener("pointerdown", (event) => {
+  // Call the appropriate pointer type handler
+  switch (event.pointerType) {
+    case "mouse":
+      process_pointer_mouse(event);
+      break;
+    case "pen":
+      process_pointer_pen(event);
+      break;
+    case "touch":
+      process_pointer_touch(event);
+      break;
+    default:
+      console.log(`pointerType ${event.pointerType} is not supported`);
+  }
+});
 ```
 
 ## Spezifikationen

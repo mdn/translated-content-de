@@ -3,23 +3,23 @@ title: "WorkerGlobalScope: securitypolicyviolation Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/WorkerGlobalScope/securitypolicyviolation_event
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{AvailableInWorkers("worker")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers("worker")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) in einem Worker verletzt wird.
+Das **`securitypolicyviolation`** Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) in einem Worker verletzt wird.
 
-Der Handler kann der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mithilfe der Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
+Der Handler kann mit der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
-```js
-addEventListener("securitypolicyviolation", (event) => {});
+```js-nolint
+addEventListener("securitypolicyviolation", (event) => { })
 
-onsecuritypolicyviolation = (event) => {};
+onsecuritypolicyviolation = (event) => { }
 ```
 
 ## Ereignistyp
@@ -54,4 +54,4 @@ self.addEventListener("securitypolicyviolation", (e) => {
 
 - Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) Ereignis der [`Document`](/de/docs/Web/API/Document) Schnittstelle
 - Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event) Ereignis der [`Element`](/de/docs/Web/API/Element) Schnittstelle
-- [HTTP > Content Security Policy](/de/docs/Web/HTTP/CSP)
+- [HTTP > Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)

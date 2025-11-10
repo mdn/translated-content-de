@@ -1,29 +1,29 @@
 ---
-title: "HTMLInputElement: search Event"
+title: "HTMLInputElement: search Ereignis"
 short-title: search
 slug: Web/API/HTMLInputElement/search_event
 l10n:
-  sourceCommit: 332bbd7d5079f418175e68a13db8c38f4636cee9
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{non-standard_header}}
+{{APIRef("HTML DOM")}}{{non-standard_header}}
 
-Das **`search`**-Ereignis wird ausgelöst, wenn eine Suche mit einem {{HTMLElement("input")}}-Element vom Typ `type="search"` gestartet wird.
+Das **`search`**-Ereignis wird ausgelöst, wenn eine Suche mit einem {{HTMLElement("input")}}-Element vom Typ `type="search"` initiiert wird.
 
-Es gibt mehrere Möglichkeiten, eine Suche zu initiieren, beispielsweise durch Drücken der <kbd>Enter</kbd>-Taste, während das {{HTMLElement("input")}} fokussiert ist, oder, wenn das [`incremental`](/de/docs/Web/HTML/Element/input#incremental) Attribut vorhanden ist, nachdem eine von der UA definierte Zeit seit dem letzten Tastendruck abgelaufen ist (wobei neue Tastendrücke die Zeitspanne zurücksetzen, sodass das Auslösen des Ereignisses {{Glossary("debounce", "debounced")}} wird).
+Es gibt mehrere Möglichkeiten, eine Suche zu starten, zum Beispiel durch Drücken der <kbd>Enter</kbd>-Taste, während das {{HTMLElement("input")}}-Element fokussiert ist. Wenn das [`incremental`](/de/docs/Web/HTML/Reference/Elements/input#incremental)-Attribut vorhanden ist, wird das Ereignis nach einem vom UA definierten Timeout seit der letzten Tastenanschlages ausgelöst (wobei neue Tastenanschläge den Timeout zurücksetzen, sodass das Ereignis {{Glossary("debounce", "entprellt")}} wird).
 
-Aktuelle Implementierungen von `<input type="search">` haben eine zusätzliche Steuerung, um das Feld zu löschen. Die Verwendung dieser Steuerung löst ebenfalls das `search`-Ereignis aus. In diesem Fall wird der `value` des {{HTMLElement("input")}}-Elements die leere Zeichenkette sein.
+Aktuelle UA-Implementierungen von `<input type="search">` haben eine zusätzliche Steuerung, um das Feld zu leeren. Die Verwendung dieses Steuerungselements löst ebenfalls das `search`-Ereignis aus. In diesem Fall ist der `value` des {{HTMLElement("input")}}-Elements der leere String.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("search", (event) => {});
+```js-nolint
+addEventListener("search", (event) => { })
 
-onsearch = (event) => {};
+onsearch = (event) => { }
 ```
 
 ## Ereignistyp

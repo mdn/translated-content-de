@@ -1,21 +1,20 @@
 ---
-title: "RTCInboundRtpStreamStats: nackCount-Eigenschaft"
+title: "RTCInboundRtpStreamStats: nackCount Eigenschaft"
 short-title: nackCount
 slug: Web/API/RTCInboundRtpStreamStats/nackCount
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: 9dd28ca3964213e0564c80db0a7c39d8ad73ed72
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`nackCount`**-Eigenschaft des
-[`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Dictionaries ist ein numerischer Wert, der angibt, wie oft der Empfänger ein **NACK**-Paket an den Sender gesendet hat.
+Die **`nackCount`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt an, wie oft der Empfänger ein **NACK**-Paket an den Sender gesendet hat.
 
-Ein NACK (Negative ACKnowledgement, auch "Generic NACK" genannt) Paket teilt dem Sender mit, dass eines oder mehrere der {{Glossary("RTP", "RTP")}}-Pakete, die es gesendet hat, während des Transports verloren gegangen sind.
+Ein NACK-Paket (Negative ACKnowledgement, auch "Generic NACK" genannt) teilt dem Sender mit, dass eines oder mehrere der vom Sender gesendeten {{Glossary("RTP", "RTP")}}-Pakete während des Transports verloren gegangen sind.
 
 ## Wert
 
-Ein ganzzahliger Wert, der angibt, wie oft der Empfänger ein NACK-Paket an den Sender gesendet hat, nachdem festgestellt wurde, dass ein oder mehrere Pakete während des Transports verloren gegangen sind.
+Eine positive ganze Zahl.
 
 ## Spezifikationen
 

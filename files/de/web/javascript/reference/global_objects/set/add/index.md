@@ -1,24 +1,23 @@
 ---
 title: Set.prototype.add()
+short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/Set/add
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-{{JSRef}}
-
-Die **`add()`**-Methode von {{jsxref("Set")}}-Instanzen fügt ein neues Element mit einem angegebenen Wert in diesen `Set` ein, falls ein Element mit demselben Wert nicht bereits in diesem `Set` vorhanden ist.
+Die **`add()`** Methode von {{jsxref("Set")}} Instanzen fügt den angegebenen Wert in dieses Set ein, sofern er nicht bereits vorhanden ist.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.add()")}}
 
 ```js interactive-example
-const set1 = new Set();
+const set = new Set();
 
-set1.add(42);
-set1.add(42);
-set1.add(13);
+set.add(42);
+set.add(42);
+set.add(13);
 
-for (const item of set1) {
+for (const item of set) {
   console.log(item);
   // Expected output: 42
   // Expected output: 13
@@ -34,15 +33,15 @@ add(value)
 ### Parameter
 
 - `value`
-  - : Der Wert des Elements, das zum `Set`-Objekt hinzugefügt werden soll.
+  - : Der Wert, der dem `Set` Objekt hinzugefügt werden soll. Objekte werden durch {{Glossary("Object_reference", "Referenz")}} verglichen, nicht durch den Wert.
 
 ### Rückgabewert
 
-Das `Set`-Objekt mit dem hinzugefügten Wert.
+Das `Set` Objekt.
 
 ## Beispiele
 
-### Verwendung der add()-Methode
+### Verwendung von add()
 
 ```js
 const mySet = new Set();

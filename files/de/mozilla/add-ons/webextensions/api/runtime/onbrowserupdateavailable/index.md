@@ -2,12 +2,12 @@
 title: runtime.onBrowserUpdateAvailable
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onBrowserUpdateAvailable
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}{{Deprecated_header}}
+{{Deprecated_header}}
 
-Wird ausgelöst, wenn ein Update für den Browser verfügbar ist, aber nicht sofort installiert wird, weil ein Neustart des Browsers erforderlich ist.
+Ausgelöst, wenn ein Update für den Browser verfügbar ist, aber nicht sofort installiert wird, da ein Neustart des Browsers erforderlich ist.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ browser.runtime.onBrowserUpdateAvailable.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt dieses Ereignis einem Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -33,13 +33,9 @@ Ereignisse haben drei Funktionen:
 - `function`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Für dieses Ereignis lauschen:
+Hören Sie auf dieses Ereignis:
 
 ```js
 function handleBrowserUpdateAvailable() {
@@ -53,8 +49,12 @@ browser.runtime.onBrowserUpdateAvailable.addListener(
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onBrowserUpdateAvailable) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onBrowserUpdateAvailable) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

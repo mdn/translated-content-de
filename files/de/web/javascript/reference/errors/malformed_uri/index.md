@@ -2,14 +2,13 @@
 title: "URIError: malformed URI sequence"
 slug: Web/JavaScript/Reference/Errors/Malformed_URI
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "malformed URI sequence" tritt auf, wenn die URI-Kodierung oder -Dekodierung
+nicht erfolgreich war.
 
-Die JavaScript-Ausnahme "malformed URI sequence" tritt auf, wenn die URI-Codierung oder -Decodierung nicht erfolgreich war.
-
-## Meldung
+## Nachricht
 
 ```plain
 URIError: URI malformed (V8-based)
@@ -17,19 +16,24 @@ URIError: malformed URI sequence (Firefox)
 URIError: String contained an illegal UTF-16 sequence. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("URIError")}}
 
-## Was ist schiefgelaufen?
+## Was ging schief?
 
-Die URI-Codierung oder -Decodierung war nicht erfolgreich. Ein an die Funktionen {{jsxref("decodeURI")}}, {{jsxref("encodeURI")}}, {{jsxref("encodeURIComponent")}} oder {{jsxref("decodeURIComponent")}} übergebenes Argument war ungültig, sodass die Funktion nicht in der Lage war, korrekt zu codieren oder zu decodieren.
+Die URI-Kodierung oder -Dekodierung war nicht erfolgreich. Ein Argument, das entweder der
+{{jsxref("decodeURI")}}, {{jsxref("encodeURI")}}, {{jsxref("encodeURIComponent")}} oder
+{{jsxref("decodeURIComponent")}} Funktion übergeben wurde, war nicht gültig, sodass die Funktion
+nicht in der Lage war, korrekt zu kodieren oder zu dekodieren.
 
 ## Beispiele
 
 ### Kodierung
 
-Die Kodierung ersetzt jede Instanz bestimmter Zeichen durch eine, zwei, drei oder vier Escape-Sequenzen, die die UTF-8-Kodierung des Zeichens darstellen. Ein {{jsxref("URIError")}} wird ausgelöst, wenn versucht wird, einen Stellvertreter zu kodieren, der nicht Teil eines Hoch-Tief-Paares ist, zum Beispiel:
+Die Kodierung ersetzt jede Instanz bestimmter Zeichen durch eine, zwei, drei oder vier
+Escape-Sequenzen, die die UTF-8-Kodierung des Zeichens darstellen. Ein
+{{jsxref("URIError")}} wird ausgelöst, wenn versucht wird, ein Surrogat zu kodieren, das nicht Teil eines Hoch-Niedrig-Paares ist, zum Beispiel:
 
 ```js example-bad
 encodeURI("\uD800");
@@ -39,16 +43,17 @@ encodeURI("\uDFFF");
 // "URIError: malformed URI sequence"
 ```
 
-Ein Hoch-Tief-Paar ist in Ordnung. Zum Beispiel:
+Ein Hoch-Niedrig-Paar ist in Ordnung. Zum Beispiel:
 
 ```js example-good
 encodeURI("\uD800\uDFFF");
 // "%F0%90%8F%BF"
 ```
 
-### Decodierung
+### Dekodierung
 
-Die Decodierung ersetzt jede Escape-Sequenz in der kodierten URI-Komponente durch das Zeichen, das sie darstellt. Wenn es ein solches Zeichen nicht gibt, wird ein Fehler ausgelöst:
+Die Dekodierung ersetzt jede Escape-Sequenz im kodierten URI-Komponenten durch das Zeichen,
+das sie darstellt. Wenn es ein solches Zeichen nicht gibt, wird ein Fehler ausgelöst:
 
 ```js example-bad
 decodeURIComponent("%E0%A4%A");

@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDate.prototype.daysInMonth
+short-title: daysInMonth
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/daysInMonth
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`daysInMonth`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Monat dieses Datums darstellt. Sie ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
+Die Zugriffs-Eigenschaft **`daysInMonth`** von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt eine positive ganze Zahl zurück, die die Anzahl der Tage im Monat dieses Datums darstellt. Sie ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Beachten Sie, dass die Tage im Monat nicht immer der {{jsxref("Temporal/PlainDate/day", "day")}} des letzten Tages des Monats entsprechen, in dem seltenen Fall, dass in einem Monat einige Tage übersprungen werden.
+Beachten Sie, dass die Tage im Monat nicht immer dem {{jsxref("Temporal/PlainDate/day", "Tag")}} des letzten Tages des Monats entsprechen, falls in seltenen Fällen einige Tage eines Monats übersprungen werden.
 
-Der Set-Zugriff von `daysInMonth` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Setzugriff von `daysInMonth` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
@@ -42,7 +43,7 @@ const secondLastDay = date.with({ day: date.daysInMonth - 1 });
 console.log(secondLastDay.toString()); // 2021-07-30
 ```
 
-Dies ist jedoch nicht völlig sicher, da `daysInMonth` nicht garantiert ist, dass es eine Verbindung mit dem Tagesindex hat. Hier ist eine sicherere Möglichkeit, den vorletzten Tag zu erhalten:
+Dies ist jedoch nicht völlig sicher, da `daysInMonth` nicht garantiert eine Verbindung zum Tagesindex hat. Hier ist eine sicherere Methode, um den vorletzten Tag zu erhalten:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");

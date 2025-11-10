@@ -1,17 +1,16 @@
 ---
 title: String.prototype.trim()
+short-title: trim()
 slug: Web/JavaScript/Reference/Global_Objects/String/trim
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`trim()`** Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück, ohne die ursprüngliche Zeichenfolge zu ändern.
 
-Die **`trim()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieses Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu verändern.
+Um eine neue Zeichenfolge mit Leerzeichen nur von einem Ende zurückzugeben, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
 
-Um einen neuen String zurückzugeben, bei dem Leerzeichen nur von einem Ende entfernt werden, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
-
-{{InteractiveExample("JavaScript Demo: String.trim()")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.trim()")}}
 
 ```js interactive-example
 const greeting = "   Hello world!   ";
@@ -35,9 +34,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der `str` darstellt, bei dem die Leerzeichen von Anfang und Ende entfernt wurden. Leerzeichen werden als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen sowie [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) definiert.
+Eine neue Zeichenfolge, die `str` darstellt, bei der sowohl am Anfang als auch am Ende alle Leerzeichen entfernt wurden. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn weder am Anfang noch am Ende von `str` Leerzeichen vorhanden sind, wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Wenn weder am Anfang noch am Ende von `str` irgendwelche Leerzeichen vorhanden sind, wird dennoch eine neue Zeichenfolge zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beispiele
 

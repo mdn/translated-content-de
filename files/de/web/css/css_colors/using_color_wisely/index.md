@@ -1,110 +1,108 @@
 ---
-title: Farben klug einsetzen
+title: Farben weise verwenden
 slug: Web/CSS/CSS_colors/Using_color_wisely
 l10n:
-  sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-{{CSSRef}}
-
-Die richtigen Farben für eine Website zu wählen, kann schwierig sein, besonders wenn Sie nicht gut in Kunst, Design oder zumindest grundlegender Farbtheorie bewandert sind. Die falsche Farbwahl kann Ihre Seite unattraktiv machen oder schlimmer noch, den Inhalt aufgrund von Kontrastproblemen oder sich widersprechenden Farben unleserlich machen. Durch die Verwendung der falschen Farben kann Ihr Inhalt für Menschen mit bestimmten Sehproblemen, insbesondere Farbenblindheit, völlig unbrauchbar werden.
+Die richtigen Farben für eine Website zu wählen, kann schwierig sein, besonders wenn Sie nicht in Kunst, Design oder zumindest in Grundzügen der Farbtheorie bewandert sind. Die falsche Farbwahl kann Ihre Seite unattraktiv machen oder, schlimmer noch, den Inhalt aufgrund von Kontrastproblemen oder sich widersprechenden Farben unlesbar machen. Die Verwendung falscher Farben kann dazu führen, dass Ihr Inhalt für Menschen mit bestimmten Sehproblemen, insbesondere Farbenblindheit, völlig unbrauchbar ist.
 
 ## Die richtigen Farben finden
 
-Es gibt Tools und Prozesse, die Ihnen helfen können, ein gutes Farbschema zu wählen. Während sie nicht die Unterstützung eines guten Designers ersetzen können, der Ihnen bei diesen Entscheidungen hilft, können sie dennoch einen Anfang bieten.
+Es gibt Werkzeuge und Verfahren, die Ihnen helfen können, ein gutes Farbschema zu wählen. Auch wenn sie einen guten Designer, der Ihnen bei diesen Entscheidungen hilft, nicht ersetzen können, bieten sie doch einen Einstiegspunkt.
 
 ### Basisfarbe
 
-Der erste Schritt besteht darin, Ihre **Basisfarbe** auszuwählen. Diese Farbe repräsentiert Ihre Website oder deren Thema. Ebenso wie wir Grün mit dem Getränk [Mountain Dew](https://en.wikipedia.org/wiki/Mountain_Dew), Blau mit dem Himmel oder dem Ozean assoziieren, ist es ein guter Anfang, eine geeignete Basisfarbe zur Repräsentation Ihrer Seite zu wählen. Es gibt viele Möglichkeiten, eine Basisfarbe auszuwählen; ein paar Ideen sind:
+Der erste Schritt ist die Wahl Ihrer **Basisfarbe**. Diese Farbe repräsentiert Ihre Website oder deren Thema. Genau wie wir Grün mit dem Getränk [Mountain Dew](https://en.wikipedia.org/wiki/Mountain_Dew), Blau mit dem Himmel oder dem Ozean assoziieren, ist die Wahl einer geeigneten Basisfarbe, die Ihre Seite repräsentiert, ein guter Ausgangspunkt. Es gibt viele Möglichkeiten, eine Basisfarbe auszuwählen; ein paar Ideen sind:
 
-- Eine Farbe, die natürlich mit dem Thema Ihres Inhaltes assoziiert wird, wie eine bereits vorhandene Farbe, die mit einem Produkt oder einer Idee identifiziert wird, oder eine Farbe, die die Emotion repräsentiert, die Sie vermitteln möchten.
-- Eine Farbe, die aus Bildern stammt, die mit Ihrem Thema assoziiert werden. Wenn Sie eine Website über ein bestimmtes Objekt oder Produkt erstellen, wählen Sie eine Farbe, die physisch auf diesem Objekt vorhanden ist.
-- Durchsuchen Sie Websites, die es Ihnen ermöglichen, viele bestehende Farbpaletten und Bilder anzusehen, um Inspiration zu finden.
+- Eine Farbe, die natürlich mit dem Thema Ihres Inhalts assoziiert wird, wie die bereits existierende Farbe, die mit einem Produkt oder einer Idee identifiziert wird, oder eine Farbe, die die Emotion repräsentiert, die Sie vermitteln möchten.
+- Eine Farbe, die aus Bildern stammt, die mit Ihrem Thema zu tun haben. Wenn Sie eine Website über einen bestimmten Artikel oder ein Produkt erstellen, wählen Sie eine Farbe, die physisch auf diesem Artikel vorhanden ist.
+- Durchstöbern Sie Websites, die Ihnen ermöglichen, viele bestehende Farbpalletten und Bilder zu betrachten, um Inspiration zu finden.
 
-Es gibt mehrere nützliche Browser-Erweiterungen, die dabei helfen können, Basisfarben auszuwählen. Beispielsweise bietet die [ColorZilla](https://www.colorzilla.com/)-Browsererweiterung ein Pipettenwerkzeug, um Farben von jeder Webseite auszuwählen. Sie kann auch Durchschnittswerte der Farben eines Bereichs einer Seite ermitteln.
+Es gibt mehrere nützliche Browser-Erweiterungen, die beim Auswählen von Basisfarben helfen können. Zum Beispiel stellt die [ColorZilla](https://www.colorzilla.com/)-Erweiterung ein Pipettenwerkzeug zur Verfügung, um Farben von jeder Webseite zu übernehmen. Sie kann auch Durchschnittswerte der Farben eines Bereichs einer Seite erfassen.
 
-Das Erfassen einer "durchschnittlichen Farbe" ist nützlich, weil manchmal das, was wie ein solider Farbblock aussieht, tatsächlich mehrere verwandte Farben sein könnte, wie z.B. das Erfassen des Blaus eines Fotos des Ozeans oder des Himmels. Ein einzelnes blaues Pixel, das aus einem Foto ausgewählt wird, könnte zu einer Farbe führen, die fehl am Platz aussieht.
+Ein "Durchschnittsfarbwert" ist nützlich, weil manchmal, was wie ein massiver Farbblock aussieht, tatsächlich mehrere verwandte Farben sein könnten, wie das Ergreifen des Blaus in einer Fotografie eines Ozeans oder des Himmels. Ein einzelnes Pixel Blau, das aus einem Foto ausgewählt wurde, kann in einer Farbe resultieren, die fehl am Platz wirkt.
 
-### Die Palette ausarbeiten
+### Die Palette erweitern
 
-Sobald Sie Ihre Basisfarbe gewählt haben, besteht der nächste Schritt darin, eine Palette von geeigneten Farben zu erstellen, die Sie daneben verwenden können. Es gibt mehrere Tools, um Farbtheorie auf Ihre Basisfarbe anzuwenden und geeignete zusätzliche Farben zu ermitteln. Online-Tools, wie das kostenlose [Adobe Color CC Online-Farbrad](https://color.adobe.com/create/color-wheel), können Ihnen dabei helfen, eine zugängliche Farbpalette auszuwählen.
+Nachdem Sie Ihre Basisfarbe ausgewählt haben, besteht der nächste Schritt darin, eine Palette geeigneter Farben zu erstellen, die zusammen mit dieser verwendet werden können. Es gibt mehrere Werkzeuge, die Farbtheorie auf Ihre Basisfarbe anwenden und passende zusätzliche Farben liefern können. Online-Tools wie das kostenlose [Adobe Color CC online color wheel](https://color.adobe.com/create/color-wheel) können Ihnen helfen, eine zugängliche Farbpalette auszuwählen.
 
-Viele dieser Tools können auch Filter auf Ihre Palette anwenden, damit Sie sehen können, wie sie für Menschen mit verschiedenen Formen der Farbenblindheit aussehen. Siehe [Farbe und Barrierefreiheit](#farbe_und_barrierefreiheit) für eine kurze Erklärung, warum dies wichtig ist.
+Viele dieser Werkzeuge können auch Filter auf Ihre Palette anwenden, damit Sie sehen können, wie sie für Menschen mit verschiedenen Arten von Farbenblindheit aussehen. Siehe [Farben und Barrierefreiheit](#farben_und_barrierefreiheit) für eine kurze Erklärung, warum dies wichtig ist.
 
-Beim Entwerfen Ihrer Palette müssen Sie wahrscheinlich auch einige neutrale Kernfarben wie Weiß (oder fast Weiß), Schwarz (oder fast Schwarz) und eine oder mehrere Grautöne ergänzen.
+Bei der Gestaltung Ihrer Palette benötigen Sie wahrscheinlich auch einige Kernneutralfarben wie Weiß (oder fast Weiß), Schwarz (oder fast Schwarz) und eine oder mehrere Grautöne.
 
 > [!NOTE]
-> In der Regel ist es besser, so wenige Farben wie möglich zu verwenden. Die Verwendung von Farbe, um wichtigen Inhalt hervorzuheben, anstatt Farbe zu allem hinzuzufügen, wird mehr Wirkung haben und Ihr Inhalt wird lesbarer sein.
+> In der Regel ist es besser, die geringstmögliche Anzahl an Farben zu verwenden. Die Hervorhebung wichtiger Inhalte durch Farbe, anstatt Farbe zu allem hinzuzufügen, hat mehr Wirkung, und Ihr Inhalt wird besser lesbar sein.
 
 ## Ressourcen zur Farbtheorie
 
-Eine vollständige Überprüfung der Farbtheorie liegt außerhalb des Umfangs dieses Artikels, jedoch gibt es viele Artikel über Farbtheorie. Wir fanden die folgenden Ressourcen besonders nützlich:
+Eine vollständige Überprüfung der Farbtheorie sprengt den Rahmen dieses Artikels, jedoch gibt es viele Artikel zur Farbtheorie. Wir fanden die folgenden Ressourcen besonders nützlich:
 
-- [Color Science](https://www.khanacademy.org/computing/pixar/color) ([Khan Academy](https://www.khanacademy.org/) in Zusammenarbeit mit [Pixar](https://www.pixar.com/))
-  - : Ein Online-Kurs, der Konzepte wie, was Farbe ist, wie sie wahrgenommen wird und wie man Farben verwendet, um Ideen auszudrücken, vorstellt. Präsentiert von Künstlern und Designern von Pixar.
-- [Farbentheorie](https://en.wikipedia.org/wiki/Color_theory) auf Wikipedia
-  - : Der Wikipedia-Eintrag zur Farbentheorie enthält großartige Informationen aus technischer Perspektive. Es wird Ihnen wahrscheinlich nicht im Farbenauswahlprozess helfen, ist aber dennoch voll von nützlichen Informationen.
+- [Farbwissenschaft](https://www.khanacademy.org/computing/pixar/color) ([Khan Academy](https://www.khanacademy.org/) in Zusammenarbeit mit [Pixar](https://www.pixar.com/))
+  - : Ein Online-Kurs, der Konzepte wie die Natur der Farbe, ihre Wahrnehmung und die Verwendung von Farben zur Ideenvermittlung einführt. Präsentiert von Pixar-Künstlern und Designern.
+- [Farbtheorie](https://en.wikipedia.org/wiki/Color_theory) auf Wikipedia
+  - : Der Wikipedia-Eintrag zur Farbtheorie hat großartige Informationen aus technischer Sicht. Es wird vermutlich nicht Ihren Prozess zur Farbauswahl unterstützen, ist aber dennoch voller nützlicher Informationen.
 
-## Farbe und Barrierefreiheit
+## Farben und Barrierefreiheit
 
-Stellen Sie sicher, dass Ihr Inhalt [zugänglich](/de/docs/Web/Accessibility) ist. Es gibt mehrere Arten, wie Farben ein {{Glossary("accessibility", "Barrierefreiheitsproblem")}} schaffen können. Eine unsachgemäße oder achtlose Verwendung von Farbe kann zu einer Website oder App führen, die ein bestimmter Prozentsatz Ihrer Zielgruppe möglicherweise nicht angemessen nutzen kann, was zu verlorenem Traffic, verlorenem Geschäft und möglicherweise sogar zu einem Problem in der Öffentlichkeitsarbeit oder einer Klage führen kann. Deshalb ist es wichtig, Ihre Verwendung von Farbe sorgfältig zu überlegen.
+Stellen Sie sicher, dass Ihre Inhalte [zugänglich](/de/docs/Web/Accessibility) sind. Es gibt mehrere Möglichkeiten, wie Farbe ein {{Glossary("accessibility", "Barrierefreiheitsproblem")}} schaffen kann. Unsachgemäße oder unachtsame Verwendung von Farben kann zu einer Website oder App führen, die ein Teil Ihres Zielpublikums möglicherweise nicht angemessen nutzen kann, was zu verlorenem Traffic, verlorenem Geschäft und möglicherweise sogar zu einem Problem mit der öffentlichen Wahrnehmung oder einer Klage führen kann. Daher ist es wichtig, Ihre Farbnutzung sorgfältig zu überlegen.
 
-Es ist wichtig, [Farbe und Leuchtdichte zu verstehen](/de/docs/Web/Accessibility/Understanding_Colors_and_Luminance) und immer [Farbenblindheit](https://medlineplus.gov/colorblindness.html) und [vestibuläre Störungen](/de/docs/Web/Accessibility/Seizure_disorders) zu berücksichtigen. Es gibt verschiedene Arten; die häufigste ist Rot-Grün-Farbenblindheit, bei der Menschen nicht zwischen den Farben Rot und Grün unterscheiden können. Es gibt auch andere, von der Unfähigkeit, den Unterschied zwischen bestimmten Farben zu erkennen, bis hin zur totalen Unfähigkeit, Farben überhaupt zu sehen. Es gibt sogar Farb- und Animationskombinationen, die bei Ihren fotosensiblen Nutzern [Krämpfe](/de/docs/Web/Accessibility/Seizure_disorders#colors) hervorrufen können.
+Es ist wichtig, [Farbe und Leuchtkraft zu verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance) und immer [Farbenblindheit](https://medlineplus.gov/colorblindness.html) und [vestibuläre Störungen](/de/docs/Web/Accessibility/Guides/Seizure_disorders) zu beachten. Es gibt verschiedene Arten; die häufigste ist die Rot-Grün-Farbenblindheit, die dazu führt, dass Menschen nicht zwischen den Farben Rot und Grün unterscheiden können. Es gibt auch andere Arten, die von der Unfähigkeit, bestimmte Farben zu unterscheiden, bis hin zur totalen Unfähigkeit, Farbe wahrzunehmen, reichen. Es gibt sogar Farb- und Animationskombinationen, die Ihren fotosensitiven Nutzern [Anfälle](/de/docs/Web/Accessibility/Guides/Seizure_disorders#colors) verursachen können.
 
-Während höherer [Farbkontrast](https://digital.gov/guides/accessibility-for-teams/visual-design/#color-and-contrast) oft eine gute Sache in Bezug auf Barrierefreiheit ist, reduziert beim Animieren, besonders schnell, [das Verringern des Farbkontrasts](/de/docs/Web/Accessibility/Seizure_disorders#reduce_contrast) auf animierenden Elementen das Risiko von Krampfanfällen. Wenn Sie Animationen einfügen, verwenden Sie das [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion) {{cssxref("@media")}} Query-Feature, um Animationen für Benutzer zu reduzieren, die diese Präferenz ausgewählt haben.
+Während ein höherer [Farbkontrast](https://digital.gov/guides/accessibility-for-teams/visual-design/#color-and-contrast) oft eine gute Sache ist, wenn es um Barrierefreiheit geht, reduziert eine Verminderung des Farbkontrasts bei Animationen, insbesondere bei schnellen, das Risiko von Anfällen. Wenn Sie Animationen einbinden, verwenden Sie das [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) {{cssxref("@media")}} Abfrage-Feature, um Animationen für Benutzer zu reduzieren, die diese Präferenz gewählt haben.
 
-Stellen Sie dennoch sicher, dass Sie genügend [Farbkontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) zwischen Ihrem Hintergrund und dem Vordergrundinhalt haben, um die Lesbarkeit zu gewährleisten. Verwenden Sie auch niemals nur Farbe, um Informationen zu vermitteln. Wenn Sie beispielsweise den Erfolg eines Vorgangs mit einem grünen Rahmen um das zugehörige UI-Element und das Scheitern mit einem roten Rahmen anzeigen, können Benutzer mit Rot-Grün-Farbenblindheit Ihre Seite nicht richtig nutzen. Verwenden Sie stattdessen Text- und Farbindikatoren zusammen, um diese Benutzer einzubeziehen. Beispielsweise wären ein grünes Häkchen und ein rotes Kreuz bessere Optionen.
+Dennoch sollten Sie sicherstellen, dass Sie genügend [Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) zwischen Ihrem Hintergrund und dem Vordergrund Ihres Inhalts haben, um die Lesbarkeit zu gewährleisten. Verwenden Sie niemals Farbe als einziges Mittel zur Vermittlung von Informationen. Wenn Sie zum Beispiel den Erfolg einer Operation mit einem grünen Rahmen um das zugehörige UI-Element und das Versagen mit einem roten Rahmen anzeigen, können Benutzer mit Rot-Grün-Farbenblindheit Ihre Website nicht richtig nutzen. Verwenden Sie stattdessen Text- und Farbindikatoren zusammen, um auch diese Benutzer einzubeziehen. Beispielsweise wäre ein grünes Häkchen und ein rotes Kreuz besser.
 
-## Beispiele für das Entwerfen von Paletten
+## Beispiel zur Palettengestaltung
 
-In diesem Beispiel erstellen wir eine geeignete Farbpalette für eine Website für ein Spiel, das auf dem Planeten Mars spielt. Eine [Google-Suche nach Fotos des Mars](https://www.google.com/search?q=Mars&tbm=isch) liefert mehrere Farbfotos.
+In diesem Beispiel erstellen wir eine passende Farbpalette für eine Website für ein Spiel, das auf dem Planeten Mars spielt. Eine [Google-Suche nach Fotos von Mars](https://www.google.com/search?q=Mars&tbm=isch) liefert mehrere Farbaufnahmen.
 
-Verwenden Sie ein Farbaufnahme-Tool, um ein Farbmuster für die Basisfarbe auszuwählen. Für dieses Beispiel haben wir `#D79C7A` gewählt, was ein rostiges Orange-Rot ist. Wir können [Paletton](https://www.paletton.com/) verwenden, um die anderen Farben für unsere Palette zu entwickeln. Beim Öffnen von Paletton sehen wir:
+Verwenden Sie ein Farbauswahl-Tool, um eine Farbauswahl für die Basisfarbe auszuwählen. Für dieses Beispiel haben wir `#D79C7A` ausgewählt, eine rostige Orange-Rot-Farbe. Wir können [Paletton](https://www.paletton.com/) verwenden, um die anderen Farben für unsere Palette zu finden. Sobald Paletton geöffnet ist, sehen wir:
 
-![Recht nach dem Laden von Paletton.](paletton1.png)
+![Direkt nach dem Laden von Paletton.](paletton1.png)
 
-Als nächstes geben wir den Hex-Code unserer Farbe (`D79C7A`) in das "Base RGB"-Feld in der linken unteren Ecke des Tools ein:
+Als nächstes geben wir den Hex-Wert unserer Farbe (`D79C7A`) in das Feld "Base RGB" in der linken unteren Ecke des Tools ein:
 
-![Nach Eingabe der Basisfarbe](paletton2.png)
+![Nachdem die Basisfarbe eingegeben wurde](paletton2.png)
 
-Wir sehen jetzt eine monochromatische Palette basierend auf der Farbe, die wir aus dem Mars-Foto gewählt haben. Wenn Sie verwandte Farben benötigen, sind dies wahrscheinlich gute Optionen. Um eine Akzentfarbe zu finden, die neben der Basisfarbe auffällt, klicken wir auf das "add complementary"-Toggle unterhalb des Menüs, das Ihnen die Auswahl des Palettentyps ermöglicht. Der Standard war "Monochromatisch". Paletton berechnet eine passende Akzentfarbe; wenn Sie auf die Akzentfarbe in der rechten unteren Ecke klicken, erfahren wir, dass diese Farbe `#508D7C` ist.
+Nun sehen wir eine monochromatische Palette basierend auf der Farbe, die wir aus dem Mars-Foto ausgewählt haben. Wenn Sie verwandte Farben benötigen, sind dies wahrscheinlich gute Optionen. Um eine Akzentfarbe zu finden, die neben der Basisfarbe auffällt, klicken wir auf den "Ergänzung hinzufügen" Schalter unterhalb des Menüs, das Ihnen die Auswahl des Palettentyps ermöglicht. Die Standardeinstellung war "Monochromatisch". Paletton ermittelt eine passende Akzentfarbe; ein Klick auf die Akzentfarbe in der unteren rechten Ecke zeigt uns, dass diese Farbe `#508D7C` ist.
 
-![Jetzt mit ergänzenden Farben.](paletton3.png)
+![Jetzt mit ergänzenden Farben eingeschlossen.](paletton3.png)
 
-Wenn die vorgeschlagene Farbe für Ihre Bedürfnisse nicht passt, können Sie das Farbschema ändern. Zum Beispiel, wenn die vorgeschlagene grün-blaue Farbe nicht funktioniert, wählen Sie das Triad-Farbschema-Symbol, was zu folgendem Ergebnis führt:
+Wenn die vorgeschlagene Farbe nicht Ihren Bedürfnissen entspricht, können Sie das Farbschema ändern. Wenn beispielsweise die vorgeschlagene grünlich-blaue Farbe nicht funktioniert, wählen Sie das Symbol für das Triad-Farbschema, das zu folgendem Ergebnis führt:
 
 ![Triad-Farbschema ausgewählt](paletton4.png)
 
-Klicken Sie auf das graublaue im oberen rechten Bereich. Die Farbe ist `#556E8D`. Diese kann als Akzentfarbe verwendet werden, um Dinge hervorzuheben, wie z.B. für Überschriften, Registerkarten-Hervorhebungen oder andere Indikatoren auf der Seite:
+Klicken Sie auf das graublau in der oberen rechten Ecke. Die Farbe ist `#556E8D`. Diese kann als Akzentfarbe verwendet werden, um Dinge hervorzuheben, wie Überschriften, Tab-Highlights oder andere Indikatoren auf der Seite:
 
 ![Triad-Farbschema ausgewählt](paletton-color-detail.png)
 
-Jetzt haben wir unsere Basisfarbe und unseren Akzent. Wir haben auch einige komplementäre Schattierungen von beiden, die verwendet werden können, um Verläufe zu erstellen oder als Akzentfarbe, um Fokus zu markieren, wie z.B. für Link-Hover-Zustände. Die Farben können in mehreren Formaten exportiert werden, die Sie verwenden können.
+Jetzt haben wir unsere Basisfarbe und unseren Akzent. Wir haben auch ein paar ergänzende Schattierungen beider, die verwendet werden können, um Verläufe zu erstellen oder als Akzentfarbe zur Hervorhebung beispielsweise von Link-Hover-Zuständen. Die Farben können in mehreren Formaten exportiert werden, die Sie verwenden können.
 
-Sie sollten auch neutrale Farben auswählen. Finden Sie eine Farbe, die genügend Kontrast bietet, damit Ihr Text klar und lesbar ist, während Sie sicherstellen, dass sie nicht unangenehm für die Augen ist. Wenn der Kontrast zu niedrig ist, wird Ihr Text durch den Hintergrund ausgewaschen und unleserlich, aber wenn Ihr Kontrast zu hoch ist, könnte Ihr Benutzer Ihre Seite als grell und unangenehm empfinden.
+Sie sollten auch neutrale Farben auswählen. Finden Sie eine Farbe, die genug Kontrast bietet, damit Ihr Text scharf und lesbar bleibt, während er dennoch nicht zu anstrengend für die Augen ist. Wenn der Kontrast zu gering ist, wird Ihr Text vom Hintergrund überstrahlt und dadurch unlesbar, aber wenn der Kontrast zu hoch ist, könnte Ihre Website als unangenehm empfunden werden.
 
 ## Farbe, Hintergründe, Kontrast und Drucken
 
-Ihre Website kann beim Drucken sehr anders aussehen als auf dem Bildschirm des Benutzers.
-Wenn Ihre Seite gedruckt wird, kann der Benutzer auswählen, dass sie nur in Schwarz-Weiß gedruckt wird. Die meisten Browser entfernen standardmäßig Hintergrundfarben und Bilder beim Drucken von Dokumenten.
+Ihre Website kann beim Drucken anders aussehen als das, was der Benutzer auf dem Bildschirm sieht.
+Beim Drucken Ihrer Seite kann der Benutzer entscheiden, nur in Schwarz-Weiß zu drucken. Die meisten Browser entfernen standardmäßig Hintergrundfarben und -bilder beim Drucken von Dokumenten.
 
-In der Regel ist der Text selbst das Wichtigste, aber wenn Ihre Hintergrundfarben und Bilder sorgfältig ausgewählt wurden und/oder entscheidend für die Nützlichkeit des Inhalts sind, können Sie die CSS-Eigenschaft {{cssxref("print-color-adjust")}} verwenden, um dem Browser mitzuteilen, dass es keine Anpassungen der Erscheinung des Inhalts vornehmen sollte.
+Am wichtigsten ist in der Regel der Text selbst, aber wenn Ihre Hintergrundfarben und -bilder sorgfältig ausgewählt wurden und/oder entscheidend für die Nützlichkeit des Inhalts sind, können Sie die CSS-Eigenschaft {{cssxref("print-color-adjust")}} verwenden, um dem Browser mitzuteilen, dass es keine Anpassungen am Aussehen der Inhalte vornehmen soll.
 
-Der Standardwert `print-color-adjust: economy` gibt an, dass der Browser Änderungen an der Erscheinung vornehmen darf, die er für notwendig erachtet, um die Lesbarkeit und/oder Druckwirtschaftlichkeit des Inhalts zu optimieren, abhängig von der Art des Ausgabegeräts, auf dem das Dokument gezeichnet wird.
+Der Standardwert von `print-color-adjust: economy`, zeigt an, dass es dem Browser gestattet ist, Anpassungen am Aussehen vorzunehmen, wenn er dies für erforderlich hält, um die Lesbarkeit und/oder Druckwirtschaftlichkeit des Inhalts zu optimieren, basierend auf dem Typ des Ausgabegeräts, auf das das Dokument gezeichnet wird.
 
-Sie können `print-color-adjust: exact` setzen, um dem Browser mitzuteilen, dass das Element oder die Elemente, für die Sie dies verwenden, speziell entworfen wurden, um am besten mit den Farben und Bildern so zu arbeiten, wie sie sind.
-Mit dieser Einstellung wird der Browser nicht das Erscheinungsbild des Elements, für das dieser Wert angewendet wird, verändern und es so zeichnen, wie es durch Ihr CSS angegeben ist.
+Sie können `print-color-adjust: exact` einstellen, um dem Browser mitzuteilen, dass das Element oder die Elemente, auf die Sie es anwenden, speziell dafür gestaltet wurden, am besten mit den Farben und Bildern zu funktionieren, so wie sie sind.
+Bei dieser Einstellung wird der Browser das Aussehen des Elements, auf das dieser Wert angewendet wird, nicht verändern und es so darstellen, wie es in Ihrem CSS angegeben ist.
 
 > [!NOTE]
-> Es gibt jedoch keine Garantie, dass `print-color-adjust: exact` dazu führt, dass Ihr CSS genau so verwendet wird, wie es angegeben ist.
-> Wenn der Browser Benutzereinstellungen zur Änderung der Ausgabe bereitstellt (wie z.B. ein "Hintergründe nicht drucken"-Kontrollkästchen in einem Druckdialogfeld), überschreibt dies den Wert von `print-color-adjust`.
+> Es gibt jedoch keine Garantie, dass `print-color-adjust: exact` dazu führt, dass Ihr CSS genau wie angegeben verwendet wird.
+> Wenn der Browser Benutzereinstellungen bietet, um die Ausgabe zu ändern (wie ein "Hintergründe nicht drucken"-Kontrollkästchen im Druckdialogfeld), wird das den Wert von `print-color-adjust` überschreiben.
 
 ## Siehe auch
 
-- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [CSS Farbmodul](/de/docs/Web/CSS/CSS_colors)
-- [Verstehen von Farbe und Leuchtdichte](/de/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
-- [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast)
+- [Anwenden von Farben auf HTML-Elemente mit CSS](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [CSS-Farbwerte](/de/docs/Web/CSS/Guides/Colors/Color_values)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- [CSS-Farbmodul](/de/docs/Web/CSS/Guides/Colors)
+- [Verständnis von Farben und Leuchtkraft](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+- [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
 - [Paletton](https://paletton.com/)

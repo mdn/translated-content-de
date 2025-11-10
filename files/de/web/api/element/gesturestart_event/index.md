@@ -1,25 +1,25 @@
 ---
-title: "Element: gesturestart Ereignis"
+title: "Element: gesturestart-Event"
 short-title: gesturestart
 slug: Web/API/Element/gesturestart_event
 l10n:
-  sourceCommit: bbf7f25f9cf95fb154e2740a9fdc9c02818981bf
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}{{Non-standard_header}}
 
-Das **`gesturestart`** Ereignis wird ausgelöst, wenn mehrere Finger die Touch-Oberfläche berühren, wodurch eine neue Geste beginnt. Während der Geste werden [`gesturechange`](/de/docs/Web/API/Element/gesturechange_event) Ereignisse ausgelöst. Wenn die Geste beendet ist, wird ein [`gestureend`](/de/docs/Web/API/Element/gestureend_event) Ereignis ausgelöst.
+Das **`gesturestart`**-Event wird ausgelöst, wenn mehrere Finger die Touch-Oberfläche berühren und damit eine neue Geste beginnen. Während der Geste werden [`gesturechange`](/de/docs/Web/API/Element/gesturechange_event)-Events ausgelöst. Wenn die Geste beendet ist, wird ein [`gestureend`](/de/docs/Web/API/Element/gestureend_event)-Event ausgelöst.
 
-Es handelt sich um ein proprietäres Ereignis, das spezifisch für WebKit ist.
+Es handelt sich um ein proprietäres Event, das spezifisch für WebKit ist.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("gesturestart", (event) => {});
+```js-nolint
+addEventListener("gesturestart", (event) => { })
 
-ongesturestart = (event) => {};
+ongesturestart = (event) => { }
 ```
 
 ## Ereignistyp
@@ -33,9 +33,9 @@ Ein [`GestureEvent`](/de/docs/Web/API/GestureEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`GestureEvent.rotation`](/de/docs/Web/API/GestureEvent/rotation) {{ReadOnlyInline}}
-  - : Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+  - : Änderung der Rotation (in Grad) seit Beginn des Events. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte eine Drehung gegen den Uhrzeigersinn. Ausgangswert: `0.0`.
 - [`GestureEvent.scale`](/de/docs/Web/API/GestureEvent/scale) {{ReadOnlyInline}}
-  - : Abstand zwischen zwei Fingern seit Beginn des Ereignisses. Ausgedrückt als Gleitkomma-Multiplikator des anfänglichen Abstands zwischen den Fingern zu Beginn der Geste. Werte unter 1.0 zeigen ein Zusammenziehen (Herauszoomen) an. Werte über 1.0 zeigen ein Auseinanderziehen (Hineinzoomen) an. Anfangswert: `1.0`.
+  - : Abstand zwischen zwei Fingern seit Beginn des Events. Ausgedrückt als Gleitkomma-Multiplikator des ursprünglichen Abstands zwischen den Fingern zu Beginn der Geste. Werte unter 1.0 zeigen ein Zusammendrücken nach innen (Herauszoomen) an. Werte über 1.0 zeigen ein Auseinanderziehen nach außen (Hineinzoomen) an. Ausgangswert: `1.0`.
 
 ## Spezifikationen
 

@@ -3,21 +3,18 @@ title: "RTCIceParameters: password-Eigenschaft"
 short-title: password
 slug: Web/API/RTCIceParameters/password
 l10n:
-  sourceCommit: 1a91b0b63f0cbaca9125bd48d4e5bc8afed2a7a3
+  sourceCommit: a0719c8102153b8bfc89f9c82126349e1db69461
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **[`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)**-Wörterbuchs **`password`**-Eigenschaft gibt das ICE-Passwort an, das zusammen mit dem [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) eine ICE-Sitzung für ihre gesamte Dauer eindeutig identifiziert.
+Die **[`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)**
+Wörterbuchs **`password`**-Eigenschaft spezifiziert das ICE-Passwort, das zusammen mit dem [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) eine ICE-Sitzung während ihrer gesamten Dauer eindeutig identifiziert.
 
 ## Wert
 
-Ein String, der das Passwort enthält, das dem `usernameFragment`-String des Transports entspricht.
+Ein String, der das Passwort enthält, das der `usernameFragment`-Zeichenkette des Transports entspricht.
 
 ## Spezifikationen
 
 {{Specifications}}
-
-## Browser-Kompatibilität
-
-{{Compat}}

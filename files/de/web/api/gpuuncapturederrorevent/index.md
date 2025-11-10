@@ -2,12 +2,12 @@
 title: GPUUncapturedErrorEvent
 slug: Web/API/GPUUncapturedErrorEvent
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUUncapturedErrorEvent`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist der Ereignisobjekttyp für das [`GPUDevice`](/de/docs/Web/API/GPUDevice)-[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Event, das für Telemetrie und zur Meldung unerwarteter Fehler verwendet wird.
+Das **`GPUUncapturedErrorEvent`**-Interface der [WebGPU-API](/de/docs/Web/API/WebGPU_API) ist der Ereignisobjekttyp für das [`GPUDevice`](/de/docs/Web/API/GPUDevice)-[`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis, das für Telemetrie genutzt wird und um unerwartete Fehler zu melden.
 
 Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) und [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) behandelt werden.
 
@@ -15,22 +15,22 @@ Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevic
 
 ## Konstruktor
 
-- [`GPUUncapturedErrorEvent()`](/de/docs/Web/API/GPUUncapturedErrorEvent/GPUUncapturedErrorEvent) {{Experimental_Inline}}
+- [`GPUUncapturedErrorEvent()`](/de/docs/Web/API/GPUUncapturedErrorEvent/GPUUncapturedErrorEvent)
   - : Erstellt eine neue Instanz des `GPUUncapturedErrorEvent`-Objekts.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
+_Erbt Eigenschaften von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event)._
 
-- [`error`](/de/docs/Web/API/GPUUncapturedErrorEvent/error) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Instanz des [`GPUError`](/de/docs/Web/API/GPUError)-Objekts, die Zugriff auf die Details des Fehlers bietet.
+- [`error`](/de/docs/Web/API/GPUUncapturedErrorEvent/error) {{ReadOnlyInline}}
+  - : Eine [`GPUError`](/de/docs/Web/API/GPUError)-Objektinstanz, die Zugriff auf die Details des Fehlers bietet.
 
 ## Beispiele
 
-Sie könnten etwas wie das Folgende als globalen Mechanismus verwenden, um alle Fehler zu erfassen, die nicht durch Fehlerbereiche behandelt werden.
+Sie könnten so etwas wie das Folgende verwenden, um einen globalen Mechanismus zu schaffen, der alle Fehler erfasst, die nicht von Fehlerbereichen behandelt werden, und sie auffängt.
 
 ```js
-// ...
+// …
 
 device.addEventListener("uncapturederror", (event) => {
   // Re-surface the error
@@ -41,7 +41,7 @@ device.addEventListener("uncapturederror", (event) => {
   });
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen
@@ -55,4 +55,4 @@ device.addEventListener("uncapturederror", (event) => {
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU-Fehlerbehandlung: Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU-Best Practices für Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)

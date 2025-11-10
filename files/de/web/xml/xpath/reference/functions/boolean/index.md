@@ -2,10 +2,10 @@
 title: boolean
 slug: Web/XML/XPath/Reference/Functions/boolean
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 21ffee261cfb407bacc25d1f253a836e233f208b
 ---
 
-Die Funktion `boolean` wertet einen Ausdruck aus und gibt entweder `true` oder `false` zurück.
+Die `boolean`-Funktion wertet einen Ausdruck aus und gibt true oder false zurück.
 
 ## Syntax
 
@@ -16,22 +16,22 @@ boolean( expression )
 ### Parameter
 
 - `expression`
-  - : Der Ausdruck, der ausgewertet werden soll. Der Ausdruck kann sich auf Zahlen und Node-Sets sowie Booleans beziehen.
+  - : Der Ausdruck, der ausgewertet werden soll. Der Ausdruck kann sich auf Zahlen, Knotenmengen sowie Booleans beziehen.
 
 ### Rückgabewert
 
-Boolean-Wert `true` oder `false`, nachdem `expression` ausgewertet wurde.
+Boolean `true` oder `false` nach Auswertung des `expression`.
 
 ## Beschreibung
 
-- Eine Zahl wird als false ausgewertet, wenn sie positiv oder negativ Null oder `NaN` ist. Andernfalls wird sie als true ausgewertet.
-- Ein Node-Set wird als true ausgewertet, wenn es nicht leer ist.
+- Eine Zahl wird als false ausgewertet, wenn sie positiv oder negativ null oder `NaN` ist. Andernfalls wird sie als true ausgewertet.
+- Eine Knotenmenge wird als true ausgewertet, wenn sie nicht leer ist.
 - Ein String wird als false ausgewertet, wenn er ein leerer String ist. Andernfalls wird er als true ausgewertet.
-- Ein Objekt eines anderen Typs als der vier Grundtypen wird in Abhängigkeit von diesem Typ auf einen Boolean-Wert konvertiert.
+- Ein Objekt eines anderen Typs als die vier Grundtypen wird abhängig vom jeweiligen Typ in einen Boolean umgewandelt.
 
 ## Spezifikationen
 
-[XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-boolean)
+[XPath 1.0 4.3](https://www.w3.org/TR/xpath-10/#function-boolean)
 
 ## Gecko-Unterstützung
 

@@ -2,10 +2,8 @@
 title: windows.WindowState
 slug: Mozilla/Add-ons/WebExtensions/API/windows/WindowState
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Der Zustand dieses Browserfensters.
 
@@ -14,26 +12,26 @@ Der Zustand dieses Browserfensters.
 Werte dieses Typs sind `strings`. Mögliche Werte sind:
 
 - `"normal"`
-  - : Das Fenster befindet sich in der Standardgröße oder in einer vom Benutzer gewählten Größe.
+  - : Das Fenster hat die Standardgröße oder eine vom Benutzer gewählte Größe.
 - `"minimized"`
   - : Das Fenster ist nur als Symbol in der Taskleiste sichtbar.
 - `"maximized"`
-  - : Das Fenster füllt den Bildschirm aus, auf dem es angezeigt wird, aus, wobei Bildschirmbereiche ausgespart bleiben, die vom Betriebssystem reserviert sind.
+  - : Das Fenster füllt den Bildschirm aus, auf dem es angezeigt wird, und schließt dabei keine vom Betriebssystem reservierten Bildschirmbereiche ein.
 - `"fullscreen"`
-  - : Das Fenster wird als Vollbildanwendung ausgeführt oder Inhalte in einem Tab verwenden die [Fullscreen API](/de/docs/Web/API/Fullscreen_API).
+  - : Das Fenster läuft als Anwendung im Vollbildmodus oder ein Inhalt in einem Tab verwendet die [Fullscreen-API](/de/docs/Web/API/Fullscreen_API)
 - `"docked"`
-  - : Ein angedocktes Fenster nimmt eine feste Position relativ zu anderen Fenstern derselben Anwendung ein.
+  - : Ein angedocktes Fenster nimmt eine feste Position relativ zu anderen Fenstern ein, die von derselben Anwendung verwaltet werden.
 
-macOS-Kompatibilität: Beginnend mit macOS 10.10 hat sich das Standardverhalten zum Maximieren von Fenstern dahingehend geändert, dass Anwendungen als Vollbildanwendungen statt als "vergrößerte" Fenster ausgeführt werden. `fullscreen` bezieht sich sowohl auf den Browser, der als Vollbildanwendung ausgeführt wird, als auch auf Fälle, in denen Inhalte in einem Tab die Fullscreen API verwenden.
+Kompatibilität mit macOS: Ab macOS 10.10 hat sich das Standardverhalten beim Maximieren von Fenstern geändert, sodass Anwendungen im Vollbildmodus anstelle von "gezoomten" Fenstern ausgeführt werden. `fullscreen` bezieht sich sowohl auf den Browser, der als Vollbildanwendung ausgeführt wird, als auch auf den Fall, wenn Inhalte in einem Tab die Fullscreen-API verwenden.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-WindowState) API von Chromium. Diese Dokumentation ist aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der Chromium-API [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-WindowState). Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

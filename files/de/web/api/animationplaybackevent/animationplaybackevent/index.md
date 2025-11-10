@@ -42,7 +42,7 @@ Ein neues [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Ob
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlayBackEvent)
+- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)
 - [`Animation.playState`](/de/docs/Web/API/Animation/playState)
 - [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent)
 - [`Event()`](/de/docs/Web/API/Event/Event)

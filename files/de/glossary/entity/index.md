@@ -1,12 +1,10 @@
 ---
-title: Entity
+title: Entität
 slug: Glossary/Entity
 l10n:
-  sourceCommit: 01489233cf524a628763172fed11dcc2e565a4e0
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Entität ist ein Begriff aus der Standard Generalized Markup Language (SGML), der sich auf eine Referenz zu Informationen bezieht, die einmal definiert und im gesamten Dokument verwendet werden können.
 
-Entity ist ein Begriff aus der Standard Generalized Markup Language (SGML), der sich auf eine Referenz zu Informationen bezieht, die einmal definiert und im gesamten Dokument verwendet werden können.
-
-Der Begriff "HTML Entity" wird als Synonym für einen {{Glossary("character_reference", "Character Reference")}} verwendet — ein Zeichenmuster, das ein anderes Zeichen in HTML darstellen kann. Zum Beispiel wird `&lt;` verwendet, um das Kleiner-als-Zeichen (`<`) in HTML-Inhalten darzustellen.
+Der Begriff "HTML-Entität" wird synonym für eine {{Glossary("character_reference", "Zeichenreferenz")}} verwendet — ein Muster von Zeichen, das ein anderes Zeichen im HTML darstellen kann. Zum Beispiel wird `&lt;` verwendet, um das Kleiner-als-Symbol (`<`) im HTML-Inhalt darzustellen.

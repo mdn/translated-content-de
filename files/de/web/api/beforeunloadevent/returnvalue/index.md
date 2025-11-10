@@ -3,27 +3,28 @@ title: "BeforeUnloadEvent: returnValue-Eigenschaft"
 short-title: returnValue
 slug: Web/API/BeforeUnloadEvent/returnValue
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`returnValue`**-Eigenschaft des [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)-Interfaces, löst, wenn auf einen wahrheitsgemäßen Wert gesetzt, einen vom Browser generierten Bestätigungsdialog aus. Dieser fragt die Benutzer, ob sie die Seite _wirklich_ verlassen möchten, wenn sie versuchen, sie zu schließen, neu zu laden oder woanders hin zu navigieren. Dies soll helfen, den Verlust nicht gespeicherter Daten zu verhindern.
+Die **`returnValue`**-Eigenschaft des
+[`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)-Interfaces löst, wenn sie auf einen wahrhaftigen Wert gesetzt wird, einen vom Browser erzeugten Bestätigungsdialog aus, der Benutzer fragt, ob sie die Seite _wirklich_ verlassen möchten, wenn sie versuchen, diese zu schließen oder neu zu laden oder zu einer anderen Seite zu navigieren. Dies soll helfen, den Verlust ungespeicherter Daten zu verhindern.
 
-> **Hinweis:** `returnValue` ist ein veraltetes Feature und die beste Praxis ist es, den Dialog durch Aufrufen von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem `BeforeUnloadEvent`-Objekt auszulösen, während `returnValue` gesetzt bleibt, um ältere Fälle zu unterstützen. Siehe die Referenz zum [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignis für detaillierte aktuelle Anleitungen.
+> [!NOTE] > `returnValue` ist ein veraltetes Feature. Es ist Best Practice, den Dialog auszulösen, indem [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) bei dem `BeforeUnloadEvent`-Objekt aufgerufen wird, während `returnValue` gesetzt wird, um veraltete Fälle zu unterstützen. Siehe die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignisreferenz für detaillierte aktuelle Anleitungen.
 
 ## Wert
 
-`returnValue` wird auf einen leeren String (`""`) initialisiert.
+`returnValue` wird mit einem leeren String (`""`) initialisiert.
 
-Das Setzen auf nahezu jeden {{Glossary("Truthy", "wahrheitsgemäßen")}} Wert wird dazu führen, dass der Dialog beim Schließen/Neuladen der Seite ausgelöst wird. Beachten Sie jedoch, dass es auch {{Glossary("Sticky_activation", "sticky activation")}} erfordert. Mit anderen Worten: Der Browser zeigt den Dialog nur an, wenn der Frame oder ein eingebetteter Frame eine Benutzeraktion oder Interaktion erhält. Wenn der Benutzer niemals mit der Seite interagiert hat, gibt es keine Benutzerdaten zu speichern und damit keinen legitimen Anwendungsfall für den Dialog.
+Das Setzen auf einen beliebigen [wahrhaften](/de/docs/Glossary/Truthy) Wert führt dazu, dass der Dialog beim Schließen/Neuladen der Seite ausgelöst wird. Beachten Sie jedoch, dass dies auch eine {{Glossary("Sticky_activation", "sticky activation")}} erfordert. In anderen Worten: Der Browser zeigt den Dialog nur an, wenn das Frame oder ein eingebettetes Frame eine Benutzeraktion oder Benutzerinteraktion erhält. Wenn der Benutzer nie mit der Seite interagiert hat, gibt es keine Benutzerdaten zu speichern und daher keinen legitimen Anwendungsfall für den Dialog.
 
 > [!NOTE]
-> Im Dialog wird ein vom Browser festgelegter generischer String angezeigt. Dieser kann nicht durch den Webseiten-Code kontrolliert werden.
+> Es wird ein generischer, vom Browser vorgegebener String im Dialog angezeigt. Dieser kann nicht durch Code der Webseite gesteuert werden.
 
 ## Beispiele
 
-Siehe die Referenzseite zum [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignis für ein Best-Practice-Beispiel.
+Siehe die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignisreferenzseite für ein Best-Practice-Beispiel.
 
 ## Spezifikationen
 

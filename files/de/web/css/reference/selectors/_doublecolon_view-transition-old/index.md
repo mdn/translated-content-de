@@ -1,0 +1,121 @@
+---
+title: ::view-transition-old()
+slug: Web/CSS/Reference/Selectors/::view-transition-old
+l10n:
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+---
+
+Das **`::view-transition-old()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den "alten" Ansichtsstatus eines Ansichtsübergangs – ein statisches Abbild der alten Ansicht vor dem Übergang.
+
+Während eines Ansichtsübergangs ist `::view-transition-old()` im zugehörigen Pseudo-Element-Baum enthalten, wie im Abschnitt [Der Pseudo-Element-Baum des Ansichtsübergangs](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt, sofern ein "alter" Ansichtsstatus vorliegt, den es darzustellen gilt. Es ist immer nur ein Kind von {{cssxref("::view-transition-image-pair()")}} und hat niemals eigene Kinder.
+
+Es ist ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Abmessungen, die der Größe des Inhalts entsprechen.
+
+Das folgende Standard-Styling ist im UA-Stylesheet enthalten:
+
+```css
+:root::view-transition-old(*),
+:root::view-transition-new(*) {
+  position: absolute;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: auto;
+
+  animation-duration: inherit;
+  animation-fill-mode: inherit;
+  animation-delay: inherit;
+}
+
+/* Keyframes for blending when there are 2 images */
+@keyframes -ua-mix-blend-mode-plus-lighter {
+  from {
+    mix-blend-mode: plus-lighter;
+  }
+  to {
+    mix-blend-mode: plus-lighter;
+  }
+}
+
+@keyframes -ua-view-transition-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+```
+
+> [!NOTE]
+> Zusätzliche Stile für den Ansichtsübergang werden ebenfalls eingerichtet, um `::view-transition-old()` zu animieren. Diese werden während des Ansichtsübergangs dynamisch erzeugt; sehen Sie die Abschnitte zur Spezifikation [Einrichten von Übergangspseudo-Elementen](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Aktualisieren von Pseudo-Element-Stilen](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
+
+## Syntax
+
+```css-nolint
+::view-transition-old([ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>) {
+  /* ... */
+}
+```
+
+### Parameter
+
+- `*`
+  - : Der Universal-Selektor (`*`) wählt alle Ansichtsübergangsgruppen auf einer Seite aus.
+- `root`
+  - : Veranlasst das Pseudo-Element, mit der Standard-`root`-Ansichtsübergangs-Snapshot-Gruppe übereinzustimmen, die vom Benutzer-Agent erstellt wurde, um den Ansichtsübergang für die gesamte Seite aufzunehmen. Diese Gruppe umfasst jedes Element, das nicht über die {{cssxref("view-transition-name")}}-Eigenschaft einer eigenen spezifischen Ansichtsübergangs-Snapshot-Gruppe zugewiesen ist.
+- `<pt-name-selector>`
+  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-name")}}-Eigenschaft gesetzt ist.
+- `<pt-class-selector>`
+  - : Der {{cssxref("custom-ident")}}, der als Wert der {{cssxref("view-transition-class")}}-Eigenschaft gesetzt und von einem Punkt (`.`) gefolgt ist.
+
+## Beispiele
+
+```css
+figcaption {
+  view-transition-name: figure-caption;
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes shrink-x {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+::view-transition-old(figure-caption),
+::view-transition-new(figure-caption) {
+  height: auto;
+  right: 0;
+  left: auto;
+  transform-origin: right center;
+}
+
+::view-transition-old(figure-caption) {
+  animation: 0.25s linear both shrink-x;
+}
+
+::view-transition-new(figure-caption) {
+  animation: 0.25s 0.25s linear both grow-x;
+}
+```
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
+
+## Siehe auch
+
+- [View Transition API](/de/docs/Web/API/View_Transition_API)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

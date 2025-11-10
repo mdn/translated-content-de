@@ -3,12 +3,12 @@ title: "Element: ariaBusy-Eigenschaft"
 short-title: ariaBusy
 slug: Web/API/Element/ariaBusy
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaBusy`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)-Attributes wider, das angibt, ob ein Element gerade geändert wird, da unterstützende Technologien möglicherweise warten möchten, bis die Änderungen abgeschlossen sind, bevor sie dem Benutzer präsentiert werden.
+Die **`ariaBusy`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)-Attributs wider, das angibt, ob ein Element gerade verändert wird. Assistive Technologien könnten warten, bis die Änderungen abgeschlossen sind, bevor sie diese dem Benutzer zugänglich machen.
 
 ## Wert
 
@@ -17,11 +17,11 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Element wird aktualisiert.
 - `"false"`
-  - : Es werden keine weiteren Aktualisierungen für das Element erwartet.
+  - : Es werden keine Aktualisierungen für das Element erwartet.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-busy`-Attribut des Elements mit der ID `clock` auf "false" gesetzt. Mithilfe von `ariaBusy` aktualisieren wir den Wert auf "true".
+In diesem Beispiel wird das `aria-busy`-Attribut des Elements mit der ID `clock` auf "false" gesetzt. Mit `ariaBusy` aktualisieren wir den Wert auf "true".
 
 ```html
 <div

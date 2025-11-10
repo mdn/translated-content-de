@@ -52,7 +52,7 @@ Die **aktuelle Beschreibung** (zurückgegeben von den Eigenschaften [`RTCPeerCon
 
 Die **ausstehende Beschreibung** (zurückgegeben von [`RTCPeerConnection.pendingLocalDescription`](/de/docs/Web/API/RTCPeerConnection/pendingLocalDescription) und [`RTCPeerConnection.pendingRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/pendingRemoteDescription)) zeigt eine Beschreibung an, die zur Zeit nach einem Aufruf von `setLocalDescription()` bzw. `setRemoteDescription()` geprüft wird.
 
-Beim Lesen der Beschreibung (zurückgegeben von [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription) und [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription)) wird der zurückgegebene Wert `pendingLocalDescription`/`pendingRemoteDescription` sein, wenn eine ausstehende Beschreibung existiert (d. h., die ausstehende Beschreibung nicht `null` ist); andernfalls wird die aktuelle Beschreibung (`currentLocalDescription`/`currentRemoteDescription`) zurückgegeben.
+Beim Lesen der Beschreibung (zurückgegeben von [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription) und [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription)) wird der zurückgegebene Wert `pendingLocalDescription`/`pendingRemoteDescription` sein, wenn eine ausstehende Beschreibung existiert (d.h. die ausstehende Beschreibung nicht `null` ist); andernfalls wird die aktuelle Beschreibung (`currentLocalDescription`/`currentRemoteDescription`) zurückgegeben.
 
 Wenn Sie die Beschreibung durch Aufrufen von `setLocalDescription()` oder `setRemoteDescription()` ändern, wird die angegebene Beschreibung als ausstehende Beschreibung festgelegt, und die WebRTC-Schicht beginnt zu beurteilen, ob sie akzeptabel ist oder nicht. Sobald die vorgeschlagene Beschreibung vereinbart wurde, wird der Wert von `currentLocalDescription` oder `currentRemoteDescription` auf die ausstehende Beschreibung geändert, und die ausstehende Beschreibung wird wieder auf null gesetzt, was darauf hinweist, dass es keine ausstehende Beschreibung gibt.
 
@@ -77,7 +77,7 @@ UDP-Kandidaten (Kandidaten, deren [`protocol`](/de/docs/Web/API/RTCIceCandidate/
 - `host`
   - : Ein Host-Kandidat ist einer, bei dem seine [`ip`](/de/docs/Web/API/RTCIceCandidate/address) die tatsächliche, direkte IP-Adresse des Remote-Peers ist.
 - `prflx`
-  - : Ein Peer-reflexiver Kandidat ist einer, dessen IP-Adresse aus einem symmetrischen NAT zwischen den beiden Peers stammt, normalerweise als zusätzlicher Kandidat während Trickle ICE (d. h. zusätzliche Kandidatenaustausche, die nach der primären Signalisierung, aber vor Abschluss der Verbindungsüberprüfung stattfinden).
+  - : Ein Peer-reflexiver Kandidat ist einer, dessen IP-Adresse aus einem symmetrischen NAT zwischen den beiden Peers stammt, normalerweise als zusätzlicher Kandidat während Trickle ICE (d.h. zusätzliche Kandidatenaustausche, die nach der primären Signalisierung, aber vor Abschluss der Verbindungsüberprüfung stattfinden).
 - `srflx`
   - : Ein serverreflexiver Kandidat wird von einem STUN/TURN-Server generiert; der Initiator der Verbindung fordert einen Kandidaten vom STUN-Server an, der die Anfrage durch das NAT des Remote-Peers weiterleitet, was einen Kandidaten erstellt und zurückgibt, dessen IP-Adresse lokal beim Remote-Peer ist. Der STUN-Server antwortet dann auf die Anfrage des Initiators mit einem Kandidaten, dessen IP-Adresse nichts mit dem Remote-Peer zu tun hat.
 - `relay`

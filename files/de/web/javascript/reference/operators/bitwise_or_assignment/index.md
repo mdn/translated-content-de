@@ -1,15 +1,13 @@
 ---
-title: Bitweises OR-Zuweisungsoperator (`|=`)
+title: Bitweises OR-Zuweisung (`|=`)
 slug: Web/JavaScript/Reference/Operators/Bitwise_OR_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **bitweise OR-Zuweisungsoperator (`|=`)** führt ein [bitweises OR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
-Der **bitweise OR-Zuweisungsoperator (`|=`)** führt eine [bitweise OR-Operation](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Bitwise OR assignment", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Bitwise OR assignment (|=) operator", "shorter")}}
 
 ```js interactive-example
 let a = 5; // 00000000000000000000000000000101
@@ -31,7 +29,7 @@ x |= y
 
 ## Beispiele
 
-### Verwendung des bitweisen OR-Zuweisungsoperators
+### Verwendung der bitweisen OR-Zuweisung
 
 ```js
 let a = 5;
@@ -57,4 +55,4 @@ b |= 2n; // 7n
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
 - [Bitweises OR (`|`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR)
-- [Logisches OR-Zuweisungsoperator (`||=`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)
+- [Logische OR-Zuweisung (`||=`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)

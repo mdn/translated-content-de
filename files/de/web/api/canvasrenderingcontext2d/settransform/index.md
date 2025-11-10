@@ -1,17 +1,17 @@
 ---
-title: "CanvasRenderingContext2D: setTransform()-Methode"
+title: "CanvasRenderingContext2D: setTransform() Methode"
 short-title: setTransform()
 slug: Web/API/CanvasRenderingContext2D/setTransform
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.setTransform()`**-Methode der Canvas 2D API setzt die aktuelle Transformation auf die Identitätsmatrix zurück (überschreibt sie) und führt anschließend eine durch die Argumente dieser Methode beschriebene Transformation aus. Dies ermöglicht das Skalieren, Rotieren, Verschieben (Translation) und Verzerren des Kontexts.
+Die **`CanvasRenderingContext2D.setTransform()`**-Methode der Canvas 2D API setzt (überschreibt) die aktuelle Transformation auf die Identitätsmatrix zurück und führt dann eine Transformation aus, die durch die Argumente dieser Methode beschrieben wird. Dies ermöglicht es Ihnen, den Kontext zu skalieren, zu drehen, zu verschieben und zu verzerren.
 
 > [!NOTE]
-> Siehe auch die [`transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)-Methode; anstatt die aktuelle Transformationsmatrix zu überschreiben, wird sie mit einer gegebenen multipliziert.
+> Siehe auch die [`transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)-Methode; anstatt die aktuelle Transformationsmatrix zu überschreiben, multipliziert sie diese mit einer gegebenen.
 
 ## Syntax
 
@@ -22,32 +22,32 @@ setTransform(matrix)
 
 Die Transformationsmatrix wird beschrieben durch: <math><semantics><mrow><mo>[</mo><mtable columnalign="center center center" rowspacing="0.5ex"><mtr><mtd><mi>a</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>e</mi></mtd></mtr><mtr><mtd><mi>b</mi></mtd><mtd><mi>d</mi></mtd><mtd><mi>f</mi></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable><mo>]</mo></mrow><annotation encoding="TeX">\left[ \begin{array}{ccc} a & c & e \\ b & d & f \\ 0 & 0 & 1 \end{array} \right]</annotation></semantics></math>.
 
-Diese Transformationsmatrix wird links mit einem Spaltenvektor multipliziert, der jeden auf der Leinwand gezeichneten Punkt repräsentiert, um die endgültigen Koordinaten auf der Leinwand zu erhalten.
+Diese Transformationsmatrix wird links von einem Spaltenvektor multipliziert, der jeden Punkt darstellt, der auf der Leinwand gezeichnet wird, um die endgültige Koordinate auf der Leinwand zu erstellen.
 
 ### Parameter
 
-`setTransform()` akzeptiert zwei Arten von Parametern. Der ältere Typ besteht aus mehreren Parametern, die die einzelnen Komponenten der Transformationsmatrix darstellen:
+`setTransform()` akzeptiert zwei Arten von Parametern. Der ältere Typ besteht aus mehreren Parametern, die die einzelnen Komponenten der Transformationsmatrix darstellen, die festgelegt werden sollen:
 
 - `a` (`m11`)
-  - : Die Zelle in der ersten Zeile und ersten Spalte der Matrix.
+  - : Die Zelle in der ersten Zeile und der ersten Spalte der Matrix.
 - `b` (`m12`)
-  - : Die Zelle in der zweiten Zeile und ersten Spalte der Matrix.
+  - : Die Zelle in der zweiten Zeile und der ersten Spalte der Matrix.
 - `c` (`m21`)
-  - : Die Zelle in der ersten Zeile und zweiten Spalte der Matrix.
+  - : Die Zelle in der ersten Zeile und der zweiten Spalte der Matrix.
 - `d` (`m22`)
-  - : Die Zelle in der zweiten Zeile und zweiten Spalte der Matrix.
+  - : Die Zelle in der zweiten Zeile und der zweiten Spalte der Matrix.
 - `e` (`m41`)
-  - : Die Zelle in der ersten Zeile und dritten Spalte der Matrix.
+  - : Die Zelle in der ersten Zeile und der dritten Spalte der Matrix.
 - `f` (`m42`)
-  - : Die Zelle in der zweiten Zeile und dritten Spalte der Matrix.
+  - : Die Zelle in der zweiten Zeile und der dritten Spalte der Matrix.
 
-Alternativ können Sie einen einzelnen Parameter übergeben, der ein Objekt ist, das die oben genannten Werte als Eigenschaften enthält. Die Parameternamen sind die Schlüssel der Eigenschaften, und falls zwei synonyme Namen gleichzeitig vorhanden sind (z. B. `m11` und `a`), müssen sie denselben Zahlenwert haben, sonst wird ein {{jsxref("TypeError")}} ausgelöst. Die Verwendung der Objektform erlaubt das Weglassen einiger Parameter — `a` und `d` sind standardmäßig `1`, während der Rest auf `0` gesetzt ist.
+Alternativ können Sie einen einzelnen Parameter übergeben, der ein Objekt ist, welches die oben genannten Werte als Eigenschaften enthält. Die Parameternamen sind die Eigenschaftsschlüssel, und wenn zwei gleichbedeutende Namen beide vorhanden sind (z.B. `m11` und `a`), müssen sie denselben Zahlenwert haben, oder es wird ein {{jsxref("TypeError")}} ausgelöst. Durch die Verwendung der Objektform können einige Parameter ausgelassen werden — `a` und `d` standardmäßig auf `1`, während der Rest auf `0` zurückgesetzt wird.
 
-Wenn ein Punkt ursprünglich die Koordinaten <math><semantics><mrow><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="TeX">(x, y)</annotation></semantics></math> hat, wird er nach der Transformation die Koordinaten <math><semantics><mrow><mo>(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>c</mi><mi>y</mi><mo>+</mo><mi>e</mi><mo>,</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>d</mi><mi>y</mi><mo>+</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="TeX">(ax + cy + e, bx + dy + f)</annotation></semantics></math> haben. Das bedeutet:
+Wenn ein Punkt ursprünglich die Koordinaten <math><semantics><mrow><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="TeX">(x, y)</annotation></semantics></math> hatte, dann hat er nach der Transformation die Koordinaten <math><semantics><mrow><mo>(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>c</mi><mi>y</mi><mo>+</mo><mi>e</mi><mo>,</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>d</mi><mi>y</mi><mo>+</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="TeX">(ax + cy + e, bx + dy + f)</annotation></semantics></math>. Das bedeutet:
 
 - `e` und `f` steuern die horizontale und vertikale Verschiebung des Kontexts.
 - Wenn `b` und `c` `0` sind, steuern `a` und `d` die horizontale und vertikale Skalierung des Kontexts.
-- Wenn `a` und `d` `1` sind, steuern `b` und `c` das horizontale und vertikale Verzerren des Kontexts.
+- Wenn `a` und `d` `1` sind, steuern `b` und `c` die horizontale und vertikale Verzerrung des Kontexts.
 
 ### Rückgabewert
 
@@ -55,7 +55,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verzerren einer Form
+### Verzerrung einer Form
 
 Dieses Beispiel verzerrt ein Rechteck sowohl vertikal (`.2`) als auch horizontal (`.8`). Skalierung und Verschiebung bleiben unverändert.
 
@@ -81,9 +81,9 @@ ctx.fillRect(0, 0, 100, 100);
 
 ### Abrufen und Übergeben eines DOMMatrix-Objekts
 
-Im folgenden Beispiel haben wir zwei {{htmlelement("canvas")}}-Elemente. Wir wenden eine Transformation auf den Kontext des ersten an, indem wir den ersten Typ von `setTransform()` verwenden und ein Quadrat darauf zeichnen. Dann rufen wir die Matrix mit [`CanvasRenderingContext2D.getTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/getTransform) von diesem ab.
+Im folgenden Beispiel haben wir zwei {{htmlelement("canvas")}}-Elemente. Wir wenden eine Transformation auf den Kontext des ersten Elements mit Hilfe des ersten Typs von `setTransform()` an und zeichnen ein Quadrat darauf, dann rufen wir die Matrix mit [`CanvasRenderingContext2D.getTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/getTransform) ab.
 
-Wir wenden dann die abgerufene Matrix direkt auf den Kontext der zweiten Leinwand an, indem wir das `DOMMatrix`-Objekt direkt an `setTransform()` übergeben (d. h. den zweiten Typ) und zeichnen einen Kreis darauf.
+Dann wenden wir die abgerufene Matrix direkt auf den zweiten Canvas-Kontext an, indem wir das `DOMMatrix`-Objekt direkt an `setTransform()` übergeben (d.h. der zweite Typ), und zeichnen einen Kreis darauf.
 
 #### HTML
 

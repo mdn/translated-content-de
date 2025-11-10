@@ -2,14 +2,12 @@
 title: "TypeError: Klassenkonstruktoren müssen mit 'new' aufgerufen werden"
 slug: Web/JavaScript/Reference/Errors/Class_ctor_no_new
 l10n:
-  sourceCommit: b736420a8955d6e1ff513735944b3da6b92cf525
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "class constructors must be invoked with 'new'" tritt auf, wenn ein [Klassenkonstruktor](/de/docs/Web/JavaScript/Reference/Classes) ohne das {{jsxref("Operators/new", "new")}} Schlüsselwort aufgerufen wird. Alle Klassenkonstruktoren müssen mit `new` aufgerufen werden.
 
-Die JavaScript-Ausnahme "class constructors must be invoked with 'new'" tritt auf, wenn ein [Klassenkonstruktor](/de/docs/Web/JavaScript/Reference/Classes) ohne das Schlüsselwort {{jsxref("Operators/new", "new")}} aufgerufen wird. Alle Klassenkonstruktoren müssen mit `new` aufgerufen werden.
-
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Class constructor X cannot be invoked without 'new' (V8-based)
@@ -24,9 +22,9 @@ TypeError: Cannot call a class constructor without |new| (Safari)
 
 ## Was ist schiefgelaufen?
 
-Im JavaScript sind das _Aufrufen_ einer Funktion ohne `new` und das _Konstruktoren_ einer Funktion mit `new` zwei unterschiedliche Operationen, und Funktionen können sich je nachdem, wie sie aufgerufen werden, unterschiedlich verhalten.
+Im JavaScript sind das _Aufrufen_ einer Funktion ohne `new` und das _Erzeugen_ einer Funktion mit `new` zwei verschiedene Operationen, und Funktionen können sich unterschiedlich verhalten, je nachdem, wie sie aufgerufen werden.
 
-Traditionell wurden JavaScript-Funktionen sowohl als Konstruktoren als auch als normale Funktionen verwendet und können erkennen, wie sie aufgerufen wurden, indem sie [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) verwenden. Klassenkonstruktoren sind jedoch immer Konstruktoren und können nicht als normale Funktionen aufgerufen werden.
+Traditionell wurden JavaScript-Funktionen sowohl als Konstruktoren als auch als normale Funktionen verwendet und können erkennen, wie sie mit [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) aufgerufen wurden. Klassenkonstruktoren sind jedoch immer Konstruktoren und können nicht als normale Funktionen aufgerufen werden.
 
 ## Beispiele
 

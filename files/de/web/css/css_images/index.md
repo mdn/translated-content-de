@@ -1,13 +1,11 @@
 ---
-title: CSS Bilder
+title: CSS images
 slug: Web/CSS/CSS_images
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-{{CSSRef}}
-
-Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Gradienten und andere Bildtypen enthält), wie sie skaliert werden und wie sie und andere ersetzte Inhalte mit den verschiedenen Layoutmodellen interagieren.
+Das **CSS images** Modul definiert die Arten von Bildern, die verwendet werden können (der {{CSSxRef("&lt;image&gt;")}} Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie sie zu skalieren sind und wie sie und anderer ersetzter Inhalt mit den verschiedenen Layout-Modellen interagieren.
 
 ## Referenz
 
@@ -15,9 +13,11 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 
 - {{CSSxRef("image-orientation")}}
 - {{CSSxRef("image-rendering")}}
-- {{CSSxRef("image-resolution")}}
 - {{CSSxRef("object-fit")}}
 - {{CSSxRef("object-position")}}
+- {{cssxref("object-view-box")}}
+
+Das CSS images Modul definiert auch die {{CSSxRef("image-resolution")}} Eigenschaft. Derzeit unterstützt kein Browser diese Funktion.
 
 ### Funktionen
 
@@ -27,10 +27,11 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 - {{CSSxRef("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
 - {{CSSxRef("gradient/conic-gradient", "conic-gradient()")}}
 - {{CSSxRef("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
-- {{cssxref("url_value", "&lt;url&gt;")}}
-- {{CSSxRef("element", "element()")}}
-- {{CSSxRef("image/image", "image()")}}
 - {{CSSxRef("cross-fade", "cross-fade()")}}
+- {{CSSxRef("element", "element()")}}
+- {{CSSxRef("image/image-set", "image-set()")}}
+
+Das CSS images Modul definiert auch die {{CSSxRef("image/image", "image()")}} Funktion. Derzeit unterstützt kein Browser diese Funktion.
 
 ### Datentypen
 
@@ -39,17 +40,26 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 
 ## Leitfäden
 
-- [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
+  - : Stellt einen bestimmten Typ von CSS-Bildern vor, _Verläufe_, und wie diese erstellt und verwendet werden können.
 
-  - : Stellt einen spezifischen Typ von CSS-Bildern, _Gradienten_, vor und wie man diese erstellt und verwendet.
+- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/Guides/Images/Implementing_image_sprites)
+  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
-- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [Stil von ersetzten Elementen](/de/docs/Web/CSS/Guides/Images/Replaced_element_properties)
+  - : Führt in die Eigenschaften ein, die nur für _ersetzte Elemente_ gelten.
 
-  - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Downloadanfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
+- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+  - : Erfahren Sie mehr über die `aspect-ratio` Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gebräuchliche Anwendungsfälle für Seitenverhältnisse.
 
-- [Verstehen von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verwendung der CSS-Eigenschaft `object-view-box`](/de/docs/Web/CSS/Guides/Images/Using_object-view-box)
+  - : Lernen Sie die CSS-Eigenschaft `object-view-box`, einschließlich wie man Bilder ein- oder auszoomt und wie man über sie hinweg schwenkt.
 
-  - : Erfahren Sie mehr über die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle für Seitenverhältnisse.
+## Verwandte Konzepte
+
+- {{cssxref("url_value", "&lt;url&gt;")}}
+- {{cssxref("url_function", "url()")}}
+- [`<basic-shape-rect>`](/de/docs/Web/CSS/Reference/Values/basic-shape#syntax_for_rectangles_basic-shape-rect)
 
 ## Spezifikationen
 
@@ -57,6 +67,7 @@ Das **CSS-Bilder**-Modul definiert die Bildtypen, die verwendet werden können (
 
 ## Siehe auch
 
-- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS Komposition und Überblendung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
-- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul
+- [CSS-Komposition und -Mischung](/de/docs/Web/CSS/Guides/Compositing_and_blending) Modul
+- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul

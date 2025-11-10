@@ -1,13 +1,12 @@
 ---
 title: Uint32Array() Konstruktor
+short-title: Uint32Array()
 slug: Web/JavaScript/Reference/Global_Objects/Uint32Array/Uint32Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Der **`Uint32Array()`** Konstruktor erstellt {{jsxref("Uint32Array")}} Objekte. Der Inhalt wird auf `0` gesetzt, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Uint32Array()`** Konstruktor erstellt {{jsxref("Uint32Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, Initialisierungsdaten werden explizit bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +21,8 @@ new Uint32Array(buffer, byteOffset)
 new Uint32Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Uint32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` zu rufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Uint32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Wege, um ein Uint32Array zu erstellen
+### Verschiedene Möglichkeiten, ein Uint32Array zu erstellen
 
 ```js
 // From a length
@@ -77,7 +77,7 @@ console.log(uint32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

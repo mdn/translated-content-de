@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: hint() Methode"
 short-title: hint()
 slug: Web/API/WebGLRenderingContext/hint
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.hint()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Hinweise für bestimmte Verhaltensweisen. Die Interpretation dieser Hinweise hängt von der Implementierung ab.
+Die **`WebGLRenderingContext.hint()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Hinweise für bestimmte Verhaltensweisen an. Die Interpretation dieser Hinweise hängt von der Implementierung ab.
 
 ## Syntax
 
@@ -20,33 +20,26 @@ hint(target, mode)
 
 - `target`
 
-  - : Legt fest, welches Verhalten gesteuert werden soll. Mögliche Werte:
+  - : Bestimmt, welches Verhalten gesteuert werden soll. Mögliche Werte:
 
     - `gl.GENERATE_MIPMAP_HINT`
+      - : Qualität der Filterung beim Erzeugen von Mipmap-Bildern mit [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap).
 
-      - : Qualität der Filterung beim Generieren von Mipmap-Bildern mit [`WebGLRenderingContext.generateMipmap()`](/de/docs/Web/API/WebGLRenderingContext/generateMipmap).
-
-    Bei Verwendung der [`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives)-Erweiterung:
+    Bei Verwendung der [`OES_standard_derivatives`](/de/docs/Web/API/OES_standard_derivatives) Erweiterung:
 
     - `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
-      - : Genauigkeit der Ableitungsberechnung für die integrierten GLSL-Funktionen: `dFdx`,
-        `dFdy` und `fwidth`.
+      - : Genauigkeit der Ableitungsberechnung für die eingebauten GLSL-Funktionen: `dFdx`, `dFdy` und `fwidth`.
 
-    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext),
-    sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Kontextes](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.FRAGMENT_SHADER_DERIVATIVE_HINT`
-      - : Gleich wie `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
+      - : Dasselbe wie `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
 
 - `mode`
-
-  - : Legt das Verhalten fest. Der Standardwert ist `gl.DONT_CARE`. Die möglichen
-    Werte sind:
-
+  - : Legt das Verhalten fest. Der Standardwert ist `gl.DONT_CARE`. Mögliche Werte sind:
     - `gl.FASTEST`: Das effizienteste Verhalten sollte verwendet werden.
-    - `gl.NICEST`: Die korrekteste oder qualitativ hochwertigste Option sollte
-      verwendet werden.
-    - `gl.DONT_CARE`: Es besteht keine Präferenz für dieses Verhalten.
+    - `gl.NICEST`: Die korrekteste oder qualitativ hochwertigste Option sollte verwendet werden.
+    - `gl.DONT_CARE`: Es gibt keine Präferenz für dieses Verhalten.
 
 ### Rückgabewert
 
@@ -54,7 +47,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird angedeutet, dass die Qualität der Filterung beim Generieren von Mipmap-Bildern am effizientesten statt in der besten Qualität sein soll.
+Das folgende Beispiel gibt an, dass bei der Erzeugung von Mipmap-Bildern die effizienteste Qualität der Filterung anstelle der besten Qualität verwendet werden soll.
 
 ```js
 gl.hint(gl.GENERATE_MIPMAP_HINT, gl.FASTEST);

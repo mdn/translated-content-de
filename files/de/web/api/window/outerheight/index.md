@@ -3,14 +3,14 @@ title: "Window: outerHeight-Eigenschaft"
 short-title: outerHeight
 slug: Web/API/Window/outerHeight
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft **`Window.outerHeight`** gibt die Höhe in Pixel des gesamten Browserfensters zurück, einschließlich aller Sidebars, Fensterdekorationen und Fenstergrößenänderungsrahmen/griffe.
+Die schreibgeschützte Eigenschaft **`Window.outerHeight`** gibt die Höhe in Pixeln des gesamten Browserfensters zurück, einschließlich aller Seitenleisten, des Fensterrahmens und der Fensterränder/-griffe.
 
-## Hinweise
+## Anmerkungen
 
 Um die Größe eines Fensters zu ändern, siehe [`window.resizeBy()`](/de/docs/Web/API/Window/resizeBy) und [`window.resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 
@@ -20,7 +20,7 @@ Um die innere Höhe eines Fensters zu erhalten, d.h. die Höhe der angezeigten S
 
 Die folgende Abbildung zeigt den Unterschied zwischen `outerHeight` und `innerHeight`.
 
-![innerHeight vs. outerHeight Illustration](firefoxinnervsouterheight2.png)
+![Illustration von innerHeight vs. outerHeight](firefoxinnervsouterheight2.png)
 
 ## Spezifikationen
 

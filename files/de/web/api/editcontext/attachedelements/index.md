@@ -3,12 +3,12 @@ title: "EditContext: attachedElements() Methode"
 short-title: attachedElements()
 slug: Web/API/EditContext/attachedElements
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`attachedElements()`**-Methode des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces gibt ein {{jsxref("Array")}} zurück, das nur ein Element enthält. Dieses Element ist dasjenige, das mit dem `EditContext`-Objekt verbunden ist.
+Die **`attachedElements()`** Methode der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle gibt ein {{jsxref("Array")}} zurück, das nur ein Element enthält. Dieses Element ist dasjenige, das mit dem `EditContext`-Objekt verknüpft ist.
 
 ## Syntax
 
@@ -16,17 +16,21 @@ Die **`attachedElements()`**-Methode des [`EditContext`](/de/docs/Web/API/EditCo
 attachedElements()
 ```
 
+### Parameter
+
+Keine.
+
 ### Rückgabewert
 
-Ein {{jsxref("Array")}}, das ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt enthält.
+Ein {{jsxref("Array")}} mit einem [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt.
 
-Es kann nur ein Element mit einer `EditContext`-Instanz verknüpft sein, daher wird das zurückgegebene Array immer ein Element enthalten. Sollte die API in Zukunft erweitert werden, um mehrere verknüpfte Elemente zu unterstützen, würde der Rückgabewert ein Array mit mehreren Elementen sein.
+Da nur ein Element mit einer `EditContext`-Instanz verknüpft sein kann, wird das zurückgegebene Array immer ein Element enthalten. Falls die API in Zukunft erweitert wird, um mehrere verknüpfte Elemente zu unterstützen, wird der Rückgabewert ein Array mit mehreren Elementen sein.
 
 ## Beispiele
 
-### Das Element abrufen, das mit einer `EditContext`-Instanz verknüpft ist
+### Abrufen des Elements, das mit einer `EditContext`-Instanz verknüpft ist
 
-Dieses Beispiel zeigt, wie die `attachedElements`-Methode verwendet wird, um das Element zu erhalten, das mit einer `EditContext`-Instanz verknüpft ist.
+Dieses Beispiel zeigt, wie die Methode `attachedElements` verwendet wird, um das Element abzurufen, das mit einer `EditContext`-Instanz verknüpft ist.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -51,4 +55,4 @@ console.log(attachedElements[0] === canvas); // true
 
 ## Siehe auch
 
-- Das [`EditContext`](/de/docs/Web/API/EditContext)-Interface, zu dem es gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle, zu der es gehört.

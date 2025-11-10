@@ -1,17 +1,16 @@
 ---
-title: "ExtendableMessageEvent: ports-Eigenschaft"
+title: "ExtendableMessageEvent: ports Eigenschaft"
 short-title: ports
 slug: Web/API/ExtendableMessageEvent/ports
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`ports`** schreibgeschützte Eigenschaft des
+Die schreibgeschützte **`ports`**-Eigenschaft des
 [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Interfaces gibt das Array zurück, das die
-[`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des assoziierten Nachrichtenkanals darstellen
-(der Kanal, über den die Nachricht gesendet wird.)
+[`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals darstellen (der Kanal, über den die Nachricht gesendet wird).
 
 ## Wert
 
@@ -19,7 +18,7 @@ Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten.
 
 ## Beispiele
 
-Wenn der folgende Code in einem Service Worker verwendet wird, um auf Push-Nachrichten zu antworten, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Kanalnachricht](/de/docs/Web/API/Channel_Messaging_API) gesendet werden, ist das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent`.
+Wenn der folgende Code innerhalb eines Service-Workers verwendet wird, um auf Push-Nachrichten zu reagieren, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API)-Nachricht gesendet werden, ist das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent`.
 
 ```js
 let port;
@@ -49,6 +48,6 @@ self.onmessage = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Kanalnachrichten](/de/docs/Web/API/Channel_Messaging_API)
+- [Verwendung von Service-Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Service-Worker einfaches Codebeispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API)

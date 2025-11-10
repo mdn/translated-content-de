@@ -1,27 +1,25 @@
 ---
-title: Flusslayout und Schreibrichtungen
+title: Fluss-Layout und Schreibrichtungen
 slug: Web/CSS/CSS_display/Flow_layout_and_writing_modes
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+Die CSS 2.1-Spezifikation, die beschreibt, wie der normale Fluss funktioniert, geht von einem horizontalen Schreibrichtung aus. [Layout](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout)-Eigenschaften sollten auf die gleiche Weise in vertikalen Schreibrichtungen funktionieren. In diesem Leitfaden untersuchen wir, wie sich das Fluss-Layout verhält, wenn es mit verschiedenen Dokument-Schreibrichtungen verwendet wird.
 
-Die CSS 2.1-Spezifikation, die beschreibt, wie der normale Fluss funktioniert, geht von einem horizontalen Schreibrichtung-Modus aus. [Layout](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)-Eigenschaften sollten in vertikalen Schreibrichtungs-Modi auf die gleiche Weise funktionieren. In diesem Leitfaden sehen wir uns an, wie sich das Flusslayout in unterschiedlichen Dokumenten-Schreibrichtungs-Modi verhält.
+Dies ist kein umfassender Leitfaden zur Verwendung von Schreibrichtungen in CSS. Ziel ist es, die Bereiche zu dokumentieren, in denen das Fluss-Layout in möglicherweise unerwarteter Weise mit Schreibrichtungen interagiert. Der Abschnitt [Siehe auch](#siehe_auch) bietet Links zu weiteren Ressourcen über Schreibrichtungen.
 
-Dies ist kein umfassender Leitfaden zur Verwendung von Schreibrichtungen in CSS. Ziel ist es, die Bereiche zu dokumentieren, in denen das Flusslayout mit Schreibrichtungs-Modi auf möglicherweise unerwartete Weise interagiert. Der Abschnitt [Siehe auch](#siehe_auch) bietet Links zu weiteren Ressourcen zu Schreibrichtungen.
+## Spezifikation der Schreibrichtungen
 
-## Spezifikation zu Schreibrichtungen
+Die CSS Writing Modes Level 3 Specification definiert die Auswirkungen, die eine Änderung der Schreibrichtung des Dokuments auf das Fluss-Layout hat. In der Einführung zu den Schreibrichtungen [sagt die Spezifikation](https://drafts.csswg.org/css-writing-modes-3/#text-flow),
 
-Die Spezifikation CSS Writing Modes Level 3 definiert die Auswirkungen einer Änderung des Dokument-Schreibrichtungs-Modus auf das Flusslayout. In der Einleitung zu Schreibrichtungen heißt es in [der Spezifikation](https://drafts.csswg.org/css-writing-modes-3/#text-flow):
+> "Eine Schreibrichtung in CSS wird durch die Eigenschaften {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} bestimmt. Sie wird in erster Linie in Bezug auf ihre inlinere Basisrichtung und die Blockflussrichtung definiert."
 
-> "Ein Schreibrichtungs-Modus in CSS wird durch die Eigenschaften {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} bestimmt. Er wird in erster Linie in Bezug auf die Inline-Basisrichtung und die Blockflussrichtung definiert."
+Die Spezifikation definiert die _inlinere Basisrichtung_ als die Richtung, in der Inhalt auf einer Zeile angeordnet ist. Dies definiert den Anfang und das Ende der Inline-Richtung. Der Anfang ist, wo Sätze beginnen, und das Ende ist, wo eine Textzeile endet, bevor sie auf eine neue Zeile umgebrochen würde.
 
-Die Spezifikation definiert die _Inline-Basisrichtung_ als die Richtung, in der Inhalte auf einer Zeile angeordnet werden. Dies definiert den Start- und Endpunkt der Inline-Richtung. Der Start ist der Punkt, an dem Sätze beginnen, und das Ende ist dort, wo eine Textzeile endet, bevor sie auf eine neue Zeile umbricht.
+Die _Blockflussrichtung_ ist die Richtung, in der Kästen, zum Beispiel Absätze, in dieser Schreibrichtung gestapelt werden. Die CSS-Eigenschaft `writing-mode` steuert die Blockflussrichtung. Wenn Sie Ihre Seite oder einen Teil Ihrer Seite auf `vertical-lr` ändern möchten, können Sie auf dem Element `writing-mode: vertical-lr` setzen, und dies wird die Richtung der Blöcke und damit auch die Inline-Richtung ändern.
 
-Die _Blockflussrichtung_ ist die Richtung, in der Boxen, beispielsweise Absätze, in diesem Schreibrichtungs-Modus gestapelt werden. Die CSS-Eigenschaft `writing-mode` steuert die Blockflussrichtung. Wenn Sie beispielsweise Ihre Seite oder Teile Ihrer Seite auf `vertical-lr` ändern möchten, können Sie `writing-mode: vertical-lr` auf das Element anwenden. Dadurch ändern sich die Richtung der Blöcke und damit auch die Inline-Richtung.
-
-Während bestimmte Sprachen einen bestimmten Schreibrichtungs-Modus oder eine Textausrichtung verwenden, können wir diese Eigenschaften auch kreativ einsetzen, beispielsweise, um eine Überschrift vertikal darzustellen.
+Während bestimmte Sprachen einen bestimmten Schreibrichtung oder Textausrichtung nutzen, können wir diese Eigenschaften auch für kreative Effekte verwenden, wie zum Beispiel eine Überschrift vertikal laufen zu lassen.
 
 ```html live-sample___creative-use
 <div class="box">
@@ -51,9 +49,9 @@ h1 {
 
 ## Blockflussrichtung
 
-Die Eigenschaft {{cssxref("writing-mode")}} akzeptiert die Werte `horizontal-tb`, `vertical-rl` und `vertical-lr`. Diese Werte steuern die Richtung, in der sich Blöcke auf der Seite bewegen. Der Standardwert ist `horizontal-tb`, was eine Blockflussrichtung von oben nach unten mit einer horizontalen Inline-Richtung bedeutet. Links-nach-rechts-Sprachen wie Englisch und Rechts-nach-links-Sprachen wie Arabisch verwenden alle `horizontal-tb`.
+Die {{cssxref("writing-mode")}}-Eigenschaft akzeptiert die Werte `horizontal-tb`, `vertical-rl` und `vertical-lr`. Diese Werte steuern die Richtung, in der Blöcke auf der Seite fließen. Der Anfangswert ist `horizontal-tb`, was eine Blockflussrichtung von oben nach unten mit einer horizontalen Inline-Richtung bedeutet. Sprachen von links nach rechts, wie Englisch, und von rechts nach links, wie Arabisch, sind alle `horizontal-tb`.
 
-Das folgende Beispiel zeigt Blöcke, die explizit den Startwert `horizontal-tb` verwenden:
+Das folgende Beispiel zeigt Blöcke mit dem anfänglichen Wert `horizontal-tb` explizit:
 
 ```html live-sample___horizontal-tb
 <div class="box">
@@ -84,7 +82,7 @@ body {
 
 {{EmbedLiveSample("horizontal-tb", "", "240px")}}
 
-Vergleichen Sie dies mit dem Wert `vertical-rl`, der eine Blockflussrichtung von rechts nach links und eine vertikale Inline-Richtung ergibt, wie im nächsten Beispiel gezeigt.
+Vergleichen Sie dies mit dem Wert `vertical-rl`, der Ihnen eine Blockflussrichtung von rechts nach links mit einer vertikalen Inline-Richtung gibt, wie im nächsten Beispiel gezeigt.
 
 ```html hidden live-sample___vertical-rl
 <div class="box">
@@ -115,7 +113,7 @@ body {
 
 {{EmbedLiveSample("vertical-rl", "", "300px")}}
 
-Das letzte Beispiel zeigt den dritten möglichen Wert für `writing-mode` — `vertical-lr`. Dies ergibt eine Blockflussrichtung von links nach rechts und eine vertikale Inline-Richtung.
+Das letzte Beispiel zeigt den dritten möglichen Wert für `writing-mode` — `vertical-lr`. Dies gibt Ihnen eine Blockflussrichtung von links nach rechts und eine vertikale Inline-Richtung.
 
 ```html hidden live-sample___vertical-lr
 <div class="box">
@@ -146,9 +144,9 @@ body {
 
 {{EmbedLiveSample("vertical-lr", "", "300px")}}
 
-## Verschachtelte Schreibrichtungs-Modi
+## Verschachtelte Schreibrichtungen
 
-Wenn einer verschachtelten Box ein anderer Schreibrichtungs-Modus als ihrem übergeordneten Element zugewiesen wird, wird eine Inline-Box so dargestellt, als hätte sie `display: inline-block`.
+Wenn einem verschachtelten Kasten eine andere Schreibrichtung als seinem Elternteil zugewiesen wird, wird ein Inline-Level-Kasten angezeigt, als ob er `display: inline-block` hätte.
 
 ```html live-sample___inline-change-mode
 <div class="box">
@@ -179,7 +177,7 @@ body {
 
 {{EmbedLiveSample("inline-change-mode", "", "240px")}}
 
-Eine Block-Box wird einen neuen Blockformatierungskontext (BFC) erstellen. Das bedeutet, wenn der innere Anzeigetyp `flow` wäre, wird er als berechneter Anzeigetyp zu `flow-root`. Dies wird im nächsten Beispiel gezeigt, wo die Box, die als `horizontal-tb` dargestellt wird, einen Float enthält, der durch das übergeordnete Element eingeschlossen wird, da es einen neuen BFC erstellt.
+Ein Block-Level-Kasten wird einen neuen Block-Formatierungskontext etablieren, was bedeutet, dass, wenn sein innerer Anzeigetyp `flow` wäre, er einen berechneten Anzeigetyp von `flow-root` erhält. Das zeigt das nächste Beispiel, in dem der Kasten, der als `horizontal-tb` angezeigt wird, einen Float enthält, der eingeschlossen wird, weil sein Elternteil einen neuen BFC schafft.
 
 ```html live-sample___block-change-mode
 <div class="box">
@@ -226,7 +224,7 @@ body {
 
 ## Ersetzte Elemente
 
-Ersetzte Elemente wie Bilder ändern ihre Ausrichtung nicht basierend auf der Eigenschaft `writing-mode`. Ersetzte Elemente wie Formularelemente, die Text enthalten, sollten jedoch mit dem verwendeten Schreibrichtungs-Modus übereinstimmen.
+Ersetzte Elemente wie Bilder werden ihre Ausrichtung nicht basierend auf der `writing-mode`-Eigenschaft ändern. Ersetzte Elemente wie Formularelemente, die Text enthalten, sollten jedoch der verwendeten Schreibrichtung entsprechen.
 
 ```html live-sample___replaced
 <div class="box">
@@ -261,7 +259,7 @@ body {
 
 ## Logische Eigenschaften und Werte
 
-Sobald Sie in Schreibrichtungs-Modi arbeiten, die nicht `horizontal-tb` sind, erscheinen viele der Eigenschaften und Werte, die an die physischen Dimensionen des Bildschirms gebunden sind, merkwürdig. Wenn Sie beispielsweise einer Box eine Breite von 100px geben, würde dies in `horizontal-tb` die Größe in der Inline-Richtung steuern. In `vertical-lr` steuert es die Größe in der Blockrichtung, da es sich nicht mit dem Text dreht.
+Wenn Sie in anderen Schreibrichtungen als `horizontal-tb` arbeiten, wirken viele der Eigenschaften und Werte, die auf die physischen Abmessungen des Bildschirms abgebildet sind, seltsam. Wenn Sie zum Beispiel einem Kasten eine Breite von 100px geben, würde dies in `horizontal-tb` die Größe in der Inline-Richtung steuern. In `vertical-lr` steuert es die Größe in der Blockrichtung, da es sich nicht mit dem Text dreht.
 
 ```html live-sample___width
 <div class="box">
@@ -290,7 +288,7 @@ body {
 
 {{EmbedLiveSample("width")}}
 
-Daher haben wir neue Eigenschaften wie {{cssxref("block-size")}} und {{cssxref("inline-size")}}. Wenn wir unserer Box eine `inline-size` von 100px geben, ist es unabhängig davon, ob wir uns in einem horizontalen oder vertikalen Schreibrichtungs-Modus befinden: `inline-size` bedeutet immer die Größe in der Inline-Richtung.
+Daher haben wir neue Eigenschaften wie {{cssxref("block-size")}} und {{cssxref("inline-size")}}. Wenn wir unserem Block eine `inline-size` von 100px geben, spielt es keine Rolle, ob wir in einem horizontalen oder vertikalen Schreibrichtung sind. `inline-size` wird immer die Größe in der Inline-Richtung bedeuten.
 
 ```html live-sample___inline-size
 <div class="box">
@@ -319,14 +317,14 @@ body {
 
 {{EmbedLiveSample("inline-size", "", "200px")}}
 
-Das Modul [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values) enthält logische Versionen der Eigenschaften, die Ränder, Innenabstände und Rahmen steuern, sowie andere Zuordnungen für Elemente, bei denen wir typischerweise physische Richtungen verwendet haben.
+Das [CSS-Modul "logische Eigenschaften und Werte"](/de/docs/Web/CSS/Guides/Logical_properties_and_values) enthält logische Versionen der Eigenschaften, die Randabstände, Abstände und Rahmen steuern sowie andere Zuordnungen für Dinge, die wir normalerweise mit physischen Richtungen spezifizieren.
 
 ## Zusammenfassung
 
-In den meisten Fällen funktioniert das Flusslayout wie erwartet, wenn der Schreibrichtungs-Modus des Dokuments oder eines Teils des Dokuments geändert wird. Dies kann verwendet werden, um vertikale Sprachen korrekt zu setzen oder für kreative Zwecke. CSS erleichtert dies durch die Einführung logischer Eigenschaften und Werte, sodass bei der Arbeit in einem vertikalen Schreibrichtungs-Modus die Größenanpassung basierend auf den Inline- und Blockgrößen eines Elements erfolgen kann. Dies wird hilfreich sein, um Komponenten zu erstellen, die in verschiedenen Schreibrichtungs-Modi arbeiten können.
+In den meisten Fällen funktioniert das Fluss-Layout so, wie Sie es erwarten würden, wenn Sie die Schreibrichtung des Dokuments oder von Teilen des Dokuments ändern. Dies kann verwendet werden, um vertikale Sprachen richtig zu setzen oder aus kreativen Gründen. CSS macht dies durch die Einführung logischer Eigenschaften und Werte einfacher, sodass beim Arbeiten in einer vertikalen Schreibrichtung die Größenänderung basierend auf der Inline- und Blockgröße des Elements erfolgen kann. Dies wird nützlich sein, wenn Komponenten erstellt werden, die in verschiedenen Schreibrichtungen funktionieren können.
 
 ## Siehe auch
 
-- [Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes)
+- [Schreibrichtungen](/de/docs/Web/CSS/Guides/Writing_modes)
 - [Schreibrichtungen und CSS-Layout](https://www.smashingmagazine.com/2019/08/writing-modes-layout/) auf Smashing Magazine (2019)
-- [CSS-Schreibrichtungen](https://24ways.org/2016/css-writing-modes/) auf 24ways.org (2016)
+- [CSS Schreibrichtungen](https://24ways.org/2016/css-writing-modes/) auf 24ways.org (2016)

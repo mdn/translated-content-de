@@ -101,7 +101,7 @@ Am Rand des Lichtkegels hört das Licht auf, die Oberfläche überhaupt zu beein
 
 Um sichtbar zu sein, muss eine Szene irgendeine Art von Beleuchtung enthalten, sodass alle oder fast alle Szenen mindestens eine Lichtquelle und möglicherweise viele von ihnen haben werden. Jede Lichtquelle erhöht erheblich die Menge der Berechnungen, die erforderlich sind, um die endgültige Farbe und Helligkeit jedes angezeigten Pixels zu bestimmen. Die Berechnung des Schattenwurfs für jeden dieser Lichtquellentypen ist rechenintensiver als die vorhergehende; daher ist Umgebungslicht am wenigsten aufwendig anzuwenden, gefolgt von gerichteten Lichtquellen, Punktlichtern und schließlich Scheinwerfern.
 
-Darüber hinaus gilt: Je genauer die Beleuchtung gestaltet ist, desto rechenintensiver wird sie. Erhöhte Schattendetails, volumetrisches Licht (d. h. Beleuchtung, die in der Luft gesehen werden kann, wie Sonnenstrahlen oder die Strahlen von Scheinwerfern am Himmel) und andere Beleuchtungseffekte können Ihrer Szene Realismus und Schönheit verleihen, es muss jedoch darauf geachtet werden, dass die Szene die GPU nicht überlastet.
+Darüber hinaus gilt: Je genauer die Beleuchtung gestaltet ist, desto rechenintensiver wird sie. Erhöhte Schattendetails, volumetrisches Licht (d.h. Beleuchtung, die in der Luft gesehen werden kann, wie Sonnenstrahlen oder die Strahlen von Scheinwerfern am Himmel) und andere Beleuchtungseffekte können Ihrer Szene Realismus und Schönheit verleihen, es muss jedoch darauf geachtet werden, dass die Szene die GPU nicht überlastet.
 
 ### Berechnung der Farbe eines beleuchteten Pixels
 
@@ -129,7 +129,7 @@ Da Ihre Szene eine Umgebung darstellen soll, in der eine Person oder ihr Avatar 
 
 ### Realismus in der Platzierung von Lichtquellen
 
-Wenn möglich, sollten Sie versuchen, Ihre virtuellen Lichtquellen mit Objekten zu korrespondieren, die tatsächlich existieren. Wenn Sie einen virtuellen Raum haben, der eine Deckenbeleuchtung benötigt, platzieren Sie ein Modell einer Deckenlampe an der Position Ihrer Lichtquelle. Es gibt Ausnahmen, wie das Umgebungslicht, das eine Grundmenge an Beleuchtung für Ihre Umgebung hinzufügt, und die Sonne, die eine gerichtete Lichtquelle ist (d. h. eine Lichtquelle, bei der jeder Lichtstrahl parallel ist, aus einer Richtung im Himmel kommend und irgendwo innerhalb Ihrer Szene endend).
+Wenn möglich, sollten Sie versuchen, Ihre virtuellen Lichtquellen mit Objekten zu korrespondieren, die tatsächlich existieren. Wenn Sie einen virtuellen Raum haben, der eine Deckenbeleuchtung benötigt, platzieren Sie ein Modell einer Deckenlampe an der Position Ihrer Lichtquelle. Es gibt Ausnahmen, wie das Umgebungslicht, das eine Grundmenge an Beleuchtung für Ihre Umgebung hinzufügt, und die Sonne, die eine gerichtete Lichtquelle ist (d.h. eine Lichtquelle, bei der jeder Lichtstrahl parallel ist, aus einer Richtung im Himmel kommend und irgendwo innerhalb Ihrer Szene endend).
 
 Versuchen Sie, Lichtquellen an realistischen Orten für die Umgebung und die Stimmung, die Sie erzeugen möchten, zu platzieren. Eine Szene, die wie eine natürlich beleuchtete, realistische Umgebung wirken soll, hat keine Studiobeleuchtung. Sie hat Sonnenlicht, möglicherweise Licht, das von Objekten oder Wasser innerhalb der Szene reflektiert wird und so weiter, aber keine Lampen, die auf die Gesichter von Objekten oder Personen in der Szene gerichtet sind.
 

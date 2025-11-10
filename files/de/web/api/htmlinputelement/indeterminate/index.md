@@ -3,14 +3,14 @@ title: "HTMLInputElement: indeterminate-Eigenschaft"
 short-title: indeterminate
 slug: Web/API/HTMLInputElement/indeterminate
 l10n:
-  sourceCommit: a4974693ac80bb2872d52610e13737430d9377a6
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`indeterminate`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob die Checkbox im _unbestimmten_ Zustand ist. Ein Beispiel: Eine "Alle auswählen/Alle abwählen"-Checkbox kann sich im unbestimmten Zustand befinden, wenn einige, aber nicht alle ihrer Unterelemente aktiviert sind. Der `indeterminate`-Zustand kann nur über JavaScript gesetzt werden und ist nur für [`checkbox`](/de/docs/Web/HTML/Element/input/checkbox)-Steuerelemente relevant.
+Die **`indeterminate`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Kontrollkästchen im _indeterminate_-Zustand ist. Beispielsweise kann ein "Alle auswählen/Alle abwählen"-Kontrollkästchen im indeterminate-Zustand sein, wenn einige, aber nicht alle seiner Untersteuerelemente ausgewählt sind. Der `indeterminate`-Zustand kann nur über JavaScript festgelegt werden und ist nur für [`checkbox`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Steuerelemente relevant.
 
-Er steht in keinem Zusammenhang mit der [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked)-Eigenschaft, und eine unbestimmte Checkbox kann sowohl aktiviert als auch deaktiviert sein. Unbestimmt zu sein, beeinflusst nur das Erscheinungsbild des Kontrollkästchens (siehe Beispiel unten) und nicht seine Präsenz bei der Übermittlung (die durch den Checked-Zustand gesteuert wird).
+Er ist nicht mit der [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked)-Eigenschaft verbunden, und ein indeterminiertes Kontrollkästchen kann sowohl ausgewählt als auch nicht ausgewählt sein. Der indeterminate-Zustand beeinflusst nur das Erscheinungsbild des Kontrollkästchens (siehe Beispiel unten) und nicht dessen Vorhandensein beim Absenden (das durch die Markierung gesteuert wird).
 
 ## Wert
 
@@ -43,5 +43,5 @@ checkbox.indeterminate = true;
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked)
 - {{HTMLElement("input")}}
-- [Unbestimmte Zustand von Kontrollkästchen](/de/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)
+- [Indeterminate-Zustand bei Kontrollkästchen](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes)
 - CSS {{cssxref(":indeterminate")}}-Eigenschaft

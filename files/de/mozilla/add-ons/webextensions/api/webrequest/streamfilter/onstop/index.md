@@ -2,20 +2,14 @@
 title: webRequest.StreamFilter.onstop
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/onstop
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein Ereignishandler, der aufgerufen wird, wenn der Stream keine Daten mehr zu liefern hat. Im Ereignishandler können Sie weiterhin Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}} oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} verwenden.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein Ereignishandler, der aufgerufen wird, wenn der Stream keine Daten mehr zur Verfügung hat. Im Ereignishandler können Sie weiterhin Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}, oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} aufrufen.
 
 ## Beispiele
 
-Dieses Beispiel fügt der Antwort "extra stuff" hinzu:
+Dieses Beispiel wird "extra stuff" an die Antwort anhängen:
 
 ```js
 function listener(details) {
@@ -69,3 +63,7 @@ browser.webRequest.onBeforeRequest.addListener(
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

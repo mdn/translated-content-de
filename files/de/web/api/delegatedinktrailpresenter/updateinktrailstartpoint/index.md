@@ -3,12 +3,12 @@ title: "DelegatedInkTrailPresenter: updateInkTrailStartPoint() Methode"
 short-title: updateInkTrailStartPoint()
 slug: Web/API/DelegatedInkTrailPresenter/updateInkTrailStartPoint
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die **`updateInkTrailStartPoint()`** Methode der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Schnittstelle zeigt an, welches [`PointerEvent`](/de/docs/Web/API/PointerEvent) als letzter Rendering-Punkt für den aktuellen Frame verwendet wurde, um dem OS-level Compositor zu ermöglichen, eine delegierte Tintenlinie vor dem nächsten Zeigereignis zu rendern, das versendet wird.
+Die **`updateInkTrailStartPoint()`** Methode der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Schnittstelle gibt an, welches [`PointerEvent`](/de/docs/Web/API/PointerEvent) als letzter Rendering-Punkt für den aktuellen Frame verwendet wurde. Dies ermöglicht es dem Betriebssystem-Compositor, eine delegierte Tintenlinie vor dem nächsten versendeten Zeigerereignis zu rendern.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ updateInkTrailStartPoint(event, style)
 - `event` {{optional_inline}}
   - : Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent).
 - `style`
-  - : Ein Objekt, das den Stil der Linie definiert und die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das den Stil der Spur definiert und folgende Eigenschaften enthält:
     - `color`
-      - : Ein {{jsxref("String")}}, das einen gültigen CSS-Farbcode enthält und die Farbe angibt, die der Presenter beim Rendern der Tintenlinie verwenden wird.
+      - : Ein {{jsxref("String")}}, der einen gültigen CSS-Farbcode enthält und die Farbe angibt, die der Presenter beim Rendern der Tintenlinie verwenden wird.
     - `diameter`
       - : Eine Zahl, die den Durchmesser darstellt, den der Presenter beim Rendern der Tintenlinie verwenden wird.
 
@@ -34,23 +34,23 @@ updateInkTrailStartPoint(event, style)
 ### Ausnahmen
 
 - `Error` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ein Fehler wird geworfen und der Vorgang abgebrochen, wenn:
+  - : Ein Fehler wird ausgelöst und die Operation wird abgebrochen, wenn:
     - die `color` Eigenschaft keinen gültigen CSS-Farbcode enthält.
     - die `diameter` Eigenschaft keine Zahl ist oder kleiner als 1 ist.
-    - das [`presentationArea`](/de/docs/Web/API/DelegatedInkTrailPresenter/presentationArea) Element vor oder während des Renderns aus dem Dokument entfernt wird.
+    - das [`presentationArea`](/de/docs/Web/API/DelegatedInkTrailPresenter/presentationArea) Element vor oder während des Renderings aus dem Dokument entfernt wird.
 
 ## Beispiele
 
 ### Zeichnen einer Tintenlinie
 
-In diesem Beispiel zeichnen wir eine Linie auf eine 2D-Leinwand. Nahe dem Anfang des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben die Leinwand als Präsentationsbereich zur Bearbeitung und speichern das zurückgegebene Versprechen in der Variable `presenter`.
+In diesem Beispiel zeichnen wir eine Spur auf eine 2D-Leinwand. Zu Beginn des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben dabei die Leinwand als Präsentationsbereich zur Verwaltung und speichern das zurückgegebene Versprechen in der Variablen `presenter`.
 
-Später im `pointermove` Ereignis-Listener wird die neue Position des Linienstücks jedes Mal, wenn das Ereignis ausgelöst wird, auf die Leinwand gezeichnet. Zusätzlich wird das [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Objekt, das zurückgegeben wird, wenn das `presenter` Versprechen erfüllt ist, seine `updateInkTrailStartPoint()` Methode aufgerufen; dies wird übergeben:
+Später, im `pointermove` Ereignis-Listener, wird die neue Position des Spurkopfes auf die Leinwand gezeichnet, jedes Mal wenn das Ereignis ausgelöst wird. Außerdem wird das `updateInkTrailStartPoint()` Methode des [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) Objekts aufgerufen, das zurückgegeben wird, wenn das `presenter` Versprechen erfüllt ist; es werden übergeben:
 
-- Das letzte vertrauenswürdige Zeigereignis, das den Rendering-Punkt für den aktuellen Frame darstellt.
+- Das letzte vertrauenswürdige Zeigerereignis, das den Rendering-Punkt für den aktuellen Frame repräsentiert.
 - Ein `style` Objekt, das Farb- und Durchmessereinstellungen enthält.
 
-Das Ergebnis ist, dass eine delegierte Tintenlinie im Namen der App im angegebenen Stil vor dem Standard-Browser-Rendering gezeichnet wird, bis es das nächste Mal ein `pointermove` Ereignis erhält.
+Das Ergebnis ist, dass eine delegierte Tintenlinie vor dem Standard-Browser-Rendering im Namen der App in dem angegebenen Stil gezeichnet wird, bis das nächste Mal ein `pointermove` Ereignis empfangen wird.
 
 #### HTML
 
@@ -63,7 +63,7 @@ Das Ergebnis ist, dass eine delegierte Tintenlinie im Namen der App im angegeben
 
 ```css
 div {
-  background-color: rgb(0 255 0 / 100%);
+  background-color: lime;
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -75,8 +75,8 @@ div {
 ```js
 const ctx = canvas.getContext("2d");
 const presenter = navigator.ink.requestPresenter({ presentationArea: canvas });
-let move_cnt = 0;
-let style = { color: "rgb(0 255 0 / 100%)", diameter: 10 };
+let moveCnt = 0;
+let style = { color: "lime", diameter: 10 };
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -88,17 +88,17 @@ canvas.addEventListener("pointermove", async (evt) => {
   const pointSize = 10;
   ctx.fillStyle = style.color;
   ctx.fillRect(evt.pageX, evt.pageY, pointSize, pointSize);
-  if (move_cnt == 20) {
+  if (moveCnt === 20) {
     const r = getRandomInt(0, 255);
     const g = getRandomInt(0, 255);
     const b = getRandomInt(0, 255);
 
     style = { color: `rgb(${r} ${g} ${b} / 100%)`, diameter: 10 };
-    move_cnt = 0;
+    moveCnt = 0;
     document.getElementById("div").style.backgroundColor =
       `rgb(${r} ${g} ${b} / 60%)`;
   }
-  move_cnt += 1;
+  moveCnt += 1;
   await presenter.updateInkTrailStartPoint(evt, style);
 });
 
@@ -121,7 +121,3 @@ canvas.height = window.innerHeight;
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-## Siehe auch
-
-- [Verbesserung des Tintenschreibens im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

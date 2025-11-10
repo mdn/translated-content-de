@@ -3,14 +3,14 @@ title: "XMLHttpRequest: status-Eigenschaft"
 short-title: status
 slug: Web/API/XMLHttpRequest/status
 l10n:
-  sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die nur-lesbare **`XMLHttpRequest.status`**-Eigenschaft gibt den numerischen HTTP-[Statuscode](/de/docs/Web/HTTP/Status) der Antwort des `XMLHttpRequest` zurück.
+Die schreibgeschützte **`XMLHttpRequest.status`**-Eigenschaft gibt den numerischen HTTP-[Statuscode](/de/docs/Web/HTTP/Reference/Status) der Antwort des `XMLHttpRequest` zurück.
 
-Bevor die Anfrage abgeschlossen ist, beträgt der Wert von `status` 0. Browser melden auch einen Status von 0 im Falle von `XMLHttpRequest`-Fehlern.
+Bevor die Anfrage abgeschlossen ist, hat `status` den Wert 0. Browser melden auch einen Status von 0 im Falle von `XMLHttpRequest`-Fehlern.
 
 ## Wert
 
@@ -55,5 +55,5 @@ xhr.send();
 
 ## Siehe auch
 
-- Liste der [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
+- Liste der [HTTP-Statuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP](/de/docs/Web/HTTP)

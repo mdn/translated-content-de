@@ -3,14 +3,14 @@ title: "HTMLScriptElement: supports() statische Methode"
 short-title: supports()
 slug: Web/API/HTMLScriptElement/supports_static
 l10n:
-  sourceCommit: 3bd335bf04ca78b7f4917ebc99e0f4f47f11d3de
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`supports()`** statische Methode des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces bietet eine einfache und konsistente Methode, um zu erkennen, welche Arten von Skripten vom Benutzeragenten unterstützt werden.
+Die statische **`supports()`**-Methode der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle bietet eine einfache und konsistente Methode zur Erkennung, welche Skripttypen vom Benutzeragenten unterstützt werden.
 
-Es wird erwartet, dass die Methode `true` für klassische und Modul-Skripte zurückgibt, die von den meisten modernen Browsern unterstützt werden.
+Es wird erwartet, dass die Methode `true` für klassische und Modulscripte zurückgibt, die von den meisten modernen Browsern unterstützt werden.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ HTMLScriptElement.supports(type)
 
 - `type`
 
-  - : Ein String-Literal, das den Typ des Skripts angibt, für das die Unterstützung überprüft werden soll.
-    Unterstützte Werte sind case-sensitiv und umfassen:
+  - : Ein Zeichenfolgenliteral, das den Skripttyp anzeigt, für den die Unterstützung überprüft werden soll.
+    Die unterstützten Werte unterscheiden zwischen Groß- und Kleinschreibung und umfassen:
 
     - `"classic"`
-      - : Überprüfen, ob _klassische Skripte_ unterstützt werden.
-        "Klassische" Skripte sind die normalen/traditionellen JavaScript-Dateien, die den Modul-Skripten vorausgehen.
+      - : Testet, ob _klassische Skripte_ unterstützt werden.
+        "Klassische" Skripte sind die normalen/traditionellen JavaScript-Dateien, die den Modulskripten vorausgingen.
     - `"module"`
-      - : Überprüfen, ob [Modul-Skripte](/de/docs/Web/JavaScript/Guide/Modules) unterstützt werden.
+      - : Testet, ob [Modulskripte](/de/docs/Web/JavaScript/Guide/Modules) unterstützt werden.
     - `"importmap"`
-      - : Überprüfen, ob [Import Maps](/de/docs/Web/HTML/Element/script/type/importmap) unterstützt werden.
+      - : Testet, ob [Import Maps](/de/docs/Web/HTML/Reference/Elements/script/type/importmap) unterstützt werden.
     - `"speculationrules"`
-      - : Überprüfen, ob [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) unterstützt und aktiviert sind.
+      - : Testet, ob [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) unterstützt und aktiviert sind.
 
-    Jeder andere Wert führt dazu, dass die Methode `false` zurückgibt.
+    Jeder andere Wert wird dazu führen, dass die Methode `false` zurückgibt.
 
 ### Rückgabewert
 
@@ -43,7 +43,7 @@ Gibt `true` zurück, wenn der angegebene Skripttyp unterstützt wird, andernfall
 
 ## Beispiele
 
-Der folgende Code zeigt, wie überprüft wird, ob `HTMLScriptElement.supports()` definiert ist, und wenn ja, diese Methode verwendet wird, um zu testen, ob bestimmte Skripttypen unterstützt werden.
+Der folgende Code zeigt, wie überprüft wird, ob `HTMLScriptElement.supports()` definiert ist und, wenn ja, wie es verwendet wird, um zu testen, ob bestimmte Skripttypen unterstützt werden.
 
 ```js
 const log = document.getElementById("log");
@@ -85,4 +85,4 @@ if (typeof HTMLScriptElement.supports === "undefined") {
 - [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)
 - {{HTMLElement("script")}}
 - [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules)
-- [`Worker`](/de/docs/Web/API/Worker/Worker) Konstruktor
+- [`Worker`](/de/docs/Web/API/Worker/Worker)-Konstruktor

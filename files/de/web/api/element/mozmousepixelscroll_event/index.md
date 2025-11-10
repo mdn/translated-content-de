@@ -3,12 +3,12 @@ title: "Element: MozMousePixelScroll-Ereignis"
 short-title: MozMousePixelScroll
 slug: Web/API/Element/MozMousePixelScroll_event
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{deprecated_header}}{{ Non-standard_header() }}
+{{APIRef("UI Events")}}{{deprecated_header}}{{Non-standard_header}}
 
-Das ausschließlich in Firefox verfügbare, _nicht standardisierte_ und _veraltete_ **`MozMousePixelScroll`**-Ereignis wird asynchron bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Mausrad oder ein ähnliches Gerät betätigt wird. Es wird durch das [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent)-Interface dargestellt.
+Das nur in Firefox verfügbare, _nicht standardisierte_ und _veraltete_ **`MozMousePixelScroll`**-Ereignis wird asynchron bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Mausrad oder ein ähnliches Gerät betätigt wird. Es wird durch das [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent)-Interface repräsentiert.
 
 > [!NOTE]
 > Verwenden Sie dieses nicht standardisierte und veraltete Ereignis nicht. Stattdessen sollten Sie immer das standardisierte [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis verwenden.
@@ -17,10 +17,10 @@ Das ausschließlich in Firefox verfügbare, _nicht standardisierte_ und _veralte
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("MozMousePixelScroll", (event) => {});
+```js-nolint
+addEventListener("MozMousePixelScroll", (event) => { })
 
-onMozMousePixelScroll = (event) => {};
+onMozMousePixelScroll = (event) => { }
 ```
 
 ## Ereignistyp
@@ -29,16 +29,16 @@ Ein [`WheelEvent`](/de/docs/Web/API/WheelEvent). Erbt von [`MouseEvent`](/de/doc
 
 {{InheritanceDiagram("WheelEvent")}}
 
-## Erfassung der gescrollten Distanz
+## Ermitteln der gescrollten Distanz
 
-Die [`detail`](/de/docs/Web/API/UIEvent/detail)-Eigenschaft des Ereignisses gibt die Scroll-Distanz in Zeilen an, wobei negative Werte eine Bewegung nach unten oder nach rechts anzeigen und positive Werte nach oben oder links.
+Die [`detail`](/de/docs/Web/API/UIEvent/detail)-Eigenschaft des Ereignisses gibt die Scroll-Distanz in Linien an, wobei negative Werte angeben, dass die Scroll-Bewegung entweder nach unten oder nach rechts erfolgt, und positive Werte angeben, dass nach oben oder links gescrollt wird.
 
-Wenn die nativen Mausrad-Ereignisse der Plattform die Scroll-Distanz in Zeilen oder Seiten angeben, wird der `detail`-Wert unter Berücksichtigung dieses Wertes und der Zeilenhöhe oder Seitenbreite/-höhe des nächstgelegenen übergeordneten scrollbaren Elements, das das Zielelement enthält, berechnet.
+Wenn die nativen Mausradereignisse der Plattform die Scroll-Distanz in Linien oder Seiten angeben, wird der Wert von `detail` unter Verwendung dieses Wertes und der Zeilenhöhe oder der Seitenbreite/-höhe des nächsten vorfahrenrollbaren Elements, das das Zielelement enthält, berechnet.
 
 > [!NOTE]
-> Auf macOS wird die Scroll-Distanz (und damit der `detail`-Wert) basierend auf der beschleunigten Scroll-Distanz berechnet.
+> Auf macOS wird die Scroll-Distanz (und damit der Wert von `detail`) basierend auf der beschleunigten Scroll-Distanz berechnet.
 
-Der Wert von `detail` ist niemals 0, wenn die Ereignisse legitim sind.
+Der Wert von `detail` beträgt nie 0, wenn die Ereignisse legitim sind.
 
 ## Browser-Kompatibilität
 
@@ -47,6 +47,6 @@ Der Wert von `detail` ist niemals 0, wenn die Ereignisse legitim sind.
 ## Siehe auch
 
 - [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent)
-- Geckos veraltetes Zeilen- oder Seiten-Scroll-Ereignis: `DOMMouseScroll`
-- Mauswiel-Ereignis in nicht-Gecko-Browsern: `mousewheel`
-- Standardisiertes Rad-Ereignis: `wheel`
+- Geckos veraltete Linien- oder Seitenscroll-Ereignis: `DOMMouseScroll`
+- Veraltete Mausradereignis nicht-Gecko-Browser: `mousewheel`
+- Standardisiertes Radereignis: `wheel`

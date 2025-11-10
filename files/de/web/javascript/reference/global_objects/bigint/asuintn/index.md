@@ -1,13 +1,12 @@
 ---
 title: BigInt.asUintN()
+short-title: asUintN()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/asUintN
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`BigInt.asUintN()`** kürzt einen `BigInt`-Wert auf die angegebene Anzahl der niederwertigsten Bits und gibt diesen Wert als unsigned Integer zurück.
+Die statische Methode **`BigInt.asUintN()`** schneidet einen `BigInt`-Wert auf die angegebene Anzahl an niederwertigen Bits ab und gibt diesen Wert als vorzeichenlose Ganzzahl zurück.
 
 {{InteractiveExample("JavaScript Demo: BigInt.asUintN()", "taller")}}
 
@@ -35,13 +34,13 @@ BigInt.asUintN(bits, bigint)
 ### Parameter
 
 - `bits`
-  - : Die Anzahl der Bits, die für den zurückgegebenen `BigInt` verfügbar sind. Sollte eine Ganzzahl zwischen 0 und 2<sup>53</sup> - 1 (einschließlich) sein.
+  - : Die Anzahl der Bits, die für das zurückgegebene BigInt verfügbar sind. Es sollte eine Ganzzahl zwischen 0 und 2<sup>53</sup> - 1 sein, einschließlich.
 - `bigint`
-  - : Der `BigInt`-Wert, der gekürzt werden soll, um in die bereitgestellten Bits zu passen.
+  - : Der BigInt-Wert, der abgeschnitten werden soll, um in die angegebenen Bits zu passen.
 
 ### Rückgabewert
 
-Der Wert von `bigint` modulo 2^`bits`, als unsigned Integer.
+Der Wert von `bigint` modulo `2 ** bits`, als vorzeichenlose Ganzzahl.
 
 ### Ausnahmen
 
@@ -50,7 +49,7 @@ Der Wert von `bigint` modulo 2^`bits`, als unsigned Integer.
 
 ## Beschreibung
 
-Die Methode `BigInt.asUintN` kürzt einen `BigInt`-Wert auf die angegebene Anzahl an Bits und interpretiert das Ergebnis als unsigned Integer. Unsigned Integer haben keine Vorzeichenbits und sind immer nicht-negativ. Zum Beispiel wird bei `BigInt.asUintN(4, 25n)` der Wert `25n` auf `9n` gekürzt:
+Die Methode `BigInt.asUintN` schneidet einen `BigInt`-Wert auf die angegebene Anzahl von Bits ab und interpretiert das Ergebnis als vorzeichenlose Ganzzahl. Vorzeichenlose Ganzzahlen haben keine Vorzeichenbits und sind immer nicht-negativ. Zum Beispiel wird bei `BigInt.asUintN(4, 25n)` der Wert `25n` auf `9n` gekürzt:
 
 ```plain
 25n = 00011001 (base 2)
@@ -58,15 +57,16 @@ Die Methode `BigInt.asUintN` kürzt einen `BigInt`-Wert auf die angegebene Anzah
 ===>      1001 (base 2) = 9n
 ```
 
-> **Note:** `BigInt`-Werte werden im Binärformat immer als Zweierkomplement kodiert.
+> [!NOTE]
+> `BigInt`-Werte werden stets als Zweierkomplement im Binärformat kodiert.
 
-Im Gegensatz zu ähnlichen APIs in anderen Sprachen, wie {{jsxref("Number.prototype.toExponential()")}}, ist `asUintN` eine statische Eigenschaft von {{jsxref("BigInt")}}. Deshalb wird sie immer als `BigInt.asUintN()` und nicht als Methode eines `BigInt`-Werts verwendet. Die Bereitstellung von `asUintN()` als „Standardbibliotheksfunktion“ ermöglicht [Interop mit asm.js](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
+Im Gegensatz zu ähnlichen API-Funktionen in anderen Sprachen wie {{jsxref("Number.prototype.toExponential()")}} ist `asUintN` eine statische Eigenschaft von {{jsxref("BigInt")}}, sodass Sie sie immer als `BigInt.asUintN()` und nicht als Methode eines BigInt-Werts verwenden. Das Bereitstellen von `asUintN()` als "Standard-Bibliotheksfunktion" ermöglicht die [Interoperabilität mit asm.js](https://github.com/tc39/proposal-bigint/blob/master/ADVANCED.md#dont-break-asmjs).
 
 ## Beispiele
 
-### Innerhalb eines 64-Bit-Bereichs bleiben
+### Im Bereich von 64-Bit bleiben
 
-Die Methode `BigInt.asUintN()` kann nützlich sein, um innerhalb des Bereichs arithmetischer 64-Bit-Operationen zu bleiben.
+Die Methode `BigInt.asUintN()` kann nützlich sein, um im Bereich der 64-Bit-Arithmetik zu bleiben.
 
 ```js
 const max = 2n ** 64n - 1n;

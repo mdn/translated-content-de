@@ -3,33 +3,33 @@ title: "CSPViolationReportBody: disposition-Eigenschaft"
 short-title: disposition
 slug: Web/API/CSPViolationReportBody/disposition
 l10n:
-  sourceCommit: 51b1250b1d51c2e0837c4d59798457a1261eb2af
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte Eigenschaft **`disposition`** der Schnittstelle [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) gibt an, ob der Benutzeragent so konfiguriert ist, dass er Verstöße gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) durchsetzt oder nur meldet.
+Die schreibgeschützte Eigenschaft **`disposition`** des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces gibt an, ob der Benutzer-Agent so konfiguriert ist, dass Verstöße gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) erzwungen werden oder nur gemeldet werden.
 
 ## Wert
 
 Mögliche Werte sind:
 
 - `"enforce"`
-  - : Die Richtlinie wird durchgesetzt und die Ressourcenanforderung wird blockiert.
+  - : Die Richtlinie wird durchgesetzt und die Ressourcenanfrage wird blockiert.
 - `"report"`
-  - : Der Verstoß wird gemeldet, aber die Ressourcenanforderung wird nicht blockiert.
+  - : Der Verstoß wird gemeldet, aber die Ressourcenanfrage wird nicht blockiert.
 
 ## Beispiele
 
-### CSP Inline-Skript-Verletzung mit Anzeige der Disposition
+### CSP Inline-Skript-Verstoß zeigt die Disposition
 
-Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Dieses Beispiel löst einen CSP-Verstoß mit einem Inline-Skript aus und meldet den Verstoß mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
 Die `disposition` wird protokolliert.
 
 #### HTML
 
-Die untenstehende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen. Dadurch dürfen Skripte und andere Ressourcen von derselben Domain geladen werden, aber Inline-Skripte dürfen nicht ausgeführt werden.
-Das Dokument enthält auch ein Inline-Skript, was daher eine CSP-Verletzung auslösen sollte.
+Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Reference/Elements/meta)-Element, um den {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen. Dadurch können Skripte und andere Ressourcen aus derselben Domain geladen werden, aber Inline-Skripte dürfen nicht ausgeführt werden.
+Das Dokument enthält außerdem ein Inline-Skript, das daher einen CSP-Verstoß auslösen sollte.
 
 ```html
 <!doctype html>
@@ -55,11 +55,11 @@ Das Dokument enthält auch ein Inline-Skript, was daher eine CSP-Verletzung ausl
 
 #### JavaScript (main.js)
 
-Das oben genannte Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
-Da dieses vom selben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
+Das oben genannte Dokument lädt außerdem das externe Skript `main.js`, das unten gezeigt wird.
+Da dieses aus derselben Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
 
 Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
-Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichte-Arrays und verwenden ihn, um die Datei, die Zeile und die Spalte der Verletzung in der Konsole zu protokollieren.
+Jedes Mal, wenn die Rückruffunktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Datei, Zeile und Spalte des Verstoßes in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -78,19 +78,19 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl möglicherweise mehrere Berichte im zurückgegebenen Array enthalten sind, zur Kürze nur die Werte des ersten Elements protokolliert werden.
+Beachten Sie, dass, obwohl es möglicherweise mehrere Berichte im zurückgegebenen Array gibt, wir zur Kürze nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
-Wenn der obige Code ausgeführt wird, wäre die Protokollausgabe:
+Wenn der obige Code bereitgestellt wird, wäre die Protokollausgabe:
 
 ```plain
 disposition: enforce
 ```
 
 > [!NOTE]
-> Wenn `Content-Security-Policy-Reporting-Only` aktiviert wäre, würde die Disposition `report` sein.
-> Beachten Sie jedoch, dass `Content-Security-Policy-Reporting-Only` bereitgestellt werden muss: es kann nicht im `<meta>`-Element gesetzt werden, wie wir es oben getan haben.
+> Wenn `Content-Security-Policy-Reporting-Only` aktiviert wäre, würde die Disposition `report` lauten.
+> Beachten Sie jedoch, dass `Content-Security-Policy-Reporting-Only` bereitgestellt werden muss: Es kann nicht im `<meta>`-Element gesetzt werden, wie wir es oben gemacht haben.
 
 ## Spezifikationen
 

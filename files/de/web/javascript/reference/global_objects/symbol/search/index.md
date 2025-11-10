@@ -1,15 +1,14 @@
 ---
 title: Symbol.search
+short-title: search
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/search
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`Symbol.search`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die {{jsxref("String.prototype.search()")}} Methode sucht dieses Symbol im ersten Argument, um die Methode zu finden, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
 
-Die **`Symbol.search`** statische Dateneigenschaft repräsentiert das [well-known symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.search`. Die Methode {{jsxref("String.prototype.search()")}} sucht in ihrem ersten Argument nach diesem Symbol für die Methode, die den Index innerhalb eines Strings zurückgibt, der mit dem aktuellen Objekt übereinstimmt.
-
-Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
+Für weitere Informationen siehe [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search) und {{jsxref("String.prototype.search()")}}.
 
 {{InteractiveExample("JavaScript Demo: Symbol.search")}}
 
@@ -29,7 +28,7 @@ console.log("foobar".search(new Search1("bar")));
 
 ## Wert
 
-Das well-known symbol `Symbol.search`.
+Das wohlbekannte Symbol `Symbol.search`.
 
 {{js_property_attributes(0, 0, 0)}}
 
@@ -38,7 +37,7 @@ Das well-known symbol `Symbol.search`.
 ### Benutzerdefinierte String-Suche
 
 ```js
-class caseInsensitiveSearch {
+class CaseInsensitiveSearch {
   constructor(value) {
     this.value = value.toLowerCase();
   }
@@ -47,7 +46,7 @@ class caseInsensitiveSearch {
   }
 }
 
-console.log("foobar".search(new caseInsensitiveSearch("BaR"))); // 3
+console.log("foobar".search(new CaseInsensitiveSearch("BaR"))); // 3
 ```
 
 ## Spezifikationen

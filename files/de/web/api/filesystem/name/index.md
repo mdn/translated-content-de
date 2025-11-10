@@ -3,14 +3,12 @@ title: "FileSystem: name-Eigenschaft"
 short-title: name
 slug: Web/API/FileSystem/name
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des
-[`FileSystem`](/de/docs/Web/API/FileSystem)-Interfaces zeigt den Namen des Dateisystems an. Dieser
-String ist einzigartig unter allen Dateisystemen, die derzeit von der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) bereitgestellt werden.
+Die schreibgeschützte **`name`**-Eigenschaft der [`FileSystem`](/de/docs/Web/API/FileSystem)-Schnittstelle gibt den Namen des Dateisystems an. Dieser String ist unter allen Dateisystemen, die derzeit durch die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) verfügbar gemacht werden, einzigartig.
 
 ## Wert
 
@@ -33,5 +31,4 @@ Ein String, der den Namen des Dateisystems darstellt.
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [`FileSystem`](/de/docs/Web/API/FileSystem)

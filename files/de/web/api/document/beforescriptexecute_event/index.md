@@ -1,23 +1,23 @@
 ---
-title: "Document: beforescriptexecute Ereignis"
+title: "Dokument: beforescriptexecute-Ereignis"
 short-title: beforescriptexecute
 slug: Web/API/Document/beforescriptexecute_event
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{non-standard_header}}
+{{APIRef("DOM")}}{{non-standard_header}}{{deprecated_header}}
 
-Das `beforescriptexecute` Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, etwa mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}} kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("beforescriptexecute", (event) => {});
+```js-nolint
+addEventListener("beforescriptexecute", (event) => { })
 
-onbeforescriptexecute = (event) => {};
+onbeforescriptexecute = (event) => { }
 ```
 
 ## Ereignistyp
@@ -31,7 +31,7 @@ function starting(e) {
   logMessage(`Starting script with ID: ${e.target.id}`);
 }
 
-document.addEventListener("beforescriptexecute", starting, true);
+document.addEventListener("beforescriptexecute", starting);
 // or
 document.onbeforescriptexecute = starting;
 ```
@@ -40,7 +40,7 @@ document.onbeforescriptexecute = starting;
 
 ## Spezifikationen
 
-Kein Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -48,5 +48,5 @@ Kein Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) Ereignis des `Document`
+- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event)-Ereignis von `Document`
 - [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

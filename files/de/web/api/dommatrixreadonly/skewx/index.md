@@ -3,14 +3,14 @@ title: "DOMMatrixReadOnly: skewX()-Methode"
 short-title: skewX()
 slug: Web/API/DOMMatrixReadOnly/skewX
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `skewX()`-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Anwenden der angegebenen Schertransformation entlang der x-Achse auf die Ausgangsmatrix erstellt wurde. Die ursprüngliche Matrix wird nicht verändert.
+Die `skewX()`-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Anwenden der angegebenen Schertransformation auf die Ausgangsmatrix entlang ihrer x-Achse erstellt wurde. Die Originalmatrix wird nicht verändert.
 
-Um die Matrix beim Scheren entlang der x-Achse zu ändern, siehe [`DOMMatrix.skewXSelf()`](/de/docs/Web/API/DOMMatrix/skewXSelf).
+Um die Matrix zu ändern, während Sie sie entlang der x-Achse scheren, siehe [`DOMMatrix.skewXSelf()`](/de/docs/Web/API/DOMMatrix/skewXSelf).
 
 ## Syntax
 
@@ -36,7 +36,7 @@ console.log(matrix.toString()); // no transform applied
 // "matrix(1, 0, 0, 1, 0, 0)"
 
 console.log(matrix.skewX(14).toString());
-//"matrix(1, 0, 0.25, 1, 0, 0)"
+// "matrix(1, 0, 0.25, 1, 0, 0)"
 
 console.log(matrix.toString()); // original is unchanged
 // "matrix(1, 0, 0, 1, 0, 0)"
@@ -54,7 +54,7 @@ console.log(matrix.toString()); // original is unchanged
 
 - [`DOMMatrixReadOnly.skewY()`](/de/docs/Web/API/DOMMatrixReadOnly/skewY)
 - [`DOMMatrix.skewXSelf()`](/de/docs/Web/API/DOMMatrix/skewXSelf)
-- CSS {{cssxref("transform")}}-Eigenschaft und die {{cssxref("transform-function/skew", "skew()")}}, {{cssxref("transform-function/skewX", "skewX()")}}, und {{cssxref("transform-function/matrix", "matrix()")}}-Funktionen
-- [CSS-Transforms](/de/docs/Web/CSS/CSS_transforms)-Modul
-- SVG [`transform`](/de/docs/Web/SVG/Attribute/transform)-Attribut
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interface's [`transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)-Methode
+- CSS-Eigenschaft {{cssxref("transform")}} und die Funktionen {{cssxref("transform-function/skew", "skew()")}}, {{cssxref("transform-function/skewX", "skewX()")}} und {{cssxref("transform-function/matrix", "matrix()")}}
+- Modul [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms)
+- SVG-Attribut [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)
+- Die Methode [`transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform) der Schnittstelle [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

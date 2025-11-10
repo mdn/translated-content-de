@@ -1,25 +1,23 @@
 ---
-title: Grid Tracks
+title: Grid-Spuren
 slug: Glossary/Grid_Tracks
 l10n:
-  sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+Eine **Grid-Spur** ist der Raum zwischen zwei benachbarten {{Glossary("grid_lines", "Gitterlinien")}}. Sie werden im _expliziten Gitter_ durch die Verwendung der Eigenschaften {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} oder der Abkürzungen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Spuren werden auch im _impliziten Gitter_ erstellt, indem ein Gitterelement außerhalb der im expliziten Gitter erstellten Spuren positioniert wird.
 
-Ein **Grid Track** ist der Raum zwischen zwei benachbarten {{Glossary("grid_lines", "Grid Lines")}}. Diese werden im _expliziten Grid_ durch die Verwendung der {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} Eigenschaften oder der Kurzformen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Tracks werden auch im _impliziten Grid_ erstellt, indem ein Grid-Item außerhalb der im expliziten Grid erstellten Tracks positioniert wird.
+Das untenstehende Bild zeigt die erste Spur einer Zeile in einem Gitter.
 
-Das folgende Bild zeigt den ersten Zeilen-Track auf einem Grid.
+![Diagramm, das eine Grid-Spur zeigt.](1_grid_track.png)
 
-![Diagramm zeigt einen Grid Track.](1_grid_track.png)
+## Spurgrößen im expliziten Gitter
 
-## Track-Sizing im expliziten Grid
-
-Beim Definieren von Grid Tracks mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} können Sie jede beliebige Längeneinheit verwenden sowie die Flex-Einheit `fr`, die einen Anteil des verfügbaren Platzes im Grid-Container angibt.
+Beim Definieren von Grid-Spuren mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} können Sie jede Längeneinheit sowie die Flex-Einheit `fr` verwenden, die einen Teil des verfügbaren Raums im Gitter-Container angibt.
 
 ## Beispiel
 
-Das untenstehende Beispiel demonstriert ein Grid mit drei Spaltentracks, einer mit 200 Pixeln, der zweite mit 1fr, der dritte mit 3fr. Nachdem die 200 Pixel vom verfügbaren Raum im Grid-Container abgezogen wurden, wird der verbleibende Raum durch 4 geteilt. Ein Teil wird Spalte 2 zugewiesen, 3 Teile der Spalte 3.
+Das folgende Beispiel zeigt ein Gitter mit drei Spuren, eine mit 200 Pixeln, die zweite mit 1fr und die dritte mit 3fr. Sobald die 200 Pixel vom im Gitter-Container verfügbaren Raum abgezogen wurden, wird der verbleibende Raum durch 4 geteilt. Ein Teil wird der Spalte 2 zugewiesen, 3 Teile der Spalte 3.
 
 ```css hidden
 * {
@@ -60,16 +58,15 @@ Das untenstehende Beispiel demonstriert ein Grid mit drei Spaltentracks, einer m
 
 {{ EmbedLiveSample('Example', '500', '230') }}
 
-## Track-Sizing im impliziten Grid
+## Spurgrößen im impliziten Gitter
 
-Die im impliziten Grid erstellten Tracks werden standardmäßig automatisch dimensioniert, jedoch können Sie eine Größe für diese Tracks mit den Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} definieren.
+Im impliziten Gitter erstellte Spuren sind standardmäßig automatisch dimensioniert, jedoch können Sie eine Größe für diese Spuren mit den Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} definieren.
 
 ## Siehe auch
 
-- [Grundlagen des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Definition von Grid-Tracks in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
+- [Definition von Grid-Spuren in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
 - Eigenschaftsreferenz
-
   - {{cssxref("grid-template-columns")}}
   - {{cssxref("grid-template-rows")}}
   - {{cssxref("grid")}}

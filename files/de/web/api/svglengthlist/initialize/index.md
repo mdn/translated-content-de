@@ -1,14 +1,14 @@
 ---
-title: "SVGLengthList: initialize()-Methode"
+title: "SVGLengthList: initialize() Methode"
 short-title: initialize()
 slug: Web/API/SVGLengthList/initialize
 l10n:
-  sourceCommit: 39b9de4883b6d7606fd4549c894bbed6aafc7fc2
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interfaces entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten. Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
+Die **`initialize()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene Einzelobjekt aufzunehmen. Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und nicht eine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ initialize(newItem)
 ### Parameter
 
 - `newItem`
-  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt werden soll.
+  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das zur Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt wurde.
+Das [`SVGLength`](/de/docs/Web/API/SVGLength), das zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele

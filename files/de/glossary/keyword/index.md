@@ -1,16 +1,14 @@
 ---
-title: Keyword
+title: Schlüsselwort
 slug: Glossary/Keyword
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Schlüsselwort** ist ein Wort oder eine Phrase, die Inhalte beschreibt. Im Internet werden Schlüsselwörter als Abfragen für Suchmaschinen oder als Worte zur Identifizierung von Inhalten auf Websites verwendet.
 
-Ein **Keyword** ist ein Wort oder Ausdruck, der Inhalte beschreibt. Online-Keywords werden als Abfragen für Suchmaschinen oder als Wörter zur Identifizierung von Inhalten auf Websites verwendet.
-
-Wenn Sie eine Suchmaschine verwenden, nutzen Sie Keywords, um anzugeben, wonach Sie suchen, und die Suchmaschine liefert relevante Webseiten zurück. Für genauere Ergebnisse versuchen Sie spezifischere Keywords, wie "Blauer Mustang GTO" anstelle von "Mustang". Webseiten verwenden auch Keywords in einem Meta-Tag (im {{htmlelement("head")}}-Abschnitt), um den Seiteninhalt zu beschreiben, damit Suchmaschinen Webseiten besser identifizieren und organisieren können.
+Wenn Sie eine Suchmaschine nutzen, verwenden Sie Schlüsselwörter, um anzugeben, wonach Sie suchen. Die Suchmaschine liefert dann relevante Webseiten. Für genauere Ergebnisse sollten Sie spezifischere Schlüsselwörter verwenden, wie zum Beispiel "Blauer Mustang GTO" statt "Mustang". Webseiten verwenden auch Schlüsselwörter in einem Meta-Tag (im {{htmlelement("head")}} Bereich), um den Seiteninhalt zu beschreiben, sodass Suchmaschinen Webseiten besser identifizieren und organisieren können.
 
 ## Siehe auch
 
-- [Keyword](https://en.wikipedia.org/wiki/Keyword_research) auf Wikipedia
+- [Schlüsselwort](https://en.wikipedia.org/wiki/Keyword_research) auf Wikipedia

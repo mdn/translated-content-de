@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: Verwendung von Super-Eigenschaften/-mitgliedern ist nur innerhalb von Methoden oder eval-Code innerhalb von Methoden gültig"
+title: "SyntaxError: Verwendung von Super-Eigenschafts-/Mitgliedszugriffen nur in Methoden oder eval-Code innerhalb von Methoden zulässig"
 slug: Web/JavaScript/Reference/Errors/Bad_super_prop
 l10n:
-  sourceCommit: b736420a8955d6e1ff513735944b3da6b92cf525
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "Verwendung von Super-Eigenschaften/-mitgliedern ist nur innerhalb von Methoden oder eval-Code innerhalb von Methoden gültig" tritt auf, wenn die {{jsxref("Operators/super", "super.x")}} oder `super[x]` Syntax außerhalb einer [Methode](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) verwendet wird.
+Der JavaScript-Fehler "Verwendung von Super-Eigenschafts-/Mitgliedszugriffen nur in Methoden oder eval-Code innerhalb von Methoden zulässig" tritt auf, wenn die Syntax {{jsxref("Operators/super", "super.x")}} oder `super[x]` außerhalb einer [Methode](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) verwendet wird.
 
 ## Meldung
 
@@ -17,13 +15,13 @@ SyntaxError: use of super property accesses only valid within methods or eval co
 SyntaxError: super is not valid in this context. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Die `super.x` Syntax wird verwendet, um auf Eigenschaften des Prototyps des aktuellen Objekts zuzugreifen. Sie kann in Methoden sowohl von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) als auch von [Klassen](/de/docs/Web/JavaScript/Reference/Classes), [Feldinitialisierern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) und [statischen Initialisierungsblöcken](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, jedoch nicht in anderen Kontexten.
+Die Syntax `super.x` wird verwendet, um auf Eigenschaften im Prototyp des aktuellen Objekts zuzugreifen. Sie kann in Methoden sowohl von [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) als auch von [Klassen](/de/docs/Web/JavaScript/Reference/Classes), [Feldinitialisierern](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) und [statischen Initialisierungsblöcken](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, aber nicht in anderen Kontexten.
 
 ## Beispiele
 
@@ -34,21 +32,21 @@ Sie können `super.x` nicht außerhalb einer Methode in einem Objekt verwenden:
 ```js example-bad
 const obj = {
   __proto__: { x: 1 },
-  x: super.x, // SyntaxError
+  x: super.x, // SyntaxError: use of super property accesses only valid within methods or eval code within methods
 };
 ```
 
-Sie können `super.x` nicht in einer Funktion verwenden, selbst wenn diese Funktion die Wirkung einer Methode hat:
+Sie können `super.x` nicht in einer Funktion verwenden, selbst wenn diese Funktion die Wirkung hat, eine Methode zu sein:
 
 ```js example-bad
 function getX() {
-  return super.x; // SyntaxError
+  return super.x; // SyntaxError: use of super property accesses only valid within methods or eval code within methods
 }
 
 const obj = {
   getX,
   getX2: function () {
-    return super.x; // SyntaxError
+    return super.x; // SyntaxError: use of super property accesses only valid within methods or eval code within methods
   },
 };
 

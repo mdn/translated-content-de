@@ -3,23 +3,23 @@ title: "HTMLTableCellElement: rowSpan-Eigenschaft"
 short-title: rowSpan
 slug: Web/API/HTMLTableCellElement/rowSpan
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 2406bfdc031740afbd500a1fc953a76a4b7f8484
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowSpan`**-Nur-Lese-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces repräsentiert die Anzahl der Zeilen, die diese Zelle überspannen muss; dies ermöglicht es der Zelle, Raum über mehrere Zeilen der Tabelle einzunehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
+Die **`rowSpan`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces gibt die Anzahl der Reihen an, die diese Zelle überspannen muss; damit kann die Zelle Platz über mehrere Reihen der Tabelle hinweg einnehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut wider.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Zeilen darstellt. Wenn sie `0` ist, bedeutet das alle verbleibenden Zeilen in der Spalte.
+Eine positive Zahl, die die Anzahl der Reihen darstellt. Wenn sie `0` ist, bedeutet dies alle verbleibenden Reihen in der Spalte.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird ein Wert, der ungleich 0 ist, auf die nächstgelegene, strikt positive Zahl _geklemmt_.
+> Beim Setzen eines neuen Werts wird ein Wert, der nicht 0 ist, auf die nächste strikt positive Zahl _begrenz_.
 
 ## Beispiele
 
-Dieses Beispiel stellt zwei Schaltflächen bereit, um die Zeilenanzahl der ersten Zelle des Tabellenkörpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Zeilenspanne der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 
@@ -83,17 +83,17 @@ const increaseButton = document.getElementById("increase");
 const decreaseButton = document.getElementById("decrease");
 
 increaseButton.addEventListener("click", () => {
-  cell.rowSpan = cell.rowSpan + 1;
+  cell.rowSpan += 1;
 
   // Update the display
   output.textContent = cell.rowSpan;
 });
 
 decreaseButton.addEventListener("click", () => {
-  cell.rowSpan = cell.rowSpan - 1;
+  cell.rowSpan -= 1;
 
   // Update the display
-  output.textContent = `${cell.rowSpan == 0 ? "all remaining" : cell.rowSpan}`;
+  output.textContent = `${cell.rowSpan === 0 ? "all remaining" : cell.rowSpan}`;
 });
 ```
 

@@ -1,37 +1,37 @@
 ---
-title: Kompilierung von Rust zu WebAssembly
+title: Kompilieren von Rust zu WebAssembly
 slug: WebAssembly/Guides/Rust_to_Wasm
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
-Wenn Sie etwas Rust-Code haben, können Sie ihn in [WebAssembly](/de/docs/WebAssembly) (Wasm) kompilieren. Dieses Tutorial zeigt Ihnen, wie Sie ein Rust-Projekt in WebAssembly kompilieren und es in einer bestehenden Webanwendung verwenden können.
+Wenn Sie etwas Rust-Code geschrieben haben, können Sie ihn in [WebAssembly](/de/docs/WebAssembly) (Wasm) kompilieren. In diesem Tutorial erfahren Sie, wie Sie ein Rust-Projekt in WebAssembly kompilieren und in einer bestehenden Web-App verwenden.
 
 ## Anwendungsfälle für Rust und WebAssembly
 
 Es gibt zwei Hauptanwendungsfälle für Rust und WebAssembly:
 
-- Eine komplette Anwendung erstellen — eine gesamte Webanwendung, die in Rust basiert.
-- Einen Teil einer Anwendung erstellen — Rust in einem bestehenden JavaScript-Frontend verwenden.
+- Erstellen einer gesamten Anwendung — eine komplette Web-App, die auf Rust basiert.
+- Erstellen eines Teils einer Anwendung — Verwenden von Rust in einem bestehenden JavaScript-Frontend.
 
-Derzeit konzentriert sich das Rust-Team auf den zweiten Fall, und genau darauf gehen wir hier ein. Für den ersten Fall schauen Sie sich Projekte wie [`yew`](https://github.com/yewstack/yew) und [leptos](https://github.com/leptos-rs/leptos) an.
+Derzeit konzentriert sich das Rust-Team auf den letzteren Fall, und das behandeln wir hier. Für den ersten Fall schauen Sie sich Projekte wie [`yew`](https://github.com/yewstack/yew) und [leptos](https://github.com/leptos-rs/leptos) an.
 
-In diesem Tutorial erstellen wir ein Paket mit `wasm-pack`, einem Werkzeug zum Erstellen von JavaScript-Paketen in Rust. Dieses Paket wird nur WebAssembly- und JavaScript-Code enthalten, sodass Benutzer Rust nicht installiert haben müssen. Sie merken möglicherweise nicht einmal, dass es in Rust geschrieben ist.
+In diesem Tutorial erstellen wir ein Paket mit `wasm-pack`, einem Tool zur Erstellung von JavaScript-Paketen in Rust. Dieses Paket enthält nur WebAssembly- und JavaScript-Code, sodass Benutzer Rust nicht installiert haben müssen. Sie werden möglicherweise nicht einmal bemerken, dass es in Rust geschrieben ist.
 
 ## Rust-Umgebung einrichten
 
-Wir beginnen mit dem Einrichten der notwendigen Umgebung.
+Wir beginnen mit der Einrichtung der notwendigen Umgebung.
 
 ### Rust installieren
 
-Installieren Sie Rust, indem Sie die Seite [Install Rust](https://www.rust-lang.org/tools/install) aufrufen und den Anweisungen folgen. Dadurch wird ein Tool namens "rustup" installiert, mit dem Sie mehrere Versionen von Rust verwalten können. Standardmäßig wird die neueste stabile Rust-Version installiert, die Sie für die allgemeine Rust-Entwicklung verwenden können. Rustup installiert `rustc`, den Rust-Compiler, `cargo`, Rusts Paketmanager, `rust-std`, Rusts Standardbibliotheken, und einige hilfreiche Dokumentationen — `rust-docs`.
+Installieren Sie Rust, indem Sie die Seite [Install Rust](https://rust-lang.org/tools/install/) besuchen und den Anweisungen folgen. Dadurch wird ein Tool namens "rustup" installiert, mit dem Sie mehrere Versionen von Rust verwalten können. Standardmäßig wird die neueste stabile Rust-Version installiert, die Sie für die allgemeine Rust-Entwicklung verwenden können. Rustup installiert `rustc`, den Rust-Compiler, `cargo`, Rusts Paketmanager, `rust-std`, Rusts Standardbibliotheken, und einige hilfreiche Dokumentationen — `rust-docs`.
 
 > [!NOTE]
-> Achten Sie auf die Nachricht nach der Installation über das Erfordernis, das `bin`-Verzeichnis von Cargo in Ihrem System-`PATH` zu haben. Dies wird automatisch hinzugefügt, aber Sie müssen Ihr Terminal neu starten, damit es wirksam wird.
+> Achten Sie auf die Nachinstallationshinweise bezüglich des `bin`-Verzeichnisses von cargo, das in Ihrem System-`PATH` benötigt wird. Dies wird automatisch hinzugefügt, aber Sie müssen Ihr Terminal neu starten, damit es wirksam wird.
 
 ### wasm-pack
 
-Um das Paket zu erstellen, benötigen wir ein zusätzliches Werkzeug, `wasm-pack`. Dies hilft beim Kompilieren des Codes zu WebAssembly und produziert die richtige Verpackung für die Verwendung im Browser. Um es herunterzuladen und zu installieren, geben Sie den folgenden Befehl in Ihr Terminal ein:
+Um das Paket zu erstellen, benötigen wir ein zusätzliches Tool, `wasm-pack`. Dieses hilft dabei, den Code in WebAssembly zu kompilieren und die richtige Verpackung für die Verwendung im Browser zu erstellen. Um es herunterzuladen und zu installieren, geben Sie den folgenden Befehl in Ihr Terminal ein:
 
 ```bash
 cargo install wasm-pack
@@ -39,13 +39,13 @@ cargo install wasm-pack
 
 ## Unser WebAssembly-Paket erstellen
 
-Genug der Einrichtung; erstellen wir ein neues Paket in Rust. Navigieren Sie zu dem Verzeichnis, in dem Sie Ihre Projekte speichern, und geben Sie Folgendes ein:
+Genug vorbereitet; lassen Sie uns ein neues Paket in Rust erstellen. Navigieren Sie zu dem Ort, an dem Sie Ihre Projekte speichern, und geben Sie Folgendes ein:
 
 ```bash
 cargo new --lib hello-wasm
 ```
 
-Dies erstellt eine neue Bibliothek in einem Unterverzeichnis namens `hello-wasm` mit allem, was Sie zum Loslegen benötigen:
+Dies erstellt eine neue Bibliothek in einem Unterverzeichnis namens `hello-wasm` mit allem, was Sie benötigen, um loszulegen:
 
 ```plain
 ├── Cargo.toml
@@ -53,7 +53,7 @@ Dies erstellt eine neue Bibliothek in einem Unterverzeichnis namens `hello-wasm`
     └── lib.rs
 ```
 
-`Cargo.toml` ist die Datei, die unsere Erstellung konfiguriert. Sie funktioniert ähnlich wie `Gemfile` von Bundler oder `package.json` von npm.
+`Cargo.toml` ist die Datei, die unser Build konfiguriert. Sie funktioniert ähnlich wie `Gemfile` von Bundler oder `package.json` von npm.
 
 Cargo hat auch etwas Rust-Code für uns in `src/lib.rs` generiert:
 
@@ -74,9 +74,9 @@ mod tests {
 }
 ```
 
-### Lassen Sie uns etwas Rust schreiben
+### Schreiben wir etwas Rust
 
-Wir werden den generierten Code in `src/lib.rs` nicht verwenden; ersetzen Sie ihn durch den folgenden:
+Wir werden den generierten Code in `src/lib.rs`, der oben gezeigt wird, nicht verwenden; ersetzen Sie ihn durch Folgendes:
 
 ```rust
 use wasm_bindgen::prelude::*;
@@ -92,9 +92,9 @@ pub fn greet(name: &str) {
 }
 ```
 
-Unser Rust-Code hat drei Hauptteile; lassen Sie uns über jeden einzeln sprechen. Wir geben hier eine allgemeine Erklärung, und überfliegen einige Details; um mehr über Rust zu erfahren, lesen Sie bitte das kostenlose Online-Buch [The Rust Programming Language](https://doc.rust-lang.org/book/).
+Unser Rust-Code hat drei Hauptteile; lassen Sie uns jeden der Reihe nach betrachten. Wir geben hier eine allgemeine Erklärung und überfliegen einige Details; um mehr über Rust zu erfahren, lesen Sie bitte das kostenlose Online-Buch [The Rust Programming Language](https://doc.rust-lang.org/book/).
 
-#### Verwendung von `wasm-bindgen` zur Kommunikation zwischen Rust und JavaScript
+#### Verwenden von `wasm-bindgen` zur Kommunikation zwischen Rust und JavaScript
 
 Der erste Teil sieht so aus:
 
@@ -102,19 +102,19 @@ Der erste Teil sieht so aus:
 use wasm_bindgen::prelude::*;
 ```
 
-Bibliotheken werden in Rust "Crates" genannt.
+Bibliotheken werden in Rust als "Crates" bezeichnet.
 
 Verstanden? _Cargo_ verschifft _Crates_.
 
-Die erste Zeile enthält einen `use`-Befehl, der Code aus einer Bibliothek in Ihren Code importiert. In diesem Fall importieren wir alles im `wasm_bindgen::prelude`-Modul. Diese Funktionen verwenden wir im nächsten Abschnitt.
+Die erste Zeile enthält einen `use`-Befehl, der Code aus einer Bibliothek in Ihren Code importiert. In diesem Fall importieren wir alles im Modul `wasm_bindgen::prelude`. Wir verwenden diese Funktionen im nächsten Abschnitt.
 
 Bevor wir zum nächsten Abschnitt übergehen, sollten wir mehr über `wasm-bindgen` sprechen.
 
-`wasm-pack` verwendet `wasm-bindgen`, ein weiteres Tool, um eine Brücke zwischen den Typen von JavaScript und Rust bereitzustellen. Es ermöglicht JavaScript, eine Rust-API mit einem String aufzurufen, oder eine Rust-Funktion, eine JavaScript-Ausnahme abzufangen.
+`wasm-pack` verwendet `wasm-bindgen`, ein weiteres Tool, um eine Brücke zwischen den Typen von JavaScript und Rust zu bieten. Es ermöglicht JavaScript, eine Rust-API mit einem String aufzurufen, oder eine Rust-Funktion, um eine JavaScript-Ausnahme abzufangen.
 
-Wir verwenden `wasm-bindgen`'s Funktionalität in unserem Paket. Tatsächlich ist das der nächste Abschnitt.
+Wir nutzen die Funktionalität von `wasm-bindgen` in unserem Paket. Tatsächlich ist das der nächste Abschnitt.
 
-#### Externe Funktionen in JavaScript von Rust aus aufrufen
+#### Aufrufen externer Funktionen in JavaScript aus Rust
 
 Der nächste Teil sieht so aus:
 
@@ -125,15 +125,15 @@ extern "C" {
 }
 ```
 
-Der Teil innerhalb der `#[ ]` wird als "Attribut" bezeichnet und modifiziert die nächste Anweisung in irgendeiner Weise. In diesem Fall, ist diese Anweisung ein `extern`, welches Rust sagt, dass wir einige extern definierte Funktionen aufrufen möchten. Das Attribut sagt "wasm-bindgen weiß, wie man diese Funktionen findet".
+Der Abschnitt innerhalb der `#[ ]` wird als "Attribut" bezeichnet und modifiziert die nächste Anweisung irgendwie. In diesem Fall ist diese Anweisung ein `extern`, wodurch Rust mitgeteilt wird, dass wir einige extern definierte Funktionen aufrufen möchten. Das Attribut sagt "wasm-bindgen weiß, wie man diese Funktionen findet".
 
-Die dritte Zeile ist eine Funktionssignatur, geschrieben in Rust. Sie sagt "die `alert`-Funktion benötigt ein Argument, einen String namens `s`."
+Die dritte Zeile ist eine Funktionssignatur, die in Rust geschrieben ist. Sie besagt, dass die `alert`-Funktion ein Argument nimmt, einen String mit dem Namen `s`.
 
-Wie Sie vermuten könnten, ist dies die [`alert`-Funktion, die von JavaScript bereitgestellt wird](/de/docs/Web/API/Window/alert). Wir rufen diese Funktion im nächsten Abschnitt auf.
+Wie Sie vielleicht vermuten, ist dies [die `alert`-Funktion, die von JavaScript bereitgestellt wird](/de/docs/Web/API/Window/alert). Wir rufen diese Funktion im nächsten Abschnitt auf.
 
 Immer wenn Sie JavaScript-Funktionen aufrufen möchten, können Sie sie zu dieser Datei hinzufügen, und `wasm-bindgen` richtet alles für Sie ein. Noch nicht alles wird unterstützt, aber wir arbeiten daran. Bitte [melden Sie Fehler](https://github.com/rustwasm/wasm-bindgen/issues/new), wenn etwas fehlt.
 
-#### Rust-Funktionen produzieren, die von JavaScript aufgerufen werden können
+#### Erstellen von Rust-Funktionen, die JavaScript aufrufen kann
 
 Der letzte Teil ist dieser:
 
@@ -144,19 +144,19 @@ pub fn greet(name: &str) {
 }
 ```
 
-Wieder einmal sehen wir das `#[wasm_bindgen]`-Attribut. In diesem Fall modifiziert es keinen `extern`-Block, sondern ein `fn`; das bedeutet, dass wir wollen, dass diese Rust-Funktion von JavaScript aufgerufen werden kann. Es ist das Gegenteil von `extern`: dies sind nicht die Funktionen, die wir benötigen, sondern die Funktionen, die wir in die Welt hinausgeben.
+Erneut sehen wir das `#[wasm_bindgen]`-Attribut. In diesem Fall modifiziert es nicht einen `extern`-Block, sondern einen `fn`; das bedeutet, dass wir möchten, dass diese Rust-Funktion von JavaScript aufgerufen werden kann. Es ist das Gegenteil von `extern`: dies sind nicht die Funktionen, die wir brauchen, sondern die Funktionen, die wir der Welt zur Verfügung stellen.
 
-Diese Funktion heißt `greet` und benötigt ein Argument, einen String (geschrieben `&str`), `name`. Sie ruft dann die `alert`-Funktion auf, die wir im obigen `extern`-Block angefordert haben. Sie übergibt einen Aufruf des `format!`-Macros, der es uns ermöglicht, Strings zu verketten.
+Diese Funktion heißt `greet` und nimmt ein Argument, einen String (geschrieben `&str`), `name`. Sie ruft dann die `alert`-Funktion auf, die wir im `extern`-Block zuvor angefordert haben. Sie übergibt einen Aufruf des `format!`-Makros, das es uns ermöglicht, Strings zu verketten.
 
-Das `format!`-Macro benötigt in diesem Fall zwei Argumente: einen Format-String und eine Variable, die darin eingesetzt wird. Der Format-String ist der `"Hello, {}!"`-Teil. Er enthält `{}`s, wo Variablen interpoliert werden. Die Variable, die wir übergeben, ist `name`, das Argument der Funktion, also wenn wir `greet("Steve")` aufrufen, sollten wir `"Hello, Steve!"` sehen.
+Das `format!`-Makro nimmt in diesem Fall zwei Argumente: einen Formatstring und eine Variable, die darin eingesetzt wird. Der Formatstring ist das `"Hello, {}!"`-Element. Es enthält `{}`s, wo Variablen interpoliert werden. Die Variable, die wir übergeben, ist `name`, das Argument für die Funktion, sodass wenn wir `greet("Steve")` aufrufen, wir `"Hello, Steve!"` sehen sollten.
 
-Dies wird an `alert()` übergeben, sodass beim Aufrufen dieser Funktion ein Alert-Fenster mit "Hello, Steve!" angezeigt wird.
+Dies wird an `alert()` übergeben, sodass wenn wir diese Funktion aufrufen, ein Alert-Box mit "Hello, Steve!" darin erscheint.
 
-Jetzt, da unsere Bibliothek geschrieben ist, lass uns sie kompilieren.
+Jetzt, da unsere Bibliothek geschrieben ist, lassen Sie uns sie kompilieren.
 
-### Unsere Code zu WebAssembly kompilieren
+### Kompilieren unseres Codes zu WebAssembly
 
-Um unseren Code korrekt zu kompilieren, konfigurieren wir ihn zunächst mit `Cargo.toml`. Öffnen Sie diese Datei und ändern Sie den Inhalt, sodass er folgendermaßen aussieht:
+Um unseren Code korrekt zu kompilieren, müssen wir ihn zuerst mit `Cargo.toml` konfigurieren. Öffnen Sie diese Datei und ändern Sie ihren Inhalt, sodass er so aussieht:
 
 ```toml
 [package]
@@ -175,15 +175,15 @@ crate-type = ["cdylib"]
 wasm-bindgen = "0.2"
 ```
 
-Füllen Sie Ihr eigenes Repository aus und verwenden Sie dieselben Informationen, die `git` für das `authors`-Feld verwendet.
+Füllen Sie Ihre eigene Repository-Informationen aus und verwenden Sie dieselben Angaben wie `git` für das `authors`-Feld.
 
-Der große Teil, den wir hinzufügen, ist `[package]`. Der `[lib]`-Teil sagt Rust, dass es eine `cdylib`-Version unseres Pakets erstellen soll; wir gehen in diesem Tutorial nicht darauf ein, was das bedeutet. Für mehr Informationen konsultieren Sie die [Cargo](https://doc.rust-lang.org/cargo/guide/) und [Rust Linkage](https://doc.rust-lang.org/reference/linkage.html) Dokumentationen.
+Der große Teil zur Ergänzung ist der `[package]`. Der `[lib]`-Teil sagt Rust, dass es eine `cdylib`-Version unseres Pakets erstellen soll; wir werden hier nicht darauf eingehen, was das bedeutet. Für mehr Informationen konsultieren Sie die [Cargo](https://doc.rust-lang.org/cargo/guide/) und [Rust Linkage](https://doc.rust-lang.org/reference/linkage.html) Dokumentation.
 
-Der letzte Abschnitt ist der `[dependencies]`-Bereich. Hier sagen wir Cargo, welche Version von `wasm-bindgen` wir abhängen wollen; in diesem Fall ist das jede `0.2.z`-Version (aber nicht `0.3.0` oder höher).
+Der letzte Abschnitt ist der `[dependencies]`-Abschnitt. Hier sagen wir Cargo, welche Version von `wasm-bindgen` wir einbeziehen möchten; in diesem Fall ist das jede `0.2.z`-Version (aber nicht `0.3.0` oder höher).
 
 ### Das Paket erstellen
 
-Jetzt, da wir die Einrichtung abgeschlossen haben, lassen Sie uns das Paket erstellen. Wir verwenden den generierten Code in einem nativen ES-Modul und Node.js. Zu diesem Zweck verwenden wir das [`--target` Argument](https://rustwasm.github.io/docs/wasm-pack/commands/build.html#target) in `wasm-pack build`, um anzugeben, welche Art von WebAssembly und JavaScript generiert wird.
+Jetzt, da wir die Einrichtung abgeschlossen haben, lassen Sie uns das Paket erstellen. Wir werden den generierten Code in einem nativen ES-Modul und Node.js verwenden. Zu diesem Zweck verwenden wir das [`--target` Argument](https://rustwasm.github.io/docs/wasm-pack/commands/build.html#target) in `wasm-pack build`, um anzugeben, welche Art von WebAssembly und JavaScript generiert wird.
 
 Führen Sie zunächst den folgenden Befehl in Ihrem `hello-wasm`-Verzeichnis aus:
 
@@ -191,19 +191,20 @@ Führen Sie zunächst den folgenden Befehl in Ihrem `hello-wasm`-Verzeichnis aus
 wasm-pack build --target web
 ```
 
-Dies erledigt mehrere Dinge. Um mehr darüber zu erfahren, lesen Sie [diesen Blogbeitrag auf Mozilla Hacks](https://hacks.mozilla.org/2018/04/hello-wasm-pack/). Kurz gesagt, `wasm-pack build`:
+Dies tut mehrere Dinge. Um mehr darüber zu erfahren, lesen Sie diesen [Blogbeitrag auf Mozilla Hacks](https://hacks.mozilla.org/2018/04/hello-wasm-pack/). Kurz gesagt, `wasm-pack build`:
 
 1. Kompiliert Ihren Rust-Code zu WebAssembly.
-2. Führt `wasm-bindgen` auf diesem WebAssembly aus, um eine JavaScript-Datei zu generieren, die diese WebAssembly-Datei in ein Modul verpackt, das der Browser verstehen kann.
-3. Erstellt ein `pkg`-Verzeichnis und verschiebt diese JavaScript-Datei und Ihren WebAssembly-Code hinein.
-4. Liest Ihre `Cargo.toml` und produziert ein äquivalentes `package.json`.
-5. Kopiert Ihre `README.md` (falls Sie eine haben) in das Paket.
+2. Führt `wasm-bindgen` auf diesem WebAssembly aus und generiert eine JavaScript-Datei, die dieses WebAssembly-File zu einem für den Browser verständlichen Modul umschließt.
+3. Erstellt ein `pkg`-Verzeichnis und verschiebt diese JavaScript-Datei und Ihren WebAssembly-Code dorthin.
+4. Liest Ihre `Cargo.toml`-Datei und erstellt ein entsprechendes `package.json`.
+5. Kopiert Ihre `README.md` (falls vorhanden) in das Paket.
 
 Das Endergebnis? Sie haben ein Paket im `pkg`-Verzeichnis.
 
 ## Das Paket im Web verwenden
 
-Nun, da wir ein kompiliertes Wasm-Modul haben, lassen Sie es uns im Browser ausführen. Erstellen Sie eine Datei namens `index.html` im Stammverzeichnis des Projekts, sodass wir die folgende Projektstruktur haben:
+Jetzt, da wir ein kompiliertes Wasm-Modul haben, lassen Sie es uns im Browser ausführen.
+Beginnen wir damit, eine Datei namens `index.html` im Stammverzeichnis des Projekts zu erstellen, sodass wir die folgende Projektstruktur erhalten:
 
 ```plain
 ├── Cargo.lock
@@ -223,7 +224,7 @@ Nun, da wir ein kompiliertes Wasm-Modul haben, lassen Sie es uns im Browser ausf
     └── wasm32-unknown-unknown
 ```
 
-Fügen Sie den folgenden Inhalt in die Datei `index.html` ein:
+Fügen Sie den folgenden Inhalt in die `index.html`-Datei ein:
 
 ```html
 <!doctype html>
@@ -235,6 +236,7 @@ Fügen Sie den folgenden Inhalt in die Datei `index.html` ein:
   <body>
     <script type="module">
       import init, { greet } from "./pkg/hello_wasm.js";
+
       init().then(() => {
         greet("WebAssembly");
       });
@@ -243,34 +245,38 @@ Fügen Sie den folgenden Inhalt in die Datei `index.html` ein:
 </html>
 ```
 
-Das Skript in dieser Datei wird den JavaScript-Klebecode importieren, das Wasm-Modul initialisieren und die `greet`-Funktion aufrufen, die wir in Rust geschrieben haben.
+Das Skript in dieser Datei importiert den JavaScript-Leimcode, initialisiert das Wasm-Modul und ruft die `greet`-Funktion auf, die wir in Rust geschrieben haben.
 
-Bedienen Sie das Projektverzeichnis mit einem lokalen Webserver (z. B. `python3 -m http.server`). Wenn Sie nicht wissen, wie das geht, lesen Sie [Einrichten eines einfachen lokalen HTTP-Servers](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_a_simple_local_http_server).
+Servern Sie das Projekt-Stammverzeichnis mit einem lokalen Webserver (z.B. `python3 -m http.server`). Wenn Sie nicht sicher sind, wie das geht, lesen Sie [Einen einfachen lokalen HTTP-Server ausführen](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_a_simple_local_http_server).
 
 > [!NOTE]
-> Verwenden Sie einen aktuellen Webserver, der den `application/wasm` MIME-Typ unterstützt. Ältere Webserver unterstützen dies möglicherweise noch nicht.
+> Verwenden Sie einen aktuellen Webserver, der den MIME-Typ `application/wasm` unterstützt. Ältere Webserver könnten ihn noch nicht unterstützen.
 
-Laden Sie `index.html` vom Webserver (wenn Sie das Python3-Beispiel verwendet haben: `http://localhost:8000`). Ein Alert-Fenster mit dem Text `Hello, WebAssembly!` erscheint auf dem Bildschirm. Wir haben erfolgreich von JavaScript in Rust und von Rust in JavaScript aufgerufen.
+Laden Sie `index.html` vom Webserver (wenn Sie das Python3-Beispiel verwendet haben: `http://localhost:8000`). Ein Alert-Fenster erscheint auf dem Bildschirm, das `Hello, WebAssembly!` enthält. Wir haben erfolgreich von JavaScript nach Rust und von Rust nach JavaScript aufgerufen.
 
-## Unser Paket für npm verfügbar machen
+## Unser Paket für npm bereitstellen
 
 Wir erstellen ein npm-Paket, daher müssen Sie Node.js und npm installiert haben.
 
-Um Node.js und npm zu erhalten, gehen Sie zur [Get npm!](https://docs.npmjs.com/getting-started/) Seite und folgen Sie den Anweisungen. Dieses Tutorial zielt auf Node 20 ab. Um zwischen Node-Versionen zu wechseln, können Sie [nvm](https://github.com/nvm-sh/nvm) verwenden.
+Um Node.js und npm zu erhalten, besuchen Sie die Seite [Get npm!](https://docs.npmjs.com/getting-started/) und folgen Sie den Anweisungen.
+Dieses Tutorial zielt auf Node 20 ab. Um zwischen Node-Versionen zu wechseln, können Sie [nvm](https://github.com/nvm-sh/nvm) verwenden.
 
-Um das WebAssembly-Modul mit npm zu verwenden, müssen wir einige Änderungen vornehmen. Lassen Sie uns beginnen, indem wir unser Rust mit der `bundler`-Option als Ziel neu kompilieren:
+Um das WebAssembly-Modul mit npm zu verwenden, müssen wir einige Änderungen vornehmen.
+Lassen Sie uns damit beginnen, unser Rust mit der `bundler`-Option als Ziel neu zu kompilieren:
 
 ```bash
 wasm-pack build --target bundler
 ```
 
-Wir haben jetzt ein npm-Paket, das in Rust geschrieben, aber in WebAssembly kompiliert wurde. Es ist bereit für die Nutzung durch JavaScript und erfordert nicht, dass der Benutzer Rust installiert hat; der enthaltene Code war der WebAssembly-Code, nicht der Rust-Quelltext.
+Wir haben jetzt ein npm-Paket, das in Rust geschrieben, aber zu WebAssembly kompiliert wurde. Es ist bereit zur Verwendung von JavaScript und erfordert nicht, dass der Benutzer Rust installiert hat; der enthaltene Code ist der WebAssembly-Code, nicht der Rust-Quellcode.
 
 ### Das npm-Paket im Web verwenden
 
-Lassen Sie uns eine Website erstellen, die unser neues npm-Paket verwendet. Viele Leute verwenden npm-Pakete über verschiedene Bundler-Tools, und wir verwenden eines davon, `webpack`, in diesem Tutorial. Es ist nur ein wenig komplex und zeigt einen realistischen Anwendungsfall.
+Lassen Sie uns eine Website erstellen, die unser neues npm-Paket nutzt. Viele Leute verwenden npm-Pakete über verschiedene Bundler-Tools, und wir werden in diesem Tutorial eines davon, `webpack`, verwenden. Es ist nur ein wenig komplex und zeigt einen realistischen Anwendungsfall.
 
-Erstellen Sie ein neues Verzeichnis im `hello-wasm`-Verzeichnis namens `site`, um es auszuprobieren. Wir haben das Paket noch nicht im npm-Registry veröffentlicht, sodass wir es von einer lokalen Version mit `npm i /path/to/package` installieren können. Sie können [`npm link`](https://docs.npmjs.com/cli/v10/commands/npm-link/) verwenden, aber die Installation von einem lokalen Pfad ist bequem für diese Demo:
+Lassen Sie uns ein neues Verzeichnis im `hello-wasm`-Verzeichnis namens `site` erstellen, um es auszuprobieren.
+Wir haben das Paket noch nicht im npm-Registry veröffentlicht, daher können wir es aus einer lokalen Version mit `npm i /path/to/package` installieren.
+Sie können [`npm link`](https://docs.npmjs.com/cli/v10/commands/npm-link/) verwenden, aber die Installation aus einem lokalen Pfad ist für diese Demo praktisch:
 
 ```bash
 mkdir site && cd site
@@ -283,7 +289,7 @@ Installieren Sie die `webpack` Dev-Abhängigkeiten:
 npm i -D webpack@5 webpack-cli@5 webpack-dev-server@5 copy-webpack-plugin@12
 ```
 
-Als nächstes müssen wir webpack konfigurieren. Erstellen Sie `webpack.config.js` und fügen Sie Folgendes ein:
+Als Nächstes müssen wir webpack konfigurieren. Erstellen Sie `webpack.config.js` und fügen Sie Folgendes ein:
 
 ```js
 const CopyPlugin = require("copy-webpack-plugin");
@@ -307,7 +313,7 @@ module.exports = {
 };
 ```
 
-In Ihrem `package.json` können Sie `build` und `serve`-Skripte hinzufügen, die webpack mit der Konfigurationsdatei ausführen, die wir gerade erstellt haben:
+In Ihrer `package.json` können Sie `build`- und `serve`-Skripte hinzufügen, die webpack mit der gerade erstellten Konfigurationsdatei ausführen:
 
 ```json
 {
@@ -327,7 +333,7 @@ In Ihrem `package.json` können Sie `build` und `serve`-Skripte hinzufügen, die
 }
 ```
 
-Erstellen Sie als nächstes eine Datei namens `index.js`, und geben Sie ihr diesen Inhalt:
+Erstellen Sie als nächstes eine Datei namens `index.js` und geben Sie ihr diesen Inhalt:
 
 ```js
 import * as wasm from "hello-wasm";
@@ -335,7 +341,7 @@ import * as wasm from "hello-wasm";
 wasm.greet("WebAssembly with npm");
 ```
 
-Dies importiert das Modul aus dem `node_modules`-Ordner und ruft die `greet`-Funktion auf, indem es `"WebAssembly with npm"` als String übergibt. Beachten Sie, dass hier nichts Besonderes ist, obwohl wir in Rust-Code aufrufen. So weit das JavaScript-Code befassen kann, handelt es sich um ein normales Modul.
+Dies importiert das Modul aus dem `node_modules`-Ordner und ruft die `greet`-Funktion auf, wobei `"WebAssembly with npm"` als String übergeben wird. Beachten Sie, dass hier nichts Besonderes ist, dennoch rufen wir in Rust-Code auf. Aus Sicht des JavaScript-Codes ist dies einfach nur ein normales Modul.
 
 Schließlich müssen wir eine HTML-Datei hinzufügen, um das JavaScript zu laden. Erstellen Sie eine `index.html`-Datei und fügen Sie Folgendes hinzu:
 
@@ -352,7 +358,7 @@ Schließlich müssen wir eine HTML-Datei hinzufügen, um das JavaScript zu laden
 </html>
 ```
 
-Das `hello-wasm/site`-Verzeichnis sollte so aussehen:
+Das `hello-wasm/site`-Verzeichnis sollte folgendermaßen aussehen:
 
 ```plain
 ├── node_modules
@@ -363,7 +369,7 @@ Das `hello-wasm/site`-Verzeichnis sollte so aussehen:
 └── webpack.config.js
 ```
 
-Wir sind fertig mit der Erstellung der Dateien. Versuchen wir es:
+Wir sind mit dem Erstellen der Dateien fertig. Lassen Sie uns das ausprobieren:
 
 ```bash
 npm run serve
@@ -371,7 +377,7 @@ npm run serve
 
 Dies startet einen Webserver und öffnet `http://localhost:8080`. Sie sollten ein Alert-Fenster auf dem Bildschirm sehen, das den Text `Hello, WebAssembly with npm!` enthält. Wir haben das Rust-Modul erfolgreich mit npm verwendet!
 
-Wenn Sie möchten, können Sie Ihr WebAssembly außerhalb der lokalen Entwicklung verwenden, indem Sie das Paket mit den Befehlen `pack` und `publish` im `hello-wasm`-Verzeichnis veröffentlichen:
+Wenn Sie Ihr WebAssembly außerhalb der lokalen Entwicklung nutzen möchten, können Sie das Paket mit den Befehlen `pack` und `publish` im `hello-wasm`-Verzeichnis veröffentlichen:
 
 ```bash
 wasm-pack pack
@@ -388,7 +394,8 @@ hello-wasm-0.1.0.tgz
 [INFO]: 🎒  packed up your package!
 ```
 
-Um bei npm zu veröffentlichen, benötigen Sie ein [npm Konto](https://www.npmjs.com/) und autorisieren Ihre Maschine mit [`npm adduser`](https://docs.npmjs.com/cli/v10/commands/npm-adduser/). Wenn Sie bereit sind, können Sie mit `wasm-pack` veröffentlichen, das `npm publish` im Hintergrund aufruft:
+Um auf npm zu veröffentlichen, benötigen Sie ein [npm-Konto](https://www.npmjs.com/) und müssen Ihren Rechner mit [`npm adduser`](https://docs.npmjs.com/cli/v10/commands/npm-adduser/) autorisieren.
+Wenn Sie bereit sind, können Sie mit `wasm-pack` veröffentlichen, das `npm publish` im Hintergrund aufruft:
 
 ```bash
 wasm-pack publish
@@ -396,6 +403,6 @@ wasm-pack publish
 
 ## Fazit
 
-Dies ist das Ende unseres Tutorials; wir hoffen, dass Sie es nützlich fanden.
+Dies ist das Ende unseres Tutorials; wir hoffen, es war nützlich für Sie.
 
-Es gibt viele aufregende Arbeiten in diesem Bereich; wenn Sie helfen möchten, es noch besser zu machen, schauen Sie sich die [Rust und WebAssembly Arbeitsgruppe](https://github.com/rustwasm/team/blob/master/README.md#get-involved) an.
+In diesem Bereich gibt es viele spannende Arbeiten; wenn Sie dazu beitragen möchten, es noch besser zu machen, schauen Sie bei der [Rust und WebAssembly Arbeitsgruppe](https://github.com/rustwasm/team/blob/master/README.md#get-involved) vorbei.

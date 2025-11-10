@@ -1,13 +1,12 @@
 ---
 title: Atomics.store()
+short-title: store()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/store
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.store()`** speichert einen angegebenen Wert an einer angegebenen Position im Array und gibt diesen Wert zurück.
+Die statische Methode **`Atomics.store()`** speichert einen gegebenen Wert an der angegebenen Position im Array und gibt diesen Wert zurück.
 
 {{InteractiveExample("JavaScript Demo: Atomics.store()")}}
 
@@ -33,13 +32,13 @@ Atomics.store(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-getyptes Array. Eine von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
     {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der der
-    `value` gespeichert wird.
+  - : Die Position im `typedArray`, an der ein
+    `value` gespeichert werden soll.
 - `value`
   - : Die Zahl, die gespeichert werden soll.
 
@@ -52,7 +51,7 @@ Der Wert, der gespeichert wurde.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` im `typedArray` außerhalb des gültigen Bereichs liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb des gültigen Bereichs im `typedArray` liegt.
 
 ## Beispiele
 

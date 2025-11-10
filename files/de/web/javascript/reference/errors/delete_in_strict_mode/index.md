@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: Die Anwendung des 'delete'-Operators auf einen unqualifizierten Namen ist veraltet"
+title: "SyntaxError: Die Anwendung des 'delete'-Operators auf einen nicht qualifizierten Namen ist veraltet"
 slug: Web/JavaScript/Reference/Errors/Delete_in_strict_mode
 l10n:
-  sourceCommit: d71b141d2d18b96639547856714df19cefacfebf
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-[Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)-ausgelöste Ausnahme "Die Anwendung des 'delete'-Operators auf einen unqualifizierten Namen ist veraltet" tritt auf, wenn versucht wird, Variablen mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator zu löschen.
+Die JavaScript-[strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-spezifische Ausnahme „Die Anwendung des 'delete'-Operators auf einen nicht qualifizierten Namen ist veraltet" tritt auf, wenn versucht wird, Variablen mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator zu löschen.
 
 ## Nachricht
 
@@ -19,23 +17,23 @@ SyntaxError: Cannot delete unqualified property 'a' in strict mode. (Safari)
 
 ## Fehlertyp
 
-{{jsxref("SyntaxError")}} nur im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
+{{jsxref("SyntaxError")}} nur im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
 ## Was ist schiefgelaufen?
 
-Normale Variablen in JavaScript können mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator nicht gelöscht werden. Im Strict-Modus führt der Versuch, eine Variable zu löschen, zu einem Fehler und ist nicht erlaubt.
+Normale Variablen in JavaScript können nicht mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator gelöscht werden. Im strict mode führt ein Löschversuch einer Variablen zu einem Fehler und ist nicht erlaubt.
 
 Der `delete`-Operator kann nur Eigenschaften eines Objekts löschen. Objekteigenschaften sind "qualifiziert", wenn sie konfigurierbar sind.
 
-Entgegen der weit verbreiteten Annahme hat der `delete`-Operator **nichts** direkt mit der Freigabe von Speicher zu tun. Die Speicherverwaltung erfolgt indirekt durch das Entfernen von Referenzen, siehe die Seite zur [Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management) und die Seite zum [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operator für weitere Details.
+Im Gegensatz zur weit verbreiteten Meinung hat der `delete`-Operator **nichts** mit der direkten Speicherfreigabe zu tun. Das Speichermanagement erfolgt indirekt über das Aufheben von Referenzen, siehe die Seite über das [Speichermanagement](/de/docs/Web/JavaScript/Guide/Memory_management) und die Seite des [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operators für weitere Details.
 
-Dieser Fehler tritt nur im [Strict-Modus-Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht-striktem Code gibt die Operation einfach `false` zurück.
+Dieser Fehler tritt nur in [strict mode code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht-strengem Code gibt die Operation einfach `false` zurück.
 
 ## Beispiele
 
-### Den Inhalt einer Variable freigeben
+### Freigeben des Inhalts einer Variablen
 
-Der Versuch, eine einfache Variable im Strict-Modus zu löschen, führt zu einem Fehler:
+Der Versuch, eine einfache Variable im strict mode zu löschen, führt zu einem Fehler:
 
 ```js-nolint example-bad
 "use strict";
@@ -50,7 +48,7 @@ delete x;
 // is deprecated
 ```
 
-Um den Inhalt einer Variable freizugeben, können Sie sie auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen:
+Um den Inhalt einer Variablen freizugeben, kann man sie auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen:
 
 ```js example-good
 "use strict";
@@ -67,5 +65,5 @@ x = null;
 ## Siehe auch
 
 - [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)
-- [Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management)
-- [TypeError: property "x" is non-configurable and can't be deleted](/de/docs/Web/JavaScript/Reference/Errors/Cant_delete)
+- [Speichermanagement](/de/docs/Web/JavaScript/Guide/Memory_management)
+- [TypeError: Eigenschaft „x“ ist nicht konfigurierbar und kann nicht gelöscht werden](/de/docs/Web/JavaScript/Reference/Errors/Cant_delete)

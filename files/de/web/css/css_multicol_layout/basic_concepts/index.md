@@ -1,27 +1,26 @@
 ---
-title: Grundkonzepte des mehrspaltigen Layouts
+title: Grundkonzepte von Mehrspaltenlayouts
+short-title: Grundlegende Konzepte
 slug: Web/CSS/CSS_multicol_layout/Basic_concepts
 l10n:
-  sourceCommit: 02cc9311b281b73322c5d13185119d2e8adf336a
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-Mehrspaltiges Layout, oft als Multicol-Layout bezeichnet, ist eine Spezifikation zum Anordnen von Inhalten in einer Reihe von Spaltenboxen, ähnlich wie Spalten in einer Zeitung. Dieser Leitfaden erklärt, wie die Spezifikation funktioniert, mit einigen häufigen Anwendungsbeispielen.
+Mehrspaltenlayout, oft als Multicol-Layout bezeichnet, ist eine Spezifikation zur Anordnung von Inhalten in einer Reihe von Spaltenkästen, ähnlich wie Spalten in einer Zeitung. Dieser Leitfaden erklärt, wie die Spezifikation funktioniert und bietet Beispiele für häufige Anwendungsfälle.
 
 ## Wichtige Eigenschaften
 
-Multicol-Layout unterscheidet sich von allen anderen Layoutmethoden in CSS; es fragmentiert den Inhalt, einschließlich aller untergeordneten Elemente, in Spalten. Dies geschieht genauso, wie Inhalte in Seiten fragmentiert werden, wenn wir mit [CSS-Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) arbeiten, indem wir ein Druckstylesheet erstellen.
+Das Multicol-Layout unterscheidet sich von anderen Layoutmethoden in CSS; es fragmentiert den Inhalt, einschließlich aller nachgelagerten Elemente, in Spalten. Dies geschieht ähnlich wie die Fragmentierung von Inhalten in Seiten, wenn wir mit [CSS-Seitenmedien](/de/docs/Web/CSS/Guides/Paged_media) arbeiten, indem wir ein Druckstilblatt erstellen.
 
-In diesem und den folgenden Leitfäden werden wir die folgenden Eigenschaften des [CSS-Multicol-Layout](/de/docs/Web/CSS/CSS_multicol_layout)-Moduls besprechen:
+In diesem und den darauf folgenden Leitfäden werden wir die folgenden, im [CSS Mehrspaltenlayout-Modul](/de/docs/Web/CSS/Guides/Multicol_layout) definierten Eigenschaften besprechen:
 
 - {{cssxref("column-width")}}
 - {{cssxref("column-count")}}
-- {{cssxref("columns")}} Shorthand
+- {{cssxref("columns")}} Kurzform
 - {{cssxref("column-rule-color")}}
 - {{cssxref("column-rule-style")}}
 - {{cssxref("column-rule-width")}}
-- {{cssxref("column-rule")}} Shorthand
+- {{cssxref("column-rule")}} Kurzform
 - {{cssxref("column-span")}}
 - {{cssxref("column-fill")}}
 - {{cssxref("column-gap")}}
@@ -29,15 +28,15 @@ In diesem und den folgenden Leitfäden werden wir die folgenden Eigenschaften de
 - {{cssxref("break-before")}}
 - {{cssxref("break-inside")}}
 
-## Spalten definieren
+## Definieren von Spalten
 
-Durch Hinzufügen der Eigenschaft `column-count` oder `column-width` zu einem Element oder durch Verwendung der Kurzform `columns` wird das Element zu einem _Multicol-Container_. Die Spalten sind anonyme Boxen; sie werden in der Spezifikation als _Column Boxes_ beschrieben.
+Durch Hinzufügen der Eigenschaft `column-count` oder `column-width` zu einem Element oder die Verwendung der Kurzform `columns` wird das Element zu einem _Mehrspalten-Container_ oder kurz _Multicol-Container_. Die Spalten sind anonyme Kästen; sie werden in der Spezifikation als _Spaltenkästen_ beschrieben.
 
 ### Die Anzahl der Spalten festlegen
 
-Die Eigenschaft `column-count` gibt die Anzahl der Spalten an, in denen der Inhalt angezeigt werden soll. Der Browser weist dann jeder Spaltenbox den richtigen Platz zu, um die gewünschte Anzahl von Spalten zu erstellen.
+Die Eigenschaft `column-count` bestimmt die Anzahl der Spalten, in denen der Inhalt angezeigt werden soll. Der Browser weist dann jedem Spaltenkasten die richtige Menge an Platz zu, um die gewünschte Anzahl an Spalten zu schaffen.
 
-Im folgenden Beispiel verwenden wir die Eigenschaft `column-count`, um drei Spalten auf dem `.container`-Element zu erstellen. Der Inhalt, einschließlich der Kinder von `.container`, wird dann zwischen den drei Spalten aufgeteilt.
+Im folgenden Beispiel verwenden wir die Eigenschaft `column-count`, um drei Spalten im `.container`-Element zu erstellen. Der Inhalt, einschließlich der Kinder von `.container`, wird dann auf die drei Spalten verteilt.
 
 ```html live-sample___column-count
 <div class="container">
@@ -73,15 +72,15 @@ body {
 
 {{EmbedLiveSample("column-count", "", "280px")}}
 
-Im obigen Beispiel ist der Inhalt innerhalb der Absatz-Tags `<p>` mit der Standardformatierung eingeschlossen. Daher gibt es einen Abstand über jedem Absatz. Sie können sehen, wie dieser Abstand die erste Textzeile nach unten drückt. Dies liegt daran, dass ein Multicol-Container einen [Blockformatierungskontext (BFC)](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt, aufgrund dessen Abstände auf untergeordneten Elementen nicht mit dem Abstand auf dem Container zusammenfallen.
+Im obigen Beispiel ist der Inhalt innerhalb der Paragraphen `<p>`-Tags mit der Standardformatierung umschlossen. Daher gibt es einen Rand über jedem Paragraphen. Sie können sehen, wie dieser Rand die erste Textzeile nach unten schiebt. Das liegt daran, dass ein Multicol-Container einen [Blockformatierungskontext (BFC)](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) erstellt, wodurch die Ränder von Kinderlementen nicht mit einem Rand des Containers zusammenfallen.
 
-### Die Breite der Spalten festlegen
+### Breite der Spalten festlegen
 
-Die Eigenschaft `column-width` wird verwendet, um die optimale Breite für jede Spaltenbox festzulegen. Wenn Sie eine Spaltenbreite angeben, berechnet der Browser, wie viele Spalten dieser Breite in den Multicol-Container passen und verteilt zusätzlichen Platz gleichmäßig zwischen den Spalten. Daher sollte die Spaltenbreite als Mindestbreite betrachtet werden, da die Spaltenboxen aufgrund des zusätzlichen Platzes wahrscheinlich breiter sind.
+Die Eigenschaft `column-width` wird verwendet, um die optimale Breite für jeden Spaltenkasten festzulegen. Wenn Sie eine Spaltenbreite angeben, ermittelt der Browser, wie viele Spalten dieser Breite in den Multicol-Container passen, und verteilt den zusätzlichen Platz gleichmäßig zwischen den Spalten. Daher sollte die Spaltenbreite als Mindestbreite angesehen werden, da die Spaltenkästen aufgrund des zusätzlichen Platzes wahrscheinlich breiter sind.
 
-Im Fall einer einzigen Spalte mit weniger verfügbarem Platz als der Wert von `column-width`, wird die Spaltenbox kleiner als die deklarierte Spaltenbreite schrumpfen.
+Im Falle einer einzelnen Spalte mit weniger verfügbarer Breite als der Wert von `column-width`, wird der Spaltenkasten auf eine Größe verkleinert, die kleiner ist als die deklarierte Spaltenbreite.
 
-Im folgenden Beispiel ist die Eigenschaft `column-width` auf `200px` gesetzt. Wir erhalten so viele 200-Pixel-Spalten, wie in den Container passen, wobei der zusätzliche Platz gleichmäßig aufgeteilt wird.
+Im Beispiel unten ist die Eigenschaft `column-width` auf `200px` gesetzt. Wir erhalten so viele 200-Pixel-Spalten, wie in den Container passen, wobei der zusätzliche Raum gleichmäßig verteilt wird.
 
 ```html hidden live-sample___column-width
 <div class="container">
@@ -119,11 +118,11 @@ body {
 
 ### Sowohl Anzahl als auch Breite der Spalten festlegen
 
-Wenn Sie beide Eigenschaften auf einem Multicol-Container angeben, wird `column-count` als maximale Anzahl von Spalten fungieren. Daher tritt das beschriebene Verhalten für `column-width` auf, bis die Anzahl der Spalten in `column-count` erreicht ist. Ab diesem Punkt werden keine weiteren Spalten gezeichnet und der zusätzliche Platz wird gleichmäßig zwischen den vorhandenen Spalten verteilt, selbst wenn Platz für mehr Spalten der angegebenen `column-width`-Größe vorhanden ist.
+Wenn Sie beide Eigenschaften auf einem Multicol-Container angeben, wirkt `column-count` als maximale Anzahl von Spalten. Daher tritt das für `column-width` beschriebene Verhalten ein, bis die in `column-count` angegebene Anzahl von Spalten erreicht ist. Ab diesem Punkt werden keine weiteren Spalten gezeichnet und der zusätzliche Raum wird gleichmäßig zwischen den vorhandenen Spalten verteilt, auch wenn noch Platz für weitere Spalten der angegebenen `column-width`-Größe vorhanden ist.
 
-Wenn Sie beide Eigenschaften zusammen verwenden, können Sie weniger Spalten erhalten als in dem Wert für `column-count` angegeben.
+Wenn Sie beide Eigenschaften zusammen verwenden, kann es sein, dass Sie weniger Spalten erhalten als in `column-count` angegeben.
 
-Im nächsten Beispiel verwenden wir `column-width` von `200px` und `column-count` von `2`. Auch wenn Platz für mehr als zwei Spalten ist, erhalten wir zwei. Wenn nicht genug Platz für zwei Spalten von mindestens 200 Pixeln vorhanden ist, erhalten wir eine.
+Im nächsten Beispiel verwenden wir `column-width` von `200px` und `column-count` von `2`. Selbst wenn Platz für mehr als zwei Spalten vorhanden ist, erhalten wir zwei. Wenn nicht genug Platz für zwei Spalten mit jeweils mindestens 200 Pixeln vorhanden ist, erhalten wir eine.
 
 ```html hidden live-sample___column-count-width
 <div class="container">
@@ -160,11 +159,11 @@ body {
 
 {{EmbedLiveSample("column-count-width", "", "280px")}}
 
-### Shorthand-Eigenschaft für Spalten
+### Kurzform für Spalteneigenschaften
 
-Sie können die `columns`-Shorthand verwenden, um die `column-count`- und `column-width`-Werte festzulegen. Wenn Sie eine Längeneinheit angeben, wird der Wert für `column-width` verwendet, und wenn Sie einen ganzzahligen Wert angeben, wird der Wert für `column-count` verwendet. Sie können beide Eigenschaften festlegen, indem Sie die beiden Werte durch ein Leerzeichen trennen.
+Sie können die Kurzform `columns` verwenden, um die Werte für `column-count` und `column-width` festzulegen. Wenn Sie eine Längeneinheit angeben, wird der Wert als `column-width` verwendet, und wenn Sie eine Ganzzahl angeben, wird der Wert als `column-count` verwendet. Sie können beide Eigenschaften festlegen, indem Sie die beiden Werte mit einem Leerzeichen trennen.
 
-Dieses CSS würde das gleiche Ergebnis liefern wie [das erste Beispiel](#die_anzahl_der_spalten_festlegen), mit `column-count` auf `3` gesetzt.
+Dieses CSS würde dasselbe Ergebnis wie [das erste Beispiel](#die_anzahl_der_spalten_festlegen) liefern, mit `column-count` auf `3` gesetzt.
 
 ```css
 .container {
@@ -172,7 +171,7 @@ Dieses CSS würde das gleiche Ergebnis liefern wie [das erste Beispiel](#die_anz
 }
 ```
 
-Dieses CSS würde das gleiche Ergebnis liefern wie [das zweite Beispiel](#die_breite_der_spalten_festlegen), mit `column-width` von `200px`.
+Dieses CSS würde dasselbe Ergebnis wie [das zweite Beispiel](#breite_der_spalten_festlegen) liefern, mit `column-width` von `200px`.
 
 ```css
 .container {
@@ -180,7 +179,7 @@ Dieses CSS würde das gleiche Ergebnis liefern wie [das zweite Beispiel](#die_br
 }
 ```
 
-Dieses CSS würde das gleiche Ergebnis liefern wie [das dritte Beispiel](#sowohl_anzahl_als_auch_breite_der_spalten_festlegen), mit sowohl `column-count` als auch `column-width` gesetzt.
+Dieses CSS würde dasselbe Ergebnis wie [das dritte Beispiel](#sowohl_anzahl_als_auch_breite_der_spalten_festlegen) liefern, mit sowohl `column-count` als auch `column-width` festgelegt.
 
 ```css
 .container {
@@ -190,4 +189,4 @@ Dieses CSS würde das gleiche Ergebnis liefern wie [das dritte Beispiel](#sowohl
 
 ## Nächste Schritte
 
-In diesem Leitfaden haben wir die grundlegende Verwendung des mehrspaltigen Layouts gelernt. Im nächsten Leitfaden werden wir uns ansehen, wie viele Stile auf [die Spalten selbst angewendet werden können](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns).
+In diesem Leitfaden haben wir die grundlegende Verwendung von Mehrspaltenlayouts kennengelernt. Im nächsten Leitfaden werden wir uns ansehen, wie wir [die Spalten selbst gestalten können](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns).

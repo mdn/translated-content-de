@@ -3,25 +3,25 @@ title: "GPUBindGroup: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUBindGroup/label
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das in den ursprünglichen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf übergeben wird, oder Sie können es direkt an dem `GPUBindGroup`-Objekt abrufen und setzen.
+Dies kann gesetzt werden, indem eine `label`-Eigenschaft im Beschreibungsobjekt bereitgestellt wird, das in den ursprünglichen Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) übergeben wird, oder Sie können es direkt am `GPUBindGroup`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn dieser nicht wie oben beschrieben zuvor gesetzt wurde, wird er ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, ist es ein leerer String.
 
 ## Beispiele
 
 Setzen und Abrufen eines Labels über `GPUBindGroup.label`:
 
 ```js
-// ...
+// …
 
 const bindGroup = device.createBindGroup({
   layout: bindGroupLayout,
@@ -40,10 +40,10 @@ bindGroup.label = "my_bind_group";
 console.log(bindGroup.label); // "my_bind_group"
 ```
 
-Setzen eines Labels über den ursprünglichen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf und anschließendem Abrufen über `GPUBindGroup.label`:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) und anschließendem Abrufen über `GPUBindGroup.label`:
 
 ```js
-// ...
+// …
 
 const bindGroup = device.createBindGroup({
   layout: bindGroupLayout,

@@ -2,14 +2,12 @@
 title: browserAction.setBadgeText()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Setzt den Badgetext für die Browseraktion. Das Badge wird oben auf dem Symbol angezeigt.
 
-Setzt den Badge-Text für die Browser-Aktion. Der Badge wird oberhalb des Symbols angezeigt.
-
-Tabs ohne einen spezifischen Badge-Text übernehmen den globalen Badge-Text, der standardmäßig `""` ist.
+Tabs ohne einen spezifischen Badgetext erben den globalen Badgetext, der standardmäßig `""` ist.
 
 ## Syntax
 
@@ -19,41 +17,34 @@ browser.browserAction.setBadgeText(
 )
 ```
 
-Diese API ist auch als `chrome.browserAction.setBadgeText()` verfügbar.
+Diese API ist auch verfügbar als `chrome.browserAction.setBadgeText()`.
 
 ### Parameter
 
 - `details`
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `text`
-
       - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, aber nur etwa vier passen in den verfügbaren Raum.
 
-        Verwenden Sie einen leeren String - `""` - wenn Sie keinen Badge wünschen.
+        Verwenden Sie einen leeren String - `""`, wenn Sie kein Badge wünschen.
 
-        Wenn ein `tabId` angegeben ist, entfernt `null` den tab-spezifischen Badge-Text, sodass der Tab den globalen Badge-Text übernimmt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
+        Wenn eine `tabId` angegeben ist, entfernt `null` den tab-spezifischen Badgetext, sodass der Tab den globalen Badgetext erbt. Andernfalls wird der globale Badgetext auf `""` zurückgesetzt.
 
-        Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Badge-Text, sodass der Tab den globalen Badge-Text übernimmt. Andernfalls wird der globale Badge-Text auf `""` zurückgesetzt.
+        Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Badgetext, sodass der Tab den globalen Badgetext erbt. Andernfalls wird der globale Badgetext auf `""` zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzen Sie den Badge-Text nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
+      - : `integer`. Setzt den Badgetext nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzen Sie den Badge-Text für das angegebene Fenster.
+      - : `integer`. Setzt den Badgetext für das angegebene Fenster.
 
 <!---->
 
 - Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird der globale Badge gesetzt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Badge gesetzt.
 
 ## Beispiele
 
-Fügen Sie einen Badge hinzu, der anzeigt, wie oft der Benutzer den Button geklickt hat:
+Fügen Sie ein Badge hinzu, das anzeigt, wie oft der Benutzer den Button geklickt hat:
 
 ```js
 let clicks = 0;
@@ -67,8 +58,12 @@ browser.browserAction.onClicked.addListener(increment);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeText) API von Chromium. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeText) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

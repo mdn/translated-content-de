@@ -1,15 +1,15 @@
 ---
 title: Math.random()
+short-title: random()
 slug: Web/JavaScript/Reference/Global_Objects/Math/random
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`Math.random()`** statische Methode gibt eine Gleitkommazahl zurück, die pseudo-zufällig ist und größer oder gleich 0 und kleiner als 1 ist, mit ungefähr gleichmäßiger Verteilung über diesen Bereich — den Sie dann auf Ihren gewünschten Bereich skalieren können. Die Implementierung wählt den anfänglichen Seed für den Zufallszahlengenerierungsalgorithmus aus; er kann vom Benutzer nicht gewählt oder zurückgesetzt werden.
 
-Die statische Methode **`Math.random()`** gibt eine Fließkommazahl zurück, die größer oder gleich 0 und kleiner als 1 ist und über diesen Bereich annähernd gleichmäßig verteilt ist. Diese Zahl kann dann auf den gewünschten Bereich skaliert werden. Die Implementierung wählt den Startwert (Seed) für den Zufallszahlengenerierungsalgorithmus aus; der Benutzer kann diesen weder wählen noch zurücksetzen.
-
-> **Note:** `Math.random()` _liefert keine_ kryptografisch sicheren Zufallszahlen. Verwenden Sie diese Methode nicht für sicherheitsrelevante Anwendungen. Stattdessen sollten Sie die Web Crypto API verwenden, genauer gesagt die Methode [`Crypto.getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues).
+> [!NOTE]
+> `Math.random()` _bietet keine_ kryptografisch sicheren Zufallszahlen. Verwenden Sie sie nicht für sicherheitsrelevante Zwecke. Verwenden Sie stattdessen die Web Crypto API, und genauer die Methode [`Crypto.getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues).
 
 {{InteractiveExample("JavaScript Demo: Math.random()")}}
 
@@ -40,13 +40,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Fließkommazahl, die größer oder gleich 0 (einschließlich) und kleiner als 1 (ausschließlich) ist.
+Eine Gleitkommazahl, pseudo-zufällig zwischen 0 (einschließlich) und 1 (ausschließlich).
 
 ## Beispiele
 
-Da Zahlen in JavaScript IEEE 754 Fließkommazahlen mit Rundung nach nächstgelegener gerader Zahl sind, sind die für die unten stehenden Funktionen angegebenen Bereiche (außer für `Math.random()` selbst) nicht genau. Üblicherweise ist die angegebene obere Grenze nicht erreichbar, aber wenn `Math.random()` eine Zahl sehr nahe bei 1 zurückgibt, könnte der winzige Unterschied bei der angeforderten Maximalgrenze nicht darstellbar sein, was dazu führen kann, dass die obere Grenze erreicht wird.
+Beachten Sie, dass Zahlen in JavaScript IEEE 754 Gleitkommazahlen mit Rundung auf das nächste gerade Verhalten sind. Die für die unten genannten Funktionen (außer für `Math.random()` selbst) angegebenen Bereiche sind daher nicht exakt. Normalerweise ist die angegebene obere Grenze nicht erreichbar, aber wenn `Math.random()` eine Zahl sehr nah an 1 zurückgibt, könnte der winzige Unterschied an der gewünschten maximalen Grenze nicht darstellbar sein, wodurch die obere Grenze erreicht wird.
 
-### Eine Zufallszahl zwischen 0 (einschließlich) und 1 (ausschließlich)
+### Eine Zufallszahl zwischen 0 (einschließlich) und 1 (ausschließlich) erhalten
 
 ```js
 function getRandom() {
@@ -54,9 +54,9 @@ function getRandom() {
 }
 ```
 
-### Eine Zufallszahl zwischen zwei Werten generieren
+### Eine Zufallszahl zwischen zwei Werten erhalten
 
-Dieses Beispiel gibt eine Zufallszahl zwischen den angegebenen Werten zurück. Der zurückgegebene Wert ist nicht kleiner als (und möglicherweise gleich) `min` und kleiner als (und nicht gleich) `max`.
+Dieses Beispiel gibt eine Zufallszahl zwischen den angegebenen Werten zurück. Der zurückgegebene Wert ist nicht niedriger als (und kann möglicherweise gleich) `min`, und ist weniger als (und nicht gleich) `max`.
 
 ```js
 function getRandomArbitrary(min, max) {
@@ -64,9 +64,9 @@ function getRandomArbitrary(min, max) {
 }
 ```
 
-### Eine ganze Zufallszahl zwischen zwei Werten generieren
+### Eine zufällige ganze Zahl zwischen zwei Werten erhalten
 
-Dieses Beispiel gibt eine zufällige _ganze Zahl_ zwischen den angegebenen Werten zurück. Der Wert ist nicht kleiner als `min` (oder die nächsthöhere ganze Zahl größer als `min`, falls `min` keine ganze Zahl ist) und kleiner als (aber nicht gleich) `max`.
+Dieses Beispiel gibt eine zufällige _ganze Zahl_ zwischen den angegebenen Werten zurück. Der Wert ist nicht niedriger als `min` (oder die nächste ganze Zahl größer als `min`, wenn `min` keine ganze Zahl ist) und ist weniger als (aber nicht gleich) `max`.
 
 ```js
 function getRandomInt(min, max) {
@@ -77,11 +77,11 @@ function getRandomInt(min, max) {
 ```
 
 > [!NOTE]
-> Es könnte verlockend sein, [`Math.round()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round) zu verwenden, um dies zu erreichen. Allerdings würde dies dazu führen, dass Ihre Zufallszahlen einer nicht gleichmäßigen Verteilung folgen, was möglicherweise für Ihre Anforderungen nicht akzeptabel ist.
+> Es könnte verlockend sein, [`Math.round()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round) dafür zu verwenden, aber dies würde dazu führen, dass Ihre Zufallszahlen einer nicht gleichmäßigen Verteilung folgen, was möglicherweise nicht für Ihre Bedürfnisse akzeptabel ist.
 
-### Eine ganze Zufallszahl zwischen zwei Werten, einschließlich
+### Eine zufällige ganze Zahl zwischen zwei Werten (einschließlich) erhalten
 
-Während die Funktion `getRandomInt()` oben den Minimalwert einschließt, den Maximalwert jedoch ausschließt, kann es sein, dass Sie Ergebnisse benötigen, die sowohl den Minimalwert als auch den Maximalwert einschließen. Die folgende Funktion `getRandomIntInclusive()` erreicht dies.
+Obwohl die oben erwähnte `getRandomInt()` Funktion am Minimum einschließlich ist, ist sie am Maximum ausschließlich. Was, wenn Sie Ergebnisse benötigen, die sowohl am Minimum als auch am Maximum einschließlich sind? Die `getRandomIntInclusive()` Funktion unten erreicht das.
 
 ```js
 function getRandomIntInclusive(min, max) {

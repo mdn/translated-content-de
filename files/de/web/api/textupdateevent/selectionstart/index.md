@@ -1,14 +1,14 @@
 ---
-title: "TextUpdateEvent: selectionStart Eigenschaft"
+title: "TextUpdateEvent: selectionStart-Eigenschaft"
 short-title: selectionStart
 slug: Web/API/TextUpdateEvent/selectionStart
 l10n:
-  sourceCommit: 76f2007d4bd30314202820d96bba09f1e31dff33
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`TextUpdateEvent.selectionStart`** gibt die Position des Beginns der Auswahl (oder des Cursors) innerhalb des Textinhalts des bearbeitbaren Bereichs an, der dem [`EditContext`](/de/docs/Web/API/EditContext) Objekt angehängt ist.
+Die schreibgeschützte Eigenschaft **`TextUpdateEvent.selectionStart`** gibt die Position des Anfangs der Auswahl (oder des Cursors) innerhalb des Textinhalts des bearbeitbaren Bereichs an, der mit dem [`EditContext`](/de/docs/Web/API/EditContext)-Objekt verknüpft ist.
 
 ## Wert
 
@@ -18,12 +18,12 @@ Eine {{jsxref("Number")}}.
 
 ### Verwendung von `textupdate`, um den bearbeiteten Text und die Benutzerauswahl darzustellen
 
-Dieses Beispiel zeigt, wie die `selectionStart` Eigenschaft verwendet wird, um den ausgewählten Text innerhalb eines [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) Ereignishandlers darzustellen.
+Dieses Beispiel zeigt, wie Sie die `selectionStart`-Eigenschaft verwenden können, um den ausgewählten Text innerhalb eines [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event)-Ereignishandlers darzustellen.
 
 ```css
 #editor {
   height: 200px;
-  background: #eee;
+  background: #eeeeee;
   color: black;
 }
 

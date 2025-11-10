@@ -3,37 +3,40 @@ title: "KeyboardEvent: ctrlKey-Eigenschaft"
 short-title: ctrlKey
 slug: Web/API/KeyboardEvent/ctrlKey
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`KeyboardEvent.ctrlKey`**-Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Control</kbd>-Taste gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis eintrat.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.ctrlKey`** gibt einen boolean-Wert zurück, der anzeigt, ob die <kbd>Strg</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Beispiele
 
 ```html
-<html lang="en">
-  <head>
-    <title>ctrlKey example</title>
-    <script>
-      function showChar(e) {
-        alert(`Key Pressed: ${e.key}\nCTRL key pressed: ${e.ctrlKey}\n`);
-      }
-    </script>
-  </head>
-  <body onkeypress="showChar(event);">
-    <p>
-      Press any character key, with or without holding down the CTRL key.<br />
-      You can also use the SHIFT key together with the CTRL key.
-    </p>
-  </body>
-</html>
+<p>
+  Press any character key, with or without holding down the CTRL key.<br />
+  You can also use the SHIFT key together with the CTRL key.
+</p>
+<pre id="output"></pre>
 ```
+
+```js
+const output = document.getElementById("output");
+
+function showChar(e) {
+  output.textContent = `Key KeyDown: "${e.key}"
+CTRL key KeyDown: ${e.ctrlKey}
+`;
+}
+
+document.addEventListener("keydown", showChar);
+```
+
+{{EmbedLiveSample("examples", "", "400")}}
 
 ## Spezifikationen
 

@@ -1,14 +1,12 @@
 ---
-title: Continuous Media
+title: Kontinuierliche Medien
 slug: Glossary/Continuous_Media
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-{{GlossarySidebar}}
+**Kontinuierliche Medien** sind Daten, bei denen eine zeitliche Beziehung zwischen Quelle und Ziel besteht. Die häufigsten Beispiele für kontinuierliche Medien sind Audio und Bewegtbild. Kontinuierliche Medien können in Echtzeit (interaktiv) sein, bei denen eine "enge" zeitliche Beziehung zwischen Quelle und Senke besteht, oder sie können gestreamt (Wiedergabe) werden, bei denen die Beziehung weniger streng ist.
 
-"**Continuous Media**" sind Daten, bei denen es eine zeitliche Beziehung zwischen Quelle und Ziel gibt. Die häufigsten Beispiele für Continuous Media sind Audio und Bewegtbild. Continuous Media können in Echtzeit (interaktiv) sein, wo es eine "enge" zeitliche Beziehung zwischen Quelle und Senke gibt, oder als Streaming (Wiedergabe), wo die Beziehung weniger strikt ist.
+CSS kann in einer Vielzahl von Kontexten eingesetzt werden, einschließlich Druckmedien. Und einige CSS-Regeln, insbesondere jene, die für das Layout verwendet werden, verhalten sich je nach Kontext unterschiedlich.
 
-CSS kann in verschiedenen Kontexten verwendet werden, einschließlich Printmedien. Und einige CSS-Elemente, insbesondere diejenigen, die für das Layout verwendet werden, verhalten sich je nach Kontext unterschiedlich.
-
-Continuous Media identifiziert daher einen Kontext, in dem der Inhalt nicht unterbrochen wird. Er fließt kontinuierlich. Webinhalte, die auf einem Bildschirm angezeigt werden, sind Continuous Media, ebenso wie gesprochene Inhalte.
+Kontinuierliche Medien identifizieren daher einen Kontext, in dem der Inhalt nicht unterbrochen wird. Er fließt kontinuierlich. Webinhalte, die auf einem Bildschirm angezeigt werden, sind kontinuierliche Medien, ebenso wie gesprochene Inhalte.

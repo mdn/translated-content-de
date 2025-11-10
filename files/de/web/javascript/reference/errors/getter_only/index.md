@@ -1,13 +1,11 @@
 ---
-title: 'TypeError: Einstellung der nur-Getter-Eigenschaft "x"'
+title: 'TypeError: setting getter-only property "x"'
 slug: Web/JavaScript/Reference/Errors/Getter_only
 l10n:
-  sourceCommit: faee5a3a8399d43ca3ef49912fcb6cba5be6834c
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-[Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-Only-Ausnahme "Einstellung der nur-Getter-Eigenschaft" tritt auf, wenn versucht wird, einer Eigenschaft, für die nur ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) angegeben ist, einen neuen Wert zuzuweisen oder wenn eine [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) gesetzt wird, die ebenfalls nur einen definierten Getter hat.
+Die in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) vorkommende JavaScript-Ausnahme "setting getter-only property" tritt auf, wenn versucht wird, einem Eigenschaftswert einen neuen Wert zuzuweisen, für den nur ein [getter](/de/docs/Web/JavaScript/Reference/Functions/get) definiert ist, oder wenn eine [private accessor-Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) gesetzt wird, die ebenfalls nur einen Getter hat.
 
 ## Nachricht
 
@@ -19,19 +17,19 @@ TypeError: Attempted to assign to readonly property. (Safari)
 TypeError: Trying to access an undefined private setter (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
-{{jsxref("TypeError")}} nur im [Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
+{{jsxref("TypeError")}} in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) nur.
 
-## Was ging schief?
+## Was ist schiefgelaufen?
 
-Es wird versucht, einer Eigenschaft, für die nur ein [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) angegeben ist, einen neuen Wert zuzuweisen. Während dies im nicht-strikten Modus stillschweigend ignoriert wird, wirft es im [Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}}. Klassen sind immer im Strict-Mode, daher führt das Zuweisen zu einer nur-Getter-privaten Eigenschaft immer zu diesem Fehler.
+Es wird versucht, einer Eigenschaft, für die nur ein [getter](/de/docs/Web/JavaScript/Reference/Functions/get) definiert ist, einen neuen Wert zuzuweisen. Während dies im nicht-strengen Modus stillschweigend ignoriert wird, löst es im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}} aus. Klassen sind immer im strengen Modus, daher löst die Zuweisung zu einem rein lesenden privaten Element immer diesen Fehler aus.
 
 ## Beispiele
 
 ### Eigenschaft ohne Setter
 
-Das folgende Beispiel zeigt, wie ein Getter für eine Eigenschaft festgelegt wird. Es wird kein [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) angegeben, daher wird ein `TypeError` geworfen, wenn versucht wird, die `temperature`-Eigenschaft auf `30` zu setzen. Weitere Details finden Sie auch auf der Seite {{jsxref("Object.defineProperty()")}}.
+Das folgende Beispiel zeigt, wie ein Getter für eine Eigenschaft gesetzt wird. Es wird kein [setter](/de/docs/Web/JavaScript/Reference/Functions/set) definiert, daher wird ein `TypeError` ausgelöst, wenn versucht wird, die `temperature`-Eigenschaft auf `30` zu setzen. Für weitere Details siehe auch die Seite {{jsxref("Object.defineProperty()")}}.
 
 ```js example-bad
 "use strict";
@@ -53,7 +51,7 @@ arc.temperature = 30;
 // TypeError: setting getter-only property "temperature"
 ```
 
-Um diesen Fehler zu beheben, müssen Sie entweder die Zeile `arc.temperature = 30` entfernen, die versucht, die temperature-Eigenschaft zu setzen, oder Sie müssen einen [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) dafür implementieren, zum Beispiel so:
+Um diesen Fehler zu beheben, müssen Sie entweder die Zeile `arc.temperature = 30`, die versucht, die temperature-Eigenschaft zu setzen, entfernen oder einen [setter](/de/docs/Web/JavaScript/Reference/Functions/set) dafür implementieren, zum Beispiel so:
 
 ```js example-good
 "use strict";

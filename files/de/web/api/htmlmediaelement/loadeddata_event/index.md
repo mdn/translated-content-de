@@ -3,24 +3,24 @@ title: "HTMLMediaElement: loadeddata Ereignis"
 short-title: loadeddata
 slug: Web/API/HTMLMediaElement/loadeddata_event
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das **`loadeddata`** Ereignis wird ausgelöst, wenn der Rahmen an der aktuellen Wiedergabeposition des Mediums geladen wurde; oft der erste Rahmen.
+Das **`loadeddata`** Ereignis wird ausgelöst, wenn der Frame an der aktuellen Wiedergabeposition des Mediums geladen wurde; oft der erste Frame.
 
 > [!NOTE]
-> Dieses Ereignis wird auf mobilen/Tablet-Geräten nicht ausgelöst, wenn der Datensparmodus in den Browsereinstellungen aktiviert ist.
+> Dieses Ereignis wird auf Mobil-/Tabletgeräten nicht ausgelöst, wenn die Datensparoption in den Browsereinstellungen aktiviert ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
-```js
-addEventListener("loadeddata", (event) => {});
+```js-nolint
+addEventListener("loadeddata", (event) => { })
 
-onloadeddata = (event) => {};
+onloadeddata = (event) => { }
 ```
 
 ## Ereignistyp
@@ -29,7 +29,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `loadeddata` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `loadeddata` Ereignis des HTMLMediaElement hinzu und senden eine Nachricht, wenn dieser Ereignishandler reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -44,7 +44,7 @@ video.addEventListener("loadeddata", (event) => {
 });
 ```
 
-Verwendung der `onloadeddata` Ereignishandler-Eigenschaft:
+Verwendung der `onloadeddata` Ereignisbehandlereigenschaft:
 
 ```js
 const video = document.querySelector("video");

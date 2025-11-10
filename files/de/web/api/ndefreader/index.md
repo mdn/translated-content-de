@@ -2,7 +2,7 @@
 title: NDEFReader
 slug: Web/API/NDEFReader
 l10n:
-  sourceCommit: a492b9739e10e7751797804228b360285e006858
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
@@ -18,27 +18,27 @@ Die **`NDEFReader`**-Schnittstelle der [Web NFC API](/de/docs/Web/API/Web_NFC_AP
 
 ## Instanzmethoden
 
-_Die `NDEFReader`-Schnittstelle erbt die Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget), ihrer übergeordneten Schnittstelle._
+_Die `NDEFReader`-Schnittstelle erbt die Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget), ihrer Elternschnittstelle._
 
 - [`NDEFReader.scan()`](/de/docs/Web/API/NDEFReader/scan) {{Experimental_Inline}}
-  - : Aktiviert ein Lesegerät und gibt ein {{jsxref("Promise")}} zurück, das entweder aufgelöst wird, wenn ein NFC-Tag-Lesevorgang geplant wird, oder abgelehnt wird, wenn ein Hardware- oder Berechtigungsfehler auftritt. Diese Methode löst eine Berechtigungsanfrage aus, wenn die "nfc"-Berechtigung nicht zuvor erteilt wurde.
+  - : Aktiviert ein Lesegerät und gibt ein {{jsxref("Promise")}} zurück, das entweder auflöst, wenn ein Lesevorgang für ein NFC-Tag geplant ist, oder ablehnt, wenn ein Hardware- oder Berechtigungsfehler auftritt. Diese Methode löst eine Berechtigungsaufforderung aus, wenn die "nfc"-Berechtigung nicht zuvor erteilt wurde.
 - [`NDEFReader.write()`](/de/docs/Web/API/NDEFReader/write) {{Experimental_Inline}}
-  - : Versucht, eine NDEF-Nachricht auf ein Tag zu schreiben und gibt ein {{jsxref("Promise")}} zurück, das entweder aufgelöst wird, wenn eine Nachricht auf das Tag geschrieben wurde, oder abgelehnt wird, wenn ein Hardware- oder Berechtigungsfehler auftritt. Diese Methode löst eine Berechtigungsanfrage aus, wenn die "nfc"-Berechtigung nicht zuvor erteilt wurde.
+  - : Versucht, eine NDEF-Nachricht auf ein Tag zu schreiben und gibt ein {{jsxref("Promise")}} zurück, das entweder auflöst, wenn eine Nachricht auf das Tag geschrieben wurde, oder ablehnt, wenn ein Hardware- oder Berechtigungsfehler auftritt. Diese Methode löst eine Berechtigungsaufforderung aus, wenn die "nfc"-Berechtigung nicht zuvor erteilt wurde.
 
 ## Ereignisse
 
-_Erbt Ereignisse von seinem übergeordneten, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Ereignisse von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`reading`](/de/docs/Web/API/NDEFReader/reading_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn eine neue Leseoperation von kompatiblen NFC-Geräten verfügbar ist.
+  - : Wird ausgelöst, wenn neue Leseinformationen von kompatiblen NFC-Geräten verfügbar sind.
 - [`readingerror`](/de/docs/Web/API/NDEFReader/readingerror_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein Tag in der Nähe eines Lesegeräts ist, aber nicht gelesen werden kann.
+  - : Wird ausgelöst, wenn sich ein Tag in der Nähe eines Lesegeräts befindet, aber nicht gelesen werden kann.
 
 ## Beispiele
 
-### Handhabung von anfänglichen Lesevorgängen beim Schreiben
+### Umgang mit Anfangslesevorgängen beim Schreiben
 
-Das folgende Beispiel zeigt, wie zwischen einem allgemeinen Lesehandler und einem, der speziell für einen einzelnen Schreibvorgang verwendet wird, koordiniert werden kann. Um zu schreiben, muss ein Tag gefunden und gelesen werden. Dies gibt Ihnen die Möglichkeit zu überprüfen, ob es tatsächlich ein Tag ist, auf das Sie schreiben möchten. Deshalb wird empfohlen, `write()` aus einem Leseereignis heraus aufzurufen.
+Das folgende Beispiel zeigt, wie man zwischen einem allgemeinen Lese-Handler und einem speziell für ein einzelnes Schreiben koordinieren kann. Um zu schreiben, muss ein Tag gefunden und gelesen werden. Dies gibt Ihnen die Möglichkeit zu überprüfen, ob es tatsächlich ein Tag ist, auf das Sie schreiben möchten. Deshalb wird empfohlen, `write()` von einem Leseereignis aus aufzurufen.
 
 ```js
 const ndef = new NDEFReader();

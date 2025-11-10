@@ -3,12 +3,12 @@ title: "EditContext: updateText() Methode"
 short-title: updateText()
 slug: Web/API/EditContext/updateText
 l10n:
-  sourceCommit: 7d7b014191b4892e7a059493a90f0c511cfdf633
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`updateText()`** Methode der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle aktualisiert den internen Textinhalt eines `EditContext` Objekts.
+Die **`updateText()`** Methode des [`EditContext`](/de/docs/Web/API/EditContext) Interfaces aktualisiert den internen Textinhalt eines `EditContext` Objekts.
 
 Diese Methode muss nicht verwendet werden, wenn der Benutzer Text im zugehörigen Element eingibt. Das `EditContext` Objekt aktualisiert automatisch seinen internen Textinhalt und löst bei Bedarf [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) Ereignisse aus.
 
@@ -23,21 +23,26 @@ updateText(rangeStart, rangeEnd, text)
 ### Parameter
 
 - `rangeStart`
-  - : Eine Zahl, die den Anfang des zu ersetzenden Textbereichs darstellt.
+  - : Eine Zahl, die den Beginn des Textbereichs darstellt, der ersetzt werden soll.
 - `rangeEnd`
-  - : Eine Zahl, die das Ende des zu ersetzenden Textbereichs darstellt.
+  - : Eine Zahl, die das Ende des Textbereichs darstellt, der ersetzt werden soll.
 - `text`
   - : Ein String, der den neuen Textinhalt darstellt.
 
+### Rückgabewert
+
+Kein (`undefined`).
+
 ### Ausnahmen
 
-- Wenn weniger als drei Argumente bereitgestellt werden, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn die Methode mit weniger als drei Argumenten aufgerufen wird.
 
 ## Beispiele
 
 ### Aktualisierung des Editors, wenn der Benutzer Text einfügt
 
-Dieses Beispiel zeigt, wie die `updateText` Methode verwendet wird, um den Textinhalt im `EditContext` eines `<canvas>` Elements zu aktualisieren, wenn der Benutzer die <kbd>Strg</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> Verknüpfung benutzt, um Text einzufügen.
+Dieses Beispiel zeigt, wie die `updateText` Methode verwendet wird, um den Textinhalt im `EditContext` eines `<canvas>` Elements zu aktualisieren, wenn der Benutzer die <kbd>Strg</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> Tastenkombination drückt, um Text einzufügen.
 
 Das Beispiel verwendet auch die [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) Methode, um den Text aus der Zwischenablage zu lesen.
 
@@ -62,7 +67,7 @@ editContext.addEventListener("textupdate", (e) => {
 });
 
 canvas.addEventListener("keydown", async (e) => {
-  if (e.key == "v" && (e.ctrlKey || e.metaKey)) {
+  if (e.key === "v" && (e.ctrlKey || e.metaKey)) {
     const pastedText = await navigator.clipboard.readText();
     console.log(
       `The user pasted the text: ${pastedText}. Updating the EditContext text.`,
@@ -94,4 +99,4 @@ canvas.addEventListener("keydown", async (e) => {
 
 ## Siehe auch
 
-- Die [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle, zu der es gehört.
+- Das [`EditContext`](/de/docs/Web/API/EditContext) Interface, zu dem es gehört.

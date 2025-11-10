@@ -1,13 +1,12 @@
 ---
 title: Float32Array() Konstruktor
+short-title: Float32Array()
 slug: Web/JavaScript/Reference/Global_Objects/Float32Array/Float32Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Der **`Float32Array()`** Konstruktor erzeugt {{jsxref("Float32Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Float32Array()`** Konstruktor erstellt {{jsxref("Float32Array")}} Objekte. Die Inhalte werden auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +21,8 @@ new Float32Array(buffer, byteOffset)
 new Float32Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Float32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` löst einen {{jsxref("TypeError")}} aus.
+> [!NOTE]
+> `Float32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Float32Array zu erstellen
+### Verschiedene Arten, ein Float32Array zu erstellen
 
 ```js
 // From a length
@@ -77,7 +77,7 @@ console.log(float32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Float32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

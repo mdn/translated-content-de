@@ -3,21 +3,23 @@ title: "CanvasRenderingContext2D: save()-Methode"
 short-title: save()
 slug: Web/API/CanvasRenderingContext2D/save
 l10n:
-  sourceCommit: 15edcca162f9c272e610a7c93f665d1155e0e8df
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.save()`**-Methode der Canvas 2D API speichert den gesamten Zustand der Leinwand, indem sie den aktuellen Zustand auf einen Stapel legt.
+Die
+**`CanvasRenderingContext2D.save()`**
+Methode der Canvas 2D API speichert den gesamten Zustand der Leinwand, indem sie den aktuellen Zustand auf einen Stapel schiebt.
 
-### Der Zeichenstatus
+### Der Zeichen-Zustand
 
-Der Zeichenstatus, der auf einen Stapel gespeichert wird, besteht aus:
+Der Zeichen-Zustand, der auf den Stapel gespeichert wird, besteht aus:
 
 - Der aktuellen Transformationsmatrix.
-- Der aktuellen Zuschnittsregion.
+- Der aktuellen Ausschnittsregion.
 - Der aktuellen Strichliste.
-- Den aktuellen Werten der folgenden Attribute:
+- Die aktuellen Werte der folgenden Attribute:
   - [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction)
   - [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle)
   - [`filter`](/de/docs/Web/API/CanvasRenderingContext2D/filter)
@@ -57,13 +59,13 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Speichern des Zeichenstatus
+### Den Zeichen-Zustand speichern
 
-Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern, und `restore()`, um ihn später wiederherzustellen, damit Sie später ein Rechteck mit dem aktuellen Zustand zeichnen können.
+Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern, und `restore()`, um ihn später wiederherzustellen, damit Sie in der Lage sind, später ein Rechteck mit dem aktuellen Zustand zu zeichnen.
 
 #### HTML
 
@@ -103,5 +105,5 @@ ctx.fillRect(150, 40, 100, 100);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore)

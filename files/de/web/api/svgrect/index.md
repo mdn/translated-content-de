@@ -38,4 +38,4 @@ Keine.
 
 - [`DOMRect`](/de/docs/Web/API/DOMRect)
 - [`DOMPoint`](/de/docs/Web/API/DOMPoint) Alias [`SVGPoint`](/de/docs/Web/API/SVGPoint)
-- [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Alias [`SVGMatrix`](/de/docs/Web/API/SVGMatrix)
+- [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Alias [`SVGMatrix`](/de/docs/Web/API/DOMMatrix)

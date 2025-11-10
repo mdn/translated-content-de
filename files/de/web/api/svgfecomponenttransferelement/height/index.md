@@ -1,18 +1,18 @@
 ---
-title: "SVGFEComponentTransferElement: height Eigenschaft"
+title: "SVGFEComponentTransferElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEComponentTransferElement/height
 l10n:
-  sourceCommit: f9881dd30bec0793e97782578dbb8b8d859ce9f9
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`** schreibgeschützte Eigenschaft des [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) Interfaces beschreibt die vertikale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte **`height`**-Eigenschaft der [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feComponentTransfer")}}-Element und dessen {{SVGAttr("height")}}-Filterprimitive-Attribut wider. Das `<feComponentTransfer>`-Filter führt eine komponentenweise Farbund Alphatransparenz-Neuzuordnung durch, wodurch Einstellungen für Helligkeit, Kontrast, Farbbalance und Schwelle ermöglicht werden.
+Sie spiegelt das {{SVGElement("feComponentTransfer")}}-Element und dessen {{SVGAttr("height")}}-Filter-Primitivenattribut wider. Das `<feComponentTransfer>`-Filter führt eine komponentenweise Farb- und Alphatransparenzumsetzung durch und ermöglicht Helligkeits-, Kontrast-, Farbbalance- und Schwellenwertanpassungen.
 
-Das Attribut ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage), relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheiten des Koordinatensystems.
+Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Nutzereinheit-Koordinatensystemeinheiten.
 
 ## Wert
 

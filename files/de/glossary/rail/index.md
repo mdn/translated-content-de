@@ -2,22 +2,20 @@
 title: RAIL
 slug: Glossary/RAIL
 l10n:
-  sourceCommit: b789d2ed3e6398b03fe22c95a3442be7b4669b47
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**RAIL**, ein Akronym für **Response, Animation, Idle und Load**, ist ein Leistungsmodell, das 2015 vom Google Chrome-Team entwickelt wurde, mit Schwerpunkt auf Benutzererfahrung und Leistung im Browser. Das Leistungsmantra von RAIL lautet: "Konzentrieren Sie sich auf den Benutzer; das Endziel ist nicht, dass Ihre Website auf einem bestimmten Gerät schnell funktioniert, sondern dass die Benutzer zufrieden sind." Es gibt 4 Interaktionsphasen: Seitenladezeit, Leerlauf, Reaktion auf Eingaben und Scrollen sowie Animationen. In der Reihenfolge des Akronyms sind die Hauptprinzipien:
 
-**RAIL**, ein Akronym für **Response, Animation, Idle, and Load**, ist ein Leistungsmodell, das 2015 vom Google Chrome-Team entwickelt wurde und sich auf Benutzererfahrung und Leistung im Browser konzentriert. Das Leistungsmantra von RAIL lautet: "Fokussieren Sie sich auf den Benutzer; das Endziel ist es nicht, Ihre Website auf einem bestimmten Gerät schnell performant zu machen, sondern die Benutzer glücklich zu machen." Es gibt 4 Phasen der Interaktion: Seitenladezeit, Leerlauf, Reaktion auf Eingaben und Scrollen sowie Animation. In der Reihenfolge des Akronyms lauten die Hauptprinzipien:
-
-- **Response**
-  - : Reagieren Sie sofort auf Benutzer und bestätigen Sie jegliche Benutzereingaben in **100ms** oder weniger.
+- **Response (Reaktion)**
+  - : Reagieren Sie sofort auf Benutzer, indem Sie jede Benutzereingabe in **100ms** oder weniger bestätigen.
 - **Animation**
-  - : Beim Animieren zeichnen Sie jedes Bild in unter **16ms** und zielen darauf ab, Konsistenz zu gewährleisten und Ruckeln zu vermeiden.
-- **Idle**
-  - : Wenn Sie den Haupt-JavaScript-Thread verwenden, arbeiten Sie in Abschnitten von weniger als **50ms**, um den Thread für Benutzerinteraktionen freizuhalten.
-- **Load**
+  - : Bei Animationen rendern Sie jedes Bild unter **16ms**, streben Sie Konsistenz an und vermeiden Sie Ruckeln.
+- **Idle (Leerlauf)**
+  - : Wenn der Haupt-JavaScript-Thread verwendet wird, arbeiten Sie in Abschnitten von weniger als **50ms**, um den Thread für Benutzerinteraktionen freizugeben.
+- **Load (Laden)**
   - : Liefern Sie interaktive Inhalte in weniger als **5 Sekunden**.
 
 ## Siehe auch
 
-- [Empfohlene Web-Performance-Zeiten: Wie lange ist zu lange](/de/docs/Web/Performance/How_long_is_too_long)
+- [Empfohlene Webleistungszeiten: Wie lange ist zu lange](/de/docs/Web/Performance/Guides/How_long_is_too_long)

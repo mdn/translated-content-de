@@ -3,12 +3,12 @@ title: "SVGFETileElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFETileElement/in1
 l10n:
-  sourceCommit: d896fbe477552229cada68c8b9532ddfa63c5b0e
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in1`** schreibgeschützte Eigenschaft der [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feTile")}}-Elements wider.
+Die **`in1`** unveränderliche Eigenschaft des [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Interfaces spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feTile")}}-Elements wider.
 
 ## Wert
 
@@ -31,7 +31,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:hotpink;"
+    fill="hotpink"
     filter="url(#tileFilter)" />
 </svg>
 ```

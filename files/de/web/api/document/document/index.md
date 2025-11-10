@@ -1,12 +1,12 @@
 ---
-title: "Document: Document() Konstruktor"
+title: "Dokument: Dokument()-Konstruktor"
 short-title: Document()
 slug: Web/API/Document/Document
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("DOM")}}
 
 Der **`Document`**-Konstruktor erstellt ein neues
 [`Document`](/de/docs/Web/API/Document)-Objekt, das eine im Browser geladene Webseite darstellt und als Einstiegspunkt in den Inhalt der Seite dient.

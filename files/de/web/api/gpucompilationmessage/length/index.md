@@ -3,35 +3,32 @@ title: "GPUCompilationMessage: length-Eigenschaft"
 short-title: length
 slug: Web/API/GPUCompilationMessage/length
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 3e097148b4c6cb9c6d8824275599f855ca63827b
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`length`**-Schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Länge des Substrings darstellt, dem die Nachricht entspricht.
+Die **`length`**-Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist eine schreibgeschützte Zahl, die die Länge des Substrings darstellt, auf den sich die Nachricht bezieht.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `length` die Anzahl der UTF-16-Codeeinheiten im Shader-Code-Substring, dem die Nachricht entspricht. Wenn die Nachricht einem einzelnen Punkt anstelle eines Substrings entspricht, beträgt `length` 0.
+Genauer gesagt ist `length` die Anzahl der {{Glossary("UTF-16", "UTF-16 Code-Einheiten")}} im Shader-Code-Substring, auf den sich die Nachricht bezieht. Wenn sich die Nachricht auf einen einzelnen Punkt anstatt eines Substrings bezieht, ist `length` 0.
 
 ## Beispiele
 
 ```js
-  // ...
-  const shaderModule = device.createShaderModule({
-    code: shaders,
-  });
+const shaderModule = device.createShaderModule({
+  code: shaders,
+});
 
-  const shaderInfo = await shaderModule.getCompilationInfo();
-  const firstMessage = shaderInfo.messages[0];
-  console.log(firstMessage.length);
-  // ...
-}
+const shaderInfo = await shaderModule.getCompilationInfo();
+const firstMessage = shaderInfo.messages[0];
+console.log(firstMessage.length);
 ```
 
-Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Siehe die Hauptseite zu [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

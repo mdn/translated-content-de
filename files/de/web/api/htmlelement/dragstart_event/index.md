@@ -1,25 +1,25 @@
 ---
-title: "HTMLElement: dragstart-Ereignis"
+title: "HTMLElement: dragstart Ereignis"
 short-title: dragstart
 slug: Web/API/HTMLElement/dragstart_event
 l10n:
-  sourceCommit: ea4425b74ae0dc1ec17737b4e28d8df2b73f1eae
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML Drag and Drop API")}}
 
-Das `dragstart`-Ereignis wird ausgelöst, wenn der Benutzer beginnt, ein Element oder eine Textauswahl zu ziehen.
+Das `dragstart` Ereignis wird ausgelöst, wenn der Benutzer beginnt, ein Element oder eine Textauswahl zu ziehen.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblubbern.
+Dieses Ereignis ist abbrechbar und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblasen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("dragstart", (event) => {});
+```js-nolint
+addEventListener("dragstart", (event) => { })
 
-ondragstart = (event) => {};
+ondragstart = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,20 +30,20 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Beim Drag-Start die Opazität einstellen
+### Opazität beim Dragstart setzen
 
-In diesem Beispiel haben wir ein verschiebbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, zu ziehen und dann loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es zu ziehen und dann loszulassen.
 
-Wir hören auf das `dragstart`-Ereignis, um das Element halbtransparent zu machen, während es gezogen wird.
+Wir hören das `dragstart` Ereignis ab, um das Element halbtransparent zu machen, während es gezogen wird.
 
-Für ein vollständiges Beispiel von Drag and Drop sehen Sie die Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+Ein vollständiges Beispiel für Drag and Drop finden Sie auf der Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
 
 #### HTML
 
@@ -109,7 +109,6 @@ source.addEventListener("dragend", (event) => {
 ## Siehe auch
 
 - Andere Drag-and-Drop-Ereignisse:
-
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
   - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)

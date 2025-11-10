@@ -1,14 +1,15 @@
 ---
-title: "GPURenderPassEncoder: draw()-Methode"
+title: "GPURenderPassEncoder: draw() Methode"
 short-title: draw()
 slug: Web/API/GPURenderPassEncoder/draw
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`draw()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle zeichnet Primitive basierend auf den durch [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) bereitgestellten Vertex-Puffern.
+Die **`draw()`**-Methode des
+[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces zeichnet Primitive basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) bereitgestellten Vertex-Puffern.
 
 ## Syntax
 
@@ -26,7 +27,7 @@ draw(vertexCount, instanceCount, firstVertex, firstInstance)
 - `instanceCount` {{optional_inline}}
   - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, ist der Standardwert für `instanceCount` 1.
 - `firstVertex` {{optional_inline}}
-  - : Eine Zahl, die den Offset in die Vertex-Puffer in Vertices definiert, von dem aus begonnen wird zu zeichnen. Wenn weggelassen, ist der Standardwert für `firstVertex` 0.
+  - : Eine Zahl, die den Offset in den Vertex-Puffern in Vertices definiert, von dem aus mit dem Zeichnen begonnen wird. Wenn weggelassen, ist der Standardwert für `firstVertex` 0.
 - `firstInstance` {{optional_inline}}
   - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, ist der Standardwert für `firstInstance` 0.
 
@@ -36,10 +37,10 @@ Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
-In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `draw()` wird verwendet, um anzugeben, dass drei Vertices gezeichnet werden sollen, um unser Dreieck zu erstellen.
+In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `draw()` wird verwendet, um anzugeben, dass drei Vertices gezeichnet werden sollen, um unser Dreieck zu erstellen.
 
 ```js
-// ...
+// …
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
@@ -72,7 +73,7 @@ passEncoder.end();
 // End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
-// ...
+// …
 ```
 
 ## Spezifikationen

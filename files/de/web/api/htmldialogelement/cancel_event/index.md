@@ -1,27 +1,27 @@
 ---
-title: "HTMLDialogElement: cancel event"
+title: "HTMLDialogElement: cancel-Ereignis"
 short-title: cancel
 slug: Web/API/HTMLDialogElement/cancel_event
 l10n:
-  sourceCommit: 9ba2221a19fc2de15894bf8b511d6674cfc0d653
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`cancel`**-Ereignis wird auf einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer dem Browser mitteilt, dass er den aktuell geöffneten Dialog schließen möchte. Der Browser löst dieses Ereignis aus, wenn der Benutzer die <kbd>Esc</kbd>-Taste drückt.
+Das **`cancel`**-Ereignis wird auf einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer den Browser anweist, das aktuell geöffnete Dialogfeld zu schließen. Der Browser löst dieses Ereignis aus, wenn der Benutzer die Taste <kbd>Esc</kbd> drückt.
 
-Dieses Ereignis ist abfangbar, kann jedoch nicht weitergeleitet werden.
+Dieses Ereignis ist abbruchbar, kann aber nicht gebubbelt werden.
 
 Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel`- als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
-```js
-addEventListener("cancel", (event) => {});
+```js-nolint
+addEventListener("cancel", (event) => { })
 
-oncancel = (event) => {};
+oncancel = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Einen Dialog abbrechen
+### Ein Dialogfeld abbrechen
 
 #### HTML
 

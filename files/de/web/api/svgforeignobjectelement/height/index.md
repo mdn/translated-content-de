@@ -3,14 +3,14 @@ title: "SVGForeignObjectElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGForeignObjectElement/height
 l10n:
-  sourceCommit: 7f9a7b32e78673dcbf7b6a93856f5717c4cf0a12
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Schreibgeschützte Eigenschaft der [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement)-Schnittstelle beschreibt die Höhe des `<foreignObject>`-Elements. Sie spiegelt den berechneten Wert des {{SVGAttr("height")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
+Die **`height`**-Eigenschaft des [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement)-Interface ist eine schreibgeschützte Eigenschaft, die die Höhe des `<foreignObject>`-Elements beschreibt. Sie spiegelt den berechneten Wert des {{SVGAttr("height")}}-Attributs auf dem {{SVGElement("foreignObject")}}-Element wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des `<foreignObject>`-Elements im Benutzerkoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des `<foreignObject>`-Elements im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, das folgende SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ Angenommen, das folgende SVG:
 </svg>
 ```
 
-Wir können auf die berechneten Werte der `height`-Attribute zugreifen:
+Wir können die berechneten Werte der `height`-Attribute abrufen:
 
 ```js
 const foreignObjects = document.querySelectorAll("foreignObject");

@@ -2,14 +2,12 @@
 title: browsingData.removeCache()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeCache
 l10n:
-  sourceCommit: 73eeba4ecd149e9a322e64369c0451b460dbb8c1
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Löscht den Cache des Browsers.
 
-Beachten Sie, dass diese Funktion ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt erfordert, aber alle Optionen ignoriert werden. Der gesamte Cache wird immer gelöscht, wenn Sie diese Funktion verwenden.
+Beachten Sie, dass diese Funktion ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt erfordert, aber alle Optionen werden ignoriert. Der gesamte Cache wird immer gelöscht, wenn diese Funktion verwendet wird.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,15 +22,15 @@ let removing = browser.browsingData.removeCache(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt. Dieser Parameter muss gesetzt sein, hat aber keine Auswirkungen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt. Dieser Parameter muss festgelegt werden, hat jedoch keine Auswirkungen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Den Browser-Cache leeren:
+Löschen Sie den Cache des Browsers:
 
 ```js
 function onRemoved() {
@@ -46,11 +44,11 @@ function onError(error) {
 browser.browsingData.removeCache({}).then(onRemoved, onError);
 ```
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.

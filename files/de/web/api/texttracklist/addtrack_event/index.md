@@ -1,34 +1,34 @@
 ---
-title: "TextTrackList: addtrack Event"
+title: "TextTrackList: addtrack-Ereignis"
 short-title: addtrack
 slug: Web/API/TextTrackList/addtrack_event
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
 Das **`addtrack`**-Ereignis wird ausgelöst, wenn ein Track zu einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) hinzugefügt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("addtrack", (event) => {});
+```js-nolint
+addEventListener("addtrack", (event) => { })
 
-onaddtrack = (event) => {};
+onaddtrack = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
+Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TrackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften aus der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
   - : Das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt, auf das sich das Ereignis bezieht.
@@ -45,7 +45,7 @@ mediaElement.textTracks.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onaddtrack`-Ereignishandlereigenschaft:
 
 ```js
 const mediaElement = document.querySelector("video, audio");

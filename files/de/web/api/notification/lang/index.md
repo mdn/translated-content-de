@@ -1,16 +1,16 @@
 ---
-title: "Notification: lang Eigenschaft"
+title: "Benachrichtigung: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/Notification/lang
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`lang`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt die in der Benachrichtigung verwendete Sprache an, wie sie in der `lang`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben ist.
+Die **`lang`** schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt die in der Benachrichtigung verwendete Sprache an, wie sie in der `lang`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben ist.
 
-Die Sprache selbst wird mithilfe eines Strings spezifiziert, der ein Sprach-Tag gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} darstellt. Siehe die Sitepoint-Seite [ISO 2 Letter Language Codes](https://www.sitepoint.com/iso-2-letter-language-codes/) für eine einfache Referenz.
+Die Sprache selbst wird durch einen String dargestellt, der ein {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}} repräsentiert.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String, der das Sprach-Tag angibt.
 
 ## Beispiele
 
-Das folgende Snippet löst eine Benachrichtigung aus; ein einfaches `options`-Objekt wird erstellt, und dann wird die Benachrichtigung mithilfe des `Notification()`-Konstruktors ausgelöst.
+Das folgende Beispiel löst eine Benachrichtigung aus; ein einfaches `options`-Objekt wird erstellt, dann wird die Benachrichtigung unter Verwendung des `Notification()`-Konstruktors ausgelöst.
 
 ```js
 const options = {

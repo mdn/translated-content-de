@@ -2,24 +2,22 @@
 title: pageAction
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Lesen und Ändern von Attributen sowie das Hören auf Klicks auf die Adressleisten-Schaltfläche, die mit dem [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Manifest-Schlüssel definiert ist.
 
-Lesen und Ändern von Attributen und Hören auf Klicks auf den mit dem [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Manifest-Schlüssel definierten Schaltfläche in der Adressleiste.
+Eine [Adressleisten-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) ist eine Schaltfläche, die zur Adressleiste des Browsers hinzugefügt wird.
 
-Eine [Adressleistenschaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) ist eine Schaltfläche, die zur Adressleiste des Browsers hinzugefügt wird.
+![Pfotenabdruck-Symbol, das eine Page-Action darstellt](page-action.png)
 
-![Pfotenabdrucksymbol, das eine Seitenaktion darstellt](page-action.png)
+Sie können Klicks auf das Symbol in einem Hintergrundskript überwachen oder ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) festlegen, das geöffnet wird, wenn auf das Symbol geklickt wird.
 
-Sie können im Hintergrundskript auf Klicks auf das Symbol hören oder ein [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) angeben, das geöffnet wird, wenn das Symbol angeklickt wird.
+Wenn Sie ein Popup festlegen, definieren Sie dessen Inhalt und Verhalten mit HTML, CSS und JavaScript. JavaScript, das im Popup ausgeführt wird, hat Zugriff auf alle dieselben WebExtension-APIs wie Ihre Hintergrundskripte. Obwohl der Name `pageAction` lautet, erhält der Aktionscode keinen Zugriff auf den Webseitennhalt. Um auf den DOM der Webseite zuzugreifen, müssen Sie ein [Content-Skript](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) hinzufügen und mit diesem interagieren.
 
-Wenn Sie ein Popup angeben, definieren Sie dessen Inhalt und Verhalten mit HTML, CSS und JavaScript. JavaScript, das im Popup ausgeführt wird, hat Zugang zu denselben WebExtension-APIs wie Ihre Hintergrundskripte. Obwohl es `pageAction` genannt wird, erhält der Aktionscode keinen Zugang zum Inhalt der Webseite. Um auf den DOM der Webseite zuzugreifen, müssen Sie ein [Content Script](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) hinzufügen und mit diesem interagieren.
+Die Schaltfläche verfügt auch über ein Kontextmenü, und Sie können mit der {{WebExtAPIRef("menus")}}-API unter Verwendung des `page_action` {{WebExtAPIRef("menus.ContextType")}} Einträge zu diesem Menü hinzufügen.
 
-Die Schaltfläche verfügt auch über ein Kontextmenü, und Sie können mit der {{WebExtAPIRef("menus")}} API Elemente zu diesem Menü hinzufügen, indem Sie den `page_action` {{WebExtAPIRef("menus.ContextType")}} verwenden.
-
-Seitenaktionen sind für Aktionen gedacht, die nur für bestimmte Seiten relevant sind (wie "aktuellen Tab zu den Lesezeichen hinzufügen"). Wenn sie für den gesamten Browser relevant sind (wie "alle Lesezeichen anzeigen"), verwenden Sie stattdessen eine [Browseraktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button).
+Page-Actions sind für Aktionen, die nur für bestimmte Seiten relevant sind (wie "aktuelle Registerkarte als Lesezeichen markieren"). Wenn sie für den gesamten Browser relevant sind (wie "alle Lesezeichen anzeigen"), verwenden Sie stattdessen eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button).
 
 ## Typen
 
@@ -29,37 +27,37 @@ Seitenaktionen sind für Aktionen gedacht, die nur für bestimmte Seiten relevan
 ## Funktionen
 
 - {{WebExtAPIRef("pageAction.show()")}}
-  - : Zeigt die Seitenaktion für einen bestimmten Tab an.
+  - : Zeigt die Page-Action für einen bestimmten Tab an.
 - {{WebExtAPIRef("pageAction.hide()")}}
-  - : Verbirgt die Seitenaktion für einen bestimmten Tab.
+  - : Verbirgt die Page-Action für einen bestimmten Tab.
 - {{WebExtAPIRef("pageAction.isShown()")}}
-  - : Überprüft, ob die Seitenaktion angezeigt wird oder nicht.
+  - : Prüft, ob die Page-Action angezeigt wird oder nicht.
 - {{WebExtAPIRef("pageAction.setTitle()")}}
-  - : Setzt den Titel der Seitenaktion. Dieser wird in einem Tooltip über der Seitenaktion angezeigt.
+  - : Setzt den Titel der Page-Action. Dieser wird in einem Tooltip über der Page-Action angezeigt.
 - {{WebExtAPIRef("pageAction.getTitle()")}}
-  - : Ruft den Titel der Seitenaktion ab.
+  - : Ruft den Titel der Page-Action ab.
 - {{WebExtAPIRef("pageAction.setIcon()")}}
-  - : Setzt das Symbol der Seitenaktion.
+  - : Setzt das Symbol der Page-Action.
 - {{WebExtAPIRef("pageAction.setPopup()")}}
-  - : Setzt die URL für das Popup der Seitenaktion.
+  - : Setzt die URL für das Popup der Page-Action.
 - {{WebExtAPIRef("pageAction.getPopup()")}}
-  - : Ruft die URL für das Popup der Seitenaktion ab.
+  - : Ruft die URL des Popups der Page-Action ab.
 - {{WebExtAPIRef("pageAction.openPopup()")}}
-  - : Öffnet das Popup der Seitenaktion.
+  - : Öffnet das Popup der Page-Action.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("pageAction.onClicked")}}
-  - : Wird ausgelöst, wenn auf ein Seitenaktionssymbol geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Seitenaktion ein Popup hat.
+  - : Wird ausgelöst, wenn auf ein Page-Action-Symbol geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Page-Action ein Popup hat.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction) API von Chromium. Diese Dokumentation stammt aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction) API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

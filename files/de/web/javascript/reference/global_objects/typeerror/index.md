@@ -2,20 +2,18 @@
 title: TypeError
 slug: Web/JavaScript/Reference/Global_Objects/TypeError
 l10n:
-  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`TypeError`**-Objekt repräsentiert einen Fehler, wenn eine Operation nicht durchgeführt werden konnte, typischerweise (aber nicht ausschließlich), wenn ein Wert nicht den erwarteten Typ hat.
+Das **`TypeError`**-Objekt repräsentiert einen Fehler, wenn eine Operation nicht ausgeführt werden konnte, typischerweise (aber nicht ausschließlich), wenn ein Wert nicht vom erwarteten Typ ist.
 
 Ein `TypeError` kann ausgelöst werden, wenn:
 
-- ein Operand oder Argument, das einer Funktion übergeben wird, nicht mit dem von diesem Operator oder dieser Funktion erwarteten Typ kompatibel ist; oder
-- wenn versucht wird, einen Wert zu ändern, der nicht verändert werden kann; oder
+- ein Operand oder ein Argument, das an eine Funktion übergeben wird, nicht mit dem von diesem Operator oder dieser Funktion erwarteten Typ kompatibel ist; oder
+- wenn versucht wird, einen Wert zu ändern, der nicht geändert werden kann; oder
 - wenn versucht wird, einen Wert auf unangemessene Weise zu verwenden.
 
-`TypeError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`TypeError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
 
 `TypeError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -24,20 +22,20 @@ Ein `TypeError` kann ausgelöst werden, wenn:
 - {{jsxref("TypeError/TypeError", "TypeError()")}}
   - : Erstellt ein neues `TypeError`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("Error")}}_.
+_Erbaut auch Instanzeigenschaften von seinem übergeordneten Objekt {{jsxref("Error")}}_.
 
-Diese Eigenschaften sind auf `TypeError.prototype` definiert und werden von allen `TypeError`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `TypeError.prototype` definiert und werden von allen `TypeError`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "TypeError.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `TypeError`-Instanzen ist der Anfangswert der {{jsxref("TypeError/TypeError", "TypeError")}}-Konstruktor.
 - {{jsxref("Error/name", "TypeError.prototype.name")}}
-  - : Repräsentiert den Namen für den Fehlertyp. Für `TypeError.prototype.name` ist der Anfangswert `"TypeError"`.
+  - : Repräsentiert den Namen des Fehlertyps. Für `TypeError.prototype.name` ist der Anfangswert `"TypeError"`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("Error")}}_.
+_Erbt Instanzmethoden von seinem übergeordneten Objekt {{jsxref("Error")}}_.
 
 ## Beispiele
 

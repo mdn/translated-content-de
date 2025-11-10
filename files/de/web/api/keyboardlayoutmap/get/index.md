@@ -1,19 +1,18 @@
 ---
-title: "KeyboardLayoutMap: get()-Methode"
+title: "KeyboardLayoutMap: get() Methode"
 short-title: get()
 slug: Web/API/KeyboardLayoutMap/get
 l10n:
-  sourceCommit: 33d8f835c12481741d0008c1ded4b91634e60d1c
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}
 
-Die **`get()`**-Methode der
-[`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle gibt das Element mit dem angegebenen Schlüssel zurück.
+Die **`get()`**-Methode der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle gibt das Element mit dem angegebenen Schlüssel zurück.
 
-Eine Liste gültiger Schlüssel finden Sie in der [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system) Spezifikation.
+Eine Liste gültiger Schlüssel ist in der [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/)-Spezifikation zu finden.
 
-Die Methode funktioniert ansonsten genauso wie {{jsxref("Map.prototype.get()")}}.
+Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.get()")}}.
 
 ## Syntax
 
@@ -32,7 +31,7 @@ Der Wert des angegebenen Schlüssels.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man den orts- oder layoutspezifischen String abruft, der dem Tastaturcode entspricht, der der 'W'-Taste auf einer englischen QWERTY-Tastatur entspricht.
+Das folgende Beispiel demonstriert, wie man den orts- oder layoutspezifischen String erhält, der dem Keyboard-Code entspricht, der auf einer englischen QWERTY-Tastatur der 'W'-Taste zugeordnet ist.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

@@ -1,41 +1,86 @@
 ---
-title: Den Ball bewegen
+title: Bewegen Sie den Ball
 slug: Games/Tutorials/2D_breakout_game_Phaser/Move_the_ball
 l10n:
-  sourceCommit: 56db19e6b8d19932c1b6150bc42e752e12a2b21f
+  sourceCommit: 4483da6501d1c735a0e1ac1e95775e2fe1766dc3
 ---
 
-{{GamesSidebar}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen", "Games/Tutorials/2D_breakout_game_Phaser/Physics")}}
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Load_the_assets_and_print_them_on_screen", "Games/Workflows/2D_Breakout_game_Phaser/Physics")}}
+Dies ist der **4. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Wir haben unseren blauen Ball auf dem Bildschirm angezeigt, aber er macht nichts – es wäre cool, wenn er sich irgendwie bewegen würde. Dieser Artikel erläutert, wie Sie genau das tun können.
 
-Dies ist der **4. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Phaser-Content-Kit/demos/lesson04.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson04.html) finden.
+## Aktualisieren der Ballposition in jedem Frame
 
-Unser blauer Ball wird auf dem Bildschirm angezeigt, tut aber nichts – es wäre toll, ihn irgendwie zu bewegen. Dieser Artikel behandelt, wie Sie genau das erreichen können.
-
-## Die Position des Balls in jedem Frame aktualisieren
-
-Erinnern Sie sich an die `update()`-Funktion und ihre Definition? Der Code innerhalb dieser Funktion wird in jedem Frame ausgeführt, daher ist es der perfekte Ort, um den Ball auf dem Bildschirm zu aktualisieren. Fügen Sie die folgenden neuen Codezeilen innerhalb von `update()` hinzu, wie gezeigt:
+Erinnern Sie sich an die `update()`-Methode und deren Definition? Der Code darin wird bei jedem Frame ausgeführt, daher ist es der perfekte Ort, um den Code zu platzieren, der die Position des Balls auf dem Bildschirm aktualisiert. Fügen Sie die folgenden neuen Zeilen in `update()` ein, wie gezeigt:
 
 ```js
-function update() {
-  ball.x += 1;
-  ball.y += 1;
+class ExampleScene extends Phaser.Scene {
+  // ...
+  update() {
+    this.ball.x += 1;
+    this.ball.y += 1;
+  }
 }
 ```
 
-Der obige Code addiert in jedem Frame 1 zu den `x`- und `y`-Eigenschaften, die die Ballkoordinaten auf der Leinwand darstellen. Laden Sie die index.html neu, und Sie sollten den Ball über den Bildschirm rollen sehen.
+Der obige Code erhöht die `x`- und `y`-Eigenschaften, die die Ballkoordinaten auf der Leinwand darstellen, bei jedem Frame um 1. Laden Sie `index.html` neu und Sie sollten sehen, wie der Ball über den Bildschirm rollt.
 
 ## Vergleichen Sie Ihren Code
 
-Sie können den fertigen Code für diese Lektion im untenstehenden Live-Demo einsehen und damit spielen, um besser zu verstehen, wie er funktioniert:
+Hier ist der Code, den Sie bisher haben sollten, live ausgeführt. Um den Quellcode anzusehen, klicken Sie auf die Schaltfläche "Play".
 
-{{JSFiddleEmbed("https://jsfiddle.net/end3r/g1cfp0vv/","","400")}}
+```html hidden
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.90.0/phaser.js"></script>
+```
+
+```css hidden
+* {
+  padding: 0;
+  margin: 0;
+}
+```
+
+```js hidden
+class ExampleScene extends Phaser.Scene {
+  ball;
+
+  preload() {
+    this.load.setBaseURL(
+      "https://mdn.github.io/shared-assets/images/examples/2D_breakout_game_Phaser",
+    );
+
+    this.load.image("ball", "ball.png");
+  }
+  create() {
+    this.ball = this.add.sprite(50, 50, "ball");
+  }
+  update() {
+    this.ball.x += 1;
+    this.ball.y += 1;
+  }
+}
+
+const config = {
+  type: Phaser.CANVAS,
+  width: 480,
+  height: 320,
+  scene: ExampleScene,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  backgroundColor: "#eeeeee",
+};
+
+const game = new Phaser.Game(config);
+```
+
+{{EmbedLiveSample("Vergleichen Sie Ihren Code", "", 480, , , , , "allow-modals")}}
 
 ## Nächste Schritte
 
-Der nächste Schritt ist das Hinzufügen einer einfachen Kollisionserkennung, damit unser Ball von den Wänden abprallen kann. Dies würde mehrere Codezeilen erfordern – ein wesentlich komplexerer Schritt als bisher gesehen, insbesondere wenn wir auch Schläger- und Ziegelkollisionen hinzufügen möchten – aber zum Glück ermöglicht Phaser, dies viel einfacher zu machen, als wenn wir pures JavaScript verwenden würden.
+Der nächste Schritt ist die Einführung einer grundlegenden Kollisionsabfrage, damit unser Ball von den Wänden abprallen kann. Dies würde mehrere Codezeilen erfordern – ein deutlich komplexerer Schritt als die bisherigen, insbesondere wenn wir auch Kollisionen mit Schläger und Ziegeln hinzufügen wollen. Glücklicherweise ermöglicht Phaser uns, dies viel einfacher umzusetzen, als wenn wir nur reines JavaScript verwenden würden.
 
-In jedem Fall werden wir zuerst Phasers [physikalische](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Physics) Engines vorstellen und einige Vorarbeiten leisten.
+In jedem Fall werden wir, bevor wir all das tun, zuerst die [Physics](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Physics)-Engines von Phaser einführen und einige Vorbereitungsarbeiten durchführen.
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Load_the_assets_and_print_them_on_screen", "Games/Workflows/2D_Breakout_game_Phaser/Physics")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Load_the_assets_and_print_them_on_screen", "Games/Tutorials/2D_breakout_game_Phaser/Physics")}}

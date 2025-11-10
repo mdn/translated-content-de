@@ -3,12 +3,14 @@ title: "WebGLRenderingContext: getBufferParameter() Methode"
 short-title: getBufferParameter()
 slug: Web/API/WebGLRenderingContext/getBufferParameter
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getBufferParameter()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über den Puffer zurück.
+Die **`WebGLRenderingContext.getBufferParameter()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über den
+Buffer.
 
 ## Syntax
 
@@ -23,43 +25,45 @@ getBufferParameter(target, pname)
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Zielpufferobjekt angibt. Mögliche Werte:
 
     - `gl.ARRAY_BUFFER`
-      - : Puffer, der Vertex-Attribute enthält, wie z.B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
+      - : Puffer enthält Vertex-Attribute, wie z.B.
+        Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
     - `gl.ELEMENT_ARRAY_BUFFER`
+      - : Puffer wird für Element-Indizes verwendet.
 
-      - : Puffer, der für Elementindizes verwendet wird.
-
-    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext)
-    sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
+    stehen zusätzlich die folgenden Werte zur Verfügung:
 
     - `gl.COPY_READ_BUFFER`
-      - : Puffer für das Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Puffer zum Kopieren von einem Pufferobjekt in ein anderes.
     - `gl.COPY_WRITE_BUFFER`
-      - : Puffer für das Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Puffer zum Kopieren von einem Pufferobjekt in ein anderes.
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
       - : Puffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Puffer, der zur Speicherung von Uniform-Blöcken verwendet wird.
+      - : Puffer, der zum Speichern von Uniform-Blöcken verwendet wird.
     - `gl.PIXEL_PACK_BUFFER`
-      - : Puffer, der für Pixelübertragungsoperationen verwendet wird.
+      - : Puffer, der für Pixeltransferoperationen verwendet wird.
     - `gl.PIXEL_UNPACK_BUFFER`
-      - : Puffer, der für Pixelübertragungsoperationen verwendet wird.
+      - : Puffer, der für Pixeltransferoperationen verwendet wird.
 
 - `pname`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragende Information spezifiziert. Mögliche Werte:
 
     - `gl.BUFFER_SIZE`
-      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Größe des Puffers in Bytes angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Größe
+        des Puffers in Bytes angibt.
     - `gl.BUFFER_USAGE`
 
-      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Nutzungsmuster des Puffers angibt. Einer der folgenden Werte:
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das das
+        Nutzungsmuster des Puffers angibt. Einer der folgenden Werte:
 
         - `gl.STATIC_DRAW`
         - `gl.DYNAMIC_DRAW`
         - `gl.STREAM_DRAW`
 
-        Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext)
-        sind zusätzlich die folgenden Werte verfügbar:
+        Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
+        stehen zusätzlich die folgenden Werte zur Verfügung:
 
         - `gl.STATIC_READ`
         - `gl.DYNAMIC_READ`
@@ -70,7 +74,8 @@ getBufferParameter(target, pname)
 
 ### Rückgabewert
 
-Hängt von den angeforderten Informationen ab (wie mit `pname` spezifiziert). Entweder ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
+Hängt von der angeforderten Information ab (wie durch `pname` angegeben). Entweder ein
+[`GLint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 

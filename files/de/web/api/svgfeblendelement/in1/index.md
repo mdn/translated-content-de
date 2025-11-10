@@ -1,14 +1,14 @@
 ---
-title: "SVGFEBlendElement: in1 Eigenschaft"
+title: "SVGFEBlendElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEBlendElement/in1
 l10n:
-  sourceCommit: ecd1c8ee446a4958297460e548b2ecca18af35a9
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`in1`** der [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Schnittstelle spiegelt das {{SVGAttr("in")}} Attribut des gegebenen Elements wider.
+Die **`in1`** schreibgeschützte Eigenschaft des [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Interfaces spiegelt das {{SVGAttr("in")}} Attribut des gegebenen Elements wider.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) Objekt.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei {{SVGElement("feBlend")}} Elemente in einem Filter definiert, jeweils mit einem anderen `in` Attribut.
+In diesem Beispiel sind zwei {{SVGElement("feBlend")}} Elemente in einem Filter definiert, jedes mit einem anderen `in` Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -29,14 +29,9 @@ In diesem Beispiel werden zwei {{SVGElement("feBlend")}} Elemente in einem Filte
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#blend-filter)" />
-  <circle
-    cx="100"
-    cy="100"
-    r="50"
-    style="fill:blue;"
-    filter="url(#blend-filter)" />
+  <circle cx="100" cy="100" r="50" fill="blue" filter="url(#blend-filter)" />
 </svg>
 ```
 

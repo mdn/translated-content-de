@@ -1,9 +1,9 @@
 ---
-title: "Document: Methode createNodeIterator()"
+title: "Dokument: createNodeIterator() Methode"
 short-title: createNodeIterator()
 slug: Web/API/Document/createNodeIterator
 l10n:
-  sourceCommit: d916eca45954b16ba5bf7abec777ffb778c9c805
+  sourceCommit: 30ae43a0c98ab92f750fd571d7a3a8ee8b15b4c0
 ---
 
 {{APIRef("DOM")}}
@@ -21,38 +21,36 @@ createNodeIterator(root, whatToShow, filter)
 ### Parameter
 
 - `root`
-
-  - : Der Wurzelknoten, bei dem die Durchquerung des [`NodeIterator`](/de/docs/Web/API/NodeIterator) beginnt.
+  - : Der Stammknoten, bei dem der Durchlauf des [`NodeIterator`](/de/docs/Web/API/NodeIterator) beginnen soll.
 
 - `whatToShow` {{optional_inline}}
+  - : Ein optionaler `unsigned long`, der eine Bitmaske darstellt, erstellt durch
+    das Kombinieren der Konstanten-Eigenschaften von `NodeFilter`.
+    Es ist eine bequeme Möglichkeit, bestimmte Knotentypen zu filtern. Standardwert ist `0xFFFFFFFF`, das die Konstante `SHOW_ALL` darstellt.
 
-  - : Ein optionales `unsigned long`, das eine Bitmaske darstellt, die durch
-    Kombinieren der Konstanten-Eigenschaften von
-    [`NodeFilter`](https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-NodeFilter) erstellt wurde.
-    Es ist eine bequeme Möglichkeit, nach bestimmten Arten von Knoten zu filtern. Es hat als Standardwert
-    `0xFFFFFFFF`, was die Konstante `SHOW_ALL` repräsentiert.
+    | Konstante                                                | Zahlenwert   | Beschreibung                                                                       |
+    | -------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------- |
+    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF` | Zeigt alle Knoten an.                                                              |
+    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`        | Zeigt [`Attr`](/de/docs/Web/API/Attr)-Knoten an.                                   |
+    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`        | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten an.                   |
+    | `NodeFilter.SHOW_COMMENT`                                | `0x80`       | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten an.                             |
+    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`      | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten an.                           |
+    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`      | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten an.           |
+    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`      | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten an.                   |
+    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`        | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten an.                             |
+    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`       | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`       | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`      | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`       | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten an. |
+    | `NodeFilter.SHOW_TEXT`                                   | `0x4`        | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                                   |
 
-    | Konstante                                                | Numerischer Wert                                           | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-    | -------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `NodeFilter.SHOW_ALL`                                    | `4294967295` (das ist der Maximalwert von `unsigned long`) | Zeigt alle Knoten.                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | `NodeFilter.SHOW_ATTRIBUTE` {{deprecated_inline}}        | `2`                                                        | Zeigt Attributknoten [`Attr`](/de/docs/Web/API/Attr). Dies ist nur sinnvoll, wenn ein [`TreeWalker`](/de/docs/Web/API/TreeWalker) mit einem [`Attr`](/de/docs/Web/API/Attr)-Knoten als Wurzel erstellt wird. In diesem Fall bedeutet es, dass der Attributknoten an erster Stelle der Iteration oder Durchquerung erscheint. Da Attribute nie Kinder anderer Knoten sind, erscheinen sie nicht, wenn über den Dokumentbaum traversiert wird. |
-    | `NodeFilter.SHOW_CDATA_SECTION` {{deprecated_inline}}    | `8`                                                        | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten.                                                                                                                                                                                                                                                                                                                                                                                |
-    | `NodeFilter.SHOW_COMMENT`                                | `128`                                                      | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten.                                                                                                                                                                                                                                                                                                                                                                                          |
-    | `NodeFilter.SHOW_DOCUMENT`                               | `256`                                                      | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten.                                                                                                                                                                                                                                                                                                                                                                                        |
-    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `1024`                                                     | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten.                                                                                                                                                                                                                                                                                                                                                                        |
-    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `512`                                                      | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten.                                                                                                                                                                                                                                                                                                                                                                                |
-    | `NodeFilter.SHOW_ELEMENT`                                | `1`                                                        | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten.                                                                                                                                                                                                                                                                                                                                                                                          |
-    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `32`                                                       | Veraltet, nicht mehr verwendbar.                                                                                                                                                                                                                                                                                                                                                                                                             |
-    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `16`                                                       | Veraltet, nicht mehr verwendbar.                                                                                                                                                                                                                                                                                                                                                                                                             |
-    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `2048`                                                     | Veraltet, nicht mehr verwendbar.                                                                                                                                                                                                                                                                                                                                                                                                             |
-    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `64`                                                       | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten.                                                                                                                                                                                                                                                                                                                                                              |
-    | `NodeFilter.SHOW_TEXT`                                   | `4`                                                        | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten.                                                                                                                                                                                                                                                                                                                                                                                                |
+    > [!NOTE]
+    > Die Konstante `NodeFilter.SHOW_ATTRIBUTE` ist nur wirksam, wenn der Stamm ein Attributknoten ist. Da das übergeordnete Element eines `Attr`-Knotens immer `null` ist, geben [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurück. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).
 
 - `filter` {{optional_inline}}
+  - : Eine Callback-Funktion oder ein Objekt mit einer `acceptNode()`-Methode. Die Funktion oder Methode wird für jeden Knoten im Teilbaum, der am Stamm basiert und als in die Liste der durchlaufbaren Knoten aufgenommen akzeptiert wird, aufgerufen, um zu bestimmen, ob er aufgenommen werden soll oder nicht. Die Methode sollte eines der `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgeben. Siehe das [Beispiel](#beispiele).
 
-  - : Eine Callback-Funktion oder ein Objekt mit einer `acceptNode()`-Methode. Die Funktion oder Methode wird für jeden Knoten im Teilbaum, der an der Wurzel basiert, aufgerufen, der als im `whatToShow`-Flag enthalten akzeptiert wird, um zu bestimmen, ob er in die Liste der iterierbaren Knoten aufgenommen wird oder nicht. Die Methode sollte einen der Werte `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgeben. Siehe das [Beispiel](#beispiele).
-
-    Für `createNodeIterator` sind die Werte `NodeFilter.FILTER_REJECT` und `NodeFilter.FILTER_SKIP` äquivalent. Dieser Knoten wird nicht in die Liste der iterierbaren Knoten aufgenommen, aber seine Kinder werden weiterhin durchlaufen.
+    Für `createNodeIterator` sind die Werte `NodeFilter.FILTER_REJECT` und `NodeFilter.FILTER_SKIP` gleichwertig. Dieser Knoten wird nicht in die Liste der durchlaufbaren Knoten aufgenommen, aber seine Kinder werden weiterhin durchlaufen.
 
 ### Rückgabewert
 
@@ -77,7 +75,7 @@ while ((currentNode = nodeIterator.nextNode())) {
 }
 ```
 
-Das Gleiche, aber es wird ein Objekt mit einer `acceptNode()`-Methode verwendet:
+Dasselbe, jedoch unter Verwendung eines Objekts mit einer `acceptNode()`-Methode:
 
 ```js
 const nodeIterator = document.createNodeIterator(

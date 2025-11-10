@@ -1,13 +1,12 @@
 ---
 title: Intl.PluralRules.prototype.selectRange()
+short-title: selectRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/selectRange
 l10n:
-  sourceCommit: 27180875516cc311342e74b596bfb589b7211e0c
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`selectRange()`** von {{jsxref("Intl.PluralRules")}}-Instanzen erhält zwei Werte und gibt einen String zurück, der angibt, welche Pluralregel für die locale-bewusste Formatierung des angegebenen Bereichs verwendet werden soll.
+Die Methode **`selectRange()`** von {{jsxref("Intl.PluralRules")}} Instanzen nimmt zwei Werte entgegen und gibt einen String zurück, der angibt, welche Pluralregel für die lokalisierungsbewusste Formatierung des angegebenen Bereichs verwendet werden soll.
 
 ## Syntax
 
@@ -24,16 +23,16 @@ selectRange(startRange, endRange)
 
 ### Rückgabewert
 
-Ein String, der die Pluralisierungskategorie des angegebenen Bereichs darstellt.
-Dies kann eine der folgenden Kategorien sein: `zero`, `one`, `two`, `few`, `many` oder `other`, die für die Locale relevant sind, deren Lokalisierung in den [LDML Language Plural Rules](https://www.unicode.org/cldr/charts/43/supplemental/language_plural_rules.html) angegeben ist.
+Ein String, der die Pluralisierungskategorie des angegebenen Bereichs repräsentiert.
+Dies kann einer der Werte `zero`, `one`, `two`, `few`, `many` oder `other` sein, die für die Sprache, deren Lokalisierung in den [LDML Language Plural Rules](https://www.unicode.org/cldr/charts/43/supplemental/language_plural_rules.html) spezifiziert ist, relevant sind.
 
 ## Beschreibung
 
-Diese Funktion wählt eine Pluralisierungskategorie gemäß der Locale- und Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}}-Objekts aus.
+Diese Funktion wählt eine Pluralisierungskategorie gemäß der Sprache und den Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}} Objekts aus.
 
-Konzeptionell ist das Verhalten dasselbe wie das Abrufen von Pluralregeln für eine einzelne kardinale oder ordinale Zahl.
-Sprachen haben eine oder mehrere Formen zur Beschreibung von Bereichen, und diese Methode liefert die passende Form für die angegebene Locale und Formatierungsoptionen.
-Im Englischen gibt es nur eine Pluralform, wie zum Beispiel "1–10 apples", und die Methode gibt `other` zurück.
+Konzeptionell ist das Verhalten das gleiche wie das Erhalten von Pluralregeln für eine einzelne Kardinal- oder Ordinalzahl.
+Sprachen haben eine oder mehrere Formen zur Beschreibung von Bereichen, und diese Methode gibt die geeignete Form für die angegebene Sprache und Formatierungsoptionen zurück.
+Im Englischen gibt es nur eine Pluralform, wie "1–10 apples", und die Methode wird `other` zurückgeben.
 Andere Sprachen können viele Formen haben.
 
 ## Beispiele

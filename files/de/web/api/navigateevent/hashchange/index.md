@@ -3,12 +3,12 @@ title: "NavigateEvent: hashChange-Eigenschaft"
 short-title: hashChange
 slug: Web/API/NavigateEvent/hashChange
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`hashChange`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d. h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
+Die schreibgeschützte **`hashChange`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d.h. zu einer Fragmentkennung im selben Dokument), oder `false` andernfalls.
 
 ## Wert
 
@@ -51,6 +51,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

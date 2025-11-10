@@ -3,12 +3,12 @@ title: "ViewTimeline: subject-Eigenschaft"
 short-title: subject
 slug: Web/API/ViewTimeline/subject
 l10n:
-  sourceCommit: 34bc6ac7c5d03e5891bf94b0d4ebeccb0e7a29e5
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef("Web Animations")}}{{SeeCompatTable}}
+{{APIRef("Web Animations")}}
 
-Die schreibgeschützte **`subject`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb seines nächsten vorfahren-scrollfähigen Elements (Scroller) den Fortschritt der Zeitachse steuert.
+Die schreibgeschützte **`subject`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb des nächsten vorfahrbaren scrollbaren Elements (Scroller) den Fortschritt der Timeline bestimmt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Siehe die Hauptseite [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Beispiel.
+Siehe die Hauptseite von [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Siehe die Hauptseite [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Be
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
 - [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

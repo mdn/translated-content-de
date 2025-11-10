@@ -2,10 +2,8 @@
 title: Engine
 slug: Glossary/Engine
 l10n:
-  sourceCommit: b49ed0d28c2cfb0f39be603a62d37bcc1ec407dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 Der Begriff **Engine** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 

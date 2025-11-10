@@ -2,39 +2,37 @@
 title: BrowserSetting
 slug: Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein `BrowserSetting` ist ein Objekt, das eine Browsereinstellung darstellt.
 
-Ein `BrowserSetting` ist ein Objekt, das eine Browsereinstellung repräsentiert.
+Es bietet Methoden, um den zugrunde liegenden Wert der Einstellung festzulegen und abzurufen, um Änderungen, die Sie daran vorgenommen haben, zu löschen und um auf Änderungen des Wertes zu hören.
 
-Es bietet Methoden, um den zugrunde liegenden Wert der Einstellung festzulegen und abzurufen, Änderungen daran rückgängig zu machen und Änderungen des Wertes zu überwachen.
-
-Beachten Sie, dass dieses Objekt zwar auf dem [ChromeSetting](https://developer.chrome.com/docs/extensions/reference/api/types#type-ChromeSetting)-Typ basiert, es jedoch keinen Unterschied zwischen dem Setzen des Wertes in normalen Browsing-Fenstern und in privaten Browsing-Fenstern macht. Dies bedeutet, dass alle Teile der API, die sich auf privates Browsen beziehen (wie die `scope` Option zu `ChromeSetting.set()`), nicht implementiert sind.
+Beachten Sie, dass, obwohl dieses Objekt auf dem [ChromeSetting](https://developer.chrome.com/docs/extensions/reference/api/types#type-ChromeSetting)-Typ basiert, dieses Objekt nicht zwischen dem Setzen des Wertes in normalen Browserfenstern und in privaten Browserfenstern unterscheidet. Das bedeutet, dass alle Teile der API, die sich auf privates Browsen beziehen (wie die `scope`-Option für `ChromeSetting.set()`), nicht implementiert sind.
 
 ## Methoden
 
 - {{WebExtAPIRef("types.BrowserSetting.get()")}}
-  - : Den aktuellen Wert der Einstellung erhalten und eine Aufzählung, die zeigt, wie die Einstellung derzeit kontrolliert wird.
+  - : Erhalten Sie den aktuellen Wert der Einstellung und eine Aufzählung, wie die Einstellung derzeit gesteuert wird.
 - {{WebExtAPIRef("types.BrowserSetting.set()")}}
-  - : Die Einstellung auf einen neuen Wert setzen.
+  - : Setzen Sie die Einstellung auf einen neuen Wert.
 - {{WebExtAPIRef("types.BrowserSetting.clear()")}}
-  - : Alle von dieser Erweiterung vorgenommenen Änderungen an der Einstellung entfernen.
+  - : Löschen Sie jede Änderung, die durch diese Erweiterung an der Einstellung vorgenommen wurde.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("types.BrowserSetting.onChange")}}
   - : Wird ausgelöst, wenn sich der Wert der Einstellung ändert.
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

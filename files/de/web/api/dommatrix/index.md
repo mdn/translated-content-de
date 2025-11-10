@@ -2,12 +2,12 @@
 title: DOMMatrix
 slug: Web/API/DOMMatrix
 l10n:
-  sourceCommit: c783eb168e90b80e22f223d5126178ecf95b6135
+  sourceCommit: 359abb1dcdc87d46d7271fc28c53a998a5523bf1
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMMatrix`** Schnittstelle repräsentiert 4×4 Matrizen, geeignet für 2D- und 3D-Operationen wie Rotation und Translation. Sie ist eine veränderliche Version der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle. Diese Schnittstelle ist in [Web-Workern](/de/docs/Web/API/Web_Workers_API) verfügbar.
+Das **`DOMMatrix`**-Interface repräsentiert 4×4-Matrizen, die für 2D- und 3D-Operationen wie Rotation und Translation geeignet sind. Es ist eine veränderbare Version des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces. Das Interface steht auch in [Web-Workern](/de/docs/Web/API/Web_Workers_API) zur Verfügung.
 
 **`WebKitCSSMatrix`** und **`SVGMatrix`** sind Aliase für **`DOMMatrix`**.
 
@@ -20,15 +20,14 @@ Die **`DOMMatrix`** Schnittstelle repräsentiert 4×4 Matrizen, geeignet für 2D
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly), obwohl einige dieser Eigenschaften so geändert sind, dass sie veränderlich sind._
+_Dieses Interface erbt Eigenschaften von [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly), obwohl einige dieser Eigenschaften veränderbar gemacht wurden._
 
 - `m11`, `m12`, `m13`, `m14`, `m21`, `m22`, `m23`, `m24`, `m31`, `m32`, `m33`, `m34`, `m41`, `m42`, `m43`, `m44`
-  - : Gleitkommawerte mit doppelter Genauigkeit, die jede Komponente einer 4×4 Matrix darstellen, wobei `m11` bis `m14` die erste Spalte, `m21` bis `m24` die zweite Spalte und so weiter sind.
+  - : Fließkommawerte mit doppelter Genauigkeit, die jede Komponente einer 4×4-Matrix darstellen, wobei `m11` bis `m14` die erste Spalte sind, `m21` bis `m24` die zweite Spalte und so weiter.
 - `a`, `b`, `c`, `d`, `e`, `f`
+  - : Fließkommawerte mit doppelter Genauigkeit, die die Komponenten einer 4×4-Matrix darstellen, die benötigt werden, um 2D-Rotationen und -Translationen durchzuführen. Diese sind Aliase für spezifische Komponenten einer 4×4-Matrix, wie unten dargestellt.
 
-  - : Gleitkommawerte mit doppelter Genauigkeit, die die Komponenten einer 4×4 Matrix darstellen, die für 2D-Rotationen und -Translationen benötigt werden. Dies sind Aliase für spezifische Komponenten einer 4×4 Matrix, wie unten gezeigt.
-
-    | `2D` | `3D äquivalent` |
+    | `2D` | `3D-Äquivalent` |
     | ---- | --------------- |
     | `a`  | `m11`           |
     | `b`  | `m12`           |
@@ -39,49 +38,47 @@ _Diese Schnittstelle erbt Eigenschaften von [`DOMMatrixReadOnly`](/de/docs/Web/A
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle enthält folgende Methoden sowie die Methoden, die sie von [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) erbt._
+_Dieses Interface umfasst die folgenden Methoden sowie die Methoden, die es von [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) erbt._
 
 - [`DOMMatrix.invertSelf()`](/de/docs/Web/API/DOMMatrix/invertSelf)
-  - : Modifiziert die Matrix, indem sie invertiert wird. Wenn die Matrix nicht invertiert werden kann, werden alle Komponenten auf `NaN` gesetzt und [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly#is2d) gibt `false` zurück.
+  - : Modifiziert die Matrix, indem sie invertiert wird. Wenn die Matrix nicht invertiert werden kann, werden alle ihre Komponenten auf `NaN` gesetzt, und [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) gibt `false` zurück.
 - [`DOMMatrix.multiplySelf()`](/de/docs/Web/API/DOMMatrix/multiplySelf)
-  - : Modifiziert die Matrix, indem sie mit der angegebenen `DOMMatrix` nachmultipliziert wird. Dies entspricht dem Skalarprodukt `A⋅B`, wobei die Matrix `A` die Quellmatrix und `B` die als Eingabe angegebene Matrix ist. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie mit der angegebenen `DOMMatrix` multipliziert wird. Dies entspricht dem Skalarprodukt `A⋅B`, wobei Matrix `A` die Quellmatrix und `B` die Matrix ist, die als Eingabe an die Methode übergeben wird. Gibt sich selbst zurück.
 - [`DOMMatrix.preMultiplySelf()`](/de/docs/Web/API/DOMMatrix/preMultiplySelf)
-  - : Modifiziert die Matrix, indem sie mit der angegebenen `DOMMatrix` vormultipliziert wird. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie mit der angegebenen `DOMMatrix` vorvervielfacht wird. Gibt sich selbst zurück.
 - [`DOMMatrix.translateSelf()`](/de/docs/Web/API/DOMMatrix/translateSelf)
-  - : Modifiziert die Matrix, indem der angegebene Vektor angewendet wird. Der Standardvektor ist `[0, 0, 0]`. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie den angegebenen Vektor anwendet. Der Standardvektor ist `[0, 0, 0]`. Gibt sich selbst zurück.
 - [`DOMMatrix.scaleSelf()`](/de/docs/Web/API/DOMMatrix/scaleSelf)
-  - : Modifiziert die Matrix, indem die angegebenen Skalierungsfaktoren angewendet werden, wobei das Zentrum am angegebenen Ursprung liegt. Gibt sich selbst zurück. Standardmäßig ist der Skalierungsfaktor `1` für alle drei Achsen und der Ursprung ist `(0, 0, 0)`. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie die angegebenen Skalierungsfaktoren anwendet, mit dem Ursprung an der angegebenen Stelle. Gibt sich selbst zurück. Standardmäßig ist der Skalierungsfaktor für alle drei Achsen `1`, und der Ursprung ist `(0, 0, 0)`. Gibt sich selbst zurück.
 - [`DOMMatrix.scale3dSelf()`](/de/docs/Web/API/DOMMatrix/scale3dSelf)
-  - : Modifiziert die Matrix, indem der angegebene Skalierungsfaktor auf alle drei Achsen angewendet wird, zentriert auf den gegebenen Ursprung. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie den angegebenen Skalierungsfaktor auf alle drei Achsen anwendet, zentriert auf dem gegebenen Ursprung. Gibt sich selbst zurück.
 - [`DOMMatrix.rotateSelf()`](/de/docs/Web/API/DOMMatrix/rotateSelf)
-  - : Modifiziert die Matrix, indem sie um die angegebene Anzahl von Grad um jede Achse rotiert wird. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie um jeden Achse durch die angegebene Anzahl von Grad gedreht wird. Gibt sich selbst zurück.
 - [`DOMMatrix.rotateAxisAngleSelf()`](/de/docs/Web/API/DOMMatrix/rotateAxisAngleSelf)
-  - : Modifiziert die Matrix, indem sie um den angegebenen Winkel um den gegebenen Vektor gedreht wird. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie um den angegebenen Winkel um den gegebenen Vektor rotiert. Gibt sich selbst zurück.
 - [`DOMMatrix.rotateFromVectorSelf()`](/de/docs/Web/API/DOMMatrix/rotateFromVectorSelf)
-  - : Modifiziert die Matrix, indem sie um den Winkel zwischen dem angegebenen Vektor und `(1, 0)` rotiert wird. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie um den Winkel zwischen dem angegebenen Vektor und `(1, 0)` gedreht wird. Gibt sich selbst zurück.
 - [`DOMMatrix.setMatrixValue()`](/de/docs/Web/API/DOMMatrix/setMatrixValue)
-  - : Ersetzt den Inhalt der Matrix mit der durch die angegebene Transformation oder Transformationen beschriebenen Matrix. Gibt sich selbst zurück.
+  - : Ersetzt den Inhalt der Matrix durch die durch die angegebene Transformation oder Transformationen beschriebene Matrix. Gibt sich selbst zurück.
 - [`DOMMatrix.skewXSelf()`](/de/docs/Web/API/DOMMatrix/skewXSelf)
-  - : Modifiziert die Matrix, indem die angegebene Schrägtransformation entlang der X-Achse angewendet wird. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie die angegebene Schertransformation entlang der X-Achse anwendet. Gibt sich selbst zurück.
 - [`DOMMatrix.skewYSelf()`](/de/docs/Web/API/DOMMatrix/skewYSelf)
-  - : Modifiziert die Matrix, indem die angegebene Schrägtransformation entlang der Y-Achse angewendet wird. Gibt sich selbst zurück.
+  - : Modifiziert die Matrix, indem sie die angegebene Schertransformation entlang der Y-Achse anwendet. Gibt sich selbst zurück.
 
 ## Statische Methoden
 
-_Diese Schnittstelle erbt Methoden von [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)._
+- [`fromFloat32Array()`](/de/docs/Web/API/DOMMatrix/fromFloat32Array_static)
+  - : Erstellt ein neues `DOMMatrix`-Objekt, gegeben ein {{jsxref("Float32Array")}} von 6 oder 16 Einzelpräzisions- (32-Bit) Fließkommawerten.
+- [`fromFloat64Array()`](/de/docs/Web/API/DOMMatrix/fromFloat64Array_static)
+  - : Erstellt ein neues `DOMMatrix`-Objekt, gegeben ein {{jsxref("Float64Array")}} von 6 oder 16 Doppelpräzisions- (64-Bit) Fließkommawerten.
+- [`fromMatrix()`](/de/docs/Web/API/DOMMatrix/fromMatrix_static)
+  - : Erstellt ein neues `DOMMatrix`-Objekt, gegeben eine bestehende Matrix oder ein Objekt, das die Werte für seine Eigenschaften bereitstellt.
 
-- [`fromFloat32Array()`](/de/docs/Web/API/DOMMatrix/fromFloat32Array)
-  - : Erstellt ein neues veränderliches `DOMMatrix`-Objekt aus einem Array von Gleitkommazahlen mit einfacher Genauigkeit (32-Bit). Wenn das Array sechs Werte hat, ist das Ergebnis eine 2D-Matrix; wenn das Array 16 Werte hat, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
-- [`fromFloat64Array()`](/de/docs/Web/API/DOMMatrix/fromFloat64Array)
-  - : Erstellt ein neues veränderliches `DOMMatrix`-Objekt aus einem Array von Gleitkommazahlen mit doppelter Genauigkeit (64-Bit). Wenn das Array sechs Werte hat, ist das Ergebnis eine 2D-Matrix; wenn das Array 16 Werte hat, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
-- [`fromMatrix()`](/de/docs/Web/API/DOMMatrix/fromMatrix)
-  - : Erstellt ein neues veränderliches `DOMMatrix`-Objekt aus einer vorhandenen Matrix oder einem Objekt, das die Werte für seine Eigenschaften bereitstellt.
+## Verwendungshinweise
 
-## Hinweise zur Verwendung
+Die durch das `DOMMatrix`-Interface definierte Matrix besteht aus vier Reihen mit je vier Spalten. Auch wenn es über den Rahmen dieses Artikels hinausgeht, die zugrunde liegende Mathematik zu erläutern, ist diese 4×4-Größe ausreichend, um jede Transformation zu beschreiben, die Sie auf 2D- oder 3D-Geometrien anwenden könnten.
 
-Die durch die `DOMMatrix` Schnittstelle definierte Matrix besteht aus vier Zeilen mit jeweils vier Spalten. Obwohl es über den Umfang dieses Artikels hinausgeht, die Mathematik dahinter zu erklären, reicht diese 4×4-Größe aus, um jede Transformation zu beschreiben, die Sie entweder auf 2D- oder 3D-Geometrien anwenden könnten.
-
-Hier sind die Positionen der 16 Elemente (m_11 bis m_44), die die 4×4 abstrakte Matrix bilden:
+Hier sind die Positionen der 16 Elemente (m_11 bis m_44), die die 4×4-Abstract-Matrix bilden:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -89,7 +86,7 @@ Hier sind die Positionen der 16 Elemente (m_11 bis m_44), die die 4×4 abstrakte
 </math>
 <!-- prettier-ignore-end -->
 
-Die `DOMMatrix`-Schnittstelle ist so konzipiert, dass sie für alle Matrizen innerhalb des Markups verwendet wird.
+Das `DOMMatrix`-Interface ist so konzipiert, dass es für alle Matrizen innerhalb von Markup verwendet wird.
 
 ## Spezifikationen
 

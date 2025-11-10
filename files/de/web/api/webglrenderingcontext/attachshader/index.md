@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: attachShader()-Methode"
 short-title: attachShader()
 slug: Web/API/WebGLRenderingContext/attachShader
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLRenderingContext.attachShader()**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) fügt entweder einen Fragment- oder Vertex-`WebGLShader` einem `WebGLProgram` hinzu.
+Die **WebGLRenderingContext.attachShader()**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) fügt entweder ein Fragment- oder ein Vertex-`WebGLShader` zu einem `WebGLProgram` hinzu.
 
 ## Syntax
 
@@ -23,9 +23,13 @@ attachShader(program, shader)
 - `shader`
   - : Ein Fragment- oder Vertex-`WebGLShader`.
 
+### Rückgabewert
+
+Keiner ({{jsxref("undefined")}}).
+
 ## Beispiele
 
-Der folgende Code fügt vorhandene Shader zu einem `WebGLProgram` hinzu.
+Der folgende Code fügt bereits vorhandene Shader zu einem `WebGLProgram` hinzu.
 
 ```js
 const program = gl.createProgram();
@@ -38,7 +42,7 @@ gl.linkProgram(program);
 
 if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
   const info = gl.getProgramInfoLog(program);
-  throw `Could not compile WebGL program. \n\n${info}`;
+  throw new Error(`Could not compile WebGL program. \n\n${info}`);
 }
 ```
 

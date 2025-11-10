@@ -221,7 +221,7 @@
       {
         "name": "inline-html",
         "message": "Put inline HTML tags in code spans",
-        "searchPattern": "/(?<!`)\\\\?(<(article|audio|body|button|canvas|dialog|fieldset|head|html|iframe|input|legend|link|object|pattern|script|select|span|style|svg|textarea|video)>)/g",
+        "searchPattern": "/(?<!`)\\\\?(<(article|audio|body|button|canvas|dialog|fieldset|head|html|iframe|input|legend|link|object|pattern|script|select|span|style|svg|textarea|track|video)>)/g",
         "replace": "`$1`",
         "searchScope": "text",
       },
@@ -230,6 +230,13 @@
         "message": "Escape angle brackets",
         "searchPattern": "/(?<!\\\\)(<(angle|color|coordinate|custom-ident|integer|length|list-of-numbers|name|number|percentage|scheme-source|string|transform-list|uri)>)/gi",
         "replace": "\\$1",
+        "searchScope": "text",
+      },
+      {
+        "name": "normalize-d-h",
+        "message": "Normalize \"d.h.\"",
+        "searchPattern": "/d\\.( h\\.,?| ?h\\.,)/g",
+        "replace": "d.h.",
         "searchScope": "text",
       },
     ],

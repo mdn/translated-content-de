@@ -3,15 +3,16 @@ title: "IntersectionObserver: takeRecords()-Methode"
 short-title: takeRecords()
 slug: Web/API/IntersectionObserver/takeRecords
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: fe47429d64ffaacb24f5130523442aeaabf26ac6
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode **`takeRecords()`** des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) gibt ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten zurück, eines für jedes gezielte Element, das seit dem letzten Überprüfen der Schnittmengen eine Veränderung in der Schnittmenge erfahren hat, entweder explizit durch einen Aufruf dieser Methode oder implizit durch einen automatischen Aufruf des Rückrufs des Beobachters.
+Die **`takeRecords()`**-Methode der [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Schnittstelle gibt ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten zurück, jeweils eines für jedes anvisierte Element, das seit dem letzten Prüfen der Überschneidungen eine Änderung erfahren hat, sei es durch einen expliziten Aufruf dieser Methode oder implizit durch einen automatischen Aufruf des Rückrufs des Observers.
 
 > [!NOTE]
-> Wenn Sie den Rückruf verwenden, um diese Änderungen zu überwachen, müssen Sie diese Methode nicht aufrufen. Ein Aufruf dieser Methode leert die Liste der ausstehenden Schnittmengen, daher wird der Rückruf nicht ausgeführt.
+> Wenn Sie den Rückruf verwenden, um diese Änderungen zu überwachen, müssen Sie diese Methode nicht aufrufen.
+> Durch das Aufrufen dieser Methode wird die Liste der ausstehenden Überschneidungen geleert, sodass der Rückruf nicht ausgeführt wird.
 
 ## Syntax
 
@@ -25,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten, eines für jedes Zielelement, dessen Schnittmenge mit dem Root sich seit dem letzten Überprüfen der Schnittmengen verändert hat.
+Ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten, je eines für jedes Ziel-Element, dessen Überschneidung mit der Wurzel sich seit dem letzten Prüfen der Überschneidungen geändert hat.
 
 ## Spezifikationen
 

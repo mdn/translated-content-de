@@ -1,35 +1,36 @@
 ---
-title: "RTCPeerConnection: aktuelleRemoteDescription-Eigenschaft"
+title: "RTCPeerConnection: currentRemoteDescription Eigenschaft"
 short-title: currentRemoteDescription
 slug: Web/API/RTCPeerConnection/currentRemoteDescription
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`currentRemoteDescription`** des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das das Ende der Verbindung auf der Gegenseite beschreibt, wie es zuletzt erfolgreich ausgehandelt wurde, seitdem das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) das Verhandeln und Verbinden mit einem entfernten Peer abgeschlossen hat.
-Ebenfalls enthalten ist eine Liste aller ICE-Kandidaten, die möglicherweise bereits vom ICE-Agenten generiert wurden, seit das durch die Beschreibung dargestellte Angebot oder die Antwort erstmals instanziiert wurde.
+Die **`currentRemoteDescription`** Nur-Lese Eigenschaft des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interfaces gibt ein
+[`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) Objekt zurück, das das Remote-Ende der Verbindung beschreibt, wie es zuletzt erfolgreich verhandelt wurde, seit dem letzten Mal, als die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) die Verhandlung und Verbindung mit einem externen Partner abgeschlossen hat.
+Ebenfalls enthalten ist eine Liste von ICE-Kandidaten, die möglicherweise bereits seit der Erstellung des Angebots oder der Antwort durch den ICE-Agenten generiert wurden, die von der Beschreibung dargestellt wird.
 
 Um die `currentRemoteDescription` zu ändern, rufen Sie [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) auf, was eine Reihe von Ereignissen auslöst, die dazu führen, dass dieser Wert gesetzt wird.
-Einzelheiten darüber, was genau passiert und warum die Änderung nicht unbedingt sofort erfolgt, finden Sie unter [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der Seite zur WebRTC-Konnektivität.
+Für Details darüber, was genau passiert und warum die Änderung nicht unbedingt sofort erfolgt, siehe [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
 
 > [!NOTE]
-> Im Gegensatz zu [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) repräsentiert dieser Wert den tatsächlichen aktuellen Zustand des lokalen Endes der Verbindung;
-> `remoteDescription` kann eine Beschreibung angeben, die im Moment im Prozess des Umschaltens ist.
+> Im Gegensatz zu [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) repräsentiert dieser Wert den tatsächlichen aktuellen Status des lokalen Endes der Verbindung;
+> `remoteDescription` kann eine Beschreibung angeben, die die Verbindung derzeit zu übernehmen versucht.
 
 ## Wert
 
-Die aktuelle Beschreibung des Endes der Verbindung auf der Gegenseite, falls eine gesetzt wurde.
-Wenn keine erfolgreich gesetzt wurde, ist dieser Wert `null`.
+Die aktuelle Beschreibung des Remote-Endes der Verbindung, falls eine gesetzt wurde.
+Falls keine erfolgreich gesetzt wurde, ist dieser Wert `null`.
 
 ## Beispiele
 
-Dieses Beispiel betrachtet die `currentRemoteDescription` und zeigt eine Warnung an, die die Felder `type` und `sdp` des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekts enthält.
+Dieses Beispiel betrachtet die `currentRemoteDescription` und zeigt einen Alarm an, der die `type`- und `sdp`-Felder des [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) Objekts enthält.
 
 ```js
 const pc = new RTCPeerConnection();
-// ...
+// …
 const sd = pc.currentRemoteDescription;
 if (sd) {
   alert(`Local session: type='${sd.type}'; sdp description='${sd.sdp}'`);

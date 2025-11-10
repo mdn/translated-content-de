@@ -1,14 +1,14 @@
 ---
-title: "SVGTextPositioningElement: rotate-Eigenschaft"
+title: "SVGTextPositioningElement: rotate Eigenschaft"
 short-title: rotate
 slug: Web/API/SVGTextPositioningElement/rotate
 l10n:
-  sourceCommit: 094fd56f02f2e1e8d4a3357af8b768ad8d3268b7
+  sourceCommit: 46b0ecd3b5280fbff659d138e3a7eaaf0fd12a24
 ---
 
 {{APIRef("SVG")}}
 
-Die **`rotate`**-Eigenschaft der [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)-Schnittstelle gibt die Rotation einzelner Textglyphen wieder, wie sie durch das {{SVGAttr("rotate")}}-Attribut des gegebenen Elements spezifiziert ist.
+Die **`rotate`** schreibgeschützte Eigenschaft der [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)-Schnittstelle spiegelt die Rotation einzelner Textglyphen wider, wie sie durch das {{SVGAttr("rotate")}}-Attribut des angegebenen Elements festgelegt wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList)-Objekt.
 
 ## Beispiele
 
-Angenommen, das folgende SVG:
+Für das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,7 @@ Angenommen, das folgende SVG:
 </svg>
 ```
 
-Wir können auf das `rotate`-Attribut zugreifen:
+Können wir auf das `rotate`-Attribut zugreifen:
 
 ```js
 const texts = document.querySelectorAll("text");

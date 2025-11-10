@@ -2,16 +2,16 @@
 title: WebGLProgram
 slug: Web/API/WebGLProgram
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: f2dc3d5367203c860cf1a71ce0e972f018523849
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Das **`WebGLProgram`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ist eine Kombination aus zwei kompilierten [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Shadern, bestehend aus einem Vertex-Shader und einem Fragment-Shader (beide geschrieben in GLSL).
+Das **`WebGLProgram`** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ist eine Kombination aus zwei kompilierten [`WebGLShader`](/de/docs/Web/API/WebGLShader), bestehend aus einem Vertex-Shader und einem Fragment-Shader (beide in GLSL geschrieben).
 
 {{InheritanceDiagram}}
 
-Um ein `WebGLProgram` zu erstellen, rufen Sie die [`createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram)-Funktion des GL-Kontexts auf. Nachdem Sie die Shader-Programme mit [`attachShader()`](/de/docs/Web/API/WebGLRenderingContext/attachShader) angefügt haben, verknüpfen Sie sie zu einem nutzbaren Programm. Dies wird im folgenden Code gezeigt.
+Um ein `WebGLProgram` zu erstellen, rufen Sie die Funktion [`createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram) des GL-Kontextes auf. Nachdem Sie die Shader-Programme mit [`attachShader()`](/de/docs/Web/API/WebGLRenderingContext/attachShader) angehängt haben, verlinken Sie diese zu einem nutzbaren Programm. Dies wird im untenstehenden Code gezeigt.
 
 ```js
 const program = gl.createProgram();
@@ -24,7 +24,7 @@ gl.linkProgram(program);
 
 if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
   const info = gl.getProgramInfoLog(program);
-  throw `Could not compile WebGL program. \n\n${info}`;
+  throw new Error(`Could not compile WebGL program. \n\n${info}`);
 }
 ```
 
@@ -34,7 +34,7 @@ Siehe [`WebGLShader`](/de/docs/Web/API/WebGLShader) für Informationen zur Erste
 
 ### Verwendung des Programms
 
-Die Schritte, um tatsächlich mit dem Programm zu arbeiten, beinhalten, der GPU zu sagen, sie solle das Programm verwenden, die entsprechenden Daten und Konfigurationsoptionen zu binden und schließlich etwas auf den Bildschirm zu zeichnen.
+Die Schritte, um mit dem Programm tatsächlich zu arbeiten, bestehen darin, der GPU mitzuteilen, das Programm zu verwenden, die entsprechenden Daten und Konfigurationsoptionen zu binden und schließlich etwas auf den Bildschirm zu zeichnen.
 
 ```js
 // Use the program
@@ -51,7 +51,7 @@ gl.drawArrays(gl.TRIANGLES, 0, 3);
 
 ### Löschen des Programms
 
-Wenn ein Fehler beim Verknüpfen des Programms auftritt oder Sie ein bestehendes Programm löschen möchten, ist es so einfach, [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram) auszuführen. Dies gibt den Speicher des verknüpften Programms frei.
+Wenn beim Verlinken des Programms ein Fehler auftritt oder Sie ein bestehendes Programm löschen möchten, ist es so einfach, [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram) auszuführen. Dies gibt den Speicher des verlinkten Programms frei.
 
 ```js
 gl.deleteProgram(program);

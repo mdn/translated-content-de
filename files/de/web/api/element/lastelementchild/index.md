@@ -3,14 +3,14 @@ title: "Element: lastElementChild-Eigenschaft"
 short-title: lastElementChild
 slug: Web/API/Element/lastElementChild
 l10n:
-  sourceCommit: bbf7f25f9cf95fb154e2740a9fdc9c02818981bf
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`Element.lastElementChild`**-Eigenschaft gibt das letzte Kind-`Element` eines Elements zurück oder `null`, wenn es keine Kindelemente gibt.
+Die schreibgeschützte Eigenschaft **`Element.lastElementChild`** gibt das letzte Kind-`Element` eines Elements zurück oder `null`, wenn keine Kind-Elemente vorhanden sind.
 
-`Element.lastElementChild` umfasst nur Elemente. Um alle Knoten, einschließlich nicht-elementarer Knoten wie Text- und Kommentarknoten, zu erhalten, verwenden Sie [`Node.lastChild`](/de/docs/Web/API/Node/lastChild).
+`Element.lastElementChild` umfasst nur Elemente-Knoten. Um alle Kindknoten zu erhalten, einschließlich Nicht-Element-Knoten wie Text- und Kommentar-Knoten, verwenden Sie [`Node.lastChild`](/de/docs/Web/API/Node/lastChild).
 
 ## Wert
 
@@ -24,12 +24,12 @@ Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
   <li>Second (2)</li>
   <li>Third (3)</li>
 </ul>
+```
 
-<script>
-  const list = document.getElementById("list");
-  console.log(list.lastElementChild.textContent);
-  // logs "Third (3)"
-</script>
+```js
+const list = document.getElementById("list");
+console.log(list.lastElementChild.textContent);
+// logs "Third (3)"
 ```
 
 ## Spezifikationen

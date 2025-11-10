@@ -1,28 +1,28 @@
 ---
-title: Leitfaden für MathML-Anfänger
+title: MathML Leitfäden
+short-title: Guides
 slug: Web/MathML/Guides
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: d37026a4d0e1e3a5a2ab82d34566689aada039f7
 ---
 
-{{MathMLRef}}
+Diese Seite listet Leitfäden für MathML auf, um Ihnen bei der Erstellung von MathML auf Ihren Webseiten zu helfen, einschließlich Anleitungen zum Schreiben, Editoren, Schriftarten und mehr.
 
-Die folgenden Leitfäden bieten einen sanften Einstieg in Ihren Weg zur Beherrschung von MathML, indem sie die Grundlagen der Funktionsweise, das Aussehen der Syntax und die Verwendung innerhalb von HTML erklären.
+- [MathML verfassen](/de/docs/Web/MathML/Guides/Authoring)
+  - : Diese Seite erklärt, wie Sie Mathematik mit der MathML-Sprache schreiben, die mit Tags und Attributen im Textformat beschrieben wird.
+- [Schriftarten für MathML](/de/docs/Web/MathML/Guides/Fonts)
+  - : Schriftarten mit angemessener Unicode-Abdeckung und Open Font Format-Features sind für eine gute Mathematik-Darstellung erforderlich. Diese Seite beschreibt, wie Benutzer solche Mathematik-Schriftarten installieren können, um MathML in Browsern korrekt anzuzeigen.
 
-## Leitfäden
+## Beispiele
 
-- [Erste Schritte mit MathML](/de/docs/Web/MathML/Guides/Getting_started)
-  - : In diesem Artikel werden wir ein einfaches HTML-Dokument nehmen und sehen, wie man MathML-Formeln in dieses einfügt und dabei einige Elemente vorstellt.
-- [Textcontainer](/de/docs/Web/MathML/Guides/Text_containers)
-  - : Jetzt, da Sie eine bessere Vorstellung von MathML haben, gehen wir zu Textcontainern (Variablen, Zahlen, Operatoren, ...), die als Bausteine von MathML-Formeln verwendet werden, über.
-- [Brüche und Wurzeln](/de/docs/Web/MathML/Guides/Fractions_and_roots)
-  - : Aufbauend auf den Textcontainern beschreibt dieser Artikel, wie man durch das Verschachteln von Brüchen und Wurzeln komplexere MathML-Ausdrücke erstellt.
-- [Skripte](/de/docs/Web/MathML/Guides/Scripts)
-  - : Wir setzen die Überprüfung der grundlegenden mathematischen Notationen fort und konzentrieren uns darauf, MathML-Elemente mit Skripten zu erstellen.
-- [Tabellen](/de/docs/Web/MathML/Guides/Tables)
-  - : Sobald alle grundlegenden mathematischen Notationen bekannt sind, bleibt noch die tabellarische Anordnung zu betrachten, die für matrixartige Ausdrücke und andere fortgeschrittene mathematische Anordnungen verwendet werden kann.
+Zur Ergänzung der Leitfäden demonstrieren die folgenden Seiten, wie MathML in echten Herleitungen und Beweisen verwendet werden kann.
 
-## Herausforderungen
+- [Beweis des Satzes des Pythagoras](/de/docs/Web/MathML/Guides/Proving_the_Pythagorean_theorem)
+  - : Diese Seite skizziert den Beweis des [Satzes des Pythagoras](https://en.wikipedia.org/wiki/Pythagorean_theorem) mithilfe von MathML, um jeden Schritt visuell zu strukturieren.
+- [Ableitung der quadratischen Formel](/de/docs/Web/MathML/Guides/Deriving_the_quadratic_formula)
+  - : Diese Seite skizziert die Herleitung der [quadratischen Formel](https://en.wikipedia.org/wiki/Quadratic_formula) und zeigt, wie MathML verwendet werden kann, um jede Transformation darzustellen.
 
-- [Drei berühmte mathematische Formeln](/de/docs/Web/MathML/Guides/Three_famous_mathematical_formulas)
-  - : Mit dem, was Sie in den letzten Artikeln gelernt haben, sollten Sie bereits in der Lage sein, relativ anspruchsvolle MathML-Formeln zu schreiben. Diese Herausforderung gibt Ihnen die Möglichkeit, das zu tun.
+## Siehe auch
+
+- [MathML Anleitungen](/de/docs/Web/MathML/Tutorials)
+- [MathML Referenz](/de/docs/Web/MathML/Reference)

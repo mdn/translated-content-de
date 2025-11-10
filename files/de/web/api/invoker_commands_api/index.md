@@ -2,44 +2,44 @@
 title: Invoker Commands API
 slug: Web/API/Invoker_Commands_API
 l10n:
-  sourceCommit: 3d1ad539dbce65e3cd7af4c24410d87fcfc5147c
+  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
 ---
 
-{{DefaultAPISidebar("Invoker Commands API")}}{{SeeCompatTable}}
+{{DefaultAPISidebar("Invoker Commands API")}}
 
-Die **Invoker Commands API** bietet eine Möglichkeit, Schaltflächen deklarativ Verhaltensweisen zuzuweisen, um interaktive Elemente zu steuern, wenn die Schaltfläche betätigt wird (durch Klicken oder über eine Tasteneingabe, wie die Leertaste oder die Eingabetaste).
+Die **Invoker Commands API** bietet eine Möglichkeit, Schaltflächen deklarativ mit Verhaltensweisen zu versehen, um die Kontrolle über interaktive Elemente zu ermöglichen, wenn die Schaltfläche aktiviert wird (z. B. durch Klicken oder Auslösen über eine Tasteneingabe wie die Leertaste oder die Eingabetaste).
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Ein häufiges Muster im Web ist es, {{HTMLElement("button")}}-Elemente zur Steuerung verschiedener Aspekte der Seite zu verwenden, wie z. B. das Öffnen und Schließen von [Popovers](/de/docs/Web/API/Popover_API) oder {{HTMLElement("dialog")}}-Elementen, das Formatieren von Text und mehr.
+Ein häufiges Muster im Web besteht darin, dass {{HTMLElement("button")}}-Elemente verschiedene Aspekte der Seite steuern, wie z. B. das Öffnen und Schließen von [Popovers](/de/docs/Web/API/Popover_API) oder {{HTMLElement("dialog")}}-Elementen, das Formatieren von Text und mehr.
 
-Historisch gesehen erforderte die Erstellung dieser Art von Steuerungen JavaScript-Ereignislistener, die dem Button hinzugefügt wurden, um dann die APIs auf dem Element aufzurufen, das sie steuern. Die Eigenschaften [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) bieten eine Möglichkeit, dies für eine begrenzte Anzahl von Aktionen deklarativ zu tun. Dies kann vorteilhaft für eingebaute Befehle sein, da der Benutzer nicht darauf warten muss, dass JavaScript heruntergeladen und ausgeführt wird, um diese Schaltflächen interaktiv zu machen.
+Historisch gesehen erforderte das Erstellen dieser Art von Steuerungen JavaScript-Ereignislistener, die der Schaltfläche hinzugefügt wurden. Diese Listener können dann die APIs auf dem Element aufrufen, das sie steuern. Die Eigenschaften [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) bieten eine Möglichkeit, dies deklarativ für einen begrenzten Satz von Aktionen zu tun. Dies kann vorteilhaft für eingebaute Befehle sein, da der Benutzer nicht warten muss, bis JavaScript heruntergeladen und ausgeführt wird, um diese Schaltflächen interaktiv zu machen.
 
 ## HTML-Attribute
 
-- [`commandfor`](/de/docs/Web/HTML/Element/button#commandfor) {{experimental_inline}}
-  - : Wandelt ein {{htmlelement("button")}}-Element in eine Schaltfläche um, die das angegebene interaktive Element steuert; nimmt die ID des zu steuernden Elements als Wert.
-- [`command`](/de/docs/Web/HTML/Element/button#command) {{experimental_inline}}
-  - : Gibt die Aktion an, die auf einem durch eine Steuerungs-`<button>` gesteuerten Element ausgeführt werden soll, spezifiziert über das `commandfor`-Attribut.
+- [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor)
+  - : Verwandelt ein {{htmlelement("button")}}-Element in eine Schaltfläche, die das angegebene interaktive Element steuert; nimmt die ID des zu steuernden Elements als Wert.
+- [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)
+  - : Spezifiziert die Aktion, die auf einem durch ein `<button>`-Steuerelement kontrollierten Element ausgeführt werden soll, angegeben über das `commandfor`-Attribut.
 
 ## Schnittstellen
 
-- [`CommandEvent`](/de/docs/Web/API/CommandEvent) {{experimental_inline}}
-  - : Stellt ein Ereignis dar, das den Benutzer darüber informiert, dass ein Befehl ausgegeben wurde. Es ist das Ereignisobjekt für das [`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis. Das Ereignis wird auf dem Element ausgelöst, das durch [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) referenziert wird.
+- [`CommandEvent`](/de/docs/Web/API/CommandEvent)
+  - : Repräsentiert ein Ereignis, das den Benutzer darüber informiert, dass ein Befehl erteilt wurde. Es ist das Ereignisobjekt für das [`command`](/de/docs/Web/API/HTMLElement/command_event) Ereignis. Das Ereignis wird auf dem Element ausgelöst, auf das [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) verweist.
 
-## Erweiterungen zu anderen Schnittstellen
+## Erweiterungen für andere Schnittstellen
 
-### Instanzeigenschaften
+### Instanz-Eigenschaften
 
 - [`HTMLButtonElement.commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)
-  - : Holt und setzt das von der Schaltfläche gesteuerte Element. Das JavaScript-Äquivalent des HTML-Attributs [`commandfor`](/de/docs/Web/HTML/Element/button#commandfor).
+  - : Ruft das Element ab, das von der Schaltfläche gesteuert wird, und setzt es. Das JavaScript-Äquivalent des [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) HTML-Attributes.
 - [`HTMLButtonElement.command`](/de/docs/Web/API/HTMLButtonElement/command)
-  - : Holt und setzt die Aktion, die auf dem von der Schaltfläche gesteuerten Element ausgeführt werden soll. Spiegelt den Wert des HTML-Attributs [`command`](/de/docs/Web/HTML/Element/button#command) wider.
+  - : Ruft die Aktion ab, die auf dem von der Schaltfläche gesteuerten Element ausgeführt werden soll, und setzt sie. Spiegelt den Wert des [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) HTML-Attributes wider.
 
 ### Ereignisse
 
 - [`command`](/de/docs/Web/API/HTMLElement/command_event) Ereignis
-  - : Wird auf dem durch die Schaltfläche referenzierten Element ausgelöst.
+  - : Wird auf dem Element ausgelöst, auf das die Schaltfläche verweist.
 
 ## Beispiele
 
@@ -77,9 +77,9 @@ Historisch gesehen erforderte die Erstellung dieser Art von Steuerungen JavaScri
 const myImg = document.getElementById("my-img");
 
 myImg.addEventListener("command", (event) => {
-  if (event.command == "--rotate-left") {
+  if (event.command === "--rotate-left") {
     myImg.style.rotate = "-90deg";
-  } else if (event.command == "--rotate-right") {
+  } else if (event.command === "--rotate-right") {
     myImg.style.rotate = "90deg";
   }
 });

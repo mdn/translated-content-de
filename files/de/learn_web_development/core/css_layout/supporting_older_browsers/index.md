@@ -1,70 +1,68 @@
 ---
-title: Unterstützung für ältere Browser
+title: Unterstützung älterer Browser
 slug: Learn_web_development/Core/CSS_layout/Supporting_Older_Browsers
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{LearnSidebar}}
-
-Besucher Ihrer Website können Nutzer sein, die entweder ältere Browser oder Browser verwenden, die die CSS-Funktionen, die Sie implementiert haben, nicht unterstützen. Dies ist ein häufiges Szenario im Web, da ständig neue Funktionen zu CSS hinzugefügt werden. Browser unterscheiden sich in ihrer Unterstützung dieser Funktionen, da verschiedene Browser dazu neigen, unterschiedliche Funktionen zu priorisieren. Dieser Artikel erklärt, wie Sie als Webentwickler moderne Webtechniken nutzen können, um sicherzustellen, dass Ihre Website auch für Nutzer mit älterer Technologie zugänglich bleibt.
+Besucher Ihrer Website können Benutzer einschließen, die entweder ältere Browser verwenden oder Browser nutzen, die die von Ihnen implementierten CSS-Features nicht unterstützen. Dies ist ein gängiges Szenario im Web, da ständig neue Features zu CSS hinzugefügt werden. Browser unterscheiden sich darin, welche Features sie unterstützen, weil verschiedene Browser dazu neigen, unterschiedliche Features zu priorisieren. Dieser Artikel erklärt, wie Sie als Webentwickler moderne Webtechniken einsetzen können, um sicherzustellen, dass Ihre Website auch für Benutzer mit älterer Technologie zugänglich bleibt.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        HTML-Grundlagen (siehe
+        Grundlagen von HTML (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
           >Einführung in HTML</a
-        >) und ein Verständnis dafür, wie CSS funktioniert (siehe
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling-Grundlagen</a>).
+        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, wie Unterstützung für Layouts auf älteren Browsern bereitgestellt werden kann, die die gewünschten Funktionen möglicherweise nicht unterstützen.
+        Zu verstehen, wie Sie Unterstützung für Ihre Layouts auf älteren Browsern bereitstellen können, die möglicherweise nicht die Features unterstützen, die Sie verwenden möchten.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Wie sieht die Browser-Landschaft Ihrer Website aus?
+## Wie sieht die Browser-Landschaft für Ihre Website aus?
 
-Jede Website ist unterschiedlich in Bezug auf ihr Zielpublikum. Bevor Sie eine Herangehensweise wählen, sollten Sie herausfinden, wie viele Besucher Ihrer Website ältere Browser nutzen. Dies ist einfach, wenn Sie eine bestehende Website erweitern oder ersetzen, da Sie wahrscheinlich Analysedaten zur Verfügung haben, die Ihnen die verwendete Technologie Ihrer Besucher zeigen. Wenn Sie keine Analysedaten haben oder eine brandneue Website starten, können Websites wie [Statcounter](https://gs.statcounter.com/) relevante Statistiken liefern, die nach Standorten gefiltert werden können.
+Jede Website ist unterschiedlich, was ihre Zielgruppe betrifft. Bevor Sie sich für einen Ansatz entscheiden, finden Sie heraus, wie viele Besucher mit älteren Browsern auf Ihre Website zugreifen. Dies ist einfach, wenn Sie eine bestehende Website ergänzen oder ersetzen, da Sie wahrscheinlich Analysen zur Verfügung haben, die Ihnen mitteilen können, welche Technologie Ihre Besucher verwenden. Wenn Sie keine Analysen haben oder eine brandneue Website starten, können Seiten wie [Statcounter](https://gs.statcounter.com/) relevante Statistiken bereitstellen, die nach Standort gefiltert werden können.
 
-Berücksichtigen Sie auch die Art der Geräte und die Nutzungsweise Ihrer Website. Beispielsweise könnte ein höherer als durchschnittlicher Anteil Ihrer Website-Besuche über mobile Geräte erfolgen. Priorisieren Sie immer die Barrierefreiheit und Menschen, die unterstützende Technologien verwenden; bei einigen Websites könnte dies sogar noch kritischer sein. Entwickler machen sich oft viele Gedanken über die Erfahrung von 1 % der Nutzer, während sie die weit größere Anzahl mit Barrierefreiheitsbedürfnissen übersehen.
+Berücksichtigen Sie auch die Arten von Geräten und die Art und Weise, wie Menschen Ihre Website nutzen. Beispielsweise können Sie eine überdurchschnittlich hohe Nutzung Ihrer Website auf mobilen Geräten erwarten. Priorisieren Sie immer die Zugänglichkeit und Menschen, die unterstützende Technologien nutzen; für einige Websites kann dies noch entscheidender sein. Entwickler sind oft sehr besorgt über die Erfahrung von 1 % der Benutzer, während sie die viel größere Anzahl übersehen, die Zugänglichkeitsanforderungen haben.
 
-## Wie ist die Unterstützung für die Funktionen, die Sie verwenden möchten?
+## Wie sieht die Unterstützung für die Features aus, die Sie verwenden möchten?
 
 {{Compat}}
 
-Die obige Tabelle ist am Ende jeder Funktionsseite im Abschnitt „Browser-Kompatibilität“ enthalten. Nachdem Sie die Browser identifiziert haben, die Ihre Website-Besucher verwenden, können Sie die Technologie, die Sie verwenden möchten, bewerten und feststellen, wie gut sie in verschiedenen Browsern unterstützt wird und wie einfach Sie eine Alternative für Besucher bereitstellen können, die diese Technologie nicht haben.
+Die obige Tabelle ist am Ende jeder Feature-Seite im Abschnitt "Browser-Kompatibilität" enthalten. Nachdem Sie die Browser identifiziert haben, die Ihre Website-Besucher verwenden, können Sie jede Technologie, die Sie verwenden möchten, daran messen, wie gut sie über die Browser hinweg unterstützt wird und wie leicht Sie eine Alternative für Besucher bereitstellen können, die diese Technologie nicht verfügbar haben.
 
-Auf MDN bieten wir Informationen zur Browser-Kompatibilität auf jeder CSS-Eigenschaften-Seite an. Diese Kompatibilitätsinformationen, die in einer Tabelle dargestellt sind, enthalten eine Liste der wichtigsten Browser zusammen mit den Versionen, die die Eigenschaft erstmals unterstützten. Die Namen der Browser befinden sich in den Spaltenüberschriften. Zum Beispiel können Sie die obige Tabelle oder die Seite für {{cssxref("grid-template-columns")}} betrachten, mit besonderem Augenmerk auf die Werte `subgrid` (kürzlich unterstützt) und `masonry` (experimentell und nicht unterstützt).
+Auf MDN bieten wir Browser-Kompatibilitätsinformationen auf jeder CSS-Eigenschaften-Seite an. Diese Kompatibilitätsinformationen, die in einer Tabelle präsentiert werden, umfassen eine Liste der wichtigsten Browser sowie die Versionen, die begonnen haben, die Eigenschaft zu unterstützen. Die Browsernamen nehmen die Spaltenüberschriften ein. Zum Beispiel werfen Sie einen Blick auf die obige Tabelle oder die Seite für {{cssxref("grid-template-columns")}}, mit besonderer Beachtung der Werte `subgrid` (zuletzt unterstützt) und `masonry` (experimentell und nicht unterstützt).
 
-Diese Tabellen zur Browser-Kompatibilität liefern Informationen darüber, welche Browser mit der Technologie kompatibel sind, die Sie benötigen, und ab welcher Version der Browser diese Funktionalität unterstützt. Kompatibilitätsinformationen für Browser und mobile Browser werden separat angezeigt.
+Diese Browser-Kompatibilitätstabellen bieten Informationen darüber, welche Browser mit der von Ihnen gesuchten Technologie kompatibel sind und ab welcher Version der Browser diese Funktionalität unterstützt hat. Informationen zur Kompatibilität von Desktop- und Mobilbrowsern werden separat angezeigt.
 
-Eine weitere beliebte Möglichkeit, herauszufinden, wie gut eine Funktion unterstützt wird, ist die Website [Can I Use](https://caniuse.com/). Diese Website listet die meisten Funktionen der Webplattform mit Informationen über deren Browser-Unterstützungsstatus auf. Sie können Nutzungsstatistiken nach Standort anzeigen — nützlich, wenn Sie an einer Website arbeiten, die hauptsächlich Nutzer in einer bestimmten Region der Welt hat. Sie können sogar Ihr Google Analytics-Konto verknüpfen, um Analysen basierend auf Ihren Nutzerdaten zu erhalten.
+Eine weitere beliebte Möglichkeit, um herauszufinden, wie gut ein Feature unterstützt wird, ist die Website [Can I Use](https://caniuse.com/). Diese Seite listet die meisten Web-Plattform-Features mit Informationen über ihren Browser-Support-Status. Sie können Nutzungsstatistiken nach Standort anzeigen – nützlich, wenn Sie an einer Website arbeiten, die hauptsächlich für einen bestimmten Bereich der Welt genutzt wird. Sie können sogar Ihr Google Analytics-Konto verknüpfen, um Analysen basierend auf Ihren Nutzerdaten zu erhalten.
 
-Zu verstehen, über welche Technologie Ihre Benutzer aufgrund des von ihnen verwendeten Browsers verfügen, und die funktionsübergreifende Unterstützung der Technologien, die Sie möglicherweise auf Ihrer Website verwenden möchten, versetzt Sie in eine gute Ausgangslage, um alle Entscheidungen zu treffen und zu wissen, wie Sie alle Ihre Benutzer am besten unterstützen können.
+Das Verständnis der Technologie, die Ihre Benutzer aufgrund des verwendeten Browsers haben und die plattformübergreifende Unterstützung für die Features, die Sie möglicherweise auf Ihrer Website verwenden möchten, versetzt Sie in eine gute Position, um alle Ihre Entscheidungen zu treffen und zu wissen, wie Sie am besten alle Ihre Benutzer unterstützen.
 
-## Funktionsunterstützung bedeutet nicht identisches Erscheinungsbild
+## Unterstützung von Features bedeutet nicht identisches Erscheinungsbild
 
-Eine Website kann in allen Browsern nicht identisch aussehen. Einige Ihrer Nutzer werden die Seite auf einem Telefon betrachten, andere auf einem großen Desktop-Bildschirm. Ebenso werden einige Ihrer Nutzer eine alte Browserversion verwenden, andere den neuesten Browser. Manche Nutzer lassen sich Ihre Inhalte von einem Screenreader vorlesen, während andere auf der Seite hineinzoomen müssen, um sie lesen zu können. Unterstützung für alle bedeutet, eine Version Ihrer Inhalte zu bieten, die defensiv gestaltet ist, sodass sie in modernen Browsern großartig aussieht, aber auch auf einfachem Niveau für alle Benutzer nutzbar ist, unabhängig davon, wie sie auf Ihre Inhalte zugreifen.
+Eine Website kann unmöglich in allen Browsern gleich aussehen. Einige Ihrer Benutzer werden die Seite auf einem Telefon betrachten und andere auf einem großen Desktop-Bildschirm. Ebenso werden einige Ihrer Benutzer eine alte Browserversion haben und andere den neuesten Browser. Einige Ihrer Benutzer können sich Ihren Inhalt von einem Bildschirmleser vorlesen lassen, während andere die Seite vergrößern müssen, um sie lesen zu können. Alle zu unterstützen bedeutet, eine Version Ihres Inhalts bereitzustellen, die defensiv gestaltet ist, so dass sie auf modernen Browsern großartig aussieht, aber dennoch auf einer grundlegenden Ebene für alle Benutzer nutzbar bleibt, unabhängig davon, wie sie auf Ihren Inhalt zugreifen.
 
-Eine grundlegende Unterstützungsebene ergibt sich aus einer guten Strukturierung Ihrer Inhalte, sodass der normale Fluss Ihrer Seite sinnvoll ist. Für Nutzer mit begrenzten Datenplänen laden ihre Browser möglicherweise keine Bilder, Schriftarten oder sogar Ihr CSS. Die Inhalte sollten jedoch so präsentiert werden, dass sie auch dann zugänglich und lesbar bleiben, wenn diese Elemente nicht vollständig geladen werden. Ein gut strukturiertes HTML-Dokument sollte immer Ihr Ausgangspunkt sein. Fragen Sie sich: _Macht mein Inhalt auch Sinn, wenn ich mein Stylesheet entferne?_
+Ein grundlegendes Unterstützungsniveau entsteht durch eine gute Strukturierung Ihres Inhalts, sodass der normale Ablauf Ihrer Seite Sinn ergibt. Für Benutzer mit einem eingeschränkten Datentarif könnten ihre Browser keine Bilder, Schriftarten oder sogar Ihr CSS laden. Der Inhalt sollte jedoch so präsentiert werden, dass er zugänglich und lesbar bleibt, selbst wenn diese Elemente nicht vollständig geladen sind. Ein gut strukturiertes HTML-Dokument sollte immer Ihr Ausgangspunkt sein. Fragen Sie sich: _Wenn Sie Ihr Stylesheet entfernen, macht Ihr Inhalt dann immer noch Sinn?_
 
-Es macht wirtschaftlich keinen Sinn, Zeit darauf zu verwenden, jedem Nutzer eine identische Erfahrung Ihrer Website zu bieten. Dies liegt daran, dass die Umgebungen der Nutzer stark variieren können und außerhalb Ihrer Kontrolle liegen. Es besteht ein Gleichgewicht zwischen einer einfachen HTML-Seite und einer voll ausgestatteten Website. Es ist hilfreich, eine einfache Ansicht Ihrer Website ohne CSS zu testen, um sicherzustellen, dass die Fallback-Erfahrung Ihrer Website zugänglich bleibt. Dieser Fallback wird möglicherweise niemals von Menschen mit sehr alten oder eingeschränkten Browsern angesehen, könnte jedoch von Ihrer Hauptzielgruppe — Nutzern moderner Browser — angesehen werden, wenn deren Browser oder Internetverbindung vorübergehend ausfällt. CSS vereinfacht die Erstellung dieser Fallbacks. Daher ist es besser, sich darauf zu konzentrieren, was Sie kontrollieren können, d.h., investieren Sie Zeit, um Ihre Seite [barrierefrei](/de/docs/Web/Accessibility) zu gestalten, und erreichen Sie so mehr Nutzer.
+Es macht aus geschäftlicher Sicht keinen Sinn, Zeit zu investieren, um jedem eine identische Erfahrung Ihrer Website zu bieten. Dies liegt daran, dass die Benutzerumgebungen stark variieren und außerhalb Ihrer Kontrolle liegen können. Sie müssen ein Gleichgewicht finden zwischen einer einfachen HTML-Seite und einer vollständig ausgestatteten Website. Es ist hilfreich, eine einfache, CSS-lose Ansicht Ihrer Website zu testen, um sicherzustellen, dass die Fallerfahrung Ihrer Website zugänglich ist. Diese Fallback-Ansicht wird möglicherweise nie von Personen angesehen, die sehr alte oder eingeschränkte Browser verwenden, könnte aber von Ihrer Hauptzielgruppe – Benutzern moderner Browser – gesehen werden, wenn deren Browser oder Internetverbindung vorübergehend scheitert. CSS vereinfacht die Erstellung dieser Fallerfahrungen. Daher ist es besser, sich auf das zu konzentrieren, was Sie kontrollieren können, also die Zeit zu investieren, um Ihre Website [zugänglich](/de/docs/Web/Accessibility) zu machen und damit mehr Benutzer zu bedienen.
 
 ## Fallbacks in CSS erstellen
 
-CSS-Spezifikationen enthalten Informationen darüber, was der Browser tut, wenn zwei ähnliche Funktionen, wie Layout-Methoden, auf dasselbe Element angewendet werden. Beispielsweise wird definiert, was passiert, wenn ein Element gefloatet wird und gleichzeitig ein Grid-Element in einem CSS-Grid-Container ist. Ebenso gibt es eine Definition, was passiert, wenn ein Element sowohl {{cssxref("margin-top")}} als auch {{cssxref("margin-block-start")}} gesetzt hat.
+CSS-Spezifikationen enthalten Informationen, die erklären, was der Browser tut, wenn zwei ähnliche Features, wie Layoutmethoden, auf dasselbe Element angewendet werden. Beispielsweise definieren sie, was passiert, wenn ein Item gefloatet und gleichzeitig ein Rasterelement eines CSS-Grid-Containers ist. Es gibt auch eine Definition dafür, was passiert, wenn ein Element sowohl die Eigenschaften {{cssxref("margin-top")}} als auch {{cssxref("margin-block-start")}} hat.
 
-Wenn ein Browser eine neue Funktion nicht erkennt, verwirft er die Deklaration als ungültig [ohne einen Fehler auszugeben](/de/docs/Web/CSS/CSS_syntax/Error_handling#css_parser_errors). Da Browser ungültige CSS-Eigenschaften und -Werte verwerfen, können alte und neue Werte im selben Regelset koexistieren. Stellen Sie sicher, dass der alte Wert vor dem neuen Wert deklariert wird, sodass der neue Wert (der Fallback) den alten Wert überschreibt, sobald er unterstützt wird.
+Wenn ein Browser ein neues Feature nicht erkennt, verwirft er die Deklaration als ungültig [ohne einen Fehler zu werfen](/de/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors). Da Browser CSS-Eigenschaften und -Werte verwerfen, die sie nicht unterstützen, können alte und neue Werte im selben Regelset nebeneinander existieren. Stellen Sie einfach sicher, dass Sie den alten Wert vor dem neuen Wert deklarieren, damit bei Unterstützung der neue Wert den alten Wert (das Fallback) überschreibt.
 
-Zum Beispiel unterstützen die meisten Browser die Zwei-Wert-Syntax der {{cssxref("display")}}-Eigenschaft. Wenn ein Browser diese nicht unterstützt, verwendet er die ältere Ein-Wert-Syntax.
+Beispielsweise unterstützen die meisten Browser die Zwei-Wert-Syntax der Eigenschaft {{cssxref("display")}}. Wenn ein Browser dies nicht tut, verwendet er die ältere, einwertige Syntax.
 
 ```css
 .container {
@@ -73,13 +71,13 @@ Zum Beispiel unterstützen die meisten Browser die Zwei-Wert-Syntax der {{cssxre
 }
 ```
 
-Ebenso stellt diese [Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling#vendor_prefixes) sicher, dass alte CSS-Codebasen weiterhin funktionieren, auch wenn veraltete {{Glossary("Vendor_Prefix", "vendor-prefixed")}} Funktionen nicht mehr unterstützt werden. Während Präfixe für Anbieter selten verwendet werden, stellen Sie sicher, dass die Präfix-Werte vor den Standardwerten deklariert werden, sodass, wenn sie unterstützt werden, die neuen Werte die Fallback-Werte überschreiben.
+Ähnlich stellt dieses [Fehlerhandling](/de/docs/Web/CSS/Guides/Syntax/Error_handling#vendor_prefixes) sicher, dass alte CSS-Codebasen weiter funktionieren, auch wenn veraltete {{Glossary("Vendor_Prefix", "anbieterpräfixierte")}} Features nicht mehr unterstützt werden. Während Anbieterpräfixe nicht mehr häufig verwendet werden, sollten Sie, wenn Sie ein anbieterpräfixiertes Feature oder einen Wert einbeziehen müssen, sicherstellen, dass Sie den präfixierten Wert vor dem Standardwert deklarieren, damit bei Unterstützung der neue Wert den Fallbackwert überschreibt.
 
-### Nutzung neuer Selektoren
+### Verwenden neuer Selektoren
 
-Das Einfügen neuer Selektoren, die nicht in allen Browsern unterstützt werden, muss vorsichtiger gehandhabt werden. Wenn ein Selektor in einer kommaseparierten Liste von [Selektoren ungültig](/de/docs/Learn_web_development/Extensions/Testing/HTML_and_CSS#selector_support) ist, wird der gesamte Stilblock ignoriert.
+Neue Selektoren, die nicht in allen Browsern unterstützt werden, müssen sorgfältiger behandelt werden. Wenn ein Selektor in einer durch Kommas getrennten Liste von [Selektoren ungültig](/de/docs/Learn_web_development/Extensions/Testing/HTML_and_CSS#selector_support) ist, wird der gesamte Stilblock ignoriert.
 
-Wenn Sie vendor-prefixed [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) oder neue [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) verwenden, die ein Browser möglicherweise noch nicht unterstützt, fügen Sie die Präfix-Werte innerhalb einer [toleranten Selektorliste](/de/docs/Web/CSS/Selector_list#forgiving_selector_list) durch die Nutzung von {{cssxref(":is", ":is()")}} oder {{cssxref(":where", ":where()")}} ein, damit der gesamte Selektorblock nicht [ungültig wird und ignoriert](/de/docs/Web/CSS/Selector_list#invalid_selector_list) wird.
+Wenn Sie anbieterpräfixierte [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) oder neue [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) verwenden, die ein Browser möglicherweise noch nicht unterstützt, fügen Sie die präfixierten Werte innerhalb einer [nachgiebigen Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) ein, indem Sie {{cssxref(":is", ":is()")}} oder {{cssxref(":where", ":where()")}} verwenden, so dass der gesamte Selektorblock nicht [ungültig und ignoriert](/de/docs/Web/CSS/Reference/Selectors/Selector_list#invalid_selector_list) wird.
 
 ```css
 :is(:-prefix-mistake, :unsupported-pseudo),
@@ -93,13 +91,13 @@ Wenn Sie vendor-prefixed [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) oder
 }
 ```
 
-Im obigen Beispiel wird der `.valid`-Inhalt `sans-serif` sein, jedoch nicht `rot`.
+Im obigen Beispiel wird der `.valid` Inhalt `sans-serif` aber nicht `red` sein.
 
-## Feature Queries
+## Feature-Queries
 
-Feature Queries ermöglichen es Ihnen, zu testen, ob ein Browser eine spezielle CSS-Funktion unterstützt. Auf diese Weise können Sie CSS für Browser schreiben, die eine bestimmte Funktion nicht unterstützen, und dann überprüfen, ob der Browser die Unterstützung bietet, und gegebenenfalls Ihre neuen, fortschrittlichen Funktionen einfügen.
+Feature-Queries ermöglichen es Ihnen zu testen, ob ein Browser eine bestimmte CSS-Funktion unterstützt. Dadurch können Sie einige CSS für Browser schreiben, die ein bestimmtes Feature nicht unterstützen, dann prüfen, ob der Browser Unterstützung hat und falls ja, Ihre neuen Funktionen hinzufügen.
 
-Wir können eine Feature Query hinzufügen, um `subgrid`-Unterstützung zu testen, und abhängig davon Stile anwenden:
+Wir können eine Feature-Abfrage hinzufügen, um die Unterstützung von `subgrid` zu testen und basierend auf dieser Unterstützung Styles bereitzustellen:
 
 ```css
 * {
@@ -142,21 +140,21 @@ Wir können eine Feature Query hinzufügen, um `subgrid`-Unterstützung zu teste
 
 {{ EmbedLiveSample('Feature_queries', '100%', '200') }}
 
-Feature Queries werden von allen modernen Browsern unterstützt. Schreiben Sie zuerst Ihr CSS für vollständig unterstützte Funktionen außerhalb von Feature Queries. Sobald Ihre Website nutzbar und zugänglich für alle Nutzer ist, fügen Sie neue Funktionen innerhalb von Feature Queries ein. Browser, die die abgefragte Funktion unterstützen, können dann das neuere CSS innerhalb des Feature Query-Blocks darstellen. Verwenden Sie den Ansatz, gut unterstütztes CSS zuerst zu schreiben und dann Funktionen basierend auf der Unterstützung zu erweitern.
+Feature-Queries werden in allen modernen Browsern unterstützt. Schreiben Sie Ihr CSS für vollständig unterstützte Features zuerst, außerhalb von Feature-Abfragen. Sobald Ihre Website für alle Benutzer nutzbar und zugänglich ist, fügen Sie neue Features innerhalb von Feature-Query-Blöcken hinzu. Browser, die das abgefragte Feature unterstützen, können dann das neuere CSS innerhalb des Feature-Query-Blocks rendern. Verwenden Sie den Ansatz, gut unterstütztes CSS zuerst zu schreiben und dann die Features basierend auf der Unterstützung zu verbessern.
 
 ## Testen älterer Browser
 
-Eine Möglichkeit besteht darin, ein Online-Testtool wie Sauce Labs zu verwenden, wie im [Testing](/de/docs/Learn_web_development/Extensions/Testing)-Modul beschrieben.
+Eine Möglichkeit ist die Verwendung eines Online-Testtools wie Sauce Labs, wie im [Testing](/de/docs/Learn_web_development/Extensions/Testing) Modul detailliert beschrieben.
 
 ## Zusammenfassung
 
-Sie haben nun das Wissen, um Fallback-CSS für ältere Browser bereitzustellen und neue Funktionen sicher zu testen. Sie sollten sich nun sicher fühlen, neue Techniken zu nutzen, die möglicherweise auftreten.
+Sie haben jetzt das Wissen, um Fallback-CSS für ältere Browser bereitzustellen und neue Features sicher zu testen. Sie sollten nun zuversichtlich in der Lage sein, alle neuen Techniken zu verwenden, die möglicherweise auftauchen.
 
-Da Sie unsere Artikel zu CSS-Layouts nun durchgearbeitet haben, ist es an der Zeit, Ihr Verständnis mit unserer Bewertung für dieses Modul zu testen: [Fundamentales Layout-Verständnis](/de/docs/Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension).
+Nachdem Sie unsere Artikel über CSS-Layout durchgearbeitet haben, ist es an der Zeit, Ihr Verständnis mit unserer Bewertung für das Modul zu testen: [Grundlegendes Layout-Verständnis](/de/docs/Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension).
 
 ## Siehe auch
 
-- [`@supports`](/de/docs/Web/CSS/@supports)-Regel
-- [CSS-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
-- [Feature Queries nutzen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
-- [CSS-Bedingungsregeln](/de/docs/Web/CSS/CSS_conditional_rules)-Modul
+- [`@supports`](/de/docs/Web/CSS/Reference/At-rules/@supports) At-Regel
+- [CSS At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules)
+- [Verwendung von Feature-Queries](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries)
+- [CSS bedingte Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul

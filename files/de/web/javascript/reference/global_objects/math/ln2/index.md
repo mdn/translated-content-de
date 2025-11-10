@@ -1,13 +1,12 @@
 ---
 title: Math.LN2
+short-title: LN2
 slug: Web/JavaScript/Reference/Global_Objects/Math/LN2
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Dateneigenschaft **`Math.LN2`** repräsentiert den natürlichen Logarithmus von 2, ungefähr 0,693:
+Die statische Dateneigenschaft **`Math.LN2`** repräsentiert den natürlichen Logarithmus von 2, ungefähr 0.693:
 
 {{InteractiveExample("JavaScript Demo: Math.LN2", "shorter")}}
 
@@ -32,7 +31,7 @@ console.log(getNatLog2());
 
 ## Beschreibung
 
-Da `LN2` eine statische Eigenschaft von `Math` ist, wird sie immer als `Math.LN2` verwendet und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LN2` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LN2`, anstatt als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

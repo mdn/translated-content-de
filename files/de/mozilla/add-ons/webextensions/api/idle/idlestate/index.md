@@ -2,25 +2,23 @@
 title: idle.IdleState
 slug: Mozilla/Add-ons/WebExtensions/API/idle/IdleState
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein String, der den Ruhezustand des Geräts beschreibt.
+Ein String, der den Leerlaufzustand des Geräts beschreibt.
 
 ## Typ
 
 Werte dieses Typs sind Strings. Mögliche Werte sind: `"active"`, `"idle"`, `"locked"`.
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#type-IdleState) API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#type-IdleState) von Chromium. Diese Dokumentation ist von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

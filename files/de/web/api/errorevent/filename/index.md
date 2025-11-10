@@ -3,7 +3,7 @@ title: "ErrorEvent: filename-Eigenschaft"
 short-title: filename
 slug: Web/API/ErrorEvent/filename
 l10n:
-  sourceCommit: 7d6ffd01f66c97c089dc559a636516b932af5ad5
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers}}
@@ -18,7 +18,7 @@ Ein String.
 
 ```js
 window.addEventListener("error", (ev) => {
-  console.log("The error occur in file: " + ev.filename);
+  console.log(`The error occur in file: ${ev.filename}`);
 });
 ```
 

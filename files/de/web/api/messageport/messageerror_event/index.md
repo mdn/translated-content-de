@@ -3,23 +3,23 @@ title: "MessagePort: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/MessagePort/messageerror_event
 l10n:
-  sourceCommit: ec8d6cfcaae740f7dfad264b797eebe448085a2b
+  sourceCommit: 079b166268e5a1353e4244133f5883a3f530228f
 ---
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis wird auf einem [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
+Das **`messageerror`**-Ereignis wird an einem [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("messageerror", (event) => {});
+```js-nolint
+addEventListener("messageerror", (event) => { })
 
-onmessageerror = (event) => {};
+onmessageerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,72 +30,51 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtenemitter gesendeten Daten.
+  - : Die vom Nachrichtenemittenten gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenemitters darstellt.
+  - : Ein String, der den Ursprung des Nachrichtenemittenten darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (kann ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtenemitter darstellt.
+  - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtenemittenten darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array, das alle [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die mit der Nachricht in der entsprechenden Reihenfolge gesendet wurden.
+  - : Ein Array, das alle [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die mit der Nachricht gesendet wurden, in der richtigen Reihenfolge.
 
 ## Beispiele
 
-Angenommen, ein Skript erstellt einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) und sendet einen der Ports an einen anderen Browser-Kontext, wie z.B. ein anderes [`<iframe>`](/de/docs/Web/HTML/Element/iframe), mit Code wie diesem:
+### Versuch, Speicher freizugeben
+
+Ein häufiger Auslöser für `messageerror`-Ereignisse ist der Versuch, ein {{jsxref("SharedArrayBuffer")}}-Objekt oder eine Pufferansicht, die von einem solchen unterstützt wird, über [Agenten-Cluster](/de/docs/Web/JavaScript/Reference/Execution_model#agent_clusters_and_memory_sharing) zu senden. Ein Beispiel: Ein Fenster befindet sich nicht im selben Agenten-Cluster wie ein gemeinsam genutzter Worker, den es erstellt hat. Angenommen, die Seite führt den folgenden Code aus:
 
 ```js
-const channel = new MessageChannel();
-const myPort = channel.port1;
-const targetFrame = window.top.frames[1];
-const targetOrigin = "https://example.org";
-
-const messageControl = document.querySelector("#message");
-const channelMessageButton = document.querySelector("#channel-message");
-
-channelMessageButton.addEventListener("click", () => {
-  myPort.postMessage(messageControl.value);
+const worker = new SharedWorker("worker.js");
+worker.port.start();
+worker.port.addEventListener("message", (event) => {
+  worker.port.postMessage(new SharedArrayBuffer(1024));
 });
-
-targetFrame.postMessage("init", targetOrigin, [channel.port2]);
 ```
 
-Das Ziel kann den Port empfangen und mit Code wie diesem beginnen, Nachrichten und Nachrichtenfehler darauf zu hören:
+Und `worker.js` enthält den folgenden Code:
 
 ```js
-window.addEventListener("message", (event) => {
-  const myPort = event.ports[0];
-
-  myPort.addEventListener("message", (event) => {
-    received.textContent = event.data;
+self.addEventListener("connect", (event) => {
+  console.log("Hello");
+  const port = event.ports[0];
+  port.start();
+  port.postMessage("Port connected");
+  port.addEventListener("messageerror", (event) => {
+    console.log("Message error");
   });
-
-  myPort.addEventListener("messageerror", (event) => {
-    console.error(event.data);
-  });
-
-  myPort.start();
 });
 ```
 
-Beachten Sie, dass der Listener [`MessagePort.start()`](/de/docs/Web/API/MessagePort/start) aufrufen muss, bevor Nachrichten an diesen Port zugestellt werden. Dies ist nur notwendig, wenn die [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwendet wird: Wenn der Empfänger stattdessen `onmessage` verwendet, wird `start()` implizit aufgerufen:
+Dann empfängt der gemeinsame Worker ein `messageerror`-Ereignis, wenn er versucht, die vom Fenster gesendete Nachricht zu deserialisieren.
 
-```js
-window.addEventListener("message", (event) => {
-  const myPort = event.ports[0];
-
-  myPort.onmessage = (event) => {
-    received.textContent = event.data;
-  };
-
-  myPort.onmessageerror = (event) => {
-    console.error(event.data);
-  };
-});
-```
+> [!NOTE]
+> Sie können die Entwicklertools Ihres Browsers verwenden, um Ihren SharedWorker zu debuggen, indem Sie eine URL in die Adressleiste Ihres Browsers eingeben, um auf die Worker-Inspektor-Tools zuzugreifen; zum Beispiel lautet in Chrome die URL `chrome://inspect/#workers` und in Firefox die URL `about:debugging#workers`.
 
 ## Spezifikationen
 
@@ -108,4 +87,4 @@ window.addEventListener("message", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`message`](/de/docs/Web/API/MessagePort/message_event).
-- [Verwendung des Kanalmessagings](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

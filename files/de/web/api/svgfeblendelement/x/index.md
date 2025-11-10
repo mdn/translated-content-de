@@ -3,16 +3,16 @@ title: "SVGFEBlendElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGFEBlendElement/x
 l10n:
-  sourceCommit: ebf665a2679f308eb8e4dc7330864b4661bcdb9c
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`x`** des [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Interfaces beschreibt die horizontale Koordinate der Position einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`x`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt den Wert des SVG-Attributs {{SVGAttr("x")}} der {{SVGElement("feBlend")}}-Elementfilterprimitive wider. Das `<feBlend>` SVG-Filter vereint zwei Eingabebilder miteinander und nutzt dabei allgemein gebräuchliche Bildbearbeitungssoftware-{{cssxref("blend-mode", "Mischmodi")}}.
+Sie spiegelt den Wert des Filterprimitiv-Attributs {{SVGAttr("x")}} des Elements {{SVGElement("feBlend")}} wider. Das `<feBlend>` SVG-Filterelement mischt zwei Eingabebilder mit den in Bildbearbeitungssoftware gängigen [Verrechnungsmodi](/de/docs/Web/CSS/Reference/Values/blend-mode).
 
-Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerskoordinatensystem, die den angegebenen Abstand vom Ursprung des Benutzerskoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Breite der Filterregion in Einheiten des Benutzerskoordinatensystems. Der Standardwert ist `0`.
+Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzersystem, die den gegebenen Abstand vom Ursprung des Benutzersystems entlang der x-Achse darstellt. Wenn das `x`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Breite des Filterbereichs in Einheiten des Benutzersystems. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -37,5 +37,5 @@ console.log(leftPosition.baseVal.value); // the `x` value
 ## Siehe auch
 
 - [`SVGFEBlendElement.y`](/de/docs/Web/API/SVGFEBlendElement/y)
-- CSS-Datentyp {{cssxref("blend-mode")}}
-- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}
+- CSS {{cssxref("blend-mode")}} Datentyp
+- CSS {{cssxref("mix-blend-mode")}} Eigenschaft

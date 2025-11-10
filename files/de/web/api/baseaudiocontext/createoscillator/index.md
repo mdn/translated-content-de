@@ -3,15 +3,19 @@ title: "BaseAudioContext: createOscillator() Methode"
 short-title: createOscillator()
 slug: Web/API/BaseAudioContext/createOscillator
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die `createOscillator()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), eine Quelle, die eine periodische Wellenform darstellt. Im Grunde erzeugt sie einen konstanten Ton.
+Die `createOscillator()` Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
+Interfaces erstellt einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), eine Quelle, die eine periodische
+Wellenform darstellt. Sie erzeugt im Wesentlichen einen konstanten Ton.
 
 > [!NOTE]
-> Der [`OscillatorNode()`](/de/docs/Web/API/OscillatorNode/OscillatorNode)-Konstruktor ist die empfohlene Methode, um einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`OscillatorNode()`](/de/docs/Web/API/OscillatorNode/OscillatorNode)
+> Konstruktor ist der empfohlene Weg, um einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) zu erstellen; siehe
+> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -29,7 +33,7 @@ Ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Oszillator-Knotens. Für angewandte Beispiele/Informationen, schauen Sie sich unser [Violent Theremin Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für den relevanten Code) an; sehen Sie auch unsere [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) Seite für weitere Informationen.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Oszillator-Knotens. Für angewandte Beispiele/Informationen sehen Sie sich unser [Violent Theremin Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) an ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für relevanten Code); für mehr Informationen besuchen Sie auch unsere [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) Seite.
 
 ```js
 // create web audio api context

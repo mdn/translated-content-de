@@ -1,31 +1,31 @@
 ---
-title: "RTCPeerConnection: icecandidate Ereignis"
+title: "RTCPeerConnection: icecandidate-Event"
 short-title: icecandidate
 slug: Web/API/RTCPeerConnection/icecandidate_event
 l10n:
-  sourceCommit: 7e6004025020f539c6790a08d60eb9bff42276a0
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`icecandidate`** Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn:
+Ein **`icecandidate`**-Event wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn:
 
-- Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) erkannt und dem lokalen Teilnehmer hinzugefügt wurde durch einen Aufruf von [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription),
-- Jeder [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der mit einem bestimmten Benutzernamen-Fragment und einer Passwortkombination (eine **Generation**) assoziiert ist, so identifiziert und hinzugefügt wurde, und
-- Das gesamte ICE-Sammeln auf allen Transporten abgeschlossen ist.
+- Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) identifiziert und mittels eines Aufrufs von [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) zum lokalen Partner hinzugefügt wurde,
+- Jeder [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der mit einer bestimmten Benutzername-Passwort-Kombination (eine **Generation**) korreliert ist, identifiziert und hinzugefügt wurde, und
+- Das gesamte ICE-Gathering auf allen Transporten abgeschlossen ist.
 
-In den ersten beiden Fällen sollte der Ereignis-Handler den Kandidaten über den Signalisierungskanal an den entfernten Peer übermitteln, damit dieser ihn seinem Satz an entfernten Kandidaten hinzufügen kann.
+In den ersten beiden Fällen sollte der Ereignishandler den Kandidaten über den Signalisierungskanal an den entfernten Partner übermitteln, damit dieser ihn zu seinem Satz von entfernten Kandidaten hinzufügen kann.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht nach oben propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
-```js
-addEventListener("icecandidate", (event) => {});
+```js-nolint
+addEventListener("icecandidate", (event) => { })
 
-onicecandidate = (event) => {};
+onicecandidate = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,21 +34,21 @@ Ein [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent). E
 
 {{InheritanceDiagram("RTCPeerConnectionIceEvent")}}
 
-## Ereigniseigenschaften
+## Ereignis-Eigenschaften
 
-_Ein [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent), das ein [`Event`](/de/docs/Web/API/Event) ist, implementiert auch die folgende Eigenschaft_.
+_Ein [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent) als [`Event`](/de/docs/Web/API/Event) implementiert auch die folgende Eigenschaft_.
 
 - [`RTCPeerConnectionIceEvent.candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) {{ReadOnlyInline}}
-  - : Gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der den mit dem Ereignis verbundenen Kandidaten enthält.
-    Dies wird der leere String sein, wenn das Ereignis anzeigt, dass keine weiteren Kandidaten in dieser **Generation** erwartet werden, oder `null`, wenn das gesamte ICE-Sammeln auf allen Transporten abgeschlossen ist.
+  - : Zeigt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der den mit dem Ereignis verbundenen Kandidaten enthält.
+    Dies wird die leere Zeichenkette sein, wenn das Ereignis anzeigt, dass keine weiteren Kandidaten in dieser **Generation** zu erwarten sind, oder `null`, wenn das gesamte ICE-Gathering auf allen Transporten abgeschlossen ist.
 
 ## Beschreibung
 
-Es gibt drei Gründe, warum das `icecandidate` Ereignis bei einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ausgelöst wird.
+Es gibt drei Gründe, warum das `icecandidate`-Ereignis bei einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ausgelöst wird.
 
 ### Teilen eines neuen Kandidaten
 
-Die Mehrheit der `icecandidate` Ereignisse wird ausgelöst, um anzuzeigen, dass ein neuer Kandidat gesammelt wurde. Dieser Kandidat muss über den Signalisierungskanal, den Ihr Code verwaltet, an den entfernten Peer übermittelt werden.
+Die Mehrheit der `icecandidate`-Ereignisse wird ausgelöst, um anzuzeigen, dass ein neuer Kandidat gesammelt wurde. Dieser Kandidat muss über den Signalisierungskanal, den Ihr Code verwaltet, an den entfernten Partner übermittelt werden.
 
 ```js
 rtcPeerConnection.onicecandidate = (event) => {
@@ -60,23 +60,23 @@ rtcPeerConnection.onicecandidate = (event) => {
 };
 ```
 
-Der entfernte Peer wird, nachdem er den Kandidaten erhalten hat, den Kandidaten seinem Kandidatenpool hinzufügen, indem er [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufruft und den [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) String übergibt, den Sie über den Signalisierungsserver weitergeleitet haben.
+Der entfernte Partner wird, nachdem er den Kandidaten empfangen hat, ihn in seinen Kandidatenpool hinzufügen, indem er [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufruft und die von Ihnen über den Signalisierungsserver übergebene [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate)-Zeichenkette verwendet.
 
-### Anzeigen des Endes einer Kandidatengeneration
+### Anzeige des Endes einer Kandidatengenration
 
-Wenn eine ICE-Verhandlungssitzung keine Kandidaten mehr vorschlagen kann für einen gegebenen [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), hat sie das Sammeln für eine **Generation** von Kandidaten abgeschlossen. Dies wird durch ein `icecandidate` Ereignis angezeigt, dessen [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) String leer ist (`""`).
+Wenn eine ICE-Verhandlungssitzung keine Kandidaten mehr für einen bestimmten [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) vorschlagen kann, hat sie das Sammeln für eine **Generation** von Kandidaten abgeschlossen. Dass dies eingetreten ist, wird durch ein `icecandidate`-Ereignis angezeigt, dessen [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate)-Zeichenkette leer ist (`""`).
 
-Sie sollten dies an den entfernten Peer übermitteln, genauso wie jeden Standardkandidaten, wie oben unter [Teilen eines neuen Kandidaten](#teilen_eines_neuen_kandidaten) beschrieben. Dies stellt sicher, dass der entfernte Peer ebenfalls die End-of-Candidates-Benachrichtigung erhält. Wie Sie im Code im vorherigen Abschnitt sehen, wird jeder Kandidat an den anderen Peer gesendet, einschließlich solcher, die möglicherweise einen leeren Kandidatenstring haben. Nur Kandidaten, für die die Eigenschaft [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) des Ereignisses `null` ist, werden nicht über die Signalisierungsverbindung weitergeleitet.
+Sie sollten dies dem entfernten Partner genauso wie einen Standard-Kandidaten übermitteln, wie unter [Teilen eines neuen Kandidaten](#teilen_eines_neuen_kandidaten) oben beschrieben. Dies stellt sicher, dass der entfernte Partner ebenfalls die Benachrichtigung über das Ende der Kandidaten erhält. Wie im Code im vorherigen Abschnitt zu sehen, wird jeder Kandidat an den anderen Partner gesendet, einschließlich aller, die eine leere Kandidatenzeichenkette haben könnten. Nur Kandidaten, für die die [`candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate)-Eigenschaft des Ereignisses `null` ist, werden nicht über die Signalisierungsverbindung weitergeleitet.
 
-Die End-of-Candidates-Anzeige wird in [Abschnitt 9.3 des Trickle ICE Entwurfsspezifikations](https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-trickle-ice-02#section-9.3) beschrieben (beachten Sie, dass sich die Abschnittsnummer ändern kann, da die Spezifikation durch wiederholte Entwürfe geht).
+Die Ende-der-Kandidaten-Anzeige wird in [Abschnitt 9.3 des Trickle ICE-Entwurfspezifikation](https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-trickle-ice-02#section-9.3) beschrieben (beachten Sie, dass die Abschnittsnummer sich ändern kann, wenn die Spezifikation in wiederholten Entwürfen fortschreitet).
 
-### Anzeigen, dass das ICE-Sammeln abgeschlossen ist
+### Anzeige, dass das ICE-Gathering abgeschlossen ist
 
-Sobald alle ICE-Transporte das Sammeln von Kandidaten beendet haben und der Wert des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Objekts [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) den Übergang zu `complete` gemacht hat, wird ein `icecandidate` Ereignis mit dem Wert `candidate` auf `null` gesetzt gesendet.
+Sobald alle ICE-Transporte das Sammeln von Kandidaten abgeschlossen haben und der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekts den Übergang zu `complete` gemacht hat, wird ein `icecandidate`-Ereignis mit dem Wert `candidate` auf `null` gesetzt gesendet.
 
-Dieses Signal existiert aus Gründen der Abwärtskompatibilität und muss _nicht_ an den entfernten Peer weitergeleitet werden (weshalb der oben gezeigte Code überprüft, ob `event.candidate` `null` ist, bevor der Kandidat weitergesendet wird).
+Dieses Signal existiert aus Gründen der Rückwärtskompatibilität und muss _nicht_ an den entfernten Partner weitergeleitet werden (deshalb überprüft das obige Code-Snippet, ob `event.candidate` `null` ist, bevor es den Kandidaten weiterleitet).
 
-Wenn Sie besondere Aktionen ausführen müssen, wenn keine weiteren Kandidaten erwartet werden, ist es viel besser, den Status des ICE-Sammelns zu beobachten, indem Sie auf [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) Ereignisse achten:
+Wenn Sie spezielle Aktionen ausführen müssen, wenn keine weiteren Kandidaten erwartet werden, ist es viel besser, den ICE-Gathering-Status zu beobachten, indem Sie auf [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)-Ereignisse achten:
 
 ```js
 pc.addEventListener("icegatheringstatechange", (ev) => {
@@ -94,32 +94,28 @@ pc.addEventListener("icegatheringstatechange", (ev) => {
 });
 ```
 
-Wie Sie in diesem Beispiel sehen, lässt Sie das `icegatheringstatechange` Ereignis wissen, wann der Wert der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Eigenschaft [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) aktualisiert wurde. Wenn dieser Wert jetzt `complete` ist, wissen Sie, dass das ICE-Sammeln gerade beendet wurde.
+Wie Sie in diesem Beispiel sehen können, lässt das `icegatheringstatechange`-Ereignis Sie wissen, wenn der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState)-Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aktualisiert wurde. Wenn dieser Wert jetzt `complete` ist, wissen Sie, dass das ICE-Gathering gerade beendet wurde.
 
-Dies ist ein zuverlässigerer Ansatz, als die einzelnen ICE-Meldungen auf eine zu überprüfen, die anzeigt, dass die ICE-Sitzung beendet ist.
+Dies ist ein zuverlässigerer Ansatz, als sich auf die einzelnen ICE-Nachrichten zu verlassen, die anzeigen, dass die ICE-Sitzung abgeschlossen ist.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen einfachen Handler für das `icecandidate` Ereignis, der eine Funktion namens `sendMessage()` verwendet, um eine Antwort an den entfernten Peer über den Signalisierungsserver zu erstellen und zu senden.
+Dieses Beispiel erstellt einen einfachen Handler für das `icecandidate`-Ereignis, der eine Funktion namens `sendMessage()` verwendet, um eine Antwort an den entfernten Partner über den Signalisierungsserver zu erstellen und zu senden.
 
-Zuerst ein Beispiel mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Zunächst ein Beispiel mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
-pc.addEventListener(
-  "icecandidate",
-  (ev) => {
-    if (ev.candidate !== null) {
-      sendMessage({
-        type: "new-ice-candidate",
-        candidate: ev.candidate,
-      });
-    }
-  },
-  false,
-);
+pc.addEventListener("icecandidate", (ev) => {
+  if (ev.candidate !== null) {
+    sendMessage({
+      type: "new-ice-candidate",
+      candidate: ev.candidate,
+    });
+  }
+});
 ```
 
-Sie können auch die `onicecandidate` Event-Handler-Eigenschaft direkt setzen:
+Sie können auch direkt die `onicecandidate`-Ereignisbehandlungseigenschaft setzen:
 
 ```js
 pc.onicecandidate = (ev) => {

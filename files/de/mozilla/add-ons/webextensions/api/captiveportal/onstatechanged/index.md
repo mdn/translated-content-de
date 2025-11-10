@@ -2,10 +2,8 @@
 title: onStateChanged
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/onStateChanged
 l10n:
-  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn sich der Status des Captive Portals ändert.
 
@@ -20,26 +18,24 @@ browser.captivePortal.onStateChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird dieses Argument übergeben:
     - `details`
-      - : `string` Der Status des Captive Portals, der einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal` ist.
+      - : `string` Der Captive Portal-Status, einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
 
 ## Beispiele
 
-Behandeln Sie eine Änderung im Captive-Portal-Status:
+Handhabung einer Änderung des Captive Portal-Status:
 
 ```js
 function handlePortalStatus(portalStatusInfo) {

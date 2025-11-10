@@ -2,12 +2,10 @@
 title: "Wildcard: ."
 slug: Web/JavaScript/Reference/Regular_expressions/Wildcard
 l10n:
-  sourceCommit: 3e9618dd8b285580c2d3573e314ce97d6f3372ec
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar}}
-
-Ein **Wildcard** passt auf alle Zeichen außer Zeilentrenner. Es passt auch auf Zeilentrenner, wenn das `s`-Flag gesetzt ist.
+Ein **Wildcard** (Platzhalter) passt auf alle Zeichen außer Zeilenendzeichen. Es passt auch auf Zeilenendzeichen, wenn das `s`-Flag gesetzt ist.
 
 ## Syntax
 
@@ -17,9 +15,9 @@ Ein **Wildcard** passt auf alle Zeichen außer Zeilentrenner. Es passt auch auf 
 
 ## Beschreibung
 
-`.` passt auf jedes Zeichen außer [Zeilentrenner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators). Wenn das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll) Flag gesetzt ist, passt `.` auch auf Zeilentrenner.
+`.` passt auf jedes Zeichen außer den [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators). Wenn das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll)-Flag gesetzt ist, passt `.` auch auf Zeilenendzeichen.
 
-Die genaue Zeichenmenge, die von `.` erfasst wird, hängt davon ab, ob der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist. Wenn er Unicode-bewusst ist, passt `.` auf jeden Unicode-Codepunkt; andernfalls passt es auf jede UTF-16-Code-Einheit. Zum Beispiel:
+Der genaue Zeichensatz, auf den `.` passt, hängt davon ab, ob der Regex [Unicode-fähig](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist. Wenn er Unicode-fähig ist, passt `.` auf jeden Unicode-Codepunkt; andernfalls passt er auf jede UTF-16-Codeeinheit. Zum Beispiel:
 
 ```js
 /../.test("😄"); // true; matches two UTF-16 code units as a surrogate pair
@@ -30,7 +28,7 @@ Die genaue Zeichenmenge, die von `.` erfasst wird, hängt davon ab, ob der Regex
 
 ### Verwendung mit Quantifizierern
 
-Wildcards werden häufig mit [Quantifizierern](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) verwendet, um beliebige Zeichenfolgen zu erfassen, bis das nächste relevante Zeichen gefunden wird. Zum Beispiel extrahiert das folgende Beispiel den Titel einer Markdown-Seite in der Form `# Titel`:
+Wildcards werden oft mit [Quantifizierern](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) verwendet, um jede Zeichenfolge zu erfassen, bis das nächste relevante Zeichen gefunden wird. Zum Beispiel extrahiert das folgende Beispiel den Titel einer Markdown-Seite in der Form `# Title`:
 
 ```js
 function parseTitle(entry) {
@@ -54,9 +52,9 @@ A **wildcard** matches all characters except line terminators.
 `); // "Wildcard: ."
 ```
 
-### Inhalt von Codeblöcken erfassen
+### Inhalte von Codeblöcken abgleichen
 
-Das folgende Beispiel erfasst den Inhalt eines Codeblocks, der in Markdown von drei Backticks eingeschlossen ist. Es verwendet das `s`-Flag, um `.` auf Zeilentrenner ändern zu lassen, da der Inhalt eines Codeblocks mehrere Zeilen umfassen kann:
+Das folgende Beispiel stimmt mit dem Inhalt eines Codeblocks überein, der in Markdown durch drei Backticks eingeschlossen ist. Es verwendet das `s`-Flag, damit `.` auf Zeilenendzeichen passt, da der Inhalt eines Codeblocks mehrere Zeilen umfassen kann:
 
 ````js
 function parseCodeBlock(entry) {
@@ -82,7 +80,7 @@ catch (e)
 ````
 
 > [!WARNING]
-> Diese Beispiele dienen nur zur Demonstration. Wenn Sie Markdown parsen möchten, verwenden Sie einen speziellen Markdown-Parser, da es viele Sonderfälle zu beachten gibt.
+> Diese Beispiele dienen nur zur Veranschaulichung. Wenn Sie Markdown parsen möchten, verwenden Sie einen dedizierten Markdown-Parser, da es viele Sonderfälle zu beachten gibt.
 
 ## Spezifikationen
 

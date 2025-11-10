@@ -1,21 +1,19 @@
 ---
-title: Grid Areas
+title: Gridbereiche
 slug: Glossary/Grid_Areas
 l10n:
-  sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+Ein **Gridbereich** besteht aus einer oder mehreren {{Glossary("grid_cell", "Gridzellen")}}, die zusammen einen rechteckigen Bereich im Grid bilden. Gridbereiche werden erstellt, wenn Sie ein Element mit [linienbasierter Platzierung](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) positionieren oder wenn Sie Bereiche mit [benannten Gridbereichen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas) definieren.
 
-Ein **Grid-Bereich** ist eine oder mehrere {{Glossary("grid_cell", "Grid-Zellen")}}, die zusammen einen rechteckigen Bereich im Grid bilden. Grid-Bereiche werden erstellt, wenn Sie ein Element mithilfe der [linienbasierten Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder Bereiche mit [benannten Grid-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
+![Bild mit hervorgehobenem Gridbereich](1_grid_area.png)
 
-![Bild zeigt einen hervorgehobenen Grid-Bereich](1_grid_area.png)
-
-Grid-Bereiche _müssen_ rechteckig sein; es ist nicht möglich, zum Beispiel einen T- oder L-förmigen Grid-Bereich zu erstellen.
+Gridbereiche _müssen_ rechteckig sein; es ist nicht möglich, zum Beispiel einen T- oder L-förmigen Gridbereich zu erstellen.
 
 ## Beispiel
 
-Im untenstehenden Beispiel habe ich ein Grid-Container mit zwei Grid-Elementen. Ich habe diese mit der {{cssxref("grid-area")}} Eigenschaft benannt und dann mit {{cssxref("grid-template-areas")}} im Grid angeordnet. Dies erstellt zwei Grid-Bereiche, einer, der vier Grid-Zellen umfasst, der andere zwei.
+Im folgenden Beispiel habe ich einen Grid-Container mit zwei Grid-Elementen. Ich habe diese mit der {{cssxref("grid-area")}}-Eigenschaft benannt und sie dann mithilfe von {{cssxref("grid-template-areas")}} im Grid angeordnet. Dies erzeugt zwei Gridbereiche, einen der vier Gridzellen abdeckt und einen weiteren mit zwei.
 
 ```css hidden
 * {
@@ -65,7 +63,7 @@ Im untenstehenden Beispiel habe ich ein Grid-Container mit zwei Grid-Elementen. 
 
 ## Siehe auch
 
-### Property-Referenz
+### Eigenschaftenreferenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -76,7 +74,7 @@ Im untenstehenden Beispiel habe ich ein Grid-Container mit zwei Grid-Elementen. 
 
 ### Weiterführende Literatur
 
-- CSS Grid-Layout-Leitfaden:
-  - [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Grid Template Areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Definition von Grid-Bereichen in der CSS Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)
+- CSS-Grid-Layout-Leitfaden:
+  - [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
+  - [Grid-Template-Bereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
+- [Definition von Gridbereichen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)

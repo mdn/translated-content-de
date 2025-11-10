@@ -1,19 +1,19 @@
 ---
-title: "SecurityPolicyViolationEvent: referrer-Eigenschaft"
+title: "SecurityPolicyViolationEvent: Eigenschaft referrer"
 short-title: referrer
 slug: Web/API/SecurityPolicyViolationEvent/referrer
 l10n:
-  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`referrer`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein Zeichenfolgenwert, der den Referrer für die Ressourcen darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verletzt wurde.
-Dies kann eine URL oder `null` sein.
+Die schreibgeschützte Eigenschaft **`referrer`** des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der den Referrer für die Ressourcen darstellt, deren [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verletzt wurde.
+Dies wird eine URL oder `null` sein.
 
 ## Wert
 
-Eine Zeichenfolge, die die URL des Referrers für die Ressourcen, deren Richtlinie verletzt wurde, darstellt, oder `null`.
+Ein String, der die URL für den Referrer der Ressourcen darstellt, deren Richtlinie verletzt wurde, oder `null`.
 
 ## Beispiele
 

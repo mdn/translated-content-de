@@ -3,12 +3,12 @@ title: "HTMLInputElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLInputElement/disabled
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das HTML-Attribut [`disabled`](/de/docs/Web/HTML/Element/input#disabled) widerspiegelt und angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, akzeptiert es keine Klicks. Ein deaktiviertes Element ist nicht nutzbar und nicht anklickbar.
+Die **`HTMLInputElement.disabled`** Eigenschaft ist ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Reference/Elements/input#disabled) HTML-Attribut widerspiegelt, welches angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, nimmt es keine Klicks an. Ein deaktiviertes Element ist nicht nutzbar und nicht anklickbar.
 
 ## Wert
 
@@ -39,13 +39,9 @@ Ein boolescher Wert.
 const checkBox = document.getElementById("check-box");
 const toggleBox = document.getElementById("toggle-box");
 
-toggleBox.addEventListener(
-  "change",
-  (event) => {
-    checkBox.disabled = !event.target.checked;
-  },
-  false,
-);
+toggleBox.addEventListener("change", (event) => {
+  checkBox.disabled = !event.target.checked;
+});
 ```
 
 ### Ergebnis

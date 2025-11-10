@@ -3,23 +3,23 @@ title: "HTMLMediaElement: suspend-Ereignis"
 short-title: suspend
 slug: Web/API/HTMLMediaElement/suspend_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `suspend`-Ereignis wird ausgelöst, wenn das Laden von Mediendaten unterbrochen wurde.
+Das `suspend`-Ereignis wird ausgelöst, wenn der User-Agent absichtlich keine Mediendaten abruft. In diesem Fall wird [`HTMLMediaElement.networkState`](/de/docs/Web/API/HTMLMediaElement/networkState) auf `HTMLMediaElement.NETWORK_IDLE` gesetzt. Dies kann passieren, wenn keine weiteren Daten geladen werden müssen oder wenn das Laden unnötig ist; zum Beispiel kann der Browser entscheiden, nur 5 Minuten eines Videos im Voraus zu puffern. In diesem Fall wird das Laden angehalten, bis der Benutzer mehr vom Video anschaut.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("suspend", (event) => {});
+```js-nolint
+addEventListener("suspend", (event) => { })
 
-onsuspend = (event) => {};
+onsuspend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `suspend`-Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `suspend`-Ereignis des HTMLMediaElements hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -40,7 +40,7 @@ video.addEventListener("suspend", (event) => {
 });
 ```
 
-Verwendung der `onsuspend`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onsuspend`-Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

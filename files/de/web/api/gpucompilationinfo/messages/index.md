@@ -3,13 +3,12 @@ title: "GPUCompilationInfo: messages-Eigenschaft"
 short-title: messages
 slug: Web/API/GPUCompilationInfo/messages
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`messages`** schreibgeschützte Eigenschaft der
-[`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Schnittstelle ist ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, von denen jedes die Details einer einzelnen Shader-Kompilierungsnachricht enthält. Nachrichten können informationell, Warnungen oder Fehler sein.
+Die **`messages`** schreibgeschützte Eigenschaft der [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Schnittstelle ist ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten. Jedes Objekt enthält die Details einer individuellen Shader-Kompilierungsnachricht. Nachrichten können informativ sein, Warnungen oder Fehler darstellen.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-
 
 ## Beispiele
 
-Sehen Sie das Hauptbeispiel auf der Seite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein Beispiel.
+Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein Beispiel.
 
 ## Spezifikationen
 

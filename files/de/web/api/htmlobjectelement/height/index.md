@@ -3,17 +3,17 @@ title: "HTMLObjectElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/HTMLObjectElement/height
 l10n:
-  sourceCommit: d8a52569d8d465eb626af3d33600c8c638a7a322
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die **`height`**-Eigenschaft des
-[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement) Interface gibt eine Zeichenfolge zurück, die das [`height`](/de/docs/Web/HTML/Element/object#height) HTML-Attribut widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das [`height`](/de/docs/Web/HTML/Reference/Elements/object#height) HTML-Attribut widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Spezifikationen
 

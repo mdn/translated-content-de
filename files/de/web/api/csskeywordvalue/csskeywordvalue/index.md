@@ -3,12 +3,12 @@ title: "CSSKeywordValue: CSSKeywordValue() Konstruktor"
 short-title: CSSKeywordValue()
 slug: Web/API/CSSKeywordValue/CSSKeywordValue
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSKeywordValue()`** Konstruktor erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) Objekt, das CSS-Schlüsselwörter und andere Bezeichner repräsentiert.
+Der **`CSSKeywordValue()`** Konstruktor erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Objekt, das CSS-Schlüsselwörter und andere Bezeichner darstellt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new CSSKeywordValue(val)
 ### Parameter
 
 - `value`
-  - : Legt den Wert des neuen `CSSKeywordValue` fest oder gibt ihn zurück.
+  - : Setzt oder gibt den Wert des neuen `CSSKeywordValue` zurück.
 
 ### Ausnahmen
 
@@ -28,7 +28,7 @@ new CSSKeywordValue(val)
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück, indem das inline [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut auf `style="display: initial"` gesetzt wird, wenn es in den [Entwicklerwerkzeuge-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
+Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück, indem das Inline-Attribut [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) auf `style="display: initial"` gesetzt wird, wenn es im [Entwicklerwerkzeuge-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
 
 ```css hidden
 #myElement {

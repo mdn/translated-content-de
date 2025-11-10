@@ -2,16 +2,14 @@
 title: browserAction.setBadgeBackgroundColor()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeBackgroundColor
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-{{AddonSidebar}}
+Legt die Hintergrundfarbe für das Badge fest. Tabs ohne eine spezifische Hintergrundfarbe für das Badge erben die globale Hintergrundfarbe für Badges, die in Firefox standardmäßig `[217, 0, 0, 255]` ist.
 
-Legt die Hintergrundfarbe für das Abzeichen fest. Tabs ohne eine spezifische Abzeichen-Hintergrundfarbe erben die globale Abzeichen-Hintergrundfarbe, die in Firefox standardmäßig `[217, 0, 0, 255]` ist.
+Ab Firefox 63 wird, wenn die Badge-Textfarbe nicht ausdrücklich mit {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} festgelegt wird, die Badge-Textfarbe automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast mit der angegebenen Badge-Hintergrundfarbe zu maximieren. Wenn Sie zum Beispiel die Badge-Hintergrundfarbe auf Weiß setzen, wird die standardmäßige Badge-Textfarbe auf Schwarz gesetzt und umgekehrt.
 
-Ab Firefox 63 wird, wenn die Abzeichen-Textfarbe nicht explizit mit {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} gesetzt wird, die Abzeichen-Textfarbe automatisch auf schwarz oder weiß gesetzt, um den Kontrast zur angegebenen Abzeichen-Hintergrundfarbe zu maximieren. Wenn Sie beispielsweise die Abzeichen-Hintergrundfarbe auf weiß setzen, wird die Standard-Abzeichen-Textfarbe auf schwarz gesetzt und umgekehrt.
-
-Andere Browser verwenden immer eine weiße Textfarbe, daher ist es möglicherweise vorzuziehen, einen dunklen Hintergrund zu setzen, um sicherzustellen, dass der Text lesbar ist.
+Andere Browser verwenden immer eine weiße Textfarbe, daher kann es vorzuziehen sein, einen dunklen Hintergrund zu setzen, um sicherzustellen, dass der Text lesbar ist.
 
 ## Syntax
 
@@ -24,36 +22,28 @@ browser.browserAction.setBadgeBackgroundColor(
 ### Parameter
 
 - `details`
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `color`
+      - : Die Farbe, angegeben als eine der folgenden Möglichkeiten:
+        - ein String: jeder CSS [\<color>](/de/docs/Web/CSS/Reference/Values/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Promise abgelehnt und die Hintergrundfarbe wird nicht geändert.
+        - ein {{WebExtAPIRef('browserAction.ColorArray')}} Objekt.
+        - `null`. Wenn ein `tabId` angegeben ist, wird die tabspezifische Badgehintergrundfarbe entfernt, sodass der Tab die globale Badgehintergrundfarbe erbt. Andernfalls wird die globale Badgehintergrundfarbe auf den Standardwert zurückgesetzt.
 
-      - : Die Farbe, angegeben als eine der folgenden:
-
-        - ein String: jeder CSS [\<color>](/de/docs/Web/CSS/color_value)-Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Versprechen abgelehnt und die Hintergrundfarbe nicht geändert.
-        - ein `{{WebExtAPIRef('browserAction.ColorArray')}}`-Objekt.
-        - `null`. Wenn eine `tabId` angegeben ist, wird die tab-spezifische Abzeichen-Hintergrundfarbe entfernt, sodass der Tab die globale Abzeichen-Hintergrundfarbe erbt. Andernfalls wird die globale Abzeichen-Hintergrundfarbe auf den Standardwert zurückgesetzt.
+        Die Standardfarbe in Firefox ist: `[217, 0, 0, 255]`.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Legt die Abzeichen-Hintergrundfarbe nur für den angegebenen Tab fest. Die Farbe wird zurückgesetzt, wenn der Benutzer in diesem Tab zu einer neuen Seite navigiert.
+      - : `integer`. Legt die Badgehintergrundfarbe nur für den angegebenen Tab fest. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Legt die Abzeichen-Hintergrundfarbe nur für das angegebene Fenster fest.
+      - : `integer`. Legt die Badgehintergrundfarbe nur für das angegebene Fenster fest.
 
 <!---->
 
 - Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird stattdessen die globale Abzeichen-Hintergrundfarbe gesetzt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
-
-Die Standardfarbe in Firefox ist: `[217, 0, 0, 255]`.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird stattdessen die globale Badgehintergrundfarbe gesetzt.
 
 ## Beispiele
 
-Eine Hintergrundfarbe, die anfänglich rot ist und grün wird, wenn die Browser-Aktion angeklickt wird:
+Eine Hintergrundfarbe, die zunächst rot ist und grün wird, wenn auf die Browseraktion geklickt wird:
 
 ```js
 browser.browserAction.setBadgeText({ text: "1234" });
@@ -64,7 +54,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Die Abzeichen-Hintergrundfarbe nur für den aktiven Tab festlegen:
+Legen Sie die Badgehintergrundfarbe nur für den aktiven Tab fest:
 
 ```js
 browser.browserAction.setBadgeText({ text: "1234" });
@@ -80,5 +70,9 @@ browser.browserAction.onClicked.addListener((tab) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeBackgroundColor). Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setBadgeBackgroundColor) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.

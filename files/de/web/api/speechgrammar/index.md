@@ -2,25 +2,28 @@
 title: SpeechGrammar
 slug: Web/API/SpeechGrammar
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
-{{APIRef("Web Speech API")}}{{SeeCompatTable}}
+{{APIRef("Web Speech API")}}{{deprecated_header}}
 
-Das **`SpeechGrammar`** Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
+Das **`SpeechGrammar`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
 
-Grammatik wird mittels des [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in der Zukunft ebenfalls unterstützt werden.
+Grammatik wird im [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert.
+
+> [!NOTE]
+> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen sind in der Spezifikation weiterhin vorhanden und werden von unterstützenden Browsern aus Gründen der Rückwärtskompatibilität erkannt, haben jedoch keine Auswirkungen auf Spracherkennungsdienste.
 
 ## Konstruktor
 
-- [`SpeechGrammar()`](/de/docs/Web/API/SpeechGrammar/SpeechGrammar) {{Non-standard_Inline}} {{Experimental_Inline}}
+- [`SpeechGrammar()`](/de/docs/Web/API/SpeechGrammar/SpeechGrammar) {{Non-standard_Inline}} {{deprecated_inline}}
   - : Erstellt ein neues `SpeechGrammar`-Objekt.
 
 ## Instanzeigenschaften
 
-- [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{Experimental_Inline}}
+- [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{deprecated_inline}}
   - : Setzt und gibt einen String zurück, der die Grammatik innerhalb der `SpeechGrammar`-Objektinstanz enthält.
-- [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{Experimental_Inline}}
+- [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{deprecated_inline}}
   - : Setzt und gibt das Gewicht des `SpeechGrammar`-Objekts zurück.
 
 ## Beispiele

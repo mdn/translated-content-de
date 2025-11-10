@@ -1,13 +1,12 @@
 ---
 title: Number.MAX_VALUE
+short-title: MAX_VALUE
 slug: Web/JavaScript/Reference/Global_Objects/Number/MAX_VALUE
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: c1c0f13171a9e266210f0b284243b2996fc3ec91
 ---
 
-{{JSRef}}
-
-Die **`Number.MAX_VALUE`** statische Dateneigenschaft repräsentiert den maximal darstellbaren numerischen Wert in JavaScript.
+Die statische Dateneigenschaft **`Number.MAX_VALUE`** repräsentiert den maximal darstellbaren numerischen Wert in JavaScript.
 
 {{InteractiveExample("JavaScript Demo: Number.MAX_VALUE")}}
 
@@ -34,9 +33,9 @@ console.log(multiply(1.7976931348623157e308, 2));
 
 ## Beschreibung
 
-Werte, die größer sind als `MAX_VALUE`, werden als {{jsxref("Infinity")}} dargestellt und verlieren ihren tatsächlichen Wert.
+Werte, die größer als `MAX_VALUE` sind, werden als {{jsxref("Infinity")}} dargestellt und verlieren ihren tatsächlichen Wert. Wie in {{jsxref("Number.EPSILON")}} erwähnt, hängt die Genauigkeit von Zahlen von ihrer Größenordnung ab. Ganzzahlen können nur bis zu {{jsxref("Number.MAX_SAFE_INTEGER")}}, das ist 2<sup>53</sup> - 1, genau dargestellt werden.
 
-Da `MAX_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MAX_VALUE`, anstatt als eine Eigenschaft eines Zahlenwertes.
+Da `MAX_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es immer als `Number.MAX_VALUE` und nicht als eine Eigenschaft eines Zahlenwerts.
 
 ## Beispiele
 
@@ -63,4 +62,5 @@ if (num1 * num2 <= Number.MAX_VALUE) {
 ## Siehe auch
 
 - {{jsxref("Number.MIN_VALUE")}}
+- {{jsxref("Number.MAX_SAFE_INTEGER")}}
 - {{jsxref("Number")}}

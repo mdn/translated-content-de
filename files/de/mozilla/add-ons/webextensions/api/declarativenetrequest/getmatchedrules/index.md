@@ -2,17 +2,15 @@
 title: declarativeNetRequest.getMatchedRules
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getMatchedRules
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt alle Regeln zurück, die für die Erweiterung übereinstimmen. Aufrufer können die Liste der übereinstimmenden Regeln durch Angabe eines `filter` filtern. Diese Methode ist nur für Erweiterungen verfügbar, die über die Berechtigung `"declarativeNetRequestFeedback"` verfügen oder denen für die in `filter` angegebene `tabId` die Berechtigung `"activeTab"` gewährt wurde. Regeln, die nicht mit einem aktiven Dokument verbunden sind und vor mehr als fünf Minuten übereingestimmt wurden, werden nicht zurückgegeben.
+Gibt alle Regeln zurück, die für die Erweiterung übereinstimmen. Aufrufer können die Liste der übereinstimmenden Regeln filtern, indem sie einen `filter` angeben. Diese Methode steht nur Erweiterungen zur Verfügung, die die Berechtigung `"declarativeNetRequestFeedback"` haben oder denen die Berechtigung `"activeTab"` für die in `filter` angegebene `tabId` gewährt wurde. Regeln, die keinem aktiven Dokument zugeordnet sind und vor mehr als fünf Minuten übereinstimmten, werden nicht zurückgegeben.
 
 ## Syntax
 
 ```js-nolint
-let gettingMatchedRules = browser.declarativeNetRequest.getMatchedRules(
+let gettingMatchedRules = await browser.declarativeNetRequest.getMatchedRules(
     filter                // object
 );
 ```
@@ -20,12 +18,11 @@ let gettingMatchedRules = browser.declarativeNetRequest.getMatchedRules(
 ### Parameter
 
 - `filter` {{optional_inline}}
-
-  - : Ein Objekt zum Filtern der Liste der übereinstimmenden Regeln.
+  - : Ein Objekt, um die Liste der übereinstimmenden Regeln zu filtern.
     - `minTimeStamp` {{optional_inline}}
-      - : Eine `number`. Falls angegeben, stimmen nur Regeln nach dem angegebenen Zeitstempel überein.
+      - : Eine `number`. Wenn angegeben, werden nur Regeln nach dem angegebenen Zeitstempel berücksichtigt.
     - `tabId` {{optional_inline}}
-      - : Eine `number`. Falls angegeben, stimmen nur Regeln für den angegebenen Tab überein. Stimmen Regeln zu, die mit keinem aktiven Tab verbunden sind, wenn auf `-1` gesetzt.
+      - : Eine `number`. Wenn angegeben, werden nur Regeln für den angegebenen Tab berücksichtigt. Berücksichtigt Regeln, die keinem aktiven Tab zugeordnet sind, wenn `-1` festgelegt ist.
 
 ### Rückgabewert
 
@@ -34,11 +31,11 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `rule`
   - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details einer übereinstimmenden Regel.
 - `tabId`
-  - : `number` Die `tabId` des Tabs, von dem die Anforderung stammt, falls der Tab noch aktiv ist. Andernfalls `-1`.
+  - : `number` Die `tabId` des Tabs, von dem die Anfrage ausging, falls der Tab noch aktiv ist. Andernfalls `-1`.
 - `timeStamp`
-  - : `number` Der Zeitpunkt, zu dem die Regel übereinstimmte. Zeitstempel entsprechen der JavaScript-Konvention für Zeiten, d.h. die Anzahl der Millisekunden seit dem Epoch.
+  - : `number` Die Zeit, zu der die Regel übereinstimmte. Zeitstempel entsprechen der JavaScript-Konvention für Zeiten, d.h. der Anzahl der Millisekunden seit der Epoche.
 
-Wenn keine Regeln übereinstimmen, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn keine Regeln übereinstimmen, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

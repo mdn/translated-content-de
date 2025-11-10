@@ -1,17 +1,16 @@
 ---
 title: Generator.prototype.return()
+short-title: return()
 slug: Web/JavaScript/Reference/Global_Objects/Generator/return
 l10n:
-  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
-
-Die **`return()`**-Methode von {{jsxref("Generator")}}-Instanzen wirkt so, als ob an der aktuellen angehaltenen Position im Körper des Generators eine `return`-Anweisung eingefügt wird, was den Generator beendet und dem Generator ermöglicht, alle Aufräumarbeiten durchzuführen, wenn er zusammen mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block)-Block verwendet wird.
+Die **`return()`**-Methode von {{jsxref("Generator")}}-Instanzen wirkt, als ob eine `return`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird. Dies beendet den Generator und ermöglicht es dem Generator, jede notwendige Bereinigungsaufgabe durchzuführen, wenn sie mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block)-Block kombiniert wird.
 
 ## Syntax
 
-<!-- Wir fügen normalerweise das "generatorInstance"-Subjekt für Methoden nicht hinzu. Hier ist es jedoch notwendig, weil "return" ein Schlüsselwort ist, deshalb wäre es sonst ungültige Syntax. -->
+<!-- Üblicherweise fügen wir das "generatorInstance" Subjekt für Methoden nicht hinzu. Hier ist es jedoch notwendig, da "return" ein Schlüsselwort ist und sonst ein ungültiger Syntax wäre. -->
 
 ```js-nolint
 generatorInstance.return()
@@ -28,15 +27,20 @@ generatorInstance.return(value)
 Ein {{jsxref("Object")}} mit zwei Eigenschaften:
 
 - `done`
-  - : Ein boolean-Wert:
-    - `true`, wenn der Kontrollfluss der Generator-Funktion das Ende erreicht hat.
-    - `false`, wenn der Kontrollfluss der Generator-Funktion das Ende nicht erreicht hat und noch mehr Werte erzeugen kann. Dies kann nur passieren, wenn das `return` in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) erfasst wird und es weitere `yield`-Ausdrücke im `finally`-Block gibt.
+  - : Ein boolescher Wert:
+    - `true`, wenn der Kontrollfluss der Generatorfunktion das Ende erreicht hat.
+    - `false`, wenn der Kontrollfluss der Generatorfunktion das Ende noch nicht erreicht hat und noch weitere Werte erzeugen kann. Dies kann nur passieren, wenn das `return` in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) eingefangen wird und es mehr `yield`-Ausdrücke im `finally`-Block gibt.
 - `value`
-  - : Der Wert, der als Argument angegeben wird, oder, wenn der `yield`-Ausdruck in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) eingeschlossen ist, der im `finally`-Block erzeugte/zurückgegebene Wert.
+  - : Der als Argument angegebene Wert oder, wenn der `yield`-Ausdruck in einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) eingeschlossen ist, der Wert, der im `finally`-Block ausgegeben/zurückgegeben wird.
+
+### Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : Wird ausgelöst, wenn der Generator bereits läuft.
 
 ## Beschreibung
 
-Die `return()`-Methode kann beim Aufruf so gesehen werden, als ob eine `return value;`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, wobei `value` der an die `return()`-Methode übergebene Wert ist. Daher wird bei einem typischen Ablauf durch den Aufruf von `return(value)` `{ done: true, value: value }` zurückgegeben. Wenn jedoch der `yield`-Ausdruck in einem `try...finally`-Block enthalten ist, verlässt der Kontrollfluss den Funktionskörper nicht, sondern setzt sich stattdessen im `finally`-Block fort. In diesem Fall kann der zurückgegebene Wert unterschiedlich sein, und `done` kann sogar `false` sein, wenn es weitere `yield`-Ausdrücke innerhalb des `finally`-Blocks gibt.
+Die `return()`-Methode kann beim Aufruf gesehen werden, als ob eine `return value;`-Anweisung im Körper des Generators an der aktuellen angehaltenen Position eingefügt wird, wobei `value` der an die `return()`-Methode übergebene Wert ist. Daher wird im typischen Ablauf durch Aufrufen von `return(value)` `{ done: true, value: value }` zurückgegeben. Ist jedoch der `yield`-Ausdruck in einem `try...finally`-Block eingeschlossen, verlässt der Kontrollfluss nicht den Funktionskörper, sondern fährt im `finally`-Block fort. In diesem Fall kann der zurückgegebene Wert unterschiedlich sein und `done` kann sogar `false` sein, wenn es mehr `yield`-Ausdrücke im `finally`-Block gibt.
 
 ## Beispiele
 
@@ -58,9 +62,9 @@ g.return("foo"); // { value: "foo", done: true }
 g.next(); // { value: undefined, done: true }
 ```
 
-Wenn `return(value)` auf einen Generator aufgerufen wird, der sich bereits im Zustand "abgeschlossen" befindet, bleibt der Generator im "abgeschlossenen" Zustand.
+Wenn `return(value)` auf einen Generator aufgerufen wird, der sich bereits im "abgeschlossenen" Zustand befindet, bleibt der Generator im "abgeschlossenen" Zustand.
 
-Wenn kein Argument angegeben wird, ist die `value`-Eigenschaft des zurückgegebenen Objekts `undefined`. Wenn ein Argument angegeben wird, wird es der Wert der `value`-Eigenschaft des zurückgegebenen Objekts, es sei denn, der `yield`-Ausdruck ist in einem `try...finally` eingeschlossen.
+Wenn kein Argument bereitgestellt wird, ist die `value`-Eigenschaft des zurückgegebenen Objekts `undefined`. Wird ein Argument bereitgestellt, wird es zum Wert der `value`-Eigenschaft des zurückgegebenen Objekts, es sei denn, der `yield`-Ausdruck ist in einem `try...finally` eingeschlossen.
 
 ```js
 function* gen() {
@@ -80,9 +84,9 @@ g.return(1); // { value: 1, done: true }
 
 ### Verwendung von return() mit try...finally
 
-Die Tatsache, dass die `return`-Methode aufgerufen wurde, kann dem Generator selbst nur bekannt gemacht werden, wenn der `yield`-Ausdruck in einem `try...finally`-Block enthalten ist.
+Die Tatsache, dass die `return`-Methode aufgerufen wurde, kann dem Generator nur bekannt gemacht werden, wenn der `yield`-Ausdruck in einem `try...finally`-Block eingeschlossen ist.
 
-Wenn die `return`-Methode auf einem Generator aufgerufen wird, der innerhalb eines `try`-Blocks angehalten ist, setzt die Ausführung im Generator im `finally`-Block fort — da der `finally`-Block von `try...finally`-Anweisungen immer ausgeführt wird.
+Wenn die `return`-Methode auf einen Generator aufgerufen wird, der innerhalb eines `try`-Blocks angehalten ist, wird die Ausführung im Generator zum `finally`-Block fortgesetzt — da der `finally`-Block der `try...finally`-Anweisungen immer ausgeführt wird.
 
 ```js
 function* gen() {
@@ -126,9 +130,9 @@ function* gen() {
   }
 }
 
-const g1 = gen();
-g1.next(); // { value: 1, done: false }
-g1.return("early return"); // { value: 'cleanup', done: true }
+const generator = gen();
+generator.next(); // { value: 1, done: false }
+generator.return("early return"); // { value: 'cleanup', done: true }
 ```
 
 ## Spezifikationen

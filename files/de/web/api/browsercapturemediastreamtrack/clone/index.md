@@ -1,19 +1,19 @@
 ---
-title: "BrowserCaptureMediaStreamTrack: clone()-Methode"
+title: "BrowserCaptureMediaStreamTrack: clone() Methode"
 short-title: clone()
 slug: Web/API/BrowserCaptureMediaStreamTrack/clone
 l10n:
-  sourceCommit: d9879ec9fe29b627ea1bde790d981dd13d602794
+  sourceCommit: ad896488bf8fac04fc6fa144c441fdbfd880737c
 ---
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`clone()`**-Methode der [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Schnittstelle gibt einen Klon des ursprünglichen `BrowserCaptureMediaStreamTrack` zurück.
+Die **`clone()`**-Methode des [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Interfaces gibt einen Klon des ursprünglichen `BrowserCaptureMediaStreamTrack` zurück.
 
-Diese Methode ist funktional identisch mit [`MediaStreamTrack.clone()`](/de/docs/Web/API/MediaStreamTrack/clone), außer dass sie Fälle behandelt, in denen das Track zugeschnitten oder eingeschränkt wurde. Der zurückgegebene Klon ist identisch zum ursprünglichen `BrowserCaptureMediaStreamTrack`, jedoch ohne jegliches Zuschneiden oder Einschränkungen.
+Diese Methode ist funktional identisch zu [`MediaStreamTrack.clone()`](/de/docs/Web/API/MediaStreamTrack/clone), außer dass sie Fälle behandelt, in denen Zuschnitt oder Einschränkung auf den Track angewendet wurden. Der zurückgegebene Klon ist identisch mit dem ursprünglichen `BrowserCaptureMediaStreamTrack`, jedoch ohne Zuschnitt oder Einschränkung.
 
 > [!NOTE]
-> In Chromium werden die Methoden [`cropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) und [`restrictTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/restrictTo) abgelehnt, wenn ein Track Klone hat (siehe [Chrome-Issue 41482026](https://issues.chromium.org/issues/41482026)).
+> In Chromium, wenn ein Track Klone hat, werden seine Methoden [`cropTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/cropTo) und [`restrictTo()`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack/restrictTo) verweigert (siehe [Chrome Problem 41482026](https://crbug.com/41482026)).
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Instanz von [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack).
+Eine [`BrowserCaptureMediaStreamTrack`](/de/docs/Web/API/BrowserCaptureMediaStreamTrack)-Instanz.
 
 ## Beispiele
 

@@ -3,13 +3,15 @@ title: "ImageCapture: getPhotoCapabilities()-Methode"
 short-title: getPhotoCapabilities()
 slug: Web/API/ImageCapture/getPhotoCapabilities
 l10n:
-  sourceCommit: 91090d531495c5387b584fa07708dd2a8278eba1
+  sourceCommit: 624bbdcb7d9beace299a4fa0d3ddcd8f6732cd90
 ---
 
-{{APIRef("Image Capture API")}}{{SeeCompatTable}}
+{{APIRef("Image Capture API")}}
 
-Die **`getPhotoCapabilities()`**-Methode des [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Interfaces gibt ein {{jsxref("Promise")}}
-zurück, das mit einem Objekt aufgelöst wird, das die Bereiche der verfügbaren Konfigurationsoptionen enthält.
+Die **`getPhotoCapabilities()`**
+Methode der [`ImageCapture`](/de/docs/Web/API/ImageCapture) Schnittstelle gibt ein {{jsxref("Promise")}} zurück,
+das mit einem Objekt aufgelöst wird, das die Bereiche der
+verfügbaren Konfigurationsoptionen enthält.
 
 ## Syntax
 
@@ -26,24 +28,27 @@ Keine.
 Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Eigenschaften enthält:
 
 - `redEyeReduction`
-  - : Gibt einen der Werte `"never"`, `"always"` oder `"controllable"` zurück. Der Wert `"controllable"` bedeutet, dass die Reduzierung des Rote-Augen-Effekts durch den Benutzer gesteuert werden kann.
+  - : Gibt einen der Werte `"never"`, `"always"` oder `"controllable"` zurück. Der Wert `"controllable"` bedeutet, dass die Reduzierung des Rote-Augen-Effekts durch den Benutzer steuerbar ist.
 - `imageHeight`
-  - : Gibt ein Objekt zurück, das den vom Benutzeragenten unterstützten Bildhöhensbereich angibt.
+  - : Gibt ein Objekt zurück, das den vom Benutzeragenten unterstützten Höhenbereich des Bildes angibt.
 - `imageWidth`
-  - : Gibt ein Objekt zurück, das den vom Benutzeragenten unterstützten Bildbreitenbereich angibt.
+  - : Gibt ein Objekt zurück, das den vom Benutzeragenten unterstützten Breitenbereich des Bildes angibt.
 - `fillLightMode`
-  - : Gibt ein Array der verfügbaren Optionen für die Fülllichtmodi zurück. Zu den Optionen gehören `auto`, `off` oder `flash`.
+  - : Gibt ein Array der verfügbaren Optionen für das Fülllicht zurück. Optionen umfassen `auto`, `off` oder `flash`.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `readyState`-Eigenschaft des im Konstruktor übergebenen `MediaStreamTrack` nicht `live` ist.
+  - : Wird ausgelöst, wenn die `readyState`-Eigenschaft des `MediaStreamTrack`, das im Konstruktor übergeben wird, nicht `live` ist.
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Vorgang aus irgendeinem Grund nicht abgeschlossen werden kann.
 
 ## Beispiele
 
-Das folgende Beispiel, extrahiert aus dem [Chrome Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html), verwendet die Ergebnisse von `getPhotoCapabilities()`, um die Größe eines Eingabebereichs zu ändern. Dieses Beispiel zeigt auch, wie das [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Objekt unter Verwendung eines [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt wird, das von einem Gerät-`MediaStream`](/de/docs/Web/API/MediaStream) abgerufen wurde.
+Das folgende Beispiel, entnommen aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html), verwendet die Ergebnisse von
+`getPhotoCapabilities()`, um die Größe eines Eingabebereichs zu ändern. Dieses Beispiel
+zeigt auch, wie das [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Objekt mit einem
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt wird, das von einem Gerät aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) abgerufen wird.
 
 ```js
 const input = document.querySelector('input[type="range"]');

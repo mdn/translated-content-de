@@ -1,77 +1,75 @@
 ---
-title: Firefox 75 für Entwickler
+title: "Firefox 75: Versionshinweise für Entwickler"
+short-title: Firefox 75
 slug: Mozilla/Firefox/Releases/75
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 61912f53d01e935aea926a2226130fb4587414a9
 ---
 
-{{FirefoxSidebar}}
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 75, die Entwickler betreffen werden. Firefox 75 wurde am 7. April 2020 veröffentlicht.
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 75, die Entwickler betreffen. Firefox 75 wurde am 7. April 2020 veröffentlicht.
-
-**Lesen Sie auch den begleitenden Hacks-Artikel — [Firefox 75: Ambitionen für April](https://hacks.mozilla.org/2020/04/firefox-75-ambitions-for-april/).**
+**Siehe auch den begleitenden Hacks-Artikel — [Firefox 75: Ambitionen für April](https://hacks.mozilla.org/2020/04/firefox-75-ambitions-for-april/).**
 
 ## Änderungen für Webentwickler
 
 ### Entwicklerwerkzeuge
 
 - Es ist jetzt möglich, das Rechteck des [Messwerkzeugs](https://firefox-source-docs.mozilla.org/devtools-user/measure_a_portion_of_the_page/index.html) zu ändern ([Firefox-Bug 1152321](https://bugzil.la/1152321)).
-- Im [Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) können Sie nun neben CSS-Selektoren auch [XPath](/de/docs/Web/XML/XPath)-Ausdrücke verwenden, um Elemente zu finden ([Firefox-Bug 963933](https://bugzil.la/963933)).
-- Sie können jetzt [WebSocket](/de/docs/Web/API/WebSockets_API)-Nachrichten mit [regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) filtern. Dies geschieht, indem Sie das reguläre Ausdrucksmuster in Schrägstrichen schreiben, zusätzlich zur bisherigen reinen Textsuche ([Firefox-Bug 1593837](https://bugzil.la/1593837)).
+- Im [Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) können Sie nun [XPath](/de/docs/Web/XML/XPath)-Ausdrücke verwenden, um Elemente zu lokalisieren, zusätzlich zu der bisherigen Möglichkeit, Elemente mit CSS-Selektoren zu finden ([Firefox-Bug 963933](https://bugzil.la/963933)).
+- Sie können nun [WebSocket](/de/docs/Web/API/WebSockets_API)-Nachrichten mit [regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) filtern, zusätzlich zur einfachen Textsuche, indem Sie das reguläre Ausdruck in Schrägstriche einschließen ([Firefox-Bug 1593837](https://bugzil.la/1593837)).
 
 ### HTML
 
-- Das [`loading`](/de/docs/Web/HTML/Element/img#loading)-Attribut des {{HTMLElement("img")}}-Elements wurde implementiert. Dieser Zeichenfolgenwert kann verwendet werden, um anzugeben, dass das Bild [lazy geladen](/de/docs/Web/Performance/Lazy_loading) werden soll, indem dessen Wert auf `lazy` gesetzt wird ([Firefox-Bug 1542784](https://bugzil.la/1542784)).
-- Der Wert des `type`-Attributs des [`<style>`](/de/docs/Web/HTML/Element/style)-Elements ist jetzt gemäß der Spezifikation nur auf `text/css` beschränkt ([Firefox-Bug 1614329](https://bugzil.la/1614329)).
+- Das [`loading`](/de/docs/Web/HTML/Reference/Elements/img#loading)-Attribut des {{HTMLElement("img")}}-Elements wurde nun implementiert. Dieser Zeichenfolgenwert kann verwendet werden, um anzugeben, dass das Bild [faul geladen](/de/docs/Web/Performance/Guides/Lazy_loading) werden soll, indem sein Wert auf `lazy` gesetzt wird ([Firefox-Bug 1542784](https://bugzil.la/1542784)).
+- Der Wert des `type`-Attributs des [`<style>`](/de/docs/Web/HTML/Reference/Elements/style)-Elements ist jetzt entsprechend der Spezifikation auf `text/css` beschränkt ([Firefox-Bug 1614329](https://bugzil.la/1614329)).
 
 ### CSS
 
 - Unterstützung für die Funktionen {{cssxref("min", "min()")}}, {{cssxref("max", "max()")}} und {{cssxref("clamp", "clamp()")}} wurde implementiert ([Firefox-Bug 1519519](https://bugzil.la/1519519)).
-- Der Wert `all` für die Eigenschaft {{cssxref("text-decoration-skip-ink")}} wurde hinzugefügt ([Firefox-Bug 1611965](https://bugzil.la/1611965)).
+- Der `all`-Wert der {{cssxref("text-decoration-skip-ink")}}-Eigenschaft wurde hinzugefügt ([Firefox-Bug 1611965](https://bugzil.la/1611965)).
 
 ### Barrierefreiheit
 
-Neue [ARIA](/de/docs/Web/Accessibility/ARIA)-Rollen und Attribute sind jetzt in Firefox, unter Windows und Linux, verfügbar (beachten Sie, dass diese erst nutzbar sein werden, wenn Bildschirmleseprogramme diese unterstützen):
+Neue [ARIA](/de/docs/Web/Accessibility/ARIA)-Rollen und -Attribute sind jetzt in Firefox unter Windows und Linux verfügbar (es sei jedoch darauf hingewiesen, dass sie erst dann verwendet werden können, wenn Bildschirmleser sie unterstützen):
 
 - `aria-description` ([Firefox-Bug 1608961](https://bugzil.la/1608961)).
-- [`role="mark"`](/de/docs/Web/Accessibility/ARIA/Roles/mark_role) und [`role="suggestion"`](/de/docs/Web/Accessibility/ARIA/Roles/suggestion_role) ([Firefox-Bug 1608965](https://bugzil.la/1608965)).
-- [`role="comment"`](/de/docs/Web/Accessibility/ARIA/Roles/comment_role) ([Firefox-Bug 1608969](https://bugzil.la/1608969)).
-- Mehrere IDs im `aria-details` ([Firefox-Bug 1608883](https://bugzil.la/1608883)).
+- [`role="mark"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/mark_role) und [`role="suggestion"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/suggestion_role) ([Firefox-Bug 1608965](https://bugzil.la/1608965)).
+- [`role="comment"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/comment_role) ([Firefox-Bug 1608969](https://bugzil.la/1608969)).
+- Mehrere IDs auf `aria-details` ([Firefox-Bug 1608883](https://bugzil.la/1608883)).
 
 > [!NOTE]
-> Unter macOS warten wir zunächst darauf, dass Apple definiert, welche Safari-Attribute als Apple-Dialekt-Attribute für VoiceOver ausgesetzt werden, und werden dann folgen.
+> Auf macOS warten wir zunächst darauf, dass Apple definiert, welche Apple-Dialektattribute für VoiceOver in Safari bereitgestellt werden sollen, und werden dann entsprechend agieren.
 
 ### JavaScript
 
-- [Öffentliche statische Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/static) werden jetzt unterstützt ([Firefox-Bug 1535804](https://bugzil.la/1535804)).
+- [Public static class fields](/de/docs/Web/JavaScript/Reference/Classes/static) werden jetzt unterstützt ([Firefox-Bug 1535804](https://bugzil.la/1535804)).
 - Die [`Intl.Locale`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)-Klasse wird jetzt unterstützt ([Firefox-Bug 1613713](https://bugzil.la/1613713)).
-- Die Eigenschaft [`Function.caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller) wurde gemäß dem neuesten [ECMAScript-Spezifikationsvorschlag](https://github.com/claudepache/es-legacy-function-reflection) aktualisiert. Anstatt wie zuvor einen `TypeError` zu werfen, gibt sie jetzt `null` zurück, wenn der Aufrufer eine strikte, asynchrone oder Generatorfunktion ist ([Firefox-Bug 1610206](https://bugzil.la/1610206)).
+- Die [`Function.caller`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/caller)-Eigenschaft wurde aktualisiert, um mit dem neuesten [ECMAScript-Spezifikationsvorschlag](https://github.com/claudepache/es-legacy-function-reflection) übereinzustimmen. Anstatt einen `TypeError` auszulösen, gibt sie jetzt `null` zurück, wenn der Aufrufer eine strikte, asynchrone oder Generatorfunktion ist ([Firefox-Bug 1610206](https://bugzil.la/1610206)).
 
 ### APIs
 
 #### DOM
 
-- Die Schnittstelle [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) verfügt über eine neue Methode, [`requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit). Im Gegensatz zur alten (und weiterhin verfügbaren) Methode [`submit()`](/de/docs/Web/API/HTMLFormElement/submit) behandelt `requestSubmit()` die Anfrage so, als hätte ein angegebenes Absende-Schaltfläche geklickt, anstatt nur die Formulardaten an den Empfänger zu senden. Das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis wird ausgelöst, und das Formular wird vor dem Übermitteln der Daten auf seine Gültigkeit überprüft ([Firefox-Bug 1613360](https://bugzil.la/1613360)).
-- Das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis wird jetzt durch ein Objekt vom Typ [`SubmitEvent`](/de/docs/Web/API/SubmitEvent) dargestellt, nicht mehr durch ein einfaches [`Event`](/de/docs/Web/API/Event). `SubmitEvent` enthält eine neue [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft, mit der Sie ermitteln können, welches [`Element`](/de/docs/Web/API/Element) ausgelöst wurde, um das Formular abzusenden. Dies ermöglicht einen einzigen Handler für Submit-Events, der feststellen kann, welche von mehreren Absende-Schaltflächen oder Links verwendet wurde, um das Formular abzusenden ([Firefox-Bug 1588715](https://bugzil.la/1588715)).
-- Der Aufruf der Methode [`click()`](/de/docs/Web/API/HTMLElement/click) auf ein losgelöstes Element (nicht Teil eines DOM-Baums) funktioniert jetzt wie erwartet und führt dazu, dass ein `click`-Ereignis an dieses gesendet wird ([Firefox-Bug 1610821](https://bugzil.la/1610821)).
+- Das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interface hat eine neue Methode, [`requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit). Im Gegensatz zur alten (und weiterhin verfügbaren) [`submit()`](/de/docs/Web/API/HTMLFormElement/submit)-Methode agiert `requestSubmit()` so, als würde ein spezifizierter Sendeknopf geklickt, anstatt nur die Formulardaten an den Empfänger zu senden. Somit wird das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis ausgelöst und das Formular auf Validität geprüft, bevor die Daten gesendet werden ([Firefox-Bug 1613360](https://bugzil.la/1613360)).
+- Das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis wird jetzt durch ein Objekt des Typs [`SubmitEvent`](/de/docs/Web/API/SubmitEvent) dargestellt, anstatt durch ein einfaches [`Event`](/de/docs/Web/API/Event). `SubmitEvent` beinhaltet eine neue [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft, die das [`Element`](/de/docs/Web/API/Element) ist, das zur Auslösung der Formularübermittlung verwendet wurde. Mit diesem Ereignis können Sie einen einzigen Handler für Übermittlungsergebnisse haben, der erkennen kann, welcher von mehreren Übermittlungsbuttons oder Links verwendet wurde, um das Formular zu übermitteln ([Firefox-Bug 1588715](https://bugzil.la/1588715)).
+- Das Aufrufen der [`click()`](/de/docs/Web/API/HTMLElement/click)-Methode auf ein abgetrenntes Element (eines, das nicht Teil eines DOM-Baums ist) funktioniert jetzt normal und führt dazu, dass ein `click`-Ereignis an das Element gesendet wird ([Firefox-Bug 1610821](https://bugzil.la/1610821)).
 
 #### Web Animations API
 
-Firefox 75 bringt zahlreiche Erweiterungen der [Web Animations API](/de/docs/Web/API/Web_Animations_API):
+Firefox 75 bringt zahlreiche Ergänzungen zur [Web Animations API](/de/docs/Web/API/Web_Animations_API):
 
-- [Implizite to/from-Keyframes](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats#implicit_tofrom_keyframes) werden jetzt unterstützt. Ebenso werden Füllanimationen automatisch entfernt, wenn sie durch andere unbefristet füllende Animationen ersetzt werden ([Firefox-Bug 1618773](https://bugzil.la/1618773)). Dies umfasst die Aktivierung der Unterstützung für:
-
+- [Implizite Von/Bis-Keyframes](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats#implicit_tofrom_keyframes) werden jetzt unterstützt, genauso wie das automatische Entfernen von füllenden Animationen, die durch andere unbegrenzt füllende Animationen ersetzt wurden ([Firefox-Bug 1618773](https://bugzil.la/1618773)). Dies beinhaltet die Aktivierung der Unterstützung für:
   - [`Animation.commitStyles()`](/de/docs/Web/API/Animation/commitStyles)
   - [`Animation.onremove`](/de/docs/Web/API/Animation/remove_event)
   - [`Animation.persist()`](/de/docs/Web/API/Animation/persist)
   - [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState)
 
-- Der Getter [`Animation.timeline`](/de/docs/Web/API/Animation/timeline), [`Document.timeline`](/de/docs/Web/API/Document/timeline), [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) und [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline) sind jetzt standardmäßig aktiviert ([Firefox-Bug 1619178](https://bugzil.la/1619178)).
+- Der [`Animation.timeline`](/de/docs/Web/API/Animation/timeline)-Getter, [`Document.timeline`](/de/docs/Web/API/Document/timeline), [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) und [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline) sind jetzt standardmäßig aktiviert ([Firefox-Bug 1619178](https://bugzil.la/1619178)).
 - Die Methoden [`Document.getAnimations()`](/de/docs/Web/API/Document/getAnimations) und [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) sind jetzt standardmäßig aktiviert ([Firefox-Bug 1619821](https://bugzil.la/1619821)).
 
 #### Medien, Web Audio und WebRTC
 
-- Die Methode [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) kann jetzt ohne Argumente aufgerufen werden. In diesem Fall versucht die WebRTC-Laufzeit, die neue lokale Sitzungsbeschreibung selbst zu erstellen ([Firefox-Bug 1568292](https://bugzil.la/1568292)).
+- Die Methode [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) kann jetzt ohne Argumente aufgerufen werden, wobei die WebRTC-Laufzeit versucht, die neue lokale Sitzungsbeschreibung selbst zu erstellen ([Firefox-Bug 1568292](https://bugzil.la/1568292)).
 
 ### HTTP
 
@@ -79,7 +77,7 @@ _Keine Änderungen._
 
 ### Sicherheit
 
-- [CSP](/de/docs/Web/HTTP/CSP)-Nonces von Nicht-Skriptquellen wie CSS-Selektoren und `.getAttribute("nonce")`-Aufrufe werden jetzt ausgeblendet. Stattdessen kann die [`.nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft abgerufen werden, um Nonces aus Skripten zu verwenden ([Firefox-Bug 1374612](https://bugzil.la/1374612)).
+- Nicht-Skript-Quellen, wie CSS-Selektoren, und `.getAttribute("nonce")`-Aufrufe von [CSP](/de/docs/Web/HTTP/Guides/CSP)-Nonces sind jetzt versteckt. Stattdessen sollte die [`.nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft überprüft werden, um Nonces von Skripten aufzurufen ([Firefox-Bug 1374612](https://bugzil.la/1374612)).
 
 ### Plugins
 
@@ -87,9 +85,9 @@ _Keine Änderungen._
 
 ### WebDriver-Konformität (Marionette)
 
-- Ein Fehler wurde behoben, durch den Marionette bei jedem Start von Firefox initialisiert wurde. Jetzt wird dies durch das Argument der Befehlszeile und eine Umgebungsvariable gesteuert ([Firefox-Bug 1622012](https://bugzil.la/1622012)).
-- Der Befehl `WebDriver:Print` wurde angepasst, sodass keine zusätzlichen Ränder mehr zum Dokument hinzugefügt werden ([Firefox-Bug 1616932](https://bugzil.la/1616932)).
-- Der Wert der Einstellung `network.http.speculative-parallel-limit` wurde auf `0` geändert, um spekulative Verbindungen nicht mehr standardmäßig zu deaktivieren ([Firefox-Bug 1617869](https://bugzil.la/1617869)).
+- Ein Bug, der immer dazu führte, dass Marionette beim Start von Firefox initialisiert wurde, wurde behoben. Es ist nun auf das Befehlszeilenargument und die Umgebungsvariable beschränkt ([Firefox-Bug 1622012](https://bugzil.la/1622012)).
+- `WebDriver:Print` wurde so korrigiert, dass keine zusätzlichen Ränder mehr zum Dokument hinzugefügt werden ([Firefox-Bug 1616932](https://bugzil.la/1616932)).
+- Der voreingestellte Wert für `network.http.speculative-parallel-limit` wurde auf `0` geändert, um spekulative Verbindungen nicht mehr zwangsweise zu deaktivieren ([Firefox-Bug 1617869](https://bugzil.la/1617869)).
 
 ### Sonstiges
 
@@ -99,17 +97,12 @@ _Keine Änderungen._
 
 ### API-Änderungen
 
-- Es wurden einige neue Einstellungen zu {{WebExtAPIRef("browserSettings")}} hinzugefügt ([Firefox-Bug 1286953](https://bugzil.la/1286953)):
+- Wir haben einige neue Einstellungen in {{WebExtAPIRef("browserSettings")}} hinzugefügt ([Firefox-Bug 1286953](https://bugzil.la/1286953)):
+  - {{WebExtAPIRef("browserSettings.zoomSiteSpecific")}}, um zu steuern, ob das Zoomen pro Website oder pro Tab erfolgt.
+  - {{WebExtAPIRef("browserSettings.zoomFullPage")}}, um zu steuern, ob das Zoomen auf die gesamte Seite oder nur auf Text angewendet wird.
 
-  - {{WebExtAPIRef("browserSettings.zoomSiteSpecific")}}, um zu steuern, ob das Zoomen pro Seite oder pro Tab geschieht
-  - {{WebExtAPIRef("browserSettings.zoomFullPage")}}, um zu steuern, ob der Zoom auf die gesamte Seite oder nur auf den Text angewendet wird.
+- Der Dateiname, der beim Speichern einer PDF-Datei mit {{WebExtAPIRef("tabs.saveAsPDF")}} verwendet wird, kann über `toFileName` im Typ `tabs.PageSettings` angegeben werden.([Firefox-Bug 1483590](https://bugzil.la/1483590))
 
-- Der Name der Datei, die beim Speichern einer PDF mit {{WebExtAPIRef("tabs.saveAsPDF")}} verwendet wird, kann jetzt mit `toFileName` im Typ `tabs.PageSettings` angegeben werden ([Firefox-Bug 1483590](https://bugzil.la/1483590)).
+### Manifeständerungen
 
-### Manifest-Änderungen
-
-- Die Berechtigung "privacy" ist jetzt optional ([Firefox-Bug 1618399](https://bugzil.la/1618399)).
-
-## Ältere Versionen
-
-{{Firefox_for_developers}}
+- Die "privacy"-Berechtigung ist jetzt optional. ([Firefox-Bug 1618399](https://bugzil.la/1618399))

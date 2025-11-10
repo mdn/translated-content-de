@@ -1,9 +1,9 @@
 ---
-title: "WorkerNavigator: userAgentData-Eigenschaft"
+title: "WorkerNavigator: userAgentData Eigenschaft"
 short-title: userAgentData
 slug: Web/API/WorkerNavigator/userAgentData
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
@@ -16,7 +16,7 @@ Ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) in der Konsole ausgegeben.
+Das folgende Beispiel gibt den Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) in der Konsole aus.
 
 ```js
 console.log(navigator.userAgentData.brands);
@@ -32,4 +32,4 @@ console.log(navigator.userAgentData.brands);
 
 ## Siehe auch
 
-- [Verbesserung der Benutzer-Privatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints)
+- [Verbesserung der Privatsphäre der Nutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints)

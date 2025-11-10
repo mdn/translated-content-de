@@ -3,12 +3,12 @@ title: "SVGFEConvolveMatrixElement: divisor-Eigenschaft"
 short-title: divisor
 slug: Web/API/SVGFEConvolveMatrixElement/divisor
 l10n:
-  sourceCommit: 804a3f25cfa764e3dbdb87acb90f9fb5118c1425
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`divisor`**-Eigenschaft des [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Interfaces spiegelt das {{SVGAttr("divisor")}}-Attribut des gegebenen {{SVGElement("feConvolveMatrix")}}-Elements wider.
+Die **`divisor`** Eigenschaft der [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)-Schnittstelle, die nur lesbar ist, spiegelt das {{SVGAttr("divisor")}} Attribut des angegebenen {{SVGElement("feConvolveMatrix")}}-Elements wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ### Zugriff auf die `divisor`-Eigenschaft
 
-Ein Faltungselement wird auf ein Rechteck angewendet, und `divisor` wird verwendet, um die Helligkeit zu steuern.
+Ein Faltungseffekt wird auf ein Rechteck angewendet, und der `divisor` wird verwendet, um die Helligkeit zu steuern.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ Ein Faltungselement wird auf ein Rechteck angewendet, und `divisor` wird verwend
     y="20"
     width="100"
     height="100"
-    style="fill:lightgreen;"
+    fill="lightgreen"
     filter="url(#convolveFilterWithDivisor)" />
 </svg>
 ```

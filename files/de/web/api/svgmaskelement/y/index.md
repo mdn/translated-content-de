@@ -1,21 +1,21 @@
 ---
-title: "SVGMaskElement: y-Eigenschaft"
+title: "SVGMaskElement: y Eigenschaft"
 short-title: y
 slug: Web/API/SVGMaskElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 28b589f416a555aa046b3a26e43b4aac3e98fdfb
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`y`**-Eigenschaft der Schnittstelle [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des Attributs {{SVGattr("y")}} des {{SVGElement("marker")}} enthält. Es repräsentiert die y-Achsen-Koordinate der _oberen linken_ Ecke des Maskierungsbereichs.
+Die schreibgeschützte **`y`**-Eigenschaft der Schnittstelle [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("y")}}-Attributs des {{SVGElement("mask")}} enthält. Es repräsentiert die y-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
 
 > [!NOTE]
 > Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekt zurück, dessen Wert den `y`-Wert liefert.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den `y`-Wert zurückgibt.
 
 ## Beispiele
 

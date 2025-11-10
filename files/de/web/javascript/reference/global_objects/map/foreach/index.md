@@ -1,13 +1,12 @@
 ---
 title: Map.prototype.forEach()
+short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/Map/forEach
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-{{JSRef}}
-
-Die **`forEach()`**-Methode von {{jsxref("Map")}}-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in Einfügereihenfolge aus.
+Die **`forEach()`**-Methode von {{jsxref("Map")}}-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in der Einfügereihenfolge aus.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.forEach()")}}
 
@@ -45,7 +44,7 @@ forEach(callbackFn, thisArg)
     - `map`
       - : Die Map, die durchlaufen wird.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
+  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
 
 ### Rückgabewert
 
@@ -53,21 +52,21 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die `forEach`-Methode führt den bereitgestellten `callback` einmal für jeden vorhandenen Schlüssel der Map aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
+Die `forEach`-Methode führt den bereitgestellten `callback` einmal für jeden in der Map tatsächlich vorhandenen Schlüssel aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
 
 `callback` wird mit **drei Argumenten** aufgerufen:
 
 - dem `value` des Eintrags
 - dem `key` des Eintrags
-- dem **`Map`-Objekt**, das durchlaufen wird
+- dem durchlaufenen **`Map`-Objekt**
 
-Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er an `callback` übergeben, wenn es aufgerufen wird, um als dessen `this`-Wert zu dienen. Andernfalls wird der Wert `undefined` übergeben, um als `this`-Wert zu dienen. Der schließlich von `callback` sichtbare `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des `this`, das durch eine Funktion sichtbar ist](/de/docs/Web/JavaScript/Reference/Operators/this) ermittelt.
+Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er an `callback` weitergegeben, um als `this`-Wert verwendet zu werden. Andernfalls wird der Wert `undefined` zur Nutzung als `this`-Wert weitergegeben. Der schließlich von `callback` observable `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des `this`, das von einer Funktion gesehen wird](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
 
-Jeder Wert wird einmal besucht, außer in dem Fall, dass er vor dem Abschluss von `forEach` gelöscht und erneut hinzugefügt wurde. `callback` wird nicht für Werte aufgerufen, die vor dem Besuch gelöscht wurden. Neue Werte, die vor dem Abschluss von `forEach` hinzugefügt werden, werden besucht.
+Jeder Wert wird einmal besucht, außer in dem Fall, dass er gelöscht und wieder hinzugefügt wurde, bevor `forEach` abgeschlossen ist. `callback` wird nicht für Werte aufgerufen, die vor dem Besuch gelöscht wurden. Neue Werte, die hinzugefügt werden, bevor `forEach` abgeschlossen ist, werden besucht.
 
 ## Beispiele
 
-### Inhalte eines Map-Objekts ausgeben
+### Den Inhalt eines Map-Objekts ausgeben
 
 Der folgende Code protokolliert eine Zeile für jedes Element in einem `Map`-Objekt:
 

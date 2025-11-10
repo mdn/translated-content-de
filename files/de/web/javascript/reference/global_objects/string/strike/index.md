@@ -1,16 +1,17 @@
 ---
 title: String.prototype.strike()
+short-title: strike()
 slug: Web/JavaScript/Reference/Global_Objects/String/strike
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Die **`strike()`**-Methode von {{jsxref("String")}}-Werten erstellt eine Zeichenkette, die diese Zeichenkette in ein {{HTMLElement("strike")}}-Element (`<strike>str</strike>`) einbettet, wodurch diese Zeichenkette als durchgestrichener Text angezeigt wird.
+Die **`strike()`** Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("strike")}}-Element einbettet (`<strike>str</strike>`), wodurch dieser String als durchgestrichener Text angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `strike()` wurde das `<strike>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen das {{HTMLElement("del")}} für gelöschte Inhalte oder das {{HTMLElement("s")}} für Inhalte verwenden, die nicht mehr korrekt oder relevant sind.
+> Alle [HTML Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `strike()` wurde das `<strike>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen das {{HTMLElement("del")}} für gelöschte Inhalte oder das {{HTMLElement("s")}} für Inhalte, die nicht mehr korrekt oder relevant sind, verwenden.
 
 ## Syntax
 
@@ -24,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die mit einem `<strike>`-Start-Tag beginnt, dann den Text `str` enthält, gefolgt von einem `</strike>`-End-Tag.
+Ein String, der mit einem `<strike>`-Start-Tag beginnt, dann den Text `str`, und dann ein `</strike>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von strike()
 
-Der folgende Code erstellt eine HTML-Zeichenkette und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,7 +39,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.strike();
 ```
 
-Dies wird das folgende HTML erstellen:
+Dies erzeugt das folgende HTML:
 
 ```html
 <strike>Hello, world</strike>
@@ -67,5 +68,6 @@ document.body.appendChild(elem);
 ## Siehe auch
 
 - [Polyfill von `String.prototype.strike` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [es-shims Polyfill von `String.prototype.strike`](https://www.npmjs.com/package/es-string-html-methods)
+- [HTML Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("strike")}}

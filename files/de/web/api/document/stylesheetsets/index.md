@@ -41,7 +41,7 @@ Die Liste der verfügbaren Style Sheet Sets wird erstellt, indem alle für das D
 
 ## Siehe auch
 
-- [`Stylesheet`](/de/docs/Web/API/Stylesheet)
+- [`Stylesheet`](/de/docs/Web/API/StyleSheet)
 - [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)
 - [`document.lastStyleSheetSet`](/de/docs/Web/API/Document/lastStyleSheetSet)
 - [`document.preferredStyleSheetSet`](/de/docs/Web/API/Document/preferredStyleSheetSet)

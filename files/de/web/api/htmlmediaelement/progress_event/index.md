@@ -1,25 +1,25 @@
 ---
-title: "HTMLMediaElement: progress event"
+title: "HTMLMediaElement: progress Event"
 short-title: progress
 slug: Web/API/HTMLMediaElement/progress_event
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
 Das **`progress`**-Ereignis wird periodisch ausgelöst, während der Browser eine Ressource lädt.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungseigenschaft fest.
 
-```js
-addEventListener("progress", (event) => {});
+```js-nolint
+addEventListener("progress", (event) => { })
 
-onprogress = (event) => {};
+onprogress = (event) => { }
 ```
 
 ## Ereignistyp

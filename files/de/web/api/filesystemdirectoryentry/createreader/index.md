@@ -3,7 +3,7 @@ title: "FileSystemDirectoryEntry: createReader()-Methode"
 short-title: createReader()
 slug: Web/API/FileSystemDirectoryEntry/createReader
 l10n:
-  sourceCommit: 23228f1b9c756862dac77b238ca74c2e5bd3c9dc
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}
@@ -26,7 +26,7 @@ Ein [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)-Ob
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine asynchrone Funktion namens `readDirectory()`, die alle Einträge im angegebenen [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) abruft und in einem Array zurückgibt.
+Dieses Beispiel erstellt eine asynchrone Funktion namens `readDirectory()`, die alle Einträge im angegebenen [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) abruft und sie in einem Array zurückgibt.
 
 ```js
 async function readDirectory(directory) {
@@ -51,7 +51,7 @@ async function readDirectory(directory) {
 }
 ```
 
-Dies funktioniert, indem die Methode [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) wiederholt aufgerufen wird, um alle Einträge im Verzeichnis zu erhalten und jede Charge zum Array hinzuzufügen. Wenn sie ein leeres Array zurückgibt, wurden alle Einträge gelesen und die Schleife endet.
+Dies funktioniert, indem [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) wiederholt aufgerufen wird, um alle Einträge im Verzeichnis zu erhalten und jede Charge an das Array anzuhängen. Wenn ein leeres Array zurückgegeben wird, wurden alle Einträge gelesen, und die Schleife endet.
 
 ## Spezifikationen
 
@@ -64,7 +64,6 @@ Dies funktioniert, indem die Methode [`readEntries()`](/de/docs/Web/API/FileSyst
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)
 - [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
 - [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)

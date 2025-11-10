@@ -1,13 +1,14 @@
 ---
 title: Temporal.Instant.prototype.toJSON()
+short-title: toJSON()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/toJSON
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt einen String zurück, der diesen Moment im gleichen [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) darstellt wie ein Aufruf von {{jsxref("Temporal/Instant/toString", "toString()")}}. Sie soll implizit durch {{jsxref("JSON.stringify()")}} aufgerufen werden.
+Die **`toJSON()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt einen Zeichenfolgenwert zurück, der diesen Zeitpunkt im gleichen [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) darstellt, wie beim Aufruf von {{jsxref("Temporal/Instant/toString", "toString()")}}. Diese Methode soll implizit von {{jsxref("JSON.stringify()")}} aufgerufen werden.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der den gegebenen Moment im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) darstellt, mit so viel subsekundärer Genauigkeit wie nötig, um die Dauer genau darzustellen, und mit dem UTC-Zeitzonenbezeichner `Z`.
+Eine Zeichenfolge, die den gegebenen Zeitpunkt im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) darstellt, mit so viel Subsekundenpräzision wie nötig, um die Dauer genau darzustellen, und mit dem UTC-Zeitzonenbezeichner `Z`.
 
 ## Beschreibung
 
-Die Methode `toJSON()` wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.Instant` Objekt in einen String umgewandelt wird. Diese Methode dient im Allgemeinen dazu, `Temporal.Instant` Objekte während der {{Glossary("JSON", "JSON")}} Serialisierung sinnvoll zu serialisieren. Sie können dann mit der Funktion {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} als Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden.
+Die `toJSON()` Methode wird automatisch von {{jsxref("JSON.stringify()")}} aufgerufen, wenn ein `Temporal.Instant` Objekt als Zeichenfolge dargestellt wird. Diese Methode ist im Allgemeinen dazu gedacht, `Temporal.Instant` Objekte während der {{Glossary("JSON", "JSON")}} Serialisierung nützlich zu serialisieren, was anschließend über die {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} Funktion als Reviver von {{jsxref("JSON.parse()")}} deserialisiert werden kann.
 
 ## Beispiele
 
@@ -37,7 +38,7 @@ const instantStr = instant.toJSON(); // '2021-08-01T12:34:56Z'
 const i2 = Temporal.Instant.from(instantStr);
 ```
 
-### JSON-Serialisierung und -Parsing
+### JSON-Serialisierung und Parsing
 
 Dieses Beispiel zeigt, wie `Temporal.Instant` ohne zusätzlichen Aufwand als JSON serialisiert und wieder geparst werden kann.
 

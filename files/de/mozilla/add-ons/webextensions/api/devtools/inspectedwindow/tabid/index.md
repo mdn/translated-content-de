@@ -2,14 +2,12 @@
 title: devtools.inspectedWindow.tabId
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/tabId
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die ID der {{WebExtAPIRef("tabs.Tab", "Registerkarte")}}, an die diese Instanz der Devtools angehängt ist, dargestellt als Zahl.
 
-Die ID des {{WebExtAPIRef("tabs.Tab", "Tab")}}, mit dem diese Instanz der Entwicklertools verbunden ist, wird als Nummer dargestellt.
-
-Diese kann an die Hintergrundseite der Erweiterung gesendet werden, sodass die Hintergrundseite die {{WebExtAPIRef("tabs")}}-API verwenden kann, um mit dem Tab zu interagieren:
+Diese kann an die Hintergrundseite der Erweiterung gesendet werden, sodass die Hintergrundseite die {{WebExtAPIRef("tabs")}} API verwenden kann, um mit der Registerkarte zu interagieren:
 
 ```js
 // devtools-panel.js
@@ -36,14 +34,14 @@ function handleMessage(request, sender, sendResponse) {
 browser.runtime.onMessage.addListener(handleMessage);
 ```
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

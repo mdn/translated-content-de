@@ -1,16 +1,16 @@
 ---
-title: "SVGPatternElement: height Eigenschaft"
+title: "SVGPatternElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGPatternElement/height
 l10n:
-  sourceCommit: 51343298b735a3767176c24b7f37cd2233e745b3
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`** schreibgeschützte Eigenschaft des [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Interfaces beschreibt die Höhe des Musters als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("height")}}-Attributs auf dem {{SVGElement("pattern")}}-Element wider.
+Die **`height`** Eigenschaft der [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement) Schnittstelle, die nur gelesen werden kann, beschreibt die Höhe des Musters als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("height")}} Attributs auf dem {{SVGElement("pattern")}}-Element wider.
 
-Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number) sein. Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) repräsentiert die Höhe des Musters im Benutzerkoordinatensystem.
+Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number) sein. Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) repräsentiert die Höhe des Musters im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Anhand des folgenden SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@ Anhand des folgenden SVG:
 </svg>
 ```
 
-Können wir die berechneten Werte der `x`-Attribute abrufen:
+Wir können auf die berechneten Werte der `x`-Attribute zugreifen:
 
 ```js
 const patterns = document.querySelectorAll("pattern");

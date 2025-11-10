@@ -2,19 +2,17 @@
 title: Abstraktion
 slug: Glossary/Abstraction
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Abstraktion** in der {{Glossary("computer_programming", "Programmierung")}} ist eine Methode, um Komplexität zu reduzieren und effizientes Design sowie Implementierung in komplexen Softwaresystemen zu ermöglichen. Sie verbirgt die technische Komplexität von Systemen hinter einfachereren {{Glossary("API", "APIs")}}.
+**Abstraktion** in der {{Glossary("computer_programming", "Computerprogrammierung")}} ist eine Methode, um Komplexität zu reduzieren und ein effizientes Design und eine effiziente Implementierung in komplexen Softwaresystemen zu ermöglichen. Sie verbirgt die technische Komplexität von Systemen hinter einfacheren {{Glossary("API", "APIs")}}.
 
 ## Vorteile der Datenabstraktion
 
-- Erlaubt dem Benutzer, auf das Schreiben von niedrigstufigem Code zu verzichten.
+- Hilft dem Benutzer, kein Low-Level-Code schreiben zu müssen.
 - Vermeidet Code-Duplikation und erhöht die Wiederverwendbarkeit.
 - Ermöglicht es, die interne Implementierung einer Klasse unabhängig zu ändern, ohne den Benutzer zu beeinflussen.
-- Hilft, die Sicherheit einer Anwendung oder eines Programms zu erhöhen, da dem Benutzer nur wichtige Details zur Verfügung gestellt werden.
+- Hilft, die Sicherheit einer Anwendung oder eines Programms zu erhöhen, da dem Benutzer nur wichtige Details bereitgestellt werden.
 
 ## Beispiel
 

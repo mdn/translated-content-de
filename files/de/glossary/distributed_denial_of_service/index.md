@@ -2,29 +2,27 @@
 title: Distributed Denial of Service (DDoS)
 slug: Glossary/Distributed_Denial_of_Service
 l10n:
-  sourceCommit: c13b7a059a543d02e4dbafce42813dad1244dcaa
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Distributed Denial-of-Service** (DDoS) ist eine Art von {{Glossary("Denial_of_Service", "DoS")}}-Angriff, bei dem viele kompromittierte Systeme benutzt werden, um ein einzelnes Ziel anzugreifen. Ziel ist es, die Server-Ressourcen zu überlasten und legitime Nutzer zu blockieren.
 
-Ein **Distributed Denial-of-Service** (DDoS) ist eine Art von {{Glossary("Denial_of_Service", "DoS")}}-Angriff, bei dem viele kompromittierte Systeme dazu gebracht werden, ein einzelnes Ziel anzugreifen, um Serverressourcen zu überlasten und legitime Benutzer zu blockieren.
+Normalerweise greifen viele Personen, die viele Bots benutzen, hochkarätige Web-{{Glossary("server", "Server")}} wie Banken oder Kreditkarten-Zahlungs-Gateways an. DDoS betrifft Computernetzwerke und das Ressourcenmanagement von CPUs.
 
-Normalerweise greifen viele Personen mit vielen Bots hochkarätige Web-{{Glossary("server", "Server")}} wie Banken oder Kreditkartenzahlungsgateways an. DDoS betrifft Computernetzwerke und das CPU-Ressourcenmanagement.
+In einem typischen DDoS-Angriff beginnt der Angreifer damit, eine Schwachstelle in einem Computersystem auszunutzen und es zum DDoS-Master zu machen. Der Angriffsmaster, auch bekannt als Botmaster, identifiziert und infiziert andere verwundbare Systeme mit Malware. Schließlich weist der Angreifer die kontrollierten Maschinen an, einen Angriff auf ein bestimmtes Ziel auszuführen.
 
-Bei einem typischen DDoS-Angriff beginnt der Angreifer damit, eine Schwachstelle in einem Computersystem auszunutzen und es zum DDoS-Master zu machen. Der Angriffsmaster, auch als Botmaster bekannt, identifiziert andere verwundbare Systeme und infiziert sie mit Malware. Schließlich weist der Angreifer die kontrollierten Maschinen an, einen Angriff gegen ein bestimmtes Ziel zu starten.
+Es gibt zwei Arten von DDoS-Angriffen: einen netzwerkzentrierten Angriff (der einen Dienst überlastet, indem er Bandbreite verbraucht) und einen anwendungsbezogenen Angriff (der einen Dienst oder eine Datenbank mit Anwendungscalls überlastet). Der Datenüberfluss zum Ziel verursacht eine Sättigung der Zielmaschine, sodass diese nicht mehr oder nur sehr langsam auf legitimen Datenverkehr reagieren kann (daher der Name "Denial of Service"). Die Besitzer der infizierten Computer wissen normalerweise nicht, dass ihre Computer kompromittiert wurden, und sie leiden ebenfalls unter einem Dienstverlust.
 
-Es gibt zwei Arten von DDoS-Angriffen: einen netzwerkzentrierten Angriff (der einen Dienst durch Bandbreitennutzung überlastet) und einen anwendungsbezogenen Angriff (der einen Dienst oder eine Datenbank mit Anwendungsaufrufen überlastet). Der Datenüberfluss zum Ziel verursacht eine Sättigung der Zielmaschine, sodass sie nicht oder nur sehr langsam auf legitimen Datenverkehr reagieren kann (daher der Name „Denial-of-Service“). Die Besitzer der infizierten Computer wissen normalerweise nicht, dass ihre Computer kompromittiert wurden, und sie erleiden ebenfalls einen Dienstausfall.
+Ein Computer unter der Kontrolle eines Eindringlings wird als Zombie oder Bot bezeichnet. Ein Netzwerk von gemeinsam infizierten Computern ist als Botnet oder Zombiearmee bekannt. Sowohl Kaspersky Labs als auch Symantec haben Botnetze — nicht Spam, Viren oder Würmer — als die größte Bedrohung für die Internetsicherheit identifiziert.
 
-Ein von einem Eindringling kontrollierter Computer wird als Zombie oder Bot bezeichnet. Ein Netzwerk von mitinfizierten Computern ist als Botnetz oder Zombie-Armee bekannt. Sowohl Kaspersky Labs als auch Symantec haben Botnetze — nicht Spam, Viren oder Würmer — als die größte Bedrohung für die Internetsicherheit identifiziert.
+Das United States Computer Emergency Readiness Team (US-CERT) definiert Symptome von Denial-of-Service-Angriffen, zu denen gehören:
 
-Das United States Computer Emergency Readiness Team (US-CERT) definiert die Symptome von Denial-of-Service-Angriffen wie folgt:
-
-- Ungewöhnlich langsame Netzwerkleistung (öffnen von Dateien oder Zugriff auf Websites)
+- Ungewöhnlich langsame Netzwerkleistung (Öffnen von Dateien oder Zugreifen auf Websites)
 - Nichtverfügbarkeit einer bestimmten Website
 - Unfähigkeit, auf irgendeine Website zuzugreifen
-- Dramatische Zunahme der Anzahl an empfangenen Spam-E-Mails (diese Art von DoS-Angriff wird als E-Mail-Bombe betrachtet)
+- Dramatischer Anstieg der Anzahl der empfangenen Spam-E-Mails—(diese Art von DoS-Angriff wird als E-Mail-Bombe betrachtet)
 - Trennung einer drahtlosen oder kabelgebundenen Internetverbindung
-- Langfristige Verweigerung des Zugangs zum Web oder zu anderen Internetdiensten
+- Langfristige Verweigerung des Zugriffs auf das Web oder irgendwelche Internetdienste
 
 ## Siehe auch
 

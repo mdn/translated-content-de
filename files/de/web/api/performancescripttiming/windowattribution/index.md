@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`windowAttribution`** der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt einen enumerierten Wert zurück, der die Beziehung des Containers (d. h. entweder des Top-Level-Dokuments oder eines {{htmlelement("iframe")}}), in dem das lang andauernde Animationsrahmen (LoAF) verursachende Skript ausgeführt wurde, relativ zum Fenster des aktuellen Dokuments beschreibt.
+Die schreibgeschützte Eigenschaft **`windowAttribution`** der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt einen enumerierten Wert zurück, der die Beziehung des Containers (d.h. entweder des Top-Level-Dokuments oder eines {{htmlelement("iframe")}}), in dem das lang andauernde Animationsrahmen (LoAF) verursachende Skript ausgeführt wurde, relativ zum Fenster des aktuellen Dokuments beschreibt.
 
 ## Wert
 

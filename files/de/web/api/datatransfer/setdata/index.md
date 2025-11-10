@@ -3,12 +3,12 @@ title: "DataTransfer: setData() Methode"
 short-title: setData()
 slug: Web/API/DataTransfer/setData
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.setData()`**-Methode setzt die [Drag-Daten](/de/docs/Web/API/DataTransfer) der Ziehoperation auf die angegebenen Daten und den Typ. Wenn Daten für den angegebenen Typ nicht existieren, werden sie am Ende des Drag-Daten-Speichers hinzugefügt, so dass das letzte Element in der [`types`](/de/docs/Web/API/DataTransfer/types)-Liste der neue Typ sein wird. Wenn Daten für den angegebenen Typ bereits vorhanden sind, werden die bestehenden Daten an derselben Position ersetzt. Das bedeutet, dass die Reihenfolge der [`types`](/de/docs/Web/API/DataTransfer/types)-Liste beim Ersetzen von Daten desselben Typs nicht geändert wird.
+Die **`DataTransfer.setData()`**-Methode setzt die [Zugdaten](/de/docs/Web/API/DataTransfer) der Ziehoperation auf die angegebenen Daten und den Typ. Wenn Daten für den angegebenen Typ nicht existieren, werden sie am Ende des Zugdaten-Speichers hinzugefügt, sodass das letzte Element in der [`types`](/de/docs/Web/API/DataTransfer/types)-Liste der neue Typ sein wird. Wenn Daten für den angegebenen Typ bereits existieren, werden die vorhandenen Daten an derselben Position ersetzt. Das bedeutet, dass die Reihenfolge der [`types`](/de/docs/Web/API/DataTransfer/types)-Liste nicht geändert wird, wenn Daten desselben Typs ersetzt werden.
 
 Beispieldatentypen sind `text/plain` und `text/uri-list`.
 
@@ -21,9 +21,9 @@ setData(format, data)
 ### Parameter
 
 - `format`
-  - : Ein String, der den Typ der hinzuzufügenden Drag-Daten zum [`DataTransfer`](/de/docs/Web/API/DataTransfer) repräsentiert.
+  - : Ein String, der den Typ der Ziehdaten darstellt, die dem [`DataTransfer`](/de/docs/Web/API/DataTransfer) hinzugefügt werden sollen.
 - `data`
-  - : Ein String, der die hinzuzufügenden Daten zum [`DataTransfer`](/de/docs/Web/API/DataTransfer) repräsentiert.
+  - : Ein String, der die Daten darstellt, die dem [`DataTransfer`](/de/docs/Web/API/DataTransfer) hinzugefügt werden sollen.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 In diesem Beispiel können wir ein {{HTMLElement("p")}}-Element in ein Ziel-{{HTMLElement("div")}}-Element ziehen.
 
-- Im `dragstart`-Handler verwenden wir `setData()`, um die `id` des `<p>`-Elements zum [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt hinzuzufügen.
+- Im `dragstart`-Handler verwenden wir `setData()`, um die `id` des `<p>`-Elements dem [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt hinzuzufügen.
 
 - Im `drop`-Handler rufen wir die `id` ab und verwenden sie, um das `<p>`-Element in das Ziel zu verschieben.
 
@@ -111,7 +111,7 @@ reset.addEventListener("click", () => document.location.reload());
 
 #### Ergebnis
 
-{{EmbedLiveSample("Ziehen eines Elements", "", 250)}}
+{{EmbedLiveSample("Dragging an element", "", 250)}}
 
 ## Spezifikationen
 
@@ -124,6 +124,5 @@ reset.addEventListener("click", () => document.location.reload());
 ## Siehe auch
 
 - [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [Zugoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Zugdatenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

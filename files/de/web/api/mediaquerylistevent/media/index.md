@@ -1,24 +1,25 @@
 ---
-title: "MediaQueryListEvent: media Eigenschaft"
+title: "MediaQueryListEvent: media-Eigenschaft"
 short-title: media
 slug: Web/API/MediaQueryListEvent/media
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte Eigenschaft **`media`** des [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Interfaces ist ein String, der eine serialisierte Media Query darstellt.
+Die **`media`**-Eigenschaft der
+[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Schnittstelle ist schreibgeschützt und stellt eine Zeichenfolge dar, die eine serialisierte Medienabfrage repräsentiert.
 
 ## Wert
 
-Ein String, der eine serialisierte Media Query darstellt.
+Eine Zeichenfolge, die eine serialisierte Medienabfrage darstellt.
 
 ## Beispiele
 
 ```js
 const para = document.querySelector("p"); // This is the UI element where to display the text
-const mql = window.matchMedia("(max-width: 600px)");
+const mql = window.matchMedia("(width <= 600px)");
 
 mql.addEventListener("change", (event) => {
   if (event.matches) {
@@ -45,8 +46,8 @@ mql.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Medienabfragen im Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

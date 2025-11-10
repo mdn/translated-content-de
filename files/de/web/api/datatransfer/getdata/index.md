@@ -3,13 +3,12 @@ title: "DataTransfer: getData()-Methode"
 short-title: getData()
 slug: Web/API/DataTransfer/getData
 l10n:
-  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`DataTransfer.getData()`**-Methode ruft Drag-Daten (als Zeichenkette) für den angegebenen Typ ab.
-Falls der Drag-Vorgang keine Daten enthält, gibt diese Methode eine leere Zeichenkette zurück.
+Die **`DataTransfer.getData()`**-Methode ruft die Drag-Daten (als Zeichenkette) für den angegebenen Typ ab. Wenn die Drag-Operation keine Daten enthält, gibt diese Methode eine leere Zeichenkette zurück.
 
 Beispieldatentypen sind `text/plain` und `text/uri-list`.
 
@@ -22,28 +21,25 @@ getData(format)
 ### Parameter
 
 - `format`
-  - : Eine Zeichenkette, die den Typ der abzurufenden Daten darstellt.
+  - : Eine Zeichenkette, die den abzurufenden Datentyp darstellt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die Drag-Daten für das angegebene `format` darstellt. Wenn der Drag-Vorgang keine Daten enthält oder keine Daten für das angegebene `format` vorliegen, gibt diese Methode eine leere Zeichenkette zurück.
+Eine Zeichenkette, die die Drag-Daten für das angegebene `format` darstellt. Wenn die Drag-Operation keine Daten hat oder die Operation keine Daten für das angegebene `format` hat, gibt diese Methode eine leere Zeichenkette zurück.
 
-Beachten Sie, dass `DataTransfer.getData()` möglicherweise nicht den erwarteten Wert zurückgibt, da es nur erlaubt, Daten für bestimmte Ereignisse zu lesen und zu schreiben. Während der Ereignisse `dragstart` und `drop` ist es sicher, auf die Daten zuzugreifen. Für alle anderen Ereignisse sollten die Daten als nicht verfügbar betrachtet werden. Trotzdem können die Elemente und ihre Formate weiterhin aufgezählt werden.
+Beachten Sie, dass `DataTransfer.getData()` möglicherweise keinen erwarteten Wert zurückgibt, da es nur während bestimmter Ereignisse erlaubt ist, Daten zu lesen und zu schreiben. Während der `dragstart`- und `drop`-Ereignisse ist es sicher, auf die Daten zuzugreifen. Bei allen anderen Ereignissen sollten die Daten als nicht verfügbar betrachtet werden. Trotzdem können die Elemente und ihre Formate weiterhin aufgelistet werden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt-Methoden
-`getData()` und [`setData()`](/de/docs/Web/API/DataTransfer/setData).
+Dieses Beispiel zeigt die Verwendung der Methoden `getData()` und [`setData()`](/de/docs/Web/API/DataTransfer/setData) des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekts.
 
 ### HTML
 
 ```html
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <span id="drag" draggable="true" ondragstart="drag(event)"
-    >drag me to the other box</span
-  >
+<div id="div1">
+  <span id="drag" draggable="true">drag me to the other box</span>
 </div>
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2"></div>
 ```
 
 ### CSS
@@ -61,6 +57,16 @@ Dieses Beispiel zeigt die Verwendung der [`DataTransfer`](/de/docs/Web/API/DataT
 ### JavaScript
 
 ```js
+const div1 = document.getElementById("div1");
+const div2 = document.getElementById("div2");
+const dragElement = document.getElementById("drag");
+
+dragElement.addEventListener("dragstart", drag);
+div1.addEventListener("dragover", allowDrop);
+div2.addEventListener("dragover", allowDrop);
+div1.addEventListener("drop", drop);
+div2.addEventListener("drop", drop);
+
 function allowDrop(allowDropEvent) {
   allowDropEvent.target.style.color = "blue";
   allowDropEvent.preventDefault();
@@ -75,7 +81,7 @@ function drop(dropEvent) {
   dropEvent.preventDefault();
   const data = dropEvent.dataTransfer.getData("text");
   dropEvent.target.appendChild(document.getElementById(data));
-  document.getElementById("drag").style.color = "black";
+  dragElement.style.color = "black";
 }
 ```
 
@@ -94,6 +100,5 @@ function drop(dropEvent) {
 ## Siehe auch
 
 - [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

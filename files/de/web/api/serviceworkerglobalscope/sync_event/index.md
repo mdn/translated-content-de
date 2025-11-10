@@ -1,25 +1,25 @@
 ---
-title: "ServiceWorkerGlobalScope: sync Ereignis"
+title: "ServiceWorkerGlobalScope: sync-Ereignis"
 short-title: sync
 slug: Web/API/ServiceWorkerGlobalScope/sync_event
 l10n:
-  sourceCommit: 56df677713fecf43ec0eb8862cb91c141aaa0005
+  sourceCommit: 0ca040b6a9cfd931558bd1d3a402707abddc1924
 ---
 
 {{APIRef("Background Sync")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`sync`** Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Interface wird ausgelöst, wenn die Seite (oder der Worker), die das Ereignis mit dem [`SyncManager`](/de/docs/Web/API/SyncManager) registriert hat, läuft und sobald die Netzwerkkonnektivität verfügbar ist.
+Das **`sync`**-Ereignis der Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) wird ausgelöst, wenn die Seite (oder der Worker), die das Ereignis mit dem [`SyncManager`](/de/docs/Web/API/SyncManager) registriert hat, läuft und sobald Netzwerkverbindung verfügbar ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht ausgelöst.
+Dieses Ereignis ist nicht stornierbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
-```js
-addEventListener("sync", (event) => {});
+```js-nolint
+addEventListener("sync", (event) => { })
 
-onsync = (event) => {};
+onsync = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,16 +30,16 @@ Ein [`SyncEvent`](/de/docs/Web/API/SyncEvent). Erbt von [`ExtendableEvent`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
+_Erbt Eigenschaften von seinem Vorfahren [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
 - [`SyncEvent.tag`](/de/docs/Web/API/SyncEvent/tag) {{ReadOnlyInline}}
   - : Gibt den entwicklerdefinierten Bezeichner für dieses `SyncEvent` zurück.
 - [`SyncEvent.lastChance`](/de/docs/Web/API/SyncEvent/lastChance) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn der Benutzer-Agent nach dem aktuellen Versuch keine weiteren Synchronisierungsversuche unternehmen wird.
+  - : Gibt `true` zurück, wenn der Benutzeragent nach dem aktuellen Versuch keine weiteren Synchronisierungsversuche unternehmen wird.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie auf ein `sync` Ereignis im Service Worker reagiert wird.
+Das folgende Beispiel zeigt, wie Sie auf ein sync-Ereignis im Service Worker reagieren können.
 
 ```js
 self.addEventListener("sync", (event) => {
@@ -49,11 +49,11 @@ self.addEventListener("sync", (event) => {
 });
 ```
 
-Sie können den Ereignis-Handler auch mit der `onsync` Eigenschaft einrichten:
+Sie können den Ereignishandler auch mit der `onsync`-Eigenschaft einrichten:
 
 ```js
 self.onsync = (event) => {
-  // ...
+  // …
 };
 ```
 
@@ -67,5 +67,4 @@ self.onsync = (event) => {
 
 ## Siehe auch
 
-- [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App zur Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)

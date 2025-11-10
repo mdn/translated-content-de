@@ -2,12 +2,10 @@
 title: Argument
 slug: Glossary/Argument
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Argumente** sind {{Glossary("value", "Werte")}} ({{Glossary("primitive", "primitive")}} oder {{Glossary("object", "Objekt")}}), die als Eingabe an eine {{Glossary("function", "Funktion")}} übergeben werden. Verwechseln Sie Argumente nicht mit {{Glossary("parameter", "Parametern")}}, die die Namen sind, die in der Funktionsdefinition verwendet werden, um die Argumente zu referenzieren.
+**Argumente** sind {{Glossary("value", "Werte")}} ({{Glossary("primitive", "primitive")}} oder {{Glossary("object", "Objekt")}}), die als Eingabe an eine {{Glossary("function", "Funktion")}} übergeben werden. Verwechseln Sie Argumente nicht mit {{Glossary("parameter", "Parametern")}}, die die in der Funktionsdefinition verwendeten Namen sind, um auf die Argumente zu verweisen.
 
 Zum Beispiel:
 
@@ -23,7 +21,7 @@ function example(parameter1, parameter2) {
 }
 ```
 
-Die Reihenfolge der Argumente innerhalb des Funktionsaufrufs sollte dieselbe sein wie die Reihenfolge der Parameter in der Funktionsdefinition.
+Die Reihenfolge der Argumente beim Funktionsaufruf sollte mit der Reihenfolge der Parameter in der Funktionsdefinition übereinstimmen.
 
 ```js
 const argument1 = "foo";

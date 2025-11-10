@@ -1,23 +1,23 @@
 ---
-title: "DevicePosture: change-Event"
+title: "DevicePosture: change-Ereignis"
 short-title: change
 slug: Web/API/DevicePosture/change_event
 l10n:
-  sourceCommit: a3d19af7e3eeb1c40748c80cd6b5143cfa201c54
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{SeeCompatTable}}
+{{APIRef("Device Posture API")}}{{SeeCompatTable}}
 
-Das **`change`**-Event der [`DevicePosture`](/de/docs/Web/API/DevicePosture)-Schnittstelle wird ausgelöst, wenn sich die Haltung des Geräts ändert, beispielsweise wenn ein klappbares Gerät von einer `folded`-Haltung in eine `continuous`-Haltung übergeht.
+Das **`change`**-Ereignis des [`DevicePosture`](/de/docs/Web/API/DevicePosture)-Interface wird ausgelöst, wenn sich die Haltung des Geräts ändert, zum Beispiel wenn ein faltbares Gerät von der Haltung `folded` zu `continuous` wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("change", (event) => {});
+```js-nolint
+addEventListener("change", (event) => { })
 
-onchange = (event) => {};
+onchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -47,6 +47,6 @@ navigator.devicePosture.addEventListener("change", reportPostureOutput);
 
 ## Siehe auch
 
-- CSS {{cssxref("@media/device-posture", "device-posture")}}-`@media`-Feature
+- CSS {{cssxref("@media/device-posture", "device-posture")}} `@media`-Feature
 - [Device Posture API](/de/docs/Web/API/Device_Posture_API)
-- [Origin trial for Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)
+- [Origin-Trial für Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)

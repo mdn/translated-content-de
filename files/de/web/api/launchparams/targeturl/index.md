@@ -3,7 +3,7 @@ title: "LaunchParams: targetURL-Eigenschaft"
 short-title: targetURL
 slug: Web/API/LaunchParams/targetURL
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
@@ -26,7 +26,7 @@ if ("launchQueue" in window) {
       const track = params.get("track");
       if (track) {
         audio.src = track;
-        title.textContent = new URL(track).pathname.substr(1);
+        title.textContent = new URL(track).pathname.slice(1);
         audio.play();
       }
     }
@@ -44,6 +44,5 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Steuern, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Steuern Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
-- [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

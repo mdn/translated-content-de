@@ -1,11 +1,10 @@
 ---
 title: ReferenceError() Konstruktor
+short-title: ReferenceError()
 slug: Web/JavaScript/Reference/Global_Objects/ReferenceError/ReferenceError
 l10n:
-  sourceCommit: 6558de67a347fee30c303da8a0b262a9270a6885
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`ReferenceError()`** Konstruktor erstellt {{jsxref("ReferenceError")}} Objekte.
 
@@ -25,19 +24,20 @@ ReferenceError(message, fileName)
 ReferenceError(message, fileName, lineNumber)
 ```
 
-> **Note:** `ReferenceError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `ReferenceError` Instanz.
+> [!NOTE]
+> `ReferenceError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Möglichkeiten erzeugen eine neue `ReferenceError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler zu übergeben, wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird.
+        Bei der Fehlerbehandlung und erneuten Auslösung eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
+  - : Der Name der Datei, die den Ausnahme verursachenden Code enthält.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
   - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
 

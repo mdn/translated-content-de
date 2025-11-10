@@ -1,16 +1,23 @@
 ---
-title: "Range: deleteContents() Methode"
+title: "Range: deleteContents()-Methode"
 short-title: deleteContents()
 slug: Web/API/Range/deleteContents
 l10n:
-  sourceCommit: 860cbd30a1ea3812c51f60a341f856e7d5426efb
+  sourceCommit: 2c0de98b0607ef262d9ef0877259ba41aaf53e6d
 ---
 
 {{ApiRef("DOM")}}
 
-Die **`Range.deleteContents()`** Methode entfernt den Inhalt des [`Range`](/de/docs/Web/API/Range) aus dem [`Document`](/de/docs/Web/API/Document).
+Die **`Range.deleteContents()`**-Methode entfernt alle vollständig ausgewählten [Knoten](/de/docs/Web/API/Node) innerhalb dieses Bereichs aus dem Dokument. Bei den teilweise ausgewählten Knoten am Anfang oder Ende des Bereichs wird nur der ausgewählte Teil des Textes gelöscht, während der Knoten selbst intakt bleibt. Anschließend wird der Bereich bis zum Ende des letzten ausgewählten Knotens zusammengeklappt.
 
-Im Kontext eines [`Range`](/de/docs/Web/API/Range), wenn ein Knoten teilweise ausgewählt ist - das heißt, er überlappt den Anfang oder das Ende der Auswahl - wird nur der ausgewählte Textabschnitt gelöscht, während der Knoten selbst intakt bleibt. Ist ein Knoten jedoch vollständig ausgewählt, werden der gesamte Knoten und dessen Inhalte entfernt.
+```plain
+<p>paragraph 1</p><p>paragraph 2</p><p>paragraph 3</p>
+       ^----------- selection ------------^
+
+deleteContents() returns:
+
+<p>para</p><p>graph 3</p>
+```
 
 Im Gegensatz zu [`Range.extractContents()`](/de/docs/Web/API/Range/extractContents) gibt diese Methode kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das den gelöschten Inhalt enthält.
 
@@ -26,15 +33,38 @@ Keine.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-```js
-range = document.createRange();
-range.selectNode(document.getElementsByTagName("div").item(0));
-range.deleteContents();
+### Verwendung von deleteContents()
+
+Wählen Sie einen Text aus, der möglicherweise mehrere Absätze umfasst, und klicken Sie dann auf die Schaltfläche, um den ausgewählten Text zu löschen. Öffnen Sie Ihren DOM-Inspektor, um die aktualisierte DOM-Struktur zu überprüfen.
+
+```html
+<p>paragraph 1</p>
+<p>paragraph 2</p>
+<p>paragraph 3</p>
+<button id="delete">Delete selected text</button>
+<button id="reset">Reset</button>
 ```
+
+```js
+const button = document.getElementById("delete");
+const reset = document.getElementById("reset");
+const output = document.getElementById("output");
+
+button.addEventListener("click", () => {
+  const range = document.getSelection().getRangeAt(0);
+  range.deleteContents();
+});
+
+reset.addEventListener("click", () => {
+  window.location.reload();
+});
+```
+
+{{EmbedLiveSample("using_deletecontents", "", "150")}}
 
 ## Spezifikationen
 
@@ -46,4 +76,4 @@ range.deleteContents();
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Verzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

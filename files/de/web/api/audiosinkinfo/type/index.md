@@ -3,12 +3,12 @@ title: "AudioSinkInfo: type-Eigenschaft"
 short-title: type
 slug: Web/API/AudioSinkInfo/type
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 29d7119ff6b46801a0e5a2ce69b734b668812035
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die **`type`**-Eigenschaft des [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Interfaces ist eine schreibgeschützte Eigenschaft, die den Typ des Audioausgabegeräts zurückgibt.
+Die **`type`** schreibgeschützte Eigenschaft des [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo) Interfaces gibt den Typ des Audioausgabegeräts zurück.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String. Derzeit ist der einzige Wert `none`.
 
 ## Siehe auch
 
-- [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/)
+- [SetSinkId Testbeispiel](https://mdn.github.io/dom-examples/audiocontext-setsinkid/) (sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/audiocontext-setsinkid) an)
 - [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
 - [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)
 - [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event)

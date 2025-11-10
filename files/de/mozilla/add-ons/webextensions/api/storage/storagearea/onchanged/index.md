@@ -2,17 +2,15 @@
 title: storage.StorageArea.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/onChanged
 l10n:
-  sourceCommit: 2aa9447bd7fc9031dd4246916f15113c760822c2
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein oder mehrere Elemente in einem Speicherbereich geändert werden, und gibt Details zu den Schlüsseln zurück, die sich geändert haben. Im Vergleich zu {{WebExtAPIRef("storage.onChanged")}} ermöglicht dieses Ereignis, Änderungen in einem der Speicherbereiche zu überwachen: `local`, `managed`, `session` und `sync`.
+Wird ausgelöst, wenn sich ein oder mehrere Elemente in einem Speicherbereich ändern, und gibt Details zu den geänderten Schlüsseln zurück. Im Vergleich zu {{WebExtAPIRef("storage.onChanged")}} ermöglicht Ihnen dieses Ereignis, Änderungen in einem der Speicherbereiche `local`, `managed`, `session` und `sync` zu überwachen.
 
 > [!NOTE]
-> In Firefox umfasst die zurückgegebene Information alle Schlüssel innerhalb des Speicherbereichs. Zusätzlich kann der Rückruf auch ausgelöst werden, wenn keine Änderung an den zugrundeliegenden Daten vorliegt. Details der geänderten Elemente können durch Untersuchung des jeweiligen Schlüssels im {{WebExtAPIRef('storage.StorageChange')}}-Objekt festgestellt werden. Siehe [Firefox-Bug 1833153](https://bugzil.la/1833153).
+> In Firefox umfassen die zurückgegebenen Informationen alle Schlüssel innerhalb des Speicherbereichs. Zudem kann der Rückruf aufgerufen werden, wenn es keine Änderung an den zugrunde liegenden Daten gibt. Details zu den geänderten Elementen finden Sie, indem Sie jedes zurückgegebene Schlüssel-{{WebExtAPIRef('storage.StorageChange')}}-Objekt untersuchen. Siehe [Firefox-Fehler 1833153](https://bugzil.la/1833153).
 >
-> Firefox lädt Änderungen an den Managed-Storage-Inhalten (aus der [JSON-Manifeste-Datei (native Manifest)](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) oder aus den [`3rdparty` Unternehmensrichtlinien](https://mozilla.github.io/policy-templates/#3rdparty)) nur beim Neustart. Daher wird dieses Ereignis in Firefox niemals ausgelöst.
+> Firefox lädt Änderungen am verwalteten Speicherinhalt (aus der [JSON-Manifestdatei (nativen Manifestdatei)](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) oder der [`3rdparty`-Unternehmensrichtlinie](https://mozilla.github.io/policy-templates/#3rdparty)) nur, wenn es neu gestartet wird. Daher wird dieses Ereignis in Firefox niemals ausgelöst.
 
 ## Syntax
 
@@ -26,22 +24,20 @@ browser.storage.local.onChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stellt das Abhören dieses Ereignisses ein. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn der Listener registriert ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `changes`
-      - : `object`. Objekt, das die Änderung beschreibt. Dies enthält eine Eigenschaft für jeden Schlüssel, der sich geändert hat. Der Eigenschaftsname ist der Name des geänderten Schlüssels, und sein Wert ist ein {{WebExtAPIRef('storage.StorageChange')}}-Objekt, das die Änderung dieses Elements beschreibt.
+      - : `object`. Ein Objekt, das die Änderung beschreibt. Dieses enthält pro geändertem Schlüssel eine Eigenschaft. Der Eigenschaftsname ist der Name des geänderten Schlüssels, und dessen Wert ist ein {{WebExtAPIRef('storage.StorageChange')}}-Objekt, das die Änderung dieses Elements beschreibt.
 
 ## Beispiele
 
@@ -70,7 +66,7 @@ browser.storage.local.onChanged.addListener(logStorageChange);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-StorageArea-onChanged)-API von Chromium. Diese Dokumentation basiert auf [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-StorageArea-onChanged)-API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

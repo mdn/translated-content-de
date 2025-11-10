@@ -3,14 +3,14 @@ title: "SVGFEFloodElement: y-Eigenschaft"
 short-title: y
 slug: Web/API/SVGFEFloodElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 19c64b411b90f999565db9fdb815463ba66c9714
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`y`**-Eigenschaft der [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement)-Schnittstelle beschreibt die vertikale Koordinate der Position eines SVG-Filterprimitives als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`y`**-Eigenschaft der Schnittstelle [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement) beschreibt die vertikale Koordinate der Position einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie entspricht dem {{SVGAttr("y")}}-Attribut des {{SVGElement("feFlood")}}-Elements, das eine SVG-Filterunterregion mit der durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definierten Farbe und Deckkraft ausfüllt. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzer-Koordinatensystem, die den angegebenen Abstand vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut einen Prozentwert enthält, ist der Eigenschaftswert relativ zur Höhe der Filterregion in Einheiten des Benutzer-Koordinatensystems. Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("feFlood")}}-Elements wider, welches eine SVG-Filter-Subregion mit der durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definierten Farbe und Opazität füllt. Das Attribut ist entweder ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, welche die gegebene Entfernung vom Ursprung des Filters entlang der y-Achse darstellt. Wenn das `y`-Attribut einen Prozentwert darstellt, ist der Eigenschaftswert relativ zur Höhe der Filterregion in Benutzereinheitskoordinaten. Der Standardwert ist `0`.
 
 ## Wert
 
@@ -35,6 +35,6 @@ console.log(topPosition.baseVal.value); // the `y` value
 ## Siehe auch
 
 - [`SVGFEFloodElement.x`](/de/docs/Web/API/SVGFEFloodElement/x)
-- [SVG-Filter-Leitfaden](/de/docs/Web/SVG/Tutorial/SVG_Filters_Tutorial)
-- CSS-Datentyp {{cssxref("blend-mode")}}
-- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}
+- [SVG-Filter-Leitfaden](/de/docs/Web/SVG/Guides/SVG_filters)
+- CSS {{cssxref("blend-mode")}} Datentyp
+- CSS {{cssxref("mix-blend-mode")}} Eigenschaft

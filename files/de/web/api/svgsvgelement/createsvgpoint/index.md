@@ -1,14 +1,14 @@
 ---
-title: "SVGSVGElement: Methode createSVGPoint()"
+title: "SVGSVGElement: createSVGPoint() Methode"
 short-title: createSVGPoint()
 slug: Web/API/SVGSVGElement/createSVGPoint
 l10n:
-  sourceCommit: 6d35583226f1ca3bac852506014f973113c0a8a2
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("SVG")}}
 
-Die Methode `createSVGPoint()` des [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Interfaces erstellt ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt außerhalb von Dokumentenbäumen.
+Die `createSVGPoint()`-Methode des [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Interfaces erstellt ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, das außerhalb von Dokumentenbäumen liegt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, initialisiert auf den Punkt `(0,0)` im Benutzerkoordinatensystem.
+Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, das auf den Punkt `(0,0)` im Benutzernkoordinatensystem initialisiert ist.
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, initialisiert auf den Punkt 
 
 ## Siehe auch
 
-- [`SVGPoint`](/de/docs/Web/API/SVGPoint)
+- [`DOMPoint`](/de/docs/Web/API/DOMPoint)

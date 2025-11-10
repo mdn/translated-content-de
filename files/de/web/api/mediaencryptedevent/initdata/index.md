@@ -3,7 +3,7 @@ title: "MediaEncryptedEvent: initData-Eigenschaft"
 short-title: initData
 slug: Web/API/MediaEncryptedEvent/initData
 l10n:
-  sourceCommit: ba9a6bebd0e7bf1dd6b5c4eed156d8f1748ade0f
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Encrypted Media Extensions")}}

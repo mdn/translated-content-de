@@ -1,16 +1,16 @@
 ---
-title: "GPUComputePassEncoder: insertDebugMarker() Methode"
+title: "GPUComputePassEncoder: insertDebugMarker()-Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPUComputePassEncoder/insertDebugMarker
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`** Methode des [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) Interfaces markiert einen spezifischen Punkt in einer Reihe von codierten Compute-Pass-Befehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode der Schnittstelle [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) markiert einen bestimmten Punkt in einer Serie von kodierten Compute-Pass-Befehlen mit einem Label.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
+Dies kann für Telemetriezwecke verwendet werden oder könnte in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklungswerkzeugen von Browsern oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ insertDebugMarker(markerLabel)
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 passEncoder.insertDebugMarker("my_marker");
 
-// ...
+// …
 ```
 
 ## Spezifikationen

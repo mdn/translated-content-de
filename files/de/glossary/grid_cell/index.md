@@ -1,21 +1,19 @@
 ---
-title: Grid Cell
+title: Grid-Zelle
 slug: Glossary/Grid_Cell
 l10n:
-  sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
-
-In einem [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Raster haben können. Es ist der Raum zwischen vier sich kreuzenden {{Glossary("grid_lines", "Rasterlinien")}} und konzeptionell ähnlich wie eine Tabellenzelle.
+In einem [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Grid haben können. Sie ist der Raum zwischen vier sich kreuzenden {{Glossary("grid_lines", "Gitterlinien")}} und konzeptionell sehr ähnlich einer Tabellenzelle.
 
 ![Diagramm, das eine einzelne Zelle im Raster zeigt.](1_grid_cell.png)
 
-Wenn Sie Elemente nicht mit einer der Rasterplatzierungsmethoden platzieren, werden die direkten Nachkommen des Rastercontainers durch den Autoplatzierungsalgorithmus in eine einzelne Rasterzelle platziert. Zusätzliche Zeilen- oder Spalten-{{Glossary("grid_tracks", "Tracks")}} werden erstellt, um genügend Zellen zu schaffen, um alle Elemente aufzunehmen.
+Wenn Sie Elemente nicht mit einer der Grid-Platzierungsmethoden platzieren, werden die direkten Kinder des Grid-Containers mithilfe des Auto-Platzierungsalgorithmus je eine in jede einzelne Grid-Zelle platziert. Zusätzliche Zeilen- oder Spalten-{{Glossary("grid_tracks", "Spuren")}} werden erstellt, um genügend Zellen zu schaffen, die alle Elemente aufnehmen.
 
 ## Beispiel
 
-Im Beispiel haben wir ein Raster mit drei Spaltentracks erstellt. Die fünf Elemente werden in Rasterzellen platziert, die entlang einer ersten Zeile von drei Rasterzellen arbeiten, und dann wird eine neue Zeile für die verbleibenden zwei erstellt.
+Im Beispiel haben wir ein Grid mit drei Spuren erstellt. Die fünf Elemente werden in Grid-Zellen entlang einer ersten Zeile von drei Grid-Zellen platziert, dann wird eine neue Zeile für die verbleibenden zwei erstellt.
 
 ```css hidden
 * {
@@ -68,5 +66,5 @@ Im Beispiel haben wir ein Raster mit drei Spaltentracks erstellt. Die fünf Elem
 
 ### Weiterführende Literatur
 
-- [Grundlagen von Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
 - [Definition von Grid-Zellen in der CSS Grid Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)

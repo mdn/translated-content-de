@@ -3,25 +3,25 @@ title: "MutationRecord: oldValue-Eigenschaft"
 short-title: oldValue
 slug: Web/API/MutationRecord/oldValue
 l10n:
-  sourceCommit: 005cc1fd55aadcdcbd9aabbed7d648a275f8f23a
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`oldValue`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält die Zeichen- oder Attributdaten eines beobachteten Knotens, bevor sie geändert wurden.
+Die schreibgeschützte Eigenschaft **`oldValue`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält die Zeichendaten oder Attributwerte eines beobachteten Knotens, bevor er geändert wurde.
 
 ## Wert
 
 Ein String, der den alten Wert eines Attributs darstellt, das geändert wurde, falls:
 
-- der `attributeOldValue`-Parameter von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` ist
-- der `attributes`-Parameter von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` oder weggelassen ist
-- der Mutation[`type`](/de/docs/Web/API/MutationRecord/type) `attributes` ist.
+- der Parameter `attributeOldValue` von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` ist
+- der Parameter `attributes` von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` ist oder weggelassen wird
+- der Mutation [`type`](/de/docs/Web/API/MutationRecord/type) `attributes` ist.
 
 Ein String, der den alten Wert eines [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens darstellt, der geändert wurde, falls:
 
-- der `characterDataOldValue`-Parameter von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` ist
-- der `characterData`-Parameter von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` oder weggelassen ist
+- der Parameter `characterDataOldValue` von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` ist
+- der Parameter `characterData` von [`MutationObserver.observe()`](/de/docs/Web/API/MutationObserver/observe) `true` ist oder weggelassen wird
 - der Mutation [`type`](/de/docs/Web/API/MutationRecord/type) `characterData` ist.
 
 Andernfalls ist diese Eigenschaft `null`.
@@ -30,14 +30,14 @@ Andernfalls ist diese Eigenschaft `null`.
 
 ### Alten Farbwert anzeigen
 
-Im folgenden Beispiel gibt es einen Button, der die Farbe eines `h1` auf eine zufällige neue Farbe ändert. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird verwendet, um den Zielknoten (`h1`) auf Attributänderungen zu überwachen; wenn eine Änderung festgestellt wird, ruft der Beobachter eine Funktion `logOldValue()` auf.
+Im folgenden Beispiel gibt es einen Button, der die Farbe eines `h1`-Elements in eine zufällige neue Farbe ändert. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird verwendet, um den Zielknoten (`h1`) auf Änderungen des Attributs zu beobachten. Wenn eine Änderung erkannt wird, ruft der Beobachter eine Funktion auf, die `logOldValue()`.
 
 Die Funktion `logOldValue()` wird mit dem Array `mutationRecords` aufgerufen, das die `MutationRecord`-Objekte enthält. Die `oldValue`-Eigenschaft des `MutationRecord`-Objekts wird dann in der Farbe des alten Wertes angezeigt.
 
 #### HTML
 
 ```html
-<h1 id="h1" style="color: rgb(0 0 0);">Hi, Mom!</h1>
+<h1 id="h1">Hi, Mom!</h1>
 <button id="changeColorButton">Change color</button>
 <p id="log"></p>
 ```

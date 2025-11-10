@@ -3,12 +3,12 @@ title: "MediaStreamTrackProcessor: readable-Eigenschaft"
 short-title: readable
 slug: Web/API/MediaStreamTrackProcessor/readable
 l10n:
-  sourceCommit: 4558d208395a5b1df4db44b0c8ef4e9a0f8adbbf
+  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
 ---
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}
 
-Die **`readable`**-Eigenschaft der [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
+Die **`readable`**-Eigenschaft des [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`VideoFrame`](/de/docs/Web/API/VideoFrame)s zurück.
 
 ## Wert
 
@@ -16,18 +16,7 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Im folgenden Beispiel werden Videoframes aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) transformiert.
-
-```js
-const trackProcessor = new MediaStreamTrackProcessor({ track: videoTrack });
-const trackGenerator = new MediaStreamTrackGenerator({ kind: "video" });
-
-/* */
-
-trackProcessor.readable
-  .pipeThrough(transformer)
-  .pipeTo(trackGenerator.writable);
-```
+Ein Beispiel finden Sie in den [Insertable Streams for MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API#examples).
 
 ## Spezifikationen
 

@@ -3,15 +3,15 @@ title: "ElementInternals: ariaModal-Eigenschaft"
 short-title: ariaModal
 slug: Web/API/ElementInternals/ariaModal
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaModal`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-modal)-Attributes wider, welches angibt, ob ein Element modal angezeigt wird.
+Die **`ariaModal`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-modal`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-modal)-Attributs wider, das angibt, ob ein Element beim Anzeigen modal ist.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, standardmäßige Semantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von Aria-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standard-Semantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie in der [Accessibility Object Model Erklärungsseite](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -27,7 +27,14 @@ Ein String mit einem der folgenden Werte:
 In diesem Beispiel wird der Wert von `ariaModal` auf "true" gesetzt.
 
 ```js
-this.internals_.ariaModal = "true";
+class CustomEl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaModal = "true";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen
@@ -40,4 +47,4 @@ this.internals_.ariaModal = "true";
 
 ## Siehe auch
 
-- [ARIA: dialog role](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- [ARIA: Dialogrolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)

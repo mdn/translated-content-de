@@ -2,23 +2,21 @@
 title: Strukturierung von Dokumenten
 slug: Learn_web_development/Core/Structuring_content/Structuring_documents
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 65c873fda639b035b94db77dd0f9373f38549aa0
 ---
 
-{{LearnSidebar}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Marking_up_a_letter", "Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content")}}
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content")}}
-
-Zusätzlich zur Definition einzelner Teile Ihrer Seite (wie "ein Absatz" oder "ein Bild"), bietet {{Glossary("HTML", "HTML")}} auch eine Reihe von Blockelementen, die verwendet werden, um Bereiche Ihrer Website zu definieren (wie "der Kopfbereich", "das Navigationsmenü", "die Hauptinhaltsspalte"). Dieser Artikel befasst sich damit, wie Sie eine grundlegende Website-Struktur planen und den HTML-Code schreiben, um diese Struktur darzustellen.
+Zusätzlich zur Definition einzelner Teile Ihrer Seite (wie "ein Absatz" oder "ein Bild") verfügt {{Glossary("HTML", "HTML")}} auch über eine Reihe von Blockelementen, die verwendet werden, um Bereiche Ihrer Website zu definieren, wie "der Header", "das Navigationsmenü" oder "die Hauptinhalts-Spalte". Dieser Artikel befasst sich damit, wie man eine grundlegende Website-Struktur plant und das HTML schreibt, um diese Struktur darzustellen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie in
+        Grundlegende HTML-Kenntnisse, wie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlegende HTML-Syntax</a
+          >HTML-Grundsyntax</a
         > behandelt. Textbezogene Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
           >Überschriften und Absätze</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
@@ -30,57 +28,58 @@ Zusätzlich zur Definition einzelner Teile Ihrer Seite (wie "ein Absatz" oder "e
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Die allgemeinen HTML-semantischen Strukturierungselemente, z.B. <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> und <code>&lt;footer&gt;</code>, und wie man sie korrekt verwendet.</li>
-          <li>Das Erfordernis, semantische Elemente an geeigneten Stellen zu verwenden, anstatt überall <code>&lt;div&gt;</code>-Elemente zu verwenden, wo ein Blockcontainer benötigt wird, und die Vorteile dessen (wie verbesserte Zugänglichkeit).</li>
+          <li>Die gemeinsamen semantischen HTML-Strukturelemente, beispielsweise <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> und <code>&lt;footer&gt;</code>, und wie man sie korrekt verwendet.</li>
+          <li>Die Notwendigkeit, semantische Elemente an geeigneten Stellen zu verwenden, anstatt einfach <code>&lt;div&gt;</code>-Elemente überall zu verwenden, wo ein block-level Container erforderlich ist, und die Vorteile davon (wie verbesserte Zugänglichkeit).</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Grundlegende Abschnitte eines Dokuments
+## Grundlegende Sektionen eines Dokuments
 
-Webseiten können und werden ziemlich unterschiedlich aussehen, aber sie haben meistens ähnliche Standardkomponenten gemeinsam, es sei denn, die Seite zeigt ein Vollbildvideo oder -spiel, ist Teil eines Kunstprojekts oder ist einfach schlecht strukturiert:
+Webseiten können und werden sehr unterschiedlich aussehen, aber sie neigen dazu, ähnliche Standardkomponenten zu teilen, es sei denn, die Seite zeigt ein Video oder Spiel im Vollbildmodus, ist Teil eines Kunstprojekts oder ist einfach schlecht strukturiert:
 
-- Kopfbereich:
-  - : Normalerweise ein großer Streifen oben mit einer großen Überschrift, einem Logo und eventuell einem Slogan. Dies bleibt in der Regel von einer Seite zur anderen einer Website gleich.
+- Header:
+  - : Normalerweise ein großer Streifen oben mit einer großen Überschrift, einem Logo und vielleicht einem Slogan. Dies bleibt normalerweise auf allen Seiten einer Website gleich.
 - Navigationsleiste:
-  - : Links zu den Hauptbereichen der Seite; normalerweise durch Menütasten, Links oder Tabs dargestellt. Wie der Kopfbereich bleibt auch dieser Inhalt normalerweise von einer Webseite zur anderen konsistent — eine inkonsistente Navigation auf Ihrer Website führt nur zu verwirrten, frustrierten Benutzern. Viele Webdesigner betrachten die Navigationsleiste als Teil des Kopfbereichs statt als eigene Komponente, aber das ist keine Anforderung; tatsächlich argumentieren einige auch, dass das Trennen der beiden besser für die [Zugänglichkeit](/de/docs/Learn_web_development/Core/Accessibility) ist, da Screenreader die beiden Komponenten besser lesen können, wenn sie getrennt sind.
+  - : Links zu den Hauptbereichen der Seite; normalerweise dargestellt durch Menübuttons, Links oder Tabs. Wie der Header bleibt dieser Inhalt normalerweise von einer Webseite zur anderen konsistent – inkonsistente Navigation auf Ihrer Website führt nur zu verwirrten, frustrierten Benutzern. Viele Webdesigner erachten die Navigationsleiste als Teil des Headers, nicht als Einzelkomponente, aber das ist keine Anforderung; tatsächlich argumentieren einige auch, dass es für die [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility) besser ist, wenn die beiden getrennt sind, da Bildschirmlesegeräte die Funktionen besser lesen können, wenn sie getrennt sind.
 - Hauptinhalt:
-  - : Ein großer Bereich in der Mitte, der den größten Teil des einzigartigen Inhalts einer bestimmten Webseite enthält, beispielsweise das Video, das Sie ansehen möchten, oder die Hauptstory, die Sie lesen, oder die Karte, die Sie ansehen möchten, oder die Nachrichtenschlagzeilen, etc. Dies ist der eine Teil der Website, der definitiv von Seite zu Seite variieren wird!
+  - : Ein großer Bereich in der Mitte, der den größten Teil des einzigartigen Inhalts einer bestimmten Webseite enthält, beispielsweise das Video, das Sie sich ansehen möchten, oder die Hauptgeschichte, die Sie lesen, oder die Karte, die Sie ansehen möchten, oder die Schlagzeilen, usw. Dies ist der Teil der Website, der definitiv von Seite zu Seite variieren wird!
 - Seitenleiste:
-  - : Einige Zusatzinformationen, Links, Zitate, Anzeigen, etc. Meistens ist das kontextbezogen zu dem, was im Hauptinhalt enthalten ist (zum Beispiel könnte die Seitenleiste auf einer Nachrichtenartikel-Seite die Biografie des Autors enthalten oder Links zu verwandten Artikeln), aber es gibt auch Fälle, in denen Sie einige wiederkehrende Elemente wie ein sekundäres Navigationssystem finden.
-- Fußzeile:
-  - : Ein Streifen am unteren Rand der Seite, der in der Regel Impressum, Urheberrechtshinweise oder Kontaktinformationen enthält. Es ist ein Ort, um allgemeine Informationen abzulegen (wie der Kopfbereich), aber normalerweise sind diese Informationen nicht kritisch oder sekundär für die Website selbst. Die Fußzeile wird auch manchmal für {{Glossary("SEO", "SEO")}}-Zwecke verwendet, indem Links bereitgestellt werden, die einen schnellen Zugriff auf beliebte Inhalte ermöglichen.
+  - : Einige periphere Infos, Links, Zitate, Anzeigen, usw. Dies ist normalerweise kontextbezogen zu dem, was im Hauptinhalt enthalten ist (zum Beispiel könnte auf einer Nachrichtenseite die Seitenleiste die Biografie des Autors oder Links zu verwandten Artikeln enthalten), aber es gibt auch Fälle, in denen Sie einige wiederkehrende Elemente finden, wie ein sekundäres Navigationssystem.
+- Footer:
+  - : Ein Streifen am unteren Rand der Seite, der normalerweise Kleingedrucktes, Urheberrechtsvermerke oder Kontaktinformationen enthält. Es ist ein Ort, um allgemeine Informationen zu platzieren (wie der Header), aber normalerweise sind diese Informationen nicht kritisch oder sekundär für die Website selbst. Der Footer wird manchmal auch für {{Glossary("SEO", "SEO")}}-Zwecke verwendet, indem Links für den schnellen Zugriff auf beliebte Inhalte bereitgestellt werden.
 
 Eine "typische Website" könnte folgendermaßen strukturiert sein:
 
-![eine einfache Website-Struktur, die eine Hauptüberschrift, ein Navigationsmenü, Hauptinhalt, Seitenleiste und Fußzeile zeigt.](sample-website.png)
+![Ein einfaches Website-Strukturbeispiel mit einer Hauptüberschrift, Navigationsmenü, Hauptinhalt, Seitenleiste und Footer.](sample-website.png)
 
 > [!NOTE]
-> Das obige Bild veranschaulicht die Hauptabschnitte eines Dokuments, die Sie mit HTML definieren können. Das _Erscheinungsbild_ der hier gezeigten Seite — einschließlich Layout, Farben und Schriftarten — wird jedoch durch die Anwendung von [CSS](/de/docs/Learn_web_development/Core/Styling_basics) auf das HTML erreicht.
+> Das obige Bild veranschaulicht die Hauptbereiche eines Dokuments, die Sie mit HTML definieren können. Das _Erscheinungsbild_ der hier gezeigten Seite – einschließlich Layout, Farben und Schriftarten – wird jedoch durch die Anwendung von [CSS](/de/docs/Learn_web_development/Core/Styling_basics) auf das HTML erreicht.
 
 ## HTML zur Strukturierung von Inhalten
 
-Das oben gezeigte Beispiel ist nicht schön, eignet sich jedoch hervorragend zur Veranschaulichung eines typischen Website-Layout-Beispiels. Einige Websites haben mehr Spalten, einige sind viel komplexer, aber Sie bekommen eine Vorstellung. Mit dem richtigen CSS könnten Sie praktisch beliebige Elemente verwenden, um die verschiedenen Abschnitte zu umschließen und es so aussehen zu lassen, wie Sie es wollten, aber wie bereits erwähnt, müssen wir die Semantik respektieren und **das richtige Element für die richtige Aufgabe verwenden**.
+Das oben gezeigte Beispiel ist nicht schön, aber es eignet sich gut zur Veranschaulichung eines typischen Website-Layout-Beispiels. Einige Websites haben mehr Spalten, einige sind viel komplexer, aber der Gedanke wird klar. Mit dem richtigen CSS könnten Sie so ziemlich jede Elemente verwenden, um verschiedene Bereiche zu umschließen und es so aussehen lassen, wie Sie es möchten, aber wie vorher besprochen, müssen wir Semantik respektieren und **das richtige Element für die richtige Aufgabe verwenden**.
 
-Das liegt daran, dass visuelle Aspekte nicht die ganze Geschichte erzählen. Wir verwenden Farbe und Schriftgröße, um die Aufmerksamkeit sehender Benutzer auf die nützlichsten Teile des Inhalts zu lenken, wie das Navigationsmenü und verwandte Links, aber was ist mit sehbehinderten Menschen, die möglicherweise Konzepte wie "rosa" und "große Schrift" nicht sehr nützlich finden?
+Dies liegt daran, dass visuelle Darstellungen nicht die ganze Geschichte erzählen. Wir verwenden Farbe und Schriftgröße, um sehenden Benutzern die nützlichsten Teile des Inhalts näher zu bringen, wie das Navigationsmenü und verwandte Links, aber was ist mit sehbehinderten Menschen, die Konzepte wie "rosa" und "große Schrift" möglicherweise nicht sehr nützlich finden?
 
-> **Hinweis:** [Ungefähr 8% der Männer und 0,5% der Frauen](https://www.color-blindness.com/) sind farbenblind; oder anders ausgedrückt, etwa 1 von 12 Männern und 1 von 200 Frauen. Blinde und sehbehinderte Menschen machen etwa 4-5% der Weltbevölkerung aus (2015 gab es [940 Millionen Menschen mit einer gewissen Sehbehinderung](https://en.wikipedia.org/wiki/Visual_impairment), während die Gesamtbevölkerung [etwa 7,5 Milliarden](https://en.wikipedia.org/wiki/World_human_population#/media/File:World_population_history.svg) betrug).
+> [!NOTE]
+> [Ungefähr 8% der Männer und 0.5% der Frauen](https://www.color-blindness.com/) sind farbenblind; oder anders ausgedrückt, etwa 1 von 12 Männern und 1 von 200 Frauen. Blinde und sehbehinderte Menschen machen ungefähr 4-5% der Weltbevölkerung aus (2015 gab es [940 Millionen Menschen mit einem gewissen Grad an Sehverlust](https://en.wikipedia.org/wiki/Visual_impairment), während die Gesamtbevölkerung [etwa 7.5 Milliarden](https://en.wikipedia.org/wiki/World_human_population#/media/File:World_population_history.svg) betrug).
 
-In Ihrem HTML-Code können Sie Inhaltsabschnitte basierend auf ihrer _Funktionalität_ auszeichnen — Sie können Elemente verwenden, die die oben beschriebenen Inhaltsabschnitte eindeutig repräsentieren, und unterstützende Technologien wie Vorlesesoftware können diese Elemente erkennen und bei Aufgaben wie "die Hauptnavigation finden" oder "den Hauptinhalt finden" helfen. Wie wir bereits im Kurs erwähnt haben, gibt es eine Reihe von [Folgen, wenn die richtige Elementstruktur und Semantik nicht für die richtige Aufgabe verwendet wird](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs#why_do_we_need_structure).
+In Ihrem HTML-Code können Sie Inhaltsbereiche nach ihrer _Funktion_ markieren – Sie können Elemente verwenden, die die oben beschriebenen Inhaltsbereiche unmissverständlich darstellen, und unterstützende Technologien wie Bildschirmlesegeräte können diese Elemente erkennen und bei Aufgaben wie "Hauptnavigation finden" oder "Hauptinhalt finden" helfen. Wie bereits früher im Kurs erwähnt, gibt es eine Reihe von [Konsequenzen, wenn man die richtige Elementstruktur und Semantik nicht für die richtige Aufgabe verwendet](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs#why_do_we_need_structure).
 
-Um eine solche semantische Markierung zu implementieren, bietet HTML spezielle Tags, die Sie verwenden können, um solche Abschnitte darzustellen, zum Beispiel:
+Um eine solche semantische Auszeichnung zu implementieren, bietet HTML spezielle Tags, die Sie verwenden können, um solche Abschnitte darzustellen, zum Beispiel:
 
-- **Kopfbereich:** {{htmlelement("header")}}.
+- **Header:** {{htmlelement("header")}}.
 - **Navigationsleiste:** {{htmlelement("nav")}}.
-- **Hauptinhalt:** {{htmlelement("main")}}, mit verschiedenen Inhaltsteilabschnitten, die durch {{HTMLElement("article")}}, {{htmlelement("section")}}, und {{htmlelement("div")}}-Elemente repräsentiert werden.
+- **Hauptinhalt:** {{htmlelement("main")}}, mit verschiedenen Inhaltsunterabschnitten dargestellt durch {{HTMLElement("article")}}, {{htmlelement("section")}}, und {{htmlelement("div")}}-Elementen.
 - **Seitenleiste:** {{htmlelement("aside")}}; oft innerhalb von {{htmlelement("main")}} platziert.
-- **Fußzeile:** {{htmlelement("footer")}}.
+- **Footer:** {{htmlelement("footer")}}.
 
-### Aktives Lernen: Erforschen Sie den Code für unser Beispiel
+### Den Code für unser Beispiel erforschen
 
-Unser oben gesehenes Beispiel wird durch den folgenden Code dargestellt (Sie können das Beispiel auch in unserem [GitHub-Repository finden](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/document_and_website_structure/index.html)). Wir möchten, dass Sie sich das obige Beispiel ansehen und dann das unten stehende Listing durchgehen, um zu sehen, welche Teile welchen Abschnitt der Darstellung ausmachen.
+Das oben gezeigte Beispiel wird durch den folgenden Code dargestellt (Sie können das Beispiel auch in unserem [GitHub-Repository finden](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/document_and_website_structure/index.html)). Wir möchten, dass Sie die folgende Liste ansehen, um zu sehen, welche Teile jede Sektion des visuellen Ergebnisses ausmachen.
 
 ```html
 <!doctype html>
@@ -111,7 +110,8 @@ Unser oben gesehenes Beispiel wird durch den folgenden Code dargestellt (Sie kö
         <li><a href="#">Contact</a></li>
       </ul>
 
-      <!-- A Search form: another common non-linear way to navigate through a site. -->
+      <!-- A Search form: another common non-linear
+           way to navigate through a site. -->
 
       <form>
         <input type="search" name="q" placeholder="Search query" />
@@ -193,27 +193,27 @@ Unser oben gesehenes Beispiel wird durch den folgenden Code dargestellt (Sie kö
 </html>
 ```
 
-Nehmen Sie sich die Zeit, den Code zu durchschauen und zu verstehen — die Kommentare im Code sollten Ihnen ebenfalls helfen, ihn zu verstehen. Wir bitten Sie nicht, viel mehr in diesem Artikel zu tun, da der Schlüssel zum Verständnis des Dokumentlayouts darin besteht, eine solide HTML-Struktur zu schreiben und diese dann mit CSS zu gestalten. Wir werden damit warten, bis Sie beginnen, CSS-Layouts als Teil des CSS-Themas zu studieren.
+Nehmen Sie sich etwas Zeit, um den Code anzusehen und zu verstehen – die Kommentare im Code sollten Ihnen auch helfen, ihn zu verstehen. Wir bitten Sie nicht, viel anderes in diesem Artikel zu tun, da der Schlüssel zum Verständnis des Dokumentenlayouts darin besteht, eine solide HTML-Struktur zu schreiben und sie dann mit CSS zu gestalten. Damit warten wir, bis Sie beginnen, CSS-Layout als Teil des CSS-Themas zu studieren.
 
 ## HTML-Layout-Elemente im Detail
 
-Es ist gut, die Gesamtbedeutung aller HTML-Sektionierungselemente im Detail zu verstehen — dies ist etwas, woran Sie nach und nach arbeiten werden, wenn Sie mehr Erfahrung mit der Web-Entwicklung sammeln. Sie können viele Details lesen, indem Sie unser [HTML-Elementreferenz](/de/docs/Web/HTML/Element) lesen. Für den Moment sind dies die wichtigsten Definitionen, die Sie verstehen sollten:
+Es ist gut, die Gesamtbedeutung aller HTML-Sektionselemente im Detail zu verstehen – das ist etwas, woran Sie allmählich arbeiten werden, während Sie mehr Erfahrung in der Webentwicklung sammeln. Sie finden viele Details in unserem [HTML-Element-Referenz](/de/docs/Web/HTML/Reference/Elements). Für den Moment sind dies die Hauptdefinitionen, die Sie versuchen sollten zu verstehen:
 
-- {{HTMLElement('main')}} ist für Inhalte, die _einzigartig für diese Seite_ sind. Verwenden Sie `<main>` nur _einmal_ pro Seite und platzieren Sie es direkt innerhalb des {{HTMLElement('body')}}. Idealerweise sollte es nicht in andere Elemente verschachtelt werden.
-- {{HTMLElement('article')}} umfasst einen Block verwandter Inhalte, der für sich allein Sinn ergibt, ohne den Rest der Seite (z.B. ein einzelner Blogbeitrag).
-- {{HTMLElement('section')}} ist ähnlich wie `<article>`, eher dazu gedacht, einen einzelnen Teil der Seite zu gruppieren, der eine einzelne Funktionalität oder ein Thema darstellt (z.B. eine Mini-Karte oder eine Sammlung von Artikelüberschriften und -zusammenfassungen). Es wird als gute Praxis angesehen, jedes <section> mit einer [Überschrift](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs) zu beginnen; beachten Sie auch, dass Sie `<article>`s in verschiedene `<section>`s aufteilen können oder `<section>`s in verschiedene `<article>`s, je nach Kontext.
-- {{HTMLElement('aside')}} enthält Inhalte, die nicht direkt mit dem Hauptinhalt in Verbindung stehen, aber zusätzliche Informationen bieten können, die indirekt damit zusammenhängen (Glossareinträge, Autorenbiografie, verwandte Links usw.).
-- {{HTMLElement('header')}} repräsentiert eine Gruppe von einleitenden Inhalten. Wenn es ein Kind von {{HTMLElement('body')}} ist, definiert es den globalen Kopfbereich einer Webseite, aber wenn es ein Kind von einem {{HTMLElement('article')}} oder {{HTMLElement('section')}} ist, definiert es einen spezifischen Kopfbereich für diesen Abschnitt (verwechseln Sie dies nicht mit [Titeln und Überschriften](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_a_title)).
-- {{HTMLElement('nav')}} enthält die Hauptnavigationsfunktionalität für die Seite. Sekundäre Links usw. würden nicht in die Navigation gehören.
-- {{HTMLElement('footer')}} repräsentiert eine Gruppe von abschließenden Inhalten für eine Seite.
+- {{HTMLElement('main')}} ist für Inhalte _einzigartig zu dieser Seite._ Nutzen Sie `<main>` nur _einmal_ pro Seite und platzieren Sie es direkt innerhalb des {{HTMLElement('body')}}. Idealerweise sollte es nicht innerhalb anderer Elemente geschachtelt sein.
+- {{HTMLElement('article')}} umschließt einen Block verwandter Inhalte, der ohne den Rest der Seite allein sinnvoll ist (zum Beispiel ein einzelner Blog-Beitrag).
+- {{HTMLElement('section')}} ist ähnlich wie `<article>`, aber es ist mehr zum Gruppieren eines einzelnen Teils der Seite, der eine einzige Funktionalität darstellt (wie eine Mini-Karte oder eine Sammlung von Artikelschlagzeilen und Zusammenfassungen) oder ein Thema. Es wird als Best Practice angesehen, jede Sektion mit einer [Überschrift](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs) zu beginnen; beachten Sie auch, dass Sie `<article>`s in verschiedene `<section>`s oder `<section>`s in verschiedene `<article>`s unterteilen können, je nach Kontext.
+- {{HTMLElement('aside')}} enthält Inhalte, die nicht direkt zum Hauptinhalt gehören, aber zusätzliche Informationen bieten können, die indirekt damit zusammenhängen (Glossareinträge, Autorenbiografie, verwandte Links, usw.).
+- {{HTMLElement('header')}} stellt eine Gruppe von einleitenden Inhalten dar. Wenn es ein Kind von {{HTMLElement('body')}} ist, definiert es den globalen Header einer Webseite, aber wenn es ein Kind von {{HTMLElement('article')}} oder {{HTMLElement('section')}} ist, definiert es einen spezifischen Header für diesen Abschnitt (verwechseln Sie dies nicht mit [Titeln und Überschriften](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_a_title)).
+- {{HTMLElement('nav')}} enthält die Hauptnavigation der Seite. Sekundäre Links, usw., würden nicht in der Navigation stehen.
+- {{HTMLElement('footer')}} stellt eine Gruppe von Endinhalten für eine Seite dar.
 
-Jedes der oben genannten Elemente kann geklickt werden, um den entsprechenden Artikel im Abschnitt "HTML-Elementreferenz" zu lesen, der weitere Details zu jedem bereitstellt.
+Jedes der oben genannten Elemente kann angeklickt werden, um den entsprechenden Artikel im Abschnitt "HTML-Element-Referenz" zu lesen, der mehr Details zu jedem bereitstellt.
 
-### Nicht-semantische Umschließungen
+### Nicht-semantische Wrapper
 
-Manchmal stoßen Sie auf eine Situation, in der Sie kein ideales semantisches Element finden können, um einige Elemente zusammenzufassen oder einige Inhalte zu umschließen. Manchmal möchten Sie einfach nur eine Gruppe von Elementen zusammenfassen, um sie als eine einzelne Einheit mit etwas {{Glossary("CSS", "CSS")}} oder {{Glossary("JavaScript", "JavaScript")}} zu beeinflussen. Für solche Fälle bietet HTML die {{HTMLElement("div")}} und {{HTMLElement("span")}} Elemente. Sie sollten diese vorzugsweise mit einem geeigneten [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attribut verwenden, um ihnen eine Art Label zu geben, das sie leicht ansprechbar macht.
+Manchmal stoßen Sie auf eine Situation, in der Sie kein ideales semantisches Element finden, um einige Elemente zusammen zu gruppieren oder Inhalte zu umschließen. Manchmal möchten Sie vielleicht einfach eine Gruppe von Elementen zusammenfassen, um sie alle als eine einzige Einheit mit etwas {{Glossary("CSS", "CSS")}} oder {{Glossary("JavaScript", "JavaScript")}} zu beeinflussen. Für solche Fälle bietet HTML die {{HTMLElement("div")}}- und {{HTMLElement("span")}}-Elemente. Sie sollten diese vorzugsweise mit einem geeigneten [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attribut verwenden, um ihnen eine Art von Label zu geben, damit sie leicht anzusprechen sind.
 
-{{HTMLElement("span")}} ist ein Inline-nicht-semantisches Element, das Sie nur verwenden sollten, wenn Sie kein besseres semantisches Textelement finden können, um Ihren Inhalt zu umschließen, oder ihm keine spezifische Bedeutung hinzufügen möchten. Zum Beispiel:
+{{HTMLElement("span")}} ist ein inline nicht-semantisches Element, das Sie nur verwenden sollten, wenn Sie sich kein besseres semantisches Textelement einfallen lassen können, um Ihren Inhalt zu umschließen, oder wenn Sie keine spezifische Bedeutung hinzufügen möchten. Zum Beispiel:
 
 ```html
 <p>
@@ -225,9 +225,9 @@ Manchmal stoßen Sie auf eine Situation, in der Sie kein ideales semantisches El
 </p>
 ```
 
-In diesem Fall soll die Anmerkung des Herausgebers lediglich eine zusätzliche Anweisung für den Regisseur des Stücks bieten; sie soll keine zusätzliche semantische Bedeutung haben. Für sehende Benutzer würde CSS möglicherweise verwendet werden, um die Notiz etwas vom Haupttext zu entfernen.
+In diesem Fall soll die Anmerkung des Editors lediglich eine zusätzliche Richtung für den Regisseur des Stücks geben; sie soll keine zusätzliche semantische Bedeutung haben. Für sehende Benutzer könnte CSS verwendet werden, um die Anmerkung etwas vom Haupttext zu distanzieren.
 
-{{HTMLElement("div")}} ist ein Blocklevel-nicht-semantisches Element, das Sie nur verwenden sollten, wenn Sie kein besseres semantisches Blockelement finden können oder ihm keine spezifische Bedeutung hinzufügen möchten. Stellen Sie sich beispielsweise ein Einkaufskorb-Widget vor, das Sie jederzeit während Ihrer Zeit auf einer E-Commerce-Website aufrufen können:
+{{HTMLElement("div")}} ist ein block-level nicht-semantisches Element, das Sie nur verwenden sollten, wenn Ihnen kein besseres semantisches Blockelement einfällt, oder wenn Sie keine spezifische Bedeutung hinzufügen möchten. Zum Beispiel stellen Sie sich ein Einkaufswagen-Widget vor, das Sie jederzeit während Ihres Aufenthalts auf einer E-Commerce-Seite aufrufen könnten:
 
 ```html-nolint
 <div class="shopping-cart">
@@ -245,18 +245,21 @@ In diesem Fall soll die Anmerkung des Herausgebers lediglich eine zusätzliche A
 </div>
 ```
 
-Dies ist wirklich kein `<aside>`, da es nicht unbedingt mit dem Hauptinhalt der Seite zusammenhängt (Sie möchten es von überall aus sichtbar haben). Es verdient nicht einmal besonders, ein `<section>` zu verwenden, da es nicht Teil des Hauptinhalts der Seite ist. Ein `<div>` ist in diesem Fall also in Ordnung. Wir haben eine Überschrift als Wegweiser hinzugefügt, um Nutzern von Vorlesesoftware zu helfen, es zu finden.
+Diese ist nicht wirklich ein `<aside>`, da sie nicht unbedingt mit dem Hauptinhalt der Seite zusammenhängt (Sie möchten sie von überall aus sichtbar haben). Sie rechtfertigt nicht einmal die Verwendung eines `<section>`, da sie nicht Teil des Hauptinhalts der Seite ist. Ein `<div>` ist in diesem Fall ausreichend. Wir haben eine Überschrift als Wegweiser hinzugefügt, um Benutzern von Bildschirmlesegeräten beim Finden zu helfen.
 
 > [!WARNING]
-> Divs sind so bequem zu verwenden, dass es leicht ist, sie zu oft zu nutzen. Da sie keinen semantischen Wert tragen, überladen sie einfach Ihren HTML-Code. Verwenden Sie sie nur, wenn es keine bessere semantische Lösung gibt, und versuchen Sie, ihre Verwendung auf ein Minimum zu reduzieren, da Sie sonst Schwierigkeiten haben werden, Ihre Dokumente zu aktualisieren und zu pflegen.
+> Divs sind so bequem zu verwenden, dass es leicht ist, sie zu oft zu verwenden. Da sie keinen semantischen Wert haben, belasten sie einfach Ihren HTML-Code. Achten Sie darauf, sie nur dann zu verwenden, wenn es keine bessere semantische Lösung gibt und versuchen Sie, ihren Einsatz auf ein Minimum zu reduzieren, da Sie sonst Schwierigkeiten haben, Ihre Dokumente zu aktualisieren und zu warten.
+
+> [!NOTE]
+> Scrimbas [Semantisches HTML](https://scrimba.com/learn-accessible-web-design-c031/~0b?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>-interaktives Tutorial bietet eine nützliche Auffrischung des semantischen Markups und warum Sie es verwenden sollten, sowie eine Herausforderung, die Ihre Fähigkeit testet, eine HTML-Codebasis mit semantischen Elementen zu verbessern.
 
 ### Zeilenumbrüche und horizontale Linien
 
-Zwei Elemente, die Sie gelegentlich verwenden werden und über die Sie Bescheid wissen sollten, sind {{htmlelement("br")}} und {{htmlelement("hr")}}.
+Zwei Elemente, die Sie gelegentlich verwenden werden und über die Sie Bescheid wissen möchten, sind {{htmlelement("br")}} und {{htmlelement("hr")}}.
 
 #### \<br>: das Zeilenumbruch-Element
 
-`<br>` erzeugt einen Zeilenumbruch in einem Absatz; es ist der einzige Weg, eine starre Struktur in einer Situation zu erzwingen, in der Sie eine Reihe von fixen kurzen Zeilen möchten, wie in einer Postadresse oder einem Gedicht. Zum Beispiel:
+`<br>` erzeugt einen Zeilenumbruch in einem Absatz; er ist die einzige Möglichkeit, eine starre Struktur in einer Situation durchzusetzen, in der Sie eine Reihe von festen kurzen Zeilen wünschen, wie in einer Adresse oder einem Gedicht. Zum Beispiel:
 
 ```html
 <p>
@@ -267,13 +270,13 @@ Zwei Elemente, die Sie gelegentlich verwenden werden und über die Sie Bescheid 
 </p>
 ```
 
-Ohne die `<br>`-Elemente würde der Absatz einfach in einer langen Zeile dargestellt werden (wie wir bereits früher im Kurs gesagt haben, [ignoriert HTML die meisten Leerzeichen](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#whitespace_in_html)); mit `<br>`-Elementen im Code wird das Markup so gerendert:
+Ohne die `<br>`-Elemente würde der Absatz einfach in einer langen Zeile gerendert (wie wir bereits früher im Kurs gesagt haben, [ignoriert HTML die meisten weißen Zeichen](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#whitespace_in_html)); mit `<br>`-Elementen im Code wird das Markup so gerendert:
 
 {{EmbedLiveSample('br_the_line_break_element', '100%', 150)}}
 
-#### \<hr>: das thematische Umbruch-Element
+#### \<hr>: das thematische Trenner-Element
 
-`<hr>`-Elemente erzeugen eine horizontale Linie im Dokument, die einen thematischen Wechsel im Text anzeigt (wie einen Wechsel des Themas oder der Szene). Visuell sieht es einfach wie eine horizontale Linie aus. Als Beispiel:
+`<hr>`-Elemente erstellen eine horizontale Linie im Dokument, die einen thematischen Wechsel im Text kennzeichnet (wie ein Themen- oder Szenenwechsel). Visuell sieht es einfach aus wie eine horizontale Linie. Als Beispiel:
 
 ```html
 <p>
@@ -294,25 +297,62 @@ Würde so gerendert werden:
 
 {{EmbedLiveSample('hr_the_thematic_break_element', '100%', '185px')}}
 
-## Planung einer einfachen Website
+## Strukturierung einer grundlegenden Website
 
-Nachdem Sie die Struktur einer einfachen Webseite geplant haben, ist der nächste logische Schritt, zu versuchen herauszufinden, welchen Inhalt Sie auf einer ganzen Website platzieren möchten, welche Seiten Sie benötigen und wie diese angeordnet werden und sich gegenseitig verlinken sollen, um die bestmögliche Benutzererfahrung zu bieten. Dies wird als {{Glossary("Information_architecture", "Informationsarchitektur")}} bezeichnet. Bei einer großen, komplexen Website kann viel Planung in diesen Prozess einfließen, aber für eine einfache Website mit ein paar Seiten kann dies ziemlich einfach und unterhaltsam sein!
+Der nächste Schritt nach der Planung der Struktur einer einzelnen Webseite besteht darin, die Struktur einer vollständigen mehrseitigen Website zu planen, einschließlich wie sie angeordnet und miteinander verlinkt werden sollen, um die bestmögliche Benutzererfahrung zu bieten. Dies nennt man {{Glossary("Information_architecture", "Informationsarchitektur")}}.
 
-1. Bedenken Sie, dass Sie einige Elemente haben werden, die für die meisten (wenn nicht alle) Seiten gemeinsam sind — wie das Navigationsmenü und den Fußzeileninhalt. Wenn Ihre Website beispielsweise für ein Unternehmen ist, ist es eine gute Idee, Ihre Kontaktinformationen in der Fußzeile auf jeder Seite verfügbar zu haben. Notieren Sie sich, was Sie auf jeder Seite gemeinsam haben möchten.![die gemeinsamen Merkmale der Reiseseite, die auf jeder Seite vorhanden sein sollen: Titel und Logo, Kontakt, Urheberrecht, Nutzungsbedingungen, Sprachwahl, Barrierefreiheitspolitik](common-features.png)
-2. Zeichnen Sie als Nächstes eine grobe Skizze dessen, wie die Struktur jeder Seite aussehen könnte (dies könnte wie unsere einfache Website oben aussehen). Notieren Sie, was jeder Block sein wird.![Ein einfaches Diagramm einer Webseiten-Struktur mit Kopfbereich, Hauptinhaltsbereich, zwei optionalen Seitenleisten und Fußzeile](site-structure.png)
-3. Machen Sie jetzt ein Brainstorming all der anderen (nicht auf jeder Seite gemeinsamen) Inhalte, die Sie auf Ihrer Website haben möchten — schreiben Sie eine große Liste auf.![Eine lange Liste aller Features, die wir auf unserer Reiseseite unterbringen könnten, von Suche bis zu Sonderangeboten und länderspezifischen Informationen](feature-list.png)
-4. Versuchen Sie nun, all diese Inhalte in Gruppen zu sortieren, um eine Vorstellung davon zu bekommen, welche Teile zusammen auf verschiedenen Seiten leben könnten. Dies ist sehr ähnlich zu einer Technik, die als {{Glossary("Card_sorting", "Kartensortierung")}} bezeichnet wird.![Die Artikel, die auf einer Reiseseite erscheinen sollten, sortiert in 5 Kategorien: Suche, Angebote, länderspezifische Infos, Suchergebnisse und Kauf-Sachen](card-sorting.png)
-5. Versuchen Sie nun, einen groben Sitemap-Plan zu skizzieren — haben Sie eine Blase für jede Seite auf Ihrer Website und ziehen Sie Linien, um den typischen Workflow zwischen den Seiten zu zeigen. Die Homepage wird wahrscheinlich in der Mitte stehen und verlinken zu den meisten, wenn nicht allen anderen; die meisten Seiten in einer kleinen Website sollten über die Hauptnavigation erreichbar sein, obwohl es Ausnahmen gibt. Sie möchten vielleicht auch Notizen darüber machen, wie die Dinge präsentiert werden könnten.![Eine Karte der Website, die die Homepage, Länderseite, Suchergebnisse, Angebotsseite, Kasse und Kaufseite zeigt](site-map.png)
+Bei einer großen, komplexen Website kann viel Planung in diesen Prozess einfließen, aber für eine grundlegende Website mit ein paar Seiten kann es eine schnelle und unterhaltsame Übung sein.
 
-### Aktives Lernen: Erstellen Sie Ihre eigene Sitemap
+Der Prozess könnte folgendermaßen aussehen:
 
-Versuchen Sie, die obige Übung für eine Website Ihrer eigenen Wahl durchzuführen. Wofür möchten Sie eine Website erstellen?
+1. Sie werden einige Elemente haben, die auf den meisten (wenn nicht allen) Seiten gemeinsam sind – wie das Navigationsmenü und den Footer-Inhalt. Wenn Ihre Seite beispielsweise für ein Unternehmen ist, ist es eine gute Idee, Ihre Kontaktinformationen im Footer auf jeder Seite verfügbar zu haben. Notieren Sie, was Sie auf jeder Seite gemeinsam haben möchten. Zum Beispiel:
+   - Header:
+     - Titel und Logo
+     - Sprachauswahl der Seite
+   - Navigationsmenü
+   - Footer:
+     - Urheberrechtsvermerk
+     - Link zu den allgemeinen Geschäftsbedingungen, Kontaktdaten und Barrierefreiheitspolitik
 
-> [!NOTE]
-> Speichern Sie Ihre Arbeit irgendwo; Sie könnten sie später noch brauchen.
+2. Zeichnen Sie als Nächstes eine grobe Skizze, wie die Struktur jeder Seite aussehen könnte (es könnte wie unsere einfache Website oben aussehen). Notieren Sie, was jeder Block sein wird.![Ein einfaches Diagramm einer Beispiel-Websitestruktur, mit einem Header, Hauptinhaltsbereich, zwei optionalen Seitenleisten und Footer](/shared-assets/images/diagrams/learn/structuring-documents/site-structure.svg)
+3. Nun brainstormen Sie alle anderen (nicht für jede Seite gemeinsamen) Inhalte, die Sie auf Ihrer Website haben möchten. Zum Beispiel:
+   - Flüge
+   - Unterkunft
+   - Transport
+   - Dinge zu tun
+   - Sonderangebote
+   - Beliebte Urlaubsangebote, z. B. Wintersonne, Skifahren
+   - Suchergebnisse
+   - Bewertungen
+   - Visum-/Einreiseanforderungen
+   - Währung
+   - Sprachen und Kultur
+   - Urlaub kaufen
+
+4. Versuchen Sie als Nächstes, alle diesen Inhaltselemente in Gruppen zu sortieren, um Ihnen eine Vorstellung davon zu geben, welche Teile auf unterschiedlichen Seiten zusammenleben könnten. Dies ähnelt sehr einer Technik namens {{Glossary("Card_sorting", "Kartensortierung")}}.
+   - Suche
+     - Flüge
+     - Unterkunft
+     - Transport
+     - Dinge zu tun
+   - Sonderangebote
+     - Beliebte Urlaube
+     - Wintersonne
+     - Skifahren
+   - Suchergebnisse
+     - Bewertungen
+     - Länderspezifische Infos
+       - Visum-/Einreiseanforderungen
+       - Währung
+       - Sprachen und Kultur
+   - Urlaub kaufen
+
+5. Versuchen Sie nun, eine grobe Sitemap zu skizzieren — haben Sie ein Kästchen für jede Seite auf Ihrer Website und ziehen Sie Linien, um den typischen Arbeitsablauf zwischen den Seiten zu zeigen. Die Homepage wird wahrscheinlich oben oder in der Mitte sein und zu den meisten, wenn nicht allen anderen verlinken. Die meisten Seiten auf einer kleinen Website sollten über die Hauptnavigation verfügbar sein, obwohl es Ausnahmen gibt. Möglicherweise möchten Sie auch Anmerkungen dazu machen, wie Dinge präsentiert werden könnten.![Eine Karte der Website, die die Startseite, Länderseite, Suchergebnisseite, Spezialseite und den Checkout- und Kaufablauf zeigt](/shared-assets/images/diagrams/learn/structuring-documents/site-map.svg)
+
+Versuchen Sie, die obige Übung für eine Website aus eigener Kreation durchzuführen. Worüber möchten Sie eine Website erstellen? Als erweitertes Ziel verwenden Sie das bisher erworbene HTML-Wissen, um einige der Seiten auf der Website zu erstellen. Sie könnten unsere [Grund-HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) als Ausgangspunkt verwenden.
 
 ## Zusammenfassung
 
-An diesem Punkt sollten Sie eine bessere Vorstellung davon haben, wie man eine Webseite/Website strukturiert. Im nächsten Artikel dieses Moduls werden wir uns einige fortgeschrittene Texttechniken ansehen.
+An diesem Punkt sollten Sie eine bessere Vorstellung davon haben, wie man eine Webseite/Website strukturiert. Im nächsten Artikel dieses Moduls sehen wir uns an, wie man Hyperlinks erstellt, eines der grundlegenden Features des Web.
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Marking_up_a_letter", "Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content")}}

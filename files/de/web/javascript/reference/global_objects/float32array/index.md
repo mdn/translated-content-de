@@ -2,19 +2,17 @@
 title: Float32Array
 slug: Web/JavaScript/Reference/Global_Objects/Float32Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Das **`Float32Array`** typisierte Array stellt ein Array von 32-Bit Gleitkommazahlen in der Byte-Reihenfolge der Plattform dar. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, Initialisierungsdaten werden explizit bereitgestellt. Sobald das Array erstellt ist, können Sie auf die Elemente entweder über die Methoden des Objekts oder die Standard-Array-Index-Syntax (also mit Klammern) zugreifen.
 
-Das getypte Array **`Float32Array`** repräsentiert ein Array von 32-Bit-Gleitkommazahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Einmal erstellt, können Sie auf die Elemente im Array über die Methoden des Objekts oder die standardmäßige Array-Index-Syntax (d.h. mit Klammernotation) zugreifen.
-
-`Float32Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}}-Klasse.
+`Float32Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
 - {{jsxref("Float32Array/Float32Array", "Float32Array()")}}
-  - : Erstellt ein neues `Float32Array`-Objekt.
+  - : Erstellt ein neues `Float32Array` Objekt.
 
 ## Statische Eigenschaften
 
@@ -31,12 +29,12 @@ _Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 _Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
-Diese Eigenschaften sind auf `Float32Array.prototype` definiert und werden von allen `Float32Array`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Float32Array.prototype` definiert und werden von allen `Float32Array` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Float32Array.prototype.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `4` im Fall eines `Float32Array`.
 - {{jsxref("Object/constructor", "Float32Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Float32Array`-Instanzen ist der Anfangswert der {{jsxref("Float32Array/Float32Array", "Float32Array")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Float32Array` Instanzen ist der Anfangswert der {{jsxref("Float32Array/Float32Array", "Float32Array")}} Konstruktor.
 
 ## Instanz-Methoden
 
@@ -87,7 +85,7 @@ console.log(float32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Float32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

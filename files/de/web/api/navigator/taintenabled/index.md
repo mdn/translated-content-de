@@ -3,14 +3,14 @@ title: "Navigator: taintEnabled() Methode"
 short-title: taintEnabled()
 slug: Web/API/Navigator/taintEnabled
 l10n:
-  sourceCommit: b829b2fae917b5b931011ddeb6a0d1b2d2b81c54
+  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
 ---
 
-{{APIRef("HTML DOM")}} {{deprecated_header}}
+{{APIRef("HTML DOM")}}
 
-Die **`Navigator.taintEnabled()`** Methode gibt immer `false` zurück.
+Die **`Navigator.taintEnabled()`**-Methode gibt immer `false` zurück.
 
-Die Verunreinigung war eine Sicherheitsmethode, die von JavaScript 1.2 verwendet wurde. Sie wurde schon lange entfernt; diese Methode bleibt nur zur Aufrechterhaltung der Kompatibilität mit sehr alten Skripten bestehen.
+Tainting war eine Sicherheitsmethode, die von JavaScript 1.2 verwendet wurde. Sie wurde schon lange entfernt; diese Methode bleibt nur zur Aufrechterhaltung der Kompatibilität mit sehr alten Skripten bestehen.
 
 ## Syntax
 

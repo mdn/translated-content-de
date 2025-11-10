@@ -3,56 +3,44 @@ title: "KeyboardEvent: shiftKey-Eigenschaft"
 short-title: shiftKey
 slug: Web/API/KeyboardEvent/shiftKey
 l10n:
-  sourceCommit: d4aeaf3f146c31c61abd34dd3d048505e5ab0257
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>Umschalt</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein
+boolean-Wert, der angibt, ob die <kbd>shift</kbd>-Taste gedrückt wurde
+(`true`) oder nicht (`false`), als das Ereignis auftrat.
 
-Das Drücken der Umschalttaste kann auch den [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Zum Beispiel erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
+Das Drücken der Shift-Taste kann auch das [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Beispielsweise erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Beispiele
 
 ```html
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>shiftKey example</title>
-
-    <script>
-      function showChar(e) {
-        alert(
-          "Key Pressed: " +
-            String.fromCharCode(e.charCode) +
-            "\n" +
-            "charCode: " +
-            e.charCode +
-            "\n" +
-            "SHIFT key pressed: " +
-            e.shiftKey +
-            "\n" +
-            "ALT key pressed: " +
-            e.altKey +
-            "\n",
-        );
-      }
-    </script>
-  </head>
-
-  <body onkeypress="showChar(event);">
-    <p>
-      Press any character key, with or without holding down the SHIFT key.<br />
-      You can also use the SHIFT key together with the ALT key.
-    </p>
-  </body>
-</html>
+<p>
+  Press any character key, with or without holding down the SHIFT key.<br />
+  You can also use the SHIFT key together with the ALT key.
+</p>
+<pre id="output"></pre>
 ```
+
+```js
+const output = document.getElementById("output");
+
+function showChar(e) {
+  output.textContent = `Key KeyDown: "${e.key}"
+SHIFT key KeyDown: ${e.shiftKey}
+`;
+}
+
+document.addEventListener("keydown", showChar);
+```
+
+{{EmbedLiveSample("examples", "", "400")}}
 
 ## Spezifikationen
 

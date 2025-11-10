@@ -2,16 +2,14 @@
 title: find.highlightResults()
 slug: Mozilla/Add-ons/WebExtensions/API/find/highlightResults
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Hebt die Ergebnisse eines vorherigen Aufrufs von {{WebExtAPIRef("find.find()")}} hervor.
 
-Wenn eine Erweiterung `find()` aufruft, werden die Treffer nicht automatisch hervorgehoben, aber sie werden vom Browser gespeichert. Rufen Sie `highlightResults()` auf, um sie hervorzuheben.
+Wenn eine Erweiterung `find()` aufruft, werden die Übereinstimmungen nicht automatisch hervorgehoben, sondern vom Browser gespeichert. Rufen Sie `highlightResults()` auf, um sie hervorzuheben.
 
-Beachten Sie, dass die gespeicherten Ergebnisse global über alle Erweiterungen hinweg sind. Wenn beispielsweise Erweiterung A `find("apple")` aufruft und anschließend Erweiterung B `find("banana")`, dann würde ein Aufruf von `highlightResults()` durch Erweiterung A die Ergebnisse für "banana" hervorheben.
+Beachten Sie, dass die gespeicherten Ergebnisse global über alle Erweiterungen hinweg sind. Wenn beispielsweise Erweiterung A `find("apple")` aufruft und dann Erweiterung B `find("banana")` aufruft, werden bei einem Aufruf von `highlightResults()` durch Erweiterung A die Ergebnisse für "banana" hervorgehoben.
 
 ## Syntax
 
@@ -24,9 +22,7 @@ browser.find.highlightResults(
 ### Parameter
 
 - `options` {{optional_inline}}
-
-  - : `object`. Ein Objekt, das zusätzliche Optionen spezifiziert. Es kann die folgenden Eigenschaften enthalten, die alle optional sind:
-
+  - : `object`. Ein Objekt, das zusätzliche Optionen angibt. Es kann eine der folgenden Eigenschaften besitzen, die alle optional sind:
     - `tabId`
       - : `integer`. ID des Tabs, der hervorgehoben werden soll. Standardmäßig der aktive Tab.
     - `rangeIndex`
@@ -38,13 +34,9 @@ browser.find.highlightResults(
 
 Keiner.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Durchsuchen Sie den aktiven Tab nach "banana", protokollieren Sie die Anzahl der Treffer und heben Sie sie hervor:
+Durchsuchen Sie den aktiven Tab nach "banana", protokollieren Sie die Anzahl der Übereinstimmungen und heben Sie sie hervor:
 
 ```js
 function found(results) {
@@ -56,3 +48,7 @@ function found(results) {
 
 browser.find.find("banana").then(found);
 ```
+
+## Browser-Kompatibilität
+
+{{Compat}}

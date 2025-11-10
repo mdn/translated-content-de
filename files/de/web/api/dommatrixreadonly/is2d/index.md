@@ -3,16 +3,16 @@ title: "DOMMatrixReadOnly: is2D-Eigenschaft"
 short-title: is2D
 slug: Web/API/DOMMatrixReadOnly/is2D
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`is2D`**-Eigenschaft des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces ist ein boolesches Flag, das `true` ist, wenn die Matrix 2D ist. Der Wert ist `true`, wenn die Matrix als 2D-Matrix initialisiert wurde und nur 2D-Transformationen angewendet wurden. Andernfalls ist die Matrix in 3D definiert und `is2D` ist `false`.
+Die schreibgeschützte **`is2D`**-Eigenschaft der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle ist ein Boolean-Flag, das `true` ist, wenn die Matrix 2D ist. Der Wert ist `true`, wenn die Matrix als 2D-Matrix initialisiert wurde und nur 2D-Transformationsoperationen angewendet wurden. Andernfalls ist die Matrix in 3D definiert und `is2D` ist `false`.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean-Wert.
 
 ## Beispiele
 
@@ -42,6 +42,6 @@ console.log(matrix.rotate(10, 20, 1).is2D); // output: false
 - [`CSSTransformComponent.is2D`](/de/docs/Web/API/CSSTransformComponent/is2D)
 - CSS {{cssxref("transform-function")}}-Funktionen
 - CSS {{cssxref("transform")}}-Eigenschaft
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)-Modul
-- SVG [`transform`](/de/docs/Web/SVG/Attribute/transform)-Attribut
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interface
+- [CSS-Transforms](/de/docs/Web/CSS/Guides/Transforms)-Modul
+- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribut
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle

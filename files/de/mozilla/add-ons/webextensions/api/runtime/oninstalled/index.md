@@ -2,14 +2,12 @@
 title: runtime.onInstalled
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onInstalled
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn die Erweiterung erstmals installiert wird, wenn die Erweiterung auf eine neue Version aktualisiert wird und wenn der Browser auf eine neue Version aktualisiert wird.
 
-Beachten Sie, dass `runtime.onInstalled` nicht dasselbe ist wie {{WebExtAPIRef("management.onInstalled")}}. Das `runtime.onInstalled`-Ereignis wird nur für Ihre Erweiterung ausgelöst. Das `browser.management.onInstalled`-Ereignis wird für jede Erweiterung ausgelöst.
+Beachten Sie, dass `runtime.onInstalled` nicht dasselbe ist wie {{WebExtAPIRef("management.onInstalled")}}. Das `runtime.onInstalled`-Ereignis wird nur für Ihre Erweiterung ausgelöst. Das `browser.management.onInstalled`-Ereignis wird für beliebige Erweiterungen ausgelöst.
 
 ## Syntax
 
@@ -24,34 +22,26 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn gelauscht wird, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `function`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
     - `details`
-
       - : Ein Objekt mit den folgenden Eigenschaften:
-
         - `id` {{optional_inline}}
-          - : `string`. Die ID der importierten, aktualisierten, gemeinsam genutzten Module-Erweiterung. Dies ist nur vorhanden, wenn der `reason`-Wert `shared_module_update` ist.
+          - : `string`. Die ID der importierten Shared Module-Erweiterung, die aktualisiert wurde. Dies ist nur vorhanden, wenn der `reason`-Wert `shared_module_update` ist.
         - `previousVersion` {{optional_inline}}
-          - : `string`. Die vorherige Version der soeben aktualisierten Erweiterung. Dies ist nur vorhanden, wenn der `reason`-Wert `update` ist.
+          - : `string`. Die vorherige Version der gerade aktualisierten Erweiterung. Dies ist nur vorhanden, wenn der `reason`-Wert `update` ist.
         - `reason`
           - : Ein {{WebExtAPIRef('runtime.OnInstalledReason')}}-Wert, der den Grund angibt, warum dieses Ereignis ausgelöst wird.
         - `temporary`
-          - : `boolean`. Wahr, wenn das Add-on vorübergehend installiert wurde. Zum Beispiel durch Verwendung der "about:debugging"-Seite in Firefox oder durch Verwendung von [web-ext run](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/). Andernfalls falsch.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+          - : `boolean`. Wahr, wenn das Add-on vorübergehend installiert wurde. Zum Beispiel durch die Seite "about:debugging" in Firefox oder unter Verwendung von [web-ext run](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/). Falsch andernfalls.
 
 ## Beispiele
 
@@ -70,33 +60,39 @@ browser.runtime.onInstalled.addListener(handleInstalled);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
 > Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onInstalled)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Nutzung in sowohl Quell- als auch Binärform, mit oder ohne
-// Modifizierungen, sind unter den folgenden Bedingungen erlaubt:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen des Quellcodes müssen den obigen Urheberrechtsvermerk,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverbreitungen in binärer Form müssen den obigen Urheberrechtsvermerk,
-// diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
-// Dokumentation und/oder anderen Materialien, die mit der Verbreitung bereitgestellt werden,
-// enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte zu unterstützen oder zu bewerben,
-// die von dieser Software abgeleitet sind ohne vorherige schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNGEN,
-// INKLUSIVE, ABER NICHT BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN
-// DER MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL
-// SOLLEN DIE EIGENTÜMER ODER MITWIRKENDEN FÜR JEGLICHE DIREKTE, INDIREKTE,
-// ZUFÄLLIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN HAFTBAR SEIN (EINSCHLIESSLICH,
-// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN;
-// NUTZUNGSAUSFALL, DATENVERLUST ODER GEWINNVERLUST; ODER BETRIEBSUNTERBRECHUNGEN) WIE AUCH IMMER VERURSACHT UND
-// AUF JEDER HAFTUNGSTHEORIE, OB VERTRAGLICH, VERSCHULDENSUNABHÄNGIG ODER UNERLAUBT (EINSCHLIESSLICH
-// FAHRLÄSSIGKEIT ODER ANDERWEITIG) ENTSTEHEN, SELBST WENN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

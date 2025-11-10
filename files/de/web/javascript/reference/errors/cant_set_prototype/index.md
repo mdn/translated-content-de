@@ -1,15 +1,13 @@
 ---
-title: "TypeError: kann das Prototyp dieses Objekts nicht festlegen"
+title: "TypeError: kann Prototyp dieses Objekts nicht setzen"
 slug: Web/JavaScript/Reference/Errors/Cant_set_prototype
 l10n:
-  sourceCommit: b1e4fbd476dd2c933711249d10031b5349180707
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "kann Prototyp dieses Objekts nicht setzen" tritt auf, wenn versucht wird, den Prototyp eines Objekts zu setzen, dessen Prototyp jedoch eingefroren ist. Dies kann der Fall sein, wenn es sich um ein eingebautes unveränderliches Prototypobjekt handelt oder wenn es [nicht erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist.
 
-Der JavaScript-Ausnahmefehler "kann das Prototyp dieses Objekts nicht festlegen" tritt auf, wenn versucht wird, das Prototyp eines Objekts festzulegen, das jedoch gesperrt ist. Dies kann der Fall sein, wenn es sich um ein eingebautes unveränderliches Prototyp-Objekt handelt oder das Objekt [nicht erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist.
-
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Immutable prototype object 'Object.prototype' cannot have their prototype set (V8-based)
@@ -25,23 +23,23 @@ TypeError: Attempted to assign to readonly property. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Sie verwenden eine der Prototyp-verändernden Methoden—insbesondere {{jsxref("Object.setPrototypeOf()")}}—auf einem Objekt, dessen Prototyp unveränderlich ist. Einige eingebaute Objekte haben aus Sicherheitsgründen unveränderliche Prototypen, wie `Object.prototype` und [`window`](/de/docs/Web/API/Window). Benutzerdefinierte Objekte können Prototyp-Veränderungen verhindern, indem {{jsxref("Object.preventExtensions()")}}, {{jsxref("Object.seal()")}}, oder {{jsxref("Object.freeze()")}} verwendet wird.
+Sie verwenden eine der Methoden zur Mutierung von Prototypen, insbesondere {{jsxref("Object.setPrototypeOf()")}}, auf einem Objekt, dessen Prototyp unveränderlich ist. Einige eingebaute Objekte haben aus Sicherheitsgründen unveränderliche Prototypen, wie `Object.prototype` und [`window`](/de/docs/Web/API/Window). Nutzerobjekte können auch verhindern, dass Prototypenänderungen vorgenommen werden, indem sie {{jsxref("Object.preventExtensions()")}}, {{jsxref("Object.seal()")}}, oder {{jsxref("Object.freeze()")}} verwenden.
 
 ## Beispiele
 
-### Änderung des Prototyps eines eingebauten Objekts
+### Prototyp eines eingebauten Objekts ändern
 
-Einige wenige eingebaute Objekte besitzen unveränderliche Prototypen. Zum Beispiel können Sie den Prototyp von `Object.prototype` nicht ändern:
+Einige wenige eingebaute Objekte haben unveränderliche Prototypen. Zum Beispiel können Sie den Prototyp von `Object.prototype` nicht ändern:
 
 ```js example-bad
 Object.setPrototypeOf(Object.prototype, {});
 ```
 
-Dies verhindert, dass das Verhalten aller Objekte im System willkürlich geändert wird. Der Prototyp von `Object.prototype` ist immer `null`. Andere eingebaute Prototyp-Objekte wie `Function.prototype` und `Array.prototype` sind in dieser Hinsicht jedoch standardmäßig nicht geschützt.
+Dies verhindert, dass Sie das Verhalten aller Objekte im System beliebig ändern können. Der Prototyp von `Object.prototype` ist immer `null`. Andere eingebaute Prototypobjekte wie `Function.prototype` und `Array.prototype` sind jedoch standardmäßig in dieser Hinsicht nicht geschützt.
 
-### Änderung des Prototyps eines nicht-erweiterbaren Objekts
+### Prototyp eines nicht erweiterbaren Objekts ändern
 
-Wenn Sie ein Objekt nicht-erweiterbar machen, können Sie seinen Prototyp ebenfalls nicht ändern:
+Wenn Sie ein Objekt nicht erweiterbar machen, können Sie auch seinen Prototyp nicht ändern:
 
 ```js example-bad
 const obj = {};

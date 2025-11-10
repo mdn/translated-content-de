@@ -1,23 +1,23 @@
 ---
-title: "Element: touchend Ereignis"
+title: "Element: touchend-Ereignis"
 short-title: touchend
 slug: Web/API/Element/touchend_event
 l10n:
-  sourceCommit: 55847a077ad70782d775374c7f55679ef8d26657
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Touch Events")}}
 
-Das `touchend` Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte von der Berührungsoberfläche entfernt werden. Beachten Sie, dass es möglich ist, stattdessen ein [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event) Ereignis zu erhalten.
+Das `touchend`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte von der Berührungsoberfläche entfernt werden. Beachten Sie, dass es möglich ist, stattdessen ein [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignis zu erhalten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
-```js
-addEventListener("touchend", (event) => {});
+```js-nolint
+addEventListener("touchend", (event) => { })
 
-ontouchend = (event) => {};
+ontouchend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,30 +28,30 @@ Ein [`TouchEvent`](/de/docs/Web/API/TouchEvent). Erbt von [`Event`](/de/docs/Web
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternobjekt, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem übergeordneten Interface, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`TouchEvent.altKey`](/de/docs/Web/API/TouchEvent/altKey) {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Alt-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
+  - : Ein boolescher Wert, der angibt, ob die Alt-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
 - [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches) {{ReadOnlyInline}}
-  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch) Objekte, die einzelne Kontaktpunkte repräsentieren, deren Zustände sich zwischen dem vorherigen Berührungsereignis und diesem geändert haben.
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) von allen [`Touch`](/de/docs/Web/API/Touch)-Objekten, die einzelne Berührungspunkte darstellen, deren Status sich zwischen dem vorherigen Touch-Ereignis und diesem einen geändert hat.
 - [`TouchEvent.ctrlKey`](/de/docs/Web/API/TouchEvent/ctrlKey) {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Steuerungstaste gedrückt war, als das Berührungsereignis ausgelöst wurde.
+  - : Ein boolescher Wert, der angibt, ob die Strg-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
 - [`TouchEvent.metaKey`](/de/docs/Web/API/TouchEvent/metaKey) {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Meta-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
+  - : Ein boolescher Wert, der angibt, ob die Meta-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
 - [`TouchEvent.shiftKey`](/de/docs/Web/API/TouchEvent/shiftKey) {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Umschalttaste gedrückt war, als das Berührungsereignis ausgelöst wurde.
+  - : Ein boolescher Wert, der angibt, ob die Umschalttaste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
 - [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches) {{ReadOnlyInline}}
-  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch) Objekte, die sowohl derzeit in Kontakt mit der Berührungsoberfläche stehen **als auch** auf dem gleichen Element gestartet wurden, das das Ziel des Ereignisses ist.
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die derzeit sowohl mit der Berührungsoberfläche in Kontakt sind **als auch** auf demselben Element gestartet wurden, das das Ziel des Ereignisses ist.
 - [`TouchEvent.touches`](/de/docs/Web/API/TouchEvent/touches) {{ReadOnlyInline}}
-  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch) Objekte, die alle aktuellen Kontaktpunkte mit der Oberfläche representieren, unabhängig vom Ziel oder geändertem Status.
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die alle aktuellen Berührungspunkte mit der Oberfläche darstellen, unabhängig von Ziel oder geändertem Status.
 - [`TouchEvent.rotation`](/de/docs/Web/API/TouchEvent/rotation) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Änderung der Drehung (in Grad) seit dem Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+  - : Die Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
 - [`TouchEvent.scale`](/de/docs/Web/API/TouchEvent/scale) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Abstand zwischen zwei Fingern seit dem Beginn des Ereignisses. Ausgedrückt als Gleitkommazahl, die ein Vielfaches des ursprünglichen Abstands zwischen den Fingern zu Beginn des Ereignisses darstellt. Werte unter 1.0 zeigen ein Einzoomen (Herauszoomen) an. Werte über 1.0 zeigen ein Herauszoomen (Hineinzoomen) an. Anfangswert: `1.0`.
+  - : Abstand zwischen zwei Punkten seit Beginn des Ereignisses. Ausgedrückt als Gleitkomma-Multiplikator des ursprünglichen Abstands zwischen den Punkten zu Beginn des Ereignisses. Werte unter 1.0 zeigen ein Zusammenziehen (Herauszoomen) an. Werte über 1.0 zeigen ein Auseinanderziehen (Hineinzoomen) an. Anfangswert: `1.0`.
 
 ## Beispiele
 
-Codebeispiele für diese Ereignisse sind auf der speziellen Seite verfügbar: [Touch Events](/de/docs/Web/API/Touch_events).
+Beispielcode für diese Ereignisse ist auf der dedizierten Seite verfügbar: [Touch events](/de/docs/Web/API/Touch_events).
 
 ## Spezifikationen
 
@@ -63,4 +63,4 @@ Codebeispiele für diese Ereignisse sind auf der speziellen Seite verfügbar: [T
 
 ## Siehe auch
 
-- [Touch Events](/de/docs/Web/API/Touch_events)
+- [Touch events](/de/docs/Web/API/Touch_events)

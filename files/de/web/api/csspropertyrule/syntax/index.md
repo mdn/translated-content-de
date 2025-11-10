@@ -3,12 +3,12 @@ title: "CSSPropertyRule: syntax-Eigenschaft"
 short-title: syntax
 slug: Web/API/CSSPropertyRule/syntax
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("CSS Properties and Values API")}}
 
-Die schreibgeschützte **`syntax`**-Eigenschaft der Schnittstelle [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule) gibt die wörtliche Syntax der benutzerdefinierten Eigenschaftsregistrierung zurück, die durch die {{cssxref("@property")}}-Regel dargestellt wird. Diese steuert, wie der Wert der Eigenschaft zur Berechnungszeit geparst wird.
+Die schreibgeschützte **`syntax`**-Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle gibt die wörtliche Syntax der durch die {{cssxref("@property")}}-Regel dargestellten benutzerdefinierten Eigenschaftsregistrierung zurück und steuert, wie der Wert der Eigenschaft zur Berechnungszeit geparst wird.
 
 ## Wert
 
@@ -27,8 +27,8 @@ Dieses Stylesheet enthält eine einzige {{cssxref("@property")}}-Regel. Die erst
 ```
 
 ```js
-let myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0].syntax); //the string "<color>"
+const myRules = document.styleSheets[0].cssRules;
+console.log(myRules[0].syntax); // "<color>"
 ```
 
 ## Spezifikationen

@@ -1,14 +1,14 @@
 ---
-title: "SpeechSynthesisUtterance: SpeechSynthesisUtterance()-Konstruktor"
+title: "SpeechSynthesisUtterance: SpeechSynthesisUtterance() Konstruktor"
 short-title: SpeechSynthesisUtterance()
 slug: Web/API/SpeechSynthesisUtterance/SpeechSynthesisUtterance
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("Web Speech API")}}
 
-Der `SpeechSynthesisUtterance()`-Konstruktor des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces gibt eine neue Instanz des `SpeechSynthesisUtterance`-Objekts zurück.
+Der `SpeechSynthesisUtterance()` Konstruktor der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Schnittstelle gibt eine neue Instanz des `SpeechSynthesisUtterance`-Objekts zurück.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ new SpeechSynthesisUtterance(text)
 
 ## Beispiele
 
-Das folgende Snippet stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis).
+Der folgende Ausschnitt stammt aus unserem [Speech synthesizer Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis).
 
 ```js
 const synth = window.speechSynthesis;
@@ -34,7 +34,7 @@ const voiceSelect = document.querySelector("select");
 
 const voices = synth.getVoices();
 
-// ...
+// …
 
 inputForm.onsubmit = (event) => {
   event.preventDefault();
@@ -42,9 +42,9 @@ inputForm.onsubmit = (event) => {
   const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
   const selectedOption =
     voiceSelect.selectedOptions[0].getAttribute("data-name");
-  for (let i = 0; i < voices.length; i++) {
-    if (voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+  for (const voice of voices) {
+    if (voice.name === selectedOption) {
+      utterThis.voice = voice;
     }
   }
   synth.speak(utterThis);

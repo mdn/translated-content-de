@@ -1,13 +1,14 @@
 ---
 title: Temporal.ZonedDateTime.compare()
+short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/compare
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.ZonedDateTime.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob die erste Datum-Zeit vor, gleich oder nach der zweiten Datum-Zeit liegt. Sie entspricht dem Vergleich der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} der beiden Datum-Zeiten.
+Die **statische Methode `Temporal.ZonedDateTime.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die anzeigt, ob das erste Datum-Uhrzeit-Paar vor, gleichzeitig mit oder nach dem zweiten liegt. Es entspricht dem Vergleich der {{jsxref("Temporal/ZonedDateTime/epochNanoseconds", "epochNanoseconds")}} der beiden Datum-Uhrzeit-Paare.
 
 ## Syntax
 
@@ -18,13 +19,13 @@ Temporal.ZonedDateTime.compare(dateTime1, dateTime2)
 ### Parameter
 
 - `dateTime1`
-  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.ZonedDateTime")}}, die die erste zu vergleichende Datum-Zeit darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime`-Objekt umgewandelt.
+  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.ZonedDateTime")}}, die das erste zu vergleichende Datum-Uhrzeit-Paar darstellt. Es wird unter Verwendung desselben Algorithmus wie {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime`-Objekt konvertiert.
 - `dateTime2`
-  - : Die zweite zu vergleichende Datum-Zeit, die mit demselben Algorithmus wie `dateTime1` in ein `Temporal.ZonedDateTime`-Objekt umgewandelt wird.
+  - : Das zweite zu vergleichende Datum-Uhrzeit-Paar, das unter Verwendung desselben Algorithmus wie `dateTime1` in ein `Temporal.ZonedDateTime`-Objekt konvertiert wird.
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `dateTime1` vor `dateTime2` liegt, `0`, wenn sie gleich sind, und `1`, wenn `dateTime2` nach `dateTime1` kommt. Sie werden anhand ihrer zugrundeliegenden Instant-Werte verglichen, wobei ihre Kalender oder Zeitzonen ignoriert werden.
+Gibt `-1` zurück, wenn `dateTime1` vor `dateTime2` liegt, `0`, wenn sie gleich sind, und `1`, wenn `dateTime1` nach `dateTime2` liegt. Sie werden anhand ihrer zugrunde liegenden Instant-Werte verglichen, wobei ihre Kalender oder Zeitzonen ignoriert werden.
 
 ## Beispiele
 
@@ -39,9 +40,9 @@ const dt3 = Temporal.ZonedDateTime.from("2021-08-01T00:00:00[Europe/London]");
 console.log(Temporal.ZonedDateTime.compare(dt1, dt3)); // 1
 ```
 
-### Sortieren eines Arrays von Datum-Zeiten
+### Sortieren eines Arrays von Datum-Uhrzeit-Paaren
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Komparator zu dienen, der an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
+Der Zweck dieser `compare()`-Funktion besteht darin, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
 
 ```js
 const dateTimes = [
@@ -55,7 +56,7 @@ console.log(dateTimes.map((d) => d.toString()));
 // [ "2021-08-01T00:00:00+08:00[Asia/Hong_Kong]", "2021-08-01T00:00:00+01:00[Europe/London]", "2021-08-01T00:00:00-04:00[America/New_York]" ]
 ```
 
-Beachten Sie, dass sie nach ihren Instant-Werten verglichen werden. In dem sehr seltenen Fall, dass Sie sie nach ihren Wanduhrenzeiten vergleichen wollen, konvertieren Sie sie zuerst in `PlainDateTime`.
+Beachten Sie, dass sie anhand ihrer Instant-Werte verglichen werden. In dem sehr seltenen Fall, dass Sie sie anhand ihrer Wanduhren-Zeiten vergleichen möchten, konvertieren Sie sie zunächst in `PlainDateTime`.
 
 ```js
 const dateTimes = [

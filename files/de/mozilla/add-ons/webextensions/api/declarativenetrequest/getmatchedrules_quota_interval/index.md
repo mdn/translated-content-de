@@ -2,12 +2,10 @@
 title: declarativeNetRequest.GETMATCHEDRULES_QUOTA_INTERVAL
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/GETMATCHEDRULES_QUOTA_INTERVAL
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Das Zeitintervall, innerhalb dessen {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}}-Aufrufe von {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} erfolgen können, angegeben in Minuten. Zusätzliche Aufrufe schlagen sofort fehl und führen zu einer Promise-Ablehnung. Aufrufe, die mit einer Benutzeraktion verbunden sind, sind von der Quote ausgenommen.
+Das Zeitintervall, innerhalb dessen {{WebExtAPIRef("declarativeNetRequest.MAX_GETMATCHEDRULES_CALLS_PER_INTERVAL")}}-Aufrufe von {{WebExtAPIRef("declarativeNetRequest.getMatchedRules")}} erfolgen können, angegeben in Minuten. Zusätzliche Aufrufe schlagen sofort fehl und führen zu einer Ablehnung des Versprechens. Anrufe, die mit einer Benutzergeste verbunden sind, sind von der Quote ausgenommen.
 
 Der Wert ist `10`.
 

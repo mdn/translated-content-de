@@ -2,23 +2,51 @@
 title: Weniger als
 slug: WebAssembly/Reference/Numeric/Less_than
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`lt`**-Anweisungen, kurz für _weniger als_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`lt`**-Anweisungen, kurz für _weniger als_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
 
-Bei Ganzzahltypen gibt es separate "weniger als"-Anweisungen für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
+Die Ganzzahltypen haben separate Anweisungen für „weniger als“ für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
 
-{{EmbedInteractiveExample("pages/wat/lt.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: lt", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "env" "log_bool" (func $log_bool (param i32)))
+  (func $main
+    ;; load `10` and `2` onto the stack
+    i32.const 10
+    i32.const 2
+
+    i32.lt_u ;; check if `10` is less than '2'
+    call $log_bool ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+
+function log_bool(value) {
+  console.log(Boolean(value));
+  // Expected output: false
+}
+
+await WebAssembly.instantiateStreaming(fetch(url), {
+  env: { log_bool },
+});
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2
 
-;; check if $num is less then '2'
+;; check if $num is less than '2'
 i32.lt_u
 
 ;; if $num is less than the `2`, `1` will be pushed on to the stack,

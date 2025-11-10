@@ -1,13 +1,11 @@
 ---
-title: Literal
+title: Literale
 slug: Glossary/Literal
 l10n:
-  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Literals** repräsentieren Werte in JavaScript. Dies sind feste Werte—nicht Variablen—die Sie _buchstäblich_ in Ihrem Skript angeben.
+**Literale** repräsentieren Werte in JavaScript. Es handelt sich um feste Werte—keine Variablen—die Sie _buchstäblich_ in Ihrem Skript angeben.
 
 - [Array-Literale](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals)
 - [Boolean-Literale](/de/docs/Web/JavaScript/Guide/Grammar_and_types#boolean_literals)
@@ -21,7 +19,7 @@ l10n:
 
 ### String-Literale
 
-Ein String-Literal besteht aus null oder mehr Zeichen, die in doppelte (`"`) oder einfache Anführungszeichen (`'`) eingeschlossen sind. Ein String muss durch Anführungszeichen desselben Typs begrenzt sein (also entweder beide einfache oder beide doppelte Anführungszeichen).
+Ein String-Literal besteht aus null oder mehr Zeichen, die in doppelte (`"`) oder einfache Anführungszeichen (`'`) eingeschlossen sind. Ein String muss durch Anführungszeichen desselben Typs begrenzt werden (das heißt, entweder beide einfache Anführungszeichen oder beide doppelte Anführungszeichen).
 
 Die folgenden sind Beispiele für String-Literale:
 
@@ -37,7 +35,7 @@ Die folgenden sind Beispiele für String-Literale:
 
 Ein Objekt-Literal ist eine Liste von null oder mehr Paaren von Eigenschaftsnamen und zugehörigen Werten eines Objekts, eingeschlossen in geschweifte Klammern (`{}`).
 
-Das folgende ist ein Beispiel für ein Objekt-Literal. Das erste Element des `car`-Objekts definiert eine Eigenschaft, `myCar`, und weist ihr einen neuen String zu, `"Toyota"`; das zweite Element, die `getCar`-Eigenschaft, wird sofort mit dem Ergebnis der Ausführung der Funktion `carTypes('Honda')` zugewiesen; das dritte Element, die `special`-Eigenschaft, verwendet eine bestehende Variable (`sales`).
+Das folgende ist ein Beispiel für ein Objekt-Literal. Das erste Element des `car`-Objekts definiert eine Eigenschaft, `myCar`, und weist ihr einen neuen String, `"Toyota"`, zu; das zweite Element, die `getCar`-Eigenschaft, wird sofort dem Ergebnis der Ausführung der Funktion `carTypes('Honda')` zugewiesen; das dritte Element, die `special`-Eigenschaft, verwendet eine bestehende Variable (`sales`).
 
 ```js
 const sales = "BMW";

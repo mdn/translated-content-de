@@ -1,14 +1,14 @@
 ---
-title: "WorkerGlobalScope: createImageBitmap()-Methode"
+title: "WorkerGlobalScope: createImageBitmap() Methode"
 short-title: createImageBitmap()
 slug: Web/API/WorkerGlobalScope/createImageBitmap
 l10n:
-  sourceCommit: 58d79e9c2206e0a604cd4d7f6fba5181262af420
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers("worker")}}
 
-Die **`createImageBitmap()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt ein Bitmap aus einer gegebenen Quelle, das optional zugeschnitten werden kann, um nur einen Teil dieser Quelle zu enthalten. Sie akzeptiert eine Vielzahl verschiedener Bildquellen und gibt ein {{jsxref("Promise")}} zurück, das zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) aufgelöst wird.
+Die **`createImageBitmap()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt ein Bitmap aus einer gegebenen Quelle, das optional zugeschnitten werden kann, um nur einen Teil dieser Quelle zu enthalten. Es akzeptiert eine Vielzahl von unterschiedlichen Bildquellen und gibt ein {{jsxref("Promise")}} zurück, das sich zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) auflöst.
 
 ## Syntax
 
@@ -33,42 +33,47 @@ createImageBitmap(image, sx, sy, sw, sh, options)
     - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
     - [`VideoFrame`](/de/docs/Web/API/VideoFrame)
 - `sx`
-  - : Die x-Koordinate des Bezugspunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
+  - : Die x-Koordinate des Referenzpunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
 - `sy`
-  - : Die y-Koordinate des Bezugspunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
+  - : Die y-Koordinate des Referenzpunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
 - `sw`
-  - : Die Breite des Rechtecks, aus dem das `ImageBitmap` extrahiert wird. Dieser Wert kann negativ sein.
+  - : Die Breite des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
+    Dieser Wert kann negativ sein.
 - `sh`
   - : Die Höhe des Rechtecks, aus dem das `ImageBitmap` extrahiert wird. Dieser Wert kann negativ sein.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen für die Extraktion des Bildes festlegt. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen für die Extraktion des Bildes festlegt.
+    Die verfügbaren Optionen sind:
 
     - `imageOrientation`
 
       - : Gibt an, wie das Bitmap-Bild ausgerichtet werden soll.
-
         - `from-image`
-          - : Bild wird entsprechend der EXIF-Orientierungsmetadaten ausgerichtet, falls vorhanden (Standard).
+          - : Bild gemäß EXIF-Ausrichtungsmetadaten ausgerichtet, falls vorhanden (Standard).
         - `flipY`
-          - : Bild wird entsprechend der EXIF-Orientierungsmetadaten ausgerichtet, falls vorhanden, und dann vertikal gespiegelt.
+          - : Bild gemäß EXIF-Ausrichtungsmetadaten ausgerichtet, falls vorhanden, und dann vertikal gespiegelt.
         - `none`
-          - : Bild wird entsprechend der Bildkodierung ausgerichtet, wobei alle Metadaten zur Ausrichtung ignoriert werden (wie EXIF-Metadaten, die einem Bild hinzugefügt werden könnten, um anzuzeigen, dass die Kamera gedreht wurde, um das Bild im Hochformat aufzunehmen).
+          - : Bild anhand der Bildkodierung ausgerichtet, unter Ignorierung von Metadaten zur Ausrichtung (z. B. EXIF-Metadaten, die einem Bild hinzugefügt sein könnten, um anzugeben, dass die Kamera zur Aufnahme im Hochformat gedreht wurde).
 
     - `premultiplyAlpha`
-      - : Gibt an, ob die Farbkanäle des Bitmaps durch den Alphakanal vorgemischt werden sollen. Einer von `none`, `premultiply` oder `default` (Standard).
+      - : Gibt an, ob die Farbkanäle des Bitmaps mit dem Alphakanal vorvervielfacht werden sollen.
+        Eine der Optionen `none`, `premultiply` oder `default` (Standard).
     - `colorSpaceConversion`
-      - : Gibt an, ob das Bild mithilfe der Farbraumkonvertierung dekodiert werden soll. Entweder `none` oder `default` (Standard). Der Wert `default` gibt an, dass ein implementierungsspezifisches Verhalten verwendet wird.
+      - : Gibt an, ob das Bild mithilfe einer Farbkonvertierung dekodiert werden soll.
+        Entweder `none` oder `default` (Standard).
+        Der Wert `default` gibt an, dass eine implementierungsspezifische Vorgehensweise verwendet wird.
     - `resizeWidth`
-      - : Ein langer Integer, der die Ausgangsbreite angibt.
+      - : Eine ganze Zahl, die die Ausgabebreite angibt.
     - `resizeHeight`
-      - : Ein langer Integer, der die Ausgangshöhe angibt.
+      - : Eine ganze Zahl, die die Ausgabebreite angibt.
     - `resizeQuality`
-      - : Gibt den Algorithmus an, der verwendet werden soll, um die Eingabe so zu skalieren, dass sie den Ausgabedimensionen entspricht. Einer von `pixelated`, `low` (Standard), `medium` oder `high`.
+      - : Gibt den Algorithmus an, der zum Anpassen der Eingabedaten an die Ausgabedimensionen verwendet wird.
+        Eine der Optionen `pixelated`, `low` (Standard), `medium` oder `high`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt aufgelöst wird, das Bitmap-Daten aus dem angegebenen Rechteck enthält.
+Ein {{jsxref("Promise")}}, das sich zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt auflöst, das Bitmap-Daten aus dem angegebenen Rechteck enthält.
 
 ## Beispiele
 

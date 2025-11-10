@@ -2,12 +2,10 @@
 title: tabs.getZoom()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/getZoom
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft den aktuellen Zoomfaktor für den angegebenen Tab ab.
+Ermittelt den aktuellen Zoomfaktor für den angegebenen Tab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,15 +20,15 @@ let gettingZoom = browser.tabs.getZoom(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, von dem der aktuelle Zoomfaktor abgerufen werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
+  - : `integer`. Die ID des Tabs, aus dem der aktuelle Zoomfaktor ermittelt werden soll. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem aktuellen Zoomfaktor des Tabs erfüllt wird, als Zahl zwischen 0,3 und 5. Falls der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem aktuellen Zoomfaktor des Tabs erfüllt wird, als eine Zahl zwischen 0.3 und 5. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Den Zoomfaktor für den aktuellen Tab abrufen:
+Ermitteln Sie den Zoomfaktor für den aktuellen Tab:
 
 ```js
 function onGot(zoom) {
@@ -45,7 +43,7 @@ let gettingZoom = browser.tabs.getZoom();
 gettingZoom.then(onGot, onError);
 ```
 
-Den Zoomfaktor für den Tab mit der ID 2 abrufen:
+Ermitteln Sie den Zoomfaktor für den Tab mit der ID 2:
 
 ```js
 function onGot(zoom) {
@@ -67,7 +65,7 @@ gettingZoom.then(onGot, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoom) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoom) API von Chromium. Diese Dokumentation wurde von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

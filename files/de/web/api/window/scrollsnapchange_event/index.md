@@ -1,36 +1,36 @@
 ---
-title: "Window: scrollsnapchange-Ereignis"
+title: "Window: scrollsnapchange Event"
 short-title: scrollsnapchange
 slug: Web/API/Window/scrollsnapchange_event
 l10n:
-  sourceCommit: 3b3394b9b1e966bb1d397bd6e50e2fb5bde7b3c5
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`scrollsnapchange`**-Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird am `window` am Ende eines Scroll-Vorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wird.
+Das **`scrollsnapchange`** Ereignis der [`Window`](/de/docs/Web/API/Window) Schnittstelle wird am `window` am Ende eines Scrollvorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wird.
 
-Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element)-Interface-Ereignis [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event), außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt werden muss (d.h., {{cssxref("scroll-snap-type")}} ist auf dem {{htmlelement("html")}}-Element gesetzt).
+Dieses Ereignis funktioniert ähnlich wie das [`Element`](/de/docs/Web/API/Element) Schnittstelle's [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event) Ereignis, außer dass das gesamte HTML-Dokument als Scroll-Snap-Container festgelegt werden muss (d.h. {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}} Element gesetzt).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("scrollsnapchange", (event) => {});
+```js-nolint
+addEventListener("scrollsnapchange", (event) => { })
 
-onscrollsnapchange = (event) => {};
+onscrollsnapchange = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`SnapEvent`](/de/docs/Web/API/SnapEvent), das vom generischen [`Event`](/de/docs/Web/API/Event)-Typ erbt.
+Ein [`SnapEvent`](/de/docs/Web/API/SnapEvent), das vom generischen [`Event`](/de/docs/Web/API/Event) Typ erbt.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Angenommen, wir haben ein {{htmlelement("main")}}-Element, das signifikanten Inhalt enthält und es dadurch scrollbar macht:
+Angenommen, wir haben ein {{htmlelement("main")}} Element, das erheblichen Inhalt enthält, der dazu führt, dass es scrollt:
 
 ```html
 <main>
@@ -38,7 +38,7 @@ Angenommen, wir haben ein {{htmlelement("main")}}-Element, das signifikanten Inh
 </main>
 ```
 
-Das `<main>`-Element kann mit einer Kombination von CSS-Eigenschaften in einen Scroll-Container verwandelt werden, zum Beispiel:
+Das `<main>` Element kann durch eine Kombination von CSS-Eigenschaften in einen Scroll-Container verwandelt werden, zum Beispiel:
 
 ```css
 main {
@@ -48,7 +48,7 @@ main {
 }
 ```
 
-Wir können dann ein Scroll-Snap-Verhalten auf dem scrollenden Inhalt implementieren, indem wir die {{cssxref("scroll-snap-type")}}-Eigenschaft auf dem {{htmlelement("html")}}-Element festlegen:
+Wir können dann das Scroll-Snapping-Verhalten auf den scrollenden Inhalt implementieren, indem wir die {{cssxref("scroll-snap-type")}} Eigenschaft auf das {{htmlelement("html")}} Element festlegen:
 
 ```css
 html {
@@ -56,7 +56,7 @@ html {
 }
 ```
 
-Der folgende JavaScript-Code-Snippet würde dazu führen, dass das `scrollsnapchange`-Ereignis auf dem HTML-Dokument ausgelöst wird, wenn ein Kind des `<main>`-Elements zu einem neu ausgewählten Snap-Ziel wird. In der Handler-Funktion setzen wir eine `selected`-Klasse auf das Kind, das durch das [`SnapEvent.snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) referenziert wird, die verwendet werden könnte, um es so zu gestalten, dass es wie ausgewählt aussieht (zum Beispiel mit einer Animation), wenn das Ereignis ausgelöst wird.
+Das folgende JavaScript-Snippet würde bewirken, dass das `scrollsnapchange` Ereignis im HTML-Dokument ausgelöst wird, wenn ein Kind des `<main>` Elements ein neu ausgewähltes Snap-Ziel wird. In der Handler-Funktion setzen wir eine `selected` Klasse auf das Kind, auf das durch den [`SnapEvent.snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) verwiesen wird, die verwendet werden könnte, um es so zu stylen, dass es wie ausgewählt aussieht (zum Beispiel mit einer Animation), wenn das Ereignis ausgelöst wird.
 
 ```js
 window.addEventListener("scrollsnapchange", (event) => {
@@ -78,6 +78,6 @@ window.addEventListener("scrollsnapchange", (event) => {
 - [`scrollend`](/de/docs/Web/API/Document/scrollend_event) Ereignis
 - [`SnapEvent`](/de/docs/Web/API/SnapEvent)
 - CSS {{cssxref("scroll-snap-type")}} Eigenschaft
-- [CSS scroll snap module](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Verwendung von Scroll-Snap-Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
+- [CSS Scroll Snap Modul](/de/docs/Web/CSS/Guides/Scroll_snap)
+- [Verwendung von Scroll Snap-Ereignissen](/de/docs/Web/CSS/Guides/Scroll_snap/Using_scroll_snap_events)
 - [Scroll Snap Events](https://developer.chrome.com/blog/scroll-snap-events) auf developer.chrome.com (2024)

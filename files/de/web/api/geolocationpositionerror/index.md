@@ -2,33 +2,33 @@
 title: GeolocationPositionError
 slug: Web/API/GeolocationPositionError
 l10n:
-  sourceCommit: 89c7b111d380e607e94b58abbd0d37951cf395c4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Das **`GeolocationPositionError`**-Interface repräsentiert den Grund eines Fehlers, der bei der Verwendung des geografischen Ortungsgeräts auftritt.
+Die **`GeolocationPositionError`**-Schnittstelle repräsentiert den Grund für einen Fehler, der beim Verwenden des Geolokalisierungsgeräts auftritt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Das `GeolocationPositionError`-Interface erbt keine Eigenschaft._
+_Die `GeolocationPositionError`-Schnittstelle erbt keine Eigenschaften._
 
 - [`GeolocationPositionError.code`](/de/docs/Web/API/GeolocationPositionError/code) {{ReadOnlyInline}}
 
-  - : Gibt einen `unsigned short` zurück, der den Fehlercode repräsentiert. Die folgenden Werte sind möglich:
+  - : Gibt einen `unsigned short` zurück, der den Fehlercode darstellt. Die folgenden Werte sind möglich:
 
-    | Wert | Zugehörige Konstante   | Beschreibung                                                                                                                                                                                                                       |
-    | ---- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `1`  | `PERMISSION_DENIED`    | Der Erwerb der Geolokalisierungsinformationen schlug fehl, weil die Seite nicht die notwendigen Berechtigungen hatte, beispielsweise weil sie durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert ist. |
-    | `2`  | `POSITION_UNAVAILABLE` | Der Erwerb der Geolokalisierung schlug fehl, weil mindestens eine interne Quelle für die Position einen internen Fehler zurückgab.                                                                                                 |
-    | `3`  | `TIMEOUT`              | Die für den Erwerb der Geolokalisierung zugelassene Zeit wurde erreicht, bevor die Informationen erhalten wurden.                                                                                                                  |
+    | Wert | Zugehörige Konstante   | Beschreibung                                                                                                                                                                                                                                      |
+    | ---- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `1`  | `PERMISSION_DENIED`    | Die Erfassung der Geolokalisierungsinformationen schlug fehl, weil die Seite nicht die notwendigen Berechtigungen hatte, beispielsweise weil sie durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert ist. |
+    | `2`  | `POSITION_UNAVAILABLE` | Die Erfassung der Geolokalisierung schlug fehl, weil mindestens eine interne Positionsquelle einen internen Fehler zurückgab.                                                                                                                     |
+    | `3`  | `TIMEOUT`              | Die erlaubte Zeit, um die Geolokalisierung zu erfassen, wurde erreicht, bevor die Informationen abgerufen wurden.                                                                                                                                 |
 
 - [`GeolocationPositionError.message`](/de/docs/Web/API/GeolocationPositionError/message) {{ReadOnlyInline}}
-  - : Gibt einen menschenlesbaren String zurück, der die Details des Fehlers beschreibt. Spezifikationen vermerken, dass dies hauptsächlich für Debugging-Zwecke gedacht ist und nicht direkt in einer Benutzeroberfläche gezeigt werden sollte.
+  - : Gibt eine menschenlesbare Zeichenkette zurück, die die Details des Fehlers beschreibt. Spezifikationen beachten, dass dies hauptsächlich für Debugging-Zwecke gedacht ist und nicht direkt in einer Benutzeroberfläche angezeigt werden sollte.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Das `GeolocationPositionError`-Interface implementiert oder erbt keine Methode._
+_Die `GeolocationPositionError`-Schnittstelle implementiert oder erbt keine Methoden._
 
 ## Spezifikationen
 

@@ -1,15 +1,14 @@
 ---
-title: "URLSearchParams: forEach() Methode"
+title: "URLSearchParams: Methode forEach()"
 short-title: forEach()
 slug: Web/API/URLSearchParams/forEach
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`forEach()`** Methode der
-[`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle ermöglicht die Iteration durch alle in diesem Objekt enthaltenen Werte mittels einer Rückruffunktion.
+Die **`forEach()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle ermöglicht die Iteration über alle Werte, die in diesem Objekt enthalten sind, über eine Callback-Funktion.
 
 ## Syntax
 
@@ -22,8 +21,7 @@ forEach(callback, thisArg)
 
 - `callback`
 
-  - : Funktion, die auf jedes Element angewendet wird, der die folgenden Argumente übergeben werden:
-
+  - : Funktion, die für jedes Element ausgeführt wird. Sie erhält die folgenden Argumente:
     - `value`
       - : Der Wert des aktuellen Eintrags, der im `URLSearchParams`-Objekt verarbeitet wird.
     - `key`
@@ -36,7 +34,7 @@ forEach(callback, thisArg)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+None ({{jsxref("undefined")}}).
 
 ## Beispiele
 

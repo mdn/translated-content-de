@@ -2,15 +2,17 @@
 title: CustomEvent
 slug: Web/API/CustomEvent
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: f4c0e822eb6a1ea438c7342f43a3e4809adbd56a
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`CustomEvent`**-Schnittstelle repräsentiert Ereignisse, die von einer Anwendung zu beliebigen Zwecken initialisiert werden.
+Das **`CustomEvent`**-Interface kann verwendet werden, um benutzerdefinierte Daten an ein von einer Anwendung erzeugtes Ereignis anzuhängen.
+
+Als Alternative zu `CustomEvent` können Sie [das `Event`-Interface erweitern](/de/docs/Web/API/Document_Object_Model/Events#adding_custom_data_–_subclassing_event), um benutzerdefinierte Daten und Verhalten hinzuzufügen.
 
 > [!NOTE]
-> Wenn Sie versuchen, zwischen einem Web Extension-Content-Skript und einem Webseitenskript zu kommunizieren, wirft eine nicht-string `detail`-Eigenschaft in Firefox den Fehler "Permission denied to access property". Um dieses Problem zu vermeiden, klonen Sie das Objekt. Weitere Informationen finden Sie unter [Share objects with page scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
+> Wenn versucht wird, zwischen einem Web-Erweiterung-Inhaltsskript und einem Webseitenskript zu kommunizieren, wird in Firefox eine nicht-String `detail`-Eigenschaft mit "Permission denied to access property" ausgeworfen. Um dieses Problem zu vermeiden, klonen Sie das Objekt. Weitere Informationen finden Sie unter [Objekte mit Seitenskripten teilen](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
 
 {{InheritanceDiagram}}
 
@@ -21,14 +23,14 @@ Die **`CustomEvent`**-Schnittstelle repräsentiert Ereignisse, die von einer Anw
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) {{ReadOnlyInline}}
   - : Gibt alle Daten zurück, die beim Initialisieren des Ereignisses übergeben wurden.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`CustomEvent.initCustomEvent()`](/de/docs/Web/API/CustomEvent/initCustomEvent) {{deprecated_inline}}
   - : Initialisiert ein `CustomEvent`-Objekt. Wenn das Ereignis bereits gesendet wurde, tut diese Methode nichts.
@@ -44,4 +46,4 @@ _Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Event`](/de/docs/Web/
 ## Siehe auch
 
 - [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
-- [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [Ereignisse erstellen und senden](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events)

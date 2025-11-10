@@ -2,45 +2,45 @@
 title: SpeechSynthesisVoice
 slug: Web/API/SpeechSynthesisVoice
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`SpeechSynthesisVoice`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Stimme, die das System unterstützt. Jede `SpeechSynthesisVoice` verfügt über ihren eigenen Sprachdienst, der Informationen über Sprache, Name und URI enthält.
+Das **`SpeechSynthesisVoice`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine vom System unterstützte Stimme. Jede `SpeechSynthesisVoice` hat ihren eigenen Sprachdienst, der Informationen über Sprache, Name und URI enthält.
 
 ## Instanz-Eigenschaften
 
 - [`SpeechSynthesisVoice.default`](/de/docs/Web/API/SpeechSynthesisVoice/default) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob die Stimme die Standardstimme für die aktuelle App-Sprache ist (`true`), oder nicht (`false`).
+  - : Ein boolescher Wert, der angibt, ob die Stimme die Standardstimme für die aktuelle App-Sprache ist (`true`) oder nicht (`false`).
 - [`SpeechSynthesisVoice.lang`](/de/docs/Web/API/SpeechSynthesisVoice/lang) {{ReadOnlyInline}}
-  - : Gibt ein BCP 47-Sprachtag zurück, das die Sprache der Stimme angibt.
+  - : Gibt ein {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}} zurück, das die Sprache der Stimme angibt.
 - [`SpeechSynthesisVoice.localService`](/de/docs/Web/API/SpeechSynthesisVoice/localService) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob die Stimme von einem lokalen Sprachsynthesizer-Dienst bereitgestellt wird (`true`) oder von einem entfernten Sprachsynthesizer-Dienst (`false`).
+  - : Ein boolescher Wert, der angibt, ob die Stimme von einem lokalen Sprachsynthesedienst (`true`) oder einem entfernten Sprachsynthesedienst (`false`) bereitgestellt wird.
 - [`SpeechSynthesisVoice.name`](/de/docs/Web/API/SpeechSynthesisVoice/name) {{ReadOnlyInline}}
   - : Gibt einen menschenlesbaren Namen zurück, der die Stimme repräsentiert.
 - [`SpeechSynthesisVoice.voiceURI`](/de/docs/Web/API/SpeechSynthesisVoice/voiceURI) {{ReadOnlyInline}}
-  - : Gibt den URI-Typ und den Ort des Sprachsynthesedienstes für diese Stimme zurück.
+  - : Gibt den URI-Typ und den Standort des Sprachsynthese-Dienstes für diese Stimme zurück.
 
 ## Beispiele
 
-Der folgende Ausschnitt ist aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) entnommen.
+Der folgende Ausschnitt ist aus unserem [Speech synthesizer demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) entnommen.
 
 ```js
 const synth = window.speechSynthesis;
 function populateVoiceList() {
   voices = synth.getVoices();
 
-  for (let i = 0; i < voices.length; i++) {
+  for (const voice of voices) {
     const option = document.createElement("option");
-    option.textContent = `${voices[i].name} (${voices[i].lang})`;
+    option.textContent = `${voice.name} (${voice.lang})`;
 
-    if (voices[i].default) {
+    if (voice.default) {
       option.textContent += " — DEFAULT";
     }
 
-    option.setAttribute("data-lang", voices[i].lang);
-    option.setAttribute("data-name", voices[i].name);
+    option.setAttribute("data-lang", voice.lang);
+    option.setAttribute("data-name", voice.name);
     voiceSelect.appendChild(option);
   }
 }
@@ -56,9 +56,9 @@ inputForm.onsubmit = (event) => {
   const utterThis = new SpeechSynthesisUtterance(inputTxt.value);
   const selectedOption =
     voiceSelect.selectedOptions[0].getAttribute("data-name");
-  for (let i = 0; i < voices.length; i++) {
-    if (voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+  for (const voice of voices) {
+    if (voice.name === selectedOption) {
+      utterThis.voice = voice;
     }
   }
   utterThis.pitch = pitch.value;

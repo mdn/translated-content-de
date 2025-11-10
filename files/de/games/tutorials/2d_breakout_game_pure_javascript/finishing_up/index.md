@@ -2,26 +2,24 @@
 title: Abschluss
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up
 l10n:
-  sourceCommit: b795bc99fc5c5d8a96c1b202a12750404085c28a
+  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
 ---
 
-{{GamesSidebar}}
+{{Previous("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
 
-{{Previous("Games/Workflows/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
+Das ist der **10. und letzte Schritt** des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie finden den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson10.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson10.html).
 
-Dies ist der **10. und letzte Schritt** des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie finden den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson10.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson10.html).
+Es gibt immer Raum für Verbesserungen in jedem Spiel, das wir schreiben. Zum Beispiel können wir dem Spieler mehr als ein Leben bieten. Er könnte einen oder zwei Fehler machen und trotzdem das Spiel beenden können. Wir könnten auch unser Code-Rendering verbessern.
 
-Es gibt immer Raum für Verbesserungen in jedem Spiel, das wir erstellen. Zum Beispiel können wir dem Spieler mehr als ein Leben anbieten. Er könnte ein oder zwei Fehler machen und dennoch in der Lage sein, das Spiel zu beenden. Wir könnten auch unser Code-Rendering verbessern.
+## Dem Spieler einige Leben geben
 
-## Dem Spieler ein paar Leben geben
-
-Das Implementieren von Leben ist ziemlich einfach. Lassen Sie uns zunächst eine Variable hinzufügen, um die Anzahl der Leben zu speichern, an derselben Stelle, an der wir unsere anderen Variablen deklariert haben:
+Das Implementieren von Leben ist ziemlich einfach. Fügen wir zunächst eine Variable hinzu, um die Anzahl der Leben zu speichern, an der Stelle, wo wir auch unsere anderen Variablen deklariert haben:
 
 ```js
 let lives = 3;
 ```
 
-Das Zeichnen des Lebenszählers sieht fast genauso aus wie das Zeichnen des Punktezählers — fügen Sie die folgende Funktion zu Ihrem Code hinzu, unterhalb der `drawScore()` Funktion:
+Das Zeichnen des Lebenszählers sieht fast genauso aus wie das Zeichnen des Punktestandes — fügen Sie die folgende Funktion Ihrem Code hinzu, unterhalb der `drawScore()`-Funktion:
 
 ```js
 function drawLives() {
@@ -31,7 +29,7 @@ function drawLives() {
 }
 ```
 
-Anstatt das Spiel sofort zu beenden, reduzieren wir die Anzahl der Leben, bis sie nicht mehr verfügbar sind. Wir können auch die Ball- und Schlägerposition zurücksetzen, wenn der Spieler mit seinem nächsten Leben beginnt. Ersetzen Sie in der `draw()` Funktion die folgenden drei Zeilen:
+Anstatt das Spiel sofort zu beenden, werden wir die Anzahl der Leben verringern, bis sie nicht mehr verfügbar sind. Wir können auch die Position des Balls und des Schlägers zurücksetzen, wenn der Spieler mit seinem nächsten Leben beginnt. Ersetzen Sie in der `draw()`-Funktion die folgenden drei Zeilen:
 
 ```js
 alert("GAME OVER");
@@ -39,7 +37,7 @@ document.location.reload();
 clearInterval(interval); // Needed for Chrome to end game
 ```
 
-Mit dieser Änderung können wir der folgenden, etwas komplexeren Logik hinzufügen:
+Damit können wir etwas komplexere Logik hinzufügen, wie unten angegeben:
 
 ```js
 lives--;
@@ -56,25 +54,25 @@ if (!lives) {
 }
 ```
 
-Jetzt ziehen wir, wenn der Ball den unteren Rand des Bildschirms berührt, ein Leben von der `lives` Variablen ab. Wenn keine Leben mehr übrig sind, ist das Spiel verloren; wenn noch Leben übrig sind, werden die Position des Balls und des Schlägers zurückgesetzt, zusammen mit der Bewegung des Balls.
+Jetzt, wenn der Ball den unteren Rand des Bildschirms trifft, ziehen wir ein Leben von der `lives`-Variable ab. Wenn keine Leben mehr übrig sind, ist das Spiel verloren; wenn noch Leben übrig sind, dann werden die Position des Balls und des Schlägers zurückgesetzt, zusammen mit der Bewegung des Balls.
 
-### Anzeige der Leben rendern
+### Darstellung der Lebensanzeige
 
-Nun müssen Sie einen Aufruf zu `drawLives()` innerhalb der `draw()` Funktion hinzufügen und ihn unterhalb des `drawScore()` Aufrufs platzieren.
+Nun müssen Sie einen Aufruf zu `drawLives()` in die `draw()`-Funktion hinzufügen und es unter dem Aufruf von `drawScore()` platzieren.
 
 ```js
 drawLives();
 ```
 
-## Verbesserung des Renderings mit requestAnimationFrame()
+## Verbesserung der Darstellung mit requestAnimationFrame()
 
-Arbeiten wir nun an etwas, das nicht mit den Spielmechaniken verbunden ist, sondern mit der Art, wie es gerendert wird. [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) hilft dem Browser, das Spiel besser zu rendern als die feste Bildrate, die wir derzeit mit [`setInterval()`](/de/docs/Web/API/Window/setInterval) implementiert haben. Ersetzen Sie die folgende Zeile:
+Jetzt arbeiten wir an etwas, das nicht mit den Spielmechaniken verbunden ist, sondern mit der Art und Weise, wie es dargestellt wird. [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) hilft dem Browser, das Spiel besser darzustellen als die feste Bildrate, die wir derzeit mit [`setInterval()`](/de/docs/Web/API/Window/setInterval) implementiert haben. Ersetzen Sie die folgende Zeile:
 
 ```js
 interval = setInterval(draw, 10);
 ```
 
-mit:
+durch:
 
 ```js
 draw();
@@ -86,17 +84,17 @@ und entfernen Sie jede Instanz von:
 clearInterval(interval); // Needed for Chrome to end game
 ```
 
-Dann fügen Sie ganz unten in der `draw()` Funktion (direkt vor der schließenden geschweiften Klammer) die folgende Zeile hinzu, die bewirkt, dass die `draw()` Funktion sich immer wieder selbst aufruft:
+Dann fügen Sie ganz am Ende der `draw()`-Funktion (kurz vor der schließenden geschweiften Klammer) die folgende Zeile ein, die bewirkt, dass die `draw()`-Funktion sich immer wieder selbst aufruft:
 
 ```js
 requestAnimationFrame(draw);
 ```
 
-Die `draw()` Funktion wird nun immer wieder in einer `requestAnimationFrame()` Schleife ausgeführt, aber anstatt der festen 10 Millisekunden Bildrate geben wir die Kontrolle über die Bildrate wieder an den Browser. Er wird die Bildrate entsprechend synchronisieren und die Formen nur dann rendern, wenn es nötig ist. Dies erzeugt eine effizientere, fließendere Animationsschleife als die ältere `setInterval()` Methode.
+Die `draw()`-Funktion wird nun immer wieder in einer `requestAnimationFrame()`-Schleife ausgeführt, aber anstatt der festen 10 Millisekunden Bildrate geben wir die Kontrolle über die Bildrate an den Browser zurück. Der Browser wird die Bildrate entsprechend synchronisieren und die Formen nur bei Bedarf rendern. Dies erzeugt eine effizientere, flüssigere Animationsschleife als die ältere `setInterval()`-Methode.
 
-## Vergleich Ihres Codes
+## Vergleichen Sie Ihren Code
 
-Das war's — die endgültige Version des Spiels ist bereit und kann loslegen!
+Das war alles — die endgültige Version des Spiels ist fertig und startklar!
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -105,7 +103,7 @@ Das war's — die endgültige Version des Spiels ist bereit und kann loslegen!
 
 ```css hidden
 canvas {
-  background: #eee;
+  background: #eeeeee;
 }
 button {
   display: block;
@@ -149,22 +147,22 @@ for (let c = 0; c < brickColumnCount; c++) {
   }
 }
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+document.addEventListener("mousemove", mouseMoveHandler);
 
 function keyDownHandler(e) {
-  if (e.key == "Right" || e.key == "ArrowRight") {
+  if (e.key === "Right" || e.key === "ArrowRight") {
     rightPressed = true;
-  } else if (e.key == "Left" || e.key == "ArrowLeft") {
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
     leftPressed = true;
   }
 }
 
 function keyUpHandler(e) {
-  if (e.key == "Right" || e.key == "ArrowRight") {
+  if (e.key === "Right" || e.key === "ArrowRight") {
     rightPressed = false;
-  } else if (e.key == "Left" || e.key == "ArrowLeft") {
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
     leftPressed = false;
   }
 }
@@ -179,7 +177,7 @@ function collisionDetection() {
   for (let c = 0; c < brickColumnCount; c++) {
     for (let r = 0; r < brickRowCount; r++) {
       let b = bricks[c][r];
-      if (b.status == 1) {
+      if (b.status === 1) {
         if (
           x > b.x &&
           x < b.x + brickWidth &&
@@ -189,7 +187,7 @@ function collisionDetection() {
           dy = -dy;
           b.status = 0;
           score++;
-          if (score == brickRowCount * brickColumnCount) {
+          if (score === brickRowCount * brickColumnCount) {
             alert("YOU WIN, CONGRATS!");
             document.location.reload();
           }
@@ -216,7 +214,7 @@ function drawPaddle() {
 function drawBricks() {
   for (let c = 0; c < brickColumnCount; c++) {
     for (let r = 0; r < brickRowCount; r++) {
-      if (bricks[c][r].status == 1) {
+      if (bricks[c][r].status === 1) {
         const brickX = r * (brickWidth + brickPadding) + brickOffsetLeft;
         const brickY = c * (brickHeight + brickPadding) + brickOffsetTop;
         bricks[c][r].x = brickX;
@@ -233,12 +231,12 @@ function drawBricks() {
 function drawScore() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score: " + score, 8, 20);
+  ctx.fillText(`Score: ${score}`, 8, 20);
 }
 function drawLives() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
-  ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
+  ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
 }
 
 function draw() {
@@ -284,9 +282,10 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
-document.getElementById("runButton").addEventListener("click", function () {
+const runButton = document.getElementById("runButton");
+runButton.addEventListener("click", () => {
   draw();
-  this.disabled = true;
+  runButton.disabled = true;
 });
 ```
 
@@ -295,10 +294,10 @@ document.getElementById("runButton").addEventListener("click", function () {
 > [!NOTE]
 > Versuchen Sie, die Anzahl der Leben und den Winkel zu ändern, in dem der Ball vom Schläger abprallt.
 
-## Spiel beendet - vorerst!
+## Spiel vorbei - vorerst!
 
-Sie haben alle Lektionen abgeschlossen - herzlichen Glückwunsch! An diesem Punkt sollten Sie nun die Grundlagen der Canvas-Manipulation und der Logik hinter 2D-Spielen kennen. Jetzt ist ein guter Zeitpunkt, um einige Frameworks zu lernen und die Spieleentwicklung fortzusetzen. Sie können sich das Gegenstück dieser Serie ansehen, das [2D Breakout Game mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) oder das [Cyber Orb mit Phaser](/de/docs/Games/Tutorials/HTML5_Gamedev_Phaser_Device_Orientation) Tutorial. Sie können auch den [Spielebereich auf MDN](/de/docs/Games) durchstöbern, um Inspiration und mehr Wissen zu sammeln.
+Sie haben alle Lektionen abgeschlossen - herzlichen Glückwunsch! Zu diesem Zeitpunkt sollten Sie nun die Grundlagen der Canvas-Manipulation und die Logik hinter 2D-Spielen kennen. Jetzt ist ein guter Zeitpunkt, um einige Frameworks zu lernen und mit der Spieleentwicklung fortzufahren. Sie können das Gegenstück dieser Serie anschauen, [2D Breakout-Spiel mit Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) oder das [Cyber Orb in Phaser gebaut](/de/docs/Games/Tutorials/HTML5_Gamedev_Phaser_Device_Orientation) Tutorial. Sie können auch die [Spielesektion auf MDN](/de/docs/Games) durchstöbern, um Inspiration und mehr Wissen zu erhalten.
 
-Sie könnten auch zur [Indexseite dieser Tutorialserie](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) zurückgehen. Viel Spaß beim Codieren!
+Sie könnten auch zur [Indexseite dieser Tutorial-Serie](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) zurückkehren. Viel Spaß beim Programmieren!
 
-{{Previous("Games/Workflows/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
+{{Previous("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}

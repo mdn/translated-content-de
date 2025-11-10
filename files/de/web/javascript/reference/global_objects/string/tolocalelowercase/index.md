@@ -1,15 +1,14 @@
 ---
 title: String.prototype.toLocaleLowerCase()
+short-title: toLocaleLowerCase()
 slug: Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-{{JSRef}}
+Die Methode **`toLocaleLowerCase()`** von {{jsxref("String")}}-Werten gibt diesen String in Kleinbuchstaben konvertiert zurück, basierend auf lokalen, spezifischen Kassenkonvertierungen.
 
-Die Methode **`toLocaleLowerCase()`** von {{jsxref("String")}}-Werten gibt diesen String in Kleinbuchstaben zurück, entsprechend lokalspezifischen Groß-/Kleinschreibungszuordnungen.
-
-{{InteractiveExample("JavaScript Demo: String.toLocaleLowerCase()")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.toLocaleLowerCase()")}}
 
 ```js interactive-example
 const dotted = "İstanbul";
@@ -31,18 +30,19 @@ toLocaleLowerCase(locales)
 ### Parameter
 
 - `locales` {{optional_inline}}
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher Strings. Gibt an, welches Gebietsschema verwendet werden soll, um in Kleinbuchstaben zu konvertieren, basierend auf lokalen, spezifischen Kassenkonvertierungen. Für die allgemeine Form und Interpretation des Arguments `locales`, siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
-  - : Ein String mit einem BCP 47-Sprachcode oder ein Array solcher Strings. Kennzeichnet die zu verwendende Locale, um den String entsprechend lokalspezifischer Groß-/Kleinschreibungszuordnungen in Kleinbuchstaben umzuwandeln. Für die allgemeine Form und Interpretation des `locales` Parameters lesen Sie [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
-
-    Im Gegensatz zu anderen Methoden, die den `locales` Parameter verwenden, ermöglicht `toLocaleLowerCase()` kein Locale-Matching. Nach Überprüfung der Gültigkeit des `locales` Parameters verwendet `toLocaleLowerCase()` stets das erste Locale in der Liste (oder das Standard-Locale, falls die Liste leer ist), selbst wenn dieses Locale von der Implementierung nicht unterstützt wird.
+    Im Gegensatz zu anderen Methoden, die das Argument `locales` verwenden, erlaubt `toLocaleLowerCase()` kein Übereinstimmen von Gebietsschemas. Daher verwendet `toLocaleLowerCase()` nach der Überprüfung der Gültigkeit des Arguments `locales` immer das erste Gebietsschema in der Liste (oder das Standardgebietsschema, wenn die Liste leer ist), auch wenn dieses Gebietsschema von der Implementierung nicht unterstützt wird.
 
 ### Rückgabewert
 
-Ein neuer String, der den aufrufenden String in Kleinbuchstaben darstellt, entsprechend lokalspezifischen Groß-/Kleinschreibungszuordnungen.
+Ein neuer String, der den aufrufenden String darstellt, der in Kleinbuchstaben konvertiert wurde, basierend auf lokalen, spezifischen Kassenkonvertierungen.
 
 ## Beschreibung
 
-Die Methode `toLocaleLowerCase()` gibt den Wert des Strings zurück, konvertiert in Kleinbuchstaben, entsprechend lokalspezifischen Groß-/Kleinschreibungszuordnungen. `toLocaleLowerCase()` beeinflusst den Wert des Strings selbst nicht. In den meisten Fällen wird dies das gleiche Ergebnis liefern wie {{jsxref("String/toLowerCase", "toLowerCase()")}}, aber für einige Locales, wie etwa Türkisch, deren Groß-/Kleinschreibungszuordnung nicht den Standardzuordnungen in Unicode folgt, kann es zu einem anderen Ergebnis kommen.
+Die Methode `toLocaleLowerCase()` gibt den Wert des Strings zurück, der gemäß lokalen, spezifischen Kassenkonvertierungen in Kleinbuchstaben konvertiert wurde.
+`toLocaleLowerCase()` beeinflusst nicht den Wert des Strings selbst. In den meisten
+Fällen wird dies das gleiche Ergebnis wie {{jsxref("String/toLowerCase", "toLowerCase()")}} erzeugen, aber in einigen Gebietsschemas wie dem Türkischen, dessen Kassenkonvertierungen nicht den Standard-Kassenkonvertierungen in Unicode folgen, kann es ein anderes Ergebnis geben.
 
 ## Beispiele
 

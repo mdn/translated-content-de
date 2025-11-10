@@ -1,54 +1,53 @@
 ---
-title: Leitfaden zu OpenType-Schriftart-Funktionen
+title: OpenType-Schriftfunktionen
+short-title: OpenType features
 slug: Web/CSS/CSS_fonts/OpenType_fonts_guide
 l10n:
-  sourceCommit: 8dac6c62fc3cee2de82960d4dd9d9be16a3a1761
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-{{CSSRef}}
+Schriftfunktionen oder Varianten beziehen sich auf verschiedene Glyphen oder Zeichenstile, die in einer OpenType-Schriftart enthalten sind. Dazu gehören Dinge wie Ligaturen (spezielle Glyphen, die Zeichen wie 'fi' oder 'ffl' kombinieren), Kerning (Anpassungen des Abstands zwischen bestimmten Buchstabenpaaren), Brüche, Zahlstile und einige andere. Diese werden alle als OpenType-Funktionen bezeichnet und können im Web über spezifische Eigenschaften und Low-Level-Kontrolleigenschaften verwendet werden — {{cssxref("font-feature-settings")}}. Dieser Artikel bietet Ihnen alles, was Sie über die Verwendung von OpenType-Schriftfunktionen in CSS wissen müssen.
 
-Schriftartenfunktionen oder -varianten beziehen sich auf verschiedene Glyphen oder Zeichenstile, die in einer OpenType-Schriftart enthalten sind. Dazu gehören Dinge wie Ligaturen (spezielle Glyphen, die Zeichen wie 'fi' oder 'ffl' kombinieren), Kerning (Anpassungen des Abstands zwischen bestimmten Buchstabenpaaren), Brüche, Zahlenstile und vieles mehr. Diese werden als OpenType-Funktionen bezeichnet und können über spezifische Eigenschaften und Low-Level-Kontrolleigenschaften — {{cssxref("font-feature-settings")}} — im Web verwendet werden. In diesem Artikel erfahren Sie alles, was Sie über die Verwendung von OpenType-Schriftart-Funktionen in CSS wissen müssen.
+Einige Schriftarten haben eine oder mehrere dieser Funktionen standardmäßig aktiviert (Kerning und Standardligaturen sind häufige Beispiele), während andere dem Designer oder Entwickler überlassen werden, sie in bestimmten Szenarien zu aktivieren.
 
-Einige Schriftarten haben eine oder mehrere dieser Funktionen standardmäßig aktiviert (Kerning und Standardligaturen sind häufige Beispiele), während bei anderen die Designer oder Entwickler entscheiden, ob sie in bestimmten Szenarien aktiviert werden sollen.
-
-Zusätzlich zu breiten Funktionssätzen wie Ligaturen oder proportionalen Zahlen (Zahlen, die gleichmäßig ausgerichtet sind, im Gegensatz zu "oldstyle", die eher wie Kleinbuchstaben aussehen), gibt es auch sehr spezifische Funktionen wie stilistische Sätze (die mehrere spezifische Varianten von Glyphen enthalten können, die zusammen verwendet werden sollen), Alternativen (eine oder mehrere Varianten des Buchstabens 'a') oder sogar sprachspezifische Anpassungen für ostasiatische Sprachen. Im letzteren Fall sind diese Anpassungen tatsächlich erforderlich, um die Sprache richtig auszudrücken, und gehen damit über die stilistische Präferenz der meisten anderen OpenType-Funktionen hinaus.
+Neben breiten Funktionssets wie Ligaturen oder proportionalen Zahlen (Zahlen, die gleichmäßig ausgerichtet sind, im Gegensatz zu 'oldstyle', die mehr wie Kleinbuchstaben aussehen) gibt es auch sehr spezifische wie stilistische Sets (die mehrere spezifische Varianten von Glyphen enthalten könnten, die zusammen verwendet werden sollen), Alternativen (die eine oder mehrere Varianten des Buchstabens 'a' sein könnten) oder sogar sprachspezifische Änderungen für ostasiatische Sprachen. Im letzteren Fall sind diese Änderungen tatsächlich notwendig, um die Sprache richtig auszudrücken, sodass sie über die eher stilistische Vorliebe der meisten anderen OpenType-Funktionen hinausgehen.
 
 > [!WARNING]
-> Es gibt viele CSS-Attribute, die definiert sind, um Schriftart-Funktionen zu nutzen, aber leider sind viele nicht vollständig implementiert. Sie sind hier alle definiert und angezeigt, aber viele funktionieren nur mit der Low-Level-Eigenschaft {{cssxref("font-feature-settings")}}. Es ist möglich, CSS so zu schreiben, dass es in beiden Varianten funktioniert, aber das kann mühsam werden. Das Problem bei der Verwendung von `font-feature-settings` für alles ist, dass jedes Mal, wenn Sie eine der einzelnen Funktionen ändern möchten, Sie die gesamte Zeichenkette neu definieren müssen (ähnlich wie beim Manipulieren von Variablen-Schriftarten mit {{cssxref("font-variation-settings")}}).
+> Es gibt viele CSS-Attribute, die definiert sind, um Schriftfunktionen zu nutzen, aber leider sind viele nicht vollständig implementiert. Sie sind alle hier definiert und gezeigt, aber viele werden nur mit der Low-Level-Eigenschaft {{cssxref("font-feature-settings")}} funktionieren. Es ist möglich, CSS so zu schreiben, dass es in beiden Richtungen funktioniert, aber das kann lästig werden. Das Problem bei der Verwendung von `font-feature-settings` für alles ist, dass Sie jedes Mal, wenn Sie eine der einzelnen Funktionen ändern möchten, den gesamten String neu definieren müssen (ähnlich wie bei der Manipulation von variablen Schriftarten mit {{cssxref("font-variation-settings")}}).
 
 ## Verfügbarkeit von Funktionen in Schriftarten entdecken
 
-Wenn Sie keine Dokumentation zu den Schriftarten haben (viele Schriftgestalter und Schriftgießereien stellen Beispieldokumente und CSS speziell zu diesem Zweck zur Verfügung), kann es manchmal schwierig sein, die Verfügbarkeit von Funktionen herauszufinden. Es gibt jedoch einige Websites, die dies erleichtern. Sie können [wakamaifondue.com](https://wakamaifondue.com/) besuchen, Ihre Schriftartdatei auf den markierten Bereich ziehen und in wenigen Momenten erhalten Sie einen vollständigen Bericht über alle Fähigkeiten und Funktionen Ihrer Schriftart. [Axis-praxis.org](https://www.axis-praxis.org/) bietet eine ähnliche Funktionalität mit der Möglichkeit, die Funktionen auf einem bestimmten Textblock ein- oder auszuschalten.
+Dies ist manchmal die schwierigste Herausforderung, wenn Sie keine Dokumentation zu den Schriftarten haben (viele Schriftgestalter und Schriftgießereien bieten aus diesem Grund Musterseiten und CSS an). Aber es gibt einige Websites, die es einfacher machen, dies herauszufinden. Sie können [wakamaifondue.com](https://wakamaifondue.com/) besuchen, Ihre Schriftartdatei auf den Kreis ziehen, wo es angewiesen wird, und in wenigen Augenblicken erhalten Sie einen vollständigen Bericht über alle Fähigkeiten und Merkmale Ihrer Schriftart. [Axis-praxis.org](https://www.axis-praxis.org/) bietet ebenfalls eine ähnliche Möglichkeit, mit der Fähigkeit, auf die Funktionen zu klicken, um sie in einem bestimmten Textblock ein- oder auszuschalten.
 
-## Warum verwenden?
+## Warum sollten Sie sie verwenden?
 
-Angesichts der Tatsache, dass diese Funktionen etwas Aufwand erfordern, um entdeckt und verwendet zu werden, ist es möglicherweise berechtigt zu fragen, warum man sich die Mühe machen sollte, sie zu verwenden. Die Antwort liegt in den spezifischen Funktionen, die eine Website nützlicher, lesbarer und ansprechender machen können:
+Angesichts der Tatsache, dass diese Funktionen etwas Arbeit erfordern, um sie zu entdecken und zu verwenden, mag es gerecht erscheinen zu fragen, warum man sich die Mühe machen sollte, sie zu verwenden. Die Antwort liegt in den spezifischen Funktionen, die eine Website nützlicher, lesbarer und polierter machen:
 
-- **Ligaturen** wie 'ff' oder 'fi' sorgen für gleichmäßigere Abstände und eine glattere Lesbarkeit.
-- **Brüche** erleichtern das Lesen und Verstehen auf Heimwerker- und Rezeptseiten erheblich.
-- **Zahlen** im Text als 'oldstyle' gesetzt, passen besser zu Kleinbuchstaben, während Zahlen im Tabellenstil ('tabular numbers') besser ausgerichtet werden, z. B. in einer Kostenübersicht. 'Lining'-Zahlen harmonieren dagegen besser allein oder in Kombination mit Großbuchstaben.
+- **Ligaturen** wie 'ff' oder 'fi' machen den Buchstabenabstand und das Lesen gleichmäßiger und fließender.
+- **Brüche** können Heimwerker- und Rezeptseiten viel einfacher lesbar und verständlich machen.
+- **Zahlen** innerhalb von Textabsätzen, die als 'oldstyle' gesetzt sind, fügen sich komfortabler zwischen Kleinbuchstaben ein, und ebenso machen es 'tabellarische Zahlen' einfacher, sie auszurichten, wenn man eine Liste von Kosten in einer Tabelle erstellt. 'Lining'-Zahlen hingegen passen sich auf ihrer eigenen oder vor groß geschriebenen Wörtern gleichmäßiger ein.
 
-Während das Fehlen keiner dieser Funktionen eine Website unbrauchbar macht, kann jede von ihnen dazu beitragen, eine Website benutzerfreundlicher und einprägsamer durch Liebe zum Detail zu gestalten.
+Während keine dieser Funktionen allein eine Website aufgrund ihrer Abwesenheit unbrauchbar machen wird, kann jede von ihnen eine Website einfacher zu verwenden und, durch ihre Liebe zum Detail, einprägsamer machen.
 
-> OpenType-Funktionen sind wie geheime Fächer in Schriftarten. Entdecken Sie sie, und Sie werden Möglichkeiten finden, Schriftarten subtil und dramatisch unterschiedlich aussehen und sich verhalten zu lassen. Nicht alle OpenType-Funktionen sind immer angemessen, aber einige Funktionen sind entscheidend für großartige Typografie. _-- Tim Brown, Leiter Typografie bei Adobe_.
+> OpenType-Funktionen sind wie geheime Fächer in Schriften. Wenn Sie sie freischalten, finden Sie Möglichkeiten, Schriften subtil und dramatisch anders aussehen und sich verhalten zu lassen. Nicht alle OpenType-Funktionen sollten jederzeit verwendet werden, aber einige Funktionen sind entscheidend für großartige Typografie. _-- Tim Brown, Leiter der Typografie bei Adobe_.
 
-### Manchmal geht es um Bedeutung, nicht nur um Stil
+### Manchmal ist es Substanz, nicht nur Stil
 
-In einigen Fällen — wie bei {{cssxref("font-variant-east-asian")}} — sind OpenType-Funktionen direkt mit der Nutzung unterschiedlicher Formen bestimmter Glyphen verbunden, was Auswirkungen auf die Bedeutung und Lesbarkeit haben kann. In solchen Fällen handelt es sich nicht nur um eine nette Ergänzung, sondern vielmehr um einen integralen Bestandteil des Inhalts.
+Es gibt einige Fälle — wie bei {{cssxref("font-variant-east-asian")}} — in denen OpenType-Funktionen direkt mit der Verwendung verschiedener Formen bestimmter Glyphen verbunden sind, was die Bedeutung und Lesbarkeit beeinflussen kann. In solchen Fällen geht es um mehr als nur eine Nettigkeit, sondern vielmehr um einen integralen Bestandteil des Inhalts selbst.
 
-## Die Schriftart-Funktionen
+## Die Schriftfunktionen
 
-Es gibt eine Reihe verschiedener Funktionen, die Betrachtung verdienen. Sie sind hier nach den Hauptattributen und Optionen gruppiert und erklärt, wie sie in den W3C-Spezifikationen behandelt werden.
+Es gibt eine Reihe verschiedener Funktionen zu beachten. Sie sind hier gruppiert und erklärt gemäß den Hauptattributen und Optionen, die in den W3C-Spezifikationen behandelt werden.
 
 > [!NOTE]
-> Die unten gezeigten Beispiele zeigen die Eigenschaften und einige Beispielkombinationen sowie die entsprechenden Low-Level-Syntax-Äquivalente. Sie stimmen möglicherweise nicht genau überein, da es Unterschiede in der Browserimplementierung gibt, aber in vielen Fällen entspricht das erste Beispiel dem zweiten. Die verwendeten Schriftarten sind Playfair Display, Source Serif Pro, IBM Plex Serif, Dancing Script und Kokoro (alle kostenlos verfügbar, die meisten sind auf Google Fonts und anderen Diensten zu finden).
+> Die untenstehenden Beispiele zeigen die Eigenschaften und einige Beispielkombinationen, zusammen mit den Low-Level-Syntaxäquivalenten. Sie stimmen möglicherweise nicht genau überein, aufgrund von Konsistenzproblemen bei der Browserimplementierung, aber in vielen Fällen wird das erste Beispiel dem zweiten entsprechen. Die gezeigten Schriftarten sind Playfair Display, Source Serif Pro, IBM Plex Serif, Dancing Script und Kokoro (alle verfügbar und kostenlos zu nutzen, die meisten sind auf Google Fonts und anderen Diensten).
 
 ### Kerning
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-kerning")}}
 
-Dies bezieht sich auf den Abstand zwischen bestimmten Buchstabenpaaren. Dies ist in der Regel standardmäßig aktiviert (wie in der OpenType-Spezifikation empfohlen). Beachten Sie, dass, wenn {{cssxref("letter-spacing")}} ebenfalls auf Ihren Text angewendet wird, dies nach dem Kerning angewendet wird.
-Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Dies bezieht sich auf den Abstand zwischen bestimmten Glyphpaaren. Dies ist in der Regel standardmäßig aktiviert (wie von der OpenType-Spezifikation empfohlen). Es sollte beachtet werden, dass, wenn {{cssxref("letter-spacing")}} ebenfalls für Ihren Text eingestellt ist, dies nach dem Kerning angewendet wird.
+Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-kerning-example
 <fieldset>
@@ -73,7 +72,7 @@ Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN
 ```css hidden live-sample___font-kerning-example
 @font-face {
   font-family: "Plex Serif";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -148,11 +147,11 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-kerning-example", "", "450px")}}
 
-### Alternativen
+### Alternaten
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-variant-alternates")}}
 
-Schriftarten können eine Reihe alternativer Glyphen für verschiedene Zeichen bereitstellen, etwa unterschiedliche Stile des Kleinbuchstabens 'a' oder mehr oder weniger aufwendige Schwünge in einer Skriptschrift. Diese Eigenschaft kann einen gesamten Satz von Alternativen oder nur eine bestimmte aktivieren, abhängig von den gelieferten Werten. Das untenstehende Beispiel zeigt mehrere unterschiedliche Aspekte bei der Arbeit mit alternativen Zeichen. Schriftarten mit alternativen Glyphen können diese entweder allgemein oder individuell in separaten stilistischen Sätzen oder sogar für einzelne Zeichen verfügbar machen. In diesem Beispiel sehen Sie zwei verschiedene Schriftarten und die Einführung des {{cssxref("@font-feature-values")}}-Attributs. Damit können Abkürzungen oder benannte Optionen definiert werden, die für jede Schriftartfamilie festgelegt sind. So können Sie eine benannte Option erstellen, die nur für eine einzelne Schriftart gilt, oder eine, die geteilt wird und allgemeiner angewendet werden kann. Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Schriften können eine Reihe von verschiedenen Alternativen für verschiedene Glyphen liefern, wie z.B. verschiedene Stile von Kleinbuchstaben 'a' oder mehr oder weniger aufwendige Schwünge in einer Schriftart. Diese Eigenschaft kann ein komplettes Set von Alternaten aktivieren oder nur eine spezifische, je nach den gelieferten Werten. Das Beispiel unten zeigt verschiedene Aspekte der Arbeit mit alternativen Zeichen. Schriften mit alternativen Glyphen können diese allgemein oder individuell in separaten stilistischen Sets oder sogar individuellen Zeichen verfügbar machen. In diesem Beispiel können Sie zwei verschiedene Schriftarten sehen und die Einführung der Direktive {{cssxref("@font-feature-values")}}. Diese wird verwendet, um Abkürzungen oder benannte Optionen zu definieren, die pro Schriftfamilie definiert werden können. Auf diese Weise können Sie eine benannte Option erstellen, die nur für eine einzelne Schriftart gilt oder eine, die geteilt und allgemeiner angewendet werden kann. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-alternates-example
 <fieldset>
@@ -290,39 +289,35 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-variant-alternates-example", "", "600px")}}
 
-In diesem Fall zeigt `@stylistic(alternates)` alle alternativen Zeichen für jede Schriftart an. Wenn dies nur auf das Wort 'My' angewandt wird, ändert sich die Darstellung von 'M', und die Anwendung von `@styleset(alt-a)` ändert nur das Zeichen für ein Kleinbuchstaben-'a'.
+In diesem Fall zeigt `@stylistic(alternates)` alle alternativen Zeichen für beide Schriftarten. Die Anwendung nur auf das Wort 'My' verändert die Darstellung des 'M', und die Anwendung von `@styleset(alt-a)` ändert nur das Kleinbuchstaben-'a'.
 
-Versuchen Sie, die Zeile zu ändern
+Versuchen Sie, die Zeile
 
 ```css
 font-variant-alternates: styleset(alt-a);
 ```
 
-zu
+in
 
 ```css
 font-variant-alternates: styleset(alt-g);
 ```
 
-und bemerken Sie, dass das Kleinbuchstaben-'a' in seine reguläre Form zurückkehrt, während sich die Kleinbuchstaben-'g's ändern.
-
-#### Mehr über Alternativen
-
-- <https://www.w3.org/TR/css-fonts-4/#propdef-font-variant-alternates>
+zu ändern und bemerken Sie, dass das Kleinbuchstaben-'a' zu seiner regulären Form zurückkehrt und die Kleinbuchstaben-'g's sich stattdessen ändern.
 
 ### Ligaturen
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-variant-ligatures")}}
 
-Ligaturen sind Glyphen, die zwei oder mehr separate Glyphen ersetzen, um sie aus Abstands- oder ästhetischen Gründen fließender darzustellen. Einige der häufigsten sind Buchstaben wie 'fi', 'fl' oder 'ffl' — es gibt jedoch viele weitere Möglichkeiten. Es gibt die häufigsten (als allgemeine Ligaturen bezeichnet) sowie spezialisiertere Kategorien wie 'diskretionäre Ligaturen', 'historische Ligaturen' und 'kontextuelle Alternativen'. Während letztere technisch gesehen keine Ligaturen sind, bei erscheinen sie ähnlich, da sie spezifische Kombinationen ersetzen, wenn sie zusammen auftreten.
+Ligaturen sind Glyphen, die zwei oder mehr getrennte Glyphen ersetzen, um sie glatter darzustellen (aus einer Abstands- oder ästhetischen Perspektive). Einige der häufigsten sind Buchstaben wie 'fi', 'fl' oder 'ffl' — aber es gibt viele andere Möglichkeiten. Es gibt die häufigsten (als allgemeine Ligaturen bezeichnet), und es gibt auch speziellere Kategorien wie 'diskretionäre Ligaturen', 'historische Ligaturen' und 'kontextuelle Alternativen'. Während diese letzten nicht technisch Ligaturen sind, sind sie im Allgemeinen ähnlich, da sie spezifische Buchstabenkombinationen ersetzen, wenn sie zusammen erscheinen.
 
-Obwohl sie häufiger in Skriptschriftarten vorkommen, werden sie im folgenden Beispiel verwendet, um Pfeile zu erstellen. Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Während sie häufiger in Skriptschriftarten vorkommen, werden sie im folgenden Beispiel verwendet, um Pfeile zu erstellen. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-ligatures-example
 <fieldset>
   <legend>Using <code>font-variant-ligatures</code> property</legend>
   <div class="container container1">
-    <p>Puffy Perfect -^ <-></p>
+    <p>Puffy Perfect -^ &lt;-&gt;</p>
   </div>
   <input type="checkbox" name="checkbox1" id="checkbox1" value="on" checked />
   <label for="checkbox1">Ligatures active</label>
@@ -331,7 +326,7 @@ Obwohl sie häufiger in Skriptschriftarten vorkommen, werden sie im folgenden Be
 <fieldset>
   <legend>Using <code>font-feature-settings</code> property</legend>
   <div class="container container2">
-    <p>Puffy Perfect -^ <-></p>
+    <p>Puffy Perfect -^ &lt;-&gt;</p>
   </div>
   <input type="checkbox" name="checkbox2" id="checkbox2" value="on" checked />
   <label for="checkbox2">Ligatures active</label>
@@ -341,7 +336,7 @@ Obwohl sie häufiger in Skriptschriftarten vorkommen, werden sie im folgenden Be
 ```css hidden live-sample___font-variant-ligatures-example
 @font-face {
   font-family: "Playfair Display";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -422,7 +417,7 @@ checkBox2.addEventListener("change", () => {
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-variant-position")}}
 
-Positionsvarianten werden verwendet, um typografische Hoch- und Tiefstellungen von Glyphen zu ermöglichen. Diese sind so gestaltet, dass sie mit dem umgebenden Text harmonieren, ohne die Grundlinie oder den Zeilenabstand zu ändern. Dies ist besonders nützlich in Verbindung mit den {{htmlelement("sub")}}- oder {{htmlelement("sup")}}-Elementen. Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Positionsvarianten werden verwendet, um typografische Hoch- und Tiefstellungen zu ermöglichen. Diese sind so gestaltet, dass sie mit dem umgebenden Text arbeiten, ohne die Basislinie oder den Zeilenabstand zu verändern. Dies ist besonders nützlich mit den {{htmlelement("sub")}} oder {{htmlelement("sup")}} Elementen. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-position-example
 <fieldset>
@@ -447,7 +442,7 @@ Positionsvarianten werden verwendet, um typografische Hoch- und Tiefstellungen v
 ```css hidden live-sample___font-variant-position-example
 @font-face {
   font-family: "Playfair Display";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -530,11 +525,11 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-variant-position-example", "", "550px")}}
 
-### Versalien
+### Großbuchstaben
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-variant-caps")}}
 
-Einer der häufigsten Anwendungsfälle für OpenType-Funktionen sind richtige Kapitälchen. Diese sind Großbuchstaben, die so skaliert sind, dass sie besser zu Kleinbuchstaben passen, und werden häufig für Akronyme und Abkürzungen verwendet. Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Einer der häufigeren Anwendungsfälle für OpenType-Funktionen sind richtige Kapitälchen. Diese sind in der Größe angepasst, um besser zwischen Kleinbuchstaben zu passen und werden im Allgemeinen für Akronyme und Abkürzungen verwendet. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-caps-example
 <fieldset>
@@ -565,7 +560,7 @@ Einer der häufigsten Anwendungsfälle für OpenType-Funktionen sind richtige Ka
 ```css hidden live-sample___font-variant-caps-example
 @font-face {
   font-family: "Playfair Display";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -650,27 +645,27 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-variant-caps-example", "", "700px")}}
 
-### Zahlen
+### Ziffern
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-variant-numeric")}}
 
-Es gibt mehrere verschiedene Stile von Zahlen, die in Schriftarten häufig enthalten sind:
+Es gibt mehrere verschiedene Stile von Ziffern, die üblicherweise in Schriftarten enthalten sind:
 
-- 'Lining'-Ziffern sind alle gleich hoch und auf derselben Grundlinie.
-- 'Oldstyle'-Ziffern haben gemischte Höhen und sind darauf ausgelegt, wie Auf- und Abstriche von Kleinbuchstaben auszusehen. Sie sind dafür gestaltet, inline mit dem Text verwendet zu werden, sodass die Ziffern visuell ähnlich wie Kleinbuchstaben mit den umgebenden Glyphen verschmelzen.
+- 'Lining'-Ziffern haben alle dieselbe Höhe und sind auf derselben Basislinie.
+- 'Oldstyle'-Ziffern sind gemischter Höhe und so gestaltet, dass sie das Erscheinungsbild von Ober- und Unterlängen haben, ähnlich wie andere Kleinbuchstaben. Diese sind dafür gedacht, inline mit einem Text zu verwendet werden, damit sich die Ziffern visuell mit den umgebenden Glyphen in ähnlicher Weise wie Kapitälchen vermischen.
 
-Es gibt auch die Möglichkeit, den Abstand anzupassen: proportionale Abstände sind die Standardeinstellung, während tabellarische Abstände die Ziffern unabhängig von der Zeichenbreite gleichmäßig ausrichten, was sie geeigneter für Tabellen von Zahlen in finanziellen Tabellen macht.
+Es gibt auch das Konzept der Abstände. Proportionale Abstände sind die normale Einstellung, während tabellarische Abstände die Ziffern gleichmäßig ausrichten, unabhängig von der Zeichenbreite, was es mehr geeignet macht für das Ausrichten von Zahlenreihen in finanziellen Tabellen.
 
-Zwei Arten von Brüchen werden durch diese Eigenschaft unterstützt:
+Es gibt zwei Arten von Brüchen, die durch diese Eigenschaft unterstützt werden:
 
-- Diagonal geschlitzte Brüche.
+- Diagonal durchgestrichene Brüche.
 - Vertikal gestapelte Brüche.
 
-Ebenfalls unterstützt werden Ordnungszahlen (wie '1st' oder '3rd') sowie eine durchstrichene Null, sofern in der Schriftart verfügbar.
+Ordnungszahlen werden ebenfalls unterstützt (wie '1st' oder '3rd'), ebenso wie eine durchgestrichene Null, falls in der Schriftart vorhanden.
 
-#### Lining- und Oldstyle-Zahlen
+#### Lining- und Oldstyle-Ziffern
 
-Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-numeric-example
 <fieldset>
@@ -699,7 +694,7 @@ Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN
 ```css hidden live-sample___font-variant-numeric-example
 @font-face {
   font-family: "Source Serif";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -781,9 +776,9 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-variant-numeric-example", "", "550px")}}
 
-#### Brüche, Ordnungszahlen und durchstrichene Null
+#### Brüche, Ordnungszahlen und durchgestrichene Null
 
-Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-numeric-frac-example
 <fieldset>
@@ -814,7 +809,7 @@ Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN
 ```css hidden live-sample___font-variant-numeric-frac-example
 @font-face {
   font-family: "Source Serif";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -903,11 +898,11 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-variant-numeric-frac-example", "", "550px")}}
 
-### Ostasiatische Varianten
+### Ostasiatisch
 
 Zugehörige CSS-Eigenschaft: {{cssxref("font-variant-east-asian")}}
 
-Diese erlauben den Zugriff auf verschiedene alternative Formen von Glyphen innerhalb einer Schriftart. Das Beispiel unten zeigt eine Zeichenfolge mit normalen Glyphen. Deaktivieren Sie das Kontrollkästchen unten, und Sie sehen Zeichen nur mit `jis78`-Glyphen. Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Dies ermöglicht den Zugriff auf verschiedene alternative Formen von Glyphen innerhalb einer Schriftart. Im Beispiel unten wird eine Zeichenfolge von normalen Glyphen angezeigt. Wenn Sie das Kästchen unten deaktivieren, sehen Sie Zeichen nur mit den `jis78` Glyphen. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-east-asian-example
 <fieldset>
@@ -1004,11 +999,11 @@ checkBox2.addEventListener("change", () => {
 {{EmbedLiveSample("font-variant-east-asian-example", "", "750px")}}
 
 > [!NOTE]
-> Diese Glyphen wurden aus einer Schriftartprobe kopiert und sind nicht als Prosa gedacht.
+> Diese Glyphen wurden aus einer Schriftprobe kopiert und sind nicht als Prosa gedacht.
 
-### Kurzform für Schriftvarianten
+### Schriftvarianten-Kurzform
 
-Die {{Cssxref("font-variant")}}-Eigenschaft ist die Kurzformsyntax zur Definition aller oben genannten Eigenschaften. Das Festlegen eines Wertes von `normal` setzt alle Eigenschaften auf ihren initialen Wert zurück. Das Festlegen eines Wertes von `none` setzt `font-variant-ligatures` auf keine und alle anderen Eigenschaften auf ihren initialen Wert zurück. Das bedeutet, dass wenn Kerning standardmäßig aktiviert ist, es auch mit einem Wert von `none` hier weiterhin aktiviert bleibt. Klicken Sie auf "Abspielen" in den Code-Beispielen unten, um das Beispiel im MDN Playground zu bearbeiten:
+Die Eigenschaft {{Cssxref("font-variant")}} ist die Kurznamen-Syntax zur Definition aller oben genannten. Wenn Sie den Wert `normal` einstellen, werden alle Eigenschaften auf ihre Standardwerte zurückgesetzt. Wenn Sie den Wert `none` einstellen, wird `font-variant-ligatures` auf none gesetzt und alle anderen Eigenschaften auf ihre Standardwerte zurückgesetzt. Das bedeutet, dass, wenn Kerning standardmäßig aktiviert ist, es auch dann immer noch aktiviert bleibt, wenn hier ein Wert von `none` angegeben wird. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___font-variant-example
 <fieldset>
@@ -1033,7 +1028,7 @@ Die {{Cssxref("font-variant")}}-Eigenschaft ist die Kurzformsyntax zur Definitio
 ```css hidden live-sample___font-variant-example
 @font-face {
   font-family: "Playfair Display";
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   src:
@@ -1112,11 +1107,11 @@ checkBox2.addEventListener("change", () => {
 
 {{EmbedLiveSample("font-variant-example", "", "700px")}}
 
-## Schriftart-Funktionseinstellungen
+## Schriftmerkmaleinstellungen
 
-{{cssxref("font-feature-settings")}} ist die Low-Level-Syntax, die expliziten Zugriff auf jede benannte verfügbare OpenType-Funktion ermöglicht. Dies bietet viel Kontrolle, hat jedoch einige Nachteile in Bezug auf Vererbung und — wie oben erwähnt — wenn Sie eine Einstellung ändern möchten, müssen Sie die gesamte Zeichenkette neu deklarieren (es sei denn, Sie verwenden [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), um die Werte festzulegen). Daher ist es am besten, die obigen Standard-Eigenschaften zu verwenden, wo immer möglich.
+{{cssxref("font-feature-settings")}} ist die 'Low-Level-Syntax', die expliziten Zugriff auf jede benannte verfügbare OpenType-Funktion ermöglicht. Dies gibt viel Kontrolle, hat jedoch einige Nachteile hinsichtlich der Auswirkung auf die Vererbung und — wie oben erwähnt — wenn Sie eine Einstellung ändern möchten, müssen Sie den gesamten String neu deklarieren (es sei denn, Sie verwenden [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), um die Werte festzulegen). Aus diesem Grund ist es am besten, wo immer möglich die oben gezeigten Standardeigenschaften zu verwenden.
 
-Es gibt eine große Anzahl möglicher Funktionen. Sie können Beispiele für viele davon oben sehen, und es gibt mehrere Ressourcen, um weitere zu finden.
+Es gibt eine große Anzahl möglicher Funktionen. Sie können Beispiele für eine Reihe davon oben sehen, und es gibt mehrere Ressourcen, um mehr davon zu finden.
 
 Die allgemeine Syntax sieht so aus:
 
@@ -1126,7 +1121,7 @@ Die allgemeine Syntax sieht so aus:
 }
 ```
 
-Laut Spezifikation können Sie entweder nur den 4-stelligen Funktionscode angeben oder eine 1 nach dem Code hinzufügen (um diese Funktion zu aktivieren) oder eine 0 (Null), um sie zu deaktivieren. Dies ist hilfreich, wenn Sie z. B. eine Funktion wie Ligaturen standardmäßig aktiviert haben, aber diese deaktivieren möchten, wie folgt:
+Laut der Spezifikation können Sie entweder nur den 4-Zeichen-Funktionscode angeben oder eine 1 nach dem Code angeben (um diese Funktion zu aktivieren) oder eine 0 (null), um sie zu deaktivieren. Dies ist hilfreich, wenn Sie eine Funktion wie Ligaturen standardmäßig aktiviert haben, sie jedoch ausschalten möchten, wie folgt:
 
 ```css
 .no-ligatures {
@@ -1136,16 +1131,16 @@ Laut Spezifikation können Sie entweder nur den 4-stelligen Funktionscode angebe
 }
 ```
 
-### Mehr über font-feature-settings-Codes
+### Mehr Informationen zu font-feature-settings Codes
 
-- ['The Complete CSS Demo for OpenType Features'](https://sparanoid.com/lab/opentype-features/) (kann für die Wahrheit des Namens nicht garantieren, aber es ist ziemlich umfangreich)
+- ['The Complete CSS Demo for OpenType Features'](https://sparanoid.com/lab/opentype-features/) (kann nicht für die Wahrhaftigkeit des Namens bürgen, aber es ist ziemlich umfangreich)
 - [Eine Liste von OpenType-Funktionen auf Wikipedia](https://en.wikipedia.org/wiki/List_of_typographic_features)
 
-## Nutzung von CSS-Funktionsprüfungen zur Implementierung
+## Verwendung der CSS Funktionserkennung für Implementierungen
 
-Da nicht alle Eigenschaften gleichmäßig implementiert sind, ist es eine gute Praxis, Ihr CSS mithilfe von Funktionsprüfungen so einzurichten, dass die richtigen Eigenschaften genutzt werden, wobei {{cssxref("font-feature-settings")}} als Fallback dient.
+Da nicht alle Eigenschaften einheitlich implementiert sind, ist es eine gute Praxis, Ihr CSS mit Funktionserkennung so einzurichten, dass Sie die richtigen Eigenschaften verwenden können, wobei {{cssxref("font-feature-settings")}} als Fallback dient.
 
-Zum Beispiel können Kapitälchen auf mehrere Arten gesetzt werden, aber wenn Sie sicherstellen möchten, dass unabhängig von der Groß- oder Kleinschreibung des zugrunde liegenden Textes alles in Kapitälchen endet, erfordert dies 2 Einstellungen mit `font-feature-settings` im Gegensatz zu einer einzelnen Eigenschaft mit {{cssxref("font-variant-caps")}}.
+Beispielsweise können Kapitälchen auf mehrere Arten eingestellt werden, aber wenn Sie sicherstellen möchten, dass Sie unabhängig von der zugrunde liegenden Großschreibung mit allem in Kapitälchen enden, erfordert dies 2 Einstellungen mit `font-feature-settings` im Gegensatz zu einem einzigen Eigenschaftswert mit {{cssxref("font-variant-caps")}}.
 
 ```css
 .small-caps {
@@ -1162,21 +1157,21 @@ Zum Beispiel können Kapitälchen auf mehrere Arten gesetzt werden, aber wenn Si
 
 ## Siehe auch
 
-### Demos zu OpenType-Funktionen in CSS
+### Demos von OpenType-Funktionen in CSS
 
 - [The Complete CSS Demo for OpenType Features](https://sparanoid.com/lab/opentype-features/)
 
-### Werkzeuge zur Analyse von Web-Schriftarten
+### Tools zur Analyse von Webschriften
 
 - [Wakamai Fondue](https://wakamaifondue.com/)
 - [Axis Praxis](https://www.axis-praxis.org/)
 
 ### W3C-Spezifikationen
 
-- [Font-Funktions-Eigenschaften im CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#font-rend-props)
-- [font-variant-alternatives im CSS Fonts Module Level 4](https://www.w3.org/TR/css-fonts-4/#propdef-font-variant-alternates)
+- [Font Feature Properties in CSS Fonts Module Level 3](https://drafts.csswg.org/css-fonts-3/#font-rend-props)
+- [font-variant-alternatives in CSS Fonts Module Level 4](https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-alternates)
 
-### Weitere Ressourcen
+### Andere Ressourcen
 
-- [OpenType-Funktionen verwenden](https://helpx.adobe.com/fonts/using/use-open-type-features.html) von Tim Brown, Leiter Typografie, Adobe
-- [Adobes Syntax für OpenType-Funktionen in CSS](https://helpx.adobe.com/fonts/using/open-type-syntax.html)
+- [Using OpenType features](https://helpx.adobe.com/fonts/using/use-open-type-features.html) von Tim Brown, Head of Typography, Adobe
+- [Adobe's Syntax for OpenType features in CSS](https://helpx.adobe.com/fonts/using/open-type-syntax.html)

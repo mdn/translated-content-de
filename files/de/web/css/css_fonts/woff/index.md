@@ -1,29 +1,28 @@
 ---
-title: Das Web Open Font Format (WOFF)
+title: Web Open Font Format (WOFF)
+short-title: WOFF
 slug: Web/CSS/CSS_fonts/WOFF
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
-
-**WOFF** (das **Web Open Font Format**) ist ein Webfont-Format, das von Mozilla in Zusammenarbeit mit Type Supply, LettError und anderen Organisationen entwickelt wurde. Es verwendet eine komprimierte Version der gleichen tabellenbasierten `sfnt`-Struktur, die von TrueType, OpenType und Open Font Format verwendet wird, fügt jedoch Metadaten und private Nutzdatenstrukturen hinzu, einschließlich vordefinierter Felder, die es Schriftgießereien und Anbietern ermöglichen, bei Bedarf Lizenzinformationen bereitzustellen.
+**WOFF** (das **Web Open Font Format**) ist ein Web-Schriftformat, das von Mozilla in Zusammenarbeit mit Type Supply, LettError und anderen Organisationen entwickelt wurde. Es verwendet eine komprimierte Version der gleichen tabellenbasierten `sfnt`-Struktur, die von TrueType, OpenType und Open Font Format genutzt wird, fügt jedoch Metadaten und private Datenstrukturen hinzu, einschließlich vordefinierter Felder, die Gießereien und Anbietern die Möglichkeit geben, Lizenzinformationen bereitzustellen, falls gewünscht.
 
 Es gibt drei Hauptvorteile bei der Verwendung von WOFF:
 
-1. Die Schriftartdaten sind komprimiert, sodass Websites, die WOFF verwenden, weniger Bandbreite nutzen und schneller laden als wenn sie gleichwertige unkomprimierte TrueType- oder OpenType-Dateien verwenden würden.
-2. Viele Schriftanbieter, die nicht bereit sind, ihre TrueType- oder OpenType-Format-Schriften für die Nutzung im Web zu lizenzieren, werden WOFF-Format-Schriften lizenzieren. Dies verbessert die Verfügbarkeit von Schriftarten für Webdesigner.
+1. Die Schriftartdaten sind komprimiert, sodass Websites, die WOFF verwenden, weniger Bandbreite benötigen und schneller geladen werden als wenn sie gleichwertige unkomprimierte TrueType- oder OpenType-Dateien verwenden.
+2. Viele Schriftartenanbieter, die nicht bereit sind, ihre TrueType- oder OpenType-Schriftartenformate für die Webnutzung zu lizenzieren, lizenzieren WOFF-Format-Schriften. Dies verbessert die Verfügbarkeit von Schriftarten für Seitendesigner.
 3. Sowohl proprietäre als auch freie Software-Browseranbieter mögen das WOFF-Format, sodass es das Potenzial hat, ein wirklich universelles, interoperables Schriftformat für das Web zu werden, im Gegensatz zu anderen aktuellen Schriftformaten.
 
-Es gibt zwei Versionen von WOFF: WOFF und WOFF2. Sie unterscheiden sich hauptsächlich im verwendeten Kompressionsalgorithmus. In {{cssxref("@font-face")}} werden sie durch den Format-Descriptor `'woff'` bzw. `'woff2'` identifiziert.
+Es gibt zwei Versionen von WOFF: WOFF und WOFF2. Sie unterscheiden sich hauptsächlich hinsichtlich des verwendeten Komprimierungsalgorithmus. In {{cssxref("@font-face")}} werden sie jeweils durch die Formatbezeichner `'woff'` und `'woff2'` identifiziert.
 
 ## Verwendung von WOFF
 
-Sie können die {{cssxref("@font-face")}} CSS-Eigenschaft verwenden, um WOFF-Schriften für Textinhalte im Web zu verwenden. Sie funktioniert genau wie Schriftarten im OpenType- und TrueType-Format, mit der Ausnahme, dass sie wahrscheinlich effizienteres Herunterladen Ihrer Inhalte ermöglicht, dank der zusätzlichen Komprimierung.
+Sie können die CSS-Eigenschaft {{cssxref("@font-face")}} verwenden, um WOFF-Schriftarten für Text in Webinhalten zu nutzen. Sie funktioniert genauso wie OpenType- und TrueType-Schriftarten, mit dem Vorteil, dass Ihre Inhalte aufgrund der zusätzlichen Kompression wahrscheinlich effizienter heruntergeladen werden.
 
-## Werkzeuge für die Arbeit mit WOFF-Schriften
+## Werkzeuge zur Arbeit mit WOFF-Schriftarten
 
-- [Werkzeuge für die Arbeit mit WOFF](https://github.com/odemiral/woff2sfnt-sfnt2woff) Schriften sind verfügbar. `sfnt2woff` und `woff2sfnt` konvertieren zwischen WOFF und OpenType.
+- [Werkzeuge zur Arbeit mit WOFF](https://github.com/odemiral/woff2sfnt-sfnt2woff) Schriftarten sind verfügbar. `sfnt2woff` und `woff2sfnt` konvertieren zwischen WOFF und OpenType.
 
 ## Spezifikationen
 

@@ -2,31 +2,29 @@
 title: Das Modell der Webstandards
 slug: Learn_web_development/Getting_started/Web_standards/The_web_standards_model
 l10n:
-  sourceCommit: 90e419a0ec9741f35bc564beb90e74210bc4c97a
+  sourceCommit: 03482f82cba9c871042bbf4972b754f65eb3cb90
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Web_standards/How_the_web_works", "Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites", "Learn_web_development/Getting_started/Web_standards")}}
 
-Dieser Artikel bietet nützliche Hintergrundinformationen über das Web und Webstandards — wie sie entstanden sind, was Webstandard-Technologien sind und wie sie zusammenarbeiten.
+Dieser Artikel bietet einige nützliche Hintergrundinformationen zum Web und zu Webstandards — wie sie entstanden sind, was Webstandard-Technologien sind und wie sie zusammenarbeiten.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse Ihres Computer-Betriebssystems, der Webbrowser und der Webtechnologien.
+        Grundlegende Vertrautheit mit Ihrem Computerbetriebssystem, Webbrowsern und Webtechnologien.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Webstandards und die grundlegenden Prinzipien, auf denen sie basieren.</li>
-          <li>Wie Standardisierungsorganisationen arbeiten — beispielsweise das <a href="https://www.w3.org/">W3C</a>, <a href="https://whatwg.org/">WHATWG</a>, <a href="https://tc39.es/">TC39</a> und die <a href="https://www.khronos.org/">Khronos Group</a>; der Prozess der Standarderstellung.</li>
+          <li>Webstandards und die zentralen Prinzipien, auf denen sie basieren.</li>
+          <li>Wie Standardisierungsorganisationen arbeiten — zum Beispiel das <a href="https://www.w3.org/">W3C</a>, <a href="https://whatwg.org/">WHATWG</a>, <a href="https://tc39.es/">TC39</a> und die <a href="https://www.khronos.org/">Khronos Group</a>; der Prozess der Standarderstellung.</li>
           <li>Die wichtigsten Webstandard-Technologien und wie sie zusammenarbeiten.</li>
-          <li>Server-seitige (dynamische) gegenüber client-seitigen (statischen) Dateien.</li>
+          <li>Serverseitige (dynamische) versus clientseitige (statische) Dateien.</li>
           <li>Best Practices für das Web.</li>
         </ul>
       </td>
@@ -34,222 +32,180 @@ Dieser Artikel bietet nützliche Hintergrundinformationen über das Web und Webs
   </tbody>
 </table>
 
-## Kurze Geschichte des Web
+## Kurze Geschichte des Webs
 
-In den späten 1960er Jahren entwickelte das US-Militär ein Kommunikationsnetzwerk namens {{Glossary("Arpanet", "ARPANET")}}. Dies kann als Vorläufer des **Internets** angesehen werden, da es auf [Paketvermittlung](https://en.wikipedia.org/wiki/Packet_switching) basierte und die erste Implementierung der [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite)-Protokollfamilie enthielt. Diese beiden Technologien bilden die Grundlage der Infrastruktur, auf der das Internet aufgebaut ist.
+Ende der 1960er Jahre entwickelte das US-Militär ein Kommunikationsnetzwerk namens {{Glossary("Arpanet", "ARPANET")}}. Dies kann als Vorläufer des **Internets** betrachtet werden, da es auf [Paketvermittlung](https://en.wikipedia.org/wiki/Packet_switching) basierte und die erste Implementierung der [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite) Protokollsuite beinhaltete. Diese beiden Technologien bilden die Grundlage der Infrastruktur, auf der das Internet aufgebaut ist.
 
-1980 schrieb [Tim Berners-Lee](https://de.wikipedia.org/wiki/Tim_Berners-Lee) (oft „TimBL“ genannt) ein Notizbuchprogramm namens ENQUIRE, das das Konzept der Verlinkung zwischen Knotenpunkten enthielt. Klingt bekannt?
+1980 schrieb [Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee) (oft als TimBL bezeichnet) ein Notizbuchprogramm namens ENQUIRE, das das Konzept von Links zwischen verschiedenen Knotenpunkten enthielt. Klingt vertraut?
 
-Springen wir ins Jahr 1989: TimBL schrieb [Information Management: A Proposal](https://www.w3.org/History/1989/proposal.html) und HyperText bei CERN; diese beiden Publikationen legten die Grundlagen dafür, wie das Web funktionieren würde. Sie erhielten eine beachtliche Resonanz, genug, um TimBLs Vorgesetzte davon zu überzeugen, ihn ein globales Hypertext-System entwickeln zu lassen.
+Springen wir ins Jahr 1989, als TimBL [Information Management: A Proposal](https://www.w3.org/History/1989/proposal.html) und HyperText bei CERN schrieb; diese beiden Veröffentlichungen zusammen bildeten den Hintergrund dafür, wie das Web funktionieren würde. Sie erhielten ein beträchtliches Maß an Interesse, genug, um TimBLs Vorgesetzte davon zu überzeugen, ihm zu erlauben, ein globales Hypertextsystem zu schaffen.
 
-Bis 1990-91 hatte TimBL alles geschaffen, was notwendig war, um die erste Version des **World Wide Web** (allgemein als **Web** bezeichnet) zu betreiben — [HTTP](/de/docs/Web/HTTP), [HTML](/de/docs/Web/HTML), den ersten Webbrowser namens [WorldWideWeb](https://de.wikipedia.org/wiki/WorldWideWeb), einen Webserver und einige Webseiten zum Anschauen.
-
-> [!NOTE]
-> Menschen verwenden manchmal „das Web“ und „das Internet“ synonym, aber sie sind unterschiedliche Dinge. Das Internet ist die Infrastruktur, die den Transport von Informationen weltweit zwischen verschiedenen Servern und Clients ermöglicht, während das Web ein darauf aufgesetztes System ist. Das Web definiert Arten von Informationen (Inhalte und Code), die über das Internet transportiert werden, sowie Kommunikationsprotokolle zur Verwaltung dieses Transports.
-
-1994 gründete TimBL das [World Wide Web Consortium](https://de.wikipedia.org/wiki/World_Wide_Web_Consortium) (W3C), eine Organisation, die Vertreter vieler verschiedener Unternehmen zusammenbringt, um an der Erstellung von Webtechnologien zusammenzuarbeiten. Das W3C arbeitete an der Standardisierung und Verbesserung bestehender Webtechnologien wie HTML und HTTP sowie an der Entwicklung neuer Technologien wie [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript). Insbesondere CSS und JavaScript waren entscheidend, um dem Web Styling und Interaktivität zu verleihen und es so aussehen zu lassen wie das heutige Web.
-
-In den darauf folgenden Jahren erlebte das Web ein enormes Wachstum, es wurden zahlreiche Browser veröffentlicht, tausende von Webservern eingerichtet und Millionen von Webseiten erstellt. Weitere Standardisierungsorganisationen tauchten auf, um verschiedene Aspekte der Webtechnologien zu standardisieren.
+Bis 1990-91 hatte TimBL alles geschaffen, was notwendig war, um die erste Version des **World Wide Web** (allgemein als das **Netz** bezeichnet) zu betreiben – [HTTP](/de/docs/Web/HTTP), [HTML](/de/docs/Web/HTML), den ersten Webbrowser, der [WorldWideWeb](https://en.wikipedia.org/wiki/WorldWideWeb) genannt wurde, einen Webserver und einige Webseiten zum Ansehen.
 
 > [!NOTE]
-> Wenn Sie sich für eine detailliertere Beschreibung der Webhistorie interessieren, suchen Sie in Ihrer bevorzugten [Suchmaschine](/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#search_engine) nach „Geschichte des Webs“ und sehen Sie, was Sie finden können.
+> Menschen verwenden manchmal "das Netz" und "das Internet" synonym, aber es sind unterschiedliche Dinge. Das Internet ist die Infrastruktur, die es ermöglicht, Informationen weltweit zwischen verschiedenen Servern und Clients zu transportieren, während das Netz ein darauf aufbauendes System ist. Das Netz definiert Arten von Informationen (Inhalte und Code), die über das Internet transportiert werden, und Kommunikationsprotokolle, um diesen Transport zu verwalten.
+
+1994 gründete TimBL das [World Wide Web Consortium](https://en.wikipedia.org/wiki/World_Wide_Web_Consortium) (W3C), eine Organisation, die Vertreter vieler verschiedener Unternehmen zusammenbringt, um gemeinsam an der Schaffung von Webtechnologien zu arbeiten. Das W3C arbeitete an der Standardisierung und Verbesserung vorhandener Webtechnologien wie HTML und HTTP und der Schaffung neuer Technologien wie [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript). CSS und JavaScript waren insbesondere entscheidend, um dem Web Styling und Interaktivität zu verleihen und es so aussehen zu lassen wie das Web, das wir heute kennen.
+
+In den folgenden Jahren explodierte das Web, mit der Veröffentlichung mehrerer Browser, dem Einrichten tausender Webserver und der Erstellung von Millionen von Webseiten. Andere Standardisierungsorganisationen erschienen ebenfalls, um verschiedene Aspekte der Webtechnologien zu standardisieren.
+
+> [!NOTE]
+> Wenn Sie interessiert sind, eine detailliertere Darstellung der Webgeschichte zu lesen, versuchen Sie, nach "Geschichte des Webs" in Ihrer bevorzugten [Suchmaschine](/de/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#search_engine) zu suchen und zu sehen, was Sie finden können.
 
 ## Webstandards
 
-**Webstandards** sind die Technologien, die wir verwenden, um Websites zu erstellen. Diese Standards existieren in Form von langen technischen Dokumenten, die Spezifikationen genannt werden und genau beschreiben, wie die Technologie funktionieren soll. Diese Dokumente sind nicht sehr nützlich, um zu lernen, wie man die beschriebenen Technologien anwendet (aus diesem Grund gibt es Seiten wie MDN Web Docs). Stattdessen sollen sie von Softwareingenieuren genutzt werden, um diese Technologien zu implementieren (in der Regel in Webbrowsern).
+**Webstandards** sind die Technologien, die wir zum Erstellen von Webseiten verwenden. Diese Standards existieren als lange technische Dokumente, sogenannte Spezifikationen, die genau detaillieren, wie die Technologie funktionieren soll. Diese Dokumente sind nicht sehr nützlich, um zu lernen, wie man die beschriebenen Technologien verwendet (deshalb haben wir Seiten wie MDN Web Docs). Stattdessen sind sie dafür gedacht, von Software-Ingenieuren verwendet zu werden, um diese Technologien zu implementieren (normalerweise in Webbrowsern).
 
 ### Standardisierungsgremien und Prozesse
 
-Webstandards werden von Standardisierungsgremien erstellt — Institutionen, die Gruppen von Personen aus verschiedenen Technologieunternehmen einladen, sich zusammenzufinden, um sich darauf zu einigen, wie die Technologien am besten gestaltet werden, um all ihre Anwendungsfälle abzudecken.
+Webstandards werden von Standardisierungsgremien erstellt — Institutionen, die Gruppen von Personen aus verschiedenen Technologieunternehmen einladen, zusammenzukommen und zu vereinbaren, wie die Technologien am besten funktionieren sollten, um all ihre Anwendungsfälle zu erfüllen.
 
-Das W3C ist das bekannteste Gremium für Webstandards, aber es gibt noch andere. Zum Beispiel:
+Das W3C ist das bekannteste Webstandard-Gremium, aber es gibt auch andere. Zum Beispiel:
 
-- [WHATWG](https://whatwg.org/) pflegt den [HTML Living Standard](https://html.spec.whatwg.org/multipage/), der genau beschreibt, wie HTML (alle HTML-Elemente, deren zugehörige APIs und andere umgebende Technologien) implementiert werden soll.
+- [WHATWG](https://whatwg.org/) pflegt den [HTML Living Standard](https://html.spec.whatwg.org/multipage/), der genau beschreibt, wie HTML (alle HTML-Elemente und ihre zugehörigen APIs und andere umgebende Technologien) implementiert werden sollte.
 - [TC39](https://tc39.es/) und [ECMA](https://ecma-international.org/) spezifizieren und veröffentlichen den Standard für ECMAScript, auf dem modernes JavaScript basiert.
-- [Khronos](https://www.khronos.org/) veröffentlicht Technologien für 3D-Grafiken, wie z. B. WebGL.
+- [Khronos](https://www.khronos.org/) veröffentlicht Technologien für 3D-Grafiken, wie zum Beispiel WebGL.
 
-Die vollständigen Prozesse, mit denen Standards erstellt werden, können tief und komplex sein. Wenn Sie jedoch keine eigenen Webtechnologie-Features erstellen möchten, müssen Sie das meiste davon nicht verstehen. Wenn Sie zur Diskussion über neue Technologien beitragen und Feedback geben möchten, müssen Sie sich in der Regel in die entsprechende Mailingliste oder einen anderen Diskussionsmechanismus eintragen. Standarddiskussionen finden öffentlich statt, daher der Begriff [„Offene Standards“](#open_standards).
+Die vollständigen Prozesse, durch die Standards erstellt werden, können tief und komplex werden. Aber, es sei denn, Sie möchten Ihre eigenen Webtechnologie-Funktionen erstellen, müssen Sie das meiste davon nicht verstehen. Wenn Sie zur Diskussion rund um neue Technologien beitragen und Feedback geben möchten, ist es in der Regel eine Frage des Beitritts zur relevanten Mailingliste oder anderem Diskussionsmechanismus. Standardsdiskussionen werden öffentlich geführt, daher der Begriff ["Offene" Standards](#offenestandards).
 
-Für den Moment geben wir Ihnen ein allgemeines, oberflächliches Verständnis davon, wie Standardisierungsprozesse funktionieren:
+Jetzt geben wir Ihnen ein allgemeines, höheres Verständnis davon, wie Standardprozesse funktionieren:
 
-1. Jemand erkennt die Notwendigkeit eines neuen Web-Standard-Features, das das Leben der Entwickler erleichtert. Beispielsweise gibt es vielleicht ein häufig verwendetes Muster in Web-Oberflächen, dessen Umsetzung jedoch aufwendig ist. Ein dediziertes CSS-Feature würde dies erheblich vereinfachen. Diese Person kann jeder sein — ein einzelner Entwickler oder ein Ingenieur, der für ein großes Technologieunternehmen arbeitet.
-2. Die Person bespricht dieses Feature mit anderen Entwicklern, Browser-Ingenieuren usw. und beginnt, Interesse an der Implementierung des Features zu wecken. In der Regel schreiben sie ein Erläuterungsdokument, das den Bedarf an dem Feature sowie dessen Funktionsweise erklärt, und ein Code-Demo, das zeigt, wie das Feature in Aktion aussehen würde.
-3. Wenn ausreichendes Interesse an dem Feature besteht, wird es formell in der relevanten Arbeitsgruppe des Standardisierungsgremiums besprochen. Beispielsweise werden CSS-Features in der Regel von der [CSS-Arbeitsgruppe](https://www.w3.org/groups/wg/css/) (WG) diskutiert (siehe auch die [Wikipedia-Seite der CSS-Arbeitsgruppe](https://en.wikipedia.org/wiki/CSS_Working_Group) für weitere Beschreibungen und Historie). Bevor eine neue Webtechnologie akzeptiert wird, muss sie gründlich bewertet werden, um sicherzustellen, dass sie gut für das Web ist — beispielsweise keine Sicherheitsprobleme verursacht, [barrierefrei und interoperabel](#barrierefrei_und_interoperabel) mit anderen Webtechnologien ist und nicht auf Patenten basiert.
-4. Um das Feature zu testen, passieren mehrere Dinge. Diese Punkte können alle parallel zu Punkt 3 oder sogar davor auftreten (Browser-Anbieter implementieren manchmal proprietäre/nicht standardisierte Features und versuchen, diese anschließend zu standardisieren):
+1. Jemand bemerkt den Bedarf an einem neuen Webstandard-Feature, das das Leben der Entwickler erleichtern wird. Zum Beispiel gibt es vielleicht ein gängiges Muster, das häufig in Web-Benutzeroberflächen verwendet wird, aber es ist mühsam zu implementieren. Ein dediziertes CSS-Feature würde es viel einfacher machen. Jemand könnte jeder sein — ein einzelner Entwickler oder ein Ingenieur, der für ein großes Technologieunternehmen arbeitet.
+2. Die Person diskutiert dieses Feature mit anderen Entwicklern, Browser-Ingenieuren usw. und beginnt Interesse an der Implementierung des Features zu wecken. In der Regel schreiben sie ein Erklärungsdokument, das den Bedarf für das Feature und seine Funktionsweise erläutert, und ein Code-Demo, das zeigt, wie das Feature in Aktion aussehen würde.
+3. Wenn genügend Interesse am Feature besteht, wird es formell in der relevanten Standardisierungsgruppe diskutiert. Zum Beispiel werden CSS-Features in der Regel von der [CSS Working Group](https://www.w3.org/groups/wg/css/) (WG) diskutiert (siehe auch die [CSS Working Group Wikipedia-Seite](https://en.wikipedia.org/wiki/CSS_Working_Group) für eine etwas genauere Beschreibung und Geschichte). Bevor eine neue Webtechnologie akzeptiert wird, muss sie gründlich evaluiert werden, um sicherzustellen, dass sie gut für das Web ist — zum Beispiel keine Sicherheitsprobleme einführt, sie [zugänglich und kompatibel](#zugänglich_und_interoperabel) mit anderen Webtechnologien ist und nicht auf Patenten basiert.
+4. Um das Feature zu beweisen, passieren mehrere Dinge. Diese Punkte können alle ungefähr zur gleichen Zeit wie Punkt 3, oder sogar vorher passieren (Browseranbieter implementieren manchmal proprietäre/nicht-standardisierte Features und versuchen dann, sie nachträglich zu standardisieren):
+   1. Ein oder mehrere Browseranbieter implementieren eine experimentelle Version des neuen Features, häufig standardmäßig deaktiviert, aber die von Personen, die es testen und Feedback geben wollen, aktiviert werden kann.
+   2. Ein Mitglied der Arbeitsgruppe fügt es auch zur Technologiespezifikation hinzu, damit Browseranbieter in der Lage sind, es konsistent zu implementieren.
+   3. Sie suchen auch Feedback von anderen Browseranbietern, um zu sehen, welche Probleme sie mit dem Vorschlag haben und wie wahrscheinlich es ist, dass sie es implementieren. Diese werden als Standardpositionen bezeichnet. Siehe zum Beispiel [Mozilla Standards Positions](https://mozilla.github.io/standards-positions/).
+   4. Beteiligte Personen schreiben auch eine umfangreiche Suite von Tests, um zu demonstrieren, dass das Feature wie beschrieben funktioniert.
 
-   1. Ein oder mehrere Browser-Hersteller implementieren eine experimentelle Version des neuen Features, das häufig standardmäßig deaktiviert ist, aber von Personen aktiviert werden kann, die es testen und Feedback geben möchten.
-   2. Ein Mitglied der Arbeitsgruppe fügt es einer Technologiespezifikation hinzu, damit Browser-Hersteller es einheitlich implementieren können.
-   3. Sie suchen außerdem Feedback von anderen Browser-Herstellern, um herauszufinden, welche Probleme sie mit dem Vorschlag haben und wie wahrscheinlich es ist, dass sie es implementieren. Diese heißen "Standards Positionen". Siehe beispielsweise [Mozilla Standards Positions](https://mozilla.github.io/standards-positions/).
-   4. Beteiligte Personen schreiben zudem eine umfangreiche Testsuite, um zu zeigen, dass das Feature wie beschrieben funktioniert.
-
-5. Wenn schließlich alles in Ordnung ist, wird das Feature in allen Browsern implementiert und kann beim Erstellen von Webseiten genutzt werden.
+5. Schließlich, wenn alles in Ordnung ist, wird das Feature in allen Browsern implementiert und kann beim Erstellen von Webseiten verwendet werden.
 
 > [!NOTE]
-> Es ist durchaus möglich, dass die Personen, die das Feature vorschlagen, es in einen Browser implementieren, die Spezifikation erstellen, Tests schreiben und Feedback dafür einholen, dieselben Personen sind.
+> Es ist durchaus möglich, dass die Personen, die das Feature vorschlagen, es in einem Browser implementieren, die Spezifikation erstellen, Tests schreiben und Feedback dazu sammeln, dieselbe Person/dieselben Personen sind.
 
-Weitere Informationen zu bestimmten Prozessen von Standardisierungsgremien finden Sie beispielsweise hier:
+Sie können mehr Informationen über spezifische Standardisierungsprozesse finden. Siehe zum Beispiel:
 
 - [W3C Process Document](https://www.w3.org/policies/process/)
 - [WHATWG — Working Mode](https://whatwg.org/working-mode)
 - [The TC39 Process](https://tc39.es/process-document/)
 
-## Zentrale Prinzipien der Webstandards
+## Schlüsselprinzipien der Webstandards
 
-Die zentralen Prinzipien des Web, die das Web zu einer einzigartigen und spannenden Branche machen, sind wie folgt:
+Die Schlüsselprinzipien des Webs, die das Web zu einer einzigartigen und spannenden Branche machen, in der man sich engagieren kann, sind wie folgt:
 
-- Offen für Beiträge und Nutzung und daher nicht durch Patente belastet oder von einer einzelnen privaten Organisation kontrolliert.
-- Barrierefrei und interoperabel.
-- Sie brechen das Web nicht.
+- Offen für Beitrag und Nutzung, und daher nicht mit Patenten belastet oder von einer einzelnen privaten Entität kontrolliert.
+- Zugänglich und interoperabel.
+- Sie zerstören nicht das Web.
 
-Schauen wir uns diese Punkte etwas genauer an.
+Schauen wir uns diese etwas genauer an.
 
 ### "Offene" Standards
 
-Einer der Schlüsselaspekte von Webstandards, den TimBL und das W3C von Anfang an vereinbarten, ist, dass das Web (und Web-Technologien) **offen** sein sollten. Das bedeutet, dass sie frei sind für Beiträge und Nutzung und nicht durch Patente/Lizenzen belastet sind. Dies ist wichtig — wenn eine Webtechnologie darauf basiert, dass patentierte/lizenzierte Technologien funktionieren, kann der Patentinhaber/Anbieter Browser-Herstellern möglicherweise hohe Summen berechnen, die Kosten würden dann an die Browser-Benutzer weitergegeben.
+Ein wesentliches Merkmal der Webstandards, das von TimBL und dem W3C von Anfang an vereinbart wurde, ist, dass das Web (und Webtechnologien) **offen** sein sollten. Das bedeutet, dass sie sowohl zum Beitrag als auch zur Nutzung frei sind und nicht durch Patente/Lizenzen belastet werden. Das ist wichtig — wenn eine Webtechnologie auf patentierten/lizenzierten Technologien basiert, um zu funktionieren, kann der Patent-/Eigentümer dann potenziell große Geldbeträge von Browser-Anbietern verlangen, und diese Kosten würden dann an die Browser-Nutzer weitergegeben.
 
-Darüber hinaus bedeutet die Tatsache, dass Webtechnologien offen, in Zusammenarbeit zwischen vielen verschiedenen Unternehmen geschaffen werden, dass kein einziges Unternehmen die Kontrolle über sie erhält, was eine wirklich gute Sache ist. Man würde nicht wollen, dass ein einziges Unternehmen plötzlich entscheidet, das gesamte Web hinter eine Bezahlschranke zu stellen, eine neue Version von HTML zu veröffentlichen, die jeder kaufen muss, um weiterhin Websites zu erstellen, oder noch schlimmer: dass sie das Interesse verlieren und es einfach abschalten.
+Da Webtechnologien zudem offen in Zusammenarbeit zwischen vielen unterschiedlichen Unternehmen geschaffen werden, kann kein Unternehmen sie kontrollieren, was eine wirklich gute Sache ist. Sie würden nicht wollen, dass ein einziges Unternehmen plötzlich entscheidet, das ganze Web hinter eine Paywall zu stellen, oder eine neue Version von HTML herausbringt, die jeder kaufen muss, um weiterhin Webseiten zu erstellen, oder noch schlimmer, entscheidet, dass sie nicht mehr interessiert sind und es einfach abschalten.
 
-Offene Standards erlauben es, dass das Web eine frei verfügbare öffentliche Ressource bleibt, an der jeder mitarbeiten und die jeder für die Erstellung von Webseiten kostenlos nutzen kann.
+Offene Standards ermöglichen es, dass das Web ein frei verfügbares öffentliches Gut bleibt, bei dem jeder den Code zum Erstellen einer Website kostenlos schreiben und jeder am Prozess der Standarderstellung teilnehmen kann.
 
-### Barrierefrei und interoperabel
+### Zugänglich und interoperabel
 
-Das Web und Webbrowser sind grundsätzlich so gestaltet, dass Webinhalte für Menschen mit Behinderungen **barrierefrei** sind. Es war ursprünglich als großer Gleichmacher gedacht, der es Menschen ermöglicht, unabhängig von ihren Umständen auf Informationen zuzugreifen. Das bedeutet zum Beispiel:
+Das Web und Webbrowser sind grundsätzlich so konzipiert, dass Webinhalte **zugänglich** für Menschen mit Behinderungen sind. Es wurde ursprünglich als großer Ausgleich gedacht, der es Menschen ermöglicht, Informationen unabhängig von den Umständen zu erhalten. Das bedeutet zum Beispiel:
 
-- Personen, die keine Maus oder kein Zeigegerät verwenden können, können die Tastatur zur Navigation im Web verwenden.
-- Personen mit Sehbehinderung können Inhalte vergrößern oder ein Programm namens **Screenreader** nutzen, um Inhalte vorzulesen und Steuerelemente so zu beschreiben, dass sie verständlich sind.
+- Menschen, die nicht in der Lage sind, eine Maus oder ein Zeigegerät zu verwenden, können die Tastatur verwenden, um im Web zu navigieren.
+- Menschen mit Sehbehinderung können Inhalte vergrößern oder ein Programm namens **Screenreader** verwenden, um sich Inhalte vorlesen zu lassen und Steuerelemente auf eine Weise zu beschreiben, die Sinn ergibt.
 
 > [!NOTE]
-> Im weiteren Verlauf des Lernpfads erfahren Sie mehr über [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility).
+> Sie werden später im Lernpfad mehr über [Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility) erfahren.
 
-Zusätzlich sollen Webtechnologien **interoperabel** sein. Da Webtechnologien gemäß veröffentlichter Standards implementiert werden, sollten Browser die gleiche Darstellung für dieselbe Eingabe liefern (z. B. HTML-, CSS- oder JS-Code) — mit anderen Worten: eine Website sollte in mehreren Browsern konsistent funktionieren.
+Zusätzlich sollen Webtechnologien **interoperabel** sein. Da Webtechnologien gemäß veröffentlichten Standards implementiert werden, sollten Browser für eine gegebene Eingabe (zum Beispiel HTML, CSS oder JS-Code) die gleiche gerenderte Ausgabe liefern — mit anderen Worten, eine Website sollte konsistent in mehreren Browsern funktionieren.
 
-### Brechen Sie nicht das Web
+### Das Web nicht zerstören
 
-Ein weiterer Begriff, den Sie in Verbindung mit offenen Webstandards hören werden, ist „das Web nicht brechen“. Die Idee dahinter ist, dass jede neue Webtechnologie abwärtskompatibel sein sollte mit dem, was vorher war, sodass bestehende Webseiten weiterhin auf die gleiche Weise funktionieren wie zuvor.
+Ein weiterer Satz, den Sie in Bezug auf offene Webstandards hören werden, ist "das Web nicht zerstören". Die Idee dahinter ist, dass jede neue Webtechnologie rückwärtskompatibel mit dem sein sollte, was vor ihr war, sodass bestehende Websites weiterhin auf die gleiche Weise funktionieren wie zuvor.
 
-Browseranbieter sollten in der Lage sein, neue Webtechnologien zu implementieren, ohne eine Änderung in der Darstellung oder Funktionalität auszulösen, die Benutzer dazu veranlassen könnte, zu denken, dass eine Webseite defekt ist und einen anderen Browser auszuprobieren.
+Browser-Anbieter sollten in der Lage sein, neue Webtechnologien zu implementieren, ohne eine Änderung im Rendering oder der Funktionalität zu verursachen, die dazu führen würde, dass ihre Benutzer glauben, eine Website sei kaputt, und einen anderen Browser ausprobieren.
 
 ## Überblick über moderne Webtechnologien
 
-Es gibt eine Reihe von Technologien, die Sie lernen müssen, wenn Sie ein Front-End-Webentwickler werden möchten. In diesem Abschnitt beschreiben wir diese kurz.
+Es gibt eine Reihe von Technologien, die Sie lernen können, wenn Sie ein Front-End-Webentwickler werden möchten. In diesem Abschnitt werden wir sie kurz beschreiben.
 
 ### HTML, CSS und JavaScript
 
-[HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript) sind die drei Haupttechnologien, die Sie zum Erstellen einer Website verwenden werden.
+[HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript) sind die drei Haupttechnologien, die Sie verwenden, um eine Webseite zu erstellen. Sie haben diese im [vorherigen Modul](/de/docs/Learn_web_development/Getting_started/Your_first_website) kennengelernt, aber um es zusammenzufassen:
 
-- HTML ist für die Struktur und Semantik (Bedeutung).
-- CSS ist für Styling und Layout.
-- JavaScript und APIs sind für die Steuerung dynamischen Verhaltens.
-
-#### HTML
-
-Die **HyperText Markup Language**, oder **HTML**, ist eine Auszeichnungssprache, die aus verschiedenen Elementen besteht, mit denen Sie Inhalte umschließen (auszeichnen) können, um ihnen Bedeutung (Semantik) und Struktur zu geben. Einfaches HTML sieht wie folgt aus:
-
-```html
-<h1>This is a top-level heading</h1>
-
-<p>This is a paragraph of text.</p>
-
-<img src="cat.jpg" alt="A picture of my cat" />
-```
-
-Wenn wir eine Hausbau-Analogie verwenden, wäre HTML wie die Fundamente und Wände des Hauses, die ihm Struktur geben und es zusammenhalten.
-
-#### CSS
-
-**Cascading Style Sheets (CSS)** ist eine regelbasierte Sprache, die für das Anwenden von Stilen auf HTML verwendet wird — zum Beispiel das Setzen von Text- und Hintergrundfarben, das Hinzufügen von Rahmen, das Animieren von Elementen oder das Layout einer Seite. Ein einfacher CSS-Code würde alle HTML-Absätze rot machen:
-
-```css
-p {
-  color: red;
-}
-```
-
-In der Hausanalogie ist CSS wie die Farbe, die Tapete, Teppiche und Bilder, die das Haus ansprechend aussehen lassen.
-
-#### JavaScript (und APIs)
-
-**JavaScript** ist die Programmiersprache, die wir verwenden, um Interaktivität auf Websites hinzuzufügen, von dynamischen Stilwechseln bis hin zum Abrufen von Updates vom Server oder komplexen 3D-Grafiken. Der folgende einfache JavaScript-Code speichert eine Referenz auf einen Absatz im Speicher und verändert den darin befindlichen Text:
-
-```js
-let pElem = document.querySelector("p");
-pElem.textContent = "We changed the text!";
-```
-
-Sie werden auch den Begriff **APIs** im Zusammenhang mit JavaScript hören. API steht für **Application Programming Interface**. Allgemein gesagt ist eine API ein Code-Teil, der es ermöglicht, andere komplexere Stücke von Code oder Funktionen auf Ihrem Computer (wie Hardwaregeräte wie Ihre Webcam oder Ihr Mikrofon) auf kontrollierte Weise zu steuern.
-
-Zum Beispiel: Ihre eigene Schnittstelle zur Kommunikation mit Ihrer Webcam und zum Erfassen eines Videostreams zu schreiben, wäre komplex, aber die JavaScript-Methode [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia#examples) erlaubt Ihnen, dies recht einfach zu tun, da sie die ganze harte Arbeit im Hintergrund übernimmt.
-
-Der einfache Codeschnipsel oben verwendet auch eine API. [`querySelector()`](/de/docs/Web/API/Document/querySelector) und [`textContent`](/de/docs/Web/API/Node/textContent) sind beide Teile der [Document Object Model (DOM)](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting)-API, die es Ihnen erlaubt, Web-Dokumente mit JavaScript zu manipulieren.
-
-In der Hausanalogie sind JavaScript und APIs wie der Herd, Fernseher, die Mikrowelle oder der Haartrockner — die Dinge, die Ihrem Zuhause nützliche Funktionen verleihen.
+- HyperText Markup Language oder **HTML** ist eine Auszeichnungssprache, die aus verschiedenen Elementen besteht, mit denen Sie Inhalte einrahmen (auszeichnen) können, um ihnen Bedeutung (Semantik) und Struktur zu geben. Wenn wir uns eine Hausbau-Analogie vorstellen würden, wäre HTML wie die Fundamente und Wände des Hauses, die ihm Struktur geben und es zusammenhalten.
+- Cascading Style Sheets (**CSS**) ist eine regelbasierte Sprache, die verwendet wird, um Stile auf Ihr HTML anzuwenden — zum Beispiel, um Text- und Hintergrundfarben festzulegen, Rahmen hinzuzufügen, Dinge zu animieren oder eine Seite auf eine bestimmte Weise zu layouten. In der Hausanalogies ist CSS wie die Farbe, Tapeten, Teppiche und Gemälde, die Sie verwenden würden, um das Haus schön aussehen zu lassen.
+- **JavaScript** ist die Programmiersprache, die wir verwenden, um Websites Interaktivität zu verleihen, vom dynamischen Stilwechsel über das Abrufen von Updates vom Server bis hin zu komplexen 3D-Grafiken.
+  - Sie werden auch den Begriff **API** im Zusammenhang mit JavaScript hören, der für **Application Programming Interface** steht. Eine JavaScript-API ist eine auf JavaScript aufgebaute Funktionalität, die es Ihnen ermöglicht, andere komplexere Teile des Codes oder andere Funktionalitäten auf Ihrem Computer (wie Hardwaregeräte wie Ihre Webcam oder Ihr Mikrofon) auf eine verwaltbare Weise zu steuern.
+  - In der Hausanalogie ist JavaScript wie der Herd, Fernseher, Mikrowelle oder Haartrockner — die Dinge, die Ihrem Haus nützliche Funktionalität verleihen.
 
 ### Andere Webtechnologien
 
 Es gibt andere Technologien, die im Web verwendet werden, zum Beispiel:
 
 - [HTTP](/de/docs/Web/HTTP) für die Kommunikation zwischen Clients und Servern, wie zuvor erwähnt.
-- [SVG](/de/docs/Web/SVG) für die Erstellung und Manipulation von Vektorgrafiken.
-- [MathML](/de/docs/Web/MathML) für die Beschreibung mathematischer Formeln.
+- [SVG](/de/docs/Web/SVG) zum Erstellen und Manipulieren von Vektorgrafiken.
+- [MathML](/de/docs/Web/MathML) zur Beschreibung mathematischer Formeln.
 
-HTML, CSS und JavaScript sind jedoch mit Abstand die wichtigsten Technologien, die es zu lernen gilt, und daher konzentrieren wir uns in unserem Lernpfad hauptsächlich auf diese.
+HTML, CSS und JavaScript sind jedoch bei weitem die wichtigsten Technologien, die es zu lernen gilt, daher werden wir uns hauptsächlich auf diese in unserem Lernpfad konzentrieren.
 
 ## Tools
 
-Sobald Sie die Standard- und grundlegenden Technologien, mit denen Webseiten erstellt werden (wie HTML, CSS und JavaScript), kennengelernt haben, werden Sie bald auf verschiedene Werkzeuge stoßen, die Ihre Arbeit erleichtern oder effizienter machen können. Beispiele beinhalten:
+Sobald Sie die standardmäßigen, grundlegenden Technologien zum Erstellen von Webseiten (wie HTML, CSS und JavaScript) gelernt haben, werden Sie bald auf verschiedene Tools stoßen, die verwendet werden können, um Ihre Arbeit einfacher oder effizienter zu gestalten. Beispiele beinhalten:
 
-- [Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), die in modernen Browsern enthalten sind und zum Debuggen Ihres Codes verwendet werden können.
-- [Testtools](/de/docs/Learn_web_development/Extensions/Testing), die verwendet werden können, um Tests durchzuführen, um zu zeigen, ob Ihr Code wie vorgesehen funktioniert.
-- [Frameworks und Bibliotheken](/de/docs/Learn_web_development/Core/Frameworks_libraries), die auf JavaScript aufbauen und es ermöglichen, bestimmte Arten von Websites schneller und effektiver zu erstellen.
-- So genannte **Linters** und **Formatter**, die eine Reihe von Regeln für die Codierweise anwenden, Ihren Code untersuchen und ihn aktualisieren, um diesen Regeln zu entsprechen. Prettier, das Sie [bereits früher im Kurs](/de/docs/Learn_web_development/Getting_started/Environment_setup/Code_editors#enhancing_your_code_editor_with_extensions) getroffen haben, ist ein Beispiel für einen Formatter.
+- [Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) innerhalb moderner Browser, die verwendet werden können, um Ihren Code zu debuggen.
+- [Testwerkzeuge](/de/docs/Learn_web_development/Extensions/Testing), die verwendet werden können, um Tests auszuführen, die zeigen, ob Ihr Code sich so verhält, wie Sie beabsichtigt haben.
+- [Frameworks und Bibliotheken](/de/docs/Learn_web_development/Core/Frameworks_libraries), die auf JavaScript aufgebaut sind und es Ihnen ermöglichen, bestimmte Arten von Websites viel schneller und effektiver zu erstellen.
+- So genannte **Linters** und **Formatter**, die ein Regelset für den Codierungsstil nehmen, Ihren Code ansehen und Ihren Code aktualisieren, um diesen Regeln zu folgen. Prettier, das Sie [bereits früher im Kurs](/de/docs/Learn_web_development/Getting_started/Environment_setup/Code_editors#enhancing_your_code_editor_with_extensions) kennengelernt haben, ist ein Beispiel für einen Formatter.
 
 ## Serverseitige Sprachen und Frameworks
 
-HTML, CSS und JavaScript sind Front-End- (oder Client-seitige) Sprachen und werden von dem Browser ausgeführt, um eine Website-Oberfläche zu erstellen, die Ihre Nutzer verwenden können.
+HTML, CSS und JavaScript sind Front-End- (oder clientseitige) Sprachen, was bedeutet, dass sie vom Browser ausgeführt werden, um ein Website-Front-End zu produzieren, das Ihre Benutzer verwenden können.
 
-Eine andere Klasse von Sprachen, Back-End- (oder Server-seitige) Sprachen genannt, wird auf dem Server ausgeführt, bevor das Ergebnis an den Browser gesendet wird, um angezeigt zu werden. Ein typischer Anwendungsfall einer Server-seitigen Sprache ist das Abrufen von Daten aus einer Datenbank, das Generieren von HTML mit diesen Daten und das Senden des HTMLs an den Browser zur Anzeige.
+Es gibt eine andere Klasse von Sprachen, die als Back-End- (oder serverseitige) Sprachen bezeichnet werden, was bedeutet, dass sie auf dem Server ausgeführt werden, bevor das Ergebnis dann an den Browser gesendet wird, um es anzuzeigen. Eine typische Verwendung für eine serverseitige Sprache ist es, einige Daten aus einer Datenbank zu holen, einige HTML zu generieren, um die Daten zu enthalten, und dann das HTML an den Browser zu senden, um es dem Benutzer anzuzeigen.
 
-Beispielhafte serverseitige Frameworks und Sprachen umfassen ASP.NET (C#), Django (Python), Laravel (PHP) und Next.js (JavaScript).
+Beispiele für serverseitige Frameworks und Sprachen sind ASP.NET (C#), Django (Python), Laravel (PHP) und Next.js (JavaScript).
 
-Diese Technologien gelten nicht als "Webstandards" — sie werden von Organisationen außerhalb der Standardisierungsprozesse von Organisationen wie dem W3C und WHATWG entwickelt — obwohl einige von ihnen ähnlich offene Prozesse haben.
+Diese Technologien werden nicht als "Webstandards" betrachtet — sie werden von Organisationen entwickelt, die außerhalb der Standardisierungsprozesse von Organisationen wie dem W3C und WHATWG liegen —, obwohl einige von ihnen Prozesse haben, die ähnlich offen sind.
 
-### Statisches vs. dynamisches Verhalten
+### Statisch versus dynamisch
 
-Eine andere Möglichkeit, Client-seitige und Server-seitige Sprachen zu beschreiben, ist **statisch** und **dynamisch**:
+Eine weitere Möglichkeit, wie clientseitige und serverseitige Sprachen oft beschrieben werden, ist **statisch** und **dynamisch**:
 
-- Eine einfache HTML-Datei wird auf dem Server gespeichert. Wenn sie angefordert wird, wird sie unverändert an den Client geliefert und vom Browser angezeigt. Da sie sich nicht ändert, wird sie als „statisch“ bezeichnet.
-- Wenn serverseitiger Code (z. B. ein Python-Skript oder eine ASP.NET-Seite) HTML mit Daten generiert und dieses HTML an den Client zurückschickt, ändern sich die Inhalte des HTMLs je nachdem, was der serverseitige Code macht. Daher wird dies als „dynamisch“ bezeichnet.
+- Eine einfache HTML-Datei wird auf dem Server gespeichert. Bei Anforderung wird sie unverändert an den Client geliefert und vom Browser gerendert. Weil sie sich nicht ändert, wird sie als "statisch" bezeichnet.
+- Wenn serverseitiger Code (zum Beispiel ein Python-Skript oder eine ASP.NET-Seite) einige Daten in HTML generiert und dieses HTML dann an den Client zurücksendet, ändern sich die Inhalte des HTMLs, abhängig davon, was der serverseitige Code tut. Es wird daher als "dynamisch" bezeichnet.
 
-Die Konzepte von statischem und dynamischem Code überlappen sich häufig. Server-seitige Sprachen definieren normalerweise die HTML-Strukturen innerhalb einer Template-Datei, die zum Großteil statisches HTML enthalten, mit einigen speziellen, dynamischen Abschnitten, die je nach einzufügenden Daten variieren.
+Es gibt oft eine gewisse Überlappung zwischen den Konzepten von statischem und dynamischem Code. Serverseitige Sprachen definieren normalerweise HTML-Strukturen in einer Vorlagendatei, die dazu neigt, hauptsächlich statisches HTML mit einigen speziellen dynamischen Abschnitten zu sein, die sich abhängig davon ändern, welche Daten eingefügt werden müssen.
 
-## Best Practices im Web
+## Web-Best Practices
 
-Wir haben kurz die Technologien besprochen, die Sie verwenden werden, um Webseiten zu erstellen. Lassen Sie uns jetzt die Best Practices betrachten, die Webentwickler in der Regel anwenden, um sicherzustellen, dass ihre Webseiten von möglichst vielen Menschen genutzt werden können.
+Wir haben kurz über die Technologien gesprochen, die Sie verwenden werden, um Webseiten zu erstellen. Jetzt lassen Sie uns die Best Practices diskutieren, die Webentwickler generell anwenden, um sicherzustellen, dass ihre Webseiten von so vielen Menschen wie möglich genutzt werden können.
 
-Beim Entwickeln von Webseiten kommt die größte Unsicherheit von der Tatsache, dass Sie nicht wissen, welche Kombination aus Technologien Ihre Nutzer verwenden werden, um Ihre Webseite anzusehen:
+Beim Webentwickeln besteht die größte Unsicherheit darin, dass Sie nicht wissen, welche Kombination von Technologien jeder Benutzer verwenden wird, um Ihre Website zu sehen:
 
-- Nutzer 1 könnte sie auf einem iPhone mit einem kleinen, schmalen Bildschirm ansehen.
-- Nutzer 2 könnte sie auf einem Windows-Laptop mit angeschlossenem Breitbildmonitor ansehen.
-- Nutzer 3 könnte sehbehindert sein und einen Screenreader zum Lesen und Interagieren mit der Webseite nutzen.
-- Nutzer 4 könnte einen sehr alten Desktop-Computer nutzen, der keine modernen Browser ausführen kann.
+- Benutzer 1 schaut möglicherweise auf einem iPhone mit einem kleinen, schmalen Bildschirm darauf.
+- Benutzer 2 schaut möglicherweise auf einem Windows-Laptop mit einem Breitbildmonitor darauf.
+- Benutzer 3 ist möglicherweise sehbehindert und verwendet einen Screenreader, um die Webseite zu lesen und mit ihr zu interagieren.
+- Benutzer 4 verwendet möglicherweise eine wirklich alte Desktop-Maschine, die keine modernen Browser ausführen kann.
 
-Da Sie nicht genau wissen, welche Technologien Ihre Nutzer verwenden, müssen Sie defensiv entwerfen — machen Sie Ihre Webseite so flexibel wie möglich, damit alle oben genannten Nutzer sie nutzen können, auch wenn sie möglicherweise nicht alle dieselbe Erfahrung machen.
+Da Sie nicht genau wissen, was Ihre Benutzer verwenden werden, müssen Sie defensiv gestalten — machen Sie Ihre Webseite so flexibel wie möglich, damit all die oben genannten Benutzer sie nutzen können, auch wenn sie möglicherweise nicht alle dasselbe Erlebnis haben.
 
-Die folgenden Konzepte repräsentieren Best Practices, an die sich Ihre Webseiten idealerweise halten sollten, und Sie werden diesen Konzepten irgendwann in Ihren Studien begegnen. Machen Sie sich darüber derzeit keine großen Sorgen. In den meisten Teilen des Kurses versuchen wir, diese implizit zu lehren, indem wir Beispiele für HTML, CSS, und JavaScript verwenden, die, wenn möglich, den Best Practices entsprechen. Später in Ihrer Lernreise werden Sie wahrscheinlich explizit in diesen Bereichen unterrichtet.
+Sie werden im Laufe Ihrer Studien auf die unten stehenden Konzepte stoßen, die Best Practices darstellen, denen Ihre Websites idealerweise gerecht werden sollten. Machen Sie sich darüber vorerst keine Sorgen. In den meisten Teilen des Kurses versuchen wir, Ihnen diese implizit beizubringen, was bedeutet, dass wir, wenn wir Ihnen HTML, CSS und JavaScript lehren, unsere Beispiele nach Möglichkeit den Best Practices folgen werden. Später in Ihrer Lernerreise werden Sie wahrscheinlich explizite Lehren in diesen Bereichen erkunden.
 
 - **Progressive Enhancement**
-  - : Erstellen einer minimalen Erfahrung, die die grundlegende Funktionalität für alle Nutzer bereitstellt, und eine bessere Erfahrung sowie andere Verbesserungen für Browser, die diese unterstützen, ermöglicht. Progressive Enhancement wird oft als unwichtig angesehen, da Browser heutzutage neue Features konsistenter unterstützen und Menschen tendenziell schnellere Internetverbindungen mit höheren Datenlimits haben. Ziehen Sie jedoch Beispiele wie die Reduzierung von Deko-Elementen für ein reibungsloseres mobiles Erlebnis oder einen niedrigeren Datenverbrauch in Betracht, oder die Bereitstellung einer leichteren, datensparenden Erfahrung für Nutzer, die pro Megabyte zahlen oder eingeschränkte Datenzugänge haben.
+  - : Eine minimale Erfahrung zu schaffen, die die wesentlichen Funktionen für alle Benutzer zur Verfügung stellt und in Browsern, die sie unterstützen können, ein besseres Erlebnis und andere Verbesserungen darauf aufschichtet. Progressive Enhancement wird oft als unwichtig angesehen, da Browser heutzutage dazu neigen, neue Features konsistenter zu unterstützen und die Leute tendenziell schnellere Internetverbindungen mit höheren Begrenzungen für die Datennutzung haben. Betrachten Sie jedoch Beispiele wie das Reduzieren von Dekorationen, um eine mobile Erfahrung reibungsloser zu gestalten und Daten zu sparen oder eine leichtere, bandbreitenschonendere Erfahrung für Benutzer anzubieten, die pro Megabyte bezahlen oder eingeschränkte Verbindungen haben.
 - **Cross-Browser-Kompatibilität**
-  - : Sicherstellen, dass Ihre Webseite auf möglichst vielen Geräten funktioniert. Dazu gehört die Nutzung von Technologien, die von allen Browsern unterstützt werden, das Bereitstellen besserer Erlebnisse für Browser, die diese unterstützen (Progressive Enhancement), und/oder das Schreiben von Code, der in älteren Browsern auf eine einfachere, aber dennoch nutzbare Erfahrung zurückfällt (als **Graceful Degradation** bezeichnet). Außerdem sind Tests erforderlich, um zu sehen, ob etwas in bestimmten Browsern nicht funktioniert, und dann mehr Arbeit, um diese Fehler zu beheben.
-- **Trennung der Ebenen**
-  - : Content (HTML), Stile (CSS) und Verhalten (JavaScript) in verschiedenen Dateien statt alles zusammen an einem Ort zu schreiben. Dies hat viele Vorteile, darunter bessere Codeverwaltung und -verständlichkeit sowie ein erleichtertes Arbeiten in Teams. In der Realität ist die Trennung nicht immer ganz klar möglich. Es ist ein Ideal, das man anstreben sollte, anstatt eine absolute Vorgabe.
+  - : Der Versuch, sicherzustellen, dass Ihre Webseite auf so vielen Geräten wie möglich funktioniert. Dies umfasst die Verwendung von Technologien, die alle Browser unterstützen, bessere Erfahrungen für Browser bereitzustellen, die sie verarbeiten können (progressive Enhancement), und/oder Code zu schreiben, der auf eine einfachere, aber immer noch brauchbare Erfahrung in älteren Browsern zurückfällt (genannt **graceful Degradation**). Es erfordert auch Tests, um zu sehen, ob etwas in bestimmten Browsern fehlschlägt und dann mehr Arbeit, um diese Fehler zu beheben.
+- **Trennung der Schichten**
+  - : Ihre Inhalte (HTML), Stile (CSS) und Verhalten (JavaScript) in verschiedenen Code-Dateien zu setzen, anstatt sie alle zusammen am selben Ort zu bündeln. Dies ist aus vielen Gründen eine gute Idee, einschließlich Codeverwaltung und -verständnis sowie Teamarbeit/Trennung von Rollen. In der Realität ist die Trennung nicht immer klar. Es ist ein Ideal, das angestrebt werden sollte, wo es möglich ist, und kein absolut.
 - **Responsive Webdesign**
-  - : Funktionalität und Layouts flexibel machen, damit sie sich automatisch an verschiedene Browser anpassen können. Ein offensichtliches Beispiel wäre eine Webseite, die in einem Breitbild-Browser auf dem Desktop anders dargestellt wird als in einem kompakteren, einspaltigen Layout auf mobilen Browsern. Passen Sie jetzt die Breite Ihres Browserfensters an und sehen Sie, was mit dem Layout der Seite passiert.
+  - : Ihre Funktionalität und Layouts so flexibel zu gestalten, dass sie sich automatisch an unterschiedliche Browser anpassen können. Ein offensichtliches Beispiel ist eine Webseite, die auf einem Breitbild-Monitor auf dem Desktop auf eine bestimmte Weise gestaltet ist, aber in mobilen Browsern als kompakteres, einspaltiges Layout angezeigt wird. Versuchen Sie jetzt, die Breite Ihres Browserfensters anzupassen, und sehen Sie, was mit dem Layout der Seite passiert.
 - **Performance**
-  - : Webseiten so schnell wie möglich laden lassen, aber auch intuitiv und einfach zu bedienen machen, damit Nutzer nicht frustriert werden und zu einer anderen Seite wechseln.
+  - : Websites so schnell wie möglich laden zu lassen, sie aber auch intuitiv und einfach bedienbar zu machen, damit Benutzer nicht frustriert sind und woanders hingehen.
 - **Internationalisierung**
-  - : Webseiten für Menschen aus verschiedenen Kulturen, die andere Sprachen sprechen als Sie selbst, nutzbar machen. Dazu gehören technische Überlegungen (z. B. das Ändern Ihres Layouts, damit es auch für Rechts-nach-Links- oder Oben-nach-Unten-Sprachen geeignet ist) sowie menschliche Betrachtungen (z. B. die Verwendung einfacher, nicht-umgangssprachlicher Sprache, damit verschiedene Kulturen Ihre Texte besser verstehen können).
-- **Datenschutz** und **Sicherheit**
-  - : Diese beiden Konzepte sind miteinander verwandt, jedoch unterschiedlich. Datenschutz bezieht sich darauf, Menschen zu erlauben, ihre Angelegenheiten privat zu regeln, ohne sie auszuspionieren oder mehr Daten zu sammeln, als Sie wirklich benötigen. Sicherheit bezieht sich darauf, Ihre Webseite so zu konstruieren, dass böswillige Nutzer keine Informationen von Ihnen oder Ihren Nutzern stehlen können.
+  - : Websites benutzerfreundlich für Menschen aus verschiedenen Kulturen zu machen, die andere Sprachen als Ihre eigene sprechen. Hier gibt es technische Überlegungen (wie zum Beispiel die Anpassung Ihres Layouts, damit es auch für rechts-nach-links- oder von oben nach unten geschriebene Sprachen gut funktioniert) und menschliche Überlegungen (wie die Verwendung einfacher, nicht umgangssprachlicher Sprache, damit verschiedene Kulturen eher in der Lage sind, Ihren Text zu verstehen).
+- **Privatsphäre** & **Sicherheit**
+  - : Diese beiden Konzepte sind verwandt, aber unterschiedlich. Privatsphäre bezieht sich darauf, Menschen zu erlauben, ihre Geschäfte privat zu erledigen und sie nicht auszuspionieren oder mehr ihrer Daten zu sammeln, als Sie unbedingt benötigen. Sicherheit bezieht sich darauf, Ihre Website auf eine sichere Weise zu konstruieren, so dass böswillige Benutzer keine Informationen von Ihnen oder Ihren Benutzern stehlen können.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Web_standards/How_the_web_works", "Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites", "Learn_web_development/Getting_started/Web_standards")}}

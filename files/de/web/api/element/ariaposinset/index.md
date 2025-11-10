@@ -3,12 +3,12 @@ title: "Element: ariaPosInSet-Eigenschaft"
 short-title: ariaPosInSet
 slug: Web/API/Element/ariaPosInSet
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaPosInSet`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset)-Attributs wider. Dieses Attribut definiert die Nummer oder Position eines Elements in der aktuellen Menge von Listeneinträgen oder Baumknoten.
+Die **`ariaPosInSet`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset)-Attributs wider, welches die Nummer oder Position eines Elements innerhalb der aktuellen Gruppe von Listenelementen oder Baumelementen definiert.
 
 ## Wert
 

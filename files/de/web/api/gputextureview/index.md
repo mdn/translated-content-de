@@ -2,21 +2,21 @@
 title: GPUTextureView
 slug: Web/API/GPUTextureView
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUTextureView`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) stellt eine Ansicht auf einen Teil der von einem bestimmten [`GPUTexture`](/de/docs/Web/API/GPUTexture) definierten Texturressourcen dar.
+Das **`GPUTextureView`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) stellt eine Ansicht auf einen Teil der von einem bestimmten [`GPUTexture`](/de/docs/Web/API/GPUTexture) definierten Texturressourcen dar.
 
-Ein `GPUTextureView`-Objekt wird mit der Methode [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) erstellt.
+Eine Instanz des `GPUTextureView`-Objekts wird mit der Methode [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- [`label`](/de/docs/Web/API/GPUTextureView/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in Nachrichten von [`GPUError`](/de/docs/Web/API/GPUError) oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUTextureView/label)
+  - : Ein String, der eine Bezeichnung zur Verfügung stellt, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
@@ -63,12 +63,12 @@ const renderPassDescriptor: GPURenderPassDescriptor = {
   },
 };
 
-// ...
+// …
 
 const commandEncoder = device.createCommandEncoder();
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// ...
+// …
 ```
 
 ## Spezifikationen

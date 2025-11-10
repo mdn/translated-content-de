@@ -1,30 +1,30 @@
 ---
-title: "HTMLElement: error Ereignis"
+title: "HTMLElement: error-Ereignis"
 short-title: error
 slug: Web/API/HTMLElement/error_event
 l10n:
-  sourceCommit: c87cce81bf1a0e3d4d010efb914d620b7f23e522
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das `error` Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden wird oder ungültig ist.
+Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden werden kann oder ungültig ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
 
-Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzerschnittstellenelement generiert wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) andernfalls.
+Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzeroberflächenelement generiert wurde, oder sonst eine Instanz von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("UIEvent")}}
 
@@ -37,7 +37,7 @@ Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), w
 ```html
 <div class="controls">
   <button id="img-error" type="button">Generate image error</button>
-  <img class="bad-img" />
+  <img src="bad-image.jpg" class="bad-img" alt="I don't exist" />
 </div>
 
 <div class="event-log">
@@ -120,6 +120,5 @@ imgError.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse
-
-  - Window: [`error`](/de/docs/Web/API/Window/error_event) Ereignis
-  - HTMLElement: [`load`](/de/docs/Web/API/HTMLElement/load_event) Ereignis
+  - Fenster: [`error`](/de/docs/Web/API/Window/error_event)-Ereignis
+  - HTMLElement: [`load`](/de/docs/Web/API/HTMLElement/load_event)-Ereignis

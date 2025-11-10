@@ -1,17 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: isPointInStroke()-Methode"
+title: "CanvasRenderingContext2D: isPointInStroke() Methode"
 short-title: isPointInStroke()
 slug: Web/API/CanvasRenderingContext2D/isPointInStroke
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.isPointInStroke()`**
-Methode der Canvas 2D API gibt an, ob der angegebene Punkt innerhalb des
-Bereichs liegt, der durch die Umrandung eines Pfads eingeschlossen ist.
+Die **`CanvasRenderingContext2D.isPointInStroke()`**-Methode der Canvas 2D API gibt an, ob der angegebene Punkt sich innerhalb des durch das Umranden eines Pfades gebildeten Bereichs befindet.
 
 ## Syntax
 
@@ -23,22 +20,22 @@ isPointInStroke(path, x, y)
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des zu überprüfenden Punktes.
+  - : Die x-Koordinate des zu überprüfenden Punktes.
 - `y`
-  - : Die y-Achsen-Koordinate des zu überprüfenden Punktes.
+  - : Die y-Koordinate des zu überprüfenden Punktes.
 - `path`
   - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der überprüft werden soll. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
 
 ### Rückgabewert
 
 - Ein boolescher Wert
-  - : Ein Boolean, der `true` ist, wenn der Punkt innerhalb des von der Pfadumrandung eingeschlossenen Bereichs liegt, ansonsten `false`.
+  - : Ein Boolean, der `true` ist, wenn sich der Punkt innerhalb des durch das Umranden eines Pfades gebildeten Bereichs befindet, ansonsten `false`.
 
 ## Beispiele
 
-### Überprüfung eines Punkts im aktuellen Pfad
+### Überprüfung eines Punktes im aktuellen Pfad
 
-Dieses Beispiel verwendet die `isPointInStroke()`-Methode, um zu überprüfen, ob ein Punkt innerhalb des Bereichs der Umrandung des aktuellen Pfads liegt.
+Dieses Beispiel verwendet die `isPointInStroke()`-Methode, um zu überprüfen, ob sich ein Punkt innerhalb des Bereichs des Umrisses des aktuellen Pfades befindet.
 
 #### HTML
 
@@ -63,9 +60,9 @@ result.innerText = ctx.isPointInStroke(50, 10);
 
 {{ EmbedLiveSample('Checking_a_point_in_the_current_path', 700, 220) }}
 
-### Überprüfung eines Punkts im angegebenen Pfad
+### Überprüfung eines Punktes im angegebenen Pfad
 
-Immer wenn Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor im Strich eines elliptischen `Path2D`-Pfads befindet. Wenn ja, wird der Strich der Ellipse grün, andernfalls rot.
+Immer wenn Sie die Maus bewegen, prüft dieses Beispiel, ob sich der Cursor innerhalb des Umrisses eines elliptischen `Path2D`-Pfades befindet. Wenn ja, wird der Umriss der Ellipse grün, andernfalls rot.
 
 #### HTML
 

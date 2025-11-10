@@ -1,27 +1,27 @@
 ---
-title: "NavigateEvent: canIntercept-Eigenschaft"
+title: "NavigateEvent: canIntercept Eigenschaft"
 short-title: canIntercept
 slug: Web/API/NavigateEvent/canIntercept
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`canIntercept`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn die Navigation abgefangen und die URL umgeschrieben werden kann, oder `false` andernfalls.
+Die schreibgeschützte Eigenschaft **`canIntercept`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Interfaces gibt `true` zurück, wenn die Navigation abgefangen und die URL umgeschrieben werden kann, andernfalls `false`.
 
-Es gibt mehrere Regeln dafür, wann eine Navigation abgefangen werden kann. Zum Beispiel:
+Es gibt mehrere Regeln, wann eine Navigation abgefangen werden kann. Zum Beispiel:
 
 - Sie können keine Cross-Origin-Navigationen abfangen.
-- Sie können `http`- oder `https`-URLs abfangen, wenn sich nur die `path`-, `query`- und `fragment`-Teile der neuen URL von der aktuellen URL unterscheiden.
-- Sie können `file`-URLs abfangen, wenn sich nur die `query`- und `fragment`-Teile der neuen URL unterscheiden.
-- Bei anderen URL-Typen können Sie die Navigation abfangen, wenn sich nur der `fragment`-Teil unterscheidet.
+- Sie können `http` oder `https` URLs abfangen, wenn sich nur der `path`, `query` und `fragment` Anteil der neuen URL von der aktuellen URL unterscheidet.
+- Sie können `file` URLs abfangen, wenn sich nur der `query` und `fragment` Anteil der neuen URL unterscheidet.
+- Für andere URL-Typen können Sie die Navigation abfangen, wenn sich nur der `fragment` Anteil unterscheidet.
 
-Siehe die Spezifikation für eine genauere Erklärung, [wann ein Dokument seine URL umgeschrieben haben kann](https://html.spec.whatwg.org/multipage/nav-history-apis.html#can-have-its-url-rewritten), einschließlich einer Tabelle mit Beispielen.
+Siehe die Spezifikation für weitere Erklärungen dazu, [wann ein Dokument seine URL umgeschrieben bekommen kann](https://html.spec.whatwg.org/multipage/nav-history-apis.html#can-have-its-url-rewritten), einschließlich einer Tabelle mit Beispielen.
 
 ## Wert
 
-Ein boolescher Wert—`true`, wenn die Navigation abgefangen werden kann, `false`, wenn nicht.
+Ein Boolescher Wert—`true`, wenn die Navigation abgefangen werden kann, `false`, wenn nicht.
 
 ## Beispiele
 
@@ -60,6 +60,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderner Client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

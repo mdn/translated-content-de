@@ -1,40 +1,41 @@
 ---
-title: "IDBTransaction: error Ereignis"
+title: "IDBTransaction: error-Ereignis"
 short-title: error
 slug: Web/API/IDBTransaction/error_event
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 144fc1770b3eaa69bb5be691f505565b6dd9a68e
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `error`-Ereignis wird auf einem `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis bis zum Transaktionsobjekt hochblubbert.
+Das `error`-Ereignis wird auf `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis bis zum Transaktionsobjekt hinaufblubbert.
 
 > [!NOTE]
-> Um alle Wege zu behandeln, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)-Ereignis beobachten.
+> Um alle Möglichkeiten zu behandeln, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)-Ereignis beobachten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("error", (event) => {});
-onerror = (event) => {};
+```js-nolint
+addEventListener("error", (event) => { })
+
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Blubbern
+## Bubbling
 
-Dieses Ereignis blubbert zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die `event.target`-Eigenschaft bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das hochblubbert.
+Dieses Ereignis blubbert bis zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) hinauf. Die Eigenschaft `event.target` verweist auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das nach oben blubbert.
 
-Für weitere Informationen siehe [Ereignis-Blubbern](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
+Für mehr Informationen siehe [Event bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen, wobei das `error`-Ereignis für die `add()`-Operation überwacht wird (dies tritt auf, wenn beispielsweise ein Datensatz mit dem angegebenen `taskTitle` bereits existiert):
+Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen, wobei das `error`-Ereignis für die `add()`-Operation beobachtet wird (dies tritt z.B. ein, wenn bereits ein Datensatz mit dem gegebenen `taskTitle` existiert):
 
 ```js
 // Open the database
@@ -61,26 +62,26 @@ dBOpenRequest.onsuccess = (event) => {
 
   // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
+
+  const objectStore = transaction.objectStore("toDoList");
+  const newItem = {
+    taskTitle: "my task",
+    hours: 10,
+    minutes: 10,
+    day: 10,
+    month: "January",
+    year: 2020,
+  };
 
   transaction.addEventListener("error", () => {
     console.log(`Error adding new item: ${newItem.taskTitle}`);
   });
 
-  const objectStore = transaction.objectStore("toDoList");
-  const newItem = {
-    taskTitle: "my task",
-    hours: 10,
-    minutes: 10,
-    day: 10,
-    month: "January",
-    year: 2020,
-  };
-
   const objectStoreRequest = objectStore.add(newItem);
 };
 ```
 
-Dasselbe Beispiel, wobei die `onerror`-Eigenschaft anstelle von `addEventListener()` verwendet wird:
+Dasselbe Beispiel mit der `onerror`-Eigenschaft anstelle von `addEventListener()`:
 
 ```js
 // Open the database
@@ -108,10 +109,6 @@ dBOpenRequest.onsuccess = (event) => {
   // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  transaction.onerror = () => {
-    console.log(`Error adding new item: ${newItem.taskTitle}`);
-  };
-
   const objectStore = transaction.objectStore("toDoList");
   const newItem = {
     taskTitle: "my task",
@@ -120,6 +117,10 @@ dBOpenRequest.onsuccess = (event) => {
     day: 10,
     month: "January",
     year: 2020,
+  };
+
+  transaction.onerror = () => {
+    console.log(`Error adding new item: ${newItem.taskTitle}`);
   };
 
   const objectStoreRequest = objectStore.add(newItem);

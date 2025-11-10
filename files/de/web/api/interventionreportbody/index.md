@@ -17,7 +17,7 @@ Ein Veralterungsbericht wird erstellt, wenn eine veraltete Funktion (zum Beispie
 
 ## Konstruktor
 
-Eine Instanz von `InterventionReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/Type) `intervention` ist. Das Interface hat keinen Konstruktor.
+Eine Instanz von `InterventionReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/type) `intervention` ist. Das Interface hat keinen Konstruktor.
 
 ## Instanz-Eigenschaften
 

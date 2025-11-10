@@ -1,23 +1,23 @@
 ---
-title: "XRLightProbe: reflectionchange-Ereignis"
+title: "XRLightProbe: reflectionchange-Event"
 short-title: reflectionchange
 slug: Web/API/XRLightProbe/reflectionchange_event
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das WebXR **`reflectionchange`**-Ereignis wird jedes Mal ausgelöst, wenn sich die geschätzte Reflexions-Cube-Map ändert. Dies geschieht als Reaktion auf Bewegungen von Anwendern durch verschiedene Lichtverhältnisse oder auf direkte Änderungen der Beleuchtung selbst. Dieses Ereignis ist nicht abbrechbar.
+Das WebXR-**`reflectionchange`**-Event wird jedes Mal ausgelöst, wenn sich die geschätzte Reflexions-Würfelkarte ändert. Dies geschieht als Reaktion auf Bewegungen durch verschiedene Lichtbedingungen oder auf direkte Änderungen der Beleuchtung selbst. Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("reflectionchange", (event) => {});
+```js-nolint
+addEventListener("reflectionchange", (event) => { })
 
-onreflectionchange = (event) => {};
+onreflectionchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,9 +26,9 @@ onreflectionchange = (event) => {};
 
 ## Beispiele
 
-### Verwendung des `reflectionchange`-Ereignisses
+### Verwendung des `reflectionchange`-Events
 
-Immer wenn das `reflectionchange`-Ereignis bei einer Lichtsonde ausgelöst wird, können Sie eine aktualisierte Cube-Map abrufen, indem Sie [`XRWebGLBinding.getReflectionCubeMap()`](/de/docs/Web/API/XRWebGLBinding/getReflectionCubeMap) aufrufen. Dies ist weniger aufwändig, als bei jedem [`XRFrame`](/de/docs/Web/API/XRFrame) Beleuchtungsinformationen abzurufen.
+Jedes Mal, wenn das `reflectionchange`-Event bei einem Light Probe ausgelöst wird, können Sie eine aktualisierte Würfelkarte abrufen, indem Sie [`XRWebGLBinding.getReflectionCubeMap()`](/de/docs/Web/API/XRWebGLBinding/getReflectionCubeMap) aufrufen. Dies ist weniger kostspielig, als Beleuchtungsinformationen mit jedem [`XRFrame`](/de/docs/Web/API/XRFrame) abzurufen.
 
 ```js
 const glBinding = new XRWebGLBinding(xrSession, gl);
@@ -42,7 +42,7 @@ lightProbe.addEventListener("reflectionchange", () => {
 
 ### Die `onreflectionchange`-Ereignishandler-Eigenschaft
 
-Das `reflectionchange`-Ereignis ist auch über die `onreflectionchange`-Ereignishandler-Eigenschaft verfügbar.
+Das `reflectionchange`-Event ist auch über die `onreflectionchange`-Ereignishandler-Eigenschaft verfügbar.
 
 ```js
 lightProbe.onreflectionchange = (event) => {

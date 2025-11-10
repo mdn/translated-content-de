@@ -2,124 +2,124 @@
 title: WebRTC API
 slug: Web/API/WebRTC_API
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
-**WebRTC** (Web Real-Time Communication) ist eine Technologie, die es Webanwendungen und -seiten ermöglicht, Audio- und/oder Videomedien zu erfassen und optional zu streamen sowie beliebige Daten zwischen Browsern auszutauschen, ohne dass ein Vermittler erforderlich ist. Der Satz von Standards, der WebRTC ausmacht, erlaubt es, Daten zu teilen und Videokonferenzen peer-to-peer durchzuführen, ohne dass Benutzer Plug-ins oder andere Software von Drittanbietern installieren müssen.
+**WebRTC** (Web Real-Time Communication) ist eine Technologie, die es Webanwendungen und Websites ermöglicht, Audio- und/oder Videomedien zu erfassen und optional zu streamen sowie beliebige Daten zwischen Browsern auszutauschen, ohne dass ein Vermittler erforderlich ist. Der Satz von Standards, der WebRTC ausmacht, ermöglicht es, Daten auszutauschen und Telekonferenzen peer-to-peer durchzuführen, ohne dass der Benutzer Plug-ins oder eine andere Drittanbieter-Software installieren muss.
 
-WebRTC besteht aus mehreren miteinander verbundenen APIs und Protokollen, die zusammenarbeiten, um dies zu erreichen. Die hier enthaltene Dokumentation hilft Ihnen, die Grundlagen von WebRTC zu verstehen, wie Sie Daten- und Medienverbindungen einrichten und nutzen und vieles mehr.
+WebRTC besteht aus mehreren miteinander verbundenen APIs und Protokollen, die zusammenarbeiten, um dies zu erreichen. Die hier bereitgestellte Dokumentation hilft Ihnen, die Grundlagen von WebRTC zu verstehen, wie Sie sowohl Daten- als auch Medienverbindungen einrichten und verwenden können und mehr.
 
-## Konzepte und Nutzung von WebRTC
+## WebRTC-Konzepte und Nutzung
 
-WebRTC hat mehrere Zwecke; zusammen mit der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) bieten sie leistungsstarke Multimedia-Fähigkeiten im Web, einschließlich Unterstützung für Audio- und Videokonferenzen, Dateiaustausch, Bildschirmfreigabe, Identitätsmanagement und die Verbindung mit älteren Telefonsystemen einschließlich Unterstützung zum Senden von {{Glossary("DTMF", "DTMF")}} (Tonwahl) Signalen. Verbindungen zwischen Peers können hergestellt werden, ohne dass spezielle Treiber oder Plug-ins erforderlich sind, und oft ohne dass Vermittlungsserver benötigt werden.
+WebRTC erfüllt mehrere Zwecke; zusammen mit der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) bieten sie leistungsstarke Multimediakapazitäten für das Web, einschließlich Unterstützung für Audio- und Videokonferenzen, Dateiaustausch, Bildschirmfreigabe, Identitätsmanagement und die Schnittstelle zu älteren Telefonsystemen, einschließlich Unterstützung für das Senden von {{Glossary("DTMF", "DTMF")}}-Signalen (Tonwahl). Verbindungen zwischen Peers können hergestellt werden, ohne dass spezielle Treiber oder Plug-ins erforderlich sind und oft auch ohne Vermittlungsserver.
 
-Verbindungen zwischen zwei Peers werden durch das Interface [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) dargestellt. Sobald eine Verbindung mit `RTCPeerConnection` hergestellt und geöffnet wurde, können Medienstreams ([`MediaStream`](/de/docs/Web/API/MediaStream)s) und/oder Datenkanäle ([`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s) zur Verbindung hinzugefügt werden.
+Verbindungen zwischen zwei Peers werden durch die Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) repräsentiert. Sobald eine Verbindung mit `RTCPeerConnection` etabliert und geöffnet wurde, können Medienströme ([`MediaStream`](/de/docs/Web/API/MediaStream)s) und/oder Datenkanäle ([`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s) zur Verbindung hinzugefügt werden.
 
-Medienstreams können aus einer beliebigen Anzahl von Spuren mit Medieninformationen bestehen; Spuren, die durch Objekte basierend auf dem Interface [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) dargestellt werden, können eine der vielen Arten von Mediendaten enthalten, einschließlich Audio, Video und Text (wie Untertitel oder sogar Kapitelnamen). Die meisten Streams bestehen aus mindestens einer Audiospur und wahrscheinlich auch einer Videospur und können verwendet werden, um sowohl Live-Medien als auch gespeicherte Mediendaten (wie einen gestreamten Film) zu senden und zu empfangen.
+Medienströme können beliebig viele Tracks mit Medieninformationen enthalten; Tracks, die durch Objekte basierend auf der Schnittstelle [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) repräsentiert werden, können eine von mehreren Arten von Mediendaten enthalten, einschließlich Audio, Video und Text (wie Untertitel oder sogar Kapitelnamen). Die meisten Streams bestehen aus mindestens einem Audiotrack und wahrscheinlich auch einem Videotrack und können verwendet werden, um sowohl Live-Medien als auch gespeicherte Medieninformationen (wie einen gestreamten Film) zu senden und zu empfangen.
 
-Sie können auch die Verbindung zwischen zwei Peers nutzen, um beliebige Binärdaten auszutauschen, indem Sie das Interface [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwenden. Dies kann für Back-Channel-Informationen, Metadaten-Austausch, Spielstatuspakete, Dateitransfers oder sogar als primärer Kanal für die Datenübertragung eingesetzt werden.
+Sie können die Verbindung zwischen zwei Peers auch verwenden, um beliebige Binärdaten mit der Schnittstelle [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) auszutauschen. Dies kann für Back-Channel-Informationen, Metadaten-Austausch, Spielstatus-Pakete, Dateitransfers oder sogar als Hauptkanal für Datenübertragungen verwendet werden.
 
 ### Interoperabilität
 
-WebRTC wird im Allgemeinen gut von modernen Browsern unterstützt, aber einige Inkompatibilitäten bestehen weiterhin. Die [adapter.js](https://github.com/webrtcHacks/adapter) Bibliothek ist ein Shim, um Apps vor diesen Inkompatibilitäten zu schützen.
+WebRTC wird in modernen Browsern im Allgemeinen gut unterstützt, es bleiben jedoch einige Inkompatibilitäten bestehen. Die [adapter.js](https://github.com/webrtcHacks/adapter)-Bibliothek ist ein Shim, um Apps von diesen Inkompatibilitäten zu isolieren.
 
-## WebRTC Referenz
+## WebRTC-Referenz
 
-Da WebRTC Schnittstellen bereitstellt, die zusammenarbeiten, um eine Vielzahl von Aufgaben zu erledigen, haben wir die Referenz nach Kategorie unterteilt. Bitte sehen Sie sich die Sidebar für eine alphabetische Liste an.
+Da WebRTC Schnittstellen bereitstellt, die zusammenarbeiten, um eine Vielzahl von Aufgaben zu erledigen, haben wir die Referenz nach Kategorie unterteilt. Bitte beachten Sie die Sidebar für eine alphabetische Liste.
 
-### Verbindungseinrichtung und -management
+### Einrichtung und Verwaltung von Verbindungen
 
-Diese Schnittstellen, Wörterbücher und Typen werden verwendet, um WebRTC-Verbindungen einzurichten, zu öffnen und zu verwalten. Dazu gehören Schnittstellen, die Peer-Medienverbindungen, Datenkanäle und Schnittstellen repräsentieren, die verwendet werden, um Informationen über die Fähigkeiten jedes Peers auszutauschen, um die bestmögliche Konfiguration für eine Zwei-Wege-Medienverbindung auszuwählen.
+Diese Schnittstellen, Dictionaries und Typen werden verwendet, um WebRTC-Verbindungen einzurichten, zu öffnen und zu verwalten. Enthalten sind Schnittstellen, die peer-Medienverbindungen, Datenkanäle und Schnittstellen repräsentieren, die beim Austausch von Informationen über die Fähigkeiten jedes Peers verwendet werden, um die bestmögliche Konfiguration für eine Zwei-Wege-Medienverbindung auszuwählen.
 
 #### Schnittstellen
 
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
-  - : Repräsentiert eine WebRTC-Verbindung zwischen dem lokalen Computer und einem entfernten Peer. Es wird verwendet, um eine effiziente Übertragung von Daten zwischen den beiden Peers zu handhaben.
+  - : Repräsentiert eine WebRTC-Verbindung zwischen dem lokalen Computer und einem entfernten Peer. Es wird verwendet, um eine effiziente Datenübertragung zwischen den beiden Peers zu handhaben.
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
   - : Repräsentiert einen bidirektionalen Datenkanal zwischen zwei Peers einer Verbindung.
 - [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)
-  - : Repräsentiert Ereignisse, die auftreten, während ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zu einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wird. Das einzige Ereignis, das mit dieser Schnittstelle gesendet wird, ist [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event).
+  - : Repräsentiert Ereignisse, die beim Anfügen eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftreten. Das einzige Ereignis, das mit dieser Schnittstelle gesendet wird, ist [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event).
 - [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)
-  - : Stellt die Parameter einer Sitzung dar. Jede `RTCSessionDescription` besteht aus einer Beschreibung des [`type`](/de/docs/Web/API/RTCSessionDescription/type), der angibt, welchen Teil des Angebots/Antwortverhandlungsprozesses sie beschreibt, und des {{Glossary("SDP", "SDP")}}-Descriptors der Sitzung.
+  - : Repräsentiert die Parameter einer Sitzung. Jede `RTCSessionDescription` besteht aus einem Beschreibungstyp, der anzeigt, welcher Teil des Angebots-/Antwortverhandlungsprozesses beschrieben wird, und dem {{Glossary("SDP", "SDP")}}-Beschreibung der Sitzung.
 - [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)
-  - : Bietet Informationen, die Statistiken für eine Verbindung oder für eine einzelne Spur auf der Verbindung detailliert darlegen; der Bericht kann durch Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) erhalten werden.
+  - : Bietet Informationen, die Statistiken für eine Verbindung oder für einen einzelnen Track auf der Verbindung detailliert beschreiben; der Bericht kann durch Aufrufen von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) erhalten werden.
 - [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)
-  - : Repräsentiert einen Kandidaten für einen Interactive Connectivity Establishment ({{Glossary("ICE", "ICE")}}) Server zur Einrichtung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+  - : Repräsentiert einen Kandidaten für den Ausbau interaktiver Konnektivität (ICE) zur Erstellung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 - [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)
-  - : Stellt Informationen über einen {{Glossary("ICE", "ICE")}} Transport dar.
+  - : Repräsentiert Informationen über einen {{Glossary("ICE", "ICE")}}-Transport.
 - [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)
-  - : Repräsentiert Ereignisse, die in Bezug auf ICE-Kandidaten mit dem Ziel auftreten, normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Nur ein Ereignis ist dieses Typs: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
+  - : Repräsentiert Ereignisse, die im Zusammenhang mit ICE-Kandidaten beim Ziel auftreten, normalerweise einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Nur ein Ereignis ist von diesem Typ: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
 - [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)
-  - : Verwaltet die Kodierung und Übertragung von Daten für eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+  - : Verwaltet die Kodierung und Übertragung von Daten für einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 - [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)
-  - : Verwaltet den Empfang und die Dekodierung von Daten für eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+  - : Verwaltet den Empfang und die Dekodierung von Daten für einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 - [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)
-  - : Die Schnittstelle, die ein [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis darstellt, das anzeigt, dass ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekt zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wurde, womit ein neuer eingehender [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt und zur `RTCPeerConnection` hinzugefügt wurde.
+  - : Die Schnittstelle wird verwendet, um ein [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis darzustellen, das anzeigt, dass ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekt zu dem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt hinzugefügt wurde, was darauf hinweist, dass ein neuer eingehender [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt und der `RTCPeerConnection` hinzugefügt wurde.
 - [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)
-  - : Bietet Informationen, die einen Stream Control Transmission Protocol (**{{Glossary("SCTP", "SCTP")}}**) Transport beschreiben und bietet auch eine Möglichkeit, auf den darunterliegenden Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**) Transport zuzugreifen, über den SCTP-Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
+  - : Bietet Informationen, die ein Stream Control Transmission Protocol (SCTP) Transport beschreiben und bietet auch eine Möglichkeit, auf den zugrunde liegenden Datagram Transport Layer Security (DTLS) Transport zuzugreifen, über den SCTP Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
 
 #### Ereignisse
 
 - [`bufferedamountlow`](/de/docs/Web/API/RTCDataChannel/bufferedamountlow_event)
-  - : Die Menge an Daten, die derzeit vom Datenkanal gepuffert werden—wie durch seine [`bufferedAmount`](/de/docs/Web/API/RTCDataChannel/bufferedAmount)-Eigenschaft angegeben—wurde verringert, um unter die minimale gepufferte Datenmenge des Kanals zu fallen, wie durch [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegeben.
+  - : Die Menge an Daten, die derzeit vom Datenkanal gepuffert wird—wie durch seine [`bufferedAmount`](/de/docs/Web/API/RTCDataChannel/bufferedAmount)-Eigenschaft angegeben—hat sich auf das oder unter das minimale gepufferte Datenvolumen des Kanals verringert, wie von [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) spezifiziert.
 - [`close`](/de/docs/Web/API/RTCDataChannel/close_event)
-  - : Der Datenkanal hat den Schließvorgang abgeschlossen und ist nun im `closed`-Status. Sein zugrunde liegender Datentransport ist zu diesem Zeitpunkt vollständig geschlossen. Sie können benachrichtigt werden, _bevor_ das Schließen abgeschlossen ist, indem Sie das `closing`-Ereignis überwachen.
+  - : Der Datenkanal hat den Schließprozess abgeschlossen und befindet sich jetzt im Zustand `closed`. Sein zugrunde liegender Datentransport ist an diesem Punkt vollständig geschlossen. Sie können benachrichtigt werden _bevor_ das Schließen abgeschlossen ist, indem Sie auf das Ereignis `closing` achten.
 - [`closing`](/de/docs/Web/API/RTCDataChannel/closing_event)
-  - : Der `RTCDataChannel` hat den `closing`-Status erreicht, was anzeigt, dass er bald geschlossen wird. Sie können den Abschluss des Schließvorgangs erkennen, indem Sie nach dem `close`-Ereignis suchen.
+  - : Der `RTCDataChannel` ist in den Zustand `closing` übergegangen und zeigt an, dass er bald geschlossen wird. Sie können das Abschließen des Schließprozesses feststellen, indem Sie auf das Ereignis `close` achten.
 - [`connectionstatechange`](/de/docs/Web/API/RTCPeerConnection/connectionstatechange_event)
-  - : Der Verbindungszustand, der über [`connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState) zugänglich ist, hat sich geändert.
+  - : Der Verbindungszustand, der in [`connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState) zugänglich ist, hat sich geändert.
 - [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)
-  - : Ein neuer [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ist verfügbar, nachdem der entfernte Peer einen neuen Datenkanal geöffnet hat. Der Typ dieses Ereignisses ist [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent).
+  - : Ein neuer [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ist verfügbar, nachdem der Remote-Peer einen neuen Datenkanal geöffnet hat. Der Ereignistyp ist [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent).
 - [`error`](/de/docs/Web/API/RTCDataChannel/error_event)
-  - : Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent) zeigt an, dass auf dem Datenkanal ein Fehler aufgetreten ist.
+  - : Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent), der darauf hinweist, dass ein Fehler auf dem Datenkanal aufgetreten ist.
 - [`error`](/de/docs/Web/API/RTCDtlsTransport/error_event)
-  - : Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent) zeigt an, dass auf dem [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) ein Fehler aufgetreten ist. Dieser Fehler wird entweder `dtls-failure` oder `fingerprint-failure` sein.
+  - : Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent), der darauf hinweist, dass ein Fehler auf dem [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) aufgetreten ist. Dieser Fehler wird entweder `dtls-failure` oder `fingerprint-failure` sein.
 - [`gatheringstatechange`](/de/docs/Web/API/RTCIceTransport/gatheringstatechange_event)
-  - : Der Erfassungsstatus des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) hat sich geändert.
+  - : Der Sammelstatus des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) hat sich geändert.
 - [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)
-  - : Ein [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent), das immer gesendet wird, wenn das lokale Gerät einen neuen ICE-Kandidaten identifiziert hat, der zum lokalen Peer hinzugefügt werden muss, indem [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
+  - : Ein [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent), das gesendet wird, wann immer das lokale Gerät einen neuen ICE-Kandidaten identifiziert hat, der dem lokalen Peer hinzugefügt werden muss, indem [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
 - [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)
-  - : Ein [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent), der anzeigt, dass ein Fehler bei der Erfassung von ICE-Kandidaten aufgetreten ist.
+  - : Ein [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent), das darauf hinweist, dass beim Sammeln von ICE-Kandidaten ein Fehler aufgetreten ist.
 - [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)
-  - : Wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der ICE-Verbindungsstatus—im [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) Eigenschaft—ändert.
+  - : Wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der ICE-Verbindungsstatus—gefunden in der Eigenschaft [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState)—ändert.
 - [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)
-  - : Wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich ihr ICE-Erfassungsstatus—im [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) Eigenschaft—ändert.
+  - : Wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der ICE-Sammelstatus—gefunden in der Eigenschaft [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState)—ändert.
 - [`message`](/de/docs/Web/API/RTCDataChannel/message_event)
-  - : Eine Nachricht wurde auf dem Datenkanal empfangen. Der Ereignistyp ist [`MessageEvent`](/de/docs/Web/API/MessageEvent).
+  - : Eine Nachricht wurde auf dem Datenkanal empfangen. Das Ereignis ist vom Typ [`MessageEvent`](/de/docs/Web/API/MessageEvent).
 - [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)
-  - : Informiert die `RTCPeerConnection`, dass eine Sitzungsverhandlung erforderlich ist, indem [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) gefolgt von [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
+  - : Informiert die `RTCPeerConnection`, dass eine Sitzungsverhandlung durchgeführt werden muss, indem [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) gefolgt von [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
 - [`open`](/de/docs/Web/API/RTCDataChannel/open_event)
   - : Der zugrunde liegende Datentransport für den `RTCDataChannel` wurde erfolgreich geöffnet oder wieder geöffnet.
 - [`selectedcandidatepairchange`](/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event)
-  - : Das derzeit ausgewählte Paar von ICE-Kandidaten hat sich für das `RTCIceTransport`, auf dem das Ereignis ausgelöst wird, geändert.
+  - : Das aktuell ausgewählte Paar von ICE-Kandidaten hat sich für das `RTCIceTransport` geändert, auf dem das Ereignis ausgelöst wird.
 - [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)
-  - : Das `track`-Ereignis, vom Typ [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent), wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn nach erfolgreicher Verhandlung des Medienstreams ein neuer Track zur Verbindung hinzugefügt wird.
+  - : Das `track`-Ereignis, vom Typ [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent), wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn ein neuer Track zur Verbindung hinzugefügt wird, nachdem die Verhandlung des Medienstreams erfolgreich war.
 - [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)
-  - : Wird an die Peer-Verbindung gesendet, wenn sich ihr [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) geändert hat. Dies geschieht als Ergebnis eines Anrufs von entweder [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) oder [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription).
+  - : Wird an die Peer-Verbindung gesendet, wenn sich deren [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) geändert hat. Dies geschieht als Ergebnis eines Aufrufs von entweder [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) oder [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription).
 - [`statechange`](/de/docs/Web/API/RTCDtlsTransport/statechange_event)
-  - : Der Zustand des `RTCDtlsTransport` hat sich geändert.
+  - : Der Status des `RTCDtlsTransport` hat sich geändert.
 - [`statechange`](/de/docs/Web/API/RTCIceTransport/statechange_event)
-  - : Der Zustand des `RTCIceTransport` hat sich geändert.
+  - : Der Status des `RTCIceTransport` hat sich geändert.
 - [`statechange`](/de/docs/Web/API/RTCSctpTransport/statechange_event)
-  - : Der Zustand des `RTCSctpTransport` hat sich geändert.
+  - : Der Status des `RTCSctpTransport` hat sich geändert.
 - [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)
-  - : Ein kodierter Video- oder Audio-Frame ist bereit, mit einem Transform-Stream in einem Worker verarbeitet zu werden.
+  - : Ein codiertes Video- oder Audio-Frame ist bereit, um in einem Worker mit einem Transform-Stream verarbeitet zu werden.
 
 #### Typen
 
 - [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state)
-  - : Zeigt den Zustand eines [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) Instanz an.
+  - : Gibt den Zustand einer [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Instanz an.
 
 ### Identität und Sicherheit
 
-Diese APIs werden verwendet, um die Benutzeridentität und Sicherheit zu verwalten, um den Benutzer für eine Verbindung zu authentifizieren.
+Diese APIs werden verwendet, um Benutzeridentität und Sicherheit zu verwalten, um den Benutzer für eine Verbindung zu authentifizieren.
 
 - [`RTCIdentityProvider`](/de/docs/Web/API/RTCIdentityProvider)
-  - : Ermöglicht es einem Benutzeragenten, die Erstellung oder Validierung einer Identitätsbehauptung anzufordern.
+  - : Ermöglicht es einem Benutzeragenten, zu verlangen, dass eine Identitätsaussage generiert oder validiert wird.
 - [`RTCIdentityAssertion`](/de/docs/Web/API/RTCIdentityAssertion)
-  - : Repräsentiert die Identität des entfernten Peers der aktuellen Verbindung. Wenn noch kein Peer gesetzt und verifiziert wurde, gibt diese Schnittstelle `null` zurück. Wenn sie einmal gesetzt ist, kann sie nicht geändert werden.
+  - : Repräsentiert die Identität des Remote-Peers der aktuellen Verbindung. Wenn noch kein Peer gesetzt und verifiziert wurde, gibt diese Schnittstelle `null` zurück. Einmal gesetzt, kann es nicht geändert werden.
 - [`RTCIdentityProviderRegistrar`](/de/docs/Web/API/RTCIdentityProviderRegistrar)
   - : Registriert einen Identitätsanbieter (idP).
 - [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)
@@ -127,99 +127,101 @@ Diese APIs werden verwendet, um die Benutzeridentität und Sicherheit zu verwalt
 
 ### Telefonie
 
-Diese Schnittstellen und Ereignisse beziehen sich auf die Interaktivität mit Public-Switched Telephone Networks (PSTNs). Sie werden hauptsächlich verwendet, um Tondialtonsounds—oder Pakete, die diese Töne repräsentieren—über das Netzwerk an den entfernten Peer zu senden.
+Diese Schnittstellen und Ereignisse stehen im Zusammenhang mit der Interaktion mit öffentlichen Telefonnetzen (PSTNs). Sie werden hauptsächlich verwendet, um Tonwahlsignale—oder Pakete, die diese Töne repräsentieren—über das Netzwerk an den Remote-Peer zu senden.
 
 #### Schnittstellen
 
 - [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)
-  - : Verwaltet die Kodierung und Übertragung von Dual-Tone Multi-Frequency ({{Glossary("DTMF", "DTMF")}}) Signalen für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+  - : Verwalten der Kodierung und Übertragung von Dual-Tone Multi-Frequency ({{Glossary("DTMF", "DTMF")}}) Signalisierung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 - [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)
-  - : Wird von dem [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event) Ereignis verwendet, um anzuzeigen, dass ein DTMF-Ton entweder begonnen oder beendet wurde. Dieses Ereignis steigt nicht auf (außer wenn anders angegeben) und kann nicht abgebrochen werden (außer wenn anders angegeben).
+  - : Wird von dem [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet, um anzuzeigen, dass ein DTMF-Ton entweder begonnen oder beendet wurde. Dieses Ereignis bläst nicht auf (außer wo es anders angegeben ist) und ist nicht abbrechbar (außer wo es anders angegeben ist).
 
 #### Ereignisse
 
 - [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)
-  - : Entweder hat ein neuer {{Glossary("DTMF", "DTMF")}} Ton über die Verbindung zu spielen begonnen, oder der letzte Ton im `RTCDTMFSender`'s [`toneBuffer`](/de/docs/Web/API/RTCDTMFSender/toneBuffer) wurde gesendet und der Puffer ist jetzt leer. Der Ereignistyp ist [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent).
+  - : Entweder ein neuer {{Glossary("DTMF", "DTMF")}} Ton hat begonnen, über die Verbindung zu spielen, oder der letzte Ton im [`toneBuffer`](/de/docs/Web/API/RTCDTMFSender/toneBuffer) des `RTCDTMFSender` wurde gesendet und der Puffer ist jetzt leer. Der Ereignistyp ist [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent).
 
-### Kodierte Transforms
+### Codierte Transforms
 
-Diese Schnittstellen und Ereignisse werden verwendet, um eingehende und ausgehende kodierte Video- und Audio-Frames mit einem Transform-Stream zu verarbeiten, der in einem Worker läuft.
+Diese Schnittstellen und Ereignisse werden verwendet, um eingehende und ausgehende codierte Video- und Audioframes mithilfe eines Transform-Streams zu verarbeiten, der in einem Worker ausgeführt wird.
 
 #### Schnittstellen
 
 - [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)
-  - : Eine Schnittstelle zum Einfügen von Transform-Streams, die in einem Worker in die RTC-Pipeline laufen.
+  - : Eine Schnittstelle zum Einsetzen von Transform-Streams, die in einem Worker in die RTC-Pipeline laufen.
 - [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)
-  - : Das Gegenstück auf der Worker-Seite zu einem `RTCRtpScriptTransform`, das Optionen aus dem Haupt-Thread, zusammen mit einem lesbaren Stream und einem beschreibbaren Stream übergibt, der zum Durchleiten der kodierten Frames durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) verwendet werden kann.
+  - : Das Worker-seitige Gegenstück eines `RTCRtpScriptTransform`, das Optionen aus dem Hauptthread zusammen mit einem lesbaren Strom und einem beschreibbaren Strom weitergibt, die verwendet werden können, um codierte Frames durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) zu leiten.
 - [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)
-  - : Repräsentiert einen kodierten Video-Frame, der in der RTC-Pipeline transformiert werden soll.
+  - : Repräsentiert einen codierten Video-Frame, der in der RTC-Pipeline transformiert werden soll.
 - [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)
-  - : Repräsentiert einen kodierten Audio-Frame, der in der RTC-Pipeline transformiert werden soll.
+  - : Repräsentiert einen codierten Audio-Frame, der in der RTC-Pipeline transformiert werden soll.
 
 #### Eigenschaften
 
 - [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform)
-  - : Eine Eigenschaft, die verwendet wird, um einen Transform-Stream in die Empfänger-Pipeline für eingehende kodierte Video- und Audio-Frames einzufügen.
+  - : Eine Eigenschaft, die verwendet wird, um einen Transform-Stream in die Empfänger-Pipeline für eingehende codierte Video- und Audioframes einzufügen.
 - [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform)
-  - : Eine Eigenschaft, die verwendet wird, um einen Transform-Stream in die Sender-Pipeline für ausgehende kodierte Video- und Audio-Frames einzufügen.
+  - : Eine Eigenschaft, die verwendet wird, um einen Transform-Stream in die Senderpipeline für ausgehende codierte Video- und Audioframes einzufügen.
 
 #### Ereignisse
 
 - [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)
-  - : Ein RTC-Transform ist bereit, im Worker ausgeführt zu werden, oder ein kodierter Video- oder Audio-Frame ist bereit zur Verarbeitung.
+  - : Ein RTC Transform ist bereit, im Worker ausgeführt zu werden, oder ein codiertes Video- oder Audio-Frame ist bereit zur Verarbeitung.
 
 ## Leitfäden
 
-- [Einführung in die WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
-  - : Dieser Artikel führt in die Protokolle ein, auf denen die WebRTC-API basiert.
+- [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
+  - : Das Real-time Transport Protocol (RTP), definiert in {{RFC(3550)}}, ist ein IETF-Standardprotokoll, um Echtzeit-Konnektivität für den Austausch von Daten zu ermöglichen, die Echtzeit-Priorität benötigen. Dieser Artikel bietet einen Überblick darüber, was RTP ist und wie es im Kontext von WebRTC funktioniert.
+- [Einführung in WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
+  - : Dieser Artikel stellt die Protokolle vor, auf denen die WebRTC API aufgebaut ist.
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
-  - : Ein Leitfaden, wie WebRTC-Verbindungen funktionieren und wie die verschiedenen Protokolle und Schnittstellen zusammen genutzt werden können, um leistungsstarke Kommunikationsanwendungen zu erstellen.
+  - : Ein Leitfaden dafür, wie WebRTC-Verbindungen funktionieren und wie die verschiedenen Protokolle und Schnittstellen zusammen verwendet werden können, um leistungsstarke Kommunikations-Apps zu entwickeln.
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
-  - : WebRTC ermöglicht es Ihnen, Peer-to-Peer-Kommunikation von beliebigen Daten, Audio oder Video—in jedem beliebigen Kombination—in eine Browseranwendung zu integrieren. In diesem Artikel betrachten wir die Lebensdauer einer WebRTC-Sitzung, von der Herstellung der Verbindung bis zum Schließen der Verbindung, wenn sie nicht mehr benötigt wird.
-- [Eine Verbindung herstellen: Das perfekte Verhandlungsmuster](/de/docs/Web/API/WebRTC_API/Perfect_negotiation)
-  - : **Perfekte Verhandlung** ist ein Designmuster, das für Ihren Signalisierungsprozess empfohlen wird. Es sorgt für Transparenz bei der Verhandlung, während es beiden Seiten ermöglicht, entweder der Anbieter oder der Annehmende zu sein, ohne dass signifikante Codierung erforderlich ist, um die beiden zu unterscheiden.
-- [Signalisierung und Zwei-Wege-Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
-  - : Ein Tutorial und Beispiel, das ein auf WebSockets basierendes Chatsystem, das für ein früheres Beispiel erstellt wurde, um Unterstützung für das Öffnen von Videoanrufen unter Teilnehmern erweitert. Die WebSocket-Verbindung des Chat-Servers wird für die WebRTC-Signalisierung verwendet.
-- [Von WebRTC verwendete Codecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs)
-  - : Ein Leitfaden zu den Codecs, die WebRTC erfordert, dass Browser sie unterstützen, sowie die optionalen, die von verschiedenen populären Browsern unterstützt werden. Eingeschlossen ist ein Leitfaden, der Ihnen hilft, die besten Codecs für Ihre Bedürfnisse auszuwählen.
+  - : Mit WebRTC können Sie die Peer-to-Peer-Kommunikation beliebiger Daten, Audio oder Video—oder jeder Kombination davon—in eine Browseranwendung integrieren. In diesem Artikel betrachten wir die Lebensdauer einer WebRTC-Sitzung, von der Herstellung der Verbindung bis hin zum Schließen der Verbindung, wenn sie nicht mehr benötigt wird.
+- [Verbindung aufbauen: Das perfekte Verhandlungsmuster](/de/docs/Web/API/WebRTC_API/Perfect_negotiation)
+  - : **Perfekte Verhandlung** ist ein Entwurfsmuster, das für Ihren Signalisierungsprozess empfohlen wird, das Transparenz in der Verhandlung bietet, während es beiden Seiten ermöglicht, entweder der Anbieter oder der Antwortende zu sein, ohne dass wesentliche Codierungen erforderlich sind, um zwischen den beiden zu unterscheiden.
+- [Signalisierung und Zwei-Wege-Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
+  - : Ein Tutorial und Beispiel, das ein WebSocket-basiertes Chatsystem aus einem früheren Beispiel aufgreift und Unterstützung für das Öffnen von Videoanrufen zwischen Teilnehmern hinzufügt. Die WebSocket-Verbindung des Chat-Servers wird für die WebRTC-Signalisierung verwendet.
+- [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs)
+  - : Ein Leitfaden zu den Codecs, die WebRTC erfordert, dass Browser sie unterstützen, sowie die optionalen, die von verschiedenen beliebten Browsern unterstützt werden. Enthalten ist ein Leitfaden, der Ihnen hilft, die besten Codecs für Ihre Bedürfnisse auszuwählen.
 - [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)
-  - : Dieser Leitfaden behandelt, wie Sie eine Peer-Verbindung und einen zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) nutzen können, um beliebige Daten zwischen zwei Peers auszutauschen.
+  - : Dieser Leitfaden behandelt, wie Sie eine Peer-Verbindung und einen zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verwenden können, um beliebige Daten zwischen zwei Peers auszutauschen.
 - [Verwendung von DTMF mit WebRTC](/de/docs/Web/API/WebRTC_API/Using_DTMF)
-  - : Die Unterstützung von WebRTC für die Interaktion mit Gateways, die mit traditionellen Telefonsystemen verbinden, umfasst die Möglichkeit, DTMF-Töne zu senden, indem die Schnittstelle [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) verwendet wird. Dieser Leitfaden zeigt, wie das geht.
+  - : WebRTCs Unterstützung für die Interaktion mit Gateways, die mit herkömmlichen Telefonsystemen verknüpft sind, umfasst die Unterstützung zum Senden von DTMF-Tönen über die Schnittstelle [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender). Dieser Leitfaden zeigt, wie man dies tut.
 - [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
-  - : Dieser Leitfaden zeigt, wie eine Webanwendung eingehende und ausgehende WebRTC-kodierte Video- und Audio-Frames modifizieren kann, indem ein [`TransformStream`](/de/docs/Web/API/TransformStream) in einem Worker ausgeführt wird.
+  - : Dieser Leitfaden zeigt, wie eine Webanwendung eingehende und ausgehende WebRTC-codierte Video- und Audioframes ändern kann, indem ein [`TransformStream`](/de/docs/Web/API/TransformStream) verwendet wird, der in einem Worker läuft.
 
-## Anleitungen
+## Tutorials
 
-- [Kompatibilität verbessern mit WebRTC adapter.js](#interoperabilität)
-  - : Die WebRTC-Organisation [stellt auf GitHub den WebRTC-Adapter](https://github.com/webrtc/adapter/) zur Verfügung, um Kompatibilitätsprobleme in den WebRTC-Implementierungen verschiedener Browser zu umgehen. Der Adapter ist ein JavaScript-Shim, das es ermöglicht, Ihren Code so zu schreiben, dass er den Spezifikationen entspricht und in allen Browsern mit WebRTC-Unterstützung "einfach funktioniert".
+- [Verbesserung der Kompatibilität mit WebRTC adapter.js](#interoperabilität)
+  - : Die WebRTC-Organisation [bietet auf GitHub den WebRTC-Adapter](https://github.com/webrtc/adapter/), um Kompatibilitätsprobleme in den WebRTC-Implementierungen verschiedener Browser zu umgehen. Der Adapter ist ein JavaScript-Shim, der es Ihrem Code ermöglicht, gemäß der Spezifikation geschrieben zu werden, sodass er in allen WebRTC-unterstützten Browsern einfach funktioniert.
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-  - : Das Interface [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ist eine Funktion, die es Ihnen ermöglicht, einen Kanal zwischen zwei Peers zu öffnen, über den Sie beliebige Daten senden und empfangen können. Die API ist absichtlich ähnlich zur [WebSocket API](/de/docs/Web/API/WebSockets_API), sodass dasselbe Programmiermodell für beide verwendet werden kann.
-- [Ein Internet-verbundenes Telefon mit Peer.js bauen](/de/docs/Web/API/WebRTC_API/Build_a_phone_with_peerjs)
-  - : Dieses Tutorial ist eine Schritt-für-Schritt-Anleitung, wie man ein Telefon mit Peer.js baut.
+  - : Die Schnittstelle [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ist eine Funktion, die es ermöglicht, einen Kanal zwischen zwei Peers zu öffnen, über den beliebige Daten gesendet und empfangen werden können. Die API ist absichtlich ähnlich wie die [WebSocket-API](/de/docs/Web/API/WebSockets_API), sodass dasselbe Programmiermodell für beide verwendet werden kann.
+- [Bau eines internetfähigen Telefons mit Peer.js](/de/docs/Web/API/WebRTC_API/Build_a_phone_with_peerjs)
+  - : Dieses Tutorial ist eine Schritt-für-Schritt-Anleitung zum Bau eines Telefons mit Peer.js
 
 ## Spezifikationen
 
 {{Specifications}}
 
-### WebRTC-eigene Protokolle
+### WebRTC-bezogene Protokolle
 
-- [Application Layer Protocol Negotiation für Web Real-Time Communications](https://datatracker.ietf.org/doc/rfc8833/)
-- [Anforderungen an WebRTC Audio Codec und Processing](https://datatracker.ietf.org/doc/rfc7874/)
+- [Application Layer Protocol Negotiation for Web Real-Time Communications](https://datatracker.ietf.org/doc/rfc8833/)
+- [WebRTC Audio Codec and Processing Requirements](https://datatracker.ietf.org/doc/rfc7874/)
 - [RTCWeb Data Channels](https://datatracker.ietf.org/doc/rfc8831/)
 - [RTCWeb Data Channel Protocol](https://datatracker.ietf.org/doc/rfc8832/)
-- [Web Real-Time Communication (WebRTC): Media Transport und Nutzung von RTP](https://datatracker.ietf.org/doc/rfc8834/)
-- [WebRTC Sicherheitsarchitektur](https://datatracker.ietf.org/doc/rfc8827/)
-- [Transports für RTCWEB](https://datatracker.ietf.org/doc/rfc8835/)
+- [Web Real-Time Communication (WebRTC): Media Transport and Use of RTP](https://datatracker.ietf.org/doc/rfc8834/)
+- [WebRTC Security Architecture](https://datatracker.ietf.org/doc/rfc8827/)
+- [Transports for RTCWEB](https://datatracker.ietf.org/doc/rfc8835/)
 
 ### Verwandte unterstützende Protokolle
 
-- [Interactive Connectivity Establishment (ICE): Ein Protokoll für Netzadressübersetzer (NAT) Traversal für Offer/Answer Protokoll](https://datatracker.ietf.org/doc/html/rfc5245)
+- [Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal for Offer/Answer Protocol](https://datatracker.ietf.org/doc/html/rfc5245)
 - [Session Traversal Utilities for NAT (STUN)](https://datatracker.ietf.org/doc/html/rfc5389)
-- [URI Schema für das Session Traversal Utilities for NAT (STUN) Protokoll](https://datatracker.ietf.org/doc/html/rfc7064)
+- [URI Scheme for the Session Traversal Utilities for NAT (STUN) Protocol](https://datatracker.ietf.org/doc/html/rfc7064)
 - [Traversal Using Relays around NAT (TURN) Uniform Resource Identifiers](https://datatracker.ietf.org/doc/html/rfc7065)
-- [Ein Offer/Answer Modell mit Session Description Protocol (SDP)](https://datatracker.ietf.org/doc/html/rfc3264)
-- [Session Traversal Utilities for NAT (STUN) Erweiterung für Drittpartei-Autorisierung](https://datatracker.ietf.org/doc/rfc7635/)
+- [An Offer/Answer Model with Session Description Protocol (SDP)](https://datatracker.ietf.org/doc/html/rfc3264)
+- [Session Traversal Utilities for NAT (STUN) Extension for Third Party Authorization](https://datatracker.ietf.org/doc/rfc7635/)
 
 ## Siehe auch
 
@@ -229,7 +231,7 @@ Diese Schnittstellen und Ereignisse werden verwendet, um eingehende und ausgehen
 - [`MessageEvent`](/de/docs/Web/API/MessageEvent)
 - [`MediaStream`](/de/docs/Web/API/MediaStream)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Firefox multistream and renegotiation for Jitsi Videobridge](https://hacks.mozilla.org/2015/06/firefox-multistream-and-renegotiation-for-jitsi-videobridge/)
-- [Peering Through the WebRTC Fog with SocketPeer](https://hacks.mozilla.org/2015/04/peering-through-the-webrtc-fog-with-socketpeer/)
-- [Inside the Party Bus: Building a Web App with Multiple Live Video Streams + Interactive Graphics](https://hacks.mozilla.org/2014/04/inside-the-party-bus-building-a-web-app-with-multiple-live-video-streams-interactive-graphics/)
+- [Firefox multistream und Neuverhandlung für Jitsi Videobridge](https://hacks.mozilla.org/2015/06/firefox-multistream-and-renegotiation-for-jitsi-videobridge/)
+- [Durch den WebRTC-Nebel mit SocketPeer blicken](https://hacks.mozilla.org/2015/04/peering-through-the-webrtc-fog-with-socketpeer/)
+- [Inside the Party Bus: Aufbau einer Web-App mit mehreren Live-Video-Streams + interaktive Grafiken](https://hacks.mozilla.org/2014/04/inside-the-party-bus-building-a-web-app-with-multiple-live-video-streams-interactive-graphics/)
 - [Web-Medientechnologien](/de/docs/Web/Media)

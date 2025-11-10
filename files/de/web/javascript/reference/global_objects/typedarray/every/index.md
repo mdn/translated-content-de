@@ -1,15 +1,14 @@
 ---
 title: TypedArray.prototype.every()
+short-title: every()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/every
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 4bfeb5a89c1528da7cb7847a9ccb93f9b00290f0
 ---
 
-{{JSRef}}
+Die **`every()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt `false` zurück, wenn sie ein Element im Array findet, das die bereitgestellte Testfunktion nicht erfüllt. Andernfalls gibt sie `true` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.every()")}}.
 
-Die **`every()`**-Methode von {{jsxref("TypedArray")}}-Instanzen überprüft, ob alle Elemente im TypedArray den Test bestehen, der von der bereitgestellten Funktion implementiert wurde. Sie gibt einen Boolean-Wert zurück. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.every()")}}.
-
-{{InteractiveExample("JavaScript Demo: TypedArray.every()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.every()")}}
 
 ```js interactive-example
 function isNegative(element, index, array) {
@@ -32,29 +31,29 @@ every(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im TypedArray ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy-Wert")}} zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy-Wert")}} andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das im TypedArray verarbeitet wird.
+      - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
-      - : Der Index des aktuellen Elements, das im TypedArray verarbeitet wird.
+      - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das TypedArray, auf dem `every()` aufgerufen wurde.
+      - : Das typisierte Array, auf dem `every()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
+  - : Ein Wert, der als `this` verwendet werden soll, wenn `callbackFn` ausgeführt wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-`true`, es sei denn, `callbackFn` gibt für ein Element des TypedArrays einen {{Glossary("Falsy", "falsy-Wert")}} zurück, in diesem Fall wird sofort `false` zurückgegeben.
+`true`, solange `callbackFn` keinen {{Glossary("falsy", "falsy")}} Wert für ein Element des typisierten Arrays zurückgibt. In diesem Fall wird `false` sofort zurückgegeben.
 
 ## Beschreibung
 
-Weitere Details finden Sie unter {{jsxref("Array.prototype.every()")}}. Diese Methode ist nicht generisch und kann nur auf TypedArray-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.every()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Überprüfen der Größe aller Elemente des TypedArrays
+### Testen der Größe aller typisierten Array-Elemente
 
-Das folgende Beispiel überprüft, ob alle Elemente im TypedArray 10 oder größer sind.
+Das folgende Beispiel prüft, ob alle Elemente im typisierten Array 10 oder größer sind.
 
 ```js
 function isBigEnough(element, index, array) {
@@ -75,7 +74,7 @@ new Uint8Array([12, 54, 18, 130, 44]).every(isBigEnough); // true
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.every` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript TypedArrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.forEach()")}}
 - {{jsxref("TypedArray.prototype.some()")}}

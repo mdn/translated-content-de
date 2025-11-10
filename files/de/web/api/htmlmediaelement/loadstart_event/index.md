@@ -1,23 +1,23 @@
 ---
-title: "HTMLMediaElement: loadstart-Ereignis"
+title: "HTMLMediaElement: loadstart Ereignis"
 short-title: loadstart
 slug: Web/API/HTMLMediaElement/loadstart_event
 l10n:
-  sourceCommit: bfd82524fe63319725243d07aab809f0d1617366
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`loadstart`**-Ereignis wird ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
+Das **`loadstart`** Ereignis wird ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("loadstart", (event) => {});
+```js-nolint
+addEventListener("loadstart", (event) => { })
 
-onloadstart = (event) => {};
+onloadstart = (event) => { }
 ```
 
 ## Ereignistyp
@@ -100,10 +100,7 @@ loadVideo.addEventListener("click", () => {
   } else {
     loadVideo.textContent = "Reset example";
     source = document.createElement("source");
-    source.setAttribute(
-      "src",
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
-    );
+    source.setAttribute("src", "/shared-assets/videos/flower.webm");
     source.setAttribute("type", "video/webm");
 
     video.appendChild(source);

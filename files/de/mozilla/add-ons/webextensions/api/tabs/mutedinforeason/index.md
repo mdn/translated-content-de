@@ -2,32 +2,30 @@
 title: tabs.MutedInfoReason
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/MutedInfoReason
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt den Grund an, warum ein Tab stumm geschaltet oder die Stummschaltung aufgehoben wurde.
+Gibt den Grund an, warum ein Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - "capture"
-  - : Tab-Aufnahme gestartet, was eine Änderung des Stummschaltungsstatus erzwingt.
+  - : Tab-Aufnahme begann, was eine Änderung des stummgeschalteten Zustands erzwang.
 - "extension"
-  - : Eine Erweiterung hat den Stummschaltungsstatus festgelegt. Wenn dies der Grund ist, wird `extensionId` in {{WebExtAPIRef("tabs.mutedInfo")}} die ID der verantwortlichen Erweiterung enthalten.
+  - : Eine Erweiterung setzte den stummgeschalteten Zustand. Wenn dies der Grund ist, wird `extensionId` in {{WebExtAPIRef("tabs.mutedInfo")}} die ID der verantwortlichen Erweiterung enthalten.
 - "user"
-  - : Der Benutzer hat den Stummschaltungsstatus festgelegt.
+  - : Der Benutzer setzte den stummgeschalteten Zustand.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfoReason) API von Chromium. Diese Dokumentation wurde aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfoReason) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

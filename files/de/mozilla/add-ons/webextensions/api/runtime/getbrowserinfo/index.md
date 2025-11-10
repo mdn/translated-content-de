@@ -2,10 +2,8 @@
 title: runtime.getBrowserInfo()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getBrowserInfo
 l10n:
-  sourceCommit: 873e38320b7f7dbe0492f96a02e7e6503ac8c3b3
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Gibt Informationen über den Browser zurück, in dem die Erweiterung installiert ist.
 
@@ -23,20 +21,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Objekt erfüllt wird, das folgende Eigenschaften hat:
+Ein {{JSxRef("Promise")}}, das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften besitzt:
 
 - `name`
-  - : Zeichenfolgenwert, der den Namen des Browsers darstellt, zum Beispiel "Firefox".
+  - : String-Wert, der den Namen des Browsers darstellt, zum Beispiel "Firefox".
 - `vendor`
-  - : Zeichenfolgenwert, der den Anbieter des Browsers darstellt, zum Beispiel "Mozilla".
+  - : String-Wert, der den Anbieter des Browsers darstellt, zum Beispiel "Mozilla".
 - `version`
-  - : Zeichenfolge, die die Version des Browsers darstellt, zum Beispiel "51.0" oder "51.0a2".
+  - : String, das die Version des Browsers darstellt, zum Beispiel "51.0" oder "51.0a2".
 - `buildID`
-  - : Zeichenfolge, die den spezifischen Build des Browsers darstellt, zum Beispiel "20161018004015".
+  - : String, das den spezifischen Build des Browsers darstellt, zum Beispiel "20161018004015".
 
 ## Beispiele
 
-Holen und protokollieren Sie den Namen des Browsers:
+Abrufen und Protokollieren des Browsernamens:
 
 ```js
 function gotBrowserInfo(info) {

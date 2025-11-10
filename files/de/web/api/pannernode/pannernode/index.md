@@ -3,12 +3,12 @@ title: "PannerNode: PannerNode() Konstruktor"
 short-title: PannerNode()
 slug: Web/API/PannerNode/PannerNode
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`PannerNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue Instanz des [`PannerNode`](/de/docs/Web/API/PannerNode)-Objekts.
+Der **`PannerNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue [`PannerNode`](/de/docs/Web/API/PannerNode)-Objektinstanz.
 
 ## Syntax
 
@@ -20,58 +20,57 @@ new PannerNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), welches den Audio-Kontext darstellt, mit dem der Knoten verbunden werden soll.
+  - : Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), der den Audiokontext repräsentiert, mit dem der Knoten verknüpft werden soll.
 - `options` {{optional_inline}}
-
   - : Ein [`PannerOptions`](https://webaudio.github.io/web-audio-api/#idl-def-PannerOptions) Dictionary-Objekt, das die Eigenschaften definiert, die der `PannerNode` haben soll:
-
     - `panningModel`
       - : Das [`PannerNode.panningModel`](/de/docs/Web/API/PannerNode/panningModel), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `equalpower`.)
     - `distanceModel`
       - : Das [`PannerNode.distanceModel`](/de/docs/Web/API/PannerNode/distanceModel), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `inverse`.)
     - `positionX`
-      - : Die [`PannerNode.positionX`](/de/docs/Web/API/PannerNode/positionX), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
+      - : Das [`PannerNode.positionX`](/de/docs/Web/API/PannerNode/positionX), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
     - `positionY`
-      - : Die [`PannerNode.positionY`](/de/docs/Web/API/PannerNode/positionY), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
+      - : Das [`PannerNode.positionY`](/de/docs/Web/API/PannerNode/positionY), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
     - `positionZ`
-      - : Die [`PannerNode.positionZ`](/de/docs/Web/API/PannerNode/positionZ), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
+      - : Das [`PannerNode.positionZ`](/de/docs/Web/API/PannerNode/positionZ), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
     - `orientationX`
-      - : Die [`PannerNode.orientationX`](/de/docs/Web/API/PannerNode/orientationX), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `1`.)
+      - : Das [`PannerNode.orientationX`](/de/docs/Web/API/PannerNode/orientationX), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `1`.)
     - `orientationY`
-      - : Die [`PannerNode.orientationY`](/de/docs/Web/API/PannerNode/orientationY), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
+      - : Das [`PannerNode.orientationY`](/de/docs/Web/API/PannerNode/orientationY), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
     - `orientationZ`
-      - : Die [`PannerNode.orientationZ`](/de/docs/Web/API/PannerNode/orientationZ), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
+      - : Das [`PannerNode.orientationZ`](/de/docs/Web/API/PannerNode/orientationZ), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `0`.)
     - `refDistance`
-      - : Die [`PannerNode.refDistance`](/de/docs/Web/API/PannerNode/refDistance), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `1`, und negative Werte sind nicht erlaubt.
+      - : Das [`PannerNode.refDistance`](/de/docs/Web/API/PannerNode/refDistance), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `1`, und negative Werte sind nicht erlaubt.
     - `maxDistance`
-      - : Die [`PannerNode.maxDistance`](/de/docs/Web/API/PannerNode/maxDistance), die der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `10000`, und nicht-positive Werte sind nicht erlaubt.
+      - : Das [`PannerNode.maxDistance`](/de/docs/Web/API/PannerNode/maxDistance), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `10000`, und nicht-positive Werte sind nicht erlaubt.
     - `rolloffFactor`
-      - : Der [`PannerNode.rolloffFactor`](/de/docs/Web/API/PannerNode/rolloffFactor), den der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `1`, und negative Werte sind nicht erlaubt.
+      - : Das [`PannerNode.rolloffFactor`](/de/docs/Web/API/PannerNode/rolloffFactor), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `1`, und negative Werte sind nicht erlaubt.
     - `coneInnerAngle`
-      - : Der [`PannerNode.coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), den der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `360`.)
+      - : Das [`PannerNode.coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `360`.)
     - `coneOuterAngle`
-      - : Der [`PannerNode.coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle), den der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `360`.)
+      - : Das [`PannerNode.coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll (Standard ist `360`.)
     - `coneOuterGain`
-      - : Der [`PannerNode.coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain), den der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `0`, und der Wert kann im Bereich von 0 bis 1 liegen.
+      - : Das [`PannerNode.coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain), das der [`PannerNode`](/de/docs/Web/API/PannerNode) haben soll. Standard ist `0`, und der Wert kann im Bereich 0–1 liegen.
     - `channelCount`
-      - : Repräsentiert eine Ganzzahl, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu allen Eingängen des Knotens verwendet werden. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
+      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle verwendet werden, wenn [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) Verbindungen zu den Eingängen des Knotens erfolgen. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Nutzung und genaue
+        Definition hängen vom Wert des `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie die Kanäle zwischen
-        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie die Kanäle zwischen den
+        Eingängen und Ausgängen des Knotens abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für mehr
         Informationen einschließlich Standardwerten.)
     - `channelInterpretation`
       - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation wird definieren, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) stattfinden wird.
+        Interpretation wird definieren, wie das [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgen wird.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich Standardwerten.)
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für mehr Informationen einschließlich Standardwerte.)
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn den Eigenschaften `refDistance`, `maxDistance` oder `rolloffFactor` ein Wert zugewiesen wurde, der außerhalb des zulässigen Bereichs liegt.
+  - : Wird ausgelöst, wenn die Eigenschaften `refDistance`, `maxDistance` oder `rolloffFactor` einen Wert haben, der außerhalb des zulässigen Bereichs liegt.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `coneOuterGain`-Eigenschaft ein Wert außerhalb des zulässigen Bereichs (0–1) zugewiesen wurde.
+  - : Wird ausgelöst, wenn die Eigenschaft `coneOuterGain` einen Wert außerhalb des zulässigen Bereichs (0–1) hat.
 
 ## Beispiele
 

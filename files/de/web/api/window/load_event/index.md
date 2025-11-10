@@ -3,29 +3,32 @@ title: "Window: load Event"
 short-title: load
 slug: Web/API/Window/load_event
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef}}
 
-Das **`load`** Event wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets, Skripten, iframes und Bildern, mit Ausnahme derjenigen, die [lazy geladen](/de/docs/Web/Performance/Lazy_loading#images_and_iframes) werden.
-Dies steht im Gegensatz zu [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), welches ausgelöst wird, sobald das DOM der Seite geladen ist, ohne darauf zu warten, dass die Ressourcen zu Ende geladen sind.
+Das **`load`**-Ereignis wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets, Skripte (einschließlich asynchroner, verzögerter und Modul-Skripte), Iframes und Bilder, mit Ausnahme derjenigen, die [lazy geladen](/de/docs/Web/Performance/Guides/Lazy_loading#images_and_iframes) werden.
+Dies steht im Gegensatz zum [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event), das ausgelöst wird, sobald das Seiten-DOM geladen ist, ohne darauf zu warten, dass die Ressourcen das Laden abgeschlossen haben.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht nach oben weitergereicht.
-
-> **Hinweis:** _Alle Ereignisse, die `load` genannt werden, werden nicht an `Window` weitergereicht_, selbst wenn `bubbles` auf `true` initialisiert wird. Um `load` Ereignisse im Fenster zu erfassen, muss dieses `load` Ereignis direkt zum Fenster gesendet werden.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 > [!NOTE]
-> Das `load` Ereignis, das ausgesendet wird, wenn das Hauptdokument geladen wurde, _wird_ auf dem `window` gesendet, hat aber zwei veränderte Eigenschaften: `target` ist `document` und `path` ist `undefined`. Diese beiden Eigenschaften sind aufgrund von älteren Konventionen verändert.
+> _Alle Ereignisse mit dem Namen `load` werden nicht an `Window` weitergereicht_, selbst wenn `bubbles` auf `true` gesetzt ist. Um `load`-Ereignisse im `window` zu erfassen, muss dieses `load`-Ereignis direkt an das `window` gesendet werden.
+
+> [!NOTE]
+> Das `load`-Ereignis, das ausgelöst wird, wenn das Hauptdokument geladen ist, wird _auf_ dem `window` ausgelöst, hat jedoch zwei veränderte Eigenschaften: `target` ist `document` und `path` ist `undefined`. Diese zwei Eigenschaften sind aufgrund der Einhaltung älterer Standards verändert.
+
+Um zu vermeiden, dass ein Skript ausgeführt wird, bevor das DOM, das es manipuliert, vollständig konstruiert wurde, können Sie das Skript am Ende des Dokumentkörpers platzieren, unmittelbar vor dem schließenden `</body>`-Tag, ohne es in einen Ereignis-Listener zu verpacken. Sie sollten das `load`-Ereignis in der Regel nur verwenden, um auf das Laden externer Ressourcen, wie Bilder oder verzögerte Skripte, zu warten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("load", (event) => {});
+```js-nolint
+addEventListener("load", (event) => { })
 
-onload = (event) => {};
+onload = (event) => { }
 ```
 
 ## Ereignistyp
@@ -42,7 +45,7 @@ window.addEventListener("load", (event) => {
 });
 ```
 
-Dasselbe, aber mit der `onload` Ereignishandlereigenschaft:
+Dasselbe, aber mit der `onload`-Ereignis-Handler-Eigenschaft:
 
 ```js
 window.onload = (event) => {

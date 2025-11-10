@@ -1,104 +1,102 @@
 ---
-title: Client-seitiger Speicher
+title: Client-seitige Speicherung
 slug: Learn_web_development/Extensions/Client-side_APIs/Client-side_storage
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics", "Learn_web_development/Extensions/Client-side_APIs/Third_party_APIs", "Learn_web_development/Extensions/Client-side_APIs")}}
 
-Moderne Webbrowser unterstützen eine Vielzahl von Möglichkeiten, wie Websites Daten auf dem Rechner des Nutzers speichern und bei Bedarf abrufen können – mit der Erlaubnis des Nutzers. Dies ermöglicht Ihnen, Daten für die langfristige Speicherung zu speichern, Seiten oder Dokumente für die Offline-Nutzung zu sichern, nutzerspezifische Einstellungen für Ihre Website zu behalten und mehr. Dieser Artikel erklärt die grundlegenden Funktionsweisen dieser Techniken.
+Moderne Webbrowser unterstützen eine Reihe von Möglichkeiten, wie Websites Daten auf dem Computer des Benutzers speichern können — mit der Zustimmung des Benutzers — und sie bei Bedarf wieder abrufen können. Dies ermöglicht es Ihnen, Daten für die langfristige Speicherung zu behalten, Websites oder Dokumente für die Offline-Nutzung zu speichern, benutzerspezifische Einstellungen für Ihre Website zu behalten und mehr. Dieser Artikel erklärt die Grundlagen, wie diese funktionieren.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere den <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">JavaScript-Objekt-Grundlagen</a> und der grundlegenden API-Abdeckung wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Grundlagen von JavaScript-Objekten</a> und der Abdeckung von Kern-APIs wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Die Konzepte des client-seitigen Speichers und welche Schlüsseltechnologien dies ermöglichen – Web Storage API, Cookies, Cache API und die IndexedDB API.</li>
-          <li>Wichtige Anwendungsfälle – Zustand zwischen Neuladungen aufrechterhalten, Login- und Nutzerpersonalisierungsdaten beibehalten und lokale/offline Arbeit.</li>
-          <li>Web Storage für einfache Schlüssel-Wert-Paar-Speicherungen verwenden, gesteuert durch JavaScript.</li>
-          <li>Die Verwendung von IndexedDB zum Speichern komplexerer, strukturierter Daten.</li>
-          <li>Die Verwendung der Cache API und Service Worker für Offline-Anwendungsfälle.</li>
+          <li>Die Konzepte der client-seitigen Speicherung und welche Schlüsseltechnologien diese ermöglichen — Web Storage API, Cookies, Cache API und die IndexedDB API.</li>
+          <li>Schlüsselanwendungsfälle — Zustand über Neuladungen hinweg erhalten, Login- und Nutzerpersonalisierungsdaten persistent halten und lokal/offline arbeiten.</li>
+          <li>Verwendung von Web Storage für einfache Speicherungen von Schlüssel-Wert-Paaren, gesteuert durch JavaScript.</li>
+          <li>Verwendung von IndexedDB zum Speichern komplexerer, strukturierter Daten.</li>
+          <li>Verwendung der Cache API und von Service Workern für Offline-Anwendungsfälle.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Client-seitiger Speicher?
+## Client-seitige Speicherung?
 
-An anderer Stelle im MDN-Lernbereich haben wir über den Unterschied zwischen [statischen Websites](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview#static_sites) und [dynamischen Websites](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview#dynamic_sites) gesprochen. Die meisten großen modernen Websites sind dynamisch – sie speichern Daten auf dem Server mithilfe einer Datenbank (serverseitiger Speicher) und führen [serverseitigen](/de/docs/Learn_web_development/Extensions/Server-side) Code aus, um die benötigten Daten abzurufen, sie in statische Seitentemplates einzufügen und das resultierende HTML dem Client zur Anzeige im Browser des Nutzers bereitzustellen.
+An anderer Stelle im MDN-Lernbereich haben wir über den Unterschied zwischen [statischen Seiten](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview#static_sites) und [dynamischen Seiten](/de/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview#dynamic_sites) gesprochen. Die meisten großen modernen Websites sind dynamisch — sie speichern Daten auf dem Server mit Hilfe einer Art von Datenbank (serverseitige Speicherung), führen dann [serverseitigen](/de/docs/Learn_web_development/Extensions/Server-side) Code aus, um benötigte Daten abzurufen, sie in statische Seitenvorlagen einzufügen und das resultierende HTML an den Client zu senden, welcher es im Browser des Benutzers anzeigt.
 
-Client-seitiger Speicher funktioniert nach ähnlichen Prinzipien, hat jedoch unterschiedliche Anwendungsfälle. Er besteht aus JavaScript-APIs, die Ihnen erlauben, Daten auf dem Client (d.h. auf dem Rechner des Nutzers) zu speichern und bei Bedarf abzurufen. Dies hat viele verschiedene Anwendungen, wie:
+Die client-seitige Speicherung funktioniert nach ähnlichen Prinzipien, aber sie hat andere Verwendungszwecke. Sie besteht aus JavaScript-APIs, die es Ihnen erlauben, Daten auf dem Client (d.h. auf dem Gerät des Benutzers) zu speichern und sie dann bei Bedarf abzurufen. Dies hat viele verschiedene Anwendungsfälle, wie z.B.:
 
-- Personalisierung von Seiteneinstellungen (z. B. Anzeige der Auswahl eines Nutzers zu benutzerdefinierten Widgets, Farbschema oder Schriftgröße).
-- Beibehalten früherer Website-Aktivitäten (z. B. Speichern der Inhalte eines Warenkorbs aus einer früheren Sitzung, Erinnern daran, ob ein Nutzer zuvor eingeloggt war).
-- Lokales Speichern von Daten und Assets, damit eine Seite schneller (und möglicherweise kostengünstiger) heruntergeladen werden kann oder ohne Netzwerkverbindung nutzbar ist.
-- Lokales Speichern von von Webanwendungen generierten Dokumenten zur Offline-Nutzung
+- Personalisierung von Website-Einstellungen (z.B. Anzeigen der benutzerspezifischen Auswahl an Widgets, Farbschema oder Schriftgröße).
+- Beibehalten vorheriger Website-Aktivitäten (z.B. Speichern der Inhalte eines Warenkorbs aus einer vorherigen Sitzung, Erinnerung, ob ein Benutzer zuvor eingeloggt war).
+- Lokales Speichern von Daten und Ressourcen, sodass eine Website schneller heruntergeladen werden kann (und möglicherweise weniger kostspielig) oder ohne Netzwerkverbindung nutzbar ist.
+- Speichern von Dokumenten, die von Webanwendungen lokal für die Offline-Nutzung erzeugt werden.
 
-Häufig werden client-seitiger und server-seitiger Speicher zusammen verwendet. Zum Beispiel könnten Sie eine Reihe von Musikdateien herunterladen (vielleicht genutzt von einem Webspiel oder einer Musikplayer-Anwendung), sie in einer client-seitigen Datenbank speichern und bei Bedarf abspielen. Die Nutzer müssten die Musikdateien nur einmal herunterladen – bei späteren Besuchen würden sie stattdessen aus der Datenbank abgerufen.
+Häufig werden client-seitige und serverseitige Speicherungen zusammen genutzt. Beispielsweise könnten Sie eine Reihe von Musikdateien (vielleicht genutzt von einem Webspiel oder einer Musikabspielanwendung) herunterladen, diese in einer client-seitigen Datenbank speichern und bei Bedarf abspielen. Der Benutzer müsste die Musikdateien nur einmal herunterladen — bei späteren Besuchen würden sie stattdessen aus der Datenbank abgerufen.
 
 > [!NOTE]
-> Es gibt Einschränkungen hinsichtlich der Menge an Daten, die Sie mit client-seitigen Speicher-APIs speichern können (möglicherweise sowohl pro individueller API als auch kumulativ); das genaue Limit variiert je nach Browser und möglicherweise basierend auf den Einstellungen des Nutzers. Weitere Informationen finden Sie unter [Speicherquoten und Auslöschkriterien für den Browser](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
+> Es gibt Begrenzungen für die Menge an Daten, die Sie mit den client-seitigen Speicher-APIs speichern können (möglicherweise sowohl pro individueller API als auch kumulativ); das genaue Limit variiert je nach Browser und möglicherweise basierend auf den Benutzereinstellungen. Weitere Informationen finden Sie unter [Browser-Speicherlimits und Kriterien für die Löschung](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
 
-### Altmodisch: Cookies
+### Old School: Cookies
 
-Das Konzept des client-seitigen Speichers gibt es schon lange. Seit den frühen Tagen des Webs haben Websites [Cookies](/de/docs/Web/HTTP/Cookies) genutzt, um Informationen zur Personalisierung der Nutzererfahrung auf Websites zu speichern. Sie sind die älteste Form des client-seitigen Speichers, der im Web weit verbreitet ist.
+Das Konzept der client-seitigen Speicherung gibt es schon lange. Seit den Anfängen des Webs haben Websites [Cookies](/de/docs/Web/HTTP/Guides/Cookies) verwendet, um Informationen zu speichern, die das Benutzererlebnis auf Websites personalisieren. Sie sind die früheste Form der client-seitigen Speicherung, die im Web häufig verwendet wird.
 
-Heutzutage gibt es einfachere Mechanismen zur Speicherung client-seitiger Daten, daher werden wir Ihnen in diesem Artikel nicht beibringen, wie man Cookies verwendet. Dies bedeutet jedoch nicht, dass Cookies im modernen Web völlig nutzlos sind – sie werden weiterhin häufig verwendet, um Daten im Zusammenhang mit Nutzerpersonalisierung und -zustand zu speichern, z. B. Sitzungs-IDs und Zugangs-Token. Weitere Informationen zu Cookies finden Sie in unserem Artikel [Verwendung von HTTP-Cookies](/de/docs/Web/HTTP/Cookies).
+Heutzutage gibt es einfachere Mechanismen, um client-seitige Daten zu speichern, daher werden wir Ihnen in diesem Artikel nicht beibringen, wie man Cookies verwendet. Dies bedeutet jedoch nicht, dass Cookies im modernen Web komplett nutzlos sind — sie werden immer noch häufig verwendet, um Daten im Zusammenhang mit Benutzerpersonalisierung und -zustand zu speichern, z.B. Sitzungs-IDs und Zugangstokens. Weitere Informationen zu Cookies finden Sie in unserem Artikel [Verwendung von HTTP-Cookies](/de/docs/Web/HTTP/Guides/Cookies).
 
-### Modern: Web Storage und IndexedDB
+### New School: Web Storage und IndexedDB
 
 Die oben erwähnten "einfacheren" Funktionen sind wie folgt:
 
-- Die [Web Storage API](/de/docs/Web/API/Web_Storage_API) bietet einen Mechanismus zum Speichern und Abrufen kleinerer Datenitems, die aus einem Namen und einem entsprechenden Wert bestehen. Dies ist nützlich, wenn Sie nur einige einfache Daten speichern müssen, wie den Namen des Nutzers, ob er eingeloggt ist, welche Farbe für den Hintergrund des Bildschirms verwendet werden soll, usw.
-- Die [IndexedDB API](/de/docs/Web/API/IndexedDB_API) stellt dem Browser ein vollständiges Datenbanksystem zur Verfügung, um komplexe Daten zu speichern. Dies kann verwendet werden für Dinge von vollständigen Datenbeständen von Kunden bis hin zu komplexen Datentypen wie Audio- oder Videodateien.
+- Die [Web Storage API](/de/docs/Web/API/Web_Storage_API) bietet einen Mechanismus zum Speichern und Abrufen kleinerer Dateneinheiten, die aus einem Namen und einem entsprechenden Wert bestehen. Dies ist nützlich, wenn Sie nur einige einfache Daten speichern müssen, z.B. den Benutzernamen, ob ein Benutzer eingeloggt ist, welche Farbe für den Bildschirmhintergrund verwendet werden soll usw.
+- Die [IndexedDB API](/de/docs/Web/API/IndexedDB_API) stellt dem Browser ein vollständiges Datenbanksystem zur Speicherung komplexer Daten bereit. Dies kann für alles verwendet werden, von kompletten Kundendatensätzen bis hin zu komplexen Datentypen wie Audio- oder Videodateien.
 
-Sie werden mehr über diese APIs im Folgenden lernen.
+Mehr über diese APIs erfahren Sie unten.
 
 ### Die Cache API
 
-Die [`Cache`](/de/docs/Web/API/Cache) API ist dafür ausgelegt, HTTP-Antworten auf bestimmte Anfragen zu speichern, und ist sehr nützlich für Dinge wie das Speichern von Website-Assets offline, damit die Seite auch ohne Netzwerkverbindung genutzt werden kann. Die Cache API wird normalerweise in Kombination mit der [Service Worker API](/de/docs/Web/API/Service_Worker_API) verwendet, obwohl das nicht zwingend notwendig ist.
+Die [`Cache`](/de/docs/Web/API/Cache) API wurde zum Speichern von HTTP-Antworten auf bestimmte Anfragen entwickelt und ist sehr nützlich für Dinge wie das Speichern von Website-Ressourcen offline, sodass die Website anschließend ohne Netzwerkverbindung genutzt werden kann. Cache wird in der Regel in Kombination mit der [Service Worker API](/de/docs/Web/API/Service_Worker_API) verwendet, muss aber nicht zwingend.
 
-Die Verwendung von Cache und Service Workern ist ein fortgeschrittenes Thema, und wir werden es in diesem Artikel nicht im Detail behandeln, obwohl wir ein Beispiel im Abschnitt [Offline-Asset-Speicherung](#offline-asset-speicherung) weiter unten zeigen werden.
+Die Verwendung von Cache und Service-Workern ist ein fortgeschrittenes Thema, und wir werden es in diesem Artikel nicht im Detail behandeln, obwohl wir ein Beispiel im Abschnitt [Offline-Asset-Speicherung](#offline-asset-speicherung) unten zeigen werden.
 
-## Speichern einfacher Daten – Web Storage
+## Speichern einfacher Daten — Web Storage
 
-Die [Web Storage API](/de/docs/Web/API/Web_Storage_API) ist sehr einfach zu verwenden – Sie speichern einfache Name/Wert-Paare von Daten (beschränkt auf Strings, Zahlen usw.) und rufen diese Werte bei Bedarf ab.
+Die [Web Storage API](/de/docs/Web/API/Web_Storage_API) ist sehr einfach zu benutzen — Sie speichern einfache Namens-/Wertepaare von Daten (begrenzt auf Strings, Nummern etc.) und rufen diese Werte bei Bedarf ab.
 
-### Grundlegende Syntax
+### Grundsyntax
 
 Lassen Sie uns Ihnen zeigen, wie:
 
-1. Besuchen Sie zunächst unser [leeres Web-Storage-Template](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/web-storage/index.html) auf GitHub (öffnen Sie dies in einem neuen Tab).
-2. Öffnen Sie die JavaScript-Konsole der Entwicklerwerkzeuge Ihres Browsers.
-3. Alle Daten Ihres Webspeichers sind in zwei objektähnlichen Strukturen im Browser enthalten: [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`localStorage`](/de/docs/Web/API/Window/localStorage). Das erste speichert Daten für die Dauer, in der der Browser geöffnet ist (die Daten gehen verloren, wenn der Browser geschlossen wird), und das zweite speichert Daten auch noch nach dem Schließen und erneuten Öffnen des Browsers. Wir werden in diesem Artikel das zweite verwenden, da es im Allgemeinen nützlicher ist.
+1. Besuchen Sie zunächst unsere [Web Storage Blanko-Vorlage](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/web-storage/index.html) auf GitHub (öffnen Sie diese in einem neuen Tab).
+2. Öffnen Sie die JavaScript-Konsole in den Entwicklerwerkzeugen Ihres Browsers.
+3. Alle Ihre Web Storage-Daten befinden sich innerhalb von zwei objektähnlichen Strukturen im Browser: [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und [`localStorage`](/de/docs/Web/API/Window/localStorage). Die erste speichert Daten, solange der Browser geöffnet ist (die Daten gehen verloren, wenn der Browser geschlossen wird) und die zweite speichert Daten sogar nach dem Schließen und erneuten Öffnen des Browsers. Wir werden in diesem Artikel die zweite verwenden, da sie im Allgemeinen nützlicher ist.
 
-   Die Methode [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) ermöglicht Ihnen, ein Datenitem in den Speicher zu speichern – sie benötigt zwei Parameter: den Namen des Items und seinen Wert. Versuchen Sie, dies in Ihre JavaScript-Konsole einzugeben (Ändern Sie den Wert in Ihren eigenen Namen, wenn Sie möchten!):
+   Die Methode [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) ermöglicht es Ihnen, einen Datenpunkt im Speicher zu speichern — sie nimmt zwei Parameter entgegen: den Namen des Elements und dessen Wert. Versuchen Sie, das in Ihre JavaScript-Konsole einzugeben (ändern Sie den Wert auf Ihren eigenen Namen, wenn Sie möchten!):
 
    ```js
    localStorage.setItem("name", "Chris");
    ```
 
-4. Die Methode [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) benötigt einen Parameter – den Namen eines Datenitems, das Sie abrufen möchten – und gibt den Wert des Items zurück. Geben Sie nun diese Zeilen in Ihre JavaScript-Konsole ein:
+4. Die Methode [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) nimmt einen Parameter entgegen — den Namen des Datenpunkts, den Sie abrufen möchten — und gibt den Wert des Elements zurück. Geben Sie nun diese Zeilen in Ihre JavaScript-Konsole ein:
 
    ```js
    let myName = localStorage.getItem("name");
    myName;
    ```
 
-   Beim Eingeben der zweiten Zeile sollten Sie sehen, dass die Variable `myName` nun den Wert des `name` Datenitems enthält.
+   Nach Eingabe der zweiten Zeile sollten Sie sehen, dass die Variable `myName` nun den Wert des `name`-Datenpunkts enthält.
 
-5. Die Methode [`Storage.removeItem()`](/de/docs/Web/API/Storage/removeItem) benötigt einen Parameter – den Namen eines Datenitems, das Sie entfernen möchten – und entfernt dieses Item aus dem Webspeicher. Geben Sie die folgenden Zeilen in Ihre JavaScript-Konsole ein:
+5. Die Methode [`Storage.removeItem()`](/de/docs/Web/API/Storage/removeItem) nimmt einen Parameter entgegen — den Namen des Datenpunkts, den Sie entfernen möchten — und entfernt dieses Element aus dem Web Storage. Geben Sie die folgenden Zeilen in Ihre JavaScript-Konsole ein:
 
    ```js
    localStorage.removeItem("name");
@@ -106,13 +104,13 @@ Lassen Sie uns Ihnen zeigen, wie:
    myName;
    ```
 
-   Die dritte Zeile sollte nun `null` zurückgeben – das `name` Item existiert nicht mehr im Webspeicher.
+   Die dritte Zeile sollte nun `null` zurückgeben — das `name`-Element existiert nicht mehr im Web Storage.
 
 ### Die Daten bleiben bestehen!
 
-Ein wesentliches Merkmal des Webspeichers ist, dass die Daten zwischen Seitenladevorgängen bestehen bleiben (und sogar nach dem Herunterfahren des Browsers, im Fall von `localStorage`). Lassen Sie uns dies in Aktion sehen.
+Ein Schlüsselmerkmal des Web Storage ist, dass die Daten zwischen den Seitenladungen bestehen bleiben (und sogar, wenn der Browser heruntergefahren wird, im Falle von `localStorage`). Lassen Sie uns das in Aktion sehen.
 
-1. Öffnen Sie unser leeres Web-Storage-Template erneut, diesmal jedoch in einem anderen Browser als dem, in dem Sie dieses Tutorial geöffnet haben! Dies macht es einfacher, damit umzugehen.
+1. Öffnen Sie unsere Web Storage Blanko-Vorlage erneut, aber diesmal in einem anderen Browser als dem, in dem Sie dieses Tutorial geöffnet haben! Dies wird es einfacher machen, damit umzugehen.
 2. Geben Sie diese Zeilen in die JavaScript-Konsole des Browsers ein:
 
    ```js
@@ -121,9 +119,9 @@ Ein wesentliches Merkmal des Webspeichers ist, dass die Daten zwischen Seitenlad
    myName;
    ```
 
-   Sie sollten das zurückgegebene `name` Item sehen.
+   Sie sollten das `name`-Element zurückgegeben sehen.
 
-3. Schließen Sie nun den Browser und öffnen Sie ihn wieder.
+3. Nun schließen Sie den Browser und öffnen ihn wieder.
 4. Geben Sie die folgenden Zeilen erneut ein:
 
    ```js
@@ -131,27 +129,27 @@ Ein wesentliches Merkmal des Webspeichers ist, dass die Daten zwischen Seitenlad
    myName;
    ```
 
-   Sie sollten sehen, dass der Wert immer noch verfügbar ist, obwohl der Browser geschlossen und dann wieder geöffnet wurde.
+   Sie sollten feststellen, dass der Wert weiterhin verfügbar ist, obwohl der Browser geschlossen und dann wieder geöffnet wurde.
 
-### Separater Speicher für jede Domäne
+### Separater Speicher für jede Domain
 
-Es gibt einen separaten Datenspeicher für jede Domäne (jede separate Webadresse, die im Browser geladen wird). Sie werden sehen, dass, wenn Sie zwei Websites laden (sagen wir google.com und amazon.com) und versuchen, ein Item auf einer Website zu speichern, es für die andere Website nicht verfügbar ist.
+Es gibt einen separaten Datenspeicher für jede Domain (jede in den Browser geladene separate Webadresse). Sie werden sehen, dass, wenn Sie zwei Websites laden (sagen wir google.com und amazon.com) und versuchen, ein Element auf einer Website zu speichern, es auf der anderen Website nicht verfügbar sein wird.
 
-Das macht Sinn – Sie können sich die Sicherheitsprobleme vorstellen, die auftreten würden, wenn Websites die Daten anderer Websites sehen könnten!
+Das macht Sinn — man kann sich die Sicherheitsprobleme vorstellen, die auftreten würden, wenn Websites die Daten anderer sehen könnten!
 
 ### Ein umfangreicheres Beispiel
 
-Lassen Sie uns dieses neue Wissen anwenden, indem wir ein funktionierendes Beispiel schreiben, um Ihnen eine Vorstellung davon zu geben, wie Webspeicher verwendet werden kann. Unser Beispiel ermöglicht es Ihnen, einen Namen einzugeben, nach dem die Seite aktualisiert wird, um Ihnen eine personalisierte Begrüßung zu geben. Dieser Zustand bleibt auch bei Seiten-/Browserneuladungen bestehen, da der Name im Webspeicher gespeichert wird.
+Lassen Sie uns dieses neu erworbene Wissen anwenden, indem wir ein funktionierendes Beispiel schreiben, das Ihnen eine Vorstellung davon gibt, wie Web Storage verwendet werden kann. Unser Beispiel erlaubt es Ihnen, einen Namen einzugeben, woraufhin die Seite ein personalisiertes Begrüßungstext aktualisiert. Dieser Zustand wird auch über Seiten-/Browserneuladen hinweg bestehen bleiben, weil der Name im Web Storage gespeichert ist.
 
-Sie finden das Beispiel-HTML unter [personal-greeting.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/web-storage/personal-greeting.html) – es enthält eine Website mit einer Kopfzeile, einem Inhalt und einer Fußzeile sowie ein Formular zur Eingabe Ihres Namens.
+Das Beispiel HTML finden Sie unter [personal-greeting.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/web-storage/personal-greeting.html) — dies enthält eine Website mit einem Header, Inhalt und Footer sowie ein Formular für die Eingabe Ihres Namens.
 
-![Ein Screenshot einer Website, die Abschnitte für einen Header, Inhalt und eine Fußzeile hat. Der Header hat einen Begrüßungstext auf der linken Seite und einen Button mit der Bezeichnung 'vergessen' auf der rechten Seite. Der Inhalt hat eine Überschrift gefolgt von zwei Absätzen mit Blindtext. Der Footer liest 'Copyright nobody. Use the code as you like'.](web-storage-demo.png)
+![Ein Screenshot einer Website, die über Header-, Inhalts- und Footer-Bereiche verfügt. In der linken Seite des Headers steht ein Willkommenssatz, und auf der rechten Seite befindet sich ein Knopf mit der Beschriftung 'forget'. Der Inhalt hat eine Überschrift gefolgt von zwei Absätzen Dummytext. Der Footer lautet 'Copyright nobody. Use the code as you like'.](web-storage-demo.png)
 
 Lassen Sie uns das Beispiel aufbauen, damit Sie verstehen, wie es funktioniert.
 
-1. Erstellen Sie zuerst eine lokale Kopie unserer [personal-greeting.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/web-storage/personal-greeting.html) Datei in einem neuen Verzeichnis auf Ihrem Computer.
-2. Beachten Sie als Nächstes, wie unser HTML auf eine JavaScript-Datei namens `index.js` verweist, mit einer Zeile wie `<script src="index.js" defer></script>`. Diese müssen wir erstellen und unseren JavaScript-Code darin schreiben. Erstellen Sie eine `index.js` Datei im selben Verzeichnis wie Ihre HTML-Datei.
-3. Wir beginnen damit, Referenzen zu allen HTML-Features zu erstellen, die wir in diesem Beispiel manipulieren müssen – wir erstellen sie alle als Konstanten, da sich diese Referenzen im Lebenszyklus der App nicht ändern müssen. Fügen Sie die folgenden Zeilen zu Ihrer JavaScript-Datei hinzu:
+1. Erstellen Sie zunächst eine lokale Kopie unserer [personal-greeting.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/web-storage/personal-greeting.html) Datei in einem neuen Verzeichnis auf Ihrem Computer.
+2. Beachten Sie als nächstes, dass unser HTML auf eine JavaScript-Datei namens `index.js` verweist, mit einer Zeile wie `<script src="index.js" defer></script>`. Diese müssen wir erstellen und unseren JavaScript-Code dort einfügen. Erstellen Sie eine `index.js` Datei im gleichen Verzeichnis wie Ihre HTML-Datei.
+3. Wir beginnen damit, Referenzen zu allen HTML-Funktionen zu erstellen, die wir in diesem Beispiel manipulieren müssen — wir erstellen sie alle als Konstante, da diese Referenzen im Lebenszyklus der App nicht geändert werden müssen. Fügen Sie die folgenden Zeilen zu Ihrer JavaScript-Datei hinzu:
 
    ```js
    // create needed constants
@@ -166,14 +164,14 @@ Lassen Sie uns das Beispiel aufbauen, damit Sie verstehen, wie es funktioniert.
    const personalGreeting = document.querySelector(".personal-greeting");
    ```
 
-4. Als Nächstes müssen wir einen kleinen Ereignis-Listener hinzufügen, um zu verhindern, dass das Formular tatsächlich versendet wird, wenn der Absendebutton gedrückt wird, da dies nicht das Verhalten ist, das wir wünschen. Fügen Sie dieses Snippet unter Ihren vorherigen Code hinzu:
+4. Als nächstes müssen wir einen kleinen Event-Listener hinzufügen, um zu verhindern, dass das Formular sich tatsächlich abschickt, wenn der Senden-Button gedrückt wird, da dies nicht das Verhalten ist, das wir möchten. Fügen Sie diesen Ausschnitt direkt unter Ihren vorherigen Code hinzu:
 
    ```js
    // Stop the form from submitting when a button is pressed
    form.addEventListener("submit", (e) => e.preventDefault());
    ```
 
-5. Nun müssen wir einen Ereignis-Listener hinzufügen, dessen Handlerfunktion ausgeführt wird, wenn der "Say hello"-Button geklickt wird. Die Kommentare erklären detailliert, was jeder Teil macht, aber im Wesentlichen nehmen wir hier den Namen, den der Nutzer in das Text-Eingabefeld eingegeben hat und speichern ihn im Webspeicher mit `setItem()`, dann führen wir eine Funktion namens `nameDisplayCheck()` aus, die das tatsächliche Webseiten-Text Update behandelt. Fügen Sie dies unten in Ihren Code ein:
+5. Jetzt müssen wir einen Event-Listener hinzufügen, dessen Handler-Funktion ausgeführt wird, wenn der "Say hello"-Button geklickt wird. Die Kommentare erläutern im Detail, was jeder Teil macht, aber im Wesentlichen nehmen wir den Namen, den der Benutzer in das Texteingabefeld eingegeben hat, speichern ihn im Web Storage mit `setItem()` und führen dann eine Funktion namens `nameDisplayCheck()` aus, die den tatsächlichen Website-Text aktualisiert. Fügen Sie dies am Ende Ihres Codes hinzu:
 
    ```js
    // run function when the 'Say hello' button is clicked
@@ -185,7 +183,7 @@ Lassen Sie uns das Beispiel aufbauen, damit Sie verstehen, wie es funktioniert.
    });
    ```
 
-6. An diesem Punkt benötigen wir auch einen Ereignishandler, der eine Funktion ausführt, wenn der "Vergessen"-Button geklickt wird – dieser wird nur angezeigt, nachdem der "Say hello"-Button geklickt wurde (die zwei Formularzustände wechseln sich ab). In dieser Funktion entfernen wir das `name` Item aus dem Webspeicher mit `removeItem()`, dann führen wir erneut `nameDisplayCheck()` aus, um die Anzeige zu aktualisieren. Fügen Sie dies am Ende hinzu:
+6. Zu diesem Zeitpunkt benötigen wir auch eine Ereignis-Handler-Funktion, die ausgeführt wird, wenn der "Forget"-Button geklickt wird — dies wird nur angezeigt, nachdem der "Say hello"-Button geklickt wurde (die beiden Formularzustände wechseln sich ab). In dieser Funktion entfernen wir das `name`-Element aus dem Web Storage mit `removeItem()` und führen dann erneut `nameDisplayCheck()` aus, um die Anzeige zu aktualisieren. Fügen Sie dies am Ende ein:
 
    ```js
    // run function when the 'Forget' button is clicked
@@ -197,7 +195,7 @@ Lassen Sie uns das Beispiel aufbauen, damit Sie verstehen, wie es funktioniert.
    });
    ```
 
-7. Nun ist es an der Zeit die Funktion `nameDisplayCheck()` selbst zu definieren. Hier prüfen wir, ob das `name` Item im Webspeicher gespeichert wurde, indem wir `localStorage.getItem('name')` als Bedingungstest verwenden. Wenn der Name gespeichert wurde, wird dieser Aufruf zu `true` ausgewertet; wenn nicht, wird der Aufruf zu `false` ausgewertet. Wenn der Aufruf zu `true` ausgewertet wird, zeigen wir eine personalisierte Begrüßung an, zeigen den "vergessen"-Teil des Formulars an, und verbergen den "Say hello"-Teil des Formulars. Wird der Aufruf zu `false` ausgewertet, wird eine generische Begrüßung angezeigt und das Gegenteil gemacht. Setzen Sie den folgenden Code erneut unten ein:
+7. Jetzt ist es an der Zeit, die `nameDisplayCheck()` Funktion selbst zu definieren. Hier überprüfen wir, ob der Namenspunkt im Web Storage gespeichert wurde, indem wir `localStorage.getItem('name')` als Bedingungstest verwenden. Wenn der Name gespeichert wurde, wird dieser Aufruf zu `true` ausgewertet; wenn nicht, wird der Aufruf zu `false` ausgewertet. Wenn der Aufruf zu `true` ausgewertet wird, zeigen wir eine personalisierte Begrüßung an, zeigen den "forget" Teil des Formulars an und verbergen den "Say hello" Teil des Formulars. Wenn der Aufruf zu `false` ausgewertet wird, zeigen wir eine allgemeine Begrüßung an und machen das Gegenteil. Legen Sie auch diesen Code am Ende ab:
 
    ```js
    // define the nameDisplayCheck() function
@@ -223,58 +221,60 @@ Lassen Sie uns das Beispiel aufbauen, damit Sie verstehen, wie es funktioniert.
    }
    ```
 
-8. Zu guter Letzt müssen wir die Funktion `nameDisplayCheck()` ausführen, wenn die Seite geladen wird. Wenn wir dies nicht tun, wird die personalisierte Begrüßung nicht über Seitenladevorgänge hinweg bestehen bleiben. Fügen Sie das Folgende am Ende Ihres Codes hinzu:
+8. Zu guter Letzt müssen wir die `nameDisplayCheck()` Funktion ausführen, wenn die Seite geladen wird. Wenn wir dies nicht tun, wird die personalisierte Begrüßung nicht über das Neuladen der Seite erhalten bleiben. Fügen Sie Folgendes am Ende Ihres Codes hinzu:
 
    ```js
    nameDisplayCheck();
    ```
 
-Ihr Beispiel ist fertig – gut gemacht! Alles, was noch fehlt, ist, Ihren Code zu speichern und Ihre HTML-Seite in einem Browser zu testen. Sie können unsere [fertige Version hier live in Aktion sehen](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/web-storage/personal-greeting.html).
+Ihr Beispiel ist abgeschlossen — gut gemacht! Alles, was jetzt noch bleibt, ist, Ihren Code zu speichern und Ihre HTML-Seite in einem Browser zu testen. Sie können unsere [fertige Version hier live sehen](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/web-storage/personal-greeting.html).
 
 > [!NOTE]
 > Es gibt ein weiteres, etwas komplexeres Beispiel, das Sie unter [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) erkunden können.
 
 > [!NOTE]
-> In der Zeile `<script src="index.js" defer></script>` des Quellcodes unserer fertigen Version gibt das `defer` Attribut an, dass der Inhalt des {{htmlelement("script")}} Elements nicht ausgeführt wird, bis die Seite fertig geladen ist.
+> In der Zeile `<script src="index.js" defer></script>` des Quellcodes unserer fertigen Version gibt das `defer`-Attribut an, dass der Inhalt des {{htmlelement("script")}}-Elements erst ausgeführt wird, nachdem die Seite vollständig geladen wurde.
 
-## Speichern komplexer Daten – IndexedDB
+## Speichern komplexer Daten — IndexedDB
 
-Die [IndexedDB API](/de/docs/Web/API/IndexedDB_API) (manchmal abgekürzt als IDB) ist ein vollständiges Datenbanksystem, das im Browser verfügbar ist, in dem Sie komplexe, verwandte Daten speichern können, deren Typen nicht auf einfache Werte wie Strings oder Zahlen beschränkt sind. Sie können Videos, Bilder und so ziemlich alles andere in einer IndexedDB-Instanz speichern.
+Die [IndexedDB API](/de/docs/Web/API/IndexedDB_API) (manchmal als IDB abgekürzt) ist ein vollständiges Datenbanksystem, das im Browser verfügbar ist und in dem Sie komplexe verwandte Daten speichern können, die nicht auf einfache Werte wie Strings oder Zahlen beschränkt sind. Sie können Videos, Bilder und nahezu alles andere in einer IndexedDB-Instanz speichern.
 
-Die IndexedDB API ermöglicht es Ihnen, eine Datenbank zu erstellen und dann Objekt-Speicher innerhalb dieser Datenbank zu erstellen. Objekt-Speicher sind wie Tabellen in einer relationalen Datenbank, und jeder Objekt-Speicher kann eine Anzahl von Objekten enthalten. Um mehr über die IndexedDB API zu erfahren, siehe [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB).
+Die IndexedDB-API ermöglicht es Ihnen, eine Datenbank zu erstellen, dann Objekt-Speicher innerhalb dieser Datenbank zu erstellen.
+Objektspeicher sind wie Tabellen in einer relationalen Datenbank, und jeder Objektspeicher kann eine Anzahl von Objekten enthalten.
+Um mehr über die IndexedDB API zu erfahren, sehen Sie sich [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB) an.
 
-Allerdings hat dies seinen Preis: IndexedDB ist viel komplexer zu verwenden als die Web Storage API. In diesem Abschnitt werden wir wirklich nur an der Oberfläche dessen kratzen, wozu sie fähig ist, aber wir geben Ihnen genug, um anzufangen.
+Allerdings ist dies mit Kosten verbunden: IndexedDB ist viel komplexer zu nutzen als die Web Storage API. In diesem Abschnitt werden wir nur an der Oberfläche dessen kratzen, wozu es fähig ist, aber wir werden Ihnen genug geben, um anzufangen.
 
-### Ein Beispiel zur Notizspeicherung
+### Durcharbeiten eines Notizspeicher-Beispiels
 
-Hier führen wir Sie durch ein Beispiel, das Ihnen ermöglicht, Notizen in Ihrem Browser zu speichern und sie wann immer Sie möchten anzusehen und zu löschen, indem Sie es für sich selbst aufbauen und die grundlegendsten Teile von IDB erklären, während wir fortfahren.
+Hier führen wir Sie durch ein Beispiel, das es Ihnen ermöglicht, Notizen in Ihrem Browser zu speichern und diese wann immer Sie möchten anzuzeigen und zu löschen, indem Sie sie für sich selbst aufbauen und die grundlegendsten Teile von IDB erklären, während wir voranschreiten.
 
-Die App sieht ungefähr so ​​aus:
+Die App sieht in etwa so aus:
 
-![IndexDB Notizen-Demo-Screenshot mit 4 Abschnitten. Der erste Abschnitt ist der Header. Der zweite Abschnitt listet alle Notizen auf, die erstellt wurden. Es gibt zwei Notizen, jede mit einem Löschen-Button. Ein dritter Abschnitt ist ein Formular mit 2 Eingabefeldern für 'Titel der Notiz' und 'Text der Notiz' und einem Button mit der Bezeichnung 'Neue Notiz erstellen'. Der untere Abschnitt Fußzeile liest 'Copyright nobody. Use the code as you like'.](idb-demo.png)
+![IndexDB Notizen-Demo-Screenshot mit 4 Abschnitten. Der erste Abschnitt ist der Header. Der zweite Abschnitt listet alle Notizen, die erstellt wurden. Es hat zwei Notizen, jede mit einem Löschbutton. Ein dritter Abschnitt ist ein Formular mit zwei Eingabefeldern für 'Notiztitel' und 'Notiztext' und einem Button mit der Beschriftung 'Neue Notiz erstellen'. Der untere Abschnitt-Footer liest 'Copyright nobody. Use the code as you like'.](idb-demo.png)
 
-Jede Notiz hat einen Titel und einen Textkörper, beide individuell bearbeitbar. Der JavaScript-Code, den wir im Folgenden durchgehen, enthält detaillierte Kommentare, die Ihnen helfen, zu verstehen, was vor sich geht.
+Jede Notiz hat einen Titel und einen Textkörper, die jeweils individuell bearbeitbar sind. Der JavaScript-Code, den wir unten durchgehen, enthält detaillierte Kommentare, die Ihnen helfen, zu verstehen, was vor sich geht.
 
-### Grundlagen starten
+### Erste Schritte
 
-1. Erstellen Sie zunächst lokale Kopien unserer [`index.html`](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/index.html), [`style.css`](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/style.css) und [`index-start.js`](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/index-start.js) Dateien in einem neuen Verzeichnis auf Ihrer lokalen Maschine.
-2. Sehen Sie sich die Dateien an. Sie werden sehen, dass das HTML eine Website mit einer Kopfzeile und einer Fußzeile sowie einen Hauptinhaltbereich definiert, der einen Platz zum Anzeigen von Notizen und ein Formular zum Eingeben neuer Notizen in die Datenbank enthält. Das CSS sorgt für etwas Styling, um klarer zu machen, was vor sich geht. Die JavaScript-Datei enthält fünf deklarierte Konstanten, die Verweise auf das {{htmlelement("ul")}}-Element enthalten, in dem die Notizen angezeigt werden; die {{htmlelement("input")}}-Elemente für Titel und Text, das {{htmlelement("form")}} selbst und der {{htmlelement("button")}}.
-3. Benennen Sie Ihre JavaScript-Datei in `index.js` um. Sie sind jetzt bereit, Code hinzuzufügen.
+1. Machen Sie zuerst lokale Kopien unseres [`index.html`](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/index.html), [`style.css`](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/style.css) und [`index-start.js`](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/index-start.js) Dateien in einem neuen Verzeichnis auf Ihrer lokalen Maschine.
+2. Schauen Sie sich die Dateien an. Sie werden sehen, dass das HTML eine Website mit einem Header und Footer definiert sowie einen Hauptinhaltsbereich, der einen Platz zum Anzeigen von Notizen und ein Formular zum Eingeben neuer Notizen in die Datenbank enthält. Das CSS bietet einige Stile, um klarer zu machen, was vor sich geht. Die JavaScript-Datei enthält fünf deklarierte Konstanten, die Referenzen auf das {{htmlelement("ul")}}-Element enthalten, in dem die Notizen angezeigt werden, die Titel- und Textkörper-{{htmlelement("input")}}-Elemente, das {{htmlelement("form")}} selbst und den {{htmlelement("button")}}.
+3. Benennen Sie Ihre JavaScript-Datei in `index.js` um. Sie sind jetzt bereit, Code einzufügen.
 
-### Datenbank-Grundeinrichtung
+### Datenbankeinrichtung
 
-Schauen wir uns nun an, was wir eigentlich tun müssen, um eine Datenbank einzurichten.
+Schauen wir uns nun an, was wir überhaupt tun müssen, um eine Datenbank einzurichten.
 
-1. Fügen Sie unter den Konstantendeklarationen die folgenden Zeilen hinzu:
+1. Unterhalb der Konstantendeklarationen fügen Sie die folgenden Zeilen hinzu:
 
    ```js
    // Create an instance of a db object for us to store the open database in
    let db;
    ```
 
-   Hier erklären wir eine Variable namens `db` – diese wird später verwendet, um ein Objekt zu speichern, das unsere Datenbank repräsentiert. Wir werden dies an einigen Stellen verwenden, also haben wir es hier global deklariert, um die Dinge zu erleichtern.
+   Hier deklarieren wir eine Variable namens `db` — diese wird später verwendet, um ein Objekt zu speichern, das unsere Datenbank repräsentiert. Wir werden dies an mehreren Stellen verwenden, daher haben wir es hier global deklariert, um die Arbeit zu erleichtern.
 
-2. Fügen Sie als Nächstes die folgenden Zeilen hinzu:
+2. Fügen Sie als nächstes das Folgende hinzu:
 
    ```js
    // Open our database; it is created if it doesn't already exist
@@ -282,14 +282,14 @@ Schauen wir uns nun an, was wir eigentlich tun müssen, um eine Datenbank einzur
    const openRequest = window.indexedDB.open("notes_db", 1);
    ```
 
-   Diese Zeile erstellt eine Anfrage zum Öffnen von Version `1` einer Datenbank namens `notes_db`. Wenn diese nicht bereits existiert, wird sie durch nachfolgenden Code für Sie erstellt. Sie werden dieses Anfrage-Muster sehr häufig in IndexedDB sehen. Datenbankoperationen benötigen Zeit. Sie möchten nicht, dass der Browser hängt, während Sie auf die Ergebnisse warten, also sind Datenbankoperationen {{Glossary("asynchronous", "asynchron")}}, was bedeutet, dass sie nicht sofort geschehen, sondern irgendwann in der Zukunft, und Sie werden benachrichtigt, wenn sie abgeschlossen sind.
+   Diese Zeile erstellt eine Anfrage, um Version `1` einer Datenbank namens `notes_db` zu öffnen. Wenn diese noch nicht existiert, wird sie durch nachfolgenden Code für Sie erstellt. Sie werden dieses Anforderungsmuster sehr oft in IndexedDB sehen. Datenbankoperationen benötigen Zeit. Sie möchten den Browser nicht blockieren, während Sie auf die Ergebnisse warten, daher sind Datenbankoperationen {{Glossary("asynchronous", "asynchron")}}, was bedeutet, dass sie nicht sofort passieren, sondern zu einem späteren Zeitpunkt, und Sie werden benachrichtigt, wenn sie abgeschlossen sind.
 
-   Um dies in IndexedDB zu handhaben, erstellen Sie ein Anforderungsobjekt (das wie Sie möchten genannt werden kann – wir haben es hier `openRequest` genannt, damit klar ist, wofür es ist). Sie verwenden dann Ereignis-Handler, um Code auszuführen, wenn die Anfrage abgeschlossen, fehlgeschlagen usw. ist. Dies werden Sie unten in Anwendung sehen.
+   Um dies in IndexedDB zu handhaben, erstellen Sie ein Anforderung-Objekt (das beliebig benannt werden kann — wir haben es `openRequest` genannt, damit klar ist, wofür es gedacht ist). Dann verwenden Sie Event-Handler, um Code auszuführen, wenn die Anfrage abschließt, fehlschlägt usw., was Sie unten sehen werden.
 
    > [!NOTE]
-   > Die Versionsnummer ist wichtig. Wenn Sie Ihre Datenbank aktualisieren möchten (z. B. durch Ändern der Tabellenstruktur), müssen Sie Ihren Code erneut mit einer erhöhten Versionsnummer ausführen, einem anderen im `upgradeneeded` Handler spezifizierten Schema (siehe unten) usw. Wir werden die Aktualisierung von Datenbanken in diesem Tutorial nicht behandeln.
+   > Die Versionsnummer ist wichtig. Wenn Sie Ihre Datenbank aktualisieren möchten (z.B. durch Ändern der Tabellenstruktur), müssen Sie Ihren Code erneut mit einer erhöhten Versionsnummer, einer anderen Schema-Angabe im `upgradeneeded`-Handler (siehe unten) usw. ausführen. Wir werden das Update von Datenbanken in diesem Tutorial nicht behandeln.
 
-3. Fügen Sie nun die folgenden Ereignis-Handler direkt unter Ihrer vorherigen Ergänzung hinzu:
+3. Fügen Sie nun die folgenden Event-Handler direkt unter Ihrer vorherigen Ergänzung hinzu:
 
    ```js
    // error handler signifies that the database didn't open successfully
@@ -309,11 +309,11 @@ Schauen wir uns nun an, was wir eigentlich tun müssen, um eine Datenbank einzur
    });
    ```
 
-   Der [`error`](/de/docs/Web/API/IDBRequest/error_event) Ereignis-Handler wird ausgeführt, wenn das System zurückkommt und sagt, dass die Anfrage fehlgeschlagen ist. Dadurch können Sie auf dieses Problem reagieren. In unserem Beispiel drucken wir einfach eine Nachricht in die JavaScript-Konsole.
+   Der [`error`](/de/docs/Web/API/IDBRequest/error_event) Event-Handler wird ausgeführt, wenn das System zurückkommt und sagt, dass die Anfrage fehlgeschlagen ist. Dies ermöglicht es Ihnen, auf dieses Problem zu reagieren. In unserem Beispiel drucken wir einfach eine Nachricht in die JavaScript-Konsole.
 
-   Der [`success`](/de/docs/Web/API/IDBRequest/success_event) Ereignis-Handler wird ausgeführt, wenn die Anforderung erfolgreich abgeschlossen wurde, was bedeutet, dass die Datenbank erfolgreich geöffnet wurde. Wenn dies der Fall ist, wird ein Objekt, das die geöffnete Datenbank darstellt, in der [`openRequest.result`](/de/docs/Web/API/IDBRequest/result) Eigenschaft verfügbar, wodurch wir die Datenbank manipulieren können. Wir speichern dies in der `db` Variablen, die wir zuvor für die spätere Verwendung erstellt haben. Wir führen auch eine Funktion namens `displayData()` aus, die die Daten in der Datenbank innerhalb des {{HTMLElement("ul")}} anzeigt. Wir führen sie jetzt aus, damit die in der Datenbank bereits vorhandenen Notizen sofort angezeigt werden, wenn die Seite geladen wird. Sie sehen `displayData()` später definiert.
+   Der [`success`](/de/docs/Web/API/IDBRequest/success_event) Event-Handler wird ausgeführt, wenn die Anfrage erfolgreich zurückkommt, was bedeutet, dass die Datenbank erfolgreich geöffnet wurde. Wenn dies der Fall ist, wird ein Objekt, das die geöffnete Datenbank repräsentiert, in der [`openRequest.result`](/de/docs/Web/API/IDBRequest/result) Eigenschaft verfügbar, sodass wir die Datenbank manipulieren können. Wir speichern dies in der `db`-Variablen, die wir zuvor für den späteren Gebrauch erstellt haben. Wir führen auch eine Funktion namens `displayData()` aus, die die Daten in der Datenbank im {{HTMLElement("ul")}}-Element anzeigt. Wir führen es jetzt aus, sodass die bereits in der Datenbank befindlichen Notizen sofort nach dem Laden der Seite angezeigt werden. Sie werden `displayData()` später definiert sehen.
 
-4. Schließlich für diesen Abschnitt fügen wir wahrscheinlich den wichtigsten Ereignis-Handler zur Einrichtung der Datenbank hinzu: [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event). Dieser Handler wird ausgeführt, wenn die Datenbank noch nicht eingerichtet wurde oder wenn die Datenbank mit einer höheren Versionsnummer als der in der vorhandenen gespeicherten Datenbank geöffnet wird (bei einem Upgrade). Fügen Sie den folgenden Code unter Ihrem vorherigen Handler hinzu:
+4. Schließlich für diesen Abschnitt werden wir wahrscheinlich den wichtigsten Event-Handler für das Einrichten der Datenbank hinzufügen: [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event). Dieser Handler wird ausgeführt, wenn die Datenbank noch nicht eingerichtet wurde oder wenn die Datenbank mit einer größeren Versionsnummer als der vorhandenen gespeicherten Datenbank (bei einem Upgrade) geöffnet wird. Fügen Sie den folgenden Code unterhalb Ihres vorherigen Handlers hinzu:
 
    ```js
    // Set up the database tables if this has not already been done
@@ -336,13 +336,13 @@ Schauen wir uns nun an, was wir eigentlich tun müssen, um eine Datenbank einzur
    });
    ```
 
-   Hier definieren wir das Schema (die Struktur) unserer Datenbank; das heißt, die Reihe von Spalten (oder Feldern), die sie enthält. Hier holen wir zuerst eine Referenz zur vorhandenen Datenbank aus der `result` Eigenschaft des Zielobjekts des Ereignisses (`e.target.result`), das das `request`-Objekt ist. Dies entspricht der Zeile `db = openRequest.result;` im `success`-Ereignis-Handler, aber wir müssen dies hier separat tun, weil der `upgradeneeded` Ereignis-Handler (falls erforderlich) vor dem `success` Ereignis-Handler ausgeführt wird, was bedeutet, dass der `db` Wert nicht verfügbar wäre, wenn wir dies nicht tun würden.
+   Hier definieren wir das Schema (die Struktur) unserer Datenbank, das heißt, die Menge der Spalten (oder Felder), die es enthält. Hier greifen wir zuerst auf die bestehende Datenbank zu, indem wir die `result`-Eigenschaft des Ziels des Events (`e.target.result`) verwenden, das das `request`-Objekt ist. Dies ist gleichwertig zur Zeile `db = openRequest.result;` im `success` Event-Handler, aber wir müssen dies hier separat machen, weil der `upgradeneeded` Event-Handler (falls erforderlich) vor dem `success` Event-Handler ausgeführt wird, was bedeutet, dass der `db` Wert nicht verfügbar wäre, wenn wir dies nicht tun würden.
 
-   Wir verwenden dann [`IDBDatabase.createObjectStore()`](/de/docs/Web/API/IDBDatabase/createObjectStore) zum Erstellen eines neuen Objekt-Speichers in unserer geöffneten Datenbank namens `notes_os`. Dies entspricht einer einzelnen Tabelle in einem konventionellen Datenbanksystem. Wir haben es den Namen Notizen gegeben und ein `autoIncrement` Schlüssel-Feld genannt `id` spezifiziert – in jedem neuen Datensatz wird dies automatisch mit einem inkrementierten Wert vergeben – der Entwickler muss dies nicht explizit festlegen. Als Schlüssel wird das Feld `id` verwendet, um Datensätze eindeutig zu identifizieren, wie z. B. beim Löschen oder Anzeigen eines Datensatzes.
+   Wir verwenden dann [`IDBDatabase.createObjectStore()`](/de/docs/Web/API/IDBDatabase/createObjectStore), um einen neuen Objektspeicher innerhalb unserer geöffneten Datenbank namens `notes_os` zu erstellen. Dies entspricht einer einzelnen Tabelle in einem konventionellen Datenbanksystem. Wir haben ihm den Namen notes gegeben und auch ein `autoIncrement` Schlüssel-Feld namens `id` angegeben — in jedem neuen Datensatz wird dies automatisch einen hochgezählten Wert erhalten — der Entwickler muss dies nicht explizit setzen. Als Schlüssel wird das `id`-Feld verwendet, um Datensätze eindeutig zu identifizieren, z.B. beim Löschen oder Anzeigen eines Datensatzes.
 
-   Wir erstellen auch zwei weitere Indizes (Felder) mit der Methode [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex): `title` (das einen Titel für jede Notiz enthalten wird) und `body` (das den Textkörper der Notiz enthalten wird).
+   Wir erstellen auch zwei andere Indizes (Felder) mit der Methode [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex): `title` (das einen Titel für jede Notiz enthalten wird) und `body` (das den Textkörper der Notiz enthalten wird).
 
-Mit diesem Datenbankschema eingerichtet, wird jeder Datensatz, den wir der Datenbank hinzufügen, als ein Objekt entlang dieser Linien dargestellt:
+Mit diesem Datenbankschema eingerichtet, wird, wenn wir anfangen, Datensätze in die Datenbank hinzuzufügen, jeder als ein Objekt entlang dieser Linien repräsentiert werden:
 
 ```json
 {
@@ -354,16 +354,16 @@ Mit diesem Datenbankschema eingerichtet, wird jeder Datensatz, den wir der Daten
 
 ### Hinzufügen von Daten zur Datenbank
 
-Schauen wir uns nun an, wie wir Datensätze zur Datenbank hinzufügen können. Dies wird über das Formular auf unserer Seite geschehen.
+Schauen wir uns nun an, wie wir Datensätze zur Datenbank hinzufügen können. Dies wird mit dem Formular auf unserer Seite geschehen.
 
-Fügen Sie unter Ihrem vorherigen Ereignis-Handler die folgende Zeile hinzu, die einen `submit`-Ereignis-Handler festlegt, der eine Funktion namens `addData()` ausführt, wenn das Formular abgesendet wird (wenn der Absende-{{htmlelement("button")}} gedrückt wird, was zu einer erfolgreichen Formularübermittlung führt):
+Unter Ihrem vorherigen Event-Handler fügen Sie die folgende Zeile hinzu, die einen `submit` Event-Handler einrichtet, der eine Funktion namens `addData()` ausführt, wenn das Formular übermittelt wird (wenn der Sende-{{htmlelement("button")}} gedrückt wird, was zu einer erfolgreichen Formularübermittlung führt):
 
 ```js
 // Create a submit event handler so that when the form is submitted the addData() function is run
 form.addEventListener("submit", addData);
 ```
 
-Nun definieren wir die Funktion `addData()`. Fügen Sie diese unter Ihrer vorherigen Zeile hinzu:
+Lassen Sie uns nun die `addData()` Funktion definieren. Fügen Sie diese unterhalb der vorherigen Zeile hinzu:
 
 ```js
 // Define the addData() function
@@ -403,18 +403,18 @@ function addData(e) {
 }
 ```
 
-Dies ist ziemlich komplex; nutzen wir dies, um es herunterzubrechen:
+Das ist ziemlich komplex; lassen Sie es uns aufschlüsseln:
 
-- Wir führen [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) für das Ereignis-Objekt aus, um zu verhindern, dass das Formular tatsächlich auf herkömmliche Weise abgesendet wird (dies würde ein Seiten-Neuladen verursachen und die Erfahrung verderben).
-- Wir erstellen ein Objekt, das einen Datensatz repräsentiert, der in die Datenbank eingefügt werden soll und mit Werten aus den Formulareingaben gefüllt wird. Beachten Sie, dass wir nicht explizit einen `id` Wert einbeziehen müssen – wie bereits erwähnt, wird dies automatisch gefüllt.
-- Wir öffnen eine `readwrite` Transaktion gegen den `notes_os` Objektspeicher mit der Methode [`IDBDatabase.transaction()`](/de/docs/Web/API/IDBDatabase/transaction). Dieses Transaktionsobjekt ermöglicht es uns, auf den Objektspeicher zuzugreifen, damit wir etwas damit tun können, z.B. einen neuen Datensatz hinzufügen.
-- Wir greifen mit der Methode [`IDBTransaction.objectStore()`](/de/docs/Web/API/IDBTransaction/objectStore) auf den Objektspeicher zu und speichern das Ergebnis in der Variablen `objectStore`.
-- Wir fügen den neuen Datensatz mit [`IDBObjectStore.add()`](/de/docs/Web/API/IDBObjectStore/add) zur Datenbank hinzu. Dies erstellt ein Anforderungsobjekt, so wie wir es zuvor gesehen haben.
-- Wir fügen eine Reihe von Ereignis-Handlern zu den Objekten `request` und `transaction` hinzu, um Code an kritischen Punkten im Lebenszyklus auszuführen. Sobald die Anforderung erfolgreich war, löschen wir die Formulareingaben, um die nächste Notiz einzugeben. Sobald die Transaktion abgeschlossen ist, führen wir die `displayData()` Funktion erneut aus, um die Anzeige der Notizen auf der Seite zu aktualisieren.
+- Wir führen [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem Event-Objekt aus, um zu verhindern, dass das Formular im konventionellen Sinne abschickt (dies würde einen Seiten-Refresh verursachen und das Erlebnis verderben).
+- Wir erstellen ein Objekt, das einen Datensatz darstellt, der in die Datenbank eingegeben werden soll, und füllen es mit Werten aus den Formulareingaben. Beachten Sie, dass wir nicht explizit einen `id` Wert einschließen müssen — wie bereits erklärt, wird dies automatisch gefüllt.
+- Wir öffnen eine `readwrite`-Transaktion gegen den Objektspeicher `notes_os` mit der Methode [`IDBDatabase.transaction()`](/de/docs/Web/API/IDBDatabase/transaction). Dieses Transaktionsobjekt erlaubt uns, auf den Objektspeicher zuzugreifen, sodass wir etwas damit tun können, z.B. einen neuen Datensatz hinzufügen.
+- Wir greifen auf den Objektspeicher mit der Methode [`IDBTransaction.objectStore()`](/de/docs/Web/API/IDBTransaction/objectStore) zu und speichern das Ergebnis in der Variablen `objectStore`.
+- Wir fügen den neuen Datensatz zur Datenbank mit [`IDBObjectStore.add()`](/de/docs/Web/API/IDBObjectStore/add) hinzu. Dies erstellt ein Anforderungsobjekt, auf die gleiche Weise, wie wir es zuvor gesehen haben.
+- Wir fügen eine Reihe von Event-Handlern zu den Objekten `request` und `transaction` hinzu, um Code zu kritischen Zeitpunkten im Lebenszyklus auszuführen. Sobald die Anforderung erfolgreich war, löschen wir die Formulareingaben, um die nächste Notiz einzugeben. Sobald die Transaktion abgeschlossen ist, führen wir die `displayData()` Funktion erneut aus, um die Anzeige von Notizen auf der Seite zu aktualisieren.
 
-### Anzeigen der Daten
+### Die Daten anzeigen
 
-Wir haben `displayData()` bereits zweimal in unserem Code referenziert, also sollten wir es wahrscheinlich definieren. Fügen Sie dies zu Ihrem Code hinzu, unter der vorherigen Funktionsdefinition:
+Wir haben `displayData()` bereits zweimal in unserem Code referenziert, also sollten wir es wahrscheinlich auch definieren. Fügen Sie dies zu Ihrem Code hinzu, unterhalb der vorherigen Funktionsdefinition:
 
 ```js
 // Define the displayData() function
@@ -477,19 +477,19 @@ function displayData() {
 }
 ```
 
-Brechen wir dies erneut auseinander:
+Lassen Sie uns dies wieder aufschlüsseln:
 
-- Zuerst leeren wir den Inhalt des {{htmlelement("ul")}} Elements, bevor wir es dann mit dem aktualisierten Inhalt füllen. Wenn Sie dies nicht tun würden, würden Sie eine riesige Liste duplizierter Inhalte haben, die bei jedem Update hinzugefügt wird.
-- Als Nächstes erhalten wir eine Referenz zum `notes_os` Objektspeicher mit [`IDBDatabase.transaction()`](/de/docs/Web/API/IDBDatabase/transaction) und [`IDBTransaction.objectStore()`](/de/docs/Web/API/IDBTransaction/objectStore) genauso, wie wir es in `addData()` getan haben, außer dass wir sie hier in einer Zeile verketten.
-- Der nächste Schritt ist die Verwendung der Methode [`IDBObjectStore.openCursor()`](/de/docs/Web/API/IDBObjectStore/openCursor), um eine Anfrage für einen Cursor zu öffnen – dies ist ein Konstrukt, das zum Durchlaufen der Datensätze in einem Objektspeicher verwendet werden kann. Wir verketten einen `success` Ereignis-Handler an das Ende dieser Zeile, um den Code prägnanter zu gestalten – wenn der Cursor erfolgreich zurückgegeben wird, wird der Handler ausgeführt.
-- Wir erhalten eine Referenz auf den Cursor selbst (ein [`IDBCursor`](/de/docs/Web/API/IDBCursor) Objekt) mit `const cursor = e.target.result`.
-- Als Nächstes prüfen wir, ob der Cursor einen Datensatz aus dem Datenspeicher enthält (`if (cursor){ }`) – wenn ja, erstellen wir einen DOM-Fragment, füllen es mit den Daten des Datensatzes und fügen es in die Seite ein (innerhalb des `<ul>` Elements). Wir fügen auch einen Löschen-Button hinzu, der, wenn er geklickt wird, diese Notiz durch Ausführen der Funktion `deleteItem()` löschen wird, die wir im nächsten Abschnitt betrachten werden.
-- Am Ende des `if` Blocks verwenden wir die Methode [`IDBCursor.continue()`](/de/docs/Web/API/IDBCursor/continue), um den Cursor zum nächsten Datensatz im Datenspeicher zu verschieben und den Inhalt des `if` Blocks erneut auszuführen. Wenn es einen weiteren Datensatz zu durchlaufen gibt, führt dies dazu, dass er in die Seite eingefügt wird, und dann wird `continue()` erneut ausgeführt und so weiter.
-- Wenn keine weiteren Datensätze zur Iteration vorhanden sind, wird `cursor` `undefined` zurückgeben, und deshalb wird der `else` Block anstelle des `if` Blocks ausgeführt. Dieser Block prüft, ob Notizen in das `<ul>` eingefügt wurden – falls nicht, fügt er eine Nachricht ein, dass keine Notiz gespeichert wurde.
+- Zuerst leeren wir den Inhalt des {{htmlelement("ul")}}-Elements, bevor wir es mit dem aktualisierten Inhalt füllen. Wenn Sie dies nicht tun, würden Sie am Ende mit einer riesigen Liste duplizierter Inhalte stehen, die mit jedem Update ergänzt wird.
+- Als nächstes holen wir uns eine Referenz zu dem Objektspeicher `notes_os` mit [`IDBDatabase.transaction()`](/de/docs/Web/API/IDBDatabase/transaction) und [`IDBTransaction.objectStore()`](/de/docs/Web/API/IDBTransaction/objectStore), so wie wir es in `addData()` getan haben, außer dass wir sie hier in einer Zeile miteinander verbinden.
+- Der nächste Schritt ist, die Methode [`IDBObjectStore.openCursor()`](/de/docs/Web/API/IDBObjectStore/openCursor) zu verwenden, um eine Anfrage für einen Cursor zu öffnen — dies ist ein Konstrukt, das verwendet werden kann, um über die Datensätze in einem Objektspeicher zu iterieren. Wir fügen einen `success` Event-Handler am Ende dieser Zeile an, um den Code kürzer zu machen — wenn der Cursor erfolgreich zurückgegeben wird, wird der Handler ausgeführt.
+- Wir holen uns eine Referenz auf den Cursor selbst (ein [`IDBCursor`](/de/docs/Web/API/IDBCursor) Objekt) mit `const cursor = e.target.result`.
+- Als nächstes überprüfen wir, ob der Cursor einen Datensatz aus dem Datenspeicher enthält (`if (cursor){ }`) — falls ja, erstellen wir ein DOM-Fragment, füllen es mit den Daten des Datensatzes und fügen es auf der Seite ein (innerhalb des `<ul>`-Elements). Wir fügen auch einen Löschen-Button hinzu, der beim Klicken diese Notiz durch Ausführen der Funktion `deleteItem()` löschen wird, die wir im nächsten Abschnitt ansehen werden.
+- Am Ende des `if`-Blocks verwenden wir die Methode [`IDBCursor.continue()`](/de/docs/Web/API/IDBCursor/continue), um den Cursor zum nächsten Datensatz im Datenspeicher zu bewegen, und führen den Inhalt des `if`-Blocks erneut aus. Wenn es einen weiteren Datensatz zum Iterieren gibt, wird dies dazu führen, dass er in die Seite eingefügt wird, und dann wird `continue()` erneut ausgeführt, und so weiter.
+- Wenn es keine weiteren Datensätze zum Iterieren gibt, kehrt `cursor` `undefined` zurück, und daher wird der `else`-Block anstelle des `if`-Blocks ausgeführt. Dieser Block überprüft, ob Notizen in das `<ul>` eingefügt wurden — falls nicht, fügt er eine Nachricht ein, dass keine Notizen gespeichert wurden.
 
 ### Eine Notiz löschen
 
-Wie oben erwähnt, wenn der Lösch-Button einer Notiz gedrückt wird, wird die Notiz gelöscht. Dies geschieht durch die Funktion `deleteItem()`:
+Wie bereits erwähnt, wird beim Drücken des Löschen-Buttons einer Notiz diese gelöscht. Dies wird durch die Funktion `deleteItem()` erreicht, die so aussieht:
 
 ```js
 // Define the deleteItem() function
@@ -521,21 +521,21 @@ function deleteItem(e) {
 }
 ```
 
-- Der erste Teil davon könnte etwas Erklärung benötigen – wir rufen die ID des zu löschenden Datensatzes mit `Number(e.target.parentNode.getAttribute('data-note-id'))` ab – erinnern Sie sich, dass die ID des Datensatzes in einem `data-note-id` Attribut auf dem `<li>` gespeichert wurde, als es zuerst angezeigt wurde. Wir müssen das Attribut jedoch durch das globale eingebaute Objekt [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number) laufen lassen, da es vom Datentyp String ist und daher nicht von der Datenbank erkannt würde, die eine Zahl erwartet.
-- Dann erhalten wir eine Referenz auf den Objektspeicher, indem wir das gleiche Muster verwenden, das wir zuvor gesehen haben, und verwenden die Methode [`IDBObjectStore.delete()`](/de/docs/Web/API/IDBObjectStore/delete), um den Datensatz aus der Datenbank zu löschen, und übergeben ihm die ID.
-- Wenn die Datenbanktransaktion abgeschlossen ist, löschen wir das `<li>` der Notiz aus dem DOM und führen erneut den Check durch, ob das `<ul>` nun leer ist und fügen eine entsprechende Notiz ein.
+- Der erste Teil davon könnte eine Erklärung gebrauchen — wir holen die ID des zu löschenden Datensatzes mit `Number(e.target.parentNode.getAttribute('data-note-id'))` — denken Sie daran, dass die ID des Datensatzes in einem `data-note-id`-Attribut auf dem `<li>` gespeichert wurde, als es erstmals angezeigt wurde. Wir müssen jedoch dieses Attribut durch das globale eingebaute [`Number()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number) Objekt führen, da es vom Datentyp String ist, und daher nicht von der Datenbank erkannt werden würde, die eine Nummer erwartet.
+- Dann holen wir eine Referenz auf den Objektspeicher mit demselben Muster, das wir zuvor gesehen haben, und verwenden die Methode [`IDBObjectStore.delete()`](/de/docs/Web/API/IDBObjectStore/delete), um den Datensatz aus der Datenbank zu löschen, indem wir die ID übergeben.
+- Wenn die Transaktion in der Datenbank abgeschlossen ist, löschen wir das `<li>` der Notiz aus dem DOM und machen erneut die Überprüfung, ob `<ul>` jetzt leer ist, und fügen ggf. eine Notiz ein.
 
-Das war's! Ihr Beispiel sollte nun funktionieren.
+Das war's! Ihr Beispiel sollte jetzt funktionieren.
 
-Wenn Sie damit Schwierigkeiten haben, zögern Sie nicht, [es mit unserem Live-Beispiel zu vergleichen](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/indexeddb/notes/) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/index.js)).
+Wenn Sie Probleme damit haben, können Sie [es mit unserem Live-Beispiel vergleichen](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/indexeddb/notes/) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/indexeddb/notes/index.js)).
 
-### Speichern komplexer Daten über IndexedDB
+### Komplexe Daten über IndexedDB speichern
 
-Wie oben erwähnt, kann IndexedDB verwendet werden, um mehr als nur Textstrings zu speichern. Sie können so ziemlich alles speichern, was Sie möchten, einschließlich komplexer Objekte wie Video- oder Bildblobs. Und es ist nicht viel schwieriger zu erreichen als jede andere Art von Daten.
+Wie bereits erwähnt, kann IndexedDB verwendet werden, um mehr als nur Textzeichenfolgen zu speichern. Sie können so ziemlich alles speichern, was Sie möchten, einschließlich komplexer Objekte wie Video- oder Bildblobs. Und es ist nicht viel schwieriger, dies zu erreichen als jeder andere Datentyp.
 
-Um zu demonstrieren, wie das geht, haben wir ein weiteres Beispiel namens [IndexedDB-Video-Store](https://github.com/mdn/learning-area/tree/main/javascript/apis/client-side-storage/indexeddb/video-store) geschrieben (sehen Sie es [auch live hier laufen](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/indexeddb/video-store/)). Wenn Sie das Beispiel zum ersten Mal ausführen, werden alle Videos aus dem Netzwerk heruntergeladen, in einer IndexedDB-Datenbank gespeichert und dann die Videos innerhalb von {{htmlelement("video")}}-Elementen in der Benutzeroberfläche angezeigt. Beim zweiten Mal wird geprüft, ob die Videos in der Datenbank vorhanden sind, und sie werden von dort geholt, bevor sie angezeigt werden – dies macht spätere Ladezeiten viel schneller und weniger bandbreitenhungrig.
+Um zu demonstrieren, wie man das macht, haben wir ein weiteres Beispiel namens [IndexedDB Video Store](https://github.com/mdn/learning-area/tree/main/javascript/apis/client-side-storage/indexeddb/video-store) geschrieben (siehe auch das [Live-Beispiel hier](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/indexeddb/video-store/)). Wenn Sie das Beispiel zum ersten Mal ausführen, werden alle Videos aus dem Netzwerk heruntergeladen, in einer IndexedDB-Datenbank gespeichert und dann die Videos in der Benutzeroberfläche innerhalb von {{htmlelement("video")}} Elementen angezeigt. Das nächste Mal, wenn Sie es ausführen, findet es die Videos in der Datenbank und holt sie von dort, bevor es sie anzeigt — das macht spätere Ladevorgänge viel schneller und weniger bandbreitenintensiv.
 
-Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden nicht alles behandeln – Vieles davon ist ähnlich wie das vorherige Beispiel, und der Code ist gut kommentiert.
+Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden nicht alles ansehen — vieles davon ähnelt dem vorherigen Beispiel, und der Code ist gut kommentiert.
 
 1. Für dieses Beispiel haben wir die Namen der abzurufenden Videos in einem Array von Objekten gespeichert:
 
@@ -550,9 +550,9 @@ Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden n
    ];
    ```
 
-2. Zuerst, sobald die Datenbank erfolgreich geöffnet wurde, führen wir eine `init()` Funktion aus. Diese durchläuft die verschiedenen Videonamen und versucht, einen durch jeden Namen identifizierten Datensatz aus der `videos` Datenbank zu laden.
+2. Zu Beginn, sobald die Datenbank erfolgreich geöffnet wurde, führen wir eine `init()`-Funktion aus. Diese durchläuft die verschiedenen Videonamen und versucht, einen Datensatz zu laden, der durch jeden Namen aus der `videos`-Datenbank identifiziert wird.
 
-   Wenn jedes Video in der Datenbank gefunden wird (überprüft durch das Sehen, ob `request.result` zu `true` ausgewertet wird – wenn der Datensatz nicht vorhanden ist, wird er `undefined` sein), werden seine Videodateien (gespeichert als Blobs) und der Name des Videos direkt an die Funktion `displayVideo()` übergeben, um sie in der Benutzeroberfläche zu platzieren. Falls nicht, wird der Videoname an die Funktion `fetchVideoFromNetwork()` übergeben, um das Video aus dem Netzwerk zu holen.
+   Wenn jedes Video in der Datenbank gefunden wird (überprüft, indem gesehen wird, ob `request.result` zu `true` überprüft — wenn der Datensatz nicht vorhanden ist, wird es `undefined` sein), werden seine Videodateien (die als Blobs gespeichert sind) und der Videoname direkt an die `displayVideo()`-Funktion übergeben, um sie in der Benutzeroberfläche darzustellen. Andernfalls wird der Videoname an die Funktion `fetchVideoFromNetwork()` übergeben, um, Sie haben es erraten, das Video aus dem Netzwerk zu holen.
 
    ```js
    function init() {
@@ -580,11 +580,11 @@ Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden n
    }
    ```
 
-3. Das folgende Snippet stammt aus dem Inneren von `fetchVideoFromNetwork()` – hier holen wir MP4- und WebM-Versionen des Videos mit zwei separaten [`fetch()`](/de/docs/Web/API/Window/fetch) Anfragen. Wir verwenden dann die Methode [`Response.blob()`](/de/docs/Web/API/Response/blob), um den Körper jeder Antwort als Blob zu extrahieren, was uns eine Objektrepräsentation der Videos gibt, die später gespeichert und angezeigt werden kann.
+3. Der folgende Ausschnitt stammt aus `fetchVideoFromNetwork()` — hier holen wir uns MP4- und WebM-Versionen des Videos mit zwei separaten [`fetch()`](/de/docs/Web/API/Window/fetch) Anfragen. Wir verwenden dann die Methode [`Response.blob()`](/de/docs/Web/API/Response/blob), um den Körper jeder Antwort als Blob zu extrahieren, was uns eine Objekt-Darstellung der Videos gibt, die gespeichert und später angezeigt werden können.
 
-   Wir haben hier jedoch ein Problem – diese beiden Anfragen sind asynchron, aber wir möchten versuchen, das Video nur dann anzuzeigen oder zu speichern, wenn beide Versprechen erfüllt sind. Glücklicherweise gibt es eine eingebaute Methode, die ein solches Problem handhabt – {{jsxref("Promise.all()")}}. Diese nimmt ein Argument – Verweise auf alle einzelnen Versprechen, die Sie auf Erfüllung prüfen möchten, platziert in einem Array – und gibt ein Versprechen zurück, das erfüllt ist, wenn alle einzelnen Versprechen erfüllt sind.
+   Wir haben hier jedoch ein Problem — diese beiden Anfragen sind beide asynchron, aber wir möchten nur versuchen, das Video anzuzeigen oder zu speichern, wenn beide Versprechen erfüllt wurden. Glücklicherweise gibt es eine eingebaute Methode, die ein solches Problem löst — {{jsxref("Promise.all()")}}. Diese nimmt ein Argument entgegen — Verweise auf alle individuellen Versprechen, die Sie auf Erfüllung prüfen möchten, in einem Array platziert — und gibt ein Versprechen zurück, das erfüllt wird, wenn alle individuellen Versprechen erfüllt wurden.
 
-   Im `then()` Handler für dieses Versprechen rufen wir die Funktion `displayVideo()` auf, genau wie zuvor, um die Videos in der Benutzeroberfläche anzuzeigen, dann rufen wir auch die Funktion `storeVideo()` auf, um diese Videos in der Datenbank zu speichern.
+   Innerhalb des `then()`-Handlers für dieses Versprechen rufen wir die `displayVideo()`-Funktion so auf, wie wir es zuvor getan haben, um die Videos in der Benutzeroberfläche anzuzeigen, und rufen dann auch die `storeVideo()`-Funktion auf, um diese Videos in der Datenbank zu speichern.
 
    ```js
    // Fetch the MP4 and WebM versions of the video using the fetch() function,
@@ -605,7 +605,7 @@ Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden n
    });
    ```
 
-4. Schauen wir uns zuerst `storeVideo()` an. Dies ist dem Muster, das Sie im vorherigen Beispiel für das Hinzufügen von Daten zur Datenbank gesehen haben, sehr ähnlich – wir öffnen eine `readwrite` Transaktion und erhalten eine Referenz auf unseren `videos_os` Objektspeicher, erstellen ein Objekt, das den zur Datenbank hinzuzufügenden Datensatz repräsentiert, und fügen es dann mit [`IDBObjectStore.add()`](/de/docs/Web/API/IDBObjectStore/add) hinzu.
+4. Lassen Sie uns zuerst `storeVideo()` ansehen. Dies ist sehr ähnlich dem Muster, das Sie im vorherigen Beispiel für das Hinzufügen von Daten zur Datenbank gesehen haben — wir öffnen eine `readwrite`-Transaktion und bekommen eine Referenz zu unserem `videos_os` Objektspeicher, erstellen ein Objekt, das den hinzuzufügenden Datensatz repräsentiert, und fügen es dann mit [`IDBObjectStore.add()`](/de/docs/Web/API/IDBObjectStore/add) hinzu.
 
    ```js
    // Define the storeVideo() function
@@ -625,7 +625,7 @@ Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden n
    }
    ```
 
-5. Schließlich haben wir `displayVideo()`, das die benötigten DOM-Elemente erstellt, um das Video in der Benutzeroberfläche einzufügen, und sie dann der Seite hinzufügt. Die interessantesten Teile davon sind die unten gezeigten – um tatsächlich unsere Videoblobs in einem `<video>`-Element anzuzeigen, müssen wir Objekt-URLs (interne URLs, die auf die in den Speicher geladenen Videoblobs zeigen) mit der Methode [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellen. Sobald das erledigt ist, können wir die Objekt-URLs als Werte der `src` Attribute unserer {{htmlelement("source")}} Elemente setzen, und es funktioniert einwandfrei.
+5. Schließlich haben wir `displayVideo()`, das die benötigten DOM-Elemente erstellt, um das Video in der Benutzeroberfläche anzuzeigen, und sie dann der Seite hinzufügt. Die interessantesten Teile davon sind die unten gezeigten — um unsere Video-Blobs in einem `<video>` Element tatsächlich anzuzeigen, müssen wir Objekt-URLs (interne URLs, die auf die im Speicher gespeicherten Video-Blobs zeigen) mithilfe der Methode [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellen. Sobald das erledigt ist, können wir die URL-Objekte zu den Werten der `src`-Attribute unseres {{htmlelement("source")}}-Elements festlegen, und es funktioniert einwandfrei.
 
    ```js
    // Define the displayVideo() function
@@ -658,27 +658,27 @@ Lassen Sie uns die interessantesten Teile des Beispiels durchgehen. Wir werden n
 
 ## Offline-Asset-Speicherung
 
-Das obige Beispiel zeigt bereits, wie man eine App erstellt, die große Assets in einer IndexedDB-Datenbank speichert und das Herunterladen dieser mehr als einmal vermeiden kann. Dies ist bereits eine große Verbesserung der Nutzererfahrung, aber es fehlt noch etwas – die Haupt-HTML-, CSS- und JavaScript-Dateien müssen immer noch jedes Mal heruntergeladen werden, wenn auf die Seite zugegriffen wird, was bedeutet, dass sie bei fehlender Netzwerkverbindung nicht funktionieren würde.
+Das obige Beispiel zeigt bereits, wie man eine App erstellt, die große Assets in einer IndexedDB-Datenbank speichert, wodurch vermieden wird, diese mehr als einmal herunterladen zu müssen. Dies ist bereits eine große Verbesserung der Benutzererfahrung, aber es fehlt noch eine Sache — die Haupt-HTML-, CSS- und JavaScript-Dateien müssen immer noch bei jedem Zugriff auf die Website heruntergeladen werden, was bedeutet, dass sie nicht funktionieren wird, wenn keine Netzwerkverbindung besteht.
 
-![Firefox Offline-Bildschirm mit einer Illustration eines Cartoon-Charakters auf der linken Seite, der einen zwei-Pin-Stecker in seiner rechten Hand und eine zwei-Pin-Buchse in seiner linken Hand hält. Auf der rechten Seite gibt es eine Offline-Modus-Meldung und einen Button mit der Bezeichnung 'Try again'.](ff-offline.png)
+![Firefox offline Bildschirm mit einer Illustration eines Cartoon-Charakters auf der linken Seite, der in seiner rechten Hand einen zwei-poligen Stecker und in der linken Hand eine zwei-polige Steckdose hält. Auf der rechten Seite gibt es eine Offline-Mode-Nachricht und einen Button mit der Beschriftung 'Try again'.](ff-offline.png)
 
-An dieser Stelle kommen [Service Worker](/de/docs/Web/API/Service_Worker_API) und die eng verwandte [Cache API](/de/docs/Web/API/Cache) ins Spiel.
+Hier kommen [Service Worker](/de/docs/Web/API/Service_Worker_API) und die eng verwandte [Cache API](/de/docs/Web/API/Cache) ins Spiel.
 
-Ein Service Worker ist eine JavaScript-Datei, die gegen einen bestimmten Ursprung (Website oder Teil einer Website an einer bestimmten Domäne) registriert wird, wenn darauf von einem Browser zugegriffen wird. Wenn sie registriert ist, kann sie die Seiten des Ursprungs steuern, indem sie zwischen einer geladenen Seite und dem Netzwerk sitzt und alle Netzwerk-Anfragen abfängt, die auf diesen Ursprung gerichtet sind.
+Ein Service Worker ist eine JavaScript-Datei, die gegen eine bestimmte Herkunft (Website oder Teil einer Website unter einer bestimmten Domain) registriert wird, wenn sie von einem Browser abgerufen wird. Wenn registriert, kann er Seiten an dieser Herkunft kontrollieren. Er tut dies, indem er zwischen einer geladenen Seite und dem Netzwerk sitzt und Netzwerk-Anfragen abfängt, die an diese Herkunft gerichtet sind.
 
-Wenn sie eine Anfrage abfängt, kann sie mit der Anfrage alles tun, was Sie möchten (siehe [Use-Case-Ideen](/de/docs/Web/API/Service_Worker_API#other_use_case_ideas)), aber das klassische Beispiel ist das Speichern der Netzwerkantworten offline und das Bereitstellen dieser als Antwort auf eine Anfrage statt der Antworten aus dem Netzwerk. Im Effekt ermöglicht es Ihnen, eine Website vollständig offline zu machen.
+Wenn er eine Anfrage abfängt, kann er alles daran tun, was Sie möchten (siehe [Verwendungsbeispiele](/de/docs/Web/API/Service_Worker_API#other_use_case_ideas)), aber das klassische Beispiel ist das Speichern der Netzwerkausgaben offline und dann diese als Antwort auf eine Anfrage statt der Antworten vom Netzwerk zu liefern. Im Effekt ermöglicht es Ihnen, eine Website komplett offline zu betreiben.
 
-Die Cache API ist ein weiteres client-seitiges Speichermechanismus mit einem kleinen Unterschied – es ist dafür ausgelegt, HTTP-Antworten zu speichern und funktioniert daher sehr gut mit Service Workern.
+Die Cache-API ist ein weiteres client-seitiges Speichersystem, mit einem kleinen Unterschied — sie wurde entwickelt, um HTTP-Antworten zu speichern und funktioniert daher sehr gut mit Service Workern.
 
-### Ein Service-Worker-Beispiel
+### Ein Service Worker Beispiel
 
-Schauen wir uns ein Beispiel an, um Ihnen eine Vorstellung davon zu geben, wie könnte dies aussehen. Wir haben eine andere Version des zuvor in Abschnitt betrachteten Video-Store-Beispiels erstellt – dies funktioniert identisch, außer dass es auch die HTML-, CSS- und JavaScript-Dateien in der Cache API über einen Service Worker speichert, was das Beispiel offline funktionsfähig macht!
+Lassen Sie uns ein Beispiel ansehen, um Ihnen eine Vorstellung davon zu geben, wie das aussehen könnte. Wir haben eine weitere Version des oben beschriebenen Video-Store-Beispiels erstellt — dies funktioniert identisch, speichert aber auch das HTML, CSS und JavaScript in der Cache-API über einen Service Worker, sodass das Beispiel offline laufen kann!
 
-Sehen Sie [IndexedDB-Video-Store mit Service Worker live laufen](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/), und sehen Sie auch [den Quellcode](https://github.com/mdn/learning-area/tree/main/javascript/apis/client-side-storage/cache-sw/video-store-offline).
+Sehen Sie sich [IndexedDB Video Store mit Service Worker live an](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/), und auch [sehen Sie sich den Quellcode an](https://github.com/mdn/learning-area/tree/main/javascript/apis/client-side-storage/cache-sw/video-store-offline).
 
-#### Registrierung des Service Workers
+#### Der Service Worker registrieren
 
-Das erste, was es zu beachten gibt, ist dass es einen zusätzlichen Codeabschnitt in der Haupt-JavaScript-Datei gibt (siehe [index.js](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/cache-sw/video-store-offline/index.js)). Zuerst machen wir einen Feature-Erkennungstest, um zu sehen, ob das `serviceWorker` Mitglied im [`Navigator`](/de/docs/Web/API/Navigator) Objekt verfügbar ist. Wenn dies `true` zurückgibt, wissen wir, dass mindestens die Grundlagen der Service Worker unterstützt werden. Hier verwenden wir die Methode [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register), um einen im `sw.js` Datei enthaltenen Service Worker gegen den Ursprung, an dem er sich befindet, zu registrieren, damit er Seiten im gleichen Verzeichnis wie er oder Unterverzeichnisse steuern kann. Wenn das Versprechen erfüllt ist, wird der Service Worker als registriert angesehen.
+Das erste, was zu beachten ist, ist, dass ein zusätzliches bisschen Code in der Haupt-JavaScript-Datei eingefügt wurde (siehe [index.js](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/cache-sw/video-store-offline/index.js)). Zuerst führen wir einen Feature-Erkennungstest durch, um zu sehen, ob das `serviceWorker`-Mitglied im [`Navigator`](/de/docs/Web/API/Navigator) Objekt verfügbar ist. Wenn dies true zurückgibt, wissen wir, dass wenigstens die Grundlagen von Service Workern unterstützt werden. Innerhalb hier verwenden wir die Methode [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register), um einen Service Worker, der in der `sw.js` Datei enthalten ist, gegen die Herkunft zu registrieren, bei der er sich befindet, damit er Seiten im selben Verzeichnis wie er oder in Unterverzeichnissen kontrollieren kann. Wenn sein Versprechen erfüllt wird, wird der Service Worker als registriert betrachtet.
 
 ```js
 // Register service worker to control making site work offline
@@ -692,17 +692,17 @@ if ("serviceWorker" in navigator) {
 ```
 
 > [!NOTE]
-> Der angegebene Pfad zur `sw.js` Datei ist relativ zum Standort des Ursprungs, nicht die JavaScript-Datei, die den Code enthält. Der Service Worker befindet sich an `https://mdn.github.io/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/sw.js`. Der Ursprung ist `https://mdn.github.io`, und deshalb muss der angegebene Pfad `/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/sw.js` sein. Wenn Sie dieses Beispiel auf Ihrem eigenen Server hosten möchten, müssten Sie dies entsprechend ändern. Dies ist eher verwirrend, aber es muss aus Sicherheitsgründen so funktionieren.
+> Der angegebene Pfad zur `sw.js` Datei ist relativ zur Website-Herkunft, nicht zur JavaScript-Datei, die den Code enthält. Der Service Worker befindet sich unter `https://mdn.github.io/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/sw.js`. Die Herkunft ist `https://mdn.github.io`, und daher muss der angegebene Pfad `/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/sw.js` sein. Wenn Sie dieses Beispiel auf Ihrem eigenen Server hosten wollten, müssten Sie dies entsprechend ändern. Dies ist recht verwirrend, aber es muss aus Sicherheitsgründen auf diese Weise funktionieren.
 
-#### Installation des Service Workers
+#### Den Service Worker installieren
 
-Das nächste Mal, wenn auf eine Seite unter der Kontrolle des Service Workers zugegriffen wird (z.B. wenn das Beispiel neu geladen wird), wird der Service Worker gegen diese Seite installiert, was bedeutet, dass er beginnt, sie zu steuern. Wenn dies geschieht, wird ein `install` Ereignis gegen den Service Worker ausgelöst; Sie können Code innerhalb des Service Worker selbst schreiben, der auf die Installation reagieren wird.
+Das nächste Mal, wenn eine Seite unter der Kontrolle des Service Workers abgerufen wird (z.B. wenn das Beispiel neu geladen wird), wird der Service Worker gegen diese Seite installiert, was bedeutet, dass er es kontrollieren wird. Wenn dies geschieht, wird ein `install` Event gegen den Service Worker ausgelöst; Sie können in der Service Worker Datei selbst Code schreiben, der auf die Installation reagiert.
 
-Schauen wir uns ein Beispiel an, in der [sw.js](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/cache-sw/video-store-offline/sw.js) Datei (dem Service Worker). Sie werden sehen, dass der Installations-Listener gegen `self` registriert wird. Dieses `self` Schlüsselwort ist eine Möglichkeit, auf den globalen Bereich des Service Workers von innerhalb der Service-Worker-Datei zu verweisen.
+Schauen wir uns ein Beispiel an, in der [sw.js](https://github.com/mdn/learning-area/blob/main/javascript/apis/client-side-storage/cache-sw/video-store-offline/sw.js) Datei (der Service Worker). Sie werden sehen, dass der Installations-Listener gegen `self` registriert ist. Dieses `self` Schlüsselwort ist eine Möglichkeit, auf den globalen Bereich des Service Workers von innerhalb der Service Worker Datei zu verweisen.
 
-Innerhalb des `install` Handlers verwenden wir die Methode [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil), die auf dem Ereignis-Objekt verfügbar ist, um anzugeben, dass der Browser die Installation des Service Workers nicht abschließen sollte, bis das Versprechen innerhalb erfolgreich erfüllt wurde.
+Innerhalb des `install` Handlers verwenden wir die Methode [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil), die im Event-Objekt verfügbar ist, um dem Browser zu signalisieren, dass er die Installation des Service Workers erst nach erfolgreicher Erfüllung des Versprechens abschließen soll.
 
-Hier sehen wir die Cache API in Aktion. Wir verwenden die Methode [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um ein neues Cache-Objekt zu öffnen, in dem Antworten gespeichert werden können (ähnlich wie ein IndexedDB-Objektspeicher). Dieses Versprechen erfüllt sich mit einem [`Cache`](/de/docs/Web/API/Cache) Objekt, das den `video-store` Cache repräsentiert. Wir verwenden dann die Methode [`Cache.addAll()`](/de/docs/Web/API/Cache/addAll), um eine Reihe von Assets abzurufen und deren Antworten zum Cache hinzuzufügen.
+Hier sehen wir die Cache-API in Aktion. Wir verwenden die Methode [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open), um ein neues Cache-Objekt zu öffnen, in dem Antworten gespeichert werden können (ähnlich wie ein IndexedDB-Objektspeicher). Dieses Versprechen erfüllt sich mit einem [`Cache`](/de/docs/Web/API/Cache) Objekt, das den `video-store` Cache repräsentiert. Dann verwenden wir die Methode [`Cache.addAll()`](/de/docs/Web/API/Cache/addAll), um eine Reihe von Assets abzurufen und ihre Antworten dem Cache hinzuzufügen.
 
 ```js
 self.addEventListener("install", (e) => {
@@ -721,19 +721,19 @@ self.addEventListener("install", (e) => {
 });
 ```
 
-Das war's vorerst, Installation fertig.
+Das war's vorerst, die Installation ist abgeschlossen.
 
-#### Reagieren auf weitere Anfragen
+#### Auf weitere Anfragen reagieren
 
-Mit dem Service Worker registriert und gegen unsere HTML-Seite installiert und den entsprechenden Assets alle zu unserem Cache hinzugefügt, sind wir fast bereit zu gehen. Es gibt nur noch eine Sache zu tun: etwas Code schreiben, um auf weitere Netzwerk-Anfragen zu reagieren.
+Mit dem registrierten und gegen unsere HTML-Seite installierten Service Worker und den relevanten Assets, die alle unserem Cache hinzugefügt wurden, sind wir fast bereit zu gehen. Es gibt nur noch eine Sache zu tun: Code zu schreiben, um auf weitere Netzwerk-Anfragen zu reagieren.
 
-Das ist es, was der zweite Code in `sw.js` tut. Wir fügen einen weiteren Listener zum globalen Bereich des Service Workers hinzu, der die Handler-Funktion ausführt, wenn das `fetch` Ereignis ausgelöst wird. Dies geschieht, wenn der Browser eine Anfrage für ein Asset in dem Verzeichnis stellt, gegen das der Service Worker registriert ist.
+Das ist, was der zweite Code in `sw.js` tut. Wir fügen einen weiteren Listener zum globalen Bereich des Service Workers hinzu, der die Handlerfunktion ausführt, wenn das `fetch` Ereignis ausgelöst wird. Dies geschieht jedes Mal, wenn der Browser eine Anfrage nach einem Asset im Verzeichnis macht, gegen das der Service Worker registriert ist.
 
-Innerhalb des Handlers loggen wir zuerst die URL des angeforderten Assets. Dann geben wir eine benutzerdefinierte Antwort auf die Anfrage, mit der Methode [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith).
+Innerhalb des Handlers protokollieren wir zuerst die URL des angeforderten Assets. Dann stellen wir eine benutzerdefinierte Antwort auf die Anfrage bereit, indem wir die Methode [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) verwenden.
 
-Innerhalb dieses Blocks überprüfen wir, ob eine passende Anfrage (das heißt, die URL entspricht) in einem Cache gefunden werden kann, indem wir [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match) verwenden. Dieses Versprechen erfüllt sich mit der passenden Antwort, wenn ein Treffer gefunden wird, oder `undefined`, wenn nicht.
+Innerhalb dieses Blocks verwenden wir [`CacheStorage.match()`](/de/docs/Web/API/CacheStorage/match), um zu überprüfen, ob eine passende Anfrage (d.h. die zu der URL passt) in einem Cache gefunden werden kann. Dieses Versprechen erfüllt sich mit der passenden Antwort, wenn sie gefunden wird, oder `undefined`, wenn nicht.
 
-Wenn ein Treffer gefunden wird, geben wir ihn als benutzerdefinierte Antwort zurück. Andernfalls rufen wir die Antwort mit einem [fetch()](/de/docs/Web/API/Window/fetch) aus dem Netzwerk ab und geben diese stattdessen zurück.
+Wenn ein solcher Treffer gefunden wird, geben wir ihn als die benutzerdefinierte Antwort zurück. Andernfalls holen wir die Antwort aus dem Netzwerk und geben stattdessen diese zurück.
 
 ```js
 self.addEventListener("fetch", (e) => {
@@ -744,27 +744,29 @@ self.addEventListener("fetch", (e) => {
 });
 ```
 
-Und das war's für unseren Service Worker. Es gibt noch viel mehr, was Sie mit ihnen tun können – für eine ausführlichere Betrachtung, siehe das [Service Worker Cookbook](https://github.com/mdn/serviceworker-cookbook). Vielen Dank an Paul Kinlan für seinen Artikel [Adding a Service Worker and Offline into your Web App](https://developers.google.com/codelabs/pwa-training/pwa03--going-offline#0), der dieses Beispiel inspiriert hat.
+Und das war's für unseren Service Worker.
+Es gibt eine Menge mehr, was Sie mit ihnen tun können — für viele Details siehe das [Service worker cookbook](https://github.com/mdn/serviceworker-cookbook).
+Vielen Dank an Paul Kinlan für seinen Artikel [Adding a Service Worker and Offline into your Web App](https://developers.google.com/codelabs/pwa-training/pwa03--going-offline#0), der dieses Beispiel inspiriert hat.
 
-#### Testen des Beispiels im Offline-Modus
+#### Das Beispiel offline testen
 
-Um unser [Service Worker Beispiel](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/) zu testen, müssen Sie es ein paar Mal laden, um sicherzustellen, dass es installiert ist. Sobald dies geschehen ist, können Sie:
+Um unser [Service Worker Beispiel](https://mdn.github.io/learning-area/javascript/apis/client-side-storage/cache-sw/video-store-offline/) zu testen, müssen Sie es ein paar Mal laden, um sicherzustellen, dass es installiert ist. Sobald dies erledigt ist, können Sie:
 
-- Versuchen Sie, Ihr Netzwerk auszustecken / Ihre Wi-Fi auszuschalten.
-- Wählen Sie _Datei > Offline arbeiten_ wenn Sie Firefox verwenden.
-- Gehen Sie zu den Devtools, dann wählen Sie _Anwendung > Service Worker_, dann markieren Sie das _Offline_ Kontrollkästchen, wenn Sie Chrome verwenden.
+- Versuchen Sie, Ihr Netzwerk auszustecken/Ihre Wi-Fi auszuschalten.
+- Wählen Sie _Datei > Offline arbeiten_, wenn Sie Firefox verwenden.
+- Gehen Sie zu den Entwicklerwerkzeugen, wählen Sie dann _Anwendung > Service Worker_, und überprüfen Sie das _Offline_-Checkbox, wenn Sie Chrome verwenden.
 
-Wenn Sie Ihre Beispielseite erneut laden, sollten Sie sehen, dass sie weiterhin einwandfrei lädt. Alles ist offline gespeichert – die Seite-Assets in einem Cache und die Videos in einer IndexedDB-Datenbank.
+Wenn Sie Ihre Beispielseite erneut aktualisieren, sollten Sie feststellen, dass sie immer noch einwandfrei geladen wird. Alles wird offline gespeichert — die Seitenassets in einem Cache und die Videos in einer IndexedDB-Datenbank.
 
 ## Zusammenfassung
 
-Das war's für den Moment. Wir hoffen, dass unser Überblick über client-seitige Speichertechnologien für Sie nützlich war.
+Das war's für den Moment. Wir hoffen, Sie fanden unsere Übersicht über Technologien zur client-seitigen Speicherung nützlich.
 
 ## Siehe auch
 
-- [Web storage API](/de/docs/Web/API/Web_Storage_API)
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)
 - [IndexedDB API](/de/docs/Web/API/IndexedDB_API)
-- [Cookies](/de/docs/Web/HTTP/Cookies)
-- [Service worker API](/de/docs/Web/API/Service_Worker_API)
+- [Cookies](/de/docs/Web/HTTP/Guides/Cookies)
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics", "Learn_web_development/Extensions/Client-side_APIs/Third_party_APIs", "Learn_web_development/Extensions/Client-side_APIs")}}

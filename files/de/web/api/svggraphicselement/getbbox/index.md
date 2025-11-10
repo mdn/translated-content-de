@@ -1,19 +1,20 @@
 ---
-title: "SVGGraphicsElement: getBBox() Methode"
+title: "SVGGraphicsElement: getBBox()-Methode"
 short-title: getBBox()
 slug: Web/API/SVGGraphicsElement/getBBox
 l10n:
-  sourceCommit: 0bb352f93d19c62cd07807479975f610f7b02cf4
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGGraphicsElement.getBBox()`**-Methode ermöglicht es uns, die Koordinaten des kleinsten Rechtecks zu ermitteln, in das das Objekt passt. Die zurückgegebenen Koordinaten beziehen sich auf den aktuellen SVG-Raum (nach der Anwendung aller Geometrie-Attribute auf alle im Zielelement enthaltenen Elemente).
+Die **`SVGGraphicsElement.getBBox()`**-Methode ermöglicht es uns, die Koordinaten des kleinsten Rechtecks zu bestimmen, in das das Objekt passt. Die zurückgegebenen Koordinaten beziehen sich auf den aktuellen SVG-Raum (nach Anwendung aller geometrischen Attribute auf alle in dem Zielelement enthaltenen Elemente).
 
-> **Hinweis:** `getBBox()` muss das tatsächliche Begrenzungsrechteck zu dem Zeitpunkt zurückgeben, an dem die Methode aufgerufen wurde – auch wenn das Element noch nicht gerendert wurde. Es berücksichtigt zudem keine auf das Element oder seine Eltern angewandten Transformationen.
+> [!NOTE]
+> `getBBox()` muss die tatsächliche Begrenzungsbox zum Zeitpunkt des Aufrufs der Methode zurückgeben – auch wenn das Element noch nicht gerendert wurde. Es berücksichtigt auch keine Transformationen, die auf das Element oder seine Eltern angewendet wurden.
 
-> **Hinweis:** `getBBox` gibt andere Werte zurück als
-> [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), da letztere Werte relativ zum Viewport zurückgibt.
+> [!NOTE]
+> `getBBox` liefert andere Werte als [`getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), da letztere Werte relativ zum Viewport zurückgibt.
 
 ## Syntax
 
@@ -25,21 +26,19 @@ getBBox(options)
 ### Parameter
 
 - `options` {{experimental_inline}} {{optional_inline}}
-
-  - : Ein Options-Wörterbuch, das verwendet wird, um zu steuern, welche Teile des Elements im Begrenzungsrahmen enthalten sind. Die verfügbaren Optionen sind:
-
+  - : Ein Options-Dictionary, das verwendet wird, um zu steuern, welche Teile des Elements in die Begrenzungsbox einbezogen werden. Die verfügbaren Optionen sind:
     - `fill`
-      - : Ein boolescher Wert, der angibt, dass die Füllung im Begrenzungsrahmen enthalten sein soll, standardmäßig `true`.
+      - : Ein boolescher Wert, der angibt, dass die Füllung in die Begrenzungsbox einbezogen werden soll, standardmäßig `true`.
     - `stroke`
-      - : Ein boolescher Wert, der angibt, dass der Strich im Begrenzungsrahmen enthalten sein soll, standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, dass der Umriss in die Begrenzungsbox einbezogen werden soll, standardmäßig `false`.
     - `markers`
-      - : Ein boolescher Wert, der angibt, dass die Markierungen im Begrenzungsrahmen enthalten sein sollen, standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, dass die Markierungen in die Begrenzungsbox einbezogen werden sollen, standardmäßig `false`.
     - `clipped`
-      - : Ein boolescher Wert, der angibt, dass der Begrenzungsrahmen ausgeschnitten werden soll, standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, dass die Begrenzungsbox abgeschnitten werden soll, standardmäßig `false`.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt, das den Begrenzungsrahmen definiert. Dieser Wert ist unabhängig von einem darauf angewandten Transformationsattribut oder den Elternelementen.
+Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt, das die Begrenzungsbox definiert. Dieser Wert ist unabhängig von jeglichen darauf angewendeten Transformationsattributen oder den Elternelementen.
 
 ## Beispiele
 
@@ -54,9 +53,9 @@ Der zurückgegebene Wert ist ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt, d
     </text>
   </g>
   <!-- Shows BBox in green -->
-  <rect id="rect_1" stroke="#00ff00" stroke-width="3" fill="none"></rect>
+  <rect id="rect_1" stroke="green" stroke-width="3" fill="none"></rect>
   <!-- Shows BoundingClientRect in red -->
-  <rect id="rect_2" stroke="#ff0000" stroke-width="3" fill="none"></rect>
+  <rect id="rect_2" stroke="red" stroke-width="3" fill="none"></rect>
 </svg>
 ```
 

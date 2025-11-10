@@ -1,14 +1,14 @@
 ---
-title: "HTMLFormElement: reportValidity() Methode"
+title: "HTMLFormElement: Methode reportValidity()"
 short-title: reportValidity()
 slug: Web/API/HTMLFormElement/reportValidity
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`** Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interfaces führt die gleichen Gültigkeitsprüfschritte aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity) Methode. Zusätzlich zeigt der Browser bei jedem ausgelösten und nicht abgebrochenen [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis das Problem dem Benutzer an.
+Die **`reportValidity()`**-Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces führt die gleichen Gültigkeitsprüfungs-Schritte wie die [`checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity)-Methode aus. Zusätzlich zeigt der Browser bei jedem ausgelösten und nicht abgebrochenen [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis das Problem dem Benutzer an.
 
 ## Syntax
 
@@ -22,18 +22,14 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn die Werte der zugehörigen Steuerungen keine Gültigkeitsprobleme aufweisen; andernfalls `false`.
+Gibt `true` zurück, wenn die Werte der zugehörigen Steuerungen keine Gültigkeitsprobleme haben; andernfalls wird `false` zurückgegeben.
 
 ## Beispiel
 
 ```js
-document.forms["my-form"].addEventListener(
-  "submit",
-  () => {
-    document.forms["my-form"].reportValidity();
-  },
-  false,
-);
+document.forms["my-form"].addEventListener("submit", () => {
+  document.forms["my-form"].reportValidity();
+});
 ```
 
 ## Spezifikationen
@@ -48,5 +44,5 @@ document.forms["my-form"].addEventListener(
 
 - [`HTMLFormElement.checkValidity()`](/de/docs/Web/API/HTMLFormElement/checkValidity)
 - {{HTMLElement("form")}}
-- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Eingabebeschränkungen validieren](/de/docs/Web/HTML/Guides/Constraint_validation)

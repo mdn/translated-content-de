@@ -3,12 +3,12 @@ title: "Screen: colorDepth-Eigenschaft"
 short-title: colorDepth
 slug: Web/API/Screen/colorDepth
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte Eigenschaft **`Screen.colorDepth`** gibt die Farbtiefe des Bildschirms zurück. Gemäß dem CSSOM geben einige Implementierungen `24` aus Kompatibilitätsgründen zurück. Siehe den Abschnitt zur Browser-Kompatibilität für diejenigen, die dies nicht tun.
+Die **`Screen.colorDepth`** schreibgeschützte Eigenschaft gibt die Farbtiefe des Bildschirms zurück. Laut CSSOM geben einige Implementierungen aus Kompatibilitätsgründen `24` zurück. Siehe den Abschnitt zur Browser-Kompatibilität für diejenigen, die dies nicht tun.
 
 ## Wert
 

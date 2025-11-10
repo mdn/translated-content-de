@@ -1,15 +1,14 @@
 ---
 title: SharedArrayBuffer.prototype.slice()
+short-title: slice()
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/slice
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`slice()`**-Methode von {{jsxref("SharedArrayBuffer")}}-Instanzen gibt einen neuen `SharedArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `SharedArrayBuffer` von `start` (einschließlich) bis `end` (ausschließlich) ist. Wenn `start` oder `end` negativ ist, bezieht es sich auf einen Index vom Ende des Arrays, im Gegensatz zum Anfang.
 
-Die **`slice()`**-Methode von {{jsxref("SharedArrayBuffer")}}-Instanzen gibt einen neuen `SharedArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `SharedArrayBuffer` ist, beginnend bei `start` (einschließlich) und bis `end` (ausschließlich). Wenn entweder `start` oder `end` negativ ist, bezieht es sich auf einen Index vom Ende des Arrays anstelle vom Anfang.
-
-{{InteractiveExample("JavaScript Demo: SharedArrayBuffer.slice()")}}
+{{InteractiveExample("JavaScript Demo: SharedArrayBuffer.prototype.slice()")}}
 
 ```js interactive-example
 // Create a SharedArrayBuffer with a size in bytes
@@ -35,20 +34,20 @@ slice(start, end)
 ### Parameter
 
 - `start` {{optional_inline}}
-  - : Nullbasierter Index, an dem die Extraktion beginnt, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt vom Ende des Buffers zurück — wenn `-buffer.length <= start < 0`, wird `start + buffer.length` verwendet.
+  - : Nullbasierter Index, an dem die Extraktion beginnt, [umgewandelt in eine ganze Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Puffers zurück — wenn `-buffer.length <= start < 0`, wird `start + buffer.length` verwendet.
     - Wenn `start < -buffer.length` oder `start` weggelassen wird, wird `0` verwendet.
-    - Wenn `start >= buffer.length`, wird ein leerer Buffer zurückgegeben.
+    - Wenn `start >= buffer.length`, wird ein leerer Puffer zurückgegeben.
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, an dem die Extraktion endet, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
-    - Ein negativer Index zählt vom Ende des Buffers zurück — wenn `-buffer.length <= end < 0`, wird `end + buffer.length` verwendet.
+  - : Nullbasierter Index, an dem die Extraktion endet, [umgewandelt in eine ganze Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
+    - Ein negativer Index zählt vom Ende des Puffers zurück — wenn `-buffer.length <= end < 0`, wird `end + buffer.length` verwendet.
     - Wenn `end < -buffer.length`, wird `0` verwendet.
-    - Wenn `end >= buffer.length` oder `end` weggelassen wird, wird `buffer.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
-    - Wenn `end` eine Position impliziert, die vor oder an der von `start` implizierten Position liegt, wird ein leerer Buffer zurückgegeben.
+    - Wenn `end >= buffer.length` oder `end` weggelassen oder `undefined` ist, wird `buffer.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
+    - Wenn `end` eine Position vor oder an der Position impliziert, die `start` impliziert, wird ein leerer Puffer zurückgegeben.
 
 ### Rückgabewert
 
-Ein neuer {{jsxref("SharedArrayBuffer")}} mit den extrahierten Elementen.
+Ein neuer {{jsxref("SharedArrayBuffer")}}, der die extrahierten Elemente enthält.
 
 ## Beispiele
 

@@ -1,42 +1,40 @@
 ---
-title: Accessibility tree
+title: Barrierefreiheit-Baum
 slug: Glossary/Accessibility_tree
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{GlossarySidebar}}
+Der **Barrierefreiheit-Baum** enthält {{Glossary("accessibility", "Barrierefreiheit")}}-bezogene Informationen für die meisten HTML-Elemente.
 
-Der **Accessibility-Tree** enthält {{Glossary("accessibility", "Zugänglichkeits")}}-bezogene Informationen für die meisten HTML-Elemente.
+Browser konvertieren Markup in eine interne Darstellung, die als _[DOM-Baum](/de/docs/Web/API/Document_Object_Model)_ bezeichnet wird. Der DOM-Baum enthält Objekte, die alle Elemente, Attribute und Textknoten des Markups repräsentieren. Basierend auf dem DOM-Baum erstellen Browser dann einen Barrierefreiheit-Baum, der von plattformspezifischen Barrierefreiheits-APIs verwendet wird, um eine Darstellung bereitzustellen, die von unterstützenden Technologien wie Bildschirmlesern verstanden werden kann.
 
-Browser konvertieren Markup in eine interne Darstellung, die als _[DOM-Tree](/de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model)_ bezeichnet wird. Der DOM-Tree enthält Objekte, die alle Elemente, Attribute und Textknoten des Markups repräsentieren. Browser erstellen dann basierend auf dem DOM-Tree einen Accessibility-Tree, der von plattform-spezifischen Accessibility-APIs genutzt wird, um eine Darstellung zu bieten, die von unterstützender Technologie, wie Bildschirmlesegeräten, verstanden werden kann.
-
-In einem Accessibility-Tree-Objekt gibt es vier Eigenschaften:
+Ein Barrierefreiheit-Baum-Objekt hat vier Eigenschaften:
 
 - **name**
-  - : Wie können wir auf dieses Element verweisen? Zum Beispiel wird ein Link mit dem Text "Read more" als Name "Read more" haben (mehr darüber, wie Namen berechnet werden, finden Sie in der [Accessible Name and Description Computation spec](https://www.w3.org/TR/accname-1.1/)).
+  - : Wie können wir auf dieses Ding verweisen? Zum Beispiel hat ein Link mit dem Text „Mehr lesen“ den Namen „Mehr lesen“ (finden Sie mehr dazu, wie Namen im [Accessible Name and Description Computation spec](https://w3c.github.io/accname/) berechnet werden).
 - **description**
-  - : Wie beschreiben wir dieses Element, wenn wir mehr Beschreibung über den Namen hinaus bieten möchten? Die Beschreibung einer Tabelle könnte erklären, welche Art von Informationen die Tabelle enthält.
-- [**role**](/de/docs/Web/Accessibility/ARIA/Roles)
-  - : Um welche Art von Element handelt es sich? Ist es beispielsweise ein Button, eine Navigationsleiste oder eine Liste von Elementen?
-- [**state**](/de/docs/Web/Accessibility/ARIA/Attributes)
-  - : Hat es einen Zustand? Beispiele sind angekreuzte oder nicht angekreuzte Kontrollkästchenzustände und eingeklappte oder erweiterte Zustände für das [`<summary>`](/de/docs/Web/HTML/Element/summary)-Element.
+  - : Wie beschreiben wir dieses Ding, wenn wir über den Namen hinaus mehr Beschreibung bieten wollen? Die Beschreibung einer Tabelle könnte erklären, welche Art von Informationen die Tabelle enthält.
+- [**role**](/de/docs/Web/Accessibility/ARIA/Reference/Roles)
+  - : Um welche Art von Objekt handelt es sich? Beispielsweise, ist es ein Button, eine Navigationsleiste oder eine Liste von Elementen?
+- [**state**](/de/docs/Web/Accessibility/ARIA/Reference/Attributes)
+  - : Hat es einen Zustand? Beispiele beinhalten die Zustände „angekreuzt“ oder „nicht angekreuzt“ bei Kontrollkästchen sowie „eingeklappt“ oder „ausgeklappt“ beim [`<summary>`](/de/docs/Web/HTML/Reference/Elements/summary)-Element.
 
-Zusätzlich enthält der Accessibility-Tree häufig Informationen darüber, was mit einem Element gemacht werden kann: Ein Link kann _gefolgt_, ein Texteingabefeld kann _beschrieben_ werden, usw.
+Zusätzlich enthält der Barrierefreiheit-Baum oft Informationen darüber, was mit einem Element gemacht werden kann: Ein Link kann _verfolgt_ werden, in ein Texteingabefeld kann _getippt_ werden, usw.
 
-Während sich das **[Accessibility Object Model](https://wicg.github.io/aom/explainer.html) (AOM)** im April 2022 noch im Entwurf der Web Incubator Community Group befindet, zielt es darauf ab, APIs zu entwickeln, die es erleichtern, Zugänglichkeitssemantiken auszudrücken und möglicherweise den Zugriff auf den berechneten Accessibility-Tree zu ermöglichen.
+Noch in der Entwurfsphase im Web Incubator Community Group ab April 2022, beabsichtigt das **[Accessibility Object Model](https://wicg.github.io/aom/explainer.html) (AOM)** APIs zu entwickeln, die es erleichtern, Barrierefreiheits-Semantik auszudrücken und möglicherweise den Lesezugriff auf den berechneten Barrierefreiheit-Baum erlauben.
 
 ## Siehe auch
 
-- [Zugänglichkeit](/de/docs/Web/Accessibility)
-- [Zugänglichkeit erlernen](/de/docs/Learn_web_development/Core/Accessibility)
-- [Web accessibility](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
+- [Barrierefreiheit](/de/docs/Web/Accessibility)
+- [Barrierefreiheit lernen](/de/docs/Learn_web_development/Core/Accessibility)
+- [Webbarrierefreiheit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
 - [Web Accessibility In Mind](https://webaim.org/)
 - [ARIA](/de/docs/Web/Accessibility/ARIA)
 - [Die W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
 - [Accessible Rich Internet Applications (WAI-ARIA)](https://w3c.github.io/aria/)
-- Verwandte Glossarbegriffe:
-  - {{Glossary("Accessibility", "Zugänglichkeit")}}
-  - {{Glossary("Accessible_description", "Accessible description")}}
-  - {{Glossary("Accessible_name", "Accessible name")}}
+- Zugehörige Glossarbegriffe:
+  - {{Glossary("Accessibility", "Barrierefreiheit")}}
+  - {{Glossary("Accessible_description", "Zugängliche Beschreibung")}}
+  - {{Glossary("Accessible_name", "Zugänglicher Name")}}
   - {{Glossary("ARIA", "ARIA")}}

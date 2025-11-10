@@ -1,16 +1,16 @@
 ---
-title: "SVGAnimatedRect: animVal Eigenschaft"
+title: "SVGAnimatedRect: animVal-Eigenschaft"
 short-title: animVal
 slug: Web/API/SVGAnimatedRect/animVal
 l10n:
-  sourceCommit: c6f8bee9aeb156e7d2a415007f7353487b0ccef4
+  sourceCommit: 3fcc43c9a6dd8e2eac385da0496586105256a468
 ---
 
 {{APIRef("SVG")}}
 
-Die **`animVal`** schreibgeschützte Eigenschaft der [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Schnittstelle repräsentiert den aktuellen animierten Wert des `viewBox`-Attributs eines SVG-Elements als schreibgeschütztes [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt. Sie bietet Zugriff auf den dynamischen Zustand des Rechtecks, einschließlich der `x`, `y`, `width` und `height` Werte während der Animation.
+Die schreibgeschützte Eigenschaft **`animVal`** der [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Schnittstelle stellt den aktuellen animierten Wert des `viewBox`-Attributs eines SVG-Elements als schreibgeschütztes [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt dar. Sie ermöglicht den Zugriff auf den dynamischen Zustand des Rechtecks, einschließlich der Werte für `x`, `y`, `width` und `height` während der Animation.
 
-Falls keine Animation angewendet wird, spiegelt die `animVal`-Eigenschaft den Wert des {{SVGAttr("viewBox")}}-Attributs des SVG-Elements wider und wird identisch mit [`SVGAnimatedRect.baseVal`](/de/docs/Web/API/SVGAnimatedRect/baseVal) sein.
+Wenn keine Animation angewendet wird, spiegelt die `animVal`-Eigenschaft den Wert des {{SVGAttr("viewBox")}}-Attributs des SVG-Elements wider und wird mit [`SVGAnimatedRect.baseVal`](/de/docs/Web/API/SVGAnimatedRect/baseVal) identisch sein.
 
 ## Wert
 
@@ -25,15 +25,14 @@ Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt, das den animie
 ```
 
 ```js
-  const svgElement = document.getElementById("mySvg");
-  const animatedRect = svgElement.viewBox.animVal;
+const svgElement = document.getElementById("mySvg");
+const animatedRect = svgElement.viewBox.animVal;
 
-  // Log the animated value (assuming an animation is applied)
-  console.log(animatedRect.x);
-  console.log(animatedRect.y);
-  console.log(animatedRect.width);
-  console.log(animatedRect.height);
-</script>
+// Log the animated value (assuming an animation is applied)
+console.log(animatedRect.x);
+console.log(animatedRect.y);
+console.log(animatedRect.width);
+console.log(animatedRect.height);
 ```
 
 ## Spezifikationen

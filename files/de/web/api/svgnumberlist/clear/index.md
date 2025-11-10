@@ -3,12 +3,12 @@ title: "SVGNumberList: clear() Methode"
 short-title: clear()
 slug: Web/API/SVGNumberList/clear
 l10n:
-  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("SVG")}}
 
-Die **`clear()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle entfernt alle vorhandenen Elemente aus der Liste, wodurch eine leere Liste entsteht.
+Die **`clear()`** Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) Schnittstelle entfernt alle bestehenden Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
-  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
 
 ## Spezifikationen
 

@@ -1,13 +1,12 @@
 ---
 title: Iterator.prototype.every()
+short-title: every()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/every
 l10n:
-  sourceCommit: a71768c124d1bb2dceef873c0bda266e9f714e4c
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`every()`** Methode von {{jsxref("Iterator")}} Instanzen ähnelt der {{jsxref("Array.prototype.every()")}}: Sie prüft, ob alle vom Iterator erzeugten Elemente den Test bestehen, der von der bereitgestellten Funktion implementiert wird. Sie gibt einen booleschen Wert zurück.
+Die **`every()`** Methode von {{jsxref("Iterator")}} Instanzen ist ähnlich wie {{jsxref("Array.prototype.every()")}}: Sie prüft, ob alle vom Iterator erzeugten Elemente den Test bestehen, der von der bereitgestellten Funktion implementiert wird. Sie gibt einen booleschen Wert zurück.
 
 ## Syntax
 
@@ -18,7 +17,7 @@ every(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}}-Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}}-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das verarbeitet wird.
     - `index`
@@ -30,13 +29,13 @@ every(callbackFn)
 
 ## Beschreibung
 
-`every()` iteriert den Iterator und ruft die `callbackFn` Funktion einmal für jedes Element auf. Sie gibt sofort `false` zurück, wenn die Callback-Funktion einen falsy Wert zurückgibt. Andernfalls wird bis zum Ende des Iterators iteriert und `true` zurückgegeben. Wenn `every()` `false` zurückgibt, wird der zugrunde liegende Iterator durch Aufrufen seiner `return()` Methode geschlossen.
+`every()` iteriert über den Iterator und ruft die Funktion `callbackFn` einmal für jedes Element auf. Wenn die Callback-Funktion einen falsy Wert zurückgibt, wird sofort `false` zurückgegeben. Andernfalls iteriert es bis zum Ende des Iterators und gibt `true` zurück. Wenn `every()` `false` zurückgibt, wird der zugrunde liegende Iterator durch Aufruf seiner `return()` Methode geschlossen.
 
-Der Hauptvorteil von Iterator-Hilfsmethoden gegenüber Array-Methoden ist, dass sie faul sind, was bedeutet, dass sie den nächsten Wert nur bei Bedarf erzeugen. Dies vermeidet unnötige Berechnungen und ermöglicht es auch, sie mit unendlichen Iteratoren zu verwenden. Bei unendlichen Iteratoren gibt `every()` `false` zurück, sobald der erste falsy Wert gefunden wird. Wenn die `callbackFn` immer einen truthy Wert zurückgibt, gibt die Methode nie zurück.
+Der Hauptvorteil von Iterator-Hilfsfunktionen gegenüber Array-Methoden ist, dass sie lazy sind, das heißt, sie erzeugen den nächsten Wert nur auf Anfrage. Dies vermeidet unnötige Berechnungen und ermöglicht auch die Verwendung mit unendlichen Iteratoren. Bei unendlichen Iteratoren gibt `every()` `false` zurück, sobald der erste falsy Wert gefunden wird. Wenn die `callbackFn` immer einen truthy Wert zurückgibt, gibt die Methode nie zurück.
 
 ## Beispiele
 
-### Verwenden von every()
+### Verwendung von every()
 
 ```js
 function* fibonacci() {
@@ -56,7 +55,7 @@ console.log(fibonacci().take(10).every(isPositive)); // true
 console.log(fibonacci().every(isPositive)); // Never completes
 ```
 
-Der Aufruf von `every()` schließt immer den zugrunde liegenden Iterator, selbst wenn die Methode frühzeitig zurückkehrt. Der Iterator wird nie in einem Zwischenschritt-Zustand belassen.
+Das Aufrufen von `every()` schließt immer den zugrunde liegenden Iterator, selbst wenn die Methode frühzeitig zurückgibt. Der Iterator wird nie in einem unvollständigen Zustand belassen.
 
 ```js
 const seq = fibonacci();
@@ -75,6 +74,7 @@ console.log(seq.next()); // { value: undefined, done: true }
 ## Siehe auch
 
 - [Polyfill von `Iterator.prototype.every` in `core-js`](https://github.com/zloirock/core-js#iterator-helpers)
+- [es-shims Polyfill von `Iterator.prototype.every`](https://www.npmjs.com/package/es-iterator-helpers)
 - {{jsxref("Iterator")}}
 - {{jsxref("Iterator.prototype.find()")}}
 - {{jsxref("Iterator.prototype.some()")}}

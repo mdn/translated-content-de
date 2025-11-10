@@ -1,16 +1,14 @@
 ---
-title: "Document: embeds-Eigenschaft"
+title: "Dokument: embeds-Eigenschaft"
 short-title: embeds
 slug: Web/API/Document/embeds
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{ApiRef}}
+{{APIRef("DOM")}}
 
-Die schreibgeschützte **`embeds`**-Eigenschaft des
-[`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste der eingebetteten
-{{htmlelement("embed")}}-Elemente im aktuellen Dokument zurück.
+Die schreibgeschützte **`embeds`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste der eingebetteten {{htmlelement("embed")}}-Elemente im aktuellen Dokument zurück.
 
 ## Wert
 

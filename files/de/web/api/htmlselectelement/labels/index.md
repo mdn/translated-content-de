@@ -3,12 +3,12 @@ title: "HTMLSelectElement: labels-Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLSelectElement/labels
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}
 
-Die **`HTMLSelectElement.labels`**-Eigenschaft gibt eine schreibgeschützte
+Die schreibgeschützte Eigenschaft **`HTMLSelectElement.labels`** gibt eine
 [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
 {{HTMLElement("select")}}-Element verknüpft sind.
 
@@ -32,12 +32,10 @@ Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthäl
 ### JavaScript
 
 ```js
-window.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("test");
-  for (const label of select.labels) {
-    console.log(label.textContent); // "Label 1" and "Label 2"
-  }
-});
+const select = document.getElementById("test");
+for (const label of select.labels) {
+  console.log(label.textContent); // "Label 1" and "Label 2"
+}
 ```
 
 {{EmbedLiveSample("Examples", "100%", 30)}}

@@ -1,20 +1,18 @@
 ---
-title: Die Add-on-Leiste
+title: Die Add-On-Leiste
 slug: Mozilla/Firefox/Releases/4/The_add-on_bar
 l10n:
-  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
 
-{{FirefoxSidebar}}
-
-Firefox 4 hat die Statusleiste am unteren Rand des Browserfensters zugunsten einer neuen Symbolleiste am unteren Rand des Fensters entfernt. Diese neue Symbolleiste mit der ID "addon-bar" ist ein standardmäßiges XUL-`<toolbar>`; Add-ons können Inhalte darin einfügen und der Benutzer kann beim Anpassen der Symbolleisten Schaltflächen hineinziehen. Dies ist der Hauptunterschied zwischen der Add-on-Leiste und der alten Statusleiste; Sie können jetzt jedes XUL-Element einfügen, da es sich um eine standardmäßige Symbolleiste handelt.
+Firefox 4 entfernt die Statusleiste am unteren Rand des Browserfensters und ersetzt sie durch eine neue Symbolleiste, die sich unten im Fenster befindet. Diese neue Symbolleiste, mit der ID "addon-bar", ist eine standardmäßige XUL-`<toolbar>`; Add-ons können Inhalte darin einfügen, und der Benutzer kann Schaltflächen hineinziehen, während er seine Symbolleisten anpasst. Dies ist der Hauptunterschied zwischen der Add-On-Leiste und der alten Statusleiste; Sie können nun jedes XUL-Element darin platzieren, da es sich um eine standardmäßige Symbolleiste handelt.
 
 > [!NOTE]
-> Vorläufig ist ein Statusleisten-Shim enthalten, damit Add-ons, die auf das Vorhandensein der Statusleiste angewiesen sind, weiterhin funktionieren.
+> Zurzeit gibt es einen Statusleisten-Shim, sodass Add-ons, die die Anwesenheit der Statusleiste erwarten, weiterhin funktionieren.
 
-## Hinzufügen eines Elements zur Add-on-Leiste
+## Hinzufügen eines Elements zur Add-On-Leiste
 
-Die Add-on-Leiste ist eine XUL-Symbolleiste mit der ID "addon-bar". Der folgende Code sucht das zuletzt verwendete Fenster und fügt der Add-on-Leiste ein neues Element hinzu, das den Text "Hello world!" mit einem XUL-`<label>`-Element anzeigt.
+Die Add-On-Leiste ist eine XUL-Symbolleiste mit der ID "addon-bar". Der unten stehende Code sucht das zuletzt verwendete Fenster und fügt der Add-On-Leiste ein neues Element hinzu, das den Text "Hello world!" mit einem XUL-`<label>`-Element anzeigt.
 
 ```js
 // Find the most recently used window
@@ -71,14 +69,14 @@ if (firstRun) {
 
 ## Anleitung zur Verwendung eines Overlays pro Firefox-Version
 
-Um die Add-on-Leiste zu unterstützen und gleichzeitig mit Firefox 3.6 und älteren Versionen kompatibel zu bleiben, sind zwei Overlays erforderlich. Die [chrome.manifest](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration)-Datei kann mithilfe von [Manifest-Flags](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration#Manifest_Flags) angeben, welche Datei von welcher Firefox-Version verwendet wird:
+Unterstützung für die Add-On-Leiste hinzuzufügen, während die Kompatibilität mit Firefox 3.6 und älteren Versionen beibehalten wird, erfordert die Verwendung von zwei Overlays. Die [chrome.manifest](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration)-Datei kann angeben, welche Datei von welcher Firefox-Version verwendet wird, indem [Manifest-Flags](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration#Manifest_Flags) verwendet werden:
 
 ```plain
 overlay chrome://browser/content/browser.xul chrome://myaddon/content/myaddon/overlay-old.xul application={ec8030f7-c20a-464f-9b0e-13a3a9e97384} appversion<4.0
 overlay chrome://browser/content/browser.xul chrome://myaddon/content/myaddon/overlay.xul application={ec8030f7-c20a-464f-9b0e-13a3a9e97384} appversion>=4.0
 ```
 
-Hinweis: Die Appversion muss mindestens 2-stellig sein, da sie sonst nicht mit Versionen von Gecko vor 1.8.0.13 und 1.8.1.5 funktioniert.
+Hinweis: Die Appversion muss mindestens 2-stellig sein, sonst funktioniert sie nicht mit Versionen von Gecko vor 1.8.0.13 und 1.8.1.5.
 
 ### Hinzufügen einer Schaltfläche standardmäßig
 
@@ -86,11 +84,11 @@ Siehe: [Hinzufügen einer Schaltfläche standardmäßig](https://web.archive.org
 
 ## Unterschiede im Erscheinungsbild
 
-- Da der Browser keinen großen Teil der Leiste mehr mit Statusinformationen belegt, steht der gesamte Bereich für Add-ons zur Verfügung.
-- Die Add-on-Leiste ist standardmäßig leer und ausgeblendet; der Benutzer muss sich entscheiden, sie sichtbar zu machen.
-- Installiert sich ein Add-on ohne Neustart direkt in der Add-on-Leiste und ist die Leiste noch nicht sichtbar, wird die Leiste automatisch sichtbar.
-- Wenn durch das Deinstallieren eines Add-ons ohne Neustart die Anzahl der Elemente in der Add-on-Leiste auf null sinkt, wird die Leiste automatisch ausgeblendet.
+- Da der Browser nicht länger einen Großteil der Leiste mit Statusinformationen ausfüllt, steht der gesamte Bereich für die Nutzung durch Add-ons zur Verfügung.
+- Die Add-On-Leiste ist standardmäßig leer und versteckt; der Benutzer muss sie aktiv sichtbar machen.
+- Wenn ein Neustart-loses Add-on sich direkt in die Add-On-Leiste installiert und die Leiste noch nicht sichtbar ist, wird die Leiste automatisch sichtbar.
+- Wenn das Deinstallieren eines Neustart-losen Add-ons dazu führt, dass die Anzahl der Elemente in der Add-On-Leiste null wird, wird die Leiste automatisch verborgen.
 
 ## Siehe auch
 
-- Die [Firefox 4 Add-on-Leiste für Entwickler](https://web.archive.org/web/20110129042912/https://mike.kaply.com/2011/01/25/the-firefox-4-add-on-bar-for-developers) von Mike Kaply
+- Die [Firefox 4 Add-On-Leiste für Entwickler](https://web.archive.org/web/20110129042912/https://mike.kaply.com/2011/01/25/the-firefox-4-add-on-bar-for-developers), von Mike Kaply

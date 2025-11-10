@@ -3,14 +3,14 @@ title: "SVGLineElement: y2-Eigenschaft"
 short-title: y2
 slug: Web/API/SVGLineElement/y2
 l10n:
-  sourceCommit: 7c67beb9a8a6fe5c80fb06bdc39737c4d713487e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y2`** schreibgeschützte Eigenschaft des [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Interfaces beschreibt den v-Achsen-Koordinatenwert des Endes einer Linie als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das geometrische Attribut {{SVGElement("line")}} des Elements {{SVGAttr("y2")}} wider.
+Die **`y2`**-Schreibgeschützte Eigenschaft der [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Schnittstelle beschreibt den v-Achsen-Koordinatenwert des Endes einer Linie als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das {{SVGElement("line")}}-Element's {{SVGAttr("y2")}} geometrisches Attribut wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Endposition entlang der y-Achse in Benutzereinheitensystemen.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Endposition entlang der y-Achse in Benutzereinheitensystemen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, das folgende SVG:
+Gegeben sei das folgende SVG:
 
 ```html
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">

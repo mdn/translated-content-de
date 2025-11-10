@@ -1,15 +1,13 @@
 ---
-title: "SyntaxError: doppelter Name der Erfassungsgruppe im regulären Ausdruck"
+title: "SyntaxError: doppelter Name einer Erfassungsgruppe im regulären Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_duplicate_capture_group_name
 l10n:
-  sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "duplicate capture group name in regular expression" tritt auf, wenn ein regulärer Ausdruck zwei oder mehr [benannte Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) mit dem gleichen Namen enthält und diese Erfassungsgruppen gleichzeitig übereinstimmen könnten.
 
-Die JavaScript-Ausnahme "doppelter Name der Erfassungsgruppe im regulären Ausdruck" tritt auf, wenn ein regulärer Ausdruck zwei oder mehr [benannte Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) mit demselben Namen enthält und diese Erfassungsgruppen gleichzeitig übereinstimmen könnten.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Invalid regular expression: /(?<a>)(?<a>)/: Duplicate capture group name (V8-based)
@@ -23,7 +21,7 @@ SyntaxError: Invalid regular expression: duplicate group specifier name (Safari)
 
 ## Was ist schiefgelaufen?
 
-Alle [benannten Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) in einem regulären Ausdrucksmuster müssen eindeutige Namen haben. Eine neuere Funktion erlaubt es, dass benannte Erfassungsgruppen Namen teilen, solange sie zu verschiedenen [Disjunktionsalternativen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) gehören und nicht gleichzeitig übereinstimmen können (siehe [Browser-Kompatibilität](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group#browser_compatibility) dafür). Es bleibt jedoch ein Fehler, wenn die benannten Erfassungsgruppen mit demselben Namen zur gleichen Zeit übereinstimmen könnten, da dies andere Funktionen wie [benannte Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) mehrdeutig machen würde.
+Alle [benannten Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) in einem Muster für einen regulären Ausdruck müssen eindeutige Namen haben. Eine neuere Funktion erlaubt es, dass benannte Erfassungsgruppen Namen teilen, solange sie verschiedenen [Disjunktionsalternativen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) angehören und nicht gleichzeitig übereinstimmen können (siehe [Browser-Kompatibilität](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group#browser_compatibility) dazu). Es ist jedoch weiterhin ein Fehler, wenn die benannten Erfassungsgruppen mit dem gleichen Namen gleichzeitig übereinstimmen könnten, da dies andere Funktionen wie [benannte Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) zweideutig machen würde.
 
 ## Beispiele
 

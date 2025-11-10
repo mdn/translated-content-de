@@ -1,16 +1,16 @@
 ---
-title: "Window: confirm()-Methode"
+title: "Window: confirm() Methode"
 short-title: confirm()
 slug: Web/API/Window/confirm
 l10n:
-  sourceCommit: 6e1e6f1b9df61c05f1c5c84c2b6b7ea679e90362
+  sourceCommit: b7310d059a28842d0a43ebabf814e8f2469c3419
 ---
 
 {{ApiRef("Window")}}
 
-`window.confirm()` weist den Browser an, ein Dialogfenster mit einer optionalen Nachricht anzuzeigen, und wartet, bis der Benutzer entweder das Dialogfenster bestätigt oder abbricht.
+`window.confirm()` weist den Browser an, ein Dialogfeld mit einer optionalen Nachricht anzuzeigen und zu warten, bis der Benutzer entweder das Dialogfeld bestätigt oder abbricht.
 
-Unter bestimmten Bedingungen — zum Beispiel, wenn der Benutzer die Tabs wechselt — kann es vorkommen, dass der Browser kein Dialogfenster anzeigt oder nicht auf die Entscheidung des Benutzers wartet, das Dialogfenster zu bestätigen oder abzubrechen.
+Unter bestimmten Bedingungen – zum Beispiel, wenn der Benutzer Tabs wechselt – kann es vorkommen, dass der Browser kein Dialogfeld anzeigt oder nicht darauf wartet, dass der Benutzer das Dialogfeld bestätigt oder abbricht.
 
 ## Syntax
 
@@ -22,29 +22,45 @@ confirm(message)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Ein String, den Sie im Bestätigungsdialog anzeigen möchten.
+  - : Ein Text, den Sie im Bestätigungsdialog anzeigen möchten.
 
 ### Rückgabewert
 
-Ein boolean, der angibt, ob OK (`true`) oder Abbrechen (`false`) ausgewählt wurde. Wenn ein Browser In-Page-Dialoge ignoriert, ist der zurückgegebene Wert immer `false`.
+Ein boolescher Wert, der angibt, ob OK (`true`) oder Abbrechen (`false`) ausgewählt wurde.
+Wenn ein Browser Dialogfelder ignoriert, ist der zurückgegebene Wert immer `false`.
 
 ## Beispiele
 
-```js
-if (window.confirm("Do you really want to leave?")) {
-  window.open("exit.html", "Thanks for Visiting!");
-}
+### Bestätigen vor einer Aktion
+
+Das folgende Beispiel zeigt, wie der zurückgegebene Wert eines Bestätigungsdialogs überprüft wird.
+Wenn der Benutzer auf die OK-Schaltfläche klickt, rufen wir [`window.open()`](/de/docs/Web/API/Window/open) auf, und wenn der Benutzer Abbrechen klickt, geben wir etwas Text in ein {{htmlelement("pre")}}-Element aus.
+
+```html live-sample___confirm
+<button id="windowButton">Open new tab</button>
+<pre id="log"></pre>
 ```
 
-Erzeugt:
+```js live-sample___confirm
+const windowButton = document.querySelector("#windowButton");
+const log = document.querySelector("#log");
 
-![Firefox bestätigen](firefox_confirm_dialog.png)
+windowButton.addEventListener("click", () => {
+  if (window.confirm("Do you want to open in new tab?")) {
+    window.open("https://developer.mozilla.org/en-US/docs/Web/API/Window/open");
+  } else {
+    log.innerText = "Glad you're staying!";
+  }
+});
+```
+
+{{EmbedLiveSample('confirm', , , , , , , 'allow-modals allow-popups')}}
 
 ## Hinweise
 
-Dialogfelder sind modale Fenster — sie verhindern, dass der Benutzer auf den Rest der Benutzeroberfläche des Programms zugreifen kann, bis das Dialogfeld geschlossen ist. Aus diesem Grund sollten Sie Funktionen, die ein Dialogfeld (oder modales Fenster) erstellen, nicht übermäßig verwenden. Dennoch gibt es gute Gründe, [die Verwendung von Dialogfeldern zur Bestätigung zu vermeiden](https://alistapart.com/article/neveruseawarning/).
-
-Alternativ kann das {{HTMLElement("dialog")}}-Element für Bestätigungen verwendet werden.
+Dialogfenster sind modale Fenster – sie verhindern, dass der Benutzer auf den Rest der Programmoberfläche zugreift, bis das Dialogfenster geschlossen ist.
+Aus diesem Grund sollten Sie keine Funktion, die ein Dialogfeld oder ein modales Fenster erstellt, übermäßig verwenden.
+Alternativ kann ein {{HTMLElement("dialog")}}-Element für Bestätigungen verwendet werden.
 
 ## Spezifikationen
 
@@ -59,3 +75,4 @@ Alternativ kann das {{HTMLElement("dialog")}}-Element für Bestätigungen verwen
 - {{HTMLElement("dialog")}}-Element
 - [`window.alert()`](/de/docs/Web/API/Window/alert)
 - [`window.prompt()`](/de/docs/Web/API/Window/prompt)
+- [Niemals eine Warnung verwenden, wenn Sie Rückgängig meinen](https://alistapart.com/article/neveruseawarning/) auf A List Apart (2017)

@@ -3,22 +3,24 @@ title: "IntersectionObserver: rootMargin-Eigenschaft"
 short-title: rootMargin
 slug: Web/API/IntersectionObserver/rootMargin
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: 1b61fe3aa68b972468514d5ab13ed93497b13a96
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`rootMargin`**-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces ist ein String mit einer Syntax, die der der CSS-{{cssxref("margin")}}-Eigenschaft ähnlich ist. Jede Seite des von `rootMargin` repräsentierten Rechtecks wird zur entsprechenden Seite im {{Glossary("bounding_box", "Umgrenzungsrahmen")}} des [`root`](/de/docs/Web/API/IntersectionObserver/root)-Elements hinzugefügt, bevor der Schnitttest durchgeführt wird. Auf diese Weise können Sie beispielsweise die Grenzen nach außen verschieben, sodass das Zielelement als 100 % sichtbar gilt, auch wenn eine bestimmte Anzahl von Pixeln der Breite oder Höhe abgeschnitten ist, oder das Ziel als teilweise verborgen behandeln, wenn eine Kante zu nah an der Kante des Umgrenzungsrahmens des Roots liegt.
+Die schreibgeschützte **`rootMargin`**-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces ist ein String mit einer Syntax, die der der CSS-{{cssxref("margin")}}-Eigenschaft ähnlich ist.
 
-Siehe [wie Schnittpunkte berechnet werden](/de/docs/Web/API/Intersection_Observer_API#how_intersection_is_calculated) für einen tiefergehenden Blick auf den Root-Margin und wie er mit dem Umgrenzungsrahmen des Roots funktioniert.
+Jede Seite des Rechtecks, das durch `rootMargin` dargestellt wird, wird zur entsprechenden Seite im {{Glossary("bounding_box", "Begrenzungsrahmen")}} des [`root`](/de/docs/Web/API/IntersectionObserver/root)-Elements hinzugefügt, bevor der Schnittpunkttest durchgeführt wird. Dies ermöglicht Ihnen beispielsweise, die Grenzen nach außen anzupassen, sodass das Zielelement als 100% sichtbar angesehen wird, selbst wenn eine bestimmte Anzahl von Pixeln in Breite oder Höhe abgeschnitten wird, oder das Ziel als teilweise verdeckt zu behandeln, wenn ein Rand zu nahe am Rand des Begrenzungsrahmens des Roots liegt.
+
+Sehen Sie [wie Schnittpunkte berechnet werden](/de/docs/Web/API/Intersection_Observer_API#how_intersection_is_calculated) für einen detaillierteren Blick auf die Root-Margin und wie sie mit dem Begrenzungsrahmen des Roots funktioniert.
 
 ## Wert
 
-Ein String, der ähnlich formatiert ist wie der Wert der CSS-{{cssxref("margin")}}-Eigenschaft, der Offsets für eine oder mehrere Seiten des Umgrenzungsrahmens des Roots enthält. Diese Offsets werden zu den entsprechenden Werten im Umgrenzungsrahmen des Roots hinzugefügt, bevor der Schnittpunkt zwischen dem resultierenden Rechteck und den Grenzen des Zielelements berechnet wird.
+Ein String, ähnlich formatiert wie der Wert der CSS-{{cssxref("margin")}}-Eigenschaft, der Offsets für eine oder mehrere Seiten des Begrenzungsrahmens des Roots enthält. Diese Offsets werden zu den entsprechenden Werten im Begrenzungsrahmen des Roots hinzugefügt, bevor der Schnittpunkt zwischen dem resultierenden Rechteck und den Grenzen des Zielelements berechnet wird.
 
-Der von dieser Eigenschaft zurückgegebene String kann möglicherweise nicht mit dem übereinstimmen, der angegeben wurde, als der [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) instanziiert wurde. Der Browser darf die Werte ändern.
+Der von dieser Eigenschaft zurückgegebene String muss möglicherweise nicht mit dem übereinstimmen, der bei der Instanziierung des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) angegeben wurde. Zum Beispiel enthält das Ergebnis immer vier Komponenten, obwohl die Eingabe weniger haben könnte.
 
-Wenn `rootMargin` nicht angegeben wird, wenn das Objekt instanziiert wurde, lautet der Standardwert `"0px 0px 0px 0px"`, was bedeutet, dass der Schnittpunkt zwischen dem unveränderten Umgrenzungsrahmen des Root-Elements und den Grenzen des Ziels berechnet wird. [Wie Schnittpunkte berechnet werden](/de/docs/Web/API/Intersection_Observer_API#how_intersection_is_calculated) beschreibt detaillierter, wie der `rootMargin` verwendet wird.
+Wenn `rootMargin` bei der Instanziierung des Objekts nicht angegeben ist, wird standardmäßig der String `"0px 0px 0px 0px"` verwendet, was bedeutet, dass der Schnittpunkt zwischen dem unveränderten Begrenzungsrechteck des Root-Elements und den Grenzen des Ziels berechnet wird. [Wie Schnittpunkte berechnet werden](/de/docs/Web/API/Intersection_Observer_API#how_intersection_is_calculated) beschreibt, wie die `rootMargin` im Detail verwendet wird.
 
 ## Spezifikationen
 

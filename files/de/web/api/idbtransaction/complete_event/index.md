@@ -1,22 +1,23 @@
 ---
-title: "IDBTransaction: complete Ereignis"
+title: "IDBTransaction: complete-Ereignis"
 short-title: complete
 slug: Web/API/IDBTransaction/complete_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("IndexedDB")}}
 
-Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde. Dies geschieht entweder nachdem Sie [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) explizit aufgerufen haben oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Bearbeitung ihrer Ergebnisse keine neuen Anfragen gestellt wurden. Weitere Informationen finden Sie unter [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
+Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde, entweder nachdem Sie explizit [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) aufgerufen haben oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Verarbeitung ihrer Ergebnisse keine neuen Anfragen gestellt wurden. Siehe [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) für weitere Informationen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
-```js
-addEventListener("complete", (event) => {});
-oncomplete = (event) => {};
+```js-nolint
+addEventListener("complete", (event) => { })
+
+oncomplete = (event) => { }
 ```
 
 ## Ereignistyp

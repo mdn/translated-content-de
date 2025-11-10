@@ -3,12 +3,13 @@ title: "MessagePort: start()-Methode"
 short-title: start()
 slug: Web/API/MessagePort/start
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`start()`**-Methode des [`MessagePort`](/de/docs/Web/API/MessagePort)-Interface startet das Senden von Nachrichten, die in der Warteschlange dieses Ports liegen. Diese Methode ist nur erforderlich, wenn [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird; sie ist implizit beim Verwenden von [`onmessage`](/de/docs/Web/API/MessagePort/message_event).
+Die **`start()`**-Methode des [`MessagePort`](/de/docs/Web/API/MessagePort)
+Interfaces startet das Senden von Nachrichten, die in der Warteschlange des Ports stehen. Diese Methode ist nur erforderlich, wenn [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird; sie wird implizit verwendet, wenn [`onmessage`](/de/docs/Web/API/MessagePort/message_event) genutzt wird.
 
 ## Syntax
 
@@ -22,11 +23,12 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie eine `handleMessage`-Handlerfunktion, die ausgeführt wird, wenn eine Nachricht mit `onmessage` an dieses Dokument gesendet wird:
+Im folgenden Codeblock sehen Sie eine `handleMessage`-Handlerfunktion,
+die ausgeführt wird, wenn eine Nachricht mit `onmessage` an dieses Dokument zurückgesendet wird:
 
 ```js
 channel.port1.onmessage = handleMessage;
@@ -35,10 +37,10 @@ function handleMessage(e) {
 }
 ```
 
-Eine weitere Möglichkeit wäre, dies mit [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) zu tun. In diesem Fall müssen Sie jedoch explizit `start()` aufrufen, um den Nachrichtenfluss zu diesem Dokument zu starten:
+Eine andere Möglichkeit wäre, dies mit [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) zu tun. In diesem Fall müssen Sie jedoch explizit `start()` aufrufen, um den Nachrichtenfluss zu diesem Dokument zu beginnen:
 
 ```js
-channel.port1.addEventListener("message", handleMessage, false);
+channel.port1.addEventListener("message", handleMessage);
 function handleMessage(e) {
   para.innerHTML = e.data;
   textInput.value = "";

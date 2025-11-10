@@ -1,25 +1,24 @@
 ---
 title: Array.prototype.entries()
+short-title: entries()
 slug: Web/JavaScript/Reference/Global_Objects/Array/entries
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
+Die **`entries()`** Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
 
-Die **`entries()`**-Methode von {{jsxref("Array")}}-Instanzen gibt ein neues _[Array-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Schlüssel/Wert-Paare für jeden Index im Array enthält.
-
-{{InteractiveExample("JavaScript Demo: Array.entries()")}}
+{{InteractiveExample("JavaScript Demo: Array.prototype.entries()")}}
 
 ```js interactive-example
-const array1 = ["a", "b", "c"];
+const array = ["a", "b", "c"];
 
-const iterator1 = array1.entries();
+const iterator = array.entries();
 
-console.log(iterator1.next().value);
+console.log(iterator.next().value);
 // Expected output: Array [0, "a"]
 
-console.log(iterator1.next().value);
+console.log(iterator.next().value);
 // Expected output: Array [1, "b"]
 ```
 
@@ -35,13 +34,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [iterables Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
+Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Beschreibung
 
-Wenn die Methode auf [Sparsame Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet wird, iteriert die `entries()`-Methode über leere Stellen, als ob sie den Wert `undefined` haben.
+Wird die `entries()` Methode auf [löchrige Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet, iteriert sie leere Felder, als ob sie den Wert `undefined` hätten.
 
-Die `entries()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integer-basierte Schlüssel-Eigenschaften besitzt.
+Die `entries()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-basierte Eigenschaften hat.
 
 ## Beispiele
 
@@ -59,7 +58,7 @@ for (const [index, element] of a.entries()) {
 // 2 'c'
 ```
 
-### Verwendung von for...of-Schleifen
+### Verwendung einer for...of Schleife
 
 ```js
 const array = ["a", "b", "c"];
@@ -74,9 +73,9 @@ for (const element of arrayEntries) {
 // [2, 'c']
 ```
 
-### Iterieren über sparsame Arrays
+### Iterieren von löchrigen Arrays
 
-Die Methode `entries()` besucht leere Stellen, als ob diese `undefined` wären.
+`entries()` wird leere Felder besuchen, als ob sie `undefined` wären.
 
 ```js
 for (const element of [, "a"].entries()) {
@@ -88,7 +87,7 @@ for (const element of [, "a"].entries()) {
 
 ### Aufrufen von entries() auf Nicht-Array-Objekten
 
-Die `entries()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
+Die `entries()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative Ganzzahl ist, die kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -117,7 +116,8 @@ for (const entry of Array.prototype.entries.call(arrayLike)) {
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- [Anleitung zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [es-shims Polyfill von `Array.prototype.entries`](https://www.npmjs.com/package/array.prototype.entries)
+- [Leitfaden zu indizierten Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.keys()")}}
 - {{jsxref("Array.prototype.values()")}}

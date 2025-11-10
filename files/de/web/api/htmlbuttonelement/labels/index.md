@@ -3,18 +3,18 @@ title: "HTMLButtonElement: labels-Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLButtonElement/labels
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}
 
 Die **`HTMLButtonElement.labels`** schreibgeschützte Eigenschaft gibt eine
 [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
-{{HTMLElement("button")}}-Element verknüpft sind.
+{{HTMLElement("button")}}-Element verbunden sind.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<button>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<button>`-Element verbunden sind.
 
 ## Beispiele
 
@@ -29,12 +29,10 @@ Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthäl
 ### JavaScript
 
 ```js
-window.addEventListener("DOMContentLoaded", () => {
-  const button = document.getElementById("test");
-  for (const label of button.labels) {
-    console.log(label.textContent); // "Label 1" and "Label 2"
-  }
-});
+const button = document.getElementById("test");
+for (const label of button.labels) {
+  console.log(label.textContent); // "Label 1" and "Label 2"
+}
 ```
 
 {{EmbedLiveSample("Examples", "100%", 30)}}

@@ -3,14 +3,14 @@ title: "SVGFETileElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFETileElement/height
 l10n:
-  sourceCommit: f7c2436db777de600a4f999169ea8a4d88255f1d
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Schreibgeschützte Eigenschaft der [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte **`height`**-Eigenschaft der [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filter-Primitiven als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("height")}}-Attribut des {{SVGElement("feTile")}}-Elements wider, das ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes füllt. Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheitensystemeinheiten.
+Sie reflektiert das {{SVGAttr("height")}}-Attribut des {{SVGElement("feTile")}}-Elements, welches ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes füllt. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) relativ zur Höhe des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
 ## Wert
 

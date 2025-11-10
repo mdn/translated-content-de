@@ -1,15 +1,17 @@
 ---
 title: Temporal.PlainMonthDay.prototype.equals()
+short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/equals
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`equals()`** Methode von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt `true` zurück, wenn dieser Monat-Tag dem Wert eines anderen Monat-Tags entspricht (in einer Form, die durch {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} konvertierbar ist), und `false` ansonsten. Sie werden sowohl nach ihren zugrunde liegenden ISO-Datumswerten als auch nach ihren Kalendern verglichen.
+Die **`equals()`**-Methode von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen gibt `true` zurück, wenn dieser Monat-Tag im Wert einem anderen Monat-Tag entspricht (in einer Form, die durch {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden sowohl an ihren zugrundeliegenden ISO-Datenwerten als auch an ihren Kalendern verglichen.
 
-> **Hinweis:** `PlainMonthDay` Objekte behalten ein Referenz-ISO-Jahr, welches ebenfalls im Vergleich verwendet wird. Dieses Jahr wird automatisch gesetzt, wenn die Methode {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} verwendet wird, kann jedoch manuell mit dem {{jsxref("Temporal/PlainMonthDay/PlainMonthDay", "Temporal.PlainMonthDay()")}} Konstruktor festgelegt werden, was dazu führt, dass zwei äquivalente Monat-Tage als unterschiedlich betrachtet werden, wenn sie unterschiedliche Referenzjahre haben. Aus diesem Grund sollten Sie es vermeiden, den Konstruktor direkt zu verwenden und stattdessen die `from()` Methode bevorzugen.
+> [!NOTE]
+> `PlainMonthDay`-Objekte behalten ein Referenz-ISO-Jahr bei, das ebenfalls im Vergleich verwendet wird. Dieses Jahr wird automatisch festgelegt, wenn die Methode {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} verwendet wird, kann jedoch manuell mit dem {{jsxref("Temporal/PlainMonthDay/PlainMonthDay", "Temporal.PlainMonthDay()")}}-Konstruktor festgelegt werden. Dadurch können zwei äquivalente Monat-Tage als unterschiedlich betrachtet werden, wenn sie unterschiedliche Referenzjahre haben. Aus diesem Grund sollten Sie den Konstruktor nicht direkt verwenden und stattdessen die `from()`-Methode bevorzugen.
 
 ## Syntax
 
@@ -20,11 +22,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainMonthDay")}} Instanz, die den anderen Monat-Tag repräsentiert, mit dem verglichen werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} in ein `Temporal.PlainMonthDay` Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainMonthDay")}}-Instanz, die den anderen zu vergleichenden Monat-Tag darstellt. Es wird unter Verwendung desselben Algorithmus wie {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} in ein `Temporal.PlainMonthDay`-Objekt konvertiert.
 
 ### Rückgabewert
 
-`true` wenn dieser Monat-Tag sowohl im Datumswert als auch im Kalender gleich `other` ist, `false` andernfalls.
+`true`, wenn dieser Monat-Tag sowohl im Datum als auch im Kalender gleich `other` ist, andernfalls `false`.
 
 ## Beispiele
 

@@ -2,73 +2,73 @@
 title: SourceBuffer
 slug: Web/API/SourceBuffer
 l10n:
-  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`SourceBuffer`**-Schnittstelle repräsentiert ein Medienstück, das einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) über ein [`MediaSource`](/de/docs/Web/API/MediaSource)-Objekt übergeben und abgespielt werden kann. Dieses kann aus einem oder mehreren Mediensegmenten bestehen.
+Das **`SourceBuffer`**-Interface repräsentiert ein Medienstück, das über ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und ein [`MediaSource`](/de/docs/Web/API/MediaSource)-Objekt weitergegeben und abgespielt werden soll. Dieses kann aus einem oder mehreren Mediensegmenten bestehen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`SourceBuffer.appendWindowEnd`](/de/docs/Web/API/SourceBuffer/appendWindowEnd)
-  - : Steuert den Zeitstempel für das Ende des Anhängefensters.
+  - : Steuert den Zeitstempel für das Ende des Append-Fensters.
 - [`SourceBuffer.appendWindowStart`](/de/docs/Web/API/SourceBuffer/appendWindowStart)
-  - : Steuert den Zeitstempel für den Beginn des [Anhängefensters](https://w3c.github.io/media-source/#append-window). Dies ist ein Zeitstempelbereich, der verwendet werden kann, um zu filtern, welche Mediendaten an den `SourceBuffer` angehängt werden. Codierte Medienframes mit Zeitstempeln innerhalb dieses Bereichs werden angehängt, während diejenigen außerhalb des Bereichs herausgefiltert werden.
+  - : Steuert den Zeitstempel für den Beginn des [Append-Fensters](https://w3c.github.io/media-source/#append-window). Dies ist ein Zeitstempelbereich, der verwendet werden kann, um zu filtern, welche Mediendaten in den `SourceBuffer` eingefügt werden. Codierte Medienframes mit Zeitstempeln innerhalb dieses Bereichs werden hinzugefügt, während diejenigen außerhalb des Bereichs herausgefiltert werden.
 - [`SourceBuffer.audioTracks`](/de/docs/Web/API/SourceBuffer/audioTracks) {{ReadOnlyInline}}
-  - : Eine Liste der Audiotracks, die derzeit im `SourceBuffer` enthalten sind.
+  - : Eine Liste der aktuell im `SourceBuffer` enthaltenen Audiotracks.
 - [`SourceBuffer.buffered`](/de/docs/Web/API/SourceBuffer/buffered) {{ReadOnlyInline}}
-  - : Gibt die Zeitbereiche zurück, die derzeit im `SourceBuffer` gepuffert sind.
+  - : Gibt die aktuell im `SourceBuffer` gepufferten Zeitbereiche zurück.
 - [`SourceBuffer.mode`](/de/docs/Web/API/SourceBuffer/mode)
-  - : Steuert, wie die Reihenfolge von Mediensegmenten im `SourceBuffer` gehandhabt wird, ob sie in beliebiger Reihenfolge angehängt werden können oder ob sie in einer strikten Reihenfolge gehalten werden müssen.
+  - : Steuert, wie die Reihenfolge der Mediensegmente im `SourceBuffer` gehandhabt wird, in Bezug darauf, ob sie in beliebiger Reihenfolge hinzugefügt werden können oder in strikter Abfolge bleiben müssen.
 - [`SourceBuffer.textTracks`](/de/docs/Web/API/SourceBuffer/textTracks) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Liste der Textspuren, die derzeit im `SourceBuffer` enthalten sind.
+  - : Eine Liste der aktuell im `SourceBuffer` enthaltenen Texttracks.
 - [`SourceBuffer.timestampOffset`](/de/docs/Web/API/SourceBuffer/timestampOffset)
-  - : Steuert den Offset, der auf Zeitstempel innerhalb von Mediensegmenten angewendet wird, die anschließend dem `SourceBuffer` angehängt werden.
+  - : Steuert die Verschiebung, die auf Zeitstempel innerhalb von Mediensegmenten angewendet wird, die anschließend dem `SourceBuffer` hinzugefügt werden.
 - [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) {{ReadOnlyInline}}
-  - : Ein Boolean, der angibt, ob der `SourceBuffer` derzeit aktualisiert wird, d.h. ob ein [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove)-Vorgang derzeit läuft.
+  - : Ein boolescher Wert, der angibt, ob der `SourceBuffer` derzeit aktualisiert wird — d.h. ob eine [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)- oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation derzeit im Gange ist.
 - [`SourceBuffer.videoTracks`](/de/docs/Web/API/SourceBuffer/videoTracks) {{ReadOnlyInline}}
-  - : Eine Liste der Videospuren, die derzeit im `SourceBuffer` enthalten sind.
+  - : Eine Liste der aktuell im `SourceBuffer` enthaltenen Videotracks.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort)
-  - : Bricht das aktuelle Segment ab und setzt den Segmentparser zurück.
+  - : Bricht das aktuelle Segment ab und setzt den Segment-Parser zurück.
 - [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)
-  - : Fügt Mediensegmentdaten aus einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}-Objekt dem `SourceBuffer` hinzu.
+  - : Fügt Media-Segmentdaten von einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}-Objekt in den `SourceBuffer` ein.
 - [`SourceBuffer.appendBufferAsync()`](/de/docs/Web/API/SourceBuffer/appendBufferAsync) {{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Startet den Vorgang des asynchronen Anfügens des spezifizierten Puffers an den `SourceBuffer`. Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Puffer angehängt wurde.
+  - : Startet den Prozess des asynchronen Hinzufügens des angegebenen Buffers zum `SourceBuffer`. Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Buffer hinzugefügt wurde.
 - [`SourceBuffer.changeType()`](/de/docs/Web/API/SourceBuffer/changeType)
-  - : Ändert den {{Glossary("MIME_type", "MIME-Typ")}}, den zukünftige Aufrufe von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) erwarten werden, dass die neuen Daten diesem entsprechen.
+  - : Ändert den {{Glossary("MIME_type", "MIME-Typ")}}, den zukünftige Aufrufe von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) erwarten, dass die neuen Daten entsprechen.
 - [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove)
   - : Entfernt Mediensegmente innerhalb eines bestimmten Zeitbereichs aus dem `SourceBuffer`.
 - [`SourceBuffer.removeAsync()`](/de/docs/Web/API/SourceBuffer/removeAsync) {{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Startet den Vorgang des asynchronen Entfernens von Mediensegmenten im angegebenen Bereich aus dem `SourceBuffer`. Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald alle passenden Segmente entfernt wurden.
+  - : Startet den Prozess des asynchronen Entfernens von Mediensegmenten im angegebenen Bereich aus dem `SourceBuffer`. Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald alle passenden Segmente entfernt wurden.
 
 ## Ereignisse
 
 - [`abort`](/de/docs/Web/API/SourceBuffer/abort_event)
-  - : Wird jedes Mal ausgelöst, wenn [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) durch einen Aufruf von [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort) beendet wird. [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`.
+  - : Wird ausgelöst, wenn das Buffer-Hinzufügen abgebrochen wird, weil die [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort)- oder [`MediaSource.removeSourceBuffer()`](/de/docs/Web/API/MediaSource/removeSourceBuffer)-Methode aufgerufen wird, während der [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)-Algorithmus noch läuft. [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`.
 - [`error`](/de/docs/Web/API/SourceBuffer/error_event)
-  - : Wird jedes Mal ausgelöst, wenn ein Fehler während [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) auftritt. [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`.
+  - : Wird ausgelöst, wenn ein Fehler während der Verarbeitung einer [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)-Operation auftritt. [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`.
 - [`update`](/de/docs/Web/API/SourceBuffer/update_event)
-  - : Wird jedes Mal ausgelöst, wenn [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove) abgeschlossen ist. [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`. Dieses Ereignis wird vor `updateend` ausgelöst.
+  - : Wird immer dann ausgelöst, wenn [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove) abgeschlossen ist. [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`.
 - [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)
-  - : Wird ausgelöst, nachdem [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove) endet. Dieses Ereignis wird nach `update` ausgelöst.
+  - : Wird nach dem (nicht unbedingt erfolgreichen) Abschluss einer [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation ausgelöst. Dieses Ereignis wird nach den Ereignissen `update`, `error` oder `abort` ausgelöst.
 - [`updatestart`](/de/docs/Web/API/SourceBuffer/updatestart_event)
-  - : Wird jedes Mal ausgelöst, wenn der Wert von [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) von `false` zu `true` wechselt.
+  - : Wird ausgelöst, wenn eine [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) oder [`remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation beginnt. [`updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `false` zu `true`.
 
 ## Beispiele
 
-### Laden eines Videos stückweise
+### Laden eines Videos in Teilen
 
-Das folgenden Beispiel lädt ein Video so schnell wie möglich stückweise und spielt es ab, sobald es möglich ist.
+Das folgende Beispiel lädt ein Video so schnell wie möglich in Teilen und spielt es ab, sobald es möglich ist.
 
-Den vollständigen Code finden Sie unter <https://github.com/mdn/dom-examples/tree/main/sourcebuffer> und Sie können die Demo live unter <https://mdn.github.io/dom-examples/sourcebuffer/> ausprobieren.
+Sie können den vollständigen Code unter <https://github.com/mdn/dom-examples/tree/main/sourcebuffer> sehen und die Demo live unter <https://mdn.github.io/dom-examples/sourcebuffer/> ausprobieren.
 
 ```js
 const video = document.querySelector("video");
@@ -90,14 +90,13 @@ function loadVideo() {
 
 async function sourceOpen() {
   console.log(this.readyState); // open
-  const mediaSource = this;
-  const sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
+  const sourceBuffer = this.addSourceBuffer(mimeCodec);
   const response = await fetch(assetURL);
   const buffer = await response.arrayBuffer();
   sourceBuffer.addEventListener("updateend", () => {
-    mediaSource.endOfStream();
+    this.endOfStream();
     video.play();
-    console.log(mediaSource.readyState); // ended
+    console.log(this.readyState); // ended
   });
   sourceBuffer.appendBuffer(buffer);
 }

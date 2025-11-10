@@ -1,23 +1,23 @@
 ---
-title: "WebSocket: message Ereignis"
+title: "WebSocket: message event"
 short-title: message
 slug: Web/API/WebSocket/message_event
 l10n:
-  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `message` Ereignis wird ausgelöst, wenn Daten durch ein `WebSocket` empfangen werden.
+Das `message`-Ereignis wird ausgelöst, wenn Daten über einen `WebSocket` empfangen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("message", (event) => {});
+```js-nolint
+addEventListener("message", (event) => { })
 
-onmessage = (event) => {};
+onmessage = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,18 +28,18 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Neben den unten aufgelisteten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtenerzeuger gesendeten Daten. Der Typ dieser Eigenschaft hängt vom Typ der WebSocket-Nachricht und dem Wert von [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType) ab.
-    - Wenn der Nachrichtentyp "text" ist, dann ist dieses Feld ein String.
-    - Wenn der Nachrichtentyp "binary" ist, dann kann der Typ dieser Eigenschaft aus dem `binaryType` dieses Sockets abgeleitet werden:
-      - {{jsxref("ArrayBuffer")}} wenn `binaryType` `"arraybuffer"` ist,
-      - [`Blob`](/de/docs/Web/API/Blob) wenn `binaryType` `"blob"` ist. Dieser hat keinen zugeordneten Medientyp ([`Blob.type`](/de/docs/Web/API/Blob/type) ist `""`).
+  - : Die vom Nachrichten-Emitter gesendeten Daten. Der Typ dieser Eigenschaft hängt vom Typ der WebSocket-Nachricht und dem Wert von [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType) ab.
+    - Wenn der Nachrichtentyp "text" ist, ist dieses Feld ein String.
+    - Wenn der Nachrichtentyp "binary" ist, kann der Typ dieser Eigenschaft vom `binaryType` dieses Sockets abgeleitet werden:
+      - {{jsxref("ArrayBuffer")}} falls `binaryType` `"arraybuffer"` ist,
+      - [`Blob`](/de/docs/Web/API/Blob) falls `binaryType` `"blob"` ist. Dies hat keinen zugehörigen Medientyp ([`Blob.type`](/de/docs/Web/API/Blob/type) ist `""`).
 - [`origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenerzeugers darstellt.
+  - : Ein String, der die Herkunft des Nachrichten-Emitters repräsentiert.
 
-Weitere Eigenschaften der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle sind vorhanden, beziehen sich jedoch nicht auf die WebSocket-API und behalten ihre Standardwerte bei:
+Andere Eigenschaften der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle sind vorhanden, beziehen sich jedoch nicht auf die WebSocket-API und bleiben auf ihren Standardwerten:
 
 - [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
 - [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
@@ -67,7 +67,7 @@ socket.addEventListener("message", (event) => {
 
 ## Siehe auch
 
-- [WebSocket: close Ereignis](/de/docs/Web/API/WebSocket/close_event)
-- [WebSocket: error Ereignis](/de/docs/Web/API/WebSocket/error_event)
-- [WebSocket: open Ereignis](/de/docs/Web/API/WebSocket/open_event)
-- [Anwendungen für WebSocket-Clients schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket: close event](/de/docs/Web/API/WebSocket/close_event)
+- [WebSocket: error event](/de/docs/Web/API/WebSocket/error_event)
+- [WebSocket: open event](/de/docs/Web/API/WebSocket/open_event)
+- [Writing WebSocket client applications](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

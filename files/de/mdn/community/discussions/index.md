@@ -2,33 +2,32 @@
 title: GitHub Discussions
 slug: MDN/Community/Discussions
 l10n:
-  sourceCommit: 269fa421f0a79b18f6000a26baebe30c74571b1f
+  sourceCommit: b97dae0887fb02713db610eed4855545a9c81bcd
 ---
 
-In den MDN Web Docs ermutigen wir unsere Community, Diskussionen zu Themen rund um das Projekt zu starten und sich daran zu beteiligen.
-Wir bitten Sie, jede Diskussion auf das jeweilige Thema zu konzentrieren, anstatt mehrere Themen in einer Diskussion zu behandeln.
+In den MDN Web Docs ermutigen wir unsere Community, Diskussionen über Themen im Zusammenhang mit dem Projekt zu starten und sich daran zu beteiligen. Wir bitten Sie, jede Diskussion auf das jeweilige Thema zu konzentrieren, anstatt mehrere Themen in einer Diskussion abzudecken.
 
 > [!NOTE]
 > Verwenden Sie GitHub Discussions nicht, um Fehler zu melden.
-> Wenn Sie etwas falsch auf den MDN Web Docs sehen, öffnen Sie ein GitHub-Issue im [entsprechenden GitHub-Repository](/de/docs/MDN/Community/Our_repositories).
+> Wenn Sie einen Fehler in den MDN Web Docs bemerken, öffnen Sie ein GitHub-Issue in einem relevanten [MDN GitHub-Repository](/de/docs/MDN/Community/Our_repositories).
 
-Wenn Sie unsicher sind, ob Sie ein GitHub-Issue oder eine Diskussion eröffnen sollen, hier die Unterscheidung:
+Wenn Sie unsicher sind, ob Sie ein GitHub-Issue oder eine Diskussion eröffnen sollen, finden Sie hier, wofür diese jeweils gedacht sind:
 
-- **Issues** sind dazu da, Fehler zu melden oder eine Arbeitseinheit mit definierten und umsetzbaren Aufgaben und Ergebnissen zu verfolgen.
-- **Discussions** dienen dazu, einen Konsens darüber zu erzielen, wie wir arbeiten, und Aufgaben zu definieren.
+- **Issues** dienen dazu, Fehler zu melden oder ein Arbeitselement mit definierten und umsetzbaren Aufgaben und Ergebnissen zu verfolgen.
+- **Discussions** sind dazu da, Konsens darüber zu finden, wie wir arbeiten, und um Aufgaben zu definieren.
 
-Falls Ihre Diskussion nicht vorankommt oder Sie unsicher über die nächsten Schritte sind, ziehen Sie die [Leitlinien für das Verwalten und Lösen von Diskussionen](/de/docs/MDN/Community/Discussions/Managing_and_resolving_discussions) zurate, um Ratschläge für das weitere Vorgehen zu erhalten, einschließlich Erwartungen zu Zeitplänen.
+Wenn Ihre Diskussion nicht vorankommt oder Sie unsicher über die nächsten Schritte sind, beziehen Sie sich auf die [Richtlinien zur Verwaltung und Lösung von Diskussionen](/de/docs/MDN/Community/Discussions/Managing_and_resolving_discussions) für Ratschläge zum weiteren Vorgehen, einschließlich der Erwartungen an Zeitrahmen.
 
-Sehen Sie sich die Themen der einzelnen Diskussionskategorien unten an, damit Sie Ihre Diskussion am richtigen Ort starten können.
+Überprüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussion an der richtigen Stelle beginnen können.
 
-| Diskussionskategorie                   | Thema                                                                                                                                                                                                                              |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 📣 [Ankündigungen][announcements]      | Reserviert für das MDN Web Docs-Team. Wir bitten Sie, eine der anderen verfügbaren Kategorien auszuwählen.                                                                                                                         |
-| 🔮 [Browser-Kompatibilitätsdaten][bcd] | Das [browser-compat-data][bcd-repo] Projekt, das Kompatibilitätsdaten für Browser dokumentiert.                                                                                                                                    |
-| ✏️ [Inhalte][content]                  | Das [Inhalts-Repository][content-repo] der MDN Web Docs. Stellen Sie hier keine Fragen zu Coding-Problemen - falls Sie bei einem Problem nicht weiterkommen, versuchen Sie den Bereich [Lernen Sie Webentwicklung][learn-web-dev]. |
-| 🌐 [Lokalisierung][localization]       | Das [Repository für übersetzte Inhalte][translated-content], welches unsere [unterstützten Sprachen][locales] abdeckt. Hier werden auch [Hinweise zur Veraltung][macro-deprecation] veröffentlicht.                                |
-| 👾 [MDN Plus][mdn-plus]                | Die [MDN Plus-Funktionen][mdn-plus-feature] sowie Ihre Ideen. Für MDN Plus-Support wie Abonnements, wenden Sie sich an den [offiziellen Supportkanal von Mozilla][mdn-plus-support].                                               |
-| 🛠️ [Plattform][platform]               | Das Frontend- und Build-System der MDN Web Docs. Wenn Sie einen Fehler gefunden haben, melden Sie ihn im [relevanten Repository][mdn-repos]. **HINWEIS:** Es gibt eine separate Diskussionskategorie für MDN Plus.                 |
+| Diskussionskategorie                   | Thema                                                                                                                                                                                                                 |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 📣 [Ankündigungen][announcements]      | Reserviert für das MDN Web Docs-Personal. Wir bitten Sie, eine der anderen verfügbaren Kategorien zu wählen.                                                                                                          |
+| 🔮 [Browser-Kompatibilitätsdaten][bcd] | Das Projekt [browser-compat-data][bcd-repo], das Kompatibilitätsdaten für Browser dokumentiert.                                                                                                                       |
+| ✏️ [Inhalte][content]                  | Das [Content-Repository][content-repo] auf den MDN Web Docs. Fragen Sie hier nicht nach Programmierhilfe - wenn Sie an einem Problem festhängen, versuchen Sie den Bereich [Webentwicklung Lernen][learn-web-dev].    |
+| 🌐 [Lokalisierung][localization]       | Das [übersetzte Inhalts-Repository][translated-content], das unsere [unterstützten locales][locales] abdeckt. Hier finden auch [Abkündigungsankündigungen][macro-deprecation] statt.                                  |
+| 👾 [MDN Plus][mdn-plus]                | Die [MDN Plus-Funktionen][mdn-plus-feature] sowie Ihre Ideen. Für MDN Plus-Support wie Abonnements, beziehen Sie sich auf Mozillas [offiziellen Support-Kanal][mdn-plus-support].                                     |
+| 🛠️ [Plattform][platform]               | Das Frontend und das Build-System der MDN Web Docs. Wenn Sie einen Fehler gefunden haben, melden Sie ihn im [relevanten Repository][mdn-repos]. **HINWEIS:** Es gibt eine separate Diskussionskategorie für MDN Plus. |
 
 [announcements]: https://github.com/orgs/mdn/discussions/categories/announcements
 [bcd]: https://github.com/orgs/mdn/discussions/categories/browser-compatibility-data

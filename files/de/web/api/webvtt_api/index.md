@@ -2,76 +2,69 @@
 title: WebVTT API
 slug: Web/API/WebVTT_API
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
 {{DefaultAPISidebar("WebVTT")}}
 
-**Web Video Text Tracks** (**WebVTT**) sind Textspuren, die spezifische Text-"Hinweise" bieten, die zeitlich mit anderen Medien wie Video- oder Audiospuren abgestimmt sind. Die **WebVTT API** bietet Funktionen zum Definieren und Manipulieren dieser Textspuren. Die WebVTT API wird hauptsächlich zur Anzeige von Untertiteln oder Bildunterschriften verwendet, die sich über Video-Inhalte legen, hat aber auch andere Anwendungsbereiche: Bereitstellung von Kapitelinformationen für eine einfachere Navigation und generische Metadaten, die zeitlich mit Audio- oder Videoinhalten abgestimmt werden müssen.
+**Web Video Text Tracks** (**WebVTT**) sind Textspuren, die spezifische Text-"Hinweise" bereitstellen, die zeitlich mit anderen Medien, wie Video- oder Audiospuren, synchronisiert sind. Die **WebVTT API** bietet Funktionen zum Definieren und Manipulieren dieser Textspuren. Die WebVTT API wird hauptsächlich zum Anzeigen von Untertiteln oder Beschriftungen verwendet, die über Videoinhalten eingeblendet werden, hat aber auch andere Verwendungszwecke: Bereitstellung von Kapitelinformationen für eine einfachere Navigation und generische Metadaten, die zeitlich mit Audio- oder Videoinhalten synchronisiert werden müssen.
 
 ## Konzepte und Nutzung
 
-Eine Textspur ist ein Container für zeitlich abgestimmte Textdaten, die parallel zu einer Video- oder Audiospur abgespielt werden können, um eine Übersetzung, Transkription oder Übersicht des Inhalts bereitzustellen. Ein Video- oder Audiomedien-Element kann Spuren verschiedener Art oder in verschiedenen Sprachen definieren, sodass Nutzer geeignete Spuren basierend auf ihren Vorlieben oder Bedürfnissen anzeigen können.
+Eine Textspur ist ein Container für zeitlich synchronisierte Textdaten, die parallel zu einer Video- oder Audiospur abgespielt werden können, um eine Übersetzung, Transkription oder Übersicht über den Inhalt bereitzustellen. Ein Video- oder Audiomedienelement kann Spuren verschiedener Art oder in verschiedenen Sprachen definieren, wodurch Benutzer geeignete Spuren basierend auf ihren Vorlieben oder Bedürfnissen anzeigen können.
 
-Die verschiedenen Arten von Textdaten, die angegeben werden können, sind unten aufgeführt. Beachten Sie, dass Browser möglicherweise nicht alle Arten von Textspuren unterstützen.
+Die verschiedenen Arten von Textdaten, die spezifiziert werden können, sind `captions`, `descriptions`, `chapters`, `subtitles` oder `metadata`; die [`<track>`](/de/docs/Web/HTML/Reference/Elements/track#kind) Dokumentation enthält mehr Informationen darüber, was sie bedeuten. Beachten Sie, dass Browser nicht unbedingt alle Arten von Textspuren unterstützen.
 
-- `subtitles` bieten eine textuelle Übersetzung des gesprochenen Dialogs. Dies ist der Standardtyp einer Textspur, und wenn sie verwendet wird, muss die Ausgangssprache angegeben werden.
-- `captions` bieten eine Transkription des gesprochenen Textes und können Informationen über andere Audios wie Musik oder Hintergrundgeräusche enthalten. Sie sind für hörgeschädigte Nutzer gedacht.
-- `chapters` bieten hochgradige Navigationsinformationen, sodass Nutzer leichter zu relevantem Inhalt wechseln können.
-- `metadata` wird für alle anderen Arten von zeitlich abgestimmten Informationen verwendet.
+Die einzelnen zeitlich synchronisierten Einheiten von Textdaten innerhalb einer Spur werden als "cues" bezeichnet. Jede Cue hat eine Startzeit, eine Endzeit und einen Textinhalt. Sie kann auch "cue settings" haben, die ihre Anzeigeregion, Position, Ausrichtung und/oder Größe beeinflussen. Schließlich kann eine Cue ein Label haben, das zur Auswahl für CSS-Styling verwendet werden kann.
 
-Die einzelnen zeitlich abgestimmten Einheiten von Textdaten innerhalb einer Spur werden als "Hinweise" bezeichnet. Jeder Hinweis hat eine Startzeit, eine Endzeit und eine Textnutzlast. Er kann auch "Hinweiseinstellungen" haben, die die Anzeigeregion, Position, Ausrichtung und/oder Größe betreffen. Schließlich kann ein Hinweis ein Label haben, das zur CSS-Stil-Auswahl verwendet werden kann.
+Eine Textspur und Cues können in einer Datei unter Verwendung des [WebVTT Dateiformats](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) definiert und dann mit einem bestimmten {{HTMLElement("video")}}-Element unter Verwendung des {{HTMLElement("track")}}-Elements verknüpft werden.
 
-Eine Textspur und Hinweise können in einer Datei unter Verwendung des [WebVTT-Dateiformats](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) definiert und dann mit einem bestimmten {{HTMLElement("video")}}-Element mittels des {{HTMLElement("track")}}-Elements verknüpft werden.
+Alternativ können Sie ein [`TextTrack`](/de/docs/Web/API/TextTrack) einem Medienelement in JavaScript mit [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack) hinzufügen und anschließend einzelne [`VTTCue`](/de/docs/Web/API/VTTCue)-Objekte der Spur mit [`TextTrack.addCue()`](/de/docs/Web/API/TextTrack/addCue) hinzufügen.
 
-Alternativ können Sie mit Hilfe von JavaScript einem Medienelement ein [`TextTrack`](/de/docs/Web/API/TextTrack) hinzufügen, indem Sie [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack) verwenden und dann einzelne [`VTTCue`](/de/docs/Web/API/VTTCue)-Objekte zu der Spur mit [`TextTrack.addCue()`](/de/docs/Web/API/TextTrack/addCue) hinzufügen.
+Das {{cssxref("::cue")}} [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) kann sowohl in HTML als auch in einer WebVTT-Datei verwendet werden, um die Cues für ein bestimmtes Element, für ein bestimmtes Tag innerhalb einer Cue, für eine VTT-Klasse oder für eine Cue mit einem bestimmten Label zu stylen. Das Pseudo-Element `::cue-region` ist zur Gestaltung von Cues in einer bestimmten Region vorgesehen, wird jedoch in keinem Browser unterstützt.
 
-Das {{cssxref("::cue")}} [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) kann sowohl in HTML als auch in einer WebVTT-Datei verwendet werden, um die Hinweise für ein bestimmtes Element, für ein bestimmtes Tag innerhalb eines Hinweises, für eine VTT-Klasse oder für einen Hinweis mit einem bestimmten Label zu gestalten. Das `::cue-region`-Pseudoelement ist für die Gestaltung von Hinweisen in einer bestimmten Region gedacht, wird jedoch von keinem Browser unterstützt.
-
-Die meisten wichtigen WebVTT-Funktionen können entweder über das Dateiformat oder die Web-API aufgerufen werden.
+Die wichtigsten WebVTT-Funktionen können entweder über das Dateiformat oder die Web-API abgerufen werden.
 
 ## Schnittstellen
 
 - [`VTTCue`](/de/docs/Web/API/VTTCue)
-  - : Stellt einen Hinweis dar, den Text, der in einem bestimmten Zeitabschnitt der Textspur angezeigt wird, die mit einem Medienelement verbunden ist.
+  - : Repräsentiert eine Cue, den Text, der in einem bestimmten Zeitabschnitt der Textspur eines Medienelements angezeigt wird.
 - [`VTTRegion`](/de/docs/Web/API/VTTRegion)
-  - : Stellt einen Bereich eines Videoelements dar, auf den ein [`VTTCue`](/de/docs/Web/API/VTTCue) gerendert werden kann.
+  - : Repräsentiert einen Bereich eines Videoelements, in dem eine [`VTTCue`](/de/docs/Web/API/VTTCue) gerendert werden kann.
 - [`TextTrack`](/de/docs/Web/API/TextTrack)
-  - : Stellt eine Textspur dar, die die Liste der anzuzeigenden Hinweise zusammen mit einem zugeordneten Medienelement zu verschiedenen Zeitpunkten, während es abgespielt wird, hält.
+  - : Repräsentiert eine Textspur, die die Liste der Cues hält, die zusammen mit einem zugehörigen Medienelement bei verschiedenen Zeitpunkten während der Wiedergabe angezeigt werden.
 - [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)
-  - : Eine abstrakte Basisklasse für verschiedene Hinweistypen, wie [`VTTCue`](/de/docs/Web/API/VTTCue).
+  - : Eine abstrakte Basisklasse für verschiedene Cue-Typen, wie [`VTTCue`](/de/docs/Web/API/VTTCue).
 - [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)
-  - : Ein array-ähnliches Objekt, das eine dynamisch aktualisierte Liste von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Objekten darstellt. Eine Instanz dieses Typs wird von [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues) erhalten, um alle Hinweise im [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zu bekommen.
+  - : Ein array-ähnliches Objekt, das eine dynamisch aktualisierte Liste von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Objekten darstellt. Eine Instanz dieses Typs wird von [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues) abgerufen, um alle Cues im [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zu erhalten.
 - [`TextTrackList`](/de/docs/Web/API/TextTrackList)
-  - : Stellt eine Liste der für ein Medienelement definierten Textspuren dar, wobei jede Spur durch eine separate [`TextTrack`](/de/docs/Web/API/TextTrack)-Instanz in der Liste dargestellt wird.
+  - : Repräsentiert eine Liste der für ein Medienelement definierten Textspuren, wobei jede Spur durch eine separate [`TextTrack`](/de/docs/Web/API/TextTrack)-Instanz in der Liste dargestellt wird.
 
 ### Verwandte Schnittstellen
 
 - [`TrackEvent`](/de/docs/Web/API/TrackEvent)
-  - : Teil der HTML DOM API, ist diese Schnittstelle für die `addtrack`- und `removetrack`-Ereignisse zuständig, die ausgelöst werden, wenn eine Spur zur [`TextTrackList`](/de/docs/Web/API/TextTrackList) hinzugefügt oder daraus entfernt wird (oder allgemeiner, wenn eine Spur zu einem HTML-Medienelement hinzugefügt oder entfernt wird).
+  - : Teil der HTML-DOM-API, ist dies die Schnittstelle für die `addtrack` und `removetrack` Ereignisse, die ausgelöst werden, wenn eine Spur zu [`TextTrackList`](/de/docs/Web/API/TextTrackList) hinzugefügt oder davon entfernt wird (oder allgemein, wenn eine Spur zu einem HTML-Medienelement hinzugefügt/entfernt wird).
 
 ### Verwandte CSS-Erweiterungen
 
-Diese [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) werden verwendet, um Hinweise in Medien mit VTT-Spuren zu gestalten.
+Diese [CSS](/de/docs/Web/CSS) [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) werden verwendet, um Cues in Medien mit VTT-Spuren zu stylen.
 
 - {{CSSxRef("::cue")}}
-  - : Entspricht Hinweisen innerhalb eines ausgewählten Elements in Medien mit VTT-Spuren.
+  - : Passt Cues innerhalb eines ausgewählten Elements in Medien mit VTT-Spuren an.
 
 > [!NOTE]
-> Die Spezifikation definiert ein weiteres Pseudoelement, `::cue-region`, das jedoch von keinem Browser unterstützt wird.
+> Die Spezifikation definiert ein weiteres Pseudo-Element, `::cue-region`, aber dieses wird von keinem Browser unterstützt.
 
 ## Beispiele
 
-### Verwendung der WebVTT API zum Hinzufügen von Untertiteln
+### Verwenden der WebVTT API, um Untertitel hinzuzufügen
 
 #### HTML
 
-Das folgende Beispiel fügt dem Video eine neue [`TextTrack`](/de/docs/Web/API/TextTrack) hinzu und fügt dann Hinweise durch Aufrufe der Methode [`TextTrack.addCue()`](/de/docs/Web/API/TextTrack/addCue) hinzu, mit konstruierten `VTTCue`-Objekten als Argumente.
+Das folgende Beispiel fügt dem Video ein neues [`TextTrack`](/de/docs/Web/API/TextTrack) hinzu und dann Cues mit [`TextTrack.addCue()`](/de/docs/Web/API/TextTrack/addCue)-Methodenaufrufen, wobei konstruierte `VTTCue`-Objekte als Argumente verwendet werden.
 
 ```html
-<video
-  controls
-  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4"></video>
+<video controls src="/shared-assets/videos/friday.mp4"></video>
 ```
 
 #### CSS
@@ -101,9 +94,9 @@ console.log(track.cues);
 
 {{EmbedLiveSample('Using the WebVTT API to add captions','400','330')}}
 
-### Anzeige von VTT-Inhalten, die in einer Datei definiert sind
+### Anzeigen von VTT-Inhalten, die in einer Datei definiert sind
 
-Dieses Beispiel zeigt, wie man denselben Satz von Untertiteln zu dem Video im obigen Beispiel [Verwendung der WebVTT-API zum Hinzufügen von Untertiteln](#verwendung_der_webvtt_api_zum_hinzufügen_von_untertiteln) hinzufügt. Diesmal werden wir es jedoch deklarativ mit einem {{htmlelement("track")}}-Element tun.
+Dieses Beispiel zeigt, wie man denselben Satz von Untertiteln zum Video hinzufügt, wie im obigen [Verwenden der WebVTT API, um Untertitel hinzuzufügen](#verwenden_der_webvtt_api,_um_untertitel_hinzuzufügen)-Beispiel. Dieses Mal werden wir es jedoch deklarativ mit einem {{htmlelement("track")}}-Element machen.
 
 Zuerst definieren wir die Untertitel in einer "captions.vtt"-Datei:
 
@@ -126,7 +119,7 @@ Yes, he's in - in a bad humor
 Somebody must've stolen the crown jewels
 ```
 
-Wir können dies dann mit Hilfe des {{HTMLElement("track")}}-Elements zu einem {{HTMLElement("video")}}-Element hinzufügen. Das folgende HTML würde zur gleichen Textspur wie im vorherigen Beispiel führen:
+Wir können dies dann einem {{HTMLElement("video")}}-Element mit dem {{HTMLElement("track")}}-Element hinzufügen. Das folgende HTML würde zur selben Textspur führen wie im vorherigen Beispiel:
 
 ```html
 <video controls src="video.webm">
@@ -134,7 +127,7 @@ Wir können dies dann mit Hilfe des {{HTMLElement("track")}}-Elements zu einem {
 </video>
 ```
 
-Wir können mehrere {{HTMLElement("track")}}-Elemente hinzufügen, um verschiedene Arten von Spuren in mehreren Sprachen anzugeben, indem wir die Attribute `kind` und `srclang` verwenden. Beachten Sie, dass, wenn `kind` angegeben wird, `srclang` auch festgelegt werden _muss_. Das `default`-Attribut kann nur einem `<track>` hinzugefügt werden: Dieses wird abgespielt, wenn die Nutzereinstellungen keine bestimmte Sprache oder Art angeben.
+Wir können mehrere {{HTMLElement("track")}}-Elemente hinzufügen, um verschiedene Arten von Spuren in mehreren Sprachen zu spezifizieren, unter Verwendung der `kind` und `srclang` Attribute. Beachten Sie, dass, wenn `kind` spezifiziert ist, `srclang` _auch_ gesetzt werden muss. Das `default`-Attribut kann nur zu einem `<track>` hinzugefügt werden: Dieses wird abgespielt, wenn die Benutzereinstellungen keine bestimmte Sprache oder Art angeben.
 
 ```html
 <video controls src="video.webm">
@@ -146,16 +139,16 @@ Wir können mehrere {{HTMLElement("track")}}-Elemente hinzufügen, um verschiede
 </video>
 ```
 
-### Gestaltung von WebVTT in HTML oder einem Stylesheet
+### Stil von WebVTT in HTML oder einem Stylesheet
 
-Sie können WebVTT-Hinweise gestalten, indem Sie Elemente mit dem {{cssxref("::cue")}} Pseudoelement auswählen. Dadurch können Sie das Erscheinungsbild des gesamten Hinweistextes oder nur bestimmter Elemente ändern. In diesem Beispiel werden wir dem [ersten obigen Beispiel](#verwendung_der_webvtt_api_zum_hinzufügen_von_untertiteln) einige Stilgebungen hinzufügen.
+Sie können WebVTT-Cues stylen, indem Sie Elemente mit dem {{cssxref("::cue")}} Pseudo-Element auswählen. Dies ermöglicht es Ihnen, das Erscheinungsbild aller Cue-Texte oder nur bestimmter Elemente zu ändern. In diesem Beispiel werden wir einige Stile zum [ersten Beispiel oben](#verwenden_der_webvtt_api,_um_untertitel_hinzuzufügen) hinzufügen.
 
 > [!NOTE]
-> Es ist auch möglich, Stile im [WebVTT-Dateiformat](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) zu definieren.
+> Es ist auch möglich, Stile im [WebVTT Dateiformat](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) zu definieren.
 
 #### HTML
 
-Das HTML für das Video selbst ist dasselbe wie bereits zuvor:
+Das HTML für das Video selbst ist das gleiche wie zuvor gesehen:
 
 ```css hidden
 video {
@@ -165,14 +158,12 @@ video {
 ```
 
 ```html
-<video
-  controls
-  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4"></video>
+<video controls src="/shared-assets/videos/friday.mp4"></video>
 ```
 
 #### CSS
 
-Zuerst verwenden wir das {{cssxref("::cue")}}-Pseudoelement, um alle Videotext-Hinweise auszuwählen, ihnen größere rote und einen Farbverlauf-Hintergrund zu geben.
+Zuerst verwenden wir das {{cssxref("::cue")}} Pseudo-Element, um alle Videotext-Cues auszuwählen und ihnen größere rote und einen Verlaufshintergrund zu geben.
 
 ```css
 video::cue {
@@ -182,7 +173,7 @@ video::cue {
 }
 ```
 
-Dann verwenden wir {{cssxref("::cue")}}, um Text auszuwählen, der mit den Elementen `u` und `b` ausgezeichnet wurde und diese grün bzw. gelb zu gestalten.
+Dann verwenden wir {{cssxref("::cue")}} um Text auszuwählen, der mit den `u` und `b` Elementen markiert wurde und sie grün und gelb zu stylen.
 
 ```css
 video::cue(u) {
@@ -196,7 +187,7 @@ video::cue(b) {
 
 #### JavaScript
 
-Das JavaScript ist dasselbe wie im ersten Beispiel, außer dass wir etwas des Hinweistextes mit `<b>` (fett) und `<u>` (unterstrichen) Tags ausgezeichnet haben. Normalerweise würde der markierte Text fett oder unterstrichen angezeigt (abhängig vom Tag), aber wir haben das {{cssxref("::cue")}} im vorherigen Abschnitt verwendet, um den Text auch grün bzw. lila zu gestalten.
+Das JavaScript ist dasselbe wie im ersten Beispiel, mit der Ausnahme, dass wir einige der Cue-Texte mit `<b>` (fett) und `<u>` (unterstrichen) Tags markiert haben. Standardmäßig würde der markierte Text fett oder unterstrichen angezeigt werden (je nach Tag), aber wir haben das {{cssxref("::cue")}}-Element im vorherigen Abschnitt verwendet, um den Text auch grün und lila zu stylen.
 
 ```js
 let video = document.querySelector("video");
@@ -218,11 +209,11 @@ console.log(track.cues);
 
 {{EmbedLiveSample('Styling WebVTT in HTML or a stylesheet','400','330')}}
 
-### Mehr Beispiele zur Gestaltung von Hinweisen
+### Weitere Beispiele zum Cue-Styling
 
-Dieses Beispiel zeigt weitere Beispiele, wie Sie Hinweistext mit Tags versehen und dann gestalten können. Dieselben Markierungen und Stile können im [WebVTT-Dateiformat](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) verwendet werden.
+Dieses Beispiel zeigt weitere Beispiele, wie Cue-Text mit Tags markiert und dann gestylt werden kann. Das gleiche Markup und die gleichen Stile können im [WebVTT Dateiformat](/de/docs/Web/API/WebVTT_API/Web_Video_Text_Tracks_Format) verwendet werden.
 
-Das HTML und CSS zur Anzeige des Videos selbst ist dasselbe wie im [ersten obigen Beispiel](#verwendung_der_webvtt_api_zum_hinzufügen_von_untertiteln), daher zeigen wir hier nur den spezifischen Code zum Auszeichnen und Gestalten des Textes.
+Das HTML und CSS zur Anzeige des Videos selbst ist das gleiche wie im [ersten Beispiel oben](#verwenden_der_webvtt_api,_um_untertitel_hinzuzufügen), daher zeigen wir hier nur den spezifischen Code zum Markieren und Stylen des Textes.
 
 ```css hidden
 video {
@@ -232,14 +223,12 @@ video {
 ```
 
 ```html hidden
-<video
-  controls
-  src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4"></video>
+<video controls src="/shared-assets/videos/friday.mp4"></video>
 ```
 
-#### Gestaltung nach Tag-Typ
+#### Styling nach Tag-Typ
 
-Der erste Hinweis, den wir erstellen, wird für alle 6 Sekunden des Videos angezeigt und zeigt Text an, der mit `b`, `u`, `i` und `c` Tags markiert ist.
+Die erste Cue, die wir erstellen, wird für alle 6 Sekunden des Videos angezeigt und zeigt Text, der mit `b`, `u`, `i` und `c` Tags markiert ist.
 
 ```js
 let video = document.querySelector("video");
@@ -256,7 +245,7 @@ track.addCue(
 );
 ```
 
-Zuerst fügen wir eine Regel hinzu, um alle Hinweise 1,2 Mal größer als normal zu machen.
+Zuerst fügen wir eine Regel hinzu, um alle Cues 1,2 mal größer als normal zu machen.
 
 ```css
 video::cue {
@@ -264,7 +253,7 @@ video::cue {
 }
 ```
 
-Dann gestalten wir die oben genannten Tags in verschiedenen Farben.
+Dann stylen wir jeden der oben genannten Tags mit einer anderen Farbe.
 
 ```css
 video::cue(u) {
@@ -284,9 +273,9 @@ video::cue(c) {
 }
 ```
 
-#### Gestaltung nach Klasse
+#### Styling nach Klasse
 
-Der zweite Hinweis wird gleich nach dem ersten angezeigt und enthält dieselben Tags. Allerdings haben sie alle eine Klasse `myclass` zugewiesen bekommen.
+Die zweite Cue wird direkt nach der ersten angezeigt und enthält dieselben Tags. Diese haben jedoch alle eine Klasse `myclass` zugewiesen.
 
 ```js
 track.addCue(
@@ -298,7 +287,7 @@ track.addCue(
 );
 ```
 
-Wir gestalten alle Elemente mit der Klasse `.myclass` mit einer hellblauen Textfarbe, außer für den spezifischen Fall von `c.myclass`, welches eine blaue Textfarbe erhält.
+Wir stylen alle Elemente mit der Klasse `.myclass` mit einer hellblauen Textfarbe, außer für den spezifischen Fall von `c.myclass`, der eine blaue Textfarbe erhält.
 
 ```css
 video::cue(.myclass) {
@@ -310,9 +299,9 @@ video::cue(c.myclass) {
 }
 ```
 
-#### Gestaltung mittels Attributen
+#### Styling durch Attribute
 
-Die nächsten beiden Hinweise werden nach zwei und drei Sekunden angezeigt. Der erste zeigt Text, der mit dem `lang` Tag für drei englische Sprachvarianten ausgezeichnet ist, während der zweite ein `<v>` (Stimme) Tag mit dem Attribut "Bob" darstellt.
+Die nächsten zwei Cues werden nach zwei und dann drei Sekunden angezeigt. Die erste zeigt Text, der mit dem `lang`-Tag für drei Lokalisierungen von Englisch markiert ist, während die zweite ein `<v>` (Stimme) Tag mit dem "Bob"-Attribut anzeigt.
 
 ```js
 track.addCue(
@@ -326,7 +315,7 @@ track.addCue(
 track.addCue(new VTTCue(3, 6, "<v Bob>Bob's voice</v>"));
 ```
 
-Wir verwenden den Attributs-Selektor `lang`, um jeder Sprachvariante eine andere Textfarbe zu geben.
+Wir verwenden den `lang`-Attributselektor, um jeder Sprachvariante eine andere Textfarbe zu geben.
 
 ```css
 video::cue([lang="en"]) {
@@ -342,7 +331,7 @@ video::cue(:lang(en-US)) {
 }
 ```
 
-Dann verwenden wir den Tag `v` und den Attributs-Selektor für `voice`, um den Text in "Bob's Stimme" orange zu färben.
+Dann verwenden wir das `v`-Tag und den Attributselektor für `voice`, um den Text in "Bobs Stimme" orange zu färben.
 
 ```css
 video::cue(v[voice="Bob"]) {
@@ -352,7 +341,7 @@ video::cue(v[voice="Bob"]) {
 
 #### Ergebnis
 
-Das Beispiel sollte die Hinweise mit der oben beschriebenen Farbkennzeichnung zeigen (wenn der Text nicht gefärbt angezeigt wird, dann wird `::cue` in Ihrem Browser nicht unterstützt).
+Das Beispiel sollte die Cues mit einer Farbkennzeichnung anzeigen, die dem obigen Styling entspricht (wenn der Text nicht gefärbt ist, dann wird `::cue` in Ihrem Browser nicht unterstützt).
 
 {{EmbedLiveSample('More cue styling examples','400','330')}}
 
@@ -366,4 +355,4 @@ Das Beispiel sollte die Hinweise mit der oben beschriebenen Farbkennzeichnung ze
 
 ## Siehe auch
 
-- Die CSS [`::cue` und `::cue()`](/de/docs/Web/CSS/::cue) Pseudoelemente
+- Die CSS [`::cue` und `::cue()`](/de/docs/Web/CSS/Reference/Selectors/::cue) Pseudo-Elemente

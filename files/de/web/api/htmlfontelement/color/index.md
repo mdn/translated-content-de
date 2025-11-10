@@ -3,28 +3,26 @@ title: "HTMLFontElement: color-Eigenschaft"
 short-title: color
 slug: Web/API/HTMLFontElement/color
 l10n:
-  sourceCommit: 729754108952e0bac9fb6268fcdf24a63b3cbbf3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{deprecated_header}}{{APIRef("HTML DOM")}}
 
-Die veraltete
-**`HTMLFontElement.color`**
-Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Element/font#color) HTML-Attribut widerspiegelt und entweder eine benannte Farbe oder eine Farbe im hexadezimalen #RRGGBB-Format enthält.
+Die veraltete **`HTMLFontElement.color`**-Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Reference/Elements/font#color) HTML-Attribut widerspiegelt. Dieser kann entweder eine benannte Farbe oder eine Farbe im hexadezimalen #RRGGBB-Format enthalten.
 
-Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen (siehe [`<color>`](/de/docs/Web/CSS/color_value)):
+Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen (siehe [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value)):
 
-| Mikrosyntax               | Beschreibung                        | Beispiele                 |
-| ------------------------- | ----------------------------------- | ------------------------- |
-| Gültiger Farbnamen-String | _nameOfColor (nicht case-sensitiv)_ | `Green`, `green`, `GREEN` |
-| Gültiger Hex-Farbstring   | _#RRGGBB_                           | `#008000`                 |
-| RGB mit Dezimalwerten     | _rgb(x x x) (x im Bereich 0-255)_   | `rgb(0 128 0)`            |
+| Mikrosyntax                   | Beschreibung                               | Beispiele                 |
+| ----------------------------- | ------------------------------------------ | ------------------------- |
+| Gültiger benannter Farbstring | _nameOfColor (Groß-/Kleinschreibung egal)_ | `Green`, `green`, `GREEN` |
+| Gültiger Hex-Farbstring       | _#RRGGBB_                                  | `#008000`                 |
+| RGB mit Dezimalwerten         | _rgb(x x x) (x im Bereich 0-255)_          | `rgb(0 128 0)`            |
 
 ## Wert
 
 Ein String.
 
-Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) konvertiert, sodass `elt.color = null` äquivalent zu `elt.color = ""` ist.
+Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) konvertiert, sodass `elt.color = null` gleichbedeutend ist mit `elt.color = ""`.
 
 ## Beispiele
 

@@ -2,29 +2,29 @@
 title: GPUCommandBuffer
 slug: Web/API/GPUCommandBuffer
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUCommandBuffer`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine vorab aufgezeichnete Liste von GPU-Befehlen, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übermittelt werden können.
+Das **`GPUCommandBuffer`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine vorab aufgezeichnete Liste von GPU-Befehlen, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übermittelt werden können.
 
-Ein `GPUCommandBuffer` wird über die Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) erstellt; die darin aufgezeichneten GPU-Befehle werden zur Ausführung eingereicht, indem der `GPUCommandBuffer` als Parameter eines Aufrufs von [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) übergeben wird.
+Ein `GPUCommandBuffer` wird über die [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) Methode erstellt; die darin aufgezeichneten GPU-Befehle werden zur Ausführung übermittelt, indem der `GPUCommandBuffer` in den Parameter eines [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) Aufrufs übergeben wird.
 
 > [!NOTE]
-> Sobald ein `GPUCommandBuffer`-Objekt eingereicht wurde, kann es nicht erneut verwendet werden.
+> Sobald ein `GPUCommandBuffer` Objekt übermittelt wurde, kann es nicht erneut verwendet werden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- [`label`](/de/docs/Web/API/GPUCommandBuffer/label) {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUCommandBuffer/label)
+  - : Ein String, der ein Etikett bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const commandBuffer = commandEncoder.finish();
 device.queue.submit([commandBuffer]);

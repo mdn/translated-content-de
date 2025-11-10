@@ -1,15 +1,14 @@
 ---
 title: Date.prototype.getUTCMinutes()
+short-title: getUTCMinutes()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCMinutes
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getUTCMinutes()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Minuten für dieses Datum gemäß der Weltzeit zurück.
 
-Die **`getUTCMinutes()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Minuten dieses Datums gemäß der Weltzeit zurück.
-
-{{InteractiveExample("JavaScript Demo: Date.getUTCMinutes()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.getUTCMinutes()")}}
 
 ```js interactive-example
 const date1 = new Date("1 January 2000 03:15:30 GMT+07:00");

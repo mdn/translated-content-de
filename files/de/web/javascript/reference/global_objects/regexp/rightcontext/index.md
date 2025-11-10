@@ -1,26 +1,27 @@
 ---
 title: RegExp.rightContext ($')
+short-title: rightContext ($')
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/rightContext
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Deprecated_Header}}
+{{Deprecated_Header}}
 
 > [!NOTE]
-> Alle statischen `RegExp`-Eigenschaften, die den letzten Übereinstimmungszustand global offenlegen, sind veraltet. Siehe [veraltete RegExp-Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) für weitere Informationen.
+> Alle `RegExp`-statischen Eigenschaften, die den letzten Übereinstimmungszustand global preisgeben, sind veraltet. Weitere Informationen finden Sie unter [veraltete RegExp-Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp).
 
-Die statische Zugriffseigenschaft **`RegExp.rightContext`** liefert die Zeichenkette, die der letzten Übereinstimmung folgt. `RegExp["$'"]` ist ein Alias für diese Eigenschaft.
+Die statische Zugriffseigenschaft **`RegExp.rightContext`** gibt die Zeichenfolge zurück, die der letzten Übereinstimmung folgt. `RegExp["$'"]` ist ein Alias für diese Eigenschaft.
 
 ## Beschreibung
 
-Da `rightContext` eine statische Eigenschaft von {{jsxref("RegExp")}} ist, verwenden Sie es immer als `RegExp.rightContext` oder `RegExp["$'"]` und nicht als eine Eigenschaft eines von Ihnen erstellten `RegExp`-Objekts.
+Da `rightContext` eine statische Eigenschaft von {{jsxref("RegExp")}} ist, verwenden Sie es immer als `RegExp.rightContext` oder `RegExp["$'"]`, anstatt als eine Eigenschaft eines von Ihnen erstellten `RegExp`-Objekts.
 
-Der Wert von `rightContext` wird aktualisiert, wann immer eine Instanz von `RegExp` (aber nicht eine von `RegExp`-Unterklassen) eine erfolgreiche Übereinstimmung erzielt. Wenn keine Übereinstimmungen erzielt wurden, ist `rightContext` eine leere Zeichenkette. Der Set-Accessor von `rightContext` ist `undefined`, sodass Sie diese Eigenschaft nicht direkt ändern können.
+Der Wert von `rightContext` wird jedes Mal aktualisiert, wenn eine Instanz von `RegExp` (aber nicht einer `RegExp`-Unterklasse) eine erfolgreiche Übereinstimmung durchführt. Wenn keine Übereinstimmungen vorgenommen wurden, ist `rightContext` eine leere Zeichenfolge. Der Set-Zugriffsor von `rightContext` ist `undefined`, sodass Sie diese Eigenschaft nicht direkt ändern können.
 
-Sie können den Kurzformular-Alias nicht mit dem Punkt-Eigenschafts-Accessor verwenden (`RegExp.$'`), da `'` kein gültiger Identifikator-Teil ist, was ein {{jsxref("SyntaxError")}} verursacht. Verwenden Sie stattdessen die [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
+Sie können den Kurzschreib-Alias nicht mit dem Punkt-Eigenschafts-Zugriffsor (`RegExp.$'`) verwenden, da `'` kein gültiger Identitätsteils ist, was zu einem {{jsxref("SyntaxError")}} führt. Verwenden Sie stattdessen die [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
 
-`$'` kann auch in der Ersetzungszeichenkette von {{jsxref("String.prototype.replace()")}} verwendet werden, dies hat jedoch keinen Bezug zur `RegExp["$'"]`-Legacy-Eigenschaft.
+`$'` kann auch in der Ersetzungszeichenfolge von {{jsxref("String.prototype.replace()")}} verwendet werden, steht jedoch in keinem Zusammenhang mit der veralteten Eigenschaft `RegExp["$'"]`.
 
 ## Beispiele
 

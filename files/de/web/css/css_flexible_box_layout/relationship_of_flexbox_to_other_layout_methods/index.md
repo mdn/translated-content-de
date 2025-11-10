@@ -1,29 +1,28 @@
 ---
-title: Beziehung von Flexbox zu anderen Layoutmethoden
+title: Beziehung von Flexbox zu anderen Layout-Methoden
+short-title: Flexbox und andere Layouts
 slug: Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods
 l10n:
-  sourceCommit: 8a7e911652fcb4a61cc95f458d53f39ad08c0946
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{CSSRef}}
-
-In diesem Artikel werden wir uns anschauen, wie Flexbox in das Gesamtbild der CSS-Module passt. Wir werden herausfinden, welche Spezifikationen Sie ebenfalls beachten müssen, wenn Sie Flexbox lernen möchten und warum Flexbox sich von einigen anderen Modulen unterscheidet.
+In diesem Artikel werden wir uns ansehen, wie Flexbox in all die anderen CSS-Module passt. Wir werden herausfinden, welche Spezifikationen Sie ebenfalls beachten müssen, wenn Sie Flexbox lernen möchten, und warum Flexbox sich von einigen anderen Modulen unterscheidet.
 
 ## Das Box-Ausrichtungsmodul
 
-Viele Menschen schauen sich Flexbox zuerst an, wenn sie Flex-Elemente innerhalb eines Flex-Containers richtig ausrichten wollen. Flexbox bietet Zugang zu Eigenschaften, die die Ausrichtung von Elementen auf ihrer Querachse und die Justierung von Elementen auf der Hauptachse ermöglichen.
+Viele Personen befassen sich zuerst mit Flexbox, wenn sie Flex-Elemente innerhalb eines Flex-Containers richtig ausrichten möchten. Flexbox bietet Zugriff auf Eigenschaften, die die Ausrichtung von Elementen auf ihrer Querausgabe und die Rechtfertigung von Elementen auf der Hauptachse ermöglichen.
 
-Flexbox wurde ursprünglich in seinem eigenen [Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-Modul definiert, aber die Eigenschaften und Werte, die für andere Layoutmethoden gemeinsam sind, werden im [CSS-Box-Ausrichtungs](/de/docs/Web/CSS/CSS_box_alignment)-Modul definiert. Dieses Modul beschreibt, wie Ausrichtung, Justierung, Abstände und Rinnen in allen Layoutsystemen funktionieren — nicht nur in Flexbox. Wenn eine Funktion in beiden Spezifikationen definiert ist, beachten Sie, dass das Box-Ausrichtungsmodul das Flexible Box-Layout-Modul ersetzt.
+Flexbox wurde ursprünglich in seinem eigenen [flexiblen Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)-Modul definiert, aber die Eigenschaften und Werte, die anderen Layout-Methoden gemeinsam sind, sind im [CSS-Box-Ausrichtungs](/de/docs/Web/CSS/Guides/Box_alignment)-Modul definiert. Dieses Modul beschreibt, wie Ausrichtung, Rechtfertigung, Abstände und Rinnen in allen Layout-Systemen funktionieren – nicht nur in Flexbox. Wenn eine Funktion in beiden Spezifikationen definiert ist, beachten Sie, dass das Box-Ausrichtungsmodul das flexible Box-Layout-Modul ersetzt.
 
 ## Schreibmodi
 
-Im Artikel [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) wird darauf hingewiesen, dass Flexbox **schreibmodus-bewusst** ist. Schreibmodi sind ausführlich im [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)-Modul beschrieben, welches detailliert, wie CSS die verschiedenen Schreibmodi unterstützt, die international existieren. Es ist wichtig zu verstehen, wie sich dadurch unsere Flex-Layouts auswirken, da der Schreibmodus die Richtung ändert, in der Blöcke in unserem Dokument angeordnet werden. Das Verständnis der **Block**- und **Inline**-Richtungen ist entscheidend für neue Layoutmethoden.
+Im Artikel [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) wird darauf hingewiesen, dass Flexbox **schreibmodusbewusst** ist. Schreibmodi werden ausführlich im [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes)-Modul beschrieben, das erläutert, wie CSS die verschiedenen international vorhandenen Schreibmodi unterstützt. Wir müssen uns bewusst sein, wie sich dies auf unsere Flex-Layouts auswirkt, da der Schreibmodus die Richtung ändert, in der Blöcke in unserem Dokument angeordnet sind. Das Verständnis von **Block**- und **Inline**-Richtungen ist entscheidend für neue Layout-Methoden.
 
-Es ist erwähnenswert, dass wir den Schreibmodus unseres Dokuments möglicherweise aus anderen Gründen ändern möchten als nur zur Veröffentlichung von Inhalten in einer Sprache, die einen anderen Schreibmodus verwendet. Das CSS-Schreibmodi-Modul definiert, wie Text horizontal, von links nach rechts und von rechts nach links, und vertikal, von oben nach unten, geschrieben werden kann. Dies ist wichtig für Internationalisierung und Übersetzungen, kann aber auch für kreative Designs genutzt werden.
+Es ist erwähnenswert, dass wir den Schreibmodus unseres Dokuments aus Gründen ändern möchten, die nichts mit der Veröffentlichung von Inhalten in einer Sprache zu tun haben, die einen anderen Schreibmodus verwendet. Das CSS-Schreibmodi-Modul definiert, wie Text horizontal, von links nach rechts und von rechts nach links sowie vertikal, von oben nach unten, geschrieben werden kann. Dies ist wichtig für die Internationalisierung und Übersetzungen, aber diese Funktionalitäten können auch für kreative Designs verwendet werden.
 
 ### Die Schreibmodi
 
-Die Schreibmodus-Spezifikation definiert die folgenden Werte der {{cssxref("writing-mode")}}-Eigenschaft, die dazu dienen, die Richtung zu ändern, in der Blöcke auf der Seite angeordnet werden, um die Richtung anzupassen, wenn der Inhalt in diesem bestimmten Schreibmodus formatiert wird. Sie können das folgende Live-Beispiel auf diese Modi ändern, um zu sehen, was mit dem Flex-Layout passiert.
+Die Schreibmodi-Spezifikation definiert die folgenden Werte der {{cssxref("writing-mode")}}-Eigenschaft, die dazu dienen, die Richtung zu ändern, in der Blöcke auf der Seite angeordnet sind, um die Richtung anzupassen, in der Blöcke angeordnet sind, wenn Inhalt in diesem bestimmten Schreibmodus formatiert wird. Sie können das Live-Beispiel unten auf diese Modi ändern, um zu sehen, was mit dem Flex-Layout passiert.
 
 - `horizontal-tb`
 - `vertical-rl`
@@ -56,17 +55,17 @@ Die Schreibmodus-Spezifikation definiert die folgenden Werte der {{cssxref("writ
 
 {{EmbedLiveSample("writing-modes")}}
 
-Die Werte `sideways-rl` und `sideways-lr` werden derzeit nur in Firefox unterstützt.
+Die `sideways-rl` und `sideways-lr` werden derzeit nur in Firefox unterstützt.
 
-Beachten Sie, dass Sie normalerweise nicht CSS und die `writing-mode`-Eigenschaft verwenden würden, um ein gesamtes Dokument in einen anderen Schreibmodus zu ändern. Dies würde über HTML erfolgen, indem ein [`dir`](/de/docs/Web/HTML/Global_attributes/dir)- und [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut zum {{htmlelement("html")}}-Element hinzugefügt wird, um die Dokumentsprache und die Standardtextrichtung anzugeben. Dies würde bedeuten, dass das Dokument korrekt angezeigt wird, auch wenn CSS nicht geladen wird.
+Beachten Sie, dass Sie normalerweise nicht CSS und die `writing-mode`-Eigenschaft verwenden, um ein gesamtes Dokument auf einen anderen Schreibmodus umzustellen. Dies würde über HTML erfolgen, indem ein [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)- und [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut zum {{htmlelement("html")}}-Element hinzugefügt wird, um die Dokumentensprache und die Standardtextausrichtung anzugeben. Dies würde bedeuten, dass das Dokument korrekt angezeigt wird, selbst wenn CSS nicht geladen wird.
 
-## Flexbox und andere Layoutmethoden
+## Flexbox und andere Layout-Methoden
 
-Einige Eigenschaften wurden unter der Annahme entworfen, dass der Inhalt mit dem Standardblock-Layout-System angeordnet wird, und gelten nicht im Kontext des Flex-Layouts. Ein zu `display: flex` gesetztes Element verhält sich in den meisten Fällen wie jeder andere block-level Container, der einen Umgebungsblock erstellt. Float-Elemente werden nicht eingreifen und die Ränder der Container werden nicht kollabieren.
+Einige Eigenschaften wurden unter der Annahme entworfen, dass Inhalt mithilfe des Standard-Block-Layoutsystems angeordnet wird, und gelten nicht im Kontext des Flex-Layouts. Ein Element, das auf `display: flex` gesetzt ist, verhält sich in den meisten Fällen wie jeder andere block-level Container, der einen enthaltenen Block festlegt. Floats werden nicht eindringen, und die Ränder der Container werden nicht zusammenbrechen.
 
-Bezüglich der Flex-Elemente, wenn ein Element gefloatet oder gecleared war und dann zu einem Flex-Element wird, da das übergeordnete Element `display: flex` angewendet bekommt, wird das Floaten und Clearen nicht mehr erfolgen und das Element wird nicht aus dem normalen Fluss herausgenommen, wie es bei Floats der Fall ist. Wenn Sie die {{cssxref("vertical-align")}}-Eigenschaft verwendet haben, wie bei `inline-block` oder Tabellenlayout für die Ausrichtung, wird dies das Element nicht mehr beeinflussen und Sie können stattdessen die Ausrichtungseigenschaften von Flexbox verwenden.
+In Bezug auf Flex-Elemente: Wenn ein Element gefloatet oder gecleart wurde und dann zu einem Flex-Element wird, weil der übergeordnete Container `display: flex` angewendet hat, wird das Floaten und Clearen nicht mehr geschehen, und das Element wird nicht wie bei Floats aus dem normalen Fluss herausgenommen. Wenn Sie die {{cssxref("vertical-align")}}-Eigenschaft verwendet haben, wie sie bei `inline-block` oder Tabellensatz zur Ausrichtung verwendet wird, wird dies das Element nicht mehr beeinflussen und Sie können stattdessen die Ausrichtungseigenschaften von Flexbox verwenden.
 
-Im nächsten Live-Beispiel wurden die Kindelemente gefloatet und dann ihrem Container `display: flex` hinzugefügt. Wenn Sie `display: flex` entfernen, sollten Sie sehen, dass das `.box`-Element kollabiert, da wir keine Clearing-Anweisung angewendet haben. Dies zeigt, dass das Floaten stattfindet. Wenden Sie `display: flex` erneut an und das Kollabieren passiert nicht. Das liegt daran, dass die Elemente keinen Float mehr haben, da sie in Flex-Elemente umgewandelt wurden.
+In diesem nächsten Live-Beispiel wurden die Kind-Elemente gefloatet, und dann wurde ihrem Container `display: flex` hinzugefügt. Wenn Sie `display: flex` entfernen, sollten Sie sehen, dass das `.box`-Element kollabiert, da wir keine Clearing angewendet haben. Dies zeigt, dass das Floaten stattfindet. Wenden Sie `display: flex` erneut an und das Kollabieren geschieht nicht. Das liegt daran, dass die Elemente nicht mehr gefloatet sind, da sie in Flex-Elemente umgewandelt wurden.
 
 ```html live-sample___floats
 <div class="box">
@@ -93,15 +92,15 @@ Im nächsten Live-Beispiel wurden die Kindelemente gefloatet und dann ihrem Cont
 
 {{EmbedLiveSample("floats")}}
 
-## Flexbox und Rasterlayout
+## Flexbox und Grid-Layout
 
-[CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout) und Flexbox teilen viele Eigenschaften und Werte. Bei abweichenden Eigenschaften, wenn ein Flex-Element zu einem Rasterelement wird, werden alle den Kindelementen zugewiesenen `flex`-Werte, wie `flex-end`, ignoriert. Wie oben erwähnt, überschreiben Werte, die im Box-Ausrichtungsmodul definiert sind und in beiden Layoutmethoden funktionieren, diejenigen, die nur in Flexbox definiert sind.
+[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) und Flexbox teilen viele Eigenschaften und Werte. Bei abweichenden Eigenschaften, wenn ein Flex-Element zu einem Grid-Element wird, werden alle den Kindelementen zugewiesenen `flex`-Werte, wie `flex-end`, ignoriert. Wie oben erwähnt, ersetzen Werte, die im Box-Ausrichtungsmodul definiert sind, die über beide Layout-Methoden hinweg arbeiten, diejenigen, die nur in Flexbox definiert sind.
 
-### Flex und Raster — was ist der Unterschied?
+### Flex und Grid — was ist der Unterschied?
 
-Oft wird gefragt, was der Unterschied zwischen Flexbox und CSS-Rasterlayout ist — warum haben wir zwei Spezifikationen, die manchmal ähnliche Dinge zu tun scheinen?
+Eine häufig gestellte Frage ist, was der Unterschied zwischen Flexbox und CSS-Grid-Layout ist – warum haben wir zwei Spezifikationen, die manchmal dasselbe tun zu scheinen?
 
-Die einfachste Antwort auf diese Frage ist in den Spezifikationen selbst definiert. Flexbox ist eine ein-dimensionale Layoutmethode, während das Rasterlayout eine zwei-dimensionale Layoutmethode ist. Das unten stehende Beispiel hat ein Flex-Layout. Wie bereits im Artikel [Grundkonzepte](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) beschrieben, können Flex-Elemente so gestaltet werden, dass sie umbrechen, aber sobald sie dies tun, verhält sich jede Zeile, als ob sie einen eigenen Flex-Container hätte. Wenn der Platz verteilt wird, berücksichtigt Flexbox nicht die Platzierung der Elemente in anderen Zeilen und versucht, Dinge miteinander abzustimmen.
+Die einfachste Antwort auf diese Frage ist in den Spezifikationen selbst definiert. Flexbox ist eine eindimensionale Layout-Methode, während das Grid-Layout eine zweidimensionale Layout-Methode ist. Das folgende Beispiel hat ein Flex-Layout. Wie im Artikel [Grundkonzepte](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) beschrieben, können Flex-Elemente zum Umbrechen gebracht werden, aber sobald sie dies tun, verhält sich jede Zeile, als wäre es ein Flex-Container für sich. Wenn der Raum verteilt wird, betrachtet Flexbox nicht die Platzierung von Elementen in anderen Zeilen und versucht nicht, Dinge mit einander auszurichten.
 
 ```html live-sample___flex-layout
 <div class="box">
@@ -134,7 +133,7 @@ Die einfachste Antwort auf diese Frage ist in den Spezifikationen selbst definie
 
 {{EmbedLiveSample("flex-layout", "", "300px")}}
 
-Wenn wir ein sehr ähnliches Layout mit Raster erstellen, können wir das Layout in Zeilen und Spalten steuern.
+Wenn wir ein sehr ähnliches Layout mit Grid erstellen, können wir das Layout sowohl in Zeilen als auch in Spalten steuern.
 
 ```html live-sample___grid-layout
 <div class="box">
@@ -166,31 +165,31 @@ Wenn wir ein sehr ähnliches Layout mit Raster erstellen, können wir das Layout
 
 {{EmbedLiveSample("grid-layout", "", "300px")}}
 
-Diese Beispiele weisen auf einen weiteren entscheidenden Unterschied zwischen diesen Layoutmethoden hin. Im Rasterlayout erfolgt der Großteil der Größenangabe im Container, indem Spuren eingerichtet werden und dann Elemente in diese platziert werden. In Flexbox, obwohl Sie einen Flex-Container erstellen und die Richtung auf dieser Ebene festlegen, muss jede Kontrolle über die Elementgröße an den Elementen selbst erfolgen.
+Diese Beispiele weisen auf einen weiteren Hauptunterschied zwischen diesen Layout-Methoden hin. Im Grid-Layout werden die meisten Größenangaben am Container vorgenommen, indem Spuren eingerichtet werden und dann Elemente in sie platziert werden. In Flexbox, obwohl Sie einen Flex-Container erstellen und die Richtung auf dieser Ebene festlegen, muss jede Kontrolle über die Größe von Elementen auf den Elementen selbst erfolgen.
 
-In einigen Fällen könnten Sie entweder die eine oder die andere Layoutmethode verwenden. Je sicherer Sie mit beiden sind, desto mehr werden Sie feststellen, dass jede besser für spezielle Layoutanforderungen geeignet ist, und Sie werden schließlich beide Methoden in Ihrem CSS verwenden. Es gibt selten eine eindeutige richtige oder falsche Antwort.
+In einigen Fällen könnten Sie entweder Layout-Methode verwenden. Wenn Sie mit beiden vertraut werden, werden Sie feststellen, dass jede für bestimmte Layout-Bedürfnisse besser geeignet ist, und Sie werden beide Methoden in Ihrem CSS haben. Es gibt selten eine richtige oder falsche Antwort.
 
-Als allgemeine Regel gilt: Wenn Sie Breiten auf Flex-Elementen einstellen, um Elemente in einer Zeile eines umgebrochenen Flex-Containers mit den darüber liegenden Elementen zu koordinieren, sollten Sie stattdessen ein zwei-dimensionales Rasterlayout verwenden.
+Als allgemeine Regel gilt: Wenn Sie Breiten auf Flex-Elementen festlegen, um Elemente in einer Zeile eines umgebrochenen Flex-Containers mit den Elementen darüber auszurichten, sollten Sie stattdessen ein zweidimensionales Grid-Layout wählen.
 
-Es gibt keine festen Regeln wie "Sie sollten Flexbox für kleine Komponenten und Rasterlayout für größere verwenden." Eine kleine Komponente kann zwei-dimensional sein, und ein großes Layout kann besser mit einem ein-dimensionalen Layout dargestellt werden. Probieren Sie Dinge aus — Sie haben eine Wahl an Layoutmethoden, also nutzen Sie sie.
+Es gibt keine festen Regeln wie "Sie sollten Flexbox für kleine Komponenten und Grid-Layout für größere verwenden." Eine winzige Komponente kann zweidimensional sein, und ein großes Layout kann besser mit Layout in einer Dimension dargestellt werden. Probieren Sie Dinge aus - Sie haben eine Auswahl an Layout-Methoden, also nutzen Sie sie.
 
-Für weitere Vergleiche von Raster und Flexbox siehe den Artikel [Beziehung des Rasterlayouts zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods). Dieser Artikel beschreibt viele der Unterschiede, die das Rasterlayout vom Flex-Layout unterscheiden, und zeigt einige der zusätzlichen Funktionen, die Sie beim Verwenden des Rasterlayouts erhalten, wie das Überlagern von Elementen auf dem Raster. Dies kann Ihnen auch helfen zu entscheiden, welche Layoutmethode Sie verwenden sollten.
+Für weitere Vergleiche von Grid und Flexbox siehe den Artikel [Beziehung des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods). Dieser Artikel beschreibt viele der Unterschiede zwischen Grid-Layout und Flex-Layout und zeigt einige der zusätzlichen Funktionalitäten, die Sie bei der Verwendung von Grid-Layout erhalten, wie das Schichten von Elementen auf dem Grid. Dies kann Ihnen auch bei der Entscheidung helfen, welche Layout-Methode zu verwenden ist.
 
 ## Flexbox und display: contents
 
 Der `contents`-Wert der {{cssxref("display")}}-Eigenschaft wird in der Spezifikation wie folgt beschrieben:
 
-> "Das Element selbst erzeugt keine Boxen, aber seine Kinder und Pseudo-Elemente erzeugen weiterhin Boxen wie gewohnt. Für die Zwecke der Box-Erzeugung und des Layouts muss das Element behandelt werden, als wäre es durch seine Kinder und Pseudo-Elemente im Dokumentbaum ersetzt worden."
+> "Das Element selbst erzeugt keine Boxen, aber seine Kinder und Pseudoelemente erzeugen nach wie vor Boxen wie normal. Für die Box-Generierung und das Layout muss das Element so behandelt werden, als wäre es durch seine Kinder und Pseudoelemente im Dokumentbaum ersetzt worden."
 
-Dieser Wert von `display` steuert die Box-Erzeugung und ob das Element eine Box erzeugen soll, die wir auf der Seite gestalten und sehen können, oder ob stattdessen die Box, die es normalerweise erzeugen würde, entfernt werden soll und die Kind-Elemente im Wesentlichen nach oben verschoben werden, um an welchem Layoutverfahren auch immer der Elternteil beteiligt gewesen wäre, teilzunehmen. Dies ist viel einfacher zu verstehen anhand eines Beispiels.
+Dieser Wert von `display` steuert die Box-Generierung und ob das Element eine Box erzeugen soll, die wir auf der Seite stylen und sehen können, oder ob stattdessen die Box, die es normalerweise erzeugen würde, entfernt werden soll und die Kind-Elemente im Wesentlichen nach oben gezogen werden, um an der Layout-Methode teilzunehmen, die der Elternteil gewesen wäre. Dies ist viel einfacher zu verstehen mit einem Beispiel.
 
-Im folgenden Live-Beispiel haben wir einen Flex-Container, der drei Flex-Elemente enthält. Eines hat zwei verschachtelte Elemente in sich, die normalerweise nicht am Flex-Layout teilnehmen würden. Flex-Layout gilt nur für die direkten Kinder eines Flex-Containers.
+Im folgenden Live-Beispiel haben wir einen Flex-Container mit drei Flex-Elementen. Eines hat zwei Elemente darin verschachtelt, die normalerweise nicht an Flex-Layout teilnehmen würden. Das Flex-Layout gilt nur für die direkten Kinder eines Flex-Containers.
 
-Durch das Hinzufügen von `display: contents` zum Umschlag um die verschachtelten Elemente können Sie sehen, dass das Element aus dem Layout verschwunden ist und die beiden Unterkinder so angeordnet werden, als wären sie direkte Kinder des Flex-Containers. Sie können versuchen, die Zeile mit `display: contents` zu entfernen, um sie zurückkehren zu sehen.
+Indem wir `display: contents` auf das umschließende Element der verschachtelten Elemente anwenden, können Sie sehen, dass das Element aus dem Layout verschwunden ist und die beiden Unterkinder so angeordnet wurden, als wären sie direkte Kinder des Flex-Containers. Sie können versuchen, die `display: contents`-Zeile zu entfernen, um zurückzukehren.
 
 Beachten Sie, dass dies nur die Box aus dem Layout entfernt; die Unterkinder werden in keiner anderen Weise zu direkten Kindern. Wir haben einen direkten Kind-Selektor verwendet, um den Hintergrund und die Ränder zu den Flex-Elementen hinzuzufügen; es wurde nicht auf unsere verschachtelten Kinder angewendet. Sie wurden als Flex-Elemente angeordnet, aber da sie keine direkten Kinder sind, erhalten sie nicht das andere Styling.
 
-Da die Box entfernt wird, können Sie sie nicht verwenden, um zum Beispiel eine Hintergrundfarbe hinter den verschachtelten Unterkindern hinzuzufügen. Wenn Sie `display: contents` in diesem Live-Beispiel entfernen, sehen Sie, dass das direkte Kind, das wir entfernen, eine orange Hintergrundfarbe hat. Dies verschwindet ebenfalls, wenn die Box verschwindet.
+Da die Box entfernt wird, können Sie sie dann nicht mehr verwenden, um z. B. eine Hintergrundfarbe hinter den verschachtelten Unterkindern hinzuzufügen. Wenn Sie `display: contents` in diesem Live-Beispiel entfernen, werden Sie sehen, dass das direkte Kind, das wir entfernen, einen orangenen Hintergrund hat. Dies verschwindet auch, wenn die Box verschwindet.
 
 ```html live-sample___display-contents
 <div class="box">
@@ -226,4 +225,4 @@ Da die Box entfernt wird, können Sie sie nicht verwenden, um zum Beispiel eine 
 {{EmbedLiveSample("display-contents")}}
 
 > [!WARNING]
-> Einige Browser entfernen fälschlicherweise einige Elemente mit `display: contents` aus dem Barrierefreiheitsbaum (aber Nachfahren bleiben bestehen), indem sie die Semantik dieser Elemente entfernen, während ihr Kinderinhalt beibehalten wird. Das bedeutet, dass das Element selbst von Bildschirmlesegeräten möglicherweise nicht angesagt wird. Siehe [`display: contents`](/de/docs/Web/CSS/display#display_contents) und [display: contents considered harmful](https://ericwbailey.design/published/display-contents-considered-harmful/).
+> Einige Browser entfernen fälschlicherweise einige Elemente mit `display: contents` aus dem Barrierefreiheitsbaum (aber Nachkommen bleiben erhalten), wodurch die Semantik dieser Elemente entfernt wird, während ihr Kinderinhalt beibehalten wird. Dies bedeutet, dass das Element selbst möglicherweise nicht von Screenreadern angekündigt wird. Siehe [`display: contents`](/de/docs/Web/CSS/Reference/Properties/display#display_contents) und [`display: contents` considered harmful](https://ericwbailey.design/published/display-contents-considered-harmful/).

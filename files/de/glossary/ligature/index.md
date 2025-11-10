@@ -2,12 +2,10 @@
 title: Ligatur
 slug: Glossary/Ligature
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Eine **Ligatur** ist das Zusammenfügen von zwei Zeichen zu einer Form. Zum Beispiel ist im Französischen "œ" eine Ligatur von "oe".
+Eine **Ligatur** ist das Verbinden zweier Zeichen zu einer Form. Zum Beispiel ist im Französischen "œ" eine Ligatur von "oe".
 
 Sie können Ligaturen auf Ihrer Webseite mit {{cssxref("font-variant-ligatures")}} implementieren.
 

@@ -2,50 +2,48 @@
 title: Aktualisieren von Add-ons für Firefox 6
 slug: Mozilla/Firefox/Releases/6/Updating_add-ons
 l10n:
-  sourceCommit: 8943d682ef5a0f9a3f8b66049ff3042e07f140ba
+  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
 ---
-
-{{FirefoxSidebar}}
 
 Dieser Artikel bietet einen Überblick über die Änderungen, die Sie an Ihren Add-ons vornehmen müssen, damit sie in Firefox 6 ordnungsgemäß funktionieren. Eine vollständige Liste der entwicklerbezogenen Änderungen in Firefox 6 finden Sie unter [Firefox 6 für Entwickler](/de/docs/Mozilla/Firefox/Releases/6).
 
 ## Müssen Sie überhaupt etwas tun?
 
-Wenn Ihr Add-on über [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/) (AMO) verteilt wird, wurde es von einem automatisierten Kompatibilitätsüberprüfungstool überprüft. Add-ons, die keine APIs nutzen, die sich in Firefox 6 geändert haben, und keine Binärkomponenten enthalten (die für jede Hauptversion von Firefox neu kompiliert werden müssen), wurden auf AMO automatisch aktualisiert, um anzuzeigen, dass sie in Firefox 6 funktionieren.
+Wenn Ihr Add-on auf [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/) (AMO) verteilt wird, wurde es von einem automatisierten Tool zur Kompatibilitätsüberprüfung überprüft. Add-ons, die keine in Firefox 6 geänderten APIs verwenden und keine binären Komponenten haben (die für jede größere Firefox-Version neu kompiliert werden müssen), wurden auf AMO automatisch aktualisiert, um anzugeben, dass sie in Firefox 6 funktionieren.
 
-Sie sollten daher zunächst AMO besuchen und prüfen, ob Ihr Add-on überhaupt überarbeitet werden muss.
+Deshalb sollten Sie zunächst AMO besuchen und prüfen, ob überhaupt Arbeiten an Ihrem Add-on erforderlich sind.
 
 > [!NOTE]
-> Sie sollten Ihr Add-on trotzdem in Firefox 6 testen, selbst wenn es automatisch aktualisiert wurde. Es gibt Randfälle, die möglicherweise nicht automatisch erkannt werden.
+> Sie sollten Ihr Add-on dennoch in Firefox 6 testen, auch wenn es automatisch aktualisiert wurde. Es gibt Randfälle, die möglicherweise nicht automatisch erkannt werden.
 
-Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kehren Sie zurück zu dieser Seite und lesen Sie weiter.
+Sobald Sie bestätigt haben, dass Änderungen erforderlich sind, kehren Sie zu dieser Seite zurück und lesen Sie weiter.
 
 ## UI-Änderungen
 
-Die Hinzufügung des neuen Untermenüs „Web Developer“ im Menü „Extras“ bedeutet, dass Overlays, die von den dort verschobenen Elementen abhängen, anders funktionieren werden als bisher. Ihre Overlays werden weiterhin funktionieren, aber Ihre Elemente werden nicht dort landen, wo Sie sie erwarten. Sie sollten Ihre Overlays aktualisieren, um sicherzustellen, dass Menüeinträge dort platziert werden, wo Sie sie haben möchten.
+Die Hinzufügung des neuen Untermenüs „Web Developer“ im Menü „Tools“ bedeutet, dass Overlays, die sich auf die dorthin verschobenen Elemente stützen, anders funktionieren werden als früher. Ihre Overlays funktionieren weiterhin, aber Ihre Elemente werden nicht an der erwarteten Stelle erscheinen. Sie sollten Ihre Overlays aktualisieren, um sicherzustellen, dass Menüpunkte an der vorgesehenen Stelle landen.
 
-Ähnlich kann die Reihenfolge der Menüeinträge in den Menüs „Verlauf“ und „Lesezeichen“ auch die Overlays Ihres Add-ons beeinflussen.
+Ähnlich kann die Reihenfolge der Elemente in den Menüs „History“ und „Bookmarks“ ebenfalls die Overlays Ihres Add-ons beeinflussen.
 
-## Kompatibilität von Binärkomponenten
+## Kompatibilität der binären Komponenten
 
-Ein Fehler in Firefox 5 bedeutete, dass Binärkomponenten nicht ordnungsgemäß abgelehnt wurden, wenn sie für eine andere Version von Gecko erstellt wurden. Dies ist in Firefox 6 behoben; wenn die Binärkomponenten Ihres Add-ons nicht geladen werden, stellen Sie sicher, dass Sie sie gegen das Gecko 6 SDK neu erstellt haben.
+Ein Fehler in Firefox 5 führte dazu, dass binäre Komponenten nicht richtig abgelehnt wurden, wenn sie für eine andere Version von Gecko gebaut wurden. Dies ist in Firefox 6 behoben; wenn die binären Komponenten Ihres Add-ons nicht geladen werden, stellen Sie sicher, dass Sie sie gegen das Gecko 6 SDK neu gebaut haben.
 
-## Voreinstellungen
+## Einstellungen
 
-Die Voreinstellung `app.update.timer` wurde entfernt; Sie müssen stattdessen die Voreinstellung `app.update.timerMinimumDelay` verwenden.
+Die Einstellung `app.update.timer` wurde entfernt; Sie müssen stattdessen die Einstellung `app.update.timerMinimumDelay` verwenden.
 
-Außerdem wurden site-spezifische Datenschutzvoreinstellungen hinzugefügt. Dies betrifft nur Add-ons, die erwarten, dass datenschutzbezogene Voreinstellungen (Datenschutz, Passwörter merken usw.) im Hauptfenster der Voreinstellungen vorhanden sind.
+Zudem wurden sitespezifische Datenschutzeinstellungen hinzugefügt. Dies betrifft nur Add-ons, die erwarten, dass datenschutzbezogene Einstellungen (Datenschutz, Passwörter merken usw.) im Hauptpräferenzfenster zu finden sind.
 
 ## DOM-Änderungen
 
-Die [`window.top`](/de/docs/Web/API/Window/top)-Eigenschaft ist jetzt schreibgeschützt. Dies wirkt sich auf Ihr Add-on aus, wenn Sie eine nicht deklarierte Variable namens `top` in einem Chrome-Skript haben.
+Die Eigenschaft [`window.top`](/de/docs/Web/API/Window/top) ist jetzt schreibgeschützt. Dies betrifft Ihr Add-on, wenn Sie eine nicht deklarierte Variable namens `top` in einem Chrome-Skript verwenden.
 
 ## URL-Verarbeitung
 
-`javascript:` und `data:` URLs, die in die Adressleiste eingegeben werden, erben nicht mehr den Hauptbeteiligten der aktuell geladenen Seite. Dies wird wahrscheinlich nur wenige Add-ons betreffen, aber wenn Sie Code ausführen, der diese URLs verwendet, sollten Sie sicherstellen, dass alles wie erwartet funktioniert.
+`javascript:`- und `data:`-URLs, die in die Adressleiste eingegeben werden, erben nicht mehr den Ursprung der aktuell geladenen Seite. Dies wird wahrscheinlich nicht viele Add-ons betreffen, aber wenn Sie Code ausführen, der diese URLs verwendet, sollten Sie überprüfen, ob alles wie erwartet funktioniert.
 
-[Firefox-Bug 658949](https://bugzil.la/658949) hat geändert, wie das Hash-Symbol (#) in Daten-URLs behandelt wird, was möglicherweise CSS-Stilexemplare, die dieses Symbol enthalten, beeinträchtigen kann, wenn es nicht maskiert ist.
+[Firefox Bug 658949](https://bugzil.la/658949) hat geändert, wie das Hash-Symbol (#) in Daten-URLs behandelt wird, was CSS-Stylesheets, die dieses Symbol enthalten, beeinträchtigen kann, wenn es nicht escape’d ist.
 
 ## Schnittstellen
 
-Einige Schnittstellen, die veraltet oder Implementierungsdetails waren, [wurden entfernt](/de/docs/Mozilla/Firefox/Releases/6#removed_interfaces). Wenn Sie auf eine von ihnen angewiesen sind, müssen Sie Ihren Code überarbeiten.
+Einige Schnittstellen, die veraltet oder Implementierungsdetails waren, [wurden entfernt](/de/docs/Mozilla/Firefox/Releases/6#removed_interfaces). Wenn Sie auf eine dieser Schnittstellen angewiesen sind, müssen Sie Ihren Code überarbeiten.

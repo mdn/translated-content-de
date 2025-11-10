@@ -2,26 +2,26 @@
 title: Visualisierungen mit Web Audio API
 slug: Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: fd56a549d24a8002df09735ee8319ce1a721c233
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Eine der interessantesten Funktionen der Web Audio API ist die Fähigkeit, Frequenz-, Wellenform- und andere Daten aus Ihrer Audioquelle zu extrahieren, die dann zur Erstellung von Visualisierungen verwendet werden können. Dieser Artikel erklärt, wie das funktioniert, und bietet ein paar grundlegende Anwendungsbeispiele.
+Eines der interessantesten Merkmale der Web Audio API ist die Möglichkeit, Frequenz-, Wellenform- und andere Daten von Ihrer Audioquelle zu extrahieren, die dann zur Erstellung von Visualisierungen verwendet werden können. Dieser Artikel erklärt, wie das geht, und bietet einige grundlegende Anwendungsfälle.
 
 > [!NOTE]
 > Sie finden funktionierende Beispiele für alle Code-Snippets in unserem [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo.
 
 ## Grundkonzepte
 
-Um Daten aus Ihrer Audioquelle zu extrahieren, benötigen Sie ein [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), das mit der Methode [`BaseAudioContext.createAnalyser`](/de/docs/Web/API/BaseAudioContext/createAnalyser) erstellt wird, zum Beispiel:
+Um Daten von Ihrer Audioquelle zu extrahieren, benötigen Sie einen [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), der mit der Methode [`BaseAudioContext.createAnalyser`](/de/docs/Web/API/BaseAudioContext/createAnalyser) erstellt wird. Zum Beispiel:
 
 ```js
 const audioCtx = new AudioContext();
 const analyser = audioCtx.createAnalyser();
 ```
 
-Dieser Knoten wird dann zu einem gewissen Zeitpunkt zwischen Ihrer Quelle und Ihrem Ziel mit Ihrer Audioquelle verbunden, zum Beispiel:
+Dieser Knoten wird dann zu einem bestimmten Zeitpunkt zwischen Ihrer Quelle und Ihrem Ziel mit Ihrer Audioquelle verbunden. Zum Beispiel:
 
 ```js
 const source = audioCtx.createMediaStreamSource(stream);
@@ -31,18 +31,18 @@ distortion.connect(audioCtx.destination);
 ```
 
 > [!NOTE]
-> Sie müssen den Ausgang des Analyser-Knotens nicht an einen anderen Knoten anschließen, damit er funktioniert, solange der Eingang direkt oder über einen anderen Knoten mit der Quelle verbunden ist.
+> Sie müssen den Ausgang des Analyseknotens nicht an einen anderen Knoten anschließen, damit er funktioniert, solange der Eingang an die Quelle angeschlossen ist, entweder direkt oder über einen anderen Knoten.
 
-Das Analyser-Node erfasst dann Audiodaten mittels einer Fast Fourier Transformation (fft) in einem bestimmten Frequenzbereich, abhängig davon, was Sie als [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize)-Eigenschaftswert angeben (wenn kein Wert angegeben ist, ist der Standardwert 2048).
+Der Analyseknoten erfasst dann Audiodaten mit einer Fast Fourier Transform (fft) in einem bestimmten Frequenzbereich, abhängig von dem, was Sie als Wert der Eigenschaft [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize) angeben (wenn kein Wert angegeben wird, beträgt der Standardwert 2048).
 
 > [!NOTE]
-> Sie können auch einen minimalen und maximalen Leistungswert für den fft-Datenskalenbereich unter Verwendung von [`AnalyserNode.minDecibels`](/de/docs/Web/API/AnalyserNode/minDecibels) und [`AnalyserNode.maxDecibels`](/de/docs/Web/API/AnalyserNode/maxDecibels) festlegen sowie verschiedene Datenmittelungskonstanten unter Verwendung von [`AnalyserNode.smoothingTimeConstant`](/de/docs/Web/API/AnalyserNode/smoothingTimeConstant). Lesen Sie die entsprechenden Seiten, um weitere Informationen zur Verwendung zu erhalten.
+> Sie können auch einen minimalen und maximalen Leistungswert für den Bereich der fft-Daten-Skalierung festlegen, indem Sie [`AnalyserNode.minDecibels`](/de/docs/Web/API/AnalyserNode/minDecibels) und [`AnalyserNode.maxDecibels`](/de/docs/Web/API/AnalyserNode/maxDecibels) verwenden, sowie verschiedene Datenmittelungs-Konstanten mit [`AnalyserNode.smoothingTimeConstant`](/de/docs/Web/API/AnalyserNode/smoothingTimeConstant). Lesen Sie diese Seiten, um weitere Informationen zur Verwendung zu erhalten.
 
-Um Daten zu erfassen, müssen Sie die Methoden [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) und [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) verwenden, um Frequenzdaten zu erfassen, und [`AnalyserNode.getByteTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getByteTimeDomainData) sowie [`AnalyserNode.getFloatTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getFloatTimeDomainData), um Wellenformdaten zu erfassen.
+Um Daten zu erfassen, müssen Sie die Methoden [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) und [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) verwenden, um Frequenzdaten zu erfassen, sowie [`AnalyserNode.getByteTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getByteTimeDomainData) und [`AnalyserNode.getFloatTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getFloatTimeDomainData), um Wellenformdaten zu erfassen.
 
-Diese Methoden kopieren Daten in ein angegebenes Array, sodass Sie ein neues Array erstellen müssen, um die Daten zu empfangen, bevor Sie eine der Methoden aufrufen. Die erste erzeugt 32-Bit-Gleitkommazahlen, und die zweite und dritte erzeugen 8-Bit-unsigned-Integers, deshalb reicht ein normales JavaScript-Array nicht aus — Sie müssen ein {{jsxref("Float32Array")}} oder {{jsxref("Uint8Array")}} verwenden, je nachdem, welche Daten Sie verarbeiten.
+Diese Methoden kopieren die Daten in ein angegebenes Array, daher müssen Sie ein neues Array erstellen, um die Daten zu empfangen, bevor Sie eine der Methoden aufrufen. Die erste Methode erzeugt 32-Bit-Gleitkommazahlen, und die zweite und dritte erzeugen 8-Bit-Integer, daher reicht ein Standard-JavaScript-Array nicht aus — Sie müssen ein {{jsxref("Float32Array")}} oder {{jsxref("Uint8Array")}} Array verwenden, je nachdem, welche Daten Sie verarbeiten.
 
-Wenn wir beispielsweise eine fft-Größe von 2048 verwenden, geben wir den Wert [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount) zurück, der die Hälfte der fft ist, und rufen dann Uint8Array() mit der frequencyBinCount als Längenargument auf — das ist die Anzahl der Datenpunkte, die wir für diese fft-Größe erfassen werden.
+Nehmen wir zum Beispiel an, wir haben eine fft-Größe von 2048. Wir geben den Wert [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount) zurück, der die Hälfte der fft ist, und rufen dann Uint8Array() mit frequencyBinCount als Längenargument auf — dies ist die Anzahl der Datenpunkte, die wir für diese fft-Größe sammeln werden.
 
 ```js
 analyser.fftSize = 2048;
@@ -50,19 +50,19 @@ const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 ```
 
-Um die Daten tatsächlich abzurufen und sie in unser Array zu kopieren, rufen wir die Datenerfassungsmethode auf, die wir möchten, und übergeben das Array als Argument:
+Um die Daten tatsächlich abzurufen und in unser Array zu kopieren, rufen wir dann die gewünschte Datenerfassungsmethode mit dem Array auf, das als Argument übergeben wird. Zum Beispiel:
 
 ```js
 analyser.getByteTimeDomainData(dataArray);
 ```
 
-Wir haben jetzt die Audiodaten für diesen Moment in unserem Array erfasst und können sie nach Belieben visualisieren, beispielsweise indem wir sie auf einem HTML-`<canvas>` darstellen.
+Wir haben nun die Audiodaten für diesen Zeitpunkt in unserem Array erfasst und können sie beliebig visualisieren, zum Beispiel indem wir sie auf einem HTML {{ htmlelement("canvas") }} darstellen.
 
 Schauen wir uns nun einige spezifische Beispiele an.
 
 ## Erstellen einer Wellenform/Oszilloskop
 
-Um die Oszilloskop-Visualisierung zu erstellen (Hut ab vor [Soledad Penadés](https://soledadpenades.com/) für den ursprünglichen Code in [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L142), folgen wir zuerst dem Standardmuster aus dem vorherigen Abschnitt, um den Puffer einzurichten:
+Um die Oszilloskop-Visualisierung zu erstellen (ein Hut ab an [Soledad Penadés](https://soledadpenades.com/) für den ursprünglichen Code in [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L142)), folgen wir zunächst dem im vorherigen Abschnitt beschriebenen Standardmuster, um den Puffer einzurichten:
 
 ```js
 analyser.fftSize = 2048;
@@ -70,92 +70,70 @@ const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 ```
 
-Als Nächstes löschen wir das Canvas von allem, was zuvor darauf gezeichnet wurde, um das neue Visualisierungsdisplay vorzubereiten:
+Als Nächstes löschen wir die Leinwand von dem, was zuvor darauf gezeichnet wurde, um sie für die neue Visualisierungsanzeige vorzubereiten:
 
 ```js
 canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
 ```
 
-Nun definieren wir die `draw()` Funktion:
+Nun definieren wir die `draw()`-Funktion. Darin machen wir Folgendes:
+
+1. Verwenden Sie `requestAnimationFrame()`, um die Zeichenfunktion einmal in Gang gesetzt immer wieder aufzurufen.
+2. Holen Sie sich die Zeitbereichsdaten und kopieren Sie sie in unser Array.
+3. Füllen Sie die Leinwand zunächst mit einer Vollfarbe.
+4. Legen Sie eine Linienbreite und eine Strichfarbe für die Welle fest, die wir zeichnen werden, und beginnen Sie dann, einen Pfad zu zeichnen.
+5. Bestimmen Sie die Breite jedes Segments der zu zeichnenden Linie, indem Sie die Leinwandbreite durch die Array-Länge (gleich dem FrequencyBinCount, wie zuvor definiert) teilen, und definieren Sie dann eine x-Variable, um die Position festzulegen, an die jedes Liniensgment gezeichnet werden soll.
+6. Nun führen wir eine Schleife durch, indem wir die Position eines kleinen Segments der Welle für jeden Punkt im Puffer auf einer bestimmten Höhe basierend auf dem Datenpunktwert aus dem Array definieren und dann die Linie über die Stelle hinweg bewegen, an der das nächste Wellensegment gezeichnet werden soll.
+7. Schließlich beenden wir die Linie in der Mitte der rechten Seite der Leinwand und zeichnen den zuvor definierten Strich.
 
 ```js
 function draw() {
-```
+  const drawVisual = requestAnimationFrame(draw);
+  analyser.getByteTimeDomainData(dataArray);
+  // Fill solid color
+  canvasCtx.fillStyle = "rgb(200 200 200)";
+  canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+  // Begin the path
+  canvasCtx.lineWidth = 2;
+  canvasCtx.strokeStyle = "rgb(0 0 0)";
+  canvasCtx.beginPath();
+  // Draw each point in the waveform
+  const sliceWidth = WIDTH / bufferLength;
+  let x = 0;
+  for (let i = 0; i < bufferLength; i++) {
+    const v = dataArray[i] / 128.0;
+    const y = v * (HEIGHT / 2);
 
-Hier verwenden wir `requestAnimationFrame()`, um die Zeichenfunktion in einer Schleife weiterlaufen zu lassen, sobald sie gestartet wurde:
+    if (i === 0) {
+      canvasCtx.moveTo(x, y);
+    } else {
+      canvasCtx.lineTo(x, y);
+    }
 
-```js
-const drawVisual = requestAnimationFrame(draw);
-```
-
-Als Nächstes erfassen wir die Zeitbereichsdaten und kopieren sie in unser Array:
-
-```js
-analyser.getByteTimeDomainData(dataArray);
-```
-
-Als Nächstes füllen wir das Canvas mit einer Vollfarbe, um zu beginnen:
-
-```js
-canvasCtx.fillStyle = "rgb(200 200 200)";
-canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
-```
-
-Wir setzen eine Linienbreite und Farbe für die Welle, die wir zeichnen werden, und beginnen dann mit der Erstellung eines Pfads:
-
-```js
-canvasCtx.lineWidth = 2;
-canvasCtx.strokeStyle = "rgb(0 0 0)";
-canvasCtx.beginPath();
-```
-
-Wir bestimmen die Breite jedes zu zeichnenden Segments, indem wir die Canvas-Breite durch die Array-Länge (gleich dem FrequencyBinCount, wie zuvor definiert) teilen, und definieren dann eine x-Variable, um die Position zu bestimmen, die für das Zeichnen jedes Segments der Linie bewegt werden soll.
-
-```js
-const sliceWidth = WIDTH / bufferLength;
-let x = 0;
-```
-
-Nun laufen wir durch eine Schleife und definieren die Position eines kleinen Segments der Welle für jeden Punkt im Puffer in einer bestimmten Höhe basierend auf dem Datenpunktwert aus dem Array, und verschieben dann die Linie an die Stelle, an der das nächste Wellensegment gezeichnet werden soll:
-
-```js
-for (let i = 0; i < bufferLength; i++) {
-  const v = dataArray[i] / 128.0;
-  const y = v * (HEIGHT / 2);
-
-  if (i === 0) {
-    canvasCtx.moveTo(x, y);
-  } else {
-    canvasCtx.lineTo(x, y);
+    x += sliceWidth;
   }
 
-  x += sliceWidth;
-}
-```
-
-Schließlich beenden wir die Linie in der Mitte der rechten Seite des Canvas und zeichnen dann den von uns definierten Strich:
-
-```js
+  // Finish the line
   canvasCtx.lineTo(WIDTH, HEIGHT / 2);
   canvasCtx.stroke();
 }
 ```
 
-Am Ende dieses Abschnitts des Codes rufen wir die `draw()` Funktion auf, um den gesamten Prozess zu starten:
+Am Ende dieses Codes Abschnitts rufen wir die `draw()`-Funktion auf, um den gesamten Prozess zu starten:
 
 ```js
 draw();
 ```
 
-Dies gibt uns eine schöne Wellenformanzeige, die mehrmals pro Sekunde aktualisiert wird:
+Dies gibt uns eine schöne Wellendarstellung, die mehrmals pro Sekunde aktualisiert wird:
 
 ![eine schwarze Oszilloskoplinie, die die Wellenform eines Audiosignals zeigt](wave.png)
 
-## Erstellen eines Frequenzbalkendiagramms
+## Erstellen eines Frequenz-Balkendiagramms
 
-Eine weitere schöne kleine Soundvisualisierung, die erstellt werden kann, ist eines dieser Winamp-ähnlichen Frequenzbalkendiagramme. In Voice-change-O-matic haben wir eines verfügbar; schauen wir uns an, wie es gemacht wird.
+Eine weitere nette kleine Klangvisualisierung, die man erstellen kann, ist eines dieser Winamp-ähnlichen Frequenz-Balkendiagramme. Wir haben eines im Voice-change-O-matic zur Verfügung; schauen wir uns an, wie es gemacht wird.
 
-Zuerst richten wir wieder unseren Analyser und das Datenarray ein und löschen dann die aktuelle Canvas-Anzeige mit `clearRect()`. Der einzige Unterschied zur vorherigen Implementierung besteht darin, dass wir die fft-Größe viel kleiner eingestellt haben; dies geschieht, damit jeder Balken im Diagramm groß genug ist, um tatsächlich wie ein Balken auszusehen, anstatt wie ein dünner Strang.
+Zuerst richten wir wieder unseren Analysator und das Datenarray ein und löschen dann mit `clearRect()` die aktuelle Anzeige auf der Leinwand. Der einzige Unterschied zu vorher besteht darin, dass wir die fft-Größe viel kleiner gewählt haben; dies ist so, dass jeder Balken im Diagramm groß genug ist, um tatsächlich wie ein Balken auszusehen, anstatt wie ein dünner Faden.
 
 ```js
 analyser.fftSize = 256;
@@ -165,7 +143,7 @@ const dataArray = new Uint8Array(bufferLength);
 canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
 ```
 
-Als nächstes starten wir unsere `draw()` Funktion, richten erneut eine Schleife mit `requestAnimationFrame()` ein, damit die angezeigten Daten weiterhin aktualisiert werden, und löschen die Anzeige mit jedem Animationsbild.
+Als Nächstes starten wir unsere `draw()`-Funktion, indem wir wieder eine Schleife mit `requestAnimationFrame()` einrichten, damit die angezeigten Daten weiterhin aktualisiert werden, und die Anzeige mit jedem Animationsbild löschen.
 
 ```js
 function draw() {
@@ -175,42 +153,53 @@ function draw() {
 
   canvasCtx.fillStyle = "rgb(0 0 0)";
   canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
-```
 
-Nun setzen wir unsere `barWidth` auf die Canvas-Breite geteilt durch die Anzahl der Balken (die Pufferlänge). Wir multiplizieren jedoch diese Breite auch mit 2,5, da die meisten Frequenzen zurückkommen als hätten sie keinen Ton in sich, da die meisten Klänge, die wir täglich hören, in einem bestimmten niedrigeren Frequenzbereich liegen. Wir wollen nicht viele leere Balken anzeigen, daher verschieben wir diejenigen, die regelmäßig mit einer spürbaren Höhe angezeigt werden, so dass sie die Canvas-Anzeige ausfüllen.
-
-Wir setzen auch eine `barHeight` Variable und eine `x` Variable, um festzuhalten, wie weit über den Bildschirm der aktuelle Balken gezeichnet werden soll.
-
-```js
-const barWidth = (WIDTH / bufferLength) * 2.5;
-let barHeight;
-let x = 0;
-```
-
-Wie zuvor starten wir nun eine for-Schleife und durchlaufen jeden Wert im `dataArray`. Für jeden machen wir die `barHeight` gleich dem Array-Wert, setzen eine Füllfarbe basierend auf der `barHeight` (höhere Balken sind heller), und zeichnen einen Balken bei `x` Pixel über der Canvas, der `barWidth` breit und `barHeight / 2` hoch ist (wir haben schließlich beschlossen, jeden Balken zu halbieren, damit sie alle besser auf das Canvas passen).
-
-Der eine Wert, der erklärt werden muss, ist die vertikale Versatzposition, bei der wir jeden Balken zeichnen: `HEIGHT - barHeight / 2`. Ich mache dies, weil ich möchte, dass jeder Balken vom unteren Rand des Canvas herausragt, nicht von oben nach unten, wie es wäre, wenn wir die vertikale Position auf 0 setzen würden. Daher setzen wir stattdessen die vertikale Position jedes Mal auf die Höhe des Canvas minus `barHeight / 2`, sodass jeder Balken teilweise von unten gezeichnet wird.
-
-```js
-for (let i = 0; i < bufferLength; i++) {
-  barHeight = dataArray[i] / 2;
-
-  canvasCtx.fillStyle = `rgb(${barHeight + 100} 50 50)`;
-  canvasCtx.fillRect(x, HEIGHT - barHeight / 2, barWidth, barHeight);
-
-  x += barWidth + 1;
+  // ...
 }
 ```
 
-Auch am Ende des Codes rufen wir die `draw()` Funktion auf, um den gesamten Prozess in Gang zu setzen.
+Jetzt setzen wir unsere `barWidth` auf die Leinwandbreite geteilt durch die Anzahl der Balken (die Pufferlänge). Wir multiplizieren diese Breite jedoch auch mit 2,5, weil die meisten der Frequenzen als nicht partizipierend an Audio zurückkehren werden, da die meisten der Töne, die wir täglich hören, in einem bestimmten niedrigeren Frequenzbereich liegen. Wir wollen nicht viele leere Balken anzeigen, daher schieben wir die, die regelmäßig an einer auffälligen Höhe angezeigt werden, quer über die Leinwandanzeige, um sie zu füllen.
+
+Wir setzen auch eine `barHeight`-Variable und eine `x`-Variable, um aufzuzeichnen, wie weit der aktuelle Balken über den Bildschirm gezeichnet wird.
+
+```js
+function draw() {
+  // ...
+  const barWidth = (WIDTH / bufferLength) * 2.5;
+  let barHeight;
+  let x = 0;
+  // ...
+}
+```
+
+Wie zuvor starten wir jetzt eine for-Schleife und durchlaufen jeden Wert im `dataArray`. Für jeden machen wir die `barHeight` gleich dem Array-Wert, setzen eine Füllfarbe basierend auf der `barHeight` (höhere Balken sind heller) und zeichnen einen Balken an `x`-Pixeln über der Leinwand, der `barWidth` breit und `barHeight / 2` hoch ist (wir haben schließlich beschlossen, jeden Balken in der Mitte zu halbieren, damit alle besser auf die Leinwand passen.)
+
+Der eine Wert, der erklärt werden muss, ist die vertikale Offsetposition, an der wir jeden Balken zeichnen: `HEIGHT - barHeight / 2`. Ich mache das, weil ich möchte, dass jeder Balken vom unteren Rand der Leinwand nach oben ragt und nicht vom oberen Rand nach unten, wie es wäre, wenn wir die vertikale Position auf 0 setzen würden. Daher setzen wir stattdessen die vertikale Position jedes Mal auf die Höhe der Leinwand minus `barHeight / 2`, damit jeder Balken von der Leinwandmitte nach unten zum Boden gezeichnet wird.
+
+```js
+function draw() {
+  // ...
+  for (let i = 0; i < bufferLength; i++) {
+    barHeight = dataArray[i] / 2;
+
+    canvasCtx.fillStyle = `rgb(${barHeight + 100} 50 50)`;
+    canvasCtx.fillRect(x, HEIGHT - barHeight / 2, barWidth, barHeight);
+
+    x += barWidth + 1;
+  }
+  // ...
+}
+```
+
+Wieder rufen wir am Ende des Codes die `draw()`-Funktion auf, um den gesamten Prozess in Gang zu setzen.
 
 ```js
 draw();
 ```
 
-Dieser Code liefert uns ein Ergebnis wie das folgende:
+Dieser Code gibt uns ein Ergebnis wie das folgende:
 
-![eine Reihe von roten Balken in einem Balkendiagramm, das die Intensität verschiedener Frequenzen in einem Audiosignal zeigt](bar-graph.png)
+![eine Reihe roter Balken in einem Balkendiagramm, die die Intensität unterschiedlicher Frequenzen eines Audiosignals zeigen](bar-graph.png)
 
 > [!NOTE]
-> Die in diesem Artikel aufgeführten Beispiele zeigen die Verwendung von [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) und [`AnalyserNode.getByteTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getByteTimeDomainData). Für funktionierende Beispiele, die [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) und [`AnalyserNode.getFloatTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getFloatTimeDomainData) zeigen, schauen Sie sich unser [Voice-change-O-matic-float-data](https://mdn.github.io/voice-change-o-matic-float-data/) Demo an — dies ist genau das gleiche wie das ursprüngliche [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/), außer dass es Float-Daten verwendet, nicht unsignierte Byte-Daten. Siehe [diesen Abschnitt](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L155) des Quellcodes für Details.
+> Die in diesem Artikel aufgeführten Beispiele zeigen die Verwendung von [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) und [`AnalyserNode.getByteTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getByteTimeDomainData). Für funktionierende Beispiele zur Darstellung von [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) und [`AnalyserNode.getFloatTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getFloatTimeDomainData), schlagen Sie in unserem [Voice-change-O-matic-float-data](https://mdn.github.io/voice-change-o-matic-float-data/) Demo nach — dies ist genau das gleiche wie das ursprüngliche [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/), außer dass es Float-Daten verwendet, nicht unsignierte Byte-Daten. Siehe [dieser Abschnitt](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L155) des Quellcodes für Details.

@@ -49,4 +49,4 @@ playbackEvent.currentTime;
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlayBackEvent)
+- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)

@@ -3,16 +3,16 @@ title: "Navigator: getAutoplayPolicy() Methode"
 short-title: getAutoplayPolicy()
 slug: Web/API/Navigator/getAutoplayPolicy
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`getAutoplayPolicy()`**-Methode der _Autoplay Policy Detection API_ liefert Informationen darüber, ob das [Autoplay](/de/docs/Web/Media/Guides/Autoplay) von Medien-Elementen und Audio-Kontexten erlaubt, nicht erlaubt oder nur erlaubt ist, wenn der Ton stummgeschaltet ist.
+Die **`getAutoplayPolicy()`** Methode der _Autoplay-Richtlinienerkennungs-API_ liefert Informationen darüber, ob das [automatische Abspielen](/de/docs/Web/Media/Guides/Autoplay) von Medienelementen und Audiokontexten erlaubt, nicht erlaubt oder nur erlaubt ist, wenn der Ton stummgeschaltet ist.
 
-Anwendungen können diese Informationen nutzen, um ein angemessenes Benutzererlebnis zu bieten. Zum Beispiel, wenn die Benutzer-Agent-Richtlinie nur das Autoplay von unhörbarem Inhalt erlaubt, könnte die Anwendung Videos stummschalten, damit sie trotzdem automatisch abgespielt werden können.
+Anwendungen können diese Informationen nutzen, um ein angemessenes Benutzererlebnis zu bieten. Beispielsweise könnte die Anwendung Videos stumm schalten, wenn die Richtlinie des Benutzeragenten nur das automatische Abspielen von unhörbarem Inhalt erlaubt, sodass sie dennoch automatisch abgespielt werden können.
 
-Die Methode kann verwendet werden, um entweder die allgemeine Autoplay-Richtlinie für alle Objekte eines bestimmten Typs im Dokument oder für spezifische Medien-Elemente oder Audio-Kontexte abzurufen.
+Die Methode kann verwendet werden, um entweder die allgemeine Autoplay-Richtlinie für alle Objekte eines bestimmten Typs im Dokument oder für spezifische Medienelemente oder Audiokontexte zu erhalten.
 
 ## Syntax
 
@@ -31,52 +31,62 @@ Die Methode muss mit einem (und nur einem) der folgenden drei Parameter aufgeruf
 
 - `type` {{optional_inline}}
 
-  - : Ein String, der das Medien-Feature angibt, für das die allgemeine Autoplay-Richtlinie benötigt wird.
+  - : Ein String, der das Medienwiedergabe-_Feature_ angibt, für das die allgemeine Autoplay-Richtlinie erforderlich ist.
 
     Die unterstützten Werte sind:
 
     - `mediaelement`
 
-      - : Abrufen der allgemeinen Autoplay-Richtlinie für Medien-Elemente im Dokument. Medien-Elemente sind von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) abgeleitete Objekte wie [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) und [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), sowie ihre entsprechenden Tags {{HTMLElement("audio")}} und {{HTMLElement("video")}}.
+      - : Ermittelt die allgemeine Autoplay-Richtlinie für Medienelemente im Dokument.
+        Medienelemente sind von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) abgeleitete Objekte wie [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) und [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und ihre entsprechenden Tags {{HTMLElement("audio")}} und {{HTMLElement("video")}}.
 
     - `audiocontext`
-
-      - : Abrufen der allgemeinen Autoplay-Richtlinie für [Web Audio API](/de/docs/Web/API/Web_Audio_API) Player im Dokument.
+      - : Holt die allgemeine Autoplay-Richtlinie für [Web Audio API](/de/docs/Web/API/Web_Audio_API)-Player im Dokument.
 
 - `element` {{optional_inline}}
 
-  - : Ein spezifisches Medien-Element. Dies muss ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) sein, einschließlich abgeleiteter Elemente wie [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement).
+  - : Ein spezifisches Medienelement.
+    Dies muss ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) sein, einschließlich abgeleiteter Elemente wie [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement).
 
 - `context` {{optional_inline}}
   - : Ein spezifischer [`AudioContext`](/de/docs/Web/API/AudioContext).
 
 ### Rückgabewert
 
-Ein String, der die Autoplay-Richtlinie für den angegebenen Medientyp, das Element oder den Kontext angibt. Dies wird ein String mit einem der folgenden Werte sein:
+Ein String, der die Autoplay-Richtlinie für den angegebenen Medienelementtyp, das Element oder den Kontext angibt.
+Dies wird ein String sein, der einen der folgenden Werte enthält:
 
 - `allowed`
   - : Autoplay ist erlaubt.
 - `allowed-muted`
-  - : Autoplay ist nur für unhörbare Medien erlaubt. Dazu gehören Medien, die keine Audiotrack haben, oder bei denen der Ton stummgeschaltet wurde.
+  - : Autoplay ist nur für nicht hörbare Medien erlaubt.
+    Dazu gehören Medien ohne Tonspur oder bei denen der Ton stummgeschaltet wurde.
 - `disallowed`
   - : Autoplay ist nicht erlaubt.
 
-Beachten Sie, dass die zurückgegebene Autoplay-Richtlinie für einen `type`-Parameter die _allgemeine_ Richtlinie für Objekte des angegebenen Typs ist. Beim Laden der Seite haben alle Objekte eines Typs dieselbe Richtlinie wie der Typ. Nachdem der Benutzer mit der Seite/Seite interagiert hat, können einzelne Objekte in einigen Browsern eine andere Richtlinie haben als der entsprechende Typ.
+Beachten Sie, dass die Autoplay-Richtlinie, die für einen `type`-Parameter zurückgegeben wird, die allgemeine Richtlinie für Elemente des angegebenen Typs ist.
+Beim Laden der Seite haben alle Elemente eines Typs dieselbe Richtlinie wie der Typ.
+Nachdem der Benutzer mit der Seite/Site interagiert hat, kann es bei einigen Browsern passieren, dass einzelne Elemente eine andere Richtlinie als der entsprechende Typ haben.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Das an die Methode übergebene Objekt ist kein erlaubter Typ. Die erlaubten Typen umfassen [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (oder ein abgeleitetes Element wie [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)) oder [`AudioContext`](/de/docs/Web/API/AudioContext).
+  - : Das an die Methode übergebene Objekt ist kein erlaubter Typ.
+    Zu den erlaubten Typen gehören [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (oder ein abgeleitetes Element wie [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)), oder [`AudioContext`](/de/docs/Web/API/AudioContext).
 
 ## Beschreibung
 
-"Autoplay" bezieht sich auf jede Funktion, die dazu führt, dass Inhalte abgespielt werden, ohne dass der Benutzer speziell die Wiedergabe anfordert. Dies schließt das `autoplay`-Attribut in den HTML-Elementen [`<video>`](/de/docs/Web/HTML/Element/video#autoplay) und [`<audio>`](/de/docs/Web/HTML/Element/audio#autoplay) ein, sowie die Verwendung von JavaScript-Code, um die Wiedergabe ohne Benutzereingriff zu starten.
+"Autoplay" bezieht sich auf alle Funktionen, die dazu führen, dass Inhalte abgespielt werden, ohne dass der Benutzer dies explizit angefordert hat.
+Dies umfasst das `autoplay` Attribut in den HTML [`<video>`](/de/docs/Web/HTML/Reference/Elements/video#autoplay) und [`<audio>`](/de/docs/Web/HTML/Reference/Elements/audio#autoplay) Elementen sowie die Verwendung von JavaScript-Code, um die Wiedergabe ohne Benutzerinteraktion zu starten.
 
-Benutzeragenten blockieren Autoplay häufig oder erlauben nur unhörbare Inhalte automatisch abzuspielen, da unerwartete Geräusche beim erstmaligen Laden einer Seite zu einem erschreckenden und unangenehmen Benutzererlebnis führen können. Die Mechanismen zur Bestimmung, ob Inhalte automatisch abgespielt werden können oder nicht, oder nur für unhörbare Inhalte, unterscheiden sich zwischen Benutzeragenten.
+Benutzeragenten blockieren häufig das automatische Abspielen oder erlauben nur das automatische Abspielen von nicht hörbarem Inhalt, da unerwartete Geräusche beim erstmaligen Laden einer Seite zu einem erschreckenden und unangenehmen Benutzererlebnis führen können.
+Die Mechanismen, die verwendet werden, um zu bestimmen, ob Inhalte automatisch wiedergegeben werden können oder nicht, oder nur für nicht hörbare Inhalte, unterscheiden sich zwischen Benutzeragenten.
 
-Die **`getAutoplayPolicy()`**-Methode bietet einen standardisierten Mechanismus zur Bestimmung der Richtlinie eines bestimmten Benutzeragenten für das automatische Abspielen eines bestimmten Typs oder Elements von Inhalten. Dies ermöglicht die Anpassung von Anwendungen, wie etwa das automatische Stummschalten von Videos auf Seiten, auf denen das Autoplay von hörbaren Inhalten nicht erlaubt ist, oder die Anpassung der Anwendung, dass sie ohne Autoplay funktioniert.
+Die **`getAutoplayPolicy()`** Methode bietet einen standardisierten Mechanismus, um die Richtlinie eines bestimmten Benutzeragenten für das automatische Abspielen eines bestimmten Typs oder Inhaltsgegenstands zu ermitteln.
+Dies ermöglicht Anpassungen der Anwendung, wie z. B. das automatische Stummschalten von Videos auf Websites, auf denen das automatische Abspielen von hörbarem Inhalt nicht erlaubt ist, oder das Ändern des Verhaltens der Anwendung ohne automatisches Abspielen.
 
-Die empfohlene Verwendung der Methode besteht darin, sie _beim Laden der Seite_ (oder bevor die Inhalte abspielenden Elemente erstellt werden) aufzurufen, um den Typ des Features zu überprüfen, und dann die Autoplay-Einstellungen der Medienelemente basierend auf dem Ergebnis zu konfigurieren. Wenn die Anwendung beispielsweise Videoelemente mit Audiotracks automatisch abspielen möchte, können Sie den folgenden Code verwenden, um das Video stummzuschalten, wenn nur unhörbare Inhalte abgespielt werden dürfen.
+Die empfohlene Verwendung der Methode besteht darin, sie _beim Laden der Seite_ (oder bevor die Inhaltelemente erstellt werden) mit Angabe des zu prüfenden Features aufzurufen und dann das automatische Abspielen der Medienelemente basierend auf dem Ergebnis zu konfigurieren.
+Beispielsweise können Sie den folgenden Code verwenden, um Videos stummzuschalten, wenn nur das automatische Abspielen von nicht hörbarem Inhalt erlaubt ist.
 
 ```js
 if (navigator.getAutoplayPolicy("mediaelement") === "allowed") {
@@ -89,7 +99,8 @@ if (navigator.getAutoplayPolicy("mediaelement") === "allowed") {
 }
 ```
 
-Die Methode kann auch aufgerufen werden, um die Autoplay-Richtlinie für ein spezifisches Medien-Element oder einen Audio-Kontext zu überprüfen. Wie unten gezeigt, sieht der Code genau gleich aus, außer dass Sie das spezifische Element anstelle des `type`-Strings übergeben.
+Die Methode kann auch verwendet werden, um die Autoplay-Richtlinie für ein bestimmtes Medienelement oder einen bestimmten Audiokontext zu überprüfen.
+Wie unten gezeigt, sieht der Code genau gleich aus, außer dass Sie das spezifische Element anstelle des `type`-Strings übergeben.
 
 ```js
 const video = document.getElementById("video_element_id");
@@ -103,9 +114,11 @@ if (navigator.getAutoplayPolicy(video) === "allowed") {
 }
 ```
 
-Beim Laden der Seite, bevor der Benutzer mit der Seite oder der Seite interagiert hat, ist die Autoplay-Richtlinie für den Typ und die individuellen Elemente dieselbe. Nachdem der Benutzer mit der Seite, der Seite oder bestimmten Elementen interagiert hat, kann sich die Autoplay-Richtlinie für den gesamten `type` ändern. Es ist auch möglich, dass sich die Richtlinie für ein bestimmtes Element ändert, auch wenn sich die allgemeine Richtlinie für den `type` nicht ändert.
+Beim Laden der Seite, bevor der Benutzer mit der Seite oder Site interagiert hat, werden die Autoplay-Richtlinie für den Typ und die einzelnen Elemente dieselbe sein.
+Nachdem der Benutzer mit der Site, der Seite oder spezifischen Elementen interagiert hat, kann sich die Autoplay-Richtlinie für den gesamten `type` ändern.
+Es ist auch möglich, dass sich die Richtlinie für ein bestimmtes Element ändert, selbst wenn sich die allgemeine Richtlinie für den `type` nicht ändert.
 
-Es gibt keine Möglichkeit, benachrichtigt zu werden, dass sich die Autoplay-Richtlinie geändert hat. Aus diesem Grund können Sie die Richtlinie für einen Typ oder ein Element jederzeit überprüfen, normalerweise tun Sie dies jedoch nur beim Laden der Seite oder bevor Sie versuchen, Inhalte abzuspielen.
+Es gibt keine Möglichkeit, benachrichtigt zu werden, dass sich die Autoplay-Richtlinie geändert hat. Aus diesem Grund, obwohl Sie die Richtlinie für einen Typ oder ein Element jederzeit überprüfen können, werden Sie dies normalerweise nur beim Laden der Seite oder bevor Sie versuchen, Inhalte abzuspielen, tun.
 
 ## Beispiele
 
@@ -131,17 +144,17 @@ if (!navigator.getAutoplayPolicy) {
 
 Das Ergebnis der Ausführung des Codes auf dieser Seite ist:
 
-{{EmbedLiveSample('Checking if the feature is supported', '', '50')}}
+{{EmbedLiveSample('Überprüfen, ob das Feature unterstützt wird', '', '50')}}
 
-### Autoplay-Richtlinie für Medienelementtypen testen
+### Autoplay-Richtlinie für den Medienelementtyp testen
 
 Dieses Beispiel zeigt, wie Sie die Autoplay-Richtlinie für den Medienelementtyp überprüfen können.
 
-Der Code erstellt ein Videoelement, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay)-Attribut besitzt und standardmäßig nicht stummgeschaltet ist. Wenn die Autoplay-Richtlinie "allowed-muted" ist, wird das Video stummgeschaltet, um es abzuspielen.
+Der Code erzeugt ein Videoelement, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Attribut hat und standardmäßig nicht stummgeschaltet ist. Wenn die Autoplay-Richtlinie "allowed-muted" ist, wird das Video stummgeschaltet, um es abspielen zu können.
 
 #### HTML
 
-Der nachstehende HTML-Code enthält ein `div`-Element, das als Protokoll verwendet wird, und zeigt auch ein [`<video>`](/de/docs/Web/HTML/Element/video) an, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay)-Attribut besitzt. Dieses sollte standardmäßig nicht stummgeschaltet sein und sollte automatisch abspielen, wenn Autoplay nicht blockiert ist.
+Das untenstehende HTML hat ein `div` Element, das als Berichtprotokoll verwendet wird und auch ein [`<video>`](/de/docs/Web/HTML/Reference/Elements/video) anzeigt, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Attribut hat. Dieses sollte standardmäßig nicht stummgeschaltet werden und automatisch abspielen, wenn das automatische Abspielen nicht blockiert ist.
 
 ```html
 <div id="reportResult"></div>
@@ -163,9 +176,9 @@ Der nachstehende HTML-Code enthält ein `div`-Element, das als Protokoll verwend
 
 #### JavaScript
 
-Der Code gibt an, ob die `getAutoplayPolicy()`-Methode unterstützt wird oder nicht und, falls ja, die Richtlinie für Medienelemente.
+Der Code meldet, ob die `getAutoplayPolicy()` Methode unterstützt wird, und wenn ja, die Richtlinie für Medienelemente.
 
-Wenn die Richtlinie `allowed-muted` ist, können nur stummgeschaltete Videos abgespielt werden. In diesem Fall fügen wir etwas Text hinzu, der erklärt, was passiert und das Video stummgeschaltet.
+Wenn die Richtlinie `allowed-muted` ist, können nur stummgeschaltete Videos abgespielt werden. In diesem Fall fügen wir einen Text hinzu, der erklärt, was passiert, und schalten das Video stumm.
 
 ```js
 const log = document.getElementById("reportResult");
@@ -187,27 +200,27 @@ if (!navigator.getAutoplayPolicy) {
 }
 ```
 
-Beachten Sie, dass Sie ähnlich nach `allowed` und `disallowed` suchen könnten.
+Beachten Sie, dass Sie ähnlich für `allowed` und `disallowed` prüfen könnten.
 
 #### Ergebnis
 
-Das Video wird unten zusammen mit Informationen angezeigt, ob die `getAutoplayPolicy()`-Methode unterstützt wird und, falls ja, die Richtlinie.
+Das Video wird unten zusammen mit Informationen darüber angezeigt, ob die `getAutoplayPolicy()` Methode unterstützt wird, und falls ja, die Richtlinie.
 
 Wenn `getAutoplayPolicy()` unterstützt wird und die Richtlinie `allowed` ist, wird das Video automatisch mit Ton abgespielt. Wenn die Richtlinie `allowed-muted` ist, wird das Video ohne Ton abgespielt.
 
-{{EmbedLiveSample('Test autoplay policy for media elements', '', '400')}}
+{{EmbedLiveSample('Autoplay-Richtlinie für Medienelemente testen', '', '400')}}
 
-Beachten Sie, dass, wenn `getAutoplayPolicy()` nicht unterstützt wird, das Video entweder mit Audio automatisch abgespielt wird oder nicht. Der Code hat keine Kontrolle über dieses Verhalten: Sie sind auf die Implementierung des Browsers angewiesen!
+Beachten Sie, dass das Video, wenn `getAutoplayPolicy()` nicht unterstützt wird, entweder mit Audio automatisch abspielt oder nicht abspielt. Der Code hat keine Kontrolle über dieses Verhalten: Sie sind dem Browserverhalten ausgeliefert!
 
-### Autoplay-Richtlinie für ein spezifisches Medien-Element testen
+### Autoplay-Richtlinie für ein bestimmtes Medienelement testen
 
-Dieses Beispiel zeigt, wie Sie überprüfen können, ob ein spezifisches Medien-Element automatisch abgespielt wird. Es ist fast genau dasselbe wie das vorherige Beispiel (ein `AudioContext`-Check wäre auch ähnlich). Beachten Sie, dass es möglich ist, dass spezifische Objekte automatisch abgespielt werden, selbst wenn ein Check auf den `mediaelement`-Typ anzeigt, dass Autoplay `disallowed` ist; mit anderen Worten, ein Check auf ein spezifisches Element ist zuverlässiger (obwohl es beim Laden der Seite keine Rolle spielt).
+Dieses Beispiel zeigt, wie Sie überprüfen können, ob ein bestimmtes Medienelement automatisch abspielen wird. Es ist fast genau dasselbe wie das vorherige Beispiel (eine `AudioContext` Überprüfung wäre ebenfalls ähnlich). Beachten Sie, dass es möglich ist, dass spezifische Elemente automatisch abspielen, auch wenn eine Überprüfung des `mediaelement` Typs ergibt, dass das automatische Abspielen `disallowed` ist; mit anderen Worten, eine Überprüfung eines bestimmten Elements ist zuverlässiger (obwohl es beim Laden der Seite keine Rolle spielt).
 
-Der Code erstellt ein Videoelement, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay)-Attribut besitzt. Wenn die Autoplay-Richtlinie "allowed-muted" ist, wird das Video stummgeschaltet, um es abzuspielen.
+Der Code erzeugt ein Videoelement, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Attribut hat. Wenn die Autoplay-Richtlinie "allowed-muted" ist, wird das Video stummgeschaltet, um es abspielen zu können.
 
 #### HTML
 
-Der nachstehende HTML-Code enthält ein `div`-Element, das als Protokoll verwendet wird und zeigt auch ein [`<video>`](/de/docs/Web/HTML/Element/video) an, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay)-Attribut besitzt. Dieses sollte standardmäßig nicht stummgeschaltet sein und sollte automatisch abspielen, wenn Autoplay nicht blockiert ist.
+Das untenstehende HTML hat ein `div` Element, das als Berichtprotokoll verwendet wird und auch ein [`<video>`](/de/docs/Web/HTML/Reference/Elements/video) anzeigt, das das [`autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay) Attribut hat. Dieses sollte standardmäßig nicht stummgeschaltet werden und automatisch abspielen, wenn das automatische Abspielen nicht blockiert ist.
 
 ```html
 <div id="reportResult"></div>
@@ -229,9 +242,9 @@ Der nachstehende HTML-Code enthält ein `div`-Element, das als Protokoll verwend
 
 #### JavaScript
 
-Der Code gibt an, ob die `getAutoplayPolicy()`-Methode unterstützt wird oder nicht und, falls ja, die Richtlinie für Medienelemente.
+Der Code meldet, ob die `getAutoplayPolicy()` Methode unterstützt wird, und wenn ja, die Richtlinie für Medienelemente.
 
-Wenn die Richtlinie `allowed-muted` ist, können nur stummgeschaltete Videos abgespielt werden, also wird das Video stummgeschaltet.
+Wenn die Richtlinie `allowed-muted` ist, können nur stummgeschaltete Videos abgespielt werden, daher schaltet der Code das Video stumm.
 
 ```js
 const log = document.getElementById("reportResult");
@@ -242,7 +255,7 @@ if (!navigator.getAutoplayPolicy) {
     "navigator.getAutoplayPolicy() not supported. It may or may not autoplay, depending on the browser!";
 } else {
   // Here we pass in the HTMLVideoElement to check
-  log.textContent = `navigator.getAutoplayPolicy(video) == ${navigator.getAutoplayPolicy(
+  log.textContent = `navigator.getAutoplayPolicy(video) === ${navigator.getAutoplayPolicy(
     "mediaelement",
   )}`;
 
@@ -258,10 +271,10 @@ if (!navigator.getAutoplayPolicy) {
 
 Das Ergebnis ist dasselbe wie im vorherigen Beispiel:
 
-- Das Video sollte mit Ton automatisch abgespielt werden, wenn `allowed` zurückgegeben wird, und ohne Ton, wenn `allowed-muted` zurückgegeben wird.
+- Das Video sollte automatisch mit Ton abspielen, wenn `allowed` zurückgegeben wird, und ohne Ton, wenn `allowed-muted` zurückgegeben wird.
 - Wenn `getAutoplayPolicy()` nicht unterstützt wird, hängt das Autoplay-Verhalten des Videos nur vom Browser ab.
 
-{{EmbedLiveSample('Test autoplay policy for a specific media element', '', '400')}}
+{{EmbedLiveSample('Autoplay-Richtlinie für ein bestimmtes Medienelement testen', '', '400')}}
 
 ## Spezifikationen
 

@@ -2,30 +2,30 @@
 title: CommandEvent
 slug: Web/API/CommandEvent
 l10n:
-  sourceCommit: 0acc152bfff15e69e458c6d99902061951588b1e
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-{{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
+{{APIRef("Invoker Commands API")}}
 
-Die **`CommandEvent`**-Schnittstelle stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen Attributen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) ein interaktives Element auslösen soll.
+Die **`CommandEvent`** Schnittstelle stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen dabei ist, ein interaktives Element auszulösen.
 
-Dies ist das Ereignisobjekt für das `HTMLElement`-[`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion eines "Invoker Control" repräsentiert, wenn es ausgelöst wird (zum Beispiel durch Klick oder Drücken).
+Dies ist das Ereignisobjekt für das `HTMLElement` [`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion von einem Invoker Control darstellt, wenn es ausgelöst wird (zum Beispiel, wenn es angeklickt oder gedrückt wird).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent) {{experimental_inline}}
+- [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent)
   - : Erstellt ein `CommandEvent`-Objekt.
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternobjekt [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Objekt, [`Event`](/de/docs/Web/API/Event)._
 
-- [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button repräsentiert, der diese Ausführung ausgelöst hat.
-- [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des verursachenden Buttons darstellt.
+- [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}}
+  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button darstellt, der diese Auslösung verursacht hat.
+- [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}}
+  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quell-Buttons darstellt.
 
 ## Beispiele
 
@@ -43,7 +43,7 @@ _Diese Schnittstelle erbt Eigenschaften von ihrem Elternobjekt [`Event`](/de/doc
 ```js
 const popover = document.getElementById("mypopover");
 
-// ...
+// …
 
 popover.addEventListener("command", (event) => {
   if (event.command === "show-popover") {
@@ -52,27 +52,51 @@ popover.addEventListener("command", (event) => {
 });
 ```
 
-### Benutzerdefiniertes Beispiel
+### Verwendung benutzerdefinierter Werte für Befehle
+
+In diesem Beispiel wurden drei Buttons mit [`commands` mit benutzerdefinierten Werten](/de/docs/Web/HTML/Reference/Elements/button#custom_values) erstellt.
 
 ```html
-<button commandfor="the-image" command="--rotate-left">Rotate Left</button>
+<div class="controls">
+  <button commandfor="the-image" command="--rotate-left">Rotate Left</button>
+  <button commandfor="the-image" command="--reset">Reset</button>
+  <button commandfor="the-image" command="--rotate-right">Rotate Right</button>
+</div>
 
-<button commandfor="the-image" command="--rotate-right">Rotate Right</button>
-
-<img id="the-image" src="photo.jpg" alt="[add appropriate alt text here]" />
+<img
+  id="the-image"
+  src="/shared-assets/images/examples/dino.svg"
+  alt="dinosaur head rotated 0 degrees" />
 ```
+
+```css hidden
+.controls {
+  margin-block-end: 20px;
+}
+```
+
+Ein Ereignis-Listener wird an das Bild mit dem [`command`-Ereignis](/de/docs/Web/API/HTMLElement/command_event) angehängt. Wenn einer der Buttons angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen wurde, rotiert das Bild und aktualisiert auch seinen `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
 
 ```js
 const image = document.getElementById("the-image");
 
 image.addEventListener("command", (event) => {
-  if (event.command == "--rotate-left") {
-    event.target.style.rotate = "-90deg";
-  } else if (event.command == "--rotate-right") {
-    event.target.style.rotate = "90deg";
+  let rotate = parseInt(event.target.style.rotate || "0", 10);
+  if (event.command === "--reset") {
+    rotate = 0;
+    event.target.style.rotate = `${rotate}deg`;
+  } else if (event.command === "--rotate-left") {
+    rotate = rotate === -270 ? 0 : rotate - 90;
+    event.target.style.rotate = `${rotate}deg`;
+  } else if (event.command === "--rotate-right") {
+    rotate = rotate === 270 ? 0 : rotate + 90;
+    event.target.style.rotate = `${rotate}deg`;
   }
+  event.target.alt = `dinosaur head rotated ${rotate} degrees`;
 });
 ```
+
+{{EmbedLiveSample('using_custom_values_for_commands', '100%', "220")}}
 
 ## Spezifikationen
 

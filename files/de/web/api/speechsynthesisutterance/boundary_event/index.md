@@ -1,23 +1,23 @@
 ---
-title: "SpeechSynthesisUtterance: boundary-Ereignis"
+title: "SpeechSynthesisUtterance: boundary Ereignis"
 short-title: boundary
 slug: Web/API/SpeechSynthesisUtterance/boundary_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Speech API")}}
 
-Das **`boundary`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn die gesprochene Äußerung eine Wort- oder Satzgrenze erreicht.
+Das **`boundary`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn das gesprochene Utterance eine Wort- oder Satzgrenze erreicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("boundary", (event) => {});
+```js-nolint
+addEventListener("boundary", (event) => { })
 
-onboundary = (event) => {};
+onboundary = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,20 +28,20 @@ Ein [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent). Erbt von [`
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften stehen Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) zur Verfügung._
 
 - [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex) {{ReadOnlyInline}}
-  - : Gibt die Indexposition des Zeichens in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
+  - : Gibt die Indexposition des Zeichens in dem [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
 - [`elapsedTime`](/de/docs/Web/API/SpeechSynthesisEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Gibt die verstrichene Zeit in Sekunden nach dem Start des Sprechens von [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, zu der das Ereignis ausgelöst wurde.
+  - : Gibt die vergangene Zeit in Sekunden zurück, nachdem das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zu sprechen begonnen hat, bei der das Ereignis ausgelöst wurde.
 - [`name`](/de/docs/Web/API/SpeechSynthesisEvent/name) {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verknüpft ist, die auftreten, während [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird: den Namen des erreichten [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers im Falle eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)-Ereignisses oder die Art der erreichten Grenze im Falle eines `boundary`-Ereignisses.
+  - : Gibt den Namen zurück, der mit bestimmten Ereignistypen verbunden ist, die auftreten, während das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird: der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2) Markers, der im Falle eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event) Ereignisses erreicht wurde, oder der Typ der erreichten Grenze im Falle eines `boundary` Ereignisses.
 - [`utterance`](/de/docs/Web/API/SpeechSynthesisEvent/utterance) {{ReadOnlyInline}}
-  - : Gibt die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Instanz zurück, auf der das Ereignis ausgelöst wurde.
+  - : Gibt die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Instanz zurück, auf der das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
-Sie können das `boundary`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `boundary` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
 
 ```js
 utterThis.addEventListener("boundary", (event) => {
@@ -51,7 +51,7 @@ utterThis.addEventListener("boundary", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onboundary`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die `onboundary` Ereignis-Handler-Eigenschaft:
 
 ```js
 utterThis.onboundary = (event) => {

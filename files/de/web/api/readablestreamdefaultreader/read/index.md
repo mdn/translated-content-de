@@ -3,12 +3,12 @@ title: "ReadableStreamDefaultReader: read() Methode"
 short-title: read()
 slug: Web/API/ReadableStreamDefaultReader/read
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`read()`** Methode des [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Interfaces gibt ein {{jsxref("Promise")}} zurück, das Zugriff auf das nächste Stück im internen Warteschlangen des Streams bietet.
+Die **`read()`** Methode der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das Zugriff auf den nächsten Chunk in der internen Warteschlange des Streams bietet.
 
 ## Syntax
 
@@ -22,24 +22,28 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das je nach Zustand des Streams mit einem Ergebnis erfüllt/abgelehnt wird. Die verschiedenen Möglichkeiten sind wie folgt:
+Ein {{jsxref("Promise")}}, das basierend auf dem Zustand des Streams ein Ergebnis erfüllt/ablehnt.
+Die verschiedenen Möglichkeiten sind wie folgt:
 
-- Wenn ein Stück verfügbar ist, wird das Promise mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
+- Wenn ein Chunk verfügbar ist, wird das Promise mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
 - Wenn der Stream geschlossen wird, wird das Promise mit einem Objekt der Form `{ value: undefined, done: true }` erfüllt.
 - Wenn der Stream fehlerhaft wird, wird das Promise mit dem entsprechenden Fehler abgelehnt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, der Stream hat keinen Besitzer, oder [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) wird aufgerufen (wenn es eine ausstehende Leseanforderung gibt).
+  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, der Stream hat keinen Besitzer, oder [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) wird aufgerufen (wenn eine ausstehende Leseanforderung vorhanden ist).
 
 ## Beispiele
 
-### Beispiel 1 - Einfaches Beispiel
+### Beispiel 1 - einfaches Beispiel
 
-Dieses Beispiel zeigt die grundlegende API-Nutzung, versucht jedoch nicht, mit Komplikationen wie zum Beispiel Stream-Stücken, die nicht an Zeilengrenzen enden, umzugehen.
+Dieses Beispiel zeigt die grundlegende Nutzung der API, aber versucht nicht, mit Komplikationen wie Stream-Chunks umzugehen, die beispielsweise nicht an Zeilenenden enden.
 
-In diesem Beispiel ist `stream` ein zuvor erstellter benutzerdefinierter `ReadableStream`. Er wird mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde. (siehe unser [Einfaches Zufallsstrombeispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Jedes Stück wird nacheinander gelesen und als Array von UTF-8-Bytes in die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen ist, woraufhin wir aus der rekursiven Funktion austreten und den gesamten Stream in einem anderen Teil der UI ausdrucken.
+In diesem Beispiel ist `stream` ein zuvor erstellter benutzerdefinierter `ReadableStream`.
+Er wird unter Verwendung eines mit `getReader()` erstellten [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen.
+(sehen Sie sich unser [Einfaches Zufallsstrom-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code an).
+Jeder Chunk wird nacheinander gelesen und als Array von UTF-8-Bytes an die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde, woraufhin wir aus der rekursiven Funktion zurückkehren und den gesamten Stream in einem anderen Teil der Benutzeroberfläche ausgeben.
 
 ```js
 function fetchStream() {
@@ -73,9 +77,10 @@ function fetchStream() {
 }
 ```
 
-### Beispiel 2 - Text zeilenweise behandeln
+### Beispiel 2 - Text zeilenweise verarbeiten
 
-Dieses Beispiel zeigt, wie Sie möglicherweise eine Textdatei abrufen und als Strom von Textzeilen behandeln. Es befasst sich mit Stream-Stücken, die nicht an Zeilengrenzen enden, und mit der Umwandlung von `Uint8Array` in Zeichenketten.
+Dieses Beispiel zeigt, wie Sie eine Textdatei abrufen und als Stream von Textzeilen verarbeiten könnten.
+Es behandelt Stream-Chunks, die nicht an Zeilenenden enden, und die Umwandlung von `Uint8Array` in Zeichenfolgen.
 
 ```js
 async function* makeTextFileLineIterator(fileURL) {
@@ -85,7 +90,7 @@ async function* makeTextFileLineIterator(fileURL) {
   let { value: chunk, done: readerDone } = await reader.read();
   chunk = chunk ? utf8Decoder.decode(chunk, { stream: true }) : "";
 
-  let re = /\r\n|\n|\r/gm;
+  let re = /\r?\n/g;
   let startIndex = 0;
 
   for (;;) {
@@ -94,7 +99,7 @@ async function* makeTextFileLineIterator(fileURL) {
       if (readerDone) {
         break;
       }
-      let remainder = chunk.substr(startIndex);
+      let remainder = chunk.substring(startIndex);
       ({ value: chunk, done: readerDone } = await reader.read());
       chunk =
         remainder + (chunk ? utf8Decoder.decode(chunk, { stream: true }) : "");
@@ -106,7 +111,7 @@ async function* makeTextFileLineIterator(fileURL) {
   }
   if (startIndex < chunk.length) {
     // last line didn't end in a newline char
-    yield chunk.substr(startIndex);
+    yield chunk.substring(startIndex);
   }
 }
 
@@ -126,4 +131,4 @@ for await (let line of makeTextFileLineIterator(urlOfFile)) {
 ## Siehe auch
 
 - [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader) Konstruktor
-- [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [Lesbare Streams verwenden](/de/docs/Web/API/Streams_API/Using_readable_streams)

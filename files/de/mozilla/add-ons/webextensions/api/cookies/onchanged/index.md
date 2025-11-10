@@ -2,20 +2,18 @@
 title: cookies.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/onChanged
 l10n:
-  sourceCommit: 6f58b8afb8e045e0d706ac0f0fdeacfaea487f86
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Das `onChanged`-Ereignis der {{WebExtAPIRef("cookies")}} API wird ausgelöst, wenn ein Cookie, auf das die Erweiterung zugreifen kann, gesetzt oder entfernt wird.
+Das `onChanged` Ereignis der {{WebExtAPIRef("cookies")}} API wird ausgelöst, wenn ein Cookie, auf das die Erweiterung zugreifen kann, gesetzt oder entfernt wird.
 
 > [!NOTE]
 > Wenn [Speicherpartitionierung](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) aktiv ist, enthält `cookies.Cookie.partitionKey` die Beschreibung der Speicherpartition des Cookies. Beim Ändern von Cookies ist es wichtig, diesen Wert an {{WebExtAPIRef("cookies.set()")}} oder {{WebExtAPIRef("cookies.remove()")}} zu übergeben, um sicherzustellen, dass die Erweiterung mit dem richtigen Cookie arbeitet.
 
-Beachten Sie, dass das Aktualisieren der Eigenschaften eines Cookies als zweistufiger Prozess implementiert ist:
+Beachten Sie, dass die Aktualisierung der Eigenschaften eines Cookies als ein zweistufiger Prozess implementiert wird:
 
-1. Zuerst wird das zu aktualisierende Cookie entfernt, wodurch eine Benachrichtigung mit einem {{WebExtAPIRef("cookies.OnChangedCause")}} von `overwrite` erzeugt wird.
-2. Anschließend wird ein neues Cookie mit den aktualisierten Werten geschrieben, das eine zweite Benachrichtigung mit einem {{WebExtAPIRef("cookies.OnChangedCause")}} von `explicit` erzeugt.
+1. Zuerst wird das zu aktualisierende Cookie entfernt, was eine Benachrichtigung mit einer {{WebExtAPIRef("cookies.OnChangedCause")}} von `overwrite` erzeugt.
+2. Anschließend wird ein neues Cookie mit den aktualisierten Werten geschrieben, was eine zweite Benachrichtigung mit einer {{WebExtAPIRef("cookies.OnChangedCause")}} von `explicit` erzeugt.
 
 ## Syntax
 
@@ -32,32 +30,28 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
     - `changeInfo`
-
-      - : Ein `object`, das Details über die eingetretene Änderung enthält. Seine Eigenschaften sind:
-
+      - : Ein `object`, das Details der Änderung enthält, die aufgetreten ist. Seine Eigenschaften sind:
         - `removed`
           - : Ein `boolean`, der auf `true` gesetzt ist, wenn ein Cookie entfernt wurde, und auf `false`, wenn nicht.
         - `cookie`
-          - : Ein {{WebExtAPIRef('cookies.Cookie')}}-Objekt, das Informationen über das gesetzte oder entfernte Cookie enthält.
+          - : Ein {{WebExtAPIRef('cookies.Cookie')}} Objekt, das Informationen über das gesetzte oder entfernte Cookie enthält.
         - `cause`
-          - : Ein {{WebExtAPIRef('cookies.OnChangedCause')}}-Wert, der den zugrunde liegenden Grund für die Änderung des Cookies darstellt.
+          - : Ein {{WebExtAPIRef('cookies.OnChangedCause')}} Wert, der den zugrundeliegenden Grund für die Änderung des Cookies darstellt.
 
 ## Beispiele
 
-Dieses Beispiel lauscht auf `onChanged`-Ereignisse und protokolliert Details aus dem `changeInfo`-Argument:
+Dieses Beispiel hört auf `onChanged` Ereignisse und protokolliert Details aus dem `changeInfo` Argument:
 
 ```js
 browser.cookies.onChanged.addListener((changeInfo) => {
@@ -77,7 +71,7 @@ browser.cookies.onChanged.addListener((changeInfo) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#event-onChanged). Diese Dokumentation leitet sich von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#event-onChanged) API von Chromium. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

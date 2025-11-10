@@ -3,12 +3,14 @@ title: "FileSystemDirectoryHandle: getDirectoryHandle()-Methode"
 short-title: getDirectoryHandle()
 slug: Web/API/FileSystemDirectoryHandle/getDirectoryHandle
 l10n:
-  sourceCommit: f10fbe2d2dc4857bf29ce955689a7ba7c1ffac8b
+  sourceCommit: ab7254fb329302ddc101fc2d09947429077368e6
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`getDirectoryHandle()`**-Methode der [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Schnittstelle gibt ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) für ein Unterverzeichnis mit dem angegebenen Namen innerhalb des Verzeichnishandles zurück, auf dem die Methode aufgerufen wird.
+Die **`getDirectoryHandle()`**-Methode der
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Schnittstelle liefert ein
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) für ein Unterverzeichnis mit dem angegebenen Namen innerhalb des Verzeichnisses, auf dem die Methode aufgerufen wird.
 
 ## Syntax
 
@@ -20,13 +22,11 @@ getDirectoryHandle(name, options)
 ### Parameter
 
 - `name`
-  - : Ein String, der den [`FileSystemHandle.name`](/de/docs/Web/API/FileSystemHandle/name) des Unterverzeichnisses darstellt, das Sie abrufen möchten.
+  - : Ein String, der den [`FileSystemHandle.name`](/de/docs/Web/API/FileSystemHandle/name) des Unterverzeichnisses repräsentiert, das Sie abrufen möchten.
 - `options` {{optional_inline}}
-
   - : Ein optionales Objekt, das Optionen für das abgerufene Unterverzeichnis enthält. Die Optionen sind wie folgt:
-
     - `create` {{optional_inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn er auf `true` gesetzt wird und das Verzeichnis nicht gefunden wird, wird eines mit dem angegebenen Namen erstellt und zurückgegeben.
+      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn er auf `true` gesetzt ist und das Verzeichnis nicht gefunden wird, wird eines mit dem angegebenen Namen erstellt und zurückgegeben.
 
 ### Rückgabewert
 
@@ -35,23 +35,25 @@ Ein {{jsxref('Promise')}}, das mit einem [`FileSystemDirectoryHandle`](/de/docs/
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das Handle nicht `'granted'` im `readwrite`-Modus ist, wenn die `create`-Option auf `true` gesetzt ist, oder im `read`-Modus, wenn die `create`-Option auf `false` gesetzt ist.
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das Handle nicht `'granted'` ist im `readwrite`-Modus, wenn die `create`-Option auf `true` gesetzt ist, oder im `read`-Modus, wenn die `create`-Option auf `false` gesetzt ist.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn der angegebene Name kein gültiger String ist oder Zeichen enthält, die mit dem nativen Dateisystem interferieren würden.
+  - : Wird ausgelöst, wenn der angegebene Name kein gültiger String ist oder Zeichen enthält, die mit dem nativen Dateisystem interferieren würden.
 - `TypeMismatchError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der zurückgegebene Eintrag eine Datei und kein Verzeichnis ist.
+  - : Wird ausgelöst, wenn der zurückgegebene Eintrag eine Datei und kein Verzeichnis ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird oder wenn das Zielverzeichnis nicht existiert und die `create`-Option auf `false` gesetzt ist.
+  - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird oder wenn das Zielverzeichnis nicht existiert und die `create`-Option auf `false` gesetzt ist.
 
 ## Beispiele
 
-Das folgende Beispiel gibt ein Verzeichnishandle mit dem angegebenen Namen zurück. Falls das Verzeichnis nicht existiert, wird es erstellt.
+Das folgende Beispiel liefert ein Verzeichnis-Handle mit dem angegebenen Namen, falls das Verzeichnis nicht existiert, wird es erstellt.
 
 ```js
 const dirName = "directoryToGetName";
 
 // assuming we have a directory handle: 'currentDirHandle'
-const subDir = currentDirHandle.getDirectoryHandle(dirName, { create: true });
+const subDir = await currentDirHandle.getDirectoryHandle(dirName, {
+  create: true,
+});
 ```
 
 ## Spezifikationen

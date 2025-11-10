@@ -3,14 +3,12 @@ title: "Window: getComputedStyle() Methode"
 short-title: getComputedStyle()
 slug: Web/API/Window/getComputedStyle
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`Window.getComputedStyle()`**-Methode gibt ein Objekt zurück, das die Werte aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet und einfache Berechnungen dieser Werte vorgenommen wurden.
-
-Einzelne CSS-Eigenschaftswerte können über die vom Objekt bereitgestellten APIs oder durch Indizierung mit CSS-Eigenschaftsnamen abgerufen werden.
+Die **`Window.getComputedStyle()`** Methode liefert ein dynamisches, schreibgeschütztes [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt, das die [aufgelösten Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value) aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet wurden und alle Berechnungen aufgelöst sind, die diese Werte enthalten können.
 
 ## Syntax
 
@@ -22,34 +20,74 @@ getComputedStyle(element, pseudoElt)
 ### Parameter
 
 - `element`
-  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Stil abgerufen werden soll.
+  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Stil ermittelt werden soll.
 - `pseudoElt` {{optional_inline}}
-  - : Ein String, der das Pseudo-Element angibt, das abgeglichen werden soll. Kann weggelassen (oder `null`) werden, wenn reale Elemente verwendet werden.
+  - : Ein String, der das Pseudo-Element angibt, das abgeglichen werden soll.
+    Ausgelassen (oder `null`) für echte Elemente.
 
 ### Rückgabewert
 
-Ein _live_ [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das sich automatisch aktualisiert, wenn sich die Stile des Elements ändern.
+Ein _dynamisches_ [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt, das automatisch aktualisiert wird, wenn die Stile des Elements geändert werden.
+
+> [!NOTE]
+> Frühere Versionen der Spezifikation gaben eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurück (von der [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) abgeleitet ist).
+> Siehe die Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Unterstützung durch Browser.
+
+> [!WARNING]
+> Zurückgegebene Werte sind manchmal absichtlich ungenau.
+> Um das Sicherheitsproblem des "CSS History Leak" zu vermeiden, können Browser über die berechneten Stile für einen besuchten Link lügen und Werte zurückgeben, als ob der Benutzer die verlinkte URL nie besucht hätte.
+> Siehe [Plugging the CSS history leak](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/) und [Privacy-related changes coming to CSS `:visited`](https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/) für Beispiele, wie dies implementiert wird.
 
 ### Ausnahmen
 
 - {{JSxRef("TypeError")}}
 
-  - : Wenn das übergebene Objekt kein [`Element`](/de/docs/Web/API/Element) ist oder `pseudoElt` kein gültiger Pseudo-Element-Selektor ist oder {{CSSxRef("::part", "::part()")}} oder {{CSSxRef("::slotted", "::slotted()")}} ist.
+  - : Wenn das übergebene Objekt kein [`Element`](/de/docs/Web/API/Element) ist oder `pseudoElt` kein gültiger Pseudo-Element-Selektor ist oder {{CSSxRef("::part", "::part()")}} oder {{CSSxRef("::slotted", "::slotted()")}}.
 
     > [!NOTE]
-    > Ein gültiger Pseudo-Element-Selektor bezieht sich auf die syntaktische Gültigkeit, z. B. wird `::unsupported` als gültig angesehen, auch wenn das Pseudo-Element selbst nicht unterstützt wird. Zusätzlich unterstützt der neueste W3-Standard [ausschließlich](https://www.w3.org/TR/cssom-1/#dom-window-getcomputedstyle) `::before` und `::after`, während der CSS-WG-Entwurf [diese Werte nicht einschränkt](https://drafts.csswg.org/cssom/#dom-window-getcomputedstyle). Die Browser-Kompatibilität kann variieren.
+    > Ein gültiger Pseudo-Element-Selektor bezieht sich auf die syntaktische Gültigkeit, z.B. wird `::unsupported` als gültig angesehen, obwohl das Pseudo-Element selbst nicht unterstützt wird.
+
+## Beschreibung
+
+Die Methode liefert ein dynamisches, schreibgeschütztes [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt, das die [aufgelösten Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value) aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet wurden und alle Berechnungen aufgelöst sind, die diese Werte enthalten können.
+
+Das zurückgegebene Objekt kann verwendet werden, um die Stile des Elements zu inspizieren – einschließlich jener, die inline, mit einem `<style>`-Element oder über ein externes Stylesheet festgelegt wurden.
+Da das Objekt schreibgeschützt ist, können Sie es nicht verwenden, um die Stile eines Elements festzulegen.
+Da es jedoch "dynamisch" ist, wird das zurückgegebene Objekt bei einer Aktualisierung der Elementstile über eine andere API (wie [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)) mit dem entsprechenden aufgelösten Wert aktualisiert.
+
+Die Unterscheidung, dass das Objekt [aufgelöste Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value) enthält, ist wichtig.
+Für die meisten Eigenschaften, insbesondere diejenigen, die vom Layout abhängen wie `display`, `font-size` oder `line-height`, ist der aufgelöste Wert der berechnete Wert.
+Für Eigenschaften, die vom Layout abhängen, kann der verwendete Wert geringfügig vom berechneten Wert abweichen, und dies ist der aufgelöste Wert, der zurückgegeben wird.
+Für einen animierenden Eigenschaftswert ist es der berechnete Wert zum aktuellen Punkt in der Animation.
+
+Das zurückgegebene Objekt hat dash-benannte und entsprechende {{Glossary("camel_case", "camel-case")}} benannte Eigenschaften für **alle** vom Browser unterstützten [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties), einschließlich sowohl [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) als auch Langform-Eigenschaften.
+
+Shorthand-CSS-Eigenschaften des Elements werden in ihre entsprechenden Langform-Eigenschaften expandiert.
+Zum Beispiel würde ein Element mit dem Stil `"border-top: 1px solid black"` im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop` sowie die entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle`, und {{cssxref("border-top-width")}} und `borderTopWidth` repräsentiert werden.
+
+Beachten Sie, dass das zurückgegebene Objekt vom gleichen Typ wie das Objekt ist, das von der [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements zurückgegeben wird.
+Das `element.style`-Objekt kann jedoch auch zum **Setzen** von Stilen auf diesem Element verwendet werden und gibt nur die inline gesetzten Stile oder jene über JavaScript zurück.
+
+### Farbwerte
+
+Aus Kompatibilitätsgründen werden serialisierte Farbwerte, die mit dem traditionellen sRGB-Farbraum angegeben sind, als [`rgb()`](/de/docs/Web/CSS/Reference/Values/color_value/rgb)-Farben ausgedrückt, wenn der Alphakanal-Wert genau `1` ist, und als `rgba()`-Farben andernfalls.
+Die veraltete Syntax mit Kommata wird verwendet, mit Kommata als Trennzeichen (zum Beispiel `rgb(255, 0, 0)`).
+
+Für andere {{Glossary("color_space", "Farbräume")}} werden die Werte mit den entsprechenden funktionalen Ausdrücken serialisiert: [`lab()`](/de/docs/Web/CSS/Reference/Values/color_value/lab), [`lch()`](/de/docs/Web/CSS/Reference/Values/color_value/lch), [`oklab()`](/de/docs/Web/CSS/Reference/Values/color_value/oklab), [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch), [`color()`](/de/docs/Web/CSS/Reference/Values/color_value/color).
 
 ## Beispiele
 
-In diesem Beispiel wird ein {{HTMLElement("p")}}-Element gestylt. Anschließend werden diese Stile mittels `getComputedStyle()` abgerufen und als Textinhalt des `<p>` ausgegeben.
+### Abrufen aufgelöster Stile
 
-### HTML
+In diesem Beispiel stylen wir ein {{HTMLElement("p")}}-Element, rufen diese Stile mit `getComputedStyle()` ab und fügen sie in den Textinhalt des `<p>` ein.
+
+#### HTML
 
 ```html
 <p>Hello</p>
 ```
 
-### CSS
+#### CSS
 
 ```css
 p {
@@ -63,7 +101,7 @@ p {
 }
 ```
 
-### JavaScript
+#### JavaScript
 
 ```js
 const para = document.querySelector("p");
@@ -75,53 +113,30 @@ para.textContent =
   )}.`;
 ```
 
-### Resultat
+#### Ergebnis
 
-{{EmbedLiveSample('Examples', '100%', '240px')}}
+{{EmbedLiveSample('retrieving_resolved_styles', '100%', '240px')}}
 
-## Beschreibung
+### Verwendung mit Pseudo-Elementen
 
-Das zurückgegebene Objekt ist vom selben Typ wie [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration), das auch von der [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements zurückgegeben wird. Jedoch haben die beiden Objekte unterschiedliche Zwecke:
-
-- Das von `getComputedStyle` zurückgegebene Objekt ist schreibgeschützt und sollte genutzt werden, um den Stil des Elements zu inspizieren — einschließlich der Stile, die durch ein `<style>`-Element oder ein externes Stylesheet gesetzt wurden.
-- Das `element.style`-Objekt sollte genutzt werden, um Stile auf dieses Element zu **setzen** oder Stile zu inspizieren, die direkt durch JavaScript-Manipulationen oder das globale `style`-Attribut hinzugefügt wurden.
-
-Das erste Argument muss ein [`Element`](/de/docs/Web/API/Element) sein. Nicht-Elemente wie ein [`Text`](/de/docs/Web/API/Text)-Knoten führen zu einem Fehler.
-
-## defaultView
-
-In vielen Code-Beispielen wird `getComputedStyle` aus dem [`document.defaultView`](/de/docs/Web/API/Document/defaultView)-Objekt aufgerufen. In fast allen Fällen ist dies unnötig, da `getComputedStyle` auch im `window`-Objekt existiert. Wahrscheinlich stammt das `defaultView`-Muster aus einer Kombination von Bestrebungen, keine Testspezifikationen für `window` zu schreiben und eine API zu schaffen, die auch in Java nutzbar ist.
-
-## Verwendung mit Pseudo-Elementen
-
-`getComputedStyle` kann Stilinformationen von Pseudo-Elementen abrufen (z. B. `::after`, `::before`, `::marker`, `::line-marker` — siehe [den Pseudo-Element-Standard](https://www.w3.org/TR/css-pseudo-4/)).
+`getComputedStyle()` kann Stilinfos von [Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) abrufen, wie `::after`, `::before`, `::marker` oder `::line-marker`.
 
 ```html
-<style>
-  h3::after {
-    content: " rocks!";
-  }
-</style>
-
 <h3>Generated content</h3>
-
-<script>
-  const h3 = document.querySelector("h3");
-  const result = getComputedStyle(h3, ":after").content;
-
-  console.log("the generated content is: ", result); // returns ' rocks!'
-</script>
 ```
 
-## Hinweise
+```css
+h3::after {
+  content: " rocks!";
+}
+```
 
-- Das zurückgegebene [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt enthält aktive Werte für **_langnamen_**-CSS-Eigenschaften sowie Kurznamen. Zum Beispiel enthält das zurückgegebene Objekt Einträge für {{cssxref("border-bottom-width")}} zusätzlich zu {{cssxref("border-width")}} und {{cssxref("border")}} [Shorthandeigenschaften](/de/docs/Web/CSS/Shorthand_properties). Sie können Werte sowohl mit Langnamen wie {{cssxref("font-size")}} als auch mit Kurznamen wie {{cssxref("font")}} abfragen.
-- CSS-Eigenschaftswerte können mit der Methode [`getPropertyValue(propName)`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) oder durch direkte Indizierung des Objekts mit Array- oder [Punktnotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) wie `obj['z-index']` oder `obj.zIndex` abgerufen werden.
-- Die von `getComputedStyle` zurückgegebenen Werte sind [aufgelöste Werte](/de/docs/Web/CSS/resolved_value). Diese entsprechen normalerweise den in CSS 2.1 definierten [berechneten Werten](/de/docs/Web/CSS/CSS_cascade/computed_value), aber für einige ältere Eigenschaften wie `width`, `height` oder `padding` sind sie identisch mit den [verwendeten Werten](/de/docs/Web/CSS/CSS_cascade/used_value). Ursprünglich definierte CSS 2.0 die _berechneten Werte_ als die finalen Werte, die nach der Kaskadierung und Vererbung verwendet werden sollen. CSS 2.1 hat sie jedoch als Werte vor dem Layout redefiniert, während _verwendete Werte_ danach bestimmt werden. Bei CSS-2.0-Eigenschaften gibt `getComputedStyle` die alte Bedeutung der berechneten Werte zurück, die jetzt **verwendete Werte** genannt werden. Ein Unterschied zwischen Vorab- und Nach-Layout-Werten betrifft beispielsweise die Auflösung von Prozentangaben für `width` oder `height`, da diese nur für _verwendete Werte_ durch ihre Pixeläquivalente ersetzt werden.
-- Zur Vermeidung des "CSS-Historienlecks"-Sicherheitsproblems können Browser manchmal absichtlich ungenaue Werte für `getComputedStyle` zurückgeben, z. B. für besuchte Links. Sie geben dabei Werte zurück, als hätte der Nutzer die verlinkte URL nie besucht. Siehe [Das Schließen des CSS-Historienlecks](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/) und [Datenschutzbezogene Änderungen für CSS `:visited`](https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/) für Beispiele, wie dies umgesetzt wird.
-- Während [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) gibt `getComputedStyle` in Firefox den ursprünglichen Eigenschaftswert und in WebKit den Schlusswert zurück.
-- In Firefox geben Eigenschaften mit dem Wert `auto` den verwendeten Wert zurück, nicht `auto`. Wenn Sie beispielsweise `top:auto` und `bottom:0` auf ein Element mit `height:30px` und einem umgebenden Block mit `height:100px` anwenden, gibt der berechnete Stil für `top` in Firefox `70px` zurück, da 100 − 30 = 70.
-- Aus Kompatibilitätsgründen werden serielle Farbwerte als [`rgb()`](/de/docs/Web/CSS/color_value/rgb)-Farben ausgedrückt, wenn der Alpha-Kanalwert genau `1` ist, und als `rgba()`-Farben in anderen Fällen. In beiden Fällen wird die ältere Syntax mit Kommas als Trennzeichen verwendet (z. B. `rgb(255, 0, 0)`).
+```js
+const h3 = document.querySelector("h3");
+const result = getComputedStyle(h3, "::after").content;
+
+console.log("the generated content is: ", result); // returns ' rocks!'
+```
 
 ## Spezifikationen
 
@@ -135,4 +150,5 @@ In vielen Code-Beispielen wird `getComputedStyle` aus dem [`document.defaultView
 
 - [`window.getDefaultComputedStyle()`](/de/docs/Web/API/Window/getDefaultComputedStyle)
 - [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)
-- [Aufgelöster Wert](/de/docs/Web/CSS/resolved_value)
+- [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap)
+- [Aufgelöster Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value)

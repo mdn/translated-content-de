@@ -1,14 +1,14 @@
 ---
-title: "GPUCanvasContext: unconfigure()-Methode"
+title: "GPUCanvasContext: unconfigure() Methode"
 short-title: unconfigure()
 slug: Web/API/GPUCanvasContext/unconfigure
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`unconfigure()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle entfernt jede zuvor gesetzte Kontextkonfiguration und zerstört alle Texturen, die über [`getCurrentTexture()`](/de/docs/Web/API/GPUCanvasContext/getCurrentTexture) zurückgegeben wurden, während der Canvas-Kontext konfiguriert war.
+Die **`unconfigure()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle entfernt jede zuvor festgelegte Kontextkonfiguration und zerstört alle Texturen, die über [`getCurrentTexture()`](/de/docs/Web/API/GPUCanvasContext/getCurrentTexture) zurückgegeben wurden, während der Canvas-Kontext konfiguriert war.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ const canvas = document.querySelector("#gpuCanvas");
 const context = canvas.getContext("webgpu");
 
 context.configure({
-  device: device,
+  device,
   format: navigator.gpu.getPreferredCanvasFormat(),
   alphaMode: "premultiplied",
 });

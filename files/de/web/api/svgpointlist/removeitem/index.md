@@ -3,12 +3,12 @@ title: "SVGPointList: Methode removeItem()"
 short-title: removeItem()
 slug: Web/API/SVGPointList/removeItem
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
 ---
 
 {{APIRef("SVG")}}
 
-Die **`removeItem()`**-Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Interfaces entfernt einen [`point`](/de/docs/Web/API/SVGPoint) aus der Liste.
+Die **`removeItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle entfernt ein [`DOMPoint`](/de/docs/Web/API/DOMPoint) aus der Liste.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ removeItem(index)
 
 ### Rückgabewert
 
-Das entfernte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
+Das entfernte [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt.
 
 ### Ausnahmen
 
@@ -34,7 +34,7 @@ Das entfernte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine SVG, die ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Element an Index `2` wird entfernt.
+Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Element an Index `2` wird entfernt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ Das folgende Beispiel zeigt eine SVG, die ein {{SVGElement("polyline")}} mit fü
 ```
 
 ```js
-let example = document.getElementById("example");
+const example = document.getElementById("example");
 console.log(example.points.removeItem(2));
 ```
 

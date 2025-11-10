@@ -2,17 +2,15 @@
 title: tabs.getCurrent()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Holen Sie ein {{WebExtAPIRef("tabs.Tab")}}, das Informationen über den Tab enthält, in dem dieses Skript ausgeführt wird.
 
 > [!NOTE]
-> Diese Funktion ist nur in Kontexte nützlich, in denen es einen Browser-Tab gibt, wie zum Beispiel eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#options_pages).
+> Diese Funktion ist nur in Kontexten nützlich, in denen ein Browser-Tab vorhanden ist, wie z. B. eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#sidebars_popups_and_options_pages).
 >
-> Wenn Sie sie aus einem Hintergrundskript oder einem Popup aufrufen, wird `undefined` zurückgegeben.
+> Wenn Sie sie von einem Hintergrundskript oder einem Popup aufrufen, wird `undefined` zurückgegeben.
 
 Dies ist eine asynchrone Funktion, die ein {{jsxref("Promise")}} zurückgibt.
 
@@ -28,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, welches Informationen über den aktuellen Tab enthält. Bei einem Fehler wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein {{jsxref("Promise")}}, das mit einem {{WebExtAPIRef('tabs.Tab')}} Objekt erfüllt wird, das Informationen über den aktuellen Tab enthält. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

@@ -2,103 +2,106 @@
 title: HTTP-Header-Seitenschablone
 slug: MDN/Writing_guidelines/Page_structures/Page_types/HTTP_header_page_template
 l10n:
-  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
+  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-> **Note:** _Entfernen Sie diesen gesamten erklärenden Hinweis vor der Veröffentlichung_
+> [!NOTE]
+> _Entfernen Sie diese ganze erklärende Anmerkung vor der Veröffentlichung_
 >
 > ---
 >
-> **Seiten-Frontmatter:**
+> **Seitenvorbemerkungen:**
 >
-> Das Frontmatter am Beginn der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
-> Die Werte sollten für den jeweiligen Header entsprechend aktualisiert werden.
+> Die Vorbemerkungen am Anfang der Seite werden verwendet, um "Seitenmetadaten" zu definieren.
+> Die Werte sollten entsprechend für den jeweiligen Header aktualisiert werden.
 >
 > ```md
 > ---
-> title: NameOfTheHeader
-> slug: Web/HTTP/Headers/NameOfTheHeader
+> title: NameOfTheHeader Header
+> short-title: NameOfTheHeader
+> slug: Web/HTTP/Reference/Headers/NameOfTheHeader
 > page-type: http-header
 > status:
->   - experimental
 >   - deprecated
+>   - experimental
 >   - non-standard
 > browser-compat: path.to.feature.NameOfTheHeader
+> sidebar: http
 > ---
 > ```
 >
 > - **title**
->   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Format als _NameOfTheHeader_. Zum Beispiel hat der [Cache-Control](/de/docs/Web/HTTP/Headers/Cache-Control) Header einen _title_ von `Cache-Control`.
+>   - : Überschrift, die oben auf der Seite angezeigt wird. Formatieren Sie als _NameOfTheHeader Header_. Zum Beispiel hat der [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control) Header einen _title_ von `Cache-Control Header`.
+> - **short-title**
+>   - : Kurztitel, der in Brotkrümeln und Seitenleisten verwendet wird. Formatieren Sie als _NameOfTheHeader_. Zum Beispiel hat der [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control) Header einen _short-title_ von `Cache-Control`.
 > - **slug**
->   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dies wird formatiert wie `Web/HTTP/Headers/NameOfTheHeader`. Zum Beispiel hat der [Cache-Control](/de/docs/Web/HTTP/Headers/Cache-Control) Slug `Web/HTTP/Headers/Cache-Control`.
+>   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dies wird wie `Web/HTTP/Reference/Headers/NameOfTheHeader` formatiert. Zum Beispiel ist der Slug des [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control) Headers `Web/HTTP/Reference/Headers/Cache-Control`.
 > - **page-type**
->   - : Für HTTP-Header muss es `http-header` sein. Für andere HTTP `page-type`-Werte siehe den [HTTP Abschnitt](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/Page_type_key#http_page_types) der Dokumentation für den `page-type` Frontmatter-Schlüssel.
+>   - : Für HTTP-Header muss `http-header` verwendet werden. Für andere HTTP `page-type` Werte siehe den [HTTP-Bereich](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/Page_type_key#http_page_types) der Dokumentation für den `page-type` Vorbemerkungsschlüssel.
 > - **status**
->   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+>   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das eines oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
+>   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheHeader` mit der Abfragezeichenfolge für den Header im [Browser-Compat-Daten-Repo](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet automatisch den Schlüssel, um den Kompatibilitätsbereich zu füllen (Ersetzen des `\{{Compat}}` Makros).
 >
->   - : Ersetzen Sie den Platzhalterwert <code>path.to.feature.NameOfTheHeader</code> mit der Abfragezeichenfolge für den Header im [Browser-Compat-Daten-Repository](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um den Kompatibilitätsbereich zu füllen (Ersetzen des `\{{Compat}}` Makros).
->
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den HTTP-Header in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-Compat-Daten-Repository</a> erstellen/aktualisieren müssen, und der Eintrag für den Header muss Spezifikationsinformationen enthalten.
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den HTTP-Header in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-Compat-Daten-Repo</a> erstellen/aktualisieren müssen, und der Eintrag für den Header muss Spezifikationsinformationen enthalten.
 >     Siehe unseren [Leitfaden dazu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 >     Browser-Kompatibilität gilt nicht für HTTP-Header, bei denen keine spezifische Implementierung bereitgestellt wird (wie das automatische Hinzufügen eines Anforderungsheaders zu einigen Anfragen oder das Ändern des Verhaltens basierend auf Daten in einem Antwortheader).
 >     In diesen Fällen entfernen Sie den browser-compat Schlüssel und Wert.
 >
+> - **sidebar**
+>   - : Dies ist immer `http`.
+>     Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
+>
 > ---
 >
-> **Makros oben auf der Seite**
+> **Top-der-Seite Makros**
 >
-> Eine Reihe von Makroaufrufen erscheint oben im Inhaltsbereich (unmittelbar unter dem Seiten-Frontmatter).
-> Diese Makros werden automatisch von der Toolchain hinzugefügt (kein Hinzufügen/Entfernen erforderlich):
+> Eine Reihe von Makros erscheinen oben im Inhaltsbereich unmittelbar nach den Seitenvorbemerkungen.
+> Diese Makros werden automatisch durch Tools hinzugefügt, daher vermeiden Sie es, sie hinzuzufügen oder zu entfernen:
 >
-> - `\{{SeeCompatTable}}` — dies erzeugt ein **Dies ist eine experimentelle Technologie** Banner, das anzeigt, dass der Header [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es sich um ein experimentelles handelt und die Technologie hinter einem Pref in Firefox versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{deprecated_header}}` — dies erzeugt ein **Veraltet** Banner, das anzeigt, dass die Nutzung des Headers [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — dies erzeugt ein **Nicht standardisiert** Banner, das anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — dieses generiert ein **Dies ist eine experimentelle Technologie** Banner, das anzeigt, dass der Header [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn es experimentell ist und die Technologie hinter einem Einstellung in Firefox versteckt ist, sollten Sie dafür auch einen Eintrag auf der [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) Seite ausfüllen.
+> - `\{{deprecated_header}}` — dieses generiert ein **Veraltet** Banner, das anzeigt, dass die Nutzung des Headers [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+> - `\{{Non-standard_Header}}` — dieses generiert ein **Nicht-standardisiert** Banner, das anzeigt, dass das Feature zu keiner Spezifikation gehört.
 >
-> Sie sollten die folgenden Makros entsprechend dem untenstehenden Ratschlag aktualisieren oder löschen:
+> Stellen Sie keine Statusheader-Makros manuell bereit. Verweisen Sie auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
 >
-> - `\{{httpsidebar}}` — dies erzeugt die HTTP-Seitenleiste, die auf jeder HTTP-Referenzseite erscheinen muss.
->   Denken Sie daran, das `\{{MDNSidebar}}` Makro zu entfernen, wenn Sie diese Seite kopieren.
+> Beispiele für die **Experimentelle**, **Veraltete** und **Nicht-standardisierte** Banner werden direkt nach diesem Anmerkungsblock angezeigt.
 >
-> Geben Sie keine Status-Header-Makros manuell an. Beziehen Sie sich auf den Abschnitt ["Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Status zur Seite hinzuzufügen.
->
-> Beispiele für die **Experimentellen**, **Veralteten** und **Nicht standardisierten** Banner sind direkt nach diesem Hinweisblock gezeigt.
->
-> _Erinnern Sie sich daran, diesen gesamten erklärenden Hinweis vor der Veröffentlichung zu entfernen_
+> _Denken Sie daran, diese ganze erklärende Anmerkung vor der Veröffentlichung zu entfernen_
 
-{{httpsidebar}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Der erste Satz der Seite muss folgendem Format entsprechen:
+Der erste Satz der Seite muss diesem Format folgen:
 
-> Der HTTP **`header-name`** (Header-Typ) wird in Y-Umständen für X verwendet.
+> Der HTTP **`header-name`** (Headertyp) wird für X in Y Umständen verwendet.
 
-Der 'Header-Typ' sollte angeben, ob es sich um einen {{Glossary("request_header", "Anforderungsheader")}}, einen {{Glossary("response_header", "Antwortheader")}} handelt, oder ob es beides sein kann.
-Der zusammenfassende Absatz sollte idealerweise ein oder zwei kurze Sätze umfassen.
+Der 'Headertyp' sollte angeben, ob es sich um einen {{Glossary("request_header", "Request-Header")}}, einen {{Glossary("response_header", "Response-Header")}} handelt, oder ob es sich um beide handeln kann.
+Der Zusammenfassungsabschnitt sollte idealerweise ein oder zwei kurze Sätze umfassen.
 
-Sie können in diesem Abschnitt bemerkenswerte Schwierigkeiten oder häufige Fallstricke erwähnen und auf Beispiele oder detailliertere Dokumentationen (Leitfäden, etc.) hinweisen.
-Zwei oder drei Absätze in diesem Abschnitt sind angemessen, und wenn es wesentliche Verwendungsnotizen gibt, verwenden Sie einen "Beschreibung"-Abschnitt nach "Direktiven" unten.
+Sie können bemerkenswerte Fallen oder häufige Stolpersteine in diesem Abschnitt erwähnen, mit Links zu Beispielen oder detaillierteren Dokumentationen (Leitfäden, etc.) in diesem Abschnitt.
+Zwei oder drei Absätze in diesem Abschnitt sind angemessen, und wenn es wesentliche Nutzungshinweise gibt, verwenden Sie einen "Beschreibung"-Abschnitt nach den "Direktiven" unten.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>
-        Header-Kategorie (oder Kategorien) einschließen, z.B.
-        {{Glossary("Request_header", "Anforderungsheader")}},
-        {{Glossary("Response_header", "Antwortheader")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        Fügen Sie die Headerkategorie (oder Kategorien) ein, z.B.
+        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Response_header", "Response-Header")}},
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweise</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>"Ja" oder "Nein"</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-gelisteter Antwortheader")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-befreiter Antwortheader")}}
       </th>
       <td>"Ja" oder "Nein"</td>
     </tr>
@@ -107,31 +110,37 @@ Zwei oder drei Absätze in diesem Abschnitt sind angemessen, und wenn es wesentl
 
 ## Syntax
 
-Füllen Sie ein Syntaxfeld aus, wie das untenstehende, gemäß den Richtlinien in unserem Artikel zu [Syntax-Abschnitten](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections).
-Wenn der Header viele verfügbare Direktiven hat, können Sie mehrere Syntaxfelder, Unterabschnitte und Erklärungen einfügen, wie es angebracht ist.
+Füllen Sie ein Syntaxfeld aus, wie das untenstehende, gemäß den Richtlinien in unserem Artikel zu den [Syntax-Abschnitten](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections) aus.
 
 ```http
 NameOfTheHeader: <directive1>
 NameOfTheHeader: <directive1>, <directive2>, …
 ```
 
-Die Direktiven sind nicht groß- und kleinschreibungssensitiv und haben ein optionales Argument, das sowohl Token- als auch Zeichenfolgen-Syntax verwenden kann.
-Mehrere Direktiven werden durch Kommas getrennt (löschen Sie Informationen wie angemessen).
+Wenn der Header viele verfügbare Direktiven hat, können Sie gerne mehrere Syntaxfelder, Unterabschnitte und Erklärungen je nach Bedarf einfügen:
+
+```http
+NameOfTheHeader: <directive3>, …, <directiveN>
+```
+
+Die Direktiven sind nicht groß- und kleinschreibungssensitiv und haben ein optionales Argument, das sowohl Token- als auch Anführungszeichen-Syntax verwenden kann.
+Mehrere Direktiven werden durch Kommas getrennt (löschen Sie Informationen, je nach Bedarf).
 
 ## Direktiven
 
 - `directive1`
-  - : Eine kurze Beschreibung der Direktive und ihrer Funktion hier einfügen.
-    Fügen Sie für jede Direktive einen Begriff und eine Definition ein.
+  - : Fügen Sie hier eine kurze Beschreibung der Direktive und ihrer Funktion hinzu.
+    Fügen Sie für jedes Direktive einen Begriff und eine Definition ein.
 - `directive2`
-  - : usw.
+  - : etc.
 
 Wenn der Header viele verfügbare Direktiven hat,
-können Sie mehrere Definitionslisten, Unterabschnitte und Erklärungen einfügen, wie es angebracht ist.
+können Sie gerne mehrere Definitionslisten, Unterabschnitte und Erklärungen je nach Bedarf einfügen.
 
 ## Beschreibung
 
-Falls zu viel Inhalt in den ersten Absätzen enthalten ist, geben Sie hier so viele Details wie nötig an, wie Hintergrundinformationen, Hinweise zur Nutzung und Links zur Dokumentation.
+Wenn es zu viel Inhalt gibt, um ihn in die einleitenden Absätze aufzunehmen, geben Sie hier so viele Details wie nötig an, wie Hintergrundinformationen, Hinweise zur Nutzung und Links zur Dokumentation.
+Hier ist auch ein guter Platz, um darauf hinzuweisen, ob reale Muster von den spezifizierten abweichen, wenn weit verbreitete Implementierungen von dem abweichen, was in den Spezifikationen beschrieben ist.
 
 ## Beispiele
 
@@ -139,62 +148,63 @@ Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel **muss** eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend dafür sein, was das Beispiel macht. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte knapp sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel **muss** eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unseren Leitfaden zur [Hinzufügung von Code-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Siehe unseren Leitfaden, wie man [Codebeispiele einfügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal werden Sie auf Beispiele auf einer anderen Seite verlinken wollen.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben werden.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und weitere Beispiele auf einer anderen Seite haben:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und einige weitere auf einer anderen Seite:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie zu den Beispielen auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite ein und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
 > ### Verwendung der Fetch-API
 >
-> Beispiel von Fetch
+> Beispiel der Fetch-Nutzung
 >
 > ### Weitere Beispiele
 >
 > Links zu weiteren Beispielen auf anderen Seiten
 > ```
 >
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser:
+> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser Seite:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften ein; fügen Sie nur die Links direkt unter der H2-Überschrift "Beispiele" ein. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele zu dieser API siehe [die Seite zu fetch()](https://example.org/).
+> Für Beispiele dieser API siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
 
 `\{{Specifications}}`
 
-_Um dieses Makro zu verwenden, entfernen Sie die Rückstriche und den Backslash in der Markdown-Datei._
+_Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Schrägstrich im Markdown-Dokument._
 
 ## Browser-Kompatibilität
 
-_Wenn der Browser keine spezifische Behandlung für den Header hat, entfernen Sie das Makro unten._
-_Andernfalls, um dieses Makro zu verwenden, entfernen Sie die Rückstriche und den Backslash in der Markdown-Datei._
+_Wenn der Browser keine spezifische Verarbeitung für den Header hat, entfernen Sie das folgende Makro._
+_Andernfalls, um dieses Makro zu verwenden, entfernen Sie die Backticks und den Schrägstrich im Markdown-Dokument._
 
 `\{{Compat}}`
 
-_Wenn der Browser eine spezifische Behandlung für den Header hat, entfernen Sie den untenstehenden Text:_
+_Wenn der Browser spezifische Verarbeitung für den Header hat, entfernen Sie den untenstehenden Text:_
 
-Dieser Header hat keine spezifikationsdefinierte Benutzeragenten-Integration ("Browser-Kompatibilität" gilt nicht).
-Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um verhaltensspezifische Implementierungen bereitzustellen.
+Dieser Header hat keine spezifikationsdefinierte Benutzeragent-Integration ("Browser-Kompatibilität" gilt nicht).
+Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um anwendungsspezifisches Implementierungsverhalten bereitzustellen.
 
 ## Siehe auch
 
-Schließen Sie Links zu Referenzseiten und Leitfäden ein, die sich auf den aktuellen HTTP-Header beziehen. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
-Sie können auf relevante Antwortstatus wie `\{{HTTPStatus("123", "123 Response Status")}}` und Header wie `\{{HTTPHeader("Header-Name")}}` verlinken.
-Sie können verwandte Status und Header in einem einzigen Listenelement für Kürze gruppieren.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf den aktuellen HTTP-Header beziehen.
+Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
+Sie können auf relevante Antwortstatus wie `\{{HTTPStatus("123", "123 Reason")}}` und Header wie `\{{HTTPHeader("Header-Name")}}` verweisen.
+Sie können verwandte Status und Header in einem einzigen Listeneintrag zur Kürze gruppieren.
 
 - link1
 - link2

@@ -2,16 +2,36 @@
 title: Global set
 slug: WebAssembly/Reference/Variables/Global_set
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`global.set`**-Anweisung legt die Werte einer globalen Variable fest.
+Die **`global.set`**-Anweisung setzt die Werte einer globalen Variable.
 
-{{EmbedInteractiveExample("pages/wat/global_set.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: global_set", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (global $var (mut i32) (i32.const 0))
+  (func $main
+    i32.const 10 ;; load a number onto the stack
+    global.set $var ;; set the $var
+
+    global.get $var ;; load $var onto the stack
+    call $log ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; load the number 2 onto the stack
 i32.const 2
 

@@ -2,36 +2,34 @@
 title: EvalError
 slug: Web/JavaScript/Reference/Global_Objects/EvalError
 l10n:
-  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Das **`EvalError`**-Objekt signalisiert einen Fehler in Bezug auf die globale {{jsxref("Global_Objects/eval", "eval()")}}-Funktion. Diese Ausnahme wird von JavaScript nicht mehr ausgelöst, jedoch bleibt das `EvalError`-Objekt aus Kompatibilitätsgründen erhalten.
 
-Das **`EvalError`** Objekt zeigt einen Fehler bezüglich der globalen {{jsxref("Global_Objects/eval", "eval()")}} Funktion an. Diese Ausnahme wird von JavaScript nicht mehr ausgelöst, jedoch bleibt das `EvalError` Objekt zur Kompatibilität bestehen.
-
-`EvalError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`EvalError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `EvalError` ist eine Unterklasse von {{jsxref("Error")}}.
 
 ## Konstruktor
 
 - {{jsxref("EvalError/EvalError", "EvalError()")}}
-  - : Erstellt ein neues `EvalError` Objekt.
+  - : Erstellt ein neues `EvalError`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt auch Instanzeigenschaften von seinem Elternobjekt {{jsxref("Error")}}_.
 
-Diese Eigenschaften sind auf `EvalError.prototype` definiert und werden von allen `EvalError` Instanzen geteilt.
+Diese Eigenschaften sind auf `EvalError.prototype` definiert und werden von allen `EvalError`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "EvalError.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `EvalError` Instanzen ist der Anfangswert der {{jsxref("EvalError/EvalError", "EvalError")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `EvalError`-Instanzen ist der Anfangswert der {{jsxref("EvalError/EvalError", "EvalError")}}-Konstruktor.
 - {{jsxref("Error/name", "EvalError.prototype.name")}}
-  - : Repräsentiert den Namen für die Art des Fehlers. Für `EvalError.prototype.name` ist der Anfangswert `"EvalError"`.
+  - : Repräsentiert den Namen des Fehlertyps. Für `EvalError.prototype.name` ist der Anfangswert `"EvalError"`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt Instanzmethoden von seinem Elternobjekt {{jsxref("Error")}}_.
 
 ## Beispiele
 

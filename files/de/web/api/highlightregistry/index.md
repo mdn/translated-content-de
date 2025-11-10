@@ -2,27 +2,28 @@
 title: HighlightRegistry
 slug: Web/API/HighlightRegistry
 l10n:
-  sourceCommit: 47ed48a36b456f8ea9ab6aaa5969c55d2912edcb
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Das **`HighlightRegistry`**-Interface der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird verwendet, um [`Highlight`](/de/docs/Web/API/Highlight)-Objekte zu registrieren, die mit der API gestylt werden sollen. Es wird über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) aufgerufen.
+Die **`HighlightRegistry`**-Schnittstelle der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird verwendet, um [`Highlight`](/de/docs/Web/API/Highlight)-Objekte zu registrieren, die mit der API gestylt werden sollen.
+Sie wird über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) aufgerufen.
 
-Eine `HighlightRegistry`-Instanz ist ein [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), wobei jeder Schlüssel den Namen für ein benutzerdefiniertes Highlight darstellt und der entsprechende Wert das zugehörige [`Highlight`](/de/docs/Web/API/Highlight)-Objekt ist.
+Eine Instanz von `HighlightRegistry` ist ein [objektähnliches `Map`-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel der Namens-String für ein benutzerdefiniertes Highlight ist und der entsprechende Wert das zugeordnete [`Highlight`](/de/docs/Web/API/Highlight)-Objekt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Das `HighlightRegistry`-Interface erbt keine Eigenschaften._
+_Die `HighlightRegistry`-Schnittstelle erbt keine Eigenschaften._
 
 - [`HighlightRegistry.size`](/de/docs/Web/API/HighlightRegistry/size) {{ReadOnlyInline}}
   - : Gibt die Anzahl der derzeit registrierten `Highlight`-Objekte zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Das `HighlightRegistry`-Interface erbt keine Methoden_.
+_Die `HighlightRegistry`-Schnittstelle erbt keine Methoden_.
 
 - [`HighlightRegistry.clear()`](/de/docs/Web/API/HighlightRegistry/clear)
   - : Entfernt alle `Highlight`-Objekte aus dem Register.
@@ -31,15 +32,17 @@ _Das `HighlightRegistry`-Interface erbt keine Methoden_.
 - [`HighlightRegistry.entries()`](/de/docs/Web/API/HighlightRegistry/entries)
   - : Gibt ein neues Iterator-Objekt zurück, das jedes `Highlight`-Objekt im Register in Einfügereihenfolge enthält.
 - [`HighlightRegistry.forEach()`](/de/docs/Web/API/HighlightRegistry/forEach)
-  - : Ruft den gegebenen Callback einmal für jedes `Highlight`-Objekt im Register in Einfügereihenfolge auf.
+  - : Ruft den angegebenen Rückruf einmal für jedes `Highlight`-Objekt im Register in Einfügereihenfolge auf.
 - [`HighlightRegistry.get()`](/de/docs/Web/API/HighlightRegistry/get)
   - : Ruft das benannte `Highlight`-Objekt aus dem Register ab.
 - [`HighlightRegistry.has()`](/de/docs/Web/API/HighlightRegistry/has)
-  - : Gibt ein Boolean zurück, das angibt, ob ein `Highlight`-Objekt im Register vorhanden ist oder nicht.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob ein `Highlight`-Objekt im Register vorhanden ist oder nicht.
+- [`HighlightRegistry.highlightsFromPoint()`](/de/docs/Web/API/HighlightRegistry/highlightsFromPoint) {{experimental_inline}}
+  - : Gibt ein Array von Objekten zurück, die die benutzerdefinierten Highlights darstellen, die an einem bestimmten Punkt innerhalb des Viewports angewendet werden.
 - [`HighlightRegistry.keys()`](/de/docs/Web/API/HighlightRegistry/keys)
   - : Ein Alias für [`HighlightRegistry.values()`](/de/docs/Web/API/HighlightRegistry/values).
 - [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set)
-  - : Fügt das angegebene `Highlight`-Objekt dem Register mit dem angegebenen Namen hinzu oder aktualisiert das benannte `Highlight`-Objekt, wenn es bereits im Register vorhanden ist.
+  - : Fügt das angegebene `Highlight`-Objekt mit dem angegebenen Namen dem Register hinzu oder aktualisiert das benannte `Highlight`-Objekt, falls es bereits im Register existiert.
 - [`HighlightRegistry.values()`](/de/docs/Web/API/HighlightRegistry/values)
   - : Gibt ein neues Iterator-Objekt zurück, das die `Highlight`-Objekte im Register in Einfügereihenfolge ausgibt.
 
@@ -47,7 +50,7 @@ _Das `HighlightRegistry`-Interface erbt keine Methoden_.
 
 ### Ein Highlight registrieren
 
-Das folgende Beispiel zeigt, wie Bereiche erstellt, ein neues `Highlight`-Objekt für sie instanziiert und das Highlight mit der `HighlightRegistry` registriert wird, um es auf der Seite zu stylen:
+Das folgende Beispiel demonstriert, wie man Bereiche erstellt, ein neues `Highlight`-Objekt für sie instanziiert und das Highlight mithilfe der `HighlightRegistry` registriert, um es auf der Seite zu stylen:
 
 #### HTML
 
@@ -103,5 +106,6 @@ CSS.highlights.set("my-custom-highlight", highlight);
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)-Modul
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

@@ -1,14 +1,14 @@
 ---
-title: "CSSPositionTryRule: Eigenschaft name"
+title: "CSSPositionTryRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSPositionTryRule/name
 l10n:
-  sourceCommit: 696d03175b94752ce0fffa5b11c80f883f44b337
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef("CSSOM") }}{{SeeCompatTable}}
+{{APIRef("CSSOM") }}
 
-Die **`name`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle repräsentiert den Namen der Position-try-Fallback-Option, die durch die `@position-try`-At-Regel im {{cssxref("dashed-ident")}} angegeben wird.
+Die **`name`**-Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle ist schreibgeschützt und repräsentiert den Namen der Zurückfaller-Option für die Position, die durch die `@position-try`-Regel mit {{cssxref("dashed-ident")}} spezifiziert wird.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Ein String.
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try`-At-Regel mit einem Namen `--custom-bottom` und drei Deskriptoren.
+Das CSS enthält eine `@position-try`-Regel mit einem Namen `--custom-bottom` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
   top: anchor(bottom);
   min-width: 100px;
-  margin: 10px 0 0 0;
+  margin-top: 10px;
 }
 ```
 
@@ -45,6 +45,6 @@ console.log(tryOption.name); // "--custom-bottom"
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit overflow: try Optionen und bedingtem Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+- [Umgang mit Überlauf: Versuchoptionen und bedingtes Verbergen](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)

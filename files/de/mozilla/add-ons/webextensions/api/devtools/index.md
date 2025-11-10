@@ -2,26 +2,24 @@
 title: devtools
 slug: Mozilla/Add-ons/WebExtensions/API/devtools
 l10n:
-  sourceCommit: 34215030993b429f727a2c73ef06eb029f57beeb
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ermöglicht Erweiterungen die Interaktion mit den {{Glossary("Developer_Tools", "Entwicklerwerkzeugen")}} des Browsers. Sie verwenden diese API, um Entwicklerwerkzeugseiten zu erstellen, mit dem Fenster, das untersucht wird, zu interagieren und den Netzwerkverbrauch der Seite zu inspizieren.
 
-Ermöglicht Erweiterungen, mit den {{Glossary("Developer_Tools", "Entwicklerwerkzeugen")}} des Browsers zu interagieren. Sie verwenden diese API, um Entwicklerwerkzeug-Seiten zu erstellen, mit dem Fenster zu interagieren, das inspiziert wird, und die Netzwerkverwendung der Seite zu inspizieren.
-
-Um diese API zu verwenden, müssen Sie den Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) im Manifest angeben. Die Verwendung dieses Manifestschlüssels löst [eine Erlaubnismeldung zur Installationszeit über die Entwicklerwerkzeuge](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) aus. Um eine Erlaubnismeldung zur Installationszeit zu vermeiden, markieren Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im Manifest-Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufführen.
+Um diese API zu verwenden, müssen Sie den Manifest-Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) angeben. Die Nutzung dieses Manifest-Schlüssels löst eine [Berechtigungswarnung zur Installationszeit über Entwicklerwerkzeuge](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) aus. Um eine Installationszeit-Warnung zu vermeiden, kennzeichnen Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im Manifest-Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) auflisten.
 
 > [!NOTE]
-> Die optionale Berechtigung "devtools" wird nur von Firefox und nicht von Chrome unterstützt ([Chromium issue 1143015](https://crbug.com/1143015)).
+> Die optionale Berechtigung "devtools" wird nur von Firefox und nicht von Chrome unterstützt ([Chromium-Problem 1143015](https://crbug.com/1143015)).
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("devtools.inspectedWindow")}}
-  - : Interaktion mit dem Fenster, an dem die Entwicklerwerkzeuge angehängt sind (inspiziertes Fenster). Dies umfasst das Abrufen der Tab-ID für die inspizierte Seite, die Ausführung von Code im Kontext des inspizierten Fensters, das Neuladen der Seite oder das Abrufen der Liste von Ressourcen innerhalb der Seite.
+  - : Interagieren Sie mit dem Fenster, an das die Entwicklerwerkzeuge angehängt sind (untersuchtes Fenster). Dies umfasst das Abrufen der Tab-ID für die untersuchte Seite, das Auswerten des Codes im Kontext des untersuchten Fensters, das Neuladen der Seite oder das Abrufen der Liste der Ressourcen innerhalb der Seite.
 - {{WebExtAPIRef("devtools.network")}}
-  - : Informationen über Netzwerk-Anfragen abrufen, die mit dem Fenster verbunden sind, an dem die Entwicklerwerkzeuge angehängt sind (das inspizierte Fenster).
+  - : Informationen über Netzwerkanforderungen abrufen, die mit dem Fenster verbunden sind, an das die Entwicklerwerkzeuge angehängt sind (das untersuchte Fenster).
 - {{WebExtAPIRef("devtools.panels")}}
-  - : Erstellen von Benutzeroberflächen-Panels, die innerhalb der Nutzeragenten-Entwicklerwerkzeuge angezeigt werden.
+  - : Erstellen Sie Benutzeroberflächen-Panels, die innerhalb der Benutzer-Agent-Entwicklerwerkzeuge angezeigt werden.
 
 ## Browser-Kompatibilität
 

@@ -1,14 +1,14 @@
 ---
-title: "SVGFEDisplacementMapElement: yChannelSelector Eigenschaft"
+title: "SVGFEDisplacementMapElement: yChannelSelector-Eigenschaft"
 short-title: yChannelSelector
 slug: Web/API/SVGFEDisplacementMapElement/yChannelSelector
 l10n:
-  sourceCommit: 243703c2241af83f51991c4dcdbdfbe6c8f6c8cd
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`yChannelSelector`**-Eigenschaft der [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("yChannelSelector")}}-Attribut des gegebenen {{SVGElement("feDisplacementMap")}}-Elements widerspiegelt. Sie nimmt einen der auf dieser Schnittstelle definierten `SVG_CHANNEL_*`-Konstanten an.
+Die schreibgeschützte Eigenschaft **`yChannelSelector`** des [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Interfaces spiegelt das {{SVGAttr("yChannelSelector")}}-Attribut des gegebenen {{SVGElement("feDisplacementMap")}}-Elements wider. Es nimmt einen der `SVG_CHANNEL_*`-Konstanten an, die in diesem Interface definiert sind.
 
 ## Wert
 
@@ -35,7 +35,7 @@ In diesem Beispiel enthält das im {{SVGElement("filter")}} definierte {{SVGElem
     y="20"
     width="100"
     height="100"
-    style="fill:green;"
+    fill="green"
     filter="url(#displacementFilter)" />
 </svg>
 ```

@@ -2,30 +2,28 @@
 title: Webstandards
 slug: Glossary/Web_standards
 l10n:
-  sourceCommit: 86b695e507a30ebcbb5348710b001ca03bff74b4
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Webstandards sind von internationalen Standardisierungsgremien festgelegte Regeln, die definieren, wie das {{Glossary("World_Wide_Web", "Web")}} funktioniert (und manchmal auch das {{Glossary("Internet", "Internet")}} kontrollieren).
 
-Webstandards sind Regeln, die von internationalen Normungsgremien festgelegt werden und definieren, wie das {{Glossary("World_Wide_Web", "Web")}} funktioniert (und die manchmal auch das {{Glossary("Internet", "Internet")}} steuern).
+Mehrere Standardisierungsgremien sind verantwortlich für die Definition verschiedener Aspekte des Webs, und alle Standards müssen koordiniert werden, um das Web maximal nutzbar und zugänglich zu halten. Webstandards müssen sich auch weiterentwickeln, um den aktuellen Stand zu verbessern und sich an neue Gegebenheiten anzupassen.
 
-Mehrere Normungsgremien sind verantwortlich für die Definition verschiedener Aspekte des Webs, und alle Standards müssen koordiniert werden, um die maximale Nutzbarkeit und Zugänglichkeit des Webs sicherzustellen. Webstandards müssen sich auch weiterentwickeln, um den aktuellen Stand zu verbessern und sich an neue Umstände anzupassen.
+Diese nicht erschöpfende Liste gibt Ihnen eine Vorstellung davon, an welche Standards sich Websites und Netzwerksysteme halten müssen:
 
-Diese nicht erschöpfende Liste gibt Ihnen eine Vorstellung davon, welchen Standards Websites und Netzwerksysteme entsprechen müssen:
+- **IETF** (Internet Engineering Task Force): Internetstandards (STD), die unter anderem die Einrichtung und Verwendung von {{Glossary("URI", "URIs")}}, {{Glossary("HTTP", "HTTP")}} und {{Glossary("MIME", "MIME")}} regeln
+- **{{Glossary("W3C", "W3C")}}**: Spezifikationen für Markup-Sprachen (z.B. {{Glossary("HTML", "HTML")}}), Stildefinitionen (d.h. {{Glossary("CSS", "CSS")}}), {{Glossary("DOM", "DOM")}}, {{Glossary("Accessibility", "Barrierefreiheit")}}
+- **IANA** (Internet Assigned Numbers Authority): Namens- und Nummernregistrierungen
+- **Ecma Intl.:** Skriptstandards, vor allem für {{Glossary("JavaScript", "JavaScript")}}
+- **{{Glossary("ISO", "ISO")}}** (International Organization for Standardization): Standards, die eine Vielzahl von Aspekten regeln, einschließlich Zeichenkodierungen, Webseitenmanagement und Benutzeroberflächendesign
 
-- **IETF** (Internet Engineering Task Force): Internetstandards (STD), die unter anderem die Einrichtung und Nutzung von {{Glossary("URI", "URIs")}}, {{Glossary("HTTP", "HTTP")}} und {{Glossary("MIME", "MIME")}} regeln
-- **{{Glossary("W3C", "W3C")}}**: Spezifikationen für Auszeichnungssprachen (z. B. {{Glossary("HTML", "HTML")}}), Stildefinitionen (z. B. {{Glossary("CSS", "CSS")}}), {{Glossary("DOM", "DOM")}}, {{Glossary("Accessibility", "Barrierefreiheit")}}
-- **IANA** (Internet Assigned Numbers Authority): Namens- und Nummernregister
-- **Ecma Intl.:** Script-Standards, am prominentesten für {{Glossary("JavaScript", "JavaScript")}}
-- **{{Glossary("ISO", "ISO")}}** (International Organization for Standardization): Standards, die eine Vielzahl von Aspekten regeln, darunter Zeichencodierungen, Website-Management und Benutzeroberflächengestaltung
+## Entgegenstehende Standards
 
-## Entgegengesetzte Standards
+Gelegentlich sind die Mitglieder eines Standardisierungsgremiums uneinig darüber, wie sich ein Feature entwickelt, und einige können es **ablehnen**. Dies bedeutet, dass Technologieanbieter (zum Beispiel Webbrowser-Anbieter), die mit dem Feature in seiner aktuellen Form nicht einverstanden sind, es wahrscheinlich nie implementieren werden.
 
-Gelegentlich können Mitglieder eines Normungsgremiums mit der Entwicklung einer Funktion nicht einverstanden sein, und einige können sich ihr **widersetzen**. Das bedeutet, dass Technologieanbieter (zum Beispiel Webbrowser-Anbieter), die mit der Funktion in ihrer aktuellen Form nicht einverstanden sind, sie wahrscheinlich niemals implementieren werden.
+Anbieter, die dem Feature _zustimmen_, implementieren es in der Regel trotzdem, um damit experimentieren zu können und Feedback zu geben. Dies ermöglicht es interessierten Parteien, Anwendungsfälle zu erstellen und die Probleme des Features aufzuzeigen, in der Hoffnung, einen Konsens über eine zukünftige Version zu erreichen.
 
-Anbieter, die der Funktion _zustimmen_, implementieren sie normalerweise dennoch, damit sie verfügbar ist, um experimentiert und Feedback gegeben werden zu können. Dies ermöglicht interessierten Parteien, Anwendungsfälle zu entwickeln und die Probleme mit der Funktion zu demonstrieren, in der Hoffnung, einen Konsens über eine zukünftige Version zu erreichen.
-
-Mitglieder von Normungsgremien veröffentlichen oft eine Aufzeichnung ihrer Position zu verschiedenen Standards als Referenz. Zum Beispiel siehe [Mozilla Specification Positions](https://mozilla.github.io/standards-positions/) und [WebKit Standards Positions](https://webkit.org/standards-positions/).
+Die Mitglieder der Standardisierungsgremien veröffentlichen häufig eine Aufzeichnung ihrer Positionen zu verschiedenen Standards als Referenz. Siehe zum Beispiel [Mozilla Specification Positions](https://mozilla.github.io/standards-positions/) und [WebKit Standards Positions](https://webkit.org/standards-positions/).
 
 ## Siehe auch
 

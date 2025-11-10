@@ -1,14 +1,16 @@
 ---
-title: "WebGLRenderingContext: getTexParameter()-Methode"
+title: "WebGLRenderingContext: Methode getTexParameter()"
 short-title: getTexParameter()
 slug: Web/API/WebGLRenderingContext/getTexParameter
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.getTexParameter()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt Informationen über die angegebene Textur zurück.
+Die **`WebGLRenderingContext.getTexParameter()`**-Methode der
+[WebGL-API](/de/docs/Web/API/WebGL_API) liefert Informationen über die
+angegebene Textur.
 
 ## Syntax
 
@@ -20,25 +22,26 @@ getTexParameter(target, pname)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP`: Eine Würfelmappen-Textur.
+    - `gl.TEXTURE_CUBE_MAP`: Eine würfelgemappte Textur.
 
-    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext), sind zusätzlich die folgenden Werte verfügbar:
+    Beim Verwenden eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext)
+    stehen zusätzlich folgende Werte zur Verfügung:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `pname`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragenden Informationen angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die zu abfragende Information spezifiziert. Mögliche Werte:
 
     <table class="standard-table">
       <thead>
         <tr>
           <th scope="col">pname</th>
-          <th scope="col">Rückgabewerttyp</th>
+          <th scope="col">Rückgabetyp</th>
           <th scope="col">Beschreibung</th>
           <th scope="col">Mögliche Rückgabewerte</th>
         </tr>
@@ -96,13 +99,13 @@ getTexParameter(target, pname)
           <td>Beliebige Float-Werte.</td>
         </tr>
         <tr>
-          <th colspan="4">Zusätzlich verfügbar bei Nutzung eines WebGL 2-Kontexts</th>
+          <th colspan="4">Zusätzlich verfügbar bei Verwendung eines WebGL 2-Kontextes</th>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_BASE_LEVEL</code></td>
           <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Textur-Mipmap-Level</td>
-          <td>Beliebige int-Werte.</td>
+          <td>Texture Mipmap-Level</td>
+          <td>Beliebige Int-Werte.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_COMPARE_FUNC</code></td>
@@ -117,7 +120,7 @@ getTexParameter(target, pname)
         <tr>
           <td><code>gl.TEXTURE_COMPARE_MODE</code></td>
           <td>[`GLenum`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Textur-Vergleichsmodus</td>
+          <td>Texturvergleichsmodus</td>
           <td>
             <code>gl.NONE</code> (Standardwert),
             <code>gl.COMPARE_REF_TO_TEXTURE</code>.
@@ -127,30 +130,30 @@ getTexParameter(target, pname)
           <td><code>gl.TEXTURE_IMMUTABLE_FORMAT</code></td>
           <td>[`GLboolean`](/de/docs/Web/API/WebGL_API/Types)</td>
           <td>Unveränderlichkeit des Texturformats und der Größe</td>
-          <td>true oder false.</td>
+          <td>wahr oder falsch.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_IMMUTABLE_LEVELS</code></td>
           <td>[`GLuint`](/de/docs/Web/API/WebGL_API/Types)</td>
           <td>?</td>
-          <td>Beliebige uint-Werte.</td>
+          <td>Beliebige Uint-Werte.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_MAX_LEVEL</code></td>
           <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
           <td>Maximales Textur-Mipmap-Array-Level</td>
-          <td>Beliebige int-Werte.</td>
+          <td>Beliebige Int-Werte.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_MAX_LOD</code></td>
           <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Maximaler Wert für die Textur-Detailstufe (Level-of-Detail)</td>
+          <td>Maximalwert der Textur-Detailstufe</td>
           <td>Beliebige Float-Werte.</td>
         </tr>
         <tr>
           <td><code>gl.TEXTURE_MIN_LOD</code></td>
           <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
-          <td>Minimaler Wert für die Textur-Detailstufe (Level-of-Detail)</td>
+          <td>Minimalwert der Textur-Detailstufe</td>
           <td>Beliebige Float-Werte.</td>
         </tr>
         <tr>
@@ -167,7 +170,7 @@ getTexParameter(target, pname)
 
 ### Rückgabewert
 
-Gibt die angeforderten Texturinformationen zurück (wie durch `pname` angegeben). Tritt ein Fehler auf, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
+Liefert die angeforderten Texturinformationen (wie mit `pname` angegeben). Falls ein Fehler auftritt, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
 
 ## Beispiele
 

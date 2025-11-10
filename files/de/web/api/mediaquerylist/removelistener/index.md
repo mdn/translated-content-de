@@ -1,21 +1,21 @@
 ---
-title: "MediaQueryList: removeListener() Methode"
+title: "MediaQueryList: Methode removeListener()"
 short-title: removeListener()
 slug: Web/API/MediaQueryList/removeListener
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef("CSSOM")}}{{Deprecated_Header}}
+{{APIRef("CSSOM view API")}}{{Deprecated_Header}}
 
 Die **`removeListener()`**-Methode der
-[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle entfernt einen Listener vom
+[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle entfernt einen Listener aus dem
 `MediaQueryListener`.
 
-In älteren Browsern hat `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt,
-daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
+In älteren Browsern hatte `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget)
+geerbt, daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
 Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es
-in den Browsern verfügbar ist, die Sie unterstützen müssen.
+in den von Ihnen zu unterstützenden Browsern verfügbar ist.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ removeListener(func)
 ### Parameter
 
 - `func`
-  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion repräsentiert, die Sie
+  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion darstellt, die Sie
     entfernen möchten.
 
 ### Rückgabewert
@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ```js
 const paragraph = document.querySelector("p");
-const mediaQueryList = window.matchMedia("(max-width: 600px)");
+const mediaQueryList = window.matchMedia("(width <= 600px)");
 
 function screenTest(e) {
   if (e.matches) {
@@ -67,8 +67,8 @@ mediaQueryList.removeListener(screenTest);
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

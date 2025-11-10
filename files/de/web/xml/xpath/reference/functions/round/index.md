@@ -2,10 +2,10 @@
 title: round
 slug: Web/XML/XPath/Reference/Functions/round
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `round` gibt eine Zahl zurück, die die nächste ganze Zahl zur angegebenen Zahl ist.
+Die `round`-Funktion gibt eine Zahl zurück, die die nächste ganze Zahl zur angegebenen Zahl ist.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ round( decimal )
 
 ### Rückgabewert
 
-Die nächste ganze Zahl, die kleiner, größer oder gleich `decimal` ist.
+Die nächstgelegene ganze Zahl, die kleiner, größer oder gleich `decimal` ist.
 
 ## Beschreibung
 
@@ -28,7 +28,7 @@ Die nächste ganze Zahl, die kleiner, größer oder gleich `decimal` ist.
 
 ## Spezifikationen
 
-[XPath 1.0 4.4](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-round)
+[XPath 1.0 4.4](https://www.w3.org/TR/xpath-10/#function-round)
 
 ## Gecko-Unterstützung
 

@@ -2,14 +2,12 @@
 title: Middleware
 slug: Glossary/Middleware
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Middleware ist ein (lose definierter) Begriff für jede Software oder Dienstleistung, die es den Teilen eines Systems ermöglicht, zu kommunizieren und Daten zu verwalten. Es handelt sich um die Software, die die Kommunikation zwischen Komponenten und Ein-/Ausgabe verarbeitet, sodass Entwickler sich auf den spezifischen Zweck ihrer Anwendung konzentrieren können.
 
-Middleware ist ein (lose definierter) Begriff für jede Software oder jeden Dienst, der es den Teilen eines Systems ermöglicht, zu kommunizieren und Daten zu verwalten. Es handelt sich um die Software, die die Kommunikation zwischen Komponenten und die Eingabe/Ausgabe verarbeitet, damit Entwickler sich auf den spezifischen Zweck ihrer Anwendung konzentrieren können.
-
-In serverseitigen Webanwendungs-Frameworks wird der Begriff oft spezifischer verwendet, um auf vorgefertigte Softwarekomponenten zu verweisen, die zur Bearbeitung von Aufgaben wie dem Datenbankzugriff in die Anforderung/Antwort-Verarbeitungspipeline des Frameworks integriert werden können.
+In serverseitigen Webanwendungs-Frameworks wird der Begriff oft spezifischer verwendet, um vorgefertigte Softwarekomponenten zu bezeichnen, die in die Anforderung-/Antwortverarbeitungspipeline des Frameworks hinzugefügt werden können, um Aufgaben wie den Datenbankzugriff zu handhaben.
 
 ## Siehe auch
 

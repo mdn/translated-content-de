@@ -1,16 +1,16 @@
 ---
-title: "SVGFEDisplacementMapElement: x-Eigenschaft"
+title: "SVGFEDisplacementMapElement: x Eigenschaft"
 short-title: x
 slug: Web/API/SVGFEDisplacementMapElement/x
 l10n:
-  sourceCommit: b85296a36664e26537fc181c65521d0aa8679fa6
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`x`** des [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Interfaces beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`x`** schreibgeschützte Eigenschaft der [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Es spiegelt den Wert des Filterprimitivattributs {{SVGAttr("x")}} des {{SVGElement("feDisplacementMap")}}-Elements wider. Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzokoordinatensystem, die die gegebene Entfernung vom Ursprung des Benutzokoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut einen Prozentwert hat, bezieht sich der Eigenschaftswert auf die Breite des Filterbereichs in Benutzokoordinateneinheiten. Der Standardwert ist `0`.
+Sie spiegelt den Wert des {{SVGElement("feDisplacementMap")}}-Elements und dessen {{SVGAttr("x")}}-Filterprimitivattribut wider. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzersystem der Koordinaten, die den angegebenen Abstand vom Ursprung des Benutzersystems der Koordinaten entlang der x-Achse darstellt. Wenn das `x`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Breite des Filterbereichs in Benutzersystemkoordinateneinheiten. Der Standardwert ist `0`.
 
 ## Wert
 

@@ -3,25 +3,25 @@ title: "HTMLCanvasElement: webglcontextcreationerror Ereignis"
 short-title: webglcontextcreationerror
 slug: Web/API/HTMLCanvasElement/webglcontextcreationerror_event
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("WebGL API")}}
 
-Das **`webglcontextcreationerror`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User-Agent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Kontext zu erstellen.
+Das **`webglcontextcreationerror`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User-Agent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontext zu erstellen.
 
-Dieses Ereignis verfügt über eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage) Eigenschaft, die eine plattformabhängige Zeichenkette mit weiteren Informationen über das Scheitern enthalten kann.
+Dieses Ereignis besitzt eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)-Eigenschaft, die eine plattformabhängige Zeichenkette mit weiteren Informationen über den Fehler enthalten kann.
 
-Dieses Ereignis wird nicht weitergeleitet.
+Dieses Ereignis wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("webglcontextcreationerror", (event) => {});
+```js-nolint
+addEventListener("webglcontextcreationerror", (event) => { })
 
-onwebglcontextcreationerror = (event) => {};
+onwebglcontextcreationerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -42,13 +42,9 @@ _Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`]
 ```js
 const canvas = document.getElementById("canvas");
 
-canvas.addEventListener(
-  "webglcontextcreationerror",
-  (e) => {
-    console.log(e.statusMessage || "Unknown error");
-  },
-  false,
-);
+canvas.addEventListener("webglcontextcreationerror", (e) => {
+  console.log(e.statusMessage || "Unknown error");
+});
 
 const gl = canvas.getContext("webgl");
 // logs statusMessage or "Unknown error" if unable to create WebGL context

@@ -1,15 +1,14 @@
 ---
 title: Date.prototype.setUTCHours()
+short-title: setUTCHours()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCHours
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`setUTCHours()`** Methode von {{jsxref("Date")}} Instanzen ändert die Stunden, Minuten, Sekunden und/oder Millisekunden für dieses Datum entsprechend der Weltzeit.
 
-Die Methode **`setUTCHours()`** von {{jsxref("Date")}}-Instanzen ändert die Stunden, Minuten, Sekunden und/oder Millisekunden für dieses Datum gemäß der Weltzeit (universal time).
-
-{{InteractiveExample("JavaScript Demo: Date.setUTCHours()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.setUTCHours()")}}
 
 ```js interactive-example
 const event = new Date("August 19, 1975 23:15:30 GMT-3:00");
@@ -38,23 +37,23 @@ setUTCHours(hoursValue, minutesValue, secondsValue, msValue)
 ### Parameter
 
 - `hoursValue`
-  - : Eine ganze Zahl im Bereich von 0 bis 23, die die Stunden darstellt.
+  - : Eine ganze Zahl zwischen 0 und 23, die die Stunden repräsentiert.
 - `minutesValue` {{optional_inline}}
-  - : Eine ganze Zahl im Bereich von 0 bis 59, die die Minuten darstellt.
+  - : Eine ganze Zahl zwischen 0 und 59, die die Minuten repräsentiert.
 - `secondsValue` {{optional_inline}}
-  - : Eine ganze Zahl im Bereich von 0 bis 59, die die Sekunden darstellt. Wenn Sie `secondsValue` angeben, müssen Sie auch `minutesValue` angeben.
+  - : Eine ganze Zahl zwischen 0 und 59, die die Sekunden repräsentiert. Wenn Sie `secondsValue` angeben, müssen Sie auch `minutesValue` angeben.
 - `msValue` {{optional_inline}}
-  - : Eine ganze Zahl im Bereich von 0 bis 999, die die Millisekunden darstellt. Wenn Sie `msValue` angeben, müssen Sie auch `minutesValue` und `secondsValue` angeben.
+  - : Eine ganze Zahl zwischen 0 und 999, die die Millisekunden repräsentiert. Wenn Sie `msValue` angeben, müssen Sie auch `minutesValue` und `secondsValue` angeben.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt direkt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt, und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt an Ort und Stelle und gibt seinen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die in [gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `NaN` konvertiert werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie die Parameter `minutesValue`, `secondsValue` und `msValue` nicht angeben, werden die Werte verwendet, die von den Methoden {{jsxref("Date/getUTCMinutes", "getUTCMinutes()")}}, {{jsxref("Date/getUTCSeconds", "getUTCSeconds()")}} und {{jsxref("Date/getUTCMilliseconds", "getUTCMilliseconds()")}} zurückgegeben werden.
+Wenn Sie die Parameter `minutesValue`, `secondsValue` und `msValue` nicht angeben, werden die Werte von den Methoden {{jsxref("Date/getUTCMinutes", "getUTCMinutes()")}}, {{jsxref("Date/getUTCSeconds", "getUTCSeconds()")}} und {{jsxref("Date/getUTCMilliseconds", "getUTCMilliseconds()")}} verwendet.
 
-Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCHours()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Zum Beispiel: Wenn Sie 100 für `secondsValue` verwenden, werden die Minuten um 1 erhöht (`minutesValue + 1`), und 40 wird für die Sekunden verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCHours()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Zum Beispiel, wenn Sie 100 für `secondsValue` verwenden, werden die Minuten um 1 erhöht (`minutesValue + 1`) und 40 wird für Sekunden verwendet.
 
 ## Beispiele
 

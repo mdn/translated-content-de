@@ -1,27 +1,26 @@
 ---
 title: Set.prototype.values()
+short-title: values()
 slug: Web/JavaScript/Reference/Global_Objects/Set/values
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
+Die **`values()`**-Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[Set-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das die Werte für jedes Element in diesem Set in Einfüge-Reihenfolge enthält.
 
-Die **`values()`**-Methode von {{jsxref("Set")}}-Instanzen gibt ein neues _[Set-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Werte für jedes Element in diesem Set in der Einfügereihenfolge enthält.
-
-{{InteractiveExample("JavaScript Demo: Set.prototype.values")}}
+{{InteractiveExample("JavaScript Demo: Set.prototype.values()")}}
 
 ```js interactive-example
-const set1 = new Set();
-set1.add(42);
-set1.add("forty two");
+const set = new Set();
+set.add(42);
+set.add("forty two");
 
-const iterator1 = set1.values();
+const iterator = set.values();
 
-console.log(iterator1.next().value);
+console.log(iterator.next().value);
 // Expected output: 42
 
-console.log(iterator1.next().value);
+console.log(iterator.next().value);
 // Expected output: "forty two"
 ```
 

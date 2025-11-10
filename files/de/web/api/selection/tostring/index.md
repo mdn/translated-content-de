@@ -1,15 +1,14 @@
 ---
-title: "Selection: toString() Methode"
+title: "Auswahl: toString()-Methode"
 short-title: toString()
 slug: Web/API/Selection/toString
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.toString()`** Methode gibt einen String zurück,
-der derzeit durch das Selection-Objekt dargestellt wird, d.h. den aktuell ausgewählten Text.
+Die **`Selection.toString()`**-Methode gibt einen String zurück, der aktuell von dem Auswahlobjekt dargestellt wird, d.h. der aktuell ausgewählte Text.
 
 ## Syntax
 
@@ -29,8 +28,7 @@ Ein String, der die Auswahl repräsentiert.
 
 Diese Methode gibt den aktuell ausgewählten Text zurück.
 
-In [JavaScript](/de/docs/Web/JavaScript) wird diese Methode automatisch aufgerufen, wenn
-eine Funktion, der das Selection-Objekt übergeben wird, einen String erfordert:
+In [JavaScript](/de/docs/Web/JavaScript) wird diese Methode automatisch aufgerufen, wenn eine Funktion, an die das Auswahlobjekt übergeben wird, einen String erfordert:
 
 ```js
 alert(window.getSelection()); // What is called

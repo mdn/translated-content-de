@@ -1,17 +1,16 @@
 ---
-title: "WebGL2RenderingContext: blitFramebuffer()-Methode"
+title: "WebGL2RenderingContext: blitFramebuffer() Methode"
 short-title: blitFramebuffer()
 slug: Web/API/WebGL2RenderingContext/blitFramebuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.blitFramebuffer()`**-Methode der
+Die **`WebGL2RenderingContext.blitFramebuffer()`** Methode der
 [WebGL 2 API](/de/docs/Web/API/WebGL_API) überträgt einen Block von Pixeln
-vom Leseframebuffer zum Zeichnenframebuffer. Lese- und Zeichenframebuffer werden gebunden
-unter Verwendung von [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer).
+vom Leseframebuffer zum Zeichnenframebuffer. Lese- und Zeichnenframebuffer werden mithilfe von [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer) gebunden.
 
 ## Syntax
 
@@ -24,23 +23,18 @@ blitFramebuffer(srcX0, srcY0, srcX1, srcY1,
 ### Parameter
 
 - `srcX0`, `srcY0`, `srcX1`, `srcY1`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Begrenzungen des Quellrechtecks angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Grenzen des Quellrechtecks angibt.
 - `dstX0`, `dstY0`, `dstX1`, `dstY1`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Begrenzungen des Zielrechtecks angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Grenzen des Zielrechtecks angibt.
 - `mask`
 
-  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), das eine bitweise ODER-Maske angibt, die anzeigt, welche Puffer
-    kopiert werden sollen. Mögliche Werte:
-
+  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), der eine Bitmaske angibt, welche Puffer zu kopieren sind. Mögliche Werte:
     - `gl.COLOR_BUFFER_BIT`
     - `gl.DEPTH_BUFFER_BIT`
     - `gl.STENCIL_BUFFER_BIT`
 
 - `filter`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Interpolation angibt, die angewandt wird, wenn das Bild
-    gestreckt wird. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Interpolation angibt, die angewendet wird, wenn das Bild gestreckt wird. Mögliche Werte:
     - `gl.NEAREST`
     - `gl.LINEAR`
 

@@ -3,14 +3,14 @@ title: "FileSystemEntry: remove() Methode"
 short-title: remove()
 slug: Web/API/FileSystemEntry/remove
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`remove()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Interfaces löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
+Die Methode **`remove()`** der Schnittstelle [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
 
-Um ein Verzeichnis, seinen gesamten Inhalt und seine Unterverzeichnisse rekursiv zu entfernen, rufen Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) auf.
+Um ein Verzeichnis sowie alle seine Inhalte und seine Unterverzeichnisse rekursiv zu entfernen, rufen Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) auf.
 
 ## Syntax
 
@@ -32,16 +32,16 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `FileError.INVALID_MODIFICATION_ERR`
-  - : Der angegebene Eintrag war das Wurzelverzeichnis des Dateisystems, oder der angegebene Eintrag ist ein Verzeichnis, das nicht leer ist.
-- `FileError.INVALID_STATE_ERR`
-  - : Der zwischengespeicherte Zustand des Dateisystems ist nicht mit seinem Zustand auf der Festplatte konsistent, so dass die Datei aus Sicherheitsgründen nicht gelöscht werden konnte.
-- `FileError.NO_MODIFICATION_ALLOWED_ERR`
-  - : Der Zustand des Dateisystems erlaubt es nicht, die Datei oder das Verzeichnis zu entfernen.
-- `FileError.NOT_FOUND_ERR`
+- `DOMException.INVALID_MODIFICATION_ERR`
+  - : Der angegebene Eintrag war das Root-Verzeichnis des Dateisystems oder der angegebene Eintrag ist ein Verzeichnis, das nicht leer ist.
+- `DOMException.INVALID_STATE_ERR`
+  - : Der zwischengespeicherte Status des Dateisystems ist nicht konsistent mit seinem Zustand auf der Festplatte, sodass die Datei aus Sicherheitsgründen nicht gelöscht werden konnte.
+- `DOMException.NO_MODIFICATION_ALLOWED_ERR`
+  - : Der Status des Dateisystems erlaubt das Entfernen der Datei oder des Verzeichnisses nicht.
+- `DOMException.NOT_FOUND_ERR`
   - : Die Datei oder das Verzeichnis existiert nicht.
-- `FileError.SECURITY_ERR`
-  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Aufrufe auf Dateiresourcen gemacht werden.
+- `DOMException.SECURITY_ERR`
+  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbegrenzungen oder weil zu viele Anfragen an Dateiquellen gestellt werden, nicht entfernt werden.
 
 ## Beispiele
 
@@ -67,5 +67,4 @@ workingDirectory.getFile(
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively)

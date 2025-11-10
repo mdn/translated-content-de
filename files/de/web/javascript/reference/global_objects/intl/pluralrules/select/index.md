@@ -1,13 +1,12 @@
 ---
 title: Intl.PluralRules.prototype.select()
+short-title: select()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`select()`** Methode von {{jsxref("Intl.PluralRules")}} Instanzen gibt einen String zurück, der angibt, welche Pluralregel für die lokalisierte Formatierung einer Zahl verwendet werden soll.
+Die **`select()`**-Methode von {{jsxref("Intl.PluralRules")}}-Instanzen gibt einen String zurück, der angibt, welche Pluralregel für die lokalisierungsabhängige Formatierung einer Zahl verwendet werden soll.
 
 {{InteractiveExample("JavaScript Demo: Intl.PluralRules.prototype.select()")}}
 
@@ -34,31 +33,31 @@ select(number)
 ### Parameter
 
 - `number`
-  - : Die Zahl, für die eine Pluralregel bestimmt werden soll.
+  - : Die Zahl, für die eine Pluralregel ermittelt werden soll.
 
 ### Rückgabewert
 
-Ein String, der die Pluralisierungskategorie der `number` repräsentiert.
-Dies kann eine der folgenden sein: `zero`, `one`, `two`, `few`, `many` oder `other`.
+Ein String, der die Pluralisierungskategorie der `number` darstellt.
+Dies kann eine der folgenden Kategorien sein: `zero`, `one`, `two`, `few`, `many` oder `other`.
 
 ## Beschreibung
 
-Diese Funktion wählt eine Pluralisierungskategorie basierend auf den Lokaleinstellungen und Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}} Objekts aus.
-Diese Optionen werden im [`Intl.PluralRules()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules) Konstruktor festgelegt.
+Diese Funktion wählt eine Pluralisierungskategorie entsprechend der Lokale und der Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}}-Objekts.
+Diese Optionen werden im [`Intl.PluralRules()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)-Konstruktor festgelegt.
 
 ## Beispiele
 
 ### Verwendung von select()
 
-Zuerst wird ein `Intl.PluralRules` Objekt erstellt, wobei die entsprechenden `locales` und `options` Parameter übergeben werden.
+Zuerst erstellen Sie ein `Intl.PluralRules`-Objekt, indem Sie die entsprechenden `locales` und `options` Parameter übergeben.
 Hier erstellen wir ein Pluralregeln-Objekt für Arabisch im ägyptischen Dialekt.
-Da der `type` nicht angegeben ist, wird das Regeln-Objekt die Formatierung für Kardinalzahlen (Standard) bereitstellen.
+Da der `type` nicht angegeben ist, wird das Regeln-Objekt das Formatieren für Kardinalzahlen bereitstellen (der Standardwert).
 
 ```js
 const pr = new Intl.PluralRules("ar-EG");
 ```
 
-Dann rufen Sie `select()` auf dem Regeln-Objekt auf und geben die Zahl an, für die die Pluralform benötigt wird.
+Dann rufen Sie `select()` für das Regeln-Objekt auf und geben die Zahl an, für die die Pluralform benötigt wird.
 Beachten Sie, dass Arabisch 5 Formen für Kardinalzahlen hat, wie gezeigt.
 
 ```js

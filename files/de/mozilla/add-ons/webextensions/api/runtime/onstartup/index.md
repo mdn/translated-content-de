@@ -2,12 +2,10 @@
 title: runtime.onStartup
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onStartup
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn ein Profil, das diese Erweiterung installiert hat, zum ersten Mal startet. Dieses Ereignis wird nicht ausgelöst, wenn ein privates Browsing- (Inkognito-) Profil gestartet wird, selbst wenn diese Erweiterung im 'geteilten' Inkognito-Modus betrieben wird.
+Ausgelöst, wenn ein Profil, das diese Erweiterung installiert hat, erstmals gestartet wird. Dieses Ereignis wird nicht ausgelöst, wenn ein privates Browsing- (Inkognito-) Profil gestartet wird, selbst wenn diese Erweiterung im "split" Inkognito-Modus arbeitet.
 
 > [!NOTE]
 > Bei Verwendung einer Ereignisseite oder eines Hintergrunddienstmitarbeiters muss die Erweiterung einen Listener zu `runtime.onStartup` auf der Ereignisseite hinzufügen, damit die Ereignisseite mindestens einmal pro Browsersitzung ausgeführt wird.
@@ -25,15 +23,15 @@ browser.runtime.onStartup.hasListener(listener)
 Alle Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt dem aufrufenden Ereignis einen `listener` hinzu.
+  - : Fügt einen `listener` zum aufrufenden Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören des aufrufenden Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören beim aufrufenden Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für das aufrufende Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für das aufrufende Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
 ### Parameter
 
-Der einzige Parameter ist `listener`, der für eine der obigen Funktionen verwendet wird.
+Der einzige Parameter ist `listener`, der für eine der oben genannten Funktionen verwendet wird.
 
 - `listener`
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt.
@@ -59,7 +57,7 @@ browser.runtime.onStartup.addListener(handleStartup);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onStartup) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onStartup) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: Zeichenklassen-Escape kann nicht im Klassenbereich im regulären Ausdruck verwendet werden"
+title: "SyntaxError: Zeichenklassenescape kann in einem Bereich innerhalb der regulären Ausdrucksklasse nicht verwendet werden"
 slug: Web/JavaScript/Reference/Errors/Regex_character_class_escape_in_class_range
 l10n:
-  sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "Zeichenklassen-Escape kann nicht im Klassenbereich im regulären Ausdruck verwendet werden" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulärer Ausdrucksmuster eine [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) enthält, bei der eine Grenze eines Zeichenbereichs eine andere Zeichenklasse ist, wie beispielsweise ein [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape).
+Der JavaScript-Ausnahmefehler "character class escape cannot be used in class range in regular expression" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) reguläres Ausdrucksmuster eine [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) enthält, bei der eine Begrenzung eines Zeichenbereichs eine andere Zeichenklasse ist, wie etwa ein [Zeichenklassenescape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape).
 
 ## Nachricht
 
@@ -17,15 +15,15 @@ SyntaxError: character class escape cannot be used in class range in regular exp
 SyntaxError: Invalid regular expression: invalid range in character class for Unicode pattern (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schiefgelaufen?
+## Was ist schief gelaufen?
 
-Eine Zeichenklasse kann einen Bereich von Zeichen angeben, indem man einen Bindestrich (`-`) zwischen zwei Zeichen verwendet. Zum Beispiel entspricht `[a-z]` jedem Kleinbuchstaben von `a` bis `z`. Die beiden Grenzen des Bereichs müssen einzelne Zeichen darstellen, damit der Bereich Sinn ergibt. Wenn eine der Grenzen tatsächlich mehrere Zeichen darstellt, wird ein Fehler generiert. In [nicht-`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#non-v-mode_character_class) sind nur Zeichenklassen-Escapes innerhalb von Zeichenklassen erlaubt; in [`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) kann dies auch passieren, wenn eine der Grenzen eine andere `[...]` Zeichenklasse ist.
+Eine Zeichenklasse kann einen Bereich von Zeichen angeben, indem ein Bindestrich (`-`) zwischen zwei Zeichen verwendet wird. Zum Beispiel entspricht `[a-z]` jedem Kleinbuchstaben von `a` bis `z`. Die beiden Grenzen des Bereichs müssen einzelne Zeichen darstellen, damit der Bereich sinnvoll ist. Wenn eine der Grenzen tatsächlich mehrere Zeichen darstellt, wird ein Fehler erzeugt. In [Nicht-`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#non-v-mode_character_class) sind nur Zeichenklassenescapes innerhalb von Zeichenklassen erlaubt; in [`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) kann dies auch vorkommen, wenn eine der Grenzen eine andere `[...]`-Zeichenklasse ist.
 
-Im Unicode-unbewussten Modus führt diese Syntax dazu, dass das `-` zu einem Literalzeichen wird, anstatt einen Fehler zu erzeugen, aber dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und Sie sollten sich nicht darauf verlassen.
+Im Unicode-unbewussten Modus führt diese Syntax dazu, dass der `-` zu einem literal Zeichen wird, anstatt einen Fehler zu erzeugen, aber dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und sollte nicht darauf vertraut werden.
 
 ## Beispiele
 

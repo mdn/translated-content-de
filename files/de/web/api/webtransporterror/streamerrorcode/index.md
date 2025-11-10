@@ -3,16 +3,16 @@ title: "WebTransportError: streamErrorCode-Eigenschaft"
 short-title: streamErrorCode
 slug: Web/API/WebTransportError/streamErrorCode
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`streamErrorCode`** des [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Interfaces gibt eine Nummer im Bereich von 0-255 zurück, die den Anwendungsprotokollfehlercode für diesen Fehler angibt, oder `null`, falls keiner verfügbar ist.
+Die schreibgeschützte **`streamErrorCode`**-Eigenschaft des [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Interfaces gibt eine Zahl im Bereich von 0-255 zurück, die den Protokoll-Fehlercode der Anwendung für diesen Fehler angibt, oder `null`, wenn keiner verfügbar ist.
 
 ## Wert
 
-Eine Nummer oder `null`.
+Eine Zahl oder `null`.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ async function initTransport(url) {
     // The connection can be used once ready fulfills
     await transport.ready;
 
-    // ...
+    // …
   } catch (error) {
     const msg = `Transport initialization failed.
                  Reason: ${error.message}.

@@ -1,26 +1,59 @@
 ---
-title: "store: Wasm-Text-Instruktion"
+title: "store: Wasm Textanweisung"
 short-title: store
 slug: WebAssembly/Reference/Memory/Store
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
 ---
 
-Die **`store`** [Speicher-Instruktionen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl vom Stapel in einem Speicher abzulegen.
+Die **`store`**-Anweisungen der [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stack in einem Speicher abzulegen.
 
-Es gibt `store`-Instruktionen zum Speichern von `i32`, `i64`, `f32` und `f64` im Speicher.
-Für die ganzzahligen Zahlen gibt es separate Instruktionsvarianten zum Speichern einer breit typisierten Zahl in eine schmalere Zahl im Speicher.
-Zum Beispiel können Sie eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher mit `i32.store8` speichern.
-Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umbrochen.
-Alle Varianten sind [unten aufgelistet](#instruktionen_und_opcodes).
+Es gibt `store`-Anweisungen zum Speichern eines `i32`, `i64`, `f32` und `f64` im Speicher.
+Für die ganzzahligen Zahlen gibt es separate Anweisungsvarianten zum Speichern einer weit getypten Zahl in einer schmaleren Zahl im Speicher.
+Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher mit `i32.store8` speichern.
+Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgebrochen.
+Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
 
-{{EmbedInteractiveExample("pages/wat/store.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: store", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+
+  (memory $memory 1)
+  (export "memory" (memory $memory))
+
+  (func (export "store_in_mem") (param $num i32)
+    i32.const 0
+    local.get $num
+
+    ;; store $num at position 0
+    i32.store
+  )
+
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+const result = await WebAssembly.instantiateStreaming(fetch(url));
+
+const store_in_mem = result.instance.exports.store_in_mem;
+const memory = result.instance.exports.memory;
+
+store_in_mem(100);
+
+const dataView = new DataView(memory.buffer);
+const first_number_in_mem = dataView.getUint32(0, true);
+
+console.log(first_number_in_mem);
+// Expected output: 100
+```
 
 ## Syntax
 
-Im Standardspeicher speichern
+Speichern im Standardspeicher
 
-```wasm
+```wat
 ;; Store value in default memory at particular offset
 i32.const 0 ;; stack variable with offset in memory to store the number
 i32.const 20 ;; stack variable with the number to store
@@ -30,9 +63,9 @@ i32.store ;; store in default memory
 (i32.store (i32.const 0) (i32.const 20))
 ```
 
-In angegebenen Speicher speichern (falls Multi-Memory unterstützt wird)
+Speichern im angegebenen Speicher (falls Multi-Speicher unterstützt wird)
 
-```wasm
+```wat
 ;; Store in memory referenced by its index
 i32.const 0 ;; offset in memory to store the number
 i32.const 20 ;; the number to store
@@ -47,9 +80,9 @@ i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 (i32.store (memory $memoryName) (i32.const 0) (i32.const 20))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binärer Opcode |
+| Anweisung     | Binärer Opcode |
 | ------------- | -------------- |
 | `i32.store`   | `0x36`         |
 | `i64.store`   | `0x37`         |
@@ -67,8 +100,7 @@ i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 
 ## Browser-Kompatibilität
 
-> [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory) JavaScript-API.
-> Der [multiMemory](#webassembly.multimemory) Schlüssel zeigt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
-
 {{Compat}}
+
+> [!NOTE]
+> Die `multiMemory`-Kompatibilitätstabelle gibt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.

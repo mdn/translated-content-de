@@ -3,12 +3,12 @@ title: "AudioBufferSourceNode: loop-Eigenschaft"
 short-title: loop
 slug: Web/API/AudioBufferSourceNode/loop
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `loop`-Eigenschaft der [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Schnittstelle ist ein Boolean, der angibt, ob das Audioelement erneut abgespielt werden soll, wenn das Ende des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erreicht ist.
+Die `loop`-Eigenschaft des [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Interfaces ist ein Boolean, der angibt, ob das Audio-Asset erneut abgespielt werden muss, wenn das Ende des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erreicht ist.
 
 Der Standardwert der `loop`-Eigenschaft ist `false`.
 
@@ -16,20 +16,20 @@ Der Standardwert der `loop`-Eigenschaft ist `false`.
 
 Ein Boolean, der `true` ist, wenn das Looping aktiviert ist; andernfalls ist der Wert `false`.
 
-Wenn Looping aktiviert ist, beginnt der Ton zur Zeit, die als Startpunkt angegeben ist, zu spielen, wenn [`start()`](/de/docs/Web/API/AudioBufferSourceNode/start) aufgerufen wird. Sobald die Zeit erreicht ist, die durch die [`loopEnd`](/de/docs/Web/API/AudioBufferSourceNode/loopEnd)-Eigenschaft angegeben wird, wird die Wiedergabe zur Zeit fortgesetzt, die durch [`loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart) angegeben ist.
+Wenn das Looping aktiviert ist, beginnt der Ton zu dem Zeitpunkt zu spielen, der als Startpunkt angegeben wurde, als [`start()`](/de/docs/Web/API/AudioBufferSourceNode/start) aufgerufen wurde. Wenn die durch die [`loopEnd`](/de/docs/Web/API/AudioBufferSourceNode/loopEnd)-Eigenschaft angegebene Zeit erreicht ist, setzt die Wiedergabe am durch [`loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart) angegebenen Zeitpunkt fort.
 
 ## Beispiele
 
-### `loop` einstellen
+### `loop` setzen
 
-In diesem Beispiel laden wir, wenn der Benutzer "Play" drückt, einen Audiotrack, dekodieren ihn und legen ihn in eine [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode).
+In diesem Beispiel, wenn der Nutzer "Play" drückt, laden wir einen Audio-Track, dekodieren ihn und legen ihn in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode).
 
-Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, sodass der Track wiederholt wird, und spielt den Track ab.
+Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, sodass der Track in Schleife läuft und spielt den Track ab.
 
-Der Benutzer kann die Eigenschaften `loopStart` und `loopEnd` mit [Bereichssteuerungen](/de/docs/Web/HTML/Element/input/range) einstellen.
+Der Nutzer kann die `loopStart`- und `loopEnd`-Eigenschaften mit [Range-Control-Elementen](/de/docs/Web/HTML/Reference/Elements/input/range) einstellen.
 
 > [!NOTE]
-> Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer-source-node/loop/) (oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/audio-buffer-source-node/loop).)
+> Sie können das [vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer-source-node/loop/) (oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/audio-buffer-source-node/loop).)
 
 ```js
 let audioCtx;

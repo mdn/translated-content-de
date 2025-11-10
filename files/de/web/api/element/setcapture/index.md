@@ -1,17 +1,17 @@
 ---
-title: "Element: setCapture()-Methode"
+title: "Element: setCapture() Methode"
 short-title: setCapture()
 slug: Web/API/Element/setCapture
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{Deprecated_Header}}{{non-standard_header}}{{ APIRef("DOM") }}
 
-Rufen Sie diese Methode während der Behandlung eines mousedown-Ereignisses auf, um alle Mausereignisse auf dieses Element umzuleiten, bis die Maustaste losgelassen oder [`document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) aufgerufen wird.
+Rufen Sie diese Methode während der Behandlung eines `mousedown`-Ereignisses auf, um alle Mausereignisse auf dieses Element umzuleiten, bis die Maustaste losgelassen wird oder [`document.releaseCapture()`](/de/docs/Web/API/Document/releaseCapture) aufgerufen wird.
 
 > [!WARNING]
-> Diese Schnittstelle hatte nie viel plattformübergreifende Unterstützung, und Sie suchen wahrscheinlich stattdessen nach [`element.setPointerCapture`](/de/docs/Web/API/Element/setPointerCapture)
+> Diese Schnittstelle hatte nie viel Unterstützung in verschiedenen Browsern und Sie suchen wahrscheinlich nach [`element.setPointerCapture`](/de/docs/Web/API/Element/setPointerCapture),
 > aus der Pointer Events API.
 
 ## Syntax
@@ -23,71 +23,57 @@ setCapture(retargetToElement)
 ### Parameter
 
 - `retargetToElement`
-  - : Wenn `true`, werden alle Ereignisse direkt auf dieses Element gerichtet; wenn
-    `false`, können Ereignisse auch bei Nachkommen dieses Elements ausgelöst werden.
+  - : Wenn `true`, werden alle Ereignisse direkt auf dieses Element gezielt; wenn `false`, können Ereignisse auch bei Nachkommen dieses Elements ausgelöst werden.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie nach einem Klick und Halten der Maustaste auf einem Element herummäusen.
+In diesem Beispiel werden die aktuellen Mauskoordinaten gezeichnet, während Sie umherfahren, nachdem Sie auf ein Element geklickt haben und die Maustaste gedrückt halten.
 
 ```html
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Mouse Capture Example</title>
-    <style>
-      #myButton {
-        border: solid black 1px;
-        color: black;
-        padding: 2px;
-        box-shadow: black 2px 2px;
-      }
-    </style>
-
-    <script>
-      function init() {
-        const btn = document.getElementById("myButton");
-        if (btn.setCapture) {
-          btn.addEventListener("mousedown", mouseDown, false);
-          btn.addEventListener("mouseup", mouseUp, false);
-        } else {
-          document.getElementById("output").textContent =
-            "Sorry, there appears to be no setCapture support on this browser";
-        }
-      }
-
-      function mouseDown(e) {
-        e.target.setCapture();
-        e.target.addEventListener("mousemove", mouseMoved, false);
-      }
-
-      function mouseUp(e) {
-        e.target.removeEventListener("mousemove", mouseMoved, false);
-      }
-
-      function mouseMoved(e) {
-        const output = document.getElementById("output");
-        output.textContent = `Position: ${e.clientX}, ${e.clientY}`;
-      }
-    </script>
-  </head>
-  <body onload="init()">
-    <p>
-      This is an example of how to use mouse capture on elements in Gecko 2.0.
-    </p>
-    <p><a id="myButton" href="#">Test Me</a></p>
-    <div id="output">No events yet</div>
-  </body>
-</html>
+<p>This is an example of how to use mouse capture on elements in Gecko 2.0.</p>
+<p><a id="myButton" href="#">Test Me</a></p>
+<div id="output">No events yet</div>
 ```
 
-[Live-Beispiele ansehen](https://mdn.dev/archives/media/samples/domref/mousecapture.html)
+```css
+#myButton {
+  border: solid black 1px;
+  color: black;
+  padding: 2px;
+  box-shadow: black 2px 2px;
+}
+```
+
+```js
+function mouseDown(e) {
+  e.target.setCapture();
+  e.target.addEventListener("mousemove", mouseMoved);
+}
+
+function mouseUp(e) {
+  e.target.removeEventListener("mousemove", mouseMoved);
+}
+
+function mouseMoved(e) {
+  const output = document.getElementById("output");
+  output.textContent = `Position: ${e.clientX}, ${e.clientY}`;
+}
+
+const btn = document.getElementById("myButton");
+if (btn.setCapture) {
+  btn.addEventListener("mousedown", mouseDown);
+  btn.addEventListener("mouseup", mouseUp);
+} else {
+  document.getElementById("output").textContent =
+    "Sorry, there appears to be no setCapture support on this browser";
+}
+```
+
+[Live-Beispiele anzeigen](https://mdn.dev/archives/media/samples/domref/mousecapture.html)
 
 ## Anmerkungen
 
@@ -95,7 +81,7 @@ Das Element ist möglicherweise nicht vollständig nach oben oder unten gescroll
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Kein Bestandteil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

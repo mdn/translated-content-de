@@ -1,9 +1,9 @@
 ---
-title: "DOMImplementation: createHTMLDocument()-Methode"
+title: "DOMImplementation: Methode createHTMLDocument()"
 short-title: createHTMLDocument()
 slug: Web/API/DOMImplementation/createHTMLDocument
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{ApiRef("DOM")}}
@@ -20,7 +20,7 @@ createHTMLDocument(title)
 ### Parameter
 
 - `title` {{optional_inline}}
-  - : Ein String, der den Titel enthält, der dem neuen HTML-Dokument gegeben werden soll.
+  - : Ein String, der den Titel des neuen HTML-Dokuments enthält.
 
 ### Rückgabewert
 
@@ -32,24 +32,19 @@ Dieses Beispiel erstellt ein neues HTML-Dokument und fügt es in ein {{HTMLEleme
 
 Hier ist das HTML für dieses Beispiel:
 
-```html
-<body>
-  <p>
-    Click <a href="javascript:makeDocument()">here</a> to create a new document
-    and insert it below.
-  </p>
-  <iframe id="theFrame" src="about:blank" />
-</body>
+```html live-sample___new-doc
+<button id="create-doc">Create new document</button>
+<iframe id="theFrame" src="about:blank"></iframe>
 ```
 
 Die JavaScript-Implementierung von `makeDocument()` folgt:
 
-```js
+```js live-sample___new-doc
 function makeDocument() {
-  let frame = document.getElementById("theFrame");
+  const frame = document.getElementById("theFrame");
 
-  let doc = document.implementation.createHTMLDocument("New Document");
-  let p = doc.createElement("p");
+  const doc = document.implementation.createHTMLDocument("New Document");
+  const p = doc.createElement("p");
   p.textContent = "This is a new paragraph.";
 
   try {
@@ -60,21 +55,23 @@ function makeDocument() {
 
   // Copy the new HTML document into the frame
 
-  let destDocument = frame.contentDocument;
-  let srcNode = doc.documentElement;
-  let newNode = destDocument.importNode(srcNode, true);
+  const destDocument = frame.contentDocument;
+  const srcNode = doc.documentElement;
+  const newNode = destDocument.importNode(srcNode, true);
 
   destDocument.replaceChild(newNode, destDocument.documentElement);
 }
+
+document.getElementById("create-doc").addEventListener("click", makeDocument);
 ```
 
-Der Code behandelt das Erstellen des neuen HTML-Dokuments und das Einfügen einiger Inhalte darin. `createHTMLDocument()` konzipiert ein neues HTML-Dokument, dessen {{HTMLElement("title")}} `"New Document"` ist. Dann erstellen wir ein neues Paragraphen-Element mit einigem einfachen Inhalt und fügen den neuen Paragraphen in das neue Dokument ein.
+Der Code übernimmt das Erstellen des neuen HTML-Dokuments und das Einfügen von Inhalten in dieses. `createHTMLDocument()` erstellt ein neues HTML-Dokument, dessen {{HTMLElement("title")}} `"New Document"` ist. Dann erstellen wir ein neues Absatz-Element mit einfachem Inhalt, und dieser neue Absatz wird in das neue Dokument eingefügt.
 
-`destDocument` speichert das `contentDocument` des Rahmens; dies ist das Dokument, in das wir die neuen Inhalte einfügen werden. Die nächsten beiden Zeilen behandeln den Import der Inhalte unseres neuen Dokuments in den Kontext des neuen Dokuments. Schließlich ersetzt `destDocument.replaceChild` tatsächlich die Inhalte des Rahmens durch die Inhalte des neuen Dokuments.
+`destDocument` speichert das `contentDocument` des Frames; dies ist das Dokument, in das wir den neuen Inhalt einfügen werden. Die nächsten zwei Zeilen übernehmen das Importieren der Inhalte unseres neuen Dokuments in den Kontext des neuen Dokuments. Schließlich ersetzt `destDocument.replaceChild` tatsächlich die Inhalte des Frames mit den Inhalten des neuen Dokuments.
 
-[Live-Beispiele anzeigen](https://mdn.dev/archives/media/samples/domref/createHTMLDocument.html)
+{{EmbedLiveSample("new-doc", "", 200)}}
 
-Das zurückgegebene Dokument ist mit dem folgenden HTML vorstrukturiert:
+Das zurückgegebene Dokument ist mit folgendem HTML vorstrukturiert:
 
 ```html
 <!doctype html>
@@ -99,4 +96,4 @@ Das zurückgegebene Dokument ist mit dem folgenden HTML vorstrukturiert:
 
 ## Siehe auch
 
-- Das [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Interface, zu dem es gehört.
+- Die [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Schnittstelle, zu der es gehört.

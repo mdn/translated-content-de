@@ -10,7 +10,7 @@ l10n:
 
 Die **`title`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt den beratenden Titel des aktuellen Stylesheets zurück.
 
-Der Titel wird häufig in der [`ownerNode`](/de/docs/Web/API/StyleSheet/OwnerNode) angegeben.
+Der Titel wird häufig in der [`ownerNode`](/de/docs/Web/API/StyleSheet/ownerNode) angegeben.
 
 ## Spezifikationen
 

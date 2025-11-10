@@ -3,21 +3,21 @@ title: "HTMLBaseElement: target-Eigenschaft"
 short-title: target
 slug: Web/API/HTMLBaseElement/target
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die `target`-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces ist ein String, der den Standard-Ziel-Tab angibt, in dem das Ergebnis für Hyperlinks und Formularelemente angezeigt werden soll.
+Die `target`-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces ist ein String, der das Standard-Ziel-Tab darstellt, um die resultierende Ausgabe für Hyperlinks und Formularelemente anzuzeigen.
 
-Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/base#target)-Attribut des {{HTMLElement("base")}}-Elements wider.
+Sie spiegelt das [`target`](/de/docs/Web/HTML/Reference/Elements/base#target)-Attribut des {{HTMLElement("base")}}-Elements wider.
 
 ## Wert
 
 Ein String, der das Ziel darstellt. Sein Wert kann sein:
 
 - Der Name eines {{HTMLElement("frame")}}.
-- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Element/base#target): `_blank`, `_self`, `_parent` oder `_top`.
+- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Reference/Elements/base#target): `_blank`, `_self`, `_parent` oder `_top`.
 
 ## Beispiel
 

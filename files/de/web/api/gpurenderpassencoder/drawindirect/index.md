@@ -1,15 +1,14 @@
 ---
-title: "GPURenderPassEncoder: drawIndirect() Methode"
+title: "GPURenderPassEncoder: drawIndirect()-Methode"
 short-title: drawIndirect()
 slug: Web/API/GPURenderPassEncoder/drawIndirect
 l10n:
-  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`drawIndirect()`**-Methode der
-[`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle zeichnet Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
+Die **`drawIndirect()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle zeichnet Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 
 ## Syntax
 
@@ -21,7 +20,7 @@ drawIndirect(indirectBuffer, indirectOffset)
 
 - `indirectBuffer`
 
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält, die benötigt werden, um die Zeichenoperation durchzuführen. Der Puffer muss einen dicht gepackten Block von vier 32-Bit-unsigned-Integer-Werten enthalten, die die Werte in der gleichen Reihenfolge wie die Argumente für [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) darstellen (insgesamt 16 Bytes). Ein Beispiel:
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die für den Zeichenprozess benötigten Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält. Der Puffer muss einen dicht gepackten Block von vier 32-Bit-unsigned-Integer-Werten enthalten, die die Werte in derselben Reihenfolge wie die Argumente für [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) darstellen (insgesamt 16 Byte). Zum Beispiel:
 
     ```js
     const uint32 = new Uint32Array(4);
@@ -35,10 +34,10 @@ drawIndirect(indirectBuffer, indirectOffset)
     ```
 
     > [!NOTE]
-    > Die `indirect-first-instance` [Funktion](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, damit nicht-null `firstInstance`-Werte verwendet werden können. Wenn die `indirect-first-instance`-Funktion nicht aktiviert ist und `firstInstance` nicht null ist, wird der `drawIndirect()`-Aufruf als No-Op behandelt.
+    > Die Verwendung von `firstInstance`-Werten ungleich Null erfordert die Aktivierung der `indirect-first-instance`- [Funktion](/de/docs/Web/API/GPUSupportedFeatures). Wenn die `indirect-first-instance`-Funktion nicht aktiviert ist und `firstInstance` ungleich Null ist, wird der `drawIndirect()`-Aufruf als No-Op behandelt.
 
 - `indirectOffset`
-  - : Der Offset in Bytes im `indirectBuffer`, wo die Wertedaten beginnen.
+  - : Der Offset in Bytes, ab dem die Wertedaten im `indirectBuffer` beginnen.
 
 ### Rückgabewert
 
@@ -46,16 +45,16 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`drawIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`drawIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- `indirectBuffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.INDIRECT`-Flag.
-- `indirectOffset` + die durch die Wertparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `indirectBuffer`.
+- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `indirectBuffer` enthält das `GPUBufferUsage.INDIRECT`-Flag.
+- `indirectOffset` + die durch die Werteparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `indirectBuffer`.
 - `indirectOffset` ist ein Vielfaches von 4.
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 // Create GPURenderPassEncoder
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
@@ -87,7 +86,7 @@ passEncoder.end();
 // End frame by passing array of GPUCommandBuffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
-// ...
+// …
 ```
 
 ## Spezifikationen

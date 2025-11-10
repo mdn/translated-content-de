@@ -2,10 +2,8 @@
 title: runtime.requestUpdateCheck()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/requestUpdateCheck
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Überprüft, ob ein Update für die Erweiterung verfügbar ist.
 
@@ -26,19 +24,16 @@ Keine.
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das das Ergebnis der Update-Anfrage enthält.
 
 - `result`
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `status`
-
       - : {{WebExtAPIRef('runtime.RequestUpdateCheckStatus')}}. Das Ergebnis der Update-Überprüfung.
 
     - `version` {{optional_inline}}
-      - : `string`. Die Version des Updates, falls `status` `update_available` ist.
+      - : `string`. Die Version des Updates, wenn `status` `update_available` ist.
 
 ## Beispiele
 
-Fordern Sie ein Update an und protokollieren Sie die neue Version, wenn eine verfügbar ist:
+Fordern Sie ein Update an und protokollieren Sie die neue Version, falls eine verfügbar ist:
 
 ```js
 function onRequested(result) {
@@ -63,34 +58,36 @@ requestingCheck.then(onRequested, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-requestUpdateCheck) API. Diese Dokumentation wurde aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-requestUpdateCheck) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Redistribution und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diesen Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Redistributions in Binärform müssen den obigen Urheberrechtshinweis,
+// diese Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der Verteilung
+// geliefert werden, enthalten.
+//    * Weder der Name der Google Inc. noch die Namen der
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
+// Software abgeleitet wurden, ohne spezifische vorherige schriftliche
+// Genehmigung zu unterstützen oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
+// OHNE JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIEN BEREITGESTELLT,
+// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN GARANTIEN
+// DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK. IN KEINEM
+// FALL SOLLEN DIE COPYRIGHT-INHABER ODER MITWIRKENDE FÜR JEGLICHE DIREKTE,
+// INDIREKTE, ZUFÄLLIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON
+// ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER
+// GEWINNAUSFALL ODER GESCHÄFTSUNTERBRECHUNG) HAFTBAR GEMACHT WERDEN,
+// UNABHÄNGIG VON DER HAFTUNGSTHEORIE, OB AUS VERTRAG, HAFTUNG ODER
+// UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG),
+// DIE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE
+// MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

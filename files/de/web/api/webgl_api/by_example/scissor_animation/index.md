@@ -2,20 +2,20 @@
 title: Scherenschnitt-Animation
 slug: Web/API/WebGL_API/By_example/Scissor_animation
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Boilerplate_1","Web/API/WebGL_API/By_example/Raining_rectangles")}}
 
-Ein einfaches WebGL-Beispiel, in dem wir mit Animationen Spaß haben, indem wir Scherenschnitt- und Löschoperationen verwenden.
+Ein einfaches WebGL-Beispiel, in dem wir mit Scherenschnitt- und Löschoperationen etwas Spaß mit Animationen haben.
 
 ## Animation mit Scherenschnitt
 
 {{EmbedLiveSample("Animation_with_scissoring",660,425)}}
 
-In diesem Beispiel animieren wir Quadrate mithilfe von [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear). Wir etablieren erneut eine Animationsschleife unter Verwendung von Timern. Beachten Sie, dass diesmal die Position des Quadrats (der Scherenschnitt-Bereich) ist, die bei jedem Frame aktualisiert wird (wir setzen die Bildrate auf ungefähr alle 17 ms, also etwa 60fps – Frames pro Sekunde).
+In diesem Beispiel animieren wir Quadrate mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear). Wir erstellen erneut eine Animationsschleife mit Timern. Beachten Sie, dass diesmal die Position des Quadrats (der Scherenschnittbereich) in jedem Frame aktualisiert wird (wir setzen die Bildrate auf ungefähr eine alle 17ms, oder etwa 60fps – Bilder pro Sekunde).
 
-Im Gegensatz dazu wird die Farbe des Quadrats (gesetzt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von {{Glossary("WebGL", "WebGL")}} als Zustandsmaschine. Für jedes Quadrat setzen wir seine Farbe einmal und aktualisieren dann nur seine Position in jedem Frame. Der Löschfarbzustand von WebGL bleibt auf dem gesetzten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
+Im Gegensatz dazu wird die Farbe des Quadrats (festgelegt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von {{Glossary("WebGL", "WebGL")}} als Zustandsmaschine. Für jedes Quadrat setzen wir seine Farbe einmal und aktualisieren dann in jedem Frame nur seine Position. Der Clear-Color-Zustand von WebGL bleibt auf dem gesetzten Wert, bis wir ihn wieder ändern, wenn ein neues Quadrat erstellt wird.
 
 ```html hidden
 <p>
@@ -52,51 +52,51 @@ button {
 }
 ```
 
-```js hidden
-;(() => {
-  "use strict";
-```
-
 ```js
-window.addEventListener("load", setupAnimation, false);
+const canvas = document.querySelector("canvas");
+
 // Variables to hold the WebGL context, and the color and
 // position of animated squares.
-let gl;
+const gl = getRenderingContext();
 let color = getRandomColor();
-let position;
+// Unlike the browser window, vertical position in WebGL is
+// measured from bottom to top. In here we set the initial
+// position of the square to be at the top left corner of the
+// drawing buffer.
+let position = [0, gl.drawingBufferHeight];
 
-function setupAnimation(evt) {
-  window.removeEventListener(evt.type, setupAnimation, false);
-  if (!(gl = getRenderingContext())) return;
+gl.enable(gl.SCISSOR_TEST);
+gl.clearColor(color[0], color[1], color[2], 1.0);
 
-  gl.enable(gl.SCISSOR_TEST);
-  gl.clearColor(color[0], color[1], color[2], 1.0);
-  // Unlike the browser window, vertical position in WebGL is
-  // measured from bottom to top. In here we set the initial
-  // position of the square to be at the top left corner of the
-  // drawing buffer.
-  position = [0, gl.drawingBufferHeight];
+const button = document.querySelector("button");
+let timer;
 
-  const button = document.querySelector("button");
-  let timer;
-
-  function startAnimation(evt) {
-    button.removeEventListener(evt.type, startAnimation, false);
-    button.addEventListener("click", stopAnimation, false);
-    document.querySelector("strong").textContent = "stop";
-    timer = setInterval(drawAnimation, 17);
-    drawAnimation();
-  }
-
-  function stopAnimation(evt) {
-    button.removeEventListener(evt.type, stopAnimation, false);
-    button.addEventListener("click", startAnimation, false);
-    document.querySelector("strong").textContent = "start";
-    clearInterval(timer);
-  }
-
-  stopAnimation({ type: "click" });
+function getRenderingContext() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const gl = canvas.getContext("webgl");
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  return gl;
 }
+
+function startAnimation(evt) {
+  button.removeEventListener(evt.type, startAnimation);
+  button.addEventListener("click", stopAnimation);
+  document.querySelector("strong").textContent = "stop";
+  timer = setInterval(drawAnimation, 17);
+  drawAnimation();
+}
+
+function stopAnimation(evt) {
+  button.removeEventListener(evt.type, stopAnimation);
+  button.addEventListener("click", startAnimation);
+  document.querySelector("strong").textContent = "start";
+  clearInterval(timer);
+}
+
+stopAnimation({ type: "click" });
 
 // Variables to hold the size and velocity of the square.
 const size = [60, 60];
@@ -127,30 +127,6 @@ function drawAnimation() {
 function getRandomColor() {
   return [Math.random(), Math.random(), Math.random()];
 }
-```
-
-```js hidden
-function getRenderingContext() {
-  const canvas = document.querySelector("canvas");
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-  const gl =
-    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-  if (!gl) {
-    const paragraph = document.querySelector("p");
-    paragraph.textContent =
-      "Failed. Your browser or device may not support WebGL.";
-    return null;
-  }
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-  return gl;
-}
-```
-
-```js hidden
-})();
 ```
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/scissor-animation) verfügbar.

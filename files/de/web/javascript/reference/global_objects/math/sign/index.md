@@ -1,13 +1,12 @@
 ---
 title: Math.sign()
+short-title: sign()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sign
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.sign()`** gibt 1 oder -1 zurück, um das Vorzeichen der übergebenen Zahl anzuzeigen. Wenn die Eingabe 0 oder -0 ist, wird sie unverändert zurückgegeben.
+Die statische Methode **`Math.sign()`** gibt 1 oder -1 zurück, was das Vorzeichen der als Argument übergebenen Zahl anzeigt. Wenn die Eingabe 0 oder -0 ist, wird der Wert unverändert zurückgegeben.
 
 {{InteractiveExample("JavaScript Demo: Math.sign()")}}
 
@@ -42,13 +41,13 @@ Eine Zahl, die das Vorzeichen von `x` darstellt:
 
 - Wenn `x` positiv ist, wird `1` zurückgegeben.
 - Wenn `x` negativ ist, wird `-1` zurückgegeben.
-- Wenn `x` eine positive Null ist, wird `0` zurückgegeben.
-- Wenn `x` eine negative Null ist, wird `-0` zurückgegeben.
+- Wenn `x` positive Null ist, wird `0` zurückgegeben.
+- Wenn `x` negative Null ist, wird `-0` zurückgegeben.
 - Andernfalls wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sign()` eine statische Methode von `Math` ist, verwenden Sie diese immer als `Math.sign()` und nicht als Methode eines erstellten `Math`-Objekts (da `Math` kein Konstruktor ist).
+Da `sign()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sign()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -76,6 +75,7 @@ Math.sign(); // NaN
 ## Siehe auch
 
 - [Polyfill von `Math.sign` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [es-shims Polyfill von `Math.sign`](https://www.npmjs.com/package/math.sign)
 - {{jsxref("Math.abs()")}}
 - {{jsxref("Math.ceil()")}}
 - {{jsxref("Math.floor()")}}

@@ -1,34 +1,34 @@
 ---
-title: "Performance: `resourcetimingbufferfull`-Ereignis"
+title: "Performance: resourcetimingbufferfull Ereignis"
 short-title: resourcetimingbufferfull
 slug: Web/API/Performance/resourcetimingbufferfull_event
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Das `resourcetimingbufferfull`-Ereignis wird ausgelöst, wenn der [Ressourcentiming-Puffer](/de/docs/Web/API/Performance/setResourceTimingBufferSize) des Browsers voll ist.
+Das `resourcetimingbufferfull` Ereignis wird ausgelöst, wenn der [Ressourcentimingspeicher](/de/docs/Web/API/Performance/setResourceTimingBufferSize) des Browsers voll ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("resourcetimingbufferfull", (event) => {});
+```js-nolint
+addEventListener("resourcetimingbufferfull", (event) => { })
 
-onresourcetimingbufferfull = (event) => {};
+onresourcetimingbufferfull = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein generisches [`Event`](/de/docs/Web/API/Event).
+Ein generisches [`Ereignis`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ### Erhöhung der Größe, wenn der Puffer voll ist
 
-Das folgende Beispiel hört auf das `resourcetimingbufferfull`-Ereignis und erhöht die Puffergröße mit der Methode [`setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize).
+Das folgende Beispiel hört auf das `resourcetimingbufferfull` Ereignis und erhöht die Größe des Puffers mit der Methode [`setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize).
 
 ```js
 function increaseFilledBufferSize(event) {

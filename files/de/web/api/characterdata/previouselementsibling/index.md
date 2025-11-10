@@ -1,19 +1,19 @@
 ---
-title: "CharacterData: previousElementSibling Eigenschaft"
+title: "CharacterData: previousElementSibling-Eigenschaft"
 short-title: previousElementSibling
 slug: Web/API/CharacterData/previousElementSibling
 l10n:
-  sourceCommit: 0496bb2fcef13172325e1cc25a5fc71410506557
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("DOM")}}
 
 Die schreibgeschützte **`previousElementSibling`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
-gibt das erste [`Element`](/de/docs/Web/API/Element) vor dem aktuellen Knoten in der Kindliste des Elternteils zurück, oder `null`, wenn keines vorhanden ist.
+gibt das erste [`Element`](/de/docs/Web/API/Element) vor dem aktuellen Knoten in der Kindliste des übergeordneten Elements zurück oder `null`, wenn keines vorhanden ist.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, oder `null`, wenn kein Geschwisterelement gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`, wenn kein Geschwisterelement gefunden wurde.
 
 ## Beispiel
 
@@ -40,7 +40,7 @@ while (node) {
 document.querySelector("pre").textContent = result;
 ```
 
-{{EmbedLiveSample("Beispiel", "100%", "200")}}
+{{EmbedLiveSample("Example", "100%", "200")}}
 
 ## Spezifikationen
 

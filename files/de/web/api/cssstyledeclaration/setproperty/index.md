@@ -1,14 +1,14 @@
 ---
-title: "CSSStyleDeclaration: setProperty()-Methode"
+title: "CSSStyleDeclaration: setProperty() Methode"
 short-title: setProperty()
 slug: Web/API/CSSStyleDeclaration/setProperty
 l10n:
-  sourceCommit: 4656260748aea78929639c4bf776d643d9911a82
+  sourceCommit: 56bbf59f4ea2566d64ad2e5c669a7a597626b7f3
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSStyleDeclaration.setProperty()`**-Methodenschnittstelle setzt einen neuen Wert für eine Eigenschaft in einem CSS-Stil-Deklarationsobjekt.
+Die **`CSSStyleDeclaration.setProperty()`** Methodenschnittstelle setzt einen neuen Wert für eine Eigenschaft in einem CSS-Stildeklarationsobjekt.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ setProperty(propertyName, value, priority)
 ### Parameter
 
 - `propertyName`
-  - : Ein String, der den zu ändernden Namen der CSS-Eigenschaft (im Kebab-Fall) darstellt.
+  - : Ein Zeichenfolgendarstellung des CSS-Eigenschaftennamens (Bindestrich-Schreibweise), der modifiziert werden soll.
 - `value` {{optional_inline}}
-  - : Ein String, der den neuen Eigenschaftswert enthält. Falls nicht angegeben, wird als leerer String behandelt. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso wie der leere String (`""`) behandelt.
-    > **Note:** `value` darf nicht `"!important"` enthalten, dies sollte mit dem `priority`-Parameter gesetzt werden.
+  - : Eine Zeichenfolge, die den neuen Eigenschaftswert enthält. Wenn nicht angegeben, wird dies als leere Zeichenfolge behandelt. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird genauso behandelt wie die leere Zeichenfolge (`""`).
+    > [!NOTE]
+    > `value` darf kein `"!important"` enthalten; das sollte über den `priority` Parameter gesetzt werden.
 - `priority` {{optional_inline}}
+  - : Eine Zeichenfolge, die es ermöglicht, die CSS-Priorität auf wichtig zu setzen. Nur die unten aufgeführten Werte werden akzeptiert:
+    - `"important"` (unabhängig von Groß- und Kleinschreibung) zum Setzen der Eigenschaft als `!important`;
+    - `""`, `undefined`, oder `null`, um das `!important` Flag zu entfernen, falls vorhanden.
 
-  - : Ein String, der die CSS-Priorität "important" setzen lässt. Falls nicht angegeben, wird als leerer String behandelt. Folgende Werte werden akzeptiert:
-
-    - String-Wert `"important"`
-    - Schlüsselwort `undefined`
-    - Leerer String-Wert `""`
+    Alles andere führt dazu, dass die Methode frühzeitig zurückkehrt und keine Änderungen vornimmt (es sei denn, `value` ist leer, in welchem Fall die Eigenschaft unabhängig vom `priority` Wert entfernt wird). `false` ist zum Beispiel kein gültiger Prioritätswert.
 
 ### Rückgabewert
 
@@ -39,11 +39,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Eigenschaft oder der Deklarationsblock schreibgeschützt sind.
+  - : Ausgelöst, wenn die Eigenschaft oder der Deklarationsblock schreibgeschützt ist.
 
-## Alternative Nutzung
+## Alternative Verwendung
 
-Wenn `priority` ausgelassen werden kann, bietet JavaScript eine besondere, einfachere Syntax zum Setzen einer CSS-Eigenschaft auf einem Stil-Deklarationsobjekt:
+Wenn `priority` weggelassen werden kann, bietet JavaScript eine spezielle einfachere Syntax zum Setzen einer CSS-Eigenschaft auf einem Stildeklarationsobjekt:
 
 ```js
 style.cssPropertyName = "value";
@@ -51,11 +51,18 @@ style.cssPropertyName = "value";
 
 ## Beispiele
 
-In diesem Beispiel haben wir drei Tasten, die gedrückt werden können, um den Rahmen, die Hintergrundfarbe und die Textfarbe unseres Box-Absatzes dynamisch auf zufällige Werte zu ändern (siehe das Live-Beispiel am Ende dieses Abschnitts).
+### Setzen der Box-Eigenschaften
 
-Wir wissen, dass die Regel, die wir ändern möchten, in dem zweiten auf die Seite angewendeten Stylesheet enthalten ist, also holen wir eine Referenz darauf, indem wir [`document.styleSheets[1]`](/de/docs/Web/API/Document/styleSheets) verwenden. Dann durchlaufen wir die verschiedenen Regeln, die im Stylesheet enthalten sind, welche sich in dem Array befinden, das bei [`stylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) zu finden ist; für jede überprüfen wir, ob deren [`CSSStyleRule.selectorText`](/de/docs/Web/API/CSSStyleRule/selectorText)-Eigenschaft gleich dem Selektor `.box p` ist, was darauf hinweist, dass es diejenige ist, die wir wollen.
+In diesem Beispiel haben wir drei Schaltflächen, die gedrückt werden können, um die Rahmen-, Hintergrund- und Textfarbe unseres Box-Absatzes dynamisch auf zufällige Werte zu ändern (siehe das Live-Beispiel am Ende dieses Abschnitts).
 
-Wenn ja, speichern wir eine Referenz auf dieses `CSSStyleRule`-Objekt in einer Variablen. Dann verwenden wir drei Funktionen, um Zufallswerte für die betreffenden Eigenschaften zu erzeugen, und aktualisieren die Regel mit diesen Werten. In jedem Fall geschieht dies mit der `setProperty()`-Methode, zum Beispiel `boxParaRule.style.setProperty('border', newBorder);`.
+Die MDN [Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) Infrastruktur kombiniert alle CSS-Blöcke im Beispiel zu einem einzigen Inline-Stil mit der ID `css-output`, daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
+
+Wir durchlaufen dann die verschiedenen Regeln, die sich im Stylesheet im Array unter [`stylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) befinden.
+Für jede Regel prüfen wir, ob ihr [`CSSStyleRule.selectorText`](/de/docs/Web/API/CSSStyleRule/selectorText) gleich dem Selektor `.box p` ist, den wir möchten.
+
+Ist dies der Fall, speichern wir eine Referenz zu diesem `CSSStyleRule` Objekt in einer Variablen.
+Anschließend verwenden wir drei Funktionen, um zufällige Werte für die betreffenden Eigenschaften zu generieren und aktualisieren die Regel mit diesen Werten.
+In jedem Fall erfolgt dies mit der `setProperty()` Methode, z.B. `boxParaRule.style.setProperty('border', newBorder);`.
 
 ### HTML
 
@@ -138,7 +145,9 @@ function randomColor() {
   return `rgb(${random(0, 255)} ${random(0, 255)} ${random(0, 255)})`;
 }
 
-const stylesheet = document.styleSheets[1];
+// Find the inline stylesheet generated for MDN live samples
+const stylesheet = document.getElementById("css-output").sheet;
+
 const boxParaRule = [...stylesheet.cssRules].find(
   (r) => r.selectorText === ".box p",
 );

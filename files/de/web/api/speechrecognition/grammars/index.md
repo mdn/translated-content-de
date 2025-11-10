@@ -3,25 +3,23 @@ title: "SpeechRecognition: grammars-Eigenschaft"
 short-title: grammars
 slug: Web/API/SpeechRecognition/grammars
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`grammars`**-Eigenschaft der
-[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Schnittstelle gibt eine Sammlung von
-[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten zurück und setzt sie, die die Grammatiken darstellen,
-welche von der aktuellen `SpeechRecognition` verstanden werden.
+Die **`grammars`**-Eigenschaft des
+[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt eine Sammlung von
+[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten zurück und setzt diese, die die Grammatiken darstellen, die von der aktuellen `SpeechRecognition` verstanden werden.
+
+> [!NOTE]
+> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen bleiben in der Spezifikation und werden von unterstützenden Browsern weiterhin aus Gründen der Rückwärtskompatibilität erkannt, aber sie haben keinen Einfluss auf Spracherkennungsdienste.
 
 ## Wert
 
-Eine [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) enthält die [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte,
-die Ihre Grammatik für Ihre App repräsentieren.
+Eine [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), die die [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte enthält, die die in Ihrer App verwendeten Grammatiken darstellen.
 
 ## Beispiele
-
-Dieser Code stammt aus unserem
-[Sprachgesteuerter Farbwechsel](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 const grammar =
@@ -30,12 +28,8 @@ const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
-//recognition.continuous = false;
-recognition.lang = "en-US";
-recognition.interimResults = false;
-recognition.maxAlternatives = 1;
 
-// ...
+// …
 ```
 
 ## Spezifikationen

@@ -2,24 +2,24 @@
 title: SVG API
 slug: Web/API/SVG_API
 l10n:
-  sourceCommit: 70afaa0e2d4ea200f229304b5e6d9368ff59e8bc
+  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
 ---
 
 {{DefaultAPISidebar("SVG")}}
 
-SVG bietet Elemente für Kreise, Rechtecke sowie einfache und komplexe Kurven. Die Attributwerte der Elemente geben an, wie diese gezeichnet werden müssen. Die **SVG-API** ist der Teil des **DOM**, der diese SVG-Elemente und ihre Attributwerte mit Skripten oder Programmiersprachen verbindet, indem er sie im Speicher darstellt. Die SVG-API stellt somit Methoden bereit, die den programmgesteuerten Zugriff auf die SVG-Elemente und deren Attributwerte ermöglichen.
+SVG bietet Elemente für Kreise, Rechtecke sowie einfache und komplexe Kurven. Die Attributwerte der Elemente bestimmen, wie diese gezeichnet werden müssen. Die **SVG API** ist der Teil der **DOM**, der diese SVG-Elemente und ihre Attributwerte mit Skripten oder Programmiersprachen verbindet, indem er sie im Speicher darstellt. Die SVG API stellt somit Methoden bereit, die programmgesteuerten Zugriff auf die SVG-Elemente und deren Attributwerte ermöglichen.
 
-Die SVG-API ist eine Sammlung von Schnittstellen, die in folgende Hauptkategorien unterteilt wurden:
+Die SVG API ist eine Sammlung von Schnittstellen, die in die folgenden allgemeinen Kategorien eingeteilt wurde:
 
-1. [Die Element-Schnittstellen](#svg-element-schnittstellen) bieten Zugang zu den Eigenschaften von SVG-Elementen und Methoden zu deren Manipulation.
-2. Die [statische Datentyp](#svg-datentyp-schnittstellen) Schnittstellen bieten Zugriff auf Elementattributwerte und Methoden zu deren Manipulation.
-3. Für Attribute, die animiert werden können, bieten die [animierten Datentyp-Schnittstellen](#svg-datentyp-schnittstellen) einen Nur-Lese-Zugriff auf den aktuell animierten Wert eines Attributs.
-4. [Die Synchronisierte Multimedia-Integrationssprache (SMIL) Schnittstellen](#smil-bezogene_schnittstellen)
+1. [Die Element-Schnittstellen](#svg_element-schnittstellen) bieten Zugriff auf die Eigenschaften von SVG-Elementen und Methoden zu ihrer Manipulation.
+2. [Die statischen Datentyp-](#svg_datentyp-schnittstellen) Schnittstellen bieten Zugriff auf Element-Attributwerte und Methoden zu ihrer Manipulation.
+3. Für Attribute, die animiert werden können, bieten die [animierten Datentyp-Schnittstellen](#svg_datentyp-schnittstellen) schreibgeschützten Zugriff auf den aktuell animierten Wert eines Attributs.
+4. [Die Synchronized Multimedia Integration Language (SMIL) Schnittstellen](#smil-bezogene_schnittstellen)
 5. [Andere](#andere_svg-schnittstellen)
 
 ## Schnittstellen
 
-### SVG-Element-Schnittstellen
+### SVG Element-Schnittstellen
 
 - [`SVGAElement`](/de/docs/Web/API/SVGAElement)
 - [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)
@@ -29,9 +29,9 @@ Die SVG-API ist eine Sammlung von Schnittstellen, die in folgende Hauptkategorie
 - [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)
 - [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)
 - [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)
-- [`SVGCursorElement`](/de/docs/Web/API/SVGCursorElement)
 - [`SVGDefsElement`](/de/docs/Web/API/SVGDefsElement)
 - [`SVGDescElement`](/de/docs/Web/API/SVGDescElement)
+- [`SVGDiscardElement`](/de/docs/Web/API/SVGDiscardElement)
 - [`SVGElement`](/de/docs/Web/API/SVGElement)
 - [`SVGEllipseElement`](/de/docs/Web/API/SVGEllipseElement)
 - [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)
@@ -94,7 +94,7 @@ Die SVG-API ist eine Sammlung von Schnittstellen, die in folgende Hauptkategorie
 - [`SVGUseElement`](/de/docs/Web/API/SVGUseElement)
 - [`SVGViewElement`](/de/docs/Web/API/SVGViewElement)
 
-### SVG-Datentyp-Schnittstellen
+### SVG Datentyp-Schnittstellen
 
 Hier sind die DOM APIs für Datentypen, die in den Definitionen von SVG-Eigenschaften und Attributen verwendet werden.
 
@@ -127,7 +127,6 @@ Hier sind die DOM APIs für Datentypen, die in den Definitionen von SVG-Eigensch
 
 ### SMIL-bezogene Schnittstellen
 
-- [`ElementTimeControl`](/de/docs/Web/API/ElementTimeControl)
 - [`TimeEvent`](/de/docs/Web/API/TimeEvent)
 
 ### Andere SVG-Schnittstellen

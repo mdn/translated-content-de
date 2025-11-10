@@ -1,14 +1,14 @@
 ---
-title: "GPUAdapter: requestAdapterInfo() Methode"
+title: "GPUAdapter: requestAdapterInfo()-Methode"
 short-title: requestAdapterInfo()
 slug: Web/API/GPUAdapter/requestAdapterInfo
 l10n:
-  sourceCommit: 225431159da2ef74dca5984e6f07bd8c5cae4df8
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`requestAdapterInfo()`**-Methode der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt erfüllt wird, welches identifizierende Informationen über einen Adapter enthält.
+Die Methode **`requestAdapterInfo()`** des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Objekt erfüllt wird, das identifizierende Informationen über einen Adapter enthält.
 
 `requestAdapterInfo()` wurde aus der WebGPU-Spezifikation entfernt. Verwenden Sie stattdessen [`GPUAdapter.info`](/de/docs/Web/API/GPUAdapter/info), um auf Adapterinformationen zuzugreifen.
 
@@ -43,7 +43,7 @@ async function init() {
   console.log(adapterInfo.vendor);
   console.log(adapterInfo.architecture);
 
-  // ...
+  // …
 }
 ```
 
@@ -57,4 +57,4 @@ Nicht mehr Teil der [WebGPU-Spezifikation](https://gpuweb.github.io/gpuweb/).
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

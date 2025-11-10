@@ -3,23 +3,23 @@ title: "Navigation: navigatesuccess Ereignis"
 short-title: navigatesuccess
 slug: Web/API/Navigation/navigatesuccess_event
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
 Das **`navigatesuccess`** Ereignis der [`Navigation`](/de/docs/Web/API/Navigation) Schnittstelle wird ausgelöst, wenn eine erfolgreiche Navigation abgeschlossen ist.
 
-Im Fall einer abgefangenen Navigation würde dies nach der Erfüllung aller von Ihrem [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) Handler zurückgegebenen Versprechen geschehen. Auch das [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Versprechen wird gleichzeitig erfüllt.
+Im Fall einer abgefangenen Navigation würde dies nach Erfüllung aller von Ihrem [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) Handler zurückgegebenen Versprechen (Promises) eintreten. Das [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Versprechen wird ebenfalls zur gleichen Zeit erfüllt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("navigatesuccess", (event) => {});
+```js-nolint
+addEventListener("navigatesuccess", (event) => { })
 
-onnavigatesuccess = (event) => {};
+onnavigatesuccess = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie könnten eine erfolgreiche Navigation behandeln, indem Sie einen zuvor angezeigten Fortschrittsindikator ausblenden, wie folgt:
+Sie könnten eine erfolgreiche Navigation handhaben, indem Sie einen zuvor angezeigten Fortschrittsanzeiger ausblenden, wie hier:
 
 ```js
 navigation.addEventListener("navigatesuccess", (event) => {
@@ -36,7 +36,7 @@ navigation.addEventListener("navigatesuccess", (event) => {
 });
 ```
 
-Oder Sie könnten bei einem Fehler eine Fehlermeldung anzeigen:
+Oder Sie könnten eine Fehlermeldung bei einem Fehler anzeigen:
 
 ```js
 navigation.addEventListener("navigateerror", (event) => {
@@ -55,6 +55,5 @@ navigation.addEventListener("navigateerror", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicola's [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

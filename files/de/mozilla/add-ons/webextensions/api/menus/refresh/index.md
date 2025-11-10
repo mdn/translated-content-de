@@ -2,18 +2,16 @@
 title: menus.refresh()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/refresh
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Aktualisiert ein angezeigtes Menü.
 
-Aktualisiert ein Menü, das gerade angezeigt wird.
+Aktualisiert die Menüeinträge der Erweiterung in dem Menü, das der Browser derzeit anzeigt, einschließlich Änderungen, die seit der Anzeige des Menüs vorgenommen wurden. Hat keine Wirkung, wenn das Menü nicht angezeigt wird. Das Neuaufbauen eines angezeigten Menüs ist ein aufwändiger Vorgang, rufen Sie diese Methode nur bei Bedarf auf.
 
-Aktualisiert die Menüelemente der Erweiterung im Menü, das der Browser aktuell anzeigt, einschließlich Änderungen, die vorgenommen wurden, seit das Menü gezeigt wurde. Hat keine Wirkung, wenn das Menü nicht angezeigt wird. Das Neuladen eines angezeigten Menüs ist eine kostspielige Operation. Rufen Sie diese Methode nur auf, wenn es notwendig ist.
+Diese Methode wird normalerweise innerhalb eines {{WebExtAPIRef("menus.onShown")}} Ereignishandlers aufgerufen, nachdem der Handler Aktualisierungen am Menü vorgenommen hat.
 
-Dies wird typischerweise von einem {{WebExtAPIRef("menus.onShown")}} Ereignishandler aufgerufen, nachdem der Handler Aktualisierungen am Menü vorgenommen hat.
-
-Firefox stellt diese Funktion sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum zur Verfügung.
+Firefox bietet diese Funktion sowohl über den `contextMenus` Namespace als auch über den `menus` Namespace an.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,13 +29,9 @@ Keine.
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Dieses Beispiel wartet darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann das `openLabelledId`-Menüelement mit dem Hostnamen des Links:
+Dieses Beispiel hört darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann den Menüeintrag `openLabelledId` mit dem Hostnamen des Links:
 
 ```js
 function updateMenuItem(linkHostname) {
@@ -58,3 +52,7 @@ browser.menus.onShown.addListener((info) => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

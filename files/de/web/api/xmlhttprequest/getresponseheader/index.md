@@ -1,21 +1,21 @@
 ---
-title: "XMLHttpRequest: getResponseHeader()-Methode"
+title: "XMLHttpRequest: getResponseHeader() Methode"
 short-title: getResponseHeader()
 slug: Web/API/XMLHttpRequest/getResponseHeader
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode **`getResponseHeader()`** gibt den String zurück, der den Text eines bestimmten Header-Werts enthält.
+Die Methode **`getResponseHeader()`** des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) gibt den String zurück, der den Text des Werts eines bestimmten Headers enthält.
 
-Wenn es mehrere Antwort-Header mit demselben Namen gibt, werden deren Werte als ein einzelner zusammengefasster String zurückgegeben, wobei jeder Wert durch ein Komma und ein Leerzeichen vom vorherigen getrennt ist. Die Methode `getResponseHeader()` gibt den Wert als UTF-Byte-Sequenz zurück.
+Wenn es mehrere Antwort-Header mit demselben Namen gibt, werden ihre Werte als einzelner, zusammengefügter String zurückgegeben, wobei jeder Wert durch ein Komma und ein Leerzeichen vom vorherigen getrennt ist. Die Methode `getResponseHeader()` gibt den Wert als UTF-Byte-Sequenz zurück.
 
 > [!NOTE]
-> Die Suche nach dem Header-Namen erfolgt ohne Berücksichtigung der Groß- und Kleinschreibung.
+> Die Suche nach dem Header-Namen unterscheidet nicht zwischen Groß- und Kleinschreibung.
 
-Wenn Sie den rohen String aller Header benötigen, verwenden Sie die Methode [`getAllResponseHeaders()`](/de/docs/Web/API/XMLHttpRequest/getAllResponseHeaders), die den gesamten Roh-Header-String zurückgibt.
+Wenn Sie den Roh-String aller Header benötigen, verwenden Sie die Methode [`getAllResponseHeaders()`](/de/docs/Web/API/XMLHttpRequest/getAllResponseHeaders), die den gesamten Roh-Header-String zurückgibt.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ getResponseHeader(headerName)
 
 ### Rückgabewert
 
-Ein String, der den Textwert des Headers darstellt, oder `null`, wenn die Antwort noch nicht empfangen wurde oder der Header in der Antwort nicht existiert.
+Ein String, der den Textwert des Headers darstellt, oder `null`, wenn entweder die Antwort noch nicht eingegangen ist oder der Header in der Antwort nicht existiert.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Anfrage erstellt und gesendet, und ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Handler wird eingerichtet, um auf den [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu achten, der anzeigt, dass die Header empfangen wurden; in diesem Fall wird der Wert des {{httpheader("Content-Type")}}-Headers abgerufen. Wenn der `Content-Type` nicht der gewünschte Wert ist, wird das [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durch Aufrufen von [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort) abgebrochen.
+In diesem Beispiel wird eine Anfrage erstellt und gesendet, und ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event) Handler wird eingerichtet, um auf den [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu prüfen, der darauf hinweist, dass die Header empfangen wurden; wenn dies der Fall ist, wird der Wert des {{httpheader("Content-Type")}} Headers abgerufen. Wenn der `Content-Type` nicht der gewünschte Wert ist, wird der [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durch Aufrufen von [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort) abgebrochen.
 
 ```js
 const client = new XMLHttpRequest();
@@ -44,7 +44,7 @@ client.send();
 client.onreadystatechange = () => {
   if (client.readyState === client.HEADERS_RECEIVED) {
     const contentType = client.getResponseHeader("Content-Type");
-    if (contentType !== my_expected_type) {
+    if (contentType !== myExpectedType) {
       client.abort();
     }
   }
@@ -62,7 +62,7 @@ client.onreadystatechange = () => {
 ## Siehe auch
 
 - [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
-- [HTTP-Header](/de/docs/Web/HTTP/Headers)
+- [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
 - [`getAllResponseHeaders()`](/de/docs/Web/API/XMLHttpRequest/getAllResponseHeaders)
 - [`response`](/de/docs/Web/API/XMLHttpRequest/response)
-- Setzen von Anfrage-Headern: [`setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)
+- Setzen von Anforderungs-Headern: [`setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)

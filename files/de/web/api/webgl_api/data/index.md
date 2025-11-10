@@ -2,24 +2,24 @@
 title: Daten in WebGL
 slug: Web/API/WebGL_API/Data
 l10n:
-  sourceCommit: 621c7978886787ca66bc5e90e457cf1466e58d35
+  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
 ---
 
 {{DefaultAPISidebar("WebGL")}}
 
-Shaderprogramme haben Zugriff auf drei Arten der Datenspeicherung, von denen jede eine spezifische Anwendung hat. Jede Art von Variable ist durch eine oder beide Arten von Shader-Programmen zugänglich (abhängig vom Typ der Datenspeicherung) und möglicherweise durch den JavaScript-Code der Website, abhängig vom spezifischen Typ der Variable.
+Shader-Programme haben Zugriff auf drei Arten von Datenspeichern, von denen jede einen spezifischen Anwendungsfall hat. Jeder Typ von Variable ist entweder von einem oder beiden Arten von Shader-Programmen zugänglich (abhängig vom Datenspeichertyp) und möglicherweise vom JavaScript-Code der Seite, je nach spezifischem Variablentyp.
 
 ## GLSL-Datentypen
 
-Siehe [Datentypen](<https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)>) in der GLSL-Dokumentation.
+Siehe [Datentypen](<https://wikis.khronos.org/opengl/Data_Type_(GLSL)>) in der GLSL-Dokumentation.
 
 ## GLSL-Variablen
 
-In GLSL gibt es drei Arten von "Variablen" oder Datenspeicher, die jeweils ihren eigenen Zweck und Anwendungsfälle haben: **[Attribute](#attribute)**, **[Varyings](#varyings)** und **[Uniforms](#uniforms)**.
+Es gibt drei Arten von "Variablen" oder Datenspeichern in GLSL, die jeweils ihren eigenen Zweck und Anwendungsfälle haben: **[Attribute](#attribute)**, **[Varyings](#varyings)** und **[Uniforms](#uniforms)**.
 
 ### Attribute
 
-**Attribute** sind GLSL-Variablen, die nur dem Vertex-Shader (als Variablen) und dem JavaScript-Code zur Verfügung stehen. Attribute werden typischerweise verwendet, um Farbinformationen, Texturkoordinaten und alle anderen berechneten oder abgerufenen Daten zu speichern, die zwischen JavaScript-Code und dem Vertex-Shader ausgetauscht werden müssen.
+**Attribute** sind GLSL-Variablen, die nur dem Vertex-Shader (als Variablen) und dem JavaScript-Code zur Verfügung stehen. Attribute werden typischerweise verwendet, um Farbinformationen, Texturkoordinaten und andere berechnete oder abgerufene Daten zu speichern, die zwischen dem JavaScript-Code und dem Vertex-Shader geteilt werden müssen.
 
 ```js
 // init colors
@@ -47,8 +47,7 @@ gl.vertexAttribPointer(vColor, 4, gl.FLOAT, false, 0, 0);
 gl.enableVertexAttribArray(vColor);
 ```
 
-```cpp
-//glsl
+```glsl
 attribute  vec4 vColor;
 
 void main()
@@ -59,20 +58,20 @@ void main()
 
 ### Varyings
 
-**Varyings** sind Variablen, die vom Vertex-Shader deklariert werden und verwendet werden, um Daten vom Vertex-Shader an den Fragment-Shader zu übertragen. Dies wird häufig verwendet, um den [Normalenvektor](<https://en.wikipedia.org/wiki/Normal_(geometry)>) eines Vertexes zu teilen, nachdem er vom Vertex-Shader berechnet wurde.
+**Varyings** sind Variablen, die vom Vertex-Shader deklariert werden und zum Übertragen von Daten vom Vertex-Shader zum Fragment-Shader verwendet werden. Dies wird häufig verwendet, um einen [Normalenvektor](<https://en.wikipedia.org/wiki/Normal_(geometry)>) eines Vertex zu teilen, nachdem er vom Vertex-Shader berechnet wurde.
 
 <\<Anleitung zur Verwendung>>
 
 ### Uniforms
 
-**Uniforms** werden durch den JavaScript-Code festgelegt und stehen sowohl dem Vertex- als auch dem Fragment-Shader zur Verfügung. Sie werden verwendet, um Werte bereitzustellen, die für alles, was im Frame gezeichnet wird, gleich bleiben, wie beispielsweise Beleuchtungspositionen und -stärken, globale Transformations- und Perspektivendetails und so weiter.
+**Uniforms** werden vom JavaScript-Code gesetzt und stehen sowohl dem Vertex- als auch dem Fragment-Shader zur Verfügung. Sie werden verwendet, um Werte bereitzustellen, die für alles, was im Frame gezeichnet wird, gleich sind, wie zum Beispiel Lichtpositionen und -stärken, globale Transformations- und Perspektivdetails und so weiter.
 
 <\<Details hinzufügen>>
 
-## Buffers
+## Puffer
 
 <\<Informationen hinzufügen>>
 
-## Textures
+## Texturen
 
 <\<Informationen hinzufügen>>

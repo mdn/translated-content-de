@@ -16,7 +16,7 @@ Eine Liste von Frame-Objekten. Es ist ähnlich wie ein Array, da es eine `length
 
 - `frames === window` ergibt true.
 - Jedes Element im `window.frames` Pseudo-Array repräsentiert das [`Window`](/de/docs/Web/API/Window)
-  Objekt, das dem Inhalt des angegebenen {{HTMLElement("frame")}} oder {{HTMLElement("iframe")}} entspricht, nicht das `frame` oder `iframe` DOM-Element (d.h., `window.frames[0]` ist dasselbe wie `document.getElementsByTagName("iframe")[0].contentWindow`).
+  Objekt, das dem Inhalt des angegebenen {{HTMLElement("frame")}} oder {{HTMLElement("iframe")}} entspricht, nicht das `frame` oder `iframe` DOM-Element (d.h. `window.frames[0]` ist dasselbe wie `document.getElementsByTagName("iframe")[0].contentWindow`).
 - Für weitere Details über den zurückgegebenen Wert lesen Sie diesen [Thread auf mozilla.dev.platform](https://groups.google.com/g/mozilla.dev.platform/c/VijG80aFnU8).
 
 ## Beispiele

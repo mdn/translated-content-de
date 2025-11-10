@@ -1,23 +1,23 @@
 ---
-title: "Document: scroll-Ereignis"
+title: "Dokument: scroll event"
 short-title: scroll
 slug: Web/API/Document/scroll_event
 l10n:
-  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Das **`scroll`**-Ereignis wird ausgelöst, wenn die Dokumentansicht gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis von `Document`. Für das Scrollen von Elementen siehe das [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis von `Element`.
+Das **`scroll`**-Ereignis wird ausgelöst, wenn die Dokumentansicht gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis des `Document`. Für das Scrollen von Elementen siehe das [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis von `Element`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("scroll", (event) => {});
+```js-nolint
+addEventListener("scroll", (event) => { })
 
-onscroll = (event) => {};
+onscroll = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,11 +26,11 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Scroll-Ereignis-Throttling
+### Throttling des Scroll-Ereignisses
 
-Da `scroll`-Ereignisse mit hoher Frequenz ausgelöst werden können, sollte der Ereignishandler keine rechenintensiven Operationen wie DOM-Änderungen ausführen. Stattdessen wird empfohlen, das Ereignis mithilfe von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu drosseln, wie folgt.
+Da `scroll`-Ereignisse in hoher Frequenz ausgelöst werden können, sollte der Ereignis-Handler keine rechenintensiven Operationen wie DOM-Modifikationen ausführen. Wenn Sie bei schnellem Scrollen ein {{Glossary("jank", "Ruckeln")}} bemerken, sollten Sie in Betracht ziehen, das Ereignis zu {{Glossary("throttle", "drosseln")}}.
 
-Beachten Sie jedoch, dass Eingabeereignisse und Animationsframes mit etwa der gleichen Geschwindigkeit ausgelöst werden, daher ist die untenstehende Optimierung oft nicht erforderlich. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
+Beachten Sie, dass Sie möglicherweise Code sehen, der den `scroll`-Ereignis-Handler mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) drosselt. Dies ist _nutzlos_, da Animationsframe-Rückrufe mit der gleichen Frequenz wie `scroll`-Ereignis-Handler ausgeführt werden. Stattdessen müssen Sie die Timeout-Zeit selbst messen, beispielsweise mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout).
 
 ```js
 let lastKnownScrollPosition = 0;
@@ -44,15 +44,18 @@ document.addEventListener("scroll", (event) => {
   lastKnownScrollPosition = window.scrollY;
 
   if (!ticking) {
-    window.requestAnimationFrame(() => {
+    // Throttle the event to "do something" every 20ms
+    setTimeout(() => {
       doSomething(lastKnownScrollPosition);
       ticking = false;
-    });
+    }, 20);
 
     ticking = true;
   }
 });
 ```
+
+Alternativ sollten Sie erwägen, stattdessen [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) zu verwenden, der ein schwellenwertbasiertes Zuhören ermöglicht.
 
 ## Spezifikationen
 
@@ -64,6 +67,6 @@ document.addEventListener("scroll", (event) => {
 
 ## Siehe auch
 
-- [Document: `scrollend`-Ereignis](/de/docs/Web/API/Document/scrollend_event)
-- [Element: `scroll`-Ereignis](/de/docs/Web/API/Element/scroll_event)
-- [Element: `scrollend`-Ereignis](/de/docs/Web/API/Element/scrollend_event)
+- [Document: `scrollend` event](/de/docs/Web/API/Document/scrollend_event)
+- [Element: `scroll` event](/de/docs/Web/API/Element/scroll_event)
+- [Element: `scrollend` event](/de/docs/Web/API/Element/scrollend_event)

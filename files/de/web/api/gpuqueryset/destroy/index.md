@@ -1,14 +1,14 @@
 ---
-title: "GPUQuerySet: destroy() Methode"
+title: "GPUQuerySet: destroy()-Methode"
 short-title: destroy()
 slug: Web/API/GPUQuerySet/destroy
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`** Methode der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) Schnittstelle zerstört das `GPUQuerySet`.
+Die **`destroy()`**-Methode der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Schnittstelle zerstört das `GPUQuerySet`.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 

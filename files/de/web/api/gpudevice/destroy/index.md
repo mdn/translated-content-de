@@ -3,18 +3,18 @@ title: "GPUDevice: destroy() Methode"
 short-title: destroy()
 slug: Web/API/GPUDevice/destroy
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle zerstört das Gerät, wodurch weitere Operationen darauf verhindert werden.
+Die **`destroy()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle zerstört das Gerät, was weitere Operationen darauf verhindert.
 
 Beachten Sie, dass:
 
-- Alle derzeit im Gerät's [`GPUQueue`](/de/docs/Web/API/GPUQueue) eingereihten Befehle werden ausgeführt, bevor das Gerät zerstört wird.
-- Alle WebGPU-Ressourcen, die mit dem Gerät erstellt wurden (Buffer, Texturen, etc.), werden ebenfalls zerstört.
-- Alle gemappten Buffer, die mit dem Gerät erstellt wurden, werden umgemappt.
+- Alle aktuell auf der [`GPUQueue`](/de/docs/Web/API/GPUQueue) des Geräts wartenden Befehle vor der Zerstörung des Geräts ausgeführt werden.
+- Alle mit dem Gerät erstellten WebGPU-Ressourcen (Puffer, Texturen, etc.) ebenfalls zerstört werden.
+- Alle mit dem Gerät erstellten gemappten Puffer werden ungemappt.
 
 ## Syntax
 

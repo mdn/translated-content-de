@@ -1,27 +1,27 @@
 ---
-title: "RTCDTMFSender: tonechange-Ereignis"
+title: "RTCDTMFSender: tonechange-Event"
 short-title: tonechange
 slug: Web/API/RTCDTMFSender/tonechange_event
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`tonechange`**-Ereignis wird von der [WebRTC API](/de/docs/Web/API/WebRTC_API) an einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gesendet, um anzuzeigen, wann {{Glossary("DTMF", "DTMF")}}-Töne, die zuvor zum Senden in die Warteschlange gestellt wurden (durch Aufruf von [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)), beginnen und enden.
+Das **`tonechange`**-Event wird von der [WebRTC API](/de/docs/Web/API/WebRTC_API) an einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gesendet, um anzuzeigen, wann {{Glossary("DTMF", "DTMF")}}-Töne, die zuvor zur Übertragung in die Warteschlange gestellt wurden (durch Aufrufen von [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)), beginnen und enden.
 
-Um zu bestimmen, welcher Ton begonnen hat oder ob ein Ton aufgehört hat zu spielen, überprüfen Sie den Wert der [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone)-Eigenschaft des Ereignisses.
+Um festzustellen, welcher Ton abgespielt wurde oder ob ein Ton gestoppt wurde, überprüfen Sie den Wert der [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone)-Eigenschaft des Events.
 
-Dieses Ereignis ist nicht abbrüchbar und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("tonechange", (event) => {});
+```js-nolint
+addEventListener("tonechange", (event) => { })
 
-ontonechange = (event) => {};
+ontonechange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -32,33 +32,29 @@ Ein [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent). Erbt vo
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den Eigenschaften von [`Event`](/de/docs/Web/API/Event) bietet dieses Interface Folgendes:_
+_Zusätzlich zu den Eigenschaften von [`Event`](/de/docs/Web/API/Event) bietet dieses Interface folgende:_
 
 - [`RTCDTMFToneChangeEvent.tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone) {{ReadOnlyInline}}
-  - : Ein String, der den Ton angibt, der zu spielen begonnen hat oder ein leerer String (`""`), wenn der vorherige Ton aufgehört hat zu spielen.
+  - : Ein String, der den Ton angibt, der begonnen hat zu spielen, oder ein leerer String (`""`), wenn der vorherige Ton aufgehört hat zu spielen.
 
 ## Beispiele
 
-Dieses Beispiel richtet einen Handler für das `tonechange`-Ereignis ein, das ein Element aktualisiert, um den derzeit gespielten Ton in seinem Inhalt anzuzeigen, oder, wenn alle Töne gespielt wurden, die Zeichenkette "\<none>".
+Dieses Beispiel richtet einen Handler für das `tonechange`-Event ein, der ein Element aktualisiert, um den aktuell abgespielten Ton in seinem Inhalt anzuzeigen, oder, wenn alle Töne abgespielt wurden, den String "\<none>".
 
 Dies kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) erfolgen:
 
 ```js
-dtmfSender.addEventListener(
-  "tonechange",
-  (ev) => {
-    let tone = ev.tone;
-    if (tone === "") {
-      tone = "&lt;none&gt;";
-    }
+dtmfSender.addEventListener("tonechange", (ev) => {
+  let tone = ev.tone;
+  if (tone === "") {
+    tone = "&lt;none&gt;";
+  }
 
-    document.getElementById("playingTone").innerText = tone;
-  },
-  false,
-);
+  document.getElementById("playingTone").innerText = tone;
+});
 ```
 
-Sie können auch einfach die `ontonechange`-Ereignisbehandlungseigenschaft direkt setzen:
+Sie können auch einfach die `ontonechange`-Ereignishandlereigenschaft direkt setzen:
 
 ```js
 dtmfSender.ontonechange = (ev) => {

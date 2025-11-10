@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.setInt8()
+short-title: setInt8()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/setInt8
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`setInt8()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 8-Bit vorzeichenbehaftete Ganzzahl im Byte am angegebenen Byte-Offset dieses `DataView`.
 
-Die Methode **`setInt8()`** von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 8-Bit-Vorzeichen-Ganzzahl im Byte an dem angegebenen Byte-Offset dieses `DataView`.
-
-{{InteractiveExample("JavaScript Demo: DataView.setInt8()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.setInt8()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -31,9 +30,9 @@ setInt8(byteOffset, value)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, vom Anfang des Views, an dem die Daten gespeichert werden sollen.
+  - : Der Offset in Bytes, vom Beginn der Ansicht, in dem die Daten gespeichert werden sollen.
 - `value`
-  - : Der Wert, der gesetzt werden soll. Für Informationen darüber, wie der Wert in Bytes kodiert wird, siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der gesetzt werden soll. Wie der Wert in Bytes kodiert wird, siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 
 ### Rückgabewert
 
@@ -42,7 +41,7 @@ setInt8(byteOffset, value)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass über das Ende des Views hinaus gespeichert würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass er über das Ende der Ansicht hinaus speichert.
 
 ## Beispiele
 
@@ -65,7 +64,7 @@ dataview.getInt8(0); // 3
 
 ## Siehe auch
 
-- [Leitfaden zu JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int8Array")}}

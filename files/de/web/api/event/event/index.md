@@ -1,14 +1,14 @@
 ---
-title: "Event: Event()-Konstruktor"
+title: "Event: Event() Konstruktor"
 short-title: Event()
 slug: Web/API/Event/Event
 l10n:
-  sourceCommit: 15f0b5552bc9c2ea1f32b0cd5ee840a7d43c887e
+  sourceCommit: f4c0e822eb6a1ea438c7342f43a3e4809adbd56a
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`Event()`**-Konstruktor erstellt ein neues [`Event`](/de/docs/Web/API/Event)-Objekt. Ein auf diese Weise erstelltes Ereignis wird als _synthetisches Ereignis_ bezeichnet, im Gegensatz zu einem vom Browser ausgelösten Ereignis, und kann von einem Skript [ausgelöst](/de/docs/Web/Events/Creating_and_triggering_events) werden.
+Der **`Event()`** Konstruktor erstellt ein neues [`Event`](/de/docs/Web/API/Event) Objekt. Ein auf diese Weise erstelltes Ereignis wird als _synthetisches Ereignis_ bezeichnet, im Gegensatz zu einem vom Browser ausgelösten Ereignis, und kann von einem Skript [ausgelöst](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) werden.
 
 ## Syntax
 
@@ -24,15 +24,15 @@ new Event(type, options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `bubbles` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis "bubbles". Der Standardwert ist `false`.
+      - : Ein Boolean-Wert, der angibt, ob das Ereignis blasenförmig ist. Der Standardwert ist `false`.
     - `cancelable` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann. Der Standardwert ist `false`.
+      - : Ein Boolean-Wert, der angibt, ob das Ereignis abgebrochen werden kann. Der Standardwert ist `false`.
     - `composed` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis Listener außerhalb eines Shadow Roots auslösen wird (siehe [`Event.composed`](/de/docs/Web/API/Event/composed) für mehr Details). Der Standardwert ist `false`.
+      - : Ein Boolean-Wert, der angibt, ob das Ereignis auch außerhalb eines Shadow-Roots Listener auslösen wird (siehe [`Event.composed`](/de/docs/Web/API/Event/composed) für mehr Details). Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein neues [`Event`](/de/docs/Web/API/Event)-Objekt.
+Ein neues [`Event`](/de/docs/Web/API/Event) Objekt.
 
 ## Beispiel
 
@@ -58,4 +58,4 @@ myDiv.dispatchEvent(evt);
 
 - [`Event`](/de/docs/Web/API/Event)
 - [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)
-- [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events)

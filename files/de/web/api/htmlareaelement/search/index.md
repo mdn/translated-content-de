@@ -3,32 +3,32 @@ title: "HTMLAreaElement: search-Eigenschaft"
 short-title: search
 slug: Web/API/HTMLAreaElement/search
 l10n:
-  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
+  sourceCommit: 1eabc08d295e60d7d8eab6bce858d2fb0833be2b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`search`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist eine Suchzeichenkette, auch _query string_ genannt. Es handelt sich dabei um eine Zeichenkette, die ein `"?"` gefolgt von den Parametern des `href`-Attributs des `<area>`-Elements enthält. Wenn die URL keine Suchabfrage besitzt, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Die **`search`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces ist ein Suchstring, auch _Query-String_ genannt, der eine Zeichenkette enthält, die mit einem `"?"` beginnt, gefolgt von den Parametern des `href`-Attributs des `<area>`-Elements. Wenn die URL keine Suchanfrage enthält, enthält diese Eigenschaft einen leeren String, `""`.
 
-Diese Eigenschaft kann gesetzt werden, um die Suchzeichenkette der URL zu ändern. Beim Setzen wird der Wert mit einem vorangestellten `"?"` versehen, falls dieser nicht bereits vorhanden ist. Wird der Wert auf `""` gesetzt, wird die Suchzeichenkette entfernt.
+Diese Eigenschaft kann gesetzt werden, um den Query-String der URL zu ändern. Beim Setzen wird ein einzelnes `"?"`-Präfix zum bereitgestellten Wert hinzugefügt, falls noch nicht vorhanden. Ein leerer Wert `""` entfernt den Query-String.
 
-Die Suchzeichenkette wird beim Setzen {{Glossary("Percent-encoding", "percent-codiert")}}, jedoch beim Lesen nicht percent-decodiert.
+Der Query wird beim Setzen {{Glossary("Percent-encoding", "prozentkodiert")}}, beim Lesen jedoch nicht prozentdekodiert.
 
 Moderne Browser bieten
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
 und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
-um das Parsen der Parameter aus der Suchzeichenkette zu erleichtern.
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
+an, um das Auslesen der Parameter aus dem Query-String zu erleichtern.
 
 Weitere Informationen finden Sie unter [`URL.search`](/de/docs/Web/API/URL/search).
 
 ## Wert
 
-Ein Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-### Abfragen der Suchzeichenkette von einem `area`-Link
+### Den Such-String von einem Area-Link abrufen
 
 ```js
 // An <area id="myArea" href="/en-US/docs/HTMLAreaElement?q=123"> element is in the document
@@ -36,13 +36,13 @@ const area = document.getElementById("myArea");
 area.search; // returns '?q=123'
 ```
 
-### Erweiterte Analyse mit URLSearchParams
+### Fortgeschrittenes Parsen mit URLSearchParams
 
 Alternativ kann [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) verwendet werden:
 
 ```js
 let params = new URLSearchParams(queryString);
-let q = parseInt(params.get("q")); // returns the number 123
+let q = parseInt(params.get("q"), 10); // returns the number 123
 ```
 
 ## Spezifikationen
@@ -55,4 +55,4 @@ let q = parseInt(params.get("q")); // returns the number 123
 
 ## Siehe auch
 
-- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der sie gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

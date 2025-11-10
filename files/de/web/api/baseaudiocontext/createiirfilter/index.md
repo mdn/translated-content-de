@@ -1,19 +1,18 @@
 ---
-title: "BaseAudioContext: Methode createIIRFilter()"
+title: "BaseAudioContext: createIIRFilter()-Methode"
 short-title: createIIRFilter()
 slug: Web/API/BaseAudioContext/createIIRFilter
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`createIIRFilter()`** Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) Schnittstellenobjekts erstellt einen [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode), der einen allgemeinen **[Infinite Impulse Response](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR)-Filter darstellt, der als verschiedene Arten von Filtern konfiguriert werden kann.
+Die **`createIIRFilter()`**-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erstellt einen [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode), der einen allgemeinen **[infinite impulse response](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR)-Filter darstellt, der so konfiguriert werden kann, dass er als verschiedene Filtertypen dient.
 
 > [!NOTE]
-> Der [`IIRFilterNode()`](/de/docs/Web/API/IIRFilterNode/IIRFilterNode)
-> Konstruktor ist der empfohlene Weg, um einen [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode) zu erstellen; siehe
-> [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`IIRFilterNode()`](/de/docs/Web/API/IIRFilterNode/IIRFilterNode) Konstruktor wird empfohlen, um einen [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode) zu erstellen; siehe
+> [Erstellen eines AudioNodes](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -24,9 +23,9 @@ createIIRFilter(feedforward, feedback)
 ### Parameter
 
 - `feedforward`
-  - : Ein Array von Gleitkommawerten, das die Feedforward- (Zähler) Koeffizienten für die Übertragungsfunktion des IIR-Filters angibt. Die maximale Länge dieses Arrays beträgt 20, und mindestens ein Wert muss ungleich null sein.
+  - : Ein Array von Gleitkommawerten, das die Feedforward- (Zähler-) Koeffizienten für die Übertragungsfunktion des IIR-Filters spezifiziert. Die maximale Länge dieses Arrays beträgt 20, und mindestens ein Wert muss ungleich null sein.
 - `feedback`
-  - : Ein Array von Gleitkommawerten, das die Feedback- (Nenner) Koeffizienten für die Übertragungsfunktion des IIR-Filters angibt. Dieses Array kann bis zu 20 Mitglieder haben, das erste darf nicht null sein.
+  - : Ein Array von Gleitkommawerten, das die Feedback- (Nenner-) Koeffizienten für die Übertragungsfunktion des IIR-Filters spezifiziert. Dieses Array kann bis zu 20 Elemente haben, wobei das erste nicht null sein darf.
 
 ### Rückgabewert
 
@@ -35,10 +34,9 @@ Ein [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode), der den Filter mit den an
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn alle `feedforward` Koeffizienten 0 sind oder wenn der erste
-    `feedback` Koeffizient 0 ist.
+  - : Wird ausgelöst, wenn alle `feedforward`-Koeffizienten 0 sind oder wenn der erste `feedback`-Koeffizient 0 ist.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein oder beide Eingabearrays mehr als 20 Mitglieder enthalten.
+  - : Wird ausgelöst, wenn eines oder beide der Eingabearrays mehr als 20 Elemente enthalten.
 
 ## Spezifikationen
 
@@ -50,6 +48,6 @@ Ein [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode), der den Filter mit den an
 
 ## Siehe auch
 
-- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 - [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)
 - [`AudioNode`](/de/docs/Web/API/AudioNode)

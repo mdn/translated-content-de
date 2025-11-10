@@ -3,14 +3,14 @@ title: "SVGAngle: valueAsString-Eigenschaft"
 short-title: valueAsString
 slug: Web/API/SVGAngle/valueAsString
 l10n:
-  sourceCommit: a5de116c99effa3a2bed6ede6e69928c7d2fc43b
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die `valueAsString`-Eigenschaft des [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Interfaces repräsentiert den Wert des Winkels als Zeichenkette, in den durch [`unitType`](/de/docs/Web/API/SVGAngle/unitType) ausgedrückten Einheiten.
+Die `valueAsString`-Eigenschaft des [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Interfaces stellt den Winkelwert als Zeichenkette dar, in den Einheiten, die durch [`unitType`](/de/docs/Web/API/SVGAngle/unitType) ausgedrückt werden.
 
-Das Setzen dieses Attributs bewirkt, dass [`value`](/de/docs/Web/API/SVGAngle/value), [`valueInSpecifiedUnits`](/de/docs/Web/API/SVGAngle/valueInSpecifiedUnits) und [`unitType`](/de/docs/Web/API/SVGAngle/unitType) automatisch aktualisiert werden, um diese Einstellung zu reflektieren.
+Das Setzen dieses Attributs führt dazu, dass [`value`](/de/docs/Web/API/SVGAngle/value), [`valueInSpecifiedUnits`](/de/docs/Web/API/SVGAngle/valueInSpecifiedUnits) und [`unitType`](/de/docs/Web/API/SVGAngle/unitType) automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
 
 ## Wert
 
@@ -46,5 +46,5 @@ console.log(Math.round(angle.value)); // Output: 90 (since 1.57 radians is appro
 
 ## Siehe auch
 
-- [`<angle>`](/de/docs/Web/SVG/Content_type#angle)
+- [`<angle>`](/de/docs/Web/SVG/Guides/Content_type#angle)
 - [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle)

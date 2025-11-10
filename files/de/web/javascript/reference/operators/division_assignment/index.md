@@ -2,14 +2,12 @@
 title: Division-Zuweisung (/=)
 slug: Web/JavaScript/Reference/Operators/Division_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Division-Zuweisungsoperator (`/=`)** führt eine [Division](/de/docs/Web/JavaScript/Reference/Operators/Division) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-Der **Division-Zuweisungsoperator (`/=`)** führt [Division](/de/docs/Web/JavaScript/Reference/Operators/Division) mit den beiden Operanden durch und weist das Ergebnis dem linken Operand zu.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Division assignment operator")}}
+{{InteractiveExample("JavaScript Demo: Division-Zuweisungsoperator (/=)")}}
 
 ```js interactive-example
 let a = 3;
@@ -35,7 +33,7 @@ x /= y
 
 ## Beschreibung
 
-`x /= y` ist äquivalent zu `x = x / y`, mit der Ausnahme, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x /= y` ist gleichbedeutend mit `x = x / y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -49,7 +47,7 @@ bar /= 2; // 1.25
 bar /= 0; // Infinity
 ```
 
-Andere Werte, die keine `BigInt`-Werte sind, werden in Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 let bar = 5;

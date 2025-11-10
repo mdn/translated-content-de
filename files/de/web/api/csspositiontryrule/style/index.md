@@ -3,12 +3,12 @@ title: "CSSPositionTryRule: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSPositionTryRule/style
 l10n:
-  sourceCommit: 839c5e88a078deead1bcf1b2837d05499cb859b1
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{ APIRef("CSSOM") }}{{SeeCompatTable}}
+{{ APIRef("CSSOM") }}
 
-Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die in der Deklaration des `@position-try`-Regelsatzes festgelegten Anweisungen darstellt.
+Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die in der Hauptdeklaration der `@position-try`-At-Regel gesetzten Deklarationen darstellt.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Ob
 
 ## Beispiele
 
-Das CSS enthält einen `@position-try`-Regelsatz mit dem Namen `--custom-right` und drei Deskriptoren.
+Das CSS enthält eine `@position-try`-At-Regel mit einem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
   top: anchor(bottom);
   min-width: 100px;
-  margin: 10px 0 0 0;
+  margin-top: 10px;
 }
 ```
 
@@ -47,6 +47,6 @@ console.log(tryOption.style.positionArea); // ""; no position-area specified
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
-- [CSS-Anker-Positionierung verwenden](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Überlauf: Optionen versuchen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+- [Umgang mit Überlauf: Versuchsoptionen und bedingtes Verbergen](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)

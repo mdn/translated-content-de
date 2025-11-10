@@ -1,18 +1,17 @@
 ---
 title: handler.has()
+short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/has
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
-
-Die **`handler.has()`**-Methode ist eine Falle für die `[[HasProperty]]`-[interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/in", "in")}}-Operator verwendet wird.
+Die **`handler.has()`** Methode ist eine Falle für die `[[HasProperty]]` [Objekt-internen Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie dem {{jsxref("Operators/in", "in")}} Operator verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.has()", "taller")}}
 
 ```js interactive-example
-const handler1 = {
+const handler = {
   has(target, key) {
     if (key[0] === "_") {
       return false;
@@ -21,19 +20,19 @@ const handler1 = {
   },
 };
 
-const monster1 = {
+const monster = {
   _secret: "easily scared",
   eyeCount: 4,
 };
 
-const proxy1 = new Proxy(monster1, handler1);
-console.log("eyeCount" in proxy1);
+const proxy = new Proxy(monster, handler);
+console.log("eyeCount" in proxy);
 // Expected output: true
 
-console.log("_secret" in proxy1);
+console.log("_secret" in proxy);
 // Expected output: false
 
-console.log("_secret" in monster1);
+console.log("_secret" in monster);
 // Expected output: true
 ```
 
@@ -48,41 +47,41 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die Methode `has()` übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die `has()` Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder ein {{jsxref("Symbol")}}, der den Namen der Eigenschaft darstellt.
+  - : Ein String oder {{jsxref("Symbol")}}, der den Eigenschaftsnamen repräsentiert.
 
 ### Rückgabewert
 
-Die `has()`-Methode muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Eigenschaft existiert oder nicht. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die `has()` Methode muss einen {{jsxref("Boolean")}} zurückgeben, der anzeigt, ob die Eigenschaft existiert oder nicht. Andere Werte werden [zu Booleans konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
 ## Beschreibung
 
-### Abfangbare Operationen
+### Abfangvorgänge
 
 Diese Falle kann folgende Operationen abfangen:
 
-- Der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator: `foo in proxy`
-- [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Überprüfung: `with(proxy) { (foo); }`
+- Der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator: `foo in proxy`
+- [`with`](/de/docs/Web/JavaScript/Reference/Statements/with) Überprüfung: `with(proxy) { (foo); }`
 - {{jsxref("Reflect.has()")}}
 
-Oder jede andere Operation, die die `[[HasProperty]]`-[interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
+Oder jede andere Operation, die die `[[HasProperty]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die `[[HasProperty]]`-interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[HasProperty]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als nicht-konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false` für die Eigenschaft auf `target` zurückgibt, muss die Falle `true` zurückgeben.
-- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt, und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} eine Eigenschaftsbeschreibung für die Eigenschaft auf `target` liefert, muss die Falle `true` zurückgeben.
+- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als nicht-konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das bedeutet, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false` für die Eigenschaft auf `target` zurückgibt, muss die Falle `true` zurückgeben.
+- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das bedeutet, wenn {{jsxref("Reflect.isExtensible()")}} `false` für `target` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} einen Eigenschafts-Deskriptor für die Eigenschaft auf `target` zurückgibt, muss die Falle `true` zurückgeben.
 
 ## Beispiele
 
-### Abfangen des in-Operators
+### Abfangen des in Operators
 
-Der folgende Code fängt den {{jsxref("Operators/in", "in")}}-Operator ab.
+Der folgende Code fängt den {{jsxref("Operators/in", "in")}} Operator ab.
 
 ```js
 const p = new Proxy(
@@ -126,6 +125,6 @@ const p = new Proxy(obj, {
 ## Siehe auch
 
 - {{jsxref("Proxy")}}
-- [`Proxy()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
+- [`Proxy()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - {{jsxref("Operators/in", "in")}}
 - {{jsxref("Reflect.has()")}}

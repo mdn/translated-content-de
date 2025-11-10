@@ -1,18 +1,18 @@
 ---
-title: "HTMLInputElement: FormNoValidate-Eigenschaft"
+title: "HTMLInputElement: formNoValidate Eigenschaft"
 short-title: formNoValidate
 slug: Web/API/HTMLInputElement/formNoValidate
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`formNoValidate`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle ist ein boolescher Wert, der angibt, ob das {{htmlelement("form")}} die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) umgeht, wenn es über das {{htmlelement("input")}} gesendet wird. Sie spiegelt das [`formnovalidate`](/de/docs/Web/HTML/Element/input#formnovalidate)-Attribut des `<input>`-Elements wider.
+Die **`formNoValidate`** Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interfaces ist ein boolescher Wert, der anzeigt, ob das {{htmlelement("form")}} die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) umgeht, wenn es über das {{htmlelement("input")}} abgesendet wird. Sie spiegelt das [`formnovalidate`](/de/docs/Web/HTML/Reference/Elements/input#formnovalidate) Attribut des `<input>` Elements wider.
 
-Diese Eigenschaft ist nur für die `<input>`-Elemente [`submit`](/de/docs/Web/HTML/Element/input/submit) und [`image`](/de/docs/Web/HTML/Element/input/image) gültig.
+Diese Eigenschaft ist nur für [`submit`](/de/docs/Web/HTML/Reference/Elements/input/submit) und [`image`](/de/docs/Web/HTML/Reference/Elements/input/image) `<input>` Elemente gültig.
 
-Ihr Wert überschreibt die [`noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate)-Eigenschaft der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle, wenn das Formular über das Eingabefeld gesendet wird. Diese Eigenschaft kann abgerufen oder gesetzt werden.
+Ihr Wert überschreibt die [`noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate) Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interfaces, wenn das Formular über das Input abgesendet wird. Diese Eigenschaft kann abgerufen oder gesetzt werden.
 
 ## Wert
 
@@ -41,10 +41,10 @@ console.log(inputElement.formNoValidate);
 - [`HTMLInputElement.formEnctype`](/de/docs/Web/API/HTMLInputElement/formEnctype)
 - [`HTMLInputElement.formMethod`](/de/docs/Web/API/HTMLInputElement/formMethod)
 - [`HTMLInputElement.formTarget`](/de/docs/Web/API/HTMLInputElement/formTarget)
-- [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit)
-- [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)
+- [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit)
+- [`<input type="image">`](/de/docs/Web/HTML/Reference/Elements/input/image)
 - {{HTMLElement("form")}}
 - [`HTMLFormElement.noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate)
 - [`HTMLButtonElement.formNoValidate`](/de/docs/Web/API/HTMLButtonElement/formNoValidate)
-- [Learn: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)

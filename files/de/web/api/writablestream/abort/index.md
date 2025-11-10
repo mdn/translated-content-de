@@ -3,12 +3,12 @@ title: "WritableStream: abort()-Methode"
 short-title: abort()
 slug: Web/API/WritableStream/abort
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle bricht den Stream ab. Sie signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann und dieser sofort in einen Fehlerzustand versetzt werden soll, wobei alle eingereihten Schreibvorgänge verworfen werden.
+Die **`abort()`**-Methode der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle bricht den Stream ab und signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann. Der Stream wird sofort in einen Fehlerzustand versetzt und alle angestauten Schreibvorgänge werden verworfen.
 
 ## Syntax
 
@@ -36,19 +36,19 @@ Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert er
 const writableStream = new WritableStream(
   {
     write(chunk) {
-      // ...
+      // …
     },
     close() {
-      // ...
+      // …
     },
     abort(err) {
-      // ...
+      // …
     },
   },
   queuingStrategy,
 );
 
-// ...
+// …
 
 // abort the stream later on, when required
 writableStream.abort();

@@ -1,21 +1,21 @@
 ---
-title: "SVGMaskElement: height Eigenschaft"
+title: "SVGMaskElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGMaskElement/height
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 28b589f416a555aa046b3a26e43b4aac3e98fdfb
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`height`** Eigenschaft der [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement) Schnittstelle gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) Objekt zurück, das den Wert des {{SVGattr("height")}} Attributs des {{SVGElement("marker")}} enthält.
+Die schreibgeschützte **`height`**-Eigenschaft der [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Schnittstelle gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("height")}}-Attributs des {{SVGElement("mask")}} enthält.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können, [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) Objekt. Die `baseVal` Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den `height` Wert zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den `height`-Wert zurückgibt.
 
 ## Beispiele
 

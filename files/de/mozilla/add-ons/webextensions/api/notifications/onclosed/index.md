@@ -2,12 +2,10 @@
 title: notifications.onClosed
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/onClosed
 l10n:
-  sourceCommit: 1c0dda60cb2b680a753264b538e2c46776ecd837
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn eine Benachrichtigung entweder durch das System oder durch den Benutzer geschlossen wird.
+Wird ausgelöst, wenn eine Benachrichtigung entweder vom System oder vom Benutzer geschlossen wird.
 
 ## Syntax
 
@@ -20,32 +18,26 @@ browser.notifications.onClosed.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
     - `notificationId`
-      - : `string`. ID der geschlossenen Benachrichtigung.
+      - : `string`. ID der Benachrichtigung, die geschlossen wurde.
     - `byUser`
-      - : `boolean`. `true`, wenn die Benachrichtigung durch den Benutzer geschlossen wurde, oder `false`, wenn sie durch das System geschlossen wurde. Dieses Argument wird in Firefox nicht unterstützt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : `boolean`. `true`, wenn die Benachrichtigung vom Benutzer geschlossen wurde, oder `false`, wenn sie vom System geschlossen wurde. Dieses Argument wird in Firefox nicht unterstützt.
 
 ## Beispiele
 
-In diesem einfachen Beispiel fügen wir einen Listener zum `notifications.onClosed`-Ereignis hinzu, um das Schließen von Systembenachrichtigungen zu überwachen. Wenn dies eintritt, protokollieren wir eine entsprechende Nachricht in der Konsole.
+In diesem einfachen Beispiel fügen wir einen Listener zum `notifications.onClosed`-Ereignis hinzu, um auf das Schließen von Systembenachrichtigungen zu lauschen. Wenn dies geschieht, protokollieren wir eine entsprechende Nachricht in der Konsole.
 
 ```js
 browser.notifications.onClosed.addListener((notificationId) => {
@@ -55,5 +47,9 @@ browser.notifications.onClosed.addListener((notificationId) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications)-API von Chromium.

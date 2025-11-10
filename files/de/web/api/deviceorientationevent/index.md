@@ -7,7 +7,7 @@ l10n:
 
 {{apiref("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`DeviceOrientationEvent`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) stellt Webentwicklern Informationen über die physische Ausrichtung des Geräts, auf dem die Webseite ausgeführt wird, zur Verfügung.
+Die **`DeviceOrientationEvent`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_orientation_events) stellt Webentwicklern Informationen über die physische Ausrichtung des Geräts, auf dem die Webseite ausgeführt wird, zur Verfügung.
 
 {{InheritanceDiagram}}
 

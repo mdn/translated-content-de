@@ -3,20 +3,20 @@ title: "WheelEvent: deltaMode-Eigenschaft"
 short-title: deltaMode
 slug: Web/API/WheelEvent/deltaMode
 l10n:
-  sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
+  sourceCommit: 18b603d31ce0b840b1e9347c77e09ef376addbb4
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`WheelEvent.deltaMode`** gibt ein
-`unsigned long` zurück, das die Einheit des Delta-Werte-Scrollwerts darstellt.
-Erlaubte Werte sind:
+Die schreibgeschützte Eigenschaft **`WheelEvent.deltaMode`** gibt ein `unsigned long` zurück, welches die Einheit der Scrollmengen-Deltawerte darstellt. Zulässige Werte sind:
 
-| Konstante         | Wert   | Beschreibung                                |
-| ----------------- | ------ | ------------------------------------------- |
-| `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte werden in Pixel angegeben.  |
-| `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte werden in Zeilen angegeben. |
-| `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte werden in Seiten angegeben. |
+| Konstante         | Wert   | Beschreibung                             |
+| ----------------- | ------ | ---------------------------------------- |
+| `DOM_DELTA_PIXEL` | `0x00` | Die Deltawerte sind in Pixel angegeben.  |
+| `DOM_DELTA_LINE`  | `0x01` | Die Deltawerte sind in Zeilen angegeben. |
+| `DOM_DELTA_PAGE`  | `0x02` | Die Deltawerte sind in Seiten angegeben. |
+
+Sie müssen die Eigenschaft `deltaMode` überprüfen, um die Einheit der Werte `deltaX`, `deltaY` und `deltaZ` zu bestimmen. Gehen Sie nicht davon aus, dass diese Werte in Pixel angegeben sind. Einige Browser könnten aus Kompatibilitätsgründen unterschiedliche Einheiten für die `delta*` Werte zurückgeben, je nachdem, ob `deltaMode` abgerufen wurde, um Webseiten zu unterstützen, die die `deltaMode`-Eigenschaft nicht explizit überprüfen.
 
 ## Wert
 

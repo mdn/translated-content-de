@@ -2,67 +2,61 @@
 title: MDN Web Docs Änderungsprotokoll
 slug: MDN/Writing_guidelines/Changelog
 l10n:
-  sourceCommit: 719645a32546d9e514ac530a5eb66aa4c26d4f51
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
-Dieses Dokument bietet eine Aufzeichnung von MDN-Inhaltsprozessen, -konstruktionen und -best Practices, die sich geändert haben und wann sie sich geändert haben. Es ist nützlich für regelmäßige Mitwirkende, um nachzusehen und zu erfahren, was sich am Prozess der Inhaltserstellung für MDN geändert hat.
+Dieses Dokument bietet eine Aufzeichnung der MDN-Inhaltsprozesse, Konstrukte und bewährten Praktiken, die sich geändert haben, sowie wann sie geändert wurden. Es ist nützlich für regelmäßige Beitragende, um zu überprüfen, was sich am Prozess zur Erstellung von Inhalten für MDN geändert hat.
 
 ## Oktober 2022
 
 Die [MDN-Projektdokumentation](/de/docs/MDN) wurde aktualisiert und in zwei Hauptkategorien organisiert:
 
-- **Writing:** Dokumentation darüber, wie man für MDN schreibt, was wir dokumentieren, Definitionen von experimentell, Stilrichtlinien usw. finden Sie unter den Seiten der [Schreibrichtlinien](/de/docs/MDN/Writing_guidelines).
-- **Community:** Informationen über Open-Source-Etikette, Diskussionen, Prozesse für Pull-Requests und Issues, Benutzer und Teams sowie allgemeine Hinweise für Mitwirkende finden Sie auf den [Community](/de/docs/MDN/Community)-Seiten.
+- **Schreiben:** Dokumentation darüber, wie man für MDN schreibt, was wir dokumentieren, Definitionen von experimentell, Stilrichtlinien und so weiter sind auf den Seiten [Schreibrichtlinien](/de/docs/MDN/Writing_guidelines) zu finden.
+- **Gemeinschaft:** Informationen über Open-Source-Etikette, Diskussionen, Prozesse für Pull-Requests und Probleme, Benutzer und Teams sowie allgemeine Hinweise für Beitragende sind auf den Seiten [Gemeinschaft](/de/docs/MDN/Community) zu finden.
 
-Weitere Details zu den Änderungen finden Sie im [Revamp of MDN Web Docs Contribution Docs](https://hacks.mozilla.org/2022/10/revamp-of-mdn-web-docs-contribution-docs/) Blogbeitrag, der auf Mozilla Hacks veröffentlicht wurde.
+Weitere Details zu den Änderungen finden Sie im Blogbeitrag [Überarbeitung der MDN Web Docs Beitragsdokumentation](https://hacks.mozilla.org/2022/10/revamp-of-mdn-web-docs-contribution-docs/) auf Mozilla Hacks.
 
 ## November 2021
 
-Die Umstellung auf Markdown ist abgeschlossen, also entfernen Sie die alte CSS-Stilrichtlinie und leiten Sie auf die Markdown in MDN-Seite um.
+Die Umstellung auf Markdown ist abgeschlossen, daher den alten CSS-Stil-Leitfaden entfernen und auf die Seite Markdown in MDN umleiten.
 
 ## Juli 2021
 
-### Aktualisierungen der CSS-Stilrichtlinie für Markdown
+### Aktualisierungen des CSS-Stilleitfadens für Markdown
 
-Mehrere Aktualisierungen der CSS-Stilrichtlinie wurden vorgenommen, um den Übergang zu Markdown zu reflektieren und Autoren dazu zu ermutigen, HTML auf eine mit Markdown kompatible Weise zu schreiben.
+Mehrere Aktualisierungen des CSS-Stilleitfadens, um die Umstellung auf Markdown widerzuspiegeln und Autoren dazu zu ermutigen, HTML auf eine mit Markdown kompatible Weise zu schreiben.
 
-- Hinweis- und Warnboxen haben keinen separaten `<h4>`-Titel für den Titel mehr (z.B. `<h4>Warnung</h4>`).
+- Hinweis- und Warnboxen haben keinen separaten `<h4>`-Titel mehr (z.B. `<h4>Warnung</h4>`).
 
   Siehe unseren [Markdown in MDN](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#notes_warnings_and_callouts) Leitfaden für die korrekte Syntax.
 
 - Die `seoSummary`-Klasse sollte nicht mehr verwendet werden.
-- Die `standard-table`-Klasse sollte nicht mehr verwendet werden. Das Styling, das durch diese Klasse bereitgestellt wird, wird jetzt standardmäßig auf Tabellen angewendet.
+- Die `standard-table`-Klasse sollte nicht mehr verwendet werden. Das von dieser Klasse bereitgestellte Styling wird jetzt standardmäßig auf Tabellen angewendet.
 - Das {{HTMLElement("details")}}-Element sollte nicht mehr verwendet werden.
-- Die Klassen `hidden`, `example-good` und `example-bad` wurden hauptsächlich für Codeblöcke verwendet, konnten aber auch auf andere Elemente angewendet werden. Jetzt können sie nur noch auf Codeblöcke angewendet werden.
+- Die Klassen `hidden`, `example-good` und `example-bad` wurden hauptsächlich für Codeblöcke verwendet, konnten aber auch auf anderen Elementen verwendet werden. Jetzt können sie nur noch auf Codeblöcken verwendet werden.
 
 ## Februar 2021
 
 ### Mehrzeilige JavaScript- und API-Syntaxblöcke
 
-Früher wurden die Syntaxblöcke von JavaScript-Builtin- und WebAPI-Methoden, die auf verschiedene Weise verwendet werden können (d.h. verschiedene Parameter sind optional), häufig mit der [BNF-Formalsyntax-Notation](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) geschrieben. Besonders auffällig war, dass eckige Klammern verwendet wurden, um optionale Parameter zu kennzeichnen.
+Zuvor wurden die Syntaxblöcke von JavaScript eingebauten und WebAPI-Methoden, die auf verschiedene Weise verwendet werden können (d.h. verschiedene Parameter sind optional), häufig unter Verwendung der [BNF-Formsprache Notation](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) geschrieben. Am bemerkenswertesten waren die eckigen Klammern, die optionale Parameter bezeichneten.
 
-Dies war problematisch — viele Entwickler waren verwirrt darüber, und es steht im Konflikt mit gültigen Syntaxformen in anderen Programmiersprachen (z.B. `[]` ist auch ein Array in JavaScript).
+Das war problematisch – viele Entwickler waren darüber verwirrt, und es widerspricht gültigen Syntaxformen in anderen Programmiersprachen (z.B. `[]` ist auch ein Array in JavaScript).
 
-Daher schreiben wir von nun an mehrere Syntaxformen einer Methode auf separate Zeilen innerhalb des Syntaxblocks. Siehe [Syntax sections > Multiple lines/Optional parameters](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections#multiple_linesoptional_parameters) für weitere Informationen und Beispiele.
+Deshalb schreiben wir nun in Zukunft mehrere Syntaxformen einer Methode auf separaten Zeilen innerhalb des Syntaxblocks. Für weitere Informationen und Beispiele siehe [Syntaxabschnitte > Mehrere Zeilen/Optionale Parameter](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections#multiple_linesoptional_parameters).
 
 ### Dokumentation von Mixins
 
-[Interface-Mixins](https://heycam.github.io/webidl/#idl-interface-mixins) im Web IDL werden in Spezifikationen verwendet, um Web-APIs zu definieren.
-Für Webentwickler sind sie nicht direkt sichtbar; sie dienen als Helfer, um die Wiederholung von API-Definitionen zu vermeiden.
+[Interface Mixins](https://heycam.github.io/webidl/#idl-interface-mixins) im Web IDL werden in Spezifikationen verwendet, um Web-APIs zu definieren. Für Webentwickler sind sie nicht direkt beobachtbar; sie dienen als Hilfsmittel, um die Wiederholung von API-Definitionen zu vermeiden.
 
-Früher haben wir häufig eine Einstiegsseite für eine Mixin-Klasse selbst definiert und die definierten Mitglieder auf Unterseiten darunter gesetzt, bevor wir von den Einstiegsseiten der Schnittstellen aus, die diese Mixins implementieren, darauf verwiesen.
-Dies war für Leser verwirrend, da Mixins Spezifikationskonstrukte sind — Sie greifen nie mit den Mixin-Klassen auf die definierten Mitglieder zu.
-Um diese Verwirrung zu vermeiden, haben wir die Seiten für Mitglieder, die auf Mixins definiert sind, direkt unter die Seiten der implementierenden Klassen gestellt.
-Weitere Details finden Sie auf der Leitfaden-Seite über
-[wie man eine API-Referenz schreibt](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#mixins)
-und der Diskussion, die zu dieser Änderung geführt hat, unter [mdn/content#1940](https://github.com/mdn/content/issues/1940).
+Zuvor haben wir häufig eine Hauptseite für eine Mixin-Klasse selbst definiert und die definierten Mitglieder auf Unterseiten unterhalb dieser platziert, bevor wir von den Hauptseiten der Schnittstellen, die diese Mixins implementieren, auf sie verlinkt haben. Dies war verwirrend für Leser, da Mixins Spezkonstrukte sind – die definierten Mitglieder werden nie mit den Mixin-Klassen aufgerufen. Um diese Verwirrung zu vermeiden, haben wir die Seiten für Mitglieder, die auf Mixins definiert sind, direkt unter den implementierenden Klassenseiten platziert. Für weitere Details siehe die Leitfadenseite zur [Anleitung zum Schreiben einer API-Referenz](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#mixins) und die Diskussion, die zu dieser Änderung führte, auf [mdn/content#1940](https://github.com/mdn/content/issues/1940).
 
 ## Januar 2021
 
-### Markup für Hinweis- und Warnboxen
+### Markup für Hinweis- und Warnkästen
 
-Früher wurden auf MDN Hinweis- und Warnboxen von `<div>`-Elementen mit `note`- und `warning`-Klassen umschlossen. Häufig begann ihr erster Absatz mit einem `<strong>`-umfassten `note`- oder `warning`-Text.
+Zuvor wurden Hinweis- und Warnkästen auf MDN mit `<div>`-Elementen mit `note`- und `warning`-Klassen umgeben. Häufig begannen ihre ersten Absätze mit einem `<strong>` umwickelten `note` oder `warning` Text.
 
-Im Januar änderte sich dies — das `class`-Attribut sollte jetzt eine zusätzliche `notecard`-Klasse enthalten, und der starke Text wird stattdessen in einen Überschriftstext oben im Block aufgenommen.
+Im Januar änderte sich dies – das `class` Attribut sollte nun eine zusätzliche `notecard` Klasse beinhalten, und der starke Text ist stattdessen in einer Überschrift am oberen Rand des Blocks enthalten.
 
 Siehe unseren [Markdown in MDN](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#notes_warnings_and_callouts) Leitfaden für weitere Informationen und Syntaxanleitungen.

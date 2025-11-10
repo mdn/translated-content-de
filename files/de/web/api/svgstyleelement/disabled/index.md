@@ -3,14 +3,14 @@ title: "SVGStyleElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/SVGStyleElement/disabled
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGStyleElement.disabled`**-Eigenschaft kann verwendet werden, um festzustellen, ob das Stylesheet deaktiviert (`true`) ist oder nicht (`false`).
+Die **`SVGStyleElement.disabled`**-Eigenschaft kann verwendet werden, um festzustellen, ob das Stylesheet deaktiviert (`true`) oder nicht (`false`) ist und um es entsprechend zu setzen.
 
-Beachten Sie, dass es kein entsprechendes `disabled`-Attribut auf dem [SVG `<style>`-Element](/de/docs/Web/SVG/Element/style) gibt.
+Beachten Sie, dass es kein entsprechendes `disabled`-Attribut auf dem [SVG `<style>`-Element](/de/docs/Web/SVG/Reference/Element/style) gibt.
 
 ## Wert
 
@@ -18,17 +18,17 @@ Gibt `true` zurück, wenn das Stylesheet deaktiviert ist oder kein zugehöriges 
 Der Wert ist standardmäßig `false` (wenn ein zugehöriges Stylesheet vorhanden ist).
 
 Die Eigenschaft kann verwendet werden, um ein zugehöriges Stylesheet zu aktivieren oder zu deaktivieren.
-Das Setzen der Eigenschaft auf `true`, wenn kein zugehöriges Stylesheet vorhanden ist, hat keinen Effekt.
+Das Setzen der Eigenschaft auf `true`, wenn kein zugehöriges Stylesheet vorhanden ist, hat keine Auswirkung.
 
 ## Beispiele
 
-### Deaktivierung eines in SVG definierten Styles
+### Deaktivieren eines im SVG definierten Styles
 
-Dieses Beispiel zeigt, wie die disabled-Eigenschaft programmgesteuert auf einen Style gesetzt wird, der in der HTML-SVG-Definition definiert wurde.
+Dieses Beispiel demonstriert das programmgesteuerte Setzen der disabled-Eigenschaft auf einen Style, der in der HTML-SVG-Definition definiert wurde.
 
 #### HTML
 
-Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Element/style)-Element, zusammen mit einem Button, der verwendet werden soll, um den Style zu deaktivieren.
+Das HTML enthält eine SVG-Definition für ein [`<circle>`](/de/docs/Web/SVG/Reference/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Reference/Element/style) Element, zusammen mit einem Button, der verwendet wird, um den Style zu deaktivieren.
 
 ```html
 <button>Enable</button>
@@ -48,8 +48,8 @@ Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/E
 
 #### JavaScript
 
-Der folgende Code holt das `style`-Element (ein `SVGStyleElement`) anhand seiner ID und setzt es dann auf deaktiviert.
-Der Style existiert bereits, da er im SVG definiert ist, daher sollte dies gelingen.
+Der folgende Code erhält das `style`-Element (ein `SVGStyleElement`) über seine ID und setzt es dann auf deaktiviert.
+Der Style existiert bereits, da er im SVG definiert ist, daher sollte dies erfolgreich sein.
 
 ```js
 const svg = document.querySelector("svg");
@@ -57,7 +57,7 @@ const style = svg.getElementById("circle_style_id");
 style.disabled = true;
 ```
 
-Wir fügen dann einen Ereignishandler für den Button hinzu, der den deaktivierten Zustand und den Text des Buttons umschaltet.
+Wir fügen dann einen Ereignishandler für den Button hinzu, der den deaktivierten Zustand und den Button-Text umschaltet.
 
 ```js
 const button = document.querySelector("button");
@@ -70,21 +70,21 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Ergebnis wird unten angezeigt.
-Drücken Sie den Button, um die `disabled`-Eigenschaft des Styles für den Kreis umzuschalten.
+Das Ergebnis wird unten gezeigt.
+Drücken Sie den Button, um die `disabled`-Eigenschaft auf dem für den Kreis verwendeten Style umzuschalten.
 
-{{EmbedLiveSample("Deaktivierung eines in SVG definierten Styles")}}
+{{EmbedLiveSample("Deaktivierung eines im SVG definierten Styles")}}
 
-### Deaktivierung eines programmgesteuert definierten Styles
+### Deaktivierung eines programmgesteuerten Styles
 
-Dieses Beispiel ist dem obigen sehr ähnlich, außer dass der Style programmgesteuert definiert wird.
+Dieses Beispiel ist dem obigen sehr ähnlich, mit dem Unterschied, dass der Style programmgesteuert definiert wird.
 
-Beachten Sie, dass Sie mehrere Styles sowohl in der SVG-Quelle als auch programmgesteuert anwenden können.
-Dieses Beispiel soll hauptsächlich zeigen, wie der Style extern erstellt wird, und zu welchem Zeitpunkt der Style deaktiviert werden kann.
+Beachten Sie, dass Sie mehrere Styles sowohl im SVG-Quellcode als auch programmgesteuert anwenden können.
+Dieses Beispiel wird hauptsächlich bereitgestellt, um zu demonstrieren, wie der Style extern erstellt wird und um zu zeigen, zu welchem Zeitpunkt der Style deaktiviert werden kann.
 
 #### HTML
 
-Das HTML ist ähnlich wie im vorherigen Fall, aber die SVG-Definition enthält kein Standard-Styling.
+Das HTML ist ähnlich wie im vorherigen Fall, aber die SVG-Definition enthält keine Standardstilierung.
 
 ```html
 <button>Enable</button>
@@ -97,11 +97,11 @@ Das HTML ist ähnlich wie im vorherigen Fall, aber die SVG-Definition enthält k
 
 #### JavaScript
 
-Zuerst erstellen wir den neuen SVG-Style-Knoten.
-Dies geschieht, indem zuerst ein Style-Element im SVG-Namespace mit [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) erstellt wird, ein Textknoten mit der Style-Definition erstellt und angehängt wird, und dann der Knoten dem oben definierten SVG hinzugefügt wird.
+Zuerst erstellen wir das neue SVG-Style-Element.
+Dies erfolgt, indem zuerst ein Style-Element im SVG-Namespace mit [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) erstellt wird, ein Textknoten mit der Stildefinition erstellt und hinzugefügt und das Element dann dem oben definierten SVG hinzugefügt wird.
 
 > [!NOTE]
-> Sie müssen [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) verwenden und nicht [`Document.createElement()`](/de/docs/Web/API/Document/createElement), um den Style zu erstellen, da Sie sonst standardmäßig das entsprechende HTML-Style-Element erstellen würden.
+> Sie müssen [`Document.createElementNS()`](/de/docs/Web/API/Document/createElementNS) verwenden und nicht [`Document.createElement()`](/de/docs/Web/API/Document/createElement) um den Style zu erstellen, da Sie andernfalls standardmäßig das äquivalente HTML-Style-Element erstellen.
 
 ```js
 const svg = document.querySelector("svg");
@@ -114,15 +114,15 @@ style.appendChild(node);
 ```
 
 Dann deaktivieren wir den Style.
-Dies ist der früheste Punkt, an dem das Setzen der Eigenschaft auf `true` erfolgreich ist.
-Vor diesem Punkt hatte das SVG keinen zugeordneten Style, sodass der Wert standardmäßig auf `false` gesetzt ist.
+Beachten Sie, dass dies der früheste Punkt ist, an dem das Setzen der Eigenschaft auf `true` erfolgreich sein wird.
+Vor diesem Punkt hatte das SVG keinen zugehörigen Style, und der Wert ist daher standardmäßig `false`.
 
 ```js
-//Disable the style
+// Disable the style
 style.disabled = true;
 ```
 
-Zuletzt fügen wir einen Ereignishandler für den Button hinzu, der den deaktivierten Zustand und den Text des Buttons umschaltet (dies ist derselbe wie im vorherigen Beispiel).
+Zuletzt fügen wir einen Ereignishandler für den Button hinzu, der den deaktivierten Zustand und den Button-Text umschaltet (dies ist das gleiche wie im vorherigen Beispiel).
 
 ```js
 const button = document.querySelector("button");
@@ -135,10 +135,10 @@ button.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das Ergebnis wird unten angezeigt.
-Drücken Sie den Button, um den `disabled`-Zustand des Styles für den Kreis umzuschalten.
+Das Ergebnis wird unten gezeigt.
+Drücken Sie den Button, um den `disabled`-Zustand auf dem für den Kreis verwendeten Style umzuschalten.
 
-{{EmbedLiveSample("Deaktivierung eines programmgesteuert definierten Styles")}}
+{{EmbedLiveSample("Deaktivierung eines programmgesteuerten Styles")}}
 
 ## Spezifikationen
 

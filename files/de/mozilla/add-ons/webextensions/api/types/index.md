@@ -2,24 +2,24 @@
 title: types
 slug: Mozilla/Add-ons/WebExtensions/API/types
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Definiert den `BrowserSetting`-Typ, der verwendet wird, um eine Browsereinstellung darzustellen.
 
 ## Typen
 
 - {{WebExtAPIRef("types.BrowserSetting")}}
-  - : Repräsentiert eine Browsereinstellung.
-
-## Browser-Kompatibilität
+  - : Stellt eine Browsereinstellung dar.
 
 {{WebExtExamples("h2")}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types)-API von Chromium.
+> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

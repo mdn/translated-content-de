@@ -3,31 +3,38 @@ title: "ElementInternals: ariaRequired-Eigenschaft"
 short-title: ariaRequired
 slug: Web/API/ElementInternals/ariaRequired
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaRequired`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-required`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-required)-Attributs wider, welches angibt, dass eine Benutzereingabe auf dem Element erforderlich ist, bevor ein Formular abgesendet werden kann.
+Die **`ariaRequired`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)-Attributs wider, welches angibt, dass eine Benutzereingabe auf dem Element erforderlich ist, bevor ein Formular abgeschickt werden kann.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, sollte der Autor diese Attribute entfernen oder gar nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Festlegen von aria-Attributen auf `ElementInternals` ermöglicht es, die Standardsemantik eines benutzerdefinierten Elements zu definieren. Diese können von benutzerdefinierten Attributen überschrieben werden, stellen jedoch sicher, dass die Standardsemantik beibehalten wird, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Benutzer müssen eine Eingabe auf einem Element bereitstellen, bevor ein Formular abgesendet wird.
+  - : Benutzer müssen eine Eingabe auf einem Element machen, bevor ein Formular abgeschickt wird.
 - `"false"`
-  - : Benutzereingaben sind nicht erforderlich, um das Formular abzusenden.
+  - : Benutzereingabe ist nicht notwendig, um das Formular abzuschicken.
 
 ## Beispiele
 
 In diesem Beispiel wird der Wert von `ariaRequired` auf "true" gesetzt.
 
 ```js
-this.internals_.ariaRequired = "true";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaRequired = "true";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen
@@ -40,4 +47,4 @@ this.internals_.ariaRequired = "true";
 
 ## Siehe auch
 
-- [ARIA: textbox role](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: textbox-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)

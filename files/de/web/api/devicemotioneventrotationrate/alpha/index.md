@@ -3,16 +3,17 @@ title: "DeviceMotionEventRotationRate: alpha-Eigenschaft"
 short-title: alpha
 slug: Web/API/DeviceMotionEventRotationRate/alpha
 l10n:
-  sourceCommit: 6d4f585b94068dc0dfd733047fb2229dca38b1eb
+  sourceCommit: 8c0f4d9b9d335105107b15be55e06ca5619a0054
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`alpha`**-Eigenschaft des [`DeviceMotionEventRotationRate`](/de/docs/Web/API/DeviceMotionEventRotationRate)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Rotationsgeschwindigkeit um die Z-Achse in Grad pro Sekunde angibt.
+Die schreibgeschützte **`alpha`**-Eigenschaft der [`DeviceMotionEventRotationRate`](/de/docs/Web/API/DeviceMotionEventRotationRate)-Schnittstelle gibt die Rotationsrate um die Z-Achse in Grad pro Sekunde an.
 
 ## Wert
 
-Ein `double`, der die Rotationsgeschwindigkeit um die Z-Achse in Grad pro Sekunde angibt. Weitere Einzelheiten finden Sie unter [Erläuterung der Beschleunigungsmesserwerte](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation#accelerometer_values_explained).
+Ein `double`, das die Rotationsrate um die Z-Achse in Grad pro Sekunde angibt.
+Siehe [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für weitere Details.
 
 ## Spezifikationen
 

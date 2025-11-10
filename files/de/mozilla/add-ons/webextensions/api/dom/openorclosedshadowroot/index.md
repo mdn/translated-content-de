@@ -2,17 +2,15 @@
 title: dom.openOrClosedShadowRoot()
 slug: Mozilla/Add-ons/WebExtensions/API/dom/openOrClosedShadowRoot
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft den offenen Shadow Root oder den geschlossenen Shadow Root ab, der von dem angegebenen Element gehostet wird. Wenn der Shadow Root nicht an das Element angehängt ist, wird `null` zurückgegeben.
+Ruft das offene oder das geschlossene Shadow-Root ab, das vom angegebenen Element gehostet wird. Wenn das Shadow-Root nicht an das Element angehängt ist, wird `null` zurückgegeben.
 
 > [!NOTE]
-> In Firefox ist die entsprechende Eigenschaft `element.openOrClosedShadowRoot`. Diese schreibgeschützte Eigenschaft stellt den von dem Element gehosteten Shadow Root dar, unabhängig davon, ob dessen [`mode`](/de/docs/Web/API/ShadowRoot/mode) `open` oder `closed` ist.
+> In Firefox ist die entsprechende Eigenschaft `element.openOrClosedShadowRoot`. Diese schreibgeschützte Eigenschaft repräsentiert das Shadow-Root, das vom Element gehostet wird, unabhängig davon, ob dessen [`mode`](/de/docs/Web/API/ShadowRoot/mode) `open` oder `closed` ist.
 >
-> Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einem Element einen Shadow Root hinzuzufügen.
+> Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einem Element ein Shadow-Root hinzuzufügen.
 
 ## Syntax
 
@@ -29,9 +27,9 @@ let shadowRoot = browser.dom.openOrClosedShadowRoot(
 
 ### Rückgabewert
 
-Eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objektinstanz, unabhängig davon, ob deren
+Eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Objektinstanz, unabhängig davon, ob dessen
 [`mode`](/de/docs/Web/API/ShadowRoot/mode) auf `open` oder
-`closed` gesetzt ist, oder `null`, wenn kein Shadow Root vorhanden ist.
+`closed` gesetzt ist, oder `null`, wenn kein Shadow-Root vorhanden ist.
 
 ## Browser-Kompatibilität
 

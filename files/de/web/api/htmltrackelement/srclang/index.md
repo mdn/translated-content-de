@@ -3,14 +3,14 @@ title: "HTMLTrackElement: srclang-Eigenschaft"
 short-title: srclang
 slug: Web/API/HTMLTrackElement/srclang
 l10n:
-  sourceCommit: 0bf15d029fb052d3b20a2f249d4a6de8e29ea774
+  sourceCommit: da2997666dd2ac0186ebaaaf55bb7abbaa328f79
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`srclang`**-Eigenschaft der [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Schnittstelle spiegelt den Wert des [`srclang`](/de/docs/Web/HTML/Element/track#srclang)-Attributs des {{HTMLElement("track")}}-Elements wider oder den leeren String, wenn es nicht definiert ist.
+Die **`srclang`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Interfaces spiegelt den Wert des [`srclang`](/de/docs/Web/HTML/Reference/Elements/track#srclang)-Attributs des {{HTMLElement("track")}}-Elements wider oder den leeren String, wenn nicht definiert.
 
-Das `srclang`-Attribut ist ein [BCP 47-Sprach-Tag](/de/docs/Web/HTML/Global_attributes/lang#language_tag_syntax), das die Sprache der Texttrack-Daten angibt.
+Das `srclang`-Attribut ist ein {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}}, das die Sprache der Textspur-Daten angibt.
 
 ## Wert
 
@@ -36,4 +36,3 @@ trackElement.srclang = "en-US";
 
 - [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)
 - {{HTMLElement("track")}}
-- [`lang`-Syntax](/de/docs/Web/HTML/Global_attributes/lang#language_tag_syntax)

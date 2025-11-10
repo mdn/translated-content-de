@@ -2,12 +2,10 @@
 title: downloads.search()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/search
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die **`search()`** Funktion der {{WebExtAPIRef("downloads")}} API fragt die im Download-Manager des Browsers verfügbaren {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} ab und gibt diejenigen zurück, die den angegebenen Suchkriterien entsprechen.
+Die Funktion **`search()`** der {{WebExtAPIRef("downloads")}} API durchsucht die {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}}, die im Download-Manager des Browsers verfügbar sind, und gibt diejenigen zurück, die den angegebenen Suchkriterien entsprechen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,15 +22,11 @@ let searching = browser.downloads.search(query);
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das Promise wird mit einem `array` von `{{WebExtAPIRef('downloads.DownloadItem')}}` Objekten erfüllt, die den angegebenen Kriterien entsprechen.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das Promise wird mit einem `array` von {{WebExtAPIRef('downloads.DownloadItem')}} Objekten erfüllt, die den gegebenen Kriterien entsprechen.
 
 ## Beispiele
 
-Im Allgemeinen beschränken Sie die abgerufenen Elemente unter Verwendung des `query` Parameters.
+Im Allgemeinen beschränken Sie die abgerufenen Elemente mit dem `query`-Parameter.
 
 ### Downloads abrufen, die "query" entsprechen
 
@@ -55,9 +49,9 @@ browser.downloads
   .then(logDownloads, onError);
 ```
 
-### Ein spezifisches Element abrufen
+### Ein bestimmtes Element abrufen
 
-Um einen bestimmten {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} zu erhalten, ist es am einfachsten, nur das Feld `id` zu setzen, wie im folgenden Beispiel gezeigt:
+Um ein bestimmtes {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} abzurufen, ist es am einfachsten, nur das `id`-Feld zu setzen, wie im folgenden Codeausschnitt gezeigt:
 
 ```js
 function logDownloads(downloads) {
@@ -95,7 +89,7 @@ function onError(error) {
 browser.downloads.search({}).then(logDownloads, onError);
 ```
 
-### Den neuesten Download abrufen
+### Den letzten Download abrufen
 
 Sie können den neuesten Download abrufen, indem Sie die folgenden Suchparameter angeben:
 
@@ -122,6 +116,10 @@ browser.downloads
 Sie können diesen Code in unserem [latest-download](https://github.com/mdn/webextensions-examples/blob/main/latest-download/popup/latest_download.js) Beispiel in Aktion sehen.
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-search) API von Chromium.

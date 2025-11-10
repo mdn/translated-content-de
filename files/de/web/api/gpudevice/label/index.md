@@ -3,16 +3,17 @@ title: "GPUDevice: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUDevice/label
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`label`**-Eigenschaft der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des
+[`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces ist eine schreibgeschützte Zeichenfolge, die ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, z. B. in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Wert
 
-Ein String. Wenn kein Label-Wert zuvor gesetzt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Eine Zeichenfolge. Wenn kein Labelwert zuvor gesetzt wurde, gibt das Abrufen des Labels eine leere Zeichenfolge zurück.
 
 ## Beispiele
 
@@ -36,7 +37,7 @@ async function init() {
   // Get a label
   console.log(device.label);
 
-  // ...
+  // …
 }
 ```
 

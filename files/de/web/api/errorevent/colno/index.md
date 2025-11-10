@@ -3,22 +3,22 @@ title: "ErrorEvent: colno-Eigenschaft"
 short-title: colno
 slug: Web/API/ErrorEvent/colno
 l10n:
-  sourceCommit: 5021b506f3879b6f3131b763c4bc76b6d39baafa
+  sourceCommit: 6d2000984203c51f1aad49107ebcebe14d3c1238
 ---
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`colno`** des [`ErrorEvent`](/de/docs/Web/API/ErrorEvent) Schnittstelle gibt eine Ganzzahl zurück, die die Spaltennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
+Die schreibgeschützte **`colno`**-Eigenschaft der [`ErrorEvent`](/de/docs/Web/API/ErrorEvent)-Schnittstelle gibt eine ganze Zahl zurück, die die Spaltennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
 
 ## Wert
 
-Eine Ganzzahl.
+Eine ganze Zahl.
 
 ## Beispiele
 
 ```js
 window.addEventListener("error", (ev) => {
-  console.log("The error occur in column: " + ev.colno);
+  console.log(`The error occur in column: ${ev.colno}`);
 });
 ```
 

@@ -3,17 +3,16 @@ title: "GPUQuerySet: type-Eigenschaft"
 short-title: type
 slug: Web/API/GPUQuerySet/type
 l10n:
-  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`type`**-Eigenschaft der
-[`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Schnittstelle ist ein aufzählbarer Wert, der den Typ von Abfragen angibt, die vom `GPUQuerySet` verwaltet werden.
+Die **`type`** schreibgeschützte Eigenschaft des [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Interfaces ist ein enumerierter Wert, der den Typ der vom `GPUQuerySet` verwalteten Abfragen angibt.
 
 ## Wert
 
-Ein aufzählbarer Wert. Mögliche Werte sind:
+Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"occlusion"`
   - : Das `GPUQuerySet` verwaltet Occlusion-Abfragen.
@@ -21,11 +20,11 @@ Ein aufzählbarer Wert. Mögliche Werte sind:
   - : Das `GPUQuerySet` verwaltet Timestamp-Abfragen.
 
 > [!NOTE]
-> Das `timestamp-query`-["Feature"](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Timestamp-Abfragen zu verwenden.
+> Das `timestamp-query` [Feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Timestamp-Abfragen zu verwenden.
 
 ## Beispiele
 
-Siehe die Hauptseite [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet#examples) für ein Beispiel.
+Siehe die Hauptseite von [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet#examples) für ein Beispiel.
 
 ## Spezifikationen
 

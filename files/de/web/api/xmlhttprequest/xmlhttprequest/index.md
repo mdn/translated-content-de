@@ -1,14 +1,14 @@
 ---
-title: "XMLHttpRequest: XMLHttpRequest()-Konstruktor"
+title: "XMLHttpRequest: XMLHttpRequest() Konstruktor"
 short-title: XMLHttpRequest()
 slug: Web/API/XMLHttpRequest/XMLHttpRequest
 l10n:
-  sourceCommit: 5c0d26f70b80e5511496f49cb5dc0405de98c562
+  sourceCommit: 5e270e3cdab4f3c8ad3f5752976c72c6e8312eb9
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Der **`XMLHttpRequest()`**-Konstruktor
+Der **`XMLHttpRequest()`** Konstruktor
 erstellt ein neues [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
 
 ## Syntax
@@ -21,16 +21,18 @@ new XMLHttpRequest(options)
 
 ### Parameter
 
-Es gibt keine standardmäßigen Parameter. Allerdings erlaubt Firefox einen nicht standardmäßigen Parameter:
+Es gibt keine standardisierten Parameter. Allerdings erlaubt Firefox einen nicht-standardisierten Parameter:
 
 - `options` {{non-standard_inline}}
-  - : Ein Objekt, das die folgende Option enthalten kann:
+  - : Ein Objekt, das die folgenden Flags enthalten kann:
     - `mozAnon`
-      - : Ein boolean. Wenn Sie diesen Wert auf `true` setzen, wird der Browser dazu veranlasst, die {{Glossary("origin", "origin")}} und Benutzeranmeldeinformationen beim Abrufen von Ressourcen nicht offenzulegen. Am wichtigsten ist, dass {{Glossary("Cookie", "Cookies")}} nicht gesendet werden, es sei denn, diese wurden explizit mit `setRequestHeader` hinzugefügt.
+      - : Ein Boolean. Wenn dieses Flag auf `true` gesetzt wird, wird der Browser die {{Glossary("origin", "Origin")}} und Benutzeranmeldedaten beim Abrufen von Ressourcen nicht preisgeben. Das Wichtigste ist, dass {{Glossary("Cookie", "Cookies")}} nicht gesendet werden, es sei denn, sie werden explizit mit `setRequestHeader` hinzugefügt.
+    - `mozSystem`
+      - : Ein Boolean. Wenn dieses Flag auf `true` gesetzt wird, wird die Same-Origin-Policy bei der Anfrage nicht durchgesetzt.
 
 ### Rückgabewert
 
-Ein neues [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt. Das Objekt muss vorbereitet werden, indem mindestens [`open()`](/de/docs/Web/API/XMLHttpRequest/open) aufgerufen wird, um es zu initialisieren, bevor [`send()`](/de/docs/Web/API/XMLHttpRequest/send) verwendet wird, um die Anfrage an den Server zu senden.
+Ein neues [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Objekt. Das Objekt muss mindestens durch Aufrufen von [`open()`](/de/docs/Web/API/XMLHttpRequest/open) vorbereitet werden, um es zu initialisieren, bevor [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufgerufen wird, um die Anfrage an den Server zu senden.
 
 ## Spezifikationen
 

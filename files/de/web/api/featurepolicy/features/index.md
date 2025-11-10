@@ -1,15 +1,14 @@
 ---
-title: "FeaturePolicy: `features()` Methode"
+title: "FeaturePolicy: features() Methode"
 short-title: features()
 slug: Web/API/FeaturePolicy/features
 l10n:
-  sourceCommit: 6f8b8ed77b8926640d5d5c4d292489eeb2525460
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`features()`**-Methode des
-[`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces gibt eine Liste von Namen aller vom User Agent unterstützten Funktionen zurück. Funktionen, deren Name auf der Liste erscheint, könnten möglicherweise nicht durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) des aktuellen Ausführungskontexts erlaubt sein und/oder könnten aufgrund der Benutzerberechtigungen nicht zugänglich sein.
+Die **`features()`** Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces gibt eine Liste von Namen aller vom User Agent unterstützten Funktionen zurück. Eine Funktion, deren Name in der Liste erscheint, könnte durch die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) des aktuellen Ausführungskontextes möglicherweise nicht erlaubt sein und/oder aufgrund der Berechtigungen des Benutzers nicht zugänglich sein.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von Zeichenfolgen, die die Namen aller vom User Agent unterstützten `Permissions Policy`-Direktiven darstellen.
+Eine Liste von Zeichenfolgen, die die Namen aller von der Berechtigungsrichtlinie unterstützten Direktiven des User Agents darstellen.
 
 ## Beispiel
 

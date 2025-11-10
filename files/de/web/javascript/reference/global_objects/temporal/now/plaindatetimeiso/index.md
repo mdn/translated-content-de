@@ -1,13 +1,14 @@
 ---
 title: Temporal.Now.plainDateTimeISO()
+short-title: plainDateTimeISO()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Now/plainDateTimeISO
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.Now.plainDateTimeISO()`** gibt das aktuelle Datum und die aktuelle Uhrzeit als ein {{jsxref("Temporal.PlainDateTime")}}-Objekt im ISO-8601-Kalender und der angegebenen Zeitzone zurück.
+Die statische Methode **`Temporal.Now.plainDateTimeISO()`** gibt das aktuelle Datum und die Uhrzeit als ein {{jsxref("Temporal.PlainDateTime")}}-Objekt im ISO 8601-Kalender und der angegebenen Zeitzone zurück.
 
 ## Syntax
 
@@ -19,16 +20,16 @@ Temporal.Now.plainDateTimeISO(timeZone)
 ### Parameter
 
 - `timeZone` {{optional_inline}}
-  - : Entweder ein String oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die die Zeitzone zur Interpretation der Systemzeit darstellt. Ist es eine `Temporal.ZonedDateTime`-Instanz, wird deren Zeitzone verwendet. Bei einem String kann es sich um einen benannten Zeitzonen-Identifikator, einen Offset-Zeitzonen-Identifikator oder einen Datum-Zeit-String mit einem Zeitzonen-Identifikator oder Offset handeln (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen).
+  - : Entweder eine Zeichenkette oder eine Instanz von {{jsxref("Temporal.ZonedDateTime")}}, die die Zeitzone darstellt, in der die Systemzeit interpretiert werden soll. Wenn eine `Temporal.ZonedDateTime`-Instanz, wird deren Zeitzone verwendet. Wenn es sich um eine Zeichenkette handelt, kann es sich um einen benannten Zeitzonenbezeichner, einen Offset-Zeitzonenbezeichner oder eine Datums-Zeit-Zeichenkette handeln, die einen Zeitzonenbezeichner oder einen Offset enthält (siehe [Zeitzonen und Offsets](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) für weitere Informationen).
 
 ### Rückgabewert
 
-Das aktuelle Datum und die aktuelle Uhrzeit in der angegebenen Zeitzone, als ein {{jsxref("Temporal.PlainDateTime")}}-Objekt im ISO-8601-Kalender. Hat die gleiche Präzision wie {{jsxref("Temporal/Now/instant", "Temporal.Now.instant()")}}.
+Das aktuelle Datum und die Uhrzeit in der angegebenen Zeitzone, als ein {{jsxref("Temporal.PlainDateTime")}}-Objekt unter Verwendung des ISO 8601-Kalenders. Hat die gleiche Präzision wie {{jsxref("Temporal/Now/instant", "Temporal.Now.instant()")}}.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird geworfen, wenn die Zeitzone ungültig ist.
+  - : Wird ausgelöst, wenn die Zeitzone ungültig ist.
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: "MutationEvent: relatedNode-Eigenschaft"
 short-title: relatedNode
 slug: Web/API/MutationEvent/relatedNode
 l10n:
-  sourceCommit: 8583c1238d297609d6db0623aba9070d5c57f330
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}{{non-standard_header}}
 
-Die **`relatedNode`** schreibgeschützte Eigenschaft der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück, der den mit dem Ereignis verbundenen Knoten angibt, wie zum Beispiel den geänderten Knoten innerhalb des Unterbaums für `DOMSubtreeModified`.
+Die schreibgeschützte **`relatedNode`**-Eigenschaft der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück, der den Knoten angibt, der mit dem Ereignis in Bezug steht, wie z.B. der geänderte Knoten innerhalb des Unterbaums für `DOMSubtreeModified`.
 
 ## Wert
 
@@ -17,13 +17,9 @@ Ein String.
 ## Beispiele
 
 ```js
-element.addEventListener(
-  "DOMSubtreeModified",
-  (event) => {
-    console.log(event.relatedNode);
-  },
-  false,
-);
+element.addEventListener("DOMSubtreeModified", (event) => {
+  console.log(event.relatedNode);
+});
 ```
 
 ## Spezifikationen

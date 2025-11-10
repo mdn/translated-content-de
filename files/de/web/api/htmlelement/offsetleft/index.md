@@ -3,20 +3,20 @@ title: "HTMLElement: offsetLeft-Eigenschaft"
 short-title: offsetLeft
 slug: Web/API/HTMLElement/offsetLeft
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.offsetLeft`** Nur-Lese-Eigenschaft gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens nach links versetzt ist.
+Die **`offsetLeft`** schreibgeschützte Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens nach links versetzt ist.
 
-Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` den Rahmenkasten eines Elements relativ zum `offsetParent`.
+Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` die Border-Box eines Elements relativ zum `offsetParent`.
 
-Für Inline-Elemente (wie **span**), die von einer Zeile zur nächsten umbrochen werden können, beschreiben `offsetTop` und `offsetLeft` jedoch die Positionen des _ersten_ Rahmenkastens (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um dessen Breite und Höhe zu ermitteln), während `offsetWidth` und `offsetHeight` die Abmessungen des _umschließenden_ Rahmenkastens beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um dessen Position zu ermitteln). Daher wird eine Box mit den Werten `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` kein Begrenzungsrahmen für einen span mit umbrochenem Text sein.
+Für Inline-Elemente (wie `<span>`), die von einer Zeile zur nächsten umgebrochen werden können, beschreiben `offsetTop` und `offsetLeft` die Positionen der _ersten_ Border-Box (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um deren Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Dimensionen der _umschließenden_ Border-Box beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um deren Position zu erhalten). Daher wird eine Box mit den linken, oberen, Breiten- und Höhenmaßen von `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` keine Umrandungsbox für einen Span mit umbrochenem Text sein.
 
 ## Wert
 
-Ein Ganzzahlwert.
+Ein Integer.
 
 ## Beispiele
 
@@ -29,29 +29,43 @@ if (tOLeft > 5) {
 }
 ```
 
-Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines div mit einem blauen Rahmen umbrochen wird, und einen roten Kasten, von dem man meinen könnte, er sollte die Grenzen des span beschreiben.
+Dieses Beispiel zeigt einen „langen“ Satz, der innerhalb eines div mit einem blauen Rahmen umbrochen wird, und eine rote Box, die man denken könnte, sollte die Grenzen des span beschreiben.
 
-![Ein Satz, der lautet: Kurzer span. Dieser Text befindet sich vollständig innerhalb eines div mit einem blauen Rahmen. Ein Satz, der lautet: Langer span, der innerhalb dieses div umbricht. Die Worte "langer span, der umbricht" befinden sich in einem Kasten mit rotem Rahmen. Die Worte "innerhalb dieses div" befinden sich innerhalb des div mit dem blauen Rahmen.](offsetleft.jpg)
+![Ein Satz, der lautet: Kurzer Span. Dieser Text befindet sich vollständig innerhalb eines div mit einem blauen Rand. Ein Satz, der lautet: Langer Span, der sich innerhalb dieses divs umbricht. Die Worte „langer Span, der sich umbricht“ befinden sich in einer Box mit einem roten Rand. Die Worte „in diesem div“ befinden sich im div mit dem blauen Rand.](offsetleft.jpg)
 
 ```html
-<div
-  style="width: 300px; border-color:blue; border-style:solid; border-width:1;">
-  <span>Short span. </span>
+<div class="span-container">
+  <span>Short span.</span>
   <span id="long-span">Long span that wraps within this div.</span>
 </div>
 
-<div
-  id="box"
-  style="position: absolute; border-color: red; border-width: 1; border-style: solid; z-index: 10"></div>
+<div id="box"></div>
+```
 
-<script>
-  const box = document.getElementById("box");
-  const longSpan = document.getElementById("long-span");
-  box.style.left = longSpan.offsetLeft + document.body.scrollLeft + "px";
-  box.style.top = longSpan.offsetTop + document.body.scrollTop + "px";
-  box.style.width = longSpan.offsetWidth + "px";
-  box.style.height = longSpan.offsetHeight + "px";
-</script>
+```css
+.span-container {
+  width: 300px;
+  border-color: blue;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#box {
+  position: absolute;
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+  z-index: 10;
+}
+```
+
+```js
+const box = document.getElementById("box");
+const longSpan = document.getElementById("long-span");
+box.style.left = `${longSpan.offsetLeft}${document.body.scrollLeft}px`;
+box.style.top = `${longSpan.offsetTop}${document.body.scrollTop}px`;
+box.style.width = `${longSpan.offsetWidth}px`;
+box.style.height = `${longSpan.offsetHeight}px`;
 ```
 
 ## Spezifikationen
@@ -64,4 +78,10 @@ Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines div mit einem bla
 
 ## Siehe auch
 
-- [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent), [`HTMLElement.offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop), [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth), [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight)
+- [Bestimmen der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`Element.clientLeft`](/de/docs/Web/API/Element/clientLeft)
+- [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
+- [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight)
+- [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
+- [`HTMLElement.offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop)
+- [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)

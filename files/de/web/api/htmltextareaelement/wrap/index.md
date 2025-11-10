@@ -3,16 +3,16 @@ title: "HTMLTextAreaElement: wrap-Eigenschaft"
 short-title: wrap
 slug: Web/API/HTMLTextAreaElement/wrap
 l10n:
-  sourceCommit: 30d0a926fffe7bcf586def53959c12a5e526fa26
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`wrap`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt an, wie die Steuerung den Wert zur Formularübermittlung umbrechen soll. Sie spiegelt das [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap)-Attribut des `<textarea>`-Elements wider. Beachten Sie, dass der Wert `"hard"` nur dann Wirkung zeigt, wenn auch das [`cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)-Attribut gesetzt ist.
+Die **`wrap`**-Eigenschaft der Schnittstelle [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) gibt an, wie der Wert zur Formularübertragung umbrochen werden soll. Sie spiegelt das `wrap`-Attribut des `<textarea>`-Elements wider. Beachten Sie, dass der Wert `"hard"` nur eine Wirkung hat, wenn das [`cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)-Attribut ebenfalls gesetzt ist.
 
 ## Wert
 
-Siehe [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap) für die möglichen Werte. Standardwert ist `"soft"`.
+Die möglichen Werte finden Sie unter [`wrap`](/de/docs/Web/HTML/Reference/Elements/textarea#wrap). Standardmäßig ist `"soft"`.
 
 ## Beispiele
 

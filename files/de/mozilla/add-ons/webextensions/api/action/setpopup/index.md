@@ -2,12 +2,10 @@
 title: action.setPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/action/setPopup
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Legt das HTML-Dokument fest, das als Popup geöffnet wird, wenn der Benutzer auf das Symbol der Browser-Aktion klickt. Tabs ohne ein spezifisches Popup übernehmen das globale Popup, das standardmäßig im Manifest durch [`default_popup`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) angegeben ist.
+Legt das HTML-Dokument fest, das als Popup geöffnet wird, wenn der Benutzer auf das Symbol der Browseraktion klickt. Registerkarten ohne ein spezifisches Popup übernehmen das globale Popup, das standardmäßig auf das [`default_popup`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) im Manifest eingestellt ist.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -23,35 +21,31 @@ browser.action.setPopup(
 ### Parameter
 
 - `details`
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `tabId` {{optional_inline}}
-      - : `integer`. Legt das Popup nur für einen bestimmten Tab fest. Das Popup wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
+      - : `integer`. Legt das Popup nur für eine bestimmte Registerkarte fest. Das Popup wird zurückgesetzt, wenn der Benutzer mit dieser Registerkarte zu einer neuen Seite navigiert.
     - `windowId` {{optional_inline}}
       - : `integer`. Legt das Popup nur für das angegebene Fenster fest.
     - `popup`
+      - : `string` oder `null`. Die HTML-Datei, die in einem Popup angezeigt werden soll, angegeben als URL.
 
-      - : `string` oder `null`. Die HTML-Datei, die in einem Popup angezeigt werden soll, als URL angegeben.
+        Dies kann auf eine Datei verweisen, die innerhalb der Erweiterung gepackt ist (zum Beispiel erstellt mit {{WebExtAPIRef("extension.getURL")}}), oder auf ein entferntes Dokument (z. B. `https://example.org/`).
 
-        Dies kann auf eine innerhalb der Erweiterung gepackte Datei verweisen (z.B. erstellt mit {{WebExtAPIRef("extension.getURL")}}), oder auf ein externes Dokument (z.B. `https://example.org/`).
-
-        Wenn hier ein leerer String (`""`) übergeben wird, wird das Popup deaktiviert und die Erweiterung erhält {{WebExtAPIRef("action.onClicked")}}-Ereignisse.
+        Wenn hier ein leerer String (`""`) übergeben wird, wird das Popup deaktiviert, und die Erweiterung erhält {{WebExtAPIRef("action.onClicked")}}-Ereignisse.
 
         Wenn `popup` `null` ist:
-
-        - Wenn `tabId` angegeben ist, wird das tab-spezifische Popup entfernt, sodass der Tab das globale Popup übernimmt.
-        - Wenn `windowId` angegeben ist, wird das fensterspezifische Popup entfernt, sodass das Fenster das globale Popup übernimmt.
+        - Wenn `tabId` angegeben ist, entfernt es das registerspezifische Popup, sodass die Registerkarte das globale Popup übernimmt.
+        - Wenn `windowId` angegeben ist, entfernt es das fensterspezifische Popup, sodass das Fenster das globale Popup übernimmt.
         - Wenn `tabId` und `windowId` beide weggelassen werden, wird das globale Popup auf den Standardwert zurückgesetzt.
 
 <!---->
 
-- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und das Popup wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Popup festgelegt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das Popup wird nicht gesetzt.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Popup gesetzt.
 
 ## Beispiele
 
-Dieser Code fügt ein Paar von Kontextmenüeinträgen hinzu, mit denen Sie zwischen zwei Popups wechseln können. Beachten Sie, dass Sie die "contextMenus" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) im Manifest der Erweiterung setzen müssen, um Kontextmenüeinträge zu erstellen.
+Dieser Code fügt ein Paar von Kontextmenüelementen hinzu, die Sie verwenden können, um zwischen zwei Popups zu wechseln. Beachten Sie, dass Sie die "contextMenus"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) im Manifest der Erweiterung setzen müssen, um Kontextmenüelemente zu erstellen.
 
 ```js
 function onCreated() {
@@ -100,7 +94,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setPopup) API. Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setPopup) von Chromium. Diese Dokumentation basiert auf [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -3,12 +3,12 @@ title: "SecurityPolicyViolationEvent: statusCode-Eigenschaft"
 short-title: statusCode
 slug: Web/API/SecurityPolicyViolationEvent/statusCode
 l10n:
-  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`statusCode`**-Eigenschaft der [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Schnittstelle ist eine schreibgeschützte Zahl, die den HTTP-Statuscode des Fensters oder Workers darstellt, in dem der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) aufgetreten ist.
+Die **`statusCode`**-Schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist eine Zahl, die den HTTP-Statuscode des Fensters oder Workers darstellt, in dem der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) aufgetreten ist.
 
 ## Wert
 

@@ -3,7 +3,7 @@ title: "SVGAnimationElement: requiredExtensions-Eigenschaft"
 short-title: requiredExtensions
 slug: Web/API/SVGAnimationElement/requiredExtensions
 l10n:
-  sourceCommit: 5e2cf341717c4c6c033860a2e31066addd5a4292
+  sourceCommit: 1db55979ae2b6ed7abb484b74e70809d66fa7637
 ---
 
 {{APIRef("SVG")}}
@@ -21,3 +21,8 @@ Ein [`SVGStringList`](/de/docs/Web/API/SVGStringList)-Objekt.
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- SVG {{SVGAttr("requiredExtensions")}}-Attribut
+- SVG {{SVGAttr("systemLanguage")}}-Attribut

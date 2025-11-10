@@ -3,19 +3,19 @@ title: "HTMLTableCellElement: colSpan-Eigenschaft"
 short-title: colSpan
 slug: Web/API/HTMLTableCellElement/colSpan
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 2406bfdc031740afbd500a1fc953a76a4b7f8484
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`colSpan`** der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle repräsentiert die Anzahl der Spalten, die diese Zelle umfassen muss; dies ermöglicht es der Zelle, Raum über mehrere Spalten der Tabelle hinweg einzunehmen. Sie spiegelt das [`colspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
+Die **`colSpan`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces repräsentiert die Anzahl der Spalten, die diese Zelle umspannen muss. Dadurch kann die Zelle Raum über mehrere Spalten der Tabelle einnehmen. Sie entspricht dem [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird der Wert auf die nächste strikt positive Zahl _fixiert_.
+> Beim Setzen eines neuen Wertes wird der Wert auf die nächste strikt positive Zahl _geklammert_.
 
 ## Beispiele
 
@@ -82,21 +82,21 @@ const increaseButton = document.getElementById("increase");
 const decreaseButton = document.getElementById("decrease");
 
 increaseButton.addEventListener("click", () => {
-  cell.colSpan = cell.colSpan + 1;
+  cell.colSpan += 1;
 
   // Update the display
   output.textContent = cell.colSpan;
 });
 
 decreaseButton.addEventListener("click", () => {
-  cell.colSpan = cell.colSpan - 1;
+  cell.colSpan -= 1;
 
   // Update the display
   output.textContent = cell.colSpan;
 });
 ```
 
-### Resultat
+### Ergebnis
 
 {{EmbedLiveSample("Examples", "100%", 175)}}
 

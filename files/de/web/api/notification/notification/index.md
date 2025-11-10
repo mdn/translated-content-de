@@ -1,17 +1,20 @@
 ---
-title: "Notification: Notification()-Konstruktor"
+title: "Benachrichtigung: Notification()-Konstruktor"
 short-title: Notification()
 slug: Web/API/Notification/Notification
 l10n:
-  sourceCommit: 79f5e2c8ed9833f409e9054e69e02798b83422d1
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Der **`Notification()`**-Konstruktor erstellt eine neue Instanz des [`Notification`](/de/docs/Web/API/Notification)-Objekts, das eine Benachrichtigung für den Benutzer darstellt.
+Der **`Notification()`**-Konstruktor erstellt eine neue [`Notification`](/de/docs/Web/API/Notification)-Objektinstanz, die eine Benutzerbenachrichtigung darstellt.
 
-> [!NOTE]
-> Der Versuch, innerhalb des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eine Benachrichtigung mit dem `Notification()`-Konstruktor zu erstellen, führt zu einem `TypeError`. Verwenden Sie stattdessen [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification).
+Der Versuch, eine Benachrichtigung innerhalb des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) mit dem `Notification()`-Konstruktor zu erstellen, führt zu einem `TypeError`. Verwenden Sie stattdessen [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification).
+
+Sie müssen zuerst die Erlaubnis einholen, bevor Sie Benachrichtigungen anzeigen können, indem Sie [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static) verwenden. Die Erlaubnis kann möglicherweise nicht erteilt werden, beispielsweise wenn die Seite im privaten Modus geöffnet ist.
+
+Dieser Konstruktor wirft einen {{jsxref("TypeError")}}, wenn er in fast allen mobilen Browsern aufgerufen wird und dies wird sich wahrscheinlich nicht ändern, da Webseiten auf mobilen Geräten fast nie "im Hintergrund laufen", was der Hauptanwendungsfall für Benachrichtigungen ist. Stattdessen müssen Sie einen Service Worker registrieren und [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) verwenden. Weitere Informationen finden Sie im [Chrome-Issue](https://crbug.com/481856).
 
 ## Syntax
 
@@ -25,37 +28,35 @@ new Notification(title, options)
 - `title`
   - : Definiert einen Titel für die Benachrichtigung, der oben im Benachrichtigungsfenster angezeigt wird.
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt, das benutzerdefinierte Einstellungen enthält, die Sie auf die Benachrichtigung anwenden möchten. Die möglichen Optionen sind:
-
     - `actions` {{optional_inline}}
-      - : Muss unbestimmt oder ein leeres Array sein. `actions` wird nur für persistente Benachrichtigungen unterstützt, die von einem Service Worker mittels [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) ausgelöst werden.
+      - : Muss nicht spezifiziert oder ein leeres Array sein. `actions` wird nur für persistente Benachrichtigungen unterstützt, die von einem Service Worker mit [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) ausgelöst werden.
     - `badge` {{optional_inline}}
-      - : Ein String, der die URL des Bildes enthält, das verwendet wird, um die Benachrichtigung darzustellen, wenn nicht genügend Platz für die Anzeige der eigentlichen Benachrichtigung vorhanden ist, z.B. in der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Abzeichen Geräte bis zu einer 4x-Auflösung, etwa 96x96px, unterstützen, und das Bild wird automatisch maskiert.
+      - : Ein String, der die URL des Bildes enthält, das verwendet wird, um die Benachrichtigung darzustellen, wenn nicht genügend Platz vorhanden ist, um die Benachrichtigung selbst anzuzeigen, zum Beispiel in der Android-Benachrichtigungsleiste. Auf Android-Geräten sollte das Abzeichen Geräte bis zu einer Auflösung von 4x, etwa 96x96px, unterstützen und das Bild wird automatisch maskiert.
     - `body` {{optional_inline}}
-      - : Ein String, der den Textkörper der Benachrichtigung darstellt, der unter dem Titel angezeigt wird. Standardmäßig ist dies der leere String.
+      - : Ein String, der den Textinhalt der Benachrichtigung darstellt, der unter dem Titel angezeigt wird. Der Standardwert ist der leere String.
     - `data` {{optional_inline}}
-      - : Beliebige Daten, die Sie mit der Benachrichtigung verknüpfen möchten. Dies kann jeder [strukturierbar klonbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) Datentyp sein. Der Standardwert ist `null`.
+      - : Beliebige Daten, die Sie mit der Benachrichtigung verknüpfen möchten. Dies kann jeder [strukturiert klonbare](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types) Datentyp sein. Der Standardwert ist `null`.
     - `dir` {{optional_inline}}
-      - : Die Richtung, in der die Benachrichtigung angezeigt wird. Standardmäßig wird `auto` verwendet, was das Sprachverhalten des Browsers übernimmt, aber Sie können dieses Verhalten überschreiben, indem Sie die Werte `ltr` und `rtl` einstellen (obwohl die meisten Browser diese Einstellungen zu ignorieren scheinen).
+      - : Die Richtung, in der die Benachrichtigung angezeigt werden soll. Der Standardwert ist `auto`, welches einfach das Verhalten der Spracheinstellung des Browsers übernimmt, aber Sie können dieses Verhalten durch das Setzen von Werten wie `ltr` und `rtl` überschreiben (obwohl die meisten Browser diese Einstellungen ignorieren.)
     - `icon` {{optional_inline}}
-      - : Ein String, der die URL eines Symbols enthält, das in der Benachrichtigung angezeigt wird.
+      - : Ein String, der die URL eines Icons enthält, das in der Benachrichtigung angezeigt wird.
     - `image` {{optional_inline}}
       - : Ein String, der die URL eines Bildes enthält, das in der Benachrichtigung angezeigt wird.
     - `lang` {{optional_inline}}
-      - : Die Sprache der Benachrichtigung, angegeben durch einen String, der einen Sprach-Tag gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} darstellt. Siehe die Sitepoint-Seite [ISO-2-Buchstaben-Sprachcodes](https://www.sitepoint.com/iso-2-letter-language-codes/) für eine einfache Referenz. Der Standardwert ist der leere String.
+      - : Die Sprache der Benachrichtigung, angegeben durch einen String, der einen {{Glossary("BCP_47_language_tag", "BCP 47-Sprachcode")}} repräsentiert. Der Standardwert ist der leere String.
     - `renotify` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Benutzer benachrichtigt werden sollte, nachdem eine neue Benachrichtigung eine alte ersetzt hat. Der Standardwert ist `false`, was bedeutet, dass der Benutzer nicht benachrichtigt wird. Wenn `true`, muss auch `tag` gesetzt sein.
+      - : Ein boolescher Wert, der angibt, ob der Benutzer benachrichtigt werden soll, nachdem eine neue Benachrichtigung eine alte ersetzt hat. Der Standardwert ist `false`, was bedeutet, dass er nicht benachrichtigt wird. Wenn `true`, dann muss auch `tag` gesetzt sein.
     - `requireInteraction` {{optional_inline}}
-      - : Gibt an, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer darauf klickt oder sie schließt, anstatt automatisch geschlossen zu werden. Der Standardwert ist `false`.
+      - : Gibt an, dass eine Benachrichtigung aktiv bleiben soll, bis der Benutzer sie anklickt oder schließt, anstatt sie automatisch zu schließen. Der Standardwert ist `false`.
     - `silent` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die Benachrichtigung lautlos sein soll, d.h. es sollten unabhängig von den Geräteeinstellungen keine Geräusche oder Vibrationen ausgegeben werden. Wenn auf `true` gesetzt, ist die Benachrichtigung lautlos; wenn auf `null` (den Standardwert) gesetzt, werden die Standardeinstellungen des Geräts respektiert.
+      - : Ein boolescher Wert, der angibt, ob die Benachrichtigung stumm geschaltet sein soll, d.h. unabhängig von den Geräteeinstellungen sollen keine Geräusche oder Vibrationen ausgegeben werden. Wenn auf `true` gesetzt, ist die Benachrichtigung stumm; wenn auf `null` gesetzt (der Standardwert), werden die Standardeinstellungen des Geräts respektiert.
     - `tag` {{optional_inline}}
-      - : Ein String, der ein identifizierendes Tag für die Benachrichtigung darstellt. Der Standardwert ist der leere String.
+      - : Ein String, der einen identifizierenden Tag für die Benachrichtigung darstellt. Der Standardwert ist der leere String.
     - `timestamp` {{optional_inline}}
-      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der die mit der Benachrichtigung verbundene Zeit darstellt. Dies könnte in der Vergangenheit liegen, wenn eine Benachrichtigung für eine Nachricht verwendet wird, die nicht sofort zugestellt werden konnte, weil das Gerät offline war, oder in der Zukunft für ein Meeting, das bald beginnt.
+      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der die mit der Benachrichtigung verknüpfte Zeit darstellt. Dies könnte in der Vergangenheit liegen, wenn eine Benachrichtigung für eine Nachricht verwendet wird, die nicht sofort zugestellt werden konnte, weil das Gerät offline war, oder in der Zukunft für ein Treffen, das bald beginnt.
     - `vibrate` {{optional_inline}}
-      - : Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) für die Vibrieren-Hardware des Geräts, um mit der Benachrichtigung auszulösen. Wenn angegeben, darf `silent` nicht `true` sein.
+      - : Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) für die Vibrationstechnik des Geräts, das mit der Benachrichtigung ausgegeben werden soll. Wenn angegeben, darf `silent` nicht `true` sein.
 
 ### Rückgabewert
 
@@ -64,17 +65,17 @@ Eine Instanz des [`Notification`](/de/docs/Web/API/Notification)-Objekts.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn:
+  - : Wird geworfen, wenn:
     - Der Konstruktor innerhalb des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) aufgerufen wird.
-    - Die `actions`-Option angegeben ist und nicht leer ist.
+    - Die `actions`-Option spezifiziert und nicht leer ist.
     - Die `silent`-Option `true` ist und die `vibrate`-Option angegeben ist.
     - Die `renotify`-Option `true` ist, aber die `tag`-Option leer ist.
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Serialisieren der `data`-Option aus irgendeinem Grund fehlschlägt.
+  - : Wird geworfen, wenn die Serialisierung der `data`-Option aus irgendeinem Grund fehlgeschlagen ist.
 
 ## Beispiele
 
-Hier ist ein einfaches Beispiel, das nur eine Benachrichtigung anzeigt, wenn die Berechtigung bereits erteilt ist. Für vollständigere Beispiele siehe die [`Notification`](/de/docs/Web/API/Notification)-Seite.
+Hier ist ein grundlegendes Beispiel, um nur eine Benachrichtigung anzuzeigen, wenn die Erlaubnis bereits erteilt wurde. Für vollständigere Beispiele siehe die [`Notification`](/de/docs/Web/API/Notification)-Seite.
 
 ```js
 if (Notification.permission === "granted") {
@@ -89,12 +90,6 @@ if (Notification.permission === "granted") {
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-### Hinweise zu Chrome
-
-Ab Chrome 49 funktionieren Benachrichtigungen im Inkognito-Modus nicht.
-
-Chrome für Android wird einen {{jsxref("TypeError")}} auslösen, wenn der `Notification`-Konstruktor aufgerufen wird. Es unterstützt nur die Erstellung von Benachrichtigungen über einen Service Worker. Weitere Details finden Sie im [Chromium-Issue-Tracker](https://crbug.com/481856).
 
 ## Siehe auch
 

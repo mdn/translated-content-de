@@ -1,16 +1,16 @@
 ---
-title: "SVGFEDisplacementMapElement: height-Eigenschaft"
+title: "SVGFEDisplacementMapElement: height Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEDisplacementMapElement/height
 l10n:
-  sourceCommit: b85296a36664e26537fc181c65521d0aa8679fa6
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`height`** der [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`height`**-Eigenschaft der [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) beschreibt.
 
-Sie spiegelt das {{SVGElement("feDisplacementMap")}}-Element und dessen Filterprimitive-Attribut {{SVGAttr("height")}} wider. Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerskoordinatensystems.
+Sie spiegelt das Filterprimitive-Attribut {{SVGAttr("height")}} des {{SVGElement("feDisplacementMap")}}-Elements wider. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
 ## Wert
 

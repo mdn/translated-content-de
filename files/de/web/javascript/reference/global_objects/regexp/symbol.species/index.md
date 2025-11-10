@@ -1,32 +1,15 @@
 ---
 title: RegExp[Symbol.species]
+short-title: "[Symbol.species]"
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.species
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
-{{JSRef}}
-
-Die statische Zugriffs-Eigenschaft **`RegExp[Symbol.species]`** gibt den Konstruktor zurück, der verwendet wird, um kopierte reguläre Ausdrücke innerhalb bestimmter `RegExp`-Methoden zu erstellen.
+Die statische Zugriffseigenschaft **`RegExp[Symbol.species]`** gibt den Konstruktor zurück, der zum Erstellen kopierter regulärer Ausdrücke in bestimmten `RegExp`-Methoden verwendet wird.
 
 > [!WARNING]
-> Die Existenz von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Sie erschwert auch bestimmte Optimierungen erheblich. Die Entwickler von JavaScript-Engines [untersuchen, ob diese Funktion entfernt werden sollte](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich nach Möglichkeit darauf zu verlassen.
-
-{{InteractiveExample("JavaScript Demo: RegExp[Symbol.species]")}}
-
-```js interactive-example
-class MyRegExp extends RegExp {
-  // Overwrite MyRegExp species to the parent RegExp constructor
-  static get [Symbol.species]() {
-    return RegExp;
-  }
-}
-
-const regex1 = new MyRegExp("foo", "g");
-
-console.log(regex1.test("football"));
-// Expected output: true
-```
+> Das Vorhandensein von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Es macht auch bestimmte Optimierungen viel schwieriger. Die Entwickler von Engines [untersuchen, ob dieses Feature entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich darauf zu verlassen, wenn möglich.
 
 ## Syntax
 
@@ -40,7 +23,7 @@ Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wu
 
 ## Beschreibung
 
-Die `[Symbol.species]`-Zugriffs-Eigenschaft gibt den Standard-Konstruktor für `RegExp`-Objekte zurück. Konstruktoren von Unterklassen können diese überschreiben, um die Zuweisung des Konstruktors zu ändern. Die Standard-Implementierung ist im Wesentlichen:
+Die Zugriffseigenschaft `[Symbol.species]` gibt den Standardkonstruktor für `RegExp`-Objekte zurück. Unterklasse-Konstruktoren können dies überschreiben, um die Zuweisung des Konstruktors zu ändern. Die Standardimplementierung ist im Wesentlichen:
 
 ```js
 // Hypothetical underlying implementation for illustration
@@ -51,23 +34,23 @@ class RegExp {
 }
 ```
 
-Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Unterklassen standardmäßig ebenfalls den Konstruktor selbst zurückgeben.
+Aufgrund dieser polymorphen Implementierung würde `[Symbol.species]` von abgeleiteten Unterklassen standardmäßig auch den Konstruktor selbst zurückgeben.
 
 ```js
-class SubRegExp extends SubRegExp {}
+class SubRegExp extends RegExp {}
 SubRegExp[Symbol.species] === SubRegExp; // true
 ```
 
-Einige `RegExp`-Methoden erstellen vor der Ausführung von {{jsxref("RegExp/exec", "exec()")}} eine Kopie der aktuellen Regex-Instanz, damit Nebeneffekte wie Änderungen an {{jsxref("RegExp/lastIndex", "lastIndex")}} nicht beibehalten werden. Die `[Symbol.species]`-Eigenschaft wird verwendet, um den Konstruktor der neuen Instanz zu bestimmen. Die Methoden, die die aktuelle Regex-Instanz kopieren, sind:
+Einige `RegExp`-Methoden erstellen eine Kopie der aktuellen Regex-Instanz, bevor {{jsxref("RegExp/exec", "exec()")}} ausgeführt wird, damit Nebeneffekte wie Änderungen an {{jsxref("RegExp/lastIndex", "lastIndex")}} nicht erhalten bleiben. Die Eigenschaft `[Symbol.species]` wird verwendet, um den Konstruktor der neuen Instanz zu bestimmen. Die Methoden, die die aktuelle Regex-Instanz kopieren, sind:
 
 - [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll)
 - [`[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split)
 
 ## Beispiele
 
-### Species in normalen Objekten
+### Species in gewöhnlichen Objekten
 
-Die `[Symbol.species]`-Eigenschaft gibt die Standardkonstruktionsfunktion zurück, welche der `RegExp`-Konstruktor für `RegExp`-Objekte ist:
+Die Eigenschaft `[Symbol.species]` gibt die Standardkonstrukturfunktion zurück, die der `RegExp`-Konstruktor für `RegExp`-Objekte ist:
 
 ```js
 RegExp[Symbol.species]; // function RegExp()
@@ -75,7 +58,7 @@ RegExp[Symbol.species]; // function RegExp()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `RegExp`-Unterklasse, wie etwa `MyRegExp`, ist die `MyRegExp`-Species der `MyRegExp`-Konstruktor. Sie könnten jedoch möchten, dies zu überschreiben, um Eltern-`RegExp`-Objekte in den Methoden Ihrer abgeleiteten Klasse zurückzugeben:
+In einer Instanz einer benutzerdefinierten `RegExp`-Unterklasse, wie `MyRegExp`, ist die Spezies `MyRegExp` der `MyRegExp`-Konstruktor. Sie könnten dies jedoch überschreiben wollen, um in Ihren abgeleiteten Klassenmethoden Eltern-`RegExp`-Objekte zurückzugeben:
 
 ```js
 class MyRegExp extends RegExp {

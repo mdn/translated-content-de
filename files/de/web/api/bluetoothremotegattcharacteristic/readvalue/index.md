@@ -1,17 +1,14 @@
 ---
-title: "BluetoothRemoteGATTCharacteristic: Methode readValue()"
+title: "BluetoothRemoteGATTCharacteristic: readValue() Methode"
 short-title: readValue()
 slug: Web/API/BluetoothRemoteGATTCharacteristic/readValue
 l10n:
-  sourceCommit: bfc735c04506625c8c60054fe6f2f136bc43bbea
+  sourceCommit: 5fd5cc8885286bfa5bae8b3e9970e1eab26e941d
 ---
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTCharacteristic.readValue()`**-Methode
-gibt ein {{jsxref("Promise")}} zurück, das auf einen {{jsxref("DataView")}} aufgelöst wird, der eine
-Kopie der `value`-Eigenschaft enthält, wenn sie verfügbar und unterstützt ist. Andernfalls
-wird ein Fehler ausgelöst.
+Die Methode **`BluetoothRemoteGATTCharacteristic.readValue()`** gibt ein {{jsxref("Promise")}} zurück, das zu einem {{jsxref("DataView")}} aufgelöst wird, welches eine Kopie der Eigenschaft `value` enthält, sofern diese verfügbar und unterstützt ist. Andernfalls wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -25,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf einen {{jsxref("DataView")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem {{jsxref("DataView")}} aufgelöst wird.
 
 ## Spezifikationen
 

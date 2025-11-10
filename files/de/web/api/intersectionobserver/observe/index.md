@@ -3,32 +3,23 @@ title: "IntersectionObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/IntersectionObserver/observe
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: fe47429d64ffaacb24f5130523442aeaabf26ac6
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)
-**`observe()`** fügt ein Element zur Menge der durch den `IntersectionObserver`
-überwachten Ziel-Elemente hinzu. Ein Observer hat eine Menge von Schwellenwerten
-und eine Root, kann aber mehrere Ziel-Elemente auf Sichtbarkeitsänderungen beobachten,
-die mit diesen übereinstimmen.
+Die **`observe()`** Methode des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) Interfaces fügt ein Element zur Menge der vom `IntersectionObserver` überwachten Zielelemente hinzu.
+Ein Observer hat einen Schwellenwertsatz und eine Wurzel, kann aber mehrere Zielelemente in Bezug auf Sichtbarkeitsänderungen überwachen.
 
-Um die Beobachtung des Elements zu stoppen, rufen Sie
-[`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve) auf.
+Um die Beobachtung des Elements zu stoppen, rufen Sie [`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve) auf.
 
-Wenn die Sichtbarkeit des angegebenen Elements eine der Sichtbarkeits-Schwellenwerte
-des Observers überschreitet (wie in [`IntersectionObserver.thresholds`](/de/docs/Web/API/IntersectionObserver/thresholds)
-aufgeführt), wird der Callback des Observers mit einem Array von
-[`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten ausgeführt, die die
-stattgefundenen Schnittänderungen darstellen. Beachten Sie, dass dieses Design es
-ermöglicht, Schnittänderungen mehrerer Elemente durch einen einzigen Aufruf des
-Callbacks zu verarbeiten.
+Wenn die Sichtbarkeit des angegebenen Elements eine der Sichtbarkeitsschwellen des Observers (wie in [`IntersectionObserver.thresholds`](/de/docs/Web/API/IntersectionObserver/thresholds) aufgelistet) überschreitet, wird der Callback des Observers mit einem Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) Objekten ausgeführt, die die aufgetretenen Schnittänderungen darstellen.
+Es ist zu beachten, dass dieses Design es ermöglicht, die Schnittänderungen mehrerer Elemente durch einen einzigen Aufruf des Callbacks zu verarbeiten.
 
 > [!NOTE]
-> Der Beobachter [Callback](/de/docs/Web/API/IntersectionObserver/IntersectionObserver#callback) wird immer im ersten Render-Zyklus ausgelöst, nachdem `observe()` aufgerufen wird, auch wenn sich das beobachtete Element noch nicht im Verhältnis zum Viewport bewegt hat.
-> Dies bedeutet, dass beispielsweise ein Element, das außerhalb des Viewports ist, wenn `observe()` darauf aufgerufen wird, dazu führt, dass der Callback sofort mit mindestens einem [Eintrag](/de/docs/Web/API/IntersectionObserverEntry) aufgerufen wird, bei dem [`intersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) auf `false` gesetzt ist.
-> Ein Element innerhalb des Viewports führt dazu, dass der Callback sofort mit mindestens einem Eintrag aufgerufen wird, bei dem `intersecting` auf `true` gesetzt ist.
+> Der [Callback](/de/docs/Web/API/IntersectionObserver/IntersectionObserver#callback) des Observers wird immer im ersten Render-Zyklus nach dem Aufruf von `observe()` ausgelöst, selbst wenn sich das beobachtete Element in Bezug auf das Ansichtsfenster noch nicht bewegt hat.
+> Das bedeutet, dass zum Beispiel ein Element, das sich außerhalb des Ansichtsfensters befindet, wenn `observe()` darauf angewendet wird, sofort den Callback mit mindestens einem [Eintrag](/de/docs/Web/API/IntersectionObserverEntry) aufruft, bei dem [`intersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) auf `false` gesetzt ist.
+> Ein Element innerhalb des Ansichtsfensters führt dazu, dass der Callback sofort mit mindestens einem Eintrag aufgerufen wird, bei dem `intersecting` auf `true` gesetzt ist.
 
 ## Syntax
 
@@ -39,7 +30,8 @@ observe(targetElement)
 ### Parameter
 
 - `targetElement`
-  - : Ein [`Element`](/de/docs/Web/API/Element), dessen Sichtbarkeit innerhalb der Root überwacht werden soll. Dieses Element muss ein Nachfahre des Root-Elements sein (oder im aktuellen Dokument enthalten sein, wenn die Root der Viewport des Dokuments ist).
+  - : Ein [`element`](/de/docs/Web/API/Element), dessen Sichtbarkeit innerhalb der Wurzel überwacht werden soll.
+    Dieses Element muss ein Nachkomme des Wurzelelements sein (oder innerhalb des aktuellen Dokuments enthalten sein, wenn die Wurzel das Ansichtsfenster des Dokuments ist).
 
 ### Rückgabewert
 

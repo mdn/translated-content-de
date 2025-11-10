@@ -3,12 +3,12 @@ title: "CustomEvent: CustomEvent() Konstruktor"
 short-title: CustomEvent()
 slug: Web/API/CustomEvent/CustomEvent
 l10n:
-  sourceCommit: 14aec55e57117d0dc4a916112e23d310908e9937
+  sourceCommit: f4c0e822eb6a1ea438c7342f43a3e4809adbd56a
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`CustomEvent()`**-Konstruktor erstellt ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Objekt.
+Der **`CustomEvent()`** Konstruktor erstellt ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent) Objekt.
 
 ## Syntax
 
@@ -20,16 +20,15 @@ new CustomEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Namen des Ereignisses angibt. Ereignisnamen sind groß- und kleinschreibungsabhängig.
+  - : Ein String, der den Namen des Ereignisses angibt. Ereignisnamen sind case-sensitiv.
 - `options` {{optional_inline}}
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `detail` {{optional_inline}}
-      - : Ein ereignisabhängiger Wert, der dem Ereignis zugeordnet ist. Dieser Wert ist dann für den Handler über die [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail)-Eigenschaft verfügbar.
-        Standardmäßig ist dieser Wert `null`.
+      - : Ein ereignisabhängiger Wert, der mit dem Ereignis verknüpft ist. Dieser Wert steht dann dem Handler über die [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) Eigenschaft zur Verfügung. Der Standardwert ist `null`.
 
 ### Rückgabewert
 
-Ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Objekt.
+Ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent) Objekt.
 
 ## Beispiel
 
@@ -58,7 +57,7 @@ element.dispatchEvent(dogFound);
 // "cat" and "dog" logged in the console
 ```
 
-Weitere Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events).
+Zusätzliche Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events).
 
 ## Spezifikationen
 
@@ -71,4 +70,4 @@ Weitere Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de
 ## Siehe auch
 
 - [`CustomEvent`](/de/docs/Web/API/CustomEvent)
-- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events)

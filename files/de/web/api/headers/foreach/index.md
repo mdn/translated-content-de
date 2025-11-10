@@ -1,9 +1,9 @@
 ---
-title: "Headers: forEach() Methode"
+title: "Headers: forEach()-Methode"
 short-title: forEach()
 slug: Web/API/Headers/forEach
 l10n:
-  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
@@ -20,7 +20,7 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Es nimmt die folgenden Argumente:
+  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Sie nimmt die folgenden Argumente:
     - `value`
       - : Wert des aktuell besuchten Header-Eintrags.
     - `key`
@@ -36,11 +36,11 @@ forEach(callbackFn, thisArg)
 
 ## Beschreibung
 
-Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden tatsächlich vorhandenen Schlüssel der Headers aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert undefined haben.
+Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden Schlüssel der Headers aus, die tatsächlich existieren. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert undefined haben.
 
 ## Beispiele
 
-### Inhalt eines Headers-Objekts ausdrucken
+### Inhalt eines Headers-Objekts ausgeben
 
 Der folgende Code protokolliert eine Zeile für jeden Schlüssel/Wert im `myHeaders`-Objekt.
 
@@ -73,5 +73,5 @@ cookie ==> This is a demo cookie
 
 - [`Map.prototype.forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach)
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

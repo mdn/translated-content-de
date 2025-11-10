@@ -3,21 +3,21 @@ title: "WebSocket: error-Ereignis"
 short-title: error
 slug: Web/API/WebSocket/error_event
 l10n:
-  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `error`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` aufgrund eines Fehlers geschlossen wurde (zum Beispiel konnten einige Daten nicht gesendet werden).
+Das `error`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` aufgrund eines Fehlers geschlossen wurde (zum Beispiel, wenn einige Daten nicht gesendet werden konnten).
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -49,4 +49,4 @@ socket.addEventListener("error", (event) => {
 - [WebSocket: close-Ereignis](/de/docs/Web/API/WebSocket/close_event)
 - [WebSocket: message-Ereignis](/de/docs/Web/API/WebSocket/message_event)
 - [WebSocket: open-Ereignis](/de/docs/Web/API/WebSocket/open_event)
-- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket-Clientanwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

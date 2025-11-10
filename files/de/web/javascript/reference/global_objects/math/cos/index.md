@@ -1,13 +1,12 @@
 ---
 title: Math.cos()
+short-title: cos()
 slug: Web/JavaScript/Reference/Global_Objects/Math/cos
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.cos()`** gibt den Kosinus einer Zahl in Bogenmaß zurück.
+Die statische Methode **`Math.cos()`** gibt den Kosinus einer Zahl im Bogenmaß zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.cos()")}}
 
@@ -35,15 +34,15 @@ Math.cos(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel in Bogenmaß darstellt.
+  - : Eine Zahl, die einen Winkel im Bogenmaß darstellt.
 
 ### Rückgabewert
 
-Der Kosinus von `x`, im Bereich zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Kosinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `cos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cos()` und nicht als Methode eines selbst erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `cos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cos()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

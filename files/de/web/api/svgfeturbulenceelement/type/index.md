@@ -3,12 +3,12 @@ title: "SVGFETurbulenceElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/SVGFETurbulenceElement/type
 l10n:
-  sourceCommit: 483599780f3f906327c6082860e8c26836258990
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`type`**-Eigenschaft des [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement) Interfaces ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("type")}}-Attribut des angegebenen {{SVGElement("feTurbulence")}}-Elements widerspiegelt. Sie nimmt einen der `SVG_TURBULENCE_TYPE_*`-Konstanten an, die in diesem Interface definiert sind.
+Die **`type`**-Eigenschaft der [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("type")}}-Attribut des angegebenen {{SVGElement("feTurbulence")}}-Elements widerspiegelt. Sie nimmt einen der auf dieser Schnittstelle definierten `SVG_TURBULENCE_TYPE_*` Konstanten an.
 
 ## Wert
 
@@ -35,7 +35,7 @@ Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt.
     y="20"
     width="160"
     height="160"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#turbulenceFilter)" />
 </svg>
 ```

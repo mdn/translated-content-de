@@ -2,14 +2,14 @@
 title: Temporal.Instant()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/Instant
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
 Der **`Temporal.Instant()`** Konstruktor erstellt {{jsxref("Temporal.Instant")}} Objekte.
 
-Dieser Konstruktor ist genau äquivalent zum Aufruf von {{jsxref("Temporal/Instant/fromEpochNanoseconds", "Temporal.Instant.fromEpochNanoseconds()")}}.
+Dieser Konstruktor ist genau gleichbedeutend mit dem Aufruf von {{jsxref("Temporal/Instant/fromEpochNanoseconds", "Temporal.Instant.fromEpochNanoseconds()")}}.
 
 ## Syntax
 
@@ -17,21 +17,22 @@ Dieser Konstruktor ist genau äquivalent zum Aufruf von {{jsxref("Temporal/Insta
 new Temporal.Instant(epochNanoseconds)
 ```
 
-> **Hinweis:** `Temporal.Instant()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Temporal.Instant()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `epochNanoseconds`
-  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das die Anzahl der Nanosekunden seit der Unix-Epoche darstellt.
+  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), der die Anzahl der Nanosekunden seit der Unix-Epoche darstellt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant` Objekt, das den Zeitpunkt darstellt, der durch `epochNanoseconds` festgelegt wird.
+Ein neues `Temporal.Instant` Objekt, das den Zeitpunkt in der Zeit darstellt, der durch `epochNanoseconds` spezifiziert wird.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird geworfen, wenn `epochNanoseconds` einen Zeitpunkt außerhalb des Bereichs darstellbarer Zeitpunkte repräsentiert, welcher ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre von der Unix-Epoche entfernt ist.
+  - : Wird ausgelöst, wenn `epochNanoseconds` einen Zeitpunkt außerhalb des darstellbaren Bereichs von Zeitpunkten darstellt, der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche beträgt.
 
 ## Beispiele
 

@@ -3,17 +3,17 @@ title: "PaymentManager: enableDelegations() Methode"
 short-title: enableDelegations()
 slug: Web/API/PaymentManager/enableDelegations
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`enableDelegations()`** Methode der [`PaymentManager`](/de/docs/Web/API/PaymentManager) Schnittstelle delegiert die Verantwortung für die Bereitstellung verschiedener Teile der benötigten Zahlungsinformationen an die Zahlungs-App, anstatt diese vom Browser zu sammeln (zum Beispiel über die automatische Vervollständigung).
+Die **`enableDelegations()`** Methode des [`PaymentManager`](/de/docs/Web/API/PaymentManager) Interfaces delegiert die Verantwortung für das Bereitstellen verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungs-App, anstatt sie vom Browser (zum Beispiel über Autofill) zu sammeln.
 
-Wenn beispielsweise die `requestShipping`-Option im Optionsobjekt auf `true` gesetzt ist, wenn der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor aufgerufen wird, wird eine Versandadresse zurückgegeben.
+Zum Beispiel, wenn die Option `requestShipping` im Optionsobjekt auf `true` gesetzt ist, wenn der [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor aufgerufen wird, wird eine Lieferadresse zurückgegeben.
 
-- Wenn `enableDelegations()` verwendet wurde, um `shippingAddress` zu delegieren, kommt diese Adresse von der Zahlungs-App.
-- Andernfalls kommt sie aus der automatischen Vervollständigung des Browsers.
+- Wenn `enableDelegations()` benutzt wurde, um `shippingAddress` zu delegieren, wird diese Adresse von der Zahlungs-App bereitgestellt.
+- Andernfalls wird sie vom Browser-Autofill bereitgestellt.
 
 ## Syntax
 
@@ -24,19 +24,19 @@ enableDelegations(delegations)
 ### Parameter
 
 - `delegations` {{optional_inline}}
-  - : Ein Array, das einen oder mehrere enumerierte Werte enthält, die angeben, welche Zahlungsinformationen Sie an die Zahlungs-App delegieren möchten. Mögliche Werte können sein:
+  - : Ein Array, das einen oder mehrere aufgezählte Werte enthält, die die Zahlungsinformationen angeben, die Sie an die Zahlungs-App delegieren möchten. Mögliche Werte sind:
     - `payerEmail`
-      - : Die Zahlungs-App wird die E-Mail des Zahlenden bereitstellen, wann immer sie benötigt wird.
+      - : Die Zahlungs-App wird die E-Mail-Adresse des Zahlers bereitstellen, wenn sie benötigt wird.
     - `payerName`
-      - : Die Zahlungs-App wird den Namen des Zahlenden bereitstellen, wann immer er benötigt wird.
+      - : Die Zahlungs-App wird den Namen des Zahlers bereitstellen, wenn er benötigt wird.
     - `payerPhone`
-      - : Die Zahlungs-App wird die Telefonnummer des Zahlenden bereitstellen, wann immer sie benötigt wird.
+      - : Die Zahlungs-App wird die Telefonnummer des Zahlers bereitstellen, wenn sie benötigt wird.
     - `shippingAddress`
-      - : Die Zahlungs-App wird die Versandadresse bereitstellen, wann immer sie benötigt wird.
+      - : Die Zahlungs-App wird die Lieferadresse bereitstellen, wenn sie benötigt wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Wert von `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, der mit einem Wert von `undefined` aufgelöst wird.
 
 ## Beispiele
 
@@ -47,10 +47,10 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
   registration.paymentManager
     .enableDelegations(["shippingAddress", "payerName"])
     .then(() => {
-      // ...
+      // …
     });
 
-  // ...
+  // …
 });
 ```
 
@@ -65,8 +65,8 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 ## Siehe auch
 
 - [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Der Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Überblick über webbasierte Zahlungsanwendungen](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)

@@ -2,71 +2,71 @@
 title: Lexikalische Grammatik
 slug: Web/JavaScript/Reference/Lexical_grammar
 l10n:
-  sourceCommit: 7a8008ce9c68ca53cc6d3cfb688a5b9bcc14fecb
+  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
 ---
 
-{{jsSidebar("More")}}
+Diese Seite beschreibt die lexikalische Grammatik von JavaScript. Quelltext in JavaScript ist einfach eine Abfolge von Zeichen – damit der Interpreter ihn versteht, muss die Zeichenfolge in eine strukturiertere Darstellung _geparst_ werden. Der initiale Schritt des Parsings wird [lexikalische Analyse](https://de.wikipedia.org/wiki/Lexikalische_Analyse) genannt, bei der der Text von links nach rechts gescannt wird und in eine Abfolge individueller, atomarer Eingabeelemente umgewandelt wird. Einige Eingabeelemente sind für den Interpreter unbedeutend und werden nach diesem Schritt entfernt – dazu gehören [Leerzeichen](#leerzeichen) und [Kommentare](#kommentare). Die anderen, darunter [Identifikatoren](#identifikatoren), [Schlüsselwörter](#schlüsselwörter), [Literale](#literale) und Trennzeichen (meistens [Operatoren](/de/docs/Web/JavaScript/Reference/Operators)), werden für die weitere Syntaxanalyse verwendet. [Zeilenendzeichen](#zeilenendzeichen) und mehrzeilige Kommentare sind ebenfalls syntaktisch unbedeutend, beeinflussen jedoch den Prozess der [automatischen Semikolonsetzung](#automatische_semikolonsetzung), um bestimmte ungültige Token-Sequenzen gültig zu machen.
 
-Diese Seite beschreibt die lexikalische Grammatik von JavaScript. JavaScript-Quelltext ist nur eine Zeichenfolgen-Sequenz – damit der Interpreter sie versteht, muss die Zeichenfolge in eine strukturiertere Darstellung _geparst_ werden. Der erste Schritt des Parsens wird [lexikalische Analyse](https://de.wikipedia.org/wiki/Lexikalische_Analyse) genannt. Dabei wird der Text von links nach rechts gescannt und in eine Sequenz einzelner, atomarer Eingabeelemente umgewandelt. Einige Eingabeelemente sind für den Interpreter unbedeutend und werden nach diesem Schritt entfernt – dazu gehören [Leerzeichen](#leerzeichen) und [Kommentare](#kommentare). Andere, wie [Bezeichner](#bezeichner), [Schlüsselwörter](#schlüsselwörter), [Literale](#literale) und Interpunktionszeichen (meistens [Operatoren](/de/docs/Web/JavaScript/Reference/Operators)), werden für die weitere syntaktische Analyse verwendet. [Zeilenumbrüche](#zeilenumbrüche) und mehrzeilige Kommentare sind ebenfalls syntaktisch unbedeutend, steuern jedoch den Prozess zur [automatischen Einfügung von Semikolons](#automatische_einfügung_von_semikolons), um bestimmte ungültige Token-Sequenzen gültig zu machen.
+## Formatsteuerungszeichen
 
-## Steuerzeichen für die Formatierung
+Formatsteuerungszeichen haben keine visuelle Darstellung, werden aber verwendet, um die Interpretation des Textes zu steuern.
 
-Steuerzeichen für die Formatierung haben keine visuelle Darstellung, dienen jedoch zur Steuerung der Interpretation des Texts.
+| Codepunkt | Name                  | Abkürzung | Beschreibung                                                                                                                                                                                                    |
+| --------- | --------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| U+200C    | Zero Width Non-Joiner | \<ZWNJ>   | Wird zwischen Zeichen platziert, um zu verhindern, dass sie in bestimmten Sprachen zu Ligaturen verbunden werden ([Wikipedia](https://en.wikipedia.org/wiki/Zero-width_non-joiner)).                            |
+| U+200D    | Zero Width Joiner     | \<ZWJ>    | Wird zwischen Zeichen platziert, die normalerweise nicht verbunden werden, um sie in bestimmten Sprachen in ihrer verbundenen Form darzustellen ([Wikipedia](https://en.wikipedia.org/wiki/Zero-width_joiner)). |
+| U+FEFF    | Byte Order Mark       | \<BOM>    | Wird am Anfang eines Skripts verwendet, um es als Unicode zu markieren und die Erkennung der Textkodierung und Byte-Reihenfolge zu ermöglichen ([Wikipedia](https://en.wikipedia.org/wiki/Byte_order_mark)).    |
 
-| Codepunkt | Name                  | Abkürzung | Beschreibung                                                                                                                                                                                                |
-| --------- | --------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| U+200C    | Zero width non-joiner | \<ZWNJ>   | Zwischen Zeichen platziert, um deren Verbindung zu Ligaturen in bestimmten Sprachen zu verhindern ([Wikipedia](https://en.wikipedia.org/wiki/Zero-width_non-joiner)).                                       |
-| U+200D    | Zero width joiner     | \<ZWJ>    | Zwischen Zeichen platziert, die sich normalerweise nicht verbinden, um sie in bestimmten Sprachen in ihrer verbundenen Form darzustellen ([Wikipedia](https://en.wikipedia.org/wiki/Zero-width_joiner)).    |
-| U+FEFF    | Byte order mark       | \<BOM>    | Dient am Anfang eines Skripts dazu, es als Unicode zu kennzeichnen, und ermöglicht die Erkennung der Codierung und Byte-Reihenfolge des Texts ([Wikipedia](https://de.wikipedia.org/wiki/Byte_Order_Mark)). |
-
-Im JavaScript-Quelltext werden \<ZWNJ> und \<ZWJ> als [Bezeichner](#bezeichner)-Bestandteile interpretiert, während \<BOM> (auch als Zero-width no-break space \<ZWNBSP> bezeichnet, wenn es nicht am Anfang eines Skripts steht) als [Leerzeichen](#leerzeichen) behandelt wird.
+Im JavaScript-Quelltext werden \<ZWNJ> und \<ZWJ> als [Identifier](#identifikatoren) Teile behandelt, während \<BOM> (auch als Zero Width No-Break Space \<ZWNBSP> bezeichnet, wenn es nicht am Anfang des Textes steht) als [Leerzeichen](#leerzeichen) behandelt wird.
 
 ## Leerzeichen
 
-{{Glossary("Whitespace", "Leerzeichen")}}-Zeichen verbessern die Lesbarkeit des Quelltexts und trennen Token voneinander. Diese Zeichen sind für die Funktionalität des Codes in der Regel nicht notwendig. [Minifizierungs-Tools](https://de.wikipedia.org/wiki/Minification_%28programming%29) werden häufig verwendet, um Leerzeichen zu entfernen und die zu übertragende Datenmenge zu reduzieren.
+{{Glossary("Whitespace", "Leerzeichen")}} verbessern die Lesbarkeit von Quelltext und trennen Token voneinander. Diese Zeichen sind für die Funktionalität des Codes normalerweise nicht notwendig. [Optimierungstools](https://de.wikipedia.org/wiki/Minification_%28programming%29) werden häufig verwendet, um Leerzeichen zu entfernen und die zu übertragende Datenmenge zu verringern.
 
-| Codepunkt | Name                       | Abkürzung | Beschreibung                                                                                                | Escape-Sequenz |
-| --------- | -------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | -------------- |
-| U+0009    | Character tabulation       | \<TAB>    | Horizontale Tabulation                                                                                      | \t             |
-| U+000B    | Line tabulation            | \<VT>     | Vertikale Tabulation                                                                                        | \v             |
-| U+000C    | Form feed                  | \<FF>     | Steuerzeichen für Seitenumbruch ([Wikipedia](https://en.wikipedia.org/wiki/Page_break#Form_feed)).          | \f             |
-| U+0020    | Space                      | \<SP>     | Normales Leerzeichen                                                                                        |                |
-| U+00A0    | No-break space             | \<NBSP>   | Normales Leerzeichen, jedoch kein Punkt für einen Zeilenumbruch                                             |                |
-| U+FEFF    | Zero-width no-break space  | \<ZWNBSP> | Wenn sich das BOM-Zeichen nicht am Anfang eines Skripts befindet, ist es ein normales Leerzeichen.          |                |
-| Andere    | Andere Unicode-Leerzeichen | \<USP>    | Zeichen in der allgemeinen Kategorie "Space_Separator" ([Zeichensatz der Leerzeichen][space separator set]) |                |
+| Codepunkt | Name                         | Abkürzung | Beschreibung                                                                         | Escape-Sequenz |
+| --------- | ---------------------------- | --------- | ------------------------------------------------------------------------------------ | -------------- |
+| U+0009    | Zeichen-Tabulator            | \<TAB>    | Horizontale Tabulator                                                                | \t             |
+| U+000B    | Zeilen-Tabulator             | \<VT>     | Vertikale Tabulator                                                                  | \v             |
+| U+000C    | Form Feed                    | \<FF>     | Seitenumbruchs-Steuerzeichen ([Wikipedia](https://de.wikipedia.org/wiki/Form_Feed)). | \f             |
+| U+0020    | Raum                         | \<SP>     | Normaler Raum                                                                        |                |
+| U+00A0    | Geschützter Raum             | \<NBSP>   | Normaler Raum, bei dem keine Zeilenumbrüche erlaubt sind                             |                |
+| U+FEFF    | Nullbreiten-Nicht-Trenn-Raum | \<ZWNBSP> | Wenn nicht am Anfang eines Skripts, ist das BOM-Markierung ein normales Leerzeichen. |                |
+| Andere    | Andere Unicode-Leerzeichen   | \<USP>    | [Zeichen in der "Space_Separator" allgemeinen Kategorie][space separator set]        |                |
 
 [space separator set]: https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BGeneral_Category%3DSpace_Separator%7D
 
 > [!NOTE]
-> Von den [Zeichen mit der Eigenschaft "White_Space", die jedoch nicht in der allgemeinen Kategorie "Space_Separator" sind](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BWhite_Space%7D%26%5CP%7BGeneral_Category%3DSpace_Separator%7D), werden U+0009, U+000B und U+000C dennoch in JavaScript als Leerzeichen behandelt; U+0085 NEXT LINE hat keine spezielle Rolle; andere werden Teil der [Zeilenumbrüche](#zeilenumbrüche).
+> Von diesen [Zeichen mit der Eigenschaft "White_Space", die nicht in der allgemeinen Kategorie "Space_Separator" liegen](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BWhite_Space%7D%26%5CP%7BGeneral_Category%3DSpace_Separator%7D) werden U+0009, U+000B und U+000C immer noch als Leerzeichen in JavaScript behandelt; U+0085 NEXT LINE hat keine spezielle Rolle; andere werden zur Gruppe der [Zeilenendzeichen](#zeilenendzeichen) hinzugefügt.
 
 > [!NOTE]
-> Änderungen am Unicode-Standard, der von der JavaScript-Engine verwendet wird, können das Verhalten von Programmen beeinflussen. Zum Beispiel hat ES2016 den referenzierten Unicode-Standard von 5.1 auf 8.0.0 aktualisiert, wodurch U+180E MONGOLIAN VOWEL SEPARATOR von der Kategorie "Space_Separator" zur Kategorie "Format (Cf)" verschoben wurde und nicht mehr als Leerzeichen gilt. Infolgedessen änderte sich das Ergebnis von [`"\u180E".trim().length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/trim) von `0` zu `1`.
+> Änderungen am Unicode-Standard, der von der JavaScript-Engine verwendet wird, können das Verhalten von Programmen beeinflussen. Beispielsweise hat ES2016 den Unicode-Referenzstandard von 5.1 auf 8.0.0 aktualisiert, was dazu führte, dass U+180E MONGOLIAN VOWEL SEPARATOR von der Kategorie "Space_Separator" in die "Format (Cf)" Kategorie verschoben wurde und es zu einem Nicht-Leerzeichen machte. Infolgedessen änderte sich das Ergebnis von [`"\u180E".trim().length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/trim) von `0` auf `1`.
 
-## Zeilenumbrüche
+## Zeilenendzeichen
 
-Zusätzlich zu [Leerzeichen](#leerzeichen)-Zeichen werden Zeilenumbruchzeichen verwendet, um die Lesbarkeit des Quelltexts zu verbessern. In einigen Fällen können Zeilenumbrüche die Ausführung von JavaScript-Code beeinflussen, da es einige Stellen gibt, an denen sie verboten sind. Zeilenumbrüche wirken sich auch auf den Prozess der [automatischen Einfügung von Semikolons](#automatische_einfügung_von_semikolons) aus.
+Neben [Leerzeichen](#leerzeichen)-Zeichen werden Zeilenendzeichen verwendet, um die Lesbarkeit des Quelltextes zu verbessern. In einigen Fällen können Zeilenendzeichen jedoch auch die Ausführung von JavaScript-Code beeinflussen, da es einige Stellen gibt, an denen sie nicht erlaubt sind. Zeilenendzeichen beeinflussen auch den Prozess der [automatischen Semikolonsetzung](#automatische_semikolonsetzung).
 
-Außerhalb des Zusammenhangs der lexikalischen Grammatik werden Leerzeichen und Zeilenumbrüche oft miteinander vermischt. Zum Beispiel entfernt {{jsxref("String.prototype.trim()")}} alle Leerzeichen und Zeilenumbrüche vom Anfang und Ende eines Strings. Die `\s`-[Zeichenklassen-Escape](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) in regulären Ausdrücken gibt ebenfalls alle Leerzeichen und Zeilenumbrüche zurück.
+Außerhalb des Kontexts der lexikalischen Grammatik werden Leerzeichen und Zeilenendzeichen oft zusammengefasst. Zum Beispiel entfernt {{jsxref("String.prototype.trim()")}} alle Leerzeichen und Zeilenendzeichen vom Anfang und Ende eines Strings. Die `\s` [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) in regulären Ausdrücken passt auf alle Leerzeichen und Zeilenendzeichen.
 
-Nur die folgenden Unicode-Codepunkte werden in ECMAScript als Zeilenumbrüche behandelt; andere Zeichen, die einem Zeilenumbruch ähneln, werden als Leerzeichen behandelt (zum Beispiel wird Next Line, NEL, U+0085 als Leerzeichen betrachtet).
+Nur die folgenden Unicode-Codepunkte werden in ECMAScript als Zeilenendzeichen behandelt, andere Umbruchzeichen werden als Leerzeichen betrachtet (zum Beispiel wird U+0085 als Leerzeichen betrachtet).
 
-| Codepunkt | Name                | Abkürzung | Beschreibung                                       | Escape-Sequenz |
-| --------- | ------------------- | --------- | -------------------------------------------------- | -------------- |
-| U+000A    | Line Feed           | \<LF>     | Neue Zeile in UNIX-Systemen.                       | \n             |
-| U+000D    | Carriage Return     | \<CR>     | Neue Zeile in Commodore- und frühen Mac-Systemen.  | \r             |
-| U+2028    | Line Separator      | \<LS>     | [Wikipedia](https://en.wikipedia.org/wiki/Newline) |                |
-| U+2029    | Paragraph Separator | \<PS>     | [Wikipedia](https://en.wikipedia.org/wiki/Newline) |                |
+| Codepunkt | Name           | Abkürzung | Beschreibung                                               | Escape-Sequenz |
+| --------- | -------------- | --------- | ---------------------------------------------------------- | -------------- |
+| U+000A    | Line Feed      | \<LF>     | Neues Zeilenzeichen in UNIX-Systemen.                      | \n             |
+| U+000D    | Wagenrücklauf  | \<CR>     | Neues Zeilenzeichen in Commodore- und frühen Mac-Systemen. | \r             |
+| U+2028    | Zeilen-Trenner | \<LS>     | [Wikipedia](https://de.wikipedia.org/wiki/Zeilenumbruch)   |                |
+| U+2029    | Absatz-Trenner | \<PS>     | [Wikipedia](https://de.wikipedia.org/wiki/Zeilenumbruch)   |                |
 
 ## Kommentare
 
-Kommentare werden verwendet, um Hinweise, Notizen, Vorschläge oder Warnungen zu JavaScript-Code hinzuzufügen. Dadurch werden sie einfacher zu lesen und zu verstehen. Kommentare können auch verwendet werden, um Code zu deaktivieren und so dessen Ausführung zu verhindern; dies kann ein wertvolles Debugging-Tool sein.
+Kommentare werden verwendet, um Hinwe...
 
-JavaScript bietet zwei langjährige Methoden, um Kommentare zu erstellen: Zeilenkommentare und Blockkommentare. Zusätzlich gibt es eine spezielle Hashbang-Kommentarsyntax.
+Kommentare werden verwendet, um Hinweise, Anmerkungen, Vorschläge oder Warnungen im JavaScript-Code hinzuzufügen. Dies kann es leichter machen, den Code zu lesen und zu verstehen. Sie können auch verwendet werden, um Code zu deaktivieren, damit er nicht ausgeführt wird; dies kann ein wertvolles Debugging-Tool sein.
+
+JavaScript bietet zwei altbewährte Möglichkeiten, um Kommentare zum Code hinzuzufügen: Zeilenkommentare und Blockkommentare. Außerdem gibt es eine spezielle Hashbang-Kommentar-Syntax.
 
 ### Zeilenkommentare
 
-Die erste Methode ist der `//`-Kommentar. Dieser macht den gesamten Text, der ihm auf derselben Zeile folgt, zu einem Kommentar. Zum Beispiel:
+Die erste Möglichkeit ist der `//`-Kommentar; dieser macht den gesamten Text, der ihm in derselben Zeile folgt, zu einem Kommentar. Zum Beispiel:
 
 ```js
 function comment() {
@@ -78,9 +78,9 @@ comment();
 
 ### Blockkommentare
 
-Die zweite Methode ist der `/* */`-Stil, der viel flexibler ist.
+Die zweite Möglichkeit ist die `/* */`-Syntax, die viel flexibler ist.
 
-Beispielsweise lässt er sich in einer einzigen Zeile verwenden:
+Zum Beispiel können Sie sie in einer einzelnen Zeile verwenden:
 
 ```js
 function comment() {
@@ -90,7 +90,7 @@ function comment() {
 comment();
 ```
 
-Er kann auch für mehrere Zeilen genutzt werden, wie dieses Beispiel zeigt:
+Sie können auch mehrzeilige Kommentare erstellen, wie dieser:
 
 ```js
 function comment() {
@@ -101,7 +101,7 @@ function comment() {
 comment();
 ```
 
-Er kann auch mitten in einer Zeile verwendet werden, obwohl dies die Lesbarkeit erschweren kann, daher sollte es mit Vorsicht verwendet werden:
+Sie können sie auch in der Mitte einer Zeile verwenden, wenn Sie möchten, obwohl dies Ihren Code schwerer lesbar machen kann, daher sollte es mit Vorsicht verwendet werden:
 
 ```js
 function comment(x) {
@@ -110,7 +110,7 @@ function comment(x) {
 comment("world");
 ```
 
-Darüber hinaus können Blockkommentare genutzt werden, um Code zu deaktivieren und so dessen Ausführung zu verhindern, indem Code in einem Kommentar eingebettet wird, etwa so:
+Darüber hinaus können Sie sie verwenden, um Code zu deaktivieren, um ihn an der Ausführung zu hindern, indem Sie ihn in einen Kommentar einwickeln, wie dieser:
 
 ```js
 function comment() {
@@ -119,15 +119,15 @@ function comment() {
 comment();
 ```
 
-In diesem Fall wird der Aufruf von `console.log()` niemals ausgeführt, da er sich in einem Kommentar befindet. Jede Anzahl von Codezeilen kann auf diese Weise deaktiviert werden.
+In diesem Fall wird der `console.log()`-Aufruf nie ausgeführt, da er in einem Kommentar steht. Jede Anzahl von Codezeilen kann auf diese Weise deaktiviert werden.
 
-Blockkommentare, die mindestens einen Zeilenumbruch enthalten, verhalten sich in der [automatischen Einfügung von Semikolons](#automatische_einfügung_von_semikolons) wie [Zeilenumbrüche](#zeilenumbrüche).
+Blockkommentare, die mindestens ein Zeilenendezeichen enthalten, verhalten sich wie [Zeilenendzeichen](#zeilenendzeichen) in der [automatischen Semikolonsetzung](#automatische_semikolonsetzung).
 
 ### Hashbang-Kommentare
 
-Es gibt eine spezielle dritte Kommentarsyntax, den **Hashbang-Kommentar**. Ein Hashbang-Kommentar verhält sich genau wie ein zeilenbegrenzender Kommentar (`//`), beginnt jedoch mit `#!` und **ist nur am absoluten Anfang eines Skripts oder Moduls gültig**. Es darf sich auch kein Leerzeichen vor dem `#!` befinden. Der Kommentar besteht aus allen Zeichen, die auf `#!` bis zum Ende der ersten Zeile folgen; nur ein einziger solcher Kommentar ist zulässig.
+Es gibt eine besondere dritte Kommentar-Syntax, den **Hashbang-Kommentar**. Ein Hashbang-Kommentar verhält sich genau wie ein Zeilenkommentar (`//`), außer dass er mit `#!` beginnt und **nur am absoluten Anfang eines Skripts oder Moduls gültig ist**. Beachten Sie auch, dass vor dem `#!` keine Leerzeichen jeglicher Art erlaubt sind. Der Kommentar besteht aus allen Zeichen nach `#!` bis zum Ende der ersten Zeile; es ist nur ein solcher Kommentar erlaubt.
 
-Hashbang-Kommentare in JavaScript ähneln [Shebangs in Unix](<https://de.wikipedia.org/wiki/Shebang_(Unix)>), mit denen der Pfad zu einem bestimmten JavaScript-Interpreter angegeben wird, der zur Ausführung des Skripts genutzt werden soll. Bevor der Hashbang-Kommentar standardisiert wurde, war er de-facto in Nicht-Browser-Umgebungen wie Node.js implementiert, wo er aus dem Quelltext entfernt wurde, bevor er an die Engine weitergegeben wurde. Ein Beispiel:
+Hashbang-Kommentare in JavaScript ähneln [Shebangs in Unix](<https://en.wikipedia.org/wiki/Shebang_(Unix)>) die den Pfad zu einem spezifischen JavaScript-Interpreter bereitstellen, den Sie zur Ausführung des Skripts verwenden wollen. Bevor der Hashbang-Kommentar standardisiert wurde, war er bereits de-facto in Nicht-Browser-Hosts wie Node.js implementiert, wo er aus dem Quelltext entfernt wurde, bevor er an die Engine weitergeleitet wurde. Ein Beispiel ist wie folgt:
 
 ```js
 #!/usr/bin/env node
@@ -135,16 +135,16 @@ Hashbang-Kommentare in JavaScript ähneln [Shebangs in Unix](<https://de.wikiped
 console.log("Hello world");
 ```
 
-Der JavaScript-Interpreter wird ihn als normalen Kommentar behandeln – eine semantische Bedeutung hat er nur für die Shell, wenn das Skript direkt in einer Shell ausgeführt wird.
+Der JavaScript-Interpreter wird es wie einen normalen Kommentar behandeln – es hat nur semantische Bedeutung für die Shell, wenn das Skript direkt in einer Shell ausgeführt wird.
 
 > [!WARNING]
-> Wenn Skripts direkt in einer Shell-Umgebung ausführbar sein sollen, kodieren Sie diese in UTF-8 ohne ein [BOM](https://de.wikipedia.org/wiki/Byte_Order_Mark). Obwohl ein BOM im Browser keinen Schaden anrichtet – da es während der UTF-8-Dekodierung entfernt wird, bevor der Quelltext analysiert wird – wird ein Unix/Linux-Shell das Hashbang nicht erkennen, wenn es von einem BOM-Zeichen eingeleitet wird.
+> Wenn Sie möchten, dass Skripte direkt in einer Shell-Umgebung ausführbar sind, kodieren Sie sie in UTF-8 ohne ein [BOM](https://en.wikipedia.org/wiki/Byte_order_mark). Obwohl ein BOM keinen Problemen für im Browser laufenden Code verursacht – weil es während der UTF-8 Dekodierung entfernt wird, bevor der Quelltext analysiert wird – erkennt eine Unix/Linux-Shell den Hashbang nicht, wenn er von einem BOM-Zeichen vorangestellt wird.
 
-Die `#!`-Kommentarsyntax soll nur verwendet werden, um einen JavaScript-Interpreter zu spezifizieren. Für alle anderen Fälle nutzen Sie einfach einen `//`-Kommentar (oder mehrzeiligen Kommentar).
+Sie müssen den `#!`-Kommentarstil nur verwenden, um einen JavaScript-Interpreter anzugeben. In allen anderen Fällen verwenden Sie einfach einen `//`-Kommentar (oder mehrzeiligen Kommentar).
 
-## Bezeichner
+## Identifikatoren
 
-Ein _Bezeichner_ wird verwendet, um einen Wert mit einem Namen zu verknüpfen. Bezeichner können an verschiedenen Stellen verwendet werden:
+Ein _Identifikator_ wird verwendet, um einem Wert einen Namen zuzuweisen. Identifikatoren können an verschiedenen Stellen verwendet werden:
 
 ```js
 const decl = 1; // Variable declaration (may also be `let` or `var`)
@@ -152,33 +152,33 @@ function fn() {} // Function declaration
 const obj = { key: "value" }; // Object keys
 // Class declaration
 class C {
-  #priv = "value"; // Private property
+  #priv = "value"; // Private field
 }
 lbl: console.log(1); // Label
 ```
 
-In JavaScript bestehen Bezeichner üblicherweise aus alphanumerischen Zeichen, Unterstrichen (`_`) und Dollarzeichen (`$`). Sie dürfen nicht mit einer Zahl beginnen. JavaScript-Bezeichner sind jedoch nicht nur auf {{Glossary("ASCII", "ASCII")}} beschränkt – viele Unicode-Codepunkte sind ebenfalls zulässig. Insbesondere:
+In JavaScript bestehen Identifikatoren üblicherweise aus alphanumerischen Zeichen, Unterstrichen (`_`) und Dollarzeichen (`$`). Identifikatoren dürfen nicht mit Zahlen beginnen. JavaScript-Identifikatoren sind jedoch nicht nur auf {{Glossary("ASCII", "ASCII")}} beschränkt – viele Unicode-Codepunkte sind ebenfalls erlaubt. Nämlich:
 
-- Startzeichen können jedes Zeichen in der Kategorie [ID_Start](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Start%7D) plus `_` und `$` sein.
-- Nach dem ersten Zeichen können alle Zeichen in der Kategorie [ID_Continue](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Continue%7D) plus U+200C (ZWNJ) und U+200D (ZWJ) verwendet werden.
+- Startzeichen können jedes Zeichen in der [ID_Start](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Start%7D)-Kategorie plus `_` und `$` sein.
+- Nach dem ersten Zeichen können Sie jedes Zeichen in der [ID_Continue](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Continue%7D)-Kategorie plus U+200C (ZWNJ) und U+200D (ZWJ) verwenden.
 
 > [!NOTE]
-> Falls Sie aus irgendeinem Grund JavaScript-Quelltext selbst analysieren müssen, gehen Sie nicht davon aus, dass alle Bezeichner dem Muster `/[A-Za-z_$][\w$]*/` (also nur ASCII!) folgen. Der Bereich der Bezeichner kann durch das Regex `/[$_\p{ID_Start}][$\p{ID_Continue}]*/u` (ohne Unicode-Escape-Sequenzen) beschrieben werden.
+> Wenn Sie aus irgendeinem Grund selbst JavaScript-Quellcode parsen müssen, nehmen Sie nicht an, dass alle Identifikatoren dem Muster `/[A-Za-z_$][\w$]*/` (d.h. nur ASCII) folgen! Der Bereich der Identifikatoren kann durch den regulären Ausdruck `/[$_\p{ID_Start}][$\p{ID_Continue}]*/u` (ohne Unicode-Escape-Sequenzen) beschrieben werden.
 
-Darüber hinaus erlaubt JavaScript die Verwendung von [Unicode-Escape-Sequenzen](#unicode-escape-sequenzen) in der Form `\u0000` oder `\u{000000}` in Bezeichnern, die denselben Zeichenfolgenwert wie die tatsächlichen Unicode-Zeichen codieren. Zum Beispiel sind `你好` und `\u4f60\u597d` dieselben Bezeichner.
+Darüber hinaus erlaubt JavaScript die Verwendung von [Unicode-Escape-Sequenzen](#unicode-escape-sequenzen) in der Form `\u0000` oder `\u{000000}` in Identifikatoren, die denselben Zeichenfolgenwert wie die eigentlichen Unicode-Zeichen kodieren. Zum Beispiel sind `你好` und `\u4f60\u597d` dieselben Identifikatoren:
 
 ```js-nolint
 const 你好 = "Hello";
 console.log(\u4f60\u597d); // Hello
 ```
 
-Nicht an allen Stellen ist der gesamte Bereich der Bezeichner zulässig. Bestimmte Syntaxen wie Funktionsdeklarationen, Funktionsausdrücke und Variablendeklarationen erfordern Bezeichnernamen, die keine [reservierten Wörter](#reservierte_wörter) sind.
+Nicht alle Stellen akzeptieren den vollständigen Bereich der Identifikatoren. Bestimmte Syntaxen, wie Funktionsdeklarationen, Funktionsausdrücke und Variablendeklarationen, erfordern die Verwendung von Identifikatornamen, die keine [reservierten Wörter](#reservierte_wörter) sind.
 
 ```js-nolint example-bad
 function import() {} // Illegal: import is a reserved word.
 ```
 
-Am auffälligsten ist, dass private Eigenschaften und Objekt-Eigenschaften reservierte Wörter zulassen.
+Am bemerkenswertesten ist, dass private Elemente und Objekteigenschaften reservierte Wörter zulassen.
 
 ```js
 const obj = { import: "value" }; // Legal despite `import` being reserved
@@ -189,11 +189,11 @@ class C {
 
 ## Schlüsselwörter
 
-_Schlüsselwörter_ sind Token, die wie Bezeichner aussehen, aber spezielle Bedeutungen in JavaScript haben. Beispiel: Das Schlüsselwort [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) vor einer Funktionsdeklaration zeigt an, dass die Funktion asynchron ist.
+_Schlüsselwörter_ sind Token, die wie Identifikatoren aussehen, jedoch spezielle Bedeutungen in JavaScript haben. Zum Beispiel zeigt das Schlüsselwort [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) vor einer Funktionsdeklaration an, dass die Funktion asynchron ist.
 
-Einige Schlüsselwörter sind _reserviert_, was bedeutet, dass sie nicht als Bezeichner für Variablendeklarationen, Funktionsdeklarationen usw. verwendet werden können. Sie werden oft _reservierte Wörter_ genannt. [Eine Liste dieser reservierten Wörter](#reservierte_wörter) ist unten aufgeführt. Nicht alle Schlüsselwörter sind reserviert – z. B. kann `async` überall als Bezeichner verwendet werden. Einige Schlüsselwörter sind nur _kontextuell reserviert_ – z. B. ist `await` nur im Körper einer async-Funktion reserviert, und `let` ist nur in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-Code oder `const`- und `let`-Deklarationen reserviert.
+Einige Schlüsselwörter sind _reserviert_, was bedeutet, dass sie nicht als Identifikator für Variablendeklarationen, Funktionsdeklarationen usw. verwendet werden können. Sie werden oft _reservierte Wörter_ genannt. [Eine Liste dieser reservierten Wörter](#reservierte_wörter) wird unten bereitgestellt. Nicht alle Schlüsselwörter sind reserviert – zum Beispiel kann `async` überall als Identifikator verwendet werden. Einige Schlüsselwörter sind nur _kontextuell reserviert_ – zum Beispiel ist `await` nur innerhalb des Körpers einer asynchronen Funktion reserviert, und `let` ist nur im [Strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) oder in `const`- und `let`-Deklarationen reserviert.
 
-Bezeichner werden immer anhand ihres _Zeichenkettenwerts_ verglichen, sodass Escape-Sequenzen interpretiert werden. Beispiel: Das folgende bleibt ein Syntaxfehler:
+Identifikatoren werden immer mit _Zeichenfolgenwerten_ verglichen, weshalb Escape-Sequenzen interpretiert werden. Zum Beispiel ist dies immer noch ein Syntaxfehler:
 
 ```js-nolint example-bad
 const els\u{65} = 1;
@@ -202,7 +202,7 @@ const els\u{65} = 1;
 
 ### Reservierte Wörter
 
-Diese Schlüsselwörter können nicht als Bezeichner für Variablen, Funktionen, Klassen usw. in einem JavaScript-Quelltext verwendet werden.
+Diese Schlüsselwörter können nicht als Identifikatoren für Variablen, Funktionen, Klassen usw. irgendwo im JavaScript-Quelltext verwendet werden.
 
 - {{jsxref("Statements/break", "break")}}
 - {{jsxref("Statements/switch", "case")}}
@@ -240,25 +240,25 @@ Diese Schlüsselwörter können nicht als Bezeichner für Variablen, Funktionen,
 - {{jsxref("Statements/while", "while")}}
 - {{jsxref("Statements/with", "with")}}
 
-Die folgenden Schlüsselwörter sind nur reserviert, wenn sie in strict mode-Code gefunden werden:
+Die folgenden sind nur im Strikten Modus reserviert:
 
-- {{jsxref("Statements/let", "let")}} (auch reserviert in `const`-, `let`- und Klassen-Deklarationen)
+- {{jsxref("Statements/let", "let")}} (auch reserviert in `const`, `let` und Klassendeklarationen)
 - [`static`](/de/docs/Web/JavaScript/Reference/Classes/static)
-- {{jsxref("Operators/yield", "yield")}} (auch reserviert in Generator-Funktionen)
+- {{jsxref("Operators/yield", "yield")}} (auch reserviert in Generatorfunktionen)
 
-Die folgenden sind nur reserviert, wenn sie in Modulcode oder im Körper von async Funktionen gefunden werden:
+Die folgenden sind nur reserviert in Modulcode oder innerhalb des Körpers von asynchronen Funktionen:
 
 - [`await`](/de/docs/Web/JavaScript/Reference/Operators/await)
 
 ### Zukünftig reservierte Wörter
 
-Die folgenden Wörter sind vom ECMAScript-Standard als zukünftige Schlüsselwörter reserviert. Sie haben derzeit keine spezielle Funktionalität, könnten aber in Zukunft genutzt werden, und dürfen daher nicht als Bezeichner verwendet werden.
+Die folgenden sind von der ECMAScript-Spezifikation als zukünftige Schlüsselwörter reserviert. Sie haben derzeit keine spezielle Funktionalität, aber möglicherweise in Zukunft, daher können sie nicht als Identifikatoren verwendet werden.
 
 Diese sind immer reserviert:
 
 - `enum`
 
-Die folgenden sind nur in strict mode-Code reserviert:
+Die folgenden sind nur im Strikten Modus reserviert:
 
 - `implements`
 - `interface`
@@ -267,9 +267,9 @@ Die folgenden sind nur in strict mode-Code reserviert:
 - `protected`
 - `public`
 
-#### In älteren Standards reservierte Wörter
+#### In älteren Standards reservierte zukünftige Wörter
 
-Die folgenden Wörter sind von älteren ECMAScript-Spezifikationen (ECMAScript 1 bis 3) als zukünftige Schlüsselwörter reserviert:
+Die folgenden sind von älteren ECMAScript-Spezifikationen (ECMAScript 1 bis 3) als zukünftige Schlüsselwörter reserviert worden.
 
 - `abstract`
 - `boolean`
@@ -288,14 +288,14 @@ Die folgenden Wörter sind von älteren ECMAScript-Spezifikationen (ECMAScript 1
 - `transient`
 - `volatile`
 
-### Bezeichner mit besonderen Bedeutungen
+### Identifikatoren mit spezieller Bedeutung
 
-Einige Bezeichner haben eine besondere Bedeutung in bestimmten Kontexten, ohne reservierte Wörter zu sein. Dazu gehören:
+Einige wenige Identifikatoren haben in bestimmten Kontexten eine besondere Bedeutung, ohne dass es sich um reservierte Wörter handelt. Dazu gehören:
 
-- {{jsxref("Functions/arguments", "arguments")}} (kein Schlüsselwort, kann jedoch im strict mode nicht als Bezeichner deklariert werden)
+- {{jsxref("Functions/arguments", "arguments")}} (kein Schlüsselwort, darf im Strikten Modus aber nicht als Identifikator deklariert werden)
 - `as` ([`import * as ns from "mod"`](/de/docs/Web/JavaScript/Reference/Statements/import#namespace_import))
 - [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)
-- {{jsxref("Global_Objects/eval", "eval")}} (kein Schlüsselwort, kann jedoch im strict mode nicht als Bezeichner deklariert werden)
+- {{jsxref("Global_Objects/eval", "eval")}} (kein Schlüsselwort, kann im Strikten Modus aber nicht als Identifikator deklariert werden)
 - `from` ([`import x from "mod"`](/de/docs/Web/JavaScript/Reference/Statements/import))
 - {{jsxref("Functions/get", "get")}}
 - [`of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)
@@ -304,7 +304,7 @@ Einige Bezeichner haben eine besondere Bedeutung in bestimmten Kontexten, ohne r
 ## Literale
 
 > [!NOTE]
-> Dieser Abschnitt behandelt Literale, die atomare Token sind. [Objekt-Literale](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) und [Array-Literale](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array#array_literal_notation) sind [Ausdrücke](/de/docs/Web/JavaScript/Reference/Operators), die aus einer Reihe von Token bestehen.
+> Dieser Abschnitt behandelt Literale, die atomare Token sind. [Objektliterale](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) und [Array-Literale](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array#array_literal_notation) sind [Ausdrücke](/de/docs/Web/JavaScript/Reference/Operators), die aus einer Reihe von Token bestehen.
 
 ### Null-Literal
 
@@ -316,7 +316,7 @@ null
 
 ### Boolean-Literal
 
-Siehe auch [Boolean-Typ](/de/docs/Web/JavaScript/Data_structures#boolean_type) für weitere Informationen.
+Siehe auch [boolescher Typ](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type) für weitere Informationen.
 
 ```js-nolint
 true
@@ -325,7 +325,7 @@ false
 
 ### Numerische Literale
 
-Die [Number](/de/docs/Web/JavaScript/Data_structures#number_type)- und [BigInt](/de/docs/Web/JavaScript/Data_structures#bigint_type)-Typen verwenden numerische Literale.
+Die [Number](/de/docs/Web/JavaScript/Guide/Data_structures#number_type)- und [BigInt](/de/docs/Web/JavaScript/Guide/Data_structures#bigint_type)-Typen verwenden numerische Literale.
 
 #### Dezimal
 
@@ -334,7 +334,7 @@ Die [Number](/de/docs/Web/JavaScript/Data_structures#number_type)- und [BigInt](
 42
 ```
 
-Dezimal-Literale können mit einer Null (`0`) beginnen, gefolgt von einer weiteren Dezimalstelle. Wenn jedoch alle Ziffern nach der führenden `0` kleiner als 8 sind, wird die Zahl als Oktalzahl interpretiert. Dies gilt als veraltete Syntax, und Zahlenliterale, die mit `0` beginnen, führen in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode#legacy_octal_literals) zu einem Syntaxfehler – verwenden Sie stattdessen das Präfix `0o`.
+Dezimalliterale können mit einer Null (`0`) beginnen, gefolgt von einer weiteren Dezimalziffer, aber wenn alle Ziffern nach der führenden `0` kleiner als 8 sind, wird die Zahl als Oktalzahl interpretiert. Dies wird als Legacy-Syntax betrachtet, und Zahlenliterale, die mit `0` beginnen, führen im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#legacy_octal_literals) zu einem Syntaxfehler – verwenden Sie daher stattdessen das Präfix `0o`.
 
 ```js-nolint example-bad
 0888 // 888 parsed as decimal
@@ -343,7 +343,7 @@ Dezimal-Literale können mit einer Null (`0`) beginnen, gefolgt von einer weiter
 
 ##### Exponential
 
-Das dezimale exponential-Literal wird im folgenden Format angegeben: `beN`; wobei `b` eine Basiszahl (Ganzzahl oder Gleitkomma) ist, gefolgt von einem `E` oder `e` (der als Trennzeichen oder _Exponenten-Indikator_ dient) und `N`, welches die _Exponent-_ oder _Potenz-Zahl_ ist – eine vorzeichenbehaftete Ganzzahl.
+Das dezimale Exponentialliteral wird durch das folgende Format spezifiziert: `beN`; wobei `b` eine Basenummer (ganz oder fließend) ist, gefolgt von einem `E` oder `e`-Zeichen (das als Trennzeichen oder _Exponenten-Indikator_ dient) und `N`, das der _Exponenten_ oder _Potenz_ ist – eine ganze Zahl mit Vorzeichen.
 
 ```js-nolint
 0e-5   // 0
@@ -357,7 +357,7 @@ Das dezimale exponential-Literal wird im folgenden Format angegeben: `beN`; wobe
 
 #### Binär
 
-Der binäre Zahlensyntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "B" (`0b` oder `0B`). Jedes Zeichen nach "`0b`", das nicht `0` oder `1` ist, beendet die Reihenfolge des Literals.
+Die Binärzahlsyntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "B" (`0b` oder `0B`). Jedes Zeichen nach dem `0b`, das nicht 0 oder 1 ist, beendet die Literalfolge.
 
 ```js-nolint
 0b10000000000000000000000000000000 // 2147483648
@@ -367,7 +367,7 @@ Der binäre Zahlensyntax verwendet eine führende Null, gefolgt von einem kleine
 
 #### Oktal
 
-Die oktale Zahlensyntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "O" (`0o` oder `0O`). Jedes Zeichen außerhalb des Bereichs (01234567) beendet die Reihenfolge des Literals.
+Die Oktalzahlsyntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "O" (`0o` oder `0O`). Jedes Zeichen nach dem `0o`, das außerhalb des Bereichs (01234567) liegt, beendet die Literalfolge.
 
 ```js-nolint
 0O755 // 493
@@ -376,17 +376,17 @@ Die oktale Zahlensyntax verwendet eine führende Null, gefolgt von einem kleinen
 
 #### Hexadezimal
 
-Die hexadezimale Zahlensyntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "X" (`0x` oder `0X`). Jedes Zeichen außerhalb des Bereichs (0123456789ABCDEF) beendet die Reihenfolge des Literals.
+Die Hexadezimalzahlsyntax verwendet eine führende Null, gefolgt von einem kleinen oder großen lateinischen Buchstaben "X" (`0x` oder `0X`). Jedes Zeichen nach dem `0x`, das außerhalb des Bereichs (0123456789ABCDEF) liegt, beendet die Literalfolge.
 
 ```js-nolint
-0xFFFFFFFFFFFFFFFFF // 295147905179352830000
-0x123456789ABCDEF   // 81985529216486900
-0XA                 // 10
+0xFFFFFFFFFFFFF // 4503599627370495
+0xabcdef123456  // 188900967593046
+0XA             // 10
 ```
 
 #### BigInt Literal
 
-Der [BigInt](/de/docs/Web/JavaScript/Data_structures#bigint_type)-Typ ist ein numerischer primitiver Typ in JavaScript, der Ganzzahlen mit beliebiger Präzision darstellen kann. BigInt Literal werden erstellt, indem ein `n` an das Ende einer Ganzzahl angehängt wird.
+Der [BigInt](/de/docs/Web/JavaScript/Guide/Data_structures#bigint_type)-Typ ist ein numerisches Primitive in JavaScript, das ganze Zahlen mit beliebiger Genauigkeit darstellen kann. BigInt-Literale werden erstellt, indem man `n` an das Ende einer ganzen Zahl anhängt.
 
 ```js-nolint
 123456789123456789n     // 123456789123456789
@@ -395,21 +395,21 @@ Der [BigInt](/de/docs/Web/JavaScript/Data_structures#bigint_type)-Typ ist ein nu
 0b11101001010101010101n // 955733
 ```
 
-BigInt Literale dürfen nicht mit `0` beginnen, um Verwechslungen mit veralteten oktalen Literalen zu vermeiden.
+BigInt-Literale dürfen nicht mit `0` beginnen, um Verwechslungen mit alten Oktalliteralen zu vermeiden.
 
 ```js-nolint example-bad
 0755n; // SyntaxError: invalid BigInt syntax
 ```
 
-Für oktale `BigInt`-Zahlen verwenden Sie immer eine Null, gefolgt von dem Buchstaben "o" (groß oder klein):
+Für Oktal-`BigInt`-Zahlen verwenden Sie immer eine Null, gefolgt von dem Buchstaben "o" (groß oder klein):
 
 ```js example-good
 0o755n;
 ```
 
-Weitere Informationen über `BigInt` finden Sie unter [JavaScript-Datenstrukturen](/de/docs/Web/JavaScript/Data_structures#bigint_type).
+Für weitere Informationen zu `BigInt`, siehe auch [JavaScript Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures#bigint_type).
 
-#### Numerische Trennzeichen
+#### Nummerische Trennzeichen
 
 Um die Lesbarkeit numerischer Literale zu verbessern, können Unterstriche (`_`, `U+005F`) als Trennzeichen verwendet werden:
 
@@ -435,43 +435,43 @@ Beachten Sie diese Einschränkungen:
 0_1; // SyntaxError
 ```
 
-### String-Literale
+### Zeichenfolgenliterale
 
-Ein [String](/de/docs/Web/JavaScript/Data_structures#string_type)-Literal ist null oder mehr Unicode-Codepunkte, die in einfache oder doppelte Anführungszeichen eingeschlossen sind. Unicode-Codepunkte können auch durch eine Escape-Sequenz dargestellt werden. Alle Codepunkte dürfen wörtlich in einem String-Literal erscheinen, außer diesen Codepunkten:
+Ein [Zeichenfolge](/de/docs/Web/JavaScript/Guide/Data_structures#string_type)-Literal ist null oder mehr Unicode-Codepunkte, die in einfache oder doppelte Anführungszeichen eingeschlossen sind. Unicode-Codepunkte können auch durch eine Escape-Sequenz dargestellt werden. Alle Codepunkte können sich buchstäblich in einem Zeichenfolgenliteral befinden, außer diesen Codepunkten:
 
-- U+005C \ (Backslash)
+- U+005C \ (Rückschrägstrich)
 - U+000D \<CR>
 - U+000A \<LF>
-- Die gleiche Art von Anführungszeichen, die das String-Literal beginnt
+- Die gleiche Art von Anführungszeichen, die das Zeichenfolgenliteral beginnt
 
-Alle Codepunkte dürfen in Form eines Escape-Sequenz auftreten. String-Literale werten sich zu ECMAScript String-Werten aus. Bei der Generierung dieser String-Werte werden Unicode-Codepunkte in UTF-16 kodiert.
+Jeder Codepunkt kann in der Form einer Escape-Sequenz erscheinen. Zeichenfolgenliterale evaluieren zu ECMAScript-Zeichenfolgenwerten. Beim Generieren dieser Zeichenfolgenwerte sind Unicode-Codepunkte UTF-16-kodiert.
 
 ```js-nolint
 'foo'
 "bar"
 ```
 
-Die folgenden Unterabschnitte beschreiben die verschiedenen Escape-Sequenzen (`\` gefolgt von einem oder mehreren Zeichen), die in String-Literals verfügbar sind. Escape-Sequenzen, die hier nicht aufgeführt sind, werden zu "Identitäts-Escapes", die dem Codepunkt selbst entsprechen. Zum Beispiel ist `\z` das gleiche wie `z`. Es gibt eine veraltete oktale Escape-Sequenz-Syntax, die auf der Seite [Veraltete und obsolte Features](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences) beschrieben wird. Viele dieser Escape-Sequenzen sind auch in regulären Ausdrücken gültig – siehe [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
+Die folgenden Unterabschnitte beschreiben verschiedene Escape-Sequenzen (`\` gefolgt von einem oder mehreren Zeichen), die in Zeichenfolgenliteralen verfügbar sind. Jede nicht unten aufgeführte Escape-Sequenz wird zu einem "Identitäts-Escape", der selbst zu dem Codepunkt wird. Zum Beispiel ist `\z` dasselbe wie `z`. Es gibt eine veraltete Oktal-Escape-Sequenz-Syntax, die auf der [Abgeschriebene und veraltete Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences)-Seite beschrieben wird. Viele dieser Escape-Sequenzen sind auch in regulären Ausdrücken gültig – siehe [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
 
 #### Escape-Sequenzen
 
-Spezielle Zeichen können durch Escape-Sequenzen kodiert werden:
+Spezialzeichen können mit Escape-Sequenzen kodiert werden:
 
-| Escape-Sequenz                                         | Unicode-Codepunkt                                   |
-| ------------------------------------------------------ | --------------------------------------------------- |
-| `\0`                                                   | Null-Zeichen (U+0000 NULL)                          |
-| `\'`                                                   | einfacher Apostroph (U+0027 APOSTROPHE)             |
-| `\"`                                                   | Doppeltes Anführungszeichen (U+0022 QUOTATION MARK) |
-| `\\`                                                   | Backslash (U+005C REVERSE SOLIDUS)                  |
-| `\n`                                                   | Neue Zeile (U+000A LINE FEED; LF)                   |
-| `\r`                                                   | Wagenrücklauf (U+000D CARRIAGE RETURN; CR)          |
-| `\v`                                                   | Vertikaler Tabulator (U+000B LINE TABULATION)       |
-| `\t`                                                   | Tabulator (U+0009 CHARACTER TABULATION)             |
-| `\b`                                                   | Rückschritt (U+0008 BACKSPACE)                      |
-| `\f`                                                   | Formularvorschub (U+000C FORM FEED)                 |
-| `\` gefolgt von einem [Zeilenumbruch](#zeilenumbrüche) | leerer String                                       |
+| Escape-Sequenz                                               | Unicode-Codepunkt                                  |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| `\0`                                                         | Null-Zeichen (U+0000 NULL)                         |
+| `\'`                                                         | Einfaches Anführungszeichen (U+0027 APOSTROPHE)    |
+| `\"`                                                         | Doppelte Anführungszeichen (U+0022 QUOTATION MARK) |
+| `\\`                                                         | Rückwärtsschrägstrich (U+005C REVERSE SOLIDUS)     |
+| `\n`                                                         | Neue Zeile (U+000A LINE FEED; LF)                  |
+| `\r`                                                         | Wagenrücklauf (U+000D CARRIAGE RETURN; CR)         |
+| `\v`                                                         | Vertikale Tabulator (U+000B LINE TABULATION)       |
+| `\t`                                                         | Tabulator (U+0009 CHARACTER TABULATION)            |
+| `\b`                                                         | Rückschritttaste (U+0008 BACKSPACE)                |
+| `\f`                                                         | Form Feed (U+000C FORM FEED)                       |
+| `\` gefolgt von einem [Zeilenendezeichen](#zeilenendzeichen) | Leere Zeichenfolge                                 |
 
-Die letzte Escape-Sequenz, `\` gefolgt von einem Zeilenumbruch, ist nützlich, um ein String-Literal über mehrere Zeilen zu verteilen, ohne dessen Bedeutung zu ändern.
+Die letzte Escape-Sequenz, `\` gefolgt von einem Zeilenendezeichen, ist nützlich, um ein Zeichenfolgenliteral über mehrere Zeilen zu teilen, ohne dass sich dessen Bedeutung ändert.
 
 ```js
 const longString =
@@ -480,9 +480,9 @@ to wrap across multiple lines because \
 otherwise my code is unreadable.";
 ```
 
-Stellen Sie sicher, dass nach dem Backslash kein Leerzeichen oder ein anderes Zeichen steht (außer einem Zeilenumbruch), da es sonst nicht funktioniert. Falls die nächste Zeile eingerückt ist, werden die zusätzlichen Leerzeichen ebenfalls im String-Wert enthalten sein.
+Stellen Sie sicher, dass sich kein Leerzeichen oder ein anderes Zeichen nach dem Rückschrägstrich befindet (außer einem Zeilenumbruch), da es sonst nicht funktioniert. Wenn die nächste Zeile eingerückt ist, sind die zusätzlichen Leerzeichen auch im Wert der Zeichenfolge enthalten.
 
-Sie können auch den [`+`](/de/docs/Web/JavaScript/Reference/Operators/Addition)-Operator verwenden, um mehrere Strings zusammenzufügen, wie hier:
+Sie können auch den [`+`](/de/docs/Web/JavaScript/Reference/Operators/Addition)-Operator verwenden, um mehrere Zeichenfolgen miteinander zu verketten, wie folgt:
 
 ```js
 const longString =
@@ -491,11 +491,11 @@ const longString =
   "otherwise my code is unreadable.";
 ```
 
-Beide Methoden ergeben identische Strings.
+Beide der obigen Methoden resultieren in identischen Zeichenfolgen.
 
 #### Hexadezimale Escape-Sequenzen
 
-Hexadezimale Escape-Sequenzen bestehen aus `\x`, gefolgt von genau zwei hexadezimalen Ziffern, die eine Code-Einheit oder Codepunkt im Bereich 0x0000 bis 0x00FF darstellen.
+Hexadezimale Escape-Sequenzen bestehen aus `\x`, gefolgt von genau zwei hexadezimalen Ziffern, die eine Code-Einheit oder einen Codepunkt im Bereich von 0x0000 bis 0x00FF darstellen.
 
 ```js
 "\xA9"; // "©"
@@ -503,7 +503,7 @@ Hexadezimale Escape-Sequenzen bestehen aus `\x`, gefolgt von genau zwei hexadezi
 
 #### Unicode-Escape-Sequenzen
 
-Eine Unicode-Escape-Sequenz besteht aus genau vier hexadezimalen Ziffern nach `\u`. Sie stellt eine Code-Einheit in der UTF-16-Codierung dar. Für Codepunkte von U+0000 bis U+FFFF entspricht die Code-Einheit dem Codepunkt. Codepunkte von U+10000 bis U+10FFFF benötigen zwei Escape-Sequenzen, welche die zwei Code-Einheiten (ein Surrogatpaar) darstellen, die zur Codierung des Zeichens verwendet werden. Das Surrogatpaar unterscheidet sich dabei vom Codepunkt.
+Eine Unicode-Escape-Sequenz besteht aus genau vier hexadezimalen Ziffern nach `\u`. Sie stellt eine Codeeinheit in der UTF-16-Kodierung dar. Für Codepunkte von U+0000 bis U+FFFF ist die Codeeinheit gleich dem Codepunkt. Codepunkte von U+10000 bis U+10FFFF erfordern zwei Escape-Sequenzen, die die zwei Codeeinheiten (ein Surrogatpaar) darstellen, die zur Kodierung des Zeichens verwendet werden; das Surrogatpaar ist vom Codepunkt zu unterscheiden.
 
 Siehe auch {{jsxref("String.fromCharCode()")}} und {{jsxref("String.prototype.charCodeAt()")}}.
 
@@ -511,9 +511,9 @@ Siehe auch {{jsxref("String.fromCharCode()")}} und {{jsxref("String.prototype.ch
 "\u00A9"; // "©" (U+A9)
 ```
 
-#### Unicode-Codepunkt-Escapes
+#### Unicode-Codepunkt-Escape
 
-Eine Unicode-Codepunkt-Escape besteht aus `\u{`, gefolgt von einem Codepunkt als Hexadezimalwert, gefolgt von `}`. Die Werte der hexadezimalen Ziffern müssen im Bereich 0 und 0x10FFFF (inklusive) liegen. Codepunkte im Bereich U+10000 bis U+10FFFF müssen nicht als Surrogatpaar dargestellt werden.
+Ein Unicode-Codepunkt-Escape besteht aus `\u{`, gefolgt von einem Codepunkt in hexadezimaler Basis, gefolgt von `}`. Der Wert der hexadezimalen Ziffern muss im Bereich von 0 bis 0x10FFFF einschließlich liegen. Codepunkte im Bereich U+10000 bis U+10FFFF müssen nicht als Surrogatpaar dargestellt werden.
 
 Siehe auch {{jsxref("String.fromCodePoint()")}} und {{jsxref("String.prototype.codePointAt()")}}.
 
@@ -524,53 +524,53 @@ Siehe auch {{jsxref("String.fromCodePoint()")}} und {{jsxref("String.prototype.c
 "\uD87E\uDC04";
 ```
 
-### RegExp-Literale
+### Reguläre Ausdrucksliterale
 
-Regulärer-Ausdruck-Literale werden durch zwei Schrägstriche (`/`) eingefasst. Der Lexer verarbeitet alle Zeichen bis zum nächsten nicht-escaped Schrägstrich oder dem Ende der Zeile, es sei denn, der Schrägstrich befindet sich innerhalb einer Zeichenklasse (`[]`). Einige Zeichen (namentlich diejenigen, die [Bezeichner-Bestandteile](#bezeichner) sind) können nach dem schließenden Schrägstrich auftreten, als Kennzeichen.
+Reguläre Ausdrucksliterale werden von zwei Schrägstrichen (`/`) eingeschlossen. Der Lexer konsumiert alle Zeichen bis zum nächsten nicht-escaped Schrägstrich oder zum Zeilenende, es sei denn, der Schrägstrich erscheint innerhalb einer Zeichenklasse (`[]`). Einige Zeichen (nämlich diejenigen, die [Teil eines Identifikators](#identifikatoren) sind) können nach dem abschließenden Schrägstrich erscheinen und Flaggen bezeichnen.
 
-Das lexikalische System ist sehr tolerant: Nicht alle regulären Ausdrucksliterale, die als einzelnes Token erkannt werden, sind gültige reguläre Ausdrücke.
+Die lexikalische Grammatik ist sehr nachsichtig: Nicht alle regulären Ausdrucksliterale, die als ein Token erkannt werden, sind gültige reguläre Ausdrücke.
 
-Siehe auch {{jsxref("RegExp")}} für weitere Informationen.
+Weitere Informationen finden Sie unter {{jsxref("RegExp")}}.
 
-```js-nolint
-/ab+c/g
-/[/]/
+```js
+/ab+c/g;
+/[/]/;
 ```
 
-Ein regulärer Ausdruck kann nicht mit zwei Schrägstrichen (`//`) beginnen, da dies als Zeilenkommentar interpretiert wird. Um einen leeren regulären Ausdruck zu spezifizieren, verwenden Sie `/(?:)/`.
+Ein reguläres Ausdrucksliteral kann nicht mit zwei Schrägstrichen (`//`) beginnen, da dies ein Zeilenkommentar wäre. Verwenden Sie `/(?:)/`, um ein leeres reguläres Ausdrucksliteral anzugeben.
 
 ### Template-Literale
 
-Ein Template-Literal besteht aus mehreren Token: `` `xxx${ `` (Kopf des Templates), `}xxx${` (Mitte des Templates) und `` }xxx` `` (Ende des Templates) sind individuelle Token, während beliebige Ausdrücke zwischen ihnen eingefügt werden können.
+Ein Template-Literal besteht aus mehreren Token: `` `xxx${ `` (Template-Kopf), `}xxx${` (Template-Mitte) und `` }xxx` `` (Template-Ende) sind individuelle Tokens, während beliebige Ausdrücke zwischen ihnen stehen können.
 
-Siehe auch [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) für weitere Informationen.
+Weitere Informationen finden Sie unter [Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals).
 
-```js-nolint
-`string text`
+```js
+`string text`;
 
 `string text line 1
- string text line 2`
+ string text line 2`;
 
-`string text ${expression} string text`
+`string text ${expression} string text`;
 
-tag`string text ${expression} string text`
+tag`string text ${expression} string text`;
 ```
 
-## Automatische Einfügung von Semikolons
+## Automatische Semikolonsetzung
 
-Die Syntax einiger [JavaScript-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements) erfordert Semikolons (`;`) am Ende. Dazu gehören:
+Einige [JavaScript-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements)' Syntaxdefinitionen erfordern am Ende der Anweisung ein Semikolon (`;`). Dazu gehören:
 
-- [`var`](/de/docs/Web/JavaScript/Reference/Statements/var), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const)
-- [Ausdrucks-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement)
+- [`var`](/de/docs/Web/JavaScript/Reference/Statements/var), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`using`](/de/docs/Web/JavaScript/Reference/Statements/using), [`await using`](/de/docs/Web/JavaScript/Reference/Statements/await_using)
+- [Ausdrucksanweisungen](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement)
 - [`do...while`](/de/docs/Web/JavaScript/Reference/Statements/do...while)
 - [`continue`](/de/docs/Web/JavaScript/Reference/Statements/continue), [`break`](/de/docs/Web/JavaScript/Reference/Statements/break), [`return`](/de/docs/Web/JavaScript/Reference/Statements/return), [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw)
 - [`debugger`](/de/docs/Web/JavaScript/Reference/Statements/debugger)
-- Deklarationen von Klassenfeldern ([öffentlich](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) oder [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_properties))
+- Klassendeklarationen ([öffentlich](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) oder [privat](/de/docs/Web/JavaScript/Reference/Classes/Private_elements))
 - [`import`](/de/docs/Web/JavaScript/Reference/Statements/import), [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)
 
-Um die Sprache jedoch zugänglicher und praktischer zu machen, ist JavaScript in der Lage, Semikolons automatisch in den Tokenstrom einzufügen, damit einige ungültige Token-Sequenzen zu gültiger Syntax "korrigiert" werden können. Dieser Schritt erfolgt, nachdem der Programmtext gemäß der lexikalischen Grammatik zu Token analysiert wurde. Es gibt drei Fälle, in denen Semikolons automatisch eingefügt werden:
+Um die Sprache jedoch benutzerfreundlicher und bequemer zu machen, ist JavaScript in der Lage, Semikolons bei der Verarbeitung des Tokenstroms automatisch einzufügen, damit einige ungültige Tokensequenzen zu gültiger Syntax "korrigiert" werden können. Dieser Schritt erfolgt, nachdem der Programmtext gemäß der lexikalischen Grammatik in Token zerlegt wurde. Es gibt drei Fälle, in denen Semikolons automatisch eingefügt werden:
 
-1\. Wenn ein Token, das nicht von der Grammatik erlaubt ist, auftritt, und es von dem vorherigen Token durch mindestens einen [Zeilenumbruch](#zeilenumbrüche) (einschließlich eines Blockkommentars, der mindestens einen Zeilenumbruch enthält) oder durch ein "}" getrennt ist, dann wird vor dem Token ein Semikolon eingefügt.
+1\. Wenn ein Token auftritt, das gemäß der Grammatik nicht erlaubt ist und es durch mindestens ein [Zeilenendzeichen](#zeilenendzeichen) (einschließlich eines Blockkommentars, der mindestens ein Zeilenendzeichen enthält) vom vorhergehenden Token getrennt ist, oder das Token ist "}", dann wird ein Semikolon vor dem Token eingefügt.
 
 ```js-nolint
 { 1
@@ -585,16 +585,16 @@ Um die Sprache jedoch zugänglicher und praktischer zu machen, ist JavaScript in
 // each consisting of a number literal
 ```
 
-Das schließende ")" von [`do...while`](/de/docs/Web/JavaScript/Reference/Statements/do...while) wird als Sonderfall durch diese Regel ebenfalls berücksichtigt.
+Das abschließende ")" von [`do...while`](/de/docs/Web/JavaScript/Reference/Statements/do...while) wird in dieser Regel auch als Sonderfall behandelt.
 
 ```js-nolint
 do {
-  // ...
+  // …
 } while (condition) /* ; */ // ASI here
 const a = 1
 ```
 
-Jedoch werden keine Semikolons eingefügt, wenn das Semikolon dann als Trennzeichen im Kopf der [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Anweisung stehen würde.
+Allerdings werden keine Semikolons eingefügt, wenn das Semikolon dann der Trennzeichen im Kopf der [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Anweisung wäre.
 
 ```js-nolint example-bad
 for (
@@ -604,22 +604,22 @@ for (
 ) {}
 ```
 
-Semikolons werden auch niemals als [leere Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/Empty) eingefügt. Zum Beispiel würde der folgende Code, falls ein Semikolon nach dem ")" eingefügt wird, gültig werden, wobei eine leere Anweisung als `if`-Körper und die `const`-Deklaration als separate Anweisung existieren würden. Aufgrund der Regel, dass automatisch eingefügte Semikolons keine leeren Anweisungen werden können, wird dies dazu führen, dass eine [Deklaration](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations) zum Körper der `if`-Anweisung wird, was nicht gültig ist.
+Semikolons werden auch niemals als [leere Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/Empty) eingefügt. Zum Beispiel: In dem unten stehenden Code würde es, wenn ein Semikolon nach dem ")" eingefügt würde, gültig, mit einer leeren Anweisung als `if`-Körper und der `const`-Deklaration als eigenständige Anweisung. Da jedoch automatisch eingefügte Semikolons keine leeren Anweisungen werden können, führt dies dazu, dass eine [Deklaration](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations) zum Körper der `if`-Anweisung wird, was nicht gültig ist.
 
 ```js-nolint example-bad
 if (Math.random() > 0.5)
 const x = 1 // SyntaxError: Unexpected token 'const'
 ```
 
-2\. Wenn das Ende des Eingabe-Tokenstroms erreicht ist und der Parser den Tokenstrom nicht als vollständiges Programm analysieren kann, wird am Ende ein Semikolon eingefügt.
+2\. Wenn das Ende des Eingabestroms von Token erreicht wird und der Parser nicht in der Lage ist, den Einzel-Token-Strom als vollständiges Programm zu parsen, wird ein Semikolon am Ende eingefügt.
 
 ```js-nolint
 const a = 1 /* ; */ // ASI here
 ```
 
-Diese Regel ergänzt die vorherige Regel, speziell für den Fall, dass es kein „störendes Token“ gibt, sondern das Ende des Eingabe-Tokenstroms erreicht wurde.
+Diese Regel ergänzt die vorherige Regel speziell für den Fall, dass es kein "störendes Token" gibt, sondern das Ende des Eingabestroms.
 
-3\. Wenn die Grammatik an einer Stelle Zeilenumbrüche verbietet und ein Zeilenumbruch gefunden wird, wird ein Semikolon eingefügt. Diese Stellen schließen ein:
+3\. Wenn die Grammatik Zeilenender an einem bestimmten Ort verbietet, aber ein Zeilenende gefunden wird, wird ein Semikolon eingefügt. Diese Orte sind:
 
 - `expr <hier> ++`, `expr <hier> --`
 - `continue <hier> lbl`
@@ -630,8 +630,9 @@ Diese Regel ergänzt die vorherige Regel, speziell für den Fall, dass es kein �
 - `yield <hier> * expr`
 - `(param) <hier> => {}`
 - `async <hier> function`, `async <hier> prop()`, `async <hier> function*`, `async <hier> *prop()`, `async <hier> (param) <hier> => {}`
+- `using <hier> id`, `await <hier> using <hier> id`
 
-Hier wird [`++`](/de/docs/Web/JavaScript/Reference/Operators/Increment) nicht als Nachstell-Operator für die Variable `b` behandelt, da ein Zeilenumbruch zwischen `b` und `++` auftritt.
+Hier wird [`++`](/de/docs/Web/JavaScript/Reference/Operators/Increment) nicht als Nachfolgeoperator behandelt, der auf die Variable `b` angewendet wird, da ein Zeilenumbruch zwischen `b` und `++` auftritt.
 
 ```js-nolint
 a = b
@@ -643,7 +644,7 @@ a = b;
 ++c;
 ```
 
-Hier kehrt die `return`-Anweisung `undefined` zurück, und `a + b` wird zu einer nicht erreichbaren Anweisung.
+Hier gibt die `return`-Anweisung `undefined` zurück, und das `a + b` wird zu einer nicht erreichbaren Anweisung.
 
 ```js-nolint
 return
@@ -655,7 +656,7 @@ return;
 a + b;
 ```
 
-Beachten Sie, dass ASI nur ausgelöst wird, wenn ein Zeilenumbruch Tokens trennt, die ansonsten eine ungültige Syntax erzeugen würden. Wenn das nächste Token als Teil einer gültigen Struktur analysiert werden kann, werden keine Semikolons eingefügt. Zum Beispiel:
+Beachten Sie, dass ASI nur aktiviert wird, wenn ein Zeilenumbruch Tokens trennt, die ansonsten zu einer ungültigen Syntax führen würden. Wenn das nächste Token als Teil einer gültigen Struktur geparsed werden kann, würden keine Semikolons eingefügt. Zum Beispiel:
 
 ```js-nolint example-bad
 const a = 1
@@ -665,7 +666,7 @@ const b = 1
 [1, 2, 3].forEach(console.log)
 ```
 
-Da `()` als Funktionsaufruf betrachtet werden kann, würde dies normalerweise die ASI nicht auslösen. Ebenso könnte `[]` ein Member-Zugriff sein. Der obige Code ist gleichbedeutend mit:
+Weil `()` als Funktionsaufruf gesehen werden kann, würde es normalerweise nicht ASI auslösen. Ähnlich kann `[]` ein Mitgliedszugriff sein. Der obige Code ist gleichbedeutend mit:
 
 ```js-nolint example-bad
 const a = 1(1).toString();
@@ -673,9 +674,9 @@ const a = 1(1).toString();
 const b = 1[1, 2, 3].forEach(console.log);
 ```
 
-Dies ist zufällig gültige Syntax. `1[1, 2, 3]` ist ein [Eigenschaftszugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) mit einem [Komma](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator)-verknüpften Ausdruck. Daher würden Sie Fehler wie „1 ist keine Funktion“ und „Eigenschaften von undefined können nicht gelesen werden (lesen von ‚forEach‘)“ erhalten, wenn der Code ausgeführt wird.
+Dies ist zufällig eine gültige Syntax. `1[1, 2, 3]` ist ein [Eigenschafts-Zugriff](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) mit einem durch das [Komma](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) verbundenen Ausdruck. Daher erhalten Sie beim Ausführen des Codes Fehlermeldungen wie "1 is not a function" und "Cannot read properties of undefined (reading 'forEach')".
 
-Innerhalb von Klassen können Klassenfelder und Generator-Methoden ebenfalls zu Schwierigkeiten führen.
+In Klassen können Klassenfelder und Generatormethoden auch eine Falle sein.
 
 ```js-nolint example-bad
 class A {
@@ -684,7 +685,7 @@ class A {
 }
 ```
 
-Es wird interpretiert als:
+Es wird betrachtet als:
 
 ```js-nolint example-bad
 class A {
@@ -692,11 +693,11 @@ class A {
 }
 ```
 
-Und daher wird es ein Syntaxfehler um `{`.
+Und daher wird es einen Syntaxfehler um `{` geben.
 
-Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil durchsetzen wollen:
+Es gibt die folgenden Faustregeln zum Umgang mit ASI, wenn Sie einen Semikolon-losen Stil durchsetzen möchten:
 
-- Schreiben Sie das Nachstell-`++` und `--` in derselben Zeile wie ihre Operanden.
+- Setzen Sie das Nachfolge-`++` und `--` auf dieselbe Zeile wie ihre Operanden.
 
   ```js-nolint example-bad
   const a = b
@@ -709,7 +710,7 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
   console.log(a)
   ```
 
-- Die Ausdrücke nach `return`, `throw` oder `yield` sollten in derselben Zeile wie das Schlüsselwort stehen.
+- Die Ausdrücke nach `return`, `throw` oder `yield` sollten auf derselben Zeile wie das Schlüsselwort stehen.
 
   ```js-nolint example-bad
   function foo() {
@@ -730,7 +731,7 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
   }
   ```
 
-- Ebenso sollte der Label-Bezeichner nach dem Schlüsselwort `break` oder `continue` in derselben Zeile wie das Schlüsselwort stehen.
+- Ähnlich sollte der Label-Identifikator nach `break` oder `continue` auf derselben Zeile wie das Schlüsselwort stehen.
 
   ```js-nolint example-bad
   outerBlock: {
@@ -749,7 +750,7 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
   }
   ```
 
-- Das `=>` einer Pfeilfunktion sollte in derselben Zeile wie das Ende ihrer Parameter stehen.
+- Der `=>` eines Pfeilfunktionen sollte auf derselben Zeile wie das Ende ihrer Parameter stehen.
 
   ```js-nolint example-bad
   const foo = (a, b)
@@ -761,7 +762,7 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
     a + b
   ```
 
-- Das `async` von async-Funktionen, Methoden usw. darf nicht direkt von einem Zeilenumbruch gefolgt werden.
+- Das `async` von asynchronen Funktionen, Methoden usw. darf nicht direkt von einem Zeilenumbruch gefolgt werden.
 
   ```js-nolint example-bad
   async
@@ -773,12 +774,24 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
   foo() {}
   ```
 
-- Wenn eine Zeile mit einem der Zeichen `(`, `[`, `` ` ``, `+`, `-`, `/` (wie es bei regex-Literalen der Fall ist) beginnt, setzen Sie ein Semikolon davor oder beenden Sie die vorherige Zeile mit einem Semikolon.
+- Das Schlüsselwort `using` in `using`- und `await using`-Anweisungen sollte auf derselben Zeile stehen wie der erste Identifikator, den es deklariert.
+
+  ```js-nolint example-bad
+  using
+  resource = acquireResource()
+  ```
+
+  ```js-nolint example-good
+  using resource
+    = acquireResource()
+  ```
+
+- Wenn eine Zeile mit einem der `(`, `[`, `` ` ``, `+`, `-`, `/` (wie in regulären Ausdrucksliteralen) beginnt, setzen Sie ein Semikolon vor, oder beenden Sie die vorherige Zeile mit einem Semikolon.
 
   ```js-nolint example-bad
   // The () may be merged with the previous line as a function call
   (() => {
-    // ...
+    // …
   })()
 
   // The [ may be merged with the previous line as a property access
@@ -799,7 +812,7 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
 
   ```js-nolint example-good
   ;(() => {
-    // ...
+    // …
   })()
   ;[1, 2, 3].forEach(console.log)
   ;`string text ${data}`.match(pattern).forEach(console.log)
@@ -808,7 +821,7 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
   ;/pattern/.exec(str).forEach(console.log)
   ```
 
-- Klassenfelder sollten vorzugsweise immer mit Semikolons beendet werden — zusätzlich zur vorherigen Regel (die eine Felderklärung einschließt, die von einer [berechneten Eigenschaft](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) gefolgt wird, da diese mit `[` beginnt), sind Semikolons auch erforderlich zwischen einer Felderklärung und einer Generator-Methode.
+- Klassenfelder sollten vorzugsweise immer mit Semikolons beendet werden – zusätzlich zur vorherigen Regel (die auch eine Felderklärung gefolgt von einer [berechneten Eigenschaft](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) einschließt, da letzteres mit `[` beginnt), sind auch zwischen einer Felderklärung und einer Generatormethode Semikolons erforderlich.
 
   ```js-nolint example-bad
   class A {
@@ -837,5 +850,5 @@ Folgende Faustregeln können hilfreich sein, wenn Sie einen semikolonlosen Stil 
 ## Siehe auch
 
 - [Grammatik und Typen](/de/docs/Web/JavaScript/Guide/Grammar_and_types) Leitfaden
-- [Micro-feature from ES6, now in Firefox Aurora and Nightly: binary and octal numbers](https://whereswalden.com/2013/08/12/micro-feature-from-es6-now-in-firefox-aurora-and-nightly-binary-and-octal-numbers/) von Jeff Walden (2013)
-- [JavaScript character escape sequences](https://mathiasbynens.be/notes/javascript-escapes) von Mathias Bynens (2011)
+- [Microfeature aus ES6, jetzt in Firefox Aurora und Nightly: binäre und oktale Zahlen](https://whereswalden.com/2013/08/12/micro-feature-from-es6-now-in-firefox-aurora-and-nightly-binary-and-octal-numbers/) von Jeff Walden (2013)
+- [JavaScript-Zeichen-Escape-Sequenzen](https://mathiasbynens.be/notes/javascript-escapes) von Mathias Bynens (2011)

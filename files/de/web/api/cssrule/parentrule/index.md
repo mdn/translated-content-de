@@ -3,21 +3,21 @@ title: "CSSRule: parentRule-Eigenschaft"
 short-title: parentRule
 slug: Web/API/CSSRule/parentRule
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`parentRule`**-Eigenschaft des [`CSSRule`](/de/docs/Web/API/CSSRule)-Interfaces gibt die enthaltene Regel der aktuellen Regel zurück, falls diese existiert, andernfalls wird null zurückgegeben.
+Die **`parentRule`**-Eigenschaft des [`CSSRule`](/de/docs/Web/API/CSSRule)-Interfaces gibt die enthaltene Regel der aktuellen Regel zurück, falls vorhanden, oder andernfalls null.
 
 ## Wert
 
-Ein [`CSSRule`](/de/docs/Web/API/CSSRule), die der Typ der enthaltenen Regeln ist. Wenn die aktuelle Regel in einer Medienabfrage enthalten ist, würde dies [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) zurückgeben. Andernfalls wird null zurückgegeben.
+Ein [`CSSRule`](/de/docs/Web/API/CSSRule), welcher der Typ der enthaltenen Regeln ist. Wenn die aktuelle Regel in einer Media-Query enthalten ist, wird [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) zurückgegeben. Andernfalls wird null zurückgegeben.
 
 ## Beispiele
 
 ```css
-@media (min-width: 500px) {
+@media (width >= 500px) {
   .box {
     width: 100px;
     height: 200px;

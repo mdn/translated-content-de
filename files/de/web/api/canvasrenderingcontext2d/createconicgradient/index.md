@@ -1,19 +1,19 @@
 ---
-title: "CanvasRenderingContext2D: createConicGradient()-Methode"
+title: "CanvasRenderingContext2D: createConicGradient() Methode"
 short-title: createConicGradient()
 slug: Web/API/CanvasRenderingContext2D/createConicGradient
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.createConicGradient()`**-Methode der Canvas 2D API erstellt einen Gradienten um einen Punkt mit gegebenen Koordinaten.
+Die **`CanvasRenderingContext2D.createConicGradient()`** Methode der Canvas 2D API erzeugt einen Gradienten um einen Punkt mit gegebenen Koordinaten.
 
-Diese Methode gibt einen konischen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Gradienten zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
+Diese Methode gibt einen kegelförmigen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Gradient zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Gradient-Koordinaten sind global, d.h. relativ zum aktuellen Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
+> Gradientkoordinaten sind global, d.h. relativ zum aktuellen Koordinatensystem. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
 
 ## Syntax
 
@@ -24,22 +24,22 @@ createConicGradient(startAngle, x, y)
 ### Parameter
 
 - `startAngle`
-  - : Der Winkel, bei dem der Gradienten beginnen soll, in Radiant. Der Winkel beginnt bei einer Linie, die horizontal rechts vom Zentrum verläuft, und schreitet im Uhrzeigersinn voran.
+  - : Der Winkel, bei dem der Gradient beginnt, in Bogenmaß. Der Winkel startet von einer Linie, die horizontal nach rechts vom Zentrum verläuft, und bewegt sich im Uhrzeigersinn.
 - `x`
-  - : Die x-Achsen-Koordinate des Zentrums des Gradienten.
+  - : Die x-Achsenkoordinate des Zentrums des Gradienten.
 - `y`
-  - : Die y-Achsen-Koordinate des Zentrums des Gradienten.
+  - : Die y-Achsenkoordinate des Zentrums des Gradienten.
 
 ### Rückgabewert
 
 - [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)
-  - : Ein konischer `CanvasGradient`.
+  - : Ein kegelförmiger `CanvasGradient`.
 
 ## Beispiele
 
-### Ein Rechteck mit einem konischen Gradienten füllen
+### Füllen eines Rechtecks mit einem kegelförmigen Gradient
 
-Dieses Beispiel initialisiert einen konischen Gradienten mit der Methode `createConicGradient()`. Fünf Farbstopps um die Zentrumkoordinate werden dann erstellt. Schließlich wird der Gradient dem Canvas-Kontext zugewiesen und in ein gefülltes Rechteck gerendert.
+Dieses Beispiel initialisiert einen kegelförmigen Gradient mit der `createConicGradient()` Methode. Fünf Farbstufen um die Zentrumskoordinate werden dann erstellt. Schließlich wird der Gradient dem Canvas-Kontext zugewiesen und in ein gefülltes Rechteck gerendert.
 
 #### HTML
 
@@ -70,7 +70,7 @@ ctx.fillStyle = gradient;
 ctx.fillRect(20, 20, 200, 200);
 ```
 
-#### Rechteck-Ergebnis
+#### Rechteckergebnis
 
 {{ EmbedLiveSample('Filling_a_rectangle_with_a_conic_gradient', 240, 240) }}
 

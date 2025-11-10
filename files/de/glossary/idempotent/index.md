@@ -2,24 +2,30 @@
 title: Idempotent
 slug: Glossary/Idempotent
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 99d723c4f77d7f537292a07dd7b5e5c13cb610da
 ---
 
-{{GlossarySidebar}}
+Eine HTTP-Methode ist **idempotent**, wenn die beabsichtigte Wirkung auf den Server bei einer einzigen Anfrage dieselbe ist wie bei mehreren identischen Anfragen.
 
-Eine HTTP-Methode ist **idempotent**, wenn die beabsichtigte Wirkung auf den Server bei einer einzelnen Anfrage dieselbe ist wie die Wirkung bei mehreren identischen Anfragen.
+Die HTTP-Spezifikation definiert mehrere HTTP-Methoden und deren Semantik, einschließlich der Frage, ob sie idempotent sind oder nicht. Alle {{Glossary("Safe/HTTP", "sicheren")}} Methoden sind idempotent, ebenso {{HTTPMethod("PUT")}} und {{HTTPMethod("DELETE")}}. Die Methoden {{HTTPMethod("POST")}} und {{HTTPMethod("PATCH")}} sind nicht garantiert idempotent.
 
-Das bedeutet nicht unbedingt, dass die Anfrage _keine_ einzigartigen Nebeneffekte hat: Zum Beispiel könnte der Server jede Anfrage mit der Zeit, zu der sie eingegangen ist, protokollieren. Idempotenz bezieht sich nur auf die vom Client beabsichtigten Effekte: Beispielsweise beabsichtigt eine POST-Anfrage, Daten an den Server zu senden, oder eine DELETE-Anfrage beabsichtigt, eine Ressource auf dem Server zu löschen.
+Ein Client kann sicher eine Anfrage mit einer idempotenten Methode wiederholen, zum Beispiel in Fällen, in denen Zweifel bestehen, ob die Anfrage den Server erreicht hat. Wenn mehrere identische Anfragen den Server erreichen, entsteht kein Schaden, solange die Methode idempotent ist.
 
-Alle {{Glossary("Safe/HTTP", "sicheren")}} Methoden sind idempotent sowie {{HTTPMethod("PUT")}} und {{HTTPMethod("DELETE")}}. Die {{HTTPMethod("POST")}}-Methode ist nicht idempotent.
+Die HTTP-Spezifikation definiert Idempotenz nur in Bezug auf die _beabsichtigte_ Wirkung des Clients auf den Server. Zum Beispiel beabsichtigt eine `POST`-Anfrage, Daten an den Server zu senden, während eine `DELETE`-Anfrage beabsichtigt, eine Ressource auf dem Server zu löschen. In der Praxis liegt es am Server sicherzustellen, dass die von ihm bereitgestellten Routen diesen Semantiken entsprechen.
 
-Um idempotent zu sein, wird nur der Zustand des Servers berücksichtigt. Die von jeder Anfrage zurückgegebene Antwort kann unterschiedlich sein: Zum Beispiel wird der erste Aufruf eines {{HTTPMethod("DELETE")}} wahrscheinlich einen {{HTTPStatus("200")}} zurückgeben, während nachfolgende wahrscheinlich einen {{HTTPStatus("404")}} zurückgeben. Eine weitere Folge davon, dass {{HTTPMethod("DELETE")}} idempotent ist, ist, dass Entwickler keine RESTful APIs mit einer _Entfernen des letzten Eintrags_-Funktionalität unter Verwendung der `DELETE`-Methode implementieren sollten.
+> [!NOTE]
+> Obwohl es für Server sehr empfohlen wird, sich an die durch die HTTP-Spezifikation festgelegten Semantiken zu halten, legt die Spezifikation dies nicht zwingend fest. Nichts hindert einen Server „in freier Wildbahn“ daran, einen nicht-idempotenten Endpunkt unter einer idempotenten HTTP-Methode bereitzustellen, auch wenn dies für Clients überraschend sein mag.
 
-Beachten Sie, dass die Idempotenz einer Methode nicht vom Server garantiert wird und einige Anwendungen möglicherweise fälschlicherweise die Idempotenzbeschränkung verletzen.
+Ebenso zu beachten:
 
-`GET /pageX HTTP/1.1` ist idempotent, da es sich um eine sichere (nur lesbare) Methode handelt. Nachfolgende Aufrufe können unterschiedliche Daten an den Client zurückgeben, wenn die Daten auf dem Server in der Zwischenzeit aktualisiert wurden.
+- Eine Anfrage mit einer idempotenten Methode bedeutet nicht notwendigerweise, dass die Anfrage _keine_ Nebenwirkungen auf dem Server hat, sondern nur, dass der Client keine beabsichtigte: Zum Beispiel könnte der Server die Uhrzeit der Ankunft jeder Anfrage protokollieren.
+- Die Reaktion auf jede Anfrage kann unterschiedlich sein: Zum Beispiel liefert der erste Aufruf eines {{HTTPMethod("DELETE")}} wahrscheinlich einen {{HTTPStatus("200")}}, während nachfolgende Aufrufe wahrscheinlich einen {{HTTPStatus("404")}} liefern.
 
-`POST /add_row HTTP/1.1` ist nicht idempotent; wenn es mehrmals aufgerufen wird, fügt es mehrere Zeilen hinzu:
+## Beispiele
+
+`GET /pageX HTTP/1.1` ist idempotent, weil es sich um eine sichere (nur-lesende) Methode handelt. Aufeinanderfolgende Anrufe können unterschiedliche Daten zurückgeben, wenn die Daten auf dem Server in der Zwischenzeit aktualisiert wurden.
+
+`POST /add_row HTTP/1.1` ist nicht idempotent; wenn sie mehrmals aufgerufen wird, fügt sie mehrere Zeilen hinzu:
 
 ```http
 POST /add_row HTTP/1.1
@@ -27,7 +33,7 @@ POST /add_row HTTP/1.1   -> Adds a 2nd row
 POST /add_row HTTP/1.1   -> Adds a 3rd row
 ```
 
-`DELETE /idX/delete HTTP/1.1` ist idempotent, auch wenn der zurückgegebene Statuscode zwischen den Anfragen variieren kann:
+`DELETE /idX/delete HTTP/1.1` ist idempotent, auch wenn sich der zurückgegebene Statuscode zwischen den Anfragen ändern kann:
 
 ```http
 DELETE /idX/delete HTTP/1.1   -> Returns 200 if idX exists
@@ -38,5 +44,5 @@ DELETE /idX/delete HTTP/1.1   -> Returns 404
 ## Siehe auch
 
 - Definition von [idempotent](https://httpwg.org/specs/rfc9110.html#idempotent.methods) in der HTTP-Spezifikation.
-- Beschreibung gängiger idempotenter Methoden: {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("DELETE")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("TRACE")}}
-- Beschreibung gängiger nicht-idempotenter Methoden: {{HTTPMethod("POST")}}, {{HTTPMethod("PATCH")}}, {{HTTPMethod("CONNECT")}}
+- Beschreibung der gängigen idempotenten Methoden: {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("DELETE")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("TRACE")}}
+- Beschreibung der gängigen nicht-idempotenten Methoden: {{HTTPMethod("POST")}}, {{HTTPMethod("PATCH")}}, {{HTTPMethod("CONNECT")}}

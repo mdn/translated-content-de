@@ -1,18 +1,18 @@
 ---
-title: "Window: print()-Methode"
+title: "Window: print() Methode"
 short-title: print()
 slug: Web/API/Window/print
 l10n:
-  sourceCommit: 62cedc63226017e9e7d0718b6fea3529ca8dbf37
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef}}
 
-Öffnet den Druckdialog, um das aktuelle Dokument zu drucken.
+Öffnet das Druckdialogfeld, um das aktuelle Dokument zu drucken.
 
-Wenn das Dokument noch geladen wird, wenn diese Funktion aufgerufen wird, wird das Dokument das Laden abschließen, bevor der Druckdialog geöffnet wird.
+Wenn das Dokument noch geladen wird, wenn diese Funktion aufgerufen wird, wird das Laden des Dokuments abgeschlossen, bevor das Druckdialogfeld geöffnet wird.
 
-Diese Methode wird blockieren, solange der Druckdialog geöffnet ist.
+Diese Methode blockiert, solange das Druckdialogfeld geöffnet ist.
 
 ## Syntax
 
@@ -38,6 +38,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)
-- [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event)-Ereignis
-- [`afterprint`](/de/docs/Web/API/Window/afterprint_event)-Ereignis
+- [Drucken](/de/docs/Web/CSS/Guides/Media_queries/Printing)
+- [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event) Ereignis
+- [`afterprint`](/de/docs/Web/API/Window/afterprint_event) Ereignis

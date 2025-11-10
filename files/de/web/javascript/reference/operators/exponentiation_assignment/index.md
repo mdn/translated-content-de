@@ -1,15 +1,13 @@
 ---
-title: Exponentialzuweisungsoperator (**=)
+title: Exponentialer Zuweisungsoperator (**=)
 slug: Web/JavaScript/Reference/Operators/Exponentiation_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **exponentielle Zuweisungsoperator (`**=`)\*\* führt die [Exponenzierung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-Der **Exponentialzuweisungsoperator (`**=`)\*\* führt eine [Exponentiation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Exponentiation assignment operator")}}
+{{InteractiveExample("JavaScript Demo: Exponentialer Zuweisungsoperator (**=)")}}
 
 ```js interactive-example
 let a = 3;
@@ -32,11 +30,11 @@ x **= y
 
 ## Beschreibung
 
-`x **= y` ist gleichbedeutend mit `x = x ** y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x **= y` ist äquivalent zu `x = x ** y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Exponentialzuweisung mit Zahlen
+### Exponentielle Zuweisung mit Zahlen
 
 ```js
 let bar = 5;
@@ -50,7 +48,7 @@ let baz = 5;
 baz **= "foo"; // NaN
 ```
 
-### Exponentialzuweisung mit BigInts
+### Exponentielle Zuweisung mit BigInts
 
 ```js
 let foo = 3n;
@@ -69,4 +67,4 @@ foo **= 1; // TypeError: Cannot mix BigInt and other types, use explicit convers
 ## Siehe auch
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponenzierung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)

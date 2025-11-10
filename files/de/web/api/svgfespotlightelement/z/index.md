@@ -3,14 +3,14 @@ title: "SVGFESpotLightElement: z-Eigenschaft"
 short-title: z
 slug: Web/API/SVGFESpotLightElement/z
 l10n:
-  sourceCommit: ecf3cfc28e9b74de9adc257bac245bcdc6a02559
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`z`** schreibgeschützte Eigenschaft der [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Schnittstelle beschreibt den Z-Achsen-Wert der Position eines SVG-Filterprimitives als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber). Eine positive Z-Achse kommt auf die Person zu, die den Inhalt betrachtet.
+Die **`z`**-Eigenschaft der [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Schnittstelle beschreibt den Z-Achsenwert der Position eines SVG-Filter-Primitivelements als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber). Eine positive Z-Achse ragt zum Betrachter des Inhalts hin aus.
 
-Sie spiegelt das {{SVGAttr("z")}}-Attribut des {{SVGElement("feSpotLight")}}-Elements wider, das verwendet werden kann, um die Lichtquelle in einem Scheinwerfereffekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Content_type#number). Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("z")}}-Attribut des {{SVGElement("feSpotLight")}}-Elements wider, das verwendet werden kann, um die Lichtquelle in einem Spotlichteffekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der Standardwert ist `0`.
 
 ## Wert
 

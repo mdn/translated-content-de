@@ -1,41 +1,48 @@
 ---
-title: "Navigator: `platform`-Eigenschaft"
+title: "Navigator: platform-Eigenschaft"
 short-title: platform
 slug: Web/API/Navigator/platform
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 0b852c3f5c46b69a57d23e860a833f6830951793
 ---
 
-{{APIRef("HTML DOM")}}{{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`platform`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Objekts gibt einen String zurück, der die Plattform identifiziert, auf der der Browser des Benutzers läuft.
-
-> [!NOTE]
-> Im Allgemeinen sollten Sie wann immer möglich vermeiden, Code zu schreiben, der Methoden oder Eigenschaften wie diese verwendet, um Informationen über die Umgebung des Benutzers zu ermitteln. Schreiben Sie stattdessen Code, der [Feature-Erkennung](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection) verwendet.
+Die schreibgeschützte **`platform`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt einen String zurück, der die Plattform identifiziert, auf der der Browser des Benutzers läuft.
 
 ## Wert
 
-Ein String, der die Plattform identifiziert, auf der der Browser des Benutzers läuft; zum Beispiel: `"MacIntel"`, `"Win32"`, `"Linux x86_64"`, `"Linux armv81"`.
+Ein String, der eine Plattform angibt, zum Beispiel:
+
+- `"MacIntel"`
+- `"Win32"`
+- `"Linux x86_64"`
+
+> [!NOTE]
+> Unter Windows geben moderne Browser `"Win32"` zurück, selbst wenn sie auf einer 64-Bit-Version von Windows laufen.
+
+## Beschreibung
+
+Die `platform`-Eigenschaft zeigt die Plattform/das Betriebssystem an, auf dem der Browser läuft.
+
+Theoretisch ist diese Information nützlich, um den Browser zu erkennen und Code bereitzustellen, um browser-spezifische Fehler oder fehlende Funktionsunterstützung zu umgehen. Dies ist jedoch **unzuverlässig** und **wird nicht empfohlen** aus den in [User-Agent-Reduzierung](/de/docs/Web/HTTP/Guides/User-agent_reduction) und [Browsererkennung mit dem User-Agent](/de/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent) angegebenen Gründen.
+
+[Feature-Erkennung](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection) ist eine viel zuverlässigere Strategie.
 
 ## Beispiele
 
-`navigator.platform` sollte fast immer zugunsten der [Feature-Erkennung](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection) vermieden werden. Es gibt jedoch einen Fall, in dem `navigator.platform` unter den möglichen Optionen die am wenigsten schlechte Wahl sein könnte: Wenn Sie den Benutzern Ratschläge darüber geben müssen, ob die Modifikatortaste für Tastenkombinationen die `⌘`-Befehlstaste (auf Apple-Systemen) statt der `⌃`-Steuerungstaste (auf Nicht-Apple-Systemen) ist:
+### Bestimmen der Modifikatortaste für die Plattform des Benutzers
+
+Ein Fall, in dem `navigator.platform` nützlich sein kann, ist, wenn Sie Benutzern zeigen müssen, ob die Modifikatortaste für Tastenkombinationen die `⌘`-Befehlstaste (auf Apple-Systemen gefunden) ist, anstelle der `Ctrl`-Steuerungstaste (auf Nicht-Apple-Systemen):
 
 ```js
-let modifierKeyPrefix = "^"; // control key
-if (
-  navigator.platform.indexOf("Mac") === 0 ||
-  navigator.platform === "iPhone"
-) {
-  modifierKeyPrefix = "⌘"; // command key
-}
+const modifierKeyPrefix =
+  navigator.platform.startsWith("Mac") || navigator.platform === "iPhone"
+    ? "⌘" // command key
+    : "Ctrl"; // control key
 ```
 
-Das heißt, prüfen Sie, ob `navigator.platform` mit `"Mac"` beginnt oder exakt mit `"iPhone"` übereinstimmt, und wählen Sie dann basierend darauf, ob eine dieser Bedingungen zutrifft, die Modifikatortaste, die die Benutzeroberfläche Ihrer Webanwendung den Benutzern empfiehlt, in Tastenkombinationen zu drücken.
-
-## Verwendungshinweise
-
-Auf Windows geben moderne Browser `"Win32"` zurück, auch wenn sie auf einer 64-Bit-Version von Windows laufen.
+Dieser Code überprüft, ob `navigator.platform` mit `"Mac"` beginnt oder exakt mit `"iPhone"` übereinstimmt, und setzt dann, basierend darauf, ob eines dieser Kriterien `true` ist, eine `modifierKeyPrefix`-Variable auf die entsprechende Modifikatortaste für die Plattform des Benutzers. Dies könnte in einem Web-UI verwendet werden, um Benutzern mitzuteilen, welche Modifikatortaste sie bei der Verwendung von Tastenkombinationen benötigen.
 
 ## Spezifikationen
 
@@ -47,4 +54,5 @@ Auf Windows geben moderne Browser `"Win32"` zurück, auch wenn sie auf einer 64-
 
 ## Siehe auch
 
-- [`navigator.userAgentData.platform`](/de/docs/Web/API/NavigatorUAData/platform)
+- [`Navigator.userAgent`](/de/docs/Web/API/Navigator/userAgent)
+- {{HTTPHeader("User-agent")}} HTTP-Header

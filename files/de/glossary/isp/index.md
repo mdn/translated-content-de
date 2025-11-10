@@ -2,12 +2,10 @@
 title: ISP
 slug: Glossary/ISP
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein ISP (Internet Service Provider) verkauft Internetzugang und manchmal auch E-Mail, Webhosting und Voice over IP, entweder über eine Wählverbindung über eine Telefonleitung (früher häufiger) oder über eine Breitbandverbindung wie ein Kabelmodem oder einen DSL-Dienst.
+Ein ISP (Internet Service Provider) verkauft Internetzugang und manchmal auch E-Mail, Webhosting und Voice over IP, entweder über eine Einwahlverbindung über eine Telefonleitung (früher häufiger) oder über eine Breitbandverbindung wie ein Kabelmodem oder DSL-Dienst.
 
 ## Siehe auch
 

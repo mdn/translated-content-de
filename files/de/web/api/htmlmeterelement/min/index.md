@@ -3,12 +3,12 @@ title: "HTMLMeterElement: min-Eigenschaft"
 short-title: min
 slug: Web/API/HTMLMeterElement/min
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`min`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement) Interfaces repräsentiert den minimalen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`min`](/de/docs/Web/HTML/Element/meter#min) Attribut des Elements wider, oder `0`, wenn kein `min` definiert ist.
+Die **`min`**-Eigenschaft der [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Schnittstelle repräsentiert den minimalen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`min`](/de/docs/Web/HTML/Reference/Elements/meter#min)-Attribut des Elements wider oder `0`, wenn kein `min` definiert ist.
 
 Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung festzulegen.
 

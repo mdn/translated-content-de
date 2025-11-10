@@ -1,25 +1,25 @@
 ---
-title: "IDBOpenDBRequest: upgradeneeded-Ereignis"
+title: "IDBOpenDBRequest: upgradeneeded Ereignis"
 short-title: upgradeneeded
 slug: Web/API/IDBOpenDBRequest/upgradeneeded_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("IndexedDB")}}
 
-Das `upgradeneeded`-Ereignis wird ausgelöst, wenn versucht wird, eine Datenbank mit einer höheren Versionsnummer als der aktuellen Version zu öffnen.
+Das `upgradeneeded` Ereignis wird ausgelöst, wenn versucht wurde, eine Datenbank mit einer höheren Versionsnummer als der aktuellen Version zu öffnen.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und ist nicht durchsickerbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("upgradeneeded", (event) => {});
+```js-nolint
+addEventListener("upgradeneeded", (event) => { })
 
-onupgradeneeded = (event) => {};
+onupgradeneeded = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +30,7 @@ Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten [`Event`](/de/docs/Web/API/Event)-Schnittstelle._
+_Erbt auch Eigenschaften von seinem Elternteil, der [`Event`](/de/docs/Web/API/Event)-Schnittstelle._
 
 - [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
   - : Gibt die alte Version der Datenbank zurück.
@@ -39,7 +39,7 @@ _Erbt auch Eigenschaften von seiner übergeordneten [`Event`](/de/docs/Web/API/E
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und behandelt das `upgradeneeded`-Ereignis, indem es notwendige Updates im Objekt-Store durchführt.
+Dieses Beispiel öffnet eine Datenbank und behandelt das `upgradeneeded` Ereignis, indem es alle notwendigen Aktualisierungen im Objekt-Store vornimmt.
 
 ```js
 // Open the database
@@ -63,7 +63,7 @@ dBOpenRequest.addEventListener("upgradeneeded", (event) => {
 });
 ```
 
-Dies ist dasselbe Beispiel, verwendet jedoch die onupgradeneeded-Event-Handler-Eigenschaft.
+Dies ist dasselbe Beispiel, verwendet jedoch die onupgradeneeded Ereignis-Handler-Eigenschaft.
 
 ```js
 // Open the database

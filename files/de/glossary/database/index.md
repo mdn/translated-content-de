@@ -1,19 +1,17 @@
 ---
-title: Database
+title: Datenbank
 slug: Glossary/Database
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Eine **Datenbank** ist ein Speichersystem, das organisierte Daten sammelt, um Arbeiten wie Suchen, Strukturierung und Erweiterung zu erleichtern.
 
-Eine **Datenbank** ist ein Speichersystem, das organisierte Daten sammelt, um bestimmte Aufgaben wie die Suche, Strukturierung und Erweiterung zu erleichtern.
+In der Webentwicklung verwenden die meisten Datenbanken das relationale Datenbankmanagementsystem (RDBMS), um Daten zu organisieren und in {{Glossary("SQL", "SQL")}} zu programmieren. Einige Datenbanken folgen jedoch nicht dem genannten Mechanismus zur Organisation von Daten, sie werden als NoSQL bezeichnet.
 
-In der Webentwicklung verwenden die meisten Datenbanken das relationale Datenbankverwaltungssystem (RDBMS), um Daten zu organisieren und Programmierung in {{Glossary("SQL", "SQL")}} zu ermöglichen. Einige Datenbanken folgen jedoch nicht dem vorherigen Mechanismus zur Organisation von Daten, was als NoSQL bezeichnet wird.
+Einige bekannte serverseitige RDBMS sind _MySQL_ (oder _MariaDB_, das ein Fork davon ist), _SQL Server_ und _Oracle Database_. Auf der anderen Seite sind einige bekannte NoSQL-Beispiele _MongoDB_, _Cassandra_ und _Redis_.
 
-Einige bekannte serverseitige RDBMS sind _MySQL_ (oder _MariaDB_, ein Fork davon), _SQL Server_ und _Oracle Database_. Auf der anderen Seite sind einige bekannte NoSQL-Beispiele _MongoDB_, _Cassandra_ und _Redis_.
-
-Browser haben auch ihr eigenes Datenbanksystem namens {{Glossary("IndexedDB", "IndexedDB")}}.
+Browser haben auch ihr eigenes Datenbanksystem, das {{Glossary("IndexedDB", "IndexedDB")}} genannt wird.
 
 ## Siehe auch
 

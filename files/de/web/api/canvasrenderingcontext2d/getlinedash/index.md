@@ -1,14 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: getLineDash() Methode"
+title: "CanvasRenderingContext2D: getLineDash()-Methode"
 short-title: getLineDash()
 slug: Web/API/CanvasRenderingContext2D/getLineDash
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`getLineDash()`** Methode der Canvas 2D API's [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Schnittstelle erhält das aktuelle Strichmuster.
+Die **`getLineDash()`**-Methode des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interfaces der Canvas 2D API gibt das aktuelle Strichelmuster zurück.
 
 ## Syntax
 
@@ -22,17 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Zahlen, das die Abstände angibt, um abwechselnd eine Linie zu zeichnen und
-eine Lücke (in Koordinatenraumeinheiten). Wenn die Anzahl der Elemente ungerade ist, werden
-die Elemente des Arrays kopiert und verknüpft. Zum Beispiel führt das Festlegen des Strichmusters auf
-`[5, 15, 25]` dazu, dass man
-`[5, 15, 25, 5, 15, 25]` zurückbekommt.
+Ein {{jsxref("Array")}} von Zahlen, die Abstände angeben, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Koordinateneinheiten). Wenn die Zahl beim Festlegen der Elemente ungerade ist, werden die Elemente des Arrays kopiert und angefügt. Zum Beispiel wird durch Festlegen des Linienstrichs auf `[5, 15, 25]` letztlich `[5, 15, 25, 5, 15, 25]` zurückgegeben.
 
 ## Beispiele
 
-### Das aktuelle Strichmuster abfragen
+### Abrufen der aktuellen Line-Dash-Einstellung
 
-Dieses Beispiel demonstriert die Nutzung der `getLineDash()` Methode.
+Dieses Beispiel zeigt die Verwendung der `getLineDash()`-Methode.
 
 #### HTML
 
@@ -42,8 +38,7 @@ Dieses Beispiel demonstriert die Nutzung der `getLineDash()` Methode.
 
 #### JavaScript
 
-Wie durch [`setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash) festgelegt, bestehen Striche aus Linien, die 10 Einheiten breit sind, mit Abständen von 20 Einheiten zwischen jeder
-Linie.
+Wie durch [`setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash) festgelegt, bestehen Striche aus Linien, die 10 Einheiten breit sind, mit Abständen von 20 Einheiten zwischen jeder Linie.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -73,6 +68,6 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.setLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash)
 - [`CanvasRenderingContext2D.lineDashOffset`](/de/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)

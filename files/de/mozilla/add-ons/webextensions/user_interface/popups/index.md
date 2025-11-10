@@ -2,26 +2,24 @@
 title: Popups
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Popups
 l10n:
-  sourceCommit: b55c68237af4df02f5f47187f9d2bac0542dcc3f
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein Popup ist ein Dialogfenster, das entweder mit einem [Toolbar-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) oder einem [Adressleisten-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) verknüpft ist. Diese Seite beschreibt Popups im Allgemeinen, einschließlich ihrer Spezifikation, des Debuggings, der Größenanpassung und Gestaltung sowie Anwendungsbeispiele.
 
-Ein Popup ist ein Dialogfeld, das mit einem [Toolbar-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) oder einem [Adressleisten-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions) verknüpft ist. Diese Seite beschreibt Popups im Allgemeinen, deren Spezifikation, Debugging, Größenanpassung und Gestaltung sowie Beispiele für deren Verwendung.
+![Beispiel für ein Seitenaktions-Popup mit drei Optionen: Kätzchen, Welpen und Zurücksetzen.](page_action_popup.png)
 
-![Beispiel eines Popups für Seitenaktionen mit drei Optionen: Katzen, Hunde und Zurücksetzen.](page_action_popup.png)
+Wenn der Benutzer auf den Button klickt, wird das Popup angezeigt. Wenn der Benutzer irgendwo außerhalb des Popups klickt, wird das Popup geschlossen. Das Popup kann programmatisch geschlossen werden, indem `window.close()` von einem im Popup laufenden Skript aufgerufen wird. Es ist jedoch nicht möglich, das Popup programmatisch von dem JavaScript einer Erweiterung zu öffnen; es kann nur als Reaktion auf eine Benutzeraktion geöffnet werden.
 
-Wenn der Benutzer den Button klickt, wird das Popup angezeigt. Wenn der Benutzer irgendwo außerhalb des Popups klickt, wird das Popup geschlossen. Das Popup kann programmatisch durch Aufruf von [`window.close()`](/de/docs/Web/API/Window/close) aus einem im Popup laufenden Skript geschlossen werden. Allerdings können Sie das Popup nicht programmatisch aus dem JavaScript einer Erweiterung öffnen; es kann nur als Reaktion auf eine Benutzeraktion geöffnet werden.
+Sie können eine Tastenkombination festlegen, die das Popup mithilfe der `"_execute_browser_action"` und `"_execute_page_action"` Kurzbefehle in Manifest V2 und `"_execute_action"` und, wo unterstützt, `"_execute_page_action"` Kurzbefehle in Manifest V3 öffnet. Siehe die Dokumentation für die speziellen Kurzbefehle im manifest.json Schlüssel [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts).
 
-Sie können eine Tastenkombination definieren, die das Popup öffnet, indem Sie die Shortcuts `"_execute_browser_action"` und `"_execute_page_action"` in Manifest V2 und die Shortcuts `"_execute_action"` und, wo unterstützt, `"_execute_page_action"` in Manifest V3 verwenden. Siehe die Dokumentation für die speziellen Shortcuts im Key [`commands`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#special_shortcuts) von manifest.json.
+## Spezifikation eines Popups
 
-## Festlegen eines Popups
+Das Popup wird als HTML-Datei angegeben, die CSS- und JavaScript-Dateien enthalten kann, wie es auch bei einer normalen Webseite der Fall ist. Anders als bei einer normalen Seite kann das JavaScript jedoch alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, für die die Erweiterung [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat.
 
-Das Popup wird als eine HTML-Datei spezifiziert, die CSS- und JavaScript-Dateien enthalten kann, wie es bei einer normalen Webseite der Fall ist. Im Gegensatz zu einer normalen Seite kann das JavaScript jedoch alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) nutzen, für die die Erweiterung [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat.
+Das Dokument des Popups wird jedes Mal geladen, wenn das Popup angezeigt wird, und jedes Mal entladen, wenn das Popup geschlossen wird.
 
-Das Dokument des Popups wird jedes Mal geladen, wenn das Popup angezeigt wird, und entladen, wenn das Popup geschlossen wird.
-
-Die HTML-Datei ist in der Erweiterung enthalten und wird als Teil des Keys [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) in der manifest.json durch `"default_popup"` angegeben:
+Die HTML-Datei ist in die Erweiterung eingebunden und wird als Teil des [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Schlüssels durch `"default_popup"` in der manifest.json angegeben:
 
 ```json
   "browser_action": {
@@ -31,26 +29,26 @@ Die HTML-Datei ist in der Erweiterung enthalten und wird als Teil des Keys [`bro
   }
 ```
 
-Popups haben eine Content Security Policy, die die Quellen einschränkt, aus denen sie Ressourcen laden können, und einige unsichere Praktiken, wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval), verbietet. Weitere Details hierzu finden Sie in der [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy).
+Popups haben eine Content-Security-Policy, die die Quellen einschränkt, von denen sie Ressourcen laden können, und einige unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval) verbietet. Weitere Details finden Sie unter [Content Security Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy).
 
-## Debugging von Popups
+## Debuggen von Popups
 
-Sie können das Markup und JavaScript eines Popups mit dem Add-on-Debugger debuggen, müssen jedoch die Funktion zum automatischen Ausblenden von Popups deaktivieren, um zu verhindern, dass Popups ausgeblendet werden, wenn Sie außerhalb von ihnen klicken. [Lesen Sie über das Debuggen von Popups](https://extensionworkshop.com/documentation/develop/debugging/#debugging_popups).
+Sie können das Markup und JavaScript eines Popups mithilfe des Add-on-Debuggers debuggen. Dazu müssen Sie jedoch die Funktion "Popup-Autoverbergen deaktivieren" aktivieren, um zu verhindern, dass Popups ausgeblendet werden, wenn Sie außerhalb davon klicken. [Lesen Sie mehr über das Debuggen von Popups](https://extensionworkshop.com/documentation/develop/debugging/#debugging_popups).
 
-## Popup-Größenanpassung
+## Größenanpassung von Popups
 
-Popups passen ihre Größe automatisch an den Inhalt an. Der Algorithmus hierfür kann in verschiedenen Browsern unterschiedlich sein.
+Popups passen ihre Größe automatisch an den Inhalt an. Der Algorithmus dafür kann je nach Browser unterschiedlich sein.
 
-In Firefox wird die Größe berechnet, kurz bevor das Popup angezeigt wird, und maximal 10 Mal pro Sekunde nach DOM-Änderungen. Für Dokumente im Strict-Modus wird die Größe basierend auf der Layoutgröße des `<body>`-Elements berechnet. Für den Quirks-Modus ist es das `<html>`-Element. Firefox berechnet die bevorzugte Breite des Inhalts dieses Elements, neu arrangiert ihn auf diese Breite und passt die Größe an, sodass kein vertikales Scrollen erforderlich ist. Es wird maximal auf eine Größe von **800x600 Pixeln** wachsen, wenn das auf den Bildschirm des Nutzers passt. (Vor Firefox 60 waren es nur [680px](https://bugzil.la/1434177).) Wenn der Nutzer den Button der Erweiterung [in das Menü verschiebt](https://support.mozilla.org/en-US/kb/customize-firefox-controls-buttons-and-toolbars#w_customize-the-menu-or-the-toolbar) oder dieser in der Überlaufleiste der Toolbar erscheint, dann erscheint das Popup im Panel des Menüs und hat eine feste Breite.
+In Firefox wird die Größe unmittelbar bevor das Popup angezeigt wird berechnet und danach höchstens 10 Mal pro Sekunde nach DOM-Veränderungen. Bei Dokumenten im Strict-Modus wird die Größe basierend auf der Layout-Größe des [`<body>`](/de/docs/Web/HTML/Reference/Elements/body)-Elements berechnet. Im Quirks-Modus ist es das [`<html>`](/de/docs/Web/HTML/Reference/Elements/html)-Element. Firefox berechnet die bevorzugte Breite des Inhalts dieses Elements, lässt es in dieser Breite umfließen und passt dann die Größe an, sodass kein vertikales Scrollen erforderlich ist. Es vergrößert sich maximal bis zu einer Größe von **800 x 600 Pixeln**, wenn das auf den Bildschirm des Benutzers passt. (Vor Firefox 60 waren es nur [680px](https://bugzil.la/1434177).) Wenn der Benutzer [den Button der Erweiterung ins Menü verschiebt](https://support.mozilla.org/en-US/kb/customize-firefox-controls-buttons-and-toolbars#w_customize-the-menu-or-the-toolbar) oder dieser im Überlauf der Toolbar erscheint, dann wird das Popup im Menüpanel angezeigt und erhält eine feste Breite.
 
-Wenn Sie die `width` des Popups in CSS setzen, sollten Sie dies im `<body>` und nicht in `:root` tun.
+Beim Festlegen der `width` des Popups in CSS sollten Sie dies im [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) und nicht im `:root` tun.
 
 In Firefox Android 57 wird das Popup als normale Seite in einem neuen Tab angezeigt.
 
-## Popup-Gestaltung
+## Pop-up-Design
 
-Für Details darüber, wie Sie die Webseite Ihres Popups gestalten, um den Stil von Firefox zu entsprechen, siehe das [Acorn Design System](https://acorn.firefox.com/latest).
+Einzelheiten dazu, wie Sie die Webseite Ihres Popups gestalten, um dem Stil von Firefox zu entsprechen, finden Sie im [Acorn Design System](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples)-Repository auf GitHub enthält das [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify)-Beispiel, das eine Browser-Aktion mit einem Popup implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [beastify](https://github.com/mdn/webextensions-examples/tree/main/beastify)-Beispiel, das eine Browser-Aktion mit einem Popup implementiert.

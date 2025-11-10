@@ -3,12 +3,12 @@ title: "WebTransportError: WebTransportError() Konstruktor"
 short-title: WebTransportError()
 slug: Web/API/WebTransportError/WebTransportError
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Der **`WebTransportError()`** Konstruktor erstellt eine neue [`WebTransportError`](/de/docs/Web/API/WebTransportError) Objektinstanz.
+Der **`WebTransportError()`** Konstruktor erstellt eine neue Instanz des [`WebTransportError`](/de/docs/Web/API/WebTransportError) Objekt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new WebTransportError(init)
     - `message`
       - : Ein String, der den aufgetretenen Fehler beschreibt.
     - `streamErrorCode`
-      - : Eine Zahl im Bereich von 0-255, die den Anwendungscode für diesen Fehler angibt.
+      - : Eine Zahl im Bereich 0-255, die den Fehlercode des Anwendungsprotokolls für diesen Fehler angibt.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError`-Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, zum Beispiel ein Serverfehler oder ein Netzwerkverbindungsproblem.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError`-Objekt wird konstruiert, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, zum Beispiel ein Serverfehler oder ein Netzwerkverbindungsproblem.
 
 ```js
 const url = "not-a-url";
@@ -40,7 +40,7 @@ async function initTransport(url) {
     // The connection can be used once ready fulfills
     await transport.ready;
 
-    // ...
+    // …
   } catch (error) {
     const msg = `Transport initialization failed.
                  Reason: ${error.message}.

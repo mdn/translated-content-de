@@ -2,17 +2,17 @@
 title: AudioProcessingEvent
 slug: Web/API/AudioProcessingEvent
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
 {{APIRef("Web Audio API")}}{{deprecated_header}}
 
-Das `AudioProcessingEvent`-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) stellt Ereignisse dar, die auftreten, wenn ein [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Eingabepuffer zur Verarbeitung bereit ist.
+Das `AudioProcessingEvent`-Interface des [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert Ereignisse, die auftreten, wenn ein Eingabepuffer eines [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) bereit zur Verarbeitung ist.
 
-Ein `audioprocess`-Ereignis mit diesem Interface wird bei einem [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) ausgelöst, wenn eine Audiobearbeitung erforderlich ist. Während der Audiobearbeitung wird der Eingabepuffer gelesen und verarbeitet, um Ausgabe-Audiodaten zu erzeugen, die dann in den Ausgabepuffer geschrieben werden.
+Ein `audioprocess`-Ereignis mit diesem Interface wird auf einem [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) ausgelöst, wenn eine Audiobearbeitung erforderlich ist. Während der Audiobearbeitung wird der Eingabepuffer gelesen und verarbeitet, um Ausgabedaten zu erzeugen, die dann in den Ausgabepuffer geschrieben werden.
 
 > [!WARNING]
-> Diese Funktion wurde als veraltet erklärt und sollte durch einen [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ersetzt werden.
+> Diese Funktion wurde veraltet und sollte durch einen [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ersetzt werden.
 
 {{InheritanceDiagram}}
 
@@ -23,30 +23,29 @@ Ein `audioprocess`-Ereignis mit diesem Interface wird bei einem [`ScriptProcesso
 
 ## Instanz-Eigenschaften
 
-_Implementiert auch die Eigenschaften, die von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event) geerbt wurden_.
+_Implementiert auch die Eigenschaften, die von seinem Elternobjekt geerbt wurden, [`Event`](/de/docs/Web/API/Event)_.
 
 - [`playbackTime`](/de/docs/Web/API/AudioProcessingEvent/playbackTime) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Ein double-Wert, der die Zeit angibt, wann das Audio abgespielt wird,
+  - : Ein Double-Wert, der die Zeit repräsentiert, zu der das Audio abgespielt wird,
     definiert durch die Zeit von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime).
 - [`inputBuffer`](/de/docs/Web/API/AudioProcessingEvent/inputBuffer) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der den Puffer mit den zu verarbeitenden Eingabe-Audiodaten enthält.
-    Die Anzahl der Kanäle ist als Parameter `numberOfInputChannels`
-    der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
-    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Kontext des Ereignishandlers gültig ist.
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das den Puffer mit den zu verarbeitenden Eingabedaten enthält.
+    Die Anzahl der Kanäle ist als Parameter `numberOfInputChannels` der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
+    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Rahmen des Ereignishandlers gültig ist.
 - [`outputBuffer`](/de/docs/Web/API/AudioProcessingEvent/outputBuffer) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der der Puffer ist, in den die Ausgabe-Audiodaten geschrieben werden sollen.
-    Die Anzahl der Kanäle ist als Parameter <code>numberOfOutputChannels</code>
-    der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
-    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Kontext des Ereignishandlers gültig ist.
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das der Puffer ist, in den die Ausgabedaten geschrieben werden sollen.
+    Die Anzahl der Kanäle ist als Parameter <code>numberOfOutputChannels</code> der Fabrikmethode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert.
+    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Rahmen des Ereignishandlers gültig ist.
 
 ## Beispiele
 
-### Hinzufügen von Weißem Rauschen mit einem Skriptprozessor
+### Weißes Rauschen mit einem Script-Prozessor hinzufügen
 
-Das folgende Beispiel zeigt, wie ein `ScriptProcessorNode` verwendet wird, um einen Track, der über [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) geladen wurde, zu verarbeiten, indem jedem Audiosample des Eingabetracks (Puffer) ein wenig weißes Rauschen hinzugefügt wird und er über den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) abgespielt wird. Für jeden Kanal und jeden Sample-Frame nimmt die Funktion `scriptNode.onaudioprocess` das zugehörige `audioProcessingEvent` und verwendet es, um durch jeden Kanal des Eingabepuffers zu iterieren, und jedem Sample in jedem Kanal eine kleine Menge weißer Rauschen hinzuzufügen, bevor dieses Ergebnis im Ausgabesample für jeden Fall gesetzt wird.
+Das folgende Beispiel zeigt, wie ein `ScriptProcessorNode` verwendet wird, um einen Track, der über [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) geladen wurde, zu verarbeiten, indem ein wenig weißes Rauschen zu jedem Audio-Sample des Eingabetracks (Puffer) hinzugefügt und über den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) abgespielt wird. Für jeden Kanal und jedes Sample-Frame nimmt die Funktion `scriptNode.onaudioprocess` das zugehörige `audioProcessingEvent` und verwendet es, um durch jeden Kanal des Eingabepuffers und jedes Sample in jedem Kanal zu schleifen und eine kleine Menge weißes Rauschen hinzuzufügen, bevor dieses Ergebnis als Ausgabesample in jedem Fall gesetzt wird.
 
 > [!NOTE]
-> Für ein vollständiges Arbeitsbeispiel, sehen Sie sich unser [script-processor-node](https://mdn.github.io/webaudio-examples/script-processor-node/)-GitHub-Repo an. (Sie können auch den [Quellcode](https://github.com/mdn/webaudio-examples/tree/main/script-processor-node) aufrufen.)
+> Für ein vollständiges, funktionierendes Beispiel besuchen Sie unser [script-processor-node](https://mdn.github.io/webaudio-examples/script-processor-node/)
+> GitHub-Repo. (Sie können auch den [Quellcode](https://github.com/mdn/webaudio-examples/tree/main/script-processor-node) einsehen.)
 
 ```js
 const myScript = document.querySelector("script");
@@ -119,10 +118,14 @@ playButton.addEventListener("click", () => {
 });
 ```
 
+## Spezifikationen
+
+{{Specifications}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung des Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

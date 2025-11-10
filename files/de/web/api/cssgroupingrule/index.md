@@ -2,23 +2,23 @@
 title: CSSGroupingRule
 slug: Web/API/CSSGroupingRule
 l10n:
-  sourceCommit: a850ca867a8b380a53320bab6870fb7335f22d52
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSGroupingRule`**-Schnittstelle des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert jede CSS-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), die andere Regeln in sich verschachtelt enthält.
+Die **`CSSGroupingRule`**-Schnittstelle des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert jede CSS-[At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), die andere Regeln in sich verschachtelt enthält.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Diese Schnittstelle erbt auch Eigenschaften von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSGroupingRule.cssRules`](/de/docs/Web/API/CSSGroupingRule/cssRules) {{ReadOnlyInline}}
-  - : Gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) der CSS-Regeln in der Medienregel zurück.
+  - : Gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) der CSS-Regeln in der Media-Regel zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Diese Schnittstelle erbt auch Methoden von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
@@ -37,4 +37,4 @@ _Diese Schnittstelle erbt auch Methoden von [`CSSRule`](/de/docs/Web/API/CSSRule
 
 ## Siehe auch
 
-- [Verwendung dynamischer Stil-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung von dynamischen Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

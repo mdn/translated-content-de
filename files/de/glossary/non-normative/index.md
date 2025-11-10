@@ -1,14 +1,12 @@
 ---
-title: Non-normative
+title: Nicht-normativ
 slug: Glossary/Non-normative
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Software-{{Glossary("specification", "Spezifikationen")}} enthalten oft Informationen, die als **nicht-normativ** oder _informativ_ gekennzeichnet sind und den Lesern helfen sollen, die Spezifikation besser zu verstehen, oder um ein Beispiel oder Best Practice zu zeigen. Nicht-normative Teile der Spezifikation werden als Leitlinien bereitgestellt und gelten nicht als Teil der formalen Spezifikation. Abschnitte, die den offiziellen Teil der Spezifikation enthalten, sind oft als {{Glossary("normative", "normativ")}} gekennzeichnet.
+Software-{{Glossary("specification", "Spezifikationen")}} enthalten oft Informationen, die als **nicht-normativ** oder _informativer Natur_ gekennzeichnet sind. Diese Informationen werden bereitgestellt, um den Lesern ein besseres Verständnis der Spezifikation zu ermöglichen oder um ein Beispiel oder eine bewährte Praxis zu zeigen. Die nicht-normativen Teile der Spezifikation dienen als Richtlinien und werden nicht als Teil der formalen Spezifikation betrachtet. Abschnitte, die den offiziellen Teil der Spezifikation enthalten, sind oft als {{Glossary("normative", "normative")}} gekennzeichnet.
 
 ## Siehe auch
 
-- Beschreibung von [normativen und informativen Inhalten](https://wiki.whatwg.org/wiki/Specs/howto#Content) im WHATWG-Wiki
+- Beschreibung von [normativem und informativem Inhalt](https://wiki.whatwg.org/wiki/Specs/howto#Content) im WHATWG-Wiki

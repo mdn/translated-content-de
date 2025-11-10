@@ -3,14 +3,14 @@ title: "GPURenderPassEncoder: insertDebugMarker()-Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPURenderPassEncoder/insertDebugMarker
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces markiert einen bestimmten Punkt in einer Reihe von codierten Render-Pass-Befehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces markiert einen bestimmten Punkt in einer Reihe von codierten Renderpass-Befehlen mit einem Label.
 
-Diese Methode könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklertools oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
+Dies könnte für Telemetriezwecke verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklertools oder anderen Diensten genutzt werden, um beim Debuggen zu helfen.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ Keiner ({{jsxref("Undefined")}}).
 ## Beispiele
 
 ```js
-// ...
+// …
 
 passEncoder.insertDebugMarker("my_marker");
 
-// ...
+// …
 ```
 
 ## Spezifikationen

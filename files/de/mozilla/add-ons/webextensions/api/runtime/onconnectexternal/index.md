@@ -2,16 +2,14 @@
 title: runtime.onConnectExternal
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onConnectExternal
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Wird ausgelöst, wenn eine Erweiterung eine Verbindungsanfrage von einer anderen Erweiterung erhält.
 
-Um eine Nachricht zu senden, die vom `onConnectExternal`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.connect()")}}, indem Sie die ID des Empfängers im `extensionId`-Parameter angeben.
+Um eine Nachricht zu senden, die vom `onConnectExternal`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.connect()")}}, indem Sie die ID des Empfängers im `extensionId` Parameter übergeben.
 
-Dem Listener wird ein {{WebExtAPIRef('runtime.Port')}} Objekt übergeben, das verwendet werden kann, um Nachrichten zu senden und zu empfangen. Das `Port`-Objekt enthält auch eine `sender`-Eigenschaft, die ein {{WebExtAPIRef("runtime.MessageSender")}} Objekt ist und vom Empfänger zur Überprüfung der Sender-ID verwendet werden kann.
+Der Listener erhält ein {{WebExtAPIRef('runtime.Port')}}-Objekt, das er dann zum Senden und Empfangen von Nachrichten verwenden kann. Das `Port`-Objekt enthält auch eine `sender`-Eigenschaft, die ein {{WebExtAPIRef("runtime.MessageSender")}}-Objekt ist und die der Empfänger verwenden kann, um die ID des Absenders zu überprüfen.
 
 ## Syntax
 
@@ -24,30 +22,24 @@ browser.runtime.onConnectExternal.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
 - `function`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
-
     - `port`
-      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit der anderen Erweiterung verbindet, zu der es eine Verbindung herstellt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+      - : Ein {{WebExtAPIRef('runtime.Port')}}-Objekt, das das aktuelle Skript mit der anderen Erweiterung verbindet, mit der es sich verbindet.
 
 ## Beispiele
 
-In diesem Beispiel verbindet sich die Erweiterung Hänsel mit der Erweiterung Gretel:
+In diesem Beispiel verbindet sich die Erweiterung Hansel mit der Erweiterung Gretel:
 
 ```js
 console.log("connecting to Gretel");
@@ -62,7 +54,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Gretel lauscht auf die Verbindung und überprüft, ob der Absender wirklich Hänsel ist:
+Gretel hört auf die Verbindung und überprüft, dass der Absender wirklich Hansel ist:
 
 ```js
 let portFromHansel;
@@ -85,5 +77,9 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnectExternal) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnectExternal)-API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.

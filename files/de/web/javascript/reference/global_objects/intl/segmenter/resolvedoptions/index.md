@@ -1,24 +1,23 @@
 ---
 title: Intl.Segmenter.prototype.resolvedOptions()
+short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/resolvedOptions
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-{{JSRef}}
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.Segmenter")}} Instanzen gibt ein neues Objekt zurück, das die Optionen widerspiegelt, die während der Initialisierung dieses `Segmenter` Objekts berechnet wurden.
 
-Die Methode **`resolvedOptions()`** von Instanzen von {{jsxref("Intl.Segmenter")}} gibt ein neues Objekt zurück, das Eigenschaften enthält, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln.
-
-{{InteractiveExample("JavaScript Demo: Intl.Segmenter.prototype.resolvedOptions")}}
+{{InteractiveExample("JavaScript Demo: Intl.Segmenter.prototype.resolvedOptions()")}}
 
 ```js interactive-example
-const segmenter1 = new Intl.Segmenter("fr-FR");
-const options1 = segmenter1.resolvedOptions();
+const segmenter = new Intl.Segmenter("fr-FR");
+const options = segmenter.resolvedOptions();
 
-console.log(options1.locale);
+console.log(options.locale);
 // Expected output: "fr-FR"
 
-console.log(options1.granularity);
+console.log(options.granularity);
 // Expected output: "grapheme"
 ```
 
@@ -34,12 +33,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften in der angegebenen Reihenfolge:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `Segmenter`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
 
 - `locale`
-  - : Der BCP 47-Sprachcode für die tatsächlich verwendete Locale, ermittelt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Es wird kein Unicode-Erweiterungsschlüssel in der Ausgabe enthalten sein.
+  - : Das {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} für die tatsächlich verwendete Sprache, bestimmt durch den [Sprachauswahlprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Es wird kein Unicode-Erweiterungsschlüssel im Ergebnis enthalten sein.
 - `granularity`
-  - : Der Wert, der in den `options`-Argumenten für diese Eigenschaft angegeben wurde, mit standardmäßiger Auffüllung, falls erforderlich. Es ist entweder `"grapheme"`, `"word"` oder `"sentence"`. Der Standardwert ist `"grapheme"`.
+  - : Der Wert, der für diese Eigenschaft im `options` Argument angegeben wurde, mit Standardwerten, soweit erforderlich. Es ist entweder `"grapheme"`, `"word"` oder `"sentence"`. Der Standardwert ist `"grapheme"`.
 
 ## Beispiele
 
@@ -61,7 +60,7 @@ console.log(options.locale); // "es"
 console.log(options.granularity); // "grapheme"
 ```
 
-### Fallback-Locale
+### Fallback-Sprache
 
 ```js
 const banSegmenter = new Intl.Segmenter("ban");

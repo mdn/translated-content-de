@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`appendRule()`**-Methode des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces fügt eine [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule) am Ende der Regeln an.
+Die **`appendRule()`**-Methode des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces fügt eine [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule) am Ende der Regeln an.
 
 ## Syntax
 

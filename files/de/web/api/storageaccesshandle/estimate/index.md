@@ -27,7 +27,7 @@ Ein {{jsxref("Promise")}}, das mit einem nicht partitionierten [`StorageEstimate
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn kein Zugriff gewährt wurde.
 
 Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate)

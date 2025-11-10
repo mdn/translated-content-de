@@ -3,14 +3,14 @@ title: "GPUQueue: writeTexture() Methode"
 short-title: writeTexture()
 slug: Web/API/GPUQueue/writeTexture
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`writeTexture()`**-Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle schreibt eine bereitgestellte Datenquelle in eine bestimmte [`GPUTexture`](/de/docs/Web/API/GPUTexture).
+Die **`writeTexture()`** Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue) Schnittstelle schreibt eine bereitgestellte Datenquelle in eine gegebene [`GPUTexture`](/de/docs/Web/API/GPUTexture).
 
-Dies ist eine Komfortfunktion, die eine Alternative zum Einstellen von Texturdaten über Pufferzuordnung und Puffer-zu-Textur-Kopien bietet. Sie lässt das Benutzeragent entscheiden, wie die Daten am effizientesten kopiert werden können.
+Dies ist eine Komfortfunktion, die eine Alternative zum Setzen von Texturdaten über Pufferzuordnung und Puffer-zu-Textur-Kopien bietet. Sie lässt den Benutzeragenten den effizientesten Weg bestimmen, um die Daten zu kopieren.
 
 ## Syntax
 
@@ -22,58 +22,44 @@ writeTexture(destination, data, dataLayout, size)
 
 - `destination`
 
-  - : Ein Objekt, das die Textur-Unterressource und den Ursprung definiert, zu dem die Datenquelle geschrieben werden soll. Es kann die folgenden Eigenschaften enthalten:
+  - : Ein Objekt, das die Textur-Subresource und den Ursprung definiert, um die Datenquelle zu schreiben. Es kann folgende Eigenschaften enthalten:
 
     - `aspect` {{optional_inline}}
 
-      - : Ein aufgezählter Wert, der definiert, auf welche Aspekte der Textur die Daten geschrieben werden sollen. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der definiert, welche Aspekte der Textur die Daten geschrieben werden sollen. Mögliche Werte sind:
 
         - `"all"`
-          - : Alle verfügbaren Aspekte des Texturformats werden beschrieben, was je nach Formattyp Farbe, Tiefe und Schablone bedeuten kann.
+          - : Alle verfügbaren Aspekte des Texturformats werden beschrieben, was je nach Formattyp Farbe, Tiefe und Stencil umfassen kann.
         - `"depth-only"`
-          - : Nur der Tiefenaspekt eines [Tiefen-oder-Schablonenformats](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) wird beschrieben.
+          - : Nur der Tiefenaspekt eines [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) wird beschrieben.
         - `"stencil-only"`
-          - : Nur der Schablonenaspekt eines Tiefen-oder-Schablonenformats wird beschrieben.
+          - : Nur der Stencil-Aspekt eines Depth-Or-Stencil-Formats wird beschrieben.
 
         Wenn weggelassen, nimmt `aspect` den Wert `"all"` an.
 
     - `mipLevel` {{optional_inline}}
-      - : Eine Zahl, die die Mip-Map-Ebene der Textur repräsentiert, auf die die Daten geschrieben werden sollen. Wenn nicht angegeben, ist der Standardwert für `mipLevel` 0.
+      - : Eine Zahl, die das Mip-Map-Level der Textur angibt, zu dem die Daten geschrieben werden sollen. Wenn weggelassen, ist der Standardwert für `mipLevel` 0.
     - `origin` {{optional_inline}}
 
-      - : Ein Objekt oder Array, das den Ursprung der Kopie angibt — die minimale Ecke des Texturbereichs, in den die Daten geschrieben werden sollen. Zusammen mit `size` definiert dies den vollen Umfang des Bereichs, in den kopiert werden soll. Die `x`, `y` und `z` Werte sind standardmäßig 0, wenn Teile oder alle von `origin` weggelassen werden.
+      - : Ein Objekt oder Array, das den Ursprung der Kopie spezifiziert — die minimale Ecke der Texturregion, zu der die Daten geschrieben werden sollen. Zusammen mit `size` definiert dies den vollständigen Bereich der zu kopierenden Region. Die `x`, `y` und `z` Werte haben den Standardwert 0, falls `origin` teilweise oder vollständig weggelassen wird.
 
-        Nachfolgend ein Beispielarray:
-
-        ```js
-        origin: [0, 0, 0];
-        ```
-
-        Das entsprechende Objekt sieht so aus:
-
-        ```js
-        origin: {
-          x: 0,
-          y: 0,
-          z: 0
-        }
-        ```
+        Zum Beispiel können Sie ein Array wie `[0, 0, 0]` oder das entsprechende Objekt `{ x: 0, y: 0, z: 0 }` übergeben.
 
     - `texture`
-      - : Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt, das die Textur repräsentiert, in die die Daten geschrieben werden sollen.
+      - : Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture) Objekt, das die Textur darstellt, in die die Daten geschrieben werden sollen.
 
 - `data`
   - : Ein Objekt, das die Datenquelle repräsentiert, die in die [`GPUTexture`](/de/docs/Web/API/GPUTexture) geschrieben werden soll. Dies kann ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} sein.
 - `dataLayout`
-  - : Ein Objekt, das das Layout der in `data` enthaltenen Inhalte definiert. Mögliche Werte sind:
+  - : Ein Objekt, das das Layout des Inhalts in `data` definiert. Mögliche Werte sind:
     - `offset` {{optional_inline}}
-      - : Der Offset in Bytes vom Beginn von `data` bis zum Start der zu kopierenden Bilddaten. Wenn nicht angegeben, ist der Standardwert für `offset` 0.
+      - : Der Offset in Bytes vom Beginn von `data` bis zum Start der zu kopierenden Bilddaten. Wenn weggelassen, ist der Standardwert für `offset` 0.
     - `bytesPerRow` {{optional_inline}}
-      - : Eine Zahl, die den Abstand in Bytes zwischen dem Beginn jeder Blockreihe (d.h. einer Reihe vollständiger Texelblöcke) und der darauf folgenden Blockreihe repräsentiert. Dies ist erforderlich, wenn es mehrere Blockreihen gibt (d.h. die Kopierhöhe oder -tiefe beträgt mehr als einen Block).
+      - : Eine Zahl, die den Abstand in Bytes zwischen dem Beginn jeder Blockreihe (d.h. einer Reihe vollständiger Texelblöcke) und der nächsten Blockreihe darstellt. Dies ist erforderlich, wenn es mehrere Blockreihen gibt (d.h. die Kopierhöhe oder -tiefe beträgt mehr als einen Block).
     - `rowsPerImage` {{optional_inline}}
-      - : Die Anzahl von Blockreihen pro Einzelbild der Textur. `bytesPerRow` &times; `rowsPerImage` ergibt den Abstand in Bytes zwischen dem Beginn jedes vollständigen Bildes. Dies ist erforderlich, wenn mehrere Bilder kopiert werden sollen.
+      - : Die Anzahl der Blockreihen pro Einzelbild der Textur. `bytesPerRow` &times; `rowsPerImage` ergibt die Abfolge in Bytes zwischen dem Beginn jedes vollständigen Bildes. Dies ist erforderlich, wenn mehrere Bilder kopiert werden sollen.
 - `size`
-  - : Ein Objekt oder Array, das den Umfang der Kopie angibt — die entfernte Ecke des Texturbereichs, in den die Daten geschrieben werden sollen. Zusammen mit `destination.origin` definiert dies den vollen Umfang des Bereichs, in den kopiert werden soll. Siehe `destination.origin` für Beispiele zur Objekt-/Array-Struktur.
+  - : Ein Objekt oder Array, das das Ausmaß der Kopie spezifiziert — die entfernte Ecke der Texturregion, in die die Daten geschrieben werden sollen. Zusammen mit `destination.origin` definiert dies den vollständigen Bereich der zu kopierenden Region. Siehe `destination.origin` für Beispiele der Objekt-/Arraystruktur.
 
 ### Rückgabewert
 
@@ -81,26 +67,26 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen bei einem Aufruf von **`writeTexture()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und die [`GPUQueue`](/de/docs/Web/API/GPUQueue) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`writeTexture()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und die [`GPUQueue`](/de/docs/Web/API/GPUQueue) wird ungültig:
 
-- `mipLevel` ist kleiner als die Ziel [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount).
-- `origin.x` ist ein Vielfaches der Texelblockbreite des Ziels [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
-- `origin.y` ist ein Vielfaches der Texelblockhöhe des Ziels [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
-- Wenn das Ziel [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) ein [Tiefen-oder-Schablonenformat](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist oder [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) mehr als 1 beträgt, entspricht die Unterressourcengröße `size`.
-- Die Nutzung des Ziels [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage) umfasst das `GPUTextureUsage.COPY_DST`-Flag.
-- Die Abtastanzahl des Ziels [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) ist 1.
-- `destination.origin.x` + die `destination` [`GPUTexture.width`](/de/docs/Web/API/GPUTexture/width) ist kleiner oder gleich der Breite der Unterressource, die auf das `destination` [`GPUTexture`](/de/docs/Web/API/GPUTexture) geschrieben wird.
-- `destination.origin.y` + die `destination` [`GPUTexture.height`](/de/docs/Web/API/GPUTexture/height) ist kleiner oder gleich der Höhe der Unterressource, die auf das `destination` [`GPUTexture`](/de/docs/Web/API/GPUTexture) geschrieben wird.
-- `destination.origin.z` + die `destination` [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) ist kleiner oder gleich der depthOrArrayLayers der Unterressource, die auf das `destination` [`GPUTexture`](/de/docs/Web/API/GPUTexture) geschrieben wird.
-- Die `destination` [`GPUTexture.width`](/de/docs/Web/API/GPUTexture/width) ist ein Vielfaches der Texelblockbreite des Ziels [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
-- Die `destination` [`GPUTexture.height`](/de/docs/Web/API/GPUTexture/height) ist ein Vielfaches der Texelblockhöhe des Ziels [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
-- `destination.aspect` bezieht sich auf einen einzigen Aspekt des Ziels [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
-- Dieser Aspekt ist ein gültiges Bildkopierziel gemäß [Tiefen-oder-Schablonenformate](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format).
-- Das `destination` ist ansonsten kompatibel mit dem [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- `mipLevel` ist kleiner als die Ziel- [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount).
+- `origin.x` ist ein Vielfaches der Texelblockbreite des Ziel- [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- `origin.y` ist ein Vielfaches der Texelblockhöhe des Ziel- [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- Wenn das Ziel- [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) ein [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist oder [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) größer als 1 ist, muss die Subresourcengröße gleich `size` sein.
+- Das Ziel- [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage) schließt das `GPUTextureUsage.COPY_DST` Flag ein.
+- Das Ziel- [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) ist 1.
+- `destination.origin.x` + die `destination` [`GPUTexture.width`](/de/docs/Web/API/GPUTexture/width) ist kleiner als oder gleich der Breite der zu beschreibenden Subresource zur `destination` [`GPUTexture`](/de/docs/Web/API/GPUTexture).
+- `destination.origin.y` + die `destination` [`GPUTexture.height`](/de/docs/Web/API/GPUTexture/height) ist kleiner als oder gleich der Höhe der zu beschreibenden Subresource zur `destination` [`GPUTexture`](/de/docs/Web/API/GPUTexture).
+- `destination.origin.z` + die `destination` [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) ist kleiner als oder gleich der depthOrArrayLayers der zu beschreibenden Subresource zur `destination` [`GPUTexture`](/de/docs/Web/API/GPUTexture).
+- Die `destination` [`GPUTexture.width`](/de/docs/Web/API/GPUTexture/width) ist ein Vielfaches der Texelblockbreite des Ziel- [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- Die `destination` [`GPUTexture.height`](/de/docs/Web/API/GPUTexture/height) ist ein Vielfaches der Texelblockhöhe des Ziel- [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- `destination.aspect` bezieht sich auf einen einzelnen Aspekt des Ziel- [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- Dieser Aspekt ist ein gültiges Ziel für Bildkopien gemäß den [depth-or-stencil formats](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format).
+- Die `destination` ist ansonsten mit dem [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) kompatibel.
 
 ## Beispiele
 
-In [Efficiently rendering glTF models](https://toji.github.io/webgpu-gltf-case-study/) wird eine Funktion zum Erstellen einer Vollfarbtextur definiert:
+In [Efficiently rendering glTF models](https://toji.github.io/webgpu-gltf-case-study/) wird eine Funktion zum Erstellen einer einfarbigen Textur definiert:
 
 ```js
 function createSolidColorTexture(r, g, b, a) {
@@ -115,7 +101,7 @@ function createSolidColorTexture(r, g, b, a) {
 }
 ```
 
-Dies kann verwendet werden, um Standardtexturen für den Einsatz in Materialbibliotheken zu definieren:
+Diese kann verwendet werden, um Standardtexturen für die Verwendung in Materialbibliotheken zu definieren:
 
 ```js
 const opaqueWhiteTexture = createSolidColorTexture(1, 1, 1, 1);

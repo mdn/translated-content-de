@@ -1,16 +1,13 @@
 ---
-title: "SyntaxError: JSON.parse: Fehlerhaftes Parsing"
+title: "SyntaxError: JSON.parse: bad parsing"
 slug: Web/JavaScript/Reference/Errors/JSON_bad_parse
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahmen, die durch {{jsxref("JSON.parse()")}} ausgelöst werden, treten auf, wenn ein String nicht als JSON analysiert werden konnte.
 
-Die JavaScript-Ausnahmen, die von {{jsxref("JSON.parse()")}} ausgelöst werden, treten auf, wenn ein String nicht
-als JSON geparst werden konnte.
-
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: JSON.parse: unterminated string literal
@@ -52,14 +49,13 @@ SyntaxError: JSON.parse: unexpected non-whitespace character after JSON data
 
 ## Was ist schiefgelaufen?
 
-{{jsxref("JSON.parse()")}} parst einen String als JSON. Dieser String muss gültiges JSON
-sein und wird diesen Fehler auslösen, wenn ein falsches Syntax-Problem erkannt wird.
+{{jsxref("JSON.parse()")}} analysiert einen String als JSON. Dieser String muss gültiges JSON sein und wird diesen Fehler auslösen, wenn falsche Syntax gefunden wurde.
 
 ## Beispiele
 
 ### JSON.parse() erlaubt keine nachgestellten Kommata
 
-Beide Zeilen führen zu einem SyntaxError:
+Beide Zeilen werden einen SyntaxError auslösen:
 
 ```js example-bad
 JSON.parse("[1, 2, 3, 4,]");
@@ -68,7 +64,7 @@ JSON.parse('{"foo": 1,}');
 // at line 1 column 14 of the JSON data
 ```
 
-Um das JSON korrekt zu parsen, lassen Sie die nachgestellten Kommata weg:
+Lassen Sie die nachgestellten Kommata weg, um das JSON korrekt zu analysieren:
 
 ```js example-good
 JSON.parse("[1, 2, 3, 4]");
@@ -85,7 +81,7 @@ JSON.parse("{'foo': 1}");
 // at line 1 column 2 of the JSON data
 ```
 
-Stattdessen schreiben Sie "foo":
+Verwenden Sie stattdessen "foo":
 
 ```js example-good
 JSON.parse('{"foo": 1}');
@@ -93,8 +89,7 @@ JSON.parse('{"foo": 1}');
 
 ### Führende Nullen und Dezimalpunkte
 
-Sie können keine führenden Nullen wie 01 verwenden, und Dezimalpunkte müssen von mindestens
-einer Ziffer gefolgt werden.
+Sie können keine führenden Nullen verwenden, wie 01, und Dezimalpunkte müssen von mindestens einer Ziffer gefolgt werden.
 
 ```js example-bad
 JSON.parse('{"foo": 01}');
@@ -106,7 +101,7 @@ JSON.parse('{"foo": 1.}');
 // at line 1 column 2 of the JSON data
 ```
 
-Schreiben Sie stattdessen einfach 1 ohne Null und verwenden Sie mindestens eine Ziffer nach einem Dezimalpunkt:
+Schreiben Sie stattdessen einfach 1 ohne eine Null und verwenden Sie mindestens eine Ziffer nach einem Dezimalpunkt:
 
 ```js example-good
 JSON.parse('{"foo": 1}');

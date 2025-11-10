@@ -3,33 +3,32 @@ title: "SVGStyleElement: media-Eigenschaft"
 short-title: media
 slug: Web/API/SVGStyleElement/media
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGStyleElement.media`**-Eigenschaft ist eine Media-Query-Zeichenkette, die dem [`media`](/de/docs/Web/SVG/Element/style#media)-Attribut des angegebenen SVG-Stilelements entspricht.
+Die **`SVGStyleElement.media`**-Eigenschaft ist ein Media-Query-String, der dem [`media`](/de/docs/Web/SVG/Reference/Element/style#media)-Attribut des angegebenen SVG-Stilelements entspricht.
 
-Die Query muss zutreffen, damit der Stil angewendet wird.
+Die Abfrage muss übereinstimmen, damit der Stil angewendet wird.
 
 ## Wert
 
-Ein String, der eine gültige Liste von Media-Queries mit einem oder mehreren durch Kommata getrennten Werten definiert.
+Ein String, der eine gültige Media-Query-Liste mit einem oder mehreren kommagetrennten Werten definiert.
 Zum Beispiel `"screen, print"` oder `"all"` (der Standardwert).
 
-Der Wert wird mit dem String initialisiert, der im entsprechenden [`media`](/de/docs/Web/SVG/Element/style#media)-Attribut des Stils angegeben ist.
+Der Wert wird mit dem im entsprechenden Stil angegebenen String im [`media`](/de/docs/Web/SVG/Reference/Element/style#media)-Attribut initialisiert.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die `media`-Eigenschaft eines Stils, der in einer SVG-Definition definiert wurde, programmgesteuert abgerufen und gesetzt werden kann.
+Dieses Beispiel demonstriert, wie die media-Eigenschaft eines in einer SVG-Definition definierten Stils programmgesteuert abgerufen und gesetzt wird.
 
 ### HTML
 
-Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Element/style)-Element, das von der Media-Query `"all and (min-width: 600px)"` abhängig ist.
-Wir definieren auch einen `button`, der verwendet wird, um den aktuellen Stil anzuzeigen und den Stil zu ändern.
+Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Reference/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Reference/Element/style)-Element, das bedingt durch die Media-Query `"(width >= 600px)"` ist. Wir definieren auch einen `button`, der verwendet wird, um den aktuellen Stil anzuzeigen und den Stil zu ändern.
 
 ```html
-<button></button>
+<button>Media unknown</button>
 <svg
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -39,7 +38,7 @@ Wir definieren auch einen `button`, der verwendet wird, um den aktuellen Stil an
 
 ### JavaScript
 
-Der untenstehende Code holt das `style`-Element (ein `SVGStyleElement`) mittels seiner ID.
+Der folgende Code holt das `style`-Element (ein `SVGStyleElement`) mit seiner ID.
 
 ```js
 const svg = document.querySelector("svg");
@@ -50,9 +49,7 @@ svg.appendChild(style);
 style.appendChild(node);
 ```
 
-Wir fügen dann eine Funktion hinzu, um den Text des Buttons so zu setzen, dass er den aktuellen Wert der `media`-Eigenschaft des Stils zusammen mit der aktuellen Fensterbreite zeigt.
-Diese Funktion wird aufgerufen, um den initialen Buttontext zu setzen und auch, wenn das Fenster neu dimensioniert wird oder der Button gedrückt wird.
-Der Button-Event-Handler setzt ebenfalls den Wert der `media`-Eigenschaft des Stils.
+Wir fügen dann eine Funktion hinzu, um den Text des Buttons so einzustellen, dass der aktuelle Wert der `media`-Eigenschaft des Stils zusammen mit der aktuellen Fensterbreite angezeigt wird. Diese Funktion wird aufgerufen, um den initialen Button-Text festzulegen, und auch, wenn das Fenster in der Größe verändert wird oder der Button gedrückt wird. Der Button-Ereignishandler setzt auch den Wert der `media`-Eigenschaft des Stils.
 
 ```js
 const button = document.querySelector("button");
@@ -67,22 +64,20 @@ addEventListener("resize", () => {
 });
 
 button.addEventListener("click", () => {
-  style.media = "all and (min-width: 700px)";
+  style.media = "(width >= 700px)";
   setButtonText();
 });
 ```
 
 ### Ergebnis
 
-Das Ergebnis wird unten gezeigt.
-Der Buttontext zeigt den ursprünglich auf den SVG-Stil angewendeten Wert des Media-Attributs zusammen mit der Breite des aktuellen Fensters (da der Code in einem Frame ausgeführt wird).
-Verkleinern Sie die Breite des Frames auf die im Button angezeigte Media-Query-Breite, um zu beobachten, wie der Stil angewendet wird.
-Drücken Sie den Button, um den Wert der `media`-Eigenschaft des Stils zu ändern (was sich im Button widerspiegeln wird).
+Das Ergebnis wird unten angezeigt.
+Der Button-Text zeigt den ursprünglich auf den SVG-Stil angewendeten Wert des media-Attributs zusammen mit der Breite des aktuellen Rahmens (da der Code in einem Rahmen ausgeführt wird). Verringern Sie die Breite des Rahmens auf die im Button angezeigte Media-Query-Breite, um den Stil angewendet zu sehen. Drücken Sie den Button, um den Wert der `media`-Eigenschaft im Stil zu ändern (dies wird auf dem Button reflektiert).
 
 {{EmbedLiveSample("Examples")}}
 
 > [!NOTE]
-> Die `media`-Eigenschaft kann auf jeden String gesetzt werden, wird jedoch ignoriert, wenn der String keine gültige Media-Query ist.
+> Die `media`-Eigenschaft kann auf jeden beliebigen String gesetzt werden, wird jedoch ignoriert, wenn der String keine gültige Media-Query ist.
 
 ## Spezifikationen
 

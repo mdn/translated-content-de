@@ -1,32 +1,32 @@
 ---
-title: Command
+title: Kommando
 slug: Mozilla/Add-ons/WebExtensions/API/commands/Command
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Informationen über einen Befehl. Dies enthält die spezifizierten Informationen für den Befehl im [`commands` manifest.json Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands).
+Informationen über die Einstellungen für die Befehle, die im [`commands`-Schlüssel der manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegeben sind.
 
 Ein Array dieser Objekte wird von {{WebExtAPIRef('commands.getAll()')}} zurückgegeben.
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
+Ein Wert dieses Typs ist ein Objekt, das diese Eigenschaften für die Befehle enthält:
 
-- `name` {{optional_inline}}
-  - : `string`. Name dieses Befehls. Dieser wird an den {{WebExtAPIRef('commands.onCommand')}} Ereignis-Listener übergeben.
+- `name`
+  - : `string`. Name des Befehls. Dieser wird in den {{WebExtAPIRef('commands.onCommand')}} Ereignis-Listener übergeben.
 - `description` {{optional_inline}}
-  - : `string`. Beschreibung dieses Befehls. Dies wird hauptsächlich verwendet, um dem Nutzer zu erklären, was dieser Befehl macht.
+  - : `string`. Beschreibung des Befehls. Diese wird verwendet, um dem Benutzer zu erklären, was dieser Befehl tut.
 - `shortcut` {{optional_inline}}
-  - : `string`. Taste(n), die verwendet werden, um diesen Befehl auszuführen, angegeben als ein String wie "Ctrl+Shift+Y".
+  - : `string`. Tasten, die zur Ausführung des Befehls verwendet werden und als String angegeben sind. Siehe den Abschnitt [Shortcut-Werte](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values) der Dokumentation des `commands`-Schlüssels für weitere Details.
+
+`description` und `shortcut` spiegeln die im `commands`-Schlüssel der manifest.json angegebenen Werte wider, es sei denn, sie wurden mit {{WebExtAPIRef('commands.update()')}} aktualisiert oder im Fall des Shortcuts vom Benutzer angepasst.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API.

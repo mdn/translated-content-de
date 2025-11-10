@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRViewport`](/de/docs/Web/API/XRViewport)-Schnittstelle besitzt die **`y`**-Eigenschaft, die den Versatz von der unteren Kante der Zieloberfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) zur unteren Kante des Ansichtsbereichs innerhalb der Oberfläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die [`x`](/de/docs/Web/API/XRViewport/x)-Eigenschaft des Ansichtsbereichs identifiziert die `x`-Komponente des Ursprungs, und dieser wird durch die [`width`](/de/docs/Web/API/XRViewPort/width)- und [`height`](/de/docs/Web/API/XRViewport/height)-Eigenschaften definiert.
+Die schreibgeschützte [`XRViewport`](/de/docs/Web/API/XRViewport)-Schnittstelle besitzt die **`y`**-Eigenschaft, die den Versatz von der unteren Kante der Zieloberfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) zur unteren Kante des Ansichtsbereichs innerhalb der Oberfläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die [`x`](/de/docs/Web/API/XRViewport/x)-Eigenschaft des Ansichtsbereichs identifiziert die `x`-Komponente des Ursprungs, und dieser wird durch die [`width`](/de/docs/Web/API/XRViewport/width)- und [`height`](/de/docs/Web/API/XRViewport/height)-Eigenschaften definiert.
 
 ## Wert
 

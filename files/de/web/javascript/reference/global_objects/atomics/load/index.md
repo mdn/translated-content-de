@@ -1,15 +1,14 @@
 ---
 title: Atomics.load()
+short-title: load()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/load
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`Atomics.load()`** statische Methode gibt einen Wert an einer gegebenen Position im Array zurück.
 
-Die statische Methode **`Atomics.load()`** gibt einen Wert an einer bestimmten Position im Array zurück.
-
-{{InteractiveExample("JavaScript-Beispiel: Atomics.load()")}}
+{{InteractiveExample("JavaScript Demo: Atomics.load()")}}
 
 ```js interactive-example
 // Create a SharedArrayBuffer with a size in bytes
@@ -34,23 +33,23 @@ Atomics.load(typedArray, index)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliges getyptes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-getyptes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position innerhalb des `typedArray`, von der geladen wird.
+  - : Die Position im `typedArray`, von der geladen werden soll.
 
 ### Rückgabewert
 
-Der Wert an der angegebenen Position (`typedArray[index]`).
+Der Wert an der gegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen von `typedArray` liegt.
 
 ## Beispiele
 

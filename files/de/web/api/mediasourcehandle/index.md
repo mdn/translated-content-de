@@ -2,16 +2,16 @@
 title: MediaSourceHandle
 slug: Web/API/MediaSourceHandle
 l10n:
-  sourceCommit: 47c461a1ebc95289543ea2962c6dbc8d57ee76d9
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`MediaSourceHandle`** Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) ist ein Proxy für eine [`MediaSource`](/de/docs/Web/API/MediaSource), die von einem dedizierten Worker zurück in den Haupt-Thread übertragen und über die Eigenschaft [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) an ein Medien-Element angehängt werden kann. `MediaSource`-Objekte sind nicht übertragbar, da sie Ereignisziele sind, daher die Notwendigkeit für `MediaSourceHandle`s.
+Das **`MediaSourceHandle`**-Interface der [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) dient als Proxy für ein [`MediaSource`](/de/docs/Web/API/MediaSource), das von einem dedizierten Worker zurück in den Haupt-Thread übertragen werden kann und über seine [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Medien-Element angehängt wird. `MediaSource`-Objekte sind nicht übertragbar, da sie Ereignisziele sind, daher sind `MediaSourceHandle`s erforderlich.
 
-Es kann über die [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle) Eigenschaft aufgerufen werden.
+Es kann über die [`MediaSource.handle`](/de/docs/Web/API/MediaSource/handle)-Eigenschaft aufgerufen werden.
 
-Jedes `MediaSource`-Objekt, das innerhalb eines dedizierten Workers erstellt wird, hat seine eigene eindeutige `MediaSourceHandle`. Der `MediaSource.handle` Getter wird immer die `MediaSourceHandle` Instanz zurückgeben, die spezifisch für die zugehörige dedizierte Worker `MediaSource` Instanz ist. Wenn der Handle bereits mit [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) an den Haupt-Thread übertragen wurde, ist die Handle-Instanz im Worker technisch getrennt und kann nicht erneut übertragen werden.
+Jedes `MediaSource`-Objekt, das innerhalb eines dedizierten Workers erstellt wird, hat sein eigenes `MediaSourceHandle`. Der `MediaSource.handle`-Getter gibt immer die `MediaSourceHandle`-Instanz zurück, die speziell mit der zugehörigen dedizierten Worker-`MediaSource`-Instanz verbunden ist. Wenn der Handle bereits mit [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) an den Haupt-Thread übertragen wurde, ist die Handle-Instanz im Worker technisch abgetrennt und kann nicht erneut übertragen werden.
 
 `MediaSourceHandle` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
@@ -25,7 +25,7 @@ Keine.
 
 ## Beispiele
 
-Die [`handle`](/de/docs/Web/API/MediaSource/handle) Eigenschaft kann innerhalb eines dedizierten Workers aufgerufen werden. Das resultierende `MediaSourceHandle`-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) Aufruf an den Thread, der den Worker erstellt hat (in diesem Fall der Haupt-Thread), übertragen:
+Die [`handle`](/de/docs/Web/API/MediaSource/handle)-Eigenschaft kann innerhalb eines dedizierten Workers aufgerufen werden, und das resultierende `MediaSourceHandle`-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Haupt-Thread):
 
 ```js
 // Inside dedicated worker
@@ -42,7 +42,7 @@ mediaSource.addEventListener("sourceopen", () => {
 });
 ```
 
-Im Haupt-Thread empfangen wir den Handle über einen [`message`](/de/docs/Web/API/Worker/message_event) Ereignishandler, hängen ihn mittels seiner [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) Eigenschaft an ein {{htmlelement("video")}} an und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
+Im Haupt-Thread empfangen wir den Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Ereignishandler, verknüpfen ihn über seine [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft mit einem {{htmlelement("video")}} und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
 
 ```js
 worker.addEventListener("message", (msg) => {
@@ -52,7 +52,7 @@ worker.addEventListener("message", (msg) => {
 });
 ```
 
-> **Note:** `MediaSourceHandle`s können nicht erfolgreich in oder über einen Shared Worker oder Service Worker übertragen werden.
+> [!NOTE] > `MediaSourceHandle`s können nicht erfolgreich in oder über einen Shared Worker oder Service Worker übertragen werden.
 
 ## Spezifikationen
 

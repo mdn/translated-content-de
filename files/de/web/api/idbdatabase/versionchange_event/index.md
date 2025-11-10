@@ -1,22 +1,23 @@
 ---
-title: "IDBDatabase: versionchange-Ereignis"
+title: "IDBDatabase: versionchange Ereignis"
 short-title: versionchange
 slug: Web/API/IDBDatabase/versionchange_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("IndexedDB")}}
 
-Das `versionchange`-Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignis wird an eine [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase) gesendet) anderswo angefordert wurde (höchstwahrscheinlich in einem anderen Fenster/Reiter auf demselben Computer).
+Das `versionchange` Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event) Ereignis, das auf einer [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) gesendet wird, oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)) anderswo angefordert wurde (höchstwahrscheinlich in einem anderen Fenster/Tab auf demselben Computer).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("versionchange", (event) => {});
-onversionchange = (event) => {};
+```js-nolint
+addEventListener("versionchange", (event) => { })
+
+onversionchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -25,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und fügt bei Erfolg einen Listener für `versionchange` hinzu:
+Dieses Beispiel öffnet eine Datenbank und fügt nach erfolgreichem Öffnen einen Listener für `versionchange` hinzu:
 
 ```js
 // Open the database
@@ -54,7 +55,7 @@ dBOpenRequest.addEventListener("success", (event) => {
 });
 ```
 
-Dasselbe Beispiel unter Verwendung der `onversionchange`-Ereignishandler-Eigenschaft:
+Dasselbe Beispiel, mit der `onversionchange` Ereignis-Handler-Eigenschaft:
 
 ```js
 // Open the database

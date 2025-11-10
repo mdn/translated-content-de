@@ -1,14 +1,15 @@
 ---
-title: "IDBIndex: objectStore-Eigenschaft"
+title: "IDBIndex: objectStore Eigenschaft"
 short-title: objectStore
 slug: Web/API/IDBIndex/objectStore
 l10n:
-  sourceCommit: ff1e97da7ade9fcb05fb3de064011d4f05debe82
+  sourceCommit: 6d363614de8a40c33d1afe92e4e846b75beea986
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`objectStore`**-Eigenschaft des [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Interfaces gibt den Objektspeicher zurück, der durch den aktuellen Index referenziert wird.
+Die **`objectStore`**-Eigenschaft des [`IDBIndex`](/de/docs/Web/API/IDBIndex)
+Interfaces gibt den Objektspeicher zurück, auf den der aktuelle Index verweist.
 
 ## Wert
 
@@ -16,15 +17,21 @@ Ein [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore).
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektspeicher und holen uns dann den Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen grundlegenden Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor). Dies funktioniert genauso wie das direkte Öffnen eines Cursors auf einem `ObjectStore` mittels [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektspeicher und erhalten dann den
+Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen grundlegenden Cursor auf
+dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor). Dies funktioniert genauso, wie einen
+Cursor direkt auf einem `ObjectStore` mit
+[`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor) zu öffnen, außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht dem Primärschlüssel sortiert sind.
 
-Der aktuelle Objektspeicher wird in die Konsole protokolliert und sollte etwas zurückgeben wie:
+Der aktuelle Objektspeicher wird in die Konsole protokolliert: Es sollte etwas wie
+folgendes zurückgegeben werden:
 
-```json
+```plain
 IDBObjectStore { name: "contactsList", keyPath: "id", indexNames: DOMStringList[7], transaction: IDBTransaction, autoIncrement: false }
 ```
 
-Abschließend iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges funktionierendes Beispiel, siehe unser [IndexedDB-Beispiel-Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Live-Demo anzeigen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
+Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein
+vollständig funktionierendes Beispiel siehe unser [IndexedDB-Beispiele-Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
 
 ```js
 function displayDataByIndex() {
@@ -75,8 +82,8 @@ function displayDataByIndex() {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Live-Demo anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Beispielreferenz: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

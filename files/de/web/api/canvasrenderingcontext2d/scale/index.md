@@ -1,23 +1,16 @@
 ---
-title: "CanvasRenderingContext2D: scale() Methode"
+title: "CanvasRenderingContext2D: Methode scale()"
 short-title: scale()
 slug: Web/API/CanvasRenderingContext2D/scale
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.scale()`**
-Methode der Canvas 2D API fügt eine Skalierungstransformation zu den Canvas-Einheiten
-horizontal und/oder vertikal hinzu.
+Die Methode **`CanvasRenderingContext2D.scale()`** der Canvas 2D API fügt dem Canvas eine Skalierungstransformation der Einheiten horizontal und/oder vertikal hinzu.
 
-Standardmäßig entspricht eine Einheit auf dem Canvas genau einem Pixel. Eine Skalierungstransformation
-ändert dieses Verhalten. Beispielsweise führt ein Skalierungsfaktor von 0,5 dazu, dass eine Einheit eine
-Größe von 0,5 Pixel hat; Formen werden somit auf die halbe normale Größe gezeichnet. Ähnlich vergrößert ein
-Skalierungsfaktor von 2,0 die Einheitsgröße, sodass eine Einheit zwei Pixel wird; Formen werden also auf die doppelte
-normale Größe gezeichnet.
+Standardmäßig entspricht eine Einheit auf dem Canvas genau einem Pixel. Eine Skalierungstransformation ändert dieses Verhalten. Ein Skalierungsfaktor von 0,5 führt beispielsweise zu einer Einheitengröße von 0,5 Pixeln; Formen werden somit in halber normaler Größe gezeichnet. Ebenso führt ein Skalierungsfaktor von 2,0 dazu, dass die Einheitengröße auf zwei Pixel erhöht wird; Formen werden somit in doppelter normaler Größe gezeichnet.
 
 ## Syntax
 
@@ -28,11 +21,9 @@ scale(x, y)
 ### Parameter
 
 - `x`
-  - : Skalierungsfaktor in horizontaler Richtung. Ein negativer Wert spiegelt Pixel entlang der
-    vertikalen Achse. Ein Wert von `1` führt zu keiner horizontalen Skalierung.
+  - : Skalierungsfaktor in der horizontalen Richtung. Ein negativer Wert spiegelt Pixel über die vertikale Achse. Ein Wert von `1` führt zu keiner horizontalen Skalierung.
 - `y`
-  - : Skalierungsfaktor in vertikaler Richtung. Ein negativer Wert spiegelt Pixel entlang der
-    horizontalen Achse. Ein Wert von `1` führt zu keiner vertikalen Skalierung.
+  - : Skalierungsfaktor in der vertikalen Richtung. Ein negativer Wert spiegelt Pixel über die horizontale Achse. Ein Wert von `1` führt zu keiner vertikalen Skalierung.
 
 ### Rückgabewert
 
@@ -42,8 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Skalierung einer Form
 
-Dieses Beispiel zeichnet ein skaliertes Rechteck. Ein nicht skaliertes Rechteck wird dann zum
-Vergleich gezeichnet.
+Dieses Beispiel zeichnet ein skaliertes Rechteck. Ein nicht skaliertes Rechteck wird anschließend zum Vergleich gezeichnet.
 
 #### HTML
 
@@ -53,12 +43,9 @@ Vergleich gezeichnet.
 
 #### JavaScript
 
-Das Rechteck hat eine spezifizierte Breite von 8 und eine Höhe von 20. Die Transformationsmatrix
-skaliert es horizontal um das 9-fache und vertikal um das 3-fache. Somit ist seine endgültige Größe
-eine Breite von 72 und eine Höhe von 60.
+Das Rechteck hat eine angegebene Breite von 8 und eine Höhe von 20. Die Transformationsmatrix skaliert es horizontal um das 9-fache und vertikal um das 3-fache. Somit beträgt seine endgültige Größe eine Breite von 72 und eine Höhe von 60.
 
-Beachten Sie, dass sich auch seine Position auf dem Canvas ändert. Da seine festgelegte Ecke bei (10, 10\) liegt,
-wird seine gerenderte Ecke zu (90, 30).
+Beachten Sie, dass sich auch seine Position auf dem Canvas ändert. Da die angegebene Ecke (10, 10\) ist, wird die gerenderte Ecke zu (90, 30).
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -83,15 +70,11 @@ Das skalierte Rechteck ist rot, und das nicht skalierte Rechteck ist grau.
 
 {{ EmbedLiveSample('Scaling_a_shape', 700, 180) }}
 
-### Horizontale oder vertikale Spiegelung
+### Horizontales oder vertikales Spiegeln
 
-Sie können `scale(-1, 1)` verwenden, um den Kontext horizontal zu spiegeln, und
-`scale(1, -1)`, um ihn vertikal zu spiegeln. In diesem Beispiel werden die Worte "Hello
-world!" horizontal gespiegelt.
+Sie können `scale(-1, 1)` verwenden, um den Kontext horizontal zu spiegeln, und `scale(1, -1)`, um ihn vertikal zu spiegeln. In diesem Beispiel werden die Worte "Hello world!" horizontal gespiegelt.
 
-Beachten Sie, dass der Aufruf von [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText)
-eine negative x-Koordinate angibt. Dies ist, um den negativen Skalierungsfaktor anzupassen:
-`-280 * -1` wird zu `280`, und der Text wird von diesem Punkt aus nach links gezeichnet.
+Beachten Sie, dass der Aufruf von [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText) eine negative x-Koordinate angibt. Dies geschieht, um den negativen Skalierungsfaktor anzupassen: `-280 * -1` wird zu `280`, und der Text wird von diesem Punkt aus nach links gezeichnet.
 
 #### HTML
 

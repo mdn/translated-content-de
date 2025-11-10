@@ -1,17 +1,37 @@
 ---
-title: Lokale Zuweisung
+title: Lokales Setzen
 slug: WebAssembly/Reference/Variables/Local_set
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`local.set`**-Anweisung setzt die Werte einer lokalen Variable.
+Die **`local.set`** Anweisung setzt die Werte einer lokalen Variablen.
 
-{{EmbedInteractiveExample("pages/wat/local.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: local", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (func $main
+
+    (local $var i32) ;; create a local variable named $var
+    (local.set $var (i32.const 10)) ;; set $var to 10
+    local.get $var ;; load $var onto the stack
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; load the number 2 onto the stack
 i32.const 2
 

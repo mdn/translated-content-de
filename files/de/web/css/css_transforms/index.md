@@ -1,17 +1,15 @@
 ---
-title: CSS-Transformationen
+title: CSS transforms
 slug: Web/CSS/CSS_transforms
 l10n:
-  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-{{CSSRef}}
+Das **CSS transforms** Modul definiert, wie Elemente, die mit CSS gestaltet sind, in zwei- oder dreidimensionalen Raum transformiert werden können.
 
-Das Modul **CSS transforms** definiert, wie Elemente, die mit CSS gestaltet wurden, im zwei- oder dreidimensionalen Raum transformiert werden können.
+## CSS transforms in Aktion
 
-## CSS-Transformationen in Aktion
-
-Verwenden Sie die Schieberegler im folgenden Beispiel, um die Eigenschaften für `translation`, `rotation`, `scale` und `skew` von CSS-Transformationen des Würfels im 3D-Raum zu verändern. Beobachten Sie, wie der Würfel im 3D-Raum mit dem Element beschriftet als `z:0px` interagiert, das an der 3D-Position `(0, 0, 0)` liegt.
+Verwenden Sie die Schieberegler im folgenden Beispiel, um die CSS-Transform-Eigenschaften Translation, Rotation, Skalierung und Schräglage des Würfels im 3D-Raum zu ändern. Wenn Sie den Würfel durch den 3D-Raum bewegen, beachten Sie, wie er mit dem als `z:0px` gekennzeichneten Element interagiert, welches sich an der 3D-Position `(0, 0, 0)` befindet.
 
 ```html hidden live-sample___transforms
 <article>
@@ -324,7 +322,7 @@ Verwenden Sie die Schieberegler im folgenden Beispiel, um die Eigenschaften für
               <span><code>backface-visibility</code></span>
               <input
                 type="checkbox"
-                checked="checked"
+                checked
                 data-default="checked"
                 id="backfaceVisibilityCheckbox" />
             </label>
@@ -357,8 +355,8 @@ Verwenden Sie die Schieberegler im folgenden Beispiel, um die Eigenschaften für
   margin-bottom: 4px;
   accent-color: blue; /* or any color */
   font-family:
-    Inter, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    "Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 #allTransformFieldset > legend {
@@ -516,7 +514,7 @@ legend {
 button {
   font-size: 18px;
   border-radius: 50%;
-  border: #ccc solid 1px;
+  border: #cccccc solid 1px;
   padding: 0;
   width: 26px;
   height: 26px;
@@ -589,7 +587,7 @@ allTransformFieldset
     });
   });
 
-const resetInput = (inputEl) => {
+function resetInput(inputEl) {
   if (!inputEl) {
     console.warn(`inputEl \`${inputEl}\` is falsy!`);
     console.trace();
@@ -602,31 +600,31 @@ const resetInput = (inputEl) => {
   } else {
     inputEl.value = defaultValue || "0";
   }
-};
+}
 
-const updateOutputs = () => {
-  translateXOutput.value = `${parseInt(translateXRange.value)}px`;
-  translateYOutput.value = `${parseInt(translateYRange.value)}px`;
-  translateZOutput.value = `${parseInt(translateZRange.value)}px`;
+function updateOutputs() {
+  translateXOutput.value = `${translateXRange.value}px`;
+  translateYOutput.value = `${translateYRange.value}px`;
+  translateZOutput.value = `${translateZRange.value}px`;
 
-  rotateXOutput.value = `${parseInt(rotateXRange.value)}°`;
-  rotateYOutput.value = `${parseInt(rotateYRange.value)}°`;
-  rotateZOutput.value = `${parseInt(rotateZRange.value)}°`;
+  rotateXOutput.value = `${rotateXRange.value}°`;
+  rotateYOutput.value = `${rotateYRange.value}°`;
+  rotateZOutput.value = `${rotateZRange.value}°`;
 
-  scaleXOutput.value = `${parseFloat(scaleXRange.value)}x`;
-  scaleYOutput.value = `${parseFloat(scaleYRange.value)}x`;
-  scaleZOutput.value = `${parseFloat(scaleZRange.value)}x`;
+  scaleXOutput.value = `${scaleXRange.value}x`;
+  scaleYOutput.value = `${scaleYRange.value}x`;
+  scaleZOutput.value = `${scaleZRange.value}x`;
 
-  skewXOutput.value = `${parseFloat(skewXRange.value)}°`;
-  skewYOutput.value = `${parseFloat(skewYRange.value)}°`;
+  skewXOutput.value = `${skewXRange.value}°`;
+  skewYOutput.value = `${skewYRange.value}°`;
 
-  perspectiveOutput.value = `${parseInt(perspectiveRange.value)}px`;
+  perspectiveOutput.value = `${perspectiveRange.value}px`;
 
-  perspectiveOriginXOutput.value = `${parseInt(perspectiveOriginXRange.value)}%`;
-  perspectiveOriginYOutput.value = `${parseInt(perspectiveOriginYRange.value)}%`;
-};
+  perspectiveOriginXOutput.value = `${perspectiveOriginXRange.value}%`;
+  perspectiveOriginYOutput.value = `${perspectiveOriginYRange.value}%`;
+}
 
-const updateTransform = () => {
+function updateTransform() {
   updateOutputs();
 
   cube.style.transform = `translate3d(${translateXRange.value}px,
@@ -647,22 +645,22 @@ const updateTransform = () => {
 
   perspectiveDot.style.top = `${perspectiveOriginYRange.value}%`;
   perspectiveDot.style.left = `${perspectiveOriginXRange.value}%`;
-};
+}
 updateTransform();
 ```
 
 {{EmbedLiveSample("transforms", "", "850px")}}
 
-Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/perspective)-Eigenschaft des Containers des Würfels zu ändern, die den Abstand zwischen Ihnen und der `z=0`-Ebene bestimmt.
+Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/Reference/Properties/perspective)-Eigenschaft des Containers des Würfels zu ändern, die den Abstand zwischen Ihnen und der `z=0`-Ebene festlegt.
 
-Die Schieberegler für [`perspective-origin`](/de/docs/Web/CSS/perspective-origin) bestimmen, wo Sie als Betrachter in den 3D-Raum blicken, um den _Fluchtpunkt_ der Ansicht zu bestimmen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt dargestellt. Sie können sich vorstellen, dass Sie durch das Ändern dieser Regler physisch Ihren Kopf nach oben, unten, links oder rechts bewegen, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen.
+Die [`perspective-origin`](/de/docs/Web/CSS/Reference/Properties/perspective-origin)-Schieberegler bestimmen, wohin Sie, der Betrachter, in den 3D-Raum blicken, um den _Fluchtpunkt_ der Ansicht zu bestimmen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt angezeigt. Sie können sich das Ändern dieser Schieberegler vorstellen, als ob Sie Ihren Kopf physisch nach oben, unten, links und rechts bewegen, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen.
 
-Das Kontrollkästchen `backface-visibility` legt fest, ob die Rückseiten des Würfels auf `visible` oder `hidden` gesetzt sind.
+Das `backface-visibility`-Kontrollkästchen bestimmt, ob die Rückseiten des Würfels als `visible` oder `hidden` festgelegt sind.
 
-Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestaltet sind, um die Seiten des Würfels zu bilden. Der Würfel wird nicht mit einem 2D- oder 3D-Canvas-Kontext gezeichnet, sodass **Sie die Seiten des Würfels mit den Entwicklerwerkzeugen Ihres Browsers inspizieren können, wie Sie es mit jedem anderen DOM-Element tun würden**. Versuchen Sie, das Element-Auswahlwerkzeug der Entwicklerwerkzeuge Ihres Browsers zu verwenden, um verschiedene Seiten des Würfels zu inspizieren, während Sie dessen Position und Rotation transformieren.
+Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestaltet sind, um die Flächen des Würfels zu erstellen. Der Würfel wird nicht unter Verwendung eines 2D- oder 3D-Canvas-Kontexts gezeichnet, so dass **Sie die Flächen des Würfels mit den Entwicklerwerkzeugen Ihres Browsers inspizieren können, wie Sie jedes andere DOM-Element inspizieren würden**. Versuchen Sie, mit dem Element-Auswahlwerkzeug der Entwicklerwerkzeuge Ihres Browsers verschiedene Flächen des Würfels zu inspizieren, während Sie dessen Position und Rotation transformieren.
 
 > [!NOTE]
-> Die Reihenfolge, in der Transformationen, einschließlich 3D-Rotationen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden Transformationen in der Reihenfolge Translation, Skalierung, Rotation und dann Scherung angewendet. Die Rotationen werden in der Reihenfolge X → Y → Z durchgeführt.
+> Die Reihenfolge, in der Transformationen, einschließlich 3D-Rotationen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden die Transformationen übersetzt, skaliert, rotiert und dann verzerrt. Die Rotationen werden in der Reihenfolge X → Y → Z angewendet.
 
 ## Referenz
 
@@ -709,48 +707,48 @@ Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit
 
 ## Leitfäden
 
-- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-  - : Schritt-für-Schritt-Anleitung, wie man mit CSS gestylte Elemente transformieren kann.
-- [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Beschreibt, wie Pixel-Positionen im CSS-Objektmodell definiert werden.
-- [Performance-Grundlagen: CSS-Transformationen nutzen](/de/docs/Web/Performance/Fundamentals#use_css_transforms)
-  - : Ein Überblick über die Grundlagen der Web-Performance, einschließlich wie CSS-Transformationen die Leistung verbessern können.
-- [Matrix-Mathematik fürs Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
+- [CSS-Transformationen verwenden](/de/docs/Web/CSS/Guides/Transforms/Using)
+  - : Schritt-für-Schritt-Anleitung, wie man Elemente mit CSS transformiert.
+- [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)
+  - : Beschreibt, wie Pixelpositionen im CSS-Objektmodell definiert sind.
+- [Performance-Grundlagen: CSS-Transformationen verwenden](/de/docs/Web/Performance/Guides/Fundamentals#use_css_transforms)
+  - : Ein Überblick über die Grundlagen der Web-Performance, einschließlich, wie CSS-Transformationen die Leistung verbessern können.
+- [Matrixmathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
   - : Beschreibt, wie Objekttransformationen durch mathematische Matrizen dargestellt werden können.
 
 ## Verwandte Konzepte
 
 - CSS-Eigenschaften:
-  - [`animation`](/de/docs/Web/CSS/animation)
-  - [`background-position`](/de/docs/Web/CSS/background-position)
-  - [`clip`](/de/docs/Web/CSS/clip)
-  - [`clip-path`](/de/docs/Web/CSS/clip-path)
-  - [`contain`](/de/docs/Web/CSS/contain)
-  - [`content-visibility`](/de/docs/Web/CSS/content-visibility)
-  - [`isolation`](/de/docs/Web/CSS/isolation)
-  - [`mask`](/de/docs/Web/CSS/mask)
-  - [`mask-border-source`](/de/docs/Web/CSS/mask-border-source)
-  - [`mask-image`](/de/docs/Web/CSS/mask-image)
-  - [`mix-blend-mode`](/de/docs/Web/CSS/mix-blend-mode)
-  - [`opacity`](/de/docs/Web/CSS/opacity)
-  - [`overflow`](/de/docs/Web/CSS/overflow)
-  - [`transition`](/de/docs/Web/CSS/transition)
-  - [`visibility`](/de/docs/Web/CSS/visibility)
+  - [`animation`](/de/docs/Web/CSS/Reference/Properties/animation)
+  - [`background-position`](/de/docs/Web/CSS/Reference/Properties/background-position)
+  - [`clip`](/de/docs/Web/CSS/Reference/Properties/clip)
+  - [`clip-path`](/de/docs/Web/CSS/Reference/Properties/clip-path)
+  - [`contain`](/de/docs/Web/CSS/Reference/Properties/contain)
+  - [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility)
+  - [`isolation`](/de/docs/Web/CSS/Reference/Properties/isolation)
+  - [`mask`](/de/docs/Web/CSS/Reference/Properties/mask)
+  - [`mask-border-source`](/de/docs/Web/CSS/Reference/Properties/mask-border-source)
+  - [`mask-image`](/de/docs/Web/CSS/Reference/Properties/mask-image)
+  - [`mix-blend-mode`](/de/docs/Web/CSS/Reference/Properties/mix-blend-mode)
+  - [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity)
+  - [`overflow`](/de/docs/Web/CSS/Reference/Properties/overflow)
+  - [`transition`](/de/docs/Web/CSS/Reference/Properties/transition)
+  - [`visibility`](/de/docs/Web/CSS/Reference/Properties/visibility)
 - Datentypen:
-  - [`<angle>`](/de/docs/Web/CSS/angle)
+  - [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)
   - {{cssxref("length-percentage")}}
   - {{cssxref("length")}}
-  - [`<number>`](/de/docs/Web/CSS/number)
+  - [`<number>`](/de/docs/Web/CSS/Reference/Values/number)
   - {{cssxref("percentage")}}
-  - [`<position>`](/de/docs/Web/CSS/position_value)
+  - [`<position>`](/de/docs/Web/CSS/Reference/Values/position_value)
 - Glossarbegriffe:
   - {{Glossary("Interpolation", "Interpolation")}}
-  - {{Glossary("Stacking_context", "Stapelhierarchie (Stacking context)")}}
+  - {{Glossary("Stacking_context", "Stapelschicht-Kontext")}}
 - [SVG](/de/docs/Web/SVG)-Konzepte:
-  - [`<animate>`](/de/docs/Web/SVG/Element/animate)-Element
-  - [`<animateTransform>`](/de/docs/Web/SVG/Element/animateTransform)-Element
-  - [`<set>`](/de/docs/Web/SVG/Element/set)-Element
-  - [`transform`](/de/docs/Web/SVG/Attribute/transform)-Attribut
+  - [`<animate>`](/de/docs/Web/SVG/Reference/Element/animate) Element
+  - [`<animateTransform>`](/de/docs/Web/SVG/Reference/Element/animateTransform) Element
+  - [`<set>`](/de/docs/Web/SVG/Reference/Element/set) Element
+  - [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) Element
 
 ## Spezifikationen
 
@@ -758,6 +756,6 @@ Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit
 
 ## Siehe auch
 
-- [Grundlagen der SVG-Transformationen](/de/docs/Web/SVG/Tutorial/Basic_Transformations)-Tutorial
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)-Modul
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)-Modul
+- [Grundlegende SVG-Transformationen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_transformations) Tutorial
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul

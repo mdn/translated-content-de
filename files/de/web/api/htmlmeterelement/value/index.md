@@ -1,20 +1,20 @@
 ---
-title: "HTMLMeterElement: value-Eigenschaft"
+title: "HTMLMeterElement: Eigenschaft value"
 short-title: value
 slug: Web/API/HTMLMeterElement/value
 l10n:
-  sourceCommit: f36d86d713e8757d5786bbc86eccf123bc1fec67
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert den aktuellen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/meter#value)-Attribut des Elements wider. Wenn kein `value` gesetzt ist, wird der Wert zu [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0`, je nachdem welcher größer ist.
+Die **`value`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces stellt den aktuellen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl dar. Sie spiegelt das [`value`](/de/docs/Web/HTML/Reference/Elements/meter#value)-Attribut des Elements wider. Wenn kein `value` festgelegt ist, ist es der [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min)-Wert oder `0`, je nachdem, welcher größer ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl. Standardmäßig entweder [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0`, je nachdem welcher größer ist, wenn nicht definiert.
+Eine Zahl. Standardmäßig entweder [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) oder `0`, je nachdem, welcher größer ist, wenn nicht definiert.
 
 ## Beispiele
 

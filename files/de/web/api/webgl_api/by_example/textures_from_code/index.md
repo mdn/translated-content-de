@@ -2,14 +2,14 @@
 title: Texturen aus Code
 slug: Web/API/WebGL_API/By_example/Textures_from_code
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Hello_vertex_attributes","Web/API/WebGL_API/By_example/Video_textures")}}
 
-Dieses WebGL-Beispiel zeigt eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das bedeutet, dass Sie Code verwenden, um Texturen zu erzeugen, die zum Schattieren von WebGL-Objekten verwendet werden.
+Dieses WebGL-Beispiel bietet eine einfache Demonstration von prozeduralem Texturieren mit Fragment-Shadern. Das heißt, es wird Code verwendet, um Texturen zu generieren, die beim Shading von WebGL-Objekten verwendet werden.
 
-## Texturen mit Code zeichnen
+## Zeichnen von Texturen mit Code
 
 {{EmbedLiveSample("Drawing_textures_with_code", 660, 425)}}
 
@@ -73,53 +73,51 @@ button {
 </script>
 ```
 
-```js hidden
-;(() => {
-  "use strict";
-```
-
 ```js
-window.addEventListener("load", setupWebGL, false);
+const canvas = document.querySelector("canvas");
 
-let gl;
-let program;
+const gl = getRenderingContext();
+let source = document.querySelector("#vertex-shader").innerHTML;
+const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+gl.shaderSource(vertexShader, source);
+gl.compileShader(vertexShader);
 
-function setupWebGL(evt) {
-  window.removeEventListener(evt.type, setupWebGL, false);
-  if (!(gl = getRenderingContext())) return;
+source = document.querySelector("#fragment-shader").innerHTML;
+const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(fragmentShader, source);
+gl.compileShader(fragmentShader);
 
-  let source = document.querySelector("#vertex-shader").innerHTML;
-  const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-  gl.shaderSource(vertexShader, source);
-  gl.compileShader(vertexShader);
-
-  source = document.querySelector("#fragment-shader").innerHTML;
-  const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-  gl.shaderSource(fragmentShader, source);
-  gl.compileShader(fragmentShader);
-
-  program = gl.createProgram();
-  gl.attachShader(program, vertexShader);
-  gl.attachShader(program, fragmentShader);
-  gl.linkProgram(program);
-  gl.detachShader(program, vertexShader);
-  gl.detachShader(program, fragmentShader);
-  gl.deleteShader(vertexShader);
-  gl.deleteShader(fragmentShader);
-  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    const linkErrLog = gl.getProgramInfoLog(program);
-    cleanup();
-    document.querySelector("p").textContent =
-      `Shader program did not link successfully. Error log: ${linkErrLog}`;
-    return;
-  }
-  initializeAttributes();
-  gl.useProgram(program);
-  gl.drawArrays(gl.POINTS, 0, 1);
+const program = gl.createProgram();
+gl.attachShader(program, vertexShader);
+gl.attachShader(program, fragmentShader);
+gl.linkProgram(program);
+gl.detachShader(program, vertexShader);
+gl.detachShader(program, fragmentShader);
+gl.deleteShader(vertexShader);
+gl.deleteShader(fragmentShader);
+if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+  const linkErrLog = gl.getProgramInfoLog(program);
   cleanup();
+  document.querySelector("p").textContent =
+    `Shader program did not link successfully. Error log: ${linkErrLog}`;
+  throw new Error("Program failed to link");
+}
+let buffer;
+initializeAttributes();
+gl.useProgram(program);
+gl.drawArrays(gl.POINTS, 0, 1);
+cleanup();
+
+function getRenderingContext() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const gl = canvas.getContext("webgl");
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  return gl;
 }
 
-let buffer;
 function initializeAttributes() {
   gl.enableVertexAttribArray(0);
   buffer = gl.createBuffer();
@@ -139,30 +137,6 @@ function cleanup() {
 }
 ```
 
-```js hidden
-function getRenderingContext() {
-  const canvas = document.querySelector("canvas");
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-  const gl =
-    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-  if (!gl) {
-    const paragraph = document.querySelector("p");
-    paragraph.textContent =
-      "Failed. Your browser or device may not support WebGL.";
-    return null;
-  }
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-  return gl;
-}
-```
-
-```js hidden
-})();
-```
-
-Der Quellcode dieses Beispiels ist ebenfalls auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/textures-from-code) verfügbar.
+Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/textures-from-code) verfügbar.
 
 {{PreviousNext("Web/API/WebGL_API/By_example/Hello_vertex_attributes","Web/API/WebGL_API/By_example/Video_textures")}}

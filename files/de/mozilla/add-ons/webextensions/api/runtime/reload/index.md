@@ -2,14 +2,12 @@
 title: runtime.reload()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/reload
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Lädt die Erweiterung neu.
 
-Wenn Aktualisierungen für die Erweiterung ausstehen, die durch das Anhören von {{WebExtAPIRef("runtime.onUpdateAvailable")}} zurückgestellt wurden, werden sie bei der Neuladung angewendet.
+Falls es ausstehende Updates für die Erweiterung gibt, die durch Zuhören auf {{WebExtAPIRef("runtime.onUpdateAvailable")}} aufgeschoben wurden, dann werden diese beim Neuladen angewendet.
 
 ## Syntax
 
@@ -21,13 +19,9 @@ browser.runtime.reload()
 
 Keine.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Lädt die Erweiterung neu, wenn der Benutzer auf das Symbol einer Browseraktion klickt:
+Lädt die Erweiterung neu, wenn der Benutzer auf das Symbol einer Browser-Aktion klickt:
 
 ```js
 browser.browserAction.onClicked.addListener((tab) => {
@@ -37,8 +31,12 @@ browser.browserAction.onClicked.addListener((tab) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-reload) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-reload) API von Chromium. Diese Dokumentation stammt von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

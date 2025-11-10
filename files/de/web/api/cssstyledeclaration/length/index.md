@@ -3,25 +3,25 @@ title: "CSSStyleDeclaration: length-Eigenschaft"
 short-title: length
 slug: Web/API/CSSStyleDeclaration/length
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte Eigenschaft gibt eine ganze Zahl zurück, die die Anzahl der Stildeklarationen in diesem CSS-Deklarationsblock darstellt.
+Die schreibgeschützte Eigenschaft gibt eine Ganzzahl zurück, die die Anzahl der Stil-Deklarationen in diesem CSS-Deklarationsblock darstellt.
 
 ## Wert
 
-Eine ganze Zahl, die die Anzahl der Stile angibt, die explizit auf dem Elternteil der Instanz gesetzt sind.
+Eine Ganzzahl, die die Anzahl der Stile angibt, die explizit auf dem übergeordneten Element der Instanz gesetzt sind.
 
 ## Beispiele
 
-Das Folgende ermittelt die Anzahl der explizit gesetzten Stile auf dem folgenden HTML-Element:
+Das folgende Beispiel ermittelt die Anzahl der explizit gesetzten Stile auf dem folgenden HTML-Element:
 
 ```html
 <div
   id="div1"
-  style="margin: 0 10px; background-color: #CA1; font-family: monospace"></div>
+  style="margin: 0 10px; background-color: #ccaa11; font-family: monospace"></div>
 ```
 
 JavaScript-Code:

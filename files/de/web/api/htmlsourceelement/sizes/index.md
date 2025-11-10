@@ -3,12 +3,12 @@ title: "HTMLSourceElement: sizes-Eigenschaft"
 short-title: sizes
 slug: Web/API/HTMLSourceElement/sizes
 l10n:
-  sourceCommit: da9701a81a92538abef8763e69d88158e6215703
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`sizes`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der eine Liste von einer oder mehreren Größen darstellt, die auf die Ressource zwischen den Breakpoints angewendet werden.
+Die **`sizes`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der eine Liste von einer oder mehreren Größen darstellt, die Größen zwischen den Breakpoints repräsentieren, auf die sich die Ressource bezieht.
 
 Sie spiegelt das `sizes`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -19,19 +19,20 @@ Ein String.
 ## Beispiele
 
 ```html
-<source
-  id="el"
-  src="mediumVideo.mov"
-  type="video/quicktime"
-  sizes="((min-width: 50em) and (max-width: 60em)) 50em,
-         ((min-width: 30em) and (max-width: 50em)) 30em" />
+<picture>
+  <source
+    id="el"
+    srcset="medium-pic.jpg"
+    type="image/jpeg"
+    sizes="(50em <= width <= 60px) 50em,
+           (30em <= width < 50em) 30em" />
+</picture>
 ```
 
 ```js
 const el = document.getElementById("el");
-console.log(el.sizes); // Output: "((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em"
-el.sizes =
-  "((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em"; // Updates the sizes value
+console.log(el.sizes); // Output: "(50em <= width <= 60px) 50em, (30em <= width < 50em) 30em"
+el.sizes = "(50em <= width <= 60px) 100em, (30em <= width < 50em) 60em"; // Updates the sizes value
 ```
 
 ## Spezifikationen

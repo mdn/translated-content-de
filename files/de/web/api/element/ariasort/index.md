@@ -3,29 +3,29 @@ title: "Element: ariaSort-Eigenschaft"
 short-title: ariaSort
 slug: Web/API/Element/ariaSort
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaSort`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-sort)-Attributs wider, welches angibt, ob die Elemente in einer Tabelle oder einem Gitter in aufsteigender oder absteigender Reihenfolge sortiert sind.
+Die **`ariaSort`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort)-Attributs wider, welches angibt, ob Elemente in einer Tabelle oder einem Raster in aufsteigender oder absteigender Reihenfolge sortiert sind.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"ascending"`
-  - : Elemente sind nach dieser Spalte in aufsteigender Reihenfolge sortiert.
+  - : Elemente sind in aufsteigender Reihenfolge nach dieser Spalte sortiert.
 - `"descending"`
-  - : Elemente sind nach dieser Spalte in absteigender Reihenfolge sortiert.
+  - : Elemente sind in absteigender Reihenfolge nach dieser Spalte sortiert.
 - `"none"`
   - : Es ist keine definierte Sortierung auf die Spalte angewendet.
 - `"other"`
-  - : Ein anderes Sortierverfahren als aufsteigend oder absteigend wurde angewendet.
+  - : Ein anderes Sortieralgorithmus als aufsteigend oder absteigend wurde angewendet.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-sort`-Attribut auf dem Element mit der ID `role-heading` auf "none" gesetzt. Mithilfe von `ariaSort` aktualisieren wir den Wert auf "ascending".
+In diesem Beispiel wird das `aria-sort`-Attribut des Elements mit der ID `role-heading` auf "none" gesetzt. Mit `ariaSort` aktualisieren wir den Wert auf "ascending".
 
 ```html
 <table
@@ -94,4 +94,4 @@ console.log(el.ariaSort); // ascending
 
 ## Siehe auch
 
-- [ARIA: Tischrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

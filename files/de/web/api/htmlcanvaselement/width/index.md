@@ -3,16 +3,16 @@ title: "HTMLCanvasElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLCanvasElement/width
 l10n:
-  sourceCommit: c16ab7959173ec929df57d3916f8f4dbce485709
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.width`**-Eigenschaft ist eine positive `integer`, die das [`width`](/de/docs/Web/HTML/Element/canvas#width) HTML-Attribut des {{HTMLElement("canvas")}}-Elements widerspiegelt und in CSS-Pixel interpretiert wird. Wenn das Attribut nicht angegeben ist oder auf einen ungültigen Wert, wie einen negativen, gesetzt ist, wird der Standardwert von `300` verwendet.
+Die **`HTMLCanvasElement.width`**-Eigenschaft ist ein positiver `integer`, der das [`width`](/de/docs/Web/HTML/Reference/Elements/canvas#width)-HTML-Attribut des {{HTMLElement("canvas")}}-Elements widerspiegelt und in CSS-Pixeln interpretiert wird. Wenn das Attribut nicht angegeben ist oder auf einen ungültigen Wert, wie eine negative Zahl, gesetzt wird, wird der Standardwert `300` verwendet.
 
-Wenn die `width`-Eigenschaft gesetzt wird, wird der Zeichenpuffer immer auf leer zurückgesetzt – dies gilt für alle Kontexttypen und sogar, wenn die Breite auf denselben Wert gesetzt wird. Wenn Sie den vorherigen Inhalt wiederherstellen müssen, können Sie ihn über [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) speichern und über [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) wiederherstellen.
+Das Setzen der `width`-Eigenschaft setzt den gesamten Rendering-Kontext auf seinen Standardzustand zurück. Dies umfasst das Löschen der Leinwand (Backing Buffer), das Zurücksetzen des aktuellen Pfades und das Zurücksetzen _aller_ Eigenschaften wie `fillStyle` und `globalCompositeOperation`. Dieser Reset tritt bei allen Kontexttypen auf und tritt sogar ein, wenn `width` auf seinen aktuellen Wert gesetzt wird. Um den vorherigen Inhalt nach einer Änderungs des `width` wiederherzustellen, verwenden Sie [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) und [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData). Kontext-Eigenschaften müssen separat verfolgt und wiederhergestellt werden.
 
-Dies ist eine von zwei Eigenschaften, die andere ist [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height), die die Größe des Canvas steuern.
+Dies ist eine von zwei Eigenschaften, die andere ist [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height), die die Größe der Leinwand kontrollieren.
 
 ## Wert
 
@@ -20,13 +20,13 @@ Eine Zahl.
 
 ## Beispiele
 
-Angenommen, dieses {{HTMLElement("canvas")}}-Element:
+Für dieses {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas" width="300" height="300"></canvas>
 ```
 
-Sie können die Breite des Canvas mit dem folgenden Code abrufen:
+Sie können die Breite der Leinwand mit dem folgenden Code abfragen:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -44,7 +44,7 @@ console.log(canvas.width); // 300
 ## Siehe auch
 
 - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement): Schnittstelle zur Definition der `HTMLCanvasElement.width`-Eigenschaft
-- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height): Andere Eigenschaft zur Steuerung der Größe des Canvas
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height): Andere Eigenschaft zur Kontrolle der Größe der Leinwand
 - [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
 - [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)
 - [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)

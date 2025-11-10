@@ -1,31 +1,31 @@
 ---
-title: "Dokument: `securitypolicyviolation`-Ereignis"
+title: "Dokument: securitypolicyviolation-Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/Document/securitypolicyviolation_event
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Reporting API")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) verletzt wird.
+Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verletzt wird.
 
-Das Ereignis wird im Dokument ausgelöst, wenn eine Verletzung der CSP-Richtlinie des Dokuments vorliegt (und kann auch von Elementen im Dokument aufsteigen).
+Das Ereignis wird auf dem Dokument ausgelöst, wenn es eine Verletzung der CSP-Richtlinie des Dokuments gibt (und kann auch von Elementen im Dokument aufsteigen).
 
-Dieses Ereignis [blubbert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum [`Window`](/de/docs/Web/API/Window)-Objekt und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum [`Window`](/de/docs/Web/API/Window)-Objekt und ist [komponiert](/de/docs/Web/API/Event/composed).
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis an ein übergeordnetes Objekt (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)) anfügen.
-> Während die Eigenschaft in HTML-Elementen existiert, kann kein Handler der Eigenschaft zugewiesen werden, bis die Elemente geladen sind, zu diesem Zeitpunkt wurde das Ereignis bereits ausgelöst.
+> Sie sollten den Handler für dieses Ereignis im Allgemeinen zu einem obersten Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Auch wenn HTML-Elemente technisch das Ziel des `securitypolicyviolation`-Ereignisses sein können, wird dieses Ereignis in der Praxis nicht auf ihnen ausgelöst — beispielsweise löst eine blockierte `<img>`-Quelle dieses Ereignis direkt auf `document` als Ziel aus, anstatt vom `<img>`-Element aufzusteigen.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("securitypolicyviolation", (event) => {});
+```js-nolint
+addEventListener("securitypolicyviolation", (event) => { })
 
-onsecuritypolicyviolation = (event) => {};
+onsecuritypolicyviolation = (event) => { }
 ```
 
 ## Ereignistyp
@@ -36,7 +36,7 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie eine Ereignishandler-Funktion mit der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder `addEventListener()` im `Dokument` hinzufügen könnten.
+Der folgende Code zeigt, wie Sie eine Ereignis-Handler-Funktion über die `onsecuritypolicyviolation`-Ereignis-Handler-Eigenschaft oder `addEventListener()` auf dem `Document` hinzufügen können.
 
 ```js
 document.onsecuritypolicyviolation = (e) => {
@@ -58,6 +58,6 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event)-Ereignis des [`Element`](/de/docs/Web/API/Element)-Interfaces
-- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event)-Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces
-- [HTTP > Content Security Policy](/de/docs/Web/HTTP/CSP)
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event)-Ereignis der [`Element`](/de/docs/Web/API/Element)-Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event)-Ereignis der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle
+- [HTTP > Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)

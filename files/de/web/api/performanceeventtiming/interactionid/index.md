@@ -1,35 +1,37 @@
 ---
-title: "PerformanceEventTiming: Eigenschaft interactionId"
+title: "PerformanceEventTiming: interactionId-Eigenschaft"
 short-title: interactionId
 slug: Web/API/PerformanceEventTiming/interactionId
 l10n:
-  sourceCommit: 989453176fd8756828b34b743a677a797d897156
+  sourceCommit: ca87ccdb6dc41913c5ae25ede882e0259b3bf40c
 ---
 
-{{APIRef("Performance API")}}{{SeeCompatTable}}
+{{APIRef("Performance API")}}
 
-Die schreibgeschützte **`interactionId`**-Eigenschaft liefert eine ID zurück, die eine Benutzerinteraktion eindeutig identifiziert, welche eine Reihe von damit verbundenen Ereignissen auslöst.
-
-## Beschreibung
-
-Wenn ein Benutzer mit einer Webseite interagiert, löst eine Benutzerinteraktion (z. B. ein Klick) normalerweise eine Abfolge von Ereignissen aus, wie `pointerdown`, `pointerup` und `click` Ereignisse. Um die Latenz dieser Ereignisreihe zu messen, teilen die Ereignisse dieselbe `interactionId`.
-
-Eine `interactionId` wird nur für die folgenden Ereignistypen berechnet, die zu einer Benutzerinteraktion gehören. Ansonsten ist sie `0`.
-
-| Ereignistypen                                                                                                                                                         | Benutzerinteraktion     |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointerup`](/de/docs/Web/API/Element/pointerup_event), [`click`](/de/docs/Web/API/Element/click_event) | Klick / Tippen / Ziehen |
-| [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keyup`](/de/docs/Web/API/Element/keyup_event)                                                                  | Tastendruck             |
+Die schreibgeschützte **`interactionId`**-Eigenschaft der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle gibt eine ID zurück, die eine Benutzerinteraktion eindeutig identifiziert, welche eine Reihe von zugehörigen Ereignissen ausgelöst hat.
 
 ## Wert
 
-Eine Zahl.
+Eine Zahl. Für Ereignistypen, bei denen keine Interaktions-ID berechnet wird, ist der Wert 0.
+
+## Beschreibung
+
+Wenn ein Benutzer mit einer Webseite interagiert, löst eine Benutzerinteraktion (zum Beispiel ein Klick) in der Regel eine Reihe von Ereignissen aus, wie `pointerdown`, `pointerup` und `click`-Ereignisse. Um die Latenz dieser Ereignisreihe zu messen, teilen die Ereignisse die gleiche `interactionId`.
+
+Eine `interactionId` wird nur für die folgenden Ereignistypen berechnet, die zu einer Benutzerinteraktion gehören. Andernfalls ist sie `0`.
+
+| Ereignistypen                                                                                                                                                         | Benutzerinteraktion       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointerup`](/de/docs/Web/API/Element/pointerup_event), [`click`](/de/docs/Web/API/Element/click_event) | klicken / tippen / ziehen |
+| [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keyup`](/de/docs/Web/API/Element/keyup_event)                                                                  | Tastendruck               |
+
+Die `interactionId` wird auch benötigt, um die Metrik {{Glossary("Interaction_to_next_paint", "Interaction to next paint")}} zu berechnen, die hilft, die Reaktionsfähigkeit auf Benutzerinteraktionen über die Lebensdauer einer Seite zu analysieren.
 
 ## Beispiele
 
 ### Verwendung von interactionId
 
-Im folgenden Beispiel werden die Dauern der Ereignisse gesammelt, die einer Interaktion entsprechen. Die `eventLatencies`-Map kann dann beispielsweise verwendet werden, um Ereignisse mit der maximalen Dauer für eine Benutzerinteraktion zu finden.
+Das folgende Beispiel sammelt Ereignisdauer für alle Ereignisse, die einer Interaktion entsprechen. Die `eventLatencies`-Map kann dann verwendet werden, um Ereignisse mit maximaler Dauer für eine Benutzerinteraktion zu finden, zum Beispiel.
 
 ```js
 // The key is the interaction ID.

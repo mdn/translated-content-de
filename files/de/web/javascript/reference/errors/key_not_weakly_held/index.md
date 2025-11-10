@@ -2,14 +2,12 @@
 title: "TypeError: WeakSet-Schlüssel/WeakMap-Wert 'x' muss ein Objekt oder ein nicht registriertes Symbol sein"
 slug: Web/JavaScript/Reference/Errors/Key_not_weakly_held
 l10n:
-  sourceCommit: dad86d790d59b0f594c7bb03a948bf8e8beea378
+  sourceCommit: 17c7ffbf1741f892054e4d210689388d787737ae
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Fehler "WeakSet-Schlüssel (oder WeakMap-Wert) 'x' muss ein Objekt oder ein nicht registriertes Symbol sein" tritt auf, wenn ein Wert eines ungültigen Typs als Schlüssel in einem {{jsxref("WeakSet")}} oder als Wert in einer {{jsxref("WeakMap")}} verwendet wird.
 
-Der JavaScript-Ausnahmefehler "WeakSet key (oder WeakMap value) 'x' must be an object or an unregistered symbol" tritt auf, wenn ein Wert eines ungültigen Typs als Schlüssel in einem {{jsxref("WeakSet")}} oder als Wert in einer {{jsxref("WeakMap")}} verwendet wird.
-
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: Invalid value used as weak map key (V8-based)
@@ -25,9 +23,9 @@ TypeError: WeakSet values must be objects or non-registered symbols (Safari)
 
 {{jsxref("TypeError")}}
 
-## Was ist schiefgegangen?
+## Was ist schiefgelaufen?
 
-{{jsxref("WeakSet")}} und {{jsxref("WeakMap")}} erfordern, dass die Schlüssel _garbage collectable_ sind. Nur Objekte und nicht registrierte Symbole (das heißt, [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), die nicht durch {{jsxref("Symbol.for()")}} zurückgegeben werden) sind gültig. Weitere Informationen finden Sie unter [Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management#weakmaps_and_weaksets). Wenn Sie Schlüssel aus Zeichenketten, Zahlen oder anderen primitiven Werten hinzufügen möchten, sollten Sie diese stattdessen in einem normalen `Set` oder `Map` speichern.
+{{jsxref("WeakSet")}} und {{jsxref("WeakMap")}} erfordern, dass die Schlüssel _Müll sammelbar_ sind. Nur Objekte und nicht registrierte Symbole (d.h. [Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), die nicht von {{jsxref("Symbol.for()")}} zurückgegeben werden) sind gültig. Für mehr Informationen siehe [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management#weakmaps_and_weaksets). Wenn Sie Schlüssel verwenden möchten, die Zeichenfolgen, Zahlen oder andere primitive Werte sind, sollten Sie sie stattdessen in einem regulären `Set` oder `Map` speichern.
 
 ## Beispiele
 
@@ -52,7 +50,7 @@ new Map([[1, {}]]); // OK
 
 ## Siehe auch
 
-- [Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management)
+- [Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management)
 - {{jsxref("WeakSet")}}
 - {{jsxref("WeakMap")}}
 - {{jsxref("Set")}}

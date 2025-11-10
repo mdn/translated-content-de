@@ -2,7 +2,7 @@
 title: CSSPageRule
 slug: Web/API/CSSPageRule
 l10n:
-  sourceCommit: 474a7c0e7bbb5f89b6dcc15cff75f06338457da2
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("CSSOM")}}
@@ -28,7 +28,7 @@ _Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGrou
 
 ### Filtern nach Seitenregeln
 
-Dieses Beispiel zeigt, wie Sie `CSSPageRule`-Objekte für {{cssxref("@page")}}-Regeln finden können, die vom Dokument geladen werden.
+Dieses Beispiel zeigt, wie Sie `CSSPageRule`-Objekte für {{cssxref("@page")}}-Regeln finden, die vom Dokument geladen werden.
 
 ```html hidden
 <pre id="log"></pre>
@@ -53,7 +53,7 @@ function log(text) {
 
 #### CSS
 
-Unten definieren wir Stile für die Seite mit einer {{cssxref("@page")}}-Regel.
+Unten definieren wir Stile für die Seite mithilfe einer {{cssxref("@page")}}-Regel.
 
 ```css
 @page {
@@ -63,7 +63,8 @@ Unten definieren wir Stile für die Seite mit einer {{cssxref("@page")}}-Regel.
 
 #### JavaScript
 
-Der Code iteriert durch alle Blätter im Dokument und durch alle `cssRules` in jedem Blatt, wobei der Blattindex, die Anzahl der Regeln und der Typ jedes Regelobjekts protokolliert werden. Wir erkennen dann `CSSPageRule`-Objekte anhand ihres Typs (tun jedoch nichts mit der Information).
+Der Code iteriert durch alle Stylesheets im Dokument und durch alle `cssRules` in jedem Stylesheet und protokolliert den Index des Stylesheets, die Anzahl der Regeln und den Typ jedes Regelobjekts.
+Wir erkennen dann `CSSPageRule`-Objekte anhand ihres Typs (ohne Informationen damit zu verarbeiten).
 
 ```js
 for (
@@ -76,10 +77,10 @@ for (
 
   const myRules = document.styleSheets[sheetCount].cssRules;
   log(`rules: ${myRules.length}`);
-  for (let i = 0; i < myRules.length; i++) {
-    log(`rule: ${myRules[i]}`);
-    if (myRules[i] instanceof CSSPageRule) {
-      //... Do something with CSSPageRule
+  for (const rule of myRules) {
+    log(`rule: ${rule}`);
+    if (rule instanceof CSSPageRule) {
+      // Do something with CSSPageRule
     }
   }
 }
@@ -87,7 +88,7 @@ for (
 
 #### Ergebnisse
 
-Die Ergebnisse sind unten gezeigt. Wie Sie sehen können, gibt es zwei Blätter, die diesem Hauptdokument und dem Beispielcode-Rahmen entsprechen, und jedes hat eine Anzahl von Regeln, von denen nur eine unsere `CSSPageRule` ist.
+Die Ergebnisse werden unten gezeigt. Wie Sie sehen können, gibt es zwei Stylesheets, die diesem Hauptdokument und dem Beispielcodefenster entsprechen, und jedes hat eine Anzahl von Regeln, von denen nur eine unsere `CSSPageRule` ist.
 
 {{EmbedLiveSample("Filtering for page rules", "100%", "300px")}}
 

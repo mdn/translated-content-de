@@ -3,22 +3,20 @@ title: "TextTrack: language-Eigenschaft"
 short-title: language
 slug: Web/API/TextTrack/language
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte Eigenschaft **`language`** der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt die Sprache des Texttracks zurück.
-
-Dabei werden die gleichen Werte wie beim HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes/lang) verwendet. Diese Werte sind in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} dokumentiert.
+Die **`language`** Eigenschaft der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Sprache des Text-Tracks zurückgibt.
 
 ## Wert
 
-Ein String, der einen Sprachcode enthält. Zum Beispiel `"en-US"` für Englisch in den USA oder `"pt-BR"` für Brasilianisches Portugiesisch.
+Ein String, der einen Sprachbezeichner enthält. Dies wird ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} sein, zum Beispiel `"en-US"` für Englisch (Vereinigte Staaten) oder `"pt-BR"` für brasilianisches Portugiesisch.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `language` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der Wert von `language` in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

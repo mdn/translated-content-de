@@ -2,54 +2,74 @@
 title: RTCIceCandidateStats
 slug: Web/API/RTCIceCandidateStats
 l10n:
-  sourceCommit: 829720f86ce858b9bb8cbe7aa9e0bea148915f8c
+  sourceCommit: d9e11f88996e97a259d2ec47f47a660062c12c4f
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCIceCandidateStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken zu einem [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) zu berichten.
+Das **`RTCIceCandidateStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken zu einem [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) zu berichten.
 
-Die Statistiken können abgerufen werden, indem über den [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert wird, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) `local-candidate` finden.
+Die Statistiken können durch Iteration des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) abgerufen werden, das von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](/de/docs/Web/API/RTCIceCandidateStats/type) von `local-candidate` finden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`address`](/de/docs/Web/API/RTCIceCandidateStats/address) {{optional_inline}}
-  - : Ein String, der die Adresse des Kandidaten enthält. Dieser Wert kann eine IPv4-Adresse, eine IPv6-Adresse oder ein vollständiger Domänenname sein. Diese Eigenschaft wurde früher `ip` genannt und akzeptierte nur IP-Adressen.
+  - : Ein String, der die Adresse des Kandidaten enthält. Dieser Wert kann eine IPv4-Adresse, eine IPv6-Adresse oder ein vollständig qualifizierter Domainname sein. Diese Eigenschaft wurde vorher als `ip` bezeichnet und akzeptierte nur IP-Adressen.
+    Entspricht [`RTCIceCandidate.address`](/de/docs/Web/API/RTCIceCandidate/address).
 - [`candidateType`](/de/docs/Web/API/RTCIceCandidateStats/candidateType)
-  - : Ein String, der einen der Werte in [`RTCIceCandidate.type`](/de/docs/Web/API/RTCIceCandidate/type#value) entspricht und angibt, für welche Art von Kandidaten das Objekt Statistiken liefert.
-- [`deleted`](/de/docs/Web/API/RTCIceCandidateStats/deleted) {{optional_inline}}
-  - : Ein Boolescher Wert, der angibt, ob der Kandidat freigegeben oder gelöscht wurde; der Standardwert ist `false`. Bei lokalen Kandidaten ist der Wert `true`, wenn der Kandidat gelöscht oder freigegeben wurde. Bei Host-Kandidaten bedeutet `true`, dass alle mit dem Kandidaten verbundenen Netzwerkressourcen (in der Regel ein Netzwerk-Socket) bereits freigegeben wurden. Bei {{Glossary("TURN", "TURN")}}-Kandidaten ist die TURN-Zuweisung für gelöschte Kandidaten nicht mehr aktiv. Diese Eigenschaft ist für entfernte Kandidaten nicht vorhanden.
+  - : Ein String, der einem der Werte in [`RTCIceCandidate.type`](/de/docs/Web/API/RTCIceCandidate/type#value) entspricht und angibt, für welche Art von Kandidat das Objekt Statistiken bereitstellt.
+- [`deleted`](/de/docs/Web/API/RTCIceCandidateStats/deleted)
+  - : Ein boolescher Wert, der angibt, ob der Kandidat gelöscht oder freigegeben wurde.
+- [`foundation`](/de/docs/Web/API/RTCIceCandidateStats/foundation) {{optional_inline}} {{experimental_inline}}
+  - : Ein String, der den Kandidaten eindeutig über mehrere Transporte hinweg identifiziert.
+    Entspricht [`RTCIceCandidate.foundation`](/de/docs/Web/API/RTCIceCandidate/foundation).
 - [`port`](/de/docs/Web/API/RTCIceCandidateStats/port) {{optional_inline}}
-  - : Die vom Kandidaten verwendete Netzwerkportnummer.
+  - : Die Netzwerkportnummer, die vom Kandidaten verwendet wird.
+    Entspricht [`RTCIceCandidate.port`](/de/docs/Web/API/RTCIceCandidate/port).
 - [`priority`](/de/docs/Web/API/RTCIceCandidateStats/priority) {{optional_inline}}
-  - : Die Priorität des Kandidaten, entsprechend [`RTCIceCandidate.priority`](/de/docs/Web/API/RTCIceCandidate/priority).
+  - : Die Priorität des Kandidaten.
+    Entspricht [`RTCIceCandidate.priority`](/de/docs/Web/API/RTCIceCandidate/priority).
 - [`protocol`](/de/docs/Web/API/RTCIceCandidateStats/protocol) {{optional_inline}}
-  - : Ein String, der das Protokoll (`tcp` oder `udp`) angibt, das zur Datenübertragung auf dem `port` verwendet wird.
-- [`relayProtocol`](/de/docs/Web/API/RTCIceCandidateStats/relayProtocol) {{optional_inline}}
-  - : Ein String, der das Protokoll identifiziert, das von der Endstelle zur Kommunikation mit dem {{Glossary("TURN", "TURN")}}-Server verwendet wird; gültige Werte sind `tcp`, `udp` und `tls`.
-    Nur für lokale Kandidaten vorhanden.
+  - : Ein String, der das Protokoll angibt (`tcp` oder `udp`), das zum Übertragen von Daten auf dem `port` verwendet wird.
+    Entspricht [`RTCIceCandidate.protocol`](/de/docs/Web/API/RTCIceCandidate/protocol).
+- [`relayProtocol`](/de/docs/Web/API/RTCIceCandidateStats/relayProtocol)
+  - : Ein String, der das Protokoll angibt, das von einem lokalen {{Glossary("ICE", "ICE")}}-Kandidaten verwendet wird, um mit dem {{Glossary("TURN", "TURN")}}-Server zu kommunizieren.
 - [`transportId`](/de/docs/Web/API/RTCIceCandidateStats/transportId)
-  - : Ein String, der das Transportobjekt eindeutig identifiziert, das untersucht wurde, um die zugehörigen [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) des Kandidaten zu erhalten.
+  - : Ein String, der das Transportobjekt eindeutig identifiziert, das untersucht wurde, um die [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) zu erhalten, die dem Kandidaten entsprechen, der diesen Statistiken entspricht.
 - [`url`](/de/docs/Web/API/RTCIceCandidateStats/url) {{optional_inline}}
-  - : Für lokale Kandidaten ist die `url`-Eigenschaft die {{Glossary("URL", "URL")}} des {{Glossary("ICE", "ICE")}}-Servers, von dem der Kandidat empfangen wurde.
-    Diese URL stimmt mit derjenigen im [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Objekt überein, das das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis darstellt, das den Kandidaten zum lokalen Peer geliefert hat.
+  - : Ein String, der die URL des {{Glossary("ICE", "ICE")}}-Servers angibt, von dem der beschriebene Kandidat abgerufen wurde. Diese Eigenschaft ist _nur_ für lokale Kandidaten verfügbar.
+- [`usernameFragment`](/de/docs/Web/API/RTCIceCandidateStats/usernameFragment) {{optional_inline}} {{experimental_inline}}
+  - : Ein String, der das ICE-Username-Fragment ("ice-ufrag") enthält.
+    Entspricht [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
 
-### Gemeinsame Instanz-Eigenschaften
+### Gemeinsame Instanzeigenschaften
 
 Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
 
 <!-- RTCStats -->
 
 - [`id`](/de/docs/Web/API/RTCIceCandidateStats/id)
-  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diesen Satz von Statistiken zu erzeugen.
+  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu produzieren, eindeutig identifiziert.
 - [`timestamp`](/de/docs/Web/API/RTCIceCandidateStats/timestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt genommen wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
 - [`type`](/de/docs/Web/API/RTCIceCandidateStats/type)
   - : Ein String mit dem Wert `"local-candidate"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
 ## Beispiele
 
-TBD
+Angenommen, Sie haben eine Variable `myPeerConnection`, die eine Instanz von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist. Der folgende Code verwendet `await`, um auf den Statistikbericht zu warten und iteriert dann über diesen mithilfe von `RTCStatsReport.forEach()`.
+Er filtert dann die Wörterbücher für genau diejenigen Berichte heraus, die den Typ `local-candidate` haben, und protokolliert das Ergebnis.
+
+```js
+const stats = await myPeerConnection.getStats();
+
+stats.forEach((report) => {
+  if (report.type === "local-candidate") {
+    // Log the ICE candidate information
+    console.log(report);
+  }
+});
+```
 
 ## Spezifikationen
 

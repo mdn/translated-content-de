@@ -2,23 +2,23 @@
 title: Geometry interfaces
 slug: Web/API/Geometry_interfaces
 l10n:
-  sourceCommit: 76717f752447b6eef25bf29c12272e407ee5cb6b
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{DefaultAPISidebar("Geometry Interfaces")}}
 
-**Geometrie-Interfaces** ist ein CSS-Modul, das Schnittstellen für die Arbeit mit 3D- und 2D-Grafiken bietet – insbesondere für die Arbeit mit Punkten, Rechtecken, Vierecken und [Transformationsmatrizen](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices) (für Operationen, die Grafiken verschieben/bewegen, skalieren, drehen, verzerren/scheren/neigen und umkehren, sowie zum Multiplizieren/Verketten und zum Invertieren/Rückgängigmachen dieser Operationen).
+**Geometrie-Schnittstellen** ist ein CSS-Modul, das Schnittstellen zum Arbeiten mit 3D- und 2D-Grafiken bereitstellt – insbesondere für die Arbeit mit Punkten, Rechtecken, Vierecken und [Transformationsmatrizen](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices) (für Operationen, die Grafiken übersetzen/bewegen, skalieren, drehen, verzerren/scheren/neigen, und spiegeln sowie zum Multiplizieren/Verketten und Umkehren/Rückgängigmachen dieser Operationen).
 
-Als Webentwickler verwenden Sie die Geometrie-Interfaces nicht immer direkt, sondern nutzen andere Funktionen, die im Hintergrund auf ihnen basieren: Teile von [CSS Transforms](/de/docs/Web/CSS/CSS_transforms), die [Canvas API](/de/docs/Web/API/Canvas_API), die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) und (direkter) [`VideoFrame.visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect), [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) und [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+Als Webentwickler verwenden Sie die Geometrie-Schnittstellen nicht immer direkt, sondern nutzen stattdessen andere Funktionen, die sie im Hintergrund verwenden: Teile von [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms), die [Canvas-API](/de/docs/Web/API/Canvas_API), die [WebXR-Device-API](/de/docs/Web/API/WebXR_Device_API) und (direkter) [`VideoFrame.visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect), [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) und [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Schnittstellen
 
 - [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)
-  - : Repräsentiert eine [Transformationsmatrix](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices) für Operationen, die Grafiken verschieben/bewegen, skalieren, drehen, verzerren/scheren/neigen und umkehren, sowie zum Multiplizieren/Verketten und zum Invertieren/Rückgängigmachen dieser Operationen.
+  - : Repräsentiert eine [Transformationsmatrix](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web#transformation_matrices), für Operationen, die Grafiken übersetzen/bewegen, skalieren, drehen, verzerren/scheren/neigen, und spiegeln sowie zum Multiplizieren/Verketten und Umkehren/Rückgängigmachen dieser Operationen.
 - [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)
   - : Schreibgeschützte Version von [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
 - [`DOMPoint`](/de/docs/Web/API/DOMPoint)
-  - : Repräsentiert einen 2D- oder 3D-Punkt in einem Koordinatensystem; es enthält Werte für die Koordinaten in bis zu drei Dimensionen sowie einen optionalen Perspektivenwert.
+  - : Repräsentiert einen 2D- oder 3D-Punkt in einem Koordinatensystem; es enthält Werte für die Koordinaten in bis zu drei Dimensionen sowie einen optionalen Perspektivwert.
 - [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)
   - : Schreibgeschützte Version von [`DOMPoint`](/de/docs/Web/API/DOMPoint).
 - [`DOMQuad`](/de/docs/Web/API/DOMQuad)
@@ -30,7 +30,7 @@ Als Webentwickler verwenden Sie die Geometrie-Interfaces nicht immer direkt, son
 
 ## Beispiele
 
-Die Artikel [`Path2D.addPath()`](/de/docs/Web/API/Path2D/addPath) und [`CanvasPattern.setTransform()`](/de/docs/Web/API/CanvasPattern/setTransform) enthalten Beispiele, die einige der Geometrie-Interfaces verwenden.
+Die Artikel zu [`Path2D.addPath()`](/de/docs/Web/API/Path2D/addPath) und [`CanvasPattern.setTransform()`](/de/docs/Web/API/CanvasPattern/setTransform) enthalten Beispiele, die einige der Geometrie-Schnittstellen verwenden.
 
 ## Spezifikationen
 

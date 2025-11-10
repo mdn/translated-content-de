@@ -3,12 +3,12 @@ title: "SVGMarkerElement: preserveAspectRatio-Eigenschaft"
 short-title: preserveAspectRatio
 slug: Web/API/SVGMarkerElement/preserveAspectRatio
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`preserveAspectRatio`**-Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces gibt ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt zurück, das den Wert des {{SVGattr("preserveAspectRatio")}}-Attributs des {{SVGElement("marker")}} enthält.
+Die schreibgeschützte Eigenschaft **`preserveAspectRatio`** des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces gibt ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt zurück, das den Wert des {{SVGattr("preserveAspectRatio")}}-Attributs des {{SVGElement("marker")}} enthält.
 
 ## Wert
 
@@ -16,8 +16,7 @@ Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspec
 
 - `align`
 
-  - : Eine der folgenden numerischen Konstanten:
-
+  - : Einer der folgenden numerischen Konstanten:
     - `0`
       - : `SVG_PRESERVEASPECTRATIO_UNKNOWN`
     - `1`
@@ -42,9 +41,7 @@ Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspec
       - : `SVG_PRESERVEASPECTRATIO_XMAXYMAX`
 
 - `meetOrSlice`
-
-  - : Eine der folgenden numerischen Konstanten:
-
+  - : Einer der folgenden numerischen Konstanten:
     - `0`
       - : `SVG_MEETORSLICE_UNKNOWN`
     - `1`
@@ -54,7 +51,7 @@ Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspec
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die numerischen Konstanten für `align` und `meetOrSlice` zurückgegeben werden, die sich auf die Werte beziehen, die für das {{SVGattr("preserveAspectRatio")}}-Attribut von {{SVGElement("marker")}} festgelegt wurden.
+Dieses Beispiel demonstriert, wie die numerischen Konstanten für `align` und `meetOrSlice` zurückgegeben werden, die sich auf die für das {{SVGattr("preserveAspectRatio")}}-Attribut des {{SVGElement("marker")}} gesetzten Werte beziehen.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

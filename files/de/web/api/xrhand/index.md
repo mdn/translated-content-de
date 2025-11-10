@@ -2,33 +2,33 @@
 title: XRHand
 slug: Web/API/XRHand
 l10n:
-  sourceCommit: b5b33acd44e7bb9c7be2efc75ba9a04b8bf8b2b2
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{APIRef("WebXR Device API")}}
 
-Das **`XRHand`**-Interface ist ein Paariterator (eine geordnete Zuordnung), bei dem der Schlüssel die Handgelenke und der Wert ein [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) ist.
+Die **`XRHand`**-Schnittstelle ist ein Paar-Iterator (eine geordnete Map) mit dem Schlüssel, der die Handgelenke darstellt, und dem Wert, der ein [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) ist.
 
-`XRHand` wird durch [`XRInputSource.hand`](/de/docs/Web/API/XRInputSource/hand) zurückgegeben.
+`XRHand` wird von [`XRInputSource.hand`](/de/docs/Web/API/XRInputSource/hand) zurückgegeben.
 
 ## Instanzeigenschaften
 
 - `size` {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `25` zurück, die Größe des Paariterators.
+  - : Gibt `25` zurück, die Größe des Paar-Iterators.
 
 ## Instanzmethoden
 
-Das `XRHand`-Objekt ist ein Paariterator und kann direkt in einer {{jsxref("Statements/for...of", "for...of")}}-Struktur verwendet werden. `for (const joint of myHand)` ist gleichwertig zu `for (const joint of myHand.entries())`.
-Es ist jedoch kein map-ähnliches Objekt, daher gibt es keine `clear()`, `delete()`, `has()` und `set()` Methoden.
+Das `XRHand`-Objekt ist ein Paar-Iterator. Es kann direkt in einer {{jsxref("Statements/for...of", "for...of")}}-Struktur verwendet werden. `for (const joint of myHand)` ist äquivalent zu `for (const joint of myHand.entries())`.
+Es ist jedoch kein map-ähnliches Objekt, daher stehen die Methoden `clear()`, `delete()`, `has()` und `set()` nicht zur Verfügung.
 
 - `entries()` {{Experimental_Inline}}
-  - : Gibt einen Iterator mit den Handgelenk-/[`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Paaren für jedes Element zurück.
+  - : Gibt einen Iterator mit den Handgelenken/[`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Paaren für jedes Element zurück.
     Siehe {{jsxref("Map.prototype.entries()")}} für weitere Details.
 - `forEach()` {{Experimental_Inline}}
-  - : Führt eine bereitgestellte Funktion für jedes Handgelenk-/[`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Paar einmal aus.
+  - : Führt eine bereitgestellte Funktion einmal pro Handgelenk/ [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Paar aus.
     Siehe {{jsxref("Map.prototype.forEach()")}} für weitere Details.
 - `get()` {{Experimental_Inline}}
-  - : Gibt einen [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) für ein bestimmtes Handgelenk zurück oder {{jsxref("undefined")}}, wenn kein solcher Handgelenkschlüssel in der Map vorhanden ist.
+  - : Gibt einen [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) für ein gegebenes Handgelenk oder {{jsxref("undefined")}} zurück, wenn kein solcher Handgelenkschlüssel in der Map vorhanden ist.
     Siehe {{jsxref("Map.prototype.get()")}} für weitere Details.
 - `keys()` {{Experimental_Inline}}
   - : Gibt einen Iterator mit allen Handgelenkschlüsseln zurück.

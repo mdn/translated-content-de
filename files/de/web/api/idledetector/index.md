@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`IdleDetector`**-Interface der [Idle Detection API](/de/docs/Web/API/Idle_detection_api) bietet Methoden und Ereignisse, um Benutzeraktivität auf einem Gerät oder Bildschirm zu erkennen.
+Das **`IdleDetector`**-Interface der [Idle Detection API](/de/docs/Web/API/Idle_Detection_API) bietet Methoden und Ereignisse, um Benutzeraktivität auf einem Gerät oder Bildschirm zu erkennen.
 
 Dieses Interface erfordert einen sicheren Kontext.
 

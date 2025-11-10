@@ -2,14 +2,14 @@
 title: Temporal.Duration()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/Duration
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
 Der **`Temporal.Duration()`** Konstruktor erstellt {{jsxref("Temporal.Duration")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie direkt die zugrunde liegenden Daten angeben. Wie bei allen anderen `Temporal` Klassen sollten Sie `Temporal.Duration` Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen zu erstellen, indem Sie die zugrunde liegenden Daten direkt bereitstellen. Wie bei allen anderen `Temporal`-Klassen sollten `Temporal.Duration`-Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konstruiert werden, die mit einer Vielzahl von Eingabetypen umgehen kann.
 
 ## Syntax
 
@@ -27,34 +27,35 @@ new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milli
 new Temporal.Duration(years, months, weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds)
 ```
 
-> **Note:** `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Temporal.Duration()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, dies ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `years` {{optional_inline}}
-  - : Anzahl der Jahre oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Jahre oder `undefined` (wird als `0` behandelt).
 - `months` {{optional_inline}}
-  - : Anzahl der Monate oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Monate oder `undefined` (wird als `0` behandelt).
 - `weeks` {{optional_inline}}
-  - : Anzahl der Wochen oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Wochen oder `undefined` (wird als `0` behandelt).
 - `days` {{optional_inline}}
-  - : Anzahl der Tage oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Tage oder `undefined` (wird als `0` behandelt).
 - `hours` {{optional_inline}}
-  - : Anzahl der Stunden oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Stunden oder `undefined` (wird als `0` behandelt).
 - `minutes` {{optional_inline}}
-  - : Anzahl der Minuten oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Minuten oder `undefined` (wird als `0` behandelt).
 - `seconds` {{optional_inline}}
-  - : Anzahl der Sekunden oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Sekunden oder `undefined` (wird als `0` behandelt).
 - `milliseconds` {{optional_inline}}
-  - : Anzahl der Millisekunden oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Millisekunden oder `undefined` (wird als `0` behandelt).
 - `microseconds` {{optional_inline}}
-  - : Anzahl der Mikrosekunden oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Mikrosekunden oder `undefined` (wird als `0` behandelt).
 - `nanoseconds` {{optional_inline}}
-  - : Anzahl der Nanosekunden oder `undefined` (was als `0` behandelt wird).
+  - : Anzahl der Nanosekunden oder `undefined` (wird als `0` behandelt).
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration` Objekt, möglicherweise [unbalanciert](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
+Ein neues `Temporal.Duration` Objekt, möglicherweise [unbalanced](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), mit den angegebenen Komponenten.
 
 ### Ausnahmen
 
@@ -62,7 +63,7 @@ Ein neues `Temporal.Duration` Objekt, möglicherweise [unbalanciert](/de/docs/We
   - : Wird in einem der folgenden Fälle ausgelöst:
     - Einer der Parameter ist keine ganze Zahl (einschließlich nicht-finite Werte).
     - Eine [Kalendereinheit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) (Jahre, Monate, Wochen) hat einen absoluten Wert ≥ 2<sup>32</sup>.
-    - Der nicht-kalenderische Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
+    - Der nicht-Kalender-Teil der Dauer (Tage und darunter), ausgedrückt in Sekunden, hat einen absoluten Wert ≥ 2<sup>53</sup>.
 
 ## Beispiele
 

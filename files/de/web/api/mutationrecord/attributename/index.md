@@ -1,31 +1,31 @@
 ---
-title: "MutationRecord: Eigenschaft attributeName"
+title: "MutationRecord: `attributeName`-Eigenschaft"
 short-title: attributeName
 slug: Web/API/MutationRecord/attributeName
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeName`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält den Namen eines geänderten Attributs eines Knotens, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
+Die schreibgeschützte Eigenschaft **`attributeName`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält den Namen eines geänderten Attributs, das zu einem Knoten gehört, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes `attributes` ist, stellt dies eine Zeichenkette dar, die den Namen des mutierten Attributs des Mutationsziels repräsentiert.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `attributes` ist, stellt dies einen String dar, der den Namen des mutierten Attributs des Mutationsziels darstellt.
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes nicht `attributes` ist, ist dies `null`.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags nicht `attributes` ist, ist dies `null`.
 
 ## Beispiele
 
-### Namen des zuletzt aktualisierten Attributs abrufen
+### Zuletzt aktualisierten Attributnamen erhalten
 
-Im folgenden Beispiel gibt es vier Schaltflächen: Zwei ändern das `style`-Attribut des `<h1>`-Elements, und zwei ändern das `class`-Attribut des `<h1>`-Elements. Das Skript verwendet einen [`MutationObserver`](/de/docs/Web/API/MutationObserver) zur Erkennung der Änderungen und aktualisiert den darunter liegenden Text mit dem Namen des zuletzt geänderten Attributs.
+Im folgenden Beispiel gibt es vier Schaltflächen: zwei ändern das `style`-Attribut des `h1`-Elements, und zwei ändern das `class`-Attribut des `h1`-Elements. Das Skript verwendet einen [`MutationObserver`](/de/docs/Web/API/MutationObserver), um die Änderungen zu erkennen und wird den untenstehenden Text mit dem Namen des letzten geänderten Attributs aktualisieren.
 
 #### HTML
 
 ```html
-<h1 class="blue" style="color:black;" id="hiMom">Hi, Mom!</h1>
+<h1 class="blue" id="hiMom">Hi, Mom!</h1>
 
 <button id="redButton">Set class to "red"</button>
 <button id="blueButton">Set class to "blue"</button>
@@ -89,7 +89,7 @@ observer.observe(hiMom, { attributes: true });
 
 #### Ergebnis
 
-{{EmbedLiveSample("Get last updated attribute name", "", 200)}}
+{{EmbedLiveSample("Zuletzt aktualisierten Attributnamen erhalten", "", 200)}}
 
 ## Spezifikationen
 

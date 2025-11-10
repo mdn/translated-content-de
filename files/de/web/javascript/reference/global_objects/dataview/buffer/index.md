@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.buffer
+short-title: buffer
 slug: Web/JavaScript/Reference/Global_Objects/DataView/buffer
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`buffer`** Accessor-Eigenschaft von {{jsxref("DataView")}} Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, der bei der Konstruktion dieser Ansicht referenziert wurde.
 
-Die **`buffer`**-Zugriffseigenschaft von {{jsxref("DataView")}}-Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, auf den diese Ansicht zur Erstellungszeit verweist.
-
-{{InteractiveExample("JavaScript Demo: DataView.buffer")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.buffer")}}
 
 ```js interactive-example
 // Create an ArrayBuffer
@@ -24,7 +23,7 @@ console.log(view.buffer.byteLength);
 
 ## Beschreibung
 
-Die `buffer`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des `DataView` festgelegt und kann nicht geändert werden.
+Die `buffer`-Eigenschaft ist eine Accessor-Eigenschaft, deren set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen der `DataView` festgelegt und kann nicht geändert werden.
 
 ## Beispiele
 

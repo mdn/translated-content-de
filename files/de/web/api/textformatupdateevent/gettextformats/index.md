@@ -3,12 +3,12 @@ title: "TextFormatUpdateEvent: getTextFormats()-Methode"
 short-title: getTextFormats()
 slug: Web/API/TextFormatUpdateEvent/getTextFormats
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`getTextFormats()`**-Methode des [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent)-Interfaces gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster auf den zu komponierenden Text anwenden möchte.
+Die **`getTextFormats()`**-Methode der [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent)-Schnittstelle gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die ein {{Glossary("Input_Method_Editor", "Eingabemethoden-Editor")}} (IME)-Fenster auf den gerade eingegebenen Text anwenden möchte.
 
 ## Syntax
 
@@ -16,13 +16,17 @@ Die **`getTextFormats()`**-Methode des [`TextFormatUpdateEvent`](/de/docs/Web/AP
 getTextFormats()
 ```
 
+### Parameter
+
+Keine.
+
 ### Rückgabewert
 
 Ein {{jsxref("Array")}}, das [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekte enthält.
 
 ## Beispiele
 
-### Formatierung von durch IME komponiertem Text
+### IME-komponierten Text formatieren
 
 Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren.
 

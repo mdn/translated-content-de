@@ -1,11 +1,10 @@
 ---
 title: Set.prototype.keys()
+short-title: keys()
 slug: Web/JavaScript/Reference/Global_Objects/Set/keys
 l10n:
-  sourceCommit: ffd57ae4eaab6cdd12560f60f0dadc119a22303e
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Die **`keys()`**-Methode von {{jsxref("Set")}}-Instanzen ist ein Alias für die [`values()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/values)-Methode.
 
@@ -27,7 +26,7 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ### Verwendung von keys()
 
-Die `keys()`-Methode ist exakt gleichwertig zur {{jsxref("Set/values", "values()")}}-Methode.
+Die `keys()`-Methode ist genau äquivalent zur {{jsxref("Set/values", "values()")}}-Methode.
 
 ```js
 const mySet = new Set();

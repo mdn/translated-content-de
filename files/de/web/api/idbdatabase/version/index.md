@@ -3,16 +3,16 @@ title: "IDBDatabase: version-Eigenschaft"
 short-title: version
 slug: Web/API/IDBDatabase/version
 l10n:
-  sourceCommit: ff1e97da7ade9fcb05fb3de064011d4f05debe82
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`version`**-Eigenschaft des [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Interfaces ist ein [64-Bit-Integer](/de/docs/NSPR_API_Reference/Long_Long_%2864-bit%29_Integers), das die Version der verbundenen Datenbank enthält. Wenn eine Datenbank erstmals erstellt wird, ist dieses Attribute ein leerer String.
+Die **`version`**-Eigenschaft der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Schnittstelle ist eine 64-Bit-Ganzzahl, die die Version der verbundenen Datenbank enthält. Wenn eine Datenbank erstmals erstellt wird, ist dieses Attribut ein leerer String.
 
 ## Wert
 
-Ein Integer, der die Version der verbundenen Datenbank enthält.
+Eine Ganzzahl, die die Version der verbundenen Datenbank enthält.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ DBOpenRequest.onsuccess = (event) => {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Ein Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursor: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -2,10 +2,8 @@
 title: tabs.getZoomSettings()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/getZoomSettings
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ruft die aktuellen Zoom-Einstellungen für einen angegebenen Tab ab.
 
@@ -22,15 +20,15 @@ let gettingZoomSettings = browser.tabs.getZoomSettings(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, von dem die aktuellen Zoom-Einstellungen abgerufen werden sollen. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
+  - : `integer`. Die ID des Tabs, von dem die aktuellen Zoom-Einstellungen abgerufen werden sollen. Standardmäßig der aktive Tab des aktuellen Fensters.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.ZoomSettings')}}-Objekt erfüllt wird, das die aktuellen Zoom-Einstellungen des Tab repräsentiert. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.ZoomSettings')}}-Objekt erfüllt wird, das die aktuellen Zoom-Einstellungen des Tabs darstellt. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Rufen Sie die Zoom-Einstellungen für den aktuellen Tab ab:
+Holen Sie sich die Zoom-Einstellungen für den aktuellen Tab:
 
 ```js
 function onGot(settings) {
@@ -52,7 +50,7 @@ gettingZoomSettings.then(onGot, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

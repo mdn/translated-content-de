@@ -1,15 +1,14 @@
 ---
 title: Promise.resolve()
+short-title: resolve()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/resolve
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`Promise.resolve()`** statische Methode "löst" einen gegebenen Wert in ein {{jsxref("Promise")}} auf. Wenn der Wert ein Promise ist, wird dieses Promise zurückgegeben; wenn der Wert ein [thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) ist, wird `Promise.resolve()` die `then()`-Methode mit zwei vorbereiteten Rückrufmethoden aufrufen; andernfalls wird das zurückgegebene Promise mit dem Wert erfüllt.
 
-Die statische Methode **`Promise.resolve()`** "löst" einen gegebenen Wert in ein {{jsxref("Promise")}} auf. Wenn der Wert ein Promise ist, wird dieses Promise zurückgegeben; wenn der Wert ein [Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables) ist, ruft `Promise.resolve()` die `then()`-Methode mit zwei vorbereiteten Callbacks auf; andernfalls wird das zurückgegebene Promise mit dem Wert erfüllt.
-
-Diese Funktion reduziert geschachtelte Ebenen von Promise-ähnlichen Objekten (z. B. ein Promise, das zu einem Promise führt, das wiederum zu einem Wert führt) auf eine einzige Ebene — ein Promise, das zu einem Nicht-Thenable-Wert führt.
+Diese Funktion reduziert verschachtelte Ebenen von promise-ähnlichen Objekten (z. B. ein Promise, das zu einem Promise erfüllt wird, das zu etwas erfüllt wird) auf eine einzelne Ebene — ein Promise, das zu einem nicht-thenable Wert erfüllt wird.
 
 {{InteractiveExample("JavaScript Demo: Promise.resolve()")}}
 
@@ -31,31 +30,31 @@ Promise.resolve(value)
 ### Parameter
 
 - `value`
-  - : Argument, das von diesem `Promise` aufgelöst werden soll. Kann auch ein `Promise` oder ein Thenable sein, das aufgelöst werden soll.
+  - : Argument, das von diesem `Promise` aufgelöst werden soll. Kann auch ein `Promise` oder ein thenable sein, das aufgelöst werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem gegebenen Wert aufgelöst wird, oder das als Wert übergebene Promise, wenn der Wert ein Promise-Objekt war. Ein aufgelöstes Promise kann sich in jedem Zustand befinden — erfüllt, abgelehnt oder ausstehend. Zum Beispiel wird das Auflösen eines abgelehnten Promises ebenfalls zu einem abgelehnten Promise führen.
+Ein {{jsxref("Promise")}}, das mit dem gegebenen Wert aufgelöst wird oder das Promise, das als Wert übergeben wurde, wenn der Wert ein Promise-Objekt war. Ein aufgelöstes Promise kann in jedem der Zustände sein — erfüllt, abgelehnt oder ausstehend. Zum Beispiel wird das Auflösen eines abgelehnten Promises immer noch zu einem abgelehnten Promise führen.
 
 ## Beschreibung
 
-`Promise.resolve()` _löst_ ein Promise auf, was nicht dasselbe ist wie das Erfüllen oder Ablehnen des Promises. Siehe [Beschreibung von Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#description) für Definitionen der Terminologie. Kurz gesagt, `Promise.resolve()` gibt ein Promise zurück, dessen endgültiger Zustand von einem anderen Promise, einem Thenable-Objekt oder einem anderen Wert abhängt.
+`Promise.resolve()` _löst_ ein Promise auf, was nicht dasselbe ist wie das Erfüllen oder Ablehnen des Promises. Weitere Definitionen der Terminologie finden Sie in der [Beschreibung von Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#description). Kurz gesagt gibt `Promise.resolve()` ein Promise zurück, dessen endgültiger Zustand von einem anderen Promise, thenable Objekt oder einem anderen Wert abhängt.
 
 > [!NOTE]
-> Wenn die Auswertung des Ausdrucks `value` synchron einen Fehler auslösen kann, wird dieser Fehler nicht von `Promise.resolve()` abgefangen und in ein abgelehntes Promise umgewandelt. In diesem Fall sollten Sie {{jsxref("Promise/try", "Promise.try(() => value)")}} verwenden.
+> Wenn die Auswertung des `value`-Ausdrucks möglicherweise synchron einen Fehler auslöst, wird dieser Fehler von `Promise.resolve()` nicht abgefangen und in ein abgelehntes Promise eingebettet. Ziehen Sie in diesem Fall in Betracht, {{jsxref("Promise/try", "Promise.try(() => value)")}} zu verwenden.
 
-`Promise.resolve()` ist generisch und unterstützt Subclassing, was bedeutet, dass es auf Subklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Promise des Subklassen-Typs ist. Dafür muss der Konstruktor der Subklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — das Akzeptieren einer einzigen `executor`-Funktion, die mit den `resolve`- und `reject`-Callbacks als Parameter aufgerufen werden kann.
+`Promise.resolve()` ist generisch und unterstützt die Unterklassenbildung, was bedeutet, dass es auf Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Promise des Unterklassentyps sein wird. Hierfür muss der Konstruktor der Unterklasse die gleiche Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — das Akzeptieren einer einzelnen `executor`-Funktion, die mit den `resolve`- und `reject`-Rückrufen als Parameter aufgerufen werden kann.
 
-`Promise.resolve()` behandelt native `Promise`-Instanzen besonders. Wenn `value` zu `Promise` oder einer Subklasse gehört und `value.constructor === Promise`, wird `value` direkt von `Promise.resolve()` zurückgegeben, ohne eine neue `Promise`-Instanz zu erstellen. Andernfalls ist `Promise.resolve()` im Wesentlichen eine Kurzform für `new Promise((resolve) => resolve(value))`.
+`Promise.resolve()` behandelt native `Promise`-Instanzen speziell. Wenn `value` zu `Promise` oder einer Unterklasse gehört und `value.constructor === Promise`, wird `value` direkt von `Promise.resolve()` zurückgegeben, ohne eine neue `Promise`-Instanz zu erstellen. Andernfalls ist `Promise.resolve()` im Wesentlichen eine Kurzform für `new Promise((resolve) => resolve(value))`.
 
-Der Hauptteil der Logik zur Auflösung wird tatsächlich von [der `resolve`-Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function) implementiert, die vom `Promise()`-Konstruktor übergeben wird. Zusammengefasst:
+Der Großteil der Auflösungslogik wird tatsächlich von der [der `resolve`-Funktion](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function) implementiert, die vom `Promise()`-Konstruktor übergeben wird. Zusammengefasst:
 
-- Wenn ein nicht-[Thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables)-Wert übergeben wird, ist das zurückgegebene Promise bereits mit diesem Wert erfüllt.
-- Wenn ein Thenable übergeben wird, nimmt das zurückgegebene Promise den Zustand dieses Thenables an, indem es die `then`-Methode aufruft und ein Paar auflösender Funktionen als Argumente übergibt. (Aber da native Promises direkt durch `Promise.resolve()` ohne Wrapper durchgereicht werden, wird die `then`-Methode nicht auf nativen Promises aufgerufen.) Wenn die `resolve`-Funktion ein anderes Thenable-Objekt erhält, wird es erneut aufgelöst, sodass der endgültige Erfüllungswert des Promises niemals ein Thenable sein wird.
+- Wenn ein nicht-[thenable](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables)-Wert übergeben wird, ist das zurückgegebene Promise bereits mit diesem Wert erfüllt.
+- Wenn ein thenable übergeben wird, übernimmt das zurückgegebene Promise den Zustand dieses thenable, indem die `then`-Methode aufgerufen und ein Paar von Auflösungsfunktionen als Argumente übergeben werden. (Da jedoch native Promises direkt über `Promise.resolve()` ohne die Erstellung eines Wrappers durchlaufen werden, wird die `then`-Methode nicht für native Promises aufgerufen.) Wenn die `resolve`-Funktion ein weiteres thenable-Objekt erhält, wird es erneut aufgelöst, sodass der letztendliche Erfüllungswert des Promises niemals thenable sein wird.
 
 ## Beispiele
 
-### Verwendung der statischen `Promise.resolve`-Methode
+### Verwenden der statischen Methode Promise.resolve
 
 ```js
 Promise.resolve("Success").then(
@@ -79,7 +78,7 @@ p.then((v) => {
 
 ### Auflösen eines anderen Promises
 
-`Promise.resolve()` verwendet bestehende `Promise`-Instanzen wieder. Wenn es ein natives Promise auflöst, gibt es dieselbe Promise-Instanz zurück, ohne einen Wrapper zu erstellen.
+`Promise.resolve()` verwendet bestehende `Promise`-Instanzen wieder. Wenn es ein natives Promise auflöst, wird die gleiche Promise-Instanz zurückgegeben, ohne einen Wrapper zu erstellen.
 
 ```js
 const original = Promise.resolve(33);
@@ -94,9 +93,9 @@ console.log(`original === cast ? ${original === cast}`);
 // value: 33
 ```
 
-Die invertierte Reihenfolge der Konsolenausgaben liegt daran, dass die `then`-Handler asynchron aufgerufen werden. Weitere Informationen finden Sie in der {{jsxref("Promise/then", "then()")}}-Referenz.
+Die umgekehrte Reihenfolge der Protokolle liegt daran, dass die `then`-Handler asynchron aufgerufen werden. Weitere Informationen finden Sie in der {{jsxref("Promise/then", "then()")}}-Referenz.
 
-### Auflösen von Thenables und Werfen von Fehlern
+### Auflösen von thenables und das Auslösen von Fehlern
 
 ```js
 // Resolving a thenable object
@@ -150,7 +149,7 @@ p3.then(
 );
 ```
 
-Geschachtelte Thenables werden "tiefgehend reduziert" auf ein einzelnes Promise.
+Verschachtelte thenables werden "tief abgeflacht" zu einem einzigen Promise.
 
 ```js
 const thenable = {
@@ -170,7 +169,7 @@ Promise.resolve(thenable).then((v) => {
 ```
 
 > [!WARNING]
-> Rufen Sie `Promise.resolve()` nicht auf einem Thenable auf, das auf sich selbst verweist. Das führt zu einer Endlosschleife, da versucht wird, ein unendlich geschachteltes Promise zu reduzieren.
+> Rufen Sie `Promise.resolve()` nicht auf einem thenable auf, das sich selbst auflöst. Dies führt zu einer Endlosschleife, da versucht wird, ein unendlich verschachteltes Promise abzuflachen.
 
 ```js example-bad
 const thenable = {
@@ -182,9 +181,9 @@ const thenable = {
 Promise.resolve(thenable); // Will lead to infinite recursion.
 ```
 
-### Aufruf von `resolve()` auf einem Nicht-Promise-Konstruktor
+### Aufrufen von resolve() bei einem Nicht-Promise Konstruktor
 
-`Promise.resolve()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der dieselbe Signatur wie der `Promise()`-Konstruktor implementiert. Zum Beispiel können wir sie auf einem Konstruktor aufrufen, der `console.log` als `resolve` weitergibt:
+`Promise.resolve()` ist eine generische Methode. Sie kann bei jedem Konstruktor aufgerufen werden, der die gleiche Signatur wie der `Promise()`-Konstruktor implementiert. Zum Beispiel können wir sie bei einem Konstruktor aufrufen, der `console.log` als `resolve` übergibt:
 
 ```js
 class NotPromise {
@@ -201,7 +200,7 @@ class NotPromise {
 Promise.resolve.call(NotPromise, "foo"); // Logs "Resolved foo"
 ```
 
-Die Fähigkeit, geschachtelte Thenables zu reduzieren, wird von der `resolve`-Funktion des `Promise()`-Konstruktors implementiert. Wenn Sie sie auf einem anderen Konstruktor aufrufen, könnten geschachtelte Thenables je nach Implementierung der `resolve`-Funktion dieses Konstruktors möglicherweise nicht reduziert werden.
+Die Fähigkeit, verschachtelte thenables abzuflachen, wird von der `resolve`-Funktion des `Promise()`-Konstruktors implementiert. Wenn Sie sie bei einem anderen Konstruktor aufrufen, werden verschachtelte thenables möglicherweise nicht abgeflacht, je nachdem, wie dieser Konstruktor seine `resolve`-Funktion implementiert.
 
 ```js
 const thenable = {

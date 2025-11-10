@@ -26,7 +26,7 @@ Die Verwendung von `XRRigidTransform` an diesen Stellen statt einfacher Arrays, 
 ## Instanzeigenschaften
 
 - [`XRRigidTransform.position`](/de/docs/Web/API/XRRigidTransform/position) {{ReadOnlyInline}}
-  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der einen dreidimensionalen Punkt in Metern angibt und die Übersetzungskomponente der Transformation beschreibt. Die [`w`](/de/docs/Web/API/DOMPointReadonly/w)-Eigenschaft ist immer `1.0`.
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der einen dreidimensionalen Punkt in Metern angibt und die Übersetzungskomponente der Transformation beschreibt. Die [`w`](/de/docs/Web/API/DOMPointReadOnly/w)-Eigenschaft ist immer `1.0`.
 - [`XRRigidTransform.orientation`](/de/docs/Web/API/XRRigidTransform/orientation) {{ReadOnlyInline}}
   - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der ein Einheitsquaternion enthält, das die Rotationskomponente der Transformation beschreibt. Als Einheitsquaternion ist seine Länge stets auf `1.0` normalisiert.
 - [`XRRigidTransform.matrix`](/de/docs/Web/API/XRRigidTransform/matrix) {{ReadOnlyInline}}

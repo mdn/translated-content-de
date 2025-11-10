@@ -2,14 +2,12 @@
 title: DSL (Domain-Specific Language)
 slug: Glossary/DSL/Domain_specific_language
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Eine **Domain-Specific Language (DSL)** ist eine Art von Programmiersprache mit eingeschränktem Anwendungsbereich, die entworfen wurde, um ein spezifisches Problem innerhalb eines Anwendungsdomänen zu adressieren.
 
-Ein **Domain-Specific Language (DSL)** ist eine Art von Programmiersprache mit begrenztem Umfang, die entwickelt wurde, um ein bestimmtes Problem innerhalb eines Anwendungsbereichs anzusprechen.
-
-Vergleichen Sie DSLs mit _general-purpose languages (GPLs)_, die entwickelt wurden, um verschiedene Probleme über unterschiedliche Bereiche hinweg zu behandeln.
+Im Gegensatz dazu stehen _general-purpose languages (GPLs)_, die darauf ausgelegt sind, verschiedene Probleme über Domänen hinweg zu adressieren.
 
 ## Siehe auch
 

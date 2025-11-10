@@ -1,28 +1,27 @@
 ---
-title: "MediaQueryListEvent: matches Eigenschaft"
+title: "MediaQueryListEvent: matches-Eigenschaft"
 short-title: matches
 slug: Web/API/MediaQueryListEvent/matches
 l10n:
-  sourceCommit: c51e0599ea09c0e6d035c635db9f48ad1f241490
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte Eigenschaft **`matches`** des
-[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent) Interfaces ist ein boolescher Wert, der
-`true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt,
-oder `false`, wenn nicht.
+Die **`matches`** schreibgeschützte Eigenschaft des
+[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Interfaces ist ein boolescher Wert, der
+`true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit der Media Query-Liste entspricht, oder `false`, wenn nicht.
 
 ## Wert
 
 Ein boolescher Wert; gibt `true` zurück, wenn das [`document`](/de/docs/Web/API/Document)
-derzeit mit der Media Query-Liste übereinstimmt, `false`, wenn nicht.
+derzeit der Media Query-Liste entspricht, andernfalls `false`.
 
 ## Beispiele
 
 ```js
 const para = document.querySelector("p"); // This is the UI element where to display the text
-const mql = window.matchMedia("(max-width: 600px)");
+const mql = window.matchMedia("(width <= 600px)");
 
 mql.addEventListener("change", (event) => {
   if (event.matches) {
@@ -47,8 +46,8 @@ mql.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Media Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

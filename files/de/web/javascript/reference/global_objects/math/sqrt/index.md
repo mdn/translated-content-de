@@ -1,17 +1,16 @@
 ---
 title: Math.sqrt()
+short-title: sqrt()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sqrt
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.sqrt()`** gibt die Quadratwurzel einer Zahl zurück. Das bedeutet:
+Die statische Methode **`Math.sqrt()`** gibt die Quadratwurzel einer Zahl zurück. Das bedeutet
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚜𝚚𝚛𝚝</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msqrt><mi>x</mi></msqrt><mo>=</mo><mtext>das eindeutige&nbsp;</mtext><mi>y</mi><mo>≥</mo><mn>0</mn><mtext>&nbsp;für das&nbsp;</mtext><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x \geq 0,\;\mathtt{\operatorname{Math.sqrt}(x)}} = \sqrt{x} = \text{das eindeutige } y \geq 0 \text{ für das } y^2 = x</annotation></semantics>
+  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚜𝚚𝚛𝚝</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msqrt><mi>x</mi></msqrt><mo>=</mo><mtext>die eindeutige&nbsp;</mtext><mi>y</mi><mo>≥</mo><mn>0</mn><mtext>&nbsp;so dass&nbsp;</mtext><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x \geq 0,\;\mathtt{\operatorname{Math.sqrt}(x)}} = \sqrt{x} = \text{die eindeutige } y \geq 0 \text{ so dass } y^2 = x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -41,15 +40,15 @@ Math.sqrt(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die größer oder gleich 0 ist.
+  - : Eine Zahl größer oder gleich 0.
 
 ### Rückgabewert
 
-Die Quadratwurzel von `x`, eine nichtnegative Zahl. Wenn `x < 0` ist, wird {{jsxref("NaN")}} zurückgegeben.
+Die Quadratwurzel von `x`, eine nicht-negative Zahl. Wenn `x < 0` ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sqrt()` eine statische Methode von `Math` ist, wird sie immer als `Math.sqrt()` verwendet, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `sqrt()` eine statische Methode von `Math` ist, wird sie immer als `Math.sqrt()` verwendet, anstatt als Methode eines erstellten `Math`-Objektes (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

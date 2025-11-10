@@ -1,23 +1,23 @@
 ---
-title: "Element: animationiteration event"
+title: "Element: animationiteration-Event"
 short-title: animationiteration
 slug: Web/API/Element/animationiteration_event
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef}}
+{{APIRef("Web Animations")}}
 
-Das **`animationiteration`**-Ereignis wird ausgelöst, wenn eine Iteration einer [CSS-Animation](/de/docs/Web/CSS/CSS_animations) endet und eine neue beginnt. Dieses Ereignis tritt nicht gleichzeitig mit dem [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis auf und daher nicht bei Animationen mit einem `animation-iteration-count` von eins.
+Das **`animationiteration`**-Event wird ausgelöst, wenn eine Iteration einer [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) endet und eine neue beginnt. Dieses Ereignis tritt nicht gleichzeitig mit dem [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis auf und tritt daher nicht bei Animationen mit einem `animation-iteration-count` von eins auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
-```js
-addEventListener("animationiteration", (event) => {});
+```js-nolint
+addEventListener("animationiteration", (event) => { })
 
-onanimationiteration = (event) => {};
+onanimationiteration = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,18 +28,18 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 - [`AnimationEvent.animationName`](/de/docs/Web/API/AnimationEvent/animationName) {{ReadOnlyInline}}
-  - : Ein String, der den Wert des {{cssxref("animation-name")}} enthält, der die Animation erzeugt hat.
+  - : Ein String, der den Wert des {{cssxref("animation-name")}} enthält, das die Animation erzeugt hat.
 - [`AnimationEvent.elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Ein `float`, der die Zeit in Sekunden angibt, die die Animation lief, als dieses Ereignis ausgelöst wurde, ohne die Zeiten zu berücksichtigen, in denen die Animation angehalten war. Für ein `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in welchem Fall das Ereignis mit `elapsedTime`, das `(-1 * delay)` enthält, ausgelöst wird.
+  - : Ein `float`, der die Zeit angibt, die die Animation beim Auslösen dieses Ereignisses bereits gelaufen ist, in Sekunden, ohne die Zeit zu berücksichtigen, in der die Animation pausiert war. Bei einem `animationstart`-Event ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in welchem Fall das Ereignis mit `elapsedTime` und dem Wert `(-1 * delay)` ausgelöst wird.
 - [`AnimationEvent.pseudoElement`](/de/docs/Web/API/AnimationEvent/pseudoElement) {{ReadOnlyInline}}
-  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element ausgeführt wird, ein leerer String: `''`.
+  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudoelements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudoelement, sondern auf dem Element läuft, ist der String leer: `''`.
 
 ## Beispiele
 
-Dieser Code verwendet `animationiteration`, um die Anzahl der abgeschlossenen Iterationen einer Animation zu verfolgen:
+Dieser Code verwendet `animationiteration`, um die Anzahl der Iterationen, die eine Animation abgeschlossen hat, zu verfolgen:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -52,7 +52,7 @@ animated.addEventListener("animationiteration", () => {
 });
 ```
 
-Dasselbe, aber mit der `onanimationiteration`-Ereignishandlereigenschaft:
+Dasselbe, jedoch mit der `onanimationiteration`-Ereignisbehandlungs-Eigenschaft:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -166,7 +166,7 @@ applyAnimation.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - Verwandte Ereignisse: [`animationstart`](/de/docs/Web/API/Element/animationstart_event), [`animationend`](/de/docs/Web/API/Element/animationend_event), [`animationcancel`](/de/docs/Web/API/Element/animationcancel_event)

@@ -3,12 +3,12 @@ title: "SVGNumberList: initialize() Methode"
 short-title: initialize()
 slug: Web/API/SVGNumberList/initialize
 l10n:
-  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)-Schnittstelle löscht alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das einzelne Element zu halten, das durch den Parameter angegeben wird. Wenn das eingefügte Element bereits in einer Liste vorhanden ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das Element, das in die Liste eingefügt wurde.
+Die **`initialize()`** Methode der [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) Schnittstelle entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das im Parameter angegebene Einzelobjekt aufzunehmen. Wenn das eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das Element, das in die Liste eingefügt wurde.
 
 ## Syntax
 
@@ -27,8 +27,8 @@ Der [`SVGNumber`](/de/docs/Web/API/SVGNumber), der der Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
-  - : Wird ausgelöst, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wirft eine Ausnahme, wenn die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) mit einem schreibgeschützten Attribut übereinstimmt oder wenn das Objekt selbst schreibgeschützt ist.
 
 ## Spezifikationen
 

@@ -1,26 +1,24 @@
 ---
-title: "HTMLImageElement: useMap-Eigenschaft"
+title: "HTMLImageElement: Eigenschaft useMap"
 short-title: useMap
 slug: Web/API/HTMLImageElement/useMap
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`useMap`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) spiegelt den Wert des {{Glossary("HTML", "HTML")}}-[`usemap`](/de/docs/Web/HTML/Element/img#usemap)-Attributs wider, welches eine Zeichenfolge ist, die den Namen der clientseitigen Image-Map angibt, die auf das Bild angewendet werden soll.
+Die **`useMap`**-Eigenschaft der Schnittstelle [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gibt den Namen der clientseitigen Imagemap an, die auf das Bild angewendet werden soll. Sie spiegelt das [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap)-Inhaltsattribut des `<img>`-Elements wider.
 
 ## Wert
 
-Eine Zeichenfolge, die die seitenlokale URL bereitstellt (das heißt, eine URL, die mit dem Rautezeichen oder Hash-Symbol, `#`, beginnt) des {{HTMLElement("map")}}-Elements, das die Image-Map definiert, die auf das Bild angewendet werden soll.
+Ein String, der das Rauten-Symbol `#` gefolgt vom [`name`](/de/docs/Web/HTML/Reference/Elements/map#name) des {{HTMLElement("map")}}-Elements enthält, das die Imagemap definiert, die auf das Bild angewendet werden soll.
 
-Sie können mehr über clientseitige Image-Maps in unserem Lernartikel [Eine Treffermarkierung über ein Bild legen](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image) erfahren.
+## Beispiele
 
-## Verwendungshinweise
+### Verwendung von useMap
 
-Der Zeichenfolgenwert von `useMap` muss ein gültiger Anker für ein {{HTMLElement("map")}}-Element sein. Mit anderen Worten, diese Zeichenfolge sollte der Wert des entsprechenden `<map>`-[`name`](/de/docs/Web/HTML/Element/map#name)-Attributs sein, dem ein Raute- oder Hash-Symbol voransteht.
-
-Betrachten Sie ein `<map>`, das wie folgt aussieht:
+Betrachten Sie eine `<map>`, die folgendermaßen aussieht:
 
 ```html
 <map name="mainmenu-map">
@@ -33,17 +31,16 @@ Betrachten Sie ein `<map>`, das wie folgt aussieht:
 </map>
 ```
 
-Für die Image-Map namens `mainmenu-map` sollte das Bild, das sie verwendet, etwa wie folgt aussehen:
+Basierend auf der Imagemap namens `mainmenu-map` können Sie dynamisch Bilder konstruieren, die auf die Imagemap verweisen, wie folgt:
 
-```html
-<img src="menubox.png" usemap="#mainmenu-map" />
+```js
+const image = new Image();
+image.src = "menubox.png";
+image.alt = "";
+image.useMap = "#mainmenu-map";
 ```
 
-Für zusätzliche Beispiele (einschließlich interaktiver) sehen Sie sich die Artikel über die {{HTMLElement("map")}}- und {{HTMLElement("area")}}-Elemente an sowie den [Leitfaden zur Verwendung von Image-Maps](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image).
-
-## Beispiele
-
-{{EmbedInteractiveExample("pages/tabbed/area.html", "tabbed-taller")}}
+Für zusätzliche Beispiele (einschließlich interaktiver) lesen Sie die Artikel über die Elemente {{HTMLElement("map")}} und {{HTMLElement("area")}} sowie den [Leitfaden zur Verwendung von Imagemaps](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image).
 
 ## Spezifikationen
 
@@ -52,3 +49,9 @@ Für zusätzliche Beispiele (einschließlich interaktiver) sehen Sie sich die Ar
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [Fügen Sie eine Klickkarte auf einem Bild hinzu](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image)
+- {{HTMLElement("map")}}
+- {{HTMLElement("area")}}

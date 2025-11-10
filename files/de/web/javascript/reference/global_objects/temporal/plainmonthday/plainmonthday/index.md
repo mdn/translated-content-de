@@ -2,14 +2,14 @@
 title: Temporal.PlainMonthDay()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/PlainMonthDay
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der **`Temporal.PlainMonthDay()`** Konstruktor erzeugt {{jsxref("Temporal.PlainMonthDay")}} Objekte.
+Der **`Temporal.PlainMonthDay()`** Konstruktor erstellt {{jsxref("Temporal.PlainMonthDay")}} Objekte.
 
-Dieser Konstruktor ermöglicht es Ihnen, Instanzen durch direkte Angabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal` Klassen sollten Sie normalerweise `Temporal.PlainMonthDay` Objekte mit der {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} statischen Methode konstruieren, die eine Vielzahl von Eingabedatentypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen durch direkte Angabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal`-Klassen sollten Sie normalerweise `Temporal.PlainMonthDay` Objekte mithilfe der statischen Methode {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} konstruieren, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -19,34 +19,35 @@ new Temporal.PlainMonthDay(month, day, calendar)
 new Temporal.PlainMonthDay(month, day, calendar, referenceYear)
 ```
 
-> **Hinweis:** `Temporal.PlainMonthDay()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Temporal.PlainMonthDay()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 > [!WARNING]
-> Vermeiden Sie die Verwendung der Parameter `calendar` und `referenceYear`, da {{jsxref("Temporal/PlainMonthDay/equals", "equals()")}} das Referenzjahr zur Gleichheitsprüfung heranziehen wird, wodurch zwei äquivalente Monat-Tage als unterschiedlich angesehen werden, wenn sie unterschiedliche Referenzjahre haben. Um ein `Temporal.PlainMonthDay` Objekt mit einem nicht-ISO-Kalender zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}} statische Methode.
+> Vermeiden Sie die Verwendung der Parameter `calendar` und `referenceYear`, da {{jsxref("Temporal/PlainMonthDay/equals", "equals()")}} das Bezugsjahr für Gleichheit berücksichtigen wird, was dazu führt, dass zwei äquivalente Monats-Tage als unterschiedlich angesehen werden, wenn sie unterschiedliche Bezugsjahre haben. Um ein `Temporal.PlainMonthDay` Objekt mit einem Nicht-ISO-Kalender zu erstellen, verwenden Sie die statische Methode {{jsxref("Temporal/PlainMonthDay/from", "Temporal.PlainMonthDay.from()")}}.
 
 ### Parameter
 
 - `month`
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die den Monat im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, auf eine Ganzzahl gekürzt, die den Monat im ISO-Kalendersystem darstellt.
 - `day`
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die den Tag des Monats im ISO-Kalendersystem darstellt.
+  - : Eine Zahl, auf eine Ganzzahl gekürzt, die den Tag des Monats im ISO-Kalendersystem darstellt.
 - `calendar` {{optional_inline}}
-  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der verwendet werden soll. Beachten Sie, dass unabhängig vom `calendar`, `referenceYear`, `month` und `day` im ISO 8601-Kalendersystem sein müssen. Standardmäßig `"iso8601"`.
+  - : Ein String, der den zu verwendenden [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen. Standard ist `"iso8601"`. Beachten Sie, dass unabhängig vom `calendar`, `referenceYear`, `month` und `day` im ISO 8601 Kalendersystem sein müssen.
 - `referenceYear` {{optional_inline}}
-  - : Eine Zahl, auf eine ganze Zahl gekürzt, die das Jahr im ISO-Kalendersystem darstellt. Standardmäßig `1972`. Derselbe ISO-Monatstag kann in verschiedenen Jahren mit nicht-ISO-Kalendern unterschiedliche Daten darstellen. Zum Beispiel können die Tage 2021-07-01 und 1972-07-01 in einem nicht-gregorianischen Kalender auf unterschiedliche Monatstage fallen, und nur "07-01" anzugeben, reicht nicht aus, um einen Monatstag im Zielkalender eindeutig zu bestimmen. Daher möchten Sie nahezu immer ein `referenceYear` angeben, wenn Sie einen nicht-ISO-Kalender verwenden.
+  - : Eine Zahl, auf eine Ganzzahl gekürzt, die das Jahr im ISO-Kalendersystem darstellt. Standard ist `1972`. Derselbe ISO-Monat-Tag kann unterschiedliche Daten in verschiedenen Jahren mit Nicht-ISO-Kalendern darstellen. Beispielsweise können die Tage 2021-07-01 und 1972-07-01 in einem nicht-gregorianischen Kalender auf unterschiedliche Monats-Tage fallen, und die bloße Angabe von "07-01" reicht nicht aus, um einen Monat-Tag im Zielkalender eindeutig zu bestimmen. Daher möchten Sie praktisch immer ein `referenceYear` angeben, wenn Sie einen Nicht-ISO-Kalender verwenden.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainMonthDay` Objekt, das den Monat-Tag des durch `referenceYear`, `month`, `day` (im ISO-Kalender) angegebenen Datums repräsentiert und im durch `calendar` angegebenen Kalendersystem interpretiert wird.
+Ein neues `Temporal.PlainMonthDay` Objekt, das den Monat-Tag des durch `referenceYear`, `month`, `day` spezifizierten Datums (im ISO-Kalender) repräsentiert und im durch `calendar` angegebenen Kalendersystem interpretiert wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn `calendar` kein String oder `undefined` ist.
+  - : Wird ausgelöst, wenn `calendar` kein String oder `undefined` ist.
 - {{jsxref("RangeError")}}
-  - : Wird in einem der folgenden Fälle geworfen:
+  - : Wird in einem der folgenden Fälle ausgelöst:
     - `referenceYear`, `month` oder `day` ist keine endliche Zahl.
-    - Die Kombination aus `referenceYear`, `month` und `day` stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), welcher ±(10<sup>8</sup> + 1) Tage, oder etwa ±273,972.6 Jahre, vom Unix-Epoch ist.
+    - Die Kombination aus `referenceYear`, `month` und `day` stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage, oder etwa ±273.972,6 Jahre, vom Unix-Epoch umfasst.
     - `calendar` ist kein gültiger Kalenderidentifikator.
 
 ## Beispiele
@@ -64,9 +65,9 @@ const md3 = new Temporal.PlainMonthDay(7, 1, "chinese", 2021);
 console.log(md3.toString()); // 2021-07-01[u-ca=chinese]
 ```
 
-### Ungeeignete Verwendung
+### Unzulässige Verwendung
 
-Sie sollten die Parameter `calendar` und `referenceYear` vermeiden, es sei denn, Sie wissen, dass das `referenceYear` das kanonische Referenzjahr ist, das von `Temporal.PlainMonthDay.from()` für denselben Monat-Tag ausgewählt würde.
+Sie sollten die Parameter `calendar` und `referenceYear` vermeiden, es sei denn, Sie wissen, dass das `referenceYear` das kanonische Bezugsjahr ist, das von `Temporal.PlainMonthDay.from()` für denselben Monat-Tag ausgewählt würde.
 
 ```js
 const md = new Temporal.PlainMonthDay(7, 1, "chinese", 2021);

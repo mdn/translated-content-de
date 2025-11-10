@@ -3,20 +3,22 @@ title: "IntersectionObserverEntry: isIntersecting-Eigenschaft"
 short-title: isIntersecting
 slug: Web/API/IntersectionObserverEntry/isIntersecting
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: fe47429d64ffaacb24f5130523442aeaabf26ac6
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die schnittstellenübergreifende, schreibgeschützte **`isIntersecting`**-Eigenschaft der [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) gibt einen booleschen Wert zurück, der `true` ist, wenn das Ziel-Element mit dem Wurzel-Element des Intersection Observers schneidet. Ist dieser Wert `true`, beschreibt der `IntersectionObserverEntry` einen Übergang in einen Zustand der Überschneidung; ist er `false`, wissen Sie, dass der Übergang von überschneidend zu nicht-überschneidend erfolgt.
+Die schreibgeschützte **`isIntersecting`**-Eigenschaft der [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Schnittstelle ist ein Boolean-Wert, der `true` ist, wenn das Ziel-Element mit dem Root des Intersection Observer überschneidet.
+
+Wenn dies `true` ist, beschreibt der `IntersectionObserverEntry` einen Übergang in einen Zustand der Überschneidung; wenn es `false` ist, wissen Sie, dass der Übergang von überschneidend zu nicht-überschneidend erfolgt.
 
 ## Wert
 
-Ein boolescher Wert, der angibt, ob das [`target`](/de/docs/Web/API/IntersectionObserverEntry/target)-Element in einen Zustand der Überschneidung (`true`) eingetreten ist oder aus einem Zustand der Überschneidung (`false`) herausgegangen ist.
+Ein Boolean-Wert, der angibt, ob das [`target`](/de/docs/Web/API/IntersectionObserverEntry/target)-Element in einen Zustand der Überschneidung übergegangen ist (`true`) oder aus einem Zustand der Überschneidung heraus (`false`).
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird ein Überschneidungs-Callback verwendet, um einen Zähler zu aktualisieren, der anzeigt, wie viele Ziel-Elemente derzeit mit der [Schnittwurzel](/de/docs/Web/API/IntersectionObserver/root) im Überschneidungsbereich liegen.
+In diesem einfachen Beispiel wird ein Überschneidungs-Callback verwendet, um einen Zähler zu aktualisieren, wie viele Ziel-Elemente aktuell mit dem [Intersection Root](/de/docs/Web/API/IntersectionObserver/root) überschneiden.
 
 ```js
 function intersectionCallback(entries) {
@@ -30,8 +32,7 @@ function intersectionCallback(entries) {
 }
 ```
 
-Um ein konkretes Beispiel zu sehen, werfen Sie einen Blick auf
-[Behandlung von Überschneidungsänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes).
+Für ein konkreteres Beispiel schauen Sie sich [Verarbeiten von Überschneidungsänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes) an.
 
 ## Spezifikationen
 

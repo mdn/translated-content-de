@@ -1,24 +1,23 @@
 ---
 title: Map.prototype.has()
+short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Map/has
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 0574ac1985889d2ccce1b61e42db98d74ac1bbcb
 ---
 
-{{JSRef}}
-
-Die **`has()`**-Methode von {{jsxref("Map")}}-Instanzen gibt einen Boolean zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in dieser Map vorhanden ist oder nicht.
+Die **`has()`**-Methode von {{jsxref("Map")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Eintrag mit dem angegebenen Schlüssel in dieser `Map` existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.has()")}}
 
 ```js interactive-example
-const map1 = new Map();
-map1.set("bar", "foo");
+const map = new Map();
+map.set("bar", "foo");
 
-console.log(map1.has("bar"));
+console.log(map.has("bar"));
 // Expected output: true
 
-console.log(map1.has("baz"));
+console.log(map.has("baz"));
 // Expected output: false
 ```
 
@@ -31,11 +30,11 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, dessen Vorhandensein im `Map`-Objekt überprüft werden soll.
+  - : Der Schlüssel des Eintrags, dessen Vorhandensein im `Map`-Objekt überprüft werden soll. Objekt-Schlüssel werden anhand der {{Glossary("Object_reference", "Referenz")}} und nicht anhand des Werts verglichen.
 
 ### Rückgabewert
 
-`true`, wenn ein Element mit dem angegebenen Schlüssel im `Map`-Objekt vorhanden ist; andernfalls `false`.
+Gibt `true` zurück, wenn ein Eintrag mit dem angegebenen Schlüssel im `Map`-Objekt existiert; andernfalls `false`.
 
 ## Beispiele
 
@@ -60,5 +59,6 @@ console.log(myMap.has("baz")); // false
 ## Siehe auch
 
 - {{jsxref("Map")}}
-- {{jsxref("Map.prototype.set()")}}
+- {{jsxref("Map.prototype.delete()")}}
 - {{jsxref("Map.prototype.get()")}}
+- {{jsxref("Map.prototype.set()")}}

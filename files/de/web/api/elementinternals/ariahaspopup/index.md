@@ -3,15 +3,15 @@ title: "ElementInternals: ariaHasPopup-Eigenschaft"
 short-title: ariaHasPopup
 slug: Web/API/ElementInternals/ariaHasPopup
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaHasPopup`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements, wie Menü oder Dialog, angibt, das von einem Element ausgelöst werden kann.
+Die **`ariaHasPopup`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)-Attributs wider, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements, wie etwa Menü oder Dialog, angibt, das von einem Element ausgelöst werden kann.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von `aria`-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String mit einem der folgenden Werte:
 - `"menu"`
   - : Das Element hat ein Popup, das ein Menü ist.
 - `"listbox"`
-  - : Das Element hat ein Popup, das eine Auswahlliste ist.
+  - : Das Element hat ein Popup, das eine Liste ist.
 - `"tree"`
   - : Das Element hat ein Popup, das ein Baum ist.
 - `"grid"`
@@ -37,7 +37,14 @@ Ein String mit einem der folgenden Werte:
 In diesem Beispiel wird der Wert von `ariaHasPopup` auf "true" gesetzt.
 
 ```js
-this.internals_.ariaHasPopup = "true";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaHasPopup = "true";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen

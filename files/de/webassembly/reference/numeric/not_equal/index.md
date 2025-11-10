@@ -1,17 +1,45 @@
 ---
-title: Nicht gleich
+title: Ungleich
 slug: WebAssembly/Reference/Numeric/Not_equal
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`ne`**-Anweisungen, abgekürzt für _nicht gleich_, überprüfen, ob zwei Zahlen nicht gleich sind. Wenn die Zahlen nicht gleich sind, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`ne`** Anweisungen, kurz für _ungleich_, überprüfen, ob zwei Zahlen ungleich sind. Wenn die Zahlen ungleich sind, wird `1` auf den Stapel gedrückt, andernfalls wird `0` auf den Stapel gedrückt.
 
-{{EmbedInteractiveExample("pages/wat/ne.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: ne", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "env" "log_bool" (func $log_bool (param i32)))
+  (func $main
+    ;; load `10` and `2` onto the stack
+    i32.const 10
+    i32.const 2
+
+    i32.ne ;; check if `10` is not equal to `2`
+    call $log_bool ;; log the result
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+
+function log_bool(value) {
+  console.log(Boolean(value));
+  // Expected output: true
+}
+
+await WebAssembly.instantiateStreaming(fetch(url), {
+  env: { log_bool },
+});
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; load 2 numbers on to the stack
 local.get $num
 i32.const 2
@@ -23,9 +51,9 @@ i32.ne
 ;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.ne`  | `0x47`         |
-| `i64.ne`  | `0x52`         |
-| `f32.ne`  | `0x5c`         |
-| `f64.ne`  | `0x62`         |
+| Anweisung | Binärer Opcodes |
+| --------- | --------------- |
+| `i32.ne`  | `0x47`          |
+| `i64.ne`  | `0x52`          |
+| `f32.ne`  | `0x5c`          |
+| `f64.ne`  | `0x62`          |

@@ -3,24 +3,24 @@ title: "Window: originAgentCluster-Eigenschaft"
 short-title: originAgentCluster
 slug: Web/API/Window/originAgentCluster
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 43f272adb6ac15537cff3728c78ddf234485fff8
 ---
 
-{{APIRef}}{{SeeCompatTable}}
+{{APIRef}}
 
-Die schreibgeschützte **`originAgentCluster`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt `true` zurück, wenn dieses Fenster zu einem ursprungsbezogenen _[Agenten-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ gehört: Das bedeutet, dass das Betriebssystem diesem Ursprung des Fensters dedizierte Ressourcen (z.B. einen Betriebssystemprozess) zur Verfügung gestellt hat, die nicht mit Fenstern von anderen Ursprüngen geteilt werden.
+Die **`originAgentCluster`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt `true` zurück, wenn dieses Fenster zu einem _originbasierten [Agenten-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ gehört: Das bedeutet, dass das Betriebssystem diesem Fenster eigene Ressourcen (z. B. einen Prozess des Betriebssystems) zugewiesen hat, die nicht mit Fenstern anderer Ursprünge geteilt werden.
 
 Andernfalls gibt diese Eigenschaft `false` zurück.
 
-Fenster, die Teil eines ursprungsbezogenen Agenten-Clusters sind, unterliegen einigen zusätzlichen Einschränkungen im Vergleich zu Fenstern, die dies nicht sind. Insbesondere können sie nicht:
+Fenster, die Teil eines origin-basierten Agenten-Clusters sind, unterliegen im Vergleich zu Fenstern, die dies nicht sind, einigen zusätzlichen Einschränkungen. Insbesondere können sie nicht:
 
-- [`Document.domain`](/de/docs/Web/API/Document/domain) setzen, was ein veraltetes Feature ist, das normalerweise erlaubt, dass seitenübergreifende Seiten desselben Ursprungs synchron auf das DOM des anderen zugreifen können.
-- [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekte an andere seitenübergreifende Seiten desselben Ursprungs via [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) senden.
-- {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte an andere seitenübergreifende Seiten desselben Ursprungs senden.
+- [`Document.domain`](/de/docs/Web/API/Document/domain) setzen, was ein veraltetes Feature ist, das normalerweise ermöglicht, dass gleiche Seiten mit unterschiedlichen Ursprüngen synchron auf das DOM des anderen zugreifen.
+- [`WebAssembly.Module`](/de/docs/WebAssembly/Reference/JavaScript_interface/Module)-Objekte über [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) an andere gleichseitige Seiten mit unterschiedlichen Ursprüngen senden.
+- {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory)-Objekte an andere gleichseitige Seiten mit unterschiedlichen Ursprüngen senden.
 
-Um zu verlangen, dass der Browser dieses Fenster einem ursprungsbezogenen Agenten-Cluster zuweist, muss der Server den {{httpheader("Origin-Agent-Cluster")}}-Antwortheader senden.
+Um den Browser zu bitten, diesem Fenster einen origin-basierten Agenten-Cluster zuzuweisen, muss der Server den {{httpheader("Origin-Agent-Cluster")}}-Antwortheader senden.
 
-Beachten Sie, dass die Funktion des ursprungsbezogenen Agenten-Clusters nur in {{Glossary("Secure_Context", "sicheren Kontexten")}} unterstützt wird. Ist eine Seite kein sicherer Kontext, wird `window.originAgentCluster` immer `false` zurückgeben.
+Beachten Sie, dass das origin-basierte Agenten-Cluster-Feature nur in {{Glossary("Secure_Context", "sicheren Kontexten")}} unterstützt wird. Wenn eine Seite kein sicherer Kontext ist, wird `window.originAgentCluster` immer `false` zurückgeben.
 
 ## Spezifikationen
 

@@ -3,16 +3,15 @@ title: "Range: collapse() Methode"
 short-title: collapse()
 slug: Web/API/Range/collapse
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 2c0de98b0607ef262d9ef0877259ba41aaf53e6d
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Range.collapse()`**-Methode kollabiert den
-[`Range`](/de/docs/Web/API/Range) zu einem seiner Randpunkte.
+Die **`collapse()`** Methode des [`Range`](/de/docs/Web/API/Range) Schnittstelle reduziert den
+[`Range`](/de/docs/Web/API/Range) auf einen seiner Grenzpunkte.
 
-Ein kollabierter [`Range`](/de/docs/Web/API/Range) ist leer und enthält keinen Inhalt, wobei er einen einzelnen Punkt in einem DOM-Baum angibt. Um festzustellen, ob ein [`Range`](/de/docs/Web/API/Range) bereits kollabiert ist,
-sehen Sie sich die [`Range.collapsed`](/de/docs/Web/API/Range/collapsed) Eigenschaft an.
+Ein kollabierter [`Range`](/de/docs/Web/API/Range) ist leer und enthält keinen Inhalt, sondern gibt einen Einzelpunkt in einem DOM-Baum an. Um festzustellen, ob ein [`Range`](/de/docs/Web/API/Range) bereits kollabiert ist, siehe die [`Range.collapsed`](/de/docs/Web/API/Range/collapsed) Eigenschaft.
 
 ## Syntax
 
@@ -25,8 +24,8 @@ collapse(toStart)
 
 - `toStart` {{optional_inline}}
   - : Ein boolescher Wert: `true` kollabiert den [`Range`](/de/docs/Web/API/Range)
-    zu seinem Anfang, `false` zu seinem Ende. Wenn dieser Parameter weggelassen wird, ist er standardmäßig
-    `false` {{experimental_inline}}.
+    zu seinem Anfang, `false` zu seinem Ende. Wenn weggelassen, ist der Standardwert
+    `false`.
 
 ### Rückgabewert
 

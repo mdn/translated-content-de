@@ -3,12 +3,12 @@ title: "HTMLMediaElement: loop-Eigenschaft"
 short-title: loop
 slug: Web/API/HTMLMediaElement/loop
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.loop`**-Eigenschaft spiegelt das [`loop`](/de/docs/Web/HTML/Element/video#loop) HTML-Attribut wider, das steuert, ob das Medienelement von vorne beginnen soll, wenn es das Ende erreicht.
+Die **`HTMLMediaElement.loop`**-Eigenschaft spiegelt das HTML-Attribut [`loop`](/de/docs/Web/HTML/Reference/Elements/video#loop) wider, das steuert, ob das Media-Element von vorne beginnen soll, wenn es das Ende erreicht.
 
 ## Wert
 

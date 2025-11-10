@@ -3,12 +3,14 @@ title: "Blob: Blob() Konstruktor"
 short-title: Blob()
 slug: Web/API/Blob/Blob
 l10n:
-  sourceCommit: 94df34126960a2f1bd3032c6e2cf203d67b912d8
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Der **`Blob()`**-Konstruktor gibt ein neues [`Blob`](/de/docs/Web/API/Blob)-Objekt zurück. Der Inhalt des Blobs besteht aus der Verkettung der Werte, die im Parameter `blobParts` angegeben sind.
+Der **`Blob()`** Konstruktor gibt ein
+neues [`Blob`](/de/docs/Web/API/Blob)-Objekt zurück. Der Inhalt des Blobs besteht aus der Verkettung
+der im Parameter `blobParts` angegebenen Werte.
 
 ## Syntax
 
@@ -21,14 +23,21 @@ new Blob(blobParts, options)
 
 - `blobParts` {{optional_inline}}
 
-  - : Ein [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt, wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}}s, {{jsxref("TypedArray")}}s, {{jsxref("DataView")}}s, [`Blob`](/de/docs/Web/API/Blob)s, Zeichenketten oder eine Mischung aus solchen Elementen enthalten kann, die innerhalb des [`Blob`](/de/docs/Web/API/Blob) platziert werden. Zeichenketten sollten gut geformte Unicode-Zeichen sein, und einzelne Surrogate werden mit demselben Algorithmus wie {{jsxref("String.prototype.toWellFormed()")}} bereinigt.
+  - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)
+    wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}}s,
+    {{jsxref("TypedArray")}}s, {{jsxref("DataView")}}s, [`Blob`](/de/docs/Web/API/Blob)s, Strings
+    oder eine Mischung aus solchen Elementen enthält, die im [`Blob`](/de/docs/Web/API/Blob) platziert werden.
+    Strings sollten gut geformte Unicode-Zeichenfolgen sein, und einzelne Surrogate werden mit dem gleichen Algorithmus wie {{jsxref("String.prototype.toWellFormed()")}} bereinigt.
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das eine der folgenden Eigenschaften spezifizieren kann:
+  - : Ein Objekt, das eine der folgenden Eigenschaften angeben kann:
     - `type` {{optional_inline}}
-      - : Der {{Glossary("MIME_type", "MIME-Typ")}} der Daten, die im Blob gespeichert werden sollen. Der Standardwert ist der leere String (`""`).
+      - : Der {{Glossary("MIME_type", "MIME-Typ")}} der Daten, die im Blob gespeichert werden. Der
+        Standardwert ist der leere String, (`""`).
     - `endings` {{optional_inline}}
-      - : Wie Zeilenumbruchzeichen (`\n`) innerhalb der Inhalte interpretiert werden sollen, wenn die Daten Text sind. Der Standardwert `transparent` kopiert Zeilenumbruchzeichen unverändert in das Blob. Um Zeilenumbrüche in das native Format des Hostsystems zu konvertieren, geben Sie den Wert `native` an.
+      - : Wie Zeilenumbrüche (`\n`) innerhalb des Inhalts interpretiert werden sollen, wenn
+        die Daten Text sind. Der Standardwert `transparent` kopiert Zeilenumbrüche
+        ohne Änderung in das Blob. Um Zeilenumbrüche in das native Format des Hostsystems zu konvertieren, geben Sie den Wert `native` an.
 
 ### Rückgabewert
 

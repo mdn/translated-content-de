@@ -16,13 +16,13 @@ Die Console API begann als eine weitgehend proprietäre API, wobei verschiedene 
 - [Google Chrome DevTools Implementierung](https://developer.chrome.com/docs/devtools/console/api/)
 - [Safari DevTools Implementierung](https://webkit.org/web-inspector/console-object-api/)
 
-Die Verwendung ist sehr einfach – das [`console`](/de/docs/Web/API/Console)-Objekt enthält viele Methoden, die Sie aufrufen können, um grundlegende Debugging-Aufgaben durchzuführen, die sich im Allgemeinen um das Protokollieren verschiedener Werte zur [Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) des Browsers drehen.
+Die Verwendung ist sehr einfach – das [`console`](/de/docs/Web/API/console)-Objekt enthält viele Methoden, die Sie aufrufen können, um grundlegende Debugging-Aufgaben durchzuführen, die sich im Allgemeinen um das Protokollieren verschiedener Werte zur [Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) des Browsers drehen.
 
-Mit Abstand die am häufigsten verwendete Methode ist [`console.log()`](/de/docs/Web/API/Console/log_static), die verwendet wird, um den aktuellen Wert zu protokollieren, der in einer bestimmten Variablen enthalten ist.
+Mit Abstand die am häufigsten verwendete Methode ist [`console.log()`](/de/docs/Web/API/console/log_static), die verwendet wird, um den aktuellen Wert zu protokollieren, der in einer bestimmten Variablen enthalten ist.
 
 ## Schnittstellen
 
-- [`console`](/de/docs/Web/API/Console)
+- [`console`](/de/docs/Web/API/console)
   - : Bietet grundlegende Debugging-Funktionalitäten, einschließlich Protokollierung, Stack-Traces, Timer und Zähler.
 
 ## Beispiele

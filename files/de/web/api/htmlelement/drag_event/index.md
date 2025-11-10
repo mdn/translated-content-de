@@ -1,25 +1,25 @@
 ---
-title: "HTMLElement: drag-Ereignis"
+title: "HTMLElement: Drag-Ereignis"
 short-title: drag
 slug: Web/API/HTMLElement/drag_event
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML Drag and Drop API")}}
 
-Das `drag`-Ereignis wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl von dem Benutzer gezogen wird.
+Das `drag`-Ereignis wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl vom Benutzer gezogen wird.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblubbern.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten nach oben blubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("drag", (event) => {});
+```js-nolint
+addEventListener("drag", (event) => { })
 
-ondrag = (event) => {};
+ondrag = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +30,7 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften aus der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
@@ -103,14 +103,10 @@ source.addEventListener("dragend", (event) => {
 
 /* events fired on the drop targets */
 const target = document.getElementById("drop-target");
-target.addEventListener(
-  "dragover",
-  (event) => {
-    // prevent default to allow drop
-    event.preventDefault();
-  },
-  false,
-);
+target.addEventListener("dragover", (event) => {
+  // prevent default to allow drop
+  event.preventDefault();
+});
 
 target.addEventListener("dragenter", (event) => {
   // highlight potential drop target when the draggable element enters it

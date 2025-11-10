@@ -1,14 +1,14 @@
 ---
-title: "NavigationDestination: getState()-Methode"
+title: "NavigationDestination: getState() Methode"
 short-title: getState()
 slug: Web/API/NavigationDestination/getState
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`getState()`**-Methode der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt einen Klon des vom Entwickler bereitgestellten Zustands zurück, der mit dem Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) oder dem Navigationsvorgang (z. B. [`navigate()`](/de/docs/Web/API/Navigation/navigate)) verbunden ist.
+Die **`getState()`** Methode des [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) Interface gibt eine Kopie des vom Entwickler bereitgestellten Zustands zurück, der mit dem Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) oder der Navigationsoperation (z. B. [`navigate()`](/de/docs/Web/API/Navigation/navigate)) verknüpft ist, je nach Fall.
 
 ## Syntax
 
@@ -48,7 +48,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicola's [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
-- Methoden, die es ermöglichen, den Zustand zu aktualisieren — [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload) und [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry)
+- Methoden, die es erlauben, den Zustand zu aktualisieren — [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload) und [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry)

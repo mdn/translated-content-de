@@ -3,14 +3,14 @@ title: "SVGPatternElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGPatternElement/width
 l10n:
-  sourceCommit: 51343298b735a3767176c24b7f37cd2233e745b3
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`width`** Lese-Eigenschaft der Schnittstelle [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement) beschreibt die Breite des Musters als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("width")}}-Attributs auf dem {{SVGElement("pattern")}}-Element wider.
+Die **`width`**-Schreibgeschützte Eigenschaft der [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)-Schnittstelle beschreibt die Breite des Musters als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("width")}}-Attributs auf dem {{SVGElement("pattern")}}-Element wider.
 
-Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number) sein. Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) stellt die Breite des Musters im Nutzerkoordinatensystem dar.
+Der Attributwert kann ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number) sein. Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) repräsentiert die Breite des Musters im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Beim folgenden SVG:
+Im folgenden SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

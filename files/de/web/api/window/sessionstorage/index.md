@@ -3,42 +3,35 @@ title: "Window: sessionStorage-Eigenschaft"
 short-title: sessionStorage
 slug: Web/API/Window/sessionStorage
 l10n:
-  sourceCommit: 2b6f99e45534ce662f842d8b4d2f7845492e353c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Web Storage API")}}
 
-Die schreibgeschützte **`sessionStorage`**-Eigenschaft greift auf ein Sitzungs-[`Storage`](/de/docs/Web/API/Storage)-Objekt für den aktuellen {{Glossary("origin", "Origin")}} zu. `sessionStorage` ist ähnlich wie [`localStorage`](/de/docs/Web/API/Window/localStorage); der Unterschied besteht darin, dass Daten in `localStorage` nicht ablaufen, während Daten in `sessionStorage` gelöscht werden, wenn die _Seitensitzung_ endet.
+Die schreibgeschützte **`sessionStorage`**-Eigenschaft greift auf ein Sitzungs-[`Storage`](/de/docs/Web/API/Storage)-Objekt für den aktuellen {{Glossary("origin", "Origin")}} zu. `sessionStorage` ist ähnlich wie [`localStorage`](/de/docs/Web/API/Window/localStorage); der Unterschied besteht darin, dass `localStorage` nur nach Origin partitioniert wird, während `sessionStorage` sowohl nach Origin als auch nach Browser-Tabs (Top-Level-Browsing-Kontexte) partitioniert wird. Die Daten in `sessionStorage` werden nur für die Dauer der Seitensitzung gespeichert.
 
-- Jedes Mal, wenn ein Dokument in einem bestimmten Tab im Browser geladen wird, wird eine eindeutige Seitensitzung erstellt und diesem speziellen Tab zugeordnet. Diese Seitensitzung ist nur für diesen speziellen Tab gültig.
-- Eine Seitensitzung dauert so lange an, wie der Tab oder der Browser geöffnet ist, und überlebt Seitenaktualisierungen und Wiederherstellungen.
-- **Das Öffnen einer Seite in einem neuen Tab oder Fenster erstellt eine neue Sitzung mit dem Wert des obersten Browsing-Kontexts, was sich von der Funktionsweise von Sitzungscookies unterscheidet.**
-- Das Öffnen mehrerer Tabs/Fenster mit derselben URL erstellt für jeden Tab/jedes Fenster ein eigenes `sessionStorage`.
-- Das Duplizieren eines Tabs kopiert das `sessionStorage` des Tabs in den neuen Tab.
-- Das Schließen eines Tabs/Fensters beendet die Sitzung und löscht Objekte in `sessionStorage`.
-
-Daten, die in `sessionStorage` gespeichert werden, **sind spezifisch für das Protokoll der Seite**. Insbesondere werden Daten, die von einem Skript auf einer über HTTP aufgerufenen Website (z.B. `http://example.com/`) gespeichert werden, in einem anderen `sessionStorage`-Objekt abgelegt als dieselbe Website, die über HTTPS (z.B. `https://example.com/`) aufgerufen wird.
-
-Die Schlüssel und die Werte sind _immer_ im UTF-16-String-Format, das zwei Bytes pro Zeichen verwendet. Wie bei Objekten werden ganzzahlige Schlüssel automatisch in Strings umgewandelt.
+- Jedes Mal, wenn ein Dokument in einem bestimmten Tab im Browser geladen wird, wird eine eindeutige Seitensitzung erstellt und diesem bestimmten Tab zugeordnet. Diese Seitensitzung ist nur in diesem bestimmten Tab zugänglich. Das Hauptdokument und alle eingebetteten {{Glossary("browsing_context", "Browsing-Kontexte")}} (iframes) werden nach ihrem Origin gruppiert und jeder Origin hat Zugriff auf seinen eigenen separaten Speicherbereich.
+- Wenn die Seite einen [`opener`](/de/docs/Web/API/Window/opener) hat, ist das `sessionStorage` anfangs eine Kopie des `sessionStorage`-Objekts des Openers. Sie sind jedoch weiterhin getrennt, und Änderungen bei einem wirken sich nicht auf den anderen aus. Um zu verhindern, dass das `sessionStorage` kopiert wird, verwenden Sie eine der Techniken, die den `opener` entfernen (siehe [`Window.opener`](/de/docs/Web/API/Window/opener)).
+- Eine Seitensitzung dauert so lange, wie der Tab oder der Browser geöffnet ist, und überlebt Seitenaktualisierungen und -wiederherstellungen.
+- Das Öffnen einer Seite in einem neuen Tab oder Fenster erstellt eine neue Sitzung mit dem Wert des Top-Level-Browsing-Kontexts, was sich von der Funktionsweise von Sitzungscookies unterscheidet.
+- Das Schließen des Tabs/Fensters beendet die Sitzung und löscht die Daten im `sessionStorage`.
 
 ## Wert
 
-Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das verwendet werden kann, um auf den Sitzungsspeicherplatz des aktuellen Origins zuzugreifen.
+Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das verwendet werden kann, um auf den Sitzungs-Speicherbereich des aktuellen Origins zuzugreifen.
 
 ### Ausnahmen
 
 - `SecurityError`
-
   - : Wird in einem der folgenden Fälle ausgelöst:
+    - Der Origin ist kein [gültiges Schema/Host/Port-Tupel](/de/docs/Web/Security/Same-origin_policy#definition_of_an_origin). Dies kann passieren, wenn der Origin z.B. die Schemas `file:` oder `data:` verwendet.
+    - Die Anforderung verstößt gegen eine Richtlinienentscheidung. Beispielsweise hat der Benutzer den Browser so konfiguriert, dass verhindert wird, dass die Seite Daten speichert.
 
-    - Der Origin ist kein [gültiges Schema/Host/Port-Tupel](/de/docs/Web/Security/Same-origin_policy#definition_of_an_origin). Dies kann passieren, wenn der Origin die `file:`- oder `data:`-Schemen verwendet, zum Beispiel.
-    - Die Anforderung verstößt gegen eine Sicherheitsrichtlinie. Zum Beispiel, wenn der Benutzer den Browser so konfiguriert hat, dass die Seite keine Daten speichern darf.
-
-    Beachten Sie, dass, wenn der Benutzer Cookies blockiert, Browser dies wahrscheinlich als Anweisung interpretieren, um zu verhindern, dass die Seite Daten speichert.
+    Beachten Sie, dass, wenn der Benutzer Cookies blockiert, Browser dies wahrscheinlich als Anweisung interpretieren, dass die Seite keine Daten speichern soll.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
 ```js
 // Save data to sessionStorage
@@ -54,9 +47,9 @@ sessionStorage.removeItem("key");
 sessionStorage.clear();
 ```
 
-### Speichern von Text zwischen Aktualisierungen
+### Text zwischen Aktualisierungen speichern
 
-Das folgende Beispiel speichert automatisch den Inhalt eines Textfelds, und wenn der Browser aktualisiert wird, wird der Inhalt des Textfelds wiederhergestellt, sodass kein geschriebenes Wort verloren geht.
+Das folgende Beispiel speichert automatisch den Inhalt eines Textfeldes, und wenn der Browser aktualisiert wird, wird der Textfeldinhalt wiederhergestellt, sodass kein Schreiben verloren geht.
 
 ```js
 // Get the text field that we're going to track
@@ -77,7 +70,7 @@ field.addEventListener("change", () => {
 ```
 
 > [!NOTE]
-> Bitte beachten Sie den Artikel [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) für ein vollständiges Beispiel.
+> Bitte beziehen Sie sich auf den Artikel [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 

@@ -1,22 +1,22 @@
 ---
-title: "SVGFESpecularLightingElement: Eigenschaft specularExponent"
+title: "SVGFESpecularLightingElement: specularExponent-Eigenschaft"
 short-title: specularExponent
 slug: Web/API/SVGFESpecularLightingElement/specularExponent
 l10n:
-  sourceCommit: 85890fba7b6213df8f159e400f0a639779e3dff4
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`specularExponent`** schreibgeschützte Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement) Schnittstelle spiegelt das {{SVGAttr("specularExponent")}} Attribut des gegebenen {{SVGElement("feSpecularLighting")}} Elements wider.
+Die schreibgeschützte **`specularExponent`**-Eigenschaft des [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Interfaces spiegelt das {{SVGAttr("specularExponent")}}-Attribut des gegebenen {{SVGElement("feSpecularLighting")}}-Elements wider.
 
 ## Wert
 
-Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) Objekt.
+Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ## Beispiele
 
-### Zugriff auf die `specularExponent` Eigenschaft
+### Zugriff auf die `specularExponent`-Eigenschaft
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber) Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#specularLightingFilter)" />
 </svg>
 ```

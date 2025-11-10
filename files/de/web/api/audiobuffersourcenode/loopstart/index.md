@@ -3,28 +3,28 @@ title: "AudioBufferSourceNode: loopStart-Eigenschaft"
 short-title: loopStart
 slug: Web/API/AudioBufferSourceNode/loopStart
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die **`loopStart`**-Eigenschaft des [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Interfaces ist ein Gleitkommawert, der in Sekunden angibt, wo im [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) der Neustart der Wiedergabe erfolgen muss.
+Die **`loopStart`**-Eigenschaft der [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)-Schnittstelle ist ein Gleitkommawert, der in Sekunden angibt, wo im [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) der Neustart der Wiedergabe erfolgen muss.
 
 Der Standardwert der `loopStart`-Eigenschaft ist `0`.
 
 ## Wert
 
-Eine Gleitkommazahl, die den Offset in Sekunden angibt, ab dem jede Schleife während der Wiedergabe im Audiopuffer beginnen soll. Dieser Wert wird nur verwendet, wenn der [`loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)-Parameter auf `true` gesetzt ist.
+Eine Gleitkommazahl, die den Offset in Sekunden angibt, ab dem jedes Loop während der Wiedergabe beginnen soll. Dieser Wert wird nur verwendet, wenn der [`loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)-Parameter `true` ist.
 
 ## Beispiele
 
-### Setzen von `loopStart`
+### `loopStart` setzen
 
-In diesem Beispiel wird, wenn der Benutzer "Play" drückt, ein Audiotrack geladen, dekodiert und in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) eingesetzt.
+In diesem Beispiel laden wir beim Drücken von "Play" einen Audio-Track, dekodieren ihn und fügen ihn in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ein.
 
-Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, sodass der Track in Schleife läuft, und spielt den Track ab.
+Das Beispiel setzt dann die `loop`-Eigenschaft auf `true`, damit der Track wiederholt wird, und spielt den Track ab.
 
-Der Benutzer kann die Eigenschaften `loopStart` und `loopEnd` mithilfe von [Range-Steuerelementen](/de/docs/Web/HTML/Element/input/range) einstellen.
+Der Benutzer kann die Eigenschaften `loopStart` und `loopEnd` mithilfe von [Bereichssteuerungen](/de/docs/Web/HTML/Reference/Elements/input/range) einstellen.
 
 > [!NOTE]
 > Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer-source-node/loop/) (oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/audio-buffer-source-node/loop).)

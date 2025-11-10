@@ -3,12 +3,12 @@ title: "FileSystemFileEntry: file() Methode"
 short-title: file()
 slug: Web/API/FileSystemFileEntry/file
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`file()`**-Methode des [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Interfaces gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das verwendet werden kann, um Daten von der durch den Verzeichniseintrag repräsentierten Datei zu lesen.
+Die Methode **`file()`** des [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Interfaces gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das verwendet werden kann, um Daten aus der durch den Verzeichniseintrag dargestellten Datei zu lesen.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ file(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Callback-Funktion, die aufgerufen wird, wenn die [`File`](/de/docs/Web/API/File) erfolgreich erstellt wurde; die `File` wird als einziger Parameter an das Callback übergeben.
+  - : Eine Callback-Funktion, die aufgerufen wird, wenn die [`File`](/de/docs/Web/API/File) erfolgreich erstellt wurde; die `File` wird der Callback-Funktion als einziger Parameter übergeben.
 - `errorCallback` {{optional_inline}}
-  - : Falls angegeben, muss diese Methode aufgerufen werden, wenn ein Fehler beim Erstellen der [`File`](/de/docs/Web/API/File) auftritt. Dieses Callback erhält als Eingabe ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das den Fehler beschreibt.
+  - : Falls angegeben, muss dies eine Methode sein, die aufgerufen wird, wenn ein Fehler beim Versuch, die [`File`](/de/docs/Web/API/File) zu erstellen, auftritt. Dieser Callback erhält ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt als Eingabe, welches den Fehler beschreibt.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel definiert eine Methode `readFile()`, die eine Textdatei liest und eine spezifizierte Callback-Funktion mit dem empfangenen Text (als Zeichenkette) aufruft, sobald das Lesen abgeschlossen ist. Wenn ein Fehler auftritt, wird ein spezifiziertes (optionales) Fehler-Callback aufgerufen.
+Dieses Beispiel etabliert eine Methode `readFile()`, die eine Textdatei liest und eine angegebene Callback-Funktion mit dem empfangenen Text (als Zeichenkette) aufruft, sobald das Lesen abgeschlossen ist. Falls ein Fehler auftritt, wird eine angegebene (optionale) Fehler-Callback-Funktion aufgerufen.
 
 ```js
 function readFile(entry, successCallback, errorCallback) {
@@ -50,7 +50,7 @@ function readFile(entry, successCallback, errorCallback) {
 }
 ```
 
-Diese Funktion ruft `file()` auf und gibt als Erfolgs-Callback eine Methode an, die einen [`FileReader`](/de/docs/Web/API/FileReader) verwendet, um die Datei als Text zu lesen. Der [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignishandler des FileReaders ist so eingerichtet, dass er die geladene Zeichenkette an das bei der Methode `readFile()` angegebene `successCallback` liefert; ebenso ist der [`error`](/de/docs/Web/API/FileReader/error_event)-Handler so eingerichtet, dass er das angegebene `errorCallback` aufruft.
+Diese Funktion ruft `file()` auf und spezifiziert als Erfolgs-Callback eine Methode, die anschließend einen [`FileReader`](/de/docs/Web/API/FileReader) verwendet, um die Datei als Text zu lesen. Der [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignishandler des FileReaders wird eingerichtet, um die geladene Zeichenkette an den bei Aufruf der `readFile()`-Methode angegebenen `successCallback` zu liefern; ebenso wird sein [`error`](/de/docs/Web/API/FileReader/error_event)-Handler eingerichtet, um den angegebenen `errorCallback` aufzurufen.
 
 ## Spezifikationen
 
@@ -63,4 +63,3 @@ Diese Funktion ruft `file()` auf und gibt als Erfolgs-Callback eine Methode an, 
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)

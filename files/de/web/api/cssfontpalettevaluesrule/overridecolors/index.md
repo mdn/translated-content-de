@@ -1,24 +1,24 @@
 ---
-title: "CSSFontPaletteValuesRule: overrideColors Eigenschaft"
+title: "CSSFontPaletteValuesRule: overrideColors-Eigenschaft"
 short-title: overrideColors
 slug: Web/API/CSSFontPaletteValuesRule/overrideColors
 l10n:
-  sourceCommit: 005cc1fd55aadcdcbd9aabbed7d648a275f8f23a
+  sourceCommit: 6ed02a2b0e0d891f7d3b4c2a6b1d9cc05c90ed9c
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`overrideColors`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaar enthält, die stattdessen verwendet werden sollen. Sie wird im gleichen Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor.
+Die schreibgeschützte **`overrideColors`**-Eigenschaft des [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Interfaces ist ein String, der eine Liste von Farbindex und Farbenpaar enthält, die stattdessen verwendet werden sollen. Sie ist im gleichen Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbpaar enthält.
+Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbenpaar enthält
 
 ## Beispiele
 
-### Die überschriebenen Farben lesen
+### Den überschriebenen Farbwert lesen
 
-Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im zuletzt dem Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
+Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Die MDN [Live-Beispielinfrastruktur](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) kombiniert alle CSS-Blöcke im Beispiel zu einem einzigen Inline-Style mit der ID `css-output`, daher verwenden wir zunächst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
 
 #### HTML
 
@@ -36,13 +36,13 @@ Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@
 @font-face {
   font-family: "Noto Color Emoji";
   font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/l/font?kit=Yq6P-KqIXTD0t4D9z1ESnKM3-HpFabts6diywYkdG3gjD0U&skey=a373f7129eaba270&v=v24)
+  font-weight: normal;
+  src: url("https://fonts.gstatic.com/l/font?kit=Yq6P-KqIXTD0t4D9z1ESnKM3-HpFabts6diywYkdG3gjD0U&skey=a373f7129eaba270&v=v24")
     format("woff2");
 }
 
 .emoji {
-  font-family: "Noto Color Emoji";
+  font-family: "Noto Color Emoji", emoji;
   font-size: 3rem;
 }
 
@@ -71,7 +71,7 @@ Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@
 const log = document.getElementById("log");
 const button = document.querySelector("button");
 const hat = document.querySelector(".colored-hat");
-const rules = document.styleSheets[document.styleSheets.length - 1].cssRules;
+const rules = document.getElementById("css-output").sheet.cssRules;
 const greenFontPaletteValuesRule = rules[3];
 const blueFontPaletteValuesRule = rules[2];
 log.textContent = `Overridden colors: ${blueFontPaletteValuesRule.overrideColors}`;
@@ -101,5 +101,5 @@ button.addEventListener("click", (event) => {
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}} At-Regel
-- {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
+- {{cssxref("@font-palette-values")}}-At-Regel
+- {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor

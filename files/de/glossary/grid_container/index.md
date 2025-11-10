@@ -2,18 +2,16 @@
 title: Grid-Container
 slug: Glossary/Grid_Container
 l10n:
-  sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+Mit dem Wert `grid` oder `inline-grid` auf ein Element wird dieses in einen **Grid-Container** umgewandelt, indem das [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) verwendet wird, und alle direkten Kinder dieses Elements werden zu Grid-Elementen.
 
-Die Verwendung des Wertes `grid` oder `inline-grid` auf einem Element verwandelt es in einen **Grid-Container** unter Verwendung des [CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout), und alle direkten Kinder dieses Elements werden zu Grid-Elementen.
-
-Wenn ein Element zu einem Grid-Container wird, etabliert es einen **Grid-Formatierungskontext**. Die direkten Kinder können sich nun entweder auf einem expliziten Rasterlayout anordnen, das mittels {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} definiert ist, oder auf dem _impliziten Raster_, das erstellt wird, wenn ein Element außerhalb des _expliziten Rasters_ platziert wird.
+Wenn ein Element zu einem Grid-Container wird, wird ein **Grid-Formatting-Kontext** erstellt. Die direkten Kinder können sich nun auf jedem expliziten Grid platzieren, das mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} definiert ist, oder auf dem _impliziten Grid_, das entsteht, wenn ein Element außerhalb des _expliziten Grids_ platziert wird.
 
 ## Siehe auch
 
-### Eigenschaftenreferenz
+### Eigenschaftsreferenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -22,6 +20,6 @@ Wenn ein Element zu einem Grid-Container wird, etabliert es einen **Grid-Formati
 - {{cssxref("grid")}}
 - {{cssxref("grid-template")}}
 
-### Weiterführende Literatur
+### Weiterführende Lektüre
 
-- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)

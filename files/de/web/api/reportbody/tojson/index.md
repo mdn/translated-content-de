@@ -1,14 +1,14 @@
 ---
-title: "ReportBody: toJSON()-Methode"
+title: "ReportBody: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/ReportBody/toJSON
 l10n:
-  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
+  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
 ---
 
-{{APIRef("Reporting API")}}{{AvailableInWorkers}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{deprecated_header}}
 
-Die **`toJSON()`**-Methode der [`ReportBody`](/de/docs/Web/API/ReportBody)-Schnittstelle ist ein _Serializer_ und liefert eine JSON-Darstellung des `ReportBody`-Objekts zurück.
+Die **`toJSON()`** Methode des [`ReportBody`](/de/docs/Web/API/ReportBody)-Interfaces ist ein _Serializer_ und gibt eine JSON-Darstellung des `ReportBody`-Objekts zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein JSON-Objekt, das die Serialisierung des [`ReportBody`](/de/docs/Web/API/Repo
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Eingriffsberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück. Der Bericht und somit das zurückgegebene JSON-Objekt wird eine Instanz von [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) sein, die von `ReportBody` erbt.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück. Der Bericht und somit das zurückgegebene JSON-Objekt wird eine Instanz von [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) sein, das von `ReportBody` erbt.
 
 ```js
 const options = {

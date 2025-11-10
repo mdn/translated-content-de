@@ -1,17 +1,36 @@
 ---
-title: Absolute
+title: Absolut
 slug: WebAssembly/Reference/Numeric/Absolute
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`abs`** Anweisungen, abgekürzt für _absolute_, werden verwendet, um den absoluten Wert einer Zahl zu erhalten. Das heißt, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
+Die **`abs`** Anweisungen, kurz für _absolute_, werden verwendet, um den Absolutwert einer Zahl zu erhalten. Das bedeutet, sie gibt x zurück, wenn x positiv ist, und die Negation von x, wenn x negativ ist.
 
-{{EmbedInteractiveExample("pages/wat/abs.html", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: abs", "tabbed-standard")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+
+    f32.const -10 ;; load a number onto the stack
+    f32.abs ;; calculate the absolute value
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 f32.const -2
 

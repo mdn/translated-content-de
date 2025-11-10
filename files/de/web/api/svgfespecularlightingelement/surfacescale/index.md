@@ -3,12 +3,12 @@ title: "SVGFESpecularLightingElement: surfaceScale-Eigenschaft"
 short-title: surfaceScale
 slug: Web/API/SVGFESpecularLightingElement/surfaceScale
 l10n:
-  sourceCommit: 85890fba7b6213df8f159e400f0a639779e3dff4
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`surfaceScale`**-Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Schnittstelle spiegelt das {{SVGAttr("surfaceScale")}}-Attribut des angegebenen {{SVGElement("feSpecularLighting")}}-Elements wider.
+Die schreibgeschützte **`surfaceScale`**-Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Schnittstelle spiegelt das {{SVGAttr("surfaceScale")}}-Attribut des gegebenen {{SVGElement("feSpecularLighting")}}-Elements wider.
 
 ## Wert
 
@@ -37,7 +37,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#specularLightingFilter)" />
 </svg>
 ```

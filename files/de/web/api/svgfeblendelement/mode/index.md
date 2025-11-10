@@ -3,12 +3,12 @@ title: "SVGFEBlendElement: mode-Eigenschaft"
 short-title: mode
 slug: Web/API/SVGFEBlendElement/mode
 l10n:
-  sourceCommit: ecd1c8ee446a4958297460e548b2ecca18af35a9
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`mode`**-Eigenschaft der [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Schnittstelle ist schreibgeschützt und spiegelt das {{SVGAttr("mode")}}-Attribut des angegebenen Elements wider. Sie nimmt einen der auf dieser Schnittstelle definierten `SVG_FEBLEND_MODE_*`-Konstanten an.
+Die **`mode`** Leseeigenschaft der [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Schnittstelle spiegelt das {{SVGAttr("mode")}} Attribut des gegebenen Elements wider. Sie nimmt einen der `SVG_FEBLEND_MODE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
 
 ## Wert
 
@@ -29,14 +29,9 @@ Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration).
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#blend-filter)" />
-  <circle
-    cx="100"
-    cy="100"
-    r="50"
-    style="fill:blue;"
-    filter="url(#blend-filter)" />
+  <circle cx="100" cy="100" r="50" fill="blue" filter="url(#blend-filter)" />
 </svg>
 ```
 

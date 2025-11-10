@@ -1,25 +1,25 @@
 ---
-title: "XRSession: selectend Ereignis"
+title: "XRSession: selectend-Ereignis"
 short-title: selectend
 slug: Web/API/XRSession/selectend_event
 l10n:
-  sourceCommit: 839b5e82a117678948392e77b81d64a7f6d03811
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 Das WebXR-Ereignis **`selectend`** wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn eine ihrer Eingabequellen ihre [primäre Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_action) beendet oder wenn eine Eingabequelle, die gerade eine laufende primäre Aktion bearbeitet, getrennt wird, ohne die Aktion erfolgreich abzuschließen.
 
-Das [`beforexrselect`](/de/docs/Web/API/Element/beforexrselect_event) wird vor diesem Ereignis ausgelöst und kann verhindern, dass dieses Ereignis ausgelöst wird.
+Das [`beforexrselect`](/de/docs/Web/API/Element/beforexrselect_event) wird vor diesem Ereignis ausgelöst und kann verhindern, dass dieses Ereignis aufgerufen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
-```js
-addEventListener("selectend", (event) => {});
+```js-nolint
+addEventListener("selectend", (event) => { })
 
-onselectend = (event) => {};
+onselectend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,30 +30,30 @@ Ein [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent). Erbt von [`Even
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`frame`](/de/docs/Web/API/XRInputSourceEvent/frame) {{ReadOnlyInline}}
-  - : Ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das die benötigten Informationen über den Ereignisrahmen bereitstellt, während dessen das Ereignis auftrat. Dieser Rahmen könnte in der Vergangenheit gerendert worden sein, anstatt ein aktueller Rahmen zu sein. Da dies ein _Ereignisrahmen_ und kein _Animationsrahmen_ ist, können Sie die [`XRFrame`](/de/docs/Web/API/XRFrame)-Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) nicht darauf aufrufen; stattdessen verwenden Sie [`getPose()`](/de/docs/Web/API/XRFrame/getPose).
+  - : Ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das die erforderlichen Informationen über den Ereignisrahmen bereitstellt, während dem das Ereignis aufgetreten ist. Dieser Rahmen kann in der Vergangenheit gerendert worden sein und muss kein aktueller Rahmen sein. Da es sich um einen _Ereignis_-Rahmen handelt und nicht um einen _Animations_-Rahmen, können Sie die Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) von [`XRFrame`](/de/docs/Web/API/XRFrame) nicht darauf aufrufen; verwenden Sie stattdessen [`getPose()`](/de/docs/Web/API/XRFrame/getPose).
 - [`inputSource`](/de/docs/Web/API/XRInputSourceEvent/inputSource) {{ReadOnlyInline}}
-  - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das angibt, welche Eingabequelle das Eingabeereignis generiert hat.
+  - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das angibt, welche Eingabequelle das Eingabeereignis erzeugt hat.
 
 ## Beschreibung
 
 ### Auslöser
 
-Ausgelöst, wenn der Benutzer aufhört, Abzüge oder Knöpfe zu drücken, ein Touchpad zu berühren, einen Befehl zu sprechen oder eine erkennbare Geste auszuführen, wenn er ein Videotracking-System oder einen Handcontroller mit einem Beschleunigungsmesser verwendet.
+Ausgelöst, wenn der Benutzer aufhört, Trigger oder Tasten zu drücken, ein Touchpad zu berühren, einen Sprachbefehl zu geben oder eine erkennbare Geste auszuführen, wenn er ein Videotracking-System oder einen Handcontroller mit Beschleunigungsmesser verwendet.
 
 ### Anwendungsfälle
 
-Die Ereignisse `selectend` und [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event) zeigen an, wann Sie dem Benutzer anzeigen möchten, dass die primäre Aktion ausgeführt wird. Dies könnte das Zeichnen eines Controllers mit aktiviertem Button in neuer Farbe sein oder das Darstellen des zielgerichteten Objekts, das gegriffen und bewegt wird. Dies beginnt, wenn `selectstart` eintrifft und endet, wenn `selectend` empfangen wird.
+Die `selectend`- und [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event)-Ereignisse informieren Sie, wann Sie dem Benutzer etwas anzeigen könnten, das darauf hinweist, dass die primäre Aktion ausgeführt wird. Dies könnte das Zeichnen eines Controllers mit der aktiven Taste in einer neuen Farbe sein oder das Anzeigen des ausgewählten Objekts, das ergriffen und bewegt wird, beginnend mit dem Eintreffen von `selectstart` und endend, wenn `selectend` empfangen wird.
 
-Das [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis ist das Ereignis, das Ihrem Code mitteilt, dass der Benutzer die gewünschte Aktion abgeschlossen hat. Dies könnte so einfach sein wie das Werfen eines Objekts oder das Drücken des Abzugs einer Waffe in einem Spiel oder so komplex wie das Platzieren eines gezogenen Objekts an einem neuen Ort.
+Das [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis ist das Ereignis, das Ihrem Code mitteilt, dass der Benutzer die gewünschte Aktion abgeschlossen hat. Dies könnte so einfach sein wie das Werfen eines Objekts oder das Abdrücken des Auslösers einer Waffe in einem Spiel, oder so umfangreich wie das Platzieren eines gezogenen Objekts an einer neuen Position.
 
-Wenn Ihre primäre Aktion eine einfache Auslöseraktion ist und Sie nichts animieren müssen, während der Auslöser betätigt wird, können Sie die `selectstart`- und `selectend`-Ereignisse ignorieren und auf das Start-Ereignis reagieren.
+Wenn Ihre primäre Aktion eine einfache Auslöseaktion ist und Sie nicht animieren müssen, während der Auslöser betätigt ist, können Sie die `selectstart`- und `selectend`-Ereignisse ignorieren und auf das Startevent reagieren.
 
 ## Beispiele
 
-Siehe das Ereignis [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event#examples) für Beispielcode.
+Siehe das [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event#examples)-Ereignis für Beispielcode.
 
 ## Spezifikationen
 

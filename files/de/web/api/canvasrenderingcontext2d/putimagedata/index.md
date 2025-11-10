@@ -1,19 +1,19 @@
 ---
-title: "CanvasRenderingContext2D: putImageData()-Methode"
+title: "CanvasRenderingContext2D: Methode putImageData()"
 short-title: putImageData()
 slug: Web/API/CanvasRenderingContext2D/putImageData
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.putImageData()`**-Methode der Canvas 2D API malt Daten aus dem übergebenen [`ImageData`](/de/docs/Web/API/ImageData)-Objekt auf die Leinwand. Wird ein "schmutziges" Rechteck angegeben, werden nur die Pixel aus diesem Rechteck gemalt. Diese Methode wird von der Transformationsmatrix der Leinwand nicht beeinflusst.
+Die **`CanvasRenderingContext2D.putImageData()`**-Methode der Canvas 2D API malt Daten aus dem angegebenen [`ImageData`](/de/docs/Web/API/ImageData)-Objekt auf die Leinwand. Wenn ein "dirty rectangle" bereitgestellt wird, werden nur die Pixel aus diesem Rechteck gemalt. Diese Methode wird von der Transformationsmatrix der Leinwand nicht beeinflusst.
 
 > [!NOTE]
-> Bilddaten können von einer Leinwand mithilfe der [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData)-Methode abgerufen werden.
+> Bilddaten können mit der Methode [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) von einer Leinwand abgerufen werden.
 
-Weitere Informationen zu `putImageData()` und der allgemeinen Manipulation von Leinwandinhalten finden Sie im Artikel [Pixelmanipulation mit dem Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas).
+Weitere Informationen über `putImageData()` und die allgemeine Manipulation von Leinwandinhalten finden Sie im Artikel [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas).
 
 ## Syntax
 
@@ -25,15 +25,15 @@ putImageData(imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
 ### Parameter
 
 - `imageData`
-  - : Ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt, das das Pixelwert-Array enthält.
+  - : Ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt, das das Array der Pixelwerte enthält.
 - `dx`
-  - : Horizontale Position (x-Koordinate), an der die Bilddaten auf der Zielleinwand platziert werden sollen.
+  - : Horizontale Position (x-Koordinate), an der die Bilddaten auf der Ziellawn platziert werden.
 - `dy`
-  - : Vertikale Position (y-Koordinate), an der die Bilddaten auf der Zielleinwand platziert werden sollen.
+  - : Vertikale Position (y-Koordinate), an der die Bilddaten auf der Ziellawn platziert werden.
 - `dirtyX` {{optional_inline}}
-  - : Horizontale Position (x-Koordinate) der oberen linken Ecke, von der die Bilddaten extrahiert werden. Standardwert ist `0`.
+  - : Horizontale Position (x-Koordinate) der oberen linken Ecke, ab der die Bilddaten extrahiert werden. Standardwert ist `0`.
 - `dirtyY` {{optional_inline}}
-  - : Vertikale Position (y-Koordinate) der oberen linken Ecke, von der die Bilddaten extrahiert werden. Standardwert ist `0`.
+  - : Vertikale Position (y-Koordinate) der oberen linken Ecke, ab der die Bilddaten extrahiert werden. Standardwert ist `0`.
 - `dirtyWidth` {{optional_inline}}
   - : Breite des zu malenden Rechtecks. Standardwert ist die Breite der Bilddaten.
 - `dirtyHeight` {{optional_inline}}
@@ -46,15 +46,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eines der Argumente unendlich ist.
+  - : Wird ausgelöst, wenn ein Argument unendlich ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Daten des `ImageData`-Objekts getrennt wurden.
+  - : Wird ausgelöst, wenn die Daten des `ImageData`-Objekts abgetrennt wurden.
 
 ## Beispiele
 
 ### Verständnis von putImageData
 
-Um zu verstehen, was dieser Algorithmus im Hintergrund macht, hier eine Implementierung basierend auf [`CanvasRenderingContext2D.fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect).
+Um zu verstehen, was dieser Algorithmus im Hintergrund tut, hier eine Implementierung basierend auf [`CanvasRenderingContext2D.fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect).
 
 #### HTML
 
@@ -73,18 +73,14 @@ function putImageData(
   imageData,
   dx,
   dy,
-  dirtyX,
-  dirtyY,
-  dirtyWidth,
-  dirtyHeight,
+  dirtyX = 0,
+  dirtyY = 0,
+  dirtyWidth = imageData.width,
+  dirtyHeight = imageData.height,
 ) {
   const data = imageData.data;
   const height = imageData.height;
   const width = imageData.width;
-  dirtyX = dirtyX || 0;
-  dirtyY = dirtyY || 0;
-  dirtyWidth = dirtyWidth !== undefined ? dirtyWidth : width;
-  dirtyHeight = dirtyHeight !== undefined ? dirtyHeight : height;
   const limitBottom = dirtyY + dirtyHeight;
   const limitRight = dirtyX + dirtyWidth;
   for (let y = dirtyY; y < limitBottom; y++) {
@@ -112,7 +108,7 @@ putImageData(ctx, imagedata, 150, 0, 50, 50, 25, 25);
 ### Datenverlust durch Browser-Optimierung
 
 > [!WARNING]
-> Durch die verlustbehaftete Konvertierung zu und von vorvermultiplizierten Alpha-Farbwerten kann es passieren, dass Pixel, die gerade mit `putImageData()` gesetzt wurden, in einem entsprechenden `getImageData()` als unterschiedliche Werte zurückgegeben werden.
+> Aufgrund der verlustbehafteten Natur der Umwandlung zu und von vorkonvertierten Alpha-Farbwerten können Pixel, die gerade mit `putImageData()` gesetzt wurden, von einem nachfolgenden `getImageData()` als verschiedene Werte zurückgegeben werden.
 
 #### JavaScript
 
@@ -134,7 +130,7 @@ const pixels2 = imgData2.data;
 console.log("after:", pixels2);
 ```
 
-Die Ausgabe könnte folgendermaßen aussehen:
+Die Ausgabe könnte so aussehen:
 
 ```plain
 before: Uint8ClampedArray(4) [ 1, 127, 255, 1 ]
@@ -154,4 +150,4 @@ after: Uint8ClampedArray(4) [ 255, 255, 255, 1 ]
 - Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`ImageData`](/de/docs/Web/API/ImageData)-Objekt
 - [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData)
-- [Pixelmanipulation mit dem Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
+- [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)

@@ -1,15 +1,13 @@
 ---
-title: Linkszuweisung mit Verschiebung (<<=)
+title: Left shift assignment (<<=)
 slug: Web/JavaScript/Reference/Operators/Left_shift_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Left Shift Assignment (`<<=`)** Operator führt eine [Linksschiebung](/de/docs/Web/JavaScript/Reference/Operators/Left_shift) auf die beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
-Der **linke Verschiebungszuweisungsoperator (`<<=`)** führt eine [linke Verschiebung](/de/docs/Web/JavaScript/Reference/Operators/Left_shift) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
-
-{{InteractiveExample("JavaScript-Demo: Ausdrücke - Linke Verschiebungszuweisung", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Left shift assignment (<<=) operator", "shorter")}}
 
 ```js interactive-example
 let a = 5; // 00000000000000000000000000000101
@@ -28,11 +26,11 @@ x <<= y
 
 ## Beschreibung
 
-`x <<= y` ist gleichbedeutend mit `x = x << y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x <<= y` ist äquivalent zu `x = x << y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Verwendung der linken Verschiebungszuweisung
+### Verwendung der Left Shift Assignment
 
 ```js
 let a = 5;
@@ -56,4 +54,4 @@ b <<= 2n; // 20n
 ## Siehe auch
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Linke Verschiebung (`<<`)](/de/docs/Web/JavaScript/Reference/Operators/Left_shift)
+- [Left shift (`<<`)](/de/docs/Web/JavaScript/Reference/Operators/Left_shift)

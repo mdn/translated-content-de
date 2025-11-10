@@ -2,20 +2,18 @@
 title: Deno
 slug: Glossary/Deno
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 **Deno** ist eine Laufzeitumgebung für {{Glossary("JavaScript", "JavaScript")}}, {{Glossary("TypeScript", "TypeScript")}} und {{Glossary("WebAssembly", "WebAssembly")}}.
 
-Ähnlich wie {{Glossary("Node.js", "Node.js")}} basiert Deno auf der V8 JavaScript-Engine und ermöglicht es Entwicklern, JavaScript außerhalb von Browsern auszuführen. Es gibt jedoch einige bemerkenswerte Unterschiede zwischen Node und Deno. Insbesondere:
+Ähnlich wie {{Glossary("Node.js", "Node.js")}} basiert Deno auf der V8 JavaScript-Engine und ermöglicht Entwicklern die Ausführung von JavaScript außerhalb von Browsern. Es gibt jedoch einige bemerkenswerte Unterschiede zwischen Node und Deno. Insbesondere Deno:
 
-- Hat eingebaute Unterstützung für TypeScript.
-- Beschränkt den Zugriff auf das Dateisystem und das Netzwerk standardmäßig.
+- Bietet eingebaute Unterstützung für TypeScript.
+- Beschränkt standardmäßig den Zugriff auf das Dateisystem und das Netzwerk.
 - Beinhaltet eine umfangreiche Standardbibliothek, einschließlich Implementierungen vieler Web-APIs.
-- Ist nicht von einem zentralisierten Registry abhängig, sondern ermöglicht das Laden von Modulen über URLs.
+- Hängt nicht von einem zentralen Registry ab, sondern ermöglicht das Laden von Modulen über URLs.
 
 ## Siehe auch
 
-- [Deno-Website](https://deno.com/)
+- [Deno Webseite](https://deno.com/)

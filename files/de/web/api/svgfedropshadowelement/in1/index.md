@@ -1,14 +1,14 @@
 ---
-title: "SVGFEDropShadowElement: Eigenschaft in1"
+title: "SVGFEDropShadowElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEDropShadowElement/in1
 l10n:
-  sourceCommit: 7527a11a2b7fc7440aa6d518a9f5b4c061794ff3
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in1`** schreibgeschützte Eigenschaft der [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des angegebenen {{SVGElement("feDropShadow")}}-Elements wider.
+Die **`in1`**-Schreibgeschützte Eigenschaft der [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des gegebenen {{SVGElement("feDropShadow")}}-Elements wider.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel sind zwei {{SVGElement("feDropShadow")}}-Elemente in einem Filter definiert, jedes mit einem anderen `in`-Attribut.
+In diesem Beispiel werden zwei {{SVGElement("feDropShadow")}}-Elemente in einem Filter definiert, jedes mit einem anderen `in`-Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -44,14 +44,14 @@ In diesem Beispiel sind zwei {{SVGElement("feDropShadow")}}-Elemente in einem Fi
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#drop-shadow-filter)" />
   <!-- Circle with blue shadow -->
   <circle
     cx="100"
     cy="100"
     r="50"
-    style="fill:blue;"
+    fill="blue"
     filter="url(#drop-shadow-filter)" />
 </svg>
 ```

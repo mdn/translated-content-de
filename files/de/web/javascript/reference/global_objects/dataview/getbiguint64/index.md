@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.getBigUint64()
+short-title: getBigUint64()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getBigUint64
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getBigUint64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Byte, die am angegebenen Byte-Offset dieses `DataView` beginnen, und interpretiert sie als 64-Bit-Ganzzahl ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem gültigen Offset aus gelesen werden.
 
-Die Methode **`getBigUint64()`** von {{jsxref("DataView")}}-Instanzen liest 8 Byte, beginnend bei dem angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als 64-Bit-unsigned-Integer. Es gibt keine Ausrichtungsbeschränkung; Mehr-Byte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
-
-{{InteractiveExample("JavaScript Demo: DataView.getBigUint64()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.getBigUint64()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -35,7 +34,7 @@ getBigUint64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Byte vom Beginn der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes, ab dem der Anfang des Views die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
   - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
@@ -46,7 +45,7 @@ Ein {{jsxref("BigInt")}} von 0 bis 2<sup>64</sup>-1, einschließlich.
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so festgelegt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass darüber hinaus nicht mehr innerhalb des Views gelesen werden kann.
 
 ## Beispiele
 
@@ -68,7 +67,7 @@ console.log(dataview.getBigUint64(1)); // 72623859790382856n
 
 ## Siehe auch
 
-- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("BigUint64Array")}}

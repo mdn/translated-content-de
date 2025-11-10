@@ -3,12 +3,14 @@ title: "RelativeOrientationSensor: RelativeOrientationSensor() Konstruktor"
 short-title: RelativeOrientationSensor()
 slug: Web/API/RelativeOrientationSensor/RelativeOrientationSensor
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`RelativeOrientationSensor()`** Konstruktor erstellt ein neues [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)-Objekt, das die physische Orientierung des Geräts beschreibt.
+Der **`RelativeOrientationSensor()`**
+Konstruktor erstellt ein neues [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)-Objekt, welches
+die physische Ausrichtung des Geräts beschreibt.
 
 ## Syntax
 
@@ -20,18 +22,20 @@ new RelativeOrientationSensor(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Optionen sind wie folgt:
-
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, was die Anzahl der Male bedeutet, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder eine Dezimalzahl verwendet werden, wobei Letzteres für Frequenzen unter einer Sekunde gilt. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
+      - : Die gewünschte Anzahl von Proben pro Sekunde,
+        bedeutet die Anzahl der Male pro Sekunde, dass das
+        [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder eine Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lesehäufigkeit hängt von der Gerätehardware ab und kann folglich geringer als
+        angefordert sein.
     - `referenceFrame` {{optional_inline}}
-      - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
+      - : Entweder `'device'` oder
+        `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieses Features wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 

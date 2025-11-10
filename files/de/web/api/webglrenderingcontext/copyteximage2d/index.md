@@ -1,14 +1,14 @@
 ---
-title: "WebGLRenderingContext: copyTexImage2D() Methode"
+title: "WebGLRenderingContext: copyTexImage2D()-Methode"
 short-title: copyTexImage2D()
 slug: Web/API/WebGLRenderingContext/copyTexImage2D
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: fe3f1f2dfaf44fcbe868b91b6a429270d2055716
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.copyTexImage2D()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein 2D-Texturbild.
+Die **`copyTexImage2D()`**-Methode des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Interfaces der [WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel aus dem aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein 2D-Texturbild.
 
 ## Syntax
 
@@ -19,39 +19,33 @@ copyTexImage2D(target, level, internalformat, x, y, width, height, border)
 ### Parameter
 
 - `target`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) der aktiven Textur angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) der aktiven Textur angibt. Mögliche Werte:
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Seite für eine Cube-Map-Textur.
-
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Fläche für eine Würfelkartentextur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Fläche für eine Würfelkartentextur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Fläche für eine Würfelkartentextur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Fläche für eine Würfelkartentextur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Fläche für eine Würfelkartentextur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Fläche für eine Würfelkartentextur.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den Detaillierungsgrad angibt. Level 0 ist das Basisbild-Level und Level _n_ ist das n-te Mipmap-Reduktionslevel.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Detailniveau angibt. Level 0 ist die Basisbildstufe und Level _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `internalformat`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Farbkomponenten in der Textur angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie die Textur gespeichert werden soll, nachdem sie geladen wurde. Mögliche Werte:
     - `gl.ALPHA`: Verwirft die roten, grünen und blauen Komponenten und liest die Alphakomponente.
-    - `gl.RGB`: Verwirft die Alphakomponente und liest die roten, grünen und blauen Komponenten.
-    - `gl.RGBA`: Rote, grüne, blaue und Alpha-Komponenten werden aus dem Farb-Puffer gelesen.
-    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, alpha ist 1.0.
-    - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz/Alpha-Komponente.
-
+    - `gl.RGB`: Verwirft die Alphakomponenten und liest die roten, grünen und blauen Komponenten.
+    - `gl.RGBA`: Rote, grüne, blaue und Alphakomponenten werden aus dem Farbbuffer gelesen.
+    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, Alpha ist 1.0.
+    - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz-/Alphakomponente.
 - `x`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die x-Koordinate der unteren linken Ecke angibt, von der das Kopieren beginnt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die x-Koordinate der linken unteren Ecke angibt, ab der kopiert werden soll.
 - `y`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die y-Koordinate der unteren linken Ecke angibt, von der das Kopieren beginnt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die y-Koordinate der linken unteren Ecke angibt, ab der kopiert werden soll.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur in Texeln angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur in Texeln angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Breite des Randes angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Randes angibt. Muss 0 sein.
 
 ### Rückgabewert
 

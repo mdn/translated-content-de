@@ -1,17 +1,17 @@
 ---
-title: "Request: json() Methode"
+title: "Anforderung: json()-Methode"
 short-title: json()
 slug: Web/API/Request/json
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 562051c4ad20e9ecb5faf905286cdfca545a340d
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`json()`** Methode des [`Request`](/de/docs/Web/API/Request) Interfaces
-liest den Anfragetext und gibt ihn als Promise zurück, das mit dem Ergebnis des Parsens des Textes als {{JSxRef("JSON")}} aufgelöst wird.
+Die **`json()`**-Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle
+liest den Anforderungskörper und gibt ihn als ein Versprechen zurück, das mit dem Ergebnis der Analyse des Körpertextes als {{JSxRef("JSON")}} aufgelöst wird.
 
-Beachten Sie, dass das Ergebnis, trotz des Namens der Methode `json()`, kein JSON ist, sondern das Ergebnis des Parsens von JSON als Eingabe, um ein JavaScript-Objekt zu erzeugen.
+Beachten Sie, dass das Ergebnis, trotz der Bezeichnung der Methode `json()`, nicht JSON ist, sondern das Ergebnis der Verarbeitung von JSON als Eingabe, um ein JavaScript-Objekt zu erzeugen.
 
 ## Syntax
 
@@ -25,7 +25,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in ein JavaScript-Objekt aufgelöst wird. Dieses Objekt kann alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
+Ein {{jsxref("Promise")}}, das auf ein JavaScript-Objekt aufgelöst wird. Dieses Objekt kann alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
+
+### Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : Wird aus einem der folgenden Gründe ausgelöst:
+    - Der Anforderungskörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
+    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
+- {{jsxref("SyntaxError")}}
+  - : Der Anforderungskörper kann nicht als JSON geparst werden.
 
 ## Beispiele
 

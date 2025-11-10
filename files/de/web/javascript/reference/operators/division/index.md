@@ -2,14 +2,12 @@
 title: Division (/)
 slug: Web/JavaScript/Reference/Operators/Division
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Divisionsoperator (`/`)** erzeugt den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
 
-Der **Division (`/`)**-Operator erzeugt den Quotienten seiner Operanden, wobei der linke Operand der Dividend und der rechte Operand der Divisor ist.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Division operator")}}
+{{InteractiveExample("JavaScript Demo: Division (/) operator")}}
 
 ```js interactive-example
 console.log(12 / 2);
@@ -33,9 +31,9 @@ x / y
 
 ## Beschreibung
 
-Der `/`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zunächst werden [beide Operanden in numerische Werte konvertiert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und ihre Typen geprüft. Es wird eine BigInt-Division durchgeführt, wenn beide Operanden zu BigInts werden. Andernfalls wird eine Zahldivision durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
+Der `/`-Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zuerst [beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft deren Typen. Er führt eine BigInt-Division durch, wenn beide Operanden BigInts werden; andernfalls führt er eine number-Division durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, aber der andere eine Zahl wird.
 
-Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der in Richtung Null abgeschnitten wird, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division durch Null bei Zahlen `Infinity` oder `-Infinity` zurückgibt, aber BigInt hat kein Konzept von Unendlichkeit.
+Für BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der Richtung Null gekürzt wird, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division von Zahlen durch null `Infinity` oder `-Infinity` zurückgibt, BigInt jedoch kein Konzept von Unendlichkeit hat.
 
 ## Beispiele
 
@@ -69,14 +67,14 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n / 0n; // RangeError: BigInt division by zero
 ```
 
-Sie können BigInt- und Zahl-Operanden in einer Division nicht mischen.
+Sie können BigInt- und Zahlenoperanden bei der Division nicht mischen.
 
 ```js example-bad
 2n / 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 / 2n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
+Um die Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
 
 ```js
 2n / BigInt(2); // 1n
@@ -98,7 +96,7 @@ Number(2n) / 2; // 1
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
-- [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
+- [Increment (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
+- [Decrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

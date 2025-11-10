@@ -3,32 +3,32 @@ title: "Animation: overallProgress-Eigenschaft"
 short-title: overallProgress
 slug: Web/API/Animation/overallProgress
 l10n:
-  sourceCommit: 716e13680debe8e713d42bf9b29708c0f24ef03a
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
-{{APIRef("Web Animations")}}{{seecompattable}}
+{{APIRef("Web Animations")}}
 
-Die schreibgeschützte **`overallProgress`**-Eigenschaft des [`Animation`](/de/docs/Web/API/Animation)-Interfaces gibt eine Zahl zwischen `0` und `1` zurück, die den Gesamtfortschritt der Animation in Richtung ihres abgeschlossenen Zustands anzeigt. Dies ist der Gesamtfortschritt über alle Iterationen der Animation hinweg, nicht in jeder einzelnen Iteration.
+Die schreibgeschützte **`overallProgress`**-Eigenschaft des [`Animation`](/de/docs/Web/API/Animation)-Interfaces gibt eine Zahl zwischen `0` und `1` zurück, die den Gesamterfolg der Animation zu ihrem Endzustand angibt. Dies ist der Gesamtfortschritt über alle Iterationen der Animation hinweg und nicht jeder einzelnen Iteration.
 
 `overallProgress` funktioniert konsistent über alle Animationen hinweg, unabhängig vom Typ der [`timeline`](/de/docs/Web/API/AnimationTimeline).
 
 ## Wert
 
-Eine Zahl zwischen `0` und `1`, oder `null`, wenn die Animation keine Timeline hat, inaktiv ist, noch nicht abgespielt wurde, oder wenn ihre [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf einen Wert gesetzt ist, der keine Zeit darstellt.
+Eine Zahl zwischen `0` und `1`, oder `null`, wenn die Animation keine Zeitleiste hat, inaktiv ist oder noch nicht abgespielt wurde, oder wenn ihre [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf einen Nicht-Zeitwert gesetzt ist.
 
-Wenn die [`iterations`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#iterations)-Eigenschaft der Animation auf `Infinity` gesetzt ist oder ihre [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf einen negativen Wert eingestellt ist, wird `overallProgress` den Wert `0` zurückgeben.
+Wenn die [`iterations`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#iterations)-Eigenschaft der Animation auf `Infinity` gesetzt ist oder ihre [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf einen negativen Wert eingestellt ist, gibt `overallProgress` `0` zurück.
 
-Wenn die [`duration`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#duration) der Animation auf `0` gesetzt ist, wird `overallProgress` den Wert `1` zurückgeben.
+Wenn die [`duration`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#duration) der Animation auf `0` gesetzt ist, gibt `overallProgress` `1` zurück.
 
 ## Beispiele
 
-### Anzeigen eines Prozentsatz-Fortschritts
+### Anzeigen eines prozentualen Fortschritts
 
-Dieses Demo verwendet `overallProgress`, um eine Anzeige des "Prozentsatz-Fortschritts" zu erstellen, die auf dem Bildschirm angezeigt wird, während eine Animation läuft.
+Dieses Demo verwendet `overallProgress`, um eine "Prozentfortschritts"-Anzeige zu erstellen, die während des Ablaufs einer Animation auf dem Bildschirm angezeigt wird.
 
 ### HTML
 
-Das HTML enthält ein {{htmlelement("button")}}, das gedrückt werden kann, um die Animation zu starten, ein {{htmlelement("p")}}-Element, in dem der Prozentsatz-Fortschritt angezeigt wird, und ein {{htmlelement("div")}}, das animiert wird.
+Das HTML enthält einen {{htmlelement("button")}}, um die Animation zu starten, ein {{htmlelement("p")}}-Element, in dem der Prozentfortschritt angezeigt wird, und ein {{htmlelement("div")}}, das animiert wird.
 
 ```html
 <button>Run animation</button>
@@ -36,7 +36,7 @@ Das HTML enthält ein {{htmlelement("button")}}, das gedrückt werden kann, um d
 <div class="box"></div>
 ```
 
-Das CSS des Demos bietet einige rudimentäre Formatierungen, die für das Verständnis der Arbeitsweise des JavaScripts nicht wichtig sind. Daher haben wir es zur Kürze ausgeblendet.
+Das CSS des Demos bietet grundlegende Stilgestaltungen, die nicht wichtig sind, um zu verstehen, wie das JavaScript funktioniert. Daher haben wir es der Kürze wegen ausgeblendet.
 
 ```css hidden
 * {
@@ -44,11 +44,10 @@ Das CSS des Demos bietet einige rudimentäre Formatierungen, die für das Verst�
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 body {
-  margin: 0;
   width: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -70,13 +69,13 @@ body {
 
 ### JavaScript
 
-Im JavaScript beginnen wir damit, Referenzen zu den {{htmlelement("button")}}, {{htmlelement("p")}}, und {{htmlelement("div")}}-Elementen abzurufen.
+Im JavaScript beginnen wir damit, Referenzen zu den {{htmlelement("button")}}, {{htmlelement("p")}} und {{htmlelement("div")}}-Elementen zu erfassen.
 
-Wir erstellen dann:
+Dann erstellen wir:
 
-- eine `animation`-Variable, die auf die Animation verweisen wird, sobald wir sie erstellt haben
+- eine Variable `animation`, die auf die Animation verweist, sobald wir sie erstellt haben
 - ein [keyframes](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats)-Array
-- ein Options-Objekt, das Timing-Eigenschaften enthält.
+- ein Optionsobjekt, das Timing-Eigenschaften enthält.
 
 ```js
 const btn = document.querySelector("button");
@@ -93,10 +92,10 @@ const timingProps = {
 };
 ```
 
-Als nächstes fügen wir dem `<button>` einen `"click"`-Ereignislistener via [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu, sodass, wenn es gedrückt wird, es:
+Als Nächstes fügen wir einen `"click"`-Ereignislistener zum `<button>` über [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzu, sodass, wenn er gedrückt wird:
 
-1. Die Animation mit [`Element.animate()`](/de/docs/Web/API/Element/animate) startet, wobei die zuvor definierten Keyframes und Optionen übergeben werden. Die zurückgegebene [`Animation`](/de/docs/Web/API/Animation)-Instanz wird der `animation`-Variable zugewiesen.
-2. Eine Funktion namens `updateProgress()` über die Methode [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) ausführt, die für die Aktualisierung der Prozentsatz-Anzeige zuständig ist.
+1. Die Animation mit [`Element.animate()`](/de/docs/Web/API/Element/animate) gestartet wird, indem die zuvor definierten Keyframes und Optionen übergeben werden, und die zurückgegebene [`Animation`](/de/docs/Web/API/Animation)-Instanz der Variable `animation` zugewiesen wird.
+2. Eine Funktion namens `updateProgress()` über die Methode [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) ausführt, die das Aktualisieren der Prozentprozessanzeige behandelt.
 
 ```js
 btn.addEventListener("click", () => {
@@ -107,9 +106,9 @@ btn.addEventListener("click", () => {
 });
 ```
 
-Nun definieren wir die Funktion `updateProgress()`. Diese prüft [`Animation.playState`](/de/docs/Web/API/Animation/playState), um zu sehen, ob die Animation nicht abgeschlossen ist. Wenn sie nicht abgeschlossen ist, holen wir den aktuellen Wert von `overallProgress`, multiplizieren ihn mit 100 und runden das Ergebnis ab, um es in eine ganze Prozentzahl zu konvertieren. Dann aktualisieren wir den [`textContent`](/de/docs/Web/API/Node/textContent)-Wert des `<p>`-Elements damit. Wir rufen dann `requestAnimationFrame(updateProgress)` erneut auf, um die Prozent-Update-Schleife erneut auszuführen.
+Definieren wir nun die `updateProgress()`-Funktion. Sie fragt [`Animation.playState`](/de/docs/Web/API/Animation/playState) ab, um festzustellen, ob die Animation nicht beendet ist. Wenn sie nicht beendet ist, erfassen wir den aktuellen Wert von `overallProgress`, multiplizieren ihn mit 100 und runden das Ergebnis ab, um es in eine ganze Prozentzahl umzuwandeln. Dann aktualisieren wir den [`textContent`](/de/docs/Web/API/Node/textContent)-Wert des `<p>`-Elements. Wir rufen dann `requestAnimationFrame(updateProgress)` erneut auf, um die Prozentsatzaktualisierung erneut auszuführen.
 
-Wenn die Animation abgeschlossen ist, ersetzen wir den Prozentsatz-Fortschritt durch die Nachricht "Finished!" und rufen `requestAnimationFrame(updateProgress)` nicht mehr auf, sodass die Prozentsatz-Updates stoppen.
+Wenn die Animation beendet ist, ersetzen wir den Prozentfortschritt durch die Nachricht "Fertig!" und rufen `requestAnimationFrame(updateProgress)` nicht auf, sodass die Prozentsatzaktualisierungen gestoppt werden.
 
 ```js
 function updateProgress() {
@@ -129,7 +128,7 @@ function updateProgress() {
 
 ### Ergebnis
 
-Die Ausgabe sieht so aus. Versuchen Sie, den Button zu drücken, um die Animation und den zugehörigen Fortschrittsindikator auszuführen.
+Die Ausgabe sieht folgendermaßen aus. Versuchen Sie, den Button zu drücken, um die Animation und den zugehörigen Fortschrittsanzeiger zu sehen.
 
 {{ EmbedLiveSample("Displaying a percentage progress", "100%", 250) }}
 
@@ -143,5 +142,5 @@ Die Ausgabe sieht so aus. Versuchen Sie, den Button zu drücken, um die Animatio
 
 ## Siehe auch
 
-- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, mit denen Sie Seitenanimationen steuern können.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseitenanimationen verwenden können.
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

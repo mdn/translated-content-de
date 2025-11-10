@@ -3,25 +3,25 @@ title: "GPUDevice: limits-Eigenschaft"
 short-title: limits
 slug: Web/API/GPUDevice/limits
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`limits`**-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekt zurück, das die von der Gerätes unterstützten Limits beschreibt. Alle Grenzwerte werden enthalten sein, und die während der Erstellung des Geräts angeforderten Limits (d.h. wenn [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) aufgerufen wird) werden in diesen Werten widergespiegelt.
+Die schreibgeschützte Eigenschaft **`limits`** des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt ein [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekt zurück, das die vom Gerät unterstützten Grenzen beschreibt. Alle Grenzwerte werden einbezogen, und die bei der Erstellung des Geräts angeforderten Grenzen (d.h. wenn [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) aufgerufen wird) werden in diesen Werten reflektiert.
 
 > [!NOTE]
-> Nicht alle Limits werden wie erwartet gemeldet, selbst wenn sie von der zugrunde liegenden Hardware unterstützt werden. Siehe [`GPUAdapter.limits`](/de/docs/Web/API/GPUAdapter/limits) für mehr Details.
+> Nicht alle Grenzen werden wie erwartet gemeldet, selbst wenn sie von der zugrunde liegenden Hardware unterstützt werden. Siehe [`GPUAdapter.limits`](/de/docs/Web/API/GPUAdapter/limits) für weitere Details.
 
 ## Wert
 
-Eine Instanz eines [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekts.
+Eine Instanz des [`GPUSupportedLimits`](/de/docs/Web/API/GPUSupportedLimits)-Objekts.
 
 ## Beispiele
 
-Im folgenden Code überprüfen wir den `GPUAdapter.limits`-Wert von `maxBindGroups`, um zu sehen, ob er gleich oder größer als 6 ist. Unsere theoretische Beispiel-App benötigt idealerweise 6 Bindungsgruppen. Wenn der zurückgegebene Wert >= 6 ist, fügen wir ein maximales Limit von 6 zum `requiredLimits`-Objekt hinzu.
+Im folgenden Code fragen wir den `GPUAdapter.limits`-Wert von `maxBindGroups` ab, um zu sehen, ob er gleich oder größer als 6 ist. Unsere theoretische Beispielanwendung benötigt idealerweise 6 Bindungsgruppen. Wenn der zurückgegebene Wert >= 6 ist, fügen wir dem `requiredLimits`-Objekt ein maximales Limit von 6 hinzu.
 
-Wir überprüfen dann, ob das erwartete Limit auf dem resultierenden Gerät festgelegt wurde, indem wir seinen Wert in die Konsole protokollieren.
+Dann prüfen wir, ob der erwartete Grenzwert auf dem resultierenden Gerät gesetzt wurde, indem wir seinen Wert in der Konsole protokollieren.
 
 ```js
 async function init() {
@@ -47,7 +47,7 @@ async function init() {
 
   console.log(device.limits.maxBindGroups);
 
-  // ...
+  // …
 }
 ```
 

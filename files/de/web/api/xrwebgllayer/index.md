@@ -25,7 +25,7 @@ Obwohl `XRWebGLLayer` derzeit der einzige unterstützte Typ von Framebuffer-Eben
 - [`fixedFoveation`](/de/docs/Web/API/XRWebGLLayer/fixedFoveation) {{Experimental_Inline}}
   - : Eine Zahl, die die Menge der Foveation angibt, die vom XR-Kompositor verwendet wird. Fixed Foveated Rendering (FFR) rendert die Ränder der Augentexturen in einer niedrigeren Auflösung als die Mitte und reduziert die GPU-Belastung.
 - [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) zurück, das zum Übergeben an die Methode [`bindFrameBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFrameBuffer) geeignet ist.
+  - : Gibt ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) zurück, das zum Übergeben an die Methode [`bindFrameBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer) geeignet ist.
 - [`framebufferWidth`](/de/docs/Web/API/XRWebGLLayer/framebufferWidth) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die Breite des Framebuffers von `XRWebGLLayer` zurück.
 - [`framebufferHeight`](/de/docs/Web/API/XRWebGLLayer/framebufferHeight) {{ReadOnlyInline}} {{Experimental_Inline}}
@@ -47,7 +47,7 @@ Obwohl `XRWebGLLayer` derzeit der einzige unterstützte Typ von Framebuffer-Eben
 
 ### Die Ebene an einen WebGL-Kontext binden
 
-Dieses Snippet, entnommen aus [Zeichnen eines Frames](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion#drawing_a_frame) in unserem "Bewegung und Bewegung" WebXR-Beispiel, zeigt, wie das `XRWebGLLayer` vom Renderzustand des [`XRSession`](/de/docs/Web/API/XRSession) Objekts erhalten wird und dann durch den Aufruf der WebGL-Funktion [`bindFrameBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFrameBuffer) als aktueller rendender WebGL Framebuffer gebunden wird.
+Dieses Snippet, entnommen aus [Zeichnen eines Frames](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion#drawing_a_frame) in unserem "Bewegung und Bewegung" WebXR-Beispiel, zeigt, wie das `XRWebGLLayer` vom Renderzustand des [`XRSession`](/de/docs/Web/API/XRSession) Objekts erhalten wird und dann durch den Aufruf der WebGL-Funktion [`bindFrameBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer) als aktueller rendender WebGL Framebuffer gebunden wird.
 
 ```js
 let glLayer = xrSession.renderState.baseLayer;

@@ -1,31 +1,29 @@
 ---
-title: Wie Sie die Formular-Autovervollständigung deaktivieren
+title: Anleitung zum Deaktivieren der Formular-Autovervollständigung
 slug: Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
 l10n:
-  sourceCommit: a1503878b921fc6e141fe8d491dbbd02e75e6725
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
-{{QuickLinksWithSubpages("/de/docs/Web/Security")}}
+Dieser Artikel erklärt, wie die Autovervollständigung für Formularfelder auf einer Website deaktiviert werden kann.
 
-Dieser Artikel erklärt, wie Sie die Autovervollständigung für Formularfelder auf einer Website deaktivieren können.
+## Verständnis von Autovervollständigung und Autofill
 
-## Verständnis von Autovervollständigung und Auto-Ausfüllen
+Standardmäßig speichern Browser Informationen, die der Benutzer über {{HTMLElement("input")}}-Felder auf Websites eingibt. Dadurch können Browser Autovervollständigung anbieten (d.h. Vorschläge für mögliche Eingaben machen, die der Benutzer begonnen hat einzugeben) oder Autofill (d.h. bestimmte Felder beim Laden vorab ausfüllen).
 
-Standardmäßig speichern Browser Informationen, die der Benutzer über {{HTMLElement("input")}}-Felder auf Websites eingibt. Dies ermöglicht es Browsern, Autovervollständigung anzubieten (das heißt, Vorschläge für mögliche Vervollständigungen für Felder zu machen, in denen der Benutzer zu tippen begonnen hat) oder das Autofill (das heißt, bestimmte Felder beim Laden vorzubelegen).
+Diese Funktionen sind normalerweise standardmäßig aktiviert, können jedoch ein Datenschutzproblem für Benutzer darstellen. Browser erlauben es Benutzern jedoch, sie zu deaktivieren. Einige Daten, die in Formularen übermittelt werden, sind entweder nur für die aktuelle Interaktion nützlich (z. B. eine einmalige PIN) oder enthalten sensible Informationen (z. B. eine eindeutige staatliche Kennung oder ein Sicherheitscode einer Kreditkarte). Als Website-Autor möchten Sie möglicherweise, dass der Browser die Werte für solche Felder nicht speichert, selbst wenn die Autovervollständigungsfunktion des Browsers aktiviert ist.
 
-Diese Funktionen sind normalerweise standardmäßig aktiviert, können jedoch ein Datenschutzproblem für Benutzer darstellen, sodass Browser den Nutzern die Möglichkeit geben, diese zu deaktivieren. Allerdings sind einige Daten, die in Formularen übermittelt werden, über die aktuelle Interaktion hinaus entweder nicht nützlich (zum Beispiel eine einmalige PIN) oder enthalten sensible Informationen (zum Beispiel eine eindeutige Regierungs-ID oder der Sicherheitscode einer Kreditkarte). Als Website-Autor könnten Sie es vorziehen, dass der Browser die Werte für solche Felder nicht speichert, selbst wenn die Autovervollständigungsfunktion des Browsers aktiviert ist.
+> [!NOTE] > [WCAG 2.1 Erfolgskriterium 1.3.5: Eingabezweck identifizieren](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html) erfordert nicht, dass die Funktionen zur Autovervollständigung oder Autofill funktionieren; es erfordert lediglich, dass Formularfelder, die mit spezifischen persönlichen Benutzerinformationen zusammenhängen, programmatisch identifiziert werden. Dies bedeutet, dass das Kriterium trotzdem erfüllt werden kann (indem die relevanten [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete) Attribute zu einzelnen Formularfeldern hinzugefügt werden), selbst wenn die Autovervollständigung für das Formular selbst deaktiviert wurde.
 
-> **Note:** [WCAG 2.1 Erfolgskriterium 1.3.5: Zweck von Eingaben identifizieren](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html) erfordert nicht, dass Autovervollständigungs- oder Autofill-Funktionen funktionieren; es wird nur verlangt, dass Formulareingabefelder, die sich auf spezifische persönliche Benutzerinformationen beziehen, programmatisch identifiziert werden. Das bedeutet, dass das Kriterium dennoch erfüllt werden kann (indem die entsprechenden [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribute zu einzelnen Formulareingabefeldern hinzugefügt werden), selbst wenn die Autovervollständigung für das Formular selbst deaktiviert wurde.
+## Deaktivierung der Autovervollständigung
 
-## Deaktivieren der Autovervollständigung
-
-Um die Autovervollständigung in Formularen zu deaktivieren, können Sie das [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attribut auf `"off"` setzen:
+Um die Autovervollständigung in Formularen zu deaktivieren, können Sie das [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete) Attribut auf `"off"` setzen:
 
 ```plain
 autocomplete="off"
 ```
 
-Sie können dies entweder für ein gesamtes Formular oder für spezifische Eingabeelemente in einem Formular tun:
+Dies können Sie entweder für ein gesamtes Formular oder für spezifische Eingabeelemente in einem Formular tun:
 
 ```html-nolint
 <form method="post" action="/form" autocomplete="off">
@@ -45,24 +43,24 @@ Sie können dies entweder für ein gesamtes Formular oder für spezifische Einga
 
 Das Setzen von `autocomplete="off"` auf Feldern hat zwei Effekte:
 
-- Es weist den Browser an, keine von den Benutzern eingegebenen Daten zu speichern, um sie später für ähnliche Formulare automatisch zu vervollständigen (einige Browser machen Ausnahmen für Sonderfälle, wie das Anbieten dem Benutzer, Passwörter zu speichern).
-- Es verhindert, dass der Browser Formulardaten im Sitzungsverlauf zwischenspeichert. Wenn Formulardaten im Sitzungsverlauf zwischengespeichert werden, werden die vom Benutzer ausgefüllten Informationen angezeigt, falls der Benutzer das Formular eingereicht hat und auf die Schaltfläche „Zurück“ geklickt hat, um zur ursprünglichen Formularseite zurückzukehren.
+- Es teilt dem Browser mit, dass er keine vom Benutzer eingegebenen Daten für eine spätere Autovervollständigung bei ähnlichen Formularen speichern soll (einige Browser machen Ausnahmen in Sonderfällen, z. B. beim Speichern von Passwörtern).
+- Es verhindert, dass der Browser Formulardaten im Sitzungsspeicher zwischenspeichert. Wenn Formulardaten im Sitzungsspeicher zwischengespeichert werden, werden die vom Benutzer eingegebenen Informationen angezeigt, wenn der Benutzer das Formular übermittelt hat und auf die Schaltfläche Zurück klickt, um zur ursprünglichen Formularseite zurückzukehren.
 
-Wenn ein Browser weiterhin Vorschläge macht, selbst nachdem die Autovervollständigung deaktiviert wurde, müssen Sie das `name`-Attribut des `<input>`-Elements ändern.
+Wenn ein Browser auch nach dem Setzen von autocomplete auf "off" weiterhin Vorschläge macht, müssen Sie das `name`-Attribut des `<input>`-Elements ändern.
 
-## Verwaltung des Autofill für Login-Felder
+## Verwaltung von Autofill für Anmeldefelder
 
-Moderne Browser implementieren ein integriertes Passwortmanagement: Wenn der Benutzer einen Benutzernamen und ein Passwort für eine Website eingibt, bietet der Browser an, diese für den Benutzer zu speichern. Wenn der Benutzer die Website erneut besucht, füllt der Browser die Anmeldefelder mit den gespeicherten Werten aus.
+Moderne Browser implementieren ein integriertes Passwort-Management: Wenn der Benutzer einen Benutzernamen und ein Passwort für eine Seite eingibt, bietet der Browser an, diese für den Benutzer zu speichern. Wenn der Benutzer die Seite erneut besucht, füllt der Browser die Anmeldefelder mit den gespeicherten Werten aus.
 
-Zusätzlich ermöglicht der Browser dem Benutzer die Auswahl eines Master-Passworts, das der Browser verwenden wird, um gespeicherte Anmeldedaten zu verschlüsseln.
+Zusätzlich ermöglicht der Browser dem Benutzer, ein Master-Passwort zu wählen, mit dem der Browser gespeicherte Anmeldedetails verschlüsselt.
 
-Auch ohne ein Master-Passwort wird das Passwortmanagement im Browser allgemein als Nettogewinn für die Sicherheit angesehen. Da Benutzer keine Passwörter merken müssen, die der Browser für sie speichert, können sie stärkere Passwörter auswählen, als sie es sonst tun würden.
+Auch ohne ein Master-Passwort wird das Passwort-Management im Browser im Allgemeinen als Sicherheitsgewinn angesehen. Da Benutzer sich keine Passwörter merken müssen, die der Browser für sie speichert, können sie stärkere Passwörter wählen, als sie es sonst täten.
 
-Aus diesem Grund unterstützen viele moderne Browser `autocomplete="off"` für Login-Felder nicht:
+Aus diesem Grund unterstützen viele moderne Browser `autocomplete="off"` für Anmeldefelder nicht:
 
-- Wenn eine Seite `autocomplete="off"` auf einem {{HTMLElement("form")}}-Element setzt und das Formular Benutzername- und Passwort-Eingabefelder enthält, wird der Browser dennoch anbieten, diesen Login zu speichern. Wenn der Benutzer zustimmt, wird der Browser diese Felder ausfüllen, sobald der Benutzer die Seite erneut besucht.
-- Wenn eine Seite `autocomplete="off"` für Benutzername- und Passwort-{{HTMLElement("input")}}-Felder setzt, wird der Browser trotzdem anbieten, diesen Login zu speichern. Wenn der Benutzer zustimmt, wird der Browser diese Felder ausfüllen, sobald der Benutzer die Seite erneut besucht.
+- Wenn eine Website `autocomplete="off"` für ein {{HTMLElement("form")}}-Element setzt und das Formular Benutzername- und Passwort-Eingabefelder enthält, bietet der Browser trotzdem an, diese Anmeldung zu speichern. Wenn der Benutzer zustimmt, wird der Browser diese Felder beim nächsten Besuch der Seite automatisch ausfüllen.
+- Wenn eine Website `autocomplete="off"` für Benutzername- und Passwort-{{HTMLElement("input")}}-Felder setzt, bietet der Browser trotzdem an, diese Anmeldung zu speichern. Wenn der Benutzer zustimmt, wird der Browser diese Felder beim nächsten Besuch der Seite automatisch ausfüllen.
 
-Wenn Sie eine Benutzerverwaltungsseite definieren, auf der ein Benutzer ein neues Passwort für eine andere Person angeben kann und Sie daher das Autofill für Passwortfelder verhindern möchten, können Sie `autocomplete="new-password"` verwenden.
+Wenn Sie eine Benutzerverwaltungsseite definieren, auf der ein Benutzer ein neues Passwort für eine andere Person festlegen kann und daher das Autofill für Passwortfelder verhindern möchten, können Sie `autocomplete="new-password"` verwenden.
 
-Dieses Attribut ist ein Hinweis für Browser; einige könnten es nicht befolgen.
+Dieses Attribut ist ein Hinweis für Browser; einige können diesem möglicherweise nicht folgen.

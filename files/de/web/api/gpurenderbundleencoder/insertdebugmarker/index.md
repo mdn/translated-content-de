@@ -1,19 +1,19 @@
 ---
-title: "GPURenderBundleEncoder: insertDebugMarker()-Methode"
+title: "GPURenderBundleEncoder: insertDebugMarker() Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPURenderBundleEncoder/insertDebugMarker
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode der Schnittstelle [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) markiert einen bestimmten Punkt in einer Reihe von codierten Render-Bundle-Durchgangsbefehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Serie von kodierten Render-Bundle-Pass-Befehlen mit einem Label.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwickler-Tools des Browsers oder anderen Diensten zur Unterstützung der Fehlersuche genutzt werden.
+Dies könnte für Telemetrie verwendet werden oder könnte in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`InsertDebugMarker()`](/de/docs/Web/API/GPURenderPassEncoder/InsertDebugMarker).
+> Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`InsertDebugMarker()`](/de/docs/Web/API/GPURenderPassEncoder/insertDebugMarker).
 
 ## Syntax
 
@@ -28,16 +28,16 @@ insertDebugMarker(markerLabel)
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 bundleEncoder.insertDebugMarker("my_marker");
 
-// ...
+// …
 ```
 
 ## Spezifikationen

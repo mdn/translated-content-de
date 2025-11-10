@@ -1,18 +1,16 @@
 ---
-title: Web-Performance
+title: Webleistung
 slug: Glossary/Web_performance
 l10n:
-  sourceCommit: ab1bf2c5955c1bfa4d96d779f701ab22f3870d43
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Webleistung** ist die objektive Zeitspanne von dem Moment, in dem eine Anfrage für Inhalte gestellt wird, bis die angeforderten Inhalte im Browser des Nutzers angezeigt werden. Dazu gehören objektive Renderzeiten und die subjektive Benutzererfahrung von Ladezeit und Laufzeit.
 
-**Web-Performance** ist die objektive Zeitspanne von der Anfrage eines Inhalts bis zur Anzeige des angeforderten Inhalts im Browser des Nutzers, objektive Renderzeiten und das subjektive Benutzererlebnis aus Ladezeit und Laufzeit.
-
-Objektiv ist es die messbare Zeit in Millisekunden, die benötigt wird, um die Webseite oder Webanwendung herunterzuladen, im Browser des Nutzers darzustellen und reaktionsfähig sowie interaktiv zu werden. Es sind die Bilder pro Sekunde und die Zeiten, in denen der Hauptthread für Benutzerinteraktionen nicht verfügbar ist. Subjektiv ist es die Wahrnehmung des Nutzers darüber, ob die Zeit von der Anfrage nach Inhalten bis zu dem Zeitpunkt, an dem der Nutzer das Gefühl hat, dass der angeforderte Inhalt verfügbar und nutzbar ist, _langsam_ oder _schnell_ erscheint.
+Objektiv ist es die messbare Zeit in Millisekunden, die benötigt wird, um die Webseite oder Webanwendung herunterzuladen, im Webbrowser des Nutzers darzustellen und reaktionsfähig und interaktiv zu machen. Es sind die Bilder pro Sekunde und Zeiten, in denen der Haupt-Thread nicht für Benutzerinteraktionen verfügbar ist. Subjektiv ist es die Wahrnehmung des Nutzers, ob die Zeitspanne zwischen dem Anfordern der Inhalte und dem Zeitpunkt, an dem der Nutzer das Gefühl hat, dass die angeforderten Inhalte verfügbar und nutzbar sind, _langsam_ oder _schnell_ erscheint.
 
 ## Siehe auch
 
-- [Web-Performance](/de/docs/Web/Performance) Leitfäden
-- Verwandte Glossarbegriffe:
+- [Webleistungsleitfäden](/de/docs/Web/Performance)
+- Verwandte Glossartermine:
   - {{Glossary("Perceived_performance", "Wahrgenommene Leistung")}}

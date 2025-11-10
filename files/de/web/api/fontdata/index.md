@@ -2,36 +2,36 @@
 title: FontData
 slug: Web/API/FontData
 l10n:
-  sourceCommit: d7143e171b5f18fb37a686a7d4947db417fd74f3
+  sourceCommit: 6855bf0bdd644345f66b88b477fd219a5e7f866e
 ---
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die **`FontData`** Schnittstelle der [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API) repräsentiert einen einzelnen lokalen Schriftschnitt.
+Das **`FontData`** Interface der [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API) repräsentiert einen einzelnen lokalen Schriftschnitt.
 
 ## Instanz-Eigenschaften
 
 - [`FontData.family`](/de/docs/Web/API/FontData/family) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Familie des Schriftschnittes zurück.
+  - : Gibt die Familie des Schriftschnitts zurück.
 - [`FontData.fullName`](/de/docs/Web/API/FontData/fullName) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den vollständigen Namen des Schriftschnittes zurück.
+  - : Gibt den vollständigen Namen des Schriftschnitts zurück.
 - [`FontData.postscriptName`](/de/docs/Web/API/FontData/postscriptName) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den PostScript-Namen des Schriftschnittes zurück.
+  - : Gibt den PostScript-Namen des Schriftschnitts zurück.
 - [`FontData.style`](/de/docs/Web/API/FontData/style) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Stil des Schriftschnittes zurück.
+  - : Gibt den Stil des Schriftschnitts zurück.
 
 ## Instanz-Methoden
 
 - [`FontData.blob()`](/de/docs/Web/API/FontData/blob) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die rohen Bytes der zugrunde liegenden Schriftdatei enthält.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die Rohbytes der zugrunde liegenden Schriftdatei enthält.
 
 ## Beispiele
 
-Für eine funktionierende Live-Demo, siehe [Font Select Demo](https://local-font-access.glitch.me/demo/).
+Für ein Live-Beispiel sehen Sie sich unser [Local Font Access API Demo](https://mdn.github.io/dom-examples/local-font-access/) an.
 
-### Schriftarten Aufzählung
+### Schrifterkennung
 
-Der folgende Ausschnitt fragt alle verfügbaren Schriftarten ab und protokolliert Metadaten. Dies könnte beispielsweise verwendet werden, um ein Font-Picker-Steuerelement zu füllen.
+Der folgende Codeausschnitt fragt alle verfügbaren Schriften ab und gibt Metadaten aus. Dies könnte beispielsweise verwendet werden, um eine Schriftauswahl-Steuerung zu füllen.
 
 ```js
 async function logFontData() {
@@ -49,9 +49,9 @@ async function logFontData() {
 }
 ```
 
-### Zugriff auf niedrigstufige Daten
+### Zugriff auf Low-Level-Daten
 
-Die [`blob()`](/de/docs/Web/API/FontData/blob) Methode bietet Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT) Daten — dies ist ein Schriftdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
+Die [`blob()`](/de/docs/Web/API/FontData/blob) Methode ermöglicht den Zugriff auf Low-Level [SFNT](https://en.wikipedia.org/wiki/SFNT) Daten — dies ist ein Schriftdateiformat, das andere Schriftformate enthalten kann, wie PostScript, TrueType, OpenType oder das Web Open Font Format (WOFF).
 
 ```js
 async function computeOutlineFormat() {
@@ -97,5 +97,5 @@ async function computeOutlineFormat() {
 
 ## Siehe auch
 
-- [Fortschrittliche Typografie mit lokalen Schriften verwenden](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Verwenden Sie erweiterte Typografie mit lokalen Schriften](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

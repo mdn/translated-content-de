@@ -1,41 +1,41 @@
 ---
-title: "Element: compositionupdate Ereignis"
+title: "Element: compositionupdate-Event"
 short-title: compositionupdate
 slug: Web/API/Element/compositionupdate_event
 l10n:
-  sourceCommit: cede06423af0242a18670246e1b25562d21c0004
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
-{{APIRef}}
+{{APIRef("UI Events")}}
 
-Das **`compositionupdate`** Ereignis wird ausgelöst, wenn im Kontext einer Textzusammensetzungssitzung, die von einem Textzusammensetzungssystem wie einem {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} gesteuert wird, ein neues Zeichen empfangen wird.
+Das **`compositionupdate`**-Event wird ausgelöst, wenn ein neues Zeichen im Kontext einer Texteingabesitzung empfangen wird, die von einem Textzusammensetzungssystem wie einem {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} kontrolliert wird.
 
-Zum Beispiel könnte dieses Ereignis ausgelöst werden, während ein Benutzer ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} eingibt.
+Dieses Event könnte beispielsweise ausgelöst werden, während ein Benutzer ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Eingabemethoden-Editor")}} eingibt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("compositionupdate", (event) => {});
+```js-nolint
+addEventListener("compositionupdate", (event) => { })
 
-oncompositionupdate = (event) => {};
+oncompositionupdate = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
+Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent), das von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event) erbt.
 
 {{InheritanceDiagram("CompositionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die vom Eingabemethoden-Editor generierten Zeichen zurück, die das Ereignis ausgelöst haben; sie variieren je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erstellt hat.
+  - : Gibt die Zeichen zurück, die durch die Eingabemethode generiert wurden, welche das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Zusammensetzung mit IME verknüpft ist).
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit IME verbunden ist).
 
 ## Beispiele
 
@@ -53,13 +53,12 @@ inputElement.addEventListener("compositionupdate", (event) => {
 
 ```html
 <div class="control">
-  <label for="example">
-    First select textbox, then to open IME:
-    <ul>
-      <li>on macOS type <kbd>option</kbd> + <kbd>`</kbd></li>
-      <li>on Windows type <kbd>windows</kbd> + <kbd>.</kbd></li>
-    </ul>
-  </label>
+  <p>First select textbox, then to open IME:</p>
+  <ul>
+    <li>on macOS type <kbd>option</kbd> + <kbd>`</kbd></li>
+    <li>on Windows type <kbd>windows</kbd> + <kbd>.</kbd></li>
+  </ul>
+  <label for="example">Example input</label>
   <input type="text" id="example" name="example" />
 </div>
 

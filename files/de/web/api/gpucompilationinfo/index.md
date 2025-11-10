@@ -2,25 +2,25 @@
 title: GPUCompilationInfo
 slug: Web/API/GPUCompilationInfo
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUCompilationInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die vom GPU-Shader-Modulcompiler erzeugt werden, um Probleme mit Shader-Code zu diagnostizieren.
+Das **`GPUCompilationInfo`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die vom GPU-Shader-Modul-Kompilierer generiert werden, um Probleme mit Shader-Code zu diagnostizieren.
 
-Auf `GPUCompilationInfo` wird über [`GPUShaderModule.getCompilationInfo()`](/de/docs/Web/API/GPUShaderModule/getCompilationInfo) zugegriffen.
+`GPUCompilationInfo` wird über [`GPUShaderModule.getCompilationInfo()`](/de/docs/Web/API/GPUShaderModule/getCompilationInfo) abgerufen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- [`messages`](/de/docs/Web/API/GPUCompilationInfo/messages) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, wobei jedes Objekt die Details einer einzelnen Shader-Kompiliernachricht enthält. Nachrichten können informativ, Warnungen oder Fehler sein.
+- [`messages`](/de/docs/Web/API/GPUCompilationInfo/messages) {{ReadOnlyInline}}
+  - : Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die jeweils die Details einer einzelnen Shader-Kompilierungsnachricht enthalten. Nachrichten können informativ, Warnungen oder Fehler sein.
 
 ## Beispiele
 
-Im untenstehenden Beispiel haben wir absichtlich eine Klammer in einer Funktionsdeklaration in unserem Shader-Code weggelassen:
+Im folgenden Beispiel haben wir absichtlich eine Klammer in einer Funktionsdeklaration unseres Shader-Codes weggelassen:
 
 ```js
 const shaders = `
@@ -47,11 +47,11 @@ fn fragment_main(fragData: VertexOut) -> @location(0) vec4f
 `;
 ```
 
-Wenn wir das Shader-Modul kompilieren, verwenden wir `getCompilationInfo()`, um Informationen über den resultierenden Fehler zu erhalten:
+Wenn wir das Shader-Modul kompilieren, verwenden wir `getCompilationInfo()`, um einige Informationen über den resultierenden Fehler zu erhalten:
 
 ```js
 async function init() {
-  // ...
+  // …
 
   const shaderModule = device.createShaderModule({
     code: shaders,
@@ -63,7 +63,7 @@ async function init() {
   console.log(firstMessage.lineNum); // 9
   console.log(firstMessage.message); // "expected ')' for function declaration"
   console.log(firstMessage.type); // "error"
-  // ...
+  // …
 }
 ```
 

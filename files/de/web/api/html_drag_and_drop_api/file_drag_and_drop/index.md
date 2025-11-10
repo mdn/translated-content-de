@@ -1,100 +1,194 @@
 ---
-title: Datei Drag und Drop
+title: Datei-Drag-and-Drop
 slug: Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{DefaultAPISidebar("HTML Drag and Drop API")}}
 
-HTML Drag-and-Drop-Schnittstellen ermöglichen es Webanwendungen, Dateien auf eine Webseite zu ziehen und abzulegen. Dieses Dokument beschreibt, wie eine Anwendung eine oder mehrere Dateien akzeptieren kann, die aus dem Dateimanager der zugrunde liegenden Plattform gezogen und auf eine Webseite abgelegt werden.
+Wie auf [der Startseite](/de/docs/Web/API/HTML_Drag_and_Drop_API#concepts_and_usage) erwähnt, modelliert die Drag and Drop API gleichzeitig drei Anwendungsfälle: das Ziehen von Elementen innerhalb einer Seite, das Ziehen von Daten aus einer Seite heraus und das Ziehen von Daten in eine Seite hinein. Dieses Tutorial demonstriert den dritten Anwendungsfall: das Ziehen von Daten in eine Seite. Wir implementieren eine einfache Ablagezone, die es dem Benutzer erlaubt, Bilddateien aus dem Datei-Explorer des Betriebssystems auf die Seite zu ziehen und dort anzuzeigen. Für Benutzer, die drag and drop nicht nutzen können oder wollen, bieten wir auch die alternative Funktionalität der Dateiauswahl über ein `<input>`-Element an.
 
-Die Hauptschritte zum Ziehen und Ablegen bestehen darin, eine _Ablagezone_ (d.h. ein Ziel-Element für das Datei-Ablegen) zu definieren und Ereignishandler für die [`drop`](/de/docs/Web/API/HTMLElement/drop_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse zu definieren. Diese Schritte werden unten beschrieben, einschließlich Beispielen von Code-Snippets. Der vollständige Quellcode ist im [MDN's drag-and-drop repository](https://github.com/mdn/dom-examples/tree/main/drag-and-drop) verfügbar (Pull-Anfragen und/oder Issues sind willkommen).
+## Grundlegendes Seitenlayout
 
-Beachten Sie, dass [HTML Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API) zwei unterschiedliche APIs definiert, um das Ziehen und Ablegen von Dateien zu unterstützen. Eine API ist die [`DataTransfer`](/de/docs/Web/API/DataTransfer) Schnittstelle und die zweite API sind die [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) und [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) Schnittstellen. Dieses Beispiel veranschaulicht die Verwendung beider APIs (und verwendet keine Gecko-spezifischen Schnittstellen).
+Da wir auch normale `<input>`-Dateiauswahl erlauben wollen, macht es Sinn, dass die Ablagezone durch ein `<input>`-Element gestützt wird, damit wir gleichzeitig Dateien hineinziehen und es anklicken können. Wir nutzen einen häufigen Trick, indem wir das `<input>` unsichtbar machen und stattdessen das zugehörige {{HTMLElement("label")}} für die Interaktion mit den Benutzern verwenden, weil `<label>`-Elemente viel einfacher zu stylen sind. Wir fügen auch die Elemente für die Vorschau der abgelegten Bilder hinzu.
 
-## Definieren der Ablagezone
-
-Das _Ziel-Element_ des [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignisses benötigt einen `ondrop` Ereignishandler. Das folgende Code-Snippet zeigt, wie dies mit einem {{HTMLelement("div")}} Element gemacht wird:
-
-```html
-<div id="drop_zone" ondrop="dropHandler(event);">
-  <p>Drag one or more files to this <i>drop zone</i>.</p>
-</div>
+```html live-sample___file-dnd
+<label id="drop-zone">
+  Drop images here, or click to upload.
+  <input type="file" id="file-input" multiple accept="image/*" />
+</label>
+<ul id="preview"></ul>
+<button id="clear-btn">Clear</button>
 ```
 
-In der Regel wird eine Anwendung einen [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignishandler auf dem Ablageziel-Element enthalten und dieser Handler wird das Standard-Zieh-Verhalten des Browsers deaktivieren. Um diesen Handler hinzuzufügen, müssen Sie einen [`ondragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignishandler einschließen:
+Wir stylen das Label-Element, um visuell anzuzeigen, dass es sich um eine Ablagezone handelt, und verstecken das Datei-Eingabefeld.
 
-```html
-<div
-  id="drop_zone"
-  ondrop="dropHandler(event);"
-  ondragover="dragOverHandler(event);">
-  <p>Drag one or more files to this <i>drop zone</i>.</p>
-</div>
-```
+```css live-sample___file-dnd
+body {
+  font-family: "Arial", sans-serif;
+}
 
-Schließlich möchte eine Anwendung möglicherweise das Ablageziel-Element stylen, um visuell anzuzeigen, dass das Element eine Ablagezone ist. In diesem Beispiel verwendet das Ablageziel-Element folgendes Styling:
+#drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  max-width: 100%;
+  height: 200px;
+  padding: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  color: slategray;
+  cursor: pointer;
+}
 
-```css
-#drop_zone {
-  border: 5px solid blue;
-  width: 200px;
+#file-input {
+  display: none;
+}
+
+#preview {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  list-style: none;
+  padding: 0;
+}
+
+#preview li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  width: 100%;
   height: 100px;
 }
+
+#preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
 ```
 
-> **Note:** [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignisse werden nicht ausgelöst, wenn eine Datei aus dem Betriebssystem in den Browser gezogen wird. Um zu erkennen, wann OS-Dateien in den Browser gezogen werden, verwenden Sie [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event).
-> Das bedeutet, dass es nicht möglich ist, [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) zu verwenden, um ein benutzerdefiniertes Ziehbild/Zeiger-Overlay anzuwenden, wenn Dateien aus dem OS gezogen werden — weil der Drag-Datenspeicher nur im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis modifiziert werden kann. Dies gilt auch für [`setData()`](/de/docs/Web/API/DataTransfer/setData).
+Dadurch, dass wir die `<label>` und `<input>`-Elemente verwenden, ist kein zusätzliches JavaScript notwendig, um die Dateiauswahl-Benutzererfahrung zu implementieren. Wir konzentrieren uns nun auf das Ablegen von Dateien und die anschließende Verarbeitung der abgelegten Dateien.
 
-## Verarbeitung des Drops
+## Deklarieren des Ablageziels
 
-Das [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignis wird ausgelöst, wenn der Benutzer die Datei(en) ablegt. Im folgenden Ereignishandler wird, wenn der Browser die [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) Schnittstelle unterstützt, die [`getAsFile()`](/de/docs/Web/API/DataTransferItem/getAsFile) Methode verwendet, um auf jede Datei zuzugreifen; andernfalls wird die [`files`](/de/docs/Web/API/DataTransfer/files) Eigenschaft der [`DataTransfer`](/de/docs/Web/API/DataTransfer) Schnittstelle verwendet, um auf jede Datei zuzugreifen.
+Unser Ablageziel ist das `<label>`-Element. Als _Zielelement_ lauscht es auf das [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis, um die abgelegte Datei zu verarbeiten.
 
-Dieses Beispiel zeigt, wie der Name jeder gezogenen Datei in die Konsole geschrieben wird. In einer _echten_ Anwendung könnte eine Anwendung eine Datei mit der [File API](/de/docs/Web/API/File_API) verarbeiten wollen.
+```js live-sample___file-dnd
+const dropZone = document.getElementById("drop-zone");
 
-Beachten Sie, dass in diesem Beispiel jedes Ziehobjekt, das keine Datei ist, ignoriert wird.
+dropZone.addEventListener("drop", dropHandler);
+```
 
-```js
-function dropHandler(ev) {
-  console.log("File(s) dropped");
+Beim Ablegen von Dateien kann der Browser standardmäßig mit ihnen umgehen (z.B. sie öffnen oder herunterladen), selbst wenn die Datei nicht in ein gültiges Ablageziel fallen gelassen wird. Um dieses Verhalten zu verhindern, müssen wir auch auf das `drop`-Ereignis auf `window` hören und es abbrechen. Wir achten darauf, das Ereignis nur dann zu behandeln, wenn eine Datei gezogen wird; wenn es etwas anderes ist, wie ein Link, verwenden wir das Standardverhalten. Wenn das gezogene Element eine Nicht-Bild-Datei ist, behandeln wir das Ereignis trotzdem, geben dem Benutzer jedoch Feedback, dass es nicht erlaubt ist.
 
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
+```js live-sample___file-dnd
+window.addEventListener("drop", (e) => {
+  if ([...e.dataTransfer.items].some((item) => item.kind === "file")) {
+    e.preventDefault();
+  }
+});
+```
 
-  if (ev.dataTransfer.items) {
-    // Use DataTransferItemList interface to access the file(s)
-    [...ev.dataTransfer.items].forEach((item, i) => {
-      // If dropped items aren't files, reject them
-      if (item.kind === "file") {
-        const file = item.getAsFile();
-        console.log(`… file[${i}].name = ${file.name}`);
-      }
-    });
-  } else {
-    // Use DataTransfer interface to access the file(s)
-    [...ev.dataTransfer.files].forEach((file, i) => {
-      console.log(`… file[${i}].name = ${file.name}`);
-    });
+Damit das `drop`-Ereignis ausgelöst wird, muss das Element auch das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis abbrechen. Da wir auf `drop` auf `window` lauschen, müssen wir auch das `dragover`-Ereignis für das gesamte `window` abbrechen. Wir setzen auch [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) auf `none`, wenn die Datei kein Bild ist oder nicht an den richtigen Ort gezogen wird.
+
+```js live-sample___file-dnd
+dropZone.addEventListener("dragover", (e) => {
+  const fileItems = [...e.dataTransfer.items].filter(
+    (item) => item.kind === "file",
+  );
+  if (fileItems.length > 0) {
+    e.preventDefault();
+    if (fileItems.some((item) => item.type.startsWith("image/"))) {
+      e.dataTransfer.dropEffect = "copy";
+    } else {
+      e.dataTransfer.dropEffect = "none";
+    }
+  }
+});
+
+window.addEventListener("dragover", (e) => {
+  const fileItems = [...e.dataTransfer.items].filter(
+    (item) => item.kind === "file",
+  );
+  if (fileItems.length > 0) {
+    e.preventDefault();
+    if (!dropZone.contains(e.target)) {
+      e.dataTransfer.dropEffect = "none";
+    }
+  }
+});
+```
+
+> [!NOTE]
+> [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignisse werden nicht ausgelöst, wenn eine Datei aus dem Betriebssystem in den Browser gezogen wird. Um zu erkennen, wann Dateien vom Betriebssystem in den Browser gezogen werden, verwenden Sie [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event).
+> Das bedeutet, dass es nicht möglich ist, [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) zu verwenden, um ein benutzerdefiniertes Drag-Bild/Cursor-Overlay beim Ziehen von Dateien aus dem Betriebssystem anzuwenden — da der Drag-Datenspeicher nur im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis geändert werden kann. Dies gilt auch für [`setData()`](/de/docs/Web/API/DataTransfer/setData).
+
+## Verarbeitung des Ablagevorgangs
+
+Nun implementieren wir den `dropHandler` mit der Methode [`getAsFile()`](/de/docs/Web/API/DataTransferItem/getAsFile), um auf jede Datei zuzugreifen. Dann kann Ihre Anwendung entscheiden, wie diese Datei mit der [File API](/de/docs/Web/API/File_API) verarbeitet wird. Hier stellen wir sie einfach auf der Seite dar; in der Praxis möchten Sie sie wahrscheinlich auch irgendwann auf den Server hochladen.
+
+```js live-sample___file-dnd
+const preview = document.getElementById("preview");
+
+function displayImages(files) {
+  for (const file of files) {
+    if (file.type.startsWith("image/")) {
+      const li = document.createElement("li");
+      const img = document.createElement("img");
+      img.src = URL.createObjectURL(file);
+      img.alt = file.name;
+      li.appendChild(img);
+      li.appendChild(document.createTextNode(file.name));
+      preview.appendChild(li);
+    }
   }
 }
-```
 
-## Verhindern des Standard-Zieh-Verhaltens des Browsers
-
-Der folgende [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignishandler ruft [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um den Standard-Ziehen-und-Ablegen-Handler des Browsers zu deaktivieren.
-
-```js
-function dragOverHandler(ev) {
-  console.log("File(s) in drop zone");
-
-  // Prevent default behavior (Prevent file from being opened)
+function dropHandler(ev) {
   ev.preventDefault();
+  const files = [...ev.dataTransfer.items]
+    .map((item) => item.getAsFile())
+    .filter((file) => file);
+  displayImages(files);
 }
 ```
+
+## Dasselbe Verhalten dem Input hinzufügen
+
+Das obige ist der gesamte Datenfluss für das Drag and Drop; nun müssen wir die Funktion `displayImages()` auch an das Datei-Eingabefeld anbinden.
+
+```js live-sample___file-dnd
+const fileInput = document.getElementById("file-input");
+fileInput.addEventListener("change", (e) => {
+  displayImages(e.target.files);
+});
+```
+
+## Löschen-Button
+
+Schließlich fügen wir eine Möglichkeit hinzu, den Vorschaubereich zu löschen. Wir verwenden [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um den durch die Bildobjekte belegten Speicher freizugeben.
+
+```js live-sample___file-dnd
+const clearBtn = document.getElementById("clear-btn");
+clearBtn.addEventListener("click", () => {
+  for (const img of preview.querySelectorAll("img")) {
+    URL.revokeObjectURL(img.src);
+  }
+  preview.textContent = "";
+});
+```
+
+## Ergebnis
+
+{{EmbedLiveSample("file-dnd", "", 500)}}
 
 ## Siehe auch
 
 - [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehen-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [HTML Living Standard: Drag and Drop](https://html.spec.whatwg.org/multipage/interaction.html#dnd)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)

@@ -2,12 +2,10 @@
 title: devtools.panels.themeName
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Der Name des derzeit ausgewählten Devtools-Themas.
+Der Name des aktuell ausgewählten Devtools-Themas.
 
 Dies ist ein String, dessen mögliche Werte sind:
 
@@ -15,11 +13,11 @@ Dies ist ein String, dessen mögliche Werte sind:
 - "dark"
 - "firebug"
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.

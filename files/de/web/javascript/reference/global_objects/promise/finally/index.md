@@ -1,17 +1,16 @@
 ---
 title: Promise.prototype.finally()
+short-title: finally()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/finally
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`finally()`**-Methode von {{jsxref("Promise")}}-Instanzen plant eine Funktion ein, die aufgerufen wird, wenn das Promise abgeschlossen ist (entweder erfüllt oder abgelehnt). Sie gibt sofort ein anderes {{jsxref("Promise")}}-Objekt zurück, sodass Sie Aufrufe an andere Promise-Methoden [verketteln](/de/docs/Web/JavaScript/Guide/Using_promises#chaining) können.
 
-Die **`finally()`**-Methode von {{jsxref("Promise")}}-Instanzen plant eine Funktion ein, die aufgerufen wird, wenn das Promise abgeschlossen ist (entweder erfüllt oder abgelehnt). Sie gibt sofort ein anderes {{jsxref("Promise")}}-Objekt zurück und ermöglicht es Ihnen, [Aufrufe zu verketteten Promises-Methoden](/de/docs/Web/JavaScript/Guide/Using_promises#chaining) fortzusetzen.
+Dies ermöglicht es Ihnen, Code-Duplizierungen sowohl in den {{jsxref("Promise/then", "then()")}}- als auch in den {{jsxref("Promise/catch", "catch()")}}-Handlern des Promises zu vermeiden.
 
-Dies erlaubt es Ihnen, die Duplizierung von Code in den {{jsxref("Promise/then", "then()")}}- und {{jsxref("Promise/catch", "catch()")}}-Handlern des Promises zu vermeiden.
-
-{{InteractiveExample("JavaScript Demo: Promise.finally()", "taller")}}
+{{InteractiveExample("JavaScript Demo: Promise.prototype.finally()", "taller")}}
 
 ```js interactive-example
 function checkMail() {
@@ -45,31 +44,31 @@ promiseInstance.finally(onFinally)
 ### Parameter
 
 - `onFinally`
-  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Promise abgeschlossen wird. Ihr Rückgabewert wird ignoriert, es sei denn, der Rückgabewert ist ein abgelehntes Promise. Die Funktion wird ohne Argumente aufgerufen.
+  - : Eine Funktion, die asynchron ausgeführt wird, wenn dieses Promise abgeschlossen ist. Ihr Rückgabewert wird ignoriert, es sei denn, der zurückgegebene Wert ist ein abgelehntes Promise. Die Funktion wird ohne Argumente aufgerufen.
 
 ### Rückgabewert
 
-Gibt sofort ein neues {{jsxref("Promise")}} zurück. Dieses neue Promise ist beim Zurückgeben immer ausstehend, unabhängig vom Status des aktuellen Promises. Wenn `onFinally` einen Fehler auslöst oder ein abgelehntes Promise zurückgibt, wird das neue Promise mit diesem Wert abgelehnt. Andernfalls wird das neue Promise denselben Status wie das aktuelle Promise erhalten.
+Gibt sofort ein neues {{jsxref("Promise")}} zurück. Dieses neue Promise ist immer anhängig, wenn es zurückgegeben wird, unabhängig vom Status des aktuellen Promises. Wenn `onFinally` einen Fehler wirft oder ein abgelehntes Promise zurückgibt, wird das neue Promise mit diesem Wert abgelehnt. Andernfalls wird das neue Promise im gleichen Zustand wie das aktuelle Promise abgeschlossen.
 
 ## Beschreibung
 
-Die Methode `finally()` kann nützlich sein, wenn Sie nach dem Abschluss eines Promises, unabhängig von dessen Ergebnis, eine Verarbeitung oder Bereinigung durchführen möchten.
+Die Methode `finally()` kann nützlich sein, wenn Sie nach Abschluss des Promises einige Verarbeitungsschritte oder Aufräumarbeiten durchführen möchten, unabhängig vom Ergebnis.
 
-Die Methode `finally()` ist der Verwendung von {{jsxref("Promise/then", "then(onFinally, onFinally)")}} sehr ähnlich. Es gibt jedoch einige Unterschiede:
+Die `finally()`-Methode ist sehr ähnlich dem Aufruf von {{jsxref("Promise/then", "then(onFinally, onFinally)")}}. Es gibt jedoch ein paar Unterschiede:
 
-- Wenn Sie eine Funktion inline erstellen, können Sie diese einmal übergeben, anstatt sie zweimal deklarieren oder eine Variable dafür erstellen zu müssen.
-- Der `onFinally`-Callback erhält keine Argumente. Dieser Anwendungsfall eignet sich genau dann, wenn Sie sich _nicht für_ den Ablehnungsgrund oder den Erfüllungswert interessieren und es daher nicht notwendig ist, diesen bereitzustellen.
-- Ein `finally()`-Aufruf ist in der Regel transparent und spiegelt den endgültigen Status des ursprünglichen Promises wider. Zum Beispiel:
-  - Im Gegensatz zu `Promise.resolve(2).then(() => 77, () => {})`, das ein Promise zurückgibt, das schließlich mit dem Wert `77` erfüllt wird, gibt `Promise.resolve(2).finally(() => 77)` ein Promise zurück, das schließlich mit dem Wert `2` erfüllt wird.
-  - Ebenso gibt `Promise.reject(3).then(() => {}, () => 88)`, das ein Promise zurückgibt, das schließlich mit dem Wert `88` erfüllt wird, ein Promise zurück, das schließlich mit dem Grund `3` abgelehnt wird, wenn es als `Promise.reject(3).finally(() => 88)` ausgeführt wird.
+- Beim Erstellen einer Funktion inline können Sie diese einmal übergeben, anstatt sie entweder zweimal deklarieren zu müssen oder eine Variable dafür zu erstellen.
+- Der `onFinally`-Callback erhält kein Argument. Dieser Anwendungsfall ist genau dann gegeben, wenn Ihnen der Ablehnungsgrund oder der Erfüllungswert egal ist, und daher keine Notwendigkeit besteht, diesen bereitzustellen.
+- Ein `finally()`-Aufruf ist in der Regel transparent und spiegelt den endgültigen Zustand des ursprünglichen Promises wider. Ein Beispiel:
+  - Anders als `Promise.resolve(2).then(() => 77, () => {})`, das ein Promise zurückgibt, das schließlich mit dem Wert `77` erfüllt wird, gibt `Promise.resolve(2).finally(() => 77)` ein Promise zurück, das schließlich mit dem Wert `2` erfüllt wird.
+  - Ebenso gibt `Promise.reject(3).then(() => {}, () => 88)`, das ein Promise zurückgibt, das schließlich mit dem Wert `88` erfüllt wird, `Promise.reject(3).finally(() => 88)` ein Promise zurück, das schließlich aus dem Grund `3` abgelehnt wird.
 
 > [!NOTE]
-> Ein `throw` (oder das Zurückgeben eines abgelehnten Promises) im `finally`-Callback lehnt dennoch das zurückgegebene Promise ab. Zum Beispiel lehnen sowohl `Promise.reject(3).finally(() => { throw 99; })` als auch `Promise.reject(3).finally(() => Promise.reject(99))` das zurückgegebene Promise mit dem Wert `99` ab.
+> Ein `throw` (oder das Zurückgeben eines abgelehnten Promises) im `finally`-Callback lehnt weiterhin das zurückgegebene Promise ab. Zum Beispiel lehnen sowohl `Promise.reject(3).finally(() => { throw 99; })` als auch `Promise.reject(3).finally(() => Promise.reject(99))` das zurückgegebene Promise mit dem Grund `99` ab.
 
-Ähnlich wie {{jsxref("Promise/catch", "catch()")}} ruft `finally()` intern die Methode `then` auf dem Objekt auf, auf dem sie aufgerufen wurde. Wenn `onFinally` keine Funktion ist, wird `then()` mit `onFinally` als beiden Argumenten aufgerufen — was für {{jsxref("Promise.prototype.then()")}} bedeutet, dass kein nützlicher Handler angefügt wird. Andernfalls wird `then()` mit zwei intern erstellten Funktionen aufgerufen, die sich wie folgt verhalten:
+Wie {{jsxref("Promise/catch", "catch()")}}, ruft `finally()` intern die `then`-Methode für das Objekt auf, auf dem es aufgerufen wurde. Wenn `onFinally` keine Funktion ist, wird `then()` mit `onFinally` als beiden Argumenten aufgerufen – was für {{jsxref("Promise.prototype.then()")}} bedeutet, dass kein nützlicher Handler angefügt wird. Andernfalls wird `then()` mit zwei intern erstellten Funktionen aufgerufen, die sich wie folgt verhalten:
 
 > [!WARNING]
-> Dies dient nur Demonstrationszwecken und ist kein Polyfill.
+> Dies dient nur zu Demonstrationszwecken und ist kein Polyfill.
 
 ```js
 promise.then(
@@ -81,7 +80,7 @@ promise.then(
 );
 ```
 
-Da `finally()` `then()` aufruft, unterstützt es Subklassenbildung. Beachten Sie zudem den {{jsxref("Promise.resolve()")}}-Aufruf oben — tatsächlich wird der Rückgabewert von `onFinally()` mithilfe desselben Algorithmus aufgelöst wie `Promise.resolve()`. Allerdings wird der tatsächliche Konstruktor, der verwendet wird, um das aufgelöste Promise zu erstellen, die Subklasse sein. `finally()` erhält diesen Konstruktor durch [`promise.constructor[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Symbol.species).
+Da `finally()` `then()` aufruft, unterstützt es die Vererbung. Beachten Sie außerdem den {{jsxref("Promise.resolve()")}}-Aufruf oben – in Wirklichkeit wird der Rückgabewert von `onFinally()` mit dem gleichen Algorithmus wie `Promise.resolve()` aufgelöst, aber der tatsächliche Konstruktor, der verwendet wird, um das aufgelöste Promise zu konstruieren, wird die Unterklasse sein. `finally()` erhält diesen Konstruktor über [`promise.constructor[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Symbol.species).
 
 ## Beispiele
 
@@ -120,6 +119,7 @@ fetch(myRequest)
 ## Siehe auch
 
 - [Polyfill von `Promise.prototype.finally` in `core-js`](https://github.com/zloirock/core-js#ecmascript-promise)
+- [es-shims Polyfill von `Promise.prototype.finally`](https://www.npmjs.com/package/promise.prototype.finally)
 - {{jsxref("Promise")}}
 - {{jsxref("Promise.prototype.then()")}}
 - {{jsxref("Promise.prototype.catch()")}}

@@ -1,22 +1,22 @@
 ---
-title: "HTMLElement: command-Ereignis"
+title: "HTMLElement: `command`-Ereignis"
 slug: Web/API/HTMLElement/command_event
 l10n:
-  sourceCommit: 3556f7aca5478c222368dba8a7bd6a007898b36a
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
-{{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
+{{APIRef("Invoker Commands API")}}
 
-Das **`command`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle wird auf einem Element ausgelöst, das über einen [`button`](/de/docs/Web/API/HTMLButtonElement) mit gültigen Werten für [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) gesteuert wird, wann immer der Button interagiert wird (z.B. wenn er geklickt wird).
+Das **`command`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle wird auf einem Element ausgelöst, das über einen [`button`](/de/docs/Web/API/HTMLButtonElement) mit gültigen Werten für [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) gesteuert wird, wann immer mit dem Button interagiert wird (z.B. wenn er geklickt wird).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("command", (event) => {});
+```js-nolint
+addEventListener("command", (event) => { })
 
-oncommand = (event) => {};
+oncommand = (event) => { }
 ```
 
 ## Ereignistyp
@@ -32,7 +32,7 @@ Ein [`CommandEvent`](/de/docs/Web/API/CommandEvent). Erbt von [`Event`](/de/docs
 ```js
 const popover = document.getElementById("mypopover");
 
-// ...
+// …
 
 popover.addEventListener("command", (event) => {
   if (event.action === "show-popover") {
@@ -41,9 +41,9 @@ popover.addEventListener("command", (event) => {
 });
 ```
 
-### Ereignisverteilung und Abbruch
+### Ereignisauslösung und Abbruch
 
-Es ist erwähnenswert, dass `command`-Ereignisse auf dem Element ausgelöst werden, das aufgerufen wird. Wenn der Button geklickt wird, wird zuerst ein `click`-Ereignis ausgelöst, das, wenn es abgebrochen wird, dann das `command`-Ereignis nicht ausgelöst wird und das Standardverhalten nicht ausgeführt wird. Zusätzlich zur Stornierung des `click`-Ereignisses auf dem Button ist es auch möglich, das `command`-Ereignis abzubrechen.
+Es ist erwähnenswert, dass `command`-Ereignisse auf dem ausgelösten Element feuern. Wenn der Button angeklickt wird, wird zuerst ein `click`-Ereignis ausgelöst, das, falls es abgebrochen wird, das `command`-Ereignis nicht feuern lässt und das Standardverhalten nicht ausgeführt wird. Zusätzlich zum Abbrechen des `click`-Ereignisses auf dem Button ist es auch möglich, das `command`-Ereignis abzubrechen.
 
 Zum Beispiel:
 

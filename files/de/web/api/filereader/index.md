@@ -2,14 +2,14 @@
 title: FileReader
 slug: Web/API/FileReader
 l10n:
-  sourceCommit: 0e61c49a5ab5944376f4f2c90ae8df6feae26f11
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`FileReader`**-Interface ermöglicht es Webanwendungen, den Inhalt von Dateien (oder Rohdatenpuffer) asynchron zu lesen, die auf dem Computer des Benutzers gespeichert sind, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die Datei oder Daten zum Lesen anzugeben.
+Das **`FileReader`**-Interface ermöglicht Webanwendungen, den Inhalt von Dateien (oder rohen Datenpuffern), die auf dem Computer des Nutzers gespeichert sind, asynchron zu lesen. Dabei werden [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet, um die zu lesende Datei oder Daten anzugeben.
 
-Dateiobjekte können von einem [`FileList`](/de/docs/Web/API/FileList)-Objekt erhalten werden, das als Ergebnis der Auswahl von Dateien durch den Benutzer mit dem `<input type="file">`-Element oder aus einem [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt bei einem Drag-and-Drop-Vorgang zurückgegeben wird. `FileReader` kann nur auf den Inhalt von Dateien zugreifen, die der Benutzer explizit ausgewählt hat; es kann nicht verwendet werden, um eine Datei über den Pfadnamen vom Dateisystem des Benutzers zu lesen. Zum Lesen von Dateien im Dateisystem des Clients über den Pfadnamen verwenden Sie die [File System Access API](/de/docs/Web/API/File_System_API). Zum Lesen von serverseitigen Dateien verwenden Sie [`fetch()`](/de/docs/Web/API/Window/fetch) mit [CORS](/de/docs/Web/HTTP/CORS)-Berechtigung, wenn Sie über Cross-Origin lesen.
+Dateiobjekte können von einem [`FileList`](/de/docs/Web/API/FileList)-Objekt erhalten werden, das als Ergebnis der Auswahl von Dateien durch den Nutzer mit dem `<input type="file">`-Element oder durch das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt einer Drag-and-Drop-Operation zurückgegeben wird. `FileReader` kann nur auf den Inhalt von Dateien zugreifen, die der Nutzer explizit ausgewählt hat; es kann nicht verwendet werden, um eine Datei anhand des Pfades aus dem Dateisystem des Nutzers zu lesen. Um Dateien auf dem Dateisystem des Clients nach Pfad zu lesen, verwenden Sie die [File System Access API](/de/docs/Web/API/File_System_API). Um serverseitige Dateien zu lesen, verwenden Sie [`fetch()`](/de/docs/Web/API/Window/fetch) mit [CORS](/de/docs/Web/HTTP/Guides/CORS)-Berechtigung, wenn Sie domänenübergreifend lesen.
 
 {{InheritanceDiagram}}
 
@@ -26,42 +26,42 @@ Siehe [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Usin
   - : Ein [`DOMException`](/de/docs/Web/API/DOMException), das den Fehler darstellt, der beim Lesen der Datei aufgetreten ist.
 - [`FileReader.readyState`](/de/docs/Web/API/FileReader/readyState) {{ReadOnlyInline}}
 
-  - : Eine Zahl, die den Zustand des `FileReader` anzeigt. Dies ist einer der folgenden Werte:
+  - : Eine Zahl, die den Zustand des `FileReader` angibt. Dies ist einer der folgenden:
 
     | Name      | Wert | Beschreibung                                 |
     | --------- | ---- | -------------------------------------------- |
     | `EMPTY`   | `0`  | Es wurden noch keine Daten geladen.          |
-    | `LOADING` | `1`  | Daten werden gerade geladen.                 |
+    | `LOADING` | `1`  | Daten werden derzeit geladen.                |
     | `DONE`    | `2`  | Der gesamte Lesevorgang wurde abgeschlossen. |
 
 - [`FileReader.result`](/de/docs/Web/API/FileReader/result) {{ReadOnlyInline}}
-  - : Der Inhalt der Datei. Diese Eigenschaft ist nur gültig, nachdem der Lesevorgang abgeschlossen ist, und das Format der Daten hängt davon ab, welche der Methoden verwendet wurde, um den Lesevorgang zu starten.
+  - : Der Inhalt der Datei. Diese Eigenschaft ist nur gültig, nachdem der Lesevorgang abgeschlossen ist, und das Format der Daten hängt von der Methode ab, die verwendet wurde, um den Lesevorgang zu starten.
 
 ## Instanzmethoden
 
 - [`FileReader.abort()`](/de/docs/Web/API/FileReader/abort)
   - : Bricht den Lesevorgang ab. Nach der Rückkehr wird der `readyState` `DONE` sein.
 - [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer)
-  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut ein {{jsxref("ArrayBuffer")}}, das die Daten der Datei repräsentiert.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Sobald der Vorgang abgeschlossen ist, enthält das `result`-Attribut einen {{jsxref("ArrayBuffer")}}, das die Daten der Datei darstellt.
 - [`FileReader.readAsBinaryString()`](/de/docs/Web/API/FileReader/readAsBinaryString) {{deprecated_inline}}
-  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut die rohen Binärdaten der Datei als String.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Sobald der Vorgang abgeschlossen ist, enthält das `result`-Attribut die rohen binären Daten der Datei als String.
 - [`FileReader.readAsDataURL()`](/de/docs/Web/API/FileReader/readAsDataURL)
-  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut eine `data:`-URL, die die Daten der Datei repräsentiert.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Sobald der Vorgang abgeschlossen ist, enthält das `result`-Attribut eine `data:`-URL, die die Daten der Datei darstellt.
 - [`FileReader.readAsText()`](/de/docs/Web/API/FileReader/readAsText)
-  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Nach Abschluss enthält das `result`-Attribut den Inhalt der Datei als Textstring. Ein optionaler Codierungsname kann angegeben werden.
+  - : Beginnt mit dem Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob). Sobald der Vorgang abgeschlossen ist, enthält das `result`-Attribut den Inhalt der Datei als Textstring. Ein optionaler Codierungsname kann angegeben werden.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces. Entfernen Sie die Ereignis-Listener mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener), sobald `FileReader` nicht mehr verwendet wird, um Speicherlecks zu vermeiden.
+Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener auf die `oneventname`-Eigenschaft dieses Interfaces setzen. Entfernen Sie die Ereignis-Listener mit [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener), sobald `FileReader` nicht mehr verwendet wird, um Speicherlecks zu vermeiden.
 
 - [`abort`](/de/docs/Web/API/FileReader/abort_event)
-  - : Wird ausgelöst, wenn ein Lesevorgang abgebrochen wurde, zum Beispiel weil das Programm [`FileReader.abort()`](/de/docs/Web/API/FileReader/abort) aufgerufen hat.
+  - : Wird ausgelöst, wenn ein Lesevorgang abgebrochen wurde, weil beispielsweise das Programm [`FileReader.abort()`](/de/docs/Web/API/FileReader/abort) aufgerufen hat.
 - [`error`](/de/docs/Web/API/FileReader/error_event)
   - : Wird ausgelöst, wenn der Lesevorgang aufgrund eines Fehlers fehlgeschlagen ist.
 - [`load`](/de/docs/Web/API/FileReader/load_event)
   - : Wird ausgelöst, wenn ein Lesevorgang erfolgreich abgeschlossen wurde.
 - [`loadend`](/de/docs/Web/API/FileReader/loadend_event)
-  - : Wird ausgelöst, wenn ein Lesevorgang abgeschlossen wurde, unabhängig davon, ob erfolgreich oder nicht.
+  - : Wird ausgelöst, wenn ein Lesevorgang abgeschlossen ist, unabhängig davon, ob er erfolgreich war oder nicht.
 - [`loadstart`](/de/docs/Web/API/FileReader/loadstart_event)
   - : Wird ausgelöst, wenn ein Lesevorgang gestartet wurde.
 - [`progress`](/de/docs/Web/API/FileReader/progress_event)

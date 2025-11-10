@@ -1,30 +1,17 @@
 ---
-title: Verwendung von mehreren Hintergründen
+title: Verwendung mehrerer Hintergründe
 slug: Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds
 l10n:
-  sourceCommit: b64538dc77e9a6181b882bd54bdbb307c1430ba8
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-{{CSSRef}}
+Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste von Ihnen angegebene Hintergrund oben liegt und der letzte im Hintergrund. Nur der letzte Hintergrund kann eine Hintergrundfarbe enthalten.
 
-Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste angegebene Hintergrund oben liegt und der zuletzt angegebene Hintergrund im Hintergrund liegt. Nur der letzte Hintergrund kann eine Hintergrundfarbe enthalten.
-
-Das Definieren mehrerer Hintergründe ist einfach:
-
-```css
-.myclass {
-  background:
-    background1,
-    background2,
-    /* …, */ backgroundN;
-}
-```
-
-Sie können dies sowohl mit der Kurzform-Eigenschaft {{ cssxref("background") }} als auch mit den individuellen Eigenschaften tun, mit Ausnahme von {{ cssxref("background-color") }}. Das bedeutet, dass die folgenden Hintergrundeigenschaften als Liste angegeben werden können, eine pro Hintergrund: {{ cssxref("background") }}, {{ cssxref("background-attachment") }}, {{ cssxref("background-clip") }}, {{ cssxref("background-image") }}, {{ cssxref("background-origin") }}, {{ cssxref("background-position") }}, {{ cssxref("background-repeat") }}, {{ cssxref("background-size") }}.
+Mehrere Hintergründe werden als kommagetrennte Liste angegeben, zum Beispiel `background: background1, background2, ...;`. Diese Syntax wird sowohl von der Kurzform {{cssxref("background")}} als auch von den einzelnen Eigenschaften, außer {{cssxref("background-color")}}, akzeptiert: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}}, {{cssxref("background-repeat")}}, {{cssxref("background-size")}}.
 
 ## Beispiel
 
-In diesem Beispiel werden drei Hintergründe übereinandergestapelt: das Firefox-Logo, ein Bild mit Blasen und ein [lineares Farbverlauf](/de/docs/Web/CSS/gradient/linear-gradient):
+In diesem Beispiel werden drei Hintergründe geschichtet: das Firefox-Logo, ein Bild von Blasen und ein [linearer Gradient](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient):
 
 ### HTML
 
@@ -39,8 +26,8 @@ In diesem Beispiel werden drei Hintergründe übereinandergestapelt: das Firefox
   width: 100%;
   height: 400px;
   background-image:
-    url(firefox.png), url(bubbles.png),
-    linear-gradient(to right, rgb(30 75 115 / 100%), rgb(255 255 255 / 0%));
+    url("firefox.png"), url("bubbles.png"),
+    linear-gradient(to right, rgb(30 75 115 / 100%), transparent);
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position:
     bottom right,
@@ -53,9 +40,9 @@ In diesem Beispiel werden drei Hintergründe übereinandergestapelt: das Firefox
 
 {{EmbedLiveSample('Example','600','400')}}
 
-Wie Sie hier sehen können, befindet sich das Firefox-Logo (das zuerst innerhalb von {{ cssxref("background-image") }} aufgeführt wurde) oben, direkt über der Grafik mit den Blasen. Darunter folgt der Farbverlauf (zuletzt aufgeführt), der sich unterhalb aller vorhergehenden 'Bilder' befindet. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) wird auf die entsprechenden Hintergründe angewendet. Das bedeutet, dass der zuerst angegebene Wert für {{ cssxref("background-repeat") }} auf den ersten (vordersten) Hintergrund angewendet wird und so weiter.
+Wie Sie hier sehen können, befindet sich das Firefox-Logo (an erster Stelle innerhalb von {{ cssxref("background-image") }} aufgeführt) oben, direkt über der Blasengrafik, gefolgt von dem Farbverlauf (als letztes aufgeführt), der unter allen vorhergehenden 'Bildern' liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) gilt für die entsprechenden Hintergründe. Somit gilt der erste aufgeführte Wert von {{ cssxref("background-repeat") }} für den ersten (vordersten) Hintergrund und so weiter.
 
 ## Siehe auch
 
-- [CSS-Verläufe verwenden](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/Guides/Images/Using_gradients)
+- Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)

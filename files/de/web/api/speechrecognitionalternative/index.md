@@ -2,14 +2,14 @@
 title: SpeechRecognitionAlternative
 slug: Web/API/SpeechRecognitionAlternative
 l10n:
-  sourceCommit: 4ba12fec878a1f941492ada3edd467bfd76532cf
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}
 
 Die **`SpeechRecognitionAlternative`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert ein einzelnes Wort, das vom Spracherkennungsdienst erkannt wurde.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`SpeechRecognitionAlternative.transcript`](/de/docs/Web/API/SpeechRecognitionAlternative/transcript) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der das Transkript des erkannten Wortes enthält.
@@ -18,20 +18,11 @@ Die **`SpeechRecognitionAlternative`**-Schnittstelle der [Web Speech API](/de/do
 
 ## Beispiele
 
-Dieser Code stammt aus unserem
-[Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code ist aus unserem
+[Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
 
 ```js
 recognition.onresult = (event) => {
-  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
-  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
-  // It has a getter so it can be accessed like an array
-  // The first [0] returns the SpeechRecognitionResult at position 0.
-  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects
-  // that contain individual results.
-  // These also have getters so they can be accessed like arrays.
-  // The second [0] returns the SpeechRecognitionAlternative at position 0.
-  // We then return the transcript property of the SpeechRecognitionAlternative object
   const color = event.results[0][0].transcript;
   diagnostic.textContent = `Result received: ${color}.`;
   bg.style.backgroundColor = color;

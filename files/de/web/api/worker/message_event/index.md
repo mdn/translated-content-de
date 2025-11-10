@@ -1,25 +1,25 @@
 ---
-title: "Worker: message-Ereignis"
+title: "Worker: message Event"
 short-title: message
 slug: Web/API/Worker/message_event
 l10n:
-  sourceCommit: e6457c34ac16790d4e62bc9ba21e899ac560089c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `message`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn der übergeordnete Prozess des Workers eine Nachricht von seinem Worker erhält (d. h. wenn der Worker eine Nachricht mit [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
+Das `message`-Ereignis wird auf einem [`Worker`](/de/docs/Web/API/Worker)-Objekt ausgelöst, wenn die übergeordnete Instanz des Workers eine Nachricht von ihrem Worker erhält (d.h. wenn der Worker eine Nachricht mithilfe von [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) sendet).
 
-Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("message", (event) => {});
+```js-nolint
+addEventListener("message", (event) => { })
 
-onmessage = (event) => {};
+onmessage = (event) => { }
 ```
 
 ## Ereignistyp
@@ -33,19 +33,19 @@ Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die vom Nachrichtenemitter gesendeten Daten.
+  - : Die vom Nachrichtenemittenten gesendeten Daten.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenemitters darstellt.
+  - : Ein String, der den Ursprung des Nachrichtenemittenten darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (das ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtenemitter darstellt.
+  - : Eine `MessageEventSource` (die ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtenemittenten darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die mit dem Kanal verbundenen Ports darstellt, über den die Nachricht gesendet wird (wo zutreffend, z. B. beim Channel Messaging oder beim Senden einer Nachricht an einen geteilten Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal verbundenen Ports darstellen, über die die Nachricht gesendet wird (wo zutreffend, z. B. beim Kanal-Messaging oder beim Senden einer Nachricht an einen gemeinsamen Worker).
 
 ## Beispiele
 
-Dieser Code erstellt einen neuen Worker und lauscht Nachrichten von ihm unter Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
+Dieser Code erstellt einen neuen Worker und hört Nachrichten von ihm mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ab:
 
 ```js
 const worker = new Worker("static/scripts/worker.js");
@@ -55,7 +55,7 @@ worker.addEventListener("message", (event) => {
 });
 ```
 
-Alternativ könnte er über die `onmessage`-Ereignis-Handler-Eigenschaft lauschen:
+Alternativ könnte er mit der `onmessage`-Ereignis-Handler-Eigenschaft abgehört werden:
 
 ```js
 const worker = new Worker("static/scripts/worker.js");

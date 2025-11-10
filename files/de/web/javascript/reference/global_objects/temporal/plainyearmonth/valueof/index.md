@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainYearMonth.prototype.valueOf()
+short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/valueOf
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen wirft einen {{jsxref("TypeError")}}, was verhindert, dass `Temporal.PlainYearMonth`-Instanzen [implizit in primitive Werte umgewandelt](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) werden, wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
+Die **`valueOf()`**-Methode von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen löst einen {{jsxref("TypeError")}} aus, was verhindert, dass `Temporal.PlainYearMonth`-Instanzen bei Verwendung in arithmetischen oder Vergleichsoperationen [implizit in Primitive konvertiert](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) werden.
 
 ## Syntax
 
@@ -30,13 +31,13 @@ Keiner.
 
 ## Beschreibung
 
-Da sowohl die [primitive Umwandlung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) als auch die [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde ein Ausdruck wie `yearMonth1 > yearMonth2` sie, falls `valueOf()` fehlt, implizit als Strings vergleichen, was unerwartete Ergebnisse haben kann. Durch das Auslösen eines `TypeError` verhindern `Temporal.PlainYearMonth`-Instanzen solche impliziten Umwandlungen. Sie müssen sie ausdrücklich in Strings umwandeln, indem Sie {{jsxref("Temporal/PlainYearMonth/toString", "Temporal.PlainYearMonth.prototype.toString()")}} verwenden, oder die statische Methode {{jsxref("Temporal/PlainYearMonth/compare", "Temporal.PlainYearMonth.compare()")}} verwenden, um sie zu vergleichen.
+Da sowohl die [Primitive Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würden ohne `valueOf()` Ausdrücke wie `yearMonth1 > yearMonth2` die Objekte implizit als Strings vergleichen, was unerwartete Ergebnisse haben könnte. Indem ein `TypeError` ausgelöst wird, verhindern `Temporal.PlainYearMonth`-Instanzen solche impliziten Konvertierungen. Sie müssen sie explizit mithilfe von {{jsxref("Temporal/PlainYearMonth/toString", "Temporal.PlainYearMonth.prototype.toString()")}} in Strings konvertieren oder die statische Methode {{jsxref("Temporal/PlainYearMonth/compare", "Temporal.PlainYearMonth.compare()")}} verwenden, um sie zu vergleichen.
 
 ## Beispiele
 
 ### Arithmetische und Vergleichsoperationen auf Temporal.PlainYearMonth
 
-Alle arithmetischen und Vergleichsoperationen auf `Temporal.PlainYearMonth`-Instanzen sollten die dedizierten Methoden verwenden oder sie ausdrücklich in primitive Werte umwandeln.
+Alle arithmetischen und Vergleichsoperationen auf `Temporal.PlainYearMonth`-Instanzen sollten die dedizierten Methoden verwenden oder diese explizit in Primitive konvertieren.
 
 ```js
 const ym1 = Temporal.PlainYearMonth.from("2021-01");

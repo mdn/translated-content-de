@@ -2,43 +2,43 @@
 title: ScriptProcessorNode
 slug: Web/API/ScriptProcessorNode
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
-Das `ScriptProcessorNode`-Interface ermöglicht die Erzeugung, Verarbeitung oder Analyse von Audio mithilfe von JavaScript.
+Das `ScriptProcessorNode` Interface ermöglicht die Erzeugung, Verarbeitung oder Analyse von Audio mit JavaScript.
 
 {{InheritanceDiagram}}
 
 > [!NOTE]
-> Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und das [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Interface ersetzt.
+> Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und das [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) Interface ersetzt.
 
-Das `ScriptProcessorNode`-Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Audioprozessormodul, das mit zwei Puffern verbunden ist: einem mit den Eingabedaten und einem mit den verarbeiteten Ausgabedaten. Jedes Mal, wenn der Eingabepuffer neue Daten enthält, wird ein Ereignis, das das [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Interface implementiert, an das Objekt gesendet, und der Ereignishandler endet, wenn der Ausgabepuffer mit Daten gefüllt ist.
+Das `ScriptProcessorNode` Interface ist ein [`AudioNode`](/de/docs/Web/API/AudioNode) Audioverarbeitungsmodul, das mit zwei Puffern verbunden ist: einem, der die Eingangsaudiodaten enthält, und einem, der die verarbeiteten Ausgangsaudiodaten enthält. Jedes Mal, wenn der Eingangspuffer neue Daten enthält, wird ein Ereignis, das die [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent) Schnittstelle implementiert, an das Objekt gesendet, und der Ereignishandler endet, wenn der Ausgabepuffer mit Daten gefüllt ist.
 
-![Das ScriptProcessorNode speichert die Eingabe in einem Puffer, sendet das audioprocess-Ereignis. Der EventHandler nimmt den Eingabepuffer und füllt den Ausgabepuffer, der vom ScriptProcessorNode an die Ausgabe gesendet wird.](webaudioscriptprocessingnode.png)
+![Das ScriptProcessorNode speichert die Eingaben in einem Puffer, sendet das Audioprozess-Ereignis. Der EventHandler nimmt den Eingabepuffer und füllt den Ausgabepuffer, der vom ScriptProcessorNode an den Ausgang gesendet wird.](webaudioscriptprocessingnode.png)
 
-Die Größe der Ein- und Ausgabepuffer wird bei der Erstellung definiert, wenn die Methode [`BaseAudioContext.createScriptProcessor`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) aufgerufen wird (beide werden durch den `bufferSize`-Parameter von [`BaseAudioContext.createScriptProcessor`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert). Die Puffergröße muss eine Zweierpotenz zwischen `256` und `16384` sein, also `256`, `512`, `1024`, `2048`, `4096`, `8192` oder `16384`. Kleine Werte verringern die _Latenz_, aber große Werte können notwendig sein, um Audiounterbrechungen und -störungen zu vermeiden.
+Die Größe des Eingabe- und Ausgabepuffers wird bei der Erstellung festgelegt, wenn die Methode [`BaseAudioContext.createScriptProcessor`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) aufgerufen wird (beide werden durch den `bufferSize`-Parameter von [`BaseAudioContext.createScriptProcessor`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert). Die Puffergröße muss eine Potenz von 2 zwischen `256` und `16384` sein, also `256`, `512`, `1024`, `2048`, `4096`, `8192` oder `16384`. Kleine Zahlen verringern die _Latenz_, aber große Zahlen können notwendig sein, um Audiounterbrechungen und -aussetzer zu vermeiden.
 
-Wenn die Puffergröße nicht definiert ist, was empfohlen wird, wählt der Browser eine aus, die er nach seinen Heuristiken für geeignet hält.
+Wenn die Puffergröße nicht definiert ist, was empfohlen wird, wählt der Browser eine, die er für angemessen hält.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anzahl der Eingänge</th>
+      <th scope="row">Anzahl der Eingaben</th>
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Ausgänge</th>
+      <th scope="row">Anzahl der Ausgaben</th>
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahlmodus</th>
+      <th scope="row">Kanalzählmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
       <th scope="row">Kanalanzahl</th>
-      <td><code>2</code> (nicht im Standardanzahlmodus verwendet)</td>
+      <td><code>2</code> (im Standardzählmodus nicht verwendet)</td>
     </tr>
     <tr>
       <th scope="row">Kanalinterpretation</th>
@@ -47,23 +47,23 @@ Wenn die Puffergröße nicht definiert ist, was empfohlen wird, wählt der Brows
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 - [`ScriptProcessorNode.bufferSize`](/de/docs/Web/API/ScriptProcessorNode/bufferSize) {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Gibt einen ganzzahligen Wert zurück, der sowohl die Eingabe- als auch die Ausgabepuffergröße darstellt. Sein Wert kann eine Zweierpotenz im Bereich `256` – `16384` sein.
+  - : Gibt einen ganzzahligen Wert zurück, der sowohl die Eingabe- als auch die Ausgabe-Puffergröße darstellt. Sein Wert kann eine Potenz von 2 im Bereich `256` – `16384` sein.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-## Events
+## Ereignisse
 
-Verwenden Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder weisen Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zu:
+Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwacht werden oder indem ein Ereignislistener der `oneventname`-Eigenschaft dieses Interfaces zugewiesen wird:
 
 - [`audioprocess`](/de/docs/Web/API/ScriptProcessorNode/audioprocess_event) {{Deprecated_Inline}}
-  - : Wird ausgelöst, wenn ein Eingabepuffer eines `ScriptProcessorNode` bereit zur Verarbeitung ist.
+  - : Wird ausgelöst, wenn ein Eingabepuffer eines `ScriptProcessorNode` bereit zum Verarbeiten ist.
     Auch über die `onaudioprocess` Ereignishandler-Eigenschaft verfügbar.
 
 ## Beispiele
@@ -72,9 +72,7 @@ Siehe [`BaseAudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioCon
 
 ## Spezifikationen
 
-Seit der Veröffentlichung der [Web Audio API-Spezifikation](https://www.w3.org/TR/webaudio/#ScriptProcessorNode) am 29. August 2014 ist dieses Feature veraltet. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
-
-Es wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und das [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Interface ersetzt.
+{{Specifications}}
 
 ## Browser-Kompatibilität
 

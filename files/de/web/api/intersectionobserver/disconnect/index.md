@@ -1,14 +1,14 @@
 ---
-title: "IntersectionObserver: disconnect() Methode"
+title: "IntersectionObserver: disconnect()-Methode"
 short-title: disconnect()
 slug: Web/API/IntersectionObserver/disconnect
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: fe47429d64ffaacb24f5130523442aeaabf26ac6
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Methode **`disconnect()`** hört auf, alle ihre Zielelemente auf Sichtbarkeitsänderungen zu überwachen.
+Die **`disconnect()`**-Methode des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces beendet die Beobachtung aller ihrer Ziel-Elemente hinsichtlich Veränderungen der Sichtbarkeit.
 
 ## Syntax
 

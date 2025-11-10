@@ -3,12 +3,12 @@ title: "LaunchQueue: setConsumer() Methode"
 short-title: setConsumer()
 slug: Web/API/LaunchQueue/setConsumer
 l10n:
-  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die **`setConsumer()`** Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue) Schnittstelle wird verwendet, um den Callback zu deklarieren, der die benutzerdefinierte Navigationsbehandlung beim Start einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) behandelt. Solche benutzerdefinierten Navigationsvorgänge werden über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Manifest/Reference/launch_handler) `client_mode` Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
+Die **`setConsumer()`**-Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Schnittstelle wird verwendet, um den Callback zu deklarieren, der das benutzerdefinierte Startnavigations-Handling in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA) verarbeiten wird. Solch eine benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setConsumer(callback)
 ### Parameter
 
 - `callback`
-  - : Eine Callback-Funktion, die die benutzerdefinierte Navigation für die PWA behandelt. Dem Callback wird ein [`LaunchParams`](/de/docs/Web/API/LaunchParams) Objektinstanz als Parameter übergeben.
+  - : Eine Callback-Funktion, die die benutzerdefinierte Navigation für die PWA verarbeitet. Dem Callback wird ein [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objektinstanz als Parameter übergeben.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ if ("launchQueue" in window) {
       const track = params.get("track");
       if (track) {
         audio.src = track;
-        title.textContent = new URL(track).pathname.substr(1);
+        title.textContent = new URL(track).pathname.slice(1);
         audio.play();
       }
     }
@@ -55,6 +55,5 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Kontrolle darüber, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
-- [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

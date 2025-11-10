@@ -2,12 +2,10 @@
 title: declarativeNetRequest.onRuleMatchedDebug
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/onRuleMatchedDebug
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Wird ausgelöst, wenn eine Regel mit einer Anfrage übereinstimmt. Nur für Erweiterungen mit der Berechtigung `"declarativeNetRequestFeedback"` verfügbar, da dies nur für Debugging-Zwecke vorgesehen ist. Siehe [Testen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Details, wie das Testen in jedem Browser aktiviert wird.
+Wird ausgelöst, wenn eine Regel mit einer Anfrage übereinstimmt. Nur verfügbare Erweiterungen mit der Berechtigung `"declarativeNetRequestFeedback"`, da dies nur für Debugging-Zwecke vorgesehen ist. Siehe [Testen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Details dazu, wie das Testen in jedem Browser aktiviert wird.
 
 ## Syntax
 
@@ -20,43 +18,40 @@ browser.declarativeNetRequest.onRuleMatchedDebug.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Prüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn darauf gehört wird, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
-
     - `request`
-
       - : Ein Objekt, das Informationen über die Anfrage enthält, mit der die Regel übereinstimmte.
         - `documentId` {{optional_inline}}
-          - : Ein `string`. Die eindeutige Kennung für das Dokument des Frames, falls diese Anfrage für einen Frame ist.
+          - : Ein `string`. Der eindeutige Bezeichner für das Dokument des Rahmens, falls diese Anfrage für einen Rahmen ist.
         - `documentLifecycle` {{optional_inline}}
-          - : Ein `string`. Der Lebenszyklus des Dokuments des Frames, falls diese Anfrage für einen Frame ist. Mögliche Werte sind: `"prerender"`, `"active"`, `"cached"` oder `"pending_deletion"`.
+          - : Ein `string`. Der Lebenszyklus des Dokuments des Rahmens, falls diese Anfrage für einen Rahmen ist. Mögliche Werte sind: `"prerender"`, `"active"`, `"cached"`, oder `"pending_deletion"`.
         - `frameId`
-          - : Eine `number`. Der Wert `0` zeigt an, dass die Anfrage im Haupt-Frame erfolgt. Ein positiver Wert gibt die ID eines Subframes an, in dem die Anfrage erfolgt. Wenn das Dokument eines (Sub-)Frames geladen wird (Typ ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Frames an, nicht die ID des äußeren Frames. Frame-IDs sind innerhalb eines Tabs eindeutig.
+          - : Eine `number`. Der Wert `0` zeigt an, dass die Anfrage im Hauptframe erfolgt. Ein positiver Wert zeigt die ID eines Unterrahmens an, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Rahmens geladen wird (Typ ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Rahmens an, nicht die des äußeren Rahmens. Rahmen-IDs sind innerhalb eines Tabs einzigartig.
         - `frameType` {{optional_inline}}
-          - : Ein `string`. Der Typ des Frames, falls diese Anfrage für einen Frame ist. Mögliche Werte sind: `"outermost_frame"`, `"fenced_frame"` oder `"sub_frame"`.
+          - : Ein `string`. Der Typ des Rahmens, falls diese Anfrage für einen Rahmen ist. Mögliche Werte sind: `"outermost_frame"`, `"fenced_frame"`, oder `"sub_frame"`.
         - `initiator` {{optional_inline}}
-          - : Ein `string`. Der Ursprung, an dem die Anfrage initiiert wurde. Dies ändert sich nicht durch Umleitungen. Der String 'null' wird verwendet, wenn dies ein opaker Ursprung ist.
+          - : Ein `string`. Der Ursprung, von dem die Anfrage initiiert wurde. Dies ändert sich nicht durch Weiterleitungen. Der String 'null' wird verwendet, wenn es sich um einen opaken Ursprung handelt.
         - `method`
           - : Ein `string`. Eine standardmäßige HTTP-Methode.
         - `parentDocumentId` {{optional_inline}}
-          - : Ein `string`. Die eindeutige Kennung für das übergeordnete Dokument des Frames, falls diese Anfrage für einen Frame ist und ein übergeordnetes Dokument hat.
+          - : Ein `string`. Der eindeutige Bezeichner für das übergeordnete Dokument des Rahmens, wenn diese Anfrage für einen Rahmen ist und einen Eltern hat.
         - `parentFrameId`
-          - : Eine `number`. Die ID des Frames, der den Frame umschließt, der die Anfrage gesendet hat. Wird auf `-1` gesetzt, wenn kein übergeordneter Frame vorhanden ist.
+          - : Eine `number`. Die ID des Rahmens, der den Rahmen umfasst, der die Anfrage gesendet hat. Auf `-1` gesetzt, wenn es keinen Elternrahmen gibt.
         - `requestId`
-          - : Ein `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig.
+          - : Ein `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browsersitzung einzigartig.
         - `tabId`
-          - : Eine `number`. Die ID des Tabs, in dem die Anfrage stattfindet. Wird auf `-1` gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
+          - : Eine `number`. Die ID des Tabs, in dem die Anfrage stattfindet. Auf `-1` gesetzt, wenn die Anfrage nicht mit einem Tab in Zusammenhang steht.
         - `type`
           - : {{WebExtAPIRef("declarativeNetRequest.ResourceType", "ResourceType")}}. Der Ressourcentyp der Anfrage.
         - `url`
@@ -70,33 +65,3 @@ Ereignisse haben drei Funktionen:
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->

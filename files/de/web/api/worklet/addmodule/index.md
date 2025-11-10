@@ -3,14 +3,12 @@ title: "Worklet: addModule()-Methode"
 short-title: addModule()
 slug: Web/API/Worklet/addModule
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
 ---
 
 {{APIRef("Worklets")}}{{SecureContext_Header}}
 
-Die **`addModule()`**-Methode der
-[`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle lädt das Modul in der angegebenen JavaScript-Datei und
-fügt es dem aktuellen `Worklet` hinzu.
+Die **`addModule()`**-Methode der [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle lädt das Modul in der angegebenen JavaScript-Datei und fügt es dem aktuellen `Worklet` hinzu.
 
 ## Syntax
 
@@ -24,22 +22,18 @@ addModule(moduleURL, options)
 - `moduleURL`
   - : Ein {{jsxref("String")}}, der die URL einer JavaScript-Datei mit dem hinzuzufügenden Modul enthält.
 - `options` {{optional_inline}}
-
   - : Ein Objekt mit einer der folgenden Optionen:
-
     - `credentials`
-      - : Ein [`Request.credentials`](/de/docs/Web/API/Request/credentials)-Wert, der angibt, ob Anmeldedaten (z.B. Cookies und HTTP-Authentifizierung)
-        beim Laden des Moduls gesendet werden sollen. Kann einer der folgenden Werte sein: `"omit"`,
-        `"same-origin"` oder `"include"`. Standardmäßig auf
-        `"same-origin"` gesetzt. Siehe auch [`Request.credentials`](/de/docs/Web/API/Request/credentials).
+      - : Ein [`Request.credentials`](/de/docs/Web/API/Request/credentials)-Wert, der angibt, ob Anmeldeinformationen (z.B. Cookies und HTTP-Authentifizierung) beim Laden des Moduls gesendet werden sollen. Kann einer der Werte `"omit"`,
+        `"same-origin"` oder `"include"` sein. Standardmäßig auf `"same-origin"` gesetzt. Siehe auch [`Request.credentials`](/de/docs/Web/API/Request/credentials).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald das Modul von der angegebenen URL hinzugefügt wurde. Das Promise gibt keinen Wert zurück.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald das Modul von der angegebenen URL hinzugefügt wurde. Das Versprechen gibt keinen Wert zurück.
 
 ### Ausnahmen
 
-Falls `addModule()` fehlschlägt, lehnt es das Promise ab und übergibt einen der folgenden Fehler an den Ablehnungs-Handler.
+Wenn `addModule()` fehlschlägt, lehnt es das Versprechen ab und übergibt einen der folgenden Fehler an den Ablehnungshandler.
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das angegebene Skript ist ungültig oder konnte nicht geladen werden.
@@ -71,7 +65,7 @@ Sobald das Skript zum [paint worklet](/de/docs/Web/API/CSS/paintWorklet_static) 
 ```css
 @supports (background-image: paint(id)) {
   h1 {
-    background-image: paint(hollowHighlights, filled, 3px);
+    background-image: paint(hollow-highlights, filled, 3px);
   }
 }
 ```

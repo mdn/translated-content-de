@@ -1,23 +1,24 @@
 ---
-title: "Node: cloneNode()-Methode"
+title: "Node: cloneNode() Methode"
 short-title: cloneNode()
 slug: Web/API/Node/cloneNode
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`cloneNode()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces
-gibt ein Duplikat des Knotens zurück, auf dem diese Methode aufgerufen wurde.
-Ihr Parameter steuert, ob der in einem Knoten enthaltene Unterbaum ebenfalls geklont wird oder nicht.
+Die **`cloneNode()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
+gibt duplizierten Knoten zurück, auf dem diese Methode aufgerufen wurde.
+Ihr Parameter steuert, ob der in einem Knoten enthaltene Teilbaum ebenfalls dupliziert wird oder nicht.
 
 Das Klonen eines Knotens kopiert alle seine Attribute und deren Werte,
-einschließlich intrinsischer (inline) Listener. Es kopiert _nicht_ die mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)
-hinzugefügten Ereignis-Listener oder solche, die Eigenschaften eines Elements zugewiesen sind (z. B. `node.onclick = someFunction`).
-Darüber hinaus wird bei einem {{HTMLElement("canvas")}}-Element das gemalte Bild nicht kopiert.
+einschließlich der intrinsischen (inline) Listener. Es kopiert _nicht_ die mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügten Event-Listener oder
+diejenigen, die den Eigenschaften des Elements zugewiesen sind (z.B. `node.onclick = someFunction`).
+Zusätzlich wird bei einem {{HTMLElement("canvas")}}-Element das gemalte Bild nicht kopiert.
 
-> **Warning:** `cloneNode()` kann zu doppelten Element-IDs in einem Dokument führen!
+> [!WARNING]
+> `cloneNode()` kann zu doppelten Element-IDs in einem Dokument führen!
 >
 > Wenn der ursprüngliche Knoten ein `id`-Attribut hat und der Klon
 > im selben Dokument platziert wird, sollten Sie die ID des Klons ändern, um
@@ -27,7 +28,7 @@ Darüber hinaus wird bei einem {{HTMLElement("canvas")}}-Element das gemalte Bil
 > je nachdem, ob doppelte Namen erwartet werden.
 
 Um einen Knoten zu klonen, der in ein _anderes_ Dokument eingefügt werden soll, verwenden Sie
-stattdessen [`Document.importNode()`](/de/docs/Web/API/Document/importNode).
+[`Document.importNode()`](/de/docs/Web/API/Document/importNode).
 
 ## Syntax
 
@@ -39,16 +40,15 @@ cloneNode(deep)
 ### Parameter
 
 - `deep` {{optional_inline}}
-
-  - : Wenn `true`, wird der Knoten und sein gesamter Unterbaum,
-    einschließlich des Textes, der in untergeordneten [`Text`](/de/docs/Web/API/Text)-Knoten enthalten sein kann,
+  - : Wenn `true`, werden der Knoten und sein gesamter Teilbaum,
+    einschließlich Text, der sich in den untergeordneten [`Text`](/de/docs/Web/API/Text)-Knoten befinden kann,
     ebenfalls kopiert.
 
-    Wenn `false`, wird nur der Knoten geklont.
-    Der Unterbaum, einschließlich jeglichen Textes, den der Knoten enthält, wird nicht geklont.
+    Wenn `false` oder weggelassen, wird nur der Knoten geklont.
+    Der Teilbaum, einschließlich jeglichem Text, den der Knoten enthält, wird nicht geklont.
 
-    Beachten Sie, dass `deep` keinen Einfluss auf {{Glossary("void_element", "void elements")}} hat,
-    wie die {{HTMLElement("img")}}- und {{HTMLElement("input")}}-Elemente.
+    Beachten Sie, dass `deep` keine Wirkung auf {{Glossary("void_element", "void elements")}},
+    wie die {{HTMLElement("img")}}- und {{HTMLElement("input")}}-Elemente hat.
 
 ### Rückgabewert
 
@@ -60,8 +60,8 @@ unter Verwendung von [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) o
 ## Beispiel
 
 ```js
-let p = document.getElementById("para1");
-let p_prime = p.cloneNode(true);
+const p = document.getElementById("para1");
+const p2 = p.cloneNode(true);
 ```
 
 ## Spezifikationen

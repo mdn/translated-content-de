@@ -2,10 +2,8 @@
 title: action.getUserSettings()
 slug: Mozilla/Add-ons/WebExtensions/API/action/getUserSettings
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ruft die vom Benutzer angegebenen Einstellungen für die Browser-Aktion ab.
 
@@ -22,22 +20,20 @@ let userSettings = await browser.action.getUserSettings();
 
 ### Parameter
 
-Diese Funktion erfordert keine Parameter.
+Diese Funktion nimmt keine Parameter.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches folgende Eigenschaften besitzt:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das folgende Eigenschaften enthält:
 
 - `userSettings`
-
-  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion enthält, mit folgenden Eigenschaften:
-
+  - : Ein Objekt, das die vom Benutzer spezifizierten Einstellungen für die Browser-Aktion mit folgenden Eigenschaften enthält:
     - `isOnToolbar` {{optional_inline}}
-      - : `boolean`. Gibt an, ob der Benutzer das Symbol der Aktion in der Browser-Benutzeroberfläche angeheftet hat. Diese Einstellung zeigt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Benutzeroberfläche ab.
+      - : `boolean`. Ob der Benutzer das Aktionssymbol an die Browseroberfläche angeheftet hat. Diese Einstellung zeigt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browseroberfläche ab.
 
 ## Beispiele
 
-Dieser Code protokolliert eine Nachricht, die anzeigt, ob die Aktion angeheftet ist oder nicht:
+Dieser Code protokolliert eine Nachricht, die angibt, ob die Aktion angeheftet ist oder nicht:
 
 ```js
 function gotSettings(userSettings) {
@@ -59,4 +55,4 @@ gettingUserSettings.then(gotSettings);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getUserSettings) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getUserSettings) API.

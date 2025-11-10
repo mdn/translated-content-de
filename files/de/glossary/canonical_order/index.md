@@ -2,14 +2,12 @@
 title: Kanonische Reihenfolge
 slug: Glossary/Canonical_order
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+In CSS wird der Begriff **kanonische Reihenfolge** verwendet, um die Reihenfolge zu beschreiben, in der separate Werte angegeben (oder {{Glossary("parse", "geparst")}}) werden müssen oder als Teil eines CSS-Eigenschaftswertes {{Glossary("serialization", "serialisiert")}} werden. Diese Reihenfolge wird durch die formale {{Glossary("syntax", "Syntax")}} der Eigenschaft definiert und bezieht sich normalerweise auf die Reihenfolge, in der Langformwerte als Teil eines einzigen Kurzformwertes angegeben werden sollten.
 
-In CSS bezieht sich die **kanonische Reihenfolge** auf die Reihenfolge, in der separate Werte spezifiziert (oder {{Glossary("parse", "geparst")}}) werden müssen oder als Teil eines CSS-Property-Werts {{Glossary("serialization", "serialisiert")}} werden. Sie wird durch die formale {{Glossary("syntax", "Syntax")}} der Eigenschaft definiert und bezieht sich normalerweise auf die Reihenfolge, in der Langform-Werte als Teil eines einzigen Kurzform-Werts spezifiziert werden sollten.
-
-Zum Beispiel bestehen die Werte der Kurzform-Eigenschaft {{cssxref("background")}} aus mehreren `background-*` Langform-Eigenschaften. Die kanonische Reihenfolge dieser Langform-Werte ist definiert als
+Zum Beispiel bestehen Werte der Kurzformeigenschaft {{cssxref("background")}} aus mehreren Langformeigenschaften `background-*`. Die kanonische Reihenfolge dieser Langformwerte ist definiert als:
 
 1. {{cssxref("background-image")}}
 2. {{cssxref("background-position")}}
@@ -20,9 +18,9 @@ Zum Beispiel bestehen die Werte der Kurzform-Eigenschaft {{cssxref("background")
 7. {{cssxref("background-clip")}}
 8. {{cssxref("background-color")}}
 
-Darüber hinaus definiert die Syntax, dass, wenn ein Wert für {{cssxref("background-size")}} angegeben wird, dieser **nach** dem Wert für {{cssxref("background-position")}} angegeben werden **muss**, getrennt durch einen Schrägstrich. Andere Werte können in beliebiger Reihenfolge erscheinen.
+Darüber hinaus definiert seine Syntax, dass, wenn ein Wert für {{cssxref("background-size")}} angegeben wird, dieser **nach** dem Wert für {{cssxref("background-position")}} angegeben sein **muss**, getrennt durch einen Schrägstrich. Andere Werte können in beliebiger Reihenfolge erscheinen.
 
 ## Siehe auch
 
-- [CSS-Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [Was bedeutet "kanonische Reihenfolge" im Hinblick auf CSS-Eigenschaften?](https://stackoverflow.com/questions/28963536/what-does-canonical-order-mean-with-respect-to-css-properties) auf Stack Overflow bietet eine nützliche weiterführende Diskussion.
+- [CSS-Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
+- [Was bedeutet "kanonische Reihenfolge" im Hinblick auf CSS-Eigenschaften?](https://stackoverflow.com/questions/28963536/what-does-canonical-order-mean-with-respect-to-css-properties) auf Stack Overflow bietet eine nützliche weitere Diskussion.

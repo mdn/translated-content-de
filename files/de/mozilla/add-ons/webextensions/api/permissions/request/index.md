@@ -2,22 +2,20 @@
 title: permissions.request()
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/request
 l10n:
-  sourceCommit: 509fa54c6dd5ff8c4719a3a7db45917a68718765
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Fordert den Benutzer auf, die im {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgeführten Berechtigungen zu erteilen.
 
-Fordert den Benutzer auf, die im {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgelisteten Berechtigungen zu erteilen.
+Das `Permissions`-Argument kann eine `origins`-Eigenschaft enthalten, ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), eine `permissions`-Eigenschaft, ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions), oder beides.
 
-Das `Permissions`-Argument kann eine `origins`-Eigenschaft, ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), eine `permissions`-Eigenschaft, ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) oder beides enthalten.
+Angeforderte Berechtigungen müssen im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) manifest.json-Schlüssel definiert sein. Die `origins`-Eigenschaft kann Berechtigungen enthalten, die mit einer Teilmenge der Hosts übereinstimmen, die durch eine optionale Berechtigung abgedeckt sind. Zum Beispiel, wenn `optional_permissions` `"*://mozilla.org/"` enthalten, dann kann `permissions.origins` `"https://developer.mozilla.org/"` enthalten.
 
-Angeforderte Berechtigungen müssen im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions)-Schlüssel der manifest.json definiert sein. Die `origins`-Eigenschaft kann Berechtigungen enthalten, die mit einem Unterabschnitt der Hosts übereinstimmen, die von einer optionalen Berechtigung abgedeckt werden. Zum Beispiel, wenn `optional_permissions` `"*://mozilla.org/"` enthält, dann kann `permissions.origins` `"https://developer.mozilla.org/"` enthalten.
+Anfragen für [nur-optionale Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions#optional-only_permissions) können keine anderen optionalen Berechtigungen beinhalten.
 
-Anfragen für [ausschließlich optionale Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions#optional-only_permissions) dürfen keine anderen optionalen Berechtigungen enthalten.
+Die Anfrage kann nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) gestellt werden. Wenn nicht alle angeforderten Berechtigungen stillschweigend gewährt werden, fragt der Browser den Benutzer, ob die angeforderten Berechtigungen gewährt werden sollen. Eine Anfrage wird für alle angeforderten Berechtigungen gestellt: Entweder werden alle Berechtigungen gewährt oder keine.
 
-Die Anfrage kann nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) gestellt werden. Es sei denn, alle angeforderten Berechtigungen sind solche, die stillschweigend gewährt werden, fragt der Browser den Benutzer, ob die angeforderten Berechtigungen gewährt werden sollen. Eine Anfrage wird für alle angeforderten Berechtigungen gestellt: Entweder werden alle Berechtigungen gewährt oder keine.
-
-Die Erweiterung behält alle gewährten Berechtigungen, selbst bei Upgrades sowie Deaktivierungs- und Aktivierungszyklen.
+Die Erweiterung behält alle gewährten Berechtigungen bei, selbst über Updates und Deaktivierungs- und Aktivierungszyklen hinweg.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -36,15 +34,11 @@ let requesting = browser.permissions.request(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn der Erweiterung die im `permissions`-Argument genannten Berechtigungen gewährt werden, oder andernfalls `false`.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn der Erweiterung die im `permissions`-Argument aufgeführten Berechtigungen gewährt wurden, oder andernfalls `false`.
 
 ## Beispiele
 
-Dieser Code fügt einen Klick-Handler hinzu, der verschiedene Berechtigungen anfragt, dann das Ergebnis der Anfrage und die Berechtigungen der Erweiterung nach Abschluss der Anfrage protokolliert.
+Dieser Code fügt einen Klick-Handler hinzu, der nach verschiedenen Berechtigungen fragt und dann das Ergebnis der Anfrage und die Berechtigungen der Erweiterung nach Abschluss der Anfrage protokolliert.
 
 ```js
 const permissionsToRequest = {
@@ -74,6 +68,10 @@ document
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions)-API von Chromium.

@@ -1,15 +1,13 @@
 ---
-title: Objektreferenz
+title: Objektverweis
 slug: Glossary/Object_reference
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Ein **Objektverweis** ist ein Link zu einem _{{Glossary("object", "Objekt")}}_. Objektverweise können genau wie die verlinkten Objekte verwendet werden.
 
-Eine **Objektreferenz** ist ein Link zu einem _{{Glossary("object", "Objekt")}}_. Objektreferenzen können genau wie die verknüpften Objekte verwendet werden.
-
-Das Konzept der Objektreferenzen wird deutlich, wenn dasselbe Objekt mehr als einer _{{Glossary("property/javascript", "Eigenschaft")}}_ zugewiesen wird. Anstatt eine Kopie des Objekts zu speichern, hält jede zugewiesene Eigenschaft Objektreferenzen, die auf dasselbe Objekt verweisen, sodass bei einer Änderung des Objekts alle Eigenschaften, die auf das Objekt verweisen, die Änderung widerspiegeln.
+Das Konzept der Objektverweise wird klar, wenn dasselbe Objekt mehr als einer _{{Glossary("property/javascript", "Eigenschaft")}}_ zugewiesen wird. Anstatt eine Kopie des Objekts zu halten, hält jede zugewiesene Eigenschaft Objektverweise, die auf dasselbe Objekt verlinken, sodass alle Eigenschaften, die auf das Objekt verweisen, die Änderung widerspiegeln, wenn sich das Objekt ändert.
 
 ## Siehe auch
 

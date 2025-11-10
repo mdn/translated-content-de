@@ -1,13 +1,12 @@
 ---
 title: Intl.NumberFormat.prototype.formatRange()
+short-title: formatRange()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRange
 l10n:
-  sourceCommit: 21c2a7fa64659b6d56c3404edac193fd84ebda20
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`formatRange()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen formatiert einen Zahlenbereich gemäß den lokalen und Formatierungsoptionen dieses `Intl.NumberFormat` Objekts.
+Die **`formatRange()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen formatiert einen Zahlenbereich gemäß den lokalen und den Formatierungsoptionen dieses `Intl.NumberFormat` Objekts.
 
 ## Syntax
 
@@ -18,13 +17,13 @@ formatRange(startRange, endRange)
 ### Parameter
 
 - `startRange`
-  - : Eine {{jsxref("Number")}}, ein {{jsxref("BigInt")}}, oder ein String, der formatiert werden soll. Strings werden auf die gleiche Weise wie bei der [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) geparst, mit dem Unterschied, dass `formatRange()` den genauen Wert verwendet, den der String darstellt, um einen Genauigkeitsverlust während der impliziten Umwandlung in eine Zahl zu vermeiden.
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, um formatiert zu werden. Strings werden auf die gleiche Weise wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) analysiert, mit der Ausnahme, dass `formatRange()` den exakten Wert verwendet, den der String darstellt, um Präzisionsverluste bei der impliziten Umwandlung in eine Zahl zu vermeiden.
 - `endRange`
-  - : Eine {{jsxref("Number")}}, ein {{jsxref("BigInt")}}, oder ein String, der formatiert werden soll.
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder ein String, um formatiert zu werden.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Zahlenbereich darstellt, formatiert gemäß den lokalen und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts.
+Ein String, der den angegebenen Bereich von Zahlen darstellt, formatiert gemäß den lokalen und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts. Wenn die Start- und Endwerte zum gleichen String formatiert werden, enthält die Ausgabe nur einen einzigen Wert, möglicherweise mit einem "ungefähr gleich"-Symbol (z. B. "~$3") vorangestellt. Die Einfügung dieses Symbols hängt ausschließlich von den lokalen Einstellungen ab und wird auch eingefügt, wenn `startRange === endRange`.
 
 ### Ausnahmen
 
@@ -35,13 +34,13 @@ Ein String, der den angegebenen Zahlenbereich darstellt, formatiert gemäß den 
 
 ## Beschreibung
 
-Die `formatRange` Getter-Funktion formatiert einen Zahlenbereich in einen String gemäß den lokalen und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts, von dem er aufgerufen wird.
+Die `formatRange` Getter-Funktion formatiert einen Bereich von Zahlen zu einem String gemäß den lokalen und den Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}} Objekts, von dem sie aufgerufen wird.
 
 ## Beispiele
 
 ### Verwendung von formatRange
 
-Verwenden Sie die `formatRange` Getter-Funktion zur Formatierung eines Bereichs von Währungswerten:
+Verwenden Sie die `formatRange` Getter-Funktion, um einen Bereich von Währungswerten zu formatieren:
 
 ```js
 const nf = new Intl.NumberFormat("en-US", {

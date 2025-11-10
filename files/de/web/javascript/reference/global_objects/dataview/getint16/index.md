@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.getInt16()
+short-title: getInt16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getInt16
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getInt16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset gelesen werden.
 
-Die **`getInt16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem gültigen Offset innerhalb der Grenzen abgerufen werden.
-
-{{InteractiveExample("JavaScript Demo: DataView.getInt16()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.getInt16()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -32,18 +31,18 @@ getInt16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, von dem der Anfang der Ansicht aus die Daten gelesen werden.
+  - : Der Offset in Bytes vom Beginn der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
   - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein Ganzzahlwert im Bereich von -32768 bis 32767, einschließlich.
+Eine Ganzzahl von -32768 bis 32767, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so festgelegt ist, dass es über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 
@@ -65,7 +64,7 @@ console.log(dataview.getInt16(1)); // 258
 
 ## Siehe auch
 
-- [Leitfaden: JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Int16Array")}}

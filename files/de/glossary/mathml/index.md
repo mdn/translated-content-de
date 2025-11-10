@@ -2,10 +2,8 @@
 title: MathML
 slug: Glossary/MathML
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 **MathML** (eine {{Glossary("XML", "XML")}}-Anwendung) ist ein offener Standard zur Darstellung mathematischer Ausdrücke auf Webseiten. Im Jahr 1998 empfahl das W3C erstmals MathML zur Darstellung mathematischer Ausdrücke im {{Glossary("browser", "Browser")}}. MathML hat auch andere Anwendungen, einschließlich wissenschaftlicher Inhalte und Sprachsynthese.
 
@@ -13,5 +11,5 @@ l10n:
 
 - [MathML](https://en.wikipedia.org/wiki/MathML) auf Wikipedia
 - [MathML](/de/docs/Web/MathML)
-- [Verfassen von MathML](/de/docs/Web/MathML/Authoring)
+- [MathML verfassen](/de/docs/Web/MathML/Guides/Authoring)
 - [Was ist MathML](https://www.w3.org/Math/whatIsMathML.html)

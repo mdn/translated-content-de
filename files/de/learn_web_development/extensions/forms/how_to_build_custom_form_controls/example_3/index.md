@@ -2,10 +2,8 @@
 title: Beispiel 3
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_3
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
-
-{{LearnSidebar}}
 
 Dies ist das dritte Beispiel, das erklärt, [wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
 
@@ -79,19 +77,18 @@ Dies ist das dritte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 
 .select {
   font-size: 0.625em; /* 10px */
-  font-family: Verdana, Arial, sans-serif;
+  font-family: "Verdana", "Arial", sans-serif;
 
   box-sizing: border-box;
 
   padding: 0.1em 2.5em 0.2em 0.5em; /* 1px 25px 2px 5px */
   width: 10em; /* 100px */
 
-  border: 0.2em solid #000; /* 2px */
+  border: 0.2em solid black; /* 2px */
   border-radius: 0.4em; /* 4px */
 
   box-shadow: 0 0.1em 0.2em rgb(0 0 0 / 45%); /* 0 1px 2px */
 
-  background: #f0f0f0;
   background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0);
 }
 
@@ -120,11 +117,11 @@ Dies ist das dritte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 
   text-align: center;
 
-  border-left: 0.2em solid #000;
+  border-left: 0.2em solid black;
   border-radius: 0 0.1em 0.1em 0;
 
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
 }
 
 .select .optList {
@@ -135,7 +132,7 @@ Dies ist das dritte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
   padding: 0;
 
   background: #f0f0f0;
-  border: 0.2em solid #000;
+  border: 0.2em solid black;
   border-top-width: 0.1em;
   border-radius: 0 0 0.4em 0.4em;
 
@@ -154,8 +151,8 @@ Dies ist das dritte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 }
 
 .select .highlight {
-  background: #000;
-  color: #ffffff;
+  background: black;
+  color: white;
 }
 ```
 
@@ -202,42 +199,38 @@ function highlightOption(select, option) {
 // Event binding //
 // ------------- //
 
-window.addEventListener("load", () => {
-  const form = document.querySelector("form");
+const form = document.querySelector("form");
 
-  form.classList.remove("no-widget");
-  form.classList.add("widget");
-});
+form.classList.remove("no-widget");
+form.classList.add("widget");
 
-window.addEventListener("load", () => {
-  const selectList = document.querySelectorAll(".select");
+const selectList = document.querySelectorAll(".select");
 
-  selectList.forEach((select) => {
-    const optionList = select.querySelectorAll(".option");
+selectList.forEach((select) => {
+  const optionList = select.querySelectorAll(".option");
 
-    optionList.forEach((option) => {
-      option.addEventListener("mouseover", () => {
-        highlightOption(select, option);
-      });
+  optionList.forEach((option) => {
+    option.addEventListener("mouseover", () => {
+      highlightOption(select, option);
     });
+  });
 
-    select.addEventListener("click", (event) => {
-      toggleOptList(select);
-    });
+  select.addEventListener("click", (event) => {
+    toggleOptList(select);
+  });
 
-    select.addEventListener("focus", (event) => {
-      activeSelect(select, selectList);
-    });
+  select.addEventListener("focus", (event) => {
+    activeSelect(select, selectList);
+  });
 
-    select.addEventListener("blur", (event) => {
+  select.addEventListener("blur", (event) => {
+    deactivateSelect(select);
+  });
+
+  select.addEventListener("keyup", (event) => {
+    if (event.key === "Escape") {
       deactivateSelect(select);
-    });
-
-    select.addEventListener("keyup", (event) => {
-      if (event.key === "Escape") {
-        deactivateSelect(select);
-      }
-    });
+    }
   });
 });
 ```

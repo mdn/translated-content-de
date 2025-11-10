@@ -2,12 +2,10 @@
 title: history.addUrl()
 slug: Mozilla/Add-ons/WebExtensions/API/history/addUrl
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Fügt dem Browserverlauf einen Eintrag für den Besuch der angegebenen URL hinzu. Die Besuchszeit wird als die Zeit des Aufrufs protokolliert, und der {{WebExtAPIRef("history.TransitionType", "TransitionType")}} wird als "link" aufgezeichnet.
+Fügt dem Verlauf des Browsers einen Eintrag für einen Besuch der angegebenen URL hinzu. Die Besuchszeit wird als Zeitpunkt des Aufrufs aufgezeichnet, und der {{WebExtAPIRef("history.TransitionType", "TransitionType")}} wird als "link" aufgezeichnet.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,29 +20,23 @@ let addingUrl = browser.history.addUrl(
 ### Parameter
 
 - `details`
-
   - : `object`. Objekt, das die hinzuzufügende URL enthält.
-
     - `url`
       - : `string`. Die hinzuzufügende URL.
     - `title` {{optional_inline}}
-      - : string: Der Titel der Seite. Wenn dieser nicht angegeben wird, wird der Titel als `null` aufgezeichnet.
+      - : string: Der Titel der Seite. Wenn dies nicht angegeben wird, wird der Titel als `null` aufgezeichnet.
     - `transition` {{optional_inline}}
-      - : {{WebExtAPIRef("history.TransitionType")}}. Beschreibt, wie der Browser bei dieser Gelegenheit zu der Seite navigiert ist. Wenn dies nicht angegeben wird, wird ein Übergangstyp von "link" aufgezeichnet.
+      - : {{WebExtAPIRef("history.TransitionType")}}. Beschreibt, wie der Browser zu dieser Gelegenheit zur Seite navigiert hat. Wenn dies nicht angegeben wird, wird ein Übergangstyp von "link" aufgezeichnet.
     - `visitTime` {{optional_inline}}
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, eine [ISO 8601 Datumszeichenfolge](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit der Epoche dargestellt werden. Legt die Besuchszeit auf diesen Wert fest. Wenn dies nicht angegeben wird, wird die aktuelle Zeit aufgezeichnet.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Zeit angibt. Dies kann wie folgt dargestellt werden: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt, ein [ISO 8601-Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der Millisekunden seit der Epoche. Setzt die Besuchszeit auf diesen Wert. Wenn dies nicht angegeben wird, wird die aktuelle Zeit aufgezeichnet.
 
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird ohne Parameter erfüllt, wenn das Element hinzugefügt wurde.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Fügen Sie einen Eintrag für einen Besuch zu "https\://example.org/" hinzu und überprüfen Sie dann, ob der neue Besuch protokolliert wurde, indem Sie den Verlauf nach dem neuesten Element durchsuchen und es protokollieren:
+Fügen Sie einen Eintrag für einen Besuch bei "https\://example.org/" hinzu und überprüfen Sie dann, ob der neue Besuch aufgezeichnet wurde, indem Sie den Verlauf nach dem aktuellsten Element durchsuchen und es protokollieren:
 
 ```js
 function onGot(results) {
@@ -66,7 +58,7 @@ browser.history
   .then(onGot);
 ```
 
-Fügen Sie einen Eintrag für einen Besuch zu "https\://example.org" hinzu, geben Sie jedoch eine `visitTime` 24 Stunden in der Vergangenheit und einen `transition` von "typed" an:
+Fügen Sie einen Eintrag für einen Besuch bei "https\://example.org" hinzu, aber geben Sie eine `visitTime` 24 Stunden in der Vergangenheit und einen `transition` von "typed" an:
 
 ```js
 const DAY = 24 * 60 * 60 * 1000;
@@ -98,8 +90,12 @@ browser.history
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-addUrl) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-addUrl) API von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

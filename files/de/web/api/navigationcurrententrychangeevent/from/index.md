@@ -3,12 +3,12 @@ title: "NavigationCurrentEntryChangeEvent: from-Eigenschaft"
 short-title: from
 slug: Web/API/NavigationCurrentEntryChangeEvent/from
 l10n:
-  sourceCommit: df3316c2c702c57514bfd8daba389765464ea653
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`from`** der [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent)-Schnittstelle gibt das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem aus navigiert wurde.
+Die **`from`** schreibgeschützte Eigenschaft des [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent)-Interface gibt den [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem navigiert wurde.
 
 ## Wert
 
@@ -32,6 +32,5 @@ navigation.addEventListener("currententrychange", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

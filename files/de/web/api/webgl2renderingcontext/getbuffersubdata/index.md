@@ -1,16 +1,14 @@
 ---
-title: "WebGL2RenderingContext: getBufferSubData()-Methode"
+title: "WebGL2RenderingContext: getBufferSubData() Methode"
 short-title: getBufferSubData()
 slug: Web/API/WebGL2RenderingContext/getBufferSubData
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.getBufferSubData()`**-Methode des
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) liest Daten von einem Buffer-Bindepunkt und schreibt sie in einen {{jsxref("ArrayBuffer")}} oder
-{{jsxref("SharedArrayBuffer")}}.
+Die **`WebGL2RenderingContext.getBufferSubData()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) liest Daten von einem Pufferbindungspunkt und schreibt sie in einen {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}.
 
 ## Syntax
 
@@ -24,34 +22,32 @@ getBufferSubData(target, srcByteOffset, dstData, dstOffset, length)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (target) angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
     - `gl.ARRAY_BUFFER`
-      - : Buffer, der Vertex-Attribute enthält, wie z. B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
+      - : Puffer, der Scheitelpunktattribute enthält, wie zum Beispiel Scheitelpunktkoordinaten, Texturkoordinatendaten oder Scheitelpunktfarbdaten.
     - `gl.ELEMENT_ARRAY_BUFFER`
-      - : Buffer, der für Element-Indizes verwendet wird.
+      - : Puffer, der für Elementindizes verwendet wird.
     - `gl.COPY_READ_BUFFER`
-      - : Buffer zum Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
     - `gl.COPY_WRITE_BUFFER`
-      - : Buffer zum Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
-      - : Buffer für Transform-Feedback-Operationen.
+      - : Puffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Buffer, der zur Speicherung von Uniform-Blöcken verwendet wird.
+      - : Puffer zum Speichern von Uniformblöcken.
     - `gl.PIXEL_PACK_BUFFER`
-      - : Buffer, der für Pixelübertragungsoperationen verwendet wird.
+      - : Puffer, der für Pixeltransferoperationen verwendet wird.
     - `gl.PIXEL_UNPACK_BUFFER`
-      - : Buffer, der für Pixelübertragungsoperationen verwendet wird.
+      - : Puffer, der für Pixeltransferoperationen verwendet wird.
 
 - `srcByteOffset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Byte-Offset angibt, ab dem aus dem Buffer gelesen werden soll.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), das den Byteversatz angibt, von dem aus mit dem Lesen aus dem Puffer begonnen wird.
 - `dstData`
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, in das die Daten kopiert werden. Wenn `dstData` ein
-    {{jsxref("DataView")}} ist, werden `dstOffset` und `length` in Bytes interpretiert, andernfalls wird der Elementtyp von `dstData` verwendet.
+  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, in das die Daten kopiert werden. Wenn `dstData` ein {{jsxref("DataView")}} ist, werden `dstOffset` und `length` in Bytes interpretiert, ansonsten wird der Elementtyp von `dstData` verwendet.
 - `dstOffset` {{optional_inline}}
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Elementindex-Offset angibt, ab dem in `dstData` geschrieben werden soll.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Elementindex-Versatz angibt, an dem begonnen wird, in `dstData` zu schreiben.
 - `length` {{optional_inline}}
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu kopierenden Elemente angibt. Wenn dies 0 ist oder nicht angegeben wird, kopiert `getBufferSubData` bis zum Ende von `dstData`.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu kopierenden Elemente angibt. Wenn dieser Wert 0 ist oder nicht angegeben wird, kopiert `getBufferSubData` bis zum Ende von `dstData`.
 
 ### Rückgabewert
 
@@ -61,13 +57,13 @@ Keiner ({{jsxref("undefined")}}).
 
 Ein `INVALID_VALUE`-Fehler wird generiert, wenn:
 
-- `offset` + `returnedData.byteLength` über das Ende des Buffers hinausgehen würde.
-- `returnedData` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist.
+- `offset` + `returnedData.byteLength` über das Ende des Puffers hinausgehen würde
+- `returnedData` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist
 - `offset` kleiner als null ist.
 
 Ein `INVALID_OPERATION`-Fehler wird generiert, wenn:
 
-- null an `target` gebunden ist.
+- null an `target` gebunden ist
 - `target` `TRANSFORM_FEEDBACK_BUFFER` ist und ein Transform-Feedback-Objekt derzeit aktiv ist.
 
 ## Beispiele

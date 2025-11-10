@@ -1,15 +1,13 @@
 ---
-title: "SyntaxError: 'arguments'/'eval' können im Strict-Mode-Code nicht definiert oder zugewiesen werden"
+title: "SyntaxError: 'arguments'/'eval' kann nicht definiert oder zugewiesen werden im Strict-Modus-Code"
 slug: Web/JavaScript/Reference/Errors/Bad_strict_arguments_eval
 l10n:
-  sourceCommit: ffeb9c97ea22867374910842fee6b2a5836a6ee6
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die Ausnahme im JavaScript-[Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) "'arguments' kann im Strict-Modus-Code nicht definiert oder zugewiesen werden" oder "'eval' kann im Strict-Modus-Code nicht definiert oder zugewiesen werden" tritt auf, wenn versucht wird, eine {{Glossary("binding", "Bindung")}} mit dem Namen `arguments` oder `eval` zu erstellen oder einem solchen Namen etwas zuzuweisen.
 
-Die JavaScript-[Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-nur-Ausnahme "'arguments' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" oder "'eval' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" tritt auf, wenn versucht wird, eine {{Glossary("binding", "Bindung")}} namens `arguments` oder `eval` zu erstellen oder einem solchen Namen etwas zuzuweisen.
-
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Unexpected eval or arguments in strict mode (V8-based)
@@ -21,13 +19,13 @@ SyntaxError: Cannot declare a catch variable named 'arguments' in strict mode. (
 SyntaxError: 'arguments' is not a valid function name in strict mode. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Im Strict-Mode verhalten sich die Namen {{jsxref("Functions/arguments", "arguments")}} und {{jsxref("Global_Objects/eval", "eval")}} so, als ob sie [reservierte Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) wären: Sie können nicht bewirken, dass sie auf etwas anderes als das `arguments`-Objekt in Funktionen oder die globale `eval`-Funktion verweisen.
+Im Strict-Modus verhalten sich die Namen {{jsxref("Functions/arguments", "arguments")}} und {{jsxref("Global_Objects/eval", "eval")}} als wären sie [reservierte Wörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words): Sie können nicht auf etwas anderes als das `arguments`-Objekt in Funktionen oder die globale `eval`-Funktion verweisen.
 
 ## Beispiele
 
@@ -59,6 +57,6 @@ function foo(...args) {
 
 ## Siehe auch
 
-- [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
 - {{jsxref("Functions/arguments", "arguments")}}
 - {{jsxref("Global_Objects/eval", "eval()")}}

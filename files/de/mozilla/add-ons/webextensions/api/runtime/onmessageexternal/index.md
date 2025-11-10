@@ -2,25 +2,23 @@
 title: runtime.onMessageExternal
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/onMessageExternal
 l10n:
-  sourceCommit: 73654599ba40ad5c0de8e2fa06ec354734203ad5
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Verwenden Sie dieses Ereignis, um auf Nachrichten von anderen Erweiterungen oder Webseiten zu hören.
 
-Verwenden Sie dieses Ereignis, um Nachrichten von anderen Erweiterungen oder Webseiten zu empfangen.
+Standardmäßig kann eine Erweiterung Nachrichten von beliebigen anderen Erweiterungen empfangen. Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable) Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken und die Kommunikation mit Websites zu ermöglichen.
 
-Standardmäßig kann eine Erweiterung Nachrichten von jeder anderen Erweiterung empfangen. Der [`externally_connectable`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/externally_connectable)-Manifest-Schlüssel kann jedoch verwendet werden, um die Kommunikation auf bestimmte Erweiterungen zu beschränken und die Kommunikation mit Webseiten zu ermöglichen.
+Um eine Nachricht zu senden, die vom `onMessageExternal`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.sendMessage()")}} und übergeben die ID des Empfängers im `extensionId`-Parameter.
 
-Um eine Nachricht zu senden, die vom `onMessageExternal`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.sendMessage()")}}, wobei die ID des Empfängers in der `extensionId`-Parameter übergeben wird.
+Zusammen mit der Nachricht erhält der Listener:
 
-Zusammen mit der Nachricht erhält der Listener folgende Parameter:
-
-- ein `sender`-Objekt mit Details über den Absender der Nachricht.
-- eine `sendResponse`-Funktion, die der Listener verwenden kann, um eine Antwort an den Absender zu senden.
+- ein `sender` Objekt mit Details über den Absender der Nachricht.
+- eine `sendResponse` Funktion, die der Listener verwenden kann, um eine Antwort an den Absender zurückzusenden.
 
 Diese API kann nicht in einem Content-Skript verwendet werden.
 
-Weitere Informationen zum Empfangen von Nachrichten und zum Senden von Antworten sowie Beispiele für die verschiedenen Möglichkeiten, Antworten zu senden, finden Sie unter {{WebExtAPIRef("runtime.onMessage")}}.
+Siehe {{WebExtAPIRef("runtime.onMessage")}} für zusätzliche Informationen zum Empfangen von Nachrichten und Senden von Antworten sowie Beispiele für die verschiedenen Optionen zum Senden von Antworten.
 
 ## Syntax
 
@@ -33,39 +31,35 @@ browser.runtime.onMessageExternal.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er registriert ist, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält folgende Argumente:
-
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
     - `message`
       - : `object`. Die Nachricht. Dies ist ein JSON-serialisierbares Objekt.
     - `sender`
-      - : Ein {{WebExtAPIRef('runtime.MessageSender')}}-Objekt, das den Absender der Nachricht repräsentiert.
+      - : Ein {{WebExtAPIRef('runtime.MessageSender')}} Objekt, das den Absender der Nachricht repräsentiert.
     - `sendResponse`
+      - : Eine Funktion, die höchstens einmal aufgerufen werden kann, um eine Antwort auf die Nachricht zu senden. Die Funktion nimmt ein Argument, das ein JSON-serialisierbares Objekt ist. Dieses Argument wird an den Absender der Nachricht zurückgesendet.
 
-      - : Eine Funktion, die höchstens einmal aufgerufen werden kann, um eine Antwort auf die Nachricht zu senden. Die Funktion nimmt ein Argument an, das ein JSON-serialisierbares Objekt ist. Dieses Argument wird an den Absender der Nachricht zurückgegeben.
+        Wenn Sie mehr als einen `onMessageExternal` Listener im selben Dokument haben, kann nur einer eine Antwort senden.
 
-        Falls Sie mehr als einen `onMessageExternal`-Listener im selben Dokument haben, kann nur einer eine Antwort senden.
+        Um eine Antwort synchron zu senden, rufen Sie `sendResponse()` auf, bevor die Listener-Funktion zurückkehrt.
 
-        Um eine Antwort synchron zu senden, rufen Sie `sendResponse()` auf, bevor die Listener-Funktion zurückgibt.
-
-        Um eine Antwort asynchron zu senden, verwenden Sie eine der folgenden Optionen:
-
-        - Geben Sie ein {{jsxref("Promise")}} von der Listener-Funktion zurück und lösen Sie das Promise, wenn die Antwort bereit ist. Dies ist der bevorzugte Ansatz.
-        - Behalten Sie eine Referenz auf das Argument `sendResponse()` und geben Sie `true` von der Listener-Funktion zurück. Sie rufen `sendResponse()` auf, nachdem die Listener-Funktion zurückgegeben hat.
+        Um eine Antwort asynchron zu senden, verwenden Sie eine dieser Optionen:
+        - Geben Sie ein {{jsxref("Promise")}} von der Listener-Funktion zurück und lösen Sie das Promise auf, wenn die Antwort bereit ist. Dies ist der bevorzugte Ansatz.
+        - Behalten Sie eine Referenz auf das `sendResponse()`-Argument und geben Sie `true` von der Listener-Funktion zurück. Sie rufen dann `sendResponse()` auf, nachdem die Listener-Funktion zurückgekehrt ist.
 
           > [!NOTE]
-          > Ein `Promise` als Rückgabewert wird in Chrome erst unterstützt, wenn [Chrome Bug 1185241](https://crbug.com/1185241) gelöst ist. Alternativ geben Sie `true` zurück und verwenden `sendResponse` [wie unter `runtime.onMessage` beschrieben](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_sendresponse).
+          > Promise als Rückgabewert wird in Chrome nicht unterstützt, bis [Chrome Bug 1185241](https://crbug.com/1185241) gelöst ist. Als Alternative geben Sie `true` zurück und verwenden `sendResponse` [wie für `runtime.onMessage` beschrieben](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sending_an_asynchronous_response_using_sendresponse).
 
 ## Beispiele
 
@@ -98,7 +92,7 @@ browser.runtime.onMessageExternal.addListener(handleMessage);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onMessageExternal)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onMessageExternal) API. Diese Dokumentation ist von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -2,15 +2,13 @@
 title: Block (CSS)
 slug: Glossary/Block/CSS
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+Ein **Block** auf einer Webseite ist ein {{Glossary("HTML", "HTML")}}-{{Glossary("element", "Element")}}, das in einem horizontalen Schreibmodus in einer neuen Zeile erscheint, d.h. unter dem vorhergehenden Element und über dem folgenden Element (allgemein bekannt als _Block-Level-Element_). Zum Beispiel ist {{htmlelement("p")}} standardmäßig ein Block-Level-Element, während {{htmlelement("a")}} ein _Inline-Element_ ist — Sie können mehrere Links nebeneinander in Ihrem HTML-Quellcode platzieren, und sie werden im gerenderten Ergebnis auf derselben Zeile angezeigt.
 
-Ein **Block** auf einer Webseite ist ein {{Glossary("HTML", "HTML")}}-{{Glossary("element", "Element")}}, das in einem horizontalen Schreibmodus in einer neuen Zeile erscheint, d.h. unter dem vorhergehenden Element und oberhalb des folgenden Elements (häufig bekannt als _Block-Element_). Zum Beispiel ist `<p>` standardmäßig ein Block-Element, während `<a>` ein _Inline-Element_ ist — Sie können mehrere Links nebeneinander in Ihrer HTML-Quelle platzieren, und sie werden in der gerenderten Ausgabe auf derselben Zeile angezeigt.
-
-Mit der {{cssxref("display")}}-Eigenschaft können Sie ändern, ob ein Element inline oder als Block angezeigt wird (neben vielen anderen Optionen); **Blöcke** unterliegen auch den Effekten von Positionierungsschemata und der Verwendung der {{cssxref("position")}}-Eigenschaft.
+Mit der {{cssxref("display")}}-Eigenschaft können Sie ändern, ob ein Element inline oder als Block angezeigt wird (neben vielen anderen Optionen); **Blocks** unterliegen auch den Effekten von Positionierungsschemata und der Verwendung der {{cssxref("position")}}-Eigenschaft.
 
 ## Siehe auch
 
-- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
+- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)

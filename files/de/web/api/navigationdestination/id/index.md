@@ -3,18 +3,18 @@ title: "NavigationDestination: id-Eigenschaft"
 short-title: id
 slug: Web/API/NavigationDestination/id
 l10n:
-  sourceCommit: ac7f942ac73066dcf643f02f8b9f969ccf547220
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`id`**-Eigenschaft der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt den [`id`](/de/docs/Web/API/NavigationHistoryEntry/id)-Wert des Ziel-`NavigationHistoryEntry` zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String ansonsten.
+Die **`id`**-Eigenschaft der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt den [`id`](/de/docs/Web/API/NavigationHistoryEntry/id)-Wert des Ziel-`NavigationHistoryEntry` zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder einen leeren String, andernfalls.
 
-Die `id` ist ein einzigartiger, vom User-Agent generierter Wert, der immer den Verlaufseintrag darstellt. Sie ist nützlich, um einen Verlaufseintrag mit einer externen Ressource wie einem Speicher-Cache zu verknüpfen.
+Die `id` ist ein eindeutiger, vom Benutzeragent generierter Wert, der immer den Verlaufseintrag darstellt und nützlich ist, um einen Verlaufseintrag mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
 
 ## Wert
 
-Ein String, der die `id` des Ziel-`NavigationHistoryEntry` darstellt, oder ein leerer String.
+Ein String, der die `id` des Ziel-`NavigationHistoryEntry` repräsentiert, oder ein leerer String.
 
 ## Beispiele
 
@@ -34,6 +34,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

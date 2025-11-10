@@ -1,16 +1,16 @@
 ---
-title: "SVGRadialGradientElement: r-Eigenschaft"
+title: "SVGRadialGradientElement: r Eigenschaft"
 short-title: r
 slug: Web/API/SVGRadialGradientElement/r
 l10n:
-  sourceCommit: 40279617fd5bb8ab277d10bbf3637bfc3aa2b991
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`r`**-Eigenschaft der [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Schnittstelle beschreibt die Größe des Radius des radialen Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("r")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
+Die **`r`** schreibgeschützte Eigenschaft der [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Schnittstelle beschreibt den Radius des radialen Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("r")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder eine [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist der Radius des radialen Gradienten im Benutzersystemkoordinaten.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist der Radius des radialen Gradienten im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Angenommen, das folgende SVG:
+Basierend auf dem folgenden SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

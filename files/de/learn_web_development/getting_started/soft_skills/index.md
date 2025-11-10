@@ -2,33 +2,26 @@
 title: Soft Skills
 slug: Learn_web_development/Getting_started/Soft_skills
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites", "Learn_web_development/Getting_started/Soft_skills/Research_and_learning", "Learn_web_development/Getting_started")}}
 
-Dieses Modul bietet Empfehlungen zu Soft Skills, die Sie während des Lernens der Webentwicklung verbessern können und die gute Eigenschaften darstellen, wenn Sie in die Branche einsteigen. Sie werden Ihnen immens helfen, die richtige Einstellung zum Lernen, Recherchieren und Zusammenarbeiten zu entwickeln und erhöhen die Chancen, eingestellt zu werden.
+Dieses Modul bietet Empfehlungen für Soft Skills, die Sie während des Lernens von Webentwicklung verbessern können und die gute Eigenschaften darstellen, wenn man in die Branche einsteigt. Sie helfen immens dabei, die richtigen Einstellungen für das Lernen, Recherchieren und Zusammenarbeiten zu entwickeln und erhöhen die Chancen, eingestellt zu werden.
 
 ## Voraussetzungen
 
-Dieses Modul ist hauptsächlich theoretisch und setzt kein spezifisches praktisches Wissen über Webtechnologien voraus. Wir empfehlen Ihnen jedoch, die vorhergehenden Module der Reihe nach durchzuarbeiten, bevor Sie sich diesem widmen.
+Dieses Modul ist hauptsächlich theoretisch und setzt kein spezifisches praktisches Wissen über Webtechnologien voraus. Wir empfehlen jedoch, die vorhergehenden Module in Reihenfolge zu bearbeiten, bevor Sie dieses Modul angehen.
 
 ## Tutorials
 
-- [Forschung und Lernen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Research_and_learning)
-  - : Es gibt viel zu wissen als Webentwickler, und Sie lernen ständig. Aber wie finden Sie heraus, was Sie am effektivsten wissen müssen? Dieser Artikel bietet nützliche Tipps zur Recherche und zum Lernen.
+- [Recherche und Lernen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Research_and_learning)
+  - : Als Webentwickler gibt es viel zu wissen, und Sie lernen ständig dazu. Aber wie finden Sie am effektivsten heraus, was Sie wissen müssen? Dieser Artikel bietet nützliche Tipps zu Recherche und Lernen.
 - [Zusammenarbeit und Teamarbeit](/de/docs/Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork)
-  - : Als Profi in der Webbranche müssen Sie in verschiedenen Phasen eines Projekts mit anderen Menschen zusammenarbeiten — Ideen entwickeln, Vorschläge schreiben, Code implementieren und mehr. Dieser Artikel beleuchtet, wie man effektiv mit anderen zusammenarbeitet.
-- [Arbeitsabläufe und Prozesse](/de/docs/Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes)
-  - : Anfänger konzentrieren sich oft auf spezifische einzelne Aspekte der Technologie, übersehen aber das größere Bild eines gesamten Projekts. Dieser Artikel bietet einige dieser kontextuellen Einblicke auf höherer Ebene.
-- [Erfolg bei Vorstellungsgesprächen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Job_interviews)
-  - : Technische Bewerbungsgespräche können sehr anspruchsvoll sein, und einige haben ziemlich spezifische Anforderungen. Die passenden Jobs, für die man sich überhaupt bewerben sollte, zu finden, kann herausfordernd sein! Dieser Artikel bietet einige Tipps und Ressourcen zur Unterstützung.
-
-## Siehe auch
-
-- [Lernen und Hilfe bekommen](/de/docs/Learn_web_development/Getting_started/Soft_skills/Learning_and_getting_help)
-  - : Dieser Artikel bietet einige Hinweise und Tipps, die Ihnen helfen, mehr aus dem Erlernen der Webentwicklung herauszuholen, sowie weiterführende Literatur, damit Sie weitere Informationen zu jedem Unterthema finden können, wenn Sie möchten.
+  - : Als Fachkraft in der Webbranche müssen Sie in mehreren Phasen mit anderen Personen an Projekten arbeiten – Ideen entwickeln, Vorschläge schreiben, Code implementieren und mehr. Dieser Artikel beleuchtet, wie man mit anderen zusammenarbeitet.
+- [Workflows und Prozesse](/de/docs/Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes)
+  - : Anfänger konzentrieren sich oft auf spezifische individuelle Aspekte der Technologie, übersehen jedoch das größere Bild eines gesamten Projekts. Dieser Artikel bietet einen Teil dieses umfassenden Kontexts.
+- [Einen Job finden](/de/docs/Learn_web_development/Getting_started/Soft_skills/Finding_a_job)
+  - : Technische Vorstellungsgespräche können sehr anspruchsvoll sein, und einige haben recht spezifische Anforderungen. Schon die richtigen Jobs zu finden, auf die man sich bewerben sollte, kann herausfordernd sein! Dieser Artikel bietet einige Tipps und Ressourcen, um den Prozess von der Jobsuche und Bewerbung bis zum Erfolg in Vorstellungsgesprächen zu unterstützen.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites", "Learn_web_development/Getting_started/Soft_skills/Research_and_learning", "Learn_web_development/Getting_started")}}

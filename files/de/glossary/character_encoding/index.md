@@ -1,23 +1,21 @@
 ---
-title: Character encoding
+title: Zeichencodierung
 slug: Glossary/Character_encoding
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Die **Zeichencodierung** definiert eine Zuordnung zwischen Bytes und Text. Eine Byte-Sequenz kann verschiedene textuelle Interpretationen ermöglichen. Durch die Angabe einer bestimmten Codierung (wie UTF-8) legen wir fest, wie die Byte-Sequenz interpretiert werden soll.
 
-**Zeichenkodierung** definiert eine Zuordnung zwischen Bytes und Text. Eine Bytefolge kann unterschiedliche textuelle Interpretationen ermöglichen. Indem wir eine bestimmte Kodierung angeben (wie UTF-8), legen wir fest, wie die Bytefolge interpretiert werden soll.
-
-Zum Beispiel deklarieren wir in HTML normalerweise eine Zeichenkodierung von UTF-8, indem wir die folgende Zeile verwenden:
+Zum Beispiel deklarieren wir in HTML normalerweise eine Zeichencodierung von UTF-8 mit der folgenden Zeile:
 
 ```html
 <meta charset="utf-8" />
 ```
 
-Dies stellt sicher, dass Sie Zeichen aus nahezu jeder menschlichen Sprache in Ihrem HTML-Dokument verwenden können und sie zuverlässig angezeigt werden.
+Dies stellt sicher, dass Sie Zeichen aus nahezu jeder menschlichen Sprache in Ihrem HTML-Dokument verwenden können und diese zuverlässig angezeigt werden.
 
 ## Siehe auch
 
-- [Zeichenkodierung auf W3C](https://www.w3.org/International/articles/definitions-characters/)
-- [Character encoding](https://en.wikipedia.org/wiki/Character_encoding) auf Wikipedia
+- [Zeichencodierung bei W3C](https://www.w3.org/International/articles/definitions-characters/)
+- [Zeichencodierung](https://en.wikipedia.org/wiki/Character_encoding) auf Wikipedia

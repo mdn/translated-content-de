@@ -3,25 +3,25 @@ title: "HTMLMediaElement: timeupdate Ereignis"
 short-title: timeupdate
 slug: Web/API/HTMLMediaElement/timeupdate_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `timeupdate` Ereignis wird ausgelöst, wenn die durch das `currentTime` Attribut angegebene Zeit aktualisiert wurde.
+Das `timeupdate`-Ereignis wird ausgelöst, wenn die durch das `currentTime`-Attribut angegebene Zeit aktualisiert wurde.
 
-Die Häufigkeit des Ereignisses hängt von der Systemlast ab, wird jedoch zwischen etwa 4Hz und 66Hz ausgelöst (vorausgesetzt, die Ereignishandler benötigen nicht länger als 250ms zur Ausführung). Es wird empfohlen, dass Benutzeragenten die Frequenz des Ereignisses abhängig von der Systemlast und den durchschnittlichen Kosten der Ereignisverarbeitung jedes Mal variieren, sodass die UI-Aktualisierungen nicht häufiger erfolgen, als es der Benutzeragent beim Dekodieren des Videos bequem handhaben kann.
+Die Ereignisfrequenz hängt von der Systemlast ab, liegt jedoch zwischen etwa 4Hz und 66Hz (vorausgesetzt, die Event-Handler benötigen nicht länger als 250ms zum Ausführen). Es wird empfohlen, dass Benutzeragenten die Frequenz des Ereignisses basierend auf der Systemlast und den durchschnittlichen Kosten der Verarbeitung des Ereignisses jedes Mal variieren, damit die Benutzeroberfläche nicht häufiger aktualisiert wird, als der Benutzeragent beim Dekodieren des Videos problemlos bewältigen kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht gebubbelt.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("timeupdate", (event) => {});
+```js-nolint
+addEventListener("timeupdate", (event) => { })
 
-ontimeupdate = (event) => {};
+ontimeupdate = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `timeupdate` Ereignis des HTMLMediaElement hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Erscheinen des Ereignisses reagiert hat. Denken Sie daran, dass die Frequenz des Ereignisses von der Systemlast abhängt.
+Diese Beispiele fügen einen Event-Listener für das `timeupdate`-Ereignis von HTMLMediaElement hinzu und senden anschließend eine Nachricht, wenn dieser Event-Handler auf das Auslösen des Ereignisses reagiert hat. Denken Sie daran, die Ereignisfrequenz hängt von der Systemlast ab.
 
 Verwendung von `addEventListener()`:
 
@@ -42,7 +42,7 @@ video.addEventListener("timeupdate", (event) => {
 });
 ```
 
-Verwendung der `ontimeupdate` Event-Handler-Eigenschaft:
+Verwendung der `ontimeupdate`-Event-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");

@@ -1,24 +1,22 @@
 ---
-title: Type
+title: Typ
 slug: Glossary/Type
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Typ** ist eine Eigenschaft eines {{Glossary("value", "Werts")}}, die beeinflusst, welche Art von Daten er speichern kann und welcher Struktur die Daten folgen werden. Zum Beispiel kann ein {{Glossary("boolean", "boolean")}}-[Datentyp](/de/docs/Web/JavaScript/Guide/Data_structures) zu jedem Zeitpunkt nur einen `true`- oder `false`-Wert halten, während ein {{Glossary("string", "string")}} die Fähigkeit hat, eine Zeichenkette oder eine Abfolge von Zeichen zu halten, eine {{Glossary("number", "number")}} kann numerische Werte jeglicher Art halten, und so weiter.
 
-**Type** ist eine Eigenschaft eines {{Glossary("value", "Wertes")}}, die beeinflusst, welche Art von Daten er speichern kann und welcher Struktur die Daten folgen werden. Zum Beispiel kann ein {{Glossary("boolean", "Boolean")}} [Datentyp](/de/docs/Web/JavaScript/Data_structures) immer nur entweder den Wert `true` oder `false` halten, während ein {{Glossary("string", "String")}} die Fähigkeit hat, eine Zeichenkette oder eine Sequenz von Zeichen zu halten, ein {{Glossary("number", "Number")}} kann numerische Werte jeder Art halten, und so weiter.
+Der Datentyp eines Werts beeinflusst auch die Operationen, die auf diesem Wert gültig sind. Zum Beispiel kann ein Wert vom Typ Zahl mit einer anderen Zahl multipliziert werden, aber nicht mit einem String, selbst wenn dieser String _nur_ eine Zahl enthält, wie der String "2".
 
-Der Datentyp eines Wertes beeinflusst auch die Operationen, die auf diesen Wert gültig sind. Zum Beispiel kann ein Wert vom Typ Number mit einer weiteren Zahl multipliziert werden, jedoch nicht mit einem String - selbst wenn dieser String _nur_ eine Zahl enthält, wie beispielsweise der String "2".
+Typen bieten uns auch nützliches Wissen über den Vergleich zwischen verschiedenen Werten. Der Vergleich zwischen strukturierten Typen ist nicht immer einfach zu vermuten, da selbst wenn die vorherige Datenstruktur gleich ist, es innerhalb der [Prototyp-Kette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) geerbte Strukturen geben könnte.
 
-Typen geben uns auch nützliche Informationen über den Vergleich zwischen verschiedenen Werten. Der Vergleich zwischen strukturierten Typen ist nicht immer eine einfache Annahme, da selbst wenn die vorherige Datenstruktur gleich ist, es innerhalb der [Prototyp-Kette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) geerbte Strukturen geben könnte.
-
-Wenn Sie sich über den Typ eines Wertes nicht sicher sind, können Sie den [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operator verwenden.
+Wenn Sie sich über den Typ eines Werts unsicher sind, können Sie den [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operator verwenden.
 
 ## Siehe auch
 
 - [Datentyp](https://en.wikipedia.org/wiki/Data_type) auf Wikipedia
-- [JavaScript-Datentypen](/de/docs/Web/JavaScript/Data_structures)
+- [JavaScript-Datentypen](/de/docs/Web/JavaScript/Guide/Data_structures)
 - Verwandte Glossarbegriffe:
   - {{Glossary("JavaScript", "JavaScript")}}
   - {{Glossary("string", "string")}}

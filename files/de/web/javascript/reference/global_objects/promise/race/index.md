@@ -1,13 +1,12 @@
 ---
 title: Promise.race()
+short-title: race()
 slug: Web/JavaScript/Reference/Global_Objects/Promise/race
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Promise.race()`** nimmt ein iterierbares Objekt von Promises als Eingabe und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise übernimmt den endgültigen Status des ersten Promise, das abgeschlossen wird.
+Die **`Promise.race()`** statische Methode nimmt ein iterierbares Objekt von Promises als Eingabe und gibt ein einzelnes {{jsxref("Promise")}} zurück. Dieses zurückgegebene Promise nimmt den endgültigen Zustand des ersten Promise an, das sich erledigt.
 
 {{InteractiveExample("JavaScript Demo: Promise.race()", "taller")}}
 
@@ -40,28 +39,28 @@ Promise.race(iterable)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das **asynchron abgeschlossen** wird mit dem endgültigen Status des ersten Promises im `iterable`, das sich abschließt. Das bedeutet, es wird erfüllt, wenn das erste Promise, das sich schließt, erfüllt ist, und abgelehnt, wenn das erste Promise, das sich schließt, abgelehnt wird. Das zurückgegebene Promise bleibt für immer ausstehend, wenn das übergebene `iterable` leer ist. Wenn das übergebene `iterable` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise trotzdem asynchron (statt synchron) abgeschlossen.
+Ein {{jsxref("Promise")}}, das **asynchron erledigt** wird mit dem endgültigen Zustand des ersten Promise im `iterable`, das sich erledigt. Mit anderen Worten, es erfüllt sich, wenn das erste Promise, das sich erledigt, erfüllt wird, und es lehnt ab, wenn das erste Promise, das sich erledigt, abgelehnt wird. Das zurückgegebene Promise bleibt für immer ausstehend, wenn das übergebene `iterable` leer ist. Wenn das übergebene `iterable` nicht leer ist, aber keine ausstehenden Promises enthält, wird das zurückgegebene Promise trotzdem asynchron (anstatt synchron) erledigt.
 
 ## Beschreibung
 
-Die `Promise.race()`-Methode ist eine der Methoden für [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie ist nützlich, wenn Sie die erste asynchrone Aufgabe beenden möchten, sich jedoch nicht um deren endgültigen Status kümmern (d.h., sie kann entweder erfolgreich sein oder fehlschlagen).
+Die Methode `Promise.race()` ist eine der Methoden für [Promise-Konkurrenz](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#promise_concurrency). Sie ist nützlich, wenn Sie möchten, dass die erste asynchrone Aufgabe abgeschlossen wird, sich jedoch nicht um deren endgültigen Zustand kümmern (d.h. sie kann entweder erfolgreich sein oder fehlschlagen).
 
-Wenn das `iterable` einen oder mehrere Nicht-Promise-Werte und/oder ein bereits abgeschlossenes Promise enthält, wird `Promise.race()` mit dem ersten dieser im `iterable` gefundenen Werte abgeschlossen.
+Wenn das iterierbare Objekt einen oder mehrere Nicht-Promise-Werte und/oder ein bereits erledigtes Promise enthält, wird `Promise.race()` auf den ersten dieser Werte festgelegt, der im iterierbaren Objekt gefunden wird.
 
 ## Beispiele
 
 ### Verwendung von Promise.race()
 
-Dieses Beispiel zeigt, wie `Promise.race()` verwendet werden kann, um mehrere Timer, die mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) implementiert sind, gegeneinander antreten zu lassen. Der Timer mit der kürzesten Dauer gewinnt immer das Rennen und bestimmt den Zustand des resultierenden Promises.
+Dieses Beispiel zeigt, wie `Promise.race()` genutzt werden kann, um mehrere Timer, die mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) implementiert sind, gegeneinander antreten zu lassen. Der Timer mit der kürzesten Zeit gewinnt immer das Rennen und bestimmt den Zustand des resultierenden Promises.
 
 ```js
 function sleep(time, value, state) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (state === "fulfill") {
-        return resolve(value);
+        resolve(value);
       } else {
-        return reject(new Error(value));
+        reject(new Error(value));
       }
     }, time);
   });
@@ -104,7 +103,7 @@ Promise.race([p5, p6]).then(
 
 ### Asynchronität von Promise.race
 
-Das folgende Beispiel zeigt die Asynchronität von `Promise.race`. Im Gegensatz zu anderen Methoden für Promise-Konkurrenz ist `Promise.race` immer asynchron: Es wird nie synchron abgeschlossen, selbst wenn das `iterable` leer ist.
+Das folgende Beispiel zeigt die Asynchronität von `Promise.race`. Anders als andere Methoden der Promise-Konkurrenz ist `Promise.race` immer asynchron: Es wird nie synchron erledigt, selbst wenn das `iterable` leer ist.
 
 ```js
 // Passing an array of promises that are already resolved,
@@ -127,7 +126,7 @@ setTimeout(() => {
 // Promise { <state>: "fulfilled", <value>: 33 }
 ```
 
-Ein leeres `iterable` bewirkt, dass das zurückgegebene Promise für immer ausstehend bleibt:
+Ein leeres iterierbares Objekt führt dazu, dass das zurückgegebene Promise für immer ausstehend bleibt:
 
 ```js
 const foreverPendingPromise = Promise.race([]);
@@ -143,7 +142,7 @@ setTimeout(() => {
 // Promise { <state>: "pending" }
 ```
 
-Wenn das `iterable` einen oder mehrere Nicht-Promise-Werte und/oder ein bereits abgeschlossenes Promise enthält, wird `Promise.race` mit dem ersten dieser im Array gefundenen Werte abgeschlossen:
+Wenn das iterierbare Objekt einen oder mehrere Nicht-Promise-Werte und/oder ein bereits erledigtes Promise enthält, wird `Promise.race` auf den ersten dieser Werte festgelegt, der im Array gefunden wird:
 
 ```js
 const foreverPendingPromise = Promise.race([]);
@@ -172,7 +171,7 @@ setTimeout(() => {
 
 ### Verwendung von Promise.race() zur Implementierung eines Anfrage-Timeouts
 
-Sie können eine möglicherweise lang andauernde Anfrage mit einem Timer, der ablehnt, konkurrieren lassen, sodass das resultierende Promise automatisch abgelehnt wird, wenn die Zeit abgelaufen ist.
+Sie können eine möglicherweise lang anhaltende Anfrage mit einem Timer, der ablehnt, konkurrieren lassen, sodass das resultierende Promise automatisch abgelehnt wird, wenn das Zeitlimit abgelaufen ist.
 
 ```js
 const data = Promise.race([
@@ -186,11 +185,11 @@ const data = Promise.race([
   .catch((err) => displayError(err));
 ```
 
-Wenn das `data`-Promise erfüllt wird, enthält es die von `/api` abgerufenen Daten; andernfalls wird es abgelehnt, wenn `fetch` für 5 Sekunden ausstehend bleibt und gegen den `setTimeout`-Timer verliert.
+Wenn sich das `data` Promise erfüllt, wird es die von `/api` abgerufenen Daten enthalten; andernfalls wird es abgelehnt, wenn `fetch` für 5 Sekunden ausstehend bleibt und das Rennen mit dem `setTimeout` Timer verliert.
 
 ### Verwendung von Promise.race() zur Erkennung des Status eines Promises
 
-Da `Promise.race()` auf das erste nicht ausstehende Promise im `iterable` reagiert, können wir den Status eines Promises überprüfen, einschließlich ob es ausstehend ist. Dieses Beispiel wurde aus [`promise-status-async`](https://github.com/kudla/promise-status-async/blob/master/lib/promiseState.js) adaptiert.
+Da `Promise.race()` sich auf das erste nicht ausstehende Promise im iterierbaren Objekt einlässt, können wir den Zustand eines Promises überprüfen, einschließlich ob es ausstehend ist. Dieses Beispiel ist von [`promise-status-async`](https://github.com/kudla/promise-status-async/blob/master/lib/promiseState.js) adaptiert.
 
 ```js
 function promiseState(promise) {
@@ -204,12 +203,14 @@ function promiseState(promise) {
 }
 ```
 
-In dieser Funktion, wenn `promise` ausstehend ist, wird der zweite Wert, `pendingState`, welcher ein Nicht-Promise ist, das Ergebnis des Rennens; andernfalls, wenn `promise` bereits abgeschlossen ist, können wir seinen Status über die `onFulfilled`- und `onRejected`-Handler erkennen. Zum Beispiel:
+In dieser Funktion, wenn `promise` ausstehend ist, wird der zweite Wert, `pendingState`, der kein Promise ist, zum Ergebnis des Rennens; andernfalls, wenn `promise` bereits erledigt ist, können wir seinen Zustand durch die `onFulfilled` und `onRejected` Handler erfahren. Beispiel:
 
 ```js
 const p1 = new Promise((res) => setTimeout(() => res(100), 100));
 const p2 = new Promise((res) => setTimeout(() => res(200), 200));
-const p3 = new Promise((res, rej) => setTimeout(() => rej(300), 100));
+const p3 = new Promise((res, rej) =>
+  setTimeout(() => rej(new Error("failed")), 100),
+);
 
 async function getStates() {
   console.log(await promiseState(p1));
@@ -232,15 +233,15 @@ setTimeout(() => {
 // After waiting for 100ms:
 // { status: 'fulfilled', value: 100 }
 // { status: 'pending' }
-// { status: 'rejected', reason: 300 }
+// { status: 'rejected', reason: Error: failed }
 ```
 
 > [!NOTE]
-> Die Funktion `promiseState` läuft weiterhin asynchron, da es keinen Weg gibt, den Wert eines Promises synchron zu erhalten (z.B. ohne `then()` oder `await`), selbst wenn es bereits abgeschlossen ist. `promiseState()` wird jedoch immer innerhalb eines Ticks erfüllt und wartet tatsächlich niemals auf die Erledigung eines Promises.
+> Die Funktion `promiseState` läuft immer noch asynchron, da es keinen Weg gibt, den Wert eines Promises synchron zu erhalten (d.h. ohne `then()` oder `await`), selbst wenn es bereits erledigt ist. Allerdings wird `promiseState()` immer innerhalb eines Ticks erfüllt und wartet tatsächlich nie auf die Erledigung eines Promises.
 
 ### Vergleich mit Promise.any()
 
-`Promise.race` nimmt das erste abgeschlossene {{jsxref("Promise")}}.
+`Promise.race` nimmt das erste erledigte {{jsxref("Promise")}}.
 
 ```js
 const promise1 = new Promise((resolve, reject) => {

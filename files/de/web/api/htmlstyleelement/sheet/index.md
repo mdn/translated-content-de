@@ -3,31 +3,38 @@ title: "HTMLStyleElement: sheet-Eigenschaft"
 short-title: sheet
 slug: Web/API/HTMLStyleElement/sheet
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`sheet`**-Eigenschaft des [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement)-Interfaces enthält das Stylesheet, das mit diesem Element verknüpft ist.
+Die schreibgeschützte **`sheet`**-Eigenschaft der [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement)-Schnittstelle
+enthält das Stylesheet, das mit diesem Element verknüpft ist.
 
-Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet) ist immer mit einem [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) verknüpft, es sei denn, dessen `type`-Attribut ist nicht `text/css`.
+Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet) ist immer mit einem [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) verknüpft, es sei denn, sein `type`-Attribut ist nicht `text/css`.
 
 ## Wert
 
-Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, falls keines mit dem Element verknüpft ist.
+Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, wenn keines mit dem Element verknüpft ist.
 
 ## Beispiele
 
+Angenommen, der `<head>` enthält Folgendes:
+
 ```html
-<html>
-  <header>
-    <style media="print" />
-    …
-  </header>
-</html>
+<style id="inline-style">
+  p {
+    color: blue;
+  }
+</style>
 ```
 
-Die `sheet`-Eigenschaft des zugehörigen `HTMLStyleElement`-Objekts gibt das beschreibende [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück.
+Die `sheet`-Eigenschaft des zugehörigen `HTMLStyleElement`-Objekts gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, das es beschreibt.
+
+```js
+const style = document.getElementById("inline-style");
+console.log(style.sheet.cssRules[0].cssText); // 'p { color: blue; }'
+```
 
 ## Spezifikationen
 

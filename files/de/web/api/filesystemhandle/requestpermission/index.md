@@ -1,14 +1,14 @@
 ---
-title: "FileSystemHandle: Methode requestPermission()"
+title: "FileSystemHandle: requestPermission() Methode"
 short-title: requestPermission()
 slug: Web/API/FileSystemHandle/requestPermission
 l10n:
-  sourceCommit: 6c26f60ea9ab26e591cc59551cd664c07fcf213b
+  sourceCommit: b88824d7b19a323e623181768ad5dcbe2ee9e84a
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`requestPermission()`**-Methode des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces fordert Lese- oder Lese-/Schreibberechtigungen für das Datei-Handle an.
+Die **`requestPermission()`** Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) Schnittstelle fordert Lese- oder Lese-/Schreibrechte für das File-Handle an.
 
 ## Syntax
 
@@ -19,33 +19,30 @@ requestPermission(descriptor)
 ### Parameter
 
 - `descriptor` {{optional_inline}}
-
-  - : Ein Objekt, das den Abfragemodus für die Berechtigung angibt. Die Optionen sind wie folgt:
-
+  - : Ein Objekt, das den Berechtigungsmodus spezifiziert, der abgefragt werden soll. Die Optionen sind wie folgt:
     - `'mode'` {{optional_inline}}
-
-      - : Kann entweder `'read'` oder `'readwrite'` sein.
+      - : Kann entweder `'read'`, `'write'` oder `'readwrite'` sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) auflöst, was eines von `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einem der unten aufgeführten Ausnahmen abgelehnt werden.
+Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) aufgelöst wird, was entweder `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einer der untenstehenden Ausnahmen fehlschlagen.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Parameter angegeben ist oder der `mode` nicht `'read'` oder `'readwrite'` ist.
+  - : Wird ausgelöst, wenn kein Parameter angegeben wird oder der `mode` nicht `'read'`, `'write'`, oder `'readwrite'` ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) mit dem Top-Level-Kontext ist (d.h. ein Cross-Origin-iframe).
-    - Es gab keine transiente Benutzeraktivierung wie zum Beispiel einen Tastendruck. Dies schließt ein, wenn das Handle sich in einem Nicht-Window-Kontext befindet, der keine Benutzeraktivierung konsumieren kann, wie z.B. ein Worker.
+    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) mit dem Top-Level-Kontext ist (d.h. eine Cross-Origin-iframe).
+    - Es gab keine vorübergehende Benutzeraktivierung wie einen Tastendruck. Dies schließt ein, wenn das Handle sich in einem Nicht-Window-Kontext befindet, der keine Benutzeraktivierung konsumieren kann, wie etwa ein Worker.
 
 ## Sicherheit
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion arbeitet.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion fordert Berechtigungen an, falls diese nicht bereits gewährt wurden.
+Die folgende asynchrone Funktion fordert Berechtigungen an, falls diese nicht bereits erteilt wurden.
 
 ```js
 // fileHandle is a FileSystemFileHandle

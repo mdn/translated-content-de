@@ -1,23 +1,23 @@
 ---
-title: "RemotePlayback: disconnect Ereignis"
+title: "RemotePlayback: disconnect-Ereignis"
 short-title: disconnect
 slug: Web/API/RemotePlayback/disconnect_event
 l10n:
-  sourceCommit: 65d75da6fe94a513f581f4a4f532637c59ea64ac
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Remote Playback API")}}
 
-Das **`disconnect`**-Ereignis der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle wird ausgelöst, wenn der Benutzeragent die Verbindung zum Remote-Gerät trennt.
+Das **`disconnect`**-Ereignis der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle wird ausgelöst, wenn der User-Agent die Verbindung zum Remote-Gerät trennt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("disconnect", (event) => {});
+```js-nolint
+addEventListener("disconnect", (event) => { })
 
-ondisconnect = (event) => {};
+ondisconnect = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel wird der Wert von [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) in die Konsole gedruckt, wenn der Benutzeragent die Verbindung zum Remote-Gerät trennt.
+Im folgenden Beispiel wird der Wert von [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) in die Konsole ausgegeben, wenn der User-Agent die Verbindung zum Remote-Gerät trennt.
 
 ```js
 RemotePlayback.ondisconnect = () => {

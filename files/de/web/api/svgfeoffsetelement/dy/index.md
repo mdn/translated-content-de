@@ -1,14 +1,14 @@
 ---
-title: "SVGFEOffsetElement: Eigenschaft dy"
+title: "SVGFEOffsetElement: dy-Eigenschaft"
 short-title: dy
 slug: Web/API/SVGFEOffsetElement/dy
 l10n:
-  sourceCommit: f9c8cab62b7d0349327fa0f56f09c9d3193f2db3
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`dy`** schreibgeschützte Eigenschaft der [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Schnittstelle spiegelt das {{SVGAttr("dy")}}-Attribut des gegebenen {{SVGElement("feOffset")}}-Elements wider.
+Die **`dy`**-Schreibgeschützte Eigenschaft des [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Interfaces spiegelt das {{SVGAttr("dy")}}-Attribut des angegebenen {{SVGElement("feOffset")}}-Elements wider.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ### Zugriff auf das `dy`-Attribut
 
-In diesem Beispiel greifen wir auf den vertikalen Versatz oder die Verschiebung des `<feOffset>`-Elements zu, indem wir die `dy`-schreibgeschützte Eigenschaft der `SVGFEOffsetElement`-Schnittstelle verwenden.
+In diesem Beispiel greifen wir auf den vertikalen Offset oder die Verschiebung des `<feOffset>`-Elements zu, indem wir die schreibgeschützte `dy`-Eigenschaft des `SVGFEOffsetElement`-Interfaces verwenden.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ In diesem Beispiel greifen wir auf den vertikalen Versatz oder die Verschiebung 
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#offsetFilter)" />
 </svg>
 ```

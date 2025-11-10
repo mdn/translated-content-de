@@ -3,12 +3,12 @@ title: "Element: ariaSetSize-Eigenschaft"
 short-title: ariaSetSize
 slug: Web/API/Element/ariaSetSize
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaSetSize`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)-Attributs wider, das die Anzahl der Elemente in der aktuellen Menge von Listenelementen oder Baumelementen definiert.
+Die **`ariaSetSize`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize)-Attributs wider, welches die Anzahl der Elemente im aktuellen Satz von Listenelementen oder Baumelementen definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-setsize`-Attribut des Elements mit der ID `tab-id` auf "3" gesetzt, um einem Gerät mitzuteilen, dass sich derzeit 3 Tabs in der Gruppe befinden. Mit `ariaSetSize` aktualisieren wir den Wert auf "4".
+In diesem Beispiel wird das `aria-setsize`-Attribut auf dem Element mit der ID `tab-id` auf "3" gesetzt, um einem Gerät mitzuteilen, dass es derzeit 3 Tabs in der Gruppe gibt. Mit `ariaSetSize` aktualisieren wir den Wert auf "4".
 
 ```html
 <button
@@ -46,4 +46,4 @@ console.log(el.ariaSetSize); // 4
 
 ## Siehe auch
 
-- [ARIA: tab-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
+- [ARIA: tab-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)

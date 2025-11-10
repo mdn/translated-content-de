@@ -3,16 +3,16 @@ title: "EncodedAudioChunk: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/EncodedAudioChunk/duration
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`duration`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Audios in Mikrosekunden angibt.
+Die **`duration`**-Eigenschaft des Schnittstellenobjekts [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk) gibt eine ganze Zahl zurück, die die Dauer des Audios in Mikrosekunden angibt. Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
-Eine Ganzzahl.
+Eine ganze Zahl.
 
 ## Beispiele
 
@@ -25,9 +25,9 @@ const init = {
   timestamp: 23000000,
   duration: 2000000,
 };
-chunk = EncodedAudioChunk(init);
+const chunk = new EncodedAudioChunk(init);
 
-console.log(chunk.duration); //2000000
+console.log(chunk.duration); // 2000000
 ```
 
 ## Spezifikationen

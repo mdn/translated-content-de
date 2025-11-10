@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: invalidateSubFramebuffer()-Methode"
+title: "WebGL2RenderingContext: invalidateSubFramebuffer() Methode"
 short-title: invalidateSubFramebuffer()
 slug: Web/API/WebGL2RenderingContext/invalidateSubFramebuffer
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.invalidateSubFramebuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ungültig erklärt Teile der Inhalte von Anhängen in einem Framebuffer.
+Die **`WebGL2RenderingContext.invalidateSubFramebuffer()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) invalidiert Teile des Inhalts von Anhängen in einem Framebuffer.
 
 ## Syntax
 
@@ -20,10 +20,9 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
     - `gl.FRAMEBUFFER`
-      - : Sammlung von Pufferdaten für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
+      - : Sammlung von Puffer-Datenspeichern für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
     - `gl.READ_FRAMEBUFFER`
@@ -31,10 +30,9 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
 
 - `attachments`
 
-  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die zu invalidierenden Anhangspunkte angibt. Mögliche Werte:
-
+  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Anhangspunkte angibt, die invalidiert werden sollen. Mögliche Werte:
     - `gl.COLOR_ATTACHMENT{0-15}`
-      - : Invalidiert einen der Farb-Puffer des Framebuffers.
+      - : Invalidiert einen der Farbe-Puffer des Framebuffers.
     - `gl.DEPTH_ATTACHMENT`
       - : Invalidiert den Tiefenpuffer des Framebuffers.
     - `gl.STENCIL_ATTACHMENT`
@@ -43,13 +41,13 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
       - : Invalidiert sowohl den Tiefen- als auch den Schablonenpuffer des Framebuffers.
 
 - `x`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den linken Ursprung des zu invalidierenden Pixelrechtecks angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die linke Herkunft des Pixelrechtecks angibt, das invalidiert werden soll.
 - `y`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den unteren Ursprung des zu invalidierenden Pixelrechtecks angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die untere Herkunft des Pixelrechtecks angibt, das invalidiert werden soll.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite des zu invalidierenden Pixelrechtecks angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des zu invalidierenden Pixelrechtecks angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe des zu invalidierenden Pixelrechtecks angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des zu invalidierenden Pixelrechtecks angibt.
 
 ### Rückgabewert
 

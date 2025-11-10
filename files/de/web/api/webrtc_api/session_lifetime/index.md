@@ -1,78 +1,85 @@
 ---
-title: Lebensdauer einer WebRTC-Sitzung
+title: Lebenszyklus einer WebRTC-Sitzung
 slug: Web/API/WebRTC_API/Session_lifetime
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 7336c394a1406850b293f743c7dcb3f2ee661952
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
-WebRTC ermöglicht Ihnen den Aufbau von Peer-to-Peer-Kommunikation für beliebige Daten, Audio oder Video – oder jede Kombination davon – in einer Browseranwendung. In diesem Artikel betrachten wir die Lebensdauer einer WebRTC-Sitzung, vom Aufbau der Verbindung bis zum Schließen der Verbindung, wenn sie nicht mehr benötigt wird.
+WebRTC ermöglicht es Ihnen, Peer-to-Peer-Kommunikation mit beliebigen Daten, Audio oder Video – oder einer beliebigen Kombination davon – in eine Browseranwendung einzubinden. In diesem Artikel betrachten wir den Lebenszyklus einer WebRTC-Sitzung, vom Aufbau der Verbindung bis zum Schließen der Verbindung, wenn sie nicht mehr benötigt wird.
 
-Dieser Artikel geht nicht auf die Details der tatsächlichen APIs ein, die zum Aufbau und zur Verwaltung einer WebRTC-Verbindung verwendet werden. Er behandelt den Prozess im Allgemeinen mit einigen Informationen darüber, warum jeder Schritt erforderlich ist. Siehe [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) für ein tatsächliches Beispiel mit einer schrittweisen Erklärung, was der Code tut.
+Dieser Artikel geht nicht im Detail auf die tatsächlichen APIs ein, die beim Aufbauen und Verwalten einer WebRTC-Verbindung beteiligt sind; er gibt einen allgemeinen Überblick über den Prozess mit einigen Informationen darüber, warum jeder Schritt erforderlich ist. Siehe [Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) für ein konkretes Beispiel mit einer schrittweisen Erklärung des Codes.
 
 > [!NOTE]
-> Diese Seite befindet sich derzeit im Aufbau, und einige Inhalte werden auf andere Seiten verschoben, während das WebRTC-Leitfaden-Material erstellt wird. Bitte entschuldigen Sie etwaige Unannehmlichkeiten!
+> Diese Seite befindet sich derzeit im Aufbau, und einige Inhalte werden auf andere Seiten verschoben, während das WebRTC-Leitfadenmaterial erweitert wird. Bitte entschuldigen Sie die Unannehmlichkeiten!
 
 ## Aufbau der Verbindung
 
-Das Internet ist groß. Wirklich groß. Es ist so groß, dass vor Jahren kluge Leute erkannten, wie groß es war, wie schnell es wuchs und die [Einschränkungen](https://en.wikipedia.org/wiki/IPv4_address_exhaustion) des 32-Bit-IP-Adressierungssystems und realisierten, dass etwas getan werden musste, bevor uns die Adressen ausgehen, und begannen, ein neues 64-Bit-Adressierungssystem zu entwerfen. Aber sie erkannten, dass der Übergang länger dauern würde, als die 32-Bit-Adressen ausreichen würden, also entwickelten andere kluge Leute eine Möglichkeit, mehreren Computern dieselbe 32-Bit-IP-Adresse zuzuweisen. Network Address Translation ({{Glossary("NAT", "NAT")}}) ist ein Standard, der diese Adressfreigabe unterstützt, indem er das Routing von eingehenden und ausgehenden Daten zu und von Geräten in einem LAN verwaltet, die alle eine einzige WAN (globale) IP-Adresse teilen.
+Das Internet ist groß. Wirklich groß. Es ist so groß, dass vor Jahren kluge Leute sahen, wie groß es war, wie schnell es wuchs und die [Einschränkungen](https://en.wikipedia.org/wiki/IPv4_address_exhaustion) des 32-Bit-IP-Adressierungssystems, und sie erkannten, dass etwas getan werden musste, bevor uns die Adressen ausgehen, also begannen sie mit der Gestaltung eines neuen 64-Bit-Adressierungssystems. Doch sie erkannten, dass der Übergang länger dauern würde, als die 32-Bit-Adressen halten würden, also entwickelten andere kluge Leute eine Möglichkeit, mehreren Computern die gemeinsame Nutzung der gleichen 32-Bit-IP-Adresse zu ermöglichen. Das Network Address Translation ({{Glossary("NAT", "NAT")}}) ist ein Standard, der diese Adressenteilung unterstützt, indem er die Weiterleitung von Daten zu und von Geräten in einem lokalen Netzwerk (LAN) verwaltet, die alle eine einzige globale (WAN) IP-Adresse teilen.
 
-Das Problem für Benutzer besteht darin, dass nicht mehr unbedingt jeder einzelne Computer im Internet eine eindeutige IP-Adresse hat und sich die IP-Adresse eines Geräts tatsächlich ändern kann, nicht nur, wenn es von einem Netzwerk in ein anderes wechselt, sondern auch, wenn die Adresse seines Netzwerks durch {{Glossary("NAT", "NAT")}} und/oder [DHCP](https://en.wikipedia.org/wiki/DHCP) geändert wird. Für Entwickler, die Peer-to-Peer-Netzwerke aufbauen möchten, stellt dies ein Dilemma dar: Ohne einen eindeutigen Identifikator für jedes Benutzergerät ist es nicht möglich, sofort und automatisch zu wissen, wie man eine Verbindung zu einem bestimmten Gerät im Internet herstellt. Selbst wenn Sie wissen, mit wem Sie sprechen möchten, wissen Sie nicht unbedingt, wie Sie diese Person erreichen können oder welche Adresse sie hat.
+Das Problem für Benutzer ist, dass jeder einzelne Computer im Internet nicht mehr unbedingt eine eindeutige IP-Adresse hat und, tatsächlich, sich die IP-Adresse jedes Geräts nicht nur ändern kann, wenn es von einem Netzwerk zu einem anderen wechselt, sondern auch, wenn die Adresse seines Netzwerks durch {{Glossary("NAT", "NAT")}} und/oder [DHCP](https://en.wikipedia.org/wiki/DHCP) geändert wird. Für Entwickler, die ein Peer-to-Peer-Netzwerk aufbauen möchten, ergibt sich daraus ein Dilemma: Ohne eine eindeutige Kennung für jedes Benutzergerät ist es nicht möglich, sofort und automatisch zu wissen, wie man ein bestimmtes Gerät im Internet erreicht. Auch wenn Sie wissen, mit wem Sie sprechen möchten, wissen Sie nicht unbedingt, wie Sie sie erreichen oder sogar, was ihre Adresse ist.
 
-Das ist wie der Versuch, ein Paket an Ihre Freundin Michelle zu schicken, indem Sie es mit "Michelle" beschriften und in einen Briefkasten werfen, wenn Sie ihre Adresse nicht kennen. Sie müssen ihre Adresse heraussuchen und auf das Paket schreiben, oder sie fragt sich, warum Sie wieder ihren Geburtstag vergessen haben.
+Das ist, als würden Sie versuchen, ein Paket an Ihre Freundin Michelle zu senden, indem Sie es mit "Michelle" beschriften und in einen Briefkasten werfen, ohne ihre Adresse zu kennen. Sie müssen ihre Adresse ermitteln und auf das Paket schreiben, sonst wird sie sich fragen, warum Sie ihren Geburtstag wieder vergessen haben.
 
 Hier kommt die Signalisierung ins Spiel.
 
 ### Signalisierung
 
-Signalisierung ist der Prozess des Sendens von Steuerinformationen zwischen zwei Geräten, um die Kommunikationsprotokolle, Kanäle, Medien-Codecs und -Formate sowie die Methode des Datentransfers sowie alle erforderlichen Routeninformationen zu bestimmen. Das Wichtigste, was Sie über den Signalisierungsprozess für WebRTC wissen sollten: **Er ist nicht in der Spezifikation definiert**.
+Signalisierung ist der Prozess der Übermittlung von Steuerungsinformationen zwischen zwei Geräten, um die Kommunikationsprotokolle, Kanäle, Medien-Codecs und -Formate sowie die Methode des Datentransfers zu bestimmen, ebenso wie jede erforderliche Routing-Information. Das Wichtigste, was Sie über den Signalisierungsprozess bei WebRTC wissen müssen: **Er ist nicht in der Spezifikation definiert**.
 
-Warum, fragen Sie sich vielleicht, ist etwas Wesentliches für den Aufbau einer WebRTC-Verbindung in der Spezifikation nicht enthalten? Die Antwort ist einfach: Da die beiden Geräte keine Möglichkeit haben, sich direkt zu kontaktieren, und die Spezifikation nicht jeden möglichen Anwendungsfall für WebRTC vorhersagen kann, ist es sinnvoller, dem Entwickler die Auswahl einer geeigneten Netzwerktechnologie und eines Nachrichtenprotokolls zu überlassen.
+Warum, könnten Sie fragen, ist etwas, das für den Aufbau einer WebRTC-Verbindung grundlegend ist, in der Spezifikation ausgelassen? Die Antwort ist einfach: Da die beiden Geräte keine Möglichkeit haben, sich direkt zu kontaktieren, und die Spezifikation nicht jeden möglichen Anwendungsfall für WebRTC vorhersehen kann, erscheint es sinnvoller, dem Entwickler die Wahl einer geeigneten Netzwerktechnologie und eines geeigneten Nachrichtenprotokolls zu überlassen.
 
-Insbesondere wenn ein Entwickler bereits eine Methode zum Verbinden zweier Geräte hat, ergibt es keinen Sinn, dass er eine andere, von der Spezifikation vorgeschriebene verwenden muss, nur für WebRTC. Da WebRTC nicht in einem Vakuum existiert, gibt es wahrscheinlich andere Verbindungen, so dass es sinnvoll ist, zu vermeiden, zusätzliche Verbindungskanäle für die Signalisierung hinzuzufügen, wenn ein vorhandener verwendet werden kann.
+Insbesondere wenn ein Entwickler bereits eine Methode zum Verbinden von zwei Geräten hat, macht es keinen Sinn, dass er eine weitere, von der Spezifikation definierte Methode nur für WebRTC verwenden muss. Da WebRTC nicht isoliert existiert, sind wahrscheinlich andere Verbindungen im Spiel, sodass es sinnvoll ist, zusätzliche Verbindungskanäle für die Signalisierung zu vermeiden, falls ein bestehender Kanal genutzt werden kann.
 
-Um Signalisierungsinformationen auszutauschen, können Sie JSON-Objekte über eine WebSocket-Verbindung hin und her senden, oder Sie könnten XMPP oder SIP über einen geeigneten Kanal verwenden, oder Sie könnten [`fetch()`](/de/docs/Web/API/Window/fetch) über {{Glossary("HTTPS", "HTTPS")}} mit Polling verwenden oder jede andere Kombination von Technologien, die Ihnen einfällt. Sie könnten sogar E-Mail als Signalisierungskanal verwenden.
+Um Signalisierungsinformationen auszutauschen, können Sie wählen, JSON-Objekte über eine WebSocket-Verbindung hin und her zu senden, oder Sie könnten XMPP oder SIP über einen geeigneten Kanal verwenden, oder Sie könnten [`fetch()`](/de/docs/Web/API/Window/fetch) über {{Glossary("HTTPS", "HTTPS")}} mit Abfrage verwenden oder eine andere Kombination aus Technologien, die Sie sich ausdenken können. Sie könnten sogar E-Mail als Signalisierungskanal verwenden.
 
-Es ist auch erwähnenswert, dass der Kanal für die Durchführung von Signalisierungen nicht einmal über das Netzwerk verlaufen muss. Ein Peer kann ein Datenobjekt ausgeben, das gedruckt, physisch (zu Fuß oder per Brieftaube) zu einem anderen Gerät transportiert, in dieses Gerät eingegeben und eine Antwort dann von diesem Gerät ausgegeben und zu Fuß zurückgebracht werden kann, und so weiter, bis die WebRTC-Peer-Verbindung geöffnet ist. Es würde eine sehr hohe Latenz haben, aber es wäre möglich.
+Es ist auch erwähnenswert, dass der Kanal für die Durchführung der Signalisierung nicht einmal über das Netzwerk verlaufen muss. Ein Peer kann ein Datenobjekt ausgeben, das ausgedruckt, physisch (zu Fuß oder durch Brieftaube) zu einem anderen Gerät gebracht, in dieses Gerät eingegeben und dann von diesem Gerät eine Antwort ausgegeben wird, die zu Fuß zurückgebracht werden kann, und so weiter, bis die WebRTC-Peer-Verbindung geöffnet ist. Es wäre sehr latenzreich, aber es könnte getan werden.
 
 #### Informationen, die während der Signalisierung ausgetauscht werden
 
 Es gibt drei grundlegende Arten von Informationen, die während der Signalisierung ausgetauscht werden müssen:
 
-- Steuerungsnachrichten, die zum Einrichten, Öffnen und Schließen des Kommunikationskanals sowie zur Fehlerbehandlung verwendet werden.
-- Informationen, die zum Einrichten der Verbindung benötigt werden: die IP-Adressen und Portinformationen, die benötigt werden, damit die Peers miteinander kommunizieren können.
-- Medienfähigkeitsverhandlung: Welche Codecs und Datentypen können die Peers verstehen? Diese müssen vor Beginn der WebRTC-Sitzung abgestimmt werden.
+- Steuerungsmeldungen, die zum Einrichten, Öffnen und Schließen des Kommunikationskanals und zur Fehlerbehandlung verwendet werden.
+- Informationen, die zum Einrichten der Verbindung benötigt werden: die IP-Adressierung und Portinformationen, die für die Kommunikation der Peers erforderlich sind.
+- Medienfähigkeitsverhandlung: Welche Codecs und Medienformate können die Peers verstehen? Diese müssen vereinbart werden, bevor die WebRTC-Sitzung beginnen kann.
 
-Erst nachdem die Signalisierung erfolgreich abgeschlossen wurde, kann der eigentliche Prozess des Öffnens der WebRTC-Peer-Verbindung beginnen.
+Erst wenn die Signalisierung erfolgreich abgeschlossen wurde, kann der eigentliche Prozess des Öffnens der WebRTC-Peer-Verbindung beginnen.
 
-Es ist erwähnenswert, dass der Signalisierungsserver die von den beiden Peers während der Signalisierung durch ihn ausgetauschten Daten nicht tatsächlich verstehen oder verarbeiten muss. Der Signalisierungsserver ist im Wesentlichen ein Relais: ein gemeinsamer Punkt, zu dem beide Seiten eine Verbindung herstellen in dem Wissen, dass ihre Signalisierungsdaten durch ihn übertragen werden können. Der Server muss auf diese Informationen in keiner Weise reagieren.
+Es ist erwähnenswert, dass der Signalisierungsserver die von den beiden Peers während der Signalisierung über ihn ausgetauschten Daten nicht verstehen oder verarbeiten muss. Der Signalisierungsserver ist im Wesentlichen ein Relais: ein gemeinsamer Punkt, zu dem beide Seiten eine Verbindung herstellen, in dem Wissen, dass ihre Signalisierungsdaten durch ihn übertragen werden können. Der Server muss auf diese Informationen in keiner Weise reagieren.
 
 #### Der Signalisierungsprozess
 
-Es gibt eine Abfolge von Dingen, die geschehen müssen, um den Beginn einer WebRTC-Sitzung zu ermöglichen:
+Es gibt eine Abfolge von Dingen, die geschehen müssen, um eine WebRTC-Sitzung starten zu können:
 
-1. Jeder Peer erstellt ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt, das ihre Seite der WebRTC-Sitzung darstellt.
-2. Jeder Peer legt einen Handler für [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisse fest, der diese Kandidaten über den Signalisierungskanal an den anderen Peer sendet.
-3. Jeder Peer legt einen Handler für das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis fest, das empfangen wird, wenn der entfernte Peer einen Track zum Stream hinzufügt. Dieser Code sollte die Tracks mit ihrem Verbraucher verbinden, wie einem {{HTMLElement("video")}}-Element.
-4. Der Anrufer erstellt und teilt mit dem empfangenden Peer eine eindeutige Kennung oder ein Token irgendeiner Art, damit der Anruf zwischen ihnen vom Code auf dem Signalisierungsserver identifiziert werden kann. Der genaue Inhalt und die Form dieser Kennung liegen bei Ihnen.
-5. Jeder Peer verbindet sich mit einem vereinbarten Signalisierungsserver, wie einem WebSocket-Server, mit dem sie beide wissen, wie Nachrichten ausgetauscht werden können.
-6. Jeder Peer teilt dem Signalisierungsserver mit, dass er derselben WebRTC-Sitzung beitreten möchte (identifiziert durch das in Schritt 4 festgelegte Token).
-7. **_Beschreibungen, Kandidaten, usw. — mehr in Kürze_**
+1. Jeder Peer erstellt ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt, das sein Ende der WebRTC-Sitzung repräsentiert.
+2. Jeder Peer richtet einen Handler für [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisse ein, der für das Senden dieser Kandidaten an den anderen Peer über den Signalisierungskanal verantwortlich ist.
+3. Jeder Peer richtet einen Handler für [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignisse ein, die empfangen werden, wenn der entfernte Peer einer Spur zum Stream hinzufügt. Dieser Code sollte die Spuren mit ihrem Verbraucher verbinden, wie z.B. einem {{HTMLElement("video")}}-Element.
+4. Der Anrufer erstellt und teilt mit dem empfangenden Peer eine eindeutige Kennung oder ein Token, damit der Anruf zwischen ihnen vom Code auf dem Signalisierungsserver erkannt werden kann. Der genaue Inhalt und die Form dieser Kennung liegt bei Ihnen.
+5. Jeder Peer verbindet sich mit einem vereinbarten Signalisierungsserver, wie z.B. einem WebSocket-Server, mit dem sie beide wissen, wie sie Nachrichten austauschen können.
+6. Jeder Peer teilt dem Signalisierungsserver mit, dass sie derselben WebRTC-Sitzung beitreten möchten (identifiziert durch das in Schritt 4 festgelegte Token).
+7. **_Beschreibungen, Kandidaten usw. — mehr folgt_**
 
 ## ICE-Neustart
 
-Manchmal ändern sich während der Lebensdauer einer WebRTC-Sitzung die Netzwerkbedingungen. Einer der Benutzer könnte von einem Mobilfunknetzwerk zu einem WLAN wechseln oder das Netzwerk könnte überlastet werden, zum Beispiel. In solchen Fällen kann der ICE-Agent wählen, einen **ICE-Neustart** durchzuführen. Dies ist ein Prozess, bei dem die Netzverbindung neu ausgehandelt wird, genau wie bei der anfänglichen ICE-Verhandlung, mit einer Ausnahme: Medien fließen weiterhin über die ursprüngliche Netzverbindung, bis die neue in Betrieb ist. Dann wechselt die Medienübertragung zur neuen Netzverbindung und die alte wird geschlossen.
+Manchmal ändern sich während des Lebenszyklus einer WebRTC-Sitzung die Netzwerkbedingungen. Einer der Benutzer könnte von einem Mobilfunknetzwerk zu einem WLAN-Netzwerk wechseln oder das Netzwerk könnte z.B. überlastet werden. Wenn dies geschieht, kann der ICE-Agent sich entscheiden, einen **ICE-Neustart** durchzuführen. Dies ist ein Prozess, bei dem die Netzwerkverbindung neu verhandelt wird, genau auf die gleiche Weise, wie die ursprüngliche ICE-Verhandlung durchgeführt wurde, mit einer Ausnahme: Die Medienübertragung läuft weiterhin über die ursprüngliche Netzwerkverbindung, bis die neue Verbindung aufgebaut ist. Dann wird auf die neue Netzwerkverbindung umgeschaltet und die alte wird geschlossen.
 
 > [!NOTE]
 > Verschiedene Browser unterstützen den ICE-Neustart unter verschiedenen Bedingungen. Nicht alle Browser führen einen ICE-Neustart aufgrund von Netzwerküberlastung durch, zum Beispiel.
 
-Wenn Sie die Konfiguration der Verbindung in irgendeiner Weise ändern müssen (z. B. durch Wechsel zu einem anderen Satz von ICE-Servern), können Sie dies tun, bevor sie ICE neu starten, indem Sie [`RTCPeerConnection.setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) mit einem aktualisierten Konfigurationsobjekt aufrufen, bevor ICE neu gestartet wird.
+Die Behandlung des `failed` [ICE-Verbindungszustands](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) unten zeigt, wie Sie die Verbindung möglicherweise neu starten.
 
-Um einen ICE-Neustart explizit auszulösen, starten Sie den Neuverhandlungsprozess, indem Sie [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) aufrufen und die Option `iceRestart` mit einem Wert von `true` angeben. Dann behandeln Sie den Verbindungsprozess von diesem Punkt an, wie Sie es normalerweise tun würden. Dies generiert neue Werte für das ICE Benutzername-Fragment (ufrag) und Passwort, die vom Neuverhandlungsprozess und der resultierenden Verbindung verwendet werden.
+```js
+pc.oniceconnectionstatechange = () => {
+  if (pc.iceConnectionState === "failed") {
+    pc.setConfiguration(restartConfig);
+    pc.restartIce();
+  }
+};
+```
 
-Die antwortende Seite der Verbindung wird automatisch mit dem ICE-Neustart beginnen, wenn neue Werte für das ICE ufrag und das ICE-Passwort erkannt werden.
+Der Code ruft zunächst [`RTCPeerConnection.setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) mit einem aktualisierten Konfigurationsobjekt auf. Dies sollte vor dem Neustart von ICE durchgeführt werden, wenn Sie die Verbindungskonfiguration in irgendeiner Weise ändern müssen (z.B. auf ein anderes Set von ICE-Servern umstellen).
 
-## Übertragung
+Der Handler ruft dann [`RTCPeerConnection.restartIce()`](/de/docs/Web/API/RTCPeerConnection/restartIce) auf. Dies teilt der ICE-Schicht mit, das `iceRestart`-Flag automatisch zu dem nächsten `createOffer()`-Aufruf hinzuzufügen, was einen ICE-Neustart auslöst. Es werden auch neue Werte für das ICE-Benutzernamenfragment (ufrag) und das Passwort erzeugt, die während des Neuverhandlungsprozesses und in der resultierenden Verbindung verwendet werden.
 
-## Empfang
+Die Antwortseite der Verbindung beginnt automatisch mit dem ICE-Neustart, wenn neue Werte für das ICE-ufrag und das ICE-Passwort erkannt werden.

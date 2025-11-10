@@ -3,16 +3,16 @@ title: "VisualViewport: scale-Eigenschaft"
 short-title: scale
 slug: Web/API/VisualViewport/scale
 l10n:
-  sourceCommit: 04b91d4a12bec8c3adad0de48a030f6b6c4e4d1e
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("Visual Viewport")}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte **`scale`**-Eigenschaft der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle gibt den Pinch-Zoom-Skalierungsfaktor zurück, der auf den visuellen Ansichtsbereich angewendet wird, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist, oder `1`, wenn kein Ausgabegerät vorhanden ist.
+Die **`scale`** schreibgeschützte Eigenschaft der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle gibt den Pinch-Zoom-Skalierungsfaktor zurück, der auf den visuellen Viewport angewendet wird, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist, oder `1`, wenn es kein Ausgabegerät gibt.
 
 ## Wert
 
-Ein Doppelwert.
+Ein Double.
 
 ## Spezifikationen
 

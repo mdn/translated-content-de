@@ -1,14 +1,14 @@
 ---
-title: "GPUQueue: submit() Methode"
+title: "GPUQueue: submit()-Methode"
 short-title: submit()
 slug: Web/API/GPUQueue/submit
 l10n:
-  sourceCommit: d38f6ba931f45fb6df7d1ef9b1c27c2572e42f12
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`submit()`** Methode der [`GPUQueue`](/de/docs/Web/API/GPUQueue) Schnittstelle plant die Ausführung von Befehls-Puffern, die durch ein oder mehrere [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) Objekte dargestellt werden, durch die GPU.
+Die **`submit()`**-Methode des [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Interfaces plant die Ausführung von Befehls-Puffern, die durch ein oder mehrere [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekte dargestellt werden, durch die GPU.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ submit(commandBuffers)
 ### Parameter
 
 - `commandBuffers`
-  - : Ein Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) Objekten, das die Befehle enthält, die für die Verarbeitung durch die GPU in die Warteschlange gestellt werden sollen. Das Array darf keine doppelten `GPUCommandBuffer` Objekte enthalten — jedes kann nur einmal pro `submit()` Aufruf übergeben werden.
+  - : Ein Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekten, das die Befehle enthält, die zur Verarbeitung durch die GPU in die Warteschlange eingespeist werden sollen. Das Array darf keine doppelten `GPUCommandBuffer`-Objekte enthalten — jedes kann nur einmal pro `submit()`-Aufruf übergeben werden.
 
 ### Rückgabewert
 
@@ -27,19 +27,19 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`submit()`** erfüllt sein, sonst wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und die [`GPUQueue`](/de/docs/Web/API/GPUQueue) wird ungültig:
+Die folgenden Kriterien müssen beim Aufruf von **`submit()`** erfüllt werden, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und die [`GPUQueue`](/de/docs/Web/API/GPUQueue) wird ungültig:
 
-- Das Array der [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) Objekte, auf die im `submit()` Aufruf verwiesen wird, enthält keine Duplikate.
-- Alle [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), [`GPUTexture`](/de/docs/Web/API/GPUTexture), und [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) Objekte, die in den kodierten Befehlen verwendet werden, sind zur Nutzung verfügbar, d.h. nicht nicht verfügbar (`GPUBuffer` sind nicht verfügbar, wenn sie derzeit [gemappt](/de/docs/Web/API/GPUBuffer/mapAsync) sind) oder zerstört (mit der `destroy()` Methode).
-- Alle [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture) Objekte, die in den kodierten Befehlen verwendet werden, sind nicht abgelaufen (sie laufen automatisch kurz nach dem Import über [`importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) ab).
-- Wenn ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) Objekt, das in einem codierten Befehl verwendet wird, den Typ `"occlusion"` Abfrage hat, darf es nicht bereits verwendet werden, außer durch [`GPURenderPassEncoder.beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery).
+- Das Array von [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer)-Objekten, das im `submit()`-Aufruf referenziert wird, darf keine Duplikate enthalten.
+- Alle [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-, [`GPUTexture`](/de/docs/Web/API/GPUTexture)- und [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekte, die in den codierten Befehlen verwendet werden, müssen verfügbar sein, d.h. sie dürfen nicht als nicht verfügbar (so sind `GPUBuffer` nicht verfügbar, wenn sie derzeit [gemappt](/de/docs/Web/API/GPUBuffer/mapAsync) sind) oder zerstört (mit der `destroy()`-Methode) markiert sein.
+- Alle [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekte, die in den codierten Befehlen verwendet werden, dürfen nicht abgelaufen sein (sie laufen automatisch kurz nach dem Import über [`importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) ab).
+- Wenn ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt in einem codierten Befehl vom Typ `"occlusion"`-Abfrage ist, darf es nicht bereits verwendet sein, es sei denn, es wird von [`GPURenderPassEncoder.beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) genutzt.
 
 ## Beispiele
 
-In unserem [Grundlegender Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden eine Reihe von Befehlen über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet:
+In unserem [einfachen Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden eine Reihe von Befehlen über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet:
 
 ```js
-// ...
+// …
 
 // Create GPUCommandEncoder
 const commandEncoder = device.createCommandEncoder();
@@ -69,17 +69,17 @@ passEncoder.draw(3);
 
 passEncoder.end();
 
-// ...
+// …
 ```
 
-Die durch den [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) codierten Befehle werden mit der Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) in einen [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) umkodiert. Der Befehls-Puffer wird dann über einen `submit()` Aufruf in die Warteschlange übergeben, bereit zur Verarbeitung durch die GPU.
+Die Befehle, die vom [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) kodiert wurden, werden mit der [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish)-Methode in einem [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) aufgenommen. Der Befehls-Puffer wird dann über einen `submit()`-Aufruf in die Warteschlange übergeben und ist bereit, von der GPU verarbeitet zu werden.
 
 ```js
 device.queue.submit([commandEncoder.finish()]);
 ```
 
 > [!NOTE]
-> Studieren Sie die [WebGPU Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Beispiele für Warteschlangen zu finden.
+> Studieren Sie die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/), um weitere Warteschlangenbeispiele zu finden.
 
 ## Spezifikationen
 

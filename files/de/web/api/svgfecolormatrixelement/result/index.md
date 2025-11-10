@@ -3,16 +3,16 @@ title: "SVGFEColorMatrixElement: result-Eigenschaft"
 short-title: result
 slug: Web/API/SVGFEColorMatrixElement/result
 l10n:
-  sourceCommit: ac0a3f797c6c81e964f49bf0f491cd08154d848f
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`result`**-Eigenschaft der [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Schnittstelle beschreibt den zugewiesenen Namen eines SVG-Filterprimitivelements als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
+Die **`result`** schreibgeschützte Eigenschaft des [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Interfaces beschreibt den zugewiesenen Namen eines SVG-Filterprimitivs als [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString).
 
-Sie spiegelt das {{SVGElement("feColorMatrix")}}-Elementattribut {{SVGAttr("result")}} wider. Der `<feColorMatrix>`-Filter wendet eine Matrixtransformation auf die {{Glossary("RGB", "RGB")}}-Farbe und die {{Glossary("alpha", "Alpha")}}-Werte an. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, durch ein {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filterprimitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
+Sie spiegelt das {{SVGElement("feColorMatrix")}}-Element und dessen {{SVGAttr("result")}}-Attribut wider. Der `<feColorMatrix>`-Filter wendet eine Matrixtransformation auf die {{Glossary("RGB", "RGB")}}-Farb- und {{Glossary("alpha", "Alpha")}}-Werte an. Der Attributwert ist ein {{cssxref("custom-ident")}}. Wenn er angegeben wird, können Grafiken, die durch die Verarbeitung dieses Filterprimitivs entstehen, durch ein {{SVGAttr("in")}}-Attribut auf einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden.
 
-Wenn kein `result`-Attribut definiert ist, sind die `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen. Das Ergebnis des `<feColorMatrix>`-Filters steht dann nur zur Wiederverwendung als impliziter Eingang für das nächste Filterprimitive zur Verfügung, wenn dieses Filterprimitive keinen Wert für sein `in`-Attribut bereitstellt.
+Wenn kein `result`-Attribut definiert ist, sind `result.baseVal` und `result.animVal` des Filters leere Zeichenfolgen und die Ausgabe des `<feColorMatrix>`-Filters kann nur als impliziter Input für das nächste Filterprimitiv wiederverwendet werden, wenn dieses Filterprimitiv keinen Wert für sein `in`-Attribut bereitstellt.
 
 ## Wert
 
@@ -40,6 +40,6 @@ console.log(filterName.baseVal); // the filter's assigned name
 - {{cssxref("custom-ident")}} Datentyp
 - CSS {{cssxref("blend-mode")}} Datentyp
 - CSS {{cssxref("mix-blend-mode")}} Eigenschaft
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- [CSS-Filter-Effekte](/de/docs/Web/CSS/Guides/Filter_effects)
 - SVG {{SVGElement("filter")}}-Element, SVG {{SVGAttr("filter")}}-Attribut in [SVG](/de/docs/Web/SVG)
-- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)
+- [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Guides/Applying_SVG_effects_to_HTML_content)

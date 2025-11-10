@@ -2,36 +2,34 @@
 title: Grid-Layout und Barrierefreiheit
 slug: Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility
 l10n:
-  sourceCommit: 9416c5b089a1c18296bde0b55e1c0d6637871869
+  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-{{CSSRef}}
+HTML ist die Inhaltsebene einer Website, auf der wir semantische, gut strukturierte Dokumente erstellen. CSS ist die Präsentationsebene; wir verwenden CSS, um unter anderem das gewünschte Layout für unseren Inhalt zu gestalten. Zweidimensionale Gitterstrukturen werden mit dem [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) definiert.
 
-HTML ist die Inhaltsschicht einer Website, in der wir semantische, gut strukturierte Dokumente erstellen. CSS ist die Präsentationsschicht; wir verwenden CSS, um unter anderem das gewünschte Layout für unsere Inhalte zu erstellen. Zweidimensionale Gitterstrukturen werden mithilfe des [CSS Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout) definiert.
+Obwohl modernes HTML und CSS darauf ausgelegt sind, die Erstellung von semantischen und zugänglichen Inhalten und Designs zu ermöglichen, gibt es Möglichkeiten, Barrierefreiheitsprobleme mit Grids zu _erstellen_. Dieser Artikel betrachtet die potenziellen Probleme, die auftreten können, und wie man sie vermeidet.
 
-Obwohl modernes HTML und CSS so gestaltet sind, dass sie die Erstellung semantischer, zugänglicher Inhalte und Designs ermöglichen, gibt es dennoch Möglichkeiten, **Barrieren** mit Grids zu erzeugen. Dieser Artikel betrachtet potenzielle Probleme, die auftreten können, und wie diese vermieden werden können.
+## Neuanordnung von Inhalten im CSS Grid Layout
 
-## Umordnung von Inhalten im CSS Grid-Layout
+Wir haben bereits in diesen Leitfäden gesehen, dass das CSS Grid Layout uns die Möglichkeit bietet, unsere Seiteninhalte neu anzuordnen, indem wir Elemente mit [linienbasierter Platzierung von Grid-Template-Bereichen](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) positionieren. Diese Platzierung kann erfolgen, ohne den Standort des Elements in der Quelle zu berücksichtigen. Es gibt auch die {{cssxref("order")}}-Eigenschaft, die ändern kann, wie Elemente automatisch platziert werden. Die {{cssxref("grid-auto-flow")}}-Eigenschaft hat einen `dense`-Wert, der Elemente visuell aus der DOM-Reihenfolge entfernen kann.
 
-Wie in diesen Leitfäden bereits gezeigt wurde, gibt uns das CSS Grid-Layout die Möglichkeit, unsere Seiteninhalte durch [linienbasierte Platzierung von Grid-Template-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) neu anzuordnen. Dies kann unabhängig vom Standort des Elements in der Quelle erfolgen. Es gibt auch die {{cssxref("order")}}-Eigenschaft, die beeinflussen kann, wie Elemente automatisch platziert werden. Die {{cssxref("grid-auto-flow")}}-Eigenschaft hat einen `dense`-Wert, der Elemente visuell aus der DOM-Reihenfolge herausholen kann.
+Die CSS Grid Layout-Spezifikation enthält einen Abschnitt über [Neuanordnung und Barrierefreiheit](https://drafts.csswg.org/css-grid/#order-accessibility). Die Einführung zu diesem Abschnitt beschreibt, was Browser tun sollten, wenn Inhalte visuell mit Grid Layout neu angeordnet werden:
 
-Die CSS Grid-Layout-Spezifikation enthält einen Abschnitt zum Thema [Umordnung und Barrierefreiheit](https://drafts.csswg.org/css-grid/#order-accessibility). Die Einleitung zu diesem Abschnitt beschreibt, was Browser tun sollten, wenn Inhalte visuell mit Grid-Layout neu angeordnet werden:
+> Das Grid-Layout gibt Autoren große Freiheiten zur Umordnung des Dokuments. Diese sind jedoch kein Ersatz für die korrekte Anordnung der Dokumentquelle. Die `order`-Eigenschaft und die Grid-Platzierung beeinflussen nicht die Reihenfolge in nicht-visuellen Medien (wie Sprache). Ebenso beeinflusst die visuelle Umordnung von Grid-Elementen nicht die Standarddurchlaufreihenfolge von sequenziellen Navigationsmodi (wie das Durchlaufen von Links, siehe z. B. [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
 
-> Das Grid-Layout gibt Autoren große Freiheiten, das Dokument umzugestalten. Diese sind jedoch kein Ersatz für die korrekte Reihenfolge der Quelldokumente. Die `order`-Eigenschaft und die Grid-Platzierung beeinflussen nicht die Reihenfolge in nicht-visuellen Medien (wie z. B. Sprachausgabe). Ebenso beeinflusst die visuelle Umordnung von Grid-Elementen nicht die Standard-Durchlaufreihenfolge von sequentiellen Navigationsmodi (wie das Durchschalten von Links, siehe z. B. [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex)).
+Wenn Sie Dinge visuell mithilfe des Grid-Layouts neu anordnen, ändert dies nicht, wie die Elemente geordnet sind, wenn der Inhalt von einem Screenreader oder anderen Text-zu-Sprache-Benutzeragenten vorgelesen wird. Zusätzlich ändert die Neuanordnung nicht die Tab-Reihenfolge. Das bedeutet, dass jemand, der mit der Tastatur navigiert, möglicherweise plötzlich vom Anfang zum Ende des Dokuments springt, weil ein umgeordnetes Element als Nächstes in der Tab-Reihenfolge kommt.
 
-Wenn Sie Inhalte visuell mit dem Grid-Layout umordnen, wird dies nicht beeinflussen, wie die Inhalte von einem Screenreader oder anderen Text-zu-Sprache-Agents gelesen werden. Darüber hinaus wird die Umordnung die Tab-Reihenfolge nicht ändern. Das bedeutet, dass jemand, der mit der Tastatur navigiert, möglicherweise von den Links auf Ihrer Seite plötzlich vom oberen Bereich zum unteren Bereich des Dokuments springt, weil sich ein neu angeordnetes Element als Nächstes in der Tab-Reihenfolge befindet.
+Die Spezifikation warnt Autoren (der CSSWG-Begriff für Webentwickler), diese Neuanordnung nicht zu machen.
 
-Die Spezifikation warnt Entwickler (in der CSSWG-Sprache die Autoren), dies nicht umzusetzen.
+> Autoren müssen die `order`- und Grid-Platzierungseigenschaften nur für die visuelle, nicht logische Neuanordnung von Inhalten verwenden. Stylesheets, die diese Funktionen zur logischen Neuanordnung verwenden, sind nicht konform.
 
-> Autoren müssen die `order`- und Grid-Platzierungseigenschaften nur für visuelle, nicht logische Umordnungen von Inhalten verwenden. Stylesheets, die diese Funktionen für logische Umordnungen nutzen, gelten als nicht konform.
+Was bedeutet das für das Design mit dem Grid-Layout in der Praxis?
 
-Was bedeutet das für das Design mit Grid-Layouts in der Praxis?
+### Visuelle, nicht logische Neuanordnung
 
-### Visuelle und nicht logische Umordnung
+Jedes Mal, wenn Sie Dinge mit Grid-Layout – oder mit Flexbox – neu anordnen, führen Sie nur eine _visuelle Neuanordnung_ durch. Die zugrunde liegende Quelle steuert Dinge wie Text-zu-Sprache und die Tab-Reihenfolge des Dokuments. Wir können sehen, wie das mit einem Beispiel funktioniert.
 
-Jedes Mal, wenn Sie eine Umordnung mit dem Grid-Layout – oder mit Flexbox – durchführen, führen Sie eine _visuelle Umordnung_ durch. Die zugrunde liegende Quelle steuert Dinge wie die Sprachausgabe und die Tab-Reihenfolge des Dokuments. Wir können sehen, wie das funktioniert, anhand eines Beispiels.
-
-In diesem Beispiel haben wir ein Grid mit fünf Elementen, von denen jedes einen Link enthält. Die Elemente werden mit linienbasierten Platzierungseigenschaften positioniert. Wir haben Box 1 in die zweite Zeile des Grids gelegt, damit sie visuell als viertes Element in der Liste erscheint. Wenn wir durch die Links mit der Tabulatortaste navigieren, beginnt die Tab-Reihenfolge weiterhin mit Box 1, da sie zuerst in der Quelle steht.
+In diesem Beispiel haben wir ein Grid, das fünf Elemente enthält, von denen jedes einen Link enthält. Die Elemente sind mit linienbasierten Platzierungseigenschaften positioniert. Wir haben Box 1 in der zweiten Zeile des Grids positioniert, sodass sie visuell als viertes Element in der Liste erscheint. Navigieren wir durch die Links mit der Tab-Taste, beginnt die Tab-Reihenfolge immer noch mit Box 1, da sie zuerst in der Quelle kommt.
 
 ```css hidden
 * {
@@ -78,29 +76,29 @@ In diesem Beispiel haben wir ein Grid mit fünf Elementen, von denen jedes einen
 
 {{ EmbedLiveSample('Visual_not_logical_re-ordering', '500', '230') }}
 
-Die Spezifikation legt nahe, dass Sie, wenn Box 1 wirklich logisch an diese Position gehört, zu Ihrem HTML-Dokument zurückkehren und die Reihenfolge dort ändern sollten, anstatt sie über das Grid-Layout umzuordnen. Dies ist gemeint mit visueller versus logischer Umordnung. Die logische Reihenfolge ist wichtig für die Bedeutung und Struktur unseres Dokuments, und wir sollten sicherstellen, dass wir diese Struktur bewahren.
+Die Spezifikation besagt, dass in diesem Szenario, wenn Box 1 an dieser Position wirklich logisch sinnvoll ist, wir zu unserer HTML-Quelle zurückgehen und die Änderung dort machen sollten, anstatt sie mit Grid-Layout neu zu ordnen. Dies ist gemeint mit visueller versus logischer Neuanordnung; logische Ordnung ist wichtig für die Bedeutung und Struktur unseres Dokuments und wir sollten sicherstellen, dass wir diese Struktur bewahren.
 
-## Wie sollten wir Barrierefreiheit im Grid-Layout angehen?
+## Wie sollten wir die Barrierefreiheit beim Grid-Layout angehen?
 
-Aus der Spezifikation wissen wir, dass wir sicherstellen müssen, dass unser Dokument die logische Reihenfolge unserer Inhalte beibehält. Wie sollten wir unsere Entwicklung angehen, um sicherzustellen, dass wir die Barrierefreiheit für die unterschiedlichen Nutzer und die Arten, wie sie mit unseren Seiten interagieren, aufrechterhalten?
+Aus der Spezifikation wissen wir, dass wir sicherstellen müssen, dass unser Dokument die logische Reihenfolge unserer Inhalte beibehält. Wie sollten wir unsere Entwicklung angehen, um sicherzustellen, dass wir die Barrierefreiheit für die verschiedenen Benutzer und die Arten, wie sie mit unseren Seiten interagieren, wahren?
 
-- Beginnen Sie mit einem strukturierten und barrierefreien Dokument:
-  - : Ein Grid-Layout sollte bedeuten, dass wir unsere Dokumentquelle nicht ändern müssen, um das Layout zu erreichen, das wir möchten. Der Ausgangspunkt Ihrer Seite sollte also ein gut strukturiertes und barrierefreies Ausgangsdokument sein. Dies wird oft auch eine gute Struktur für _Ihre kleinsten Bildschirme_ geben. Wenn ein Benutzer auf einem Mobilgerät durch ein langes Dokument scrollt, stimmen die Prioritäten dieses Benutzers oft mit dem überein, was in der Quelle Priorität haben sollte.
-- Erstellen Sie ein responsives und verantwortungsvolles Grid:
-  - : Mit einer soliden Dokumentstruktur, die im HTML definiert ist, können Sie CSS verwenden, um Ihr Layout darüber zu ergänzen. Sie werden wahrscheinlich [Media Queries](/de/docs/Web/CSS/CSS_media_queries) verwenden, um Änderungen für verschiedene Bildschirmgrößen und Geräte vorzunehmen, einschließlich der Erstellung zusätzlicher Spalten für größere Bildschirme. Grid kann hier sehr nützlich sein. Beispielsweise können Elemente, die in der mobilen Quellreihenfolge weniger priorisiert sind, in einem Desktop-Layout in eine Seitenleiste verschoben werden. Der Schlüssel ist hier, ständig zu testen. Ein guter Test ist es, _mit der Tabulatortaste durch das Dokument_ zu navigieren. Macht die Reihenfolge immer noch Sinn? Überprüfen Sie, dass Sie nicht in merkwürdiger Weise von oben nach unten im Layout springen. Das ist ein Zeichen, dass Sie etwas im Layout anpassen müssen.
-- Zurück zur Quelle:
-  - : Wenn Sie zu irgendeinem Zeitpunkt im Designprozess Grid verwenden, um die Position eines Elements zu verschieben, überlegen Sie, ob Sie zu Ihrem Dokument zurückkehren und die logische Reihenfolge ebenfalls ändern sollten. Das Gute am CSS Grid-Layout ist, dass Sie ein Element in der Quelle in die logische Reihenfolge verschieben können, ohne große Änderungen an Ihrem Layout vornehmen zu müssen. Es liegt an uns als Entwicklern, daran zu denken, zur Quelle zurückzugehen und sie zu aktualisieren, um die logische Reihenfolge beizubehalten.
+- Beginnen Sie mit einem strukturierten und zugänglichen Dokument
+  - : Ein Grid-Layout sollte bedeuten, dass wir unsere Dokumentquelle nicht ändern müssen, um das gewünschte Layout zu erhalten. Daher sollte der Ausgangspunkt Ihrer Seite ein gut strukturiertes und zugängliches Quelldokument sein. Dies gibt Ihnen oft auch eine gute Struktur für _Ihre kleinsten Bildschirmgeräte_. Wenn ein Benutzer auf einem Mobilgerät durch ein langes Dokument scrollt, stimmen die Prioritäten für diesen Benutzer oft mit denen überein, die in der Quelle eine Priorität sein sollten.
+- Erstellen Sie ein responsives und verantwortungsvolles Grid
+  - : Mit einer soliden Dokumentstruktur, die in Ihrem HTML definiert ist, können Sie CSS verwenden, um Ihr Layout von oben hinzuzufügen. Sie werden wahrscheinlich [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) verwenden, um Änderungen für verschiedene Bildschirmgrößen und Geräte vorzunehmen, einschließlich der Erstellung zusätzlicher Spalten für größere Bildschirme. Grid kann hier sehr nützlich sein. Zum Beispiel können Elemente, die in der mobilen Quellreihenfolge entpriorisiert sind, in ein Seitenbereich-Layout auf dem Desktop verschoben werden. Der Schlüssel hier ist, kontinuierlich zu testen. Ein guter Test ist, _durch das Dokument zu tabben_. Ergibt die Reihenfolge immer noch Sinn? Überprüfen Sie, ob Sie nicht auf seltsame Weise vom Anfang zum Ende des Layouts springen. Das ist ein Zeichen dafür, dass Sie etwas am Layout ändern müssen.
+- Zurück zur Quelle
+  - : Wenn Sie sich während des Designprozesses jemals dabei ertappen, Grid zu verwenden, um die Position eines Elements zu verschieben, überlegen Sie, ob Sie zu Ihrem Dokument zurückkehren und auch eine Änderung der logischen Ordnung vornehmen sollten. Das Schöne an der Verwendung des CSS Grid Layouts ist, dass Sie ein Element in der Quelle verschieben können, um die logische Reihenfolge zu erfüllen, ohne große Änderungen an Ihrem Layout vornehmen zu müssen. Es liegt an uns als Entwickler, daran zu denken, zu unserer Quelle zurückzukehren und sie zu aktualisieren, um die logische Reihenfolge beizubehalten.
 
-## Grid und die Gefahr der Markup-Glättung
+## Grid und die Gefahr des Markup-Flachens
 
-Ein weiteres Problem, das beim CSS Grid-Layout – und in etwas geringerem Maße bei CSS Flexbox – zu beachten ist, ist die Versuchung, das Markup zu _glätten_. Wie wir festgestellt haben, muss ein Element, um zu einem Grid-Element zu werden, ein direktes Kind des Grid-Containers sein. Wenn Sie also ein {{HTMLElement("ul")}}-Element innerhalb eines Grid-Containers haben, wird _dieses_ `ul` zu einem Grid-Element – die kindlichen {{HTMLElement("li")}}-Elemente nicht.
+Ein weiteres Problem, das im CSS Grid Layout (und in geringerem Maße im CSS Flexbox) auftreten kann, ist die Versuchung, das Markup zu _verflachen_. Wie wir festgestellt haben, muss ein Element ein direktes Kind des Grid-Containers sein, um ein Grid-Item zu werden. Daher wird dort, wo Sie ein {{HTMLElement("ul")}}-Element in einem Grid-Container haben, _dieses_ `ul` zu einem Grid-Item – die Kind-{{HTMLElement("li")}}-Elemente nicht.
 
-Der [`subgrid`](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)-Wert von `grid-template-columns` und `grid-template-rows` löst dieses Problem. Er ermöglicht es, dass das Grid von Grid-Elementen geerbt und innerhalb des Baumes weitergegeben wird. Alternativ bewirkt die Einstellung `display: contents` auf einem Grid-Element, dass die Kinder des Elements zu Grid-Elementen werden. Wenn Sie ein Element auf `display: contents` setzen, verschwindet die Box, die es normalerweise erstellen würde, und die Boxen der Kinderelemente erscheinen, als wären sie eine Ebene höher gezogen worden.
+Der [`subgrid`](/de/docs/Web/CSS/Guides/Grid_layout/Subgrid)-Wert von `grid-template-columns` und `grid-template-rows` löst dieses Problem. Er ermöglicht es, dass das Grid von Grid-Items geerbt und an den Baum weitergegeben wird. Alternativ führt das Festlegen von `display: contents` auf einem Grid-Item dazu, dass die Kinder des Elements zu Grid-Items werden. Wenn Sie ein Element so festlegen, dass es `display: contents` hat, verschwindet die Box, die es normalerweise erstellen würde, und die Boxen der Kindelemente erscheinen, als ob sie eine Ebene höher gestiegen wären.
 
-Mit einem gut strukturierten Dokument zu beginnen, ist ein sehr guter Weg, um Barrierefreiheitsprobleme zu vermeiden.
+Mit einem gut strukturierten Dokument zu beginnen, ist eine sehr gute Möglichkeit, Barrierefreiheitsprobleme zu vermeiden.
 
 ## Siehe auch
 
-- [Flexbox & the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/) und [(Human After All): Accessibility remix video](https://www.youtube.com/watch?v=spxT2CmHoPk) via Léonie Watson (2016)
-- [Grid, content re-ordering and accessibility](https://css-tricks.com/grid-content-re-ordering-and-accessibility/) via CSS-tricks (2019)
-- [`display: contents` is not a CSS reset](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html) via Adrian Roselli (2024)
+- [Flexbox und die Diskrepanz der Tastaturnavigation](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/) und [(Human After All): Accessibility Remix Video](https://www.youtube.com/watch?v=spxT2CmHoPk) von Léonie Watson (2016)
+- [Grid, Content-Neuanordnung und Barrierefreiheit](https://css-tricks.com/grid-content-re-ordering-and-accessibility/) via CSS-tricks (2019)
+- [`display: contents` ist kein CSS-Reset](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html) von Adrian Roselli (2024)

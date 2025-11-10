@@ -3,15 +3,15 @@ title: "Navigator: appCodeName-Eigenschaft"
 short-title: appCodeName
 slug: Web/API/Navigator/appCodeName
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
 ---
 
-{{APIRef("HTML DOM")}} {{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
 Der Wert der **`Navigator.appCodeName`**-Eigenschaft ist immer `"Mozilla"`, in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen tatsächlichen Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser geben `"Mozilla"` als Wert dieser Eigenschaft zurück.
 
 ## Wert
 

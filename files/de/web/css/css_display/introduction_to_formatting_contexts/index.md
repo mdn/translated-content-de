@@ -1,46 +1,45 @@
 ---
-title: Einführung in Formatierungskontexte
+title: Einführung in Formatierungs-Kontexte
+short-title: Formatting contexts
 slug: Web/CSS/CSS_display/Introduction_to_formatting_contexts
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{CSSRef}}
+Dieser Artikel führt in das Konzept der Formatierungs-Kontexte ein, von denen es mehrere Typen gibt, einschließlich Block-Formatierungs-Kontexte, Inline-Formatierungs-Kontexte und Flex-Formatierungs-Kontexte. Die Grundlagen, wie sie sich verhalten und wie Sie diese Verhaltensweisen nutzen können, werden ebenfalls vorgestellt.
 
-Dieser Artikel führt in das Konzept der Formatierungskontexte ein, von denen es verschiedene Typen gibt, einschließlich Block-Formatierungskontexte, Inline-Formatierungskontexte und Flex-Formatierungskontexte. Die Grundlagen ihres Verhaltens und ihrer Nutzungsmöglichkeiten werden ebenfalls erläutert.
+Alles auf einer Seite ist Teil eines **Formatierungs-Kontextes** oder eines Bereichs, der definiert wurde, um Inhalte auf eine bestimmte Weise anzuordnen. Ein **Block-Formatierungs-Kontext** (BFC) ordnet untergeordnete Elemente entsprechend den Block-Layout-Regeln an, ein **Flex-Formatierungs-Kontext** ordnet seine Kinder als {{Glossary("flex_item", "Flex-Elemente")}} an, usw. Jeder Formatierungs-Kontext hat spezifische Regeln dafür, wie das Layout in diesem Kontext funktioniert.
 
-Alles auf einer Seite ist Teil eines **Formatierungskontexts**, also eines Bereichs, der definiert wurde, um Inhalte auf eine bestimmte Weise anzuordnen. Ein **Block-Formatierungskontext** (BFC) ordnet Kindelemente gemäß den Blocklayout-Regeln an, ein **Flex-Formatierungskontext** ordnet seine Kinder als {{Glossary("flex_item", "Flex-Elemente")}} an usw. Jeder Formatierungskontext hat spezifische Regeln darüber, wie das Layout in diesem Kontext funktioniert.
+## Block-Formatierungs-Kontexte
 
-## Block-Formatierungskontexte
+Das äußerste Element in einem Dokument, das Block-Layout-Regeln verwendet, etabliert den ersten oder **initialen Block-Formatierungs-Kontext**. Das bedeutet, dass jedes Element innerhalb des `<html>`-Elements gemäß dem normalen Fluss unter Beachtung der Regeln für Block- und Inline-Layouts angeordnet wird. Elemente, die an einem BFC teilnehmen, verwenden die im CSS Box Model beschriebenen Regeln, die definieren, wie sich die Abstände, Rahmen und Abstände eines Elements mit anderen Blöcken im selben Kontext verhalten.
 
-Das äußerste Element in einem Dokument, das Blocklayout-Regeln verwendet, legt den ersten, oder **ursprünglichen Block-Formatierungskontext** fest. Das bedeutet, dass jedes Element innerhalb des `<html>`-Elements gemäß dem normalen Fluss nach den Regeln für Block- und Inline-Layout angeordnet wird. Elemente in einem BFC verwenden die Regeln des CSS-Box-Modells, das definiert, wie die Ränder, Rahmen und Abstände eines Elements mit anderen Blöcken im selben Kontext interagieren.
+### Erstellen eines neuen Block-Formatierungs-Kontexts
 
-### Erstellen eines neuen Block-Formatierungskontexts
+Das {{HTMLElement("html")}}-Element ist nicht das einzige Element, das in der Lage ist, einen Block-Formatierungs-Kontext zu erstellen. Jedes Blockebenen-Element kann durch die Anwendung bestimmter CSS-Eigenschaften dazu gebracht werden, einen BFC zu erstellen.
 
-Das {{HTMLElement("html")}}-Element ist nicht das einzige Element, das einen Block-Formatierungskontext erstellen kann. Jedes Blockelement kann so gestaltet werden, dass es durch die Anwendung bestimmter CSS-Eigenschaften einen BFC erstellt.
+Ein neuer BFC wird in folgenden Situationen erstellt:
 
-Ein neuer BFC wird unter folgenden Bedingungen erstellt:
-
-- Elemente, die mit {{cssxref("float")}} zum Schweben gebracht werden
-- [absolut positionierte](/de/docs/Web/CSS/position#types_of_positioning) Elemente
+- Elemente, die durch {{cssxref("float")}} zum Schweben gebracht werden
+- [absolut positionierte](/de/docs/Web/CSS/Reference/Properties/position#types_of_positioning) Elemente
 - Elemente mit {{cssxref("display", "display: inline-block", "#inline-block")}}
-- Tabellenzellen oder Elemente mit `display: table-cell`, einschließlich anonymer Tabellenzellen, die durch die Verwendung der `display: table-*` Eigenschaften erstellt werden
+- Tabelleneinheiten oder Elemente mit `display: table-cell`, einschließlich anonymer Tabelleneinheiten, die bei Verwendung der `display: table-*`-Eigenschaften erstellt werden
 - Tabellenüberschriften oder Elemente mit `display: table-caption`
 - Blockelemente, bei denen `overflow` einen anderen Wert als `visible` hat
 - Elemente mit `display: flow-root` oder `display: flow-root list-item`
 - Elemente mit {{cssxref("contain", "contain: layout", "#layout")}}, `content` oder `strict`
 - {{Glossary("flex_item", "Flex-Elemente")}}
-- Grid-Elemente
-- [Multicol-Container](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- Gitter-Elemente
+- [Multicol-Container](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
 - Elemente mit {{cssxref("column-span")}} auf `all` gesetzt
 
-Dies ist hilfreich, weil ein neuer BFC sich wie das äußerste Dokument verhält, in dem er zu einem Minilayout innerhalb des Hauptlayouts wird. Ein BFC enthält alles in ihm, {{cssxref("float")}} und {{cssxref("clear")}} gelten nur für Elemente im selben Formatierungskontext, und Margen kollabieren nur zwischen Elementen im selben Formatierungskontext.
+Dies ist nützlich, da ein neuer BFC sich wie das äußerste Dokument verhält, indem er zu einem Mini-Layout innerhalb des Hauptlayouts wird. Ein BFC enthält alles innerhalb von sich, {{cssxref("float")}} und {{cssxref("clear")}} gelten nur für Elemente im selben Formatierungs-Kontext, und Abstände werden nur zwischen Elementen im selben Formatierungs-Kontext zusammengefasst.
 
-### Beispiele zur BFC-Erstellung
+### Beispiele zur Erstellung eines BFC
 
-Betrachten wir einige dieser Situationen, um die Auswirkungen der Erstellung eines neuen BFC zu sehen.
+Schauen wir uns ein paar dieser Beispiele an, um den Effekt der Erstellung eines neuen BFC zu sehen.
 
-Im folgenden Beispiel haben wir ein schwebendes Element innerhalb eines `<div>` mit einer angewandten Umrandung. Der Inhalt dieses `<div>` ist neben dem schwebenden Element angeordnet. Da der Inhalt des schwebenden Elements höher ist als der Inhalt daneben, verläuft die Umrandung des `<div>` nun durch das schwebende Element. Wie im [Leitfaden zu innerhalb des Flusses und außerhalb des Flusses liegenden Elementen](/de/docs/Web/CSS/CSS_display/In_flow_and_out_of_flow) erklärt, wurde das schwebende Element aus dem Fluss entfernt, sodass der Hintergrund und die Umrandung des Divs nur den Inhalt und nicht das schwebende Element umfassen.
+Im untenstehenden Beispiel haben wir ein schwebendes Element innerhalb eines `<div>` mit einem angewendeten Rahmen. Der Inhalt dieses `<div>` wurde neben das schwebende Element gestellt. Da der Inhalt des Schwebeelements größer ist als der Inhalt daneben, verläuft der Rahmen des `<div>` jetzt durch das Schwebeelement. Wie im [Leitfaden zu Elementen im Fluss und außerhalb des Flusses](/de/docs/Web/CSS/Guides/Display/In_flow_and_out_of_flow) erklärt, wurde das Schwebeelement aus dem Fluss genommen, sodass der Hintergrund und der Rahmen des div nur den Inhalt und nicht das Schwebeelement enthalten.
 
 ```html live-sample___float
 <div class="box">
@@ -71,7 +70,7 @@ body {
 
 {{EmbedLiveSample("float")}}
 
-Das Erstellen eines neuen BFC würde das schwebende Element einschließen. Eine typische Vorgehensweise war es in der Vergangenheit, `overflow: auto` oder andere Werte als den Anfangswert `overflow: visible` einzusetzen.
+Das Erstellen eines neuen BFC würde den Float enthalten. Eine typische Möglichkeit, dies in der Vergangenheit zu tun, bestand darin, `overflow: auto` zu setzen oder andere Werte als den anfänglichen Wert von `overflow: visible` zu verwenden.
 
 ```html hidden live-sample___bfc-overflow
 <div class="box">
@@ -102,13 +101,13 @@ body {
 
 {{EmbedLiveSample("bfc-overflow", "", "220px")}}
 
-Das Setzen von `overflow: auto` hat einen neuen BFC erstellt, der das schwebende Element umfasst. Unser `<div>` wird nun zu einem Minilayout innerhalb unseres Layouts. Jedes Kindelement wird darin eingeschlossen.
+Durch das Setzen von `overflow: auto` wurde ein neuer BFC erstellt, der das Schwebeelement enthält. Unser `<div>` wird jetzt zu einem Mini-Layout innerhalb unseres Layouts. Jedes Kindelement wird darin enthalten sein.
 
-Das Problem beim Einsatz von `overflow`, um einen neuen BFC zu erstellen, besteht darin, dass die `overflow`-Eigenschaft dazu gedacht ist, dem Browser anzugeben, wie überlaufender Inhalt behandelt werden soll. Es gibt Situationen, in denen unerwünschte Scrollleisten oder abgeschnittene Schatten entstehen, wenn diese Eigenschaft ausschließlich zur Erstellung eines BFC verwendet wird. Außerdem ist dies möglicherweise für einen zukünftigen Entwickler nicht sehr leserlich, da es nicht offensichtlich sein könnte, warum `overflow` für diesen Zweck verwendet wurde. Falls Sie dies tun, wäre es eine gute Idee, den Code zu kommentieren, um dies zu erklären.
+Das Problem bei der Verwendung von `overflow`, um einen neuen BFC zu erstellen, ist, dass die `overflow`-Eigenschaft eigentlich dazu gedacht ist, dem Browser mitzuteilen, wie Sie mit überfließendem Inhalt umgehen möchten. Es kann vorkommen, dass Sie unerwünschte Scrollbars oder abgeschnittene Schatten erhalten, wenn Sie diese Eigenschaft lediglich verwenden, um einen BFC zu erstellen. Außerdem ist es möglicherweise nicht sehr lesbar für einen zukünftigen Entwickler, da es möglicherweise nicht offensichtlich ist, warum Sie `overflow` für diesen Zweck verwendet haben. Wenn Sie dies tun, wäre es eine gute Idee, den Code zu kommentieren, um dies zu erklären.
 
-### Explizites Erstellen eines BFC mit display: flow-root
+### Einen BFC explizit mit display: flow-root erstellen
 
-Die Verwendung von `display: flow-root` (oder `display: flow-root list-item`) auf dem enthaltenden Block erstellt einen neuen BFC ohne andere potenziell problematische Nebenwirkungen.
+Die Verwendung von `display: flow-root` (oder `display: flow-root list-item`) auf dem enthaltenden Block erstellt einen neuen BFC ohne andere potenziell problematische Nebeneffekte.
 
 ```html hidden live-sample___bfc-flow-root
 <div class="box">
@@ -141,15 +140,15 @@ body {
 
 {{EmbedLiveSample("bfc-flow-root")}}
 
-Mit `display: flow-root` auf dem {{HTMLElement("div")}} nimmt alles in diesem Container am Block-Formatierungskontext dieses Containers teil, und schwebende Elemente ragen nicht aus dem unteren Bereich des Elements heraus.
+Mit `display: flow-root` auf dem {{HTMLElement("div")}} nimmt alles innerhalb dieses Containers am Block-Formatierungs-Kontext dieses Containers teil, und Schwebeelemente werden nicht aus dem unteren Ende des Elements herausragen.
 
-Der Name des Keywords `flow-root` bezieht sich darauf, dass dadurch etwas erstellt wird, das im Wesentlichen wie ein neues Stamm-Element fungiert (ähnlich wie {{HTMLElement("html")}}), da ein neuer Kontext erstellt wird und dessen Fließlayout-Funktionen greift.
+Der Name des `flow-root`-Schlüsselworts bezieht sich auf die Tatsache, dass Sie etwas erstellen, das im Wesentlichen wie ein neues Wurzelelement (wie {{HTMLElement("html")}}) fungiert, angesichts dessen, wie der neue Kontext erstellt wird und seine Fluss-Layout-Funktionen.
 
-## Inline-Formatierungskontexte
+## Inline-Formatierungs-Kontexte
 
-Inline-Formatierungskontexte existieren innerhalb anderer Formatierungskontexte und können als der Kontext eines Absatzes angesehen werden. Der Absatz erstellt einen Inline-Formatierungskontext, in dem Elemente wie {{HTMLElement("strong")}}, {{HTMLElement("a")}} oder {{HTMLElement("span")}} auf Text verwendet werden.
+Inline-Formatierungs-Kontexte existieren innerhalb anderer Formatierungs-Kontexte und können als der Kontext eines Absatzes angesehen werden. Der Absatz erstellt einen Inline-Formatierungs-Kontext, in dem solche Dinge wie {{HTMLElement("strong")}}, {{HTMLElement("a")}}, oder {{HTMLElement("span")}} Elemente auf Text angewendet werden.
 
-Das Boxmodell gilt nicht vollständig für Elemente, die an einem Inline-Formatierungskontext teilnehmen. In einer horizontalen Schreibrichtung werden horizontale Ränder, Rahmen und Abstände auf das Element angewandt und schieben den Text nach links und rechts. Margen oberhalb und unterhalb des Elements werden jedoch nicht angewandt. Vertikale Abstände und Rahmen werden zwar angewandt, können sich jedoch über die Inhalte oben und unten überlappen, da die Zeilenboxen im Inline-Formatierungskontext nicht durch Abstände und Rahmen auseinandergeschoben werden.
+Das Box-Modell gilt nicht vollständig für Elemente, die an einem Inline-Formatierungs-Kontext teilnehmen. In einer horizontalen Schreibmoduslinie werden horizontale Abstände, Rahmen und Margen auf das Element angewendet und schieben den Text nach links und rechts weg. Allerdings werden Margen über und unter dem Element nicht angewendet. Vertikale Abstände und Rahmen werden angewendet, können jedoch Inhalte darüber und darunter überlappen, da im Inline-Formatierungs-Kontext die Linienboxen nicht durch Abstände und Rahmen auseinander gedrängt werden.
 
 ```html live-sample___inline
 <p>
@@ -175,16 +174,16 @@ strong {
 
 {{EmbedLiveSample("inline")}}
 
-## Andere Formatierungskontexte
+## Andere Formatierungs-Kontexte
 
-Dieser Leitfaden behandelt das Fließlayout und bezieht sich daher nicht auf andere mögliche Formatierungskontexte. Es ist hilfreich zu verstehen, dass die Schaffung eines Formatierungskontexts jeder Art das Verhalten der darin enthaltenen Elemente verändert. Dieses Verhalten wird immer in der Spezifikation und hier auf MDN beschrieben.
+Dieser Leitfaden behandelt das Fluss-Layout und bezieht sich daher nicht auf andere mögliche Formatierungs-Kontexte. Daher ist es nützlich zu verstehen, dass die Erstellung irgendeines Formatierungs-Kontextes die Art und Weise, wie sich Elemente innerhalb dieses Kontextes verhalten, ändert. Dieses Verhalten wird immer in der Spezifikation und auch hier auf MDN beschrieben.
 
 ## Zusammenfassung
 
-In diesem Leitfaden haben wir die Block- und Inline-Formatierungskontexte sowie das wichtige Thema der Erstellung eines Block-Formatierungskontexts (BFC) detaillierter betrachtet. Im nächsten Leitfaden werden wir herausfinden, [wie der normale Fluss mit verschiedenen Schreibrichtungen interagiert](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes).
+In diesem Leitfaden haben wir detaillierter die Block- und Inline-Formatierungs-Kontexte und das wichtige Thema der Erstellung eines Block-Formatierungs-Kontextes (BFC) betrachtet. Im nächsten Leitfaden erfahren wir, [wie der normale Fluss mit verschiedenen Schreibmodi interagiert](/de/docs/Web/CSS/Guides/Display/Flow_layout_and_writing_modes).
 
 ## Siehe auch
 
-- [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
-- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Visual_formatting_model)
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model)
+- [Block-Formatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+- [CSS Box Model](/de/docs/Web/CSS/Guides/Box_model)

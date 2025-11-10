@@ -2,16 +2,14 @@
 title: browsingData.settings()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/settings
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Browser verfügen über eine integrierte Funktion "Chronik löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Diese Funktion bietet eine Benutzeroberfläche, die es dem Benutzer ermöglicht auszuwählen, welche Art von Daten entfernt werden soll (z. B. Verlauf, Downloads, …) und wie weit zurück die Daten entfernt werden sollen.
+Browser verfügen über eine integrierte Funktion "Verlauf löschen", die es dem Benutzer ermöglicht, verschiedene Arten von Browserdaten zu löschen. Diese Funktion bietet eine Benutzeroberfläche, mit der der Benutzer auswählen kann, welche Art von Daten gelöscht werden sollen (z. B. Verlauf, Downloads, …) und wie weit in die Vergangenheit Daten entfernt werden sollen.
 
 Diese Funktion gibt den aktuellen Wert dieser Einstellungen zurück.
 
-Beachten Sie, dass nicht immer alle Datentypen über die Benutzeroberfläche entfernt werden können und einige UI-Optionen möglicherweise zu mehr als einem Datentyp gehören.
+Beachten Sie, dass nicht alle Datentypen immer über die Benutzeroberfläche entfernbar sind und einige Benutzeroberflächenoptionen möglicherweise mehr als einem Datentyp zugeordnet sind.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -30,17 +28,13 @@ Keine.
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die Einstellungen enthält. Dieses Objekt hat drei Eigenschaften:
 
 - `options`
-  - : `{{WebExtAPIRef("browsingData.RemovalOptions")}}`. Ein `RemovalOptions`-Objekt, das die aktuell ausgewählten Entfernen-Optionen beschreibt.
+  - : {{WebExtAPIRef("browsingData.RemovalOptions")}}. Ein `RemovalOptions`-Objekt, das die derzeit ausgewählten Entfernungsmöglichkeiten beschreibt.
 - `dataToRemove`
-  - : `{{WebExtAPIRef("browsingData.DataTypeSet")}}`. Dies enthält eine Eigenschaft für jeden Datentyp, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn dieser Typ zur Entfernung ausgewählt ist, und `false`, andernfalls.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn dieser Typ zur Entfernung ausgewählt ist, und `false` ansonsten.
 - `dataRemovalPermitted`
-  - : `{{WebExtAPIRef("browsingData.DataTypeSet")}}`. Dies enthält eine Eigenschaft für jeden Datentyp, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede Eigenschaft hat den Wert `true`, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und `false` andernfalls.
+  - : {{WebExtAPIRef("browsingData.DataTypeSet")}}. Dies wird eine Eigenschaft für jeden Datentyp enthalten, der in der Benutzeroberfläche des Browsers umgeschaltet werden kann. Jede hat den Wert `true`, wenn der Administrator des Geräts dem Benutzer erlaubt hat, diesen Typ zu entfernen, und `false` ansonsten.
 
 Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -62,8 +56,12 @@ browser.browsingData.settings().then(onGotSettings, onError);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

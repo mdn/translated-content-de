@@ -1,14 +1,14 @@
 ---
-title: "Animation: Animation() Konstruktor"
+title: "Animation: Animation()-Konstruktor"
 short-title: Animation()
 slug: Web/API/Animation/Animation
 l10n:
-  sourceCommit: 9895dea082072287d90e46d31419cbafdd2e966f
+  sourceCommit: 291a8c75ed553e807895225d51dff7ac24ad1f05
 ---
 
 {{ APIRef("Web Animations") }}
 
-Der **`Animation()`**-Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue Instanz eines `Animation`-Objekts zurück.
+Der **`Animation()`**-Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue `Animation`-Objektinstanz zurück.
 
 ## Syntax
 
@@ -21,19 +21,24 @@ new Animation(effect, timeline)
 ### Parameter
 
 - `effect` {{optional_inline}}
-  - : Der Zieleffekt, als ein Objekt basierend auf der [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)-Schnittstelle, das der Animation zugeordnet wird. Obwohl in Zukunft andere Effekte wie `SequenceEffect`s oder `GroupEffect`s möglich sein könnten, ist der derzeit einzige verfügbare Effekt [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect). Dies kann `null` sein (was der Standardwert ist), um anzuzeigen, dass kein Effekt angewendet werden soll.
+  - : Der Ziel-Effekt, als ein Objekt basierend auf der [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)-Schnittstelle, das der Animation zugewiesen werden soll. Obwohl in Zukunft andere Effekte wie `SequenceEffect`s oder `GroupEffect`s möglich sein könnten, ist der einzige derzeit verfügbare Effekt [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect). Dies kann `null` sein (was der Standardwert ist), um anzugeben, dass kein Effekt angewendet werden soll.
 - `timeline` {{optional_inline}}
-  - : Gibt die `timeline` an, mit der die Animation verknüpft werden soll, als ein Objekt eines Typs basierend auf der [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)-Schnittstelle. Der Standardwert ist [`Document.timeline`](/de/docs/Web/API/Document/timeline), dies kann jedoch auch auf `null` gesetzt werden.
+  - : Gibt die `timeline` an, mit der die Animation assoziiert werden soll, als ein Objekt eines Typs basierend auf der [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)-Schnittstelle. Der Standardwert ist [`Document.timeline`](/de/docs/Web/API/Document/timeline), aber dies kann auch auf `null` gesetzt werden.
 
 ## Beispiele
 
-Im [Beispiel „Follow the White Rabbit“](https://codepen.io/rachelnabors/pen/eJyWzm/?editors=0010) wird der `Animation()`-Konstruktor verwendet, um eine `Animation` für die `rabbitDownKeyframes` unter Verwendung der `timeline` des Dokuments zu erstellen:
+Im [Follow the White Rabbit-Beispiel](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#pausing_and_playing_animations) können wir den `Animation()`-Konstruktor verwenden, um eine `Animation` für die `rabbitDownKeyframes` unter Verwendung der `timeline` des Dokuments zu erstellen:
 
 ```js
-const rabbitDownAnimation = new Animation(
-  rabbitDownKeyframes,
-  document.timeline,
+const whiteRabbit = document.getElementById("rabbit");
+
+const rabbitDownKeyframes = new KeyframeEffect(
+  whiteRabbit,
+  [{ transform: "translateY(0%)" }, { transform: "translateY(100%)" }],
+  { duration: 3000, fill: "forwards" },
 );
+
+const rabbitDownAnimation = new Animation(rabbitDownKeyframes);
 ```
 
 ## Spezifikationen

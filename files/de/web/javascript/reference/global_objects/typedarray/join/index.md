@@ -1,15 +1,14 @@
 ---
 title: TypedArray.prototype.join()
+short-title: join()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/join
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`join()`** Methode von {{jsxref("TypedArray")}} Instanzen erstellt und gibt einen neuen String zurück, indem alle Elemente in diesem typisierten Array verkettet werden, getrennt durch Kommata oder eine angegebene Trennzeichen-Zeichenfolge. Wenn das typisierte Array nur ein Element hat, wird dieses Element ohne Verwendung des Trennzeichens zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.join()")}}.
 
-Die **`join()`**-Methode von {{jsxref("TypedArray")}}-Instanzen erstellt und gibt eine neue Zeichenkette zurück, indem alle Elemente dieses Typed Arrays zusammengefügt werden, getrennt durch Kommata oder eine angegebene Trennzeichen-Zeichenkette. Wenn das Typed Array nur ein Element enthält, wird dieses ohne das Trennzeichen zurückgegeben. Diese Methode verwendet den gleichen Algorithmus wie {{jsxref("Array.prototype.join()")}}.
-
-{{InteractiveExample("JavaScript Demo: TypedArray.join()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.join()")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
@@ -34,15 +33,15 @@ join(separator)
 ### Parameter
 
 - `separator` {{optional_inline}}
-  - : Eine Zeichenkette, die verwendet wird, um jedes Paar benachbarter Elemente des Typed Arrays zu trennen. Falls nicht angegeben, werden die Elemente des Typed Arrays durch ein Komma (",") getrennt.
+  - : Ein String, der jedes Paar benachbarter Elemente des typisierten Arrays trennt. Wenn es weggelassen wird, werden die Elemente des typisierten Arrays mit einem Komma (",") getrennt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, bei der alle Elemente des Typed Arrays zusammengefügt wurden. Wenn `array.length` `0` ist, wird eine leere Zeichenkette zurückgegeben.
+Ein String, in dem alle Elemente des typisierten Arrays verbunden sind. Wenn `array.length` `0` ist, wird der leere String zurückgegeben.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.join()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Typed Array-Instanzen aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.join()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -66,7 +65,7 @@ uint8.join(""); // '123'
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.join` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.toString()")}}
 - {{jsxref("Array.prototype.join()")}}

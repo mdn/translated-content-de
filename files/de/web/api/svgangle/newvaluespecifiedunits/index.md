@@ -3,12 +3,12 @@ title: "SVGAngle: newValueSpecifiedUnits() Methode"
 short-title: newValueSpecifiedUnits()
 slug: Web/API/SVGAngle/newValueSpecifiedUnits
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("SVG")}}
 
-Die `newValueSpecifiedUnits()`-Methode der [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Schnittstelle setzt den Wert auf eine Zahl mit einem zugehörigen [`unitType`](/de/docs/Web/API/SVGAngle/unitType) und ersetzt damit die Werte aller Attribute des Objekts.
+Die `newValueSpecifiedUnits()`-Methode des [`SVGAngle`](/de/docs/Web/API/SVGAngle)-Interfaces setzt den Wert auf eine Zahl mit einem zugehörigen [`unitType`](/de/docs/Web/API/SVGAngle/unitType) und ersetzt damit die Werte aller Attribute des Objekts.
 
 ## Syntax
 
@@ -20,14 +20,14 @@ newValueSpecifiedUnits(unitType, valueInSpecifiedUnits)
 
 - `unitType`
 
-  - : Eine Konstante, die den Einheitstyp darstellt, in den der Winkelwert umgewandelt werden soll. Dies muss einer der konstanten Werte sein, die für die [`unitType`](/de/docs/Web/API/SVGAngle/unitType)-Eigenschaft definiert sind, mit Ausnahme von `SVG_ANGLETYPE_UNKNOWN`.
-    - `SVGAngle.SVG_ANGLETYPE_DEG`: in Grad umwandeln
-    - `SVGAngle.SVG_ANGLETYPE_RAD`: in Radianten umwandeln
-    - `SVGAngle.SVG_ANGLETYPE_GRAD`: in Gon umwandeln
-    - `SVGAngle.SVG_ANGLETYPE_UNSPECIFIED`: in eine einheitslose Zahl umwandeln, als Grad interpretiert
+  - : Eine Konstante, die den Einheitentyp darstellt, in den der Wert des Winkels umgewandelt werden soll. Dies muss einer der für die [`unitType`](/de/docs/Web/API/SVGAngle/unitType)-Eigenschaft definierten konstanten Werte sein, mit Ausnahme von `SVG_ANGLETYPE_UNKNOWN`.
+    - `SVGAngle.SVG_ANGLETYPE_DEG`: Umwandlung in Grad
+    - `SVGAngle.SVG_ANGLETYPE_RAD`: Umwandlung in Radiant
+    - `SVGAngle.SVG_ANGLETYPE_GRAD`: Umwandlung in Gon
+    - `SVGAngle.SVG_ANGLETYPE_UNSPECIFIED`: Umwandlung in eine einheitenlose Zahl, interpretiert als Grad
 
 - `valueInSpecifiedUnits`
-  - : Der numerische Faktor für den Winkelwert, ausgedrückt im angegebenen Einheitstyp.
+  - : Der numerische Faktor für den Winkelwert, ausgedrückt im angegebenen Einheitentyp.
 
 ### Rückgabewert
 
@@ -35,11 +35,11 @@ Keiner ({{jsxref('undefined')}}).
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer der folgenden Typen auslösen:
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn `unitType` `SVG_ANGLETYPE_UNKNOWN` ist oder keine gültige Einheitstypkonstante.
+  - : Wird ausgelöst, wenn `unitType` `SVG_ANGLETYPE_UNKNOWN` ist oder keine gültige Einheitentypkonstante ist.
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn [`SVGAngle`](/de/docs/Web/API/SVGAngle) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
@@ -61,7 +61,7 @@ console.log(angle.value); // Output: 45
 console.log(angle.unitType); // Output: 2 (SVG_ANGLETYPE_DEG)
 ```
 
-### Einstellung eines Winkels in Radianten
+### Einstellung eines Winkels in Radiant
 
 ```js
 // Get an SVGAngle object

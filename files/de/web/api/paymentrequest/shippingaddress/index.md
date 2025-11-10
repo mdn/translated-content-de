@@ -3,20 +3,22 @@ title: "PaymentRequest: shippingAddress-Eigenschaft"
 short-title: shippingAddress
 slug: Web/API/PaymentRequest/shippingAddress
 l10n:
-  sourceCommit: 0ee5b41dca22ac5c3cd7f2c6523f76125c2526e9
+  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
 ---
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`shippingAddress`**-Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt die vom Benutzer bereitgestellte Lieferadresse zurück. Sie ist standardmäßig `null`.
+Die schreibgeschützte **`shippingAddress`**-Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt die vom Benutzer angegebene Lieferadresse zurück. Standardmäßig ist sie `null`.
 
 ## Wert
 
+Ein [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Objekt oder `null`.
+
 ## Beispiele
 
-Im Allgemeinen wird der Wert der `shippingAddress`-Eigenschaft durch den User Agent ausgefüllt. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
+In der Regel wird der Wert der `shippingAddress`-Eigenschaft vom Benutzeragenten ausgefüllt. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
 
-Im untenstehenden Beispiel variiert die Versandkosten abhängig von der Geografie. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event) Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die richtigen Versandkosten festzulegen.
+Im folgenden Beispiel variieren die Versandkosten je nach geografischer Lage. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)-Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren und dabei `shippingAddress` zu verwenden, um die korrekten Versandkosten festzulegen.
 
 ```js
 // Initialization of PaymentRequest arguments are excerpted for the sake of

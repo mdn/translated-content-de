@@ -2,10 +2,8 @@
 title: contextualIdentities.update()
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/update
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Aktualisiert Eigenschaften einer kontextuellen Identität anhand ihrer Cookie-Store-ID.
 
@@ -23,17 +21,13 @@ let createContext = browser.contextualIdentities.update(
 ### Parameter
 
 - `cookieStoreId`
-  - : `string`. Die ID des Cookie-Stores dieser kontextuellen Identität. Da jede kontextuelle Identität ihren eigenen Cookie-Store hat, dient dies als Identifikator für die kontextuelle Identität selbst.
+  - : `string`. Die ID des Cookie-Stores dieser kontextuellen Identität. Da kontextuelle Identitäten jeweils ihren eigenen Cookie-Store haben, dient dies als Identifikator für die kontextuelle Identität selbst.
 - `details`
-
-  - : `object`. Ein Objekt, das neue Werte für die Eigenschaften enthält, die Sie ändern möchten. Dies kann eine der folgenden Eigenschaften enthalten:
-
+  - : `object`. Ein Objekt, das neue Werte für die Eigenschaften enthält, die Sie ändern möchten. Es kann folgende Eigenschaften enthalten:
     - `name` {{optional_inline}}
-      - : `string`. Ein neuer Name für die Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt und ermöglicht es, einen neuen Tab in der Identität zu öffnen. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
+      - : `string`. Ein neuer Name für die Identität. Dieser wird in der Benutzeroberfläche des Browsers angezeigt und ermöglicht es ihnen, einen neuen Tab in der Identität zu öffnen. Er wird auch in der URL-Leiste für Tabs angezeigt, die zu dieser Identität gehören.
     - `color` {{optional_inline}}
-
       - : `string`. Eine neue Farbe für die Identität. Diese wird verwendet, um Tabs hervorzuheben, die zu dieser Identität gehören. Sie können einen der folgenden Werte angeben:
-
         - "blue"
         - "turquoise"
         - "green"
@@ -45,9 +39,7 @@ let createContext = browser.contextualIdentities.update(
         - "toolbar"
 
     - `icon` {{optional_inline}}
-
       - : `string`. Ein neues Symbol für die Identität. Sie können einen der folgenden Werte angeben:
-
         - "fingerprint"
         - "briefcase"
         - "dollar"
@@ -64,15 +56,11 @@ let createContext = browser.contextualIdentities.update(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die aktualisierte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die kontextuellen Identitätsfunktionen nicht aktiviert sind, wird das Promise abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, das die aktualisierte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die Funktionalität für kontextuelle Identitäten nicht aktiviert ist, wird das Versprechen abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert die kontextuelle Identität, deren ID "firefox-container-1" ist, um einen neuen Namen, eine neue Farbe und ein neues Symbol zu haben:
+Dieses Beispiel aktualisiert die kontextuelle Identität, deren ID "firefox-container-1" ist, um einen neuen Namen, eine neue Farbe und ein neues Symbol zu erhalten:
 
 ```js
 function onUpdated(context) {
@@ -93,3 +81,7 @@ browser.contextualIdentities
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

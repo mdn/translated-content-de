@@ -1,19 +1,17 @@
 ---
-title: Kumulative Layout-Verschiebung (CLS)
+title: Kumulative Layoutverschiebung (CLS)
 slug: Glossary/CLS
 l10n:
-  sourceCommit: 0598721ab3f672c66a8357d9e6b27ec8644a2b21
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Kumulative Layoutverschiebung (CLS)** ist eine Benutzerfreundlichkeitsmetrik für Websites, die von Google als eine der [Core Web Vital](https://web.dev/articles/vitals) Metriken entwickelt wurde.
 
-**Kumulative Layout-Verschiebung (CLS)** ist eine Usability-Metrik für Websites, die von Google als eine der [Core Web Vital](https://web.dev/articles/vitals)-Metriken entwickelt wurde.
+Sie misst das Ausmaß, in dem Benutzer unerwartete Layoutverschiebungen erleben, bei denen sich Elemente der Seite auf unerwartete Weise bewegen: das heißt, die nicht das Ergebnis einer Benutzeraktion wie dem Drücken eines Buttons oder Teil einer Animation sind.
 
-Sie misst in welchem Umfang Benutzer unerwarteten Layout-Verschiebungen begegnen, bei denen Elemente der Seite auf eine unerwartete Weise verschoben werden: also nicht durch eine Benutzeraktion wie das Drücken eines Knopfes oder als Teil einer Animation.
+Layoutverschiebungen können zum Beispiel durch {{htmlelement("img")}} oder {{htmlelement("video")}} Elemente verursacht werden, denen keine `width` und `height` Attribute zugewiesen sind, sodass der Browser nicht weiß, wie viel Platz sie benötigen, bis sie geladen sind.
 
-Layout-Verschiebungen können zum Beispiel durch `<img>` oder `<video>`-Elemente verursacht werden, denen nicht die Attribute `width` und `height` zugewiesen sind, sodass der Browser nicht weiß, wie viel Platz sie einnehmen werden, bis sie geladen sind.
-
-Die [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Schnittstelle, Teil der [Performance API](/de/docs/Web/API/Performance_API), kann verwendet werden, um einzelne Layout-Verschiebungen zu messen, die dann zur Berechnung des CLS-Scores für eine Webseite genutzt werden können.
+Das [`LayoutShift`](/de/docs/Web/API/LayoutShift) Interface, das Teil der [Performance API](/de/docs/Web/API/Performance_API) ist, kann verwendet werden, um einzelne Layoutverschiebungen zu messen, die dann genutzt werden können, um den CLS-Wert für eine Webseite zu berechnen.
 
 ## Siehe auch
 

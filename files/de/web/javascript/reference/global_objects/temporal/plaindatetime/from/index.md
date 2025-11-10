@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainDateTime.from()
+short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/from
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.PlainDateTime.from()`** erstellt ein neues `Temporal.PlainDateTime`-Objekt aus einem anderen `Temporal.PlainDateTime`-Objekt, einem Objekt mit Datums- und Zeiteigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format) String.
+Die **`Temporal.PlainDateTime.from()`** statische Methode erstellt ein neues `Temporal.PlainDateTime` Objekt aus einem anderen `Temporal.PlainDateTime` Objekt, einem Objekt mit Datums- und Zeiteigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format) String.
 
 ## Syntax
 
@@ -19,36 +20,36 @@ Temporal.PlainDateTime.from(info, options)
 ### Parameter
 
 - `info`
-  - : Einer der folgenden:
-    - Eine Instanz von {{jsxref("Temporal.PlainDateTime")}}, die eine Kopie der Instanz erstellt.
-    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format) String, der ein Datum enthält, optional eine Uhrzeit und optional einen Kalender.
-    - Ein Objekt, das Eigenschaften enthält, die entweder von {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} (`calendar`, `era`, `eraYear`, `year`, `month`, `monthCode`, `day`) oder {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} (`hour`, `minute`, `second`, `millisecond`, `microsecond`, `nanosecond`) erkannt werden. `Info` sollte ausdrücklich ein Jahr (als `year` oder `era` und `eraYear`), einen Monat (als `month` oder `monthCode`) und einen Tag angeben; andere sind optional und werden auf ihre Standardwerte gesetzt.
+  - : Eines der folgenden:
+    - Eine {{jsxref("Temporal.PlainDateTime")}} Instanz, die eine Kopie der Instanz erstellt.
+    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime#rfc_9557_format) String, der ein Datum, optional eine Zeit und optional einen Kalender enthält.
+    - Ein Objekt, das Eigenschaften enthält, die entweder von {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} (`calendar`, `era`, `eraYear`, `year`, `month`, `monthCode`, `day`) oder {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} (`hour`, `minute`, `second`, `millisecond`, `microsecond`, `nanosecond`) erkannt werden. Die Info sollte explizit ein Jahr (als `year` oder `era` und `eraYear`), einen Monat (als `month` oder `monthCode`) und einen Tag spezifizieren; andere sind optional und werden auf ihre Standardwerte gesetzt.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit der folgenden Eigenschaft:
+  - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des gültigen Bereichs liegt (bei Verwendung des Objekts `info`). Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn eine Datumskomponente außerhalb des Bereichs liegt (bei Verwendung des Objekt-`info`). Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Datumskomponente wird auf den gültigen Bereich [beschränkt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping).
+          - : Die Datumskomponente wird [begrenzt](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#invalid_date_clamping) auf den gültigen Bereich.
         - `"reject"`
-          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des gültigen Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Datumskomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das durch `info` angegebene Datum und die Uhrzeit im angegebenen `calendar` darstellt.
+Ein neues `Temporal.PlainDateTime` Objekt, das das durch `info` im angegebenen `calendar` spezifizierte Datum und die Zeit darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst in einem der folgenden Fälle:
-    - `info` ist kein Objekt oder String.
+  - : Wird in einem der folgenden Fälle ausgelöst:
+    - `info` ist kein Objekt oder ein String.
     - `options` ist kein Objekt oder `undefined`.
-    - Die bereitgestellten Eigenschaften reichen nicht aus, um ein Datum eindeutig zu bestimmen. In der Regel müssen Sie ein `year` (oder `era` und `eraYear`), `month` (oder `monthCode`) und `day` angeben.
+    - Die bereitgestellten Eigenschaften sind unzureichend, um ein Datum eindeutig zu bestimmen. Sie müssen normalerweise ein `year` (oder `era` und `eraYear`), einen `month` (oder `monthCode`) und einen `day` angeben.
 - {{jsxref("RangeError")}}
-  - : Ausgelöst in einem der folgenden Fälle:
-    - Die bereitgestellten Eigenschaften, die dieselbe Komponente angeben, sind inkonsistent.
-    - Die bereitgestellten nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` niemals ein gültiger Monatscode in diesem Kalender ist.
-    - Die bereitgestellten numerischen Eigenschaften sind außerhalb des gültigen Bereichs und `options.overflow` ist auf `"reject"` gesetzt.
-    - Die Information ist nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage oder ungefähr ±273.972,6 Jahre ab der Unix-Epoche umfasst.
+  - : Wird in einem der folgenden Fälle ausgelöst:
+    - Die bereitgestellten Eigenschaften, die dieselbe Komponente spezifizieren, sind inkonsistent.
+    - Die bereitgestellten nicht-numerischen Eigenschaften sind nicht gültig; zum Beispiel, wenn `monthCode` nie ein gültiger Monatscode in diesem Kalender ist.
+    - Die bereitgestellten numerischen Eigenschaften liegen außerhalb des Bereichs und `options.overflow` ist auf `"reject"` gesetzt.
+    - Die Info liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der bei ±(10<sup>8</sup> + 1) Tagen oder etwa ±273.972,6 Jahren ab der Unix-Epoche liegt.
 
 ## Beispiele
 
@@ -74,7 +75,7 @@ const dt = Temporal.PlainDateTime.from("2021-07-01T12:34:56");
 console.log(dt.toLocaleString()); // "7/1/2021, 12:34:56 PM" (assuming en-US locale)
 ```
 
-Für weitere Beispiele, insbesondere in Bezug auf verschiedene Kalender und "overflow"-Einstellungen, siehe {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} und {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
+Für weitere Beispiele, insbesondere hinsichtlich verschiedener Kalender und Überlauf-Einstellungen, siehe {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} und {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
 
 ## Spezifikationen
 

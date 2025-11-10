@@ -1,14 +1,13 @@
 ---
-title: Ember App-Struktur und Komponentisierung
+title: Ember-App-Struktur und Komponentenaufteilung
 slug: Learn_web_development/Core/Frameworks_libraries/Ember_structure_componentization
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
-{{LearnSidebar}}
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Ember_getting_started","Learn_web_development/Core/Frameworks_libraries/Ember_interactivity_events_state", "Learn_web_development/Core/Frameworks_libraries")}}
 
-In diesem Artikel werden wir die Struktur unserer TodoMVC Ember-App planen, das HTML dafür hinzufügen und dann diese HTML-Struktur in Komponenten zerlegen.
+In diesem Artikel gehen wir direkt dazu über, die Struktur unserer TodoMVC-Ember-App zu planen, das HTML dafür hinzuzufügen und anschließend diese HTML-Struktur in Komponenten zu unterteilen.
 
 <table>
   <tbody>
@@ -16,26 +15,27 @@ In diesem Artikel werden wir die Struktur unserer TodoMVC Ember-App planen, das 
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird zumindest empfohlen, dass Sie mit den Kernsprachen
+          Es wird empfohlen, dass Sie mindestens die wesentlichen Sprachen
           <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
           <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> vertraut sind und
-          Kenntnisse über das
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> kennen und
+          Kenntnisse über die Verwendung des
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-            >Terminal/Kommandozeile</a
+            >Terminal/Eingabeaufforderung</a
           >haben.
         </p>
         <p>
-          Ein tieferes Verständnis moderner JavaScript-Funktionen (wie Klassen,
-          Module etc.) wird äußerst nützlich sein, da Ember intensiv davon Gebrauch macht.
+          Ein tieferes Verständnis moderner JavaScript-Features (wie Klassen,
+          Module, usw.) ist äußerst vorteilhaft, da Ember stark von ihnen Gebrauch macht.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
+      <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man eine Ember-App strukturiert und dann diese Struktur in Komponenten aufteilt.
+        Lernen, wie man eine Ember-App strukturiert und diese Struktur
+        in Komponenten aufteilt.
       </td>
     </tr>
   </tbody>
@@ -43,9 +43,9 @@ In diesem Artikel werden wir die Struktur unserer TodoMVC Ember-App planen, das 
 
 ## Planung des Layouts der TodoMVC-App
 
-Im letzten Artikel haben wir ein neues Ember-Projekt eingerichtet, dann unsere CSS-Stile hinzugefügt und konfiguriert. An diesem Punkt fügen wir etwas HTML hinzu, um die Struktur und Semantik unserer TodoMVC-App zu planen.
+Im letzten Artikel haben wir ein neues Ember-Projekt eingerichtet und unsere CSS-Stile hinzugefügt und konfiguriert. An diesem Punkt fügen wir etwas HTML hinzu, um die Struktur und Semantik unserer TodoMVC-App zu planen.
 
-Das HTML der Startseite unserer Anwendung ist in `app/templates/application.hbs` definiert. Diese Datei existiert bereits, und ihr Inhalt sieht derzeit so aus:
+Das HTML der Startseite unserer Anwendung wird in `app/templates/application.hbs` definiert. Diese Datei existiert bereits und ihr Inhalt sieht derzeit so aus:
 
 ```hbs
 \{{!-- The following component displays Ember's default welcome message. --}}
@@ -55,9 +55,9 @@ Das HTML der Startseite unserer Anwendung ist in `app/templates/application.hbs`
 \{{outlet}}
 ```
 
-`<WelcomePage />` ist eine Komponente, die von einem Ember-Addon bereitgestellt wird und die Standard-Willkommensseite rendert, die wir im vorherigen Artikel gesehen haben, als wir das erste Mal zu unserem Server unter `localhost:4200` navigiert sind.
+`<WelcomePage />` ist eine von einem Ember-Addon bereitgestellte Komponente, die die Standard-Willkommensseite rendert, die wir im vorherigen Artikel gesehen haben, als wir zum ersten Mal zu unserem Server unter `localhost:4200` navigierten.
 
-Wir möchten jedoch etwas anderes. Stattdessen soll es die Struktur der TodoMVC-App enthalten. Löschen Sie dazu zunächst den Inhalt von `application.hbs` und ersetzen Sie ihn durch Folgendes:
+Wir wollen jedoch etwas anderes. Stattdessen möchten wir, dass sie die Struktur der TodoMVC-App enthält. Löschen Sie zunächst den Inhalt von `application.hbs` und ersetzen Sie ihn durch Folgendes:
 
 ```html
 <section class="todoapp">
@@ -70,13 +70,14 @@ Wir möchten jedoch etwas anderes. Stattdessen soll es die Struktur der TodoMVC-
 </section>
 ```
 
-> **Hinweis:** [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) bietet eine Bezeichnung für unterstützende Technologien, beispielsweise damit ein Screenreader diese vorlesen kann. Dies ist nützlich in Fällen, wo ein [`<input>`](/de/docs/Web/HTML/Element/input) ohne ein entsprechendes HTML-Label verwendet wird, welches in eine Bezeichnung umgewandelt werden könnte.
+> [!NOTE]
+> [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) bietet eine Beschriftung für unterstützende Technologie — zum Beispiel, damit ein Bildschirmleser sie vorlesen kann. Dies ist nützlich in Fällen, in denen wir ein [`<input>`](/de/docs/Web/HTML/Reference/Elements/input) verwenden, ohne dass ein entsprechender HTML-Text vorhanden ist, der in eine Beschriftung umgewandelt werden könnte.
 
-Wenn Sie `application.hbs` speichern, wird der zuvor gestartete Entwicklungsserver die App automatisch neu erstellen und den Browser aktualisieren. Die gerenderte Ausgabe sollte nun wie folgt aussehen:
+Wenn Sie `application.hbs` speichern, wird der zuvor gestartete Entwicklungsserver die App automatisch neu erstellen und den Browser aktualisieren. Die gerenderte Ausgabe sollte nun so aussehen:
 
-![Todo-App im Browser gerendert, nur mit dem neuen Todo-Eingabefeld sichtbar](todos-initial-render.png)
+![Todo-App im Browser gerendert, nur mit dem neuen Todo-Eingabefeld, das angezeigt wird](todos-initial-render.png)
 
-Es erfordert nicht viel Mühe, unser HTML wie eine voll funktionsfähige To-Do-Listen-App aussehen zu lassen. Aktualisieren Sie die `application.hbs`-Datei erneut, sodass ihr Inhalt nun so aussieht:
+Es erfordert nicht viel Aufwand, unser HTML wie eine voll funktionsfähige To-Do-Listen-App aussehen zu lassen. Aktualisieren Sie die Datei `application.hbs` erneut, sodass ihr Inhalt folgendermaßen aussieht:
 
 ```html
 <section class="todoapp">
@@ -102,7 +103,8 @@ Es erfordert nicht viel Mühe, unser HTML wie eine voll funktionsfähige To-Do-L
           <button
             type="button"
             class="destroy"
-            title="Remove this todo"></button>
+            title="Remove this todo"
+            aria-label="Remove this todo"></button>
         </div>
 
         <input autofocus class="edit" value="Todo Text" />
@@ -118,7 +120,8 @@ Es erfordert nicht viel Mühe, unser HTML wie eine voll funktionsfähige To-Do-L
           <button
             type="button"
             class="destroy"
-            title="Remove this todo"></button>
+            title="Remove this todo"
+            aria-label="Remove this todo"></button>
         </div>
 
         <input autofocus class="edit" value="Todo Text" />
@@ -142,40 +145,39 @@ Es erfordert nicht viel Mühe, unser HTML wie eine voll funktionsfähige To-Do-L
 </section>
 ```
 
-Die gerenderte Ausgabe sollte nun wie folgt sein:
+Die gerenderte Ausgabe sollte nun wie folgt aussehen:
 
-![Todo-App im Browser gerendert mit neuem Todo-Eingabefeld und bestehenden Todos, - Kinokarten kaufen und ins Kino gehen](todos-with-todo-items.png)
+![Todo-App im Browser gerendert, mit neuem Todo-Eingabefeld und vorhandenen Todos, - Kinokarten kaufen und zum Film gehen](todos-with-todo-items.png)
 
-Dies sieht ziemlich vollständig aus, aber denken Sie daran, dass dies nur ein statischer Prototyp ist. Nun müssen wir unseren HTML-Code in dynamische Komponenten zerlegen; später werden wir daraus eine vollständig interaktive App machen.
+Das sieht ziemlich vollständig aus, aber denken Sie daran, dass dies nur ein statischer Prototyp ist. Jetzt müssen wir unseren HTML-Code in dynamische Komponenten aufteilen; später werden wir daraus eine voll interaktive App machen.
 
-Wenn wir den Code neben der gerenderten Todo-App betrachten, gibt es mehrere Möglichkeiten, wie wir entscheiden könnten, die Benutzeroberfläche zu zerlegen, aber planen wir, das HTML in die folgenden Komponenten aufzuteilen:
+Betrachtet man den Code neben der gerenderten Todo-App, gibt es mehrere Möglichkeiten, wie wir entscheiden können, die Benutzeroberfläche aufzuteilen. Aber lassen Sie uns planen, das HTML in die folgenden Komponenten zu unterteilen:
 
-![Code-Screenshot, der zeigt, welche Teile des Codes in welche Komponente kommen](todos-ui-component-breakdown.png)
+![Code-Screenshot, der zeigt, welche Teile des Codes in welche Komponente gehen werden](todos-ui-component-breakdown.png)
 
 Die Komponenten-Gruppierungen sind wie folgt:
 
-- Das Haupteingabefeld / "new-todo" (rot im Bild)
-- Der Hauptinhalt der Todo-Liste + die `mark-all-complete`-Schaltfläche (lila im Bild)
-
-  - Die `mark-all-complete`-Schaltfläche, ausdrücklich hervorgehoben aus unten angegebenen Gründen (gelb im Bild)
-  - Jedes Todo ist eine einzelne Komponente (grün im Bild)
+- Die Haupteingabe / "new-todo" (rot im Bild)
+- Der enthaltene Körper der To-Do-Liste + die `mark-all-complete` Taste (lila im Bild)
+  - Die `mark-all-complete Taste`, ausdrücklich hervorgehoben aus den unten genannten Gründen (gelb im Bild)
+  - Jede To-Do ist eine individuelle Komponente (grün im Bild)
 
 - Die Fußzeile (blau im Bild)
 
-Etwas Seltsames zu beachten ist, dass das `mark-all-complete`-Checkbox (gelb markiert), obwohl es sich im "Haupt"-Abschnitt befindet, neben dem "new-todo"-Eingabefeld gerendert wird. Dies liegt daran, dass das Standard-CSS die Checkbox + das Label mit negativen Top- und Linkswerten absolut positioniert, um es neben das Eingabefeld zu verschieben, anstatt es in dem "Haupt"-Abschnitt zu haben.
+Etwas merkwürdiges ist, dass das `mark-all-complete` Kontrollkästchen (in Gelb), während es sich im "Haupt"-Abschnitt befindet, neben dem "new-todo" Eingabefeld gerendert wird. Das liegt daran, dass das Standard-CSS das Kontrollkästchen + Beschriftung mit negativen oberen und linken Werten absolut positioniert, um es neben das Eingabefeld zu verschieben, anstatt es in den "Haupt"-Abschnitt zu platzieren.
 
-![Todo-App durch Entwicklertools betrachtet](todos-devtools-view.png)
+![Todo-App im Devtools betrachtet](todos-devtools-view.png)
 
-## Verwendung der CLI, um unsere Komponenten für uns zu erstellen
+## Verwenden der CLI, um unsere Komponenten für uns zu erstellen
 
 Um unsere App darzustellen, möchten wir 4 Komponenten erstellen:
 
 - Header
 - Liste
-- Einzelnes Todo
+- Individuelles Todo
 - Fußzeile
 
-Um eine Komponente zu erstellen, verwenden wir den Befehl `ember generate component`, gefolgt vom Namen der Komponente. Beginnen wir mit der Erstellung der Header-Komponente. Um dies zu tun:
+Um eine Komponente zu erstellen, verwenden wir den Befehl `ember generate component`, gefolgt vom Namen der Komponente. Lassen Sie uns zuerst die Header-Komponente erstellen. Gehen Sie dazu folgendermaßen vor:
 
 1. Stoppen Sie den laufenden Server, indem Sie zum Terminal gehen und <kbd>Ctrl</kbd> + <kbd>C</kbd> drücken.
 2. Geben Sie den folgenden Befehl in Ihr Terminal ein:
@@ -184,7 +186,7 @@ Um eine Komponente zu erstellen, verwenden wir den Befehl `ember generate compon
    ember generate component header
    ```
 
-   Dadurch werden einige neue Dateien generiert, wie im resultierenden Terminalausgang gezeigt:
+   Dies wird einige neue Dateien generieren, wie im resultierenden Terminalausgang gezeigt:
 
    ```plain
    installing component
@@ -195,14 +197,14 @@ Um eine Komponente zu erstellen, verwenden wir den Befehl `ember generate compon
      create tests/integration/components/header-test.js
    ```
 
-`header.hbs` ist die Vorlagendatei, in die wir die HTML-Struktur nur für diese Komponente aufnehmen werden. Später werden wir die erforderliche dynamische Funktionalität wie Datenbindungen, Reaktionen auf Benutzerinteraktionen etc. hinzufügen.
+`header.hbs` ist die Vorlagendatei, in der wir die HTML-Struktur nur für diese Komponente einfügen werden. Später werden wir die erforderliche dynamische Funktionalität wie Datenbindung, Benutzerinteraktionen usw. hinzufügen.
 
 > [!NOTE]
-> Die `header.js`-Datei (als übersprungen angezeigt) dient der Verbindung zu einer unterstützenden Glimmer-Komponentenklasse, die wir derzeit nicht benötigen, da sie zum Hinzufügen von Interaktivität und Zustandsmanipulation verwendet werden. Standardmäßig generiert `generate component` nur Vorlagenkomponenten, da in großen Anwendungen Vorlagenkomponenten den Großteil der Komponenten ausmachen.
+> Die `header.js`-Datei (als übersprungen angezeigt) ist für die Verbindung zu einer unterstützenden Glimmer Component Class, die wir aktuell nicht benötigen, da sie zur Interaktivitäts- und Zustandsmanipulation verwendet wird. Standardmäßig generiert `generate component` template-only Komponenten, da in großen Anwendungen template-only Komponenten die Mehrheit der Komponenten bilden.
 
-`header-test.js` dient dem Schreiben automatisierter Tests, um sicherzustellen, dass unsere App im Laufe der Zeit weiterhin funktioniert, während wir aktualisieren, Funktionen hinzufügen, umstrukturieren usw. Tests liegen außerhalb des Umfangs dieses Tutorials, obwohl Tests im Allgemeinen während der Entwicklung implementiert werden sollten und nicht danach, da sie sonst oft vergessen werden. Wenn Sie neugierig auf Tests sind oder wissen möchten, warum Sie automatisierte Tests haben sollten, schauen Sie sich das [offizielle Ember-Tutorial zu Tests](https://guides.emberjs.com/release/tutorial/part-1/automated-testing/) an.
+`header-test.js` ist für das Schreiben automatisierter Tests, um sicherzustellen, dass unsere App im Laufe der Zeit bei Upgrades, der Hinzufügung von Funktionen, Reorganisation usw. weiterhin funktioniert. Tests sind nicht Teil dieses Tutorials, obwohl Tests in der Regel während der Entwicklung implementiert werden sollten und nicht danach, da sie sonst oft vergessen werden. Wenn Sie neugierig auf Tests sind oder wissen möchten, warum Sie automatisierte Tests haben möchten, lesen Sie das [offizielle Ember-Tutorial zum Testen](https://guides.emberjs.com/release/tutorial/part-1/automated-testing/).
 
-Bevor wir irgendeinen Komponentencode hinzufügen, lassen Sie uns das Gerüst für die anderen Komponenten erstellen. Geben Sie die folgenden Zeilen nacheinander in Ihr Terminal ein:
+Bevor wir irgendwelchen Komponentencode hinzufügen, erstellen wir das Grundgerüst für die anderen Komponenten. Geben Sie die folgenden Zeilen nacheinander in Ihr Terminal ein:
 
 ```bash
 ember generate component todo-list
@@ -210,13 +212,13 @@ ember generate component todo
 ember generate component footer
 ```
 
-Sie werden nun das Folgende in Ihrem Verzeichnis `todomvc/app/components` sehen:
+Sie werden jetzt Folgendes in Ihrem `todomvc/app/components` Verzeichnis sehen:
 
 ![Das App-Komponentenverzeichnis, das die von uns erstellten Komponenten-Vorlagendateien zeigt](todos-components-directory.png)
 
-Da wir nun alle unsere Komponentenstrukturdateien haben, können wir den HTML-Code für jede Komponente aus der `application.hbs`-Datei ausschneiden und in jede dieser Komponenten einfügen, und dann die `application.hbs` umschreiben, um unsere neuen Abstraktionen widerzuspiegeln.
+Da wir jetzt alle unsere Komponentendatei-Strukturen haben, können wir das HTML für jede Komponente aus der Datei `application.hbs` ausschneiden und in jede dieser Komponenten einfügen und dann die `application.hbs` so umschreiben, dass sie unsere neuen Abstraktionen widerspiegelt.
 
-1. Die `header.hbs`-Datei sollte aktualisiert werden, um Folgendes zu enthalten:
+1. Die Datei `header.hbs` sollte aktualisiert werden, um Folgendes zu enthalten:
 
    ```html
    <input
@@ -226,7 +228,7 @@ Da wir nun alle unsere Komponentenstrukturdateien haben, können wir den HTML-Co
      autofocus />
    ```
 
-2. `todo-list.hbs` sollte aktualisiert werden, um diesen Codeblock zu enthalten:
+2. `todo-list.hbs` sollte aktualisiert werden, um diesen Codeabschnitt zu enthalten:
 
    ```html
    <section class="main">
@@ -241,9 +243,9 @@ Da wir nun alle unsere Komponentenstrukturdateien haben, können wir den HTML-Co
    ```
 
    > [!NOTE]
-   > Die einzige nicht-HTML-Inhalte in diesem neuen `todo-list.hbs` ist die `<Todo />`-Komponentenaufruf. In Ember ist ein Komponentenaufruf ähnlich wie die Deklaration eines HTML-Elements, aber der erste Buchstabe beginnt mit einem Großbuchstaben, und die Namen sind in {{Glossary("camel_case", "Upper Camel Case")}} geschrieben, wie Sie es später bei `<TodoList />` sehen werden. Der Inhalt der `todo.hbs`-Datei unten wird `<Todo />` auf der gerenderten Seite ersetzen, wenn unsere Anwendung geladen wird.
+   > Das einzige Nicht-HTML im neuen `todo-list.hbs` ist die `<Todo />` Komponenteninvozierung. In Ember ist eine Komponenteninvozierung ähnlich wie die Deklarierung eines HTML-Elements, aber der erste Buchstabe beginnt mit einem Großbuchstaben und die Namen werden im {{Glossary("camel_case", "Upper Camel Case")}} geschrieben, wie Sie später mit `<TodoList />` sehen werden. Der Inhalt der `todo.hbs`-Datei unten wird `<Todo />` auf der gerenderten Seite ersetzen, sobald unsere Anwendung geladen wird.
 
-3. Fügen Sie Folgendes in die `todo.hbs`-Datei ein:
+3. Fügen Sie Folgendes in die Datei `todo.hbs` ein:
 
    ```html
    <li>
@@ -253,14 +255,18 @@ Da wir nun alle unsere Komponentenstrukturdateien haben, können wir den HTML-Co
          class="toggle"
          type="checkbox" />
        <label>Buy Movie Tickets</label>
-       <button type="button" class="destroy" title="Remove this todo"></button>
+       <button
+         type="button"
+         class="destroy"
+         title="Remove this todo"
+         aria-label="Remove this todo"></button>
      </div>
 
      <input autofocus class="edit" value="Todo Text" />
    </li>
    ```
 
-4. `footer.hbs` sollte aktualisiert werden, um Folgendes enthalten:
+4. `footer.hbs` sollte aktualisiert werden, um Folgendes zu enthalten:
 
    ```html
    <footer class="footer">
@@ -278,7 +284,7 @@ Da wir nun alle unsere Komponentenstrukturdateien haben, können wir den HTML-Co
    </footer>
    ```
 
-5. Schließlich sollte der Inhalt von `application.hbs` aktualisiert werden, sodass die entsprechenden Komponenten aufgerufen werden, wie folgt:
+5. Schließlich sollten die Inhalte von `application.hbs` so aktualisiert werden, dass sie die entsprechenden Komponenten aufrufen, wie folgt:
 
    ```hbs
    <section class="todoapp">
@@ -290,14 +296,14 @@ Da wir nun alle unsere Komponentenstrukturdateien haben, können wir den HTML-Co
    </section>
    ```
 
-6. Nachdem Sie diese Änderungen vorgenommen haben, führen Sie `npm start` in Ihrem Terminal erneut aus und gehen Sie dann zu `http://localhost:4200`, um sicherzustellen, dass die Todo-App immer noch aussieht wie vor der Umstrukturierung.
+6. Nachdem Sie diese Änderungen vorgenommen haben, führen Sie `npm start` erneut in Ihrem Terminal aus und gehen Sie dann zu `http://localhost:4200`, um sicherzustellen, dass die Todo-App weiterhin wie vor dem Refactoring aussieht.
 
-![Todo-App im Browser gerendert mit neuem Todo-Eingabefeld und bestehenden Todos, beide sagen Kinokarten kaufen](todos-components-render.png)
+![Todo-App im Browser gerendert mit neuem Todo-Eingabefeld und angezeigten bestehenden Todos, die beide "Buy Movie Tickets" sagen](todos-components-render.png)
 
-Beachten Sie, wie die Todo-Elemente beide "Buy Movie Tickets" sagen – dies liegt daran, dass dieselbe Komponente zweimal aufgerufen wird und der Todo-Text darin fest codiert ist. Im nächsten Artikel werden wir untersuchen, wie man unterschiedliche Todo-Elemente anzeigt!
+Beachten Sie, dass die Todo-Elemente beide "Buy Movie Tickets" sagen — dies liegt daran, dass dieselbe Komponente zweimal aufgerufen wird und der Todo-Text darin fest codiert ist. Wir werden im nächsten Artikel betrachten, wie man verschiedene Todo-Elemente anzeigt!
 
 ## Zusammenfassung
 
-Großartig! Alles sieht so aus, wie es sollte. Wir haben erfolgreich unser HTML in Komponenten umgewandelt! Im nächsten Artikel werden wir beginnen, Interaktivität zu unserer Ember-Anwendung hinzuzufügen.
+Großartig! Alles sieht so aus, wie es sollte. Wir haben erfolgreich unser HTML in Komponenten umstrukturiert! Im nächsten Artikel beginnen wir damit, Interaktivität zu unserer Ember-Anwendung hinzuzufügen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Ember_getting_started","Learn_web_development/Core/Frameworks_libraries/Ember_interactivity_events_state", "Learn_web_development/Core/Frameworks_libraries")}}

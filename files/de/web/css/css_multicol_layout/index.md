@@ -1,16 +1,15 @@
 ---
-title: CSS Mehrspalten-Layout
+title: CSS-Mehrspaltenlayout
 slug: Web/CSS/CSS_multicol_layout
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-{{CSSRef}}
-Das **CSS Mehrspalten-Layout** Modul ermöglicht es Ihnen, Inhalte auf mehrere Spalten zu verteilen. Mit den Eigenschaften dieses Moduls können Sie die bevorzugte Anzahl und Breite der Spalten, die Größe des Abstands zwischen den Spalten und das visuelle Erscheinungsbild der optionalen Trennlinien (bekannt als Spaltenregeln) definieren. Sie können auch festlegen, wie der Inhalt von Spalte zu Spalte fließen soll und wie Inhalte zwischen Spalten gebrochen werden sollen.
+Das **CSS-Mehrspaltenlayout**-Modul ermöglicht es Ihnen, Inhalte über mehrere Spalten zu verteilen. Durch die Nutzung der Eigenschaften dieses Moduls können Sie die bevorzugte Anzahl und Breite von Spalten, die Lücke zwischen den Spalten sowie das Aussehen der optionalen, die Spalten trennenden Linien (bekannt als Spaltenregeln) definieren. Außerdem können Sie festlegen, wie der Inhalt von Spalte zu Spalte fließen soll und wie der Inhalt zwischen den Spalten aufgeteilt wird.
 
-## Mehrspalten-Layout in Aktion
+## Mehrspaltenlayout in Aktion
 
-In diesem Beispiel wird die Rede von 1967 zum hundertjährigen Bestehen Kanadas, _A Lament for Confederation_, von Chief Dan George, über mehrere Spalten hinweg angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn JavaScript aktiviert ist, ermöglichen Steuerungselemente, die bevorzugte Spaltenanzahl und -breite, die Breite des Zwischenraums zwischen den Spalten sowie, ob der Titel und ein Beispiel-Blockzitat in einer einzigen Spalte enthalten oder über alle Spalten hinweg gespannt sein sollen, und ob ein Unterbrechen innerhalb der Absätze vermieden werden soll.
+In diesem Beispiel wird die Rede von 1967 zu Kanadas hundertjährigem Bestehen, _A Lament for Confederation_, von Chief Dan George, über mehrere Spalten angezeigt, ähnlich wie Artikel in gedruckten Zeitungen präsentiert werden. Wenn Sie JavaScript aktiviert haben, ermöglichen Ihnen Steuerungselemente das Ändern der bevorzugten Spaltenanzahl und -breite, der Breite des Abstands zwischen den Spalten, ob der Titel und ein Beispiel-Zitatblock in einer einzigen Spalte enthalten sein sollen oder alle Spalten überspannen, und ob das Aufteilen innerhalb der Absätze vermieden werden soll.
 
 ```html hidden live-sample___multicol
 <article>
@@ -79,9 +78,11 @@ In diesem Beispiel wird die Rede von 1967 zum hundertjährigen Bestehen Kanadas,
     nations.
   </p>
 </article>
-<fieldset id="options">
-  <legend role="button" aria-expanded="true" aria-controls="controls">
-    Column options
+<fieldset id="options" class="open">
+  <legend>
+    <button aria-expanded="true" aria-controls="controls">
+      Column options
+    </button>
   </legend>
   <div id="controls">
     <p>
@@ -121,6 +122,7 @@ const page = document.querySelector("article");
 const title = document.querySelector(".title");
 const options = document.querySelector("#options");
 const legend = document.querySelector("#options > legend");
+const legendBtn = document.querySelector("#options > legend > button");
 const blockquote = document.getElementsByTagName("blockquote")[0];
 
 const colCount = document.getElementById("colCount");
@@ -134,7 +136,7 @@ const breakP = document.getElementById("break");
 // make options visible if js is enabled
 options.style.display = "revert";
 
-legend.addEventListener("click", () => {
+legendBtn.addEventListener("click", () => {
   showAndHideMenu();
 });
 
@@ -175,12 +177,16 @@ breakP.addEventListener("change", () => {
 });
 
 function showAndHideMenu() {
-  if (legend.getAttribute("aria-expanded") === "true") {
+  if (legendBtn.getAttribute("aria-expanded") === "true") {
     // close it
-    legend.setAttribute("aria-expanded", "false");
+    legendBtn.setAttribute("aria-expanded", "false");
+    legend.classList.add("closed");
+    legend.classList.remove("open");
   } else {
     // open it
-    legend.setAttribute("aria-expanded", "true");
+    legendBtn.setAttribute("aria-expanded", "true");
+    legend.classList.remove("closed");
+    legend.classList.add("open");
   }
 }
 
@@ -200,7 +206,7 @@ article {
   widows: 3;
   orphans: 3;
   gap: 1em;
-  column-rule: 2px dashed #666;
+  column-rule: 2px dashed #666666;
   height: 50em;
 }
 .title {
@@ -227,22 +233,26 @@ p {
 fieldset p {
   margin-bottom: 0.25em;
 }
-[aria-expanded] {
+legend {
   position: relative;
   top: 0;
   transition: 200ms;
 }
-[aria-expanded="false"] {
+legend.closed {
   top: 0.75em;
 }
-[aria-expanded="false"] + #controls {
+legend.closed + #controls {
   display: none;
 }
 legend {
   background-color: #dedede;
   padding: 0.5em;
 }
-[aria-expanded="false"] {
+legend > button {
+  all: unset;
+  cursor: pointer;
+}
+legend.closed {
   margin: -1em;
   display: inline-block;
 }
@@ -265,54 +275,79 @@ blockquote p::after {
 {{EmbedLiveSample("multicol", "", "800px")}}
 
 > [!NOTE]
-> Mehrspalten-Layout steht in engem Zusammenhang mit [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media). Jede Spaltenbox ist ein Fragment, ähnlich wie jede gedruckte Seite ein Fragment eines Dokuments ist. Mit den im [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul definierten Eigenschaften können Sie steuern, wie Inhalte zwischen Spalten und Seiten gebrochen werden.
+> Mehrspaltenlayout ist eng verwandt mit [Seitenbasierter Mediengestaltung](/de/docs/Web/CSS/Guides/Paged_media). Jede Spaltenbox ist ein Fragment, ähnlich wie jede gedruckte Seite ein Fragment eines Dokuments ist. Durch die Verwendung der im Modul [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation) definierten Eigenschaften können Sie steuern, wie Inhalte zwischen Spalten und Seiten aufgeteilt werden.
 
 ## Referenz
 
 ### Eigenschaften
 
-- {{cssxref("break-after")}}
-- {{cssxref("break-before")}}
-- {{cssxref("break-inside")}}
 - {{cssxref("column-fill")}}
 - {{cssxref("column-gap")}}
 - {{cssxref("column-span")}}
-- {{cssxref("column-rule")}} Kurzform
+- {{cssxref("column-rule")}} Kurzschreibweise
   - {{cssxref("column-rule-color")}}
   - {{cssxref("column-rule-style")}}
   - {{cssxref("column-rule-width")}}
-- {{cssxref("columns")}} Kurzform
+- {{cssxref("columns")}} Kurzschreibweise
   - {{cssxref("column-count")}}
   - {{cssxref("column-width")}}
 
 > [!NOTE]
-> Beachten Sie, dass das Festlegen der Containerhöhe und Zeilenlänge Herausforderungen für Personen mit visuellen oder kognitiven Behinderungen darstellen kann. [WCAG Erfolgskriterium 1.4.8](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) besagt, dass selbst wenn die Textgröße verdoppelt wird, Inhalte nicht gescrollt werden müssen sollten.
+> Beachten Sie, dass das Festlegen der Behälterhöhe und Zeilenlänge Herausforderungen für Personen mit visuellen oder kognitiven Beeinträchtigungen darstellen kann. [WCAG-Erfolgskriterium 1.4.8](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) gibt an, dass selbst wenn die Textgröße verdoppelt wird, der Inhalt nicht gescrollt werden muss.
+
+## Selektoren und Pseudoelemente
+
+- {{cssxref("::column")}}
 
 ## Leitfäden
 
-- [Grundkonzepte des Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
-  - : Ein Überblick über die Mehrspalten-Layout-Spezifikation
-- [Verwendung von Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts)
-  - : Anleitung zur Verwendung von Mehrspalteneigenschaften zur Textlayoutgestaltung.
-- [Spalten stylen](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns)
-  - : Wie man Spaltenregeln verwendet und den Abstand zwischen den Spalten verwaltet.
-- [Spannen und Ausbalancieren](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
-  - : Wie man Elemente über alle Spalten hinweg spannt und steuert, wie Spalten gefüllt werden.
-- [Umgang mit Überlauf im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout)
-  - : Was passiert, wenn ein Element die Spalte, in der es sich befindet, überläuft und was passiert, wenn zu viel Spalteninhalt nicht in einen Container passt.
-- [Umgang mit Inhaltsumbrüchen im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout)
-  - : Einführung in die Fragmentierungsspezifikation und wie man steuert, wo Spalteninhalte gebrochen werden.
+- [Grundkonzepte von Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
+  - : Überblick über die Mehrspaltenlayout-Spezifikation.
+- [Verwendung von Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout/Using)
+  - : Anleitung zur Verwendung von Mehrspalteneigenschaften zum Textlayout.
+- [Styling von Spalten](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
+  - : Anleitung zum Styling von Spalten und zur Verwaltung der Abstände zwischen Spalten.
+- [Spannweite und Ausgleich](/de/docs/Web/CSS/Guides/Multicol_layout/Spanning_balancing_columns)
+  - : Wie man Elemente über alle Spalten hinweg spannt und die Art und Weise, wie Spalten gefüllt werden, steuert.
+- [Umgang mit Überlauf in Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_overflow)
+  - : Was passiert, wenn ein Element die Spalte, in der es sich befindet, überläuft und was passiert, wenn es zu viel spaltigen Inhalt gibt, um einen Behälter zu füllen.
+- [Umgang mit Inhaltsunterbrechungen im Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
+  - : Einführung in die Fragmentierungs-Spezifikation und wie man steuert, wo der Spalteninhalt gebrochen wird.
+- [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+  - : Erstellen Sie reine CSS-Karussell-UI-Funktionen mit Scroll-Schaltflächen, Scroll-Markern und generierten Spalten.
 
 ## Verwandte Konzepte
 
-- {{cssxref("orphans")}} CSS-Eigenschaft
-- {{cssxref("widows")}} CSS-Eigenschaft
-- {{cssxref("overflow")}} CSS-Eigenschaft
-- {{cssxref("gap")}} CSS-Eigenschaft
-- {{cssxref("height")}}, {{cssxref("max-height")}}, und {{cssxref("block-size")}} CSS-Eigenschaften
-- {{cssxref("width")}}, {{cssxref("max-width")}}, und {{cssxref("inline-size")}} CSS-Eigenschaften
-- {{cssxref("line-style")}} enumerierte Datentyp
-- [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) Leitfaden
+Modul [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation)
+
+- {{cssxref("break-after")}}
+- {{cssxref("break-before")}}
+- {{cssxref("break-inside")}}
+- {{cssxref("orphans")}}
+- {{cssxref("widows")}}
+
+Modul [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
+
+- {{cssxref("gap")}}
+
+Modul [CSS-Box-Größenanpassung](/de/docs/Web/CSS/Guides/Box_sizing)
+
+- {{cssxref("height")}}
+- {{cssxref("max-height")}}
+- {{cssxref("block-size")}}
+- {{cssxref("width")}}
+- {{cssxref("max-width")}}
+
+Modul [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)
+
+- {{cssxref("overflow")}}
+- {{cssxref("::scroll-marker")}}
+- {{cssxref("::scroll-marker-group")}}
+- {{Glossary("Scroll_container", "Scroll-Container")}} Glossar-Begriff
+
+Modul [CSS-Anzeige](/de/docs/Web/CSS/Guides/Display)
+
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Leitfaden
 
 ## Spezifikationen
 
@@ -320,8 +355,8 @@ blockquote p::after {
 
 ## Siehe auch
 
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
-- [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
-- [CSS Flexibler Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [CSS Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) Modul
+- [Lernen: Mehrspaltenlayout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- Modul [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation)
+- Modul [CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)
+- Modul [CSS-Rasterlayout](/de/docs/Web/CSS/Guides/Grid_layout)
+- Modul [CSS-seitenbasierte Medien](/de/docs/Web/CSS/Guides/Paged_media)

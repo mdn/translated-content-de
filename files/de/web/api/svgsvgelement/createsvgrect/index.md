@@ -1,14 +1,14 @@
 ---
-title: "SVGSVGElement: createSVGRect()-Methode"
+title: "SVGSVGElement: Methode createSVGRect()"
 short-title: createSVGRect()
 slug: Web/API/SVGSVGElement/createSVGRect
 l10n:
-  sourceCommit: 6d35583226f1ca3bac852506014f973113c0a8a2
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("SVG")}}
 
-Die `createSVGRect()`-Methode des [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Interfaces erzeugt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt außerhalb von Dokumentenbäumen.
+Die Methode `createSVGRect()` des [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)-Interfaces erstellt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt außerhalb jeglicher Dokumentenbäume.
 
 ## Syntax
 

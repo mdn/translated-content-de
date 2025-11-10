@@ -3,12 +3,12 @@ title: "HTMLElement: blur() Methode"
 short-title: blur()
 slug: Web/API/HTMLElement/blur
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLElement.blur()`** Methode entfernt den Tastaturfokus vom aktuellen Element.
+Die **`HTMLElement.blur()`** Methode entfernt die Tastaturfokussierung vom aktuellen Element.
 
 ## Syntax
 
@@ -26,21 +26,22 @@ Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Fokus von einem Texteingabefeld entfernen
+### Den Fokus aus einem Texteingabefeld entfernen
 
 #### HTML
 
 ```html
-<input type="text" id="sampleText" value="Sample Text" /> <br /><br />
-<button type="button" onclick="focusInput()">Click me to gain focus</button>
+<input type="text" id="sampleText" value="Sample Text" /><br /><br />
+<button type="button">Click me to gain focus</button>
 ```
 
 #### JavaScript
 
 ```js
-function focusInput() {
-  const textField = document.getElementById("sampleText");
+const textField = document.getElementById("sampleText");
+const button = document.querySelector("button");
 
+function focusInput() {
   textField.focus();
 
   // The input will lose focus after 3 seconds
@@ -48,6 +49,8 @@ function focusInput() {
     textField.blur();
   }, 3000);
 }
+
+button.addEventListener("click", focusInput);
 ```
 
 #### Ergebnis

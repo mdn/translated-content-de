@@ -1,20 +1,18 @@
 ---
-title: "HTMLTableRowElement: insertCell() Methode"
+title: "HTMLTableRowElement: insertCell()-Methode"
 short-title: insertCell()
 slug: Web/API/HTMLTableRowElement/insertCell
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertCell()`** Methode der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Schnittstelle fügt eine neue Zelle ({{HtmlElement("td")}}) in eine Tabellenzeile ({{HtmlElement("tr")}}) ein und gibt eine Referenz auf die Zelle zurück.
+Die **`insertCell()`**-Methode des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces fügt eine neue Zelle ({{HtmlElement("td")}}) in eine Tabellenzeile ({{HtmlElement("tr")}}) ein und gibt eine Referenz auf die Zelle zurück.
 
-> **Note:** `insertCell()` fügt die Zelle direkt in die
-> Zeile ein. Die Zelle muss nicht separat mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) angehängt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<td>` Element zu erstellen.
+> [!NOTE] > `insertCell()` fügt die Zelle direkt in die Zeile ein. Die Zelle muss nicht separat mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<td>`-Element zu erstellen.
 >
-> Sie können `insertCell()` jedoch nicht verwenden, um ein neues `<th>`
-> Element zu erstellen.
+> Sie können `insertCell()` jedoch nicht verwenden, um ein neues `<th>`-Element zu erstellen.
 
 ## Syntax
 
@@ -26,7 +24,7 @@ insertCell(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zellindex der neuen Zelle. Wenn `index` `-1` oder gleich der Anzahl der Zellen ist, wird die Zelle als letzte Zelle in der Zeile angehängt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
+  - : Der Zellindex der neuen Zelle. Wenn `index` `-1` ist oder der Anzahl der Zellen entspricht, wird die Zelle als letzte Zelle in der Zeile hinzugefügt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 

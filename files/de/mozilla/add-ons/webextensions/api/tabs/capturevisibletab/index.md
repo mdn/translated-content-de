@@ -2,17 +2,15 @@
 title: tabs.captureVisibleTab()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/captureVisibleTab
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Erstellt eine Daten-URL, die das Bild eines Bereichs des aktiven Tabs im angegebenen Fenster codiert. Sie müssen entweder die `<all_urls>`- oder die `activeTab`-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Erstellt eine Daten-URL, die das Bild eines Bereichs des aktiven Tabs im angegebenen Fenster kodiert. Sie müssen die Berechtigung `<all_urls>` oder `activeTab` besitzen [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 > [!NOTE]
-> In Firefox 125 und früher war diese Methode nur mit der `<all_urls>`-Berechtigung verfügbar.
+> In Firefox 125 und früher war diese Methode nur mit der Berechtigung `<all_urls>` verfügbar.
 
-Zusätzlich zu den Seiten, auf die Erweiterungen normalerweise zugreifen können, ermöglicht diese Methode den Erweiterungen, sensible Seiten zu erfassen, die ansonsten eingeschränkt sind, einschließlich Browser-UI-Seiten und Seiten anderer Erweiterungen. Diese sensiblen Seiten können nur mit der `activeTab`-Berechtigung erfasst werden. Chrome erlaubt es auch, Datei-URLs zu erfassen, wenn die Erweiterung Dateizugriff gewährt wurde.
+Zusätzlich zu den Sites, auf die Erweiterungen normalerweise zugreifen können, erlaubt diese Methode Erweiterungen, sensible Sites zu erfassen, die ansonsten eingeschränkt sind, einschließlich der Benutzeroberflächenseiten des Browsers und Seiten anderer Erweiterungen. Diese sensiblen Sites können nur mit der Berechtigung `activeTab` erfasst werden. Chrome erlaubt auch, dass Dateilinks erfasst werden, wenn der Erweiterung Dateizugriff gewährt wurde.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -34,11 +32,11 @@ let capturing = browser.tabs.captureVisibleTab(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, die das erfasste Bild codiert. Es kann der 'src'-Eigenschaft eines HTML-Image-Elements zur Anzeige zugewiesen werden. Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, die das erfasste Bild kodiert. Es kann der 'src'-Eigenschaft eines HTML-Bildelements zur Anzeige zugewiesen werden. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Erfassen Sie ein Bild des aktiven Tabs im aktuellen Fenster mit den standardmäßigen Bildeinstellungen:
+Ein Bild des aktiven Tabs im aktuellen Fenster mit Standardeinstellungseinstellungen erfassen:
 
 ```js
 function onCaptured(imageUri) {
@@ -62,34 +60,39 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab)-API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Verteilung und Verwendung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen zulässig:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen von Quellcode müssen obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// beibehalten.
+//    * Weiterverteilungen in Binärform müssen obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung bereitgestellt werden, wiedergeben.
+//    * Weder der Name von Google Inc. noch die Namen der
+// Mitwirkenden dürfen zur Unterstützung oder Förderung von Produkten,
+// die von dieser Software abgeleitet sind, ohne spezifische vorherige
+// schriftliche Genehmigung verwendet werden.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHEN ODER
+// STILLSCHWEIGENDEN GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF DIE STILLSCHWEIGENDEN GARANTIEN DER MARKTGÄNGIGKEIT UND DER
+// EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL
+// SIND DIE RECHTSINHABER ODER BEITRAGLEISTENDEN HAFTBAR FÜR JEGLICHE
+// DIREKTEN, INDIREKTEN, BEILÄUFIGEN, BESONDEREN, EXEMPLARISCHEN ODER
+// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
+// BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSAUSFALL;
+// DATENVERLUST ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) WIE AUCH
+// IMMER VERURSACHT UND AUF JEDER HAFTUNGSTHEORIE, SEI ES IN VERTRAG,
+// STRENGER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
+// FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER VERWENDUNG DIESER
+// SOFTWARE ENTSTEHT, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
+// HINGEWIESEN WURDE.
 -->

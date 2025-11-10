@@ -3,12 +3,12 @@ title: "AudioEncoder: AudioEncoder() Konstruktor"
 short-title: AudioEncoder()
 slug: Web/API/AudioEncoder/AudioEncoder
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioEncoder()`**-Konstruktor erstellt ein neues [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Objekt mit dem bereitgestellten `init.output`-Callback als Ausgabe-Callback, dem bereitgestellten `init.error`-Callback als Fehler-Callback und der [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state), die auf `"unconfigured"` gesetzt ist.
+Der **`AudioEncoder()`** Konstruktor erstellt ein neues [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Objekt, wobei die bereitgestellte `init.output`-Callback-Funktion als Output-Callback und die bereitgestellte `init.error`-Callback-Funktion als Fehler-Callback zugewiesen werden. Der [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) wird auf `"unconfigured"` gesetzt.
 
 ## Syntax
 
@@ -19,23 +19,23 @@ new AudioEncoder(init)
 ### Parameter
 
 - `init`
-  - : Ein Objekt, das zwei erforderliche Callbacks enthält.
+  - : Ein Objekt, das zwei erforderliche Callback-Funktionen enthält.
     - `output`
-      - : Ein Callback, das ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt als erstes Argument und ein optionales Metadatenobjekt als zweites entgegennimmt. Das Metadatenobjekt hat ein Mitglied `decoderConfig`, das ein Objekt als Wert hat, das Folgendes enthält:
+      - : Ein Callback, das ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt als erstes Argument und ein optionales Metadatenobjekt als zweites Argument nimmt. Das Metadatenobjekt besitzt ein Mitglied `decoderConfig`, welches ein Objekt als Wert hat, das Folgendes enthält:
         - `codec`
-          - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält.
+          - : Ein String, der einen [gültigen Codec-String](https://w3c.github.io/webcodecs/codec_registry.html#audio-codec-registry) enthält.
         - `sampleRate`
-          - : Ein Integer, der die Anzahl der Frame-Samples pro Sekunde darstellt.
+          - : Ein Ganzzahlwert, der die Anzahl der Frame-Samples pro Sekunde repräsentiert.
         - `numberOfChannels`
-          - : Ein Integer, der die Anzahl der Audiokanäle darstellt.
+          - : Ein Ganzzahlwert, der die Anzahl der Audiokanäle repräsentiert.
         - `description` {{optional_inline}}
-          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das eine Sequenz von Codec-spezifischen Bytes enthält, allgemein bekannt als Extradata.
+          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, das eine Sequenz codec-spezifischer Bytes enthält, bekannt als Extradata.
     - `error`
-      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument entgegennimmt.
+      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument nimmt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `AudioEncoder` mit den beiden erforderlichen Callback-Funktionen erstellt, eine, um den dekodierten Frame zu verarbeiten, und die andere, um Fehler zu behandeln.
+Im folgenden Beispiel wird ein `AudioEncoder` mit den zwei erforderlichen Callback-Funktionen erstellt: eine zur Verarbeitung des dekodierten Frames und eine zur Fehlerbehandlung.
 
 ```js
 const audioEncoder = new AudioEncoder({

@@ -3,18 +3,16 @@ title: "XPathResult: invalidIteratorState-Eigenschaft"
 short-title: invalidIteratorState
 slug: Web/API/XPathResult/invalidIteratorState
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef("DOM XPath")}} {{AvailableInWorkers}}
+{{APIRef("DOM")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`invalidIteratorState`**-Eigenschaft der
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle zeigt an, dass der Iterator ungültig geworden ist. Sie ist `true`, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType)
-`UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist und das Dokument seit der Rückgabe dieses Ergebnisses geändert wurde.
+Die schreibgeschützte **`invalidIteratorState`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces zeigt an, dass der Iterator ungültig geworden ist. Sie ist `true`, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist und das Dokument seit der Rückgabe dieses Ergebnisses geändert wurde.
 
 ## Wert
 
-Ein boolescher Wert, der angibt, ob der Iterator ungültig geworden ist.
+Ein boolescher Wert, der anzeigt, ob der Iterator ungültig geworden ist.
 
 ## Beispiele
 

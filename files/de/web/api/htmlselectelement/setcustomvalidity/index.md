@@ -3,12 +3,12 @@ title: "HTMLSelectElement: setCustomValidity() Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLSelectElement/setCustomValidity
 l10n:
-  sourceCommit: 26c4d5424eef227f98360e05787bf4838a93382d
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.setCustomValidity()`**-Methode setzt die benutzerdefinierte Fehlermeldung für das Auswahlelement auf die angegebene Nachricht. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Validierungsfehler hat.
+Die **`HTMLSelectElement.setCustomValidity()`**-Methode setzt die benutzerdefinierte Fehlermeldung für das Auswahl-Element auf die angegebene Nachricht. Verwenden Sie den leeren String, um anzugeben, dass das Element _keine_ benutzerdefinierte Gültigkeitsfehlermeldung hat.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validierungsfehler.
+  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Gültigkeitsfehler.
 
 ### Rückgabewert
 
@@ -35,4 +35,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Formularvalidierung](/de/docs/Web/HTML/Constraint_validation).
+- [Formularvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation).

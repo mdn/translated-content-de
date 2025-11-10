@@ -1,13 +1,11 @@
 ---
-title: Privileged
+title: Privilegiert
 slug: Glossary/Privileged
 l10n:
-  sourceCommit: ea7db3b57472988d1b9390bf3d6d13eb4bddb58d
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Benutzer gelten als **privilegiert**, wenn ihnen zusätzliche Rechte auf ein System gewährt werden oder sie im Vergleich zu normalen Benutzern endgültigen Zugang zu Inhalten auf einer höheren Prioritätsstufe erhalten.
+Benutzer werden als **privilegiert** bezeichnet, wenn ihnen zusätzliche Rechte an einem System gewährt werden oder sie im Vergleich zu normalen Benutzern vorrangigen Zugang zu Inhalten auf einer höheren Prioritätsebene erhalten.
 
 ## Siehe auch
 

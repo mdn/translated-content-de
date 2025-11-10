@@ -1,19 +1,19 @@
 ---
-title: Verwendung von Templates und Slots
+title: Verwendung von Vorlagen und Slots
 slug: Web/API/Web_components/Using_templates_and_slots
 l10n:
-  sourceCommit: cca1e467eab1468f7bd9c7619e30f8e2a8f4177c
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
 {{DefaultAPISidebar("Web Components")}}
 
-Dieser Artikel erklärt, wie Sie die {{htmlelement("template")}}- und {{htmlelement("slot")}}-Elemente verwenden können, um ein flexibles Template zu erstellen, das anschließend verwendet werden kann, um den Shadow DOM eines Webkomponenten zu füllen.
+Dieser Artikel erklärt, wie Sie die {{htmlelement("template")}}- und {{htmlelement("slot")}}-Elemente verwenden können, um eine flexible Vorlage zu erstellen, die dann verwendet wird, um den Shadow DOM eines Web-Komponenten zu füllen.
 
-## Die Wahrheit über Templates
+## Die Wahrheit über Vorlagen
 
-Wenn Sie dieselben Markup-Strukturen wiederholt auf einer Webseite verwenden müssen, macht es Sinn, eine Art Template zu verwenden, anstatt dieselbe Struktur immer wieder zu wiederholen. Das war zwar vorher möglich, wird aber durch das HTML-{{htmlelement("template")}}-Element erheblich erleichtert. Dieses Element und sein Inhalt werden nicht im DOM gerendert, können aber weiterhin mit JavaScript referenziert werden.
+Wenn Sie dieselben Markup-Strukturen wiederholt auf einer Webseite verwenden müssen, ist es sinnvoll, eine Art Vorlage zu verwenden, anstatt dieselbe Struktur immer wieder zu wiederholen. Dies war vorher möglich, aber es wird durch das HTML-{{htmlelement("template")}}-Element erheblich erleichtert. Dieses Element und sein Inhalt werden nicht im DOM gerendert, können aber dennoch mittels JavaScript referenziert werden.
 
-Schauen wir uns ein einfaches Beispiel an:
+Schauen wir uns ein triviales kurzes Beispiel an:
 
 ```html
 <template id="custom-paragraph">
@@ -21,7 +21,7 @@ Schauen wir uns ein einfaches Beispiel an:
 </template>
 ```
 
-Dies wird nicht auf Ihrer Seite erscheinen, bis Sie mit JavaScript darauf zugreifen und es dem DOM hinzufügen, beispielsweise wie folgt:
+Dies wird nicht auf Ihrer Seite angezeigt, bis Sie mit JavaScript eine Referenz darauf erhalten und es dann mit etwas wie dem folgenden an das DOM anhängen:
 
 ```js
 let template = document.getElementById("custom-paragraph");
@@ -29,11 +29,11 @@ let templateContent = template.content;
 document.body.appendChild(templateContent);
 ```
 
-Obwohl einfach, können Sie bereits beginnen zu sehen, wie nützlich dies sein könnte.
+Obwohl trivial, können Sie bereits jetzt erkennen, wie nützlich dies sein könnte.
 
-## Verwendung von Templates mit Webkomponenten
+## Verwendung von Vorlagen mit Web-Komponenten
 
-Templates sind für sich genommen nützlich, aber sie funktionieren noch besser mit Webkomponenten. Definieren wir eine Webkomponente, die unser Template als Inhalt ihres Shadow DOM verwendet. Wir nennen sie ebenfalls `<my-paragraph>`:
+Vorlagen sind für sich genommen nützlich, aber sie funktionieren noch besser mit Web-Komponenten. Lassen Sie uns eine Web-Komponente definieren, die unsere Vorlage als Inhalt ihres Shadow DOM verwendet. Wir nennen sie ebenfalls `<my-paragraph>`:
 
 ```js
 customElements.define(
@@ -51,9 +51,9 @@ customElements.define(
 );
 ```
 
-Der wichtige Punkt hierbei ist, dass wir einen Klon des Template-Inhalts dem Shadow Root hinzufügen, der mit der Methode [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) erstellt wurde.
+Der entscheidende Punkt hier ist, dass wir ein Klon des Vorlageninhalts an die Shadow-Root anhängen, erstellt mit der Methode [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode).
 
-Und da wir ihre Inhalte einem Shadow DOM hinzufügen, können wir einige Styling-Informationen innerhalb des Templates in einem {{htmlelement("style")}}-Element einfügen, das dann im benutzerdefinierten Element gekapselt ist. Dies würde nicht funktionieren, wenn wir es dem Standard-DOM hinzufügen würden.
+Und da wir deren Inhalte an einen Shadow DOM anhängen, können wir einige Stilinformationen innerhalb der Vorlage in einem {{htmlelement("style")}}-Element einfügen, das dann innerhalb des benutzerdefinierten Elements gekapselt ist. Dies würde nicht funktionieren, wenn wir es einfach an das Standard-DOM anhängen.
 
 Zum Beispiel:
 
@@ -62,7 +62,7 @@ Zum Beispiel:
   <style>
     p {
       color: white;
-      background-color: #666;
+      background-color: #666666;
       padding: 5px;
     }
   </style>
@@ -70,7 +70,7 @@ Zum Beispiel:
 </template>
 ```
 
-Jetzt können wir es verwenden, indem wir es einfach zu unserem HTML-Dokument hinzufügen:
+Jetzt können wir es einfach in unser HTML-Dokument einfügen:
 
 ```html
 <my-paragraph></my-paragraph>
@@ -78,19 +78,19 @@ Jetzt können wir es verwenden, indem wir es einfach zu unserem HTML-Dokument hi
 
 ## Flexibilität mit Slots hinzufügen
 
-Bis jetzt so gut, aber das Element ist nicht sehr flexibel. Wir können nur ein Textbit darin anzeigen, was bedeutet, dass es im Moment sogar weniger nützlich als ein normaler Absatz ist! Wir können es ermöglichen, unterschiedliche Texte in jeder Elemente-Instanz auf eine nette deklarative Weise anzuzeigen, indem wir das {{htmlelement("slot")}}-Element verwenden.
+Bisher so gut, aber das Element ist nicht sehr flexibel. Wir können nur einen Text darin anzeigen, was bedeutet, dass es im Moment sogar weniger nützlich ist als ein normaler Absatz! Wir können es ermöglichen, dass in jeder Elementinstanz ein anderer Text auf deklarative Weise angezeigt wird, indem wir das {{htmlelement("slot")}}-Element verwenden.
 
-Slots werden durch ihr `name`-Attribut identifiziert und ermöglichen es Ihnen, Platzhalter in Ihrem Template zu definieren, die mit jedem gewünschten Markup-Fragment gefüllt werden können, wenn das Element im Markup verwendet wird.
+Slots werden durch ihr `name`-Attribut identifiziert und ermöglichen es Ihnen, Platzhalter in Ihrer Vorlage zu definieren, die mit jedem gewünschten Markup-Fragment gefüllt werden können, wenn das Element im Markup verwendet wird.
 
-Wenn wir also einen Slot in unserem einfachen Beispiel hinzufügen möchten, könnten wir das Paragraphen-Element unseres Templates so aktualisieren:
+Wenn wir also einen Slot in unser triviales Beispiel hinzufügen möchten, könnten wir das Absatz-Element unserer Vorlage wie folgt aktualisieren:
 
 ```html
 <p><slot name="my-text">My default text</slot></p>
 ```
 
-Wenn der Inhalt des Slots nicht definiert ist, wenn das Element im Markup enthalten ist, oder wenn der Browser keine Slots unterstützt, enthält `<my-paragraph>` einfach den Ersatzinhalt "Mein Standardtext".
+Wenn der Inhalt des Slots nicht definiert ist, wenn das Element im Markup enthalten ist, oder wenn der Browser keine Slots unterstützt, enthält `<my-paragraph>` einfach den Fallback-Inhalt "My default text".
 
-Um den Inhalt des Slots zu definieren, fügen wir eine HTML-Struktur innerhalb des `<my-paragraph>`-Elements ein, die ein [`slot`](/de/docs/Web/HTML/Global_attributes/slot)-Attribut hat, dessen Wert gleich dem Namen des Slots ist, den wir füllen möchten. Wie zuvor kann dies alles sein, was Sie möchten, zum Beispiel:
+Um den Inhalt des Slots zu definieren, fügen wir eine HTML-Struktur innerhalb des `<my-paragraph>`-Elements ein, mit einem [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut, dessen Wert dem Namen des Slots entspricht, den wir füllen möchten. Dies kann wie zuvor alles Mögliche sein, zum Beispiel:
 
 ```html
 <my-paragraph>
@@ -110,20 +110,20 @@ oder
 ```
 
 > [!NOTE]
-> Knoten, die in Slots eingefügt werden können, werden als _Slottable_ Knoten bezeichnet; wenn ein Knoten in einen Slot eingefügt wurde, wird gesagt, er sei _slotted_.
+> Knoten, die in Slots eingefügt werden können, werden als _Slottable_-Knoten bezeichnet; wenn ein Knoten in einen Slot eingefügt wurde, heißt es, er sei _slotted_.
 
-Und das war's für unser einfaches Beispiel. Wenn Sie noch mehr damit spielen möchten, können Sie es auf [GitHub finden](https://github.com/mdn/web-components-examples/tree/main/simple-template) (sehen Sie es sich auch [live an](https://mdn.github.io/web-components-examples/simple-template/)).
+Das ist alles für unser triviales Beispiel. Wenn Sie ein wenig mehr damit spielen möchten, können Sie es [auf GitHub finden](https://github.com/mdn/web-components-examples/tree/main/simple-template) (siehe es [live laufen](https://mdn.github.io/web-components-examples/simple-template/) ebenfalls).
 
-Das `name`-Attribut sollte pro Shadow Root einzigartig sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem passenden `slot`-Attribut dem ersten Slot mit diesem Namen zugewiesen. Aber das `slot`-Attribut muss nicht einzigartig sein: Ein `<slot>` kann von mehreren Elementen gefüllt werden, die alle ein passendes `slot`-Attribut haben.
+Das `name`-Attribut sollte einzigartig pro Shadow-Root sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem passenden `slot`-Attribut dem ersten Slot mit diesem Namen zugewiesen. Aber das `slot`-Attribut muss nicht einzigartig sein: Ein `<slot>` kann von mehreren Elementen gefüllt werden, die alle ein übereinstimmendes `slot`-Attribut haben.
 
-Sowohl das `name`- als auch das `slot`-Attribut haben standardmäßig den leeren String als Wert, sodass Elemente ohne `slot`-Attribute dem `<slot>` ohne `name`-Attribut zugewiesen werden (dem unbenannten Slot oder dem Standard-Slot). Hier ist ein Beispiel:
+Die `name`- und `slot`-Attribute stehen beide standardmäßig auf einem leeren String, daher werden Elemente ohne `slot`-Attribute dem `<slot>` ohne `name`-Attribut zugewiesen (der unbenannte Slot oder Standardslot). Hier ist ein Beispiel:
 
 ```html
 <template id="custom-paragraph">
   <style>
     p {
       color: white;
-      background-color: #666;
+      background-color: #666666;
       padding: 5px;
     }
   </style>
@@ -134,7 +134,7 @@ Sowohl das `name`- als auch das `slot`-Attribut haben standardmäßig den leeren
 </template>
 ```
 
-Sie können es dann wie folgt verwenden:
+Sie können es dann so verwenden:
 
 ```html
 <my-paragraph>
@@ -149,31 +149,31 @@ In diesem Beispiel:
 - Inhalt mit `slot="my-text"` geht in den benannten Slot.
 - Alle anderen Inhalte gehen automatisch in den unbenannten Slot.
 
-## Ein komplexeres Beispiel
+## Ein umfangreicheres Beispiel
 
-Um den Artikel abzuschließen, schauen wir uns etwas an, das ein wenig weniger trivial ist.
+Zum Abschluss des Artikels werfen wir einen Blick auf etwas weniger Triviales.
 
-Die folgende Reihe von Code-Snippets zeigt, wie {{HTMLElement("slot")}} zusammen mit {{HTMLElement("template")}} und etwas JavaScript verwendet wird, um:
+Die folgenden Codeschnipsel zeigen, wie man {{HTMLElement("slot")}} zusammen mit {{HTMLElement("template")}} und etwas JavaScript verwendet, um:
 
-- ein **`<element-details>`**-Element mit [benannten Slots](/de/docs/Web/HTML/Element/slot#name) in seinem [Shadow Root](/de/docs/Web/API/ShadowRoot) zu erstellen
-- das **`<element-details>`**-Element so zu gestalten, dass es beim Einsatz in Dokumenten aus der Komposition des Elementinhalts mit dem Inhalt des [Shadow Root](/de/docs/Web/API/ShadowRoot) gerendert wird—das heißt, Teile des Elementinhalts werden verwendet, um [benannte Slots](/de/docs/Web/HTML/Element/slot#name) in seinem [Shadow Root](/de/docs/Web/API/ShadowRoot) zu füllen
+- ein **`<element-details>`**-Element mit [benannten Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) in seiner [Shadow-Root](/de/docs/Web/API/ShadowRoot) zu erstellen
+- das **`<element-details>`**-Element so zu gestalten, dass es beim Verwenden in Dokumenten aus dem Zusammensetzen des Inhalts des Elements zusammen mit dem Inhalt seiner [Shadow-Root](/de/docs/Web/API/ShadowRoot) gerendert wird, das heißt, Teile des Inhalts des Elements werden verwendet, um [benannte Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) in seiner [Shadow-Root](/de/docs/Web/API/ShadowRoot) zu füllen
 
-Beachten Sie, dass es technisch möglich ist, das {{HTMLElement("slot")}}-Element ohne ein {{HTMLElement("template")}}-Element zu verwenden, z.B. innerhalb eines regulären {{HTMLElement("div")}}-Elements, und dennoch von den Platzhalter-Funktionen des {{HTMLElement("slot")}} für Shadow-DOM-Inhalte zu profitieren, und dies könnte in der Tat die kleine Mühe ersparen, zunächst auf die `content`-Eigenschaft des Template-Elements zugreifen (und es klonen) zu müssen. Es ist jedoch im Allgemeinen praktischer, Slots in einem {{HTMLElement("template")}}-Element hinzuzufügen, da es unwahrscheinlich ist, dass Sie ein Muster basierend auf einem bereits gerenderten Element definieren müssen.
+Beachten Sie, dass es technisch möglich ist, {{HTMLElement("slot")}}-Elemente ohne ein {{HTMLElement("template")}}-Element zu verwenden, z. B. innerhalb eines normalen {{HTMLElement("div")}}-Elements, und dennoch die Platzhalter-Funktionen von {{HTMLElement("slot")}} für Shadow-DOM-Inhalte zu nutzen. Dies könnte das kleine Problem vermeiden, zuerst auf die `content`-Eigenschaft des Vorlagen-Elements zugreifen (und sie klonen) zu müssen. Es ist jedoch im Allgemeinen praktischer, Slots innerhalb eines {{HTMLElement("template")}}-Elements hinzuzufügen, da Sie wahrscheinlich kein Muster auf Basis eines bereits gerenderten Elements definieren müssen.
 
-Darüber hinaus ist selbst wenn es nicht bereits gerendert ist, der Zweck des Containers als Template semantisch klarer, wenn das {{HTMLElement("template")}} verwendet wird. Darüber hinaus kann {{HTMLElement("template")}} Elemente direkt hinzufügen, wie {{HTMLElement("td")}}, die verschwinden würden, wenn sie in ein {{HTMLElement("div")}} eingefügt werden.
+Darüber hinaus, auch wenn es nicht bereits gerendert ist, sollte der Zweck des Containers als Vorlage semantisch klarer sein, wenn der {{HTMLElement("template")}} verwendet wird. Darüber hinaus können dem {{HTMLElement("template")}} Elemente direkt hinzugefügt werden, wie z. B. {{HTMLElement("td")}}, die verschwinden würden, wenn sie einem {{HTMLElement("div")}} hinzugefügt werden.
 
 > [!NOTE]
-> Sie können dieses vollständige Beispiel bei [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) finden (siehe es auch [live laufen](https://mdn.github.io/web-components-examples/element-details/)).
+> Sie können dieses vollständige Beispiel unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) finden (sehen Sie es auch [live laufen](https://mdn.github.io/web-components-examples/element-details/)).
 
-### Erstellung eines Templates mit einigen Slots
+### Erstellen einer Vorlage mit einigen Slots
 
-Zuerst verwenden wir das {{HTMLElement("slot")}}-Element innerhalb eines {{HTMLElement("template")}}-Elements, um ein neues "element-details-template" [Dokumentfragment](/de/docs/Web/API/DocumentFragment) zu erstellen, das einige [benannte Slots](/de/docs/Web/HTML/Element/slot#name) enthält:
+Zunächst verwenden wir das {{HTMLElement("slot")}}-Element innerhalb eines {{HTMLElement("template")}}-Elements, um ein neues "element-details-template" [Dokumentfragment](/de/docs/Web/API/DocumentFragment) mit einigen [benannten Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) zu erstellen:
 
 ```html
 <template id="element-details-template">
   <style>
     details {
-      font-family: "Open Sans Light", Helvetica, Arial;
+      font-family: "Open Sans Light", "Helvetica", "Arial";
     }
     .name {
       font-weight: bold;
@@ -185,7 +185,7 @@ Zuerst verwenden wir das {{HTMLElement("slot")}}-Element innerhalb eines {{HTMLE
     }
     h4 span {
       background: #217ac0;
-      padding: 2px 6px 2px 6px;
+      padding: 2px 6px;
     }
     h4 span {
       border: 1px solid #cee9f9;
@@ -223,20 +223,19 @@ Zuerst verwenden wir das {{HTMLElement("slot")}}-Element innerhalb eines {{HTMLE
 </template>
 ```
 
-Dieses {{HTMLElement("template")}}-Element hat mehrere Eigenschaften:
+Dieses {{HTMLElement("template")}}-Element hat mehrere Merkmale:
 
-- Das {{HTMLElement("template")}} hat ein {{HTMLElement("style")}}-Element mit einer Reihe von CSS-Stilen, die nur auf das Dokumentfragment angewendet werden, das das {{HTMLElement("template")}} erstellt.
-- Das {{HTMLElement("template")}} verwendet {{HTMLElement("slot")}} und sein [`name`](/de/docs/Web/HTML/Element/slot#name)-Attribut, um drei [benannte Slots](/de/docs/Web/HTML/Element/slot#name) zu erstellen:
-
+- Das {{HTMLElement("template")}} hat ein {{HTMLElement("style")}}-Element mit einer Reihe von CSS-Stilen, die nur auf das vom {{HTMLElement("template")}} erstellte Dokumentfragment beschränkt sind.
+- Das {{HTMLElement("template")}} verwendet {{HTMLElement("slot")}} und sein [`name`](/de/docs/Web/HTML/Reference/Elements/slot#name)-Attribut, um drei [benannte Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) zu erstellen:
   - `<slot name="element-name">`
   - `<slot name="description">`
   - `<slot name="attributes">`
 
-- Das {{HTMLElement("template")}} umschließt die [benannten Slots](/de/docs/Web/HTML/Element/slot#name) in einem {{HTMLElement("details")}}-Element.
+- Das {{HTMLElement("template")}} umschließt die [benannten Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) in einem {{HTMLElement("details")}}-Element.
 
-### Erstellung eines neuen \<element-details> Elements aus dem \<template>
+### Erstellen eines neuen \<element-details>-Elements aus der \<template>
 
-Als nächstes erstellen wir ein neues benutzerdefiniertes Element namens **`<element-details>`** und verwenden [`Element.attachShadow`](/de/docs/Web/API/Element/attachShadow), um es als [Shadow Root](/de/docs/Web/API/ShadowRoot) an das Dokumentfragment anzuhängen, das wir mit unserem {{HTMLElement("template")}}-Element oben erstellt haben. Dies folgt genau dem gleichen Muster wie wir es in unserem früheren einfachen Beispiel gesehen haben.
+Als Nächstes erstellen wir ein neues benutzerdefiniertes Element namens **`<element-details>`** und verwenden [`Element.attachShadow`](/de/docs/Web/API/Element/attachShadow), um ihm das Dokumentfragment, das wir mit unserem oben erstellten {{HTMLElement("template")}}-Element erstellt haben, als [Shadow-Root](/de/docs/Web/API/ShadowRoot) anzuhängen. Dies folgt exakt demselben Muster, das wir in unserem vorherigen trivialen Beispiel gesehen haben.
 
 ```js
 customElements.define(
@@ -254,9 +253,9 @@ customElements.define(
 );
 ```
 
-### Verwendung des benutzerdefinierten \<element-details>-Elements mit benannten Slots
+### Verwenden des \<element-details>-benutzerdefinierten Elements mit benannten Slots
 
-Nehmen wir nun das **`<element-details>`**-Element und verwenden es tatsächlich in unserem Dokument:
+Nun nehmen wir das **`<element-details>`**-Element und verwenden es tatsächlich in unserem Dokument:
 
 ```html
 <element-details>
@@ -281,15 +280,15 @@ Nehmen wir nun das **`<element-details>`**-Element und verwenden es tatsächlich
 </element-details>
 ```
 
-Bezüglich dieses Snippets beachten Sie die folgenden Punkte:
+Zu diesem Snippet beachten Sie folgende Punkte:
 
-- Das Snippet enthält zwei Instanzen von **`<element-details>`**-Elementen, die beide das [`slot`](/de/docs/Web/HTML/Global_attributes/slot)-Attribut verwenden, um die [benannten Slots](/de/docs/Web/HTML/Element/slot#name) `"element-name"` und `"description"` zu referenzieren, die wir im `<element-details>` [Shadow Root](/de/docs/Web/API/ShadowRoot) definiert haben.
-- Nur das erste dieser beiden **`<element-details>`**-Elemente referenziert den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Element/slot#name). Das zweite `<element-details>`-Element hat keine Referenz für den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Element/slot#name).
-- Das erste `<element-details>`-Element verwendet einen {{HTMLElement("dl")}}-Element mit {{HTMLElement("dt")}}- und {{HTMLElement("dd")}}-Kindern, um den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Element/slot#name) zu referenzieren.
+- Das Snippet enthält zwei Instanzen von **`<element-details>`**-Elementen, die beide das [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut verwenden, um auf die [benannten Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) `"element-name"` und `"description"` zu verweisen, die wir in den `<element-details>`- [Shadow-Root](/de/docs/Web/API/ShadowRoot) eingefügt haben.
+- Nur das erste dieser beiden **`<element-details>`**-Elemente verweist auf den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name). Das zweite `<element-details>`-Element hat keinen Verweis auf den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name).
+- Das erste `<element-details>`-Element verweist auf den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name) unter Verwendung eines {{HTMLElement("dl")}}-Elements mit {{HTMLElement("dt")}}- und {{HTMLElement("dd")}}-Kindern.
 
-### Hinzufügen eines letzten Stilelements
+### Einen letzten Hauch von Stil hinzufügen
 
-Als letzten Schliff fügen wir ein kleines bisschen mehr CSS für die {{HTMLElement("dl")}}, {{HTMLElement("dt")}} und {{HTMLElement("dd")}}-Elemente in unserem Dokument hinzu:
+Als letzten Schliff fügen wir ein wenig mehr CSS für die {{HTMLElement("dl")}}, {{HTMLElement("dt")}}, und {{HTMLElement("dd")}}-Elemente in unserem Dokument hinzu:
 
 ```css
 dl {
@@ -297,7 +296,7 @@ dl {
 }
 dt {
   color: #217ac0;
-  font-family: Consolas, "Liberation Mono", Courier;
+  font-family: "Consolas", "Liberation Mono", "Courier New";
   font-size: 110%;
   font-weight: bold;
 }
@@ -314,14 +313,14 @@ body {
 
 ### Ergebnis
 
-Schließlich fügen wir alle Snippets zusammen und sehen uns an, wie das gerenderte Ergebnis aussieht.
+Abschließend setzen wir alle Snippets zusammen und sehen, wie das gerenderte Ergebnis aussieht.
 
 {{EmbedLiveSample('A_more_involved_example', '300','400')}}
 
-Beachten Sie die folgenden Punkte bezüglich dieses gerenderten Ergebnisses:
+Beachten Sie die folgenden Punkte zu diesem gerenderten Ergebnis:
 
-- Obwohl die Instanzen des **`<element-details>`**-Elements im Dokument nicht direkt das {{HTMLElement("details")}}-Element verwenden, werden sie unter Verwendung von {{HTMLElement("details")}} gerendert, weil der [Shadow Root](/de/docs/Web/API/ShadowRoot) verursacht, dass sie damit gefüllt werden.
-- Innerhalb der gerenderten {{HTMLElement("details")}}-Ausgabe füllt der Inhalt in den **`<element-details>`**-Elementen die [benannten Slots](/de/docs/Web/HTML/Element/slot#name) aus dem [Shadow Root](/de/docs/Web/API/ShadowRoot). Mit anderen Worten, der DOM-Baum aus den **`<element-details>`**-Elementen wird mit dem Inhalt des [Shadow Root](/de/docs/Web/API/ShadowRoot) _zusammengesetzt_.
-- Für beide **`<element-details>`**-Elemente wird automatisch eine Überschrift **Attributes** aus dem [Shadow Root](/de/docs/Web/API/ShadowRoot) vor dem Platz der `"attributes"` [benannten Slots](/de/docs/Web/HTML/Element/slot#name) hinzugefügt.
-- Weil das erste **`<element-details>`** ein {{HTMLElement("dl")}}-Element hat, das explizit den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Element/slot#name) aus seinem [Shadow Root](/de/docs/Web/API/ShadowRoot) referenziert, ersetzt der Inhalt dieses {{HTMLElement("dl")}} den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Element/slot#name) aus dem [Shadow Root](/de/docs/Web/API/ShadowRoot).
-- Weil das zweite **`<element-details>`** den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Element/slot#name) aus seinem [Shadow Root](/de/docs/Web/API/ShadowRoot) nicht explizit referenziert, wird sein Inhalt für diesen [benannten Slot](/de/docs/Web/HTML/Element/slot#name) mit dem Standardinhalt dafür aus dem [Shadow Root](/de/docs/Web/API/ShadowRoot) gefüllt.
+- Obwohl die Instanzen des **`<element-details>`**-Elements im Dokument das {{HTMLElement("details")}}-Element nicht direkt verwenden, werden sie unter Verwendung von {{HTMLElement("details")}} gerendert, da die [Shadow-Root](/de/docs/Web/API/ShadowRoot) bewirkt, dass sie damit gefüllt werden.
+- Innerhalb der gerenderten {{HTMLElement("details")}}-Ausgabe füllt der Inhalt in den **`<element-details>`**-Elementen die [benannten Slots](/de/docs/Web/HTML/Reference/Elements/slot#name) aus der [Shadow-Root](/de/docs/Web/API/ShadowRoot). Mit anderen Worten, der DOM-Baum der **`<element-details>`**-Elemente wird mit dem Inhalt der [Shadow-Root](/de/docs/Web/API/ShadowRoot) _zusammengesetzt_.
+- Für beide **`<element-details>`**-Elemente wird eine **Attributes**-Überschrift automatisch aus der [Shadow-Root](/de/docs/Web/API/ShadowRoot) vor der Position des `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name) hinzugefügt.
+- Da das erste **`<element-details>`** ein {{HTMLElement("dl")}}-Element hat, das explizit auf den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name) von seiner [Shadow-Root](/de/docs/Web/API/ShadowRoot) verweist, ersetzt der Inhalt dieses {{HTMLElement("dl")}} den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name) von der [Shadow-Root](/de/docs/Web/API/ShadowRoot).
+- Da das zweite **`<element-details>`** nicht explizit auf den `"attributes"` [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name) von seiner [Shadow-Root](/de/docs/Web/API/ShadowRoot) verweist, wird sein Inhalt für diesen [benannten Slot](/de/docs/Web/HTML/Reference/Elements/slot#name) mit dem Standardinhalt dafür von der [Shadow-Root](/de/docs/Web/API/ShadowRoot) gefüllt.

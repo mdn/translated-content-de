@@ -1,0 +1,762 @@
+---
+title: CSS-Transformationen
+short-title: Transforms
+slug: Web/CSS/Guides/Transforms
+l10n:
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+---
+
+Das **CSS-Transformationsmodul** definiert, wie Elemente, die mit CSS gestaltet sind, in einem Zwei- oder Dreidimensionalen Raum transformiert werden können.
+
+## CSS-Transformationen in Aktion
+
+Verwenden Sie die Schieberegler im folgenden Beispiel, um die Eigenschaften der CSS-Transformationen Übersetzung, Drehung, Skalierung und Neigung des Würfels im 3D-Raum zu ändern. Wenn Sie den Würfel durch den 3D-Raum bewegen, beachten Sie, wie er mit dem Element interagiert, das mit `z:0px` bezeichnet ist und sich an der 3D-Position `(0, 0, 0)` befindet.
+
+```html hidden live-sample___transforms
+<article>
+  <fieldset id="allTransformFieldset">
+    <legend>
+      Transform settings
+      <button id="resetAllButton" aria-label="Reset">↻</button>
+    </legend>
+    <section id="fieldsetSection">
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Translation</span>
+          </label>
+          <button
+            id="translateSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="translateXLabel">X</span>
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value="0"
+                data-default="0"
+                id="translateXRange"
+                aria-labelledby="translateXLabel" />
+            </label>
+            <output id="translateXOutput" for="translateXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="translateYLabel">Y</span>
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value="0"
+                data-default="0"
+                id="translateYRange"
+                aria-labelledby="translateYLabel" />
+            </label>
+            <output id="translateYOutput" for="translateYRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="translateZLabel">Z</span>
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value="0"
+                data-default="0"
+                id="translateZRange"
+                aria-labelledby="translateZLabel" />
+            </label>
+            <output id="translateZOutput" for="translateZRange"></output>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Rotation</span>
+          </label>
+          <button
+            id="rotateSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="rotateXLabel">X</span>
+              <input
+                type="range"
+                min="-360"
+                max="360"
+                value="0"
+                data-default="0"
+                id="rotateXRange"
+                aria-labelledby="rotateXLabel" />
+            </label>
+            <output id="rotateXOutput" for="rotateXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="rotateYLabel">Y</span>
+              <input
+                type="range"
+                min="-360"
+                max="360"
+                value="0"
+                data-default="0"
+                id="rotateYRange"
+                aria-labelledby="rotateYLabel" />
+            </label>
+            <output id="rotateYOutput" for="rotateYRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="rotateZLabel">Z</span>
+              <input
+                type="range"
+                min="-360"
+                max="360"
+                value="0"
+                data-default="0"
+                id="rotateZRange"
+                aria-labelledby="rotateZLabel" />
+            </label>
+            <output id="rotateZOutput" for="rotateZRange"></output>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Scale</span>
+          </label>
+          <button
+            id="scaleSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="scaleXLabel">X</span>
+              <input
+                type="range"
+                min="0.1"
+                max="2.5"
+                value="1"
+                data-default="1"
+                step="0.1"
+                id="scaleXRange"
+                aria-labelledby="scaleXLabel" />
+            </label>
+            <output id="scaleXOutput" for="scaleXRange"></output>
+          </div>
+          <div>
+            <label id="scaleYLabel">
+              <span>Y</span>
+              <input
+                type="range"
+                min="0.1"
+                max="2.5"
+                value="1"
+                data-default="1"
+                step="0.1"
+                id="scaleYRange"
+                aria-labelledby="scaleYLabel" />
+            </label>
+            <output id="scaleYOutput" for="scaleYRange"></output>
+          </div>
+          <div>
+            <label id="scaleZLabel">
+              <span>Z</span>
+              <input
+                type="range"
+                min="0.1"
+                max="2.5"
+                value="1"
+                data-default="1"
+                step="0.1"
+                id="scaleZRange"
+                aria-labelledby="scaleZLabel" />
+            </label>
+            <output id="scaleZOutput" for="scaleZRange"></output>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Skew</span>
+          </label>
+          <button
+            id="skewSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="skewXLabel">X</span>
+              <input
+                type="range"
+                min="-90"
+                max="90"
+                value="0"
+                data-default="0"
+                id="skewXRange"
+                aria-labelledby="skewXLabel" />
+            </label>
+            <output id="skewXOutput" for="skewXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="skewYLabel">Y</span>
+              <input
+                type="range"
+                min="-90"
+                max="90"
+                value="0"
+                data-default="0"
+                id="skewYRange"
+                aria-labelledby="skewYLabel" />
+            </label>
+            <output id="skewYOutput" for="skewYRange"></output>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Container Perspective</span>
+          </label>
+          <button
+            id="containerPerspectiveSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="perspectiveLabel"><code>perspective</code></span>
+              <input
+                type="range"
+                min="75"
+                max="500"
+                value="200"
+                data-default="200"
+                id="perspectiveRange"
+                aria-labelledby="perspectiveLabel" />
+            </label>
+            <output id="perspectiveOutput" for="perspectiveRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="perspectiveOriginXLabel"
+                ><code>perspective-origin</code> X (%)</span
+              >
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                data-default="50"
+                id="perspectiveOriginXRange"
+                aria-labelledby="perspectiveOriginXLabel" />
+            </label>
+            <output
+              id="perspectiveOriginXOutput"
+              for="perspectiveOriginXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span><code>perspective-origin</code> Y (%)</span>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                data-default="50"
+                id="perspectiveOriginYRange"
+                aria-labelledby="perspectiveOriginYLabel" />
+            </label>
+            <output
+              id="perspectiveOriginYOutput"
+              for="perspectiveOriginYRange"></output>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Other Properties</span>
+          </label>
+          <button
+            id="otherSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span><code>backface-visibility</code></span>
+              <input
+                type="checkbox"
+                checked
+                data-default="checked"
+                id="backfaceVisibilityCheckbox" />
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </fieldset>
+  <section id="outputSection">
+    <div id="outputContainer">
+      <div id="cube">
+        <div class="face front">1</div>
+        <div class="face back">2</div>
+        <div class="face right">3</div>
+        <div class="face left">4</div>
+        <div class="face top">5</div>
+        <div class="face bottom">6</div>
+      </div>
+      <div id="z0"><code>z:0px</code></div>
+    </div>
+    <div id="perspectiveDot"></div>
+  </section>
+</article>
+```
+
+```css hidden live-sample___transforms
+#allTransformFieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 4px;
+  accent-color: blue; /* or any color */
+  font-family:
+    "Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+#allTransformFieldset > legend {
+  margin-bottom: 4px;
+}
+
+fieldset {
+  margin: 0;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0;
+}
+
+#fieldsetSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 8px;
+}
+
+#outputSection {
+  width: 100%;
+  min-height: 400px;
+  background: linear-gradient(skyblue, khaki);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: clip;
+}
+
+#outputContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+#z0 {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    to right bottom,
+    rgb(223 223 223),
+    rgb(190 190 190)
+  );
+  transform: translateZ(0px);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: black;
+  border-radius: 50%;
+  outline: 1px solid rgb(0 0 0 / 0.35);
+  pointer-events: all;
+}
+
+#perspectiveDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgb(240 0 0 / 0.5);
+  transform: translate3d(-2px, -2px, 0px);
+  position: absolute;
+}
+
+#cube {
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: all 0.075s ease-out;
+  position: absolute;
+  pointer-events: all;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: white;
+}
+
+.front {
+  background: rgb(90 90 90 / 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgb(0 210 0 / 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgb(210 0 0 / 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgb(0 0 210 / 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgb(210 210 0 / 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgb(210 0 210 / 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.transformFieldset {
+  margin: 0;
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+}
+
+.controlsContainer {
+  width: 100%;
+}
+
+.controlsContainer > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.controlsContainer > div > label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+button {
+  font-size: 18px;
+  border-radius: 50%;
+  border: #cccccc solid 1px;
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  margin-left: 4px;
+}
+
+input[type="range"] {
+  width: 172px;
+}
+
+output {
+  width: 3em;
+}
+```
+
+```js hidden live-sample___transforms
+allTransformFieldset
+  .querySelectorAll("input[type='range']")
+  .forEach((rangeInput) => {
+    // Event listeners for when the range inputs change
+    rangeInput.addEventListener("input", (el) => {
+      updateTransform();
+    });
+
+    // Reset the relevant transform setting when the range input is double clicked
+    rangeInput.addEventListener("dblclick", (el) => {
+      resetInput(el.target);
+      updateTransform();
+    });
+  });
+
+// Event listeners for when checkbox inputs change
+allTransformFieldset
+  .querySelectorAll("input[type='checkbox']")
+  .forEach((checkboxInput) => {
+    checkboxInput.addEventListener("input", (el) => {
+      updateTransform();
+    });
+  });
+
+// "Reset All" button event listener
+resetAllButton.addEventListener("click", () => {
+  allTransformFieldset.querySelectorAll("input").forEach((input) => {
+    resetInput(input);
+  });
+  updateTransform();
+});
+
+// Section reset button event listeners
+allTransformFieldset
+  .querySelectorAll(".resetSectionButton")
+  .forEach((resetSectionButton) => {
+    resetSectionButton.addEventListener("click", (el) => {
+      let allRanges = el.target.parentElement.parentElement.querySelectorAll(
+        "input[type='range']",
+      );
+      allRanges.forEach((range) => {
+        resetInput(range);
+      });
+
+      let allCheckboxes =
+        el.target.parentElement.parentElement.querySelectorAll(
+          "input[type='checkbox']",
+        );
+      allCheckboxes.forEach((check) => {
+        resetInput(check);
+      });
+
+      updateTransform();
+    });
+  });
+
+function resetInput(inputEl) {
+  if (!inputEl) {
+    console.warn(`inputEl \`${inputEl}\` is falsy!`);
+    console.trace();
+    return;
+  }
+
+  const defaultValue = inputEl.getAttribute("data-default");
+  if (inputEl.getAttribute("type") === "checkbox") {
+    inputEl.checked = defaultValue === "checked";
+  } else {
+    inputEl.value = defaultValue || "0";
+  }
+}
+
+function updateOutputs() {
+  translateXOutput.value = `${translateXRange.value}px`;
+  translateYOutput.value = `${translateYRange.value}px`;
+  translateZOutput.value = `${translateZRange.value}px`;
+
+  rotateXOutput.value = `${rotateXRange.value}°`;
+  rotateYOutput.value = `${rotateYRange.value}°`;
+  rotateZOutput.value = `${rotateZRange.value}°`;
+
+  scaleXOutput.value = `${scaleXRange.value}x`;
+  scaleYOutput.value = `${scaleYRange.value}x`;
+  scaleZOutput.value = `${scaleZRange.value}x`;
+
+  skewXOutput.value = `${skewXRange.value}°`;
+  skewYOutput.value = `${skewYRange.value}°`;
+
+  perspectiveOutput.value = `${perspectiveRange.value}px`;
+
+  perspectiveOriginXOutput.value = `${perspectiveOriginXRange.value}%`;
+  perspectiveOriginYOutput.value = `${perspectiveOriginYRange.value}%`;
+}
+
+function updateTransform() {
+  updateOutputs();
+
+  cube.style.transform = `translate3d(${translateXRange.value}px,
+                ${translateYRange.value}px,
+                ${translateZRange.value}px)
+                rotateX(${rotateXRange.value}deg)
+                rotateY(${rotateYRange.value}deg)
+                rotateZ(${rotateZRange.value}deg)
+                scale3d(${scaleXRange.value},
+                ${scaleYRange.value},
+                ${scaleZRange.value})
+                skewX(${skewXRange.value}deg)
+                skewY(${skewYRange.value}deg)`;
+  cube.style.backfaceVisibility = `${backfaceVisibilityCheckbox.checked ? "visible" : "hidden"}`;
+
+  outputContainer.style.perspective = `${perspectiveRange.value}px`;
+  outputContainer.style.perspectiveOrigin = `${perspectiveOriginXRange.value}% ${perspectiveOriginYRange.value}%`;
+
+  perspectiveDot.style.top = `${perspectiveOriginYRange.value}%`;
+  perspectiveDot.style.left = `${perspectiveOriginXRange.value}%`;
+}
+updateTransform();
+```
+
+{{EmbedLiveSample("transforms", "", "850px")}}
+
+Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/Reference/Properties/perspective)-Eigenschaft des Würfelcontainers zu ändern, die den Abstand zwischen Ihnen und der `z=0`-Ebene bestimmt.
+
+Die [`perspective-origin`](/de/docs/Web/CSS/Reference/Properties/perspective-origin)-Schieberegler bestimmen, wo Sie, der Betrachter, in den 3D-Raum blicken, um den _Fluchtpunkt_ der Ansicht zu bestimmen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt angezeigt. Sie können sich vorstellen, dass das Ändern dieser Schieberegler einem physischen Bewegen Ihres Kopfes nach oben, unten, links und rechts gleichkommt, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen.
+
+Das `backface-visibility`-Kontrollkästchen bestimmt, ob die Rückseiten des Würfels auf `visible` oder `hidden` gesetzt sind.
+
+Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestaltet sind, um die Seiten des Würfels zu erstellen. Der Würfel wird nicht mit einem 2D- oder 3D-Canvas-Kontext gezeichnet, sodass **Sie die Flächen des Würfels mit den Entwicklerwerkzeugen Ihres Browsers inspizieren können, wie Sie es auch bei jedem anderen DOM-Element tun würden**. Versuchen Sie, den Elementauswahl-Werkzeug Ihrer Browser-Entwicklerwerkzeuge zu verwenden, um verschiedene Flächen des Würfels zu inspizieren, während Sie seine Position und Drehung transformieren.
+
+> [!NOTE]
+> Die Reihenfolge, in der Transformationen, einschließlich 3D-Drehungen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden die Transformationen übersetzt, skaliert, gedreht und dann geneigt. Die Drehungen werden in der Reihenfolge X → Y → Z angewendet.
+
+## Referenz
+
+### Eigenschaften
+
+- {{cssxref("backface-visibility")}}
+- {{cssxref("perspective")}}
+- {{cssxref("perspective-origin")}}
+- {{cssxref("rotate")}}
+- {{cssxref("scale")}}
+- {{cssxref("transform")}}
+- {{cssxref("transform-box")}}
+- {{cssxref("transform-origin")}}
+- {{cssxref("transform-style")}}
+- {{cssxref("translate")}}
+
+### Funktionen
+
+- {{cssxref("transform-function/matrix", "matrix()")}}
+- {{cssxref("transform-function/matrix3d", "matrix3d()")}}
+- {{cssxref("transform-function/perspective", "perspective()")}}
+- {{cssxref("transform-function/rotate", "rotate()")}}
+- {{cssxref("transform-function/rotate3d", "rotate3d()")}}
+- {{cssxref("transform-function/rotateX", "rotateX()")}}
+- {{cssxref("transform-function/rotateY", "rotateY()")}}
+- {{cssxref("transform-function/rotateZ", "rotateZ()")}}
+- {{cssxref("transform-function/scale", "scale()")}}
+- {{cssxref("transform-function/scale3d", "scale3d()")}}
+- {{cssxref("transform-function/scaleX", "scaleX()")}}
+- {{cssxref("transform-function/scaleY", "scaleY()")}}
+- {{cssxref("transform-function/scaleZ", "scaleZ()")}}
+- {{cssxref("transform-function/skew", "skew()")}}
+- {{cssxref("transform-function/skewX", "skewX()")}}
+- {{cssxref("transform-function/skewY", "skewY()")}}
+- {{cssxref("transform-function/translate", "translate()")}}
+- {{cssxref("transform-function/translate3d", "translate3d()")}}
+- {{cssxref("transform-function/translateX", "translateX()")}}
+- {{cssxref("transform-function/translateY", "translateY()")}}
+- {{cssxref("transform-function/translateZ", "translateZ()")}}
+
+### Datentypen
+
+- {{cssxref("&lt;transform-function&gt;")}}
+
+## Leitfäden
+
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)
+  - : Schritt-für-Schritt-Anleitung darüber, wie man mit CSS gestaltete Elemente transformiert.
+- [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)
+  - : Beschreibt, wie Pixelpositionen im CSS-Objektmodell definiert werden.
+- [Leistungsgrundlagen: CSS-Transformationen verwenden](/de/docs/Web/Performance/Guides/Fundamentals#use_css_transforms)
+  - : Ein Überblick über die Grundlagen der Web-Performance, einschließlich wie CSS-Transformationen die Leistung verbessern können.
+- [Matrix-Mathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
+  - : Beschreibt, wie Objekttransformationen durch mathematische Matrizen dargestellt werden können.
+
+## Verwandte Konzepte
+
+- CSS-Eigenschaften:
+  - [`animation`](/de/docs/Web/CSS/Reference/Properties/animation)
+  - [`background-position`](/de/docs/Web/CSS/Reference/Properties/background-position)
+  - [`clip`](/de/docs/Web/CSS/Reference/Properties/clip)
+  - [`clip-path`](/de/docs/Web/CSS/Reference/Properties/clip-path)
+  - [`contain`](/de/docs/Web/CSS/Reference/Properties/contain)
+  - [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility)
+  - [`isolation`](/de/docs/Web/CSS/Reference/Properties/isolation)
+  - [`mask`](/de/docs/Web/CSS/Reference/Properties/mask)
+  - [`mask-border-source`](/de/docs/Web/CSS/Reference/Properties/mask-border-source)
+  - [`mask-image`](/de/docs/Web/CSS/Reference/Properties/mask-image)
+  - [`mix-blend-mode`](/de/docs/Web/CSS/Reference/Properties/mix-blend-mode)
+  - [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity)
+  - [`overflow`](/de/docs/Web/CSS/Reference/Properties/overflow)
+  - [`transition`](/de/docs/Web/CSS/Reference/Properties/transition)
+  - [`visibility`](/de/docs/Web/CSS/Reference/Properties/visibility)
+- Datentypen:
+  - [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)
+  - {{cssxref("length-percentage")}}
+  - {{cssxref("length")}}
+  - [`<number>`](/de/docs/Web/CSS/Reference/Values/number)
+  - {{cssxref("percentage")}}
+  - [`<position>`](/de/docs/Web/CSS/Reference/Values/position_value)
+- Glossarbegriffe:
+  - {{Glossary("Interpolation", "Interpolation")}}
+  - {{Glossary("Stacking_context", "Stapelhierarchie")}}
+- [SVG](/de/docs/Web/SVG)-Konzepte:
+  - [`<animate>`](/de/docs/Web/SVG/Reference/Element/animate)-Element
+  - [`<animateTransform>`](/de/docs/Web/SVG/Reference/Element/animateTransform)-Element
+  - [`<set>`](/de/docs/Web/SVG/Reference/Element/set)-Element
+  - [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Element
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Siehe auch
+
+- [Grundlegende SVG-Transformationen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_transformations) Anleitung
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul

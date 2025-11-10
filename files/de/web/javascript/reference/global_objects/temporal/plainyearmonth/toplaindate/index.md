@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainYearMonth.prototype.toPlainDate()
+short-title: toPlainDate()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/toPlainDate
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toPlainDate()`** Methode von Instanzen des {{jsxref("Temporal.PlainYearMonth")}} gibt ein neues {{jsxref("Temporal.PlainDate")}} Objekt zurück, das diesen Jahr-Monat und einen angegebenen Tag im selben Kalendersystem darstellt.
+Die **`toPlainDate()`** Methode von Instanzen von {{jsxref("Temporal.PlainYearMonth")}} gibt ein neues {{jsxref("Temporal.PlainDate")}} Objekt zurück, das dieses Jahr-Monat und einen angegebenen Tag im selben Kalendersystem repräsentiert.
 
 ## Syntax
 
@@ -24,7 +25,7 @@ toPlainDate(dayInfo)
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate` Objekt, das das durch diesen Jahr-Monat und den Tag in `dayInfo` spezifizierte Datum darstellt, interpretiert im Kalendersystem dieses Jahr-Monats.
+Ein neues `Temporal.PlainDate` Objekt, das das durch dieses Jahr-Monat und den Tag in `dayInfo` spezifizierte Datum, interpretiert im Kalendersystem dieses Jahr-Monats, repräsentiert.
 
 ### Ausnahmen
 

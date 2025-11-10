@@ -1,14 +1,15 @@
 ---
-title: "WebGL2RenderingContext: getQueryParameter()-Methode"
+title: "WebGL2RenderingContext: getQueryParameter() Methode"
 short-title: getQueryParameter()
 slug: Web/API/WebGL2RenderingContext/getQueryParameter
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.getQueryParameter()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekts zurück.
+Die **`WebGL2RenderingContext.getQueryParameter()`** Methode der
+[WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekts zurück.
 
 ## Syntax
 
@@ -19,19 +20,18 @@ getQueryParameter(query, pname)
 ### Parameter
 
 - `query`
-  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt.
 - `pname`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
     - `gl.QUERY_RESULT`
-      - : Gibt einen [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, der das Abfrageergebnis enthält.
+      - : Gibt ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, das das Abfrageergebnis enthält.
     - `gl.QUERY_RESULT_AVAILABLE`
-      - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der anzeigt, ob ein Abfrageergebnis verfügbar ist oder nicht.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
 
 ### Rückgabewert
 
-Abhängig vom `pname`-Parameter entweder ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types).
+Abhängig vom `pname` Parameter, entweder ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) oder ein
+[`GLboolean`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 

@@ -2,14 +2,12 @@
 title: devtools.panels.ExtensionSidebarPane.setObject()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane/setObject
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Stellt ein JSON-Objekt im Seitenbereich der Erweiterung dar.
 
-Zeigt ein JSON-Objekt im Sidebar-Bereich der Erweiterung an.
-
-Das Objekt wird als erweiterbarer Baum angezeigt, wie im [JSON Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Sie können optional einen `rootTitle`-String angeben: Dieser wird als Titel des Wurzelknotens des Baumes angezeigt.
+Das Objekt wird als erweiterbarer Baum angezeigt, wie im [JSON-Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Sie können optional eine `rootTitle`-Zeichenkette angeben: Diese wird als Titel der Wurzel des Baumes angezeigt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,21 +23,17 @@ let setting = browser.devtools.panels.setObject(
 ### Parameter
 
 - `jsonObject`
-  - : `String` oder `Array` oder `Object`. Das anzuzeigende Objekt. Wenn dies ein Objekt ist, wird es JSON-serialisiert, sodass Eigenschaften wie Funktionen weggelassen werden.
+  - : `String` oder `Array` oder `Object`. Das Objekt, das angezeigt werden soll. Wenn es sich um ein Objekt handelt, wird es JSON-serialisiert, sodass Eigenschaften wie Funktionen ausgelassen werden.
 - `rootTitle` {{optional_inline}}
   - : `String`. Der Titel der Wurzel des Baumes, in dem das Objekt angezeigt wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, sobald das Objekt gesetzt wurde.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Objekt festgelegt wurde.
 
 ## Beispiele
 
-Erstellen Sie ein neues Paneel und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Skript ausführen, das von der [devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wurde.
+Erstellen Sie ein neues Paneel und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem von der [Devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladenen Skript ausführen.
 
 ```js
 function onCreated(sidebarPane) {
@@ -58,8 +52,12 @@ browser.devtools.panels.elements.createSidebarPane("My pane").then(onCreated);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels)-API von Chromium.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

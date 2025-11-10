@@ -2,12 +2,12 @@
 title: CSSPerspective
 slug: Web/API/CSSPerspective
 l10n:
-  sourceCommit: ecc46f2c8d6e09f0aa6e1b3f5194abfcf462e603
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSPerspective`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den [perspective()](/de/docs/Web/CSS/transform-function/perspective)-Wert der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSPerspective`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den [perspective()](/de/docs/Web/CSS/Reference/Values/transform-function/perspective)-Wert der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seiner Elternklasse [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -19,11 +19,11 @@ Die **`CSSPerspective`**-Schnittstelle der [CSS Typed Object Model API](/de/docs
 ## Instanz-Eigenschaften
 
 - [`length`](/de/docs/Web/API/CSSPerspective/length)
-  - : Gibt die Entfernung von z=0 zurück oder legt sie fest.
+  - : Gibt die Distanz von z=0 zurück oder setzt diese.
 
 ## Beispiele
 
-Zu erledigen
+To do
 
 ## Spezifikationen
 

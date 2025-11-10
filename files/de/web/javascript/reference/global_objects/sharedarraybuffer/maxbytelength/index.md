@@ -1,25 +1,24 @@
 ---
 title: SharedArrayBuffer.prototype.maxByteLength
+short-title: maxByteLength
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/maxByteLength
 l10n:
-  sourceCommit: 16bacf2194dc9e9ff6ee5bcc65316547cf88a8d9
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`maxByteLength`** Zugriffseigenschaft von {{jsxref("SharedArrayBuffer")}}-Instanzen gibt die maximale Länge (in Bytes) zurück, zu der dieser `SharedArrayBuffer` wachsen kann.
+Die **`maxByteLength`** Zugriffs-Property von {{jsxref("SharedArrayBuffer")}}-Instanzen gibt die maximale Länge (in Bytes) zurück, auf die dieser `SharedArrayBuffer` wachsen kann.
 
 ## Beschreibung
 
-Die `maxByteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessorfunktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das gemeinsame Array erstellt wird, und über die `maxByteLength`-Option des {{jsxref("SharedArrayBuffer/SharedArrayBuffer", "SharedArrayBuffer()")}} Konstruktors eingestellt und kann nicht geändert werden.
+Die `maxByteLength`-Property ist eine Zugriffs-Property, deren set-Zugriffsfunktions-Property `undefined` ist, was bedeutet, dass Sie diese Property nur lesen können. Der Wert wird festgelegt, wenn das gemeinsame Array erstellt wird, indem die `maxByteLength`-Option des {{jsxref("SharedArrayBuffer/SharedArrayBuffer", "SharedArrayBuffer()")}}-Konstruktors gesetzt wird und kann nicht geändert werden.
 
-Wenn dieser `SharedArrayBuffer` ohne Angabe eines `maxByteLength`-Werts erstellt wurde, gibt diese Eigenschaft einen Wert zurück, der dem Wert des {{jsxref("SharedArrayBuffer/byteLength", "byteLength")}} des `SharedArrayBuffer` entspricht.
+Wenn dieser `SharedArrayBuffer` erstellt wurde, ohne einen `maxByteLength`-Wert anzugeben, gibt diese Property einen Wert zurück, der dem Wert des {{jsxref("SharedArrayBuffer/byteLength", "byteLength")}} des `SharedArrayBuffer` entspricht.
 
 ## Beispiele
 
 ### Verwendung von maxByteLength
 
-In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes erweiterbar ist, und geben dann seine `maxByteLength` zurück:
+In diesem Beispiel erstellen wir einen 8-Byte-Puffer, der auf eine maximale Länge von 16 Bytes vergrößert werden kann, und geben dann seinen `maxByteLength` zurück:
 
 ```js
 const buffer = new SharedArrayBuffer(8, { maxByteLength: 16 });

@@ -3,13 +3,16 @@ title: "DelayNode: DelayNode() Konstruktor"
 short-title: DelayNode()
 slug: Web/API/DelayNode/DelayNode
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`DelayNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-erstellt ein neues [`DelayNode`](/de/docs/Web/API/DelayNode)-Objekt mit einer Verzögerungsleitung; ein AudioNode-Audio-Verarbeitungsmodul, das eine Verzögerung zwischen dem Eingang von Daten und deren Weiterleitung an den Ausgang verursacht.
+Der **`DelayNode()`**
+Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API)
+erstellt ein neues [`DelayNode`](/de/docs/Web/API/DelayNode)-Objekt mit einer Verzögerungsstrecke; ein AudioNode
+Audioverarbeitungsmodul, das eine Verzögerung zwischen dem Eintreffen von Eingabedaten und
+deren Weiterleitung an die Ausgabe bewirkt.
 
 ## Syntax
 
@@ -23,23 +26,21 @@ new DelayNode(context, options)
 - `context`
   - : Ein Verweis auf einen [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext).
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, das die Optionen des Verzögerungsknotens angibt. Kann die folgenden Mitglieder enthalten:
-
+  - : Ein Objekt, das die Optionen des Delay-Nodes spezifiziert. Kann die folgenden Mitglieder enthalten:
     - `delayTime`
-      - : Die anfängliche Verzögerungszeit für den Knoten in Sekunden. Der Standardwert ist `0`.
+      - : Die anfängliche Verzögerungszeit für den Node, in Sekunden. Der Standardwert ist `0`.
     - `maxDelayTime`
-      - : Die maximale Verzögerungszeit für den Knoten in Sekunden.
-        Standardmäßig `1`.
+      - : Die maximale Verzögerungszeit für den Node, in Sekunden.
+        Der Standardwert ist `1`.
     - `channelCount`
-      - : Stellt eine Ganzzahl dar, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) der Verbindungen zu den Eingängen des Knotens verwendet werden. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue
-        Definition hängen vom Wert von `channelCountMode` ab.
+      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle verwendet werden, wenn Verbindungen zu den Eingängen des Nodes [hoch- und runtergemixt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Stellt einen enumerierten Wert dar, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden sollen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich Standardwerte.)
+      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Nodes angeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen einschließlich Standardwerten.)
     - `channelInterpretation`
-      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation definiert, wie das Audio [up-mixing und down-mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgen wird.
+      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie das Audio [hoch- und runtergemixt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
         [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
 

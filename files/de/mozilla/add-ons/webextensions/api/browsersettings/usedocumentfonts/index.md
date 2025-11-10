@@ -2,23 +2,17 @@
 title: browserSettings.useDocumentFonts
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/useDocumentFonts
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
+Standardmäßig können Web-Seiten natürlich die Schriftarten angeben, die sie verwenden möchten, indem sie CSS-Eigenschaften wie [`font-family`](/de/docs/Web/CSS/Reference/Properties/font-family) verwenden. Diese Einstellung ermöglicht es einer Erweiterung, Firefox anzuweisen, die von der Seite angegebenen Schriftarten zu ignorieren und nur Systemschriftarten zu verwenden.
 
-Standardmäßig können Webseiten natürlich die gewünschten Schriftarten mit CSS-Eigenschaften wie [`font-family`](/de/docs/Web/CSS/font-family) angeben. Diese Einstellung ermöglicht es einer Erweiterung, Firefox anzuweisen, die von der Seite angegebenen Schriftarten zu ignorieren und stattdessen nur Systemschriftarten zu verwenden.
+Der zugrundeliegende Wert ist ein Boolean:
 
-Der zugrunde liegende Wert ist ein boolescher Wert:
-
-- `true`: Verwenden Sie die von der Webseite angegebenen Schriftarten. Dies ist der Standard.
+- `true`: Verwenden Sie die von der Webseite angegebenen Schriftarten. Dies ist die Standardeinstellung.
 - `false`: Verwenden Sie die Systemschriftarten.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
@@ -33,3 +27,7 @@ browser.browserSettings.useDocumentFonts.set({ value: false }).then(logResult);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

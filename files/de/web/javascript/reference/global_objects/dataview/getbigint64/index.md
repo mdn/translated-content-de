@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.getBigInt64()
+short-title: getBigInt64()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getBigInt64
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getBigInt64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-Vorzeichen-Integer. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
 
-Die Methode **`getBigInt64()`** von {{jsxref("DataView")}}-Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-ganzzahligen Wert mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
-
-{{InteractiveExample("JavaScript Demo: DataView.getBigInt64()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.getBigInt64()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -41,12 +40,12 @@ getBigInt64(byteOffset, littleEndian)
 
 ### Rückgabewert
 
-Ein {{jsxref("BigInt")}} im Bereich von -2<sup>63</sup> bis 2<sup>63</sup>-1, einschließlich.
+Ein {{jsxref("BigInt")}} von -2<sup>63</sup> bis 2<sup>63</sup>-1, inklusive.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinausliest.
+  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 
@@ -68,7 +67,7 @@ console.log(dataview.getBigInt64(1)); // 72623859790382856n
 
 ## Siehe auch
 
-- [Leitfaden zu JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("BigInt64Array")}}

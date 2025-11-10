@@ -3,12 +3,12 @@ title: "XMLSerializer: XMLSerializer() Konstruktor"
 short-title: XMLSerializer()
 slug: Web/API/XMLSerializer/XMLSerializer
 l10n:
-  sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef('XMLSerializer')}}
+{{APIRef("HTML DOM")}}
 
-Der **`XMLSerializer()`** Konstruktor erstellt einen neuen [`XMLSerializer`](/de/docs/Web/API/XMLSerializer).
+Der **`XMLSerializer()`** Konstruktor erstellt ein neues [`XMLSerializer`](/de/docs/Web/API/XMLSerializer).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein neues [`XMLSerializer`](/de/docs/Web/API/XMLSerializer) Objekt.
 
 ## Beispiele
 
-### XML in einen String serialisieren
+### Serialisieren von XML in einen String
 
 Dieses Beispiel serialisiert ein gesamtes Dokument in einen String, der XML enthält.
 
@@ -37,7 +37,7 @@ const str = s.serializeToString(d);
 saveXML(str);
 ```
 
-Dies beinhaltet das Erstellen eines neuen `XMLSerializer` Objekts, gefolgt vom Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) in [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` stellt eine Funktion dar, die dann den serialisierten String speichern würde.
+Dies beinhaltet das Erstellen eines neuen `XMLSerializer` Objekts und dann das Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) an [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), was das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` stellt eine Funktion dar, die dann den serialisierten String speichert.
 
 ## Spezifikationen
 

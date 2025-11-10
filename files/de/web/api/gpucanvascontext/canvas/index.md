@@ -3,16 +3,16 @@ title: "GPUCanvasContext: canvas-Eigenschaft"
 short-title: canvas
 slug: Web/API/GPUCanvasContext/canvas
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`canvas`**-Eigenschaft des [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das Canvas zurückgibt, aus dem der Kontext erstellt wurde.
+Die **`canvas`**-Eigenschaft, eine schreibgeschützte Eigenschaft der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle, gibt eine Referenz auf das Canvas zurück, von dem der Kontext erstellt wurde.
 
 ## Wert
 
-Eine Instanz des [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)- oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
+Eine Instanz eines [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
 
 ## Beispiele
 

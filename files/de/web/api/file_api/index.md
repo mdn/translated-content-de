@@ -2,38 +2,48 @@
 title: File API
 slug: Web/API/File_API
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{DefaultAPISidebar("File API")}}{{AvailableInWorkers}}
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die File API ermöglicht es Webanwendungen, auf Dateien und deren Inhalte zuzugreifen.
+Die File API ermöglicht Webanwendungen den Zugriff auf Dateien und deren Inhalte.
 
-Webanwendungen können auf Dateien zugreifen, wenn der Benutzer sie verfügbar macht, entweder durch ein [Datei-`<input>`-Element](/de/docs/Web/HTML/Element/input/file) oder [durch Drag-and-Drop](/de/docs/Web/API/DataTransfer/files).
+Webanwendungen können auf Dateien zugreifen, wenn der Benutzer sie verfügbar macht, entweder mit einem [file `<input>`-Element](/de/docs/Web/HTML/Reference/Elements/input/file) oder [via Drag & Drop](/de/docs/Web/API/DataTransfer/files).
 
-Dateien, die auf diese Weise verfügbar gemacht werden, werden als [`FileList`](/de/docs/Web/API/FileList)-Objekte dargestellt, die es einer Webanwendung ermöglichen, einzelne [`File`](/de/docs/Web/API/File)-Objekte abzurufen. [`File`](/de/docs/Web/API/File)-Objekte bieten wiederum Zugriff auf Metadaten wie den Dateinamen, die Größe, den Typ und das Datum der letzten Änderung.
+Sätze von Dateien, die auf diese Weise zur Verfügung gestellt werden, sind als [`FileList`](/de/docs/Web/API/FileList)-Objekte dargestellt, die es einer Webanwendung ermöglichen, einzelne [`File`](/de/docs/Web/API/File)-Objekte abzurufen. Im Gegenzug bieten [`File`](/de/docs/Web/API/File)-Objekte Zugriff auf Metadaten wie den Namen der Datei, die Größe, den Typ und das Datum der letzten Änderung.
 
-[`File`](/de/docs/Web/API/File)-Objekte können an [`FileReader`](/de/docs/Web/API/FileReader)-Objekte übergeben werden, um auf die Inhalte der Datei zuzugreifen. Die [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle arbeitet asynchron, aber eine synchrone Version, die nur in [Web-Arbeitern](/de/docs/Web/API/Web_Workers_API) verfügbar ist, wird durch die [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle bereitgestellt.
+[`File`](/de/docs/Web/API/File)-Objekte können an [`FileReader`](/de/docs/Web/API/FileReader)-Objekte übergeben werden, um auf den Inhalt der Datei zuzugreifen. Das [`FileReader`](/de/docs/Web/API/FileReader)-Interface ist asynchron, aber eine synchrone Version, die nur in [Webworkern](/de/docs/Web/API/Web_Workers_API) verfügbar ist, wird durch das [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Interface bereitgestellt.
+
+## Beziehung zu anderen dateibezogenen APIs
+
+Es gibt zwei weitere wichtige APIs, die ebenfalls mit Dateien arbeiten: die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) und die [File System API](/de/docs/Web/API/File_System_API).
+
+Die File API ist die grundlegendste. Sie unterstützt das Lesen und Verarbeiten von Dateidaten, die explizit vom Benutzer in Form eines Formularelement-Eingangs oder einer Drag-and-Drop-Operation bereitgestellt werden. Sie ermöglicht auch die Verarbeitung von Binärdaten über Blobs.
+
+Die File and Directory Entries API, ähnlich der File API, arbeitet auch mit Dateien, die vom Benutzer über Formulareingaben oder Drag-and-Drop-Operationen bereitgestellt werden. Anstatt eines einzelnen Datei kann das Eingabeelement nun die Auswahl eines Verzeichnisses oder mehrerer Dateien ermöglichen. Die API bietet dann eine Möglichkeit, das Verzeichnis oder die Dateien zu verarbeiten. Sie ist hauptsächlich eine eigene Erfindung von Chrome - Sie werden feststellen, dass ihre Erweiterungen anderer Schnittstellen alle mit `webkit` präfixiert sind. Die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API#history) hat eine ausführlichere Geschichte über ihre Implementierung und Standardisierung. Sie war ursprünglich dafür vorgesehen, ein vollständiges virtuelles Dateisystem zu unterstützen, unterstützt aber jetzt nur noch Leseoperationen auf vom Benutzer bereitgestellten Daten.
+
+Die File System API bietet ein virtuelles Dateisystem für Webanwendungen, damit diese Daten in einem virtuellen System speichern können, das privat für den Ursprung des Dokuments ist (bekannt als [Origin private file system (OPFS)](/de/docs/Web/API/File_System_API/Origin_private_file_system)). Die File System Access API erweitert die File System API weiter, um es Websites zu ermöglichen, Benutzerdateien zu lesen und zu schreiben, vorbehaltlich der Zustimmung des Benutzers. Im Gegensatz zur File API und der File and Directory Entries API ist die File System API rein JavaScript-basiert und arbeitet nicht mit Formulareingaben.
 
 ## Schnittstellen
 
 - [`Blob`](/de/docs/Web/API/Blob)
-  - : Repräsentiert ein "Binary Large Object", also ein dateiähnliches Objekt mit unveränderlichen, rohen Daten; ein [`Blob`](/de/docs/Web/API/Blob) kann als Text oder Binärdaten gelesen oder in einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) konvertiert werden, so dass seine Methoden zur Verarbeitung der Daten verwendet werden können.
+  - : Steht für ein "Binary Large Object", also ein dateiähnliches Objekt aus unveränderlichem, rohem Datenmaterial; ein [`Blob`](/de/docs/Web/API/Blob) kann als Text oder Binärdaten gelesen oder in einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) umgewandelt werden, sodass seine Methoden zur Verarbeitung der Daten genutzt werden können.
 - [`File`](/de/docs/Web/API/File)
-  - : Bietet Informationen über eine Datei und erlaubt JavaScript auf einer Webseite, auf deren Inhalt zuzugreifen.
+  - : Bietet Informationen über eine Datei und ermöglicht JavaScript in einer Webseite den Zugriff auf deren Inhalt.
 - [`FileList`](/de/docs/Web/API/FileList)
-  - : Wird von der `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben; damit können Sie auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien zugreifen. Sie wird auch für eine Liste von Dateien verwendet, die durch die Nutzung der Drag-and-Drop-API in Webinhalte gezogen wurden; siehe das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt für Details zur Nutzung.
+  - : Wird durch die `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben; damit können Sie auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien zugreifen. Es wird auch für eine Liste von Dateien verwendet, die mittels der Drag-and-Drop-API in den Webinhalt fallen gelassen werden; siehe das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt für Details zu dieser Verwendung.
 - [`FileReader`](/de/docs/Web/API/FileReader)
-  - : Ermöglicht es Webanwendungen, den Inhalt von Dateien (oder rohen Datenpuffern), die auf dem Computer des Nutzers gespeichert sind, asynchron zu lesen, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die zu lesende Datei oder Daten anzugeben.
+  - : Ermöglicht Webanwendungen das asynchrone Lesen der Inhalte von Dateien (oder rohen Datenpuffern), die auf dem Computer des Benutzers gespeichert sind, unter Verwendung von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten, um die Datei oder Daten anzugeben, die gelesen werden sollen.
 - [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)
-  - : Ermöglicht es Webanwendungen, den Inhalt von Dateien (oder rohen Datenpuffern), die auf dem Computer des Nutzers gespeichert sind, synchron zu lesen, indem [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden, um die zu lesende Datei oder Daten anzugeben.
+  - : Ermöglicht Webanwendungen das synchrone Lesen der Inhalte von Dateien (oder rohen Datenpuffern), die auf dem Computer des Benutzers gespeichert sind, unter Verwendung von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten zur Angabe der zu lesenden Datei oder Daten.
 
 ### Erweiterungen zu anderen Schnittstellen
 
 - [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)
-  - : Erstellt eine URL, die verwendet werden kann, um ein [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekt abzurufen.
+  - : Erstellt eine URL, die verwendet werden kann, um auf ein [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekt zuzugreifen.
 - [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)
   - : Hebt eine bestehende Objekt-URL auf, die zuvor durch Aufruf von [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellt wurde.
 
@@ -41,7 +51,7 @@ Dateien, die auf diese Weise verfügbar gemacht werden, werden als [`FileList`](
 
 ### Eine Datei lesen
 
-In diesem Beispiel bieten wir ein [Datei-`<input>`-Element](/de/docs/Web/HTML/Element/input/file) an, und wenn der Benutzer eine Datei auswählt, lesen wir den Inhalt der ersten ausgewählten Datei als Text und zeigen das Ergebnis in einem {{HTMLElement("div")}} an.
+In diesem Beispiel stellen wir ein [file `<input>`-Element](/de/docs/Web/HTML/Reference/Elements/input/file) bereit, und wenn der Benutzer eine Datei auswählt, lesen wir den Inhalt der ersten ausgewählten Datei als Text und zeigen das Ergebnis in einem {{HTMLElement("div")}} an.
 
 #### HTML
 
@@ -75,9 +85,9 @@ fileInput.addEventListener("change", async () => {
 });
 ```
 
-### Resultat
+### Ergebnis
 
-{{EmbedLiveSample("Eine Datei lesen", "", "300")}}
+{{EmbedLiveSample("Reading a file", "", "300")}}
 
 ## Spezifikationen
 
@@ -85,6 +95,6 @@ fileInput.addEventListener("change", async () => {
 
 ## Siehe auch
 
-- [`<input type="file">`](/de/docs/Web/HTML/Element/input/file): das Dateieingabeelement
+- [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file): das Datei-Eingabeelement
 - [`Blob.text()`](/de/docs/Web/API/Blob/text)
 - Die [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle

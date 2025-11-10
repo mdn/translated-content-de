@@ -3,12 +3,13 @@ title: "HTMLObjectElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLObjectElement/width
 l10n:
-  sourceCommit: d8a52569d8d465eb626af3d33600c8c638a7a322
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Element/object#width) widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln spezifiziert.
+Die **`width`**-Eigenschaft des
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Reference/Elements/object#width) widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 

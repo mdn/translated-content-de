@@ -1,14 +1,14 @@
 ---
-title: "LinearAccelerationSensor: LinearAccelerationSensor()-Konstruktor"
+title: "LinearAccelerationSensor: LinearAccelerationSensor() Konstruktor"
 short-title: LinearAccelerationSensor()
 slug: Web/API/LinearAccelerationSensor/LinearAccelerationSensor
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`LinearAccelerationSensor()`** Konstruktor erstellt ein neues [`LinearAccelerationSensor`](/de/docs/Web/API/LinearAccelerationSensor)-Objekt, das bei jeder Messung die auf das Gerät angewendete Beschleunigung entlang aller drei Achsen bereitstellt, jedoch ohne den Beitrag der Schwerkraft.
+Der **`LinearAccelerationSensor()`** Konstruktor erstellt ein neues [`LinearAccelerationSensor`](/de/docs/Web/API/LinearAccelerationSensor)-Objekt, das bei jeder Messung die auf das Gerät entlang aller drei Achsen ausgeübte Beschleunigung bereitstellt, jedoch ohne den Beitrag der Gravitation.
 
 ## Syntax
 
@@ -20,18 +20,16 @@ new LinearAccelerationSensor(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Die Optionen sind wie folgt:
-
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl der Messungen pro Sekunde, das bedeutet, wie oft pro Sekunde das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Hardware des Geräts ab und kann daher geringer als gewünscht sein.
+      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, das heißt die Anzahl der Male pro Sekunde, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder ein Dezimalwert kann verwendet werden, letzterer für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer als gewünscht sein.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Verwendung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Verwendung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 

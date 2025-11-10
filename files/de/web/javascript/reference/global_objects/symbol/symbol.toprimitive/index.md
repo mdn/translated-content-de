@@ -1,13 +1,12 @@
 ---
 title: Symbol.prototype[Symbol.toPrimitive]()
+short-title: "[Symbol.toPrimitive]()"
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/Symbol.toPrimitive
 l10n:
-  sourceCommit: 6fbdb78c1362fae31fbd545f4b2d9c51987a6bca
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`[Symbol.toPrimitive]()`** von {{jsxref("Symbol")}}-Werten gibt diesen Symbolwert zurück.
+Die **`[Symbol.toPrimitive]()`** Methode von {{jsxref("Symbol")}} Werten gibt diesen Symbolwert zurück.
 
 ## Syntax
 
@@ -18,20 +17,17 @@ symbolValue[Symbol.toPrimitive](hint)
 ### Parameter
 
 - `hint`
-  - : Ein Zeichenfolgenwert, der den zurückzugebenden primitiven Wert angibt. Der Wert wird ignoriert.
+  - : Ein Zeichenfolgenwert, der den zurückzugebenden primitiven Wert anzeigt. Der Wert wird ignoriert.
 
 ### Rückgabewert
 
-Der primitive Wert des angegebenen {{jsxref("Symbol")}}-Objekts.
+Der primitive Wert des spezifizierten {{jsxref("Symbol")}} Objekts.
 
 ## Beschreibung
 
-Die Methode `[Symbol.toPrimitive]()` von {{jsxref("Symbol")}} gibt den primitiven
-Wert eines Symbol-Objekts als Symbol-Datentyp zurück. Das `hint`
-Argument wird nicht verwendet.
+Die Methode `[Symbol.toPrimitive]()` von {{jsxref("Symbol")}} gibt den primitiven Wert eines Symbolobjekts als Symbol-Datentyp zurück. Das Argument `hint` wird nicht verwendet.
 
-JavaScript ruft die Methode `[Symbol.toPrimitive]()` auf, um ein Objekt in einen
-primitiven Wert umzuwandeln. Normalerweise müssen Sie die Methode `[Symbol.toPrimitive]()` nicht selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt in einem Kontext auftaucht, der einen primitiven Wert erfordert.
+JavaScript ruft die Methode `[Symbol.toPrimitive]()` auf, um ein Objekt in einen primitiven Wert zu konvertieren. Es ist selten nötig, die Methode `[Symbol.toPrimitive]()` selbst aufzurufen; JavaScript ruft sie automatisch auf, wenn es auf ein Objekt stößt, bei dem ein primitiver Wert erwartet wird.
 
 ## Beispiele
 

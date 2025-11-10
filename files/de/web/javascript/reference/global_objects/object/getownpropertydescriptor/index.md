@@ -1,27 +1,27 @@
 ---
 title: Object.getOwnPropertyDescriptor()
+short-title: getOwnPropertyDescriptor()
 slug: Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Object.getOwnPropertyDescriptor()`** gibt ein Objekt zurück, das die Konfiguration einer bestimmten Eigenschaft eines gegebenen Objekts beschreibt (d. h. einer Eigenschaft, die direkt auf dem Objekt und nicht in dessen Prototyp-Kette vorhanden ist). Das zurückgegebene Objekt ist veränderbar, aber Änderungen daran haben keinen Einfluss auf die ursprüngliche Konfiguration der Eigenschaft.
+Die statische Methode **`Object.getOwnPropertyDescriptor()`** gibt ein
+Objekt zurück, das die Konfiguration einer bestimmten Eigenschaft eines gegebenen Objekts beschreibt (das heißt, direkt auf einem Objekt vorhanden und nicht in der Prototyp-Kette des Objekts). Das zurückgegebene Objekt ist veränderlich, jedoch hat das Verändern keine Auswirkungen auf die ursprüngliche Konfiguration der Eigenschaft.
 
 {{InteractiveExample("JavaScript Demo: Object.getOwnPropertyDescriptor()")}}
 
 ```js interactive-example
-const object1 = {
-  property1: 42,
+const object = {
+  foo: 42,
 };
 
-const descriptor1 = Object.getOwnPropertyDescriptor(object1, "property1");
+const descriptor = Object.getOwnPropertyDescriptor(object, "foo");
 
-console.log(descriptor1.configurable);
+console.log(descriptor.configurable);
 // Expected output: true
 
-console.log(descriptor1.value);
+console.log(descriptor.value);
 // Expected output: 42
 ```
 
@@ -40,26 +40,26 @@ Object.getOwnPropertyDescriptor(obj, prop)
 
 ### Rückgabewert
 
-Ein Eigenschafts-Descriptor der angegebenen Eigenschaft, falls diese auf dem Objekt existiert, andernfalls {{jsxref("undefined")}}.
+Ein Eigenschafts-Deskriptor der gegebenen Eigenschaft, falls diese auf dem Objekt existiert, sonst {{jsxref("undefined")}}.
 
 ## Beschreibung
 
-Diese Methode ermöglicht die genaue Untersuchung der Beschreibung einer Eigenschaft. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem String-Wert als Namen oder einem {{jsxref("Symbol")}} und einem Eigenschafts-Descriptor. Weitere Informationen zu den Typen von Eigenschafts-Deskriptoren und ihren Attributen finden Sie in {{jsxref("Object.defineProperty()")}}.
+Diese Methode ermöglicht die Untersuchung der genauen Beschreibung einer Eigenschaft. Eine _Eigenschaft_ in JavaScript besteht entweder aus einem String-bewerteten Namen oder einem {{jsxref("Symbol")}} und einem Eigenschafts-Deskriptor. Weitere Informationen über Eigenschafts-Deskriptor-Typen und deren Attribute finden Sie in {{jsxref("Object.defineProperty()")}}.
 
-Ein _Eigenschafts-Descriptor_ ist ein Datensatz mit einigen der folgenden Attribute:
+Ein _Eigenschafts-Deskriptor_ ist eine Aufzeichnung mit einigen der folgenden Attribute:
 
 - `value`
-  - : Der mit der Eigenschaft verknüpfte Wert (nur Daten-Deskriptoren).
+  - : Der Wert, der mit der Eigenschaft verbunden ist (nur Daten-Deskriptoren).
 - `writable`
-  - : `true`, wenn und nur wenn der mit der Eigenschaft verknüpfte Wert geändert werden kann (nur Daten-Deskriptoren).
+  - : `true`, nur wenn der mit der Eigenschaft assoziierte Wert verändert werden kann (nur Daten-Deskriptoren).
 - `get`
-  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Getter vorhanden ist (nur Zugriff-Deskriptoren).
+  - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}, falls kein Getter vorhanden ist (nur Accessor-Deskriptoren).
 - `set`
-  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, wenn kein Setter vorhanden ist (nur Zugriff-Deskriptoren).
+  - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}, falls kein Setter vorhanden ist (nur Accessor-Deskriptoren).
 - `configurable`
-  - : `true`, wenn und nur wenn der Typ dieses Eigenschafts-Descriptors geändert werden kann und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
+  - : `true`, nur wenn der Typ dieses Eigenschafts-Deskriptors geändert werden kann und die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
 - `enumerable`
-  - : `true`, wenn und nur wenn diese Eigenschaft während der Enumeration der Eigenschaften des entsprechenden Objekts angezeigt wird.
+  - : `true`, nur wenn diese Eigenschaft bei der Aufzählung der Eigenschaften des entsprechenden Objekts angezeigt wird.
 
 ## Beispiele
 
@@ -118,9 +118,9 @@ console.log(d);
 // }
 ```
 
-### Nicht-Objekt-Typen
+### Nicht-Objekt-Konvertierung
 
-In ES5 führt ein erster Parameter, der kein Objekt ist (z. B. ein primitiver Wert), zu einem {{jsxref("TypeError")}}. In ES2015 wird ein erster Parameter, der kein Objekt ist, zunächst in ein Objekt umgewandelt.
+In ES5, wenn das erste Argument dieser Methode kein Objekt (ein primitiver Typ) ist, wird ein {{jsxref("TypeError")}} verursacht. In ES2015 wird ein nicht-Objekt erstes Argument zuerst in ein Objekt umgewandelt.
 
 ```js
 Object.getOwnPropertyDescriptor("foo", 0);

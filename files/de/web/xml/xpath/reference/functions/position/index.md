@@ -2,10 +2,10 @@
 title: position
 slug: Web/XML/XPath/Reference/Functions/position
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `position` gibt eine Zahl zurück, die der Kontextposition des Ausdrucksbewertungskontexts entspricht.
+Die Funktion `position` gibt eine Zahl zurück, die der Kontextposition im Ausdrucksauswertungskontext entspricht.
 
 ## Syntax
 
@@ -15,13 +15,13 @@ position()
 
 ### Rückgabewert
 
-Eine ganze Zahl, die der Kontextposition des Ausdrucksbewertungskontexts entspricht.
+Ein ganzzahliger Wert, der der Kontextposition im Ausdrucksauswertungskontext entspricht.
 
 ## Beschreibung
 
 - Beachten Sie, dass die Position eines Knotens in einem Kontext nicht nullbasiert ist. Der erste Knoten hat die Position 1.
 
-- Der Kontext wird vom restlichen Pfad bestimmt.
+- Der Kontext wird durch den Rest des Pfades bestimmt.
 
   ```xml
   <xsl:template match="//a[position() = 5]">
@@ -39,7 +39,7 @@ Eine ganze Zahl, die der Kontextposition des Ausdrucksbewertungskontexts entspri
 
 ## Spezifikationen
 
-[XPath 1.0 4.1](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-position)
+[XPath 1.0 4.1](https://www.w3.org/TR/xpath-10/#function-position)
 
 ## Gecko-Unterstützung
 

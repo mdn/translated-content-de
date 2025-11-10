@@ -3,14 +3,14 @@ title: "AudioContext: createMediaStreamSource()-Methode"
 short-title: createMediaStreamSource()
 slug: Web/API/AudioContext/createMediaStreamSource
 l10n:
-  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `createMediaStreamSource()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt zu erstellen, basierend auf einem Media-Stream (zum Beispiel von einer [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)-Instanz), dessen Audio dann abgespielt und manipuliert werden kann.
+Die `createMediaStreamSource()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt zu erstellen, basierend auf einem Media-Stream (beispielsweise von einer Instanz von [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)). Die daraus resultierende Audioquelle kann dann abgespielt und manipuliert werden.
 
-Für weitere Details zu Media-Stream-Audioquellen-Knoten sehen Sie sich die Referenzseite zu [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) an.
+Für weitere Details zu Media-Stream-Audioquellenknoten besuchen Sie die Referenzseite des [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode).
 
 ## Syntax
 
@@ -21,20 +21,20 @@ createMediaStreamSource(stream)
 ### Parameter
 
 - `stream`
-  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der als Audioquelle dient und in einen Audioverarbeitungsgrafen eingespeist wird, um genutzt und manipuliert zu werden.
+  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der als Audioquelle dient und in ein Audioverarbeitungsdiagramm zur Nutzung und Manipulation eingespeist wird.
 
 ### Rückgabewert
 
-Ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt, das den Audioknoten darstellt, dessen Medien aus dem angegebenen Quellstream stammen.
+Ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt, das den Audionode darstellt, dessen Medien aus dem angegebenen Quellstream bezogen werden.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Media-Stream (Audio + Video) von [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) erfasst, in ein {{htmlelement("video")}}-Element eingespeist, um es abzuspielen und den Ton stummzuschalten, aber das Audio auch in ein [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) eingespeist. Danach wird diese Audioquelle in einen Lowpass-Filterknoten [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) eingespeist (der effektiv als Bass-Booster dient), und dann in einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode).
+In diesem Beispiel nehmen wir einen Medienstream (Audio + Video) von [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia), speisen die Medien in ein {{htmlelement("video")}}-Element, um es abzuspielen, und schalten den Ton stumm. Gleichzeitig leiten wir das Audio in ein [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode). Anschließend speisen wir diese Audioquelle in einen Tieftönungs-[`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) (der effektiv als Bassverstärker fungiert) und dann in einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode).
 
-Der Range-Slider unter dem {{ htmlelement("video") }}-Element steuert die Verstärkung des Lowpass-Filters — erhöhen Sie den Wert des Sliders, um den Bass stärker klingen zu lassen!
+Der Bereichsregler unterhalb des {{htmlelement("video")}}-Elements steuert die Verstärkung, die dem Tiefpassfilter gegeben wird — Erhöhen Sie den Wert des Reglers, um den Sound basslastiger zu machen!
 
 > [!NOTE]
-> Sie können dieses [laufende Beispiel sehen](https://mdn.github.io/webaudio-examples/stream-source-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/stream-source-buffer).
+> Sie können dieses [Beispiel live sehen](https://mdn.github.io/webaudio-examples/stream-source-buffer/) oder sich [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/stream-source-buffer).
 
 ```js
 const pre = document.querySelector("pre");
@@ -94,8 +94,7 @@ pre.textContent = myScript.textContent;
 ```
 
 > [!NOTE]
-> Als Folge des Aufrufs von
-> `createMediaStreamSource()` wird die Audiowiedergabe aus dem Media-Stream in den Verarbeitungsgrafen des [`AudioContext`](/de/docs/Web/API/AudioContext) umgeleitet. Das Abspielen/Pausieren des Streams kann weiterhin über die Media-Element-API und die Wiedergabesteuerung erfolgen.
+> Infolge des Aufrufs von `createMediaStreamSource()` wird die Audiowiedergabe des Medienstreams in das Verarbeitungsdiagramm des [`AudioContext`](/de/docs/Web/API/AudioContext) umgeleitet. Das Abspielen/Anhalten des Streams kann dennoch über die Media-Element-API und die Player-Steuerungen erfolgen.
 
 ## Spezifikationen
 

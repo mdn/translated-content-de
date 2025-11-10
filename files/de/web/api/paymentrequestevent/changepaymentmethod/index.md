@@ -3,12 +3,12 @@ title: "PaymentRequestEvent: changePaymentMethod() Methode"
 short-title: changePaymentMethod()
 slug: Web/API/PaymentRequestEvent/changePaymentMethod
 l10n:
-  sourceCommit: d526ab2d79b7960610de8a6b961c06da642d1bd9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`changePaymentMethod()`**-Methode des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces wird vom Zahlungshandler verwendet, um eine aktualisierte Gesamtsumme zu erhalten, basierend auf solchen Zahlungsdetails wie der Rechnungsadresse.
+Die **`changePaymentMethod()`**-Methode des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces wird von der Zahlungsabwicklung verwendet, um eine aktualisierte Gesamtsumme zu erhalten, basierend auf den Zahlungsdetails wie der Rechnungsadresse.
 
 Wenn diese Methode aufgerufen wird, wird ein [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent) ausgelöst.
 
@@ -28,12 +28,12 @@ changePaymentMethod(methodName, methodDetails)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem `PaymentRequestDetailsUpdate`-Objekt aufgelöst wird. Dieses Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, das mit einem `PaymentRequestDetailsUpdate`-Objekt aufgelöst wird. Dieses Objekt enthält die folgenden Eigenschaften:
 
 - `error`
-  - : Ein String, der erklärt, warum die vom Benutzer ausgewählte Zahlungsmethode nicht verwendet werden kann.
+  - : Ein String, der erklärt, warum die vom Benutzer gewählte Zahlungsmethode nicht verwendet werden kann.
 - `total`
-  - : Eine aktualisierte Gesamtsumme basierend auf der geänderten Zahlungsmethode. Die Gesamtsumme kann sich ändern, z.B. weil die Rechnungsadresse der vom Benutzer ausgewählten Zahlungsmethode die anwendbare Umsatzsteuer verändert.
+  - : Eine aktualisierte Gesamtsumme basierend auf der geänderten Zahlungsmethode. Die Gesamtsumme kann sich ändern, zum Beispiel weil die Rechnungsadresse der vom Benutzer gewählten Zahlungsmethode die anwendbare Mehrwertsteuer beeinflusst.
 - `modifiers`
 
   - : Ein {{jsxref("Array")}} von `PaymentDetailsModifier`-Objekten, deren Eigenschaften in [`PaymentRequestEvent.modifiers`](/de/docs/Web/API/PaymentRequestEvent/modifiers) beschrieben sind.
@@ -43,7 +43,7 @@ Ein {{jsxref("Promise")}}, der mit einem `PaymentRequestDetailsUpdate`-Objekt au
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen trivialen Codeausschnitt, der in einem Service Worker verwendet werden könnte, um eine Benachrichtigung über eine Änderung der Zahlungsmethode an das Hauptzahlungsfenster zu senden. Für ein vollständiges Testbeispiel siehe [Payment handler for testing payment method change event](https://rsolomakhin.github.io/pr/apps/pmc/).
+Das folgende ist ein einfaches Codebeispiel, das in einem Service Worker verwendet werden könnte, um eine Benachrichtigung über eine Änderung der Zahlungsmethode an das Hauptfenster des Zahlungsverarbeiters zu senden. Ein vollständiges Testbeispiel finden Sie unter [Payment handler for testing payment method change event](https://rsolomakhin.github.io/pr/apps/pmc/).
 
 ```js
 function notifyPaymentMethodChanged(e) {
@@ -67,8 +67,8 @@ function notifyPaymentMethodChanged(e) {
 
 ## Siehe auch
 
-- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Überblick über Web-basierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)

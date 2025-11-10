@@ -2,10 +2,8 @@
 title: browser_action
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/browser_action
 l10n:
-  sourceCommit: 9f889f991b15d9f41f551bd7d5c93d273c9b7cb5
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -14,7 +12,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Erforderlich</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -48,17 +46,17 @@ l10n:
   </tbody>
 </table>
 
-Eine Browser-Aktion ist eine Schaltfläche, die Ihre Erweiterung zur Symbolleiste des Browsers hinzufügt. Die Schaltfläche hat ein Symbol und kann optional ein Popup haben, dessen Inhalt mit HTML, CSS und JavaScript festgelegt wird.
+Eine Browser-Aktion ist ein Button, den Ihre Erweiterung zur Symbolleiste des Browsers hinzufügt. Der Button hat ein Icon und kann optional ein Popup haben, dessen Inhalt mit HTML, CSS und JavaScript spezifiziert wird.
 
 Dieser Schlüssel wird in Manifest V3-Erweiterungen durch [`action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) ersetzt.
 
-Sie müssen diesen Schlüssel angeben, um eine Schaltfläche zur Browser-Symbolleiste Ihrer Erweiterung hinzuzufügen. Wenn Sie ihn angeben, können Sie die Schaltfläche programmatisch mit der {{WebExtAPIRef("browserAction")}}-API manipulieren.
+Sie müssen diesen Schlüssel angeben, um einen Browser-Toolbar-Button in Ihrer Erweiterung einzuschließen. Wenn er angegeben ist, können Sie den Button programmatisch mit der {{WebExtAPIRef("browserAction")}} API manipulieren.
 
-Wenn Sie ein Popup bereitstellen, wird das Popup geöffnet, wenn der Benutzer auf die Schaltfläche klickt, und Ihr JavaScript, das im Popup ausgeführt wird, kann die Benutzerinteraktion mit diesem steuern. Wenn Sie kein Popup bereitstellen, wird beim Klicken auf die Schaltfläche ein Klickereignis an die [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) Ihrer Erweiterung gesendet.
+Wenn Sie ein Popup bereitstellen, wird das Popup geöffnet, wenn der Benutzer auf den Button klickt, und Ihr JavaScript, das im Popup läuft, kann die Benutzerinteraktion damit handhaben. Wenn Sie kein Popup bereitstellen, wird ein Klickereignis an die [Hintergrund-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) Ihrer Erweiterung gesendet, wenn der Benutzer auf den Button klickt.
 
 ## Syntax
 
-Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenschaften enthalten kann, alle optional:
+Der `browser_action`-Schlüssel ist ein Objekt, das alle der folgenden optionalen Eigenschaften haben kann:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -83,16 +81,16 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
         <p>Optional, Standardwert ist <code>false</code>.</p>
         <div class="notecard warning">
           <p>
-            Setzen Sie <code>browser_style</code> nicht auf true: dies wird in Manifest V3, beginnend mit Firefox 118, nicht unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3-Migration für <code>browser_style</code></a>.
+            Setzen Sie <code>browser_style</code> nicht auf true: Es wird in Manifest V3 nicht unterstützt, beginnend mit Firefox 118. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
           </p>
         </div>
         <p>
           In Firefox kann das Stylesheet unter
           chrome://browser/content/extension.css oder
-          chrome://browser/content/extension-mac.css auf macOS angesehen werden. Wenn Sie
-          Dimensionen festlegen, beachten Sie, dass dieses Stylesheet
-          <code>box-sizing: border-box</code> anwendet (siehe
-          <a href="/de/docs/Web/CSS/box-sizing">box-sizing</a>).
+          chrome://browser/content/extension-mac.css auf macOS eingesehen werden. Beim Festlegen
+          von Dimensionen beachten Sie, dass dieses Stylesheet
+          <code>box-sizing: border-box</code> setzt (siehe
+          <a href="/de/docs/Web/CSS/Reference/Properties/box-sizing">box-sizing</a>).
         </p>
         <p>
           <a
@@ -106,19 +104,22 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
           <a
             href="https://github.com/mdn/webextensions-examples/tree/main/latest-download"
             >latest-download</a
-          >
-          Beispielerweiterung verwendet <code>browser_style</code> in ihrem Popup.
+          > Beispielerweiterung verwendet <code>browser_style</code> in ihrem Popup.
         </p>
         <div class="notecard note">
           <p>
             <strong>Hinweis:</strong> Das Setzen von <code>browser_style</code> auf
-            <code>true</code> verhindert, dass Benutzer Text in einem Popup oder
-            Seitenleisteninhalt einer Erweiterung auswählen. Dies ist normales Verhalten. Teile der Benutzeroberfläche im Browser können nicht ausgewählt werden. Es gibt jedoch zwei Möglichkeiten, um dieses Limit zu umgehen und es Ihren Benutzern zu ermöglichen, Text auszuwählen:
+            <code>true</code> verhindert, dass Benutzer Text im Popup oder in den Seiteninhalten einer
+            Erweiterung auswählen können. Dies ist normales Verhalten. Sie können
+            keine Teile der Benutzeroberfläche im Browser auswählen. Sie können jedoch
+            diese Einschränkung umgehen, indem Sie Ihren Benutzern das Auswählen
+            von Text auf zwei Arten ermöglichen:
           </p>
           <ol>
-            <li>Legen Sie <code>browser_style</code> auf <code>false</code> fest.</li>
+            <li>Setzen Sie <code>browser_style</code> auf <code>false</code>.</li>
             <li>
-              Verwenden Sie CSS-Styling im Body Ihrer Seitenleiste oder des HTML-Popups, um die Textauswahl zu erlauben, indem Sie die Regel
+              Verwenden Sie CSS-Styling im Body Ihrer Sidebar oder des Popup-HTMLs,
+              um die Textauswahl zu ermöglichen, indem Sie die Regel
               <code>-moz-user-select</code> mit einem Wert von <code>all</code> oder
               <code>text</code> hinzufügen.
             </li>
@@ -132,30 +133,32 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
       <td><code>String</code></td>
       <td>
         <p>
-          Definiert den Teil des Browsers, in dem die Schaltfläche zunächst platziert wird. Dies ist ein String, der einen von vier Werten annehmen kann:
+          Definiert den Teil des Browsers, in dem der Button initial platziert wird. Dies ist ein String, der einen von vier Werten annehmen kann:
         </p>
         <ul>
           <li>
-            "navbar": Die Schaltfläche wird in der Haupt-Symbolleiste des Browsers neben der URL-Leiste platziert.
+            "navbar": Der Button wird in der Haupt-Symbolleiste des Browsers platziert, neben der URL-Leiste.
           </li>
-          <li>"menupanel": Die Schaltfläche wird in einem Popup-Panel platziert.</li>
+          <li>"menupanel": Der Button wird in einem Popup-Panel platziert.</li>
           <li>
-            "tabstrip": Die Schaltfläche wird in der Symbolleiste platziert, die Zeilen des Browsers enthält.
+            "tabstrip": Der Button wird in der Symbolleiste platziert, die die Browser-Tabs enthält.
           </li>
           <li>
-            "personaltoolbar": Die Schaltfläche wird in der Lesezeichen-Symbolleiste platziert.
+            "personaltoolbar": Der Button wird in der Lesezeichen-Symbolleiste platziert.
           </li>
         </ul>
         <p>Diese Eigenschaft wird nur in Firefox unterstützt.</p>
-        <p>Diese Eigenschaft ist optional und hat als Standardwert "menupanel".</p>
+        <p>Diese Eigenschaft ist optional und hat "menupanel" als Standardwert.</p>
         <p>
-          Firefox merkt sich die Einstellung <code>default_area</code> für eine
-          Erweiterung, auch wenn diese Erweiterung deinstalliert und später erneut
-          installiert wurde. Um einen neuen Wert für <code>default_area</code>
-          zu erzwingen, muss die ID der Erweiterung geändert werden.
+          Firefox merkt sich die <code>default_area</code>-Einstellung einer
+          Erweiterung, selbst wenn diese deinstalliert und anschließend
+          neu installiert wird. Um den Browser dazu zu zwingen, einen neuen Wert für
+          <code>default_area</code> zu berücksichtigen, muss die ID der Erweiterung geändert werden.
         </p>
         <p>
-          Eine Erweiterung kann den Ort der Schaltfläche nach der Installation nicht ändern, aber der Benutzer kann möglicherweise die Schaltfläche mit dem integrierten UI-Anpassungsmechanismus des Browsers verschieben.
+          Eine Erweiterung kann die Position des Buttons nach der Installation
+          nicht ändern, aber der Benutzer kann möglicherweise den Button mit
+          dem integrierten UI-Anpassungsmechanismus des Browsers verschieben.
         </p>
       </td>
     </tr>
@@ -165,15 +168,16 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
       <td><code>Object</code> oder <code>String</code></td>
       <td>
         <p>
-          Verwenden Sie dies, um ein oder mehrere Symbole für die Browser-Aktion anzugeben. Das Symbol wird standardmäßig in der Browser-Symbolleiste angezeigt.
+          Verwenden Sie dies, um ein oder mehrere Icons für die Browser-Aktion anzugeben. Das Icon wird standardmäßig in der Browser-Symbolleiste angezeigt.
         </p>
         <p>
-          Symbole werden als URLs angegeben, die relativ zur manifest.json-Datei selbst sind.
+          Icons werden als relative URLs zur manifest.json-Datei selbst angegeben.
         </p>
-        <p>Sie können eine einzelne Symboldatei angeben, indem Sie hier einen String angeben:</p>
+        <p>Sie können eine einzelne Icon-Datei angeben, indem Sie hier einen String angeben:</p>
         <pre class="brush: json">"default_icon": "path/to/geo.svg"</pre>
         <p>
-          Um mehrere Symbole in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an. Der Name jeder Eigenschaft ist die Höhe des Symbols in Pixeln und muss in einen Ganzzahl umwandelbar sein. Der Wert ist die URL. Beispiel:
+          Um mehrere Icons in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an.
+          Der Name jeder Eigenschaft ist die Höhe des Icons in Pixeln und muss in eine Ganzzahl konvertierbar sein. Der Wert ist die URL. Zum Beispiel:
         </p>
         <pre class="brush: json">
     "default_icon": {
@@ -182,12 +186,11 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
     }</pre
         >
         <p>
-          Sie dürfen nicht mehrere Symbole mit denselben Größen spezifizieren.<br /><br />Siehe
+          Sie können nicht mehrere Icons in denselben Größen angeben.<br /><br />Siehe
           <a
             href="#choosing_icon_sizes"
-            >Auswahl von Symbolgrößen</a
-          >
-          für weitere Hinweise dazu.
+            >Auswahl von Icon-Größen</a
+          > für weitere Hinweise dazu.
         </p>
       </td>
     </tr>
@@ -200,40 +203,42 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
           Der Pfad zu einer HTML-Datei, die die Spezifikation des Popups enthält.
         </p>
         <p>
-          Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, indem
+          Die HTML-Datei kann CSS- und JavaScript-Dateien mit
           <code
-            ><a href="/de/docs/Web/HTML/Element/link">&#x3C;link></a></code
+            ><a href="/de/docs/Web/HTML/Reference/Elements/link">&#x3C;link></a></code
           >
           und
           <code
-            ><a href="/de/docs/Web/HTML/Element/script"
+            ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
-          Elemente verwendet werden, genau wie bei einer normalen Webseite. Allerdings
-          muss <code
-            ><a href="/de/docs/Web/HTML/Element/script">src</a></code
-          >
-          Attribut gesetzt sein, um eine Datei zu laden. Verwenden Sie nicht
+          Elementen einbinden, genau wie eine normale Webseite. Allerdings muss
           <code
-            ><a href="/de/docs/Web/HTML/Element/script"
+            ><a href="/de/docs/Web/HTML/Reference/Elements/script"
+              >&#x3C;script>
+            </a></code
+          > das
+          <code><a href="/de/docs/Web/HTML/Reference/Elements/script">src</a></code>-Attribut haben, um eine Datei zu laden. Verwenden Sie kein
+          <code
+            ><a href="/de/docs/Web/HTML/Reference/Elements/script"
               >&#x3C;script></a
             ></code
           >
-          mit eingebettetem Code, da Sie sonst einen verwirrenden Content Violation
-          Policy-Fehler erhalten.
+          mit eingebettetem Code, da dies zu einer verwirrenden Content Violation
+          Policy-Fehlermeldung führt.
         </p>
         <p>
-          Im Gegensatz zu einer normalen Webseite kann JavaScript, das im Popup läuft, auf alle
+          Anders als bei einer normalen Webseite kann das JavaScript, das im Popup läuft,
+          auf alle
           <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
             >WebExtension-APIs</a
           >
-          zugreifen (natürlich vorausgesetzt, dass die Erweiterung die entsprechenden
+          zugreifen (vorausgesetzt, die Erweiterung besitzt die entsprechenden
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions"
             >Berechtigungen</a
-          >
-          hat).
+          >).
         </p>
         <p>
           Dies ist eine
@@ -250,7 +255,7 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
       <td><code>String</code></td>
       <td>
         <p>
-          Tooltip für die Schaltfläche, das angezeigt wird, wenn der Benutzer mit der Maus darüber fährt. Wenn die Schaltfläche dem Menü-Panel des Browsers hinzugefügt wird, wird dies auch unter dem App-Symbol angezeigt.
+          Tooltip für den Button, der angezeigt wird, wenn der Benutzer die Maus darüber bewegt. Wenn der Button zum Menüpanel des Browsers hinzugefügt wird, wird dies auch unter dem App-Icon angezeigt.
         </p>
         <p>
           Dies ist eine
@@ -267,28 +272,28 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
       <td><code>Array</code></td>
       <td>
         <p>
-          Diese Eigenschaft ermöglicht es Ihnen, verschiedene Symbole für Themen anzugeben, je nachdem, ob Firefox erkennt, dass das Thema dunklen oder hellen Text verwendet.
+          Diese Eigenschaft ermöglicht es Ihnen, je nach Erkennung von dunklem oder hellem Text im Theme, unterschiedliche Icons für Themes anzugeben.
         </p>
         <p>
-          Wenn diese Eigenschaft vorhanden ist, ist sie ein Array, das mindestens ein
+          Wenn diese Eigenschaft vorhanden ist, handelt es sich um ein Array, das mindestens ein
           <code>ThemeIcons</code>-Objekt enthält. Ein <code>ThemeIcons</code>-Objekt
-          enthält drei obligatorische Eigenschaften:
+          enthält drei erforderliche Eigenschaften:
         </p>
         <dl>
           <dt><code>"dark"</code></dt>
           <dd>
-            Eine URL, die zu einem Symbol zeigt. Dieses Symbol wird angezeigt, wenn ein Thema mit dunklem Text aktiv ist (wie das Firefox Light-Theme und das Standardthema, wenn kein default_icon angegeben ist).
+            Eine URL, die auf ein Icon zeigt. Dieses Icon wird angezeigt, wenn ein Theme verwendet wird, das dunklen Text verwendet (wie das Firefox Light Theme und das Standard-Theme, wenn kein default_icon angegeben ist).
           </dd>
           <dt><code>"light"</code></dt>
           <dd>
-            Eine URL, die zu einem Symbol zeigt. Dieses Symbol wird angezeigt, wenn ein Thema mit hellem Text aktiv ist (wie das Firefox Dark-Theme).
+            Eine URL, die auf ein Icon zeigt. Dieses Icon wird angezeigt, wenn ein Theme verwendet wird, das hellen Text verwendet (wie das Firefox Dark Theme).
           </dd>
           <dt><code>"size"</code></dt>
-          <dd>Die Größe der beiden Symbole in Pixeln.</dd>
+          <dd>Die Größe der beiden Icons in Pixeln.</dd>
         </dl>
-        <p>Symbole werden als URLs angegeben, die relativ zur manifest.json-Datei sind.</p>
+        <p>Icons werden als relative URLs zur manifest.json-Datei angegeben.</p>
         <p>
-          Sie sollten 16x16 und 32x32 (für Retina-Display)
+          Sie sollten 16x16 und 32x32 (für Retina-Displays)
           <code>ThemeIcons</code> bereitstellen.
         </p>
       </td>
@@ -296,29 +301,29 @@ Der Schlüssel `browser_action` ist ein Objekt, das jede der folgenden Eigenscha
   </tbody>
 </table>
 
-## Auswahl von Symbolgrößen
+## Auswahl von Icon-Größen
 
-Das Symbol der Browser-Aktion muss möglicherweise in unterschiedlichen Größen in verschiedenen Kontexten angezeigt werden:
+Das Icon für die Browser-Aktion muss möglicherweise in verschiedenen Größen in verschiedenen Kontexten angezeigt werden:
 
-- Das Symbol wird in der Symbolleiste des Browsers angezeigt. Ältere Versionen von Firefox unterstützten die Option, das Symbol im Menü-Panel des Browsers (dem Panel, das geöffnet wird, wenn der Benutzer auf das "Hamburger"-Symbol klickt) zu platzieren. In diesen Versionen von Firefox war das Symbol im Menü-Panel größer als das Symbol in der Symbolleiste.
-- Auf einem hochauflösenden Display wie einem Retina-Bildschirm müssen Symbole doppelt so groß sein.
+- Das Icon wird in der Browser-Symbolleiste angezeigt. Ältere Versionen von Firefox unterstützten die Möglichkeit, das Icon im Menüpanel des Browsers zu platzieren (das Panel, das geöffnet wird, wenn der Benutzer auf das "Hamburger"-Icon klickt). In diesen Versionen von Firefox war das Icon im Menüpanel größer als in der Symbolleiste.
+- Auf einem hochauflösenden Display wie einem Retina-Bildschirm müssen die Icons doppelt so groß sein.
 
-Wenn der Browser kein Symbol der richtigen Größe in einer bestimmten Situation findet, wählt er die beste Übereinstimmung und skaliert es. Skalierung kann das Symbol unscharf erscheinen lassen, daher ist es wichtig, Symbolgrößen sorgfältig zu wählen.
+Wenn der Browser in einer bestimmten Situation kein Icon der richtigen Größe findet, wählt er die beste Übereinstimmung und skaliert es. Skalierung kann dazu führen, dass das Icon unscharf erscheint, daher ist es wichtig, die Icon-Größen sorgfältig auszuwählen.
 
-Dafür gibt es zwei Hauptansätze. Sie können ein einzelnes Symbol als SVG-Datei bereitstellen, und es wird korrekt skaliert:
+Es gibt zwei Hauptansätze dafür. Sie können ein einzelnes Icon als SVG-Datei bereitstellen, und es wird korrekt skaliert:
 
 ```json
 "default_icon": "path/to/geo.svg"
 ```
 
-Alternativ können Sie mehrere Symbole in verschiedenen Größen bereitstellen, und der Browser wählt die beste Übereinstimmung.
+Alternativ können Sie mehrere Icons in verschiedenen Größen bereitstellen, und der Browser wählt die beste Übereinstimmung aus.
 
 In Firefox:
 
-- Die Standardhöhe und -breite für Symbole in der Symbolleiste ist 16 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
-- Die Standardhöhe und -breite für Symbole im Menü-Panel ist 32 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
+- Die Standardhöhe und -breite für Icons in der Symbolleiste beträgt 16 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
+- Die Standardhöhe und -breite für Icons im Menüpanel beträgt 32 \* [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio).
 
-So können Sie Symbole angeben, die genau passen, sowohl auf normalen als auch auf Retina-Displays, indem Sie drei Symboldateien bereitstellen und sie wie folgt angeben:
+Sie können also Icons bereitstellen, die genau passen, sowohl auf normalen als auch auf Retina-Displays, indem Sie drei Icon-Dateien bereitstellen und sie so angeben:
 
 ```json
 "default_icon": {
@@ -328,7 +333,7 @@ So können Sie Symbole angeben, die genau passen, sowohl auf normalen als auch a
 }
 ```
 
-Wenn Firefox keine genaue Übereinstimmung für die gewünschte Größe findet, wird es das kleinste angegebene Symbol auswählen, das größer als die ideale Größe ist. Sind alle Symbole kleiner als die ideale Größe, wählt es das größte angegebene Symbol.
+Wenn Firefox keine genaue Übereinstimmung der gewünschten Größe findet, wählt es das kleinste angegebene Icon, das größer ist als die ideale Größe. Wenn alle Icons kleiner als die ideale Größe sind, wählt es das größte angegebene Icon.
 
 ## Beispiel
 
@@ -341,7 +346,7 @@ Wenn Firefox keine genaue Übereinstimmung für die gewünschte Größe findet, 
 }
 ```
 
-Eine Browser-Aktion mit nur einem Symbol, angegeben in 2 verschiedenen Größen. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Symbol klickt, mit Code wie diesem:
+Eine Browser-Aktion mit nur einem Icon, in 2 verschiedenen Größen spezifiziert. Die Hintergrundskripte der Erweiterung können Klickereignisse empfangen, wenn der Benutzer auf das Icon klickt, indem sie Code wie diesen verwenden:
 
 ```js
 browser.browserAction.onClicked.addListener(handleClick);
@@ -358,9 +363,9 @@ browser.browserAction.onClicked.addListener(handleClick);
 }
 ```
 
-Eine Browser-Aktion mit einem Symbol, einem Titel und einem Popup. Das Popup wird angezeigt, wenn der Benutzer auf die Schaltfläche klickt.
+Eine Browser-Aktion mit einem Icon, einem Titel und einem Popup. Das Popup wird angezeigt, wenn der Benutzer auf den Button klickt.
 
-Für eine einfache, aber vollständige Erweiterung, die eine Browser-Aktion verwendet, siehe die [schrittweise Anleitung](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension).
+Für eine einfache, aber vollständige Erweiterung, die eine Browser-Aktion verwendet, siehe das [Schritt-für-Schritt-Tutorial](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension).
 
 ## Browser-Kompatibilität
 

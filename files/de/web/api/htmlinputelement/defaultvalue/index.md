@@ -1,14 +1,14 @@
 ---
-title: "HTMLInputElement: defaultValue-Eigenschaft"
+title: "HTMLInputElement: Eigenschaft defaultValue"
 short-title: defaultValue
 slug: Web/API/HTMLInputElement/defaultValue
 l10n:
-  sourceCommit: bc141099823c9ae2e46f560ac674be2bc4118351
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`defaultValue`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle zeigt den ursprünglichen (oder standardmäßigen) Wert des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut des Elements wider.
+Die **`defaultValue`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt den ursprünglichen (oder Standard-)Wert des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut des Elements wider.
 
 ## Wert
 
@@ -16,14 +16,14 @@ Ein String, der den Standard- oder ursprünglichen Wert des `<input>`-Elements d
 
 ## Beispiel
 
-Angenommen, wir haben folgendes HTML:
+Angenommen, der folgende HTML-Code:
 
 ```html
 <label for="planet">Which planet were you born on?</label>
 <input id="planet" type="text" value="Azarath" />
 ```
 
-Das Folgende wird unabhängig davon, was der Benutzer in das Texteingabefeld eingibt, die gleichen Ergebnisse liefern.
+Folgendes wird unabhängig davon, was der Benutzer in das Texteingabefeld eingibt, die gleichen Ergebnisse liefern.
 
 ```js
 const inputElement = document.querySelector("#planet");

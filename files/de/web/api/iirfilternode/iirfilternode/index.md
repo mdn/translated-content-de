@@ -3,13 +3,15 @@ title: "IIRFilterNode: IIRFilterNode() Konstruktor"
 short-title: IIRFilterNode()
 slug: Web/API/IIRFilterNode/IIRFilterNode
 l10n:
-  sourceCommit: ca3afa7533ac5bc2d552b0c7926d672fe79d71de
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`IIRFilterNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
-[`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Objekt, welches ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor ist, der einen allgemeinen Infinite-Impulse-Response-Filter implementiert.
+Der **`IIRFilterNode()`** Konstruktor
+der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
+[`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode) Objekt, das ein [`AudioNode`](/de/docs/Web/API/AudioNode) Prozessor ist,
+welcher einen allgemeinen Filter mit unendlicher Impulsantwort implementiert.
 
 ## Syntax
 
@@ -22,31 +24,23 @@ new IIRFilterNode(context, options)
 - `context`
   - : Eine Referenz zu einem [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options`
-
-  - : Die Optionen sind wie folgt:
-
+  - : Optionen sind wie folgt:
     - `feedforward`
       - : Eine Sequenz von Feedforward-Koeffizienten.
     - `feedback`
       - : Eine Sequenz von Feedback-Koeffizienten.
     - `channelCount`
-      - : Stellt eine ganze Zahl dar, die verwendet wird, um zu bestimmen, wie viele Kanäle bei [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) verwendet werden, um Verbindungen zu Eingängen des Knotens herzustellen. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Nutzung und genaue
-        Definition hängen vom Wert von `channelCountMode` ab.
+      - : Stellt eine Ganzzahl dar, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden. (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Stellt einen enumerierten Wert dar, der beschreibt, wie die Kanäle zwischen
-        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für mehr
-        Informationen einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens übereinstimmen müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
     - `channelInterpretation`
-      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation definiert, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt werden. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese Interpretation wird definieren, wie das Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgen wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
 
-Im Gegensatz zu anderen Knoten in der Web Audio API sind die Optionen, die beim Erstellen des IIR-Filters übergeben werden, nicht optional. Der Filter benötigt diese Werte zur Funktion und aufgrund des großen Spektrums verfügbarer Filter gibt es keine Vorgabewerte.
+Im Gegensatz zu anderen Knoten in der Web Audio API sind die Optionen, die beim Erstellen an den IIR-Filter übergeben werden, nicht optional. Der Filter benötigt diese Werte, um zu funktionieren, und bei der großen Anzahl verfügbarer Filter gibt es keinen Standard.
 
 ### Rückgabewert
 
-Eine neue Instanz des [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Objekts.
+Eine neue Instanz des [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode) Objekts.
 
 ## Beispiele
 

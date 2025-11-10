@@ -3,12 +3,12 @@ title: "OTPCredential: code-Eigenschaft"
 short-title: code
 slug: Web/API/OTPCredential/code
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 90eafc463fe122c86a64836f4f3953a0bee85be9
 ---
 
 {{SecureContext_Header}}{{APIRef("WebOTP API")}}{{SeeCompatTable}}
 
-Die **`code`**-Eigenschaft der [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Schnittstelle ist eine schreibgeschützte Eigenschaft und enthält das Einmalpasswort (OTP).
+Die schreibgeschützte **`code`**-Eigenschaft der [`OTPCredential`](/de/docs/Web/API/OTPCredential)-Schnittstelle enthält das Einmal-Passwort (OTP).
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der das OTP enthält.
 
 ## Beispiele
 
-Der untenstehende Code löst den Berechtigungsdialog des Browsers aus, wenn eine SMS-Nachricht empfangen wird. Wird die Berechtigung gewährt, löst das Versprechen mit einem `OTPCredential`-Objekt auf. Der enthaltene `code`-Wert wird als Wert eines {{htmlelement("input")}}-Formularelements gesetzt, das anschließend übermittelt wird.
+Der untenstehende Code löst den Berechtigungsfluss des Browsers aus, wenn eine SMS-Nachricht eingeht. Wenn die Erlaubnis erteilt wird, wird das Promise mit einem `OTPCredential`-Objekt aufgelöst. Der enthaltene `code`-Wert wird dann als Wert eines {{htmlelement("input")}}-Formular-Elements gesetzt, welches anschließend übermittelt wird.
 
 ```js
 navigator.credentials
@@ -34,7 +34,7 @@ navigator.credentials
 ```
 
 > [!NOTE]
-> Für eine vollständige Erklärung des Codes siehe die [WebOTP API](/de/docs/Web/API/WebOTP_API)-Startseite. Sie können [diesen Code auch als Teil einer vollständigen Demo ansehen](https://web-otp.glitch.me/).
+> Für eine vollständige Erklärung des Codes siehe die [WebOTP API](/de/docs/Web/API/WebOTP_API)-Startseite. Sie können diesen [Code auch als Teil eines vollständig funktionierenden Demos sehen](https://chrome.dev/web-otp-demo/).
 
 ## Spezifikationen
 

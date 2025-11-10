@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainMonthDay.prototype.valueOf()
+short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/valueOf
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`valueOf()`**-Methode von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen wirft einen {{jsxref("TypeError")}}, um zu verhindern, dass `Temporal.PlainMonthDay`-Instanzen [implizit in primitive Werte umgewandelt werden](/de/docs/Web/JavaScript/Data_structures#primitive_coercion), wenn sie in arithmetischen oder Vergleichsoperationen verwendet werden.
+Die **`valueOf()`** Methode von Instanzen von {{jsxref("Temporal.PlainMonthDay")}} wirft einen {{jsxref("TypeError")}}, was verhindert, dass Instanzen von `Temporal.PlainMonthDay` bei Verwendung in arithmetischen oder Vergleichsoperationen [implizit in primitive Werte umgewandelt werden](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion).
 
 ## Syntax
 
@@ -21,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine.
+Keiner.
 
 ### Ausnahmen
 
@@ -30,7 +31,7 @@ Keine.
 
 ## Beschreibung
 
-Da sowohl die [primitive Konvertierung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) als auch die [Zahlenkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde, wenn `valueOf()` nicht vorhanden ist, ein Ausdruck wie `monthDay1 > monthDay2` sie implizit als Strings vergleichen, was zu unerwarteten Ergebnissen führen kann. Indem ein `TypeError` geworfen wird, verhindern `Temporal.PlainMonthDay`-Instanzen solche impliziten Konvertierungen. Sie müssen sie explizit in Strings umwandeln, indem Sie {{jsxref("Temporal/PlainMonthDay/toString", "Temporal.PlainMonthDay.prototype.toString()")}} verwenden.
+Da sowohl die [primitive Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) als auch die [Zahlkonvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) `valueOf()` vor `toString()` aufrufen, würde bei Abwesenheit von `valueOf()` ein Ausdruck wie `monthDay1 > monthDay2` sie implizit als Zeichenketten vergleichen, was zu unerwarteten Ergebnissen führen kann. Durch das Auslösen eines `TypeError` verhindern `Temporal.PlainMonthDay`-Instanzen solche impliziten Konvertierungen. Sie müssen sie explizit in Zeichenketten umwandeln, indem Sie {{jsxref("Temporal/PlainMonthDay/toString", "Temporal.PlainMonthDay.prototype.toString()")}} verwenden.
 
 ## Beispiele
 

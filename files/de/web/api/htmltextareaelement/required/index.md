@@ -3,16 +3,16 @@ title: "HTMLTextAreaElement: required-Eigenschaft"
 short-title: required
 slug: Web/API/HTMLTextAreaElement/required
 l10n:
-  sourceCommit: 30d0a926fffe7bcf586def53959c12a5e526fa26
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`required`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt an, dass der Benutzer einen Wert eingeben muss, bevor ein Formular abgeschickt wird. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/textarea#required)-Attribut des {{htmlelement("textarea")}}-Elements wider.
+Die **`required`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt an, dass der Benutzer einen Wert eingeben muss, bevor ein Formular abgeschickt wird. Sie entspricht dem [`required`](/de/docs/Web/HTML/Reference/Elements/textarea#required)-Attribut des {{htmlelement("textarea")}}-Elements.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Beispiele
 

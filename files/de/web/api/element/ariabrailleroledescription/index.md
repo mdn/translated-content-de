@@ -3,21 +3,19 @@ title: "Element: ariaBrailleRoleDescription-Eigenschaft"
 short-title: ariaBrailleRoleDescription
 slug: Web/API/Element/ariaBrailleRoleDescription
 l10n:
-  sourceCommit: 59a92ab5609f0a021602f11843f3b00b16e67e6d
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaBrailleRoleDescription`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-brailleroledescription)-Attributs wider, welches die ARIA-Braille-Rollenbeschreibung des Elements definiert.
+Die **`ariaBrailleRoleDescription`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-brailleroledescription)-Attributs wider, das die ARIA-Braille-Rollenbeschreibung des Elements definiert.
 
-Diese Eigenschaft kann verwendet werden, um eine abgekürzte Version des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)-Wertes bereitzustellen.
-Sie sollte nur verwendet werden, wenn `aria-roledescription` vorhanden ist und in dem seltenen Fall, dass es für Braille zu wortreich ist.
-Das [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-brailleroledescription)-Attribut enthält zusätzliche Informationen darüber, wann die Eigenschaft gesetzt werden sollte.
+Diese Eigenschaft kann verwendet werden, um eine abgekürzte Version des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)-Wertes bereitzustellen. Sie sollte nur verwendet werden, wenn `aria-roledescription` vorhanden ist und in dem seltenen Fall, dass es für Braille zu ausführlich ist. Das [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-brailleroledescription)-Attribut enthält zusätzliche Informationen darüber, wann die Eigenschaft gesetzt werden sollte.
 
 ## Wert
 
 - `<string>`
-  - : Der Wert ist eine Zeichenkette, ein uneingeschränkter Wertetyp, der in Braille umgewandelt werden soll.
+  - : Der Wert ist eine Zeichenkette, ein nicht eingeschränkter Werttyp, der in Braille umgewandelt werden soll.
 
 ## Beispiele
 
@@ -27,8 +25,7 @@ Dieses Beispiel zeigt, wie Sie die `ariaBrailleRoleDescription`-Eigenschaft abru
 
 #### HTML
 
-Zuerst definieren wir ein `<article>`-Element, das als Folie in einer Diashow verwendet wird.
-Wir setzen das `aria-roledescription`-Attribut auf "Slide", und die dazugehörige Braille-Kurzform in `aria-brailleroledescription` auf "sld".
+Zuerst definieren wir ein `<article>`-Element, das als Folie in einer Diaschau verwendet wird. Wir setzen das `aria-roledescription`-Attribut auf "slide" und seine Braille-Abkürzung in `aria-brailleroledescription` auf "sld".
 
 ```html
 <article
@@ -63,9 +60,7 @@ function log(text) {
 }
 ```
 
-Um die Rollenbeschreibung des Elements abzurufen, verwenden wir die `ariaBrailleRoleDescription`-Eigenschaft.
-Der untenstehende Code ruft zuerst den Wert ab und protokolliert ihn.
-Er setzt dann die Braille-Rollenbeschreibung auf "sd" und protokolliert den Wert erneut (nur zur Veranschaulichung — im produktiven Code würden Sie diesen Wert nicht setzen).
+Um die Rollenbeschreibung des Elements zu erhalten, verwenden wir die `ariaBrailleRoleDescription`-Eigenschaft. Der untenstehende Code ruft zuerst den Wert ab und protokolliert ihn. Anschließend wird die Braille-Rollenbeschreibung auf "sd" gesetzt und der Wert erneut protokolliert (nur zur Veranschaulichung — im Produktionscode würden Sie diesen Wert nicht setzen).
 
 ```js
 const article = document.getElementById("article");

@@ -2,79 +2,23 @@
 title: SVGAnimatedBoolean
 slug: Web/API/SVGAnimatedBoolean
 l10n:
-  sourceCommit: 53fd7ea4a4657b1b457ee582d7a28672319bf80a
+  sourceCommit: 2e39a37874913a1e3fd82999467505fd525e9177
 ---
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierte SVG-Boolean
-
-Die Schnittstelle `SVGAnimatedBoolean` wird für Attribute vom Typ Boolean verwendet, die animiert werden können.
-
-### Übersicht der Schnittstelle
-
-<table class="no-markdown">
-  <tbody>
-    <tr>
-      <th scope="row">Implementiert auch</th>
-      <td><em>Keine</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Methoden</th>
-      <td><em>Keine</em></td>
-    </tr>
-    <tr>
-      <th scope="row">Eigenschaften</th>
-      <td>
-        <ul>
-          <li>boolean <code>baseVal</code></li>
-          <li>readonly boolean <code>animVal</code></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Normatives Dokument</th>
-      <td>
-        <a
-          href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedBoolean"
-          >SVG 1.1 (2. Ausgabe)</a
-        >
-      </td>
-    </tr>
-  </tbody>
-</table>
+Die **`SVGAnimatedBoolean`**-Schnittstelle wird für Attribute vom Typ Boolean verwendet, die animiert werden können.
 
 ## Instanz-Eigenschaften
 
-<table class="no-markdown">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Typ</th>
-      <th>Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>[`SVGAnimatedBoolean.baseVal`](/de/docs/Web/API/SVGAnimatedBoolean/baseVal)</code></td>
-      <td>boolean</td>
-      <td>
-        Der Basiswert des angegebenen Attributs vor Anwendung jeglicher Animationen.
-      </td>
-    </tr>
-    <tr>
-      <td><code>[`SVGAnimatedBoolean.animVal`](/de/docs/Web/API/SVGAnimatedBoolean/animVal)</code></td>
-      <td>boolean</td>
-      <td>
-        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
-      </td>
-    </tr>
-  </tbody>
-</table>
+- [`SVGAnimatedBoolean.baseVal`](/de/docs/Web/API/SVGAnimatedBoolean/baseVal)
+  - : Ein Boolean, der den Basiswert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
+- [`SVGAnimatedBoolean.animVal`](/de/docs/Web/API/SVGAnimatedBoolean/animVal) {{ReadOnlyInline}}
+  - : Ein Boolean, der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, enthält es denselben Wert wie `baseVal`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die `SVGAnimatedBoolean` Schnittstelle bietet keine spezifischen Methoden.
+_Die `SVGAnimatedBoolean`-Schnittstelle stellt keine spezifischen Methoden bereit._
 
 ## Spezifikationen
 

@@ -3,18 +3,16 @@ title: "XRReferenceSpaceEvent: referenceSpace-Eigenschaft"
 short-title: referenceSpace
 slug: Web/API/XRReferenceSpaceEvent/referenceSpace
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
 ---
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent)-Eigenschaft **`referenceSpace`** gibt den Bezugspunkt an, der die Quelle des Ereignisses ist.
+Die schreibgeschützte [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent)-Eigenschaft **`referenceSpace`** spezifiziert den Referenzraum, der der Ursprung des Ereignisses ist.
 
 ## Wert
 
 Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), der die Quelle des Ereignisses angibt.
-
-## Beispiele
 
 ## Spezifikationen
 

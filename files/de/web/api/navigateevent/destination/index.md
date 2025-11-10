@@ -1,14 +1,14 @@
 ---
-title: "NavigateEvent: destination Eigenschaft"
+title: "NavigateEvent: destination-Eigenschaft"
 short-title: destination
 slug: Web/API/NavigateEvent/destination
 l10n:
-  sourceCommit: 7c44de6d40778dbfb6eeb1163d7d850e911cd706
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`destination`** schreibgeschützte Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Objekt zurück, das das Ziel repräsentiert, zu dem navigiert wird.
+Die schreibgeschützte Eigenschaft **`destination`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Objekt zurück, das das Ziel repräsentiert, zu dem navigiert wird.
 
 ## Wert
 
@@ -52,6 +52,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Modernes Client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

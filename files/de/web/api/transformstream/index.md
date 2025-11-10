@@ -2,32 +2,30 @@
 title: TransformStream
 slug: Web/API/TransformStream
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: 7d37e07f04c40ecbfd424d6fce0766ef3d2f7db4
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`TransformStream`**-Interface der [Streams-API](/de/docs/Web/API/Streams_API) ist eine konkrete Implementierung des _transform streams_ Konzepts in der [pipe chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains).
+Das **`TransformStream`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) stellt eine konkrete Implementierung des _Transform-Stream_-Konzepts der [Pipeline-Kette](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) dar.
 
-Es kann an die Methode [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) übergeben werden, um einen Datenstrom von einem Format in ein anderes zu transformieren.
-Beispielsweise kann es zum Dekodieren (oder Kodieren) von Videoframes, zum Dekomprimieren von Daten oder zur Konvertierung des Streams von XML zu JSON verwendet werden.
+Es kann der Methode [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) übergeben werden, um einen Datenstrom von einem Format in ein anderes zu transformieren. Zum Beispiel könnte es zum Dekodieren (oder Kodieren) von Videoframes, zum Dekomprimieren von Daten oder zum Konvertieren eines Streams von XML in JSON verwendet werden.
 
-Ein Transformationsalgorithmus kann optional als Argument beim Objektkonstruktor bereitgestellt werden.
-Wird dieser nicht übergeben, werden die Daten beim Durchlaufen des Streams nicht verändert.
+Ein Transformationsalgorithmus kann als optionales Argument an den Objektkonstruktor übergeben werden. Wenn er nicht bereitgestellt wird, werden die Daten beim Durchlaufen des Streams nicht verändert.
 
 `TransformStream` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Konstruktor
 
 - [`TransformStream()`](/de/docs/Web/API/TransformStream/TransformStream)
-  - : Erstellt und gibt ein Transformstream-Objekt zurück, mit optionaler Angabe eines Transformationsobjekts und Verwaltungsstrategien für die Streams.
+  - : Erstellt und gibt ein Transform-Stream-Objekt zurück, wobei optional ein Transformationsobjekt und Warteschlangenstrategien für die Streams angegeben werden können.
 
 ## Instanz-Eigenschaften
 
 - [`TransformStream.readable`](/de/docs/Web/API/TransformStream/readable) {{ReadOnlyInline}}
-  - : Das `readable` Ende eines `TransformStream`.
+  - : Das `readable`-Ende eines `TransformStream`.
 - [`TransformStream.writable`](/de/docs/Web/API/TransformStream/writable) {{ReadOnlyInline}}
-  - : Das `writable` Ende eines `TransformStream`.
+  - : Das `writable`-Ende eines `TransformStream`.
 
 ## Instanz-Methoden
 
@@ -35,9 +33,9 @@ Keine
 
 ## Beispiele
 
-### Any-to-uint8array-Stream
+### Anything-to-uint8array Stream
 
-Im folgenden Beispiel gibt ein Transformstream alle erhaltenen Chunks als {{jsxref("Uint8Array")}}-Werte weiter.
+Im folgenden Beispiel gibt ein Transform-Stream alle empfangenen Chunks als {{jsxref("Uint8Array")}}-Werte weiter.
 
 ```js
 const transformContent = {
@@ -90,9 +88,9 @@ class AnyToU8Stream extends TransformStream {
 }
 ```
 
-### Mehrere ReadableStreams verketteten
+### Verkettung mehrerer ReadableStreams
 
-Dies ist ein nützliches Beispiel, bei dem mehrere Streams verknüpft werden können. Beispiele beinhalten den Aufbau einer PWA mit progressivem Laden und progressivem Streaming.
+Dies ist ein nützliches Beispiel, bei dem mehrere Streams zusammengeführt werden können. Beispiele hierfür sind der Aufbau einer PWA mit progressivem Laden und progressivem Streaming.
 
 ```js
 let responses = [
@@ -107,7 +105,7 @@ responses.reduce(
 );
 ```
 
-Beachten Sie, dass dies nicht widerstandsfähig gegenüber anderen Einflüssen ist.
+Beachten Sie, dass dies nicht gegen andere Einflüsse resistent ist.
 
 ## Spezifikationen
 
@@ -119,5 +117,4 @@ Beachten Sie, dass dies nicht widerstandsfähig gegenüber anderen Einflüssen i
 
 ## Siehe auch
 
-- [WHATWG Stream-Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, schreibbaren und Transform-Streams.
-- [Streams—Der definitive Leitfaden](https://web.dev/articles/streams)
+- [Streams — Der definitive Leitfaden](https://web.dev/articles/streams)

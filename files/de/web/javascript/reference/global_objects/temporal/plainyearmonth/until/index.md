@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainYearMonth.prototype.until()
+short-title: until()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/until
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`until()`**-Methode von Instanzen des Objekts {{jsxref("Temporal.PlainYearMonth")}} gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von diesem Jahr-Monat bis zu einem anderen Jahr-Monat darstellt (in einer Form, die durch {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} umwandelbar ist). Die Dauer ist positiv, wenn der andere Monat nach diesem Monat liegt, und negativ, wenn er davor liegt.
+Die **`until()`** Methode von Instanzen von {{jsxref("Temporal.PlainYearMonth")}} gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer vom aktuellen Jahr-Monat zu einem anderen Jahr-Monat darstellt (in einer Form, die durch {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} umgewandelt werden kann). Die Dauer ist positiv, wenn der andere Monat nach diesem Monat liegt, und negativ, wenn er davor liegt.
 
-Diese Methode berechnet `other - this`. Um `this - other` zu berechnen, verwenden Sie die Methode {{jsxref("Temporal/PlainYearMonth/since", "since()")}}.
+Diese Methode führt `other - this` aus. Um `this - other` zu machen, verwenden Sie die {{jsxref("Temporal/PlainYearMonth/since", "since()")}} Methode.
 
 ## Syntax
 
@@ -21,13 +22,13 @@ until(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainYearMonth")}} Instanz, die einen Jahr-Monat darstellt und davon abgezogen wird. Es wird unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}} in ein `Temporal.PlainYearMonth` Objekt konvertiert. Es muss denselben Kalender wie `this` haben.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainYearMonth")}} Instanz, die einen Jahr-Monat darstellt, von dem dieser Jahr-Monat subtrahiert werden soll. Es wird mit dem gleichen Algorithmus in ein `Temporal.PlainYearMonth` Objekt umgewandelt wie {{jsxref("Temporal/PlainYearMonth/from", "Temporal.PlainYearMonth.from()")}}. Es muss denselben Kalender wie `this` haben.
 - `options` {{optional_inline}}
-  - : Die gleichen Optionen wie bei [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/since#options).
+  - : Dieselben Optionen wie [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/since#options).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer von diesem Jahr-Monat _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Jahr-Monat liegt, und negativ, wenn vorher.
+Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Jahr-Monat _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Jahr-Monat liegt, und negativ, wenn er davor liegt.
 
 ### Ausnahmen
 

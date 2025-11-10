@@ -2,14 +2,12 @@
 title: declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/GUARANTEED_MINIMUM_STATIC_RULES
 l10n:
-  sourceCommit: 39a2c86675005f0682b7c5d0c32c8066be412aac
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die minimale Anzahl von statischen Regeln, die einer Erweiterung über ihre aktivierten statischen Regelsätze garantiert wird. Alle Regeln über diesem Limit werden auf das globale Limit für statische Regeln angerechnet. Weitere Informationen zu den Begrenzungen von statischen Regelsätzen finden Sie unter [statische Regelsatzbegrenzungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
-Die minimale Anzahl statischer Regeln, die einer Erweiterung über ihre aktivierten statischen Regelsätze garantiert wird. Alle Regeln über diesem Limit zählen zur globalen statischen Regelgrenze. Weitere Informationen zu den statischen Regelsatzgrenzen finden Sie unter [statische Regelsatzgrenzen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
-
-Ihr Wert beträgt `30000` in Chrome.
+Ihr Wert ist `30000` in Chrome.
 
 {{WebExtExamples("h2")}}
 

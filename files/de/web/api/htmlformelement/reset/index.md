@@ -3,16 +3,16 @@ title: "HTMLFormElement: reset() Methode"
 short-title: reset()
 slug: Web/API/HTMLFormElement/reset
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.reset()`** Methode stellt die Standardwerte eines Formularelements wieder her. Diese Methode funktioniert ebenso wie das Klicken auf das [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset) Kontroll-Element des Formulars.
+Die **`HTMLFormElement.reset()`** Methode stellt die Standardwerte eines Formularfeldes wieder her. Diese Methode hat die gleiche Funktion wie das Klicken auf das [`<input type="reset">`](/de/docs/Web/HTML/Reference/Elements/input/reset)-Steuerelement des Formulars.
 
-Wenn ein Formularelement (wie ein Zurücksetz-Button) einen Namen oder eine ID _reset_ hat, wird es die `reset`-Methode des Formulars überdecken. Es setzt keine anderen Attribute im Eingabeelement zurück, wie zum Beispiel `disabled`.
+Wenn ein Formularelement (wie ein Reset-Button) einen Namen oder eine ID von _reset_ hat, wird die Reset-Methode des Formulars maskiert. Es werden keine anderen Attribute im Eingabeelement, wie z. B. `disabled`, zurückgesetzt.
 
-Beachten Sie, dass wenn [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) aufgerufen wird, um den Wert eines bestimmten Attributs zu setzen, ein anschließender Aufruf von `reset()` das Attribut nicht auf seinen Standardwert zurücksetzt, sondern es bei dem Wert belässt, den der Aufruf von [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) gesetzt hat.
+Beachten Sie, dass wenn [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) aufgerufen wird, um den Wert eines bestimmten Attributs festzulegen, ein späterer Aufruf von `reset()` das Attribut nicht auf seinen Standardwert zurücksetzen wird, sondern der Wert beibehalten wird, den der Aufruf von [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) festgelegt hat.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

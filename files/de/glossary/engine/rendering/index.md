@@ -1,13 +1,11 @@
 ---
-title: Rendering engine
+title: Rendering-Engine
 slug: Glossary/Engine/Rendering
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Rendering Engines** (auch bekannt als Layout-Engines oder Browser-Engines) sind Teil eines {{Glossary("Browser", "Webbrowsers")}}, der {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und andere Ressourcen einer Webseite in eine visuelle Darstellung auf einem Bildschirm umwandelt.
+**Rendering-Engines** (auch bekannt als Layout-Engines oder Browser-Engines) sind Teil eines {{Glossary("Browser", "Webbrowsers")}}, die {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und andere Ressourcen einer Webseite in eine visuelle Darstellung auf einem Bildschirm umwandeln.
 
 Gängige Rendering-Engines sind:
 

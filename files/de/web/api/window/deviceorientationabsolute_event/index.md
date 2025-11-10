@@ -1,25 +1,25 @@
 ---
-title: "Window: deviceorientationabsolute Ereignis"
+title: "Window: deviceorientationabsolute Event"
 short-title: deviceorientationabsolute
 slug: Web/API/Window/deviceorientationabsolute_event
 l10n:
-  sourceCommit: 6d4f585b94068dc0dfd733047fb2229dca38b1eb
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`deviceorientationabsolute`** Ereignis wird ausgelöst, wenn sich die absolute Geräteausrichtung ändert.
+Das **`deviceorientationabsolute`**-Ereignis wird ausgelöst, wenn sich die absolute Geräteausrichtung ändert.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Event-Handler-Eigenschaft fest.
 
-```js
-addEventListener("deviceorientationabsolute", (event) => {});
+```js-nolint
+addEventListener("deviceorientationabsolute", (event) => { })
 
-ondeviceorientationabsolute = (event) => {};
+ondeviceorientationabsolute = (event) => { }
 ```
 
 ## Ereignistyp
@@ -31,17 +31,17 @@ Ein [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent). Erbt vo
 ## Ereigniseigenschaften
 
 - [`DeviceOrientationEvent.absolute`](/de/docs/Web/API/DeviceOrientationEvent/absolute) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der anzeigt, ob das Gerät die Orientierung absolut bereitstellt.
+  - : Ein Boolean-Wert, der angibt, ob das Gerät Orientierungsdaten absolut bereitstellt.
 - [`DeviceOrientationEvent.alpha`](/de/docs/Web/API/DeviceOrientationEvent/alpha) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die z-Achse darstellt, ausgedrückt in Grad mit Werten von 0 (einschließlich) bis 360 (ausschließlich).
+  - : Eine Zahl, die die Bewegung des Geräts um die z-Achse darstellt, ausgedrückt in Grad mit Werten im Bereich von 0 (einschließlich) bis 360 (ausschließlich).
 - [`DeviceOrientationEvent.beta`](/de/docs/Web/API/DeviceOrientationEvent/beta) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die x-Achse darstellt, ausgedrückt in Grad mit Werten von -180 (einschließlich) bis 180 (ausschließlich). Dies steht für eine Vorwärts- und Rückwärtsbewegung des Geräts.
+  - : Eine Zahl, die die Bewegung des Geräts um die x-Achse darstellt, ausgedrückt in Grad mit Werten im Bereich von -180 (einschließlich) bis 180 (ausschließlich). Dies stellt eine Vorwärts- und Rückwärtsbewegung des Geräts dar.
 - [`DeviceOrientationEvent.gamma`](/de/docs/Web/API/DeviceOrientationEvent/gamma) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Bewegung des Geräts um die y-Achse darstellt, ausgedrückt in Grad mit Werten von -90 (einschließlich) bis 90 (ausschließlich). Dies steht für eine Links- und Rechtsbewegung des Geräts.
+  - : Eine Zahl, die die Bewegung des Geräts um die y-Achse darstellt, ausgedrückt in Grad mit Werten im Bereich von -90 (einschließlich) bis 90 (ausschließlich). Dies stellt eine Links-Rechts-Bewegung des Geräts dar.
 - `DeviceOrientationEvent.webkitCompassHeading` {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Eine Zahl, die den Unterschied zwischen der Bewegung des Geräts um die z-Achse des Weltsystems und der Richtung nach Norden darstellt, ausgedrückt in Grad mit Werten von 0 bis 360.
+  - : Eine Zahl, die den Unterschied zwischen der Bewegung des Geräts um die z-Achse des Weltsystems und der Richtung nach Norden darstellt, ausgedrückt in Grad mit Werten im Bereich von 0 bis 360.
 - `DeviceOrientationEvent.webkitCompassAccuracy` {{Non-standard_Inline}} {{ReadOnlyInline}}
-  - : Die Genauigkeit des Kompasses angegeben als positive oder negative Abweichung. Üblicherweise beträgt sie 10.
+  - : Die Genauigkeit des Kompasses wird als positive oder negative Abweichung angegeben. Sie beträgt normalerweise 10.
 
 ## Spezifikationen
 

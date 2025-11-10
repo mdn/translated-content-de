@@ -2,27 +2,27 @@
 title: SVGClipPathElement
 slug: Web/API/SVGClipPathElement
 l10n:
-  sourceCommit: cce0046336a987e8f643c287fe1430f39269a048
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGClipPathElement`**-Schnittstelle ermöglicht den Zugriff auf die Eigenschaften von {{SVGElement("clipPath")}}-Elementen sowie Methoden zur Manipulation dieser Elemente.
+Die **`SVGClipPathElement`** Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("clipPath")}}-Elementen und Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits) {{ReadOnlyInline}}
-  - : Gibt ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration) zurück, das dem {{SVGAttr("clipPathUnits")}}-Attribut des zugehörigen {{SVGElement("clipPath")}}-Elements entspricht. Nimmt einen der Konstanten, die in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definiert sind.
+  - : Gibt eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration) zurück, die dem Attribut {{SVGAttr("clipPathUnits")}} des zugehörigen {{SVGElement("clipPath")}}-Elements entspricht. Nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
 - [`SVGClipPathElement.transform`](/de/docs/Web/API/SVGClipPathElement/transform) {{ReadOnlyInline}}
-  - : Gibt eine [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList) zurück, die dem {{SVGAttr("transform")}}-Attribut des zugehörigen {{SVGElement("clipPath")}}-Elements entspricht.
+  - : Gibt eine [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList) zurück, die dem Attribut {{SVGAttr("transform")}} des zugehörigen {{SVGElement("clipPath")}}-Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, [`SVGElement`](/de/docs/Web/API/SVGElement)._
+_Diese Schnittstelle implementiert keine speziellen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 
@@ -35,3 +35,4 @@ _Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Meth
 ## Siehe auch
 
 - {{SVGElement("clipPath")}}
+- [Einführung in CSS-Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping)

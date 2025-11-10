@@ -2,14 +2,12 @@
 title: downloads.open()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/open
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die **`open()`** Funktion der {{WebExtAPIRef("downloads")}} API öffnet die heruntergeladene Datei mit der zugehörigen Anwendung. Ein {{WebExtAPIRef("downloads.onChanged")}} Ereignis wird ausgelöst, wenn das Element zum ersten Mal geöffnet wird.
 
-Die Funktion **`open()`** der {{WebExtAPIRef("downloads")}} API öffnet die heruntergeladene Datei mit der zugeordneten Anwendung. Ein {{WebExtAPIRef("downloads.onChanged")}}-Ereignis wird ausgelöst, wenn das Element zum ersten Mal geöffnet wird.
-
-Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie die "downloads.open" [Manifest-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die "downloads"-Erlaubnis anfordern. Außerdem können Sie diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
+Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie die "downloads.open" [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die "downloads"-Berechtigung anfordern. Außerdem können Sie diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,15 +22,11 @@ let opening = browser.downloads.open(
 ### Parameter
 
 - `downloadId`
-  - : Ein `integer`, der die `id` des {{WebExtAPIRef("downloads.DownloadItem")}} darstellt, das Sie öffnen möchten.
+  - : Ein `integer`, der die `id` des {{WebExtAPIRef("downloads.DownloadItem")}} angibt, das Sie öffnen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich ist, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -64,8 +58,12 @@ searching.then(openDownload, onError);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-open) API von Chromium.
+> Diese API basiert auf der Chromium [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-open) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

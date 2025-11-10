@@ -3,14 +3,14 @@ title: "AbortSignal: abort() statische Methode"
 short-title: abort()
 slug: Web/API/AbortSignal/abort_static
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`AbortSignal.abort()`** statische Methode gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das bereits als abgebrochen gesetzt ist (und das kein [`abort`](/de/docs/Web/API/AbortSignal/abort_event) Ereignis auslöst).
+Die statische Methode **`AbortSignal.abort()`** gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das bereits auf abgebrochen gesetzt ist (und kein [`abort`](/de/docs/Web/API/AbortSignal/abort_event)-Ereignis auslöst).
 
-Dies ist eine Kurzform für den folgenden Code:
+Dies ist eine Abkürzung für den folgenden Code:
 
 ```js
 const controller = new AbortController();
@@ -18,10 +18,10 @@ controller.abort();
 return controller.signal;
 ```
 
-Dies könnte zum Beispiel an eine `fetch`-Methode übergeben werden, um deren Abbruch-Logik auszuführen (d.h. es könnte sein, dass der Code so organisiert ist, dass die Abbruch-Logik ausgeführt werden sollte, auch wenn der beabsichtigte `fetch`-Vorgang noch nicht gestartet wurde).
+Dies könnte beispielsweise an eine `fetch`-Methode übergeben werden, um deren Abbruchlogik auszuführen (das heißt, es kann sein, dass der Code so organisiert ist, dass die Abbruchlogik ausgeführt werden sollte, selbst wenn der beabsichtigte Abrufvorgang noch nicht gestartet wurde).
 
 > [!NOTE]
-> Die Methode ist ähnlich in der Absicht zu {{JSxRef("Promise.reject")}}.
+> Die Methode ähnelt in ihrem Zweck {{JSxRef("Promise.reject")}}.
 
 ## Syntax
 
@@ -38,7 +38,7 @@ AbortSignal.abort(reason)
 
 ### Rückgabewert
 
-Eine `AbortSignal` Instanz mit der [`AbortSignal.aborted`](/de/docs/Web/API/AbortSignal/aborted) Eigenschaft auf `true` gesetzt und [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) auf den angegebenen oder Standardgrundwert gesetzt.
+Eine `AbortSignal`-Instanz mit der Eigenschaft [`AbortSignal.aborted`](/de/docs/Web/API/AbortSignal/aborted) auf `true` gesetzt, und [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) auf den angegebenen oder Standardwert des Grundes gesetzt.
 
 ## Spezifikationen
 

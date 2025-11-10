@@ -1,97 +1,99 @@
 ---
-title: Vorlage für CSS-Eigenschaften-Seiten
+title: CSS-Eigenschaftsseite Vorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/CSS_property_page_template
 l10n:
-  sourceCommit: 269fa421f0a79b18f6000a26baebe30c74571b1f
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-> **Note:** _Entfernen Sie diesen Hinweisblock vor der Veröffentlichung._
+> [!NOTE]
+> _Entfernen Sie diesen Hinweisblock vor der Veröffentlichung._
 >
 > ---
 >
-> **Metadaten der Seite:**
+> **Seitenmetadaten:**
 >
-> Der Frontmatter-Bereich am Anfang der Seite wird verwendet, um "Seitendaten" zu definieren.
-> Die Werte sollten entsprechend für die spezifische Eigenschaft aktualisiert werden.
+> Die Metadaten am Anfang der Seite werden verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Werte sollten für die jeweilige Eigenschaft entsprechend aktualisiert werden.
 >
 > ```md
 > ---
-> title: NameDerEigenschaft
-> slug: Web/CSS/NameDerEigenschaft
+> title: NameOfTheProperty
+> slug: Web/CSS/NameOfTheProperty
 > page-type: css-property OR css-shorthand-property
 > status:
->   - experimental
 >   - deprecated
+>   - experimental
 >   - non-standard
-> browser-compat: css.properties.NameDerEigenschaft
+> browser-compat: css.properties.NameOfTheProperty
+> sidebar: cssref
 > ---
 > ```
 >
 > - **title**
->   - : Der `title`-Wert wird oben auf der Seite angezeigt. Das Titel-Format ist _NameDerEigenschaft_.
->     Zum Beispiel hat die [`background-color`](/de/docs/Web/CSS/background-color)-Eigenschaft den Titel _background-color_.
+>   - : Der `title`-Wert wird oben auf der Seite angezeigt. Das Titel-Format ist _NameOfTheProperty_.
+>     Zum Beispiel hat die [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color) Eigenschaft einen Titel von _background-color_.
 > - **slug**
->   - : Der `slug`-Wert ist der letzte Teil des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dieser wird im Format `Web/CSS/NameDerEigenschaft` angegeben.
->     Zum Beispiel ist der Slug für die [`background-color`](/de/docs/Web/CSS/background-color)-Eigenschaft `Web/CSS/background-color`. Für mehrteilige Komponenten wie `Getting_started` in einem Slug sollte der Slug einen Unterstrich verwenden, z. B. `/de/docs/Learn_web_development/Core/Structuring_content`.
+>   - : Der `slug`-Wert ist das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`. Dies wird formatiert als `Web/CSS/NameOfTheProperty`.
+>     Zum Beispiel ist der Slug für die [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color) Eigenschaft `Web/CSS/background-color`. Bei einem mehrfachen Komponentennamen wie `Getting_started` in einem Slug sollte der Slug einen Unterstrich verwenden, wie in `/de/docs/Learn_web_development/Core/Structuring_content`.
 > - **page-type**
->   - : Der `page-type`-Wert für CSS-Eigenschaften ist `css-property`. Für eine Kurzschreibweise-Eigenschaft ist der Wert `css-shorthand-property`. Zum Beispiel ist der `page-type`-Wert für die [animation](/de/docs/Web/CSS/animation)-Eigenschaft `css-shorthand-property`, da es sich um eine Kurzschreibweise-Eigenschaft handelt, während der `page-type`-Wert für die [animation-delay](/de/docs/Web/CSS/animation-delay)-Eigenschaft `css-property` ist.
+>   - : Der Wert `page-type` für CSS-Eigenschaften ist `css-property`. Für eine verkürzte CSS-Eigenschaft ist der Wert `css-shorthand-property`. Zum Beispiel ist der `page-type`-Wert für die [animation](/de/docs/Web/CSS/Reference/Properties/animation) Eigenschaft `css-shorthand-property`, da es sich um eine verkürzte Eigenschaft handelt, während der `page-type`-Wert für die [animation-delay](/de/docs/Web/CSS/Reference/Properties/animation-delay) Eigenschaft `css-property` ist.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell festgelegt werden, er wird automatisch basierend auf den Werten in den Daten zur Browser-Kompatibilität für das Feature gesetzt. Siehe ["Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+>   - : Markierungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Begriffe enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert <code>css.properties.NameDerEigenschaft</code> durch den Abfragestring für die Eigenschaft im [Browser-Compat-Daten-Repository](https://github.com/mdn/browser-compat-data/tree/main/css/properties). Überprüfen Sie den Abschnitt _Weitere Makros auf der Seite_ in diesem Hinweisblock, um zu sehen, wie diese Schlüssel-Wert-Paarung verwendet wird, um Inhalte für die Abschnitte _Spezifikationen_ und _Browser-Kompatibilität_ zu generieren.
+>   - : Ersetzen Sie den Platzhalterwert <code>css.properties.NameOfTheProperty</code> durch den Abfrage-String für die Eigenschaft im [Browser compat data repo](https://github.com/mdn/browser-compat-data/tree/main/css/properties). Überprüfen Sie den Abschnitt _Andere Makros auf der Seite_ dieses Hinweisblocks, um zu sehen, wie dieses Schlüssel-Wert-Paar verwendet wird, um Inhalte für die _Spezifikationen_ und _Browser-Kompatibilität_ Abschnitte zu generieren.
+> - **sidebar**
+>   - : Dies ist `cssref` für alle CSS-Leitfaden und Referenzseiten.
+>     Siehe [Seitenelemente: Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
 >
 > ---
 >
-> **Makros oben auf der Seite**
+> **Makros am Anfang der Seite**
 >
-> Einige Makroaufrufe erscheinen oben im Inhaltsbereich (direkt unterhalb des Frontmatter-Bereichs der Seite).
-> Diese Makros werden automatisch durch die Toolchain hinzugefügt (es ist nicht erforderlich, sie hinzuzufügen oder zu entfernen):
+> Eine Reihe von Makro-Aufrufen erscheinen am Anfang des Inhaltsbereichs (unmittelbar unter den Seitenmetadaten).
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht nötig, sie hinzuzufügen/zu entfernen):
 >
-> - `\{{SeeCompatTable}}`: Dieses Makro erzeugt ein **Experimentell**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Falls die Technologie experimentell und in Firefox hinter einer Einstellung versteckt ist, sollten Sie auch einen Eintrag auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ergänzen.
-> - `\{{Deprecated_Header}}`: Dieses Makro erzeugt ein **Veraltet**-Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — Dieses erzeugt ein **Nicht-Standard**-Banner, das darauf hinweist, dass das Feature nicht Teil irgendeiner Spezifikation ist.
+> - `\{{SeeCompatTable}}`: Dieses Makro generiert ein **Experimentelles** Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn die Technologie experimentell ist und in Firefox hinter einer Präferenz versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}`: Dieses Makro generiert ein **Veraltetes** Banner, das darauf hinweist, dass die Nutzung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+> - `\{{Non-standard_Header}}` — dies generiert ein **Nicht-standardisiertes** Banner, das darauf hinweist, dass das Feature nicht Teil irgendeiner Spezifikation ist.
 >
-> Sie sollten die folgenden Makros gemäß den unten stehenden Ratschlägen aktualisieren oder löschen:
+> Sie sollten die folgenden Makros gemäß den untenstehenden Anweisungen aktualisieren oder löschen:
 >
-> - `\{{CSSRef}}`: Dieses Makro muss auf jeder CSS-Eigenschaftsseite vorhanden sein. Es generiert eine passende CSS-Seitenleiste, je nach den auf der Seite enthaltenen Tags.
->   Denken Sie daran, das `\{{MDNSidebar}}`-Makro zu entfernen, wenn Sie diese Vorlage verwenden.
+> Geben Sie keine Statusheader-Makros manuell an. Verweisen Sie auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
 >
-> Status-Kopfzeilen-Makros nicht manuell hinzufügen. Unter der Sektion ["Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses) finden Sie, wie diese Status hinzugefügt werden können.
->
-> Beispiele für die **Experimentell**, **Veraltet** und **Nicht-Standard**-Banner finden Sie direkt nach diesem Hinweisblock.
+> Beispiele für die **Experimentell**, **Veraltet** und **Nicht-standardisiert** Banner werden direkt nach diesem Hinweisblock gezeigt.
 >
 > ---
 >
-> **Weitere Makros auf der Seite**
+> **Andere Makros auf der Seite**
 >
-> - Abschnitt "Formale Syntax": Der Inhalt des Abschnitts _Formale Syntax_ wird mit dem Makro `\{{CSSSyntax}}` erstellt. Dieses Makro ruft Daten aus den Spezifikationen mithilfe des [@webref/css npm-Pakets](https://www.npmjs.com/package/@webref/css) ab.
-> - Abschnitt "Formale Definition": Der Inhalt des Abschnitts _Formale Definition_ wird mit dem Makro `\{{CSSInfo}}` erstellt. Damit Daten in diesem Abschnitt angezeigt werden, müssen Sie sicherstellen, dass ein entsprechender Eintrag für die zugehörige Eigenschaft in der [properties.json](https://github.com/mdn/data/blob/main/css/properties.json)-Datei im `mdn/data`-Repository ausgefüllt wurde. Weitere Informationen finden Sie auf der [Properties](https://github.com/mdn/data/blob/main/css/properties.md)-Seite.
-> - Abschnitte "Spezifikationen" und "Browser-Kompatibilität": Das Build-Tool verwendet automatisch das Schlüssel-Wert-Paar `browser-compat` aus dem Frontmatter der Seite, um Daten in die Abschnitte _Spezifikationen_ und _Browser-Kompatibilität_ einzufügen (dies ersetzt die Makros `\{{Specifications}}` und `\{{Compat}}` in diesen Abschnitten).
+> - Formale Syntaxsektion: Der Inhalt für die _Formale Syntax_ Sektion wird mit dem `\{{CSSSyntax}}` Makro generiert. Dieses Makro ruft Daten aus den Spezifikationen mit dem [@webref/css npm package](https://www.npmjs.com/package/@webref/css) ab.
+> - Formale Definitionssektion: Der Inhalt für die _Formale Definitions_ Sektion wird mit dem `\{{CSSInfo}}` Makro generiert. Damit diese Sektion Daten hat, müssen Sie sicherstellen, dass ein entsprechender Eintrag für die entsprechende Eigenschaft in der [properties.json](https://github.com/mdn/data/blob/main/css/properties.json) Datei im `mdn/data` Repository ausgefüllt wurde. Siehe die [Properties](https://github.com/mdn/data/blob/main/css/properties.md) Seite für mehr Informationen.
+> - Spezifikationen und Browser-Kompatibilitätssektionen: Das Build-Tool verwendet automatisch das `browser-compat` Schlüssel-Wert-Paar aus den Seitenmetadaten, um Daten in die _Spezifikationen_ und _Browser-Kompatibilität_ Sektionen einzufügen (wobei die `\{{Specifications}}` und `\{{Compat}}` Makros in diesen Sektionen ersetzt werden).
 >
->   Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Eigenschaft und ihre Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-Compat-Daten-Repository</a> erstellen/aktualisieren müssen.
->   Weitere Informationen zum Hinzufügen oder Bearbeiten von Einträgen finden Sie in unserem [Leitfaden zu Kompatibilitätstabellen](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>   Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die Eigenschaft und deren Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-Kompatibilitätsdaten-Repo</a> erstellen/aktualisieren müssen.
+>   Siehe unseren [Kompatibilitätstabellen-Leitfaden](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für Informationen zum Hinzufügen oder Bearbeiten von Einträgen.
 >
-> _Entfernen Sie diesen Hinweisblock vor der Veröffentlichung._
+> _Denken Sie daran, diesen Hinweisblock vor der Veröffentlichung zu entfernen._
 
-{{CSSRef}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Beginnen Sie den Seiteninhalt mit einem einführenden Absatz, der die Eigenschaft benennt und beschreibt, was sie macht.
-Dieser sollte idealerweise ein oder zwei kurze Sätze umfassen.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz, der die Eigenschaft benennt und beschreibt, was sie tut.
+Dies sollte idealerweise ein oder zwei kurze Sätze sein.
 
-## Probieren Sie es aus
+## Ausprobieren
 
-_Dieser Titel wird automatisch über das Makro `\{{EmbedInteractiveExample}}` erstellt._
+Dieser Abschnitt wird durch das `InteractiveExample` Makro generiert.
+Dies beinhaltet den "Ausprobieren" Abschnittstitel und den Code-Editor.
+Siehe den Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibrichtlinien_ für mehr Informationen.
 
-Dieser Abschnitt ist für interaktive Beispiele gedacht, die mit dem Makro `\{{EmbedInteractiveExample}}` hinzugefügt wurden. Weitere Informationen finden Sie im Abschnitt [Interaktive Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#interactive_examples) in unseren _Schreibleitlinien_.
+## Bestandteileigenschaften
 
-## Zusammenhängende Eigenschaften
-
-Fügen Sie diesen Abschnitt nur für Kurzschreibweise-Eigenschaften, wie z. B. [animation](/de/docs/Web/CSS/animation), hinzu, um alle zugehörigen Einzelheiten zu listen.
+Fügen Sie diesen Abschnitt nur für verkürzte Eigenschaften hinzu, wie z.B. [animation](/de/docs/Web/CSS/Reference/Properties/animation), um alle zugehörigen ausführlichen Eigenschaften aufzulisten.
 
 ## Syntax
 
-Fügen Sie die häufig verwendeten Fälle als Code-Block ein und beschreiben Sie die Untersubwerte, die einen vollständigen Wert ausmachen.
+Beinhalten Sie die üblichen Anwendungsfälle als Codeblock und beschreiben Sie die Komponenten-Subwerte, die einen vollständigen Wert ausmachen.
 
 ```css
 /* Insert code block showing common use cases */
@@ -100,16 +102,19 @@ Fügen Sie die häufig verwendeten Fälle als Code-Block ein und beschreiben Sie
 
 ### Werte
 
-Fügen Sie einen Begriff und eine Definition für jeden Untersubwert hinzu.
+Fügen Sie einen Begriff und eine Definition für jeden Subwert ein.
 
 - `subvalue1`
-  - : Fügen Sie eine Beschreibung des Untersubwerts, seines Datentyps und seiner Bedeutung hinzu.
+  - : Eine Beschreibung des Subwerts, dessen Datentyp und was er repräsentiert.
 - `subvalue2`
-  - : Fügen Sie eine Beschreibung des Untersubwerts, seines Datentyps und seiner Bedeutung hinzu.
+  - : Eine Beschreibung des Subwerts, dessen Datentyp und was er repräsentiert.
+
+> [!WARNING]
+> Fügen Sie auf CSS-Seiten keine [inline Status-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#feature_status_icons_in_definition_lists) hinzu.
 
 ## Beschreibung
 
-Dies ist ein optionaler Abschnitt, um eine Beschreibung der Eigenschaft hinzuzufügen und zu erklären, wie sie funktioniert. Verwenden Sie diesen Abschnitt auch, um verwandte Begriffe zu erklären und Anwendungsfälle für die Eigenschaft aufzuführen.
+Dies ist ein optionaler Abschnitt, um eine Beschreibung der Eigenschaft einzuschließen und zu erklären, wie sie funktioniert. Verwenden Sie diesen Abschnitt, um verwandte Begriffe zu erläutern und Anwendungsfälle für die Eigenschaft hinzuzufügen.
 
 ## Formale Definition
 
@@ -123,31 +128,31 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
 
-## Barrierefreiheit
+## Zugänglichkeit
 
-Dies ist ein optionaler Abschnitt. Fügen Sie Hinweise zur Barrierefreiheit, bewährte Methoden und mögliche Probleme ein, die Entwickler beachten müssen, wenn sie diese Eigenschaft verwenden. Sie können auch Umgehungen oder Lösungen hinzufügen, falls zutreffend.
+Dies ist ein optionaler Abschnitt. Fügen Sie Zugänglichkeitsrichtlinien, Best Practices und potenzielle Bedenken hinzu, die Entwickler beim Verwenden dieser Eigenschaft beachten sollten. Sie können auch, wo zutreffend, Workarounds oder Lösungen einschließen.
 
 ## Beispiele
 
 Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
 
-### Eine beschreibende Überschrift hinzufügen
+### Fügen Sie eine beschreibende Überschrift hinzu
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Beispiele wie "Ein einfaches Beispiel" sagen nichts über das Beispiel aus und sind daher keine guten Überschriften. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel macht. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Sehen Sie in unserem Leitfaden, wie Sie [Code-Beispiele hinzufügen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples), für weitere Informationen.
+Siehe unseren Leitfaden, wie man [Code-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) hinzufügt, für mehr Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben werden.
+> Manchmal möchten Sie Beispiele auf einer anderen Seite verlinken.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und weitere auf einer anderen Seite haben:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite und dann eine abschließende H3-Überschrift (`###`) mit dem Text „Weitere Beispiele“ hinzu, unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie die Beispiele auf anderen Seiten verlinken können. Beispielsweise:
 >
 > ```md
 > ## Beispiele
 >
-> ### Die Fetch-API verwenden
+> ### Verwendung der Fetch API
 >
 > Beispiel von Fetch
 >
@@ -156,14 +161,14 @@ Sehen Sie in unserem Leitfaden, wie Sie [Code-Beispiele hinzufügen](/de/docs/MD
 > Links zu weiteren Beispielen auf anderen Seiten
 > ```
 >
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
+> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser Seite:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie stattdessen die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Beispielsweise:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieser API siehe [die Seite zu fetch()](https://example.org/).
+> Für Beispiele dieser API, siehe [die Seite zu fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -180,7 +185,7 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit der aktuellen Eigenschaft in Verbindung stehen. Für weitere Richtlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Eigenschaft beziehen. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
 
 - link1
 - link2

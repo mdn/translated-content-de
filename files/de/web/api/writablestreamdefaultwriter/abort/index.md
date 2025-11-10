@@ -1,16 +1,16 @@
 ---
-title: "WritableStreamDefaultWriter: abort()-Methode"
+title: "WritableStreamDefaultWriter: `abort()` Methode"
 short-title: abort()
 slug: Web/API/WritableStreamDefaultWriter/abort
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle bricht den Stream ab und signalisiert, dass der Producer den Stream nicht mehr erfolgreich beschreiben kann. Der Stream wird sofort in einen Fehlerzustand versetzt, wobei alle in der Warteschlange befindlichen Schreibvorgänge verworfen werden.
+Die **`abort()`**-Methode des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Interfaces bricht den Stream ab und signalisiert, dass der Erzeuger nicht mehr erfolgreich in den Stream schreiben kann und dieser sofort in einen Fehlerzustand versetzt wird, wobei alle wartenden Schreibvorgänge verworfen werden.
 
-Wenn der Writer aktiv ist, verhält sich die `abort()`-Methode genauso wie bei dem zugehörigen Stream ([`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)). Ist dies nicht der Fall, wird ein abgelehntes Versprechen zurückgegeben.
+Wenn der Writer aktiv ist, verhält sich die `abort()`-Methode genauso wie die des zugehörigen Streams ([`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)). Andernfalls gibt sie ein abgelehntes Promise zurück.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ abort(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein String, der einen menschenlesbaren Grund für den Abbruch darstellt.
+  - : Ein String, der einen für Menschen lesbaren Grund für den Abbruch darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Stream abgebrochen wird, oder mit einem Fehler abgelehnt wird, wenn der Writer inaktiv oder der Empfangs-Stream ungültig ist.
+Ein {{jsxref("Promise")}}, das auf `undefined` erfüllt wird, wenn der Stream abgebrochen wird, oder bei einem Fehler ablehnt, wenn der Writer inaktiv war oder der empfangende Stream ungültig ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie versuchen abzubrechen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream) oder ist gesperrt.
+  - : Der Stream, den Sie abzubrechen versuchen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream), oder er ist gesperrt.
 
 ## Beispiele
 
@@ -39,23 +39,23 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Stream ab
 const writableStream = new WritableStream(
   {
     write(chunk) {
-      // ...
+      // …
     },
     close() {
-      // ...
+      // …
     },
     abort(err) {
-      // ...
+      // …
     },
   },
   queuingStrategy,
 );
 
-// ...
+// …
 
 const writer = writableStream.getWriter();
 
-// ...
+// …
 
 // abort the stream when desired
 await writer.abort("WritableStream aborted. Reason: ...");

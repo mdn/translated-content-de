@@ -3,21 +3,21 @@ title: "SecurityPolicyViolationEvent: disposition-Eigenschaft"
 short-title: disposition
 slug: Web/API/SecurityPolicyViolationEvent/disposition
 l10n:
-  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`disposition`** schreibgeschützte Eigenschaft der Schnittstelle [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) gibt an, wie die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) vom Benutzeragenten behandelt werden soll.
+Die schreibgeschützte **`disposition`**-Eigenschaft der [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Schnittstelle gibt an, wie die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) vom Benutzeragenten behandelt werden soll.
 
 ## Wert
 
 Mögliche Werte sind:
 
 - `"enforce"`
-  - : Die Richtlinie wird durchgesetzt und die Ressourcenanfrage wird blockiert.
+  - : Die Richtlinie wird durchgesetzt und die Ressourcenanforderung wird blockiert.
 - `"report"`
-  - : Der Verstoß wird gemeldet, aber die Ressourcenanfrage wird nicht blockiert.
+  - : Der Verstoß wird gemeldet, aber die Ressourcenanforderung wird nicht blockiert.
 
 ## Beispiele
 

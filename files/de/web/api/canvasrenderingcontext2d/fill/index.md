@@ -3,15 +3,12 @@ title: "CanvasRenderingContext2D: fill()-Methode"
 short-title: fill()
 slug: Web/API/CanvasRenderingContext2D/fill
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.fill()`**
-Methode der Canvas 2D API füllt den aktuellen oder angegebenen Pfad mit dem aktuellen
-[`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle).
+Die **`CanvasRenderingContext2D.fill()`**-Methode der Canvas 2D-API füllt den aktuellen oder angegebenen Pfad mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle).
 
 ## Syntax
 
@@ -25,15 +22,13 @@ fill(path, fillRule)
 ### Parameter
 
 - `fillRule`
-
-  - : Der Algorithmus, durch den bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Füllbereichs liegt.
+  - : Der Algorithmus, um zu bestimmen, ob ein Punkt innerhalb oder außerhalb der Füllregion liegt.
     Mögliche Werte:
-
     - `nonzero`
-      - : Die [Non-Zero-Wickelregel](https://en.wikipedia.org/wiki/Nonzero-rule).
+      - : Die [non-zero winding rule](https://de.wikipedia.org/wiki/Nonzero-rule).
         Standardregel.
     - `evenodd`
-      - : Die [Even-Odd-Wickelregel](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+      - : Die [even-odd winding rule](https://de.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
   - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der gefüllt werden soll.
@@ -67,9 +62,9 @@ ctx.fill();
 
 {{ EmbedLiveSample('Filling_a_rectangle', 700, 180) }}
 
-### Ein Pfad und eine fillRule angeben
+### Einen Pfad und ein fillRule angeben
 
-Dieses Beispiel speichert einige sich schneidende Linien in einem `Path2D`-Objekt. Die `fill()`-Methode wird dann verwendet, um das Objekt auf der Leinwand darzustellen. Ein Loch wird in der Mitte des Objekts unbefüllt gelassen, indem die Regel `"evenodd"` verwendet wird; standardmäßig (mit der Regel `"nonzero"`) würde das Loch ebenfalls gefüllt.
+In diesem Beispiel werden einige sich schneidende Linien in einem Path2D-Objekt gespeichert. Die `fill()`-Methode wird dann verwendet, um das Objekt auf die Leinwand zu rendern. In der Mitte des Objekts bleibt ein Loch ungefüllt, indem die Regel `"evenodd"` verwendet wird; standardmäßig (mit der `"nonzero"`-Regel) würde das Loch ebenfalls gefüllt werden.
 
 #### HTML
 

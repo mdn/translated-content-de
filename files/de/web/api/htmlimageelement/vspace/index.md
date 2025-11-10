@@ -3,24 +3,18 @@ title: "HTMLImageElement: vspace-Eigenschaft"
 short-title: vspace
 slug: Web/API/HTMLImageElement/vspace
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die _veraltete_ **`vspace`**-Eigenschaft des
-[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Anzahl der Pixel an, die oben und unten am {{HTMLElement("img")}}-Element als leerer Raum gelassen werden sollen, wenn die Seite dargestellt wird.
+Die _veraltete_ **`vspace`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Anzahl der Pixel an, die als leerer Raum oben und unten beim {{HTMLElement("img")}}-Element beim Seitenlayout leer gelassen werden sollen. Sie entspricht dem [`vspace`](/de/docs/Web/HTML/Reference/Elements/img#vspace)-Inhaltsattribut des `<img>`-Elements.
+
+Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("margin")}} oder deren Langform-Eigenschaften verwenden, um Abstände um ein Bild festzulegen.
 
 ## Wert
 
-Ein Ganzzahlwert, der die Höhe der vertikalen Abstände in Pixeln angibt, die auf die obere und untere Seite des Bildes angewendet werden sollen.
-
-## Anwendungshinweise
-
-Der für `vspace` angegebene Wert wird den {{cssxref("margin-top")}}- und {{cssxref("margin-bottom")}}-Eigenschaften zugeordnet, um die Höhe dieser Abstände in Pixeln festzulegen.
-
-> [!WARNING]
-> Diese Eigenschaft ist veraltet. Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("margin")}} und ihre Einzelwerte verwenden, um Abstände um ein `<img>` zu erstellen.
+Ein ganzzahliger Wert, der die Höhe in Pixeln des vertikalen Abstands angibt, der auf die oberen und unteren Seiten des Bildes angewendet werden soll.
 
 ## Spezifikationen
 
@@ -29,3 +23,8 @@ Der für `vspace` angegebene Wert wird den {{cssxref("margin-top")}}- und {{cssx
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- {{cssxref("margin")}}
+- [`HTMLImageElement.hspace`](/de/docs/Web/API/HTMLImageElement/hspace)

@@ -2,17 +2,15 @@
 title: Ruby
 slug: Glossary/Ruby
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Ruby** ist eine Open-Source-Programmiersprache. Im {{Glossary("world_wide_web", "Web")}}-Kontext wird Ruby häufig serverseitig mit dem _Ruby On Rails_ (ROR)-Framework verwendet, um Websites/Apps zu erstellen.
 
-**Ruby** ist eine Open-Source-Programmiersprache. Im {{Glossary("world_wide_web", "Web")}}-Kontext wird Ruby häufig serverseitig mit dem _Ruby On Rails_ (ROR) Framework verwendet, um Websites/Apps zu erstellen.
-
-Ruby ist auch eine Methode zur Anmerkung ostasiatischer Texte in HTML-Dokumenten, um Ausspracheinformationen bereitzustellen; siehe das {{HTMLElement("ruby")}} Element.
+Ruby ist auch eine Methode zur Annotation von ostasiatischen Texten in HTML-Dokumenten, um Ausspracheinformationen bereitzustellen; siehe das {{HTMLElement("ruby")}}-Element.
 
 ## Siehe auch
 
 - [Ruby](https://en.wikipedia.org/wiki/Ruby_%28programming_language%29) auf Wikipedia
-- [Offizielle Website von Ruby](https://www.ruby-lang.org/)
-- [Offizielle Website von Ruby On Rails](https://rubyonrails.org/)
+- [Offizielle Ruby-Website](https://www.ruby-lang.org/)
+- [Offizielle Ruby On Rails-Website](https://rubyonrails.org/)

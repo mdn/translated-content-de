@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.getModifierState()`**-Methode gibt den aktuellen Zustand der angegebenen Modifikatortaste zurück: `true`, wenn der Modifikator aktiv ist (d. h., die Modifikatortaste wird gedrückt oder ist gesperrt), andernfalls `false`.
+Die **`MouseEvent.getModifierState()`**-Methode gibt den aktuellen Zustand der angegebenen Modifikatortaste zurück: `true`, wenn der Modifikator aktiv ist (d.h. die Modifikatortaste wird gedrückt oder ist gesperrt), andernfalls `false`.
 
 Siehe [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState) für Details.
 

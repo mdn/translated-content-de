@@ -1,15 +1,16 @@
 ---
 title: Temporal.ZonedDateTime.prototype.until()
+short-title: until()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/until
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`until()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von diesem Datum-Uhrzeit-Wert zu einem anderen Datum-Uhrzeit-Wert (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist) darstellt. Die Dauer ist positiv, wenn der andere Datum-Uhrzeit-Wert nach diesem liegt, und negativ, wenn er davor liegt.
+Die **`until()`** Methode von Instanzen von {{jsxref("Temporal.ZonedDateTime")}} gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von diesem Datum und der Zeit bis zu einem anderen Datum und einer anderen Zeit darstellt (in einer Form, die mit {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn das andere Datum und die Zeit nach diesem liegen, und negativ, wenn davor.
 
-Diese Methode berechnet `other - this`. Um `this - other` zu berechnen, verwenden Sie die Methode {{jsxref("Temporal/ZonedDateTime/since", "since()")}}.
+Diese Methode führt `other - this` aus. Um `this - other` zu berechnen, verwenden Sie die {{jsxref("Temporal/ZonedDateTime/since", "since()")}} Methode.
 
 ## Syntax
 
@@ -21,13 +22,13 @@ until(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die ein Datum-Uhrzeit-Wert darstellt, von dem dieser Datum-Uhrzeit-Wert subtrahiert wird. Es wird mithilfe desselben Algorithmus zu einem `Temporal.ZonedDateTime`-Objekt konvertiert wie in {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}}. Es muss denselben Kalender wie `this` verwenden.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die ein Datum und eine Zeit darstellt, von der dieses Datum und diese Zeit subtrahiert werden sollen. Es wird in ein `Temporal.ZonedDateTime` Objekt umgewandelt, wobei der gleiche Algorithmus wie in {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} verwendet wird. Es muss denselben Kalender wie `this` haben.
 - `options` {{optional_inline}}
-  - : Die gleichen Optionen wie bei [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since#options).
+  - : Dieselben Optionen wie bei [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since#options).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer von diesem Datum-Uhrzeit-Wert _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum-Uhrzeit-Wert liegt, und negativ, wenn dies nicht der Fall ist.
+Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Datum und dieser Zeit _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum und dieser Zeit liegt, und negativ, wenn davor.
 
 ### Ausnahmen
 
@@ -35,7 +36,7 @@ Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer von diesem Datum
   - : Wird in einem der folgenden Fälle ausgelöst:
     - `other` hat einen anderen Kalender als `this`.
     - Eine der Optionen ist ungültig.
-    - `other` hat eine andere Zeitzone als `this`, und `largestUnit` ist `"days"` oder größer.
+    - `other` hat eine andere Zeitzone als `this`, und `largestUnit` ist `"days"` oder höher.
 
 ## Beispiele
 
@@ -55,7 +56,7 @@ const duration = now.until(flight, { largestUnit: "days" });
 console.log(`The flight is in ${duration.toLocaleString("en-US")}`);
 ```
 
-Für weitere Beispiele siehe [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since).
+Für weitere Beispiele, siehe [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/since).
 
 ## Spezifikationen
 

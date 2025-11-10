@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainTime.prototype.toString()
+short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/toString
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toString()`** Methode von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt einen String zurück, der diese Zeit im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format) repräsentiert.
+Die **`toString()`**-Methode von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt einen String zurück, der diese Zeit im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -21,15 +22,15 @@ toString(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das einige oder alle der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
     - `fractionalSecondDigits` {{optional_inline}}
-      - : Entweder eine Ganzzahl von 0 bis 9 oder der String `"auto"`. Der Standardwert ist `"auto"`. Wenn `"auto"`, werden nachgestellte Nullen von den Bruchteilen der Sekunden entfernt. Andernfalls enthält der Bruchteil der Sekundenkomponente so viele Ziffern, aufgefüllt oder abgerundet nach Bedarf.
+      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Die Standardeinstellung ist `"auto"`. Wenn `"auto"`, werden die nachfolgenden Nullen aus den Sekundenbruchteilen entfernt. Andernfalls enthält der Bruchteil des Sekunden-Anteils so viele Ziffern, aufgefüllt mit Nullen oder gerundet, wie nötig.
     - `roundingMode` {{optional_inline}}
-      - : Ein String, der angibt, wie die Bruchteile der Sekunden über `fractionalSecondDigits` hinaus gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Der Standardwert ist `"trunc"`.
+      - : Ein String, der angibt, wie die Sekundenbruchteile, die über `fractionalSecondDigits` hinausgehen, gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"trunc"`.
     - `smallestUnit` {{optional_inline}}
-      - : Ein String, der die kleinste Einheit angibt, die in der Ausgabe enthalten sein soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"`, oder ihre Pluralformen, die (außer `"minute"`) äquivalent zu `fractionalSecondDigits` Werten von `0`, `3`, `6`, `9` sind. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
+      - : Ein String, der die kleinste Einheit angibt, die in der Ausgabe enthalten sein soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"` oder ihre Pluralformen, die (außer `"minute"`) den `fractionalSecondDigits`-Werten von `0`, `3`, `6`, `9` entsprechen. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format), der diese Zeit darstellt.
+Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format), der diese Zeit darstellt.
 
 ### Ausnahmen
 

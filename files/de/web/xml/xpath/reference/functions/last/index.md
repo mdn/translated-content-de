@@ -2,10 +2,10 @@
 title: last
 slug: Web/XML/XPath/Reference/Functions/last
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die `last`-Funktion gibt eine Zahl zurück, die der Kontextgröße aus dem Auswertungskontext des Ausdrucks entspricht.
+Die `last`-Funktion gibt eine Zahl zurück, die der Kontextgröße aus dem Ausdrucksauswertungskontext entspricht.
 
 ## Syntax
 
@@ -15,15 +15,15 @@ last()
 
 ### Rückgabewert
 
-Ein Ganzzahlwert, der der Kontextgröße aus dem Auswertungskontext des Ausdrucks entspricht.
+Eine Ganzzahl, die der Kontextgröße aus dem Ausdrucksauswertungskontext entspricht.
 
 ## Beschreibung
 
-- Diese Funktion wird häufig zusammen mit der Funktion [position()](/de/docs/Web/XML/XPath/Reference/Functions/position) verwendet, um festzustellen, ob ein bestimmter Knoten der letzte in einer Knotenmenge ist.
+- Diese wird häufig mit der [position()](/de/docs/Web/XML/XPath/Reference/Functions/position) Funktion verwendet, um festzustellen, ob ein bestimmter Knoten der letzte in einem Knoten-Set ist.
 
 ## Spezifikationen
 
-[XPath 1.0 4.1](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-last)
+[XPath 1.0 4.1](https://www.w3.org/TR/xpath-10/#function-last)
 
 ## Gecko-Unterstützung
 

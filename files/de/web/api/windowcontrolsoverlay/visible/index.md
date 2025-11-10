@@ -1,23 +1,23 @@
 ---
-title: "WindowControlsOverlay: Eigenschaft visible"
+title: "WindowControlsOverlay: visible Eigenschaft"
 short-title: visible
 slug: Web/API/WindowControlsOverlay/visible
 l10n:
-  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
+  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
 ---
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`visible`**-Eigenschaft der [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle gibt einen {{Glossary("Boolean", "Boolean")}} zurück, der anzeigt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
+Die schreibgeschützte Eigenschaft **`visible`** des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interfaces gibt einen {{Glossary("Boolean", "Boolean")}} zurück, der anzeigt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
 
 Das Fenstersteuerungs-Overlay ist nicht sichtbar, wenn:
 
-- Das `display_override`-Mitglied des Web App Manifests nicht auf `window-controls-overlay` gesetzt ist.
-- Oder, wenn der Benutzer sich gegen diese Funktion entschieden hat.
+- Das Mitglied [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) des Web App Manifestes nicht auf `window-controls-overlay` gesetzt ist.
+- Oder, wenn der Benutzer sich gegen die Funktion entschieden hat.
 
 ## Wert
 
-Ein Boolean.
+Ein boolean.
 
 ## Beispiele
 
@@ -39,4 +39,4 @@ if (navigator.windowControlsOverlay.visible) {
 
 ## Siehe auch
 
-- Die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle, zu der sie gehört.
+- Das [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interface, zu dem es gehört.

@@ -3,18 +3,18 @@ title: "MouseEvent: clientY-Eigenschaft"
 short-title: clientY
 slug: Web/API/MouseEvent/clientY
 l10n:
-  sourceCommit: f452e53438ee1fc54baa7bf4eac147c354615702
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
 {{APIRef("UI Events")}}
 
-Die **`clientY`**-Schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces bietet die vertikale Koordinate innerhalb des {{Glossary("viewport", "Viewports")}} der Anwendung, an der das Ereignis aufgetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
+Die schreibgeschützte **`clientY`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die vertikale Koordinate innerhalb des {{Glossary("viewport", "Viewports")}} der Anwendung, an der das Ereignis eingetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
 
-Zum Beispiel wird ein Klick auf den oberen Rand des Viewports immer ein Mausereignis mit einem `clientY`-Wert von `0` ergeben, unabhängig davon, ob die Seite vertikal gescrollt ist oder nicht.
+Beispielsweise führt ein Klick auf den oberen Rand des Viewports immer zu einem Mausereignis mit einem `clientY`-Wert von `0`, unabhängig davon, ob die Seite vertikal gescrollt ist.
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixeln.
+Ein `double` Gleitkommawert in Pixeln.
 
 ## Beispiele
 
@@ -57,4 +57,4 @@ function logKey(e) {
 - [`MouseEvent`](/de/docs/Web/API/MouseEvent)
 - [`clientX`](/de/docs/Web/API/MouseEvent/clientX)
 - [`screenX`](/de/docs/Web/API/MouseEvent/screenX) / [`screenY`](/de/docs/Web/API/MouseEvent/screenY)
-- [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
+- [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)

@@ -2,10 +2,12 @@
 title: WebAssembly.CompileError() Konstruktor
 slug: WebAssembly/Reference/JavaScript_interface/CompileError/CompileError
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
 ---
 
-Der **`WebAssembly.CompileError()`** Konstruktor erstellt ein neues WebAssembly-`CompileError`-Objekt, das auf einen Fehler während des WebAssembly-Dekodierens oder der Validierung hinweist.
+Der **`WebAssembly.CompileError()`** Konstruktor erstellt ein neues
+WebAssembly `CompileError` Objekt, das auf einen Fehler während
+der WebAssembly-Dekodierung oder -Validierung hinweist.
 
 ## Syntax
 
@@ -22,9 +24,10 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler weiterzugeben, wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung gefangen und erneut geworfen wird.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+        Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler weiterzugeben, wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut ausgelöst wird.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -34,7 +37,8 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 
 ### Erstellen einer neuen CompileError-Instanz
 
-Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert deren Details in der Konsole:
+Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert deren
+Details in der Konsole:
 
 ```js
 try {
@@ -60,6 +64,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
-- [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [WebAssembly](/de/docs/WebAssembly) Übersicht
+- [WebAssembly Konzepte](/de/docs/WebAssembly/Guides/Concepts)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

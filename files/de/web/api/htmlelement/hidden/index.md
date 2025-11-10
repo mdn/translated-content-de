@@ -1,35 +1,35 @@
 ---
-title: "HTMLElement: versteckte Eigenschaft"
+title: "HTMLElement: hidden-Eigenschaft"
 short-title: hidden
 slug: Web/API/HTMLElement/hidden
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die [`HTMLElement`](/de/docs/Web/API/HTMLElement) Eigenschaft **`hidden`** spiegelt den Wert des `hidden` Attributs des Elements wider.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`hidden`** spiegelt den Wert des [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attributes des Elements wider.
 
 ## Wert
 
 Dieses Attribut kann einen von drei Werten haben:
 
 - `true`
-  - : Das Element ist verborgen.
+  - : Das Element ist versteckt.
 - `false`
-  - : Das Element ist nicht verborgen. Dies ist der Standardwert des Attributs.
+  - : Das Element ist nicht versteckt. Dies ist der Standardwert für das Attribut.
 - `"until-found"`
-  - : Das Element ist _verborgen, bis es gefunden wird_, was bedeutet, dass es versteckt ist, aber enthüllt wird, wenn es durch eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
+  - : Das Element ist _versteckt bis es gefunden wird_, das bedeutet, es ist verborgen, wird aber angezeigt, wenn es über eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
 
-Details zur Verwendung dieses Attributs finden Sie auf der Seite für das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden) HTML-Attribut, auf das sich diese Eigenschaft bezieht.
+Für Details zur Verwendung dieses Attributs siehe die Seite für das [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-HTML-Attribut, das diese Eigenschaft reflektiert.
 
 ## Beispiele
 
-Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine „Danke“-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, in dem ein versteckter Block verwendet wird, der eine 'Danke'-Nachricht enthält, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
 
 ### HTML
 
-Das HTML enthält zwei Bereiche: ein Willkommenspanel, das die Benutzer fragt, ob sie großartig sein möchten, und ein Folgepanel, das anfänglich versteckt ist.
+Das HTML enthält zwei Panels: ein Willkommens-Paneel, das die Nutzer auffordert, dem "awesome"-Sein zuzustimmen, und ein Folge-Paneel, das zunächst versteckt ist.
 
 ```html
 <div id="welcome" class="panel">
@@ -46,16 +46,16 @@ Das HTML enthält zwei Bereiche: ein Willkommenspanel, das die Benutzer fragt, o
 
 ### CSS
 
-Der Inhalt wird mit dem folgenden CSS gestaltet.
+Der Inhalt wird mit dem folgenden CSS gestylt.
 
 ```css
 .panel {
   font:
     16px "Open Sans",
-    Helvetica,
-    Arial,
+    "Helvetica",
+    "Arial",
     sans-serif;
-  border: 1px solid #22d;
+  border: 1px solid #2222dd;
   padding: 12px;
   width: 500px;
   text-align: center;
@@ -64,8 +64,8 @@ Der Inhalt wird mit dem folgenden CSS gestaltet.
 .button {
   font:
     22px "Open Sans",
-    Helvetica,
-    Arial,
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 5px 36px;
 }
@@ -78,17 +78,13 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Event-Listener zum "OK"-Button hinzu, der das "Willkommen"-Panel ausblendet und das "Großartig"-Panel anzeigt:
+Das JavaScript fügt einen Event-Listener für die "OK"-Schaltfläche hinzu, die das "welcome"-Panel ausblendet und das "awesome"-Panel zeigt:
 
 ```js
-document.getElementById("okButton").addEventListener(
-  "click",
-  () => {
-    document.getElementById("welcome").hidden = true;
-    document.getElementById("awesome").hidden = false;
-  },
-  false,
-);
+document.getElementById("okButton").addEventListener("click", () => {
+  document.getElementById("welcome").hidden = true;
+  document.getElementById("awesome").hidden = false;
+});
 ```
 
 ### Ergebnis
@@ -105,5 +101,5 @@ document.getElementById("okButton").addEventListener(
 
 ## Siehe auch
 
-- [hidden](/de/docs/Web/HTML/Global_attributes/hidden) Attribut
+- [hidden](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-Attribut
 - {{cssxref("display")}}

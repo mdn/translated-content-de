@@ -3,14 +3,14 @@ title: "SVGFESpotLightElement: y-Eigenschaft"
 short-title: y
 slug: Web/API/SVGFESpotLightElement/y
 l10n:
-  sourceCommit: 4d51a212bfda5ce9978d162caf5532d155f7eb0a
+  sourceCommit: 03482f82cba9c871042bbf4972b754f65eb3cb90
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) beschreibt die vertikale Koordinate der Position eines SVG-Filterprimitives als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber).
+Die schreibgeschützte **`y`**-Eigenschaft des [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)-Interfaces beschreibt die vertikale Koordinate der Position eines SVG-Filter-Primitivs als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber).
 
-Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("feSpotLight")}}-Elements wider, das zum Definieren der Lichtquelle in einem Spotlichteffekt verwendet werden kann. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Content_type#number). Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("y")}}-Attribut des {{SVGElement("feSpotLight")}}-Elements wider, das verwendet werden kann, um die Lichtquelle in einem Spotlichteffekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der Standardwert ist `0`.
 
 ## Wert
 

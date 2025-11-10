@@ -2,14 +2,12 @@
 title: Addition Assignment (+=)
 slug: Web/JavaScript/Reference/Operators/Addition_assignment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Addition Assignment (`+=`)** Operator führt [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) durch (entweder numerische Addition oder String-Konkatenation) auf den zwei Operanden und weist das Ergebnis dem linken Operanden zu.
 
-Der **Addition Assignment (`+=`)**-Operator führt eine [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) (entweder numerische Addition oder Stringverkettung) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Addition assignment operator")}}
+{{InteractiveExample("JavaScript Demo: Addition Assignment (+=) Operator")}}
 
 ```js interactive-example
 let a = 2;
@@ -30,7 +28,7 @@ x += y
 
 ## Beschreibung
 
-`x += y` ist gleichbedeutend mit `x = x + y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x += y` ist gleichwertig mit `x = x + y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -41,7 +39,7 @@ let bar = 5;
 bar += 2; // 7
 ```
 
-Andere nicht-String- und nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere nicht-String, nicht-BigInt-Werte werden zu Zahlen konvertiert:
 
 ```js
 let baz = true;

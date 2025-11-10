@@ -1,13 +1,11 @@
 ---
-title: Seitenladezeit
+title: Ladezeit der Seite
 slug: Glossary/Page_load_time
 l10n:
-  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Die **Seitenladezeit** ist die Zeit, die zum Laden einer Seite benötigt wird, gemessen vom [Navigation Start](/de/docs/Web/API/PerformanceTiming/navigationStart) bis zum [Beginn des Ladeereignisses](/de/docs/Web/API/PerformanceTiming/loadEventStart).
+**Ladezeit der Seite** ist die Zeit, die zum Laden einer Seite benötigt wird, gemessen vom [Start der Navigation](/de/docs/Web/API/PerformanceTiming/navigationStart) bis zum [Beginn des Ladeereignisses](/de/docs/Web/API/PerformanceTiming/loadEventStart).
 
 ```js
 let time = performance.timing;
@@ -15,10 +13,10 @@ let time = performance.timing;
 let pageloadTime = time.loadEventStart - time.navigationStart;
 ```
 
-Obwohl die Seitenladezeit wie die perfekte Web-Performance-Metrik klingt, ist sie es nicht. Die Ladezeiten können stark variieren, je nach Gerät, Netzbedingungen und in geringerem Maße der Entfernung zum Server. Die Entwicklungsumgebung, in der die Seitenladezeit gemessen wird, ist wahrscheinlich eine optimale Erfahrung und spiegelt nicht die Realität Ihrer Benutzer wider. Darüber hinaus geht es bei Web-Performance nicht nur darum, wann das Ladeereignis eintritt. Es geht auch um die {{Glossary("perceived_performance", "wahrgenommene Leistung")}}, Reaktionsfähigkeit, {{Glossary("jank", "Ruckeln")}} und Zittern.
+Obwohl die Ladezeit der Seite als die perfekte Web-Performance-Metrik erscheinen mag, ist sie es nicht. Die Ladezeiten können je nach Benutzer stark variieren, abhängig von den Fähigkeiten des Geräts, den Netzwerkbedingungen und, in geringerem Maße, der Entfernung zum Server. Die Entwicklungsumgebung, in der die Ladezeit der Seite gemessen wird, bietet wahrscheinlich ein optimales Erlebnis, das nicht die Realität Ihrer Benutzer widerspiegelt. Darüber hinaus geht es bei der Web-Performance nicht nur darum, wann das Ladeereignis eintritt. Es geht auch um die {{Glossary("perceived_performance", "wahrgenommene Leistung")}}, Reaktionsfähigkeit, {{Glossary("jank", "Jank")}} und Jitter.
 
 ## Siehe auch
 
-- [Navigation und Ressourcentiming](/de/docs/Web/Performance/Navigation_and_resource_timings)
+- [Navigations- und Ressourcentiming](/de/docs/Web/Performance/Guides/Navigation_and_resource_timings)
 - [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
 - [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming),

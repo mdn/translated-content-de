@@ -1,13 +1,12 @@
 ---
 title: Atomics.add()
+short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/add
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.add()`** addiert einen gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wurde.
+Die **`Atomics.add()`** statische Methode fügt an einer gegebenen Position im Array einen Wert hinzu und gibt den alten Wert an dieser Position zurück. Diese atomare Operation stellt sicher, dass kein anderer Schreibvorgang stattfindet, bis der geänderte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.add()")}}
 
@@ -34,11 +33,14 @@ Atomics.add(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eines der folgenden: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
+    {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der der `value` hinzugefügt werden soll.
+  - : Die Position im `typedArray`, an der ein `value` hinzugefügt wird.
 - `value`
-  - : Die hinzuzufügende Zahl.
+  - : Die Zahl, die hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -47,9 +49,9 @@ Der alte Wert an der angegebenen Position (`typedArray[index]`).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der zulässigen Integer-Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb des zulässigen Bereichs im `typedArray` liegt.
 
 ## Beispiele
 

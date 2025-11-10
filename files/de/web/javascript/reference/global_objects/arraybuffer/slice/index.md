@@ -1,15 +1,14 @@
 ---
 title: ArrayBuffer.prototype.slice()
+short-title: slice()
 slug: Web/JavaScript/Reference/Global_Objects/ArrayBuffer/slice
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`slice()`**-Methode von {{jsxref("ArrayBuffer")}} Instanzen gibt einen neuen `ArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `ArrayBuffer` von `start`, inklusive, bis `end`, exklusiv, ist. Wenn entweder `start` oder `end` negativ ist, bezieht es sich auf einen Index vom Ende des Arrays, im Gegensatz zum Anfang.
 
-Die **`slice()`**-Methode von {{jsxref("ArrayBuffer")}}-Instanzen gibt ein neues `ArrayBuffer` zurück, dessen Inhalt eine Kopie der Bytes dieses `ArrayBuffer` von `start` (einschließlich) bis `end` (ausschließlich) ist. Wenn `start` oder `end` negativ sind, beziehen sie sich auf einen Index vom Ende des Arrays aus, anstatt vom Anfang.
-
-{{InteractiveExample("JavaScript Demo: ArrayBuffer.slice()")}}
+{{InteractiveExample("JavaScript Demo: ArrayBuffer.prototype.slice()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -36,20 +35,20 @@ slice(start, end)
 ### Parameter
 
 - `start` {{optional_inline}}
-  - : Der nullbasierte Index, an dem die Extraktion beginnt, [konvertiert in eine ganze Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt rückwärts vom Ende des Buffers — wenn `-buffer.length <= start < 0`, wird `start + buffer.length` verwendet.
-    - Wenn `start < -buffer.length` oder `start` ausgelassen wird, wird `0` verwendet.
-    - Wenn `start >= buffer.length` ist, wird ein leerer Buffer zurückgegeben.
+  - : Index, bei dem die Extraktion beginnen soll, [umgewandelt in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Puffers zurück — wenn `-buffer.length <= start < 0`, wird `start + buffer.length` verwendet.
+    - Wenn `start < -buffer.length` oder `start` weggelassen wird, wird `0` verwendet.
+    - Wenn `start >= buffer.length`, wird ein leerer Puffer zurückgegeben.
 - `end` {{optional_inline}}
-  - : Der nullbasierte Index, an dem die Extraktion endet, [konvertiert in eine ganze Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
-    - Ein negativer Index zählt rückwärts vom Ende des Buffers — wenn `-buffer.length <= end < 0`, wird `end + buffer.length` verwendet.
-    - Wenn `end < -buffer.length` ist, wird `0` verwendet.
-    - Wenn `end >= buffer.length` oder `end` ausgelassen wird, wird `buffer.length` verwendet, wodurch alle Elemente bis zum Ende extrahiert werden.
-    - Wenn `end` eine Position impliziert, die vor oder an der Position liegt, die `start` impliziert, wird ein leerer Buffer zurückgegeben.
+  - : Index, bei dem die Extraktion enden soll, [umgewandelt in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
+    - Ein negativer Index zählt vom Ende des Puffers zurück — wenn `-buffer.length <= end < 0`, wird `end + buffer.length` verwendet.
+    - Wenn `end < -buffer.length`, wird `0` verwendet.
+    - Wenn `end >= buffer.length` oder `end` weggelassen wird oder `undefined` ist, wird `buffer.length` verwendet, was dazu führt, dass alle Elemente bis zum Ende extrahiert werden.
+    - Wenn `end` eine Position vor oder an der Position impliziert, die `start` impliziert, wird ein leerer Puffer zurückgegeben.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("ArrayBuffer")}}, das die extrahierten Elemente enthält. Es ist nicht [veränderbar](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/resizable), selbst wenn das Original veränderbar war.
+Ein neuer {{jsxref("ArrayBuffer")}}, der die extrahierten Elemente enthält. Er ist nicht [resizable](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/resizable), selbst wenn das Original es war.
 
 ## Beispiele
 

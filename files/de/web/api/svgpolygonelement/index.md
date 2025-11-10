@@ -18,7 +18,7 @@ _Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`SVGGeometryEl
 - [`SVGPolygonElement.animatedPoints`](/de/docs/Web/API/SVGPolygonElement/animatedPoints) {{ReadOnlyInline}}
   - : Eine [`SVGPointList`](/de/docs/Web/API/SVGPointList), die den animierten Wert des {{SVGAttr("points")}}-Attributs des Elements darstellt. Wenn das {{SVGAttr("points")}}-Attribut nicht animiert wird, enthält es denselben Wert wie die `points`-Eigenschaft.
 - [`SVGPolygonElement.points`](/de/docs/Web/API/SVGPolygonElement/points)
-  - : Eine [`SVGPointList`](/de/docs/Web/API/SVGPointList), die den Basiswert (d. h. den statischen Wert) des {{SVGAttr("points")}}-Attributs des Elements darstellt. Änderungen über das [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Objekt spiegeln sich im {{SVGAttr("points")}}-Attribut wider und umgekehrt.
+  - : Eine [`SVGPointList`](/de/docs/Web/API/SVGPointList), die den Basiswert (d.h. den statischen Wert) des {{SVGAttr("points")}}-Attributs des Elements darstellt. Änderungen über das [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Objekt spiegeln sich im {{SVGAttr("points")}}-Attribut wider und umgekehrt.
 
 ## Instanzmethoden
 

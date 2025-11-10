@@ -1,31 +1,30 @@
 ---
-title: Übersicht über Formen
+title: Überblick über Formen
+short-title: Overview
 slug: Web/CSS/CSS_shapes/Overview_of_shapes
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-{{CSSRef}}
+Das [CSS Shapes Modul](/de/docs/Web/CSS/Guides/Shapes) beschreibt geometrische Formen in CSS. Dieser Artikel bietet einen Überblick darüber, wie Sie Formen verwenden können, um Text um gefloatete Elemente zu wickeln, die nicht unbedingt rechteckig sind.
 
-Das [CSS Shapes Modul](/de/docs/Web/CSS/CSS_shapes) beschreibt geometrische Formen in CSS. Dieser Artikel bietet einen Überblick darüber, wie Sie Formen nutzen können, um Text um gefloatete Elemente zu platzieren, die nicht unbedingt rechteckig sind.
+Wenn Sie ein Element nach links fließen lassen, wickelt sich der Text auf rechteckige Weise um die rechte und untere Seite des Elements. Mit CSS-Formen können Sie beispielsweise eine Kreisform anwenden, und der Text wickelt sich um die Linie des Kreises.
 
-Wenn Sie ein Element nach links floaten, wird der Text auf der rechten und unteren Seite des Elements in rechteckiger Weise umflossen. Mit CSS-Formen können Sie zum Beispiel eine Kreisform anwenden, und der Text wird um die Linie des Kreises fließen.
-
-Es gibt mehrere Möglichkeiten, diesen Kreis zu erstellen. In diesem Leitfaden werden wir uns ansehen, wie CSS-Formen funktionieren und wie Sie sie verwenden können.
+Es gibt mehrere Möglichkeiten, diesen Kreis zu erstellen. In diesem Leitfaden schauen wir uns an, wie CSS Shapes funktionieren und wie man sie verwendet.
 
 ## Was definiert die Spezifikation?
 
-Die Spezifikation definiert einige Eigenschaften, darunter:
+Die Spezifikation definiert einige Eigenschaften, einschließlich:
 
-- {{cssxref("shape-outside")}} — Erlaubt die Definition grundlegender Formen.
-- {{cssxref("shape-image-threshold")}} — Legt einen Opazitätsschwellenwert fest. Wenn ein Bild verwendet wird, um eine Form zu definieren, werden nur die Teile des Bildes, die die gleiche Opazität oder höher als der Schwellenwert haben, in der Form verwendet. Alle anderen Teile werden ignoriert.
+- {{cssxref("shape-outside")}} — Ermöglicht die Definition grundlegender Formen.
+- {{cssxref("shape-image-threshold")}} — Legt einen Opazitätsschwellenwert fest. Wenn ein Bild zur Definition einer Form verwendet wird, werden nur die Teile des Bildes, die die gleiche Opazität oder höher als der Schwellenwert haben, in der Form verwendet. Alle anderen Teile werden ignoriert.
 - {{cssxref("shape-margin")}} — Setzt einen Rand um die definierte Form.
 
-## Grundformen definieren
+## Grundlegende Formen definieren
 
-Die `shape-outside`-Eigenschaft ermöglicht es uns, eine Form zu definieren. Sie akzeptiert verschiedene Werte, die unterschiedliche im {{cssxref("&lt;basic-shape&gt;")}} Datentyp spezifizierte Formen definieren.
+Die Eigenschaft `shape-outside` erlaubt es uns, eine Form zu definieren. Sie nimmt verschiedene Werte an, die verschiedene Formen definieren, die im {{cssxref("&lt;basic-shape&gt;")}} Datentyp angegeben sind.
 
-Im folgenden Beispiel wird ein Bild nach links gefloatet. Wir wenden die `shape-outside`-Eigenschaft mit einem `circle(50%)`-Wert an. Das Ergebnis ist, dass der Inhalt nun um die Kreisform herumfließt, anstatt dem Rechteck zu folgen, das durch den Kasten des Bildes erstellt wird.
+In dem folgenden Beispiel wird ein Bild nach links gefloatet. Wir wenden die Eigenschaft `shape-outside` mit dem Wert `circle(50%)` an. Das Ergebnis ist, dass der Inhalt nun um die Kreisform herum verläuft, anstatt dem Rechteck zu folgen, das durch den Rahmen des Bildes erzeugt wird.
 
 ```html live-sample___circle
 <div class="box">
@@ -59,11 +58,11 @@ img {
 
 {{EmbedLiveSample("circle", "", "280px")}}
 
-Hier haben wir die {{cssxref("basic-shape/circle", "circle()")}}-Funktion verwendet, die von allen modernen Browsern unterstützt wird. Wenn wir einen neueren Formtyp verwenden, der nicht vollständig unterstützt wird, würden Benutzer von nicht unterstützenden Browsern sehen, dass der Inhalt rechteckig um das Bild herumfließt, da das Bild gefloatet ist. Formen sind eine visuelle progressive Verbesserung.
+Hier haben wir die {{cssxref("basic-shape/circle", "circle()")}} Funktion verwendet, die in allen modernen Browsern unterstützt wird. Wenn wir einen neueren Formtyp verwenden, der nicht vollständig unterstützt wird, würden Benutzer von nicht unterstützten Browsern sehen, wie der Inhalt um die Seiten eines Rechtecks herumfließt, da das Bild gefloatet ist. Formen sind eine visuelle progressive Verbesserung.
 
-### Grundformen
+### Grundlegende Formen
 
-Der Wert `circle(50%)` ist ein Beispiel für eine Grundform. Die Spezifikation definiert mehrere `<basic-shape>` Werte, darunter:
+Der Wert `circle(50%)` ist ein Beispiel für eine grundlegende Form. Die Spezifikation definiert mehrere `<basic-shape>` Werte, darunter:
 
 - {{cssxref("basic-shape/circle","circle()")}}
 - {{cssxref("basic-shape/ellipse","ellipse()")}}
@@ -74,22 +73,22 @@ Der Wert `circle(50%)` ist ein Beispiel für eine Grundform. Die Spezifikation d
 - {{cssxref("basic-shape/shape","shape()")}}
 - {{cssxref("basic-shape/xywh","xywh()")}}
 
-Drei dieser Funktionen definieren nur Rechtecke. Mit der `inset()`-Funktion definieren Sie vier Versatzwerte und ziehen damit die Linienkästen des umfließenden Inhalts näher an das Objekt heran, als sie es sonst hätten. Die `rect()`-Funktion definiert ein Rechteck, indem der Abstand von den oberen und linken Kanten des umgebenden Blocks angegeben wird. Die `xywh()`-Funktion arbeitet, indem sie Abstände von den oberen und linken Kanten des Referenzfeldes angibt und die Breite und Höhe des Rechtecks von diesem Ausgangspunkt setzt.
+Drei dieser Funktionen definieren nur Rechtecke. Mit der Funktion `inset()` definieren Sie vier Versatzwerte, wodurch die Linienkästen des umgebenden Inhalts näher an das Objekt herangezogen werden, als sie es sonst wären. Die Funktion `rect()` definiert ein Rechteck, indem Sie den Abstand von den oberen und linken Kanten des enthaltenen Blocks angeben. Die Funktion `xywh()` funktioniert, indem Sie Abstände von den oberen und linken Kanten des Referenzkastens angeben und die Breite und Höhe des Rechtecks von diesem Ausgangspunkt festlegen.
 
-Wir haben bereits gesehen, wie `circle()` eine kreisförmige Form erstellt. Eine `ellipse()` ist im Wesentlichen ein zusammengedrückter Kreis. Wenn keine dieser einfachen Formen die gewünschte Wirkung erzielt, können Sie mit der `polygon()`-Funktion komplexere Formen erstellen, die es erlauben, eine Reihe von Linien zu definieren. Mit den Funktionen `path()` und `shape()` können SIE JEDE Form über eine Reihe von Linien-, Kurven- und Bewegungsbefehlen erstellen.
+Wir haben bereits gesehen, wie `circle()` eine Kreisform erzeugt. Eine `ellipse()` ist im Wesentlichen ein gestauchter Kreis. Wenn keine dieser grundlegenden Formen ausreicht, können Sie mit der Funktion `polygon()` komplexere Formen erstellen, die die Definition einer Reihe von Linien ermöglichen. Die Funktionen `path()` und `shape()` können verwendet werden, um JEDER Form über eine Serie von Linien-, Kurven- und Bewegungskommandos zu erstellen.
 
-In unserem [Leitfaden zu Grundformen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) erkunden wir jede der möglichen Grundformen und wie man sie erstellt.
+In unserem [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) erforschen wir jede der möglichen Grundformen und wie man sie erstellt.
 
-### Formen aus dem Boxwert
+### Formen aus dem Box-Wert
 
-Formen können auch um den Boxwert erstellt werden. Daher könnten Sie Ihre Form erstellen auf:
+Formen können auch um den Box-Wert erstellt werden. Sie könnten Ihre Form daher auf folgendem erstellen:
 
 - `border-box`
 - `padding-box`
 - `content-box`
 - `margin-box`
 
-Im folgenden Beispiel können Sie den Wert `border-box` auf einen der anderen erlaubten Werte ändern, um zu sehen, wie sich die Form näher an die Box oder weiter davon entfernt bewegt.
+Im untenstehenden Beispiel können Sie den Wert `border-box` in einen der anderen erlaubten Werte ändern, um zu sehen, wie sich die Form dem Kasten nähert oder weiter entfernt.
 
 ```html live-sample___box
 <div class="box">
@@ -127,15 +126,15 @@ body {
 
 {{EmbedLiveSample("box", "", "320px")}}
 
-Um die Boxwerte genauer zu untersuchen, lesen Sie unseren Leitfaden über [Formen aus Boxwerten](/de/docs/Web/CSS/CSS_shapes/From_box_values).
+Um die Box-Werte genauer zu erforschen, siehe unseren Leitfaden über [Formen aus Box-Werten](/de/docs/Web/CSS/Guides/Shapes/From_box_values).
 
 ### Formen aus Bildern
 
-Eine interessante Möglichkeit, Ihre Form zu erstellen, ist die Verwendung eines Bildes mit einem Alphakanal – der Text wird dann um die nicht-transparenten Teile des Bildes fließen. Dies ermöglicht das Überlagern von umflossenem Inhalt um ein Bild oder die Verwendung eines Bildes, das nie auf der Seite angezeigt wird, rein als Methode, um eine komplexe Form zu erstellen, ohne einen Polygon sorgfältig zu kartieren.
+Eine interessante Möglichkeit, Ihren Pfad zu erzeugen, besteht darin, ein Bild mit einem Alpha-Kanal zu verwenden — der Text wickelt sich dann um die nicht transparenten Teile des Bildes. Dies ermöglicht das Überlagern von eingewickeltem Inhalt um ein Bild oder die Verwendung eines Bildes, das niemals auf der Seite angezeigt wird, rein als Methode zur Erstellung einer komplexen Form, ohne dass ein Polygon sorgfältig kartiert werden muss.
 
-Beachten Sie, dass Bilder, die auf diese Weise verwendet werden, [CORS-kompatibel](/de/docs/Web/HTTP/CORS) sein müssen, andernfalls wird `shape-outside` so wirken, als ob `none` als Wert angegeben worden wäre, und Sie werden keine Form erhalten.
+Beachten Sie, dass Bilder, die auf diese Weise verwendet werden, [CORS-kompatibel](/de/docs/Web/HTTP/Guides/CORS) sein müssen, andernfalls wird `shape-outside` so behandelt, als wäre `none` als Wert angegeben worden, und Sie erhalten keine Form.
 
-Im nächsten Beispiel haben wir ein Bild mit einem vollständig transparenten Bereich, und wir verwenden ein Bild als URL-Wert für `shape-outside`. Die Form wird um den opaken Bereich erstellt – das Bild des Ballons.
+In diesem nächsten Beispiel haben wir ein Bild mit einem vollständig transparenten Bereich und verwenden ein Bild als URL-Wert für `shape-outside`. Die Form wird um den opaken Bereich — das Bild des Ballons — erstellt.
 
 ```html live-sample___image
 <div class="box">
@@ -163,7 +162,7 @@ body {
 
 img {
   float: left;
-  shape-outside: url(https://mdn.github.io/shared-assets/images/examples/round-balloon.png);
+  shape-outside: url("https://mdn.github.io/shared-assets/images/examples/round-balloon.png");
 }
 ```
 
@@ -171,9 +170,9 @@ img {
 
 #### `shape-image-threshold`
 
-Die `shape-image-threshold`-Eigenschaft wird verwendet, um den Schwellenwert der Bildtransparenz festzulegen, der zur Definition des Bereichs des Bildes verwendet wird, das für die Form verwendet wird. Ist der Wert von `shape-image-threshold` `0.0` (was der Ausgangswert ist), muss der Bereich vollständig transparent sein. Ist der Wert `1.0`, dann ist er vollständig opak. Werte dazwischen bedeuten, dass Sie einen halbtransparenten Bereich als den definierenden Bereich der Form festlegen können.
+Die Eigenschaft `shape-image-threshold` wird verwendet, um den Schwellenwert der Bildtransparenz festzulegen, der zur Definition des Bereichs des Bildes verwendet wird, der für die Form verwendet wird. Wenn der Wert von `shape-image-threshold` `0.0` (der Initialwert) ist, muss der Bereich vollständig transparent sein. Wenn der Wert `1.0` ist, ist er vollständig opak. Werte dazwischen bedeuten, dass Sie einen halbtransparenten Bereich als den definierenden Bereich der Form festlegen können.
 
-Sie können den Schwellenwert in Aktion sehen, wenn wir einen Verlauf als Bild verwenden, um unsere Form zu definieren. Im Beispiel unten ändert sich der Pfad, den die Form nimmt, je nach dem gewählten Grad der Opazität, wenn Sie den Schwellenwert ändern.
+Sie können den Schwellenwert in Aktion sehen, wenn wir einen Verlauf als das Bild verwenden, auf dem wir unsere Form definieren. Im untenstehenden Beispiel, wenn Sie den Schwellenwert ändern, ändert sich der Pfad, den die Form nimmt, basierend auf dem von Ihnen ausgewählten Grad an Opazität.
 
 ```html live-sample___threshold
 <div class="box">
@@ -219,13 +218,13 @@ body {
 
 {{EmbedLiveSample("threshold", "", "280px")}}
 
-Um mehr über das Erstellen von Formen aus Bildern zu erfahren, lesen Sie den [Leitfaden zu Formen aus Bildern](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images).
+Um mehr über das Erstellen von Formen aus Bildern zu erfahren, lesen Sie den [Leitfaden Formen aus Bildern](/de/docs/Web/CSS/Guides/Shapes/From_images).
 
 ## Die `shape-margin` Eigenschaft
 
-Die {{cssxref("shape-margin")}}-Eigenschaft fügt `shape-outside` einen Rand hinzu. Dies kürzt die Linienkästen jedes um die Form herumlaufenden Inhalts weiter ein und drückt ihn von der Form selbst weg.
+Die {{cssxref("shape-margin")}} Eigenschaft fügt dem `shape-outside` einen Rand hinzu. Dies verkürzt weiter die Linienkästen jedes Inhalts, der die Form umgibt, und drückt ihn von der Form selbst weg.
 
-Im Beispiel unten haben wir einer Grundform einen `shape-margin` hinzugefügt. Ändern Sie den Rand, um den Text weiter von dem Pfad wegzudrücken, den die Form standardmäßig nehmen würde.
+Im untenstehenden Beispiel haben wir einem Basic Shape eine `shape-margin` hinzugefügt. Ändern Sie den Rand, um den Text weiter von dem Pfad wegzudrücken, den die Form normalerweise nehmen würde.
 
 ```html live-sample___shape-margin
 <div class="box">
@@ -259,11 +258,11 @@ img {
 
 {{EmbedLiveSample("shape-margin", "", "280px")}}
 
-## Verwendung erzeugter Inhalte als Gefloatetes Element
+## Generierter Inhalt als das gefloatetem Element verwenden
 
-In den obigen Beispielen haben wir Bilder oder ein sichtbares Element verwendet, um die Form zu definieren, was bedeutet, dass Sie die Form auf der Seite sehen können. Stattdessen möchten Sie vielleicht, dass Text entlang einer nicht rechteckigen unsichtbaren Linie fließt. Wir könnten beispielsweise ein leeres, gefloatetes {{htmlelement("div")}} oder {{htmlelement("span")}}-Element zu unserem DOM hinzufügen und es unsichtbar machen. Allerdings können wir eine Form nur mit CSS erstellen, indem wir [generierte Inhalte](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content) verwenden und alle unsere Styling-Funktionalitäten in das CSS einfügen.
+In den obigen Beispielen haben wir Bilder oder ein sichtbares Element verwendet, um die Form zu definieren, was bedeutet, dass Sie die Form auf der Seite sehen können. Stattdessen möchten Sie möglicherweise einen Text entlang einer nicht-rechteckigen unsichtbaren Linie fließen lassen. Wir könnten beispielsweise ein leeres, gefloatetes {{htmlelement("div")}} oder {{htmlelement("span")}} Element zu unserem DOM hinzufügen und es unsichtbar machen. Wir können jedoch eine Form ausschließlich mit CSS unter Verwendung von [generiertem Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content) erstellen und alle unsere Stylings-Funktionalität innerhalb des CSS beibehalten.
 
-In diesem Beispiel verwenden wir generierte Inhalte, um ein Element mit einer Höhe und Breite von 150px einzufügen. Wir können dann Grundformen, Boxwerte oder sogar den Alphakanal eines Bildes verwenden, um eine Form zu erstellen, um die der Text fließt.
+In diesem Beispiel verwenden wir generierten Inhalt, um ein Element mit einer Höhe und Breite von 150px einzufügen. Wir können dann grundlegende Formen, Box-Werte oder sogar den Alpha-Kanal eines Bildes verwenden, um eine Form zu erstellen, um die der Text sich wickelt.
 
 ```html live-sample___generated-content
 <div class="box">
@@ -303,9 +302,9 @@ body {
 
 ## Beziehung zu `clip-path`
 
-Die Grundformen und Boxwerte, die zur Erzeugung von Formen verwendet werden, sind die gleichen, die auch als Werte für {{cssxref("clip-path")}} verwendet werden. Wenn Sie also eine Form mit einem Bild erstellen und auch einen Teil dieses Bildes ausschneiden möchten, können Sie die gleichen Werte verwenden.
+Die grundlegenden Formen und Box-Werte, die zur Erstellung von Formen verwendet werden, sind die gleichen wie die, die als Werte für {{cssxref("clip-path")}} verwendet werden. Daher, wenn Sie eine Form unter Verwendung eines Bildes erstellen und auch einen Teil dieses Bildes ausschneiden möchten, können Sie die gleichen Werte verwenden.
 
-Das Bild unten ist ein quadratisches Bild mit einem blauen Hintergrund. Wir haben eine Form mit `shape-outside: ellipse(40% 50%);` definiert und auch `clip-path: ellipse(40% 50%);` verwendet, um denselben Bereich auszuschneiden, den wir zur Definition der Form verwendet haben.
+Das untenstehende Bild ist ein quadratisches Bild mit einem blauen Hintergrund. Wir haben eine Form mit `shape-outside: ellipse(40% 50%);` definiert und auch `clip-path: ellipse(40% 50%);` verwendet, um den gleichen Bereich auszuschneiden, den wir verwendet haben, um die Form zu definieren.
 
 ```html live-sample___clip-path
 <div class="box">
@@ -340,10 +339,10 @@ img {
 
 {{EmbedLiveSample("clip-path", "", "280px")}}
 
-## Entwickler-Tools für Formen
+## Entwicklerwerkzeuge für Formen
 
-Es gibt einen [Shape Path Editor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) in den Firefox DevTools. Dieses Tool kann verwendet werden, um die `circle()`, `inset()`, `ellipse()` und `polygon()` Werte zu inspizieren. Wenn Ihr Polygon nicht ganz richtig ist, können Sie den Shapes Editor verwenden, um es anzupassen, und dann den neuen Wert in Ihr CSS kopieren.
+Es gibt einen [Shape Path Editor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) in den Firefox DevTools. Dieses Werkzeug kann verwendet werden, um die `circle()`, `inset()`, `ellipse()`, und `polygon()` Werte zu inspizieren. Wenn Ihr Polygon nicht ganz richtig ist, können Sie den Shapes Editor verwenden, um es anzupassen und dann den neuen Wert zurück in Ihr CSS kopieren.
 
-## Weitere CSS-Formen-Funktionen
+## Weitere CSS Shapes Funktionen
 
-In diesem Leitfaden haben wir über das Umfließen von Text um gefloatete Formen gesprochen. Sehen Sie sich das [CSS Shapes Modul](/de/docs/Web/CSS/CSS_shapes) für Links zu allen Modul-Funktionen sowie zusätzlichen verwandten Funktionen an. Dies schließt alle Formfunktionen und relevante Leitfäden ein.
+In diesem Leitfaden haben wir das Einwickeln von Text um gefloatete Formen besprochen. Sehen Sie sich das [CSS Shapes Modul](/de/docs/Web/CSS/Guides/Shapes) an, um Links zu allen Modul-Funktionen sowie zusätzliche verwandte Funktionen zu finden. Dazu gehören alle Formenfunktionen und relevante Leitfäden.

@@ -3,14 +3,14 @@ title: "SVGLineElement: x1-Eigenschaft"
 short-title: x1
 slug: Web/API/SVGLineElement/x1
 l10n:
-  sourceCommit: 7c67beb9a8a6fe5c80fb06bdc39737c4d713487e
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`x1`**-Eigenschaft des [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Interfaces liest, beschreibt den Start der SVG-Linie entlang der x-Achse als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das geometrische Attribut {{SVGElement("line")}} des {{SVGAttr("x1")}}-Elements wider.
+Die **`x1`** schreibgeschützte Eigenschaft der [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)-Schnittstelle beschreibt den Start der SVG-Linie entlang der x-Achse als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt das geometrische Attribut {{SVGAttr("x1")}} des {{SVGElement("line")}}-Elements wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Startposition als Länge entlang der x-Achse in Benutzereinheitensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist diese Startposition als Länge entlang der x-Achse in Benutzersystemkoordinateneinheiten.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Bei folgendem SVG:
+Gegeben das folgende SVG:
 
 ```html
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ Bei folgendem SVG:
 </svg>
 ```
 
-können wir auf die berechneten Werte der `x1`-Attribute zugreifen:
+Wir können auf die berechneten Werte der `x1`-Attribute zugreifen:
 
 ```js
 const lines = document.querySelectorAll("line");

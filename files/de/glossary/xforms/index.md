@@ -2,12 +2,10 @@
 title: XForms
 slug: Glossary/XForms
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**XForms** ist eine Konvention zum Erstellen von Webformularen und zur Verarbeitung von Formulardaten im {{Glossary("XML", "XML")}}-Format.
+**XForms** ist eine Konvention zum Erstellen von Webformularen und Verarbeiten von Formulardaten im {{Glossary("XML", "XML")}}-Format.
 
 > [!NOTE]
-> Kein großer Browser unterstützt XForms mehr—wir empfehlen stattdessen die Verwendung von [Webformularen](/de/docs/Learn_web_development/Extensions/Forms).
+> Kein großer Browser unterstützt XForms mehr — wir empfehlen stattdessen die Nutzung von [Webformularen](/de/docs/Learn_web_development/Extensions/Forms).

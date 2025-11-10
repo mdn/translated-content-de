@@ -1,35 +1,33 @@
 ---
-title: "USB: `requestDevice()` Methode"
+title: "USB: requestDevice()-Methode"
 short-title: requestDevice()
 slug: Web/API/USB/requestDevice
 l10n:
-  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
+  sourceCommit: e522944060c9b7b17c1a9f373ecf4503b8d14445
 ---
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`requestDevice()`** Methode des [`USB`](/de/docs/Web/API/USB)
-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von
-[`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird, wenn das angegebene Gerät gefunden wird. Durch das Aufrufen dieser Funktion wird der Kopplungsfluss des Benutzers ausgelöst.
+Die **`requestDevice()`**-Methode der [`USB`](/de/docs/Web/API/USB)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird, wenn das angegebene Gerät gefunden wird. Der Aufruf dieser Funktion löst den Pairing-Prozess des Benutzeragenten aus.
 
 ## Syntax
 
 ```js-nolint
-requestDevice(filters)
+requestDevice(options)
 ```
 
 ### Parameter
 
-- `filters`
-
-  - : Ein Array von Filterobjekten für mögliche Geräte, die Sie koppeln möchten. Jedes Filterobjekt kann die folgenden Eigenschaften haben:
-
-    - `vendorId`
-    - `productId`
-    - `classCode`
-    - `subclassCode`
-    - `protocolCode`
-    - `serialNumber`
+- `options`
+  - : Ein Objekt, das Optionen für die Auswahl eines geeigneten Geräts festlegt. Die verfügbaren Optionen sind:
+    - `filters`
+      - : Ein Array von Filterobjekten für mögliche Geräte, mit denen Sie eine Verbindung herstellen möchten. Jedes Filterobjekt kann die folgenden Eigenschaften haben:
+        - `vendorId`
+        - `productId`
+        - `classCode`
+        - `subclassCode`
+        - `protocolCode`
+        - `serialNumber`
 
 ### Rückgabewert
 
@@ -37,13 +35,13 @@ Ein {{JSxRef("Promise")}}, das mit einer Instanz von [`USBDevice`](/de/docs/Web/
 
 ## Sicherheit
 
-[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Eine [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Das folgende Beispiel sucht nach einem von zwei USB-Geräten. Beachten Sie, dass zwei Produkt-IDs angegeben sind. Beide werden an `requestDevice()` übergeben. Dies löst einen Benutzer-Agenten-Fluss aus, der den Benutzer auffordert, ein Gerät zur Kopplung auszuwählen. Nur das ausgewählte Gerät wird an `then()` übergeben.
+Das folgende Beispiel sucht nach einem von zwei USB-Geräten. Beachten Sie, dass zwei Produkt-IDs angegeben sind. Beide werden an `requestDevice()` übergeben. Dies löst einen Benutzeragenten-Prozess aus, der den Benutzer auffordert, ein Gerät zur Kopplung auszuwählen. Nur das ausgewählte Gerät wird an `then()` übergeben.
 
-Die Anzahl der Filter gibt nicht die Anzahl der vom Benutzer-Agenten angezeigten Geräte an. Wenn beispielsweise nur ein USB-Gerät mit der Produkt-ID `0xa800` gefunden wird, wird nur ein Gerät vom Benutzer-Agenten aufgelistet. Wenn der Benutzer-Agent jedoch zwei der zuerst aufgeführten Geräte und eines des zweiten findet, werden alle drei Geräte aufgelistet.
+Die Anzahl der Filter gibt nicht die Anzahl der vom Benutzeragenten angezeigten Geräte an. Wenn beispielsweise nur ein USB-Gerät mit der Produkt-ID `0xa800` gefunden wird, wird nur ein Gerät vom Benutzeragenten aufgelistet. Wenn der Benutzeragent jedoch zwei der zuerst gelisteten Geräte und eines des zweiten findet, werden alle drei Geräte aufgelistet.
 
 ```js
 const filters = [

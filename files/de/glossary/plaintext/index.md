@@ -1,12 +1,10 @@
 ---
-title: Plaintext
+title: Klartext
 slug: Glossary/Plaintext
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Klartext bezieht sich auf Informationen, die als Eingabe für einen {{Glossary("encryption", "Verschlüsselungsalgorithmus")}} verwendet werden, oder auf {{Glossary("ciphertext", "Chiffretext")}}, der entschlüsselt wurde.
 
-Plaintext bezeichnet Informationen, die als Eingabe für einen {{Glossary("encryption", "Verschlüsselungs")}} {{Glossary("algorithm", "algorithmus")}} verwendet werden, oder zu {{Glossary("ciphertext", "Chiffretext")}}, der entschlüsselt wurde.
-
-Der Begriff wird häufig austauschbar mit dem Begriff _Klartext_ verwendet, der allgemeiner jede Information bezeichnet, wie ein Textdokument, Bild usw., die nicht verschlüsselt wurde und von einem Menschen oder Computer ohne zusätzliche Verarbeitung gelesen werden kann.
+Es wird häufig austauschbar mit dem Begriff _Cleartext_ verwendet, der allgemein auf jegliche Informationen verweist, wie ein Textdokument, Bild usw., die nicht verschlüsselt sind und ohne zusätzliche Verarbeitung von einem Menschen oder Computer gelesen werden können.

@@ -3,14 +3,14 @@ title: "SVGAnimatedInteger: animVal-Eigenschaft"
 short-title: animVal
 slug: Web/API/SVGAnimatedInteger/animVal
 l10n:
-  sourceCommit: bc7875d9a6c405e47c6ee166b5acc2174515129f
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`animVal`**-Eigenschaft der Schnittstelle [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger) repräsentiert den animierten Wert eines [`<integer>`](/de/docs/Web/SVG/Content_type#integer). Falls keine Animation angewendet wird, entspricht `animVal` dem `baseVal`.
+Die **`animVal`**-Eigenschaft der Schnittstelle [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger) repräsentiert den animierten Wert eines [`<integer>`](/de/docs/Web/SVG/Guides/Content_type#integer). Wenn keine Animation angewendet wird, entspricht `animVal` `baseVal`.
 
-Einige Attribute, wie das {{SVGAttr("numOctaves")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements oder das {{SVGAttr("order")}}-Attribut des {{SVGElement("feConvolveMatrix")}}-Elements akzeptieren einen `long`-Integer als Wert. Diese Eigenschaft bietet den Zugriff auf den aktuellen animierten Zustand des Attributs als Zahl.
+Einige Attribute, wie das {{SVGAttr("numOctaves")}}-Attribut des {{SVGElement("feTurbulence")}}-Elements oder das {{SVGAttr("order")}}-Attribut des {{SVGElement("feConvolveMatrix")}}-Elements akzeptieren einen `long`-Integer als Wert. Diese Eigenschaft bietet Zugriff auf den aktuellen animierten Zustand des Attributs als eine Zahl.
 
 ## Wert
 
@@ -41,6 +41,6 @@ console.log(animatedInteger.animVal); // Output: 4 (the current animated value)
 
 ## Siehe auch
 
-- [`<integer>`](/de/docs/Web/SVG/Content_type#integer)
+- [`<integer>`](/de/docs/Web/SVG/Guides/Content_type#integer)
 - {{SVGAttr("numOctaves")}}
 - {{SVGAttr("order")}}

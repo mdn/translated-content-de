@@ -2,14 +2,12 @@
 title: "SyntaxError: Unerwartetes '#' außerhalb des Klassenkörpers verwendet"
 slug: Web/JavaScript/Reference/Errors/Hash_outside_class
 l10n:
-  sourceCommit: 41cddfdaeed4a73fb8234c332150df8e54df31e9
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Fehler "Unerwartetes '#' außerhalb des Klassenkörpers verwendet" tritt auf, wenn ein Hash-Zeichen ("#") in einem unerwarteten Kontext, insbesondere [außerhalb einer Klassendeklaration](/de/docs/Web/JavaScript/Reference/Classes/Private_elements), auftritt. Hash-Zeichen sind am Anfang einer Datei als [Hashbang-Kommentar](/de/docs/Web/JavaScript/Reference/Lexical_grammar) zulässig oder innerhalb einer Klasse als Teil eines privaten Feldes. Dieser Fehler kann auch auftreten, wenn die Anführungszeichen beim Zugriff auf einen DOM-Identifier vergessen werden.
 
-Der JavaScript-Ausnahmefehler "Unerwartetes '#' außerhalb des Klassenkörpers verwendet" tritt auf, wenn ein Hashzeichen ("#") in einem unerwarteten Kontext gefunden wird, insbesondere [außerhalb einer Klassendeklaration](/de/docs/Web/JavaScript/Reference/Classes/Private_properties). Hashzeichen sind am Anfang einer Datei als [Hashbang-Kommentar](/de/docs/Web/JavaScript/Reference/Lexical_grammar) oder innerhalb einer Klasse als Teil eines privaten Feldes gültig. Dieser Fehler kann auftreten, wenn Sie die Anführungszeichen vergessen, während Sie versuchen, auf eine DOM-Kennung zuzugreifen.
-
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Unexpected '#' used outside of class body.
@@ -21,13 +19,13 @@ SyntaxError: Unexpected '#' used outside of class body.
 
 ## Was ist schiefgelaufen?
 
-Wir haben ein `#` an einem unerwarteten Ort gefunden. Dies kann darauf zurückzuführen sein, dass Code verschoben wurde und nicht mehr Teil einer Klasse ist, ein Hashbang-Kommentar, der sich nicht in der ersten Zeile einer Datei befindet, oder dass die Anführungszeichen um eine DOM-Kennung versehentlich vergessen wurden.
+Wir haben irgendwo ein unerwartetes `#` entdeckt. Dies kann darauf zurückzuführen sein, dass Code verschoben wurde und nicht mehr Teil einer Klasse ist, ein Hashbang-Kommentar auf einer anderen als der ersten Zeile einer Datei gefunden wurde oder die Anführungszeichen um einen DOM-Identifier versehentlich vergessen wurden.
 
 ## Beispiele
 
 ### Fehlende Anführungszeichen
 
-In jedem Fall könnte etwas leicht falsch sein. Zum Beispiel
+In jedem Fall könnte es einen kleinen Fehler geben. Zum Beispiel
 
 ```js-nolint example-bad
 document.querySelector(#some-element)

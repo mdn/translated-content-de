@@ -3,21 +3,21 @@ title: "XMLHttpRequest: statusText-Eigenschaft"
 short-title: statusText
 slug: Web/API/XMLHttpRequest/statusText
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte **`XMLHttpRequest.statusText`**-Eigenschaft gibt eine Zeichenkette zurück, die die Statusmeldung der Antwort enthält, wie sie vom HTTP-Server zurückgegeben wird. Im Gegensatz zu [`XMLHTTPRequest.status`](/de/docs/Web/API/XMLHttpRequest/status), das einen numerischen Statuscode angibt, enthält diese Eigenschaft den _Text_ des Antwortstatus, wie "OK" oder "Not Found". Befindet sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) der Anfrage im `UNSENT`- oder `OPENED`-Zustand, wird der Wert von `statusText` eine leere Zeichenkette sein.
+Die schreibgeschützte **`XMLHttpRequest.statusText`**-Eigenschaft gibt einen String zurück, der die Statusnachricht der Antwort enthält, wie sie vom HTTP-Server zurückgegeben wurde. Im Gegensatz zu [`XMLHttpRequest.status`](/de/docs/Web/API/XMLHttpRequest/status), das einen numerischen Statuscode angibt, enthält diese Eigenschaft den _Text_ des Antwortstatus, wie "OK" oder "Not Found". Wenn sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) der Anfrage im `UNSENT`- oder `OPENED`-Zustand befindet, wird der Wert von `statusText` ein leerer String sein.
 
-Wenn die Serverantwort keinen Status-Text explizit angibt, nimmt `statusText` den Standardwert "OK" an.
+Falls die Serverantwort keinen Status-Text explizit angibt, nimmt `statusText` den Standardwert "OK" an.
 
 > [!NOTE]
-> Antworten über eine HTTP/2-Verbindung werden immer eine leere Zeichenkette als Statusnachricht haben, da HTTP/2 diese nicht unterstützt.
+> Antworten über eine HTTP/2-Verbindung haben immer einen leeren String als Statusnachricht, da HTTP/2 diese nicht unterstützt.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
@@ -58,6 +58,6 @@ xhr.send(null);
 
 ## Siehe auch
 
-- Liste der [HTTP-Status](/de/docs/Web/HTTP/Status)
+- Liste der [HTTP-Status](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP](/de/docs/Web/HTTP)
 - [WHATWG Fetch Living Standard](https://fetch.spec.whatwg.org/#concept-response-status-message)

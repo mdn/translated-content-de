@@ -2,12 +2,10 @@
 title: ALPN
 slug: Glossary/ALPN
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Application-Layer Protocol Negotiation** (**ALPN**) ist eine {{Glossary("TLS", "TLS")}}-Erweiterung (definiert in [RFC 7301](https://www.rfc-editor.org/rfc/rfc7301)) zur Identifizierung des Anwendungsschichtprotokolls, das die verschlüsselte Verbindung aushandelt, ohne dass zusätzliche Roundtrips erforderlich sind.
+**Application-Layer Protocol Negotiation** (**ALPN**) ist eine {{Glossary("TLS", "TLS")}}-Erweiterung (definiert in [RFC 7301](https://www.rfc-editor.org/rfc/rfc7301)) zur Identifizierung, welches Anwendungsprotokoll die verschlüsselte Verbindung aushandelt, ohne zusätzliche Roundtrips zu erfordern.
 
 | Protokoll                                       | Identifikationssequenz                                 |
 | ----------------------------------------------- | ------------------------------------------------------ |
@@ -18,6 +16,6 @@ l10n:
 
 ## Siehe auch
 
-- [`nextHopProtocol` Leistungsressourcentiming](/de/docs/Web/API/PerformanceResourceTiming/nextHopProtocol) Eigenschaft
+- [Performance resource timing `nextHopProtocol`](/de/docs/Web/API/PerformanceResourceTiming/nextHopProtocol) Eigenschaft
 - [PerformanceObserver API](/de/docs/Web/API/PerformanceObserver)
-- [Von der IANA registrierte ALPN-Identifikatoren](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids)
+- [Von IANA registrierte ALPN-Identifikatoren](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids)

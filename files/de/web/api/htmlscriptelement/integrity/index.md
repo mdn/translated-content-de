@@ -3,12 +3,12 @@ title: "HTMLScriptElement: integrity-Eigenschaft"
 short-title: integrity
 slug: Web/API/HTMLScriptElement/integrity
 l10n:
-  sourceCommit: 49d15be653576c5f73ec527ee976c5881171b53c
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`integrity`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, dass eine abgefragte Ressource ohne unerwartete Manipulationen geliefert wurde.
+Die **`integrity`**-Eigenschaft der Schnittstelle [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, dass eine abgerufene Ressource ohne unerwartete Manipulationen bereitgestellt wurde.
 
 Sie spiegelt das `integrity`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -22,7 +22,6 @@ Ein String.
 <script
   id="el"
   src="https://example.com/example-framework.js"
-  type="text/javascript"
   integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
   crossorigin="anonymous"></script>
 ```

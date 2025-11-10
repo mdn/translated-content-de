@@ -3,14 +3,14 @@ title: "WEBGL_lose_context: loseContext() Methode"
 short-title: loseContext()
 slug: Web/API/WEBGL_lose_context/loseContext
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebGL")}}
 
-Die **WEBGL_lose_context.loseContext()**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht Ihnen eine Simulation des Verlusts des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontextes.
+Die **WEBGL_lose_context.loseContext()** Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, das Verlieren des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) zu simulieren.
 
-Es löst die Schritte aus, die in der WebGL-Spezifikation zur Handhabung von verlorenem Kontext beschrieben sind. Der Kontext bleibt verloren, bis [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext) aufgerufen wird.
+Sie löst die in der WebGL-Spezifikation beschriebenen Schritte zur Behandlung eines verlorenen Kontextes aus. Der Kontext bleibt verloren, bis [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext) aufgerufen wird.
 
 ## Syntax
 
@@ -36,13 +36,9 @@ Ereignis simulieren:
 const canvas = document.getElementById("canvas");
 const gl = canvas.getContext("webgl");
 
-canvas.addEventListener(
-  "webglcontextlost",
-  (e) => {
-    console.log(e);
-  },
-  false,
-);
+canvas.addEventListener("webglcontextlost", (e) => {
+  console.log(e);
+});
 
 gl.getExtension("WEBGL_lose_context").loseContext();
 

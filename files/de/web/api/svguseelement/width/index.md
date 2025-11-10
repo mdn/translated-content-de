@@ -3,14 +3,14 @@ title: "SVGUseElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGUseElement/width
 l10n:
-  sourceCommit: 6fbc4d2771113be094b8dd7181891a62096626cb
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft der [`SVGUseElement`](/de/docs/Web/API/SVGUseElement)-Schnittstelle beschreibt die Breite des referenzierten Elements als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("width")}}-Attributs auf dem {{SVGElement("use")}}-Element wider.
+Die **`width`** Lese-Schreibeigenschaft der [`SVGUseElement`](/de/docs/Web/API/SVGUseElement)-Schnittstelle beschreibt die Breite des referenzierten Elements als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("width")}}-Attributs auf dem {{SVGElement("use")}}-Element wider.
 
-Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die Breite des referenzierten Elements im Benutzerkoordinatensystem.
+Der Attributwert ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert von [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die Breite des referenzierten Elements im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiele
 
-Angenommen, das folgende SVG:
+Gegeben folgendes SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

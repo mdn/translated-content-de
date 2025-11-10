@@ -1,14 +1,14 @@
 ---
-title: "RTCRtpReceiver: Methode getSynchronizationSources()"
+title: "RTCRtpReceiver: getSynchronizationSources() Methode"
 short-title: getSynchronizationSources()
 slug: Web/API/RTCRtpReceiver/getSynchronizationSources
 l10n:
-  sourceCommit: 9716100b38b40f0f2ee8b3bfa2c692958868c5a6
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebRTC API")}}
 
-Die **`getSynchronizationSources()`** Methode des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) Interfaces gibt ein Array von Objekten zurück, die jeweils einer SSRC (Synchronisationsquelle) entsprechen, die vom aktuellen `RTCRtpReceiver` in den letzten zehn Sekunden empfangen wurde.
+Die **`getSynchronizationSources()`** Methode des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) Interface gibt ein Array von Objekten zurück, die jeweils einem SSRC (Synchronisationsquellen)-Identifier entsprechen, der in den letzten zehn Sekunden von dem aktuellen `RTCRtpReceiver` empfangen wurde.
 
 ## Syntax
 
@@ -27,27 +27,27 @@ Diese Objekte enthalten die folgenden Eigenschaften:
 
 - `audioLevel`
 
-  - : Ein Gleitkommawert zwischen 0,0 und 1,0, der den Audiopegel angibt, der im letzten von der Synchronisationsquelle gespielten RTP-Paket enthalten ist.
+  - : Ein Gleitkommawert zwischen 0,0 und 1,0, der den Audiopegel des letzten RTP-Pakets angibt, das von der Synchronisationsquelle abgespielt wurde.
 
-    Der Wert ist linear skaliert und wird in Einheiten von dBov oder Dezibel (Übersteuerung) definiert.
-    Dies ist die Amplitude relativ zu dem Punkt, an dem die Übersteuerung des Audios aufzutreten beginnt.
-    Ein Wert von 1,0 repräsentiert 0 dBov (maximale Lautstärke), ein Wert von 0,0 repräsentiert Stille, und ein Wert von 0,5 repräsentiert eine Änderung des Schalldruckpegels um etwa 6 dB SPL (Dezibel des Schalldruckpegels) von 0 dBov.
+    Der Wert ist auf einer linearen Skala definiert und in Einheiten von dBov, oder Dezibel (Übersteuerung), angegeben.
+    Dies ist die Amplitude relativ zu dem Punkt, an dem das Clipping des Audios beginnt zu erfolgen.
+    Ein Wert von 1,0 entspricht 0 dBov (maximale Lautstärke), ein Wert von 0,0 entspricht Stille, und ein Wert von 0,5 entspricht ungefähr einer Änderung des Schalldruckpegels um 6 dB SPL (Dezibel des Schalldruckpegels) vom 0 dBov aus.
 
     Dieser Wert ist erforderlich und immer vorhanden.
 
 - `rtpTimestamp` {{optional_inline}}
 
-  - : Der RTP-Zeitstempel (ein Ganzzahlenwert [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) des Mediums.
-    Dieser von der Quelle generierte Zeitstempel gibt die Zeit an, zu der das Medium in diesem Paket, das zur Wiedergabe zu der von `timestamp` angegebenen Zeit geplant ist, ursprünglich abgetastet oder erzeugt wurde.
-    Dies kann für Sequenzierungs- und Synchronisationszwecke nützlich sein.
+  - : Der RTP-Zeitstempel (ein ganzzahliger [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) der Medien.
+    Dieser durch die Quelle erzeugte Zeitstempel gibt die Zeit an, zu der die Medien in diesem Paket, die zum Zeitpunkt, der durch `timestamp` angezeigt wird, ausgespielt werden sollen, ursprünglich abgetastet oder erzeugt wurden.
+    Er kann für Sequenzierungs- und Synchronisationszwecke nützlich sein.
 
 - `source` {{optional_inline}}
 
-  - : Ein positiver Ganzzahlenwert, der die SSRC-Kennung der Synchronisationsquelle angibt.
-    Dies identifiziert eindeutig die Quelle der spezifischen RTP-Paketströme.
+  - : Ein positiver Ganzzahlwert, der den SSRC-Identifier der Synchronisationsquelle angibt.
+    Dieser identifiziert eindeutig die Quelle der bestimmten Stream-RTP-Pakete.
 
 - `timestamp` {{optional_inline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die letzte Zeit angibt, zu der ein von dieser Quelle stammendes Frame an den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) des Empfängers geliefert wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die zuletzt erfolgte Zeit angibt, zu der ein von dieser Quelle stammender Frame an den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) des Empfängers geliefert wurde.
 
 ## Spezifikationen
 

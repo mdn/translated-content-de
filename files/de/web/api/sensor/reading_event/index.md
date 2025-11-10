@@ -1,25 +1,25 @@
 ---
-title: "Sensor: reading Ereignis"
+title: "Sensor: reading-Event"
 short-title: reading
 slug: Web/API/Sensor/reading_event
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Das **`reading`** Ereignis wird ausgelöst, wenn eine neue Messung auf einem Sensor verfügbar ist.
+Das **`reading`**-Event wird ausgelöst, wenn eine neue Messung an einem Sensor verfügbar ist.
 
-Das [`Sensor`](/de/docs/Web/API/Sensor)-Interface ist eine Basisklasse. `onreading` und das `reading`-Ereignis können nur in einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
+Das [`Sensor`](/de/docs/Web/API/Sensor)-Interface ist eine Basisklasse, `onreading` und das `reading`-Event können nur auf einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("reading", (event) => {});
+```js-nolint
+addEventListener("reading", (event) => { })
 
-onreading = (event) => {};
+onreading = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,9 +28,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschafte
 
 ## Beispiele
 
-### Beschleunigung lesen
+### Beschleunigung messen
 
-Dieses Beispiel fügt einen Ereignislistener hinzu, um Beschleunigungswerte eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) zu lesen. Es liest sechzig Mal pro Sekunde.
+Dieses Beispiel fügt einen Ereignislistener hinzu, um die Beschleunigungswerte eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) zu lesen. Es liest sechzig Mal pro Sekunde.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });
@@ -52,5 +52,5 @@ acl.start();
 
 ## Siehe auch
 
-- Sensor [`activate`](/de/docs/Web/API/Sensor/activate_event) Ereignis
-- Sensor [`error`](/de/docs/Web/API/Sensor/error_event) Ereignis
+- Sensor [`activate`](/de/docs/Web/API/Sensor/activate_event)-Event
+- Sensor [`error`](/de/docs/Web/API/Sensor/error_event)-Event

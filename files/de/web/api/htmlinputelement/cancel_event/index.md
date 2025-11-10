@@ -3,23 +3,23 @@ title: "HTMLInputElement: cancel event"
 short-title: cancel
 slug: Web/API/HTMLInputElement/cancel_event
 l10n:
-  sourceCommit: d2421d25d1676cc11b01cc4981061e4d0aa78e95
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`cancel`** Ereignis wird auf einem {{HTMLElement("input")}} Element ausgelöst, wenn der Benutzer das Dateiauswahldialogfeld über die <kbd>Esc</kbd>-Taste oder die Abbrechen-Schaltfläche schließt und wenn der Benutzer dieselben Dateien erneut auswählt, die zuvor mit `type="file"` ausgewählt wurden.
+Das **`cancel`** Ereignis wird auf einem {{HTMLElement("input")}} Element ausgelöst, wenn der Benutzer den Dateiauswahldialog über die <kbd>Esc</kbd>-Taste oder die Abbrechen-Schaltfläche abbricht und wenn derselbe bereits ausgewählte Datei erneut ausgewählt wird, bei `type="file"`.
 
-Dieses Ereignis kann nicht abgebrochen werden, kann jedoch weitergegeben werden.
+Dieses Ereignis kann nicht abgebrochen werden, kann jedoch bubble.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("cancel", (event) => {});
+```js-nolint
+addEventListener("cancel", (event) => { })
 
-oncancel = (event) => {};
+oncancel = (event) => { }
 ```
 
 ## Ereignistyp
@@ -57,7 +57,7 @@ elem.addEventListener("cancel", () => {
 });
 
 elem.addEventListener("change", () => {
-  if (elem.files.length == 1) {
+  if (elem.files.length === 1) {
     result.textContent = "File Selected.";
   }
 });
@@ -67,7 +67,7 @@ elem.addEventListener("change", () => {
 
 {{ EmbedLiveSample('Canceling an input element', '100%', '100px') }}
 
-Öffnen Sie den Dateiauswahldialog und schließen Sie ihn dann mit der Escape-Taste oder der Abbrechen-Schaltfläche. Beide Aktionen lösen das Cancel-Ereignis aus. Versuchen Sie auch, eine lokale Datei auf Ihrem Computer auszuwählen; öffnen Sie dann das Dateiauswahlfenster erneut und wählen Sie dieselbe Datei erneut aus. Auch dies löst das Cancel-Ereignis aus.
+Öffnen Sie den Dateiauswahldialog und schließen Sie dann das Auswahldialogfeld mit der Escape-Taste oder der Abbrechen-Schaltfläche. Beide Aktionen lösen das cancel-Ereignis aus. Versuchen Sie auch, eine lokale Datei auf Ihrem Rechner auszuwählen; öffnen Sie dann das Dateiauswahlfenster erneut und wählen Sie dieselbe Datei erneut aus. Auch dies löst das cancel-Ereignis aus.
 
 ## Spezifikationen
 

@@ -3,21 +3,21 @@ title: "HTMLInputElement: selectionEnd-Eigenschaft"
 short-title: selectionEnd
 slug: Web/API/HTMLInputElement/selectionEnd
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: e970f0765da11f7a6461cdb6693c40a39ecb6934
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionEnd`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist eine Zahl, die das End-Index des ausgewählten Textes darstellt. Wenn keine Auswahl besteht, gibt sie den Offset des Zeichens unmittelbar nach der aktuellen Cursorposition im Texteingabefeld zurück.
+Die **`selectionEnd`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle ist eine Zahl, die den Endindex des ausgewählten Textes darstellt. Das heißt, es repräsentiert den Index des Zeichens, das **unmittelbar nach** der Auswahl kommt. Ebenso gibt dies, wenn keine Auswahl getroffen wurde, den Versatz des Zeichens zurück, das unmittelbar auf die aktuelle Textcursorposition folgt.
 
 > [!NOTE]
-> Gemäß der [WHATWG-Formularspezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionEnd`-Eigenschaft nur für Eingaben der Typen Text, Suche, URL, Tel und Passwort. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionEnd`-Eigenschaft bei anderen Eingabetypen gesetzt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn auf die `selectionEnd`-Eigenschaft von Nicht-Texteingabeelementen zugegriffen wird.
+> Laut der [WHATWG Formen Spezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionEnd`-Eigenschaft nur für Eingaben der Typen Text, Suche, URL, Telefon und Passwort. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionEnd`-Eigenschaft für die übrigen Eingabetypen festgelegt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn auf die `selectionEnd`-Eigenschaft von Nicht-Text-Eingabe-Elementen zugegriffen wird.
 
-Wenn `selectionEnd` kleiner ist als `selectionStart`, werden beide als der Wert von `selectionEnd` behandelt.
+Wenn `selectionEnd` kleiner ist als `selectionStart`, werden beide als Wert von `selectionEnd` behandelt.
 
 ## Wert
 
-Eine nicht negative Zahl.
+Eine nicht-negative Zahl.
 
 ## Beispiele
 
@@ -43,7 +43,7 @@ Eine nicht negative Zahl.
 const colorEnd = document.getElementById("color");
 const text = document.querySelector("#pin");
 const pinBtn = document.querySelector("#pin-btn");
-const validPinChecker = /[^\d{3}-\d{2}-\d{3}]/g;
+const validPinChecker = /^\d{3}-\d{2}-\d{3}/g;
 const selectionEnd = text.value.length;
 const selectedText = text.value.substring(text.selectionStart, selectionEnd);
 

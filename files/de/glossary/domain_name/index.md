@@ -2,12 +2,10 @@
 title: Domainname
 slug: Glossary/Domain_name
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Ein **Domainname** ist die Adresse einer Website im {{Glossary("Internet", "Internet")}}. Domainnamen werden in {{Glossary("URL", "URLs")}} verwendet, um zu identifizieren, zu welchem Server eine bestimmte Webseite gehört. Der Domainname besteht aus einer hierarchischen Folge von Namen (Labels), die durch Punkte (Dots) getrennt sind und mit einer {{Glossary("TLD", "Erweiterung")}} enden.
+Ein **Domainname** ist die Adresse einer Website im {{Glossary("Internet", "Internet")}}. Domainnamen werden in {{Glossary("URL", "URLs")}} verwendet, um zu identifizieren, zu welchem Server eine bestimmte Webseite gehört. Der Domainname besteht aus einer hierarchischen Sequenz von Namen (Labels), die durch Punkte (Dots) getrennt sind und mit einer {{Glossary("TLD", "Erweiterung")}} enden.
 
 ## Siehe auch
 

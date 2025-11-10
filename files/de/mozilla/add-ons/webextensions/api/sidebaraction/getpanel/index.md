@@ -2,12 +2,10 @@
 title: sidebarAction.getPanel()
 slug: Mozilla/Add-ons/WebExtensions/API/sidebarAction/getPanel
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ruft eine URL des HTML-Dokuments ab, das den Inhalt der Seitenleiste definiert.
+Ruft eine URL zum HTML-Dokument ab, das den Inhalt der Seitenleiste definiert.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,34 +20,28 @@ let gettingPanel = browser.sidebarAction.getPanel(
 ### Parameter
 
 - `details`
-
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
-
     - `tabId` {{optional_inline}}
-      - : `integer`. Ruft das Panel für die Seitenleiste ab, das spezifisch für den angegebenen Tab ist.
+      - : `integer`. Ruft das Panel für die spezifische Registerkarte der Seitenleiste ab.
     - `windowId` {{optional_inline}}
-      - : `integer`. Ruft das Panel für die Seitenleiste ab, das spezifisch für das angegebene Fenster ist.
+      - : `integer`. Ruft das Panel für das spezifische Fenster der Seitenleiste ab.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das von ihr zurückgegebene Promise wird verworfen.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird das globale Panel zurückgegeben.
+- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl und das zurückgegebene Promise wird abgelehnt.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Panel zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL des Panel-Dokuments enthält. Dies wird eine voll qualifizierte URL sein, wie zum Beispiel:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL des Dokuments des Panels enthält. Dies wird eine vollständig qualifizierte URL sein, wie zum Beispiel:
 
 ```url
 moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/sidebar.html
 ```
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Abrufen der URL des Panels:
+URL des Panels abrufen:
 
 ```js
 function onGot(sidebarUrl) {
@@ -62,8 +54,12 @@ gettingPanel.then(onGot);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der Opera-API [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/).
+> Diese API basiert auf der [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API von Opera.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

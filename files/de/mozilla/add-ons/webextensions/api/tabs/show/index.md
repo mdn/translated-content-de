@@ -2,12 +2,10 @@
 title: tabs.show()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/show
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Zeigt einen oder mehrere Tabs an, die zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.hide")}} ausgeblendet wurden.
+Zeigt einen oder mehrere Tabs an, die zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.hide")}} versteckt wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,7 +20,7 @@ let showing = browser.tabs.show(
 ### Parameter
 
 - `tabIds`
-  - : `integer` oder `array` von `integer`. Die IDs des oder der anzuzeigenden Tabs.
+  - : `integer` oder `array` von `integer`. Die IDs des Tabs oder der Tabs, die angezeigt werden sollen.
 
 ### Rückgabewert
 

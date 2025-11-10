@@ -1,26 +1,26 @@
 ---
-title: "HTMLTableRowElement: vAlign Eigenschaft"
+title: "HTMLTableRowElement: vAlign-Eigenschaft"
 short-title: vAlign
 slug: Web/API/HTMLTableRowElement/vAlign
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`vAlign`**-Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Interfaces ist ein String, der angibt, wie der Text in einer {{htmlelement("tr")}} Tabellenzeile vertikal ausgerichtet werden soll. Einzelne Zellen können diese Einstellung überschreiben.
+Die **`vAlign`**-Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces ist ein String, der angibt, wie Text vertikal in einer {{htmlelement("tr")}}-Tabellenzeile ausgerichtet wird. Einzelne Zellen können dies überschreiben.
 
 > [!NOTE]
 > Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("vertical-align")}}, um Text in einer Zeile horizontal auszurichten.
 
 ## Wert
 
-Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`
+Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`.
 
 - `top`
   - : Richten Sie den Text am oberen Rand der Zelle aus. Verwenden Sie stattdessen `vertical-align: top`.
 - `center`
-  - : Zentrieren Sie den Text vertikal in der Zelle. Synonym von `middle`. Verwenden Sie stattdessen `vertical-align: middle`.
+  - : Zentrieren Sie den Text vertikal in der Zelle. Synonym für `middle`. Verwenden Sie stattdessen `vertical-align: middle`.
 - `middle`
   - : Zentrieren Sie den Text vertikal in der Zelle. Verwenden Sie stattdessen `vertical-align: middle`.
 - `bottom`
@@ -30,7 +30,7 @@ Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`
 
 ## Beispiele
 
-Verwenden Sie stattdessen CSS {{cssxref("vertical-align")}}, das Vorrang hat, wie im Beispiel [vertikale Ausrichtung von Tabellenzellen](/de/docs/Web/CSS/vertical-align#vertical_alignment_in_a_table_cell) demonstriert.
+Verwenden Sie stattdessen CSS {{cssxref("vertical-align")}}, das Vorrang hat, wie im Beispiel [vertikale Ausrichtung in Tabellenzellen](/de/docs/Web/CSS/Reference/Properties/vertical-align#vertical_alignment_in_a_table_cell) gezeigt.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ Verwenden Sie stattdessen CSS {{cssxref("vertical-align")}}, das Vorrang hat, wi
 ## Siehe auch
 
 - {{cssxref("vertical-align")}}
-- [Erfahren Sie mehr: Tabellen stylen](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
+- [Lernen: Tabellen gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Tables)

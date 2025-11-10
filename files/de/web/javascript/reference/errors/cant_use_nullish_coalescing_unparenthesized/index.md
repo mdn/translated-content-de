@@ -1,15 +1,13 @@
 ---
-title: "SyntaxError: `??` kann nicht ohne Klammern innerhalb von `||` und `&&`-Ausdrücken verwendet werden"
+title: "SyntaxError: Der `??`-Operator kann nicht unverklammert innerhalb von `||` und `&&`-Ausdrücken verwendet werden"
 slug: Web/JavaScript/Reference/Errors/Cant_use_nullish_coalescing_unparenthesized
 l10n:
-  sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "Der `??`-Operator kann nicht unverklammert innerhalb von `||` und `&&`-Ausdrücken verwendet werden" tritt auf, wenn ein [Nullish Coalescing Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) mit einem [logischen ODER](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) oder [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) im selben Ausdruck ohne Klammern verwendet wird.
 
-Die JavaScript-Ausnahme "kann `??` nicht ohne Klammern innerhalb von `||` und `&&`-Ausdrücken verwenden" tritt auf, wenn ein [Nullish-Koaleszenz-Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) mit einem [logischen ODER](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) oder [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) im gleichen Ausdruck ohne Klammern verwendet wird.
-
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Unexpected token '??' (V8-based)
@@ -17,20 +15,20 @@ SyntaxError: cannot use `??` unparenthesized within `||` and `&&` expressions (F
 SyntaxError: Unexpected token '??'. Coalescing and logical operators used together in the same expression; parentheses must be used to disambiguate. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Die [Operator-Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) Kette sieht folgendermaßen aus:
+Die [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)-Kette sieht so aus:
 
 ```plain
 |   >   &&   >   ||   >   =
 |   >   ??   >   =
 ```
 
-Allerdings ist die Priorität _zwischen_ `??` und `&&`/`||` absichtlich undefiniert, da das Kurzschlussverhalten von logischen Operatoren die Auswertung des Ausdrucks kontraintuitiv machen kann. Daher sind die folgenden Kombinationen alles Syntaxfehler, da die Sprache nicht weiß, wie sie die Operanden klammern soll:
+Die Präzedenz _zwischen_ `??` und `&&`/`||` ist jedoch absichtlich undefiniert, da das Kurzschließungsverhalten der logischen Operatoren die Auswertung des Ausdrucks kontraintuitiv machen kann. Daher sind die folgenden Kombinationen alle Syntaxfehler, da die Sprache nicht weiß, wie sie die Operanden klammern soll:
 
 ```js-nolint example-bad
 a ?? b || c;
@@ -39,7 +37,7 @@ a ?? b && c;
 a && b ?? c;
 ```
 
-Stattdessen sollten Sie Ihre Absicht klarstellen, indem Sie eine der beiden Seiten ausdrücklich in Klammern setzen:
+Stattdessen machen Sie Ihre Absicht deutlich, indem Sie entweder auf der einen oder der anderen Seite explizit klammern:
 
 ```js example-good
 (a ?? b) || c;
@@ -48,7 +46,7 @@ a ?? (b && c);
 
 ## Beispiele
 
-Wenn Sie alten Code migrieren, der `||` und `&&` zum Schutz gegen `null` oder `undefined` verwendet, konvertieren Sie ihn möglicherweise teilweise:
+Wenn Sie alten Code migrieren, der `||` und `&&` zur Absicherung gegen `null` oder `undefined` verwendet, konvertieren Sie ihn möglicherweise teilweise:
 
 ```js-nolint example-bad
 function getId(user, fallback) {
@@ -57,7 +55,7 @@ function getId(user, fallback) {
 }
 ```
 
-Stattdessen sollten Sie `&&` in Klammern setzen:
+Stattdessen sollten Sie das `&&` klammern:
 
 ```js
 function getId(user, fallback) {
@@ -65,7 +63,7 @@ function getId(user, fallback) {
 }
 ```
 
-Noch besser, ziehen Sie in Betracht, die [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) anstelle von `&&` zu verwenden:
+Noch besser ist es, [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) anstelle von `&&` zu verwenden:
 
 ```js example-good
 function getId(user, fallback) {
@@ -75,6 +73,6 @@ function getId(user, fallback) {
 
 ## Siehe auch
 
-- [Problem zur Nullish-Coalescing-Präzedenz](https://github.com/tc39/proposal-nullish-coalescing/issues/15) im TC39 Nullish-Coalescing-Vorschlag
-- [Nullish-Koaleszenz-Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Operator-Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+- [Issue über die Präzedenz des Nullish Coalescing Operators](https://github.com/tc39/proposal-nullish-coalescing/issues/15) im TC39 Nullish-Coalescing-Vorschlag
+- [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)

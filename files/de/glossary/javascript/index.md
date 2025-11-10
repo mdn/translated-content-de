@@ -2,31 +2,29 @@
 title: JavaScript
 slug: Glossary/JavaScript
 l10n:
-  sourceCommit: b6665386751ce339ed32d53cf99fab4b6cf73be0
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-{{GlossarySidebar}}
+JavaScript (oder "JS") ist eine Programmiersprache, die meist für dynamische Client-seitige Skripte auf Webseiten verwendet wird, aber auch auf der [Server]-Seite(/de/docs/Glossary/Server) häufig genutzt wird, z.B. mit einer Laufzeitumgebung wie {{Glossary("Node.js", "Node.js")}}, {{Glossary("Deno", "Deno")}} und [Bun](https://bun.com/).
 
-JavaScript (oder "JS") ist eine Programmiersprache, die am häufigsten für dynamische clientseitige Skripte auf Webseiten verwendet wird. Sie wird jedoch auch häufig auf der {{Glossary("Server", "Server")}}-Seite eingesetzt, mit Hilfe einer Laufzeitumgebung wie {{Glossary("Node.js", "Node.js")}}, {{Glossary("Deno", "Deno")}} und [Bun](https://bun.sh/).
+JavaScript **sollte nicht** mit der [Java-Programmiersprache](<https://en.wikipedia.org/wiki/Java_(programming_language)>) verwechselt werden. Obwohl _"Java"_ und _"JavaScript"_ Marken (oder eingetragene Marken) von Oracle in den USA und anderen Ländern sind, unterscheiden sich die beiden Programmiersprachen signifikant in ihrer Syntax, Semantik und ihren Anwendungsfällen.
 
-JavaScript **sollte nicht** mit der [Java-Programmiersprache](<https://de.wikipedia.org/wiki/Java_(Programmiersprache)>) verwechselt werden. Obwohl _"Java"_ und _"JavaScript"_ Marken (oder eingetragene Marken) von Oracle in den USA und anderen Ländern sind, unterscheiden sich die beiden Programmiersprachen erheblich in ihrer Syntax, Semantik und ihren Anwendungsfällen.
+JavaScript wird hauptsächlich im Browser verwendet, um Entwicklern zu ermöglichen, Webseiteninhalte über das {{Glossary("DOM", "DOM")}} zu manipulieren, Inhalte von Servern mithilfe der [`fetch()`](/de/docs/Web/API/Window/fetch)-API abzurufen, komplexe Daten mit {{Glossary("IndexedDB", "IndexedDB")}} zu speichern, Grafiken mit {{Glossary("canvas", "canvas")}} zu zeichnen, mit dem Gerät, auf dem der Browser läuft, durch verschiedene {{Glossary("API", "APIs")}} zu interagieren und mehr. JavaScript gehört zu den am häufigsten verwendeten Sprachen weltweit, dank des jüngsten Wachstums und der Leistungsverbesserung der in Browsern verfügbaren {{Glossary("API", "APIs")}}.
 
-JavaScript wird hauptsächlich im Browser verwendet und ermöglicht Entwicklern, Webseiteninhalte über das {{Glossary("DOM", "DOM")}} zu manipulieren, Inhalte von Servern mithilfe der [`fetch()`](/de/docs/Web/API/Window/fetch)-API abzurufen, komplexe Daten mit {{Glossary("IndexedDB", "IndexedDB")}} zu speichern, Grafiken mit einem {{Glossary("canvas", "canvas")}} zu zeichnen und mit dem Gerät, auf dem der Browser läuft, über verschiedene {{Glossary("API", "APIs")}} zu interagieren, und mehr. JavaScript ist eine der am häufigsten verwendeten Programmiersprachen weltweit, was auf das jüngste Wachstum und die Leistungsverbesserung der in Browsern verfügbaren {{Glossary("API", "APIs")}} zurückzuführen ist.
+## Herkunft und Geschichte
 
-## Ursprünge und Geschichte
+Ursprünglich von Brendan Eich (damals bei der Netscape Corporation angestellt) als serverseitige Sprache konzipiert, kam JavaScript im September 1995 zu Netscape Navigator 2.0. JavaScript erlebte sofortigen Erfolg, und {{Glossary("Microsoft_Internet_Explorer", "Internet Explorer 3.0")}} führte im August 1996 die Unterstützung für JavaScript unter dem Namen JScript ein.
 
-JavaScript wurde ursprünglich von Brendan Eich (damals bei der Netscape Corporation beschäftigt) als serverseitige Sprache konzipiert und kam im September 1995 zu Netscape Navigator 2.0. JavaScript hatte sofortigen Erfolg, und {{Glossary("Microsoft_Internet_Explorer", "Internet Explorer 3.0")}} führte im August 1996 JavaScript-Unterstützung unter dem Namen JScript ein.
+Im November 1996 begann Netscape mit Ecma International zusammenzuarbeiten, um JavaScript zu einem Industriestandard zu machen. Seitdem wird das standardisierte JavaScript ECMAScript genannt und unter ECMA-262 spezifiziert. Der Standard wird ständig aktualisiert und implementiert (ein _lebendiger Standard_).
 
-Im November 1996 begann Netscape mit Ecma International zusammenzuarbeiten, um JavaScript zu einem Industriestandard zu machen. Seitdem wird das standardisierte JavaScript ECMAScript genannt und ist unter ECMA-262 spezifiziert, dessen neueste (vierzehnte, ES2023) Ausgabe seit Juni 2023 verfügbar ist.
-
-In letzter Zeit hat sich die Beliebtheit von JavaScript durch die erfolgreiche Plattform [Node.js](https://nodejs.org/en) - die beliebteste plattformübergreifende JavaScript-Laufzeitumgebung außerhalb des Browsers - noch weiter erhöht. Node.js - gebaut mit der [Chrome's V8 JavaScript Engine](<https://de.wikipedia.org/wiki/V8_(JavaScript_Engine)>) - ermöglicht es Entwicklern, JavaScript als Skriptsprache zu verwenden, um Dinge auf einem Computer zu automatisieren und voll funktionsfähige {{Glossary("HTTP", "HTTP")}}- und {{Glossary("WebSockets", "WebSockets")}}-Server zu erstellen.
+Kürzlich hat sich die Beliebtheit von JavaScript durch die erfolgreiche [Node.js](https://nodejs.org/en)-Plattform, der beliebtesten plattformübergreifenden JavaScript-Laufzeitumgebung außerhalb des Browsers, noch weiter ausgeweitet. Node.js - gebaut auf [Chrome's V8 JavaScript Engine](<https://en.wikipedia.org/wiki/V8_(JavaScript_engine)>), ermöglicht es Entwicklern, JavaScript als Skriptsprache zu verwenden, um Automatisierungen auf einem Computer durchzuführen und voll funktionsfähige {{Glossary("HTTP", "HTTP")}}- und {{Glossary("WebSockets", "WebSockets")}}-Server zu erstellen.
 
 ## Siehe auch
 
-- [JavaScript](https://de.wikipedia.org/wiki/JavaScript) auf Wikipedia
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) auf Wikipedia
 - Der [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide) auf MDN
 - [Der "javascripting" Workshop auf NodeSchool](https://nodeschool.io/#workshoppers)
 - [Der JavaScript-Kurs auf codecademy.com](https://www.codecademy.com/catalog/language/javascript)
 - [Der neueste ECMAScript-Standard](https://ecma-international.org/publications-and-standards/standards/ecma-262/)
-- Die [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) auf MDN
-- [Das _Eloquent JavaScript_ Buch](https://eloquentjavascript.net/)
+- Das [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) auf MDN
+- [Das Buch _Eloquent JavaScript_](https://eloquentjavascript.net/)

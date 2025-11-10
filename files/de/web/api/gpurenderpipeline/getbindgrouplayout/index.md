@@ -1,16 +1,16 @@
 ---
-title: "GPURenderPipeline: Methode getBindGroupLayout()"
+title: "GPURenderPipeline: getBindGroupLayout() Methode"
 short-title: getBindGroupLayout()
 slug: Web/API/GPURenderPipeline/getBindGroupLayout
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getBindGroupLayout()`**-Methode der [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Schnittstelle gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt der Pipeline mit dem angegebenen Index zurück (d.h. in der ursprünglichen [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync)-Aufrufpipeline-Layout enthalten).
+Die **`getBindGroupLayout()`** Methode der [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) Schnittstelle gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objekt der Pipeline mit dem angegebenen Index zurück (d.h. enthalten im ursprünglichen Aufruf von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) für das Pipeline-Layout).
 
-Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) mit `layout: "auto"` erstellt wurde, ist diese Methode die einzige Möglichkeit, um die von der Pipeline generierten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s abzurufen.
+Falls die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) mit `layout: "auto"` erstellt wurde, ist diese Methode die einzige Möglichkeit, die von der Pipeline generierten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s abzurufen.
 
 ## Syntax
 
@@ -21,18 +21,17 @@ getBindGroupLayout(index)
 ### Parameter
 
 - `index`
-
   - : Eine Zahl, die den Index des zurückzugebenden [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) darstellt.
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekts.
+Ein [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objekt zurückgegeben:
 
-- `index` ist kleiner als die Anzahl der im Pipeline-Layout verwendeten [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekte.
+- `index` ist kleiner als die Anzahl der [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objekte, die im Pipeline-Layout verwendet werden.
 
 ## Beispiele
 
@@ -40,7 +39,7 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`getBindGroupLayout()`** a
 > Sie können vollständige funktionierende Beispiele mit `getBindGroupLayout()` in Aktion in den [WebGPU-Beispielen](https://webgpu.github.io/webgpu-samples/) sehen.
 
 ```js
-// ...
+// …
 
 // Create a render pipeline using layout: "auto" to automatically generate
 // appropriate bind group layouts
@@ -68,7 +67,7 @@ const fullscreenQuadPipeline = device.createRenderPipeline({
   },
 });
 
-// ...
+// …
 
 // Create a bind group with the auto-generated layout from the render pipeline
 const showResultBindGroup = device.createBindGroup({
@@ -85,7 +84,7 @@ const showResultBindGroup = device.createBindGroup({
   ],
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen
@@ -98,4 +97,4 @@ const showResultBindGroup = device.createBindGroup({
 
 ## Siehe auch
 
-- Das [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

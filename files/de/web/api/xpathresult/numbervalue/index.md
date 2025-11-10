@@ -1,28 +1,24 @@
 ---
-title: "XPathResult: `numberValue`-Eigenschaft"
+title: "XPathResult: numberValue-Eigenschaft"
 short-title: numberValue
 slug: Web/API/XPathResult/numberValue
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef("DOM XPath")}} {{AvailableInWorkers}}
+{{APIRef("DOM")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`numberValue`**-Eigenschaft des
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den numerischen Wert eines Ergebnisses zurück, dessen
-[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `NUMBER_TYPE` ist.
+Die schreibgeschützte **`numberValue`**-Eigenschaft der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle gibt den numerischen Wert eines Ergebnisses zurück, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `NUMBER_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der numerische Wert des von
-[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
+Der Rückgabewert ist der numerische Wert des durch [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `NUMBER_TYPE` ist, wird eine
-[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
+Wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `NUMBER_TYPE` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

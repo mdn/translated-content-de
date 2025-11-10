@@ -1,20 +1,25 @@
 ---
-title: "ServiceWorkerContainer: ready Eigenschaft"
+title: "ServiceWorkerContainer: ready-Eigenschaft"
 short-title: ready
 slug: Web/API/ServiceWorkerContainer/ready
 l10n:
-  sourceCommit: bc0237f139ee3a9db67a669ae1b6bf45ebba7f94
+  sourceCommit: 981e2d17e897c6280fd27364746a34d8560d30d1
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ready`** Eigenschaft des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) Interfaces bietet eine Möglichkeit, die Codeausführung zu verzögern, bis ein Service Worker aktiv ist. Sie gibt ein {{jsxref("Promise")}} zurück, das niemals abgelehnt wird und unbegrenzt wartet, bis die mit der aktuellen Seite assoziierte [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker hat. Sobald diese Bedingung erfüllt ist, wird das `Promise` mit der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst.
+Die schreibgeschützte **`ready`**-Eigenschaft der [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Schnittstelle bietet eine Möglichkeit, die Ausführung von Code zu verzögern, bis ein Service Worker aktiv ist.
+
+Die Eigenschaft gibt ein {{jsxref("Promise")}} zurück, das niemals zurückgewiesen wird und unbegrenzt wartet, bis die [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration), die mit der aktuellen Seite assoziiert ist, über einen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker verfügt.
+Sobald diese Bedingung erfüllt ist, wird sie mit der entsprechenden [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das niemals abgelehnt wird und möglicherweise letztlich mit einer [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst wird.
+Ein {{jsxref("Promise")}}, das niemals zurückgewiesen wird und eventuell mit einer [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) aufgelöst wird, wenn ein aktiver Service Worker vorhanden ist.
 
 ## Beispiele
+
+### Code verzögern, bis ein aktiver Service Worker vorhanden ist
 
 ```js
 if ("serviceWorker" in navigator) {

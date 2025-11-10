@@ -2,25 +2,19 @@
 title: privacy.services
 slug: Mozilla/Add-ons/WebExtensions/API/privacy/services
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Die Eigenschaft `privacy.services` enthält datenschutzbezogene Einstellungen zur Steuerung von vom Browser oder von Drittanbietern angebotenen Diensten. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt.
+Die `privacy.services`-Eigenschaft enthält datenschutzbezogene Einstellungen, die Dienste steuern, die vom Browser oder von Dritten angeboten werden. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
 
 ## Eigenschaften
 
 - `passwordSavingEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn `true`, bietet der Passwortmanager des Browsers an, Passwörter zu speichern, wenn der Benutzer diese eingibt. Standardmäßig auf `true` gesetzt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolean ist. Wenn `true`, bietet der Passwort-Manager des Browsers an, Passwörter zu speichern, wenn der Benutzer sie eingibt. Standardmäßig auf `true` gesetzt.
 
 ## Beispiele
 
-Deaktivieren Sie den Passwortmanager, wenn möglich.
+Deaktivieren Sie den Passwort-Manager, falls möglich.
 
 ```js
 function onSet(result) {
@@ -50,5 +44,9 @@ getting.then((got) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API von Chromium.
+> Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy)-API von Chromium.

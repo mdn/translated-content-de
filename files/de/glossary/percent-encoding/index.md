@@ -1,17 +1,15 @@
 ---
-title: Percent-encoding
+title: Prozentkodierung
 slug: Glossary/Percent-encoding
 l10n:
-  sourceCommit: 6c7cb932f7a0735ec2ac64732c9a947510fd1303
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Prozentkodierung** ist ein Mechanismus zur Kodierung von 8-Bit-Zeichen, die in Bezug auf {{Glossary("URL", "URLs")}} eine spezielle Bedeutung haben. Es wird manchmal auch als URL-Kodierung bezeichnet. Die Kodierung besteht aus einer Ersetzung: Ein '%' gefolgt von der hexadezimalen Darstellung des ASCII-Werts des zu ersetzenden Zeichens.
 
-**Percent-encoding** ist ein Mechanismus zum Codieren von 8-Bit-Zeichen, die im Kontext von {{Glossary("URL", "URLs")}} eine spezielle Bedeutung haben. Es wird manchmal als URL-Codierung bezeichnet. Die Codierung besteht aus einer Ersetzung: Ein '%' gefolgt von der hexadezimalen Darstellung des ASCII-Werts des zu ersetzenden Zeichens.
+Spezielle Zeichen, die kodiert werden müssen, sind: `':'`, `'/'`, `'?'`, `'#'`, `'['`, `']'`, `'@'`, `'!'`, `'$'`, `'&'`, `"'"`, `'('`, `')'`, `'*'`, `'+'`, `','`, `';'`, `'='`, sowie `'%'` selbst. Andere Zeichen müssen nicht kodiert werden, obwohl sie kodiert werden könnten.
 
-Sonderzeichen, die codiert werden müssen, sind: `':'`, `'/'`, `'?'`, `'#'`, `'['`, `']'`, `'@'`, `'!'`, `'$'`, `'&'`, `"'"`, `'('`, `')'`, `'*'`, `'+'`, `','`, `';'`, `'='`, sowie `'%'` selbst. Andere Zeichen müssen nicht codiert werden, könnten aber.
-
-| Zeichen | Codierung      |
+| Zeichen | Kodierung      |
 | ------- | -------------- |
 | `':'`   | `%3A`          |
 | `'/'`   | `%2F`          |
@@ -34,10 +32,10 @@ Sonderzeichen, die codiert werden müssen, sind: `':'`, `'/'`, `'?'`, `'#'`, `'[
 | `'%'`   | `%25`          |
 | `' '`   | `%20` oder `+` |
 
-Abhängig vom Kontext wird das Zeichen `' '` zu einem `'+'` übersetzt (wie in der Percent-Codierungsversion, die in einer `application/x-www-form-urlencoded`-Nachricht verwendet wird), oder in `'%20'` wie in URLs.
+Je nach Kontext wird das Zeichen `' '` in ein `'+'` übersetzt (wie in der Prozentkodierungsversion, die in einer `application/x-www-form-urlencoded` Nachricht verwendet wird), oder in `'%20'` wie in URLs.
 
 ## Siehe auch
 
-- Definition von [Percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding) in Wikipedia.
-- {{RFC(3986)}}, Abschnitt 2.1, in dem diese Codierung definiert ist.
-- [`encodeURI()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) und [`encodeURIComponent()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) — Funktionen zur Percent-Codierung von URLs.
+- Definition der [Prozentkodierung](https://en.wikipedia.org/wiki/Percent-encoding) in Wikipedia.
+- {{RFC(3986)}}, Abschnitt 2.1, wo diese Kodierung definiert ist.
+- [`encodeURI()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) und [`encodeURIComponent()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) — Funktionen zur Prozentkodierung von URLs.

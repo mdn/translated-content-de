@@ -2,110 +2,127 @@
 title: PerformanceResourceTiming
 slug: Web/API/PerformanceResourceTiming
 l10n:
-  sourceCommit: db12ba7455d1897dc1ff5f5c1dbe36f6e2720805
+  sourceCommit: feda2f126affe395c55a9c5f8b668a6bf0fcb30f
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Das **`PerformanceResourceTiming`**-Interface ermöglicht das Abrufen und die Analyse detaillierter Netzwerkzeitdaten bezüglich des Ladens von Anwendungsressourcen. Eine Anwendung kann die Zeitmesswerte nutzen, um beispielsweise zu bestimmen, wie lange es dauert, eine bestimmte Ressource abzurufen, wie z. B. eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), ein {{SVGElement("SVG","SVG-Element")}}, ein Bild oder ein Skript.
+Das **`PerformanceResourceTiming`** Interface ermöglicht die Abfrage und Analyse detaillierter Netzwerk-Timing-Daten bezüglich des Ladevorgangs von Ressourcen einer Anwendung. Eine Anwendung kann die Timing-Metriken verwenden, um beispielsweise die Zeit zu bestimmen, die benötigt wird, um eine bestimmte Ressource abzurufen, wie ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), {{SVGElement("SVG","SVG-Element")}}, Bild oder Skript.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Die Eigenschaften des Interfaces erstellen eine Zeitleiste für das Laden von Ressourcen mit hochauflösenden Zeitstempeln für Netzwerkevents wie Umleitungsstart und -ende, Abrufstart, DNS-Lookup-Start und -ende, Antwortstart und -ende und mehr. Zusätzlich erweitert das Interface [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) um weitere Eigenschaften, die Daten über die Größe der abgerufenen Ressource sowie den Typ der Ressource bereitstellen, die den Abruf ausgelöst hat.
+Die Eigenschaften des Interfaces erstellen eine Ressourcenladezeitleiste mit hochauflösenden Zeitstempeln für Netzwerkereignisse wie Redirect-Start- und -Endzeiten, Fetch-Start, DNS-Lookup-Start- und -Endzeiten, Antwort-Start- und -Endzeiten und mehr. Zusätzlich erweitert das Interface [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) mit anderen Eigenschaften, die Daten über die Größe der abgerufenen Ressource sowie den Ressourcentyp, der das Abrufen initiiert hat, bereitstellen.
 
-### Typische Ressourcen-Zeitmesswerte
+### Typische Ressourcen-Timing-Metriken
 
-Die Eigenschaften dieses Interfaces ermöglichen die Berechnung bestimmter Ressourcen-Zeitmesswerte. Häufige Anwendungsfälle sind:
+Die Eigenschaften dieses Interfaces ermöglichen die Berechnung bestimmter Ressourcen-Timing-Metriken. Häufige Anwendungsfälle sind:
 
-- Messen der TCP-Handshake-Zeit (`connectEnd` - `connectStart`)
-- Messen der DNS-Lookup-Zeit (`domainLookupEnd` - `domainLookupStart`)
-- Messen der Umleitungszeit (`redirectEnd` - `redirectStart`)
-- Messen der Zwischenantwortzeit (`firstInterimResponseStart` - `finalResponseHeadersStart`)
-- Messen der Anforderungszeit (`responseStart` - `requestStart`)
-- Messen der TLS-Verhandlungszeit (`requestStart` - `secureConnectionStart`)
-- Messen der Zeit für den Abruf (ohne Umleitungen) (`responseEnd` - `fetchStart`)
-- Messen der ServiceWorker-Verarbeitungszeit (`fetchStart` - `workerStart`)
-- Überprüfen, ob Inhalte komprimiert wurden (`decodedBodySize` sollte nicht `encodedBodySize` sein)
-- Überprüfen, ob lokale Caches getroffen wurden (`transferSize` sollte `0` sein)
-- Überprüfen, ob moderne und schnelle Protokolle verwendet werden (`nextHopProtocol` sollte HTTP/2 oder HTTP/3 sein)
-- Überprüfen, ob die richtigen Ressourcen render-blockierend sind (`renderBlockingStatus`)
+- Messung der TCP-Handschlagzeit (`connectEnd` - `connectStart`)
+- Messung der DNS-Lookup-Zeit (`domainLookupEnd` - `domainLookupStart`)
+- Messung der Umleitungszeit (`redirectEnd` - `redirectStart`)
+- Messung der Zwischenanfragezeit (`firstInterimResponseStart` - `finalResponseHeadersStart`)
+- Messung der Anforderungszeit (`responseStart` - `requestStart`)
+- Messung der Dokumentanforderungszeit (`finalResponseHeadersStart` - `requestStart`)
+- Messung der TLS-Verhandlungszeit (`requestStart` - `secureConnectionStart`)
+- Messung der Fetch-Zeit (ohne Umleitungen) (`responseEnd` - `fetchStart`)
+- Messung der ServiceWorker-Verarbeitungszeit (`fetchStart` - `workerStart`)
+- Überprüfung, ob Inhalte komprimiert wurden (`decodedBodySize` sollte nicht `encodedBodySize` sein)
+- Überprüfung, ob lokale Caches getroffen wurden (`transferSize` sollte `0` sein)
+- Überprüfung, ob moderne und schnelle Protokolle verwendet werden (`nextHopProtocol` sollte HTTP/2 oder HTTP/3 sein)
+- Überprüfung, ob die richtigen Ressourcen renderblockierend sind (`renderBlockingStatus`)
 
-## Instanzeigenschaften
+### Verwaltung der Ressourcen-Puffergrößen
+
+Standardmäßig werden nur 250 Ressourcentiming-Einträge gepuffert. Für weitere Informationen siehe die [Ressourcen-Puffergrößen](/de/docs/Web/API/Performance_API/Resource_timing#managing_resource_buffer_sizes) im Resource Timing Leitfaden.
+
+### Timing-Informationen über Ursprünge hinweg
+
+Viele der Ressourcentiming-Eigenschaften sind darauf beschränkt, `0` oder einen leeren String zurückzugeben, wenn die Ressource eine CORS-Anforderung ist. Um Timing-Informationen über Ursprünge hinweg freizugeben, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+
+Die Eigenschaften, die standardmäßig als `0` zurückgegeben werden, wenn das Laden einer Ressource von einem anderen Ursprung als dem der Webseite selbst erfolgt: `redirectStart`, `redirectEnd`, `domainLookupStart`, `domainLookupEnd`, `connectStart`, `connectEnd`, `secureConnectionStart`, `requestStart` und `responseStart`.
+
+Beispielsweise sollte die CORS-Ressource die folgenden Header senden, um `https://developer.mozilla.org` zu erlauben, Ressourcentiming-Informationen zu sehen:
+
+```http
+Timing-Allow-Origin: https://developer.mozilla.org
+```
+
+## Instanzfelder
 
 ### Geerbt von `PerformanceEntry`
 
-Dieses Interface erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften für Ressourcenleistungsentry-Typen, indem sie qualifiziert und eingeschränkt werden wie folgt:
+Dieses Interface erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften für Ressourcen-Performance-Eintragstypen, indem sie qualifiziert und eingeschränkt werden wie folgt:
 
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
-  - : Gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Differenz zwischen den Eigenschaften [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) ist.
+  - : Gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Differenz zwischen den Eigenschaften [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) und [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) darstellt.
 - [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Gibt `"resource"` zurück.
 - [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
   - : Gibt die URL der Ressource zurück.
 - [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
-  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) für die Zeit zurück, zu der ein Ressourcenabruf gestartet wurde. Dieser Wert entspricht [`PerformanceResourceTiming.fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart).
+  - : Gibt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) für den Zeitpunkt zurück, zu dem ein Ressourcenabruf gestartet wurde. Dieser Wert ist gleichwertig zu [`PerformanceResourceTiming.fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart).
 
 ### Zeitstempel
 
-Das Interface unterstützt die folgenden Zeitstempel-Eigenschaften, die im Diagramm zu sehen sind und in der Reihenfolge aufgelistet sind, in der sie für das Abrufen einer Ressource aufgezeichnet werden. Eine alphabetische Liste finden Sie in der Navigation links.
+Das Interface unterstützt die folgenden Zeitstempel-Eigenschaften, die Sie im Diagramm sehen können und die in der Reihenfolge aufgeführt sind, in der sie für das Abrufen einer Ressource aufgezeichnet werden. Eine alphabetische Liste finden Sie in der Navigation links.
 
-![Zeitstempeldiagramm, das die Zeitstempel in der Reihenfolge auflistet, in der sie für das Abrufen einer Ressource aufgezeichnet werden](https://mdn.github.io/shared-assets/images/diagrams/api/performance/timestamp-diagram.svg)
+![Zeitstempel-Diagramm, das Zeitstempel in der Reihenfolge zeigt, in der sie für das Abrufen einer Ressource aufgezeichnet werden](https://mdn.github.io/shared-assets/images/diagrams/api/performance/timestamp-diagram.svg)
 
 - [`PerformanceResourceTiming.redirectStart`](/de/docs/Web/API/PerformanceResourceTiming/redirectStart) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit des Abrufs darstellt, der die Umleitung initiiert.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit des Abrufs darstellt, der die Umleitung einleitet.
 - [`PerformanceResourceTiming.redirectEnd`](/de/docs/Web/API/PerformanceResourceTiming/redirectEnd) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nach dem Empfang des letzten Bytes der Antwort der letzten Umleitung.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nach Erhalt des letzten Bytes der Antwort der letzten Umleitung.
 - [`PerformanceResourceTiming.workerStart`](/de/docs/Web/API/PerformanceResourceTiming/workerStart) {{ReadOnlyInline}}
-  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar vor der Entsendung des [`FetchEvent`](/de/docs/Web/API/FetchEvent) zurück, wenn ein Service Worker-Thread bereits läuft, oder unmittelbar bevor der Service Worker-Thread gestartet wird, wenn er noch nicht läuft. Wenn die Ressource nicht von einem Service Worker abgefangen wird, gibt diese Eigenschaft immer 0 zurück.
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar vor der Verteilung des [`FetchEvent`](/de/docs/Web/API/FetchEvent) zurück, wenn ein Service Worker-Thread bereits läuft, oder unmittelbar bevor der Service Worker-Thread gestartet wird, wenn er noch nicht läuft. Wenn die Ressource nicht von einem Service Worker abgefangen wird, gibt die Eigenschaft immer 0 zurück.
 - [`PerformanceResourceTiming.fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Ressource abzurufen.
 - [`PerformanceResourceTiming.domainLookupStart`](/de/docs/Web/API/PerformanceResourceTiming/domainLookupStart) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser mit der Domain-Namen-Suche für die Ressource beginnt.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser das Domain-Namensnachschlagen für die Ressource startet.
 - [`PerformanceResourceTiming.domainLookupEnd`](/de/docs/Web/API/PerformanceResourceTiming/domainLookupEnd) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar nach dem Abschluss der Domain-Namen-Suche für die Ressource durch den Browser darstellt.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar nach Abschluss des Domain-Namensnachschlagens für die Ressource darstellt.
 - [`PerformanceResourceTiming.connectStart`](/de/docs/Web/API/PerformanceResourceTiming/connectStart) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Verbindung zum Server herzustellen, um die Ressource abzurufen.
 - [`PerformanceResourceTiming.secureConnectionStart`](/de/docs/Web/API/PerformanceResourceTiming/secureConnectionStart) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser mit dem Handshake-Prozess beginnt, um die aktuelle Verbindung zu sichern.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, den Handshake-Prozess zur Sicherstellung der aktuellen Verbindung zu starten.
 - [`PerformanceResourceTiming.connectEnd`](/de/docs/Web/API/PerformanceResourceTiming/connectEnd) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser die Verbindung zum Server zur Ressourcenerfassung hergestellt hat.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser die Verbindung zum Server für den Abruf der Ressource abgeschlossen hat.
 - [`PerformanceResourceTiming.requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Ressource vom Server anzufordern.
 - [`PerformanceResourceTiming.firstInterimResponseStart`](/de/docs/Web/API/PerformanceResourceTiming/firstInterimResponseStart) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zwischenantwortzeit darstellt (z. B. 100 Continue oder 103 Early Hints).
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zwischenantwortzeiten (zum Beispiel 100 Continue oder 103 Early Hints) darstellt.
 - [`PerformanceResourceTiming.responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser das erste Byte der Antwort vom Server erhält (was eine Zwischenantwort sein kann).
 - [`PerformanceResourceTiming.finalResponseHeadersStart`](/de/docs/Web/API/PerformanceResourceTiming/finalResponseHeadersStart) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit für den Empfang der letzten Antwortheader darstellt (z. B. 200 Success), nach einer eventuellen Zwischenantwortzeit.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die endgültige Kopfzeilenantwortzeit (zum Beispiel 200 Success) darstellt, nach jeder Zwischenantwortzeit.
 - [`PerformanceResourceTiming.responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd) {{ReadOnlyInline}}
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser das letzte Byte der Ressource erhält oder unmittelbar bevor die Transportverbindung geschlossen wird, je nachdem, welcher Zeitpunkt früher ist.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nachdem der Browser das letzte Byte der Ressource erhält oder unmittelbar bevor die Transportverbindung geschlossen wird, je nachdem, was zuerst eintritt.
 
 ### Zusätzliche Ressourceninformationen
 
-Zusätzlich bietet dieses Interface die folgenden Eigenschaften, die mehr Informationen über eine Ressource enthalten:
+Darüber hinaus stellt dieses Interface die folgenden Eigenschaften bereit, die weitere Informationen über eine Ressource enthalten:
 
 - [`PerformanceResourceTiming.contentType`](/de/docs/Web/API/PerformanceResourceTiming/contentType) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein Zeichenfolgetyp, der eine minimierte und standardisierte Version des MIME-Typs der abgerufenen Ressource darstellt.
+  - : Ein String, der eine minimierte und standardisierte Version des MIME-Typs der abgerufenen Ressource darstellt.
 - [`PerformanceResourceTiming.decodedBodySize`](/de/docs/Web/API/PerformanceResourceTiming/decodedBodySize) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Größe (in Oktetten) des vom Abruf (HTTP oder Cache) empfangenen Nachrichteninhalts nach dem Entfernen jeglicher angewendeter Inhaltskodierung angibt.
+  - : Eine Zahl, die die Größe (in Oktetten) der Nachrichtennutzlast nach der Entfernung jeglicher angewandter Inhaltskodierung darstellt, die durch den Abruf (HTTP oder Cache) erhalten wurde.
 - [`PerformanceResourceTiming.deliveryType`](/de/docs/Web/API/PerformanceResourceTiming/deliveryType) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Gibt an, wie die Ressource bereitgestellt wurde — beispielsweise aus dem Cache oder durch eine Navigationsvorabruf.
+  - : Gibt an, wie die Ressource bereitgestellt wurde — zum Beispiel aus dem Cache oder aus einem Navigations-Vorababruf.
 - [`PerformanceResourceTiming.encodedBodySize`](/de/docs/Web/API/PerformanceResourceTiming/encodedBodySize) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Größe (in Oktetten) des vom Abruf (HTTP oder Cache) empfangenen Nutzlastkörpers angibt, bevor jegliche angewendete Inhaltskodierung entfernt wird.
+  - : Eine Zahl, die die Größe (in Oktetten) der Abrufnachricht (HTTP oder Cache) für den Nutzlastkörper darstellt, bevor jegliche angewandte Inhaltskodierungen entfernt werden.
 - [`PerformanceResourceTiming.initiatorType`](/de/docs/Web/API/PerformanceResourceTiming/initiatorType) {{ReadOnlyInline}}
-  - : Eine Zeichenfolge, die das Webplattform-Feature darstellt, das den Leistungseintrag initiiert hat.
+  - : Ein String, der das Webplattform-Feature beschreibt, das den Performance-Eintrag initiiert hat.
 - [`PerformanceResourceTiming.nextHopProtocol`](/de/docs/Web/API/PerformanceResourceTiming/nextHopProtocol) {{ReadOnlyInline}}
-  - : Eine Zeichenfolge, die das Netzwerkprotokoll darstellt, das zum Abrufen der Ressource verwendet wird, identifiziert durch die [ALPN-Protokoll-ID (RFC7301)](https://datatracker.ietf.org/doc/html/rfc7301).
+  - : Ein String, der das Netzwerkprotokoll darstellt, das zum Abrufen der Ressource verwendet wurde, wie es durch die [ALPN-Protokoll-ID (RFC7301)](https://datatracker.ietf.org/doc/html/rfc7301) identifiziert wurde.
 - [`PerformanceResourceTiming.renderBlockingStatus`](/de/docs/Web/API/PerformanceResourceTiming/renderBlockingStatus) {{ReadOnlyInline}}
-  - : Eine Zeichenfolge, die den Render-Blockierungsstatus darstellt. Entweder `"blocking"` oder `"non-blocking"`.
+  - : Ein String, der den Render-Blocking-Status darstellt. Entweder `"blocking"` oder `"non-blocking"`.
 - [`PerformanceResourceTiming.responseStatus`](/de/docs/Web/API/PerformanceResourceTiming/responseStatus) {{ReadOnlyInline}}
-  - : Eine Zahl, die den HTTP-Antwortstatuscode angibt, der beim Abrufen der Ressource zurückgegeben wird.
+  - : Eine Zahl, die den HTTP-Antwortstatuscode darstellt, der beim Abrufen der Ressource zurückgegeben wird.
 - [`PerformanceResourceTiming.transferSize`](/de/docs/Web/API/PerformanceResourceTiming/transferSize) {{ReadOnlyInline}}
-  - : Eine Zahl, die die Größe (in Oktetten) der abgerufenen Ressource darstellt. Die Größe umfasst die Antwortheaderfelder plus den Nutzlastkörper der Antwort.
+  - : Eine Zahl, die die Größe (in Oktetten) der abgerufenen Ressource darstellt. Die Größe umfasst die Antwortkopfzeilenfelder sowie den Antwort-Payload-Body.
 - [`PerformanceResourceTiming.serverTiming`](/de/docs/Web/API/PerformanceResourceTiming/serverTiming) {{ReadOnlyInline}}
-  - : Ein Array von [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Einträgen, die Server-Leistungsmetriken enthalten.
+  - : Ein Array von [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Einträgen, die Server-Timing-Metriken enthalten.
 
 ## Instanzmethoden
 
@@ -114,9 +131,9 @@ Zusätzlich bietet dieses Interface die folgenden Eigenschaften, die mehr Inform
 
 ## Beispiele
 
-### Protokollierung von Ressourcenzeitinformationen
+### Protokollierung von Ressourcentiming-Informationen
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Leistungseinträge informiert, sobald sie in der Leistungstimeline des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erzeugung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -128,25 +145,13 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge anzeigt, die im Leistungstimeline des Browsers vorhanden sind, zu dem Zeitpunkt, zu dem Sie diese Methode aufrufen:
+Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
 resources.forEach((entry) => {
   console.log(entry);
 });
-```
-
-## Sicherheitsanforderungen
-
-### Informationen über zeitsensible Vorgänge über Cross-Origin hinweg
-
-Viele der Ressourcen-Zeitmessungseigenschaften sind eingeschränkt und geben `0` oder eine leere Zeichenfolge zurück, wenn es sich um eine Cross-Origin-Anfrage handelt. Um zeitliche Informationen über Cross-Origin hinweg freizugeben, muss der HTTP-Antwortheader {{HTTPHeader("Timing-Allow-Origin")}} gesetzt werden.
-
-Um beispielsweise `https://developer.mozilla.org` den Zugriff auf Ressourcenzeitinformationen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
-
-```http
-Timing-Allow-Origin: https://developer.mozilla.org
 ```
 
 ## Spezifikationen
@@ -159,4 +164,4 @@ Timing-Allow-Origin: https://developer.mozilla.org
 
 ## Siehe auch
 
-- [Ressourcentiming (Überblick)](/de/docs/Web/API/Performance_API/Resource_timing)
+- [Ressourcentiming (Übersicht)](/de/docs/Web/API/Performance_API/Resource_timing)

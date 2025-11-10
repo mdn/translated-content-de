@@ -3,28 +3,23 @@ title: "Element: clientLeft-Eigenschaft"
 short-title: clientLeft
 slug: Web/API/Element/clientLeft
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 1e0a16464b11cde9eddbb9795fe74e737dba0598
 ---
 
 {{ APIRef("DOM") }}
 
-Die Breite des linken Rands eines Elements in Pixeln. Sie umfasst die Breite der vertikalen Scrollleiste, wenn die Textrichtung des Elements von rechts nach links ist und wenn ein Überlauf eine linke vertikale Scrollleiste verursacht. `clientLeft` enthält nicht den linken Außenabstand oder die linke Auffüllung. `clientLeft` ist schreibgeschützt.
+Die **`clientLeft`** schreibgeschützte Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt die Breite des linken Randes eines Elements in Pixel zurück. Sie umfasst die Breite der vertikalen Bildlaufleiste, wenn die Textrichtung des Elements von rechts nach links ist und wenn ein Überlauf eine linke vertikale Bildlaufleiste erzeugt. `clientLeft` enthält nicht den linken Rand oder das linke Padding.
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
-
-> [!NOTE]
-> Wenn ein Element
-> `display: inline` hat, gibt `clientLeft` `0`
-> zurück, unabhängig von der Rahmenbreite des Elements.
+> Wenn ein Element `display: inline` hat, gibt `clientLeft` unabhängig vom Rand des Elements `0` zurück.
 
 ## Wert
 
-Eine Zahl.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
-Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und einen 24px breiten schwarzen `border-left`. Der `clientLeft`-Wert ist der Abstand von der Stelle, an der die Markierung (gelb) endet und die Bereiche Auffüllung und Inhalt (weiß) beginnen: das sind 24px.
+Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und eine 24px schwarze `border-left`. Der `clientLeft`-Wert ist der Abstand vom Ende des Randbereichs (gelb) bis zum Beginn der Padding- und Inhaltsbereiche (weiß): also 24px.
 
 ### HTML
 
@@ -70,3 +65,13 @@ Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und einen
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`HTMLElement.offsetLeft`](/de/docs/Web/API/HTMLElement/offsetLeft)
+- [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
+- [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight)
+- [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth)
+- [`Element.clientTop`](/de/docs/Web/API/Element/clientTop)
+- [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)

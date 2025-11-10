@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die Schnittstelle **`DeviceMotionEventRotationRate`** der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) liefert Informationen über die Rate, mit der sich das Gerät um alle drei Achsen dreht.
+Die Schnittstelle **`DeviceMotionEventRotationRate`** der [Device Orientation Events](/de/docs/Web/API/Device_orientation_events) liefert Informationen über die Rate, mit der sich das Gerät um alle drei Achsen dreht.
 
 ## Instanz-Eigenschaften
 

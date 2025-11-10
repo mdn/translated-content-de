@@ -3,23 +3,23 @@ title: "Element: transitionstart Ereignis"
 short-title: transitionstart
 slug: Web/API/Element/transitionstart_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef}}
 
-Das **`transitionstart`** Ereignis wird ausgelöst, wenn eine [CSS-Transition](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) tatsächlich gestartet ist, d.h. nach dem Ende einer beliebigen {{cssxref("transition-delay")}}.
+Das **`transitionstart`** Ereignis wird ausgelöst, wenn eine [CSS-Transition](/de/docs/Web/CSS/Guides/Transitions/Using) tatsächlich begonnen hat, d.h. nachdem eine eventuelle {{cssxref("transition-delay")}} abgelaufen ist.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("transitionstart", (event) => {});
+```js-nolint
+addEventListener("transitionstart", (event) => { })
 
-ontransitionstart = (event) => {};
+ontransitionstart = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,18 +30,18 @@ Ein [`TransitionEvent`](/de/docs/Web/API/TransitionEvent). Erbt von [`Event`](/d
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternelement [`Event`](/de/docs/Web/API/Event)_.
 
 - [`TransitionEvent.propertyName`](/de/docs/Web/API/TransitionEvent/propertyName) {{ReadOnlyInline}}
   - : Ein String, der den Namen der CSS-Eigenschaft enthält, die mit der Transition verbunden ist.
 - [`TransitionEvent.elapsedTime`](/de/docs/Web/API/TransitionEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Ein `float`, der die Laufzeit der Transition in Sekunden angibt, wenn dieses Ereignis ausgelöst wird. Dieser Wert wird nicht von der {{cssxref("transition-delay")}} Eigenschaft beeinflusst.
+  - : Ein `float`, der die Zeitdauer, die die Transition beim Auslösen des Ereignisses bereits läuft, in Sekunden angibt. Dieser Wert wird nicht von der Eigenschaft {{cssxref("transition-delay")}} beeinflusst.
 - [`TransitionEvent.pseudoElement`](/de/docs/Web/API/TransitionEvent/pseudoElement) {{ReadOnlyInline}}
-  - : Ein String, beginnend mit `::`, der den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Transition nicht auf einem Pseudo-Element, sondern auf dem Element läuft, ein leerer String: `''`.
+  - : Ein String, beginnend mit `::`, der den Namen des [Pseudoelements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Transition nicht auf einem Pseudoelement, sondern auf dem Element selbst läuft, ist der String leer: `''`.
 
 ## Beispiele
 
-Dieser Code fügt einen Listener für das `transitionstart` Ereignis hinzu:
+Dieser Code fügt einen Listener zum `transitionstart` Ereignis hinzu:
 
 ```js
 element.addEventListener("transitionstart", () => {
@@ -49,7 +49,7 @@ element.addEventListener("transitionstart", () => {
 });
 ```
 
-Dasselbe, aber die `ontransitionstart` Eigenschaft anstelle von `addEventListener()` verwenden:
+Dasselbe, aber unter Verwendung der `ontransitionstart` Eigenschaft anstelle von `addEventListener()`:
 
 ```js
 element.ontransitionstart = () => {
@@ -59,7 +59,7 @@ element.ontransitionstart = () => {
 
 ### Live-Beispiel
 
-Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, das mit einer Transition inklusive Verzögerung gestylt ist:
+Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}} Element, das mit einer Transition einschließlich einer Verzögerung gestaltet ist:
 
 ```html
 <div class="transition">Hover over me</div>
@@ -70,7 +70,7 @@ Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, da
 .transition {
   width: 100px;
   height: 100px;
-  background: rgb(255 0 0 / 100%);
+  background: red;
   transition-property: transform, background;
   transition-duration: 2s;
   transition-delay: 1s;
@@ -78,11 +78,11 @@ Im folgenden Beispiel haben wir ein einfaches {{htmlelement("div")}}-Element, da
 
 .transition:hover {
   transform: rotate(90deg);
-  background: rgb(255 0 0 / 0%);
+  background: transparent;
 }
 ```
 
-Dazu fügen wir etwas JavaScript hinzu, um anzuzeigen, wo die `transitionstart`- und [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event) Ereignisse ausgelöst werden.
+Dazu werden wir etwas JavaScript hinzufügen, um zu zeigen, wo die `transitionstart` und [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event) Ereignisse ausgelöst werden.
 
 ```js
 const transition = document.querySelector(".transition");
@@ -101,12 +101,12 @@ transition.addEventListener("transitionend", () => {
 });
 ```
 
-{{ EmbedLiveSample('Live-Beispiel', '100%', '170') }}
+{{ EmbedLiveSample('Live example', '100%', '170') }}
 
-Der Unterschied besteht darin, dass:
+Der Unterschied ist, dass:
 
-- transitionrun ausgelöst wird, wenn die Transition erstellt wird (d.h. zu Beginn einer beliebigen Verzögerung).
-- transitionstart ausgelöst wird, wenn die tatsächliche Animation begonnen hat (d.h. am Ende einer beliebigen Verzögerung).
+- transitionrun wird ausgelöst, wenn die Transition erstellt wird (d.h. zu Beginn einer eventuell vorhandenen Verzögerung).
+- transitionstart wird ausgelöst, wenn die eigentliche Animation begonnen hat (d.h. am Ende jeder Verzögerung).
 
 ## Spezifikationen
 

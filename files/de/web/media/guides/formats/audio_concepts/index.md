@@ -2,224 +2,224 @@
 title: Digitale Audiokonzepte
 slug: Web/Media/Guides/Formats/Audio_concepts
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 26e46f8c13ebea65dc65a6e99e51e8fa4d5d619d
 ---
 
-Um Audio in digitaler Form darzustellen, sind mehrere Schritte und Prozesse erforderlich, mit verschiedenen Formaten für sowohl das Roh-Audio als auch das kodierte oder komprimierte Audio, das tatsächlich im Web verwendet wird. Dieser Leitfaden bietet einen Überblick darüber, wie Audio digital repräsentiert wird und wie Codecs verwendet werden, um Audio für die Nutzung im Web zu kodieren und zu dekodieren.
+Die Darstellung von Audio in digitaler Form erfordert eine Reihe von Schritten und Prozessen, wobei mehrere Formate sowohl für das Roh-Audio als auch für das kodierte oder komprimierte Audio zur Verfügung stehen, das tatsächlich im Web verwendet wird. Dieser Leitfaden bietet einen Überblick darüber, wie Audio digital dargestellt wird und wie Codecs verwendet werden, um Audio für die Nutzung im Web zu kodieren und zu dekodieren.
 
-## Abtasten von Audio
+## Abtastung von Audio
 
-Audio ist ein inhärent analoges Merkmal der natürlichen Welt. Wenn ein Objekt vibriert, bringt es die Moleküle um sich herum ebenfalls zum Vibrieren. Diese Moleküle beeinflussen die benachbarten Moleküle und so weiter, und verbreiten die Vibration in Form einer Welle nach außen vom Ursprung, bis die Amplitude der Welle (ihre Lautstärke) mit der Entfernung nachlässt. Die Granularität einer Audio-Welle in der realen Welt entspricht einem einzelnen Molekül des Mediums, durch das die Schallwelle reist.
+Audio ist eine naturgemäß analoge Eigenschaft der realen Welt. Wenn ein Objekt vibriert, bringt es die umgebenden Moleküle ebenfalls zum Vibrieren. Diese Moleküle beeinflussen die benachbarten Moleküle, und so weiter, wobei die Vibration in Form einer Welle vom Ursprung aus verbreitet wird, bis die Amplitude der Welle (ihre Lautstärke) mit zunehmender Entfernung abnimmt. Die Granularität einer Audiowelle in der realen Welt entspricht also der eines einzelnen Moleküls des Mediums, durch das sich die Schallwelle bewegt.
 
-Auf der Erde ist das Medium, durch das die meisten Audiosignale reisen, die Luft. Einige Audiosignale reisen durch Wasser oder sogar durch das Gestein, das den Planeten bildet (wenn Sie jemals das Grollen oder Dröhnen eines Erdbebens gehört haben, haben Sie dieses Phänomen erlebt), aber fast alle Geräusche, die Sie täglich hören, erreichen Ihre Ohren durch die Luft.
+Auf der Erde ist das Medium, durch das die meisten Audiosignale reisen, die Luft. Einige Audioquellen breiten sich durch Wasser oder sogar durch das Gestein, das den Planeten bildet, aus (wenn Sie jemals das Grollen oder den Knall eines Erdbebens gehört haben, haben Sie dieses Phänomen erlebt), aber fast alle Klänge, die Sie täglich hören, gelangen durch die Luft in Ihre Ohren.
 
-Die Geräusche, die eine Person täglich hört, sind also eigentlich Vibrationen in der Luft, die das Innenleben des Ohres beeinflussen. Je weiter sich die Luftmoleküle mit jedem Puls der Welle bewegen, desto höher ist die Amplitude der Welle und desto lauter ist das Geräusch. Je schneller die Moleküle vibrieren, desto höher ist die Frequenz der Welle.
+Die Geräusche, die eine Person täglich hört, sind also tatsächlich Vibrationen in der Luft, die die Mechanismen im Ohr verursachen. Je weiter die Luftmoleküle mit jedem Impuls der Welle bewegt werden, desto höher ist die Amplitude der Welle und desto lauter ist der Klang. Je schneller die Moleküle vibrieren, desto höher ist die Frequenz der Welle.
 
-Je höher die Amplitude (Höhe) der Welle ist, desto lauter ist das Geräusch in diesem Moment. Je kürzer die Wellenlänge (je näher die Wellenkämme beieinander liegen), desto höher ist die Frequenz (oder Tonhöhe) des erzeugten Geräuschs.
+Je höher die Amplitude (Höhe) der Welle, desto lauter ist der Klang in diesem Moment. Je kürzer die Wellenlänge (je näher die Kämme der Welle zusammenliegen), desto höher ist die Frequenz (oder Tonhöhe) des erzeugten Klangs.
 
-![Eine einfache Schallwelle](audio-waveform.svg)
+![Eine Schallwellenform](audio-waveform.svg)
 
-Computer sind jedoch digital. Um eine Schallwelle in einer Weise darzustellen, die Computer verarbeiten und damit arbeiten können (geschweige denn über ein Netzwerk übertragen), muss der Ton in eine digitale Form umgewandelt werden. Dieser Prozess wird **Analog-Digital-Umwandlung** (**A/D** genannt).
+Computer hingegen sind digital. Um eine Schallwelle in einem Format darzustellen, das Computer manipulieren und verarbeiten können (geschweige denn über ein Netzwerk übertragen), muss der Klang in eine digitale Form umgewandelt werden. Dieser Prozess wird als **Analog-Digital-Umwandlung** (**A/D** für kurz) bezeichnet.
 
-Der erste Faktor, der die Wiedergabetreue des erfassten Audios beeinflusst, ist die **Audio-Bandbreite**; das ist der Bereich der Audiofrequenzen, den der A/D-Wandler erfassen und in digitale Form umwandeln kann. Die Audio-Bandbreite wird auch vom Codec beeinflusst, wenn er beim Kodieren des Tons einige Frequenzbänder verwirft.
+Der erste Faktor, der die Treue des erfassten Audios beeinflusst, ist die **Audio-Bandbreite**; das ist der Bereich der Audiofrequenzen, die der A/D-Wandler erfassen und in digitale Form umwandeln kann. Die Audio-Bandbreite wird auch vom Codec beeinflusst, wenn er bei der Kodierung des Tons bestimmte Frequenzbänder verwirft.
 
-Ton gelangt als Elektronenstrom in variierender Spannung, der die Amplitude der Schallwelle darstellt, durch ein Mikrofon oder einen anderen Eingang in den Computer. Dieses analoge Signal wird dann von einer Schaltung, die die Amplitude der eingehenden Welle in regelmäßigen Abständen erfasst, in digitale Form umgewandelt. Diese Daten werden in eine Zahl in einer Form umgewandelt, die das Audioaufnahmesystem versteht. Jeder dieser erfassten Momente ist ein **Sample**. Durch die Verkettung aller Samples können Sie die ursprüngliche Welle annähernd darstellen, wie im Diagramm unten gezeigt.
+Der Ton gelangt über ein Mikrofon oder einen anderen Eingang in Form eines Elektronenstroms in den Computer, dessen Spannung variiert, um die Amplitude der Schallwelle darzustellen. Dieses analoge Signal wird dann von einer Schaltung, die die Amplitude der eingehenden Welle in regelmäßigen Abständen erfasst, in digitale Form umgewandelt und in eine Zahl umgewandelt, die vom Audiosystem verstanden wird. Jeder dieser erfassten Momente ist eine **Probe**. Indem alle Proben miteinander verkettet werden, kann die ursprüngliche Welle näherungsweise dargestellt werden, wie in der unten stehenden Abbildung gezeigt.
 
-![Eine Schallwelle mit regelmäßig genommenen Samples](audio-waveform-samples1.svg)
+![Eine Audiowellenform mit periodisch entnommenen Proben](audio-waveform-samples1.svg)
 
-In diesem Beispiel repräsentiert die blaue Linie die von der Schallwelle (schwarz) genommenen Samples. In regelmäßigen Abständen liest die A/D-Wandlerschaltung die Spannung des Signals als einen Wert zwischen (in diesem Fall) -1,0 und +1,0. Da die Amplitude über die Dauer dieses Zeitsegments variiert, muss der A/D-Wandler einen Wert wählen, um dieses Segment darzustellen, sei es, indem er das Signal zu einem bestimmten Zeitpunkt aufnimmt (im Diagramm oben wird der Mittelpunkt jedes Segments als Wert verwendet) oder indem er die Amplitude über die Dauer jedes Samples mittelt. Diese Sample-Werte werden dann als Amplitude der Welle zu diesem Zeitpunkt aufgezeichnet.
+In diesem Beispiel repräsentiert die blaue Linie die Proben, die aus der Audiowellenform entnommen wurden, die schwarz ist. In regelmäßigen Abständen liest die A/D-Wandlerschaltung die Spannung des Signals als einen Wert zwischen (in diesem Fall) -1,0 und +1,0. Da sich die Amplitude über die Dauer dieses Zeitabschnitts ändert, muss der A/D-Wandler einen Wert wählen, um diesen Abschnitt darzustellen, sei es durch die Erfassung des Werts zu einem bestimmten Moment (im Diagramm oben wird der Mittelpunkt jedes Abschnitts als Wert verwendet) oder durch das Durchschnittnehmen der Amplitude über die Dauer jeder Probe. Diese Probenwerte werden dann als die Amplitude der Wellenform zu diesem Zeitpunkt aufgezeichnet.
 
-Wenn es später an der Zeit ist, diesen Ton abzuspielen, werden diese Amplituden verwendet, um eine Annäherung an die ursprüngliche Welle zu erzeugen; anstatt eine exakte Kopie der ursprünglichen, glatten Welle wiederzugeben, wird die rauere, blaue Welle abgespielt.
+Wenn es später an der Zeit ist, diesen Ton wiederzugeben, werden diese Amplituden genutzt, um eine Annäherung an die ursprüngliche Wellenform zu erzeugen; anstatt eine exakte Kopie der ursprünglichen, glatten Welle abzuspielen, wird die rauere, blaue Welle abgespielt.
 
-Je häufiger Sie die ursprüngliche Audio abtasten, desto näher können Sie dem Original kommen. Die Anzahl der pro Sekunde genommenen Samples wird als **Sample-Rate** bezeichnet. Überlegen Sie sich die oben gezeigte Welle und wie unterschiedlich die blaue, digitale Welle aussehen würde, wenn doppelt so oft Samples genommen würden. Oder zehnmal so oft. Je mehr Samples Sie nehmen, desto glatter wird die Welle.
+Je öfter Sie Proben des ursprünglichen Audios nehmen, desto näher können Sie der Originalaufnahme kommen. Die Anzahl der Proben pro Sekunde wird als **Abtastrate** bezeichnet. Betrachten Sie die obige Welle und wie unterschiedlich die blaue, digitale Welle aussehen würde, wenn Sie doppelt so oft Proben nehmen würden. Oder zehnmal so oft. Je mehr Proben Sie nehmen, desto glatter wird die Welle.
 
-## Audio-Datenformat und -struktur
+## Audio-Datenformat und Struktur
 
-Auf der grundlegendsten Ebene wird Audio durch einen Strom von Samples dargestellt, die jeweils die Amplitude der Schallwelle angeben, wie sie für einen bestimmten Abschnitt der Gesamtwelle des Audiosignals gemessen wurde. Es gibt mehrere Formate, die für die einzelnen Samples innerhalb einer Audiodatei verwendet werden. Die meisten Audiodateien verwenden 16-Bit-Ganzzahlen mit Vorzeichen für jedes Sample, aber andere verwenden 32-Bit-Gleitkommawerte oder 24-Bit- oder 32-Bit-Ganzzahlen. Einige ältere Audio-Dateiformate - die Sie nicht im Web finden werden - verwendeten 8-Bit-Ganzzahlsamples. Darüber hinaus können Samples auch mit oder ohne Vorzeichen sein. Die Größe eines einzelnen Samples wird als **Sample-Größe** bezeichnet.
+Auf der grundlegendsten Ebene wird Audio durch einen Stream von Proben dargestellt, jede spezifiziert die Amplitude der Audiowellenform, wie sie für einen bestimmten Abschnitt der Gesamtwellenform des Audiosignals gemessen wurde. Es gibt mehrere Formate, die für die einzelnen Proben innerhalb einer Audio-Datei verwendet werden. Die meisten Audiodateien verwenden 16-Bit-signed-Integer für jede Probe, einige andere verwenden 32-Bit-Gleitkommawerte oder 24-Bit- oder 32-Bit-Integer. Einige ältere Audio-Dateiformate – die Sie im Web nicht finden werden – verwendeten 8-Bit-Integer-Proben. Zusätzlich können Proben sowohl signed als auch unsigned Werte verwenden. Die Größe einer einzelnen Probe wird als **Probengröße** bezeichnet.
 
-Die Position jeder Audioquelle innerhalb des Audiosignals wird als **Kanal** bezeichnet. Jeder Kanal enthält ein Sample, das die Amplitude des zu einem bestimmten Zeitpunkt erzeugten Tons von dieser Quelle angibt. Im Stereoton gibt es beispielsweise zwei Audioquellen: einen Lautsprecher links und einen rechts. Jeder von ihnen wird durch einen Kanal dargestellt, und die Anzahl der im Audiosignal enthaltenen Kanäle wird als **Kanalanzahl** bezeichnet.
+Die Position jeder Audioquelle innerhalb des Audiosignals wird als **Kanal** bezeichnet. Jeder Kanal enthält eine Probe, die die Amplitude des von dieser Quelle zu einem bestimmten Zeitpunkt erzeugten Tons angibt. Zum Beispiel gibt es beim Stereo-Ton zwei Audioquellen: einen Lautsprecher links und einen rechts. Jeder dieser Kanäle wird durch einen Kanal repräsentiert, und die Anzahl der im Audiosignal enthaltenen Kanäle wird als **Kanalanzahl** bezeichnet.
 
-Beim Aufzeichnen oder Generieren von Mehrkanal-Audiodateien werden die Kanäle zu einer Serie von **Audioframes** zusammengefügt, die jeweils ein Sample für jeden der Audio-Kanäle enthalten. Ein einzelnes Sample ist ein numerischer Wert, der die Amplitude der Schallwelle zu einem bestimmten Zeitpunkt darstellt und in verschiedenen Formaten dargestellt werden kann.
+Während der Aufnahme oder Erzeugung von Mehrkanal-Audiodateien werden die Kanäle in einer Serie von **Audio-Frames** zusammengefasst, die jeweils aus einer Probe für jeden der Audiokanäle bestehen. Eine einzelne Probe ist ein numerischer Wert, der die Amplitude der [Wellenform](https://en.wikipedia.org/wiki/Waveform) zu einem bestimmten Zeitpunkt darstellt und in verschiedenen Formaten dargestellt werden kann.
 
-Stereoton ist wahrscheinlich die am häufigsten verwendete Kanalaufteilung in Web-Audio, und 16-Bit-Samples werden für die Mehrheit der heute verwendeten Audioformate verwendet. Bei 16-Bit-Stereo-Audio wird jedes von dem analogen Signal genommene Sample als zwei 16-Bit-Ganzzahlen aufgezeichnet, eine für den linken Kanal und eine für den rechten. Das bedeutet, dass jedes Sample 32 Bit Speicher benötigt. Bei der üblichen Abtastrate von 48 kHz (48.000 Samples pro Sekunde) benötigt jede Sekunde Audio 192 kB Speicher. Daher benötigt ein typisches dreiminütiges Lied etwa 34,5 MB Speicher. Das ist viel Speicherplatz, aber noch schlimmer, es ist eine unheimliche Menge an Netzwerkbandbreite, die für ein relativ kurzes Stück Audio verwendet werden muss. Deshalb wird das meiste digitale Audio komprimiert.
+Stereo-Audio ist wahrscheinlich die am häufigsten verwendete Kanalzusammenfassung im Web-Audio, und 16-Bit-Proben werden für die meisten täglichen Audiodaten verwendet. Bei 16-Bit-Stereo-Audio wird jede Probe des analogen Signals als zwei 16-Bit-Integer aufgezeichnet, eines für den linken und eines für den rechten Kanal. Das bedeutet, dass für jede Probe 32 Bits Speicher benötigt werden. Bei der üblichen Abtastrate von 48 kHz (48.000 Proben pro Sekunde) bedeutet dies, dass jede Sekunde Audio 192 kB Speicherplatz belegt. Daher benötigt ein typisches dreiminütiges Lied etwa 34,5 MB Speicherplatz. Das ist eine Menge Speicherplatz, aber schlimmer noch, es ist eine enorme Menge an Netzwerkbandbreite, die für ein relativ kurzes Stück Audio verwendet wird. Deshalb wird der größte Teil des digitalen Audios komprimiert.
 
-Der Prozess der Kompression und Dekompression von Audio wird durch Kodierung und Dekodierung mit einem Audio-**{{Glossary("codec", "Codec")}}** (**CO**der/**DE**coder) durchgeführt. Im Laufe der Jahre wurden eine Vielzahl von Codecs entwickelt, von denen mehrere häufig im Web verwendet werden. Weitere Informationen zu den wichtigsten und nützlichsten für Webentwickler finden Sie im Artikel [Leitfaden zu Audiocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Audio_codecs).
+Der Prozess der Komprimierung und Dekomprimierung von Audio erfolgt durch die Kodierung und Dekodierung mittels eines Audio-**{{Glossary("codec", "Codecs")}}** (**CO**der/**DE**coder). Im Laufe der Jahre wurde eine Vielzahl von Codecs entwickelt, von denen mehrere häufig im Web verwendet werden. Für Details zu den wichtigsten und nützlichsten für Webentwickler bekannte Codecs siehe den Artikel [Leitfaden zu Audiocodecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Audio_codecs).
 
-### Audiokanäle und -frames
+### Audiokanäle und Frames
 
-Es gibt zwei Arten von Audiokanälen. Standard-Audiokanäle werden verwendet, um den Großteil des hörbaren Klangs wiederzugeben. Der Klang für die linken und rechten Hauptkanäle sowie alle Surround-Sound-Lautsprecher (Mitte, linke und rechte Rückseite, linke und rechte Seiten, Deckenkanäle usw.) sind alle Standard-Audiokanäle. Spezielle **Low Frequency Enhancement** (**LFE**)-Kanäle liefern das Signal für spezielle Lautsprecher, die dafür ausgelegt sind, die tiefen Frequenzen und Vibrationen zu erzeugen, um beim Hören des Audios ein körperliches Empfinden zu erzeugen. Die LFE-Kanäle steuern typischerweise Subwoofer und ähnliche Geräte an.
+Es gibt zwei Arten von Audiokanälen. Standard-Audiokanäle werden verwendet, um den Großteil des hörbaren Tons darzustellen. Der Ton für die linke und rechte Hauptkanäle sowie alle Surround-Sound-Lautsprecher (Center, hinten links und rechts, seitlich links und rechts, Deckenkanäle usw.) sind alles Standard-Audiokanäle. Spezielle **Low Frequency Enhancement** (**LFE**)-Kanäle liefern das Signal für spezielle Lautsprecher, die zur Erzeugung tiefer Frequenzen und Vibrationen ausgelegt sind, um beim Hören des Audios ein körperliches Empfinden zu erzeugen. Die LFE-Kanäle betreiben typischerweise Subwoofer und ähnliche Geräte.
 
-Monophones Audio hat einen Kanal, Stereoton hat zwei Kanäle, 5.1-Surround-Sound hat 6 Kanäle (fünf Standard- und einen LFE-Kanal) und so weiter. Jedes Audioframe ist ein Datenaufzeichnung, das die Samples für alle verfügbaren Kanäle in einem Audiosignal enthält. Die Größe eines Audioframes wird berechnet, indem die Sample-Größe in Bytes mit der Anzahl der Kanäle multipliziert wird, sodass ein einzelnes Frame von Stereo-16-Bit-Audio 4 Byte lang ist und ein einzelnes Frame von 5.1-Floating-Point-Audio 24 (4 Byte pro Sample multipliziert mit 6 Kanälen) lang ist.
+Monophones Audio hat einen Kanal, Stereo-Sound hat zwei Kanäle, 5.1 Surround-Sound hat 6 Kanäle (fünf Standard- und ein LFE-Kanal) usw. Jedes Audio-Frame ist ein Datenregister, das die Proben für alle verfügbaren Kanäle in einem Audiosignal enthält. Die Größe eines Audio-Frames wird durch Multiplikation der Probengröße in Bytes mit der Anzahl der Kanäle berechnet, sodass ein einzelnes Frame von 16-Bit-Stereo-Audio 4 Bytes lang ist und ein einzelnes Frame von 5.1-Gleitkomma-Audio 24 (4 Bytes pro Probe multipliziert mit 6 Kanälen).
 
 > [!NOTE]
-> Einige Codecs trennen tatsächlich die linken und rechten Kanäle und speichern sie in separaten Blöcken innerhalb ihrer Datenstruktur. Ein Audioframe besteht jedoch immer aus allen Daten aller verfügbaren Kanäle.
+> Einige Codecs werden tatsächlich die linken und rechten Kanäle trennen und sie in separaten Blöcken innerhalb ihrer Datenstruktur speichern. Ein Audio-Frame besteht jedoch immer aus den Daten für alle verfügbaren Kanäle.
 
-Die Anzahl der Frames, die eine Sekunde Audio ausmachen, variiert abhängig von der beim Aufnehmen des Tons verwendeten Abtastrate. Da die Abtastrate der Anzahl der "Scheiben" entspricht, in die eine Schallwelle für jede Sekunde Zeit unterteilt ist, wird sie manchmal als Frequenz angesehen (im Sinne einer Beschreibung von etwas, das periodisch wiederholt wird, nicht in Bezug auf die tatsächliche Audiofrequenz), und die Samples pro Sekunde Messung verwendet daher den [Hertz](https://en.wikipedia.org/wiki/Hertz) als Einheit.
+Die Anzahl der Frames, die eine einzelne Sekunde Audio ausmachen, variiert je nach Abtastrate, die beim Aufnehmen des Tons verwendet wurde. Da sich die Abtastrate auf die Anzahl der "Slices" bezieht, in die eine Schallwelle für jede Sekunde Zeit unterteilt ist, wird sie manchmal als Frequenz betrachtet (im Sinne einer Beschreibung von etwas, das sich periodisch wiederholt, nicht im Sinne einer tatsächlichen Audiofrequenz), und die Proben pro Sekunde werden daher in [Hertz](https://en.wikipedia.org/wiki/Hertz) gemessen.
 
 Die gebräuchlichsten Abtastraten sind:
 
 - 8000 Hz
-  - : Der internationale [G.711](https://en.wikipedia.org/wiki/G.711)-Standard für Audio, der in der Telefonie verwendet wird, verwendet eine Abtastrate von 8000 Hz (8 kHz). Dies ist ausreichend, damit menschliche Sprache verständlich ist.
+  - : Der internationale [G.711](https://en.wikipedia.org/wiki/G.711)-Standard für Audio, der in der Telefonie verwendet wird, verwendet eine Abtastrate von 8000 Hz (8 kHz). Dies reicht aus, damit menschliche Sprache verständlich ist.
 - 44100 Hz
-  - : Die Abtastrate von 44,1 kHz wird für Compact Disc (CD)-Audio verwendet. CDs bieten unkomprimiertes 16-Bit-Stereoton bei 44,1 kHz. Auch Computeraudio verwendet häufig diese Frequenz als Standard.
+  - : Die 44,1 kHz-Abtastrate wird für CDs (Compact Discs) verwendet. CDs bieten unkomprimierten 16-Bit-Stereo-Sound bei 44,1 kHz. Auch Computer-Audio verwendet häufig standardmäßig diese Frequenz.
 - 48000 Hz
-  - : Der Ton auf DVD wird mit 48 kHz aufgezeichnet. Dies wird auch oft für Computeraudio verwendet.
+  - : Das Audio auf DVDs wird mit 48 kHz aufgezeichnet. Dies wird auch häufig für Computer-Audio verwendet.
 - 96000 Hz
-  - : Hochauflösender Audioton.
+  - : Hochauflösendes Audio.
 - 192000 Hz
-  - : Ultra-hochauflösender Audioton. Wird noch nicht häufig verwendet, aber dies wird sich im Laufe der Zeit ändern.
+  - : Ultra-hochauflösendes Audio. Wird noch nicht häufig verwendet, aber das wird sich im Laufe der Zeit ändern.
 
-Es gibt einen Grund, warum 44,1 kHz als die minimale "High-Fidelity"-Abtastrate angesehen wird. Der [Nyquist-Shannon-Abtasttheorem](https://en.wikipedia.org/wiki/Nyquist-Shannon_sampling_theorem) besagt, dass zur genauen Wiedergabe eines Tons dieser mit der doppelten Frequenz der Tonfrequenz abgetastet werden muss. Da der Bereich des menschlichen Hörvermögens von etwa 20 Hz bis 20.000 Hz reicht, erfordert die Wiedergabe der höchsten Töne, die Menschen im Allgemeinen hören können, eine Abtastrate von mehr als 40.000 Hz.
+Es gibt einen Grund, warum 44,1 kHz als die minimale "High Fidelity"-Abtastrate angesehen werden. Der [Nyquist-Shannon-Abtasttheorem](https://en.wikipedia.org/wiki/Nyquist-Shannon_sampling_theorem) besagt, dass ein Ton mit der doppelten Frequenz der Frequenz des Tones abgetastet werden muss, um ihn genau wiederzugeben. Da der Bereich des menschlichen Hörens von etwa 20 Hz bis 20.000 Hz reicht, erfordert die Reproduktion der hochfrequentesten Klänge, die Menschen im Allgemeinen hören können, eine Abtastrate von mehr als 40.000 Hz.
 
-Um zusätzlichen Raum für einen [Tiefpassfilter](https://en.wikipedia.org/wiki/Low-pass_filter) bereitzustellen, um Verzerrungen durch [Aliasing](https://en.wikipedia.org/wiki/Aliasing) zu vermeiden, wird dem Prä-Sampling-Frequenz eine zusätzliche [Transition Band](https://en.wikipedia.org/wiki/Transition_band) von 2,05 kHz hinzugefügt (was zu 22,050 Hz führt). Die Verdopplung gemäß Nyquist-Theorem ergibt eine endgültige Mindestfrequenz von (Sie haben es erraten) 44,1 kHz.
+Um zusätzlichen Raum für einen [Tiefpassfilter](https://en.wikipedia.org/wiki/Low-pass_filter) zu schaffen, um Verzerrungen durch [Aliasing](https://en.wikipedia.org/wiki/Aliasing) zu vermeiden, wird dem Vorabtastfrequenz ein zusätzlicher Übergangsbereich von 2,05 kHz hinzugefügt (was 22.050 Hz ergibt). Die Verdopplung gemäß dem Nyquist-Theorem ergibt eine endgültige Mindestfrequenz von (wie Sie es erraten haben) 44,1 kHz.
 
-Hochauflösender (96 kHz) Audioton wird in einigen hochwertigen Audiosystemen verwendet, und sowohl er als auch ultra-hochauflösender (192 kHz) Audioton sind nützlich für die Audiomastering, wo Sie so viel Qualität wie möglich benötigen, während Sie den Ton manipulieren und bearbeiten, bevor Sie auf die Abtastrate herunterstufen, die Sie für das Endprodukt verwenden werden. Dies ist ähnlich wie Fotografen hochauflösende Bilder für das Editieren und Komponieren verwenden, bevor sie dem Kunden ein für den Einsatz auf einer Website geeignetes JPEG präsentieren.
+Hochauflösendes (96 kHz) Audio wird in einigen High-End-Audiosystemen verwendet, und es und ultra-hochauflösendes (192 kHz) Audio sind nützlich für das Audio-Mastering, bei dem Sie so viel Qualität wie möglich benötigen, während Sie den Sound manipulieren und bearbeiten, bevor Sie auf die Abtastrate herunterrechnen, die Sie für das Endprodukt verwenden werden. Dies ist ähnlich wie Fotografen hochauflösende Bilder für die Bearbeitung und Komposition verwenden, bevor sie dem Kunden ein für eine Website geeignetes JPEG präsentieren.
 
-### Dateigröße und Netzwerkbandbreite von Audio
+### Dateigröße von Audio und Netzwerkbandbreite
 
-Sobald Sie die Größe eines einzelnen Audioframes und die Anzahl der Frames pro Sekunde in Ihren Audiodaten kennen, können Sie leicht berechnen, wie viel Speicherplatz die tatsächlichen Rohsounddaten verbrauchen (und daher wie viel Bandbreite sie im Netzwerk verbrauchen würden).
+Sobald Sie die Größe eines einzelnen Audio-Frames kennen und wie viele Frames pro Sekunde Ihre Audiodaten ausmachen, können Sie leicht berechnen, wie viel Speicherplatz die Rohklangdaten selbst belegen werden (und daher wie viel Bandbreite sie in einem Netzwerk verbrauchen würden).
 
-Betrachten Sie beispielsweise einen Stereo-Audioclip (das heißt, zwei Audiokanäle) mit einer Sample-Größe von 16 Bit (2 Byte), der mit 48 kHz aufgenommen wurde:
+Zum Beispiel betrachten wir einen Stereo-Audio-Clip (das heißt, zwei Audiokanäle) mit einer Probengröße von 16 Bits (2 Bytes), der mit 48 kHz aufgenommen wurde:
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn><mfrac><mrow><mi>bytes</mi></mrow><mrow><mi>sample</mi></mrow></mfrac><mo>×</mo><mn>48000</mn><mfrac><mrow><mi>samples</mi></mrow><mrow><mi>second</mi></mrow></mfrac><mo>=</mo><mn>192000</mn><mfrac><mrow><mi>bytes</mi></mrow><mrow><mi>second</mi></mrow></mfrac><mo>=</mo><mn>192</mn><mi>kBps</mi></mrow><annotation encoding="TeX">2 \times 2\frac { bytes }{ sample } \times 48000\frac { samples }{ second } = 192000\frac { bytes }{ second } = 192 kBps</annotation></semantics>
+  <semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn><mfrac><mrow><mi>Bytes</mi></mrow><mrow><mi>Sample</mi></mrow></mfrac><mo>×</mo><mn>48000</mn><mfrac><mrow><mi>Samples</mi></mrow><mrow><mi>Second</mi></mrow></mfrac><mo>=</mo><mn>192000</mn><mfrac><mrow><mi>Bytes</mi></mrow><mrow><mi>Second</mi></mrow></mfrac><mo>=</mo><mn>192</mn><mi>kBps</mi></mrow><annotation encoding="TeX">2 \times 2\frac { bytes }{ sample } \times 48000\frac { samples }{ second } = 192000\frac { bytes }{ second } = 192 kBps</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
-Bei 192 kBps werden niedrigere Netzwerke bereits alleine durch einen einzigen Audiostream stark belastet. Wenn das Netzwerk auch andere Dinge tut, tritt das Problem auch bei Netzwerken mit höherer Bandbreite auf. Bei so viel Konkurrenz um die Netzwerkfähigkeit, insbesondere auf langsameren Netzwerken, kann diese Datenmenge zu viel sein, um in realen Anwendungen viabel zu übertragen.
+Bei 192 kBps werden niedrigere Netzwerke bereits durch einen einzigen Audiostream stark belastet. Wenn das Netzwerk auch andere Dinge tut, stellt sich das Problem auch bei Netzwerken mit höherer Bandbreite. Bei so viel Wettbewerb um die Netzwerkkapazität, insbesondere in langsameren Netzwerken, kann diese Datenmenge zu viel sein, um sie bei Echtzeitanwendungen effizient zu übertragen.
 
-Um dieses Problem zu lösen, muss das Audio durch Kompression verkleinert werden.
+Um dieses Problem zu lösen, muss das Audio durch Komprimierung verkleinert werden.
 
 > [!NOTE]
-> Netzwerkbandbreite ist offensichtlich nicht dasselbe wie Audiobandbreite, die im Abschnitt [Abtasten von Audio](#abtasten_von_audio) oben behandelt wird.
+> Netzwerkbandbreite ist offensichtlich nicht dasselbe wie die Audio-Bandbreite, die in [Abtastung von Audio](#abtastung_von_audio) beschrieben wird.
 
-## Grundlagen der Audiokompression
+## Grundlagen der Audiokomprimierung
 
-Im Gegensatz zu Text und vielen anderen Arten von Daten neigen Audiodaten dazu, **rauschig** zu sein, was bedeutet, dass die Daten selten aus einer Reihe von exakt wiederholten Bytes oder Bytesequenzen bestehen. Dadurch sind Audiodaten schwierig mit traditionellen Algorithmen zu komprimieren, wie sie von allgemeinen Tools wie `zip` verwendet werden, die normalerweise durch Ersetzen von sich wiederholenden Datensequenzen durch eine Kurzform-Repräsentation arbeiten.
+Im Gegensatz zu Text und vielen anderen Arten von Daten neigen Audiodaten dazu, **rauschig** zu sein, was bedeutet, dass die Daten selten aus einer Reihe von exakt wiederholten Bytes oder Byte-Sequenzen bestehen. Infolgedessen ist es schwierig, Audiodaten mit herkömmlichen Algorithmen wie denen, die von allgemeinen Tools wie `zip` verwendet werden, zu komprimieren, die normalerweise funktionieren, indem wiederholte Datenfolgen durch eine kurzschlüssige Darstellung ersetzt werden.
 
-Es gibt mehrere Techniken, die bei der Komprimierung von Audio angewendet werden können. Die meisten Codecs verwenden eine Kombination dieser Techniken und möglicherweise auch andere.
+Es gibt mehrere Techniken, die bei der Komprimierung von Audio angewendet werden können. Die meisten Codecs verwenden eine Kombination dieser Techniken und möglicherweise auch andere Techniken.
 
-Das einfachste, was Sie tun können, ist, einen Filter anzuwenden, der Zischen und leise Geräusche entfernt, indem er leise Abschnitte in Stille umwandelt und das Signal glättet. Dies kann Strecken der Stille sowie andere sich wiederholende oder nahezu wiederholende Signale erzeugen, die verkürzt werden können.
+Die einfachste Sache, die Sie tun können, ist ein Filter anzuwenden, der Rauschen und leise Töne entfernt und stille Abschnitte in Stille umwandelt und das Signal glättet. Dies kann Abschnitte von Stille sowie andere sich wiederholende oder fast sich wiederholende Signale erzeugen, die gekürzt werden können.
 
-Sie können einen Filter anwenden, der die Audiobandbreite verengt, indem er alle Audiofrequenzen entfernt, die Ihnen nicht wichtig sind. Dies ist besonders nützlich für Audio-Signale, die nur Sprache enthalten. Durch das Entfernen von Daten wird das resultierende Signal wahrscheinlich einfacher zu komprimieren.
+Sie können einen Filter anwenden, der die Audio-Bandbreite einengt und alle Audiofrequenzen entfernt, auf die Sie keinen Wert legen. Dies ist besonders nützlich für Audio-Signale, die nur Sprache enthalten. Dies reduziert Daten und macht das resultierende Signal leichter komprimierbar.
 
 ### Psychoakustik
 
-Wenn Sie wissen, welche Art von Audio Sie höchstwahrscheinlich verarbeiten werden, können Sie möglicherweise spezielle Filtertechniken finden, die speziell auf diese Art von Geräuschen anwendbar sind, die die Kodierung optimieren.
+Wenn Sie wissen, welche Art von Audio Sie am wahrscheinlichsten verarbeiten, können Sie möglicherweise spezielle Filtertechniken finden, die speziell auf diese Art von Klang anwendbar sind und die Kodierung optimieren.
 
-Die am häufigsten verwendeten Kompressionsmethoden für Audio wenden die Wissenschaft der **[Psychoakustik](https://en.wikipedia.org/wiki/Psychoacoustics)** an. Dies ist die Wissenschaft, die untersucht, wie Menschen Töne wahrnehmen und welche Teile der Audiofrequenzen, die wir hören, am wichtigsten sind, um zu bestimmen, wie wir auf diese Geräusche reagieren, abhängig vom Kontext und Inhalt des Tons. Faktoren wie die Fähigkeit, eine Änderung der Tonfrequenz wahrzunehmen, der gesamte Bereich des menschlichen Hörens im Vergleich zu den Frequenzen des Audiosignals, Audiolokalisierung usw. können alle von einem Codec berücksichtigt werden.
+Die am häufigsten verwendeten Kompressionsmethoden für Audio nutzen die Wissenschaft der **[Psychoakustik](https://en.wikipedia.org/wiki/Psychoacoustics)**. Dies ist die Wissenschaft, die untersucht, wie Menschen Schall wahrnehmen und welche Teile der von uns gehörten Audiofrequenzen für unsere Reaktion auf diese Geräusche am wichtigsten sind, gegeben den Kontext und den Inhalt des Klangs. Faktoren wie die Fähigkeit, eine Änderung der Frequenz eines Tons zu erkennen, das Gesamtspektrum des menschlichen Hörens im Vergleich zu den Frequenzen des Audiosignals, die Lokalisierung von Audio und so weiter können von einem Codec berücksichtigt werden.
 
-Durch den Einsatz eines fundierten Verständnisses der Psychoakustik ist es möglich, eine Kompressionsmethode zu entwerfen, die die komprimierte Größe des Audios minimiert und gleichzeitig die wahrgenommene Wiedergabetreue des Tons maximiert. Ein Algorithmus, der Psychoakustik verwendet, kann eine dieser Techniken verwenden und wird nahezu sicher auch andere Techniken anwenden.
+Durch das Verständnis der Psychoakustik ist es möglich, eine Kompressionsmethode zu entwerfen, die die komprimierte Größe des Audios minimiert, während die wahrgenommene Klangtreue maximiert wird. Ein auf Psychoakustik basierender Algorithmus kann jede der hier erwähnten Techniken verwenden und wird fast sicher auch andere anwenden.
 
-All dies bedeutet, dass eine grundlegende Frage gestellt und beantwortet werden muss, bevor ein Codec gewählt wird: In Anbetracht des Inhalts des Tons, des Nutzungskontexts und der Zielgruppe, ist es akzeptabel, einen gewissen Grad an Audioqualität zu verlieren, und wenn ja, wie viel; oder ist es notwendig, dass das Ergebnis beim Dekodieren der Daten mit dem Quell-Audio identisch ist?
+All dies bedeutet, dass vor der Auswahl eines Codecs eine grundlegende Frage gestellt und beantwortet werden muss: Ist es im Hinblick auf den Inhalt des Klangs, den Nutzungskontext und das Zielpublikum akzeptabel, einen gewissen Grad an Klangtreue zu verlieren, und wenn ja, in welchem Maß; oder ist es notwendig, dass bei der Dekodierung der Daten das Ergebnis mit dem Quell-Audio identisch ist?
 
-### Verlustbehaftete vs. verlustfreie Kompression
+### Verlustbehaftete vs. verlustfreie Komprimierung
 
-Wenn der Verlust von Details und potenziell Wiedergabetreue inakzeptabel oder unerwünscht ist, wird ein **verlustfreier** Codec bevorzugt. Andererseits, wenn ein gewisser Grad an Reduktion der Audioqualität in Ordnung ist, kann ein **verlustbehafteter** Codec verwendet werden. Im Allgemeinen führt verlustbehaftete Kompression zu erheblich kleineren Ausgaben als verlustfreie Kompressionsmethoden; auch sind viele verlustbehaftete Codecs ausgezeichnet, und der Verlust an Qualität und Details ist für den durchschnittlichen Zuhörer schwer oder sogar unmöglich zu erkennen.
+Wenn der Verlust von Details und möglicherweise Treue inakzeptabel oder unerwünscht ist, wird ein **verlustfreier** Codec bevorzugt. Andererseits, wenn ein gewisses Maß an Reduzierung der Audiotreue akzeptabel ist, kann ein **verlustbehafteter** Codec verwendet werden. Generell führt die verlustbehaftete Komprimierung zu deutlich kleineren Ausgaben als verlustfreie Komprimierungsmethoden; zudem sind viele verlustbehaftete Codecs exzellent, wobei der Verlust an Qualität und Detail für den durchschnittlichen Hörer schwierig oder sogar unmöglich zu erkennen ist.
 
 > [!NOTE]
-> Während die Auswirkungen eines hochwertigen verlustbehafteten Komprimierungsalgorithmus auf die Tonqualität für den Durchschnittsmenschen schwer zu erkennen sein können, haben bestimmte Personen außergewöhnlich gutes Gehör oder sind besonders geschickt darin, die durch verlustbehaftete Kompressionstechniken eingeführten Änderungen in der Musik zu erkennen.
+> Während der Einfluss einer hochwertigen verlustbehafteten Komprimierung auf die Klangqualität für die durchschnittliche Person schwierig zu erkennen sein kann, haben bestimmte Menschen ein außergewöhnlich gutes Gehör oder sind besonders gut darin, die durch verlustbehaftete Kompressionstechniken eingeführten Änderungen wahrzunehmen.
 
-Die Mehrheit der Audio-Codecs verwendet einige Form von verlustbehafteter Kompression, weil die besseren Kompressionsraten dieser Algorithmen bieten. Während verlustfreie Kompressionsalgorithmen gewöhnlich nicht besser als auf 40-50% der Größe der ursprünglichen, unkomprimierten Audiodaten kommen, können moderne verlustbehaftete Komprimierungsalgorithmen die Größe des Audios je nach Komplexität des Audios auf 5-20% der ursprünglichen Größe reduzieren. Die mit verlustbehafteter Kompression möglichen weitaus überlegenen Kompressionsraten machen es in der Regel zu einer überzeugenden Wahl, und angemessene oder ausgezeichnete Audioqualität ist mit gut gewählten Codec-Konfigurationen möglich.
+Die Mehrheit der Audio-Codecs verwendet eine Form der verlustbehafteten Komprimierung, aufgrund des besseren Kompressionsverhältnisses, dass diese Algorithmen bieten. Während verlustfreie Komprimierungsalgorithmen normalerweise nicht besser als 40-50% der Größe der ursprünglichen, unkomprimierten Audiodaten erreichen, können moderne verlustbehaftete Komprimierungsalgorithmen die Größe der Audiodatei auf 5-20% der ursprünglichen Größe reduzieren, abhängig von der Komplexität des Audios. Die überragenden Kompressionsverhältnisse, die durch verlustbehaftete Komprimierung möglich sind, machen sie in der Regel zu einer überzeugenden Wahl, und eine ausreichende oder exzellente Audioqualität ist mit gut gewählten Codec-Konfigurationen möglich.
 
-Forscher entwickeln weiterhin bessere Möglichkeiten, Audio zu analysieren und zu komprimieren, sodass regelmäßig neue Formate erscheinen, die verschiedene Verbesserungen bieten, sei es im Kompressionsverhältnis oder in der Audioqualität (oder beidem).
+Forscher entwickeln weiterhin bessere Methoden zur Analyse und Komprimierung von Audio, sodass neue Formate regelmäßig auftauchen, die in Bezug auf Kompressionsverhältnis oder Klangtreue (oder beides) Verbesserungen bieten.
 
-Verwendungsfälle für verlustfreies Audio umfassen Szenarien wie:
+Anwendungsfälle für verlustfreies Audio umfassen Szenarien wie:
 
-- Jede Situation, in der der Zuhörer eine präzise Audiowiedergabe erwartet und möglicherweise ein Gehör für Sound hat, das gut genug ist, um die feinen Details des unverfälschten Audios zu erkennen
-- Audioloops und Samples, die in Musik- und Soundeffektherstellungsarbeiten verwendet werden
-- Situationen, in denen Audioclips oder Samples möglicherweise remixt und dann komprimiert werden; die Verwendung verlustfreier Audiodaten für den Mastering-Prozess vermeidet die Komprimierung bereits komprimierter Daten, was zu einem zusätzlichen Qualitätsverlust führt
+- Jede Situation, in der der Hörer eine präzise Audiowiedergabe erwartet und ein Gehör hat, das gut genug ist, um die feinen Details unberührten Audios herauszuhören
+- Audio-Loops und Muster, die in der Musik- und Soundeffektproduktion verwendet werden
+- Situationen, in denen Audioclips oder Muster remixt und dann komprimiert werden; die Verwendung von verlustfreiem Audio für den Mastering-Prozess vermeidet die Kompression bereits komprimierter Daten, was zu zusätzlichem Qualitätsverlust führt
 
-Faktoren, die die Verwendung von verlustbehafteter Kompression empfehlen könnten, umfassen:
+Faktoren, die die Anwendung verlustbehafteter Komprimierung empfehlen können, umfassen:
 
-- Sehr große Quell-Audiodaten
-- Eingeschränkter Speicher (entweder weil der Speicherplatz klein ist oder weil viel Sound darin gespeichert werden muss)
-- Notwendigkeit, die Netzwerkbandbreite einzuschränken, die erforderlich ist, um das Audio zu übertragen; dies ist insbesondere für Live-Streams und Videokonferenzen wichtig
+- Sehr großes Quell-Audio
+- Eingeschränkter Speicherplatz (entweder weil der Speicherplatz klein ist oder weil eine große Menge an Sound darin gespeichert werden muss)
+- Die Notwendigkeit, die erforderliche Netzwerkbandbreite zur Übertragung des Audios zu reduzieren; dies ist besonders wichtig für Live-Streams und Telefonkonferenzen
 
 ## Psychoakustik 101
 
-Obwohl es weit über den Rahmen dieses Artikels hinausgeht, in die Details der Psychoakustik und der Funktionsweise der Audiokompression einzutauchen, kann ein allgemeines Verständnis davon, wie Audio durch gängige Algorithmen komprimiert wird, helfen, bessere Entscheidungen über die Auswahl von Audio-Codecs zu treffen.
+In die Details der Psychoakustik und der Funktionsweise der Audiokomprimierung einzutauchen, geht weit über den Rahmen dieses Artikels hinaus, aber ein allgemeines Verständnis darüber, wie Audio durch gängige Algorithmen komprimiert wird, kann dazu beitragen, fundiertere Entscheidungen über die Auswahl von Audiocodecs zu treffen.
 
-Verlustbehaftete Komprimierungsalgorithmen verwenden im Allgemeinen Psychoakustik, um festzustellen, welche Komponenten einer Schallwelle verloren gehen oder in gewisser Weise unterdrückt werden können, was die Kompressionsraten verbessern kann, während die hörbare Wirkung für die Zielzuhörer minimiert wird. Indem sie die Schallwelle so manipulieren, dass sie leichter zu komprimieren ist oder Komponenten des Tons entfernt, die nicht wirklich gehört werden, wird die Schallwelle einfacher, wodurch Daten entstehen, die konsistenter sind und daher leichter komprimiert werden können. Die Begrenzung der Audiobandbreite auf nur die Frequenzen, die für die menschliche Interpretation des dekodierten Tons am wichtigsten sind, kann ebenfalls die Kompressionsfaktoren verbessern.
+Verlustbehaftete Komprimierungsalgorithmen verwenden in der Regel Psychoakustik, um zu bestimmen, welche Komponenten einer Audiowellenform in einer Weise verloren gehen oder gedämpft werden können, die die Kompressionsverhältnisse verbessert, während die hörbare Auswirkung auf die Zielhörer minimiert wird. Durch die Manipulation der Wellenform, um sie leichter komprimierbar zu machen, oder durch das Entfernen von Komponenten des Klangs, die wirklich nicht gehört werden, wird die Wellenform einfacher, wodurch die Daten konsistenter werden und daher leichter zu komprimieren sind. Die Einschränkung der Audiobandbreite auf die Frequenzen, die für die Interpretation des dekodierten Klangs durch das menschliche Gehör am wichtigsten sind, kann auch die Kompressionsfaktoren verbessern.
 
-Die Art des zu kodierenden Inhalts kann die Wahl des Codecs beeinflussen. Besonders die Schallwelle von Musik ist fast immer komplexer als die eines Audiosamples, das nur menschliche Stimmen enthält. Darüber hinaus verwendet die menschliche Stimme nur einen kleinen Teil des Frequenzbereichs, den das menschliche Ohr wahrnehmen kann.
-
-> [!NOTE]
-> Telefonnetze, die ursprünglich speziell zur Übertragung menschlicher Stimmen entwickelt wurden, können nur Audios (oder jede andere Art von Signal) im Frequenzband von 300 Hz bis 3.000 Hz übertragen. Dies umfasst nicht ganz den gesamten Bereich der menschlichen Sprache am unteren Ende, doch genug der Welle ist verfügbar, dass das menschliche Ohr und Gehirn leicht kompensieren. Dies bedeutet auch, dass Menschen im Allgemeinen daran gewohnt sind, Sprache zu hören, die auf solch eine enge Audiobandbreite beschränkt ist.
-
-Die menschliche Sprache verwendet ein relativ schmales Frequenzband (etwa 300 Hz bis 18.000 Hz, obwohl der genaue Bereich von Person zu Person aufgrund von Faktoren wie Geschlecht variiert). Darüber hinaus liegen die meisten menschlichen Sprachlaute zwischen etwa 500 Hz und 3.000 Hz, was es ermöglicht, wesentliche Teile der gesamten Schallwelle zu entfernen, ohne die Fähigkeit des Zuhörers zu beeinträchtigen, die gesprochenen Worte zu verstehen. Sie können sogar die Audiobandbreite anpassen, um die Tonhöhe der Stimme des jeweiligen Sprechers zu berücksichtigen.
-
-Wenn aufgrund all dieser Faktoren und der Tatsache, dass Sprachwellenformen typischerweise weniger komplex als Musik sind, eine hohe (und insbesondere "hinreichend hohe") Wiedergabetreue von Sprache mit einer relativ niedrigen Bitrate erreicht werden kann.
-
-Wenn ein Komprimierungsalgorithmus, der für die Komprimierung allgemeiner Audiosignale entwickelt wurde, eine Schallwelle analysiert, kann er alles außerhalb des Bereichs menschlichen Hörens (oder möglicherweise sogar mehr, abhängig davon, wie sehr der Algorithmus bereit ist, Details am hohen und/oder niedrigen Ende des Frequenzbandes zu verlieren) verwerfen. Das bedeutet, dass der Codec Audio mit Frequenzen unter etwa 20 Hz oder über etwa 20.000 Hz (20 kHz) verwerfen kann. Dadurch wird die Audiobandbreite des Tons verringert, was die Menge an Daten reduziert, die erforderlich sind, um das Signal in seiner komprimierten Form darzustellen. Die Audiobandbreite kann nicht so stark reduziert werden wie bei einem nur für Sprache ausgelegten Codec, aber es ist dennoch ein hilfreicher Anfang.
-
-Einige Menschen können diese Reichweite zumindest teilweise hören. In der Regel ist das Hörvermögen der Menschen für hohe Frequenzen jedoch eher geringer; es ist besonders erwähnenswert, dass das obere Ende dieses Frequenzbereichs im mittleren Alter in der Regel von 20 kHz auf etwa 12 kHz bis 14 kHz fällt. Dies deutet darauf hin, dass die höheren Frequenzen oft verworfen werden können, ohne die Verständlichkeit des Tons übermäßig zu beeinträchtigen, sodass Sie erheblich reduzieren können, wie viel des Audio-Raums Sie beibehalten müssen, wodurch Ihr Ton einfacher und leichter zu komprimieren wird.
-
-Dies wird im Diagramm unten dargestellt. Das Diagramm vergleicht den Frequenzbereich des menschlichen Hörens (grün) mit dem Frequenzbereich der menschlichen Sprache (rot) und dem Bereich, in dem die Mehrheit menschlicher Sprachlaute liegt (gelb).
-
-![Diagramm, das den Bereich des menschlichen Hörens mit dem der menschlichen Sprache vergleicht](human-hearing-range.svg)
-
-Die großen Unterschiede zwischen diesen Bereichen geben uns Spielraum, um Details in Audiodaten zu verlieren, ohne die Fähigkeit des menschlichen Ohrs erheblich zu beeinträchtigen, irgendwelche realen Veränderungen in der Tonqualität zu bemerken. Diese Fakten können bei der Audiokompression ausgenutzt werden.
-
-Neben der Vereinfachung des Tons durch psychoakustische Analyse verwenden Codecs andere Algorithmen und Transformationen, um die Größe des Audios weiter zu vereinfachen und zu reduzieren. Wenn Sie mehr über die Funktionsweise der Komprimierung bei Audio erfahren möchten, sehen Sie sich [Audiokompressionsdaten](https://en.wikipedia.org/wiki/Data_compression#Audio) auf Wikipedia an.
-
-Wichtig ist, dass Codecs all die harte Arbeit für Sie übernehmen. Dies ist der Grund, warum so viel Ingenieurarbeit und wissenschaftliche Studien in die Erstellung neuer Algorithmen und Codecs investiert wird. Alles, was Sie tun müssen, ist, die Optionen zu berücksichtigen und Ihren Anwendungsfall zu bestimmen und dann den passenden Codec für Ihre Bedürfnisse auszuwählen.
+Der Inhaltstyp, der kodiert wird, kann die Auswahl eines Codecs beeinflussen. Insbesondere ist die Wellenform für Musik fast immer komplexer als die eines Audiosamples, das nur menschliche Stimmen enthält. Darüber hinaus verwendet die menschliche Stimme nur einen kleinen Teil des Bereichs von Audiofrequenzen, die das menschliche Gehör erkennen kann.
 
 > [!NOTE]
-> Einen detaillierteren Leitfaden zur Auswahl von Audiocodecs finden Sie unter [Einen Audiocodec auswählen](/de/docs/Web/Media/Guides/Formats/Audio_codecs#choosing_an_audio_codec).
+> Telefonnetzwerke, die ursprünglich speziell für die Übertragung von Stimmen entwickelt wurden, können Audio (oder jede andere Art von Signal) nur im Frequenzband von 300 Hz bis 3.000 Hz übertragen. Dies umfasst nicht ganz die gesamte Reichweite der menschlichen Sprache im unteren Bereich, aber genug der Wellenform, dass das menschliche Gehör und Gehirn leicht kompensieren. Dies bedeutet auch, dass die meisten Menschen im Allgemeinen daran gewöhnt sind, Sprache in einer so eingeschränkten Audiobandbreite zu hören.
 
-## Verlustfrei-Encoder-Parameter
+Die menschliche Sprache verwendet ein relativ schmales Frequenzband (etwa 300 Hz bis 18.000 Hz, obwohl der genaue Bereich von Person zu Person aufgrund von Faktoren wie Geschlecht variieren kann). Darüber hinaus liegen die meisten menschlichen Sprachklänge zwischen etwa 500 Hz und 3.000 Hz, was es möglich macht, erhebliche Teile der Gesamtwellenform wegzulassen, ohne die Fähigkeit des Zuhörers zu beeinträchtigen, die gesprochenen Worte zu verstehen. Sie können sogar die Audiobandbreite anpassen, um die Tonhöhe der individuellen Stimme des Sprechers zu berücksichtigen.
 
-Verlustfreie Encoder haben viel weniger Spielraum, um das Audio zu manipulieren, um die Kompressionsrate zu verbessern, angesichts der Notwendigkeit, das ursprüngliche Audio reproduzieren zu können, was die Anzahl der verfügbaren Optionen zur Konfiguration dieser Encoder einschränkt. Die Optionen bestehen in der Regel darin, die Methode auszuwählen, mit der der Encoder die Kodierung ausführt, und wie viel Zeit und Prozessorleistung er dafür verbrauchen darf.
+Aufgrund all dieser Faktoren und da Sprachwellenformen normalerweise weniger komplex sind als Musik, kann eine hohe (und genauer gesagt "hoch genug") Wiedergabetreue der Sprache bei einer relativ niedrigen Bitrate erreicht werden.
 
-Diese Parameter variieren je nach Codec, können aber Folgendes umfassen:
+Wenn ein Komprimierungsalgorithmus, der für die Komprimierung allgemeiner Audiodaten entwickelt wurde, eine Audiowellenform analysiert, kann er alles, was außerhalb des Bereichs des menschlichen Hörens liegt, verwerfen (oder sogar noch mehr, je nachdem, wie bereit der Algorithmus ist, das Risiko einzugehen, Details am oberen und/oder unteren Ende des Frequenzbands zu verlieren). Das bedeutet, dass der Codec Audio mit einer Frequenz unter etwa 20 Hz oder über etwa 20.000 Hz (20 kHz) verwerfen kann. Dies verengt die Audiobandbreite des Tons und reduziert damit die Menge der Daten, die benötigt werden, um das Signal in seiner komprimierten Form darzustellen. Die Audiobandbreite kann nicht annähernd so stark reduziert werden wie bei einem Codec, der nur für Sprache verwendet wird, aber es ist dennoch ein hilfreicher Anfang.
 
-- Die Angabe spezifischer Algorithmen, die während bestimmter Phasen des Kodierungsprozesses verwendet werden sollen
-- Parameter für diese Algorithmen zur Verwendung, wie z. B. die Vorhersagetiefe, die beim Modellieren des Audios verwendet werden soll
-- Die Anzahl der Durchläufe, die beim Analysieren des Audios durchgeführt werden sollen, oder die Anzahl der Male, die bestimmte Algorithmen ausgeführt werden sollen
+Einige Leute können außerhalb dieses Bereichs in gewissem Maße hören. Häufiger ist die Fähigkeit der Menschen, höhere Frequenzen zu hören, jedoch geringer als dies; insbesondere ist es erwähnenswert, dass im mittleren Alter das obere Ende dieses Frequenzbands normalerweise von 20 kHz auf etwa 12 kHz bis 14 kHz sinkt. Dies legt nahe, dass höhere Frequenzen oft verworfen werden können, ohne die Verstehbarkeit des Klangs übermäßig zu beeinträchtigen, sodass Sie erheblich reduzieren können, wie viel von dem Audio-Raum Sie behalten müssen, und dadurch wird Ihr Klang einfacher und leichter komprimierbar.
 
-## Verlustbehafteter Encoder-Parameter
+Dies wird im folgenden Diagramm dargestellt. Das Diagramm vergleicht den Frequenzbereich des menschlichen Hörens (grün) mit dem Frequenzbereich der menschlichen Sprache (rot) und dem Frequenzbereich, in dem die Mehrheit der menschlichen Vokalisationen liegt (gelb).
 
-Die meisten Codecs haben Eingabewerte, die Sie anpassen können, um die Komprimierung auf verschiedene Arten zu optimieren, sei es für die Größe oder für die Qualität. Bei der Verwendung eines verlustbehafteten Encoders ist die Qualität umso höher, je größer das kodierte Audio ist. Aus diesem Grund beeinflussen die meisten Optionen sowohl die Qualität als auch die Größe in gewisser Weise.
+![Diagramm, das den menschlichen Hörbereich mit dem Bereich menschlicher Sprache vergleicht](human-hearing-range.svg)
 
-Sie müssen die Dokumentation der von Ihnen verwendeten Codierungssoftware konsultieren, um festzustellen, welche Optionen verfügbar sind, was vom Codec und der Codierungssoftware selbst abhängt. Einige Codecs haben eine Reihe von Werten, die Sie anpassen können (von denen einige ein tiefes Verständnis sowohl der Psychoakustik als auch der Algorithmen des Codecs erfordern können), während andere einfach einen "Qualitätsparameter" bieten, den Sie einstellen können und der automatisch verschiedene Eigenschaften des Algorithmus anpasst.
+Die großen Unterschiede zwischen diesen Bereichen geben uns Raum, um Details in Audiodaten zu verlieren, ohne die Fähigkeit des menschlichen Gehörs, irgendeine wirkliche Veränderung in der Klangqualität zu bemerken, signifikant zu beeinträchtigen. Diese Tatsachen können bei der Komprimierung von Audio ausgenutzt werden.
+
+Neben der Vereinfachung des Sounds durch psychoakustische Analyse verwenden Codecs andere Algorithmen und Transformationen, um die Größe des Audios weiter zu vereinfachen und zu reduzieren. Wenn Sie mehr über die Funktionsweise von Audiokomprimierung erfahren möchten, werfen Sie einen Blick auf [Audio-Datenkompression](https://en.wikipedia.org/wiki/Data_compression#Audio) auf Wikipedia.
+
+Wichtig ist, dass die Codecs all die harte Arbeit für Sie erledigen. Deshalb wird so viel Ingenieur- und wissenschaftliche Studie in die Erstellung neuer Algorithmen und Codecs investiert. Alles, was Sie tun müssen, ist, die Optionen und Ihren Anwendungsfall zu berücksichtigen, und dann den passenden Codec für Ihre Bedürfnisse auszuwählen.
+
+> [!NOTE]
+> Für einen detaillierteren Leitfaden zur Auswahl von Audiocodecs siehe [Auswahl eines Audiocodecs](/de/docs/Web/Media/Guides/Formats/Audio_codecs#choosing_an_audio_codec).
+
+## Verlustlose Encoder-Parameter
+
+Verlustfreie Encoder haben viel weniger Spielraum, das Audio zur Verbesserung des Kompressionsverhältnisses zu manipulieren, da sie den ursprünglichen Ton reproduzieren müssen, wodurch die Anzahl der Optionen begrenzt wird, diese Encoder zu konfigurieren. Die Optionen drehen sich in der Regel darum, die Methode auszuwählen, mit der der Encoder die Kodierung durchführt und wie viel Zeit und Prozessorleistung er dafür verbrauchen kann.
+
+Diese Parameter variieren je nach Codec, können jedoch Folgendes beinhalten:
+
+- Bestimmung spezifischer Algorithmen, die in bestimmten Phasen des Kodierungsprozesses verwendet werden sollen
+- Parameter, die von diesen Algorithmen verwendet werden, wie z.B. wie viel prädiktive Tiefe beim Modellieren des Tons verwendet werden soll
+- Die Anzahl der Durchläufe, die bei der Analyse des Tons durchgeführt werden sollen, oder die Anzahl der Male, die bestimmte Algorithmen ausgeführt werden sollen
+
+## Parameter für verlustbehaftete Encoder
+
+Die meisten Codecs haben Eingabewerte, die Sie optimieren können, um die Komprimierung auf verschiedene Weisen zu optimieren, entweder in Bezug auf Größe oder Qualität. Bei der Verwendung eines verlustbehafteten Encoders führt höhere Qualität zu größerem kodierten Audio. Aus diesem Grund beeinflussen die meisten Optionen sowohl die Qualität als auch die Größe in gewisser Weise.
+
+Sie müssen sich auf die Dokumentation der von Ihnen verwendeten Kodierungssoftware beziehen, um festzustellen, welche Optionen verfügbar sind, was vom Codec und der Kodierungssoftware selbst abhängt. Einige Codecs haben eine Anzahl von Werten, die Sie anpassen können (einige davon erfordern möglicherweise ein tiefes Verständnis sowohl der Psychoakustik als auch der Algorithmen des Codecs), während andere einen "Qualitäts"-Parameter bieten, den Sie einstellen können, der automatisch verschiedene Eigenschaften des Algorithmus anpasst.
 
 ### Bitrate
 
-Es gibt zwei wechselseitig ausschließbare Methoden, um die Qualität des komprimierten Audios unter Verwendung der Bitrate zu steuern. Die erste Methode umfasst das Ziel einer durchschnittlichen Bitrate für die codierten Daten, während die zweite Methode das festlegen eines konstanten Qualitätswertes zur Zielvorgabe erlaubt, während die Bitrate variieren darf.
+Es gibt zwei sich gegenseitig ausschließende Wege, um die Qualität des komprimierten Audios unter Verwendung der Bitrate zu steuern. Der erste Weg beinhaltet das Anstreben einer durchschnittlichen Bitrate für die kodierten Daten, während der zweite Weg beinhaltet, einen konstanten Qualitätswert anzuvisieren, während die Bitrate variieren darf.
 
 #### Durchschnittliche Bitrate
 
-Die erste Methode zur Steuerung der Qualität der Ausgabedatei besteht darin, die **Durchschnittliche Bitrate** (**ABR**) zu spezifizieren, die beim Kodieren des Audios angestrebt wird. Der Encoder versucht, eine codierte Audiodatei zu erstellen, die beim Abspielen im Durchschnitt die angegebene Anzahl von Bits für jede Sekunde Audio verwendet. Dadurch wird die Qualität aus der Perspektive der codierten Audiodateigröße gesteuert; je höher die Bitrate, desto höher wird die resultierende Audioqualität sein. Die Qualität des Tons schwankt im Laufe der Zeit je nach Bedarf, um die angestrebte Bitrate zu erreichen.
+Die erste Methode zur Steuerung der Qualität der Ausgabedatei besteht darin, die **Durchschnittliche Bitrate** (**ABR**) anzuvisieren, wenn das Audio kodiert wird. Der Encoder wird versuchen, eine kodierte Sounddatei zu produzieren, die bei der Wiedergabe, durchschnittlich die angegebene Anzahl von Bits für jede Sekunde Audio verwendet. Dies steuert die Qualität aus der Perspektive der kodierten Audiogröße; je höher die Bitrate, desto höher ist die resultierende Audioqualität. Die Qualität des Audios wird über die Zeit nach Bedarf schwanken, um die angestrebte Bitrate zu erreichen.
 
-Etwas ähnlich wie ABR ist **CBR** (**Konstante Bitrate**). Während ABR versucht, die Bitrate im Durchschnitt auf einem bestimmten Level zu halten, während es einige Schwankungen erlaubt, verwendet CBR eine tatsächlich feste Bitrate für die Dauer des Audios. CBR wird hauptsächlich in für Sprechzwecke entwickelten Codecs verwendet, wo der Frequenzbereich und die Variation minimal sind und CBR-Codierung ohne unwägbare Schwankungen in der Tonqualität funktionieren kann.
+Ähnlich zur ABR ist **CBR** (**Konstante Bitrate**). Während ABR versucht, die Bitrate im Durchschnitt auf einem gegebenen Niveau zu halten, während etwas Schwankungen erlaubt sind, verwendet CBR eine tatsächlich feste Bitrate für die Dauer des Audios. CBR wird hauptsächlich in Codecs verwendet, die nur für Sprachzwecke entwickelt wurden, wo der Frequenzbereich und die Variation minimal sind, sodass die CBR-Kodierung ohne untragbare Schwankungen in der Audioqualität funktioniert.
 
 #### Variable Bitrate
 
-Die **Variable Bitrate** (**VBR**)-Kodierung funktioniert, indem sie als Eingabe für den Encoder eine **konstanten Qualitäts**-Einstellung akzeptiert. Dies gibt an, dass ein Qualitätsstandard für die Dauer des Audios eingehalten werden soll, wodurch die Bitrate je nach Bedarf schwanken kann, um diesen Qualitätsstandard zu erreichen. In Abschnitten des Tons, in denen die Komprimierung mit minimaler Auswirkung auf die Qualität leicht erreicht werden kann, kann die Bitrate sehr niedrig sein, während in Bereichen, in denen die Komprimierung komplexer ist, die Bitrate höher sein wird.
+**Variable Bitrate** (**VBR**)-Kodierung funktioniert durch Akzeptieren eines Eingabewerts in den Encoder, einer **konstanten Qualität**. Dies gibt ein Qualitätsniveau an, das während der gesamten Dauer des Audios aufrechterhalten werden soll, wobei die Bitrate je nach Bedarf schwanken kann, um dieses Qualitätsniveau zu erreichen. In Bereichen des Tons, in denen die Kompressionsrate leicht erreicht werden kann, ohne die Qualität zu beeinträchtigen, kann die Bitrate sehr niedrig sein, während in Bereichen, in denen die Kompression komplexer ist, die Bitrate höher ist.
 
-### Audiobandbreite
+### Audiofrequenzbandbreite
 
-Einige Codecs ermöglichen es Ihnen, die Audiobandbreite direkt zu konfigurieren, entweder indem Sie den Frequenzbereich angeben, der erlaubt ist, indem Sie obere und/oder untere Frequenzgrenzen festlegen, oder indem Sie einen Audioquelletyp angeben, der bestimmt, wie der Algorithmus basierend auf der erwarteten Frequenzverwendung des eingehenden Signals zu konfigurieren ist.
+Einige Codecs ermöglichen es, die Audiofrequenzbandbreite direkt zu konfigurieren, entweder durch Angabe des zulässigen Frequenzbereichs, durch Festlegung von oberen und/oder unteren Frequenzgrenzen oder durch Angabe eines Audioquellentyps, der festlegt, wie der Algorithmus basierend auf der erwarteten Frequenznutzung des eingehenden Signals zu konfigurieren ist.
 
-Darüber hinaus unterstützen einige Codecs spezielle Kanäle mit eingeschränkter Frequenzbandbreite, wie den LFE-Kanal, der von Natur aus den verfügbaren Frequenzbereich einschränkt. Im Fall von LFE ist die Audiobandbreite auf einen Frequenzbereich beschränkt, der für die Verwendung durch einen Subwoofer oder ein ähnliches Gerät zur Verbesserung des Audioerlebnisses geeignet ist.
+Darüber hinaus unterstützen einige Codecs spezielle limitierte Frequenzbandbreitenkanäle, z.B. den LFE-Kanal, der die verfügbare Frequenzbandbreite inhärent einschränkt. Im Falle von LFE ist die Audiofrequenzbandbreite auf einen Frequenzbereich beschränkt, der für die Verwendung durch einen Subwoofer oder ein ähnliches Audioerfahrungserweiterungsgerät geeignet ist.
 
-Einige Codecs bieten spezielle Profile, die speziell für bestimmte Nutzungsszenarien gedacht sind, wie z.B. VoIP; diese Profile können standardmäßig auch mit Einschränkungen der Audiobandbreite einhergehen.
+Einige Codecs bieten spezielle Profile an, die speziell für bestimmte Einsatzszenarien wie VoIP gedacht sind; diese Profile können auch standardmäßig Einschränkungen auf die Audiofrequenzbandbreite enthalten.
 
-### Joint Stereo
+### Joint stereo
 
-Stereosound wird typischerweise durch Audioframes mit einem Sample pro Kanal dargestellt. Dadurch ergeben sich Audioframes, die jeweils 2 mal _SampleSize_ Bits erfordern, wobei _SampleSize_ die Anzahl der Bits ist, die jede Audiosample benötigt. Daher verwendet jedes Sample bei einer 16-Bit-Stereo-Audioaufnahme 2 mal 16, also 32, Bits Speicherplatz. Dies ist Standard-Links/Rechts (L/R)-Stereo oder **einfaches Stereo**.
+Stereo-Ton wird typischerweise durch Audio-Frames dargestellt, die eine Probe pro Kanal enthalten. Dies führt zu Audio-Frames, die jeweils 2 mal _Probengröße_ Bits erfordern, wobei _Probengröße_ die Anzahl der Bits ist, die jede Audio-Probe benötigt. Für eine 16-Bit-Stereo-Audioaufnahme benötigt jede Probe also 2 mal 16, also 32 Bits Speicherplatz. Dies ist Standard-L/R-Stereo oder **simple stereo**.
 
-**Joint Stereo** ist eine Methode, Stereoaudiosamples platzsparender zu speichern, indem berücksichtigt wird, dass der Klang, der jedes Ohr erreicht, normalerweise ähnlich ist. Anstatt jedes Bit aus dem Sample jedes Kanals zu speichern, werden eine Grundamplitude und ein pro-Kanal-Amplitudendifferenzwert gespeichert, wobei der Differenzwert möglicherweise weniger Bits als ein vollständiges Sample verwendet.
+**Joint stereo** ist eine Methode zur Speicherung von Stereo-Audio-Proben auf eine platzsparendere Weise, indem berücksichtigt wird, dass üblicherweise der Klang, der jedes Ohr erreicht, ähnlich ist. Daher wird anstelle der Speicherung jeder einzelnen Information aus der Probe eines jeden Kanals eine Basisamplitude und ein Kanalamplituden-Abweichungswert gespeichert, bei dem der Abweichungswert weniger Bits als eine vollständige Probe verwenden kann.
 
-Es gibt zwei Arten von Joint Stereo: Mittelseitenschrift und Intensität. Im Verlauf einer Audiodatei kann der Encoder ändern, welches Format verwendet wird, um das Stereosignal im Verlauf der Audiodatei darzustellen.
+Es gibt zwei Arten von Joint Stereo: Mitte-Seite und Intensität. Im Laufe der Audio-Datei kann der Encoder zwischen diesen Formaten wechseln, um das Stereosignal über den Verlauf der Datei darzustellen.
 
-#### Mittelseitenschrift Stereo-Kodierung
+#### Mitte-Seite-Stereokodierung
 
-**Mittelseitenschrift Stereo-Kodierung** (**MS**) funktioniert, indem Frames aufgezeichnet werden, die einen grundlegenden **Mittikanal** enthalten, der die durchschnittliche Amplitude der ursprünglichen linken und rechten Audio-Kanäle ist. Dies entspricht im Wesentlichen dem, was Sie als Amplitude beim Umwandeln eines Stereosignals in Mono berechnen würden. Dann speichern Sie den **Seitenkanal**-Wert; dieser Wert ist eine Zahl, die zur **Mittikanal**-Wert hinzugefügt werden kann, um die ursprüngliche Amplitude des linken Kanals zu bestimmen, und von der Mittelkanal-Wert subtrahiert werden kann, um den ursprünglichen Wert des rechten Kanals zu berechnen.
+**Mitte-Seite-Stereokodierung** (**MS**) funktioniert, indem Frames aufgenommen werden, die einen grundlegenden **Mittenkanal** enthalten, welcher die durchschnittliche Amplitude der ursprünglichen linken und rechten Audiokanäle darstellt. Dies ist im Wesentlichen das, was Sie als Amplitude berechnen würden, wenn Sie ein Stereosignal in Mono umwandeln. Dann wird der **Seitenkanal**-Wert gespeichert; dieser Wert ist eine Zahl, die zum **Mittenkanal**-Wert hinzugefügt werden kann, um die ursprüngliche Amplitude des linken Kanals zu ermitteln, und vom Mittenkanalwert subtrahiert wird, um den ursprünglichen Wert des rechten Kanals zu berechnen.
 
-Mit anderen Worten, gegeben ein linker Kanal, L, und ein rechter Kanal, R, führen Sie die folgenden Berechnungen beim Kodieren eines Samples durch:
+Anders ausgedrückt, bei der Kodierung einer Probe, geben wir einen linken Kanal L und einen rechten Kanal R an, und führen die folgenden Berechnungen aus:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -233,9 +233,9 @@ Mit anderen Worten, gegeben ein linker Kanal, L, und ein rechter Kanal, R, führ
 </math>
 <!-- prettier-ignore-end -->
 
-Dann speichern Sie die Werte von `mid` und `side`. Während `mid` immer noch die gleiche Größe wie Ihre sample Größe ist (wie z.B. 16 Bit), kann der Wert von `side` wahrscheinlich in einer kleineren Anzahl von Bits gespeichert werden, da die Amplitude der beiden Kanäle wahrscheinlich relativ ähnlich ist. Der Encoder kann dann diese kleinere Anzahl an Gesamtbits für jeden Frame verwenden und zusätzliche Berechnungen durchführen, um die Größe weiter zu reduzieren.
+Dann speichern Sie die Werte von `mid` und `side`. Während `mid` immer noch dieselbe Größe wie Ihre Probengröße (z. B. 16 Bits) hat, kann der Wert von `side` wahrscheinlich in einer kleineren Anzahl von Bits gespeichert werden, da die Amplitude der beiden Kanäle wahrscheinlich relativ ähnlich ist. Der Encoder kann dann diese kleinere Anzahl von Bits pro Frame verwenden und zusätzliche Berechnungen durchführen, um die Größe weiter zu reduzieren.
 
-Beim Dekodieren des Tons werden die absoluten linken und rechten Kanalwerte wie folgt berechnet:
+Beim Dekodieren des Audios werden die absoluten linken und rechten Kanalwerte wie folgt berechnet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -249,15 +249,15 @@ Beim Dekodieren des Tons werden die absoluten linken und rechten Kanalwerte wie 
 </math>
 <!-- prettier-ignore-end -->
 
-Allein genommen ist die Mittelseitenschrift-Stereokodierung verlustfrei und wird von sowohl verlustfreien als auch verlustbehafteten Audiocodecs verwendet. Jeglicher Detailverlust kommt von anderen Schritten im Kodierungsprozess.
+Für sich allein ist die Mittel-Seiten-Stereokodierung verlustfrei und wird häufig sowohl von verlustfreien als auch von verlustbehafteten Audio-Codecs verwendet. Jeder Verlust von Details kommt aus anderen Schritten im Kodierungsprozess.
 
-#### Intensität Stereo-Kodierung
+#### Intensitäts-Stereokodierung
 
-**Intensität Stereo-Kodierung** reduziert die kodierte Audio-Bitrate, indem sie den Vorteil der Art und Weise nutzt, wie Menschen den Standort von Klängen im Raum bestimmen; dies wird als [Schalllokalisierung](https://en.wikipedia.org/wiki/Sound_localization) bezeichnet. Wir hören in Stereo, weil unsere Ohren einen Klang zu unterschiedlichen Zeiten registrieren, je nachdem, woher der Klang kommt.
+**Intensitäts-Stereokodierung** reduziert die kodierte Audiobitrate, indem sie den Vorteil der Art und Weise nutzt, wie Menschen den Standort von Klängen im Raum bestimmen; dies wird [Klanglokalisierung](https://en.wikipedia.org/wiki/Sound_localization) genannt. Wir hören in Stereo, weil unsere Ohren einen Klang zu unterschiedlichen Zeiten erkennen, je nachdem, von wo der Klang kommt.
 
-Das liegt daran, dass unsere Ohren einige Zentimeter voneinander getrennt sind, da sie auf gegenüberliegenden Seiten unseres Kopfes liegen. Ein Klang, der von rechts kommt, erreicht unser rechtes Ohr, bevor er unser linkes Ohr erreicht. Unsere Gehirne bestimmen, wo der Klang im Raum um uns herum ist, indem sie diesen Zeitunterschied nutzen, um den Winkel zu ermitteln, aus dem der Klang kommt. Wenn die Frequenz des Audiosignals jedoch nachlässt, steigt die Wellenlänge. Schließlich nähert sich die Wellenlänge der Entfernung zwischen den Ohren an und überschreitet sie dann, und es wird schwierig oder unmöglich, den Klang eindeutig zu lokalisieren.
+Dies liegt daran, dass unsere Ohren durch mehrere Zentimeter getrennt sind, dank der Tatsache, dass sie sich auf gegenüberliegenden Seiten unseres Kopfes befinden. Ein Klang, der von rechts kommt, wird unser rechtes Ohr erreichen, bevor es unser linkes Ohr erreicht. Unsere Gehirne bestimmen, wo sich der Klang im Raum um uns herum befindet, indem sie diese Zeitdifferenz nutzen, um den Winkel zu bestimmen, aus dem der Klang kommt. Wenn jedoch die Frequenz des Audiosignals sinkt, steigt die Wellenlänge an. Schließlich nähert sich die Wellenlänge dann und übertrifft die Entfernung zwischen den Ohren, und es wird schwierig oder unmöglich, den Klang eindeutig zu lokalisieren.
 
-Bewaffnet mit diesen Informationen können wir ein Stereoaudiosignal annähernd darstellen, indem wir die Frequenzen, die nicht zur Bestimmung der Richtung verwendet werden, in einen einzigen Kanal zusammenführen und dann Informationen hinzufügen, die die Richtung des Klangs angeben. Dies erfordert weniger Bits zur Darstellung, ist jedoch von Natur aus etwas verlustbehaftet.
+Mit dieser Information können wir ein Stereo-Audiosignal annähernd darstellen, indem wir die Frequenzen, die nicht zur Bestimmung der Richtwirkung verwendet werden, in einen einzigen Kanal zusammenfassen, und anschließend Informationen hinzufügen, die die Richtwirkung des Klangs angeben. Dies erfordert weniger Bits zur Darstellung, ist jedoch zwangsweise etwas verlustreich.
 
 ## Siehe auch
 

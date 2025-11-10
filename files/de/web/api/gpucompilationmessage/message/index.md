@@ -3,12 +3,12 @@ title: "GPUCompilationMessage: message-Eigenschaft"
 short-title: message
 slug: Web/API/GPUCompilationMessage/message
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`message`**-Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist ein String, der einen menschenlesbaren Nachrichtentext darstellt.
+Die **`message`**-Schreibgeschützte Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist ein String, der einen menschenlesbaren Nachrichtentext darstellt.
 
 ## Wert
 
@@ -17,19 +17,16 @@ Ein String.
 ## Beispiele
 
 ```js
-  // ...
-  const shaderModule = device.createShaderModule({
-    code: shaders,
-  });
+const shaderModule = device.createShaderModule({
+  code: shaders,
+});
 
-  const shaderInfo = await shaderModule.getCompilationInfo();
-  const firstMessage = shaderInfo.messages[0];
-  console.log(firstMessage.message);
-  // ...
-}
+const shaderInfo = await shaderModule.getCompilationInfo();
+const firstMessage = shaderInfo.messages[0];
+console.log(firstMessage.message);
 ```
 
-Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Sehen Sie die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 

@@ -2,12 +2,10 @@
 title: sidebarAction.setIcon()
 slug: Mozilla/Add-ons/WebExtensions/API/sidebarAction/setIcon
 l10n:
-  sourceCommit: 53c832f09b5f55b2cbe040907bff8abfb7b57f72
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Setzt das Icon für die Sidebar.
+Setzt das Icon für die Seitenleiste.
 
 Sie können ein einzelnes Icon entweder als Pfad zu einer Bilddatei oder als {{WebExtAPIRef('sidebarAction.ImageDataType')}}-Objekt angeben.
 
@@ -17,15 +15,15 @@ Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/R
 
 ## Arten von Icons
 
-Ihre Erweiterung sollte ein Icon für die Sidebar im [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Manifest-Schlüssel angeben. Dies wird das _"Manifest-Icon"_ genannt.
+Ihre Erweiterung sollte ein Icon für die Seitenleiste im manifest-Schlüssel [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) angeben. Dies wird als _"Manifest-Icon"_ bezeichnet.
 
-Wenn Sie kein Icon im `sidebar_action`-Schlüssel angeben, erhalten Sie das Standard-Icon des Browsers. Dies wird das _"Standard-Icon"_ genannt.
+Wenn Sie kein Icon im `sidebar_action`-Schlüssel angeben, erhalten Sie das Standard-Icon des Browsers. Dies wird als _"Standard-Icon"_ bezeichnet.
 
-Wenn Sie ein neues Icon mit `setIcon()` festlegen und die Option `tabId` einfügen, wird das Icon nur für den angegebenen Tab festgelegt. Dieses Icon wird das _"Tab-spezifische Icon"_ genannt.
+Wenn Sie ein neues Icon mit `setIcon()` setzen und die Option `tabId` einschließen, wird das Icon nur für den angegebenen Tab gesetzt. Dieses Icon wird als _"tab-spezifisches Icon"_ bezeichnet.
 
-Wenn Sie ein neues Icon mit `setIcon()` festlegen und die Option `windowId` einfügen, wird das Icon nur für das angegebene Fenster festgelegt. Dieses Icon wird das _"Fenster-spezifische Icon"_ genannt und erscheint in allen Tabs dieses Fensters, die kein Tab-spezifisches Icon gesetzt haben.
+Wenn Sie ein neues Icon mit `setIcon()` setzen und die Option `windowId` einschließen, wird das Icon nur für das angegebene Fenster gesetzt. Dieses Icon wird als _"fensterspezifisches Icon"_ bezeichnet und wird in allen Tabs dieses Fensters erscheinen, die kein tab-spezifisches Icon gesetzt haben.
 
-Wenn Sie ein neues Icon mit `setIcon()` festlegen und sowohl die Optionen `tabId` als auch `windowId` weglassen, wird dies das _"Globale Icon"_. Das globale Icon erscheint dann in allen Tabs, die kein Tab-spezifisches Icon gesetzt haben und deren Fenster kein Fenster-spezifisches Icon hat.
+Wenn Sie ein neues Icon mit `setIcon()` setzen und sowohl die `tabId` als auch die `windowId` Optionen weglassen, dann wird das _"globale Icon"_ gesetzt. Das globale Icon erscheint dann in allen Tabs, die kein tab-spezifisches Icon setzen und deren Fenster kein fensterspezifisches Icon besitzen.
 
 ## Syntax
 
@@ -38,14 +36,11 @@ let settingIcon = browser.sidebarAction.setIcon(
 ### Parameter
 
 - `details`
-
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
-
     - `imageData` {{optional_inline}}
+      - : {{WebExtAPIRef('sidebarAction.ImageDataType')}} oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuchobjekt.
 
-      - : {{WebExtAPIRef('sidebarAction.ImageDataType')}} oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuch-Objekt.
-
-        Verwenden Sie ein Wörterbuch-Objekt, um mehrere `ImageData`-Objekte in verschiedenen Größen zu spezifizieren, damit das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Ist `imageData` ein Wörterbuch, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und dessen Name ist die Größe, wie folgt:
+        Verwenden Sie ein Wörterbuchobjekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, so dass das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt, und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.sidebarAction.setIcon({
@@ -56,13 +51,12 @@ let settingIcon = browser.sidebarAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild je nach Pixeldichte des Bildschirms aus. Siehe [Auswählen von Icon-Größen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für mehr Informationen hierzu.
+        Der Browser wählt das Bild basierend auf der Pixeldichte des Bildschirms aus. Siehe [Choosing icon sizes](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
 
     - `path` {{optional_inline}}
+      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Icon-Datei oder ein Wörterbuchobjekt.
 
-      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Icon-Datei oder ein Wörterbuch-Objekt.
-
-        Verwenden Sie ein Wörterbuch-Objekt, um mehrere Icon-Dateien in verschiedenen Größen anzugeben, damit das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Ist `path` ein Wörterbuch, ist der Wert jeder Eigenschaft ein relativer Pfad und dessen Name ist die Größe, wie folgt:
+        Verwenden Sie ein Wörterbuchobjekt, um mehrere Icon-Dateien in verschiedenen Größen anzugeben, so dass das Icon nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad, und sein Name ist seine Größe, wie folgt:
 
         ```js
         let settingIcon = browser.sidebarAction.setIcon({
@@ -73,15 +67,15 @@ let settingIcon = browser.sidebarAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild je nach Pixeldichte des Bildschirms aus. Siehe [Auswählen von Icon-Größen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für mehr Informationen hierzu.
+        Der Browser wählt das Bild basierend auf der Pixeldichte des Bildschirms aus. Siehe [Choosing icon sizes](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen dazu.
 
-        Wenn `path` ein leerer String ist, verwendet der Browser das Standard-Icon.
+        Wenn `path` eine leere Zeichenkette ist, verwendet der Browser das Standard-Icon.
 
-        Wenn `path` nicht leer ist, aber nicht auf eine Icon-Datei zeigt, dann wird das Icon versteckt.
+        Wenn `path` nicht leer ist, aber nicht auf eine Icon-Datei zeigt, wird das Icon ausgeblendet.
 
-        Wenn `path` `null` ist und `tabId` angegeben wurde und der angegebene Tab ein Tab-spezifisches Icon gesetzt hatte: dann wird das Tab-spezifische Icon auf das globale Icon zurückgesetzt (wenn ein globales Icon gesetzt ist) oder das Manifest-Icon.
+        Wenn `path` `null` ist und `tabId` angegeben wurde und der angegebene Tab ein tab-spezifisches Icon hatte: dann wird das tab-spezifische Icon auf das globale Icon zurückgesetzt (wenn ein globales Icon gesetzt ist) oder auf das Manifest-Icon.
 
-        Wenn `path` `null` ist und `tabId` weggelassen wurde und ein globales Icon gesetzt war, wird es auf das Manifest-Icon zurückgesetzt.
+        Wenn `path` `null` ist, `tabId` weggelassen wurde und ein globales Icon gesetzt war, wird es auf das Manifest-Icon zurückgesetzt.
 
     - `tabId` {{optional_inline}}
       - : `integer`. Setzt das Icon nur für den angegebenen Tab.
@@ -95,15 +89,11 @@ let settingIcon = browser.sidebarAction.setIcon(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Icon gesetzt wurde.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente erfüllt wird, sobald das Icon gesetzt wurde.
 
 ## Beispiele
 
-Der untenstehende Code schaltet das Sidebar-Icon für den aktiven Tab um, wenn der Benutzer auf eine Browser-Aktion klickt:
+Der folgende Code schaltet das Icon der Seitenleiste für den aktiven Tab um, wenn der Benutzer auf ein Browser-Action-Element klickt:
 
 ```js
 let on = false;
@@ -128,6 +118,10 @@ browser.browserAction.onClicked.addListener(toggle);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf Operas [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API.

@@ -44,7 +44,7 @@ Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folg
 - `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Transaktionsmodus schreibgeschützt ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, derzeit iteriert wird oder über sein Ende hinaus iteriert wurde.
+  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBIndex/openKeyCursor) erstellt wurde, derzeit iteriert wird oder über sein Ende hinaus iteriert wurde.
 
 ## Beispiele
 

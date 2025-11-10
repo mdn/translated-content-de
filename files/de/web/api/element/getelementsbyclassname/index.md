@@ -3,15 +3,14 @@ title: "Element: getElementsByClassName() Methode"
 short-title: getElementsByClassName()
 slug: Web/API/Element/getElementsByClassName
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("DOM")}}
 
-Die [`Element`](/de/docs/Web/API/Element)-Methode **`getElementsByClassName()`** gibt eine live
-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die jedes Nachfahrelement enthält, das den angegebenen Klassennamen oder die Klassennamen hat.
+Die Methode **`getElementsByClassName()`** des [`Element`](/de/docs/Web/API/Element) gibt eine Live-Ansicht einer [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die jedes nachfolgende Element enthält, welches den angegebenen Klassennamen oder die angegebenen Klassennamen hat.
 
-Die Methode [`getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle funktioniert im Wesentlichen auf die gleiche Weise, außer dass sie auf das gesamte Dokument wirkt, beginnend beim Dokument-Wurzelknoten.
+Die Methode [`getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auf der [`Document`](/de/docs/Web/API/Document)-Schnittstelle funktioniert im Wesentlichen genauso, außer dass sie auf das gesamte Dokument angewandt wird, beginnend beim Dokumentstamm.
 
 ## Syntax
 
@@ -22,48 +21,48 @@ getElementsByClassName(names)
 ### Parameter
 
 - `names`
-  - : Ein String, der einen oder mehrere Klassennamen enthält, die durch Leerzeichen getrennt sind, um darauf abzugleichen.
+  - : Ein String, der einen oder mehrere Klassennamen enthält, getrennt durch Leerzeichen.
 
 ### Rückgabewert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine sich live aktualisierende Liste von jedem Element bereitstellt, das Mitglied jeder Klasse in `names` ist.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine live-aktualisierte Liste von jedem Element bereitstellt, das Mitglied jeder Klasse in `names` ist.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Wie immer ist die zurückgegebene Sammlung _live_, was bedeutet, dass sie immer den aktuellen Zustand des DOM-Baums widerspiegelt, der am Element verwurzelt ist, auf dem die Funktion aufgerufen wurde. Wenn neue Elemente, die mit `names` übereinstimmen, zum Unterbaum hinzugefügt werden, erscheinen sie sofort in der Sammlung. Ebenso, wenn ein vorhandenes Element, das nicht mit `names` übereinstimmt, seine Klassen so anpasst, dass es übereinstimmt, erscheint es sofort in der Sammlung.
+Wie immer ist die zurückgegebene Sammlung _live_, was bedeutet, dass sie stets den aktuellen Zustand des DOM-Baums widerspiegelt, der am Element verwurzelt ist, auf dem die Funktion aufgerufen wurde. Werden neue Elemente, die `names` entsprechen, in den Unterbaum eingefügt, erscheinen sie sofort in der Sammlung. Ebenso erscheint ein vorhandenes Element, das nicht `names` entspricht, aber durch Anpassung seines Klassensatzes übereinstimmt, ebenfalls sofort in der Sammlung.
 
-Das Gegenteil ist auch wahr; sobald Elemente nicht mehr mit der Menge von Namen übereinstimmen, werden sie sofort aus der Sammlung entfernt.
+Das Gegenteil gilt auch; sobald Elemente nicht mehr dem Satz von `names` entsprechen, werden sie sofort aus der Sammlung entfernt.
 
 > [!NOTE]
-> Im [Quirks-Modus](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) werden die Klassennamen in einer nicht case-sensitiven Weise verglichen. Andernfalls sind sie case-sensitiv.
+> Im [Quirks-Modus](/de/docs/Web/HTML/Guides/Quirks_mode_and_standards_mode) werden die Klassennamen in einer nicht casesensitiven Weise verglichen. Ansonsten sind sie case-sensitiv.
 
 ## Beispiele
 
-### Übereinstimmung einer einzelnen Klasse
+### Übereinstimmung mit einer einzelnen Klasse
 
-Um nach Elementen zu suchen, die unter ihren Klassen eine bestimmte Klasse einschließen, geben wir einfach diesen Klassennamen beim Aufruf von `getElementsByClassName()` an:
+Um nach Elementen zu suchen, die unter ihren Klassen eine einzelne spezifizierte Klasse enthalten, geben wir einfach diesen Klassennamen beim Aufruf von `getElementsByClassName()` an:
 
 ```js
 element.getElementsByClassName("test");
 ```
 
-Dieses Beispiel findet alle Elemente, die eine Klasse `test` haben und auch ein Nachfahre des Elements sind, das die `id` von `main` hat:
+Dieses Beispiel findet alle Elemente, die eine Klasse `test` haben, und die auch ein Nachfahre des Elements sind, das die `id` `main` hat:
 
 ```js
 document.getElementById("main").getElementsByClassName("test");
 ```
 
-### Übereinstimmung mehrerer Klassen
+### Übereinstimmung mit mehreren Klassen
 
-Um Elemente zu finden, deren Klassenlisten sowohl die `red`- als auch die `test`-Klassen beinhalten:
+Um Elemente zu finden, deren Klassenlisten sowohl die Klasse `red` als auch `test` enthalten:
 
 ```js
 element.getElementsByClassName("red test");
 ```
 
-### Untersuchung der Ergebnisse
+### Überprüfung der Ergebnisse
 
-Sie können entweder die [`item()`](/de/docs/Web/API/HTMLCollection/item)-Methode auf der zurückgegebenen `HTMLCollection` oder die Standard-Array-Syntax verwenden, um einzelne Elemente in der Sammlung zu untersuchen. Der folgende Code funktioniert jedoch nicht wie erwartet, da `"matches"` sich ändern wird, sobald eine `"color-box"`-Klasse entfernt wird.
+Sie können entweder die [`item()`](/de/docs/Web/API/HTMLCollection/item) Methode auf der zurückgegebenen `HTMLCollection` oder die standardmäßige Array-Syntax verwenden, um einzelne Elemente in der Sammlung zu überprüfen. Der folgende Code funktioniert jedoch nicht wie erwartet, da sich `"matches"` ändert, sobald eine `"color-box"` Klasse entfernt wird.
 
 ```js
 const matches = element.getElementsByClassName("color-box");
@@ -74,7 +73,7 @@ for (let i = 0; i < matches.length; i++) {
 }
 ```
 
-Stattdessen verwenden Sie eine andere Methode, wie:
+Stattdessen verwenden Sie eine andere Methode, wie zum Beispiel:
 
 ```js
 const matches = element.getElementsByClassName("color-box");
@@ -85,11 +84,11 @@ while (matches.length > 0) {
 }
 ```
 
-Dieser Code findet Nachfahrelemente mit der Klasse `"color-box"`, fügt die Klasse `"hue-frame"` hinzu, indem er `item(0)` aufruft, und entfernt dann `"color-box"` (unter Verwendung der Array-Notation). Ein weiteres Element (falls vorhanden) wird dann zu `item(0)`.
+Dieser Code findet nachfolgende Elemente mit der Klasse `"color-box"`, fügt die Klasse `"hue-frame"` hinzu, indem `item(0)` aufgerufen wird, und entfernt dann `"color-box"` (unter Verwendung der Array-Notation). Ein anderes Element (sofern noch eines übrig ist) wird dann `item(0)`.
 
-### Filtern der Ergebnisse mithilfe von Array-Methoden
+### Filtern der Ergebnisse mit Array-Methoden
 
-Wir können auch {{jsxref("Array")}}-Methoden auf jede [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) anwenden, indem wir die [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) als `this`-Wert der Methode übergeben. Hier finden wir alle {{HTMLElement("div")}}-Elemente, die eine Klasse `test` haben:
+Wir können auch {{jsxref("Array")}}-Methoden für jede [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) verwenden, indem wir die [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) als `this`-Wert der Methode übergeben. Hier finden wir alle {{HTMLElement("div")}}-Elemente, die eine Klasse `test` haben:
 
 ```js
 const testElements = document.getElementsByClassName("test");

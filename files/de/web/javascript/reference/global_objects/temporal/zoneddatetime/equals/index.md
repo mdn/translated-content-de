@@ -1,13 +1,14 @@
 ---
 title: Temporal.ZonedDateTime.prototype.equals()
+short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/equals
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`equals()`**-Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt `true` zurück, wenn dieses Datum-Zeit gleichwertig ist mit einem anderen Datum-Zeit (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden sowohl nach ihren Instant-Werten, Zeitzonen und Kalender verglichen, so dass zwei Datum-Zeiten aus unterschiedlichen Kalendern oder Zeitzonen durch {{jsxref("Temporal.ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} als gleich angesehen werden könnten, aber nicht durch `equals()`.
+Die **`equals()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt `true` zurück, wenn dieses Datum-Uhrzeit-Objekt einem anderen Datum-Uhrzeit-Objekt gleichwertig ist (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist), und `false` andererseits. Sie werden sowohl nach ihren Instant-Werten, Zeitzonen als auch ihren Kalendern verglichen. Daher können zwei Datum-Uhrzeit-Objekte in unterschiedlichen Kalendern oder Zeitzonen durch {{jsxref("Temporal.ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} als gleich betrachtet werden, aber nicht durch `equals()`.
 
 ## Syntax
 
@@ -18,13 +19,13 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die das andere zu vergleichende Datum-Zeit darstellt. Es wird unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime`-Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die das andere Datum-Uhrzeit-Objekt darstellt, das verglichen werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime` Objekt konvertiert.
 
 ### Rückgabewert
 
-`true`, wenn dieses Datum-Zeit gleich `other` ist, sowohl in ihrem Instant-Wert, der Zeitzone als auch ihrem Kalender, sonst `false`.
+`true`, wenn dieses Datum-Uhrzeit-Objekt `other` sowohl in ihrem Instant-Wert, in der Zeitzone als auch in ihrem Kalender entspricht, `false` andernfalls.
 
-Beachten Sie, dass die Zeitzonen vor dem Vergleich kanonisiert werden. Wenn ihre [Zeitzonen-IDs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) beide benannt sind und dieselbe Zeitzone identifizieren, dann würden sie als gleich betrachtet, auch wenn die genauen Namen möglicherweise Aliase voneinander sind. Offset-Identifikatoren werden nach den Offset-Werten verglichen, die sie repräsentieren. Offset-Identifikatoren werden niemals als gleich zu benannten Identifikatoren verglichen, selbst wenn die benannte Identifikator-Zeitzone immer diesen Offset verwendet.
+Beachten Sie, dass die Zeitzonen vor dem Vergleich kanonisiert werden. Wenn ihre [Zeitzonen-IDs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) sowohl benannt als auch dieselbe Zeitzone identifizieren, dann würden sie als gleich betrachtet, selbst wenn die genauen Namen Aliasse voneinander sein können. Offset-Identifikatoren werden durch die Offset-Werte verglichen, die sie repräsentieren. Offset-Identifikatoren sind niemals gleich benannten Identifikatoren, selbst wenn die benannte Zeitzone immer diesen Offset verwendet.
 
 ## Beispiele
 

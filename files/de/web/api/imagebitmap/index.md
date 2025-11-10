@@ -2,21 +2,21 @@
 title: ImageBitmap
 slug: Web/API/ImageBitmap
 l10n:
-  sourceCommit: e899c6240801be991f92571b36132a1b6b387462
+  sourceCommit: d030ae03d26d003beea8069d29cce1d3cbeaaadc
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Das **`ImageBitmap`**-Interface stellt ein Bitmap-Bild dar, das ohne unangemessene Verzögerung in ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann mit einer Vielzahl von Quellobjekten unter Verwendung der Fabrikmethoden [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) oder [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap) erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourceneffizienten Weg, um Texturen für das Rendering in WebGL vorzubereiten.
+Das **`ImageBitmap`** Interface repräsentiert ein Bitmap-Bild, das ohne unnötige Verzögerung in ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann aus einer Vielzahl von Quellobjekten erstellt werden, indem die Fabrikmethoden [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) oder [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap) verwendet werden. `ImageBitmap` bietet einen asynchronen und ressourcenschonenden Weg, um Texturen für das Rendern in WebGL vorzubereiten.
 
-`ImageBitmap` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
+`ImageBitmap` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Instanz-Eigenschaften
 
 - [`ImageBitmap.height`](/de/docs/Web/API/ImageBitmap/height) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Höhe in CSS-Pixeln des `ImageData` darstellt.
+  - : Ein `unsigned long`, das die Höhe, in CSS-Pixeln, des `ImageBitmap` darstellt.
 - [`ImageBitmap.width`](/de/docs/Web/API/ImageBitmap/width) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Breite in CSS-Pixeln des `ImageData` darstellt.
+  - : Ein `unsigned long`, das die Breite, in CSS-Pixeln, des `ImageBitmap` darstellt.
 
 ## Instanz-Methoden
 

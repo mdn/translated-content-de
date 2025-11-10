@@ -3,12 +3,12 @@ title: "SpeechRecognition: SpeechRecognition() Konstruktor"
 short-title: SpeechRecognition()
 slug: Web/API/SpeechRecognition/SpeechRecognition
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}
 
-Der **`SpeechRecognition()`** Konstruktor erstellt eine neue Instanz eines [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts.
+Der **`SpeechRecognition()`** Konstruktor erzeugt eine neue Instanz des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts.
 
 ## Syntax
 
@@ -22,21 +22,15 @@ Keine.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Sprachfarbwechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel entnommen.
 
 ```js
-const grammar =
-  "#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
 const recognition = new SpeechRecognition();
-const speechRecognitionList = new SpeechGrammarList();
-speechRecognitionList.addFromString(grammar, 1);
-recognition.grammars = speechRecognitionList;
-//recognition.continuous = false;
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-// ...
+// …
 ```
 
 ## Spezifikationen

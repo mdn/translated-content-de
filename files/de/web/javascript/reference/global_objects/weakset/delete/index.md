@@ -1,28 +1,27 @@
 ---
 title: WeakSet.prototype.delete()
+short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/delete
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-{{JSRef}}
+Die **`delete()`** Methode von {{jsxref("WeakSet")}} Instanzen entfernt den angegebenen Wert aus diesem Set, falls er im Set vorhanden ist.
 
-Die **`delete()`**-Methode von {{jsxref("WeakSet")}}-Instanzen entfernt das angegebene Element aus diesem `WeakSet`.
-
-{{InteractiveExample("JavaScript Demo: WeakSet.Prototype.delete()")}}
+{{InteractiveExample("JavaScript Demo: WeakSet.prototype.delete()")}}
 
 ```js interactive-example
-const weakset1 = new WeakSet();
-const object1 = {};
+const weakset = new WeakSet();
+const object = {};
 
-weakset1.add(object1);
+weakset.add(object);
 
-console.log(weakset1.has(object1));
+console.log(weakset.has(object));
 // Expected output: true
 
-weakset1.delete(object1);
+weakset.delete(object);
 
-console.log(weakset1.has(object1));
+console.log(weakset.has(object));
 // Expected output: false
 ```
 
@@ -35,15 +34,15 @@ weakSetInstance.delete(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der aus dem `WeakSet`-Objekt entfernt werden soll.
+  - : Der Wert, der aus dem `WeakSet` Objekt entfernt werden soll. Objekte werden nach {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `WeakSet`-Objekt erfolgreich entfernt wurde. `false`, wenn der `value` nicht im `WeakSet` gefunden wird. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+`true`, wenn ein Wert im `WeakSet` Objekt erfolgreich entfernt wurde. `false`, wenn der Wert im `WeakSet` nicht gefunden wird. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwendung der delete()-Methode
+### Verwendung von delete()
 
 ```js
 const ws = new WeakSet();

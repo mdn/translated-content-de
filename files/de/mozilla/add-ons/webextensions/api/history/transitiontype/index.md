@@ -2,10 +2,8 @@
 title: history.TransitionType
 slug: Mozilla/Add-ons/WebExtensions/API/history/TransitionType
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Dies beschreibt, wie der Browser zu einer bestimmten Seite navigiert hat. Zum Beispiel bedeutet "link", dass der Browser zur Seite navigierte, weil der Benutzer auf einen Link geklickt hat.
 
@@ -14,36 +12,36 @@ Dies beschreibt, wie der Browser zu einer bestimmten Seite navigiert hat. Zum Be
 Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - "link"
-  - : Der Benutzer hat auf einen Link in einer anderen Seite geklickt.
+  - : Der Benutzer hat auf einen Link auf einer anderen Seite geklickt.
 - "typed"
-  - : Der Benutzer hat die URL in die Adressleiste eingegeben. Dies wird auch verwendet, wenn der Benutzer begonnen hat, in die Adressleiste zu tippen, und dann eine URL aus den angebotenen Vorschlägen ausgewählt hat. Siehe auch "generated".
+  - : Der Benutzer hat die URL in die Adressleiste eingegeben. Dies wird auch verwendet, wenn der Benutzer anfängt, in die Adressleiste zu tippen und dann eine URL aus den angebotenen Vorschlägen auswählt. Siehe auch "generated".
 - "auto_bookmark"
-  - : Der Benutzer hat auf ein Lesezeichen oder ein Element im Browserverlauf geklickt.
+  - : Der Benutzer hat auf ein Lesezeichen oder einen Eintrag im Browserverlauf geklickt.
 - "auto_subframe"
-  - : Alle verschachtelten iframes, die automatisch von ihrem übergeordneten Element geladen werden.
+  - : Beliebige verschachtelte iframes, die automatisch von ihrem übergeordneten Element geladen werden.
 - "manual_subframe"
-  - : Alle verschachtelten iframes, die als explizite Benutzeraktion geladen werden. Durch das Laden eines solchen iframes wird ein Eintrag in der Vor-/Zurück-Navigation erstellt.
+  - : Beliebige verschachtelte iframes, die als explizite Benutzeraktion geladen werden. Beim Laden eines solchen iframes wird ein Eintrag in der Vorwärts-/Rückwärtsnavigation-Liste erstellt.
 - "generated"
-  - : Der Benutzer begann in der Adressleiste zu tippen und klickte dann auf einen vorgeschlagenen Eintrag, der keine URL enthielt.
+  - : Der Benutzer hat angefangen, in die Adressleiste zu tippen und dann auf einen vorgeschlagenen Eintrag geklickt, der keine URL enthielt.
 - "auto_toplevel"
-  - : Die Seite wurde über die Befehlszeile übergeben oder ist die Startseite.
+  - : Die Seite wurde an die Befehlszeile übergeben oder ist die Startseite.
 - "form_submit"
-  - : Der Benutzer hat ein Formular abgeschickt. Beachten Sie, dass in einigen Situationen, wie wenn ein Formular ein Skript verwendet, um dessen Inhalt abzuschicken, das Abschicken eines Formulars nicht zu diesem Übergangstyp führt.
+  - : Der Benutzer hat ein Formular abgesendet. Beachten Sie, dass in einigen Situationen, wie wenn ein Formular mittels Skript seine Inhalte absendet, das Absenden eines Formulars nicht zu diesem Transition-Typ führt.
 - "reload"
-  - : Der Benutzer hat die Seite neu geladen, entweder durch Klicken auf die Schaltfläche „Neuladen“ oder durch Drücken der Eingabetaste in der Adressleiste. Dies wird auch für die Sitzungswiederherstellung und das Wiederöffnen geschlossener Tabs verwendet.
+  - : Der Benutzer hat die Seite neu geladen, entweder mit der Neu-laden-Taste oder durch Drücken der Eingabetaste in der Adressleiste. Dies wird auch für die Sitzungswiederherstellung und das erneute Öffnen geschlossener Tabs verwendet.
 - "keyword"
-  - : Die URL wurde mithilfe einer vom Benutzer konfigurierten [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert.
+  - : Die URL wurde mithilfe einer vom Benutzer konfigurierten [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) erzeugt.
 - "keyword_generated"
   - : Entspricht einem Besuch, der für ein Schlüsselwort generiert wurde.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-TransitionType). Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-TransitionType) API von Chromium. Diese Dokumentation leitet sich von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

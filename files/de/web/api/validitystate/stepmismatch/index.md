@@ -3,26 +3,26 @@ title: "ValidityState: stepMismatch-Eigenschaft"
 short-title: stepMismatch
 slug: Web/API/ValidityState/stepMismatch
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`stepMismatch`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das `step`-Attribut des Elements festgelegten Einschränkungen entspricht.
+Die schreibgeschützte **`stepMismatch`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle gibt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das `step`-Attribut des Elements festgelegten Einschränkungen entspricht.
 
-Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} und der Schrittwert nicht `any` ist, wird `stepMismatch` auf true gesetzt, falls der Wert nicht den durch die [`step`](/de/docs/Web/HTML/Attributes/step)- und [`min`](/de/docs/Web/HTML/Attributes/min)-Werte festgelegten Einschränkungen entspricht. Wenn der Rest des Werts des Formularsteuerungselements minus dem [`min`](/de/docs/Web/HTML/Attributes/min)-Wert geteilt durch den [`step`](/de/docs/Web/HTML/Attributes/step)-Wert (der standardmäßig 1 ist, wenn er nicht angegeben wird) nicht null ist, besteht ein Mismatch.
+Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}}, und der Schrittwert nicht `any` ist, und der Wert nicht den durch die Werte [`step`](/de/docs/Web/HTML/Reference/Attributes/step) und [`min`](/de/docs/Web/HTML/Reference/Attributes/min) festgelegten Einschränkungen entspricht, dann wird `stepMismatch` auf wahr gesetzt. Wenn der Rest des Werts des Formularsteuerungselements minus dem Wert von [`min`](/de/docs/Web/HTML/Reference/Attributes/min) geteilt durch den Wert von [`step`](/de/docs/Web/HTML/Reference/Attributes/step) (der standardmäßig 1 ist, wenn er weggelassen wird) nicht null ist, liegt ein Mismatch vor.
 
 ## Wert
 
-Ein boolean, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
+Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
 
 ## Beispiele
 
 ### Eingabe mit Schritt-Mismatch
 
-Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
-Es wurde eine Einschränkung mit dem [`step`-Attribut](/de/docs/Web/HTML/Element/input/number#step) hinzugefügt, was bedeutet, dass die Eingabe Inkremente von 5 als Werte erwartet.
-Wenn der Benutzer eine Zahl eingibt, die nicht durch 5 teilbar ist, schlägt die Gültigkeitsprüfung des Elements fehl, und die Stile, die der {{cssxref(":invalid")}}-CSS-Pseudoklasse entsprechen, werden angewendet.
+Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabe-Elements](/de/docs/Web/HTML/Reference/Elements/input/number).
+Eine Einschränkung wurde unter Verwendung des [`step`-Attributs](/de/docs/Web/HTML/Reference/Elements/input/number#step) hinzugefügt, was bedeutet, dass die Eingabeinkremente von 5 als Werte erwartet.
+Wenn der Benutzer eine Zahl eingibt, die nicht durch 5 teilbar ist, schlägt die Validierung der Einschränkung fehl, und die Stile, die zur {{cssxref(":invalid")}} CSS-Pseudoklasse passen, werden angewendet.
 
 ```css
 input:invalid {
@@ -77,6 +77,6 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
 - [Formulare: Datenformularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [`step`-Attribut](/de/docs/Web/HTML/Attributes/step)
+- [`step`-Attribut](/de/docs/Web/HTML/Reference/Attributes/step)

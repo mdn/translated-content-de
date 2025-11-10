@@ -47,5 +47,5 @@ myHighlight.has("bar"); // false
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
 - [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

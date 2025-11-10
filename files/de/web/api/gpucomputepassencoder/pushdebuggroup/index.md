@@ -1,16 +1,16 @@
 ---
-title: "GPUComputePassEncoder: pushDebugGroup()-Methode"
+title: "GPUComputePassEncoder: pushDebugGroup() Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPUComputePassEncoder/pushDebugGroup
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle beginnt eine Compute-Pass-Debug-Gruppe, die mit einer angegebenen Bezeichnung markiert ist und alle nachfolgenden codierten Befehle bis zum Aufrufen einer [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup)-Methode enthält.
+Die **`pushDebugGroup()`** Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) Schnittstelle beginnt eine Compute-Pass-Debug-Gruppe, die mit einem angegebenen Label gekennzeichnet ist und alle nachfolgenden enkodierten Befehle bis zur Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup) Methode enthalten wird.
 
-Diese Methode könnte für Telemetrie verwendet werden oder in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Browser-Entwicklungstools oder anderen Diensten in der Zukunft genutzt werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwickler-Tools von Browsern oder anderen Diensten zur Unterstützung beim Debugging eingesetzt werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein String, der die Bezeichnung für die Debug-Gruppe darstellt.
+  - : Ein String, der das Label für die Debug-Gruppe repräsentiert.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("Undefined")}}).
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const passEncoder = commandEncoder.beginComputePass();
 
@@ -42,7 +42,7 @@ passEncoder.dispatchWorkgroups(Math.ceil(BUFFER_SIZE / 64));
 
 passEncoder.popDebugGroup();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

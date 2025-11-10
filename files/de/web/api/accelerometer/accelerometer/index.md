@@ -1,14 +1,14 @@
 ---
-title: "Accelerometer: Accelerometer()-Konstruktor"
+title: "Accelerometer: Accelerometer() Konstruktor"
 short-title: Accelerometer()
 slug: Web/API/Accelerometer/Accelerometer
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Der **`Accelerometer()`**-Konstruktor erstellt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zu dem Zeitpunkt zurückgibt, zu dem es gelesen wird.
+Der **`Accelerometer()`** Konstruktor erzeugt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zum Zeitpunkt des Auslesens zurückgibt.
 
 ## Syntax
 
@@ -20,18 +20,16 @@ new Accelerometer(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Die Optionen sind wie folgt:
-
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Messungen pro Sekunde, das bedeutet die Anzahl der Male pro Sekunde, die das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder ein Dezimalwert kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lese-Frequenz hängt von der Gerätehardware ab und kann daher geringer als angefordert sein.
+      - : Die gewünschte Anzahl von Messungen pro Sekunde, d.h. die Anzahl der Male pro Sekunde, die das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, letzteres für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Hardware des Geräts ab und kann daher geringer sein als angefordert.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 

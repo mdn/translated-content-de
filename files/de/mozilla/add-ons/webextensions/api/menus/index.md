@@ -2,57 +2,55 @@
 title: menus
 slug: Mozilla/Add-ons/WebExtensions/API/menus
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Fügen Sie der Menüstruktur des Browsers Elemente hinzu.
 
-Fügen Sie Elemente zum Menüsystem des Browsers hinzu.
+Diese API basiert auf der Chrome-API ["contextMenus"](https://developer.chrome.com/docs/extensions/reference/api/contextMenus), mit der Chrome-Erweiterungen Elemente zum Kontextmenü des Browsers hinzufügen können. Die `browser.menus` API fügt der Chrome-API einige Funktionen hinzu.
 
-Diese API basiert auf Chromes [„contextMenus“](https://developer.chrome.com/docs/extensions/reference/api/contextMenus) API, welche es Chrome-Erweiterungen ermöglicht, Elemente zum Kontextmenü des Browsers hinzuzufügen. Die `browser.menus` API ergänzt die API von Chrome um einige Funktionen.
+Vor Firefox 55 wurde diese API ebenfalls ursprünglich `contextMenus` genannt, und dieser Name wurde als Alias beibehalten, sodass Sie `contextMenus` verwenden können, um Code zu schreiben, der sowohl in Firefox als auch in anderen Browsern funktioniert.
 
-Vor Firefox 55 wurde diese API auch ursprünglich `contextMenus` genannt, und dieser Name wurde als Alias beibehalten, sodass Sie `contextMenus` verwenden können, um Code zu schreiben, der sowohl in Firefox als auch in anderen Browsern funktioniert.
+Um diese API zu verwenden, benötigen Sie die `menus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions). Sie können auch den Alias `contextMenus` anstelle von `menus` verwenden, aber in diesem Fall müssen die APIs als `browser.contextMenus` aufgerufen werden.
 
-Um diese API zu verwenden, müssen Sie die `menus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben. Sie können auch den `contextMenus`-Alias anstelle von `menus` verwenden, aber wenn Sie dies tun, müssen auf die APIs als `browser.contextMenus` zugegriffen werden.
-
-Mit Ausnahme von [`menus.getTargetElement()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement) kann diese API nicht von Inhalts-Skripten aus verwendet werden.
+Mit Ausnahme von [`menus.getTargetElement()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement) kann diese API nicht von Inhalteskripten verwendet werden.
 
 ## Erstellen von Menüelementen
 
-Um ein Menüelement zu erstellen, rufen Sie die Methode {{WebExtAPIRef("menus.create()")}} auf. Sie übergeben dieser Methode ein Objekt mit Optionen für das Element, einschließlich der Element-ID, des Elementtyps und der Kontexte, in denen es angezeigt werden soll.
+Um ein Menüelement zu erstellen, rufen Sie die Methode {{WebExtAPIRef("menus.create()")}} auf. Sie übergeben dieser Methode ein Objekt, das Optionen für das Element enthält, einschließlich der Element-ID, des Elementtyps und der Kontexte, in denen es angezeigt werden soll.
 
-In einer Firefox-Erweiterung mit nicht-persistenten [Hintergrundseiten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) (Ereignisseiten) oder in einer beliebigen Chrome-Erweiterung rufen Sie `menus.create` innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}}-Listeners auf. In einer Firefox-Erweiterung mit persistenten Hintergrundseiten wird ein Aufruf auf oberster Ebene gemacht. Weitere Informationen finden Sie unter {{WebExtAPIRef("menus.create()")}}.
+In einer Firefox-Erweiterung, die nicht-persistente [Hintergrundseiten](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) (Ereignisseiten) verwendet oder in einer beliebigen Chrome-Erweiterung rufen Sie `menus.create` innerhalb eines {{WebExtAPIRef("runtime.onInstalled")}} Listeners auf. In einer Firefox-Erweiterung, die persistente Hintergrundseiten verwendet, machen Sie einen Aufruf auf höchster Ebene. Siehe {{WebExtAPIRef("menus.create()")}} für weitere Informationen.
 
-Hören Sie auf Klicks auf Ihr Menüelement, indem Sie einen Listener zum Ereignis {{WebExtAPIRef("menus.onClicked")}} hinzufügen. Dieser Listener erhält ein Objekt vom Typ {{WebExtAPIRef("menus.OnClickData")}}, das die Details des Ereignisses enthält.
+Hören Sie auf Klicks auf Ihr Menüelement, indem Sie einen Listener zum {{WebExtAPIRef("menus.onClicked")}} Ereignis hinzufügen. Dieser Listener wird mit einem {{WebExtAPIRef("menus.OnClickData")}} Objekt aufgerufen, das die Details des Ereignisses enthält.
 
-Sie können vier verschiedene Arten von Menüelementen erstellen, basierend auf dem Wert der `type`-Eigenschaft, die Sie in den Optionen zu `create()` angeben:
+Sie können vier verschiedene Arten von Menüpunkten erstellen, basierend auf dem Wert der `type` Eigenschaft, die Sie in den Optionen an `create()` übergeben:
 
-- „normal“: ein Menüelement, das nur ein Label anzeigt
-- „checkbox“: ein Menüelement, das einen binären Zustand darstellt. Es zeigt ein Häkchen neben dem Label an. Wenn man auf das Element klickt, wird das Häkchen umgeschaltet. Der Klick-Listener erhält zwei zusätzliche Eigenschaften: „checked“, das anzeigt, ob das Element jetzt markiert ist, und „wasChecked“, das anzeigt, ob das Element vor dem Klick-Ereignis markiert war.
-- „radio“: ein Menüelement, das eine von mehreren Wahlmöglichkeiten darstellt. Wie auch ein Checkboxelement, zeigt es ein Häkchen neben dem Label an, und sein Klick-Listener zeigt „checked“ und „wasChecked“ an. Wenn Sie jedoch mehr als ein Radioelement erstellen, funktionieren diese Elemente als Gruppe von Radioelementen: Nur ein Element in der Gruppe kann markiert sein, und ein Klick auf ein Element macht es zum markierten Element.
-- „separator“: eine Linie, die eine Gruppe von Elementen trennt.
+- "normal": ein Menüpunkt, der einfach nur ein Label anzeigt
+- "checkbox": ein Menüpunkt, der einen binären Zustand darstellt. Es zeigt ein Häkchen neben dem Label an. Ein Klick auf das Element schaltet das Häkchen um. Der Klick-Listener erhält zwei zusätzliche Eigenschaften: "checked", die anzeigt, ob das Element jetzt angehakt ist, und "wasChecked", die anzeigt, ob das Element vor dem Klickereignis angehakt war.
+- "radio": ein Menüpunkt, der eine Auswahl aus einer Gruppe von Möglichkeiten darstellt. Genau wie ein Kontrollkästchen zeigt es ein Häkchen neben dem Label an und sein Klick-Listener erhält "checked" und "wasChecked". Wenn Sie jedoch mehr als ein Radio-Element erstellen, funktionieren die Elemente als Gruppe von Radio-Elementen: Nur ein Element in der Gruppe kann angehakt sein und ein Klick auf ein Element macht es zum angehakten Element.
+- "separator": eine Linie, die eine Gruppe von Elementen trennt.
 
-Wenn Sie mehr als ein Kontextmenüelement oder mehr als ein Werkzeugmenüelement erstellt haben, werden die Elemente in ein Untermenü platziert. Das Eltern-Menü des Untermenüs wird mit dem Namen der Erweiterung beschriftet. Zum Beispiel hier eine Erweiterung namens „Menu demo“, die zwei Kontextmenüelemente hinzugefügt hat:
+Wenn Sie mehr als ein Kontextmenüelement oder mehr als ein Werkzeugmenüelement erstellt haben, werden die Elemente in einem Untermenü platziert. Das Untermenü wird mit dem Namen der Erweiterung gekennzeichnet. Zum Beispiel finden Sie hier eine Erweiterung namens "Menu demo", die zwei Kontextmenüelemente hinzugefügt hat:
 
-![Kontextmenü mit zwei Elementen mit der Bezeichnung Click me und Click me too!](menus-1.png)
+![Kontextmenü mit zwei Elementen mit den Beschriftungen Please click me und Please click me too!](menus-1.png)
 
 ## Icons
 
-Wenn Sie Icons für Ihre Erweiterung mit dem ["icons"-Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) angegeben haben, zeigt Ihr Menüelement das angegebene Icon neben seinem Label an. Der Browser wird versuchen, ein 16x16 Pixel großes Icon für eine normale Anzeige oder ein 32x32 Pixel großes Icon für eine Anzeige mit hoher Dichte zu wählen:
+Wenn Sie für Ihre Erweiterung Icons mit dem ["icons" Manifest-Key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons) angegeben haben, wird Ihr Menüelement das angegebene Icon neben seinem Label anzeigen. Der Browser versucht, ein 16x16 Pixel großes Icon für eine normale Anzeige oder ein 32x32 Pixel großes Icon für eine hochauflösende Anzeige auszuwählen:
 
-![Kontextmenü mit zwei Elementen mit der Bezeichnung Click me und Click me too!](menus-2.png)
+![Kontextmenü mit zwei Elementen mit den Beschriftungen Please click me und Please click me too!](menus-2.png)
 
-Nur für Elemente in einem Untermenü können Sie benutzerdefinierte Icons angeben, indem Sie die `icons`-Option an {{WebExtAPIRef("menus.create()")}} übergeben:
+Nur für Elemente in einem Untermenü können Sie benutzerdefinierte Icons angeben, indem Sie die Option `icons` an {{WebExtAPIRef("menus.create()")}} übergeben:
 
-![Kontextmenü mit zwei Elementen mit der Bezeichnung Click me und Click me too!. Die Option Click me ist mit einem grünen Farbdosensymbol gekennzeichnet. Die Option Click me too ist mit einem blauen Farbdosensymbol gekennzeichnet.](menus-3.png)
+![Kontextmenü mit zwei Elementen mit den Beschriftungen Please click me und Please click me too!. Die Option Please click me ist mit einem grünen Farbeimer-Icon gekennzeichnet. Die Option Please click me too ist mit einem blauen Farbeimer-Icon gekennzeichnet.](menus-3.png)
 
 ## Beispiel
 
-Hier ist ein Kontextmenü mit 4 Elementen: ein normales Element, zwei Radioelemente mit Trennern auf jeder Seite und ein Kontrollkästchen. Die Radioelemente erhalten benutzerdefinierte Icons.
+Hier ist ein Kontextmenü mit 4 Elementen: ein normales Element, zwei Radio-Elemente mit Trennzeichen auf jeder Seite und ein Kontrollkästchen. Die Radio-Elemente haben benutzerdefinierte Icons.
 
-![Kontextmenü mit vier Elementen mit der Bezeichnung remove me, Greenify, Bluify und uncheck me. Greenify und Bluify sind Radiobuttons mit benutzerdefinierten Symbolen.](menus-4.png)
+![Kontextmenü mit vier Elementen mit den Beschriftungen Please remove me, Greenify, Bluify und Please uncheck me. Greenify und Bluify sind Radiobuttons mit benutzerdefinierten Icons.](menus-4.png)
 
-Sie könnten ein solches Untermenü mit einem Code wie diesem erstellen:
+Sie könnten ein solches Untermenü mit folgendem Code erstellen:
 
 ```js
 browser.menus.create(
@@ -129,51 +127,51 @@ browser.menus.create(
 ## Typen
 
 - {{WebExtAPIRef("menus.ContextType")}}
-  - : Die verschiedenen Kontexte, in denen ein Menü erscheinen kann.
+  - : Die verschiedenen Kontexte, in denen ein Menü angezeigt werden kann.
 - {{WebExtAPIRef("menus.ItemType")}}
-  - : Der Typ des Menüelements: „normal“, „checkbox“, „radio“, „separator“.
+  - : Der Typ des Menüpunkts: "normal", "checkbox", "radio", "separator".
 - {{WebExtAPIRef("menus.OnClickData")}}
-  - : Informationen, die gesendet werden, wenn ein Menüelement angeklickt wird.
+  - : Informationen, die gesendet werden, wenn ein Menüpunkt angeklickt wird.
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("menus.ACTION_MENU_TOP_LEVEL_LIMIT")}}
-  - : Die maximale Anzahl von Erweiterungselementen auf oberster Ebene, die zu einem Menüelement hinzugefügt werden können, dessen ContextType „browser_action“ oder „page_action“ ist.
+  - : Die maximale Anzahl von obersten Erweiterungselementen, die zu einem Menüpunkt hinzugefügt werden können, dessen ContextType "browser_action" oder "page_action" ist.
 
 ## Funktionen
 
 - {{WebExtAPIRef("menus.create()")}}
   - : Erstellt ein neues Menüelement.
-- {{WebExtAPIRef("menus.getTargetElement()")}}
+- {{WebExtApiRef("menus.getTargetElement()")}}
   - : Gibt das Element für eine gegebene `info.targetElementId` zurück.
-- {{WebExtAPIRef("menus.overrideContext()")}}
-  - : Blendet alle standardmäßigen Firefox-Menüelemente aus, um eine benutzerdefinierte Kontextmenü-Benutzeroberfläche bereitzustellen.
+- {{WebExtApiRef("menus.overrideContext()")}}
+  - : Verbirgt alle standardmäßigen Firefox-Menüpunkte zugunsten eines benutzerdefinierten Kontextmenü-UI.
 - {{WebExtAPIRef("menus.refresh()")}}
-  - : Aktualisiert ein derzeit angezeigtes Menü.
+  - : Aktualisiert ein Menü, das derzeit angezeigt wird.
 - {{WebExtAPIRef("menus.remove()")}}
   - : Entfernt ein Menüelement.
 - {{WebExtAPIRef("menus.removeAll()")}}
-  - : Entfernt alle von dieser Erweiterung hinzugefügten Menüelemente.
+  - : Entfernt alle von dieser Erweiterung hinzugefügten Menüpunkte.
 - {{WebExtAPIRef("menus.update()")}}
   - : Aktualisiert ein zuvor erstelltes Menüelement.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("menus.onClicked")}}
-  - : Wird ausgelöst, wenn auf ein Menüelement geklickt wird.
+  - : Wird ausgelöst, wenn ein Menüpunkt angeklickt wird.
 - {{WebExtAPIRef("menus.onHidden")}}
-  - : Wird ausgelöst, wenn der Browser ein Menü ausblendet.
+  - : Wird ausgelöst, wenn der Browser ein Menü verbirgt.
 - {{WebExtAPIRef("menus.onShown")}}
   - : Wird ausgelöst, wenn der Browser ein Menü anzeigt.
 
-## Browser-Kompatibilität
-
 {{WebExtExamples("h2")}}
+
+## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus) API. Diese Dokumentation stammt von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus) API von Chromium. Diese Dokumentation leitet sich von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

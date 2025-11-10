@@ -1,15 +1,16 @@
 ---
 title: Temporal.ZonedDateTime.prototype.getTimeZoneTransition()
+short-title: getTimeZoneTransition()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/getTimeZoneTransition
 l10n:
-  sourceCommit: 3cecb7942e8b1c5e12b58b2838a2fb8a3f4ef907
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die Methode **`getTimeZoneTransition()`** von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein {{jsxref("Temporal.ZonedDateTime")}} Objekt zurück, das den nächsten oder vorherigen Zeitpunkt repräsentiert, an dem sich der UTC-Offset der Zeitzone ändert (der zurückgegebene Zeitpunkt ist der erste nach der Änderung), oder `null`, wenn es keinen solchen Übergang gibt. Dies ist nützlich, um die Offset-Regeln einer Zeitzone zu ermitteln, beispielsweise das Muster der Sommerzeit.
+Die **`getTimeZoneTransition()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein {{jsxref("Temporal.ZonedDateTime")}} Objekt zurück, das den nächstgelegenen Zeitpunkt nach oder vor diesem Zeitpunkt darstellt, zu dem sich der UTC-Versatz der Zeitzone ändert (der zurückgegebene Zeitpunkt ist der erste Zeitpunkt nach der Änderung), oder `null`, wenn es keinen solchen Übergang gibt. Dies ist nützlich, um die Versatzregeln einer Zeitzone zu ermitteln, wie z.B. ihr Muster für die Sommerzeitumstellung.
 
-Beachten Sie, dass zurückgegebene Zeitpunkte in der Zukunft möglicherweise unzuverlässig sind, zum Beispiel aufgrund von Änderungen an den Zeitzonendefinitionen.
+Beachten Sie, dass die über die Zukunft zurückgegebenen Zeitpunkte möglicherweise unzuverlässig sind, beispielsweise aufgrund von Änderungen an den Zeitzonendefinitionen.
 
 ## Syntax
 
@@ -21,19 +22,19 @@ getTimeZoneTransition(options)
 ### Parameter
 
 - `direction`
-  - : Ein String, der die [`direction`](#direction_2) Option repräsentiert. Dies ist eine bequeme Überladung, sodass `getTimeZoneTransition(direction)` gleichbedeutend ist mit `getTimeZoneTransition({ direction })`, wobei `direction` ein String ist.
+  - : Ein String, der die [`direction`](#direction_2) Option darstellt. Dies ist eine Komfortüberladung, sodass `getTimeZoneTransition(direction)` äquivalent zu `getTimeZoneTransition({ direction })` ist, wobei `direction` ein String ist.
 - `options`
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `direction`
-      - : Ob vor oder nach dem aktuellen Zeitpunkt gesucht werden soll. Muss entweder `"next"` oder `"previous"` sein.
+      - : Gibt an, ob vor oder nach dem aktuellen Zeitpunkt gesucht werden soll. Muss `"next"` oder `"previous"` sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Temporal.ZonedDateTime")}} Objekt mit dem Zeitpunkt `t`, so dass:
+Ein {{jsxref("Temporal.ZonedDateTime")}} Objekt mit dem Zeitpunkt `t`, sodass:
 
-- Der Zeitzonen-Offset bei `t` sich von dem Offset eine Nanosekunde vor `t` unterscheidet.
+- Der Zeitzonenversatz bei `t` unterscheidet sich von dem Versatz eine Nanosekunde vor `t`.
 - `t < this.epochNanoseconds`, wenn `direction` `"previous"` ist, oder `t > this.epochNanoseconds`, wenn `direction` `"next"` ist.
-- Für alle Zeitpunkte zwischen `this.epochNanoseconds` und `t`, ausschließlich, ist der Offset konstant.
+- Für alle Zeitpunkte zwischen `this.epochNanoseconds` und `t`, exklusiv, ist der Versatz konstant.
 
 Wenn es keinen solchen Übergang gibt, wird `null` zurückgegeben.
 

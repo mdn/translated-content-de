@@ -1,14 +1,14 @@
 ---
-title: "DataTransferItem: Methode getAsString()"
+title: "DataTransferItem: getAsString()-Methode"
 short-title: getAsString()
 slug: Web/API/DataTransferItem/getAsString
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die Methode **`DataTransferItem.getAsString()`** ruft die gegebene Rückruffunktion mit den String-Daten des Drag-Datenobjekts als Argument auf, wenn der [`kind`](/de/docs/Web/API/DataTransferItem/kind) des Objekts eine _einfache Unicode-Zeichenkette_ ist (d. h. `kind` ist `string`).
+Die **`DataTransferItem.getAsString()`**-Methode ruft die gegebene Rückruffunktion mit den Zeichenfolgendaten des Drag-Data-Items als Argument auf, wenn der [`kind`](/de/docs/Web/API/DataTransferItem/kind) des Elements ein _einfacher Unicode-String_ ist (d.h. `kind` ist `string`).
 
 ## Syntax
 
@@ -19,9 +19,9 @@ getAsString(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Rückruffunktion, die folgende Argumente erhält:
+  - : Eine Rückruffunktion, die die folgenden Argumente erhält:
     - `data`
-      - : Die String-Daten des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem).
+      - : Die Stringdaten des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem).
 
 ### Rückgabewert
 
@@ -29,31 +29,27 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Methode `getAsString()` als _Inline-Funktion_ in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandler.
+Dieses Beispiel zeigt die Verwendung der `getAsString()`-Methode als _Inline-Funktion_ in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandler.
 
 ```js
 function dropHandler(ev) {
   console.log("Drop");
   ev.preventDefault();
-  const data = ev.dataTransfer.items;
-  for (let i = 0; i < data.length; i += 1) {
-    if (data[i].kind === "string" && data[i].type.match("^text/plain")) {
+  for (const item of ev.dataTransfer.items) {
+    if (item.kind === "string" && item.type.match("^text/plain")) {
       // This item is the target node
-      data[i].getAsString((s) => {
+      item.getAsString((s) => {
         ev.target.appendChild(document.getElementById(s));
       });
-    } else if (data[i].kind === "string" && data[i].type.match("^text/html")) {
+    } else if (item.kind === "string" && item.type.match("^text/html")) {
       // Drag data item is HTML
       console.log("… Drop: HTML");
-    } else if (
-      data[i].kind === "string" &&
-      data[i].type.match("^text/uri-list")
-    ) {
+    } else if (item.kind === "string" && item.type.match("^text/uri-list")) {
       // Drag data item is URI
       console.log("… Drop: URI");
-    } else if (data[i].kind === "file" && data[i].type.match("^image/")) {
+    } else if (item.kind === "file" && item.type.match("^image/")) {
       // Drag data item is an image file
-      const f = data[i].getAsFile();
+      const f = item.getAsFile();
       console.log("… Drop: File");
     }
   }

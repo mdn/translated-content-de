@@ -1,15 +1,14 @@
 ---
 title: Date.prototype.toISOString()
+short-title: toISOString()
 slug: Web/JavaScript/Reference/Global_Objects/Date/toISOString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`toISOString()`** Methode von {{jsxref("Date")}} Instanzen gibt einen String zurück, der dieses Datum im [Datum-Uhrzeit-String-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) darstellt, einem _vereinfachten_ Format basierend auf [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), das immer 24 oder 27 Zeichen lang ist (`YYYY-MM-DDTHH:mm:ss.sssZ` oder `±YYYYYY-MM-DDTHH:mm:ss.sssZ`, jeweils). Die Zeitzone ist immer UTC, wie durch den Suffix `Z` angegeben.
 
-Die **`toISOString()`**-Methode von {{jsxref("Date")}}-Instanzen gibt einen String zurück, der dieses Datum im [Date Time String-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) darstellt, einem _vereinfachten_ Format basierend auf [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), das immer 24 oder 27 Zeichen lang ist (`YYYY-MM-DDTHH:mm:ss.sssZ` oder `±YYYYYY-MM-DDTHH:mm:ss.sssZ`, jeweils). Die Zeitzone ist immer UTC, wie durch das Suffix `Z` angegeben.
-
-{{InteractiveExample("JavaScript Demo: Date.toISOString()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.toISOString()")}}
 
 ```js interactive-example
 const event = new Date("05 October 2011 14:48 UTC");
@@ -33,12 +32,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der das gegebene Datum im [Date Time String-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) entsprechend der universellen Zeit darstellt. Es handelt sich um dasselbe Format, das auch von {{jsxref("Date.parse()")}} erkannt werden muss.
+Ein String, der das gegebene Datum im [Datum-Uhrzeit-String-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) gemäß Weltzeit darstellt. Es ist das gleiche Format, das erforderlich ist, um von {{jsxref("Date.parse()")}} erkannt zu werden.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist oder wenn es einem Jahr entspricht, das im Date String-Format nicht dargestellt werden kann.
+  - : Wird ausgelöst, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist oder wenn es einem Jahr entspricht, das im Datumsstring-Format nicht dargestellt werden kann.
 
 ## Beispiele
 

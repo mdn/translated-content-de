@@ -2,24 +2,22 @@
 title: Atomics
 slug: Web/JavaScript/Reference/Global_Objects/Atomics
 l10n:
-  sourceCommit: bdc8bdccee92b67a7ce346af9ceaa247a1687c59
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Das **`Atomics`** Namensraumobjekt enthält statische Methoden zur Durchführung atomarer Operationen. Sie werden mit {{jsxref("SharedArrayBuffer")}} und {{jsxref("ArrayBuffer")}} Objekten verwendet.
+Das **`Atomics`**-Namensraumobjekt enthält statische Methoden zur Durchführung atomarer Operationen. Sie werden mit {{jsxref("SharedArrayBuffer")}} und {{jsxref("ArrayBuffer")}} Objekten verwendet.
 
 ## Beschreibung
 
-Im Gegensatz zu den meisten globalen Objekten ist `Atomics` kein Konstruktor. Sie können es nicht mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden oder das `Atomics` Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Atomics` sind statisch (genau wie das {{jsxref("Math")}} Objekt).
+Im Gegensatz zu den meisten globalen Objekten ist `Atomics` kein Konstruktor. Sie können es nicht mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden oder das `Atomics`-Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Atomics` sind statisch (genauso wie das {{jsxref("Math")}}-Objekt).
 
 ### Atomare Operationen
 
-Wenn Speicher geteilt wird, können mehrere Threads die gleichen Daten im Speicher lesen und schreiben. Atomare Operationen stellen sicher, dass vorhersehbare Werte geschrieben und gelesen werden, dass Operationen abgeschlossen sind, bevor die nächste beginnt, und dass Operationen nicht unterbrochen werden.
+Wenn Speicher geteilt wird, können mehrere Threads gleichzeitig die gleichen Daten im Speicher lesen und schreiben. Atomare Operationen stellen sicher, dass vorhersehbare Werte geschrieben und gelesen werden, dass Operationen abgeschlossen sind, bevor die nächste Operation beginnt, und dass Operationen nicht unterbrochen werden.
 
 ### Warten und Benachrichtigen
 
-Die `wait()` und `notify()` Methoden sind an Linux-Futexe ("fast user-space mutex") angelehnt und bieten Möglichkeiten, zu warten, bis eine bestimmte Bedingung erfüllt ist, und werden typischerweise als blockierende Konstrukte verwendet.
+Die Methoden `wait()` und `notify()` basieren auf Linux-Futexen ("fast user-space mutex") und bieten Möglichkeiten, bis zu einer bestimmten Bedingung zu warten, die wahr wird, und werden typischerweise als blockierende Konstrukte verwendet.
 
 ## Statische Eigenschaften
 
@@ -29,31 +27,33 @@ Die `wait()` und `notify()` Methoden sind an Linux-Futexe ("fast user-space mute
 ## Statische Methoden
 
 - {{jsxref("Atomics.add()")}}
-  - : Fügt den bereitgestellten Wert zum vorhandenen Wert am angegebenen Index des Arrays hinzu. Gibt den alten Wert an diesem Index zurück.
+  - : Fügt den angegebenen Wert zum vorhandenen Wert an dem angegebenen Index des Arrays hinzu. Gibt den alten Wert an diesem Index zurück.
 - {{jsxref("Atomics.and()")}}
-  - : Führt ein bitweises UND mit dem Wert am angegebenen Index des Arrays und dem bereitgestellten Wert durch. Gibt den alten Wert an diesem Index zurück.
+  - : Berechnet ein bitweises UND auf dem Wert an dem angegebenen Index des Arrays mit dem angegebenen Wert. Gibt den alten Wert an diesem Index zurück.
 - {{jsxref("Atomics.compareExchange()")}}
-  - : Speichert einen Wert am angegebenen Index des Arrays, wenn er einem Wert entspricht. Gibt den alten Wert zurück.
+  - : Speichert einen Wert an dem angegebenen Index des Arrays, wenn er einem Wert entspricht. Gibt den alten Wert zurück.
 - {{jsxref("Atomics.exchange()")}}
-  - : Speichert einen Wert am angegebenen Index des Arrays. Gibt den alten Wert zurück.
+  - : Speichert einen Wert an dem angegebenen Index des Arrays. Gibt den alten Wert zurück.
 - {{jsxref("Atomics.isLockFree()")}}
-  - : Ein Optimierungsprimitiv, das verwendet werden kann, um festzustellen, ob Schlösser oder atomare Operationen verwendet werden sollen. Gibt `true` zurück, wenn eine atomare Operation auf Arrays der gegebenen Elementgröße mittels einer Hardware-Atomoperation (statt eines Schlosses) implementiert wird. Nur für Experten.
+  - : Ein Optimierungsprimitive, das verwendet werden kann, um zu bestimmen, ob Sperren oder atomare Operationen verwendet werden sollen. Gibt `true` zurück, wenn eine atomare Operation auf Arrays der gegebenen Elementgröße mit einer Hardware-Atomoperation (im Gegensatz zu einer Sperre) implementiert wird. Nur für Experten.
 - {{jsxref("Atomics.load()")}}
-  - : Gibt den Wert am angegebenen Index des Arrays zurück.
+  - : Gibt den Wert an dem angegebenen Index des Arrays zurück.
 - {{jsxref("Atomics.notify()")}}
-  - : Benachrichtigt Agenten, die am angegebenen Index des Arrays warten. Gibt die Anzahl der Agenten zurück, die benachrichtigt wurden.
+  - : Benachrichtigt Agenten, die am angegebenen Index des Arrays warten. Gibt die Anzahl der benachrichtigten Agenten zurück.
 - {{jsxref("Atomics.or()")}}
-  - : Führt ein bitweises ODER mit dem Wert am angegebenen Index des Arrays und dem bereitgestellten Wert durch. Gibt den alten Wert an diesem Index zurück.
+  - : Berechnet ein bitweises ODER auf dem Wert an dem angegebenen Index des Arrays mit dem angegebenen Wert. Gibt den alten Wert an diesem Index zurück.
+- {{jsxref("Atomics.pause()")}}
+  - : Bietet ein Mikro-Wartungsprimitive, das der CPU signalisiert, dass der Anrufer im Kreis dreht, während er auf den Zugriff auf eine gemeinsam genutzte Ressource wartet. Dies ermöglicht es dem System, die dem Kern zugewiesenen Ressourcen (wie Energie) oder Thread zu reduzieren, ohne den aktuellen Thread aufzugeben.
 - {{jsxref("Atomics.store()")}}
-  - : Speichert einen Wert am angegebenen Index des Arrays. Gibt den Wert zurück.
+  - : Speichert einen Wert an dem angegebenen Index des Arrays. Gibt den Wert zurück.
 - {{jsxref("Atomics.sub()")}}
-  - : Subtrahiert einen Wert am angegebenen Index des Arrays. Gibt den alten Wert an diesem Index zurück.
+  - : Subtrahiert einen Wert an dem angegebenen Index des Arrays. Gibt den alten Wert an diesem Index zurück.
 - {{jsxref("Atomics.wait()")}}
-  - : Überprüft, ob der angegebene Index des Arrays noch einen Wert enthält, und schläft wartend oder läuft ab. Gibt entweder `"ok"`, `"not-equal"` oder `"timed-out"` zurück. Wenn das Warten im aufrufenden Agenten nicht erlaubt ist, löst es eine Ausnahme aus. (Die meisten Browser erlauben `wait()` nicht im Hauptthread des Browsers.)
+  - : Überprüft, ob der angegebene Index des Arrays immer noch einen Wert enthält, und schläft, wartet oder läuft aus. Gibt entweder `"ok"`, `"not-equal"` oder `"timed-out"` zurück. Wenn das Warten im aufrufenden Agenten nicht erlaubt ist, wird eine Ausnahme ausgelöst. (Die meisten Browser erlauben `wait()` nicht im Haupt-Thread des Browsers.)
 - {{jsxref("Atomics.waitAsync()")}}
-  - : Wartet asynchron (d.h. ohne Blockieren, im Gegensatz zu `Atomics.wait`) an einem gemeinsamen Speicherort und gibt ein Objekt zurück, das das Ergebnis der Operation darstellt.
+  - : Wartet asynchron (d.h. ohne Blockierung, im Gegensatz zu `Atomics.wait`) an einem gemeinsam genutzten Speicherort und gibt ein Objekt zurück, das das Ergebnis der Operation darstellt.
 - {{jsxref("Atomics.xor()")}}
-  - : Führt ein bitweises XOR mit dem Wert am angegebenen Index des Arrays und dem bereitgestellten Wert durch. Gibt den alten Wert an diesem Index zurück.
+  - : Berechnet ein bitweises XOR auf dem Wert an dem angegebenen Index des Arrays mit dem angegebenen Wert. Gibt den alten Wert an diesem Index zurück.
 
 ## Beispiele
 
@@ -97,16 +97,16 @@ Atomics.load(ta, 0); // 11
 
 ### Warten und Benachrichtigen
 
-Gegeben ein geteilter `Int32Array`:
+Angenommen, ein gemeinsames `Int32Array`:
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-Ein lesender Thread schläft und wartet auf Position 0, weil der bereitgestellte Wert mit dem übereinstimmt, was an dem bereitgestellten Index gespeichert ist.
-Der lesende Thread wird nicht fortfahren, bis der schreibende Thread `Atomics.notify()` auf Position 0 des bereitgestellten typisierten Arrays aufgerufen hat.
-Beachten Sie, dass der lesende Thread, wenn nach dem Aufwachen der Wert der Position 0 nicht durch den schreibenden Thread geändert wurde, **NICHT** wieder schlafen geht, sondern fortfährt.
+Ein lesender Thread schläft und wartet an Position 0, da der angegebene Wert mit dem übereinstimmt, was am angegebenen Index gespeichert ist.
+Der lesende Thread wartet, bis der schreibende Thread `Atomics.notify()` an Position 0 des bereitgestellten typisierten Arrays aufgerufen hat.
+Beachten Sie, dass, wenn der lesende Thread geweckt wird und der Wert an Position 0 vom schreibenden Thread nicht geändert wurde, der lesende Thread **nicht** wieder einschlafen wird, sondern fortfahren wird.
 
 ```js
 Atomics.wait(int32, 0, 0);
@@ -132,7 +132,7 @@ Atomics.notify(int32, 0, 1);
 ## Siehe auch
 
 - {{jsxref("ArrayBuffer")}}
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - [Web Workers](/de/docs/Web/API/Web_Workers_API)
-- [Shared Memory – a brief tutorial](https://github.com/tc39/proposal-ecmascript-sharedmem/blob/main/TUTORIAL.md) im TC39 ecmascript-sharedmem Vorschlag
+- [Shared Memory – ein kurzes Tutorial](https://github.com/tc39/proposal-ecmascript-sharedmem/blob/main/TUTORIAL.md) im TC39 ecmascript-sharedmem-Vorschlag
 - [A Taste of JavaScript's New Parallel Primitives](https://hacks.mozilla.org/2016/05/a-taste-of-javascripts-new-parallel-primitives/) auf hacks.mozilla.org (2016)

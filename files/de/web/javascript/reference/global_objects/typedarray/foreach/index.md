@@ -1,15 +1,14 @@
 ---
 title: TypedArray.prototype.forEach()
+short-title: forEach()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/forEach
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`forEach()`**-Methode von {{jsxref("TypedArray")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
 
-Die Methode **`forEach()`** von {{jsxref("TypedArray")}}-Instanzen führt eine bereitgestellte Funktion für jedes Element eines typisierten Arrays einmal aus. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
-
-{{InteractiveExample("JavaScript Demo: TypedArray.forEach()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.forEach()")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([10, 20, 30]);
@@ -47,13 +46,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.forEach()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.forEach()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Logging der Inhalte eines typisierten Arrays
+### Protokollieren des Inhalts eines typisierten Arrays
 
-Der folgende Code gibt für jedes Element in einem typisierten Array eine Zeile aus:
+Der folgende Code protokolliert eine Zeile für jedes Element in einem typisierten Array:
 
 ```js
 function logArrayElements(element, index, array) {
@@ -79,7 +78,7 @@ new Uint8Array([0, 1, 2, 3]).forEach(logArrayElements);
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.map()")}}

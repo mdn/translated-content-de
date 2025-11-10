@@ -2,20 +2,18 @@
 title: management.setEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/management/setEnabled
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Aktiviert oder deaktiviert das angegebene Add-on.
 
-Diese Funktion muss normalerweise im Kontext einer Benutzeraktion aufgerufen werden, beispielsweise im Klick-Handler für einen Button. Der Browser kann den Benutzer auch bitten, die Änderung zu bestätigen.
+Diese Funktion muss normalerweise im Kontext einer Benutzeraktion aufgerufen werden, beispielsweise im Klick-Handler eines Buttons. Der Browser kann den Benutzer zudem bitten, die Änderung zu bestätigen.
 
-Diese API erfordert die "management"-[API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Die Funktion ermöglicht das Aktivieren/Deaktivieren von Theme-Addons, wird jedoch einen Fehler zurückgeben, wenn sie zum Aktivieren oder Deaktivieren anderer Arten von Web-Erweiterungen verwendet wird.
+Die Funktion ermöglicht das Aktivieren/Deaktivieren von Themen-Add-ons, wird jedoch einen Fehler zurückgeben, wenn sie zum Aktivieren oder Deaktivieren anderer Arten von Web-Erweiterungen verwendet wird.
 
 ## Syntax
 
@@ -29,17 +27,13 @@ let settingEnabled = browser.management.setEnabled(
 ### Parameter
 
 - `id`
-  - : `string`. ID des Add-ons, das aktiviert/deaktiviert werden soll.
+  - : `string`. ID des zu aktivierenden/deaktivierenden Add-ons.
 - `enabled`
   - : `boolean`. Gibt an, ob das Add-on aktiviert oder deaktiviert werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Add-on deaktiviert oder aktiviert wurde.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Add-on aktiviert oder deaktiviert wurde.
 
 ## Beispiele
 
@@ -60,8 +54,12 @@ toggleEnabled(id);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled)-API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

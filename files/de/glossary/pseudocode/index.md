@@ -2,12 +2,10 @@
 title: Pseudocode
 slug: Glossary/Pseudocode
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Unter Pseudocode versteht man eine codeähnliche Syntax, die im Allgemeinen dazu verwendet wird, Menschen zu zeigen, wie eine bestimmte Code-Syntax funktioniert oder das Design einer Code-Architektur zu veranschaulichen. Er **wird nicht** funktionieren, wenn Sie versuchen, ihn als Code auszuführen.
+Pseudocode bezieht sich auf eine codeähnliche Syntax, die im Allgemeinen dazu verwendet wird, Menschen zu zeigen, wie eine bestimmte Code-Syntax funktioniert, oder das Design eines Teils der Code-Architektur zu veranschaulichen. Es **wird nicht** funktionieren, wenn Sie versuchen, es als Code auszuführen.
 
 ## Siehe auch
 

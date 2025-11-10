@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainDate.prototype.toString()
+short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toString
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toString()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt einen String zurück, der dieses Datum im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt.
+Die **`toString()`**-Methode von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine Zeichenkette zurück, die dieses Datum im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -19,21 +20,21 @@ toString(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthält:
+  - : Ein Objekt mit der folgenden Eigenschaft:
     - `calendarName` {{optional_inline}}
       - : Gibt an, ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Schließt die Kalenderanmerkung ein, wenn der Kalender nicht `"iso8601"` ist.
+          - : Enthält die Kalenderanmerkung, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Schließt immer die Kalenderanmerkung ein.
+          - : Enthält immer die Kalenderanmerkung.
         - `"never"`
-          - : Schließt die Kalenderanmerkung niemals ein. Dadurch kann der zurückgegebene String nicht auf dieselbe {{jsxref("Temporal.PlainDate")}}-Instanz zurückgeführt werden, obwohl der Datumswert gleich bleibt.
+          - : Enthält niemals die Kalenderanmerkung. Dies macht die zurückgegebene Zeichenkette nicht auf die gleiche {{jsxref("Temporal.PlainDate")}}-Instanz wiederherstellbar, obwohl der Datumswert gleich bleibt.
         - `"critical"`
-          - : Schließt immer die Kalenderanmerkung ein und fügt ein kritisches Kennzeichen hinzu: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, aber nicht nützlich für Temporal selbst.
+          - : Enthält immer die Kalenderanmerkung und fügt ein kritisches Kennzeichen hinzu: `[!u-ca=calendar_id]`. Nützlich beim Senden der Zeichenkette an bestimmte Systeme, aber nicht nützlich für Temporal selbst.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format), der dieses Datum darstellt. Die Kalenderanmerkung wird wie angegeben einbezogen.
+Eine Zeichenkette im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate#rfc_9557_format), die dieses Datum darstellt. Die Kalenderanmerkung wird wie angegeben einbezogen.
 
 ### Ausnahmen
 
@@ -59,15 +60,15 @@ const date = Temporal.PlainDate.from({
   year: 2021,
   month: 8,
   day: 1,
-  calendar: "islamic",
+  calendar: "islamic-umalqura",
 });
 console.log(isoDate.toString({ calendarName: "auto" })); // '2021-08-01'
-console.log(date.toString({ calendarName: "auto" })); // '2582-12-18[u-ca=islamic]'
+console.log(date.toString({ calendarName: "auto" })); // '2582-12-17[u-ca=islamic-umalqura]'
 console.log(isoDate.toString({ calendarName: "always" })); // '2021-08-01[u-ca=iso8601]'
-console.log(date.toString({ calendarName: "always" })); // '2582-12-18[u-ca=islamic]'
-console.log(date.toString({ calendarName: "never" })); // '2582-12-18'
+console.log(date.toString({ calendarName: "always" })); // '2582-12-17[u-ca=islamic-umalqura]'
+console.log(date.toString({ calendarName: "never" })); // '2582-12-17'
 console.log(isoDate.toString({ calendarName: "critical" })); // '2021-08-01[!u-ca=iso8601]'
-console.log(date.toString({ calendarName: "critical" })); // '2582-12-18[!u-ca=islamic]'
+console.log(date.toString({ calendarName: "critical" })); // '2582-12-17[!u-ca=islamic-umalqura]'
 ```
 
 ## Spezifikationen

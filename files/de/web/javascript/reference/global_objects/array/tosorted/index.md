@@ -1,13 +1,12 @@
 ---
 title: Array.prototype.toSorted()
+short-title: toSorted()
 slug: Web/JavaScript/Reference/Global_Objects/Array/toSorted
 l10n:
-  sourceCommit: e46c58e6ed948e8c35c206762eb14a2e68616ed1
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`toSorted()`**-Methode der {{jsxref("Array")}}-Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("Array/sort", "sort()")}}-Methode. Sie gibt ein neues Array mit den Elementen in aufsteigender Reihenfolge sortiert zurück.
+Die **`toSorted()`** Methode von {{jsxref("Array")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("Array/sort", "sort()")}} Methode. Sie gibt ein neues Array zurück, bei dem die Elemente in aufsteigender Reihenfolge sortiert sind.
 
 ## Syntax
 
@@ -19,23 +18,23 @@ toSorted(compareFn)
 ### Parameter
 
 - `compareFn` {{optional_inline}}
-  - : Eine Funktion, die die Reihenfolge der Elemente bestimmt. Wenn sie weggelassen wird, werden die Array-Elemente in Zeichenfolgen umgewandelt und dann gemäß dem Unicode-Codepunktwert jedes Zeichens sortiert. Siehe {{jsxref("Array/sort", "sort()")}} für weitere Informationen.
+  - : Eine Funktion, die die Reihenfolge der Elemente bestimmt. Wird sie weggelassen, werden die Array-Elemente in Zeichenfolgen umgewandelt und dann gemäß jedem Zeichen-Unicode-Codepunktwert sortiert. Siehe {{jsxref("Array/sort", "sort()")}} für weitere Informationen.
 
 ### Rückgabewert
 
-Ein neues Array mit den Elementen in aufsteigender Reihenfolge sortiert.
+Ein neues Array, bei dem die Elemente in aufsteigender Reihenfolge sortiert sind.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array/sort", "sort()")}} für weitere Informationen zum `compareFn`-Parameter.
+Siehe {{jsxref("Array/sort", "sort()")}} für weitere Informationen über den `compareFn` Parameter.
 
-Bei Verwendung auf [sparsely arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) durchläuft die `toSorted()`-Methode leere Slots, als hätten sie den Wert `undefined`.
+Bei Verwendung auf [sparse Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) behandelt die `toSorted()` Methode leere Plätze, als hätten sie den Wert `undefined`.
 
-Die `toSorted()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft sowie integer-schlüsselbasierte Eigenschaften hat.
+Die `toSorted()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this` Wert eine `length` Eigenschaft und integer-gekoppelte Eigenschaften hat.
 
 ## Beispiele
 
-### Sortieren eines Arrays
+### Ein Array sortieren
 
 ```js
 const months = ["Mar", "Jan", "Feb", "Dec"];
@@ -51,18 +50,18 @@ console.log(values); // [1, 10, 21, 2]
 
 Für weitere Anwendungsbeispiele siehe {{jsxref("Array/sort", "sort()")}}.
 
-### Verwendung von toSorted() auf sparsely arrays
+### Verwenden von toSorted() auf sparse Arrays
 
-Leere Slots werden sortiert, als hätten sie den Wert `undefined`. Sie werden immer ans Ende des Arrays sortiert, und `compareFn` wird für sie nicht aufgerufen.
+Leere Plätze werden sortiert, als hätten sie den Wert `undefined`. Sie werden immer ans Ende des Arrays sortiert und `compareFn` wird nicht für sie aufgerufen.
 
 ```js
 console.log(["a", "c", , "b"].toSorted()); // ['a', 'b', 'c', undefined]
 console.log([, undefined, "a", "b"].toSorted()); // ["a", "b", undefined, undefined]
 ```
 
-### Aufruf von toSorted() auf Nicht-Array-Objekten
+### Aufrufen von toSorted() auf Nicht-Array-Objekten
 
-Die `toSorted()`-Methode liest die `length`-Eigenschaft von `this`. Sie sammelt dann alle vorhandenen integer-schlüsselbasierten Eigenschaften im Bereich von `0` bis `length - 1`, sortiert sie und schreibt sie in ein neues Array.
+Die `toSorted()` Methode liest die `length` Eigenschaft von `this`. Sie sammelt dann alle existierenden integer-gekoppelten Eigenschaften im Bereich von `0` bis `length - 1`, sortiert sie und schreibt sie in ein neues Array.
 
 ```js
 const arrayLike = {
@@ -87,6 +86,7 @@ console.log(Array.prototype.toSorted.call(arrayLike));
 ## Siehe auch
 
 - [Polyfill von `Array.prototype.toSorted` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
+- [es-shims Polyfill von `Array.prototype.toSorted`](https://www.npmjs.com/package/array.prototype.tosorted)
 - [Leitfaden für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
 - {{jsxref("Array.prototype.sort()")}}
 - {{jsxref("Array.prototype.toReversed()")}}

@@ -2,17 +2,15 @@
 title: browsingData.removeLocalStorage()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeLocalStorage
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Löscht jeglichen von Websites erstellten [lokalen Speicher](/de/docs/Web/API/Window/localStorage).
+Löscht jeglichen [lokalen Speicher](/de/docs/Web/API/Window/localStorage), der von Websites erstellt wurde.
 
 Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
 
 - nur lokale Speicherobjekte zu löschen, die nach einem bestimmten Zeitpunkt erstellt wurden
-- zu steuern, ob nur lokale Speicherobjekte von normalen Webseiten gelöscht werden sollen oder ob auch Objekte von gehosteten Apps und Erweiterungen gelöscht werden sollen.
+- zu steuern, ob nur lokale Speicherobjekte von normalen Webseiten oder auch von gehosteten Apps und Erweiterungen gelöscht werden sollen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +25,15 @@ let removing = browser.browsingData.removeLocalStorage(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, welches verwendet werden kann, um nur lokale Speicherobjekte zu löschen, die von normalen Webseiten erstellt wurden oder um Objekte, die von gehosteten Apps und Erweiterungen erstellt wurden, ebenfalls zu löschen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur lokale Speicherobjekte von normalen Webseiten oder auch Objekte, die von gehosteten Apps und Erweiterungen erstellt wurden, zu löschen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Löschung abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Alle lokalen Speicher entfernen:
+Alle lokalen Speicher löschen:
 
 ```js
 function onRemoved() {
@@ -49,14 +47,14 @@ function onError(error) {
 browser.browsingData.removeLocalStorage({}).then(onRemoved, onError);
 ```
 
+{{WebExtExamples}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

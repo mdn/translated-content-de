@@ -2,27 +2,27 @@
 title: CSS-Deklarationsblock
 slug: Web/API/CSS_Object_Model/CSS_Declaration_Block
 l10n:
-  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{DefaultAPISidebar("CSSOM")}}
 
-Ein **CSS-Deklarationsblock** ist eine geordnete Sammlung von CSS-Eigenschaften und -Werten. Im DOM wird er als [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) dargestellt.
+Ein **CSS-Deklarationsblock** ist eine geordnete Sammlung von CSS-Eigenschaften und Werten. Im DOM wird er als [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) dargestellt.
 
 Jedes Paar aus Eigenschaft und Wert wird als [CSS-Deklaration](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration) bezeichnet. Der CSS-Deklarationsblock hat die folgenden zugehörigen Eigenschaften:
 
-- berechnete Flagge
-  - : Wird gesetzt, wenn das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt einen berechneten anstelle eines angegebenen Stils darstellt. Standardmäßig nicht gesetzt.
+- Berechnungsflag
+  - : Wird gesetzt, wenn das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt ein berechneter und nicht spezifizierter Stil ist. Standardmäßig nicht gesetzt.
 - Deklarationen
-  - : Die [CSS-Deklarationen](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration), die mit diesem Objekt verbunden sind.
-- übergeordnete CSS-Regel
-  - : Die [`CSSRule`](/de/docs/Web/API/CSSRule), mit der der CSS-Deklarationsblock verknüpft ist, andernfalls null.
+  - : Die mit diesem Objekt verbundenen [CSS-Deklarationen](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration).
+- Übergeordnete CSS-Regel
+  - : Die [`CSSRule`](/de/docs/Web/API/CSSRule), mit der der CSS-Deklarationsblock verbunden ist, andernfalls null.
 - Eigentümerknoten
-  - : Das [`element`](/de/docs/Web/API/Element), mit dem der CSS-Deklarationsblock verknüpft ist, andernfalls null.
-- Aktualisierungsflagge
-  - : Wird gesetzt, wenn der CSS-Deklarationsblock das [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut des Eigentümerknotens aktualisiert.
+  - : Das [`Element`](/de/docs/Web/API/Element), mit dem der CSS-Deklarationsblock verbunden ist, andernfalls null.
+- Aktualisierungsflag
+  - : Wird gesetzt, wenn der CSS-Deklarationsblock das [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attribut des Eigentümerknotens aktualisiert.
 
-Wenn eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) von einer Schnittstelle des [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) zurückgegeben wird, werden diese Eigenschaften gemäß der Spezifikation auf die entsprechenden Werte gesetzt.
+Wenn eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) von einer [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model)-Schnittstelle zurückgegeben wird, sind diese Eigenschaften auf die entsprechenden Werte gesetzt, wie in der Spezifikation definiert.
 
 ## Einfaches Beispiel
 
@@ -37,7 +37,7 @@ h1 {
 }
 ```
 
-Wir können eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurückgeben, die diesen CSS-Deklarationsblock darstellt, indem wir [`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style) verwenden.
+Wir können eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurückgeben, die diesen CSS-Deklarationsblock repräsentiert, indem wir [`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style) verwenden.
 
 ```js
 let myRules = document.styleSheets[0].cssRules;

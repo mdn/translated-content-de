@@ -2,16 +2,35 @@
 title: Quadratwurzel
 slug: WebAssembly/Reference/Numeric/Square_root
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`sqrt`**-Anweisungen, kurz für _square root_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
+Die **`sqrt`**-Anweisungen, kurz für _quadratische Wurzel_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
 
-{{EmbedInteractiveExample("pages/wat/sqrt.html", "tabbed-standard")}}
+{{InteractiveExample("Wat Demo: sqrt", "tabbed-standard")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f32)))
+  (func $main
+
+    f32.const 2 ;; load a number onto the stack
+    f32.sqrt ;; calculate the square root
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; load a number onto the stack
 f32.const 289
 

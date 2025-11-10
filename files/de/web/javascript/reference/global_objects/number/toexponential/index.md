@@ -1,15 +1,14 @@
 ---
 title: Number.prototype.toExponential()
+short-title: toExponential()
 slug: Web/JavaScript/Reference/Global_Objects/Number/toExponential
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`toExponential()`**-Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl in exponentieller Notation darstellt.
 
-Die **`toExponential()`**-Methode von {{jsxref("Number")}}-Werten gibt einen String zurück, der diese Zahl in exponentieller Notation darstellt.
-
-{{InteractiveExample("JavaScript Demo: Number.toExponential()")}}
+{{InteractiveExample("JavaScript Demo: Number.prototype.toExponential()")}}
 
 ```js interactive-example
 function expo(x, f) {
@@ -36,27 +35,26 @@ toExponential(fractionDigits)
 ### Parameter
 
 - `fractionDigits` {{optional_inline}}
-  - : Optional. Eine ganze Zahl, die die Anzahl der Stellen nach dem Dezimalpunkt angibt.
-    Standardmäßig wird so viele Stellen wie nötig verwendet, um die Zahl darzustellen.
+  - : Optional. Eine Ganzzahl, die die Anzahl der Ziffern nach dem Dezimalpunkt angibt. Standardmäßig so viele Ziffern, wie nötig sind, um die Zahl anzugeben.
 
 ### Rückgabewert
 
-Ein String, der das gegebene {{jsxref("Number")}}-Objekt in exponentieller Notation darstellt, mit einer Ziffer vor dem Dezimalpunkt, gerundet auf `fractionDigits` Stellen nach dem Dezimalpunkt.
+Eine Zeichenkette, die das gegebene {{jsxref("Number")}}-Objekt in exponentieller Notation darstellt, mit einer Ziffer vor dem Dezimalpunkt, gerundet auf `fractionDigits` Ziffern nach dem Dezimalpunkt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wirft einen Fehler, wenn `fractionDigits` nicht zwischen `0` und `100` (einschließlich) liegt.
+  - : Wird ausgelöst, wenn `fractionDigits` nicht zwischen `0` und `100` (einschließlich) liegt.
 - {{jsxref("TypeError")}}
-  - : Wirft einen Fehler, wenn diese Methode auf ein Objekt angewendet wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ## Beschreibung
 
-Falls das `fractionDigits`-Argument weggelassen wird, entspricht die Anzahl der Stellen nach dem Dezimalpunkt der Anzahl, die erforderlich ist, um den Wert eindeutig darzustellen.
+Wenn das Argument `fractionDigits` weggelassen wird, ist die Anzahl der Ziffern nach dem Dezimalpunkt standardmäßig die Anzahl der Ziffern, die erforderlich sind, um den Wert eindeutig darzustellen.
 
-Wenn Sie die `toExponential()`-Methode für einen numerischen Literal verwenden und dieser keinen Exponenten und keinen Dezimalpunkt hat, lassen Sie Leerzeichen vor dem Punkt, der dem Methodenaufruf vorausgeht, um zu verhindern, dass dieser Punkt als Dezimalpunkt interpretiert wird.
+Wenn Sie die Methode `toExponential()` für ein Zahlenliteral verwenden und das Zahlenliteral weder einen Exponenten noch einen Dezimalpunkt hat, lassen Sie Leerzeichen vor dem Punkt, der dem Methodenaufruf vorausgeht, um zu verhindern, dass der Punkt als Dezimalpunkt interpretiert wird.
 
-Falls eine Zahl mehr Stellen hat, als durch den `fractionDigits`-Parameter angegeben, wird die Zahl auf die nächste durch `fractionDigits` Stellen repräsentierte Zahl gerundet. Siehe die Diskussion über das Runden in der Beschreibung der {{jsxref("Number/toFixed", "toFixed()")}}-Methode, die auch für `toExponential()` gilt.
+Wenn eine Zahl mehr Ziffern hat, als durch den `fractionDigits`-Parameter angefordert wurden, wird die Zahl auf die nächstliegende Zahl gerundet, die durch `fractionDigits` Ziffern dargestellt wird. Siehe die Diskussion über Rundung in der Beschreibung der {{jsxref("Number/toFixed", "toFixed()")}}-Methode, die auch für `toExponential()` gilt.
 
 ## Beispiele
 
@@ -82,7 +80,8 @@ console.log((77).toExponential()); // 7.7e+1
 
 ## Siehe auch
 
-- [Polyfill von `Number.prototype.toExponential` mit vielen Fehlerbehebungen in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [Polyfill von `Number.prototype.toExponential` mit vielen Fehlerkorrekturen in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [es-shims Polyfill von `Number.prototype.toExponential`](https://www.npmjs.com/package/number.prototype.toexponential)
 - {{jsxref("Number.prototype.toFixed()")}}
 - {{jsxref("Number.prototype.toPrecision()")}}
 - {{jsxref("Number.prototype.toString()")}}

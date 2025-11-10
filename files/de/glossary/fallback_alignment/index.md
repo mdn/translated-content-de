@@ -1,13 +1,11 @@
 ---
-title: Fallback-Alignment
+title: Fallback-Ausrichtung
 slug: Glossary/Fallback_Alignment
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
-
-Im [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) wird ein Fallback-Alignment angegeben, um Fälle zu behandeln, in denen das gewünschte Alignment nicht erfüllt werden kann. Wenn Sie beispielsweise `justify-content: space-between` angeben, müssen mehr als ein {{Glossary("alignment_subject", "Alignment-Objekt")}} vorhanden sein. Falls nicht, wird das Fallback-Alignment verwendet. Dies wird pro Alignment-Methode spezifiziert, wie unten detailliert beschrieben.
+Im [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment) wird eine Fallback-Ausrichtung angegeben, um Fälle zu behandeln, in denen die gewünschte Ausrichtung nicht erfüllt werden kann. Wenn Sie zum Beispiel `justify-content: space-between` angeben, muss es mehr als ein {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} geben. Falls nicht, wird die Fallback-Ausrichtung verwendet. Diese wird für jede Ausrichtungsmethode wie unten beschrieben festgelegt.
 
 - Erste Baseline
   - : `start`
@@ -26,4 +24,4 @@ Im [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) wird ein Fallback-Ali
 
 ## Siehe auch
 
-- [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment)
+- [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment)

@@ -1,134 +1,384 @@
 ---
-title: WebGL-Modellansicht-Projektion
+title: WebGL Model-View-Projektion
 slug: Web/API/WebGL_API/WebGL_model_view_projection
 l10n:
-  sourceCommit: c0f18e3ff429d0de01896a393e059667ad26ccf9
+  sourceCommit: b9d83ba81dd56671d054e64978eb22c07a96912b
 ---
 
 {{DefaultAPISidebar("WebGL")}}
 
-Dieser Artikel untersucht, wie Daten in einem [WebGL](/de/docs/Web/API/WebGL_API)-Projekt projiziert werden, um sie auf dem Bildschirm anzuzeigen. Es wird vorausgesetzt, dass Sie grundlegende Kenntnisse in Matrizenmathematik mit Übersetzungs-, Skalierungs- und Rotationsmatrizen haben. Er erklärt die drei Kernmatrizen, die typischerweise beim Erstellen einer 3D-Szene verwendet werden: die Modell-, Betrachtungs- und Projektionsmatrizen.
+Dieser Artikel untersucht, wie Sie Daten innerhalb eines [WebGL](/de/docs/Web/API/WebGL_API)-Projekts nehmen und sie in den richtigen Raum projizieren, um sie auf dem Bildschirm anzuzeigen. Er setzt Grundkenntnisse in der Matrizenmathematik unter Verwendung von Translations-, Skalierungs- und Rotationsmatrizen voraus. Der Artikel erklärt die drei Kernmatrizen, die typischerweise beim Zusammenstellen einer 3D-Szene verwendet werden: die Modell-, Ansichts- und Projektionsmatrix.
 
-> [!NOTE]
-> Dieser Artikel ist auch als [MDN-Inhalts-Kit](https://github.com/gregtatum/mdn-model-view-projection) verfügbar. Es wird auch eine Sammlung von [Hilfsfunktionen](https://github.com/gregtatum/mdn-webgl) verwendet, die unter dem globalen Objekt `MDN` verfügbar sind.
+## Die Modell-, Ansichts- und Projektionsmatrizen
 
-## Die Modell-, Betrachtungs- und Projektionsmatrizen
+Individuelle Transformationen von Punkten und Polygonen im Raum in WebGL werden von den grundlegenden Transformationsmatrizen wie Translation, Skalierung und Rotation gehandhabt. Diese Matrizen können zusammengefügt und in spezieller Weise gruppiert werden, damit sie für das Rendern komplizierter 3D-Szenen nützlich sind. Diese zusammengesetzten Matrizen bewegen letztlich die ursprünglichen Modelldaten in einen speziellen Koordinatenraum namens **Clipspace**. Dies ist ein 2 Einheiten breiter Würfel, zentriert bei (0,0,0), dessen Ecken von (-1,-1,-1) bis (1,1,1) reichen. Dieser Clipspace wird in einen 2D-Raum komprimiert und in ein Bild rasterisiert.
 
-Individuelle Transformationen von Punkten und Polygonen im Raum werden in WebGL von den grundlegenden Transformationsmatrizen wie Übersetzung, Skalierung und Rotation gehandhabt. Diese Matrizen können zusammengesetzt und auf besondere Weise gruppiert werden, um sie für das Rendern komplizierter 3D-Szenen nützlich zu machen. Diese zusammengesetzten Matrizen bewegen die ursprünglichen Modelldaten letztendlich in einen speziellen Koordinatenraum, der als **Clip Space** bezeichnet wird. Dies ist ein 2 Einheiten breiter Würfel, zentriert bei (0,0,0), mit Ecken, die von (-1,-1,-1) bis (1,1,1) reichen. Dieser Clip Space wird in einen 2D-Raum komprimiert und in ein Bild rasterisiert.
+Die erste unten besprochene Matrix ist die **Modellmatrix**, die definiert, wie Sie Ihre ursprünglichen Modelldaten nehmen und im 3D-Weltraum verschieben. Die **Projektionsmatrix** wird verwendet, um Weltkoordinaten in Clipspace-Koordinaten umzuwandeln. Eine häufig verwendete Projektionsmatrix, die **perspektivische Projektionsmatrix**, wird verwendet, um die _Effekte_ einer typischen Kamera nachzuahmen, die als Stellvertreter für den Betrachter in der 3D-virtuellen Welt dient. Die **Ansichtsmatrix** ist dafür verantwortlich, die Objekte in der Szene zu bewegen, um die Position der Kameraänderung zu simulieren und zu verändern, was der Betrachter derzeit sehen kann.
 
-Die erste hier besprochene Matrix ist die **Modellmatrix**, die definiert, wie Sie Ihre ursprünglichen Modelldaten im 3D-Weltraum bewegen. Die **Projektionsmatrix** wird verwendet, um Weltkoordinaten in Clip-Space-Koordinaten zu konvertieren. Eine häufig verwendete Projektionsmatrix, die **Perspektivprojektionsmatrix**, wird verwendet, um die _Effekte_ einer typischen Kamera zu imitieren, die als Vertreter für den Betrachter in der 3D-Virtualwelt dient. Die **Betrachtungsmatrix** ist verantwortlich dafür, die Objekte in der Szene zu bewegen, um die Änderung der Kameraposition zu simulieren, und verändert, was der Betrachter aktuell sehen kann.
+Die folgenden Abschnitte bieten einen detaillierten Einblick in die Ideen hinter und die Implementierung der Modell-, Ansichts- und Projektionsmatrizen. Diese Matrizen sind entscheidend für die Bewegung von Daten auf dem Bildschirm und sind Konzepte, die individuelle Frameworks und Engines überdauern.
 
-Die folgenden Abschnitte bieten einen tiefen Einblick in die Ideen hinter und die Implementierung der Modell-, Betrachtungs- und Projektionsmatrizen. Diese Matrizen sind zentral, um Daten auf dem Bildschirm zu bewegen, und sie sind Konzepte, die individuelle Frameworks und Engines überschreiten.
+## Clipspace
 
-## Clip Space
+In einem WebGL-Programm werden Daten typischerweise mit ihrem eigenen Koordinatensystem auf die GPU hochgeladen, und dann transformiert der Vertex-Shader diese Punkte in ein spezielles Koordinatensystem, das als **Clipspace** bekannt ist. Alle Daten, die über den Clipspace hinausgehen, werden abgeschnitten und nicht gerendert. Wenn jedoch ein Dreieck die Grenze dieses Raums überschreitet, wird es in neue Dreiecke aufgeteilt, und nur die Teile der neuen Dreiecke, die im Clipspace liegen, werden behalten.
 
-In einem WebGL-Programm werden Daten typischerweise mit einem eigenen Koordinatensystem an die GPU hochgeladen, und der Vertex-Shader transformiert diese Punkte in ein spezielles Koordinatensystem, das als **Clip Space** bekannt ist. Alle Daten, die sich außerhalb des Clip Space befinden, werden abgeschnitten und nicht gerendert. Wenn jedoch ein Dreieck die Grenze dieses Raums überschreitet, wird es in neue Dreiecke zerteilt, und nur die Teile der neuen Dreiecke, die im Clip Space liegen, werden behalten.
+![Ein 3D-Diagramm, das den Clipspace in WebGL zeigt.](clip_space_graph.svg)
 
-![Ein 3D-Diagramm, das den Clip Space in WebGL zeigt.](clip_space_graph.svg)
+Das obige Diagramm ist eine Visualisierung des Clipspace, in den alle Punkte passen müssen. Es ist ein Würfel mit zwei Einheiten auf jeder Seite, mit einer Ecke bei (-1,-1,-1) und der gegenüberliegenden Ecke bei (1,1,1). Der Mittelpunkt des Würfels ist der Punkt (0,0,0). Dieses 8 Kubikmeter große Koordinatensystem, das von Clipspace verwendet wird, ist als normalisierte Gerätekoordinaten (NDC) bekannt. Möglicherweise stoßen Sie bei der Recherche und Arbeit mit WebGL-Code gelegentlich auf diesen Begriff.
 
-Die obige Grafik ist eine Visualisierung des Clip Space, in den alle Punkte passen müssen. Es ist ein Würfel mit zwei Einheiten auf jeder Seite, wobei eine Ecke bei (-1,-1,-1) und die gegenüberliegende Ecke bei (1,1,1) liegt. Die Mitte des Würfels ist der Punkt (0,0,0). Dieses 8-Kubikmeter-Koordinatensystem, das vom Clip Space verwendet wird, ist als normalisierte Gerätekoordinaten (NDC) bekannt. Ihnen könnte dieser Begriff begegnen, während Sie sich informieren und mit WebGL-Code arbeiten.
+In diesem Abschnitt werden wir unsere Daten direkt in das Clipspace-Koordinatensystem einfügen. Normalerweise werden Modelldaten verwendet, die in einem beliebigen Koordinatensystem vorliegen, und dann werden sie durch Transformation mit einer Matrix umgewandelt, indem die Modellkoordinaten in das Clipspace-Koordinatensystem überführt werden. Für dieses Beispiel ist es am einfachsten zu veranschaulichen, wie Clipspace funktioniert, indem Modellkoordinatenwerte zwischen (-1,-1,-1) und (1,1,1) verwendet werden. Der untenstehende Code erstellt 2 Dreiecke, die ein Quadrat auf dem Bildschirm zeichnen. Die Z-Tiefe in den Quadraten bestimmt, was oben gezeichnet wird, wenn die Quadrate denselben Raum teilen. Kleinere Z-Werte werden über größeren Z-Werten gerendert.
 
-Für diesen Abschnitt werden wir unsere Daten direkt in das Koordinatensystem des Clip Space einbringen. Normalerweise verwendet man Modelldaten, die sich in einem beliebigen Koordinatensystem befinden, und transformiert diese dann mithilfe einer Matrix, um die Modellkoordinaten in das Koordinatensystem des Clip Space zu konvertieren. Für dieses Beispiel ist es am einfachsten, zu veranschaulichen, wie der Clip Space funktioniert, indem wir Modellkoordinatenwerte von (-1,-1,-1) bis (1,1,1) verwenden. Der folgende Code wird 2 Dreiecke erstellen, die ein Quadrat auf dem Bildschirm zeichnen. Die Z-Tiefe in den Quadraten bestimmt, was oben gezeichnet wird, wenn die Quadrate den gleichen Raum teilen. Die kleineren Z-Werte werden über den größeren Z-Werten gerendert.
+<!-- Gemeinsame Einrichtung -->
 
-### WebGLBox-Beispiel
+```html hidden live-sample___clip_space_ex live-sample___homogenous_coordinates_ex live-sample___model_transform_ex live-sample___divide_by_w_ex live-sample___simple_projection_ex live-sample___projection_matrix_ex live-sample___view_matrix_ex
+<canvas id="canvas" width="1000" height="1000"></canvas>
+```
 
-Dieses Beispiel wird ein benutzerdefiniertes `WebGLBox`-Objekt erstellen, das ein 2D-Quadrat auf dem Bildschirm zeichnet.
-
-> [!NOTE]
-> Der Code für jedes WebGLBox-Beispiel ist in diesem [GitHub-Repo](https://github.com/gregtatum/mdn-model-view-projection/tree/master/lessons) verfügbar und nach Abschnitt organisiert. Darüber hinaus gibt es unten in jedem Abschnitt einen JSFiddle-Link.
-
-#### WebGLBox-Konstruktor
-
-Der Konstruktor sieht so aus:
-
-```js
-function WebGLBox() {
-  // Setup the canvas and WebGL context
-  this.canvas = document.getElementById("canvas");
-  this.canvas.width = window.innerWidth;
-  this.canvas.height = window.innerHeight;
-  this.gl = MDN.createContext(canvas);
-
-  const gl = this.gl;
-
-  // Setup a WebGL program, anything part of the MDN object is defined outside of this article
-  this.webglProgram = MDN.createWebGLProgramFromIds(
-    gl,
-    "vertex-shader",
-    "fragment-shader",
-  );
-  gl.useProgram(this.webglProgram);
-
-  // Save the attribute and uniform locations
-  this.positionLocation = gl.getAttribLocation(this.webglProgram, "position");
-  this.colorLocation = gl.getUniformLocation(this.webglProgram, "color");
-
-  // Tell WebGL to test the depth when drawing, so if a square is behind
-  // another square it won't be drawn
-  gl.enable(gl.DEPTH_TEST);
+```css hidden live-sample___clip_space_ex live-sample___homogenous_coordinates_ex live-sample___model_transform_ex live-sample___divide_by_w_ex live-sample___simple_projection_ex live-sample___projection_matrix_ex live-sample___view_matrix_ex
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 ```
 
-#### WebGLBox-Zeichnen
+```js hidden live-sample___clip_space_ex live-sample___homogenous_coordinates_ex live-sample___model_transform_ex live-sample___divide_by_w_ex live-sample___simple_projection_ex live-sample___projection_matrix_ex live-sample___view_matrix_ex
+function createShader(gl, source, type) {
+  // Compiles either a shader of type gl.VERTEX_SHADER or gl.FRAGMENT_SHADER
+  const shader = gl.createShader(type);
+  gl.shaderSource(shader, source);
+  gl.compileShader(shader);
 
-Jetzt erstellen wir eine Methode, um ein Quadrat auf dem Bildschirm zu zeichnen.
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    const info = gl.getShaderInfoLog(shader);
+    throw new Error(`Could not compile WebGL program.\n\n${info}`);
+  }
 
-```js
-WebGLBox.prototype.draw = function (settings) {
-  // Create some attribute data; these are the triangles that will end being
-  // drawn to the screen. There are two that form a square.
+  return shader;
+}
 
-  const data = new Float32Array([
-    //Triangle 1
-    settings.left,
-    settings.bottom,
-    settings.depth,
-    settings.right,
-    settings.bottom,
-    settings.depth,
-    settings.left,
-    settings.top,
-    settings.depth,
+function linkProgram(gl, vertexShader, fragmentShader) {
+  const program = gl.createProgram();
+  gl.attachShader(program, vertexShader);
+  gl.attachShader(program, fragmentShader);
+  gl.linkProgram(program);
 
-    //Triangle 2
-    settings.left,
-    settings.top,
-    settings.depth,
-    settings.right,
-    settings.bottom,
-    settings.depth,
-    settings.right,
-    settings.top,
-    settings.depth,
-  ]);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    const info = gl.getProgramInfoLog(program);
+    throw new Error(`Could not compile WebGL program.\n\n${info}`);
+  }
 
-  // Use WebGL to draw this onto the screen.
+  return program;
+}
 
-  // Performance Note: Creating a new array buffer for every draw call is slow.
-  // This function is for illustration purposes only.
+function createWebGLProgram(gl, vertexSource, fragmentSource) {
+  // Combines createShader() and linkProgram()
+  const vertexShader = createShader(gl, vertexSource, gl.VERTEX_SHADER);
+  const fragmentShader = createShader(gl, fragmentSource, gl.FRAGMENT_SHADER);
+  return linkProgram(gl, vertexShader, fragmentShader);
+}
 
-  const gl = this.gl;
+function createWebGLProgramFromIds(gl, vertexSourceId, fragmentSourceId) {
+  const vertexSourceEl = document.getElementById(vertexSourceId);
+  const fragmentSourceEl = document.getElementById(fragmentSourceId);
 
-  // Create a buffer and bind the data
-  const buffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
-
-  // Setup the pointer to our attribute data (the triangles)
-  gl.enableVertexAttribArray(this.positionLocation);
-  gl.vertexAttribPointer(this.positionLocation, 3, gl.FLOAT, false, 0, 0);
-
-  // Setup the color uniform that will be shared across all triangles
-  gl.uniform4fv(this.colorLocation, settings.color);
-
-  // Draw the triangles to the screen
-  gl.drawArrays(gl.TRIANGLES, 0, 6);
-};
+  return createWebGLProgram(
+    gl,
+    vertexSourceEl.innerHTML,
+    fragmentSourceEl.innerHTML,
+  );
+}
 ```
 
-Die Shader sind die Codebits, die in GLSL geschrieben sind und unsere Datenpunkte letztendlich auf dem Bildschirm rendern. Diese Shader werden aus Bequemlichkeit in einem {{htmlelement("script")}}-Element gespeichert, das über die benutzerdefinierte Funktion `MDN.createWebGLProgramFromIds()` in das Programm eingebracht wird. Diese Funktion ist Teil einer Sammlung von [Hilfsfunktionen](https://github.com/gregtatum/mdn-webgl), die für diese Tutorials geschrieben wurden und hier nicht ausführlich erklärt werden. Diese Funktion übernimmt die Grundlagen der Umwandlung von GLSL-Quellcode in ein WebGL-Programm. Die Funktion nimmt drei Parameter - den Kontext, in dem das Programm gerendert werden soll, die ID des {{htmlelement("script")}}-Elements für den Vertex-Shader und die ID des {{htmlelement("script")}}-Elements für den Fragment-Shader. Der Vertex-Shader positioniert die Vertizes, und der Fragment-Shader färbt jedes Pixel.
+```js hidden live-sample___model_transform_ex live-sample___divide_by_w_ex live-sample___simple_projection_ex live-sample___projection_matrix_ex live-sample___view_matrix_ex
+// Functions below are copied from Matrix_math_for_the_web
+// point • matrix
+function multiplyMatrixAndPoint(matrix, point) {
+  // Give a simple variable name to each part of the matrix, a column and row number
+  const c0r0 = matrix[0],
+    c1r0 = matrix[1],
+    c2r0 = matrix[2],
+    c3r0 = matrix[3];
+  const c0r1 = matrix[4],
+    c1r1 = matrix[5],
+    c2r1 = matrix[6],
+    c3r1 = matrix[7];
+  const c0r2 = matrix[8],
+    c1r2 = matrix[9],
+    c2r2 = matrix[10],
+    c3r2 = matrix[11];
+  const c0r3 = matrix[12],
+    c1r3 = matrix[13],
+    c2r3 = matrix[14],
+    c3r3 = matrix[15];
 
-Schauen Sie sich zuerst den Vertex-Shader an, der die Vertices auf dem Bildschirm bewegen wird:
+  // Now set some simple names for the point
+  const x = point[0];
+  const y = point[1];
+  const z = point[2];
+  const w = point[3];
+
+  // Multiply the point against each part of the 1st column, then add together
+  const resultX = x * c0r0 + y * c0r1 + z * c0r2 + w * c0r3;
+
+  // Multiply the point against each part of the 2nd column, then add together
+  const resultY = x * c1r0 + y * c1r1 + z * c1r2 + w * c1r3;
+
+  // Multiply the point against each part of the 3rd column, then add together
+  const resultZ = x * c2r0 + y * c2r1 + z * c2r2 + w * c2r3;
+
+  // Multiply the point against each part of the 4th column, then add together
+  const resultW = x * c3r0 + y * c3r1 + z * c3r2 + w * c3r3;
+
+  return [resultX, resultY, resultZ, resultW];
+}
+
+// matrixB • matrixA
+function multiplyMatrices(matrixA, matrixB) {
+  // Slice the second matrix up into rows
+  const row0 = [matrixB[0], matrixB[1], matrixB[2], matrixB[3]];
+  const row1 = [matrixB[4], matrixB[5], matrixB[6], matrixB[7]];
+  const row2 = [matrixB[8], matrixB[9], matrixB[10], matrixB[11]];
+  const row3 = [matrixB[12], matrixB[13], matrixB[14], matrixB[15]];
+
+  // Multiply each row by matrixA
+  const result0 = multiplyMatrixAndPoint(matrixA, row0);
+  const result1 = multiplyMatrixAndPoint(matrixA, row1);
+  const result2 = multiplyMatrixAndPoint(matrixA, row2);
+  const result3 = multiplyMatrixAndPoint(matrixA, row3);
+
+  // Turn the result rows back into a single matrix
+  // prettier-ignore
+  return [
+    result0[0], result0[1], result0[2], result0[3],
+    result1[0], result1[1], result1[2], result1[3],
+    result2[0], result2[1], result2[2], result2[3],
+    result3[0], result3[1], result3[2], result3[3],
+  ];
+}
+
+function multiplyArrayOfMatrices(matrices) {
+  if (matrices.length === 1) {
+    return matrices[0];
+  }
+  return matrices.reduce((result, matrix) => multiplyMatrices(result, matrix));
+}
+
+function translate(x, y, z) {
+  // prettier-ignore
+  return [
+    1, 0, 0, 0,
+    0, 1, 0, 0,
+    0, 0, 1, 0,
+    x, y, z, 1,
+  ];
+}
+
+function scale(x, y, z) {
+  // prettier-ignore
+  return [
+    x, 0, 0, 0,
+    0, y, 0, 0,
+    0, 0, z, 0,
+    0, 0, 0, 1,
+  ];
+}
+
+const sin = Math.sin;
+const cos = Math.cos;
+
+function rotateX(a) {
+  // prettier-ignore
+  return [
+    1, 0, 0, 0,
+    0, cos(a), -sin(a), 0,
+    0, sin(a), cos(a), 0,
+    0, 0, 0, 1,
+  ];
+}
+
+function rotateY(a) {
+  // prettier-ignore
+  return [
+    cos(a), 0, sin(a), 0,
+    0, 1, 0, 0,
+    -sin(a), 0, cos(a), 0,
+    0, 0, 0, 1,
+  ];
+}
+
+function rotateZ(a) {
+  // prettier-ignore
+  return [
+    cos(a), -sin(a), 0, 0,
+    sin(a), cos(a), 0, 0,
+    0, 0, 1, 0,
+    0, 0, 0, 1,
+  ];
+}
+
+// Define the data that is needed to make a 3d cube
+function createCubeData() {
+  // prettier-ignore
+  const positions = [
+    // Front face
+    -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0, 1.0,
+    // Back face
+    -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0, -1.0,
+    // Top face
+    -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0,
+    // Bottom face
+    -1.0, -1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, -1.0, -1.0, 1.0,
+    // Right face
+    1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, 1.0,
+    // Left face
+    -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0,
+  ];
+
+  // prettier-ignore
+  const colorsOfFaces = [
+    [0.3, 1.0, 1.0, 1.0],    // Front face: cyan
+    [1.0, 0.3, 0.3, 1.0],    // Back face: red
+    [0.3, 1.0, 0.3, 1.0],    // Top face: green
+    [0.3, 0.3, 1.0, 1.0],    // Bottom face: blue
+    [1.0, 1.0, 0.3, 1.0],    // Right face: yellow
+    [1.0, 0.3, 1.0, 1.0]     // Left face: purple
+  ];
+
+  let colors = [];
+
+  for (const polygonColor of colorsOfFaces) {
+    for (let i = 0; i < 4; i++) {
+      colors = colors.concat(polygonColor);
+    }
+  }
+
+  // prettier-ignore
+  const elements = [
+    0,  1,  2,   0,  2,  3,    // front
+    4,  5,  6,   4,  6,  7,    // back
+    8,  9,  10,  8,  10, 11,   // top
+    12, 13, 14,  12, 14, 15,   // bottom
+    16, 17, 18,  16, 18, 19,   // right
+    20, 21, 22,  20, 22, 23,   // left
+  ];
+
+  return { positions, elements, colors };
+}
+
+// Take the data for a cube and bind the buffers for it.
+// Return an object collection of the buffers
+function createBuffersForCube(gl, cube) {
+  const positions = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, positions);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array(cube.positions),
+    gl.STATIC_DRAW,
+  );
+
+  const colors = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, colors);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(cube.colors), gl.STATIC_DRAW);
+
+  const elements = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elements);
+  gl.bufferData(
+    gl.ELEMENT_ARRAY_BUFFER,
+    new Uint16Array(cube.elements),
+    gl.STATIC_DRAW,
+  );
+
+  return { positions, elements, colors };
+}
+```
+
+### WebGLBox-Beispiel
+
+Dieses Beispiel erstellt ein benutzerdefiniertes `WebGLBox`-Objekt, das ein 2D-Rechteck auf dem Bildschirm zeichnet. Es wird als Klasse implementiert, die einen Konstruktor und eine `draw()`-Methode enthält, um ein Rechteck auf dem Bildschirm zu zeichnen:
+
+```js live-sample___clip_space_ex
+class WebGLBox {
+  canvas = document.getElementById("canvas");
+  gl = this.canvas.getContext("webgl");
+  webglProgram = createWebGLProgramFromIds(
+    this.gl,
+    "vertex-shader",
+    "fragment-shader",
+  );
+  positionLocation;
+  colorLocation;
+  constructor() {
+    const gl = this.gl;
+
+    // Setup a WebGL program
+    gl.useProgram(this.webglProgram);
+
+    // Save the attribute and uniform locations
+    this.positionLocation = gl.getAttribLocation(this.webglProgram, "position");
+    this.colorLocation = gl.getUniformLocation(this.webglProgram, "vColor");
+
+    // Tell WebGL to test the depth when drawing, so if a square is behind
+    // another square it won't be drawn
+    gl.enable(gl.DEPTH_TEST);
+  }
+  draw(settings) {
+    // Create some attribute data; these are the triangles that will end being
+    // drawn to the screen. There are two that form a square.
+
+    // prettier-ignore
+    const data = new Float32Array([
+      // Triangle 1
+      settings.left, settings.bottom, settings.depth,
+      settings.right, settings.bottom, settings.depth,
+      settings.left, settings.top, settings.depth,
+
+      // Triangle 2
+      settings.left, settings.top, settings.depth,
+      settings.right, settings.bottom, settings.depth,
+      settings.right, settings.top, settings.depth,
+    ]);
+
+    // Use WebGL to draw this onto the screen.
+
+    // Performance Note: Creating a new array buffer for every draw call is slow.
+    // This function is for illustration purposes only.
+
+    const gl = this.gl;
+
+    // Create a buffer and bind the data
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+
+    // Setup the pointer to our attribute data (the triangles)
+    gl.enableVertexAttribArray(this.positionLocation);
+    gl.vertexAttribPointer(this.positionLocation, 3, gl.FLOAT, false, 0, 0);
+
+    // Setup the color uniform that will be shared across all triangles
+    gl.uniform4fv(this.colorLocation, settings.color);
+
+    // Draw the triangles to the screen
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+}
+```
+
+Die Shader sind die Stücke Code, die in GLSL geschrieben sind, die unsere Datenpunkte nehmen und letztlich auf dem Bildschirm rendern. Zur Bequemlichkeit sind diese Shader in einem {{htmlelement("script")}}-Element gespeichert, das durch die benutzerdefinierte Funktion `createWebGLProgramFromIds()` in das Programm eingebracht wird. Diese Funktion übernimmt die grundlegenden Aufgaben, etwas GLSL-Quellcode zu nehmen und in ein WebGL-Programm zu kompilieren. Sie nimmt drei Parameter entgegen — den Kontext, in dem das Programm gerendert werden soll, die ID des {{htmlelement("script")}}-Elements, das den Vertex-Shader enthält, und die ID des {{htmlelement("script")}}-Elements, das den Fragment-Shader enthält. Diese Funktion wird hier nicht im Detail erklärt; wenn Sie ihre Implementierung sehen möchten, klicken Sie auf "Play" im Codeblock. Der Vertex-Shader positioniert die Eckpunkte, und der Fragment-Shader färbt jeden Pixel.
+
+Werfen Sie zunächst einen Blick auf den Vertex-Shader, der die Eckpunkte auf dem Bildschirm bewegt:
 
 ```glsl
 // The individual position vertex
@@ -140,26 +390,49 @@ void main() {
 }
 ```
 
-Als nächstes, um die Daten tatsächlich in Pixel zu rasterisieren, bewertet der Fragment-Shader alles auf einer Pixel-zu-Pixel-Basis und setzt eine einzige Farbe. Die GPU ruft die Shader-Funktion für jedes Pixel, das sie rendern muss, auf; die Aufgabe des Shaders besteht darin, die Farbe für dieses Pixel zurückzugeben.
+```html hidden live-sample___clip_space_ex
+<script id="vertex-shader" type="x-shader/x-vertex">
+  // The individual position vertex
+  attribute vec3 position;
+
+  void main() {
+    // the gl_Position is the final position in clip space after the vertex shader modifies it
+    gl_Position = vec4(position, 1.0);
+  }
+</script>
+```
+
+Um die Daten in Pixel zu rasterisieren, wertet der Fragment-Shader alles auf Pixelbasis aus und legt eine einzige Farbe fest. Die GPU ruft die Shader-Funktion für jeden Pixel auf, den sie rendern muss; die Aufgabe des Shaders ist es, die Farbe zurückzugeben, die für diesen Pixel verwendet werden soll.
 
 ```glsl
 precision mediump float;
-uniform vec4 color;
+uniform vec4 vColor;
 
 void main() {
-  gl_FragColor = color;
+  gl_FragColor = vColor;
 }
 ```
 
-Mit diesen Einstellungen ist es Zeit, direkt mit Clip-Space-Koordinaten auf den Bildschirm zu zeichnen.
+```html hidden live-sample___clip_space_ex live-sample___homogenous_coordinates_ex
+<script id="fragment-shader" type="x-shader/x-fragment">
+  precision mediump float;
+  uniform vec4 vColor;
 
-```js
+  void main() {
+    gl_FragColor = vColor;
+  }
+</script>
+```
+
+Mit diesen Einstellungen ist es an der Zeit, direkt mit Clipspace-Koordinaten auf dem Bildschirm zu zeichnen.
+
+```js live-sample___clip_space_ex
 const box = new WebGLBox();
 ```
 
-Zuerst ein rotes Quadrat in die Mitte zeichnen.
+Zuerst zeichnen Sie eine rote Box in der Mitte.
 
-```js
+```js live-sample___clip_space_ex
 box.draw({
   top: 0.5, // x
   bottom: -0.5, // x
@@ -171,9 +444,9 @@ box.draw({
 });
 ```
 
-Als nächstes ein grünes Quadrat oben und hinter dem roten Quadrat zeichnen.
+Als nächstes zeichnen Sie eine grüne Box oben und hinter der roten Box.
 
-```js
+```js live-sample___clip_space_ex
 box.draw({
   top: 0.9, // x
   bottom: 0, // x
@@ -185,9 +458,9 @@ box.draw({
 });
 ```
 
-Schließlich, um zu demonstrieren, dass Clipping tatsächlich stattfindet, wird dieses Quadrat nicht gezeichnet, da es vollständig außerhalb des Clip Space ist. Die Tiefe liegt außerhalb des Bereichs von -1.0 bis 1.0.
+Schließlich, um zu demonstrieren, dass das Abschneiden tatsächlich stattfindet, wird diese Box nicht gezeichnet, weil sie vollständig außerhalb des Clipspace liegt. Die Tiefe liegt außerhalb des Bereichs -1,0 bis 1,0.
 
-```js
+```js live-sample___clip_space_ex
 box.draw({
   top: 1, // x
   bottom: -1, // x
@@ -201,27 +474,105 @@ box.draw({
 
 #### Die Ergebnisse
 
-[Anzeigen auf JSFiddle](https://jsfiddle.net/tatumcreative/mff99yu5/)
+```html hidden live-sample___clip_space_ex live-sample___homogenous_coordinates_ex
+<!-- The SVG overlay showing clip space -->
+<svg
+  id="clip-space-axis"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 500 500"
+  preserveAspectRatio="none"></svg>
 
-![Die Ergebnisse des Zeichnens im Clip Space mit WebGL.](part1.png)
+<!-- Use a separate SVG for text to avoid scaling -->
+<svg id="clip-space-text" xmlns="http://www.w3.org/2000/svg"></svg>
+```
+
+```js hidden live-sample___clip_space_ex live-sample___homogenous_coordinates_ex
+const axisOverlay = document.getElementById("clip-space-axis");
+const xAxis = document.createElementNS("http://www.w3.org/2000/svg", "path");
+const yAxis = document.createElementNS("http://www.w3.org/2000/svg", "path");
+yAxis.setAttribute("fill", "none");
+yAxis.setAttribute("stroke", "black");
+xAxis.setAttribute("fill", "none");
+xAxis.setAttribute("stroke", "black");
+let yAxisPath = "M 249.5 0 L 249.5 500";
+let xAxisPath = "M 0 250.5 L 500 250.5";
+for (let i = -10; i <= 10; i++) {
+  if (i === 0) continue;
+  const length = i % 5 === 0 ? 24 : 12;
+  const loc = 250 + i * 25 - 0.5;
+  yAxisPath += ` M 249.5 ${loc} L ${249.5 + length} ${loc}`;
+  xAxisPath += ` M ${loc} 250.5 L ${loc} ${250.5 - length}`;
+}
+xAxis.setAttribute("d", xAxisPath);
+yAxis.setAttribute("d", yAxisPath);
+axisOverlay.appendChild(xAxis);
+axisOverlay.appendChild(yAxis);
+
+const textOverlay = document.getElementById("clip-space-text");
+for (const label of ["+X", "-X", "+Y", "-Y"]) {
+  const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  let x, y;
+  if (label === "+X") {
+    [x, y] = ["97.5%", "53%"];
+  } else if (label === "-X") {
+    [x, y] = ["2.5%", "53%"];
+  } else if (label === "+Y") {
+    [x, y] = ["47%", "2.5%"];
+  } else if (label === "-Y") {
+    [x, y] = ["47%", "97.5%"];
+  }
+  textEl.setAttribute("x", x);
+  textEl.setAttribute("y", y);
+  textEl.setAttribute("text-anchor", "middle");
+  textEl.setAttribute("font-family", "'Courier New'");
+  textEl.setAttribute("font-size", "16");
+  textEl.setAttribute("font-weight", "bold");
+  textEl.textContent = label;
+  textOverlay.appendChild(textEl);
+}
+for (let i = -1; i <= 1; i += 0.5) {
+  if (i === 0) continue;
+  const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  textEl.setAttribute("x", "58%");
+  textEl.setAttribute("y", `${50 - i * 48}%`);
+  textEl.setAttribute("text-anchor", "end");
+  textEl.setAttribute("font-family", "'Courier New'");
+  textEl.setAttribute("font-size", "11");
+  textEl.textContent = i.toFixed(1);
+  textOverlay.appendChild(textEl);
+  const textEl2 = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "text",
+  );
+  textEl2.setAttribute("x", `${50 + i * 50}%`);
+  textEl2.setAttribute("y", "45%");
+  textEl2.setAttribute("text-anchor", i > 0 ? "end" : "start");
+  textEl2.setAttribute("font-family", "'Courier New'");
+  textEl2.setAttribute("font-size", "11");
+  textEl2.textContent = i.toFixed(1);
+  textOverlay.appendChild(textEl2);
+}
+```
+
+{{EmbedLiveSample("clip_space_ex", "", 600)}}
 
 #### Übung
 
-Eine hilfreiche Übung an dieser Stelle ist, die Quadrate im Clip Space zu bewegen, indem der Code variiert wird, um ein Gefühl dafür zu bekommen, wie Punkte im Clip Space abgeschnitten und bewegt werden. Versuchen Sie, ein Bild wie ein kastiges Smiley-Gesicht mit einem Hintergrund zu zeichnen.
+Eine hilfreiche Übung an dieser Stelle ist es, die Boxen im Clipspace herumzubewegen, indem Sie den Code variieren, um ein Gefühl dafür zu bekommen, wie Punkte im Clipspace abgeschnitten und bewegt werden. Versuchen Sie, ein Bild wie ein kastiges Smiley-Gesicht mit einem Hintergrund zu zeichnen.
 
 ## Homogene Koordinaten
 
-Die Hauptlinie des vorherigen Clip-Spaces-Vertex-Shaders enthielt diesen Code:
+Die Hauptzeile des vorherigen Clipspace-Vertex-Shaders enthielt diesen Code:
 
-```js
+```glsl
 gl_Position = vec4(position, 1.0);
 ```
 
-Die Variable `position` wurde in der Methode `draw()` definiert und als Attribut an den Shader übergeben. Dies ist ein dreidimensionaler Punkt, aber die Variable `gl_Position`, die durch den Pipeline-Prozess weitergegeben wird, ist tatsächlich 4-dimensional — anstelle von `(x, y, z)` ist es `(x, y, z, w)`. Es gibt keinen Buchstaben nach `z`, daher wird diese vierte Dimension konventionell als `w` bezeichnet. Im obigen Beispiel ist die `w`-Koordinate auf 1.0 gesetzt.
+Die `position`-Variable wurde in der `draw()`-Methode definiert und als Attribut an den Shader übergeben. Dies ist ein dreidimensionaler Punkt, aber die `gl_Position`-Variable, die schließlich durch die Pipeline weitergegeben wird, ist tatsächlich 4-dimensional — statt `(x, y, z)` ist es `(x, y, z, w)`. Es gibt keinen Buchstaben nach `z`, daher wird diese vierte Dimension konventionell als `w` bezeichnet. Im obigen Beispiel wird die `w`-Koordinate auf 1,0 gesetzt.
 
-Die naheliegende Frage ist "warum die zusätzliche Dimension?" Es stellt sich heraus, dass diese Ergänzung viele schöne Techniken zur Manipulation von 3D-Daten ermöglicht. Diese hinzugefügte Dimension führt die Vorstellung von Perspektive in das Koordinatensystem ein; damit können wir 3D-Koordinaten in den 2D-Raum abbilden — wodurch es ermöglicht wird, dass zwei parallele Linien als sie als sie in die Ferne rücken, sich schneiden. Der Wert von `w` wird als Divisor für die anderen Komponenten der Koordinate verwendet, so dass die tatsächlichen Werte von `x`, `y` und `z` als `x/w`, `y/w` und `z/w` berechnet werden (und `w` ist dann auch `w/w` und wird zu 1).
+Die offensichtliche Frage ist: "Warum die zusätzliche Dimension?" Es stellt sich heraus, dass diese Ergänzung viele schöne Techniken zur Manipulation von 3D-Daten ermöglicht. Diese hinzugefügte Dimension führt den Begriff der Perspektive in das Koordinatensystem ein; mit ihrer Hilfe können wir 3D-Koordinaten in den 2D-Raum abbilden – und so ermöglichen, dass zwei parallele Linien als sie in die Ferne verschwinden, sich schneiden. Der Wert von `w` wird als Divisor für die anderen Komponenten der Koordinate verwendet, sodass die tatsächlichen Werte von `x`, `y` und `z` als `x/w`, `y/w` und `z/w` berechnet werden (und `w` wird dann auch `w/w`, was 1 ergibt).
 
-Ein dreidimensionaler Punkt ist in einem typischen kartesischen Koordinatensystem definiert. Die hinzugefügte vierte Dimension verwandelt diesen Punkt in eine [homogene Koordinate](https://de.wikipedia.org/wiki/Homogene_Koordinaten). Es stellt immer noch einen Punkt im 3D-Raum dar und es kann leicht demonstriert werden, wie man diese Art von Koordinate durch ein Paar einfacher Funktionen konstruieren kann.
+Ein dreidimensionaler Punkt wird in einem typischen kartesischen Koordinatensystem definiert. Die hinzugefügte vierte Dimension verwandelt diesen Punkt in eine [homogene Koordinate](https://en.wikipedia.org/wiki/Homogeneous_coordinates). Sie stellt immer noch einen Punkt im 3D-Raum dar und es kann leicht demonstriert werden, wie man diesen Koordinatentyp durch ein Paar einfacher Funktionen konstruiert.
 
 ```js
 function cartesianToHomogeneous(point) {
@@ -242,7 +593,7 @@ function homogeneousToCartesian(point) {
 }
 ```
 
-Wie bereits erwähnt und in den obigen Funktionen gezeigt, teilt die `w`-Komponente die `x`-, `y`- und `z`-Komponenten. Wenn die `w`-Komponente eine von Null verschiedene reelle Zahl ist, kann die homogene Koordinate leicht in einen normalen Punkt im kartesischen Raum übersetzt werden. Was passiert nun, wenn die `w`-Komponente Null ist? In JavaScript würde der zurückgegebene Wert wie folgt aussehen.
+Wie bereits erwähnt und in den oben genannten Funktionen gezeigt wird, teilt die `w`-Komponente die `x`, `y` und `z`-Komponenten. Wenn die `w`-Komponente eine nicht-null reelle Zahl ist, dann lässt sich die homogene Koordinate leicht wieder in einen normalen Punkt im kartesischen Raum umwandeln. Was passiert nun, wenn die `w`-Komponente null ist? In JavaScript würde der zurückgegebene Wert wie folgt lauten.
 
 ```js
 homogeneousToCartesian([10, 4, 5, 0]);
@@ -250,50 +601,102 @@ homogeneousToCartesian([10, 4, 5, 0]);
 
 Dies ergibt: `[Infinity, Infinity, Infinity]`.
 
-Diese homogene Koordinate stellt irgendeinen Punkt im Unendlichen dar. Dies ist eine praktische Möglichkeit, einen Strahl zu repräsentieren, der vom Ursprung in eine bestimmte Richtung schießt. Neben einem Strahl könnte es auch als Darstellung eines Richtungsvektors angesehen werden. Wenn diese homogene Koordinate mit einer Matrix mit einer Übersetzung multipliziert wird, wird die Übersetzung effektiv herausgefiltert.
+Diese homogene Koordinate stellt einen Punkt im Unendlichen dar. Dies ist eine praktische Art und Weise, um einen Strahl zu repräsentieren, der aus dem Ursprung in eine bestimmte Richtung schießt. Neben einem Strahl könnte es auch als Repräsentation eines Richtungsvektors betrachtet werden. Wenn diese homogene Koordinate mit einer Matrix multipliziert wird, die eine Translation enthält, wird die Translation effektiv entfernt.
 
-Wenn Zahlen auf Computern extrem groß (oder extrem klein) sind, werden sie immer ungenauer, weil sie nur mit so vielen Einsen und Nullen repräsentiert werden können. Je mehr Operationen auf größeren Zahlen durchgeführt werden, desto mehr Fehler sammeln sich im Ergebnis an. Wenn durch `w` geteilt wird, kann dies effektiv die Genauigkeit sehr großer Zahlen erhöhen, indem auf zwei potenziell kleinere, weniger fehleranfällige Zahlen gearbeitet wird.
+Wenn Zahlen auf Computern extrem groß (oder extrem klein) sind, beginnen sie ungenauer zu werden, da nur eine begrenzte Anzahl an Einsen und Nullen zur Darstellung verwendet wird. Je mehr Operationen an größeren Zahlen durchgeführt werden, desto mehr Fehler kumulieren sich im Ergebnis. Wenn man durch `w` teilt, kann dies die Genauigkeit sehr großer Zahlen effektiv erhöhen, indem auf zwei potenziell kleinere, weniger fehleranfällige Zahlen operiert wird.
 
-Der letzte Vorteil der Verwendung homogener Koordinaten ist, dass sie sehr gut für die Multiplikation mit 4x4 Matrizen geeignet sind. Ein Vertex muss mindestens eine der Dimensionen einer Matrix erfüllen, um mit ihr multipliziert zu werden. Die 4x4-Matrix kann verwendet werden, um eine Vielzahl von nützlichen Transformationen zu kodieren. Tatsächlich nutzt die typische Perspektivprojektionsmatrix die Division durch die `w`-Komponente, um ihre Transformation durchzuführen.
+Der endgültige Vorteil der Verwendung homogener Koordinaten ist, dass sie sehr gut zur Multiplikation mit 4x4 Matrizen passen. Ein Vertex muss mindestens eine der Dimensionen einer Matrix entsprechen, um mit ihr multipliziert werden zu können. Die 4x4 Matrix kann verwendet werden, um eine Vielzahl nützlicher Transformationen zu kodieren. Tatsächlich verwendet die typische perspektivische Projektionsmatrix die Division durch die `w`-Komponente, um ihre Transformation zu erreichen.
 
-Das Abschneiden von Punkten und Polygonen aus dem Clip Space erfolgt, bevor die homogenen Koordinaten zurück in kartesische Koordinaten transformiert wurden (durch Division durch `w`). Dieser finale Raum wird als **normalisierte Gerätekoordinaten** oder NDC bezeichnet.
+Das Abschneiden von Punkten und Polygonen aus dem Clipspace erfolgt, bevor die homogenen Koordinaten durch Division durch `w` in kartesische Koordinaten zurücktransformiert wurden. Dieser letzte Raum ist als **normalisierte Gerätekoordinaten** oder NDC bekannt.
 
-Um mit dieser Idee zu spielen, kann das vorherige Beispiel modifiziert werden, um die Verwendung der `w`-Komponente zu ermöglichen.
+Um mit dieser Idee zu beginnen, kann das vorherige Beispiel geändert werden, um die Verwendung der `w`-Komponente zu ermöglichen. Neben der Änderung von `data` sollten Sie auch daran denken, `vertexAttribPointer()` zu ändern, um 4 Komponenten zu verwenden (der zweite `size` Parameter) statt 3.
 
 ```js
-//Redefine the triangles to use the W component
+// Redefine the triangles to use the W component
+// prettier-ignore
 const data = new Float32Array([
-  //Triangle 1
-  settings.left,
-  settings.bottom,
-  settings.depth,
-  settings.w,
-  settings.right,
-  settings.bottom,
-  settings.depth,
-  settings.w,
-  settings.left,
-  settings.top,
-  settings.depth,
-  settings.w,
+  // Triangle 1
+  settings.left, settings.bottom, settings.depth, settings.w,
+  settings.right, settings.bottom, settings.depth, settings.w,
+  settings.left, settings.top, settings.depth, settings.w,
 
-  //Triangle 2
-  settings.left,
-  settings.top,
-  settings.depth,
-  settings.w,
-  settings.right,
-  settings.bottom,
-  settings.depth,
-  settings.w,
-  settings.right,
-  settings.top,
-  settings.depth,
-  settings.w,
+  // Triangle 2
+  settings.left, settings.top, settings.depth, settings.w,
+  settings.right, settings.bottom, settings.depth, settings.w,
+  settings.right, settings.top, settings.depth, settings.w,
 ]);
 ```
 
-Dann verwendet der Vertex-Shader den übergebenen 4-dimensionalen Punkt.
+```js hidden live-sample___homogenous_coordinates_ex
+class WebGLBox {
+  canvas = document.getElementById("canvas");
+  gl = this.canvas.getContext("webgl");
+  webglProgram = createWebGLProgramFromIds(
+    this.gl,
+    "vertex-shader",
+    "fragment-shader",
+  );
+  positionLocation;
+  colorLocation;
+  constructor() {
+    const gl = this.gl;
+
+    // Setup a WebGL program
+    gl.useProgram(this.webglProgram);
+
+    // Save the attribute and uniform locations
+    this.positionLocation = gl.getAttribLocation(this.webglProgram, "position");
+    this.colorLocation = gl.getUniformLocation(this.webglProgram, "vColor");
+
+    // Tell WebGL to test the depth when drawing, so if a square is behind
+    // another square it won't be drawn
+    gl.enable(gl.DEPTH_TEST);
+  }
+  draw(settings) {
+    // Create some attribute data; these are the triangles that will end being
+    // drawn to the screen. There are two that form a square.
+
+    // prettier-ignore
+    const data = new Float32Array([
+      // Triangle 1
+      settings.left, settings.bottom, settings.depth, settings.w,
+      settings.right, settings.bottom, settings.depth, settings.w,
+      settings.left, settings.top, settings.depth, settings.w,
+
+      // Triangle 2
+      settings.left, settings.top, settings.depth, settings.w,
+      settings.right, settings.bottom, settings.depth, settings.w,
+      settings.right, settings.top, settings.depth, settings.w,
+    ]);
+
+    // Use WebGL to draw this onto the screen.
+
+    // Performance Note: Creating a new array buffer for every draw call is slow.
+    // This function is for illustration purposes only.
+
+    const gl = this.gl;
+
+    // Create a buffer and bind the data
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+
+    // Setup the pointer to our attribute data (the triangles)
+    gl.enableVertexAttribArray(this.positionLocation);
+    gl.vertexAttribPointer(this.positionLocation, 4, gl.FLOAT, false, 0, 0);
+
+    // Setup the color uniform that will be shared across all triangles
+    gl.uniform4fv(this.colorLocation, settings.color);
+
+    // Draw the triangles to the screen
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+}
+
+const box = new WebGLBox();
+```
+
+Dann verwendet der Vertex-Shader den 4-dimensionalen Punkt, der übergeben wird.
 
 ```glsl
 attribute vec4 position;
@@ -303,9 +706,19 @@ void main() {
 }
 ```
 
-Zuerst zeichnen wir ein rotes Quadrat in die Mitte, setzen aber `W` auf 0.7. Da die Koordinaten durch 0.7 geteilt werden, werden sie alle vergrößert.
+```html hidden live-sample___homogenous_coordinates_ex
+<script id="vertex-shader" type="x-shader/x-vertex">
+  attribute vec4 position;
 
-```js
+  void main() {
+    gl_Position = position;
+  }
+</script>
+```
+
+Zuerst zeichnen wir ein rotes Rechteck in der Mitte, setzen aber `w` auf 0,7. Da die Koordinaten durch 0,7 geteilt werden, werden sie alle vergrößert.
+
+```js live-sample___homogenous_coordinates_ex
 box.draw({
   top: 0.5, // y
   bottom: -0.5, // y
@@ -318,9 +731,9 @@ box.draw({
 });
 ```
 
-Jetzt zeichnen wir ein grünes Quadrat oben, verkleinern es aber, indem wir die `w`-Komponente auf 1.1 setzen.
+Jetzt zeichnen wir ein grünes Rechteck oben, aber verkleinern es, indem die `w`-Komponente auf 1,1 gesetzt wird.
 
-```js
+```js live-sample___homogenous_coordinates_ex
 box.draw({
   top: 0.9, // y
   bottom: 0, // y
@@ -333,9 +746,9 @@ box.draw({
 });
 ```
 
-Dieses letzte Quadrat wird nicht gezeichnet, weil es außerhalb des Clip Space liegt. Die Tiefe liegt außerhalb des Bereichs von -1.0 bis 1.0.
+Dieses letzte Rechteck wird nicht gezeichnet, weil es außerhalb des Clipspaces liegt. Die Tiefe ist außerhalb des Bereichs -1,0 bis 1,0.
 
-```js
+```js live-sample___homogenous_coordinates_ex
 box.draw({
   top: 1, // y
   bottom: -1, // y
@@ -350,54 +763,50 @@ box.draw({
 
 ### Die Ergebnisse
 
-![Die Ergebnisse der Verwendung homogener Koordinaten, um die Quadrate in WebGL zu verschieben.](part2.png)
+{{EmbedLiveSample("homogenous_coordinates_ex", "", 600)}}
 
 ### Übungen
 
-- Spielen Sie mit diesen Werten, um zu sehen, wie sie das, was auf dem Bildschirm gerendert wird, beeinflussen. Beachten Sie, wie das zuvor abgeschnittene blaue Quadrat zurück in den Bereich gebracht wird, indem seine `w`-Komponente gesetzt wird.
-- Versuchen Sie, ein neues Quadrat zu erstellen, das außerhalb des Clip Space liegt, und bringen Sie es zurück, indem Sie durch `w` teilen.
+- Spielen Sie mit diesen Werten, um zu sehen, wie sie das auf dem Bildschirm gerenderte Bild beeinflussen. Beachten Sie, wie das zuvor abgeschnittene blaue Rechteck durch das Setzen seiner `w`-Komponente wieder in den Bereich gebracht wird.
+- Versuchen Sie, ein neues Rechteck zu erstellen, das außerhalb des Clipspaces liegt, und bringen Sie es durch die Division durch `w` wieder herein.
 
 ## Modelltransformation
 
-Punkte direkt in den Clip Space zu setzen ist von begrenztem Nutzen. In realen Anwendungen liegen Ihre Quellkoordinaten nicht bereits in Clip Space-Koordinaten vor. In den meisten Fällen müssen Sie die Modell- und andere Koordinaten in den Clip Space transformieren. Der bescheidene Würfel ist ein einfaches Beispiel dafür, wie dies zu tun ist. Die Würfeldaten bestehen aus den Scheitelpunktpositionen, den Farben der Würfelseiten und der Reihenfolge der Scheitelpunktpositionen, die die einzelnen Polygone bilden (in Gruppen von 3 Scheitelpunkten, um die Dreiecke zu konstruieren, die die Würfelseiten bilden). Die Positionen und Farben werden in GL-Puffern gespeichert, als Attribute an den Shader gesendet und dann individuell darauf operiert.
+Punkte direkt in den Clipspace zu setzen hat nur begrenzten Nutzen. In realen Anwendungen haben Sie nicht alle Ihre Quellenkoordinaten bereits in Clipspace-Koordinaten. Meistens müssen Sie also die Modelldaten und andere Koordinaten in den Clipspace transformieren. Der bescheidene Würfel ist ein einfaches Beispiel dafür, wie man dies tun kann. Daten eines Würfels bestehen aus Eckpunktpositionen, den Farben der Würfelflächen und der Reihenfolge der Eckpunktpositionen, aus denen die einzelnen Polygone bestehen (in Gruppen von 3 Eckpunkten zur Konstruktion der Dreiecke, die die Flächen des Würfels bilden). Die Positionen und Farben werden in GL-Puffern gespeichert, als Attribute an den Shader gesendet und dann einzeln bearbeitet.
 
-Schließlich wird eine einzelne Modellmatrix berechnet und gesetzt. Diese Matrix repräsentiert die Transformationen, die an jedem Punkt vorgenommen werden müssen, der das Modell ausmacht, um es in den richtigen Raum zu bewegen und alle anderen erforderlichen Transformationen für jeden Punkt im Modell durchzuführen. Dies gilt nicht nur für jeden Scheitelpunkt, sondern auch für jeden Punkt auf jeder Fläche des Modells.
+Schließlich wird eine einzelne Modellmatrix berechnet und gesetzt. Diese Matrix stellt die Transformationen dar, die auf jeden Punkt des Modells angewendet werden, um ihn in den richtigen Raum zu bewegen und alle anderen notwendigen Transformationen auf jeden Punkt im Modell durchzuführen. Dies gilt nicht nur für jeden Eckpunkt, sondern für jeden einzelnen Punkt auf jeder Oberfläche des Modells.
 
-In diesem Fall wird für jedes Bild der Animation eine Reihe von Skalierungs-, Rotations- und Übersetzungsmatrizen verwendet, um die Daten in die gewünschte Position im Clip Space zu bringen. Der Würfel hat die Größe des Clip Space (-1,-1,-1) bis (1,1,1), also muss er verkleinert werden, um nicht den gesamten Clip Space auszufüllen. Diese Matrix wird direkt an den Shader gesendet, nachdem sie zuvor in JavaScript multipliziert wurde.
+In diesem Fall bewegen eine Serie von Skalierungs-, Rotations- und Translationsmatrizen die Daten in jedem Frame der Animation in die gewünschte Position im Clipspace. Der Würfel hat die Größe des Clipspaces (-1,-1,-1) bis (1,1,1), daher muss er verkleinert werden, um nicht den gesamten Clipspace auszufüllen. Diese Matrix wird direkt an den Shader übergeben, nachdem sie zuvor in JavaScript multipliziert wurde.
 
-Der folgende Codeausschnitt definiert eine Methode im `CubeDemo`-Objekt, die die Modellmatrix erstellen wird. Er verwendet benutzerdefinierte Funktionen zur Erstellung und Multiplikation von Matrizen, wie sie im [MDN WebGL](https://github.com/gregtatum/mdn-webgl)-Shared Code definiert sind. Die neue Funktion sieht folgendermaßen aus:
+Der folgende Codeausschnitt definiert eine Methode am `CubeDemo`-Objekt, die die Modellmatrix erstellt. Die neue Funktion sieht so aus (die Hilfsfunktionen werden im Kapitel [Matrizenmathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web) eingeführt):
 
 ```js
-CubeDemo.prototype.computeModelMatrix = function (now) {
-  //Scale down by 50%
-  const scale = MDN.scaleMatrix(0.5, 0.5, 0.5);
-
-  // Rotate around X according to time
-  const rotateX = MDN.rotateXMatrix(now * 0.0003);
-
-  // Rotate around Y according to time slightly faster
-  const rotateY = MDN.rotateYMatrix(now * 0.0005);
-
+function computeModelMatrix(now) {
+  // Scale down by 20%
+  const scaleMatrix = scale(0.2, 0.2, 0.2);
+  // Rotate a slight tilt
+  const rotateXMatrix = rotateX(now * 0.0003);
+  // Rotate according to time
+  const rotateYMatrix = rotateY(now * 0.0005);
   // Move slightly down
-  const position = MDN.translateMatrix(0, -0.1, 0);
-
+  const translateMatrix = translate(0, -0.1, 0);
   // Multiply together, make sure and read them in opposite order
-  this.transforms.model = MDN.multiplyArrayOfMatrices([
-    position, // step 4
-    rotateY, // step 3
-    rotateX, // step 2
-    scale, // step 1
+  this.transforms.model = multiplyArrayOfMatrices([
+    translateMatrix, // step 4
+    rotateYMatrix, // step 3
+    rotateXMatrix, // step 2
+    scaleMatrix, // step 1
   ]);
-};
+}
 ```
 
-Um diese im Shader zu verwenden, muss sie an eine Uniform Location gesetzt werden. Die Positionen für die Uniformen werden im `locations`-Objekt gespeichert, wie unten gezeigt:
+Um dies im Shader nutzen zu können, muss sie an einer Uniform-Location gesetzt werden. Die Locations für die Uniforms werden im `locations`-Objekt unten gespeichert:
 
 ```js
 this.locations.model = gl.getUniformLocation(webglProgram, "model");
 ```
 
-Und schließlich wird das Uniform auf diese Position gesetzt. Dies übergibt die Matrix an die GPU.
+Und schließlich wird das Uniform an dieser Stelle gesetzt. Dies übergibt die Matrix an die GPU.
 
 ```js
 gl.uniformMatrix4fv(
@@ -407,33 +816,153 @@ gl.uniformMatrix4fv(
 );
 ```
 
-Im Shader wird jeder Position-Scheitelpunkt zuerst in eine homogene Koordinate (ein `vec4`-Objekt) transformiert und dann mit der Modellmatrix multipliziert.
+```js hidden live-sample___model_transform_ex live-sample___divide_by_w_ex
+class CubeDemo {
+  canvas = document.getElementById("canvas");
+  gl = this.canvas.getContext("webgl");
+  webglProgram = createWebGLProgramFromIds(
+    this.gl,
+    "vertex-shader",
+    "fragment-shader",
+  );
+  transforms = {}; // All of the matrix transforms
+  locations = {}; // All of the shader locations
+  buffers;
+
+  constructor() {
+    const gl = this.gl;
+    gl.useProgram(this.webglProgram);
+    this.buffers = createBuffersForCube(gl, createCubeData());
+
+    // Save the attribute and uniform locations
+    this.locations.model = gl.getUniformLocation(this.webglProgram, "model");
+    this.locations.position = gl.getAttribLocation(
+      this.webglProgram,
+      "position",
+    );
+    this.locations.color = gl.getAttribLocation(this.webglProgram, "color");
+
+    // Tell WebGL to test the depth when drawing
+    gl.enable(gl.DEPTH_TEST);
+  }
+
+  computeModelMatrix(now) {
+    // Scale down by 20%
+    const scaleMatrix = scale(0.2, 0.2, 0.2);
+    // Rotate a slight tilt
+    const rotateXMatrix = rotateX(now * 0.0003);
+    // Rotate according to time
+    const rotateYMatrix = rotateY(now * 0.0005);
+    // Move slightly down
+    const translateMatrix = translate(0, -0.1, 0);
+    // Multiply together, make sure and read them in opposite order
+    this.transforms.model = multiplyArrayOfMatrices([
+      translateMatrix, // step 4
+      rotateYMatrix, // step 3
+      rotateXMatrix, // step 2
+      scaleMatrix, // step 1
+    ]);
+
+    // Performance caveat: in real production code it's best not to create
+    // new arrays and objects in a loop. This example chooses code clarity
+    // over performance.
+  }
+
+  draw() {
+    const gl = this.gl;
+    const now = Date.now();
+    // Compute our matrices
+    this.computeModelMatrix(now);
+    // Update the data going to the GPU
+    // Setup the color uniform that will be shared across all triangles
+    gl.uniformMatrix4fv(
+      this.locations.model,
+      false,
+      new Float32Array(this.transforms.model),
+    );
+
+    // Set the positions attribute
+    gl.enableVertexAttribArray(this.locations.position);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.positions);
+    gl.vertexAttribPointer(this.locations.position, 3, gl.FLOAT, false, 0, 0);
+
+    // Set the colors attribute
+    gl.enableVertexAttribArray(this.locations.color);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.colors);
+    gl.vertexAttribPointer(this.locations.color, 4, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.buffers.elements);
+    // Perform the actual draw
+    gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
+    // Run the draw as a loop
+    requestAnimationFrame(() => this.draw());
+  }
+}
+
+const cube = new CubeDemo();
+cube.draw();
+```
+
+Im Shader wird jeder Positionseckpunkt zuerst in eine homogene Koordinate (ein `vec4`-Objekt) transformiert und dann gegen die Modellmatrix multipliziert.
 
 ```glsl
 gl_Position = model * vec4(position, 1.0);
 ```
 
 > [!NOTE]
-> In JavaScript erfordert die Matrixmultiplikation eine benutzerdefinierte Funktion, während sie im Shader in die Sprache mit dem einfachen \* Operator eingebaut ist.
+> In JavaScript erfordert die Matrizenmultiplikation eine benutzerdefinierte Funktion, während sie im Shader in die Sprache mit dem einfachen `*`-Operator eingebaut ist.
+
+Der vollständige Orchestrierungscode ist verborgen. Wenn Sie interessiert sind, klicken Sie erneut auf "Play" in einem Codeblock in diesem Abschnitt, um ihn zu überprüfen.
+
+```html hidden live-sample___model_transform_ex
+<!-- The vertex shader operates on individual vertices in our model data by setting gl_Position -->
+<script id="vertex-shader" type="x-shader/x-vertex">
+  // Each point has a position and color
+  attribute vec3 position;
+  attribute vec4 color;
+
+  // The transformation matrix
+  uniform mat4 model;
+
+  // Pass the color attribute down to the fragment shader
+  varying vec4 vColor;
+
+  void main() {
+    // Pass the color down to the fragment shader
+    vColor = color;
+    gl_Position = model * vec4(position, 1.0);
+  }
+</script>
+```
+
+```html hidden live-sample___model_transform_ex live-sample___divide_by_w_ex live-sample___simple_projection_ex live-sample___projection_matrix_ex live-sample___view_matrix_ex
+<!-- The fragment shader determines the color of the final pixel by setting gl_FragColor -->
+<script id="fragment-shader" type="x-shader/x-fragment">
+  precision mediump float;
+  varying vec4 vColor;
+
+  void main() {
+    gl_FragColor = vColor;
+  }
+</script>
+```
 
 ### Die Ergebnisse
 
-[Anzeigen auf JSFiddle](https://jsfiddle.net/tatumcreative/5jofzgsh/)
+{{EmbedLiveSample("model_transform_ex", "", 600)}}
 
-![Verwendung einer Modellmatrix](part3.png)
-
-An diesem Punkt ist der `w`-Wert des transformierten Punktes immer noch 1.0. Der Würfel hat immer noch keine Perspektive. Der nächste Abschnitt wird dieses Setup übernehmen und die `w`-Werte modifizieren, um etwas Perspektive zu bieten.
+Zu diesem Zeitpunkt beträgt der `w`-Wert des transformierten Punktes immer noch 1,0. Der Würfel hat noch keine Perspektive. Der nächste Abschnitt wird dieses Setup nehmen und die `w`-Werte ändern, um eine Perspektive zu bieten.
 
 ### Übungen
 
-- Verkleinern Sie das Quadrat mit der Skalierungsmatrix und positionieren Sie es an verschiedenen Stellen innerhalb des Clip Space.
-- Versuchen Sie, es außerhalb des Clip Space zu bewegen.
-- Ändern Sie die Größe des Fensters und beobachten Sie, wie sich das Quadrat verzerrt.
+- Verkleinern Sie die Box mit der Skalierungsmatrix und positionieren Sie sie an verschiedenen Orten innerhalb des Clipspaces.
+- Versuchen Sie, sie außerhalb des Clipspaces zu bewegen.
+- Ändern Sie die Fenstergröße und beobachten Sie, wie sich die Box verformt.
 - Fügen Sie eine `rotateZ`-Matrix hinzu.
 
 ## Division durch W
 
-Ein einfacher Weg, um etwas Perspektive auf unser Modell des Würfels zu bekommen, besteht darin, die Z-Koordinate zu nehmen und sie auf die `w`-Koordinate zu kopieren. Normalerweise wird bei der Umwandlung eines kartesischen Punktes in eine homogene ein `(x,y,z,1)`, aber wir werden es zu etwas wie `(x,y,z,z)` setzen. In Wirklichkeit wollen wir sicherstellen, dass `z` für Punkte im Blickfeld größer als 0 ist, daher werden wir es leicht ändern, indem wir den Wert zu `((1.0 + z) * scaleFactor)` ändern. Dies wird einen Punkt, der normalerweise im Clip Space liegt (-1 bis 1), in einen Raum bewegen, der eher wie (0 bis 1) ist, abhängig davon, wie der Skalierungsfaktor eingestellt ist. Der Skalierungsfaktor ändert den endgültigen `w`-Wert insgesamt entweder höher oder niedriger.
+Eine einfache Möglichkeit, etwas Perspektive auf unser Modell des Würfels zu bekommen, ist es, die Z-Koordinate zu nehmen und sie zu `w` zu kopieren. Normalerweise wird ein kartesischer Punkt zu homogenen Koordinaten umgewandelt, indem er zu `(x,y,z,1)` wird, aber wir werden ihn in etwas wie `(x,y,z,z)` ändern. Tatsächlich wollen wir sicherstellen, dass `z` größer als 0 ist für Punkte im Sichtfeld, daher werden wir es leicht ändern, indem wir den Wert zu `((1.0 + z) * scaleFactor)` ändern. Dies wird einen Punkt, der normalerweise im Clipspace liegt (-1 bis 1), in einen Raum mehr wie (0 bis 1) verschieben, abhängig davon, auf welchen Wert der Skalierungsfaktor eingestellt ist. Der Skalierungsfaktor ändert den endgültigen `w`-Wert so, dass er entweder insgesamt höher oder niedriger ist.
 
 Der Shader-Code sieht so aus.
 
@@ -452,286 +981,660 @@ float w = (1.0 + transformedPosition.z) * scaleFactor;
 gl_Position = vec4(transformedPosition.xyz, w);
 ```
 
+```html hidden live-sample___divide_by_w_ex
+<script id="vertex-shader" type="x-shader/x-vertex">
+  // Each point has a position and color
+  attribute vec3 position;
+  attribute vec4 color;
+
+  // The projection matrix
+  uniform mat4 model;
+
+  // Pass the color attribute down to the fragment shader
+  varying vec4 vColor;
+
+  void main() {
+    // Pass the color down to the fragment shader
+    vColor = color;
+
+    // First transform the point
+    vec4 transformedPosition = model * vec4(position, 1.0);
+
+    // How much affect does the perspective have?
+    float scaleFactor = 0.5;
+
+    // Set w by taking the Z value which is typically ranged -1 to 1, then scale
+    // it to be from 0 to some number, in this case 0-1.
+    float w = (1.0 + transformedPosition.z) * scaleFactor;
+
+    // Save the new gl_Position with the custom w component
+    gl_Position = vec4(transformedPosition.xyz, w);
+  }
+</script>
+```
+
 ### Die Ergebnisse
 
-[Anzeigen auf JSFiddle](https://jsfiddle.net/tatumcreative/vk9r8h2c/)
+{{EmbedLiveSample("divide_by_w_ex", "", 600)}}
 
-![Das Füllen der W-Komponente und das Erstellen einer Projektion.](part4.png)
+Sehen Sie das kleine Dreieck an der Ecke in Richtung Kamera? Hier ist ein Screenshot von dem Moment, in dem es auftaucht:
 
-Sehen Sie das kleine dunkelblaue Dreieck? Dies ist eine zusätzliche Fläche, die unserem Objekt hinzugefügt wurde, weil die Drehung unserer Form dazu geführt hat, dass diese Ecke außerhalb des Clip Space ragt, was dazu führt, dass die Ecke abgeschnitten wird. Siehe [Perspektivprojektionsmatrix](#perspektivprojektionsmatrix) unten für eine Einführung, wie man komplexere Matrizen verwendet, um das Clipping zu kontrollieren und zu verhindern.
+![Ein kleines Dreieck erscheint in der oberen rechten Ecke.](part4.png)
+
+Das ist ein zusätzliches Gesicht, das unserem Objekt hinzugefügt wurde, weil die Rotation unserer Form dazu geführt hat, dass diese Ecke aus dem Clipspace herausragt, was zu dem Effekt führt, dass die Ecke abgeschnitten wird. Siehe [Perspektivische Projektionsmatrix](#perspektivische_projektionsmatrix) unten für eine Einführung, wie man komplexere Matrizen verwendet, um das Abschneiden zu kontrollieren und zu verhindern.
 
 ### Übung
 
-Wenn das ein bisschen abstrakt klingt, öffnen Sie den Vertex-Shader und spielen Sie mit dem Skalierungsfaktor herum und beobachten Sie, wie er die Vertices mehr zur Oberfläche schrumpfen lässt. Ändern Sie die Werte der `w`-Komponente vollständig für wirklich psychedelische Darstellungen des Raumes.
+Wenn sich das ein wenig abstrakt anhört, öffnen Sie den Vertex-Shader und spielen Sie mit dem Skalierungsfaktor herum und beobachten Sie, wie er die Eckpunkte näher an die Oberfläche zieht. Völlig ändern Sie die `w`-Komponente-Werte für wirklich abgefahrene Raumdarstellungen.
 
-Im nächsten Abschnitt werden wir diesen Schritt, das Z in den `w`-Slot zu kopieren, in eine Matrix umwandeln.
+Im nächsten Abschnitt werden wir diesen Schritt nehmen, bei dem `Z` in den `w`-Slot kopiert wird und es in eine Matrix verwandeln.
 
-## Einfaches Projektion
+## Einfache Projektion
 
-Der letzte Schritt des Auffüllens der `w`-Komponente kann tatsächlich mit einer einfachen Matrix erreicht werden. Starten Sie mit der Einheitsmatrix:
-
-```js
-const identity = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
-
-MDN.multiplyPoint(identity, [2, 3, 4, 1]);
-//> [2, 3, 4, 1]
-```
-
-Dann verschieben Sie die letzte Spalte um eins nach oben.
+Der letzte Schritt, das Auffüllen der `w`-Komponente, kann tatsächlich mit einer einfachen Matrix erreicht werden. Beginnen Sie mit der Einheitsmatrix:
 
 ```js
-const copyZ = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0];
+// prettier-ignore
+const identity = [
+  1, 0, 0, 0,
+  0, 1, 0, 0,
+  0, 0, 1, 0,
+  0, 0, 0, 1,
+];
 
-MDN.multiplyPoint(copyZ, [2, 3, 4, 1]);
-//> [2, 3, 4, 4]
+multiplyPoint(identity, [2, 3, 4, 1]);
+// [2, 3, 4, 1]
 ```
 
-Im letzten Beispiel führten wir jedoch `(z + 1) * scaleFactor` aus:
+Dann verschieben Sie die 1 in der letzten Spalte um einen Platz nach oben.
+
+```js
+// prettier-ignore
+const copyZ = [
+  1, 0, 0, 0,
+  0, 1, 0, 0,
+  0, 0, 1, 1,
+  0, 0, 0, 0,
+];
+
+multiplyPoint(copyZ, [2, 3, 4, 1]);
+// [2, 3, 4, 4]
+```
+
+Es wurde jedoch im letzten Beispiel `(z + 1) * scaleFactor` durchgeführt:
 
 ```js
 const scaleFactor = 0.5;
 
+// prettier-ignore
 const simpleProjection = [
-  1,
-  0,
-  0,
-  0,
-  0,
-  1,
-  0,
-  0,
-  0,
-  0,
-  1,
-  scaleFactor,
-  0,
-  0,
-  0,
-  scaleFactor,
+  1, 0, 0, 0,
+  0, 1, 0, 0,
+  0, 0, 1, scaleFactor,
+  0, 0, 0, scaleFactor,
 ];
 
-MDN.multiplyPoint(simpleProjection, [2, 3, 4, 1]);
-//> [2, 3, 4, 2.5]
+multiplyPoint(simpleProjection, [2, 3, 4, 1]);
+// [2, 3, 4, 2.5]
 ```
 
-Wenn wir es ein wenig weiter aufschlüsseln, können wir sehen, wie das funktioniert:
+Etwas weiter aufgeschlüsselt, können wir sehen, wie dies funktioniert:
 
 ```js
-let x = 2 * 1 + 3 * 0 + 4 * 0 + 1 * 0;
-let y = 2 * 0 + 3 * 1 + 4 * 0 + 1 * 0;
-let z = 2 * 0 + 3 * 0 + 4 * 1 + 1 * 0;
-let w = 2 * 0 + 3 * 0 + 4 * scaleFactor + 1 * scaleFactor;
+const x = 2 * 1 + 3 * 0 + 4 * 0 + 1 * 0;
+const y = 2 * 0 + 3 * 1 + 4 * 0 + 1 * 0;
+const z = 2 * 0 + 3 * 0 + 4 * 1 + 1 * 0;
+const w = 2 * 0 + 3 * 0 + 4 * scaleFactor + 1 * scaleFactor;
 ```
 
 Die letzte Zeile könnte vereinfacht werden zu:
 
 ```js
-w = 4 * scaleFactor + 1 * scaleFactor;
+const w = 4 * scaleFactor + 1 * scaleFactor;
 ```
 
-Dann, indem der Skalierungsfaktor herausgezogen wird, erhalten wir dies:
+Dann faktorisieren wir den Skalierungsfaktor heraus, erhalten wir dies:
 
 ```js
-w = (4 + 1) * scaleFactor;
+const w = (4 + 1) * scaleFactor;
 ```
 
-Das ist genau das gleiche wie `(z + 1) * scaleFactor`, das wir im vorherigen Beispiel verwendet haben.
+Welche exakt dasselbe ist wie `(z + 1) * scaleFactor`, das wir im vorherigen Beispiel verwendet haben.
 
-Im Box-Demo wird eine zusätzliche Methode `computeSimpleProjectionMatrix()` hinzugefügt. Diese wird in der `draw()`-Methode aufgerufen und der Skalierungsfaktor wird ihr übergeben. Das Ergebnis sollte identisch mit dem letzten Beispiel sein:
+Im Box-Demo wird eine zusätzliche `computeSimpleProjectionMatrix()`-Methode hinzugefügt. Diese wird in der `draw()`-Methode aufgerufen und der Skalierungsfaktor wird an sie übergeben. Das Ergebnis sollte identisch mit dem letzten Beispiel sein:
 
 ```js
-CubeDemo.prototype.computeSimpleProjectionMatrix = function (scaleFactor) {
+function computeSimpleProjectionMatrix(scaleFactor) {
+  // prettier-ignore
   this.transforms.projection = [
-    1,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    1,
-    scaleFactor,
-    0,
-    0,
-    0,
-    scaleFactor,
+    1, 0, 0, 0,
+    0, 1, 0, 0,
+    0, 0, 1, scaleFactor,
+    0, 0, 0, scaleFactor,
   ];
-};
+}
 ```
 
-Das Resultat ist zwar identisch, jedoch ist der entscheidende Schritt hier im Vertex-Shader. Anstatt den Vertex direkt zu modifizieren, wird er mit einer zusätzlichen **[Projektionsmatrix](#the_model_view_and_projection_matrices)** multipliziert, die (wie der Name schon sagt) 3D-Punkte auf eine 2D-Zeichenfläche projiziert:
+```js hidden live-sample___simple_projection_ex
+class CubeDemo {
+  canvas = document.getElementById("canvas");
+  gl = this.canvas.getContext("webgl");
+  webglProgram = createWebGLProgramFromIds(
+    this.gl,
+    "vertex-shader",
+    "fragment-shader",
+  );
+  transforms = {}; // All of the matrix transforms
+  locations = {}; // All of the shader locations
+  buffers;
+
+  constructor() {
+    const gl = this.gl;
+    gl.useProgram(this.webglProgram);
+    this.buffers = createBuffersForCube(gl, createCubeData());
+
+    // Save the attribute and uniform locations
+    this.locations.model = gl.getUniformLocation(this.webglProgram, "model");
+    this.locations.projection = gl.getUniformLocation(
+      this.webglProgram,
+      "projection",
+    );
+    this.locations.position = gl.getAttribLocation(
+      this.webglProgram,
+      "position",
+    );
+    this.locations.color = gl.getAttribLocation(this.webglProgram, "color");
+
+    // Tell WebGL to test the depth when drawing
+    gl.enable(gl.DEPTH_TEST);
+  }
+
+  computeModelMatrix(now) {
+    // Scale down by 20%
+    const scaleMatrix = scale(0.2, 0.2, 0.2);
+    // Rotate a slight tilt
+    const rotateXMatrix = rotateX(now * 0.0003);
+    // Rotate according to time
+    const rotateYMatrix = rotateY(now * 0.0005);
+    // Move slightly down
+    const translateMatrix = translate(0, -0.1, 0);
+    // Multiply together, make sure and read them in opposite order
+    this.transforms.model = multiplyArrayOfMatrices([
+      translateMatrix, // step 4
+      rotateYMatrix, // step 3
+      rotateXMatrix, // step 2
+      scaleMatrix, // step 1
+    ]);
+
+    // Performance caveat: in real production code it's best not to create
+    // new arrays and objects in a loop. This example chooses code clarity
+    // over performance.
+  }
+
+  computeSimpleProjectionMatrix(scaleFactor) {
+    // prettier-ignore
+    this.transforms.projection = [
+      1, 0, 0, 0,
+      0, 1, 0, 0,
+      0, 0, 1, scaleFactor, // Note the extra scale factor here
+      0, 0, 0, scaleFactor,
+    ];
+
+    // This matrix copies the point and sets the W component to 1 + (z * scaleFactor)
+  }
+
+  draw() {
+    const gl = this.gl;
+    const now = Date.now();
+    // Compute our matrices
+    this.computeModelMatrix(now);
+    this.computeSimpleProjectionMatrix(0.5);
+    // Update the data going to the GPU
+    // Setup the color uniform that will be shared across all triangles
+    gl.uniformMatrix4fv(
+      this.locations.model,
+      false,
+      new Float32Array(this.transforms.model),
+    );
+    gl.uniformMatrix4fv(
+      this.locations.projection,
+      false,
+      new Float32Array(this.transforms.projection),
+    );
+
+    // Set the positions attribute
+    gl.enableVertexAttribArray(this.locations.position);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.positions);
+    gl.vertexAttribPointer(this.locations.position, 3, gl.FLOAT, false, 0, 0);
+
+    // Set the colors attribute
+    gl.enableVertexAttribArray(this.locations.color);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.colors);
+    gl.vertexAttribPointer(this.locations.color, 4, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.buffers.elements);
+    // Perform the actual draw
+    gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
+    // Run the draw as a loop
+    requestAnimationFrame(() => this.draw());
+  }
+}
+
+const cube = new CubeDemo();
+cube.draw();
+```
+
+Obwohl das Ergebnis identisch ist, ist der wichtige Schritt hier im Vertex-Shader. Anstatt den Vertex direkt zu ändern, wird er mit einer zusätzlichen **[Projektionsmatrix](#the_model_view_and_projection_matrices)** multipliziert, die (wie der Name schon sagt) 3D-Punkte auf einer 2D-Zeichenfläche projiziert:
 
 ```glsl
 // Make sure to read the transformations in reverse order
 gl_Position = projection * model * vec4(position, 1.0);
 ```
 
+```html hidden live-sample___simple_projection_ex live-sample___projection_matrix_ex
+<!-- The vertex shader operates on individual vertices in our model data by setting gl_Position -->
+<script id="vertex-shader" type="x-shader/x-vertex">
+  // Each point has a position and color
+  attribute vec3 position;
+  attribute vec4 color;
+
+  // The transformation matrices
+  uniform mat4 model;
+  uniform mat4 projection;
+
+  // Pass the color attribute down to the fragment shader
+  varying vec4 vColor;
+
+  void main() {
+    // Pass the color down to the fragment shader
+    vColor = color;
+
+    // Read the multiplication in reverse order, the original point is moved
+    // into clip space, and then projected into a perspective view by filling
+    // in the W component
+    gl_Position = projection * model * vec4(position, 1.0);
+  }
+</script>
+```
+
 ### Die Ergebnisse
 
-[Anzeigen auf JSFiddle](https://jsfiddle.net/tatumcreative/zwyLLcbw/)
-
-![Eine einfache Projektionsmatrix](part5.png)
+{{EmbedLiveSample("simple_projection_ex", "", 600)}}
 
 ## Der Betrachtungsfrustum
 
-Bevor wir darauf eingehen, wie man eine Perspektivprojektionsmatrix berechnet, müssen wir das Konzept des **[Betrachtungsfrustums](https://de.wikipedia.org/wiki/Frustum)** (auch bekannt als **Sichtfrustum**) einführen. Dies ist der Raumabschnitt, dessen Inhalt dem Benutzer derzeit sichtbar ist. Es ist der 3D-Raumabschnitt, der durch das Sichtfeld und die Distanzen definiert wird, die als nächstgelegener und entferntester Inhalt gerendert werden sollen.
+Bevor wir darauf eingehen, wie man eine perspektivische Projektionsmatrix berechnet, müssen wir das Konzept des **[Betrachtungsfrustums](https://en.wikipedia.org/wiki/Viewing_frustum)** einführen (auch bekannt als **Ansichtsfrustum**). Dies ist der Bereich des Raums, dessen Inhalt für den Benutzer zum aktuellen Zeitpunkt sichtbar ist. Es ist der 3D-Raum, der durch das Blickfeld und die angegebenen Abstände als der nächste und entfernteste Inhalt definiert wird, der gerendert werden sollte.
 
-Beim Rendern müssen wir bestimmen, welche Polygone gerendert werden müssen, um die Szene darzustellen. Das ist es, was das Betrachtungsfrustum definiert. Aber was ist überhaupt ein Frustum?
+Während des Renderings müssen wir bestimmen, welche Polygone gerendert werden müssen, um die Szene darzustellen. Genau das definiert das Betrachtungsfrustum. Doch was ist ein Frustum überhaupt?
 
-Ein [Frustum](https://de.wikipedia.org/wiki/Frustum) ist der 3D-Körper, der entsteht, wenn ein beliebiger solider Körper durch zwei parallele Ebenen geschnitten wird. Betrachten Sie unsere Kamera, die einen Bereich betrachtet, der direkt vor ihrer Linse beginnt und sich in die Ferne erstreckt. Der sichtbare Bereich ist eine vierseitige Pyramide, deren Spitze an der Linse, deren vier Seiten den Umfang ihrer peripheren Sichtweite entsprechen, und deren Basis bei der maximal sichtbaren Entfernung der Welt liegt, wie folgt:
+Ein [Frustum](https://en.wikipedia.org/wiki/Frustum) ist der 3D-Körper, der entsteht, wenn man einen beliebigen Körper nimmt und zwei Teile davon mit zwei parallelen Ebenen abschneidet. Betrachten Sie unsere Kamera, die einen Bereich betrachtet, der direkt vor ihrer Linse beginnt und sich in die Ferne erstreckt. Der sichtbare Bereich ist eine vierseitige Pyramide mit ihrem Gipfel an der Linse, ihren vier Seiten entsprechend den Grenzen ihres peripheren Sichtbereichs, und ihrer Basis an der entferntesten Entfernung, die sie sehen kann, wie hier:
 
-![Eine Darstellung des gesamten Sichtbereichs einer Kamera. Dieser Bereich ist eine vierseitige Pyramide mit ihrer Spitze an der Linse und ihrer Basis an der maximal sichtbaren Distanz der Welt.](fullcamerafov.svg)
+![Eine Darstellung des gesamten Sichtbereichs einer Kamera. Dieser Bereich ist eine vierseitige Pyramide mit ihrem Gipfel an der Linse und ihrer Basis an der maximalen Sehentfernung der Welt.](fullcamerafov.svg)
 
-Wenn wir dies verwenden würden, um die zu rendernden Polygone in jedem Bild zu bestimmen, müsste unser Renderer alle Polygone innerhalb dieser Pyramide rendern, bis ins Unendliche, einschließlich Polygonen, die sehr nah an der Linse sind - wahrscheinlich zu nah, um nützlich zu sein (und sicherlich Dinge einschließend, die so nah sind, dass ein echter Mensch sie im selben Setting nicht fokussieren könnte).
+Wenn wir dies verwenden würden, um die Polygone zu bestimmen, die in jedem Frame gerendert werden sollen, müsste unser Renderer jedes Polygon innerhalb dieser Pyramide rendern, den ganzen Weg bis ins Unendliche, einschließlich auch Polygone, die sehr nahe an der Linse sind — wahrscheinlich zu nah, um nützlich zu sein (und sicherlich einschließlich Dinge, die so nah sind, dass ein echter Mensch sie im selben Setting nicht fokussieren könnte).
 
-Der erste Schritt zur Reduzierung der Polygonanzahl, die wir berechnen und rendern müssen, besteht darin, diese Pyramide in das Betrachtungsfrustum zu verwandeln. Die beiden Ebenen, die wir verwenden werden, um Vertices abzuschneiden, um die Polygonanzahl zu verringern, sind die **nähere Schnittebene** und die **weite Schnittebene**.
+Der erste Schritt, die Anzahl der Polygone zu reduzieren, die wir berechnen und rendern müssen, ist, diese Pyramide in das Betrachtungsfrustum zu verwandeln. Die zwei Ebenen, die wir verwenden, um Eckpunkte abzutrennen, um die Anzahl der Polygone zu reduzieren, sind die **nahe Abschneidebene** und die **ferne Abschneidebene**.
 
-In WebGL werden die nahe und die weit entfernte Schnittebene definiert, indem die Entfernung von der Linse zum nächsten Punkt auf einer Ebene angegeben wird, die senkrecht zur Betrachtungsrichtung steht. Alles, was näher an der Linse liegt als die nahe Schnittebene oder weiter davon entfernt als die weite Schnittebene, wird entfernt. Dies führt zum Betrachtungsfrustum, das folgendermaßen aussieht:
+In WebGL werden die nahen und fernen Abschneidebenen definiert, indem der Abstand von der Linse zu dem nächsten Punkt auf einer Ebene angegeben wird, die senkrecht zur Betrachtungsrichtung steht. Alles, was näher an der Linse ist als die nahe Abschneidebene oder weiter von ihr entfernt als die ferne Abschneidebene, wird entfernt. Das ergibt das Betrachtungsfrustum, das so aussieht:
 
-![Eine Darstellung des Sichtfrustums der Kamera; die nahen und weiten Ebenen haben Teile des Volumens entfernt und die Polygonanzahl verringert.](camera_view_frustum.svg)
+![Eine Darstellung des Kamerasichtfrustums; die nahen und fernen Ebenen haben einen Teil des Volumens entfernt und die Polygonanzahl reduziert.](camera_view_frustum.svg)
 
-Das anzuzeigende Objektset für jedes Bild wird im Wesentlichen erstellt, indem mit dem Set aller Objekte in der Szene begonnen wird. Danach werden alle Objekte entfernt, die _vollständig_ außerhalb des Betrachtungsfrustums liegen. Anschließend werden Objekte, die teilweise über das Betrachtungsfrustum hinausragen, durch das Entfernen von Polygonen, die vollständig außerhalb des Frustums liegen, und durch das Schneiden der Polygone, die das Frustum überschreiten, so dass sie es nicht mehr verlassen, abgeschnitten.
+Der Satz der zu rendernden Objekte für jeden Frame wird im Wesentlichen erstellt, indem mit dem Satz aller Objekte in der Szene begonnen wird. Dann werden alle Objekte, die _vollständig_ außerhalb des Betrachtungsfrustums liegen, aus dem Satz entfernt. Als nächstes werden Objekte, die teilweise aus dem Betrachtungsfrustum herausragen, abgeschnitten, indem alle Polygone entfernt werden, die vollständig außerhalb des Frustums liegen, und indem die Polygone, die außerhalb des Frustums hinausragen, so abgeschnitten werden, dass sie nicht mehr herausragen.
 
-Sobald dies geschehen ist, haben wir das größte Set von Polygonen, die vollständig innerhalb des Betrachtungsfrustums liegen. Diese Liste wird normalerweise weiter reduziert, indem Prozesse wie [Back-Face Culling](https://de.wikipedia.org/wiki/Back-Face-Culling) (das Entfernen von Polygonen, deren Rückseite zur Kamera zeigt) und Okklusions-Culling mittels [versteckter Flächenermittlung](https://de.wikipedia.org/wiki/Verdeckte_Flächenermittlung) (das Entfernen von Polygonen, die nicht gesehen werden können, weil sie vollständig von Polygonen verdeckt werden, die näher an der Linse sind) verwendet.
+Sobald dies getan ist, haben wir die größte Menge an Polygonen, die vollständig innerhalb des Betrachtungsfrustums liegt. Diese Liste wird normalerweise weiter reduziert durch Verfahren wie [Backface Culling](https://en.wikipedia.org/wiki/Back-face_culling) (Entfernung von Polygonen, deren Rückseite zur Kamera zeigt) und Occlusion Culling unter Verwendung von [Verdeckungsbestimmung](https://en.wikipedia.org/wiki/Hidden-surface_determination) (Entfernung von Polygonen, die nicht gesehen werden können, weil sie vollständig von Polygonen blockiert werden, die näher an der Linse sind).
 
-## Perspektivprojektionsmatrix
+## Perspektivische Projektionsmatrix
 
-Bis zu diesem Punkt haben wir unser eigenes 3D-Rendering-Setup Schritt für Schritt aufgebaut. Unser derzeitiger Code, wie wir ihn aufgebaut haben, weist jedoch einige Probleme auf. Zum einen wird er verzerrt, wann immer man unsere Fenstergröße ändert. Ein weiteres ist, dass unsere einfache Projektion nicht mit einer breiten Palette von Werten für die Szenendaten umgeht. Die meisten Szenen funktionieren nicht im Clip Space. Es wäre hilfreich, die relevante Entfernung zur Szene zu definieren, damit die Präzision nicht beim Umwandeln der Zahlen verloren geht. Schließlich ist es sehr hilfreich, eine feine Kontrolle darüber zu haben, welche Punkte innerhalb und außerhalb des Clip Space platziert werden. In den vorhergehenden Beispielen werden die Ecken des Würfels gelegentlich abgeschnitten.
+Bis zu diesem Punkt haben wir unser eigenes 3D-Render-Setup Schritt für Schritt aufgebaut. Allerdings hat der aktuelle Code, wie wir ihn erstellt haben, einige Probleme. Zum einen wird er verzerrt, wann immer wir unser Fenster vergrößern oder verkleinern. Ein weiteres Problem ist, dass unsere einfache Projektion nicht mit einem breiten Wertbereich für die Szenendaten umgeht. Die meisten Szenen funktionieren nicht im Clipspace. Es wäre hilfreich, zu definieren, welche Distanz für die Szene relevant ist, um Präzisionsverluste beim Konvertieren der Zahlen zu vermeiden. Schließlich ist es sehr hilfreich, eine fein abgestimmte Kontrolle darüber zu haben, welche Punkte innerhalb und außerhalb des Clipspaces platziert werden. In den vorherigen Beispielen werden gelegentlich die Ecken des Würfels abgeschnitten.
 
-Die **Perspektivprojektionsmatrix** ist eine Art Projektionsmatrix, die all diese Anforderungen erfüllt. Die Mathematik wird auch ein wenig komplexer und wird in diesen Beispielen nicht vollständig erklärt. Kurz gesagt, es kombiniert die Division durch `w` (wie in den vorherigen Beispielen gemacht) mit einigen genialen Manipulationen basierend auf [ähnlichen Dreiecken](https://de.wikipedia.org/wiki/%C3%84hnlichkeit_%28Geometrie%29). Wenn Sie eine vollständige Erklärung der Mathematik dahinter lesen möchten, schauen Sie sich einige der folgenden Links an:
+Die **perspektivische Projektionsmatrix** ist eine Art Projektionsmatrix, die all diese Anforderungen erfüllt. Die Mathematik wird auch hier ein bisschen komplizierter und wird in diesen Beispielen nicht vollständig erklärt. Kurz gesagt, sie kombiniert die Division durch `w` (wie in den vorherigen Beispielen) mit einigen genialen Manipulationen basierend auf [ähnlichen Dreiecken](https://en.wikipedia.org/wiki/Similarity_%28geometry%29). Wenn Sie eine vollständige Erklärung der dahinterliegenden Mathematik lesen möchten, schauen Sie sich einige der folgenden Links an:
 
 - [OpenGL-Projektionsmatrix](https://www.songho.ca/opengl/gl_projectionmatrix.html)
-- [Perspektivprojektion](https://ogldev.org/)
-- [Versuche das Math hinter der Perspektivmatrix in WebGL zu verstehen](https://stackoverflow.com/questions/28286057/trying-to-understand-the-math-behind-the-perspective-matrix-in-webgl/28301213#28301213)
+- [Perspektivische Projektion](https://ogldev.org/)
+- [Versuch, die Mathematik hinter der perspektivischen Projektionsmatrix in WebGL zu verstehen](https://stackoverflow.com/questions/28286057/trying-to-understand-the-math-behind-the-perspective-matrix-in-webgl/28301213#28301213)
 
-Ein wichtiger Punkt, den Sie über die Perspektivprojektionsmatrix unten beachten sollten, ist, dass sie die z-Achse umkehrt. Im Clip Space zeigt die z+-Achse vom Betrachter weg, während sie mit dieser Matrix zum Betrachter kommt.
+Ein wichtiger Punkt, den es zu beachten gilt, ist, dass die perspektivische Projektionsmatrix, die unten verwendet wird, die z-Achse umkehrt. Im Clipspace zeigt `z+` vom Betrachter weg, während bei dieser Matrix `z+` auf den Betrachter zukommt.
 
-Der Grund, die z-Achse zu flippen, besteht darin, dass das Clip Space-Koordinatensystem ein linkshändiges Koordinatensystem ist (wobei die z-Achse vom Betrachter weg und in den Bildschirm hineinzeigt), während die Konvention in Mathematik, Physik und 3D-Modellierung sowie im Ansicht-/Augenkoordinatensystem in OpenGL darin besteht, ein rechtshändiges Koordinatensystem zu verwenden (z-Achse zeigt aus dem Bildschirm auf den Betrachter zu). Mehr dazu in den relevanten Wikipedia-Artikeln: [Kartesisches Koordinatensystem](https://de.wikipedia.org/wiki/Kartesisches_Koordinatensystem#Orientierung_und_Handlichkeit), [Rechte-Hand-Regel](https://de.wikipedia.org/wiki/Rechte-Hand-Regel).
+Der Grund, die z-Achse umzudrehen, ist, dass das Clipspace-Koordinatensystem ein linkshändiges Koordinatensystem ist (wobei die z-Achse vom Betrachter weg und in den Bildschirm zeigt), während die Konvention in Mathematik, Physik und 3D-Modellierung sowie für das Ansichts-/Augenkoordinatensystem in OpenGL darin besteht, ein rechtshändiges Koordinatensystem zu verwenden (z-Achse zeigt aus dem Bildschirm zum Betrachter). Mehr dazu finden Sie in den entsprechenden Wikipedia-Artikeln: [Kartesisches Koordinatensystem](https://en.wikipedia.org/wiki/Cartesian_coordinate_system#Orientation_and_handedness), [Rechte-Hand-Regel](https://en.wikipedia.org/wiki/Right-hand_rule).
 
-Lassen Sie uns einen Blick auf eine `perspectiveMatrix()`-Funktion werfen, die die Perspektivprojektionsmatrix berechnet.
+Werfen wir einen Blick auf eine `perspective()`-Funktion, die die perspektivische Projektionsmatrix berechnet.
 
-```js
-MDN.perspectiveMatrix = function (
-  fieldOfViewInRadians,
-  aspectRatio,
-  near,
-  far,
-) {
+```js live-sample___projection_matrix_ex live-sample___view_matrix_ex
+function perspective(fieldOfViewInRadians, aspectRatio, near, far) {
   const f = 1.0 / Math.tan(fieldOfViewInRadians / 2);
   const rangeInv = 1 / (near - far);
 
+  // prettier-ignore
   return [
-    f / aspectRatio,
-    0,
-    0,
-    0,
-    0,
-    f,
-    0,
-    0,
-    0,
-    0,
-    (near + far) * rangeInv,
-    -1,
-    0,
-    0,
-    near * far * rangeInv * 2,
-    0,
+    f / aspectRatio, 0, 0, 0,
+    0, f, 0, 0,
+    0, 0, (near + far) * rangeInv, -1,
+    0, 0, near * far * rangeInv * 2, 0,
   ];
-};
+}
 ```
 
 Die vier Parameter dieser Funktion sind:
 
 - `fieldOfViewInRadians`
-  - : Ein Winkel in Radiant, der angibt, wie viel der Szene dem Betrachter gleichzeitig sichtbar ist. Je größer die Zahl ist, desto mehr ist sichtbar durch die Kamera. Die Geometrie an den Rändern wird immer mehr verzerrt, was einer Weitwinkeloptik entspricht. Wenn das Sichtfeld größer ist, werden die Objekte typischerweise kleiner. Wenn das Sichtfeld kleiner ist, dann kann die Kamera immer weniger in der Szene sehen. Die Objekte werden viel weniger durch die Perspektive verzerrt und Objekte scheinen viel näher an der Kamera.
+  - : Ein Winkel, angegeben in Radianten, der angibt, wie viel von der Szene für den Betrachter gleichzeitig sichtbar ist. Je größer die Zahl, desto mehr ist sichtbar für die Kamera. Die Geometrie an den Rändern wird mehr und mehr verzerrt, äquivalent zu einem Weitwinkelobjektiv. Wenn das Sichtfeld größer ist, werden die Objekte typischerweise kleiner. Wenn das Sichtfeld kleiner ist, kann die Kamera immer weniger in der Szene sehen. Die Objekte werden viel weniger durch Perspektive verzerrt und erscheinen der Kamera näher.
 - `aspectRatio`
-  - : Das Seitenverhältnis der Szene, das ihrer Breite geteilt durch ihre Höhe entspricht. In diesen Beispielen ist das die Fensterbreite geteilt durch die Fensterhöhe. Die Einführung dieses Parameters löst endlich das Problem, bei dem das Modell verzerrt wird, wenn die Leinwand in der Größe verändert und umgestaltet wird.
+  - : Das Seitenverhältnis der Szene, das ihrem Breiten-zu-Höhen-Verhältnis entspricht. In diesen Beispielen ist das die Fensterbreite geteilt durch die Fensterhöhe. Die Einführung dieses Parameters löst endlich das Problem, bei dem das Modell verzerrt wird, wenn die Leinwand in der Größe verändert oder neu geformt wird.
 - `nearClippingPlaneDistance`
-  - : Eine positive Zahl, die die Distanz in den Bildschirm zu einer Ebene angibt, die senkrecht zum Boden steht, näher an der alles abgeschnitten wird. Dies wird im Clip Space auf -1 abgebildet und sollte nicht auf 0 gesetzt werden.
+  - : Eine positive Zahl, die die Entfernung in den Bildschirm zu einer Ebene angibt, die senkrecht zum Boden steht, näher als die alles abgeschnitten wird. Dies wird im Clipspace auf -1 abgebildet und sollte nicht auf 0 gesetzt werden.
 - `farClippingPlaneDistance`
-  - : Eine positive Zahl, die die Entfernung zur Ebene angibt, jenseits der Geometrie abgeschnitten wird. Dies wird im Clip Space auf 1 abgebildet. Dieser Wert sollte vernünftigerweise nahe an der Entfernung der Geometrie gehalten werden, um Genauigkeitsfehler zu vermeiden, die sich während des Renderns einschleichen.
+  - : Eine positive Zahl, die die Entfernung zu der Ebene angibt, über die Geometrie abgeschnitten wird. Dies wird im Clipspace auf 1 abgebildet. Dieser Wert sollte vernünftigerweise nahe an der Entfernung der Geometrie gehalten werden, um Präzisionsfehler beim Rendern zu vermeiden.
 
-In der neuesten Version des Box-Demos wurde die `computeSimpleProjectionMatrix()`-Methode durch die `computePerspectiveMatrix()`-Methode ersetzt.
+In der neuesten Version des Box-Demos wurde die Methode `computeSimpleProjectionMatrix()` durch die Methode `computePerspectiveMatrix()` ersetzt.
 
 ```js
-CubeDemo.prototype.computePerspectiveMatrix = function () {
+function computePerspectiveMatrix() {
   const fieldOfViewInRadians = Math.PI * 0.5;
   const aspectRatio = window.innerWidth / window.innerHeight;
   const nearClippingPlaneDistance = 1;
   const farClippingPlaneDistance = 50;
 
-  this.transforms.projection = MDN.perspectiveMatrix(
+  this.transforms.projection = perspective(
     fieldOfViewInRadians,
     aspectRatio,
     nearClippingPlaneDistance,
     farClippingPlaneDistance,
   );
-};
+}
+```
+
+```js hidden live-sample___projection_matrix_ex
+class CubeDemo {
+  canvas = document.getElementById("canvas");
+  gl = this.canvas.getContext("webgl");
+  webglProgram = createWebGLProgramFromIds(
+    this.gl,
+    "vertex-shader",
+    "fragment-shader",
+  );
+  transforms = {}; // All of the matrix transforms
+  locations = {}; // All of the shader locations
+  buffers;
+
+  constructor() {
+    const gl = this.gl;
+    gl.useProgram(this.webglProgram);
+    this.buffers = createBuffersForCube(gl, createCubeData());
+
+    // Save the attribute and uniform locations
+    this.locations.model = gl.getUniformLocation(this.webglProgram, "model");
+    this.locations.projection = gl.getUniformLocation(
+      this.webglProgram,
+      "projection",
+    );
+    this.locations.position = gl.getAttribLocation(
+      this.webglProgram,
+      "position",
+    );
+    this.locations.color = gl.getAttribLocation(this.webglProgram, "color");
+
+    // Tell WebGL to test the depth when drawing
+    gl.enable(gl.DEPTH_TEST);
+  }
+
+  computeModelMatrix(now) {
+    // Scale up
+    const scaleMatrix = scale(5, 5, 5);
+    // Rotate a slight tilt
+    const rotateXMatrix = rotateX(now * 0.0003);
+    // Rotate according to time
+    const rotateYMatrix = rotateY(now * 0.0005);
+    // Move slightly down
+    const translateMatrix = translate(0, 0, -20);
+    // Multiply together, make sure and read them in opposite order
+    this.transforms.model = multiplyArrayOfMatrices([
+      translateMatrix, // step 4
+      rotateYMatrix, // step 3
+      rotateXMatrix, // step 2
+      scaleMatrix, // step 1
+    ]);
+
+    // Performance caveat: in real production code it's best not to create
+    // new arrays and objects in a loop. This example chooses code clarity
+    // over performance.
+  }
+
+  computePerspectiveMatrix(scaleFactor) {
+    const fieldOfViewInRadians = Math.PI * 0.5;
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    const nearClippingPlaneDistance = 1;
+    const farClippingPlaneDistance = 50;
+
+    this.transforms.projection = perspective(
+      fieldOfViewInRadians,
+      aspectRatio,
+      nearClippingPlaneDistance,
+      farClippingPlaneDistance,
+    );
+  }
+
+  draw() {
+    const gl = this.gl;
+    const now = Date.now();
+    // Compute our matrices
+    this.computeModelMatrix(now);
+    this.computePerspectiveMatrix(0.5);
+    // Update the data going to the GPU
+    // Setup the color uniform that will be shared across all triangles
+    gl.uniformMatrix4fv(
+      this.locations.model,
+      false,
+      new Float32Array(this.transforms.model),
+    );
+    gl.uniformMatrix4fv(
+      this.locations.projection,
+      false,
+      new Float32Array(this.transforms.projection),
+    );
+
+    // Set the positions attribute
+    gl.enableVertexAttribArray(this.locations.position);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.positions);
+    gl.vertexAttribPointer(this.locations.position, 3, gl.FLOAT, false, 0, 0);
+
+    // Set the colors attribute
+    gl.enableVertexAttribArray(this.locations.color);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.colors);
+    gl.vertexAttribPointer(this.locations.color, 4, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.buffers.elements);
+    // Perform the actual draw
+    gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
+    // Run the draw as a loop
+    requestAnimationFrame(() => this.draw());
+  }
+}
+
+const cube = new CubeDemo();
+cube.draw();
 ```
 
 Der Shader-Code ist identisch mit dem vorherigen Beispiel:
 
-```js
+```glsl
 gl_Position = projection * model * vec4(position, 1.0);
 ```
 
-Zusätzlich (nicht angezeigt) wurden die Positions- und Skalierungsmatrizen des Modells geändert, um ihn aus dem Clip Space in das größere Koordinatensystem zu bringen.
+Zusätzlich (nicht gezeigt) wurden die Positions- und Skalierungsmatrizen des Modells geändert, um es aus dem Clipspace in das größere Koordinatensystem zu bringen.
 
 ### Die Ergebnisse
 
-[Anzeigen auf JSFiddle](https://jsfiddle.net/tatumcreative/Lzxw7e1q/)
-
-![Eine wahre Perspektivmatrix](part6.png)
+{{EmbedLiveSample("projection_matrix_ex", "", 600)}}
 
 ### Übungen
 
-- Experimentieren Sie mit den Parametern der Perspektivprojektionsmatrix und der Modellmatrix.
-- Ersetzen Sie die Perspektivprojektionsmatrix durch die [orthografische Projektion](https://de.wikipedia.org/wiki/Orthogonale_Projektion). In dem MDN WebGL Shared Code finden Sie die `MDN.orthographicMatrix()`. Diese kann die `MDN.perspectiveMatrix()`-Funktion in `CubeDemo.prototype.computePerspectiveMatrix()` ersetzen.
+- Experimentieren Sie mit den Parametern der perspektivischen Projektionsmatrix und der Modellmatrix.
+- Ersetzen Sie die perspektivische Projektionsmatrix, um [Orthografische Projektion](https://en.wikipedia.org/wiki/Orthographic_projection) zu verwenden. Im MDN WebGL gemeinsamen Code finden Sie die Funktion `MDN.orthographicMatrix()`. Diese kann die Funktion `MDN.perspectiveMatrix()` in `CubeDemo.prototype.computePerspectiveMatrix()` ersetzen.
 
-## Betrachtungsmatrix
+## Ansichts-Matrix
 
-Während einige Grafikbibliotheken eine virtuelle Kamera haben, die positioniert und ausgerichtet werden kann, während eine Szene erstellt wird, haben OpenGL (und damit auch WebGL) dies nicht. Hier kommt die **Betrachtungsmatrix** ins Spiel. Ihre Aufgabe ist es, die Objekte der Szene zu übersetzen, zu rotieren und zu skalieren, um sie relativ zum Betrachter korrekt zu platzieren, basierend auf der Position und Orientierung des Betrachters.
+Während einige Grafikbibliotheken eine virtuelle Kamera haben, die positioniert und ausgerichtet werden kann, während eine Szene zusammengestellt wird, haben OpenGL (und in der Folge WebGL) dies nicht. Dies ist, wo die **Ansichts-Matrix** ins Spiel kommt. Ihre Aufgabe ist es, die Objekte in der Szene zu übersetzen, zu rotieren und zu skalieren, so dass sie relativ zum Betrachter in der richtigen Position sind, entsprechend der Position und Orientierung des Betrachters.
 
 ### Eine Kamera simulieren
 
-Dies nutzt einen der grundlegenden Aspekte von Einsteins spezieller Relativitätstheorie: das Prinzip der Bezugssysteme und der relativen Bewegung besagt, dass man aus der Perspektive des Betrachters das Ändern der Position und Ausrichtung des Betrachters durch das Aufbringen der gegenteiligen Änderung auf die Objekte in der Szene simulieren kann. Entweder der Weg, das Ergebnis erscheint dem Betrachter als identisch.
+Dies nutzt eines der grundlegenden Gesichtspunkte von Einsteins spezieller Relativitätstheorie: das Prinzip der Bezugsrahmen und relativen Bewegung besagt, dass aus der Perspektive eines Betrachters es möglich ist, eine Veränderung der Position und Orientierung des Betrachters zu simulieren, indem die entgegengesetzte Änderung auf die Objekte in der Szene angewendet wird. In beiden Fällen erscheint das Ergebnis dem Betrachter identisch.
 
-Stellen Sie sich eine Kiste vor, die auf einem Tisch sitzt, und eine Kamera, die auf dem Tisch einen Meter entfernt steht, auf die Kiste zeigt, wobei die Vorderseite zur Kamera zeigt. Betrachten Sie nun das Entfernen der Kamera von der Kiste, bis sie zwei Meter entfernt ist (durch Hinzufügen eines Meters zur Z-Position der Kamera) und sie dann 10 Zentimeter nach links schieben. Die Box entfernt sich von der Kamera um diesen Betrag und gleitet leicht nach rechts, wodurch sie der Kamera kleiner erscheint und eine kleine Menge ihrer linken Seite exponiert.
+Betrachten Sie ein Rechteck, das auf einem Tisch steht, und eine Kamera, die einen Meter entfernt auf dem Tisch steht und auf das Rechteck gerichtet ist, dessen Vorderseite auf die Kamera zeigt. Betrachten Sie dann das Entfernen der Kamera vom Rechteck, bis sie zwei Meter entfernt ist (durch Hinzufügen eines Meters zur Z-Position der Kamera) und sie 10 Zentimeter nach links verschieben. Das Rechteck entfernt sich um diesen Betrag von der Kamera und rutscht leicht nach rechts, dadurch erscheint es kleiner für die Kamera und zeigt der Kamera eine kleine Menge seiner linken Seite.
 
-Setzen wir nun die Szene zurück, platzieren die Kiste wieder an ihrem Ausgangspunkt, mit der Kamera zwei Meter von der Kiste entfernt und direkt auf die Kiste gerichtet. Dieses Mal jedoch ist die Kamera auf dem Tisch fixiert und kann nicht bewegt oder gedreht werden. Das ist das Arbeiten in WebGL. Wie simulieren wir dann das Bewegen der Kamera durch den Raum?
+Lassen Sie uns nun die Szene zurücksetzen, das Rechteck wieder in seine Anfangsposition bringen, mit der Kamera zwei Meter vom Rechteck entfernt, die direkt auf das Rechteck zeigt. Diesmal jedoch ist die Kamera auf dem Tisch fixiert und kann nicht bewegt oder gedreht werden. So ist es, in WebGL zu arbeiten. Wie simulieren wir also den Bewegung der Kamera im Raum?
 
-Anstatt die Kamera rückwärts und nach links zu bewegen, wenden wir die inverse Transformation auf die Box an: Wir bewegen die _Box_ rückwärts einen Meter und dann 10 Zentimeter nach rechts. Das Ergebnis ist aus der Perspektive jedes der beiden Objekte identisch.
+Anstatt die Kamera rückwärts und nach links zu bewegen, wenden wir die inverse Transformation auf das Rechteck an: Wir bewegen das _Rechteck_ einen Meter rückwärts und dann 10 Zentimeter nach Rechts. Das Ergebnis ist aus der Perspektive der beiden Objekte identisch.
 
-Der letzte Schritt in all dem ist die Erstellung der **Betrachtungsmatrix**, die die Objekte in der Szene transformiert, so dass sie positioniert sind, um die aktuelle Position und Orientierung der Kamera zu simulieren. Unser Code, wie er jetzt steht, kann den Würfel im Weltall bewegen und alles perspektivisch projizieren, aber wir können die Kamera noch nicht bewegen.
+Der letzte Schritt in all dem ist, die **Ansichts-Matrix** zu erstellen, die die Objekte in der Szene so transformiert, dass sie so positioniert sind, dass sie die aktuelle Kameraposition und -orientierung simulieren. Unser Code, wie er ist, kann den Würfel im Weltraum bewegen und alles perspektivisch projizieren, aber wir können immer noch die Kamera nicht bewegen.
 
-Stellen Sie sich das Drehen eines Films mit einer physischen Kamera vor. Sie haben die Freiheit, die Kamera im Wesentlichen überall zu platzieren, wo Sie möchten, und die Kamera in jede beliebige Richtung auszurichten. Um dies in 3D-Grafiken zu simulieren, verwenden wir eine Betrachtungsmatrix, um die Position und Drehung der physischen Kamera zu simulieren.
+Stellen Sie sich vor, Sie drehen einen Film mit einer physikalischen Kamera. Sie haben die Freiheit, die Kamera im Grunde beliebig zu platzieren und die Kamera in jede Richtung auszurichten, die Sie wünschen. Um dies in 3D-Grafiken zu simulieren, verwenden wir eine Ansichts-Matrix, um die Position und die Rotation dieser physikalischen Kamera zu simulieren.
 
-Im Gegensatz zur Modellmatrix, die die Modelle direkt transformiert, bewegt die Betrachtungsmatrix eine abstrakte Kamera. In Wirklichkeit bewegt der Vertex-Shader immer noch nur die Modelle, während die "Kamera" an Ort und Stelle bleibt. Damit das korrekt funktioniert, muss die inverse Transformationsmatrix verwendet werden. Die inverse Matrix kehrt im Wesentlichen eine Transformation um, so dass, wenn wir die Kamerasicht nach vorne bewegen, die inverse Matrix die Objekte in der Szene nach hinten bewegt.
+Im Gegensatz zur Modellmatrix, die die Modellvertexe direkt transformiert, bewegt die Ansichts-Matrix eine abstrakte Kamera herum. In Wirklichkeit bewegt der Vertex-Shader immer noch nur die Modelle, während die "Kamera" in Position bleibt. Damit dies korrekt funktioniert, muss die inverse der Transformationsmatrix verwendet werden. Die inverse Matrix kehrt im Wesentlichen eine Transformation um, sodass wenn wir die Kameraansicht nach vorne verschieben, die inverse Matrix bewirkt, dass die Objekte in der Szene sich zurückbewegen.
 
-Die folgende Methode `computeViewMatrix()` animiert die Betrachtungsmatrix, indem sie ein- und ausgefahren und nach links und rechts bewegt wird.
+Die folgende Methode `computeViewMatrix()` animiert die Ansichts-Matrix, indem sie sich vor- und zurückbewegt und nach links und rechts.
 
 ```js
-CubeDemo.prototype.computeViewMatrix = function (now) {
+function computeViewMatrix(now) {
   const moveInAndOut = 20 * Math.sin(now * 0.002);
   const moveLeftAndRight = 15 * Math.sin(now * 0.0017);
 
   // Move the camera around
-  const position = MDN.translateMatrix(moveLeftAndRight, 0, 50 + moveInAndOut);
+  const position = translate(moveLeftAndRight, 0, 50 + moveInAndOut);
 
   // Multiply together, make sure and read them in opposite order
-  const matrix = MDN.multiplyArrayOfMatrices([
+  this.transforms.view = multiplyArrayOfMatrices([
     // Exercise: rotate the camera view
     position,
   ]);
+}
+```
 
-  // Inverse the operation for camera movements, because we are actually
-  // moving the geometry in the scene, not the camera itself.
-  this.transforms.view = MDN.invertMatrix(matrix);
-};
+```js hidden live-sample___view_matrix_ex
+class CubeDemo {
+  canvas = document.getElementById("canvas");
+  gl = this.canvas.getContext("webgl");
+  webglProgram = createWebGLProgramFromIds(
+    this.gl,
+    "vertex-shader",
+    "fragment-shader",
+  );
+  transforms = {}; // All of the matrix transforms
+  locations = {}; // All of the shader locations
+  buffers;
+
+  constructor() {
+    const gl = this.gl;
+    gl.useProgram(this.webglProgram);
+    this.buffers = createBuffersForCube(gl, createCubeData());
+
+    // Save the attribute and uniform locations
+    this.locations.model = gl.getUniformLocation(this.webglProgram, "model");
+    this.locations.view = gl.getUniformLocation(this.webglProgram, "view");
+    this.locations.projection = gl.getUniformLocation(
+      this.webglProgram,
+      "projection",
+    );
+    this.locations.position = gl.getAttribLocation(
+      this.webglProgram,
+      "position",
+    );
+    this.locations.color = gl.getAttribLocation(this.webglProgram, "color");
+
+    // Tell WebGL to test the depth when drawing
+    gl.enable(gl.DEPTH_TEST);
+  }
+
+  computeModelMatrix(now) {
+    // Scale up
+    const scaleMatrix = scale(5, 5, 5);
+    // Fixed rotation
+    const rotateXMatrix = rotateX(Math.PI * 0.2);
+    // Fixed rotation
+    const rotateYMatrix = rotateY(Math.PI * 0.2);
+    // Multiply together, make sure and read them in opposite order
+    this.transforms.model = multiplyArrayOfMatrices([
+      rotateYMatrix, // step 3
+      rotateXMatrix, // step 2
+      scaleMatrix, // step 1
+    ]);
+
+    // Performance caveat: in real production code it's best not to create
+    // new arrays and objects in a loop. This example chooses code clarity
+    // over performance.
+  }
+
+  computeViewMatrix(now) {
+    const zoomInAndOut = 5 * Math.sin(now * 0.002);
+
+    // Move slightly down
+    const position = translate(0, 0, -20 + zoomInAndOut);
+
+    // Multiply together, make sure and read them in opposite order
+    this.transforms.view = multiplyArrayOfMatrices([
+      // Exercise: rotate the camera view
+      position,
+    ]);
+  }
+
+  computePerspectiveMatrix(scaleFactor) {
+    const fieldOfViewInRadians = Math.PI * 0.5;
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    const nearClippingPlaneDistance = 1;
+    const farClippingPlaneDistance = 50;
+
+    this.transforms.projection = perspective(
+      fieldOfViewInRadians,
+      aspectRatio,
+      nearClippingPlaneDistance,
+      farClippingPlaneDistance,
+    );
+  }
+
+  draw() {
+    const gl = this.gl;
+    const now = Date.now();
+    // Compute our matrices
+    this.computeModelMatrix(now);
+    this.computeViewMatrix(now);
+    this.computePerspectiveMatrix(0.5);
+    // Update the data going to the GPU
+    // Setup the color uniform that will be shared across all triangles
+    gl.uniformMatrix4fv(
+      this.locations.model,
+      false,
+      new Float32Array(this.transforms.model),
+    );
+    gl.uniformMatrix4fv(
+      this.locations.projection,
+      false,
+      new Float32Array(this.transforms.projection),
+    );
+    gl.uniformMatrix4fv(
+      this.locations.view,
+      false,
+      new Float32Array(this.transforms.view),
+    );
+
+    // Set the positions attribute
+    gl.enableVertexAttribArray(this.locations.position);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.positions);
+    gl.vertexAttribPointer(this.locations.position, 3, gl.FLOAT, false, 0, 0);
+
+    // Set the colors attribute
+    gl.enableVertexAttribArray(this.locations.color);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.colors);
+    gl.vertexAttribPointer(this.locations.color, 4, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.buffers.elements);
+    // Perform the actual draw
+    gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
+    // Run the draw as a loop
+    requestAnimationFrame(() => this.draw());
+  }
+}
+
+const cube = new CubeDemo();
+cube.draw();
 ```
 
 Der Shader verwendet nun drei Matrizen.
@@ -740,35 +1643,61 @@ Der Shader verwendet nun drei Matrizen.
 gl_Position = projection * view * model * vec4(position, 1.0);
 ```
 
-Nach diesem Schritt schneidet die GPU-Pipeline die Punkte außerhalb des Bereichs und sendet das Modell zum Fragment-Shader für die Rasterung.
+```html hidden live-sample___view_matrix_ex
+<!-- The vertex shader operates on individual vertices in our model data by setting gl_Position -->
+<script id="vertex-shader" type="x-shader/x-vertex">
+  // Each point has a position and color
+  attribute vec3 position;
+  attribute vec4 color;
+
+  // The transformation matrices
+  uniform mat4 model;
+  uniform mat4 view;
+  uniform mat4 projection;
+
+  // Pass the color attribute down to the fragment shader
+  varying vec4 vColor;
+
+  void main() {
+    // Pass the color down to the fragment shader
+    vColor = color;
+
+    // Read the multiplication in reverse order, the point is taken from
+    // the original model space and moved into world space. It is then
+    // projected into clip space as a homogeneous point. Generally the
+    // W value will be something other than 1 at the end of it.
+    gl_Position = projection * view * model * vec4(position, 1.0);
+  }
+</script>
+```
+
+Nach diesem Schritt wird die GPU-Pipeline die außerhalb des Bereichs liegenden Eckpunkte abschneiden und das Modell zum Fragment-Shader zur Rasterisierung senden.
 
 ### Die Ergebnisse
 
-[Anzeigen auf JSFiddle](https://jsfiddle.net/tatumcreative/86fd797g/)
+{{EmbedLiveSample("view_matrix_ex", "", 600)}}
 
-![Die Betrachtungsmatrix](part7.png)
+### Beziehung zwischen den Koordinatensystemen
 
-### Beziehung der Koordinatensysteme
-
-An diesem Punkt wäre es vorteilhaft, einen Schritt zurückzutreten und sich die verschiedenen Koordinatensysteme anzusehen und zu beschriften, die wir verwenden. Zuerst werden die Vertices des Würfels in **Modellraum** definiert. Um das Modell in der Szene zu bewegen. Diese Vertices müssen in **Weltraum** umgewandelt werden, indem die Modellmatrix angewendet wird.
+An diesem Punkt wäre es vorteilhaft, einen Schritt zurückzutreten, um die verschiedenen Koordinatensysteme, die wir verwenden, zu betrachten und zu kennzeichnen. Zuerst werden die Eckpunkte des Würfels in **Modellraum** definiert. Um das Modell in der Szene zu bewegen, müssen diese Eckpunkte in **Weltraum** umgewandelt werden, indem die Modellmatrix angewendet wird.
 
 Modellraum → Modellmatrix → Weltraum
 
-Die Kamera hat noch nichts getan, und die Punkte müssen erneut bewegt werden. Derzeit befinden sie sich im Weltraum, aber sie müssen in **Sichtraum** gebracht werden (mithilfe der Betrachtungsmatrix), um die Positionierung der Kamera darzustellen.
+Die Kamera hat noch nichts getan, und die Punkte müssen erneut bewegt werden. Derzeit befinden sie sich im Weltraum, aber sie müssen in den **Ansichtsraum** verschoben werden (unter Verwendung der Ansichts-Matrix), um die Kameraplatzierung zu repräsentieren.
 
-Weltraum → Betrachtungsmatrix → Sichtraum
+Weltraum → Ansichts-Matrix → Ansichtsraum
 
-Schließlich muss eine **Projektion** (in unserem Fall die Perspektivprojektionsmatrix) hinzugefügt werden, um die Weltkoordinaten in Clip Space-Koordinaten zu überführen.
+Schließlich muss ein **Projektions** (in unserem Fall die perspektivische Projektionsmatrix) hinzugefügt werden, um die Weltkoordinaten in Clipspace-Koordinaten zu überführen.
 
-Sichtraum → Projektionsmatrix → Clip Space
+Ansichtsraum → Projektionsmatrix → Clipspace
 
 ### Übung
 
-- Bewegen Sie die Kamera durch die Szene.
-- Fügen Sie einige Rotationsmatrizen zur Betrachtungsmatrix hinzu, um die Ansicht zu verändern.
-- Verfolgen Sie schließlich die Position der Maus. Verwenden Sie zwei Rotationsmatrizen, um die Kamera in Abhängigkeit von der Position der Maus im Bildschirm nach oben und unten schauen zu lassen.
+- Bewegen Sie die Kamera innerhalb der Szene.
+- Fügen Sie dem Ansichts-Matrix Rotationsmatrizen hinzu, um sich umzusehen.
+- Schließlich verfolgen Sie die Position der Maus. Verwenden Sie 2 Rotationsmatrizen, um die Kamera nach oben und unten schauen zu lassen, basierend darauf, wo sich die Maus des Benutzers auf dem Bildschirm befindet.
 
 ## Siehe auch
 
 - [WebGL](/de/docs/Web/API/WebGL_API)
-- [3D-Projektion](https://de.wikipedia.org/wiki/3D-Projektion)
+- [3D-Projektion](https://en.wikipedia.org/wiki/3D_projection)

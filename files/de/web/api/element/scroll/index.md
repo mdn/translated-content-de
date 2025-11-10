@@ -3,10 +3,10 @@ title: "Element: scroll() Methode"
 short-title: scroll()
 slug: Web/API/Element/scroll
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
 Die **`scroll()`** Methode der [`Element`](/de/docs/Web/API/Element)
 Schnittstelle scrollt das Element zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen
@@ -22,22 +22,20 @@ scroll(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des Elements, das Sie in der
-    oberen linken Ecke anzeigen möchten.
+  - : Das Pixel entlang der horizontalen Achse des Elements, das Sie in der oberen linken Ecke angezeigt haben möchten.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Elements, das Sie in der
-    oberen linken Ecke anzeigen möchten.
+  - : Das Pixel entlang der vertikalen Achse des Elements, das Sie in der oberen linken Ecke angezeigt haben möchten.
 - `options`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
       - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left`
       - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort oder sanft animiert wird. Diese Option ist ein String, der einen der folgenden Werte enthalten muss:
-        - `smooth`: Das Scrollen sollte sanft animiert werden
-        - `instant`: Das Scrollen sollte sofort in einem einzigen Sprung erfolgen
-        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort oder weich animiert erfolgen soll. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: das Scrollen sollte weich animiert werden
+        - `instant`: das Scrollen sollte sofort in einem einzigen Sprung erfolgen
+        - `auto`: Das Scroll-Verhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
 
 ### Rückgabewert
 

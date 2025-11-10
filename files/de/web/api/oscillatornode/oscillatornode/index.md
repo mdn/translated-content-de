@@ -3,15 +3,17 @@ title: "OscillatorNode: OscillatorNode() Konstruktor"
 short-title: OscillatorNode()
 slug: Web/API/OscillatorNode/OscillatorNode
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`OscillatorNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erzeugt ein neues
-[`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Objekt, welches ein [`AudioNode`](/de/docs/Web/API/AudioNode) darstellt, das eine periodische Wellenform, wie z.B. eine Sinuswelle, repräsentiert und optional die Eigenschaften des Knotens so einstellt, dass sie den Werten eines angegebenen Objekts entsprechen.
+Der **`OscillatorNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
+[`OscillatorNode`](/de/docs/Web/API/OscillatorNode) Objekt, das ein [`AudioNode`](/de/docs/Web/API/AudioNode) darstellt und eine periodische Wellenform erzeugt, wie zum Beispiel eine Sinuswelle. Dabei können optional die Eigenschaften der Node so gesetzt werden, dass sie mit den in einem angegebenen Objekt enthaltenen Werten übereinstimmen.
 
-Wenn die Standardwerte der Eigenschaften akzeptabel sind, können Sie alternativ die [`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator) Fabrikmethode verwenden; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+Wenn die Standardwerte der Eigenschaften akzeptabel sind, können Sie optional die
+[`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator) Factory-Methode verwenden; siehe
+[Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -22,13 +24,11 @@ new OscillatorNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf ein [`AudioContext`](/de/docs/Web/API/AudioContext).
+  - : Eine Referenz zu einem [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, dessen Eigenschaften die anfänglichen Werte für die Eigenschaften des Oszillator-Knotens festlegen. Jede weggelassene Eigenschaft des Objekts nimmt den Standardwert an, wie dokumentiert.
-
+  - : Ein Objekt, dessen Eigenschaften die Anfangswerte für die Eigenschaften der Oszillator-Node spezifizieren. Alle im Objekt ausgelassenen Eigenschaften nehmen den in der Dokumentation angegebenen Standardwert an.
     - `type`
-      - : Die Form der vom Knoten erzeugten Welle. Gültige Werte sind
+      - : Die Form der von der Node erzeugten Welle. Gültige Werte sind
         `"sine"`, `"square"`, `"sawtooth"`,
         `"triangle"` und `"custom"`. Der Standardwert ist
         `"sine"`.
@@ -37,19 +37,23 @@ new OscillatorNode(context, options)
     - `frequency`
       - : Die Frequenz (in [Hertz](https://en.wikipedia.org/wiki/Hertz)) der periodischen Wellenform. Der Standardwert ist 440.
     - `periodicWave`
-      - : Eine beliebige periodische Wellenform, die durch ein [`PeriodicWave`](/de/docs/Web/API/PeriodicWave)-Objekt beschrieben wird.
+      - : Eine willkürliche periodische Wellenform, die durch ein [`PeriodicWave`](/de/docs/Web/API/PeriodicWave) Objekt beschrieben wird.
     - `channelCount`
-      - : Stellt eine ganze Zahl dar, die angibt, wie viele Kanäle bei der [Aufmischung und Abmischung](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu Eingängen des Knotens verwendet werden. (Siehe
-        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
+      - : Stellt eine Ganzzahl dar, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu allen Eingängen der Node verwendet werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue
+        Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Stellt einen Aufzählungswert dar, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen der Node abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen einschließlich der Standardwerte.)
     - `channelInterpretation`
-      - : Stellt einen Aufzählungswert dar, der die Bedeutung der Kanäle beschreibt. Diese Interpretation definiert, wie Audio [aufgemischt und abgemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgen wird.
+        Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen einschließlich der Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue Instanz des [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Objekts.
+Eine neue [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) Objektinstanz.
 
 ## Spezifikationen
 

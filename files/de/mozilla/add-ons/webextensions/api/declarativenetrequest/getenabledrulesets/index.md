@@ -2,12 +2,10 @@
 title: declarativeNetRequest.getEnabledRulesets
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/getEnabledRulesets
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Gibt die IDs für die aktivierten statischen Regelsätze zurück.
+Gibt die IDs für die Menge der aktivierten statischen Regelwerke zurück.
 
 ## Syntax
 
@@ -17,11 +15,11 @@ let rulesetIds = await browser.declarativeNetRequest.getEnabledRulesets();
 
 ### Parameter
 
-Diese Funktion nimmt keine Parameter.
+Diese Funktion nimmt keine Parameter entgegen.
 
 ### Rückgabewert
 
-Ein mit einem Array von Zeichenfolgen erfülltes [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das die IDs der statischen Regelsätze enthält. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem Array von Strings erfüllt wird, das die IDs der statischen Regelwerke enthält. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

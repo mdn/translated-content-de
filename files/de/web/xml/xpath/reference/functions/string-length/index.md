@@ -2,10 +2,10 @@
 title: string-length
 slug: Web/XML/XPath/Reference/Functions/string-length
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `string-length` gibt eine Zahl zurück, die der Anzahl der Zeichen in einer angegebenen Zeichenkette entspricht.
+Die Funktion `string-length` gibt eine Zahl zurück, die der Anzahl der Zeichen in einem gegebenen String entspricht.
 
 ## Syntax
 
@@ -16,15 +16,15 @@ string-length( [string] )
 ### Parameter
 
 - `string` (optional)
-  - : Die zu evaluierende Zeichenkette. Wenn sie weggelassen wird, wird die Zeichenkette verwendet, die dem Kontextknoten entspricht und in eine Zeichenkette umgewandelt wurde.
+  - : Der zu bewertende String. Wenn ausgelassen, wird der String verwendet, der dem Kontextknoten entspricht und in einen String umgewandelt wird.
 
 ### Rückgabewert
 
-Eine Ganzzahl, die der Anzahl der Zeichen in der Zeichenkette entspricht.
+Ein Integer, der der Anzahl der Zeichen im String entspricht.
 
 ## Spezifikationen
 
-[XPath 1.0 4.2](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-string-length)
+[XPath 1.0 4.2](https://www.w3.org/TR/xpath-10/#function-string-length)
 
 ## Gecko-Unterstützung
 

@@ -1,44 +1,42 @@
 ---
-title: Erstellen Sie schicke Boxen
+title: Erstellen Sie dekorative Boxen
 slug: Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{LearnSidebar}}
+CSS-Boxen sind die Bausteine jeder mit CSS gestylten Webseite. Sie ansprechend aussehen zu lassen, ist sowohl unterhaltsam als auch herausfordernd. Es macht Spaß, weil es darum geht, eine Designidee in funktionierenden Code umzuwandeln; es ist eine Herausforderung wegen der Einschränkungen von CSS. Lassen Sie uns einige dekorative Boxen gestalten.
 
-CSS-Boxen sind die Bausteine jeder Webseite, die mit CSS gestylt ist. Sie hübsch aussehen zu lassen, ist sowohl spaßig als auch herausfordernd. Es ist spaßig, weil es darum geht, aus einer Designidee funktionierenden Code zu machen; es ist herausfordernd wegen der Einschränkungen von CSS. Lassen Sie uns einige schicke Boxen erstellen.
+Bevor wir uns der praktischen Seite zuwenden, sollten Sie sich mit [dem CSS-Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) vertraut machen. Es ist auch eine gute Idee, sich mit einigen [CSS-Layout-Grundlagen](/de/docs/Learn_web_development/Core/CSS_layout/Introduction) vertraut zu machen, obwohl dies keine Voraussetzung ist.
 
-Bevor wir in die praktische Anwendung einsteigen, sollten Sie mit [dem CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) vertraut sein. Es ist auch eine gute Idee, aber keine Voraussetzung, sich mit einigen [CSS-Layout-Grundlagen](/de/docs/Learn_web_development/Core/CSS_layout/Introduction) auszukennen.
+Technisch gesehen geht es beim Erstellen dekorativer Boxen darum, die CSS-`border`- und Hintergrund-Eigenschaften zu meistern und sie auf eine bestimmte Box anzuwenden. Aber jenseits der Techniken geht es auch darum, Ihre Kreativität zu entfalten. Es wird nicht an einem Tag geschehen, und einige Webentwickler verbringen ihr ganzes Leben damit, daran Spaß zu haben.
 
-Auf der technischen Seite geht es beim Erstellen schicker Boxen darum, die CSS-Eigenschaften für `border` und `background` zu meistern und zu wissen, wie man sie auf eine gegebene Box anwendet. Aber über die Techniken hinaus geht es darum, Ihrer Kreativität freien Lauf zu lassen. Es wird nicht an einem Tag erledigt sein, und einige Webentwickler verbringen ihr ganzes Leben damit, Spaß daran zu haben.
-
-Wir werden viele Beispiele sehen, aber wir arbeiten immer mit dem einfachsten HTML-Element, einem einfachen Element:
+Wir werden viele Beispiele sehen, aber wir werden immer das einfachste HTML-Stück verwenden, ein simples Element:
 
 ```html
 <div class="fancy">Hi! I want to be fancy.</div>
 ```
 
-Okay, das ist ein sehr kleines Stück HTML, was können wir an diesem Element verändern? Folgendes:
+Das ist ein sehr kleines Stück HTML, was können wir an diesem Element optimieren? All die folgenden:
 
-- Seine Box-Modell-Eigenschaften: {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("border")}}, etc.
-- Seine Hintergrund-Eigenschaften: {{cssxref("background")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-position")}}, {{cssxref("background-size")}}, etc.
-- Sein Pseudo-Element: {{cssxref("::before")}} und {{cssxref("::after")}}
-- und einige zusätzliche Eigenschaften wie: {{cssxref("box-shadow")}}, {{cssxref("rotate")}}, {{cssxref("outline")}}, etc.
+- Seine Boxmodell-Eigenschaften: {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("border")}}, usw.
+- Seine Hintergrund-Eigenschaften: {{cssxref("background")}}, {{cssxref("background-color")}}, {{cssxref("background-image")}}, {{cssxref("background-position")}}, {{cssxref("background-size")}}, usw.
+- Seine Pseudo-Elemente: {{cssxref("::before")}} und {{cssxref("::after")}}
+- und einige weitere Eigenschaften wie: {{cssxref("box-shadow")}}, {{cssxref("rotate")}}, {{cssxref("outline")}}, usw.
 
 Wir haben also einen sehr großen Spielplatz. Lassen Sie den Spaß beginnen.
 
-## Box-Modell-Anpassung
+## Boxmodell-Optimierung
 
-Das Box-Modell allein erlaubt uns, einige grundlegende Dinge zu tun, wie einfache Rahmen hinzuzufügen, Quadrate zu erstellen, etc. Es wird interessant, wenn Sie die Eigenschaften an die Grenze bringen, indem Sie negative `padding` und/oder `margin` verwenden und `border-radius` größer als die tatsächliche Größe der Box machen.
+Das Boxmodell allein ermöglicht es uns, einige grundlegende Dinge zu tun, wie einfache Rahmen hinzuzufügen, Quadrate zu erstellen usw. Es wird interessant, wenn Sie die Eigenschaften bis zum Limit ausreizen, indem Sie negative `padding`- und/oder `margin`-Werte nutzen und `border-radius` größer als die tatsächliche Größe der Box machen.
 
-### Kreise machen
+### Kreise erstellen
 
 ```html hidden
 <div class="fancy">Hi! I want to be fancy.</div>
 ```
 
-Das ist etwas, das sowohl sehr einfach als auch sehr spaßig ist. Die {{cssxref("border-radius")}}-Eigenschaft ist dafür gemacht, abgerundete Ecken auf Boxen anzuwenden, aber was passiert, wenn die Radiusgröße gleich oder größer als die tatsächliche Breite der Box ist?
+Das ist sowohl sehr einfach als auch sehr unterhaltsam. Die {{cssxref("border-radius")}}-Eigenschaft ist dazu gedacht, abgerundete Ecken auf Boxen anzuwenden, aber was passiert, wenn die Radiusgröße gleich oder größer als die tatsächliche Breite der Box ist?
 
 ```css
 .fancy {
@@ -73,20 +71,20 @@ Ja, wir erhalten einen Kreis:
 
 ## Hintergründe
 
-Wenn wir von einer schicken Box sprechen, sind die Kerneigenschaften, die das handhaben, die [background-\* Eigenschaften](/de/docs/Web/CSS/CSS_backgrounds_and_borders). Wenn Sie anfangen, mit Hintergründen zu experimentieren, wird Ihre CSS-Box zu einer leeren Leinwand, die Sie ausfüllen werden.
+Wenn wir von einer dekorativen Box sprechen, sind die Kerneigenschaften, um dies zu handhaben, die [background-\*-Eigenschaften](/de/docs/Web/CSS/Guides/Backgrounds_and_borders). Wenn Sie anfangen, mit Hintergründen zu experimentieren, fühlt es sich an, als würde Ihre CSS-Box zu einer leeren Leinwand werden, die Sie füllen können.
 
-Bevor wir zu einigen praktischen Beispielen springen, lassen Sie uns einen Schritt zurückgehen, da es zwei Dinge gibt, die Sie über Hintergründe wissen sollten.
+Bevor wir zu einigen praktischen Beispielen übergehen, sollten wir kurz innehalten, da es zwei Dinge gibt, die Sie über Hintergründe wissen sollten.
 
-- Es ist möglich, [mehrere Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds) auf einer einzelnen Box festzulegen. Sie werden übereinander gestapelt wie Schichten.
-- Hintergründe können entweder Volltonfarben oder Bilder sein: Eine Volltonfarbe füllt immer die gesamte Oberfläche, aber Bilder können skaliert und positioniert werden.
+- Es ist möglich, [mehrere Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds) auf einer einzigen Box zu setzen. Sie sind übereinander gestapelt wie Schichten.
+- Hintergründe können entweder Vollfarben oder Bilder sein: Eine Vollfarbe füllt immer die gesamte Fläche, aber Bilder können skaliert und positioniert werden.
 
 ```html hidden
 <div class="fancy">Hi! I want to be fancy.</div>
 ```
 
-Okay, lassen Sie uns Spaß mit Hintergründen haben:
+Okay, lassen Sie uns mit Hintergründen Spaß haben:
 
-```css-nolint
+```css
 .fancy {
   padding: 1em;
   width: 100%;
@@ -102,29 +100,30 @@ Okay, lassen Sie uns Spaß mit Hintergründen haben:
      As you will notice, color gradients are
      considered to be images and can be
      manipulated as such */
-  background-image: linear-gradient(175deg, rgb(0 0 0 / 0%) 95%, #8da389 95%),
-                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 95%, #8da389 95%),
-                    linear-gradient(175deg, rgb(0 0 0 / 0%) 90%, #b4b07f 90%),
-                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 92%, #b4b07f 92%),
-                    linear-gradient(175deg, rgb(0 0 0 / 0%) 85%, #c5a68e 85%),
-                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 89%, #c5a68e 89%),
-                    linear-gradient(175deg, rgb(0 0 0 / 0%) 80%, #ba9499 80%),
-                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 86%, #ba9499 86%),
-                    linear-gradient(175deg, rgb(0 0 0 / 0%) 75%, #9f8fa4 75%),
-                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 83%, #9f8fa4 83%),
-                    linear-gradient(175deg, rgb(0 0 0 / 0%) 70%, #74a6ae 70%),
-                    linear-gradient( 85deg, rgb(0 0 0 / 0%) 80%, #74a6ae 80%);
+  background-image:
+    linear-gradient(175deg, transparent 95%, #8da389 95%),
+    linear-gradient(85deg, transparent 95%, #8da389 95%),
+    linear-gradient(175deg, transparent 90%, #b4b07f 90%),
+    linear-gradient(85deg, transparent 92%, #b4b07f 92%),
+    linear-gradient(175deg, transparent 85%, #c5a68e 85%),
+    linear-gradient(85deg, transparent 89%, #c5a68e 89%),
+    linear-gradient(175deg, transparent 80%, #ba9499 80%),
+    linear-gradient(85deg, transparent 86%, #ba9499 86%),
+    linear-gradient(175deg, transparent 75%, #9f8fa4 75%),
+    linear-gradient(85deg, transparent 83%, #9f8fa4 83%),
+    linear-gradient(175deg, transparent 70%, #74a6ae 70%),
+    linear-gradient(85deg, transparent 80%, #74a6ae 80%);
 }
 ```
 
 {{ EmbedLiveSample('Backgrounds', '100%', '200') }}
 
 > [!NOTE]
-> Verläufe können auf sehr kreative Weise verwendet werden. Wenn Sie einige kreative Beispiele sehen möchten, schauen Sie sich [Lea Verou's CSS-Muster](https://projects.verou.me/css3patterns/) an. Wenn Sie mehr über Verläufe erfahren möchten, lesen Sie gerne [unseren speziellen Artikel](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients).
+> Verläufe können auf sehr kreative Weise genutzt werden. Wenn Sie einige kreative Beispiele sehen möchten, werfen Sie einen Blick auf [Lea Verous CSS-Muster](https://projects.verou.me/css3patterns/). Wenn Sie mehr über Verläufe lernen möchten, werfen Sie einen Blick auf [unseren dedizierten Artikel](/de/docs/Web/CSS/Guides/Images/Using_gradients).
 
 ## Pseudo-Elemente
 
-Wenn Sie eine einzige Box stylen, könnten Sie sich eingeschränkt fühlen und sich wünschen, mehr Boxen zu haben, um noch erstaunlichere Stile zu kreieren. Meistens führt das dazu, das DOM zu verschmutzen, indem man zusätzliche HTML-Elemente ausschließlich für den Zweck des Stylings hinzufügt. Auch wenn es notwendig ist, wird es etwas als schlechte Praxis betrachtet. Eine Lösung, um solche Fallstricke zu vermeiden, ist die Verwendung von [CSS-Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements).
+Beim Styling einer einzelnen Box könnten Sie sich eingeschränkt fühlen und sich wünschen, mehr Boxen zu haben, um noch erstaunlichere Stile zu kreieren. Oft führt dies dazu, das DOM zu verschmutzen, indem zusätzliche HTML-Elemente ausschließlich zu Stilzwecken hinzugefügt werden. Auch wenn es notwendig ist, wird dies als schlechte Praxis angesehen. Eine Lösung, um solche Fallstricke zu vermeiden, ist die Verwendung von [CSS-Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements).
 
 ### Eine Wolke
 
@@ -132,7 +131,7 @@ Wenn Sie eine einzige Box stylen, könnten Sie sich eingeschränkt fühlen und s
 <div class="fancy">Hi! I want to be fancy.</div>
 ```
 
-Lassen Sie uns ein Beispiel sehen, indem wir unsere Box in eine Wolke verwandeln:
+Lassen Sie uns ein Beispiel betrachten, indem wir unsere Box in eine Wolke verwandeln:
 
 ```css
 .fancy {
@@ -213,7 +212,7 @@ Lassen Sie uns ein Beispiel sehen, indem wir unsere Box in eine Wolke verwandeln
 
 ### Blockquote
 
-Ein praktischeres Beispiel für die Verwendung von Pseudo-Elementen ist der Aufbau eines schönen Formats für HTML-{{HTMLElement('blockquote')}}-Elemente. Lassen Sie uns ein Beispiel mit einem leicht abgewandelten HTML-Snippet sehen (was uns die Gelegenheit bietet zu zeigen, wie auch Designlokalisierung gehandhabt wird):
+Ein praktischeres Beispiel für die Verwendung von Pseudo-Elementen ist das Erstellen eines schönen Formats für HTML-{{HTMLElement('blockquote')}}-Elemente. Schauen wir uns ein Beispiel mit einem etwas anderen HTML-Snippet an (welches uns die Gelegenheit gibt, zu sehen, wie man auch Design-Lokalisierung handhabt):
 
 ```html
 <blockquote>
@@ -242,9 +241,7 @@ blockquote::after {
   position: absolute;
   height: 3rem;
   font:
-    6rem/100% Georgia,
-    "Times New Roman",
-    Times,
+    6rem/100% "Georgia",
     serif;
 }
 
@@ -284,18 +281,18 @@ blockquote i {
 
 ## Alles zusammen und mehr
 
-Es ist also möglich, einen wunderbaren Effekt zu erzeugen, wenn wir all dies miteinander vermischen. An einem bestimmten Punkt ist es eine Frage der Kreativität, sowohl im Design als auch in der technischen Nutzung von CSS-Eigenschaften, um eine solche Boxverschönerung zu erreichen. Dadurch ist es möglich, optische Täuschungen zu erstellen, die Ihre Boxen lebendig erscheinen lassen können, wie in diesem Beispiel:
+Es ist also möglich, einen wunderbaren Effekt zu erzielen, wenn wir all dies zusammenführen. Um eine solche Verschönerung der Box zu erreichen, ist Kreativität erforderlich, sowohl im Design als auch in der technischen Nutzung von CSS-Eigenschaften. Dadurch ist es möglich, optische Täuschungen zu schaffen, die Ihre Boxen lebendig wirken lassen, wie in diesem Beispiel:
 
 ```html hidden
 <div class="fancy">Hi! I want to be fancy.</div>
 ```
 
-Lassen Sie uns einige partielle Schlagschatteneffekte erstellen. Die {{cssxref("box-shadow")}}-Eigenschaft ermöglicht es uns, inneres Licht und einen flachen Schlagschatteneffekt zu erzeugen, aber mit etwas zusätzlicher Arbeit ist es möglich, eine natürlichere Geometrie durch die Verwendung eines Pseudo-Elements und der {{cssxref("rotate")}}-Eigenschaft, eine der drei einzelnen {{cssxref("transform")}}-Eigenschaften, zu erzeugen.
+Lassen Sie uns einige partielle Schlagschatteneffekte erzeugen. Die {{cssxref("box-shadow")}}-Eigenschaft ermöglicht es uns, inneres Licht und einen flachen Schlagschatteneffekt zu erzeugen, aber mit ein wenig Extraarbeit wird es möglich, eine natürlichere Geometrie zu schaffen, indem man ein Pseudo-Element und die {{cssxref("rotate")}}-Eigenschaft verwendet, eine der drei individuellen {{cssxref("transform")}}-Eigenschaften.
 
 ```css
 .fancy {
   position: relative;
-  background-color: #ffc;
+  background-color: #ffffcc;
   padding: 2rem;
   text-align: center;
   max-width: 200px;

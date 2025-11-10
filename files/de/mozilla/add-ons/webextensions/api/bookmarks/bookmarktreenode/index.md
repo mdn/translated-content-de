@@ -2,48 +2,46 @@
 title: bookmarks.BookmarkTreeNode
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein Objekt vom Typ `bookmarks.BookmarkTreeNode` repräsentiert einen Knoten im Lesezeichenbaum, wobei jeder Knoten ein Lesezeichen, ein Lesezeichenordner oder ein Trenner ist. Kindknoten sind innerhalb ihrer jeweiligen Elternordner nach einem `index` geordnet.
+Ein Objekt vom Typ `bookmarks.BookmarkTreeNode` repräsentiert einen Knoten im Lesezeichnungsbaum, wobei jeder Knoten ein Lesezeichen, ein Lesezeichenordner oder ein Separator ist. Kinderknoten sind nach einem `index` innerhalb ihrer jeweiligen übergeordneten Ordner geordnet.
 
 ## Typ
 
 Ein {{jsxref("object")}} mit den folgenden Eigenschaften:
 
 - `children` {{optional_inline}}
-  - : Ein {{jsxref("array")}} von `bookmarks.BookmarkTreeNode` Objekten, die die Kinder des Knotens repräsentieren. Die Liste ist in der Reihenfolge, in der die Kinder in der Benutzeroberfläche erscheinen, geordnet. Dieses Feld wird weggelassen, wenn der Knoten kein Ordner ist.
+  - : Ein {{jsxref("array")}} von `bookmarks.BookmarkTreeNode`-Objekten, die die Kinder des Knotens darstellen. Die Liste ist in der Reihenfolge sortiert, in der die Kinder in der Benutzeroberfläche erscheinen. Dieses Feld fehlt, wenn der Knoten kein Ordner ist.
 - `dateAdded` {{optional_inline}}
-  - : Eine Zahl, die das Erstellungsdatum des Knotens in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit) darstellt.
+  - : Eine Zahl, die das Erstellungsdatum des Knotens in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time) darstellt.
 - `dateGroupModified` {{optional_inline}}
-  - : Eine Zahl, die das Datum und die Uhrzeit angibt, zu der sich der Inhalt dieses Ordners zuletzt geändert hat, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+  - : Eine Zahl, die das Datum und die Uhrzeit darstellt, zu der sich der Inhalt dieses Ordners zuletzt geändert hat, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `id`
-  - : Eine {{jsxref("string")}}, die den Knoten eindeutig identifiziert. Jede ID ist innerhalb des Profils des Benutzers einzigartig und bleibt bei Browser-Neustarts unverändert.
+  - : Ein {{jsxref("string")}}, das den Knoten eindeutig identifiziert. Jede ID ist innerhalb des Benutzerprofils einzigartig und bleibt bei Neustarts des Browsers unverändert.
 - `index` {{optional_inline}}
-  - : Eine Zahl, die die nullbasierte Position dieses Knotens innerhalb seines Elternordners repräsentiert, wobei Null den ersten Eintrag darstellt.
+  - : Eine Zahl, die die nullbasierte Position dieses Knotens innerhalb seines übergeordneten Ordners darstellt, wobei null den ersten Eintrag darstellt.
     > [!NOTE]
-    > Wenn Sie mehrere Lesezeichen erstellen oder verschieben, da die {{WebExtAPIRef("bookmarks.create()")}}- und {{WebExtAPIRef("bookmarks.move()")}}-Methoden asynchron sind, können die Anfragen in beliebiger Reihenfolge bearbeitet werden. Folglich kann sich der Wert des Indexes jedes Lesezeichens ändern oder unbekannt sein, bis alle Anfragen abgeschlossen sind. Wenn der Index, der einem Lesezeichen zugewiesen ist, für Ihre Erweiterung von Bedeutung ist, sollte die Erweiterung – beim Erstellen oder Verschieben mehrerer Lesezeichen – warten, bis jeder `bookmarks.create` oder `bookmarks.move` Aufruf abgeschlossen ist, bevor sie das nächste Lesezeichen erstellt oder verschiebt. Das Warten stellt sicher, dass der Index, der jedem Lesezeichen zugewiesen ist, nicht von einem Erstellungs- oder Verschiebeaufruf beeinflusst wird, der gleichzeitig ausgeführt wird, während der ursprüngliche Aufruf noch bearbeitet wird.
+    > Wenn Sie mehrere Lesezeichen erstellen oder verschieben, da die Methoden {{WebExtAPIRef("bookmarks.create()")}} und {{WebExtAPIRef("bookmarks.move()")}} asynchron sind, können die Anforderungen in beliebiger Reihenfolge verarbeitet werden. Folglich kann sich der Wert jedes Lesezeichenindex ändern oder unbekannt sein, bis alle Anforderungen abgeschlossen sind. Wenn der Index, der einem Lesezeichen zugeordnet ist, für Ihre Erweiterung von Bedeutung ist, sollte die Erweiterung beim Erstellen oder Verschieben mehrerer Lesezeichen warten, bis jeder `bookmarks.create`- oder `bookmarks.move`-Aufruf abgeschlossen ist, bevor das nächste Lesezeichen erstellt oder verschoben wird. Das Warten stellt sicher, dass der Index, der jedem Lesezeichen zugeordnet ist, nicht durch das gleichzeitige Ausführen eines Erstellungs- oder Verschiebeaufrufs beeinflusst wird, während der ursprüngliche Aufruf in Bearbeitung ist.
 - `parentId` {{optional_inline}}
-  - : Eine {{jsxref("string")}}, die die ID des übergeordneten Ordners angibt. Diese Eigenschaft ist im Stammknoten nicht vorhanden.
+  - : Ein {{jsxref("string")}}, das die ID des übergeordneten Ordners angibt. Diese Eigenschaft ist im Stammknoten nicht vorhanden.
 - `title`
-  - : Eine {{jsxref("string")}}, die den Text enthält, der für den Knoten in Menüs und Listen von Lesezeichen angezeigt wird.
+  - : Ein {{jsxref("string")}}, das den Text enthält, der für den Knoten in Menüs und Listen von Lesezeichen angezeigt wird.
 - `type` {{optional_inline}}
-  - : Ein {{WebExtAPIRef("bookmarks.BookmarkTreeNodeType")}} Objekt, das angibt, ob es sich um ein Lesezeichen, einen Ordner oder einen Trenner handelt. Standardmäßig `"bookmark"` außer `url` wird weggelassen, in diesem Fall ist es standardmäßig `"folder"`.
+  - : Ein {{WebExtAPIRef("bookmarks.BookmarkTreeNodeType")}}-Objekt, das angibt, ob es sich um ein Lesezeichen, einen Ordner oder einen Separator handelt. Standardmäßig `"bookmark"`, es sei denn, `url` fehlt, in diesem Fall ist es standardmäßig `"folder"`.
 - `unmodifiable` {{optional_inline}}
-  - : Eine {{jsxref("string")}}, wie sie durch den Typ {{WebExtAPIRef('bookmarks.BookmarkTreeNodeUnmodifiable')}} beschrieben wird. Sie gibt den Grund an, warum der Knoten nicht geändert werden kann. Wenn der Knoten geändert werden kann, wird dies weggelassen.
+  - : Ein {{jsxref("string")}} wie im Typ {{WebExtAPIRef('bookmarks.BookmarkTreeNodeUnmodifiable')}} beschrieben. Repräsentiert den Grund, warum der Knoten nicht geändert werden kann. Wenn der Knoten geändert werden kann, fehlt dieser.
 - `url` {{optional_inline}}
-  - : Eine {{jsxref("string")}}, die die URL für das Lesezeichen repräsentiert. Wenn der Knoten einen Ordner darstellt, wird diese Eigenschaft weggelassen.
+  - : Ein {{jsxref("string")}}, das die URL für das Lesezeichen darstellt. Wenn der Knoten einen Ordner darstellt, fehlt diese Eigenschaft.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-BookmarkTreeNode) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-BookmarkTreeNode) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

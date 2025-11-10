@@ -3,22 +3,24 @@ title: "IdentityCredential: isAutoSelected-Eigenschaft"
 short-title: isAutoSelected
 slug: Web/API/IdentityCredential/isAutoSelected
 l10n:
-  sourceCommit: b64f587034fbb610fe12ad819b0384f4f4ce1d4f
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-{{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}{{non-standard_header}}
+{{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`isAutoSelected`** Eigenschaft des [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Interfaces zeigt an, ob der föderierte Anmeldevorgang unter Verwendung der [automatischen Reauthentifizierung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) (d.h. ohne Benutzereingriff) durchgeführt wurde oder nicht.
+Die schreibgeschützte **`isAutoSelected`**-Eigenschaft der [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Schnittstelle zeigt an, ob der föderierte Anmeldefluss mithilfe von [automatischer Neuauthentifizierung](/de/docs/Web/API/FedCM_API/RP_sign-in#auto-reauthentication) (d.h. ohne Benutzermediation) durchgeführt wurde oder nicht.
 
-Eine automatische Reauthentifizierung kann erfolgen, wenn ein Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Optionswert von `"optional"` oder `"silent"` ausgeführt wird. Es ist nützlich für einen vertrauenden Dritten (RP) zu wissen, ob eine automatische Reauthentifizierung erfolgt ist, um Analysen/Leistungsbewertungen durchzuführen und für UX-Zwecke — eine automatische Anmeldung könnte einen anderen UI-Fluss als eine nicht-automatische Anmeldung erfordern.
+Eine automatische Neuauthentifizierung kann erfolgen, wenn ein Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation) Optionswert von `"optional"` oder `"silent"` ausgeführt wird. Es ist für eine {{Glossary("Relying_party", "relying party")}} (RP) hilfreich zu wissen, ob eine automatische Neuauthentifizierung erfolgt ist, um Analysen/Leistungsbewertungen durchzuführen und für UX-Zwecke — eine automatische Anmeldung kann einen anderen UI-Fluss erfordern als eine nicht-automatische Anmeldung.
 
 ## Wert
 
-Ein boolescher Wert. `true` zeigt an, dass eine automatische Reauthentifizierung verwendet wurde; `false` gibt an, dass dies nicht der Fall war.
+Ein boolescher Wert. `true` zeigt an, dass die automatische Neuauthentifizierung verwendet wurde; `false` zeigt an, dass sie nicht verwendet wurde.
 
 ## Beispiele
 
-RPs können `navigator.credentials.get()` mit der `identity`-Option aufrufen, um eine Anfrage zu stellen, dass sich Benutzer über einen Identitätsanbieter (IdP) mithilfe der Identitätsföderation beim RP anmelden. Das Verhalten der automatischen Reauthentifizierung wird durch die [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option im `get()`-Aufruf gesteuert:
+### Grundlegende föderierte Anmeldung und Zugriff auf `isAutoSelected`
+
+RPs können `navigator.credentials.get()` mit der Option `identity` aufrufen, um eine Anfrage zu stellen, damit Benutzer sich über einen {{Glossary("Identity_provider", "IdP")}} beim RP anmelden, wobei die Identitätsföderation verwendet wird. Das Verhalten der automatischen Neuauthentifizierung wird durch die [`mediation`](/de/docs/Web/API/CredentialsContainer/get#mediation)-Option im `get()`-Aufruf gesteuert:
 
 ```js
 async function signIn() {
@@ -39,7 +41,9 @@ async function signIn() {
 }
 ```
 
-Sehen Sie sich das [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) für weitere Details an, wie dies funktioniert. Dieser Aufruf wird den Anmeldevorgang starten, der im [FedCM-Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben ist.
+Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity` Option umfasst, wird mit einer `IdentityCredential`-Instanz erfüllt, die verwendet werden kann, um auf die `isAutoSelected`-Eigenschaft zuzugreifen: Diese wird `true` entsprechen, wenn eine automatische Neuauthentifizierung stattgefunden hat.
+
+Weitere Informationen über die Funktionsweise finden Sie in [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API). Dieser Aufruf startet den Anmeldefluss, der im [FedCM Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben wird.
 
 ## Spezifikationen
 
@@ -51,4 +55,4 @@ Sehen Sie sich das [Federated Credential Management API (FedCM)](/de/docs/Web/AP
 
 ## Siehe auch
 
-- [Federated Credential Management API](https://developers.google.com/privacy-sandbox/cookies/fedcm)
+- [Federated Credential Management API](https://developer.chrome.com/docs/identity/fedcm/overview)

@@ -1,13 +1,12 @@
 ---
 title: Object.prototype.valueOf()
+short-title: valueOf()
 slug: Web/JavaScript/Reference/Global_Objects/Object/valueOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
-{{JSRef}}
-
-Die **`valueOf()`**-Methode von {{jsxref("Object")}}-Instanzen wandelt den `this`-Wert [in ein Objekt um](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). Diese Methode soll von abgeleiteten Objekten überschrieben werden, um eigene [Typkonvertierungslogik](/de/docs/Web/JavaScript/Data_structures#type_coercion) zu implementieren.
+Die **`valueOf()`**-Methode von {{jsxref("Object")}} Instanzen konvertiert den `this` Wert [zu einem Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). Diese Methode soll von abgeleiteten Objekten für benutzerdefinierte [Typumwandlungslogik](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) überschrieben werden.
 
 {{InteractiveExample("JavaScript Demo: Object.prototype.valueOf()")}}
 
@@ -20,9 +19,9 @@ MyNumberType.prototype.valueOf = function () {
   return this.number;
 };
 
-const object1 = new MyNumberType(4);
+const object = new MyNumberType(4);
 
-console.log(object1 + 3);
+console.log(object + 3);
 // Expected output: 7
 ```
 
@@ -38,24 +37,24 @@ Keine.
 
 ### Rückgabewert
 
-Der `this`-Wert, umgewandelt in ein Objekt.
+Der `this` Wert, konvertiert zu einem Objekt.
 
 > [!NOTE]
-> Damit `valueOf` bei der Typkonvertierung nützlich ist, muss es einen primitiven Wert zurückgeben. Da alle primitiven Typen eigene `valueOf()`-Methoden besitzen, ruft der Aufruf von `aPrimitiveValue.valueOf()` in der Regel nicht `Object.prototype.valueOf()` auf.
+> Damit `valueOf` während der Typumwandlung nützlich ist, muss es einen primitiven Wert zurückgeben. Da alle primitiven Typen ihre eigenen `valueOf()`-Methoden haben, ruft das Aufrufen von `primitiveValue.valueOf()` im Allgemeinen nicht `Object.prototype.valueOf()` auf.
 
 ## Beschreibung
 
-JavaScript ruft die `valueOf`-Methode auf, um [ein Objekt in einen primitiven Wert umzuwandeln](/de/docs/Web/JavaScript/Data_structures#type_coercion). Sie müssen die `valueOf`-Methode nur selten selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt in einem Kontext verwendet wird, in dem ein primitiver Wert erwartet wird.
+JavaScript ruft die `valueOf`-Methode auf, um [ein Objekt in einen primitiven Wert zu konvertieren](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion). Sie müssen die `valueOf`-Methode selten selbst aufrufen; JavaScript ruft sie automatisch auf, wenn es auf ein Objekt stößt, wo ein primitiver Wert erwartet wird.
 
-Diese Methode wird prioritär bei numerischen [Konvertierungen](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und [primitiven Konvertierungen](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) aufgerufen. Bei [String-Konvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) wird jedoch `toString()` bevorzugt aufgerufen, wobei `toString()` mit hoher Wahrscheinlichkeit einen String-Wert zurückgibt (sogar für die Basisimplementierung {{jsxref("Object.prototype.toString()")}}), daher wird `valueOf()` in diesem Fall normalerweise nicht aufgerufen.
+Diese Methode wird vorrangig von [numerischer Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und [primitiver Konvertierung](/de/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) aufgerufen, aber [String-Konvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) ruft priorisiert `toString()` auf, und `toString()` wird sehr wahrscheinlich einen String-Wert zurückgeben (selbst für die {{jsxref("Object.prototype.toString()")}} Basisimplementierung), so dass `valueOf()` in diesem Fall normalerweise nicht aufgerufen wird.
 
-Alle Objekte, die von `Object.prototype` erben (d. h. alle außer [`null`-Prototypen-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `toString()`-Methode. Die Basisimplementierung von `Object.prototype.valueOf()` ist absichtlich nutzlos: Da sie ein Objekt zurückgibt, wird ihr Rückgabewert niemals von einem [Algorithmus zur primitiven Konvertierung](/de/docs/Web/JavaScript/Data_structures#type_coercion) verwendet. Viele eingebaute Objekte überschreiben diese Methode, um einen geeigneten primitiven Wert zurückzugeben. Wenn Sie ein benutzerdefiniertes Objekt erstellen, können Sie `valueOf()` überschreiben, um eine benutzerdefinierte Methode aufzurufen, sodass Ihr benutzerdefiniertes Objekt in einen primitiven Wert konvertiert werden kann. Im Allgemeinen wird `valueOf()` verwendet, um einen für das Objekt am sinnvollsten Wert zurückzugeben — im Gegensatz zu `toString()` muss dies kein String sein. Alternativ können Sie eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)-Methode hinzufügen, die noch mehr Kontrolle über den Konvertierungsprozess ermöglicht und bei jeder Typkonvertierung immer `valueOf` oder `toString` vorgezogen wird.
+Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [`null`-Prototyp Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `toString()`-Methode. Die `Object.prototype.valueOf()`-Basisimplementierung ist absichtlich nutzlos: Indem sie ein Objekt zurückgibt, wird ihr Rückgabewert niemals von einem [Primitive Conversion Algorithmus](/de/docs/Web/JavaScript/Guide/Data_structures#type_coercion) verwendet. Viele eingebaute Objekte überschreiben diese Methode, um einen geeigneten primitiven Wert zurückzugeben. Wenn Sie ein benutzerdefiniertes Objekt erstellen, können Sie `valueOf()` überschreiben, um eine benutzerdefinierte Methode aufzurufen, damit Ihr benutzerdefiniertes Objekt in einen primitiven Wert umgewandelt werden kann. Im Allgemeinen wird `valueOf()` verwendet, um einen Wert zurückzugeben, der für das Objekt am bedeutungsvollsten ist — im Gegensatz zu `toString()`, muss es kein String sein. Alternativ können Sie eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) Methode hinzufügen, die noch mehr Kontrolle über den Konvertierungsprozess erlaubt und immer gegenüber `valueOf` oder `toString` für jede Art von Typumwandlung bevorzugt wird.
 
 ## Beispiele
 
-### `valueOf()` verwenden
+### Verwendung von valueOf()
 
-Die Basis-Methode `valueOf()` gibt den `this`-Wert selbst zurück, in ein Objekt umgewandelt, falls es noch kein Objekt ist. Daher wird ihr Rückgabewert niemals von einem Algorithmus zur primitiven Konvertierung verwendet.
+Die Basis-`valueOf()`-Methode gibt den `this`-Wert selbst zurück, konvertiert in ein Objekt, falls es nicht bereits eins ist. Daher wird ihr Rückgabewert niemals von einem primitiven Konvertierungsalgorithmus verwendet.
 
 ```js
 const obj = { foo: 1 };
@@ -65,9 +64,9 @@ console.log(Object.prototype.valueOf.call("primitive"));
 // [String: 'primitive'] (a wrapper object)
 ```
 
-### `valueOf()` für benutzerdefinierte Objekte überschreiben
+### Überschreiben von valueOf für benutzerdefinierte Objekte
 
-Sie können eine Funktion erstellen, die anstelle der standardmäßigen `valueOf`-Methode aufgerufen wird. Ihre Funktion sollte keine Argumente erhalten, da sie beim Aufruf während der Typkonvertierung keine übergeben bekommt.
+Sie können eine Funktion erstellen, die anstelle der Standard-`valueOf`-Methode aufgerufen wird. Ihre Funktion sollte keine Argumente annehmen, da sie bei der Typumwandlung keine erhalten wird.
 
 Zum Beispiel können Sie eine `valueOf`-Methode zu Ihrer benutzerdefinierten Klasse `Box` hinzufügen.
 
@@ -83,7 +82,7 @@ class Box {
 }
 ```
 
-Mit dem obigen Code wird bei jedem Zeitpunkt, an dem ein Objekt des Typs `Box` in einem Kontext verwendet wird, in dem es als primitiver Wert (aber nicht ausdrücklich als String) dargestellt werden soll, automatisch die in dem obigen Code definierte Funktion aufgerufen.
+Mit dem vorherigen Code wird jedes Mal, wenn ein Objekt vom Typ `Box` in einem Kontext verwendet wird, in dem es als primitiver Wert (aber nicht speziell als String) dargestellt werden soll, die im vorherigen Code definierte Funktion automatisch von JavaScript aufgerufen.
 
 ```js
 const box = new Box(123);
@@ -91,15 +90,15 @@ console.log(box + 456); // 579
 console.log(box == 123); // true
 ```
 
-Die `valueOf`-Methode eines Objekts wird normalerweise von JavaScript aufgerufen. Sie können sie jedoch auch selbst wie folgt aufrufen:
+Die `valueOf`-Methode eines Objekts wird normalerweise von JavaScript aufgerufen, aber Sie können sie selbst wie folgt aufrufen:
 
 ```js
 box.valueOf();
 ```
 
-### Den unären Plus-Operator auf Objekte anwenden
+### Verwendung des einstelligen Pluszeichens bei Objekten
 
-Das [unäre Plus](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus) führt eine [Numerische Konvertierung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) für seinen Operanden durch, was bedeutet, dass für die meisten Objekte ohne [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) ihre `valueOf()`-Methode aufgerufen wird. Wenn das Objekt jedoch keine benutzerdefinierte `valueOf()`-Methode besitzt, führt die Basisimplementierung dazu, dass `valueOf()` ignoriert wird und der Rückgabewert von `toString()` stattdessen verwendet wird.
+[Einseitiges Plus](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus) führt [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) auf seinem Operanden durch, was bei den meisten Objekten ohne [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) bedeutet, dass dessen `valueOf()` aufgerufen wird. Wenn jedoch das Objekt keine benutzerdefinierte `valueOf()`-Methode hat, wird es von der Basisimplementierung ignoriert und stattdessen der Rückgabewert von `toString()` verwendet.
 
 ```js
 +new Date(); // the current timestamp; same as new Date().getTime()

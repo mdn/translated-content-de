@@ -2,14 +2,12 @@
 title: Größer als (>)
 slug: Web/JavaScript/Reference/Operators/Greater_than
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **größer als (`>`)** Operator liefert `true`, wenn der linke Operand größer als der rechte Operand ist, und `false` andernfalls.
 
-Der **größer als (`>`)**-Operator gibt `true` zurück, wenn der linke Operand größer als der rechte Operand ist, und ansonsten `false`.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Greater than operator")}}
+{{InteractiveExample("JavaScript Demo: Greater than (>) operator")}}
 
 ```js interactive-example
 console.log(5 > 3);
@@ -34,11 +32,11 @@ x > y
 
 ## Beschreibung
 
-Die Operanden werden mit demselben Algorithmus wie beim [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than)-Operator verglichen, mit der Ausnahme, dass die beiden Operanden vertauscht werden. `x > y` ist im Allgemeinen äquivalent zu `y < x`, außer dass `x > y` `x` vor `y` in eine primitive Form umwandelt, während `y < x` zuerst `y` in eine primitive Form umwandelt. Aufgrund möglicher Nebeneffekte der Umwandlung kann die Reihenfolge der Operanden von Bedeutung sein.
+Die Operanden werden nach demselben Algorithmus wie der [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, jedoch sind die beiden Operanden vertauscht. `x > y` ist im Allgemeinen äquivalent zu `y < x`, außer dass `x > y` `x` zu einem primitiven Wert zwingt, bevor `y` dazu gezwungen wird, während `y < x` `y` zu einem primitiven Wert zwingt, bevor `x` dazu gezwungen wird. Da die Zwangsumwandlung Nebeneffekte haben kann, kann die Reihenfolge der Operanden von Bedeutung sein.
 
 ## Beispiele
 
-### Vergleich von String mit String
+### String zu String Vergleich
 
 ```js
 "a" > "b"; // false
@@ -46,7 +44,7 @@ Die Operanden werden mit demselben Algorithmus wie beim [Kleiner als](/de/docs/W
 "a" > "3"; // true
 ```
 
-### Vergleich von String mit Zahl
+### String zu Nummer Vergleich
 
 ```js
 "5" > 3; // true
@@ -60,7 +58,7 @@ Die Operanden werden mit demselben Algorithmus wie beim [Kleiner als](/de/docs/W
 "3" > 5n; // false
 ```
 
-### Vergleich von Zahl mit Zahl
+### Nummer zu Nummer Vergleich
 
 ```js
 5 > 3; // true
@@ -68,7 +66,7 @@ Die Operanden werden mit demselben Algorithmus wie beim [Kleiner als](/de/docs/W
 3 > 5; // false
 ```
 
-### Vergleich von Zahl mit BigInt
+### Nummer zu BigInt Vergleich
 
 ```js
 5n > 3; // true
@@ -104,6 +102,6 @@ NaN > 3; // false
 
 ## Siehe auch
 
-- [Größer oder gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+- [Größer gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
 - [Kleiner als (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)
-- [Kleiner oder gleich (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+- [Kleiner gleich (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)

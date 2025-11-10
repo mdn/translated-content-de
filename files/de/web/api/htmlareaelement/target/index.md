@@ -3,21 +3,21 @@ title: "HTMLAreaElement: target-Eigenschaft"
 short-title: target
 slug: Web/API/HTMLAreaElement/target
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
+Die **`target`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces ist ein String, der angibt, wo die verknüpfte Ressource angezeigt werden soll.
 
-Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/area#target)-Attribut des {{HTMLElement("area")}}-Elements wider.
+Sie spiegelt das [`target`](/de/docs/Web/HTML/Reference/Elements/area#target)-Attribut des {{HTMLElement("area")}}-Elements wider.
 
 ## Wert
 
-Ein String, der das Ziel darstellt. Der Wert kann sein:
+Ein String, der das Ziel darstellt. Sein Wert kann sein:
 
 - Der Name eines {{HTMLElement("frame")}}.
-- Einer der [Schlüsselwörter mit bestimmten Werten](/de/docs/Web/HTML/Element/area#target): `_blank`, `_self`, `_parent` oder `_top`.
+- Einer der [Schlüsselwörter mit spezifischen Werten](/de/docs/Web/HTML/Reference/Elements/area#target): `_blank`, `_self`, `_parent` oder `_top`.
 
 ## Beispiel
 

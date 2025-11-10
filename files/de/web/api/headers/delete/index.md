@@ -3,14 +3,14 @@ title: "Headers: delete() Methode"
 short-title: delete()
 slug: Web/API/Headers/delete
 l10n:
-  sourceCommit: 7b21121cd93f9f967248d53c6fd24db2af42b314
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle entfernt einen Header aus dem aktuellen `Headers`-Objekt.
+Die **`delete()`** Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces löscht einen Header aus dem aktuellen `Headers`-Objekt.
 
-Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Diese Header umfassen die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
+Aus Sicherheitsgründen können einige Header nur vom User-Agent gesteuert werden. Diese Header umfassen die {{Glossary("Forbidden_request_header", "verbotenen Anforderungs-Header")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Headernamen")}}.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ Ein leeres `Headers`-Objekt zu erstellen ist einfach:
 const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie könnten diesem mit [`Headers.append`](/de/docs/Web/API/Headers/append) einen Header hinzufügen:
+Sie könnten einen Header hinzufügen, indem Sie [`Headers.append`](/de/docs/Web/API/Headers/append) verwenden:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
@@ -60,5 +60,5 @@ myHeaders.get("Content-Type"); // Returns null, as it has been deleted
 ## Siehe auch
 
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

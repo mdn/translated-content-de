@@ -1,15 +1,14 @@
 ---
 title: TypedArray.prototype.toString()
+short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/toString
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`toString()`** Methode von {{jsxref("TypedArray")}}-Instanzen gibt einen String zurück, der das angegebene `typed array` und seine Elemente repräsentiert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
 
-Die **`toString()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt einen String zurück, der das angegebene TypedArray und dessen Elemente repräsentiert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
-
-{{InteractiveExample("JavaScript Demo: TypedArray.toString()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.toString()", "shorter")}}
 
 ```js interactive-example
 const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
@@ -32,15 +31,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die Elemente des TypedArrays repräsentiert.
+Ein String, der die Elemente des `typed array` repräsentiert.
 
 ## Beschreibung
 
-Weitere Details siehe {{jsxref("Array.prototype.toString()")}}. Diese Methode ist nicht generisch und kann nur auf TypedArray-Instanzen angewendet werden.
+Weitere Details finden Sie bei {{jsxref("Array.prototype.toString()")}}. Diese Methode ist nicht generisch und kann nur auf `typed array`-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Umwandlung eines TypedArrays in einen String
+### Konvertierung eines `typed array` in einen String
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);
@@ -60,7 +59,7 @@ console.log(`${uint8}`); // 1,2,3
 
 ## Siehe auch
 
-- [JavaScript TypedArrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript `typed arrays`](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.join()")}}
 - {{jsxref("TypedArray.prototype.toLocaleString()")}}

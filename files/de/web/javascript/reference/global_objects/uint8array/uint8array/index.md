@@ -1,13 +1,12 @@
 ---
-title: Uint8Array() Konstruktor
+title: Uint8Array()-Konstruktor
+short-title: Uint8Array()
 slug: Web/JavaScript/Reference/Global_Objects/Uint8Array/Uint8Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Der **`Uint8Array()`** Konstruktor erstellt {{jsxref("Uint8Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten angegeben.
+Der **`Uint8Array()`**-Konstruktor erstellt {{jsxref("Uint8Array")}}-Objekte. Die Inhalte werden mit `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +21,8 @@ new Uint8Array(buffer, byteOffset)
 new Uint8Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Uint8Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Uint8Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten zur Erstellung eines Uint8Array
+### Verschiedene Möglichkeiten ein Uint8Array zu erstellen
 
 ```js
 // From a length
@@ -77,7 +77,7 @@ console.log(uint8FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint8Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

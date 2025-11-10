@@ -1,13 +1,11 @@
 ---
-title: "TypeError: invalides Array.prototype.sort Argument"
+title: "TypeError: ungültiges Array.prototype.sort Argument"
 slug: Web/JavaScript/Reference/Errors/Array_sort_argument
 l10n:
-  sourceCommit: d311eaee27eef2a590de711bb545b741044cb9b8
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "invalid Array.prototype.sort argument" tritt auf, wenn das Argument von {{jsxref("Array.prototype.sort()")}} (und seiner verwandten Methoden: {{jsxref("Array.prototype.toSorted()")}}, {{jsxref("TypedArray.prototype.sort()")}}, {{jsxref("TypedArray.prototype.toSorted()")}}) weder {{jsxref("undefined")}} noch eine Funktion ist, die ihre Operanden vergleicht.
+Der JavaScript-Ausnahmefehler "ungültiges Array.prototype.sort Argument" tritt auf, wenn das Argument von {{jsxref("Array.prototype.sort()")}} (und seine verwandten Methoden: {{jsxref("Array.prototype.toSorted()")}}, {{jsxref("TypedArray.prototype.sort()")}}, {{jsxref("TypedArray.prototype.toSorted()")}}) weder {{jsxref("undefined")}} noch eine Funktion ist, die ihre Operanden vergleicht.
 
 ## Nachricht
 
@@ -30,7 +28,7 @@ TypeError: TypedArray.prototype.toSorted requires the comparator argument to be 
 
 ## Was ist schiefgelaufen?
 
-Das Argument von {{jsxref("Array.prototype.sort()")}} (und seiner verwandten Methoden: {{jsxref("Array.prototype.toSorted()")}}, {{jsxref("TypedArray.prototype.sort()")}}, {{jsxref("TypedArray.prototype.toSorted()")}}) sollte entweder {{jsxref("undefined")}} oder eine Funktion sein, die ihre Operanden vergleicht.
+Das Argument von {{jsxref("Array.prototype.sort()")}} (und seine verwandten Methoden: {{jsxref("Array.prototype.toSorted()")}}, {{jsxref("TypedArray.prototype.sort()")}}, {{jsxref("TypedArray.prototype.toSorted()")}}) soll entweder {{jsxref("undefined")}} oder eine Funktion sein, die ihre Operanden vergleicht.
 
 ## Beispiele
 

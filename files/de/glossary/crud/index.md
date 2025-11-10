@@ -2,12 +2,10 @@
 title: CRUD
 slug: Glossary/CRUD
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**CRUD** (Create, Read, Update, Delete) ist ein Akronym für die Möglichkeiten, mit gespeicherten Daten zu arbeiten. Es ist ein Gedächtnisstütze für die vier grundlegenden Funktionen der dauerhaften Speicherung. CRUD bezieht sich typischerweise auf Operationen, die in einer Datenbank oder einem Datenspeicher durchgeführt werden. Es kann jedoch auch auf höherstufige Funktionen einer Anwendung angewendet werden, wie zum Beispiel das sogenannte "soft deletes", bei dem Daten nicht wirklich gelöscht, sondern über einen Status als gelöscht markiert werden.
+**CRUD** (Create, Read, Update, Delete) ist ein Akronym für Vorgänge, die mit gespeicherten Daten durchgeführt werden können. Es ist ein Gedächtnishilfe für die vier grundlegenden Funktionen der persistenten Speicherung. CRUD bezieht sich typischerweise auf Operationen, die in einer Datenbank oder einem Datenspeicher durchgeführt werden, kann jedoch auch auf höherstufige Funktionen einer Anwendung angewendet werden, wie z. B. Soft-Deletes, bei denen Daten nicht tatsächlich gelöscht, sondern über einen Status als gelöscht markiert werden.
 
 ## Siehe auch
 

@@ -3,14 +3,14 @@ title: "CanvasRenderingContext2D: textAlign-Eigenschaft"
 short-title: textAlign
 slug: Web/API/CanvasRenderingContext2D/textAlign
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.textAlign`**-Eigenschaft der Canvas 2D API gibt die aktuelle Textausrichtung an, die beim Zeichnen von Text verwendet wird.
+Die **`CanvasRenderingContext2D.textAlign`**-Eigenschaft der Canvas 2D API legt die aktuelle Textausrichtung fest, die beim Zeichnen von Text verwendet wird.
 
-Die Ausrichtung ist relativ zum `x`-Wert der [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText)-Methode. Zum Beispiel, wenn `textAlign` auf `"center"` gesetzt ist, wird die linke Kante des Textes bei `x - (textWidth / 2)` sein.
+Die Ausrichtung bezieht sich auf den `x`-Wert der [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText)-Methode. Zum Beispiel, wenn `textAlign` auf `"center"` gesetzt ist, liegt die linke Kante des Textes bei `x - (textWidth / 2)`.
 
 ## Wert
 
@@ -23,9 +23,9 @@ Mögliche Werte:
 - `"center"`
   - : Der Text ist zentriert.
 - `"start"`
-  - : Der Text ist am normalen Anfang der Zeile ausgerichtet (links für links-nach-rechts-Sprachen, rechts für rechts-nach-links-Sprachen).
+  - : Der Text ist am normalen Anfang der Zeile ausgerichtet (linksbündig für von links nach rechts verlaufende Sprachen, rechtsbündig für von rechts nach links verlaufende Sprachen).
 - `"end"`
-  - : Der Text ist am normalen Ende der Zeile ausgerichtet (rechts für links-nach-rechts-Sprachen, links für rechts-nach-links-Sprachen).
+  - : Der Text ist am normalen Ende der Zeile ausgerichtet (rechtsbündig für von links nach rechts verlaufende Sprachen, linksbündig für von rechts nach links verlaufende Sprachen).
 
 Der Standardwert ist `"start"`.
 
@@ -72,7 +72,7 @@ ctx.fillText("right-aligned", x, 130);
 
 ### Richtungsabhängige Textausrichtung
 
-Dieses Beispiel demonstriert die zwei richtungsabhängigen Werte der `textAlign`-Eigenschaft: `"start"` und `"end"`. Beachten Sie, dass die [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction)-Eigenschaft manuell auf `"ltr"` gesetzt ist, obwohl dies auch der Standard für englischsprachige Texte ist.
+Dieses Beispiel demonstriert die zwei richtungsabhängigen Werte der `textAlign`-Eigenschaft: `"start"` und `"end"`. Beachten Sie, dass die [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction)-Eigenschaft manuell als `"ltr"` angegeben wird, obwohl dies auch der Standard für englischsprachigen Text ist.
 
 #### HTML
 

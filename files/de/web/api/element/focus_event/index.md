@@ -1,27 +1,27 @@
 ---
-title: "Element: focus Ereignis"
+title: "Element: focus Event"
 short-title: focus
 slug: Web/API/Element/focus_event
 l10n:
-  sourceCommit: b4dc8c13ae9041844dc45423aa087002bf9a25e9
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("UI Events")}}
 
-Das **`focus`** Ereignis wird ausgelöst, wenn ein Element den Fokus erhält. Das Ereignis wird nicht nach oben weitergegeben, aber das darauf folgende [`focusin`](/de/docs/Web/API/Element/focusin_event) Ereignis wird weitergegeben.
+Das **`focus`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhalten hat. Das Ereignis wird nicht im DOM weitergeleitet, aber das zugehörige [`focusin`](/de/docs/Web/API/Element/focusin_event)-Ereignis, das darauf folgt, wird weitergeleitet.
 
-Das Gegenteil von `focus` ist das [`blur`](/de/docs/Web/API/Element/blur_event) Ereignis, das ausgelöst wird, wenn das Element den Fokus _verliert_.
+Das Gegenstück zu `focus` ist das [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis, das ausgelöst wird, wenn das Element den Fokus _verloren_ hat.
 
-Das `focus` Ereignis kann nicht abgebrochen werden.
+Das `focus`-Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("focus", (event) => {});
+```js-nolint
+addEventListener("focus", (event) => { })
 
-onfocus = (event) => {};
+onfocus = (event) => { }
 ```
 
 ## Ereignistyp
@@ -74,9 +74,9 @@ password.addEventListener("blur", (event) => {
 
 {{EmbedLiveSample("Simple_example", '100%', '50px')}}
 
-### Ereignisdelegation
+### Ereignisdelegierung
 
-Es gibt zwei Möglichkeiten, die Ereignisdelegation für dieses Ereignis zu implementieren: durch Verwendung des [`focusin`](/de/docs/Web/API/Element/focusin_event) Ereignisses oder durch Setzen des `useCapture` Parameters von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `true`.
+Es gibt zwei Möglichkeiten, die Ereignisdelegierung für dieses Ereignis zu implementieren: durch Verwendung des [`focusin`](/de/docs/Web/API/Element/focusin_event)-Ereignisses oder durch Setzen des `useCapture`-Parameters von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `true`.
 
 #### HTML
 
@@ -129,7 +129,7 @@ form.addEventListener(
 
 ## Siehe auch
 
-- Die [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus) Methode
+- Die [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus)-Methode
 - Verwandte Ereignisse: [`blur`](/de/docs/Web/API/Element/blur_event), [`focusin`](/de/docs/Web/API/Element/focusin_event), [`focusout`](/de/docs/Web/API/Element/focusout_event)
-- Dieses Ereignis bei `Window`-Zielen: [`focus`](/de/docs/Web/API/Window/focus_event) Ereignis
+- Dieses Ereignis auf `Window`-Ziele: [`focus`](/de/docs/Web/API/Window/focus_event) Ereignis
 - [Fokussieren: focus/blur](https://javascript.info/focus-blur)

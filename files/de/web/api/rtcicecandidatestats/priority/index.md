@@ -1,30 +1,32 @@
 ---
-title: "RTCIceCandidateStats: priority-Eigenschaft"
+title: "RTCIceCandidateStats: Eigenschaft priority"
 short-title: priority
 slug: Web/API/RTCIceCandidateStats/priority
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: ef82d981d563626248276acbf9516aac7445d4fa
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`priority`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein positiver Ganzzahlenwert, der die Priorität (oder Begehrlichkeit) des beschriebenen Kandidaten angibt.
+Die **`priority`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein positiver Ganzzahlenwert, der die Priorität (oder Erwünschtheit) des beschriebenen Kandidaten angibt.
 
-Während der {{Glossary("ICE", "ICE")}}-Verhandlung beim Aufbau einer WebRTC-Peer-Verbindung werden die Prioritätswerte, die vom {{Glossary("user_agent", "User-Agent")}} an den entfernten Peer gemeldet werden, verwendet, um zu bestimmen, welche Kandidaten als "begehrenswerter" angesehen werden. Je höher der Wert, desto begehrenswerter ist der Kandidat.
+### Wert
 
-## Wert
+Ein positiver Ganzzahlenwert, der die Priorität des durch das `RTCIceCandidateStats`-Objekt beschriebenen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) angibt. Der Wert kann zwischen 1 und 2.147.483.647 liegen.
 
-Ein positiver Ganzzahlenwert, der die Priorität des in dem `RTCIceCandidateStats`-Objekt beschriebenen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) angibt. Der Wert kann zwischen 1 und 2.147.483.647 liegen.
+## Beschreibung
 
-## Bestimmung der Priorität
+Während der {{Glossary("ICE", "ICE")}}-Aushandlung beim Einrichten einer WebRTC-Peer-Verbindung werden die Prioritätswerte, die dem entfernten Peer von einem {{Glossary("user_agent", "User-Agent")}} gemeldet werden, dazu verwendet, festzustellen, welche Kandidaten als "erwünschenswerter" angesehen werden. Je höher der Wert, desto erwünschter ist der Kandidat.
 
-Die ICE-Spezifikation beschreibt, wie User-Agents und andere Software, die WebRTC einsetzen, die Priorität berechnen sollten. Die Priorität eines Kandidaten wird unter Verwendung der folgenden Variablen berechnet:
+### Priorität bestimmen
 
-- Die Bevorzugung des Kandidatentyps (lokal, serverreflexiv, peerreflexiv oder übermittelt)
-- Die Bevorzugung der spezifischen IP-Adresse des Kandidaten (für multihomed Agents)
-- Die Komponent-ID des Kandidaten (1 für RTP, 2 für RTCP)
+Die ICE-Spezifikation beschreibt, wie User-Agents und andere Software, die WebRTC verwendet, die Priorität berechnen sollten. Die Priorität eines Kandidaten wird unter Verwendung der folgenden Variablen als Eingaben berechnet:
 
-Die Priorität des Kandidaten wird unter Verwendung der folgenden Formel berechnet (_p<sub>type</sub>_ ist die Priorität des Kandidatentyps und _p<sub>local</sub>_ ist die Priorität der IP-Adresse):
+- Die Vorzugshierarchie des Kandidatentyps (lokal, serverreflexiv, peerreflexiv oder weitergeleitet)
+- Die Vorzugshierarchie der spezifischen IP-Adresse des Kandidaten (für multi-homed Agents)
+- Die Komponenten-ID des Kandidaten (1 für RTP, 2 für RTCP)
+
+Die Priorität des Kandidaten wird mit der Formel berechnet (_p<sub>type</sub>_ ist die Priorität des Kandidatentyps und _p<sub>local</sub>_ ist die Priorität der IP-Adresse):
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -32,7 +34,7 @@ Die Priorität des Kandidaten wird unter Verwendung der folgenden Formel berechn
 </math>
 <!-- prettier-ignore-end -->
 
-Dies entspricht der Zuordnung der Prioritäten des Kandidatentyps, der lokalen IP und der Komponent-ID zu verschiedenen Bitbereichen innerhalb des 32-Bit-`priority`-Werts.
+Dies entspricht der Zuordnung der Prioritäten des Kandidatentyps, der lokalen IP und der Komponenten-ID in verschiedene Bit-Bereiche innerhalb des 32-Bit-`priority`-Werts.
 
 ## Spezifikationen
 

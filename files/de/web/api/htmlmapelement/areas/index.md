@@ -3,12 +3,12 @@ title: "HTMLMapElement: areas-Eigenschaft"
 short-title: areas
 slug: Web/API/HTMLMapElement/areas
 l10n:
-  sourceCommit: da6219d9480147488eda1f9120359384ee652b92
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`areas`**-Schreibschutz-Eigenschaft der Schnittstelle [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement) gibt eine Sammlung von {{HTMLElement("area")}}-Elementen zurück, die mit dem {{HTMLElement("map")}}-Element verbunden sind.
+Die schreibgeschützte **`areas`**-Eigenschaft der [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement)-Schnittstelle gibt eine Sammlung von {{HTMLElement("area")}}-Elementen zurück, die mit dem {{HTMLElement("map")}}-Element verbunden sind.
 
 ## Wert
 
@@ -17,9 +17,9 @@ Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt von [`HTMLAreaEle
 ## Beispiel
 
 ```html
-<map id="image-map">
-  <area shape="circle" coords="50,50,35" alt="left arrow" />
-  <area shape="circle" coords="150,50,35" alt="right arrow" />
+<map id="image-map" name="image-map">
+  <area shape="circle" coords="50,50,35" href="#left" alt="left arrow" />
+  <area shape="circle" coords="150,50,35" href="#right" alt="right arrow" />
 </map>
 <img
   usemap="#image-map"

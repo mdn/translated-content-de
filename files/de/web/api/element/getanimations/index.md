@@ -1,17 +1,20 @@
 ---
-title: "Element: getAnimations()-Methode"
+title: "Element: getAnimations() Methode"
 short-title: getAnimations()
 slug: Web/API/Element/getAnimations
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Web Animations")}}
 
-Die `getAnimations()`-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle (spezifiziert im `Animatable`-Mixin) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die dieses Element beeinflussen oder in Zukunft beeinflussen sollen. Sie kann optional auch [`Animation`](/de/docs/Web/API/Animation)-Objekte für nachfolgende Elemente zurückgeben.
+Die `getAnimations()` Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle
+(festgelegt im `Animatable` Mixin) gibt ein Array aller
+[`Animation`](/de/docs/Web/API/Animation)-Objekte zurück, die dieses Element betreffen oder in Zukunft betreffen sollen. Sie kann optional auch [`Animation`](/de/docs/Web/API/Animation)-Objekte für nachfolgende
+Elemente zurückgeben.
 
 > [!NOTE]
-> Dieses Array enthält [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
+> Dieses Array umfasst [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
 
 ## Syntax
 
@@ -23,19 +26,19 @@ getAnimations(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
-  - : Ein Optionsobjekt, das die folgende Eigenschaft enthält:
-
+  - : Ein Optionsobjekt, das folgende Eigenschaft enthält:
     - `subtree`
-      - : Ein boolescher Wert, der, wenn `true`, bewirkt, dass auch Animationen zurückgegeben werden, die Nachfolger des _Element_ anvisieren. Dies schließt Animationen ein, die auf CSS-[Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) abzielen, die am _Element_ oder einem seiner Nachfolger angehängt sind. Standardwert ist `false`.
+      - : Ein boolescher Wert, der, wenn `true`, bewirkt, dass auch Animationen zurückgegeben werden, die auf Nachkommen von _Element_ abzielen. Dies schließt Animationen ein, die auf CSS-[Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) abzielen, die an _Element_ oder einen seiner Nachkommen angehängt sind. Standardmäßig `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, die jeweils eine Animation darstellen, die derzeit das [`Element`](/de/docs/Web/API/Element) anvisiert, auf dem diese Methode aufgerufen wird, oder eines seiner nachfolgenden Elemente, wenn `{ subtree: true }` angegeben ist.
+Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation)-Objekten, von denen jedes eine
+Animation darstellt, die derzeit auf das [`Element`](/de/docs/Web/API/Element) abzielt, auf dem diese Methode aufgerufen wird, oder auf eines seiner Nachkommelemente, falls `{ subtree: true }` angegeben ist.
 
 ## Beispiele
 
-Das folgende Codebeispiel wartet darauf, dass alle Animationen auf `elem` und seinen Nachfolgern abgeschlossen sind, bevor das Element aus dem Dokument entfernt wird.
+Der folgende Codeausschnitt wartet auf alle Animationen auf `elem` und seinen
+Nachkommen, bevor das Element aus dem Dokument entfernt wird.
 
 ```js
 Promise.all(
@@ -54,7 +57,7 @@ Promise.all(
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)
-- [`Document.getAnimations()`](/de/docs/Web/API/Document/getAnimations) - Alle Animationen im Dokument abrufen
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions)
+- [`Document.getAnimations()`](/de/docs/Web/API/Document/getAnimations) - Abruf aller Animationen im Dokument
 - [`Animation`](/de/docs/Web/API/Animation)

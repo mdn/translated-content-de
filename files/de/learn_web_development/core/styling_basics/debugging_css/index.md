@@ -2,108 +2,108 @@
 title: Debugging CSS
 slug: Learn_web_development/Core/Styling_basics/Debugging_CSS
 l10n:
-  sourceCommit: a92e10b293358bc796c43d5872a8981fd988a005
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{LearnSidebar}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Home_color_scheme_search", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics/Fundamental_CSS_comprehension", "Learn_web_development/Core/Styling_basics")}}
-
-Manchmal stoßen Sie beim Schreiben von CSS auf ein Problem, bei dem Ihr CSS nicht das tut, was Sie erwarten. Vielleicht glauben Sie, dass ein bestimmter Selektor ein Element ansprechen sollte, aber nichts passiert, oder ein Kasten ist anders groß als erwartet. Dieser Artikel gibt Ihnen eine Anleitung, wie Sie ein CSS-Problem debuggen können, und zeigt, wie die DevTools, die in allen modernen Browsern enthalten sind, Ihnen helfen können, herauszufinden, was vor sich geht.
+Manchmal stoßen Sie beim Schreiben von CSS auf ein Problem, bei dem Ihre CSS nicht so funktioniert, wie Sie es erwarten. Vielleicht glauben Sie, dass ein bestimmter Selektor ein Element ansprechen sollte, aber nichts passiert, oder ein Kasten hat eine andere Größe als erwartet. Dieser Artikel gibt Ihnen Anleitungen, wie Sie ein CSS-Problem debuggen können, und zeigt Ihnen, wie Ihnen die DevTools aller modernen Browser dabei helfen können, herauszufinden, was vor sich geht.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">Grundlegende HTML-Syntax</a>, Grundlagen der CSS-Gestaltung (behandelt in den vorherigen Lektionen in diesem Modul!)
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
+          >Grundlegende HTML-Syntax</a
+        >, CSS-Styling-Grundlagen (abgedeckt in den vorherigen Lektionen dieses Moduls!)
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verwenden Sie den <a href="https://validator.w3.org/">HTML-Validator</a>, um zu sehen, ob Sie ungültiges Markup auf Ihrer Seite haben, das CSS-Probleme verursacht.</li>
-          <li>Verwenden Sie den <a href="https://jigsaw.w3.org/css-validator/">CSS-Validator</a>, um nach schlecht geschriebenem CSS-Code zu suchen.</li>
-          <li>Nutzen Sie die Entwicklerwerkzeuge des Browsers, um das CSS zu inspizieren, das auf HTML-Elemente auf einer Seite angewendet wird.</li>
-          <li>Ändern Sie das angewendete CSS, um herauszufinden, welche Änderungen erforderlich sind, um das gewünschte Ergebnis zu erzielen. Dazu gehört das Aktivieren und Deaktivieren von Deklarationen, das Ändern von Werten und das Hinzufügen neuer Deklarationen.</li>
+          <li>Verwenden Sie den <a href="https://validator.w3.org/">HTML-Validator</a>, um zu sehen, ob auf Ihrer Seite ungültiges Markup vorhanden ist, das CSS-Probleme verursacht.</li>
+          <li>Verwenden Sie den <a href="https://jigsaw.w3.org/css-validator/">CSS-Validator</a>, um schlecht formatierten CSS-Code zu überprüfen.</li>
+          <li>Verwenden Sie die Entwicklerwerkzeuge des Browsers, um das CSS zu inspizieren, das auf HTML-Elemente auf einer Seite angewendet wird.</li>
+          <li>Ändern Sie das angewendete CSS, um herauszufinden, welche Änderungen erforderlich sind, um das gewünschte Ergebnis zu erzielen. Dies umfasst das Aktivieren und Deaktivieren von Deklarationen, das Ändern von Werten und das Hinzufügen neuer Deklarationen.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Zugriff auf Browser DevTools
+## Anleitung zum Zugriff auf die DevTools des Browsers
 
-Der Artikel [Was sind Browser-Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) erklärt, wie Sie die Werkzeuge in verschiedenen Browsern und Plattformen zugreifen können. Sie können sich dafür entscheiden, hauptsächlich in einem bestimmten Browser zu entwickeln und sich daher mit den darin enthaltenen Tools am besten vertraut zu machen. Es ist jedoch auch nützlich zu wissen, wie man auf sie in anderen Browsern zugreifen kann. Dies hilft, wenn Sie unterschiedliche Darstellungen zwischen mehreren Browsern feststellen.
+Der Artikel [Was sind Entwicklerwerkzeuge für Browser](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) erklärt, wie Sie auf die Tools in verschiedenen Browsern und Plattformen zugreifen können. Auch wenn Sie sich hauptsächlich in einem bestimmten Browser entwickeln und daher mit den in diesem Browser enthaltenen Tools am besten vertraut sind, lohnt es sich zu wissen, wie Sie in anderen Browsern darauf zugreifen können. Dies hilft Ihnen, falls Sie unterschiedliche Renderings in mehreren Browsern sehen.
 
-In dieser Lektion werden wir einige nützliche Funktionen der Firefox DevTools für die Arbeit mit CSS betrachten. Um dies zu tun, werde ich [eine Beispieldatei](https://mdn.github.io/css-examples/learn/inspecting/inspecting.html) verwenden. Laden Sie diese in einem neuen Tab, wenn Sie mitmachen möchten, und öffnen Sie dann Ihre DevTools, wie im oben verlinkten Artikel beschrieben.
+In dieser Lektion werden wir einige nützliche Funktionen der Firefox DevTools für die Arbeit mit CSS untersuchen. Dazu werde ich eine [Beispieldatei](https://mdn.github.io/css-examples/learn/inspecting/inspecting.html) verwenden. Laden Sie diese in einem neuen Tab, wenn Sie mitmachen möchten, und öffnen Sie Ihre DevTools, wie im oben verlinkten Artikel beschrieben.
 
-## Das DOM und das Quelltext anzeigen
+## Das DOM versus Quelltext ansehen
 
-Einige, die neu bei den DevTools sind, können dadurch verwirrt werden, dass es einen Unterschied gibt zwischen dem, was Sie sehen, wenn Sie den [Quelltext anzeigen](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html) einer Webseite betrachten oder die HTML-Datei ansehen, die Sie auf dem Server abgelegt haben, und dem, was Sie im [HTML-Fenster](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#html-pane) der DevTools sehen. Während es grob ähnlich aussieht wie das, was Sie über "Quelltext anzeigen" sehen können, gibt es einige Unterschiede.
+Etwas, das Neulinge bei DevTools verwirren kann, ist der Unterschied zwischen dem, was Sie sehen, wenn Sie [den Quelltext anzeigen](https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html) einer Webseite ansehen oder sich die HTML-Datei ansehen, die Sie auf den Server geladen haben, und dem, was Sie im [HTML-Pane](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#html-pane) der DevTools sehen können. Während es dem, was Sie über den Quelltext sehen, grob ähnlich aussieht, gibt es einige Unterschiede.
 
-Im gerenderten DOM hat der Browser möglicherweise das HTML normalisiert, beispielsweise indem er einige schlecht geschriebene HTML für Sie korrigiert. Wenn Sie fälschlicherweise ein Element geschlossen haben, indem Sie zum Beispiel ein `<h2>` öffnen und mit `</h3>` schließen, wird der Browser herausfinden, was Sie tun wollten und das HTML im DOM wird das offene `<h2>` korrekt mit einem `</h2>` schließen. Das DOM zeigt auch alle von JavaScript vorgenommenen Änderungen.
+Im gerenderten DOM hat der Browser das HTML möglicherweise normalisiert, z.B. indem er einige schlecht geschriebene HTML-Tags für Sie korrigiert hat. Wenn Sie ein Element falsch geschlossen haben, indem Sie zum Beispiel ein `<h2>` öffnen, aber mit `</h3>` schließen, wird der Browser herausfinden, was Sie tun wollten, und das HTML im DOM wird das offene `<h2>` korrekt mit einem `</h2>` schließen. Das DOM zeigt auch alle von JavaScript vorgenommenen Änderungen an.
 
-Im Vergleich dazu ist "View Source" der HTML-Quellcode, wie er auf dem Server gespeichert ist. Der [HTML-Baum](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_html/index.html#html-tree) in Ihren DevTools zeigt genau das, was der Browser zu jedem Zeitpunkt rendert, was Ihnen Einblick darin gibt, was tatsächlich vor sich geht.
+Im Vergleich dazu ist Quelltext der HTML-Quellcode, wie er auf dem Server gespeichert ist. Der [HTML-Baum](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_html/index.html#html-tree) in Ihren DevTools zeigt genau, was der Browser zu einem bestimmten Zeitpunkt rendert, und gibt Ihnen damit einen Einblick, was wirklich vor sich geht.
 
-## Das angewendete CSS inspizieren
+## Inspizieren des angewendeten CSS
 
-Wählen Sie ein Element auf Ihrer Seite aus, entweder indem Sie darauf rechtsklik oder Strg-klicken und dann _Inspect_ auswählen oder indem Sie es aus dem HTML-Baum links in der DevTools-Anzeige auswählen. Versuchen Sie, das Element mit der Klasse `box1` auszuwählen; dies ist das erste Element auf der Seite, umrahmt von einem Kasten.
+Wählen Sie ein Element auf Ihrer Seite aus, entweder indem Sie mit der rechten/Strg-Taste darauf klicken und _Inspect_ wählen oder indem Sie es aus dem HTML-Baum auf der linken Seite der DevTools-Anzeige auswählen. Versuchen Sie, das Element mit der Klasse `box1` auszuwählen; dies ist das erste Element auf der Seite, um das ein umrandeter Kasten gezeichnet ist.
 
-![Die Beispielsseite für dieses Tutorial mit geöffneten DevTools.](inspecting1.png)
+![Die Beispielseite für dieses Tutorial mit geöffneten DevTools.](inspecting1.png)
 
-Wenn Sie die [Regelnansicht](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#rules-view) rechts von Ihrem HTML betrachten, sollten Sie die CSS-Eigenschaften und -Werte sehen, die auf dieses Element angewendet werden. Sie sehen die Regeln, die direkt auf die Klasse `box1` angewendet werden, sowie das CSS, das von den Vorfahren, in diesem Fall von `<body>`, geerbt wird. Dies ist nützlich, wenn Sie CSS angewendet sehen, das Sie nicht erwartet haben. Vielleicht wird es von einem übergeordneten Element geerbt und Sie müssen eine Regel hinzufügen, um es im Kontext dieses Elements zu überschreiben.
+Wenn Sie sich den [Regel-Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#rules-view) rechts von Ihrem HTML ansehen, sollten Sie die CSS-Eigenschaften und -Werte sehen können, die auf dieses Element angewendet werden. Sie sehen die Regeln, die direkt auf die Klasse `box1` angewendet werden, sowie das CSS, das das Kästchen von seinen Vorfahren erbt, in diesem Fall von `<body>`. Dies ist nützlich, wenn Sie CSS sehen, das angewendet wird, das Sie nicht erwartet haben. Vielleicht wird es von einem übergeordneten Element geerbt und Sie müssen eine Regel hinzufügen, um es im Kontext dieses Elements zu überschreiben.
 
-Auch hilfreich ist die Möglichkeit, Kurzschreibweiseigenschaften aufzuschlüsseln. In unserem Beispiel wird die Kurzschreibweise `margin` verwendet.
+Auch nützlich ist die Möglichkeit, Kurzschreibeigenschaften zu erweitern. In unserem Beispiel wird `margin` als Kurzform verwendet.
 
-**Klicken Sie auf den kleinen Pfeil, um die Ansicht zu erweitern, sodass die verschiedenen Langform-Eigenschaften und deren Werte angezeigt werden.**
+**Klicken Sie auf den kleinen Pfeil, um die Ansicht zu erweitern und die verschiedenen Langform-Eigenschaften und ihre Werte anzuzeigen.**
 
-**Sie können in der Regelnansicht, wenn dieses Panel aktiv ist, Werte an- und ausschalten — bei Überfahren mit der Maus erscheinen Kontrollkästchen. Deaktivieren Sie zum Beispiel ein Kontrollkästchen für eine Regel wie `border-radius`, und das CSS wird nicht mehr angewendet.**
+**Sie können Werte in der Regel-Ansicht ein- und ausschalten, wenn dieses Panel aktiv ist – wenn Sie die Maus darüber halten, erscheinen Checkboxes. Deaktivieren Sie das Checkbox einer Regel, z.B. `border-radius`, und das CSS wird nicht mehr angewendet.**
 
-Dies können Sie nutzen, um einen A/B-Vergleich durchzuführen, zu entscheiden, ob etwas mit einer angewendeten Regel besser aussieht oder nicht, und auch, um beim Debuggen zu helfen — zum Beispiel, wenn ein Layout nicht richtig funktioniert und Sie herausfinden müssen, welche Eigenschaft das Problem verursacht.
+Sie können dies verwenden, um einen A/B-Vergleich durchzuführen, zu entscheiden, ob etwas mit einer Regel angewendet besser aussieht oder nicht, und auch um es zu debuggen – z.B. wenn ein Layout falsch läuft und Sie herausfinden möchten, welche Eigenschaft das Problem verursacht.
 
-## Werte bearbeiten
+## Bearbeiten von Werten
 
-Zusätzlich zum Ein- und Ausschalten von Eigenschaften können Sie deren Werte bearbeiten. Vielleicht möchten Sie sehen, ob eine andere Farbe besser aussieht oder die Größe eines Elements anpassen? DevTools kann Ihnen eine Menge Zeit sparen, indem Sie ein Stylesheet bearbeiten und die Seite aktualisieren müssen.
+Zusätzlich zum Ein- und Ausschalten von Eigenschaften können Sie deren Werte bearbeiten. Vielleicht möchten Sie sehen, ob eine andere Farbe besser aussieht oder die Größe von etwas ändern? DevTools kann Ihnen viel Zeit sparen, wenn Sie ein Stylesheet bearbeiten und die Seite neu laden möchten.
 
-**Mit ausgewähltem `box1`, klicken Sie auf den Farbfleck (den kleinen farbigen Kreis), der die auf den Rand angewendete Farbe anzeigt. Ein Farbpicker wird geöffnet und Sie können einige verschiedene Farben ausprobieren; diese werden in Echtzeit auf der Seite aktualisiert. In ähnlicher Weise könnten Sie die Breite oder den Stil des Randes ändern.**
+**Mit `box1` ausgewählt, klicken Sie auf das Farbprobensymbol (der kleine farbige Kreis), das die auf die Grenze angewendete Farbe zeigt. Es öffnet sich ein Farbwähler, mit dem Sie einige verschiedene Farben ausprobieren können; diese werden in Echtzeit auf der Seite aktualisiert. Auf ähnliche Weise könnten Sie die Breite oder den Stil der Grenze ändern.**
 
-![DevTools Styles Panel mit einem geöffneten Farbpicker.](inspecting2-color-picker.png)
+![DevTools Styles Panel mit einem geöffneten Farbwähler.](inspecting2-color-picker.png)
 
-## Eine neue Eigenschaft hinzufügen
+## Hinzufügen einer neuen Eigenschaft
 
-Sie können mithilfe von DevTools Eigenschaften hinzufügen. Vielleicht haben Sie erkannt, dass Sie nicht möchten, dass Ihr Kasten die Schriftgröße des `<body>`-Elements erbt und eine eigene spezifische Größe setzen wollen? Sie können dies in DevTools ausprobieren, bevor Sie es Ihrer CSS-Datei hinzufügen.
+Sie können Eigenschaften mit den DevTools hinzufügen. Vielleicht haben Sie bemerkt, dass Sie nicht möchten, dass Ihr Box die Schriftgröße des `<body>`-Elements erbt, und möchten ihm eine eigene spezifische Größe geben? Sie können dies in den DevTools ausprobieren, bevor Sie es Ihrer CSS-Datei hinzufügen.
 
-**Sie können auf die schließende geschweifte Klammer in der Regel klicken, um eine neue Deklaration einzutragen; zu diesem Zeitpunkt können Sie beginnen, die neue Eigenschaft zu tippen, und DevTools wird Ihnen eine Autovervollständigungsliste passender Eigenschaften anzeigen. Nach der Auswahl von `font-size` geben Sie den Wert ein, den Sie ausprobieren möchten. Sie können auch auf die + Schaltfläche klicken, um eine zusätzliche Regel mit dem gleichen Selektor hinzuzufügen und Ihre neuen Regeln dort hinzuzufügen.**
+**Sie können auf die schließende geschweifte Klammer in der Regel klicken, um zu beginnen, eine neue Deklaration einzugeben, woraufhin Sie anfangen können, die neue Eigenschaft zu tippen, und die DevTools zeigen Ihnen eine Autovervollständigungsliste der passenden Eigenschaften an. Nachdem Sie `font-size` ausgewählt haben, geben Sie den Wert ein, den Sie ausprobieren möchten. Sie können auch auf die + Taste klicken, um eine zusätzliche Regel mit dem gleichen Selektor hinzuzufügen und Ihre neuen Regeln dort hinzuzufügen.**
 
-![Das DevTools-Panel, das Hinzufügen einer neuen Eigenschaft zu den Regeln, mit der Autovervollständigung für font-](inspecting3-font-size.png)
+![Das DevTools Panel, das eine neue Eigenschaft zu den Regeln hinzufügt, mit der Autovervollständigung für font- geöffnet](inspecting3-font-size.png)
 
 > [!NOTE]
-> Es gibt andere nützliche Funktionen in der Regelnansicht, z. B. werden Deklarationen mit ungültigen Werten durchgestrichen. Sie können mehr darüber erfahren unter [CSS untersuchen und bearbeiten](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html).
+> Es gibt auch andere nützliche Funktionen in der Regel-Ansicht, z.B. werden Deklarationen mit ungültigen Werten durchgestrichen. Mehr dazu erfahren Sie unter [Untersuchen und Bearbeiten von CSS](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html).
 
 ## Das Box-Modell verstehen
 
-In den vorherigen Lektionen haben wir das [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) besprochen, und die Tatsache, dass wir ein alternatives Box-Modell haben, das die Größe von Elementen basierend auf der Größe, die Sie ihnen geben, plus den Innenabstand und den Rändern, ändert. DevTools kann Ihnen wirklich helfen zu verstehen, wie die Größe eines Elements berechnet wird.
+In den vorherigen Lektionen haben wir [das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) besprochen und die Tatsache, dass wir ein alternatives Box-Modell haben, das die Größe von Elementen basierend auf der Größe, die Sie ihnen geben, plus dem Padding und den Rändern ändert. DevTools kann Ihnen wirklich helfen zu verstehen, wie die Größe eines Elements berechnet wird.
 
-Die [Layout-Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#layout-view) zeigt Ihnen ein Diagramm des Box-Modells auf dem ausgewählten Element, zusammen mit einer Beschreibung der Eigenschaften und Werte, die ändern, wie das Element gestaltet wird. Dies umfasst eine Beschreibung von Eigenschaften, die Sie möglicherweise nicht explizit für das Element verwendet haben, die aber dennoch Vorgabewerte haben.
+Die [Layoutansicht](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#layout-view) zeigt Ihnen ein Diagramm des Box-Modells des ausgewählten Elements zusammen mit einer Beschreibung der Eigenschaften und Werte, die ändern, wie das Element ausgelegt ist. Dazu gehört eine Beschreibung von Eigenschaften, die Sie möglicherweise nicht explizit auf dem Element verwendet haben, die aber anfängliche Werte gesetzt haben.
 
-In diesem Panel ist eine der detaillierten Eigenschaften die `box-sizing`-Eigenschaft, die steuert, welches Box-Modell das Element verwendet.
+In diesem Panel ist eine der detaillierten Eigenschaften die `box-sizing`-Eigenschaft, die kontrolliert, welches Box-Modell das Element verwendet.
 
-**Vergleichen Sie die beiden Kästen mit den Klassen `box1` und `box2`. Sie haben beide dieselbe Breite (400px), jedoch ist `box1` visuell breiter. Sie sehen in der Layout-Ansicht, dass er `content-box` verwendet. Dies ist der Wert, der die Größe, die Sie dem Element geben, nimmt und dann den Innenabstand und die Randbreite hinzufügt.**
+**Vergleichen Sie die beiden Boxen mit den Klassen `box1` und `box2`. Beide haben die gleiche Breite angewendet (400px), jedoch ist `box1` optisch breiter. Sie können im Layout-Panel sehen, dass es `content-box` verwendet. Dies ist der Wert, der die Größe, die Sie dem Element geben, nimmt und dann das Padding und die Randbreite hinzufügt.**
 
-Das Element mit der Klasse `box2` verwendet `border-box`, sodass hier der Innenabstand und die Ränder von der Größe, die Sie dem Element gegeben haben, abgezogen werden. Dies bedeutet, dass der Platz, den der Kasten auf der Seite einnimmt, genau die Größe ist, die Sie angegeben haben — in unserem Fall `width: 400px`.
+Das Element mit einer Klasse von `box2` verwendet `border-box`, sodass hier das Padding und der Rand von der Größe abgezogen werden, die Sie dem Element gegeben haben. Dies bedeutet, dass der auf der Seite eingenommene Platz des Kastens die exakte Größe hat, die Sie angegeben haben – in unserem Fall `width: 400px`.
 
 ![Der Layout-Abschnitt der DevTools](inspecting4-box-model.png)
 
 > [!NOTE]
-> Mehr erfahren in [Untersuchen und Inspektieren des Box-Modells](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_the_box_model/index.html).
+> Weitere Informationen finden Sie unter [Das Box-Modell untersuchen und inspizieren](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_the_box_model/index.html).
 
-## Problemlösung von Spezifität
+## Lösung von Spezifitätsproblemen
 
-Manchmal während der Entwicklung, insbesondere wenn Sie die CSS auf einer bestehenden Seite bearbeiten müssen, werden Sie feststellen, dass Sie Schwierigkeiten haben, dass ein CSS angewendet wird. Egal, was Sie tun, das Element scheint einfach die CSS nicht zu übernehmen. Was hier im Allgemeinen passiert, ist, dass ein spezifischerer Selektor Ihre Änderungen überschreibt, und hier werden Ihnen die DevTools wirklich helfen.
+Manchmal während der Entwicklung, insbesondere wenn Sie das CSS auf einer bestehenden Seite bearbeiten müssen, werden Sie Schwierigkeiten haben, dass sich einiges CSS anwenden lässt. Egal, was Sie tun, das Element scheint einfach das CSS nicht zu übernehmen. Was hier in der Regel passiert, ist, dass ein spezifischerer Selektor Ihre Änderungen überschreibt, und hier werden Ihnen DevTools wirklich helfen können.
 
-In unserer Beispieldatei gibt es zwei Wörter, die in einem `<em>`-Element eingeschlossen sind. Eines zeigt sich als orange, das andere als hotpink. Im CSS haben wir angewendet:
+In unserer Beispieldatei wurden zwei Wörter in ein `<em>`-Element eingeschlossen. Eines wird orange und das andere hotpink angezeigt. Im CSS haben wir angewendet:
 
 ```css
 em {
@@ -112,7 +112,7 @@ em {
 }
 ```
 
-Darüber jedoch im Stylesheet ist eine Regel mit einem `.special` Selektor:
+Darüber hinaus befindet sich im Stylesheet jedoch eine Regel mit einem `.special`-Selektor:
 
 ```css
 .special {
@@ -120,69 +120,69 @@ Darüber jedoch im Stylesheet ist eine Regel mit einem `.special` Selektor:
 }
 ```
 
-Wie Sie sich erinnern werden aus der Lektion zum [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts), wo wir die Spezifität besprochen haben, sind Klassenselektoren spezifischer als Elementselektoren, und dies ist daher der Wert, der angewendet wird. DevTools kann Ihnen helfen, solche Probleme zu finden, besonders wenn die Informationen irgendwo in einem riesigen Stylesheet vergraben sind.
+Wie Sie sich aus der Lektion über [Konflikte behandeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) erinnern, in der wir Spezifität besprochen haben, sind Klassenselektoren spezifischer als Elementselektoren, und daher ist dies der Wert, der angewendet wird. DevTools kann Ihnen helfen, solche Probleme zu finden, insbesondere wenn die Informationen irgendwo in einem riesigen Stylesheet vergraben sind.
 
-**Untersuchen Sie das `<em>` mit der Klasse `.special` und DevTools zeigt Ihnen, dass orange die Farbe ist, die angewendet wird, und auch dass die `color`-Eigenschaft, die auf das `<em>` angewendet wird, durchgestrichen ist. Sie können nun sehen, dass der Klassenselektor den Elementselektor überschreibt.**
+**Untersuchen Sie das `<em>` mit der Klasse `.special` und DevTools zeigt Ihnen, dass orange die Farbe ist, die angewendet wird, und auch, dass die `color`-Eigenschaft auf das `<em>` durchgestrichen ist. Sie können jetzt erkennen, dass der Klassenselektor den Elementselektor überschreibt.**
 
-![Auswahl eines em und ein Blick auf DevTools, um zu sehen, was die Farbe überschreibt.](inspecting5-specificity.png)
+![Ein em auswählen und in den DevTools nachsehen, was die Farbe überschreibt.](inspecting5-specificity.png)
 
-## Probleme im CSS debuggen
+## Fehlerbehebung bei CSS-Problemen
 
-DevTools kann eine große Hilfe beim Lösen von CSS-Problemen sein, also wenn Sie sich in einer Situation befinden, in der das CSS nicht so funktioniert, wie Sie es erwarten, wie sollten Sie vorgehen, um es zu lösen? Die folgenden Schritte sollten helfen.
+DevTools können eine große Hilfe bei der Lösung von CSS-Problemen sein. Wenn Sie sich also in einer Situation befinden, in der CSS nicht so verhält, wie Sie es erwarten, wie sollten Sie vorgehen, um es zu lösen? Die folgenden Schritte sollten helfen.
 
-### Einen Schritt zurück vom Problem machen
+### Nehmen Sie einen Schritt zurück von dem Problem
 
-Jedes Programmierproblem kann frustrierend sein, vor allem CSS-Probleme, da Sie oft keine Fehlermeldung erhalten, nach der Sie online suchen können, um eine Lösung zu finden. Wenn Sie frustriert sind, treten Sie für eine Weile von dem Problem zurück — gehen Sie spazieren, holen Sie sich ein Getränk, unterhalten Sie sich mit einem Kollegen oder arbeiten Sie eine Weile an einem anderen Projekt. Manchmal erscheint die Lösung magisch, wenn man nicht mehr an das Problem denkt, und selbst wenn nicht, wird es viel einfacher sein, daran zu arbeiten, wenn man frisch und ausgeruht ist.
+Jedes Programmierproblem kann frustrierend sein, insbesondere CSS-Probleme, da Sie oft keine Fehlermeldung erhalten, die Sie online suchen können, um eine Lösung zu finden. Wenn Sie frustriert werden, machen Sie eine Pause vom Problem – machen Sie einen Spaziergang, holen Sie sich ein Getränk, plaudern Sie mit einem Kollegen oder arbeiten Sie eine Weile an einer anderen Sache. Manchmal erscheint die Lösung wie von Zauberhand, wenn Sie aufhören, über das Problem nachzudenken, und selbst wenn nicht, wird es viel einfacher sein, daran zu arbeiten, wenn Sie sich frisch fühlen.
 
 ### Haben Sie gültiges HTML und CSS?
 
-Browser erwarten, dass Ihr CSS und HTML korrekt geschrieben ist, aber Browser sind auch sehr nachsichtig und versuchen, Ihre Webseiten anzuzeigen, selbst wenn Sie Fehler im Markup oder Stylesheet haben. Wenn Sie Fehler in Ihrem Code haben, muss der Browser raten, was Sie meinten, und er könnte eine andere Entscheidung treffen als das, was Sie im Sinn hatten. Darüber hinaus könnten zwei verschiedene Browser das Problem auf unterschiedliche Weise bewältigen. Ein guter erster Schritt besteht daher darin, Ihr HTML und CSS durch einen Validator laufen zu lassen, um Fehler zu entdecken und zu beheben.
+Browser erwarten, dass Ihr CSS und HTML korrekt geschrieben ist, aber Browser sind auch sehr nachsichtig und werden ihr Bestes tun, um Ihre Webseiten auch dann anzuzeigen, wenn Sie Fehler im Markup oder Stylesheet haben. Wenn Sie Fehler in Ihrem Code haben, muss der Browser erraten, was Sie gemeint haben, und er könnte eine andere Entscheidung treffen als Sie. Außerdem könnten zwei verschiedene Browser mit dem Problem auf zwei unterschiedliche Weisen umgehen. Ein erster guter Schritt besteht daher darin, Ihr HTML und CSS durch einen Validator laufen zu lassen, um Fehler zu erkennen und zu beheben.
 
-- [CSS Validator](https://jigsaw.w3.org/css-validator/)
-- [HTML Validator](https://validator.w3.org/)
+- [CSS-Validator](https://jigsaw.w3.org/css-validator/)
+- [HTML-Validator](https://validator.w3.org/)
 
-### Werden die Eigenschaft und der Wert vom getesteten Browser unterstützt?
+### Werden die Eigenschaft und der Wert vom Browser, den Sie testen, unterstützt?
 
-Browser ignorieren CSS, das sie nicht verstehen. Wenn die Eigenschaft oder der Wert, den Sie verwenden, nicht vom Browser unterstützt wird, den Sie testen, dann wird nichts kaputtgehen, aber dieses CSS wird nicht angewendet. DevTools werden im Allgemeinen nicht unterstützte Eigenschaften und Werte irgendwie hervorheben. Im folgenden Screenshot unterstützt der Browser den Subgrid-Wert von {{cssxref("grid-template-columns")}} nicht.
+Browser ignorieren CSS, das sie nicht verstehen. Wenn die Eigenschaft oder der Wert, den Sie verwenden, nicht vom Browser, den Sie testen, unterstützt wird, wird nichts kaputt gehen, aber dieses CSS wird nicht angewendet. DevTools hebt in der Regel nicht unterstützte Eigenschaften und Werte irgendwie hervor. Im folgenden Screenshot unterstützt der Browser den subgrid-Wert von {{cssxref("grid-template-columns")}} nicht.
 
-![Bild der Browser-DevTools mit dem durchgestrichenen grid-template-columns: subgrid, da der Subgrid-Wert nicht unterstützt wird.](no-support.png)
+![Bild der Browser-DevTools, bei dem grid-template-columns: subgrid durchgestrichen ist, da der Subgrid-Wert nicht unterstützt wird.](no-support.png)
 
-Sie können auch einen Blick auf die Browser-Kompatibilitätstabellen am Ende jeder Eigenschaftsseite auf MDN werfen. Diese zeigen Ihnen die Unterstützung des Browsers für diese Eigenschaft und sind oft aufgeschlüsselt, wenn es Unterstützung für einige Verwendungen der Eigenschaft gibt und andere nicht. [Sehen Sie sich die Kompatibilitätstabelle für die `grid-template-columns`-Eigenschaft an](/de/docs/Web/CSS/grid-template-columns#browser_compatibility).
+Sie können auch die Browser-Kompatibilitätstabellen am Ende jeder Eigenschaftsseite auf MDN betrachten. Diese zeigen Ihnen die Browser-Unterstützung für diese Eigenschaft, oft aufgeschlüsselt, ob es Unterstützung für einige Verwendungen der Eigenschaft gibt und nicht für andere. [Sehen Sie sich die Kompatibilitätstabelle für die Eigenschaft `grid-template-columns` an](/de/docs/Web/CSS/Reference/Properties/grid-template-columns#browser_compatibility).
 
-### Wird Ihr CSS durch etwas anderes überschrieben?
+### Wird Ihr CSS von etwas anderem überschrieben?
 
-Hier wird die Spezifitätsinformation, die Sie gelernt haben, von großem Nutzen sein. Wenn Sie etwas spezifischeres haben, das das überschreibt, was Sie versuchen zu tun, können Sie in ein sehr frustrierendes Spiel geraten, um herauszufinden, was es ist. Wie oben beschrieben, zeigen Ihnen jedoch die DevTools an, welches CSS angewendet wird, und Sie können herausfinden, wie Sie den neuen Selektor spezifisch genug machen können, um ihn zu überschreiben.
+Hier kommt das Wissen, das Sie über Spezifität gelernt haben, nützlich. Wenn Sie etwas spezielleres haben, das das, was Sie versuchen zu tun, überschreibt, können Sie in ein sehr frustrierendes Spiel geraten, herauszufinden, was es ist. Wie oben beschrieben, zeigen Ihnen die DevTools jedoch, welches CSS angewendet wird, und Sie können herausfinden, wie Sie den neuen Selektor spezifisch genug machen, um ihn zu überschreiben.
 
-### Erstellen Sie eine reduzierte Testfall des Problems
+### Erstellen Sie einen reduzierten Testfall des Problems
 
-Wenn das Problem durch die obigen Schritte nicht gelöst wird, müssen Sie weitere Untersuchungen durchführen. Das Beste, was Sie an diesem Punkt tun können, ist, etwas zu erstellen, das als reduzierter Testfall bekannt ist. Die Fähigkeit, ein Problem zu "reduzieren", ist eine wirklich nützliche Fähigkeit. Es wird Ihnen helfen, Probleme in Ihrem eigenen Code und dem Ihrer Kollegen zu finden und Ihnen auch ermöglichen, Bugs zu melden und effektiver um Hilfe zu bitten.
+Wenn das Problem durch die obigen Schritte nicht gelöst wird, müssen Sie weitere Nachforschungen anstellen. Das Beste, was Sie zu diesem Zeitpunkt tun können, ist, etwas zu erstellen, das als reduzierter Testfall bekannt ist. Die Fähigkeit, ein Problem zu "reduzieren", ist eine wirklich nützliche Fähigkeit. Es wird Ihnen helfen, Probleme in Ihrem eigenen Code und dem Ihrer Kollegen zu finden und wird Ihnen auch ermöglichen, Fehler zu melden und effektiver um Hilfe zu bitten.
 
-Ein reduzierter Testfall ist ein Codebeispiel, das das Problem auf die einfachste mögliche Weise demonstriert, mit entfernten nicht verwandten umgebenden Inhalten und Stilen. Dies bedeutet oft, dass der problematische Code aus Ihrem Layout herausgenommen wird, um ein kleines Beispiel zu erstellen, das nur diesen Code oder dieses Merkmal zeigt.
+Ein reduzierter Testfall ist ein Codebeispiel, das das Problem auf die einfachste mögliche Weise zeigt, mit nicht verwandtem umgebendem Inhalt und Styling entfernt. Dies bedeutet oft, dass der problematische Code aus Ihrem Layout herausgenommen wird, um ein kleines Beispiel zu erstellen, das nur diesen Code oder dieses Feature zeigt.
 
 Um einen reduzierten Testfall zu erstellen:
 
-1. Wenn Ihr Markup dynamisch generiert wird — zum Beispiel über ein CMS — machen Sie eine statische Version des Outputs, der das Problem zeigt. Eine Code-Sharing-Website wie [CodePen](https://codepen.io/) ist nützlich, um reduzierte Testfälle zu hosten, da diese dann online zugänglich sind und Sie sie leicht mit Kollegen teilen können. Sie könnten damit beginnen, den Seitenquelltext anzuzeigen und das HTML in CodePen zu kopieren, dann sich das relevante CSS und JavaScript schnappen und es ebenfalls einfügen. Danach können Sie prüfen, ob das Problem weiterhin besteht.
-2. Wenn das Entfernen des JavaScripts das Problem nicht beseitigt, schließen Sie das JavaScript nicht ein. Wenn das Entfernen des JavaScripts _das_ Problem beseitigt, entfernen Sie so viel JavaScript wie möglich, lassen Sie jedoch das, was das Problem verursacht, bestehen.
-3. Entfernen Sie alle HTML, die nicht zum Problem beiträgt. Entfernen Sie Komponenten oder sogar Hauptelemente des Layouts. Versuchen Sie erneut, bis zur geringsten Menge an Code zu gelangen, die weiterhin das Problem zeigt.
-4. Entfernen Sie alle CSS, die das Problem nicht beeinflusst.
+1. Wenn Ihr Markup dynamisch generiert wird — zum Beispiel über ein CMS — erstellen Sie eine statische Version der Ausgabe, die das Problem zeigt. Eine Code-Sharing-Website wie [CodePen](https://codepen.io/) ist nützlich für das Hosting reduzierter Testfälle, da diese dann online zugänglich sind und Sie sie problemlos mit Kollegen teilen können. Sie könnten beginnen, indem Sie den Quellcode der Seite anzeigen und das HTML in CodePen kopieren, dann holen Sie sich das relevante CSS und JavaScript und fügen Sie es auch hinzu. Überprüfen Sie danach, ob das Problem immer noch sichtbar ist.
+2. Wenn das Entfernen des JavaScripts das Problem nicht beseitigt, lassen Sie das JavaScript weg. Wenn das Entfernen des JavaScripts _das_ Problem beseitigt, entfernen Sie so viel JavaScript wie möglich, lassen Sie das, was das Problem verursacht, drin.
+3. Entfernen Sie alle HTML-Elemente, die nicht zum Problem beitragen. Entfernen Sie Komponenten oder sogar Hauptelemente des Layouts. Versuchen Sie erneut, den Code auf das kleinste Maß zu reduzieren, das das Problem immer noch zeigt.
+4. Entfernen Sie alle CSS, die das Problem nicht betrifft.
 
-Im Prozess des Durchführens dieser Schritte können Sie möglicherweise entdecken, was das Problem verursacht, oder zumindest in der Lage sein, es ein- und auszuschalten, indem Sie etwas Spezifisches entfernen. Es ist hilfreich, einige Kommentare in Ihren Code aufzunehmen, während Sie Dinge entdecken. Wenn Sie um Hilfe bitten müssen, werden sie der Person, die Ihnen hilft, zeigen, was Sie bereits ausprobiert haben. Dies könnte Ihnen genug Informationen geben, um nach möglichen Problemen und Workarounds zu suchen.
+Im Verlauf dieses Prozesses können Sie feststellen, was das Problem verursacht oder zumindest in der Lage sein, es durch Entfernen von etwas Spezifischem ein- und auszuschalten. Es lohnt sich, Ihrem Code einige Kommentare hinzuzufügen, während Sie Dinge entdecken. Wenn Sie um Hilfe bitten müssen, zeigen sie der Person, die Ihnen hilft, was Sie bereits versucht haben. Dies kann Ihnen genug Informationen geben, um nach wahrscheinlichen Problemen und Workarounds zu suchen.
 
-Wenn Sie weiterhin Schwierigkeiten haben, das Problem zu beheben, dann gibt Ihnen ein reduzierter Testfall etwas, mit dem Sie um Hilfe bitten können, indem Sie es in einem Forum posten oder einem Kollegen zeigen. Sie sind viel wahrscheinlicher, Hilfe zu erhalten, wenn Sie zeigen können, dass Sie die Arbeit, das Problem zu reduzieren, und genau zu identifizieren, wo es passiert, bevor Sie um Hilfe bitten, bereits getan haben. Ein erfahrenerer Entwickler könnte schnell in der Lage sein, das Problem zu erkennen und Ihnen den richtigen Weg zu weisen, und selbst wenn nicht, wird Ihr reduzierter Testfall es ihnen ermöglichen, einen schnellen Blick zu werfen und hoffentlich zumindest etwas Hilfe anzubieten.
+Wenn Sie immer noch Schwierigkeiten haben, das Problem zu beheben, gibt Ihnen ein reduzierter Testfall etwas, das Sie zur Hilfe fragen können, indem Sie ein Forum posten oder es einem Kollegen zeigen. Sie werden viel wahrscheinlicher Hilfe erhalten, wenn Sie zeigen können, dass Sie die Arbeit gemacht haben, das Problem zu reduzieren und genau zu identifizieren, wo es auftritt, bevor Sie um Hilfe bitten. Ein erfahrener Entwickler könnte das Problem schnell erkennen und Ihnen den richtigen Weg weisen, und selbst wenn nicht, ermöglicht es ihnen Ihr reduzierter Testfall, einen schnellen Blick darauf zu werfen und Ihnen hoffentlich zumindest ein bisschen Hilfe anzubieten.
 
-In dem Fall, dass Ihr Problem in Wirklichkeit ein Fehler in einem Browser ist, kann ein reduzierter Testfall auch verwendet werden, um einen Fehlerbericht beim jeweiligen Browser-Anbieter (z. B. auf Mozillas [Bugzilla-Seite](https://bugzilla.mozilla.org/)) einzureichen.
+Wenn Ihr Problem tatsächlich ein Fehler in einem Browser ist, kann ein reduzierter Testfall auch verwendet werden, um einen Fehlerbericht beim entsprechenden Browseranbieter einzureichen (z.B. auf Mozillas [bugzilla site](https://bugzilla.mozilla.org/)).
 
-Je mehr Erfahrung Sie mit CSS sammeln, desto schneller werden Sie Probleme erkennen. Dennoch finden sich auch die Erfahrensten von uns manchmal in der Situation, sich zu fragen, was zum Teufel schief läuft. Ein methodischer Ansatz, ein reduzierter Testfall und das Erklären des Problems an jemanden anderen wird in der Regel dazu führen, dass eine Lösung gefunden wird.
+Wenn Sie mehr Erfahrung mit CSS sammeln, werden Sie feststellen, dass Sie schneller darin werden, Probleme zu erkennen. Aber selbst die Erfahrensten von uns finden sich manchmal in Situationen, in denen sie sich fragen, was zur Hölle los ist. Eine methodische Vorgehensweise, die Erstellung eines reduzierten Testfalls und die Erklärung des Problems an jemand anderen führen normalerweise dazu, eine Lösung zu finden.
 
 ## Zusammenfassung
 
-Damit haben wir eine Einführung in das Debuggen von CSS, die Ihnen einige nützliche Fähigkeiten bieten sollte, auf die Sie zählen können, wenn Sie anfangen, CSS und andere Arten von Code später in Ihrer Karriere zu debuggen.
+Damit wäre eine Einführung in das Debuggen von CSS abgeschlossen, die Ihnen einige nützliche Fähigkeiten an die Hand geben sollte, wenn Sie beginnen, CSS und andere Arten von Code in Ihrer weiteren Karriere zu debuggen.
 
-Das war's für alle Lektionen in diesem Modul. Um es abzuschließen, testen wir Ihr Wissen über die behandelten Themen mit einer Reihe von Herausforderungen.
+Das wäre es für alle Lektionen in diesem Modul. Zum Abschluss werden wir Ihr Wissen über die behandelten Themen mit einer Reihe von Herausforderungen testen.
 
 ## Siehe auch
 
-- [Firefox > CSS untersuchen und bearbeiten](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html), Firefox Source Docs
-- [Chrome > CSS anzeigen und ändern](https://developer.chrome.com/docs/devtools/css/), developer.chrome.com
+- [Firefox > Untersuchen und Bearbeiten von CSS](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html), Firefox Source Docs
+- [Chrome > Anzeigen und Ändern von CSS](https://developer.chrome.com/docs/devtools/css/), developer.chrome.com
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics/Fundamental_CSS_comprehension", "Learn_web_development/Core/Styling_basics")}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Home_color_scheme_search", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}

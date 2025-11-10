@@ -1,25 +1,23 @@
 ---
-title: HTML Farbcode
+title: HTML-Farbcodes
 slug: Glossary/html_color_codes
 l10n:
-  sourceCommit: a4b72d0683826e060f72a82b297b41e0b162d909
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+**HTML-Farbcodes** ist ein _de facto_ allgemeiner Begriff, der die frühesten Methoden zur Angabe von Farben auf Webseiten beschreibt. Dies umfasst HTML-Farbnamen wie `black`, `purple` und `aqua` sowie hexadezimale Notationen wie `#000000`, `#800080` und `#00ffff`. Diese wurden ursprünglich in HTML-Spezifikationen definiert – siehe zum Beispiel die [HTML 3.2 Farbdefinitionen](https://www.w3.org/TR/2018/SPSD-html32-20180315/#colors) der ursprünglichen 16 HTML-Farben.
 
-**HTML Farbcode** ist ein _de facto_ allgemeiner Begriff, der zur Beschreibung der frühesten Methoden zur Angabe von Farben auf Webseiten verwendet wird. Dazu gehören HTML-Farbnamen wie `black`, `purple` und `aqua`, sowie hexadezimale Notationen wie `#000000`, `#800080` und `#00ffff`. Diese wurden ursprünglich in HTML-Spezifikationen definiert – siehe beispielsweise die [HTML 3.2 Farbdefinitionen](https://www.w3.org/TR/2018/SPSD-html32-20180315/#colors) der ursprünglichen 16 HTML-Farben.
-
-Es ist nicht mehr korrekt, sich auf Farben im Web als "HTML Farbcode" oder "HTML-Farbennamen" zu beziehen. Farben werden jetzt im [CSS Color Module](/de/docs/Web/CSS/CSS_colors) festgelegt und sind allgemein als CSS-Farben oder Web-Farben bekannt.
+Es ist nicht mehr zutreffend, Farben im Web als "HTML-Farbcodes" oder "HTML-Farbnamen" zu bezeichnen. Farben werden jetzt im [CSS-Farbmodul](/de/docs/Web/CSS/Guides/Colors) spezifiziert und allgemein als CSS-Farben oder Webfarben bekannt.
 
 ## Siehe auch
 
-### Allgemeinwissen
+### Allgemeines Wissen
 
-[Web-Farben](https://en.wikipedia.org/wiki/Web_colors) auf Wikipedia
+[Webfarben](https://de.wikipedia.org/wiki/Webfarben) auf Wikipedia
 
 ### Technische Referenz
 
-Um Web-Farben auf MDN nachzuschlagen, sehen Sie sich unsere CSS {{cssxref("&lt;color&gt;")}} Werte-Referenzdokumentation an, oder genauer gesagt:
+Um Webfarben auf MDN nachzuschlagen, sehen Sie in unserer CSS {{cssxref("&lt;color&gt;")}} Werte-Referenzdokumentation nach, oder genauer gesagt:
 
 - Farbnamen: {{cssxref("&lt;named-color&gt;")}}.
 - Hexadezimale Notationen: {{cssxref("&lt;hex-color&gt;")}}.

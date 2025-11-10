@@ -1,55 +1,52 @@
 ---
-title: Hervorhebung und Wichtigkeit
+title: Betonung und Wichtigkeit
 slug: Learn_web_development/Core/Structuring_content/Emphasis_and_importance
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: cc7ed25d67ec3df5df8cfa255e1066cb5845e293
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Headings_and_paragraphs", "Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content")}}
 
-Der vorherige Artikel erläuterte, warum Semantik in HTML wichtig ist, und konzentrierte sich auf Überschriften und Absätze. Dieser Artikel setzt das Thema der Semantik fort und behandelt HTML-Elemente, die Text Hervorhebung und Wichtigkeit verleihen (analog zu kursivem und fett gedrucktem Text in Printmedien).
+Im vorherigen Artikel haben wir besprochen, warum Semantik in HTML wichtig ist, und uns auf Überschriften und Absätze konzentriert. Dieser Artikel setzt das Thema Semantik fort und betrachtet HTML-Elemente, die Betonung und Wichtigkeit für Text anwenden (vergleichbar mit Kursiv- und Fettdruck in Printmedien).
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie in
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlegende HTML-Syntax</a
-        >.
+        Grundlegende HTML-Kenntnisse, wie sie in
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">Grundlegende HTML-Syntax</a>
+        behandelt werden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Die Bedeutung von Hervorhebung und Wichtigkeit sowie die grundlegenden Elemente, die sie in HTML anwenden, wie <code>&lt;em&gt;</code> und <code>&lt;strong&gt;</code>.</li>
-          <li>Identifizieren von Präsentations-Markup, das nicht mehr verwendet werden sollte (z. B. <code>&lt;big&gt;</code> und <code>&lt;font&gt;</code>); es ist veraltet.</li>
-          <li>Identifizieren von Präsentations-Markup, das umdefiniert wurde, um neue semantische Bedeutungen zu haben (z. B. <code>&lt;i&gt;</code> und <code>&lt;b&gt;</code>).</li>
+          <li>Die Bedeutung von Betonung und Wichtigkeit und die grundlegenden Elemente, die sie in HTML anwenden, wie <code>&lt;em&gt;</code> und <code>&lt;strong&gt;</code>.</li>
+          <li>Identifizieren von Präsentations-Markup, das nicht mehr verwendet werden sollte (z.B. <code>&lt;big&gt;</code> und <code>&lt;font&gt;</code>); es ist veraltet.</li>
+          <li>Identifizieren von Präsentations-Markup, das eine neue semantische Bedeutung erhalten hat (z.B. <code>&lt;i&gt;</code> und <code>&lt;b&gt;</code>).</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Was sind Hervorhebung und Wichtigkeit?
+## Was sind Betonung und Wichtigkeit?
 
-In der menschlichen Sprache betonen wir oft bestimmte Wörter, um die Bedeutung eines Satzes zu ändern, und wir möchten oft bestimmte Wörter als wichtig oder anders kennzeichnen. HTML bietet verschiedene semantische Elemente, mit denen wir Textinhalte mit solchen Effekten markieren können. In diesem Abschnitt sehen wir uns einige der gebräuchlichsten an.
+In der menschlichen Sprache betonen wir oft bestimmte Wörter, um die Bedeutung eines Satzes zu ändern, und wir möchten oft bestimmte Wörter als wichtig oder auf irgendeine Weise anders markieren. HTML bietet verschiedene semantische Elemente, die es uns ermöglichen, Textinhalte mit solchen Effekten zu versehen, und in diesem Abschnitt schauen wir uns einige der gängigsten an.
 
-### Hervorhebung
+### Betonung
 
-Wenn wir in gesprochener Sprache etwas betonen wollen, _betonen_ wir bestimmte Wörter und verändern subtil die Bedeutung dessen, was wir sagen. In geschriebener Sprache tendieren wir dazu, Wörter durch Kursivschrift hervorzuheben. Zum Beispiel haben die folgenden zwei Sätze unterschiedliche Bedeutungen:
+Wenn wir in gesprochener Sprache Betonung hinzufügen wollen, _betonen_ wir bestimmte Wörter, wodurch die Bedeutung dessen, was wir sagen, subtil verändert wird. Ähnlich betonen wir in der geschriebenen Sprache Wörter, indem wir sie kursiv darstellen. Beispielsweise haben die folgenden zwei Sätze unterschiedliche Bedeutungen.
 
-> Ich bin froh, dass Sie nicht zu spät gekommen sind.
+> Ich bin froh, dass Sie nicht zu spät sind.
 >
-> Ich bin _froh_, dass Sie nicht _zu spät_ gekommen sind.
+> Ich bin _froh_, dass Sie nicht _zu spät_ sind.
 
-Der erste Satz klingt wirklich erleichtert, dass die Person nicht zu spät kam. Im Gegensatz dazu klingt der zweite, mit beiden kursiv gesetzten Wörtern "froh" und "zu spät", sarkastisch oder passiv-aggressiv, was Unmut darüber ausdrückt, dass die Person etwas zu spät angekommen ist.
+Der erste Satz klingt wirklich erleichtert, dass die Person nicht zu spät ist. Im Gegensatz dazu klingt der zweite Satz, mit den Worten "froh" und "zu spät" in Kursivschrift, sarkastisch oder passiv-aggressiv und drückt Verärgerung darüber aus, dass die Person ein wenig zu spät gekommen ist.
 
-In HTML verwenden wir das {{htmlelement("em")}} (emphasis)-Element, um solche Instanzen zu markieren. Neben der interessanteren Darstellung des Dokuments werden diese auch von Screenreadern erkannt, die sie in einem anderen Tonfall sprechen können. Browser stellen dies standardmäßig kursiv dar, aber Sie sollten dieses Tag nicht nur verwenden, um kursiven Stil zu erzielen. Dazu würden Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("i")}}-Element (siehe unten).
+In HTML verwenden wir das {{htmlelement("em")}}- (Emphasis) Element, um solche Fälle zu kennzeichnen. Diese werden von Screenreadern erkannt, die so konfiguriert werden können, dass sie sie in einem anderen Tonfall sprechen. Browser gestalten dies standardmäßig kursiv, aber Sie sollten dieses Tag nicht nur verwenden, um eine kursiv gestaltete Darstellung zu erreichen. Um das zu tun, könnten Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("i")}}-Element (siehe unten).
 
 ```html
 <p>I am <em>glad</em> you weren't <em>late</em>.</p>
@@ -57,13 +54,13 @@ In HTML verwenden wir das {{htmlelement("em")}} (emphasis)-Element, um solche In
 
 ### Starke Wichtigkeit
 
-Um wichtige Wörter zu betonen, betonen wir sie in gesprochener Sprache und machen sie in geschriebener Sprache **fett**. Zum Beispiel:
+Um wichtige Wörter zu betonen, neigen wir dazu, sie in gesprochener Sprache zu betonen und in der geschriebenen Sprache **fett** darzustellen. Zum Beispiel:
 
-> Diese Flüssigkeit ist **hochgiftig**.
+> Diese Flüssigkeit ist **hoch giftig**.
 >
 > Ich zähle auf Sie. **Seien Sie nicht** zu spät!
 
-In HTML verwenden wir das {{htmlelement("strong")}} (starke Wichtigkeit)-Element, um solche Instanzen zu markieren. Wiederum werden diese neben dem nützlicheren Dokument von Screenreadern erkannt, die sie in einem anderen Tonfall sprechen können. Browser stellen dies standardmäßig in Fettdruck dar, aber Sie sollten dieses Tag nicht nur verwenden, um fetten Stil zu erzielen. Dazu würden Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("b")}}-Element (siehe unten).
+In HTML verwenden wir das {{htmlelement("strong")}}- (Strong Importance) Element, um solche Fälle zu kennzeichnen. Auch diese werden von Screenreadern erkannt, die so konfiguriert werden können, dass sie sie in einem anderen Tonfall sprechen. Browser gestalten dies standardmäßig als Fettdruck, aber Sie sollten dieses Tag nicht nur verwenden, um fettgedruckte Darstellung zu erzielen. Um dies zu tun, könnten Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("b")}}-Element (siehe unten).
 
 ```html
 <p>This liquid is <strong>highly toxic</strong>.</p>
@@ -71,7 +68,7 @@ In HTML verwenden wir das {{htmlelement("strong")}} (starke Wichtigkeit)-Element
 <p>I am counting on you. <strong>Do not</strong> be late!</p>
 ```
 
-Sie können "strong" und "emphasis" ineinander verschachteln, wenn gewünscht:
+Sie können bei Bedarf **starke Wichtigkeit** und _Betonung_ ineinander verschachteln:
 
 ```html-nolint
 <p>This liquid is <strong>highly toxic</strong> — if you drink it, <strong>you may <em>die</em></strong>.</p>
@@ -79,161 +76,77 @@ Sie können "strong" und "emphasis" ineinander verschachteln, wenn gewünscht:
 
 {{EmbedLiveSample('Strong importance')}}
 
-## Aktives Lernen: Lassen Sie uns wichtig sein
+## Lassen Sie uns mit Betonung und Wichtigkeit spielen
 
-In diesem Abschnitt zum aktiven Lernen haben wir ein bearbeitbares Beispiel bereitgestellt. Darin möchten wir, dass Sie versuchen, den Wörtern, die Sie für notwendig halten, Hervorhebung und starke Wichtigkeit hinzuzufügen, um ein wenig zu üben.
+In diesem Abschnitt möchten wir, dass Sie mit Betonung und Wichtigkeit experimentieren:
 
-```html hidden
-<h2>Live output</h2>
+1. Klicken Sie auf **"Abspielen"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
+2. Geben Sie in der Hauptüberschrift dem Wort "Betonung" _Betonung_ und dem Wort "Wichtigkeit" **starke Wichtigkeit**.
+3. Geben Sie im ersten Absatz dem Namen der Kaffeemaschine **starke Wichtigkeit** und betonen Sie die Adjektive, die den Kaffee beschreiben.
+4. Geben Sie im zweiten Absatz der Temperaturbeschreibung ("kalt") und der Aktion, die Sie ergreifen sollen ("wickeln Sie sich warm ein, um nicht krank zu werden"), **starke Wichtigkeit**. Geben Sie "krank werden" eine zusätzliche Markierung, sodass es sowohl betont als auch wichtig ist.
 
-<div class="output" style="min-height: 50px;"></div>
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit im MDN Playground mit dem _Zurücksetzen_-Button löschen. Wenn Sie wirklich stecken bleiben, können Sie die Lösung unterhalb des Codeblocks ansehen.
 
-<h2>Editable code</h2>
-<p class="a11y-label">
-  Press Esc to move focus away from the code area (Tab inserts a tab character).
+```css hidden live-sample___emphasis_importance
+h1 {
+  font-weight: normal;
+}
+```
+
+```html live-sample___emphasis_importance
+<h1>Emphasis and importance</h1>
+
+<p>
+  My new coffee machine is called The Percolator 2000. It produces the most
+  sublime and wonderful brew.
 </p>
 
-<textarea id="code" class="input" style="min-height: 200px; width: 95%">
-<h1>Important notice</h1>
-<p>On Sunday January 9th 2010, a gang of goths were
-  spotted stealing several garden gnomes from a
-  shopping center in downtown Milwaukee. They were
-  all wearing green jumpsuits and silly hats, and
-  seemed to be having a whale of a time. If anyone
-   has any information about this incident, please
-    contact the police now.</p>
-</textarea>
-
-<div class="playable-buttons">
-  <input id="reset" type="button" value="Reset" />
-  <input id="solution" type="button" value="Show solution" />
-</div>
+<p>
+  In the dead of winter, it will be cold. You should wrap up warm to avoid
+  falling ill.
+</p>
 ```
 
-```css hidden
-html {
-  font-family: sans-serif;
-}
+{{ EmbedLiveSample('emphasis_importance', "100%", 160) }}
 
-h2 {
-  font-size: 16px;
-}
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-.a11y-label {
-  margin: 0;
-  text-align: right;
-  font-size: 0.7rem;
-  width: 98%;
-}
+Ihr fertiges HTML sollte so aussehen:
 
-body {
-  margin: 10px;
-  background: #f5f9fa;
-}
+```html
+<h1><em>Emphasis</em> and <strong>importance</strong></h1>
+
+<p>
+  My new coffee machine is called <strong>The Percolator 2000</strong>. It
+  produces the most <em>sublime</em> and <em>wonderful</em> brew.
+</p>
+
+<p>
+  In the dead of winter, it will be <strong>cold</strong>. You should
+  <strong>wrap up warm to avoid <em>falling ill</em></strong
+  >.
+</p>
 ```
 
-```js hidden
-const textarea = document.getElementById("code");
-const reset = document.getElementById("reset");
-const solution = document.getElementById("solution");
-const output = document.querySelector(".output");
-const code = textarea.value;
-let userEntry = textarea.value;
-
-function updateCode() {
-  output.innerHTML = textarea.value;
-}
-
-const htmlSolution =
-  "<h1>Important notice</h1>\n<p>On <strong>Sunday January 9th 2010</strong>, a gang of <em>goths</em> were spotted stealing <strong><em>several</em> garden gnomes</strong> from a shopping center in downtown <strong>Milwaukee</strong>. They were all wearing <em>green jumpsuits</em> and <em>silly hats</em>, and seemed to be having a whale of a time. If anyone has <strong>any</strong> information about this incident, please contact the police <strong>now</strong>.</p>";
-let solutionEntry = htmlSolution;
-
-reset.addEventListener("click", () => {
-  textarea.value = code;
-  userEntry = textarea.value;
-  solutionEntry = htmlSolution;
-  solution.value = "Show solution";
-  updateCode();
-});
-
-solution.addEventListener("click", () => {
-  if (solution.value === "Show solution") {
-    textarea.value = solutionEntry;
-    solution.value = "Hide solution";
-  } else {
-    textarea.value = userEntry;
-    solution.value = "Show solution";
-  }
-  updateCode();
-});
-
-textarea.addEventListener("input", updateCode);
-window.addEventListener("load", updateCode);
-
-// Stop tab key tabbing out of textarea and
-// make it write a tab at the caret position instead
-textarea.onkeydown = (e) => {
-  if (e.code === "Tab") {
-    e.preventDefault();
-    insertAtCaret("\t");
-  }
-
-  if (e.code === "Escape") {
-    textarea.blur();
-  }
-};
-
-function insertAtCaret(text) {
-  const scrollPos = textarea.scrollTop;
-  let caretPos = textarea.selectionStart;
-
-  const front = textarea.value.substring(0, caretPos);
-  const back = textarea.value.substring(
-    textarea.selectionEnd,
-    textarea.value.length,
-  );
-  textarea.value = front + text + back;
-  caretPos += text.length;
-  textarea.selectionStart = caretPos;
-  textarea.selectionEnd = caretPos;
-  textarea.focus();
-  textarea.scrollTop = scrollPos;
-}
-
-// Update the saved userCode every time the user updates the text area code
-textarea.onkeyup = () => {
-  // We only want to save the state when the user code is being shown,
-  // not the solution, so that solution is not saved over the user code
-  if (solution.value === "Show solution") {
-    userEntry = textarea.value;
-  } else {
-    solutionEntry = textarea.value;
-  }
-
-  updateCode();
-};
-```
-
-{{ EmbedLiveSample('Active_learning_Lets_be_important', 700, 520, "", "") }}
+</details>
 
 ## Kursiv, fett, unterstrichen…
 
-Die bisher besprochenen Elemente haben klar definierte semantische Bedeutungen. Bei {{htmlelement("b")}}, {{htmlelement("i")}} und {{htmlelement("u")}} ist die Situation jedoch etwas komplizierter. Diese entstanden zu einer Zeit, als CSS nur schlecht oder gar nicht unterstützt wurde, damit Benutzer fett, kursiv oder unterstrichen schreiben konnten. Solche Elemente, die nur die Präsentation und nicht die Semantik beeinflussen, werden als **Präsentationselemente** bezeichnet und sollten nicht mehr verwendet werden, da, wie wir zuvor festgestellt haben, Semantik für Zugänglichkeit, SEO usw. so wichtig ist.
+Die bisher besprochenen Elemente haben klar definierte Semantiken. Die Situation mit {{htmlelement("b")}}, {{htmlelement("i")}}, und {{htmlelement("u")}} ist etwas komplexer. Sie entstanden, damit man in einer Zeit, in der CSS noch nicht gut unterstützt wurde oder überhaupt nicht, Text fett, kursiv oder unterstrichen schreiben konnte. Solche Elemente, die nur die Präsentation und nicht die Semantik beeinflussen, werden als **Präsentations-Elemente** bezeichnet und sollten nicht mehr verwendet werden, da, wie wir bereits gesehen haben, Semantik so wichtig für die Zugänglichkeit, SEO usw. ist.
 
-HTML5 hat `<b>`, `<i>` und `<u>` mit neuen, etwas verwirrenden semantischen Rollen neu definiert.
+HTML5 hat `<b>`, `<i>`, und `<u>` mit neuen, etwas verwirrenden, semantischen Rollen neu definiert.
 
-Hier ist die beste Regel, die Sie sich merken können: Es ist nur angemessen, `<b>`, `<i>` oder `<u>` zu verwenden, um eine Bedeutung zu vermitteln, die traditionell mit Fett, Kursiv oder Unterstrichen vermittelt wird, wenn es kein geeigneteres Element gibt; und normalerweise gibt es eines. Überlegen Sie, ob `<strong>`, `<em>`, `<mark>` oder `<span>` besser geeignet sein könnten.
+Hier ist die beste Regel, die man sich merken kann: Es ist nur angebracht, `<b>`, `<i>`, oder `<u>` zu verwenden, um eine Bedeutung zu vermitteln, die traditionell mit Fett-, Kursiv- oder Unterstreichung dargestellt wird, wenn es kein besser geeignetes Element gibt; und das ist meist der Fall. Überlegen Sie, ob `<strong>`, `<em>`, `<mark>`, oder `<span>` möglicherweise besser geeignet sind.
 
-Behalten Sie immer eine Barrierefreiheitsperspektive im Hinterkopf. Das Konzept von Kursiv ist für Menschen, die Screenreader verwenden, oder für Menschen, die ein anderes Schriftsystem als das lateinische Alphabet verwenden, nicht sehr hilfreich.
+Behalten Sie stets die Barrierefreiheit im Hinterkopf. Das Konzept der Kursivschrift ist für Personen, die Screenreader verwenden, oder für Personen, die ein anderes Schriftsystem als das lateinische Alphabet verwenden, nicht sehr hilfreich.
 
-- {{HTMLElement('i')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell mit Kursivschrift vermittelt wird: Fremdwörter, taxonomische Bezeichnungen, technische Begriffe, ein Gedanke…
-- {{HTMLElement('b')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell mit Fettdruck vermittelt wird: Schlüsselwörter, Produktnamen, Leitsätze…
-- {{HTMLElement('u')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell mit Unterstrichen vermittelt wird: Eigennamen, Rechtschreibfehler…
+- {{HTMLElement('i')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Kursivschrift dargestellt wird: Fremdwörter, taxonomische Bezeichnungen, Fachbegriffe, ein Gedanke…
+- {{HTMLElement('b')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Fett dargestellt wird: Schlüsselwörter, Produktnamen, Leitsätze…
+- {{HTMLElement('u')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Unterstreichung dargestellt wird: Eigennamen, Rechtschreibfehler…
 
 > [!NOTE]
-> Menschen verbinden Unterstreichungen stark mit Hyperlinks. Daher ist es im Web am besten, nur Links zu unterstreichen. Verwenden Sie das `<u>`-Element, wenn es semantisch angemessen ist, überlegen Sie jedoch, mit CSS die Standardunterstreichung durch etwas Web-Gerechteres zu ersetzen. Das folgende Beispiel zeigt, wie das gemacht werden kann.
-
-<!-- cSpell:ignore spel -->
+> Menschen assoziieren Unterstreichungen stark mit Hyperlinks. Daher ist es im Web am besten, nur Links zu unterstreichen. Verwenden Sie das `<u>`-Element, wenn es semantisch angemessen ist, aber überlegen Sie, ob Sie CSS verwenden könnten, um die standardmäßige Unterstreichung durch etwas Webgerechteres zu ersetzen. Das folgende Beispiel zeigt, wie es gemacht werden kann.
 
 ```html
 <!-- scientific names -->
@@ -265,6 +178,6 @@ Behalten Sie immer eine Barrierefreiheitsperspektive im Hinterkopf. Das Konzept 
 
 ## Zusammenfassung
 
-Wir sind vorerst mit der Betrachtung von Hervorhebung und Wichtigkeit durch. Lassen Sie uns nun anschauen, wie wir Listen in HTML darstellen.
+Wir haben nun für den Moment genug über Betonung und Wichtigkeit gesprochen. Lassen Sie uns nun ansehen, wie wir Listen in HTML darstellen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Headings_and_paragraphs", "Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content")}}

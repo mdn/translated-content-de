@@ -1,29 +1,31 @@
 ---
-title: "Response: Eigenschaft body"
+title: "Response: body-Eigenschaft"
 short-title: body
 slug: Web/API/Response/body
 l10n:
-  sourceCommit: f341bd4728d3448faf6b9fc3b45980c35c067f25
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`body`** Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle ist ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) der Körperinhalte.
+Die schreibgeschützte **`body`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle ist ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) der Körperinhalte.
 
 ## Wert
 
-Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder `[`null`](/de/docs/Web/JavaScript/Reference/Operators/null)` für jedes `Response`-Objekt, das mit einer null [`body`](/de/docs/Web/API/Response/Response#body)-Eigenschaft [konstruiert](/de/docs/Web/API/Response/Response) wurde, oder für jede tatsächliche [HTTP-Antwort](/de/docs/Web/HTTP/Messages#http_responses), die keinen [Körper](/de/docs/Web/HTTP/Messages#response_body) hat.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) für jedes `Response`-Objekt, das mit einer null [`body`](/de/docs/Web/API/Response/Response#body)-Eigenschaft [konstruiert](/de/docs/Web/API/Response/Response) wurde, oder für jede tatsächliche [HTTP-Antwort](/de/docs/Web/HTTP/Guides/Messages#http_responses), die keinen [body](/de/docs/Web/HTTP/Guides/Messages#response_body) hat.
 
-Der Stream ist ein [lesbarer Byte-Stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams), welcher das Zero-Copy-Lesen mit einem [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) unterstützt.
+Der Stream ist ein [lesbarer Byte-Stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams), der Zero-Copy-Reading unter Verwendung eines [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) unterstützt.
 
 > [!NOTE]
-> Aktuelle Browser entsprechen nicht der Spezifikation, die vorschreibt, die `body`-Eigenschaft auf `null` zu setzen für Antworten ohne Körper (zum Beispiel Antworten auf [`HEAD`](/de/docs/Web/HTTP/Methods/HEAD)-Anfragen oder [`204 No Content`](/de/docs/Web/HTTP/Status/204)-Antworten).
+> Aktuelle Browser erfüllen tatsächlich nicht die Spezifikationsanforderung, die `body`-Eigenschaft auf `null` zu setzen für Antworten ohne Körper (zum Beispiel Antworten auf [`HEAD`](/de/docs/Web/HTTP/Reference/Methods/HEAD)-Anfragen oder [`204 No Content`](/de/docs/Web/HTTP/Reference/Status/204)-Antworten).
 
 ## Beispiele
 
 ### Kopieren eines Bildes
 
-In unserem [einfachen Stream-Pumpen](https://mdn.github.io/dom-examples/streams/simple-pump/)-Beispiel rufen wir ein Bild ab, geben den Stream der Antwort über `response.body` frei, erstellen einen Leser mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader), und fügen dann die Chunks des Streams in einen zweiten, benutzerdefinierten lesbaren Stream ein — dabei wird effektiv eine identische Kopie des Bildes erstellt.
+In unserem Beispiel [einfacher Strompump](https://mdn.github.io/dom-examples/streams/simple-pump/) holen wir ein Bild ab,
+stellen den Stream der Antwort mit `response.body` zur Verfügung, erstellen einen Leser mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader),
+und stellen dann die Chunks dieses Streams in einen zweiten, benutzerdefinierten lesbaren Stream ein — effektiv eine identische Kopie des Bildes erstellend.
 
 ```js
 const image = document.getElementById("target");
@@ -62,9 +64,9 @@ fetch("./tortoise.png")
   .catch((err) => console.error(err));
 ```
 
-### Erstellen eines BYOB-Readers
+### Erstellen eines BYOB-Lesers
 
-In diesem Beispiel konstruieren wir einen [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) aus dem Körper mit [`ReadableStream.getReader({mode: 'byob'})`](/de/docs/Web/API/ReadableStream/getReader). Wir können diesen Leser dann verwenden, um den Zero-Copy-Transfer der Antwortdaten zu implementieren.
+In diesem Beispiel konstruieren wir einen [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) aus dem Körper unter Verwendung von [`ReadableStream.getReader({mode: 'byob'})`](/de/docs/Web/API/ReadableStream/getReader). Wir können diesen Leser dann nutzen, um die Antwortdaten ohne Kopie zu übertragen.
 
 ```js
 async function getProducts(url) {

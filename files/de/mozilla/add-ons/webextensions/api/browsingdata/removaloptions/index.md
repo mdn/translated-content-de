@@ -2,45 +2,45 @@
 title: browsingData.RemovalOptions
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/RemovalOptions
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Der **`browsingData.RemovalOptions`**-Typ enthält Optionen, um bestimmte Aspekte der Entfernung von Browserdaten zu steuern.
+Der Typ **`browsingData.RemovalOptions`** enthält Optionen, um bestimmte Aspekte der Entfernung von Browserdaten zu steuern.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `cookieStoreId` {{optional_inline}}
-
-  - : `string`. Diese Eigenschaft gilt nur für Cookies und `indexedDB`-Einträge. Die Entfernung ist auf Einträge eines bestimmten [Cookie Stores](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies/CookieStore) beschränkt, wie durch die ID angegeben. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+  - : `string`. Diese Eigenschaft gilt nur für Cookies und indexedDB-Elemente. Die Entfernung ist auf Elemente beschränkt, die zu einem bestimmten [Cookie-Store](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies/CookieStore) gehören, wie durch die ID angegeben. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 
     > [!NOTE]
-    > In Firefox Nightly wird auch das Entfernen von `localStorage`-Einträgen durch `cookieStoreId` unterstützt.
+    > In Firefox Nightly wird auch die Entfernung von `localStorage`-Elementen durch `cookieStoreId` unterstützt.
+
+- `excludeOrigin` {{optional_inline}}
+  - : `array` von `string`. Liste von Ursprüngen, die von der Entfernung ausgeschlossen werden sollen. Kann nicht zusammen mit `origins` verwendet werden. Nur für Cookies, Speicher und Cache unterstützt. Cookies werden für die gesamte registrierbare Domain ausgeschlossen.
 
 - `hostnames` {{optional_inline}}
+  - : `array` von `string`. Diese Eigenschaft gilt für Cookies, indexedDB-, lokaler Speicher- und Service-Worker-Registrierungs-Elemente. Nur Cookie-, indexedDB-, lokaler Speicher- und Service-Worker-Registrierungs-Elemente entfernen, die diesen Hostnamen zugeordnet sind.
 
-  - : `Array` von `string`. Diese Eigenschaft gilt für Cookie-, `indexedDB`-, lokalen Speicher- und Service-Worker-Registrierungseinträge. Entfernen Sie nur Cookie-, `indexedDB`-, lokalen Speicher- und Service-Worker-Registrierungseinträge, die mit diesen Hostnames verknüpft sind.
+    Hier muss nur ein Hostname ohne Protokoll angegeben werden (zum Beispiel, `"google.com"` statt `"https://google.com"`). Sie können die [`URL`](/de/docs/Web/API/URL)-Schnittstelle verwenden, um eine rohe URL zu parsen und den Hostnamen abzurufen. Elemente, die mit Subdomains eines gegebenen Hostnamens verbunden sind, werden _nicht_ entfernt: Sie müssen Subdomains explizit auflisten.
 
-    Hier müssen Sie nur einen Hostnamen ohne Protokoll angeben (zum Beispiel `"google.com"` und nicht `"https://google.com"`). Sie können die [`URL`](/de/docs/Web/API/URL)-Schnittstelle verwenden, um eine rohe URL zu parsen und den Hostnamen abzurufen. Mit Subdomains eines bestimmten Hostnamens verknüpfte Einträge werden _nicht_ entfernt: Sie müssen Subdomains explizit auflisten.
+- `origin` {{optional_inline}}
+  - : `array` von `string`. Liste der Ursprünge, für die Daten entfernt werden sollen. Kann nicht zusammen mit `excludeOrigins` verwendet werden. Nur für Cookies, Speicher und Cache unterstützt. Cookies werden für die gesamte registrierbare Domain gelöscht.
 
 - `originTypes` {{optional_inline}}
+  - : `object`. Wird verwendet, um zu steuern, ob Daten nur von normalen Webseiten entfernt werden oder auch von gehosteten Web-Apps und Erweiterungen. Wenn diese Option weggelassen wird, werden nur Daten von normalen Webseiten (`unprotectedWeb`) entfernt. Bevor Sie Daten von Web-Apps oder Erweiterungen entfernen, seien Sie sehr vorsichtig und stellen Sie sicher, dass dies wirklich das ist, was der Benutzer will.
 
-  - : `object`. Wird verwendet, um zu steuern, ob Daten nur von normalen Webseiten oder auch von gehosteten Web-Apps und Erweiterungen entfernt werden sollen. Wenn diese Option weggelassen wird, werden nur Daten von normalen Webseiten ("`unprotectedWeb`") entfernt. Seien Sie sehr vorsichtig, bevor Sie Daten von Web-Apps oder Erweiterungen entfernen, um sicherzustellen, dass dies wirklich das ist, was der Benutzer möchte.
-
-    Dieses Objekt kann beliebige der folgenden Eigenschaften enthalten:
-
+    Dieses Objekt kann eine der folgenden Eigenschaften enthalten:
     - `unprotectedWeb` {{optional_inline}}
-      - : `boolean`. Wenn vorhanden und `true`, entfernen Sie Daten von normalen Webseiten.
+      - : `boolean`. Wenn vorhanden und `true`, Daten von normalen Webseiten entfernen.
     - `protectedWeb` {{optional_inline}}
-      - : `boolean`. Wenn vorhanden und `true`, entfernen Sie Daten von Websites, die als gehostete Apps installiert wurden.
+      - : `boolean`. Wenn vorhanden und `true`, Daten von Webseiten entfernen, die als gehostete Apps installiert wurden.
     - `extension` {{optional_inline}}
-      - : `boolean`. Wenn vorhanden und `true`, entfernen Sie Daten von Erweiterungen.
+      - : `boolean`. Wenn vorhanden und `true`, Daten von Erweiterungen entfernen.
 
 - `since` {{optional_inline}}
-  - : `number`. Wie weit in der Vergangenheit die Daten entfernt werden sollen, angegeben in [Millisekunden seit dem UNIX-Epoch](https://en.wikipedia.org/wiki/Unix_time). Beachten Sie, dass beim Entfernen des Browser-Caches immer der gesamte Cache entfernt wird und diese Option ignoriert wird. Wenn die `since`-Eigenschaft weggelassen wird, ist der Standardwert 0, was "immer" bedeutet.
+  - : `number`. Wie weit in die Vergangenheit sollen Daten entfernt werden, angegeben in [Millisekunden seit der UNIX-Epoche](https://de.wikipedia.org/wiki/Unixzeit). Beachten Sie, dass beim Entfernen des Browser-Caches immer der gesamte Cache entfernt wird und diese Option ignoriert wird. Wenn die `since`-Eigenschaft weggelassen wird, ist der Standardwert 0, was "für immer" bedeutet.
 
 ## Browser-Kompatibilität
 

@@ -1,16 +1,17 @@
 ---
-title: "Response: json() Methode"
+title: "Response: Methode json()"
 short-title: json()
 slug: Web/API/Response/json
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`json()`** Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn bis zum Ende. Sie gibt ein Promise zurück, das mit dem Ergebnis der Analyse des Rumpftexts als {{JSxRef("JSON")}} aufgelöst wird.
+Die **`json()`**-Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces nimmt
+einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus. Sie gibt ein Promise zurück, das mit dem Ergebnis des Parsens des Textkörpers als {{JSxRef("JSON")}} aufgelöst wird.
 
-Beachten Sie, dass der Name der Methode `json()` zwar auf JSON hinweist, das Ergebnis jedoch kein JSON ist, sondern das Resultat der Analyse von JSON-Eingaben, um ein JavaScript-Objekt zu erzeugen.
+Beachten Sie, dass das Ergebnis trotz des Namens der Methode `json()` kein JSON ist, sondern das Ergebnis des Parsens der JSON-Eingabe, um ein JavaScript-Objekt zu erzeugen.
 
 ## Syntax
 
@@ -24,24 +25,26 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem JavaScript-Objekt aufgelöst wird. Dieses Objekt kann alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
+Ein {{jsxref("Promise")}}, das sich zu einem JavaScript-Objekt auflöst. Dieses Objekt kann
+alles sein, was durch JSON dargestellt werden kann – ein Objekt, ein Array, ein String, eine Zahl…
 
 ### Ausnahmen
 
-- [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
-  - : Ausgelöst aus einem der folgenden Gründe:
+  - : Wirft eine der folgenden Gründe:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Rumpfinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}} Header falsch ist).
+    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
 - {{jsxref("SyntaxError")}}
-  - : Der Antwortkörper kann nicht als JSON analysiert werden.
+  - : Der Antwortkörper kann nicht als JSON geparst werden.
 
 ## Beispiele
 
-In unserem [fetch JSON Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-json) (führen Sie [fetch JSON live aus](https://mdn.github.io/dom-examples/fetch/fetch-json/)),
-erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und verwenden diese, um eine `.json`-Datei abzurufen.
-Wenn das Abrufen erfolgreich ist, lesen und analysieren wir die Daten mit `json()`, lesen dann die Werte aus den resultierenden Objekten aus, wie Sie es erwarten würden, und fügen sie in Listenelemente ein, um unsere Produktdaten anzuzeigen.
+In unserem [fetch-JSON-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-json) (ausführen [fetch JSON live](https://mdn.github.io/dom-examples/fetch/fetch-json/)),
+erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und verwenden es dann, um eine `.json`-Datei abzurufen.
+Wenn das Abrufen erfolgreich ist, lesen und parsen wir die Daten mit `json()`, lesen
+die Werte aus den resultierenden Objekten wie erwartet heraus und fügen sie in Listenelemente ein, um unsere Produktdaten anzuzeigen.
 
 ```js
 const myList = document.querySelector("ul");
@@ -73,6 +76,6 @@ fetch(myRequest)
 
 ## Siehe auch
 
-- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS)
+- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
+- [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

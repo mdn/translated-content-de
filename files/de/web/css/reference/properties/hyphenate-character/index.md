@@ -1,0 +1,110 @@
+---
+title: hyphenate-character
+slug: Web/CSS/Reference/Properties/hyphenate-character
+l10n:
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+---
+
+Die **`hyphenate-character`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Zeichen (oder die Zeichenfolge) fest, das am Ende einer Zeile vor einem Trennstrich verwendet wird.
+
+Sowohl automatische als auch weiche Trennstriche werden entsprechend dem angegebenen `hyphenate-character` Wert angezeigt.
+
+{{InteractiveExample("CSS Demo: hyphenate-character")}}
+
+```css interactive-example-choice
+hyphenate-character: auto;
+```
+
+```css interactive-example-choice
+hyphenate-character: "=";
+```
+
+```css interactive-example-choice
+hyphenate-character: "—";
+```
+
+```html interactive-example
+<section id="default-example">
+  <p id="example-element">An extra­ordinarily long English word!</p>
+</section>
+```
+
+```css interactive-example
+#example-element {
+  border: 2px dashed #999999;
+  font-size: 1.5rem;
+  text-align: left;
+  width: 7rem;
+  hyphens: auto;
+}
+```
+
+## Syntax
+
+```css
+hyphenate-character: <string>;
+hyphenate-character: auto;
+```
+
+Der Wert setzt entweder die Zeichenfolge, die anstelle eines Bindestrichs verwendet werden soll, oder gibt an, dass der User-Agent eine geeignete Zeichenfolge basierend auf den aktuellen typografischen Konventionen auswählen soll (Standard).
+
+### Werte
+
+- `<string>`
+  - : Die {{cssxref("&lt;string&gt;")}}, die am Ende der Zeile vor einem Trennstrich verwendet werden soll. Der User-Agent kann diesen Wert kürzen, wenn zu viele Zeichen verwendet werden.
+- `auto`
+  - : Der User-Agent wählt eine geeignete Zeichenfolge basierend auf den typografischen Konventionen der Inhaltssprache. Dies ist der Standardwert der Eigenschaft und muss nur explizit gesetzt werden, um einen anderen geerbten Wert zu überschreiben.
+
+## Formale Definition
+
+{{CSSInfo}}
+
+## Formale Syntax
+
+{{csssyntax}}
+
+## Beispiele
+
+Dieses Beispiel zeigt zwei identische Textblöcke, bei denen {{cssxref("hyphens")}} gesetzt ist, um sicherzustellen, dass sie dort brechen, wo es nötig ist, und bei weichen Trennstrichen (erstellt mit `&shy;`). Der erste Block hat den Wert des Trennstrichs auf das Gleichheitszeichen (`=`) geändert. Der zweite Block hat kein gesetztes `hyphenate-character`, was für User-Agents, die diese Eigenschaft unterstützen, `hyphenate-character: auto` entspricht.
+
+### HTML
+
+```html
+<dl>
+  <dt><code>hyphenate-character: "="</code></dt>
+  <dd id="string" lang="en">Superc&shy;alifragilisticexpialidocious</dd>
+  <dt><code>hyphenate-character is not set</code></dt>
+  <dd lang="en">Superc&shy;alifragilisticexpialidocious</dd>
+</dl>
+```
+
+### CSS
+
+```css
+dd {
+  width: 90px;
+  border: 1px solid black;
+  hyphens: auto;
+}
+
+dd#string {
+  -webkit-hyphenate-character: "=";
+  hyphenate-character: "=";
+}
+```
+
+### Ergebnis
+
+{{EmbedLiveSample("Examples", "100%", 350)}}
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
+
+## Siehe auch
+
+- Verwandte CSS-Eigenschaften: {{cssxref("hyphens")}}, {{cssxref("overflow-wrap")}}.

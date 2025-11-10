@@ -2,17 +2,15 @@
 title: extension.getBackgroundPage()
 slug: Mozilla/Add-ons/WebExtensions/API/extension/getBackgroundPage
 l10n:
-  sourceCommit: d82c19fea93f7b36787c6d84af600c955c2732d5
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Gibt das [Window](/de/docs/Web/API/Window) der Hintergrundseite zurück, wenn das Hintergrundskript läuft. Wenn das Skript nicht läuft, wird null zurückgegeben.
 
 Dies ist eine synchrone Funktion.
 
 > [!NOTE]
-> Diese Methode kann nicht im privaten Browsing-Modus verwendet werden — sie gibt immer null zurück. Erwägen Sie die Verwendung von {{WebExtAPIRef("runtime.sendMessage","runtime.sendMessage()")}} oder {{WebExtAPIRef("runtime.connect","runtime.connect()")}}. Weitere Informationen finden Sie im [Firefox-Fehler 1329304](https://bugzil.la/1329304).
+> Diese Methode kann im privaten Browsing-Modus nicht verwendet werden — sie gibt immer null zurück. Erwägen Sie die Verwendung von {{WebExtAPIRef("runtime.sendMessage", "runtime.sendMessage()")}} oder {{WebExtAPIRef("runtime.connect", "runtime.connect()")}}. Weitere Informationen finden Sie im [Firefox-Bug 1329304](https://bugzil.la/1329304).
 
 ## Syntax
 
@@ -40,7 +38,7 @@ function foo() {
 }
 ```
 
-Ein Skript, das in einem [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) ausgeführt wird, kann diese Funktion direkt folgendermaßen aufrufen:
+Ein Skript, das in einem [Popup](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) läuft, kann diese Funktion direkt so aufrufen:
 
 ```js
 // popup.js

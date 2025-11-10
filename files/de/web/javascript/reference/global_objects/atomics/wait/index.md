@@ -1,17 +1,16 @@
 ---
 title: Atomics.wait()
+short-title: wait()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/wait
 l10n:
-  sourceCommit: bdc8bdccee92b67a7ce346af9ceaa247a1687c59
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die statische Methode **`Atomics.wait()`** überprüft, ob ein Speicherort im gemeinsam genutzten Speicher einen angegebenen Wert enthält und schläft, falls dies zutrifft, während sie auf eine Weckbenachrichtigung oder einen Timeout wartet. Sie gibt einen String zurück, der `"not-equal"` ist, wenn der Speicherort nicht mit dem angegebenen Wert übereinstimmt, `"ok"`, wenn er von {{jsxref("Atomics.notify()")}} geweckt wurde, oder `"timed-out"`, wenn der Timeout abläuft.
 
-Die **`Atomics.wait()`** statische Methode überprüft, ob eine geteilte Speicherstelle immer noch einen bestimmten Wert enthält und wartet, wenn dies zutrifft, auf eine Weckbenachrichtigung oder läuft ab. Sie gibt einen String zurück, der entweder `"ok"`, `"not-equal"` oder `"timed-out"` ist.
+`Atomics.wait()` und {{jsxref("Atomics.notify()")}} werden zusammen verwendet, um eine Thread-Synchronisation basierend auf einem Wert im gemeinsam genutzten Speicher zu ermöglichen. Ein Thread kann sofort fortfahren, wenn sich der Synchronisationswert geändert hat, oder er kann auf eine Benachrichtigung von einem anderen Thread warten, wenn er den Synchronisationspunkt erreicht.
 
-> [!NOTE]
-> Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet, und darf möglicherweise nicht im Hauptthread ausgeführt werden.
-> Für eine nicht blockierende, asynchrone Version dieser Methode siehe {{jsxref("Atomics.waitAsync()")}}.
+Diese Methode funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet. Sie ist blockierend und kann nicht im Haupt-Thread verwendet werden. Für eine nicht blockierende, asynchrone Version dieser Methode siehe {{jsxref("Atomics.waitAsync()")}}.
 
 ## Syntax
 
@@ -29,22 +28,22 @@ Atomics.wait(typedArray, index, value, timeout)
 - `value`
   - : Der erwartete Wert zum Testen.
 - `timeout` {{optional_inline}}
-  - : Wartezeit in Millisekunden. {{jsxref("NaN")}} (und Werte, die in `NaN` umgewandelt werden, wie `undefined`) wird zu {{jsxref("Infinity")}}. Negative Werte werden zu `0`.
+  - : Wartezeit in Millisekunden. {{jsxref("NaN")}} (und Werte, die in `NaN` umgewandelt werden, wie z.B. `undefined`) wird zu {{jsxref("Infinity")}}. Negative Werte werden zu `0`.
 
 ### Rückgabewert
 
-Ein String, der entweder `"ok"`, `"not-equal"` oder `"timed-out"` ist.
+Ein String, der entweder `"not-equal"`, `"ok"` oder `"timed-out"` ist.
 
-- `"ok"` wird zurückgegeben, wenn durch einen Aufruf von `Atomics.notify()` aufgeweckt, **unabhängig davon, ob sich der erwartete Wert geändert hat**
-- `"not-equal"` wird sofort zurückgegeben, wenn der anfängliche `value` nicht dem im `index` gespeicherten Wert entspricht
-- `"timed-out"` wird zurückgegeben, wenn eine schlafende Wartezeit den angegebenen `timeout` überschreitet, ohne durch `Atomics.notify()` aufgeweckt zu werden
+- `"not-equal"` wird sofort zurückgegeben, wenn der anfängliche `value` nicht dem entspricht, was bei `index` gespeichert ist.
+- `"ok"` wird zurückgegeben, wenn der Aufruf von `Atomics.notify()` geweckt wird, **unabhängig davon, ob sich der erwartete Wert geändert hat**.
+- `"timed-out"` wird zurückgegeben, wenn ein schlafender Wartevorgang den angegebenen `timeout` überschreitet, ohne dass er von `Atomics.notify()` geweckt wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Wenn `typedArray` nicht ein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
-    - Wenn der aktuelle Thread nicht blockiert werden kann (zum Beispiel, weil es der Hauptthread ist).
+    - Wenn `typedArray` kein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
+    - Wenn der aktuelle Thread nicht blockiert werden kann (zum Beispiel, weil es der Haupt-Thread ist).
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
@@ -52,14 +51,16 @@ Ein String, der entweder `"ok"`, `"not-equal"` oder `"timed-out"` ist.
 
 ### Verwendung von wait()
 
-Angenommen, es gibt einen geteilten `Int32Array`:
+Gegeben ein gemeinsames `Int32Array`:
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-Ein lesender Thread schläft und wartet an der Position 0, weil der angegebene `value` mit dem übereinstimmt, was an dem angegebenen `index` gespeichert ist. Der lesende Thread wird erst fortfahren, wenn der schreibende Thread `Atomics.notify()` an Position 0 des bereitgestellten `typedArray` aufgerufen hat. Beachten Sie, dass wenn der Wert an Position 0 nach dem Aufwachen nicht vom schreibenden Thread geändert wurde, der lesende Thread **nicht** wieder einschlafen wird, sondern fortfahren wird.
+Ein lesender Thread schläft und wartet an Position 0, weil der bereitgestellte `value` mit dem übereinstimmt, was an dem bereitgestellten `index` gespeichert ist.
+Der lesende Thread wird nicht weitermachen, bis der schreibende Thread `Atomics.notify()` an Position 0 des bereitgestellten `typedArray` aufgerufen hat.
+Beachten Sie, dass der lesende Thread **nicht** wieder einschlafen wird, nachdem er geweckt wurde, wenn der Wert an Position 0 nicht durch den schreibenden Thread geändert wurde, sondern fortfahren wird.
 
 ```js
 Atomics.wait(int32, 0, 0);

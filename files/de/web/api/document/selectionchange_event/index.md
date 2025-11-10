@@ -1,30 +1,30 @@
 ---
-title: "Document: selectionchange Ereignis"
+title: "Dokument: selectionchange Ereignis"
 short-title: selectionchange
 slug: Web/API/Document/selectionchange_event
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Selection API")}}
 
-Das **`selectionchange`** Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Document`](/de/docs/Web/API/Document) geändert wird.
+Das **`selectionchange`** Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Documents`](/de/docs/Web/API/Document) geändert wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis ist nicht abbrechbar und wird nicht propagiert.
 
-Das Ereignis kann durch Hinzufügen eines Event-Listeners für `selectionchange` oder durch die Verwendung des `onselectionchange` Ereignishandlers behandelt werden.
+Das Ereignis kann durch Hinzufügen eines Ereignis-Listeners für `selectionchange` oder durch Verwendung des `onselectionchange` Ereignis-Handlers behandelt werden.
 
 > [!NOTE]
-> Dieses Ereignis ist nicht dasselbe wie die `selectionchange` Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element geändert wird. Weitere Informationen finden Sie im [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis des `HTMLInputElement`.
+> Dieses Ereignis ist nicht ganz dasselbe wie die `selectionchange` Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element geändert wird. Siehe das [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis von `HTMLInputElement` für weitere Details.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("selectionchange", (event) => {});
+```js-nolint
+addEventListener("selectionchange", (event) => { })
 
-onselectionchange = (event) => {};
+onselectionchange = (event) => { }
 ```
 
 ## Ereignistyp

@@ -1,13 +1,12 @@
 ---
 title: Atomics.sub()
+short-title: sub()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/sub
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.sub()`** subtrahiert einen gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wurde.
+Die statische Methode **`Atomics.sub()`** subtrahiert einen gegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine andere Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{InteractiveExample("JavaScript Demo: Atomics.sub()")}}
 
@@ -34,19 +33,18 @@ Atomics.sub(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typ-Array. Eine der folgenden: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
     {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, von der ein
-    `value` subtrahiert wird.
+  - : Die Position in `typedArray`, von der ein `value` subtrahiert wird.
 - `value`
   - : Die Zahl, die subtrahiert werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
+Der alte Wert an der gegebenen Position
 (`typedArray[index]`).
 
 ### Ausnahmen
@@ -58,7 +56,7 @@ Der alte Wert an der angegebenen Position
 
 ## Beispiele
 
-### Sub verwenden
+### Verwendung von sub
 
 ```js
 const sab = new SharedArrayBuffer(1024);

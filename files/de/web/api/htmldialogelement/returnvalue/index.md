@@ -3,112 +3,79 @@ title: "HTMLDialogElement: returnValue-Eigenschaft"
 short-title: returnValue
 slug: Web/API/HTMLDialogElement/returnValue
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: 892f5d7d285d5ed9d79012b5e19c459392a7669e
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces erhält oder setzt den Rückgabewert für das {{htmlelement("dialog")}}, üblicherweise um anzugeben, welche Schaltfläche der Benutzer gedrückt hat, um es zu schließen.
+Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein String, der den Rückgabewert für ein {{htmlelement("dialog")}}-Element repräsentiert, wenn es geschlossen wird.
+Sie können den Wert direkt festlegen (`dialog.returnValue = "result"`) oder den Wert als String-Argument an [`close()`](/de/docs/Web/API/HTMLDialogElement/close) oder [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) übergeben.
 
 ## Wert
 
-Ein String, der den `returnValue` des Dialogs darstellt.
+Ein String, der den `returnValue` des Dialogs repräsentiert.
+Standardmäßig ein leerer String (`""`).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine Schaltfläche zum Öffnen eines {{htmlelement("dialog")}} mit einem Formular über die Methode `showModal()`.
-Das Skript weist der `returnValue` initial den Wert `initialValue` zu.
-Die Bestätigungsschaltfläche (`confirmBtn`) sendet das Formular mit Validierung, und die "X"-Schaltfläche sendet das Formular ohne Validierung. Das Senden eines Formulars mit `method="dialog"` schließt den Dialog und setzt den Rückgabewert auf den `value`, falls vorhanden, der `button`- oder `input`-Elemente vom Typ `submit`.
-Die Zurücksetzen-Schaltfläche hat einen Ereignis-Handler, der den Dialog schließt; sie hat keinen Einfluss auf den `returnValue`. Auch das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste hat keinen Einfluss.
+### Überprüfung des Rückgabewerts
+
+Das folgende Beispiel zeigt eine Schaltfläche, um einen Dialog zu öffnen. Der Dialog fragt den Benutzer, ob er einen Nutzungsbedingungen-Prompt akzeptieren möchte.
+
+Der Dialog enthält die Schaltflächen "Akzeptieren" oder "Ablehnen": Wenn der Benutzer auf eine der Schaltflächen klickt, schließt der Klick-Handler der Schaltfläche den Dialog und übergibt seine Wahl an die [`close()`](/de/docs/Web/API/HTMLDialogElement/close)-Funktion. Dies weist der Wahl die `returnValue`-Eigenschaft des Dialogs zu.
+
+Im [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignishandler des Dialogs aktualisiert das Beispiel den Status-Text der Hauptseite, um den `returnValue` aufzuzeichnen.
+
+Wenn der Benutzer den Dialog schließt, ohne auf eine Schaltfläche zu klicken (z. B. durch Drücken der <kbd>Esc</kbd>-Taste), wird der Rückgabewert nicht gesetzt.
+
+#### HTML
 
 ```html
-<!-- Simple pop-up dialog box containing a form -->
-<dialog id="favDialog">
-  <form method="dialog">
-    <input
-      type="submit"
-      aria-label="close"
-      value="X"
-      name="x-button"
-      formnovalidate />
-    <p>
-      <label
-        >Favorite animal:
-        <select name="favAnimal" required>
-          <option></option>
-          <option>Brine shrimp</option>
-          <option>Red panda</option>
-          <option>Spider monkey</option>
-        </select>
-      </label>
-    </p>
-    <menu>
-      <button type="reset" value="resetBtn">Reset</button>
-      <button type="submit" value="confirmBtn">Confirm</button>
-    </menu>
-  </form>
+<dialog id="termsDialog">
+  <p>Do you agree to the Terms of Service (link)?</p>
+  <button id="declineButton" value="declined">Decline</button>
+  <button id="acceptButton" value="accepted">Accept</button>
 </dialog>
-
 <p>
-  <button id="openDialog">Open Dialog</button>
+  <button id="openDialogButton">Review ToS</button>
 </p>
-<p id="text"></p>
-
-<script>
-  (() => {
-    const openDialog = document.getElementById("openDialog");
-    const dialog = document.getElementById("favDialog");
-    const text = document.getElementById("text");
-    const reset = document.querySelector("[type='reset']");
-    dialog.returnValue = "initialValue";
-
-    function openCheck(dialog) {
-      if (dialog.open) {
-        text.innerText = "Dialog open";
-      } else {
-        text.innerText = "Dialog closed";
-      }
-    }
-
-    function handleUserInput(returnValue) {
-      if (!returnValue) {
-        text.innerText += ". There was no return value";
-      } else {
-        text.innerText += ". Return value: " + returnValue;
-      }
-    }
-
-    // "Open Dialog" button opens the <dialog> modally
-    openDialog.addEventListener("click", () => {
-      dialog.showModal();
-      openCheck(dialog);
-      handleUserInput(dialog.returnValue);
-    });
-
-    reset.addEventListener("click", () => {
-      dialog.close();
-    });
-
-    // when the dialog is closed, no matter how it is closed
-    dialog.addEventListener("close", () => {
-      openCheck(dialog);
-      handleUserInput(dialog.returnValue);
-    });
-  })();
-</script>
-<style>
-  [aria-label="close"] {
-    appearance: none;
-    border-radius: 50%;
-    border: 1px solid;
-    float: right;
-  }
-</style>
+<p id="statusText"></p>
 ```
 
-### Ergebnis
+#### JavaScript
 
-{{ EmbedLiveSample('Examples', '100%', '200px') }}
+```js
+const dialog = document.getElementById("termsDialog");
+const statusText = document.getElementById("statusText");
+
+const openDialogButton = document.getElementById("openDialogButton");
+const declineButton = document.getElementById("declineButton");
+const acceptButton = document.getElementById("acceptButton");
+
+openDialogButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+declineButton.addEventListener("click", closeDialog);
+acceptButton.addEventListener("click", closeDialog);
+
+function closeDialog(event) {
+  const button = event.target;
+  dialog.close(button.value);
+}
+
+dialog.addEventListener("close", () => {
+  statusText.innerText = dialog.returnValue
+    ? `Return value: ${dialog.returnValue}`
+    : "There was no return value";
+});
+```
+
+#### Ergebnis
+
+Probieren Sie aus, "Nutzungsbedingungen überprüfen" zu klicken, dann die Schaltflächen "Akzeptieren" oder "Ablehnen" im Dialog auszuwählen oder den Dialog durch Drücken der <kbd>Esc</kbd>-Taste zu schließen und beobachten Sie die unterschiedlichen Statusaktualisierungen.
+
+{{ EmbedLiveSample('Checking the return value', '100%', '200px') }}
 
 ## Spezifikationen
 

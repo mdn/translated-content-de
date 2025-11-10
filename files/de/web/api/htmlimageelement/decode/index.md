@@ -1,16 +1,16 @@
 ---
-title: "HTMLImageElement: `decode()` Methode"
+title: "HTMLImageElement: decode() Methode"
 short-title: decode()
 slug: Web/API/HTMLImageElement/decode
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`decode()`**-Methode des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald das Bild decodiert ist und es sicher ist, es dem DOM hinzuzufügen.
+Die **`decode()`** Methode des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald das Bild decodiert ist und sicher an das DOM angehängt werden kann.
 
-Dies kann verwendet werden, um das Laden des Bildes vor der Einbindung in ein Element im DOM (oder dem Hinzufügen zum DOM als neues Element) zu starten, sodass das Bild sofort gerendert werden kann, wenn es dem DOM hinzugefügt wird. Dies verhindert Verzögerungen beim Rendern des nächsten Frames, nachdem das Bild dem DOM hinzugefügt wurde, während das Bild geladen wird.
+Dies kann verwendet werden, um das Laden des Bildes zu initiieren, bevor es an ein Element im DOM angehängt wird (oder es als neues Element zum DOM hinzugefügt wird), sodass das Bild sofort beim Hinzufügen zum DOM gerendert werden kann. Dies verhindert, dass das Rendern des nächsten Frames nach dem Hinzufügen des Bildes zum DOM eine Verzögerung verursacht, während das Bild geladen wird.
 
 ## Syntax
 
@@ -24,22 +24,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das mit `undefined` erfüllt wird, sobald die Bilddaten zur Verwendung bereit sind.
+Ein {{jsxref('Promise')}}, das mit `undefined` erfüllt wird, sobald die Bilddaten zur Verwendung bereit sind.
 
 ### Ausnahmen
 
-- `EncodingError`
-  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der anzeigt, dass ein Fehler beim Decodieren des Bildes aufgetreten ist.
-
-## Anwendungshinweise
-
-Ein potenzieller Anwendungsfall für `decode()`: Beim Laden sehr großer Bilder (zum Beispiel in einem Online-Fotoalbum) kann zunächst ein niedrig aufgelöstes Thumbnail-Bild angezeigt und dann dieses Bild durch das voll aufgelöste Bild ersetzt werden. Hierzu wird ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) instanziiert, dessen Quelle auf die URL des voll aufgelösten Bildes gesetzt und anschließend `decode()` verwendet, um ein Promise zu erhalten, das aufgelöst wird, sobald das voll aufgelöste Bild zur Verfügung steht. Zu diesem Zeitpunkt kann das niedrig aufgelöste Bild durch das nun verfügbare voll aufgelöste Bild ersetzt werden.
+- `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ein Fehler ist beim Decodieren des Bildes aufgetreten. Dies kann passieren, wenn:
+    - Die Anfrage fehlgeschlagen ist
+    - Die Bildanfrage nach dem Aufruf von `decode()` geändert wurde (zum Beispiel durch Ändern von `src`)
+    - Die Bilddaten beschädigt sind
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Das folgende Beispiel zeigt, wie die `decode()`-Methode verwendet wird, um zu steuern, wann ein Bild dem DOM hinzugefügt wird.
+Das folgende Beispiel zeigt, wie Sie die `decode()` Methode verwenden, um zu steuern, wann ein Bild an das DOM angehängt wird.
 
 ```js
 const img = new Image();
@@ -55,11 +54,11 @@ img
 ```
 
 > [!NOTE]
-> Ohne eine Methode, die ein {{jsxref('Promise')}} zurückgibt, würden Sie das Bild in einem [`load`](/de/docs/Web/API/Window/load_event)-Ereignishandler dem DOM hinzufügen und den Fehler im [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignishandler behandeln.
+> Ohne eine {{jsxref('Promise')}}-zurückgebende Methode würden Sie das Bild in einem [`load`](/de/docs/Web/API/Window/load_event) Ereignishandler zum DOM hinzufügen und den Fehler im [`error`](/de/docs/Web/API/HTMLElement/error_event) Ereignishandler behandeln.
 
 ### Vermeidung leerer Bilder
 
-Im folgenden Beispiel wird wahrscheinlich ein leeres Bild auf der Seite angezeigt, da das Bild heruntergeladen wird:
+Im folgenden Beispiel wird wahrscheinlich ein leeres Bild auf der Seite angezeigt, während das Bild heruntergeladen wird:
 
 ```js
 const img = new Image();
@@ -67,7 +66,7 @@ img.src = "img/logo.png";
 document.body.appendChild(img);
 ```
 
-Die Verwendung von `decode()` verzögert das Einfügen des Bildes in das DOM, bis es vollständig heruntergeladen und decodiert ist, wodurch das Problem des leeren Bildes vermieden wird:
+Die Verwendung von `decode()` verzögert das Einfügen des Bildes in das DOM, bis es vollständig heruntergeladen und decodiert ist, und vermeidet so das Problem des leeren Bildes:
 
 ```js
 async function getImage() {
@@ -81,7 +80,7 @@ async function getImage() {
 }
 ```
 
-Dies ist besonders nützlich, wenn Sie ein bestehendes Bild dynamisch durch ein neues ersetzen, und verhindert außerdem, dass nicht verwandte Darstellungen außerhalb dieses Codes blockiert werden, während das Bild decodiert wird.
+Dies ist besonders nützlich, wenn Sie dynamisch ein vorhandenes Bild gegen ein neues austauschen, und verhindert auch, dass nicht zusammenhängende Renderings außerhalb dieses Codes aufgehalten werden, während das Bild decodiert wird. Beispielsweise in einem Online-Fotoalbum können Sie zunächst ein Bild mit niedriger Auflösung anzeigen und dann dieses Bild durch das Bild mit voller Auflösung ersetzen, indem Sie ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) instanziieren, dessen Quelle auf die URL des Bildes mit voller Auflösung setzen und dann `decode()` verwenden, um ein `Promise` zu erhalten, das erfüllt wird, sobald das Bild mit voller Auflösung gebrauchsfertig ist. Zu diesem Zeitpunkt können Sie dann das Bild mit niedriger Auflösung durch das jetzt verfügbare Bild mit voller Auflösung ersetzen.
 
 ## Spezifikationen
 
@@ -93,5 +92,5 @@ Dies ist besonders nützlich, wenn Sie ein bestehendes Bild dynamisch durch ein 
 
 ## Siehe auch
 
-- [Was macht das Bild-Decodierungsattribut eigentlich?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/) auf tunetheweb.com (2023)
-- Die [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding)-Eigenschaft
+- [Was macht das Attribut image decoding eigentlich?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/) auf tunetheweb.com (2023)
+- Die [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding) Eigenschaft

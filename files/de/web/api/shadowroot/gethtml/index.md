@@ -1,18 +1,20 @@
 ---
-title: "ShadowRoot: getHTML() Methode"
+title: "ShadowRoot: getHTML()-Methode"
 short-title: getHTML()
 slug: Web/API/ShadowRoot/getHTML
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 5d6f5187d1c657edec7e735d3cc5ad36907e2030
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getHTML()`** Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces wird verwendet, um das DOM eines Shadow-Roots in eine HTML-Zeichenkette zu serialisieren.
+Die **`getHTML()`**-Methode der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle wird verwendet, um das DOM einer Shadow-Root in einen HTML-String zu serialisieren.
 
-Die Methode bietet ein Optionen-Argument, das die Serialisierung von Kindknoten ermöglicht, die Shadow-Roots sind. Die Optionen können verwendet werden, um verschachtelte Shadow-Roots einzuschließen, die als [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) festgelegt wurden, und/oder ein bestimmtes Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die entweder offen oder geschlossen sein können.
+Die Methode bietet ein Optionsargument, das die Serialisierung von Kindknoten ermöglicht, die Shadow-Roots sind. Die Optionen können verwendet werden, um verschachtelte Shadow-Roots einzuschließen, die als [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) festgelegt wurden, und/oder ein bestimmtes Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die entweder offen oder geschlossen sein können.
 
-Ohne Argumente werden Kindknoten, die Shadow-Roots sind, nicht serialisiert, und diese Methode verhält sich auf die gleiche Weise wie das Auslesen des Werts von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML).
+Ohne Argumente werden Kindknoten, die Shadow-Roots sind, nicht serialisiert, und diese Methode verhält sich in gleicher Weise wie das Lesen des Wertes von [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML).
+
+Beachten Sie, dass einige Browser die `<`- und `>`-Zeichen als `&lt;` und `&gt;` serialisieren, wenn sie in Attributwerten erscheinen (siehe [Browser-Kompatibilität](#browser-kompatibilität)). Dies soll eine potenzielle Sicherheitslücke verhindern ([mutation XSS](https://www.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass.html)), bei der ein Angreifer Eingaben erstellen kann, die eine [Sanisierungsfunktion](/de/docs/Web/Security/Attacks/XSS#sanitization) umgehen und so einen Cross-Site Scripting (XSS)-Angriff ermöglichen.
 
 ## Syntax
 
@@ -23,20 +25,18 @@ getHTML(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt mit den folgenden optionalen Parametern:
-
     - `serializableShadowRoots`
-      - : Ein boolescher Wert, der angibt, ob `serializable` [serializable](/de/docs/Web/API/ShadowRoot/serializable) Shadow-Roots einbezogen werden sollen.
+      - : Ein boolescher Wert, der angibt, ob [serialisierbare](/de/docs/Web/API/ShadowRoot/serializable) Shadow-Roots eingeschlossen werden sollen.
         Der Standardwert ist `false`.
     - `shadowRoots`
       - : Ein Array von [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekten, die serialisiert werden sollen.
-        Diese werden unabhängig davon einbezogen, ob sie als `serializable` markiert sind oder ob sie offen oder geschlossen sind.
+        Diese werden unabhängig davon eingeschlossen, ob sie als `serializable` markiert sind oder ob sie offen oder geschlossen sind.
         Der Standardwert ist ein leeres Array.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die HTML-Serialisierung des Shadow-Roots darstellt.
+Ein String, der die HTML-Serialisierung der Shadow-Root darstellt.
 
 ### Ausnahmen
 

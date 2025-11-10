@@ -40,7 +40,7 @@ Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer de
 - `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Transaktionsmodus nur lesen ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, gerade iteriert wird oder über sein Ende hinaus iteriert wurde.
+  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBIndex/openKeyCursor) erstellt wurde, gerade iteriert wird oder über sein Ende hinaus iteriert wurde.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der zugrunde liegende Objekt-Store Inline-Schlüssel verwendet und die Eigenschaft im Wert am Schlüsselpfad des Objekt-Stores nicht mit dem Schlüssel in der Position dieses Cursors übereinstimmt.
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)

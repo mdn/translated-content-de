@@ -2,12 +2,10 @@
 title: Event.hasListener()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/hasListener
 l10n:
-  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Prüft, ob ein Listener für das Ereignis registriert ist.
+Überprüft, ob ein Listener für das Ereignis registriert ist.
 
 ## Syntax
 
@@ -18,7 +16,6 @@ events.Event.hasListener(listener)
 ### Parameter
 
 - `listener`
-
   - : `function`. Der Listener, der überprüft werden soll.
 
 ### Rückgabewert
@@ -30,7 +27,7 @@ Ein boolescher Wert: `true`, wenn der Listener für das Ereignis registriert ist
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-hasListener) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-hasListener) API von Chromium. Diese Dokumentation ist aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

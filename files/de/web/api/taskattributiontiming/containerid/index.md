@@ -3,16 +3,16 @@ title: "TaskAttributionTiming: containerId-Eigenschaft"
 short-title: containerId
 slug: Web/API/TaskAttributionTiming/containerId
 l10n:
-  sourceCommit: 3dd7df0af3b0ada1a7c5784cc2bc5448adcda8af
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`containerId`**-Eigenschaft des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces gibt das `id`-Attribut des Containers zurück. Ein Container ist das iframe, embed oder object etc., das insgesamt für eine lange Aufgabe verantwortlich gemacht wird.
+Die **`containerId`**-Schreibgeschützte Eigenschaft der [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Schnittstelle gibt das `id`-Attribut des Containers zurück. Ein Container ist das gesamte iframe, embed oder object etc., das für eine lange Aufgabe impliziert wird.
 
 ## Wert
 
-Ein String, der das HTML-Inhaltsattribut [`id`](/de/docs/Web/HTML/Global_attributes/id) des Containers enthält.
+Ein String, der das HTML-Inhaltsattribut `id` des Containers enthält.
 
 ## Spezifikationen
 

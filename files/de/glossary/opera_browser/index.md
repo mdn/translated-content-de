@@ -1,15 +1,29 @@
 ---
-title: Opera Browser
+title: Opera-Browser
 slug: Glossary/Opera_Browser
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 74e7902b0875b6378d77df6d2d925a2d09d19f5d
 ---
 
-{{GlossarySidebar}}
+**Opera** ist ein kostenloser {{Glossary("Browser", "Webbrowser")}}, der 1996 öffentlich veröffentlicht wurde und ursprünglich nur für Windows verfügbar war. Opera verwendet seit 2013 die {{Glossary("Blink", "Blink")}} Rendering-Engine (ersetzt {{Glossary("Presto", "Presto")}}). Opera ist auch auf Mobilgeräten und Tablets verfügbar.
 
-**Opera** ist der fünftmeistgenutzte Web-{{Glossary("browser", "Browser")}}, der 1996 öffentlich veröffentlicht wurde und ursprünglich nur unter Windows lief. Seit 2013 verwendet Opera {{Glossary("Blink", "Blink")}} als Layout-Engine (davor {{Glossary("Presto", "Presto")}}). Opera ist auch in Versionen für Mobilgeräte und Tablets verfügbar.
+## Opera herunterladen
+
+Opera ist für mehrere Plattformen verfügbar:
+
+- [Opera für Windows, macOS und Linux](https://www.opera.com/download)
+- [Opera für Android](https://play.google.com/store/apps/details?id=com.opera.browser)
+- [Opera für iOS](https://apps.apple.com/us/app/opera-ai-browser-with-vpn/id1411869974)
 
 ## Siehe auch
 
-- [Opera Browser](https://en.wikipedia.org/wiki/Opera_Browser) auf Wikipedia
-- [Opera Browser-Website](https://www.opera.com/)
+- [Opera (Webbrowser)](https://en.wikipedia.org/wiki/Opera_Browser) auf Wikipedia
+- [Opera Webbrowser](https://www.opera.com/) auf opera.com
+- [Opera Hilfe](https://help.opera.com/)
+- Offene Probleme mit dem [Fehlermeldeassistenten](https://bugs.opera.com/wizard/) melden
+- Verwandte Glossarbegriffe:
+  - {{Glossary("Browser", "Browser")}}
+  - {{Glossary("Blink", "Blink")}}
+  - {{Glossary("Engine/Rendering", "Rendering-Engine")}}
+  - {{Glossary("Presto", "Presto")}}
+  - Andere Browser: {{Glossary("Apple_Safari", "Apple Safari")}}, {{Glossary("Google_Chrome", "Google Chrome")}}, {{Glossary("Microsoft_Edge", "Microsoft Edge")}}, {{Glossary("Mozilla_Firefox", "Mozilla Firefox")}}

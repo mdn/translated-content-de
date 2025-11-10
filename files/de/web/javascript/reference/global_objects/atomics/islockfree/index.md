@@ -1,13 +1,12 @@
 ---
 title: Atomics.isLockFree()
+short-title: isLockFree()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/isLockFree
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Atomics.isLockFree()`** wird verwendet, um zu bestimmen, ob die `Atomics`-Methoden Sperren oder atomare Hardware-Operationen verwenden, wenn sie auf typisierte Arrays mit einer bestimmten Byte-Größe angewendet werden. Sie ist als Optimierungsprimitive gedacht, damit leistungsstarke Algorithmen entscheiden können, ob sie Sperren oder atomare Operationen in kritischen Abschnitten verwenden sollen. Wenn ein atomarer Primitive nicht sperrfrei ist, ist es oft effizienter, wenn ein Algorithmus eigene Sperrmechanismen bereitstellt.
+Die statische Methode **`Atomics.isLockFree()`** wird verwendet, um festzustellen, ob die `Atomics`-Methoden Sperren oder atomare Hardware-Operationen verwenden, wenn sie auf typisierte Arrays mit der angegebenen Element-Byte-Größe angewendet werden. Sie ist als Optimierungsprimitive gedacht, damit Hochleistungsalgorithmen feststellen können, ob sie in kritischen Abschnitten Sperren oder atomare Operationen verwenden sollen. Wenn eine atomare Primitive nicht frei von Sperren ist, ist es oft effizienter, dass ein Algorithmus seine eigene Sperre bereitstellt.
 
 {{InteractiveExample("JavaScript Demo: Atomics.isLockFree()")}}
 
@@ -30,14 +29,14 @@ Atomics.isLockFree(size)
 ### Parameter
 
 - `size`
-  - : Die Größe in Bytes, die geprüft werden soll.
+  - : Die Größe in Bytes, die überprüft werden soll.
 
 ### Rückgabewert
 
-Ein `true`- oder `false`-Wert, der angibt, ob die Operation sperrfrei ist.
+Ein `true`- oder `false`-Wert, der angibt, ob die Operation frei von Sperren ist.
 
 - Immer `true`, wenn `size` 4 ist, da alle bekannten Plattformen 4-Byte-atomare Operationen unterstützen.
-- Immer `false`, wenn die angegebene Größe nicht eine der [`BYTES_PER_ELEMENT`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT)-Eigenschaften von Integer-TypedArray-Typen ist.
+- Immer `false`, wenn die angegebene Größe nicht eine der [`BYTES_PER_ELEMENT`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT)-Eigenschaften der ganzzahligen TypedArray-Typen ist.
 
 ## Beispiele
 

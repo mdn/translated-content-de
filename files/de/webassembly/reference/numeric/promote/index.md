@@ -2,16 +2,37 @@
 title: Promote
 slug: WebAssembly/Reference/Numeric/Promote
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`promote`**-Anweisung wird verwendet, um Zahlen des Typs `f32` in den Typ `f64` zu konvertieren (promoten).
+Die **`promote`**-Anweisung wird verwendet, um Zahlen vom Typ `f32` in den Typ `f64` umzuwandeln (zu fördern).
 
-{{EmbedInteractiveExample("pages/wat/promote.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: promote", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param f64)))
+  (func $main
+
+    f32.const 10.5 ;; push an f32 onto the stack
+
+    f64.promote_f32 ;; promote from f32 to f64
+
+    call $log ;; log the result
+
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; push an f32 onto the stack
 f32.const 10.5
 

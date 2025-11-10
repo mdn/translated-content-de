@@ -3,13 +3,12 @@ title: "FontFace: descentOverride-Eigenschaft"
 short-title: descentOverride
 slug: Web/API/FontFace/descentOverride
 l10n:
-  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
 {{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`descentOverride`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt den Wert des {{cssxref("@font-face/descent-override")}}-Descriptors zurück und legt ihn fest.
-Mögliche Werte sind `normal`, was bedeutet, dass das verwendete Maß aus der Schriftartdatei stammen sollte, oder ein Prozentsatz.
+Die **`descentOverride`**-Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle gibt den Wert des {{cssxref("@font-face/descent-override")}}-Descriptors zurück und setzt ihn. Die möglichen Werte sind `normal`, was anzeigt, dass das Metrik aus der Schriftdatei bezogen werden sollte, oder ein Prozentsatz.
 
 ## Wert
 
@@ -20,7 +19,7 @@ Ein String.
 ```js
 let fontFace = new FontFace(
   "Roboto",
-  "url(https://fonts.example.com/roboto.woff2)",
+  'url("https://fonts.example.com/roboto.woff2")',
   { descentOverride: "90%" },
 );
 console.log(fontFace.descentOverride); // 90%

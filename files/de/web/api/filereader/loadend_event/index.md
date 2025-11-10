@@ -1,25 +1,25 @@
 ---
-title: "FileReader: loadend-Ereignis"
+title: "FileReader: loadend Ereignis"
 short-title: loadend
 slug: Web/API/FileReader/loadend_event
 l10n:
-  sourceCommit: e43bfd9b4a6c363a4ba7ef6ffa64c09b38fd111b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`loadend`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird ausgelöst, wenn das Lesen einer Datei abgeschlossen ist, unabhängig davon, ob es erfolgreich war oder nicht.
+Das **`loadend`**-Ereignis des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird ausgelöst, wenn das Lesen einer Datei abgeschlossen ist, egal ob erfolgreich oder nicht.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignis-Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("loadend", (event) => {});
+```js-nolint
+addEventListener("loadend", (event) => { })
 
-onloadend = (event) => {};
+onloadend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,14 +30,14 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-Element [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event)_.
 
 - [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es zeigt, ob der Fortschritt messbar ist oder nicht.
+  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu erledigende Arbeit und der bereits geleistete Arbeitsaufwand des zugrunde liegenden Prozesses berechenbar sind. Mit anderen Worten, es informiert darüber, ob der Fortschritt messbar ist oder nicht.
 - [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Ganzzahlwert ohne Vorzeichen, der die Menge der bereits durch den zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Nachrichtentext und schließt keine Header und anderen Overhead ein.
+  - : Ein 64-Bit-unsigned Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem der Wert dieses Attributs durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP wird nur der Nachrichtentext gezählt und nicht die Header und anderer Overhead.
 - [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-Ganzzahlwert ohne Vorzeichen, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt keine Header und anderen Überhead ein.
+  - : Ein 64-Bit-unsigned Integer, der die gesamte Arbeitsmenge darstellt, die der zugrunde liegende Prozess im Begriff ist zu leisten. Beim Herunterladen einer Ressource über HTTP entspricht dies der `Content-Length` (der Größe des Nachrichtentextes) und enthält nicht die Header und anderen Overhead.
 
 ## Beispiele
 

@@ -1,22 +1,22 @@
 ---
-title: "SVGFEDisplacementMapElement: in2 Eigenschaft"
+title: "SVGFEDisplacementMapElement: Eigenschaft in2"
 short-title: in2
 slug: Web/API/SVGFEDisplacementMapElement/in2
 l10n:
-  sourceCommit: 243703c2241af83f51991c4dcdbdfbe6c8f6c8cd
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in2`** schreibgeschützte Eigenschaft des [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement) Interfaces spiegelt das {{SVGAttr("in2")}} Attribut des gegebenen {{SVGElement("feDisplacementMap")}} Elements wider.
+Die **`in2`** schreibgeschützte Eigenschaft der [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle spiegelt das {{SVGAttr("in2")}}-Attribut des gegebenen {{SVGElement("feDisplacementMap")}}-Elements wider.
 
 ## Wert
 
-Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) Objekt.
+Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei {{SVGElement("feDisplacementMap")}} Elemente in einem Filter definiert, jedes mit einem unterschiedlichen `in2` Attribut.
+In diesem Beispiel sind zwei {{SVGElement("feDisplacementMap")}}-Elemente in einem Filter definiert, jedes mit einem unterschiedlichen `in2`-Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -38,13 +38,13 @@ In diesem Beispiel werden zwei {{SVGElement("feDisplacementMap")}} Elemente in e
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#filter1)" />
-  <circle cx="100" cy="100" r="50" style="fill:blue;" filter="url(#filter1)" />
+  <circle cx="100" cy="100" r="50" fill="blue" filter="url(#filter1)" />
 </svg>
 ```
 
-Wir können auf das `in2` Attribut zugreifen:
+Wir können auf das `in2`-Attribut zugreifen:
 
 ```js
 const displacementMaps = document.querySelectorAll("feDisplacementMap");

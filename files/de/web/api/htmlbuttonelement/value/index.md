@@ -3,12 +3,12 @@ title: "HTMLButtonElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLButtonElement/value
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces repräsentiert den Wert des {{htmlelement("button")}}-Elements als Zeichenkette oder als leere Zeichenkette, wenn kein Wert gesetzt ist. Es spiegelt das [`value`](/de/docs/Web/HTML/Element/button#value)-Attribut des Elements wider.
+Die **`value`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces repräsentiert den Wert des {{htmlelement("button")}}-Elements als Zeichenkette oder die leere Zeichenkette, wenn kein Wert gesetzt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Reference/Elements/button#value)-Attribut des Elements wider.
 
 ## Wert
 

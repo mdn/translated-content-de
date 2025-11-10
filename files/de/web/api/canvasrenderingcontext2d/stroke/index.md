@@ -1,18 +1,18 @@
 ---
-title: "CanvasRenderingContext2D: stroke()-Methode"
+title: "CanvasRenderingContext2D: stroke() Methode"
 short-title: stroke()
 slug: Web/API/CanvasRenderingContext2D/stroke
 l10n:
-  sourceCommit: 0a881eea07f0cec6ca4ed85a24af43b367a9f80d
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.stroke()`**-Methode der Canvas 2D API umrandet den aktuellen oder angegebenen Pfad mit dem aktuellen Zeichenstil.
+Die **`CanvasRenderingContext2D.stroke()`** Methode der Canvas 2D API zeichnet die aktuelle oder angegebene Strecke mit dem aktuellen Linienstil nach.
 
-Linien werden zur Mitte eines Pfades ausgerichtet; mit anderen Worten, die Hälfte der Linie wird auf der Innenseite und die andere Hälfte auf der Außenseite gezeichnet.
+Die Linien werden zentriert zu einem Pfad ausgerichtet; mit anderen Worten, die Hälfte der Linie wird auf der inneren und die andere Hälfte auf der äußeren Seite gezeichnet.
 
-Die Linie wird unter Verwendung der [Nicht-Null-Umwickelregel](https://en.wikipedia.org/wiki/Nonzero-rule) gezeichnet, was bedeutet, dass sich überschneidende Pfade weiterhin gefüllt werden.
+Die Linie wird unter Verwendung der [Non-Zero-Winding-Regel](https://en.wikipedia.org/wiki/Nonzero-rule) gezeichnet, was bedeutet, dass Pfadüberschneidungen trotzdem gefüllt werden.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ stroke(path)
 ### Parameter
 
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad zum Umranden.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, der nachgezeichnet werden soll.
 
 ### Rückgabewert
 
@@ -32,9 +32,9 @@ Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Ein einfaches umrandetes Rechteck
+### Ein einfaches nachgezeichnetes Rechteck
 
-Dieses Beispiel erstellt ein Rechteck mit der `rect()`-Methode und zeichnet es dann mit `stroke()` auf die Leinwand.
+Dieses Beispiel erstellt ein Rechteck mit der `rect()` Methode und zeichnet es dann mit `stroke()` auf die Leinwand.
 
 #### HTML
 
@@ -55,9 +55,9 @@ ctx.stroke();
 
 {{ EmbedLiveSample('A_simple_stroked_rectangle', 700, 180) }}
 
-### Mehrfaches Umranden von Pfaden
+### Mehrfaches Nachzeichnen von Pfaden
 
-Typischerweise werden Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) für jede neue zu umrandende Sache aufrufen wollen. Wenn Sie das nicht tun, bleiben die vorherigen Unterpfade Teil des aktuellen Pfades und werden jedes Mal umrandet, wenn Sie die `stroke()`-Methode aufrufen. In einigen Fällen kann dies jedoch der gewünschte Effekt sein.
+Typischerweise möchten Sie für jedes neue Element, das Sie nachzeichnen möchten, [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) aufrufen. Wenn Sie dies nicht tun, bleiben die vorherigen Unterpfade Teil des aktuellen Pfades und werden jedes Mal nachgezeichnet, wenn Sie die `stroke()` Methode aufrufen. In einigen Fällen kann dies jedoch der gewünschte Effekt sein.
 
 #### HTML
 
@@ -67,7 +67,7 @@ Typischerweise werden Sie [`beginPath()`](/de/docs/Web/API/CanvasRenderingContex
 
 #### JavaScript
 
-Dieser Code umrandet den ersten Pfad dreimal, den zweiten Pfad zweimal und den dritten Pfad nur einmal.
+Dieser Code zeichnet den ersten Pfad dreimal, den zweiten Pfad zweimal und den dritten Pfad nur einmal nach.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -99,9 +99,9 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Re-stroking_paths', 700, 180) }}
 
-### Umranden und Füllen
+### Nachzeichnen und Füllen
 
-Wenn Sie sowohl einen Pfad umranden als auch füllen möchten, bestimmt die Reihenfolge dieser Aktionen das Ergebnis. In diesem Beispiel wird das Quadrat auf der linken Seite mit der Umrandung über der Füllung gezeichnet. Das Quadrat auf der rechten Seite wird mit der Füllung über der Umrandung gezeichnet.
+Wenn Sie einen Pfad sowohl nachzeichnen als auch füllen möchten, bestimmt die Reihenfolge dieser Aktionen das Ergebnis. In diesem Beispiel wird das Quadrat auf der linken Seite mit der Linie über der Füllung gezeichnet. Das Quadrat auf der rechten Seite wird mit der Füllung über der Linie gezeichnet.
 
 #### HTML
 
@@ -145,4 +145,4 @@ ctx.fill();
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

@@ -2,49 +2,47 @@
 title: Float64Array
 slug: Web/JavaScript/Reference/Global_Objects/Float64Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Das **`Float64Array`** getypte Array repräsentiert ein Array von 64-Bit-Gleitkommazahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Einmal erstellt, können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d.h. mit Klammernotation) zugreifen.
 
-Das **`Float64Array`** typisierte Array stellt ein Array von 64-Bit-Float-Zahlen in der Byte-Reihenfolge der Plattform dar. Falls Kontrolle über die Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald es etabliert ist, können Sie auf Elemente im Array mithilfe der Methoden des Objekts oder der standardmäßigen Array-Index-Syntax (d.h. durch Klammernotation) zugreifen.
-
-`Float64Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}}-Klasse.
+`Float64Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
 - {{jsxref("Float64Array/Float64Array", "Float64Array()")}}
-  - : Erstellt ein neues `Float64Array`-Objekt.
+  - : Erstellt ein neues `Float64Array` Objekt.
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Übernimmt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Float64Array.BYTES_PER_ELEMENT")}}
-  - : Gibt eine Zahl zurück, die die Größe des Elements angibt. `8` im Falle von `Float64Array`.
+  - : Gibt einen Zahlenwert der Elementgröße zurück. `8` im Fall von `Float64Array`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Übernimmt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Instanzeigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Übernimmt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
-Diese Eigenschaften sind auf `Float64Array.prototype` definiert und werden von allen `Float64Array`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Float64Array.prototype` definiert und werden von allen `Float64Array` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Float64Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt eine Zahl zurück, die die Größe des Elements angibt. `8` im Fall eines `Float64Array`.
+  - : Gibt einen Zahlenwert der Elementgröße zurück. `8` im Fall eines `Float64Array`.
 - {{jsxref("Object/constructor", "Float64Array.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Float64Array`-Instanzen ist der Anfangswert der {{jsxref("Float64Array/Float64Array", "Float64Array")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Float64Array` Instanzen ist der Anfangswert der {{jsxref("Float64Array/Float64Array", "Float64Array")}} Konstruktor.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Instanzmethoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Übernimmt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Float64Array zu erstellen
+### Verschiedene Möglichkeiten zur Erstellung eines Float64Array
 
 ```js
 // From a length
@@ -87,7 +85,7 @@ console.log(float64FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Float64Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript.Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

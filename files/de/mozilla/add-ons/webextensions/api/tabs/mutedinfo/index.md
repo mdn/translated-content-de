@@ -2,32 +2,30 @@
 title: tabs.MutedInfo
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/MutedInfo
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Dieses Objekt enthält einen booleschen Wert, der angibt, ob der Tab stummgeschaltet ist, und den Grund für die letzte Statusänderung.
+Dieses Objekt enthält ein boolesches Feld, das angibt, ob der Tab stummgeschaltet ist, sowie den Grund für die letzte Statusänderung.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `extensionId` {{optional_inline}}
-  - : `string`. Die ID der Erweiterung, die zuletzt den stummgeschalteten Zustand geändert hat. Nicht gesetzt, wenn eine Erweiterung nicht der Grund für die letzte Änderung des stummgeschalteten Zustands war.
+  - : `string`. Die ID der Erweiterung, die zuletzt den Stummschaltungsstatus geändert hat. Wird nicht gesetzt, wenn eine Erweiterung nicht der Grund für die letzte Änderung des Stummschaltungsstatus war.
 - `muted`
-  - : `boolean`. Ob der Tab derzeit stummgeschaltet ist. Entspricht dem Status, wenn das Symbol für stummgeschalteten Ton angezeigt wird.
+  - : `boolean`. Ob der Tab derzeit stummgeschaltet ist. Entspricht dem Zustand, ob das Stummschaltungsanzeige-Symbol angezeigt wird.
 - `reason` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.MutedInfoReason')}}. Der Grund, warum der Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde. Nicht gesetzt, wenn der stummgeschaltete Zustand des Tabs noch nie geändert wurde.
+  - : {{WebExtAPIRef('tabs.MutedInfoReason')}}. Der Grund, warum der Tab stummgeschaltet oder die Stummschaltung aufgehoben wurde. Wird nicht gesetzt, wenn der Stummschaltungsstatus des Tabs nie geändert wurde.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfo) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-MutedInfo) API von Chromium. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

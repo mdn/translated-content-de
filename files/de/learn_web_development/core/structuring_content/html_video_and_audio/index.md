@@ -1,25 +1,24 @@
 ---
 title: HTML video und audio
+short-title: Video und Audio
 slug: Learn_web_development/Core/Structuring_content/HTML_video_and_audio
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: daad50a992d56b23573fdd50517c75df176747cf
 ---
 
-{{LearnSidebar}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Images", "Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video", "Learn_web_development/Core/Structuring_content")}}
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_images", "Learn_web_development/Core/Structuring_content/Mozilla_splash_page", "Learn_web_development/Core/Structuring_content")}}
-
-Jetzt, da wir uns mit dem Hinzufügen einfacher Bilder zu einer Webseite vertraut gemacht haben, ist der nächste Schritt, Video- und Audioplayer zu Ihren HTML-Dokumenten hinzuzufügen! In diesem Artikel betrachten wir genau das mit den {{htmlelement("video")}}- und {{htmlelement("audio")}}-Elementen; wir werden dann damit abschließen, wie man Ihren Videos Untertitel hinzufügt.
+Nachdem wir nun einfache Bilder zu einer Webseite hinzugefügt haben, ist der nächste Schritt, Video- und Audioplayer zu Ihren HTML-Dokumenten hinzuzufügen! In diesem Artikel sehen wir uns an, wie wir dies mit den {{htmlelement("video")}} und {{htmlelement("audio")}} Elementen tun können; zum Schluss sehen wir uns an, wie Sie Untertitel/Captions zu Ihren Videos hinzufügen können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie sie im
+        Grundlegende HTML-Kenntnisse, wie sie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        > behandelt werden. Textbezogene Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+        > behandelt werden. Textuelle Semantiken wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
           >Überschriften und Absätze</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
           >Listen</a
@@ -30,10 +29,10 @@ Jetzt, da wir uns mit dem Hinzufügen einfacher Bilder zu einer Webseite vertrau
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Grundlegende <code>&lt;video&gt;</code>- und <code>&lt;audio&gt;</code>-Tag-Syntax</li>
+          <li>Grundlegende <code>&lt;video&gt;</code> und <code>&lt;audio&gt;</code> Tag-Syntax</li>
           <li>Video- und audio-spezifische Attribute wie controls und muted.</li>
-          <li>Verwendung von <code>&lt;source&gt;</code>-Elementen, um verschiedene Video- oder Audioquellen bereitzustellen.</li>
-          <li>Grundlagen der Verwendung von Textspuren wie Untertiteln.</li>
+          <li>Verwendung von <code>&lt;source&gt;</code> Elementen zur Bereitstellung verschiedener Video- oder Audioquellen.</li>
+          <li>Die Grundlagen der Verwendung von Textspuren wie Captions und Untertiteln.</li>
         </ul>
       </td>
     </tr>
@@ -42,16 +41,16 @@ Jetzt, da wir uns mit dem Hinzufügen einfacher Bilder zu einer Webseite vertrau
 
 ## Video und Audio im Web
 
-Der erste Zustrom von Online-Videos und -Audio wurde durch proprietäre, Plugin-basierte Technologien wie [Flash](https://de.wikipedia.org/wiki/Adobe_Flash) und [Silverlight](https://de.wikipedia.org/wiki/Microsoft_Silverlight) möglich gemacht. Beide hatten Sicherheits- und Zugänglichkeitsprobleme und sind heute veraltet zugunsten nativer HTML-Lösungen mit den {{htmlelement("video")}}- und {{htmlelement("audio")}}-Elementen und der Verfügbarkeit von {{Glossary("JavaScript", "JavaScript")}}-{{Glossary("API", "APIs")}} zur Steuerung dieser. Wir werden hier nicht auf JavaScript eingehen - nur auf die grundlegenden Grundlagen, die mit HTML erreicht werden können.
+Die erste Welle von Online-Videos und -Audios wurde durch proprietäre, plugin-basierte Technologien wie [Flash](https://en.wikipedia.org/wiki/Adobe_Flash) und [Silverlight](https://en.wikipedia.org/wiki/Microsoft_Silverlight) ermöglicht. Beide hatten Sicherheits- und Zugänglichkeitsprobleme und sind heute zugunsten nativer HTML-Lösungen mit {{htmlelement("video")}} und {{htmlelement("audio")}} Elementen und der Verfügbarkeit von {{Glossary("JavaScript", "JavaScript")}} {{Glossary("API", "APIs")}} für deren Kontrolle veraltet. Wir werden uns hier nicht mit JavaScript beschäftigen – nur mit den grundlegenden Grundlagen, die mit HTML erreicht werden können.
 
-Wir werden Ihnen nicht beibringen, wie man Audio- und Videodateien produziert - das erfordert eine völlig andere Fähigkeit. Wir haben Ihnen [Beispiel-Audio- und -Videodateien sowie Beispielcode](https://github.com/mdn/learning-area/tree/main/html/multimedia-and-embedding/video-and-audio-content) zur Verfügung gestellt, falls Sie keine eigenen besorgen können.
+Wir werden Ihnen nicht beibringen, wie man Audio- und Videodateien produziert – das erfordert einen ganz anderen Satz von Fähigkeiten. Wir haben [Beispiel-Audio- und Videodateien sowie Beispielcode](https://github.com/mdn/learning-area/tree/main/html/multimedia-and-embedding/video-and-audio-content) bereitgestellt, um selbst zu experimentieren, falls Sie keine eigenen Dateien zur Hand haben.
 
 > [!NOTE]
-> Bevor Sie hier beginnen, sollten Sie auch wissen, dass es eine Reihe von OVPs (Online-Video-Anbietern) wie [YouTube](https://www.youtube.com/), [Dailymotion](https://www.dailymotion.com/) und [Vimeo](https://vimeo.com/) sowie Online-Audio-Anbietern wie [Soundcloud](https://soundcloud.com/) gibt. Solche Unternehmen bieten eine bequeme, einfache Möglichkeit, Videos zu hosten und zu konsumieren, sodass Sie sich nicht um den enormen Bandbreitenverbrauch sorgen müssen. OVPs bieten oft sogar vorgefertigten Code zum Einbetten von Video/Audio in Ihre Webseiten an; wenn Sie diesen Weg gehen, können Sie einige der Schwierigkeiten vermeiden, die wir in diesem Artikel besprechen. Wir werden diese Art von Dienst im nächsten Artikel etwas genauer besprechen.
+> Bevor Sie hier beginnen, sollten Sie auch wissen, dass es einige OVPs (Online-Videoanbieter) wie [YouTube](https://www.youtube.com/), [Dailymotion](https://www.dailymotion.com/) und [Vimeo](https://vimeo.com/) und Online-Audioanbieter wie [Soundcloud](https://soundcloud.com/) gibt. Solche Unternehmen bieten eine bequeme, einfache Möglichkeit, Videos zu hosten und zu konsumieren, sodass Sie sich nicht um den enormen Bandbreitenverbrauch kümmern müssen. OVPs bieten in der Regel auch vorgefertigten Code zum Einbetten von Video/Audio in Ihre Webseiten an; wenn Sie diesen Weg wählen, können Sie einige der Schwierigkeiten vermeiden, die wir in diesem Artikel besprechen. Über diesen Dienst werden wir im nächsten Artikel noch mehr sprechen.
 
-## Das `<video>`-Element
+## Das `<video>` Element
 
-Das {{htmlelement("video")}}-Element ermöglicht es Ihnen, ein Video sehr einfach einzubetten. Ein wirklich einfaches Beispiel sieht so aus:
+Das {{htmlelement("video")}} Element ermöglicht Ihnen, sehr einfach ein Video einzubetten. Ein wirklich einfaches Beispiel sieht so aus:
 
 ```html
 <video src="rabbit320.webm" controls>
@@ -62,61 +61,63 @@ Das {{htmlelement("video")}}-Element ermöglicht es Ihnen, ein Video sehr einfac
 </video>
 ```
 
-Die zu beachtenden Merkmale sind:
+Zu beachtende Merkmale sind:
 
-- [`src`](/de/docs/Web/HTML/Element/video#src)
-  - : Auf die gleiche Weise wie beim {{htmlelement("img")}}-Element enthält das Attribut `src` (source) einen Pfad zu dem Video, das Sie einbetten möchten. Es funktioniert genau gleich.
-- [`controls`](/de/docs/Web/HTML/Element/video#controls)
-  - : Benutzer müssen in der Lage sein, die Wiedergabe von Video und Audio zu steuern (es ist besonders wichtig für Menschen, die [Epilepsie](https://de.wikipedia.org/wiki/Epilepsie#Epidemiologie) haben). Sie müssen entweder das `controls`-Attribut verwenden, um die eigene Steueroberfläche des Browsers zu integrieren, oder Ihre Oberfläche mit der entsprechenden [JavaScript-API](/de/docs/Web/API/HTMLMediaElement) erstellen. Zumindest muss die Oberfläche eine Möglichkeit zum Starten und Stoppen der Medien sowie zum Anpassen der Lautstärke enthalten.
-- Der Absatz innerhalb der `<video>`-Tags
-  - : Dies wird als **Fallback-Inhalt** bezeichnet — dieser wird angezeigt, wenn der Browser, der auf die Seite zugreift, das `<video>`-Element nicht unterstützt, sodass wir eine Rückfallebene für ältere Browser bereitstellen können. Dies kann alles sein, was Sie möchten; in diesem Fall haben wir einen direkten Link zur Videodatei bereitgestellt, damit der Benutzer sie dennoch irgendwie zugreifen kann, unabhängig davon, welchen Browser er verwendet.
+- [`src`](/de/docs/Web/HTML/Reference/Elements/video#src)
+  - : Auf ähnliche Weise wie beim {{htmlelement("img")}} Element enthält das `src` (source) Attribut einen Pfad zu dem Video, das Sie einbetten möchten. Es funktioniert auf genau die gleiche Weise.
+- [`controls`](/de/docs/Web/HTML/Reference/Elements/video#controls)
+  - : Nutzer müssen in der Lage sein, Video- und Audiowiedergabe zu steuern (dies ist besonders kritisch für Menschen mit [Epilepsie](https://en.wikipedia.org/wiki/Epilepsy#Epidemiology).) Sie müssen entweder das `controls` Attribut verwenden, um die eigene Steuerungsschnittstelle des Browsers einzubinden, oder Ihre Schnittstelle mit der entsprechenden [JavaScript API](/de/docs/Web/API/HTMLMediaElement) erstellen. Mindestens muss die Benutzeroberfläche eine Möglichkeit zum Starten und Stoppen der Medien sowie zum Anpassen der Lautstärke enthalten.
+- Der Absatz innerhalb der `<video>` Tags
+  - : Dies wird als **Fallback-Inhalt** bezeichnet – dieser wird angezeigt, wenn der Browser, der auf die Seite zugreift, das `<video>` Element nicht unterstützt, sodass wir eine Rückfallebene für ältere Browser bereitstellen können. Dies kann alles Mögliche sein; in diesem Fall haben wir einen direkten Link zur Videodatei bereitgestellt, sodass der Benutzer darauf auf irgendeine Weise zugreifen kann, unabhängig davon, welchen Browser er verwendet.
 
-Das eingebettete Video wird ungefähr so aussehen:
+Das eingebettete Video sieht ungefähr so aus:
 
-![Ein einfacher Videoplayer zeigt ein Video eines kleinen weißen Kaninchens](simple-video.png)
+![Ein einfacher Videoplayer, der ein Video eines kleinen weißen Kaninchens zeigt](simple-video.png)
 
-Sie können [das Beispiel hier live ausprobieren](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/simple-video.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/simple-video.html) an).
+Sie können [das Beispiel live ausprobieren](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/simple-video.html) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/simple-video.html).)
 
 ## Verwendung mehrerer Quellformate zur Verbesserung der Kompatibilität
 
-Es gibt ein Problem mit dem obigen Beispiel. Es ist möglich, dass das Video bei Ihnen nicht abgespielt wird, da verschiedene Browser unterschiedliche Video- (und Audio-) Formate unterstützen. Zum Glück gibt es Dinge, die Sie tun können, um zu verhindern, dass dies ein Problem wird.
+Es gibt ein Problem mit dem obigen Beispiel. Es ist möglich, dass das Video für Sie nicht abgespielt wird, weil verschiedene Browser unterschiedliche Video- (und Audio-)Formate unterstützen. Glücklicherweise können Sie einige Maßnahmen ergreifen, um dieses Problem zu vermeiden.
 
 ### Inhalte einer Mediendatei
 
-Zuerst gehen wir kurz auf die Terminologie ein. Formate wie MP3, MP4 und WebM werden als **[Containerformate](/de/docs/Web/Media/Guides/Formats/Containers)** bezeichnet. Sie definieren eine Struktur, in der die Audio- und/oder Videospuren gespeichert werden, aus denen das Medium besteht, sowie Metadaten, die das Medium, die verwendeten Codecs zum Kodieren seiner Kanäle und so weiter beschreiben.
+Zuerst lassen Sie uns schnell die Terminologie durchgehen. Formate wie OGG, WAV, MP4 und WebM werden als **[Container-Formate](/de/docs/Web/Media/Guides/Formats/Containers)** bezeichnet. Sie definieren eine Struktur, in der die Audio- und/oder Videospuren, die das Medium bilden, zusammen mit Metadaten gespeichert werden, die das Medium, die verwendeten Codecs zur Codierung der Kanäle usw. beschreiben.
 
-Eine WebM-Datei mit einem Film, der eine Hauptvideospur und eine alternierende Kamerawinkels...
+Eine WebM-Datei, die einen Film enthält, der eine Hauptvideospur und eine alternative Winkelspur sowie Audio für Englisch und Spanisch, zusätzlich zu Audio für eine englische Kommentarspur enthält, kann wie im folgenden Diagramm gezeigt konzeptionell dargestellt werden. Ebenfalls enthalten sind Textspuren mit geschlossenen Untertiteln für den Spielfilm, spanischen Untertiteln für den Film und englischen Untertiteln für den Kommentar.
 
-![Diagramm zur Veranschaulichung des Inhalts einer Mediendatei auf Track-Ebene.](containersandtracks.png)
+![Diagramm zur Veranschaulichung der Inhalte einer Mediendatei auf der Ebene der Spuren.](containersandtracks.png)
 
-Die Audio- und Videospuren innerhalb des Containers enthalten die Daten im entsprechenden Format für den Codec, der zur Kodierung dieses Mediums verwendet wird. Für Audiotracks werden andere Formate verwendet als für Videotracks. Jeder Audiotrack wird mit einem [Audio-Codec](/de/docs/Web/Media/Guides/Formats/Audio_codecs) kodiert, während Videotracks mit (wie Sie wahrscheinlich erraten haben) [einem Video-Codec](/de/docs/Web/Media/Guides/Formats/Video_codecs) kodiert werden. Wie bereits erwähnt, unterstützen verschiedene Browser unterschiedliche Video- und Audioformate sowie unterschiedliche Containerformate (wie MP3, MP4 und WebM, die wiederum verschiedene Arten von Video und Audio enthalten können).
+Die Audio- und Videospuren innerhalb des Containers enthalten Daten im geeigneten Format für den zur Codierung dieses Mediums verwendeten Codec. Verschiedene Formate werden für Audiospuren im Vergleich zu Videospuren verwendet. Jede Audiospur wird mit einem [Audio-Codec](/de/docs/Web/Media/Guides/Formats/Audio_codecs) codiert, während Videospuren mit (wie Sie wahrscheinlich bereits erraten haben) [einem Video-Codec](/de/docs/Web/Media/Guides/Formats/Video_codecs) codiert werden. Wie bereits erwähnt, unterstützen verschiedene Browser unterschiedliche Video- und Audioformate sowie unterschiedliche Containerformate (wie OGG, MP4 und WebM, die wiederum unterschiedliche Arten von Video und Audio enthalten können).
 
 Zum Beispiel:
 
-- Ein WebM-Container enthält typischerweise Vorbis- oder Opus-Audio mit VP8/VP9-Video. Dies wird in allen modernen Browsern unterstützt, obwohl ältere Versionen möglicherweise nicht funktionieren.
-- Ein MP4-Container enthält oft AAC- oder MP3-Audio mit H.264-Video. Dies wird ebenfalls in allen modernen Browsern unterstützt.
-- Der Ogg-Container tendiert dazu, Vorbis-Audio und Theora-Video zu verwenden. Dies wird am besten in Firefox und Chrome unterstützt, aber im Wesentlichen durch das qualitativ bessere WebM-Format überholt.
+- Ein WebM-Container umfasst typischerweise Vorbis- oder Opus-Audio mit VP8/VP9-Video. Dies wird in allen modernen Browsern unterstützt, obwohl ältere Versionen möglicherweise nicht funktionieren.
+- Ein MP4-Container kombiniert oft AAC- oder MP3-Audio mit H.264-Video. Dies wird ebenfalls in allen modernen Browsern unterstützt.
+- Der Ogg-Container neigt dazu, Vorbis-Audio und Theora-Video zu verwenden. Dies wird am besten in Firefox und Chrome unterstützt, wurde jedoch im Wesentlichen durch das qualitativ bessere WebM-Format ersetzt.
 
-Es gibt einige Sonderfälle. Beispielsweise werden für einige Arten von Audio die Daten eines Codecs häufig ohne Container oder mit einem vereinfachten Container gespeichert. Ein solches Beispiel ist der FLAC-Codec, der am häufigsten in FLAC-Dateien gespeichert wird, die einfach rohe FLAC-Tracks sind.
+Es gibt einige Sonderfälle. Zum Beispiel wird bei einigen Arten von Audio die Codecdaten oft ohne Container oder mit einem vereinfachten Container gespeichert. Ein solcher Fall ist das FLAC-Codec, das am häufigsten in FLAC-Dateien gespeichert wird, die einfach nur Roh-FLAC-Spuren sind.
 
-Ein weiteres Beispiel ist die immer beliebte MP3-Datei. Eine „MP3-Datei“ ist eigentlich eine MPEG-1 Audio Layer III (MP3)-Audiospur, die in einem MPEG- oder MPEG-2-Container gespeichert ist. Das ist besonders interessant, da die meisten Browser zwar die Verwendung von MPEG-Medien in den {{HTMLElement("video")}}- und {{HTMLElement("audio")}}-Elementen nicht unterstützen, sie aber MP3 aufgrund seiner Beliebtheit dennoch unterstützen können.
+Ein weiteres Beispiel ist die allseits bekannte "MP3-Datei". Eine "MP3-Datei" ist eine Audiodatei, die mit MPEG-1 Audio Layer III-Kompression codiert ist. Während sie Metadaten enthalten kann, wird sie nicht in einem separaten MPEG- oder MPEG-2-Container verkapselt. Ihre weit verbreitete Unterstützung in den {{htmlelement("audio")}} und {{htmlelement("video")}} Elementen zeugt hauptsächlich von ihrer anhaltenden Beliebtheit.
 
-Ein Audioplayer wird tendenziell einen Audiotrack direkt abspielen, z.B. eine MP3- oder Ogg-Datei. Diese benötigen keine Container.
+Ein Audioplayer wird dazu neigen, eine Audiospur direkt abzuspielen, z. B. eine MP3- oder Ogg-Datei. Diese benötigen keine Container.
 
 ### Unterstützung von Mediendateien in Browsern
 
 > [!NOTE]
-> Mehrere beliebte Formate, wie MP3 und MP4/H.264, sind ausgezeichnet, aber durch Patente belastet; das heißt, es gibt Patente, die einen Teil oder die gesamte Technologie, auf der sie basieren, abdecken. In den Vereinigten Staaten wurden MP3 bis 2017 durch Patente abgedeckt, und H.264 wird mindestens bis 2027 durch Patente belastet.
+> Mehrere populäre Formate wie MP3 und MP4/H.264 sind ausgezeichnet, aber durch Patente belastet; das heißt, es gibt Patente, die einige oder alle Techniken abdecken, auf denen sie basieren. In Amerika waren Patente für MP3 bis 2017 gültig und H.264 ist mindestens bis 2027 patentbelastet.
 >
-> Wegen dieser Patente müssen Browser, die Unterstützung für diese Codecs implementieren möchten, typischerweise enorme Lizenzgebühren zahlen. Darüber hinaus ziehen es einige Personen vor, beschränkte Software zu vermeiden und nur offene Formate zu verwenden. Aufgrund dieser rechtlichen und bevorzugten Gründe stehen Webentwickler vor der Herausforderung, mehrere Formate zu unterstützen, um ihr gesamtes Publikum zu erreichen.
+> Aufgrund dieser Patente müssen Browser, die diese Codecs unterstützen möchten, in der Regel enorme Lizenzgebühren zahlen. Außerdem ziehen es einige Menschen vor, eingeschränkte Software zu vermeiden und nur offene Formate zu verwenden. Aus diesen rechtlichen und präferentiellen Gründen sehen sich Webentwickler gezwungen, mehrere Formate zu unterstützen, um eine Videoerfahrung für ihr gesamtes Publikum bereitzustellen.
 
-Die in dem vorherigen Abschnitt beschriebenen Codecs existieren, um Video und Audio in handhabbare Dateien zu komprimieren, da rohes Audio und Video beide äußerst groß sind. Jeder Webbrowser unterstützt eine Auswahl an **{{Glossary("Codec", "Codecs")}}**, wie Vorbis oder H.264, die benutzt werden, um das komprimierte Audio und Video in Binärdaten zu konvertieren und zurück. Jeder Codec bietet seine eigenen Vorteile und Nachteile, und jeder Container kann ebenfalls seine eigenen positiven und negativen Merkmale haben, die Ihre Entscheidungen beeinflussen, welche Sie verwenden möchten.
+Die in der vorherigen Sektion beschriebenen Codecs existieren, um Video und Audio in handhabbaren Dateien zu komprimieren, da rohe Audio- und Videodaten beide äußerst groß sind. Jeder Webbrowser unterstützt eine Auswahl an **{{Glossary("Codec", "Codecs")}}** wie Vorbis oder H.264, die verwendet werden um das komprimierte Audio und Video in Binärdaten umzuwandeln und vice versa. Jeder Codec bietet seine eigenen Vor- und Nachteile, und jeder Container kann auch seine eigenen positiven und negativen Features bieten, die Ihre Entscheidungen darüber beeinflussen, welches Sie verwenden.
 
-Die Dinge werden ein wenig komplizierter, da nicht nur jeder Browser eine andere Menge an Containerformaten unterstützt, sondern auch eine andere Auswahl an Codecs. Um die Wahrscheinlichkeit zu maximieren, dass Ihre Website oder App im Browser eines Benutzers funktioniert, müssen Sie möglicherweise jede von Ihnen verwendete Mediendatei in mehreren Formaten bereitstellen. Wenn Ihre Webseite und der Browser des Benutzers kein gemeinsames Medienformat haben, wird Ihr Medium nicht abgespielt.
+Die Sache wird etwas komplizierter, da nicht nur jeder Browser ein anderes Set an Containerdateiformaten unterstützt, sondern sie auch eine unterschiedliche Auswahl an Codecs unterstützen. Um die Wahrscheinlichkeit zu maximieren, dass Ihre Website oder App in einem Nutzerbrowser funktioniert, müssen Sie möglicherweise jede Mediendatei, die Sie verwenden, in mehreren Formaten bereitstellen. Wenn Ihre Website und der Browser des Benutzers kein gemeinsames Format für Mediendateien teilen, wird Ihre Mediendatei nicht abgespielt.
 
-Aufgrund der Komplexität, sicherzustellen, dass die Medien Ihrer App in jeder Kombination von Browsern, Plattformen und Geräten, die Sie erreichen möchten, angezeigt ...
+Aufgrund der Komplexität, sicherzustellen, dass die Medien Ihrer App über jede Kombination von Browsern, Plattformen und Geräten, die Sie erreichen möchten, angezeigt werden können, kann die Auswahl der besten Kombination aus Codecs und Container eine komplizierte Aufgabe sein. Siehe [Auswahl des richtigen Containers](/de/docs/Web/Media/Guides/Formats/Containers#choosing_the_right_container) für Hilfe zur Auswahl des für Ihre Bedürfnisse am besten geeigneten Containerdateiformats; ebenso siehe [Auswahl eines Videocodecs](/de/docs/Web/Media/Guides/Formats/Video_codecs#choosing_a_video_codec) und [Auswahl eines Audiocodecs](/de/docs/Web/Media/Guides/Formats/Audio_codecs#choosing_an_audio_codec) für Hilfe bei der Auswahl der ersten Mediencodecs, die Sie für Ihre Inhalte und Ihre Zielgruppe verwenden sollten.
 
-...
+Eine zusätzliche Sache, die zu beachten ist: Mobile Browser können zusätzliche Formate unterstützen, die ihre Desktop-Äquivalente nicht unterstützen, genau wie sie möglicherweise nicht alle gleichen Formate unterstützen, die die Desktop-Version unterstützt. Darüber hinaus können sowohl Desktop- als auch Mobile-Browser _möglicherweise_ so gestaltet sein, dass die Bearbeitung der Medienwiedergabe (entweder für alle Medien oder nur für bestimmte Typen, die sie intern nicht verarbeiten können) ausgelagert wird. Dies bedeutet, dass die Medienunterstützung teilweise davon abhängt, welche Software der Benutzer installiert hat.
+
+Wie machen wir das also? Schauen Sie sich das folgende [aktualisierte Beispiel](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/multiple-video-formats.html) an ([probieren Sie es live aus](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/multiple-video-formats.html), auch):
 
 ```html
 <video controls>
@@ -129,15 +130,15 @@ Aufgrund der Komplexität, sicherzustellen, dass die Medien Ihrer App in jeder K
 </video>
 ```
 
-Hier haben wir das `src`-Attribut aus dem eigentlichen {{HTMLElement("video")}}-Tag entfernt und stattdessen separate {{htmlelement("source")}}-Elemente eingefügt, die auf ihre eigenen Quellen verweisen. In diesem Fall wird der Browser die {{HTMLElement("source")}}-Elemente durchlaufen und das erste abspielen, das er mit dem Codec unterstützen kann. Das Einfügen von WebM- und MP4-Quellen sollte heutzutage ausreichen, um Ihr Video auf den meisten Plattformen und Browsern abzuspielen.
+Hier haben wir das `src` Attribut aus dem eigentlichen {{HTMLElement("video")}} Tag entfernt und stattdessen separate {{htmlelement("source")}} Elemente eingefügt, die auf ihre eigenen Quellen verweisen. In diesem Fall wird der Browser die {{HTMLElement("source")}}-Elemente durchgehen und das erste abspielen, das er den Codec zur Unterstützung hat. Das Hinzufügen von WebM- und MP4-Quellen sollte heutzutage ausreichen, um Ihr Video auf den meisten Plattformen und Browsern abzuspielen.
 
-Jedes `<source>`-Element hat ebenfalls ein [`type`](/de/docs/Web/HTML/Element/source#type)-Attribut. Dies ist optional, aber es ist ratsam, es hinzuzufügen. Das `type`-Attribut enthält den {{Glossary("MIME_type", "MIME-Typ")}} der Datei, die von `<source>` spezifiziert wird, und Browser können das `type` sofort verwenden, um Videos zu überspringen, die sie nicht verstehen. Wenn `type` nicht enthalten ist, laden und versuchen Browser, jede Datei abzuspielen, bis sie eine finden, die funktioniert, was offensichtlich Zeit kostet und eine unnötige Verwendung von Ressourcen darstellt.
+Jedes `<source>` Element hat auch ein [`type`](/de/docs/Web/HTML/Reference/Elements/source#type) Attribut. Dieses ist optional, aber es wird empfohlen, es einzuschließen. Das `type` Attribut enthält den {{Glossary("MIME_type", "MIME-Typ")}} der durch das `<source>` spezifizierten Datei, und Browser können das `type` Attribut verwenden, um Videos, die sie nicht verstehen, sofort zu überspringen. Wenn `type` nicht inkludiert ist, werden Browser jede Datei laden und versuchen abzuspielen, bis sie eine finden, die funktioniert, was offensichtlich Zeit kostet und eine unnötige Nutzung von Ressourcen darstellt.
 
-Weitere Informationen zur Auswahl der besten Container und Codecs sowie zur Bestimmung der richtigen MIME-Typen finden Sie in unserem [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Guides/Formats).
+Sehen Sie sich unseren [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Guides/Formats) an, um Hilfe bei der Auswahl der besten Container und Codecs für Ihre Bedürfnisse zu erhalten, sowie um die richtigen MIME-Typen für jede Datei anzugeben.
 
-## Andere `<video>`-Funktionen
+## Weitere Funktionen des `<video>` Elements
 
-Es gibt eine Reihe weiterer Funktionen, die Sie bei der Anzeige eines HTML-Videos einbeziehen können. Schauen Sie sich unser nächstes Beispiel an:
+Es gibt eine Reihe von weiteren Funktionen, die Sie einbeziehen können, wenn Sie ein HTML-Video anzeigen. Schauen Sie sich unser nächstes Beispiel an:
 
 ```html
 <video
@@ -160,31 +161,31 @@ Es gibt eine Reihe weiterer Funktionen, die Sie bei der Anzeige eines HTML-Video
 
 Die resultierende Benutzeroberfläche sieht ungefähr so aus:
 
-![Ein Videoplayer zeigt vor dem Abspielen ein Posterbild an. Das Posterbild sagt HTML-Video-Beispiel, OMG hell yeah!](poster_screenshot_updated.png)
+![Ein Videoplayer, der ein Posterbild zeigt, bevor es abgespielt wird. Das Posterbild sagt HTML video example, OMG hell yeah!](poster_screenshot_updated.png)
 
 Zu den Funktionen gehören:
 
-- [`width`](/de/docs/Web/HTML/Element/video#width) und [`height`](/de/docs/Web/HTML/Element/video#height)
-  - : Sie können die Videogröße entweder mit diesen Attributen oder mit {{Glossary("CSS", "CSS")}} steuern. In beiden Fällen behalten Videos ihr natives Breite-Höhe-Verhältnis — bekannt als **Seitenverhältnis**. Wenn das Seitenverhältnis nicht beibehalten wird, füllt das Video den Platz horizontal aus, und der nicht ausgefüllte Platz wird standardmäßig mit einer festen Hintergrundfarbe gefüllt.
-- [`autoplay`](/de/docs/Web/HTML/Element/video#autoplay)
-  - : Lässt das Audio oder Video sofort abspielen, während der Rest der Seite geladen wird. Es wird geraten, keine automatisch abspielenden Videos (oder Audios) auf Ihren Seiten zu verwenden, da Benutzer sie als sehr störend empfinden können.
-- [`loop`](/de/docs/Web/HTML/Element/video#loop)
-  - : Lässt das Video (oder Audio) bei jedem Ende erneut abspielen. Auch das kann nervig sein, daher sollte es nur bei wirklicher Notwendigkeit verwendet werden.
-- [`muted`](/de/docs/Web/HTML/Element/video#muted)
-  - : Lässt die Medien standardmäßig ohne Klang abspielen.
-- [`poster`](/de/docs/Web/HTML/Element/video#poster)
-  - : Die URL eines Bildes, das angezeigt wird, bevor das Video abgespielt wird. Es ist gedacht, um für einen Vorschaubildschirm oder eine Werbeschaltfläche verwendet zu werden.
-- [`preload`](/de/docs/Web/HTML/Element/video#preload)
-  - : Wird zum Puffern großer Dateien verwendet; es kann einen der drei folgenden Werte annehmen:
+- [`width`](/de/docs/Web/HTML/Reference/Elements/video#width) und [`height`](/de/docs/Web/HTML/Reference/Elements/video#height)
+  - : Sie können die Videogröße entweder mit diesen Attributen oder mit {{Glossary("CSS", "CSS")}} steuern. In beiden Fällen behalten Videos ihr natives Breiten-Höhe-Verhältnis – bekannt als **Seitenverhältnis**. Wenn das Seitenverhältnis nicht durch die von Ihnen festgelegten Größen gewahrt bleibt, wird das Video horizontal in den Raum hineinwachsen, und der nicht gefüllte Raum wird einfach standardmäßig mit einer soliden Hintergrundfarbe versehen.
+- [`autoplay`](/de/docs/Web/HTML/Reference/Elements/video#autoplay)
+  - : Lässt das Audio oder Video sofort abspielen, während der Rest der Seite lädt. Es wird geraten, keine automatisch abspielenden Videos (oder Audios) auf Ihren Webseiten zu verwenden, da Nutzer dies als wirklich störend empfinden können.
+- [`loop`](/de/docs/Web/HTML/Reference/Elements/video#loop)
+  - : Lässt das Video (oder Audio) bei jedem Beenden wieder von vorne beginnen. Dies kann ebenfalls störend sein, also nur verwenden, wenn es wirklich notwendig ist.
+- [`muted`](/de/docs/Web/HTML/Reference/Elements/video#muted)
+  - : Lässt das Medium standardmäßig ohne Ton abspielen.
+- [`poster`](/de/docs/Web/HTML/Reference/Elements/video#poster)
+  - : Die URL eines Bildes, das angezeigt wird, bevor das Video abgespielt wird. Es ist gedacht, um als Startbildschirm oder Werbebild zu dienen.
+- [`preload`](/de/docs/Web/HTML/Reference/Elements/video#preload)
+  - : Wird zum Puffern großer Dateien verwendet; es kann einen der drei Werte annehmen:
     - `"none"` puffert die Datei nicht
     - `"auto"` puffert die Mediendatei
     - `"metadata"` puffert nur die Metadaten der Datei
 
-Sie können das obige Beispiel [live bei GitHub ansehen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html) an). Beachten Sie, dass wir das `autoplay`-Attribut in der Live-Version nicht enthalten haben — wenn das Video sofort nach dem Laden der Seite abgespielt wird, sehen Sie das Poster nicht!
+Sie können das obige Beispiel [live auf GitHub abspielen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html) (auch den [Quellcode ansehen](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html).) Beachten Sie, dass wir das `autoplay` Attribut in der Live-Version nicht aufgenommen haben – wenn das Video sofort abspielt, sobald die Seite geladen ist, können Sie das Poster nicht sehen!
 
-## Das `<audio>`-Element
+## Das `<audio>` Element
 
-Das {{htmlelement("audio")}}-Element funktioniert genauso wie das {{htmlelement("video")}}-Element, mit ein paar kleinen Unterschieden, die unten aufgeführt sind. Ein typisches Beispiel könnte ungefähr so aussehen:
+Das {{htmlelement("audio")}} Element funktioniert genauso wie das {{htmlelement("video")}} Element, mit einigen kleinen Unterschieden, die unten skizziert sind. Ein typisches Beispiel könnte so aussehen:
 
 ```html
 <audio controls>
@@ -197,42 +198,42 @@ Das {{htmlelement("audio")}}-Element funktioniert genauso wie das {{htmlelement(
 </audio>
 ```
 
-Dies produziert im Browser etwas wie das Folgende:
+Dies erzeugt etwas wie das folgende in einem Browser:
 
-![Ein einfacher Audioplayer mit einem Abspielknopf, Timer, Lautstärkeregler und Fortschrittsbalken](audio-player.png)
-
-> [!NOTE]
-> Sie können [das Audio-Demobeispiel live ausführen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/multiple-audio-formats.html) bei GitHub (siehe auch den [Quellcode des Audioplayers](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/multiple-audio-formats.html)).
-
-Dies nimmt weniger Platz ein als ein Videoplayer, da es keine visuelle Komponente gibt — Sie müssen nur Steuerelemente anzeigen, um das Audio abzuspielen. Andere Unterschiede zu HTML-Videos sind wie folgt:
-
-- Das {{htmlelement("audio")}}-Element unterstützt nicht die `width`/`height`-Attribute — wiederum gibt es keine visuelle Komponente, der eine Breite oder Höhe zugeordnet werden könnte.
-- Es unterstützt auch nicht das `poster`-Attribut — wiederum keine visuelle Komponente.
-
-Abgesehen davon unterstützt `<audio>` alle gleichen Funktionen wie `<video>` — lesen Sie die obigen Abschnitte für weitere Informationen darüber.
-
-## Anzeigen von Video-Textspuren
-
-Nun werden wir ein etwas fortgeschritteneres Konzept besprechen, das wirklich nützlich zu wissen ist. Viele Menschen können oder wollen das Audio/Video, das sie im Internet finden, nicht hören, zumindest zu bestimmten Zeiten. Zum Beispiel:
-
-- Viele Menschen haben auditive Beeinträchtigungen (wie Schwerhörigkeit oder Taubheit), somit können sie das Audio nicht klar hören, wenn überhaupt.
-- Andere können das Audio möglicherweise nicht hören, weil sie sich in lauten Umgebungen befinden (wie einer überfüllten Bar, wenn ein Sportspiel gezeigt wird).
-- Ebenso kann es in Umgebungen, in denen das Abspielen des Audios eine Ablenkung oder Störung wäre (wie in einer Bibliothek oder wenn der Partner versucht zu schlafen), sehr nützlich sein, Untertitel zu haben.
-- Menschen, die die Sprache des Videos nicht sprechen, möchten möglicherweise eine Textabschrift oder sogar eine Übersetzung, um den Medieninhalt zu verstehen.
-
-Wäre es nicht schön, diesen Menschen ein Transkript der gesprochenen Worte im Audio/Video zur Verfügung zu stellen? Dank HTML-Video können Sie genau das tun. Dazu verwenden wir das [WebVTT](/de/docs/Web/API/WebVTT_API)-Dateiformat und das {{htmlelement("track")}}-Element.
+![Ein einfacher Audioplayer mit einem Abspielknopf, Timer, Lautstärkeregelung und Fortschrittsbalken](audio-player.png)
 
 > [!NOTE]
-> "Transkribieren" bedeutet "gesprochene Wörter als Text aufzuschreiben". Der resultierende Text ist ein "Transkript".
+> Sie können [das Audio-Demo live ausführen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/multiple-audio-formats.html) auf GitHub (auch den [Quellcode des Audioplayers](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/multiple-audio-formats.html) sehen.)
 
-WebVTT ist ein Format zum Schreiben von Textdateien, die mehrere Textstrings sowie Metadaten enthalten, wie die Zeit im Video, zu der jeder Textstring angezeigt werden soll, und sogar begrenzte Styling-/Positionierungsinformationen. Diese Textstrings werden als **Cues** bezeichnet, und es gibt mehrere Arten von Cues, die für verschiedene Zwecke verwendet werden. Die gängigsten Cues sind:
+Dies beansprucht weniger Platz als ein Videoplayer, da keine visuelle Komponente vorhanden ist – Sie müssen nur Steuerelemente zum Abspielen des Audios anzeigen. Weitere Unterschiede zu HTML-Video sind wie folgt:
+
+- Das {{htmlelement("audio")}} Element unterstützt nicht die `width`/`height` Attribute – wiederum gibt es keine visuelle Komponente, der eine Breite oder Höhe zugewiesen werden könnte.
+- Es unterstützt auch nicht das `poster` Attribut – wiederum keine visuelle Komponente.
+
+Abgesehen davon unterstützt `<audio>` alle Funktionen wie `<video>` – lesen Sie die obigen Abschnitte für weitere Informationen darüber.
+
+## Anzeigen von Textspuren für Videos
+
+Nun besprechen wir ein etwas fortgeschritteneres Konzept, das wirklich nützlich zu wissen ist. Viele Menschen können oder wollen den Audio-/Videoinhalt, den sie im Web finden, zumindest zu bestimmten Zeiten nicht hören. Beispielsweise:
+
+- Viele Menschen haben Hörbehinderungen (wie schwerhörig oder taub zu sein), sodass sie das Audio nicht oder nur unklar hören können.
+- Andere können das Audio nicht hören, weil sie sich in einer lauten Umgebung befinden (wie einer überfüllten Bar, wenn ein Sportspiel gezeigt wird).
+- Ebenfalls kann es in Umgebungen störend oder ablenkend wirken, wenn das Audio abgespielt wird (zum Beispiel in einer Bibliothek oder wenn ein Partner versucht, zu schlafen), daher können Untertitel sehr nützlich sein.
+- Menschen, die die Sprache des Videos nicht sprechen, möchten möglicherweise eine Texttranskription oder sogar eine Übersetzung, um den Medieninhalt besser zu verstehen.
+
+Wäre es nicht schön, diesen Menschen ein Transkript der im Audio/Video gesprochenen Worte zur Verfügung zu stellen? Dank HTML Video können Sie das. Dazu verwenden wir das [WebVTT](/de/docs/Web/API/WebVTT_API) Dateiformat und das {{htmlelement("track")}} Element.
+
+> [!NOTE]
+> "Transkribieren" bedeutet "gesprochene Wörter als Text niederzuschreiben." Der resultierende Text ist ein "Transkript."
+
+WebVTT ist ein Format zum Schreiben von Textdateien, die mehrere Textzeichenfolgen sowie Metadaten wie die Zeit im Video enthalten, zu der jede Textzeichenfolge angezeigt werden soll, und sogar begrenzte Stil-/Positionsinformationen. Diese Textzeichenfolgen werden **Cues** genannt, und es gibt mehrere Arten von Cues, die für unterschiedliche Zwecke verwendet werden. Die häufigsten Cues sind:
 
 - Untertitel
-  - : Übersetzungen von fremdsprachigem Material, um Menschen, die die im Audio gesprochenen Worte nicht verstehen, zu helfen.
-- Untertitel (Captions)
-  - : Synchronisierte Transkriptionen von Dialogen oder Beschreibungen bedeutender Geräusche, um Menschen, die das Audio nicht hören können, zu zeigen, was passiert.
+  - : Übersetzungen von Fremdmaterial, für Leute, die die im Audio gesprochenen Wörter nicht verstehen.
+- Captions
+  - : Synchronisierte Transkriptionen von Dialogen oder Beschreibungen von bedeutenden Geräuschen, um Menschen, die das Audio nicht hören können, zu ermöglichen zu verstehen, was vor sich geht.
 - Zeitgesteuerte Beschreibungen
-  - : Text, der vom Medienplayer vorgelesen werden sollte, um wichtige visuelle Elemente für blinde oder anderweitig sehbehinderte Benutzer zu beschreiben.
+  - : Text, der vom Mediaplayer gesprochen werden soll, um wichtige visuelle Elemente für blinde oder anderweitig visuell eingeschränkte Benutzer zu beschreiben.
 
 Eine typische WebVTT-Datei sieht ungefähr so aus:
 
@@ -250,12 +251,12 @@ This is the second.
 …
 ```
 
-Um dies zusammen mit dem HTML-Mediaplayer anzuzeigen, müssen Sie:
+Um dies zusammen mit der HTML-Medienwiedergabe anzuzeigen, müssen Sie:
 
-1. Es als `.vtt`-Datei an einer Stelle speichern, die der Server bereitstellen kann (siehe unten), zum Beispiel im gleichen Verzeichnis wie die HTML-Datei.
-2. Verlinken Sie auf die `.vtt`-Datei mit dem {{htmlelement("track")}}-Element. `<track>` sollte in `<audio>` oder `<video>` platziert werden, aber nach allen `<source>`-Elementen. Verwenden Sie das [`kind`](/de/docs/Web/HTML/Element/track#kind)-Attribut, um anzugeben, ob die Cues `subtitles`, `captions` oder `descriptions` sind. Verwenden Sie zudem [`srclang`](/de/docs/Web/HTML/Element/track#srclang), um dem Browser mitzuteilen, in welcher Sprache Sie die Untertitel geschrieben haben. Fügen Sie schließlich [`label`](/de/docs/Web/HTML/Element/track#label) hinzu, um Lesern bei der Suche nach der gesuchten Sprache zu helfen.
+1. Speichern Sie es als `.vtt` Datei an einem Ort, den der Server bereitstellen kann (siehe unten), wie im selben Verzeichnis wie die HTML-Datei.
+2. Verlinken Sie zur `.vtt` Datei mit dem {{htmlelement("track")}} Element. `<track>` sollte innerhalb von `<audio>` oder `<video>` platziert werden, aber nach allen `<source>` Elementen. Verwenden Sie das [`kind`](/de/docs/Web/HTML/Reference/Elements/track#kind) Attribut, um anzugeben, ob die Cues `subtitles`, `captions` oder `descriptions` sind. Verwenden Sie außerdem [`srclang`](/de/docs/Web/HTML/Reference/Elements/track#srclang), um dem Browser anzugeben, in welcher Sprache Sie die Untertitel geschrieben haben. Schließlich fügen Sie [`label`](/de/docs/Web/HTML/Reference/Elements/track#label) hinzu, um Lesern zu helfen, die Sprache zu identifizieren, nach der sie suchen.
 
-Hier ist ein Beispiel:
+Ein Beispiel:
 
 ```html
 <video controls>
@@ -265,37 +266,56 @@ Hier ist ein Beispiel:
 </video>
 ```
 
-Um dies auszuprobieren, müssen Sie die Dateien auf einem [lokalen HTTP-Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) hosten. Im Browserausgang sehen Sie ein Video, das Untertitel anzeigt, in etwa so:
-
-![Videoplayer mit Standardsteuerung wie Abspielen, Anhalten, Lautstärke und Untertiteln ein/aus. Das abgespielte Video zeigt eine Szene mit einem Mann, der eine speerartige Waffe hält, und eine Untertitelung lautet "Esta hoja tiene pasado oscuro."](video-player-with-captions.png)
-
-Für weitere Details, einschließlich wie man Labels hinzufügt, lesen Sie bitte [Hinzufügen von Untertiteln und Bildunterschriften zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video). Sie können [das mit diesem Artikel verbundene Beispiel](https://iandevlin.github.io/mdn/video-player-with-captions/) auf GitHub finden, geschrieben von Ian Devlin (sehen Sie sich auch den [Quellcode](https://github.com/iandevlin/iandevlin.github.io/tree/master/mdn/video-player-with-captions) an). Dieses Beispiel verwendet etwas JavaScript, um es Benutzern zu ermöglichen, zwischen verschiedenen Untertiteln zu wählen. Beachten Sie, dass Sie zum Einschalten der Untertitel die "CC"-Taste drücken und eine Option auswählen müssen — Englisch, Deutsch oder Spanisch.
+Um dies auszuprobieren, müssen Sie die Dateien auf einem [lokalen HTTP-Server](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) hosten. Im Browserausgang werden Sie ein Video sehen, das Untertitel anzeigt. Für eine vollständige Anwendung und deren Quellcode siehe [Hinzufügen von Captions und Untertiteln zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video). Dieses Beispiel verwendet JavaScript, um Benutzern zu ermöglichen, zwischen verschiedenen Untertiteln zu wählen. Beachten Sie, dass Sie, um die Untertitel zu aktivieren, den "CC" Button drücken und eine Option auswählen müssen – Englisch, Deutsch oder Spanisch.
 
 > [!NOTE]
-> Textspuren helfen Ihnen auch bei {{Glossary("SEO", "SEO")}}, da Suchmaschinen besonders auf Text angewiesen sind. Textspuren ermöglichen es Suchmaschinen sogar, direkt auf eine Stelle im Video zu verlinken.
+> Textspuren helfen Ihnen auch mit {{Glossary("SEO", "SEO")}}, da Suchmaschinen besonders auf Text ausgerichtet sind. Textspuren ermöglichen sogar Suchmaschinen, direkt auf einen Punkt mitten im Video zu verlinken.
 
-## Aktives Lernen: Eigene Audio- und Videoeinbettung
+## Einbetten Ihrer eigenen Audio- und Videodateien
 
-Für dieses aktive Lernen möchten wir idealerweise, dass Sie in die Welt hinausgehen und einige eigene Videos und Audios aufnehmen — die meisten Telefone ermöglichen es heutzutage, sehr leicht Audio und Video aufzunehmen, und sofern Sie sie auf Ihren Computer übertragen können, können Sie sie verwenden. Möglicherweise müssen Sie einige Konvertierungen durchführen, um im Falle von Video eine WebM und MP4 und im Falle von Audio eine MP3 und Ogg zu erhalten, aber es gibt genug Programme, die es Ihnen ermöglichen, dies ohne allzu große Probleme zu tun, wie [Miro Video Converter](http://www.mirovideoconverter.com/) und [Audacity](https://sourceforge.net/projects/audacity/). Wir möchten, dass Sie es ausprobieren!
+Für diese Aufgabe: Warum nicht in die Welt hinausgehen und einige Ihrer eigenen Videos und Audios aufnehmen? Wenn Sie ein Telefon haben, verwenden Sie dieses, um Audio und Video aufzunehmen, übertragen Sie es auf Ihren Computer und probieren Sie es aus. Sie müssen möglicherweise einige Umwandlungen durchführen, um am Ende ein WebM und MP4 im Fall von Video, und ein MP3 und Ogg im Fall von Audio zu haben, aber es gibt genug Programme und Tools, die Ihnen dies ohne allzu große Umstände ermöglichen, wie [CloudConvert](https://cloudconvert.com/mp4-converter) (online) und [Audacity](https://sourceforge.net/projects/audacity/) (Desktopanwendung). Wir möchten, dass Sie dies ausprobieren!
 
-Wenn Sie in der Lage sind, irgendwelche Video- oder Audiodateien zu beschaffen, können Sie sich gerne an unseren [Beispiel-Audio- und -Videodateien](https://github.com/mdn/learning-area/tree/main/html/multimedia-and-embedding/video-and-audio-content) orientieren, um diese Übung durchzuführen. Sie können auch unseren Beispielcode als Referenz verwenden.
+> [!NOTE]
+> Wenn es Ihnen nicht möglich ist, ein Video oder Audio zu beschaffen, können Sie unsere [Beispiel-Audio- und Videodateien](https://github.com/mdn/learning-area/tree/main/html/multimedia-and-embedding/video-and-audio-content) verwenden, um diese Übung durchzuführen.
 
 Wir möchten, dass Sie:
 
 1. Speichern Sie Ihre Audio- und Videodateien in einem neuen Verzeichnis auf Ihrem Computer.
-2. Erstellen Sie eine neue HTML-Datei im gleichen Verzeichnis, die Sie `index.html` nennen.
-3. Fügen Sie {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente auf der Seite hinzu; lassen Sie sie die standardmäßigen Browsersteuerungen anzeigen.
-4. Geben Sie beiden {{HTMLElement("source")}}-Elemente, damit Browser das Audioformat finden, das sie am besten unterstützen, und es laden. Diese sollten `type`-Attribute enthalten.
-5. Geben Sie dem `<video>`-Element ein Poster, das angezeigt wird, bevor das Video abgespielt wird. Haben Sie Spaß beim Erstellen Ihrer eigenen Poster-Grafik.
+2. Erstellen Sie eine neue HTML-Datei in demselben Verzeichnis, genannt `index.html`, basierend auf unserer [Einstiegs-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html).
+3. Fügen Sie der Seite {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente hinzu; lassen Sie sie die Standard-Browser-Steuerelemente anzeigen.
+4. Geben Sie ihnen jeweils {{HTMLElement("source")}} Elemente, damit die Browser das Audioformat finden, das sie am besten unterstützen und laden es. Diese sollten [`type`](/de/docs/Web/HTML/Reference/Elements/source#type) Attribute enthalten.
+5. Geben Sie beiden ein Fallback-`<p>`-Element innerhalb der Tags, das einen direkten Link zu den Medien für nicht unterstützende Browser bietet.
+6. Geben Sie dem `<video>` Element ein Poster, das angezeigt wird, bevor das Video abgespielt wird. Haben Sie Spaß daran, Ihr eigenes Poster-Design zu erstellen.
 
-Für einen zusätzlichen Bonus könnten Sie versuchen, sich über Textspuren zu informieren, und herausfinden, wie man einem Video einige Untertitel hinzufügt.
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-## Testen Sie Ihre Fähigkeiten!
+Ihr fertiges HTML sollte in etwa so aussehen:
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie die Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Multimedia und Einbetten](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio/Test_your_skills:_Multimedia_and_embedding).
+```html
+<video controls poster="poster.png">
+  <source src="rabbit320.mp4" type="video/mp4" />
+  <source src="rabbit320.webm" type="video/webm" />
+  <p>
+    Your browser doesn't support HTML video. Here is a
+    <a href="rabbit320.mp4">link to the video</a> instead.
+  </p>
+</video>
+
+<audio controls>
+  <source src="viper.mp3" type="audio/mp3" />
+  <source src="viper.ogg" type="audio/ogg" />
+  <p>
+    Your browser doesn't support HTML audio. Here is a
+    <a href="viper.mp3">link to the audio</a> instead.
+  </p>
+</audio>
+```
+
+</details>
 
 ## Zusammenfassung
 
-Und das ist ein Wrap — wir hoffen, Sie hatten Spaß daran, mit Video und Audio in Webseiten zu experimentieren! Als nächstes stellen wir Ihnen eine Herausforderung, um Ihre Fähigkeiten mit HTML-Medien zu testen.
+Damit sind wir am Ende – wir hoffen, Sie hatten viel Spaß beim Spielen mit Video und Audio in Webseiten! Als Nächstes geben wir Ihnen einige Tests, mit denen Sie überprüfen können, wie gut Sie die Informationen über HTML-Video und -Audio, die wir Ihnen bereitgestellt haben, verstanden und behalten haben.
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_images", "Learn_web_development/Core/Structuring_content/Mozilla_splash_page", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Images", "Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video", "Learn_web_development/Core/Structuring_content")}}

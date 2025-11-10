@@ -1,25 +1,25 @@
 ---
-title: "HTMLVideoElement: leavepictureinpicture Ereignis"
+title: "HTMLVideoElement: leavepictureinpicture-Ereignis"
 short-title: leavepictureinpicture
 slug: Web/API/HTMLVideoElement/leavepictureinpicture_event
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
 Das `leavepictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) den Picture-in-Picture-Modus erfolgreich verlässt.
 
-Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("leavepictureinpicture", (event) => {});
+```js-nolint
+addEventListener("leavepictureinpicture", (event) => { })
 
-onleavepictureinpicture = (event) => {};
+onleavepictureinpicture = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,11 +30,11 @@ Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-Dieses Interface erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event).
+Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `leavepictureinpicture`-Ereignis des HTMLVideoElements hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `leavepictureinpicture`-Ereignis des HTMLVideoElement hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -46,7 +46,7 @@ function onExitPip() {
   console.log("Picture-in-Picture mode deactivated!");
 }
 
-video.addEventListener("leavepictureinpicture", onExitPip, false);
+video.addEventListener("leavepictureinpicture", onExitPip);
 
 button.onclick = () => {
   if (document.pictureInPictureElement) {

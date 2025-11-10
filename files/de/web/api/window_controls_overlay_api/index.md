@@ -2,57 +2,56 @@
 title: Window Controls Overlay API
 slug: Web/API/Window_Controls_Overlay_API
 l10n:
-  sourceCommit: ab4090ce439d9ea25229a8583a138b2f8fa8a74e
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{DefaultAPISidebar("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die Window Controls Overlay API ermöglicht es Progressiven Web Apps, die auf Desktop-Betriebssystemen installiert sind, die Standardfenstertitelleiste auszublenden und ihre eigenen Inhalte über die gesamte Oberfläche des App-Fensters anzuzeigen, wobei die Steuerungsschaltflächen (Maximieren, Minimieren und Schließen) zu einer Überlagerung werden.
+Die Window Controls Overlay API gibt progressiven Web-Apps, die auf Desktop-Betriebssystemen installiert sind, die Möglichkeit, die standardmäßige Fenstertitelleiste zu verbergen und ihre eigenen Inhalte über die gesamte Fläche des App-Fensters anzuzeigen, wobei die Steuerungstasten (Maximieren, Minimieren und Schließen) in ein Overlay umgewandelt werden.
 
-## Aktivierung des Features
+## Opt-In für die Funktion
 
-Bevor Sie dieses Feature nutzen, müssen die folgenden Bedingungen erfüllt sein:
+Bevor Sie diese Funktion verwenden, müssen die folgenden Bedingungen erfüllt sein:
 
-- Das `display_override`-Mitglied des Web App Manifests muss auf `window-controls-overlay` gesetzt sein. Weitere Informationen finden Sie auf der [Referenzseite](/de/docs/Web/Manifest/Reference/display_override).
+- Das `display_override`-Mitglied des Web-App-Manifests muss auf `window-controls-overlay` gesetzt sein. Weitere Informationen finden Sie unter [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override).
 - Die Progressive Web App muss auf einem Desktop-Betriebssystem installiert sein.
 
 ## Hauptkonzepte
 
-Progressive Web Apps, die auf Desktop-Geräten installiert sind, können in eigenständigen App-Fenstern dargestellt werden, ähnlich wie native Apps. So sieht ein Anwendungsfenster aus:
+Progressive Web Apps, die auf Desktop-Geräten installiert sind, können in eigenständigen App-Fenstern angezeigt werden, ähnlich wie native Apps. So sieht ein Anwendungsfenster aus:
 
 ![Illustration einer PWA, die auf einem Desktop installiert ist, mit Fensterschaltflächen, einer Titelleiste und darunter liegenden Webinhalten](desktop-pwa-window.png)
 
-Wie oben zu sehen, besteht das App-Fenster aus zwei Hauptbereichen:
+Wie oben gezeigt, besteht das App-Fenster aus zwei Hauptbereichen:
 
 - Der Titelleistenbereich oben.
-- Der Anwendungsinhaltsbereich unten, der den HTML-Inhalt der PWA anzeigt.
+- Der Anwendungsinhaltsbereich unten, der die HTML-Inhalte der PWA anzeigt.
 
-Der Titelleistenbereich enthält die systemkritischen Maximieren-, Minimieren- und Schließen-Schaltflächen (deren Position kann je nach Betriebssystem variieren), den Namen der Anwendung (der aus dem `<title>` HTML-Element auf der Seite stammt) und möglicherweise agentenspezifische PWA-Schaltflächen.
+Der Titelleistenbereich enthält die systemkritischen Schaltflächen zum Maximieren, Minimieren und Schließen (ihre Position kann je nach Betriebssystem variieren), den Namen der Anwendung (der aus dem `<title>` HTML-Element der Seite stammt) und möglicherweise benutzerspezifische PWA-Schaltflächen.
 
-Mit dem Window Controls Overlay Feature können Progressive Web Apps ihre Webinhalte über die gesamte App-Fensteroberfläche anzeigen. Da die Fenstersteuerungsschaltflächen und agentenspezifische PWA-Schaltflächen sichtbar bleiben müssen, werden sie zu einer Überlagerung, die über den Webinhalten angezeigt wird.
+Mit der Window Controls Overlay-Funktion können Progressive Web Apps ihre Webinhalte über die gesamte Fläche der App-Fenster anzeigen. Da die Fensterschaltflächen und benutzerspezifische PWA-Schaltflächen sichtbar bleiben müssen, werden sie in ein Overlay verwandelt, das über den Webinhalten angezeigt wird.
 
-![Illustration einer PWA, die auf einem Desktop installiert ist, mit dem Window Controls Overlay-Feature, mit Fensterschaltflächen, keiner Titelleiste und Webinhalten, die das gesamte Fenster einnehmen](desktop-pwa-window-wco.png)
+![Illustration einer PWA, die auf einem Desktop mit der Window Controls Overlay-Funktion installiert ist, mit Fensterschaltflächen, ohne Titelleiste und Webinhalten, die das gesamte Fenster überspannen](desktop-pwa-window-wco.png)
 
-Der Teil der Titelleiste, der normalerweise den Anwendungsnamen enthält, wird ausgeblendet, und der Bereich, den er normalerweise einnimmt, wird über die Window Controls Overlay API zugänglich.
+Der Teil der Titelleiste, der normalerweise den Anwendungsnamen enthält, wird verborgen, und der Bereich, den er normalerweise einnimmt, wird durch die Window Controls Overlay API verfügbar gemacht.
 
-PWAs können die API nutzen, um Inhalte in diesem Bereich zu positionieren und zu vermeiden, dass Inhalte hinter den Steuerungsschaltflächen überlagert werden, ähnlich wie Webautoren auf das Vorhandensein von Notches auf bestimmten mobilen Geräten Rücksicht nehmen können.
+PWAs können die API verwenden, um Inhalte in diesem Bereich zu positionieren und zu verhindern, dass Inhalte hinter dem Steuerschaltflächen-Overlay verborgen werden, ähnlich wie Webautoren die Präsenz von Notches auf bestimmten mobilen Geräten berücksichtigen können.
 
-## CSS Umgebungsvariablen
+## CSS-Umgebungsvariablen
 
-Progressive Web Apps können ihre Webinhalte in dem Bereich positionieren, den die Titelleiste normalerweise einnimmt, indem sie die CSS-Umgebungsvariablen `titlebar-area-x`, `titlebar-area-y`, `titlebar-area-width` und `titlebar-area-height` verwenden.
-Siehe [Verwendung von env(), um sicherzustellen, dass Inhalte nicht durch Fenstersteuerungsschaltflächen in Desktop-PWAs verdeckt werden](/de/docs/Web/CSS/env#using_env_to_ensure_content_is_not_obscured_by_window_control_buttons_in_desktop_pwas).
+Progressive Web Apps können ihre Webinhalte in dem Bereich positionieren, den die Titelleiste normalerweise einnimmt, indem sie die CSS-Umgebungsvariablen `titlebar-area-x`, `titlebar-area-y`, `titlebar-area-width` und `titlebar-area-height` verwenden. Weitere Informationen finden Sie unter [Using env() to ensure content is not obscured by window control buttons in desktop PWAs](/de/docs/Web/CSS/Reference/Values/env#using_env_to_ensure_content_is_not_obscured_by_window_control_buttons_in_desktop_pwas).
 
 ## Schnittstellen
 
 - [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay) {{Experimental_Inline}}
-  - : Bietet Informationen zur Sichtbarkeit und Geometrie der Titelleiste und ein Event, um zu wissen, wann sich diese ändert.
+  - : Bietet Informationen über die Sichtbarkeit und Geometrie der Titelleiste und ein Ereignis, um zu erfahren, wann sich diese ändert.
 - [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent) {{Experimental_Inline}}
-  - : Repräsentiert Events, die Informationen über den Titelleistenbereich der Desktop Progressive Web App bereitstellen, wenn sich deren Größe oder Sichtbarkeit ändert.
+  - : Stellt Ereignisse bereit, die Informationen zur Region der Titelleiste der Desktop-Progress-Web-App liefern, wenn sich deren Größe oder Sichtbarkeit ändert.
 
 ### Erweiterungen zu anderen Schnittstellen
 
 - [`Navigator.windowControlsOverlay`](/de/docs/Web/API/Navigator/windowControlsOverlay)
-  - : Gibt die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay) Schnittstelle zurück, die Informationen über die Geometrie der Titelleiste in Desktop Progressive Web Apps bereitstellt.
+  - : Gibt die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle zurück, die Informationen über die Geometrie der Titelleiste in Desktop-Progressive-Web-Apps bereitstellt.
 
 ## Spezifikationen
 
@@ -64,6 +63,6 @@ Siehe [Verwendung von env(), um sicherzustellen, dass Inhalte nicht durch Fenste
 
 ## Siehe auch
 
-- [Anpassen der Fenstersteuerungsüberlagerung der Titelleiste Ihrer PWA](https://web.dev/articles/window-controls-overlay)
-- [Das Ausbrechen aus dem Kasten](https://alistapart.com/article/breaking-out-of-the-box/)
-- [Anzeigen von Inhalten in der Titelleiste](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay)
+- [Passen Sie das Fensterschaltflächen-Overlay der Titelleiste Ihrer PWA an](https://web.dev/articles/window-controls-overlay)
+- [Breaking Out of the Box](https://alistapart.com/article/breaking-out-of-the-box/)
+- [Anzeigen von Inhalten in der Titelleiste](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/window-controls-overlay)

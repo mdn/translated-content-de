@@ -1,54 +1,54 @@
 ---
-title: "HTMLFormElement: submit-Event"
+title: "HTMLFormElement: submit Event"
 short-title: submit
 slug: Web/API/HTMLFormElement/submit_event
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Der **`submit`**-Event wird ausgelöst, wenn ein {{HtmlElement("form")}} übermittelt wird.
+Das **`submit`**-Ereignis tritt auf, wenn ein {{HtmlElement("form")}}-Element übermittelt wird.
 
-Beachten Sie, dass der `submit`-Event auf dem `<form>`-Element selbst ausgelöst wird und nicht auf einem {{HtmlElement("button")}} oder `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}` innerhalb des Formulars. Der [`SubmitEvent`](/de/docs/Web/API/SubmitEvent), welcher gesendet wird, um die Ausführung der Formularübermittlung anzuzeigen, enthält jedoch eine [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft, die den Button angibt, der zur Auslösung der Übermittlungsanforderung verwendet wurde.
+Beachten Sie, dass das `submit`-Ereignis auf dem `<form>`-Element selbst ausgelöst wird und nicht auf einem {{HtmlElement("button")}} oder `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}` innerhalb des Formulars. Jedoch enthält das [`SubmitEvent`](/de/docs/Web/API/SubmitEvent), das gesendet wird, um die Aktivierung der Formularübermittlung anzuzeigen, eine [`submitter`](/de/docs/Web/API/SubmitEvent/submitter)-Eigenschaft, die den Button beschreibt, der ausgelöst wurde, um die Übermittlungsanforderung zu starten.
 
-Der `submit`-Event wird ausgelöst, wenn:
+Das `submit`-Ereignis tritt auf, wenn:
 
-- der Benutzer einen {{Glossary("submit_button", "submit button")}} anklickt,
-- der Benutzer <kbd>Enter</kbd> drückt, während er ein Feld editiert (z.B. {{HtmlElement('input/text', '&lt;input type="text"&gt;')}}) in einem Formular,
+- der Benutzer auf einen {{Glossary("submit_button", "Submit-Button")}} klickt,
+- der Benutzer die <kbd>Enter</kbd>-Taste drückt, während ein Feld bearbeitet wird (z.B. {{HtmlElement('input/text', '&lt;input type="text"&gt;')}}) in einem Formular,
 - ein Skript die Methode [`form.requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit) aufruft
 
-Der Event wird jedoch _nicht_ an das Formular gesendet, wenn ein Skript die Methode [`form.submit()`](/de/docs/Web/API/HTMLFormElement/submit) direkt aufruft.
+Jedoch wird das Ereignis _nicht_ an das Formular gesendet, wenn ein Skript die Methode [`form.submit()`](/de/docs/Web/API/HTMLFormElement/submit) direkt aufruft.
 
 > [!NOTE]
-> Der Versuch, ein Formular zu übermitteln, das die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) nicht besteht, löst einen [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Event aus. In diesem Fall verhindert die Validierung die Übermittlung des Formulars, und es gibt daher keinen `submit`-Event.
+> Der Versuch, ein Formular zu übermitteln, das die [Validierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) nicht besteht, löst ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis aus. In diesem Fall verhindert die Validierung die Formularübermittlung, und es gibt somit kein `submit`-Ereignis.
 
 ## Syntax
 
-Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("submit", (event) => {});
+```js-nolint
+addEventListener("submit", (event) => { })
 
-onsubmit = (event) => {};
+onsubmit = (event) => { }
 ```
 
-## Eventtyp
+## Ereignistyp
 
 Ein [`SubmitEvent`](/de/docs/Web/API/SubmitEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SubmitEvent")}}
 
-## Event-Eigenschaften
+## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften erbt dieses Interface die Eigenschaften seines Eltern-Interfaces, [`Event`](/de/docs/Web/API/Event)._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`submitter`](/de/docs/Web/API/SubmitEvent/submitter) {{ReadOnlyInline}}
-  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt, das den Button oder ein anderes Element identifiziert, das zur Auslösung der Formularübermittlung verwendet wurde.
+  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt, das den Button oder ein anderes Element identifiziert, welches ausgelöst wurde, um die Formularübermittlung zu starten.
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Übermittlung des Formulars zu hören, und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies geschieht, und verhindert dann die Standardaktion der Formularübermittlung.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Formularübermittlung zu reagieren, und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies geschieht. Danach wird die Standardaktion der Formularübermittlung verhindert.
 
 ### HTML
 
@@ -64,19 +64,20 @@ Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/Ev
 ### JavaScript
 
 ```js
+const form = document.getElementById("form");
+const log = document.getElementById("log");
+
 function logSubmit(event) {
   log.textContent = `Form Submitted! Timestamp: ${event.timeStamp}`;
   event.preventDefault();
 }
 
-const form = document.getElementById("form");
-const log = document.getElementById("log");
 form.addEventListener("submit", logSubmit);
 ```
 
 ### Ergebnis
 
-{{EmbedLiveSample("Examples")}}
+{{EmbedLiveSample("Examples", "", "", "", "", "", "", "allow-forms")}}
 
 ## Spezifikationen
 
@@ -89,4 +90,4 @@ form.addEventListener("submit", logSubmit);
 ## Siehe auch
 
 - HTML {{HtmlElement("form")}}-Element
-- Verwandter Event: [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)
+- Verwandtes Ereignis: [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)

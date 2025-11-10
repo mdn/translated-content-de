@@ -3,50 +3,76 @@ title: "Range: compareBoundaryPoints() Methode"
 short-title: compareBoundaryPoints()
 slug: Web/API/Range/compareBoundaryPoints
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 2c0de98b0607ef262d9ef0877259ba41aaf53e6d
 ---
 
 {{ApiRef("DOM")}}
 
-Die **`Range.compareBoundaryPoints()`**-Methode vergleicht die Grenzpunkte des [`Range`](/de/docs/Web/API/Range) mit denen eines anderen Bereichs.
+Die **`compareBoundaryPoints()`** Methode der [`Range`](/de/docs/Web/API/Range) Schnittstelle vergleicht die Grenzpunkte des [`Range`](/de/docs/Web/API/Range) mit denen eines anderen Bereichs.
 
 ## Syntax
 
 ```js-nolint
-compareBoundaryPoints(how, sourceRange)
+compareBoundaryPoints(how, otherRange)
 ```
 
 ### Parameter
 
 - `how`
-
   - : Eine Konstante, die die Vergleichsmethode beschreibt:
-
-    - `Range.END_TO_END` vergleicht den End-Grenzpunkt von _sourceRange_ mit dem End-Grenzpunkt von `Range`.
-    - `Range.END_TO_START` vergleicht den End-Grenzpunkt von _sourceRange_ mit dem Start-Grenzpunkt von `Range`.
-    - `Range.START_TO_END` vergleicht den Start-Grenzpunkt von _sourceRange_ mit dem End-Grenzpunkt von `Range`.
-    - `Range.START_TO_START` vergleicht den Start-Grenzpunkt von _sourceRange_ mit dem Start-Grenzpunkt von `Range`.
-
-- `sourceRange`
-  - : Ein [`Range`](/de/docs/Web/API/Range), mit dem die Grenzpunkte des Bereichs verglichen werden sollen.
+    - `Range.END_TO_END` vergleicht den End-Grenzpunkt dieses `Range` mit dem End-Grenzpunkt von `otherRange`.
+    - `Range.END_TO_START` vergleicht den Start-Grenzpunkt dieses `Range` mit dem End-Grenzpunkt von `otherRange`.
+    - `Range.START_TO_END` vergleicht den End-Grenzpunkt dieses `Range` mit dem Start-Grenzpunkt von `otherRange`.
+    - `Range.START_TO_START` vergleicht den Start-Grenzpunkt dieses `Range` mit dem Start-Grenzpunkt von `otherRange`.
+- `otherRange`
+  - : Ein [`Range`](/de/docs/Web/API/Range), mit dem die Grenzpunkte des Bereichs verglichen werden.
 
 ### Rückgabewert
 
-Eine Zahl, `-1`, `0` oder `1`, die anzeigt, ob der entsprechende Grenzpunkt des [`Range`](/de/docs/Web/API/Range) jeweils vor, gleich oder nach dem entsprechenden Grenzpunkt von _sourceRange_ liegt.
+Eine Zahl.
+
+- `-1`, wenn der angegebene Grenzpunkt dieses `Range` vor dem angegebenen Grenzpunkt von `otherRange` liegt.
+- `0`, wenn der angegebene Grenzpunkt dieses `Range` derselbe ist wie der angegebene Grenzpunkt von `otherRange`.
+- `1`, wenn der angegebene Grenzpunkt dieses `Range` nach dem angegebenen Grenzpunkt von `otherRange` liegt.
+
+Diese API ist konsistent mit der allgemeinen Konvention, dass bei Vergleichen von A mit B eine negative Zahl bedeutet, dass A vor B kommt und umgekehrt (siehe zum Beispiel {{jsxref("Array.prototype.sort()")}}). Die Bereiche werden in Richtung von `this` zu `other` verglichen, ähnlich wie {{jsxref("String.prototype.localeCompare()")}}. Jedoch werden die Grenzpunkte beim `how` Parameter in umgekehrter Reihenfolge angegeben: `END_TO_START` vergleicht den _Start_ von `this` mit dem _Ende_ von `other`.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Wert des `how`-Parameters ungültig ist.
+  - : Wird ausgelöst, wenn der Wert des `how` Parameters ungültig ist.
 
 ## Beispiele
 
+Unten erstellen wir zwei Bereiche im selben Textknoten und vergleichen ihre verschiedenen Grenzpunkte.
+
 ```js
-const range = document.createRange();
-range.selectNode(document.querySelector("div"));
-const sourceRange = document.createRange();
-sourceRange.selectNode(document.getElementsByTagName("div")[1]);
-const compare = range.compareBoundaryPoints(Range.START_TO_END, sourceRange);
+const text = new Text("0123456789");
+
+const thisRange = new Range();
+thisRange.setStart(text, 1);
+thisRange.setEnd(text, 6);
+
+const otherRange = new Range();
+otherRange.setStart(text, 1);
+otherRange.setEnd(text, 4);
+
+// The ranges look like this:
+// thisRange start   v---------v thisRange end
+//                  0 1 2 3 4 5 6 7 8 9
+// otherRange start  ^-----^ otherRange end
+
+// this start is *same as* other start
+thisRange.compareBoundaryPoints(Range.START_TO_START, otherRange); // 0
+
+// this end is *after* other start
+thisRange.compareBoundaryPoints(Range.START_TO_END, otherRange); // 1
+
+// this start is *after* other end
+thisRange.compareBoundaryPoints(Range.END_TO_START, otherRange); // -1
+
+// this end is *after* other end
+thisRange.compareBoundaryPoints(Range.END_TO_END, otherRange); // 1
 ```
 
 ## Spezifikationen

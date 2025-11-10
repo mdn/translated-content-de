@@ -1,13 +1,11 @@
 ---
-title: Local variable
+title: Lokale Variable
 slug: Glossary/Local_variable
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Eine {{Glossary("variable", "Variable")}}, deren Name nur innerhalb eines {{Glossary("local_scope", "lokalen Gültigkeitsbereichs")}} an ihren {{Glossary("value", "Wert")}} gebunden ist.
+Eine {{Glossary("variable", "Variable")}}, deren Name nur innerhalb eines {{Glossary("local_scope", "lokalen Bereichs")}} an ihren {{Glossary("value", "Wert")}} gebunden ist.
 
 ## Beispiel
 
@@ -21,4 +19,4 @@ function fun() {
 
 ## Siehe auch
 
-- [Local variable](https://en.wikipedia.org/wiki/Local_variable) auf Wikipedia
+- [Lokale Variable](https://en.wikipedia.org/wiki/Local_variable) auf Wikipedia

@@ -3,21 +3,21 @@ title: "VisualViewport: scrollend-Ereignis"
 short-title: scrollend
 slug: Web/API/VisualViewport/scrollend_event
 l10n:
-  sourceCommit: 4b5b3e16c8260a429db07dd54420ae40794b96c2
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("Visual Viewport")}}
+{{APIRef("CSSOM view API")}}
 
-Das **`scrollend`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport) Schnittstelle wird ausgelöst, wenn eine Bildlaufoperation im visuellen Viewport endet. Dies ermöglicht es Ihnen, ein Element zu aktualisieren, wenn eine Bildlaufaktion abgeschlossen ist. Zum Beispiel könnten Sie die [`resize`](/de/docs/Web/API/VisualViewport/resize_event) und [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event) Ereignisse verwenden, um ein Element während des Pinch-Zoomens und Scrollens fest an den visuellen Viewport zu binden und es mit neuem Inhalt zu aktualisieren, sobald der Bildlauf mit `scrollend` endet.
+Das **`scrollend`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn eine Scroll-Operation auf dem visuellen Viewport endet. Dies ermöglicht es Ihnen, ein Element zu aktualisieren, wenn eine Scroll-Aktion abgeschlossen ist. Sie könnten beispielsweise die [`resize`](/de/docs/Web/API/VisualViewport/resize_event)- und [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)-Ereignisse verwenden, um ein Element fixiert auf dem visuellen Viewport zu halten, während es durch Pinch-Zooming und Scrollen bewegt wird, und es mit neuem Inhalt zu aktualisieren, wenn das Scrollen mit `scrollend` endet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("scrollend", (event) => {});
+```js-nolint
+addEventListener("scrollend", (event) => { })
 
-onscrollend = (event) => {};
+onscrollend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sehen Sie sich die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Nutzungsdemo an.
+Siehe die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples)-Startseite für eine Anwendungsdemo.
 
 ## Spezifikationen
 

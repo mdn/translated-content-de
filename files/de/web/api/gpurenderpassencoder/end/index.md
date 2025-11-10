@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPassEncoder: end()-Methode"
+title: "GPURenderPassEncoder: end() Methode"
 short-title: end()
 slug: Web/API/GPURenderPassEncoder/end
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`end()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet die Aufzeichnung der aktuellen Render-Pass-Befehlskette.
+Die **`end()`** Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) Schnittstelle schließt die Aufzeichnung der aktuellen Renderpass-Befehlssequenz ab.
 
 ## Syntax
 
@@ -26,19 +26,19 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird, ansonsten wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) ist geöffnet (d.h. nicht bereits durch einen `end()`-Aufruf beendet).
-- Es ist keine Okklusionsabfrage aktiv (d.h. gestartet über [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery)) für den aktuellen Render-Pass.
-- Der Debug-Stack für den aktuellen Render-Pass ist leer (d.h. es ist keine Render-Pass-Debug-Gruppe geöffnet, wie sie von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) geöffnet wird).
-- Die Anzahl der Zeichnungsbefehle, die in diesem Render-Pass kodiert sind, ist kleiner oder gleich der `maxDrawCount`-Eigenschaft, die im [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Deskriptor festgelegt ist.
+- Der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) ist offen (d.h. nicht bereits mittels eines `end()` Aufrufs beendet).
+- Es ist keine Okklusionsabfrage aktiv (d.h. gestartet über [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery)) im aktuellen Renderpass.
+- Der Debug-Stack für den aktuellen Renderpass ist leer (d.h. es ist keine Renderpass-Debuggruppe aktuell offen, wie geöffnet durch [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup)).
+- Die Anzahl der in diesem Renderpass codierten Zeichnungsbefehle ist kleiner oder gleich der im [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) Deskriptor festgelegten `maxDrawCount`-Eigenschaft.
 
 ## Beispiele
 
-In unserem [basic render demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `end()` wird an einer geeigneten Stelle aufgerufen, um den Render-Pass zu beenden.
+In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `end()` wird an einer geeigneten Stelle aufgerufen, um den Renderpass zu beenden.
 
 ```js
-// ...
+// …
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
@@ -71,7 +71,7 @@ passEncoder.end();
 // End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
-// ...
+// …
 ```
 
 ## Spezifikationen

@@ -22,7 +22,7 @@ vom Benutzer angegebenen Lieferadresse bereitstellt.
 Im Allgemeinen wird die `shippingAddress`-Eigenschaft standardmäßig vom Benutzeragenten ausgefüllt.
 Sie können dies auslösen, indem Sie
 `options.requestShipping` auf `true` setzen, wenn Sie den
-[`PaymentRequest`](/de/docs/Web/API/PaymentRequest/paymentRequest)-Konstruktor aufrufen.
+[`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufrufen.
 
 Im untenstehenden Beispiel variieren die Versandkosten je nach geografischer Lage. Wenn das
 [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)-Ereignis

@@ -2,22 +2,21 @@
 title: Leere Anweisung
 slug: Web/JavaScript/Reference/Statements/Empty
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{jsSidebar("Statements")}}
+Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl die
+JavaScript-Syntax eine erwarten würde.
 
-Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl die JavaScript-Syntax eine erwarten würde.
-
-{{InteractiveExample("JavaScript Demo: Statement - Empty")}}
+{{InteractiveExample("JavaScript Demo: Empty statement")}}
 
 ```js interactive-example
-const array1 = [1, 2, 3];
+const array = [1, 2, 3];
 
 // Assign all array values to 0
-for (let i = 0; i < array1.length; array1[i++] = 0 /* empty statement */);
+for (let i = 0; i < array.length; array[i++] = 0 /* empty statement */);
 
-console.log(array1);
+console.log(array);
 // Expected output: Array [0, 0, 0]
 ```
 
@@ -29,15 +28,19 @@ console.log(array1);
 
 ## Beschreibung
 
-Die leere Anweisung ist ein Semikolon (`;`), das anzeigt, dass keine Anweisung ausgeführt wird, selbst wenn die JavaScript-Syntax eine erfordert.
+Die leere Anweisung ist ein Semikolon (`;`), das anzeigt, dass keine Anweisung
+ausgeführt wird, selbst wenn die JavaScript-Syntax eine erfordert.
 
-Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen möchten, JavaScript jedoch nur eine zulässt, ist mithilfe einer [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich, die mehrere Anweisungen zu einer einzigen kombiniert.
+Das gegenteilige Verhalten, bei dem Sie mehrere Anweisungen möchten, JavaScript jedoch nur eine
+zulässt, ist mit einer [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich,
+die mehrere Anweisungen zu einer einzigen zusammenfasst.
 
 ## Beispiele
 
-### Leerer Schleifenrumpf
+### Leere Schleifenkörper
 
-Die leere Anweisung wird manchmal in Verbindung mit Schleifenanweisungen verwendet. Siehe das folgende Beispiel mit einem leeren Schleifenrumpf:
+Die leere Anweisung wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende
+Beispiel mit einem leeren Schleifenkörper an:
 
 ```js-nolint
 const arr = [1, 2, 3];
@@ -51,7 +54,8 @@ console.log(arr);
 
 ### Unbeabsichtigte Verwendung
 
-Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da sie sich nicht wirklich offensichtlich von einem normalen Semikolon unterscheiden lässt.
+Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da sie
+nicht wirklich offensichtlich von einem normalen Semikolon zu unterscheiden ist.
 
 Im folgenden Beispiel ist die Verwendung wahrscheinlich nicht beabsichtigt:
 

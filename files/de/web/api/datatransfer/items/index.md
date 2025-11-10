@@ -3,20 +3,23 @@ title: "DataTransfer: items-Eigenschaft"
 short-title: items
 slug: Web/API/DataTransfer/items
 l10n:
-  sourceCommit: 075677cf5ec013c67340cd541d16a36c71b56bac
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte `items`-Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces ist eine [`Liste`](/de/docs/Web/API/DataTransferItemList) der [Datenübertragungs-Elemente](/de/docs/Web/API/DataTransferItem) in einer Ziehoperation. Die Liste enthält ein Element für jedes Element in der Operation und ist leer, wenn die Operation keine Elemente hatte.
+Die schreibgeschützte `items`-Eigenschaft der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle ist eine
+[`Liste`](/de/docs/Web/API/DataTransferItemList) von [Datenübertragungs-Elementen](/de/docs/Web/API/DataTransferItem) in einem Ziehvorgang. Die Liste enthält ein Element für jedes Element im Vorgang und ist leer, wenn der Vorgang keine Elemente hatte.
 
 ## Wert
 
-Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte enthält, die die Elemente repräsentieren, die in einer Ziehoperation gezogen werden, ein Listenelement für jedes gezogene Objekt. Wenn die Ziehoperation keine Daten hatte, ist die Liste leer.
+Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)
+Objekte enthält, die die Elemente darstellen, die in einem Ziehvorgang gezogen werden, wobei die Liste ein Element für jedes
+Objekt enthält, das gezogen wird. Wenn der Ziehvorgang keine Daten hatte, ist die Liste leer.
 
 ## Beispiele
 
-### Protokollierung von gezogenen Elementen
+### Protokollierung gezogener Elemente
 
 Dieses Beispiel verwendet `items`, um Informationen über gezogene Elemente zu protokollieren.
 
@@ -90,7 +93,7 @@ reset.addEventListener("click", () => document.location.reload());
 
 #### Ergebnis
 
-{{EmbedLiveSample("Protokollierung von gezogenen Elementen", 0, 400)}}
+{{EmbedLiveSample("Logging dragged items", 0, 400)}}
 
 ## Spezifikationen
 
@@ -102,7 +105,6 @@ reset.addEventListener("click", () => document.location.reload());
 
 ## Siehe auch
 
-- [Drag-and-Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Ziehtypen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Daten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

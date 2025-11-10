@@ -1,16 +1,17 @@
 ---
-title: "IDBObjectStore: getKey() Methode"
+title: "IDBObjectStore: getKey()-Methode"
 short-title: getKey()
 slug: Web/API/IDBObjectStore/getKey
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`getKey()`**-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und gibt in einem separaten Thread den durch die angegebene Abfrage ausgewählten Schlüssel zurück. Dies dient zum Abrufen spezifischer Einträge aus einem Objektspeicher.
+Die **`getKey()`**-Methode des
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und liefert in einem separaten Thread den Schlüssel, der durch die angegebene Abfrage ausgewählt wurde. Dies dient zum Abrufen bestimmter Datensätze aus einem Objekt-Store.
 
-Wenn ein Schlüssel erfolgreich gefunden wird, wird ein strukturierter Klon davon erstellt und als Ergebnis des Anfrageobjekts festgelegt.
+Wenn ein Schlüssel erfolgreich gefunden wird, wird eine strukturierte Kopie davon erstellt und als Ergebnis des Anforderungsobjekts gesetzt.
 
 ## Syntax
 
@@ -25,13 +26,13 @@ getKey(key)
 
 ### Rückgabewert
 
-Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, bei dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft des Antrags der Schlüssel für den ersten Datensatz, der mit dem angegebenen Schlüssel oder Schlüsselbereich übereinstimmt.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage der Schlüssel des ersten Datensatzes, der mit dem angegebenen Schlüssel oder Schlüsselbereich übereinstimmt.
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann einen der folgenden Typen von [`DOMException`](/de/docs/Web/API/DOMException) auslösen:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
@@ -71,8 +72,8 @@ openRequest.onsuccess = (event) => {
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
-- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Ein Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Daten abrufen und Änderungen vornehmen: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Cursor verwenden: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

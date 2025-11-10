@@ -3,12 +3,12 @@ title: "GPUDevice: createQuerySet()-Methode"
 short-title: createQuerySet()
 slug: Web/API/GPUDevice/createQuerySet
 l10n:
-  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createQuerySet()`**-Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces erstellt ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das verwendet werden kann, um die Ergebnisse von Abfragen bei Durchläufen aufzuzeichnen, wie zum Beispiel Okklusions- oder Zeitstempelabfragen.
+Die **`createQuerySet()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das verwendet werden kann, um die Ergebnisse von Abfragen auf Passes, wie Okklusions- oder Zeitstempelabfragen, aufzuzeichnen.
 
 ## Syntax
 
@@ -25,33 +25,33 @@ createQuerySet(descriptor)
     - `count`
       - : Eine Zahl, die die Anzahl der Abfragen angibt, die vom resultierenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) verwaltet werden sollen.
     - `label` {{optional_inline}}
-      - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `type`
 
       - : Ein enumerierter Wert, der den Typ der Abfragen angibt, die vom resultierenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) verwaltet werden sollen. Mögliche Werte sind:
 
         - `"occlusion"`
-          - : Okklusionsabfragen sind in Render-Durchläufen verfügbar, um die Anzahl der Fragmentproben zu ermitteln, die alle Tests pro Fragment für einen Satz von Zeichenkommandos (einschließlich Schere, Probenmaske, Alpha-to-Coverage, Stencil- und Tiefentests) bestehen. Um eine Okklusionsabfrage auszuführen, muss ein entsprechendes [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) als Wert der `occlusionQuerySet`-Eigenschaft angegeben werden, wenn [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wird, um einen Render-Durchlauf auszuführen.
+          - : Okklusionsabfragen stehen bei Render-Passes zur Verfügung, um die Anzahl der Fragmentproben abzufragen, die alle per-Fragment-Tests für einen Satz von Zeichnungsbefehlen bestehen (einschließlich Schere, Sample-Maske, Alpha-to-Coverage, Schablonen- und Tiefentests). Um eine Okklusionsabfrage auszuführen, muss ein geeignetes [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) als Wert der `occlusionQuerySet`-Deskriptoreigenschaft angegeben werden, wenn [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wird, um einen Render-Pass auszuführen.
         - `"timestamp"`
 
-          - : Zeitstempelabfragen erlauben es Anwendungen, Zeitstempel in ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) zu schreiben. Um eine Zeitstempelabfrage auszuführen, müssen entsprechende [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)s im Wert der `timestampWrites`-Eigenschaft angegeben werden, wenn [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wird, um einen Render-Durchlauf auszuführen, oder [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass), um einen Berechnungsdurchlauf auszuführen. Alternativ kann eine einzelne Zeitstempelabfrage jederzeit durch den Aufruf von [`GPUCommandEncoder.writeTimeStamp()`](/de/docs/Web/API/GPUCommandEncoder/writeTimeStamp) mit einem entsprechenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) als Parameter ausgeführt werden.
+          - : Zeitstempelabfragen ermöglichen es Anwendungen, Zeitstempel an ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) zu schreiben. Um eine Zeitstempelabfrage auszuführen, müssen geeignete [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) innerhalb des Wertes der `timestampWrites`-Deskriptoreigenschaft bereitgestellt werden, wenn [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wird, um einen Render-Pass auszuführen, oder [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass), um einen Compute-Pass auszuführen. Alternativ können Sie jederzeit eine einzelne Zeitstempelabfrage durchführen, indem Sie [`GPUCommandEncoder.writeTimeStamp()`](/de/docs/Web/API/GPUCommandEncoder/writeTimestamp) mit einem geeigneten [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) als Parameter aufrufen.
 
             > [!NOTE]
-            > Die `timestamp-query` [feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Zeitstempelabfragen zu verwenden.
+            > Das `timestamp-query` [Feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Zeitstempelabfragen verwenden zu können.
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekts.
+Eine Instanz eines [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekts.
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`createQuerySet()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createQuerySet()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt zurückgegeben:
 
 - `count` ist kleiner oder gleich 4096.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das 32 Okklusions-Abfrageergebnisse hält:
+Das folgende Snippet erstellt ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das 32 Okklusionsabfrageergebnisse hält:
 
 ```js
 const querySet = device.createQuerySet({

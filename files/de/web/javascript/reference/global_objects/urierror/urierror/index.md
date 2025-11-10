@@ -1,11 +1,10 @@
 ---
 title: URIError() Konstruktor
+short-title: URIError()
 slug: Web/JavaScript/Reference/Global_Objects/URIError/URIError
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
-
-{{JSRef}}
 
 Der **`URIError()`** Konstruktor erstellt {{jsxref("URIError")}} Objekte.
 
@@ -25,17 +24,18 @@ URIError(message, fileName)
 URIError(message, fileName, lineNumber)
 ```
 
-> **Note:** `URIError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beides erstellt eine neue `URIError` Instanz.
+> [!NOTE]
+> `URIError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufmethoden erzeugen eine neue `URIError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Eine menschenlesbare Beschreibung des Fehlers.
+  - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Werfen eines Fehlers mit einer genaueren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+        Beim Abfangen und erneutem Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}

@@ -3,16 +3,12 @@ title: "CSSNumericValue: type() Methode"
 short-title: type()
 slug: Web/API/CSSNumericValue/type
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: a17590438d18d8423e853bc7d50354e21dc1afa5
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`type()`**-Methode der
-[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle gibt den Typ von
-`CSSNumericValue` zurück, einer von `angle`, `flex`,
-`frequency`, `length`, `resolution`,
-`percent`, `percentHint` oder `time`.
+Die **`type()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle gibt den Typ von `CSSNumericValue` zurück, einer von `angle`, `flex`, `frequency`, `length`, `resolution`, `percent`, `percentHint` oder `time`.
 
 ## Syntax
 
@@ -26,7 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`CSSNumericType`](/de/docs/Web/API/CSSNumericType)-Objekt.
+Ein `CSSNumericType`-Wörterbuch, das die folgenden Eigenschaften enthält:
+
+- `length`
+- `angle`
+- `time`
+- `frequency`
+- `resolution`
+- `flex`
+- `percent`
+- `percentHint`
+
+Für jede Eigenschaft außer `percentHint` ist der Wert eine ganze Zahl, die die Potenz dieser Einheit darstellt. Zum Beispiel wird ein numerischer Wert von `calc(1px * 1em)` `{ length: 2 }` zurückgeben.
+
+Die `percentHint`-Eigenschaft ist ein String, der angibt, auf welchen Werttyp der Prozentwert angewendet wird. Der Stringwert entspricht den Typ-Eigenschaften: `"length"`, `"angle"`, `"time"`, `"frequency"`, `"resolution"`, `"flex"`, oder `"percent"`. Er zeigt an, dass der Typ tatsächlich einen Prozentsatz enthält, dieser Prozentsatz jedoch letztendlich auf den angedeuteten Basistyp aufgelöst wird und daher durch diesen im Typ ersetzt wurde.
 
 ### Ausnahmen
 

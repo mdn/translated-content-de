@@ -1,13 +1,11 @@
 ---
-title: Node (networking)
+title: Node (Netzwerk)
 slug: Glossary/Node/networking
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Im Netzwerkumfeld ist ein **Node** ein Verbindungspunkt im Netzwerk. In physischen Netzwerken ist ein Node in der Regel ein Gerät, wie ein Computer oder ein Router.
+Im Netzwerkbereich ist ein **Node** ein Verbindungspunkt im Netzwerk. In physischen Netzwerken ist ein Node in der Regel ein Gerät, wie ein Computer oder ein Router.
 
 ## Siehe auch
 

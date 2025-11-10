@@ -1,19 +1,18 @@
 ---
 title: RegExp.prototype.multiline
+short-title: multiline
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/multiline
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`multiline`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}}-Instanzen gibt zurück, ob das `m`-Flag bei diesem regulären Ausdruck verwendet wird oder nicht.
+Die **`multiline`** Zugriffseigenschaft von {{jsxref("RegExp")}} Instanzen gibt an, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype.multiline", "taller")}}
 
 ```js interactive-example
-const regex1 = new RegExp("^football");
-const regex2 = new RegExp("^football", "m");
+const regex1 = /^football/;
+const regex2 = /^football/m;
 
 console.log(regex1.multiline);
 // Expected output: false
@@ -30,16 +29,16 @@ console.log(regex2.test("rugby\nfootball"));
 
 ## Beschreibung
 
-`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag gibt an, dass eine mehrzeilige Eingabezeichenfolge als mehrere Zeilen behandelt werden soll. Wenn beispielsweise `m` verwendet wird, ändern sich `^` und `$` von der Übereinstimmung nur am Anfang oder Ende der gesamten Zeichenkette zur Übereinstimmung am Anfang oder Ende einer beliebigen Zeile innerhalb der Zeichenkette.
+`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag zeigt an, dass ein mehrzeiliger Eingabestring als mehrere Zeilen behandelt werden soll. Zum Beispiel ändern sich bei Verwendung von `m` die Zeichen `^` und `$` von einer Übereinstimmung nur am Anfang oder Ende des gesamten Strings zu einer Übereinstimmung am Anfang oder Ende jeder Zeile innerhalb des Strings.
 
-Der Set-Accessor von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt verändern.
+Der Set-Zugriffsberechtiger von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
 ### Verwendung von multiline
 
 ```js
-const regex = /foo/m;
+const regex = /^foo/m;
 
 console.log(regex.multiline); // true
 ```

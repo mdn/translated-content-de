@@ -1,25 +1,25 @@
 ---
-title: "VideoEncoder: dequeue-Ereignis"
+title: "VideoEncoder: dequeue Ereignis"
 short-title: dequeue
 slug: Web/API/VideoEncoder/dequeue_event
 l10n:
-  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`dequeue`**-Ereignis der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle wird ausgelöst, um eine Verringerung der [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) zu signalisieren.
+Das **`dequeue`**-Ereignis der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle tritt auf, um eine Verringerung der [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) anzuzeigen.
 
-Dies eliminiert die Notwendigkeit für Entwickler, ein [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-Polling zu verwenden, um festzustellen, wann die Warteschlange verkleinert wurde und mehr Arbeit eingereiht werden sollte.
+Dies beseitigt die Notwendigkeit für Entwickler, eine [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-Abfrage zu verwenden, um festzustellen, wann die Warteschlange verkleinert wurde und mehr Arbeit eingereiht werden sollte.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("dequeue", (event) => {});
+```js-nolint
+addEventListener("dequeue", (event) => { })
 
-ondequeue = (event) => {};
+ondequeue = (event) => { }
 ```
 
 ## Beispiel

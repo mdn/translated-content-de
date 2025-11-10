@@ -3,12 +3,12 @@ title: "HTMLTextAreaElement: name-Eigenschaft"
 short-title: name
 slug: Web/API/HTMLTextAreaElement/name
 l10n:
-  sourceCommit: d064784c78ec30c87ec3c3d9681b147999fd782f
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt den Namen des {{HTMLElement("textarea")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/textarea#name)-Attribut des Elements wider.
+Die **`name`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces zeigt den Namen des {{HTMLElement("textarea")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Reference/Elements/textarea#name)-Attribut des Elements wider.
 
 ## Wert
 

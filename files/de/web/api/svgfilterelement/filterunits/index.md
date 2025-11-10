@@ -3,16 +3,16 @@ title: "SVGFilterElement: filterUnits-Eigenschaft"
 short-title: filterUnits
 slug: Web/API/SVGFilterElement/filterUnits
 l10n:
-  sourceCommit: ed8d1fc9149b9b5987d1019b1a6e1c7216a5333b
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`filterUnits`** des [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Interfaces spiegelt das {{SVGAttr("filterUnits")}}-Attribut des gegebenen {{SVGElement("filter")}}-Elements wider. Sie nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten `SVG_UNIT_TYPE_*`-Konstanten an.
+Die schreibgeschützte **`filterUnits`**-Eigenschaft der [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Schnittstelle spiegelt das {{SVGAttr("filterUnits")}}-Attribut des angegebenen {{SVGElement("filter")}}-Elements wider. Sie nimmt einen der `SVG_UNIT_TYPE_*`-Konstanten an, die in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definiert sind.
 
 ## Wert
 
-Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration).
+Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration).
 
 ## Beispiele
 
@@ -60,4 +60,4 @@ console.log(filterElement.filterUnits.baseVal); // Output: 1 (SVG_UNIT_TYPE_USER
 
 - [`SVGFilterElement.primitiveUnits`](/de/docs/Web/API/SVGFilterElement/primitiveUnits)
 - [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG-Filter-Primitivattributen](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)

@@ -1,17 +1,17 @@
 ---
-title: "HTMLSelectElement: Eigenschaft size"
+title: "HTMLSelectElement: size-Eigenschaft"
 short-title: size
 slug: Web/API/HTMLSelectElement/size
 l10n:
-  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`size`** Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt die Anzahl der Optionen oder Zeilen an, die zu einem Zeitpunkt sichtbar sein sollen. Sie spiegelt das [`size`](/de/docs/Web/HTML/Element/select#size) Attribut des {{htmlelement("select")}}-Elements wider. Wenn es weggelassen wird, ist der Wert `0`.
+Die **`size`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt die Anzahl der Optionen oder Zeilen an, die gleichzeitig sichtbar sein sollten. Sie spiegelt das `{{htmlelement("select")}}`-Element und dessen [`size`](/de/docs/Web/HTML/Reference/Elements/select#size)-Attribut wider. Wird sie weggelassen, ist der Wert `0`.
 
 > [!NOTE]
-> Standardmäßig zeigt ein `<select>` eine einzelne Zeile an, es sei denn, [`multiple`](/de/docs/Web/API/HTMLSelectElement/multiple) ist wahr, in diesem Fall werden vier Zeilen angezeigt. Der Standardwert für die `size`-Eigenschaft ist `0`.
+> Während standardmäßig ein `<select>` einzeilig angezeigt wird, es sei denn, [`multiple`](/de/docs/Web/API/HTMLSelectElement/multiple) ist wahr, in diesem Fall werden vier Zeilen angezeigt, ist der Standardwert für die `size`-Eigenschaft `0`.
 
 ## Wert
 

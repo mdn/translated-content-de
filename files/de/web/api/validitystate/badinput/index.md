@@ -1,26 +1,26 @@
 ---
-title: "ValidityState: badInput Eigenschaft"
+title: "ValidityState: badInput-Eigenschaft"
 short-title: badInput
 slug: Web/API/ValidityState/badInput
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`badInput`** Eigenschaft des [ValidityState](/de/docs/Web/API/ValidityState) Interfaces zeigt an, ob der Benutzer eine Eingabe gemacht hat, die der Browser nicht umwandeln kann. Zum Beispiel, wenn Sie ein Zahleneingabe-Element haben, dessen Inhalt ein String ist.
+Die schreibgeschützte **`badInput`**-Eigenschaft der [ValidityState](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Benutzer eine Eingabe gemacht hat, die der Browser nicht konvertieren kann. Zum Beispiel, wenn Sie ein Zahleneingabefeld haben, dessen Inhalt eine Zeichenkette ist.
 
 ## Wert
 
-Ein boolean, der `true` ist, wenn das `ValidityState` Objekt nicht dem erwarteten Typ entspricht.
+Ein boolescher Wert, der `true` ist, wenn das `ValidityState`-Objekt nicht dem erwarteten Typ entspricht.
 
 ## Beispiele
 
-### Erkennung von fehlerhafter Eingabe
+### Erkennung von fehlerhaften Eingaben
 
-Das folgende Beispiel überprüft die Gültigkeit eines [zahleneingabe Elements](/de/docs/Web/HTML/Element/input/number).
-Wenn der Benutzer Text anstelle einer Zahl eingibt, schlägt die Erfüllung der Eingabekriterien fehl, und die dem [`input:invalid`](/de/docs/Web/CSS/:invalid) entsprechenden Stile werden angewendet.
-Das [`<pre>`](/de/docs/Web/HTML/Element/pre) Element über der Eingabe zeigt die Validierungsnachricht an, wenn die Eigenschaft `badInput` auf `true` ausgewertet wird:
+Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabefelds](/de/docs/Web/HTML/Reference/Elements/input/number).
+Wenn der Benutzer Text anstelle einer Zahl eingibt, schlägt die Einschränkungsvalidierung fehl, und die Stile, die mit [`input:invalid`](/de/docs/Web/CSS/Reference/Selectors/:invalid) übereinstimmen, werden angewendet.
+Das [`<pre>`](/de/docs/Web/HTML/Reference/Elements/pre)-Element über dem Eingabefeld zeigt die Validierungsnachricht an, wenn die `badInput`-Eigenschaft des Elements zu `true` ausgewertet wird:
 
 ```css
 input:invalid {
@@ -56,7 +56,7 @@ function log(text) {
 userInput.addEventListener("input", () => {
   userInput.reportValidity();
   if (userInput.validity.badInput) {
-    log("Bad input detected: " + userInput.validationMessage);
+    log(`Bad input detected: ${userInput.validationMessage}`);
   }
 });
 ```
@@ -73,6 +73,6 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- ValidityState [valid](/de/docs/Web/API/ValidityState/valid), [customError](/de/docs/Web/API/ValidityState/customError) Eigenschaften.
-- [Leitfaden: Eingabebeschränkungen](/de/docs/Web/HTML/Constraint_validation)
-- [Anleitung: Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- ValidityState [valid](/de/docs/Web/API/ValidityState/valid), [customError](/de/docs/Web/API/ValidityState/customError)-Eigenschaften.
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
+- [Anleitung: Formular-Datenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

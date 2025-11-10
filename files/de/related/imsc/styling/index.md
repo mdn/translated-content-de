@@ -2,14 +2,14 @@
 title: Styling von IMSC-Dokumenten
 slug: Related/IMSC/Styling
 l10n:
-  sourceCommit: ef472690cc383fc77d7aa53ddec036b5efa3b526
+  sourceCommit: 95e0fbb78a16450188753d0b53ca02a9fbd2a641
 ---
 
-IMSC bietet viele Optionen zur Gestaltung von Dokumenten, und die meisten IMSC-Stileigenschaften haben direkte CSS-Äquivalente, was sie Webentwicklern vertraut macht. In diesem Leitfaden lernen Sie mehr über das Styling von IMSC, einschließlich der Unterschiede zwischen Inline- und referenziellem Styling und effizientem Styling durch Vererbung und Regions-Styling.
+IMSC bietet viele Möglichkeiten zur Gestaltung von Dokumenten, und die meisten IMSC-Stileigenschaften haben direkte CSS-Äquivalente, was Webentwicklern vertraut ist. In diesem Leitfaden lernen Sie mehr über IMSC Styling, einschließlich des Unterschieds zwischen Inline- und Referenz-Styling sowie effizientes Styling mittels Vererbung und Regionsstyling.
 
 ## Inline-Styling
 
-Die einfachste Möglichkeit, Inhaltselemente wie `<p>` oder `<span>` zu gestalten, besteht darin, ein oder mehrere Stilattribute wie `tts:color` anzugeben. Zum Beispiel ergibt das folgende:
+Der einfachste Weg, Inhaltselemente wie `<p>` oder `<span>` zu stylen, ist die Angabe von einem oder mehreren Style-Attributen, wie `tts:color`, an ihnen. Zum Beispiel:
 
 ```xml
 <p tts:textAlign="center"
@@ -21,15 +21,15 @@ Die einfachste Möglichkeit, Inhaltselemente wie `<p>` oder `<span>` zu gestalte
 </p>
 ```
 
-dies:
+ergibt:
 
 {{EmbedGHLiveSample("imsc-examples/inline-styles/inline-styles.html", '100%')}}
 
 ## Referenzielles Styling
 
-Inline-Styling wird normalerweise vermieden, da es Duplikate erzeugt.
+Inline-Styling wird normalerweise vermieden, da es zu Duplikationen führt.
 
-Nehmen Sie zum Beispiel die folgenden zwei `<span>`-Elemente, die genau die gleichen Stilattribute haben:
+Betrachten Sie beispielsweise die beiden folgenden `<span>`-Elemente, die genau die gleichen Stileigenschaften haben:
 
 ```xml
 <p>
@@ -44,7 +44,7 @@ Nehmen Sie zum Beispiel die folgenden zwei `<span>`-Elemente, die genau die glei
 </p>
 ```
 
-Beim referenziellen Styling werden Stile einmal definiert und im gesamten Dokument wiederverwendet — ähnlich wie CSS-Regeln, die einmal deklariert und dann auf mehrere HTML-Elemente über beispielsweise Element- oder Klassenselektoren angewendet werden können. In IMSC wird dies durch die Definition eines `<styling>`-Elements im Dokument-`<head>` erreicht, in dem sich ein oder mehrere `<style>`-Elemente befinden — jedes dieser definiert einen Satz von Stilen, die Sie an anderer Stelle wiederverwenden können. Dies ist im Folgenden dargestellt:
+Beim referenziellen Styling werden Stile einmal definiert und im gesamten Dokument wiederverwendet – ähnlich wie CSS-Regeln, die einmal deklariert werden und dann auf mehrere HTML-Elemente angewendet werden können, etwa durch Element- oder Klassenselektoren. In IMSC wird dies erreicht, indem ein `<styling>`-Element im Dokument-`<head>` definiert wird, in dem sich eines oder mehrere `<style>`-Elemente befinden – jedes von ihnen definiert eine Reihe von Stilen, die Sie an anderer Stelle wiederverwenden können. Dies wird unten veranschaulicht:
 
 ```xml
 <tt xmlns="http://www.w3.org/ns/ttml"
@@ -68,19 +68,19 @@ Beim referenziellen Styling werden Stile einmal definiert und im gesamten Dokume
   </tt>
 ```
 
-Jedes `<style>`-Element erhält eine `id` (`"s1"` in diesem Beispiel):
+Jedem `<style>`-Element wird eine `id` zugewiesen (`"s1"` in diesem Beispiel):
 
 ```xml
 <style xml:id="s1" tts:color="yellow" tts:backgroundColor="black"/>
 ```
 
-die dann später im Dokument referenziert werden kann:
+auf die später im Dokument verwiesen werden kann:
 
 ```xml
 <span style="s1">Hello, I am Mork from Ork.</span>
 ```
 
-dies entspricht:
+Dies ist gleichbedeutend mit:
 
 ```xml
 <span tts:color="yellow" tts:backgroundColor="black">
@@ -88,11 +88,11 @@ dies entspricht:
 </span>
 ```
 
-Mit anderen Worten, die Referenzierung eines `<style>`-Elements über seine `id` und das `style`-Attribut entspricht dem Kopieren der Stilattribute des `<style>`-Elements auf das referenzierende Element, als ob die Stilattribute mit Inline-Styling angegeben worden wären.
+Mit anderen Worten, das Referenzieren eines `<style>`-Elements über seine `id` und das `style`-Attribut ist gleichbedeutend mit dem Kopieren der Stileigenschaften des `<style>`-Elements auf das referenzierende Element, als ob die Stileigenschaften mittels Inline-Styling spezifiziert worden wären.
 
 ## Stilvererbung
 
-Wenn eine Stileigenschaft vererbbar ist, wie `tts:color`, dann wird die Eigenschaft auf alle Nachfahren eines Elements angewendet, auf das sie spezifiziert wird — ebenfalls vergleichbar mit CSS und HTML. Im folgenden Beispiel wird die Farbe `"yellow"` auf den Text beider `<p>`-Elemente angewendet, da sie Nachfahren des `<body>`-Elements sind.
+Wenn eine Stileigenschaft vererbbar ist, wie `tts:color`, dann wird die Stileigenschaft auf alle Nachkommen eines Elements angewendet, auf dem sie spezifiziert ist – auch dies ist ähnlich zu CSS und HTML. Im folgenden Beispiel wird die Farbe `"yellow"` auf den Text beider `<p>`-Elemente angewendet, da sie Nachkommen des `<body>`-Elements sind.
 
 ```xml
 <body tts:color="yellow">
@@ -103,7 +103,7 @@ Wenn eine Stileigenschaft vererbbar ist, wie `tts:color`, dann wird die Eigensch
 </body>
 ```
 
-Die Spezifikation eines Stils auf ein Element überschreibt jeden auf einem Vorfahren spezifizierten Stil. Zum Beispiel wird im folgenden Ausschnitt die Farbe des zweiten `<p>`-Textes auf `"aqua"` gesetzt:
+Das Spezifizieren eines Stils auf einem Element überschreibt jeden auf einem Vorfahren spezifizierten Stil. Im folgenden Beispiel wird die Farbe des Textes des zweiten `<p>`-Elements auf `"aqua"` gesetzt:
 
 ```xml
 <body tts:color="yellow">
@@ -114,9 +114,9 @@ Die Spezifikation eines Stils auf ein Element überschreibt jeden auf einem Vorf
 </body>
 ```
 
-## Region-Styling
+## Regionsstyling
 
-Regionen-Styling spielt im IMSC eine besondere Rolle, da eine auf einer Region spezifizierte Stileigenschaft von allen Elementen geerbt wird, die der Region zugeordnet sind, beginnend mit dem `<body>`-Element, als ob das `<region>`-Element das Elternteil des `<body>`-Elements wäre. Zum Beispiel wird im folgenden Beispiel der Text "Hello, I am Mork from Ork" in Gelb erscheinen.
+Regionsstyling spielt eine besondere Rolle in IMSC, da eine auf einer Region spezifizierte Stileigenschaft von allen Elementen, die der Region zugewiesen sind, beginnend mit dem `<body>`-Element, geerbt wird, als ob das `<region>`-Element das übergeordnete Element des `<body>`-Elements wäre. Zum Beispiel wird im folgenden Beispiel der Text "Hello, I am Mork from Ork" in Gelb erscheinen.
 
 ```xml
 <tt
@@ -138,7 +138,7 @@ Regionen-Styling spielt im IMSC eine besondere Rolle, da eine auf einer Region s
 
 ## Kombinieren von Stilen
 
-Referenzielles Styling kann auf Stil-Elemente selbst angewendet werden:
+Referenzielles Styling kann auch auf Stilelemente selbst angewendet werden:
 
 ```xml
 <styling>
@@ -151,30 +151,8 @@ Referenzielles Styling kann auf Stil-Elemente selbst angewendet werden:
 </styling>
 ```
 
-Mehrere Stile können auch gleichzeitig auf ein Element angewendet werden. Im folgenden Ausschnitt werden zum Beispiel die Stileigenschaften sowohl von Stil `s1` als auch von `s2` auf dasselbe `<p>`-Element angewendet.
+Mehrere Stile können auch gleichzeitig auf ein Element angewendet werden. In dem folgenden Schnipsel werden die Stileigenschaften sowohl von `s1` als auch `s2` auf dasselbe `<p>`-Element angewendet.
 
 ```xml
 <p style="s1 s2">Hello, I am Mork from Ork</p>
 ```
-
-<section id="Quick_links">
-  <ol>
-    <li><a href="/de/docs/Related/IMSC/"><strong>IMSC</strong></a></li>
-    <li class="toggle">
-      <details open>
-        <summary>IMSC-Leitfäden</summary>
-        <ol>
-          <li><a href="/de/docs/Related/IMSC/Basics">IMSC-Grundlagen</a></li>
-          <li><a href="/de/docs/Related/IMSC/Using_the_imscJS_polyfill">Verwendung des imscJS-Polyfills</a></li>
-          <li><a href="/de/docs/Related/IMSC/Styling">Styling von IMSC-Dokumenten</a></li>
-          <li><a href="/de/docs/Related/IMSC/Subtitle_placement">Untertitelplatzierung in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Namespaces">Namespaces in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Timing_in_IMSC">Timing in IMSC</a></li>
-          <li><a href="/de/docs/Related/IMSC/Mapping_video_time_codes_to_IMSC">Zuordnung von Videocodecs zu IMSC</a>
-          </li>
-          <li><a href="/de/docs/Related/IMSC/IMSC_and_other_standards">IMSC und andere Standards</a></li>
-        </ol>
-      </details>
-    </li>
-  </ol>
-</section>

@@ -1,25 +1,23 @@
 ---
-title: Cross Axis
+title: Querachse
 slug: Glossary/Cross_Axis
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+Die **Querachse** im {{Glossary("flexbox", "Flexbox")}} verläuft senkrecht zur {{Glossary("main_axis", "Hauptachse")}}, daher verläuft die Querachse nach unten durch die Spalten, wenn Ihre {{cssxref("flex-direction")}} entweder `row` oder `row-reverse` ist.
 
-Der **cross axis** (Querachse) im {{Glossary("flexbox", "Flexbox")}} verläuft senkrecht zur {{Glossary("main_axis", "main axis")}} (Hauptachse). Daher, wenn Ihre {{cssxref("flex-direction")}} entweder `row` oder `row-reverse` ist, verläuft die Querachse entlang der Spalten.
+![Die Querachse verläuft durch die Spalte nach unten.](basics3.png)
 
-![Die Querachse verläuft entlang der Spalte](basics3.png)
+Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Querachse entlang der Zeilen.
 
-Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Querachse entlang der Reihen.
+![Die Querachse verläuft entlang der Zeile.](basics4.png)
 
-![Die Querachse verläuft entlang der Reihe.](basics4.png)
-
-Die Ausrichtung von Elementen auf der Querachse wird mit der `align-items`-Eigenschaft des Flexcontainers oder der `align-self`-Eigenschaft der einzelnen Elemente erreicht. Im Fall eines mehrzeiligen Flexcontainers, mit zusätzlichem Platz auf der Querachse, können Sie `align-content` verwenden, um den Abstand der Reihen zu steuern.
+Die Ausrichtung von Elementen auf der Querachse wird mit der Eigenschaft `align-items` am Flex-Container oder mit der Eigenschaft `align-self` an einzelnen Elementen erreicht. Im Fall eines mehrzeiligen Flex-Containers, mit zusätzlichem Raum auf der Querachse, können Sie `align-content` verwenden, um den Abstand der Zeilen zu steuern.
 
 ## Siehe auch
 
-### Eigenschaftsreferenz
+### Eigenschaftenreferenz
 
 - {{cssxref("align-content")}}
 - {{cssxref("align-items")}}
@@ -34,15 +32,15 @@ Die Ausrichtung von Elementen auf der Querachse wird mit der `align-items`-Eigen
 - {{cssxref("justify-content")}}
 - {{cssxref("order")}}
 
-### Weiterführende Lektüre
+### Weiterführende Literatur
 
 CSS Flexbox-Leitfäden:
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Ausrichtung von Elementen in einem Flexcontainer](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Meisterung des Umbruchs von Flexelementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [Meistern des Wraps von Flex-Items](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items)
 
-Verwandte Glossareinträge:
+Verwandte Glossarbegriffe:
 
 - {{Glossary("Flex", "Flex")}}
 - {{Glossary("Flex_Container", "Flex Container")}}

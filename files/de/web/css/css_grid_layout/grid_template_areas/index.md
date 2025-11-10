@@ -2,16 +2,14 @@
 title: Grid-Template-Bereiche
 slug: Web/CSS/CSS_grid_layout/Grid_template_areas
 l10n:
-  sourceCommit: bd6d62961fbc6a05298a8b182f3c5461e5e54b28
+  sourceCommit: f3bf4e2bd456159093d3820253be9f266ace070a
 ---
 
-{{CSSRef}}
+Im [Leitfaden zur Gitterlayout-Verwendung anhand von linienbasiertem Placement](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) haben wir uns die Gitterlinien und deren Verwendung zur Positionierung von Elementen angesehen. Bei der Verwendung des CSS-Gitterlayouts haben Sie immer Linien, was eine unkomplizierte Möglichkeit bietet, Elemente auf Ihrem Gitter zu platzieren. Es gibt jedoch eine alternative Methode zum Positionieren von Elementen auf dem Gitter, die Sie allein oder in Kombination mit dem linienbasierten Placement verwenden können. Diese Methode beinhaltet das Platzieren unserer Elemente mit benannten Template-Bereichen. Sie werden schnell sehen, warum wir diese Methode manchmal die ASCII-Art-Methode des Gitterlayouts nennen!
 
-Im [Leitfaden zur Raster-Layout-Verwendung mit linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) haben wir uns Rasterlinien und die Positionierung von Elementen in Bezug auf diese Linien angesehen. Wenn Sie das CSS-Rasterlayout verwenden, haben Sie immer Linien, und dies kann eine einfache Möglichkeit sein, Elemente in Ihrem Raster zu platzieren. Es gibt jedoch eine alternative Methode zur Positionierung von Elementen im Raster, die Sie allein oder in Kombination mit der linienbasierten Platzierung verwenden können. Diese Methode besteht darin, unsere Elemente mithilfe benannter Template-Bereiche zu platzieren. Sie werden schnell erkennen, warum wir dies manchmal als "ASCII-Art-Methode" des Rasterlayouts bezeichnen!
+## Benennung eines Gitterbereichs
 
-## Einen Rasterbereich benennen
-
-Sie sind bereits auf die {{cssxref("grid-area")}}-Eigenschaft gestoßen. Dies ist die Eigenschaft, die als Wert alle vier Linien aufnehmen kann, die verwendet werden, um einen Rasterbereich zu positionieren.
+Sie sind bereits auf die {{cssxref("grid-area")}}-Eigenschaft gestoßen. Diese Eigenschaft kann die vier Linien als Wert annehmen, die verwendet werden, um einen Gitterbereich zu positionieren.
 
 ```css
 .box1 {
@@ -19,20 +17,20 @@ Sie sind bereits auf die {{cssxref("grid-area")}}-Eigenschaft gestoßen. Dies is
 }
 ```
 
-Was wir hier tun, wenn wir alle vier Linien definieren, ist das Definieren des Bereichs, indem wir die Linien angeben, die diesen Bereich umschließen.
+Was wir hier tun, wenn wir alle vier Linien definieren, ist den Bereich zu definieren, indem wir die Linien angeben, die diesen Bereich umschließen.
 
-![Der durch Linien definierte Rasterbereich](4_area.png)
+![Der durch Linien definierte Gitterbereich](4_area.png)
 
-Wir können auch einen Bereich definieren, indem wir ihm einen Namen geben und dann den Standort dieses Bereichs im Wert der {{cssxref("grid-template-areas")}}-Eigenschaft angeben. Sie können beliebige Namen für Ihren Bereich wählen. Wenn wir zum Beispiel das unten gezeigte Layout erstellen möchten, können wir vier Hauptbereiche identifizieren.
+Wir können auch einen Bereich definieren, indem wir ihm einen Namen geben und dann die Position dieses Bereichs im Wert der {{cssxref("grid-template-areas")}}-Eigenschaft angeben. Sie können wählen, wie Sie Ihren Bereich benennen möchten. Wenn wir zum Beispiel das unten gezeigte Layout erstellen möchten, können wir vier Hauptbereiche identifizieren.
 
-- eine Kopfzeile
-- eine Fußzeile
-- eine Seitenleiste
-- den Hauptinhalt
+- ein Header
+- ein Footer
+- eine Sidebar
+- der Hauptinhalt
 
-![Eine Abbildung eines einfachen Layouts mit zwei Spalten und einer Kopf- und Fußzeile](4_layout.png)
+![Ein Bild, das ein zweispaltiges Layout mit Header und Footer zeigt](4_layout.png)
 
-Mit der {{cssxref("grid-area")}}-Eigenschaft können wir jedem dieser Bereiche einen Namen zuweisen. Für sich allein genommen wird hierbei kein Layout erstellt. Stattdessen stellt es benannte Bereiche für die Verwendung in einem Layout bereit.
+Mit der {{cssxref("grid-area")}}-Eigenschaft können wir jedem dieser Bereiche einen Namen zuweisen. Dies allein erstellt noch kein Layout. Vielmehr stellt es benannte Bereiche bereit, die in einem Layout verwendet werden können.
 
 ```css
 .header {
@@ -49,7 +47,7 @@ Mit der {{cssxref("grid-area")}}-Eigenschaft können wir jedem dieser Bereiche e
 }
 ```
 
-Nachdem wir diese Namen definiert haben, erstellen wir das Layout. Diesmal platzieren wir die Elemente nicht mit Zeilennummern, die auf den Elementen selbst angegeben sind, sondern erstellen das gesamte Layout im Raster-Container. Hier erstellen wir ein Raster mit 9 Spalten und geben an, dass die `hd-` und `ft`-Bereiche alle 9 Spalten überspannen, während `sd` drei und `main` sechs überspannt. Jeder Bereich umfasst nur eine Zeile.
+Nachdem wir diese Namen definiert haben, erstellen wir das Layout. Diesmal platzieren wir die Elemente nicht anhand der auf den Elementen selbst angegebenen Liniennummern, sondern erstellen das gesamte Layout auf dem Gittercontainer. Hier erstellen wir ein 9-Spalten-Gitter und geben an, dass die `hd`- und `ft`-Bereiche sich über alle 9 Spalten erstrecken, während sich `sd` über drei und `main` über sechs erstreckt. Jeder Bereich erstreckt sich nur über eine Zeile.
 
 ```css
 .wrapper {
@@ -96,11 +94,11 @@ Nachdem wir diese Namen definiert haben, erstellen wir das Layout. Diesmal platz
 
 {{ EmbedLiveSample('Naming_a_grid_area', '300', '330') }}
 
-Mit dieser Methode müssen wir überhaupt nichts auf den einzelnen Rasterelementen angeben, alles wird in unserem Raster-Container festgelegt. Wir können das Layout sehen, das als Wert der {{cssxref("grid-template-areas")}}-Eigenschaft beschrieben wird.
+Mit dieser Methode müssen wir auf den einzelnen Gitternaschinen gar nichts angeben, alles passiert auf unserem Gittercontainer. Wir können das Layout, das im Wert der {{cssxref("grid-template-areas")}}-Eigenschaft beschrieben wird, sehen.
 
-## Eine Rasterzelle leer lassen
+## Eine Gitterzelle leer lassen
 
-In unserem Beispiel haben wir unser Gitter vollständig mit Bereichen gefüllt, ohne Leerraum zu hinterlassen. Sie können jedoch mit dieser Layoutmethode Rasterzellen leer lassen. Um eine Zelle leer zu lassen, verwenden Sie das Punktzeichen, `.`. Wenn wir nur die Fußzeile direkt unter dem Hauptinhalt anzeigen möchten, müssten wir die drei Zellen unterhalb der Seitenleiste leer lassen.
+In diesem Beispiel haben wir unser Gitter vollständig mit Bereichen gefüllt und keinen weißen Raum gelassen. Sie können jedoch mit dieser Layoutmethode Gitterzellen leer lassen. Um eine Zelle leer zu lassen, verwenden Sie das Punktzeichen, `.`. Wenn wir den Footer nur direkt unter dem Hauptinhalt anzeigen möchten, müssten wir die drei Zellen unterhalb der Sidebar leer lassen.
 
 ```css
 .header {
@@ -162,13 +160,13 @@ In unserem Beispiel haben wir unser Gitter vollständig mit Bereichen gefüllt, 
 
 {{ EmbedLiveSample('Leaving_a_grid_cell_empty', '300', '330') }}
 
-Um das Layout übersichtlicher zu gestalten, können wir mehrere `.`-Zeichen verwenden. Solange sich zwischen den Punkten mindestens ein Leerzeichen befindet, wird dies als eine Zelle gezählt. Für ein komplexes Layout bietet es Vorteile, wenn die Zeilen und Spalten übersichtlich ausgerichtet sind. Dies bedeutet, dass Sie direkt im CSS sehen können, wie dieses Layout aussieht.
+Um das Layout ordentlich zu gestalten, können wir mehrere `.`-Zeichen verwenden. Solange mindestens ein Leerzeichen zwischen den Punkten vorhanden ist, wird es als eine Zelle gezählt. Für ein komplexes Layout ist es von Vorteil, die Reihen und Spalten sauber ausgerichtet zu haben. Es bedeutet, dass Sie tatsächlich direkt im CSS sehen können, wie dieses Layout aussieht.
 
-## Über mehrere Zellen spannen
+## Spanning mehrerer Zellen
 
-In unserem Beispiel umfasst jeder Bereich mehrere Rasterzellen, und wir erreichen dies, indem wir den Namen dieses Rasterbereichs mit Leerzeichen dazwischen mehrfach wiederholen. Sie können zusätzlichen Leerraum hinzufügen, damit Ihre Spalten im Wert von `grid-template-areas` ordentlich ausgerichtet sind. Sie können sehen, dass wir dies getan haben, damit die `hd`- und `ft`-Bereiche mit `main` ausgerichtet sind.
+In unserem Beispiel erstreckt sich jeder Bereich über mehrere Gitterzellen, und wir erreichen dies, indem wir den Namen dieses Gitterbereichs mehrmals mit Leerzeichen dazwischen wiederholen. Sie können zusätzliches Leerzeichen hinzufügen, um die Spalten in der `grid-template-areas`-Wert sauber auszurichten. Sie können sehen, dass wir dies getan haben, damit die `hd`- und `ft`-Bereiche mit `main` ausgerichtet sind.
 
-Der erstellte Bereich, der durch Verketten der Bereichsnamen gebildet wird, muss rechteckig sein. Es gibt derzeit keine Möglichkeit, einen L-förmigen Bereich zu erstellen. Die Spezifikation weist jedoch darauf hin, dass eine zukünftige Stufe diese Funktionalität bieten könnte. Sie können jedoch genauso leicht Zeilen wie Spalten überspannen. Zum Beispiel könnten wir unsere Seitenleiste so einstellen, dass sie bis zum Ende der Fußzeile reicht, indem wir das `.`-Zeichen durch `sd` ersetzen.
+Der Bereich, den Sie durch das Verketten der Bereichsnamen erstellen, muss rechteckig sein, es gibt derzeit keine Möglichkeit, einen L-förmigen Bereich zu erstellen. Die Spezifikation bemerkt jedoch, dass eine zukünftige Ebene diese Funktionalität bieten könnte. Sie können jedoch Reihen genauso leicht wie Spalten überspannen. Zum Beispiel könnten wir unsere Sidebar bis zum Ende des Footers erweitern, indem wir die `.` durch `sd` ersetzen.
 
 ```css
 .header {
@@ -230,15 +228,15 @@ Der erstellte Bereich, der durch Verketten der Bereichsnamen gebildet wird, muss
 
 {{ EmbedLiveSample('Spanning_multiple_cells', '300', '330') }}
 
-Der Wert von {{cssxref("grid-template-areas")}} muss ein vollständiges Raster darstellen, andernfalls ist er ungültig (und die Eigenschaft wird ignoriert). Dies bedeutet, dass Sie in jeder Zeile die gleiche Anzahl von Zellen haben müssen, auch wenn diese leer sind, dargestellt durch ein Punktzeichen. Außerdem erstellen Sie ein ungültiges Raster, wenn Ihre Bereiche nicht rechteckig sind.
+Der Wert von {{cssxref("grid-template-areas")}} muss ein vollständiges Gitter anzeigen, andernfalls ist er ungültig (und die Eigenschaft wird ignoriert). Das bedeutet, dass Sie in jeder Zeile dieselbe Anzahl von Zellen haben müssen, auch wenn sie leer mit einem Punktzeichen zeigt, dass die Zelle leer bleiben soll. Sie erstellen auch ein ungültiges Gitter, wenn Ihre Bereiche nicht rechteckig sind.
 
-## Das Raster mittels Media Queries neu definieren
+## Das Gitter mit Media Queries neu definieren
 
-Da unser Layout nun in einem Teil des CSS enthalten ist, können Änderungen an verschiedenen Breakpoints sehr einfach vorgenommen werden. Sie können dies tun, indem Sie das Raster, die Position der Elemente im Raster oder beides gleichzeitig neu definieren.
+Da unser Layout jetzt in einem Teil des CSS enthalten ist, ist es sehr einfach, Änderungen bei verschiedenen Breakpoints vorzunehmen. Sie können dies tun, indem Sie das Gitter, die Position der Elemente auf dem Gitter oder beides gleichzeitig neu definieren.
 
-Definieren Sie dabei die Namen für Ihre Bereiche außerhalb von Media Queries. So wird der Inhaltsbereich immer `main` genannt, egal wo er im Raster platziert ist.
+Wenn Sie dies tun, definieren Sie die Namen für Ihre Bereiche außerhalb von Media Queries. Auf diese Weise würde der Inhaltsbereich immer `main` genannt werden, unabhängig davon, wo er auf dem Gitter platziert ist.
 
-Für unser obiges Layout könnten wir bei schmalen Breiten ein sehr einfaches Layout erstellen, das einr raster mit einer Spalte definiert und unsere vier Elemente in vier Reihen stapelt.
+Für unser oben genanntes Layout möchten wir vielleicht ein sehr einfaches Layout bei schmalen Breiten haben, wobei wir ein einspaltiges Gitter definieren und unsere vier Elemente in vier Reihen stapeln.
 
 ```css hidden
 * {
@@ -288,10 +286,10 @@ Für unser obiges Layout könnten wir bei schmalen Breiten ein sehr einfaches La
 }
 ```
 
-Wir könnten dann dieses Layout innerhalb von [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) auf ein zweispaltiges Layout umdefinieren und es bei noch mehr verfügbarem Platz zu einem dreispaltigen Layout erweitern. Beachten Sie, dass wir für das breite Layout das Raster mit neun Spalten beibehalten und nur festlegen, wo Elemente mithilfe von `grid-template-areas` positioniert werden.
+Wir können dann dieses Layout innerhalb von [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) neu definieren, um zu unserem zweispaltigen Layout zu wechseln und möglicherweise zu einem dreispaltigen Layout, wenn der verfügbare Platz noch größer ist. Beachten Sie, dass wir für das breite Layout das neunkolonige Track-Gitter beibehalten und die Positionierung der Elemente mit `grid-template-areas` neu definieren.
 
 ```css
-@media (min-width: 30em) {
+@media (width >= 30em) {
   .wrapper {
     grid-template-columns: repeat(9, 1fr);
     grid-template-areas:
@@ -300,7 +298,7 @@ Wir könnten dann dieses Layout innerhalb von [Media Queries](/de/docs/Web/CSS/C
       "sd sd sd  ft  ft   ft   ft   ft   ft";
   }
 }
-@media (min-width: 60em) {
+@media (width >= 60em) {
   .wrapper {
     grid-template-areas:
       "hd hd hd   hd   hd   hd   hd   hd hd"
@@ -322,17 +320,17 @@ Wir könnten dann dieses Layout innerhalb von [Media Queries](/de/docs/Web/CSS/C
 
 ## Verwendung von `grid-template-areas` für UI-Elemente
 
-Viele der Rasterbeispiele, die Sie online finden, gehen davon aus, dass Sie Raster für Hauptseitenlayouts verwenden. Raster kann jedoch genauso nützlich für kleine Elemente sein wie für größere. Die Verwendung der {{cssxref("grid-template-areas")}}-Eigenschaft kann besonders angenehm sein, da Sie im Code leicht sehen können, wie Ihr Element aussieht.
+Viele der Gitterbeispiele, die Sie online finden, gehen davon aus, dass Sie Gitter für das Hauptseitenlayout verwenden, jedoch kann das Gitter ebenso nützlich für kleine Elemente sein wie für größere. Die Verwendung von {{cssxref("grid-template-areas")}} kann besonders angenehm sein, da es im Code leicht zu sehen ist, wie Ihr Element aussieht.
 
-### Beispiel mit Medienobjekt
+### Medien-Objekt-Beispiel
 
-Als ein sehr einfaches Beispiel können wir ein "[Medienobjekt](/de/docs/Web/CSS/Layout_cookbook/Media_objects)" erstellen. Dies ist eine Komponente mit Platz für ein Bild oder andere Medien auf einer Seite und Inhalt auf der anderen. Das Bild könnte rechts oder links von der Box angezeigt werden.
+Als Beispiel können wir ein "[Medien-Objekt](/de/docs/Web/CSS/How_to/Layout_cookbook/Media_objects)" erstellen. Dies ist eine Komponente mit Platz für ein Bild oder andere Medien auf einer Seite und Inhalt auf der anderen. Das Bild könnte auf der rechten oder linken Seite des Kastens angezeigt werden.
 
-![Abbildungen eines Medienobjekt-Designs](4_media_objects.png)
+![Bilder, die ein Beispiel für das Design eines Medienobjekts zeigen](4_media_objects.png)
 
-Unser Raster ist ein Raster mit zwei Spalten, wobei die Spalte für das Bild auf `1fr` und der Text auf `3fr` festgelegt ist. Wenn Sie einen festen Bildbereich wünschen, könnten Sie die Bildspalte mit einer Pixelbreite angeben und dem Textbereich `1fr` zuweisen. Eine einzelne Spalte von `1fr` würde dann den verbleibenden Platz einnehmen.
+Unser Gitter ist ein zweispaltiges Track-Gitter, wobei die Spalte für das Bild auf `1fr` und der Text auf `3fr` gesetzt ist. Wenn Sie eine feste Breite für den Bildbereich wünschen, können Sie die Bildspalte als Pixelbreite festlegen und den Textbereich `1fr` zuweisen. Eine einzelne Spalte `1fr` würde dann den Rest des Platzes einnehmen.
 
-Wir geben dem Bildbereich den Grid-Area-Namen `img` und dem Textbereich `content`. Anschließend können wir diese Bereiche mithilfe der Eigenschaft `grid-template-areas` layouten.
+Wir geben dem Bildbereich den Gitterbereichsnamen `img` und dem Textbereich `content`, dann können wir diese mit der Eigenschaft `grid-template-areas` layouten.
 
 ```css
 * {
@@ -373,9 +371,9 @@ Wir geben dem Bildbereich den Grid-Area-Namen `img` und dem Textbereich `content
 
 {{ EmbedLiveSample('Media_object_example', '300', '105') }}
 
-### Das Bild auf der anderen Seite der Box anzeigen
+### Anzeige des Bildes auf der anderen Seite des Kastens
 
-Wir könnten unsere Box so gestalten, dass das Bild auf der anderen Seite angezeigt wird. Dazu definieren wir das Raster neu, indem wir den `1fr`-Track nach hinten setzen und die Werte in {{cssxref("grid-template-areas")}} umkehren.
+Wir möchten vielleicht unseren Kasten mit dem Bild auf der anderen Seite anzeigen. Dazu definieren wir das Gitter neu, um den `1fr`-Track als letzten zu setzen und die Werte in {{cssxref("grid-template-areas")}} umzukehren.
 
 ```css
 * {
@@ -421,27 +419,27 @@ Wir könnten unsere Box so gestalten, dass das Bild auf der anderen Seite angeze
 
 {{ EmbedLiveSample('Displaying_the_image_on_the_other_side_of_the_box', '300', '105') }}
 
-## Kurzschreibweisen für Rasterdefinitionen
+## Gitter-Definition Shorthands
 
-Nachdem wir verschiedene Möglichkeiten untersucht haben, Elemente in unseren Rastern zu platzieren, und viele Eigenschaften für die Definition von Rastern besprochen haben, ist dies eine gute Gelegenheit, die Kurzschreibweisen zu betrachten, mit denen Raster in einer einzigen Zeile CSS definiert werden können.
+Nachdem wir uns verschiedene Möglichkeiten der Platzierung von Elementen auf unseren Gittern angesehen haben und viele der Eigenschaften, die zur Definition des Gitters verwendet werden, ist dies ein guter Zeitpunkt, um einen Blick auf einige der Shorthand-Methoden zu werfen, die zur Definition des Gitters und vieler Aspekte in einer einzigen Zeile CSS verfügbar sind.
 
-Diese können schnell schwer lesbar werden – sowohl für andere Entwickler als auch für Ihr zukünftiges Selbst. Dennoch sind sie Teil der Spezifikation und es ist wahrscheinlich, dass Sie ihnen in Beispielen oder im Code anderer Entwickler begegnen, auch wenn Sie sich entscheiden, sie selbst nicht zu verwenden.
+Diese können schnell schwer lesbar für andere Entwickler oder sogar für Ihr zukünftiges Ich werden. Sie sind jedoch Teil der Spezifikation, und es ist wahrscheinlich, dass Sie ihnen in Beispielen oder im Einsatz durch andere Entwickler begegnen, auch wenn Sie sich entscheiden, sie nicht zu verwenden.
 
-Bevor Sie Kurzschreibweisen verwenden, sollten Sie beachten, dass Kurzschreibweisen nicht nur die Einstellung vieler Eigenschaften auf einmal ermöglichen, sondern auch alles, was Sie nicht (oder nicht einstellen können), auf ihre Anfangswerte zurücksetzen. Wenn Sie also eine Kurzschreibweise verwenden, seien Sie sich bewusst, dass sie möglicherweise Dinge zurücksetzt, die Sie an anderer Stelle angewendet haben.
+Bevor Sie Shorthands verwenden, sollten Sie sich daran erinnern, dass Shorthands nicht nur ermöglichen, viele Eigenschaften auf einmal zu setzen, sondern auch **alles, was Sie nicht (oder nicht in der Lage sind) im Shorthand zu setzen, auf die Anfangswerte zurücksetzen**. Daher sollten Sie sich bewusst sein, dass die Verwendung eines Shorthands möglicherweise Dinge zurücksetzt, die Sie an anderer Stelle angewendet haben.
 
-Die zwei Kurzschreibweisen für den Raster-Container sind die explizite Raster-Kurzschreibweise {{cssxref("grid-template")}} und die Raster-Definition-Kurzschreibweise {{cssxref("grid")}}.
+Die beiden Shorthands für den Gittercontainer sind der explizite Gitter-Shorthand {{cssxref("grid-template")}} und der Gitter-Definitions-Shorthand {{cssxref("grid")}}.
 
 ### `grid-template`
 
-Die {{cssxref("grid-template")}}-Kurzschreibweise setzt die folgenden Langschreib-Eigenschaften:
+Die {{cssxref("grid-template")}}-Shorthand-Eigenschaft setzt die folgenden Langform-Eigenschaften:
 
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
 
-Die Eigenschaft wird als _explizite Raster-Kurzschreibweise_ bezeichnet, da sie Werte setzt, die Sie bei der Definition eines expliziten Rasters kontrollieren, nicht aber Werte, die implizite Zeilen oder Spalten betreffen könnten.
+Die Eigenschaft wird als _explizierter Gitter-Shorthand_ bezeichnet, weil sie Werte setzt, die Sie kontrollieren, wenn Sie ein explizites Gitter definieren, und nicht solche, die sich auf allfällig erstellte implizite Reihen- oder Spuren auswirken.
 
-Der folgende Code erstellt ein Layout mit {{cssxref("grid-template")}}, das dem zuvor in diesem Leitfaden erstellten Layout entspricht.
+Der folgende Code erstellt ein Layout mit {{cssxref("grid-template")}}, das dem in diesem Leitfaden früher erstellen Layout entspricht.
 
 ```css
 .wrapper {
@@ -454,13 +452,13 @@ Der folgende Code erstellt ein Layout mit {{cssxref("grid-template")}}, das dem 
 }
 ```
 
-Der erste Wert ist unser `grid-template-areas`-Wert, aber wir erklären auch die Größe der Reihe am Ende jeder Reihe. Das ist das, was `minmax(100px, auto)` bewirkt.
+Der erste Wert ist unser `grid-template-areas`-Wert, aber wir deklarieren auch die Größe der Reihe am Ende jeder Reihe. Dies ist, was `minmax(100px, auto)` tut.
 
-Nach `grid-template-areas` folgt ein Schrägstrich, danach eine explizite Liste der Spalten-Tracks.
+Dann folgt nach dem `grid-template-areas` ein Schrägstrich, danach folgt eine explizite Listenangabe der Spuren.
 
 ### `grid`
 
-Die {{cssxref("grid")}}-Kurzschreibweise geht einen Schritt weiter und setzt auch Eigenschaften, die vom impliziten Raster verwendet werden. So setzen Sie:
+Die {{cssxref("grid")}}-Shorthand geht einen Schritt weiter und setzt auch Eigenschaften, die durch das implizite Gitter verwendet werden. So setzen Sie:
 
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
@@ -469,7 +467,7 @@ Die {{cssxref("grid")}}-Kurzschreibweise geht einen Schritt weiter und setzt auc
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-flow")}}
 
-Sie können diese Syntax genauso verwenden wie die {{cssxref("grid-template")}}-Kurzschreibweise. Beachten Sie jedoch, dass alle anderen Werte, die durch diese Eigenschaft gesetzt werden, ebenfalls zurückgesetzt werden.
+Sie können diese Syntax auf exakt die gleiche Weise wie den {{cssxref("grid-template")}}-Shorthand verwenden. Seien Sie sich jedoch bewusst, dass Sie damit die anderen durch die Eigenschaft gesetzten Werte zurücksetzen.
 
 ```css
 .wrapper {
@@ -482,8 +480,8 @@ Sie können diese Syntax genauso verwenden wie die {{cssxref("grid-template")}}-
 }
 ```
 
-Wir werden die weitere Funktionalität, die diese Kurzschreibweise bietet, nochmals betrachten, wenn wir einen Blick auf [die automatische Platzierung im Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) und die `grid-auto-flow`-Eigenschaft werfen.
+Wir werden die andere durch diesen Shorthand angebotene Funktionalität erneut betrachten, wenn wir uns die [automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement) und die `grid-auto-flow`-Eigenschaft ansehen.
 
 ## Nächste Schritte
 
-Wenn Sie die [Raster-Leitfäden](/de/docs/Web/CSS/CSS_grid_layout#guides) verfolgt haben, sollten Sie nun in der Lage sein, Rasterlayouts mit [linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) oder [benannten Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) zu erstellen. Schauen wir uns nun die Erstellung von [Rasterlayouts mit benannten Rasterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) an.
+Wenn Sie den [Gitter-Leitfäden](/de/docs/Web/CSS/Guides/Grid_layout#guides) gefolgt sind, sollten Sie in der Lage sein, Gitterlayouts mit [linienbasierten Placements](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) oder [benannten Bereichen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) zu erstellen. Lassen Sie uns nun einen Blick darauf werfen, [Gitterlayouts mit benannten Gitterlinien](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) zu erstellen.

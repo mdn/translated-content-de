@@ -3,12 +3,12 @@ title: "BiquadFilterNode: BiquadFilterNode() Konstruktor"
 short-title: BiquadFilterNode()
 slug: Web/API/BiquadFilterNode/BiquadFilterNode
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`BiquadFilterNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Objekt, das einen einfachen Filter niedriger Ordnung repräsentiert.
+Der **`BiquadFilterNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Objekt, das einen einfachen Filter niedriger Ordnung darstellt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new BiquadFilterNode(context, options)
 ### Parameter
 
 - `context`
-  - : Eine Referenz zu einem [`AudioContext`](/de/docs/Web/API/AudioContext).
+  - : Ein Verweis auf ein [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options` {{optional_inline}}
 
   - : Ein Objekt mit den folgenden Eigenschaften:
@@ -30,86 +30,88 @@ new BiquadFilterNode(context, options)
 
         - `lowpass`
 
-          - : Der Standardwert. Erlaubt Frequenzen unterhalb einer Grenzfrequenz, passiert zu werden, und dämpft Frequenzen oberhalb dieser. Dies ist ein standardmäßiger resonanter Tiefpassfilter zweiter Ordnung mit einer Absenkung von 12 dB/Oktave. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
-            - `Q`: steuert, wie stark die Resonanz bei der Grenzfrequenz ausgeprägt ist. Ein großer Wert macht die Resonanz stärker ausgeprägt. Bitte beachten Sie, dass dieser Wert für diesen Filtertyp kein traditioneller Q-Wert ist, sondern ein Resonanzwert in Dezibel darstellt.
+          - : Der Standardwert. Lässt Frequenzen unterhalb einer Grenzfrequenz durch und dämpft Frequenzen oberhalb der Grenzfrequenz. Dies ist ein Standard-Zweitordnungs-Resonanz-Tiefpassfilter mit einer Dämpfung von 12 dB/Oktave. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
+            - `Q`: steuert die Ausgeprägtheit der Antwort bei der Grenzfrequenz. Ein großer Wert macht die Antwort ausgeprägter. Bitte beachten Sie, dass dieser Wert bei diesem Filtertyp kein traditionelles Q ist, sondern einen Resonanzwert in Dezibel darstellt.
             - `frequency`: die Grenzfrequenz.
             - `gain`: wird nicht verwendet.
 
         - `highpass`
 
-          - : Ein Hochpassfilter ist das Gegenteil eines Tiefpassfilters. Frequenzen oberhalb der Grenzfrequenz werden passiert, aber Frequenzen unterhalb der Grenzfrequenz werden gedämpft. Er implementiert einen standardmäßigen resonanten Hochpassfilter zweiter Ordnung mit einer Absenkung von 12 dB/Oktave. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
-            - `Q`: steuert, wie stark die Resonanz bei der Grenzfrequenz ausgeprägt ist. Ein großer Wert macht die Resonanz stärker ausgeprägt. Bitte beachten Sie, dass dieser Wert für diesen Filtertyp kein traditioneller Q-Wert ist, sondern ein Resonanzwert in Dezibel darstellt.
+          - : Ein Hochpassfilter ist das Gegenteil eines Tiefpassfilters.
+            Frequenzen oberhalb der Grenzfrequenz werden durchgelassen, aber Frequenzen unterhalb der Grenzfrequenz werden gedämpft. Er implementiert einen Standard-Zweitordnungs-Resonanz-Hochpassfilter mit einer Dämpfung von 12 dB/Oktave. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
+            - `Q`: steuert die Ausgeprägtheit der Antwort bei der Grenzfrequenz. Ein großer Wert macht die Antwort ausgeprägter. Bitte beachten Sie, dass dieser Wert bei diesem Filtertyp kein traditionelles Q ist, sondern einen Resonanzwert in Dezibel darstellt.
             - `frequency`: die Grenzfrequenz.
             - `gain`: wird nicht verwendet.
 
         - `bandpass`
 
-          - : Ein Bandpassfilter lässt einen Frequenzbereich passieren und dämpft die Frequenzen darunter und darüber. Es implementiert einen Bandpassfilter zweiter Ordnung. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
-            - `Q`: steuert die Breite des Bandes. Die Breite wird schmaler, wenn der Q-Wert zunimmt.
-            - `frequency`: das Zentrum der Frequenzband.
+          - : Ein Bandpassfilter lässt einen Bereich von Frequenzen durch
+            und dämpft die Frequenzen unterhalb und oberhalb dieses Frequenzbereichs. Er implementiert einen Zweitordnungs-Bandpassfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
+            - `Q`: steuert die Breite des Bandes. Die Breite wird schmaler, wenn der Q-Wert erhöht wird.
+            - `frequency`: die Mitte des Frequenzbandes.
             - `gain`: wird nicht verwendet.
 
         - `lowshelf`
 
-          - : Der Lowshelf-Filter lässt alle Frequenzen passieren, fügt jedoch einen Verstärkungs- oder Dämpfungseffekt zu den unteren Frequenzen hinzu. Er implementiert einen Lowshelf-Filter zweiter Ordnung. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
+          - : Das Tiefregalfilter lässt alle Frequenzen durch, fügt aber
+            einen Boost (oder eine Dämpfung) für die tieferen Frequenzen hinzu. Es implementiert ein Zweitordnungs-Tiefregalfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: wird nicht verwendet.
-            - `frequency`: das obere Limit der Frequenzen, auf die der Verstärkungs- oder Dämpfungseffekt angewendet wird.
-            - `gain`: die anzuwendende Verstärkung, in dB. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
+            - `frequency`: die obere Grenze der Frequenzen, bei denen der Boost oder die Dämpfung angewendet wird.
+            - `gain`: der Boost in dB, der angewendet wird. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
 
         - `highshelf`
 
-          - : Der Highshelf-Filter ist das Gegenteil des Lowshelf-Filters und lässt alle Frequenzen durch, fügt jedoch den höheren Frequenzen einen Verstärkungseffekt hinzu. Er implementiert einen Highshelf-Filter zweiter Ordnung. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
+          - : Das Hochregalfilter ist das Gegenteil des Tiefregalfilters
+            und lässt alle Frequenzen durch, fügt jedoch einen Boost für die höheren Frequenzen hinzu. Es implementiert ein Zweitordnungs-Hochregalfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: wird nicht verwendet.
-            - `frequency`: das untere Limit der Frequenzen, auf die der Verstärkungs- oder Dämpfungseffekt angewendet wird.
-            - `gain`: die anzuwendende Verstärkung, in dB. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
+            - `frequency`: die untere Grenze der Frequenzen, bei denen der Boost oder die Dämpfung angewendet wird.
+            - `gain`: der Boost in dB, der angewendet wird. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
 
         - `peaking`
 
-          - : Der Peaking-Filter lässt alle Frequenzen durch, fügt jedoch einem Bereich von Frequenzen einen Verstärkungs- oder Dämpfungseffekt hinzu. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
-            - `Q`: die Breite des Frequenzbands, das verstärkt wird. Ein großer Wert impliziert eine schmale Breite.
-            - `frequency`: die Mittelfrequenz des Verstärkungsbereichs.
-            - `gain`: die anzuwendende Verstärkung, in dB. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
+          - : Das Spitzenfilter lässt alle Frequenzen durch und fügt einen
+            Boost oder eine Dämpfung für einen Bereich von Frequenzen hinzu. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
+            - `Q`: die Breite des Frequenzbandes, das geboostet wird. Ein großer Wert bedeutet eine schmale Breite.
+            - `frequency`: die Mittelfrequenz des Boost-Bereichs.
+            - `gain`: der Boost in dB, der angewendet wird. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
 
         - `notch`
 
-          - : Der Notch-Filter (auch als Bandsperr- oder Bandunterdrückungsfilter bekannt) ist das Gegenteil eines Bandpassfilters. Er lässt alle Frequenzen durch, außer für einen bestimmten Frequenzbereich. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
-            - `Q`: die Breite des Frequenzbands, das gedämpft wird. Ein großer Wert impliziert eine schmale Breite.
-            - `frequency`: die zentrale Frequenz des Dämpfungsbereichs.
+          - : Das Kerbfilter (auch Bandstopp- oder Bandsperrfilter genannt) ist das Gegenteil eines Bandpassfilters. Es lässt alle Frequenzen durch, außer einem Bereich von Frequenzen. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
+            - `Q`: die Breite des Frequenzbandes, das gedämpft wird. Ein großer Wert bedeutet eine schmale Breite.
+            - `frequency`: die Mittelfrequenz des Dämpfungsbereichs.
             - `gain`: wird nicht verwendet.
 
         - `allpass`
-
-          - : Ein Allpass-Filter lässt alle Frequenzen durch, verändert jedoch die Phasenbeziehung zwischen den verschiedenen Frequenzen. Er implementiert einen Allpassfilter zweiter Ordnung. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
-
-            - `Q`: die Schärfe des Phasenübergangs bei der Zentrumfrequenz. Ein größerer Wert impliziert einen schärferen Übergang und eine größere Gruppenzahlungsverzögerung.
-            - `frequency`: die Frequenz, bei der das Zentrum des Phasenübergangs auftritt. Aus einem anderen Blickwinkel betrachtet, ist dies die Frequenz mit maximaler Gruppenverzögerung.
+          - : Ein Allpassfilter lässt alle Frequenzen durch, ändert jedoch
+            die Phasenbeziehung zwischen den verschiedenen Frequenzen. Es implementiert einen Zweitordnungs-Allpassfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
+            - `Q`: die Schärfe des Phasenübergangs bei der Mittelfrequenz. Ein größerer Wert bedeutet einen schärferen Übergang und eine größere Gruppendelay.
+            - `frequency`: die Frequenz, bei der der Phasenübergang im Mittelpunkt steht. Aus einer anderen Perspektive betrachtet, ist dies die Frequenz mit einer maximalen Gruppendelay.
             - `gain`: wird nicht verwendet.
 
     - `Q`
-      - : Standardmäßig 1. Die Bedeutung dieser Option hängt vom Wert von `type` ab.
+      - : Standardwert 1. Die Bedeutung dieser Option hängt vom Wert von `type` ab.
     - `detune`
-      - : Standardmäßig 0.
+      - : Standardwert 0.
     - `frequency`
-      - : Standardmäßig 350.
+      - : Standardwert 350.
     - `gain`
-      - : Standardmäßig 0. Die Bedeutung dieser Option hängt vom Wert von `type` ab.
+      - : Standardwert 0. Die Bedeutung dieser Option hängt vom Wert von `type` ab.
     - `channelCount`
-      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle verwendet werden, wenn Verbindungen zu den Eingängen des Knotens [hoch- und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) werden. (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue Definition hängt vom Wert von `channelCountMode` ab.
+      - : Stellt einen ganzzahligen Wert dar, der bestimmt, wie viele Kanäle verwendet werden, wenn [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) Verbindungen zu Eingaben des Knoten verwendet werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Nutzung und die genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen {{Glossary("Enumerated", "aufzählbaren")}} Wert, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+      - : Stellt einen {{Glossary("Enumerated", "enumerierten")}} Wert dar, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen, einschließlich Standardwerte.)
     - `channelInterpretation`
-      - : Repräsentiert einen aufzählbaren Wert, der die Bedeutung der Kanäle beschreibt. Diese Interpretation definiert, wie das Audio [hoch- und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie das [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
+        Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue Instanz des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Objekts.
+Eine neue Instanz eines [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Objekts.
 
 ## Spezifikationen
 

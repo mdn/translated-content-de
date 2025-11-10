@@ -3,27 +3,24 @@ title: "CanvasRenderingContext2D: letterSpacing-Eigenschaft"
 short-title: letterSpacing
 slug: Web/API/CanvasRenderingContext2D/letterSpacing
 l10n:
-  sourceCommit: 4d5e2c11f4b8cc32e54d2527d9576ed26ced9458
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.letterSpacing`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) legt den Abstand zwischen Buchstaben beim Zeichnen von Text fest.
+Die **`CanvasRenderingContext2D.letterSpacing`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) gibt den Abstand zwischen Buchstaben beim Zeichnen von Text an.
 
-Dies entspricht der CSS-Eigenschaft [`letter-spacing`](/de/docs/Web/CSS/letter-spacing).
+Dies entspricht der CSS-Eigenschaft [`letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing).
 
 ## Wert
 
-Der Buchstabenabstand als Zeichenkette im CSS-Datenformat {{cssxref("length")}}.
-Der Standardwert ist `0px`.
+Der Buchstabenabstand als String im CSS {{cssxref("length")}} Datenformat. Der Standardwert ist `0px`.
 
-Die Eigenschaft kann verwendet werden, um den Abstand zu erhalten oder festzulegen.
-Der Eigenschaftswert bleibt unverändert, wenn er auf einen ungültigen/nicht analysierbaren Wert gesetzt wird.
+Die Eigenschaft kann verwendet werden, um den Abstand zu erhalten oder zu setzen. Der Eigenschaftswert bleibt unverändert, wenn er auf einen ungültigen/nicht analysierbaren Wert gesetzt wird.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text "Hello World" dreimal an und verwenden die `letterSpacing`-Eigenschaft, um den Buchstabenabstand in jedem Fall zu ändern.
-Der Abstand wird auch für jeden Fall angezeigt, unter Verwendung des Wertes der Eigenschaft.
+In diesem Beispiel wird der Text "Hello World" dreimal angezeigt, wobei die `letterSpacing`-Eigenschaft verwendet wird, um den Buchstabenabstand in jedem Fall zu ändern. Der Abstand wird für jeden Fall angezeigt, indem der Wert der Eigenschaft verwendet wird.
 
 ### HTML
 

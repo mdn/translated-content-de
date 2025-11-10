@@ -3,16 +3,16 @@ title: "TextFormat: underlineThickness-Eigenschaft"
 short-title: underlineThickness
 slug: Web/API/TextFormat/underlineThickness
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineThickness`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textrahmen angewendet werden muss.
+Die **`underlineThickness`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der einer der folgenden Werte ist:
+Ein {{jsxref("String")}}, der einen der folgenden Werte darstellt:
 
 - `"none"`: Keine Unterstreichung.
 - `"thin"`: Eine dünne Unterstreichung.
@@ -20,12 +20,19 @@ Ein {{jsxref("String")}}, der einer der folgenden Werte ist:
 
 ## Beispiele
 
-### Lesen der Unterstreichungsdicke, die angewendet werden muss
+### Lesen der erforderlichen Unterstreichungsdicke
 
-Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die anzuwendende Unterstreichungsdicke für den zu formatierenden Text zu bestimmen. Beachten Sie, dass der Event-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
+Das folgende Beispiel zeigt, wie die `textformatupdate`-Ereignis-Eigenschaft `underlineThickness` verwendet wird, um die Unterstreichungsdicke zu bestimmen, die auf den textlichen Inhalt angewendet werden muss. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Erstellen von Text verwendet wird.
 
 ```html
-<div id="editor" style="height:200px;background:#eee;"></div>
+<div id="editor"></div>
+```
+
+```css hidden
+#editor {
+  height: 200px;
+  background: #eeeeee;
+}
 ```
 
 ```js
@@ -54,4 +61,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der es gehört.

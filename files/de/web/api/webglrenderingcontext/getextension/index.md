@@ -1,9 +1,9 @@
 ---
-title: "WebGLRenderingContext: getExtension() Methode"
+title: "WebGLRenderingContext: getExtension()-Methode"
 short-title: getExtension()
 slug: Web/API/WebGLRenderingContext/getExtension
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
@@ -24,8 +24,9 @@ getExtension(name)
 
 ### Rückgabewert
 
-Ein WebGL-Erweiterungsobjekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Name (ohne Unterscheidung der Groß- und Kleinschreibung) keinem der Strings in
-[`WebGLRenderingContext.getSupportedExtensions`](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions) entspricht.
+Ein WebGL-Erweiterungsobjekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Name nicht
+(case-insensitive) mit einem der Strings in
+[`WebGLRenderingContext.getSupportedExtensions`](/de/docs/Web/API/WebGLRenderingContext/getSupportedExtensions) übereinstimmt.
 
 ## Beispiele
 
@@ -40,7 +41,7 @@ gl.getExtension("WEBGL_lose_context").loseContext();
 
 ## WebGL-Erweiterungen
 
-Erweiterungen für die WebGL-API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch [hier](/de/docs/Web/API/WebGL_API#extensions) aufgelistet.
+Erweiterungen für die WebGL-API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch in unserem [WebGL-API-Referenz](/de/docs/Web/API/WebGL_API#extensions) aufgeführt.
 
 ## Spezifikationen
 

@@ -3,7 +3,7 @@ title: "IDBOpenDBRequest: blocked Ereignis"
 short-title: blocked
 slug: Web/API/IDBOpenDBRequest/blocked_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("IndexedDB")}}
@@ -14,12 +14,12 @@ Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("blocked", (event) => {});
+```js-nolint
+addEventListener("blocked", (event) => { })
 
-onblocked = (event) => {};
+onblocked = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,7 +30,7 @@ Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von 
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Elterninterface, [`Event`](/de/docs/Web/API/Event)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
   - : Gibt die alte Version der Datenbank zurück.

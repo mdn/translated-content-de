@@ -2,16 +2,38 @@
 title: Drop
 slug: WebAssembly/Reference/Control_flow/Drop
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
 ---
 
-Die **`drop`**-Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
+Die **`drop`**-Anweisung nimmt einen Wert vom Stapel und verwirft ihn.
 
-{{EmbedInteractiveExample("pages/wat/drop.html", "tabbed-taller")}}
+{{InteractiveExample("Wat Demo: drop", "tabbed-taller")}}
+
+```wat interactive-example
+(module
+  (import "console" "log" (func $log (param i32)))
+  (func $main
+    ;; load two values onto the stack
+    i32.const 10
+    i32.const 20
+
+    ;; drop the top item from the stack (`20`)
+    drop
+
+    call $log ;; log the top value on the stack (`10`)
+  )
+  (start $main)
+)
+```
+
+```js interactive-example
+const url = "{%wasm-url%}";
+await WebAssembly.instantiateStreaming(fetch(url), { console });
+```
 
 ## Syntax
 
-```wasm
+```wat
 ;; push multiple values onto the stack
 i32.const 1
 i32.const 2

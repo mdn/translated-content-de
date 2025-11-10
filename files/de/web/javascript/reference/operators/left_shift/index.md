@@ -2,14 +2,12 @@
 title: Linksverschiebung (<<)
 slug: Web/JavaScript/Reference/Operators/Left_shift
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Linksverschiebungsoperator (`<<`)** gibt eine Zahl oder einen BigInt zurück, deren Binärdarstellung der ersten Operanden um die angegebene Anzahl von Bits nach links verschoben ist. Überzählige Bits, die nach links verschoben werden, werden verworfen, und null Bits werden von rechts eingeführt.
 
-Der **Linksverschiebungs-Operator (`<<`)** gibt eine Zahl oder ein BigInt zurück, deren binäre Darstellung die erste Operanden um die angegebene Anzahl von Bits nach links verschoben hat. Überschüssige Bits, die nach links verschoben werden, werden verworfen, und null Bits werden von rechts eingefügt.
-
-{{InteractiveExample("JavaScript-Demo: Ausdrücke - Linksverschiebungsoperator", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Linksverschiebungsoperator (<<)", "kurzer")}}
 
 ```js interactive-example
 const a = 5; // 00000000000000000000000000000101
@@ -27,9 +25,9 @@ x << y
 
 ## Beschreibung
 
-Der `<<`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator eine 32-Bit-Ganzzahl zurück. Für BigInts gibt der Operator ein BigInt zurück. Zunächst [werden beide Operanden in numerische Werte umgewandelt](/de/docs/Web/JavaScript/Data_structures#numeric_coercion), und der Typ wird überprüft. Es wird eine BigInt-Linksverschiebung durchgeführt, wenn beide Operanden zu BigInts werden; andernfalls werden beide Operanden in [32-Bit-Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt, und es wird eine Linksverschiebung für Zahlen durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl bleibt.
+Der `<<`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator einen 32-Bit-Integer zurück. Für BigInts gibt der Operator einen BigInt zurück. Er [setzt zuerst beide Operanden auf numerische Werte um](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) und prüft dann die Typen der Operanden. Führt BigInt-Linksverschiebung aus, wenn beide Operanden BigInts werden; andernfalls werden beide Operanden in [32-Bit-Integer](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt und die Zahl wird links verschoben. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, aber der andere zu einer Zahl.
 
-Der Operator arbeitet mit der Bitdarstellung des linken Operanden in [Zweierkomplement](https://de.wikipedia.org/wiki/Zweierkomplement). Zum Beispiel ergibt `9 << 2` den Wert 36:
+Der Operator arbeitet auf der Bitdarstellung des linken Operanden in [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Zum Beispiel ergibt `9 << 2` 36:
 
 ```plain
      9 (base 10): 00000000000000000000000000001001 (base 2)
@@ -37,20 +35,21 @@ Der Operator arbeitet mit der Bitdarstellung des linken Operanden in [Zweierkomp
 9 << 2 (base 10): 00000000000000000000000000100100 (base 2) = 36 (base 10)
 ```
 
-Das Bitweise Verschieben einer 32-Bit-Ganzzahl `x` um `y` Bits nach links entspricht `x * 2 ** y`. Zum Beispiel ist `9 << 3` äquivalent zu `9 * (2 ** 3) = 9 * (8) = 72`.
+Bitweises Verschieben eines 32-Bit-Integer `x` nach links um `y` Bits ergibt `x * 2 ** y`. Beispielsweise ist `9 << 3` äquivalent zu `9 * (2 ** 3) = 9 * (8) = 72`.
 
-Wenn der linke Operand eine Zahl mit mehr als 32 Bits ist, werden die bedeutendsten Bits verworfen. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl umgewandelt:
+Wenn der linke Operand eine Zahl mit mehr als 32 Bits ist, werden die höchstwertigen Bits verworfen. Zum Beispiel wird der folgende Integer mit mehr als 32 Bits in einen 32-Bit-Integer umgewandelt:
 
 ```plain
 Before: 11100110111110100000000000000110000000000001
 After:              10100000000000000110000000000001
 ```
 
-Der rechte Operand wird in eine nicht signierte 32-Bit-Ganzzahl umgewandelt und dann modulo 32 genommen, sodass der tatsächliche Verschiebungswert immer eine positive Ganzzahl zwischen 0 und 31 (einschließlich) ist. Zum Beispiel ist `100 << 32` dasselbe wie `100 << 0` (und ergibt `100`), da 32 modulo 32 gleich 0 ist.
+Der rechte Operand wird in einen unsignierten 32-Bit-Integer umgewandelt und dann modulo 32 genommen, sodass der tatsächliche Verschiebungswert immer eine positive Ganzzahl zwischen 0 und 31, einschließlich, ist. Zum Beispiel ist `100 << 32` dasselbe wie `100 << 0` (und ergibt `100`), weil 32 modulo 32 gleich 0 ist.
 
-Für BigInts gibt es keine Beschneidung. Konzeptionell können positive BigInts als eine unendliche Anzahl von führenden `0`-Bits und negative BigInts als eine unendliche Anzahl von führenden `1`-Bits betrachtet werden.
+> [!WARNING]
+> Sie könnten Leute sehen, die `<< 0` verwenden, um Zahlen auf Ganzzahlen zu kürzen. Das Linksverschieben einer beliebigen Zahl `x` um `0` gibt `x` zurück, umgewandelt in einen 32-Bit-Integer, was zusätzlich führende Bits für Zahlen außerhalb des Bereichs von -2147483648 bis 2147483647 entfernt. Verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
 
-Das Linksverschieben einer beliebigen Zahl `x` um `0` Bits gibt `x` zurück, umgewandelt in eine 32-Bit-Ganzzahl. Verwenden Sie nicht `<< 0`, um Zahlen auf Ganzzahlen zu kürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
+Für BigInts gibt es keine Kürzung. Konzeptuell verstehen Sie positive BigInts als unendlich viele führende `0`-Bits und negative BigInts als unendlich viele führende `1`-Bits.
 
 ## Beispiele
 

@@ -2,14 +2,14 @@
 title: RelativeOrientationSensor
 slug: Web/API/RelativeOrientationSensor
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`RelativeOrientationSensor`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) beschreibt die physische Orientierung des Geräts ohne Berücksichtigung des Referenzkoordinatensystems der Erde.
+Die **`RelativeOrientationSensor`**-Schnittstelle der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) beschreibt die physische Orientierung des Geräts, ohne das Bezugssystem der Erde zu beachten.
 
-Um diesen Sensor zu verwenden, muss der Benutzer den Zugriff auf die Gerätesensoren `'accelerometer'` und `'gyroscope'` über die [Permissions API](/de/docs/Web/API/Permissions_API) gewähren. Zusätzlich kann diese Funktion durch eine auf Ihrem Server gesetzte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Um diesen Sensor zu nutzen, muss der Benutzer die Berechtigung für die Gerätesensoren `'accelerometer'` und `'gyroscope'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Darüber hinaus kann diese Funktion durch eine auf Ihrem Server gesetzte [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -37,7 +37,7 @@ _Keine spezifischen Ereignisse; erbt Ereignisse von seinem Vorfahren, [`Sensor`]
 Das folgende Beispiel, das lose auf [Intels Orientation Phone Demo](https://intel.github.io/generic-sensor-demos/orientation-phone/) basiert, instanziiert einen `RelativeOrientationSensor` mit einer Frequenz von 60 Mal pro Sekunde.
 
 > [!NOTE]
-> Das Intel-Demo, auf dem dies basiert, verwendet den `AbsoluteOrientationSensor`. Bei jeder Ablesung wird [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) verwendet, um ein visuelles Modell eines Telefons zu drehen.
+> Das Intel-Demo, auf dem dies basiert, verwendet den `AbsoluteOrientationSensor`. Bei jeder Messung wird [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) verwendet, um ein visuelles Modell eines Telefons zu drehen.
 
 ```js
 const options = { frequency: 60, referenceFrame: "device" };
@@ -55,9 +55,9 @@ sensor.addEventListener("error", (error) => {
 sensor.start();
 ```
 
-### Berechtigungs-Beispiel
+### Berechtigungsbeispiel
 
-Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle Versprechungen (Promises) verwendet, ist eine gute Möglichkeit, Berechtigungen anzufordern, die Verwendung von {{jsxref('Promise.all')}}.
+Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle Versprechungen verwendet, ist eine gute Möglichkeit, Berechtigungen anzufordern, die Verwendung von {{jsxref('Promise.all')}}.
 
 ```js
 const sensor = new RelativeOrientationSensor();
@@ -67,7 +67,7 @@ Promise.all([
 ]).then((results) => {
   if (results.every((result) => result.state === "granted")) {
     sensor.start();
-    // ...
+    // …
   } else {
     console.log("No permissions to use RelativeOrientationSensor.");
   }

@@ -2,14 +2,12 @@
 title: Haupt-Thread
 slug: Glossary/Main_thread
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Der **Haupt-Thread** ist der Ort, an dem ein Browser Benutzerevents verarbeitet und zeichnet. Standardmäßig verwendet der Browser einen einzelnen Thread, um den gesamten JavaScript-Code auf Ihrer Seite auszuführen, ebenso wie um Layouts, Neuberechnungen und die Speicherbereinigung durchzuführen. Das bedeutet, dass lang laufende JavaScript-Funktionen den Thread blockieren können, was zu einer nicht ansprechbaren Seite und einer schlechten Benutzererfahrung führt.
 
-Der **Haupt-Thread** ist der Ort, an dem ein Browser Benutzerevents verarbeitet und rendert. Standardmäßig verwendet der Browser einen einzigen Thread, um den gesamten JavaScript-Code Ihrer Seite auszuführen, sowie um Layout, Reflows und Garbage Collection durchzuführen. Das bedeutet, dass lang laufende JavaScript-Funktionen den Thread blockieren können, was zu einer nicht reagierenden Seite und einer schlechten Benutzererfahrung führt.
-
-Es sei denn, es wird bewusst ein [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) eingesetzt, wie beispielsweise ein [Service Worker](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers), läuft JavaScript im Haupt-Thread. Es ist daher leicht, dass ein Skript Verzögerungen bei der Event-Verarbeitung oder beim Rendern verursacht. Je weniger Arbeit vom Haupt-Thread benötigt wird, desto besser kann dieser auf Benutzerevents reagieren, rendern und im Allgemeinen reaktionsfähig gegenüber dem Benutzer sein.
+Sofern nicht absichtlich ein [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) wie ein [Service Worker](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers) verwendet wird, läuft JavaScript auf dem Haupt-Thread. Es ist daher leicht für ein Skript, Verzögerungen bei der Eventverarbeitung oder dem Zeichnen zu verursachen. Je weniger Arbeit der Haupt-Thread leisten muss, desto mehr kann dieser auf Benutzerevents reagieren, zeichnen und allgemein reaktionsfähig gegenüber dem Benutzer sein.
 
 ## Siehe auch
 

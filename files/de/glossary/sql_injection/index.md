@@ -1,73 +1,71 @@
 ---
-title: SQL Injection
+title: SQL-Injection
 slug: Glossary/SQL_Injection
 l10n:
-  sourceCommit: b2af4eb16dd4c399ed81f67efd49777fa6ae9030
+  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
 ---
 
-{{GlossarySidebar}}
+SQL-Injection nutzt Webanwendungen aus, die Benutzereingaben nicht validieren. Hacker können bösartig SQL-Befehle durch die Webanwendung zur Ausführung in einer Backend-Datenbank einschleusen.
 
-SQL-Injection nutzt Webanwendungen aus, die die Benutzereingaben nicht validieren. Hacker können bösartige SQL-Befehle über die Webanwendung an eine Backend-Datenbank zur Ausführung übergeben.
+SQL-Injection kann unerlaubten Zugriff auf eine Datenbank gewähren oder Informationen direkt aus der Datenbank abrufen. Viele Datenpannen sind auf SQL-Injection zurückzuführen.
 
-SQL-Injection kann unberechtigten Zugriff auf eine Datenbank erhalten oder Informationen direkt aus der Datenbank abrufen. Viele Datenschutzverletzungen sind auf SQL-Injection zurückzuführen.
-
-![Kreisdiagramm der häufigsten Schwachstellen: SQL-Injection ist für 50 % der Schwachstellen verantwortlich, Cross Site Scripting ist für 42 % verantwortlich, Quellcode-Offenlegung ist für 7 % verantwortlich.](sql_inj_xss.gif)
+![Kreisdiagramm der häufigsten Schwachstellen: SQL-Injection ist für 50% der Schwachstellen verantwortlich, Cross Site Scripting ist für 42% verantwortlich, Quellcode-Veröffentlichung macht 7% der Schwachstellen aus.](sql_inj_xss.gif)
 
 [Originalquelle](https://cdn.acunetix.com/wp_content/uploads/2010/09/sql_inj_xss.gif)
 
-## Wie es funktioniert
+## Funktionsweise
 
 ![Screenshot des Anmeldeformulars mit Feldern für Benutzername und Passwort](updates_loginscreen.png)
 
-Nach der Eingabe von Benutzername und Passwort funktionieren die SQL-Abfragen hinter der Benutzeroberfläche wie folgt:
+Nach Eingabe von Benutzername und Passwort arbeiten die SQL-Abfragen hinter der Benutzeroberfläche wie folgt:
 
 ```sql
 "SELECT Count(*) FROM Users WHERE Username=' " + txt.User.Text+" ' AND Password=' "+ txt.Password.Text+" ' ";
 ```
 
-Nun nehmen wir an, der Benutzer gibt den Benutzernamen: admin und das Passwort: passwd123 ein, so wird nach dem Klicken auf die Anmelde-Schaltfläche die SQL-Abfrage wie folgt ausgeführt:
+Nehmen wir nun an, der Benutzer gibt den Benutzernamen: admin und das Passwort: passwd123 ein, dann wird nach dem Klick auf die Login-Schaltfläche die SQL-Abfrage wie folgt ausgeführt:
 
 ```sql
 "SELECT Count(*) FROM Users WHERE Username=' admin ' AND Password=' passwd123 ' ";
 ```
 
-Wenn die Anmeldeinformationen korrekt sind, darf sich der Benutzer anmelden, sodass es sich um einen sehr einfachen (und daher unsicheren) Mechanismus handelt. Hacker nutzen diese Unsicherheit aus, um unbefugten Zugriff zu erhalten.
+Wenn die Anmeldedaten korrekt sind, darf der Benutzer sich einloggen, was einen sehr einfachen (und daher unsicheren) Mechanismus darstellt. Hacker nutzen diese Unsicherheit, um unerlaubten Zugriff zu erlangen.
 
-Hacker verwenden einen einfachen String, genannt Magical String, zum Beispiel:
+Hacker verwenden eine einfache Zeichenfolge, die als Magische Zeichenfolge bezeichnet wird, zum Beispiel:
 
 **Benutzername: _admin_**
 
 **Passwort: _anything 'or'1'='1_**
 
-Nach dem Klicken auf die Anmelde-Schaltfläche funktioniert die SQL-Abfrage wie folgt:
+Nach dem Klicken auf die Login-Schaltfläche funktioniert die SQL-Abfrage wie folgt:
 
 ```sql
 "SELECT Count(*) FROM Users WHERE Username=' admin ' AND Password=' anything 'or'1'='1 ' ";
 ```
 
-Sehen Sie sich den Passwortabschnitt der obigen Abfrage genauer an.
+Betrachten Sie den Passwortabschnitt der oben genannten Abfrage genauer.
 
 ```plain
 Password=' anything 'or'1'='1 '
 ```
 
-Das Passwort ist nicht 'anything', daher führt password=anything zu FALSE, aber '1'='1' ist eine wahre Aussage und liefert daher einen wahren Wert zurück. Schließlich ist der Wert (FALSE ODER TRUE) aufgrund des OR-Operators TRUE, sodass die Authentifizierung erfolgreich umgangen wird. Nur aufgrund eines einfachen Strings (Magical String) ist die gesamte Datenbank kompromittiert.
+Das Passwort ist nicht 'anything', daher ergibt password=anything FALSE, aber '1'='1' ist eine TRUE-Aussage und ergibt somit einen TRUE-Wert. Schließlich wird durch den OR-Operator der Wert (FALSE OR TRUE) zu TRUE, sodass die Authentifizierung erfolgreich umgangen wird. Nur aufgrund einer einfachen Zeichenfolge (Magische Zeichenfolge) wird die gesamte Datenbank kompromittiert.
 
-## So verhindern Sie
+## So schützen Sie sich
 
-Bevor die Abfragen für die Benutzeranmeldeinformationen ausgeführt werden, nehmen Sie einige Änderungen vor, wie z. B. die folgenden:
+Bevor Sie die Abfragen für die Benutzer-Anmeldeinformationen ausführen, nehmen Sie Änderungen wie die folgenden vor:
 
-```sql
-$id = $_GET['id']
+```php
+$id = $_GET["id"]
 
-(1) $id = Stripslashes($id)
+(1) $id = stripslashes($id)
 
 (2) $id = mysql_real_escape_String($id)
 ```
 
-Aufgrund von (1) wird jedes einzelne Anführungszeichen (') im Eingabestring durch doppelte Anführungszeichen (") ersetzt, und aufgrund von (2) wird vor jedem (') ein (/) hinzugefügt. Der überarbeitete Magical String scheitert daran, die Authentifizierung zu umgehen, und Ihre Datenbank bleibt sicher.
+Daher wird durch (1) jedes einzelne Anführungszeichen (') in der Eingabezeichenfolge durch doppelte Anführungszeichen (") ersetzt, und durch (2) wird vor jedem (') ein Schrägstrich (/) hinzugefügt. Die überarbeitete magische Zeichenfolge kann die Authentifizierung nicht umgehen, und Ihre Datenbank bleibt sicher.
 
 ## Siehe auch
 
 - [SQL-Injection](https://en.wikipedia.org/wiki/SQL_injection) auf Wikipedia
-- [Erklärung zur SQL-Injection](https://owasp.org/www-community/attacks/SQL_Injection) auf OWASP (Open Web Application Security Project)
+- [Erläuterung der SQL-Injection](https://owasp.org/www-community/attacks/SQL_Injection) auf OWASP (Open Web Application Security Project)

@@ -2,25 +2,23 @@
 title: bookmarks.BookmarkTreeNodeUnmodifiable
 slug: Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNodeUnmodifiable
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Der Typ **`bookmarks.BookmarkTreeNodeUnmodifiable`** wird verwendet, um den Grund anzugeben, warum ein Knoten im Lesezeichenbaum (wobei jeder Knoten entweder ein Lesezeichen oder ein Lesezeichen-Ordner ist) nicht geändert werden kann. Dies wird als Wert des Felds {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "bookmarks.BookmarkTreeNode.unmodifiable", "unmodifiable")}} auf Lesezeichen-Knoten verwendet.
+Der Typ **`bookmarks.BookmarkTreeNodeUnmodifiable`** wird verwendet, um den Grund anzugeben, warum ein Knoten im Bookmark-Baum (wobei jeder Knoten entweder ein Lesezeichen oder ein Lesezeichen-Ordner ist) nicht geändert werden kann. Dies wird als Wert des Feldes {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "bookmarks.BookmarkTreeNode.unmodifiable", "unmodifiable")}} auf Lesezeichen-Knoten verwendet.
 
 ## Typ
 
-`bookmarks.BookmarkTreeNodeUnmodifiable` ist ein {{jsxref("string")}}, der derzeit nur einen Wert haben kann: `"managed"`. Dies zeigt an, dass der Lesezeichenknoten von einem Administrator oder von der Aufsichtsperson eines überwachten Benutzers konfiguriert wurde (wie zum Beispiel einem Elternteil im Falle von elterlicher Kontrolle).
+`bookmarks.BookmarkTreeNodeUnmodifiable` ist ein {{jsxref("string")}}, das derzeit nur einen Wert haben kann: `"managed"`. Dies bedeutet, dass der Lesezeichen-Knoten von einem Administrator oder dem Vormund eines überwachten Nutzers (wie z. B. einem Elternteil im Falle von Kindersicherung) konfiguriert wurde.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-BookmarkTreeNodeUnmodifiable) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-BookmarkTreeNodeUnmodifiable) API von Chromium. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -29,25 +27,30 @@ Der Typ **`bookmarks.BookmarkTreeNodeUnmodifiable`** wird verwendet, um den Grun
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions des Quellcodes müssen den obigen Copyright-
+// Hinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// enthalten.
+//    * Redistributions in binärer Form müssen den obigen
+// Copyright-Hinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
+// enthalten, die mit der Distribution bereitgestellt werden.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte zu unterstützen oder zu
+// bewerben, die von dieser Software abgeleitet sind, ohne spezifische
+// vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER
+// IMPLIZIERTE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+// AUF DIE STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND
+// EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL
+// SIND DIE COPYRIGHTINHABER ODER MITWIRKENDE HAFTBAR FÜR JEGLICHE
+// DIREKTEN, INDIREKTEN, ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN
+// ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN, NUTZUNGSAUSFALL,
+// DATENVERLUST ODER GEWINNE ODER GESCHÄFTSUNTERBRECHUNG) AUS
+// JEGLICHER URSACHE UND UNTER JEGLICHER HAFTUNGSTHEORIE, OB IN VERTRAG,
+// STRAFRECHT ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
+// ANDERES), DIE SICH AUS DER NUTZUNG DIESER SOFTWARE ERGEBEN, SELBST WENN
+// ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT.
 -->

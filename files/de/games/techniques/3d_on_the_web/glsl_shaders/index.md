@@ -1,44 +1,42 @@
 ---
-title: GLSL Shaders
+title: GLSL-Shader
 slug: Games/Techniques/3D_on_the_web/GLSL_Shaders
 l10n:
-  sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
+  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
 ---
 
-{{GamesSidebar}}
+Shader nutzen GLSL (OpenGL Shading Language), eine spezielle OpenGL Shading-Sprache mit einer Syntax, die C ähnelt. GLSL wird direkt von der Grafik-Pipeline ausgeführt. Es gibt [verschiedene Arten von Shadern](https://wikis.khronos.org/opengl/Shader), aber zwei werden häufig verwendet, um Grafiken im Web zu erstellen: Vertex-Shader und Fragment- (Pixel-) Shader. Vertex-Shader transformieren die Positionen von Formen in 3D-Zeichenkoordinaten. Fragment-Shader berechnen die Renderings einer Form mit Farben und anderen Attributen.
 
-Shader verwenden GLSL (OpenGL Shading Language), eine spezielle OpenGL-Shadingsprache mit einer Syntax ähnlich der von C. GLSL wird direkt von der Grafik-Pipeline ausgeführt. Es gibt [verschiedene Arten von Shadern](https://www.khronos.org/opengl/wiki/Shader), aber zwei werden häufig verwendet, um Grafiken im Web zu erzeugen: Vertex-Shader und Fragment- (Pixel-)Shader. Vertex-Shader transformieren Formpositionen in 3D-Zeichenkoordinaten. Fragment-Shader berechnen die Darstellungen der Farben und anderer Attribute einer Form.
+GLSL ist nicht so intuitiv wie JavaScript. GLSL ist stark typisiert und es gibt viel Mathematik mit Vektoren und Matrizen. Es kann sehr schnell sehr kompliziert werden. In diesem Artikel werden wir ein einfaches Codebeispiel erstellen, das einen Würfel rendert. Um den Hintergrundcode zu beschleunigen, werden wir die Three.js-API verwenden.
 
-GLSL ist nicht so intuitiv wie JavaScript. GLSL ist stark typisiert und es gibt viel Mathematik, die Vektoren und Matrizen beinhaltet. Es kann sehr schnell sehr kompliziert werden. In diesem Artikel erstellen wir ein einfaches Code-Beispiel, das einen Würfel rendert. Um den Hintergrundcode zu beschleunigen, verwenden wir die Three.js-API.
-
-Wie Sie sich vielleicht aus dem Artikel zur [Grundlagen-Theorie](/de/docs/Games/Techniques/3D_on_the_web/Basic_theory) erinnern, ist ein Vertex ein Punkt in einem 3D-Koordinatensystem. Vertices können und haben in der Regel zusätzliche Eigenschaften. Das 3D-Koordinatensystem definiert den Raum und die Vertices helfen, Formen in diesem Raum zu definieren.
+Wie Sie sich aus dem Artikel [Grundlegende Theorie](/de/docs/Games/Techniques/3D_on_the_web/Basic_theory) erinnern können, ist ein Vertex ein Punkt in einem 3D-Koordinatensystem. Vertices können und haben in der Regel zusätzliche Eigenschaften. Das 3D-Koordinatensystem definiert den Raum und die Vertices helfen dabei, Formen in diesem Raum zu definieren.
 
 ## Shader-Typen
 
-Ein Shader ist im Wesentlichen eine Funktion, die benötigt wird, um etwas auf dem Bildschirm zu zeichnen. Shader laufen auf einer [GPU](https://en.wikipedia.org/wiki/GPU) (Graphics Processing Unit), die für solche Operationen optimiert ist. Die Verwendung einer GPU zur Bearbeitung von Shadern entlastet die CPU von einigen der Rechenaufgaben. Dadurch kann sich die CPU auf andere Aufgaben konzentrieren, wie z.B. das Ausführen von Code.
+Ein Shader ist im Wesentlichen eine Funktion, die erforderlich ist, um etwas auf dem Bildschirm zu zeichnen. Shader laufen auf einer [GPU](https://en.wikipedia.org/wiki/GPU) (Grafikprozessor), die für solche Operationen optimiert ist. Die Nutzung eines GPUs zur Verarbeitung von Shadern entlastet die CPU von einigen der Berechnungen. Das ermöglicht es der CPU, ihre Rechenleistung auf andere Aufgaben zu konzentrieren, wie z.B. das Ausführen von Code.
 
 ### Vertex-Shader
 
-Vertex-Shader manipulieren Koordinaten in einem 3D-Raum und werden einmal pro Vertex aufgerufen. Der Zweck des Vertex-Shaders besteht darin, die `gl_Position`-Variable einzurichten – dies ist eine spezielle, globale und eingebaute GLSL-Variable. `gl_Position` wird verwendet, um die Position des aktuellen Vertex zu speichern.
+Vertex-Shader manipulieren Koordinaten in einem 3D-Raum und werden einmal pro Vertex aufgerufen. Der Zweck des Vertex-Shaders besteht darin, die Variable `gl_Position` einzurichten — das ist eine spezielle, globale und eingebaute GLSL-Variable. `gl_Position` wird verwendet, um die Position des aktuellen Vertex zu speichern.
 
-Die Funktion `void main()` ist eine standardmäßige Methode zur Definition der `gl_Position`-Variable. Alles innerhalb von `void main()` wird vom Vertex-Shader ausgeführt. Ein Vertex-Shader liefert eine Variable, die angibt, wie die Position eines Vertex im 3D-Raum auf einem 2D-Bildschirm projiziert werden soll.
+Die Funktion `void main()` ist eine Standardmethode, um die Variable `gl_Position` zu definieren. Alles innerhalb von `void main()` wird vom Vertex-Shader ausgeführt. Ein Vertex-Shader liefert eine Variable, die angibt, wie die Position eines Vertex im 3D-Raum auf einen 2D-Bildschirm projiziert wird.
 
 ### Fragment-Shader
 
-Fragment- (oder Textur-)Shader definieren RGBA- (Rot, Grün, Blau, Alpha) Farben für jedes zu verarbeitende Pixel – ein einziger Fragment-Shader wird einmal pro Pixel aufgerufen. Der Zweck des Fragment-Shaders besteht darin, die `gl_FragColor`-Variable einzurichten. `gl_FragColor` ist eine eingebaute GLSL-Variable wie `gl_Position`.
+Fragment- (oder Textur-) Shader definieren RGBA- (Rot, Grün, Blau, Alpha) Farben für jedes zu verarbeitende Pixel — ein einzelner Fragment-Shader wird einmal pro Pixel aufgerufen. Der Zweck des Fragment-Shaders besteht darin, die Variable `gl_FragColor` einzurichten. `gl_FragColor` ist eine eingebaute GLSL-Variable ähnlich wie `gl_Position`.
 
-Die Berechnungen ergeben eine Variable, die die Information über die RGBA-Farbe enthält.
+Die Berechnungen resultieren in einer Variable, die Informationen über die RGBA-Farbe enthält.
 
 ## Demo
 
-Lassen Sie uns eine einfache Demo erstellen, um diese Shader in Aktion zu erklären. Lesen Sie zuerst das [Three.js-Tutorial](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js), um das Konzept der Szene, ihrer Objekte und Materialien zu verstehen.
+Erstellen wir eine einfache Demo, um diese Shader in Aktion zu erklären. Achten Sie darauf, zuerst das [Three.js Tutorial](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) zu lesen, um das Konzept der Szene, ihrer Objekte und Materialien zu verstehen.
 
 > [!NOTE]
-> Denken Sie daran, dass Sie keine Three.js oder eine andere Bibliothek verwenden müssen, um Ihre Shader zu schreiben – reines [WebGL](/de/docs/Web/API/WebGL_API) (Web Graphics Library) reicht mehr als aus. Wir haben hier Three.js verwendet, um den Hintergrundcode viel einfacher und verständlicher zu gestalten, damit Sie sich nur auf den Shader-Code konzentrieren können. Three.js und andere 3D-Bibliotheken abstrahieren viele Dinge für Sie – wenn Sie ein solches Beispiel in reinem WebGL erstellen wollten, müssten Sie eine Menge zusätzlichen Code schreiben, um es tatsächlich zum Laufen zu bringen.
+> Denken Sie daran, dass Sie nicht Three.js oder irgendeine andere Bibliothek verwenden müssen, um Ihre Shader zu schreiben — reines [WebGL](/de/docs/Web/API/WebGL_API) (Web Graphics Library) reicht vollkommen aus. Wir haben hier Three.js verwendet, um den Hintergrundcode viel einfacher und verständlicher zu machen, so dass Sie sich einfach auf den Shader-Code konzentrieren können. Three.js und andere 3D-Bibliotheken abstrahieren viele Dinge für Sie — wenn Sie ein solches Beispiel in reinem WebGL erstellen wollten, müssten Sie eine Menge zusätzlichen Code schreiben, um es tatsächlich zum Laufen zu bringen.
 
-### Umgebungseinrichtung
+### Einrichtungsumgebung
 
-Um mit den WebGL-Shadern zu starten, folgen Sie den Schritten zur Umgebungseinrichtung im [Building up a basic demo with Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js), damit Three.js wie erwartet funktioniert.
+Um mit den WebGL-Shadern zu beginnen, folgen Sie den Schritten zur Einrichtung der Umgebung, die im [Bau einer einfachen Demo mit Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) beschrieben sind, so dass Three.js wie erwartet funktioniert.
 
 ### HTML-Struktur
 
@@ -51,14 +49,14 @@ Hier ist die HTML-Struktur, die wir verwenden werden.
     <meta charset="utf-8" />
     <title>MDN Games: Shaders demo</title>
     <style>
-      body {
+      html,
+      body,
+      canvas {
         margin: 0;
         padding: 0;
-        font-size: 0;
-      }
-      canvas {
         width: 100%;
         height: 100%;
+        font-size: 0;
       }
     </style>
     <script src="three.min.js"></script>
@@ -77,23 +75,23 @@ Hier ist die HTML-Struktur, die wir verwenden werden.
 </html>
 ```
 
-Sie enthält einige grundlegende Informationen wie den Dokument-{{htmlelement("title")}} und etwas CSS, um die `width` und `height` des {{htmlelement("canvas")}}-Elements festzulegen, das Three.js auf der Seite einfügen wird, um die volle Größe des Ansichtsfensters zu haben. Das {{htmlelement("script")}}-Element im {{htmlelement("head")}} fügt die Three.js-Bibliothek in die Seite ein; wir werden unseren Code in drei Skript-Tags im {{htmlelement("body")}}-Tag schreiben:
+Es enthält einige grundlegende Informationen wie das Dokument {{htmlelement("title")}}, und etwas CSS, um die `Breite` und `Höhe` des {{htmlelement("canvas")}}-Elements festzulegen, das Three.js auf der Seite einfügt, um die volle Größe des Ansichtsfensters zu erreichen. Das {{htmlelement("script")}}-Element im {{htmlelement("head")}} fügt die Three.js-Bibliothek in die Seite ein; wir werden unseren Code in drei Skript-Tags im {{htmlelement("body")}}-Tag schreiben:
 
 1. Das erste wird den Vertex-Shader enthalten.
 2. Das zweite wird den Fragment-Shader enthalten.
-3. Das dritte wird den eigentlichen JavaScript-Code enthalten, der die Szene erzeugt.
+3. Das dritte wird den eigentlichen JavaScript-Code enthalten, der die Szene generiert.
 
-Kopieren Sie diesen Code vor dem Weiterlesen in eine neue Textdatei und speichern Sie ihn in Ihrem Arbeitsverzeichnis als `index.html`. In dieser Datei erstellen wir eine Szene mit einem einfachen Würfel, um zu erklären, wie die Shader funktionieren.
+Bevor Sie weiterlesen, kopieren Sie diesen Code in eine neue Textdatei und speichern Sie ihn in Ihrem Arbeitsverzeichnis als `index.html`. Wir werden in dieser Datei eine Szene mit einem einfachen Würfel erstellen, um zu erklären, wie die Shader funktionieren.
 
-### Der Quellcode des Würfels
+### Der Code des Würfels
 
-Anstatt alles von Grund auf neu zu erstellen, können wir den Quellcode des Würfels aus dem [Building up a basic demo with Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) wiederverwenden. Die meisten Komponenten wie Renderer, Kamera und Lichter bleiben gleich, aber anstelle des Basis-Materials werden wir die Farbe und Position des Würfels mit Shadern festlegen.
+Anstatt alles von Grund auf neu zu erstellen, können wir den [Building up a basic demo with Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) Quellcode des Würfels wiederverwenden. Die meisten Komponenten wie Renderer, Kamera und Lichter bleiben gleich, aber anstelle des Basismaterials werden wir die Farbe und Position des Würfels mithilfe von Shadern festlegen.
 
-Gehen Sie zur [cube.html-Datei auf GitHub](https://github.com/end3r/MDN-Games-3D/blob/gh-pages/Three.js/cube.html), kopieren Sie den gesamten JavaScript-Code aus dem zweiten {{htmlelement("script")}}-Element und fügen Sie ihn in das dritte `<script>`-Element des aktuellen Beispiels ein. Speichern und laden Sie `index.html` in Ihrem Browser — Sie sollten einen blauen Würfel sehen.
+Gehen Sie zur [cube.html Datei auf GitHub](https://github.com/end3r/MDN-Games-3D/blob/gh-pages/Three.js/cube.html), kopieren Sie den gesamten JavaScript-Code aus dem zweiten {{htmlelement("script")}}-Element und fügen Sie ihn in das dritte `<script>`-Element des aktuellen Beispiels ein. Speichern und laden Sie `index.html` in Ihrem Browser — Sie sollten einen blauen Würfel sehen.
 
 ### Der Vertex-Shader-Code
 
-Fahren wir fort, indem wir einen einfachen Vertex-Shader schreiben — fügen Sie den untenstehenden Code in das erste `<script>`-Tag des Körpers ein:
+Fahren wir fort, indem wir einen einfachen Vertex-Shader schreiben — fügen Sie den folgenden Code in das erste `<script>`-Tag des Body ein:
 
 ```glsl
 void main() {
@@ -101,16 +99,16 @@ void main() {
 }
 ```
 
-Das resultierende `gl_Position` wird berechnet, indem die Modell-Ansicht und die Projektionsmatrizen mit jedem Vektor multipliziert werden, um die endgültige Vertex-Position in jedem Fall zu erhalten.
+Die resultierende `gl_Position` wird berechnet, indem die Modellansichts- und die Projektionsmatrix jeweils mit dem Vektor multipliziert werden, um die endgültige Position des Vertex zu erhalten.
 
 > [!NOTE]
-> Sie können mehr über _Modell_, _Ansicht_ und _Projektionstransformationen_ aus dem [Vertex-Processing-Absatz](/de/docs/Games/Techniques/3D_on_the_web/Basic_theory#vertex_processing) erfahren, und Sie können auch die Links am Ende dieses Artikels nutzen, um mehr darüber zu lernen.
+> Sie können mehr über _Model_, _View_ und _Projektionstransformationen_ aus dem [Vertex-Processing-Absatz](/de/docs/Games/Techniques/3D_on_the_web/Basic_theory#vertex_processing) erfahren, und Sie können auch die Links am Ende dieses Artikels nutzen, um mehr darüber zu lernen.
 
-Sowohl `projectionMatrix` als auch `modelViewMatrix` werden von Three.js bereitgestellt, und der Vektor wird mit der neuen 3D-Position übergeben, was dazu führt, dass sich der ursprüngliche Würfel um 10 Einheiten entlang der `x`-Achse und um 5 Einheiten entlang der `z`-Achse bewegt, übersetzt über einen Shader. Wir können den vierten Parameter ignorieren und ihn mit dem Standardwert `1.0` belassen; dieser wird verwendet, um das Clipping der Vertex-Position im 3D-Raum zu manipulieren, aber in unserem Fall brauchen wir das nicht.
+Sowohl `projectionMatrix` als auch `modelViewMatrix` werden von Three.js bereitgestellt und der Vektor wird mit der neuen 3D-Position übergeben, was dazu führt, dass der ursprüngliche Würfel 10 Einheiten entlang der `x`-Achse und 5 Einheiten entlang der `z`-Achse bewegt wird, übersetzt durch einen Shader. Wir können den vierten Parameter ignorieren und ihn mit dem Standardwert `1.0` belassen; dieser wird verwendet, um das Abschneiden der Vertex-Position im 3D-Raum zu manipulieren, aber in unserem Fall benötigen wir das nicht.
 
 ### Der Textur-Shader-Code
 
-Nun fügen wir den Textur-Shader zum Code hinzu — fügen Sie den untenstehenden Code in das zweite `<script>`-Tag des Körpers ein:
+Nun fügen wir den Textur-Shader zum Code hinzu — fügen Sie den folgenden Code in das zweite `<script>`-Tag des Body ein:
 
 ```glsl
 void main() {
@@ -118,11 +116,11 @@ void main() {
 }
 ```
 
-Dies setzt eine RGBA-Farbe, um die aktuelle hellblaue nachzubilden — die ersten drei Float-Werte (im Bereich von `0.0` bis `1.0`) repräsentieren die roten, grünen und blauen Kanäle, während der vierte die Alpha-Transparenz ist (im Bereich von `0.0` — vollständig transparent — bis 1.0 — vollständig opak).
+Dies wird eine RGBA-Farbe festlegen, um den aktuellen hellblauen Farbton zu reproduzieren — die ersten drei Float-Werte (im Bereich von `0.0` bis `1.0`) repräsentieren die Rot-, Grün- und Blau-Kanäle, während der vierte die Alpha-Transparenz (im Bereich von `0.0` — vollständig transparent — bis 1.0 — vollständig undurchsichtig) darstellt.
 
-### Anwenden der Shader
+### Anwendung der Shader
 
-Um die neu erstellten Shader tatsächlich auf den Würfel anzuwenden, kommentieren Sie zuerst die `basicMaterial`-Definition aus:
+Um die neu erstellten Shader tatsächlich auf den Würfel anzuwenden, kommentieren Sie zuerst die Definition von `basicMaterial` aus:
 
 ```js
 // const basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
@@ -137,7 +135,7 @@ const shaderMaterial = new THREE.ShaderMaterial({
 });
 ```
 
-Dieses Shader-Material übernimmt den Code aus den Skripten und wendet ihn auf das Objekt an, dem das Material zugewiesen ist.
+Dieses Shader-Material nimmt den Code aus den Skripts und wendet ihn auf das Objekt an, dem das Material zugewiesen ist.
 
 Dann müssen wir in der Zeile, die den Würfel definiert, das `basicMaterial` durch das neu erstellte `shaderMaterial` ersetzen:
 
@@ -146,11 +144,11 @@ Dann müssen wir in der Zeile, die den Würfel definiert, das `basicMaterial` du
 const cube = new THREE.Mesh(boxGeometry, shaderMaterial);
 ```
 
-Three.js kompiliert und führt die an das Mesh angehängten Shader aus, denen dieses Material gegeben wird. In unserem Fall wird der Würfel sowohl Vertex- als auch Textur-Shader angewendet haben. Das war's – Sie haben gerade den einfachsten möglichen Shader erstellt, herzlichen Glückwunsch! So sollte der Würfel aussehen:
+Three.js kompiliert und führt die an das Mesh angehängten Shader aus, dem dieses Material zugewiesen ist. In unserem Fall wird der Würfel sowohl Vertex- als auch Textur-Shader angewendet bekommen. Das war's — Sie haben gerade den einfachsten möglichen Shader erstellt, herzlichen Glückwunsch! So sollte der Würfel aussehen:
 
-![Three.js Blauwürfel-Demo](cube.png)
+![Three.js blauwe Würfel-Demo](cube.png)
 
-Er sieht genau so aus wie die Three.js-Würfel-Demo, aber die leicht unterschiedliche Position und die gleiche blaue Farbe werden beide unter Verwendung des Shaders erzielt.
+Er sieht genau wie die Three.js-Würfel-Demo aus, aber die leicht andere Position und die gleiche blaue Farbe werden beide mit dem Shader erreicht.
 
 ## Finaler Code
 
@@ -225,9 +223,9 @@ canvas {
 
 ## Fazit
 
-Dieser Artikel hat die Grundlagen von Shadern vermittelt. Unser Beispiel tut nicht viel, aber es gibt viele weitere coole Dinge, die Sie mit Shadern machen können – schauen Sie sich einige wirklich coole auf [ShaderToy](https://www.shadertoy.com/) an, um Inspiration und Lernmaterial von ihren Quellen zu erhalten.
+Dieser Artikel hat die absoluten Grundlagen von Shadern vermittelt. Unser Beispiel macht nicht viel, aber es gibt viele andere coole Dinge, die Sie mit Shadern machen können — sehen Sie sich einige wirklich beeindruckende auf [ShaderToy](https://www.shadertoy.com/) an, um Inspiration zu bekommen und aus deren Quellen zu lernen.
 
 ## Siehe auch
 
-- [Learning WebGL](https://web.archive.org/web/20180624211158/http://learningwebgl.com/blog/?page_id=1217) — für allgemeines WebGL-Wissen
-- [WebGL Shaders and GLSL at WebGL Fundamentals](https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html) — für spezifische Informationen zu GLSL
+- [Learning WebGL](https://web.archive.org/web/20180624211158/http://learningwebgl.com/blog/?page_id=1217) — für allgemeine WebGL-Kenntnisse
+- [WebGL Shaders und GLSL bei WebGL Fundamentals](https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html) — für spezifische Informationen zu GLSL

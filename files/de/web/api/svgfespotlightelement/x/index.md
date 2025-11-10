@@ -3,14 +3,14 @@ title: "SVGFESpotLightElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGFESpotLightElement/x
 l10n:
-  sourceCommit: ecf3cfc28e9b74de9adc257bac245bcdc6a02559
+  sourceCommit: 03482f82cba9c871042bbf4972b754f65eb3cb90
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`x`**-Eigenschaft der Schnittstelle [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber).
+Die **`x`**-Eigenschaft der [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) Schnittstelle beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitives als [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber). Diese Eigenschaft ist schreibgeschützt.
 
-Sie spiegelt das {{SVGAttr("x")}}-Attribut des {{SVGElement("feSpotLight")}}-Elements wider, das verwendet werden kann, um die Lichtquelle in einem Spotlichteffekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Content_type#number). Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("x")}}-Attribut des {{SVGElement("feSpotLight")}}-Elements wider, welches verwendet werden kann, um die Lichtquelle in einem Spotlight-Effekt zu definieren. Das Attribut ist ein [`<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der Standardwert ist `0`.
 
 ## Wert
 

@@ -1,14 +1,14 @@
 ---
-title: "GPUCanvasContext: getConfiguration()-Methode"
+title: "GPUCanvasContext: getConfiguration() Methode"
 short-title: getConfiguration()
 slug: Web/API/GPUCanvasContext/getConfiguration
 l10n:
-  sourceCommit: ca6a51e5335df951c1d5b71593f84811697f4ce6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getConfiguration()`**-Methode des [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Interfaces gibt die aktuelle Konfiguration zurück, die für den Kontext festgelegt ist.
+Die **`getConfiguration()`** Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext) Schnittstelle gibt die aktuelle Konfiguration zurück, die für den Kontext eingestellt ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das die auf dem Kontext festgelegten Konfigurationsoptionen enthält (d.h. über die [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure)-Methode festgelegt), oder `null`, wenn keine Konfiguration festgelegt ist (entweder wurde keine Konfiguration zuvor festgelegt, oder eine Konfiguration wurde festgelegt und dann wurde [`GPUCanvasContext.unconfigure()`](/de/docs/Web/API/GPUCanvasContext/unconfigure) auf dem Kontext aufgerufen).
+Ein Objekt, das die auf den Kontext gesetzten Konfigurationsoptionen enthält (d.h. über die [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) Methode), oder `null`, wenn keine Konfiguration eingestellt ist (entweder wurde zuvor keine Konfiguration gesetzt, oder eine Konfiguration wurde gesetzt und dann wurde [`GPUCanvasContext.unconfigure()`](/de/docs/Web/API/GPUCanvasContext/unconfigure) auf den Kontext angewendet).
 
 ## Beispiele
 
@@ -42,7 +42,7 @@ if (!adapter) {
 const device = await adapter.requestDevice();
 
 context.configure({
-  device: device,
+  device,
   format: navigator.gpu.getPreferredCanvasFormat(),
   alphaMode: "premultiplied",
 });

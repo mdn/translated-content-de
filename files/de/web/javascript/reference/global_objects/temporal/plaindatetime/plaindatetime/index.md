@@ -2,14 +2,14 @@
 title: Temporal.PlainDateTime()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/PlainDateTime
 l10n:
-  sourceCommit: b1392b60ee71b9f09c0123694a494a71d0dbbb8a
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Der **`Temporal.PlainDateTime()`**-Konstruktor erstellt {{jsxref("Temporal.PlainDateTime")}}-Objekte.
+Der **`Temporal.PlainDateTime()`** Konstruktor erstellt {{jsxref("Temporal.PlainDateTime")}} Objekte.
 
-Dieser Konstruktor erlaubt es Ihnen, Instanzen durch direkte Übergabe der zugrunde liegenden Daten zu erstellen. Wie bei allen anderen `Temporal`-Klassen sollten `Temporal.PlainDateTime`-Objekte normalerweise mit der statischen Methode {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} erstellt werden, die eine Vielzahl von Eingabetypen verarbeiten kann.
+Dieser Konstruktor ermöglicht es Ihnen, Instanzen durch direkte Angabe der zugrunde liegenden Daten zu erstellen. Wie alle anderen `Temporal`-Klassen sollten `Temporal.PlainDateTime`-Objekte in der Regel mit der statischen Methode {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} konstruiert werden, die eine Vielzahl von Eingabetypen verarbeiten kann.
 
 ## Syntax
 
@@ -24,7 +24,8 @@ new Temporal.PlainDateTime(year, month, day, hour, minute, second, millisecond, 
 new Temporal.PlainDateTime(year, month, day, hour, minute, second, millisecond, microsecond, nanosecond, calendar)
 ```
 
-> **Note:** `Temporal.PlainDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) instanziiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `Temporal.PlainDateTime()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -47,18 +48,18 @@ new Temporal.PlainDateTime(year, month, day, hour, minute, second, millisecond, 
 - `nanosecond` {{optional_inline}}
   - : Eine Zahl, auf eine Ganzzahl gekürzt, die die Nanosekundenkomponente darstellt.
 - `calendar` {{optional_inline}}
-  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der verwendet werden soll. Beachten Sie, dass unabhängig vom angegebenen `calendar` die Werte für `year`, `month` und `day` im ISO 8601-Kalendersystem sein müssen. Standardmäßig ist `"iso8601"` eingestellt.
+  - : Ein String, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) angibt, der verwendet werden soll. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen. Standardmäßig ist es `"iso8601"`. Beachten Sie, dass unabhängig vom `calendar` die `year`, `month` und `day` im ISO 8601-Kalendersystem sein müssen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das das durch die Parameter angegebene Datum und die Uhrzeit repräsentiert.
+Ein neues `Temporal.PlainDateTime`-Objekt, das das durch die Parameter spezifizierte Datum und die Uhrzeit darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Eine der Datum- und Zeitkomponenten ist keine endliche Zahl.
-    - Die Kombination der Datum- und Zeitkomponenten stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt außerhalb des [darstellbaren Bereichs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der bei ±(10<sup>8</sup> + 1) Tagen oder etwa ±273.972,6 Jahren ab dem Unix-Epoch-Timestamp liegt.
+    - Eine Datums- oder Zeitkomponente ist keine endliche Zahl.
+    - Die Kombination der Komponenten stellt kein gültiges Datum im ISO-Kalendersystem dar oder liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±(10<sup>8</sup> + 1) Tage umfasst, das sind etwa ±273.972,6 Jahre ab der Unix-Epoche.
     - `calendar` ist keine gültige Kalenderkennung.
 
 ## Beispiele

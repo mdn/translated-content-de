@@ -2,74 +2,74 @@
 title: HTMLVideoElement
 slug: Web/API/HTMLVideoElement
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("HTML DOM")}}
 
-Implementiert durch das {{HTMLElement("video")}} Element, bietet das **`HTMLVideoElement`** Interface spezielle Eigenschaften und Methoden zur Manipulation von Videoobjekten. Es erbt außerdem Eigenschaften und Methoden von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und [`HTMLElement`](/de/docs/Web/API/HTMLElement).
+Implementiert durch das {{HTMLElement("video")}}-Element, bietet das **`HTMLVideoElement`**-Interface spezielle Eigenschaften und Methoden zur Manipulation von Video-Objekten. Es erbt auch die Eigenschaften und Methoden von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und [`HTMLElement`](/de/docs/Web/API/HTMLElement).
 
-Die Liste der [unterstützten Medienformate](/de/docs/Web/Media/Guides/Formats) variiert von Browser zu Browser. Sie sollten entweder Ihr Video in einem einzigen Format bereitstellen, das alle relevanten Browser unterstützen, oder mehrere Videoquellen in genügend verschiedenen Formaten bereitstellen, sodass alle von Ihnen benötigten Browser abgedeckt sind.
+Die Liste der [unterstützten Medienformate](/de/docs/Web/Media/Guides/Formats) variiert zwischen den verschiedenen Browsern. Sie sollten entweder Ihr Video in einem einzigen Format bereitstellen, das alle relevanten Browser unterstützen, oder mehrere Videoquellen in ausreichend unterschiedlichen Formaten anbieten, damit alle benötigten Browser abgedeckt sind.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Interface, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), und [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), und [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
-  - : Gibt an, ob der Benutzeragent den Benutzern den Bild-in-Bild-Modus vorschlagen soll oder nicht.
+  - : Gibt an, ob der User Agent den Benutzern den Picture-in-Picture-Modus vorschlagen sollte oder nicht.
 - [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)
-  - : Ein String, der das [`height`](/de/docs/Web/HTML/Element/video#height) HTML-Attribut widerspiegelt, welches die Höhe des Anzeigebereichs in CSS-Pixeln bestimmt.
+  - : Ein String, der das HTML-Attribut [`height`](/de/docs/Web/HTML/Reference/Elements/video#height) widerspiegelt und die Höhe des Anzeigebereichs in CSS-Pixeln angibt.
 - [`HTMLVideoElement.poster`](/de/docs/Web/API/HTMLVideoElement/poster)
-  - : Ein String, der das [`poster`](/de/docs/Web/HTML/Element/video#poster) HTML-Attribut widerspiegelt, welches ein Bild spezifiziert, das angezeigt wird, während keine Videodaten verfügbar sind.
+  - : Ein String, der das HTML-Attribut [`poster`](/de/docs/Web/HTML/Reference/Elements/video#poster) widerspiegelt und ein Bild angibt, das angezeigt wird, solange keine Videodaten verfügbar sind.
 - [`HTMLVideoElement.videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) {{ReadOnlyInline}}
-  - : Gibt einen positiven ganzzahligen Wert zurück, der die intrinsische Höhe der Ressource in CSS-Pixeln angibt, oder 0, wenn noch keine Medien verfügbar sind.
+  - : Gibt einen nicht-negativen ganzzahligen Wert zurück, der die intrinsische Höhe der Ressource in CSS-Pixeln angibt, oder 0, wenn noch keine Medien verfügbar sind.
 - [`HTMLVideoElement.videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) {{ReadOnlyInline}}
-  - : Gibt einen positiven ganzzahligen Wert zurück, der die intrinsische Breite der Ressource in CSS-Pixeln angibt, oder 0, wenn noch keine Medien verfügbar sind.
+  - : Gibt einen nicht-negativen ganzzahligen Wert zurück, der die intrinsische Breite der Ressource in CSS-Pixeln angibt, oder 0, wenn noch keine Medien verfügbar sind.
 - [`HTMLVideoElement.width`](/de/docs/Web/API/HTMLVideoElement/width)
-  - : Ein String, der das [`width`](/de/docs/Web/HTML/Element/video#width) HTML-Attribut widerspiegelt, welches die Breite des Anzeigebereichs in CSS-Pixeln bestimmt.
+  - : Ein String, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Reference/Elements/video#width) widerspiegelt und die Breite des Anzeigebereichs in CSS-Pixeln angibt.
 
 ### Firefox-spezifische Eigenschaften
 
 - [`HTMLVideoElement.mozParsedFrames`](/de/docs/Web/API/HTMLVideoElement/mozParsedFrames) {{Non-standard_Inline}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt ein `unsigned long` mit der Anzahl der Videoframes zurück, die aus der Medienressource geparst wurden.
+  - : Gibt einen `unsigned long` mit der Anzahl der Videoframes zurück, die aus der Medienressource geparst wurden.
 - [`HTMLVideoElement.mozDecodedFrames`](/de/docs/Web/API/HTMLVideoElement/mozDecodedFrames) {{Non-standard_Inline}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt ein `unsigned long` mit der Anzahl der geparsten Videoframes zurück, die in Bilder dekodiert wurden.
+  - : Gibt einen `unsigned long` mit der Anzahl der geparsten Videoframes zurück, die in Bilder dekodiert wurden.
 - [`HTMLVideoElement.mozPresentedFrames`](/de/docs/Web/API/HTMLVideoElement/mozPresentedFrames) {{Non-standard_Inline}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt ein `unsigned long` mit der Anzahl der dekodierten Frames zurück, die der Rendering-Pipeline zum Malen vorgestellt wurden.
+  - : Gibt einen `unsigned long` mit der Anzahl der dekodierten Frames zurück, die zur Rendering-Pipeline zur Darstellung übergeben wurden.
 - [`HTMLVideoElement.mozPaintedFrames`](/de/docs/Web/API/HTMLVideoElement/mozPaintedFrames) {{Non-standard_Inline}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt ein `unsigned long` mit der Anzahl der dargestellten Frames zurück, die auf dem Bildschirm gemalt wurden.
+  - : Gibt einen `unsigned long` mit der Anzahl der dargestellten Frames zurück, die auf dem Bildschirm gemalt wurden.
 - [`HTMLVideoElement.mozFrameDelay`](/de/docs/Web/API/HTMLVideoElement/mozFrameDelay) {{Non-standard_Inline}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt ein `double` mit der Zeit zurück, um die das letzte gemalte Videoframe zu spät war, in Sekunden.
+  - : Gibt ein `double` mit der Zeit in Sekunden zurück, um die das letzte dargestellte Videoframe verspätet war.
 - [`HTMLVideoElement.mozHasAudio`](/de/docs/Web/API/HTMLVideoElement/mozHasAudio) {{Non-standard_Inline}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob mit dem Video Audiodaten verbunden sind.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob irgendein Audio mit dem Video verbunden ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem übergeordneten Interface, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), und [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Methoden von seiner übergeordneten Schnittstelle, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), und [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLVideoElement.cancelVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/cancelVideoFrameCallback)
   - : Hebt einen zuvor registrierten Video-Frame-Callback auf (siehe [`requestVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback)).
 - [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality)
-  - : Gibt ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality) Objekt zurück, das die aktuellen Wiedergabemetriken enthält. Diese Informationen beinhalten Dinge wie die Anzahl der ausgelassenen oder beschädigten Frames sowie die Gesamtanzahl der Frames.
+  - : Gibt ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zurück, das die aktuellen Wiedergabemetriken enthält. Diese Informationen beinhalten Dinge wie die Anzahl der verworfenen oder beschädigten Frames sowie die Gesamtanzahl der Frames.
 - [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
-  - : Fordert den Benutzeragenten auf, das Video im Bild-in-Bild-Modus anzuzeigen.
+  - : Fordert, dass der User Agent das Video in den Picture-in-Picture-Modus überführt.
 - [`HTMLVideoElement.requestVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback)
-  - : Registriert eine Callback-Funktion, die ausgeführt wird, wenn ein neues Videoframe an den Kompositor gesendet wird. Dies ermöglicht Entwicklern, effiziente Operationen auf jedem Videoframe durchzuführen.
+  - : Registriert eine Callback-Funktion, die ausgeführt wird, wenn ein neuer Video-Frame an den Kompositor gesendet wird. Dies ermöglicht Entwicklern, effiziente Operationen auf jedem Video-Frame durchzuführen.
 
-## Ereignisse
+## Events
 
-_Erbt Ereignisse von seinem übergeordneten Interface, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), und [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Events von seiner übergeordneten Schnittstelle, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), und [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname` Eigenschaft dieses Interfaces zuweisen.
+Rufen Sie diese Events mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) ab oder durch Zuweisen eines Event-Listeners zur `oneventname`-Eigenschaft dieser Schnittstelle.
 
 - [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event)
-  - : Wird ausgelöst, wenn das `HTMLVideoElement` erfolgreich in den Bild-in-Bild-Modus wechselt.
+  - : Wird ausgelöst, wenn das `HTMLVideoElement` erfolgreich in den Picture-in-Picture-Modus überführt wird.
 - [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event)
-  - : Wird ausgelöst, wenn das `HTMLVideoElement` erfolgreich den Bild-in-Bild-Modus verlässt.
+  - : Wird ausgelöst, wenn das `HTMLVideoElement` erfolgreich den Picture-in-Picture-Modus verlässt.
 - [`resize`](/de/docs/Web/API/HTMLVideoElement/resize_event)
-  - : Wird ausgelöst, wenn eine oder beide der [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) Eigenschaften gerade aktualisiert wurden.
+  - : Wird ausgelöst, wenn eine oder beide der Eigenschaften [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) gerade aktualisiert wurden.
 
 ## Spezifikationen
 
@@ -81,5 +81,5 @@ Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTar
 
 ## Siehe auch
 
-- HTML-Element, das dieses Interface implementiert: {{HTMLElement("video")}}.
+- HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("video")}}.
 - [Unterstützte Medienformate](/de/docs/Web/Media/Guides/Formats)

@@ -3,12 +3,12 @@ title: "SVGFETurbulenceElement: baseFrequencyY-Eigenschaft"
 short-title: baseFrequencyY
 slug: Web/API/SVGFETurbulenceElement/baseFrequencyY
 l10n:
-  sourceCommit: 483599780f3f906327c6082860e8c26836258990
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`baseFrequencyY`**-Eigenschaft der [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Schnittstelle, die nur lesbar ist, spiegelt die Y-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des angegebenen {{SVGElement("feTurbulence")}}-Elements wider.
+Die schreibgeschützte **`baseFrequencyY`**-Eigenschaft des [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)-Interfaces spiegelt die Y-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des gegebenen {{SVGElement("feTurbulence")}}-Elements wider.
 
 ## Wert
 
@@ -34,7 +34,7 @@ Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger)-Objekt.
     y="20"
     width="160"
     height="160"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#turbulenceFilter)" />
 </svg>
 ```

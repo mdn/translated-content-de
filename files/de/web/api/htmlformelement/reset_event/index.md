@@ -1,23 +1,23 @@
 ---
-title: "HTMLFormElement: reset Ereignis"
+title: "HTMLFormElement: reset-Ereignis"
 short-title: reset
 slug: Web/API/HTMLFormElement/reset_event
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
 Das **`reset`**-Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("reset", (event) => {});
+```js-nolint
+addEventListener("reset", (event) => { })
 
-onreset = (event) => {};
+onreset = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf das Zurücksetzen von Formularen zu hören, und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), sobald dies geschieht.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Zurücksetzungen des Formulars zu hören und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies eintritt.
 
 ### HTML
 
@@ -42,12 +42,13 @@ Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/Ev
 ### JavaScript
 
 ```js
+const form = document.getElementById("form");
+const log = document.getElementById("log");
+
 function logReset(event) {
   log.textContent = `Form reset! Timestamp: ${event.timeStamp}`;
 }
 
-const form = document.getElementById("form");
-const log = document.getElementById("log");
 form.addEventListener("reset", logReset);
 ```
 

@@ -3,13 +3,12 @@ title: "DataTransferItemList: add() Methode"
 short-title: add()
 slug: Web/API/DataTransferItemList/add
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: e0f97a8a4e8a2fc45f1a7bdc8d1e3f524ccb627d
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.add()`** Methode erstellt ein neues
-[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder ein String eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt zurückgegeben.
+Die **`DataTransferItemList.add()`**-Methode erstellt ein neues [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann entweder eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt zurückgegeben.
 
 ## Syntax
 
@@ -25,40 +24,31 @@ add(file)
 - `type`
   - : Ein String des Typs des Drag-Elements. Einige Beispieltypen sind `text/html` und `text/plain`.
 - `file`
-  - : Ein [`File`](/de/docs/Web/API/File) Objekt. In diesem Fall muss kein Typ angegeben werden.
+  - : Ein [`File`](/de/docs/Web/API/File)-Objekt. In diesem Fall muss kein Typ angegeben werden.
 
 ### Rückgabewert
 
-Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
+Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der String `data` übergeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ dem angegebenen Typ-Parameter entspricht.
+  - : Wird ausgelöst, wenn der String `data`-Parameter angegeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ gleich dem angegebenen Typ-Parameter ist.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `add()` Methode.
+Dieses Beispiel zeigt die Verwendung der `add()`-Methode.
 
 ### HTML
 
 ```html
 <div>
-  <p
-    id="source"
-    ondragstart="dragstart_handler(event);"
-    ondragend="dragend_handler(event);"
-    draggable="true">
+  <p id="source" draggable="true">
     Select this element, drag it to the Drop Zone and then release the selection
     to move the element.
   </p>
 </div>
-<div
-  id="target"
-  ondrop="drop_handler(event);"
-  ondragover="dragover_handler(event);">
-  Drop Zone
-</div>
+<div id="target">Drop Zone</div>
 ```
 
 ### CSS
@@ -80,7 +70,10 @@ div {
 ### JavaScript
 
 ```js
-function dragstart_handler(ev) {
+const source = document.getElementById("source");
+const target = document.getElementById("target");
+
+source.addEventListener("dragstart", (ev) => {
   console.log("dragStart");
   // Add this element's id to the drag payload so the drop handler will
   // know which element to add to its tree
@@ -89,44 +82,9 @@ function dragstart_handler(ev) {
   // Add some other items to the drag payload
   dataList.add("<p>Paragraph…</p>", "text/html");
   dataList.add("http://www.example.org", "text/uri-list");
-}
+});
 
-function drop_handler(ev) {
-  console.log("Drop");
-  ev.preventDefault();
-  const data = event.dataTransfer.items;
-  // Loop through the dropped items and log their data
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].kind === "string" && data[i].type.match("^text/plain")) {
-      // This item is the target node
-      data[i].getAsString((s) => {
-        ev.target.appendChild(document.getElementById(s));
-      });
-    } else if (data[i].kind === "string" && data[i].type.match("^text/html")) {
-      // Drag data item is HTML
-      data[i].getAsString((s) => {
-        console.log(`… Drop: HTML = ${s}`);
-      });
-    } else if (
-      data[i].kind === "string" &&
-      data[i].type.match("^text/uri-list")
-    ) {
-      // Drag data item is URI
-      data[i].getAsString((s) => {
-        console.log(`… Drop: URI = ${s}`);
-      });
-    }
-  }
-}
-
-function dragover_handler(ev) {
-  console.log("dragOver");
-  ev.preventDefault();
-  // Set the dropEffect to move
-  ev.dataTransfer.dropEffect = "move";
-}
-
-function dragend_handler(ev) {
+source.addEventListener("dragend", (ev) => {
   console.log("dragEnd");
   const dataList = ev.dataTransfer.items;
   for (let i = 0; i < dataList.length; i++) {
@@ -134,14 +92,43 @@ function dragend_handler(ev) {
   }
   // Clear any remaining drag data
   dataList.clear();
-}
+});
+
+target.addEventListener("drop", (ev) => {
+  console.log("Drop");
+  ev.preventDefault();
+  // Loop through the dropped items and log their data
+  for (const item of event.dataTransfer.items) {
+    if (item.kind === "string" && item.type.match("^text/plain")) {
+      // This item is the target node
+      item.getAsString((s) => {
+        ev.target.appendChild(document.getElementById(s));
+      });
+    } else if (item.kind === "string" && item.type.match("^text/html")) {
+      // Drag data item is HTML
+      item.getAsString((s) => {
+        console.log(`… Drop: HTML = ${s}`);
+      });
+    } else if (item.kind === "string" && item.type.match("^text/uri-list")) {
+      // Drag data item is URI
+      item.getAsString((s) => {
+        console.log(`… Drop: URI = ${s}`);
+      });
+    }
+  }
+});
+
+target.addEventListener("dragover", (ev) => {
+  console.log("dragOver");
+  ev.preventDefault();
+  // Set the dropEffect to move
+  ev.dataTransfer.dropEffect = "move";
+});
 ```
 
 ### Ergebnis
 
 {{EmbedLiveSample('Examples', 400, 300)}}
-
-{{LiveSampleLink('Examples', 'Ergebnislink')}}
 
 ## Spezifikationen
 

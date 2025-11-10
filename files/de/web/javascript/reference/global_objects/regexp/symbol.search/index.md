@@ -1,13 +1,12 @@
 ---
 title: RegExp.prototype[Symbol.search]()
+short-title: "[Symbol.search]()"
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die Methode **`[Symbol.search]()`** von {{jsxref("RegExp")}}-Instanzen gibt an, wie [`String.prototype.search`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/search) funktionieren soll.
+Die Methode **`[Symbol.search]()`** von {{jsxref("RegExp")}}-Instanzen gibt an, wie [`String.prototype.search`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/search) funktionieren sollte.
 
 {{InteractiveExample("JavaScript Demo: RegExp.prototype[Symbol.search]()")}}
 
@@ -39,11 +38,11 @@ regexp[Symbol.search](str)
 
 ### Rückgabewert
 
-Der Index des ersten Treffers zwischen dem regulären Ausdruck und dem angegebenen String oder `-1`, falls kein Treffer gefunden wurde.
+Der Index des ersten Treffers zwischen dem regulären Ausdruck und dem gegebenen String oder `-1`, wenn kein Treffer gefunden wurde.
 
 ## Beschreibung
 
-Diese Methode wird intern in {{jsxref("String.prototype.search()")}} aufgerufen. Zum Beispiel liefern die folgenden beiden Beispiele dasselbe Ergebnis.
+Diese Methode wird intern in {{jsxref("String.prototype.search()")}} aufgerufen. Zum Beispiel liefern die folgenden zwei Beispiele dasselbe Ergebnis.
 
 ```js
 "abc".search(/a/);
@@ -51,7 +50,7 @@ Diese Methode wird intern in {{jsxref("String.prototype.search()")}} aufgerufen.
 /a/[Symbol.search]("abc");
 ```
 
-Im Gegensatz zu [`[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) oder [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) kopiert diese Methode den regulären Ausdruck nicht. Allerdings setzt sie – anders als [`[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) oder [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace) – [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) bei Beginn der Ausführung auf 0 zurück und stellt diesen Wert beim Verlassen auf den vorherigen Wert wieder her, wodurch Nebeneffekte generell vermieden werden. Das bedeutet, dass das `g`-Flag mit dieser Methode keine Wirkung hat und immer der erste Treffer im String zurückgegeben wird, selbst wenn `lastIndex` ungleich null ist. Dies bedeutet auch, dass sticky RegExps stets streng am Anfang des Strings suchen.
+Diese Methode kopiert den regulären Ausdruck nicht, anders als [`[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) oder [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll). Allerdings, im Gegensatz zu [`[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) oder [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace), wird es [`lastIndex`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex) auf 0 setzen, wenn die Ausführung beginnt, und es auf den vorherigen Wert zurücksetzen, wenn es endet, um so im Allgemeinen Nebeneffekte zu vermeiden. Dies bedeutet, dass das `g`-Flag keine Auswirkung mit dieser Methode hat und es immer den ersten Treffer im String zurückgibt, selbst wenn `lastIndex` ungleich null ist. Dies bedeutet auch, dass sticky reguläre Ausdrücke immer strikt am Anfang des Strings suchen werden.
 
 ```js
 const re = /[abc]/g;
@@ -64,15 +63,15 @@ console.log("abc".search(re2)); // -1
 console.log("abc".match(re2)); // [ 'b' ]
 ```
 
-`[Symbol.search]()` ruft immer die [`exec()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)-Methode des regulären Ausdrucks genau einmal auf und gibt die `index`-Eigenschaft des Ergebnisses zurück, oder `-1`, wenn das Ergebnis `null` ist.
+`[Symbol.search]()` ruft immer genau einmal die `exec()`-Methode des regulären Ausdrucks auf und gibt die `index`-Eigenschaft des Ergebnisses zurück, oder `-1`, wenn das Ergebnis `null` ist.
 
-Diese Methode dient der Anpassung des Suchverhaltens in Unterklassen von `RegExp`.
+Diese Methode existiert, um das Suchverhalten in `RegExp`-Subklassen anzupassen.
 
 ## Beispiele
 
 ### Direkter Aufruf
 
-Diese Methode kann fast auf dieselbe Weise wie {{jsxref("String.prototype.search()")}} verwendet werden, mit Ausnahme des unterschiedlichen Wertes von `this` und der anderen Reihenfolge der Argumente.
+Diese Methode kann fast auf dieselbe Weise verwendet werden wie {{jsxref("String.prototype.search()")}}, abgesehen vom unterschiedlichen Wert von `this` und der unterschiedlichen Reihenfolge der Argumente.
 
 ```js
 const re = /-/g;
@@ -81,9 +80,9 @@ const result = re[Symbol.search](str);
 console.log(result); // 4
 ```
 
-### Verwendung von `[Symbol.search]()` in Unterklassen
+### Verwendung von `[Symbol.search]()` in Subklassen
 
-Unterklassen von {{jsxref("RegExp")}} können die `[Symbol.search]()`-Methode überschreiben, um das Verhalten zu modifizieren.
+Subklassen von {{jsxref("RegExp")}} können die `[Symbol.search]()`-Methode überschreiben, um das Verhalten zu ändern.
 
 ```js
 class MyRegExp extends RegExp {

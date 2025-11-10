@@ -3,12 +3,14 @@ title: "URLPattern: username-Eigenschaft"
 short-title: username
 slug: Web/API/URLPattern/username
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 4535090888f24ac8394e177c27260d16a53631e6
 ---
 
-{{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
+{{APIRef("URL Pattern API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`username`**-Eigenschaft der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den Benutzernamen-Teil einer URL zu matchen. Dieser Wert kann aufgrund von Normalisierung von der Eingabe des Konstruktors abweichen.
+Die **`username`** schreibgeschützte Eigenschaft der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle ist ein String, der das [Muster](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) enthält, welches zum Abgleichen des Benutzerteil eines URL verwendet wird.
+
+Dies ist der [normalisierte Wert](/de/docs/Web/API/URL_Pattern_API#pattern_normalization) des an den [Konstruktor](/de/docs/Web/API/URLPattern/URLPattern) übergebenen Benutzernamen-Musters, oder der Standardwert (`"*"`), der mit jedem Benutzernamen übereinstimmt.
 
 ## Wert
 
@@ -16,11 +18,15 @@ Ein String.
 
 ## Beispiele
 
-Das untenstehende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `admin` für den `username`-Teil. Dieses Muster matcht nur, wenn der Benutzername-Teil der URL `admin` ist.
+### Grundlegende Verwendung
+
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `admin` für den `username`-Teil und protokolliert die Eigenschaft.
+Dieses Muster stimmt nur überein, wenn der Benutzername-Teil der URL `admin` ist.
 
 ```js
 const pattern = new URLPattern({ username: "admin" });
-console.log(pattern.username); // 'admin'
+console.log(pattern.username); // "admin"
+console.log(pattern.test("http://admin:password@example.com/")); // true
 ```
 
 ## Spezifikationen

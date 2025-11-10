@@ -3,12 +3,12 @@ title: "NavigatorUAData: mobile-Eigenschaft"
 short-title: mobile
 slug: Web/API/NavigatorUAData/mobile
 l10n:
-  sourceCommit: ea68d8f5b27af9c11247dc7d8115c0cfa6bffd1b
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`mobile`** schreibgeschützte Eigenschaft des [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Interfaces gibt einen Wert zurück, der anzeigt, ob das Gerät ein mobiles Gerät ist.
+Die schreibgeschützte **`mobile`**-Eigenschaft der [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Schnittstelle gibt einen Wert zurück, der angibt, ob das Gerät ein mobiles Gerät ist.
 
 ## Wert
 
@@ -32,4 +32,4 @@ console.log(navigator.userAgentData.mobile);
 
 ## Siehe auch
 
-- Der {{HTTPHeader("Sec-CH-UA-Mobile")}}-Header (ein [niedrig-Entropie-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleiche Information.
+- Der {{HTTPHeader("Sec-CH-UA-Mobile")}} Header (ein [niedrig-Entropie Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) enthält die gleichen Informationen.

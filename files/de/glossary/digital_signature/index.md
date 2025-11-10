@@ -1,31 +1,29 @@
 ---
-title: Digital signature
+title: Digitale Signatur
 slug: Glossary/Digital_signature
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
-
-{{GlossarySidebar}}
 
 Eine **digitale Signatur** ist ein Objekt, das verwendet werden kann, um den Autor eines Dokuments oder einer Nachricht zu {{Glossary("authentication", "authentifizieren")}}.
 
-Digitale Signaturen basieren in der Regel auf der {{Glossary("public-key_cryptography", "Public-Key-Kryptografie")}}, bei der ein Schlüssel als Paar von Schlüsseln erstellt wird. Diese haben die Eigenschaft, dass, wenn eine Eingabe mit einem Schlüssel verschlüsselt wird, sie nur mit dem anderen Schlüssel entschlüsselt werden kann, und umgekehrt.
+Digitale Signaturen basieren normalerweise auf der {{Glossary("public-key_cryptography", "Public-Key-Kryptografie")}}, bei der ein Schlüssel als Schlüsselpaar erstellt wird, mit der Eigenschaft, dass, wenn einige Eingaben mit einem Schlüssel verschlüsselt werden, sie nur mit dem anderen Schlüssel entschlüsselt werden können, und umgekehrt.
 
-Der Ersteller des Schlüsselpaares macht einen der Schlüssel öffentlich und behält den anderen geheim. Um ein Dokument zu signieren, erstellt der Eigentümer des Schlüsselpaares einen {{Glossary("hash", "Hash")}} des Dokuments und verschlüsselt ihn mit dem privaten Schlüssel.
+Der Ersteller des Schlüsselpaares macht einen der Schlüssel öffentlich und behält den anderen privat. Um ein Dokument zu signieren, erstellt der Eigentümer des Schlüsselpaares einen {{Glossary("hash_function", "Hash")}} des Dokuments und verschlüsselt ihn mit dem privaten Schlüssel.
 
-Das Dokument und die Signatur werden an den Verifizierer gesendet, der das Dokument hasht, den öffentlichen Schlüssel abruft und die Signatur entschlüsselt: Wenn dies mit dem Hash übereinstimmt, wurde die Signatur verifiziert, und der Verifizierer kann sicher sein, dass sie von einer Entität erstellt wurde, die Zugang zum privaten Schlüssel hat.
+Das Dokument und die Signatur werden an den Prüfer gesendet, der das Dokument hashiert, den öffentlichen Schlüssel abruft und die Signatur entschlüsselt: Wenn dies mit dem Hash übereinstimmt, wurde die Signatur verifiziert, und der Prüfer kann sicher sein, dass sie von einem Wesen mit Zugang zum privaten Schlüssel erstellt wurde.
 
-Die Sicherheit eines digitalen Signatursystems hängt (unter anderem) von folgenden Faktoren ab:
+Die Sicherheit eines digitalen Signatursystems hängt (unter anderem) davon ab:
 
-- Der Besitzer des privaten Schlüssels bewahrt diesen sicher auf: Wenn andere Entitäten auf den privaten Schlüssel zugreifen können, können sie den Besitzer imitieren.
+- Dass der Eigentümer des privaten Schlüssels diesen sicher aufbewahrt: Wenn andere Entitäten auf den privaten Schlüssel zugreifen können, können sie den Eigentümer imitieren.
 
-- Der vom Verifizierer verwendete öffentliche Schlüssel ist das authentische Gegenstück zum privaten Schlüssel des Besitzers: Wenn ein Angreifer den Verifizierer dazu bringen könnte, einem falschen öffentlichen Schlüssel zu vertrauen, könnten sie den Besitzer imitieren.
+- Dass der vom Prüfer verwendete öffentliche Schlüssel das echte Gegenstück zum privaten Schlüssel des Eigentümers ist: Wenn ein Angreifer den Prüfer dazu bringen könnte, dem falschen öffentlichen Schlüssel zu vertrauen, könnten sie den Eigentümer imitieren.
 
-Verifizierer verwenden oft {{Glossary("digital_certificate", "digitale Zertifikate")}}, um zu überprüfen, ob öffentliche Schlüssel echt sind.
+Prüfer verwenden oft {{Glossary("digital_certificate", "digitale Zertifikate")}}, um zu überprüfen, dass öffentliche Schlüssel echt sind.
 
 ## Siehe auch
 
-- Verwandte Begriffe im Glossar:
+- Verwandte Glossarbegriffe:
   - {{Glossary("Digital_certificate", "Digitales Zertifikat")}}
-  - {{Glossary("Hash", "Hash")}}
+  - {{Glossary("Hash_function", "Hash-Funktion")}}
   - {{Glossary("Public-key_cryptography", "Public-Key-Kryptografie")}}

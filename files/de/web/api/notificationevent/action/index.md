@@ -3,16 +3,16 @@ title: "NotificationEvent: action-Eigenschaft"
 short-title: action
 slug: Web/API/NotificationEvent/action
 l10n:
-  sourceCommit: 28848ba41c082db2a8c55e85c804bd06363afb57
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Die **`action`**-Eigenschaft des schreibgeschützten [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Interfaces gibt die Zeichenfolgen-ID des Benachrichtigungsbuttons zurück, den der Benutzer geklickt hat. Dieser Wert gibt eine leere Zeichenfolge zurück, wenn der Benutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsbutton geklickt hat oder die Benachrichtigung keinen Button hat. Die Benachrichtigungs-ID wird während der Erstellung der Notification über das actions-Array-Attribut gesetzt und kann nicht geändert werden, es sei denn, die Benachrichtigung wird ersetzt.
+Die schreibgeschützte **`action`**-Eigenschaft des [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Interfaces gibt die String-ID des Benachrichtigungsknopfes zurück, den der Benutzer angeklickt hat. Dieser Wert gibt einen leeren String zurück, wenn der Benutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsknopf angeklickt hat oder die Benachrichtigung keinen Knopf hat. Die Benachrichtigungs-ID wird während der Erstellung der Benachrichtigung über das actions-Array-Attribut festgelegt und kann nicht geändert werden, es sei denn, die Benachrichtigung wird ersetzt.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Beispiele
 
@@ -21,18 +21,14 @@ self.registration.showNotification("New articles available", {
   actions: [{ action: "get", title: "Get now." }],
 });
 
-self.addEventListener(
-  "notificationclick",
-  (event) => {
-    event.notification.close();
-    if (event.action === "get") {
-      synchronizeReader();
-    } else {
-      clients.openWindow("/reader");
-    }
-  },
-  false,
-);
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  if (event.action === "get") {
+    synchronizeReader();
+  } else {
+    clients.openWindow("/reader");
+  }
+});
 ```
 
 ## Spezifikationen

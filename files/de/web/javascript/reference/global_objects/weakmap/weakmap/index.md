@@ -1,13 +1,12 @@
 ---
-title: WeakMap() Konstruktor
+title: WeakMap()-Konstruktor
+short-title: WeakMap()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/WeakMap
 l10n:
-  sourceCommit: d4ea77f1c9e15e472e484d9561319597c5cce716
+  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
 ---
 
-{{JSRef}}
-
-Der **`WeakMap()`** Konstruktor erstellt {{jsxref("WeakMap")}} Objekte.
+Der **`WeakMap()`**-Konstruktor erstellt {{jsxref("WeakMap")}}-Objekte.
 
 ## Syntax
 
@@ -16,12 +15,13 @@ new WeakMap()
 new WeakMap(iterable)
 ```
 
-> **Note:** `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> [!NOTE]
+> `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable`
-  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zweielementiges array-ähnliches Objekt erzeugt, dessen erstes Element ein Wert ist, der als `WeakMap`-Schlüssel verwendet wird, und dessen zweites Element der Wert ist, der diesem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
+  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-elementiges array-ähnliches Objekt produziert, dessen erstes Element ein Wert ist, der als `WeakMap`-Schlüssel verwendet wird und dessen zweites Element der Wert ist, der diesem Schlüssel zugeordnet wird. Jedes Schlüssel-Wert-Paar wird der neuen `WeakMap` hinzugefügt. `null` wird als `undefined` behandelt.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ const wm1 = new WeakMap();
 const wm2 = new WeakMap();
 const wm3 = new WeakMap();
 const o1 = {};
-const o2 = function () {};
+const o2 = () => {};
 const o3 = window;
 
 wm1.set(o1, 37);
@@ -69,7 +69,6 @@ wm1.has(o1); // false
 
 - [Polyfill von `WeakMap` in `core-js`](https://github.com/zloirock/core-js#weakmap)
 - [`WeakMap` im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
-- [Verbergen von Implementierungsdetails mit ECMAScript 6 WeakMaps](https://fitzgen.com/2014/01/13/hiding-implementation-details-with-e6-weakmaps.html)
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}
 - {{jsxref("WeakSet")}}

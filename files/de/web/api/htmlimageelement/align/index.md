@@ -3,42 +3,36 @@ title: "HTMLImageElement: align-Eigenschaft"
 short-title: align
 slug: Web/API/HTMLImageElement/align
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die _veraltete_ **`align`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ist ein String, der angibt, wie das Bild relativ zu seinem Container positioniert werden soll.
+Die _veraltete_ **`align`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ist ein String, der angibt, wie das Bild relativ zu seinem Container positioniert wird. Sie spiegelt das [`align`](/de/docs/Web/HTML/Reference/Elements/img#align)-Inhaltsattribut des `<img>`-Elements wider.
 
-Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("vertical-align")}} verwenden, die tatsächlich auch bei Bildern funktioniert, obwohl der Name dies nicht nahelegt. Sie können auch die CSS-Eigenschaft {{cssxref("float")}} verwenden, um das Bild an den linken oder rechten Rand zu verschieben.
-
-Die `align`-Eigenschaft spiegelt das HTML-Attribut [`align`](/de/docs/Web/HTML/Element/img#align) wider.
+Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("vertical-align")}} verwenden, die tatsächlich auch bei Bildern funktioniert, trotz ihres Namens. Sie können auch die {{cssxref("float")}}-Eigenschaft verwenden, um das Bild an den linken oder rechten Rand zu schweben.
 
 ## Wert
 
-Ein String, der eine der folgenden Zeichenfolgen angibt, welche den Ausrichtungsmodus für das Bild festlegen.
+Ein String, dessen Wert `top`, `middle`, `bottom`, `left` oder `right` ist. Für ihre Bedeutungen siehe die HTML-Referenz zu [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#align).
 
-### Basislinienausrichtung
+## Beispiele
 
-Diese drei Werte geben die Ausrichtung des Elements relativ zur Textbasislinie an. Diese sollten durch die Verwendung der CSS-Eigenschaft {{cssxref("vertical-align")}} ersetzt werden.
+### Die align-Eigenschaft setzen
 
-- `bottom`
-  - : Die untere Kante des Bildes soll vertikal mit der aktuellen Textbasislinie ausgerichtet werden. **Standardwert.**
-- `middle`
-  - : Die Mitte des Objekts soll vertikal mit der aktuellen Basislinie ausgerichtet werden.
-- `top`
-  - : Die obere Kante des Objekts soll vertikal mit der aktuellen Basislinie ausgerichtet werden.
+```js example-bad
+const img = new Image();
+img.src = "example.png";
+img.align = "top";
+```
 
-Es ist erwähnenswert, dass {{cssxref("vertical-align")}} mehrere zusätzliche Optionen für seinen Wert bietet; Sie sollten diese in Betracht ziehen, wenn Sie Ihren Code ändern, um sie zu verwenden.
+Statt die veraltete `align`-Eigenschaft zu nutzen, sollten Sie erwägen, die CSS-Eigenschaft `vertical-align` zu setzen:
 
-### Bilder horizontal flottierend
-
-Die Eigenschaften `left` und `right` beeinflussen nicht die basislinienbezogene Ausrichtung. Stattdessen bewirken sie, dass das Bild zum linken oder rechten Rand "schwebt", sodass der nachfolgende Text um das Bild herumfließen kann. Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("float")}} verwenden, wobei der Wert entweder `left` oder `right` angegeben wird.
-
-- `left`
-  - : Lässt das Bild "schweben", um die linke Kante bündig am aktuellen Rand zu platzieren. Jeglicher folgende Text wird entlang der rechten Kante des Bildes fließen.
-- `right`
-  - : Lässt das Bild "schweben", um seine rechte Kante bündig am rechten Rand zu platzieren. Nachfolgender Text wird entlang der linken Kante des Bildes fließen.
+```js example-good
+const img = new Image();
+img.src = "example.png";
+img.style.verticalAlign = "top";
+```
 
 ## Spezifikationen
 

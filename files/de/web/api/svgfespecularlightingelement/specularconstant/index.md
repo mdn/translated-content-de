@@ -3,12 +3,12 @@ title: "SVGFESpecularLightingElement: specularConstant-Eigenschaft"
 short-title: specularConstant
 slug: Web/API/SVGFESpecularLightingElement/specularConstant
 l10n:
-  sourceCommit: 85890fba7b6213df8f159e400f0a639779e3dff4
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`specularConstant`**-Schreibgeschützte Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Schnittstelle spiegelt das {{SVGAttr("specularConstant")}}-Attribut des angegebenen {{SVGElement("feSpecularLighting")}}-Elements wider.
+Die schreibgeschützte **`specularConstant`**-Eigenschaft der [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)-Schnittstelle spiegelt das {{SVGAttr("specularConstant")}}-Attribut des angegebenen {{SVGElement("feSpecularLighting")}}-Elements wider.
 
 ## Wert
 
@@ -36,7 +36,7 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
     y="20"
     width="100"
     height="100"
-    style="fill:lightblue;"
+    fill="lightblue"
     filter="url(#specularLightingFilter)" />
 </svg>
 ```

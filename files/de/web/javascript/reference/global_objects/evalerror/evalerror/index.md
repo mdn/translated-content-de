@@ -1,13 +1,12 @@
 ---
-title: EvalError() Konstruktor
+title: Konstruktor EvalError()
+short-title: EvalError()
 slug: Web/JavaScript/Reference/Global_Objects/EvalError/EvalError
 l10n:
-  sourceCommit: 6558de67a347fee30c303da8a0b262a9270a6885
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Der **`EvalError()`** Konstruktor erstellt {{jsxref("EvalError")}} Objekte.
+Der **`EvalError()`**-Konstruktor erstellt {{jsxref("EvalError")}}-Objekte.
 
 ## Syntax
 
@@ -25,17 +24,17 @@ EvalError(message, fileName)
 EvalError(message, fileName, lineNumber)
 ```
 
-> **Note:** `EvalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `EvalError` Instanz.
+> [!NOTE]
+> `EvalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `EvalError`-Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Menschlich lesbare Beschreibung des Fehlers.
+  - : Eine für Menschen lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften besitzt:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die den spezifischen Grund des Fehlers angibt. Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler zu übergeben, wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -43,9 +42,9 @@ EvalError(message, fileName, lineNumber)
 
 ## Beispiele
 
-`EvalError` wird in der aktuellen ECMAScript-Spezifikation nicht verwendet und wird daher nicht von der Laufzeitumgebung ausgelöst. Das Objekt selbst bleibt jedoch aus Gründen der Abwärtskompatibilität mit früheren Versionen der Spezifikation bestehen.
+`EvalError` wird in der aktuellen ECMAScript-Spezifikation nicht verwendet und wird daher nicht zur Laufzeit ausgelöst. Das Objekt selbst bleibt jedoch aus Gründen der Rückwärtskompatibilität mit früheren Versionen der Spezifikation bestehen.
 
-### Erstellen eines EvalError
+### Ein EvalError erstellen
 
 ```js
 try {

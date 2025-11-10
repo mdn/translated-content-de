@@ -3,38 +3,36 @@ title: "Event: eventPhase-Eigenschaft"
 short-title: eventPhase
 slug: Web/API/Event/eventPhase
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`eventPhase`**-Eigenschaft des
-[`Event`](/de/docs/Web/API/Event)-Interfaces gibt an, welche Phase des Ereignisflusses derzeit
-ausgewertet wird.
+Die schreibgeschützte **`eventPhase`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt an, welche Phase des Ereignisflusses derzeit ausgewertet wird.
 
 ## Wert
 
 Gibt einen ganzzahligen Wert zurück, der die aktuelle Auswertungsphase des Ereignisflusses angibt. Mögliche Werte sind:
 
 - `Event.NONE` (0)
-  - : Das Ereignis wird derzeit nicht verarbeitet.
+  - : Das Ereignis wird zu diesem Zeitpunkt nicht verarbeitet.
 - `Event.CAPTURING_PHASE` (1)
-  - : Das Ereignis wird durch die übergeordneten Objekte des Ziels propagiert.
-    Dieser Prozess beginnt mit dem [`Window`](/de/docs/Web/API/Window), dann [`Document`](/de/docs/Web/API/Document),
+  - : Das Ereignis wird durch die Vorfahrenobjekte des Ziels weitergeleitet.
+    Dieser Prozess beginnt mit dem [`Window`](/de/docs/Web/API/Window), dann dem [`Document`](/de/docs/Web/API/Document),
     dann dem [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement) und so weiter durch die Elemente,
-    bis das übergeordnete Element des Ziels erreicht ist.
-    [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener),
-    die für den Capture-Modus registriert wurden, als [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen wurde, werden in dieser Phase ausgelöst.
+    bis der Elternteil des Ziels erreicht wird.
+    [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener),
+    die im Capture-Modus registriert wurden, als [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen wurde, werden in dieser Phase ausgelöst.
 - `Event.AT_TARGET` (2)
-  - : Das Ereignis ist bei
-    [dem Ziel des Ereignisses](/de/docs/Web/API/EventTarget) angekommen.
-    In dieser Phase werden die registrierten Event-Listener aufgerufen. Wenn
-    [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `false` ist, wird die
-    Verarbeitung des Ereignisses nach Abschluss dieser Phase beendet.
+  - : Das Ereignis hat [das Ziel des Ereignisses](/de/docs/Web/API/EventTarget) erreicht.
+    Ereignis-Listener, die für diese Phase registriert wurden, werden zu diesem Zeitpunkt aufgerufen. Wenn
+    [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `false` ist, wird die Verarbeitung
+    nach Abschluss dieser Phase beendet.
 - `Event.BUBBLING_PHASE` (3)
-  - : Das Ereignis propagiert sich in umgekehrter Reihenfolge wieder durch die Vorfahren des Ziels nach oben,
-    beginnend mit dem übergeordneten Element, und erreicht schließlich das umgebende [`Window`](/de/docs/Web/API/Window).
-    Dies ist bekannt als _Bubbling_ und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `true` ist. [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener) registriert für diese Phase werden während dieses Prozesses ausgelöst.
+  - : Das Ereignis wird in umgekehrter Reihenfolge wieder zurück durch die Vorfahren des Ziels propagiert,
+    beginnend mit dem Elternteil und schließlich das umgebende [`Window`](/de/docs/Web/API/Window) erreicht.
+    Dies ist als _Bubbling_ bekannt und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `true` ist.
+    [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener), die für diese Phase registriert wurden, werden während dieses Prozesses ausgelöst.
 
 ## Beispiel
 
@@ -85,22 +83,17 @@ div {
 
 ```js
 let clear = false;
-let divInfo = null;
-let divs = null;
-let chCapture = null;
+const divInfo = document.getElementById("divInfo");
+const divs = document.getElementsByTagName("div");
+const chCapture = document.getElementById("chCapture");
 
-window.onload = () => {
-  divInfo = document.getElementById("divInfo");
-  divs = document.getElementsByTagName("div");
-  chCapture = document.getElementById("chCapture");
-  chCapture.onclick = () => {
-    removeListeners();
-    addListeners();
-    clearDivs();
-  };
-  clearDivs();
+chCapture.addEventListener("click", () => {
+  removeListeners();
   addListeners();
-};
+  clearDivs();
+});
+clearDivs();
+addListeners();
 
 function removeListeners() {
   for (const div of divs) {

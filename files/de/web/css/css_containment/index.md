@@ -1,17 +1,15 @@
 ---
-title: CSS-Kontainment
+title: CSS-Kontainierung
 slug: Web/CSS/CSS_containment
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-{{CSSRef}}
+Das **CSS containment** Modul definiert Containment und Containerabfragen.
 
-Das Modul **CSS Containment** definiert Kontainment und Containerabfragen.
+Containment ermöglicht die Isolierung von Seitenunterbäumen vom Rest des DOM. Der Browser kann dann die Leistung verbessern, indem er das Rendering dieser unabhängigen Teile optimiert.
 
-Kontainment ermöglicht die Isolation von Teilbäumen einer Seite vom Rest des DOM. Dadurch kann der Browser die Leistung verbessern, indem die Darstellung dieser unabhängigen Teile optimiert wird.
-
-Containerabfragen ähneln Dimensionen-[Media Queries](/de/docs/Web/CSS/CSS_media_queries), mit dem Unterschied, dass die Abfragen auf den Abmessungen eines spezifischen Containerelements basieren, das als _Kontainment-Kontext_ definiert ist, anstatt auf den Abmessungen des Viewports. Containerabfragen ermöglichen es, die Größe, Eigenschaften und Eigenschaftswerte eines Containers abzufragen, um bedingt CSS-Stile anzuwenden. Beim Anwenden dieser bedingten Stile können Sie Längeneinheiten von Containerabfragen verwenden, die Längen relativ zu den Abmessungen des Abfragecontainers angeben. Zusätzliche Eigenschaften sind definiert, um ein spezifisches Element als Abfragecontainer festzulegen und ihm einen spezifischen Namen zu geben.
+Containerabfragen ähneln [Media Queries](/de/docs/Web/CSS/Guides/Media_queries), außer dass die Abfragen auf den Abmessungen eines spezifischen Containerelements basieren, das als _Containment-Kontext_ definiert ist, anstatt auf den Abmessungen des Viewports. Containerabfragen ermöglichen es, die Größe, Eigenschaften und Eigenschaftswerte eines Containers abzufragen, um bedingt CSS-Stile anzuwenden. Beim Anwenden dieser bedingten Stile können Sie Längeneinheiten für Containerabfragen verwenden, die Längen relativ zu den Dimensionen des Abfragecontainers angeben. Zusätzliche Eigenschaften sind definiert, um ein spezifisches Element als Abfragecontainer zu etablieren und ihm einen spezifischen Namen zu geben.
 
 ## Referenz
 
@@ -34,56 +32,47 @@ Containerabfragen ähneln Dimensionen-[Media Queries](/de/docs/Web/CSS/CSS_media
 
 ## Leitfäden
 
-- [CSS-Containerabfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [CSS-Containerabfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+  - : Ein Leitfaden zur Verwendung von Containerabfragen mit `@container`, einschließlich der Benennung von Containment-Kontexten.
 
-  - : Ein Leitfaden zur Verwendung von Containerabfragen mit `@container`, einschließlich der Benennung von Kontainment-Kontexten.
+- [Verwendung von CSS-Kontainierung](/de/docs/Web/CSS/Guides/Containment/Using)
+  - : Beschreibt die grundlegenden Ziele der CSS-Kontainierung und wie `contain` und `content-visibility` für eine bessere Benutzererfahrung genutzt werden können.
 
-- [Verwendung von CSS-Kontainment](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment)
-
-  - : Beschreibt die grundlegenden Ziele von CSS-Kontainment und wie `contain` und `content-visibility` für eine bessere Benutzererfahrung genutzt werden können.
-
-- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-
-  - : Ein Leitfaden zum Schreiben von Containergrößen- und Stilabfragen mit `@container`, einschließlich Stilabfragen für benutzerdefinierte Eigenschaften, Abfragesyntax und Namen sowie verschachtelte Containerabfragen.
+- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+  - : Ein Leitfaden zum Schreiben von Containergrößen- und Stilabfragen mit `@container`, einschließlich Stilabfragen für benutzerdefinierte Eigenschaften, Abfragesyntax und -namen sowie verschachtelte Containerabfragen.
 
 ## Verwandte Konzepte
 
-- [Layout und der enthaltende Block](/de/docs/Web/CSS/CSS_display/Containing_block)
-- [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
+- [Layout und das umgebende Blockelement](/de/docs/Web/CSS/Guides/Display/Containing_block)
+- [Blockformatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
 
-- [CSS-Bedingungsregeln](/de/docs/Web/CSS/CSS_conditional_rules) Modul
-
-  - {{cssxref("@container")}} at-rule
+- [CSS-Bedingte Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
+  - {{cssxref("@container")}} At-Regel
   - {{CSSxRef("container")}} Eigenschaft
   - {{CSSxRef("container-name")}} Eigenschaft
   - {{CSSxRef("container-type")}} Eigenschaft
 
-- [CSS-Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS-Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
+  - {{cssxref("@media")}} At-Regel
+  - [CSS-logische Operatoren](/de/docs/Web/CSS/Reference/At-rules/@media#logical_operators) (`not`, `or` und `and`)
 
-  - {{cssxref("@media")}} at-rule
-  - [CSS-logische Operatoren](/de/docs/Web/CSS/@media#logical_operators) (`not`, `or` und `and`)
-
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
-
-  - {{cssxref("@starting-style")}} at-rule
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul
+  - {{cssxref("@starting-style")}} At-Regel
   - {{cssxref("transition-behavior")}} Eigenschaft
 
-- [CSS-Box-Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
-
+- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_sizing) Modul
   - {{CSSxRef("aspect-ratio")}} Eigenschaft
   - {{cssxref("contain-intrinsic-size")}} Kurzschreibweise
   - {{CSSxRef("contain-intrinsic-inline-size")}} Eigenschaft
-  - {{CSSxRef("contain-intrinsic-size")}} Eigenschaft
+  - {{CSSxRef("contain-intrinsic-block-size")}} Eigenschaft
   - {{CSSxRef("contain-intrinsic-width")}} Eigenschaft
   - {{CSSxRef("contain-intrinsic-height")}} Eigenschaft
 
-- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+  - [Verwendung von CSS-Zählern](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) Leitfaden
 
-  - [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) Leitfaden
-
-- [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) Modul
-
-  - [CSS-Verschachtelungsregeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules) Leitfaden
+- [CSS-Verschachtelung](/de/docs/Web/CSS/Guides/Nesting) Modul
+  - [CSS-Verschachtelungs-At-Rules](/de/docs/Web/CSS/Guides/Nesting/At-rules) Leitfaden
 
 ## Spezifikationen
 
@@ -91,7 +80,7 @@ Containerabfragen ähneln Dimensionen-[Media Queries](/de/docs/Web/CSS/CSS_media
 
 ## Siehe auch
 
-- [Verwendung von Feature Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
-- [Verwendung von CSS-Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-- {{cssxref("@supports")}} at-rule
+- [Verwendung von Feature-Queries](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries)
+- [Verwendung von CSS-Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+- {{cssxref("@supports")}} At-Regel

@@ -1,20 +1,20 @@
 ---
-title: "URL: port-Eigenschaft"
+title: "URL: port Eigenschaft"
 short-title: port
 slug: Web/API/URL/port
 l10n:
-  sourceCommit: 8cc63f7e6619446ea38f6a38c457a597a9af564b
+  sourceCommit: cdb09c75dc0f1f263d33c2c8163bf70c47c65722
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`port`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist eine Zeichenkette, die die Portnummer der URL enthält. Wenn der Port der Standardport für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:`, und `21` für `ftp:`), enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Die **`port`** Eigenschaft der Schnittstelle [`URL`](/de/docs/Web/API/URL) ist ein Zeichenfolgenwert, der die Portnummer der URL enthält. Wenn der Port der Standardwert für das Protokoll ist (`80` für `ws:` und `http:`, `443` für `wss:` und `https:`, und `21` für `ftp:`), enthält diese Eigenschaft eine leere Zeichenfolge, `""`.
 
-Diese Eigenschaft kann gesetzt werden, um den Port der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/URL/host) hat oder das Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Wirkung. Ungültige Portnummern werden ebenfalls stillschweigend ignoriert.
+Diese Eigenschaft kann gesetzt werden, um den Port der URL zu ändern. Wenn die URL keinen [`host`](/de/docs/Web/API/URL/host) hat oder ihr Schema `file:` ist, hat das Setzen dieser Eigenschaft keine Auswirkung. Ungültige Portnummern werden stillschweigend ignoriert.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ new URL("http://example.com:80/svn/Repos/").port; // '' (empty string)
 // https protocol with no explicit port number
 new URL("https://example.com/svn/Repos/").port; // '' (empty string)
 // http protocol with no explicit port number
-new URL("https://example.com/svn/Repos/").port; // '' (empty string)
+new URL("http://example.com/svn/Repos/").port; // '' (empty string)
 // ftp protocol with non-default port number
 new URL("ftp://example.com:221/svn/Repos/").port; // '221'
 // ftp protocol with default port number
@@ -47,4 +47,4 @@ new URL("ftp://example.com:21/svn/Repos/").port; // '' (empty string)
 
 ## Siehe auch
 
-- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.
+- Die [`URL`](/de/docs/Web/API/URL) Schnittstelle, zu der sie gehört.

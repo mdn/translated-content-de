@@ -3,14 +3,14 @@ title: "Window: clearTimeout() Methode"
 short-title: clearTimeout()
 slug: Web/API/Window/clearTimeout
 l10n:
-  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`clearTimeout()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle hebt ein Timeout auf, das zuvor durch Aufruf von [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) festgelegt wurde.
+Die **`clearTimeout()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle bricht einen zuvor durch einen Aufruf von [`Window.setTimeout()`](/de/docs/Web/API/Window/setTimeout) gesetzten Timeout ab.
 
-Wenn der übergebene Parameter keine zuvor festgelegte Aktion identifiziert, führt diese Methode nichts aus.
+Wenn der angegebene Parameter keine zuvor festgelegte Aktion identifiziert, hat diese Methode keine Auswirkung.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ clearTimeout(timeoutID)
 ### Parameter
 
 - `timeoutID`
-  - : Der Bezeichner des Timeouts, das Sie abbrechen möchten. Diese ID wurde vom entsprechenden Aufruf von `setTimeout()` zurückgegeben.
+  - : Die Kennung des Timeouts, die Sie abbrechen möchten. Diese ID wurde durch den entsprechenden Aufruf von `setTimeout()` zurückgegeben.
 
-Es ist erwähnenswert, dass der Pool von IDs, die von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`setInterval()`](/de/docs/Web/API/Window/setInterval) verwendet werden, geteilt wird, was bedeutet, dass Sie `clearTimeout()` und [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) technisch austauschbar verwenden können. Zur Klarheit sollten Sie dies jedoch vermeiden.
+Es ist erwähnenswert, dass der Pool von IDs, der von [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) und [`setInterval()`](/de/docs/Web/API/Window/setInterval) verwendet wird, gemeinsam genutzt wird, was bedeutet, dass Sie technisch gesehen `clearTimeout()` und [`clearInterval()`](/de/docs/Web/API/Window/clearInterval) austauschbar verwenden können. Aus Gründen der Klarheit sollten Sie dies allerdings vermeiden.
 
 ### Rückgabewert
 
@@ -31,12 +31,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Führen Sie das unten stehende Skript im Kontext einer Webseite aus und klicken Sie einmal auf die Seite. Sie werden sehen, dass nach einer Sekunde eine Nachricht angezeigt wird. Wenn Sie die Seite innerhalb einer Sekunde mehrmals anklicken, erscheint der Alarm nur einmal.
+Führen Sie das folgende Skript im Kontext einer Webseite aus und klicken Sie einmal auf die Seite. Sie werden sehen, dass eine Nachricht nach einer Sekunde erscheint. Wenn Sie innerhalb einer Sekunde mehrmals auf die Seite klicken, erscheint der Alarm nur einmal.
 
 ```js
 const alarm = {
-  remind(aMessage) {
-    alert(aMessage);
+  remind(message) {
+    alert(message);
     this.timeoutID = undefined;
   },
 
@@ -63,7 +63,7 @@ window.addEventListener("click", () => alarm.setup());
 
 ## Hinweise
 
-Das Übergeben einer ungültigen ID an `clearTimeout()` bewirkt stillschweigend nichts; es wird keine Ausnahme ausgelöst.
+Das Übergeben einer ungültigen ID an `clearTimeout()` hat keine Wirkung; es wird keine Ausnahme ausgelöst.
 
 ## Spezifikationen
 

@@ -1,13 +1,12 @@
 ---
 title: Symbol.prototype.description
+short-title: description
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/description
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`description`** Accessor-Eigenschaft von {{jsxref("Symbol")}}-Werten gibt einen String zurück, der die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
+Die **`description`**-Zugriffs-Eigenschaft von {{jsxref("Symbol")}}-Werten gibt eine Zeichenfolge zurück, die die Beschreibung dieses Symbols enthält, oder `undefined`, wenn das Symbol keine Beschreibung hat.
 
 {{InteractiveExample("JavaScript Demo: Symbol.prototype.description")}}
 
@@ -27,11 +26,11 @@ console.log(`${Symbol("foo").description}bar`);
 
 ## Beschreibung
 
-{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debuggen verwendet werden kann, jedoch nicht, um auf das Symbol selbst zuzugreifen. Die Eigenschaft `Symbol.prototype.description` kann verwendet werden, um diese Beschreibung auszulesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht die einschließende Zeichenkette `"Symbol()"` enthält. Siehe die Beispiele.
+{{jsxref("Symbol")}}-Objekte können mit einer optionalen Beschreibung erstellt werden, die zum Debuggen verwendet werden kann, aber nicht, um auf das Symbol selbst zuzugreifen. Die Eigenschaft `Symbol.prototype.description` kann verwendet werden, um diese Beschreibung zu lesen. Sie unterscheidet sich von `Symbol.prototype.toString()`, da sie nicht die umschließende Zeichenfolge `"Symbol()"` enthält. Siehe die Beispiele.
 
 ## Beispiele
 
-### Verwendung der Beschreibung
+### Nutzung der description
 
 ```js
 Symbol("desc").toString(); // "Symbol(desc)"
@@ -59,4 +58,5 @@ Symbol.for("foo").description; // "foo"
 ## Siehe auch
 
 - [Polyfill von `Symbol.prototype.description` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [es-shims Polyfill von `Symbol.prototype.description`](https://www.npmjs.com/package/symbol.prototype.description)
 - {{jsxref("Symbol.prototype.toString()")}}

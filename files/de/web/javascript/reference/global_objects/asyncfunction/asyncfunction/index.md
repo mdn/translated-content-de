@@ -1,21 +1,20 @@
 ---
-title: AsyncFunction() Konstruktor
+title: AsyncFunction()-Konstruktor
+short-title: AsyncFunction()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncFunction/AsyncFunction
 l10n:
-  sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Der **`AsyncFunction()`**-Konstruktor erstellt {{jsxref("AsyncFunction")}}-Objekte.
 
-Der **`AsyncFunction()`** Konstruktor erstellt {{jsxref("AsyncFunction")}} Objekte.
-
-Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
+Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit folgendem Code erhalten werden:
 
 ```js
 const AsyncFunction = async function () {}.constructor;
 ```
 
-Der `AsyncFunction()` Konstruktor ist nicht dafür vorgesehen, direkt genutzt zu werden, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnten Vorbehalte gelten auch für `AsyncFunction()`.
+Der `AsyncFunction()`-Konstruktor ist nicht dafür vorgesehen, direkt verwendet zu werden, und alle Einschränkungen, die in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnt werden, gelten auch für `AsyncFunction()`.
 
 ## Syntax
 
@@ -31,7 +30,8 @@ AsyncFunction(arg1, arg2, functionBody)
 AsyncFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **Note:** `AsyncFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `AsyncFunction` Instanz.
+> [!NOTE]
+> `AsyncFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Methoden erstellen eine neue Instanz von `AsyncFunction`.
 
 ### Parameter
 
@@ -39,7 +39,7 @@ Siehe {{jsxref("Function/Function", "Function()")}}.
 
 ## Beispiele
 
-### Erstellen einer asynchronen Funktion mit einem AsyncFunction() Konstruktor
+### Erstellen einer asynchronen Funktion aus einem AsyncFunction()-Konstruktor
 
 ```js
 function resolveAfter2Seconds(x) {
@@ -74,5 +74,5 @@ fn(10, 20).then((v) => {
 ## Siehe auch
 
 - [`async function`](/de/docs/Web/JavaScript/Reference/Statements/async_function)
-- [`async function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function)
-- [`Function()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
+- [`async function` expression](/de/docs/Web/JavaScript/Reference/Operators/async_function)
+- [`Function()` constructor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)

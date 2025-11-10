@@ -3,23 +3,23 @@ title: "HTMLMediaElement: error Ereignis"
 short-title: error
 slug: Web/API/HTMLMediaElement/error_event
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`error`** Ereignis wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte (zum Beispiel ein Problem mit der Netzwerkverbindung).
+Das **`error`** Ereignis wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte (zum Beispiel bei einem Netzwerkverbindungsproblem).
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht nach oben weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignisweitergabe aus.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("error", (event) => {});
+```js-nolint
+addEventListener("error", (event) => { })
 
-onerror = (event) => {};
+onerror = (event) => { }
 ```
 
 ## Ereignistyp

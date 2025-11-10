@@ -1,15 +1,14 @@
 ---
-title: "CharacterData: before()-Methode"
+title: "CharacterData: before() Methode"
 short-title: before()
 slug: Web/API/CharacterData/before
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("DOM")}}
 
-Die **`before()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
-fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten und Zeichenfolgen in die Kindliste des Elternelements der `CharacterData` ein, direkt vor dem `CharacterData`-Knoten.
+Die **`before()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten und Zeichenfolgen in die Kindliste des Elternteils der `CharacterData` just vor dem `CharacterData` Knoten ein.
 
 Zeichenfolgen werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenfolge wird als Argument an den [`Text()`](/de/docs/Web/API/Text/Text)-Konstruktor übergeben.
 
@@ -24,18 +23,22 @@ before(...nodes)
 - `nodes`
   - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
+### Rückgabewert
+
+Keiner ({{jsxref("undefined")}}).
+
 ### Ausnahmen
 
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die neuen Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden können, d.h. wenn eine der folgenden Bedingungen erfüllt ist:
-    - Wenn das Einfügen eines der hinzugefügten Knoten zu einem Zyklus führen würde, d.h. wenn einer von ihnen ein Vorfahre dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ist.
-    - Wenn einer der hinzugefügten Knoten kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), [`DocumentType`](/de/docs/Web/API/DocumentType), [`Element`](/de/docs/Web/API/Element) oder [`CharacterData`](/de/docs/Web/API/CharacterData) ist.
-    - Wenn dieser [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten tatsächlich ein [`Text`](/de/docs/Web/API/Text)-Knoten ist und sein Elternknoten ein [`Document`](/de/docs/Web/API/Document) ist.
-    - Wenn das Elternteil dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ein [`Document`](/de/docs/Web/API/Document) ist und einer der einzufügenden Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind oder einem [`Text`](/de/docs/Web/API/Text)-Kind enthält.
+  - : Ausgelöst, wenn die neuen Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden können, d.h. wenn eine der folgenden Bedingungen erfüllt ist:
+    - Wenn das Einfügen eines der hinzugefügten Knoten zu einem Zyklus führen würde, d.h. wenn einer von ihnen ein Vorfahr dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten ist.
+    - Wenn einer der hinzugefügten Knoten kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), kein [`DocumentType`](/de/docs/Web/API/DocumentType), kein [`Element`](/de/docs/Web/API/Element) oder keine [`CharacterData`](/de/docs/Web/API/CharacterData) ist.
+    - Wenn dieser [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten tatsächlich ein [`Text`](/de/docs/Web/API/Text)-Knoten ist und dessen Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
+    - Wenn das Elternteil dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ein [`Document`](/de/docs/Web/API/Document) ist und einer der einzufügenden Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind ist oder ein [`Text`](/de/docs/Web/API/Text)-Kind hat.
 
 ## Beispiele
 
-Die `before()`-Methode ermöglicht es Ihnen, neue Knoten vor einem `CharacterData`-Knoten einzufügen, wobei die Daten des aktuellen Knotens unverändert bleiben.
+Die `before()`-Methode erlaubt es Ihnen, neue Knoten vor einem `CharacterData`-Knoten einzufügen, ohne die bisherigen Daten des Knotens zu ändern.
 
 ```js
 const h1TextNode = document.querySelector("h1").firstChild;

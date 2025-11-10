@@ -2,14 +2,12 @@
 title: Port
 slug: Glossary/Port
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Für einen Computer, der über eine Netzwerkverbindung mit einer {{Glossary("IP_address", "IP-Adresse")}} verfügt, ist ein **Port** ein Kommunikationendpunkt. Ports werden durch Nummern bezeichnet, und unter 1024 ist jeder Port standardmäßig mit einem bestimmten {{Glossary("protocol", "Protokoll")}} verbunden.
 
-Für einen Computer, der mit einem Netzwerk über eine {{Glossary("IP_address", "IP-Adresse")}} verbunden ist, ist ein **Port** ein Kommunikationsendpunkt. Ports sind durch Nummern gekennzeichnet, und unter 1024 ist jeder Port standardmäßig mit einem bestimmten {{Glossary("protocol", "Protokoll")}} verbunden.
-
-Zum Beispiel ist der Standardport für das {{Glossary("HTTP", "HTTP")}}-Protokoll die Nummer 80, und der Standardport für das HTTPS-Protokoll ist die Nummer 443. Ein {{Glossary("HTTP", "HTTP")}}-Server wartet daher auf diesen Ports auf Anfragen. Jedes Internetprotokoll ist mit einem Standardport verbunden: {{Glossary("SMTP", "SMTP")}} (25), {{Glossary("POP", "POP")}} (110), {{Glossary("IMAP", "IMAP")}} (143), {{Glossary("IRC", "IRC")}} (194) und so weiter.
+Zum Beispiel ist der Standardport für das {{Glossary("HTTP", "HTTP")}}-Protokoll 80 und der Standardport für das HTTPS-Protokoll 443, daher wartet ein {{Glossary("HTTP", "HTTP")}}-Server auf Anfragen auf diesen Ports. Jedes Internetprotokoll ist mit einem Standardport verbunden: {{Glossary("SMTP", "SMTP")}} (25), {{Glossary("POP", "POP")}} (110), {{Glossary("IMAP", "IMAP")}} (143), {{Glossary("IRC", "IRC")}} (194) und so weiter.
 
 ## Siehe auch
 

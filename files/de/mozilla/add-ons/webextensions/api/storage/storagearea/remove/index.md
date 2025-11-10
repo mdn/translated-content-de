@@ -2,10 +2,8 @@
 title: StorageArea.remove()
 slug: Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/remove
 l10n:
-  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Entfernt ein oder mehrere Elemente aus dem Speicherbereich.
 
@@ -24,19 +22,15 @@ Wobei `<storageType>` einer der beschreibbaren Speichertypen ist — {{WebExtAPI
 ### Parameter
 
 - `keys`
-  - : Ein String oder ein Array von Strings, das den/die Schlüssel des/der zu entfernenden Elements/Elemente darstellt.
+  - : Ein String oder ein Array von Strings, das die Schlüssel des bzw. der zu entfernenden Elemente darstellt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Vorgang erfolgreich war. Wenn der Vorgang fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Entfernen eines einzelnen Elements:
+Ein einzelnes Element entfernen:
 
 ```js
 function onRemoved() {
@@ -52,6 +46,10 @@ removeKitten.then(onRemoved, onError);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

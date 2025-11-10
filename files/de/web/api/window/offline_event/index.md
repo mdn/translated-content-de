@@ -1,31 +1,32 @@
 ---
-title: "Window: offline Ereignis"
+title: "Window: offline event"
 short-title: offline
 slug: Web/API/Window/offline_event
 l10n:
-  sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`offline`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn der Browser den Zugriff auf das Netzwerk verliert und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
+Das **`offline`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn der Browser den Netzwerkzugang verliert und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("offline", (event) => {});
-onoffline = (event) => {};
+```js-nolint
+addEventListener("offline", (event) => { })
+
+onoffline = (event) => { }
 ```
 
 ## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Ereignis-Handler-Aliase
+## Event-Handler-Aliase
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onoffline` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Event-Handler-Eigenschaft `onoffline` auch für die folgenden Ziele verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)

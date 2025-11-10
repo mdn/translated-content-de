@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainMonthDay.prototype.toString()
+short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/toString
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`toString()`** Methode von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt einen String zurück, der diesen Monat-Tag im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) darstellt.
+Die **`toString()`**-Methode von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen gibt einen String zurück, der diesen Monat-Tag im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -21,26 +22,26 @@ toString(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `calendarName` {{optional_inline}}
-      - : Ob die Kalenderkennung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
+      - : Gibt an, ob die Kalender-Anmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Die Kalenderkennung wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist. Das Referenzjahr wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Schließen Sie die Kalender-Anmerkung ein, wenn der Kalender nicht `"iso8601"` ist. Das Referenzjahr wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalenderkennung wird immer eingeschlossen. Das Referenzjahr wird ebenfalls immer eingeschlossen.
+          - : Immer die Kalender-Anmerkung einfügen. Das Referenzjahr wird ebenfalls immer einbezogen.
         - `"never"`
-          - : Die Kalenderkennung wird niemals eingeschlossen. Dadurch kann der zurückgegebene String nicht wieder in dieselbe {{jsxref("Temporal.PlainMonthDay")}} Instanz umgewandelt werden, obwohl der Monat-Tag-Wert unverändert bleibt. Das Referenzjahr wird eingeschlossen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalender-Anmerkung nie einfügen. Dadurch kann der zurückgegebene String nicht in die gleiche {{jsxref("Temporal.PlainMonthDay")}}-Instanz zurückverwandelt werden, obwohl der Monat-Tag-Wert gleich bleibt. Das Referenzjahr wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
         - `"critical"`
-          - : Die Kalenderkennung wird immer eingeschlossen, und ein kritischer Hinweis wird hinzugefügt: `[!u-ca=calendar_id]`. Nützlich beim Versenden des Strings an bestimmte Systeme, aber nicht nützlich für Temporal selbst. Das Referenzjahr wird ebenfalls immer eingeschlossen.
+          - : Immer die Kalender-Anmerkung einfügen und eine kritische Kennzeichnung hinzufügen: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, jedoch nicht für Temporal selbst. Das Referenzjahr wird ebenfalls immer einbezogen.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format), der diesen Monat-Tag darstellt. Die Kalenderkennung wird wie angegeben eingeschlossen. Das Referenzjahr wird eingeschlossen, wenn eine Kalenderkennung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
+Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format), der diesen Monat-Tag darstellt. Die Kalender-Anmerkung ist wie angegeben enthalten. Das Referenzjahr wird einbezogen, wenn eine Kalender-Anmerkung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn eine der Optionen ungültig ist.
+  - : Wird ausgelöst, wenn eine der Optionen ungültig ist.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn `options` kein Objekt oder `undefined` ist.
+  - : Wird ausgelöst, wenn `options` kein Objekt oder `undefined` ist.
 
 ## Beispiele
 

@@ -1,16 +1,16 @@
 ---
-title: "PointerEvent: width-Eigenschaft"
+title: "PointerEvent: width Eigenschaft"
 short-title: width
 slug: Web/API/PointerEvent/width
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{ APIRef("Pointer Events") }}
 
-Die **`width`**-Eigenschaft der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle, die nur gelesen werden kann, stellt die Breite der Kontaktgeometrie des Zeigers entlang der x-Achse dar, gemessen in CSS-Pixeln. Abhängig von der Quelle des Zeigergeräts (wie einem Finger) kann jedes Ereignis für einen bestimmten Zeiger einen anderen Wert erzeugen.
+Die **`width`** schreibgeschützte Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces repräsentiert die Breite der Kontaktfläche des Zeigers entlang der x-Achse, gemessen in CSS-Pixeln. Abhängig von der Quelle des Zeigereingabegeräts (wie z. B. einem Finger) kann für einen gegebenen Zeiger bei jedem Ereignis ein anderer Wert erzeugt werden.
 
-Wenn die Eingabegeräte-Hardware die Kontaktgeometrie nicht an den Browser melden kann, beträgt die Breite standardmäßig `1`.
+Wenn die Eingabehardware die Geometrie der Kontaktfläche nicht an den Browser melden kann, beträgt die Standardbreite `1`.
 
 ## Wert
 
@@ -18,17 +18,13 @@ Die Breite der Kontaktfläche des Ereignisses (in CSS-Pixeln).
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die Verwendung der `width`- und [`height`](/de/docs/Web/API/PointerEvent/height)-Eigenschaften der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle zur Berechnung der Kontaktfläche.
+Dieses Beispiel veranschaulicht die Verwendung der `width`- und [`height`](/de/docs/Web/API/PointerEvent/height)-Eigenschaften des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces zur Berechnung der Kontaktfläche.
 
 ```js
-target.addEventListener(
-  "pointerdown",
-  (ev) => {
-    // Calculate the contact area
-    const area = ev.width * ev.height;
-  },
-  false,
-);
+target.addEventListener("pointerdown", (ev) => {
+  // Calculate the contact area
+  const area = ev.width * ev.height;
+});
 ```
 
 ## Spezifikationen

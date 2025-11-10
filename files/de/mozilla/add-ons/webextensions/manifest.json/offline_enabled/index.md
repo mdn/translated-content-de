@@ -2,10 +2,8 @@
 title: offline_enabled
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/offline_enabled
 l10n:
-  sourceCommit: ec9e109c42eeb2b910dc11b7d7d5c7e251bf4f89
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -14,7 +12,7 @@ l10n:
       <td><code>Boolean</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -30,11 +28,11 @@ l10n:
 
 {{Non-standard_Header}}
 
-Ob die App oder Erweiterung offline arbeiten soll. Wenn Chrome erkennt, dass es offline ist, werden Apps mit diesem auf `true` gesetzten Feld auf der Seite „Neuer Tab“ hervorgehoben.
+Gibt an, ob die App oder Erweiterung offline funktionieren soll. Wenn Chrome erkennt, dass es offline ist, werden Apps mit diesem Feld auf der Neuen-Tab-Seite hervorgehoben, wenn es auf `true` gesetzt ist.
 
-Seit Chrome 35 wird angenommen, dass Apps (ab 2018 nur auf ChromeOS) offlinefähig sind, und der Standardwert von `"offline_enabled"` ist `true`, es sei denn, die Berechtigung `"webview"` wird angefordert. In diesem Fall wird angenommen, dass eine Netzwerkverbindung erforderlich ist, und `"offline_enabled"` ist standardmäßig `false`.
+Ab Chrome 35 wird angenommen, dass Apps (ChromeOS nur ab 2018) offline-aktiviert sind, und der Standardwert von `"offline_enabled"` ist `true`, es sei denn, die Berechtigung `"webview"` wird angefordert. In diesem Fall wird angenommen, dass eine Netzwerkverbindung erforderlich ist, und `"offline_enabled"` hat standardmäßig `false`.
 
-Der Wert von `"offline_enabled"` wird auch verwendet, um zu bestimmen, ob eine Netzwerkverbindungsprüfung durchgeführt wird, wenn eine App im [ChromeOS-Kioskmode](https://developer.chrome.com/docs/apps/manifest/kiosk_enabled/) gestartet wird. Eine Netzwerkverbindungsprüfung wird durchgeführt, wenn Apps nicht offlinefähig sind, und der App-Start wird zurückgestellt, bis das Gerät eine Verbindung zum Internet herstellt.
+Der Wert `"offline_enabled"` wird auch verwendet, um zu bestimmen, ob beim Starten einer App im [ChromeOS-Kiosk-Modus](https://developer.chrome.com/docs/apps/manifest/kiosk_enabled/) eine Netzwerkverbindungsprüfung durchgeführt wird. Eine Netzwerkverbindungsprüfung wird durchgeführt, wenn Apps nicht offline-aktiviert sind, und das Starten der App wird zurückgestellt, bis das Gerät eine Internetverbindung erhält.
 
 ## Browser-Kompatibilität
 

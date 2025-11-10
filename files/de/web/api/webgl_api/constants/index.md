@@ -313,16 +313,16 @@ Konstanten, die an [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/Web
 
 Konstanten, die an [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc) oder [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc) übergeben werden.
 
-| Konstantenname | Wert   | Beschreibung                                                                                                                                                                                                |
-| -------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NEVER`        | 0x0200 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests nie bestanden werden, d.h., nichts wird gezeichnet.                                           |
-| `LESS`         | 0x0201 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert kleiner ist als der gespeicherte Wert.             |
-| `EQUAL`        | 0x0202 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert dem gespeicherten Wert entspricht.                 |
-| `LEQUAL`       | 0x0203 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert kleiner oder gleich dem gespeicherten Wert ist.    |
-| `GREATER`      | 0x0204 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert größer ist als der gespeicherte Wert.              |
-| `NOTEQUAL`     | 0x0205 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert ungleich dem gespeicherten Wert ist.               |
-| `GEQUAL`       | 0x0206 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert größer oder gleich dem gespeicherten Wert ist.     |
-| `ALWAYS`       | 0x0207 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests immer bestanden werden, d.h., die Pixel werden in der Reihenfolge ihrer Zeichnung gezeichnet. |
+| Konstantenname | Wert   | Beschreibung                                                                                                                                                                                               |
+| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NEVER`        | 0x0200 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests nie bestanden werden, d.h. nichts wird gezeichnet.                                           |
+| `LESS`         | 0x0201 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert kleiner ist als der gespeicherte Wert.            |
+| `EQUAL`        | 0x0202 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert dem gespeicherten Wert entspricht.                |
+| `LEQUAL`       | 0x0203 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert kleiner oder gleich dem gespeicherten Wert ist.   |
+| `GREATER`      | 0x0204 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert größer ist als der gespeicherte Wert.             |
+| `NOTEQUAL`     | 0x0205 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert ungleich dem gespeicherten Wert ist.              |
+| `GEQUAL`       | 0x0206 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests bestanden werden, wenn der neue Tiefenwert größer oder gleich dem gespeicherten Wert ist.    |
+| `ALWAYS`       | 0x0207 | Wird an `depthFunction` oder `stencilFunction` übergeben, um anzugeben, dass die Tiefen- oder Schablonentests immer bestanden werden, d.h. die Pixel werden in der Reihenfolge ihrer Zeichnung gezeichnet. |
 
 ### Schablonenaktionen
 

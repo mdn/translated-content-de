@@ -1,25 +1,25 @@
 ---
-title: "Node: removeChild()-Methode"
+title: "Node: removeChild() Methode"
 short-title: removeChild()
 slug: Web/API/Node/removeChild
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
 ---
 
 {{APIRef("DOM")}}
 
 Die **`removeChild()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
-entfernt einen Kindknoten aus dem DOM und gibt den entfernten Knoten zurück.
+entfernt ein Kindknoten aus dem DOM und gibt den entfernten Knoten zurück.
 
 > [!NOTE]
-> Solange ein Verweis auf das entfernte Kind beibehalten wird,
-> existiert es weiterhin im Speicher, ist aber nicht mehr Teil des DOM.
-> Es kann später im Code wiederverwendet werden.
+> Solange eine Referenz auf das entfernte Kind beibehalten wird,
+> existiert es noch im Speicher, ist aber nicht mehr Teil des DOM.
+> Es kann später im Code noch wiederverwendet werden.
 >
-> Wenn der Rückgabewert von `removeChild()` nicht gespeichert wird und kein anderer Verweis beibehalten wird,
-> wird es nach kurzer Zeit [automatisch aus dem Speicher gelöscht](/de/docs/Web/JavaScript/Memory_management).
+> Wenn der Rückgabewert von `removeChild()` nicht gespeichert wird und keine andere Referenz besteht,
+> wird es [automatisch gelöscht](/de/docs/Web/JavaScript/Guide/Memory_management) aus dem Speicher nach kurzer Zeit.
 
-Im Gegensatz zu [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) behält der Rückgabewert die mit ihm verbundenen `EventListener`-Objekte bei.
+Anders als bei [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) behält der Rückgabewert die mit ihm verbundenen `EventListener`-Objekte bei.
 
 ## Syntax
 
@@ -30,7 +30,11 @@ removeChild(child)
 ### Parameter
 
 - `child`
-  - : Ein [`Node`](/de/docs/Web/API/Node), das der Kindknoten ist, der aus dem DOM entfernt werden soll.
+  - : Ein [`Node`](/de/docs/Web/API/Node), der der Kindknoten ist, der aus dem DOM entfernt werden soll.
+
+### Rückgabewert
+
+Der entfernte `child`-Knoten.
 
 ### Ausnahmen
 
@@ -43,7 +47,7 @@ removeChild(child)
 
 ### Einfache Beispiele
 
-Gegeben ist dieses HTML:
+Gegebenes HTML:
 
 ```html
 <div id="parent">
@@ -51,7 +55,7 @@ Gegeben ist dieses HTML:
 </div>
 ```
 
-Um ein bestimmtes Element zu entfernen, wenn sein übergeordneter Knoten bekannt ist:
+Um ein bestimmtes Element zu entfernen, wenn dessen übergeordneter Knoten bekannt ist:
 
 ```js
 const parent = document.getElementById("parent");
@@ -59,7 +63,7 @@ const child = document.getElementById("child");
 const throwawayNode = parent.removeChild(child);
 ```
 
-Um ein bestimmtes Element zu entfernen, ohne seinen übergeordneten Knoten angeben zu müssen:
+Um ein bestimmtes Element zu entfernen, ohne dessen übergeordneten Knoten anzugeben:
 
 ```js
 const node = document.getElementById("child");
@@ -68,7 +72,7 @@ if (node.parentNode) {
 }
 ```
 
-Um alle Kinder von einem Element zu entfernen:
+Um alle Kinder eines Elements zu entfernen:
 
 ```js
 const element = document.getElementById("idOfParent");
@@ -77,7 +81,7 @@ while (element.firstChild) {
 }
 ```
 
-### Einen TypeError verursachen
+### Hervorrufen eines TypeError
 
 ```html
 <!--Sample HTML code-->
@@ -92,7 +96,7 @@ const child = document.getElementById("child");
 const garbage = parent.removeChild(child);
 ```
 
-### Einen NotFoundError verursachen
+### Hervorrufen eines NotFoundError
 
 ```html
 <!--Sample HTML code-->
@@ -108,8 +112,8 @@ const child = document.getElementById("child");
 // This first call correctly removes the node
 const garbage = parent.removeChild(child);
 
-// Throws NotFoundError
-garbage = parent.removeChild(child);
+// Second call throws NotFoundError
+parent.removeChild(child);
 ```
 
 ## Spezifikationen

@@ -1,17 +1,18 @@
 ---
 title: Temporal.PlainDate.prototype.inLeapYear
+short-title: inLeapYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/inLeapYear
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`inLeapYear`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein boolesches Wert zurück, das angibt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr, das aufgrund eines Schalttages oder Schaltmonats mehr Tage hat als ein normales Jahr. Es ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
+Die Zugriffseigenschaft **`inLeapYear`** von Instanzen von {{jsxref("Temporal.PlainDate")}} gibt einen booleschen Wert zurück, der anzeigt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr, das mehr Tage hat (aufgrund eines Schalttages oder Schaltmonats) als ein gewöhnliches Jahr. Es ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Für den ISO 8601 Kalender ist ein Schaltjahr ein Jahr, das ohne Rest durch 4 teilbar ist, mit Ausnahme von Jahren, die ohne Rest durch 100 teilbar sind, es sei denn, das Jahr ist auch ohne Rest durch 400 teilbar. Für den ISO 8601 Kalender haben Schaltjahre 366 Tage, während normale Jahre 365 Tage haben. Für andere Kalendersysteme unterscheiden sich die Regeln wahrscheinlich, und es können in Schaltjahren mehr Tage hinzugefügt werden (wie z. B. ein Schaltmonat).
+Für den ISO 8601-Kalender ist ein Schaltjahr ein Jahr, das ohne Rest durch 4 teilbar ist, abgesehen von Jahren, die ohne Rest durch 100 teilbar sind, es sei denn, das Jahr ist auch ohne Rest durch 400 teilbar. Für den ISO 8601-Kalender haben Schaltjahre 366 Tage, während gewöhnliche Jahre 365 Tage haben. Für andere Kalendersysteme können die Regeln unterschiedlich sein, und Schaltjahre können mehr zugefügte Tage haben (wie ein Schaltmonat).
 
-Der Set-Zugriff von `inLeapYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `inLeapYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

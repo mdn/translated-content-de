@@ -1,16 +1,16 @@
 ---
-title: "ElementInternals: checkValidity()-Methode"
+title: "ElementInternals: checkValidity() Methode"
 short-title: checkValidity()
 slug: Web/API/ElementInternals/checkValidity
 l10n:
-  sourceCommit: ce10da0e9d23d241b175d8d68bf93507734b7c48
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`checkValidity()`**-Methode der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle überprüft, ob das Element die auf es angewendeten [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Constraint_validation) erfüllt.
+Die **`checkValidity()`** Methode der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle überprüft, ob das Element alle darauf angewendeten [Constraint-Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) Regeln erfüllt.
 
-Gibt `checkValidity` `false` zurück, wird ein stornierbares [ungültiges Ereignis](/de/docs/Web/API/HTMLInputElement/invalid_event) auf dem Element ausgelöst.
+Wenn `checkValidity` `false` zurückgibt, wird ein abbrechbares [ungültiges Ereignis](/de/docs/Web/API/HTMLInputElement/invalid_event) auf dem Element ausgelöst.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein boolescher Wert, `true` wenn das Element alle Validierungsbeschränkungen erfüllt.
+Ein boolescher Wert, `true`, wenn das Element alle Validierungsbeschränkungen erfüllt.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn das Element seine `formAssociated`-Eigenschaft nicht auf `true` gesetzt hat.
+  - : Wird ausgelöst, wenn das Element seine `formAssociated`-Eigenschaft nicht auf `true` gesetzt hat.
 
 ## Beispiele
 
-Im folgenden Beispiel wird [`ElementInternals.setValidity()`](/de/docs/Web/API/ElementInternals/setValidity) verwendet, um anzuzeigen, dass das Element die Validierungsregeln nicht erfüllt. Ein Aufruf von `checkValidity()` gibt `false` zurück. Nach erneutem Aufruf von `setValidity`, diesmal um anzuzeigen, dass alle Regeln auf `false` gesetzt sind, gibt `checkValidity()` `true` zurück.
+Im folgenden Beispiel wird [`ElementInternals.setValidity()`](/de/docs/Web/API/ElementInternals/setValidity) verwendet, um anzuzeigen, dass das Element die Validierungsregeln nicht erfüllt. Beim Aufruf von `checkValidity()` wird `false` zurückgegeben. Nach einem erneuten Aufruf von `setValidity`, diesmal mit der Angabe, dass alle Regeln falsch markiert sind, gibt `checkValidity()` `true` zurück.
 
 ```js
 let element = document.getElementById("join-checkbox");

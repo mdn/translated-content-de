@@ -1,17 +1,14 @@
 ---
-title: "Window: captureEvents() Methode"
+title: "Window: captureEvents()-Methode"
 short-title: captureEvents()
 slug: Web/API/Window/captureEvents
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 3e0261cc48861db2a9b6c87f990013a200b1a259
 ---
 
 {{APIRef}} {{Deprecated_Header}}
 
-Die **`Window.captureEvents()`**-Methode macht nichts.
-
-> [!NOTE]
-> Dies ist eine Methode, die seit langem aus der Spezifikation entfernt wurde. Sie bleibt in Browsern erhalten, um Codebrüche zu verhindern, macht jedoch nichts.
+Die **`Window.captureEvents()`**-Methode tut nichts. Ihr ursprüngliches Verhalten wurde aus der Spezifikation entfernt, aber die Methode selbst wurde beibehalten, um Code, welcher sie aufruft, nicht zu beschädigen.
 
 ## Syntax
 

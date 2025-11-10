@@ -3,7 +3,7 @@ title: "Dokument: createTextNode() Methode"
 short-title: createTextNode()
 slug: Web/API/Document/createTextNode
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
 ---
 
 {{APIRef("DOM")}}
@@ -28,30 +28,28 @@ Ein [`Text`](/de/docs/Web/API/Text)-Knoten.
 ## Beispiele
 
 ```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>createTextNode example</title>
-    <script>
-      function addTextNode(text) {
-        const newText = document.createTextNode(text);
-        const p1 = document.getElementById("p1");
+<button>YES!</button>
+<button>NO!</button>
+<button>WE CAN!</button>
 
-        p1.appendChild(newText);
-      }
-    </script>
-  </head>
+<hr />
 
-  <body>
-    <button onclick="addTextNode('YES! ');">YES!</button>
-    <button onclick="addTextNode('NO! ');">NO!</button>
-    <button onclick="addTextNode('WE CAN! ');">WE CAN!</button>
+<p id="p1">First line of paragraph.</p>
+```
 
-    <hr />
+```js
+function addTextNode(text) {
+  const newText = document.createTextNode(text);
+  const p1 = document.getElementById("p1");
 
-    <p id="p1">First line of paragraph.</p>
-  </body>
-</html>
+  p1.appendChild(newText);
+}
+
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    addTextNode(`${event.target.textContent} `);
+  });
+});
 ```
 
 {{EmbedLiveSample('Examples')}}

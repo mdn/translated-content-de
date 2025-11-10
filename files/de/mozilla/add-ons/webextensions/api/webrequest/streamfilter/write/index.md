@@ -2,14 +2,12 @@
 title: webRequest.StreamFilter.write()
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/write
 l10n:
-  sourceCommit: 2de85adef3b988bf47549446b2254a7f533b7649
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Schreibt einige Antwortdaten in den Ausgabestrom.
 
-Sie können diese Funktion nur aufrufen, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
+Sie können diese Funktion nur aufrufen, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
 
 ## Syntax
 
@@ -22,19 +20,15 @@ filter.write(
 ### Parameter
 
 - `data`
-  - : [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) oder [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer): Array von Bytes, das die Daten enthält, die an die Rendering-Engine des Browsers übergeben werden sollen.
+  - : [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) oder [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer): Array von Bytes, das die an die Rendering-Engine des Browsers zu übergebenden Daten enthält.
 
 ### Rückgabewert
 
 Keiner.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Dieses Beispiel verwendet `write()`, um "Example" im ersten Abschnitt der Antwort durch "WebExtension Example" zu ersetzen.
+Dieses Beispiel verwendet `write()`, um "Example" im ersten Teil der Antwort durch "WebExtension Example" zu ersetzen.
 
 ```js
 function listener(details) {
@@ -51,7 +45,7 @@ function listener(details) {
     filter.disconnect();
   };
 
-  //return {}; // not needed
+  // return {}; // not needed
 }
 
 browser.webRequest.onBeforeRequest.addListener(
@@ -62,3 +56,7 @@ browser.webRequest.onBeforeRequest.addListener(
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

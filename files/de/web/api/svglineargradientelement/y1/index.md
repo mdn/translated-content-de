@@ -3,14 +3,14 @@ title: "SVGLinearGradientElement: y1-Eigenschaft"
 short-title: y1
 slug: Web/API/SVGLinearGradientElement/y1
 l10n:
-  sourceCommit: 9db11220d8fc8863f94ddb1ccb7b353a8062e144
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`y1`**-Eigenschaft der [`SVGLinearGradientElement`](/de/docs/Web/API/SVGLinearGradientElement) Schnittstelle beschreibt die y-Achsen-Koordinate des Startpunkts des Gradienten als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie reflektiert den berechneten Wert des {{SVGAttr("y1")}}-Attributs auf dem {{SVGElement("linearGradient")}}-Element.
+Die **`y1`** schreibgeschützte Eigenschaft der [`SVGLinearGradientElement`](/de/docs/Web/API/SVGLinearGradientElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des Startpunkts des Verlaufs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("y1")}}-Attributs auf dem {{SVGElement("linearGradient")}}-Element wider.
 
-Der Attributwert ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Startpunkts des Gradienten im Benutzerkoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Startpunkts des Verlaufs im Benutzersystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Bei folgendem SVG:
+Gegeben sei folgendes SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ Bei folgendem SVG:
 </svg>
 ```
 
-Können wir auf die berechneten Werte der `y1`-Attribute zugreifen:
+Wir können auf die berechneten Werte der `y1`-Attribute zugreifen:
 
 ```js
 const linearGradients = document.querySelectorAll("linearGradient");

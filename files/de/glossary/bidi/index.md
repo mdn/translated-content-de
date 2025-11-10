@@ -2,22 +2,20 @@
 title: BiDi
 slug: Glossary/BiDi
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**BiDi** (BiDirectional) beschreibt ein Dokument, das sowohl Rechts-nach-Links (RTL) als auch Links-nach-Rechts (LTR) Text enthält.
 
-**BiDi** (BiDirectional) beschreibt ein Dokument, das sowohl von rechts nach links (RTL) als auch von links nach rechts (LTR) verlaufenden Text enthält.
+Benutzeroberflächen sollten BiDi-Inhalte korrekt anzeigen, doch viele scheitern daran. Ein Beispiel ist die hebräische Übersetzung des Namens Sarah: שרה, von rechts nach links buchstabiert: Sin (ש), Resch (ר), Heh (ה). Viele Programme würden die Buchstaben in der entgegengesetzten Reihenfolge anzeigen.
 
-Benutzeroberflächen sollten BiDi-Inhalte korrekt anzeigen, aber viele scheitern daran. Ein Beispiel ist die hebräische Übersetzung des Namens Sarah: שרה, von rechts nach links geschrieben Sin (ש), Resh (ר), Heh (ה). Viele Programme würden die Buchstaben in der umgekehrten Reihenfolge anzeigen.
+Es ist möglich, die Links-nach-Rechts-Anzeigereihenfolge in eine Rechts-nach-Links-Anzeigereihenfolge zu ändern, aber dadurch wird die Fähigkeit, BiDi-Schriften korrekt anzuzeigen, geopfert — mindestens eine wird immer falsch angezeigt. Mit Unterstützung für bidirektionale Schriften ist es möglich, Zeichen aus verschiedenen Schriften auf derselben Seite zu mischen, unabhängig von der Schreibrichtung.
 
-Es ist möglich, die Anzeigereihenfolge von links nach rechts in eine von rechts nach links umzuwandeln, aber dadurch wird die Fähigkeit, BiDi-Skripte korrekt anzuzeigen, geopfert – mindestens eines wird immer falsch angezeigt. Mit Unterstützung für bidirektionale Skripte ist es möglich, Zeichen aus verschiedenen Skripten auf derselben Seite zu mischen, unabhängig von der Schreibrichtung.
-
-Der Unicode-Standard bietet Grundlagen für vollständige BiDi-Unterstützung, mit detaillierten Regeln, wie Mischungen von links-nach-rechts und rechts-nach-links Skripten kodiert und angezeigt werden sollen.
+Der Unicode-Standard bietet die Grundlage für eine vollständige BiDi-Unterstützung mit detaillierten Regeln dazu, wie Mischungen aus Links-nach-Rechts- und Rechts-nach-Links-Schriften kodiert und angezeigt werden sollen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
   - {{Glossary("Unicode", "Unicode")}}
-- [Bi-direktionaler Text](https://en.wikipedia.org/wiki/Bi-directional_text) auf Wikipedia
+- [Bi-directional text](https://en.wikipedia.org/wiki/Bi-directional_text) auf Wikipedia
 - [UAX#9: Unicode Bi-directional Algorithm](https://www.unicode.org/reports/tr9)

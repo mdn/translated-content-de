@@ -2,37 +2,37 @@
 title: SharedStorage
 slug: Web/API/SharedStorage
 l10n:
-  sourceCommit: d484785e53cff16c020adc868415bb9b07b0f6af
+  sourceCommit: d71c12f2ab7cc289117e13513cb965c88a39065e
 ---
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorage`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung und definiert Methoden zum Schreiben von Daten in diesen geteilten Speicher.
+Das **`SharedStorage`** Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung und definiert Methoden, um Daten in den gemeinsamen Speicher zu schreiben.
 
 `SharedStorage` ist die Basisklasse für:
 
-- [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), auf das über [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage) zugegriffen wird.
-- [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage), auf das über [`SharedStorageWorkletGlobalScope.sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) zugegriffen wird.
+- [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), aufrufbar über [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage).
+- [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage), aufrufbar über [`SharedStorageWorkletGlobalScope.sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage).
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`append()`](/de/docs/Web/API/SharedStorage/append) {{Experimental_Inline}}
-  - : Fügt einen String zum Wert eines vorhandenen Schlüssel-Wert-Paares im geteilten Speicher des aktuellen Ursprungs hinzu.
+  - : Hängt einen String an den Wert eines vorhandenen Schlüssel-Wert-Paares im gemeinsamen Speicher des aktuellen Ursprungs an.
 - [`clear()`](/de/docs/Web/API/SharedStorage/clear) {{Experimental_Inline}}
-  - : Leert den geteilten Speicher des aktuellen Ursprungs und entfernt alle Daten daraus.
+  - : Löscht den gemeinsamen Speicher des aktuellen Ursprungs und entfernt alle darin enthaltenen Daten.
 - [`delete()`](/de/docs/Web/API/SharedStorage/delete) {{Experimental_Inline}}
-  - : Löscht ein vorhandenes Schlüssel-Wert-Paar aus dem geteilten Speicher des aktuellen Ursprungs.
+  - : Löscht ein vorhandenes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
 - [`set()`](/de/docs/Web/API/SharedStorage/set) {{Experimental_Inline}}
-  - : Speichert ein neues Schlüssel-Wert-Paar im geteilten Speicher des aktuellen Ursprungs oder aktualisiert ein vorhandenes.
+  - : Speichert ein neues Schlüssel-Wert-Paar im gemeinsamen Speicher des aktuellen Ursprungs oder aktualisiert ein vorhandenes.
 
 ## Beispiele
 
 ```js
 window.sharedStorage
   .set("ab-testing-group", "0")
-  .then(console.log("Value saved to shared storage"));
+  .then(() => console.log("Value saved to shared storage"));
 ```
 
 ## Spezifikationen

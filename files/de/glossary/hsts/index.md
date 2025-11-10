@@ -2,14 +2,12 @@
 title: HSTS
 slug: Glossary/HSTS
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**HTTP Strict Transport Security** ermöglicht es einer Website, dem Browser mitzuteilen, dass sie niemals über HTTP geladen werden sollte und stattdessen alle Versuche, die Seite über HTTP aufzurufen, automatisch in HTTPS-Anfragen umgewandelt werden sollten. Es besteht aus einem HTTP-Header, {{HTTPHeader("Strict-Transport-Security")}}, der vom Server mit der Ressource gesendet wird.
 
-**HTTP Strict Transport Security** ermöglicht es einer Website, dem Browser mitzuteilen, dass die Seite niemals über HTTP geladen werden soll und alle Versuche, auf die Seite über HTTP zuzugreifen, automatisch in HTTPS-Anfragen umgewandelt werden sollen. Es besteht aus einem HTTP-Header, {{HTTPHeader("Strict-Transport-Security")}}, der vom Server zusammen mit der Ressource gesendet wird.
-
-Mit anderen Worten, es teilt dem Browser mit, dass das Ändern des Protokolls von HTTP zu HTTPS in einer URL funktioniert (und sicherer ist) und fordert den Browser auf, dies für jede Anfrage zu tun.
+Mit anderen Worten, es informiert den Browser darüber, dass das Wechseln des Protokolls von HTTP zu HTTPS in einer URL funktioniert (und sicherer ist) und bittet den Browser, dies für jede Anfrage zu tun.
 
 ## Siehe auch
 

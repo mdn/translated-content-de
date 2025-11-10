@@ -3,18 +3,14 @@ title: "Headers: has() Methode"
 short-title: has()
 slug: Web/API/Headers/has
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`has()`** Methode des [`Headers`](/de/docs/Web/API/Headers) Interfaces
-gibt einen booleschen Wert zurück, der angibt, ob ein `Headers`-Objekt einen bestimmten
-Header enthält.
+Die **`has()`**-Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob ein `Headers`-Objekt einen bestimmten Header enthält.
 
-Aus Sicherheitsgründen können einige Header nur vom User-Agent gesteuert werden. Diese
-Header umfassen die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}}
-und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
+Aus Sicherheitsgründen können einige Header nur vom User Agent kontrolliert werden. Diese Headers umfassen die {{Glossary("Forbidden_request_header", "verbotenen Anfrage-Header")}} und die {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
 
 ## Syntax
 
@@ -25,8 +21,7 @@ has(name)
 ### Parameter
 
 - `name`
-  - : Der Name des HTTP-Headers, für den Sie testen möchten. Wenn der angegebene Name kein gültiger
-    HTTP-Header-Name ist, wirft diese Methode einen {{jsxref("TypeError")}}.
+  - : Der Name des HTTP-Headers, den Sie testen möchten. Wenn der angegebene Name kein gültiger HTTP-Header-Name ist, wirft diese Methode einen {{jsxref("TypeError")}}.
 
 ### Rückgabewert
 
@@ -34,13 +29,13 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-Das Erstellen eines leeren `Headers`-Objekts ist einfach:
+Ein leeres `Headers`-Objekt zu erstellen ist einfach:
 
 ```js
 const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie könnten diesem Objekt einen Header mit [`Headers.append`](/de/docs/Web/API/Headers/append) hinzufügen und dann mit `has()` auf dessen Existenz testen:
+Sie könnten diesem einen Header hinzufügen, indem Sie [`Headers.append`](/de/docs/Web/API/Headers/append) verwenden und dann mit `has()` auf dessen Existenz testen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
@@ -59,5 +54,5 @@ myHeaders.has("Accept-Encoding"); // Returns false
 ## Siehe auch
 
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
-- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
+- [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/de/docs/Web/HTTP)

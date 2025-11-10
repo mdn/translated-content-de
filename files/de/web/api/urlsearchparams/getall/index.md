@@ -3,12 +3,13 @@ title: "URLSearchParams: getAll() Methode"
 short-title: getAll()
 slug: Web/API/URLSearchParams/getAll
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`getAll()`** Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Schnittstelle gibt alle mit einem bestimmten Suchparameter verknüpften Werte als Array zurück.
+Die **`getAll()`**-Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
+Interfaces gibt alle Werte, die einem bestimmten Suchparameter zugeordnet sind, als Array zurück.
 
 ## Syntax
 
@@ -23,18 +24,18 @@ getAll(name)
 
 ### Rückgabewert
 
-Ein Array von Zeichenketten, das leer sein kann, wenn keine Werte für den angegebenen Parameter gefunden werden.
+Ein Array von Zeichenfolgen, das möglicherweise leer ist, wenn keine Werte für den angegebenen Parameter gefunden werden.
 
 ## Beispiele
 
 ```js
-let url = new URL("https://example.com?foo=1&bar=2");
-let params = new URLSearchParams(url.search);
+const url = new URL("https://example.com?foo=1&bar=2");
+const params = new URLSearchParams(url.search);
 
-//Add a second foo parameter.
+// Add a second foo parameter.
 params.append("foo", 4);
 
-console.log(params.getAll("foo")); //Prints ["1","4"].
+console.log(params.getAll("foo")); // ["1", "4"]
 ```
 
 ## Spezifikationen

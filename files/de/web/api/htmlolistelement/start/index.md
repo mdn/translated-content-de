@@ -3,17 +3,17 @@ title: "HTMLOListElement: start-Eigenschaft"
 short-title: start
 slug: Web/API/HTMLOListElement/start
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`start`**-Eigenschaft des [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Interfaces gibt den Startwert der geordneten Liste an, mit einem Standardwert von 1.
+Die **`start`**-Eigenschaft der [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Schnittstelle gibt den Startwert der nummerierten Liste an, mit einem Standardwert von 1.
 
-Sie spiegelt das [`start`](/de/docs/Web/HTML/Element/ol#start)-Attribut des {{HTMLElement("ol")}}-Elements wider.
+Sie spiegelt das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start)-Attribut des {{HTMLElement("ol")}}-Elements wider.
 
 > [!NOTE]
-> Der Wert der `start`-Eigenschaft ist unabhängig von der [`HTMLOListElement.type`](/de/docs/Web/API/HTMLOListElement/type)-Eigenschaft; er ist immer numerisch, auch wenn der Typ Buchstaben oder römische Ziffern sind.
+> Der Wert der `start`-Eigenschaft ist unabhängig von der [`HTMLOListElement.type`](/de/docs/Web/API/HTMLOListElement/type)-Eigenschaft; er ist immer numerisch, auch wenn der Typ Buchstaben oder römische Ziffern ist.
 
 ## Wert
 

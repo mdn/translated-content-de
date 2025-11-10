@@ -2,34 +2,32 @@
 title: extensionTypes
 slug: Mozilla/Add-ons/WebExtensions/API/extensionTypes
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Einige allgemeine Typen, die in anderen WebExtension-APIs verwendet werden.
 
 ## Typen
 
 - {{WebExtAPIRef("extensionTypes.ImageDetails")}}
-  - : Details zum Format und zur Qualität eines Bildes.
+  - : Details über das Format und die Qualität eines Bildes.
 - {{WebExtAPIRef("extensionTypes.ImageFormat")}}
   - : Das Format eines Bildes.
 - {{WebExtAPIRef("extensionTypes.InjectDetails")}}
   - : Fügt Details in eine Seite ein.
 - {{WebExtAPIRef("extensionTypes.RunAt")}}
-  - : Der früheste Zeitpunkt, zu dem das JavaScript oder CSS in das Tab eingefügt wird.
+  - : Der früheste Zeitpunkt, zu dem das JavaScript oder CSS in den Tab eingefügt wird.
 - `extensionTypes.CSSOrigin`
-  - : Gibt an, ob ein von [`tabs.insertCSS`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) eingefügtes CSS-Stylesheet als „Author“ oder „User“ Stylesheet behandelt werden soll.
+  - : Gibt an, ob ein von [`tabs.insertCSS`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) eingefügtes CSS-Stylesheet als "author" oder "user" Stylesheet behandelt werden soll.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes) API von Chromium. Diese Dokumentation stammt aus [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes) API von Chromium. Diese Dokumentation basiert auf [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,26 +1,26 @@
 ---
-title: "RTCPeerConnection: connectionstatechange Ereignis"
+title: "RTCPeerConnection: connectionstatechange-Ereignis"
 short-title: connectionstatechange
 slug: Web/API/RTCPeerConnection/connectionstatechange_event
 l10n:
-  sourceCommit: 62dbbbae755940f824ddb0a2f789a89750565d86
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`connectionstatechange`**-Ereignis wird an den `onconnectionstatechange`-Ereignis-Handler eines [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekts gesendet, nachdem ein neuer Track zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hinzugefügt wurde, der Teil der Verbindung ist.
-Der neue Verbindungszustand kann in [`connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState) gefunden werden und ist einer der folgenden Zeichenkettenwerte: `new`, `connecting`, `connected`, `disconnected`, `failed` oder `closed`.
+Das **`connectionstatechange`**-Ereignis wird an den `onconnectionstatechange` Ereignis-Handler eines [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekts gesendet, nachdem ein neuer Track zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), das Teil der Verbindung ist, hinzugefügt wurde.
+Der neue Verbindungsstatus kann in [`connectionState`](/de/docs/Web/API/RTCPeerConnection/connectionState) gefunden werden und ist einer der folgenden String-Werte: `new`, `connecting`, `connected`, `disconnected`, `failed` oder `closed`.
 
-Dieses Ereignis ist nicht abbruchsicher und wird nicht weitergegeben.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht hochgebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("connectionstatechange", (event) => {});
+```js-nolint
+addEventListener("connectionstatechange", (event) => { })
 
-onconnectionstatechange = (event) => {};
+onconnectionstatechange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -29,40 +29,36 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `peerConnection` verwendet dieses Beispiel [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Änderungen an der Konnektivität der WebRTC-Sitzung zu behandeln.
-Es ruft eine app-definierte Funktion namens `setOnlineStatus()` auf, um eine Statusanzeige zu aktualisieren.
+Für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), die `peerConnection` genannt wird, verwendet dieses Beispiel [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Änderungen der Konnektivität der WebRTC-Sitzung zu handhaben.
+Es ruft eine von der App definierte Funktion namens `setOnlineStatus()` auf, um eine Statusanzeige zu aktualisieren.
 
 ```js
-peerConnection.addEventListener(
-  "connectionstatechange",
-  (event) => {
-    switch (peerConnection.connectionState) {
-      case "new":
-      case "connecting":
-        setOnlineStatus("Connecting…");
-        break;
-      case "connected":
-        setOnlineStatus("Online");
-        break;
-      case "disconnected":
-        setOnlineStatus("Disconnecting…");
-        break;
-      case "closed":
-        setOnlineStatus("Offline");
-        break;
-      case "failed":
-        setOnlineStatus("Error");
-        break;
-      default:
-        setOnlineStatus("Unknown");
-        break;
-    }
-  },
-  false,
-);
+peerConnection.addEventListener("connectionstatechange", (event) => {
+  switch (peerConnection.connectionState) {
+    case "new":
+    case "connecting":
+      setOnlineStatus("Connecting…");
+      break;
+    case "connected":
+      setOnlineStatus("Online");
+      break;
+    case "disconnected":
+      setOnlineStatus("Disconnecting…");
+      break;
+    case "closed":
+      setOnlineStatus("Offline");
+      break;
+    case "failed":
+      setOnlineStatus("Error");
+      break;
+    default:
+      setOnlineStatus("Unknown");
+      break;
+  }
+});
 ```
 
-Sie können auch einen Handler für das `connectionstatechange`-Ereignis mit der `RTCPeerConnection.onconnectionstatechange`-Eigenschaft erstellen:
+Sie können auch einen Handler für das `connectionstatechange`-Ereignis mit der Eigenschaft `RTCPeerConnection.onconnectionstatechange` erstellen:
 
 ```js
 peerConnection.onconnectionstatechange = (ev) => {

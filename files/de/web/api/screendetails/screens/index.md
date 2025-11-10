@@ -3,22 +3,22 @@ title: "ScreenDetails: screens-Eigenschaft"
 short-title: screens
 slug: Web/API/ScreenDetails/screens
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`screens`** der [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Schnittstelle enthält ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, wobei jedes Objekt detaillierte Informationen über einen bestimmten Bildschirm darstellt, der dem Gerät des Benutzers zur Verfügung steht.
+Die **`screens`** schreibgeschützte Eigenschaft des [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Interfaces enthält ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, die jeweils detaillierte Informationen über einen spezifischen Bildschirm enthalten, der dem Gerät des Benutzers zur Verfügung steht.
 
 ## Wert
 
 Ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten.
 
-> **Note:** `screens` umfasst nur "erweiterte" Anzeigen, nicht solche, die eine andere Anzeige spiegeln.
+> [!NOTE] > `screens` enthält nur "erweiterte" Displays, nicht solche, die einen anderen Bildschirm spiegeln.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von [`ScreenDetails`](/de/docs/Web/API/ScreenDetails#examples) für Anwendungsbeispiele an.
+Siehe die Hauptseite zu [`ScreenDetails`](/de/docs/Web/API/ScreenDetails#examples) für Anwendungsbeispiele.
 
 ## Spezifikationen
 

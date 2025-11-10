@@ -3,25 +3,27 @@ title: "SubtleCrypto: deriveBits() Methode"
 short-title: deriveBits()
 slug: Web/API/SubtleCrypto/deriveBits
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: b7310d059a28842d0a43ebabf814e8f2469c3419
 ---
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`deriveBits()`**-Methode der
-[`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle kann verwendet werden, um ein Array von Bits aus einem Basisschlüssel abzuleiten.
+Die **`deriveBits()`** Methode der
+[`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle kann verwendet werden, um ein Array von Bits aus einem Basisschlüssel abzuleiten.
 
-Sie nimmt als Argumente den Basisschlüssel, den zu verwendenden Ableitungsalgorithmus und die Länge der abzuleitenden Bits. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das mit einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) erfüllt wird, der die abgeleiteten Bits enthält.
+Sie nimmt als Argumente den Basisschlüssel, den zu verwendenden Ableitungsalgorithmus und die Länge der abzuleitenden Bits. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+zurück, das mit einem
+[`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+erfüllt wird, welcher die abgeleiteten Bits enthält.
 
-Diese Methode ist der
-[`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey)-Methode sehr ähnlich, mit dem Unterschied, dass `deriveKey()` ein
-[`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt anstelle eines
-`ArrayBuffer` zurückgibt. Im Wesentlichen setzt sich `deriveKey()` aus
+Diese Methode ist `SubtleCrypto.deriveKey()` sehr ähnlich, mit dem Unterschied, dass `deriveKey()` ein
+[`CryptoKey`](/de/docs/Web/API/CryptoKey) Objekt anstelle eines
+`ArrayBuffer` zurückgibt. Grundsätzlich ist `deriveKey()` aus
 `deriveBits()` gefolgt von
-[`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) zusammen.
+[`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) zusammengesetzt.
 
 Diese Funktion unterstützt die gleichen Ableitungsalgorithmen wie `deriveKey()`: ECDH, HKDF, PBKDF2 und X25519.
-Siehe [Unterstützte Algorithmen](/de/docs/Web/API/SubtleCrypto/deriveKey#supported_algorithms) für weitere Details zu diesen Algorithmen.
+Sehen Sie [Unterstützte Algorithmen](/de/docs/Web/API/SubtleCrypto/deriveKey#supported_algorithms) für weitere Details zu diesen Algorithmen.
 
 ## Syntax
 
@@ -32,45 +34,47 @@ deriveBits(algorithm, baseKey, length)
 ### Parameter
 
 - `algorithm`
-  - : Ein Objekt, das den zu verwendenden [Ableitungsalgorithmus](/de/docs/Web/API/SubtleCrypto/deriveKey#supported_algorithms) definiert.
-    - Um [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams)-Objekt und geben Sie den String `ECDH` als `name`-Eigenschaft an.
-    - Um [HKDF](/de/docs/Web/API/SubtleCrypto/deriveKey#hkdf) zu verwenden, übergeben Sie ein [`HkdfParams`](/de/docs/Web/API/HkdfParams)-Objekt.
-    - Um [PBKDF2](/de/docs/Web/API/SubtleCrypto/deriveKey#pbkdf2) zu verwenden, übergeben Sie ein [`Pbkdf2Params`](/de/docs/Web/API/Pbkdf2Params)-Objekt.
-    - Um [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams)-Objekt und geben Sie den String `X25519` als `name`-Eigenschaft an.
+  - : Ein Objekt, das den [Ableitungsalgorithmus](/de/docs/Web/API/SubtleCrypto/deriveKey#supported_algorithms) definiert, der verwendet werden soll.
+    - Um [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams) Objekt und geben den String `ECDH` als `name` Eigenschaft an.
+    - Um [HKDF](/de/docs/Web/API/SubtleCrypto/deriveKey#hkdf) zu verwenden, übergeben Sie ein [`HkdfParams`](/de/docs/Web/API/HkdfParams) Objekt.
+    - Um [PBKDF2](/de/docs/Web/API/SubtleCrypto/deriveKey#pbkdf2) zu verwenden, übergeben Sie ein [`Pbkdf2Params`](/de/docs/Web/API/Pbkdf2Params) Objekt.
+    - Um [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519) zu verwenden, übergeben Sie ein [`EcdhKeyDeriveParams`](/de/docs/Web/API/EcdhKeyDeriveParams) Objekt und geben den String `X25519` als `name` Eigenschaft an.
 - `baseKey`
-  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der die Eingabe für den Ableitungsalgorithmus darstellt. Wenn `algorithm` ECDH ist, handelt es sich um den ECDH-Privatschlüssel. Andernfalls ist es das Ausgangsschlüsselmaterial für die Ableitungsfunktion: Beispielsweise könnte es sich bei PBKDF2 um ein Passwort handeln, das als `CryptoKey` mithilfe von [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) importiert wurde.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den Input für den Ableitungsalgorithmus darstellt. Wenn `algorithm` ECDH ist, wird dies der ECDH-Privatschlüssel sein. Andernfalls wird es das initiale Schlüsselmaterium für die Ableitungsfunktion sein: Zum Beispiel könnte es bei PBKDF2 ein Passwort sein, das als `CryptoKey` mithilfe von [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) importiert wurde.
 - `length`
   - : Eine Zahl, die die Anzahl der abzuleitenden Bits repräsentiert. Um mit allen Browsern kompatibel zu sein, sollte die Zahl ein Vielfaches von 8 sein.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) erfüllt wird, der die abgeleiteten Bits enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise),
+das mit einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+erfüllt wird, welcher die abgeleiteten Bits enthält.
 
 ### Ausnahmen
 
 Das Promise wird abgelehnt, wenn eine der folgenden Ausnahmen auftritt:
 
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der _length_-Parameter des `deriveBits()`-Aufrufs null ist und auch in einigen Fällen, wenn der _length_-Parameter kein Vielfaches von 8 ist.
+  - : Wird ausgelöst, wenn der _length_ Parameter des `deriveBits()` Aufrufs null ist und auch in einigen Fällen, wenn der _length_ Parameter kein Vielfaches von 8 ist.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Basisschlüssel kein Schlüssel für den angeforderten Ableitungsalgorithmus ist oder wenn der [`CryptoKey.usages`](/de/docs/Web/API/CryptoKey)-Wert dieses Schlüssels nicht `deriveBits` enthält.
+  - : Wird ausgelöst, wenn der Basisschlüssel kein Schlüssel für den angeforderten Ableitungsalgorithmus ist oder wenn der [`CryptoKey.usages`](/de/docs/Web/API/CryptoKey) Wert dieses Schlüssels nicht `deriveBits` enthält.
 - `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt ist oder nicht für die Ableitung geeignet ist.
 
 ## Unterstützte Algorithmen
 
-Siehe den [Abschnitt zu unterstützten Algorithmen in der `deriveKey()`-Dokumentation](/de/docs/Web/API/SubtleCrypto/deriveKey#supported_algorithms).
+Siehe den [Abschnitt über unterstützte Algorithmen in der `deriveKey()` Dokumentation](/de/docs/Web/API/SubtleCrypto/deriveKey#supported_algorithms).
 
 ## Beispiele
 
 > [!NOTE]
-> Sie können [die funktionierenden Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/derive-bits/index.html).
+> Sie können die [funktionsfähigen Beispiele auf GitHub ausprobieren](https://mdn.github.io/dom-examples/web-crypto/derive-bits/index.html).
 
 ### ECDH
 
 In diesem Beispiel generieren Alice und Bob jeweils ein ECDH-Schlüsselpaar.
 
-Wir verwenden dann Alices privaten Schlüssel und Bobs öffentlichen Schlüssel, um ein gemeinsames Geheimnis abzuleiten. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-bits/ecdh.js)
+Wir verwenden dann Alice's privaten Schlüssel und Bob's öffentlichen Schlüssel, um ein gemeinsames Geheimnis abzuleiten. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-bits/ecdh.js)
 
 ```js
 async function deriveSharedSecret(privateKey, publicKey) {
@@ -129,13 +133,11 @@ Promise.all([generateAliceKeyPair, generateBobKeyPair]).then((values) => {
 
 ### X25519
 
-In diesem Beispiel generieren Alice und Bob jeweils ein X25519-Schlüsselpaar. Wir verwenden dann Alices privaten Schlüssel und Bobs öffentlichen Schlüssel, um ein Geheimnis abzuleiten, und vergleichen dies mit dem Geheimnis, das mit Bobs privatem Schlüssel und Alices öffentlichem Schlüssel generiert wurde, um zu zeigen, dass sie identisch sind.
+In diesem Beispiel generieren Alice und Bob jeweils ein X25519-Schlüsselpaar. Wir verwenden dann Alice's privaten Schlüssel und Bob's öffentlichen Schlüssel, um ein Geheimnis abzuleiten, und vergleichen dies mit dem Geheimnis, das mit Bob's privaten Schlüssel und Alice's öffentlichen Schlüssel generiert wurde, um zu zeigen, dass sie geteilt/identisch sind.
 
 #### HTML
 
-Das HTML definiert zwei Schaltflächen.
-Die "Change keys"-Schaltfläche wird gedrückt, um neue Schlüsselpaare für Alice und Bob zu generieren.
-Die "Derive bits"-Schaltfläche wird gedrückt, um ein gemeinsames Geheimnis mit dem aktuellen Satz von Schlüsselpaaren abzuleiten.
+Das HTML definiert zwei Schaltflächen. Die Schaltfläche "Schlüssel ändern" wird gedrückt, um neue Schlüsselpaaren für Alice und Bob zu generieren. Die Schaltfläche "Bits ableiten" wird gedrückt, um ein gemeinsames Geheimnis mit dem aktuellen Satz von Schlüsselpaaren abzuleiten.
 
 ```html
 <input id="buttonDeriveKeys" type="button" value="Derive bits" />
@@ -168,8 +170,7 @@ function log(text) {
 }
 ```
 
-Die Funktion zum Generieren eines gemeinsamen Geheimnisses unter Verwendung des X25519-Algorithmus wird unten angezeigt.
-Diese nimmt einen privaten Schlüssel von einer Partei und den öffentlichen Schlüssel von einer anderen.
+Die Funktion zur Generierung eines gemeinsamen Geheimnisses unter Verwendung des X25519-Algorithmus wird unten gezeigt. Sie nimmt einen privaten Schlüssel von einer Partei und den öffentlichen Schlüssel von einer anderen Partei.
 
 ```js
 async function deriveSharedSecret(privateKey, publicKey) {
@@ -184,8 +185,7 @@ async function deriveSharedSecret(privateKey, publicKey) {
 }
 ```
 
-Der folgende Code fügt eine Funktion hinzu, um neue Schlüssel für Alice und Bob zu generieren.
-Dies wird beim ersten Laden des JavaScripts durchgeführt und immer wiederholt, wenn die "Change keys"-Schaltfläche gedrückt wird (dies ermöglicht es uns, die Auswirkungen des Änderns der Schlüssel auf das gemeinsame Geheimnis zu sehen).
+Der folgende Code fügt eine Funktion hinzu, um neue Schlüssel für Alice und Bob zu generieren. Dies geschieht beim ersten Laden des JavaScripts und wird jedes Mal wiederholt, wenn die Schaltfläche "Schlüssel ändern" gedrückt wird (dies ermöglicht es uns, die Auswirkung des Schlüsselwechsels auf das gemeinsame Geheimnis zu sehen).
 
 ```js
 let aliceKeyPair;
@@ -225,8 +225,7 @@ const changeKeysButton = document.querySelector("#buttonChangeKeys");
 changeKeysButton.addEventListener("click", changeKeys);
 ```
 
-Der folgende Code fügt eine Handler-Funktion hinzu, die jedes Mal aufgerufen wird, wenn die "Derive bits"-Schaltfläche gedrückt wird.
-Der Handler generiert die gemeinsamen Geheimnisse für Alice und Bob mithilfe der oben definierten `deriveSharedSecret()`-Methode und protokolliert sie, um den Vergleich zu erleichtern.
+Der folgende Code fügt eine Handler-Funktion hinzu, die jedes Mal aufgerufen wird, wenn die Schaltfläche "Bits ableiten" gedrückt wird. Der Handler generiert die gemeinsamen Geheimnisse für Alice und Bob unter Verwendung der oben definierten `deriveSharedSecret()` Methode und protokolliert sie, um den Vergleich zu erleichtern.
 
 ```js
 const deriveBitsButton = document.querySelector("#buttonDeriveKeys");
@@ -259,13 +258,13 @@ deriveBitsButton.addEventListener("click", async () => {
 
 #### Ergebnis
 
-Drücken Sie die "Derive bits"-Schaltfläche, um ein gemeinsames Geheimnis aus Bobs und Alices Schlüsseln zu generieren und zu protokollieren. Drücken Sie die "Change keys"-Schaltfläche, um die von beiden Parteien verwendeten X25519-Schlüssel zu ändern.
+Drücken Sie die Schaltfläche "Bits ableiten", um ein gemeinsames Geheimnis aus Bob's und Alice's Schlüsseln zu generieren und zu protokollieren. Drücken Sie die Schaltfläche "Schlüssel ändern", um die von beiden Parteien verwendeten X25519-Schlüssel zu ändern.
 
 {{EmbedLiveSample("X25519", "100%", "340px")}}
 
 ### PBKDF2
 
-In diesem Beispiel fragen wir den Benutzer nach einem Passwort und verwenden es dann, um einige Bits mit PBKDF2 abzuleiten. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-bits/pbkdf2.js)
+In diesem Beispiel bitten wir den Benutzer um ein Passwort, das dann verwendet wird, um einige Bits mit PBKDF2 abzuleiten. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/derive-bits/pbkdf2.js)
 
 ```js
 let salt;
@@ -330,7 +329,7 @@ deriveBitsButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [HKDF-Spezifikation](https://datatracker.ietf.org/doc/html/rfc5869).
-- [NIST-Richtlinien für passwortbasierte Schlüsselableitung](https://csrc.nist.gov/pubs/sp/800/132/final).
-- [Leitfaden zur Passwortspeicherung](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+- [HKDF Spezifikation](https://datatracker.ietf.org/doc/html/rfc5869).
+- [NIST-Richtlinien für passwortbasierte Schlüsselerzeugung](https://csrc.nist.gov/pubs/sp/800/132/final).
+- [Leitfaden zur Speicherung von Passwörtern](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
 - [Ratschläge zur Auswahl einer Iterationsanzahl für PBKDF2](https://security.stackexchange.com/questions/3959/recommended-of-iterations-when-using-pbkdf2-sha256/3993#3993).

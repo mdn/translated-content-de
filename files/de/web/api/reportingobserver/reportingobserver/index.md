@@ -3,12 +3,12 @@ title: "ReportingObserver: ReportingObserver() Konstruktor"
 short-title: ReportingObserver()
 slug: Web/API/ReportingObserver/ReportingObserver
 l10n:
-  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Der **`ReportingObserver()`**-Konstruktor der [Reporting API](/de/docs/Web/API/Reporting_API) erstellt eine neue Instanz des [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekts, die zur Sammlung und zum Zugriff auf Berichte verwendet werden kann.
+Der **`ReportingObserver()`**-Konstruktor der [Reporting API](/de/docs/Web/API/Reporting_API) erstellt eine neue Instanz des [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Objekts, das zum Sammeln und Zugreifen auf Berichte verwendet werden kann.
 
 ## Syntax
 
@@ -21,21 +21,27 @@ new ReportingObserver(callback, options)
 
 - `callback`
 
-  - : Eine Callback-Funktion, die ausgeführt wird, wenn der Observer beginnt, Berichte zu sammeln (d. h. über [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)). Die Callback-Funktion erhält zwei Parameter:
-
+  - : Eine Callback-Funktion, die ausgeführt wird, wenn der Observer beginnt, Berichte zu sammeln (d.h. über
+    [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)). Der Callback-Funktion werden zwei
+    Parameter übergeben:
     - `reports`
-      - : Eine Sequenz von [`Report`](/de/docs/Web/API/Report)-Objekten, die die im Berichtswarteschlangen des Observers gesammelten Berichte darstellen. Dies ist wahrscheinlich der häufigste Weg, um die Berichte abzurufen.
+      - : Eine Sequenz von [`Report`](/de/docs/Web/API/Report)-Objekten, die
+        die gesammelten Berichte in der Berichts-Warteschlange des Observers repräsentieren. Dies ist wahrscheinlich
+        die gebräuchlichste Methode, um die Berichte abzurufen.
     - `observer`
-      - : Ein Verweis auf dasselbe `ReportingObserver`-Objekt, das eine rekursive Sammlung von Berichten usw. ermöglicht.
+      - : Ein Verweis auf dasselbe `ReportingObserver`-
+        Objekt, das eine rekursive Berichtssammlung usw. ermöglicht.
 
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, das es Ihnen ermöglicht, die Optionen für die Erstellung des Objekts festzulegen. Die verfügbaren Optionen sind:
-
+  - : Ein Objekt, das Ihnen ermöglicht, die Optionen für die Erstellung des Objekts festzulegen. Die verfügbaren Optionen sind:
     - `types`
-      - : Ein Array von Strings, die die Typen von Berichten repräsentieren, die von diesem Observer gesammelt werden sollen. Verfügbare Typen sind `deprecation`, `intervention` und `crash` (obwohl letzterer Typ in der Regel nicht über einen `ReportingObserver` abrufbar ist). Wenn diese Option weggelassen wird, werden alle unterstützten Typen gesammelt.
+      - : Ein Array von Strings, die die Typen der Berichte repräsentieren, die von diesem Observer gesammelt werden sollen. Verfügbare Typen sind `deprecation`,
+        `intervention` und `crash` (obwohl dieser letzte Typ normalerweise
+        nicht über einen `ReportingObserver` abrufbar ist). Wenn diese Option weggelassen wird, werden alle unterstützten Typen gesammelt.
     - `buffered`
-      - : Ein Boolean, der definiert, ob die Berichte, die generiert wurden, bevor der Observer erstellt werden konnte, beobachtbar sein sollen (`true`) oder nicht (`false`).
+      - : Ein Boolean, der definiert, ob die Berichte, die
+        generiert wurden, bevor der Observer erstellt werden konnte, beobachtbar
+        (`true`) oder nicht (`false`) sein sollen.
 
 ## Beispiele
 

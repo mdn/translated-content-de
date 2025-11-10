@@ -2,18 +2,16 @@
 title: browserSettings.allowPopupsForUserEvents
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/allowPopupsForUserEvents
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Fähigkeit von Webseiten zu aktivieren oder zu deaktivieren, Popups als Reaktion auf Benutzeraktionen zu öffnen.
 
 Der zugrunde liegende Wert ist ein boolescher Wert.
 
-Standardmäßig erlauben Browser Webseiten, Popups als Reaktion auf eine bestimmte Reihe von Ereignissen zu öffnen: zum Beispiel [click](/de/docs/Web/API/Element/click_event), [mouseup](/de/docs/Web/API/Element/mouseup_event), [submit](/de/docs/Web/API/HTMLFormElement/submit_event). Wenn `allowPopupsForUserEvents` auf `false` gesetzt ist, kann kein Benutzerereignis Popups öffnen. Wenn es auf `true` gesetzt ist, wird die Standardmenge der Ereignisse zugelassen, um Popups zu öffnen.
+Standardmäßig erlauben Browser Webseiten, Popups als Reaktion auf eine bestimmte Reihe von Ereignissen zu öffnen: zum Beispiel [click](/de/docs/Web/API/Element/click_event), [mouseup](/de/docs/Web/API/Element/mouseup_event), [submit](/de/docs/Web/API/HTMLFormElement/submit_event). Wenn `allowPopupsForUserEvents` auf `false` gesetzt ist, können keine Benutzereignisse Popups öffnen. Wenn es auf `true` gesetzt ist, wird die Standardmenge von Ereignissen erlaubt, Popups zu öffnen.
 
-Beispielsweise könnte eine Webseite Code wie diesen haben:
+Angenommen, eine Webseite enthält Code wie diesen:
 
 ```js
 window.addEventListener("click", (e) => {
@@ -21,15 +19,11 @@ window.addEventListener("click", (e) => {
 });
 ```
 
-Standardmäßig wird dies ein Popup-Fenster öffnen. Wenn Ihre Erweiterung `allowPopupsForUserEvents` auf `false` setzt, wird kein Popup geöffnet, und der Benutzer wird darüber informiert, dass das Popup blockiert wurde.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Standardmäßig öffnet dies ein Popup-Fenster. Wenn Ihre Erweiterung `allowPopupsForUserEvents` auf `false` setzt, wird kein Popup geöffnet und der Benutzer wird informiert, dass das Popup blockiert wurde.
 
 ## Beispiele
 
-Einstellung umschalten:
+Schalten Sie die Einstellung um:
 
 ```js
 function toggleAllowPopup() {
@@ -49,3 +43,7 @@ browser.browserAction.onClicked.addListener(() => {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

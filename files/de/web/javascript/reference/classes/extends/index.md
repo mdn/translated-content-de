@@ -2,14 +2,12 @@
 title: extends
 slug: Web/JavaScript/Reference/Classes/extends
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Classes")}}
+Das **`extends`** Schlüsselwort wird in [Klassendeklarationen](/de/docs/Web/JavaScript/Reference/Statements/class) oder [Klassenexpressionen](/de/docs/Web/JavaScript/Reference/Operators/class) verwendet, um eine Klasse zu erstellen, die eine Unterklasse einer anderen Klasse ist.
 
-Das **`extends`**-Schlüsselwort wird in [Klassendeklarationen](/de/docs/Web/JavaScript/Reference/Statements/class) oder [Klassen-Ausdrücken](/de/docs/Web/JavaScript/Reference/Operators/class) verwendet, um eine Klasse zu erstellen, die von einer anderen Klasse abgeleitet ist.
-
-{{InteractiveExample("JavaScript Demo: Classes Extends", "taller")}}
+{{InteractiveExample("JavaScript Demo: Class extends", "taller")}}
 
 ```js interactive-example
 class DateFormatter extends Date {
@@ -43,13 +41,13 @@ class ChildClass extends ParentClass { /* … */ }
 ```
 
 - `ParentClass`
-  - : Ein Ausdruck, der in eine Konstruktorfunktion (einschließlich einer Klasse) oder `null` ausgewertet wird.
+  - : Ein Ausdruck, der zu einer Konstruktorfunktion (einschließlich einer Klasse) oder `null` auswertet.
 
 ## Beschreibung
 
-Das Schlüsselwort `extends` kann verwendet werden, um benutzerdefinierte Klassen sowie eingebaute Objekte zu subklassifizieren.
+Das `extends` Schlüsselwort kann zum Erstellen von Unterklassen für benutzerdefinierte Klassen sowie für eingebaute Objekte verwendet werden.
 
-Jeder Konstruktor, der mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden kann und über die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft verfügt, kann als Elternklasse dienen. Beide Bedingungen müssen erfüllt sein – beispielsweise können [gebundene Funktionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) und {{jsxref("Proxy")}} konstruiert werden, haben aber keine `prototype`-Eigenschaft und können daher nicht subklassifiziert werden.
+Jeder Konstruktor, der mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden kann und die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) Eigenschaft hat, kann Kandidat für die Elternklasse sein. Beide Bedingungen müssen erfüllt sein – zum Beispiel können [gebundene Funktionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) und {{jsxref("Proxy")}} konstruiert werden, aber sie haben keine `prototype` Eigenschaft, also können sie nicht unterklassifiziert werden.
 
 ```js
 function OldStyleClass() {
@@ -67,7 +65,7 @@ class ModernClass {
 class AnotherChildClass extends ModernClass {}
 ```
 
-Die `prototype`-Eigenschaft der `ParentClass` muss ein {{jsxref("Object")}} oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein. In der Praxis ist dies jedoch selten relevant, da ein nicht-objektorientiertes `prototype` ohnehin nicht wie erwartet funktioniert (es wird vom [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator ignoriert).
+Die `prototype` Eigenschaft der `ParentClass` muss ein {{jsxref("Object")}} oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, aber in der Praxis werden Sie sich selten darum kümmern, da ein nicht-objekt-orientiertes `prototype` sich ohnehin nicht wie erwartet verhält. (Es wird vom [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator ignoriert.)
 
 ```js
 function ParentClass() {}
@@ -81,13 +79,13 @@ console.log(Object.getPrototypeOf(new ParentClass()));
 // Not actually a number!
 ```
 
-`extends` setzt das Prototype sowohl für `ChildClass` als auch für `ChildClass.prototype`.
+`extends` legt das Prototyp für sowohl `ChildClass` als auch `ChildClass.prototype` fest.
 
-|                                         | Prototyp von `ChildClass` | Prototyp von `ChildClass.prototype` |
-| --------------------------------------- | ------------------------- | ----------------------------------- |
-| `extends`-Klausel fehlt                 | `Function.prototype`      | `Object.prototype`                  |
-| [`extends null`](#erweiterung_von_null) | `Function.prototype`      | `null`                              |
-| `extends ParentClass`                   | `ParentClass`             | `ParentClass.prototype`             |
+|                                   | Prototyp von `ChildClass` | Prototyp von `ChildClass.prototype` |
+| --------------------------------- | ------------------------- | ----------------------------------- |
+| `extends` Klausel fehlt           | `Function.prototype`      | `Object.prototype`                  |
+| [`extends null`](#null_erweitern) | `Function.prototype`      | `null`                              |
+| `extends ParentClass`             | `ParentClass`             | `ParentClass.prototype`             |
 
 ```js
 class ParentClass {}
@@ -99,7 +97,7 @@ Object.getPrototypeOf(ChildClass) === ParentClass;
 Object.getPrototypeOf(ChildClass.prototype) === ParentClass.prototype;
 ```
 
-Auf der rechten Seite von `extends` muss kein Bezeichner stehen. Sie können jeden Ausdruck verwenden, der in einen Konstruktor ausgewertet wird. Dies ist häufig praktisch, um [Mix-ins](#mix-ins) zu erstellen. Der `this`-Wert im `extends`-Ausdruck ist der `this`-Wert, der die Klassendefinition umgibt. Auf den Klassennamen selbst zu verweisen, führt zu einem {{jsxref("ReferenceError")}}, da die Klasse noch nicht initialisiert ist. {{jsxref("Operators/await", "await")}} und {{jsxref("Operators/yield", "yield")}} funktionieren wie erwartet in diesem Ausdruck.
+Die rechte Seite von `extends` muss kein Bezeichner sein. Sie können jeden Ausdruck verwenden, der zu einem Konstruktor auswertet. Dies ist oft nützlich, um [Mixins](#mix-ins) zu erstellen. Der `this` Wert im `extends` Ausdruck ist das `this`, das die Klassendefinition umgibt, und das Verweisen auf den Klassennamen führt zu einem {{jsxref("ReferenceError")}}, da die Klasse noch nicht initialisiert ist. {{jsxref("Operators/await", "await")}} und {{jsxref("Operators/yield", "yield")}} funktionieren erwartungsgemäß in diesem Ausdruck.
 
 ```js
 class SomeClass extends class {
@@ -118,7 +116,7 @@ new SomeClass();
 // Derived class
 ```
 
-Während die Basisklasse alles Mögliche von ihrem Konstruktor zurückgeben kann, muss die abgeleitete Klasse ein Objekt oder `undefined` zurückgeben, andernfalls wird ein {{jsxref("TypeError")}} ausgelöst.
+Während die Basisklasse alles von ihrem Konstruktor zurückgeben kann, muss die abgeleitete Klasse ein Objekt oder `undefined` zurückgeben, sonst wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ```js
 class ParentClass {
@@ -141,30 +139,30 @@ class ChildClass extends ParentClass {
 console.log(new ChildClass()); // TypeError: Derived constructors may only return object or undefined
 ```
 
-Wenn der Konstruktor der Elternklasse ein Objekt zurückgibt, wird dieses Objekt als `this`-Wert für die abgeleitete Klasse verwendet, wenn weitere [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) initialisiert werden. Dieser Trick wird als ["Rückgabeüberschreibung"](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#returning_overriding_object) bezeichnet und ermöglicht es, dass die Felder einer abgeleiteten Klasse (einschließlich [privater](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)) auf nicht verwandten Objekten definiert werden.
+Wenn der Elternklassenkonstruktor ein Objekt zurückgibt, wird dieses Objekt als `this` Wert für die abgeleitete Klasse verwendet, wenn diese weiter [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) initialisiert. Dieser Trick wird als ["Rückgabeveränderung"](/de/docs/Web/JavaScript/Reference/Classes/Private_elements#returning_overriding_object) bezeichnet und ermöglicht es, dass die Felder einer abgeleiteten Klasse (einschließlich der [privaten](/de/docs/Web/JavaScript/Reference/Classes/Private_elements)) auf nicht verwandten Objekten definiert werden.
 
-### Eingebaute Objekte subklassifizieren
+### Unterklassenbildung eingebauter Klassen
 
 > [!WARNING]
-> Der Standard-Ausschuss vertritt nun die Ansicht, dass der Mechanismus zur Subklassifizierung eingebauter Objekte in früheren Spezifikationsversionen überkompliziert ist und nicht unerhebliche Leistungs- und Sicherheitsprobleme verursacht. Neue eingebaute Methoden berücksichtigen Subklassen weniger, und die Entwickler der Engines untersuchen, [ob bestimmte Subklassifizierungsmechanismen entfernt werden sollen](https://github.com/tc39/proposal-rm-builtin-subclassing). Erwägen Sie die Verwendung von Komposition anstelle von Vererbung, wenn Sie eingebaute Objekte erweitern möchten.
+> Das Standardkomitee ist mittlerweile der Ansicht, dass der eingebaute Unterklassifizierungsmechanismus in früheren Spezifikationsversionen überentwickelt ist und nicht unerhebliche Leistungs- und Sicherheitsprobleme verursacht. Neue eingebaute Methoden berücksichtigen Unterklassen weniger, und Implementierer von Engines untersuchen, [ob bestimmte Mechanismen der Unterklassifizierung entfernt werden sollen](https://github.com/tc39/proposal-rm-builtin-subclassing). Ziehen Sie in Betracht, Zusammensetzung anstelle von Vererbung zu verwenden, wenn Sie eingebaute Klassen erweitern.
 
-Folgende Aspekte könnten Sie erwarten, wenn Sie eine Klasse erweitern:
+Hier sind einige Dinge, die Sie erwarten können, wenn Sie eine Klasse erweitern:
 
-- Beim Aufruf einer statischen Fabrikmethode (wie {{jsxref("Promise.resolve()")}} oder {{jsxref("Array.from()")}}) auf einer Subklasse ist die zurückgegebene Instanz immer eine Instanz der Subklasse.
-- Beim Aufruf einer Instanzmethode, die eine neue Instanz zurückgibt (wie {{jsxref("Promise.prototype.then()")}} oder {{jsxref("Array.prototype.map()")}}) auf einer Subklasse, ist die zurückgegebene Instanz ebenfalls immer eine Instanz der Subklasse.
-- Instanzmethoden versuchen, soweit möglich, an eine minimale Anzahl von primitiven Methoden zu delegieren. Zum Beispiel verursacht bei einer Subklasse von {{jsxref("Promise")}} das Überschreiben von {{jsxref("Promise/then", "then()")}} automatisch, dass sich das Verhalten von {{jsxref("Promise/catch", "catch()")}} ändert. Oder bei einer Subklasse von {{jsxref("Map")}} führt das Überschreiben von {{jsxref("Map/set", "set()")}} automatisch dazu, dass sich das Verhalten des {{jsxref("Map/Map", "Map()")}}-Konstruktors ändert.
+- Beim Aufruf einer statischen Fabrikmethode (wie {{jsxref("Promise.resolve()")}} oder {{jsxref("Array.from()")}}) auf einer Unterklasse ist die zurückgegebene Instanz immer eine Instanz der Unterklasse.
+- Beim Aufruf einer Instanzmethode, die eine neue Instanz zurückgibt (wie {{jsxref("Promise.prototype.then()")}} oder {{jsxref("Array.prototype.map()")}}) auf einer Unterklasse, ist die zurückgegebene Instanz immer eine Instanz der Unterklasse.
+- Instanzmethoden versuchen, soweit möglich, an eine minimalen Satz von primitiven Methoden zu delegieren. Zum Beispiel führt das Überschreiben von {{jsxref("Promise/then", "then()")}} in einer Unterklasse von {{jsxref("Promise")}} automatisch dazu, dass sich das Verhalten von {{jsxref("Promise/catch", "catch()")}} ändert; oder beim Überschreiben von {{jsxref("Map/set", "set()")}} in einer Unterklasse von {{jsxref("Map")}} ändert sich das Verhalten des {{jsxref("Map/Map", "Map()")}} Konstruktors automatisch.
 
-Jedoch erfordert das oben Genannte nicht-triviale Bemühungen, dies korrekt zu implementieren.
+Diese Erwartungen richtig zu implementieren erfordert jedoch nicht-triviale Anstrengungen.
 
-- Der erste Punkt erfordert, dass die statische Methode den Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) liest, um den Konstruktor für die Konstruktion der zurückgegebenen Instanz zu erhalten. Dies bedeutet, dass `[p1, p2, p3].map(Promise.resolve)` einen Fehler auslöst, weil `this` innerhalb von `Promise.resolve` `undefined` ist. Eine Möglichkeit, dies zu beheben, ist, auf die Basisklasse zurückzugreifen, wenn `this` kein Konstruktor ist, wie dies {{jsxref("Array.from()")}} macht. Das bedeutet jedoch weiterhin, dass die Basisklasse eine Sonderbehandlung erfährt.
-- Der zweite Punkt erfordert, dass die Instanzmethode [`this.constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) liest, um die Konstruktorfunktion zu erhalten. `new this.constructor()` könnte jedoch bestehenden Code brechen, da die `constructor`-Eigenschaft sowohl beschreibbar als auch konfigurierbar ist und nicht auf irgendeine Weise geschützt ist. Daher verwenden viele kopierende eingebauten Methoden stattdessen die [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species)-Eigenschaft des Konstruktors (die standardmäßig einfach `this`, also den Konstruktor selbst, zurückgibt). `[Symbol.species]` erlaubt jedoch das Ausführen beliebigen Codes und das Erstellen von Instanzen beliebigen Typs, was ein Sicherheitsproblem darstellt und die Subklassifizierungssemantik erheblich verkompliziert.
-- Der dritte Punkt führt zu sichtbaren Aufrufen benutzerdefinierter Codes, was viele Optimierungen erschwert. Zum Beispiel, wenn der `Map()`-Konstruktor mit einem Iterable von _x_ Elementen aufgerufen wird, muss er die `set()`-Methode _x_ Mal sichtbar aufrufen, anstatt einfach die Elemente in den internen Speicher zu kopieren.
+- Erstens muss die statische Methode den Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) lesen, um den Konstruktor für die Konstruktion der zurückgegebenen Instanz zu erhalten. Dies bedeutet, dass `[p1, p2, p3].map(Promise.resolve)` einen Fehler auslöst, da `this` innerhalb von `Promise.resolve` `undefined` ist. Eine Möglichkeit, dies zu beheben, besteht darin, auf die Basisklasse zurückzufallen, wenn `this` kein Konstruktor ist, wie {{jsxref("Array.from()")}} es tut, wobei die Basisklasse dennoch eine Sonderbehandlung erfährt.
+- Zweitens muss die Instanzmethode [`this.constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) lesen, um die Konstruktorfunktion zu erhalten. Aber `new this.constructor()` kann alten Code brechen, weil die `constructor` Eigenschaft sowohl beschreibbar als auch konfigurierbar ist und in keiner Weise geschützt ist. Daher verwenden viele eingebaute Kopiermethoden stattdessen die [`[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species) Eigenschaft des Konstruktors (die standardmäßig einfach `this`, also den Konstruktor selbst, zurückgibt). Aber `[Symbol.species]` erlaubt es, beliebigen Code auszuführen und Instanzen eines beliebigen Typs zu erstellen, was ein Sicherheitsproblem darstellt und die Semantik der Unterklassenerstellung erheblich verkompliziert.
+- Drittens führt es zu sichtbaren Aufrufen von benutzerdefiniertem Code, was viele Optimierungen erschwert. Zum Beispiel, wenn der `Map()` Konstruktor mit einem iterierbaren von _x_ Elementen aufgerufen wird, muss er die `set()` Methode _x_-mal sichtbar aufrufen, anstatt die Elemente einfach in den internen Speicher zu kopieren.
 
-Diese Probleme sind nicht einzigartig für eingebaute Klassen. Bei eigenen Klassen müssen Sie wahrscheinlich dieselben Entscheidungen treffen. Für eingebaute Klassen sind jedoch Optimierungen und Sicherheit viel wichtiger. Neue eingebaute Methoden konstruieren immer die Basisklasse und rufen so wenige benutzerdefinierte Methoden wie möglich auf. Wenn Sie eingebaute Objekte subklassifizieren und dennoch die oben genannten Erwartungen erfüllen wollen, müssen Sie alle Methoden überschreiben, die das Standardverhalten beinhalten. Jegliche Neuhinzugabe von Methoden zur Basisklasse könnte auch die Semantik Ihrer Subklasse brechen, da diese standardmäßig vererbt werden. Daher ist ein besserer Ansatz zur Erweiterung eingebauter Objekte die Verwendung von [_Komposition_](#vermeidung_von_vererbung).
+Diese Probleme sind nicht einzigartig für eingebaute Klassen. Bei Ihren eigenen Klassen müssen Sie wahrscheinlich die gleichen Entscheidungen treffen. Bei eingebauten Klassen sind jedoch Optimierbarkeit und Sicherheit ein viel größeres Anliegen. Neue eingebaute Methoden konstruieren immer die Basisklasse und rufen so wenige benutzerdefinierte Methoden wie möglich auf. Wenn Sie eingebaute Klassen unterklassen wollen und trotzdem die oben genannten Erwartungen erfüllen möchten, müssen Sie alle Methoden überschreiben, bei denen das Standardverhalten fest integriert ist. Jede Hinzufügung neuer Methoden in die Basisklasse kann auch die Semantik Ihrer Unterklasse brechen, da sie standardmäßig vererbt werden. Daher ist eine bessere Art, eingebaute Klassen zu erweitern, die [_Zusammensetzung_](#vermeidung_von_vererbung) zu verwenden.
 
-### Erweiterung von null
+### Null erweitern
 
-`extends null` wurde entworfen, um die einfache Erstellung von [Objekten, die nicht von `Object.prototype` erben](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects), zu ermöglichen. Aufgrund ungelöster Entscheidungen darüber, ob `super()` innerhalb des Konstruktors aufgerufen werden soll, ist es jedoch praktisch nicht möglich, eine solche Klasse mit einer beliebigen Konstruktor-Implementierung zu erstellen, die kein Objekt zurückgibt. [Das TC39-Komitee arbeitet daran, diese Funktionalität wieder zu aktivieren](https://github.com/tc39/ecma262/pull/1321).
+`extends null` wurde entworfen, um die einfache Erstellung von [Objekten, die nicht von `Object.prototype` erben](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) zu ermöglichen. Aufgrund ungelöster Entscheidungen darüber, ob `super()` im Konstruktor aufgerufen werden sollte, ist es jedoch in der Praxis nicht möglich, eine solche Klasse unter Verwendung einer beliebigen Konstruktorimplementierung zu konstruieren, die kein Objekt zurückgibt. [Das TC39 Komitee arbeitet daran, dieses Feature wieder zu aktivieren](https://github.com/tc39/ecma262/pull/1321).
 
 ```js
 new (class extends null {})();
@@ -202,7 +200,7 @@ console.log(proto(proto(new NullClass()))); // null
 
 ### Verwendung von extends
 
-Das erste Beispiel erstellt eine Klasse namens `Square` aus einer Klasse namens `Polygon`. Dieses Beispiel stammt aus dieser [Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html) [(Quelle)](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html).
+Das erste Beispiel erstellt eine Klasse namens `Square` von einer Klasse namens `Polygon`. Dieses Beispiel stammt aus diesem [Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html) [(Quelle)](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html).
 
 ```js
 class Square extends Polygon {
@@ -221,9 +219,9 @@ class Square extends Polygon {
 }
 ```
 
-### Erweiterung einfacher Objekte
+### Normale Objekte erweitern
 
-Klassen können keine regulären (nicht-konstruktiven) Objekte erweitern. Wenn Sie von einem regulären Objekt erben möchten, indem Sie alle Eigenschaften dieses Objekts für geerbte Instanzen verfügbar machen, können Sie stattdessen {{jsxref("Object.setPrototypeOf()")}} verwenden:
+Klassen können reguläre (nicht konstruierbare) Objekte nicht erweitern. Wenn Sie von einem regulären Objekt erben möchten, indem Sie alle Eigenschaften dieses Objekts in geerbten Instanzen verfügbar machen, können Sie stattdessen {{jsxref("Object.setPrototypeOf()")}} verwenden:
 
 ```js
 const Animal = {
@@ -244,9 +242,9 @@ const d = new Dog("Mitzie");
 d.speak(); // Mitzie makes a noise.
 ```
 
-### Erweiterung eingebauter Objekte
+### Eingebaute Objekte erweitern
 
-Dieses Beispiel erweitert das eingebaute {{jsxref("Date")}}-Objekt. Dieses Beispiel stammt aus dieser [Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html) [(Quelle)](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html).
+Dieses Beispiel erweitert das eingebaute {{jsxref("Date")}} Objekt. Dieses Beispiel stammt aus diesem [Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html) [(Quelle)](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html).
 
 ```js-nolint
 class MyDate extends Date {
@@ -260,11 +258,11 @@ class MyDate extends Date {
 }
 ```
 
-### Erweiterung von `Object`
+### `Object` erweitern
 
-Alle JavaScript-Objekte erben standardmäßig von `Object.prototype`, sodass das Schreiben von `extends Object` auf den ersten Blick redundant erscheint. Der einzige Unterschied zum vollständigen Verzicht auf `extends` besteht darin, dass der Konstruktor selbst statische Methoden von `Object` erbt, wie etwa {{jsxref("Object.keys()")}}. Da jedoch keine statische `Object`-Methode den `this`-Wert verwendet, gibt es dennoch keinen Nutzen darin, diese statischen Methoden zu erben.
+Alle JavaScript-Objekte erben standardmäßig von `Object.prototype`, daher scheint das Schreiben von `extends Object` auf den ersten Blick redundant zu sein. Der einzige Unterschied, `extends` nicht zu schreiben, besteht darin, dass der Konstruktor selbst statische Methoden von `Object` erbt, wie zum Beispiel {{jsxref("Object.keys()")}}. Da jedoch keine statische Methode von `Object` den `this` Wert verwendet, gibt es keinen Nutzen darin, diese statischen Methoden zu erben.
 
-Der {{jsxref("Object/Object", "Object()")}}-Konstruktor behandelt das Szenario der Subklassifizierung speziell. Wenn er implizit über [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) aufgerufen wird, initialisiert er immer ein neues Objekt mit `new.target.prototype` als Prototyp. Jeder an `super()` übergebene Wert wird ignoriert.
+Der {{jsxref("Object/Object", "Object()")}} Konstruktor behandelt die Unterklassification besonders. Wenn er implizit über [`super()`](/de/docs/Web/JavaScript/Reference/Operators/super) aufgerufen wird, initialisiert er immer ein neues Objekt mit `new.target.prototype` als sein Prototyp. Jeder an `super()` übergebene Wert wird ignoriert.
 
 ```js
 class C extends Object {
@@ -277,7 +275,7 @@ console.log(new C(1) instanceof Number); // false
 console.log(C.keys({ a: 1, b: 2 })); // [ 'a', 'b' ]
 ```
 
-Vergleichen Sie dieses Verhalten mit einem benutzerdefinierten Wrapper, der die Subklassifizierung nicht speziell behandelt:
+Vergleichen Sie dieses Verhalten mit einem benutzerdefinierten Wrapper, der die Unterklassification nicht besonders behandelt:
 
 ```js
 function MyObject(v) {
@@ -293,9 +291,9 @@ console.log(new D(1) instanceof Number); // true
 
 ### Species
 
-Möglicherweise möchten Sie in Ihrer abgeleiteten Array-Klasse `MyArray` {{jsxref("Array")}}-Objekte zurückgeben. Das Species-Muster ermöglicht es Ihnen, Standardkonstruktoren zu überschreiben.
+Es kann sein, dass Sie {{jsxref("Array")}} Objekte in Ihrer abgeleiteten Array-Klasse `MyArray` zurückgeben möchten. Das Species-Muster ermöglicht es Ihnen, Standardkonstruktoren zu überschreiben.
 
-Zum Beispiel möchten Sie mit Methoden wie {{jsxref("Array.prototype.map()")}}, die den Standardkonstruktor zurückgeben, dass diese Methoden ein Eltern-`Array`-Objekt anstelle eines `MyArray`-Objekts zurückgeben. Das {{jsxref("Symbol.species")}}-Symbol ermöglicht Ihnen dies:
+Zum Beispiel möchten Sie bei der Verwendung von Methoden wie {{jsxref("Array.prototype.map()")}}, die den Standardkonstruktor zurückgeben, dass diese Methoden ein übergeordnetes `Array`-Objekt zurückgeben, anstelle des `MyArray`-Objekts. Das {{jsxref("Symbol.species")}} Symbol lässt Sie dies tun:
 
 ```js
 class MyArray extends Array {
@@ -312,13 +310,13 @@ console.log(mapped instanceof MyArray); // false
 console.log(mapped instanceof Array); // true
 ```
 
-Dieses Verhalten wird von vielen eingebauten Kopiermethoden implementiert. Für Einschränkungen dieses Features siehe die Diskussion über [Subklassifizierung eingebauter Objekte](#eingebaute_objekte_subklassifizieren).
+Dieses Verhalten wird von vielen eingebauten Kopiermethoden implementiert. Für Vorbehalte zu diesem Feature siehe die Diskussion zur [Unterklassenbildung eingebauter Klassen](#unterklassenbildung_eingebauter_klassen).
 
 ### Mix-ins
 
-Abstrakte Subklassen oder _Mix-ins_ sind Vorlagen für Klassen. Eine Klasse kann nur eine einzige Superklasse haben, sodass Mehrfachvererbung von beispielsweise Toolklassen nicht möglich ist. Die Funktionalität muss von der Superklasse bereitgestellt werden.
+Abstrakte Unterklassen oder _Mix-ins_ sind Vorlagen für Klassen. Eine Klasse kann nur eine einzige Oberklasse haben, daher ist Mehrfachvererbung von Werkzeugklassen beispielsweise nicht möglich. Die Funktionalität muss von der Oberklasse bereitgestellt werden.
 
-Eine Funktion mit einer Superklasse als Eingabe und einer Subklasse, die diese Superklasse erweitert, als Ausgabe, kann verwendet werden, um Mix-ins zu implementieren:
+Eine Funktion mit einer Oberklasse als Eingabe und einer Unterklasse, die diese Oberklasse erweitert, als Ausgabe kann verwendet werden, um Mix-ins zu implementieren:
 
 ```js
 const calculatorMixin = (Base) =>
@@ -332,7 +330,7 @@ const randomizerMixin = (Base) =>
   };
 ```
 
-Eine Klasse, die diese Mix-ins verwendet, kann dann wie folgt geschrieben werden:
+Eine Klasse, die diese Mix-ins verwendet, kann dann so geschrieben werden:
 
 ```js
 class Foo {}
@@ -341,7 +339,7 @@ class Bar extends calculatorMixin(randomizerMixin(Foo)) {}
 
 ### Vermeidung von Vererbung
 
-Vererbung ist in der objektorientierten Programmierung eine sehr starke Kopplungsbeziehung. Das bedeutet, dass alle Verhaltensweisen der Basisklasse standardmäßig von der Subklasse geerbt werden, was möglicherweise nicht immer erwünscht ist. Zum Beispiel bei der Implementierung einer `ReadOnlyMap`:
+Vererbung ist eine sehr starke Kopplungsbeziehung in der objektorientierten Programmierung. Sie bedeutet, dass alle Verhaltensweisen der Basisklasse standardmäßig von der Unterklasse geerbt werden, was nicht immer gewünscht sein könnte. Betrachten Sie zum Beispiel die Implementierung einer `ReadOnlyMap`:
 
 ```js
 class ReadOnlyMap extends Map {
@@ -351,15 +349,15 @@ class ReadOnlyMap extends Map {
 }
 ```
 
-Es stellt sich heraus, dass `ReadOnlyMap` nicht konstruierbar ist, da der [`Map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Map)-Konstruktor die `set()`-Methode der Instanz aufruft.
+Es stellt sich heraus, dass `ReadOnlyMap` nicht konstruierbar ist, da der [`Map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Map) Konstruktor die `set()` Methode der Instanz aufruft.
 
 ```js
 const m = new ReadOnlyMap([["a", 1]]); // TypeError: A read-only map must be set at construction time.
 ```
 
-Wir könnten dies umgehen, indem wir eine private Kennung verwenden, um anzuzeigen, ob die Instanz konstruiert wird. Ein grundsätzlicheres Problem bei diesem Design ist jedoch, dass es das [Liskov-Substitutionsprinzip](https://de.wikipedia.org/wiki/Liskovsches_Substitutionsprinzip) verletzt, welches besagt, dass eine Subklasse für ihre Superklasse austauschbar sein sollte. Wenn eine Funktion ein `Map`-Objekt erwartet, sollte sie auch ein `ReadOnlyMap`-Objekt verwenden können, was in diesem Fall nicht funktioniert.
+Wir können dies umgehen, indem wir einen privaten Indikator verwenden, um anzuzeigen, ob die Instanz konstruiert wird. Ein wesentliches Problem bei diesem Design ist jedoch, dass es das [Liskov'sche Substitutionsprinzip](https://en.wikipedia.org/wiki/Liskov_substitution_principle) bricht, welches besagt, dass eine Unterklasse für ihre Oberklasse austauschbar sein sollte. Wenn eine Funktion ein `Map`-Objekt erwartet, sollte sie auch ein `ReadOnlyMap`-Objekt verwenden können, was hier jedoch zu einem Bruch führt.
 
-Vererbung führt oft zu [dem Problem Kreis-Ellipse](https://de.wikipedia.org/wiki/Kreis-Ellipse-Problem), da keines der beiden Typen perfekt das Verhalten des anderen umfasst, obwohl sie viele gemeinsame Merkmale teilen. Im Allgemeinen gilt: Solange es keinen sehr guten Grund für die Verwendung von Vererbung gibt, ist es besser, Komposition zu verwenden. Komposition bedeutet, dass eine Klasse eine Referenz zu einem Objekt einer anderen Klasse hat und dieses Objekt nur als Implementierungsdetail verwendet.
+Vererbung führt oft zu [dem Kreis-Ellipse-Problem](https://en.wikipedia.org/wiki/Circle%E2%80%93ellipse_problem), da kein Typ perfekt das Verhalten des anderen beinhaltet, obwohl sie viele gemeinsame Merkmale teilen. Im Allgemeinen ist es, es sei denn, es gibt einen sehr guten Grund, Vererbung zu verwenden, besser, Zusammensetzung einzusetzen. Zusammensetzung bedeutet, dass eine Klasse eine Referenz zu einem Objekt einer anderen Klasse hat und dieses Objekt nur als Implementierungsdetail verwendet.
 
 ```js
 class ReadOnlyMap {
@@ -391,7 +389,7 @@ class ReadOnlyMap {
 }
 ```
 
-In diesem Fall ist die `ReadOnlyMap`-Klasse keine Unterklasse von `Map`, implementiert jedoch die meisten der gleichen Methoden. Dies führt zwar zu mehr Code-Duplizierungen, bedeutet aber auch, dass die `ReadOnlyMap`-Klasse nicht stark mit der `Map`-Klasse gekoppelt ist und nicht leicht bricht, wenn die `Map`-Klasse geändert wird. So werden die [semantischen Probleme bei der Subklassifizierung von eingebauten Objekten](#eingebaute_objekte_subklassifizieren) vermieden. Beispielsweise würde das Hinzufügen einer [`emplace()`](https://github.com/tc39/proposal-upsert)-Methode zur `Map`-Klasse, die nicht `set()` aufruft, dazu führen, dass die `ReadOnlyMap`-Klasse nicht mehr schreibgeschützt ist, es sei denn, sie wird entsprechend aktualisiert, um `emplace()` ebenfalls zu überschreiben. Darüber hinaus haben `ReadOnlyMap`-Objekte die Methode `set` überhaupt nicht, was genauer ist, als zur Laufzeit einen Fehler auszulösen.
+In diesem Fall ist die `ReadOnlyMap` Klasse keine Unterklasse von `Map`, aber sie implementiert dennoch die meisten der gleichen Methoden. Dies bedeutet mehr Code-Duplikation, aber es bedeutet auch, dass die `ReadOnlyMap` Klasse nicht stark mit der `Map` Klasse gekoppelt ist und nicht leicht bricht, wenn sich die `Map` Klasse ändert. Es vermeidet die [semantischen Probleme der eingebauten Unterklassifizierung](#unterklassenbildung_eingebauter_klassen). Zum Beispiel, wenn die `Map` Klasse eine neue Utility-Methode hinzufügt (wie [`getOrInsert()`](https://github.com/tc39/proposal-upsert)), die `set()` nicht aufruft, würde dies bedeuten, dass die `ReadOnlyMap` Klasse nicht mehr schreibgeschützt ist, es sei denn, letztere wird entsprechend aktualisiert, um `getOrInsert()` ebenfalls zu überschreiben. Außerdem haben `ReadOnlyMap` Objekte die `set` Methode überhaupt nicht, was genauer ist, als zur Laufzeit einen Fehler auszulösen.
 
 ## Spezifikationen
 
@@ -403,7 +401,7 @@ In diesem Fall ist die `ReadOnlyMap`-Klasse keine Unterklasse von `Map`, impleme
 
 ## Siehe auch
 
-- [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes)-Leitfaden
+- [Verwendung von Klassen](/de/docs/Web/JavaScript/Guide/Using_classes) Leitfaden
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)
 - {{jsxref("Classes/constructor", "constructor")}}
 - {{jsxref("Statements/class", "class")}}

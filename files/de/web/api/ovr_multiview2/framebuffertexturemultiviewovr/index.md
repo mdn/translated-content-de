@@ -1,14 +1,14 @@
 ---
-title: "OVR_multiview2: framebufferTextureMultiviewOVR()-Methode"
+title: "OVR_multiview2: framebufferTextureMultiviewOVR() Methode"
 short-title: framebufferTextureMultiviewOVR()
 slug: Web/API/OVR_multiview2/framebufferTextureMultiviewOVR
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}
 
-Die **`OVR_multiview2.framebufferTextureMultiviewOVR()`**-Methode des [WebGL-APIs](/de/docs/Web/API/WebGL_API) befestigt eine Multiview-Textur an einem [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer).
+Die **`OVR_multiview2.framebufferTextureMultiviewOVR()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) verbindet eine Multiview-Textur mit einem [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer).
 
 ## Syntax
 
@@ -20,10 +20,9 @@ framebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex
 
 - `target`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
     - `gl.FRAMEBUFFER`
-      - : Sammlung von Pufferdatenspeicher für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
+      - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencilpuffer, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`. Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
     - `gl.READ_FRAMEBUFFER`
@@ -31,31 +30,29 @@ framebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex
 
 - `attachment`
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Anhangspunkt für die `texture` spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Anhangspunkt für die `texture` angibt. Mögliche Werte:
 
-    - `gl.COLOR_ATTACHMENT0`: Befestigt die Textur am Farb-Puffer des Framebuffers.
-    - `gl.DEPTH_ATTACHMENT`: Befestigt die Textur am Tiefen-Puffer des Framebuffers.
-    - `gl.STENCIL_ATTACHMENT`: Befestigt die Textur am Schablonen-Puffer des Framebuffers.
-    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Schablonen-Puffer.
+    - `gl.COLOR_ATTACHMENT0`: Verbindet die Textur mit dem Farb-Puffer des Framebuffers.
+    - `gl.DEPTH_ATTACHMENT`: Verbindet die Textur mit dem Tiefen-Puffer des Framebuffers.
+    - `gl.STENCIL_ATTACHMENT`: Verbindet die Textur mit dem Stencil-Puffer des Framebuffers.
+    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Stencil-Puffer.
     - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 gl.COLOR_ATTACHMENT3 gl.COLOR_ATTACHMENT4 gl.COLOR_ATTACHMENT5 gl.COLOR_ATTACHMENT6 gl.COLOR_ATTACHMENT7 gl.COLOR_ATTACHMENT8 gl.COLOR_ATTACHMENT9 gl.COLOR_ATTACHMENT10 gl.COLOR_ATTACHMENT11 gl.COLOR_ATTACHMENT12 gl.COLOR_ATTACHMENT13 gl.COLOR_ATTACHMENT14 gl.COLOR_ATTACHMENT15`
-      Bei Verwendung der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)-Erweiterung:
-
-      - `ext.COLOR_ATTACHMENT0_WEBGL` (gleich wie
-        `gl.COLOR_ATTACHMENT0`)
+      Bei Verwendung der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers) Erweiterung:
+      - `ext.COLOR_ATTACHMENT0_WEBGL` (gleich wie `gl.COLOR_ATTACHMENT0`)
         `ext.COLOR_ATTACHMENT1_WEBGL ext.COLOR_ATTACHMENT2_WEBGL ext.COLOR_ATTACHMENT3_WEBGL ext.COLOR_ATTACHMENT4_WEBGL ext.COLOR_ATTACHMENT5_WEBGL ext.COLOR_ATTACHMENT6_WEBGL ext.COLOR_ATTACHMENT7_WEBGL ext.COLOR_ATTACHMENT8_WEBGL ext.COLOR_ATTACHMENT9_WEBGL ext.COLOR_ATTACHMENT10_WEBGL ext.COLOR_ATTACHMENT11_WEBGL ext.COLOR_ATTACHMENT12_WEBGL ext.COLOR_ATTACHMENT13_WEBGL ext.COLOR_ATTACHMENT14_WEBGL ext.COLOR_ATTACHMENT15_WEBGL`
 
-    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung:
+    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture) Erweiterung:
 
-    - `ext.DEPTH_STENCIL_ATTACHMENT`: Datenspeicher für Tiefen- und Schablonenpuffer.
+    - `ext.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Stencil-Puffer-Datenspeicher.
 
 - `texture`
-  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, dessen Bild angefügt werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) Objekt, dessen Bild verbunden werden soll.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Mipmap-Ebene des Texturbildes spezifiziert, das angefügt werden soll. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Mipmapping-Ebene des zu verbindenden Texturbildes angibt. Muss 0 sein.
 - `baseViewIndex`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Basis-View-Index des Framebuffer-Objektanhangs spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Basisansichtsindex des Framebuffer-Objektanhangs angibt.
 - `numViews`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Ansichten des Framebuffer-Objektanhangs spezifiziert.
+  - : Eine [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), die die Anzahl der Ansichten des Framebuffer-Objektanhangs angibt.
 
 ### Rückgabewert
 
@@ -63,19 +60,17 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn
+- Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn
 
   - `target` nicht `gl.FRAMEBUFFER` ist.
   - `attachment` nicht einer der akzeptierten Anhangspunkte ist.
 
-- Ein `gl.INVALID_VALUE`-Fehler wird ausgelöst, wenn
+- Ein `gl.INVALID_VALUE` Fehler wird ausgelöst, wenn
 
   - `level` nicht 0 ist.
-  - wenn `numViews` kleiner als eins oder größer als
-    `MAX_VIEWS_OVR` ist.
+  - `numViews` weniger als eins oder mehr als `MAX_VIEWS_OVR` ist.
 
-- Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn `texture` nicht 0
-  oder der Name eines vorhandenen Texturobjekts ist.
+- Ein `gl.INVALID_OPERATION` Fehler wird ausgelöst, wenn `texture` nicht 0 oder der Name eines vorhandenen Texturobjekts ist.
 
 ## Beispiele
 

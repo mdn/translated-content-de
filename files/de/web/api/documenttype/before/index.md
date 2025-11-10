@@ -3,15 +3,15 @@ title: "DocumentType: before() Methode"
 short-title: before()
 slug: Web/API/DocumentType/before
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: 09877330004e55244a9e8eee2ca04a750970f72d
 ---
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.before()`** Methode fügt eine Menge von
-[`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in die Kindliste des
+Die **`DocumentType.before()`**-Methode fügt eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des
 Elternteils des `DocumentType` ein, direkt vor dem `DocumentType`.
-Strings werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
+Zeichenfolgen werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ before(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Menge von einzufügenden [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
-None ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
@@ -39,9 +39,9 @@ None ({{jsxref("undefined")}}).
 
 ### Hinzufügen eines bedingten Kommentars
 
-Kommentarknoten sind vor Doctyp-Deklarationen gültig, aber nicht ratsam,
-da sie den Quirks-Modus in IE auslösen. Ein
-[bedingter Kommentar](https://en.wikipedia.org/wiki/Conditional_comment)
+Kommentar-Knoten sind vor Doctype-Deklarationen zulässig, aber nicht ratsam,
+da sie im IE den Quirks-Modus auslösen. Ein
+[bedingter Kommentar](https://www.sitepoint.com/internet-explorer-conditional-comments/)
 funktioniert jedoch auch für IE:
 
 ```js

@@ -2,22 +2,20 @@
 title: extension.ViewType
 slug: Mozilla/Add-ons/WebExtensions/API/extension/ViewType
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 Der Typ der Erweiterungsansicht.
 
 ## Typ
 
-Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"tab"`, `"popup"`, `"sidebar"`.
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"tab"`, `"popup"`, `"sidebar"`.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{WebExtExamples}}
 
 > [!NOTE]
 > Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#type-ViewType) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.

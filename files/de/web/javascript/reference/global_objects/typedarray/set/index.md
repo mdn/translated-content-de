@@ -1,15 +1,14 @@
 ---
 title: TypedArray.prototype.set()
+short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/set
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`set()`**-Methode von {{jsxref("TypedArray")}}-Instanzen speichert mehrere Werte im typisierten Array, indem sie Eingabewerte aus einem angegebenen Array liest.
 
-Die Methode **`set()`** von {{jsxref("TypedArray")}}-Instanzen speichert mehrere Werte im typisierten Array, indem Eingabewerte aus einem angegebenen Array gelesen werden.
-
-{{InteractiveExample("JavaScript Demo: TypedArray.set()")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.set()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -36,11 +35,11 @@ set(typedarray, targetOffset)
 ### Parameter
 
 - `array`
-  - : Das Array, aus dem die Werte kopiert werden sollen. Alle Werte aus dem Quellarray werden in das Zielarray kopiert, es sei denn, die Länge des Quellarrays plus der Zieloffset überschreitet die Länge des Zielarrays. In diesem Fall wird eine Ausnahme ausgelöst.
+  - : Das Array, aus dem Werte kopiert werden. Alle Werte aus dem Quellarray werden in das Zielarray kopiert, es sei denn, die Länge des Quellarrays plus der Zieloffset überschreitet die Länge des Zielarrays, in diesem Fall wird eine Ausnahme ausgelöst.
 - `typedarray`
-  - : Wenn das Quellarray ein typisiertes Array ist, können die beiden Arrays denselben zugrunde liegenden {{jsxref("ArrayBuffer")}} teilen; die JavaScript-Engine wird den Quellbereich des Buffers intelligent in den Zielbereich **kopieren**.
+  - : Wenn das Quellarray ein typisiertes Array ist, können die beiden Arrays den gleichen zugrunde liegenden {{jsxref("ArrayBuffer")}} teilen; die JavaScript-Engine kopiert intelligent den Quellbereich des Puffers in den Zielbereich.
 - `targetOffset` {{optional_inline}}
-  - : Der Offset im Zielarray, ab dem Werte aus dem Quellarray geschrieben werden sollen. Wenn dieser Wert weggelassen wird, wird 0 angenommen (das Quellarray überschreibt also Werte im Zielarray beginnend bei Index 0).
+  - : Der Offset im Zielarray, bei dem mit dem Schreiben von Werten aus dem Quellarray begonnen werden soll. Wenn dieser Wert weggelassen wird, wird 0 angenommen (das heißt, das Quellarray überschreibt Werte im Zielarray beginnend bei Index 0).
 
 ### Rückgabewert
 
@@ -50,7 +49,7 @@ Keiner ({{jsxref("undefined")}}).
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Ein Element würde über das Ende des typisierten Arrays hinaus gespeichert, entweder weil `targetOffset` zu groß ist oder weil `array` oder `typedarray` zu groß sind.
+    - Ein Element wird über das Ende des typisierten Arrays hinaus gespeichert, entweder weil `targetOffset` zu groß ist oder weil `array` oder `typedarray` zu groß ist.
     - `targetOffset` ist negativ.
 
 ## Beispiele
@@ -77,6 +76,6 @@ console.log(uint8); // Uint8Array [ 0, 0, 0, 1, 2, 3, 0, 0 ]
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.set` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}

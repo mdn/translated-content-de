@@ -3,7 +3,7 @@ title: "RTCIceCandidateStats: url-Eigenschaft"
 short-title: url
 slug: Web/API/RTCIceCandidateStats/url
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
 ---
 
 {{APIRef("WebRTC")}}
@@ -12,7 +12,7 @@ Die **`url`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCa
 
 ## Wert
 
-Ein String, der die URL des ICE-Servers angibt, von dem der in `RTCIceCandidateStats` beschriebene Kandidat abgerufen wurde. Dies ist die gleiche URL, die in der [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereigniseigenschaft [`url`](/de/docs/Web/API/RTCPeerConnectionIceEvent/url) empfangen wird.
+Ein String, der die URL des ICE-Servers angibt, von dem der durch `RTCIceCandidateStats` beschriebene Kandidat abgerufen wurde. Dies ist die gleiche URL, die in der [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Veranstaltungseigenschaft [`url`](/de/docs/Web/API/RTCPeerConnectionIceEvent/url) empfangen werden würde.
 
 > [!NOTE]
 > Diese Eigenschaft existiert nicht für entfernte Kandidaten.

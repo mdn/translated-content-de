@@ -2,12 +2,12 @@
 title: math:lowest()
 slug: Web/XML/EXSLT/Reference/math/lowest
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
-`math:lowest()` gibt den Knoten in der angegebenen Knoten-Menge (`node-set`) mit dem niedrigsten Wert zurück (wobei der niedrigste Wert mit [`math:min()`](/de/docs/Web/XML/EXSLT/math/min) berechnet wird).
+`math:lowest()` gibt den Knoten im angegebenen Knoten-Set mit dem niedrigsten Wert zurück (wobei der niedrigste Wert mit [`math:min()`](/de/docs/Web/XML/EXSLT/Reference/math/min) berechnet wird).
 
-Ein Knoten hat diesen Minimalwert, wenn das Konvertieren seines Zeichenkettenwerts in eine Zahl dem Minimalwert entspricht.
+Ein Knoten hat diesen minimalen Wert, wenn das Umwandeln seines Zeichenfolgenwerts in eine Zahl dem minimalen Wert entspricht.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ math:lowest(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Die Knoten-Menge, deren niedrigster Wert zurückgegeben werden soll.
+  - : Das Knoten-Set, dessen niedrigster Wert zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein Ergebnisbaum-Fragment, das Kopien der von [`math:min()`](/de/docs/Web/XML/EXSLT/math/min) zurückgegebenen Knoten enthält.
+Ein Ergebnisbaumfragment, das Kopien der Knoten enthält, die von [`math:min()`](/de/docs/Web/XML/EXSLT/Reference/math/min) zurückgegeben werden.
 
 ## Spezifikationen
 

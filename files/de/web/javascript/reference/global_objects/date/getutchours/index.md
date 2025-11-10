@@ -1,15 +1,14 @@
 ---
 title: Date.prototype.getUTCHours()
+short-title: getUTCHours()
 slug: Web/JavaScript/Reference/Global_Objects/Date/getUTCHours
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getUTCHours()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Stunden für dieses Datum entsprechend der Weltzeit zurück.
 
-Die **`getUTCHours()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Stunden für dieses Datum gemäß der universellen Zeit zurück.
-
-{{InteractiveExample("JavaScript Demo: Date.getUTCHours()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.getUTCHours()")}}
 
 ```js interactive-example
 const date1 = new Date("December 31, 1975, 23:15:30 GMT+11:00");
@@ -34,13 +33,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein Ganzzahlwert, zwischen 0 und 23, der die Stunden für das angegebene Datum gemäß der universellen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 0 und 23, die die Stunden des angegebenen Datums entsprechend der Weltzeit repräsentiert. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCHours()
 
-Das folgende Beispiel weist den Stundenanteil der aktuellen Zeit der Variablen `hours` zu.
+Im folgenden Beispiel wird der Stundenanteil der aktuellen Zeit der Variablen `hours` zugewiesen.
 
 ```js
 const today = new Date();

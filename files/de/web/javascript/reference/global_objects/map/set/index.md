@@ -1,24 +1,23 @@
 ---
 title: Map.prototype.set()
+short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/Map/set
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-{{JSRef}}
-
-Die **`set()`**-Methode von {{jsxref("Map")}}-Instanzen fügt einen Eintrag mit einem angegebenen Schlüssel und einem Wert zu dieser Map hinzu oder aktualisiert ihn.
+Die **`set()`** Methode von {{jsxref("Map")}} Instanzen fügt diesem `Map` ein neues Element mit einem angegebenen Schlüssel und Wert hinzu oder aktualisiert ein vorhandenes Element, wenn der Schlüssel bereits existiert.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.set()")}}
 
 ```js interactive-example
-const map1 = new Map();
-map1.set("bar", "foo");
+const map = new Map();
+map.set("bar", "foo");
 
-console.log(map1.get("bar"));
+console.log(map.get("bar"));
 // Expected output: "foo"
 
-console.log(map1.get("baz"));
+console.log(map.get("baz"));
 // Expected output: undefined
 ```
 
@@ -31,9 +30,9 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das dem `Map`-Objekt hinzugefügt werden soll. Der Schlüssel kann jeden [JavaScript-Typ](/de/docs/Web/JavaScript/Data_structures) haben (jeder [primitiver Wert](/de/docs/Web/JavaScript/Data_structures#primitive_values) oder jede Art von [JavaScript-Objekt](/de/docs/Web/JavaScript/Data_structures#objects)).
+  - : Der Schlüssel des Eintrags, der zum `Map`-Objekt hinzugefügt oder darin geändert werden soll. Kann jeden Wert annehmen. Objekt-Schlüssel werden durch {{Glossary("Object_reference", "Referenz")}} und nicht durch Wert verglichen.
 - `value`
-  - : Der Wert des Elements, das dem `Map`-Objekt hinzugefügt werden soll. Der Wert kann jeden [JavaScript-Typ](/de/docs/Web/JavaScript/Data_structures) haben (jeder [primitiver Wert](/de/docs/Web/JavaScript/Data_structures#primitive_values) oder jede Art von [JavaScript-Objekt](/de/docs/Web/JavaScript/Data_structures#objects)).
+  - : Der Wert des Eintrags, der zum `Map`-Objekt hinzugefügt oder darin geändert werden soll. Kann jeden Wert annehmen.
 
 ### Rückgabewert
 
@@ -54,9 +53,9 @@ myMap.set(1, "foobar");
 myMap.set("bar", "baz");
 ```
 
-### Verwendung von set() mit Verkettung
+### Verwenden von set() mit Verkettung
 
-Da die `set()`-Methode das gleiche `Map`-Objekt zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
+Da die `set()` Methode dasselbe `Map`-Objekt zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
 
 ```js
 // Add new elements to the map with chaining.
@@ -74,5 +73,6 @@ myMap.set("bar", "foo").set(1, "foobar").set(2, "baz");
 ## Siehe auch
 
 - {{jsxref("Map")}}
+- {{jsxref("Map.prototype.delete()")}}
 - {{jsxref("Map.prototype.get()")}}
 - {{jsxref("Map.prototype.has()")}}

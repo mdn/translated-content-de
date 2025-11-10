@@ -1,14 +1,14 @@
 ---
-title: "WebGL2RenderingContext: beginTransformFeedback()-Methode"
+title: "WebGL2RenderingContext: beginTransformFeedback() Methode"
 short-title: beginTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/beginTransformFeedback
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.beginTransformFeedback()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) startet eine Transform-Feedback-Operation.
+Die **`WebGL2RenderingContext.beginTransformFeedback()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) startet eine Transform-Feedback-Operation.
 
 ## Syntax
 
@@ -19,16 +19,14 @@ beginTransformFeedback(primitiveMode)
 ### Parameter
 
 - `primitiveMode`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Ausgabetyp der Primitiven spezifiziert, die in die Buffer-Objekte aufgezeichnet werden, die für das Transform-Feedback gebunden sind. Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Ausgabetyp der Primitiven angibt, die in die für Transform Feedback gebundenen Pufferobjekte aufgezeichnet werden. Mögliche Werte:
     - `gl.POINTS`
     - `gl.LINES`
     - `gl.TRIANGLES`
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 

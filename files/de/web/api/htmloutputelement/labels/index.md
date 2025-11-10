@@ -3,19 +3,18 @@ title: "HTMLOutputElement: labels-Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLOutputElement/labels
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}
 
-Die **`HTMLOutputElement.labels`** Eigenschaft gibt eine schreibgeschützte
-[`NodeList`](/de/docs/Web/API/NodeList) von den {{HTMLElement("label")}}-Elementen zurück, die mit dem
-{{HTMLElement("output")}}-Element verknüpft sind.
+Die **`HTMLOutputElement.labels`**-Eigenschaft, die nur lesbar ist, gibt eine
+[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
+{{HTMLElement("output")}}-Element verbunden sind.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<output>`-Element
-verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<output>`-Element verbunden sind.
 
 ## Beispiele
 
@@ -30,12 +29,10 @@ verknüpft sind.
 ### JavaScript
 
 ```js
-window.addEventListener("DOMContentLoaded", () => {
-  const output = document.getElementById("test");
-  for (const label of output.labels) {
-    console.log(label.textContent); // "Label 1" and "Label 2"
-  }
-});
+const output = document.getElementById("test");
+for (const label of output.labels) {
+  console.log(label.textContent); // "Label 1" and "Label 2"
+}
 ```
 
 {{EmbedLiveSample("Examples", "100%", 30)}}

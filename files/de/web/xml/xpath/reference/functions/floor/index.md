@@ -2,10 +2,10 @@
 title: floor
 slug: Web/XML/XPath/Reference/Functions/floor
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
 ---
 
-Die Funktion `floor` bewertet eine Dezimalzahl und gibt die größte ganze Zahl zurück, die kleiner oder gleich der Dezimalzahl ist.
+Die `floor`-Funktion wertet eine Dezimalzahl aus und gibt die größte ganze Zahl zurück, die kleiner oder gleich der Dezimalzahl ist.
 
 ## Syntax
 
@@ -16,15 +16,15 @@ floor( number )
 ### Parameter
 
 - `number`
-  - : Die zu bewertende Dezimalzahl.
+  - : Die zu evaluierende Dezimalzahl.
 
 ### Rückgabewert
 
-Die nächstgelegene ganze Zahl, die kleiner oder gleich `number` ist.
+Die nächste ganze Zahl, die kleiner oder gleich `number` ist.
 
 ## Spezifikationen
 
-[XPath 1.0 4.4](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-floor)
+[XPath 1.0 4.4](https://www.w3.org/TR/xpath-10/#function-floor)
 
 ## Gecko-Unterstützung
 

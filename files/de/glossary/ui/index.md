@@ -2,12 +2,10 @@
 title: UI
 slug: Glossary/UI
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Benutzeroberfläche** (UI) ist alles, was die Interaktion zwischen einem Benutzer und einer Maschine erleichtert. In der Welt der Computer kann dies alles von einer Tastatur, einem Joystick, einem Bildschirm oder einem Programm sein. Im Falle von Computersoftware kann es ein Befehlszeilenprompt, eine Webseite, ein Benutzer-Eingabeformular oder das Front-End einer Anwendung sein.
+**Benutzeroberfläche** (UI) ist alles, was die Interaktion zwischen einem Benutzer und einer Maschine ermöglicht. In der Computerwelt kann das alles sein, von einer Tastatur, einem Joystick, einem Bildschirm bis hin zu einem Programm. Im Falle von Computersoftware kann es eine Befehlszeileneingabeaufforderung, eine Webseite, ein Benutzer-Eingabeformular oder das Frontend einer beliebigen Anwendung sein.
 
 ## Siehe auch
 

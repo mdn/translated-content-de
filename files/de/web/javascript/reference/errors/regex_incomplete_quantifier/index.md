@@ -2,14 +2,12 @@
 title: "SyntaxError: unvollständiger Quantifizierer im regulären Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_incomplete_quantifier
 l10n:
-  sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Die JavaScript-Ausnahme "unvollständiger Quantifizierer im regulären Ausdruck" tritt auf, wenn ein regulärer Ausdruck ein `{` enthält, dieser jedoch keinen gültigen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) einleitet.
 
-Die JavaScript-Ausnahme "unvollständiger Quantifizierer im regulären Ausdruck" tritt auf, wenn ein Muster eines regulären Ausdrucks eine `{` enthält, die jedoch keinen gültigen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) einleitet.
-
-## Mitteilung
+## Nachricht
 
 ```plain
 SyntaxError: Invalid regular expression: /1{/u: Incomplete quantifier (V8-based)
@@ -23,9 +21,9 @@ SyntaxError: Invalid regular expression: incomplete {} quantifier for Unicode pa
 
 ## Was ist schiefgelaufen?
 
-Ein `{`-Zeichen in einem Muster eines regulären Ausdrucks leitet einen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) ein. Ein gültiger Quantifizierer hat die Form `{n}`, `{n,}` oder `{n,m}`, wobei `n` und `m` nichtnegative ganze Zahlen sind und `m` nicht kleiner als `n` ist. Wenn das `{`-Zeichen keinen gültigen Quantifizierer einleitet, tritt ein `SyntaxError` auf.
+Ein `{`-Zeichen in einem regulären Ausdrucksmuster leitet einen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) ein. Ein gültiger Quantifizierer hat die Form `{n}`, `{n,}` oder `{n,m}`, wobei `n` und `m` nichtnegative ganze Zahlen sind und `m` nicht kleiner als `n` ist. Wenn das `{`-Zeichen keinen gültigen Quantifizierer einleitet, tritt ein `SyntaxError` auf.
 
-Im Unicode-unabhängigen Modus führt diese Syntax dazu, dass das `{` zu einem literalen Zeichen wird, anstatt einen Fehler zu erzeugen, aber dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und Sie sollten sich nicht darauf verlassen.
+Im Unicode-unabhängigen Modus führt diese Syntax dazu, dass das `{` zu einem literalen Zeichen wird, anstatt einen Fehler zu erzeugen. Dies ist jedoch eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und Sie sollten sich nicht darauf verlassen.
 
 ## Beispiele
 

@@ -3,21 +3,21 @@ title: "AudioContext: sinkchange-Ereignis"
 short-title: sinkchange
 slug: Web/API/AudioContext/sinkchange_event
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 29d7119ff6b46801a0e5a2ce69b734b668812035
 ---
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Das **`sinkchange`**-Ereignis der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird ausgelöst, wenn sich das Ausgabe-Audiogerät (und damit die [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)) geändert hat.
+Das **`sinkchange`**-Ereignis des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces wird ausgelöst, wenn sich das Ausgabe-Audiogerät (und somit die [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)) geändert hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
-```js
-addEventListener("sinkchange", (event) => {});
+```js-nolint
+addEventListener("sinkchange", (event) => { })
 
-onsinkchange = (event) => {};
+onsinkchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ onsinkchange = (event) => {};
 
 ## Beispiele
 
-Ein `sinkchange`-Ereignislistener kann verwendet werden, um eine Änderung des Audioausgabegeräts zu melden. Beachten Sie, dass wenn [`sinkId`](/de/docs/Web/API/AudioContext/sinkId) ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt enthält, dies darauf hinweist, dass das Audio so geändert wurde, dass es auf keinem Ausgabegerät abgespielt wird.
+Ein `sinkchange`-Ereignislistener kann verwendet werden, um eine Änderung des Audioausgabegeräts zu melden. Beachten Sie, dass wenn [`sinkId`](/de/docs/Web/API/AudioContext/sinkId) ein [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo)-Objekt enthält, dies darauf hinweist, dass das Audio geändert wurde, um auf keinem Ausgabegerät abgespielt zu werden.
 
 ```js
 audioCtx.addEventListener("sinkchange", () => {
@@ -40,7 +40,7 @@ audioCtx.addEventListener("sinkchange", () => {
 });
 ```
 
-Siehe unser [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/) für funktionierenden Code.
+Siehe unser [SetSinkId-Testbeispiel](https://mdn.github.io/dom-examples/audiocontext-setsinkid/) für funktionierenden Code (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/audiocontext-setsinkid) an).
 
 ## Spezifikationen
 
@@ -52,7 +52,6 @@ Siehe unser [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/) für funkti
 
 ## Siehe auch
 
-- [SetSinkId-Testbeispiel](https://set-sink-id.glitch.me/)
 - [Ändern des Zielausgabegeräts in Web Audio](https://developer.chrome.com/blog/audiocontext-setsinkid/)
 - [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
 - [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)

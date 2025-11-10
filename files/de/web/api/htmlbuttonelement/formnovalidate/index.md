@@ -3,14 +3,14 @@ title: "HTMLButtonElement: formNoValidate-Eigenschaft"
 short-title: formNoValidate
 slug: Web/API/HTMLButtonElement/formNoValidate
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`formNoValidate`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ist ein boolescher Wert, der angibt, ob das {{htmlelement("form")}} die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation) umgeht, wenn es über das {{htmlelement("button")}} gesendet wird. Sie entspricht dem [`formnovalidate`](/de/docs/Web/HTML/Element/button#formnovalidate)-Attribut des `<button>`-Elements.
+Die **`formNoValidate`**-Eigenschaft der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) ist ein boolescher Wert, der anzeigt, ob das {{htmlelement("form")}} die [Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation) umgeht, wenn es über das {{htmlelement("button")}} übermittelt wird. Sie spiegelt das Attribut [`formnovalidate`](/de/docs/Web/HTML/Reference/Elements/button#formnovalidate) des `<button>`-Elements wider.
 
-Ihr Wert überschreibt die [`noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate)-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces, wenn das Formular über die Schaltfläche gesendet wird. Diese Eigenschaft kann abgerufen oder gesetzt werden.
+Ihr Wert überschreibt die [`noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate)-Eigenschaft der Schnittstelle [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), wenn das Formular über den Button eingereicht wird. Diese Eigenschaft kann abgerufen oder gesetzt werden.
 
 ## Wert
 
@@ -42,5 +42,5 @@ console.log(buttonElement.formNoValidate);
 - {{HTMLElement("form")}}
 - [`HTMLFormElement.noValidate`](/de/docs/Web/API/HTMLFormElement/noValidate)
 - [`HTMLInputElement.formNoValidate`](/de/docs/Web/API/HTMLInputElement/formNoValidate)
-- [Learn: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)

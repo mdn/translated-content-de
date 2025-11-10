@@ -1,14 +1,14 @@
 ---
-title: "XSLTProcessor: getParameter()-Methode"
+title: "XSLTProcessor: getParameter() Methode"
 short-title: getParameter()
 slug: Web/API/XSLTProcessor/getParameter
 l10n:
-  sourceCommit: 80a9cc85c3f718386f709c22a9e01a2a5c74580d
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{APIRef("XSLT")}}
+{{APIRef("DOM")}}
 
-Die `getParameter()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
+Die `getParameter()` Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Interfaces gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ getParameter(namespaceURI, localName)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
+  - : Der Namensraum, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird genauso behandelt wie der leere String (`""`).
 - `localName`
-  - : Der Name des Parameters im zugehörigen Namespace.
+  - : Der Name des Parameters im zugehörigen Namensraum.
 
 ### Rückgabewert
 
-Ein Objekt, das den mit dem Parameter verknüpften Wert darstellt. Es kann jeden Typ haben.
+Ein Objekt, das den mit dem Parameter verknüpften Wert darstellt. Es kann von jedem Typ sein.
 
 > [!NOTE]
-> Firefox unterstützt jede Art von Parameter. Chrome, Edge und Safari unterstützen nur Zeichenfolgenparameter.
+> Firefox unterstützt jeden Parametertyp. Chrome, Edge und Safari unterstützen nur String-Parameter.
 
 ## Beispiele
 
 ### Verwendung von getParameter()
 
-Dieses Beispiel zeigt, wie man `getParameter()` verwendet, um den Wert eines Parameters zu überprüfen, der das Verhalten einer XSLT-Transformation steuert.
+Dieses Beispiel zeigt, wie `getParameter()` verwendet wird, um den Wert eines Parameters zu überprüfen, der das Verhalten einer XSLT-Transformation steuert.
 
 ```js
 const xsltProcessor = new XSLTProcessor();

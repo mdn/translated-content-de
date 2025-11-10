@@ -3,12 +3,12 @@ title: "VideoColorSpace: matrix-Eigenschaft"
 short-title: matrix
 slug: Web/API/VideoColorSpace/matrix
 l10n:
-  sourceCommit: fa772db7e9b781ab41d5692c9d70dac423fddb1f
+  sourceCommit: a2860cf36b422a7367af496b031e45ea091fe03c
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`matrix`**-Eigenschaft von der [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle gibt die Matrixkoeffizienten des Videos zurück. Matrixkoeffizienten beschreiben die Beziehung zwischen Sample-Komponentenwerten und Farbkoordinaten.
+Die schreibgeschützte **`matrix`**-Eigenschaft des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt den Matrixkoeffizienten des Videos zurück. Matrixkoeffizienten beschreiben die Beziehung zwischen den Probenkomponentenwerten und den Farbkoordinaten.
 
 ## Wert
 
@@ -22,6 +22,8 @@ Ein String, der einen der folgenden Werte enthält:
   - : Matrixkoeffizienten, die von BT.601 PAL verwendet werden.
 - `"smpte170m"`
   - : Matrixkoeffizienten, die von BT.601 NTSC verwendet werden.
+- `"bt2020-ncl"`
+  - : Matrixkoeffizienten, die von BT.2020 NCL verwendet werden.
 
 ## Beispiele
 

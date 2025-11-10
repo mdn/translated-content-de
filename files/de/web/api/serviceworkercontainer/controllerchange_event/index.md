@@ -1,23 +1,23 @@
 ---
-title: "ServiceWorkerContainer: controllerchange Ereignis"
+title: "ServiceWorkerContainer: controllerchange-Ereignis"
 short-title: controllerchange
 slug: Web/API/ServiceWorkerContainer/controllerchange_event
 l10n:
-  sourceCommit: bc0237f139ee3a9db67a669ae1b6bf45ebba7f94
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`controllerchange`** Ereignis des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) Interface wird ausgelöst, wenn die dem Dokument zugeordnete [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker erhält.
+Das **`controllerchange`**-Ereignis des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces tritt auf, wenn der mit dem Dokument verbundene [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen [`active`](/de/docs/Web/API/ServiceWorkerRegistration/active) Worker erhält.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
-```js
-addEventListener("controllerchange", (event) => {});
+```js-nolint
+addEventListener("controllerchange", (event) => { })
 
-oncontrollerchange = (event) => {};
+oncontrollerchange = (event) => { }
 ```
 
 ## Ereignistyp

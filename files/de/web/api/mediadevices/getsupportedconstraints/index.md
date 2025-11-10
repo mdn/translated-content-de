@@ -1,14 +1,14 @@
 ---
-title: "MediaDevices: getSupportedConstraints() Methode"
+title: "MediaDevices: Methode getSupportedConstraints()"
 short-title: getSupportedConstraints()
 slug: Web/API/MediaDevices/getSupportedConstraints
 l10n:
-  sourceCommit: ee846961725e36cf7bb407afe7a2df82d2860658
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Die **`getSupportedConstraints()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle gibt ein Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch zurück, dessen Mitglieder jeweils eine der einschränkbaren Eigenschaften spezifizieren, die der {{Glossary("user_agent", "User Agent")}} versteht.
+Die **`getSupportedConstraints()`**-Methode des [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Interfaces gibt ein Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch zurück, dessen Mitglieder jeweils eine der einschränkbaren Eigenschaften spezifizieren, die der {{Glossary("user_agent", "User-Agent")}} versteht.
 
 ## Syntax
 
@@ -22,7 +22,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch, das die vom User Agent unterstützten Einschränkungen auflistet. Da nur die vom User Agent unterstützten Einschränkungen in der Liste enthalten sind, haben alle diese Booleschen Eigenschaften den Wert `true`.
+Ein neues Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch, das die vom User-Agent unterstützten Einschränkungen auflistet.
+Da nur die vom User-Agent unterstützten Einschränkungen in der Liste enthalten sind, hat jede dieser booleschen Eigenschaften den Wert `true`.
 
 ## Beispiele
 
@@ -37,7 +38,7 @@ Dieses Beispiel gibt eine Liste der von Ihrem Browser unterstützten Einschränk
 ```css hidden
 body {
   font:
-    15px Arial,
+    15px "Arial",
     sans-serif;
 }
 ```

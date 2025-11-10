@@ -3,15 +3,15 @@ title: "HTMLIFrameElement: allowFullscreen-Eigenschaft"
 short-title: allowFullscreen
 slug: Web/API/HTMLIFrameElement/allowFullscreen
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`allowFullscreen`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces ist ein boolescher Wert, der das `allowfullscreen`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und angibt, ob die Inhalte des iframes [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) verwenden dürfen.
+Die **`allowFullscreen`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces ist ein boolescher Wert, der das `allowfullscreen`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und anzeigt, ob die Inhalte des iframes [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) verwenden dürfen.
 
 > [!NOTE]
-> Diese Eigenschaft gilt als veraltet. Verwenden Sie stattdessen `allow="fullscreen"` und [`HTMLIFrameElement.allow`](/de/docs/Web/API/HTMLIFrameElement/allow).
+> Diese Eigenschaft gilt als veraltete Eigenschaft. Verwenden Sie stattdessen `allow="fullscreen"` und [`HTMLIFrameElement.allow`](/de/docs/Web/API/HTMLIFrameElement/allow).
 
 ## Wert
 
@@ -38,7 +38,7 @@ console.log(el.allowFullscreen); // Output: true
 
 ## Siehe auch
 
-- [Fullscreen-API](/de/docs/Web/API/Fullscreen_API)
+- [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
-- {{httpheader("Permissions-Policy/fullscreen", "fullscreen")}} Permissions Policy directive
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)
+- {{httpheader("Permissions-Policy/fullscreen", "fullscreen")}}-Berechtigungsrichtlinien-Direktive

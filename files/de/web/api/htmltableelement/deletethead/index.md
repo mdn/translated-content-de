@@ -1,14 +1,15 @@
 ---
-title: "HTMLTableElement: deleteTHead() Methode"
+title: "HTMLTableElement: deleteTHead()-Methode"
 short-title: deleteTHead()
 slug: Web/API/HTMLTableElement/deleteTHead
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.deleteTHead()`** Methode entfernt das {{HTMLElement("thead")}}-Element aus einem gegebenen {{HtmlElement("table")}}.
+Die **`HTMLTableElement.deleteTHead()`** entfernt das
+{{HTMLElement("thead")}}-Element von einem gegebenen {{HtmlElement("table")}}.
 
 ## Syntax
 
@@ -26,24 +27,28 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um den Header einer Tabelle zu löschen.
+Dieses Beispiel verwendet JavaScript, um das Kopfzeilenelement einer Tabelle zu löschen.
 
 ### HTML
 
 ```html
 <table>
   <thead>
-    <th>Name</th>
-    <th>Occupation</th>
+    <tr>
+      <th>Name</th>
+      <th>Occupation</th>
+    </tr>
   </thead>
-  <tr>
-    <td>Bob</td>
-    <td>Plumber</td>
-  </tr>
-  <tr>
-    <td>Jim</td>
-    <td>Roofer</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Bob</td>
+      <td>Plumber</td>
+    </tr>
+    <tr>
+      <td>Jim</td>
+      <td>Roofer</td>
+    </tr>
+  </tbody>
 </table>
 ```
 

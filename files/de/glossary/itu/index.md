@@ -2,16 +2,14 @@
 title: ITU
 slug: Glossary/ITU
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Die Internationale Fernmeldeunion (International Telecommunication Union, ITU) ist die von den Vereinten Nationen autorisierte Organisation, die Standards und Regeln für Telekommunikation festlegt, einschließlich Telegraphie, Radio, Telefonie und Internet.
 
-Die Internationale Fernmeldeunion (ITU) ist die von den Vereinten Nationen bevollmächtigte Organisation, die Standards und Regeln für die Telekommunikation, einschließlich Telegrafie, Radio, Telefonie und Internet, festlegt.
+Von der Festlegung von Regeln, die sicherstellen, dass Übertragungen ihr Ziel erreichen, bis zur Schaffung des "SOS"-Signals, das im Morsecode verwendet wird, spielt die ITU seit langem eine Schlüsselrolle darin, wie wir Technologie zur Informations- und Ideenaustausch nutzen.
 
-Von der Definition von Regeln, die sicherstellen, dass Übertragungen ihr Ziel erreichen, bis hin zur Schaffung des "SOS"-Notsignals, das im Morsecode verwendet wird, hat die ITU lange eine Schlüsselrolle dabei gespielt, wie wir Technologie nutzen, um Informationen und Ideen auszutauschen.
-
-Im Internetzeitalter spielt die ITU eine Rolle bei der Festlegung von Standards für Video- und Audio-Datenformate, die für Streaming, Telekonferenzen und andere Zwecke verwendet werden. Zum Beispiel haben die ITU und die Moving Picture Experts Group (MPEG) zusammengearbeitet, um die verschiedenen MPEG-Spezifikationen zu entwickeln, zu veröffentlichen und zu pflegen, wie MPEG-2 (ITU H.262), AVC (ITU H.264) und HEVC (ITU H.265).
+Im Internetzeitalter ist die Rolle der ITU die Festlegung von Standards für Video- und Audiodatenformate, die zum Streaming, für Videokonferenzen und andere Zwecke verwendet werden. Zum Beispiel arbeitete die ITU zusammen mit der Moving Picture Experts Group (MPEG) an der Entwicklung, Veröffentlichung und Wartung verschiedener MPEG-Spezifikationen, wie MPEG-2 (ITU H.262), AVC (ITU H.264) und HEVC (ITU H.265).
 
 ## Siehe auch
 

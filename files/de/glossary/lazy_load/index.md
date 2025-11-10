@@ -1,16 +1,14 @@
 ---
-title: Lazy load
+title: Lazy Load
 slug: Glossary/Lazy_load
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Lazy Loading** ist eine Strategie, die das Laden bestimmter Ressourcen (z.B. Bilder) verzögert, bis sie aufgrund der Aktivitäten und Navigationsmuster des Benutzers benötigt werden; typischerweise werden diese Ressourcen erst geladen, wenn sie in den sichtbaren Bereich gescrollt werden.
 
-**Lazy loading** ist eine Strategie, bei der das Laden einiger Ressourcen (z.B. Bildern) verzögert wird, bis sie basierend auf den Aktivitäten und dem Navigationsmuster des Benutzers benötigt werden. Typischerweise werden diese Ressourcen erst geladen, wenn sie in den sichtbaren Bereich gescrollt werden.
-
-Wenn korrekt implementiert, ist diese Verzögerung im Asset-Loading nahtlos für die Benutzererfahrung und kann helfen, die anfängliche Ladeleistung zu verbessern, einschließlich der {{Glossary("time_to_interactive", "time to interactive")}}, da weniger Ressourcen erforderlich sind, damit die Seite zu funktionieren beginnt.
+Wenn es korrekt implementiert wird, ist diese Verzögerung im Laden von Ressourcen nahtlos für die Benutzererfahrung und kann dazu beitragen, die anfängliche Ladeleistung zu verbessern, einschließlich der {{Glossary("time_to_interactive", "Time to Interactive")}}, da weniger Ressourcen benötigt werden, damit die Seite zu funktionieren beginnt.
 
 ## Siehe auch
 
-- [Lazy loading](/de/docs/Web/Performance/Lazy_loading)
+- [Lazy Loading](/de/docs/Web/Performance/Guides/Lazy_loading)

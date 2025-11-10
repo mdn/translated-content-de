@@ -1,37 +1,47 @@
 ---
-title: "RangeError: radix muss eine ganze Zahl sein"
+title: "RangeError: radix must be an integer"
 slug: Web/JavaScript/Reference/Errors/Bad_radix
 l10n:
-  sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Der JavaScript-Ausnahmefehler "radix must be an integer at least 2 and no greater than 36"
+tritt auf, wenn der optionale `radix`-Parameter der
+{{jsxref("Number.prototype.toString()")}}- oder
+der {{jsxref("BigInt.prototype.toString()")}}-Methode angegeben wurde und dieser nicht
+zwischen 2 und 36 liegt.
 
-Die JavaScript-Ausnahme „radix muss eine ganze Zahl mindestens 2 und höchstens 36 sein“ tritt auf, wenn der optionale `radix`-Parameter der Methode {{jsxref("Number.prototype.toString()")}} oder {{jsxref("BigInt.prototype.toString()")}} angegeben wurde und nicht zwischen 2 und 36 liegt.
-
-## Nachricht
+## Meldung
 
 ```plain
 RangeError: toString() radix argument must be between 2 and 36 (V8-based & Safari)
 RangeError: radix must be an integer at least 2 and no greater than 36 (Firefox)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("RangeError")}}
 
 ## Was ist schiefgelaufen?
 
-Der optionale `radix`-Parameter der Methode {{jsxref("Number.prototype.toString()")}} oder {{jsxref("BigInt.prototype.toString()")}} wurde angegeben. Sein Wert muss eine ganze Zahl (eine Zahl) zwischen 2 und 36 sein, die das Zahlensystem angibt, das zur Darstellung numerischer Werte verwendet werden soll. Zum Beispiel wird die Dezimalzahl (Basis 10) 169 in Hexadezimal (Basis 16) als A9 dargestellt.
+Der optionale `radix`-Parameter der
+{{jsxref("Number.prototype.toString()")}}- oder der
+{{jsxref("BigInt.prototype.toString()")}}-Methode wurde angegeben. Sein Wert muss eine
+Ganzzahl (eine Zahl) zwischen 2 und 36 sein, die die Basis des Zahlensystems angibt,
+das zur Darstellung numerischer Werte verwendet werden soll. Zum Beispiel wird die
+dezimale (Basis 10) Zahl 169 im hexadezimalen (Basis 16) System als A9 dargestellt.
 
-Warum ist der Wert dieses Parameters auf 36 begrenzt? Ein `radix`, der größer als 10 ist, verwendet Buchstaben als Ziffern; daher kann der `radix` nicht größer als 36 sein, da das lateinische Alphabet (das im Englischen und vielen anderen Sprachen verwendet wird) nur 26 Buchstaben hat.
+Warum ist der Wert dieses Parameters auf 36 begrenzt? Eine Basis, die größer als 10 ist,
+verwendet alphabetische Zeichen als Ziffern; daher kann die Basis nicht größer als 36
+sein, da das lateinische Alphabet (das im Englischen und vielen anderen Sprachen verwendet
+wird) nur 26 Buchstaben enthält.
 
-Die gebräuchlichsten `radixes`:
+Die gebräuchlichsten Basen:
 
-- 2 für [Binärzahlen](https://de.wikipedia.org/wiki/Dualsystem),
-- 8 für [Oktalzahlen](https://de.wikipedia.org/wiki/Oktalsystem),
-- 10 für [Dezimalzahlen](https://de.wikipedia.org/wiki/Dezimalsystem),
-- 16 für [Hexadezimalzahlen](https://de.wikipedia.org/wiki/Hexadezimalsystem).
+- 2 für [binäre Zahlen](https://en.wikipedia.org/wiki/Binary_number),
+- 8 für [oktale Zahlen](https://en.wikipedia.org/wiki/Octal),
+- 10 für [dezimale Zahlen](https://en.wikipedia.org/wiki/Decimal),
+- 16 für [hexadezimale Zahlen](https://en.wikipedia.org/wiki/Hexadecimal).
 
 ## Beispiele
 

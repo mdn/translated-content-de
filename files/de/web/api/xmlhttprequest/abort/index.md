@@ -1,16 +1,16 @@
 ---
-title: "XMLHttpRequest: abort()-Methode"
+title: "XMLHttpRequest: abort() Methode"
 short-title: abort()
 slug: Web/API/XMLHttpRequest/abort
 l10n:
-  sourceCommit: 1d7d53ef07169095702a60e3b315aa4f820c98b4
+  sourceCommit: 0cc63ce1d7f43eb98746a908a9aba68ef6a36f7b
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequest.abort()`**-Methode bricht die Anfrage ab, falls sie bereits gesendet wurde. Wird eine Anfrage abgebrochen, ändert sich der [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) auf `XMLHttpRequest.UNSENT` (0) und der [`status`](/de/docs/Web/API/XMLHttpRequest/status)-Code wird auf 0 gesetzt.
+Die **`XMLHttpRequest.abort()`**-Methode bricht die Anfrage ab, wenn sie bereits gesendet wurde. Wenn eine Anfrage abgebrochen wird, ändert sich ihr [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu `XMLHttpRequest.UNSENT` (0) und der [`status`](/de/docs/Web/API/XMLHttpRequest/status)-Code der Anfrage wird auf 0 gesetzt.
 
-Falls die Anfrage noch in Bearbeitung ist (ihr `readyState` ist weder `XMLHttpRequest.DONE` noch `XMLHttpRequest.UNSENT`), werden ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Ereignis, ein [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)-Ereignis und ein [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event)-Ereignis in dieser Reihenfolge ausgelöst. Bei synchronen Anfragen werden keine Ereignisse ausgelöst und stattdessen ein Fehler geworfen.
+Wenn die Anfrage noch in Bearbeitung ist (ihr `readyState` ist nicht `XMLHttpRequest.DONE` oder `XMLHttpRequest.UNSENT`), werden in dieser Reihenfolge ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Ereignis, ein [`abort`](/de/docs/Web/API/XMLHttpRequestEventTarget/abort_event)-Ereignis und ein [`loadend`](/de/docs/Web/API/XMLHttpRequestEventTarget/loadend_event)-Ereignis ausgelöst. Bei synchronen Anfragen werden keine Ereignisse ausgelöst, stattdessen wird ein Fehler geworfen.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Keinen ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel beginnt damit, Inhalte von der MDN-Startseite zu laden. Aufgrund einer Bedingung wird der Transfer anschließend durch einen Aufruf von `abort()` abgebrochen.
+Dieses Beispiel beginnt mit dem Laden von Inhalten von der MDN-Startseite, bricht den Transfer dann aber aufgrund einer bestimmten Bedingung durch Aufruf von `abort()` ab.
 
 ```js
 const xhr = new XMLHttpRequest();

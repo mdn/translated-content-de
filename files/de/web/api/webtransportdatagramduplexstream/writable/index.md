@@ -3,14 +3,14 @@ title: "WebTransportDatagramDuplexStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/WebTransportDatagramDuplexStream/writable
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
 ---
 
-{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
+{{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}{{deprecated_header}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces gibt eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die verwendet werden kann, um ausgehende Datagramme unreliably in den Stream zu schreiben.
+Die schreibgeschützte **`writable`**-Eigenschaft der [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Schnittstelle gibt eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die verwendet werden kann, um Datagramme unreliabel in den Stream zu schreiben.
 
-"Unreliably" bedeutet, dass die Übertragung der Daten nicht garantiert ist und auch nicht in einer bestimmten Reihenfolge ankommt. Dies ist in einigen Situationen akzeptabel und ermöglicht eine sehr schnelle Zustellung. Beispielsweise möchten Sie möglicherweise regelmäßige Spielzustandsaktualisierungen übertragen, bei denen jede Nachricht die vorherige überholt und die Reihenfolge nicht wichtig ist.
+"Unreliabel" bedeutet, dass die Übertragung der Daten nicht garantiert ist und auch deren Ankunft in einer bestimmten Reihenfolge nicht gewährleistet wird. Dies ist in einigen Situationen akzeptabel und ermöglicht eine sehr schnelle Lieferung. Zum Beispiel möchten Sie vielleicht regelmäßige Aktualisierungen des Spielzustands übertragen, wobei jede Nachricht die letzte überschreibt, die eintrifft, und die Reihenfolge nicht wichtig ist.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Siehe die Hauptseite des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces.
+Siehe die Hauptseite der [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Schnittstelle.
 
 ## Spezifikationen
 

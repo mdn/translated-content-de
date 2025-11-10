@@ -3,16 +3,16 @@ title: "ReadableStreamDefaultReader: releaseLock() Methode"
 short-title: releaseLock()
 slug: Web/API/ReadableStreamDefaultReader/releaseLock
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`releaseLock()`**-Methode der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Schnittstelle löst das Lock des Readers auf dem Stream.
+Die **`releaseLock()`**-Methode der [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Schnittstelle löst die Sperre des Readers auf dem Stream.
 
-Wenn der zugehörige Stream beim Freigeben des Locks fehlerhaft ist, wird der Reader in gleicher Weise als fehlerhaft erscheinen; andernfalls wird der Reader als geschlossen erscheinen.
+Wenn der zugehörige Stream fehlerhaft ist, wenn die Sperre gelöst wird, wird der Reader anschließend auf die gleiche Weise fehlerhaft erscheinen; andernfalls wird der Reader als geschlossen erscheinen.
 
-Wenn das Lock des Readers freigegeben wird, während er noch ausstehende Leseanforderungen hat, werden die von der [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read)-Methode des Readers zurückgegebenen Versprechen sofort mit einem `TypeError` abgelehnt. Ungelesene Stücke verbleiben in der internen Warteschlange des Streams und können später durch Erwerben eines neuen Readers gelesen werden.
+Wird die Sperre des Readers gelöst, während noch ausstehende Leseanforderungen vorliegen, werden die von der Methode [`ReadableStreamDefaultReader.read()`](/de/docs/Web/API/ReadableStreamDefaultReader/read) des Readers zurückgegebenen Versprechen sofort mit einem `TypeError` abgelehnt. Nicht gelesene Chunks verbleiben in der internen Warteschlange des Streams und können später durch das Erwerben eines neuen Readers gelesen werden.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Quellobjekt kein `ReadableStreamDefaultReader` ist.
+  - : Ausgelöst, wenn das Quellobjekt kein `ReadableStreamDefaultReader` ist.
 
 ## Beispiele
 
@@ -39,11 +39,11 @@ Keiner ({{jsxref("undefined")}}).
 function fetchStream() {
   const reader = stream.getReader();
 
-  // ...
+  // …
 
   reader.releaseLock();
 
-  // ...
+  // …
 }
 ```
 

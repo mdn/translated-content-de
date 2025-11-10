@@ -1,26 +1,24 @@
 ---
-title: Template-Einführung
+title: Vorlage Einführung
 slug: Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/Template_primer
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
-{{LearnSidebar}}
+Eine Vorlage ist eine Textdatei, die die _Struktur_ oder das Layout einer Ausgabedatei definiert und Platzhalter verwendet, um darzustellen, wo Daten eingefügt werden, wenn die Vorlage gerendert wird (in _Express_ werden Vorlagen als _Views_ bezeichnet).
 
-Eine Vorlage ist eine Textdatei, die die _Struktur_ oder das Layout einer Ausgabedatei definiert, mit Platzhaltern, die angeben, wo Daten eingefügt werden, wenn die Vorlage gerendert wird (in _Express_ werden Vorlagen als _Ansichten_ bezeichnet).
+## Express Vorlagenoptionen
 
-## Express-Vorlagenoptionen
+Express kann mit vielen verschiedenen [Vorlagen-Rendering-Engines](https://expressjs.com/en/guide/using-template-engines.html) verwendet werden. In diesem Tutorial verwenden wir [Pug](https://pugjs.org/api/getting-started.html) (ehemals bekannt als _Jade_) für unsere Vorlagen. Dies ist die beliebteste Node-Vorlagensprache und beschreibt sich selbst als eine "saubere, leerzeichenempfindliche Syntax zum Schreiben von HTML, stark beeinflusst von [Haml](https://haml.info/)".
 
-Express kann mit vielen verschiedenen [Template Rendering Engines](https://expressjs.com/en/guide/using-template-engines.html) verwendet werden. In diesem Tutorial verwenden wir [Pug](https://pugjs.org/api/getting-started.html) (ehemals _Jade_) für unsere Vorlagen. Dies ist die beliebteste Node-Vorlagensprache und beschreibt sich selbst als eine "saubere, auf Leerzeichen-sensitive Syntax zum Schreiben von HTML, stark beeinflusst von [Haml](https://haml.info/)".
-
-Verschiedene Vorlagensprachen verwenden unterschiedliche Ansätze zur Definition von Layout und Markierung von Platzhaltern für Daten — einige verwenden HTML zur Definition des Layouts, während andere unterschiedliche Markup-Formate verwenden, die in HTML umgewandelt werden können. Pug gehört zur zweiten Kategorie; es verwendet eine _Darstellung_ von HTML, bei der das erste Wort in jeder Zeile normalerweise ein HTML-Element darstellt und die Einrückung in den folgenden Zeilen verwendet wird, um Verschachtelungen darzustellen. Das Ergebnis ist eine Seitenbeschreibung, die direkt in HTML übersetzt wird, aber prägnanter ist und möglicherweise einfacher zu lesen.
+Verschiedene Vorlagensprachen nutzen unterschiedliche Ansätze zur Definition von Layouts und zur Markierung von Platzhaltern für Daten – einige verwenden HTML zur Definition des Layouts, während andere verschiedene Markup-Formate verwenden, die zu HTML transpiliert werden können. Pug gehört zur zweiten Kategorie; es verwendet eine _Darstellung_ von HTML, bei der das erste Wort in jeder Zeile normalerweise ein HTML-Element darstellt und Einrückungen in den nachfolgenden Zeilen zur Darstellung von Verschachtelungen verwendet werden. Das Ergebnis ist eine Seitendefinition, die direkt in HTML übersetzt wird, aber kürzer und möglicherweise einfacher zu lesen ist.
 
 > [!NOTE]
-> Ein Nachteil der Verwendung von _Pug_ ist, dass es empfindlich auf Einrückung und Leerzeichen reagiert (wenn Sie an der falschen Stelle ein zusätzliches Leerzeichen hinzufügen, können Sie einen nicht hilfreichen Fehlercode erhalten). Sobald Sie jedoch Ihre Vorlagen eingerichtet haben, sind sie sehr leicht lesbar und wartbar.
+> Ein Nachteil der Verwendung von _Pug_ ist, dass es empfindlich auf Einrückungen und Leerzeichen reagiert (wenn Sie ein zusätzliches Leerzeichen an der falschen Stelle hinzufügen, erhalten Sie möglicherweise einen wenig hilfreichen Fehlercode). Sobald Sie jedoch Ihre Vorlagen erstellt haben, sind sie sehr einfach zu lesen und zu warten.
 
-## Vorlagenkonfiguration
+## Template-Konfiguration
 
-Die _LocalLibrary_ wurde so konfiguriert, dass sie [Pug](https://pugjs.org/api/getting-started.html) verwendet, als wir [das Grundgerüst der Website erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website). Sie sollten das Pug-Modul als Abhängigkeit in der Datei **package.json** der Website sehen und die folgenden Konfigurationseinstellungen in der Datei **app.js**. Die Einstellungen zeigen, dass wir Pug als View-Engine verwenden und dass _Express_ im **/views**-Unterverzeichnis nach Vorlagen suchen soll.
+Die _LocalLibrary_ wurde so konfiguriert, dass sie [Pug](https://pugjs.org/api/getting-started.html) verwendet, als wir [das Gerüst der Website erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website). Sie sollten das Pug-Modul als Abhängigkeit in der **package.json**-Datei der Website sehen und die folgenden Konfigurationseinstellungen in der **app.js**-Datei. Die Einstellungen sagen uns, dass wir pug als View-Engine verwenden und dass _Express_ im **/views**-Unterverzeichnis nach Vorlagen suchen soll.
 
 ```js
 // View engine setup
@@ -28,22 +26,22 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 ```
 
-Wenn Sie ins Views-Verzeichnis schauen, sehen Sie die .pug-Dateien für die Standardansichten des Projekts.
-Diese umfassen die Ansicht für die Startseite (**index.pug**) und die Basistemplate (**layout.pug**), die wir mit unserem eigenen Inhalt ersetzen müssen.
+Im Ansichtsverzeichnis finden Sie die .pug-Dateien für die Standardansichten des Projekts.
+Dazu gehören die Ansicht für die Startseite (**index.pug**) und die Basistemplate (**layout.pug**), die wir durch unseren eigenen Inhalt ersetzen müssen.
 
 ```plain
-/express-locallibrary-tutorial  //the project root
+/express-locallibrary-tutorial  # the project root
   /views
     error.pug
     index.pug
     layout.pug
 ```
 
-## Vorlagensyntax
+## Template-Syntax
 
-Die folgende Beispielvorlagendatei zeigt viele der nützlichsten Funktionen von Pug.
+Die folgende Beispieldatei zeigt viele der nützlichsten Funktionen von Pug.
 
-Das erste, was auffällt, ist, dass die Datei die Struktur einer typischen HTML-Datei abbildet, wobei das erste Wort in (fast) jeder Zeile ein HTML-Element ist und die Einrückung verwendet wird, um verschachtelte Elemente anzuzeigen. Zum Beispiel ist das `body`-Element innerhalb eines `html`-Elements und die Absatz-Elemente (`p`) sind innerhalb des `body`-Elements etc. Nicht-verschachtelte Elemente (z.B. einzelne Absätze) stehen in separaten Zeilen.
+Das Erste, was auffällt, ist, dass die Datei die Struktur einer typischen HTML-Datei abbildet, wobei das erste Wort in (fast) jeder Zeile ein HTML-Element ist und Einrückungen verwendet werden, um verschachtelte Elemente anzuzeigen. So ist zum Beispiel das `body`-Element innerhalb eines `html`-Elements und Absatzelemente (`p`) befinden sich innerhalb des `body`-Elements usw. Nicht verschachtelte Elemente (z. B. einzelne Absätze) stehen in separaten Zeilen.
 
 ```pug
 doctype html
@@ -83,14 +81,14 @@ html(lang="en")
         li= val
 ```
 
-Element-Attribute werden in Klammern nach ihrem zugehörigen Element definiert. Innerhalb der Klammern werden die Attribute in durch Kommata oder Leerzeichen getrennten Listen von Paaren aus Attributnamen und Attributwerten festgelegt, zum Beispiel:
+Elementattribute werden in Klammern nach dem zugehörigen Element definiert. Innerhalb der Klammern werden die Attribute in komma- oder leerzeichengetrennten Listen der Paare von Attributnamen und Attributwerten definiert, zum Beispiel:
 
 - `script(type='text/javascript')`, `link(rel='stylesheet', href='/stylesheets/style.css')`
 - `meta(name='viewport' content='width=device-width initial-scale=1')`
 
-Die Werte aller Attribute werden _escaped_ (z.B. werden Zeichen wie `>` in ihre HTML-Code-Äquivalente wie `&gt;` umgewandelt), um JavaScript-Injection oder Cross-Site-Scripting-Angriffe zu verhindern.
+Die Werte aller Attribute werden _escaped_ (z. B. werden Zeichen wie `>` in ihre HTML-Code-Äquivalente wie `&gt;` umgewandelt), um JavaScript-Injektionen oder Cross-Site-Scripting-Angriffe zu verhindern.
 
-Wenn ein Tag von einem Gleichheitszeichen gefolgt wird, wird der folgende Text als JavaScript-_Ausdruck_ behandelt. Zum Beispiel wird im ersten Zeilenbeispiel unten der Inhalt des `h1`-Tags die _Variable_ `title` sein (entweder in der Datei definiert oder aus _Express_ in die Vorlage übergeben). In der zweiten Zeile ist der Absatzinhalt eine Textzeichenkette, die mit der Variablen `title` verkettet ist. In beiden Fällen ist das Standardverhalten, die Zeile zu _escapieren_.
+Wenn ein Tag von einem Gleichheitszeichen gefolgt wird, wird der nachfolgende Text als JavaScript-_Ausdruck_ behandelt. So wird zum Beispiel im ersten Satz unten der Inhalt des `h1`-Tags die _Variable_ `title` (entweder in der Datei definiert oder von Express in die Vorlage übergegeben). In der zweiten Zeile ist der Absatzinhalt ein Textstring, der mit der `title`-Variable verkettet ist. In beiden Fällen ist das Standardverhalten, die Zeile zu _escapen_.
 
 ```pug
 h1= title
@@ -98,12 +96,12 @@ p= 'Evaluated and <em>escaped expression</em>:' + title
 ```
 
 > [!NOTE]
-> In Pug-Vorlagen ist eine Variable, die verwendet, aber nicht aus Ihrem Express-Code übergeben (oder lokal definiert) wird, "undefined".
-> Wenn Sie diese Vorlage ohne Übergeben einer `title`-Variable verwenden, würden die Tags erstellt, enthielten aber eine leere Zeichenkette.
-> Wenn Sie undefinierte Variablen in bedingten Anweisungen verwenden, werden sie als `false` bewertet.
-> Andere Vorlagensprachen erfordern möglicherweise, dass die in der Vorlage verwendeten Variablen definiert werden müssen.
+> In Pug-Vorlagen ist eine Variable, die verwendet, aber nicht in Ihrem Express-Code (oder lokal) definiert wurde, "undefined".
+> Wenn Sie diese Vorlage verwenden, ohne eine `title`-Variable zu übergeben, werden die Tags erstellt, enthalten jedoch einen leeren String.
+> Wenn Sie undefinierte Variablen in Bedingungsausdrücken verwenden, werten sie zu `false` aus.
+> Andere Vorlagensprachen erfordern möglicherweise, dass Variablen, die in der Vorlage verwendet werden, definiert sein müssen.
 
-Wenn kein Gleichheitszeichen nach dem Tag steht, wird der Inhalt als reiner Text behandelt. Innerhalb des reinen Texts können Sie mit `#{}` und `!{}` respektivisch escapierte und nicht escapierte Daten einfügen, wie unten gezeigt. Außerdem können Sie rohes HTML innerhalb des reinen Texts hinzufügen.
+Wenn nach dem Tag kein Gleichheitszeichen steht, wird der Inhalt als Klartext behandelt. Innerhalb des Klartextes können Sie escapte und nicht escapte Daten mit der `#{}`- und `!{}`-Syntax einfügen, wie unten gezeigt. Sie können auch rohes HTML innerhalb des Klartexts hinzufügen.
 
 ```pug
 p This is a line with #[em some emphasis] and #[strong strong text] markup.
@@ -111,16 +109,16 @@ p This line has an un-escaped string: !{'<em> is emphasized</em>'}, an escaped s
 ```
 
 > [!NOTE]
-> Sie möchten fast immer Daten von Benutzern escapen (via **`#{}`** Syntax). Daten, denen vertraut werden kann (z.B. generierte Datensätze, etc.) können ohne Escaping der Werte angezeigt werden.
+> Sie werden fast immer Daten von Benutzern escapen wollen (über die **`#{}`**-Syntax). Daten, die vertrauenswürdig sind (z. B. generierte Aufzählungen von Datensätzen), können ohne das Escaping der Werte angezeigt werden.
 
-Sie können das Zeichen Rohr ('**|**') am Anfang einer Zeile verwenden, um auf "[reinen Text](https://pugjs.org/language/plain-text.html)" zu deuten. Beispielsweise wird der unten gezeigte zusätzliche Text in derselben Zeile wie das vorhergehende Anker angezeigt, aber nicht verlinkt.
+Sie können das Zeichen Rohrleitung ('**|**') am Anfang einer Zeile verwenden, um "[Klartext](https://pugjs.org/language/plain-text.html)" anzuzeigen. Zum Beispiel wird der unten gezeigte zusätzliche Text auf der gleichen Linie wie der vorherige Anker angezeigt, jedoch nicht verlinkt.
 
 ```pug
 a(href='http://someurl/') Link text
 | Plain text
 ```
 
-Pug erlaubt es Ihnen, mit `if`, `else`, `else if` und `unless` bedingte Operationen auszuführen — zum Beispiel:
+Pug ermöglicht es Ihnen, bedingte Operationen mit `if`, `else`, `else if` und `unless` durchzuführen – zum Beispiel:
 
 ```pug
 if title
@@ -129,7 +127,7 @@ else
   p A variable named "title" does not exist
 ```
 
-Sie können auch Schleifen-/Iteration-Operationen mit `each-in` oder `while` Syntax durchführen. Im folgenden Codefragment haben wir ein Array durchlaufen, um eine Liste von Variablen anzuzeigen (beachten Sie die Verwendung von 'li=' zur Interpretation von "val" als Variable unten. Der Wert, über den Sie iterieren, kann auch als Variable in die Vorlage übergeben werden!
+Sie können auch Schleifen-/Iterationsoperationen mit der `each-in`- oder `while`-Syntax durchführen. Im untenstehenden Codefragment haben wir durch ein Array iteriert, um eine Liste von Variablen anzuzeigen (beachten Sie die Verwendung von 'li=', um "val" als Variable unten zu evaluieren. Der Wert, über den Sie iterieren, kann auch als Variable in die Vorlage übergeben werden!
 
 ```pug
 ul
@@ -137,13 +135,13 @@ ul
     li= val
 ```
 
-Die Syntax unterstützt auch Kommentare (die im Output gerendert werden können oder nicht, je nachdem, wie Sie es wünschen), Mixins zur Erstellung wiederverwendbarer Codeblöcke, Fallanweisungen und viele andere Funktionen. Für detailliertere Informationen siehe [Die Pug-Dokumentation](https://pugjs.org/api/getting-started.html).
+Die Syntax unterstützt auch Kommentare (die im Ausgang angezeigt oder nicht angezeigt werden können, je nach Ihrer Wahl), Mixins, um wiederverwendbare Codeblöcke zu erstellen, case-Anweisungen und viele andere Funktionen. Für detailliertere Informationen siehe [Die Pug-Dokumentation](https://pugjs.org/api/getting-started.html).
 
 ## Vorlagen erweitern
 
-Auf einer Website ist es üblich, dass alle Seiten eine gemeinsame Struktur haben, einschließlich standardisiertem HTML-Markup für Kopfzeile, Fußzeile, Navigation usw. Anstatt Entwickler zu zwingen, diesen "Boilerplate" in jeder Seite zu duplizieren, ermöglicht Ihnen _Pug_, eine Basistemplate zu deklarieren und diese dann zu erweitern, wobei nur die Teile ersetzt werden, die sich für jede spezifische Seite unterscheiden.
+Auf einer Website ist es üblich, dass alle Seiten eine gemeinsame Struktur haben, einschliesslich HTML-Standardmarkup für Kopf, Fußzeile, Navigation usw. Anstatt Entwickler zu zwingen, dieses "Boilerplate" auf jeder Seite zu duplizieren, ermöglicht _Pug_ es Ihnen, eine Basistemplate zu deklarieren und dann zu erweitern, wobei nur die Teile ersetzt werden, die für jede spezifische Seite anders sind.
 
-Zum Beispiel sieht die Basistemplate **layout.pug**, die in unserem [Skeleton-Projekt](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website) erstellt wurde, wie folgt aus:
+Zum Beispiel sieht das Basistemplate **layout.pug** in unserem [Skeleton-Projekt](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/skeleton_website) so aus:
 
 ```pug
 doctype html
@@ -155,9 +153,9 @@ html
     block content
 ```
 
-Das `block`-Tag wird verwendet, um Abschnitte von Inhalten zu kennzeichnen, die in einer abgeleiteten Vorlage ersetzt werden können (wenn der Block nicht neu definiert wird, wird seine Implementierung in der Basisklasse verwendet).
+Das `block`-Tag wird verwendet, um Inhaltsabschnitte zu kennzeichnen, die in einer abgeleiteten Vorlage ersetzt werden können (wenn der Block nicht neu definiert wird, wird seine Implementierung in der Basisklasse verwendet).
 
-Das Standard-**index.pug** (erstellt für unser Skeleton-Projekt) zeigt, wie wir die Basistemplate überschreiben. Das `extends`-Tag identifiziert die zu verwendende Basistemplate, und dann verwenden wir `block section_name`, um den neuen Inhalt des Abschnitts anzugeben, den wir überschreiben werden.
+Das Standard-**index.pug** (erstellt für unser Skeleton-Projekt) zeigt, wie wir das Basistemplate überschreiben. Das `extends`-Tag identifiziert die zu verwendende Basistemplate, und dann verwenden wir `block section_name`, um den neuen Inhalt des Abschnitts anzugeben, den wir überschreiben werden.
 
 ```pug
 extends layout
@@ -169,5 +167,5 @@ block content
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie mit dem nächsten Unterartikel von Teil 5 fort: [Die LocalLibrary Basistemplate](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/LocalLibrary_base_template).
+- Zurückkehren zu [Express Tutorial Teil 5: Bibliotheksdaten anzeigen](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data).
+- Weiter zum nächsten Unterartikel von Teil 5: [Das LocalLibrary-Basistemplate](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Displaying_data/LocalLibrary_base_template).

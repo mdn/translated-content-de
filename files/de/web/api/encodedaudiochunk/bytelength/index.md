@@ -3,16 +3,16 @@ title: "EncodedAudioChunk: byteLength-Eigenschaft"
 short-title: byteLength
 slug: Web/API/EncodedAudioChunk/byteLength
 l10n:
-  sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
+  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
 ---
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`byteLength`** schreibgeschützte Eigenschaft des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt die Länge der kodierten Audiodaten in Bytes zurück.
+Die schreibgeschützte Eigenschaft **`byteLength`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt die Länge in Bytes der kodierten Audiodaten zurück.
 
 ## Wert
 
-Ein Integer.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
@@ -25,9 +25,9 @@ const init = {
   timestamp: 23000000,
   duration: 2000000,
 };
-chunk = EncodedAudioChunk(init);
+const chunk = new EncodedAudioChunk(init);
 
-console.log(chunk.byteLength); //352800
+console.log(chunk.byteLength); // 352800
 ```
 
 ## Spezifikationen

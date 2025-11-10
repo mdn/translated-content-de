@@ -3,26 +3,27 @@ title: "GPUTexture: sampleCount-Eigenschaft"
 short-title: sampleCount
 slug: Web/API/GPUTexture/sampleCount
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`sampleCount`**-Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert die Sample-Anzahl der `GPUTexture`.
+Die **`sampleCount`**-Eigenschaft des
+[`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Anzahl der Samples eines `GPUTexture` darstellt.
 
-Diese wird über die `sampleCount`-Eigenschaft im Deskriptor-Objekt gesetzt, das an den ursächlichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn weggelassen, ist der Standardwert 1.
+Diese wird über die `sampleCount`-Eigenschaft im Descriptor-Objekt festgelegt, das im ursprünglich aufgerufenen [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn diese weggelassen wird, ist der Standardwert 1.
 
 ## Wert
 
-Eine Zahl. Mögliche Werte sind:
+Eine Nummer. Mögliche Werte sind:
 
 - 1
-- 4, was eine mehrfach abgetastete Textur anzeigt.
+- 4, was eine Multisampling-Textur angibt.
 
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const depthTexture = device.createTexture({
   size: [canvas.width, canvas.height],
@@ -43,4 +44,4 @@ console.log(depthTexture.sampleCount); // 1
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

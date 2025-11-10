@@ -1,18 +1,18 @@
 ---
-title: "Document: importNode()-Methode"
+title: "Dokument: importNode()-Methode"
 short-title: importNode()
 slug: Web/API/Document/importNode
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("DOM")}}
 
-Die **`importNode()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Objekts erstellt eine Kopie eines [`Node`](/de/docs/Web/API/Node) oder eines [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) aus einem anderen Dokument, um sie später in das aktuelle Dokument einzufügen.
+Die **`importNode()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Objekts erstellt eine Kopie eines [`Node`](/de/docs/Web/API/Node)- oder [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Elements aus einem anderen Dokument, um es später in das aktuelle Dokument einzufügen.
 
-Der importierte Knoten ist noch nicht im Dokumentbaum enthalten. Um ihn einzufügen, müssen Sie eine Einfügemethode wie [`appendChild()`](/de/docs/Web/API/Node/appendChild) oder [`insertBefore()`](/de/docs/Web/API/Node/insertBefore) mit einem Knoten aufrufen, der sich _bereits_ im Dokumentbaum befindet.
+Der importierte Knoten ist noch nicht im Dokumentenbaum enthalten. Um ihn einzufügen, müssen Sie eine Einfügemethode wie [`appendChild()`](/de/docs/Web/API/Node/appendChild) oder [`insertBefore()`](/de/docs/Web/API/Node/insertBefore) mit einem Knoten aufrufen, der _bereits_ im Dokumentenbaum vorhanden ist.
 
-Im Gegensatz zu [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) wird der ursprüngliche Knoten nicht aus seinem ursprünglichen Dokument entfernt. Der importierte Knoten ist ein Klon des Originals.
+Im Gegensatz zu [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) wird der originale Knoten nicht aus seinem ursprünglichen Dokument entfernt. Der importierte Knoten ist eine Kopie des Originals.
 
 ## Syntax
 
@@ -26,21 +26,16 @@ importNode(externalNode, deep)
 - `externalNode`
   - : Der externe [`Node`](/de/docs/Web/API/Node) oder [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), der in das aktuelle Dokument importiert werden soll.
 - `deep` {{optional_inline}}
-
-  - : Ein boolescher Parameter, dessen Standardwert `false` ist,
-    der steuert, ob der gesamte DOM-Unterbaum
-    des `externalNode` beim Import eingeschlossen werden soll.
-
-    - Wenn `deep` auf `true` gesetzt ist, werden
-      `externalNode` und alle seine Nachkommen kopiert.
-    - Wenn `deep` auf `false` gesetzt ist, wird nur
-      `externalNode` importiert — der neue Knoten hat keine Kinder.
+  - : Ein boolescher Wert, dessen Standardwert `false` ist, der steuert, ob der gesamte DOM-Unterbaum des `externalNode` in den Import einbezogen wird.
+    - Wenn `deep` auf `true` gesetzt ist, dann werden `externalNode` und alle seine Nachkommen kopiert.
+    - Wenn `deep` auf `false` gesetzt ist, dann wird nur `externalNode` importiert — der neue Knoten hat keine Kinder.
 
 ### Rückgabewert
 
 Der kopierte `importedNode` im Kontext des importierenden Dokuments.
 
-> **Hinweis:** `importedNode`'s [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) ist `null`, da es noch nicht in den Dokumentbaum eingefügt wurde!
+> [!NOTE]
+> Der `importedNode` hat `null` als [`Node.parentNode`](/de/docs/Web/API/Node/parentNode), da er noch nicht in den Dokumentenbaum eingefügt wurde!
 
 ## Beispiele
 
@@ -51,17 +46,17 @@ const newNode = document.importNode(oldNode, true);
 document.getElementById("container").appendChild(newNode);
 ```
 
-## Hinweise
+## Anmerkungen
 
 Bevor sie in das aktuelle Dokument eingefügt werden können, sollten Knoten aus externen Dokumenten entweder:
 
-- geklont werden, indem `document.importNode()` verwendet wird; oder
-- adoptiert werden, indem [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) verwendet wird.
+- mit `document.importNode()` geklont werden; oder
+- mit [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) übernommen werden.
 
 > [!NOTE]
-> Obwohl Firefox diese Regel derzeit nicht durchsetzt, empfehlen wir Ihnen, diese Regel für eine verbesserte zukünftige Kompatibilität zu befolgen.
+> Obwohl Firefox diese Regel derzeit nicht durchsetzt, empfehlen wir Ihnen, diese Regel zu befolgen, um die zukünftige Kompatibilität zu verbessern.
 
-Für mehr Informationen zu [`Node.ownerDocument`-](https://de/docs/Web/API/Node/ownerDocument)-Problemen, siehe die W3C DOM FAQ.
+Weitere Informationen zu den Fragen im Zusammenhang mit [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) finden Sie in den W3C DOM-FAQ.
 
 ## Spezifikationen
 
@@ -73,6 +68,6 @@ Für mehr Informationen zu [`Node.ownerDocument`-](https://de/docs/Web/API/Node/
 
 ## Siehe auch
 
-- [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode), die sich sehr ähnlich zu dieser Methode verhält
+- [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode), welches sich sehr ähnlich wie diese Methode verhält
 - [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
 - [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)

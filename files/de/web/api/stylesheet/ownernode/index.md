@@ -3,17 +3,14 @@ title: "StyleSheet: ownerNode-Eigenschaft"
 short-title: ownerNode
 slug: Web/API/StyleSheet/ownerNode
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`ownerNode`**-Eigenschaft des
-[`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Knoten zurück, der dieses Stylesheet mit dem Dokument verknüpft.
+Die **`ownerNode`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt das Knotenobjekt zurück, das dieses Stylesheet mit dem Dokument verknüpft.
 
-Dies ist in der Regel ein HTML
-[`<link>`](/de/docs/Web/HTML/Element/link)- oder
-[`<style>`](/de/docs/Web/HTML/Element/style)-Element, kann aber auch einen [Verarbeitungshinweis-Knoten](/de/docs/Web/API/ProcessingInstruction) im Fall von `<?xml-stylesheet ?>` zurückgeben.
+Dies ist normalerweise ein HTML [`<link>`](/de/docs/Web/HTML/Reference/Elements/link)- oder [`<style>`](/de/docs/Web/HTML/Reference/Elements/style)-Element, kann aber auch einen [Verarbeitungshinweisknoten](/de/docs/Web/API/ProcessingInstruction) im Fall von `<?xml-stylesheet ?>` zurückgeben.
 
 ## Wert
 
@@ -21,25 +18,22 @@ Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Beispiele
 
+Angenommen, der `<head>` enthält Folgendes:
+
 ```html
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="example.css" />
-  </head>
-  <body>
-    <button onclick="alert(document.styleSheets[0].ownerNode)">
-      Show example.css's ownerNode
-    </button>
-  </body>
-</html>
-// Displays "object HTMLLinkElement"
+<link rel="stylesheet" href="example.css" />
 ```
 
-## Hinweise
+Dann:
 
-Für Stylesheets, die von anderen Stylesheets einbezogen werden, wie etwa mit
-[`@import`](/de/docs/Web/CSS/@import), ist der Wert dieser
-Eigenschaft `null`.
+```js
+console.log(document.styleSheets[0].ownerNode);
+// Displays '<link rel="stylesheet" href="example.css">'
+```
+
+## Anmerkungen
+
+Für Stylesheets, die durch andere Stylesheets eingebunden werden, z.B. durch [`@import`](/de/docs/Web/CSS/Reference/At-rules/@import), ist der Wert dieser Eigenschaft `null`.
 
 ## Spezifikationen
 

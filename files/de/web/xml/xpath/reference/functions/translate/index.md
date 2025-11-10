@@ -1,11 +1,11 @@
 ---
-title: translate
+title: übersetzen
 slug: Web/XML/XPath/Reference/Functions/translate
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: 9cf4a4a7b55770b266b9f2b72283eab1a5e42de5
 ---
 
-Die Funktion `translate` wertet einen String und eine Menge von Zeichen zur Übersetzung aus und gibt den übersetzten String zurück.
+Die Funktion `translate` bewertet einen String und eine Menge von Zeichen, die übersetzt werden sollen, und gibt den übersetzten String zurück.
 
 ## Syntax
 
@@ -18,9 +18,9 @@ translate(string, abc, XYZ)
 - `string`
   - : Der zu bewertende String.
 - `abc`
-  - : Die Zeichenkette, deren Zeichen ersetzt werden sollen.
+  - : Die Menge von Zeichen, die ersetzt werden sollen.
 - `XYZ`
-  - : Die Zeichenkette, die zur Ersetzung verwendet wird. Das erste Zeichen in `XYZ` ersetzt jedes Vorkommen des ersten Zeichens von `abc`, das im `string` erscheint.
+  - : Die Zeichenfolge, die für die Ersetzung verwendet wird. Das erste Zeichen in `XYZ` ersetzt jedes Vorkommen des ersten Zeichens in `abc`, das im `string` erscheint.
 
 ### Rückgabewert
 
@@ -28,11 +28,27 @@ Der übersetzte String.
 
 ## Beschreibung
 
-XPath weist darauf hin, dass die Funktion `translate` keine ausreichende Lösung für die Groß- und Kleinschreibung in allen Sprachen darstellt. Eine zukünftige Version von XPath könnte zusätzliche Funktionen für die Groß- und Kleinschreibungsumwandlung bereitstellen.
+Für jedes Zeichen in `string`, wenn `abc` dieses Zeichen enthält, wird es durch das Zeichen an der gleichen Position in `XYZ` ersetzt. Wenn `abc` dieses Zeichen nicht enthält, bleibt es unverändert.
 
-Dies ist jedoch derzeit die beste Annäherung an eine Funktion, die einen String in Groß- oder Kleinbuchstaben umwandeln kann.
+- Wenn `abc` länger als `XYZ` ist, werden die zusätzlichen Zeichen am Ende von `abc` der leeren Zeichenfolge zugeordnet (d.h. sie werden aus dem Quellstring entfernt).
+- Wenn `XYZ` mehr Zeichen als `abc` enthält, werden die zusätzlichen Zeichen ignoriert.
+- Wenn ein Zeichen mehrfach in `abc` vorkommt, bestimmt das erste Auftreten das Ersetzungszeichen.
 
-Beispiel
+`translate()` ist eine Funktion für Ersetzungen auf Zeichenebene, keine reguläre Ausdrucks- oder Zeichenkettenersetzungsfunktion. Die Strings `abc` und `XYZ` stellen _Zeichenchiffren_ dar, keine Teilstrings. Das bedeutet, dass Sie die Methode möglicherweise falsch verwenden, wenn Sie auf einen der oben genannten Fälle stoßen (außer vielleicht, wenn `abc` länger ist, um bestimmte Zeichen zu entfernen).
+
+Eine solche Ersetzung wird nicht `The quick red fox` ausgeben, wie Sie vielleicht erwarten; stattdessen ist das Ergebnis `The quick red fdx`.
+
+```xml example-bad
+<xsl:value-of select="translate('The quick brown fox', 'brown', 'red')" />
+```
+
+## Beispiele
+
+### Verwendung von `translate()` zur Groß-/Kleinschreibungskonvertierung
+
+XPath weist darauf hin, dass die `translate`-Funktion keine ausreichende Lösung für die Groß-/Kleinschreibungskonvertierung in allen Sprachen ist. Eine zukünftige Version von XPath könnte zusätzliche Funktionen für die Groß-/Kleinschreibungskonvertierung anbieten.
+
+Dies ist jedoch aktuell die uns am nächsten kommende Funktion, die einen String in Großbuchstaben oder Kleinbuchstaben umwandeln kann.
 
 ```xml
 <xsl:value-of select="translate('The quick brown fox.', 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')" />
@@ -44,25 +60,9 @@ Ausgabe
 THE QUICK BROWN FOX.
 ```
 
-- Wenn `abc` länger ist als `XYZ`, werden alle Zeichen in `abc`, die keine entsprechenden Zeichen in `XYZ` haben, entfernt.
-
-Beispiel
-
-```xml
-<xsl:value-of select="translate('The quick brown fox.', 'brown', 'red')" />
-```
-
-Ausgabe
-
-```plain
-The quick red fdx.
-```
-
-- Wenn `XYZ` mehr Zeichen enthält als `abc`, werden die zusätzlichen Zeichen ignoriert.
-
 ## Spezifikationen
 
-[XPath 1.0 4.2](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-translate)
+[XPath 1.0 4.2](https://www.w3.org/TR/xpath-10/#function-translate)
 
 ## Gecko-Unterstützung
 

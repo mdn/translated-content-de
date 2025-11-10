@@ -3,12 +3,12 @@ title: "ResizeObserver: ResizeObserver() Konstruktor"
 short-title: ResizeObserver()
 slug: Web/API/ResizeObserver/ResizeObserver
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Resize Observer API")}}
 
-Der **`ResizeObserver`** Konstruktor erstellt ein neues [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Objekt, das verwendet werden kann, um Änderungen am Inhalt oder Rahmenkasten eines [`Element`](/de/docs/Web/API/Element) oder des Begrenzungsrahmens eines [`SVGElement`](/de/docs/Web/API/SVGElement) zu melden.
+Der **`ResizeObserver`**-Konstruktor erstellt ein neues [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Objekt, das verwendet werden kann, um Änderungen am Inhalts- oder Rahmenbereich eines [`Element`](/de/docs/Web/API/Element) oder dem Begrenzungsrahmen eines [`SVGElement`](/de/docs/Web/API/SVGElement) zu melden.
 
 ## Syntax
 
@@ -20,14 +20,14 @@ new ResizeObserver(callback)
 
 - `callback`
 
-  - : Die Funktion, die immer dann aufgerufen wird, wenn eine beobachtete Größenänderung auftritt. Die Funktion wird mit zwei Parametern aufgerufen:
+  - : Die Funktion, die jedes Mal aufgerufen wird, wenn eine beobachtete Größenänderung auftritt. Die Funktion wird mit zwei Parametern aufgerufen:
 
     - `entries`
-      - : Ein Array von [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)-Objekten, das verwendet werden kann, um auf die neuen Dimensionen des Elements nach jeder Änderung zuzugreifen.
+      - : Ein Array von [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)-Objekten, das verwendet werden kann, um auf die neuen Abmessungen des Elements nach jeder Änderung zuzugreifen.
     - `observer`
-      - : Ein Verweis auf den `ResizeObserver` selbst, sodass er definitiv von innerhalb des Callbacks erreichbar ist, falls Sie ihn benötigen. Dies könnte zum Beispiel verwendet werden, um den Observer automatisch zu deaktivieren, wenn eine bestimmte Bedingung erreicht wird, aber Sie können es weglassen, wenn Sie es nicht benötigen.
+      - : Eine Referenz auf den `ResizeObserver` selbst, sodass er definitiv von innerhalb des Callbacks zugänglich ist, falls Sie ihn benötigen. Dies könnte beispielsweise verwendet werden, um den Observer automatisch nicht mehr zu beobachten, wenn eine bestimmte Bedingung erreicht wird. Sie können ihn jedoch weglassen, wenn Sie ihn nicht benötigen.
 
-    Das Callback folgt im Allgemeinen einem Muster nach folgendem Schema:
+    Der Callback folgt im Allgemeinen einem Muster in der Art von:
 
     ```js
     function callback(entries, observer) {
@@ -40,7 +40,7 @@ new ResizeObserver(callback)
 
 ## Beispiele
 
-Das folgende Snippet stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)):
+Das folgende Snippet stammt aus dem [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quelle ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) Beispiel:
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

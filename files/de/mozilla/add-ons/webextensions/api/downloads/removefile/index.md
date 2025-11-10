@@ -2,21 +2,19 @@
 title: downloads.removeFile()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/removeFile
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die **`removeFile()`** Funktion der {{WebExtAPIRef("downloads")}} API entfernt eine heruntergeladene Datei von der Festplatte.
 
-Die Funktion **`removeFile()`** der {{WebExtAPIRef("downloads")}} API entfernt eine heruntergeladene Datei von der Festplatte.
+Diese API entfernt die Datei von der Festplatte, jedoch nicht aus dem Download-Verlauf des Browsers. Ein Aufruf von {{WebExtAPIRef("downloads.search()")}} wird das Element weiterhin als {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} zurückgeben, aber dessen `exists` Attribut wird `false` sein.
 
-Diese API entfernt die Datei von der Festplatte, jedoch nicht aus der Download-Historie des Browsers. Daher wird ein Aufruf von {{WebExtAPIRef("downloads.search()")}} das Element immer noch als {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} zurückliefern, aber sein `exists`-Attribut wird `false` sein.
-
-Um eine Datei aus der Download-Historie zu entfernen, müssen Sie {{WebExtAPIRef("downloads.erase()")}} verwenden.
+Um eine Datei aus dem Download-Verlauf zu entfernen, müssen Sie {{WebExtAPIRef("downloads.erase()")}} verwenden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 > [!NOTE]
-> Wenn Sie eine heruntergeladene Datei sowohl von der Festplatte entfernen als auch aus der Historie löschen möchten, müssen Sie `removeFile()` vor {{WebExtAPIRef("downloads.erase()")}} aufrufen. Wenn Sie es andersherum versuchen, erhalten Sie einen Fehler beim Aufruf von `removeFile()`, da der Browser keinen Eintrag des Downloads mehr hat.
+> Wenn Sie eine heruntergeladene Datei von der Festplatte _und_ aus dem Verlauf löschen möchten, müssen Sie `removeFile()` aufrufen, bevor Sie {{WebExtAPIRef("downloads.erase()")}} aufrufen. Wenn Sie es in umgekehrter Reihenfolge versuchen, tritt ein Fehler auf, wenn `removeFile()` aufgerufen wird, da der Browser keinen Eintrag mehr für den Download hat.
 
 ## Syntax
 
@@ -29,19 +27,15 @@ let removing = browser.downloads.removeFile(
 ### Parameter
 
 - `downloadId`
-  - : Ein `integer`, der die ID des {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} repräsentiert, das Sie von der Festplatte löschen möchten.
+  - : Eine `integer`, die die ID des {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} darstellt, das Sie von der Festplatte löschen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anforderung erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anforderung fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Die zuletzt heruntergeladene Datei entfernen:
+Entfernen Sie die zuletzt heruntergeladene Datei:
 
 ```js
 function onRemoved() {
@@ -69,35 +63,41 @@ searching.then(remove, onError);
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-removeFile)-API von Chromium.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-removeFile) API von Chromium.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weitergabe und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weitergaben des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diesen Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weitergaben in binärer Form müssen den obigen Urheberrechtshinweis,
+// diese Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien enthalten, die mit der
+// Verteilung bereitgestellt werden.
+//    * Weder der Name der Google Inc. noch die Namen ihrer
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
+// Software abgeleitet wurden, zu unterstützen oder zu fördern, ohne
+// vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHEN ODER
+// IMPLIZIERTEN GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF,
+// DIE IMPLIZIERTEN GARANTIEN DER HANDELSÜBLICHKEIT UND EIGNUNG FÜR EINEN
+// BESTIMMTEN ZWECK WERDEN ABGELEHNT. IN KEINEM FALL HAFTEN DIE
+// COPYRIGHT-INHABER ODER BEITRAGENDEN FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE,
+// SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER
+// NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG VON ERSATZWAREN ODER -DIENSTLEISTUNGEN;
+// NUTZUNGSVERLUST, DATEN, ODER GEWINNE; ODER GESCHÄFTSUNTERBRECHUNG),
+// AUF WELCHER HAFTUNGSTHEORIE AUCH IMMER, OB IN VERTRAG, STRIKTER
+// HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
+// ANDERWEITIG), DIE AUS DER NUTZUNG DER SOFTWARE ENTSTEHT, AUCH WENN
+// ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN INFORMIERT WURDE.
 -->

@@ -1,17 +1,17 @@
 ---
-title: "ElementInternals: ariaValueMin-Eigenschaft"
+title: "ElementInternals: ariaValueMin Eigenschaft"
 short-title: ariaValueMin
 slug: Web/API/ElementInternals/ariaValueMin
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: c1a15955a64fe6afa4a6226cbc034d994349afea
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaValueMin`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals) Interfaces spiegelt den Wert des [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin) Attributs wider, das den minimal zulässigen Wert für ein Bereich-Widget definiert.
+Die **`ariaValueMin`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin)-Attributs wider, welches den minimal erlaubten Wert für ein Bereichs-Widget definiert.
 
 > [!NOTE]
-> Das Festlegen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, sollten die autorenspezifischen Attribute gelöscht werden oder überhaupt nicht hinzugefügt werden. Weitere Informationen finden Sie im [Accessibility Object Model Erklär-Dokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie gar nicht erst hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -19,10 +19,17 @@ Ein String, der eine Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird der Wert von `ariaValueMin` auf "10" gesetzt.
+In diesem Beispiel wird der Wert von `ariaValueMin` auf „10“ gesetzt.
 
 ```js
-this.internals_.ariaValueMin = "10";
+class CustomControl extends HTMLElement {
+  constructor() {
+    super();
+    this.internals_ = this.attachInternals();
+    this.internals_.ariaValueMin = "10";
+  }
+  // …
+}
 ```
 
 ## Spezifikationen

@@ -3,12 +3,12 @@ title: "WorkerNavigator: gpu-Eigenschaft"
 short-title: gpu
 slug: Web/API/WorkerNavigator/gpu
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("Web Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("worker")}}
+{{APIRef("Web Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`gpu`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Worker-Kontext zurück, welches der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
+Die **`gpu`**-Schreibgeschützte Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Worker-Kontext zurück, welches den Einstiegspunkt für die [WebGPU-API](/de/docs/Web/API/WebGPU_API) darstellt.
 
 ## Wert
 
@@ -30,7 +30,7 @@ async function init() {
 
   const device = await adapter.requestDevice();
 
-  //...
+  // …
 }
 ```
 
@@ -44,4 +44,4 @@ async function init() {
 
 ## Siehe auch
 
-- [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- [WebGPU-API](/de/docs/Web/API/WebGPU_API)

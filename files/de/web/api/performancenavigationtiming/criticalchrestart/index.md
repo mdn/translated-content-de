@@ -3,26 +3,26 @@ title: "PerformanceNavigationTiming: criticalCHRestart-Eigenschaft"
 short-title: criticalCHRestart
 slug: Web/API/PerformanceNavigationTiming/criticalCHRestart
 l10n:
-  sourceCommit: 7999828f4c20f9d2062b20423dd8299ee8f64456
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Eine Website kann darauf hinweisen, dass ein bestimmter [Client Hint](/de/docs/Web/HTTP/Client_hints) für die Seite kritisch ist, indem sie ihn in einem {{HTTPHeader("Critical-CH")}} HTTP-Antwortheader (sowie im {{HTTPHeader("Accept-CH")}} HTTP-Anforderungsheader, der für alle Client Hints benötigt wird, ob kritisch oder nicht) angibt. Dadurch wird ein Verbindungsneustart ausgelöst, wenn der im `Critical-CH` HTTP-Antwortheader aufgeführte Hinweis beim ursprünglich gesendeten HTTP-Anforderung hätte enthalten sein können, es aber nicht war. Wenn der Browser diesen Client Hint nicht unterstützt, wird er ignoriert und es erfolgt kein Verbindungsneustart.
+Eine Website kann angeben, dass ein bestimmter [Client-Hint](/de/docs/Web/HTTP/Guides/Client_hints) für die Seite kritisch ist, indem sie ihn in einem {{HTTPHeader("Critical-CH")}} HTTP-Antwort-Header (sowie im {{HTTPHeader("Accept-CH")}} HTTP-Anfrage-Header, der für alle Client-Hints erforderlich ist, ob kritisch oder nicht) angibt. Dadurch wird ein Verbindungsneustart ausgelöst, wenn der im `Critical-CH` HTTP-Antwort-Header aufgeführte Hinweis in der ursprünglich gesendeten HTTP-Anfrage hätte enthalten sein können, es aber nicht war. Wenn der Browser diesen Client-Hint nicht unterstützt, wird er ignoriert und es erfolgt kein Verbindungsneustart.
 
-Die schreibgeschützte Eigenschaft **`criticalCHRestart`** repräsentiert den Zeitpunkt, zu dem der Verbindungsneustart erfolgt ist.
+Die **`criticalCHRestart`**-Schreibgeschützte Eigenschaft repräsentiert den Zeitpunkt, zu dem der Verbindungsneustart stattgefunden hat.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Anzahl der Millisekunden angibt, die seit dem [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) vergangen sind, als der Verbindungsneustart in Millisekunden erfolgt ist.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Anzahl der Millisekunden seit [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) darstellt, als der Verbindungsneustart in Millisekunden stattfand.
 
 Wenn der Wert `0` ist, wurde die Verbindung nicht neu gestartet.
 
 ## Beispiele
 
-### Erkennung von Verbindungsneustartseiten
+### Erkennen von Verbindungsneustart-Seiten
 
-Das folgende JavaScript kann verwendet werden, um festzustellen, ob die Verbindung neu gestartet wurde:
+Das folgende JavaScript kann verwendet werden, um zu überprüfen, ob die Verbindung neu gestartet wurde:
 
 ```js
 const restartTime =
@@ -42,8 +42,8 @@ if (restartTime > 0) {
 
 ## Siehe auch
 
-- [Client hints](/de/docs/Web/HTTP/Client_hints)
+- [Client hints](/de/docs/Web/HTTP/Guides/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Datenschutzes der Benutzer und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
 - {{HTTPHeader("Critical-CH")}}

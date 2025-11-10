@@ -3,12 +3,12 @@ title: "GPUCanvasContext: Methode getCurrentTexture()"
 short-title: getCurrentTexture()
 slug: Web/API/GPUCanvasContext/getCurrentTexture
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getCurrentTexture()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext für das Dokument zusammengesetzt werden soll.
+Die **`getCurrentTexture()`**-Methode der [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Schnittstelle gibt die nächste [`GPUTexture`](/de/docs/Web/API/GPUTexture) zurück, die vom Canvas-Kontext mit dem Dokument zusammengesetzt wird.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekts.
+Eine [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objektinstanz.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `getCurrentTexture()` auf dem Canvas-Kontext aufgerufen wird, bevor er konfiguriert ist (d. h. bevor [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) aufgerufen wurde).
+  - : Wird ausgelöst, wenn `getCurrentTexture()` im Canvas-Kontext aufgerufen wird, bevor dieser konfiguriert wurde (d.h. bevor [`GPUCanvasContext.configure()`](/de/docs/Web/API/GPUCanvasContext/configure) aufgerufen wurde).
 
 ## Beispiele
 
@@ -36,12 +36,12 @@ const canvas = document.querySelector("#gpuCanvas");
 const context = canvas.getContext("webgpu");
 
 context.configure({
-  device: device,
+  device,
   format: navigator.gpu.getPreferredCanvasFormat(),
   alphaMode: "premultiplied",
 });
 
-//...
+// …
 // Later on
 const commandEncoder = device.createCommandEncoder();
 

@@ -3,19 +3,18 @@ title: "HTMLStyleElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLStyleElement/type
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLStyleElement.type`**-Eigenschaft gibt den Typ des aktuellen Styles zurück.
-Der Wert entspricht dem [`type`-Attribut des HTML `<style>`-Elements](/de/docs/Web/HTML/Element/style#type).
+Die **`HTMLStyleElement.type`**-Eigenschaft gibt den Typ des aktuellen Styles zurück. Der Wert spiegelt das [HTML `<style>`-Element-Attribut `type`](/de/docs/Web/HTML/Reference/Elements/style#type) wider.
 
 Autoren sollten diese Eigenschaft nicht verwenden oder sich auf den Wert verlassen.
 
 ## Wert
 
-Die zulässigen Werte sind ein leerer String oder eine Groß- und Kleinschreibung ignorierende Übereinstimmung mit "text/css".
+Die zulässigen Werte sind ein leerer String oder eine Groß-/Kleinschreibung ignorierende Übereinstimmung für "text/css".
 
 ## Spezifikationen
 

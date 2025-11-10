@@ -2,14 +2,14 @@
 title: LinearAccelerationSensor
 slug: Web/API/LinearAccelerationSensor
 l10n:
-  sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Das **`LinearAccelerationSensor`**-Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die Beschleunigung, die ohne den Beitrag der Schwerkraft auf das Gerät entlang aller drei Achsen angewendet wird.
+Das **`LinearAccelerationSensor`**-Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Ablesung die auf das Gerät wirkende Beschleunigung entlang aller drei Achsen, jedoch ohne den Beitrag der Schwerkraft.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Erlaubnis für den `'accelerometer'`-Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Darüber hinaus kann diese Funktion durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy), die auf Ihrem Server festgelegt ist, blockiert werden.
+Um diesen Sensor zu verwenden, muss der Benutzer die Erlaubnis für den `'accelerometer'` Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Zusätzlich kann diese Funktion durch eine auf Ihrem Server gesetzte [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
@@ -32,7 +32,7 @@ _`LinearAccelerationSensor` hat keine eigenen Ereignisse. Es erbt jedoch Ereigni
 
 ## Beispiel
 
-Lineare Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback gelesen. Im folgenden Beispiel erfolgt dies sechzig Mal pro Sekunde.
+Die lineare Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis-Callback abgelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 let laSensor = new LinearAccelerationSensor({ frequency: 60 });

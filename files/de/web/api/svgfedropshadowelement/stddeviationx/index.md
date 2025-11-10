@@ -1,14 +1,14 @@
 ---
-title: "SVGFEDropShadowElement: Eigenschaft stdDeviationX"
+title: "SVGFEDropShadowElement: stdDeviationX-Eigenschaft"
 short-title: stdDeviationX
 slug: Web/API/SVGFEDropShadowElement/stdDeviationX
 l10n:
-  sourceCommit: 7527a11a2b7fc7440aa6d518a9f5b4c061794ff3
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`stdDeviationX`** des [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Interfaces spiegelt die (möglicherweise automatisch berechnete) X-Komponente des {{SVGAttr("stdDeviation")}}-Attributs des angegebenen {{SVGElement("feDropShadow")}}-Elements wider.
+Die **`stdDeviationX`**-Eigenschaft der [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die (möglicherweise automatisch berechnete) X-Komponente des {{SVGAttr("stdDeviation")}}-Attributs des gegebenen {{SVGElement("feDropShadow")}}-Elements widerspiegelt.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Objekt.
 
 ## Beispiele
 
-### Zugriff auf den `stdDeviationX`-Wert
+### Auf den `stdDeviationX`-Wert zugreifen
 
-In diesem Beispiel rufen wir die horizontale Standardabweichung für die Unschärfeoperation des `<feDropShadow>`-Elements ab, indem wir die schreibgeschützte Eigenschaft `stdDeviationX` des `SVGFEDropShadowElement`-Interfaces verwenden.
+In diesem Beispiel rufen wir die horizontale Standardabweichung für die Unschärfeoperation des `<feDropShadow>` ab, indem wir die schreibgeschützte Eigenschaft `stdDeviationX` der `SVGFEDropShadowElement`-Schnittstelle verwenden.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@ In diesem Beispiel rufen wir die horizontale Standardabweichung für die Unschä
     y="50"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#drop-shadow-filter)" />
 </svg>
 ```

@@ -1,18 +1,18 @@
 ---
-title: "Navigator: buildID Eigenschaft"
+title: "Navigator: buildID-Eigenschaft"
 short-title: buildID
 slug: Web/API/Navigator/buildID
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{ApiRef("HTML DOM")}}{{Non-standard_Header}}
 
-Gibt den Build-Identifier des Browsers zurück. In modernen Browsern liefert diese Eigenschaft jetzt aus Datenschutzgründen einen festen Zeitstempel zurück, z. B. `20181001000000` in Firefox ab Version 64.
+Gibt die Build-Kennung des Browsers zurück. In modernen Browsern gibt diese Eigenschaft nun aus Datenschutzgründen einen festen Zeitstempel zurück, z.B. `20181001000000` in Firefox 64 und höher.
 
 ## Wert
 
-Ein String, der den Build-Identifier der Anwendung darstellt. Die Build-ID hat das Format `YYYYMMDDHHMMSS`.
+Ein String, der die Build-Kennung der Anwendung darstellt. Die Build-ID hat das Format `YYYYMMDDHHMMSS`.
 
 ## Beispiele
 

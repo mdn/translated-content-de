@@ -3,12 +3,12 @@ title: "CSSTransformComponent: toString() Methode"
 short-title: toString()
 slug: Web/API/CSSTransformComponent/toString
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`toString()`** Methode der [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) Schnittstelle ist ein {{Glossary("stringifier", "Stringifier")}}, der eine [CSS-Transformationsfunktion](/de/docs/Web/CSS/CSS_transforms) zurückgibt.
+Die **`toString()`** Methode des [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) Interface ist ein {{Glossary("stringifier", "stringifier")}}, der eine [CSS Transforms](/de/docs/Web/CSS/Guides/Transforms) Funktion zurückgibt.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein String in Form einer CSS-[Transformationsfunktion](/de/docs/Web/CSS/transform-function).
+Ein String in der Form einer CSS [transform function](/de/docs/Web/CSS/Reference/Values/transform-function).
 
-Dies wird den Wert von `is2D` verwenden, um entweder eine 2D- oder 3D-Transformation zurückzugeben. Zum Beispiel, wenn die Komponente [`CSSRotate`](/de/docs/Web/API/CSSRotate) darstellt und `is2D` falsch ist, dann wird der zurückgegebene String in Form der CSS-Transformation [`rotate3D()`](/de/docs/Web/CSS/transform-function/rotate3d) Funktion sein. Wenn `is2D` wahr ist, wird der zurückgegebene String in Form der zweidimensionalen [`rotate3D()`](/de/docs/Web/CSS/transform-function/rotate) Funktion sein.
+Dieser verwendet den Wert von `is2D`, um entweder eine 2D- oder 3D-Transformation zurückzugeben. Wenn die Komponente beispielsweise [`CSSRotate`](/de/docs/Web/API/CSSRotate) darstellt und `is2D` falsch ist, wird der zurückgegebene String in der Form der CSS-Transformation [`rotate3d()`](/de/docs/Web/CSS/Reference/Values/transform-function/rotate3d) Funktion sein. Wenn `is2D` wahr ist, wird der zurückgegebene String in der Form der zweidimensionalen [`rotate()`](/de/docs/Web/CSS/Reference/Values/transform-function/rotate) Funktion sein.
 
 ## Beispiele
 

@@ -1,34 +1,35 @@
 ---
-title: "Window: online Ereignis"
+title: "Window: online Event"
 short-title: online
 slug: Web/API/Window/online_event
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`online`** Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser Zugang zum Netzwerk erlangt und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
+Das **`online`** Event des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser Zugriff auf das Netzwerk erhält und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
 
 > [!NOTE]
-> Dieses Ereignis sollte nicht zur Bestimmung der Verfügbarkeit einer bestimmten Website verwendet werden. Netzwerkprobleme oder Firewalls können weiterhin den Zugriff auf die Website verhindern.
+> Dieses Ereignis sollte nicht verwendet werden, um die Verfügbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls können weiterhin verhindern, dass die Website erreicht wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("online", (event) => {});
-ononline = (event) => {};
+```js-nolint
+addEventListener("online", (event) => { })
+
+ononline = (event) => { }
 ```
 
 ## Ereignistyp
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Ereignishandler-Aliase
+## Alias für Ereignis-Handler
 
-Zusätzlich zum `Window` Interface ist die Ereignishandlereigenschaft `ononline` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zum `Window`-Interface ist die Ereignis-Handler-Eigenschaft `ononline` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)

@@ -1,26 +1,26 @@
 ---
-title: "CanvasRenderingContext2D: rect() Methode"
+title: "CanvasRenderingContext2D: rect()-Methode"
 short-title: rect()
 slug: Web/API/CanvasRenderingContext2D/rect
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
 Die
 **`CanvasRenderingContext2D.rect()`**
 Methode der Canvas 2D API fügt dem aktuellen Pfad ein Rechteck hinzu.
 
-Wie andere Methoden, die den aktuellen Pfad modifizieren, rendert diese Methode nicht direkt
-etwas. Um das Rechteck auf eine Leinwand zu zeichnen, können Sie die
-Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
-[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
+Wie andere Methoden, die den aktuellen Pfad ändern, rendert diese Methode direkt nichts.
+Um das Rechteck auf eine Leinwand zu zeichnen, können Sie die
+[`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
+[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) Methoden verwenden.
 
 > [!NOTE]
-> Um sowohl ein Rechteck zu erstellen als auch in einem Schritt zu rendern, verwenden Sie die
-> Methoden [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) oder
-> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect).
+> Um ein Rechteck in einem Schritt zu erstellen und zu rendern, verwenden Sie die
+> [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) oder
+> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect) Methoden.
 
 ## Syntax
 
@@ -28,8 +28,8 @@ Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
 rect(x, y, width, height)
 ```
 
-Die `rect()` Methode erstellt einen rechteckigen Pfad, dessen Startpunkt sich bei
-`(x, y)` befindet und dessen Größe durch `width` und
+Die `rect()`-Methode erstellt einen rechteckigen Pfad, dessen Startpunkt bei
+`(x, y)` liegt und dessen Größe durch `width` und
 `height` angegeben wird.
 
 ### Parameter
@@ -39,9 +39,9 @@ Die `rect()` Methode erstellt einen rechteckigen Pfad, dessen Startpunkt sich be
 - `y`
   - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte gehen nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte sind nach rechts, negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte gehen nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte sind nach unten, negative nach oben.
 
 ### Rückgabewert
 
@@ -51,8 +51,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Zeichnen eines Rechtecks
 
-Dieses Beispiel erstellt einen rechteckigen Pfad mit der `rect()` Methode. Der Pfad
-wird dann mit der `fill()` Methode gerendert.
+Dieses Beispiel erstellt einen rechteckigen Pfad mit der Methode `rect()`. Der Pfad
+wird dann mit der Methode `fill()` gerendert.
 
 #### HTML
 

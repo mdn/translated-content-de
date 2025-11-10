@@ -3,27 +3,24 @@ title: "Element: scrollWidth-Eigenschaft"
 short-title: scrollWidth
 slug: Web/API/Element/scrollWidth
 l10n:
-  sourceCommit: b4778812842c207fa8bcb4b367644c61720d1f35
+  sourceCommit: 0916e1754652f3a7c663ef031faa26c98f492023
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Element.scrollWidth`** ist ein Maß für die Breite des Inhalts eines Elements, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
+Die **`scrollWidth`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Breite des Inhalts eines Elements misst, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
 
-Der Wert von `scrollWidth` entspricht der minimalen Breite, die das Element benötigen würde, um den gesamten Inhalt im Ansichtsfenster ohne Verwendung eines horizontalen Scrollbalkens unterzubringen. Die Breite wird auf die gleiche Weise gemessen wie [`clientWidth`](/de/docs/Web/API/Element/clientWidth): Sie umfasst die Innenabstände (padding) des Elements, aber nicht dessen Rahmen, Abstand (margin) oder vertikalen Scrollbalken (falls vorhanden). Sie kann auch die Breite von Pseudo-Elementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} beinhalten. Wenn der Inhalt des Elements ohne horizontalen Scrollbalken auskommt, ist `scrollWidth` gleich [`clientWidth`](/de/docs/Web/API/Element/clientWidth).
-
-> [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine Ganzzahl. Wenn Sie einen gebrochenen Wert benötigen, verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
+Der `scrollWidth`-Wert entspricht der Mindestbreite, die das Element benötigen würde, um den gesamten Inhalt im Ansichtsfenster unterzubringen, ohne eine horizontale Scrollleiste zu verwenden. Die Breite wird auf die gleiche Weise wie [`clientWidth`](/de/docs/Web/API/Element/clientWidth) gemessen: Sie umfasst das Padding des Elements, aber nicht dessen Rand, äußere Abstände oder die vertikale Scrollleiste (falls vorhanden). Sie kann auch die Breite von Pseudo-Elementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} einschließen. Wenn der Inhalt des Elements ohne eine horizontale Scrollleiste passt, ist die `scrollWidth` gleich der [`clientWidth`](/de/docs/Web/API/Element/clientWidth).
 
 ## Wert
 
-Eine Ganzzahl.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
-### Erkennung von überlaufendem Inhalt
+### Erkennen von überfließendem Inhalt
 
-In diesem Beispiel verwenden wir die Eigenschaft `scrollWidth`, um zu überprüfen, ob der Inhalt eines Elements seine Grenzen überschreitet. Wir haben zwei `div`-Elemente, das erste mit einer Breite von `100px` und das zweite ohne feste Breite. Ihr Inhalt ist genau gleich, und wir zeigen eine Nachricht an, ob jedes von ihnen seinen Container überläuft.
+In diesem Beispiel verwenden wir die `scrollWidth`-Eigenschaft, um zu überprüfen, ob der Inhalt eines Elements seine Grenzen überschreitet. Wir haben zwei `div`-Elemente, das erste mit einer Breite von `100px` und das zweite ohne feste Breite. Ihr Inhalt ist genau gleich, und wir zeigen eine Nachricht darüber an, ob jedes von ihnen seinen Container überläuft.
 
 #### HTML
 
@@ -113,5 +110,11 @@ Klicken Sie auf die Schaltflächen, um zu überprüfen, ob der Inhalt die Contai
 
 ## Siehe auch
 
+- [Bestimmen der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
 - [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth)
-- [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`Element.scrollHeight`](/de/docs/Web/API/Element/scrollHeight)
+- [`Element.scrollLeft`](/de/docs/Web/API/Element/scrollLeft)
+- [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop)
+- [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)
+- [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo)

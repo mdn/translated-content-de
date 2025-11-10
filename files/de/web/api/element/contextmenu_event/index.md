@@ -1,30 +1,30 @@
 ---
-title: "Element: contextmenu event"
+title: "Element: contextmenu-Ereignis"
 short-title: contextmenu
 slug: Web/API/Element/contextmenu_event
 l10n:
-  sourceCommit: ab65140829d7c4df540fd859c0a97a78b3b1fd33
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Pointer Events")}}
 
-Das **`contextmenu`**-Ereignis wird ausgelöst, wenn der Benutzer versucht, ein Kontextmenü zu öffnen. Dieses Ereignis wird typischerweise durch das Klicken der rechten Maustaste oder durch Drücken der Kontextmenü-Taste ausgelöst.
+Das **`contextmenu`**-Ereignis wird ausgelöst, wenn der Benutzer versucht, ein Kontextmenü zu öffnen. Dieses Ereignis wird typischerweise durch Klicken der rechten Maustaste oder durch Drücken der Kontextmenütaste ausgelöst.
 
-Im letzteren Fall wird das Kontextmenü unten links vom fokussierten Element angezeigt, es sei denn, das Element ist ein Baum, dann wird das Kontextmenü unten links von der aktuellen Zeile angezeigt.
+Im letzteren Fall wird das Kontextmenü unten links im fokussierten Element angezeigt, es sei denn, das Element ist ein Baum. In diesem Fall wird das Kontextmenü unten links in der aktuellen Zeile angezeigt.
 
-Jedes Rechtsklick-Ereignis, das nicht deaktiviert ist (durch den Aufruf der `preventDefault()`-Methode des Klick-Ereignisses), führt dazu, dass ein `contextmenu`-Ereignis auf dem anvisierten Element ausgelöst wird.
+Jedes Rechtsklick-Ereignis, das nicht deaktiviert wurde (durch Aufrufen der `preventDefault()`-Methode des Klickevents), führt dazu, dass ein `contextmenu`-Ereignis auf das anvisierte Element ausgelöst wird.
 
 > [!NOTE]
 > Eine Ausnahme in Firefox: Wenn der Benutzer die <kbd>Shift</kbd>-Taste gedrückt hält, während er mit der rechten Maustaste klickt, wird das Kontextmenü angezeigt, ohne dass ein `contextmenu`-Ereignis ausgelöst wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie `addEventListener()`, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("contextmenu", (event) => {});
+```js-nolint
+addEventListener("contextmenu", (event) => { })
 
-oncontextmenu = (event) => {};
+oncontextmenu = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,34 +34,34 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de
 {{InheritanceDiagram("PointerEvent")}}
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
+> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
 
 ## Ereigniseigenschaften
 
 _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen einer Transducerachse (einem Zeiger oder Stylus) und der X-Y-Ebene eines Gerätebildschirms dar.
+  - : Repräsentiert den Winkel zwischen einer Transducer-Achse (einem Zeiger oder Stylus) und der X-Y-Ebene eines Geräteschirms.
 - [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Transducerachse (einem Zeiger oder Stylus) als auch die Y-Achse enthält.
+  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Transducer-Achse (ein Zeiger oder Stylus) als auch die Y-Achse enthält.
 - [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
 - [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
-  - : Die Breite (Magnitude auf der X-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+  - : Die Breite (Länge auf der X-Achse), in CSS-Pixel, der Kontaktfläche des Zeigers.
 - [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
-  - : Die Höhe (Magnitude auf der Y-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+  - : Die Höhe (Länge auf der Y-Achse), in CSS-Pixel, der Kontaktfläche des Zeigers.
 - [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck der Zeigereingabe im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
+  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
 - [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck der Zeigereingabe (auch bekannt als Barrel-Druck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+  - : Der normale tangentiale Druck des Zeigereingangs (auch bekannt als Barrel-Druck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung darstellt.
 - [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Winkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Pen Stylus) als auch die Y-Achse enthält.
+  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift) als auch die Y-Achse enthält.
 - [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Winkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Pen Stylus) als auch die X-Achse enthält.
+  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift) als auch die X-Achse enthält.
 - [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z.B. Pen Stylus) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
+  - : Die Drehung des Zeigers (z.B. Stift) um seine Hauptachse im Uhrzeigersinn, in Grad, mit einem Wert im Bereich von `0` bis `359`.
 - [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Touch usw.).
+  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
 - [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
   - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
 
@@ -69,10 +69,10 @@ _Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/Mous
 
 ### Das `contextmenu`-Ereignis abbrechen
 
-In diesem Beispiel wird die Standardaktion des `contextmenu`-Ereignisses mit `preventDefault()` abgebrochen, wenn das `contextmenu`-Ereignis beim ersten Absatz ausgelöst wird. Dadurch wird der erste Absatz bei einem Rechtsklick nichts tun, während der zweite Absatz das Standard-Kontextmenü Ihres Browsers anzeigen wird.
+In diesem Beispiel wird die Standardaktion des `contextmenu`-Ereignisses mit `preventDefault()` abgebrochen, wenn das `contextmenu`-Ereignis beim ersten Absatz ausgelöst wird. Infolgedessen wird der erste Absatz beim Rechtsklick nichts tun, während der zweite Absatz das standardmäßige Kontextmenü Ihres Browsers anzeigen wird.
 
 > [!NOTE]
-> In Firefox, wenn Sie die <kbd>Shift</kbd>-Taste gedrückt halten, während Sie mit der rechten Maustaste klicken, wird das Kontextmenü angezeigt, ohne dass das `contextmenu`-Ereignis ausgelöst wird. Daher verhindert das Abbrechen des Ereignisses nicht, dass das Kontextmenü angezeigt wird.
+> In Firefox wird das Kontextmenü angezeigt, wenn Sie die <kbd>Shift</kbd>-Taste gedrückt halten und mit der rechten Maustaste klicken, ohne dass das `contextmenu`-Ereignis ausgelöst wird. Daher stoppt das Abbrechen des Ereignisses die Anzeige des Kontextmenüs nicht.
 
 #### HTML
 

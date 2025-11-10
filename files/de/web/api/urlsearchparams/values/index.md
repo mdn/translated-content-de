@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`values()`** Methode des [`URLsearchParams`](/de/docs/Web/API/URLsearchParams)
+Die **`values()`** Methode des [`URLsearchParams`](/de/docs/Web/API/URLSearchParams)
 Interfaces gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der die Iteration
 durch alle in diesem Objekt enthaltenen Werte ermöglicht. Die Werte sind Zeichenketten.
 

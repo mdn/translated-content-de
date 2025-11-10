@@ -3,12 +3,12 @@ title: "CanvasRenderingContext2D: arc()-Methode"
 short-title: arc()
 slug: Web/API/CanvasRenderingContext2D/arc
 l10n:
-  sourceCommit: be68d68e0bf1c9cdf5f40939201403638fb90cbe
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.arc()`**-Methode der [Canvas 2D API](/de/docs/Web/API/CanvasRenderingContext2D) fügt dem aktuellen Unterpfad einen kreisförmigen Bogen hinzu.
+Die **`CanvasRenderingContext2D.arc()`**-Methode der [Canvas 2D API](/de/docs/Web/API/CanvasRenderingContext2D) fügt dem aktuellen Sub-Pfad einen kreisförmigen Bogen hinzu.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ arc(x, y, radius, startAngle, endAngle)
 arc(x, y, radius, startAngle, endAngle, counterclockwise)
 ```
 
-Die `arc()`-Methode erstellt einen kreisförmigen Bogen, der auf `(x, y)` zentriert ist und einen Radius von `radius` hat. Der Pfad beginnt bei `startAngle`, endet bei `endAngle` und folgt der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
+Die Methode `arc()` erstellt einen kreisförmigen Bogen mit dem Mittelpunkt `(x, y)` und einem Radius von `radius`. Der Pfad beginnt bei `startAngle`, endet bei `endAngle` und verläuft in der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
 
 ### Parameter
 
@@ -28,11 +28,11 @@ Die `arc()`-Methode erstellt einen kreisförmigen Bogen, der auf `(x, y)` zentri
 - `radius`
   - : Der Radius des Bogens. Muss positiv sein.
 - `startAngle`
-  - : Der Winkel, bei dem der Bogen in Radiant beginnt, gemessen von der positiven x-Achse.
+  - : Der Winkel, bei dem der Bogen in Bogenmaß beginnt, gemessen von der positiven x-Achse.
 - `endAngle`
-  - : Der Winkel, bei dem der Bogen in Radiant endet, gemessen von der positiven x-Achse.
+  - : Der Winkel, bei dem der Bogen in Bogenmaß endet, gemessen von der positiven x-Achse.
 - `counterclockwise` {{optional_inline}}
-  - : Ein optionaler boolescher Wert. Wenn `true`, wird der Bogen gegen den Uhrzeigersinn zwischen den Start- und Endwinkeln gezogen. Standard ist `false` (im Uhrzeigersinn).
+  - : Ein optionaler boolescher Wert. Wenn `true`, wird der Bogen gegen den Uhrzeigersinn zwischen den Start- und Endwinkeln gezeichnet. Der Standard ist `false` (im Uhrzeigersinn).
 
 ### Rückgabewert
 
@@ -42,7 +42,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Zeichnen eines vollständigen Kreises
 
-Dieses Beispiel zeichnet mit der `arc()`-Methode einen vollständigen Kreis.
+Dieses Beispiel zeichnet einen vollständigen Kreis mit der `arc()`-Methode.
 
 #### HTML
 
@@ -52,7 +52,7 @@ Dieses Beispiel zeichnet mit der `arc()`-Methode einen vollständigen Kreis.
 
 #### JavaScript
 
-Dem Bogen wird eine x-Koordinate von 100, eine y-Koordinate von 75 und ein Radius von 50 gegeben. Um einen vollständigen Kreis zu erstellen, beginnt der Bogen bei einem Winkel von 0 Radiant (0°) und endet bei einem Winkel von 2π Radiant (360°).
+Der Bogen erhält eine x-Koordinate von 100, eine y-Koordinate von 75 und einen Radius von 50. Um einen vollständigen Kreis zu erstellen, beginnt der Bogen bei einem Winkel von 0 Bogenmaß (0°) und endet bei einem Winkel von 2π Bogenmaß (360°).
 
 ```js
 const canvas = document.querySelector("canvas");
@@ -67,7 +67,7 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Drawing_a_full_circle', 700, 180) }}
 
-### Verschiedene dargestellte Formen
+### Verschiedene Formen demonstriert
 
 Dieses Beispiel zeichnet verschiedene Formen, um zu zeigen, was mit `arc()` möglich ist.
 
@@ -115,5 +115,5 @@ for (let i = 0; i <= 3; i++) {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - Verwenden Sie [`CanvasRenderingContext2D.ellipse()`](/de/docs/Web/API/CanvasRenderingContext2D/ellipse), um einen elliptischen Bogen zu zeichnen.

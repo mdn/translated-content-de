@@ -2,38 +2,36 @@
 title: history.HistoryItem
 slug: Mozilla/Add-ons/WebExtensions/API/history/HistoryItem
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Ein `HistoryItem`-Objekt liefert Informationen über eine Seite in der Browser-Historie.
+Ein `HistoryItem` Objekt liefert Informationen über eine Seite im Browserverlauf.
 
 ## Typ
 
 Dies ist ein Objekt mit den folgenden Eigenschaften:
 
 - `id`
-  - : `string`. Eindeutiger Bezeichner für das Element.
+  - : `string`. Eindeutiger Bezeichner für das Objekt.
 - `url` {{optional_inline}}
   - : `string`. Die URL der Seite.
 - `title` {{optional_inline}}
   - : `string`. Der Titel der Seite.
 - `lastVisitTime` {{optional_inline}}
-  - : `number`. Das Datum und die Uhrzeit, wann die Seite zuletzt geladen wurde, dargestellt in Millisekunden seit der Epoche.
+  - : `number`. Datum und Uhrzeit, wann die Seite zuletzt geladen wurde, dargestellt in Millisekunden seit dem Epoch.
 - `visitCount` {{optional_inline}}
-  - : `number`. Die Anzahl der Besuche der Seite durch den Benutzer.
+  - : `number`. Die Anzahl der Besuche, die der Benutzer auf der Seite gemacht hat.
 - `typedCount` {{optional_inline}}
-  - : `number`. Die Anzahl der Male, die der Benutzer zu dieser Seite navigiert hat, indem er die Adresse eingegeben hat.
+  - : `number`. Die Anzahl der Male, die der Benutzer zu dieser Seite navigierte, indem er die Adresse manuell eingab.
+
+{{WebExtExamples}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples}}
-
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-HistoryItem). Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-HistoryItem) API von Chromium. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

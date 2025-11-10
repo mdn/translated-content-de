@@ -2,62 +2,62 @@
 title: VisualViewport
 slug: Web/API/VisualViewport
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("Visual Viewport")}}
+{{APIRef("CSSOM view API")}}
 
-Die **`VisualViewport`**-Schnittstelle der [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API) repräsentiert das visuelle Viewport für ein gegebenes Fenster. Für eine Seite mit iframes hat jedes iframe sowie die enthaltende Seite ein einzigartiges Fensterobjekt. Jedes Fenster auf einer Seite hat ein einzigartiges `VisualViewport`, das die mit diesem Fenster verbundenen Eigenschaften darstellt.
+Das **`VisualViewport`**-Interface der [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API) repräsentiert das visuelle Viewport für ein bestimmtes Fenster. Für eine Seite mit iframes hat jedes iframe sowie die enthaltene Seite ein einzigartiges Fensterobjekt. Jedes Fenster auf einer Seite verfügt über ein einzigartiges `VisualViewport`, das die mit diesem Fenster verbundenen Eigenschaften repräsentiert.
 
-Sie können das visuelle Viewport eines Fensters mit [`Window.visualViewport`](/de/docs/Web/API/Window/visualViewport) abrufen.
+Sie können das visuelle Viewport eines Fensters über [`Window.visualViewport`](/de/docs/Web/API/Window/visualViewport) abrufen.
 
 > [!NOTE]
-> Nur das oberste Fenster hat ein visuelles Viewport, das sich vom Layout-Viewport unterscheidet. Daher ist im Allgemeinen nur das `VisualViewport`-Objekt des obersten Fensters nützlich. Für ein {{htmlelement("iframe")}} entsprechen die metrischen Angaben des visuellen Viewports wie [`VisualViewport.width`](/de/docs/Web/API/VisualViewport/width) immer den metrischen Angaben des Layout-Viewports wie [`document.documentElement.clientWidth`](/de/docs/Web/API/Element/clientWidth).
+> Nur das Top-Level-Fenster hat ein visuelles Viewport, das sich vom Layout-Viewport unterscheidet. Daher ist im Allgemeinen nur das `VisualViewport`-Objekt des Top-Level-Fensters nützlich. Für ein {{htmlelement("iframe")}} entsprechen visuelle Viewportmetriken wie [`VisualViewport.width`](/de/docs/Web/API/VisualViewport/width) immer den Layout-Viewportmetriken wie [`document.documentElement.clientWidth`](/de/docs/Web/API/Element/clientWidth).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Eigenschaften von seinem Elterninterface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) {{ReadOnlyInline}}
   - : Gibt den Versatz der linken Kante des visuellen Viewports von der linken Kante des Layout-Viewports in CSS-Pixeln zurück.
 - [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) {{ReadOnlyInline}}
   - : Gibt den Versatz der oberen Kante des visuellen Viewports von der oberen Kante des Layout-Viewports in CSS-Pixeln zurück.
 - [`VisualViewport.pageLeft`](/de/docs/Web/API/VisualViewport/pageLeft) {{ReadOnlyInline}}
-  - : Gibt die x-Koordinate des visuellen Viewports relativ zum Ursprung des initialen enthaltenden Blocks in CSS-Pixeln zurück.
+  - : Gibt die x-Koordinate des visuellen Viewports relativ zum Ursprung des anfänglichen umgebenden Blocks der oberen Kante in CSS-Pixeln zurück.
 - [`VisualViewport.pageTop`](/de/docs/Web/API/VisualViewport/pageTop) {{ReadOnlyInline}}
-  - : Gibt die y-Koordinate des visuellen Viewports relativ zum Ursprung des initialen enthaltenden Blocks in CSS-Pixeln zurück.
+  - : Gibt die y-Koordinate des visuellen Viewports relativ zum Ursprung des anfänglichen umgebenden Blocks der oberen Kante in CSS-Pixeln zurück.
 - [`VisualViewport.width`](/de/docs/Web/API/VisualViewport/width) {{ReadOnlyInline}}
   - : Gibt die Breite des visuellen Viewports in CSS-Pixeln zurück.
 - [`VisualViewport.height`](/de/docs/Web/API/VisualViewport/height) {{ReadOnlyInline}}
   - : Gibt die Höhe des visuellen Viewports in CSS-Pixeln zurück.
 - [`VisualViewport.scale`](/de/docs/Web/API/VisualViewport/scale) {{ReadOnlyInline}}
-  - : Gibt den Pinch-Zoom-Skalierungsfaktor zurück, der auf das visuelle Viewport angewendet wird.
+  - : Gibt den beim Pinch-Zoom angewendeten Skalierungsfaktor des visuellen Viewports zurück.
 
-## Instanz-Methoden
+## Instanzenmethoden
 
-_Erbt auch Methoden von seiner übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Methoden von seinem Elterninterface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisen eines Ereignislisteners zur relevanten `oneventname`-Eigenschaft dieser Schnittstelle.
+Diese Ereignisse können Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abhören oder indem Sie einen Ereignis-Listener der relevanten `oneventname`-Eigenschaft dieses Interface zuweisen.
 
 - [`resize`](/de/docs/Web/API/VisualViewport/resize_event)
-  - : Wird ausgelöst, wenn das visuelle Viewport geändert wird.
-    Ebenfalls verfügbar über die `onresize`-Eigenschaft.
+  - : Wird ausgelöst, wenn das visuelle Viewport in der Größe verändert wird.
+    Auch über die `onresize`-Eigenschaft verfügbar.
 - [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)
   - : Wird ausgelöst, wenn das visuelle Viewport gescrollt wird.
-    Ebenfalls verfügbar über die `onscroll`-Eigenschaft.
+    Auch über die `onscroll`-Eigenschaft verfügbar.
 - [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event)
-  - : Wird ausgelöst, wenn eine Scroll-Operation auf dem visuellen Viewport endet.
-    Ebenfalls verfügbar über die `onscrollend`-Eigenschaft.
+  - : Wird ausgelöst, wenn ein Scrollvorgang auf dem visuellen Viewport endet.
+    Auch über die `onscrollend`-Eigenschaft verfügbar.
 
 ## Beispiele
 
-### Verstecken eines überlagerten Kastens beim Zoomen
+### Ausblenden eines überlagerten Kastens bei Zoom
 
-Dieses Beispiel, übernommen aus dem [Visual Viewport README](https://github.com/WICG/visual-viewport), zeigt, wie man etwas Code schreiben kann, der einen überlagerten Kasten (der beispielsweise eine Werbung enthalten könnte) ausblendet, wenn der Benutzer hineinzoomt. Dies ist eine gute Möglichkeit, die Benutzererfahrung beim Zoomen auf Seiten zu verbessern. Ein [Live-Beispiel](https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html) ist ebenfalls verfügbar.
+Dieses Beispiel, entnommen aus dem [Visual Viewport README](https://github.com/WICG/visual-viewport), zeigt, wie Sie ein kleines Stück Code schreiben, das einen überlagerten Kasten (der z. B. eine Werbung enthalten könnte) ausblendet, wenn der Benutzer hereinzoomt. Dies ist eine schöne Möglichkeit, die Benutzererfahrung beim Zoomen auf Seiten zu verbessern. Ein [Live-Beispiel](https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html) ist ebenfalls verfügbar.
 
 ```js
 const bottomBar = document.getElementById("bottom-bar");
@@ -99,7 +99,7 @@ window.visualViewport.addEventListener("resize", viewportHandler);
 ```
 
 > [!NOTE]
-> Diese Technik sollte mit Vorsicht verwendet werden; das Nachahmen von `position: device-fixed` auf diese Weise kann dazu führen, dass das fixierte Element beim Scrollen flackert.
+> Diese Technik sollte mit Vorsicht verwendet werden; das Emulieren von `position: device-fixed` auf diese Weise kann dazu führen, dass das fixierte Element beim Scrollen flackert.
 
 ## Spezifikationen
 
@@ -111,4 +111,4 @@ window.visualViewport.addEventListener("resize", viewportHandler);
 
 ## Siehe auch
 
-- [Web Viewports Erklärer](https://github.com/bokand/bokand.github.io/blob/master/web_viewports_explainer.md) — nützliche Erklärung von Web-Viewport-Konzepten, einschließlich des Unterschieds zwischen visuellem Viewport und Layout-Viewport.
+- [Web Viewports Explainer](https://github.com/bokand/bokand.github.io/blob/master/web_viewports_explainer.md) — Nützliche Erklärung von Web-Viewport-Konzepten, einschließlich des Unterschieds zwischen visuellem Viewport und Layout-Viewport.

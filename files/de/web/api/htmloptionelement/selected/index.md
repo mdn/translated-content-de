@@ -3,18 +3,18 @@ title: "HTMLOptionElement: selected-Eigenschaft"
 short-title: selected
 slug: Web/API/HTMLOptionElement/selected
 l10n:
-  sourceCommit: 59810b5b4a4cdf1151c088ff5165a85f4a96f518
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`selected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt die aktuelle Ausgewähltheit des Elements an; das heißt, ob das {{HTMLElement("option")}}-Element ausgewählt ist oder nicht.
+Die **`selected`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Interfaces gibt die aktuelle Ausgewähltkeit des Elements an; das heißt, ob das {{HTMLElement("option")}} ausgewählt ist oder nicht.
 
-Das Vorhandensein des HTML-Attributs [`selected`](/de/docs/Web/HTML/Element/option#selected) zeigt an, dass die Option standardmäßig ausgewählt ist. Es zeigt nicht an, ob diese Option derzeit ausgewählt ist: Wenn sich der Status der Option ändert, spiegelt das `selected`-Inhaltsattribut die Änderung nicht wider; nur die `selected` IDL-Eigenschaft des `HTMLOptionElement` wird aktualisiert. Das `selected`-Attribut wird durch die [`defaultSelected`](/de/docs/Web/API/HTMLOptionElement/defaultSelected)-Eigenschaft widergespiegelt.
+Das Vorhandensein des HTML-Attributs [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected) zeigt an, dass die Option standardmäßig ausgewählt ist. Es zeigt nicht an, ob diese Option derzeit ausgewählt ist: Wenn sich der Status der Option ändert, spiegelt das `selected`-Inhaltsattribut die Änderung nicht wider; nur die `selected` IDL-Eigenschaft des `HTMLOptionElement` wird aktualisiert. Das `selected`-Attribut wird durch die [`defaultSelected`](/de/docs/Web/API/HTMLOptionElement/defaultSelected)-Eigenschaft widergespiegelt.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 

@@ -3,24 +3,24 @@ title: "SVGStyleElement: sheet-Eigenschaft"
 short-title: sheet
 slug: Web/API/SVGStyleElement/sheet
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGStyleElement.sheet`** schreibgeschützte Eigenschaft gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) zurück, das dem angegebenen SVG-Stilelement entspricht, oder `null`, wenn keines vorhanden ist.
+Die schreibgeschützte Eigenschaft **`SVGStyleElement.sheet`** gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) zurück, das dem angegebenen SVG-Style-Element entspricht, oder `null`, wenn keines vorhanden ist.
 
 ## Wert
 
-Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) oder `null`, wenn dem Element kein Stylesheet zugeordnet ist.
+Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet), oder `null`, wenn das Element kein zugeordnetes Stylesheet hat.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie das mit einem Element verknüpfte CSS-Stylesheet abgerufen wird.
+Dieses Beispiel zeigt, wie man das mit einem Element verknüpfte CSS-Stylesheet erhält.
 
 ### HTML
 
-Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Element/circle).
+Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Reference/Element/circle).
 
 ```html
 <textarea id="log" rows="3" cols="50"></textarea>
@@ -33,7 +33,7 @@ Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/E
 
 ### JavaScript
 
-Der folgende Code erstellt ein `style`-Element (ein `SVGStyleElement`) und fügt es dem SVG hinzu.
+Der unten stehende Code erstellt ein `style`-Element (ein `SVGStyleElement`) und fügt es dem SVG hinzu.
 
 ```js
 const svg = document.querySelector("svg");
@@ -44,8 +44,7 @@ svg.appendChild(style);
 style.appendChild(node);
 ```
 
-Der Code protokolliert dann das Stylesheet und die damit verbundene CSS-Regel dieses neuen Elements, indem `style.sheet` verwendet wird.
-Um die
+Der Code unten protokolliert dann das Stylesheet und die mit diesem neuen Element verknüpfte CSS-Regel, indem er `style.sheet` verwendet.
 
 ```js
 // Log the sheet associated with this new element.
@@ -56,7 +55,7 @@ log.value = `${style.sheet} with rules[0].cssText:\n ${style.sheet.rules[0].cssT
 ### Ergebnis
 
 Das Ergebnis wird unten angezeigt.
-Bei Erfolg zeigt das Protokoll das `CSSStyleSheet`-Objekt an, das auf den SVG-Kreis angewendet wurde.
+Bei Erfolg zeigt das Protokoll das `CSSStyleSheet`-Objekt, das auf den SVG-Kreis angewendet wird.
 
 {{EmbedLiveSample("Examples")}}
 

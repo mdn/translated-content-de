@@ -2,40 +2,40 @@
 title: Audio Output Devices API
 slug: Web/API/Audio_Output_Devices_API
 l10n:
-  sourceCommit: 3df177b401e00e3a855c40fc074b5ef2469b700d
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{DefaultAPISidebar("Audio Output Devices API")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Die **Audio Output Devices API** ermöglicht es Webanwendungen, Nutzer darüber zu befragen, welches Ausgabegerät für die Audio-Wiedergabe verwendet werden soll.
+Die **Audio Output Devices API** ermöglicht es Webanwendungen, Nutzer darüber zu informieren, welches Ausgabegerät für die Audiowiedergabe verwendet werden soll.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Betriebssysteme erlauben es üblicherweise Benutzern, festzulegen, dass Audio über Lautsprecher, ein Bluetooth-Headset oder ein anderes Audioausgabegerät abgespielt werden soll. Diese API ermöglicht Anwendungen, diese Funktionalität innerhalb einer Webseite bereitzustellen.
+Betriebssysteme ermöglichen es den Nutzern häufig, festzulegen, dass Audio über Lautsprecher, ein Bluetooth-Headset oder ein anderes Audio-Ausgabegerät abgespielt werden soll. Diese API erlaubt es Anwendungen, diese Funktionalität direkt aus einer Webseite heraus anzubieten.
 
-Selbst wenn es durch eine Berechtigungspolitik erlaubt ist, erfordert der Zugriff auf ein bestimmtes Audioausgabegerät dennoch die ausdrückliche Zustimmung des Benutzers, da dieser sich an einem Ort befinden könnte, an dem das Abspielen von Audio über einige Ausgabegeräte unangebracht ist.
+Selbst wenn eine Erlaubnisrichtlinie dies zulässt, erfordert der Zugriff auf ein bestimmtes Audio-Ausgabegerät dennoch explizite Zustimmung durch den Nutzer, da sich dieser möglicherweise an einem Ort befindet, an dem die Wiedergabe über bestimmte Ausgabegeräte nicht angemessen ist.
 
-Die API stellt die Methode [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) bereit, die es Nutzern ermöglicht, das gewünschte Audioausgabegerät aus denen, die durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) Direktive des {{httpheader("Permissions-Policy")}} HTTP-Headers für das Dokument zugelassen sind, auszuwählen. Das ausgewählte Gerät hat dann die Nutzerberechtigung, sodass es mit [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufgelistet und als Audioausgabegerät mit [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) festgelegt werden kann.
+Die API stellt die Methode [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) bereit, die es Nutzern ermöglicht, ihr gewünschtes Audio-Ausgabegerät aus denen auszuwählen, die durch die Richtlinie [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) des {{httpheader("Permissions-Policy")}} HTTP-Headers für das Dokument erlaubt sind. Das ausgewählte Gerät erhält dann die Erlaubnis des Nutzers, wodurch es mit [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufgelistet und als Audio-Ausgabegerät mit [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) festgelegt werden kann.
 
-Audiogeräte können beliebig verbunden und getrennt werden. Anwendungen, die auf diese Art von Änderungen reagieren möchten, können das [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event) Ereignis abhören und [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) verwenden, um festzustellen, ob `sinkId` in den zurückgegebenen Geräten vorhanden ist. Dies könnte zum Beispiel das Anhalten oder Fortsetzen der Wiedergabe auslösen.
+Audio-Geräte können beliebig verbunden und getrennt werden. Anwendungen, die auf solche Änderungen reagieren möchten, können das [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event) Ereignis überwachen und [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) verwenden, um festzustellen, ob `sinkId` in den zurückgegebenen Geräten vorhanden ist. Dies könnte beispielsweise das Pausieren oder Fortsetzen der Wiedergabe auslösen.
 
 ## Schnittstellen
 
 ### Erweiterungen zu anderen Schnittstellen
 
-Die Audio Output Devices API erweitert die folgenden APIs, indem sie die aufgelisteten Funktionen hinzufügt:
+Die Audio Output Devices API erweitert die folgenden APIs und fügt die aufgeführten Funktionen hinzu:
 
 #### MediaDevices
 
 - [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput)
-  - : Diese Methode fordert den Benutzer auf, ein spezifisches Audioausgabegerät auszuwählen, zum Beispiel einen Lautsprecher oder ein Headset. Die Auswahl eines Geräts gewährt die Benutzerberechtigung zur Nutzung dieses Geräts und liefert Informationen über das Gerät, einschließlich seiner ID.
+  - : Diese Methode fordert den Nutzer auf, ein spezifisches Audio-Ausgabegerät auszuwählen, beispielsweise einen Lautsprecher oder ein Headset. Die Auswahl eines Geräts gewährt die Nutzererlaubnis zur Nutzung dieses Geräts und gibt Informationen über das Gerät, einschließlich seiner ID, zurück.
 
 #### HTMLMediaElement
 
 - [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId)
-  - : Diese Methode setzt die ID des Audiogeräts, das für die Ausgabe verwendet werden soll, sofern dies erlaubt ist.
+  - : Diese Methode legt die ID des zur Ausgabe zu verwendenden Audiogeräts fest, das verwendet wird, sofern dies erlaubt ist.
 - [`HTMLMediaElement.sinkId`](/de/docs/Web/API/HTMLMediaElement/sinkId)
-  - : Diese Eigenschaft gibt die eindeutige ID des Audiogeräts zurück, das für die Ausgabe verwendet wird, oder einen leeren String, wenn das Standard-User-Agent-Gerät verwendet wird.
+  - : Diese Eigenschaft gibt die eindeutige ID des für die Ausgabe verwendeten Audiogeräts zurück oder einen leeren String, wenn das Standardgerät des Benutzeragenten verwendet wird.
 
 ## Sicherheitsanforderungen
 
@@ -43,26 +43,25 @@ Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
 - Alle Methoden und Eigenschaften dürfen nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
 
-- [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) gewährt die Benutzerberechtigung für ein ausgewähltes Gerät als Audioausgabesenke:
+- [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) gewährt eine Erlaubnis des Nutzers für ein ausgewähltes Gerät als Audio-Ausgang:
 
-  - Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungspolitik](/de/docs/Web/HTTP/Permissions_Policy) geregelt sein.
-  - [Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit die Methode aufgerufen werden kann.
+  - Der Zugang kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) beschränkt sein.
+  - [Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Nutzer muss mit der Seite oder einem UI-Element interagieren, damit die Methode aufgerufen werden kann.
 
-- [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) setzt eine erlaubte ID als Audioausgang:
+- [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) setzt eine erlaubte ID als Audio-Ausgabe:
+  - Der Zugang kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) beschränkt sein.
+  - Eine Erlaubnis des Nutzers ist erforderlich, um eine nicht standardmäßige Geräte-ID zu setzen.
+    - Diese Erlaubnis kann durch die Auswahl im von `MediaDevices.selectAudioOutput()` gestarteten Dialog gewährt werden.
+    - Die Nutzererlaubnis, das Ausgabegerät zu setzen, wird implizit gewährt, wenn der Nutzer bereits die Erlaubnis für die Verwendung eines Medien-Eingabegeräts in derselben Gruppe mit [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erteilt hat.
 
-  - Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungspolitik](/de/docs/Web/HTTP/Permissions_Policy) geregelt sein.
-  - Benutzerberechtigung ist erforderlich, um eine nicht-standardmäßige Geräte-ID festzulegen.
-    - Diese kann aus der Auswahl in der durch `MediaDevices.selectAudioOutput()` gestarteten Eingabeaufforderung stammen
-    - Die Benutzerberechtigung zur Festlegung des Ausgabegeräts wird auch implizit erteilt, wenn der Benutzer bereits die Berechtigung zur Verwendung eines Medieneingabegeräts in derselben Gruppe mit [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erteilt hat.
-
-<!-- Die folgende Zeile ist "wahr", aber dies ist in keinem Browser implementiert -->
-<!-- Der Berechtigungsstatus kann mithilfe der [Permissions API](/de/docs/Web/API/Permissions_API) Methode [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, indem ein Berechtigungsdeskriptor mit der `speaker-selection` Berechtigung übergeben wird. -->
+<!-- Die folgende Zeile ist "wahr", aber in keinem Browser implementiert -->
+<!-- Der Berechtigungsstatus kann mit der [Permissions API](/de/docs/Web/API/Permissions_API) Methode [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, indem ein Berechtigungsdeskriptor mit der `speaker-selection` Berechtigung übergeben wird. -->
 
 ## Beispiele
 
-Hier ist ein Beispiel für die Verwendung von `selectAudioOutput()`, innerhalb einer Funktion, die durch einen Klick auf eine Schaltfläche ausgelöst wird, und dann das ausgewählte Gerät als Audioausgang festlegt.
+Hier ist ein Beispiel für die Verwendung von `selectAudioOutput()`, innerhalb einer Funktion, die durch einen Button-Klick ausgelöst wird, und anschließendem Setzen des ausgewählten Geräts als Audio-Ausgabe.
 
-Der Code überprüft zuerst, ob `selectAudioOutput()` unterstützt wird, und verwendet es, um eine Ausgabe auszuwählen und eine [Geräte-ID](/de/docs/Web/API/MediaDeviceInfo/deviceId) zurückzugeben. Wir spielen dann etwas Audio mit der Standardausgabe ab und rufen anschließend `setSinkId()` auf, um zum ausgewählten Ausgabegerät zu wechseln.
+Der Code überprüft zunächst, ob `selectAudioOutput()` unterstützt wird, und nutzt es dann, um ein Ausgabegerät auszuwählen und eine [Geräte-ID](/de/docs/Web/API/MediaDeviceInfo/deviceId) zurückzugeben. Dann spielen wir Audio über das Standardausgabegerät ab und rufen `setSinkId()` auf, um auf das ausgewählte Ausgabegerät umzuschalten.
 
 ```js
 document.querySelector("#myButton").addEventListener("click", async () => {
@@ -84,7 +83,7 @@ document.querySelector("#myButton").addEventListener("click", async () => {
 });
 ```
 
-Beachten Sie, dass, wenn Sie die Ausgabendetails protokollieren, diese möglicherweise wie folgt aussehen:
+Beachten Sie, dass bei der Ausgabe-Details protokolliert werden könnten, die ähnlich wie folgt aussehen:
 
 ```js
 console.log(

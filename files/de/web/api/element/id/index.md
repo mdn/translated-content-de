@@ -3,23 +3,26 @@ title: "Element: id-Eigenschaft"
 short-title: id
 slug: Web/API/Element/id
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`id`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle stellt die Kennung des Elements dar und spiegelt das [**`id`**](/de/docs/Web/HTML/Global_attributes/id) globale Attribut wider.
+Die **`id`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle
+repräsentiert die Kennung des Elements und spiegelt das
+globale Attribut [**`id`**](/de/docs/Web/HTML/Reference/Global_attributes/id) wider.
 
-Wenn der `id`-Wert nicht der leere String ist, muss er in einem Dokument eindeutig sein.
+Wenn der `id`-Wert nicht die leere Zeichenkette ist, muss er in einem Dokument eindeutig sein.
 
-Das `id` wird häufig mit [`getElementById()`](/de/docs/Web/API/Document/getElementById) verwendet, um ein bestimmtes Element abzurufen. Ein weiterer häufiger Fall ist die Verwendung einer [ID als Selektor](/de/docs/Web/CSS/ID_selectors) beim Styling des Dokuments mit [CSS](/de/docs/Web/CSS).
+Die `id` wird häufig mit [`getElementById()`](/de/docs/Web/API/Document/getElementById) verwendet, um ein bestimmtes Element abzurufen. Ein weiterer häufiger Anwendungsfall ist die Verwendung der [ID eines Elements als Selektor](/de/docs/Web/CSS/Reference/Selectors/ID_selectors), wenn das Dokument mit [CSS](/de/docs/Web/CSS) gestaltet wird.
 
 > [!NOTE]
-> Kennungen sind groß- und kleinschreibungssensitiv, aber Sie sollten vermeiden, IDs zu erstellen, die sich nur in der Großschreibung unterscheiden.
+> Kennungen sind groß-/kleinschreibungssensitiv, aber Sie sollten es vermeiden,
+> IDs zu erstellen, die sich nur in der Großschreibung unterscheiden.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Spezifikationen
 
@@ -31,5 +34,5 @@ Ein String.
 
 ## Siehe auch
 
-- Das DOM [**id**](/de/docs/Web/HTML/Global_attributes/id)
+- Das DOM-[**id**](/de/docs/Web/HTML/Reference/Global_attributes/id)
   globale Attribut.

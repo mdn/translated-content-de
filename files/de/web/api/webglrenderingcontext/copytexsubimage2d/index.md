@@ -3,14 +3,12 @@ title: "WebGLRenderingContext: copyTexSubImage2D() Methode"
 short-title: copyTexSubImage2D()
 slug: Web/API/WebGLRenderingContext/copyTexSubImage2D
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: fe3f1f2dfaf44fcbe868b91b6a429270d2055716
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.copyTexSubImage2D()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen
-[`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein bestehendes 2D-Textur-Sub-Image.
+Die **`copyTexSubImage2D()`** Methode der Schnittstelle [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) der [WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein 2D-Textur-Subimage.
 
 ## Syntax
 
@@ -21,32 +19,28 @@ copyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height)
 ### Parameter
 
 - `target`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) der aktiven Textur angibt.
-    Mögliche Werte:
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (target) der aktiven Textur spezifiziert. Mögliche Werte:
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Seite für eine Cube-Map-Textur.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Seite für eine Cube-Map-Textur.
-
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Seite für eine würfelkartierte Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Seite für eine würfelkartierte Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Seite für eine würfelkartierte Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Seite für eine würfelkartierte Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Seite für eine würfelkartierte Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Seite für eine würfelkartierte Textur.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das Detaillevel angibt. Level 0 ist das Basisbild-Level und Level _n_ ist das n-te Mipmap-Reduktionslevel.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Detailstufe angibt. Stufe 0 ist die Basisbildstufe und Stufe _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `xoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den horizontalen Offset innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den horizontalen Versatz innerhalb des Texturbildes angibt.
 - `yoffset`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den vertikalen Offset innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den vertikalen Versatz innerhalb des Texturbildes angibt.
 - `x`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die x-Koordinate der unteren linken Ecke angibt, wo das Kopieren beginnt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die x-Koordinate der unteren linken Ecke angibt, an der das Kopieren beginnen soll.
 - `y`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die y-Koordinate der unteren linken Ecke angibt, wo das Kopieren beginnt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die y-Koordinate der unteren linken Ecke angibt, an der das Kopieren beginnen soll.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur in Texels angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur in Texels angibt.
 
 ### Rückgabewert
 

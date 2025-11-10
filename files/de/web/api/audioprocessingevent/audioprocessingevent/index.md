@@ -1,17 +1,17 @@
 ---
-title: "AudioProcessingEvent: AudioProcessingEvent() Konstruktor"
+title: "AudioProcessingEvent: Konstruktor AudioProcessingEvent()"
 short-title: AudioProcessingEvent()
 slug: Web/API/AudioProcessingEvent/AudioProcessingEvent
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{Deprecated_header}}
+{{APIRef("Web Audio API")}}{{Deprecated_header}}
 
-Der **`AudioProcessingEvent()`** Konstruktor erstellt ein neues [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Objekt.
+Der **`AudioProcessingEvent()`**-Konstruktor erstellt ein neues [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Objekt.
 
 > [!NOTE]
-> In der Regel wird dieser Konstruktor nicht direkt von Ihrem Code aufgerufen, da der Browser diese Objekte selbst erstellt und sie dem Ereignishandler bereitstellt.
+> Normalerweise wird dieser Konstruktor nicht direkt von Ihrem Code aufgerufen, da der Browser diese Objekte selbst erstellt und dem Event-Handler zur Verfügung stellt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new AudioProcessingEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß-/kleinschreibungssensitiv und Browser setzen es immer auf `audioprocess`.
+    Er ist groß-/klein-schreibungsempfindlich und Browser setzen ihn immer auf `audioprocess`.
 - `options`
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `playbackTime`
-      - : Eine Zahl, die die Zeit darstellt, wann das Audio abgespielt wird.
+      - : Eine Zahl, die die Zeit darstellt, wann der Ton abgespielt wird.
     - `inputBuffer`
       - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das die Eingabe-Audiodaten enthält.
     - `outputBuffer`

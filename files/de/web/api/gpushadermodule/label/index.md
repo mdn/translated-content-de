@@ -3,25 +3,25 @@ title: "GPUShaderModule: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUShaderModule/label
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Interfaces bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
 
-Dieses kann gesetzt werden, indem Sie eine `label`-Eigenschaft im Deskriptor-Objekt bereitstellen, das im ursprünglichen Aufruf von [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule) übergeben wird. Alternativ können Sie es direkt auf dem `GPUShaderModule`-Objekt setzen und abrufen.
+Diese kann festgelegt werden, indem eine `label`-Eigenschaft im Descriptor-Objekt angegeben wird, das an den ursprünglichen Aufruf von [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule) übergeben wird. Alternativ können Sie sie direkt am `GPUShaderModule`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Falls dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dieser nicht zuvor wie oben beschrieben gesetzt wurde, ist er ein leerer String.
 
 ## Beispiele
 
-Ein Label über `GPUShaderModule.label` setzen und abrufen:
+Setzen und Abrufen eines Labels über `GPUShaderModule.label`:
 
 ```js
-// ...
+// …
 
 const shaderModule = device.createShaderModule({
   code: shaders,
@@ -32,10 +32,10 @@ shaderModule.label = "my_shader";
 console.log(shaderModule.label); // "my_shader"
 ```
 
-Ein Label über den ursprünglichen Aufruf von [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule) setzen und es dann über `GPUShaderModule.label` abrufen:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule), und Abrufen über `GPUShaderModule.label`:
 
 ```js
-// ...
+// …
 
 const shaderModule = device.createShaderModule({
   code: shaders,

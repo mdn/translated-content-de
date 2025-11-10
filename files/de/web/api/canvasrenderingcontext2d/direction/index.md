@@ -1,14 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: direction Eigenschaft"
+title: "CanvasRenderingContext2D: direction-Eigenschaft"
 short-title: direction
 slug: Web/API/CanvasRenderingContext2D/direction
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.direction`**-Eigenschaft der Canvas 2D API gibt die aktuelle Textrichtung an, die zum Zeichnen von Text verwendet wird.
+Die Eigenschaft **`CanvasRenderingContext2D.direction`** der Canvas 2D-API gibt die aktuelle Textrichtung an, die zum Zeichnen von Text verwendet wird.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Mögliche Werte:
 - `"rtl"`
   - : Die Textrichtung ist von rechts nach links.
 - `"inherit"`
-  - : Die Textrichtung wird vom {{HTMLElement("canvas")}}-Element oder dem [`Document`](/de/docs/Web/API/Document) je nach Bedarf geerbt. Standardwert.
+  - : Die Textrichtung wird vom {{HTMLElement("canvas")}}-Element oder dem [`Document`](/de/docs/Web/API/Document) entsprechend geerbt. Standardwert.
 
 Der Standardwert ist `"inherit"`.
 
@@ -27,7 +27,7 @@ Der Standardwert ist `"inherit"`.
 
 ### Ändern der Textrichtung
 
-Dieses Beispiel zeichnet zwei Textstücke. Der erste ist von links nach rechts, und der zweite ist von rechts nach links. Beachten Sie, dass "Hi!" in `ltr` zu "!Hi" in `rtl` wird.
+In diesem Beispiel werden zwei Textstücke gezeichnet. Das erste ist von links nach rechts, und das zweite ist von rechts nach links. Beachten Sie, dass "Hi!" in `ltr` zu "!Hi" in `rtl` wird.
 
 #### HTML
 

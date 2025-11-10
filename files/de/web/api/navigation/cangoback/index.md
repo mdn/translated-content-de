@@ -3,16 +3,21 @@ title: "Navigation: canGoBack-Eigenschaft"
 short-title: canGoBack
 slug: Web/API/Navigation/canGoBack
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`canGoBack`**-Eigenschaft der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die `true` zurückgibt, wenn es möglich ist, in der Navigation-Historie rückwärts zu navigieren (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der erste in der Historie-Eintragliste), und `false`, wenn dies nicht möglich ist.
+Die schreibgeschützte Eigenschaft **`canGoBack`** des
+[`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt `true`
+zurück, wenn es möglich ist, in der Navigation-Historie rückwärts zu navigieren
+(d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist
+nicht der erste Eintrag in der Historieneintragsliste),
+und `false`, wenn dies nicht der Fall ist.
 
 ## Wert
 
-Ein boolescher Wert: `true`, wenn es möglich ist, in der Navigation-Historie rückwärts zu navigieren, `false` ansonsten.
+Ein boolescher Wert: `true`, wenn es möglich ist, in der Navigation-Historie rückwärts zu navigieren, andernfalls `false`.
 
 ## Beispiele
 
@@ -48,6 +53,5 @@ async function forwardHandler() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Routenverwaltung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)

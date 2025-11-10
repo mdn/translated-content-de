@@ -3,14 +3,14 @@ title: "DocumentPictureInPicture: requestWindow() Methode"
 short-title: requestWindow()
 slug: Web/API/DocumentPictureInPicture/requestWindow
 l10n:
-  sourceCommit: f7ddd45a6bd53eb7fc10dbacc07a3acb168c1352
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestWindow()`** Methode der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture) Schnittstelle öffnet das Picture-in-Picture-Fenster für den aktuellen Haupt-Browsing-Kontext. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einer [`Window`](/de/docs/Web/API/Window)-Instanz erfüllt wird, die den Browsing-Kontext im Picture-in-Picture-Fenster darstellt.
+Die **`requestWindow()`** Methode des [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture) Interfaces öffnet das Picture-in-Picture-Fenster für den aktuellen Haupt-Browsingkontext. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einer [`Window`](/de/docs/Web/API/Window) Instanz erfüllt wird, die den Browsingkontext im Picture-in-Picture-Fenster repräsentiert.
 
-Die `requestWindow()` Methode erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}, d.h. sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
+Die Methode `requestWindow()` erfordert eine {{Glossary("Transient_activation", "vorübergehende Aktivierung")}}, d.h. sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
 
 ## Syntax
 
@@ -27,46 +27,46 @@ requestWindow(options)
 
     - `disallowReturnToOpener` {{optional_inline}}
 
-      - : Ein Boolean-Wert. Wenn auf `true` gesetzt, gibt diese Option dem Browser einen Hinweis, dass er keine Benutzeroberflächensteuerung anzeigen soll, die es dem Benutzer ermöglicht, zum ursprünglichen Tab zurückzukehren und das Picture-in-Picture-Fenster zu schließen. Standardmäßig `false`.
+      - : Ein boolescher Wert. Wenn auf `true` gesetzt, weist diese Option den Browser darauf hin, dass er keine UI-Steuerung anzeigen soll, die es dem Benutzer ermöglicht, zum ursprünglichen Tab zurückzukehren und das Picture-in-Picture-Fenster zu schließen. Standardmäßig ist dies `false`.
 
-        Zum Beispiel ist in Chromes Implementierung dieser Funktion die bereitgestellte Benutzeroberflächensteuerung ein "Zurück zum Tab"-Button in der oberen Leiste des Picture-in-Picture-Fensters:
+        Zum Beispiel, in Chromes Implementierung dieser Funktion, ist die bereitgestellte UI-Steuerung ein „Zurück zum Tab“-Knopf in der oberen Leiste des Picture-in-Picture-Fensters:
 
-        ![Browserfenster, das einen eingebetteten Videoplayer und mehrere Steuerungstasten enthält, mit einem "Zurück zum Tab"-Button in der oberen Leiste, hervorgehoben mit einem roten Kasten](back-to-tab-button.png)
+        ![Browserfenster mit einem eingebetteten Videoplayer und mehreren Steuerknöpfen, mit einem durch ein rotes Kästchen hervorgehobenen „Zurück zum Tab“-Knopf in der oberen Leiste](back-to-tab-button.png)
 
     - `height` {{optional_inline}}
-      - : Eine nicht negative Zahl, die die Höhe für den Viewport des Picture-in-Picture-Fensters in Pixeln darstellt. Standardwert ist `0`.
+      - : Eine nicht-negative Zahl, die die Höhe des Viewports des Picture-in-Picture-Fensters in Pixeln darstellt. Standardmäßig auf `0`.
     - `preferInitialWindowPlacement` {{optional_inline}}
 
-      - : Ein Boolean-Wert, der standardmäßig auf `false` gesetzt ist. Wenn auf `true` gesetzt, bewirkt dies, dass das Picture-in-Picture-Fenster immer wieder an der Stelle und Größe erscheint, an der es ursprünglich geöffnet wurde, wenn es geschlossen und dann erneut geöffnet wird. Wenn `preferInitialWindowPlacement` hingegen `false` ist, werden die Größe und Position des Picture-in-Picture-Fensters beim Schließen und Wiederöffnen gespeichert - es wird zum Beispiel an der vom Benutzer festgelegten vorherigen Position und Größe geöffnet.
+      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, bewirkt er, dass das Picture-in-Picture-Fenster immer an der Position und Größe erscheint, an der es ursprünglich geöffnet wurde, wenn es geschlossen und dann wieder geöffnet wird. Im Gegensatz dazu wird, wenn `preferInitialWindowPlacement` `false` ist, die Größe und Position des Picture-in-Picture-Fensters beim Schließen und erneuten Öffnen beibehalten – es wird an seiner vorherigen Position und Größe geöffnet, beispielsweise wie vom Benutzer festgelegt.
 
     - `width` {{optional_inline}}
-      - : Eine nicht negative Zahl, die die Breite für den Viewport des Picture-in-Picture-Fensters in Pixeln darstellt. Standardwert ist `0`.
+      - : Eine nicht-negative Zahl, die die Breite des Viewports des Picture-in-Picture-Fensters in Pixeln darstellt. Standardmäßig auf `0`.
 
 > [!NOTE]
-> Wenn `height` oder `width` angegeben wird, muss auch das andere angegeben werden, andernfalls wird ein Fehler ausgelöst. Wenn beide Werte nicht angegeben sind, auf 0 gesetzt oder zu groß eingestellt sind, wird der Browser die Werte entsprechend einschränken oder ignorieren, um ein vernünftiges Benutzererlebnis zu bieten. Die eingeschränkte Größe variiert je nach Implementierung, Anzeigegröße und anderen Faktoren.
+> Wenn eine von `height` oder `width` angegeben ist, muss auch die andere angegeben werden, sonst wird ein Fehler geworfen. Wenn beide Werte nicht angegeben sind, mit 0 angegeben werden oder zu groß gesetzt sind, wird der Browser die Werte entsprechend anpassen oder ignorieren, um eine vernünftige Benutzererfahrung zu gewährleisten. Die angepasste Größe variiert je nach Implementierung, Bildschirmgröße und anderen Faktoren.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem [`Window`](/de/docs/Web/API/Window)-Objekt erfüllt wird, das den Browsing-Kontext im Picture-in-Picture-Fenster darstellt.
+Ein {{jsxref("Promise")}}, das mit einer [`Window`](/de/docs/Web/API/Window) Objektinstanz erfüllt wird, die den Browsingkontext im Picture-in-Picture-Fenster repräsentiert.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die API ausdrücklich deaktiviert wurde (z.B. über Browsereinstellungen).
+  - : Wird ausgelöst, wenn die API explizit deaktiviert wurde (zum Beispiel über Browsereinstellungen).
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - `requestWindow()` nicht von einem obersten `window`-Objekt aufgerufen wird.
-    - `requestWindow()` vom `window`-Objekt des Picture-in-Picture-Fensters aufgerufen wird (d.h. [`DocumentPictureInPicture.window`](/de/docs/Web/API/DocumentPictureInPicture/window)).
-    - `requestWindow()` ohne {{Glossary("Transient_activation", "transiente Aktivierung")}} aufgerufen wird.
+    - `requestWindow()` nicht von einem Top-Level `window` Objekt aufgerufen wird.
+    - `requestWindow()` vom `window` Objekt des Picture-in-Picture-Fensters aufgerufen wird (d.h. [`DocumentPictureInPicture.window`](/de/docs/Web/API/DocumentPictureInPicture/window)).
+    - `requestWindow()` ohne {{Glossary("Transient_activation", "vorübergehende Aktivierung")}} aufgerufen wird.
 - `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn nur einer von `height` und `width` festgelegt ist oder wenn `height` und `width` mit negativen Werten festgelegt sind.
+  - : Wird ausgelöst, wenn nur einer von `height` und `width` gesetzt ist oder wenn `height` und `width` mit negativen Werten gesetzt sind.
 
 ## Beispiele
 
 ```js
 const videoPlayer = document.getElementById("player");
 
-// ...
+// …
 
 // Open a Picture-in-Picture window with all options set
 const pipWindow = await window.documentPictureInPicture.requestWindow({
@@ -76,7 +76,7 @@ const pipWindow = await window.documentPictureInPicture.requestWindow({
   preferInitialWindowPlacement: true,
 });
 
-// ...
+// …
 ```
 
 ## Spezifikationen

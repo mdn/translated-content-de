@@ -3,12 +3,12 @@ title: "NavigationDestination: url-Eigenschaft"
 short-title: url
 slug: Web/API/NavigationDestination/url
 l10n:
-  sourceCommit: 7c44de6d40778dbfb6eeb1163d7d850e911cd706
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`url`**-Eigenschaft der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt die URL zurück, zu der navigiert wird.
+Die schreibgeschützte Eigenschaft **`url`** des [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Interfaces gibt die URL zurück, zu der navigiert wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-### Umgang mit einer Navigation mittels `intercept()`
+### Umgang mit einer Navigation mithilfe von `intercept()`
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -54,6 +54,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderner clientseitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

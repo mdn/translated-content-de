@@ -3,15 +3,14 @@ title: "TrustedTypePolicyFactory: defaultPolicy-Eigenschaft"
 short-title: defaultPolicy
 slug: Web/API/TrustedTypePolicyFactory/defaultPolicy
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 3ceedbd90089cfb6970c9bf63ff9e6f3801fcbc5
 ---
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`defaultPolicy`** der Schnittstelle [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) gibt die Standard-[`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) zurück oder `null`, wenn diese leer ist.
+Die schreibgeschützte Eigenschaft **`defaultPolicy`** des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Interfaces gibt die Standard-[`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) zurück oder `null`, wenn diese leer ist.
 
-> [!NOTE]
-> Informationen zur Erstellung und Nutzung von Standardrichtlinien finden Sie in der Dokumentation zu [`createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy#the_default_policy).
+Siehe [Die Standardrichtlinie](/de/docs/Web/API/Trusted_Types_API#the_default_policy) für mehr Details.
 
 ## Wert
 

@@ -1,23 +1,23 @@
 ---
-title: Regennde Rechtecke
+title: Regnende Rechtecke
 slug: Web/API/WebGL_API/By_example/Raining_rectangles
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Scissor_animation","Web/API/WebGL_API/By_example/Hello_GLSL")}}
 
-Ein einfaches WebGL-Spiel, das das Löschen mit Volltonfarben, Beschneidung, Animation und Benutzerinteraktion demonstriert.
+Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Scissoring, Animation und Benutzerinteraktion demonstriert.
 
-## Animation und Benutzerinteraktion mit Beschneidung
+## Animation und Benutzerinteraktion mit Scissoring
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der herabfallenden Rechtecke wie möglich durch Klicken zu fangen. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu machen.
+Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, der hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort organisiert zu halten und den gesamten Code kompakter und wiederverwendbarer zu machen.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Volltonfarben und Beschneidungsoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}} Grafik-Pipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Scissoring-Operationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafik-Pipeline und Zustandsmaschine manipuliert.
 
-Zusätzlich demonstriert das Beispiel, wie man die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert. Die Spielschleife ist dafür verantwortlich, die Animationsrahmen zu zeichnen und die Animation responsiv auf Benutzereingaben zu halten. Hier wird die Spielschleife mit Timeouts implementiert.
+Zusätzlich zeigt das Beispiel, wie WebGL-Funktionsaufrufe in eine Spielschleife integriert werden. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsframes und dafür, die Animation reaktionsfähig auf Benutzereingaben zu halten. Hier wird die Spielschleife mithilfe von Timeouts implementiert.
 
 ```html hidden
 <p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>
@@ -48,33 +48,50 @@ button {
 }
 ```
 
-```js hidden
-;(() => {
-  "use strict";
-```
-
 ```js
-window.addEventListener("load", setupAnimation, false);
-let gl;
-let timer;
-let rainingRect;
-let scoreDisplay;
-let missesDisplay;
-function setupAnimation(evt) {
-  window.removeEventListener(evt.type, setupAnimation, false);
-  if (!(gl = getRenderingContext())) return;
-  gl.enable(gl.SCISSOR_TEST);
+const canvas = document.querySelector("canvas");
+const [scoreDisplay, missesDisplay] = document.querySelectorAll("strong");
 
-  rainingRect = new Rectangle();
-  timer = setTimeout(drawAnimation, 17);
-  document
-    .querySelector("canvas")
-    .addEventListener("click", playerClick, false);
-  [scoreDisplay, missesDisplay] = document.querySelectorAll("strong");
+function getRenderingContext() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const gl = canvas.getContext("webgl");
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  return gl;
 }
+
+const gl = getRenderingContext();
+gl.enable(gl.SCISSOR_TEST);
+
+function getRandomVector() {
+  return [Math.random(), Math.random(), Math.random()];
+}
+
+class Rectangle {
+  constructor() {
+    // We get three random numbers and use them for new rectangle
+    // size and position. For each we use a different number,
+    // because we want horizontal size, vertical size and
+    // position to be determined independently.
+    const randVec = getRandomVector();
+    this.size = [5 + 120 * randVec[0], 5 + 120 * randVec[1]];
+    this.position = [
+      randVec[2] * (gl.drawingBufferWidth - this.size[0]),
+      gl.drawingBufferHeight,
+    ];
+    this.velocity = 1.0 + 6.0 * Math.random();
+    this.color = getRandomVector();
+    gl.clearColor(this.color[0], this.color[1], this.color[2], 1.0);
+  }
+}
+
+let rainingRect = new Rectangle();
 
 let score = 0;
 let misses = 0;
+let timer = null;
 function drawAnimation() {
   gl.scissor(
     rainingRect.position[0],
@@ -124,51 +141,8 @@ function playerClick(evt) {
   }
 }
 
-function Rectangle() {
-  // Keeping a reference to the new Rectangle object, rather
-  // than using the confusing this keyword.
-  const rect = this;
-  // We get three random numbers and use them for new rectangle
-  // size and position. For each we use a different number,
-  // because we want horizontal size, vertical size and
-  // position to be determined independently.
-  const randNums = getRandomVector();
-  rect.size = [5 + 120 * randNums[0], 5 + 120 * randNums[1]];
-  rect.position = [
-    randNums[2] * (gl.drawingBufferWidth - rect.size[0]),
-    gl.drawingBufferHeight,
-  ];
-  rect.velocity = 1.0 + 6.0 * Math.random();
-  rect.color = getRandomVector();
-  gl.clearColor(rect.color[0], rect.color[1], rect.color[2], 1.0);
-  function getRandomVector() {
-    return [Math.random(), Math.random(), Math.random()];
-  }
-}
-```
-
-```js hidden
-function getRenderingContext() {
-  const canvas = document.querySelector("canvas");
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-  const gl =
-    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-  if (!gl) {
-    const paragraph = document.querySelector("p");
-    paragraph.textContent =
-      "Failed. Your browser or device may not support WebGL.";
-    return null;
-  }
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-  return gl;
-}
-```
-
-```js hidden
-})();
+timer = setTimeout(drawAnimation, 17);
+canvas.addEventListener("click", playerClick);
 ```
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/raining-rectangles) verfügbar.

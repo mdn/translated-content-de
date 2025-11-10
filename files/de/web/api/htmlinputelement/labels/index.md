@@ -1,18 +1,20 @@
 ---
-title: "HTMLInputElement: labels-Eigenschaft"
+title: "HTMLInputElement: labels Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLInputElement/labels
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}
 
-Die **`HTMLInputElement.labels`** schreibgeschützte Eigenschaft gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("input")}}-Element verknüpft sind, sofern das Element nicht versteckt ist. Hat das Element den Typ `hidden`, gibt die Eigenschaft `null` zurück.
+Die **`HTMLInputElement.labels`** schreibgeschützte Eigenschaft gibt eine
+[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die dem
+{{HTMLElement("input")}}-Element zugeordnet sind, falls das Element nicht versteckt ist. Wenn das Element den Typ `hidden` hat, gibt die Eigenschaft `null` zurück.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<input>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die dem `<input>`-Element zugeordnet sind.
 
 ## Beispiele
 
@@ -27,12 +29,10 @@ Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthäl
 ### JavaScript
 
 ```js
-window.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("test");
-  for (const label of input.labels) {
-    console.log(label.textContent); // "Label 1" and "Label 2"
-  }
-});
+const input = document.getElementById("test");
+for (const label of input.labels) {
+  console.log(label.textContent); // "Label 1" and "Label 2"
+}
 ```
 
 {{EmbedLiveSample("Examples", "100%", 30)}}

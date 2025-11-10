@@ -3,14 +3,12 @@ title: "WritableStreamDefaultWriter: closed-Eigenschaft"
 short-title: closed
 slug: Web/API/WritableStreamDefaultWriter/closed
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`closed`**-Eigenschaft des
-[`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Interfaces gibt ein
-{{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler aufweist oder die Sperre des Writers freigegeben wird.
+Die **`closed`** schreibgeschützte Eigenschaft der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream fehlerhaft ist oder die Sperre des Schreibers freigegeben wird.
 
 ## Wert
 
@@ -23,19 +21,19 @@ const writableStream = new WritableStream(
   {
     start(controller) {},
     write(chunk, controller) {
-      // ...
+      // …
     },
     close(controller) {
-      // ...
+      // …
     },
     abort(err) {
-      // ...
+      // …
     },
   },
   queuingStrategy,
 );
 
-// ...
+// …
 
 const writer = writableStream.getWriter();
 

@@ -1,16 +1,15 @@
 ---
-title: "CSSTransition: transitionProperty Eigenschaft"
+title: "CSSTransition: transitionProperty-Eigenschaft"
 short-title: transitionProperty
 slug: Web/API/CSSTransition/transitionProperty
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
 ---
 
 {{APIRef("Web Animations")}}
 
-Die **`transitionProperty`**-Eigenschaft der
-[`CSSTransition`](/de/docs/Web/API/CSSTransition)-Schnittstelle gibt den **erweiterten Übergangseigenschaftsnamen** des Übergangs zurück. Dies ist die Langform der CSS-Eigenschaft, für die der
-Übergang erzeugt wurde.
+Die **`transitionProperty`**-Eigenschaft des
+[`CSSTransition`](/de/docs/Web/API/CSSTransition)-Interfaces liefert den **erweiterten Übergangseigenschaftsnamen** der Transition zurück. Dies ist die ausgeschriebene CSS-Eigenschaft, für die die Transition generiert wurde.
 
 ## Wert
 
@@ -20,16 +19,16 @@ Ein String.
 
 ### Rückgabe der transitionProperty
 
-Der Übergang im folgenden Beispiel ändert die Breite des Kästchens beim Überfahren mit der Maus. Ein Aufruf von
+Die Transition im folgenden Beispiel ändert die Breite des Kastens beim Hover-Effekt. Der Aufruf von
 [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-
 Objekte zurück. In unserem Fall wird ein `CSSTransition`-Objekt zurückgegeben, das die
 erzeugte Animation darstellt. Die `transitionProperty`-Eigenschaft gibt die Eigenschaft
-zurück, für die der Übergang erstellt wurde, nämlich `width`.
+zurück, für die die Transition erstellt wurde, in diesem Fall `width`.
 
 ```css
 .box {
   background-color: #165baa;
-  color: #fff;
+  color: white;
   width: 100px;
   height: 100px;
   transition: width 4s;

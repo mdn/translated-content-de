@@ -3,23 +3,23 @@ title: "ServiceWorkerGlobalScope: contentdelete-Ereignis"
 short-title: contentdelete
 slug: Web/API/ServiceWorkerGlobalScope/contentdelete_event
 l10n:
-  sourceCommit: 6c3bed9bcd275fd4ad714c4df0ed874e9bf87681
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`contentdelete`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces wird ausgelöst, wenn ein Element vom Nutzeragenten aus dem indizierten Inhalt entfernt wird.
+Das **`contentdelete`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn ein Element über den User-Agent aus dem indexierten Inhalt entfernt wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("contentdelete", (event) => {});
+```js-nolint
+addEventListener("contentdelete", (event) => { })
 
-oncontentdelete = (event) => {};
+oncontentdelete = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,14 +30,14 @@ Ein [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent). Erbt von [`Event`
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften erbt dieses Interface die Eigenschaften seines übergeordneten Interfaces, [`Event`](/de/docs/Web/API/Event)._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`id`](/de/docs/Web/API/ContentIndexEvent/id) {{ReadOnlyInline}}
-  - : Ein String, der den gelöschten Inhaltsindex über seine `id` identifiziert.
+  - : Ein String, der den gelöschten Inhaltsindex über dessen `id` identifiziert.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen `contentdelete`-Ereignis-Handler, um zwischengespeicherte Inhalte im Zusammenhang mit dem gelöschten Indexelement zu entfernen.
+Das folgende Beispiel verwendet einen `contentdelete`-Ereignis-Handler, um im Cache gespeicherten Inhalt im Zusammenhang mit dem gelöschten Indexelement zu entfernen.
 
 ```js
 self.addEventListener("contentdelete", (event) => {
@@ -53,11 +53,11 @@ self.addEventListener("contentdelete", (event) => {
 });
 ```
 
-Sie können den Ereignis-Handler auch über die `oncontentdelete`-Eigenschaft einrichten:
+Sie können auch den Ereignis-Handler über die `oncontentdelete`-Eigenschaft einrichten:
 
 ```js
 self.oncontentdelete = (event) => {
-  // ...
+  // …
 };
 ```
 

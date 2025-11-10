@@ -3,18 +3,18 @@ title: "SVGFEOffsetElement: x-Eigenschaft"
 short-title: x
 slug: Web/API/SVGFEOffsetElement/x
 l10n:
-  sourceCommit: e9fd7a0d2640c9878e6187dc69213814828a05f5
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`x`**-Eigenschaft der Schnittstelle [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement) beschreibt die horizontale Koordinate der Position einer SVG-Filterprimitiv als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`x`**-Eigenschaft der [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Schnittstelle beschreibt die horizontale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGAttr("x")}}-Attribut des {{SVGElement("feOffset")}}-Elements wider, das das Eingabebild relativ zu seiner aktuellen Position versetzt. Das Attribut ist eine [`<length>`](/de/docs/Web/SVG/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die die gegebene Entfernung vom Ursprung des Benutzerkoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut einen Prozentwert hat, ist der Eigenschaftswert relativ zur Breite des Filterbereichs in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
+Sie spiegelt das {{SVGAttr("x")}}-Attribut des {{SVGElement("feOffset")}}-Elements wider, welches das Eingabebild relativ zu seiner aktuellen Position verschiebt. Das Attribut ist eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Die `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den angegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der x-Achse darstellt. Wenn das `x`-Attribut einen Prozentwert darstellt, ist der Eigenschaftswert relativ zur Breite der Filterregion in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 

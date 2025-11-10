@@ -1,15 +1,14 @@
 ---
 title: Intl.PluralRules.supportedLocalesOf()
+short-title: supportedLocalesOf()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/supportedLocalesOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-{{JSRef}}
+Die statische Methode **`Intl.PluralRules.supportedLocalesOf()`** gibt ein Array mit denjenigen der angegebenen lokalen Sprachumgebungen zurück, die in Pluralregeln unterstützt werden, ohne auf die Standardsprachumgebung des Laufzeitsystems zurückgreifen zu müssen.
 
-Die **`Intl.PluralRules.supportedLocalesOf()`** statische Methode gibt ein Array zurück, das diejenigen der bereitgestellten Lokalisierungen (Locales) enthält, die in Pluralregeln unterstützt werden, ohne dass auf die Standardlokale der Laufzeitumgebung zurückgegriffen werden muss.
-
-{{InteractiveExample("JavaScript Demo: Intl.PluralRules.supportedLocalesOf", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Intl.PluralRules.supportedLocalesOf()", "shorter")}}
 
 ```js interactive-example
 const locales = ["en-US", "ban", "ar-OM", "de-DE"];
@@ -29,21 +28,21 @@ Intl.PluralRules.supportedLocalesOf(locales, options)
 ### Parameter
 
 - `locales`
-  - : Ein String mit einem BCP 47-Sprachcode oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments sehen Sie die [Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}} oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthalten kann:
+  - : Ein Objekt, das die folgende Eigenschaft haben kann:
     - `localeMatcher`
-      - : Der Algorithmus, der zur Lokalisierung verwendet werden soll. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie auf der {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}} Seite.
+      - : Der zu verwendende Sprachabgleich-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie auf der {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}}-Seite.
 
 ### Rückgabewert
 
-Ein Array von Strings, das eine Teilmenge der gegebenen Sprachkennzeichen repräsentiert, die in Pluralregeln unterstützt werden, ohne auf die Standardlokale der Laufzeitumgebung zurückgreifen zu müssen.
+Ein Array von Strings, das eine Teilmenge der gegebenen Sprach-Tag enthält, die in Pluralregeln unterstützt wird, ohne auf die Standardsprachumgebung des Laufzeitsystems zurückgreifen zu müssen.
 
 ## Beispiele
 
 ### Verwendung von supportedLocalesOf()
 
-Angenommen, eine Laufzeitumgebung unterstützt Indonesisch und Deutsch, aber nicht Balinesisch in Pluralregeln, gibt `supportedLocalesOf` die indonesischen und deutschen Sprachkennzeichen unverändert zurück. Dies geschieht, obwohl die `pinyin`-Sortierung weder für Pluralregeln relevant noch für Indonesisch verwendet wird und eine spezialisierte deutsche Lokalisierung für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie die Angabe des `"lookup"`-Algorithmus hier — ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch eine angemessene Übereinstimmung für Balinesisch ist, da die meisten Balinesischsprecher auch Indonesisch verstehen, und daher das balinesische Sprachkennzeichen ebenfalls zurückgeben.
+Angenommen, ein Laufzeitsystem unterstützt in den Pluralregeln Indonesisch und Deutsch, aber nicht Balinesisch, gibt `supportedLocalesOf` die Indonesische und Deutsche Sprach-Tags unverändert zurück, obwohl die `pinyin`-Sortierfolge für Pluralregeln weder relevant ist noch mit Indonesisch verwendet wird, und ein spezialisiertes Deutsch für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie die Spezifikation des `"lookup"`-Algorithmus hier — ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch ein ausreichender Ersatz für Balinesisch ist, da die meisten Balinesisch-Sprecher auch Indonesisch verstehen, und daher auch den Balinesischen Sprach-Tag zurückgeben.
 
 ```js
 const locales = ["ban", "id-u-co-pinyin", "de-ID"];

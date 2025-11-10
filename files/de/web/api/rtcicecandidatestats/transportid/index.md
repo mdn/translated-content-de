@@ -3,16 +3,18 @@ title: "RTCIceCandidateStats: transportId-Eigenschaft"
 short-title: transportId
 slug: Web/API/RTCIceCandidateStats/transportId
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: ef82d981d563626248276acbf9516aac7445d4fa
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein String, der den Transport, der die [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) erzeugte, aus dem die Informationen über diesen Kandidaten entnommen wurden, eindeutig identifiziert.
+Die **`transportId`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein String, der den Transport eindeutig identifiziert, der die [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) erzeugt hat, aus denen die Informationen über diesen Kandidaten entnommen wurden.
+
+Dies kann beispielsweise verwendet werden, um Kandidaten zu vergleichen, die denselben Transport verwenden.
 
 ## Wert
 
-Ein String, dessen Wert den Transport, aus dem alle transportbezogenen Informationen, die im [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) gesammelt wurden, eindeutig identifiziert. Dies kann verwendet werden, um Kandidaten zu vergleichen, die denselben Transport nutzen würden, zum Beispiel.
+Ein String, dessen Wert den Transport eindeutig identifiziert, aus dem alle transportbezogenen Informationen in den [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) entnommen wurden.
 
 ## Spezifikationen
 

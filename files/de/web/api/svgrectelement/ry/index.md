@@ -3,27 +3,27 @@ title: "SVGRectElement: ry-Eigenschaft"
 short-title: ry
 slug: Web/API/SVGRectElement/ry
 l10n:
-  sourceCommit: 6d3af583b9bcc45f68bb65b273c44e8b7fc88e6e
+  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
 ---
 
 {{APIRef("SVG")}}
 
-Die **`ry`**-Eigenschaft der [`SVGRectElement`](/de/docs/Web/API/SVGRectElement)-Schnittstelle, die nur gelesen werden kann, beschreibt die vertikale Krümmung der Ecken eines SVG-Rechtecks als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Die Länge wird in Einheiten des Benutzerskoordinatensystems entlang der y-Achse gemessen. Ihre Syntax entspricht der für [`<length>`](/de/docs/Web/SVG/Content_type#length).
+Die **`ry`**-Eigenschaft der Schnittstelle [`SVGRectElement`](/de/docs/Web/API/SVGRectElement) ist eine schreibgeschützte Eigenschaft, die die vertikale Kurve der Ecken eines SVG-Rechtecks als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) beschreibt. Die Länge wird in Benutzereinheitensystemen entlang der y-Achse angegeben. Ihre Syntax entspricht der für [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length).
 
-Sie spiegelt das Präsentationsattribut {{SVGElement("rect")}} des Elements {{SVGAttr("ry")}} wider. Die CSS-Eigenschaft {{cssxref("ry")}} hat Vorrang vor dem SVG-Präsentationsattribut `ry`, sodass der Wert möglicherweise nicht die tatsächliche Größe der abgerundeten Ecken widerspiegelt. Der Standardwert ist `0`, was ein Rechteck mit rechtwinkligen Ecken zeichnet.
+Sie spiegelt das Präsentationsattribut {{SVGElement("rect")}} des `ry`-Elements wider. Die CSS-Eigenschaft {{cssxref("ry")}} hat Vorrang vor dem `ry`-Präsentationsattribut von SVG, sodass der Wert möglicherweise nicht die tatsächliche Größe der abgerundeten Ecken widerspiegelt. Der Standardwert ist `0`, was ein Rechteck mit eckigen Ecken zeichnet.
 
 ## Wert
 
-Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Gegeben folgendes SVG:
+Für das folgende SVG:
 
 ```html
 <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="60" height="60" ry="15" ry="15" />
-  <rect x="60" y="0" width="60" height="60" ry="15%" ry="15%" />
+  <rect x="0" y="0" width="60" height="60" rx="15" ry="15" />
+  <rect x="60" y="0" width="60" height="60" rx="15%" ry="15%" />
 </svg>
 ```
 

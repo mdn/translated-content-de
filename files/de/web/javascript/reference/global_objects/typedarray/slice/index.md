@@ -1,21 +1,20 @@
 ---
 title: TypedArray.prototype.slice()
+short-title: slice()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/slice
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
+Die **`slice()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt eine Kopie eines Abschnitts eines typisierten Arrays in ein neues typisiertes Array-Objekt zurück, das von `start` bis `end` (wobei `end` nicht eingeschlossen ist) ausgewählt wurde. `start` und `end` repräsentieren den Index der Elemente in diesem typisierten Array. Das ursprüngliche typisierte Array wird nicht modifiziert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.slice()")}}.
 
-Die **`slice()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt eine Kopie eines Teils eines Typed Arrays in ein neues Typed Array-Objekt zurück, das von `start` bis `end` (`end` nicht eingeschlossen) ausgewählt wurde. Dabei repräsentieren `start` und `end` den Index der Elemente in diesem Typed Array. Das ursprüngliche Typed Array wird nicht modifiziert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.slice()")}}.
-
-{{InteractiveExample("JavaScript Demo: TypedArray.slice()", "shorter")}}
+{{InteractiveExample("JavaScript Demo: TypedArray.prototype.slice()", "shorter")}}
 
 ```js interactive-example
-const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
-const array1 = uint8.slice(1, 3);
+const bytes = new Uint8Array([10, 20, 30, 40, 50]);
+const byteSlice = bytes.slice(1, 3);
 
-console.log(array1);
+console.log(byteSlice);
 // Expected output: Uint8Array [20, 30]
 ```
 
@@ -30,28 +29,28 @@ slice(start, end)
 ### Parameter
 
 - `start` {{optional_inline}}
-  - : Nullbasierter Index, bei dem die Extraktion beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der nullbasierte Index, an dem die Extraktion beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 - `end` {{optional_inline}}
-  - : Nullbasierter Index, bei dem die Extraktion endet, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich, `end`.
+  - : Der nullbasierte Index, an dem die Extraktion endet, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion). `slice()` extrahiert bis, aber nicht einschließlich `end`.
 
 ### Rückgabewert
 
-Ein neues Typed Array, das die extrahierten Elemente enthält.
+Ein neues typisiertes Array, das die extrahierten Elemente enthält.
 
 ## Beschreibung
 
-Weitere Informationen finden Sie unter {{jsxref("Array.prototype.slice()")}}. Diese Methode ist nicht generisch und kann nur auf Typed Array-Instanzen angewendet werden.
+Siehe {{jsxref("Array.prototype.slice()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Einen Teil eines bestehenden Typed Arrays zurückgeben
+### Einen Abschnitt eines vorhandenen typisierten Arrays zurückgeben
 
 ```js
-const uint8 = new Uint8Array([1, 2, 3]);
-uint8.slice(1); // Uint8Array [ 2, 3 ]
-uint8.slice(2); // Uint8Array [ 3 ]
-uint8.slice(-2); // Uint8Array [ 2, 3 ]
-uint8.slice(0, 1); // Uint8Array [ 1 ]
+const bytes = new Uint8Array([1, 2, 3]);
+bytes.slice(1); // Uint8Array [ 2, 3 ]
+bytes.slice(2); // Uint8Array [ 3 ]
+bytes.slice(-2); // Uint8Array [ 2, 3 ]
+bytes.slice(0, 1); // Uint8Array [ 1 ]
 ```
 
 ## Spezifikationen
@@ -65,7 +64,8 @@ uint8.slice(0, 1); // Uint8Array [ 1 ]
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.slice` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [es-shims Polyfill von `TypedArray.prototype.slice`](https://www.npmjs.com/package/typedarray.prototype.slice)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("Array.prototype.slice()")}}
 - {{jsxref("String.prototype.slice()")}}

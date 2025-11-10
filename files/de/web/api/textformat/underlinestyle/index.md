@@ -3,12 +3,12 @@ title: "TextFormat: underlineStyle-Eigenschaft"
 short-title: underlineStyle
 slug: Web/API/TextFormat/underlineStyle
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineStyle`**-Eigenschaft des [`TextFormat`](/de/docs/Web/API/TextFormat)-Interfaces gibt den Stil der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
+Die **`underlineStyle`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt den Stil der Unterstreichung an, der auf den zu formatierenden Textbereich angewendet werden soll.
 
 ## Wert
 
@@ -19,16 +19,23 @@ Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
 - `"double"`: Eine doppelte Unterstreichung.
 - `"dotted"`: Eine gepunktete Unterstreichung.
 - `"dashed"`: Eine gestrichelte Unterstreichung.
-- `"wavy"`: Eine wellenförmige Unterstreichung.
+- `"wavy"`: Eine gewellte Unterstreichung.
 
 ## Beispiele
 
-### Die zu applizierende Unterstreichung lesen
+### Lesen des anzuwendenden Unterstreichungsstils
 
-Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Events verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den formatierten Text angewendet werden soll. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Textkomposition verwendet wird.
+Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den zu formatierenden Text angewendet werden soll. Beachten Sie, dass der Event-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Komponieren von Text verwendet wird.
 
 ```html
-<div id="editor" style="height:200px;background:#eee;"></div>
+<div id="editor"></div>
+```
+
+```css hidden
+#editor {
+  height: 200px;
+  background: #eeeeee;
+}
 ```
 
 ```js
@@ -57,4 +64,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.

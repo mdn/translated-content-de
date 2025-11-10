@@ -19,58 +19,58 @@ console.log("Failed to open the specified link");
 
 ## Methoden
 
-- [`console.assert()`](/de/docs/Web/API/Console/assert_static)
+- [`console.assert()`](/de/docs/Web/API/console/assert_static)
   - : Gibt eine Fehlermeldung in der Konsole aus, falls das erste Argument `false` ist.
-- [`console.clear()`](/de/docs/Web/API/Console/clear_static)
+- [`console.clear()`](/de/docs/Web/API/console/clear_static)
   - : Löscht die Konsole.
-- [`console.count()`](/de/docs/Web/API/Console/count_static)
+- [`console.count()`](/de/docs/Web/API/console/count_static)
   - : Gibt aus, wie oft eine Zeile mit einem bestimmten Label aufgerufen wurde.
-- [`console.countReset()`](/de/docs/Web/API/Console/countReset_static)
+- [`console.countReset()`](/de/docs/Web/API/console/countReset_static)
   - : Setzt den Zähler mit dem angegebenen Label zurück.
-- [`console.debug()`](/de/docs/Web/API/Console/debug_static)
+- [`console.debug()`](/de/docs/Web/API/console/debug_static)
   - : Gibt eine Nachricht mit dem Debug-Log-Level in der Konsole aus.
-- [`console.dir()`](/de/docs/Web/API/Console/dir_static)
+- [`console.dir()`](/de/docs/Web/API/console/dir_static)
   - : Zeigt eine interaktive Auflistung der Eigenschaften eines angegebenen JavaScript-Objekts an. Diese Anzeige ermöglicht die Verwendung von Aufklappdreiecken, um die Inhalte von untergeordneten Objekten zu überprüfen.
-- [`console.dirxml()`](/de/docs/Web/API/Console/dirxml_static)
+- [`console.dirxml()`](/de/docs/Web/API/console/dirxml_static)
   - : Zeigt, wenn möglich, eine XML/HTML-Element-Darstellung des angegebenen Objekts an, andernfalls wird die JavaScript-Objektansicht dargestellt.
-- [`console.error()`](/de/docs/Web/API/Console/error_static)
+- [`console.error()`](/de/docs/Web/API/console/error_static)
   - : Gibt eine Nachricht mit dem Fehler-Log-Level in der Konsole aus.
 - `console.exception()` {{Non-standard_inline}} {{deprecated_inline}}
   - : Ein Alias für `console.error()`.
-- [`console.group()`](/de/docs/Web/API/Console/group_static)
+- [`console.group()`](/de/docs/Web/API/console/group_static)
   - : Erstellt eine neue Inline-[Gruppe](#verwendung_von_gruppen_in_der_konsole) und rückt alle folgenden Ausgaben eine Ebene ein. Um eine Ebene zurückzukehren, rufen Sie `console.groupEnd()` auf.
-- [`console.groupCollapsed()`](/de/docs/Web/API/Console/groupCollapsed_static)
+- [`console.groupCollapsed()`](/de/docs/Web/API/console/groupCollapsed_static)
   - : Erstellt eine neue Inline-[Gruppe](#verwendung_von_gruppen_in_der_konsole), jedoch im eingeklappten Zustand, sodass ein Aufklapp-Button verwendet werden muss, um sie zu erweitern. Um eine Ebene zurückzukehren, rufen Sie `console.groupEnd()` auf.
-- [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static)
+- [`console.groupEnd()`](/de/docs/Web/API/console/groupEnd_static)
   - : Beendet die aktuelle Inline-[Gruppe](#verwendung_von_gruppen_in_der_konsole).
-- [`console.info()`](/de/docs/Web/API/Console/info_static)
+- [`console.info()`](/de/docs/Web/API/console/info_static)
   - : Gibt eine Nachricht mit dem Info-Log-Level in der Konsole aus.
-- [`console.log()`](/de/docs/Web/API/Console/log_static)
+- [`console.log()`](/de/docs/Web/API/console/log_static)
   - : Gibt eine Nachricht in der Konsole aus.
-- [`console.profile()`](/de/docs/Web/API/Console/profile_static) {{Non-standard_inline}}
+- [`console.profile()`](/de/docs/Web/API/console/profile_static) {{Non-standard_inline}}
   - : Startet den eingebauten Profiler des Browsers (z. B. das [Firefox Performance-Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)). Sie können optional einen Namen für das Profil angeben.
-- [`console.profileEnd()`](/de/docs/Web/API/Console/profileEnd_static) {{Non-standard_inline}}
+- [`console.profileEnd()`](/de/docs/Web/API/console/profileEnd_static) {{Non-standard_inline}}
   - : Beendet den Profiler. Sie können das resultierende Profil im Performance-Tool des Browsers sehen (z. B. im [Firefox Performance-Tool](https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html)).
-- [`console.table()`](/de/docs/Web/API/Console/table_static)
+- [`console.table()`](/de/docs/Web/API/console/table_static)
   - : Zeigt tabellarische Daten als Tabelle an.
-- [`console.time()`](/de/docs/Web/API/Console/time_static)
+- [`console.time()`](/de/docs/Web/API/console/time_static)
   - : Startet einen [Timer](#timer) mit einem Namen, der als Eingabeparameter angegeben wurde. Bis zu 10.000 Timer können auf einer Seite gleichzeitig laufen.
-- [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static)
+- [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static)
   - : Beendet den angegebenen [Timer](#timer) und gibt die vergangene Zeit in Millisekunden seit dem Start aus.
-- [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static)
+- [`console.timeLog()`](/de/docs/Web/API/console/timeLog_static)
   - : Gibt den Wert des angegebenen [Timers](#timer) in der Konsole aus.
-- [`console.timeStamp()`](/de/docs/Web/API/Console/timeStamp_static) {{Non-standard_inline}}
+- [`console.timeStamp()`](/de/docs/Web/API/console/timeStamp_static) {{Non-standard_inline}}
   - : Fügt der Zeitleiste des Performance-Tools des Browsers ([Chrome](https://developer.chrome.com/docs/devtools/performance/reference) oder [Firefox](https://profiler.firefox.com/docs/#/./guide-ui-tour-timeline)) eine Markierung hinzu.
-- [`console.trace()`](/de/docs/Web/API/Console/trace_static)
+- [`console.trace()`](/de/docs/Web/API/console/trace_static)
   - : Gibt einen [Stack Trace](#stack_traces) aus.
-- [`console.warn()`](/de/docs/Web/API/Console/warn_static)
+- [`console.warn()`](/de/docs/Web/API/console/warn_static)
   - : Gibt eine Nachricht mit dem Warn-Log-Level in der Konsole aus.
 
 ## Beispiele
 
 ### Textausgabe in die Konsole
 
-Die am häufigsten verwendete Funktion der Konsole ist das Protokollieren von Text und anderen Daten. Es gibt verschiedene Kategorien von Ausgaben, die Sie mit den Methoden [`console.log()`](/de/docs/Web/API/Console/log_static), [`console.info()`](/de/docs/Web/API/Console/info_static), [`console.warn()`](/de/docs/Web/API/Console/warn_static), [`console.error()`](/de/docs/Web/API/Console/error_static) oder [`console.debug()`](/de/docs/Web/API/Console/debug_static) erzeugen können. Jede dieser Methoden erzeugt unterschiedlich gestylten Text in der Konsole, und Sie können die Filterfunktionen Ihres Browsers verwenden, um nur die gewünschten Ausgaben zu sehen.
+Die am häufigsten verwendete Funktion der Konsole ist das Protokollieren von Text und anderen Daten. Es gibt verschiedene Kategorien von Ausgaben, die Sie mit den Methoden [`console.log()`](/de/docs/Web/API/console/log_static), [`console.info()`](/de/docs/Web/API/console/info_static), [`console.warn()`](/de/docs/Web/API/console/warn_static), [`console.error()`](/de/docs/Web/API/console/error_static) oder [`console.debug()`](/de/docs/Web/API/console/debug_static) erzeugen können. Jede dieser Methoden erzeugt unterschiedlich gestylten Text in der Konsole, und Sie können die Filterfunktionen Ihres Browsers verwenden, um nur die gewünschten Ausgaben zu sehen.
 
 Es gibt zwei Möglichkeiten, jede der Ausgabemethoden zu verwenden:
 
@@ -137,7 +137,7 @@ Das erste Argument der Logging-Methoden kann ein String sein, der Null oder mehr
 - `%o`
   - : Gibt ein JavaScript-Objekt im Stil der „optimal nützlichen Formatierung“ aus, z.B. DOM-Elemente werden möglicherweise genauso angezeigt, wie sie im Element-Inspektor erscheinen würden.
 - `%O`
-  - : Gibt ein JavaScript-Objekt im Stil der „generischen JavaScript-Objektformatierung“ aus, meist in Form einer erweiterbaren Baumansicht. Dies ähnelt [`console.dir()`](/de/docs/Web/API/Console/dir_static).
+  - : Gibt ein JavaScript-Objekt im Stil der „generischen JavaScript-Objektformatierung“ aus, meist in Form einer erweiterbaren Baumansicht. Dies ähnelt [`console.dir()`](/de/docs/Web/API/console/dir_static).
 - `%d` oder `%i`
   - : Gibt eine Ganzzahl aus.
 - `%s`
@@ -267,7 +267,7 @@ Beachten Sie, dass der Name des Timers sowohl beim Start als auch beim Stoppen a
 
 ### Stack Traces
 
-Das Konsolenobjekt unterstützt auch das Ausgeben eines Stack Traces; dieser zeigt Ihnen den Aufrufpfad, der zu dem Punkt geführt hat, an dem Sie [`console.trace()`](/de/docs/Web/API/Console/trace_static) aufrufen. Gegebenen Code wie diesen:
+Das Konsolenobjekt unterstützt auch das Ausgeben eines Stack Traces; dieser zeigt Ihnen den Aufrufpfad, der zu dem Punkt geführt hat, an dem Sie [`console.trace()`](/de/docs/Web/API/console/trace_static) aufrufen. Gegebenen Code wie diesen:
 
 ```js
 function foo() {

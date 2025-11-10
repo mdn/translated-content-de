@@ -3,22 +3,22 @@ title: "SVGAnimatedNumber: baseVal-Eigenschaft"
 short-title: baseVal
 slug: Web/API/SVGAnimatedNumber/baseVal
 l10n:
-  sourceCommit: c99030f392eba91d64d87a480e13e55897092ee9
+  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
 ---
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft des [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Interfaces repräsentiert den Basiswert (nicht animiert) eines animierbaren numerischen Attributs.
+Die **`baseVal`**-Eigenschaft der [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)-Schnittstelle repräsentiert den Basiswert (nicht animiert) eines animierbaren numerischen Attributs.
 
-Einige animierbare SVG-Attribute akzeptieren einen einzelnen numerischen Wert, wie z.B. das {{SVGAttr("radius")}}-Attribut der {{SVGElement("circle")}}- oder {{SVGElement("ellipse")}}-Elemente und die {{SVGAttr("width")}}- und {{SVGAttr("height")}}-Attribute des {{SVGElement("rect")}}-Elements und viele andere. Die `baseVal`-Eigenschaft spiegelt den Basiswert, also den nicht animierten Wert, des numerischen Attributs wider und aktualisiert ihn.
+Einige animierbare SVG-Attribute akzeptieren einen einzelnen numerischen Wert, wie das {{SVGAttr("radius")}}-Attribut der {{SVGElement("circle")}}- oder {{SVGElement("ellipse")}}-Elemente und die {{SVGAttr("width")}}- und {{SVGAttr("height")}}-Attribute des {{SVGElement("rect")}}-Elements und viele andere. Die `baseVal`-Eigenschaft spiegelt den Basiswert, oder nicht animierten Wert, des numerischen Attributs wider und aktualisiert diesen.
 
 ## Wert
 
-Eine `Nummer`; der Basiswert des Attributs als Fließkommazahl.
+Ein `number`; der Basiswert des Attributs als Gleitkommawert.
 
 ## Beispiele
 
-Dieses Beispiel enthält ein {{SVGElement("path")}}-Element mit einem verschachtelten {{SVGElement("animate")}}-Element, das den Wert des {{SVGElement("pathLength")}}-Attributs des Pfads animiert:
+Dieses Beispiel enthält ein {{SVGElement("path")}}-Element mit einem verschachtelten {{SVGElement("animate")}}-Element, das den Wert des {{SVGAttr("pathLength")}}-Attributs des Pfads animiert:
 
 ```html
 <path d="M 0,40 h100" pathLength="90" id="path">
@@ -38,9 +38,9 @@ path.pathLength.baseVal = 50; // updates the value
 console.log(path.pathLength.baseVal); // output: 90
 ```
 
-Der `baseVal` spiegelt den Wert des `pathLength`-Attributs wider. Wir verwenden die `baseVal`-Eigenschaft auch, um auf den Basiswert (nicht animierend) des animierenden `pathLength` zuzugreifen.
+Das `baseVal` spiegelt den Wert des `pathLength`-Attributs wider. Wir verwenden auch die `baseVal`-Eigenschaft, um den Basiswert (nicht animierend) des animierten `pathLength`-Werts zuzugreifen.
 
-Um auf den aktuellen Wert des [`pathLength`](/de/docs/Web/API/SVGGeometryElement/pathLength)-Werts zuzugreifen, während er animiert, verwenden Sie die [`SVGAnimatedNumber.animVal`](/de/docs/Web/API/SVGAnimatedNumber/animVal)-Eigenschaft.
+Um den aktuellen Wert des [`pathLength`](/de/docs/Web/API/SVGGeometryElement/pathLength)-Werts während der Animation zu ermitteln, verwenden Sie die [`SVGAnimatedNumber.animVal`](/de/docs/Web/API/SVGAnimatedNumber/animVal)-Eigenschaft.
 
 ## Spezifikationen
 

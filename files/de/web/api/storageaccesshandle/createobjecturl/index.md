@@ -28,7 +28,7 @@ Ein String, der eine nicht partitionierte Objekt-URL enthält, die verwendet wer
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)

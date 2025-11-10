@@ -1,27 +1,25 @@
 ---
-title: Punktestand verfolgen und gewinnen
+title: Verfolgen der Punktzahl und Gewinn
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win
 l10n:
-  sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
+  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
 ---
 
-{{GamesSidebar}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Collision_detection", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
+Dies ist der **8. Schritt** von 10 des [Gamedev Canvas Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson8.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson08.html) finden.
 
-Dies ist der **8. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson8.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson08.html).
+Steine zu zerstören ist wirklich cool, aber um das Spiel noch beeindruckender zu machen, könnte es Punkte vergeben für jeden Stein, den ein Benutzer trifft, und die Gesamtpunktzahl zählen.
 
-Die Zerstörung der Ziegelsteine ist wirklich cool, aber um das Spiel noch beeindruckender zu machen, könnten Punkte für jeden vom Benutzer getroffenen Ziegel vergeben und der Gesamtscore gezählt werden.
+## Die Punktzahl zählen
 
-## Punkte zählen
-
-Wenn Sie Ihren Punktestand während des Spiels sehen können, können Sie irgendwann Ihre Freunde beeindrucken. Sie benötigen eine Variable, um die Punkte aufzuzeichnen. Fügen Sie Folgendes in Ihr JavaScript ein, nach den restlichen Variablen:
+Wenn Sie Ihre Punktzahl während des Spiels sehen können, können Sie schließlich Ihre Freunde beeindrucken. Sie benötigen eine Variable, um die Punktzahl aufzuzeichnen. Fügen Sie die folgende Zeile in Ihr JavaScript ein, nach den restlichen Variablen:
 
 ```js
 let score = 0;
 ```
 
-Sie benötigen auch eine `drawScore()`-Funktion, um die Punkteanzeige zu erstellen und zu aktualisieren. Fügen Sie Folgendes nach der `collisionDetection()` Funktion hinzu:
+Sie benötigen auch eine `drawScore()`-Funktion, um die Punkteanzeige zu erstellen und zu aktualisieren. Fügen Sie das Folgende nach der `collisionDetection()`-Funktion hinzu:
 
 ```js
 function drawScore() {
@@ -31,9 +29,9 @@ function drawScore() {
 }
 ```
 
-Text auf einem Canvas zu zeichnen ist ähnlich wie das Zeichnen einer Form. Die Schriftdefinition sieht genauso aus wie die in CSS — Sie können die Größe und den Schriftarttyp in der [`font()`](/de/docs/Web/API/CanvasRenderingContext2D/font) Methode festlegen. Verwenden Sie dann [`fillStyle()`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle), um die Farbe der Schrift zu setzen, und [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText), um den tatsächlichen Text festzulegen, der auf dem Canvas platziert wird, und wo er platziert wird. Der erste Parameter ist der Text selbst – der obige Code zeigt die aktuelle Punktzahl – und die letzten zwei Parameter sind die Koordinaten, an denen der Text auf dem Canvas platziert wird.
+Text auf einer Leinwand zu zeichnen, ist ähnlich wie das Zeichnen einer Form. Die Schriftdefinition sieht genau wie im CSS aus — Sie können die Größe und den Schriftart-Typ in der [`font()`](/de/docs/Web/API/CanvasRenderingContext2D/font)-Methode festlegen. Verwenden Sie dann [`fillStyle()`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle), um die Farbe der Schriftart festzulegen, und [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText), um den tatsächlichen Text, der auf der Leinwand platziert wird, festzulegen und wo er platziert wird. Der erste Parameter ist der Text selbst — der obige Code zeigt die aktuelle Anzahl der Punkte — und die letzten beiden Parameter sind die Koordinaten, an denen der Text auf der Leinwand platziert wird.
 
-Um jedes Mal Punkte zu vergeben, wenn ein Ziegel getroffen wird, fügen Sie der `collisionDetection()`-Funktion eine Zeile hinzu, um den Wert der Punktevariable bei jeder erkannten Kollision zu erhöhen. Fügen Sie die folgende hervorgehobene Zeile in Ihren Code ein:
+Um bei jedem Treffer eines Steins Punkte zu vergeben, fügen Sie der `collisionDetection()`-Funktion eine Zeile hinzu, um den Wert der Punkte-Variable jedes Mal zu erhöhen, wenn eine Kollision erkannt wird. Fügen Sie die folgende hervorgehobene Zeile zu Ihrem Code hinzu:
 
 ```js
 function collisionDetection() {
@@ -57,15 +55,15 @@ function collisionDetection() {
 }
 ```
 
-Das Aufrufen von `drawScore()` aus der `draw()`-Funktion hält die Punktzahl mit jedem neuen Frame auf dem neuesten Stand — fügen Sie die folgende Zeile in `draw()` ein, direkt unter dem Aufruf von `drawPaddle()`:
+Das Aufrufen von `drawScore()` aus der `draw()`-Funktion hält die Punktzahl mit jedem neuen Bild aktuell — fügen Sie die folgende Zeile innerhalb von `draw()` hinzu, direkt unterhalb des `drawPaddle()` Aufrufs:
 
 ```js
 drawScore();
 ```
 
-## Eine Gewinnmeldung anzeigen, wenn alle Ziegel zerstört wurden
+## Eine Gewinnnachricht anzeigen, wenn alle Steine zerstört wurden
 
-Das Sammeln der Punkte funktioniert gut, aber Sie werden sie nicht für immer hinzufügen – was passiert, wenn alle Ziegel zerstört wurden? Es ist schließlich der Hauptzweck des Spiels, also sollten Sie eine Gewinnmeldung anzeigen, wenn alle verfügbaren Punkte gesammelt wurden. Fügen Sie folgenden hervorgehobenen Abschnitt in Ihre `collisionDetection()`-Funktion ein:
+Das Sammeln der Punkte funktioniert gut, aber Sie werden die Punkte nicht für immer hinzufügen — was passiert, wenn alle Steine zerstört wurden? Das ist schließlich der Hauptzweck des Spiels, daher sollten Sie eine Gewinnnachricht anzeigen, wenn alle verfügbaren Punkte gesammelt wurden. Fügen Sie den folgenden hervorgehobenen Abschnitt in Ihre `collisionDetection()`-Funktion ein:
 
 ```js
 function collisionDetection() {
@@ -94,7 +92,7 @@ function collisionDetection() {
 }
 ```
 
-Dank dessen können Ihre Benutzer das Spiel tatsächlich gewinnen, wenn sie alle Ziegel zerstören, was bei Spielen ziemlich wichtig ist. Die Funktion `document.location.reload()` lädt die Seite neu und startet das Spiel erneut, sobald die Alarmtaste angeklickt wird.
+Dank dieser Funktion können Ihre Benutzer tatsächlich das Spiel gewinnen, wenn sie alle Steine zerstören, was bei Spielen ziemlich wichtig ist. Die Funktion `document.location.reload()` lädt die Seite neu und startet das Spiel erneut, sobald die Alarm-Schaltfläche angeklickt wird.
 
 ## Vergleichen Sie Ihren Code
 
@@ -107,7 +105,7 @@ Der neueste Code sieht so aus (und funktioniert auch so), falls Sie ihn mit Ihre
 
 ```css hidden
 canvas {
-  background: #eee;
+  background: #eeeeee;
 }
 button {
   display: block;
@@ -145,21 +143,21 @@ for (let c = 0; c < brickColumnCount; c++) {
   }
 }
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
 
 function keyDownHandler(e) {
-  if (e.key == "Right" || e.key == "ArrowRight") {
+  if (e.key === "Right" || e.key === "ArrowRight") {
     rightPressed = true;
-  } else if (e.key == "Left" || e.key == "ArrowLeft") {
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
     leftPressed = true;
   }
 }
 
 function keyUpHandler(e) {
-  if (e.key == "Right" || e.key == "ArrowRight") {
+  if (e.key === "Right" || e.key === "ArrowRight") {
     rightPressed = false;
-  } else if (e.key == "Left" || e.key == "ArrowLeft") {
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
     leftPressed = false;
   }
 }
@@ -167,7 +165,7 @@ function collisionDetection() {
   for (let c = 0; c < brickColumnCount; c++) {
     for (let r = 0; r < brickRowCount; r++) {
       let b = bricks[c][r];
-      if (b.status == 1) {
+      if (b.status === 1) {
         if (
           x > b.x &&
           x < b.x + brickWidth &&
@@ -177,7 +175,7 @@ function collisionDetection() {
           dy = -dy;
           b.status = 0;
           score++;
-          if (score == brickRowCount * brickColumnCount) {
+          if (score === brickRowCount * brickColumnCount) {
             alert("YOU WIN, CONGRATS!");
             document.location.reload();
             clearInterval(interval); // Needed for Chrome to end game
@@ -205,7 +203,7 @@ function drawPaddle() {
 function drawBricks() {
   for (let c = 0; c < brickColumnCount; c++) {
     for (let r = 0; r < brickRowCount; r++) {
-      if (bricks[c][r].status == 1) {
+      if (bricks[c][r].status === 1) {
         const brickX = r * (brickWidth + brickPadding) + brickOffsetLeft;
         const brickY = c * (brickHeight + brickPadding) + brickOffsetTop;
         bricks[c][r].x = brickX;
@@ -222,7 +220,7 @@ function drawBricks() {
 function drawScore() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score: " + score, 8, 20);
+  ctx.fillText(`Score: ${score}`, 8, 20);
 }
 
 function draw() {
@@ -262,18 +260,20 @@ function startGame() {
   interval = setInterval(draw, 10);
 }
 
-document.getElementById("runButton").addEventListener("click", function () {
+const runButton = document.getElementById("runButton");
+runButton.addEventListener("click", () => {
   startGame();
+  runButton.disabled = true;
 });
 ```
 
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, mehr Punkte pro getroffenem Ziegel hinzuzufügen und drucken Sie die Anzahl der gesammelten Punkte im Endspiel-Alarmfenster aus.
+> Versuchen Sie, mehr Punkte pro getroffenen Stein hinzuzufügen, und geben Sie die Anzahl der gesammelten Punkte in der Endspiel-Alarmbox aus.
 
 ## Nächste Schritte
 
-Das Spiel sieht an diesem Punkt ziemlich gut aus. In der nächsten Lektion werden Sie den Reiz des Spiels erweitern, indem Sie [Maussteuerungen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls) hinzufügen.
+Das Spiel sieht an diesem Punkt ziemlich gut aus. In der nächsten Lektion werden Sie die Attraktivität des Spiels durch [Maussteuerungen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls) erweitern.
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Collision_detection", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls")}}

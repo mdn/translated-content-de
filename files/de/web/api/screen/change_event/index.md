@@ -1,14 +1,14 @@
 ---
-title: "Screen: change Ereignis"
+title: "Screen: change-Ereignis"
 short-title: change
 slug: Web/API/Screen/change_event
 l10n:
-  sourceCommit: e089abbca14964a8ce945135d954cbfd098fd6f7
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Das **`change`**-Ereignis der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle wird auf einem bestimmten Bildschirm ausgelöst, wenn sich eine oder mehrere der folgenden Eigenschaften ändern:
+Das **`change`**-Ereignis der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle wird auf einem bestimmten Bildschirm ausgelöst, wenn eine oder mehrere der folgenden Eigenschaften geändert werden:
 
 - [`width`](/de/docs/Web/API/Screen/width)
 - [`height`](/de/docs/Web/API/Screen/height)
@@ -21,10 +21,10 @@ Das **`change`**-Ereignis der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle 
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("change", (event) => {});
+```js-nolint
+addEventListener("change", (event) => { })
 
-onchange = (event) => {};
+onchange = (event) => { }
 ```
 
 ## Ereignistyp

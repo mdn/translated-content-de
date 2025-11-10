@@ -1,21 +1,20 @@
 ---
-title: "fill: Wasm-Textanweisung"
+title: "fill: Wasm-Text-Instruktion"
 short-title: fill
 slug: WebAssembly/Reference/Memory/Fill
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
 ---
 
-Die **`fill`**-[Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein bestimmtes Byte.
+Die **`fill`**-[Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein vorgegebenes Byte.
 
-Die Anweisung gibt keinen Wert zurück.
-Sie wirft eine Ausnahme, wenn der angegebene Speicherbereich außerhalb der Grenzen liegt.
+Die Instruktion liefert keinen Wert zurück. Sie erzeugt eine Ausnahme, wenn der angegebene Speicherbereich außerhalb des zulässigen Bereichs liegt.
 
 ## Syntax
 
-Füllen im Standardspeicher
+Füllen innerhalb des Standardspeichers
 
-```wasm
+```wat
 ;; Fill region at offset/range in default memory with 255
 i32.const 200 ;; The pointer to the region to update
 i32.const 255 ;; The value to set each byte to (must be < 256)
@@ -26,9 +25,9 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Füllen angegebenen Speichers (falls Multi-Speicher unterstützt wird)
+Füllen des angegebenen Speichers (falls Multi-Speicher unterstützt wird)
 
-```wasm
+```wat
 ;; Fill specific memory referenced by its index
 i32.const 200 ;; The pointer to the region to update
 i32.const 255 ;; The value to set each byte to (must be < 256)
@@ -45,9 +44,9 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 (memory.fill (memory $memoryName) (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-### Anweisungen und Opcodes
+### Instruktionen und Opcodes
 
-| Anweisung     | Binärer Opcode |
+| Instruktion   | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.fill` | `0xFC 0x0b`    |
 
@@ -57,8 +56,7 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 
 ## Browser-Kompatibilität
 
-> [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der JavaScript-API [`WebAssembly.Memory`](/de/docs/WebAssembly/Reference/JavaScript_interface/Memory).
-> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt die Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
-
 {{Compat}}
+
+> [!NOTE]
+> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.

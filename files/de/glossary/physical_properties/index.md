@@ -1,21 +1,19 @@
 ---
-title: Physical properties
+title: Physikalische Eigenschaften
 slug: Glossary/Physical_properties
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+CSS **physikalische Eigenschaften** definieren Positionen basierend auf physikalischen Richtungen oder Elementseiten. Zum Beispiel:
 
-CSS **physikalische Eigenschaften** definieren Positionen basierend auf physischen Richtungen oder Elementseiten. Zum Beispiel:
+- Die {{Glossary("inset_properties", "Einsetzeigenschaften")}} {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}} beziehen sich auf die physikalischen Dimensionen des Viewports.
+- Merkmale wie {{cssxref("margin-top")}}, {{cssxref("border-right")}}, {{cssxref("padding-bottom")}} und {{cssxref("border-bottom-left-radius")}} beziehen sich auf bestimmte Seiten eines Elements und stylen Merkmale in dieser physikalischen Richtung.
 
-- Die {{Glossary("inset_properties", "Inset-Eigenschaften")}} {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}} beziehen sich auf die physischen Dimensionen des Viewports.
-- Merkmale wie {{cssxref("margin-top")}}, {{cssxref("border-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("border-bottom-left-radius")}} beziehen sich auf bestimmte Seiten eines Elements und gestalten Merkmale nach dieser physischen Richtung.
-
-Dies steht im Gegensatz zu {{Glossary("logical_properties", "logischen Eigenschaften")}}, die relativ zum Inhaltsfluss sind und richtungsabhängige Schlüsselwörter relativ zu den Block- und Inline-Achsen verwenden.
+Dies steht im Gegensatz zu {{Glossary("logical_properties", "logischen Eigenschaften")}}, die sich auf den Inhaltsfluss beziehen und richtungsbezogene Schlüsselwörter in Bezug auf die Block- und Inline-Achsen verwenden.
 
 ## Siehe auch
 
-- [CSS Positioned Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS Box Model](/de/docs/Web/CSS/CSS_box_model) Modul
-- [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- Modul [CSS Positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout)
+- Modul [CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model)
+- Modul [CSS Box-Größenanpassung](/de/docs/Web/CSS/Guides/Box_sizing)

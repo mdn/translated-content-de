@@ -1,29 +1,29 @@
 ---
-title: "NavigationHistoryEntry: dispose Ereignis"
+title: "NavigationHistoryEntry: dispose-Ereignis"
 short-title: dispose
 slug: Web/API/NavigationHistoryEntry/dispose_event
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
 Das **`dispose`**-Ereignis der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle wird ausgelöst, wenn der Eintrag nicht mehr Teil der Verlaufseintragsliste ist.
 
-Entsorgung erfolgt, wenn:
+Eine Entsorgung erfolgt, wenn:
 
-- Vorwärtseinträge im Verlauf gelöscht werden. Siehe das Beispiel unter [Benachrichtigungen bei Eintragsentsorgung](https://github.com/wicg/navigation-api#notifications-on-entry-disposal) für weitere Informationen.
+- Vordere Verlaufseinträge gelöscht werden. Weitere Informationen finden Sie im Beispiel unter [Benachrichtigungen zur Entsorgung von Einträgen](https://github.com/wicg/navigation-api#notifications-on-entry-disposal).
 - Der Benutzer seinen Browserverlauf über Einstellungen oder bereitgestellte UI-Steuerelemente löscht.
-- Das Verlaufslimit überschritten wird. Dies ist nirgends spezifiziert, aber Browser tendieren dazu, ein Verlaufslimit von 50 Seiten zu haben.
+- Das Verlaufsmaximum überschritten wird. Dies ist nirgendwo spezifiziert, aber Browser neigen dazu, ein Verlaufsmaximum von 50 Seiten zu haben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
-```js
-addEventListener("dispose", (event) => {});
+```js-nolint
+addEventListener("dispose", (event) => { })
 
-ondispose = (event) => {};
+ondispose = (event) => { }
 ```
 
 ## Ereignistyp
@@ -48,6 +48,5 @@ navigation.addEventListener("currententrychange", () => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

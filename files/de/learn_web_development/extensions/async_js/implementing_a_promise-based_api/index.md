@@ -1,40 +1,39 @@
 ---
-title: Anleitung zur Implementierung einer API auf Basis von Promises
+title: Umsetzung einer API auf Basis von Promises
+short-title: Umsetzung von APIs auf Basis von Promises
 slug: Learn_web_development/Extensions/Async_JS/Implementing_a_promise-based_API
 l10n:
-  sourceCommit: 594eb7514960642e7c79b19fdd71c203db55c9db
+  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Async_JS/Promises", "Learn_web_development/Extensions/Async_JS/Introducing_workers", "Learn_web_development/Extensions/Async_JS")}}
 
-Im letzten Artikel haben wir besprochen, wie man APIs verwendet, die Promises zurückgeben. In diesem Artikel betrachten wir die andere Seite — wie man APIs _implementiert_, die Promises zurückgeben. Dies ist eine weitaus seltenere Aufgabe als die Verwendung von auf Promises basierenden APIs, aber es ist dennoch hilfreich, darüber Bescheid zu wissen.
+Im letzten Artikel haben wir besprochen, wie man APIs nutzt, die Promises zurückgeben. In diesem Artikel schauen wir uns die andere Seite an – wie man APIs _umsetzt_, die Promises zurückgeben. Diese Aufgabe ist viel seltener als die Nutzung von auf Promises basierenden APIs, aber es ist dennoch wertvoll, darüber Bescheid zu wissen.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-         Ein solides Verständnis der <a href="/de/docs/Learn_web_development/Core/Scripting">grundlegenden JavaScript-Konzepte</a> und asynchroner Konzepte, wie sie in den vorherigen Lektionen dieses Moduls behandelt wurden.
+         Ein solides Verständnis von <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript-Grundlagen</a> und asynchronen Konzepten, wie sie in den vorherigen Lektionen dieses Moduls behandelt wurden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
-      <td>Verstehen, wie man APIs auf Basis von Promises implementiert.</td>
+      <th scope="row">Lernergebnisse:</th>
+      <td>Verstehen, wie man APIs auf Basis von Promises umsetzt.</td>
     </tr>
   </tbody>
 </table>
 
-Im Allgemeinen wird bei der Implementierung einer API auf Basis von Promises eine asynchrone Operation umschlossen, die möglicherweise mit Ereignissen, einfachen Rückruffunktionen (Callbacks) oder einem Nachrichtenübertragungsmodell arbeitet. Sie organisieren ein `Promise`-Objekt so, dass es den Erfolg oder das Scheitern dieser Operation korrekt behandelt.
+Im Allgemeinen werden Sie, wenn Sie eine API mit Promises umsetzen, eine asynchrone Operation umhüllen, die Ereignisse verwenden könnte, einfache Rückruffunktionen oder ein Nachrichtenübermittlungsmodell. Sie arrangieren ein `Promise`-Objekt, um den Erfolg oder das Scheitern dieser Operation korrekt zu handhaben.
 
-## Implementierung einer `alarm()`-API
+## Umsetzung einer `alarm()` API
 
-In diesem Beispiel implementieren wir eine API auf Basis von Promises namens `alarm()`. Diese Funktion nimmt als Argumente den Namen der Person, die geweckt werden soll, und eine Verzögerung in Millisekunden, bevor die Person geweckt wird. Nach Ablauf der Verzögerung sendet die Funktion eine "Aufwachen!"-Nachricht, die den Namen der Person enthält, die geweckt werden soll.
+In diesem Beispiel implementieren wir eine Alarm-API auf Basis von Promises, genannt `alarm()`. Die Funktion nimmt als Argumente den Namen der Person, die geweckt werden soll, und eine Verzögerung in Millisekunden, bevor die Person geweckt werden soll. Nach der Verzögerung sendet die Funktion eine "Wake up!"-Nachricht, die den Namen der Person enthält, die geweckt werden muss.
 
-### Umhüllung von `setTimeout()`
+### Umhüllung von setTimeout()
 
-Wir verwenden die [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)-API, um unsere `alarm()`-Funktion zu implementieren. Die `setTimeout()`-API nimmt als Argumente eine Rückruffunktion und eine Verzögerung in Millisekunden. Wenn `setTimeout()` aufgerufen wird, startet es einen Timer mit der angegebenen Verzögerung. Sobald die Zeit abgelaufen ist, ruft es die angegebene Funktion auf.
+Wir verwenden die API [`setTimeout()`](/de/docs/Web/API/Window/setTimeout), um unsere `alarm()`-Funktion zu implementieren. Die `setTimeout()`-API nimmt als Argumente eine Rückruffunktion und eine Verzögerung, angegeben in Millisekunden. Wenn `setTimeout()` aufgerufen wird, startet es einen Timer, der auf die gegebene Verzögerung eingestellt ist, und wenn die Zeit abläuft, wird die gegebene Funktion aufgerufen.
 
 Im folgenden Beispiel rufen wir `setTimeout()` mit einer Rückruffunktion und einer Verzögerung von 1000 Millisekunden auf:
 
@@ -62,17 +61,17 @@ function setAlarm() {
 button.addEventListener("click", setAlarm);
 ```
 
-{{EmbedLiveSample("Wrapping setTimeout()", 600, 100)}}
+{{EmbedLiveSample("Umhüllung von setTimeout()", 600, 100)}}
 
-### Der `Promise()`-Konstruktor
+### Der Konstruktor Promise()
 
-Unsere `alarm()`-Funktion gibt ein `Promise` zurück, das erfüllt wird, wenn der Timer abgelaufen ist. Es übergibt eine „Aufwachen!“-Nachricht an den `then()`-Handler und lehnt das Promise ab, wenn der Aufrufer einen negativen Wert für die Verzögerung angibt.
+Unsere `alarm()`-Funktion wird ein `Promise` zurückgeben, das erfüllt wird, wenn der Timer abläuft. Es wird eine "Wake up!"-Nachricht in den `then()`-Handler übergeben und das Promise ablehnen, wenn der Anrufer einen negativen Verzögerungswert angibt.
 
-Das zentrale Element hierbei ist der {{jsxref("Promise/Promise", "Promise()")}}-Konstruktor. Der `Promise()`-Konstruktor nimmt eine einzelne Funktion als Argument, die als `executor` bezeichnet wird. Wenn Sie ein neues Promise erstellen, geben Sie die Implementierung des `executor` an.
+Der entscheidende Bestandteil hier ist der {{jsxref("Promise/Promise", "Promise()")}}-Konstruktor. Der `Promise()`-Konstruktor nimmt eine einzelne Funktion als Argument. Wir nennen diese Funktion den `executor`. Wenn Sie ein neues Promise erstellen, liefern Sie die Implementierung des Executors.
 
-Diese `executor`-Funktion selbst nimmt zwei Argumente, die ebenfalls Funktionen sind und konventionell als `resolve` und `reject` bezeichnet werden. In Ihrer `executor`-Implementierung rufen Sie die zugrunde liegende asynchrone Funktion auf. Wenn die asynchrone Funktion erfolgreich ist, rufen Sie `resolve` auf, und wenn sie fehlschlägt, rufen Sie `reject` auf. Wenn die `executor`-Funktion einen Fehler auslöst, wird `reject` automatisch aufgerufen. Sie können ein einzelnes Argument beliebigen Typs an `resolve` und `reject` übergeben.
+Diese Executor-Funktion selbst nimmt zwei Argumente entgegen, die beide auch Funktionen sind und die konventionell `resolve` und `reject` genannt werden. In Ihrer Executor-Implementierung rufen Sie die zugrunde liegende asynchrone Funktion auf. Wenn die asynchrone Funktion erfolgreich ist, rufen Sie `resolve` auf und wenn sie scheitert, rufen Sie `reject` auf. Wenn die Executor-Funktion einen Fehler wirft, wird `reject` automatisch aufgerufen. Sie können ein einzelnes Argument eines beliebigen Typs an `resolve` und `reject` übergeben.
 
-So können wir `alarm()` wie folgt implementieren:
+So können wir `alarm()` wie folgt umsetzen:
 
 ```js
 function alarm(person, delay) {
@@ -88,15 +87,15 @@ function alarm(person, delay) {
 }
 ```
 
-Diese Funktion erstellt und gibt ein neues `Promise` zurück. Innerhalb des `executor` für das Promise:
+Diese Funktion erstellt und gibt ein neues `Promise` zurück. Innerhalb des Executors für das Promise:
 
-- prüfen wir, ob `delay` nicht negativ ist, und rufen `reject` mit einem benutzerdefinierten Fehler auf, falls dies der Fall ist.
+- überprüfen wir, dass `delay` nicht negativ ist, und rufen `reject` auf, wobei wir einen benutzerdefinierten Fehler übergeben, falls dies der Fall ist.
 
-- rufen wir `setTimeout()` auf, übergeben einen Callback und `delay`. Der Callback wird aufgerufen, wenn der Timer abläuft, und im Callback rufen wir `resolve` auf und übergeben unsere „Aufwachen!“-Nachricht.
+- rufen wir `setTimeout()` auf, übergeben eine Rückruffunktion und `delay`. Die Rückruffunktion wird aufgerufen, wenn der Timer abläuft, und in der Rückruffunktion rufen wir `resolve` auf, wobei wir unsere "Wake up!"-Nachricht übergeben.
 
-## Verwendung der `alarm()`-API
+## Nutzung der `alarm()`-API
 
-Dieser Teil sollte Ihnen aus dem letzten Artikel vertraut sein. Wir können `alarm()` aufrufen und am zurückgegebenen Promise `then()` und `catch()` aufrufen, um Handler für das Erfüllen und das Ablehnen der Promises zu setzen.
+Dieser Abschnitt sollte Ihnen aus dem letzten Artikel bekannt vorkommen. Wir können `alarm()` aufrufen und an dem zurückgegebenen Promise `then()` und `catch()` aufrufen, um Handler für die Erfüllung und Ablehnung des Promises einzurichten.
 
 ```html hidden
 <div>
@@ -149,13 +148,13 @@ button.addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample("Using the alarm() API", 600, 160)}}
+{{EmbedLiveSample("Nutzung der alarm()-API", 600, 160)}}
 
-Versuchen Sie, verschiedene Werte für "Name" und "Delay" einzustellen. Probieren Sie, einen negativen Wert für "Delay" zu setzen.
+Versuchen Sie, verschiedene Werte für "Name" und "Delay" festzulegen. Versuchen Sie, einen negativen Wert für "Delay" festzulegen.
 
 ## Verwendung von async und await mit der `alarm()`-API
 
-Da `alarm()` ein `Promise` zurückgibt, können wir alles damit machen, was wir auch mit jedem anderen Promise machen können: Promise-Verkettung, `Promise.all()` und die Verwendung von `async` / `await`:
+Da `alarm()` ein `Promise` zurückgibt, können wir alles damit tun, was wir auch mit anderen Promises machen könnten: Promise-Verkettung, `Promise.all()` und `async` / `await`:
 
 ```html hidden
 <div>
@@ -211,7 +210,7 @@ button.addEventListener("click", async () => {
 });
 ```
 
-{{EmbedLiveSample("Using async and await with the alarm() API", 600, 160)}}
+{{EmbedLiveSample("Verwendung von async und await mit der alarm()-API", 600, 160)}}
 
 ## Siehe auch
 

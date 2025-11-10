@@ -1,13 +1,14 @@
 ---
 title: String.prototype.sup()
+short-title: sup()
 slug: Web/JavaScript/Reference/Global_Objects/String/sup
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}} {{Deprecated_Header}}
+{{Deprecated_Header}}
 
-Die **`sup()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("sup")}}-Element (`<sup>str</sup>`) einbettet, was dazu führt, dass dieser String als hochgestellter Text angezeigt wird.
+Die **`sup()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in einem {{HTMLElement("sup")}}-Element (`<sup>str</sup>`) einbettet, wodurch dieser String als hochgestellter Text angezeigt wird.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
@@ -24,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<sup>`-Start-Tag beginnt, dann den Text `str` und dann einen `</sup>`-End-Tag enthält.
+Ein String, der mit einem `<sup>`-Start-Tag beginnt, dann der Text `str` folgt und dann ein `</sup>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von sup()
 
-Der folgende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt damit den Body des Dokuments:
 
 ```js
 const contentString = "Hello, world";
@@ -38,7 +39,7 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.sup();
 ```
 
-Dies erzeugt folgendes HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <sup>Hello, world</sup>
@@ -64,5 +65,6 @@ document.body.appendChild(elem);
 ## Siehe auch
 
 - [Polyfill von `String.prototype.sup` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [es-shims Polyfill von `String.prototype.sup`](https://www.npmjs.com/package/es-string-html-methods)
 - [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("sup")}}

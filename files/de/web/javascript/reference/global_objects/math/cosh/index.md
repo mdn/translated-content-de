@@ -1,13 +1,12 @@
 ---
 title: Math.cosh()
+short-title: cosh()
 slug: Web/JavaScript/Reference/Global_Objects/Math/cosh
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.cosh()`** gibt den hyperbolischen Kosinus einer Zahl zurück. Das bedeutet:
+Die **`Math.cosh()`** statische Methode gibt den hyperbolischen Kosinus einer Zahl zurück. Das heißt,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -74,6 +73,7 @@ Math.cosh(Infinity); // Infinity
 ## Siehe auch
 
 - [Polyfill von `Math.cosh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [es-shims Polyfill von `Math.cosh`](https://www.npmjs.com/package/math.cosh)
 - {{jsxref("Math.acosh()")}}
 - {{jsxref("Math.asinh()")}}
 - {{jsxref("Math.atanh()")}}

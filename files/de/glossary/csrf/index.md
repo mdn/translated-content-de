@@ -1,25 +1,21 @@
 ---
-title: CSRF
+title: Cross-site request forgery (CSRF)
 slug: Glossary/CSRF
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Bei einem **Cross-site request forgery** (CSRF)-Angriff täuscht ein Angreifer den Browser dazu, eine HTTP-Anfrage an die Zielseite von einer bösartigen Seite aus zu stellen. Die Anfrage enthält die Anmeldedaten des Benutzers und veranlasst den Server, eine schädliche Aktion durchzuführen, im Glauben, der Benutzer habe dies gewollt.
 
-**CSRF** (Cross-Site Request Forgery) ist ein Angriff, der einen vertrauenswürdigen Benutzer imitiert und einer Website unerwünschte Befehle sendet.
+Ein CSRF-Angriff ist möglich, wenn eine Website:
 
-Dies kann zum Beispiel durch das Einfügen von schädlichen Parametern in eine {{Glossary("URL", "URL")}} hinter einem Link erfolgen, der vorgibt, woanders hinzugehen:
+- HTTP-Anfragen verwendet, um einen Zustand auf dem Server zu ändern
+- Nur Cookies benutzt, um zu überprüfen, dass die Anfrage von einem authentifizierten Benutzer stammt
+- Nur Parameter in der Anfrage verwendet, die ein Angreifer vorhersagen kann
 
-```html
-<img src="https://www.example.com/index.php?action=delete&id=123" />
-```
-
-Für Benutzer, die Änderungsberechtigungen auf `https://www.example.com` haben, führt das `<img>`-Element eine Aktion auf `https://www.example.com` aus, ohne dass sie es bemerken, selbst wenn das Element nicht auf `https://www.example.com` ist.
-
-Es gibt viele Möglichkeiten, CSRF zu verhindern, wie z.B. die Implementierung von {{Glossary("REST", "RESTful API")}}, das Hinzufügen von sicheren Tokens usw.
+Es gibt mehrere Verteidigungsmaßnahmen gegen CSRF-Angriffe, einschließlich [CSRF-Token](/de/docs/Web/Security/Attacks/CSRF#csrf_tokens), dem Einsatz von [Fetch-Metadaten](/de/docs/Web/Security/Attacks/CSRF#fetch_metadata), um bestimmte siteübergreifende Anfragen zu blockieren, und dem [Setzen des `SameSite`-Attributs](/de/docs/Web/Security/Attacks/CSRF#defense_in_depth_samesite_cookies) auf Cookies, die zur Authentifizierung sensibler Anfragen verwendet werden.
 
 ## Siehe auch
 
-- [Cross-site request forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery) auf Wikipedia
-- [Präventionsmaßnahmen](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+- [Cross-site request forgery](/de/docs/Web/Security/Attacks/CSRF)
+- [Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) auf [owasp.org](https://owasp.org/)

@@ -1,15 +1,13 @@
 ---
-title: Kleiner-oder-gleich (`<=`)
+title: Weniger als oder gleich (<=)
 slug: Web/JavaScript/Reference/Operators/Less_than_or_equal
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Weniger als oder gleich (`<=`)** Operator gibt `true` zurück, wenn der linke Operand kleiner oder gleich dem rechten Operand ist, und `false` andernfalls.
 
-Der **kleiner-oder-gleich (`<=`)** Operator gibt `true` zurück, wenn der linke Operanden kleiner oder gleich dem rechten Operanden ist, und `false` in allen anderen Fällen.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Less than or equal operator")}}
+{{InteractiveExample("JavaScript Demo: Weniger als oder gleich (<=) Operator")}}
 
 ```js interactive-example
 console.log(5 <= 3);
@@ -34,23 +32,23 @@ x <= y
 
 ## Beschreibung
 
-Die Operanden werden mit demselben Algorithmus wie beim [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than)-Operator verglichen, allerdings sind die Operanden vertauscht und das Ergebnis wird negiert. `x <= y` ist im Allgemeinen äquivalent zu `!(y < x)`, außer in zwei Fällen, in denen sowohl `x <= y` als auch `x > y` `false` sind:
+Die Operanden werden unter Verwendung desselben Algorithmus wie der [Weniger als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, wobei die Operanden vertauscht und das Ergebnis negiert wird. `x <= y` ist im Allgemeinen gleichbedeutend mit `!(y < x)`, außer in zwei Fällen, in denen `x <= y` und `x > y` beide `false` sind:
 
-- Wenn einer der Operanden zu einem BigInt konvertiert wird, während der andere in einen String konvertiert wird, der nicht zu einem BigInt-Wert konvertiert werden kann (dies führt zu einem [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax), wenn er an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
-- Wenn einer der Operanden zu `NaN` konvertiert wird (z. B. Strings, die nicht in Zahlen umgewandelt werden können, oder `undefined`).
+- Wenn einer der Operanden zu einem BigInt konvertiert wird, während der andere zu einem String konvertiert wird, der nicht in einen BigInt-Wert umgewandelt werden kann (es tritt ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) auf, wenn er an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
+- Wenn einer der Operanden in `NaN` umgewandelt wird. (Zum Beispiel Strings, die nicht in Zahlen umgewandelt werden können, oder `undefined`.)
 
-Zusätzlich konvertiert `x <= y` `x` zuerst in einen primitiven Wert, während `y < x` `y` zuerst in einen primitiven Wert konvertiert. Da diese Konvertierung Seiteneffekte haben kann, kann die Reihenfolge der Operanden von Bedeutung sein.
+Außerdem zwingt `x <= y` `x`, vor `y` zu einem primitiven Wert zu werden, während `y < x` `y` zwingt, vor `x` zu einem primitiven Wert zu werden. Da eine Typumwandlung Nebenwirkungen haben kann, kann die Reihenfolge der Operanden wichtig sein.
 
-`x <= y` ist im Allgemeinen äquivalent zu `x < y || x == y`, mit Ausnahme einiger Fälle:
+`x <= y` ist im Allgemeinen gleichbedeutend mit `x < y || x == y`, bis auf ein paar Ausnahmen:
 
-- Wenn einer von `x` oder `y` `null` ist, und der andere ein Wert ist, der nicht `null` ist und beim [numerischen Zwang](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) zu 0 wird (einschließlich `0`, `0n`, `false`, `""`, `"0"`, `new Date(0)` usw.): `x <= y` ist `true`, während `x < y || x == y` `false` ist.
-- Wenn einer von `x` oder `y` `undefined` ist, und der andere entweder `null` oder `undefined` ist: `x <= y` ist `false`, während `x == y` `true` ist.
-- Wenn `x` und `y` dasselbe Objekt sind, das nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) zu `NaN` wird (z. B. `new Date(NaN)`): `x <= y` ist `false`, während `x == y` `true` ist.
-- Wenn `x` und `y` verschiedene Objekte sind, die nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) denselben Wert erhalten: `x <= y` ist `true`, während `x < y || x == y` `false` ist.
+- Wenn eines der `x` oder `y` `null` ist, und das andere etwas, das nicht `null` ist und zu 0 wird, wenn es [zu einem numerischen Wert umgewandelt](/de/docs/Web/JavaScript/Guide/Data_structures#numeric_coercion) wird (einschließlich `0`, `0n`, `false`, `""`, `"0"`, `new Date(0)`, usw.): `x <= y` ist `true`, während `x < y || x == y` `false` ist.
+- Wenn eines der `x` oder `y` `undefined`, ist, und das andere eines von `null` oder `undefined` ist: `x <= y` ist `false`, während `x == y` `true` ist.
+- Wenn `x` und `y` dasselbe Objekt sind, das nach dem ersten Schritt von [Weniger als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) zu `NaN` wird (wie `new Date(NaN)`): `x <= y` ist `false`, während `x == y` `true` ist.
+- Wenn `x` und `y` verschiedene Objekte sind, die nach dem ersten Schritt von [Weniger als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) den gleichen Wert erhalten: `x <= y` ist `true`, während `x < y || x == y` `false` ist.
 
 ## Beispiele
 
-### String-zu-String-Vergleich
+### Vergleich von String zu String
 
 ```js
 "a" <= "b"; // true
@@ -58,7 +56,7 @@ Zusätzlich konvertiert `x <= y` `x` zuerst in einen primitiven Wert, während `
 "a" <= "3"; // false
 ```
 
-### String-zu-Zahl-Vergleich
+### Vergleich von String zu Zahl
 
 ```js
 "5" <= 3; // false
@@ -69,7 +67,7 @@ Zusätzlich konvertiert `x <= y` `x` zuerst in einen primitiven Wert, während `
 5 <= "hello"; // false
 ```
 
-### Zahl-zu-Zahl-Vergleich
+### Vergleich von Zahl zu Zahl
 
 ```js
 5 <= 3; // false
@@ -77,7 +75,7 @@ Zusätzlich konvertiert `x <= y` `x` zuerst in einen primitiven Wert, während `
 3 <= 5; // true
 ```
 
-### Zahl-zu-BigInt-Vergleich
+### Vergleich von Zahl zu BigInt
 
 ```js
 5n <= 3; // false
@@ -116,5 +114,5 @@ NaN <= 3; // false
 ## Siehe auch
 
 - [Größer als (`>`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than)
-- [Größer-oder-gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
-- [Kleiner als (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)
+- [Größer als oder gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+- [Weniger als (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)

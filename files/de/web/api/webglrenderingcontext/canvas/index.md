@@ -3,39 +3,33 @@ title: "WebGLRenderingContext: canvas-Eigenschaft"
 short-title: canvas
 slug: Web/API/WebGLRenderingContext/canvas
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 466ca1db767535c1aa9984b4e6c0db41b3a53475
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 Die **`WebGLRenderingContext.canvas`**-Eigenschaft ist ein schreibgeschützter
-Verweis auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas),
-das mit dem Kontext assoziiert ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn sie nicht
+Verweis auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder das [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+Objekt, das mit dem Kontext verbunden ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn sie nicht
 mit einem {{HTMLElement("canvas")}}-Element oder einem [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
-assoziiert ist.
+Objekt verbunden ist.
 
-## Syntax
+## Wert
 
-```js-nolint
-gl.canvas
-```
-
-### Rückgabewert
-
-Entweder ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt oder
+Entweder ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt oder
 [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Beispiele
 
 ### Canvas-Element
 
-Gegeben ist dieses {{HTMLElement("canvas")}}-Element:
+Gegeben sei dieses {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-Sie können über die `canvas`-Eigenschaft des `WebGLRenderingContext` darauf zugreifen:
+Sie können über die `canvas`-Eigenschaft eine Referenz darauf aus dem `WebGLRenderingContext` zurückerhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -45,7 +39,7 @@ gl.canvas; // HTMLCanvasElement
 
 ### Offscreen-Canvas
 
-Ein Beispiel mit dem experimentellen [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt.
+Beispiel mit dem experimentellen [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt.
 
 ```js
 const offscreen = new OffscreenCanvas(256, 256);
@@ -64,4 +58,4 @@ gl.canvas; // OffscreenCanvas
 ## Siehe auch
 
 - [`CanvasRenderingContext2D.canvas`](/de/docs/Web/API/CanvasRenderingContext2D/canvas)
-- Die [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Schnittstelle
+- Das [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Interface

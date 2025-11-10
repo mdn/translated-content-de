@@ -3,20 +3,20 @@ title: "SVGFEComponentTransferElement: in1-Eigenschaft"
 short-title: in1
 slug: Web/API/SVGFEComponentTransferElement/in1
 l10n:
-  sourceCommit: 74fe56c77b1ddf1537cf7da19ea2ad0b6a12e335
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`in1`**-Eigenschaft der [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement)-Schnittstelle spiegelt das {{SVGAttr("in")}}-Attribut des angegebenen {{SVGElement("feComponentTransfer")}}-Elements wider.
+Die **`in1`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement) spiegelt das {{SVGAttr("in")}} Attribut des angegebenen {{SVGElement("feComponentTransfer")}} Elements wider.
 
 ## Wert
 
-Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)-Objekt.
+Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) Objekt.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei {{SVGElement("feComponentTransfer")}}-Elemente in einem Filter definiert, jeweils mit einem unterschiedlichen `in`-Attribut.
+In diesem Beispiel werden zwei {{SVGElement("feComponentTransfer")}} Elemente in einem Filter definiert, jedes mit einem anderen `in` Attribut.
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -33,13 +33,13 @@ In diesem Beispiel werden zwei {{SVGElement("feComponentTransfer")}}-Elemente in
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#filter1)" />
-  <circle cx="100" cy="100" r="50" style="fill:blue;" filter="url(#filter1)" />
+  <circle cx="100" cy="100" r="50" fill="blue" filter="url(#filter1)" />
 </svg>
 ```
 
-Wir können auf das `in`-Attribut zugreifen:
+Wir können auf das `in` Attribut zugreifen:
 
 ```js
 const componentTransfers = document.querySelectorAll("feComponentTransfer");

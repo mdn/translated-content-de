@@ -27,5 +27,5 @@ Die maximale Anzahl von Versuchen, die der Browser unternehmen wird, um eine Nac
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
-- [`RTCDataChannel.maxPacketLifetime`](/de/docs/Web/API/RTCDataChannel/maxPacketLifetime)
+- [`RTCDataChannel.maxPacketLifetime`](/de/docs/Web/API/RTCDataChannel/maxPacketLifeTime)
 - [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

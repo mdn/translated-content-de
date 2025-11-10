@@ -1,15 +1,16 @@
 ---
 title: Temporal.PlainDateTime.prototype.since()
+short-title: since()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/since
 l10n:
-  sourceCommit: 262c13dcbcd394beddd98e07d9c78bc79ce3513c
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die **`since()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von einem anderen Datum-Zeit-Wert (in einer Form, die durch {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} konvertierbar ist) bis zu diesem Datum-Zeit-Wert darstellt. Die Dauer ist positiv, wenn das andere Datum-Zeit-Wert vor diesem liegt, und negativ, wenn es danach liegt.
+Die **`since()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von einem anderen Datum-Uhrzeit (in einer Form, die durch {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} konvertierbar ist) bis zu diesem Datum-Uhrzeit repräsentiert. Die Dauer ist positiv, wenn das andere Datum-Uhrzeit vor diesem Datum-Uhrzeit liegt, und negativ, wenn danach.
 
-Diese Methode führt `this - other` aus. Um `other - this` auszuführen, verwenden Sie die {{jsxref("Temporal/PlainDateTime/until", "until()")}}-Methode.
+Diese Methode führt `this - other` aus. Um `other - this` durchzuführen, verwenden Sie die {{jsxref("Temporal/PlainDateTime/until", "until()")}}-Methode.
 
 ## Syntax
 
@@ -21,13 +22,13 @@ since(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}}-Instanz, die ein Datum-Zeit-Wert darstellt, das von diesem subtrahiert wird. Es wird mit demselben Algorithmus in ein `Temporal.PlainDateTime`-Objekt konvertiert wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}}. Es muss denselben Kalender wie `this` haben.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}}-Instanz, die ein Datum-Uhrzeit repräsentiert, das von diesem Datum-Uhrzeit subtrahiert werden soll. Es wird mit dem gleichen Algorithmus in ein `Temporal.PlainDateTime`-Objekt konvertiert wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}}. Es muss denselben Kalender wie `this` haben.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, einschließlich `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren alle möglichen Einheiten. Für `largestUnit` bedeutet der Standardwert `"auto"` entweder `"days"` oder `smallestUnit`, je nachdem, was größer ist. Für `smallestUnit` ist der Standardwert `"nanoseconds"`. Das aktuelle Datum wird als die Option `relativeTo` verwendet. Beachten Sie, dass die Verwendung von [Einheiten, die größer als `"days"` sind](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations), die Dauer möglicherweise nicht auf andere Kalender oder Daten übertragbar macht.
+  - : Ein Objekt, das die Optionen für {{jsxref("Temporal/Duration/round", "Temporal.Duration.prototype.round()")}} enthält, einschließlich `largestUnit`, `roundingIncrement`, `roundingMode` und `smallestUnit`. `largestUnit` und `smallestUnit` akzeptieren alle möglichen Einheiten. Für `largestUnit` bedeutet der Standardwert `"auto"` entweder `"days"` oder `smallestUnit`, je nachdem, welches größer ist. Für `smallestUnit` ist der Standardwert `"nanoseconds"`. Das aktuelle Datum wird als `relativeTo` Option verwendet. Beachten Sie, dass die Verwendung [von Einheiten größer als `"days"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#calendar_durations) dazu führen kann, dass die Dauer nicht auf andere Kalender oder Daten übertragbar ist.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer von `other` bis zu diesem Datum-Zeit-Wert darstellt. Die Dauer ist positiv, wenn `other` vor diesem Datum-Zeit-Wert liegt, und negativ, wenn es danach liegt.
+Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer _seit_ `other` bis zu diesem Datum-Uhrzeit repräsentiert. Die Dauer ist positiv, wenn `other` vor diesem Datum-Uhrzeit liegt, und negativ, wenn danach.
 
 ### Ausnahmen
 
@@ -66,9 +67,9 @@ console.log(`${duration3.toLocaleString("en-US")} since last billing`);
 // Expected output: "[number] months, [number] days since last billing"
 ```
 
-### Ergebnis runden
+### Runden des Ergebnisses
 
-Standardmäßig wird der Bruchteil von `smallestUnit` abgeschnitten. Sie können ihn mit den Optionen `roundingIncrement` und `roundingMode` aufrunden.
+Standardmäßig wird der Bruchteil der `smallestUnit` abgeschnitten. Sie können ihn mithilfe der Optionen `roundingIncrement` und `roundingMode` aufrunden.
 
 ```js
 const dt1 = Temporal.PlainDateTime.from("2022-01-01T00:00:00");

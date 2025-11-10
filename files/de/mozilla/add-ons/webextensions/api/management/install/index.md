@@ -2,14 +2,12 @@
 title: management.install()
 slug: Mozilla/Add-ons/WebExtensions/API/management/install
 l10n:
-  sourceCommit: d7143e171b5f18fb37a686a7d4947db417fd74f3
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Installiert und aktiviert eine Theme-Erweiterung von der angegebenen URL.
 
-Installiert und aktiviert eine Design-Erweiterung von der angegebenen URL.
-
-Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und funktioniert nur mit signierten Designs.
+Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und funktioniert nur mit signierten Themes.
 
 Dies ist eine asynchrone Funktion, die ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,19 +20,15 @@ browser.management.install(options)
 ### Parameter
 
 - options
-  - : Ein Objekt, das die URL der XPI-Datei des Designs bei [addons.mozilla.org](https://addons.mozilla.org) und optional einen Hash der XPI-Datei, unter Verwendung von sha256 oder stärker, enthält.
+  - : Ein Objekt, das die URL der XPI-Datei des Themes auf [addons.mozilla.org](https://addons.mozilla.org/) und optional einen Hash der XPI-Datei enthält, wobei sha256 oder stärker verwendet wird.
 
 ### Rückgabewert
 
-Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches die in manifest.json für das Design definierte `ExtensionID` enthält.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die in manifest.json definierte `ExtensionID` für das Theme enthält.
 
 ## Beispiele
 
-Durchlaufen Sie eine Liste von Designs:
+Durch eine Liste von Themes blättern:
 
 ```js
 "use strict";
@@ -73,3 +67,7 @@ for (const url of themes) {
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

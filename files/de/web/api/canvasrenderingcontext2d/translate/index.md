@@ -1,14 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: translate()-Methode"
+title: "CanvasRenderingContext2D: translate() Methode"
 short-title: translate()
 slug: Web/API/CanvasRenderingContext2D/translate
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.translate()`**-Methode der Canvas 2D API fügt der aktuellen Matrix eine Translationstransformation hinzu.
+Die **`CanvasRenderingContext2D.translate()`**-Methode der Canvas 2D API fügt der aktuellen Matrix eine Übersetzungstransformation hinzu.
 
 ## Syntax
 
@@ -16,16 +16,16 @@ Die **`CanvasRenderingContext2D.translate()`**-Methode der Canvas 2D API fügt d
 translate(x, y)
 ```
 
-Die `translate()`-Methode fügt der aktuellen Matrix eine Translationstransformation hinzu, indem sie die Leinwand und deren Ursprung um `x` Einheiten horizontal und `y` Einheiten vertikal im Raster verschiebt.
+Die `translate()`-Methode fügt der aktuellen Matrix eine Übersetzungstransformation hinzu, indem sie die Leinwand und ihren Ursprung um `x` Einheiten horizontal und `y` Einheiten vertikal im Raster verschiebt.
 
-![Der Ursprung einer Leinwand wird basierend auf den Werten der translate-Methode auf den x- und y-Achsen verschoben.](canvas_grid_translate.png)
+![Der Ursprung einer Leinwand wurde auf den x- und y-Achsen basierend auf den Werten der translate-Methode verschoben.](canvas_grid_translate.png)
 
 ### Parameter
 
 - `x`
-  - : Entfernung, die in horizontaler Richtung verschoben werden soll. Positive Werte sind nach rechts und negative nach links.
+  - : Entfernung für die Bewegung in horizontaler Richtung. Positive Werte sind nach rechts, negative nach links.
 - `y`
-  - : Entfernung, die in vertikaler Richtung verschoben werden soll. Positive Werte sind nach unten und negative nach oben.
+  - : Entfernung für die Bewegung in vertikaler Richtung. Positive Werte sind nach unten, negative nach oben.
 
 ### Rückgabewert
 
@@ -33,9 +33,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verschieben einer Form
+### Bewegung einer Form
 
-Dieses Beispiel zeichnet ein Quadrat, das von seiner Standardposition mithilfe der `translate()`-Methode verschoben wird. Ein unverändertes Quadrat derselben Größe wird dann zum Vergleich gezeichnet.
+Dieses Beispiel zeichnet ein Quadrat, das mit der `translate()`-Methode von seiner Standardposition verschoben wird. Ein nicht verschobenes Quadrat gleicher Größe wird dann zum Vergleich gezeichnet.
 
 #### HTML
 
@@ -66,7 +66,7 @@ ctx.fillRect(0, 0, 80, 80);
 
 #### Ergebnis
 
-Das verschobene Quadrat ist rot, und das unveränderte Quadrat ist grau.
+Das verschobene Quadrat ist rot, und das nicht verschobene Quadrat ist grau.
 
 {{ EmbedLiveSample('Moving_a_shape', 700, 180) }}
 

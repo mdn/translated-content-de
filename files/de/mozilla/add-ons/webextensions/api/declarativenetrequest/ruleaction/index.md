@@ -2,12 +2,10 @@
 title: declarativeNetRequest.RuleAction
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleAction
 l10n:
-  sourceCommit: 9156c03a71d64ed2fdba4e94d651e4c745660f24
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Details der Aktion, die durchgeführt werden soll, wenn eine Regel übereinstimmt, als die `action`-Eigenschaft einer {{WebExtAPIRef("declarativeNetRequest.Rule")}}.
+Details der Aktion, die ausgeführt wird, wenn eine Regel übereinstimmt, als die `action`-Eigenschaft eines {{WebExtAPIRef("declarativeNetRequest.Rule")}}.
 
 ## Typ
 
@@ -16,11 +14,11 @@ Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
 - `redirect` {{optional_inline}}
   - : {{WebExtAPIRef("declarativeNetRequest.Redirect")}}. Beschreibt, wie die Umleitung durchgeführt werden soll. Nur gültig für Umleitungsregeln.
 - `requestHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}}. Die Anfrage-Header, die für die Anfrage modifiziert werden sollen. Nur gültig, wenn `type` `"modifyHeaders"` ist.
+  - : {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}}. Die Anforderungsheader, die für die Anfrage geändert werden sollen. Nur gültig, wenn `type` `"modifyHeaders"` ist.
 - `responseHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}}. Die Antwort-Header, die für die Anfrage modifiziert werden sollen. Nur gültig, wenn `type` `"modifyHeaders"` ist.
+  - : {{WebExtAPIRef("declarativeNetRequest.ModifyHeaderInfo")}}. Die Antwortheader, die für die Anfrage geändert werden sollen. Nur gültig, wenn `type` `"modifyHeaders"` ist.
 - `type`
-  - : Ein `string`. Der Typ der auszuführenden Aktion. Mögliche Werte sind `"block"`, `"redirect"`, `"allow"`, `"upgradeScheme"`, `"modifyHeaders"` und `"allowAllRequests"`. Die Verwendung der Aktionen `"redirect"` und `"modifyHeaders"` erfordert [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Anfrage und den Anfange initiator. Die Aktionen "block" und "upgradeScheme" erfordern ebenfalls Host-Berechtigungen, es sei denn, die Berechtigung "declarativeNetRequest" ist angegeben. Ohne diese Berechtigungen werden übereinstimmende Regeln ignoriert. Weitere Informationen finden Sie unter [Berechtigungen bei declarativeNetRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions). Weitere Details zu den Auswirkungen von Regelaktionen finden Sie in [Matching precedence](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedence).
+  - : Ein `string`. Der Typ der Aktion, die ausgeführt werden soll. Mögliche Werte sind `"block"`, `"redirect"`, `"allow"`, `"upgradeScheme"`, `"modifyHeaders"` und `"allowAllRequests"`. Die Verwendung der `"redirect"`- und `"modifyHeaders"`-Aktionen erfordert [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die Anfrage und den Anfragesteller. Die "block"- und "upgradeScheme"-Aktionen erfordern ebenfalls Host-Berechtigungen, es sei denn, die "declarativeNetRequest"-Berechtigung ist angegeben. Ohne diese Berechtigungen werden übereinstimmende Regeln ignoriert. Siehe [Berechtigungen bei declarativeNetRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions) für weitere Informationen. Mehr Details über die Auswirkungen von Regelaktionen sind in [Übereinstimmungsrangfolge](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedence) zu finden.
 
 {{WebExtExamples("h2")}}
 

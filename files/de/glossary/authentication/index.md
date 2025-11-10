@@ -1,23 +1,21 @@
 ---
-title: Authentication
+title: Authentifizierung
 slug: Glossary/Authentication
 l10n:
-  sourceCommit: 66afe9b59c609043c91e51487cfcecaecbbadb3d
+  sourceCommit: 79f65d8322a4e55e9f3f4c91441c9188dbe670e0
 ---
 
-{{GlossarySidebar}}
+**Authentifizierung** ist allgemein der Prozess, in dem überprüft wird, ob eine Tatsache echt ist. Spezieller, in der Web-Sicherheit, ist es der Prozess zur Überprüfung der behaupteten Identität einer Entität, wie beispielsweise eines Benutzers. Dadurch wird es möglich zu entscheiden, ob dem Benutzer der angeforderte Zugang gewährt wird, wie beispielsweise die Anmeldung bei einem bestimmten Konto.
 
-**Authentication** ist im Allgemeinen der Prozess, bei dem bewiesen wird, dass eine Tatsache echt ist. Genauer gesagt, ist sie in der Web-Sicherheit der Prozess der Überprüfung der angegebenen Identität einer Entität, zum Beispiel eines Benutzers. Dies ermöglicht es dann, zu entscheiden, ob dem Benutzer der angeforderte Zugriff gewährt wird, wie zum Beispiel das Anmelden in einem bestimmten Konto.
+Die Authentifizierung erfolgt typischerweise, indem ein Benutzer eine Benutzerkennung zusammen mit einem {{Glossary("credential", "Credential")}} vorlegt, wie ein Passwort, ein einmaliger Code oder eine mit einem privaten Schlüssel signierte Bestätigung. Das System prüft dann die Bindung zwischen der Benutzerkennung und dem Credential, um zu entscheiden, ob der Benutzer authentifiziert wird oder nicht.
 
-Die Authentifizierung erfolgt typischerweise dadurch, dass ein Benutzer einen Benutzeridentifikator zusammen mit einem {{Glossary("credential", "credential")}}, wie ein Passwort, einen einmaligen SMS-Code oder eine mit einem privaten Schlüssel signierte Assertion, präsentiert. Das System überprüft dann die Verbindung zwischen dem Benutzeridentifikator und dem Berechtigungsnachweis, um zu entscheiden, ob der Benutzer authentifiziert werden soll oder nicht.
-
-Arten von Authentifizierungsinformationen, auch als _Authentifizierungsfaktoren_ bezeichnet, werden üblicherweise in drei Kategorien unterteilt:
+Arten von Authentifizierungsinformationen, auch _Authentifizierungsfaktoren_ genannt, werden üblicherweise in drei Kategorien unterteilt:
 
 - Etwas, das der Benutzer weiß, wie ein Passwort.
 - Etwas, das der Benutzer hat, wie ein Telefon.
 - Etwas, das der Benutzer ist, wie ein Fingerabdruck.
 
-Multi-Factor-Authentication (MFA)-Systeme erfordern, dass der Benutzer mehr als einen Faktor bereitstellt: zum Beispiel ein Passwort in Kombination mit einem einmaligen Code, der an das Telefon des Benutzers gesendet wird.
+{{Glossary("Multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} (MFA)-Systeme erfordern, dass der Benutzer mehr als einen Faktor bereitstellt: zum Beispiel ein Passwort kombiniert mit einem einmaligen Code, der mit einer Authenticator-App auf dem Telefon des Benutzers generiert wird.
 
 ## Siehe auch
 

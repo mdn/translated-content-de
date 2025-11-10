@@ -1,30 +1,29 @@
 ---
 title: Was ist schiefgelaufen? JavaScript-Fehlerbehebung
+short-title: Troubleshooting
 slug: Learn_web_development/Core/Scripting/What_went_wrong
 l10n:
-  sourceCommit: f4c2549e1b871a2236f3c759c49eb660994029dd
+  sourceCommit: 7d8ee59e2e9abaa903f883d0d0361d4d5a9a4498
 ---
-
-{{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/A_first_splash", "Learn_web_development/Core/Scripting/Variables", "Learn_web_development/Core/Scripting")}}
 
-Als Sie das "Errate die Zahl"-Spiel im vorherigen Artikel aufgebaut haben, haben Sie vielleicht festgestellt, dass es nicht funktionierte. Keine Sorge — dieser Artikel soll Ihnen davor bewahren, bei solchen Problemen verzweifelt zu werden, indem er Ihnen einige Tipps gibt, wie Sie Fehler in JavaScript-Programmen finden und beheben können.
+Als Sie im vorherigen Artikel das Spiel "Errate die Zahl" aufgebaut haben, haben Sie möglicherweise festgestellt, dass es nicht funktioniert. Keine Sorge — dieser Artikel soll Ihnen helfen, nicht zu verzweifeln, indem er Ihnen einige Tipps gibt, wie Sie Fehler in JavaScript-Programmen finden und beheben können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, grundlegende Erfahrung im Schreiben von JavaScript.</td>
+      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, sowie grundlegende Erfahrung mit dem Schreiben von JavaScript.</td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen der Fehlerarten, die in JavaScript auftreten können.</li>
-          <li>Verwendung von <code>console.log()</code> zur Fehlersuche.</li>
-          <li>Grundlegende Erfahrung in der Verwendung der JavaScript-Konsole der Entwicklerwerkzeuge des Browsers.</li>
-          <li>Grundlegende Vertrautheit mit JavaScript-Fehlermeldungen und deren Bedeutung.</li>
+          <li>Verständnis der Arten von Fehlern, die in JavaScript auftreten können.</li>
+          <li>Verwendung von <code>console.log()</code> zur Fehlerbehebung.</li>
+          <li>Grundlegende Erfahrung mit der Verwendung der JavaScript-Konsole der Browser-Entwicklertools.</li>
+          <li>Grundlegendes Verständnis von JavaScript-Fehlermeldungen und deren Bedeutung.</li>
         </ul>
       </td>
     </tr>
@@ -33,39 +32,39 @@ Als Sie das "Errate die Zahl"-Spiel im vorherigen Artikel aufgebaut haben, haben
 
 ## Fehlerarten
 
-Im Allgemeinen gibt es zwei Haupttypen von Fehlern, auf die Sie stoßen, wenn Sie im Code etwas falsch machen:
+Grundsätzlich gibt es zwei Hauptarten von Fehlern, auf die Sie stoßen werden, wenn etwas im Code schiefgeht:
 
-- **Syntaxfehler**: Dies sind Rechtschreibfehler in Ihrem Code, die tatsächlich dazu führen, dass das Programm gar nicht läuft oder mittendrin aufhört zu funktionieren — in der Regel werden Ihnen auch Fehlermeldungen angezeigt. Diese sind normalerweise nicht allzu schwer zu beheben, solange Sie mit den richtigen Werkzeugen vertraut sind und wissen, was die Fehlermeldungen bedeuten!
-- **Logikfehler**: Dies sind Fehler, bei denen die Syntax zwar korrekt ist, der Code jedoch nicht das tut, was Sie beabsichtigt haben. Das bedeutet, dass das Programm erfolgreich ausgeführt wird, aber falsche Ergebnisse liefert. Diese sind oft schwieriger zu beheben als Syntaxfehler, da es in der Regel keine Fehlermeldung gibt, die Sie auf die Fehlerquelle hinweist.
+- **Syntaxfehler**: Dies sind Rechtschreibfehler in Ihrem Code, die dazu führen, dass das Programm überhaupt nicht läuft oder mitten im Betrieb aufhört zu funktionieren. Sie erhalten in der Regel auch einige Fehlermeldungen. Diese sind in der Regel nicht allzu schwer zu beheben, solange Sie mit den richtigen Werkzeugen vertraut sind und wissen, was die Fehlermeldungen bedeuten!
+- **Logikfehler**: Dies sind Fehler, bei denen die Syntax korrekt ist, der Code aber nicht das ausführt, was Sie beabsichtigt haben. Das bedeutet, dass das Programm erfolgreich läuft, aber falsche Ergebnisse liefert. Diese sind oft schwerer zu beheben als Syntaxfehler, da es normalerweise keine Fehlermeldung gibt, die die Quelle des Fehlers anzeigt.
 
-Okay, so einfach ist es dann doch nicht — es gibt noch einige andere Unterscheidungen, wenn Sie tiefer einsteigen. Aber die obigen Klassifikationen reichen in dieser frühen Phase Ihrer Karriere aus. Wir werden uns im Folgenden mit beiden Fehlerarten befassen.
+Okay, es ist nicht ganz _so_ einfach — es gibt einige weitere Differenzierungen, wenn Sie tiefer eintauchen. Aber die obigen Klassifikationen reichen in diesem frühen Stadium Ihrer Karriere aus. Wir werden uns im Folgenden beide Arten ansehen.
 
 ## Ein fehlerhaftes Beispiel
 
-Um zu beginnen, kehren wir zu unserem Zahlerratenspiel zurück — nur dass wir diesmal eine Version untersuchen, die einige absichtlich eingeführte Fehler enthält. Gehen Sie zu GitHub und erstellen Sie sich eine lokale Kopie von [number-game-errors.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/troubleshooting/number-game-errors.html) (sehen Sie sich das [live hier an](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/troubleshooting/number-game-errors.html)).
+Um zu beginnen, kehren wir zu unserem Zahlratespiel zurück — dieses Mal werden wir jedoch eine Version erkunden, in der absichtlich Fehler eingeführt wurden. Gehen Sie zu GitHub und machen Sie sich eine lokale Kopie von [number-game-errors.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/troubleshooting/number-game-errors.html) (sehen Sie sich das [Live-Betrieb hier](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/troubleshooting/number-game-errors.html) an).
 
-1. Öffnen Sie zu Beginn die lokale Kopie in Ihrem bevorzugten Texteditor und in Ihrem Browser.
-2. Versuchen Sie, das Spiel zu spielen — Sie werden feststellen, dass es nicht funktioniert, wenn Sie die Schaltfläche "Versuch abschicken" drücken!
+1. Öffnen Sie zu Beginn die lokale Kopie in Ihrem bevorzugten Texteditor und Ihrem Browser.
+2. Versuchen Sie, das Spiel zu spielen — Sie werden feststellen, dass der "Rate abgeben"-Button nicht funktioniert!
 
 > [!NOTE]
-> Möglicherweise haben Sie auch Ihre eigene Version des Spielbeispiels, das nicht funktioniert und das Sie reparieren möchten! Wir möchten dennoch, dass Sie den Artikel mit unserer Version durcharbeiten, damit Sie die hier vermittelten Techniken lernen. Dann können Sie zurückgehen und versuchen, Ihr Beispiel zu reparieren.
+> Möglicherweise haben Sie Ihre eigene Version des Spielexemplars, die nicht funktioniert und die Sie reparieren möchten! Wir möchten trotzdem, dass Sie den Artikel mit unserer Version durcharbeiten, damit Sie die Techniken lernen, die wir hier lehren. Danach können Sie versuchen, Ihr eigenes Beispiel zu verbessern.
 
-An diesem Punkt werfen wir einen Blick in die Entwicklerkonsole, um zu sehen, ob sie Syntaxfehler meldet, und versuchen dann, diese zu beheben. Sie lernen weiter unten, wie das geht.
+Zu diesem Zeitpunkt sollten wir die Entwicklerkonsole konsultieren, um zu sehen, ob sie Syntaxfehler meldet, und diese dann zu beheben. Sie lernen unten, wie das geht.
 
 ## Behebung von Syntaxfehlern
 
-Früher im Kurs haben wir Sie dazu gebracht, einige einfache JavaScript-Befehle in die [JavaScript-Konsole der Entwicklerwerkzeuge](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) einzugeben (wenn Sie sich nicht erinnern können, wie Sie diese in Ihrem Browser öffnen, folgen Sie dem vorangehenden Link, um herauszufinden, wie). Was noch nützlicher ist, ist, dass Ihnen die Konsole Fehlermeldungen anzeigt, wann immer ein Syntaxfehler im JavaScript besteht, das in die JavaScript-Engine des Browsers eingegeben wird. Jetzt gehen wir auf die Suche.
+Früher im Kurs baten wir Sie, einige einfache JavaScript-Befehle in die [JavaScript-Konsole der Entwicklungstools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) einzugeben (wenn Sie sich nicht erinnern können, wie Sie diese in Ihrem Browser öffnen, folgen Sie dem vorherigen Link, um zu erfahren, wie). Was noch nützlicher ist: Die Konsole gibt Ihnen Fehlermeldungen, wann immer ein Syntaxfehler im JavaScript existiert, das in die JavaScript-Engine des Browsers eingespeist wird. Gehen wir nun auf die Fehlersuche.
 
-1. Gehen Sie zu dem Tab, in dem Sie `number-game-errors.html` geöffnet haben, und öffnen Sie Ihre JavaScript-Konsole. Sie sollten eine Fehlermeldung in etwa folgender Form sehen: !["Number guessing game" Demo-Seite in Firefox. Ein Fehler ist in der JavaScript-Konsole sichtbar: "X TypeError: guessSubmit.addeventListener is not a function [Mehr erfahren] (number-game-errors.html:87:19)".](not-a-function.png)
-2. Die erste Zeile der Fehlermeldung lautet:
+1. Gehen Sie zu dem Tab, in dem Sie `number-game-errors.html` geöffnet haben, und öffnen Sie Ihre JavaScript-Konsole. Sie sollten eine Fehlermeldung etwa wie folgt sehen: !["Number guessing game" Demo-Seite in Firefox. Ein Fehler ist in der JavaScript-Konsole sichtbar: "X TypeError: guessSubmit.addeventListener is not a function [Learn More] (number-game-errors.html:87:19)".](not-a-function.png)
+2. Die erste Zeile der Fehlermeldung ist:
 
    ```plain
    Uncaught TypeError: guessSubmit.addeventListener is not a function
    number-game-errors.html:87:19
    ```
 
-   - Der erste Teil, `Uncaught TypeError: guessSubmit.addeventListener is not a function`, sagt uns etwas darüber, was schiefgelaufen ist.
-   - Der zweite Teil, `number-game-errors.html:87:19`, sagt uns, wo im Code der Fehler aufgetreten ist: Zeile 87, Zeichen 19 der Datei "number-game-errors.html".
+   - Der erste Teil, `Uncaught TypeError: guessSubmit.addeventListener is not a function`, teilt uns mit, was schiefgelaufen ist.
+   - Der zweite Teil, `number-game-errors.html:87:19`, gibt uns den Ort im Code an, von dem der Fehler stammt: Zeile 87, Zeichen 19 der Datei "number-game-errors.html".
 
 3. Wenn wir uns Zeile 87 in unserem Code-Editor ansehen, finden wir diese Zeile:
 
@@ -73,157 +72,157 @@ Früher im Kurs haben wir Sie dazu gebracht, einige einfache JavaScript-Befehle 
    guessSubmit.addeventListener("click", checkGuess);
    ```
 
-4. Die Fehlermeldung lautet: "guessSubmit.addeventListener is not a function", was bedeutet, dass die Funktion, die wir aufrufen, vom JavaScript-Interpreter nicht erkannt wird. Oft bedeutet diese Fehlermeldung tatsächlich, dass wir etwas falsch geschrieben haben. Wenn Sie sich nicht sicher sind, wie die richtige Schreibweise eines Syntaxelements lautet, ist es oft gut, nach der Funktion auf MDN zu suchen. Der beste Weg, dies derzeit zu tun, besteht darin, mit Ihrer bevorzugten Suchmaschine nach "mdn _name-of-feature_" zu suchen. Hier ist eine Abkürzung, um Ihnen in diesem Fall etwas Zeit zu sparen: [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
-5. Wenn wir die Seite betrachten, scheint der Fehler darin zu bestehen, dass wir den Funktionsnamen falsch geschrieben haben! Denken Sie daran, dass JavaScript zwischen Groß- und Kleinschreibung unterscheidet, daher führt jeder kleine Unterschied in der Schreibweise oder Groß-/Kleinschreibung zu einem Fehler. Das Ändern von `addeventListener` zu `addEventListener` sollte dies beheben. Machen Sie das jetzt.
+4. Die Fehlermeldung sagt "guessSubmit.addeventListener is not a function", was bedeutet, dass die aufgerufene Funktion vom JavaScript-Interpreter nicht erkannt wird. Oft bedeutet diese Fehlermeldung, dass wir etwas falsch geschrieben haben. Wenn Sie sich der korrekten Schreibweise eines Teils der Syntax nicht sicher sind, ist es oft gut, das Feature auf MDN nachzuschlagen. Der beste Weg, dies derzeit zu tun, ist die Suche nach "mdn _name-of-feature_" mit Ihrer bevorzugten Suchmaschine. Hier ist eine Abkürzung, um Ihnen in diesem Fall etwas Zeit zu sparen: [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+5. Der Blick auf diese Seite zeigt, dass wir den Funktionsnamen falsch geschrieben haben! Denken Sie daran, dass JavaScript zwischen Groß- und Kleinschreibung unterscheidet, sodass bereits ein geringer Unterschied in Schreibweise oder Groß-/Kleinschreibung einen Fehler verursachen kann. Das Ändern von `addeventListener` zu `addEventListener` sollte dieses Problem beheben. Tun Sie dies jetzt.
 
 > [!NOTE]
-> Weitere Einzelheiten zu diesem Fehler finden Sie auf unserer Referenzseite [TypeError: "x" is not a function](/de/docs/Web/JavaScript/Reference/Errors/Not_a_function).
+> Siehe unsere Referenzseite [TypeError: "x" is not a function](/de/docs/Web/JavaScript/Reference/Errors/Not_a_function) für mehr Details zu diesem Fehler.
 
 ### Syntaxfehler Runde zwei
 
 1. Speichern Sie Ihre Seite und aktualisieren Sie sie, und Sie sollten sehen, dass der Fehler verschwunden ist.
-2. Wenn Sie jetzt versuchen, einen Tipp einzugeben und die Schaltfläche "Versuch abschicken" zu drücken, sehen Sie einen weiteren Fehler! ![Screenshot des gleichen Demos "Number guessing game". Diesmal ist ein anderer Fehler in der Konsole sichtbar, der lautet: "X TypeError: lowOrHi is null".](variable-is-null.png)
-3. Diesmal lautet der gemeldete Fehler:
+2. Wenn Sie nun versuchen, eine Zahl einzugeben und den "Rate abgeben"-Button zu drücken, erhalten Sie einen weiteren Fehler! ![Screenshot von derselben "Number guessing game" Demo. Dieses Mal ist ein anderer Fehler in der Konsole sichtbar, der "X TypeError: lowOrHi is null" lautet.](variable-is-null.png)
+3. Dieses Mal wird der folgende Fehler gemeldet:
 
    ```plain
    Uncaught TypeError: can't access property "textContent", lowOrHi is null
    ```
 
-   Abhängig vom verwendeten Browser können Sie hier eine andere Meldung sehen. Die obige Meldung ist das, was Ihnen Firefox zeigt, aber Chrome zeigt Ihnen zum Beispiel Folgendes:
+   Je nach verwendetem Browser sehen Sie hier möglicherweise eine andere Meldung. Die oben genannte Nachricht zeigt Ihnen Firefox, aber Chrome zeigt Ihnen beispielsweise dies:
 
    ```plain
    Uncaught TypeError: Cannot set properties of null (setting 'textContent')
    ```
 
-   Es ist derselbe Fehler, aber unterschiedliche Browser beschreiben ihn auf unterschiedliche Weise.
+   Es ist derselbe Fehler, aber verschiedene Browser beschreiben ihn auf unterschiedliche Weise.
 
    > [!NOTE]
-   > Dieser Fehler trat nicht sofort auf, als die Seite geladen wurde, weil dieser Fehler innerhalb einer Funktion (innerhalb des Blockes `checkGuess() { }`) auftrat. Wie Sie in unserem späteren [Funktionen-Artikel](/de/docs/Learn_web_development/Core/Scripting/Functions) ausführlicher lernen werden, wird Code innerhalb von Funktionen in einem separaten Bereich als Code außerhalb von Funktionen ausgeführt. In diesem Fall wurde der Code nicht ausgeführt und der Fehler wurde nicht ausgelöst, bis die Funktion `checkGuess()` durch Zeile 87 ausgeführt wurde.
+   > Dieser Fehler trat nicht sofort beim Laden der Seite auf, da dieser Fehler innerhalb einer Funktion (im Block `checkGuess() { }`) auftrat. Wie Sie detaillierter in unserem späteren [Artikel über Funktionen](/de/docs/Learn_web_development/Core/Scripting/Functions) lernen werden, wird der Code innerhalb von Funktionen in einem separaten Bereich ausgeführt als der Code außerhalb von Funktionen. In diesem Fall wurde der Code nicht ausgeführt und der Fehler wurde nicht ausgelöst, bis die `checkGuess()`-Funktion durch Zeile 87 ausgeführt wurde.
 
-4. Die in der Fehlermeldung angegebene Zeilennummer ist 79. Werfen Sie einen Blick auf Zeile 79, und Sie werden den folgenden Code sehen:
+4. Die im Fehler angegebene Zeilennummer ist 79. Schauen Sie sich Zeile 79 an, und Sie sehen den folgenden Code:
 
    ```js
    lowOrHi.textContent = "Last guess was too high!";
    ```
 
-5. Diese Zeile versucht, die Eigenschaft `textContent` der Variablen `lowOrHi` auf eine Textzeichenkette zu setzen, aber es funktioniert nicht, weil `lowOrHi` nicht das enthält, was es soll. Sehen wir uns an, warum das so ist — versuchen Sie, nach anderen Instanzen von `lowOrHi` im Code zu suchen. Die früheste Instanz, die Sie finden, ist in Zeile 51:
+5. Diese Zeile versucht, die `textContent`-Eigenschaft der Variablen `lowOrHi` auf eine Zeichenkette zu setzen, aber es funktioniert nicht, weil `lowOrHi` nicht das enthält, was es soll. Schauen wir mal, warum das so ist — versuchen Sie, nach anderen Instanzen von `lowOrHi` im Code zu suchen. Die früheste Instanz finden Sie in Zeile 51:
 
    ```js
    const lowOrHi = document.querySelector("lowOrHi");
    ```
 
-6. An diesem Punkt versuchen wir, die Variable mit einem Verweis auf ein Element im HTML-Dokument zu füllen. Lassen Sie uns sehen, was die Variable nach dem Ausführen dieser Zeile enthält. Fügen Sie folgenden Code in Zeile 54 hinzu:
+6. An diesem Punkt versuchen wir, die Variable so einzustellen, dass sie einen Verweis auf ein Element im HTML-Dokument enthält. Schauen wir, was die Variable nach dieser Zeile enthält. Fügen Sie den folgenden Code in Zeile 54 hinzu:
 
    ```js
    console.log(lowOrHi);
    ```
 
-   Dieser Code druckt den Wert von `lowOrHi` in der Konsole aus, nachdem wir versucht haben, ihn in Zeile 51 zu setzen. Weitere Informationen finden Sie unter [`console.log()`](/de/docs/Web/API/Console/log_static).
+   Dieser Code gibt den Wert von `lowOrHi` in der Konsole aus, nachdem wir versucht haben, ihn in Zeile 51 zu setzen. Siehe [`console.log()`](/de/docs/Web/API/console/log_static) für mehr Informationen.
 
-7. Speichern und aktualisieren Sie die Seite, und Sie sollten nun das `console.log()`-Ergebnis in Ihrer Konsole sehen. ![Screenshot des gleichen Demos. Eine Log-Anweisung ist in der Konsole sichtbar, die einfach "null" liest.](console-log-output.png) Sicher genug, der Wert von `lowOrHi` ist an diesem Punkt `null`, und das stimmt mit der Firefox-Fehlermeldung `lowOrHi is null` überein. Es gibt also definitiv ein Problem mit Zeile 51. Der Wert [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) bedeutet "nichts" oder "kein Wert". Unser Code, um `lowOrHi` auf ein Element zu setzen, funktioniert also nicht.
+7. Speichern und aktualisieren Sie, und Sie sollten nun das `console.log()`-Ergebnis in Ihrer Konsole sehen. ![Screenshot der gleichen Demo. Eine Protokollanweisung ist in der Konsole sichtbar, die einfach "null" liest.](console-log-output.png) Sicher genug, `lowOrHi` hat zu diesem Zeitpunkt den Wert `null`, und dies stimmt mit der Firefox-Fehlermeldung `lowOrHi is null` überein. Es gibt also definitiv ein Problem mit Zeile 51. Der [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) Wert bedeutet "nichts" oder "kein Wert". Unser Code, um `lowOrHi` auf ein Element festzulegen, geht also falsch.
 
-8. Lassen Sie uns überlegen, was das Problem sein könnte. Zeile 51 verwendet eine Methode [`document.querySelector()`](/de/docs/Web/API/Document/querySelector), um einen Verweis auf ein Element zu erhalten, indem es mit einem CSS-Selektor ausgewählt wird. Schauen wir weiter oben in unserer Datei nach, wir können den betreffenden Absatz finden:
+8. Überlegen wir mal, was das Problem sein könnte. Zeile 51 verwendet eine [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) Methode, um einen Verweis auf ein Element zu erhalten, indem es mit einem CSS-Selektor ausgewählt wird. Weiter oben in unserer Datei finden wir den betreffenden Absatz:
 
    ```html
    <p class="lowOrHi"></p>
    ```
 
-9. Wir brauchen also einen Klassenselektor hier, der mit einem Punkt (`.`) beginnt, aber der Selektor, der in der Methode `querySelector()` in Zeile 51 übergeben wird, hat keinen Punkt. Das könnte das Problem sein! Versuchen Sie, `lowOrHi` in Zeile 51 in `.lowOrHi` zu ändern.
-10. Speichern und aktualisieren Sie die Seite erneut, und Ihre `console.log()`-Anweisung sollte das gewünschte `<p>`-Element zurückgeben. Puh! Ein weiterer Fehler behoben! Sie können Ihre `console.log()`-Zeile jetzt löschen oder sie behalten, um später darauf zu verweisen — Ihre Wahl.
+9. Wir benötigen hier also einen Klassenselektor, der mit einem Punkt (`.`) beginnt, aber der Selektor, der in die `querySelector()`-Methode in Zeile 51 übergeben wird, hat keinen Punkt. Das könnte das Problem sein! Versuchen Sie, `lowOrHi` in Zeile 51 in `.lowOrHi` zu ändern.
+10. Versuchen Sie es erneut zu speichern und zu aktualisieren, und Ihre `console.log()`-Anweisung sollte nun das `<p>` Element zurückgeben, das wir wollen. Puh! Ein weiterer Fehler behoben! Sie können Ihre `console.log()`-Zeile jetzt löschen oder sie zur späteren Ansicht behalten — ganz Ihnen überlassen.
 
 > [!NOTE]
-> Weitere Einzelheiten zu diesem Fehler finden Sie auf unserer Referenzseite [TypeError: "x" is (not) "y"](/de/docs/Web/JavaScript/Reference/Errors/Unexpected_type).
+> Siehe unsere Referenzseite [TypeError: "x" is (not) "y"](/de/docs/Web/JavaScript/Reference/Errors/Unexpected_type) für mehr Details zu diesem Fehler.
 
 ### Syntaxfehler Runde drei
 
-1. Wenn Sie das Spiel jetzt noch einmal versuchen, sollten Sie mehr Erfolg haben — das Spiel sollte einwandfrei laufen, bis Sie das Spiel beenden, entweder indem Sie die richtige Zahl erraten oder alle Versuche aufgebraucht haben.
-2. An diesem Punkt schlägt das Spiel erneut fehl, und es wird derselbe Fehler ausgeworfen, den wir am Anfang bekamen — "TypeError: resetButton.addeventListener is not a function"! Allerdings wird diesmal angegeben, dass er aus Zeile 95 stammt.
-3. Betrachtet man Zeile 95, ist es einfach zu sehen, dass wir hier denselben Fehler gemacht haben. Wir müssen hier einfach `addeventListener` in `addEventListener` ändern. Machen Sie das jetzt.
+1. Wenn Sie jetzt versuchen, das Spiel erneut zu spielen, sollten Sie mehr Erfolg haben — das Spiel sollte absolut in Ordnung sein, bis Sie das Spiel beenden, entweder indem Sie die richtige Zahl erraten, oder indem Sie keine Versuche mehr haben.
+2. Zu diesem Zeitpunkt schlägt das Spiel erneut fehl, und derselbe Fehler wird wie zu Beginn ausgegeben — "TypeError: resetButton.addeventListener is not a function"! Dieses Mal wird er jedoch als aus Zeile 95 stammend gelistet.
+3. Wenn wir uns Zeile 95 ansehen, ist es leicht zu erkennen, dass wir hier denselben Fehler gemacht haben. Wir müssen lediglich `addeventListener` in `addEventListener` ändern. Tun Sie dies jetzt.
 
 ## Ein Logikfehler
 
-An diesem Punkt sollte das Spiel einwandfrei ablaufen, jedoch werden Sie nach ein paar Durchläufen zweifellos feststellen, dass das Spiel immer 1 als die "zufällige" Zahl auswählt, die Sie erraten müssen. Definitiv nicht so, wie wir das Spiel ablaufen lassen wollen!
+An diesem Punkt sollte das Spiel einwandfrei laufen, jedoch werden Sie nach einigen Durchläufen unweigerlich feststellen, dass das Spiel immer die Zahl 1 als "zufällige" Zahl auswählt, die Sie erraten sollen. Definitiv nicht ganz so, wie wir das Spiel ablaufen lassen wollen!
 
-Es gibt definitiv ein Problem in der Spiel-Logik irgendwo — das Spiel gibt keinen Fehler zurück; es läuft einfach nicht richtig.
+Es gibt definitiv ein Problem in der Spiellogik irgendwo — das Spiel gibt keinen Fehler zurück; es läuft einfach nicht richtig.
 
-1. Suchen Sie nach der Variablen `randomNumber` und den Zeilen, in denen die Zufallszahl zuerst festgelegt wird. Die Instanz, die die zufällig zu erratende Zahl zu Beginn des Spiels speichert, sollte sich ungefähr in Zeile 47 befinden:
+1. Suchen Sie nach der Variablen `randomNumber` und nach den Zeilen, in denen die zufällige Zahl zuerst gesetzt wird. Die Instanz, die die zufällige Zahl speichert, die wir am Anfang des Spiels erraten wollen, sollte sich um Zeile 47 befinden:
 
    ```js
    let randomNumber = Math.floor(Math.random()) + 1;
    ```
 
-2. Und die, die die Zufallszahl vor jedem folgenden Spiel generiert, sich in etwa in Zeile 114:
+2. Und diejenige, die die zufällige Zahl vor jedem nachfolgenden Spiel generiert, befindet sich um Zeile 114:
 
    ```js
    randomNumber = Math.floor(Math.random()) + 1;
    ```
 
-3. Um zu überprüfen, ob diese Zeilen tatsächlich das Problem sind, wenden wir uns erneut unserem Freund `console.log()` zu — fügen Sie die folgende Zeile direkt unter jeder der beiden obigen Zeilen ein:
+3. Um zu prüfen, ob diese Zeilen tatsächlich das Problem sind, wenden wir uns wieder unserem Freund `console.log()` zu — fügen Sie die folgende Zeile direkt unter jeder der beiden oben genannten Zeilen ein:
 
    ```js
    console.log(randomNumber);
    ```
 
-4. Speichern und aktualisieren, dann spielen Sie ein paar Spiele — Sie sehen, dass `randomNumber` an jedem Punkt, an dem es in die Konsole geloggt wird, gleich 1 ist.
+4. Speichern und aktualisieren Sie, und spielen Sie dann ein paar Spiele — Sie werden sehen, dass `randomNumber` zu jedem Zeitpunkt, an dem es in der Konsole protokolliert wird, gleich 1 ist.
 
-### Die Logik durchgehen
+### Durch die Logik arbeiten
 
-Um dies zu beheben, überlegen wir, wie diese Zeile funktioniert. Zuerst rufen wir [`Math.random()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/random) auf, welches eine zufällige Dezimalzahl zwischen 0 und 1 generiert, z.B. 0.5675493843.
+Um dies zu beheben, überlegen wir, wie diese Zeile arbeitet. Zuerst rufen wir [`Math.random()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/random) auf, was eine zufällige Dezimalzahl zwischen 0 und 1 generiert, z.B. 0.5675493843.
 
 ```js
 Math.random();
 ```
 
-Als nächstes übergeben wir das Ergebnis des Aufrufs von `Math.random()` an [`Math.floor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor), das die übergebene Zahl auf die nächste ganze Zahl abrundet. Wir addieren dann 1 zu diesem Ergebnis:
+Als nächstes übergeben wir das Ergebnis des Aufrufs von `Math.random()` durch [`Math.floor()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor), das die an ihn übergebene Zahl auf die nächstniedrigere ganze Zahl abrundet. Wir addieren dann 1 zu diesem Ergebnis:
 
 ```js
 Math.floor(Math.random()) + 1;
 ```
 
-Das Abrunden einer zufälligen Dezimalzahl zwischen 0 und 1 ergibt immer 0, daher wird durch das Addieren von 1 immer 1 zurückgegeben. Wir müssen die Zufallszahl mit 100 multiplizieren, bevor wir sie abrunden. Folgendes würde uns eine Zufallszahl zwischen 0 und 99 geben:
+Das Abrunden einer zufälligen Dezimalzahl zwischen 0 und 1 wird immer 0 zurückgeben, und das Hinzufügen von 1 zu diesem Ergebnis wird immer 1 zurückgeben. Wir müssen die Zufallszahl vor dem Abrunden mit 100 multiplizieren. Das Folgende würde uns eine zufällige Zahl zwischen 0 und 99 geben:
 
 ```js
 Math.floor(Math.random() * 100);
 ```
 
-Daher wollen wir 1 addieren, um eine Zufallszahl zwischen 1 und 100 zu erhalten:
+Daher möchten wir 1 hinzufügen, um uns eine zufällige Zahl zwischen 1 und 100 zu geben:
 
 ```js
 Math.floor(Math.random() * 100) + 1;
 ```
 
-Versuchen Sie, beide Zeilen so zu aktualisieren, speicheren Sie und aktualisieren Sie — das Spiel sollte jetzt wie beabsichtigt ablaufen!
+Versuchen Sie beide Zeilen wie folgt zu aktualisieren, und speichern und aktualisieren Sie dann — das Spiel sollte jetzt wie beabsichtigt ablaufen!
 
-## Weitere häufige Fehler
+## Andere häufige Fehler
 
-Es gibt weitere häufige Fehler, auf die Sie in Ihrem Code stoßen werden. Dieser Abschnitt hebt die meisten von ihnen hervor.
+Es gibt andere häufige Fehler, auf die Sie in Ihrem Code stoßen werden. Dieser Abschnitt hebt die meisten von ihnen hervor.
 
-### Das Programm sagt immer, Sie hätten gewonnen, unabhängig von dem eingegebenen Tipp
+### Das Spiel ist nach dem ersten falschen Rateversuch vorbei
 
-Dies könnte ein weiteres Symptom der Vermischung von Zuweisungs- und Strenggleichheit-Operatoren sein. Wenn wir zum Beispiel diese Zeile innerhalb von `checkGuess()` ändern würden:
+Dies könnte ein weiteres Symptom für die Verwechslung der Zuweisungs- und strikten Gleichheitsoperatoren sein. Zum Beispiel, wenn wir diese Zeile innerhalb von `checkGuess()` ändern würden:
 
 ```js
-if (userGuess === randomNumber) {
+} else if (guessCount === 10) {
 ```
 
 zu
 
 ```js
-if (userGuess = randomNumber) {
+} else if (guessCount = 10) {
 ```
 
-würde der Test immer `true` zurückgeben, was dazu führen würde, dass das Programm meldet, dass das Spiel gewonnen wurde. Seien Sie vorsichtig!
+würde der Test immer `true` zurückgeben, was dazu führen würde, dass das Programm `setGameOver()` nach dem ersten falschen Versuch ausführt. Seien Sie vorsichtig!
 
 ### SyntaxError: missing ) after argument list
 
-Dieser Fall ist ziemlich einfach — er bedeutet im Allgemeinen, dass Sie die schließende Klammer am Ende eines Funktions-/Methodenaufrufs vergessen haben.
+Dieser ist ziemlich einfach — er bedeutet im Allgemeinen, dass Sie die schließende Klammer am Ende eines Funktions-/Methodenaufrufs vergessen haben.
 
 > [!NOTE]
-> Weitere Einzelheiten zu diesem Fehler finden Sie auf unserer Referenzseite [SyntaxError: missing ) after argument list](/de/docs/Web/JavaScript/Reference/Errors/Missing_parenthesis_after_argument_list).
+> Siehe unsere Referenzseite [SyntaxError: missing ) after argument list](/de/docs/Web/JavaScript/Reference/Errors/Missing_parenthesis_after_argument_list) für mehr Details zu diesem Fehler.
 
 ### SyntaxError: missing : after property id
 
-Dieser Fehler bezieht sich normalerweise auf ein inkorrekt geformtes JavaScript-Objekt, aber in diesem Fall haben wir es geschafft, ihn auszulösen, indem wir
+Dieser Fehler bezieht sich normalerweise auf ein falsch geformtes JavaScript-Objekt, aber in diesem Fall gelang es uns, ihn zu erzeugen, indem wir
 
 ```js
 function checkGuess() {
@@ -235,28 +234,30 @@ in
 function checkGuess( {
 ```
 
-geändert haben. Dies hat dazu geführt, dass der Browser glaubt, dass wir versuchen, den Inhalt der Funktion als Argument in die Funktion zu übergeben. Seien Sie vorsichtig mit diesen Klammern!
+änderten.
+
+Dies hat den Browser dazu gebracht zu denken, dass wir versuchen, den Inhalt der Funktion als Argument in die Funktion zu übergeben. Seien Sie vorsichtig mit diesen Klammern!
 
 ### SyntaxError: missing } after function body
 
-Dies ist simpel — es bedeutet im Allgemeinen, dass Sie eine Ihrer geschweiften Klammern aus einer Funktion oder einer bedingten Struktur ausgelassen haben. Wir bekamen diesen Fehler, indem wir eine der schließenden geschweiften Klammern nahe dem Ende der Funktion `checkGuess()` gelöscht haben.
+Das ist einfach — es bedeutet im Grunde, dass Ihnen eine Ihrer geschweiften Klammern in einer Funktion oder Strukturierung fehlt. Wir haben diesen Fehler erhalten, indem wir eine der schließenden geschweiften Klammern nahe dem Ende der `checkGuess()`-Funktion gelöscht haben.
 
 ### SyntaxError: expected expression, got '_string_' oder SyntaxError: string literal contains an unescaped line break
 
-Diese Fehler bedeuten im Allgemeinen, dass Sie das Öffnungs- oder Schließungszeichen eines Zeichenkettenwertes weggelassen haben. Im ersten Fehler oben würde _string_ durch das unerwartete Zeichen/Zeichenfolge ersetzt werden, das der Browser anstelle eines Anführungszeichens am Anfang einer Zeichenkette gefunden hat. Der zweite Fehler bedeutet, dass die Zeichenkette nicht mit einem Anführungszeichen beendet wurde.
+Diese Fehler bedeuten im Allgemeinen, dass Sie die Anfangs- oder Schlusszeichen eines Zeichenfolgenwerts ausgelassen haben. Im ersten Fehler oben würde _string_ durch das unerwartete Zeichen (oder die unerwarteten Zeichen) ersetzt, die der Browser statt eines Anführungszeichens am Anfang einer Zeichenkette gefunden hat. Der zweite Fehler bedeutet, dass die Zeichenkette nicht mit einem Anführungszeichen abgeschlossen wurde.
 
-Für alle diese Fehler denken Sie daran, wie wir die Beispiele, die wir in der Schritt-für-Schritt-Anleitung angesehen haben, behandelt haben. Wenn ein Fehler auftritt, schauen Sie sich die angegebene Zeilennummer an, gehen Sie zu dieser Zeile und sehen Sie, ob Sie erkennen können, was falsch ist. Bedenken Sie, dass der Fehler nicht zwangsläufig in dieser Zeile sein muss und auch, dass der Fehler nicht durch genau dasselbe Problem verursacht wird, das wir oben genannt haben!
+Für alle diese Fehler, denken Sie darüber nach, wie wir die Beispiele angegangen sind, die wir im Durchgang betrachtet haben. Wenn ein Fehler auftritt, schauen Sie auf die genannte Zeilennummer, gehen Sie zu dieser Zeile und sehen Sie, ob Sie feststellen können, was falsch ist. Beachten Sie, dass der Fehler nicht unbedingt in dieser Zeile sein muss und auch, dass der Fehler nicht unbedingt durch genau dasselbe Problem verursacht ist, das wir oben angesprochen haben!
 
 > [!NOTE]
-> Weitere Einzelheiten zu diesen Fehlern finden Sie auf unseren Referenzseiten [SyntaxError: Unexpected token](/de/docs/Web/JavaScript/Reference/Errors/Unexpected_token) und [SyntaxError: string literal contains an unescaped line break](/de/docs/Web/JavaScript/Reference/Errors/String_literal_EOL).
+> Siehe unsere Referenzseiten [SyntaxError: Unexpected token](/de/docs/Web/JavaScript/Reference/Errors/Unexpected_token) und [SyntaxError: string literal contains an unescaped line break](/de/docs/Web/JavaScript/Reference/Errors/String_literal_EOL) für mehr Details zu diesen Fehlern.
 
 ## Zusammenfassung
 
-Da haben wir sie also, die Grundlagen der Fehlersuche in einfachen JavaScript-Programmen. Es wird nicht immer so einfach sein, herauszufinden, was in Ihrem Code falsch ist, aber zumindest wird dies Ihnen einige Stunden Schlaf ersparen und es Ihnen ermöglichen, ein bisschen schneller voranzukommen, wenn die Dinge nicht richtig laufen, besonders in den frühen Phasen Ihrer Lernreise.
+Damit hätten wir die Grundlagen zur Fehlerbehebung in einfachen JavaScript-Programmen angesprochen. Es wird nicht immer so einfach sein, herauszufinden, was in Ihrem Code falsch ist, aber zumindest wird Ihnen das ein paar Stunden Schlaf sparen und es Ihnen ermöglichen, ein bisschen schneller voranzukommen, wenn die Dinge nicht so laufen, wie sie sollten, besonders in den früheren Phasen Ihrer Lernreise.
 
 ## Siehe auch
 
-- Es gibt viele andere Fehlerarten, die hier nicht aufgeführt sind; wir erstellen eine Referenz, die erklärt, was sie im Detail bedeuten — siehe das [JavaScript-Fehlerreferenz](/de/docs/Web/JavaScript/Reference/Errors).
-- Wenn Sie auf Fehler in Ihrem Code stoßen, die Sie nach dem Lesen dieses Artikels nicht beheben können, können Sie Hilfe bekommen! Fragen Sie nach Hilfe in den [Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels). Sagen Sie uns, was Ihr Fehler ist, und wir werden versuchen, Ihnen zu helfen. Eine Auflistung Ihres Codes wäre ebenfalls nützlich.
+- Es gibt viele andere Fehlerarten, die hier nicht aufgeführt sind; wir erstellen eine Referenz, die erklärt, was sie im Detail bedeuten — siehe die [JavaScript-Fehlerreferenz](/de/docs/Web/JavaScript/Reference/Errors).
+- Wenn Sie nach dem Lesen dieses Artikels auf Fehler in Ihrem Code stoßen, die Sie sich nicht erklären können, können Sie Hilfe bekommen! Stellen Sie eine Frage auf den [Kommunikationskanälen](/de/docs/MDN/Community/Comunication_channels). Sagen Sie uns, was Ihr Fehler ist, und wir werden versuchen, Ihnen zu helfen. Eine Auflistung Ihres Codes wäre ebenfalls nützlich.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/A_first_splash", "Learn_web_development/Core/Scripting/Variables", "Learn_web_development/Core/Scripting")}}

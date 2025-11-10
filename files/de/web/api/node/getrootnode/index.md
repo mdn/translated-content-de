@@ -1,14 +1,15 @@
 ---
-title: "Node: getRootNode()-Methode"
+title: "Node: Methode getRootNode()"
 short-title: getRootNode()
 slug: Web/API/Node/getRootNode
 l10n:
-  sourceCommit: ee846961725e36cf7bb407afe7a2df82d2860658
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getRootNode()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt das Wurzelobjekt des Kontextes zurück, das optional das Shadow-Root enthält, falls es verfügbar ist.
+Die **`getRootNode()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
+gibt das Wurzelobjekt des Kontextobjekts zurück, welches optional das Shadow-Root einschließt, wenn es verfügbar ist.
 
 ## Syntax
 
@@ -20,26 +21,25 @@ getRootNode(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, das Optionen zum Abrufen des Wurzelknotens festlegt. Die verfügbaren Optionen sind:
-
-    - `composed`: Ein boolescher Wert, der angibt, ob das Shadow-Root zurückgegeben werden soll (`false`, der Standardwert), oder ein Wurzelknoten jenseits des Shadow-Root (`true`).
+  - : Ein Objekt, das Optionen für das Abrufen des Root-Knotens festlegt. Die verfügbaren Optionen sind:
+    - `composed`: Ein boolescher Wert, der angibt, ob das Shadow-Root (`false`, der Standardwert) oder ein Root-Knoten über das Shadow-Root hinaus (`true`) zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein Objekt, das von [`Node`](/de/docs/Web/API/Node) erbt. Die genaue Form variiert je nachdem, wo Sie `getRootNode()` aufrufen; zum Beispiel:
+Ein Objekt, das von [`Node`](/de/docs/Web/API/Node) erbt. Dies unterscheidet sich je nach Aufrufpunkt von `getRootNode()` in der genauen Form; zum Beispiel:
 
-- Wenn es auf einem Element innerhalb einer Standard-Webseite aufgerufen wird, wird ein
-  [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Objekt zurückgegeben, das die gesamte Seite (oder {{HTMLElement("iframe")}}) darstellt.
-- Wird es auf einem Element innerhalb eines Shadow DOM aufgerufen, wird das zugehörige
+- Bei einem Aufruf auf einem Element innerhalb einer Standardwebseite wird ein
+  [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Objekt zurückgegeben, das die gesamte Seite (oder {{HTMLElement("iframe")}}) repräsentiert.
+- Bei einem Aufruf auf einem Element innerhalb eines Shadow-DOMs wird das zugehörige
   [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zurückgegeben.
-- Wird es auf einem Element aufgerufen, das nicht mit einem Dokument oder einem Shadow-Tree verbunden ist, wird die Wurzel des DOM-Baums, zu dem es gehört, zurückgegeben.
+- Bei einem Aufruf auf einem Element, das nicht an ein Dokument oder einen Shadow-Baum angehängt ist, wird
+  die Wurzel des DOM-Baums, zu dem es gehört, zurückgegeben.
 
 ## Beispiele
 
 ### Beispiel 1
 
-Das erste einfache Beispiel gibt eine Referenz zum HTML/Dokumentknoten zurück:
+Das erste einfache Beispiel gibt eine Referenz auf den HTML-/Dokumentknoten zurück:
 
 ```js
 const rootNode = node.getRootNode();
@@ -47,7 +47,8 @@ const rootNode = node.getRootNode();
 
 ### Beispiel 2
 
-Dieses komplexere Beispiel zeigt den Unterschied zwischen der Rückgabe eines normalen Wurzels und einer Wurzel einschließlich des Shadow-Roots:
+Dieses komplexere Beispiel zeigt den Unterschied zwischen der Rückgabe eines normalen Roots und eines
+Roots, einschließlich des Shadow-Roots:
 
 ```html
 <div class="parent">
@@ -88,7 +89,8 @@ output.innerText += `shadowChild.getRootNode({ composed:true }).nodeName : ${
 
 ### Beispiel 3
 
-Dieses Beispiel gibt die Wurzel des nicht montierten Baums zurück. Beachten Sie, dass `element` hier die Wurzel des Baums ist (da es keinen Elternknoten hat), sodass definitionsgemäß seine Wurzel es selbst ist:
+Dieses Beispiel gibt die Wurzel des nicht montierten Baums zurück.
+Beachten Sie, dass `element` hier die Wurzel des Baums ist (da es keine übergeordnete Instanz hat), daher ist per Definition seine Wurzel es selbst:
 
 ```js
 const element = document.createElement("p");

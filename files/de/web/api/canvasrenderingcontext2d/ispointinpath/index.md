@@ -1,17 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: isPointInPath()-Methode"
+title: "CanvasRenderingContext2D: isPointInPath() Methode"
 short-title: isPointInPath()
 slug: Web/API/CanvasRenderingContext2D/isPointInPath
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.isPointInPath()`**
-Methode der Canvas 2D API gibt an, ob der angegebene Punkt im
-aktuellen Pfad enthalten ist oder nicht.
+Die Methode **`CanvasRenderingContext2D.isPointInPath()`** der Canvas 2D API gibt an, ob der angegebene Punkt im aktuellen Pfad enthalten ist oder nicht.
 
 ## Syntax
 
@@ -25,38 +22,30 @@ isPointInPath(path, x, y, fillRule)
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des zu überprüfenden Punkts, unbeeinflusst von der aktuellen
-    Transformation des Kontexts.
+  - : Die x-Koordinate des zu überprüfenden Punktes, die von der aktuellen Transformation des Kontextes unbeeinflusst ist.
 - `y`
-  - : Die y-Achsen-Koordinate des zu überprüfenden Punkts, unbeeinflusst von der aktuellen
-    Transformation des Kontexts.
+  - : Die y-Koordinate des zu überprüfenden Punktes, die von der aktuellen Transformation des Kontextes unbeeinflusst ist.
 - `fillRule`
-
-  - : Der Algorithmus, nach dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Pfads liegt.
-    Mögliche Werte:
-
+  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Pfades liegt. Mögliche Werte:
     - `nonzero`
-      - : Die [Non-Zero-Winding-Rule](https://en.wikipedia.org/wiki/Nonzero-rule).
+      - : Die [Nonzero-Regel](https://en.wikipedia.org/wiki/Nonzero-rule).
         Standardregel.
     - `evenodd`
-      - : Die [Even-Odd-Winding-Rule](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+      - : Die [Even-Odd-Regel](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der überprüft werden soll. Wenn nicht angegeben, wird der aktuelle Pfad
-    verwendet.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, gegen den überprüft wird. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
 
 ### Rückgabewert
 
 - Ein boolescher Wert
-  - : Ein Boolean, der `true` ist, wenn der angegebene Punkt im
-    aktuellen oder angegebenen Pfad enthalten ist, andernfalls `false`.
+  - : Ein Boolean, der `true` ist, wenn der angegebene Punkt im aktuellen oder angegebenen Pfad enthalten ist, andernfalls `false`.
 
 ## Beispiele
 
-### Überprüfung eines Punkts im aktuellen Pfad
+### Überprüfung eines Punktes im aktuellen Pfad
 
-Dieses Beispiel verwendet die `isPointInPath()`-Methode, um zu überprüfen, ob ein Punkt innerhalb
-des aktuellen Pfads liegt.
+Dieses Beispiel verwendet die `isPointInPath()` Methode, um zu überprüfen, ob ein Punkt im aktuellen Pfad liegt.
 
 #### HTML
 
@@ -81,10 +70,9 @@ result.innerText = ctx.isPointInPath(30, 70);
 
 {{ EmbedLiveSample('Checking_a_point_in_the_current_path', 700, 220) }}
 
-### Überprüfung eines Punkts im angegebenen Pfad
+### Überprüfung eines Punktes im angegebenen Pfad
 
-Wann immer Sie die Maus bewegen, überprüft dieses Beispiel, ob der Cursor in einem kreisförmigen
-`Path2D`-Pfad ist. Wenn ja, wird der Kreis grün, andernfalls ist er rot.
+Wann immer Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor in einem kreisförmigen `Path2D` Pfad befindet. Wenn ja, wird der Kreis grün, andernfalls rot.
 
 #### HTML
 
@@ -130,11 +118,8 @@ canvas.addEventListener("mousemove", (event) => {
 
 ### Gecko-spezifische Anmerkung
 
-- Vor Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4) versagte diese Methode
-  fälschlicherweise, die Koordinaten des angegebenen Punkts mit der aktuellen
-  Transformationsmatrix zu multiplizieren, bevor sie mit dem Pfad verglichen wurden. Jetzt funktioniert diese Methode korrekt,
-  selbst wenn der Kontext gedreht, skaliert oder anderweitig transformiert wurde.
+- Vor Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4) vergaß diese Methode fälschlicherweise, die Koordinaten des angegebenen Punktes mit der aktuellen Transformationsmatrix zu multiplizieren, bevor sie mit dem Pfad verglichen wurden. Jetzt funktioniert diese Methode korrekt, selbst wenn der Kontext gedreht, skaliert oder anderweitig transformiert wird.
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

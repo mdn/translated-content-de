@@ -1,14 +1,14 @@
 ---
-title: "XSLTProcessor: setParameter() Methode"
+title: "XSLTProcessor: setParameter()-Methode"
 short-title: setParameter()
 slug: Web/API/XSLTProcessor/setParameter
 l10n:
-  sourceCommit: ed8b0abcd17844e033c2af350e7d2b314ca56ac4
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{APIRef("XSLT")}}
+{{APIRef("DOM")}}
 
-Die `setParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im Stylesheet, das in den Prozessor importiert wurde.
+Die `setParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im im Prozessor importierten Stylesheet.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ setParameter(namespaceURI, localName, value)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird wie der leere String (`""`) behandelt.
+  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
 - `localName`
   - : Der Name des Parameters im zugehörigen Namespace.
 - `value`
   - : Der Wert des Parameters.
     > [!NOTE]
-    > Firefox unterstützt jede Art von Parametern. Chrome, Edge und Safari unterstützen nur Zeichenfolgenparameter.
+    > Firefox unterstützt jede Art von Parameter. Chrome, Edge und Safari unterstützen nur String-Parameter.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von setParameter()
 
-Dieses Beispiel zeigt, wie Parameter von JavaScript zu einem XSLT-Stylesheet mit `setParameter()` übergeben werden, um eine dynamische Modifikation der Transformationsausgabe basierend auf diesen Parametern zu ermöglichen.
+Dieses Beispiel zeigt, wie man Parameter von JavaScript an ein XSLT-Stylesheet mit `setParameter()` übergibt, um eine dynamische Modifikation der Transformationsausgabe basierend auf diesen Parametern zu ermöglichen.
 
 #### HTML
 

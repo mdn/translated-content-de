@@ -2,12 +2,10 @@
 title: windows.getLastFocused()
 slug: Mozilla/Add-ons/WebExtensions/API/windows/getLastFocused
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Erhält das Fenster, das zuletzt im Fokus war — typischerweise das Fenster 'obenauf'.
+Ermittelt das Fenster, das zuletzt fokussiert war – typischerweise das Fenster "obenauf".
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,28 +20,22 @@ let gettingWindow = browser.windows.getLastFocused(
 ### Parameter
 
 - `getInfo` {{optional_inline}}
-
   - : `object`.
-
     - `populate` {{optional_inline}}
-      - : `boolean`. Wenn `true`, enthält das {{WebExtAPIRef('windows.Window')}} Objekt eine `tabs` Eigenschaft, die eine Liste von {{WebExtAPIRef('tabs.Tab')}} Objekten enthält, die die Tabs im Fenster repräsentieren. Die `Tab` Objekte enthalten nur die Eigenschaften `url`, `title` und `favIconUrl`, wenn die Manifestdatei der Erweiterung entweder die Berechtigung `"tabs"` oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) enthält, die mit der URL des Tabs übereinstimmen.
+      - : `boolean`. Wenn `true`, wird das {{WebExtAPIRef('windows.Window')}} Objekt eine `tabs` Eigenschaft haben, die eine Liste von {{WebExtAPIRef('tabs.Tab')}} Objekten enthält, welche die Tabs im Fenster repräsentieren. Die `Tab` Objekte enthalten nur die Eigenschaften `url`, `title` und `favIconUrl`, wenn die Manifest-Datei der Erweiterung die Berechtigung `"tabs"` oder [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) enthält, die zur URL des Tabs passen.
     - `windowTypes` {{optional_inline}}
-      - : Ein `array` von {{WebExtAPIRef('windows.WindowType')}} Objekten. Wenn gesetzt, wird das zurückgegebene {{WebExtAPIRef('windows.Window')}} basierend auf seinem Typ gefiltert. Wenn nicht gesetzt, ist der Standardfilter auf `['normal', 'panel', 'popup']` eingestellt, wobei `'panel'` Fenstertypen auf die Fenster der Erweiterung beschränkt sind.
+      - : Ein `array` von {{WebExtAPIRef('windows.WindowType')}} Objekten. Wenn gesetzt, wird das zurückgegebene {{WebExtAPIRef('windows.Window')}} nach seinem Typ gefiltert. Wenn nicht gesetzt, ist der Standardfilter auf `['normal', 'panel', 'popup']` gesetzt, wobei `'panel'` Fenstertypen auf die eigenen Fenster der Erweiterung beschränkt sind.
 
 > [!NOTE]
-> Wenn angegeben, wird die `windowTypes` Komponente von `getInfo` ignoriert. Die Verwendung von `windowTypes` wurde ab Firefox 62 als veraltet markiert.
+> Wenn angegeben, wird die Komponente `windowTypes` von `getInfo` ignoriert. Die Verwendung von `windowTypes` ist seit Firefox 62 veraltet.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('windows.Window')}} Objekt erfüllt wird, welches die Details des zuletzt fokussierten Fensters enthält. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('windows.Window')}} Objekt erfüllt wird, das die Details des zuletzt fokussierten Fensters enthält. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Erhalten Sie das zuletzt fokussierte Fenster und loggen Sie die darin enthaltenen Tabs. Beachten Sie, dass Sie die "tabs" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder passende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, um auf Tab-URLs zuzugreifen.
+Ermitteln Sie das zuletzt fokussierte Fenster und protokollieren Sie die enthaltenen Tabs. Beachten Sie, dass Sie die Berechtigung "tabs" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) oder entsprechende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) benötigen, um auf Tab-URLs zuzugreifen.
 
 ```js
 function logTabs(windowInfo) {
@@ -63,8 +55,12 @@ browser.browserAction.onClicked.addListener((tab) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getLastFocused) API von Chromium. Diese Dokumentation stammt von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getLastFocused) API von Chromium. Diese Dokumentation leitet sich von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

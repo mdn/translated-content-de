@@ -2,10 +2,8 @@
 title: declarative_net_request
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request
 l10n:
-  sourceCommit: 668b38a4f6cd96609b9a969fe4653b46aec4e712
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -38,16 +36,16 @@ l10n:
   </tbody>
 </table>
 
-Spezifizieren Sie statische Regelsets zur Verwendung mit {{WebExtAPIRef("declarativeNetRequest")}}. Weitere Informationen zu der Anzahl der Regelsets, aktivierten Regelsets und Regeln, die angegeben werden können, finden Sie unter [statische Regelset-Limits](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Spezifizieren Sie statische Regelsets zur Verwendung mit {{WebExtAPIRef("declarativeNetRequest")}}. Informationen über die Anzahl der Regelsets, aktivierten Regelsets und Regeln, die angegeben werden können, finden Sie unter [statische Regelset-Grenzen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
-Weitere Informationen zu den Berechtigungsanforderungen finden Sie unter <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions">Berechtigungen</a>.
+Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions">Berechtigungen</a> für weitere Informationen zu den Berechtigungsanforderungen.
 
 > [!NOTE]
-> Eine Regel mit nicht erkannten Eigenschaften wird geladen, wenn sie ansonsten gültig ist, das heißt, nicht erkannte Eigenschaften werden ignoriert. Vor Firefox 128 wurde eine Regel mit nicht erkannten Eigenschaften als ungültig betrachtet und nicht geladen.
+> Eine Regel, die nicht erkannte Eigenschaften enthält, wird geladen, wenn sie ansonsten gültig ist, das heißt, nicht erkannte Eigenschaften werden ignoriert. Vor Firefox 128 wurde eine Regel mit nicht erkannten Eigenschaften als ungültig angesehen und nicht geladen.
 
 ## Syntax
 
-Der Schlüssel `"declarative_net_request"` ist ein Objekt, das die Eigenschaft `"rule_resources"` enthalten muss, ein Array, das mindestens ein Objekt mit diesen Eigenschaften umfassen muss:
+Der `"declarative_net_request"` Schlüssel ist ein Objekt, das die Eigenschaft `"rule_resources"` enthalten muss. Dies ist ein Array, welches mindestens ein Objekt mit den folgenden Eigenschaften enthalten muss:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -61,17 +59,17 @@ Der Schlüssel `"declarative_net_request"` ist ein Objekt, das die Eigenschaft `
     <tr>
       <td><code>"id"</code></td>
       <td><code>String</code></td>
-      <td>Eine nicht-leere Zeichenkette, die das Regelset eindeutig identifiziert. IDs, die mit '_' beginnen, sind für internen Gebrauch reserviert.</td>
+      <td>Eine nichtleere Zeichenkette, die das Regelset eindeutig identifiziert. IDs, die mit '_' beginnen, sind für den internen Gebrauch reserviert.</td>
     </tr>
     <tr>
       <td><code>"enabled"</code></td>
       <td><code>Boolean</code></td>
-      <td>Gibt an, ob das Regelset standardmäßig aktiviert ist. Die Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets")}} kann verwendet werden, um ein Regelset zur Laufzeit zu aktivieren oder zu deaktivieren.</td>
+      <td>Ob das Regelset standardmäßig aktiviert ist. Die Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets")}} kann verwendet werden, um ein Regelset zur Laufzeit zu aktivieren oder zu deaktivieren.</td>
     </tr>
     <tr>
       <td><code>"path"</code></td>
       <td><code>String</code></td>
-      <td>Der Pfad des JSON-Regelsets relativ zum Erweiterungsverzeichnis. Siehe den Abschnitt <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">Regeln</a> der <code>declarativeNetRequest</code>-API für Informationen über den Inhalt der Regelset-JSON-Datei.</td>
+      <td>Der Pfad des JSON-Regelsets relativ zum Erweiterungsverzeichnis. Siehe den <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">Regeln</a>-Abschnitt der <code>declarativeNetRequest</code> API für Informationen zum Inhalt der Regelset-JSON-Datei.</td>
     </tr>
   </tbody>
 </table>
@@ -94,7 +92,7 @@ Der Schlüssel `"declarative_net_request"` ist ein Objekt, das die Eigenschaft `
 
 ## Beispielerweiterungen
 
-<!-- Idealerweise würden wir die WebExtExamples-Vorlage verwenden, aber Beispiele sind noch nicht nach Manifest-Schlüsseln kategorisiert - https://github.com/mdn/webextensions-examples/issues/524 -->
+<!-- Idealerweise würden wir die WebExtExamples-Vorlage verwenden, aber Beispiele sind noch nicht nach Schlüssel im Manifest kategorisiert - https://github.com/mdn/webextensions-examples/issues/524 -->
 
 - [dnr-block-only](https://github.com/mdn/webextensions-examples/tree/main/dnr-block-only)
 - [dnr-redirect-url](https://github.com/mdn/webextensions-examples/tree/main/dnr-redirect-url)

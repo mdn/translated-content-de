@@ -1,16 +1,16 @@
 ---
-title: Verwenden der Document Picture-in-Picture API
+title: Verwendung der Document Picture-in-Picture API
 slug: Web/API/Document_Picture-in-Picture_API/Using
 l10n:
-  sourceCommit: f7ddd45a6bd53eb7fc10dbacc07a3acb168c1352
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-{{SeeCompatTable}}{{DefaultAPISidebar("Document Picture-in-Picture API")}}{{securecontext_header}}
+{{DefaultAPISidebar("Document Picture-in-Picture API")}}
 
-Dieser Leitfaden bietet einen Überblick über die typische Nutzung der [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API).
+Dieser Leitfaden bietet einen Überblick über die typische Verwendung der [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API).
 
 > [!NOTE]
-> Sie können die vorgestellte Demo in Aktion unter [Document Picture-in-Picture API Example](https://mdn.github.io/dom-examples/document-picture-in-picture/) sehen (siehe auch den vollständigen [Quellcode](https://github.com/mdn/dom-examples/tree/main/document-picture-in-picture)).
+> Sie können das vorgestellte Demo in Aktion unter [Document Picture-in-Picture API Example](https://mdn.github.io/dom-examples/document-picture-in-picture/) sehen (siehe auch den vollständigen [Quellcode](https://github.com/mdn/dom-examples/tree/main/document-picture-in-picture)).
 
 ## Beispiel-HTML
 
@@ -50,7 +50,7 @@ Das folgende HTML richtet einen einfachen Videoplayer ein.
 
 ## Funktionsüberprüfung
 
-Um zu überprüfen, ob die Document Picture-in-Picture API unterstützt wird, können Sie testen, ob `documentPictureInPicture` auf `window` verfügbar ist:
+Um zu prüfen, ob die Document Picture-in-Picture API unterstützt wird, können Sie testen, ob `documentPictureInPicture` auf `window` verfügbar ist:
 
 ```js
 if ("documentPictureInPicture" in window) {
@@ -58,19 +58,19 @@ if ("documentPictureInPicture" in window) {
 
   const togglePipButton = document.createElement("button");
   togglePipButton.textContent = "Toggle Picture-in-Picture";
-  togglePipButton.addEventListener("click", togglePictureInPicture, false);
+  togglePipButton.addEventListener("click", togglePictureInPicture);
 
   document.getElementById("control-bar").appendChild(togglePipButton);
 }
 ```
 
-Falls es verfügbar ist, entfernen wir die Nachricht "Document Picture-in-Picture API not available" und fügen stattdessen ein {{htmlelement("button")}}-Element hinzu, um den Videoplayer in einem Document Picture-in-Picture-Fenster zu öffnen.
+Wenn es verfügbar ist, entfernen wir die Nachricht "Document Picture-in-Picture API not available" und fügen stattdessen ein {{htmlelement("button")}} Element hinzu, um den Videoplayer in einem Document Picture-in-Picture Fenster zu öffnen.
 
-## Öffnen eines Picture-in-Picture-Fensters
+## Öffnen eines Picture-in-Picture Fensters
 
-Das folgende JavaScript ruft [`window.documentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) auf, um ein leeres Picture-in-Picture-Fenster zu öffnen. Das zurückgegebene {{jsxref("Promise")}} wird mit einem Picture-in-Picture-`Window`-Objekt erfüllt. Der Videoplayer wird mit [`Element.append()`](/de/docs/Web/API/Element/append) in dieses Fenster verschoben, und wir zeigen die Nachricht an, die den Benutzer darüber informiert, dass er verschoben wurde.
+Das folgende JavaScript ruft [`window.documentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) auf, um ein leeres Picture-in-Picture Fenster zu öffnen. Das zurückgegebene {{jsxref("Promise")}} wird mit einem Picture-in-Picture [`Window`](/de/docs/Web/API/Window) Objekt erfüllt. Der Videoplayer wird in dieses Fenster verschoben, indem [`Element.append()`](/de/docs/Web/API/Element/append) verwendet wird, und wir zeigen die Meldung an, dass es verschoben wurde.
 
-Die `width`- und `height`-Optionen von `requestWindow()` setzen das Picture-in-Picture-Fenster auf die gewünschte Größe. Browser können die Optionswerte einschränken, wenn sie zu groß oder zu klein sind, um eine benutzerfreundliche Fenstergröße zu erreichen.
+Die `width` und `height` Optionen von `requestWindow()` setzen das Picture-in-Picture Fenster auf die gewünschte Größe. Browser können die Optionswerte beschränken, wenn sie zu groß oder zu klein sind, um eine benutzerfreundliche Fenstergröße zu erhalten.
 
 ```js
 async function togglePictureInPicture() {
@@ -85,7 +85,7 @@ async function togglePictureInPicture() {
     height: videoPlayer.clientHeight,
   });
 
-  // ...
+  // …
 
   // Move the player to the Picture-in-Picture window.
   pipWindow.document.body.append(videoPlayer);
@@ -95,12 +95,12 @@ async function togglePictureInPicture() {
 }
 ```
 
-## Kopieren der Stylesheets in das Picture-in-Picture-Fenster
+## Kopieren von Stylesheets in das Picture-in-Picture Fenster
 
-Um alle CSS Stylesheets aus dem ursprünglichen Fenster zu kopieren, durchlaufen Sie alle Stylesheets, die explizit in das Dokument eingebunden oder eingebettet sind (über [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)) und fügen Sie sie dem Picture-in-Picture-Fenster hinzu. Beachten Sie, dass dies eine einmalige Kopie ist.
+Um alle CSS-Stylesheets aus dem ursprünglichen Fenster zu kopieren, durchlaufen Sie alle Stylesheets, die explizit in das Dokument eingebunden oder eingebettet sind (über [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)), und fügen Sie sie dem Picture-in-Picture Fenster hinzu. Beachten Sie, dass dies eine einmalige Kopie ist.
 
 ```js
-// ...
+// …
 
 // Copy style sheets over from the initial document
 // so that the player looks the same.
@@ -124,12 +124,12 @@ Um alle CSS Stylesheets aus dem ursprünglichen Fenster zu kopieren, durchlaufen
   }
 });
 
-// ...
+// …
 ```
 
-## Zielstile im Picture-in-Picture-Modus
+## Stile gezielt anwenden, wenn im Picture-in-Picture Modus
 
-Der `picture-in-picture`-Wert des {{cssxref("@media/display-mode", "display-mode")}} [Media-Features](/de/docs/Web/CSS/@media#media_features) ermöglicht es Entwicklern, CSS auf ein Dokument anzuwenden, das auf der Anzeige im Picture-in-Picture-Modus basiert. Die Grundverwendung sieht so aus:
+Der `picture-in-picture` Wert der {{cssxref("@media/display-mode", "display-mode")}} [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) ermöglicht es Entwicklern, ein Dokument basierend darauf, ob es im Picture-in-Picture Modus angezeigt wird, mit CSS zu stylen. Die grundlegende Verwendung sieht folgendermaßen aus:
 
 ```css
 @media (display-mode: picture-in-picture) {
@@ -139,9 +139,9 @@ Der `picture-in-picture`-Wert des {{cssxref("@media/display-mode", "display-mode
 }
 ```
 
-Dieses Snippet färbt den Hintergrund des Dokuments `<body>` rot, nur wenn es im Picture-in-Picture-Modus angezeigt wird.
+Dieser Codeausschnitt wird den Hintergrund des Dokument `<body>` rot färben, nur wenn es im Picture-in-Picture Modus angezeigt wird.
 
-In [unserer Demo](https://mdn.github.io/dom-examples/document-picture-in-picture/) kombinieren wir den `display-mode: picture-in-picture`-Wert mit dem {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} Media-Feature, um helle und dunkle Farbschemata zu erstellen, die basierend auf der Farbschema-Präferenz des Benutzers angewendet werden, nur wenn die App im Picture-in-Picture-Modus angezeigt wird.
+In [unserem Demo](https://mdn.github.io/dom-examples/document-picture-in-picture/) kombinieren wir den `display-mode: picture-in-picture` Wert mit dem {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} Media-Feature, um helle und dunkle Farbschemata zu erstellen, die basierend auf den Farbschema-Einstellungen des Benutzers nur dann angewendet werden, wenn die App im Picture-in-Picture Modus gezeigt wird.
 
 ```css
 @media (display-mode: picture-in-picture) and (prefers-color-scheme: light) {
@@ -152,7 +152,7 @@ In [unserer Demo](https://mdn.github.io/dom-examples/document-picture-in-picture
 
 @media (display-mode: picture-in-picture) and (prefers-color-scheme: dark) {
   body {
-    background: #333;
+    background: #333333;
   }
 
   a {
@@ -161,9 +161,9 @@ In [unserer Demo](https://mdn.github.io/dom-examples/document-picture-in-picture
 }
 ```
 
-## Behandeln der Schließung des Picture-in-Picture-Fensters
+## Behandlung, wenn das Picture-in-Picture-Fenster geschlossen wird
 
-Der Code zum Schließen des Picture-in-Picture-Fensters, wenn der Knopf ein zweites Mal gedrückt wird, sieht folgendermaßen aus:
+Der Code zum Umschalten des Picture-in-Picture Fensters, wenn der Button ein zweites Mal gedrückt wird, sieht so aus:
 
 ```js
 inPipMessage.style.display = "none";
@@ -171,9 +171,9 @@ playerContainer.append(videoPlayer);
 window.documentPictureInPicture.window.close();
 ```
 
-Hier kehren wir die DOM-Änderungen um — wir verstecken die Nachricht und setzen den Videoplayer in das Player-Container im Hauptanwendungsfenster zurück. Wir schließen auch das Picture-in-Picture-Fenster programmgesteuert mithilfe der [`Window.close()`](/de/docs/Web/API/Window/close)-Methode.
+Hier kehren wir die DOM-Änderungen um — die Meldung wird ausgeblendet und der Videoplayer wird zurück in den Player-Container im Hauptanwendungsfenster verschoben. Wir schließen das Picture-in-Picture Fenster auch programmgesteuert mit der [`Window.close()`](/de/docs/Web/API/Window/close) Methode.
 
-Sie müssen jedoch auch den Fall berücksichtigen, dass der Benutzer das Picture-in-Picture-Fenster mit dem von der Browser bereitgestellten UI-Schließen-Kontrolle auf dem Fenster selbst schließt. Dies können Sie behandeln, indem Sie erkennen, wann das Fenster mit dem [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignis schließt:
+Sie müssen jedoch auch den Fall berücksichtigen, dass der Benutzer das Picture-in-Picture Fenster schließt, indem er das vom Browser bereitgestellte Schließsteuerungselement auf dem Fenster selbst drückt. Sie können damit umgehen, indem Sie erkennen, wann das Fenster über das [`pagehide`](/de/docs/Web/API/Window/pagehide_event) Ereignis geschlossen wird:
 
 ```js
 pipWindow.addEventListener("pagehide", (event) => {
@@ -183,13 +183,13 @@ pipWindow.addEventListener("pagehide", (event) => {
 ```
 
 > [!NOTE]
-> Die von der Browser bereitgestellte UI-Schließen-Kontrolle kann ausgeblendet werden, indem der [`disallowReturnToOpener`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow#disallowreturntoopener) Hinweis auf `true` in den Optionsobjekt gesetzt wird, wenn `DocumentPictureInPicture.requestWindow()` zuerst aufgerufen wird, um das Picture-in-Picture-Fenster zu öffnen.
+> Das vom Browser bereitgestellte Schließsteuerungselement kann ausgeblendet werden, indem Sie den Hinweis [`disallowReturnToOpener`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow#disallowreturntoopener) auf `true` im Optionsobjekt setzen, wenn `DocumentPictureInPicture.requestWindow()` aufgerufen wird, um das Picture-in-Picture Fenster zu öffnen.
 
-## Hören, wenn die Website in den Picture-in-Picture-Modus eintritt
+## Ereignis hören, wenn die Website das Picture-in-Picture betritt
 
-Hören Sie auf das [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignis auf der `DocumentPictureInPicture`-Instanz, um zu erfahren, wann ein Picture-in-Picture-Fenster geöffnet wird.
+Hören Sie auf das [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event) Ereignis der `DocumentPictureInPicture` Instanz, um zu wissen, wann ein Picture-in-Picture Fenster geöffnet wird.
 
-In unserer Demo verwenden wir das `enter`-Ereignis, um einen Stummschalttoggle-Button zum Picture-in-Picture-Fenster hinzuzufügen:
+In unserem Demo verwenden wir das `enter` Ereignis, um dem Picture-in-Picture Fenster einen Stummschalterknopf hinzuzufügen:
 
 ```js
 documentPictureInPicture.addEventListener("enter", (event) => {
@@ -214,15 +214,15 @@ documentPictureInPicture.addEventListener("enter", (event) => {
 ```
 
 > [!NOTE]
-> Das [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Ereignisobjekt enthält eine `window`-Eigenschaft, um auf das Picture-in-Picture-Fenster zuzugreifen.
+> Das [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent) Ereignisobjekt enthält eine `window` Eigenschaft, um auf das Picture-in-Picture Fenster zuzugreifen.
 
-## Zugriff auf Elemente und Ereignisbehandlung
+## Elemente und Ereignisse behandeln
 
-Sie können auf Elemente im Picture-in-Picture-Fenster auf verschiedene Arten zugreifen:
+Sie können auf unterschiedliche Weise auf Elemente im Picture-in-Picture Fenster zugreifen:
 
-- Die [`Window`](/de/docs/Web/API/Window)-Instanz, die von der Methode [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) zurückgegeben wird, wie oben gezeigt.
-- Über die `window`-Eigenschaft des [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Ereignisobjekts (beim [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignis), wie oben gezeigt.
-- Über die [`DocumentPictureInPicture.window`](/de/docs/Web/API/DocumentPictureInPicture/window)-Eigenschaft:
+- Die [`Window`](/de/docs/Web/API/Window) Instanz, die von der [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) Methode zurückgegeben wird, wie oben zu sehen.
+- Über die `window` Eigenschaft des [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent) Ereignisobjekts (beim [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event) Ereignis), wie oben zu sehen.
+- Über die [`DocumentPictureInPicture.window`](/de/docs/Web/API/DocumentPictureInPicture/window) Eigenschaft:
 
 ```js
 const pipWindow = window.documentPictureInPicture.window;
@@ -233,4 +233,4 @@ if (pipWindow) {
 }
 ```
 
-Sobald Sie eine Referenz zur Picture-in-Picture-`window`-Instanz haben, können Sie das DOM manipulieren (zum Beispiel Schaltflächen erstellen) und auf Benutzereingabeereignisse (wie [`click`](/de/docs/Web/API/Element/click_event)) reagieren, wie Sie es normalerweise im regulären Browser-Fensterkontext tun würden.
+Sobald Sie eine Referenz zur Picture-in-Picture `window` Instanz haben, können Sie das DOM manipulieren (zum Beispiel Schaltflächen erstellen) und auf Benutzereingabeereignisse (wie [`click`](/de/docs/Web/API/Element/click_event)) reagieren, wie Sie es normalerweise im regulären Browserfensterkontext tun würden.

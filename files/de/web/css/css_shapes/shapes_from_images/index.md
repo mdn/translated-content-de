@@ -1,19 +1,18 @@
 ---
 title: Formen aus Bildern
+short-title: Bildbasierte Formen
 slug: Web/CSS/CSS_shapes/Shapes_from_images
 l10n:
-  sourceCommit: dbc32052ef186252a1211d296ff60a9b5e3e8d74
+  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-{{CSSRef}}
-
-In diesem Leitfaden werden wir uns ansehen, wie wir eine Form aus einer Bilddatei mit einem Alpha-Kanal oder sogar aus einem CSS-Gradienten erstellen können. Dies ist eine sehr flexible Methode, um Formen zu erstellen. Anstatt einen Pfad mit einem komplexen Polygon in CSS zu zeichnen, können Sie die Form in einem Grafikprogramm erstellen und dann den Pfad der Pixel verwenden, die weniger opak sind als ein Schwellenwert.
+In diesem Leitfaden werden wir uns ansehen, wie wir eine Form aus einer Bilddatei mit einem Alpha-Kanal oder sogar aus einem CSS-Gradienten erstellen können. Dies ist eine sehr flexible Möglichkeit, Formen zu erstellen. Anstatt einen Pfad mit einem komplexen Polygon in CSS zu zeichnen, können Sie die Form in einem Grafikprogramm erstellen und dann den Pfad verwenden, der durch die weniger opaken Pixel als ein Schwellenwert erstellt wird.
 
 ## Formen aus Bildern erstellen
 
-Um ein Bild zur Erstellung einer Form zu verwenden, muss das Bild einen Alpha-Kanal haben, einen Bereich, der nicht vollständig opak ist. Die Eigenschaft {{cssxref("shape-image-threshold")}} wird verwendet, um einen Schwellenwert für diese Opazität festzulegen. Pixel, die opaker sind als dieser Wert, werden zur Berechnung der Fläche der Form verwendet.
+Um ein Bild zur Erstellung einer Form zu verwenden, muss das Bild einen Alpha-Kanal haben, einen Bereich, der nicht vollständig opak ist. Die Eigenschaft {{cssxref("shape-image-threshold")}} wird verwendet, um einen Schwellenwert für diese Opazität festzulegen. Pixel, die opaker als dieser Wert sind, werden zur Berechnung der Fläche der Form verwendet.
 
-Im folgenden Beispiel gibt es ein Bild von einem Stern mit einem festen roten Bereich und einem vollständig transparenten Bereich. Der Pfad zur Bilddatei wird als Wert für die Eigenschaft {{cssxref("shape-outside")}} verwendet. Der Inhalt wird nun um die Sternform herum umbrochen.
+Im folgenden Beispiel gibt es ein Bild eines Sterns mit einem soliden roten Bereich und einem Bereich, der vollständig transparent ist. Der Pfad zur Bilddatei wird als Wert für die Eigenschaft {{cssxref("shape-outside")}} verwendet. Der Inhalt fließt nun um die Sternform herum.
 
 ```html live-sample___simple-example
 <div class="box">
@@ -40,13 +39,13 @@ body {
 }
 img {
   float: left;
-  shape-outside: url(https://mdn.github.io/shared-assets/images/examples/star-shape.png);
+  shape-outside: url("https://mdn.github.io/shared-assets/images/examples/star-shape.png");
 }
 ```
 
 {{EmbedLiveSample("simple-example", "", "340px")}}
 
-Sie können {{cssxref("shape-margin")}} verwenden, um den Text von der Form wegzubewegen und somit einen Abstand zwischen der erstellten Form und dem Text zu schaffen.
+Sie können {{cssxref("shape-margin")}} verwenden, um den Text von der Form wegzubewegen und einen Rand um die erstellte Form und den Text zu schaffen.
 
 ```html hidden live-sample___margin
 <div class="box">
@@ -74,7 +73,7 @@ body {
 
 img {
   float: left;
-  shape-outside: url(https://mdn.github.io/shared-assets/images/examples/star-shape.png);
+  shape-outside: url("https://mdn.github.io/shared-assets/images/examples/star-shape.png");
   shape-margin: 20px;
 }
 ```
@@ -83,17 +82,17 @@ img {
 
 ## CORS-Kompatibilität
 
-Ein Problem, das Sie beim Erstellen von Formen aus einem Bild feststellen werden, ist, dass das von Ihnen verwendete Bild [CORS-kompatibel](/de/docs/Web/HTTP/CORS) sein muss. Ein Bild, das auf derselben Domain wie Ihre Seite gehostet wird, sollte funktionieren. Wenn Ihre Bilder jedoch auf einer anderen Domain, z.B. einem CDN, gehostet werden, sollten Sie sicherstellen, dass sie die korrekten Header senden, um sie für Formen verwenden zu können. Aufgrund dieser Anforderung für CORS-kompatible Bilder wird Ihre Form nicht funktionieren, wenn Sie Ihre Datei lokal ohne einen lokalen Webserver in der Vorschau ansehen.
+Ein Problem, auf das Sie stoßen werden, wenn Sie Formen aus einem Bild erstellen, ist, dass das verwendete Bild [CORS-kompatibel](/de/docs/Web/HTTP/Guides/CORS) sein muss. Ein Bild, das auf derselben Domain wie Ihre Seite gehostet wird, sollte funktionieren. Wenn Ihre Bilder jedoch auf einer anderen Domain, wie beispielsweise einem CDN, gehostet werden, sollten Sie sicherstellen, dass sie die richtigen Header senden, um sie für Formen verwenden zu können. Aufgrund dieser Anforderung an CORS-kompatible Bilder wird Ihre Form nicht funktionieren, wenn Sie Ihre Datei lokal ohne einen lokalen Webserver in der Vorschau anzeigen.
 
 ### Ist es ein CORS-Problem?
 
-DevTools können Ihnen bei der Identifizierung von CORS-Fehlern helfen. In Chrome wird die Konsole Sie auf CORS-Probleme hinweisen. In Firefox werden Sie, wenn Sie die Eigenschaft inspizieren, darüber informiert, dass das Bild nicht geladen werden konnte. Dies sollte Sie darauf aufmerksam machen, dass Ihr Bild aufgrund von CORS nicht als Quelle einer Form verwendet werden kann.
+DevTools können Ihnen helfen, CORS-Fehler zu identifizieren. In Chrome wird die Konsole Sie auf CORS-Probleme hinweisen. In Firefox, wenn Sie die Eigenschaft inspizieren, werden Sie darauf hingewiesen, dass das Bild nicht geladen werden konnte. Dies sollte Sie darauf hinweisen, dass Ihr Bild aufgrund von CORS nicht als Quelle einer Form verwendet werden kann.
 
-## Festlegung eines Schwellenwerts
+## Einen Schwellenwert festlegen
 
-Die Eigenschaft {{cssxref("shape-image-threshold")}} ermöglicht die Erstellung von Formen aus Bereichen, die nicht vollständig transparent sind. Wenn der Wert von `shape-image-threshold` `0.0` ist (was der Anfangswert ist), muss der Bereich vollständig transparent sein. Wenn der Wert `1.0` ist, ist er vollständig opak. Werte dazwischen bedeuten, dass Sie einen halbtransparenten Bereich als definierenden Bereich festlegen können.
+Die Eigenschaft {{cssxref("shape-image-threshold")}} ermöglicht die Erstellung von Formen aus Bereichen, die nicht vollständig transparent sind. Wenn der Wert von `shape-image-threshold` `0.0` beträgt (was der Anfangswert ist), muss der Bereich vollständig transparent sein. Wenn der Wert `1.0` beträgt, ist er vollständig opak. Werte dazwischen bedeuten, dass Sie einen halbdurchsichtigen Bereich als bestimmenden Bereich festlegen können.
 
-Im Beispiel unten ist der Hintergrund des Sterns nicht vollständig transparent, er hat eine 20%ige Opazität, wie in meinem Grafikprogramm erstellt. Wenn ich `shape-image-threshold` auf `0.2` oder mehr setze, sehe ich die Form. Wenn ich sie auf einen Wert kleiner als `0.2` setze, erhalte ich die Form nicht.
+Im folgenden Beispiel ist der Hintergrund des Sterns nicht vollständig transparent, er hat eine 20%ige Opazität, wie in meinem Grafikprogramm erstellt. Wenn ich `shape-image-threshold` auf `0.2` oder größer setze, sehe ich die Form, wenn ich es kleiner als `0.2` setze, bekomme ich die Form nicht.
 
 ```html hidden live-sample___threshold
 <div class="box">
@@ -121,7 +120,7 @@ body {
 
 img {
   float: left;
-  shape-outside: url(https://mdn.github.io/shared-assets/images/examples/star-red-20.png);
+  shape-outside: url("https://mdn.github.io/shared-assets/images/examples/star-red-20.png");
   shape-image-threshold: 0.2;
 }
 ```
@@ -130,9 +129,9 @@ img {
 
 ## Verwendung von Bildern mit generiertem Inhalt
 
-Im obigen Beispiel habe ich sowohl das Bild als Wert für {{cssxref("shape-outside")}} verwendet als auch es zur Seite hinzugefügt. Viele Demos tun dies, da es hilft, die Form zu zeigen, der wir folgen. Die `shape-outside`-Eigenschaft ist jedoch nicht mit dem Bild verbunden, das auf der Seite angezeigt wird, und daher müssen Sie kein Bild anzeigen, um ein Bild zur Erstellung einer Form zu verwenden.
+Im obigen Beispiel habe ich sowohl das Bild als Wert von {{cssxref("shape-outside")}} verwendet als auch es zur Seite hinzugefügt. Viele Demos tun dies, da es hilft, die Form zu zeigen, der wir folgen, jedoch ist die Eigenschaft `shape-outside` nicht mit dem Bild verbunden, das auf der Seite angezeigt wird, und Sie müssen kein Bild anzeigen, um ein Bild zu verwenden, um eine Form zu erstellen.
 
-Sie benötigen etwas, das schwebt, aber das könnte auch generierter Inhalt sein, wie im folgenden Beispiel. Ich lasse generierten Inhalt schweben und verwende ein größeres Sternbild, um meinen Inhalt zu formen, ohne ein Bild auf der Seite anzuzeigen.
+Sie benötigen etwas, das schwebt, aber dies könnte auch generierter Inhalt sein, wie im folgenden Beispiel. Ich lasse generierten Inhalt schweben und verwende ein größeres Sternbild, um meinen Inhalt zu formen, ohne ein Bild auf der Seite anzuzeigen.
 
 ```html live-sample___generated-content
 <div class="box">
@@ -160,20 +159,20 @@ body {
   float: left;
   width: 400px;
   height: 300px;
-  shape-outside: url(https://mdn.github.io/shared-assets/images/examples/star-shape.png);
+  shape-outside: url("https://mdn.github.io/shared-assets/images/examples/star-shape.png");
   shape-image-threshold: 0.3;
 }
 ```
 
 {{EmbedLiveSample("generated-content", "", "420px")}}
 
-## Formen mit einem Verlauf erstellen
+## Formen mit einem Gradienten erstellen
 
-Da ein [CSS-Verlauf](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) als Bild behandelt wird, können Sie einen Verlauf verwenden, um eine Form zu erzeugen, indem Sie transparente oder halbtransparente Bereiche als Teil des Verlaufs haben.
+Da ein [CSS-Gradient](/de/docs/Web/CSS/Guides/Images/Using_gradients) als Bild behandelt wird, können Sie einen Gradienten verwenden, um eine Form zu erzeugen, indem Sie transparente oder halbtransparente Bereiche als Teil des Gradienten haben.
 
-Im nächsten Beispiel wird generierter Inhalt verwendet. Der Inhalt wurde zum Schweben gebracht und hat ein Hintergrundbild eines linearen Verlaufs. Ich verwende denselben Wert als Wert für {{cssxref("shape-outside")}}. Der lineare Verlauf geht von lila zu transparent. Durch Ändern des Werts von {{cssxref("shape-image-threshold")}} können Sie entscheiden, wie transparent die Pixel sein müssen, die die Form erzeugen. Sie können diesen Wert im folgenden Beispiel ausprobieren, um zu sehen, wie die diagonale Linie sich je nach Wert über die Form bewegt.
+Das nächste Beispiel verwendet generierten Inhalt. Der Inhalt wurde geschwebt und hat ein Hintergrundbild eines linearen Gradienten. Ich verwende denselben Wert als Wert von {{cssxref("shape-outside")}}. Der lineare Gradient geht von lila zu transparent. Durch Ändern des Wertes von {{cssxref("shape-image-threshold")}} können Sie entscheiden, wie transparent die Pixel sein müssen, die die Form erstellen. Sie können mit diesem Wert im folgenden Beispiel spielen, um zu sehen, wie sich die diagonale Linie je nach diesem Wert über die Form bewegt.
 
-Sie könnten auch versuchen, das Hintergrundbild komplett zu entfernen und so den Verlauf nur zur Erstellung der Form zu verwenden, ohne ihn auf der Seite anzuzeigen.
+Sie könnten auch versuchen, das Hintergrundbild vollständig zu entfernen und den Gradienten somit nur zum Erstellen der Form zu verwenden, ohne ihn überhaupt auf der Seite anzuzeigen.
 
 ```html live-sample___gradient
 <div class="box">
@@ -213,7 +212,7 @@ body {
 
 {{EmbedLiveSample("gradient", "", "400px")}}
 
-Das nächste Beispiel verwendet einen radialen Verlauf mit einer Ellipse, wobei erneut ein transparenter Teil des Verlaufs verwendet wird, um die Form zu erzeugen.
+Das nächste Beispiel verwendet einen radialen Gradient mit einer Ellipse, wieder einmal wird ein transparenter Teil des Gradienten verwendet, um die Form zu erstellen.
 
 ```html hidden live-sample___radial-gradient
 <div class="box">
@@ -259,4 +258,4 @@ body {
 
 {{EmbedLiveSample("radial-gradient", "", "400px")}}
 
-Sie können direkt in diesen Live-Beispielen experimentieren, um zu sehen, wie das Ändern des Verlaufs den Pfad Ihrer Form ändern wird.
+Sie können direkt in diesen Live-Beispielen experimentieren, um zu sehen, wie das Ändern des Gradienten den Pfad Ihrer Form verändern wird.

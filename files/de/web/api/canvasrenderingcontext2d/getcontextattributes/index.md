@@ -1,16 +1,16 @@
 ---
-title: "CanvasRenderingContext2D: getContextAttributes()-Methode"
+title: "CanvasRenderingContext2D: getContextAttributes() Methode"
 short-title: getContextAttributes()
 slug: Web/API/CanvasRenderingContext2D/getContextAttributes
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 5ed97586afb0b74aea8b32b24ea630698520732a
 ---
 
 {{APIRef("WebGL")}}
 
-Die **`CanvasRenderingContext2D.getContextAttributes()`**-Methode gibt ein Objekt zurück, das Attribute enthält, die vom Kontext genutzt werden.
+Die **`CanvasRenderingContext2D.getContextAttributes()`** Methode gibt ein Objekt zurück, das Attribute enthält, die vom Kontext verwendet werden.
 
-Beachten Sie, dass Kontextattribute angefordert werden können, wenn der Kontext mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) erstellt wird. Die Attribute, die tatsächlich unterstützt und verwendet werden, können jedoch abweichen.
+Beachten Sie, dass Kontextattribute beim Erstellen des Kontexts mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) angefordert werden können, aber die Attribute, die tatsächlich unterstützt und verwendet werden, können abweichen.
 
 ## Syntax
 
@@ -24,24 +24,28 @@ Keine.
 
 ### Rückgabewert
 
-Ein `CanvasRenderingContext2DSettings`-Objekt, das die tatsächlichen Kontextparameter enthält.
-Es hat folgende Mitglieder:
+Ein `CanvasRenderingContext2DSettings` Objekt, das die tatsächlichen Kontextparameter enthält.
+Es hat die folgenden Mitglieder:
 
 - `alpha` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob die Leinwand einen Alphakanal enthält.
+  - : Ein Boolescher Wert, der angibt, ob das Canvas einen Alphakanal enthält.
     Wenn `false`, ist der Hintergrund immer undurchsichtig, was das Zeichnen von transparenten Inhalten und Bildern beschleunigen kann.
 - `colorSpace` {{optional_inline}}
   - : Gibt den Farbraum des Rendering-Kontexts an. Mögliche Werte sind:
-    - `srgb`: steht für den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB)
-    - `display-p3`: steht für den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3)
+    - `srgb`: bezeichnet den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB)
+    - `display-p3`: bezeichnet den [display-p3 Farbraum](https://en.wikipedia.org/wiki/DCI-P3)
+- `colorType` {{optional_inline}}
+  - : Gibt den Farbtyp des Rendering-Kontexts an. Mögliche Werte sind:
+    - `"unorm8"` bezeichnet die Farbspeicherkanäle mit 8-Bit-Unsigned-Werten. Dies ist der Standardwert.
+    - `"float16"` bezeichnet die Farbspeicherkanäle mit 16-Bit-Floating-Point-Werten.
 - `desynchronized` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob der User-Agent die Latenzzeit reduziert hat, indem er den Malzyklus der Leinwand von der Ereignisschleife desynchronisiert hat.
+  - : Ein Boolescher Wert, der angibt, dass der Benutzeragent die Latenz reduziert hat, indem der Malzyklus des Canvas vom Ereignisloop desynchronisiert wurde.
 - `willReadFrequently` {{optional_inline}}
-  - : Ein boolescher Wert, der angibt, ob diese Leinwand Software-Beschleunigung (anstelle von Hardware-Beschleunigung) verwendet, um häufige Rückleseoperationen über [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) zu unterstützen.
+  - : Ein Boolescher Wert, der angibt, ob dieses Canvas Softwarebeschleunigung (anstatt Hardwarebeschleunigung) verwendet, um häufige Rückleseoperationen über [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) zu unterstützen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie Kontextattribute beim Erstellen eines Leinwandkontexts angeben und anschließend `getContextAttributes()` aufrufen können, um die tatsächlichen Parameter zu lesen, die der Browser verwendet hat.
+Dieses Beispiel zeigt, wie Sie Kontexattribute festlegen können, wenn Sie einen Canvas-Kontext erstellen, und dann `getContextAttributes()` aufrufen, um die tatsächlichen Parameter auszulesen, die der Browser verwendet hat.
 
 ```html hidden
 <pre id="log"></pre>
@@ -54,14 +58,14 @@ function log(text) {
 }
 ```
 
-Zuerst erstellen wir einen Kontext mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext), wobei wir nur ein Kontextattribut angeben.
+Zuerst erstellen wir einen Kontext mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext), indem wir nur ein Kontexattribut spezifizieren.
 
 ```js
 let canvas = document.createElement("canvas");
 let ctx = canvas.getContext("2d", { alpha: false });
 ```
 
-Wenn die `getContextAttributes()`-Methode unterstützt wird, verwenden wir sie, um die tatsächlichen vom Browser genutzten Attribute auszulesen (einschließlich derjenigen, die wir explizit angegeben haben):
+Wenn die `getContextAttributes()` Methode unterstützt wird, verwenden wir sie, um die tatsächlichen vom Browser verwendeten Attribute auszulesen (einschließlich derjenigen, die wir explizit angegeben haben):
 
 ```js
 if (ctx.getContextAttributes) {

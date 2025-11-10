@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.getFloat16()
+short-title: getFloat16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getFloat16
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getFloat16()`** Methode von {{jsxref("DataView")}} Instanzen liest 2 Bytes ab dem angegebenen Byteversatz dieses `DataView` und interpretiert sie als 16-Bit Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbytewerte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
-Die Methode **`getFloat16()`** von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert diese als 16-Bit-Fließkommazahl. Es gibt keine Ausrichtungsbeschränkung; mehrbyteige Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
-
-{{InteractiveExample("JavaScript Demo: DataView.getFloat16()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.getFloat16()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -32,18 +31,18 @@ getFloat16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, ab dem Start der Ansicht, von dem die Daten gelesen werden.
+  - : Der Versatz in Bytes vom Anfang der Ansicht, ab dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Eine Fließkommazahl von `-65504` bis `65504`.
+Eine Gleitkommazahl von `-65504` bis `65504`.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass über das Ende der Ansicht hinaus gelesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus lesen würde.
 
 ## Beispiele
 
@@ -66,7 +65,7 @@ console.log(dataview.getFloat16(1)); // 0.00001537799835205078
 ## Siehe auch
 
 - [Polyfill von `DataView.prototype.getFloat16` in `core-js`](https://github.com/zloirock/core-js#float16-methods)
-- [Leitfaden zu JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Float16Array")}}

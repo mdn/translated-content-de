@@ -1,13 +1,11 @@
 ---
-title: "TypeError: Mehr Argumente benötigt"
+title: "TypeError: Es werden mehr Argumente benötigt"
 slug: Web/JavaScript/Reference/Errors/More_arguments_needed
 l10n:
-  sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "mehr Argumente benötigt" tritt auf, wenn ein Fehler bei der Art des Funktionsaufrufs vorliegt. Es müssen mehr Argumente bereitgestellt werden.
+Der JavaScript-Fehler "es werden mehr Argumente benötigt" tritt auf, wenn es ein Problem mit dem Aufruf einer Funktion gibt. Es müssen mehr Argumente bereitgestellt werden.
 
 ## Nachricht
 
@@ -19,13 +17,13 @@ TypeError: Object.defineProperties requires at least 1 argument, but only 0 were
 TypeError: Object prototype may only be an Object or null. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("TypeError")}}.
 
 ## Was ist schiefgelaufen?
 
-Es liegt ein Fehler bei der Art des Funktionsaufrufs vor. Es müssen mehr Argumente bereitgestellt werden.
+Es gibt ein Problem mit dem Aufruf einer Funktion. Es müssen mehr Argumente bereitgestellt werden.
 
 ## Beispiele
 
@@ -41,7 +39,7 @@ const obj2 = Object.setPrototypeOf({});
 // TypeError: Object.setPrototypeOf requires at least 2 arguments, but only 1 were passed
 ```
 
-Sie können dies beheben, indem Sie zum Beispiel [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als Prototyp setzen:
+Sie können dies beheben, indem Sie zum Beispiel [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) als Prototyp festlegen:
 
 ```js example-good
 const obj = Object.create(null);
@@ -51,4 +49,4 @@ const obj2 = Object.setPrototypeOf({}, null);
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden

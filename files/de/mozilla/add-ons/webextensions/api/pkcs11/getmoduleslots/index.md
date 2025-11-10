@@ -2,12 +2,10 @@
 title: pkcs11.getModuleSlots()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/getModuleSlots
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Enumeriert die Slots eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Slot enthält. Jeder Eintrag enthält den Namen des Slots und, falls der Slot ein Token enthält, Informationen über das Token.
+Ermittelt die Steckplätze eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Steckplatz enthält. Jeder Eintrag enthält den Namen des Steckplatzes und, wenn der Steckplatz ein Token enthält, Informationen über das Token.
 
 Sie können dies nur für ein Modul aufrufen, das in Firefox installiert ist.
 
@@ -24,14 +22,14 @@ let getting = browser.pkcs11.getModuleSlots(
 ### Parameter
 
 - `name`
-  - : `string`. Name des Moduls. Dies muss mit der `name`-Eigenschaft im [PKCS #11 Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
+  - : `string`. Name des Moduls. Dies muss mit der `name`-Eigenschaft im [PKCS #11-Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) des Moduls übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Slot, auf den das Modul Zugriff gewährt. Jedes Objekt hat zwei Eigenschaften:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Steckplatz, auf den das Modul Zugriff gewährt. Jedes Objekt hat zwei Eigenschaften:
 
-- `name`: der Name des Slots
-- `token`: wenn ein Token in diesem Slot vorhanden ist, ein `Token`-Objekt. Wenn kein Token im Slot vorhanden ist, ist diese Eigenschaft `null`.
+- `name`: der Name des Steckplatzes
+- `token`: falls ein Token in diesem Steckplatz vorhanden ist, ein `Token`-Objekt. Falls kein Token im Steckplatz vorhanden ist, ist diese Eigenschaft `null`.
 
 `Token`-Objekte haben die folgenden Eigenschaften:
 
@@ -40,23 +38,19 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `manufacturer`
   - : `string`. Name des Herstellers des Tokens.
 - `HWVersion`
-  - : `string`. Hardware-Version, als eine PKCS #11 Versionsnummer (zwei 32-Bit Integer, getrennt durch einen Punkt, zum Beispiel "1.0").
+  - : `string`. Hardwareversion als PKCS #11-Versionsnummer (zwei 32-Bit-Ganzzahlen, getrennt durch einen Punkt, wie "1.0").
 - `FWVersion`
-  - : `string`. Firmware-Version, als eine PKCS #11 Versionsnummer (zwei 32-Bit Integer, getrennt durch einen Punkt, zum Beispiel "1.0").
+  - : `string`. Firmwareversion als PKCS #11-Versionsnummer (zwei 32-Bit-Ganzzahlen, getrennt durch einen Punkt, wie "1.0").
 - `serial`
-  - : `string`. Seriennummer, deren Format durch die Token-Spezifikation definiert ist.
+  - : `string`. Seriennummer, deren Format durch die Tokenspezifikation definiert ist.
 - `isLoggedIn`
   - : `boolean`: `true`, wenn das Token bereits angemeldet ist, `false` sonst.
 
-Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+Falls das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Installiert ein Modul, listet dann seine Slots auf und die Tokens, die sie enthalten:
+Installiert ein Modul, listet dann seine Steckplätze auf und listet die enthaltenen Tokens auf:
 
 ```js
 function onInstalled() {
@@ -78,3 +72,7 @@ browser.pkcs11.installModule("my_module").then(onInstalled).then(onGotSlots);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

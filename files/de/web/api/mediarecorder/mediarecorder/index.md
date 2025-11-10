@@ -3,14 +3,16 @@ title: "MediaRecorder: MediaRecorder() Konstruktor"
 short-title: MediaRecorder()
 slug: Web/API/MediaRecorder/MediaRecorder
 l10n:
-  sourceCommit: 27bceead8e9b1fe9c92df0fa5e418f81bd5b9fdf
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("MediaStream Recording")}}
 
-Der **`MediaRecorder()`** Konstruktor erstellt ein neues [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekt, das einen angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) aufnehmen wird.
+Der **`MediaRecorder()`** Konstruktor
+erstellt ein neues [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) Objekt, das einen angegebenen
+[`MediaStream`](/de/docs/Web/API/MediaStream) aufzeichnen wird.
 
-Das Objekt kann optional so konfiguriert werden, dass es ein spezifisches Mediencontainerformat (Dateityp) verwendet und kann darüber hinaus den genauen Codec und die Codec-Konfiguration(en) durch die Angabe [des Parameters `codecs`](/de/docs/Web/Media/Guides/Formats/codecs_parameter) spezifizieren.
+Das Objekt kann optional so konfiguriert werden, dass es unter Verwendung eines spezifischen Media-Containers (Dateityps) aufzeichnet und des Weiteren den genauen Codec und die Codec-Konfiguration(en) durch Angabe des [`codecs` Parameters](/de/docs/Web/Media/Guides/Formats/codecs_parameter) spezifizieren kann.
 
 ## Syntax
 
@@ -22,40 +24,40 @@ new MediaRecorder(stream, options)
 ### Parameter
 
 - `stream`
-  - : Der [`MediaStream`](/de/docs/Web/API/MediaStream), der aufgenommen wird. Diese Quellmedien können von einem Stream stammen, der mit [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt wurde, oder aus einem {{HTMLElement("audio")}}, {{HTMLElement("video")}} oder {{HTMLElement("canvas")}}-Element.
+  - : Der [`MediaStream`](/de/docs/Web/API/MediaStream), der aufgezeichnet werden soll. Diese Quellmedien können von einem Stream stammen, der mit [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt wurde, oder von einem {{HTMLElement("audio")}}, {{HTMLElement("video")}} oder {{HTMLElement("canvas")}} Element.
 - `options` {{optional_inline}}
 
-  - : Ein Wörterbuch-Objekt, das die folgenden Eigenschaften enthalten kann:
+  - : Ein Wörterbuchobjekt, das die folgenden Eigenschaften enthalten kann:
 
     - `mimeType` {{optional_inline}}
-      - : Ein MIME-Typ, der das Format für das resultierende Medium festlegt; Sie können das Containerformat angeben (der Browser wählt seine bevorzugten Codecs für Audio und/oder Video), oder Sie können [den Parameter `codecs` verwenden](/de/docs/Web/Media/Guides/Formats/codecs_parameter) und/oder den Parameter `profiles`, um detaillierte Informationen darüber zu geben, welche Codecs verwendet und wie sie konfiguriert werden sollen. Anwendungen können im Voraus prüfen, ob ein `mimeType` vom {{Glossary("user_agent", "User-Agent")}} unterstützt wird, indem sie [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) aufrufen. Standardmäßig ein leerer String.
+      - : Ein MIME-Typ, der das Format für das resultierende Medium angibt; Sie können das Containerformat angeben (der Browser wählt seine bevorzugten Codecs für Audio und/oder Video), oder Sie können [den `codecs` Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter) und/oder den `profiles` Parameter verwenden, um detaillierte Informationen darüber zu geben, welche Codecs verwendet werden sollen und wie sie zu konfigurieren sind. Anwendungen können im Voraus prüfen, ob ein `mimeType` vom {{Glossary("user_agent", "User Agent")}} unterstützt wird, indem sie [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) aufrufen. Standardmäßig leerer String.
     - `audioBitsPerSecond` {{optional_inline}}
       - : Die gewählte Bitrate für die Audiokomponente des Mediums.
     - `videoBitsPerSecond` {{optional_inline}}
       - : Die gewählte Bitrate für die Videokomponente des Mediums.
     - `bitsPerSecond` {{optional_inline}}
-      - : Die gewählte Bitrate für die Audio- und Videokomponenten des Mediums. Dies kann anstelle der beiden obigen Eigenschaften angegeben werden. Wenn dies zusammen mit einer oder beiden der obigen Eigenschaften angegeben wird, wird dies für diejenige verwendet, die nicht angegeben ist.
+      - : Die gewählte Bitrate für die Audio- und Videokomponenten des Mediums. Diese kann anstelle der beiden oben genannten Eigenschaften angegeben werden. Falls diese zusammen mit einer oder beiden der oben genannten Eigenschaften angegeben wird, wird sie für diejenige verwendet, die nicht angegeben ist.
     - `audioBitrateMode` {{optional_inline}}
-      - : Der Bitratenmodus, der zum Kodieren des Audios verwendet werden soll. Kann `constant` sein, was bedeutet, dass der Rekorder mit einer konstanten Bitrate kodieren soll, oder `variable`, was bedeutet, dass der Rekorder mit einer variablen Bitrate kodiert, wodurch mehr Platz für komplexe Signale und weniger Platz für weniger komplexe Signale genutzt werden kann. Standardmäßig `variable`.
+      - : Der Bitratenmodus, der zum Kodieren des Audios verwendet werden soll. Kann `constant` sein, was bedeutet, dass der Rekorder mit einer konstanten Bitrate kodieren soll, oder `variable`, was bedeutet, dass der Rekorder eine variable Bitrate verwenden soll, um so komplexen Signalen mehr Platz zu geben und weniger komplexen Signalen weniger Platz. Standardmäßig `variable`.
     - `videoKeyFrameIntervalDuration` {{optional_inline}}
-      - : Das nominale Intervall in der Zeit zwischen Key-Frames im kodierten Video-Stream. Der {{Glossary("user_agent", "User-Agent")}} steuert die Key-Frame-Generierung basierend auf dieser Option und der Option `videoKeyFrameIntervalCount`.
+      - : Das nominale Zeitintervall zwischen Keyframes im kodierten Videostream. Der {{Glossary("user_agent", "User Agent")}} steuert die Generierung von Keyframes basierend auf dieser Option und der `videoKeyFrameIntervalCount` Option.
     - `videoKeyFrameIntervalCount` {{optional_inline}}
-      - : Das Intervall in der Anzahl der Frames zwischen Key-Frames im kodierten Video-Stream. Der {{Glossary("user_agent", "User-Agent")}} steuert die Key-Frame-Generierung unter Berücksichtigung dieser Option sowie der Option `videoKeyFrameIntervalDuration`.
+      - : Das Intervall in der Anzahl der Frames zwischen Keyframes im kodierten Videostream. Der {{Glossary("user_agent", "User Agent")}} steuert die Generierung von Keyframes unter Berücksichtigung dieser Option sowie der Option `videoKeyFrameIntervalDuration`.
 
     > [!NOTE]
-    > Wenn keine Bits-per-Second-Werte für Video und/oder Audio angegeben sind, beträgt der Standardwert für Video 2,5 Mbit/s, während der Standardwert für Audio je nach Abtastrate und Anzahl der Kanäle adaptiv ist.
+    > Wenn Bitratenwerte für Video und/oder Audio nicht angegeben sind, beträgt die Standardbitrate für Video 2,5 Mbit/s, während die Standardbitrate für Audio je nach Abtastrate und der Anzahl der Kanäle adaptiv ist.
 
     > [!NOTE]
-    > Videoauflösung, Bildrate und ähnliche Einstellungen werden als Einschränkungen angegeben, wenn [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufgerufen wird, nicht hier in der MediaStream Recording API.
+    > Videoauflösung, Bildrate und ähnliche Einstellungen werden als Einschränkungen festgelegt, wenn [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufgerufen wird, nicht hier in der MediaStream Recording API.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene MIME-Typ vom User-Agent nicht unterstützt wird.
+  - : Wird ausgelöst, wenn der angegebene MIME-Typ vom User Agent nicht unterstützt wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein Medienrekorder für einen angegebenen Stream erstellt wird, dessen Audio-Bitrate auf 128 Kbit/s und dessen Video-Bitrate auf 2,5 Mbit/s festgelegt ist. Die aufgezeichneten Mediendaten werden in einem MP4-Container gespeichert (wenn Sie die Mediendatenstücke sammeln und auf Festplatte speichern, befinden sie sich in einer MP4-Datei).
+Dieses Beispiel zeigt, wie man einen Media Recorder für einen angegebenen Stream erstellt, dessen Audio-Bitrate auf 128 Kbit/s und dessen Video-Bitrate auf 2,5 Mbit/s festgelegt ist. Die aufgezeichneten Mediendaten werden in einer MP4-Hülle gespeichert (wenn Sie die Teile der Mediendaten sammeln und auf die Festplatte speichern, werden sie in einer MP4-Datei sein).
 
 ```js
 if (navigator.mediaDevices.getUserMedia) {
@@ -87,6 +89,7 @@ if (navigator.mediaDevices.getUserMedia) {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo von [Chris Mills](https://github.com/chrisdavidmills) ([Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
-- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/) von [Sam Dutton](https://github.com/samdutton).
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
+  getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
 - [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)

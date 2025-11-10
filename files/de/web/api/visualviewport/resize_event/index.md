@@ -3,21 +3,21 @@ title: "VisualViewport: resize-Ereignis"
 short-title: resize
 slug: Web/API/VisualViewport/resize_event
 l10n:
-  sourceCommit: 4b5b3e16c8260a429db07dd54420ae40794b96c2
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("Visual Viewport")}}
+{{APIRef("CSSOM view API")}}
 
-Das **`resize`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn das visuelle Viewport geändert wird. Dies ermöglicht es Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, wenn hineingezoomt wird, was normalerweise an das Layout-Viewport verankert wäre.
+Das **`resize`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn das visuelle Viewport geändert wird. Dies ermöglicht es Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, während es gezoomt wird, was normalerweise am Layout-Viewport verankert wäre.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("resize", (event) => {});
+```js-nolint
+addEventListener("resize", (event) => { })
 
-onresize = (event) => {};
+onresize = (event) => { }
 ```
 
 ## Ereignistyp
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sehen Sie sich die Beispiel-Demo auf der [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples)-Übersichtsseite an.
+Siehe die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Nutzungsdemo.
 
 ## Spezifikationen
 

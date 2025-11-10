@@ -3,17 +3,19 @@ title: "HTMLTableElement: createCaption() Methode"
 short-title: createCaption()
 slug: Web/API/HTMLTableElement/createCaption
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die **`HTMLTableElement.createCaption()`** Methode gibt das
-{{HtmlElement("caption")}}-Element zurück, das mit einem bestimmten {{HtmlElement("table")}} verbunden ist.
-Wenn kein `<caption>`-Element in der Tabelle existiert, wird dieses durch die Methode erstellt und anschließend zurückgegeben.
+{{HtmlElement("caption")}} Element zurück, das mit einem bestimmten {{HtmlElement("table")}} verknüpft ist.
+Wenn kein `<caption>` Element in der Tabelle vorhanden ist, erstellt diese Methode
+es und gibt es danach zurück.
 
 > [!NOTE]
-> Wenn keine Beschriftung existiert, fügt `createCaption()` eine neue Beschriftung direkt in die Tabelle ein. Die Beschriftung muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<caption>`-Element zu erstellen.
+> Wenn keine Beschriftung existiert, fügt `createCaption()` direkt eine neue Beschriftung
+> in die Tabelle ein. Die Beschriftung muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<caption>` Element zu erstellen.
 
 ## Syntax
 
@@ -31,22 +33,24 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um einer Tabelle, die ursprünglich keine hat, eine Beschriftung hinzuzufügen.
+Dieses Beispiel verwendet JavaScript, um einer Tabelle, die anfangs keine hat, eine Beschriftung hinzuzufügen.
 
 ### HTML
 
 ```html
 <table>
-  <tr>
-    <td>Cell 1.1</td>
-    <td>Cell 1.2</td>
-    <td>Cell 1.3</td>
-  </tr>
-  <tr>
-    <td>Cell 2.1</td>
-    <td>Cell 2.2</td>
-    <td>Cell 2.3</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Cell 1.1</td>
+      <td>Cell 1.2</td>
+      <td>Cell 1.3</td>
+    </tr>
+    <tr>
+      <td>Cell 2.1</td>
+      <td>Cell 2.2</td>
+      <td>Cell 2.3</td>
+    </tr>
+  </tbody>
 </table>
 ```
 

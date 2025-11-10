@@ -3,7 +3,7 @@ title: "HTMLInputElement: setRangeText() Methode"
 short-title: setRangeText()
 slug: Web/API/HTMLInputElement/setRangeText
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML DOM")}}
@@ -24,17 +24,15 @@ setRangeText(replacement, start, end, selectMode)
 - `replacement`
   - : Der einzufügende String.
 - `start` {{optional_inline}}
-  - : Der 0-basierte Index des ersten zu ersetzenden Zeichens. Der Standardwert ist der aktuelle Wert von `selectionStart` (der Anfang der aktuellen Auswahl des Benutzers).
+  - : Der 0-basierte Index des ersten Zeichens, das ersetzt werden soll. Standardmäßig der aktuelle Wert von `selectionStart` (der Beginn der aktuellen Benutzerauswahl).
 - `end` {{optional_inline}}
-  - : Der 0-basierte Index des Zeichens _nach_ dem letzten zu ersetzenden Zeichen. Der Standardwert ist der aktuelle Wert von `selectionEnd` (das Ende der aktuellen Auswahl des Benutzers).
+  - : Der 0-basierte Index des Zeichens _nach_ dem letzten zu ersetzenden Zeichen. Standardmäßig der aktuelle Wert von `selectionEnd` (das Ende der aktuellen Benutzerauswahl).
 - `selectMode` {{optional_inline}}
-
   - : Ein String, der definiert, wie die Auswahl nach dem Ersetzen des Textes gesetzt werden soll. Mögliche Werte:
-
     - `"select"` wählt den neu eingefügten Text aus.
     - `"start"` verschiebt die Auswahl direkt vor den eingefügten Text.
-    - `"end"` verschiebt die Auswahl direkt nach den eingefügten Text.
-    - `"preserve"` versucht, die Auswahl beizubehalten. Das ist der Standardwert.
+    - `"end"` verschiebt die Auswahl direkt hinter den eingefügten Text.
+    - `"preserve"` versucht, die Auswahl beizubehalten. Dies ist der Standardwert.
 
 ### Rückgabewert
 
@@ -42,7 +40,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird anschließend hervorgehoben (markiert).
+Klicken Sie in diesem Beispiel auf die Schaltfläche, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird anschließend hervorgehoben (ausgewählt).
 
 ### HTML
 
@@ -52,7 +50,7 @@ Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes i
   id="text-box"
   size="30"
   value="This text has NOT been updated." />
-<button onclick="selectText()">Update text</button>
+<button>Update text</button>
 ```
 
 ### JavaScript
@@ -63,6 +61,8 @@ function selectText() {
   input.focus();
   input.setRangeText("ALREADY", 14, 17, "select");
 }
+
+document.querySelector("button").addEventListener("click", selectText);
 ```
 
 ### Ergebnis

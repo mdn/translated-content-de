@@ -1,30 +1,50 @@
 ---
-title: "Range: compareNode() Methode"
+title: "Range: compareNode()-Methode"
 short-title: compareNode()
 slug: Web/API/Range/compareNode
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_Header}}
 
-Die **`Range.compareNode()`** Methode gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
+Die **`compareNode()`**-Methode des [`Range`](/de/docs/Web/API/Range)-Interfaces gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
 
-Die möglichen Werte sind:
+## Syntax
+
+```js-nolint
+compareNode(referenceNode)
+```
+
+### Parameter
+
+- `referenceNode`
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen wird.
+
+### Rückgabewert
+
+Eine Konstante, die die Position des [`Node`](/de/docs/Web/API/Node) angibt. Die möglichen Werte sind:
 
 - `NODE_BEFORE` (`0`)
-  - : Der Node beginnt vor dem Range
+  - : Knoten beginnt vor dem Range.
 - `NODE_AFTER` (`1`)
-  - : Der Node endet nach dem Range
+  - : Knoten endet nach dem Range.
 - `NODE_BEFORE_AND_AFTER` (`2`)
-  - : Der Node beginnt vor und endet nach dem Range
+  - : Knoten beginnt vor und endet nach dem Range.
 - `NODE_INSIDE` (`3`)
-  - : Der Node beginnt nach dem und endet vor dem Range, d.h. der Node wird vollständig vom Range ausgewählt.
+  - : Knoten beginnt nach und endet vor dem Range, d.h. der Knoten ist vollständig durch den Range ausgewählt.
 
-> [!WARNING]
-> Diese Methode [wurde entfernt](/de/docs/Mozilla/Firefox/Releases/3/Site_compatibility) aus [Gecko 1.9](/de/docs/Mozilla/Firefox/Releases/3) und wird in zukünftigen Versionen von Firefox, welches der einzige Browser war, der sie implementierte, nicht mehr existieren; Sie sollten so bald wie möglich zu [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) wechseln.
+## Beispiele
 
-Die folgende Funktion kann als Ersatz verwendet werden:
+```js
+range = document.createRange();
+range.selectNode(document.getElementsByTagName("div").item(0));
+returnValue = range.compareNode(document.getElementsByTagName("p").item(0));
+```
+
+## Anmerkungen
+
+Diese Methode ist nicht standardisiert. Die folgende Funktion kann als Ersatz verwendet werden:
 
 ```js
 function rangeCompareNode(range, node) {
@@ -47,33 +67,6 @@ function rangeCompareNode(range, node) {
 }
 ```
 
-## Syntax
-
-```js-nolint
-compareNode(referenceNode)
-```
-
-### Parameter
-
-- `referenceNode`
-  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen werden soll.
-
-### Rückgabewert
-
-Eine Konstante, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
-
-## Beispiele
-
-```js
-range = document.createRange();
-range.selectNode(document.getElementsByTagName("div").item(0));
-returnValue = range.compareNode(document.getElementsByTagName("p").item(0));
-```
-
-## Anmerkungen
-
-Diese Methode ist veraltet; Sie sollten die W3C DOM [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) Methode verwenden.
-
 ## Spezifikationen
 
 Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
@@ -84,4 +77,4 @@ Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- [Der DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interface-Verzeichnis](/de/docs/Web/API/Document_Object_Model)

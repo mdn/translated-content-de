@@ -3,14 +3,14 @@ title: "PushManager: subscribe()-Methode"
 short-title: subscribe()
 slug: Web/API/PushManager/subscribe
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{ApiRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`subscribe()`**-Methode der [`PushManager`](/de/docs/Web/API/PushManager)-Schnittstelle abonniert einen Push-Dienst.
+Die **`subscribe()`**-Methode des [`PushManager`](/de/docs/Web/API/PushManager)-Interfaces abonniert einen Push-Dienst.
 
-Sie gibt ein {{jsxref("Promise")}} zurück, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt auflöst, das Details eines Push-Abonnements enthält. Ein neues Push-Abonnement wird erstellt, wenn der aktuelle Service-Worker kein bestehendes Abonnement hat.
+Sie gibt ein {{jsxref("Promise")}} zurück, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt aufgelöst wird, welches Details eines Push-Abonnements enthält. Ein neues Push-Abonnement wird erstellt, wenn der aktuelle Service Worker noch kein bestehendes Abonnement hat.
 
 ## Syntax
 
@@ -27,15 +27,16 @@ subscribe(options)
     - `userVisibleOnly`
       - : Ein Boolean, der angibt, dass das zurückgegebene Push-Abonnement nur für Nachrichten verwendet wird, deren Wirkung dem Benutzer sichtbar gemacht wird.
     - `applicationServerKey`
-      - : Ein Base64-kodierter String oder
-        {{jsxref("ArrayBuffer")}}, der einen [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)-P-256-öffentlichen Schlüssel enthält, den der Push-Server zur Authentifizierung Ihres Anwendungsservers verwendet. Wenn angegeben, müssen alle Nachrichten von Ihrem Anwendungsserver das [VAPID](https://datatracker.ietf.org/doc/html/rfc8292)-Authentifizierungsschema verwenden und ein JWT enthalten, das mit dem entsprechenden privaten Schlüssel signiert ist. Dieser Schlüssel **_IST NICHT_** derselbe ECDH-Schlüssel, den Sie zur Verschlüsselung der Daten verwenden. Weitere Informationen finden Sie im Artikel "[Using VAPID with WebPush](https://blog.mozilla.org/services/2016/04/04/using-vapid-with-webpush/)" (englisch).
+      - : Ein Base64-codierter String oder ein
+        {{jsxref("ArrayBuffer")}}, der einen [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)
+        P-256-öffentlichen Schlüssel enthält, den der Push-Server zur Authentifizierung Ihres Anwendungsservers verwendet. Falls angegeben, müssen alle Nachrichten von Ihrem Anwendungsserver das [VAPID](https://datatracker.ietf.org/doc/html/rfc8292)-Authentifizierungsschema verwenden und ein JWT enthalten, das mit dem entsprechenden privaten Schlüssel signiert ist. Dieser Schlüssel **_IST NICHT_** der gleiche ECDH-Schlüssel, den Sie zur Verschlüsselung der Daten verwenden. Für weitere Informationen, siehe "[Using VAPID with WebPush](https://blog.mozilla.org/services/2016/04/04/using-vapid-with-webpush/)".
 
     > [!NOTE]
-    > Dieser Parameter ist in einigen Browsern wie Chrome und Edge erforderlich. Diese werden das Promise ablehnen, wenn `userVisibleOnly` nicht auf `true` gesetzt ist.
+    > Dieser Parameter ist in einigen Browsern wie Chrome und Edge erforderlich. Sie werden das Promise zurückweisen, wenn `userVisibleOnly` nicht auf `true` gesetzt ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt auflöst.
+Ein {{jsxref("Promise")}}, das in ein [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt aufgelöst wird.
 
 ## Beispiele
 
@@ -72,9 +73,9 @@ navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
 });
 ```
 
-### Reaktion auf Benutzeraktionen
+### Reagieren auf Benutzeraktionen
 
-`subscribe()`-Aufrufe sollten als Reaktion auf eine Benutzeraktion, wie zum Beispiel das Klicken eines Buttons, erfolgen:
+`subscribe()`-Aufrufe sollten als Reaktion auf eine Benutzeraktion erfolgen, wie z.B. das Klicken auf einen Button:
 
 ```js
 btn.addEventListener("click", () => {
@@ -86,7 +87,7 @@ btn.addEventListener("click", () => {
 });
 ```
 
-Dies ist nicht nur eine bewährte Methode – Sie sollten Benutzer nicht mit Benachrichtigungen belästigen, denen sie nicht zugestimmt haben – sondern zukünftig werden Browser ausdrücklich Benachrichtigungen verbieten, die nicht als Reaktion auf eine Benutzeraktion ausgelöst werden. Firefox tut dies bereits ab Version 72, zum Beispiel.
+Dies ist nicht nur Best Practice — Sie sollten Benutzer nicht mit Benachrichtigungen belästigen, denen sie nicht zugestimmt haben — sondern zukünftig werden Browser ausdrücklich Benachrichtigungen verbieten, die nicht als Reaktion auf eine Benutzeraktion ausgelöst werden. Firefox macht das bereits ab Version 72.
 
 ## Spezifikationen
 

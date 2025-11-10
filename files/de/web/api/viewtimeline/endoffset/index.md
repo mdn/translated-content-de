@@ -3,12 +3,12 @@ title: "ViewTimeline: endOffset-Eigenschaft"
 short-title: endOffset
 slug: Web/API/ViewTimeline/endOffset
 l10n:
-  sourceCommit: 34bc6ac7c5d03e5891bf94b0d4ebeccb0e7a29e5
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{APIRef("Web Animations")}}{{SeeCompatTable}}
+{{APIRef("Web Animations")}}
 
-Die schreibgeschützte Eigenschaft **`endOffset`** der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Endposition (100% Fortschritt) der Scroll-Timeline als ein Offset vom Anfang des überlaufenden Abschnitts der Inhalte im Scroller darstellt.
+Die schreibgeschützte Eigenschaft **`endOffset`** des [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Interfaces gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die End- (100% Fortschritt) Scrollposition der Timeline als einen Offset vom Anfang des überfließenden Inhaltsbereichs im Scroller darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Ein Beispiel finden Sie auf der Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline).
+Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Ein Beispiel finden Sie auf der Hauptseite von [`ScrollTimeline`](/de/docs/Web/A
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [Scrollgesteuerte CSS-Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
 - [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

@@ -1,15 +1,14 @@
 ---
 title: String.prototype.lastIndexOf()
+short-title: lastIndexOf()
 slug: Web/JavaScript/Reference/Global_Objects/String/lastIndexOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b0426436f128938c9ee8e26dfa17f0a2bebdf70d
 ---
 
-{{JSRef}}
+Die **`lastIndexOf()`** Methode von {{jsxref("String")}}-Werten durchsucht diesen String und gibt den Index des letzten Vorkommens des angegebenen Teilstrings zurück. Sie nimmt eine optionale Startposition an und gibt das letzte Vorkommen des angegebenen Teilstrings an einem Index zurück, der kleiner oder gleich der angegebenen Zahl ist.
 
-Die Methode **`lastIndexOf()`** von {{jsxref("String")}}-Werten durchsucht diesen String und gibt den Index des letzten Vorkommens der angegebenen Teilzeichenfolge zurück. Sie nimmt eine optionale Startposition und liefert das letzte Vorkommen der angegebenen Teilzeichenfolge an einem Index kleiner oder gleich der angegebenen Zahl.
-
-{{InteractiveExample("JavaScript Demo: String.lastIndexOf()")}}
+{{InteractiveExample("JavaScript Demo: String.prototype.lastIndexOf()")}}
 
 ```js interactive-example
 const paragraph = "I think Ruth's dog is cuter than your dog!";
@@ -17,7 +16,7 @@ const paragraph = "I think Ruth's dog is cuter than your dog!";
 const searchTerm = "dog";
 
 console.log(
-  `Index of the last ${searchTerm} is ${paragraph.lastIndexOf(searchTerm)}`,
+  `Index of the last "${searchTerm}" is ${paragraph.lastIndexOf(searchTerm)}`,
 );
 // Expected output: "Index of the last "dog" is 38"
 ```
@@ -32,26 +31,23 @@ lastIndexOf(searchString, position)
 ### Parameter
 
 - `searchString`
-
-  - : Die zu suchende Teilzeichenfolge. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sodass das Weglassen oder Übergeben von `undefined` dazu führt, dass `lastIndexOf()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Teilstring, nach dem gesucht werden soll. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sodass das Weglassen oder Übergeben von `undefined` dazu führt, dass `lastIndexOf()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 
 - `position` {{optional_inline}}
+  - : Die Methode gibt den Index des letzten Vorkommens des angegebenen Teilstrings an einer Position kleiner oder gleich `position` zurück, die standardmäßig auf `Infinity` gesetzt ist. Wenn `position` größer ist als die Länge des aufrufenden Strings, durchsucht die Methode den gesamten String. Wenn `position` kleiner als `0` ist, verhält sich die Methode wie bei `0` — das heißt, die Methode sucht nach dem angegebenen Teilstring nur an Index `0`.
+    - `'hello world hello'.lastIndexOf('world', 4)` gibt `-1` zurück — da, obwohl der Teilstring `world` an Index `6` vorkommt, diese Position nicht kleiner oder gleich `4` ist.
 
-  - : Die Methode gibt den Index des letzten Vorkommens der angegebenen Teilzeichenfolge an einer Position kleiner oder gleich `position` zurück, wobei der Standardwert `+Infinity` ist. Wenn `position` größer als die Länge des aufrufenden Strings ist, durchsucht die Methode den gesamten String. Wenn `position` kleiner als `0` ist, verhält sich die Methode wie bei `0` — das heißt, die Methode sucht die angegebene Teilzeichenfolge nur an Index `0`.
-
-    - `'hello world hello'.lastIndexOf('world', 4)` gibt `-1` zurück — da die Teilzeichenfolge `world` zwar an Index `6` vorkommt, diese Position jedoch nicht kleiner oder gleich `4` ist.
-
-    - `'hello world hello'.lastIndexOf('hello', 99)` gibt `12` zurück — da das letzte Vorkommen von `hello` an einer Position kleiner oder gleich `99` an Position `12` ist.
+    - `'hello world hello'.lastIndexOf('hello', 99)` gibt `12` zurück — da das letzte Vorkommen von `hello` an einer Position kleiner oder gleich `99` bei Position `12` ist.
 
     - `'hello world hello'.lastIndexOf('hello', 0)` und `'hello world hello'.lastIndexOf('hello', -5)` geben beide `0` zurück — da beide dazu führen, dass die Methode nur nach `hello` an Index `0` sucht.
 
 ### Rückgabewert
 
-Der Index des letzten Vorkommens von `searchString`, falls gefunden, oder `-1`, falls nicht gefunden.
+Der Index des letzten Vorkommens des gefundenen `searchString`, oder `-1`, wenn nicht gefunden.
 
 ## Beschreibung
 
-Strings sind nullbasiert: Der Index des ersten Zeichens eines Strings ist `0`, und der Index des letzten Zeichens eines Strings ist die Länge des Strings minus 1.
+Strings sind nullbasiert indiziert: Der Index des ersten Zeichens eines Strings ist `0`, und der Index des letzten Zeichens eines Strings ist die Länge des Strings minus 1.
 
 ```js
 "canal".lastIndexOf("a"); // returns 3
@@ -64,9 +60,9 @@ Strings sind nullbasiert: Der Index des ersten Zeichens eines Strings ist `0`, u
 "canal".lastIndexOf("", 2); // returns 2
 ```
 
-### Groß-/Kleinschreibung
+### Groß- und Kleinschreibung
 
-Die Methode `lastIndexOf()` unterscheidet zwischen Groß- und Kleinschreibung. Zum Beispiel gibt der folgende Ausdruck `-1` zurück:
+Die `lastIndexOf()` Methode beachtet die Groß- und Kleinschreibung. Zum Beispiel gibt der folgende Ausdruck `-1` zurück:
 
 ```js
 "Blue Whale, Killer Whale".lastIndexOf("blue"); // returns -1
@@ -76,9 +72,7 @@ Die Methode `lastIndexOf()` unterscheidet zwischen Groß- und Kleinschreibung. Z
 
 ### Verwendung von indexOf() und lastIndexOf()
 
-Das folgende Beispiel verwendet {{jsxref("String/indexOf", "indexOf()")}} und
-`lastIndexOf()`, um Werte im String
-`"Brave, Brave New World"` zu finden.
+Das folgende Beispiel verwendet {{jsxref("String/indexOf", "indexOf()")}} und `lastIndexOf()` um Werte im String `"Brave, Brave New World"` zu lokalisieren.
 
 ```js
 const anyString = "Brave, Brave New World";

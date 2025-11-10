@@ -3,18 +3,18 @@ title: "SVGCircleElement: r-Eigenschaft"
 short-title: r
 slug: Web/API/SVGCircleElement/r
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
 ---
 
 {{APIRef("SVG")}}
 
-Die **`r`** Leseeigenschaft des [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)-Interfaces spiegelt das {{SVGAttr("r")}}-Attribut eines {{SVGElement("circle")}}-Elements wider und definiert damit den Radius des Kreises.
+Die **`r`** schreibgeschützte Eigenschaft der Schnittstelle [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement) spiegelt das {{SVGAttr("r")}}-Attribut eines {{SVGElement("circle")}}-Elements wider und definiert dadurch den Radius des Kreises.
 
-Wenn nicht angegeben, entspricht die Wirkung dem Setzen des Wertes auf `0`.
+Wenn nicht angegeben, wird der Effekt so behandelt, als wäre der Wert auf `0` gesetzt.
 
 ## Wert
 
-Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das den Radius des Kreises darstellt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der den Radius des Kreises darstellt.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das den Radius de
   viewBox="0 0 100 100"
   width="200"
   height="200">
-  <circle r="50" r="50" r="50" fill="gold" id="circle" />
+  <circle r="50" fill="gold" id="circle" />
 </svg>
 ```
 

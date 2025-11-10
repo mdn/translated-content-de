@@ -3,7 +3,7 @@ title: "Element: setAttributeNS() Methode"
 short-title: setAttributeNS()
 slug: Web/API/Element/setAttributeNS
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
 {{ APIRef("DOM") }}
@@ -11,7 +11,7 @@ l10n:
 `setAttributeNS` fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs
 mit dem angegebenen Namensraum und Namen.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines spezifischen Namensraums angeben müssen, verwenden Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ setAttributeNS(namespace, name, value)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namensraum des Attributs angibt.
+  - : Ein String, der den Namensraum des Attributs spezifiziert.
 - `name`
   - : Ein String, der das Attribut durch seinen qualifizierten Namen identifiziert;
     das heißt, ein Namensraum-Präfix gefolgt von einem Doppelpunkt und einem lokalen Namen.
@@ -46,7 +46,7 @@ d.setAttributeNS(
 
 ## Anmerkungen
 
-`setAttributeNS` ist die einzige Methode für Namensraum-Attribute, die den vollständig qualifizierten Namen erwartet, d.h. `"namespace:localname"`.
+`setAttributeNS` ist die einzige Methode für attributierte Namensräume, die den voll qualifizierten Namen erwartet, d.h. `"namespace:local-name"`.
 
 ## Spezifikationen
 

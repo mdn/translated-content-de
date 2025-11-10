@@ -2,21 +2,21 @@
 title: Textfragmente
 slug: Web/URI/Reference/Fragment/Text_fragments
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: b2a6a2d255b792532d1cd3edf224f204d1ab2251
 ---
 
-**Textfragmente** ermöglichen das direkte Verlinken auf einen bestimmten Textabschnitt in einem Webdokument, ohne dass der Autor diesen mit einer ID versehen muss, indem eine spezielle Syntax im URL-Fragment verwendet wird. Unterstützende Browser können frei entscheiden, wie sie den verlinkten Text hervorheben, z. B. durch Farbmarkierungen und/oder das Scrollen zum Inhalt der Seite. Dies ist nützlich, da es Webcontent-Autoren ermöglicht, Deep-Links zu Inhalten zu erstellen, die sie nicht kontrollieren, ohne auf IDs angewiesen zu sein, um dies zu ermöglichen. Darüber hinaus könnten damit effektivere Content-Sharing-Links generiert werden, die von Benutzern miteinander geteilt werden können.
+**Textfragmente** verlinken direkt zu einem bestimmten Text auf einer Webseite, ohne dass der Seitenautor eine ID hinzufügen muss. Sie verwenden eine spezielle Syntax im URL-Fragment. Diese Funktion ermöglicht es Ihnen, Deep-Links zu Inhalten zu erstellen, die Sie nicht kontrollieren und die möglicherweise keine zugehörigen IDs haben. Es macht das Teilen von Links auch nützlicher, indem es andere direkt auf bestimmte Wörter verweist. Browser können unterschiedlich darauf hinweisen, welcher Text verlinkt ist – normalerweise wird der Text in den sichtbaren Bereich gescrollt und farblich hervorgehoben.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Historisch gesehen war eine der Hauptfunktionen des Webs schon immer seine Fähigkeit, Verknüpfungen zwischen verschiedenen Dokumenten bereitzustellen – das ist es, was _das Web_ zu einem Netz macht:
+Historisch gesehen war eine der Hauptmerkmale des Webs immer seine Fähigkeit, Links zwischen verschiedenen Dokumenten bereitzustellen – das ist es, was _das Web_ zu einem Netz macht:
 
-- Sie können an den Anfang eines Dokuments verlinken, indem Sie seine URL verwenden, z. B.:
-  - [https://developer.mozilla.org/de/docs/Web/HTML/Element/a](/de/docs/Web/HTML/Element/a).
-- Sie können an einen bestimmten Abschnitt eines Dokuments verlinken, indem Sie seine URL plus das _Dokumentenfragment_ (ID) dieses Abschnitts verwenden, z. B.:
-  - [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#browser_compatibility](/de/docs/Web/HTML/Element/a#browser_compatibility).
+- Sie können an den Anfang eines Dokuments verlinken, indem Sie auf seine URL verlinken, zum Beispiel:
+  - [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a](/de/docs/Web/HTML/Reference/Elements/a).
+- Sie können an einen bestimmten Abschnitt eines Dokuments verlinken, indem Sie auf seine URL plus das _Dokumentfragment_ (ID) dieses Abschnitts verlinken, zum Beispiel:
+  - [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#browser_compatibility](/de/docs/Web/HTML/Reference/Elements/a#browser_compatibility).
 
-Das Problem beim Verlinken auf spezifische Dokumentenfragmente besteht darin, dass der Autor der verlinkten Seite einen Anker setzen muss, um tatsächlich dorthin zu verlinken. Das zweite Beispiel oben verlinkt auf ein {{htmlelement("Heading_Elements", "h2")}}-Element mit der ID `browser_compatibility`:
+Das Problem beim Verlinken auf spezifische Dokumentfragmente ist, dass der Autor der verlinkten Seite einen Anker setzen muss, um _tatsächlich_ darauf zu verlinken. Das obige zweite Beispiel verlinkt auf ein {{htmlelement("Heading_Elements", "h2")}}-Element mit einer ID von `browser_compatibility`:
 
 ```html
 <h2 id="browser_compatibility">
@@ -24,88 +24,86 @@ Das Problem beim Verlinken auf spezifische Dokumentenfragmente besteht darin, da
 </h2>
 ```
 
-Wenn die ID geändert oder entfernt wird, wird das Dokumentenfragment ignoriert, und der Link verweist lediglich auf den Anfang der Seite. Dies ist im Sinne einer robusten Degradation sinnvoll, aber es wäre besser, wenn der Autor des Links volle Kontrolle darüber hätte, wohin er verlinkt, ohne von der Seitengestaltung abhängig zu sein.
+Nicht alle Dokumente haben solche Anker, und selbst wenn sie es tun, kann das Verlinken auf eine Überschrift viel weniger offensichtlich sein als das direkte Verlinken auf den spezifischen Text, den Sie zitieren. Hier kommen Textfragmente zum Einsatz: Sie erlauben es dem Linkautor, die volle Kontrolle darüber zu haben, auf welchen Text verwiesen wird, ohne dass spezielles Markup im Zieldokument erforderlich ist. Beispielsweise kann eine Suchmaschine auf einen bestimmten Satz in ihren Suchergebnissen verweisen und das Klicken auf den Link führt Sie direkt zu diesem Satz.
 
-**Textfragmente** machen dies möglich – sie erlauben es Linkautoren, einen Textinhalt anzugeben, auf den verlinkt werden soll, anstatt Dokumentenfragmente in einer flexiblen Weise zu verwenden.
+Textfragmente haben jedoch auch eine Einschränkung: Text in einem Dokument ist weniger stabil als die Dokumentstruktur. Wenn der Text im verlinkten Dokument aktualisiert wird, passt das Fragment nicht mehr und der Browser navigiert zum Anfang der Seite. Das ist akzeptabel für temporäre Links wie in Suchergebnissen, aber wenn Sie möchten, dass der Link über die Zeit zuverlässig funktioniert, sind Dokumentfragmente möglicherweise verlässlicher.
 
 ## Syntax
-
-Ähnlich wie bei Dokumentenfragmenten werden Textfragmente nach einem Hash-Symbol (`#`) an eine URL angehängt. Allerdings ist die Syntax ein wenig anders:
 
 ```url
 https://example.com#:~:text=[prefix-,]textStart[,textEnd][,-suffix]
 ```
 
-Die Schlüsselelemente sind wie folgt:
+Textfragmente sind eine Art URL-Fragment und werden nach dem `#` geschrieben. Die wichtigsten Punkte zum Verständnis sind folgende:
 
 - `:~:`
-  - : Auch bekannt als _Fragment-Direktive_, informiert diese Zeichenfolge den Browser darüber, dass die folgenden Inhalte eine oder mehrere Benutzeragent-Anweisungen beinhalten, die während des Ladens von der URL entfernt werden, sodass Skripte des Autors nicht direkt mit ihnen interagieren können. Benutzeragent-Anweisungen werden auch Direktiven genannt.
+  - : Auch bekannt als _Fragmentanweisung_, teilt diese Zeichenfolge dem Browser mit, dass das, was folgt, eine oder mehrere User-Agent-Anweisungen sind, die beim Laden von der URL entfernt werden, sodass Autorenskripte nicht direkt mit ihnen interagieren können. User-Agent-Anweisungen werden auch als Anweisungen bezeichnet.
 - `text=`
-  - : Eine Text-Direktive. Sie definiert ein Textfragment, das an den Browser übermittelt wird, und legt fest, welcher Text im verlinkten Dokument hervorgehoben werden soll.
+  - : Eine Textanweisung. Diese stellt dem Browser ein Textfragment zur Verfügung und definiert, welcher Text im verlinkten Dokument verlinkt werden soll.
 - `textStart`
-  - : Eine Textzeichenfolge, die den Anfang des verlinkten Abschnitts definiert.
+  - : Eine Zeichenkette, die den Anfang des verlinkten Textes angibt.
 - `textEnd` {{optional_inline}}
-  - : Eine Textzeichenfolge, die das Ende des verlinkten Abschnitts definiert.
+  - : Eine Zeichenkette, die das Ende des verlinkten Textes angibt.
 - `prefix-` {{optional_inline}}
-  - : Eine Textzeichenfolge gefolgt von einem Bindestrich, die angibt, welcher Text unmittelbar vor dem verlinkten Abschnitt erscheinen soll. Dies hilft dem Browser, den korrekten Textabschnitt auszuwählen, wenn es mehrere Übereinstimmungen gibt.
+  - : Eine Zeichenkette gefolgt von einem Bindestrich, die angibt, welcher Text unmittelbar vor dem verlinkten Text stehen sollte, wobei nur Leerzeichen dazwischen erlaubt sind. Dies hilft dem Browser, den richtigen verlinkten Text zu wählen, wenn es mehrere Übereinstimmungen gibt.
 - `-suffix` {{optional_inline}}
-  - : Ein Bindestrich gefolgt von einer Textzeichenfolge, die angibt, welcher Text unmittelbar nach dem verlinkten Abschnitt erscheinen soll. Dies hilft dem Browser, den korrekten Textabschnitt auszuwählen, wenn es mehrere Übereinstimmungen gibt.
+  - : Ein Bindestrich gefolgt von einer Zeichenkette, die angibt, welcher Text unmittelbar nach dem verlinkten Text stehen sollte, wobei nur Leerzeichen dazwischen erlaubt sind. Dies hilft dem Browser, den richtigen verlinkten Text zu wählen, wenn es mehrere Übereinstimmungen gibt.
 
-Unterstützende Browser scrollen zu und heben das erste Textfragment im verlinkten Dokument hervor, das mit der angegebenen Direktive übereinstimmt. Es ist möglich, mehrere Textfragmente in derselben URL anzugeben, indem sie mit einem `&`-Zeichen getrennt werden.
+Unterstützende Browser scrollen zum ersten Textfragment im verlinkten Dokument, das der angegebenen Anweisung entspricht, und heben es hervor. Beachten Sie, dass es möglich ist, mehrere Textfragmente in derselben URL anzugeben, indem sie mit dem Zeichen (`&`) getrennt werden.
 
-### Nutzungshinweise
+### Verwendungshinweise
 
-- Textzeichenfolgen, die für die Werte von `textStart`, `textEnd`, `prefix-` und `-suffix` verwendet werden, müssen [prozentkodiert](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) werden. Außerdem verlangt [der Standard](https://wicg.github.io/scroll-to-text-fragment/#syntax) die Zeichen `'-'` als URL-sichere Zeichen ebenfalls zu prozentkodieren.
+- Für die in `textStart`, `textEnd`, `prefix-` und `-suffix` verwendeten Zeichenketten müssen [prozentcodiert](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) sein. Darüber hinaus erfordert [der Standard](https://wicg.github.io/scroll-to-text-fragment/#syntax), dass das URL-sichere Bindestrichzeichen `'-'` ähnlich prozentcodiert wird.
 - Übereinstimmungen sind Groß-/Kleinschreibung-unabhängig.
-- Einzelne `textStart`-, `textEnd`-, `prefix-`- und `-suffix`-Textzeichenfolgen müssen vollständig innerhalb desselben {{Glossary("Block-level_content", "Block-Elementes")}} liegen, aber vollständige Übereinstimmungen können sich über mehrere Elementgrenzen erstrecken.
-- Aus Sicherheitsgründen erfordert die Funktion, dass Links in einem noopener-Kontext geöffnet werden – es muss `rel="noopener"` zu Ihren {{htmlelement("a")}}-Elementen hinzugefügt werden, sowie `noopener` in Ihren [`window.open()`](/de/docs/Web/API/Window/open)-Aufrufen.
-- Textfragmente werden nur bei durch den Nutzer initiierten Navigationsaufrufen ausgelöst.
-- Textfragmente werden nur auf das Haupt-Frame angewendet; Text wird nicht in {{htmlelement("iframe")}}s durchsucht, und die Navigation in `iframe`-Elementen führt kein Textfragment aus.
-- Für Seiten, die sich abmelden möchten, unterstützen Chromium-basierte Browser einen [Document-Policy](https://wicg.github.io/document-policy/)-Headerwert, der übermittelt werden kann, um zu verhindern, dass Benutzeragenten Textfragmente verarbeiten:
+- Einzelne `textStart`, `textEnd`, `prefix-` und `-suffix` Zeichenketten müssen vollständig innerhalb desselben {{Glossary("Block-level_content", "Block-Level-Element")}} enthalten sein, aber vollständige Übereinstimmungen können sich über mehrere Elementgrenzen erstrecken.
+- Aus Sicherheitsgründen sollten Sie beim Verlinken auf eine Cross-Origin-Seite mit dieser Funktion den Link in einem `noopener`-Kontext öffnen – Sie müssen `rel="noopener"` zu Ihren {{htmlelement("a")}}-Elementen hinzufügen und `noopener` zu Ihren [`window.open()`](/de/docs/Web/API/Window/open)-Aufrufen hinzufügen, wenn Sie diese Funktion verwenden.
+- Textfragmente werden nur bei vom Benutzer initiierten Navigationen aufgerufen.
+- Textfragmente werden nur auf den Hauptrahmen angewendet; Text wird nicht innerhalb von {{htmlelement("iframe")}}s durchsucht und `iframe`-Navigation wird kein Textfragment aufrufen.
+- Für Websites, die sich davon abmelden möchten, unterstützen Chromium-basierte Browser einen [Document Policy](https://wicg.github.io/document-policy/) Header-Wert, den sie senden können, sodass User-Agents keine Textfragmente verarbeiten:
 
   ```http
   Document-Policy: force-load-at-top
   ```
 
 > [!NOTE]
-> Wenn das angegebene Textfragment mit keinem Text im verlinkten Dokument übereinstimmt oder wenn der Browser Textfragmente nicht unterstützt, wird das gesamte Textfragment ignoriert, und der Link verweist lediglich auf den Anfang des Dokuments.
+> Wenn das bereitgestellte Textfragment keinem Text im verlinkten Dokument entspricht oder wenn der Browser Textfragmente nicht unterstützt, wird das gesamte Textfragment ignoriert und der Anfang des Dokuments wird verlinkt.
 
 ## Beispiele
 
-### Einfaches Textfragment mit textStart
+### Textfragment mit textStart
 
-- [https://example.com#:~:text=for](https://example.com#:~:text=for) scrollt zum ersten Vorkommen des Texts `for` im Dokument und hebt ihn hervor.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=human](/de/docs/Web/HTML/Element/a#:~:text=human) scrollt zum ersten Vorkommen des Texts `human` im Dokument und hebt ihn hervor.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=linked%20URL](/de/docs/Web/HTML/Element/a#:~:text=linked%20URL) scrollt zum ersten Vorkommen des Texts `linked URL` im Dokument und hebt ihn hervor.
+- [https://example.com/#:~:text=use](https://example.com/#:~:text=use) scrollt zum ersten Vorkommen des Textes `use` im Dokument und hebt ihn hervor.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=human](/de/docs/Web/HTML/Reference/Elements/a#:~:text=human) scrollt zum ersten Vorkommen des Textes `human` im Dokument und hebt ihn hervor.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL](/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL) scrollt zum ersten Vorkommen des Textes `linked URL` im Dokument und hebt ihn hervor.
 
 ### textStart und textEnd
 
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=human,URL](/de/docs/Web/HTML/Element/a#:~:text=human,url) scrollt und hebt den ersten Textabschnitt hervor, der mit `human` beginnt und mit `URL` endet.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=linked%20URL,defining%20a%20value](/de/docs/Web/HTML/Element/a#:~:text=linked%20URL,defining%20a%20value) scrollt und hebt den ersten Textabschnitt hervor, der mit `linked URL` beginnt und mit `defining a value` endet. Beachten Sie, dass der hervorgehobene Text sich über mehrere Block-Level-Elemente erstreckt.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=human,URL](/de/docs/Web/HTML/Reference/Elements/a#:~:text=human,url) scrollt zur ersten Instanz einer Zeichenkette, die mit `human` beginnt und mit `URL` endet, und hebt sie hervor.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL,defining%20a%20value](/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL,defining%20a%20value) scrollt zur ersten Instanz einer Zeichenkette, die mit `linked URL` beginnt und mit `defining a value` endet, und hebt sie hervor. Beachten Sie, wie der hervorgehobene Text sich über mehrere Block-Level-Elemente erstreckt.
 
 ### Beispiele mit prefix- und/oder -suffix
 
-- [https://example.com#:~:text=asking-,for](https://example.com#:~:text=asking-,for) scrollt zum zweiten Vorkommen des Texts `for` im Dokument und hebt ihn hervor.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=sent-,referrer](/de/docs/Web/HTML/Element/a#:~:text=sent-,referrer) scrollt zum ersten Vorkommen des Texts `referrer`, dem direkt der Text `sent` vorangestellt ist. Dies ist das fünfte Vorkommen von `referrer` im Dokument; ohne das Präfix wäre das erste Vorkommen hervorgehoben worden.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=linked%20URL,-'s%20format](/de/docs/Web/HTML/Element/a#:~:text=linked%20URL,-'s%20format) scrollt zum ersten Vorkommen des Texts `linked URL`, dem direkt der Text `'s format` folgt. Dies ist das fünfte Vorkommen von `linked URL` im Dokument; ohne das Suffix wäre das erste Vorkommen hervorgehoben worden.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=downgrade:-,The%20Referer,be%20sent,-to%20origins](/de/docs/Web/HTML/Element/a#:~:text=downgrade:-,The%20Referer,be%20sent,-to%20origins) scrollt und hebt den Textabschnitt `The Referer ... be sent` hervor, der mit `downgrade:` beginnt und mit `to origins` endet. Dies ist ein komplexeres Beispiel, das zeigt, wie Präfixe/Suffixe verwendet werden können, um das spezifische Textvorkommen zu verlinken. Entfernen Sie beispielsweise das Präfix, und sehen Sie, was dann ausgewählt wird.
+- [https://example.com/#:~:text=avoid-,use](https://example.com/#:~:text=avoid-,use) scrollt zur zweiten Instanz des Textes `use` im Dokument und hebt ihn hervor.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=sent-,referrer](/de/docs/Web/HTML/Reference/Elements/a#:~:text=sent-,referrer) scrollt zur ersten Instanz des Textes `referrer`, der den Text `sent` direkt davor hat. Dies ist die fünfte Instanz von `referrer` im Dokument; ohne das Präfix würde die erste Instanz hervorgehoben.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL,-'s%20format](/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL,-'s%20format) scrollt zur ersten Instanz des Textes `linked URL`, der den Text `'s format` direkt folgt. Dies ist die fünfte Instanz von `linked URL` im Dokument; ohne das Suffix würde die erste Instanz hervorgehoben.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=downgrade:-,The%20Referer,be%20sent,-to%20origins](/de/docs/Web/HTML/Reference/Elements/a#:~:text=downgrade:-,The%20Referer,be%20sent,-to%20origins) scrollt zur Instanz des Textes `The Referer ... be sent`, die mit `downgrade:` beginnt und mit `to origins` endet. Dies ist ein komplexeres Beispiel, bei dem das Präfix/Suffix verwendet wird, um auf die spezifische Textinstanz zu verweisen, die Sie verlinken möchten. Versuchen Sie, das Präfix zu entfernen und sehen Sie, was übereinstimmt.
 
 ### URLs mit mehreren Textfragmenten
 
-Sie können mehrere Textfragmente in derselben URL angeben, wobei diese durch das Zeichen `&` getrennt werden. Hier sind ein paar Beispiele:
+Sie können mehrere Textfragmente in derselben URL angeben, indem Sie sie mit dem Zeichen (`&`) trennen. Schauen wir uns ein paar Beispiele an:
 
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=Causes&text=linked](/de/docs/Web/HTML/Element/a#:~:text=causes&text=linked) scrollt und hebt die ersten Vorkommen der Textfragmente `Causes` und `linked` hervor.
-- [https://developer.mozilla.org/de/docs/Web/HTML/Element/a#:~:text=linked%20URL,-'s%20format&text=Deprecated-,attributes,attribute](/de/docs/Web/HTML/Element/a#:~:text=linked%20URL,-'s%20format&text=Deprecated-,attributes,attribute) scrollt und hebt zwei Textabschnitte hervor:
-  - Das erste Vorkommen des Textes `linked URL`, dem direkt der Text `'s format` folgt.
-  - Das erste Textfragment, das mit `attributes` beginnt und mit `attribute` endet, und dem `Deprecated` vorangestellt ist.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=Causes&text=linked](/de/docs/Web/HTML/Reference/Elements/a#:~:text=causes&text=linked) scrollt zu und hebt die ersten Instanzen der Textzeichenketten `Causes` und `linked` hervor.
+- [https://developer.mozilla.org/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL,-'s%20format&text=Deprecated-,attributes,attribute](/de/docs/Web/HTML/Reference/Elements/a#:~:text=linked%20URL,-'s%20format&text=Deprecated-,attributes,attribute) scrollt zu und hebt zwei Textinstanzen hervor:
+  - Die erste Instanz des Textes `linked URL`, der den Text `'s format` direkt folgt.
+  - Die erste Instanz einer Zeichenkette, die mit `attributes` beginnt und mit `attribute` endet, die mit `Deprecated` gekennzeichnet ist.
 
-Wenn eines oder mehrere Ihrer Textfragmente nicht hervorgehoben werden und Sie sicher sind, dass die Syntax korrekt ist, könnten Sie ein anderes Vorkommen als erwartet hervorgehoben haben. Es könnte hervorgehoben sein, aber außerhalb des sichtbaren Bereichs liegen.
+Wenn Sie eines oder mehrere Ihrer Textfragmente nicht hervorgehoben sehen und sicher sind, dass Sie die Syntax korrekt haben, können Sie möglicherweise eine andere Instanz hervorheben als die, die Sie erwartet haben. Es könnte hervorgehoben sein, aber außerhalb des sichtbaren Bereichs.
 
-### Styling von hervorgehobenem Text
+### Styling von hervorgehobenen Textfragmenten
 
-Browser sind frei in der Wahl der Standardgestaltung für hervorgehobenen Text. Das [CSS Pseudo-Elements Module Level 4](https://drafts.csswg.org/css-pseudo/#selectordef-target-text) definiert ein Pseudo-Element, {{cssxref("::target-text")}}, das es ermöglicht, eine individuelle Gestaltung anzugeben.
+Browser sind frei, den hervorgehobenen Text auf beliebige Standardweise zu gestalten. Das [CSS Pseudo-Elements Module Level 4](https://drafts.csswg.org/css-pseudo/#selectordef-target-text) definiert ein Pseudo-Element, {{cssxref("::target-text")}}, das es ermöglicht, benutzerdefinierte Stile anzugeben.
 
-Zum Beispiel haben wir in unserem [scroll-to-text-Demo](https://mdn.github.io/css-examples/target-text/index.html#:~:text=From%20the%20foregoing%20remarks%20we%20may%20gather%20an%20idea%20of%20the%20importance) folgendes CSS genutzt:
+Zum Beispiel haben wir in unserem [scroll-to-text-Demo](https://mdn.github.io/css-examples/target-text/index.html#:~:text=From%20the%20foregoing%20remarks%20we%20may%20gather%20an%20idea%20of%20the%20importance), den folgenden CSS-Code:
 
 ```css
 ::target-text {
@@ -114,13 +112,13 @@ Zum Beispiel haben wir in unserem [scroll-to-text-Demo](https://mdn.github.io/cs
 }
 ```
 
-Folgen Sie dem Link oben in einem unterstützenden Browser, um die Umsetzung zu sehen.
+Versuchen Sie, den obigen Link in einem unterstützenden Browser zu folgen, um zu sehen, welchen Effekt dies hat.
 
-### Funktionsdetectierung
+### Funktionsdetektierbarkeit
 
-Das [`FragmentDirective`](/de/docs/Web/API/FragmentDirective)-Objekt, das über die Eigenschaft [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) zugänglich ist, kann genutzt werden, um zu testen, ob Textfragmente in einem Browser unterstützt werden.
+Das [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) Objekt, das über die [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) Eigenschaft zugegriffen wird, kann verwendet werden, um zu testen, ob Textfragmente in einem Browser unterstützt werden.
 
-Führen Sie Folgendes in den DevTools eines unterstützenden Browsers aus, in einem Tab mit einem oder mehreren Übereinstimmungen für Textfragmente:
+Versuchen Sie, das folgende in den Entwicklertools eines unterstützenden Browsers auszuführen, in einem Tab mit einem oder mehreren übereinstimmenden Textfragmenten:
 
 ```js
 document.fragmentDirective;
@@ -128,21 +126,21 @@ document.fragmentDirective;
 // undefined otherwise
 ```
 
-Diese Funktionalität ist derzeit hauptsächlich zur Funktionsdetektion gedacht. In Zukunft könnte das `FragmentDirective`-Objekt zusätzliche Informationen enthalten.
+Diese Funktionalität ist derzeit hauptsächlich zur Feature-Erkennung vorgesehen. In Zukunft könnte das `FragmentDirective`-Objekt zusätzliche Informationen enthalten.
 
 ## Referenz
 
 ### API
 
 - [`FragmentDirective`](/de/docs/Web/API/FragmentDirective)
-  - : Ein Objekt, das die Textfragmente repräsentiert. Derzeit leer und hauptsächlich für Funktionsdetektion vorgesehen.
+  - : Ein Objekt, das die Textfragmente darstellt. Derzeit leer und hauptsächlich zur Feature-Erkennung gedacht.
 - [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective)
-  - : Gibt das [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
+  - : Gibt die [`FragmentDirective`](/de/docs/Web/API/FragmentDirective) für das aktuelle Dokument zurück.
 
 ### CSS
 
 - {{cssxref("::target-text")}}
-  - : Repräsentiert die hervorgehobenen Textfragmente im aktuellen Dokument. Ermöglicht es Autoren, die Gestaltung der Textfragmente anzupassen.
+  - : Repräsentiert die hervorgehobenen Textfragmente im aktuellen Dokument. Es ermöglicht Autoren, das Styling von Textfragmenten anzupassen.
 
 ## Spezifikationen
 
@@ -154,4 +152,4 @@ Diese Funktionalität ist derzeit hauptsächlich zur Funktionsdetektion gedacht.
 
 ## Siehe auch
 
-- [Mutig verlinken, wo zuvor niemand verlinkt hat: Textfragmente](https://web.dev/articles/text-fragments)
+- [Kühn dort verlinken, wo noch niemand zuvor verlinkt hat: Textfragmente](https://web.dev/articles/text-fragments)

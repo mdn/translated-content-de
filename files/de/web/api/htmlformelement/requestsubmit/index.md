@@ -1,14 +1,14 @@
 ---
-title: "HTMLFormElement: requestSubmit()-Methode"
+title: "HTMLFormElement: requestSubmit() Methode"
 short-title: requestSubmit()
 slug: Web/API/HTMLFormElement/requestSubmit
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Methode **`requestSubmit()`** fordert an, dass das Formular mit einem spezifischen Submit-Button abgeschickt wird.
+Die Methode **`requestSubmit()`** von [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) fordert an, dass das Formular unter Verwendung eines bestimmten Absende-Buttons gesendet wird.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ requestSubmit(submitter)
 
 - `submitter` {{optional_inline}}
 
-  - : Ein {{Glossary("submit_button", "submit button")}}, der ein Mitglied des Formulars ist.
+  - : Ein {{Glossary("submit_button", "Absende-Button")}}, der ein Mitglied des Formulars ist.
 
-    Wenn der `submitter` `form*`-Attribute angibt, {{Glossary("Submit_button#overriding_the_forms_behavior", "werden diese")}} das Absendeverhalten des Formulars überschreiben (z.B. `formmethod="POST"`).
+    Wenn der `submitter` `form*` Attribute spezifiziert, {{Glossary("Submit_button#overriding_the_forms_behavior", "werden diese das Absendeverhalten des Formulars überschreiben")}} (z.B. `formmethod="POST"`).
 
-    Wenn der `submitter` ein `name`-Attribut besitzt oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten {{Glossary("Submit_button#form_data_entries", "in das Formular eingeschlossen")}} (z.B. `btnName=btnValue`).
+    Wenn der `submitter` ein `name` Attribut besitzt oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten {{Glossary("Submit_button#form_data_entries", "in die Formularübermittlung einbezogen")}} (z.B. `btnName=btnValue`).
 
-    Wenn Sie den `submitter`-Parameter weglassen, wird das Formularelement selbst als `submitter` verwendet.
+    Wenn Sie den `submitter` Parameter weglassen, wird das Formularelement selbst als Submitter verwendet.
 
 ### Rückgabewert
 
@@ -36,21 +36,22 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der angegebene `submitter` kein {{Glossary("submit_button", "submit button")}} ist.
+  - : Wird ausgelöst, wenn der angegebene `submitter` kein {{Glossary("submit_button", "Absende-Button")}} ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene `submitter` kein Mitglied des Formulars ist, auf dem `requestSubmit()` aufgerufen wurde. Der `submitter` muss entweder ein Nachkomme des Formularelements sein oder ein [`form`](/de/docs/Web/HTML/Element/input#form)-Attribut besitzen, das auf das Formular verweist.
+  - : Wird ausgelöst, wenn der angegebene `submitter` kein Mitglied des Formulars ist, auf dem `requestSubmit()` aufgerufen wurde. Der Submitter muss entweder ein Nachfahre des Formularelements sein oder ein [`form`](/de/docs/Web/HTML/Reference/Elements/input#form) Attribut besitzen, das auf das Formular verweist.
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
-Die offensichtliche Frage ist: Warum existiert diese Methode, wenn wir schon seit Ewigkeiten die [`submit()`](/de/docs/Web/API/HTMLFormElement/submit)-Methode haben?
+Die offensichtliche Frage ist: Warum existiert diese Methode, wenn wir doch die
+[`submit()`](/de/docs/Web/API/HTMLFormElement/submit) Methode seit Anbeginn der Zeit haben?
 
-Die Antwort ist einfach. `submit()` sendet das Formular ab, aber das ist alles, was es tut. `requestSubmit()` hingegen agiert, als ob ein Submit-Button geklickt wurde. Der Inhalt des Formulars wird validiert, und das Formular wird nur abgeschickt, wenn die Validierung erfolgreich ist. Sobald das Formular abgeschickt wurde, wird das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis zurück an das Formularobjekt gesendet.
+Die Antwort ist einfach. `submit()` sendet das Formular, aber das ist alles, was es tut. `requestSubmit()` hingegen verhält sich so, als ob ein Absende-Button geklickt wurde. Der Inhalt des Formulars wird validiert, und das Formular wird nur gesendet, wenn die Validierung erfolgreich ist. Sobald das Formular gesendet wurde, wird das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event) Ereignis an das Formularobjekt zurückgesendet.
 
 ## Beispiele
 
-Im folgenden Beispiel wird das Formular durch den Versuch, die Anfrage mit `requestSubmit()` zu senden, abgeschickt, sofern dies verfügbar ist. Wenn ein Submit-Button mit der ID `main-submit` gefunden wird, wird dieser verwendet, um das Formular abzuschicken. Andernfalls wird das Formular ohne `submitter`-Parameter abgeschickt und somit direkt vom Formular selbst gesendet.
+Im untenstehenden Beispiel wird das Formular versucht zu senden, indem `requestSubmit()` verwendet wird, wenn dies verfügbar ist. Wird ein Absende-Button mit der ID `main-submit` gefunden, wird dieser zum Senden des Formulars verwendet. Andernfalls wird das Formular ohne `submitter` Parameter gesendet, sodass es direkt vom Formular selbst gesendet wird.
 
-Wenn andererseits `requestSubmit()` nicht verfügbar ist, fällt dieser Code auf den Aufruf der [`submit()`](/de/docs/Web/API/HTMLFormElement/submit)-Methode des Formulars zurück.
+Falls `requestSubmit()` nicht verfügbar ist, fällt dieser Code zurück auf das Aufrufen der [`submit()`](/de/docs/Web/API/HTMLFormElement/submit) Methode des Formulars.
 
 ```js
 let myForm = document.querySelector("form");

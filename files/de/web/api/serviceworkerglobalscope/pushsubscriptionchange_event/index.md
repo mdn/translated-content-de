@@ -1,27 +1,27 @@
 ---
-title: "ServiceWorkerGlobalScope: pushsubscriptionchange-Ereignis"
+title: "ServiceWorkerGlobalScope: pushsubscriptionchange-Event"
 short-title: pushsubscriptionchange
 slug: Web/API/ServiceWorkerGlobalScope/pushsubscriptionchange_event
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`pushsubscriptionchange`**-Ereignis wird an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet, um eine Änderung in der Push-Abonnements zu signalisieren, die außerhalb der Kontrolle der Anwendung ausgelöst wurde.
+Das **`pushsubscriptionchange`**-Event wird an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet, um eine Änderung in der Push-Abonnement, die außerhalb der Kontrolle der Anwendung ausgelöst wurde, anzuzeigen.
 
-Dies kann passieren, wenn das Abonnement vom Browser aktualisiert wurde, aber es kann auch vorkommen, wenn das Abonnement widerrufen oder verloren wurde.
+Dies kann geschehen, wenn das Abonnement vom Browser aktualisiert wurde, es kann aber auch passieren, wenn das Abonnement widerrufen oder verloren wurde.
 
-Dieses Ereignis kann weder abgebrochen werden noch blubbert es.
+Dieses Ereignis ist nicht stornierbar und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
-```js
-addEventListener("pushsubscriptionchange", (event) => {});
+```js-nolint
+addEventListener("pushsubscriptionchange", (event) => { })
 
-onpushsubscriptionchange = (event) => {};
+onpushsubscriptionchange = (event) => { }
 ```
 
 ## Ereignistyp
@@ -30,52 +30,48 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Verwendungshinweise
 
-Obwohl Beispiele, die zeigen, wie Abonnement-bezogene Informationen mit dem Anwendungsserver ausgetauscht werden können, in der Regel [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) verwenden, ist dies möglicherweise nicht die beste Wahl für den praktischen Einsatz, da es beispielsweise nicht funktioniert, wenn die App offline ist.
+Obwohl Beispiele, die zeigen, wie abonnementbezogene Informationen mit dem Anwendungsserver geteilt werden, dazu neigen, [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) zu verwenden, ist dies nicht unbedingt die beste Wahl für den realen Einsatz, da es nicht funktioniert, wenn die App offline ist, zum Beispiel.
 
-Erwägen Sie die Verwendung einer anderen Methode, um Abonnementinformationen zwischen Ihrem Service Worker und dem Anwendungsserver zu synchronisieren, oder stellen Sie sicher, dass Ihr Code, der `fetch()` verwendet, robust genug ist, um mit Fällen umzugehen, in denen der Versuch des Datenaustauschs fehlschlägt.
+Erwägen Sie, eine andere Methode zu verwenden, um Abonnementinformationen zwischen Ihrem Service Worker und dem App-Server zu synchronisieren, oder stellen Sie sicher, dass Ihr Code, der `fetch()` verwendet, robust genug ist, um Fälle zu bewältigen, in denen Versuche zum Datenaustausch scheitern.
 
 > [!NOTE]
-> In früheren Entwürfen der Spezifikation wurde definiert, dass dieses Ereignis gesendet wird, wenn ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) abgelaufen ist.
+> In früheren Entwürfen der Spezifikation wurde dieses Ereignis definiert, um gesendet zu werden, wenn ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) abgelaufen ist.
 
 ## Beispiele
 
-Dieses Beispiel, ausgeführt im Kontext eines Service Workers, hört auf ein `pushsubscriptionchange`-Ereignis und meldet das abgelaufene Abonnement erneut an.
+Dieses Beispiel, das im Kontext eines Service Workers ausgeführt wird, horcht auf ein `pushsubscriptionchange`-Event und abonniert das abgelaufene Abonnement erneut.
 
 ```js
-self.addEventListener(
-  "pushsubscriptionchange",
-  (event) => {
-    const conv = (val) =>
-      self.btoa(String.fromCharCode.apply(null, new Uint8Array(val)));
-    const getPayload = (subscription) => ({
-      endpoint: subscription.endpoint,
-      publicKey: conv(subscription.getKey("p256dh")),
-      authToken: conv(subscription.getKey("auth")),
-    });
+self.addEventListener("pushsubscriptionchange", (event) => {
+  const conv = (val) =>
+    self.btoa(String.fromCharCode.apply(null, new Uint8Array(val)));
+  const getPayload = (subscription) => ({
+    endpoint: subscription.endpoint,
+    publicKey: conv(subscription.getKey("p256dh")),
+    authToken: conv(subscription.getKey("auth")),
+  });
 
-    const subscription = self.registration.pushManager
-      .subscribe(event.oldSubscription.options)
-      .then((subscription) =>
-        fetch("register", {
-          method: "post",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            old: getPayload(event.oldSubscription),
-            new: getPayload(subscription),
-          }),
+  const subscription = self.registration.pushManager
+    .subscribe(event.oldSubscription.options)
+    .then((subscription) =>
+      fetch("register", {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          old: getPayload(event.oldSubscription),
+          new: getPayload(subscription),
         }),
-      );
-    event.waitUntil(subscription);
-  },
-  false,
-);
+      }),
+    );
+  event.waitUntil(subscription);
+});
 ```
 
-Wenn ein `pushsubscriptionchange`-Ereignis eintrifft, das anzeigt, dass das Abonnement abgelaufen ist, melden wir uns erneut an, indem wir die [`subscribe()`](/de/docs/Web/API/PushManager/subscribe)-Methode des Push-Managers aufrufen. Wenn das zurückgegebene Versprechen aufgelöst wird, erhalten wir das neue Abonnement. Dieses wird über einen [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Aufruf, um eine im {{Glossary("JSON", "JSON")}}-Formatierte Version des Abonnement-`endpoint`s an den Anwendungsserver zu senden, übermittelt.
+Wenn ein `pushsubscriptionchange`-Event eintrifft, das anzeigt, dass das Abonnement abgelaufen ist, abonnieren wir erneut, indem wir die `subscribe()`-Methode des Push-Managers aufrufen. Wenn das zurückgegebene Versprechen erfüllt wird, erhalten wir das neue Abonnement. Dies wird an den App-Server gesendet, indem ein `fetch()`-Aufruf verwendet wird, um eine {{Glossary("JSON", "JSON")}}-formatierte Darstellung des Abonnement-`endpoints` an den App-Server zu posten.
 
-Sie können auch die `onpushsubscriptionchange`-Ereignishandler-Eigenschaft verwenden, um den Ereignishandler einzurichten:
+Sie können auch die `onpushsubscriptionchange`-Ereignis-Handler-Eigenschaft verwenden, um den Ereignis-Handler einzurichten:
 
 ```js
 self.onpushsubscriptionchange = (event) => {

@@ -1,23 +1,18 @@
 ---
-title: "WebTransport: createBidirectionalStream()-Methode"
+title: "WebTransport: createBidirectionalStream() Methode"
 short-title: createBidirectionalStream()
 slug: Web/API/WebTransport/createBidirectionalStream
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`createBidirectionalStream()`**-Methode der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle öffnet asynchron und gibt einen bidirektionalen Stream zurück.
+Die **`createBidirectionalStream()`** Methode des [`WebTransport`](/de/docs/Web/API/WebTransport) Interfaces öffnet asynchron und gibt einen bidirektionalen Stream zurück.
 
-Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekt führt, welches `readable`- und `writable`-Eigenschaften hat, die verwendet werden können, um zuverlässig vom Server zu lesen und zu schreiben.
-"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert werden.
-Dies bietet eine langsamere Lieferung (wenn auch schneller als mit WebSockets) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen notwendig, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie bei Chat-Anwendungen.
+Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream) Objekt aufgelöst wird, welches `readable` und `writable` Eigenschaften hat, die verwendet werden können, um zuverlässig vom und zum Server zu lesen und zu schreiben. "Zuverlässig" bedeutet, dass die Übertragung und Reihenfolge der Daten garantiert wird. Dies bietet eine langsamere Lieferung (wenn auch schneller als mit WebSockets) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch erforderlich in Situationen, in denen Zuverlässigkeit und Ordnung wichtig sind, wie z.B. bei Chat-Anwendungen.
 
-Die relative Reihenfolge, in der die in erstellten Streams eingereihten Bytes geleert werden, kann mit der `sendOrder`-Option festgelegt werden.
-Ist sie gesetzt, werden eingereihte Bytes in Streams mit einer höheren Sendereihenfolge garantiert vor den in Streams mit einer niedrigeren Sendereihenfolge gesendeten Bytes gesendet.
-Falls die Ordnungsnummer nicht festgelegt ist, hängt die Reihenfolge, in der Bytes gesendet werden, von der Implementierung ab.
-Beachten Sie jedoch, dass selbst wenn Bytes aus Streams mit höherer Sendereihenfolge zuerst gesendet werden, sie möglicherweise nicht zuerst ankommen.
+Die relative Reihenfolge, in der die anstehenden Bytes aus den erstellten Streams geleert werden, kann mit der `sendOrder` Option spezifiziert werden. Wenn gesetzt, werden anstehende Bytes in Streams mit einer höheren Sendeordnung garantiert vor den anstehenden Bytes für Streams mit einer niedrigeren Sendeordnung gesendet. Wenn die Ordnungsnummer nicht gesetzt ist, hängt die Reihenfolge, in der Bytes gesendet werden, von der Implementierung ab. Beachten Sie jedoch, dass selbst wenn Bytes von Streams mit höherer Sendeordnung zuerst gesendet werden, sie nicht unbedingt zuerst ankommen.
 
 ## Syntax
 
@@ -29,26 +24,22 @@ createBidirectionalStream(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das die folgenden Eigenschaften haben kann:
-
     - `sendOrder` {{optional_inline}}
-      - : Ein ganzzahliger Wert, der die Sendepriorität dieses Streams relativ zu anderen Streams angibt, für die der Wert festgelegt wurde.
-        Eingereihte Bytes werden zuerst für Streams mit einem höheren Wert gesendet.
-        Wenn nicht festgelegt, hängt die Sendereihenfolge von der Implementierung ab.
+      - : Ein ganzzahliger Wert, der die Sendepriorität dieses Streams relativ zu anderen Streams angibt, für die der Wert festgelegt wurde. Anstehende Bytes werden zuerst für Streams gesendet, die einen höheren Wert haben. Falls nicht gesetzt, hängt die Sendeordnung von der Implementierung ab.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekt führt.
+Ein {{jsxref("Promise")}}, das zu einem [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream) Objekt aufgelöst wird.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `createBidirectionalStream()` aufgerufen wird, während das `WebTransport` geschlossen oder fehlgeschlagen ist.
+  - : Wird ausgelöst, wenn `createBidirectionalStream()` aufgerufen wird, während der `WebTransport` geschlossen oder fehlgeschlagen ist.
 
 ## Beispiele
 
-Eine anfängliche Funktion wird verwendet, um Referenzen zu den [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable)- und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable)-Eigenschaften zu erhalten. Diese sind Referenzen zu Instanzen von `WebTransportReceiveStream` und `WebTransportSendStream`, die lesbare und beschreibbare Streams sind, die zum Lesen von und Schreiben an den Server verwendet werden können.
+Eine Anfangsfunktion wird verwendet, um Referenzen zu den [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable) und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable) Eigenschaften zu erhalten. Diese sind Referenzen zu `WebTransportReceiveStream` und `WebTransportSendStream` Instanzen, bei denen es sich um lesbare und beschreibbare Ströme handelt, die verwendet werden können, um vom Server zu lesen und zum Server zu schreiben.
 
 ```js
 async function setUpBidirectional() {
@@ -61,11 +52,11 @@ async function setUpBidirectional() {
   // stream.writable is a WritableStream
   const writable = stream.writable;
 
-  // ...
+  // …
 }
 ```
 
-Das Lesen vom `WebTransportReceiveStream` kann dann wie folgt erfolgen:
+Lesen vom `WebTransportReceiveStream` kann dann wie folgt erfolgen:
 
 ```js
 async function readData(readable) {
@@ -81,7 +72,7 @@ async function readData(readable) {
 }
 ```
 
-Und das Schreiben am `WebTransportSendStream` kann so erfolgen:
+Und das Schreiben in den `WebTransportSendStream` kann wie folgt erfolgen:
 
 ```js
 async function writeData(writable) {

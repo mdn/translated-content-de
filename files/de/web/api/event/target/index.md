@@ -3,16 +3,16 @@ title: "Event: target-Eigenschaft"
 short-title: target
 slug: Web/API/Event/target
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`target`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces ist eine Referenz auf das Objekt, auf das das Ereignis ausgelöst wurde. Sie unterscheidet sich von [`Event.currentTarget`](/de/docs/Web/API/Event/currentTarget), wenn der Ereignishandler während der Bubbling- oder Capturing-Phase des Ereignisses aufgerufen wird.
+Die schreibgeschützte **`target`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces ist eine Referenz auf das Objekt, auf das das Ereignis gesendet wurde. Sie unterscheidet sich von [`Event.currentTarget`](/de/docs/Web/API/Event/currentTarget), wenn der Ereignishandler während der Bubbling- oder Capturing-Phase des Ereignisses aufgerufen wird.
 
 ## Wert
 
-Das zugehörige [`EventTarget`](/de/docs/Web/API/EventTarget).
+Das zugeordnete [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 ## Beispiel
 
@@ -36,7 +36,7 @@ function hide(evt) {
 
 // Attach the listener to the list
 // It will fire when each <li> is clicked
-ul.addEventListener("click", hide, false);
+ul.addEventListener("click", hide);
 ```
 
 ## Spezifikationen

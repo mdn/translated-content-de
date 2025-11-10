@@ -1,26 +1,26 @@
 ---
-title: "Range: Eigenschaft commonAncestorContainer"
+title: "Range: commonAncestorContainer-Eigenschaft"
 short-title: commonAncestorContainer
 slug: Web/API/Range/commonAncestorContainer
 l10n:
-  sourceCommit: 9e5e0484d9ae2557740b75bd91e16b56a5a73d33
+  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
 ---
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Range.commonAncestorContainer`** gibt den tiefsten — oder am weitesten unten im Dokumentbaum gelegenen — [`Node`](/de/docs/Web/API/Node) zurück, der beide [Grenzpunkte](https://www.w3.org/TR/DOM-Level-2-Traversal-Range/ranges.html#Level-2-Range-Position-h3) des [`Range`](/de/docs/Web/API/Range) enthält. Das bedeutet, wenn sowohl [`Range.startContainer`](/de/docs/Web/API/Range/startContainer) als auch [`Range.endContainer`](/de/docs/Web/API/Range/endContainer) auf denselben Knoten verweisen, ist dieser Knoten der **gemeinsame Vorfahren-Container**.
+Die **`Range.commonAncestorContainer`** Eigenschaft ist schreibgeschützt und gibt den tiefsten — oder am weitesten unten im Dokumentbaum liegenden — [`Node`](/de/docs/Web/API/Node) zurück, der beide [Grenzpunkte](https://dom.spec.whatwg.org/#introduction-to-dom-ranges) des [`Range`](/de/docs/Web/API/Range) enthält. Das bedeutet, wenn sowohl [`Range.startContainer`](/de/docs/Web/API/Range/startContainer) als auch [`Range.endContainer`](/de/docs/Web/API/Range/endContainer) auf denselben Knoten verweisen, dann ist dieser Knoten der **gemeinsame Vorfahren-Container**.
 
-Da ein `Range` nicht kontinuierlich sein muss und auch Knoten teilweise auswählen kann, ist dies eine bequeme Möglichkeit, einen `Node` zu finden, der ein `Range` umschließt.
+Da ein `Range` nicht kontinuierlich sein muss und möglicherweise Knoten nur teilweise auswählt, ist dies eine praktische Möglichkeit, einen `Node` zu finden, der ein `Range` umschließt.
 
-Diese Eigenschaft ist schreibgeschützt. Um den Vorfahren-Container eines `Node` zu ändern, sollten Sie die verschiedenen verfügbaren Methoden verwenden, um die Start- und Endpositionen des `Range` festzulegen, wie zum Beispiel [`Range.setStart()`](/de/docs/Web/API/Range/setStart) und [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd).
+Diese Eigenschaft ist schreibgeschützt. Um den Vorfahren-Container eines `Node` zu ändern, ziehen Sie in Betracht, die verschiedenen Methoden zu verwenden, die verfügbar sind, um die Start- und Endpositionen des `Range` festzulegen, wie zum Beispiel [`Range.setStart()`](/de/docs/Web/API/Range/setStart) und [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd).
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node) Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen Ereignis-Listener, um [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignisse auf einer Liste zu behandeln. Der Listener ermittelt die gemeinsamen Vorfahren jedes Textstücks, das ausgewählt wurde, und startet eine Animation, um diese hervorzuheben.
+In diesem Beispiel erstellen wir einen Ereignislistener, um [`pointerup`](/de/docs/Web/API/Element/pointerup_event)-Ereignisse auf einer Liste zu behandeln. Der Listener ermittelt die gemeinsamen Vorfahren jedes ausgewählten Textabschnitts und löst eine Animation aus, um sie hervorzuheben.
 
 ### HTML
 
@@ -51,8 +51,7 @@ In diesem Beispiel erstellen wir einen Ereignis-Listener, um [`pointerup`](/de/d
 
 ### CSS
 
-Die unten erstellte Klasse `.highlight` nutzt eine Reihe von CSS
-{{cssxref("@keyframes")}}, um eine ausblendende Umrandung zu animieren.
+Die unten erstellte Klasse `.highlight` verwendet ein Set von CSS-{{cssxref("@keyframes")}}, um eine verblassende Umrandung zu animieren.
 
 ```css
 .highlight {
@@ -61,10 +60,10 @@ Die unten erstellte Klasse `.highlight` nutzt eine Reihe von CSS
 
 @keyframes highlight {
   from {
-    outline: 1px solid #f00f;
+    outline: 1px solid red;
   }
   to {
-    outline: 1px solid #f000;
+    outline: 1px solid transparent;
   }
 }
 ```

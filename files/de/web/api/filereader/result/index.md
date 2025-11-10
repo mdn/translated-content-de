@@ -3,18 +3,18 @@ title: "FileReader: result-Eigenschaft"
 short-title: result
 slug: Web/API/FileReader/result
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`result`**-Eigenschaft der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle gibt den Inhalt der Datei zurück. Diese Eigenschaft ist nur gültig, nachdem der Lesevorgang abgeschlossen ist, und das Format der Daten hängt davon ab, welche Methode verwendet wurde, um den Lesevorgang zu starten.
+Die **`result`** schreibgeschützte Eigenschaft des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces gibt den Inhalt der Datei zurück. Diese Eigenschaft ist nur nach Abschluss des Lesevorgangs gültig, und das Format der Daten hängt davon ab, welche der Methoden verwendet wurde, um den Lesevorgang zu starten.
 
 ## Wert
 
-Ein entsprechender String oder {{jsxref("ArrayBuffer")}}, je nachdem, welche der Lesemethoden verwendet wurde, um den Lesevorgang zu starten. Der Wert ist `null`, wenn das Lesen noch nicht abgeschlossen oder erfolglos war.
+Ein entsprechender String oder {{jsxref("ArrayBuffer")}}, basierend darauf, welche der Lesemethoden verwendet wurde, um den Lesevorgang zu starten. Der Wert ist `null`, wenn das Lesen noch nicht abgeschlossen ist oder erfolglos war.
 
-Die Ergebnistypen sind unten beschrieben.
+Die Ergebnistypen werden unten beschrieben.
 
 <table class="no-markdown">
   <thead>
@@ -30,8 +30,8 @@ Die Ergebnistypen sind unten beschrieben.
       </td>
       <td>
         Das <code>result</code> ist ein JavaScript
-        {{jsxref("Global_Objects/ArrayBuffer", "ArrayBuffer")}},
-        das Binärdaten enthält.
+        {{jsxref("Global_Objects/ArrayBuffer", "ArrayBuffer")}}
+        mit Binärdaten.
       </td>
     </tr>
     <tr>
@@ -49,21 +49,21 @@ Die Ergebnistypen sind unten beschrieben.
       </td>
       <td>
         Das <code>result</code> ist ein String mit einer <code>data:</code>-URL,
-        die die Daten der Datei darstellt.
+        die die Daten der Datei repräsentiert.
       </td>
     </tr>
     <tr>
       <td>
         [`readAsText()`](/de/docs/Web/API/FileReader/readAsText)
       </td>
-      <td>Das <code>result</code> ist Text als String.</td>
+      <td>Das <code>result</code> ist Text in einem String.</td>
     </tr>
   </tbody>
 </table>
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Funktion `reader()`, die eine Datei von einem [File-Input](/de/docs/Web/HTML/Element/input/file) liest. Sie funktioniert, indem ein [`FileReader`](/de/docs/Web/API/FileReader)-Objekt erstellt und ein Listener für [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignisse erstellt wird, sodass, wenn die Datei gelesen ist, das `result` abgerufen und zur Callback-Funktion übergeben wird, die an `reader()` übergeben wurde.
+Dieses Beispiel zeigt eine Funktion `reader()`, die eine Datei aus einer [Dateieingabe](/de/docs/Web/HTML/Reference/Elements/input/file) liest. Es funktioniert, indem ein [`FileReader`](/de/docs/Web/API/FileReader)-Objekt erstellt und ein Listener für [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignisse erstellt wird, sodass, wenn die Datei gelesen ist, das `result` abgerufen und an die an `reader()` übergebene Rückruffunktion übergeben wird.
 
 Der Inhalt wird als Rohtextdaten behandelt.
 
@@ -89,7 +89,7 @@ document.querySelector("#image").addEventListener("change", (evt) => {
 });
 ```
 
-Angesichts der asynchronen Natur von [`FileReader`](/de/docs/Web/API/FileReader) könnten Sie einen auf Promise basierenden Ansatz verwenden. Hier ist ein Beispiel für ein [File-Input](/de/docs/Web/HTML/Element/input/file) mit dem Attribut `multiple`, das ein {{jsxref("Promise")}} zurückgibt.
+Angesichts der asynchronen Natur von [`FileReader`](/de/docs/Web/API/FileReader) könnten Sie einen auf Promise basierenden Ansatz verwenden. Hier ist ein Beispiel für eine [Dateieingabe](/de/docs/Web/HTML/Reference/Elements/input/file) mit dem Attribut `multiple`, das ein {{jsxref("Promise")}} zurückgibt.
 
 ```js
 // Given this HTMLInputElement:

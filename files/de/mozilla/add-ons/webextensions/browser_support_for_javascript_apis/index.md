@@ -1,14 +1,12 @@
 ---
-title: Browser-Kompatibilität für JavaScript-APIs
+title: Browser-Unterstützung für JavaScript-APIs
 slug: Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs
 l10n:
-  sourceCommit: 873e38320b7f7dbe0492f96a02e7e6503ac8c3b3
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 {{WebExtAllCompatTables}}
 
 ## Siehe auch
 
-- [Browser-Kompatibilität für manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_compatibility_for_manifest.json)
+- [Browser-Kompatibilität für manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json#browser_compatibility)

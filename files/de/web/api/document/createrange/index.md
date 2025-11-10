@@ -1,15 +1,14 @@
 ---
-title: "Document: createRange()-Methode"
+title: "Dokument: createRange()-Methode"
 short-title: createRange()
 slug: Web/API/Document/createRange
 l10n:
-  sourceCommit: 73016bea54a98f70dc2aaad0724d0d421ef9839c
+  sourceCommit: 1abe075be40cd938aa9131a42b4e03b21b78627c
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Document.createRange()`**-Methode gibt ein neues
-[`Range`](/de/docs/Web/API/Range)-Objekt zurück.
+Die **`Document.createRange()`**-Methode gibt ein neues [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Start und Ende Versatz 0 des [`Document`](/de/docs/Web/API/Document)-Objekts sind, auf dem sie aufgerufen wurde.
 
 ## Syntax
 
@@ -34,9 +33,9 @@ range.setStart(startNode, startOffset);
 range.setEnd(endNode, endOffset);
 ```
 
-## Hinweise
+## Anmerkungen
 
-Sobald ein `Range` erstellt wurde, müssen Sie seine Grenzpunkte festlegen, bevor Sie die meisten seiner Methoden nutzen können.
+Sobald ein `Range` erstellt wurde, müssen Sie dessen Begrenzungspunkte festlegen, bevor Sie die meisten seiner Methoden nutzen können.
 
 ## Spezifikationen
 

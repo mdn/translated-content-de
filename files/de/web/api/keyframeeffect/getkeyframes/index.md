@@ -1,14 +1,14 @@
 ---
-title: "KeyframeEffect: getKeyframes()-Methode"
+title: "KeyframeEffect: getKeyframes() Methode"
 short-title: getKeyframes()
 slug: Web/API/KeyframeEffect/getKeyframes
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die **`getKeyframes()`**-Methode eines [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) gibt ein Array der berechneten Keyframes zurück, die diese Animation zusammen mit ihren berechneten Offsets bilden.
+Die **`getKeyframes()`** Methode eines [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) gibt ein Array der berechneten Keyframes zurück, die diese Animation zusammen mit ihren berechneten Offsets bilden.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Gibt eine Sequenz von Objekten im folgenden Format zurück:
+Gibt eine Sequenz von Objekten mit folgendem Format zurück:
 
 - Eigenschaft-Wert-Paare
-  - : So viele Eigenschaft-Wert-Paare wie in jedem Keyframe der Animation enthalten sind.
+  - : So viele Eigenschaft-Wert-Paare, wie in jedem Keyframe der Animation enthalten sind.
 - `offset`
-  - : Der Offset des Keyframes, angegeben als Zahl zwischen `0.0` und `1.0` einschließlich oder `null`. Dies entspricht der Angabe von Start- und Endzuständen in Prozent in CSS-Stylesheets mit `@keyframes`. Dies ist `null`, wenn der Keyframe automatisch verteilt wird.
+  - : Der Offset des Keyframes, spezifiziert als eine Zahl zwischen `0.0` und `1.0` einschließlich oder `null`. Dies entspricht dem Festlegen von Start- und Endzuständen in Prozent in CSS-Stylesheets mittels `@keyframes`. Dies ist `null`, wenn das Keyframe automatisch verteilt ist.
 - `computedOffset`
-  - : Der berechnete Offset für diesen Keyframe, berechnet, als die Liste der berechneten Keyframes erstellt wurde. Im Gegensatz zu **`offset`** oben ist **`computedOffset`** niemals `null`.
+  - : Der berechnete Offset für dieses Keyframe, berechnet, als die Liste der berechneten Keyframes erstellt wurde. Im Gegensatz zu **`offset`** oben ist der **`computedOffset`** niemals `null`.
 - `easing`
-  - : Die [Easing-Funktion](/de/docs/Web/CSS/easing-function), die von diesem Keyframe bis zum nächsten Keyframe in der Serie verwendet wird.
+  - : Die [easing function](/de/docs/Web/CSS/Reference/Values/easing-function), die von diesem Keyframe bis zum nächsten Keyframe in der Serie verwendet wird.
 - `composite`
-  - : Die [`KeyframeEffect.composite`](/de/docs/Web/API/KeyframeEffect/composite)-Operation, die verwendet wird, um die in diesem Keyframe spezifizierten Werte mit dem zugrunde liegenden Wert zu kombinieren. Dies wird fehlen, wenn die auf dem Effekt spezifizierte Composite-Operation verwendet wird.
+  - : Die [`KeyframeEffect.composite`](/de/docs/Web/API/KeyframeEffect/composite) Operation, die verwendet wird, um die in diesem Keyframe angegebenen Werte mit dem zugrunde liegenden Wert zu kombinieren. Dies wird fehlen, wenn die auf dem Effekt angegebene Composite-Operation verwendet wird.
 
 ## Beispiele
 
-Im folgenden Beispiel können wir die rollende Animation inspizieren, um ihre Keyframes mit der `getKeyframes()`-Methode zu sehen:
+Im folgenden Beispiel können wir die Rollanimation inspizieren, um ihre Keyframes mit der `getKeyframes()` Methode zu sehen:
 
 ```js
 const emoji = document.querySelector("div"); // element to animate
@@ -95,4 +95,4 @@ div {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- Methode von [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Objekten.
+- Methode der [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objekte.

@@ -2,39 +2,40 @@
 title: ViewTransition
 slug: Web/API/ViewTransition
 l10n:
-  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
+  sourceCommit: 011212609ed5fa7cf7e7994fc974d1bbab90c68e
 ---
 
 {{APIRef("View Transition API")}}
 
-Die **`ViewTransition`**-Schnittstelle der [View Transition API](/de/docs/Web/API/View_Transition_API) repräsentiert eine aktive Ansichtstransition und bietet Funktionen, um auf verschiedene Zustände der Transition zu reagieren (z.B. bereit zur Ausführung der Animation oder Animation abgeschlossen) oder die Transition vollständig zu überspringen.
+Das **`ViewTransition`**-Interface der [View Transition API](/de/docs/Web/API/View_Transition_API) repräsentiert eine aktive View-Transition und bietet Funktionalitäten, um auf verschiedene Zustände der Transition zu reagieren (z. B. bereit, die Animation auszuführen, oder Animation abgeschlossen) oder die Transition ganz zu überspringen.
 
-Dieser Objekttyp wird auf folgende Weise verfügbar gemacht:
+Dieser Objekttyp wird auf folgende Weise bereitgestellt:
 
-- Bei Transitionen im gleichen Dokument (SPA) wird er von der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegeben.
-- Bei dokumentübergreifenden Transitionen (MPA) wird er verfügbar gemacht:
-  - Auf der ausgehenden Seite über die [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Eigenschaft des Objekts [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition).
-  - Auf der eingehenden Seite über die [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Eigenschaft des Objekts [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition).
+- Über die Eigenschaft [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition). Dies bietet eine konsistente Möglichkeit, auf die aktive View-Transition in jedem Kontext zuzugreifen, ohne dass es notwendig ist, sie für einen späteren einfachen Zugriff zu speichern.
+- Im Fall von Transitionen im selben Dokument (SPA) wird sie auch von der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegeben.
+- Im Fall von Transitionen zwischen Dokumenten (MPA) wird sie ebenfalls bereitgestellt:
+  - Auf der ausgehenden Seite über die Eigenschaft [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisobjekts.
+  - Auf der eingehenden Seite über die Eigenschaft [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) des [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignisobjekts.
 
-Wenn eine Ansichtstransition durch einen `startViewTransition()`-Aufruf initiiert wird (oder eine Seitennavigation im Fall von MPA-Transitionen), wird eine Abfolge von Schritten ausgeführt, wie im [Ansichtstransitionsprozess](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erklärt. Dies erklärt auch, wann die verschiedenen Versprechen erfüllt werden.
+Wenn eine View-Transition durch einen `startViewTransition()`-Aufruf (oder eine Seitennavigation im Fall von MPA-Transitionen) ausgelöst wird, wird eine Abfolge von Schritten wie in [Der View-Transition-Prozess](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_process) erklärt, gefolgt. Dies erklärt auch, wann die verschiedenen Promises erfüllt werden.
 
 ## Instanz-Eigenschaften
 
 - [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished) {{ReadOnlyInline}}
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, sobald die Transitionsanimation abgeschlossen ist und die neue Seitenansicht für den Benutzer sichtbar und interaktiv ist.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, sobald die Transition-Animation beendet ist und die neue Seitenansicht für den Benutzer sichtbar und interaktiv ist.
 - [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) {{ReadOnlyInline}}
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudo-Element-Baum erstellt ist und die Transitionsanimation kurz vor dem Start steht.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudo-Elementbaum erstellt ist und die Transition-Animation kurz davor steht, zu beginnen.
 - [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone) {{ReadOnlyInline}}
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn das Versprechen erfüllt wird, das von dem Callback der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegeben wird.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn das Promise erfüllt wird, das vom Callback der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegeben wird.
 
 ## Instanz-Methoden
 
 - [`skipTransition()`](/de/docs/Web/API/ViewTransition/skipTransition)
-  - : Überspringt den Animationsanteil der Ansichtstransition, überspringt jedoch nicht das Ausführen des Callbacks von [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition), das das DOM aktualisiert.
+  - : Überspringt den Animationsteil der View-Transition, lässt aber nicht den Callback von [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) aus, der das DOM aktualisiert.
 
 ## Beispiele
 
-Im folgenden SPA-Beispiel wird das Versprechen [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) verwendet, um eine benutzerdefinierte, zirkulare Ansichtstransition auszulösen, die vom Standort des Mauszeigers des Benutzers bei Klick ausgeht, wobei die Animation von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt wird.
+Im folgenden SPA-Beispiel wird das [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) Promise verwendet, um eine benutzerdefinierte kreisförmige Enthüllungsansichtstransition auszulösen, die von der Position des Cursors des Benutzers bei einem Klick ausgeht, mit einer Animation, die von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt wird.
 
 ```js
 // Store the last click event
@@ -83,7 +84,7 @@ function spaNavigate(data) {
 }
 ```
 
-Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Animation auszuschalten und zu verhindern, dass die alten und neuen Ansichtsstatus in irgendeiner Weise ineinander übergehen (der neue Status "wischt" direkt über den alten Status, anstatt zu überblenden):
+Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation zu deaktivieren und zu verhindern, dass die alten und neuen Ansichtsstatus in irgendeiner Weise verschmelzen (der neue Status "wischt" direkt über den alten Zustand, anstatt in ihn zu übergehen):
 
 ```css
 ::view-transition-image-pair(root) {
@@ -108,4 +109,4 @@ Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Ani
 
 ## Siehe auch
 
-- [Reibungslose Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

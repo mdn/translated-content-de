@@ -1,25 +1,24 @@
 ---
 title: Date.prototype.setUTCMinutes()
+short-title: setUTCMinutes()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setUTCMinutes
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
+Die **`setUTCMinutes()`** Methode von {{jsxref("Date")}} Instanzen ändert die Minuten für dieses Datum entsprechend der koordinierten Weltzeit.
 
-Die Methode **`setUTCMinutes()`** von Instanzen von {{jsxref("Date")}} ändert die Minuten dieses Datums gemäß der Universalzeit.
-
-{{InteractiveExample("JavaScript Demo: Date.setUTCMinutes()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.setUTCMinutes()")}}
 
 ```js interactive-example
-const date1 = new Date("December 31, 1975, 23:15:30 GMT+11:00");
+const date = new Date("December 31, 1975, 23:15:30 GMT+11:00");
 
-console.log(date1.getUTCMinutes());
+console.log(date.getUTCMinutes());
 // Expected output: 15
 
-date1.setUTCMinutes(25);
+date.setUTCMinutes(25);
 
-console.log(date1.getUTCMinutes());
+console.log(date.getUTCMinutes());
 // Expected output: 25
 ```
 
@@ -42,13 +41,13 @@ setUTCMinutes(minutesValue, secondsValue, msValue)
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt direkt und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` (oder andere Werte, die in [NaN umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie z. B. `undefined`) ist, wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt, und `NaN` wird zurückgegeben.
+Ändert das {{jsxref("Date")}} Objekt an Ort und Stelle und gibt dessen neuen [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [gewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie die Parameter `secondsValue` und `msValue` nicht angeben, werden die Werte verwendet, die von den Methoden {{jsxref("Date/getUTCSeconds", "getUTCSeconds()")}} und {{jsxref("Date/getUTCMilliseconds", "getUTCMilliseconds()")}} zurückgegeben werden.
+Wenn Sie die Parameter `secondsValue` und `msValue` nicht angeben, werden die Werte von den Methoden {{jsxref("Date/getUTCSeconds", "getUTCSeconds()")}} und {{jsxref("Date/getUTCMilliseconds", "getUTCMilliseconds()")}} verwendet.
 
-Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCMinutes()`, die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend zu aktualisieren. Beispielsweise wird, wenn Sie 100 für `secondsValue` verwenden, die Minute um 1 erhöht (`minutesValue + 1`), und 40 wird für die Sekunden verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, versucht `setUTCMinutes()`, die Datumsinformation im {{jsxref("Date")}} Objekt entsprechend zu aktualisieren. Zum Beispiel, wenn Sie 100 für `secondsValue` verwenden, werden die Minuten um 1 erhöht (`minutesValue + 1`), und 40 wird für die Sekunden verwendet.
 
 ## Beispiele
 

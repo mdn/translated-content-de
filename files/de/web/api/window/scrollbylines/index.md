@@ -3,7 +3,7 @@ title: "Window: scrollByLines() Methode"
 short-title: scrollByLines()
 slug: Web/API/Window/scrollByLines
 l10n:
-  sourceCommit: 20c51db7895b1b6f41d4fa90e71830f4b6678eea
+  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
 ---
 
 {{APIRef}} {{Non-standard_header}}
@@ -19,7 +19,7 @@ scrollByLines(lines)
 ### Parameter
 
 - `lines`
-  - : Die Anzahl der Zeilen, um die das Dokument gescrollt werden soll. Es kann sich um eine positive oder negative ganze Zahl handeln.
+  - : Die Anzahl der Zeilen, um die das Dokument gescrollt wird. Es kann eine positive oder negative Ganzzahl sein.
 
 ### Rückgabewert
 
@@ -28,16 +28,22 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```html
-<!-- Scroll up the document by 5 lines -->
-<button id="scroll-up" onclick="scrollByLines(-5);">Up 5 lines</button>
+<button id="scroll-up">Up 5 lines</button>
+<button id="scroll-down">Down 5 lines</button>
+```
 
-<!-- Scroll down the document by 5 lines -->
-<button id="scroll-down" onclick="scrollByLines(5);">Down 5 lines</button>
+```js
+document.getElementById("scroll-up").addEventListener("click", () => {
+  window.scrollByLines(-5);
+});
+document.getElementById("scroll-down").addEventListener("click", () => {
+  window.scrollByLines(5);
+});
 ```
 
 ## Spezifikationen
 
-Dies ist nicht Teil einer Spezifikation.
+Dies ist Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

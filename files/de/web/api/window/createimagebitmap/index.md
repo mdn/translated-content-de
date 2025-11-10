@@ -3,12 +3,12 @@ title: "Window: createImageBitmap() Methode"
 short-title: createImageBitmap()
 slug: Web/API/Window/createImageBitmap
 l10n:
-  sourceCommit: 58d79e9c2206e0a604cd4d7f6fba5181262af420
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`createImageBitmap()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erstellt ein Bitmap aus einer angegebenen Quelle, das optional zugeschnitten werden kann, um nur einen Teil dieser Quelle zu enthalten. Sie akzeptiert eine Vielzahl von unterschiedlichen Bildquellen und gibt ein {{jsxref("Promise")}} zurück, das zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) aufgelöst wird.
+Die **`createImageBitmap()`** Methode der Schnittstelle [`Window`](/de/docs/Web/API/Window) erstellt ein Bitmap aus einer gegebenen Quelle, optional zugeschnitten, um nur einen Teil dieser Quelle zu enthalten. Sie akzeptiert eine Vielzahl unterschiedlicher Bildquellen und gibt ein {{jsxref("Promise")}} zurück, welches sich zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) auflöst.
 
 ## Syntax
 
@@ -33,48 +33,47 @@ createImageBitmap(image, sx, sy, sw, sh, options)
     - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
     - [`VideoFrame`](/de/docs/Web/API/VideoFrame)
 - `sx`
-  - : Die x-Koordinate des Bezugspunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
+  - : Die x-Koordinate des Referenzpunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
 - `sy`
-  - : Die y-Koordinate des Bezugspunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
+  - : Die y-Koordinate des Referenzpunkts des Rechtecks, aus dem das `ImageBitmap` extrahiert wird.
 - `sw`
   - : Die Breite des Rechtecks, aus dem das `ImageBitmap` extrahiert wird. Dieser Wert kann negativ sein.
 - `sh`
   - : Die Höhe des Rechtecks, aus dem das `ImageBitmap` extrahiert wird. Dieser Wert kann negativ sein.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen für die Extraktion des Bildes festlegt. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen für die Bildextraktion festlegt. Die verfügbaren Optionen sind:
 
     - `imageOrientation`
 
       - : Gibt an, wie das Bitmap-Bild ausgerichtet werden soll.
-
         - `from-image`
-          - : Bild gemäß der EXIF-Ausrichtungsmetadaten ausgerichtet, sofern vorhanden (Standard).
+          - : Bild orientiert sich an den EXIF-Ausrichtungsmetadaten, falls vorhanden (Standard).
         - `flipY`
-          - : Bild gemäß der EXIF-Ausrichtungsmetadaten ausgerichtet, sofern vorhanden, und dann vertikal gespiegelt.
+          - : Bild orientiert sich an den EXIF-Ausrichtungsmetadaten, falls vorhanden, und wird dann vertikal gespiegelt.
         - `none`
-          - : Bild gemäß der Bildcodierung ausgerichtet, wobei alle Metadaten zur Ausrichtung (wie EXIF-Metadaten, die zu einem Bild hinzugefügt werden könnten, um anzuzeigen, dass die Kamera gedreht wurde, um das Bild im Hochformat aufzunehmen) ignoriert werden.
+          - : Bild orientiert sich an der Bildkodierung, dabei werden alle Metadaten über die Ausrichtung ignoriert (wie z.B. EXIF-Metadaten, die einem Bild hinzugefügt werden könnten, um anzugeben, dass die Kamera seitlich gedreht wurde, um das Bild im Hochformat aufzunehmen).
 
     - `premultiplyAlpha`
-      - : Gibt an, ob die Farbkanäle des Bitmaps durch den Alphakanal vorvervielfacht werden sollen. Eine von `none`, `premultiply` oder `default` (Standard).
+      - : Gibt an, ob die Farbkanäle des Bitmaps durch den Alphakanal vormultipliziert werden sollen. Einer von `none`, `premultiply` oder `default` (Standard).
     - `colorSpaceConversion`
-      - : Gibt an, ob das Bild mit einer Farbkonvertierung dekodiert werden soll. Entweder `none` oder `default` (Standard). Der Wert `default` zeigt an, dass implementierungsspezifisches Verhalten verwendet wird.
+      - : Gibt an, ob das Bild unter Verwendung einer Farbraumkonvertierung dekodiert werden soll. Entweder `none` oder `default` (Standard). Der Wert `default` zeigt an, dass implementierungsspezifisches Verhalten verwendet wird.
     - `resizeWidth`
-      - : Eine lange Ganzzahl, die die Ausgabeweite angibt.
+      - : Eine lange Ganzzahl, die die Ausgabe-Breite angibt.
     - `resizeHeight`
-      - : Eine lange Ganzzahl, die die Ausgabhöhe angibt.
+      - : Eine lange Ganzzahl, die die Ausgabe-Höhe angibt.
     - `resizeQuality`
-      - : Gibt den Algorithmus an, der zum Ändern der Größe des Eingangs verwendet werden soll, um die Ausgabedimensionen anzupassen. Eine von `pixelated`, `low` (Standard), `medium` oder `high`.
+      - : Gibt den Algorithmus an, der zum Anpassen der Eingabemaße an die Ausgabemaße verwendet werden soll. Einer von `pixelated`, `low` (Standard), `medium` oder `high`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt aufgelöst wird, das Bitmap-Daten aus dem angegebenen Rechteck enthält.
+Ein {{jsxref("Promise")}}, welches sich zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) Objekt auflöst und Bitmap-Daten aus dem angegebenen Rechteck enthält.
 
 ## Beispiele
 
-### Erstellen von Sprites aus einem Sprite-Sheet
+### Sprites aus einem Sprite Sheet erstellen
 
-Dieses Beispiel lädt ein Sprite-Sheet, extrahiert einzelne Sprites und rendert dann jedes Sprite auf das Canvas. Ein Sprite-Sheet ist ein Bild, das mehrere kleinere Bilder enthält, von denen jedes separat gerendert werden soll.
+Dieses Beispiel lädt ein Sprite Sheet, extrahiert einzelne Sprites und rendert dann jedes Sprite auf die Leinwand. Ein Sprite Sheet ist ein Bild, das mehrere kleinere Bilder enthält, von denen jedes einzeln renderbar sein soll.
 
 ```html hidden
 Original image:
@@ -113,7 +112,7 @@ image.onload = () => {
 image.src = "50x50.jpg";
 ```
 
-{{EmbedLiveSample("Erstellen von Sprites aus einem Sprite-Sheet", "100%", "250")}}
+{{EmbedLiveSample("Creating sprites from a sprite sheet", "100%", "250")}}
 
 ## Spezifikationen
 

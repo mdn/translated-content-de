@@ -1,17 +1,16 @@
 ---
 title: Math.acos()
+short-title: acos()
 slug: Web/JavaScript/Reference/Global_Objects/Math/acos
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Methode **`Math.acos()`** gibt den Arkuskosinus (in Radiant) einer Zahl zurück. Das bedeutet:
+Die statische Methode **`Math.acos()`** gibt den Arkuskosinus (in Bogenmaß) einer Zahl zurück. Das heißt,
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>∊</mo><mo stretchy="false">[</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚊𝚌𝚘𝚜</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mo lspace="0em" rspace="0em">arccos</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>die eindeutige&nbsp;</mtext><mi>y</mi><mo>∊</mo><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mi>π</mi><mo stretchy="false">]</mo><mtext>&nbsp;derart, dass&nbsp;</mtext><mo lspace="0em" rspace="0em">cos</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x \in [{-1}, 1],\;\mathtt{\operatorname{Math.acos}(x)}} = \arccos(x) = \text{die eindeutige } y \in [0, \pi] \text{ derart, dass } \cos(y) = x</annotation></semantics>
+  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>∊</mo><mo stretchy="false">[</mo><mrow><mo>−</mo><mn>1</mn></mrow><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚊𝚌𝚘𝚜</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mo lspace="0em" rspace="0em">arccos</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>the unique&nbsp;</mtext><mi>y</mi><mo>∊</mo><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mi>π</mi><mo stretchy="false">]</mo><mtext>&nbsp;such that&nbsp;</mtext><mo lspace="0em" rspace="0em">cos</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x \in [{-1}, 1],\;\mathtt{\operatorname{Math.acos}(x)}} = \arccos(x) = \text{the unique } y \in [0, \pi] \text{ such that } \cos(y) = x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -39,15 +38,15 @@ Math.acos(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl zwischen -1 und 1 (einschließlich), die den Kosinuswert des Winkels repräsentiert.
+  - : Eine Zahl zwischen -1 und 1, einschließlich, die den Kosinuswert des Winkels darstellt.
 
 ### Rückgabewert
 
-Der Arkuskosinus (Winkel in Radiant zwischen 0 und π, einschließlich) von `x`. Wenn `x` kleiner als -1 oder größer als 1 ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Arkuskosinus (Winkel in Bogenmaß zwischen 0 und π, einschließlich) von `x`. Wenn `x` kleiner als -1 oder größer als 1 ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `acos()` eine statische Methode von `Math` ist, wird sie immer als `Math.acos()` aufgerufen, statt als Methode eines von Ihnen erstellten `Math`-Objekts (da `Math` kein Konstruktor ist).
+Da `acos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.acos()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

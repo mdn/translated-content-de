@@ -2,49 +2,51 @@
 title: Styling unserer Angular-App
 slug: Learn_web_development/Core/Frameworks_libraries/Angular_styling
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
-{{LearnSidebar}}{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/Angular_item_component", "Learn_web_development/Core/Frameworks_libraries")}}
+{{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/Angular_item_component", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Nachdem wir nun unsere grundlegende Anwendungsstruktur eingerichtet und begonnen haben, etwas Nützliches anzuzeigen, wollen wir nun einen Artikel darauf verwenden, zu untersuchen, wie Angular das Styling von Anwendungen handhabt.
+Da wir nun unsere grundlegende Anwendungsstruktur eingerichtet und begonnen haben, etwas Nützliches darzustellen, lassen Sie uns das Thema wechseln und einen Artikel darüber lesen, wie Angular das Styling von Anwendungen handhabt.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>-,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>- und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>-Sprachen,
-        sowie Kenntnis des
+        Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen,
+        Kenntnisse über die
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
-          >Terminals/Kommandozeile</a
+          >Terminal-/Befehlszeile</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Zu lernen, wie man eine Angular-App stylt.</td>
+      <td>Erlernen, wie man eine Angular-App stylt.</td>
     </tr>
   </tbody>
 </table>
 
-## Hinzufügen von Styling zu Angular
+## Ein bisschen Stil zu Angular hinzufügen
 
-Das Angular CLI generiert zwei Arten von Style-Dateien:
+Das Angular CLI generiert zwei Arten von Stil-Dateien:
 
-- Komponentenstile: Das Angular CLI gibt jeder Komponente eine eigene Datei für Stile. Die Stile in dieser Datei gelten nur für ihre Komponente.
-- `styles.css`: Im Verzeichnis `src` werden die Stile in dieser Datei auf Ihre gesamte Anwendung angewendet, es sei denn, Sie geben Stile auf Komponentenebene an.
+- Komponentenstile: Das Angular CLI gibt jeder Komponente ihre eigene Datei für Stile.
+  Die Stile in dieser Datei gelten nur für die zugehörige Komponente.
+- `styles.css`: Im `src`-Verzeichnis gelten die Stile in dieser Datei für Ihre gesamte Anwendung, es sei denn, Sie geben Stile auf der Komponentenebene an.
 
-Je nachdem, ob Sie einen CSS-Präprozessor verwenden, kann die Erweiterung Ihrer CSS-Dateien variieren. Angular unterstützt plain CSS, SCSS, Sass und Less.
+Je nachdem, ob Sie einen CSS-Präprozessor verwenden, kann die Erweiterung Ihrer CSS-Dateien variieren.
+Angular unterstützt plain CSS, SCSS, Sass und Less.
 
-In `src/styles.css` fügen Sie die folgenden Stile ein:
+Fügen Sie in `src/styles.css` die folgenden Stile ein:
 
 ```css
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .btn-wrapper {
@@ -55,8 +57,8 @@ body {
 }
 
 .btn {
-  color: #000;
-  background-color: #fff;
+  color: black;
+  background-color: white;
   border: 2px solid #cecece;
   padding: 0.35rem 1rem 0.25rem 1rem;
   font-size: 1rem;
@@ -76,8 +78,8 @@ body {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #000;
+  color: white;
+  background-color: black;
   width: 100%;
   padding: 0.75rem;
   font-size: 1.3rem;
@@ -90,9 +92,9 @@ body {
 }
 
 .btn-primary:focus {
-  color: #000;
+  color: black;
   outline: none;
-  border: #000 solid 2px;
+  border: black solid 2px;
   background-color: #d7ecff;
 }
 
@@ -101,10 +103,10 @@ body {
 }
 ```
 
-Das CSS in `src/styles.css` gilt für die gesamte Anwendung, jedoch wirken sich diese Stile nicht auf alles auf der Seite aus.
-Der nächste Schritt besteht darin, Stile hinzuzufügen, die speziell für den `AppComponent` gelten.
+Das CSS in `src/styles.css` gilt für die gesamte Anwendung, jedoch beeinflussen diese Stile nicht alles auf der Seite.
+Der nächste Schritt ist das Hinzufügen von Stilen, die speziell für die `AppComponent` gelten.
 
-In `app.component.css` fügen Sie die folgenden Stile ein:
+Fügen Sie in `app.component.css` die folgenden Stile hinzu:
 
 ```css
 .main {
@@ -118,7 +120,7 @@ In `app.component.css` fügen Sie die folgenden Stile ein:
     0 2.5rem 5rem 0 rgb(0 0 0 / 10%);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
   .main {
     width: 70%;
   }
@@ -134,7 +136,7 @@ label {
 .lg-text-input {
   width: 100%;
   padding: 1rem;
-  border: 2px solid #000;
+  border: 2px solid black;
   display: block;
   box-sizing: border-box;
   font-size: 1rem;
@@ -161,10 +163,10 @@ ul li {
 }
 ```
 
-Der letzte Schritt besteht darin, Ihren Browser erneut zu besuchen und zu sehen, wie sich das Styling aktualisiert hat. Jetzt ergibt alles ein wenig mehr Sinn.
+Der letzte Schritt besteht darin, Ihren Browser erneut zu besuchen und zu sehen, wie sich das Styling geändert hat. Dinge ergeben jetzt etwas mehr Sinn.
 
 ## Zusammenfassung
 
-Jetzt, da unsere kurze Einführung in das Styling in Angular abgeschlossen ist, kehren wir zur Erstellung der App-Funktionalität zurück. Im nächsten Artikel werden wir eine geeignete Komponente für To-Do-Elemente erstellen und es so einrichten, dass Sie To-Do-Elemente markieren, bearbeiten und löschen können.
+Da unsere kurze Tour durch das Styling in Angular abgeschlossen ist, lassen Sie uns zur Erstellung unserer Anwendungsfunktionalität zurückkehren. Im nächsten Artikel werden wir eine richtige Komponente für To-Do-Elemente erstellen, damit Sie To-Do-Elemente überprüfen, bearbeiten und löschen können.
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/Angular_todo_list_beginning","Learn_web_development/Core/Frameworks_libraries/Angular_item_component", "Learn_web_development/Core/Frameworks_libraries")}}

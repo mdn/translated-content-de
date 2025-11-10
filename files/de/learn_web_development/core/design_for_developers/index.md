@@ -1,27 +1,25 @@
 ---
-title: Entwurf für Entwickler
+title: Design für Entwickler
 slug: Learn_web_development/Core/Design_for_developers
 l10n:
-  sourceCommit: 76d104c2fbc4680d70b548a6de4daabf4ac0cff3
+  sourceCommit: 73a73bc44e12181c778910f3b7d73962e0dd9a29
 ---
-
-{{LearnSidebar}}
 
 {{NextMenu("Learn_web_development/Core/Version_control", "Learn_web_development/Core")}}
 
 > [!NOTE]
-> Wie Sie unten sehen werden, ist dieses Modul derzeit nur ein Lehrplan/Syllabus. Wir beabsichtigen, dies zukünftig, soweit die Zeit es zulässt, in einen vollständigen Kurs umzuwandeln.
+> Wie Sie unten sehen werden, ist dieses Modul derzeit nur ein Lehrplanübersicht/Syllabus. Wir beabsichtigen, es in der Zukunft, wenn die Zeit es zulässt, in einen vollständigen Kurs umzuwandeln.
 
-Die Idee dieses Moduls ist es, Entwicklern das Design-Denken (wieder) näherzubringen. Sie möchten vielleicht nicht als Designer arbeiten, aber es ist von Vorteil, ein grundlegendes Verständnis für Benutzererfahrung und Designtheorie zu haben, unabhängig von der eigenen Rolle beim Erstellen von Websites. Zumindest sollten selbst die technischsten "Nicht-Designer"-Entwickler Design-Briefs verstehen, wissen, warum Dinge so gestaltet sind, wie sie sind, und in der Lage sein, sich in die Denkweise des Benutzers hineinzuversetzen. Und es hilft ihnen, ihre Portfolios besser aussehen zu lassen.
+Die Idee dieses Moduls ist es, Entwickler (wieder) an das Designdenken heranzuführen. Sie möchten möglicherweise nicht als Designer arbeiten, aber es ist gut für alle, die an der Erstellung von Websites beteiligt sind, über ein grundlegendes Wissen über Benutzererfahrung und Designtheorie zu verfügen, unabhängig von ihrer Rolle. Zumindest sollte selbst der technischste, "nicht-Designer" Entwickler Designvorgaben verstehen, warum Dinge so gestaltet sind, wie sie sind, und in der Lage sein, sich in die Denkweise des Benutzers zu versetzen. Und es wird ihnen helfen, ihre Portfolios ansprechender zu gestalten.
 
-Darüber hinaus werden Front-End-Entwickler oft damit beauftragt, verschiedene Designarbeiten in Projekten zu erledigen. Kunden und Arbeitgeber gehen oft davon aus, dass sie es können, weil sie an den visuellen Elementen der Website beteiligt sind. Historisch gesehen war die Rolle des "Webentwicklers" eher eine hybride Designer-/Entwickler-Rolle als heute.
+Darüber hinaus wird von Frontend-Entwicklern oft erwartet, dass sie verschiedene Designarbeiten in Projekten durchführen. Kunden und Arbeitgeber nehmen oft an, dass sie dies können, weil sie an den visuellen Elementen der Website beteiligt sind. Historisch gesehen war der "Webentwickler" eher eine hybride Designer-/Entwicklerrolle als heute.
 
 ## Voraussetzungen
 
-Bevor Sie dieses Modul beginnen, sollten Sie mit [HTML](/de/docs/Learn_web_development/Core/Structuring_content) und [CSS](/de/docs/Learn_web_development/Core/Styling_basics) vertraut sein.
+Bevor Sie mit diesem Modul beginnen, sollten Sie mit [HTML](/de/docs/Learn_web_development/Core/Structuring_content) und [CSS](/de/docs/Learn_web_development/Core/Styling_basics) vertraut sein.
 
 > [!NOTE]
-> Falls Sie an einem Computer/Tablet/anderen Gerät arbeiten, bei dem Sie nicht die Möglichkeit haben, eigene Dateien zu erstellen, können Sie (die meisten) Codebeispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Wenn Sie an einem Computer, Tablet oder einem anderen Gerät arbeiten, auf dem Sie keine Dateien erstellen können, können Sie versuchen, den Code in einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/) auszuführen.
 
 ## Lektionen
 
@@ -29,19 +27,19 @@ Bevor Sie dieses Modul beginnen, sollten Sie mit [HTML](/de/docs/Learn_web_devel
 
 Lernziele:
 
-- Grundlagen des UI-Designs:
+- Grundlegende UI-Designprinzipien:
   - Kontrast.
   - Typografie.
   - Visuelle Hierarchie.
   - Skalierung.
   - Ausrichtung.
-  - Nutzung von Leerraum.
+  - Verwendung von Weißraum.
 - Farbtheorie.
-- Nutzung von Bildern.
+- Verwendung von Bildern.
 
 Ressourcen:
 
-- [Grundlegende Text- und Schriftstilgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Grundlegende Text- und Schriftstile](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
 
 ## Benutzerzentriertes Design
 
@@ -49,12 +47,12 @@ Lernziele:
 
 - Verstehen, dass alles, was wir tun, für den Benutzer ist.
 - Einführung in Benutzerforschung/-tests und Benutzeranforderungen.
-- Design für Barrierefreiheit — Berücksichtigung der Zielgruppe und ihre zusätzlichen Bedürfnisse von Anfang an.
-- Verstehen, was Designmuster sind, und die gängigen Muster, die im Web verwendet werden, beispielsweise:
+- Design für Barrierefreiheit — berücksichtigen Sie die Zielgruppe und welche zusätzlichen Bedürfnisse sie möglicherweise haben. Entwerfen Sie von Anfang an dafür.
+- Verstehen, was Designmuster sind und welche gängigen Muster im Web verwendet werden, zum Beispiel:
   - Dunkelmodus.
   - Breadcrumbs.
   - Karten.
-  - Verzögerte/Träge Registrierung.
+  - Verzögerte Registrierung.
   - Unendliches Scrollen.
   - Modale Dialoge.
   - Progressive Offenlegung.
@@ -63,28 +61,26 @@ Lernziele:
 
 Ressourcen:
 
-- [Überblick über Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility)
+- [Überblick zur Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility)
 - [Prinzipien des inklusiven Designs](https://inclusivedesignprinciples.info/)
 
-## Design-Briefs
+## Designvorgaben
 
 Lernziele:
 
 - Die Designsprache sprechen, um mit Designern zu kommunizieren.
-- Anforderungen für Design-Briefs interpretieren, um eine Implementierung zu erstellen.
-- Typische Werkzeuge, die Designer verwenden, um ihre Botschaft an Entwickler zu vermitteln (z. B. Figma).
+- Die Anforderungen eines Designbriefs interpretieren, um eine Implementierung zu produzieren.
+- Typische Werkzeuge, die Designer verwenden, um ihre Botschaft an Entwickler zu übermitteln (z.B. Figma).
 
 ## Siehe auch
 
-- [Learn UI Design Fundamentals](https://scrimba.com/learn/design?via=mdn), Scrimba <sup>Course Partner</sup>
+- [Learn UI Design Fundamentals](https://scrimba.com/intro-to-ui-design-fundamentals-c0q?via=mdn), Scrimba <sup>Kurs-Partner</sup>
 - [The Shape of Design](https://shapeofdesignbook.com/chapters/00-introduction/), Frank Chimero
 - [Designing for the Web](https://designingfortheweb.co.uk/), Mark Boulton
-- [Design for web](https://designforweb.org/), Prisca Schmarsow + andere Mitwirkende. Highlights umfassen:
-  - [Design trampoline: Grundlagen der Designtheorie lernen](https://designforweb.org/vis/chapter1-design-principles/designTrampoline-by-AnnaRiazhskikh/), Anna Riazhskikh
-  - [Webtypografie einfach gemacht](https://designforweb.org/vis/chapter2-typography/typelab-by-HannahBoom/), Hannah Boom
+- [Design for web](https://designforweb.org/), Prisca Schmarsow + andere Mitwirkende
 - [Practical Typography](https://practicaltypography.com/), Matthew Butterick
 - [Web Style Guide](https://webstyleguide.com/), Patrick J. Lynch und Sarah Horton
-- [Visuelle Designregeln, denen Sie immer sicher folgen können](https://anthonyhobday.com/sideprojects/saferules/), Anthony Hobday
-- [16 kleine UI-Designregeln, die einen großen Einfluss haben](https://www.adhamdannaway.com/blog/ui-design/16-ui-design-rules), Adham Dannaway
+- [Visuelle Designregeln, denen Sie jedes Mal sicher folgen können](https://anthonyhobday.com/sideprojects/saferules/), Anthony Hobday
+- [16 kleine UI-Designregeln, die einen großen Einfluss haben](https://www.adhamdannaway.com/blog/ui-design/ui-design-tips), Adham Dannaway
 
 {{NextMenu("Learn_web_development/Core/Version_control", "Learn_web_development/Core")}}

@@ -2,84 +2,80 @@
 title: webNavigation
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Fügen Sie Ereignislistener für die verschiedenen Phasen einer Navigation hinzu. Eine Navigation besteht aus einem Frame im Browser, der von einer URL zu einer anderen wechselt, normalerweise (aber nicht immer) als Reaktion auf eine Benutzeraktion wie das Klicken auf einen Link oder das Eingeben einer URL in die Adressleiste.
 
-Fügen Sie Ereignis-Listener für die verschiedenen Phasen einer Navigation hinzu. Eine Navigation besteht aus einem Frame im Browser, der von einer URL zu einer anderen übergeht, normalerweise (aber nicht immer) als Reaktion auf eine Benutzeraktion wie das Klicken auf einen Link oder das Eingeben einer URL in die Adressleiste.
+Verglichen mit der {{WebExtAPIRef("webRequest")}} API: Navigationen führen in der Regel dazu, dass der Browser Webanfragen stellt, aber die `webRequest` API befasst sich mit der untergeordneten Ebene der HTTP-Schicht, während die `webNavigation` API mehr an der Ansicht aus der Benutzeroberfläche des Browsers interessiert ist.
 
-Verglichen mit der {{WebExtAPIRef("webRequest")}} API: Navigationsereignisse führen in der Regel dazu, dass der Browser Webanfragen stellt, aber die webRequest API befasst sich mit der detaillierteren Ansicht auf der HTTP-Ebene, während die webNavigation API sich mehr mit der Ansicht aus der Benutzeroberfläche des Browsers selbst beschäftigt.
+Jedes Ereignis entspricht einem bestimmten Abschnitt der Navigation. Die Reihenfolge der Ereignisse ist wie folgt:
 
-Jedes Ereignis entspricht einer bestimmten Phase der Navigation. Die Reihenfolge der Ereignisse sieht wie folgt aus:
+![Visualisierung des primären und zusätzlich beschriebenen Flusses.](we-flow.png)
 
-![Visualisierung des primären und der unten beschriebenen zusätzlichen Abläufe.](we-flow.png)
-
-- Der primäre Ablauf ist:
-
-  - `{{WebExtAPIRef("webNavigation.onBeforeNavigate", "onBeforeNavigate")}}`
-  - `{{WebExtAPIRef("webNavigation.onCommitted", "onCommitted")}}`
-  - `{{WebExtAPIRef("webNavigation.onDOMContentLoaded", "onDOMContentLoaded")}}`
-  - `{{WebExtAPIRef("webNavigation.onCompleted", "onCompleted")}}`.
+- Der primäre Fluss ist:
+  - {{WebExtAPIRef("webNavigation.onBeforeNavigate", "onBeforeNavigate")}}
+  - {{WebExtAPIRef("webNavigation.onCommitted", "onCommitted")}}
+  - {{WebExtAPIRef("webNavigation.onDOMContentLoaded", "onDOMContentLoaded")}}
+  - {{WebExtAPIRef("webNavigation.onCompleted", "onCompleted")}};
 
 - Zusätzlich:
-
-  - `{{WebExtAPIRef("webNavigation.onCreatedNavigationTarget", "onCreatedNavigationTarget")}}` wird vor `onBeforeNavigate` ausgelöst, wenn der Browser ein neues Tab oder Fenster für die Navigation erstellen muss (zum Beispiel, weil der Benutzer einen Link in einem neuen Tab geöffnet hat).
-  - {{WebExtAPIRef("webNavigation.onHistoryStateUpdated", "onHistoryStateUpdated")}} wird ausgelöst, wenn eine Seite die [history API](/de/docs/Web/API/History_API) verwendet, um die in der Adressleiste des Browsers angezeigte URL zu aktualisieren.
-  - {{WebExtAPIRef("webNavigation.onReferenceFragmentUpdated", "onReferenceFragmentUpdated")}} wird ausgelöst, wenn der [Fragment-Identifier](/de/docs/Web/URI/Reference/Fragment) einer Seite geändert wird.
+  - {{WebExtAPIRef("webNavigation.onCreatedNavigationTarget", "onCreatedNavigationTarget")}} wird vor `onBeforeNavigate` ausgelöst, wenn der Browser ein neues Tab oder Fenster für die Navigation erstellen musste (zum Beispiel, weil der Benutzer einen Link in einem neuen Tab geöffnet hat).
+  - {{WebExtAPIRef("webNavigation.onHistoryStateUpdated", "onHistoryStateUpdated")}} wird ausgelöst, wenn eine Seite die [History API](/de/docs/Web/API/History_API) verwendet, um die in der Adressleiste des Browsers angezeigte URL zu aktualisieren.
+  - {{WebExtAPIRef("webNavigation.onReferenceFragmentUpdated", "onReferenceFragmentUpdated")}} wird ausgelöst, wenn sich der [Fragment-Identifikator](/de/docs/Web/URI/Reference/Fragment) einer Seite ändert.
   - {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} kann jederzeit ausgelöst werden.
 
-Jede Navigation ist ein URL-Übergang in einem bestimmten Browser-Frame. Der Browser-Frame wird durch eine Tab-ID und eine Frame-ID identifiziert. Der Frame kann entweder der oberste Browsing-Kontext im Tab sein, oder ein verschachtelter Browsing-Kontext, der als [iframe](/de/docs/Web/HTML/Element/iframe) implementiert ist.
+Jede Navigation ist ein URL-Wechsel in einem bestimmten Browser-Frame. Der Browser-Frame wird durch eine Tab-ID und eine Frame-ID identifiziert. Der Frame kann entweder der oberste Browser-Kontext im Tab sein oder ein verschachtelter Browser-Kontext, der als [iframe](/de/docs/Web/HTML/Reference/Elements/iframe) implementiert ist.
 
-Jeder `addListener()`-Aufruf eines Ereignisses akzeptiert einen optionalen Filterparameter. Mit dem Filter können ein oder mehrere URL-Muster spezifiziert werden, und das Ereignis wird dann nur für Navigationen ausgelöst, bei denen die Ziel-URL einem der Muster entspricht.
+Jeder Ereignisaufruf `addListener()` akzeptiert einen optionalen Filterparameter. Der Filter wird ein oder mehrere URL-Muster spezifizieren, und das Ereignis wird dann nur für Navigationen ausgelöst, bei denen die Ziel-URL mit einem der Muster übereinstimmt.
 
-Der `onCommitted` Ereignis-Listener erhält zwei zusätzliche Eigenschaften: einen {{WebExtAPIRef("webNavigation.TransitionType","TransitionType")}}, der den Grund für die Navigation angibt (z. B. weil der Benutzer auf einen Link geklickt hat oder ein Lesezeichen ausgewählt hat), und einen {{WebExtAPIRef("webNavigation.TransitionQualifier","TransitionQualifier")}}, der weitere Informationen über die Navigation liefert.
+Der `onCommitted` Ereignislistener erhält zwei zusätzliche Eigenschaften: einen {{WebExtAPIRef("webNavigation.TransitionType","TransitionType")}}, der die Ursache der Navigation angibt (z.B. weil der Benutzer auf einen Link geklickt hat oder weil der Benutzer ein Lesezeichen ausgewählt hat), und einen {{WebExtAPIRef("webNavigation.TransitionQualifier","TransitionQualifier")}}, der weitere Informationen über die Navigation liefert.
 
-Um diese API nutzen zu können, benötigen Sie die Berechtigung "webNavigation" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Um diese API zu verwenden, müssen Sie über die "webNavigation" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) verfügen.
 
 ## Typen
 
 - {{WebExtAPIRef("webNavigation.TransitionType")}}
-  - : Grund für die Navigation: z. B. der Benutzer hat auf einen Link geklickt, eine Adresse eingegeben oder ein Lesezeichen angeklickt.
+  - : Ursache der Navigation: zum Beispiel hat der Benutzer auf einen Link geklickt, eine Adresse eingegeben oder ein Lesezeichen angeklickt.
 - {{WebExtAPIRef("webNavigation.TransitionQualifier")}}
-  - : Zusätzliche Informationen über eine Transition.
+  - : Zusätzliche Informationen zu einem Übergang.
 
 ## Funktionen
 
 - {{WebExtAPIRef("webNavigation.getFrame()")}}
-  - : Ruft Informationen zu einem bestimmten Frame ab. Ein Frame kann der oberste Frame in einem Tab oder ein verschachteltes [iframe](/de/docs/Web/HTML/Element/iframe) sein und wird eindeutig durch eine Tab-ID und eine Frame-ID identifiziert.
+  - : Ruft Informationen über einen bestimmten Frame ab. Ein Frame kann der oberste Frame in einem Tab oder ein verschachteltes [iframe](/de/docs/Web/HTML/Reference/Elements/iframe) sein. Er wird eindeutig durch eine Tab-ID und eine Frame-ID identifiziert.
 - {{WebExtAPIRef("webNavigation.getAllFrames()")}}
-  - : Gibt, basierend auf einer Tab-ID, Informationen über alle darin enthaltenen Frames zurück.
+  - : Gibt eine Tab-ID an und ruft Informationen über alle darin enthaltenen Frames ab.
 
 ## Ereignisse
 
 - {{WebExtAPIRef("webNavigation.onBeforeNavigate")}}
-  - : Wird ausgelöst, bevor der Browser ein Navigationsereignis startet.
+  - : Wird ausgelöst, wenn der Browser ein Navigationsevent zu starten beginnt.
 - {{WebExtAPIRef("webNavigation.onCommitted")}}
-  - : Wird ausgelöst, wenn eine Navigation festgeschrieben wird. Mindestens ein Teil des neuen Dokuments wurde vom Server empfangen, und der Browser hat sich entschieden, zum neuen Dokument zu wechseln.
+  - : Wird ausgelöst, wenn eine Navigation festgeschrieben wird. Mindestens ein Teil des neuen Dokuments wurde vom Server empfangen und der Browser hat beschlossen, zu dem neuen Dokument zu wechseln.
 - {{WebExtAPIRef("webNavigation.onDOMContentLoaded")}}
-  - : Wird ausgelöst, wenn das [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis auf der Seite ausgelöst wird.
+  - : Wird ausgelöst, wenn das [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis auf der Seite ausgelöst wird.
 - {{WebExtAPIRef("webNavigation.onCompleted")}}
-  - : Wird ausgelöst, wenn ein Dokument, einschließlich der von ihm referenzierten Ressourcen, vollständig geladen und initialisiert ist. Dies entspricht dem DOM [`load`](/de/docs/Web/API/Window/load_event)-Ereignis.
+  - : Wird ausgelöst, wenn ein Dokument, einschließlich der von ihm referenzierten Ressourcen, vollständig geladen und initialisiert wurde. Dies entspricht dem DOM [`load`](/de/docs/Web/API/Window/load_event) Ereignis.
 - {{WebExtAPIRef("webNavigation.onErrorOccurred")}}
-  - : Wird ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler aufgetreten ist, oder der Benutzer die Navigation abgebrochen hat.
+  - : Wird ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler auftrat oder der Benutzer die Navigation abgebrochen hat.
 - {{WebExtAPIRef("webNavigation.onCreatedNavigationTarget")}}
-  - : Wird ausgelöst, wenn ein neues Fenster oder ein neues Tab in einem bestehenden Fenster erstellt wird, um eine Navigation auszuführen: z. B. wenn der Benutzer einen Link in einem neuen Tab öffnet.
+  - : Wird ausgelöst, wenn ein neues Fenster oder ein neuer Tab in einem bestehenden Fenster erstellt wird, um eine Navigation zu beherbergen: Zum Beispiel, wenn der Benutzer einen Link in einem neuen Tab öffnet.
 - {{WebExtAPIRef("webNavigation.onReferenceFragmentUpdated")}}
-  - : Wird ausgelöst, wenn der [Fragment-Identifier](https://en.wikipedia.org/wiki/Fragment_identifier) einer Seite geändert wird.
+  - : Wird ausgelöst, wenn sich der [Fragment-Identifikator](https://en.wikipedia.org/wiki/Fragment_identifier) einer Seite ändert.
 - {{WebExtAPIRef("webNavigation.onTabReplaced")}}
-  - : Wird ausgelöst, wenn der Inhalt des Tabs durch ein anderes (meist vorher gerendertes) Tab ersetzt wird.
+  - : Wird ausgelöst, wenn der Inhalt des Tabs durch einen anderen (normalerweise zuvor vorgerenderten) Tab ersetzt wird.
 - {{WebExtAPIRef("webNavigation.onHistoryStateUpdated")}}
-  - : Wird ausgelöst, wenn die Seite die [history API (2011)](/de/docs/Web/API/History_API) verwendet hat, um die in der Adressleiste angezeigte URL zu aktualisieren.
+  - : Wird ausgelöst, wenn die Seite die [History API](/de/docs/Web/API/History_API) verwendet hat, um die in der Adressleiste des Browsers angezeigte URL zu aktualisieren.
+
+{{WebExtExamples("h2")}}
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-{{WebExtExamples("h2")}}
-
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation) API von Chromium. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation) API. Diese Dokumentation ist aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

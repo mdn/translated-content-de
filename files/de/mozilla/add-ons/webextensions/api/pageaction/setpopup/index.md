@@ -2,12 +2,10 @@
 title: pageAction.setPopup()
 slug: Mozilla/Add-ons/WebExtensions/API/pageAction/setPopup
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Legt das HTML-Dokument fest, das als Popup angezeigt wird, wenn der Benutzer auf das Symbol der Seitenauswahl klickt.
+Legt das HTML-Dokument fest, das als Popup geöffnet werden soll, wenn der Benutzer auf das Symbol der Seitenaktion klickt.
 
 ## Syntax
 
@@ -20,26 +18,19 @@ browser.pageAction.setPopup(
 ### Parameter
 
 - `details`
-
   - : `object`.
-
     - `tabId`
       - : `integer`. Die ID des Tabs, für den Sie das Popup festlegen möchten.
     - `popup`
-
       - : `string` oder `null`. URL zur HTML-Datei, die in einem Popup angezeigt werden soll.
 
-        Wenn hier eine leere Zeichenkette (`""`) übergeben wird, wird das Popup deaktiviert und die Erweiterung empfängt {{WebExtAPIRef("pageAction.onClicked")}}-Ereignisse.
+        Wenn hier ein leerer String (`""`) übergeben wird, ist das Popup deaktiviert und die Erweiterung erhält {{WebExtAPIRef("pageAction.onClicked")}}-Ereignisse.
 
-        Wenn `null` hier übergeben wird, wird das Popup auf das zurückgesetzt, das im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Manifest-Schlüssel angegeben wurde.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+        Wenn `null` übergeben wird, wird das Popup auf das im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Manifest-Schlüssel angegebene Popup zurückgesetzt.
 
 ## Beispiele
 
-Hören Sie auf {{WebExtAPIRef("tabs.onUpdated")}}-Ereignisse und wechseln Sie das Popup, wenn sich der Ladezustand ändert:
+Lauschen Sie auf {{WebExtAPIRef("tabs.onUpdated")}}-Ereignisse und wechseln Sie das Popup, wenn sich der Ladezustand ändert:
 
 ```js
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
@@ -62,8 +53,12 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setPopup)-API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setPopup) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

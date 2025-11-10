@@ -3,14 +3,14 @@ title: "HID: requestDevice() Methode"
 short-title: requestDevice()
 slug: Web/API/HID/requestDevice
 l10n:
-  sourceCommit: f2088b8912ef205a737551441d54b73507bd3ac6
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`requestDevice()`** Methode des [`HID`](/de/docs/Web/API/HID) Interfaces fordert den Zugriff auf ein HID-Gerät an.
+Die **`requestDevice()`** Methode der [`HID`](/de/docs/Web/API/HID) Schnittstelle fordert den Zugriff auf ein HID-Gerät an.
 
-Der User-Agent wird ein Berechtigungsdialogfeld präsentieren, das eine Liste der verbundenen Geräte enthält, und den Benutzer bitten, eines dieser Geräte auszuwählen und die Berechtigung zu erteilen.
+Der Benutzeragent wird einen Berechtigungsdialog anzeigen, der eine Liste der angeschlossenen Geräte enthält, und den Nutzer bitten, ein Gerät auszuwählen und die Berechtigung zu erteilen.
 
 ## Syntax
 
@@ -22,42 +22,42 @@ requestDevice(options)
 
 - `options`
 
-  - : Ein Objekt, das ein Array von Filterobjekten für mögliche Geräte enthält, mit denen verbunden werden kann. Jedes Filterobjekt kann die folgenden Eigenschaften haben:
+  - : Ein Objekt, das ein Array von Filterobjekten für mögliche Geräte, mit denen eine Kopplung hergestellt werden soll, enthält. Jedes Filterobjekt kann die folgenden Eigenschaften haben:
 
     - `vendorId` {{optional_inline}}
-      - : Eine Ganzzahl, die die vendorId des angeforderten HID-Geräts darstellt.
+      - : Eine ganze Zahl, die die vendorId des angeforderten HID-Geräts darstellt.
     - `productId` {{optional_inline}}
-      - : Eine Ganzzahl, die die productId des angeforderten HID-Geräts darstellt.
+      - : Eine ganze Zahl, die die productId des angeforderten HID-Geräts darstellt.
     - `usagePage` {{optional_inline}}
 
-      - : Eine Ganzzahl, die die Usage Page-Komponente der HID-Nutzung des angeforderten Geräts darstellt. Die Nutzung für eine oberste Sammlungsebene wird verwendet, um den Gerätetyp zu identifizieren.
+      - : Eine ganze Zahl, die die Komponente des verwendeten Bereichs der HID-Nutzung des angeforderten Geräts darstellt. Die Nutzung einer oberster Ebene Sammlung wird verwendet, um den Gerätetyp zu identifizieren.
 
-        Standard-HID-Verwendungswerte sind im Dokument [HID Usage Tables](https://usb.org/document-library/hid-usage-tables-15) zu finden.
+        Standard-HID-Nutzungswerte finden Sie im Dokument [HID Usage Tables](https://usb.org/document-library/hid-usage-tables-16).
 
     - `usage` {{optional_inline}}
-      - : Eine Ganzzahl, die die Usage ID-Komponente der HID-Nutzung des angeforderten Geräts darstellt.
+      - : Eine ganze Zahl, die die Nutzungs-ID Komponente der HID-Nutzung des angeforderten Geräts darstellt.
 
 > [!NOTE]
-> Die Gerätefilter werden verwendet, um die dem Benutzer präsentierte Geräteliste einzuschränken. Wenn keine Filter vorhanden sind, werden alle verbundenen Geräte angezeigt. Wenn ein oder mehrere Filter eingeschlossen sind, wird ein Gerät eingeschlossen, wenn ein Filter übereinstimmt. Um mit einem Filter übereinzustimmen, müssen alle in diesem Filter enthaltenen Regeln übereinstimmen.
+> Die Gerätefilter werden verwendet, um die Liste der dem Benutzer angezeigten Geräte einzugrenzen. Wenn keine Filter vorhanden sind, werden alle angeschlossenen Geräte angezeigt. Wenn ein oder mehrere Filter enthalten sind, wird ein Gerät einbezogen, wenn ein Filter übereinstimmt. Um einem Filter zu entsprechen, müssen alle in diesem Filter enthaltenen Regeln übereinstimmen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem Array von verbundenen [`HIDDevice`](/de/docs/Web/API/HIDDevice) Objekten aufgelöst wird, die den übergebenen Filtern entsprechen.
+Ein {{jsxref("Promise")}}, das mit einem Array von verbundenen [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten aufgelöst wird, die den übermittelten Filtern entsprechen.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Seite keinen Zugriff auf die HID-Funktion erlaubt.
+  - : Wird ausgelöst, wenn die Seite keinen Zugriff auf die HID-Funktion zulässt.
 
 ## Sicherheit
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
 ### Ein Gerät mit allen vier Filterregeln abgleichen
 
-Im folgenden Beispiel wird ein HID-Gerät angefordert, das eine Hersteller-ID von `0xABCD`, eine Produkt-ID von `0x1234`, eine Usage Page von `0x0C` und eine Usage ID von `0x01` hat. Es werden nur Geräte angezeigt, die alle diese Regeln erfüllen.
+Im folgenden Beispiel wird ein HID-Gerät angefordert, das eine vendor ID von `0xABCD`, eine product ID von `0x1234`, eine usage page von `0x0C` und eine usage ID von `0x01` hat. Nur Geräte, die alle diese Regeln erfüllen, werden angezeigt.
 
 ```js
 let requestButton = document.getElementById("request-hid-device");
@@ -89,7 +89,7 @@ requestButton.addEventListener("click", async () => {
 
 ### Ein Beispiel mit zwei Filtern
 
-Dieses nächste Beispiel enthält zwei Filter. Geräte werden angezeigt, wenn sie einem dieser Filter entsprechen.
+Dieses nächste Beispiel enthält zwei Filter. Geräte werden angezeigt, wenn sie mit einem dieser Filter übereinstimmen.
 
 ```js
 // Filter on devices with the Nintendo Switch Joy-Con USB Vendor/Product IDs.

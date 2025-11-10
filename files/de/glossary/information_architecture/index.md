@@ -2,12 +2,10 @@
 title: Informationsarchitektur
 slug: Glossary/Information_architecture
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Die Informationsarchitektur, angewandt auf Webdesign und -entwicklung, ist die Praxis, die Informationen / Inhalte / Funktionalitäten einer Website so zu organisieren, dass sie die bestmögliche Benutzererfahrung bietet, wobei Informationen und Dienste leicht nutzbar und auffindbar sind.
+Informationsarchitektur, angewandt auf Webdesign und -entwicklung, ist die Praxis, die Informationen/Inhalte/Funktionen einer Website so zu organisieren, dass sie die bestmögliche Benutzererfahrung bietet, wobei Informationen und Dienste leicht nutzbar und auffindbar sind.
 
 ## Siehe auch
 

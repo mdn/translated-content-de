@@ -3,25 +3,18 @@ title: "HTMLImageElement: hspace-Eigenschaft"
 short-title: hspace
 slug: Web/API/HTMLImageElement/hspace
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die _veraltete_ **`hspace`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Anzahl der Pixel an, die auf der linken und rechten Seite des {{HTMLElement("img")}}-Elements beim Seitenlayout leer gelassen werden sollen.
+Die _veraltete_ **`hspace`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt an, wie viele Pixel Abstand links und rechts des {{HTMLElement("img")}}-Elements bei der Layout-Gestaltung der Seite freigelassen werden sollen. Sie spiegelt das [`hspace`](/de/docs/Web/HTML/Reference/Elements/img#hspace)-Inhaltsattribut des `<img>`-Elements wider.
 
-Diese Eigenschaft spiegelt das {{Glossary("HTML", "HTML")}}-[`hspace`](/de/docs/Web/HTML/Element/img#hspace)-Attribut wider.
+Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("margin")}} oder deren Langform verwenden, um den Abstand um ein Bild herum festzulegen.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Breite des horizontalen Abstands in Pixeln angibt, der auf die linke und rechte Seite des Bildes angewendet werden soll.
-
-## Nutzungshinweise
-
-Der für `hspace` angegebene Wert wird den {{cssxref("margin-left")}} und {{cssxref("margin-right")}} Eigenschaften zugeordnet, um die Breite dieser Abstände in Pixeln anzugeben.
-
-> [!WARNING]
-> Diese Eigenschaft ist veraltet. Stattdessen sollten Sie die CSS-{{cssxref("margin")}}-Eigenschaft und ihre Langformen verwenden, um Abstände um ein `<img>` festzulegen.
+Ein ganzzahliger Wert, der die Breite des horizontalen Randes in Pixeln angibt, der auf die linke und rechte Seite des Bildes angewendet werden soll.
 
 ## Spezifikationen
 
@@ -30,3 +23,8 @@ Der für `hspace` angegebene Wert wird den {{cssxref("margin-left")}} und {{cssx
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- {{cssxref("margin")}}
+- [`HTMLImageElement.vspace`](/de/docs/Web/API/HTMLImageElement/vspace)

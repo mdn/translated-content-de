@@ -2,14 +2,12 @@
 title: Increment (++)
 slug: Web/JavaScript/Reference/Operators/Increment
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **Inkrement-Operator (`++`)** erhöht seinen Operanden um eins und gibt den Wert vor oder nach dem Inkrement zurück, je nachdem, wo der Operator platziert ist.
 
-Der **Increment-Operator (`++`)** erhöht (addiert eins zu) seinen Operand und gibt den Wert vor oder nach der Erhöhung zurück, abhängig davon, wo der Operator platziert ist.
-
-{{InteractiveExample("JavaScript Demo: Expressions - Increment operator")}}
+{{InteractiveExample("JavaScript Demo: Increment (++) operator")}}
 
 ```js interactive-example
 let x = 3;
@@ -34,13 +32,13 @@ x++
 
 ## Beschreibung
 
-Der `++`-Operator ist für zwei Typen von Operanden überladen: Nummer und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zuerst den Operand in einen numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft den Typ davon. Falls der Operand zu einem BigInt wird, führt er eine BigInt-Erhöhung durch; andernfalls führt er eine numerische Erhöhung durch.
+Der `++`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er wandelt den Operanden zunächst in einen numerischen Wert um und überprüft dessen Typ. Er führt ein BigInt-Inkrement durch, wenn der Operand zu einem BigInt wird; andernfalls führt er ein Nummerninkrement durch.
 
-Wenn er postfix verwendet wird, mit dem Operator nach dem Operanden (zum Beispiel `x++`), erhöht der Increment-Operator und gibt den Wert vor der Erhöhung zurück.
+Wird er postfix verwendet, also mit dem Operator nach dem Operanden (zum Beispiel `x++`), erhöht der Inkrement-Operator und gibt den Wert vor dem Inkrement zurück.
 
-Wenn er prefix verwendet wird, mit dem Operator vor dem Operanden (zum Beispiel `++x`), erhöht der Increment-Operator und gibt den Wert nach der Erhöhung zurück.
+Wird er präfix verwendet, also mit dem Operator vor dem Operanden (zum Beispiel `++x`), erhöht der Inkrement-Operator und gibt den Wert nach dem Inkrement zurück.
 
-Der Increment-Operator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften; d. h. gültige [Zuweisungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `++x` selbst wird zu einem Wert ausgewertet, nicht zu einer Referenz, sodass Sie mehrere Increment-Operatoren nicht miteinander verkettet verwenden können.
+Der Inkrement-Operator kann nur auf Operanden angewendet werden, die Referenzen sind (Variablen und Objekteigenschaften, d.h. gültige [Zuweisungsziele](/de/docs/Web/JavaScript/Reference/Operators/Assignment)). `++x` selbst wird zu einem Wert ausgewertet, nicht zu einer Referenz, sodass Sie keine mehreren Inkrement-Operatoren zusammenketten können.
 
 ```js-nolint example-bad
 ++(++x); // SyntaxError: Invalid left-hand side expression in prefix operation
@@ -48,7 +46,7 @@ Der Increment-Operator kann nur auf Operanden angewendet werden, die Referenzen 
 
 ## Beispiele
 
-### Postfix-Incremente
+### Postfix-Inkrement
 
 ```js
 let x = 3;
@@ -60,7 +58,7 @@ const y2 = x2++;
 // x2 is 4n; y2 is 3n
 ```
 
-### Prefix-Incremente
+### Präfix-Inkrement
 
 ```js
 let x = 3;
@@ -83,11 +81,11 @@ const y2 = ++x2;
 ## Siehe auch
 
 - [Addition (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Addition)
-- [Subtraction (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Subtraction)
+- [Subtraktion (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Subtraction)
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
-- [Multiplication (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
-- [Remainder (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Decrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unary negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
-- [Unary plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+- [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
+- [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
+- [Exponenzierung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

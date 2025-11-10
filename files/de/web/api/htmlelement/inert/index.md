@@ -3,20 +3,20 @@ title: "HTMLElement: inert-Eigenschaft"
 short-title: inert
 slug: Web/API/HTMLElement/inert
 l10n:
-  sourceCommit: 694a813ca116ab209166ac162fe2fa59a9d20e55
+  sourceCommit: 3ff38e7687b65e43fe821a904ff52778312b8d36
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`inert`** spiegelt den Wert des [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attributs des Elements wider. Es handelt sich um einen booleschen Wert, der, wenn er vorhanden ist, den Browser dazu veranlasst, Benutzerinteraktionen für das Element zu "ignorieren". Dazu gehören Fokusevents und Ereignisse von unterstützenden Technologien. Der Browser kann außerdem Such- und Textauswahlfunktionen auf der Seite für das betreffende Element ignorieren. Dies kann nützlich sein, wenn Sie Benutzeroberflächen wie Modals erstellen, bei denen der Fokus innerhalb des Modals gefangen bleiben soll, solange dieses sichtbar ist.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`inert`** spiegelt den Wert des [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)-Attributs des Elements wider. Es handelt sich um einen booleschen Wert, der, wenn er vorhanden ist, bewirkt, dass der Browser Benutzereingabeereignisse für das Element "ignoriert", einschließlich Fokuserereignisse und Ereignisse von unterstützenden Technologien. Der Browser kann auch die Seitensuche und die Textauswahl im Element ignorieren. Dies kann nützlich sein, wenn Sie Benutzeroberflächen wie Modals erstellen, bei denen Sie den Fokus im sichtbaren Modal "einfangen" möchten.
 
-Beachten Sie, dass das Element auch dann Trägheit („inertness“) von seinem Eltern-Element erben kann, wenn das `inert`-Attribut nicht angegeben ist. Diese geerbte Trägheit wird jedoch nicht durch den Wert dieser Eigenschaft widergespiegelt.
+Beachten Sie, dass wenn das `inert`-Attribut nicht angegeben ist, das Element selbst möglicherweise dennoch Trägheit von seinem Elternteil erbt. Diese ererbte Trägheit wird jedoch nicht durch den Wert dieser Eigenschaft widergespiegelt. Die explizite Setzung der Eigenschaft auf `false` kann die von den Eltern geerbte Trägheit nicht rückgängig machen.
 
 ## Wert
 
 Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist der Wert `false`.
 
-## Beispiel
+## Beispiele
 
 ### HTML
 
@@ -39,10 +39,10 @@ Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist
 }
 ```
 
-{{ EmbedLiveSample('Example', 560, 200) }}
+{{ EmbedLiveSample('Examples', 560, 200) }}
 
 > [!NOTE]
-> Dieses Attribut bewirkt für sich allein keine visuelle Veränderung des Inhalts, wie er im Browser angezeigt wird. Im obigen Beispiel wurde CSS angewendet, um direkte Nachkommen eines Elements mit dem `inert`-Attribut halbtransparent darzustellen.
+> Dieses Attribut alleine wird keine visuelle Änderung des Inhalts bewirken, wie er im Browser angezeigt wird. Im obigen Beispiel wurde CSS angewendet, sodass jeder direkte Nachfahre eines Elements mit dem inert-Attribut halbtransparent dargestellt wird.
 
 ## Spezifikationen
 
@@ -54,7 +54,7 @@ Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist
 
 ## Siehe auch
 
-- [Globales Attribut: `inert`](/de/docs/Web/HTML/Global_attributes/inert)
-- {{HTMLElement("dialog")}}
-- [Inert Polyfill](https://github.com/WICG/inert)
+- [Globales Attribut: `inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)
 - [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)
+- {{HTMLElement("dialog")}}
+- CSS {{cssxref("interactivity")}}-Eigenschaft

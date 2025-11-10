@@ -3,12 +3,12 @@ title: "HTMLFieldSetElement: form-Eigenschaft"
 short-title: form
 slug: Web/API/HTMLFieldSetElement/form
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 1ff044ac87e406eb23ae7181dd171bad87421b79
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-schreibgeschützte Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("fieldset")}} besitzt, oder `null`, wenn dieses `fieldset` zu keinem Formular gehört.
+Die **`form`**-Eigenschaft der Schnittstelle [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) ist eine schreibgeschützte Eigenschaft, die ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurückgibt, das diesen {{htmlelement("fieldset")}}-Block besitzt, oder `null`, wenn dieser Fieldset-Block zu keinem Formular gehört.
 
 ## Wert
 
@@ -27,5 +27,5 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("fieldset")}}
-- HTML-Attribut [`form`](/de/docs/Web/HTML/Element/fieldset#form)
+- HTML-Attribut [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
 - [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)

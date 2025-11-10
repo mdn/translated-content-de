@@ -3,16 +3,16 @@ title: "HTMLTextAreaElement: selectionDirection-Eigenschaft"
 short-title: selectionDirection
 slug: Web/API/HTMLTextAreaElement/selectionDirection
 l10n:
-  sourceCommit: b921b8d779314f2098a1669d8269b36107ecfbb1
+  sourceCommit: 76d6c2c2bcca61d0d14ed464356716090097bc7a
 ---
 
 <!--  -->
 
 {{APIRef("HTML DOM")}}
 
-Die **`selectionDirection`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle gibt die aktuelle Richtung der Auswahl an. Die möglichen Werte sind `"forward"`, `"backward"` und `"none"`. Der Wert `forward` zeigt an, dass die Auswahl in der Start-zu-Ende-Richtung der aktuellen Sprache erfolgte, während `backward` die entgegengesetzte Richtung angibt. Der Wert `none` tritt auf, wenn die Richtung unbekannt ist. Sie kann verwendet werden, um sowohl die Richtung des im `<textarea>` ausgewählten Textes abzurufen als auch zu ändern.
+Die **`selectionDirection`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die aktuelle Richtung der Auswahl an. Die möglichen Werte sind `"forward"`, `"backward"` und `"none"`. Der Wert `forward` zeigt an, dass die Auswahl in der Start-zu-Ende-Richtung des aktuellen Gebietsschemas durchgeführt wurde, wobei `backward` die entgegengesetzte Richtung anzeigt. Der Wert `none` tritt auf, wenn die Richtung unbekannt ist. Diese Eigenschaft kann verwendet werden, um die Richtung des ausgewählten Textes des `<textarea>` sowohl abzurufen als auch zu ändern.
 
-Das Festlegen von `selectionDirection` auf einen neuen Wert löst die Ereignisse [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) und [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) aus.
+Das Setzen von `selectionDirection` auf einen neuen Wert löst die Ereignisse [`selectionchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) und [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) aus.
 
 ## Wert
 
@@ -45,4 +45,4 @@ const end = textarea.selectionDirection;
 - [`HTMLTextAreaElement.setRangeText()`](/de/docs/Web/API/HTMLTextAreaElement/setRangeText)
 - [`HTMLInputElement.selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection)
 - [`Selection`](/de/docs/Web/API/Selection)
-- {{cssxref("::selection")}} Pseudoelement
+- {{cssxref("::selection")}}-Pseudoelement

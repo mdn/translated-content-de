@@ -3,14 +3,16 @@ title: "HTMLDialogElement: requestClose() Methode"
 short-title: requestClose()
 slug: Web/API/HTMLDialogElement/requestClose
 l10n:
-  sourceCommit: 4da185c20a05e7ed4ea0f18c03714ea5fc038818
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`requestClose()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle fordert an, das {{htmlelement("dialog")}} zu schließen. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die Methode **`requestClose()`** des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Interfaces fordert das Schließen des {{htmlelement("dialog")}} an. Es kann optional ein String als Argument übergeben werden, welcher den `returnValue` des Dialogs aktualisiert.
 
-Diese Methode unterscheidet sich von der `HTMLDialogElement.close()`-Methode, indem sie ein `cancel`-Ereignis auslöst, bevor das `close`-Ereignis eintritt. Dies erlaubt es Autoren, das Schließen des Dialogs zu verhindern. Diese Methode weist das gleiche Verhalten wie der interne Schließungswächter des Dialogs auf.
+Diese Methode unterscheidet sich von der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode darin, dass sie ein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event) Ereignis auslöst, bevor das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das `cancel` Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
+
+Diese Methode bietet das gleiche Verhalten wie der interne "close watcher" des Dialogs.
 
 ## Syntax
 
@@ -30,14 +32,17 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der bei einem Klick ein {{htmlelement("dialog")}} mit einem Formular öffnet, über die `showModal()`-Methode.
-Von dort aus können Sie auf die _X_-Schaltfläche klicken, um das Schließen des Dialogs anzufordern (über die `HTMLDialogElement.requestClose()`-Methode) oder das Formular über die Absenden-Schaltfläche abschicken.
+### Verwendung von requestClose()
+
+Das folgende Beispiel zeigt einen einfachen Button, der, wenn er geklickt wird, ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()` Methode öffnet. Ist es offen, können Sie den **X**-Button klicken, um das Schließen des Dialogs anzufordern (über die `HTMLDialogElement.requestClose()` Methode), oder das Formular über den **Bestätigen**-Button absenden.
+
+#### HTML
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
-    <button id="close" aria-label="close" formnovalidate>X</button>
+    <button type="button" id="close" aria-label="close">X</button>
     <section>
       <p>
         <label for="favAnimal">Favorite animal:</label>
@@ -50,48 +55,54 @@ Von dort aus können Sie auf die _X_-Schaltfläche klicken, um das Schließen de
       </p>
     </section>
     <menu>
-      <button type="reset">Reset</button>
-      <button type="submit">Confirm</button>
+      <li>
+        <button type="reset">Reset</button>
+      </li>
+      <li>
+        <button type="submit">Confirm</button>
+      </li>
     </menu>
   </form>
 </dialog>
 
-<menu>
-  <button id="updateDetails">Update details</button>
-</menu>
-
-<script>
-  (() => {
-    const updateButton = document.getElementById("updateDetails");
-    const closeButton = document.getElementById("close");
-    const dialog = document.getElementById("favDialog");
-
-    // Update button opens a modal dialog
-    updateButton.addEventListener("click", () => {
-      dialog.showModal();
-    });
-
-    // Form close button requests to close the dialog box
-    closeButton.addEventListener("click", () => {
-      dialog.requestClose("animalNotChosen");
-    });
-
-    function dialogShouldNotClose() {
-      // Add logic to decide whether to prevent the dialog from closing
-    }
-
-    dialog.addEventListener("cancel", (event) => {
-      if (!event.cancelable) return;
-      if (dialogShouldNotClose()) event.preventDefault();
-    });
-  })();
-</script>
+<button id="updateDetails">Update details</button>
 ```
 
-Wenn die "X"-Schaltfläche den `type="submit"` hätte, würde der Dialog ohne JavaScript schließen.
-Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, wenn die [Methode des Formulars `dialog`](/de/docs/Web/HTML/Element/form#method) ist, sodass keine "Schließen"-Schaltfläche erforderlich ist.
+#### JavaScript
 
-### Ergebnis
+```js
+const updateButton = document.getElementById("updateDetails");
+const closeButton = document.getElementById("close");
+const dialog = document.getElementById("favDialog");
+
+// Update button opens a modal dialog
+updateButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// Form close button requests to close the dialog box
+closeButton.addEventListener("click", () => {
+  dialog.requestClose("animalNotChosen");
+});
+
+function dialogShouldNotClose() {
+  // Add logic to decide whether to allow the dialog to close.
+  // Closing prevented by default
+  return true;
+}
+
+dialog.addEventListener("cancel", (event) => {
+  if (!event.cancelable) return;
+  if (dialogShouldNotClose()) {
+    console.log("Closing prevented");
+    event.preventDefault();
+  }
+});
+```
+
+Wäre der "X"-Button vom `type="submit"`, hätte sich der Dialog ohne JavaScript geschlossen. Eine Formularübermittlung schließt das `<dialog>`, in dem es verschachtelt ist, wenn die [Methode des Formulars `dialog` ist](/de/docs/Web/HTML/Reference/Elements/form#method), sodass kein "close"-Button erforderlich ist.
+
+#### Ergebnis
 
 {{ EmbedLiveSample('Examples', '100%', '200px') }}
 
@@ -105,4 +116,4 @@ Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, 
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.

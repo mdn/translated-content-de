@@ -1,55 +1,55 @@
 ---
-title: "HTMLImageElement: width Eigenschaft"
+title: "HTMLImageElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLImageElement/width
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`** Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt die Breite an, mit der ein Bild in {{Glossary("CSS_pixel", "CSS-Pixeln")}} gezeichnet wird, wenn es auf einem visuellen Medium wie einem Bildschirm oder Drucker dargestellt wird. Andernfalls ist es die natürliche, pixeldichtekorrigierte Breite des Bildes.
+Die **`width`**-Eigenschaft der [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle gibt die Breite an, in der das Bild gezeichnet wird, in {{Glossary("CSS_pixel", "CSS-Pixel")}}, wenn das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gezeichnet oder gerendert wird. Andernfalls ist es die natürliche, an die Pixeldichte angepasste Breite des Bildes.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Breite des Bildes angibt. Die Art und Weise, wie die Breite definiert wird, hängt davon ab, ob das Bild auf einem visuellen Medium dargestellt wird:
+Ein ganzzahliger Wert, der die Breite des Bildes angibt. Die Art und Weise, wie die Breite definiert ist, hängt davon ab, ob das Bild auf ein visuelles Medium gerendert wird oder nicht.
 
-- Wenn das Bild auf einem visuellen Medium dargestellt wird, wird die Breite in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angegeben.
-- Wenn das Bild nicht auf einem visuellen Medium dargestellt wird, wird seine Breite unter Verwendung der natürlichen (intrinsischen) Breite des Bildes dargestellt, angepasst an die Darstellungsdichte wie durch [`naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) angegeben.
+- Wenn das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird, wird die Breite in {{Glossary("CSS_pixel", "CSS-Pixel")}} angegeben.
+- Andernfalls wird die Breite des Bildes unter Verwendung seiner natürlichen (intrinsischen) Breite dargestellt, angepasst an die Anzeigedichte, wie durch [`naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) angegeben.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr mithilfe des [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attributs bereitgestellt. Eine ist 200px breit und die andere ist 400px breit. Das [`sizes`](/de/docs/Web/HTML/Element/img#sizes)-Attribut wird verwendet, um die Breite anzugeben, mit der das Bild bei gegebener Bildschirmbreite gezeichnet werden soll.
+In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr mit dem [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut bereitgestellt. Eine ist 200px breit und die andere ist 400px breit. Außerdem wird das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Attribut bereitgestellt, um die Breite anzugeben, in der das Bild gezeichnet werden soll, abhängig von der Breite des Viewports.
 
 ### HTML
 
-Für Viewports bis zu 400px Breite wird das Bild mit einer Breite von 200px gezeichnet. Andernfalls wird es mit 400px gezeichnet.
+Für Viewports bis zu einer Breite von 400px wird das Bild in einer Breite von 200px gezeichnet. Andernfalls wird es in 400px gezeichnet.
 
 ```html
 <p>Image width: <span class="size">?</span>px (resize to update)</p>
 <img
-  src="/en-US/docs/Web/HTML/Element/img/clock-demo-200px.png"
+  src="/en-US/docs/Web/HTML/Reference/Elements/img/clock-demo-200px.png"
   alt="Clock"
   srcset="
-    /en-US/docs/Web/HTML/Element/img/clock-demo-200px.png 200w,
-    /en-US/docs/Web/HTML/Element/img/clock-demo-400px.png 400w
+    /en-US/docs/Web/HTML/Reference/Elements/img/clock-demo-200px.png 200w,
+    /en-US/docs/Web/HTML/Reference/Elements/img/clock-demo-400px.png 400w
   "
-  sizes="(max-width: 400px) 200px, 400px" />
+  sizes="(width <= 400px) 200px, 400px" />
 ```
 
 ### JavaScript
 
-JavaScript betrachtet die `width` Eigenschaft, um die aktuelle Breite des Bildes zu bestimmen. Dies wird in den Event-Handlern [`load`](/de/docs/Web/API/Window/load_event) und [`resize`](/de/docs/Web/API/Window/resize_event) des Fensters durchgeführt, sodass immer die aktuellsten Breiteninformationen verfügbar sind.
+Der JavaScript-Code betrachtet die `height`, um die Höhe des Bildes angesichts der Breite, in der es derzeit gezeichnet wird, zu bestimmen.
 
 ```js
 const clockImage = document.querySelector("img");
 let output = document.querySelector(".size");
 
-const updateWidth = (event) => {
+const updateWidth = () => {
   output.innerText = clockImage.width;
 };
 
-window.addEventListener("load", updateWidth);
+updateWidth();
 window.addEventListener("resize", updateWidth);
 ```
 
@@ -57,7 +57,7 @@ window.addEventListener("resize", updateWidth);
 
 {{EmbedLiveSample("Examples", 640, 450)}}
 
-Dieses Beispiel ist möglicherweise leichter auszuprobieren {{LiveSampleLink('Examples', 'in its own window')}}.
+Dieses Beispiel ist möglicherweise einfacher {{LiveSampleLink('Examples', 'in its own window')}} auszuprobieren.
 
 ## Spezifikationen
 
@@ -69,6 +69,8 @@ Dieses Beispiel ist möglicherweise leichter auszuprobieren {{LiveSampleLink('Ex
 
 ## Siehe auch
 
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLImageElement.naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth)
 - [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width)
 - [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
 - [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)

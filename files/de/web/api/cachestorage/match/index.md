@@ -3,20 +3,19 @@ title: "CacheStorage: match() Methode"
 short-title: match()
 slug: Web/API/CacheStorage/match
 l10n:
-  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
+  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`match()`** Methode des [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Interfaces überprüft, ob ein gegebener [`Request`](/de/docs/Web/API/Request) oder eine URL-Zeichenkette ein Schlüssel für eine gespeicherte [`Response`](/de/docs/Web/API/Response) ist.
-Diese Methode gibt ein {{jsxref("Promise")}} für eine [`Response`](/de/docs/Web/API/Response) zurück oder ein {{jsxref("Promise")}}, das auf `undefined` aufgelöst wird, wenn kein Treffer gefunden wird.
+Die **`match()`** Methode des [`CacheStorage`](/de/docs/Web/API/CacheStorage) Schnittstelle überprüft, ob eine gegebene [`Request`](/de/docs/Web/API/Request) oder URL-Zeichenfolge ein Schlüssel für eine gespeicherte [`Response`](/de/docs/Web/API/Response) ist. Diese Methode gibt ein {{jsxref("Promise")}} für eine [`Response`](/de/docs/Web/API/Response) zurück oder ein {{jsxref("Promise")}}, das auf `undefined` aufgelöst wird, wenn kein Treffer gefunden wird.
 
-Sie können auf `CacheStorage` über die [`Window.caches`](/de/docs/Web/API/Window/caches)-Eigenschaft in Fenstern oder über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)-Eigenschaft in Workern zugreifen.
+Sie können auf `CacheStorage` über die [`Window.caches`](/de/docs/Web/API/Window/caches) Eigenschaft in Fenstern oder über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) Eigenschaft in Workern zugreifen.
 
 `Cache`-Objekte werden in der Reihenfolge ihrer Erstellung durchsucht.
 
-> **Note:** `caches.match()` ist eine Komfortmethode.
-> Eine gleichwertige Funktionalität besteht darin, [`cache.match()`](/de/docs/Web/API/Cache/match) auf jedem Cache aufzurufen (in der Reihenfolge, die von [`caches.keys()`](/de/docs/Web/API/CacheStorage/keys) zurückgegeben wird), bis eine [`Response`](/de/docs/Web/API/Response) zurückgegeben wird.
+> [!NOTE] > `caches.match()` ist eine bequeme Methode.
+> Eine gleichwertige Funktionalität besteht darin, [`cache.match()`](/de/docs/Web/API/Cache/match) auf jedem Cache (in der Reihenfolge der von [`caches.keys()`](/de/docs/Web/API/CacheStorage/keys) zurückgegebenen Werte) aufzurufen, bis eine [`Response`](/de/docs/Web/API/Response) zurückgegeben wird.
 
 ## Syntax
 
@@ -28,31 +27,28 @@ match(request, options)
 ### Parameter
 
 - `request`
-  - : Der [`Request`](/de/docs/Web/API/Request), den Sie abgleichen möchten. Dies kann ein [`Request`](/de/docs/Web/API/Request)-Objekt oder eine URL-Zeichenkette sein.
+  - : Die [`Request`](/de/docs/Web/API/Request), die Sie abgleichen möchten. Dies kann ein [`Request`](/de/docs/Web/API/Request)-Objekt oder eine URL-Zeichenfolge sein.
 - `options` {{optional_inline}}
-
-  - : Ein Objekt, dessen Eigenschaften steuern, wie das Matching in der `match`-Operation durchgeführt wird. Die verfügbaren Optionen sind:
-
+  - : Ein Objekt, dessen Eigenschaften steuern, wie der Abgleich in der `match`-Operation durchgeführt wird. Die verfügbaren Optionen sind:
     - `ignoreSearch`
-      - : Ein boolescher Wert, der festlegt, ob der Abgleichsprozess die Abfragezeichenfolge in der URL ignorieren soll. Wenn beispielsweise `true` gesetzt ist, würde der Teil `?value=bar` von `http://foo.com/?value=bar` bei der Durchführung eines Abgleichs ignoriert werden. Standardmäßig ist dieser auf `false` gesetzt.
+      - : Ein boolescher Wert, der angibt, ob der Abgleichsvorgang den Abfrage-String in der URL ignorieren soll. Zum Beispiel, wenn auf `true` gesetzt, würde der `?value=bar` Teil von `http://foo.com/?value=bar` ignoriert, wenn ein Abgleich durchgeführt wird. Standardmäßig ist dies `false`.
     - `ignoreMethod`
-      - : Ein boolescher Wert, der, wenn auf `true` gesetzt, verhindert, dass Abgleichsoperationen die `http`-Methode des [`Request`](/de/docs/Web/API/Request) validieren (normalerweise sind nur `GET` und `HEAD` erlaubt). Standardmäßig ist dieser auf `false` gesetzt.
+      - : Ein boolescher Wert, der, wenn auf `true` gesetzt, verhindert, dass die Abgleichsoperationen die `http`-Methode der [`Request`](/de/docs/Web/API/Request) validieren (normalerweise sind nur `GET` und `HEAD` erlaubt). Standardmäßig ist dies `false`.
     - `ignoreVary`
-      - : Ein boolescher Wert, der, wenn auf `true` gesetzt, der Abgleichsoperation vorschreibt, keine `VARY`-Header-Überprüfung durchzuführen. Mit anderen Worten, wenn die URL übereinstimmt, erhalten Sie einen Treffer, unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response)-Objekt einen `VARY`-Header hat oder nicht. Standardmäßig ist dieser auf `false` gesetzt.
+      - : Ein boolescher Wert, der, wenn er auf `true` gesetzt ist, der Abgleichsoperation mitteilt, das `VARY`-Header-Matching nicht durchzuführen. Mit anderen Worten, wenn die URL übereinstimmt, erhalten Sie einen Treffer, unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response)-Objekt einen `VARY`-Header hat oder nicht. Standardmäßig ist dies `false`.
     - `cacheName`
-      - : Eine Zeichenkette, die einen spezifischen Cache repräsentiert, innerhalb dessen gesucht werden soll.
+      - : Eine Zeichenfolge, die einen bestimmten Cache zum Durchsuchen darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zur übereinstimmenden [`Response`](/de/docs/Web/API/Response) aufgelöst wird. Wenn keine übereinstimmende Antwort auf die angegebene Anfrage gefunden wird, wird das Promise mit `undefined` aufgelöst.
+Ein {{jsxref("Promise")}}, das sich zu der übereinstimmenden [`Response`](/de/docs/Web/API/Response) auflöst. Falls keine übereinstimmende Antwort für die angegebene Anfrage gefunden wird, wird das Promise mit `undefined` aufgelöst.
 
 ## Beispiele
 
-Dieses Beispiel stammt aus dem MDN [einfaches Service Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [einfacher Service Worker live](https://bncb2v.csb.app/)).
-Hier warten wir auf ein [`FetchEvent`](/de/docs/Web/API/FetchEvent). Wir konstruieren eine benutzerdefinierte Antwort wie folgt:
+Dieses Beispiel stammt aus dem MDN [einfachen Service Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [einfacher Service Worker läuft live](https://bncb2v.csb.app/)). Hier warten wir darauf, dass ein [`FetchEvent`](/de/docs/Web/API/FetchEvent) ausgelöst wird. Wir konstruieren eine benutzerdefinierte Antwort folgendermaßen:
 
-1. Überprüfen, ob ein Treffer für die Anfrage im [`CacheStorage`](/de/docs/Web/API/CacheStorage) mit `CacheStorage.match()` gefunden wird. Falls ja, dieser wird verwendet.
-2. Wenn nicht, öffnen Sie den `v1` Cache mit `open()`, legen Sie die Standardnetzwerkanfrage mit [`Cache.put()`](/de/docs/Web/API/Cache/put) in den Cache und geben Sie mit `return response.clone()` einen Klon der Standardnetzwerkanfrage zurück. Letzteres ist notwendig, da `put()` den Antwortkörper verbraucht.
+1. Überprüfen Sie, ob ein Treffer für die Anfrage im [`CacheStorage`](/de/docs/Web/API/CacheStorage) gefunden wird, indem `CacheStorage.match()` verwendet wird. Falls vorhanden, wird dieser bedient.
+2. Falls nicht, öffnen Sie den `v1`-Cache mit `open()`, legen Sie die Standard-Netzwerkanfrage mit [`Cache.put()`](/de/docs/Web/API/Cache/put) in den Cache und geben Sie eine Kopie der Standard-Netzwerkanfrage zurück, indem Sie `return response.clone()` verwenden. Letzteres ist notwendig, weil `put()` den Antwortkörper konsumiert.
 3. Wenn dies fehlschlägt (z.B. weil das Netzwerk ausgefallen ist), geben Sie eine Ersatzantwort zurück.
 
 ```js
@@ -63,21 +59,20 @@ self.addEventListener("fetch", (event) => {
       // but in case of success response will have value
       if (response !== undefined) {
         return response;
-      } else {
-        return fetch(event.request)
-          .then((response) => {
-            // response may be used only once
-            // we need to save clone to put one copy in cache
-            // and serve second one
-            let responseClone = response.clone();
-
-            caches.open("v1").then((cache) => {
-              cache.put(event.request, responseClone);
-            });
-            return response;
-          })
-          .catch(() => caches.match("/gallery/myLittleVader.jpg"));
       }
+      return fetch(event.request)
+        .then((response) => {
+          // response may be used only once
+          // we need to save clone to put one copy in cache
+          // and serve second one
+          let responseClone = response.clone();
+
+          caches
+            .open("v1")
+            .then((cache) => cache.put(event.request, responseClone));
+          return response;
+        })
+        .catch(() => caches.match("/gallery/myLittleVader.jpg"));
     }),
   );
 });

@@ -1,24 +1,22 @@
 ---
-title: Search engine
+title: Suchmaschine
 slug: Glossary/Search_engine
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+Eine Suchmaschine ist ein Softwaresystem, das Informationen aus dem {{Glossary("World_Wide_Web", "World Wide Web")}} sammelt und sie Benutzern präsentiert, die nach spezifischen Informationen suchen.
 
-Eine Suchmaschine ist ein Software-System, das Informationen aus dem {{Glossary("World_Wide_Web", "World Wide Web")}} sammelt und Nutzern präsentiert, die nach spezifischen Informationen suchen.
+Eine Suchmaschine führt die folgenden Prozesse aus:
 
-Eine Suchmaschine führt folgende Prozesse durch:
+- **Web-Crawling:** Durchsuchen von Websites durch Navigieren von {{Glossary("Hyperlink", "Hyperlinks")}} auf Webseiten, sowohl innerhalb einer Website, als auch von einer Seite zur anderen. Ein Website-Besitzer kann Bereiche der Website davon ausschließen, von einem _Web-Crawler_ (oder _Spinne_) einer Suchmaschine aufgerufen zu werden, indem er "Roboterausschluss"-Informationen in einer Datei namens `robots.txt` definiert.
+- **Indexierung:** Zuordnen von Schlüsselwörtern und anderen Informationen zu spezifischen Webseiten, die gecrawlt wurden. Dies ermöglicht es Benutzern, relevante Seiten so schnell wie möglich zu finden.
+- **Suche:** Suchen nach relevanten Webseiten basierend auf Abfragen, die aus Schlüsselwörtern und anderen Befehlen an die Suchmaschine bestehen. Die Suchmaschine findet die URLs von Seiten, die der Abfrage entsprechen, und bewertet sie basierend auf ihrer Relevanz. Anschließend präsentiert sie die Ergebnisse dem Benutzer in der Reihenfolge der Bewertung.
 
-- **Web-Crawling:** Durchsucht Websites, indem es {{Glossary("Hyperlink", "Hyperlinks")}} auf Webseiten sowohl innerhalb einer Seite als auch von einer Seite zur anderen navigiert. Ein Website-Besitzer kann Bereiche der Seite vom Zugriff durch den _Web-Crawler_ (oder _Spider_) einer Suchmaschine ausschließen, indem er „Robot-Ausschluss“-Informationen in einer Datei namens `robots.txt` definiert.
-- **Indexierung:** Verknüpft Schlüsselwörter und andere Informationen mit bestimmten durchsuchten Webseiten. Dies ermöglicht es den Nutzern, relevante Seiten so schnell wie möglich zu finden.
-- **Suche:** Sucht nach relevanten Webseiten basierend auf Abfragen, die aus Schlüsselwörtern und anderen Befehlen an die Suchmaschine bestehen. Die Suchmaschine findet die URLs von Seiten, die zur Abfrage passen, und stuft sie basierend auf ihrer Relevanz ein. Anschließend präsentiert sie die Ergebnisse dem Nutzer in der Reihenfolge der Bewertung.
-
-Die beliebteste Suchmaschine ist Google. Weitere bedeutende Suchmaschinen sind Yahoo!, Bing, Baidu und AOL.
+Die beliebteste Suchmaschine ist Google. Andere führende Suchmaschinen sind Yahoo!, Bing, Baidu und AOL.
 
 ## Siehe auch
 
 - [Web-Suchmaschine](https://en.wikipedia.org/wiki/Web_search_engine) auf Wikipedia
 - [Suchmaschine](https://www.webopedia.com/definitions/search-engine/) auf Webopedia
-- [Wie Internetsuchmaschinen funktionieren](https://computer.howstuffworks.com/internet/basics/search-engine.htm) auf How Stuff Works
+- [Wie Internet-Suchmaschinen funktionieren](https://computer.howstuffworks.com/internet/basics/search-engine.htm) auf How Stuff Works

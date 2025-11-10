@@ -2,14 +2,12 @@
 title: void-Operator
 slug: Web/JavaScript/Reference/Operators/void
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Operators")}}
+Der **`void`**-Operator wertet den gegebenen `Ausdruck` aus und gibt anschließend {{jsxref("undefined")}} zurück.
 
-Der **`void`**-Operator wertet den gegebenen `expression` aus und gibt dann {{jsxref("undefined")}} zurück.
-
-{{InteractiveExample("JavaScript Demo: Expressions - void-Operator", "taller")}}
+{{InteractiveExample("JavaScript Demo: void operator", "taller")}}
 
 ```js interactive-example
 const output = void 1;
@@ -43,11 +41,11 @@ void expression
 
 ## Beschreibung
 
-Dieser Operator ermöglicht es, Ausdrücke, die einen Wert erzeugen, an Stellen auszuwerten, an denen ein Ausdruck, der zu {{jsxref("undefined")}} ausgewertet wird, erwünscht ist.
+Dieser Operator ermöglicht es, Ausdrücke, die einen Wert produzieren, an Stellen zu verwenden, an denen ein Ausdruck gewünscht wird, der zu {{jsxref("undefined")}} ausgewertet wird.
 
-Der `void`-Operator wird oft verwendet, um lediglich den primitiven Wert `undefined` zu erhalten, üblicherweise unter Verwendung von `void(0)` (was gleichbedeutend mit `void 0` ist). In diesen Fällen kann die globale Variable {{jsxref("undefined")}} verwendet werden.
+Der `void`-Operator wird oft einfach dazu verwendet, den primitiven Wert `undefined` zu erhalten, üblicherweise mit `void(0)` (was gleichbedeutend ist mit `void 0`). In diesen Fällen kann die globale Variable {{jsxref("undefined")}} verwendet werden.
 
-Es sollte beachtet werden, dass [die Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) des `void`-Operators berücksichtigt werden muss und dass Klammern helfen können, die Auflösung des Ausdrucks nach dem `void`-Operator zu verdeutlichen:
+Es sollte beachtet werden, dass die [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) des `void`-Operators berücksichtigt werden sollte und dass Klammern dazu beitragen können, die Auswertung des Ausdrucks nach dem `void`-Operator zu verdeutlichen:
 
 ```js
 void 2 === "2"; // (void 2) === '2', returns false
@@ -56,9 +54,9 @@ void (2 === "2"); // void (2 === '2'), returns undefined
 
 ## Beispiele
 
-### Immediately Invoked Function Expressions
+### Sofort aufgerufene Funktionsausdrücke
 
-Bei der Verwendung eines {{Glossary("IIFE", "sofort aufgerufenen Funktionsausdrucks")}} (IIFE) kann das Schlüsselwort `function` nicht direkt am Anfang der [Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) stehen, da dies als [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) geparst würde und einen Syntaxfehler erzeugen würde, wenn die Klammern für den Aufruf erreicht werden. Wenn die Funktion namenlos ist, würde dies sofort einen Syntaxfehler verursachen, wenn die Funktion als Deklaration geparst wird.
+Bei der Verwendung eines {{Glossary("IIFE", "sofort aufgerufenen Funktionsausdrucks")}} kann das `function`-Schlüsselwort nicht direkt am Anfang der [Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) stehen, da dies als [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) geparst wird und zu einem Syntaxfehler führt, wenn die Klammern für den Aufruf erreicht werden – wenn die Funktion namenlos ist, würde dies sofort ein Syntaxfehler sein, wenn die Funktion als Deklaration geparst wird.
 
 ```js-nolint example-bad
 function iife() {
@@ -70,9 +68,9 @@ function () {
 }(); // SyntaxError: Function statements require a function name
 ```
 
-Damit die Funktion als [Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) geparst wird, muss das Schlüsselwort `function` an einer Stelle erscheinen, die nur Ausdrücke akzeptiert und keine Anweisungen. Dies kann erreicht werden, indem das Schlüsselwort mit einem [unären Operator](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#unary_operators) vorangestellt wird, der nur Ausdrücke als Operanden akzeptiert. Der Funktionsaufruf hat eine höhere [Präzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) als unäre Operatoren, daher wird er zuerst ausgeführt. Sein Rückgabewert (der fast immer `undefined` ist) wird an den unären Operator übergeben und dann sofort verworfen.
+Damit die Funktion als [Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) geparst wird, muss das `function`-Schlüsselwort an einer Position erscheinen, die nur Ausdrücke und nicht Anweisungen akzeptiert. Dies kann erreicht werden, indem das Schlüsselwort mit einem [unären Operator](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#unary_operators) versehen wird, der nur Ausdrücke als Operanden akzeptiert. Der Funktionsaufruf hat eine höhere [Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) als unäre Operatoren, daher wird er zuerst ausgeführt. Sein Rückgabewert (der fast immer `undefined` ist) wird an den unären Operator übergeben und dann sofort verworfen.
 
-Von allen unären Operatoren bietet `void` die beste Semantik, da er eindeutig signalisiert, dass der Rückgabewert des Funktionsaufrufs verworfen werden soll.
+Von allen unären Operatoren bietet `void` die beste Bedeutung, da es deutlich macht, dass der Rückgabewert des Funktionsaufrufs verworfen werden soll.
 
 ```js-nolint
 void function () {
@@ -82,7 +80,7 @@ void function () {
 // Logs "Executed!"
 ```
 
-Dies ist etwas länger als das Einschließen des Funktionsausdrucks in Klammern, was denselben Effekt hat, nämlich das `function`-Schlüsselwort als Beginn eines Ausdrucks statt einer Anweisung zu parsen.
+Dies ist etwas länger als das Einhüllen des Funktionsausdrucks in Klammern, was den gleichen Effekt hat, nämlich das `function`-Schlüsselwort als Beginn eines Ausdrucks statt als Anweisung zu parsen.
 
 ```js
 (function () {
@@ -90,7 +88,7 @@ Dies ist etwas länger als das Einschließen des Funktionsausdrucks in Klammern,
 })();
 ```
 
-Beachten Sie, dass dieser Trick nur für IIFEs gilt, die mit dem Schlüsselwort `function` definiert sind. Der Versuch, den `void`-Operator zu verwenden, um Klammern für eine Pfeilfunktion zu vermeiden, führt zu einem Syntaxfehler. Pfeil-Funktionsausdrücke erfordern immer Klammern um sie, wenn sie aufgerufen werden.
+Beachten Sie, dass dieser Trick nur auf IIFEs anwendbar ist, die mit dem `function`-Schlüsselwort definiert sind. Der Versuch, den `void`-Operator zu verwenden, um Klammern bei einem Pfeilfunktionsausdruck zu vermeiden, führt zu einem Syntaxfehler. Pfeilfunktionsausdrücke erfordern immer Klammern um sie, wenn sie aufgerufen werden.
 
 ```js example-bad
 void () => { console.log("iife!"); }(); // SyntaxError: Malformed arrow function parameter list
@@ -98,7 +96,7 @@ void () => { console.log("iife!"); }(); // SyntaxError: Malformed arrow function
 
 ### JavaScript-URIs
 
-Wenn ein Browser einer [`javascript:` URI](/de/docs/Web/URI/Reference/Schemes/javascript) folgt, wird der Code in der URI ausgewertet und der Inhalt der Seite durch den zurückgegebenen Wert ersetzt, es sei denn, der zurückgegebene Wert ist {{jsxref("undefined")}}. Der `void`-Operator kann verwendet werden, um `undefined` zurückzugeben. Zum Beispiel:
+Wenn ein Browser einem [`javascript:` URI](/de/docs/Web/URI/Reference/Schemes/javascript) folgt, wird der Code im URI ausgewertet und dann der Inhalt der Seite durch den zurückgegebenen Wert ersetzt, es sei denn, der zurückgegebene Wert ist {{jsxref("undefined")}}. Der `void`-Operator kann verwendet werden, um `undefined` zurückzugeben. Zum Beispiel:
 
 ```html
 <a href="javascript:void(0);">Click here to do nothing</a>
@@ -108,20 +106,20 @@ Wenn ein Browser einer [`javascript:` URI](/de/docs/Web/URI/Reference/Schemes/ja
 </a>
 ```
 
-> **Hinweis:** Die Verwendung des `javascript:` Scheme ist im Vergleich zu anderen Alternativen, wie unverfängliche Ereignis-Handler, nicht empfohlen.
+> [!NOTE]
+> Das `javascript:`-Pseudo-Protokoll wird zugunsten anderer Alternativen, wie zum Beispiel unobtrusiver Ereignisbehandler, nicht empfohlen.
 
 ### Nicht-leckende Pfeilfunktionen
 
-Pfeilfunktionen führen eine Kurzsyntax ohne geschweifte Klammern ein, die einen Ausdruck zurückgibt. Dies kann unbeabsichtigte Nebenwirkungen verursachen, wenn der Ausdruck ein Funktionsaufruf ist, bei dem sich der zurückgegebene Wert von `undefined` zu einem anderen Wert ändert.
+Pfeilfunktionen führen eine abgekürzte klammerlose Syntax ein, die einen Ausdruck zurückgibt. Dies kann unbeabsichtigte Nebeneffekte haben, wenn der Ausdruck ein Funktionsaufruf ist, bei dem sich der zurückgegebene Wert von `undefined` zu einem anderen Wert ändert.
 
-Beispielsweise: Wenn `doSomething()` in dem folgenden Code `false` zurückgibt, wird das Kontrollkästchen nicht mehr als aktiviert oder deaktiviert markiert, wenn darauf geklickt wird (eine Rückgabe von `false` aus dem Handler deaktiviert die Standardaktion).
+Wenn beispielsweise `doSomething()` im untenstehenden Code `false` zurückgibt, wird das Kontrollkästchen nicht mehr als markiert oder unmarkiert angezeigt, wenn das Kontrollkästchen angeklickt wird (die Rückgabe von `false` aus dem Handler deaktiviert die Standardaktion).
 
 ```js example-bad
 checkbox.onclick = () => doSomething();
 ```
 
-Dies ist wahrscheinlich nicht das gewünschte Verhalten!
-Um sicherzugehen, dass der Rückgabewert einer Funktion nicht verwendet wird, kann er dem `void`-Operator übergeben werden, um sicherzustellen, dass sich beispielsweise bei Änderung von APIs das Verhalten von Pfeil-Funktionen nicht ändert.
+Dies ist wahrscheinlich kein gewünschtes Verhalten! Um sicherzugehen, dass der Rückgabewert einer Funktion nicht verwendet wird, kann er an den `void`-Operator übergeben werden, um sicherzustellen, dass (zum Beispiel) sich ändernde APIs nicht dazu führen, dass sich das Verhalten von Pfeilfunktionen ändert.
 
 ```js example-good
 checkbox.onclick = () => void doSomething();

@@ -1,16 +1,15 @@
 ---
 title: Symbol.species
+short-title: species
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/species
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die statische Dateneigenschaft **`Symbol.species`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.species`. Methoden, die Kopien eines Objekts erstellen, können dieses Symbol im Objekt nachschlagen, um die Konstruktorfunktion zu verwenden, die bei der Erstellung der Kopie verwendet werden soll.
+Die statische Dateneigenschaft **`Symbol.species`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.species`. Methoden, die Kopien eines Objekts erstellen, können dieses Symbol im Objekt nachschlagen, um die zu verwendende Konstruktorfunktion bei der Erstellung der Kopie zu bestimmen.
 
 > [!WARNING]
-> Die Existenz von `[Symbol.species]` erlaubt die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Außerdem erschwert sie bestimmte Optimierungen erheblich. Implementierer von Engines [untersuchen, ob dieses Feature entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es nach Möglichkeit, sich darauf zu verlassen.
+> Die Existenz von `[Symbol.species]` ermöglicht die Ausführung von beliebigem Code und kann Sicherheitslücken schaffen. Außerdem erschwert sie bestimmte Optimierungen erheblich. Entwickler von Engines untersuchen [derzeit, ob diese Funktion entfernt werden soll](https://github.com/tc39/proposal-rm-builtin-subclassing). Vermeiden Sie es, sich darauf zu verlassen, wenn möglich.
 
 {{InteractiveExample("JavaScript Demo: Symbol.species")}}
 
@@ -39,15 +38,15 @@ Das bekannte Symbol `Symbol.species`.
 
 ## Beschreibung
 
-Die `[Symbol.species]` Accessor-Eigenschaft erlaubt Unterklassen, den Standardkonstruktor für Objekte zu überschreiben. Dies legt ein Protokoll fest, wie Instanzen kopiert werden sollen. Zum Beispiel verwendet die Methode {{jsxref("Array/map", "map()")}} bei Arrays, die Kopiermethoden nutzen, `instance.constructor[Symbol.species]`, um den Konstruktor zum Erstellen des neuen Arrays zu erhalten. Weitere Informationen finden Sie unter [Built-ins erweitern](/de/docs/Web/JavaScript/Reference/Classes/extends#subclassing_built-ins).
+Die Zugriffsoroeigenschaft `[Symbol.species]` erlaubt es Unterklassen, den Standardkonstruktor für Objekte zu überschreiben. Dies spezifiziert ein Protokoll darüber, wie Instanzen kopiert werden sollten. Wenn Sie beispielsweise Kopiermethoden von Arrays verwenden, wie {{jsxref("Array/map", "map()")}}, verwendet die Methode `map()` `instance.constructor[Symbol.species]`, um den Konstruktor für die Erstellung des neuen Arrays zu erhalten. Weitere Informationen finden Sie unter [Vererbung eingebauter Objekte](/de/docs/Web/JavaScript/Reference/Classes/extends#subclassing_built-ins).
 
-Alle eingebauten Implementierungen von `[Symbol.species]` geben den Wert `this` zurück, welcher der Konstruktor der aktuellen Instanz ist. Dies ermöglicht es Kopiermethoden, Instanzen von abgeleiteten Klassen anstelle der Basisklasse zu erstellen — zum Beispiel wird `map()` ein Array des gleichen Typs wie das Originalarray zurückgeben.
+Alle eingebauten Implementierungen von `[Symbol.species]` geben den `this`-Wert zurück, der der Konstruktor der aktuellen Instanz ist. Dadurch können Kopiermethoden Instanzen von abgeleiteten Klassen anstelle der Basisklasse erstellen - zum Beispiel wird `map()` ein Array des gleichen Typs wie das ursprüngliche Array zurückgeben.
 
 ## Beispiele
 
 ### Verwendung von species
 
-Es kann sein, dass Sie in Ihrer abgeleiteten Array-Klasse `MyArray` {{jsxref("Array")}}-Objekte zurückgeben möchten. Zum Beispiel möchten Sie bei der Verwendung von Methoden wie {{jsxref("Array/map", "map()")}}, die den Standardkonstruktor zurückgeben, dass diese Methoden ein übergeordnetes `Array`-Objekt anstelle eines `MyArray`-Objekts zurückgeben. Das `species`-Symbol ermöglicht dies:
+Möglicherweise möchten Sie in Ihrer abgeleiteten Array-Klasse `MyArray` {{jsxref("Array")}}-Objekte zurückgeben. Beispielsweise möchten Sie, wenn Sie Methoden wie {{jsxref("Array/map", "map()")}} verwenden, die den Standardkonstruktor zurückgeben, dass diese Methoden ein übergeordnetes `Array`-Objekt zurückgeben, anstatt eines `MyArray`-Objekts. Das `species`-Symbol ermöglicht es Ihnen, dies zu tun:
 
 ```js
 class MyArray extends Array {

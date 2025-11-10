@@ -1,26 +1,26 @@
 ---
-title: "XMLHttpRequest: readystatechange Event"
+title: "XMLHttpRequest: readystatechange-Ereignis"
 short-title: readystatechange
 slug: Web/API/XMLHttpRequest/readystatechange_event
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `readystatechange`-Ereignis wird jedes Mal ausgelöst, wenn sich die [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState)-Eigenschaft des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) ändert.
+Das `readystatechange`-Ereignis wird ausgelöst, wann immer sich die [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState)-Eigenschaft des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) ändert.
 
 > [!WARNING]
-> Dies sollte nicht mit synchronen Anfragen verwendet werden und darf nicht aus nativen Code benutzt werden.
+> Dies sollte nicht mit synchronen Anfragen verwendet werden und darf nicht aus nativen Code verwendet werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("readystatechange", (event) => {});
+```js-nolint
+addEventListener("readystatechange", (event) => { })
 
-onreadystatechange = (event) => {};
+onreadystatechange = (event) => { }
 ```
 
 ## Ereignistyp

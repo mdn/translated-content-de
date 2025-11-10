@@ -3,24 +3,25 @@ title: "PerformanceResourceTiming: requestStart-Eigenschaft"
 short-title: requestStart
 slug: Web/API/PerformanceResourceTiming/requestStart
 l10n:
-  sourceCommit: db12ba7455d1897dc1ff5f5c1dbe36f6e2720805
+  sourceCommit: d960038e3480d158d3b58294a4d150202331a83d
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`requestStart`**-Eigenschaft gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) der Zeit unmittelbar bevor der Browser die Ressource vom Server, Cache oder lokalen Ressource anfordert, zurück. Wenn die Transportverbindung fehlschlägt und der Browser die Anforderung erneut ausführt, wird der Wert des Beginns der erneuten Anforderung zurückgegeben.
+Die schreibgeschützte Eigenschaft **`requestStart`** gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) der Zeit unmittelbar bevor der Browser beginnt, die Ressource vom Server, Cache oder einer lokalen Quelle anzufordern, zurück. Wenn die Transportverbindung fehlschlägt und der Browser die Anfrage erneut versucht, wird der Wert des neuen Anfragebeginns zurückgegeben.
 
-Es gibt keine _end_-Eigenschaft für `requestStart`. Um die Anforderungszeit zu messen, berechnen Sie [`responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) - `requestStart` (siehe das Beispiel unten).
+Es gibt keine _Ende_-Eigenschaft für `requestStart`. Um die Anforderungszeit zu messen, berechnen Sie [`responseStart`](/de/docs/Web/API/PerformanceResourceTiming/responseStart) - `requestStart` (siehe das untenstehende Beispiel).
 
 ## Wert
 
-Die `requestStart`-Eigenschaft kann die folgenden Werte haben:
+Die `requestStart`-Eigenschaft kann folgende Werte haben:
 
-- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar bevor der Browser die Ressource vom Server anfordert, darstellt.
+- Einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar bevor der Browser beginnt, die Ressource vom Server anzufordern, darstellt.
 - `0`, wenn die Ressource sofort aus einem Cache abgerufen wurde.
-- `0`, wenn die Ressource eine Cross-Origin-Anforderung ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
+- `0`, wenn die Ressource eine cross-origin Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
+- `0`, wenn die Anfrage storniert wurde.
 
-Wenn der `firstInterimResponseStart` ungleich null ist, zeigt dies an, dass er denselben Wert wie [`requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart) für [unterstützte Browser](#browser-kompatibilität) haben sollte.
+Wenn der [`firstInterimResponseStart`](/de/docs/Web/API/PerformanceResourceTiming/firstInterimResponseStart) ungleich null ist, bedeutet das, dass er denselben Wert wie `requestStart` für [unterstützende Browser](#browser-kompatibilität) haben sollte.
 
 Wenn es keine Zwischenantworten gibt, ist `requestStart` derselbe wie `finalResponseHeadersStart` und `firstInterimResponseStart` ist 0.
 
@@ -34,7 +35,7 @@ Die Eigenschaften `requestStart` und [`responseStart`](/de/docs/Web/API/Performa
 const request = entry.responseStart - entry.requestStart;
 ```
 
-Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue Leistungsressourcen-Einträge benachrichtigt, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der bei neuen `resource`-Leistungseinträgen benachrichtigt, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -49,7 +50,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), die nur `resource`-Leistungseinträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -61,11 +62,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Cross-Origin-Zeitinformationen
+### Cross-origin Timing-Informationen
 
-Wenn der Wert der `requestStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anforderung sein. Um Cross-Origin-Zeitinformationen anzeigen zu können, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
+Wenn der Wert der `requestStart`-Eigenschaft `0` ist, könnte die Ressource eine cross-origin Anfrage sein. Um das Anzeigen von Cross-origin Timing-Informationen zu erlauben, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel, um `https://developer.mozilla.org` das Einsehen von Timing-Ressourcen zu erlauben, sollte die Cross-origin Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

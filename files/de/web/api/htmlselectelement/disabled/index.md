@@ -3,14 +3,15 @@ title: "HTMLSelectElement: disabled-Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLSelectElement/disabled
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{ APIRef("HTML DOM") }}
 
 Die **`HTMLSelectElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das
-[`disabled`](/de/docs/Web/HTML/Element/select#disabled)
-HTML-Attribut widerspiegelt, welches anzeigt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, nimmt es keine Klicks an. Ein deaktiviertes Element ist unbenutzbar und nicht anklickbar.
+[`disabled`](/de/docs/Web/HTML/Reference/Elements/select#disabled)
+HTML-Attribut widerspiegelt, welches angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist,
+akzeptiert es keine Klicks. Ein deaktiviertes Element ist unbenutzbar und nicht anklickbar.
 
 ## Wert
 
@@ -41,13 +42,9 @@ Ein boolescher Wert.
 const allowDrinksCheckbox = document.getElementById("allow-drinks");
 const drinkSelect = document.getElementById("drink-select");
 
-allowDrinksCheckbox.addEventListener(
-  "change",
-  (event) => {
-    drinkSelect.disabled = !event.target.checked;
-  },
-  false,
-);
+allowDrinksCheckbox.addEventListener("change", (event) => {
+  drinkSelect.disabled = !event.target.checked;
+});
 ```
 
 ### Ergebnis

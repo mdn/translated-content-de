@@ -3,49 +3,40 @@ title: "StyleSheet: href-Eigenschaft"
 short-title: href
 slug: Web/API/StyleSheet/href
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`href`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt den Speicherort des Stylesheets zurück.
+Die **`href`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)
+Schnittstelle gibt den Speicherort des Stylesheets zurück.
 
 Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
-Ein String, der den URI des Stylesheets enthält.
+Ein String, der die URI des Stylesheets enthält.
 
 ## Beispiele
 
-Auf einem lokalen Windows-Rechner:
+Angenommen, der `<head>` enthält Folgendes:
 
 ```html
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>href example</title>
-    <link rel="styleSheet" href="example.css" />
-    <script>
-      function printRef() {
-        alert(document.styleSheets[0].href);
-      }
-    </script>
-  </head>
-  <body>
-    <div class="thunder">Thunder</div>
-    <button onclick="printRef()">ss</button>
-  </body>
-</html>
+<link rel="styleSheet" href="example.css" />
 ```
 
-Gibt "file:////C:/Windows/Desktop/example.css" zurück.
+Wenn Sie dann die HTML-Seite über eine `file://` URL auf Windows öffnen und das folgende Skript ausführen:
+
+```js
+console.log(document.styleSheets[0].href);
+```
+
+Das Ergebnis sieht dann so aus: "file:////C:/Windows/Desktop/example.css".
 
 ## Hinweise
 
-Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs dessen Speicherort. Für Inline-Stylesheets ist der Wert dieses Attributs `null`.
+Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs dessen Speicherort.
+Für eingebettete Stylesheets ist der Wert dieses Attributs `null`.
 
 ## Spezifikationen
 

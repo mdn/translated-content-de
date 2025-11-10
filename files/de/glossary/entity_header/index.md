@@ -2,17 +2,15 @@
 title: Entity-Header
 slug: Glossary/Entity_header
 l10n:
-  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
 > [!WARNING]
-> Die aktuelle HTTP/1.1-Spezifikation bezieht sich nicht mehr auf Entitäten, Entity-Header oder Entity-Body. Einige der Felder werden jetzt als {{Glossary("Representation_header", "Repräsentations-Header")}}-Felder bezeichnet.
+> Die aktuelle HTTP/1.1-Spezifikation bezieht sich nicht mehr auf Entitäten, Entitäts-Header oder Entitätskörper. Einige der Felder werden jetzt als {{Glossary("Representation_header", "Darstellungs-Header")}}-Felder bezeichnet.
 
-Ein Entity-Header ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der den {{Glossary("HTTP_content", "Inhalt")}} einer HTTP-Nachricht beschreibt (d. h. Metadaten über den Nachrichtenkörper). Zu den Entity-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Expires")}} usw. Entity-Header können sowohl in HTTP-Anfrage- als auch in Antwortnachrichten vorhanden sein.
+Ein Entity-Header ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der den {{Glossary("HTTP_content", "Inhalt")}} einer HTTP-Nachricht beschreibt (d.h. Metadaten über den Nachrichtentext). Zu den Entity-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Expires")}}, etc. Entity-Header können sowohl in HTTP-Request- als auch in HTTP-Response-Nachrichten vorhanden sein.
 
-Im folgenden Beispiel ist {{HTTPHeader("Content-Length")}} ein Entity-Header, während {{HTTPHeader("Host")}} und {{HTTPHeader("User-Agent")}} Anforderungsheader sind:
+Im folgenden Beispiel ist {{HTTPHeader("Content-Length")}} ein Entity-Header, während {{HTTPHeader("Host")}} und {{HTTPHeader("User-Agent")}} Request-Header sind:
 
 ```http
 POST /my-form.html HTTP/1.1
@@ -24,4 +22,4 @@ Content-Length: 128
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Representation_header", "Repräsentations-Header")}}
+  - {{Glossary("Representation_header", "Darstellungs-Header")}}

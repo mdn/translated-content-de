@@ -1,12 +1,12 @@
 ---
-title: "Navigator: javaEnabled()-Methode"
+title: "Navigator: javaEnabled() Methode"
 short-title: javaEnabled()
 slug: Web/API/Navigator/javaEnabled
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
 ---
 
-{{APIRef("HTML DOM")}}{{Deprecated_Header}}
+{{APIRef("HTML DOM")}}
 
 Diese Methode gibt immer `false` zurück.
 

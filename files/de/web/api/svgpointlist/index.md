@@ -2,30 +2,30 @@
 title: SVGPointList
 slug: Web/API/SVGPointList
 l10n:
-  sourceCommit: 226ac33eb70ed5411dd2d68bd602c80cafd780b6
+  sourceCommit: 43a8839abdfb01d4388f11a028582bec4e7ead18
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGPointList`**-Schnittstelle repräsentiert eine Liste von [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekten.
+Die **`SVGPointList`**-Schnittstelle repräsentiert eine Liste von [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekten.
 
-Eine `SVGPointList` kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, eine Ausnahme auslösen.
+Eine `SVGPointList` kann als schreibgeschützt gekennzeichnet sein, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Punkte in der Liste zurück.
 - [`SVGPointList.numberOfItems`](/de/docs/Web/API/SVGPointList/numberOfItems) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Punkte in der Liste zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`SVGPointList.clear()`](/de/docs/Web/API/SVGPointList/clear)
   - : Entfernt alle Elemente in der Liste.
 - [`SVGPointList.initialize()`](/de/docs/Web/API/SVGPointList/initialize)
-  - : Entfernt zuerst alle Elemente in der Liste und fügt dann einen einzelnen Wert zur Liste hinzu.
+  - : Entfernt zuerst alle Elemente in der Liste und fügt dann einen einzigen Wert zur Liste hinzu.
 - [`SVGPointList.getItem()`](/de/docs/Web/API/SVGPointList/getItem)
-  - : Ruft ein Element in der Liste an einer angegebenen Position ab.
+  - : Ruft ein Element aus der Liste an einer angegebenen Position ab.
 - [`SVGPointList.insertItemBefore()`](/de/docs/Web/API/SVGPointList/insertItemBefore)
   - : Fügt ein Element an einer angegebenen Position in die Liste ein.
 - [`SVGPointList.replaceItem()`](/de/docs/Web/API/SVGPointList/replaceItem)
@@ -37,7 +37,7 @@ Eine `SVGPointList` kann als schreibgeschützt definiert werden, was bedeutet, d
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die `points`-Eigenschaft gibt eine `SVGPointList` zurück.
+Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die `points`-Eigenschaft gibt eine `SVGPointList` zurück.
 
 ```html
 <svg viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -50,8 +50,8 @@ Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fün
 ```
 
 ```js
-let example = document.getElementById("example");
-console.log(example.points); //an SVGPointList
+const example = document.getElementById("example");
+console.log(example.points); // An SVGPointList
 ```
 
 ## Spezifikationen

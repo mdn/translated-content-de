@@ -2,35 +2,29 @@
 title: cookies.OnChangedCause
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/OnChangedCause
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Der Typ `OnChangedCause` der {{WebExtAPIRef("cookies")}}-API repräsentiert den Grund, warum ein Cookie geändert wurde.
+Der `OnChangedCause`-Typ der {{WebExtAPIRef("cookies")}} API stellt den Grund dar, warum ein Cookie geändert wurde.
 
 ## Typ
 
-Die Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
 - `evicted`
-  - : Ein Cookie wurde automatisch aufgrund der Müllabfuhr entfernt.
+  - : Ein Cookie wurde automatisch durch Garbage Collection entfernt.
 - `expired`
-  - : Ein Cookie wurde automatisch aufgrund eines Ablaufs entfernt.
+  - : Ein Cookie wurde automatisch aufgrund des Ablaufs entfernt.
 - `explicit`
-  - : Ein Cookie wurde durch einen expliziten Aufruf von {{WebExtAPIRef("cookies.remove()")}} eingefügt oder entfernt.
+  - : Ein Cookie wurde über einen expliziten Aufruf von {{WebExtAPIRef("cookies.remove()")}} eingefügt oder entfernt.
 - `expired_overwrite`
-  - : Ein Cookie wurde von einem Cookie mit einem bereits abgelaufenen Ablaufdatum überschrieben.
+  - : Ein Cookie wurde durch ein Cookie mit einem bereits abgelaufenen Ablaufdatum überschrieben.
 - `overwrite`
   - : Ein Aufruf von {{WebExtAPIRef("cookies.set()")}} hat dieses Cookie mit einem anderen überschrieben.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Sie können das Ereignis {{WebExtAPIRef("cookies.onChanged")}} überwachen, um benachrichtigt zu werden, wenn Cookies geändert werden. Dem Listener wird ein `changeInfo`-Objekt übergeben, das eine Eigenschaft `cause` enthält, deren Wert die Zeichenkette `OnChangeCaused` ist:
+Sie können auf das {{WebExtAPIRef("cookies.onChanged")}}-Ereignis lauschen, um benachrichtigt zu werden, wenn sich Cookies ändern. Dem Listener wird ein `changeInfo`-Objekt übergeben, das eine Eigenschaft `cause` enthält, deren Wert der `OnChangeCaused`-String ist:
 
 ```js
 browser.cookies.onChanged.addListener((changeInfo) => {
@@ -45,8 +39,12 @@ browser.cookies.onChanged.addListener((changeInfo) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-OnChangedCause) API. Diese Dokumentation basiert auf [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-OnChangedCause) API. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

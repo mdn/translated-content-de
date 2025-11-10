@@ -3,29 +3,29 @@ title: "Element: touchcancel-Ereignis"
 short-title: touchcancel
 slug: Web/API/Element/touchcancel_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Touch Events")}}
 
-Das `touchcancel`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf eine implementierungsspezifische Weise unterbrochen wurden.
+Das `touchcancel`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf eine implementationsspezifische Weise unterbrochen wurden.
 
-Einige Beispiele für Situationen, die ein `touchcancel`-Ereignis auslösen können:
+Einige Beispiele für Situationen, die ein `touchcancel`-Ereignis auslösen:
 
-- Ein Hardware-Ereignis tritt auf, das die Berührungsaktivitäten abbricht. Dies kann beispielsweise der Fall sein, wenn der Benutzer Anwendungen mit einer Anwendungswechsler-Schnittstelle oder der "Home"-Taste auf einem mobilen Gerät wechselt.
-- Die Ausrichtung des Bildschirms des Geräts wird geändert, während die Berührung aktiv ist.
-- Der Browser entscheidet, dass der Benutzer die Berührungseingabe versehentlich gestartet hat. Dies kann passieren, wenn die Hardware beispielsweise Handflächenablehnung unterstützt, um zu verhindern, dass eine auf dem Bildschirm ruhende Hand beim Verwenden eines Stifts versehentlich Ereignisse auslöst.
-- Die CSS-Eigenschaft {{cssxref("touch-action")}} verhindert, dass die Eingabe fortgesetzt wird.
-- Wenn der Benutzer mit zu vielen Fingern gleichzeitig interagiert, kann der Browser dieses Ereignis für alle vorhandenen Zeigegeräte auslösen (auch wenn der Benutzer den Bildschirm noch berührt).
+- Ein Hardware-Ereignis tritt auf, das die Berührungsaktivitäten abbricht. Dazu kann beispielsweise gehören, dass der Benutzer mit einer Anwendungsumschaltoberfläche oder der "Home"-Taste auf einem mobilen Gerät Anwendungen wechselt.
+- Die Ausrichtung des Gerätebildschirms wird geändert, während die Berührung aktiv ist.
+- Der Browser entscheidet, dass der Benutzer die Berührungseingabe versehentlich gestartet hat. Dies kann passieren, wenn die Hardware beispielsweise Palm-Rejection unterstützt, um zu verhindern, dass eine Hand, die auf dem Display ruht, beim Verwenden eines Stylus versehentlich Ereignisse auslöst.
+- Die {{cssxref("touch-action")}} CSS-Eigenschaft verhindert, dass die Eingabe fortgesetzt wird.
+- Wenn der Benutzer mit zu vielen Fingern gleichzeitig interagiert, kann der Browser dieses Ereignis für alle bestehenden Zeiger auslösen (auch wenn der Benutzer den Bildschirm noch berührt).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("touchcancel", (event) => {});
+```js-nolint
+addEventListener("touchcancel", (event) => { })
 
-ontouchcancel = (event) => {};
+ontouchcancel = (event) => { }
 ```
 
 ## Ereignistyp
@@ -41,25 +41,25 @@ _Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/do
 - [`TouchEvent.altKey`](/de/docs/Web/API/TouchEvent/altKey) {{ReadOnlyInline}}
   - : Ein Boolean-Wert, der angibt, ob die Alt-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
 - [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches) {{ReadOnlyInline}}
-  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die einzelne Berührungspunkte repräsentieren, deren Status sich zwischen dem vorherigen Berührungsereignis und diesem geändert hat.
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die einzelne Berührungspunkte repräsentieren, deren Zustand sich zwischen dem vorherigen und diesem Berührungsereignis geändert hat.
 - [`TouchEvent.ctrlKey`](/de/docs/Web/API/TouchEvent/ctrlKey) {{ReadOnlyInline}}
   - : Ein Boolean-Wert, der angibt, ob die Steuerungstaste gedrückt war, als das Berührungsereignis ausgelöst wurde.
 - [`TouchEvent.metaKey`](/de/docs/Web/API/TouchEvent/metaKey) {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Metataste gedrückt war, als das Berührungsereignis ausgelöst wurde.
+  - : Ein Boolean-Wert, der angibt, ob die Meta-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
 - [`TouchEvent.shiftKey`](/de/docs/Web/API/TouchEvent/shiftKey) {{ReadOnlyInline}}
   - : Ein Boolean-Wert, der angibt, ob die Umschalttaste gedrückt war, als das Berührungsereignis ausgelöst wurde.
 - [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches) {{ReadOnlyInline}}
-  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die sich sowohl derzeit in Kontakt mit der Berührungsoberfläche befinden **als auch** auf demselben Element gestartet wurden, das das Ziel des Ereignisses ist.
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die sich derzeit sowohl in Kontakt mit der Berührungsfläche befinden als auch auf demselben Element gestartet wurden, das das Ziel des Ereignisses ist.
 - [`TouchEvent.touches`](/de/docs/Web/API/TouchEvent/touches) {{ReadOnlyInline}}
-  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die alle aktuellen Berührungspunkte mit der Oberfläche darstellen, unabhängig vom Ziel oder dem geänderten Status.
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die alle aktuellen Berührungspunkte mit der Oberfläche darstellen, unabhängig von Ziel oder geändertem Status.
 - [`TouchEvent.rotation`](/de/docs/Web/API/TouchEvent/rotation) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte geben eine Drehung im Uhrzeigersinn an; negative Werte geben eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+  - : Veränderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Ausgangswert: `0.0`.
 - [`TouchEvent.scale`](/de/docs/Web/API/TouchEvent/scale) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Abstand zwischen zwei Berührungspunkten seit Beginn des Ereignisses. Ausgedrückt als Gleitkommapunkt-Multiplikator des anfänglichen Abstands zwischen den Berührungspunkten zu Beginn des Ereignisses. Werte unter 1.0 geben eine Pinch-Bewegung nach innen an (Verkleinern). Werte über 1.0 geben eine Pinch-Bewegung nach außen an (Vergrößern). Anfangswert: `1.0`.
+  - : Abstand zwischen zwei Punkten seit Beginn des Ereignisses. Ausgedrückt als Gleitkommamultiplikator des anfänglichen Abstands zwischen den Punkten zu Beginn des Ereignisses. Werte unter 1.0 zeigen ein Verkleinern (Herauszoomen) an. Werte über 1.0 zeigen ein Vergrößern (Hineinzoomen) an. Ausgangswert: `1.0`.
 
 ## Beispiele
 
-Codebeispiele für diese Ereignisse sind auf der speziellen Seite verfügbar: [Berührungsereignisse](/de/docs/Web/API/Touch_events).
+Beispielcode für diese Ereignisse ist auf der speziellen Seite verfügbar: [Touch events](/de/docs/Web/API/Touch_events).
 
 ## Spezifikationen
 

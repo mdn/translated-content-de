@@ -1,17 +1,15 @@
 ---
-title: Innerhalb des Flusses und außerhalb des Flusses
+title: Im Fluss und außerhalb des Flusses
 slug: Web/CSS/CSS_display/In_flow_and_out_of_flow
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-{{CSSRef}}
+Der [vorherige Leitfaden](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) erklärte Block- und Inline-Layout im normalen Fluss. Alle Elemente, die im Fluss sind, werden mit dieser Methode layoutet.
 
-Der [vorherige Leitfaden](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow) erklärte die Block- und Inline-Layouts im normalen Fluss. Alle Elemente, die im Fluss sind, werden mit dieser Methode angeordnet.
+## Beispiel für Elemente im Fluss
 
-## Beispiel von Elementen im Fluss
-
-Das folgende Beispiel enthält eine Überschrift, einen Absatz, eine Liste und einen letzten Absatz, der ein `strong`-Element enthält. Die Überschrift und die Absätze sind Block-Elemente, das `strong`-Element ist inline. Die Liste, die mit Flexbox angezeigt wird, um die Elemente in einer Reihe anzuordnen, nimmt ebenfalls am Block- und Inline-Layout teil – der Container hat einen äußeren `display`-Typ von `block`.
+Das folgende Beispiel enthält eine Überschrift, einen Absatz, eine Liste und einen abschließenden Absatz, der ein `strong`-Element enthält. Die Überschrift und die Absätze sind Blockebene, das `strong`-Element ist inline. Die Liste, die mit Flexbox angezeigt wird, um die Elemente in einer Reihe anzuordnen, nimmt ebenfalls am Block- und Inline-Layout teil - der Container hat einen äußeren `display`-Typ von `block`.
 
 ```html live-sample___in-flow
 <div class="box">
@@ -53,23 +51,23 @@ ul {
 
 {{EmbedLiveSample("in-flow", "", "300px")}}
 
-Alle diese Elemente werden als "im Fluss" betrachtet; sie erscheinen auf der Seite in der Reihenfolge, in der sie im Quellcode stehen.
+Alle Elemente werden als "im Fluss" betrachtet; sie erscheinen auf der Seite in der Reihenfolge, in der sie sich im Quellcode befinden.
 
-## Ein Element aus dem Fluss entfernen
+## Ein Element aus dem Fluss nehmen
 
-Alle Elemente befinden sich im Fluss, mit Ausnahme von:
+Alle Elemente befinden sich im Fluss, außer:
 
-- Float-Elementen
-- Elementen mit `position: absolute` (einschließlich `position: fixed`, das auf die gleiche Weise funktioniert)
-- dem Root-Element (`html`)
+- gefloatete Elemente
+- Elemente mit `position: absolute` (einschließlich `position: fixed`, das auf gleiche Weise wirkt)
+- das Wurzelelement (`html`)
 
-Elemente, die aus dem Fluss entfernt wurden, erstellen einen neuen [Block Formatting Context](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC), wodurch alles innerhalb davon als ein Mini-Layout angesehen werden kann, das vom Rest der Seite getrennt ist. Das Root-Element ist daher aus dem Fluss, da es das Container-Element für alles in unserem Dokument ist und den Block Formatting Context für das Dokument etabliert.
+Elemente außerhalb des Flusses erstellen einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) (BFC), und daher kann alles innerhalb von ihnen als ein Mini-Layout betrachtet werden, das vom Rest der Seite getrennt ist. Das Wurzelelement ist daher außerhalb des Flusses, da es der Container für alles in unserem Dokument ist und den Block-Formatierungskontext für das Dokument etabliert.
 
-### Float-Elemente
+### Gefloatete Elemente
 
-In diesem Beispiel gibt es ein `div` und dann zwei Absätze. Den Absätzen wurde eine Hintergrundfarbe hinzugefügt, und das `div` ist nach links gefloatet. Das `div` befindet sich jetzt außerhalb des Flusses.
+In diesem Beispiel gibt es ein `div` und dann zwei Absätze. Den Absätzen wurde eine Hintergrundfarbe hinzugefügt, und das `div` wird nach links gefloatet. Das `div` ist jetzt aus dem Fluss.
 
-Als Float wird es zunächst gemäß seiner Position im normalen Fluss angeordnet und dann aus dem Fluss entfernt und so weit wie möglich nach links verschoben.
+Als Float wird es zuerst gemäß seiner Position im normalen Fluss layoutet, dann aus dem Fluss genommen und so weit wie möglich nach links verschoben.
 
 ```html live-sample___float
 <div class="box">
@@ -95,7 +93,7 @@ body {
   font: 1.2em sans-serif;
 }
 p {
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 
 .float {
@@ -109,11 +107,11 @@ p {
 
 {{EmbedLiveSample("float", "", "260px")}}
 
-Sie können sehen, dass die Hintergrundfarbe des folgenden Absatzes darunter verläuft. Es sind lediglich die Zeilenboxen dieses Absatzes, die verkürzt wurden, um den Effekt des Umfließens des Inhalts um den Float zu erzeugen. Die Box unseres Absatzes wird weiterhin nach den Regeln des normalen Flusses angezeigt. Deshalb müssen Sie, um Platz um ein gefloatetes Element herum zu schaffen, dem Element einen Abstand hinzufügen, um die Zeilenboxen davon wegzuschieben. Sie können nichts am nachfolgenden Inhalt im Fluss ändern, um dies zu erreichen.
+Sie können sehen, wie die Hintergrundfarbe des folgenden Absatzes darunter läuft. Es sind nur die Linienkästen dieses Absatzes, die verkürzt wurden, um den Effekt des Verpackens von Inhalten um den Float zu erzielen. Der Kasten unseres Absatzes wird immer noch gemäß den Regeln des normalen Flusses angezeigt. Aus diesem Grund müssen Sie einen Rand zu dem gefloateten Element hinzufügen, um Platz um ein gefloatetes Element zu schaffen, damit die Linienkästen davon weggedrückt werden. Sie können nichts auf den folgenden im Fluss befindlichen Inhalt anwenden, um dies zu erreichen.
 
 ### Absolute Positionierung
 
-Einem Element `position: absolute` oder `position: fixed` zuzuweisen, entfernt es aus dem Fluss, und der Platz, den es eingenommen hätte, wird entfernt. Im nächsten Beispiel habe ich drei Absatz-Elemente; das zweite Element hat `position: absolute` mit Abstandsangaben von `top: 30px` und `right: 30px`. Es wurde aus dem Dokumentfluss entfernt.
+Ein Element mit `position: absolute` oder `position: fixed` zu versehen, entfernt es aus dem Fluss, und der Platz, den es eingenommen hätte, wird entfernt. Im nächsten Beispiel habe ich drei Absatz-Elemente, das zweite Element hat `position: absolute` mit den Offset-Werten `top: 30px` und `right: 30px`. Es wurde aus dem Dokumentfluss entfernt.
 
 ```html live-sample___abspos
 <div class="box">
@@ -149,7 +147,7 @@ p {
 .abspos {
   position: absolute;
   background-color: green;
-  color: #fff;
+  color: white;
   top: 30px;
   right: 30px;
   width: 400px;
@@ -158,13 +156,13 @@ p {
 
 {{EmbedLiveSample("abspos", "", "240px")}}
 
-Die Verwendung von `position: fixed` entfernt das Element ebenfalls aus dem Fluss, jedoch basieren die Abstände auf dem Viewport anstatt auf dem Containing Block.
+Die Verwendung von `position: fixed` entfernt das Element ebenfalls aus dem Fluss, jedoch basieren die Offsets auf dem Viewport anstatt auf dem umgebenden Block.
 
-Wenn Sie ein Element mithilfe von Positionierung aus dem Fluss entfernen, müssen Sie möglicherweise Content-Überlappungen managen. Aus dem Fluss zu sein bedeutet im Wesentlichen, dass die anderen Elemente auf Ihrer Seite nicht mehr wissen, dass dieses Element existiert und daher nicht darauf reagieren werden.
+Wenn Sie ein Element mit Positionierung aus dem Fluss nehmen, müssen Sie das Risiko von überlappendem Inhalt verwalten. "Aus dem Fluss" bedeutet im Wesentlichen, dass die anderen Elemente auf Ihrer Seite nicht mehr wissen, dass dieses Element existiert und daher nicht darauf reagieren werden.
 
 ### Relative Positionierung und Fluss
 
-Wenn Sie einem Element mit `position: relative` eine relative Positionierung geben, bleibt es im Fluss. Sie können jedoch die Offset-Werte verwenden, um es zu verschieben. Der Platz, den es im normalen Fluss eingenommen hätte, bleibt jedoch reserviert, wie Sie im folgenden Beispiel sehen können.
+Wenn Sie einem Element mit `position: relative` eine relative Positionierung geben, bleibt es im Fluss. Sie können jedoch dann die Offset-Werte verwenden, um es zu verschieben. Der Platz, an dem es im normalen Fluss platziert worden wäre, wird jedoch reserviert, wie Sie im folgenden Beispiel sehen können.
 
 ```html live-sample___relative
 <div class="box">
@@ -200,7 +198,7 @@ p {
 .relative {
   position: relative;
   background-color: green;
-  color: #fff;
+  color: white;
   bottom: 50px;
   left: 50px;
   width: 400px;
@@ -209,11 +207,11 @@ p {
 
 {{EmbedLiveSample("relative", "", "360px")}}
 
-Wenn Sie etwas tun, um ein Element von der Stelle zu entfernen oder zu verschieben, an der es im normalen Fluss platziert worden wäre, können Sie erwarten, dass Sie den Inhalt und die Inhalte in seiner Umgebung entsprechend verwalten müssen, um Überlappungen zu vermeiden. Dies kann das Klären von Floats oder das Sicherstellen sein, dass ein Element mit `position: absolute` nicht auf anderem Inhalt liegt. Aus diesem Grund sollten Methoden, die Elemente aus dem Fluss entfernen, nur mit Verständnis der Auswirkungen eingesetzt werden.
+Wenn Sie etwas tun, um ein Element von dem Ort zu entfernen oder zu verschieben, an dem es im normalen Fluss platziert wäre, müssen Sie erwarten, dass Sie den Inhalt und den Inhalt darum herum verwalten müssen, um Überlappungen zu vermeiden. Ob das das Löschen von Floats beinhaltet oder dafür sorgt, dass ein Element mit `position: absolute` nicht auf anderen Inhalten sitzt. Aus diesem Grund sollten Verfahren, die Elemente aus dem Fluss nehmen, mit Verständnis für die Auswirkungen, die sie haben, verwendet werden.
 
 ## Zusammenfassung
 
-In diesem Leitfaden haben wir erklärt, wie Sie ein Element aus dem Fluss entfernen, um einige sehr spezifische Positionierungstypen zu erreichen. Im nächsten Leitfaden werden wir ein verwandtes Thema behandeln, nämlich das Erstellen eines [Block Formatting Context](/de/docs/Web/CSS/CSS_display/Block_formatting_context) in [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts).
+In diesem Leitfaden haben wir erklärt, wie man ein Element aus dem Fluss nimmt, um sehr spezifische Arten der Positionierung zu erreichen. Im nächsten Leitfaden werden wir uns mit einem verwandten Thema befassen, der Erstellung eines [Block-Formatierungskontexts](/de/docs/Web/CSS/Guides/Display/Block_formatting_context), in [Einführung in Formatierungskontexte](/de/docs/Web/CSS/Guides/Display/Formatting_contexts).
 
 ## Siehe auch
 

@@ -2,14 +2,12 @@
 title: storage.session.QUOTA_BYTES
 slug: Mozilla/Add-ons/WebExtensions/API/storage/session/QUOTA_BYTES
 l10n:
-  sourceCommit: dd98fd4cac10cfa3f516536aaefe523170d6d3e4
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Die maximale Datenmenge (in Bytes), die im Session Storage gespeichert werden kann. Verwenden Sie {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.session.getBytesInUse()")}}, um die Menge der gespeicherten Daten zu bestimmen.
 
-Die maximale Datenmenge (in Bytes), die im `session` Storage gespeichert werden kann. Verwenden Sie {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.session.getBytesInUse()")}}, um die Menge der gespeicherten Daten zu bestimmen.
-
-Der Wert beträgt `10485760`.
+Der Wert ist `10485760`.
 
 {{WebExtExamples("h2")}}
 

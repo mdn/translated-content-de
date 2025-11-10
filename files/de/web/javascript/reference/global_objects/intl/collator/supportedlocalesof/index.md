@@ -1,21 +1,20 @@
 ---
 title: Intl.Collator.supportedLocalesOf()
+short-title: supportedLocalesOf()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Collator/supportedLocalesOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-{{JSRef}}
+Die **`Intl.Collator.supportedLocalesOf()`** statische Methode gibt ein Array zurück, das die angegebenen Sprachumgebungen enthält, die bei Sortieroperationen unterstützt werden, ohne auf die standardmäßige Sprachumgebung der Laufzeitumgebung zurückzugreifen.
 
-Die statische Methode **`Intl.Collator.supportedLocalesOf()`** gibt ein Array zurück, das diejenigen der bereitgestellten Locales enthält, die bei der Kollation ohne Rückgriff auf die Standardeinstellungen der Laufzeitumgebung unterstützt werden.
-
-{{InteractiveExample("JavaScript Demo: Intl.Collator.supportedLocalesOf", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Intl.Collator.supportedLocalesOf()", "shorter")}}
 
 ```js interactive-example
-const locales1 = ["ban", "id-u-co-pinyin", "de-ID"];
-const options1 = { localeMatcher: "lookup" };
+const locales = ["ban", "id-u-co-pinyin", "de-ID"];
+const options = { localeMatcher: "lookup" };
 
-console.log(Intl.Collator.supportedLocalesOf(locales1, options1));
+console.log(Intl.Collator.supportedLocalesOf(locales, options));
 // Expected output: Array ["id-u-co-pinyin", "de-ID"]
 // (Note: the exact output may be browser-dependent)
 ```
@@ -30,21 +29,21 @@ Intl.Collator.supportedLocalesOf(locales, options)
 ### Parameter
 
 - `locales`
-  - : Ein String mit einem BCP 47-Sprach-Tag oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des Arguments `locales`, siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthalten kann:
+  - : Ein Objekt, das die folgende Eigenschaft haben kann:
     - `localeMatcher`
-      - : Der zu verwendende Locale-Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie auf der Seite {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}}.
+      - : Der zu verwendende Algorithmus zum Abgleichen der Sprachumgebung. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie auf der {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}} Seite.
 
 ### Rückgabewert
 
-Ein Array von Strings, die eine Untermenge der angegebenen Locale-Tags darstellen, die bei der Kollation unterstützt werden, ohne auf die Standardeinstellungen der Laufzeitumgebung zurückzugreifen.
+Ein Array von Strings, das eine Teilmenge der angegebenen Sprach-Tag enthält, die bei Sortieroperationen unterstützt werden, ohne auf die standardmäßige Sprachumgebung der Laufzeitumgebung zurückzugreifen.
 
 ## Beispiele
 
-### Nutzung von supportedLocalesOf()
+### Verwendung von supportedLocalesOf()
 
-Angenommen, eine Laufzeitumgebung unterstützt Indonesisch und Deutsch, aber nicht Balinesisch bei der Kollation, so gibt `supportedLocalesOf` die Sprach-Tags für Indonesisch und Deutsch unverändert zurück, auch wenn `pinyin`-Kollation mit Indonesisch nicht verwendet wird und ein spezialisiertes Deutsch für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie hier die Angabe des Algorithmus `"lookup"` — ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch eine ausreichende Übereinstimmung für Balinesisch ist, da die meisten balinesischen Sprecher auch Indonesisch verstehen, und daher auch das Sprach-Tag für Balinesisch zurückgeben.
+Angenommen, eine Laufzeitumgebung unterstützt Indonesisch und Deutsch, aber nicht Balinesisch bei Sortieroperationen, `supportedLocalesOf` gibt die indonesischen und deutschen Sprach-Tags unverändert zurück, obwohl die `pinyin` Sortierung bei Indonesisch nicht verwendet wird und ein spezialisiertes Deutsch für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie die Spezifikation des `"lookup"`-Algorithmus hier — ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch eine geeignete Übereinstimmung für Balinesisch ist, da die meisten Balinesisch-Sprecher auch Indonesisch verstehen, und daher auch das balinesische Sprach-Tag zurückgeben.
 
 ```js
 const locales = ["ban", "id-u-co-pinyin", "de-ID"];

@@ -1,17 +1,15 @@
 ---
-title: Logisches UND (&&)
+title: Logical AND (&&)
 slug: Web/JavaScript/Reference/Operators/Logical_AND
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
-
-{{jsSidebar("Operators")}}
 
 Der **logische UND (`&&`)** (logische Konjunktion) Operator für eine Menge von booleschen Operanden ist `true`, wenn und nur wenn alle Operanden `true` sind. Andernfalls ist er `false`.
 
-Allgemeiner gesagt gibt der Operator den Wert des ersten {{Glossary("falsy", "falsy")}}-Operands zurück, der bei der Auswertung von links nach rechts gefunden wird, oder den Wert des letzten Operanden, wenn alle {{Glossary("truthy", "truthy")}} sind.
+Allgemeiner gesagt gibt der Operator den Wert des ersten {{Glossary("falsy", "falsy")}} Operanden zurück, der beim Auswerten von links nach rechts angetroffen wird, oder den Wert des letzten Operanden, wenn sie alle {{Glossary("truthy", "truthy")}} sind.
 
-{{InteractiveExample("JavaScript Demo: Expressions - Logical AND", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Logical AND (&&) operator", "shorter")}}
 
 ```js interactive-example
 const a = 3;
@@ -29,20 +27,20 @@ x && y
 
 ## Beschreibung
 
-Das logische UND (`&&`) evaluiert Operanden von links nach rechts und gibt sofort den Wert des ersten {{Glossary("falsy", "falsy")}}-Operands zurück, den es findet. Wenn alle Werte {{Glossary("truthy", "truthy")}} sind, wird der Wert des letzten Operanden zurückgegeben.
+Logisches UND (`&&`) wertet Operanden von links nach rechts aus und gibt sofort den Wert des ersten {{Glossary("falsy", "falsy")}} Operanden zurück, den es findet; wenn alle Werte {{Glossary("truthy", "truthy")}} sind, wird der Wert des letzten Operanden zurückgegeben.
 
-Wenn ein Wert in `true` umgewandelt werden kann, wird er als {{Glossary("truthy", "truthy")}} bezeichnet. Wenn ein Wert in `false` umgewandelt werden kann, wird er als {{Glossary("falsy", "falsy")}} bezeichnet.
+Wenn ein Wert in `true` umgewandelt werden kann, wird der Wert als {{Glossary("truthy", "truthy")}} bezeichnet. Wenn ein Wert in `false` umgewandelt werden kann, wird der Wert als {{Glossary("falsy", "falsy")}} bezeichnet.
 
-Beispiele für Ausdrücke, die in `false` umgewandelt werden können, sind:
+Beispiele für Ausdrücke, die in false umgewandelt werden können, sind:
 
 - `false`;
 - `null`;
 - `NaN`;
 - `0`;
-- leere Zeichenkette (`""` oder `''` oder ` `` `);
+- leere Zeichenfolge (`""` oder `''` oder ` `` `);
 - `undefined`.
 
-Der UND-Operator bewahrt nicht-boolesche Werte und gibt sie so zurück, wie sie sind:
+Der UND-Operator bewahrt Nicht-Boolean-Werte und gibt sie unverändert zurück:
 
 ```js
 result = "" && "foo"; // result is assigned "" (empty string)
@@ -50,23 +48,23 @@ result = 2 && 0; // result is assigned 0
 result = "foo" && 4; // result is assigned 4
 ```
 
-Obwohl der `&&`-Operator mit nicht-booleschen Operanden verwendet werden kann, wird er dennoch als boolescher Operator betrachtet, da sein Rückgabewert immer in einen [boolean primalen Datentyp](/de/docs/Web/JavaScript/Data_structures#boolean_type) umgewandelt werden kann.
-Um seinen Rückgabewert (oder jeden Ausdruck im Allgemeinen) explizit in den entsprechenden booleschen Wert umzuwandeln, verwenden Sie einen doppelten [NOT-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT) oder den {{jsxref("Boolean/Boolean", "Boolean")}}-Konstruktor.
+Obwohl der `&&` Operator mit Nicht-Boolean-Operanden verwendet werden kann, wird er dennoch als boolescher Operator betrachtet, da sein Rückgabewert immer in einen [Boolean-Primitive](/de/docs/Web/JavaScript/Guide/Data_structures#boolean_type) umgewandelt werden kann.
+Um seinen Rückgabewert (oder einen allgemeinen Ausdruck) explizit in den entsprechenden booleschen Wert umzuwandeln, verwenden Sie einen doppelten [NOT-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_NOT) oder den {{jsxref("Boolean/Boolean", "Boolean")}} Konstruktor.
 
-### Kurzschlussauswertung
+### Kurzschluss-Auswertung
 
-Der logische UND-Ausdruck ist ein **Kurzschluss-Operator**.
-Da jeder Operand in einen booleschen Wert umgewandelt wird, hält der UND-Operator an und gibt den ursprünglichen Wert des falsy-Operators zurück, wenn das Ergebnis einer Umwandlung `false` ergibt. Es werden **keine weiteren Operanden** ausgewertet.
+Der logische UND-Ausdruck ist ein Kurzschluss-Operator.
+Da jeder Operand in einen booleschen Wert umgewandelt wird, wenn das Ergebnis einer Umwandlung `false` ist, stoppt der UND-Operator und gibt den ursprünglichen Wert des falsy-Operanden zurück; es werden **keine** der verbleibenden Operanden ausgewertet.
 
-Betrachten Sie folgendes Pseudocode:
+Betrachten Sie den folgenden Pseudocode.
 
 ```plain
 (some falsy expression) && expr
 ```
 
-Der `expr`-Teil wird **niemals ausgewertet**, weil der erste Operand `(some falsy expression)` als {{Glossary("falsy", "falsy")}} ausgewertet wird.
-Falls `expr` eine Funktion ist, wird diese Funktion niemals aufgerufen.
-Siehe das folgende Beispiel:
+Der Teil `expr` wird **nie ausgewertet**, weil der erste Operand `(some falsy expression)` als {{Glossary("falsy", "falsy")}} ausgewertet wird.
+Wenn `expr` eine Funktion ist, wird die Funktion nie aufgerufen.
+Sehen Sie das folgende Beispiel:
 
 ```js
 function A() {
@@ -86,7 +84,7 @@ console.log(A() && B());
 
 ### Operatorrangfolge
 
-Der UND-Operator hat eine höhere Priorität als der ODER-Operator, was bedeutet, dass der `&&`-Operator vor dem `||`-Operator ausgeführt wird (siehe [Operatorrangfolge](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)).
+Der UND-Operator hat eine höhere Rangfolge als der ODER-Operator, was bedeutet, dass der `&&` Operator vor dem `||` Operator ausgeführt wird (siehe [Operatorrangfolge](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)).
 
 ```js-nolint
 true || false && false; // true
@@ -98,7 +96,7 @@ true && (false || false); // false
 
 ### Verwendung von UND
 
-Der folgende Code zeigt Beispiele für den `&&` (logischen UND)-Operator.
+Der folgende Code zeigt Beispiele für den `&&` (logisches UND) Operator.
 
 ```js
 a1 = true && true; // t && t returns true
@@ -114,7 +112,7 @@ a9 = false && ""; // f && f returns false
 
 ### Umwandlungsregeln für Booleans
 
-#### Umwandlung von UND in ODER
+#### Konvertierung von UND zu ODER
 
 Die folgende Operation mit **Booleans**:
 
@@ -128,7 +126,7 @@ ist immer gleich:
 !(!bCondition1 || !bCondition2)
 ```
 
-#### Umwandlung von ODER in UND
+#### Konvertierung von ODER zu UND
 
 Die folgende Operation mit **Booleans**:
 
@@ -142,9 +140,9 @@ ist immer gleich:
 !(!bCondition1 && !bCondition2)
 ```
 
-### Entfernen von verschachtelten Klammern
+### Entfernen von geschachtelten Klammern
 
-Da logische Ausdrücke von links nach rechts ausgewertet werden, ist es immer möglich, Klammern aus einem komplexen Ausdruck zu entfernen, sofern bestimmte Regeln beachtet werden.
+Da logische Ausdrücke von links nach rechts ausgewertet werden, ist es immer möglich, Klammern aus einem komplexen Ausdruck zu entfernen, sofern bestimmte Regeln befolgt werden.
 
 Die folgende zusammengesetzte Operation mit **Booleans**:
 

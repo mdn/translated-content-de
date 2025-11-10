@@ -2,10 +2,10 @@
 title: str:split()
 slug: Web/XML/EXSLT/Reference/str/split
 l10n:
-  sourceCommit: 3e1b5277c6451e7d27ab628f23fb9702947a7a7b
+  sourceCommit: f731452fabde211bee55aedd39fc83d60c4e4918
 ---
 
-`str:split()` teilt einen String, indem ein Musterstring verwendet wird, um zu bestimmen, wo die Teilungen erfolgen sollen. Es gibt ein Node-Set zurück, das die resultierenden Strings enthält.
+`str:split()` teilt einen String mithilfe eines Muster-Strings, um zu bestimmen, wo die Trennungen erfolgen sollen, und gibt eine Knotenmenge zurück, die die resultierenden Strings enthält.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ str:split(string, pattern)
 - `string`
   - : Der String, der geteilt werden soll.
 - `pattern`
-  - : Das Muster, das angibt, wo der String geteilt wird.
+  - : Das Muster, das angibt, wo der String getrennt werden soll.
 
 ### Rückgabewert
 
-Ein Node-Set von `token`-Elementen, die jeweils ein Token aus dem `string` enthalten.
+Eine Knotenmenge von `token`-Elementen, wobei jedes Element einen Token aus dem `string` enthält.
 
 ## Beispiel
 
@@ -30,7 +30,7 @@ Ein Node-Set von `token`-Elementen, die jeweils ein Token aus dem `string` entha
 str:split('book, phone, computer, chair', ', ')
 ```
 
-Gibt ein Node-Set zurück wie:
+Gibt eine Knotenmenge wie folgt zurück:
 
 ```xml
 <token>book</token>
@@ -45,4 +45,4 @@ Gibt ein Node-Set zurück wie:
 
 ## Siehe auch
 
-- [`str:tokenize()`](/de/docs/Web/XML/EXSLT/str/tokenize)
+- [`str:tokenize()`](/de/docs/Web/XML/EXSLT/Reference/str/tokenize)

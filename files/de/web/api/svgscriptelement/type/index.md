@@ -3,7 +3,7 @@ title: "SVGScriptElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/SVGScriptElement/type
 l10n:
-  sourceCommit: be430d534758bb92cfebc261ed733aba3cbee864
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("SVG")}}
@@ -20,7 +20,7 @@ Ein String.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
-  <script id="myScript" href="script.js" type="application/javascript"></script>
+  <script id="myScript" href="script.js" type="text/javascript"></script>
 </svg>
 ```
 
@@ -28,7 +28,7 @@ Ein String.
 const scriptElement = document.getElementById("myScript");
 
 // Access the type property
-console.log(scriptElement.type); // Output: "application/javascript"
+console.log(scriptElement.type); // Output: "text/javascript"
 ```
 
 ## Spezifikationen

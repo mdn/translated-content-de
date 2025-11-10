@@ -1,13 +1,14 @@
 ---
 title: InternalError() Konstruktor
+short-title: InternalError()
 slug: Web/JavaScript/Reference/Global_Objects/InternalError/InternalError
 l10n:
-  sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{Non-standard_Header}}
+{{Non-standard_Header}}
 
-Der **`InternalError()`** Konstruktor erstellt {{jsxref("InternalError")}} Objekte.
+Der **`InternalError()`** Konstruktor erstellt {{jsxref("InternalError")}}-Objekte.
 
 ## Syntax
 
@@ -25,7 +26,8 @@ InternalError(message, fileName)
 InternalError(message, fileName, lineNumber)
 ```
 
-> **Note:** `InternalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `InternalError` Instanz.
+> [!NOTE]
+> `InternalError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `InternalError`.
 
 ### Parameter
 
@@ -34,8 +36,7 @@ InternalError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Wenn Sie einen Fehler abfangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut werfen, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -51,7 +52,7 @@ new InternalError("Engine failure");
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 

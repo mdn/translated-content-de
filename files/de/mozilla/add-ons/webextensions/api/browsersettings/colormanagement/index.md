@@ -2,31 +2,25 @@
 title: browserSettings.colorManagement
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/colorManagement
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbmanagementfunktionen des Browsers abzufragen und festzulegen.
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbeinstellungen des Browsers abzufragen und einzustellen.
+Standardmäßig wendet Firefox Farbmanagement auf markierte Medien an und setzt nicht markierte Medien auf sRGB. Dieses Verhalten bedeutet, dass einige nicht markierte Medien, wie die in der Animation und Filmproduktion verwendeten, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
 
-Standardmäßig wendet Firefox Farbmanagement auf markierte Medien an und verwendet für nicht markierte Medien sRGB als Standardeinstellung. Dieses Verhalten bedeutet, dass einige nicht markierte Medien, wie die in Animationen und Filmproduktionen verwendeten, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
-
-Das Objekt hat die folgenden Eigenschaften:
+Das Objekt hat folgende Eigenschaften:
 
 - `mode`
   - : Ein String, der den Modus darstellt, der für das Farbmanagement verwendet wird. Gültige Werte sind `off`, `full` und `tagged_only`.
 - `useNativeSRGB`
-  - : Ein boolscher Wert, der angibt, ob das integrierte sRGB-Farbmanagement verwendet wird oder nicht.
+  - : Ein boolescher Wert, der angibt, ob das eingebaute sRGB-Farbmanagement verwendet wird.
 - `useWebRenderCompositor`
-  - : Ein boolscher Wert, der angibt, ob der WebRender-Compositor verwendet wird oder nicht.
-
-## Browser-Kompatibilität
-
-{{Compat}}
+  - : Ein boolescher Wert, der angibt, ob der WebRender-Kompositor verwendet wird.
 
 ## Beispiele
 
-Farbmodus auf "full" setzen:
+Setzen Sie den Farbmodus auf "full":
 
 ```js
 function logResult(result) {
@@ -38,7 +32,7 @@ browser.browserSettings.colorManagement.mode
   .then(logResult);
 ```
 
-Den nativen sRGB-Farbverwaltungsmodus abrufen:
+Holen Sie sich den nativen sRGB-Farbmanagement-Farbmodus:
 
 ```js
 function logResult(result) {
@@ -49,3 +43,7 @@ browser.browserSettings.colorManagement.useNativeSRGB.get({}).then(logResult);
 ```
 
 {{WebExtExamples}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

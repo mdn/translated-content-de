@@ -3,20 +3,24 @@ title: "ProgressEvent: total-Eigenschaft"
 short-title: total
 slug: Web/API/ProgressEvent/total
 l10n:
-  sourceCommit: 6b8c7b7dade8173f148031a0695bbf609e10f9f9
+  sourceCommit: 03ca44d7f71637a4cad71413fac4e31d5de66638
 ---
 
 {{APIRef("XMLHttpRequest API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ProgressEvent.total`**-Eigenschaft ist eine 64-Bit-Integer-Zahl ohne Vorzeichen, die die Gesamtgröße in Bytes der übertragenen oder verarbeiteten Daten angibt.
+Die **`ProgressEvent.total`**-Eigenschaft ist eine Nur-Lese-Eigenschaft, die eine Zahl angibt, die die Gesamtgröße der übertragenen oder verarbeiteten Daten darstellt.
 
-Beim Herunterladen einer Ressource über HTTP wird dieser Wert aus dem `Content-Length`-Antwortheader entnommen. Er zählt nur den Hauptteil der HTTP-Nachricht und schließt Header und andere Überhead-Informationen nicht ein.
+Für vom Browser ausgelöste `ProgressEvent`s bezieht sich der Wert auf die Größe einer Ressource in Bytes und wird aus dem `Content-Length` Antwort-Header abgeleitet.
+
+In einem `ProgressEvent`, das Sie selbst erstellen, kann dies auch die Gesamtanzahl von Bytes einer Ressource sein, dies kann jedoch jede beliebige Zahl sein.
+Beispielsweise möchten Sie `total` auf einen Wert wie `100` oder `1` normalisieren, wenn es Ihnen wichtig ist, die genaue Anzahl der Bytes einer Ressource nicht offenzulegen.
+Wenn Sie `1` als Gesamtwert verwenden, wäre [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) ein Dezimalwert zwischen `0` und `1`.
 
 Wenn die [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable)-Eigenschaft des Ereignisses `false` ist, ist dieser Wert bedeutungslos und sollte ignoriert werden.
 
 ## Wert
 
-Ein Integer.
+Eine Zahl.
 
 ## Spezifikationen
 
@@ -28,4 +32,4 @@ Ein Integer.
 
 ## Siehe auch
 
-- Das [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Interface, zu dem es gehört.
+- Die [`ProgressEvent`](/de/docs/Web/API/ProgressEvent) Schnittstelle, zu der es gehört.

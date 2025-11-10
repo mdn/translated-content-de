@@ -1,16 +1,16 @@
 ---
-title: "DOMMatrixReadOnly: transformPoint() Methode"
+title: "DOMMatrixReadOnly: transformPoint()-Methode"
 short-title: transformPoint()
 slug: Web/API/DOMMatrixReadOnly/transformPoint
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`transformPoint`** Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Schnittstelle erstellt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint) Objekt, indem sie einen angegebenen Punkt durch die Matrix transformiert. Weder die Matrix noch der ursprüngliche Punkt werden verändert.
+Die **`transformPoint`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Schnittstelle erstellt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, indem ein bestimmter Punkt durch die Matrix transformiert wird. Weder die Matrix noch der ursprüngliche Punkt werden verändert.
 
-Sie können auch einen neuen `DOMPoint` erstellen, indem Sie eine Matrix auf einen Punkt mit der [`DOMPointReadOnly.matrixTransform()`](/de/docs/Web/API/DOMPointReadOnly/matrixTransform) Methode anwenden.
+Sie können auch ein neues `DOMPoint` erstellen, indem Sie eine Matrix auf einen Punkt mit der [`DOMPointReadOnly.matrixTransform()`](/de/docs/Web/API/DOMPointReadOnly/matrixTransform)-Methode anwenden.
 
 ## Syntax
 
@@ -22,17 +22,15 @@ transformPoint(point)
 ### Parameter
 
 - `point`
-
   - : Eine Instanz von [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), oder ein Objekt, das bis zu vier der folgenden Eigenschaften enthält:
-
     - `x`
       - : Die `x`-Koordinate des Punktes im Raum als Zahl. Der Standardwert ist `0`.
     - `y`
       - : Die `y`-Koordinate des Punktes im Raum als Zahl. Der Standardwert ist `0`.
     - `z`
-      - : Die `z`-Koordinate oder Tiefenkoordinate des Punktes im Raum als Zahl. Der Standardwert ist `0`. Positive Werte sind näher beim Benutzer und negative Werte entfernen sich zurück in den Bildschirm.
+      - : Die `z`-Koordinate, oder Tiefenkoordinate, des Punktes im Raum als Zahl. Der Standardwert ist `0`; positive Werte sind näher am Benutzer und negative Werte ziehen sich zurück in den Bildschirm.
     - `w`
-      - : Der `w` Perspektivwert des Punktes, als Zahl. Der Standard ist `1`.
+      - : Der `w`-Perspektivwert des Punktes als Zahl. Der Standardwert ist `1`.
 
 ### Rückgabewert
 
@@ -72,4 +70,4 @@ const transformedPoint3D = point3D.matrixTransform(matrix3D); // DOMPoint {x: 27
 ## Siehe auch
 
 - [`DOMPointReadOnly.matrixTransform()`](/de/docs/Web/API/DOMPointReadOnly/matrixTransform)
-- CSS {{cssxref("transform-function/matrix", "matrix()")}} und {{cssxref("transform-function/matrix3d", "matrix3d()")}} Funktionen
+- CSS-{{cssxref("transform-function/matrix", "matrix()")}}- und {{cssxref("transform-function/matrix3d", "matrix3d()")}}-Funktionen

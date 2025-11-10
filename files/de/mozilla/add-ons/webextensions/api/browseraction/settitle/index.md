@@ -2,12 +2,10 @@
 title: browserAction.setTitle()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/setTitle
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Legt den Titel der Browseraktion fest. Der Titel wird in einem Tooltip über dem Symbol der Browseraktion angezeigt. Sie können optional eine `tabId` oder eine `windowId` übergeben — wenn Sie dies tun, wird der Titel nur für den angegebenen Tab oder das angegebene Fenster geändert. Tabs oder Fenster ohne spezifischen Titel erben den globalen Titeltext, der standardmäßig dem [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) entspricht, der im Manifest angegeben ist.
+Legt den Titel der Browser-Aktion fest. Der Titel wird in einem Tooltip über dem Symbol der Browser-Aktion angezeigt. Sie können optional eine `tabId` oder eine `windowId` übergeben — wenn Sie dies tun, wird der Titel nur für den angegebenen Tab oder das angegebene Fenster geändert. Tabs oder Fenster ohne spezifischen Titel übernehmen den globalen Titeltext, der standardmäßig dem [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder dem im Manifest angegebenen [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) entspricht.
 
 ## Syntax
 
@@ -20,38 +18,30 @@ browser.browserAction.setTitle(
 ### Parameter
 
 - `details`
-
   - : `object`. Der neue Titel und optional die ID des Tabs oder Fensters, das angesprochen werden soll.
-
     - `title`
+      - : `string` oder `null`. Der String, den die Browser-Aktion anzeigen soll, wenn sie mit der Maus überfahren wird.
 
-      - : `string` oder `null`. Der Text, den die Browseraktion beim Überfahren mit der Maus anzeigen soll.
-
-        Wenn `title` eine leere Zeichenkette ist, wird der verwendete Titel der Name der Erweiterung sein, aber {{WebExtAPIRef("browserAction.getTitle")}} wird dennoch die leere Zeichenkette ausgeben.
+        Wenn `title` ein leerer String ist, wird der verwendete Titel der Erweiterungsname sein, aber {{WebExtAPIRef("browserAction.getTitle")}} wird dennoch den leeren String liefern.
 
         Wenn `title` `null` ist:
-
-        - Wenn `tabId` angegeben ist und der Tab einen tab-spezifischen Titel hat, dann übernimmt der Tab den Titel von dem Fenster, zu dem er gehört.
-        - Wenn `windowId` angegeben ist und das Fenster einen fenster-spezifischen Titel hat, dann übernimmt das Fenster den globalen Titel.
-        - Andernfalls wird der globale Titel auf den Manifesteintrag zurückgesetzt.
+        - Wenn `tabId` angegeben ist und der Tab einen tab-spezifischen Titel gesetzt hat, dann übernimmt der Tab den Titel des Fensters, zu dem er gehört.
+        - Wenn `windowId` angegeben ist und das Fenster einen fensterspezifischen Titel gesetzt hat, dann übernimmt das Fenster den globalen Titel.
+        - Andernfalls wird der globale Titel auf den Manifesttitel zurückgesetzt.
 
     - `tabId` {{optional_inline}}
       - : `integer`. Setzt den Titel nur für den angegebenen Tab.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt den Titel für das angegebene Fenster.
+      - : `integer`. Setzt den Titel nur für das angegebene Fenster.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und der Titel wird nicht gesetzt.
+- Werden sowohl `windowId` als auch `tabId` angegeben, schlägt die Funktion fehl und der Titel wird nicht gesetzt.
 - Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Titel gesetzt.
-
-## Browser-Kompatibilität
-
-{{Compat}}
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browseraktion klickt:
+Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browser-Aktion klickt:
 
 ```js
 function toggleTitle(title) {
@@ -70,8 +60,12 @@ browser.browserAction.onClicked.addListener(() => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setTitle) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-setTitle). Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

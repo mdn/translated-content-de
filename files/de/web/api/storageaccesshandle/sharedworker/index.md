@@ -1,9 +1,9 @@
 ---
-title: "StorageAccessHandle: SharedWorker() Methode"
+title: "StorageAccessHandle: SharedWorker()-Methode"
 short-title: SharedWorker()
 slug: Web/API/StorageAccessHandle/SharedWorker
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
 {{APIRef("Storage Access API")}}
@@ -14,30 +14,31 @@ l10n:
 ## Syntax
 
 ```js-nolint
-SharedWorker(aURL)
-SharedWorker(aURL, name)
-SharedWorker(aURL, options)
+SharedWorker(url)
+SharedWorker(url, name)
+SharedWorker(url, options)
 ```
 
 ### Parameter
 
-- `aURL`
+- `url`
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 - `name` {{optional_inline}}
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 - `options` {{optional_inline}}
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 
-> **Hinweis:** `options.sameSiteCookies` unterstützt nur den Wert "none", welcher der Standardwert ist.
+> [!NOTE]
+> `options.sameSiteCookies` unterstützt nur den Wert "none", was der Standard ist.
 
 ### Rückgabewert
 
-Ein unpartitioniertes [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt.
+Ein nicht aufgeteilter [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt.
 
 ### Ausnahmen
 
-- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
-  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
+- `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)
 
@@ -56,7 +57,7 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwenden der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
 
 ## Spezifikationen
 
@@ -69,4 +70,4 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 ## Siehe auch
 
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-- [Verwenden der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

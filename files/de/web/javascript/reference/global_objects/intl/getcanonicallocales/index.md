@@ -1,15 +1,16 @@
 ---
 title: Intl.getCanonicalLocales()
+short-title: getCanonicalLocales()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 6356aa3911fe6cf953e0b04c3b285fe95e4b5355
 ---
 
-{{JSRef}}
+Die **`Intl.getCanonicalLocales()`** statische Methode gibt ein Array zurück,
+das die kanonischen Locale-Namen enthält. Duplikate werden ausgelassen und Elemente werden
+als strukturell gültige Sprach-Tags validiert.
 
-Die statische Methode **`Intl.getCanonicalLocales()`** gibt ein Array zurück, das die kanonischen Locales-Namen enthält. Doppelte Einträge werden ausgelassen und die Elemente werden als strukturell gültige Sprach-Tags validiert.
-
-{{InteractiveExample("JavaScript Demo: Intl.GetCanonicalLocales")}}
+{{InteractiveExample("JavaScript Demo: Intl.getCanonicalLocales()")}}
 
 ```js interactive-example
 console.log(Intl.getCanonicalLocales("EN-US"));
@@ -22,8 +23,7 @@ try {
   Intl.getCanonicalLocales("EN_US");
 } catch (err) {
   console.log(err.toString());
-  // Expected output (Firefox/Safari): RangeError: invalid language tag: "EN_US"
-  // Expected output (Chrome): RangeError: Incorrect locale information provided
+  // Expected output: RangeError: invalid language tag: "EN_US"
 }
 ```
 
@@ -36,7 +36,7 @@ Intl.getCanonicalLocales(locales)
 ### Parameter
 
 - `locales`
-  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Locale-Namen ermittelt werden sollen.
+  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Locale-Namen abgerufen werden sollen.
 
 ### Rückgabewert
 
@@ -51,7 +51,7 @@ Intl.getCanonicalLocales("EN-US"); // ["en-US"]
 Intl.getCanonicalLocales(["EN-US", "Fr"]); // ["en-US", "fr"]
 
 Intl.getCanonicalLocales("EN_US");
-// RangeError:'EN_US' is not a structurally valid language tag
+// RangeError: invalid language tag: "EN_US"
 ```
 
 ## Spezifikationen

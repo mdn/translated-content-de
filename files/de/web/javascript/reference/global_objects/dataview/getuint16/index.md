@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.getUint16()
+short-title: getUint16()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getUint16
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getUint16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Integer ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
-Die **`getUint16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Ganzzahl ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; mehrbyte Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
-
-{{InteractiveExample("JavaScript Demo: DataView.getUint16()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.getUint16()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -32,18 +31,18 @@ getUint16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, ab dem Start der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes, ab dem Beginn der Ansicht, von dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little-Endian- oder Big-Endian-Format")}} gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}}-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Eine Ganzzahl von 0 bis 65535, einschließlich.
+Ein Ganzzahlwert von 0 bis einschließlich 65535.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so festgelegt ist, dass über das Ende der Ansicht hinaus gelesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinauslesen würde.
 
 ## Beispiele
 
@@ -65,7 +64,7 @@ console.log(dataview.getUint16(1)); // 258
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)-Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint16Array")}}

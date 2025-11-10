@@ -2,16 +2,14 @@
 title: tabs.connect()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/connect
 l10n:
-  sourceCommit: d82c19fea93f7b36787c6d84af600c955c2732d5
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Rufen Sie diese Funktion auf, um eine Verbindung zwischen den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten wie Popup-Skripten oder Optionsseitenskripten) und allen [Inhaltsskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) herzustellen, die zu dieser Erweiterung gehören und im angegebenen Tab ausgeführt werden. Diese Funktion gibt ein {{WebExtAPIRef("runtime.Port")}} Objekt zurück.
 
-Rufen Sie diese Funktion auf, um eine Verbindung zwischen den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie Popup-Skripten oder Optionsseitenskripten) und allen [Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) herzustellen, die zu dieser Erweiterung gehören und im angegebenen Tab ausgeführt werden. Diese Funktion gibt ein {{WebExtAPIRef("runtime.Port")}} Objekt zurück.
+Wenn dies aufgerufen wird, wird das {{WebExtAPIRef('runtime.onConnect')}}-Ereignis in jedem Inhaltsskript, das zu dieser Erweiterung gehört und im angegebenen Tab ausgeführt wird, ausgelöst. Dem Ereignis-Listener wird ein weiteres {{WebExtAPIRef("runtime.Port")}} Objekt übergeben. Die beiden Seiten können dann die `Port` Objekte verwenden, um Nachrichten auszutauschen.
 
-Wenn dies aufgerufen wird, wird das {{WebExtAPIRef('runtime.onConnect')}} Ereignis in jedem Inhalts-Skript, das zu dieser Erweiterung gehört und im angegebenen Tab ausgeführt wird, ausgelöst. Der Ereignis-Listener erhält ein weiteres {{WebExtAPIRef("runtime.Port")}} Objekt. Die beiden Seiten können dann die `Port` Objekte verwenden, um Nachrichten auszutauschen.
-
-Für weitere Einzelheiten siehe [Verbindungsbasierte Nachrichtenübermittlung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging). Sie können auch ohne Erstellung einer Verbindung Nachrichten senden. Für Ratschläge, wie Sie zwischen den Optionen wählen können, lesen Sie [Auswahl zwischen einmaligen Nachrichten und verbindungsbasierten Nachrichten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#choosing_between_one-off_messages_and_connection-based_messaging).
+Weitere Details finden Sie unter [Verbindungsbasierte Nachrichtenübermittlung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#connection-based_messaging). Sie können Nachrichten senden, ohne eine Verbindung herzustellen. Einen Leitfaden zur Auswahl zwischen den Optionen finden Sie unter [Wahl zwischen einmaligen Nachrichten und verbindungsbasierter Nachrichtenübermittlung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#choosing_between_one-off_messages_and_connection-based_messaging).
 
 ## Syntax
 
@@ -25,23 +23,21 @@ browser.tabs.connect(
 ### Parameter
 
 - `tabId`
-  - : `integer`. ID des Tabs, dessen Inhalts-Skripte wir verbinden möchten.
+  - : `integer`. ID des Tabs, zu dessen Inhaltsskripten wir eine Verbindung herstellen möchten.
 - `connectInfo` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `name` {{optional_inline}}
-      - : `string`. Wird an {{WebExtAPIRef("runtime.onConnect")}} Ereignis-Listener in Inhalts-Skripten übergeben, die zu dieser Erweiterung gehören und im angegebenen Tab ausgeführt werden.
+      - : `string`. Wird in die {{WebExtAPIRef("runtime.onConnect")}} Ereignis-Listener in den Inhaltsskripten übergeben, die zu dieser Erweiterung gehören und im angegebenen Tab ausgeführt werden.
     - `frameId` {{optional_inline}}
-      - : `integer`. Öffnet einen Port zu einem bestimmten Frame, der durch `frameId` identifiziert wird, anstelle aller Frames im Tab.
+      - : `integer`. Öffnet einen Port zu einem bestimmten Frame, der durch `frameId` identifiziert wird, anstatt zu allen Frames im Tab.
 
 ### Rückgabewert
 
-{{WebExtAPIRef('runtime.Port')}}. Ein Port, der verwendet werden kann, um mit den Inhalts-Skripten im angegebenen Tab zu kommunizieren.
+{{WebExtAPIRef('runtime.Port')}}. Ein Port, der zur Kommunikation mit den im angegebenen Tab ausgeführten Inhaltsskripten verwendet werden kann.
 
 ## Beispiele
 
-In diesem Beispiel hört ein Hintergrundskript auf einen Klick auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), stellt dann eine Verbindung zum aktuell aktiven Tab her und sendet anschließend eine Nachricht über den `Port`, der von `connect()` zurückgegeben wird:
+In diesem Beispiel lauscht ein Hintergrundskript auf einen Klick auf eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), verbindet sich dann mit dem aktuell aktiven Tab und sendet dann eine Nachricht mit dem `Port`, der von `connect()` zurückgegeben wird:
 
 ```js
 function connectToTab(tabs) {

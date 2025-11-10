@@ -1,14 +1,17 @@
 ---
-title: "DataTransferItemList: remove()-Methode"
+title: "DataTransferItemList: remove() Methode"
 short-title: remove()
 slug: Web/API/DataTransferItemList/remove
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.remove()`**-Methode entfernt das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) an dem angegebenen Index aus der Liste. Wenn der Index kleiner als null oder größer als die Länge der Liste minus eins ist, wird die Liste nicht verändert.
+Die **`DataTransferItemList.remove()`**-Methode entfernt das
+[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) am angegebenen Index aus der Liste. Wenn der Index
+kleiner als Null oder größer als die Länge der Liste minus eins ist, wird die Liste nicht
+verändert.
 
 ## Syntax
 
@@ -19,7 +22,9 @@ remove(index)
 ### Parameter
 
 - `index`
-  - : Die nullbasierte Indexnummer des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der `index` keinem vorhandenen Element in der Liste entspricht, bleibt die Liste unverändert.
+  - : Die nullbasierte Indexnummer des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der
+    `index` keinem vorhandenen Element in der Liste entspricht, bleibt die Liste
+    unverändert.
 
 ### Rückgabewert
 
@@ -28,7 +33,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Drag-Datenspeicher nicht im Lese-/Schreibmodus ist und daher das Element nicht entfernt werden kann.
+  - : Wird ausgelöst, wenn der Drag-Daten-Speicher nicht im Lese/Schreibmodus ist und das Element daher nicht entfernt werden kann.
 
 ## Beispiele
 
@@ -69,7 +74,7 @@ div {
 #### JavaScript
 
 ```js
-function dragstart_handler(ev) {
+function dragstartHandler(ev) {
   console.log("dragStart");
   // Add this element's id to the drag payload so the drop handler will
   // know which element to add to its tree
@@ -80,7 +85,7 @@ function dragstart_handler(ev) {
   dataList.add("http://www.example.org", "text/uri-list");
 }
 
-function drop_handler(ev) {
+function dropHandler(ev) {
   console.log("Drop");
   ev.preventDefault();
   const data = event.dataTransfer.items;
@@ -105,14 +110,14 @@ function drop_handler(ev) {
   }
 }
 
-function dragover_handler(ev) {
+function dragoverHandler(ev) {
   console.log("dragOver");
   ev.preventDefault();
   // Set the dropEffect to move
   ev.dataTransfer.dropEffect = "move";
 }
 
-function dragend_handler(ev) {
+function dragendHandler(ev) {
   console.log("dragEnd");
   const dataList = ev.dataTransfer.items;
   // Clear all the files. Iterate in reverse order to safely remove.
@@ -126,12 +131,12 @@ function dragend_handler(ev) {
 }
 
 const source = document.querySelector("#source");
-source.addEventListener("dragstart", dragstart_handler);
-source.addEventListener("dragend", dragend_handler);
+source.addEventListener("dragstart", dragstartHandler);
+source.addEventListener("dragend", dragendHandler);
 
 const target = document.querySelector("#target");
-target.addEventListener("drop", drop_handler);
-target.addEventListener("dragover", dragover_handler);
+target.addEventListener("drop", dropHandler);
+target.addEventListener("dragover", dragoverHandler);
 ```
 
 #### Ergebnis

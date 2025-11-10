@@ -1,9 +1,9 @@
 ---
-title: "Document: open() Methode"
+title: "Document: open()-Methode"
 short-title: open()
 slug: Web/API/Document/open
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("DOM")}}
@@ -13,7 +13,7 @@ Die **`Document.open()`**-Methode öffnet ein Dokument zum
 
 Dies hat einige Nebeneffekte. Zum Beispiel:
 
-- Alle derzeit im Dokument, in Dokumentknoten oder im Fenster des Dokuments registrierten Event-Listener werden entfernt.
+- Alle derzeit im Dokument registrierten Ereignislistener, Knoten im Dokument oder im Fenster des Dokuments werden entfernt.
 - Alle vorhandenen Knoten werden aus dem Dokument entfernt.
 
 ## Syntax
@@ -28,11 +28,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine `Document`-Objektinstanz.
+Eine Instanz eines `Document`-Objekts.
 
 ## Beispiele
 
-Der folgende einfache Code öffnet das Dokument und ersetzt seinen Inhalt durch eine Reihe unterschiedlicher HTML-Fragmente, bevor es wieder geschlossen wird.
+Der folgende einfache Code öffnet das Dokument und ersetzt dessen Inhalt mit einer Reihe von
+verschiedenen HTML-Fragmenten, bevor es wieder geschlossen wird.
 
 ```js
 document.open();
@@ -53,12 +54,10 @@ Diese Methode unterliegt derselben [Same-Origin-Policy](/de/docs/Web/Security/Sa
 
 ## Drei-Argumente document.open()
 
-Es gibt eine weniger bekannte und kaum genutzte Drei-Argumente-Version von
-`document.open()`, die ein Alias für [`Window.open()`](/de/docs/Web/API/Window/open) ist (siehe
-die entsprechende Seite für vollständige Details).
+Es gibt eine weniger bekannte und wenig verwendete Drei-Argumente-Version von
+`document.open()`, die ein Alias für [`Window.open()`](/de/docs/Web/API/Window/open) ist (sehen Sie sich die Seite für vollständige Details an).
 
-Dieser Aufruf öffnet beispielsweise github.com in einem neuen Fenster, wobei sein Opener auf
-`null` gesetzt ist:
+Dieser Aufruf, zum Beispiel, öffnet github.com in einem neuen Fenster, wobei der Verweis auf das öffnende Fenster auf `null` gesetzt ist:
 
 ```js
 document.open("https://www.github.com", "", "noopener=true");
@@ -66,19 +65,18 @@ document.open("https://www.github.com", "", "noopener=true");
 
 ## Zwei-Argumente document.open()
 
-Browser unterstützten früher eine Zwei-Argumente-Version von `document.open()`, mit der
+Browser unterstützten früher ein Zwei-Argumente `document.open()` mit der
 folgenden Signatur:
 
 ```js
 document.open(type, replace);
 ```
 
-Dabei spezifizierte `type` den MIME-Typ der Daten, die Sie schreiben (z.B.
-`text/html`) und wenn `replace` gesetzt war (d.h. ein String von `"replace"`), wurde angegeben, dass der Verlaufs-Eintrag für das neue Dokument den aktuellen Verlaufs-Eintrag des Dokuments ersetzt, zu dem geschrieben wird.
+Wo `type` den MIME-Typ der Daten, die Sie schreiben, spezifiziert (z.B.
+`text/html`) und `replace`, wenn gesetzt (d.h. ein String von `"replace"`), angibt, dass der Verlaufs-Eintrag für das neue Dokument den aktuellen Verlaufs-Eintrag des Dokuments, in das geschrieben wird, ersetzen würde.
 
-Diese Form ist jetzt veraltet; sie wirft keinen Fehler, sondern leitet einfach an
-`document.open()` weiter (d.h. ist gleichbedeutend mit dem Ausführen ohne
-Argumente). Das Verhalten der Verlaufsersetzung erfolgt nun immer.
+Diese Form ist jetzt obsolet; sie wird keinen Fehler werfen, sondern einfach zu
+`document.open()` weiterleiten (d.h. es ist das Äquivalent, es ohne Argumente auszuführen). Das Verhalten zur Verlaufs-Ersetzung tritt jetzt immer auf.
 
 ## Spezifikationen
 

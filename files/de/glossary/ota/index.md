@@ -2,12 +2,10 @@
 title: OTA
 slug: Glossary/OTA
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-_Over The Air_ (**OTA**) bezieht sich auf die automatische Aktualisierung von Software auf verbundenen Geräten von einem zentralen Server. Alle Gerätebesitzer, die eine bestimmte Reihe von Updates erhalten, befinden sich auf demselben "Kanal", und jedes Gerät kann oft auf mehrere Kanäle zugreifen (z. B. für Produktions- oder Entwicklungs-Builds).
+_Over The Air_ (**OTA**) bezieht sich auf das automatische Aktualisieren von Software auf verbundenen Geräten von einem zentralen Server aus. Alle Gerätebesitzer, die eine bestimmte Menge an Updates erhalten, befinden sich auf dem gleichen "Kanal", und jedes Gerät kann häufig auf mehrere Kanäle zugreifen (z. B. für Produktions- oder Entwickler-Builds).
 
 ## Siehe auch
 

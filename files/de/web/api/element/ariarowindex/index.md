@@ -3,20 +3,20 @@ title: "Element: ariaRowIndex-Eigenschaft"
 short-title: ariaRowIndex
 slug: Web/API/Element/ariaRowIndex
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowIndex`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)-Attributs wider, das den Zeilenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Zeilen innerhalb einer Tabelle, eines Gitters oder eines Baumgitters definiert.
+Die **`ariaRowIndex`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-rowindex)-Attributs wider, welches den Zeilenindex oder die Position eines Elements in Bezug auf die Gesamtzahl der Zeilen innerhalb einer Tabelle, eines Gitters oder eines Baumgitters definiert.
 
 ## Wert
 
-Ein String, der eine ganze Zahl enthält.
+Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-rowindex`-Attribut des Elements mit der ID `role-heading` auf "1" gesetzt. Mithilfe von `ariaRowIndex` aktualisieren wir den Wert auf "2".
+In diesem Beispiel ist das `aria-rowindex`-Attribut des Elements mit der ID `role-heading` auf "1" gesetzt. Mit `ariaRowIndex` aktualisieren wir den Wert auf "2".
 
 ```html
 <table
@@ -84,4 +84,4 @@ console.log(el.ariaRowIndex); // 2
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: Rollen der Tabelle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role)

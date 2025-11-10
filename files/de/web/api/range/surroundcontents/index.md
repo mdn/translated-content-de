@@ -3,24 +3,14 @@ title: "Range: surroundContents() Methode"
 short-title: surroundContents()
 slug: Web/API/Range/surroundContents
 l10n:
-  sourceCommit: 1a91b0b63f0cbaca9125bd48d4e5bc8afed2a7a3
+  sourceCommit: 2c0de98b0607ef262d9ef0877259ba41aaf53e6d
 ---
 
 {{ApiRef("DOM")}}
 
-Die **`Range.surroundContents()`** Methode verschiebt den Inhalt des
-[`Range`](/de/docs/Web/API/Range) in einen neuen Knoten und platziert den neuen Knoten am Anfang des
-angegebenen Bereichs.
+Die **`surroundContents()`** Methode des [`Range`](/de/docs/Web/API/Range)-Interfaces umgibt den ausgewählten Inhalt mit einem bereitgestellten Knoten. Sie [extrahiert](/de/docs/Web/API/Range/extractContents) den Inhalt des Bereichs, ersetzt die Kinder von `newParent` mit dem extrahierten Inhalt, [fügt](/de/docs/Web/API/Range/insertNode) `newParent` an der Stelle des extrahierten Inhalts ein und lässt den Bereich `newParent` auswählen.
 
-Diese Methode ist nahezu gleichwertig zu
-`newNode.appendChild(range.extractContents()); range.insertNode(newNode)`.
-Nach dem Umgeben beinhalten die Randpunkte des `range`
-`newNode`.
-
-Eine Ausnahme wird jedoch ausgelöst, wenn der [`Range`](/de/docs/Web/API/Range) einen nicht-[`Text`](/de/docs/Web/API/Text)
-Knoten mit nur einem seiner Randpunkte teilt. Das bedeutet, im Gegensatz zu der
-oben genannten Alternative, dass teilweise ausgewählte Knoten nicht geklont werden und
-stattdessen die Operation fehlschlägt.
+Eine Ausnahme wird ausgelöst, wenn der Bereich teilweise einen Nicht-[`Text`](/de/docs/Web/API/Text)-Knoten enthält. Der Bereich darf nur Textknoten und vollständig ausgewählte Knoten enthalten.
 
 ## Syntax
 
@@ -69,4 +59,4 @@ range.surroundContents(newParent);
 
 ## Siehe auch
 
-- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

@@ -3,23 +3,23 @@ title: "ServiceWorkerGlobalScope: messageerror-Ereignis"
 short-title: messageerror
 slug: Web/API/ServiceWorkerGlobalScope/messageerror_event
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`messageerror`**-Ereignis des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces tritt auf, wenn eingehende Nachrichten nicht deserialisiert werden können.
+Das **`messageerror`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle tritt auf, wenn eingehende Nachrichten nicht deserialisiert werden können.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlungseigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("messageerror", (event) => {});
+```js-nolint
+addEventListener("messageerror", (event) => { })
 
-onmessageerror = (event) => {};
+onmessageerror = (event) => { }
 ```
 
 ## Ereignistyp
@@ -33,19 +33,19 @@ Ein [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent). Erbt vo
 _Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 - [`ExtendableMessageEvent.data`](/de/docs/Web/API/ExtendableMessageEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Daten des Ereignisses zurück. Es kann sich um jeden Datentyp handeln. Wird es im `messageerror`-Ereignis ausgelöst, ist die Eigenschaft `null`.
+  - : Gibt die Daten des Ereignisses zurück. Sie können jeden Datentyp haben. Wenn im `messageerror`-Ereignis ausgelöst, wird die Eigenschaft `null` sein.
 - [`ExtendableMessageEvent.origin`](/de/docs/Web/API/ExtendableMessageEvent/origin) {{ReadOnlyInline}}
   - : Gibt den Ursprung des [`Client`](/de/docs/Web/API/Client) zurück, der die Nachricht gesendet hat.
 - [`ExtendableMessageEvent.lastEventId`](/de/docs/Web/API/ExtendableMessageEvent/lastEventId) {{ReadOnlyInline}}
-  - : Repräsentiert bei [Server-Sent Events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle.
+  - : Stellt bei [servergesendeten Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle dar.
 - [`ExtendableMessageEvent.source`](/de/docs/Web/API/ExtendableMessageEvent/source) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zum [`Client`](/de/docs/Web/API/Client)-Objekt zurück, das die Nachricht gesendet hat.
+  - : Gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, das die Nachricht gesendet hat.
 - [`ExtendableMessageEvent.ports`](/de/docs/Web/API/ExtendableMessageEvent/ports) {{ReadOnlyInline}}
-  - : Gibt das Array zurück, das die [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals repräsentieren.
+  - : Gibt das Array zurück, das die [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, welche die Ports des zugehörigen Nachrichtenkanals darstellen.
 
 ## Beispiele
 
-Im folgenden Beispiel erhält eine Seite einen Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann die `postMessage()`-Funktion auf.
+Im folgenden Beispiel erhält eine Seite einen Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann dessen `postMessage()`-Funktion auf.
 
 ```js
 // main.js
@@ -63,7 +63,7 @@ if (navigator.serviceWorker) {
 }
 ```
 
-Der Service Worker kann auf den Fehler bei der Nachrichtendeserialisierung hören, indem er das `messageerror`-Ereignis abhört:
+Der Service-Worker kann auf den Deserialisierungsfehler der Nachricht hören, indem er das `messageerror`-Ereignis abhört:
 
 ```js
 // service-worker.js
@@ -73,7 +73,7 @@ self.addEventListener("messageerror", (event) => {
 });
 ```
 
-Alternativ kann das Skript auf den Fehler bei der Nachrichtendeserialisierung mit `onmessageerror` hören:
+Alternativ kann das Skript auf den Deserialisierungsfehler der Nachricht mithilfe von `onmessageerror` hören:
 
 ```js
 // service-worker.js
@@ -95,6 +95,6 @@ self.onmessageerror = (event) => {
 
 - [`message`](/de/docs/Web/API/ServiceWorkerGlobalScope/message_event)
 - [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage)
-- [Using Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Einfaches Service Worker Codebeispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Web Worker verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

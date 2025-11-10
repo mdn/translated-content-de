@@ -3,24 +3,24 @@ title: "MutationRecord: addedNodes-Eigenschaft"
 short-title: addedNodes
 slug: Web/API/MutationRecord/addedNodes
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`addedNodes`** eines [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist eine [`NodeList`](/de/docs/Web/API/NodeList) von Knoten, die zu einem Zielknoten durch eine Mutation hinzugefügt wurden, die mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wurde.
+Die schreibgeschützte Eigenschaft **`addedNodes`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist eine [`NodeList`](/de/docs/Web/API/NodeList) von Knoten, die zu einem Zielknoten hinzugefügt wurden, durch eine mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtete Mutation.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die Knoten enthält, die dem Ziel der Mutation hinzugefügt wurden, die vom [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die Knoten enthält, die zum Ziel der Mutation hinzugefügt wurden, die vom [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Beispiele
 
 ### Aktualisierung beim Hinzufügen eines Knotens
 
-Im folgenden Beispiel gibt es zwei Schaltflächen: eine, um dem Zielknoten neue Knoten hinzuzufügen, und eine, um sie zu entfernen. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird verwendet, um den Zielknoten auf Änderungen zu überwachen; wenn eine Änderung erkannt wird, ruft der Beobachter die Funktion `logNewNodes()` auf.
+Im folgenden Beispiel gibt es zwei Schaltflächen: eine, um neue Knoten zu einem Zielknoten hinzuzufügen, und eine, um sie zu entfernen. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird verwendet, um den Zielknoten auf Änderungen zu beobachten; wenn eine Änderung erkannt wird, ruft der Observer eine Funktion `logNewNodes()` auf.
 
-Die Funktion `logNewNodes()` überprüft, ob der `type` des MutationRecord `childList` ist, was bedeutet, dass sich die Kinder des Zielknotens geändert haben. Wenn der Typ `childlist` ist, aktualisiert die Funktion die Gesamtzahl der neuen hinzugefügten Knoten. Beachten Sie jedoch, dass das Klicken auf die Schaltfläche "Remove a node" die Gesamtzahl der neuen Knoten nicht erhöht, da `record.addedNodes` in diesem Fall eine Länge von `0` hat.
+Die Funktion `logNewNodes()` prüft, ob der `type` des MutationRecord `childList` ist, was bedeutet, dass sich die Kinder des Zielknotens geändert haben. Wenn der Typ `childlist` ist, aktualisiert die Funktion die Gesamtzahl der neu hinzugefügten Knoten. Beachten Sie jedoch, dass das Klicken auf die Schaltfläche "Einen Knoten entfernen" die Gesamtzahl der neuen Knoten nicht erhöhen wird, da in diesem Fall `record.addedNodes` eine Länge von `0` haben wird.
 
 #### HTML
 
@@ -69,7 +69,7 @@ function logNewNodes(records) {
   for (const record of records) {
     // Check if the childlist of the target node has been mutated
     if (record.type === "childList") {
-      totalAddedNodes = totalAddedNodes + record.addedNodes.length;
+      totalAddedNodes += record.addedNodes.length;
       // Log the number of nodes added
       counter.textContent = `Total added nodes: ${totalAddedNodes}`;
     }

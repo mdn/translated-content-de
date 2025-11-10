@@ -2,12 +2,10 @@
 title: Metadaten
 slug: Glossary/Metadata
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**Metadaten** sind – in ihrer einfachsten Definition – Daten, die Daten beschreiben. Ein Beispiel: Ein {{Glossary("HTML", "HTML")}}-Dokument ist Daten, aber HTML kann auch Metadaten in seinem {{htmlelement("head")}}-Element enthalten, die das Dokument beschreiben — zum Beispiel, wer es geschrieben hat, und eine Zusammenfassung.
+**Metadaten** sind – in ihrer einfachsten Definition – Daten, die Daten beschreiben. Zum Beispiel ist ein {{Glossary("HTML", "HTML")}}-Dokument Daten, aber HTML kann auch Metadaten in seinem {{htmlelement("head")}}-Element enthalten, die das Dokument beschreiben – zum Beispiel, wer es geschrieben hat, und seine Zusammenfassung.
 
 ## Siehe auch
 

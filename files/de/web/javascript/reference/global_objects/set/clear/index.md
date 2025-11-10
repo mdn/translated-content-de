@@ -1,27 +1,26 @@
 ---
 title: Set.prototype.clear()
+short-title: clear()
 slug: Web/JavaScript/Reference/Global_Objects/Set/clear
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
-
-Die **`clear()`**-Methode von {{jsxref("Set")}}-Instanzen entfernt alle Elemente aus diesem Set.
+Die **`clear()`** Methode von {{jsxref("Set")}} Instanzen entfernt alle Elemente aus diesem Set.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.clear()")}}
 
 ```js interactive-example
-const set1 = new Set();
-set1.add(1);
-set1.add("foo");
+const set = new Set();
+set.add(1);
+set.add("foo");
 
-console.log(set1.size);
+console.log(set.size);
 // Expected output: 2
 
-set1.clear();
+set.clear();
 
-console.log(set1.size);
+console.log(set.size);
 // Expected output: 0
 ```
 
@@ -37,11 +36,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung der clear()-Methode
+### Verwendung der clear() Methode
 
 ```js
 const mySet = new Set();

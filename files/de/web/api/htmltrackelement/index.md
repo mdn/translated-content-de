@@ -2,62 +2,61 @@
 title: HTMLTrackElement
 slug: Web/API/HTMLTrackElement
 l10n:
-  sourceCommit: 9d5c9fbe387ba7c143fdd7c73a265b209b7f6ec4
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLTrackElement`** Interface repräsentiert ein {{Glossary("HTML", "HTML")}} {{HTMLElement("track")}}-Element innerhalb des {{Glossary("DOM", "DOM")}}. Dieses Element kann als Kind von entweder {{HTMLElement("audio")}} oder {{HTMLElement("video")}} verwendet werden, um eine Textspur anzugeben, die Informationen wie Untertitel oder Audiodeskriptionen enthält.
+Das **`HTMLTrackElement`**-Interface repräsentiert ein {{Glossary("HTML", "HTML")}} {{HTMLElement("track")}}-Element innerhalb des {{Glossary("DOM", "DOM")}}. Dieses Element kann als Kind von entweder {{HTMLElement("audio")}} oder {{HTMLElement("video")}} verwendet werden, um einen Texttrack anzugeben, der Informationen wie Untertitel oder Bildunterschriften enthält.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLTrackElement.kind`](/de/docs/Web/API/HTMLTrackElement/kind)
-  - : Ein String, der das [`kind`](/de/docs/Web/HTML/Element/track#kind)-HTML-Attribut widerspiegelt und angibt, wie die Textspur verwendet werden soll. Mögliche Werte sind: `subtitles`, `captions`, `descriptions`, `chapters` oder `metadata`.
+  - : Ein String, der das HTML-Attribut [`kind`](/de/docs/Web/HTML/Reference/Elements/track#kind) wiedergibt und angibt, wie der Texttrack verwendet werden soll. Mögliche Werte sind: `subtitles`, `captions`, `descriptions`, `chapters` oder `metadata`.
 - [`HTMLTrackElement.src`](/de/docs/Web/API/HTMLTrackElement/src)
-  - : Ein String, der das [`src`](/de/docs/Web/HTML/Element/track#src)-HTML-Attribut widerspiegelt und die Adresse der Textspurdaten angibt.
+  - : Ein String, der das HTML-Attribut [`src`](/de/docs/Web/HTML/Reference/Elements/track#src) wiedergibt und die Adresse der Texttrack-Daten angibt.
 - [`HTMLTrackElement.srclang`](/de/docs/Web/API/HTMLTrackElement/srclang)
-  - : Ein String, der das [`srclang`](/de/docs/Web/HTML/Element/track#srclang)-HTML-Attribut widerspiegelt und die Sprache der Textspurdaten angibt.
+  - : Ein String, der das HTML-Attribut [`srclang`](/de/docs/Web/HTML/Reference/Elements/track#srclang) wiedergibt und die Sprache der Texttrack-Daten angibt.
 - [`HTMLTrackElement.label`](/de/docs/Web/API/HTMLTrackElement/label)
-  - : Ein String, der das [`label`](/de/docs/Web/HTML/Element/track#label)-HTML-Attribut widerspiegelt und einen für den Nutzer lesbaren Titel für die Spur angibt.
+  - : Ein String, der das HTML-Attribut [`label`](/de/docs/Web/HTML/Reference/Elements/track#label) wiedergibt und einen benutzerlesbaren Titel für den Track angibt.
 - [`HTMLTrackElement.default`](/de/docs/Web/API/HTMLTrackElement/default)
-  - : Ein Boolescher Wert, der das [`default`](/de/docs/Web/HTML/Element/track#default)-Attribut widerspiegelt und angibt, dass die Spur aktiviert werden soll, wenn die Benutzereinstellungen nicht anzeigen, dass eine andere Spur geeigneter wäre.
+  - : Ein boolescher Wert, der das Attribut [`default`](/de/docs/Web/HTML/Reference/Elements/track#default) wiedergibt und angibt, dass der Track aktiviert werden soll, wenn die Präferenzen des Benutzers nicht angeben, dass ein anderer Track geeigneter wäre.
 - [`HTMLTrackElement.readyState`](/de/docs/Web/API/HTMLTrackElement/readyState) {{ReadOnlyInline}}
 
-  - : Gibt ein `unsigned short` zurück, das den Bereitschaftszustand der Spur anzeigt:
+  - : Gibt ein `unsigned short` zurück, das den Bereitschaftszustand des Tracks zeigt:
 
-    | Konstante | Wert | Beschreibung                                                                                                                                                                                                |
-    | --------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `NONE`    | 0    | Zeigt an, dass die Cues der Textspur nicht abgerufen wurden.                                                                                                                                                |
-    | `LOADING` | 1    | Zeigt an, dass die Textspur geladen wird und noch keine schwerwiegenden Fehler aufgetreten sind. Weitere Cues könnten durch den Parser noch zur Spur hinzugefügt werden.                                    |
-    | `LOADED`  | 2    | Zeigt an, dass die Textspur ohne schwerwiegende Fehler geladen wurde.                                                                                                                                       |
-    | `ERROR`   | 3    | Zeigt an, dass die Textspur aktiviert wurde, aber als der User-Agent versuchte sie abzurufen, dies in irgendeiner Weise scheiterte. Einige oder alle Cues fehlen wahrscheinlich und werden nicht abgerufen. |
+    | Konstante | Wert | Beschreibung                                                                                                                                                                                            |
+    | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `NONE`    | 0    | Gibt an, dass die Cues des Texttracks noch nicht beschafft wurden.                                                                                                                                      |
+    | `LOADING` | 1    | Gibt an, dass der Texttrack geladen wird und bisher keine fatalen Fehler aufgetreten sind. Weitere Cues könnten vom Parser dem Track noch hinzugefügt werden.                                           |
+    | `LOADED`  | 2    | Gibt an, dass der Texttrack fehlerfrei geladen wurde.                                                                                                                                                   |
+    | `ERROR`   | 3    | Gibt an, dass der Texttrack aktiviert wurde, jedoch das Abrufen durch den Benutzeragenten in irgendeiner Weise gescheitert ist. Einige oder alle Cues fehlen wahrscheinlich und werden nicht beschafft. |
 
 - [`HTMLTrackElement.track`](/de/docs/Web/API/HTMLTrackElement/track) {{ReadOnlyInline}}
-  - : Gibt [`TextTrack`](/de/docs/Web/API/TextTrack) zurück, was die Textspurdaten des Track-Elements sind.
+  - : Gibt [`TextTrack`](/de/docs/Web/API/TextTrack) zurück, das die Texttrack-Daten des Track-Elements ist.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Ereignisse
 
-_Erbt Ereignisse von seinem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Ereignisse von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-Hören Sie diese Ereignisse mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen:
+Diese Ereignisse können Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abhören oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen:
 
 - [`cuechange`](/de/docs/Web/API/HTMLTrackElement/cuechange_event)
-  - : Wird gesendet, wenn die zugrunde liegende [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell angezeigten Cues geändert hat. Dieses Ereignis wird immer an die `TextTrack` gesendet, aber _auch_ an das `HTMLTrackElement`, wenn eines mit der Spur verknüpft ist.
-    Sie können auch den `oncuechange`-Ereignishandler verwenden, um einen Handler für dieses Ereignis festzulegen.
+  - : Wird gesendet, wenn die zugrunde liegenden [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell präsentierten Cues geändert wurden. Dieses Ereignis wird immer an das `TextTrack` gesendet, wird aber _auch_ an das `HTMLTrackElement` gesendet, wenn eines mit dem Track verbunden ist. Sie können auch den `oncuechange`-Ereignishandler verwenden, um einen Handler für dieses Ereignis festzulegen.
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
-### Laden der Textressource der Spur
+### Laden der Textressource des Tracks
 
-Die WebVTT- oder TTML-Daten, die die tatsächlichen Cues für die Textspur beschreiben, werden nicht geladen, wenn sich der [`mode`](/de/docs/Web/API/TextTrack/mode) der Spur anfangs im `disabled`-Zustand befindet. Wenn Sie nach dem Einrichten des `<track>`-Elements eine Verarbeitung der Spur durchführen müssen, sollten Sie stattdessen sicherstellen, dass sich der `mode` der Spur entweder im `hidden`-Zustand (wenn Sie nicht möchten, dass es dem Benutzer angezeigt wird) oder im `showing`-Zustand befindet (um die Spur initial anzuzeigen). Sie können den Modus dann später nach Bedarf ändern.
+Die WebVTT- oder TTML-Daten, die die eigentlichen Cues für den Texttrack beschreiben, werden nicht geladen, wenn der [`mode`](/de/docs/Web/API/TextTrack/mode) des Tracks anfänglich im `disabled`-Zustand ist. Wenn Sie eine Verarbeitung des Tracks nach dem Einrichten des `<track>` benötigen, sollten Sie stattdessen sicherstellen, dass der `mode` des Tracks entweder `hidden` ist (wenn er nicht sofort angezeigt werden soll) oder `showing` (um den Track anfänglich anzuzeigen). Sie können den Modus später nach Bedarf ändern.
 
 ## Spezifikationen
 

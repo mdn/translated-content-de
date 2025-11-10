@@ -3,12 +3,12 @@ title: "KeyboardEvent: isComposing-Eigenschaft"
 short-title: isComposing
 slug: Web/API/KeyboardEvent/isComposing
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.isComposing`** gibt einen booleschen Wert zurück, der angibt, ob das Ereignis innerhalb einer Kompositionssitzung ausgelöst wird, d.h. nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event).
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.isComposing`** gibt einen booleschen Wert zurück, der anzeigt, ob das Ereignis innerhalb einer Kompositionssitzung ausgelöst wird, d.h. nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event).
 
 ## Wert
 

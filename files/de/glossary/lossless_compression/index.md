@@ -1,17 +1,15 @@
 ---
-title: Lossless compression
+title: Verlustfreie Kompression
 slug: Glossary/Lossless_compression
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
+**Verlustfreie Kompression** ist eine Klasse von Datenkomprimierungsalgorithmen, die es ermöglichen, die Originaldaten perfekt aus den komprimierten Daten wiederherzustellen. Verlustfreie Kompressionsmethoden sind umkehrbar. Beispiele für verlustfreie Kompression umfassen {{Glossary("GZip_compression", "gzip")}}, {{Glossary("Brotli_compression", "brotli")}}, {{Glossary("Zstandard_compression", "Zstandard")}}, {{Glossary("WebP", "WebP")}} und {{Glossary("PNG", "PNG")}}.
 
-**Lossless compression** ist eine Klasse von Datenkompressionsalgorithmen, die es ermöglichen, die Originaldaten aus den komprimierten Daten perfekt zu rekonstruieren. Verlustfreie Kompressionsmethoden sind umkehrbar. Beispiele für verlustfreie Kompression sind {{Glossary("GZip_compression", "gzip")}}, {{Glossary("Brotli_compression", "brotli")}}, {{Glossary("Zstandard_compression", "Zstandard")}}, {{Glossary("WebP", "WebP")}} und {{Glossary("PNG", "PNG")}}.
-
-{{Glossary("Lossy_compression", "Lossy compression")}} hingegen verwendet ungenaue Annäherungen, indem einige Daten aus der Originaldatei verworfen werden, was sie zu einer irreversiblen Kompressionsmethode macht. Komprimierungsmethoden wie {{Glossary("WebP", "WebP")}} sind in der Lage, [sowohl verlustfreie als auch verlustbehaftete Kompression](https://developers.google.com/speed/webp/docs/compression) durchzuführen, abhängig von der Kompressionsstufe oder den Optionen, die Sie während der Kodierung verwenden möchten.
+{{Glossary("Lossy_compression", "Verlustbehaftete Kompression")}} verwendet hingegen ungenaue Annäherungen, indem einige Daten aus der Originaldatei verworfen werden, was sie zu einer irreversiblen Kompressionsmethode macht. Kompressionsmethoden wie {{Glossary("WebP", "WebP")}} sind in der Lage, [sowohl verlustfreie als auch verlustbehaftete Kompression](https://developers.google.com/speed/webp/docs/compression) abhängig vom Kompressionsgrad oder den Optionen, die Sie während der Kodierung verwenden möchten, durchzuführen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Lossy_compression", "Lossy compression")}}
+  - {{Glossary("Lossy_compression", "Verlustbehaftete Kompression")}}

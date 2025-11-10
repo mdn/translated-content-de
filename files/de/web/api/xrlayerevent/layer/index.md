@@ -3,16 +3,16 @@ title: "XRLayerEvent: layer-Eigenschaft"
 short-title: layer
 slug: Web/API/XRLayerEvent/layer
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`layer`**-Eigenschaft des [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent)-Interfaces ist ein Verweis auf die [`XRLayer`](/de/docs/Web/API/XRLayer), die das Ereignis generiert hat.
+Die **`layer`**-Eigenschaft des [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent)-Interfaces ist eine Referenz auf das [`XRLayer`](/de/docs/Web/API/XRLayer), das das Ereignis erzeugt hat.
 
 ## Wert
 
-Eine [`XRLayer`](/de/docs/Web/API/XRLayer).
+Ein [`XRLayer`](/de/docs/Web/API/XRLayer).
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ In diesem Beispiel wird die `layer`-Eigenschaft verwendet, um das [`XRLayer`](/d
 
 ```js
 myLayer.addEventListener("redraw", (e) => {
-  if (typeof e.layer === "XRQuadLayer") {
+  if (e.layer instanceof XRQuadLayer) {
     // redraw quad layer
   }
 });

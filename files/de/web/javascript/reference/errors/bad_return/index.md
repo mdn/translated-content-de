@@ -2,14 +2,12 @@
 title: "SyntaxError: return not in function"
 slug: Web/JavaScript/Reference/Errors/Bad_return
 l10n:
-  sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
+Das JavaScript-Exception "return not in function" tritt auf, wenn eine [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung außerhalb einer [Funktion](/de/docs/Web/JavaScript/Guide/Functions) aufgerufen wird.
 
-Die JavaScript-Ausnahme "return not in function" tritt auf, wenn eine [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung außerhalb einer [Funktion](/de/docs/Web/JavaScript/Guide/Functions) aufgerufen wird.
-
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Illegal return statement (V8-based)
@@ -17,13 +15,13 @@ SyntaxError: return not in function (Firefox)
 SyntaxError: Return statements are only valid inside functions. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}.
 
 ## Was ist schiefgelaufen?
 
-Eine [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung wird außerhalb einer [Funktion](/de/docs/Web/JavaScript/Guide/Functions) aufgerufen. Vielleicht fehlen irgendwo geschweifte Klammern? Die `return`-Anweisung muss sich in einer Funktion befinden, da sie die Ausführung der Funktion beendet und einen Wert angibt, der an den Funktionsaufrufer zurückgegeben wird.
+Eine [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung wird außerhalb einer [Funktion](/de/docs/Web/JavaScript/Guide/Functions) aufgerufen. Möglicherweise fehlen irgendwo geschweifte Klammern? Die `return`-Anweisung muss in einer Funktion stehen, da sie die Funktionsausführung beendet und einen Wert an den Funktionsaufrufer zurückgibt.
 
 ## Beispiele
 
@@ -42,7 +40,7 @@ function cheer(score) {
 // SyntaxError: return not in function
 ```
 
-Die geschweiften Klammern sehen auf den ersten Blick korrekt aus, aber in diesem Codeausschnitt fehlt ein `{` nach der ersten `if`-Anweisung. Korrekt wäre:
+Die geschweiften Klammern sehen auf den ersten Blick korrekt aus, aber in diesem Codeausschnitt fehlt eine `{` nach der ersten `if`-Anweisung. Korrekt wäre:
 
 ```js example-good
 function cheer(score) {

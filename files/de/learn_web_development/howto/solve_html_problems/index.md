@@ -1,41 +1,40 @@
 ---
 title: Häufige HTML-Probleme lösen
+short-title: Häufige HTML-Probleme
 slug: Learn_web_development/Howto/Solve_HTML_problems
 l10n:
-  sourceCommit: eb20babb96149f98bcbf7817b58e305c5297f2e1
+  sourceCommit: 160fdf443fbdd490cec19b536116a56736a75d96
 ---
 
-{{LearnSidebar}}
-
-Die folgenden Links verweisen auf Lösungen zu alltäglichen Problemen, die Sie mit HTML lösen müssen.
+Die folgenden Links verweisen auf Lösungen für häufige Alltagsprobleme, die Sie mit HTML lösen müssen.
 
 ### Grundstruktur
 
-Die grundlegendste Anwendung von HTML ist die Dokumentstruktur. Wenn Sie neu in HTML sind, sollten Sie damit beginnen.
+Die grundlegendste Anwendung von HTML ist die Dokumentstruktur. Wenn Sie neu in HTML sind, sollten Sie hier beginnen.
 
-- [Anleitung zum Erstellen eines grundlegenden HTML-Dokuments](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#anatomy_of_an_html_document)
-- [Anleitung zum Teilen einer Webseite in logische Abschnitte](/de/docs/Learn_web_development/Core/Structuring_content/Structuring_documents)
-- [Anleitung zum Einrichten einer ordnungsgemäßen Struktur von Überschriften und Absätzen](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs)
+- [Anleitung zur Erstellung eines einfachen HTML-Dokuments](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#anatomy_of_an_html_document)
+- [Anleitung zur Aufteilung einer Webseite in logische Abschnitte](/de/docs/Learn_web_development/Core/Structuring_content/Structuring_documents)
+- [Anleitung zur Einrichtung einer ordnungsgemäßen Struktur von Überschriften und Absätzen](/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs)
 
-### Grundlegende Textsemantik
+### Grundlegende Text-Level Semantik
 
-HTML spezialisiert sich darauf, semantische Informationen für ein Dokument bereitzustellen, daher beantwortet HTML viele Fragen, die Sie möglicherweise darüber haben, wie Sie Ihre Botschaft am besten in Ihrem Dokument vermitteln.
+HTML ist spezialisiert darauf, semantische Informationen für ein Dokument bereitzustellen. So beantwortet HTML viele Fragen, die Sie haben könnten, wie Sie Ihre Botschaft am besten in Ihrem Dokument übermitteln.
 
-- [Anleitung zum Erstellen einer Liste von Elementen mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Lists)
-- [Anleitung zur Betonung oder Hervorhebung von Inhalten](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance)
-- [Anleitung zur Kennzeichnung wichtiger Texte](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance)
-- [Anleitung zum Anzeigen von Computercode mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#representing_computer_code)
-- [Anleitung zum Annotieren von Bildern und Grafiken](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images#annotating_images_with_figures_and_figure_captions)
-- [Anleitung zum Markieren von Abkürzungen und deren Verständlichmachung](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations)
+- [Anleitung zur Erstellung einer Liste von Elementen mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Lists)
+- [Anleitung, wie man Inhalte betont oder hervorhebt](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance)
+- [Anleitung, wie man anzeigt, dass Text wichtig ist](/de/docs/Learn_web_development/Core/Structuring_content/Emphasis_and_importance)
+- [Anleitung zur Anzeige von Computer-Code mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#representing_computer_code)
+- [Anleitung zur Annotation von Bildern und Grafiken](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images#annotating_images_with_figures_and_figure_captions)
+- [Anleitung wie man Abkürzungen kennzeichnet und verständlich macht](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations)
 - [Anleitung zum Hinzufügen von Zitaten und Quellenangaben zu Webseiten](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#quotations)
-- [Anleitung zur Definition von Begriffen mit HTML](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Define_terms_with_HTML)
+- [Anleitung zur Definition von Begriffen mit HTML](/de/docs/Web/HTML/How_to/Define_terms_with_HTML)
 
 ### Hyperlinks
 
-Ein Hauptgrund von HTML ist die einfache Navigation mit {{Glossary("hyperlink", "Hyperlinks")}}, die auf viele verschiedene Arten verwendet werden können:
+Einer der Hauptgründe für HTML ist das einfache Navigieren mit {{Glossary("hyperlink", "Hyperlinks")}}, die auf viele verschiedene Arten verwendet werden können:
 
-- [Anleitung zum Erstellen eines Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links)
-- [Anleitung zum Erstellen eines Inhaltsverzeichnisses mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#active_learning_creating_a_navigation_menu)
+- [Anleitung zur Erstellung eines Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links)
+- [Anleitung zur Erstellung eines Inhaltsverzeichnisses mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#creating_a_navigation_menu)
 
 ### Bilder & Multimedia
 
@@ -44,60 +43,60 @@ Ein Hauptgrund von HTML ist die einfache Navigation mit {{Glossary("hyperlink", 
 
 ### Skripting & Styling
 
-HTML richtet nur die Dokumentstruktur ein. Um Präsentationsprobleme zu lösen, verwenden Sie {{Glossary("CSS", "CSS")}}, oder verwenden Sie Skripting, um Ihre Seite interaktiv zu gestalten.
+HTML richtet nur die Dokumentstruktur ein. Um Präsentationsprobleme zu lösen, verwenden Sie {{Glossary("CSS", "CSS")}} oder verwenden Sie Skripting, um Ihre Seite interaktiv zu gestalten.
 
 - [Anleitung zur Verwendung von CSS innerhalb einer Webseite](/de/docs/Learn_web_development/Core/Styling_basics/Getting_started#adding_css_to_our_document)
-- [Anleitung zur Verwendung von JavaScript innerhalb einer Webseite](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_JavaScript_within_a_webpage)
+- [Anleitung zur Verwendung von JavaScript innerhalb einer Webseite](/de/docs/Web/HTML/How_to/Add_JavaScript_to_your_web_page)
 
-### Eingebettete Inhalte
+### Eingebetteter Inhalt
 
 - [Anleitung zur Einbettung einer Webseite in eine andere Webseite](/de/docs/Learn_web_development/Core/Structuring_content/General_embedding_technologies)
 
 ## Ungewöhnliche oder fortgeschrittene Probleme
 
-Über die Grundlagen hinaus ist HTML sehr umfassend und bietet erweiterte Funktionen zur Lösung komplexer Probleme. Diese Artikel helfen Ihnen, die weniger häufigen Anwendungsfälle zu bewältigen, auf die Sie stoßen könnten:
+Über die Grundlagen hinaus ist HTML sehr vielseitig und bietet erweiterte Funktionen zur Lösung komplexer Probleme. Diese Artikel helfen Ihnen, die weniger häufigen Anwendungsfälle zu bewältigen, mit denen Sie konfrontiert werden könnten:
 
 ### Formulare
 
-Formulare sind eine komplexe HTML-Struktur, die dazu dient, Daten von einer Webseite an einen Webserver zu senden. Wir empfehlen Ihnen, unser [vollständiges, dediziertes Leitfaden](/de/docs/Learn_web_development/Extensions/Forms) zu durchlaufen. Hier sollten Sie beginnen:
+Formulare sind eine komplexe HTML-Struktur, die dazu gedacht ist, Daten von einer Webseite an einen Webserver zu senden. Wir empfehlen Ihnen, unseren [vollständigen Leitfaden](/de/docs/Learn_web_development/Extensions/Forms) dazu durchzugehen. Hier sollten Sie beginnen:
 
-- [Anleitung zum Erstellen eines einfachen Webformulars](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form)
-- [Anleitung zum Strukturieren eines Webformulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form)
+- [Anleitung zur Erstellung eines einfachen Webformulars](/de/docs/Learn_web_development/Extensions/Forms/Your_first_form)
+- [Anleitung zur Strukturierung eines Webformulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form)
 
 ### Tabellarische Informationen
 
-Einige Informationen, sogenannte tabellarische Daten, müssen in Tabellen mit Spalten und Zeilen organisiert werden. Es ist eine der komplexesten HTML-Strukturen, und deren Beherrschung ist nicht einfach:
+Einige Informationen, genannt tabellarische Daten, müssen in Tabellen mit Spalten und Zeilen organisiert werden. Es ist eine der komplexesten HTML-Strukturen, und es ist nicht einfach, sie zu beherrschen:
 
-- [Anleitung zum Erstellen einer Datentabelle](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
-- [Anleitung zur Zugänglichmachung von HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
+- [Anleitung zur Erstellung einer Datentabelle](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- [Anleitung zur Erstellung von zugänglichen HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/Table_accessibility)
 
 ### Datenrepräsentation
 
-- Anleitung zur Darstellung von Zahlenwerten und Codewerten mit HTML — siehe [Hoch- und Tiefgestellt](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#superscript_and_subscript), und [Darstellung von Computercode](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#representing_computer_code).
-- [Anleitung zur Verwendung von Datenattributen](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes)
+- Anleitung zur Darstellung von numerischen und Code-Werten mit HTML — siehe [Hoch- und Tiefstellung](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#superscript_and_subscript) und [Darstellung von Computer-Code](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#representing_computer_code).
+- [Anleitung zur Verwendung von Datensätzen](/de/docs/Web/HTML/How_to/Use_data_attributes)
 
-### Erweiterte Textsemantik
+### Fortgeschrittene Textsemantik
 
-- [Anleitung zur Steuerung des Zeilenumbruchs in HTML](/de/docs/Web/HTML/Element/br)
-- Wie man Änderungen (hinzugefügter und entfernter Text) markiert — siehe die {{htmlelement("ins")}} und {{htmlelement("del")}} Elemente.
+- [Anleitung zur Steuerung des HTML-Zeilenumbruchs](/de/docs/Web/HTML/Reference/Elements/br)
+- Anleitung zum Markieren von Änderungen (hinzugefügter und entfernter Text) — siehe die Elemente {{htmlelement("ins")}} und {{htmlelement("del")}}.
 
-### Erweiterte Bilder & Multimedia
+### Fortgeschrittene Bilder & Multimedia
 
-- [Anleitung zum Hinzufügen eines responsiven Bildes zu einer Webseite](/de/docs/Web/HTML/Responsive_images)
-- [Anleitung zum Hinzufügen eines Vektorgrafikbildes zu einer Webseite](/de/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics_in_HTML)
-- [Anleitung zum Hinzufügen einer Trefferkarte über ein Bild](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Add_a_hit_map_on_top_of_an_image)
+- [Anleitung zum Hinzufügen eines responsiven Bildes zu einer Webseite](/de/docs/Web/HTML/Guides/Responsive_images)
+- [Anleitung zum Hinzufügen eines Vektorbilder zu einer Webseite](/de/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics_in_HTML)
+- [Anleitung zum Hinzufügen einer Trefferkarte auf ein Bild](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image)
 
 ### Internationalisierung
 
-HTML ist nicht einsprachig. Es bietet Werkzeuge zur Bewältigung allgemeiner Internationalisierungsprobleme.
+HTML ist nicht einsprachig. Es bietet Werkzeuge, um gängige Internationalisierungsprobleme zu bewältigen.
 
-- [Anleitung zum Hinzufügen mehrerer Sprachen in eine einzelne Webseite](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#setting_the_primary_language_of_the_document)
+- [Anleitung zum Hinzufügen mehrerer Sprachen in eine einzige Webseite](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#setting_the_primary_language_of_the_document)
 - [Anleitung zur Anzeige von Zeit und Datum mit HTML](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#marking_up_times_and_dates)
 
-### Performance
+### Leistung
 
-- [Anleitung zur Erstellung von schnell ladenden HTML-Seiten](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Author_fast-loading_HTML_pages)
+- [Anleitung zum Erstellen von schnell ladenden HTML-Seiten](/de/docs/Web/HTML/How_to/Author_fast-loading_HTML_pages)
 
 ## Siehe auch
 
-- [HTML-Spickzettel](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Cheatsheet)
+- [HTML-Spickzettel](/de/docs/Web/HTML/Guides/Cheatsheet)

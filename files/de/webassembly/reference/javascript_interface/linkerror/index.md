@@ -2,17 +2,17 @@
 title: WebAssembly.LinkError
 slug: WebAssembly/Reference/JavaScript_interface/LinkError
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: 006c05b688814b45a01ad965bbe4ebfc15513e74
 ---
 
-Das **`WebAssembly.LinkError`** Objekt weist auf einen Fehler während der Modulinstanziierung hin (außer [Traps](https://webassembly.github.io/simd/core/intro/overview.html#trap) von der Startfunktion).
+Das **`WebAssembly.LinkError`**-Objekt zeigt einen Fehler während der Modulinstanziierung an (abgesehen von [Fallen](https://webassembly.github.io/simd/core/intro/overview.html#trap) der Startfunktion).
 
 ## Konstruktor
 
 - [`WebAssembly.LinkError()`](/de/docs/WebAssembly/Reference/JavaScript_interface/LinkError/LinkError)
-  - : Erstellt ein neues `WebAssembly.LinkError` Objekt.
+  - : Erstellt ein neues `WebAssembly.LinkError`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - {{jsxref("Error.prototype.message", "WebAssembly.LinkError.prototype.message")}}
   - : Fehlermeldung. Geerbt von {{jsxref("Error")}}.
@@ -27,12 +27,12 @@ Das **`WebAssembly.LinkError`** Objekt weist auf einen Fehler während der Modul
 - {{jsxref("Error.prototype.columnNumber", "WebAssembly.LinkError.prototype.columnNumber")}} {{non-standard_inline}}
   - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.stack", "WebAssembly.LinkError.prototype.stack")}} {{non-standard_inline}}
-  - : Stapelverfolgung. Geerbt von {{jsxref("Error")}}.
+  - : Stack-Trace. Geerbt von {{jsxref("Error")}}.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.LinkError.prototype.toString()")}}
-  - : Gibt eine Zeichenkette zurück, die das angegebene `Error`-Objekt darstellt. Geerbt von {{jsxref("Error")}}.
+  - : Gibt eine Zeichenfolge zurück, die das angegebene `Error`-Objekt repräsentiert. Geerbt von {{jsxref("Error")}}.
 
 ## Beispiele
 
@@ -64,6 +64,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- [WebAssembly](/de/docs/WebAssembly) Übersicht
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Guides/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API)

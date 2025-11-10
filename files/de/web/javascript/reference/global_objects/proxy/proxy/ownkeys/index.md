@@ -1,32 +1,31 @@
 ---
 title: handler.ownKeys()
+short-title: ownKeys()
 slug: Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/ownKeys
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
 ---
 
-{{JSRef}}
-
-Die Methode **`handler.ownKeys()`** ist eine Trap für die `[[OwnPropertyKeys]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.keys()")}}, {{jsxref("Reflect.ownKeys()")}} usw. verwendet wird.
+Die **`handler.ownKeys()`**-Methode ist ein Trap für die `[[OwnPropertyKeys]]` [interne Methode des Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.keys()")}}, {{jsxref("Reflect.ownKeys()")}} usw. verwendet wird.
 
 {{InteractiveExample("JavaScript Demo: handler.ownKeys()", "taller")}}
 
 ```js interactive-example
-const monster1 = {
+const monster = {
   _age: 111,
   [Symbol("secret")]: "I am scared!",
   eyeCount: 4,
 };
 
-const handler1 = {
+const handler = {
   ownKeys(target) {
     return Reflect.ownKeys(target);
   },
 };
 
-const proxy1 = new Proxy(monster1, handler1);
+const proxy = new Proxy(monster, handler);
 
-for (const key of Object.keys(proxy1)) {
+for (const key of Object.keys(proxy)) {
   console.log(key);
   // Expected output: "_age"
   // Expected output: "eyeCount"
@@ -44,37 +43,37 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird der Methode `ownKeys()` übergeben. `this` ist an den Handler gebunden.
+Folgender Parameter wird an die Methode `ownKeys()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die Methode `ownKeys()` muss ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) zurückgeben, bei dem jedes Element entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}} ist, ohne doppelte Einträge.
+Die Methode `ownKeys()` muss ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) zurückgeben, bei dem jedes Element entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}} ist, wobei keine doppelten Einträge vorkommen.
 
 ## Beschreibung
 
-### Abfangmöglichkeiten
+### Interceptions
 
-Diese Trap kann folgende Operationen abfangen:
+Dieser Trap kann diese Operationen abfangen:
 
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Object.getOwnPropertySymbols()")}}
 - {{jsxref("Object.keys()")}}
 - {{jsxref("Reflect.ownKeys()")}}
 
-Oder jede andere Operation, die die interne Methode `[[OwnPropertyKeys]]` [aufruft](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods).
+Oder jede andere Operation, die die `[[OwnPropertyKeys]]` [interne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) aufruft.
 
 ### Invarianten
 
-Die interne Methode `[[OwnPropertyKeys]]` des Proxy löst einen {{jsxref("TypeError")}} aus, wenn die Definition des Handlers eine der folgenden Invarianten verletzt:
+Die `[[OwnPropertyKeys]]`-Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
 - Das Ergebnis ist ein {{jsxref("Object")}}.
 - Die Liste der Schlüssel enthält keine doppelten Werte.
 - Der Typ jedes Schlüssels ist entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}}.
-- Die Ergebnisliste muss die Schlüssel aller nicht konfigurierbaren eigenen Eigenschaften des Zielobjekts enthalten. Das heißt, für alle Schlüssel, die von {{jsxref("Reflect.ownKeys()")}} auf dem Zielobjekt zurückgegeben werden, muss der Schlüssel in der Ergebnisliste enthalten sein, wenn dieser Schlüssel durch {{jsxref("Reflect.getOwnPropertyDescriptor()")}} als `configurable: false` gemeldet wird.
-- Wenn das Zielobjekt nicht erweiterbar ist, muss die Ergebnisliste alle Schlüssel der eigenen Eigenschaften des Zielobjekts enthalten und keine anderen Werte. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt, muss die Ergebnisliste dieselben Werte enthalten wie das Ergebnis von {{jsxref("Reflect.ownKeys()")}} auf `target`.
+- Die Ergebnisliste muss die Schlüssel aller nicht konfigurierbaren eigenen Eigenschaften des Zielobjekts enthalten. Das heißt, für alle Schlüssel, die durch {{jsxref("Reflect.ownKeys()")}} auf dem Zielobjekt zurückgegeben werden, muss der Schlüssel enthalten sein, wenn der Schlüssel durch {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false` meldet.
+- Wenn das Zielobjekt nicht erweiterbar ist, muss die Ergebnisliste alle Schlüssel der eigenen Eigenschaften des Zielobjekts und keine anderen Werte enthalten. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt, muss die Ergebnisliste die gleichen Werte wie das Ergebnis von {{jsxref("Reflect.ownKeys()")}} auf `target` enthalten.
 
 ## Beispiele
 

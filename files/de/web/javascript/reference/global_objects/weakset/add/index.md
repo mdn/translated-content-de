@@ -1,26 +1,25 @@
 ---
 title: WeakSet.prototype.add()
+short-title: add()
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/add
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-{{JSRef}}
+Die **`add()`** Methode von {{jsxref("WeakSet")}} Instanzen fügt den angegebenen Wert in diese Menge ein, falls er noch nicht vorhanden ist.
 
-Die **`add()`**-Methode von {{jsxref("WeakSet")}}-Instanzen fügt ein neues Objekt am Ende dieses `WeakSet` hinzu.
-
-{{InteractiveExample("JavaScript Demo: WeakSet.Prototype.add()", "taller")}}
+{{InteractiveExample("JavaScript Demo: WeakSet.prototype.add()", "taller")}}
 
 ```js interactive-example
-const weakset1 = new WeakSet();
-const object1 = {};
+const weakset = new WeakSet();
+const object = {};
 
-weakset1.add(object1);
-console.log(weakset1.has(object1));
+weakset.add(object);
+console.log(weakset.has(object));
 // Expected output: true
 
 try {
-  weakset1.add(1);
+  weakset.add(1);
 } catch (error) {
   console.log(error);
   // Expected output (Chrome): TypeError: Invalid value used in weak set
@@ -38,20 +37,20 @@ add(value)
 ### Parameter
 
 - `value`
-  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Wert, der der `WeakSet`-Sammlung hinzugefügt wird.
+  - : Der Wert, der zum `WeakSet` Objekt hinzugefügt werden soll. Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Objekte werden nach {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
 
 ### Rückgabewert
 
-Das `WeakSet`-Objekt.
+Das `WeakSet` Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `value` weder ein Objekt noch ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+  - : Wird ausgelöst, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwendung von add
+### Verwendung von add()
 
 ```js
 const ws = new WeakSet();

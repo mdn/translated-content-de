@@ -2,18 +2,18 @@
 title: SVGTextPositioningElement
 slug: Web/API/SVGTextPositioningElement
 l10n:
-  sourceCommit: 5f7c22deaa74973658257aeaa012ac2ec0be87ae
+  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGTextPositioningElement`**-Schnittstelle wird von Elementen implementiert, die Attribute unterstützen, die einzelne Textglyphen positionieren. Sie wird von [`SVGTextElement`](/de/docs/Web/API/SVGTextElement), [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) und [`SVGTRefElement`](/de/docs/Web/API/SVGTRefElement) geerbt.
+Die **`SVGTextPositioningElement`**-Schnittstelle wird von Elementen implementiert, die Attribute unterstützen, die einzelne Textglyphen positionieren. Sie wird von [`SVGTextElement`](/de/docs/Web/API/SVGTextElement) und [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement) geerbt.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
+_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
 
 - [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x) {{ReadOnlyInline}}
   - : Gibt eine [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) zurück, die das {{SVGAttr("x")}}-Attribut des angegebenen Elements widerspiegelt.
@@ -26,9 +26,9 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGTextCont
 - [`SVGTextPositioningElement.rotate`](/de/docs/Web/API/SVGTextPositioningElement/rotate) {{ReadOnlyInline}}
   - : Gibt eine [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList) zurück, die das {{SVGAttr("rotate")}}-Attribut des angegebenen Elements widerspiegelt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, erbt aber Methoden von ihrem Elternteil, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
+_Diese Schnittstelle stellt keine spezifischen Methoden bereit, erbt jedoch Methoden von ihrem Elternteil, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
 
 ## Spezifikationen
 

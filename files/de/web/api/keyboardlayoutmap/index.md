@@ -2,16 +2,16 @@
 title: KeyboardLayoutMap
 slug: Web/API/KeyboardLayoutMap
 l10n:
-  sourceCommit: e92950d09467164afc9dfd8b35be9c909b63a8ab
+  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
 ---
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}
 
-Das **`KeyboardLayoutMap`**-Interface der [Keyboard API](/de/docs/Web/API/Keyboard_API) ist ein schreibgeschütztes Objekt mit Funktionen zum Abrufen des Strings, der mit bestimmten physischen Tasten verknüpft ist.
+Die **`KeyboardLayoutMap`**-Schnittstelle der [Keyboard API](/de/docs/Web/API/Keyboard_API) ist ein schreibgeschütztes Objekt mit Funktionen zum Abrufen des mit bestimmten physischen Tasten verknüpften Strings.
 
-Eine Instanz von `KeyboardLayoutMap` ist ein schreibgeschütztes [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel ein String ist, der die eindeutige physische Taste auf der Tastatur identifiziert (ein "Key-Code"), und der entsprechende Wert ist der zugehörige Schlüsselattributwert (der durch das Tastaturlayout und andere Faktoren beeinflusst werden kann).
+Eine `KeyboardLayoutMap`-Instanz ist ein schreibgeschütztes [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), in dem jeder Schlüssel eine Zeichenkette ist, die die eindeutige physische Taste auf der Tastatur identifiziert (ein "Keycode"), und der entsprechende Wert ist der zugeordnete Tastenattributwert (der möglicherweise durch das Tastaturlayout beeinflusst wird und so weiter).
 
-Eine Liste gültiger Schlüssel finden Sie in der Spezifikation der [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system).
+Eine Liste gültiger Tasten ist in der Spezifikation [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/) zu finden.
 
 ## Instanz-Eigenschaften
 
@@ -29,7 +29,7 @@ Eine Liste gültiger Schlüssel finden Sie in der Spezifikation der [UI Events K
 - [`KeyboardLayoutMap.get()`](/de/docs/Web/API/KeyboardLayoutMap/get) {{experimental_inline}}
   - : Gibt das Element mit dem angegebenen Schlüssel aus dem `KeyboardLayoutMap`-Objekt zurück.
 - [`KeyboardLayoutMap.has()`](/de/docs/Web/API/KeyboardLayoutMap/has) {{experimental_inline}}
-  - : Gibt einen Boolean zurück, der angibt, ob das `KeyboardLayoutMap`-Objekt ein Element mit dem angegebenen Schlüssel enthält.
+  - : Gibt einen Boolean zurück, der anzeigt, ob das `KeyboardLayoutMap`-Objekt ein Element mit dem angegebenen Schlüssel enthält.
 - [`KeyboardLayoutMap.keys()`](/de/docs/Web/API/KeyboardLayoutMap/keys) {{experimental_inline}}
   - : Gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück, das die Schlüssel für jeden Index im `KeyboardLayoutMap`-Objekt enthält.
 - [`KeyboardLayoutMap.values()`](/de/docs/Web/API/KeyboardLayoutMap/values) {{experimental_inline}}
@@ -37,7 +37,7 @@ Eine Liste gültiger Schlüssel finden Sie in der Spezifikation der [UI Events K
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der standort- oder layoutspezifische String abgerufen wird, der mit dem Tastencode übereinstimmt, der der Taste 'W' auf einer englischen QWERTY-Tastatur entspricht.
+Das folgende Beispiel demonstriert, wie der orts- oder layout-spezifische String abgerufen wird, der dem Tastaturcode entspricht, der der 'W'-Taste auf einer englischen QWERTY-Tastatur entspricht.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

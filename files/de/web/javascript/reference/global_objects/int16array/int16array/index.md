@@ -1,11 +1,10 @@
 ---
 title: Int16Array() Konstruktor
+short-title: Int16Array()
 slug: Web/JavaScript/Reference/Global_Objects/Int16Array/Int16Array
 l10n:
-  sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 Der **`Int16Array()`** Konstruktor erstellt {{jsxref("Int16Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
@@ -22,7 +21,8 @@ new Int16Array(buffer, byteOffset)
 new Int16Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Int16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> [!NOTE]
+> `Int16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -34,7 +34,7 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten zur Erstellung eines Int16Array
+### Verschiedene Möglichkeiten, eine Int16Array zu erstellen
 
 ```js
 // From a length

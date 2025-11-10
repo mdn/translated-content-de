@@ -1,27 +1,28 @@
 ---
-title: "Window: storage Ereignis"
+title: "Fenster: storage-Ereignis"
 short-title: storage
 slug: Web/API/Window/storage_event
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef}}
 
-Das **`storage`** Ereignis des [`Window`](/de/docs/Web/API/Window) Interfaces wird ausgelöst, wenn ein Speicherbereich (`localStorage` oder `sessionStorage`) im Kontext eines anderen Dokuments modifiziert wurde.
+Das **`storage`**-Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn ein anderes Dokument, das dieselbe Speichereinheit (entweder [`localStorage`](/de/docs/Web/API/Window/localStorage) oder [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage)) wie das aktuelle Fenster teilt, diese Speichereinheit aktualisiert. Das Ereignis wird _nicht_ auf dem Fenster ausgelöst, das die Änderung vorgenommen hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+- Bei `localStorage` wird das Ereignis in allen anderen {{Glossary("browsing_context", "Browsing-Kontexten")}} ausgelöst, die denselben Ursprung wie das auslösende Dokument haben. Dies schließt andere Tabs mit demselben Ursprung ein.
+- Bei `sessionStorage` wird das Ereignis in allen anderen {{Glossary("browsing_context", "Browsing-Kontexten")}} ausgelöst, die denselben Ursprung und denselben obersten Browsing-Kontext wie das auslösende Dokument haben. Dies schließt nur eingebettete iframes im selben Tab ein, jedoch nicht andere Tabs.
 
-> [!NOTE]
-> Dies funktioniert nicht im selben {{Glossary("browsing_context", "Browsing-Kontext")}}, der die Änderungen vornimmt — es ist wirklich eine Möglichkeit für andere Browsing-Kontexte auf der Domain, die den Speicher verwenden, jegliche vorgenommenen Änderungen zu synchronisieren. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergegeben.
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("storage", (event) => {});
-onstorage = (event) => {};
+```js-nolint
+addEventListener("storage", (event) => { })
+
+onstorage = (event) => { }
 ```
 
 ## Ereignistyp
@@ -34,23 +35,23 @@ Ein [`StorageEvent`](/de/docs/Web/API/StorageEvent). Erbt von [`Event`](/de/docs
 
 - [`key`](/de/docs/Web/API/StorageEvent/key) {{ReadOnlyInline}}
   - : Gibt einen String mit dem Schlüssel des geänderten Speicherelements zurück.
-    Das `key` Attribut ist `null`, wenn die Änderung durch die `clear()` Methode des Speichers verursacht wurde.
+    Das `key`-Attribut ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers verursacht wurde.
 - [`newValue`](/de/docs/Web/API/StorageEvent/newValue) {{ReadOnlyInline}}
   - : Gibt einen String mit dem neuen Wert des geänderten Speicherelements zurück.
-    Dieser Wert ist `null`, wenn die Änderung durch die `clear()` Methode des Speichers aufgerufen wurde
+    Dieser Wert ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers ausgelöst wurde,
     oder das Speicherelement aus dem Speicher entfernt wurde.
 - [`oldValue`](/de/docs/Web/API/StorageEvent/oldValue) {{ReadOnlyInline}}
   - : Gibt einen String mit dem ursprünglichen Wert des geänderten Speicherelements zurück.
     Dieser Wert ist `null`, wenn das Speicherelement neu hinzugefügt wurde
     und daher keinen vorherigen Wert hat.
 - [`storageArea`](/de/docs/Web/API/StorageEvent/storageArea) {{ReadOnlyInline}}
-  - : Gibt ein [`Storage`](/de/docs/Web/API/Storage) Objekt zurück, das das betroffene Speicherobjekt repräsentiert.
+  - : Gibt ein [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, das das betroffene Speicherobjekt darstellt.
 - [`url`](/de/docs/Web/API/StorageEvent/url) {{ReadOnlyInline}}
-  - : Gibt einen String mit der URL des Dokuments zurück, dessen Speicher geändert wurde.
+  - : Gibt einen String mit der URL des Dokuments zurück, dessen Speicher sich geändert hat.
 
-## Alias für Ereignishandler
+## Ereignishandler-Aliasse
 
-Zusätzlich zum `Window` Interface ist die Ereignishandler-Eigenschaft `onstorage` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zum `Window`-Interface ist die Ereignishandlereigenschaft `onstorage` auch auf den folgenden Zielen verfügbar:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -58,7 +59,7 @@ Zusätzlich zum `Window` Interface ist die Ereignishandler-Eigenschaft `onstorag
 
 ## Beispiele
 
-Protokollieren Sie das `sampleList` Element in der Konsole, wenn das `storage` Ereignis ausgelöst wird:
+Protokollieren Sie das `sampleList`-Element in der Konsole, wenn das `storage`-Ereignis ausgelöst wird:
 
 ```js
 window.addEventListener("storage", () => {
@@ -68,7 +69,7 @@ window.addEventListener("storage", () => {
 });
 ```
 
-Dieselbe Aktion kann mit der `onstorage` Ereignishandler-Eigenschaft erreicht werden:
+Die gleiche Aktion kann durch die Verwendung der `onstorage`-Ereignishandlereigenschaft erreicht werden:
 
 ```js
 window.onstorage = () => {
@@ -89,5 +90,5 @@ window.onstorage = () => {
 ## Siehe auch
 
 - [Web Storage API](/de/docs/Web/API/Web_Storage_API)
-- [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Reagieren auf Speicheränderungen mit dem StorageEvent](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)
+- [Die Web Storage API verwenden](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+- [Auf Speicheränderungen mit dem StorageEvent reagieren](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)

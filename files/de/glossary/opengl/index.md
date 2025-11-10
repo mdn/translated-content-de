@@ -2,12 +2,10 @@
 title: OpenGL
 slug: Glossary/OpenGL
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-**OpenGL** (**Open Graphics Library**) ist eine plattformübergreifende Anwendungsprogrammierschnittstelle (API) zur Darstellung von 2D- und 3D-Vektorgrafiken. Die API wird typischerweise verwendet, um mit einer Grafikeinheit (GPU) zu interagieren, um hardwarebeschleunigtes Rendering zu erreichen.
+**OpenGL** (**Open Graphics Library**) ist eine plattformübergreifende Anwendungsprogrammierschnittstelle (API) zur Darstellung von 2D- und 3D-Vektorgrafiken. Die API wird typischerweise verwendet, um mit einer Grafikverarbeitungseinheit (GPU) zu interagieren, um hardwarebeschleunigtes Rendering zu erreichen.
 
 ## Siehe auch
 

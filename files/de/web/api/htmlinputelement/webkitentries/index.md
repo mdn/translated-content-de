@@ -3,28 +3,25 @@ title: "HTMLInputElement: webkitEntries-Eigenschaft"
 short-title: webkitEntries
 slug: Web/API/HTMLInputElement/webkitEntries
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`webkitEntries`**
-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle enthält ein Array von Dateisystemeinträgen (als Objekte basierend auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)), welche die vom Benutzer ausgewählten Dateien und/oder Verzeichnisse darstellen, wenn ein {{HTMLElement("input")}}-Element vom Typ `file` verwendet wird, wobei die Auswahl durch Drag-and-Drop erfolgt ist: die Auswahl einer Datei im Dialogfeld lässt die Eigenschaft leer.
+Die schreibgeschützte **`webkitEntries`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle enthält ein Array von Dateisystemeinträgen (als Objekte basierend auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)), die Dateien und/oder Verzeichnisse darstellen, die vom Benutzer mit einem {{HTMLElement("input")}}-Element vom Typ `file` ausgewählt wurden, allerdings nur, wenn diese Auswahl per Drag-and-Drop erfolgt ist: Die Auswahl einer Datei im Dialogfenster lässt die Eigenschaft leer.
 
-Das Array kann nur Verzeichnisse enthalten, wenn die
-[`webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory)-Eigenschaft auf
-`true` gesetzt ist. Das bedeutet, dass das `<input>`-Element so konfiguriert wurde, dass der Benutzer Verzeichnisse auswählen kann.
+Das Array kann nur Verzeichnisse enthalten, wenn die [`webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory)-Eigenschaft `true` ist. Dies bedeutet, dass das `<input>`-Element so konfiguriert wurde, dass es dem Benutzer erlaubt, Verzeichnisse auszuwählen.
 
 > [!NOTE]
-> Diese Eigenschaft heißt `webkitEntries` in der Spezifikation aufgrund ihrer Herkunft als Google Chrome-spezifische API. Es ist wahrscheinlich, dass sie eines Tages umbenannt wird.
+> Diese Eigenschaft wird in der Spezifikation `webkitEntries` genannt aufgrund ihrer Ursprünge als API spezifisch für Google Chrome. Es ist wahrscheinlich, dass sie eines Tages umbenannt wird.
 
 ## Wert
 
-Ein Array von Objekten basierend auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), wobei jedes Objekt eine Datei repräsentiert, die im {{HTMLElement("input")}}-Element ausgewählt wurde. Genauer gesagt, werden Dateien durch [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Objekte dargestellt, und, wenn erlaubt, Verzeichnisse durch [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekte.
+Ein Array von Objekten basierend auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), von denen jedes eine Datei darstellt, die im {{HTMLElement("input")}}-Element ausgewählt wurde. Genauer gesagt, werden Dateien durch [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Objekte dargestellt und, wenn erlaubt, Verzeichnisse durch [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekte.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man ein Dateiauswahl-`<input>`-Element erstellt und die ausgewählten Dateien verarbeitet.
+Dieses Beispiel zeigt, wie man ein Datei-Auswahl-`<input>`-Element erstellt und die ausgewählten Dateien verarbeitet.
 
 ### HTML
 
@@ -42,7 +39,7 @@ document.getElementById("files").addEventListener("change", (event) => {
 });
 ```
 
-Jedes Mal, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auftritt, durchläuft dieser Code die ausgewählten Dateien, erhält ihre auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basierenden Objekte und verarbeitet sie.
+Jedes Mal, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis eintritt, iteriert dieser Code über die ausgewählten Dateien, erhält ihre [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-basierten Objekte und agiert auf diese.
 
 ## Spezifikationen
 
@@ -55,7 +52,6 @@ Jedes Mal, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereign
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Einführung in die File und Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
 - [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)
 - [`FileSystem`](/de/docs/Web/API/FileSystem)

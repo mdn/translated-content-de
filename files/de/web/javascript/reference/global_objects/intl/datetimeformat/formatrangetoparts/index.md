@@ -1,13 +1,12 @@
 ---
 title: Intl.DateTimeFormat.prototype.formatRangeToParts()
+short-title: formatRangeToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRangeToParts
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`formatRangeToParts()`**-Methode von {{jsxref("Intl.DateTimeFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings repräsentieren, der von {{jsxref("Intl/DatetimeFormat/formatRange", "formatRange()")}} zurückgegeben würde. Dies ist nützlich für die Erstellung benutzerdefinierter Strings aus lokalisierten Tokens.
+Die **`formatRangeToParts()`** Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings repräsentieren, der von {{jsxref("Intl/DatetimeFormat/formatRange", "formatRange()")}} zurückgegeben würde. Sie ist nützlich für den Aufbau benutzerdefinierter Strings aus den lokal-spezifischen Tokens.
 
 {{InteractiveExample("JavaScript Demo: Intl.DateTimeFormat.prototype.formatRangeToParts()", "taller")}}
 
@@ -45,30 +44,30 @@ formatRangeToParts(startDate, endDate)
 ### Parameter
 
 - `startDate`
-  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}}- oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt sein, falls das `DateTimeFormat`-Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums ausgibt.
+  - : Der Beginn des Datumsbereichs. Kann ein {{jsxref("Date")}} oder ein {{jsxref("Temporal.PlainDateTime")}} Objekt sein. Zusätzlich kann es ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}} Objekt sein, wenn das `DateTimeFormat` Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums anzeigt.
     > [!NOTE]
-    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt wirft immer einen `TypeError`. Verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
+    > Ein {{jsxref("Temporal.ZonedDateTime")}} Objekt wird immer einen `TypeError` auslösen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}} Objekt.
 - `endDate`
-  - : Das Ende des Datumsbereichs. Muss denselben Typ wie `startDate` haben.
+  - : Das Ende des Datumsbereichs. Muss den gleichen Typ wie `startDate` haben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die den formatierten Datumsbereich in Teilen enthalten. Jedes Objekt hat drei Eigenschaften: `type`, `value` und `source`, die jeweils einen String enthalten. Die Verkettung der `value`-Strings in der angegebenen Reihenfolge ergibt denselben String wie {{jsxref("Intl/DateTimeFormat/formatRange", "formatRange()")}}. Der `type` kann dieselben Werte haben wie {{jsxref("Intl/DateTimeFormat/formatToParts", "formatToParts()")}}. Der `source` kann eine der folgenden sein:
+Ein {{jsxref("Array")}} von Objekten, das den formatierten Datumsbereich in Teilen enthält. Jedes Objekt hat drei Eigenschaften, `type`, `value` und `source`, die jeweils einen String enthalten. Die String-Konkatenation von `value`, in der angegebenen Reihenfolge, ergibt den gleichen String wie {{jsxref("Intl/DateTimeFormat/formatRange", "formatRange()")}}. Der `type` kann die gleichen Werte haben wie {{jsxref("Intl/DateTimeFormat/formatToParts", "formatToParts()")}}. Die `source` kann einer der folgenden sein:
 
 - `startRange`
-  - : Der Token ist ein Teil des Startdatums.
+  - : Das Token ist ein Teil des Startdatums.
 - `endRange`
-  - : Der Token ist ein Teil des Enddatums.
+  - : Das Token ist ein Teil des Enddatums.
 - `shared`
-  - : Der Token wird zwischen Start und Ende geteilt; beispielsweise, wenn die Start- und Enddaten denselben Tageszeitraum teilen, kann dieser Token wiederverwendet werden. Alle Literale, die Teil des Bereichsmusters selbst sind, wie der `" – "`-Separator, werden ebenfalls als `shared` markiert.
+  - : Das Token wird zwischen Start und Ende gemeinsam verwendet; zum Beispiel, wenn das Start- und Enddatum denselben Tageszeitraum teilen, kann dieses Token wiederverwendet werden. Alle Literale, die Teil des Bereichsmusters selbst sind, wie der `" – "` Separator, werden auch als `shared` markiert.
 
-Wenn das Start- und Enddatum bei der Ausgabepräzision gleich sind, hat die Ausgabe dieselbe Liste von Tokens wie der Aufruf von {{jsxref("Intl/DateTimeFormat/formatToParts", "formatToParts()")}} für das Startdatum, wobei alle Tokens als `source: "shared"` markiert sind.
+Wenn die Start- und Enddaten bei der Präzision der Ausgabe gleichwertig sind, hat die Ausgabe die gleiche Liste von Tokens wie bei einem Aufruf von {{jsxref("Intl/DateTimeFormat/formatToParts", "formatToParts()")}} auf das Startdatum, mit allen Tokens markiert als `source: "shared"`.
 
 ## Beispiele
 
 ### Verwendung von formatRangeToParts()
 
-Die Methode `formatRange()` gibt lokalisierte, undurchsichtige Strings aus, die nicht direkt manipuliert werden können:
+Die `formatRange()` Methode gibt lokalisierte, undurchsichtige Strings aus, die nicht direkt manipuliert werden können:
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT
@@ -82,7 +81,7 @@ const fmt = new Intl.DateTimeFormat("en", {
 console.log(fmt.formatRange(date1, date2)); // '10:00 – 11:00 AM'
 ```
 
-In vielen Benutzeroberflächen möchten Sie jedoch die Formatierung dieses Strings anpassen oder ihn mit anderen Texten mischen. Die Methode `formatRangeToParts()` liefert dieselben Informationen in Teilen:
+In vielen Benutzeroberflächen möchten Sie jedoch möglicherweise das Format dieses Strings anpassen oder es mit anderen Texten verweben. Die `formatRangeToParts()` Methode liefert die gleichen Informationen in Teilen:
 
 ```js
 console.log(fmt.formatRangeToParts(date1, date2));

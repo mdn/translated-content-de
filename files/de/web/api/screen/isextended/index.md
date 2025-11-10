@@ -3,21 +3,21 @@ title: "Screen: isExtended-Eigenschaft"
 short-title: isExtended
 slug: Web/API/Screen/isExtended
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`isExtended`** der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle gibt `true` zurück, wenn das Gerät des Benutzers mehrere Bildschirme hat, und `false`, wenn nicht.
+Die **`isExtended`**-Eigenschaft der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle gibt `true` zurück, wenn das Gerät des Nutzers mehrere Bildschirme hat, und `false`, wenn nicht.
 
-Diese Eigenschaft wird typischerweise über `window.screen.isExtended` abgerufen und kann verwendet werden, um zu testen, ob mehrere Bildschirme verfügbar sind, bevor versucht wird, mit der [Window Management API](/de/docs/Web/API/Window_Management_API) ein Layout mit mehreren Fenstern und Bildschirmen zu erstellen.
+Auf diese Eigenschaft wird typischerweise über `window.screen.isExtended` zugegriffen und sie kann verwendet werden, um zu testen, ob mehrere Bildschirme verfügbar sind, bevor versucht wird, ein Mehrfenster-Layout mit mehreren Bildschirmen unter Verwendung der [Window Management API](/de/docs/Web/API/Window_Management_API) zu erstellen.
 
 ## Wert
 
-Ein Boolescher Wert — `true`, wenn das Gerät mehrere Bildschirme hat, und `false`, wenn nicht.
+Ein boolescher Wert — `true`, wenn das Gerät mehrere Bildschirme hat, und `false`, wenn nicht.
 
 > [!NOTE]
-> Wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) gesetzt ist, die die Nutzung der Window Management API blockiert, wird `isExtended` immer `false` zurückgeben.
+> Wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) festgelegt wurde, die die Verwendung der Window Management API blockiert, wird `isExtended` immer `false` zurückgeben.
 
 ## Beispiele
 

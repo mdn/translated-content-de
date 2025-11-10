@@ -3,9 +3,9 @@ title: URI-Referenz
 short-title: Reference
 slug: Web/URI/Reference
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: be9ba40fbef7f96beae73e5dd6d48a3ca875826f
 ---
 
-Diese Seite enthält Referenzdokumentation für URIs.
+Diese Seite listet die Referenzdokumentation für URIs und die Komponenten, aus denen ein URI besteht.
 
 {{SubPagesWithSummaries}}

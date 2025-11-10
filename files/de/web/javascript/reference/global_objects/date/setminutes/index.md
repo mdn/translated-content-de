@@ -1,15 +1,14 @@
 ---
 title: Date.prototype.setMinutes()
+short-title: setMinutes()
 slug: Web/JavaScript/Reference/Global_Objects/Date/setMinutes
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: b3840f6234d24ade72a43171fd6489dd533aaf15
 ---
 
-{{JSRef}}
+Die Methode **`setMinutes()`** von {{jsxref("Date")}}-Instanzen ändert die Minuten für dieses Datum entsprechend der Ortszeit.
 
-Die Methode **`setMinutes()`** von {{jsxref("Date")}}-Instanzen ändert die Minuten dieses Datums entsprechend der lokalen Zeit.
-
-{{InteractiveExample("JavaScript Demo: Date.setMinutes()")}}
+{{InteractiveExample("JavaScript Demo: Date.prototype.setMinutes()")}}
 
 ```js interactive-example
 const event = new Date("August 19, 1975 23:15:30");
@@ -35,25 +34,29 @@ setMinutes(minutesValue, secondsValue, msValue)
 ### Parameter
 
 - `minutesValue`
-  - : Eine ganze Zahl zwischen 0 und 59, die die Minuten repräsentiert.
+  - : Ein ganzzahliger Wert zwischen 0 und 59, der die Minuten darstellt.
 - `secondsValue` {{optional_inline}}
-  - : Eine ganze Zahl zwischen 0 und 59, die die Sekunden repräsentiert. Wenn Sie `secondsValue` angeben, müssen Sie auch `minutesValue` angeben.
+  - : Ein ganzzahliger Wert zwischen 0 und 59, der die Sekunden darstellt. Wenn Sie `secondsValue` angeben, müssen Sie auch `minutesValue` angeben.
 - `msValue` {{optional_inline}}
-  - : Eine ganze Zahl zwischen 0 und 999, die die Millisekunden repräsentiert. Wenn Sie `msValue` angeben, müssen Sie auch `minutesValue` und `secondsValue` angeben.
+  - : Ein ganzzahliger Wert zwischen 0 und 999, der die Millisekunden darstellt. Wenn Sie `msValue` angeben, müssen Sie auch `minutesValue` und `secondsValue` angeben.
 
 ### Rückgabewert
 
-Ändert das {{jsxref("Date")}}-Objekt an Ort und Stelle und gibt dessen neuen [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` (oder andere Werte, die zu `NaN` [konvertiert werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), wie z. B. `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` zurückgegeben.
+Ändert das {{jsxref("Date")}}-Objekt an Ort und Stelle und gibt dessen neuen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn ein Parameter `NaN` ist (oder andere Werte, die zu `NaN` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Invalid Date](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Wenn Sie die Parameter `secondsValue` und `msValue` nicht angeben, werden die gleichen Werte verwendet, die von {{jsxref("Date/getSeconds", "getSeconds()")}} und {{jsxref("Date/getMilliseconds", "getMilliseconds()")}} zurückgegeben werden.
+Wenn Sie die Parameter `secondsValue` und `msValue` nicht angeben, werden dieselben Werte wie die, die von {{jsxref("Date/getSeconds", "getSeconds()")}} und {{jsxref("Date/getMilliseconds", "getMilliseconds()")}} zurückgegeben werden, verwendet.
 
-Wenn ein angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Zum Beispiel: Wenn Sie 100 für `secondsValue` angeben, wird die Minute um 1 erhöht (`minutesValue + 1`), und 40 wird für die Sekunden verwendet.
+Wenn ein von Ihnen angegebener Parameter außerhalb des erwarteten Bereichs liegt, werden andere Parameter und die Datumsinformationen im {{jsxref("Date")}}-Objekt entsprechend aktualisiert. Wenn Sie zum Beispiel 100 für `secondsValue` angeben, wird die Minute um 1 erhöht (`minutesValue + 1`), und 40 wird für die Sekunden verwendet.
+
+Da `setMinutes()` auf die Ortszeit wirkt, kann das Überqueren einer Sommerzeitgrenze (DST) zu einer anderen verstrichenen Zeit als erwartet führen. Zum Beispiel, wenn durch das Setzen der Minuten ein „Vorstellen“ im Frühling (eine Stunde verloren) überquert wird, ist die Differenz in den Zeitstempeln zwischen dem neuen und dem alten Datum um eine Stunde weniger als der nominale Zeitunterschied. Umgekehrt führt das Überqueren eines „Zurück“-Übergangs im Herbst (eine Stunde gewonnen) zu einer zusätzlichen Stunde. Wenn Sie das Datum um einen festen Zeitbetrag anpassen müssen, sollten Sie {{jsxref("Date/setUTCMinutes", "setUTCMinutes()")}} oder {{jsxref("Date/setTime", "setTime()")}} verwenden.
+
+Wenn die neue Ortszeit innerhalb eines Offset-Übergangs liegt, wird die genaue Zeit mit demselben Verhalten wie die Option [`disambiguation: "compatible"`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) von `Temporal` abgeleitet. Das heißt, wenn die Ortszeit zwei Zeitpunkte entspricht, wird der frühere gewählt; wenn die Ortszeit nicht existiert (es gibt eine Lücke), springen wir um die Dauer der Lücke vor.
 
 ## Beispiele
 
-### Verwenden von setMinutes()
+### Verwendung von setMinutes()
 
 ```js
 const theBigDay = new Date();

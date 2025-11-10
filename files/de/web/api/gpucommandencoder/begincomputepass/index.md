@@ -3,13 +3,12 @@ title: "GPUCommandEncoder: beginComputePass() Methode"
 short-title: beginComputePass()
 slug: Web/API/GPUCommandEncoder/beginComputePass
 l10n:
-  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`beginComputePass()`** Methode der
-[`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle beginnt mit der Kodierung eines Compute-Durchlaufs und gibt einen [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) zurück, der zur Steuerung der Berechnung verwendet werden kann.
+Die **`beginComputePass()`** Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle startet die Kodierung eines Compute-Passes und gibt einen [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) zurück, der zur Steuerung der Berechnung verwendet werden kann.
 
 ## Syntax
 
@@ -22,41 +21,40 @@ beginComputePass(descriptor)
 
 - `descriptor` {{optional_inline}}
 
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `label` {{optional_inline}}
-      - : Ein Zeichenfolgenwert, der ein Label bereitstellt, das zur Identifikation des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen zu identifizieren.
     - `timestampWrites` {{optional_inline}}
 
-      - : Ein Array von Objekten, die definieren, wo und wann Zeitstempel-Abfragewerte für diesen Durchlauf geschrieben werden. Diese Objekte haben die folgenden Eigenschaften:
+      - : Ein Array von Objekten, das definiert, wo und wann Zeitstempelabfrage-Werte für diesen Pass geschrieben werden. Diese Objekte haben die folgenden Eigenschaften:
 
-        - `location`: Ein enumerierter Wert, der angibt, wann der Zeitstempel ausgeführt wird. Verfügbare Werte sind:
-          - `"beginning"`: Der Zeitstempel wird zusammen mit den anderen kodierten Befehlen im Compute-Durchlauf ausgeführt, sobald der entsprechende [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) übermittelt wird.
-          - `"end"`: Der Zeitstempel wird als Teil einer separaten Liste von Zeitstempel-Anhängen ausgeführt, sobald der Durchlauf endet.
-        - `queryIndex`: Eine Nummer, die die Indexposition im `querySet` angibt, an die der Zeitstempel geschrieben wird.
-        - `querySet`: Das [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), in das der Zeitstempel geschrieben wird.
+        - `querySet`
+          - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) vom Typ `"timestamp"`, zu dem die Ergebnisse der Zeitstempelabfrage geschrieben werden.
+        - `beginningOfPassWriteIndex`
+          - : Eine Zahl, die den Abfrageindex in `querySet` angibt, an dem der Zeitstempel zu Beginn des Render-Passes geschrieben wird. Dies ist optional - wenn nicht definiert, wird kein Zeitstempel für den Beginn des Passes geschrieben.
+        - `endOfPassWriteIndex`
+          - : Eine Zahl, die den Abfrageindex in `querySet` angibt, an dem der Zeitstempel am Ende des Render-Passes geschrieben wird. Dies ist optional - wenn nicht definiert, wird kein Zeitstempel für das Ende des Passes geschrieben.
 
         > [!NOTE]
-        > Die `timestamp-query` [Funktionalität](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Zeitstempel-Abfragen zu verwenden.
+        > Das `timestamp-query` [Feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Zeitstempelabfragen zu verwenden. Zeitstempelabfrage-Werte werden in Nanosekunden geschrieben, aber wie der Wert ermittelt wird, ist implementationsspezifisch.
 
 ### Rückgabewert
 
-Eine Instanz des [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Objekts.
+Ein [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufrufen von **`beginComputePass()`** erfüllt sein. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiger [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird zurückgegeben:
+Die folgenden Kriterien müssen beim Aufruf von **`beginComputePass()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiger [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) zurückgegeben:
 
-- Die `timestamp-query` [Funktionalität](/de/docs/Web/API/GPUSupportedFeatures) ist im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert.
-- Keine zwei `timestampWrites`-Objekte dürfen dieselbe `location` haben. Dies bedeutet, dass Sie effektive nur zwei Zeitstempel-Abfragen pro Renderdurchlauf ausführen können.
-- Für jede Zeitstempel-Abfrage muss der `querySet` [`GPUQuerySet.type`](/de/docs/Web/API/GPUQuerySet/type) `"timestamp"` sein, und der `queryIndex`-Wert muss kleiner als die [`GPUQuerySet.count`](/de/docs/Web/API/GPUQuerySet/count) sein.
+- Das `timestamp-query` [Feature](/de/docs/Web/API/GPUSupportedFeatures) ist im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert.
 
 ## Beispiele
 
-In unserem [Grundlagen-Beispiel für Compute](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen aus dem über `beginComputePass()` erstellten [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder).
+In unserem [einfachen Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über `beginComputePass()` erstellt wurde.
 
 ```js
-// ...
+// …
 
 // Create GPUCommandEncoder to encode commands to issue to the GPU
 const commandEncoder = device.createCommandEncoder();
@@ -84,7 +82,7 @@ commandEncoder.copyBufferToBuffer(
 // End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
-// ...
+// …
 ```
 
 ## Spezifikationen

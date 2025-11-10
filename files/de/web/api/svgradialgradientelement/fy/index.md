@@ -3,14 +3,14 @@ title: "SVGRadialGradientElement: fy-Eigenschaft"
 short-title: fy
 slug: Web/API/SVGRadialGradientElement/fy
 l10n:
-  sourceCommit: 40279617fd5bb8ab277d10bbf3637bfc3aa2b991
+  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
 ---
 
 {{APIRef("SVG")}}
 
-Die **`fy`**-Eigenschaft der [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Schnittstelle beschreibt die y-Achsen-Koordinate des Brennpunkts des radialen Verlaufs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("fy")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
+Die schreibgeschützte Eigenschaft **`fy`** des [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)-Interfaces beschreibt die y-Achsen-Koordinate des Brennpunkts des radialen Gradienten als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength). Sie spiegelt den berechneten Wert des {{SVGAttr("fy")}}-Attributs auf dem {{SVGElement("radialGradient")}}-Element wider.
 
-Der Attributwert ist ein [`<length>`](/de/docs/Web/SVG/Content_type#length), [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage) oder [`<number>`](/de/docs/Web/SVG/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Brennpunkts des radialen Verlaufs im Benutzerkoordinatensystem.
+Der Attributwert ist ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length), [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage) oder [`\<number>`](/de/docs/Web/SVG/Guides/Content_type#number). Der numerische Wert des [`SVGAnimatedLength.baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) ist die y-Koordinate des Brennpunktes des radialen Gradienten im Benutzerkoordinatensystem.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Beispiel
 
-Gegeben ist das folgende SVG:
+Bei folgendem SVG:
 
 ```html
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ Gegeben ist das folgende SVG:
 </svg>
 ```
 
-Wir können die berechneten Werte der `fy`-Attribute abrufen:
+können wir auf die berechneten Werte der `fy`-Attribute zugreifen:
 
 ```js
 const radialGradients = document.querySelectorAll("radialGradient");

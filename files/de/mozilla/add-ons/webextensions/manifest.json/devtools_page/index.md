@@ -2,10 +2,8 @@
 title: devtools_page
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page
 l10n:
-  sourceCommit: d596fa52a398798a9812258064a49faf75a3ef99
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
-
-{{AddonSidebar}}
 
 <table class="fullwidth-table standard-table">
   <tbody>
@@ -14,7 +12,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -30,13 +28,13 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie diesen Schlüssel, um Ihre Erweiterung dazu zu befähigen, die integrierten Entwicklerwerkzeuge des Browsers zu erweitern.
+Verwenden Sie diesen Schlüssel, um Ihre Erweiterung zu aktivieren, die integrierten Entwicklertools des Browsers zu erweitern.
 
-Dieser Schlüssel wird als URL zu einer HTML-Datei definiert. Die HTML-Datei muss mit der Erweiterung gebündelt werden, und die URL ist relativ zum Stammverzeichnis der Erweiterung.
+Dieser Schlüssel ist als URL zu einer HTML-Datei definiert. Die HTML-Datei muss mit der Erweiterung gebündelt werden, und die URL ist relativ zum Stamm der Erweiterung.
 
-Die Verwendung dieses Manifest-Schlüssels löst [eine Berechtigungswarnung während der Installation bezüglich der Entwicklerwerkzeuge](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) aus. Um eine Berechtigungswarnung während der Installation zu vermeiden, kennzeichnen Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) Manifest-Schlüssel auflisten.
+Die Verwendung dieses Manifest-Schlüssels löst eine [Installationszeit-Berechtigungswarnung zu den Entwicklertools](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) aus. Um eine Installationszeit-Berechtigungswarnung zu vermeiden, markieren Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im Manifest-Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) auflisten.
 
-Siehe [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools) um mehr zu erfahren.
+Weitere Informationen finden Sie unter [Erweiterung der Entwicklertools](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
 
 ## Beispiel
 

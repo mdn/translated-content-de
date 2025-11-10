@@ -3,12 +3,12 @@ title: "XRMediaBinding: XRMediaBinding() Konstruktor"
 short-title: XRMediaBinding()
 slug: Web/API/XRMediaBinding/XRMediaBinding
 l10n:
-  sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Der **`XRMediaBinding()`** Konstruktor erzeugt und gibt ein neues [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding) Objekt zurück.
+Der **`XRMediaBinding()`** Konstruktor erstellt und gibt ein neues [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding)-Objekt zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new XRMediaBinding(session)
 ### Parameter
 
 - `session`
-  - : Ein [`XRSession`](/de/docs/Web/API/XRSession) Objekt, das die WebXR-Sitzung angibt, für die die Medienbindung erstellt werden soll.
+  - : Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das die WebXR-Sitzung angibt, für die die Medienbindung erstellt werden soll.
 
 ### Rückgabewert
 
@@ -28,17 +28,15 @@ Ein neu erstelltes [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-
-  - : Wird ausgelöst, wenn das neue `XRMediaBinding` aufgrund eines der mehreren möglichen Zustandsfehler nicht erstellt werden konnte:
-
+  - : Wird ausgelöst, wenn das neue `XRMediaBinding` aufgrund eines oder mehrerer möglicher Zustandsfehler nicht erstellt werden konnte:
     - Die durch `session` angegebene [`XRSession`](/de/docs/Web/API/XRSession) wurde bereits gestoppt.
     - Die angegebene `session` ist nicht immersiv.
 
 ## Beispiele
 
-### Erstellen eines neuen `XRMediaBinding`
+### Erstellen einer neuen `XRMediaBinding`
 
-Das folgende Beispiel erstellt eine neue Medienbindung für eine Sitzung, um eine [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) zu erzeugen und eine Videolayer in der Szene anzuzeigen.
+Das folgende Beispiel erstellt eine neue Medienbindung für eine Sitzung, um eine [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) zu erstellen, die eine Videoebene in der Szene anzeigt.
 
 ```js
 const xrMediaBinding = new XRMediaBinding(xrSession);

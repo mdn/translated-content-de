@@ -3,18 +3,18 @@ title: "HTMLMeterElement: labels-Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLMeterElement/labels
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}
 
 Die **`HTMLMeterElement.labels`** schreibgeschützte Eigenschaft gibt eine
-[`NodeList`](/de/docs/Web/API/NodeList) der zugehörigen {{HTMLElement("label")}}-Elemente zurück, die mit dem
+[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
 {{HTMLElement("meter")}}-Element verbunden sind.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<meter>`-Element verbundenen `<label>`-Elemente enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<meter>`-Element verbunden sind.
 
 ## Beispiele
 
@@ -29,15 +29,13 @@ Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<meter>`-Element 
 ### JavaScript
 
 ```js
-window.addEventListener("DOMContentLoaded", () => {
-  const meter = document.getElementById("test");
-  for (const label of meter.labels) {
-    console.log(label.textContent); // "Label 1" and "Label 2"
-  }
-});
+const meter = document.getElementById("test");
+for (const label of meter.labels) {
+  console.log(label.textContent); // "Label 1" and "Label 2"
+}
 ```
 
-{{EmbedLiveSample("Beispiele", "100%", 30)}}
+{{EmbedLiveSample("Examples", "100%", 30)}}
 
 ## Spezifikationen
 

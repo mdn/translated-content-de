@@ -3,14 +3,14 @@ title: "HTMLMeterElement: max-Eigenschaft"
 short-title: max
 slug: Web/API/HTMLMeterElement/max
 l10n:
-  sourceCommit: f36d86d713e8757d5786bbc86eccf123bc1fec67
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`max`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert den maximalen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`max`](/de/docs/Web/HTML/Element/meter#max)-Attribut des Elements wider oder den `min`-Wert, wenn kein `max` gesetzt ist, oder `1`, wenn weder `min` noch `max` definiert sind.
+Die **`max`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert den maximalen Wert des {{htmlelement("meter")}}-Elements als Fließkommazahl. Sie spiegelt das [`max`](/de/docs/Web/HTML/Reference/Elements/meter#max)-Attribut des Elements wider oder den `min`-Wert, wenn kein `max` gesetzt ist, oder `1`, wenn weder `min` noch `max` definiert sind.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
 
 ## Wert
 

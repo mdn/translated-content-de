@@ -1,14 +1,14 @@
 ---
-title: "HTMLDialogElement: show()-Methode"
+title: "HTMLDialogElement: show() Methode"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
-  sourceCommit: d4ef52651257b64f9298fb34db82071f605a3fae
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces zeigt das Dialogfeld modelless an, d.h., sie erlaubt weiterhin die Interaktion mit dem Inhalt außerhalb des Dialogs.
+Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt das Dialogfeld modelless an, d.h. sie ermöglicht weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet ist und modal ist (d.h., wenn das Dialogfeld bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
+  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet und modal ist (d.h. wenn das Dialogfeld bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Anklicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()`-Methode öffnet. Von dort aus können Sie entweder den _Abbrechen_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Absenden-Button einreichen.
+Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()` Methode öffnet. Von dort aus können Sie den _Cancel_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über den Absenden-Button einreichen.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
@@ -49,44 +49,44 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Anklicken ein {{htm
       </p>
     </section>
     <menu>
-      <button id="cancel" type="reset">Cancel</button>
-      <button type="submit">Confirm</button>
+      <li>
+        <button type="reset">Reset</button>
+      </li>
+      <li>
+        <button type="submit">Confirm</button>
+      </li>
     </menu>
   </form>
 </dialog>
 
-<menu>
-  <button id="updateDetails">Update details</button>
-</menu>
+<button id="updateDetails">Update details</button>
+```
 
-<script>
-  (() => {
-    const updateButton = document.getElementById("updateDetails");
-    const cancelButton = document.getElementById("cancel");
-    const dialog = document.getElementById("favDialog");
-    dialog.returnValue = "favAnimal";
+```js
+const updateButton = document.getElementById("updateDetails");
+const cancelButton = document.getElementById("cancel");
+const dialog = document.getElementById("favDialog");
+dialog.returnValue = "favAnimal";
 
-    function openCheck(dialog) {
-      if (dialog.open) {
-        console.log("Dialog open");
-      } else {
-        console.log("Dialog closed");
-      }
-    }
+function openCheck(dialog) {
+  if (dialog.open) {
+    console.log("Dialog open");
+  } else {
+    console.log("Dialog closed");
+  }
+}
 
-    // Update button opens a modeless dialog
-    updateButton.addEventListener("click", () => {
-      dialog.show();
-      openCheck(dialog);
-    });
+// Update button opens a modeless dialog
+updateButton.addEventListener("click", () => {
+  dialog.show();
+  openCheck(dialog);
+});
 
-    // Form cancel button closes the dialog box
-    cancelButton.addEventListener("click", () => {
-      dialog.close("animalNotChosen");
-      openCheck(dialog);
-    });
-  })();
-</script>
+// Form cancel button closes the dialog box
+cancelButton.addEventListener("click", () => {
+  dialog.close("animalNotChosen");
+  openCheck(dialog);
+});
 ```
 
 ## Spezifikationen

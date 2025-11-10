@@ -1,21 +1,20 @@
 ---
 title: Intl.NumberFormat.supportedLocalesOf()
+short-title: supportedLocalesOf()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/supportedLocalesOf
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-{{JSRef}}
+Die statische Methode **`Intl.NumberFormat.supportedLocalesOf()`** gibt ein Array zurück, das die von den angegebenen Gebietsschemata enthält, die ohne Rückgriff auf das Standardgebietsschema der Laufzeit bei der Zahlenformatierung unterstützt werden.
 
-Die **`Intl.NumberFormat.supportedLocalesOf()`** statische Methode gibt ein Array zurück, das diejenigen der bereitgestellten `locales` enthält, die bei der Zahlenformatierung ohne Rückgriff auf die Standard-`locale` der Laufzeitumgebung unterstützt werden.
-
-{{InteractiveExample("JavaScript Demo: Intl.NumberFormat.supportedLocalesOf", "shorter")}}
+{{InteractiveExample("JavaScript Demo: Intl.NumberFormat.supportedLocalesOf()", "shorter")}}
 
 ```js interactive-example
-const locales1 = ["ban", "id-u-co-pinyin", "de-ID"];
-const options1 = { localeMatcher: "lookup" };
+const locales = ["ban", "id-u-co-pinyin", "de-ID"];
+const options = { localeMatcher: "lookup" };
 
-console.log(Intl.NumberFormat.supportedLocalesOf(locales1, options1));
+console.log(Intl.NumberFormat.supportedLocalesOf(locales, options));
 // Expected output: Array ["id-u-co-pinyin", "de-ID"]
 // (Note: the exact output may be browser-dependent)
 ```
@@ -30,21 +29,21 @@ Intl.NumberFormat.supportedLocalesOf(locales, options)
 ### Parameter
 
 - `locales`
-  - : Ein String mit einem BCP 47-Sprach-Tag oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}} oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthalten kann:
+  - : Ein Objekt, das die folgende Eigenschaft haben kann:
     - `localeMatcher`
-      - : Der zu verwendende Algorithmus zur Lokalisierungsanpassung. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option, siehe die {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}} Seite.
+      - : Der zu verwendende Algorithmus zur Übereinstimmung von Gebietsschemata. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe die Seite {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}}.
 
 ### Rückgabewert
 
-Ein Array von Strings, das eine Teilmenge der angegebenen Locale-Tags repräsentiert, die bei der Zahlenformatierung unterstützt werden, ohne auf die Standard-`locale` der Laufzeitumgebung zurückzugreifen.
+Ein Array von Strings, das eine Teilmenge der angegebenen Gebietsschematags darstellt, die in der Zahlenformatierung unterstützt werden, ohne auf das Standardgebietsschema der Laufzeit zurückgreifen zu müssen.
 
 ## Beispiele
 
 ### Verwendung von supportedLocalesOf()
 
-Angenommen, eine Laufzeitumgebung unterstützt Indonesisch und Deutsch, aber nicht Balinesisch bei der Zahlenformatierung. In diesem Fall gibt `supportedLocalesOf` die Sprach-Tags für Indonesisch und Deutsch unverändert zurück, auch wenn die `pinyin`-Kollation weder für die Zahlenformatierung relevant ist noch mit Indonesisch verwendet wird, und ein spezialisierter deutscher Dialekt für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie die Spezifikation des Algorithmus `"lookup"` hier — ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch eine ausreichende Übereinstimmung für Balinesisch ist, da die meisten Balinesisch-Sprecher auch Indonesisch verstehen, und daher das balinesische Sprach-Tag ebenfalls zurückgeben.
+Angenommen, eine Laufzeit unterstützt Indonesisch und Deutsch, nicht aber Balinesisch in der Zahlenformatierung. `supportedLocalesOf` gibt die Indonesischen und Deutschen Sprach-Tags unverändert zurück, obwohl `pinyin`-Kollation weder relevant für die Zahlenformatierung ist noch mit Indonesisch verwendet wird und ein spezielles Deutsch für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie hier die Spezifikation des `"lookup"`-Algorithmus – ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch eine angemessene Übereinstimmung für Balinesisch ist, da die meisten Balinesisch-Sprecher auch Indonesisch verstehen, und daher das Balinesische Sprach-Tag ebenfalls zurückgeben.
 
 ```js
 const locales = ["ban", "id-u-co-pinyin", "de-ID"];

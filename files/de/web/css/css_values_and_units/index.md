@@ -1,141 +1,243 @@
 ---
 title: CSS-Werte und Einheiten
-slug: Web/CSS/CSS_Values_and_Units
+slug: Web/CSS/CSS_values_and_units
 l10n:
-  sourceCommit: a075805de90029b65fa5cfcc8ea43737728320f5
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-{{CSSRef}}
+Jede CSS-Deklaration besteht aus einem Paar von Eigenschaft und Wert. Der Wert kann je nach Eigenschaft verschiedene Formen annehmen, wie ein einzelner Integer, ein Schlüsselwort, eine Funktion oder eine Kombination verschiedener Elemente; einige Werte haben Einheiten, während andere keine haben. Jede Eigenschaft akzeptiert auch die CSS-weiten Werte. Das Modul zu CSS-Werten und -Einheiten definiert die Datentypen – Werte und Einheiten –, die CSS-Eigenschaften akzeptieren. Dieses Modul definiert auch die CSS-Wertedefinitionssyntax oder formale Grammatik, die verwendet wird, um die Menge der gültigen Werte für jede CSS-Eigenschaft und Funktion zu definieren.
 
-Jede CSS-Deklaration enthält ein Paar aus Eigenschaft und Wert. Der Wert kann, je nach Eigenschaft, von einer einzelnen Ganzzahl oder einem Schlüsselwort bis hin zu einer Reihe von Schlüsselwörtern und Werten mit oder ohne Einheiten reichen. Es gibt eine gemeinsame Menge an Datentypen — Werte und Einheiten —, die CSS-Eigenschaften akzeptieren. Nachfolgend finden Sie einen Überblick über die meisten dieser Datentypen. Konsultieren Sie die jeweilige Seite für jeden Werttyp für detailliertere Informationen.
+## Referenz
 
-## Textuelle Datentypen
+### Eigenschaften
 
-- {{cssxref("&lt;custom-ident&gt;")}}
-- Vordefinierte Schlüsselwörter als `<ident>`
-- {{cssxref("&lt;string&gt;")}}
-- {{cssxref("url_value", "&lt;url&gt;")}}
+- {{cssxref("interpolate-size")}}
 
-Text-Datentypen sind entweder `<string>`, eine zitierte Zeichenfolge, oder ein `<ident>`, ein "CSS Identifier", der eine nicht-zitierte Zeichenfolge ist. Ein `<string>` muss entweder mit einfachen oder doppelten Anführungszeichen umschlossen sein. CSS-Identifikatoren, die in den Spezifikationen als `<ident>` oder `<custom-ident>` aufgeführt sind, dürfen nicht in Anführungszeichen stehen.
+### Funktionen
 
-In den CSS-Spezifikationen werden Werte, die vom Webentwickler definiert werden können, wie Keyframe-Animationen, Schriftfamiliennamen oder Rasterbereiche, als {{cssxref("&lt;custom-ident&gt;")}}, {{cssxref("&lt;string&gt;")}} oder beides aufgeführt.
+- {{cssxref("abs()")}}
+- {{cssxref("acos()")}}
+- {{cssxref("asin()")}}
+- {{cssxref("atan()")}}
+- {{cssxref("atan2()")}}
+- {{cssxref("attr()")}}
+- {{cssxref("calc()")}}
+- {{cssxref("calc-size()")}}
+- {{cssxref("clamp()")}}
+- {{cssxref("cos()")}}
+- {{cssxref("exp()")}}
+- {{cssxref("hypot()")}}
+- {{cssxref("ident()")}}
+- {{cssxref("if()")}}
+- {{cssxref("inherit()")}}
+- {{cssxref("log()")}}
+- {{cssxref("max()")}}
+- {{cssxref("min()")}}
+- {{cssxref("mod()")}}
+- {{cssxref("pow()")}}
+- {{cssxref("progress()")}}
+- {{cssxref("rem()")}}
+- {{cssxref("round()")}}
+- {{cssxref("sibling-count()")}}
+- {{cssxref("sibling-index()")}}
+- {{cssxref("sign()")}}
+- {{cssxref("sin()")}}
+- {{cssxref("sqrt()")}}
+- {{cssxref("tan()")}}
+- {{cssxref("url_function", "url()")}}
 
-Wenn sowohl zitierte als auch nicht-zitierte, benutzerdefinierte Textwerte zulässig sind, wird in der Spezifikation `<custom-ident> | <string>` aufgeführt, was bedeutet, dass Anführungszeichen optional sind, wie zum Beispiel bei Animationsnamen:
+Das CSS-Werte- und Einheitenmodul führt auch die Funktionen `calc-mix()`, `crossorigin()`, `first-valid()`, `integrity()`, `random()`, `random-item()`, `referrerpolicy()`, `src()`, `type()` und `toggle()` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
-```css
-@keyframe validIdent {
-  /* keyframes go here */
-}
-@keyframe 'validString' {
-  /* keyframes go here */
-}
-```
+### Datentypen
 
-Einige Textwerte sind nicht gültig, wenn sie in Anführungszeichen gesetzt werden. Zum Beispiel kann der Wert von {{cssxref("grid-area")}} ein `<custom-ident>` sein. Wenn wir ein Rasterbereich mit dem Namen `content` hätten, würden wir ihn ohne Anführungszeichen verwenden:
+- [`<angle-percentage>`](/de/docs/Web/CSS/Reference/Values/angle-percentage)
+- [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)
+- [`<animation-timeline>`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)
+- [`<attr-name>`](/de/docs/Web/CSS/Reference/Values/attr#attr-name)
+- [`<attr-type>`](/de/docs/Web/CSS/Reference/Values/attr#attr-type)
+- {{CSSxRef("&lt;calc-keyword&gt;")}} (`e`, `pi`, `infinity`, {{Glossary("NaN", "NaN")}})
+- [`<calc-size-basis>`](/de/docs/Web/CSS/Reference/Values/calc-size#calc-size-basis)
+- [`<calc-sum>`](/de/docs/Web/CSS/Reference/Values/calc-sum)
+- [`<custom-ident>`](/de/docs/Web/CSS/Reference/Values/custom-ident)
+- [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident)
+- [`<dimension>`](/de/docs/Web/CSS/Reference/Values/dimension)
+- [`<easing-function>`](/de/docs/Web/CSS/Reference/Values/easing-function)
+- [`<first-valid()>`](/de/docs/Web/CSS)
+- [`<ident>`](/de/docs/Web/CSS/Reference/Values/ident)
+- [`<integer>`](/de/docs/Web/CSS/Reference/Values/integer)
+- [`<length-percentage>`](/de/docs/Web/CSS/Reference/Values/length-percentage)
+- [`<length>`](/de/docs/Web/CSS/Reference/Values/length)
+- [`<number>`](/de/docs/Web/CSS/Reference/Values/number)
+- [`<percentage>`](/de/docs/Web/CSS/Reference/Values/percentage)
+- [`<position>`](/de/docs/Web/CSS/Reference/Properties/position)
+- [`<ratio>`](/de/docs/Web/CSS/Reference/Values/ratio)
+- [`<resolution>`](/de/docs/Web/CSS/Reference/Values/resolution)
+- [`<rounding-strategy>`](/de/docs/Web/CSS/Reference/Values/round#rounding-strategy) (`down`, `up`, `to-zero`)
+- [`<string>`](/de/docs/Web/CSS/Reference/Values/string)
+- [`<syntax>`](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+- [`<time-percentage>`](/de/docs/Web/CSS/Reference/Values/time-percentage)
+- [`<time>`](/de/docs/Web/CSS/Reference/Values/time)
+- [`<url>`](/de/docs/Web/CSS/Reference/Values/url_value)
+- [`<url-modifier>`](/de/docs/Web/CSS/Reference/Values/url_function#url-modifier)
+- [`<view-timeline-name>`](/de/docs/Web/CSS/Reference/Properties/view-timeline-name)
 
-```css
-.item {
-  grid-area: content;
-}
-```
+Das CSS-Werte- und Einheitenmodul führt auch die Datentypen [`<frequency>`](/de/docs/Web/CSS/Reference/Values/frequency) und [`<frequency-percentage>`](/de/docs/Web/CSS/Reference/Values/frequency-percentage) ein. Derzeit unterstützen keine Browser diese Funktionen.
 
-Im Vergleich dazu muss ein Datentyp, der ein {{cssxref("&lt;string&gt;")}} ist, wie ein Zeichenfolgenwert der {{cssxref("content")}}-Eigenschaft, in Anführungszeichen gesetzt werden:
+#### Einheiten
 
-```css
-.item::after {
-  content: "This is my content.";
-}
-```
+- [`%` (Prozent)](/de/docs/Web/CSS/Reference/Values/percentage)
+- [`cap`](/de/docs/Web/CSS/Reference/Values/length#cap)
+- [`ch`](/de/docs/Web/CSS/Reference/Values/length#ch)
+- [`cm`](/de/docs/Web/CSS/Reference/Values/length#cm)
+- [`deg`](/de/docs/Web/CSS/Reference/Values/angle#deg)
+- [`dpcm`](/de/docs/Web/CSS/Reference/Values/resolution#dpcm)
+- [`dpi`](/de/docs/Web/CSS/Reference/Values/resolution#dpi)
+- [`dppx`](/de/docs/Web/CSS/Reference/Values/resolution#dppx)
+- [`dvb`](/de/docs/Web/CSS/Reference/Values/length#vb)
+- [`dvh`](/de/docs/Web/CSS/Reference/Values/length#vh)
+- [`dvi`](/de/docs/Web/CSS/Reference/Values/length#vi)
+- [`dvmax`](/de/docs/Web/CSS/Reference/Values/length#vmax)
+- [`dvmin`](/de/docs/Web/CSS/Reference/Values/length#vmin)
+- [`dvw`](/de/docs/Web/CSS/Reference/Values/length#vw)
+- [`em`](/de/docs/Web/CSS/Reference/Values/length#em)
+- [`ex`](/de/docs/Web/CSS/Reference/Values/length#ex)
+- [`grad`](/de/docs/Web/CSS/Reference/Values/angle#grad)
+- [`Hz`](/de/docs/Web/CSS/Reference/Values/frequency#hz)
+- [`ic`](/de/docs/Web/CSS/Reference/Values/length#ic)
+- [`in`](/de/docs/Web/CSS/Reference/Values/length#in)
+- [`kHz`](/de/docs/Web/CSS/Reference/Values/frequency#khz)
+- [`lh`](/de/docs/Web/CSS/Reference/Values/length#lh)
+- [`lvb`](/de/docs/Web/CSS/Reference/Values/length#vb)
+- [`lvh`](/de/docs/Web/CSS/Reference/Values/length#vh)
+- [`lvi`](/de/docs/Web/CSS/Reference/Values/length#vi)
+- [`lvmax`](/de/docs/Web/CSS/Reference/Values/length#vmax)
+- [`lvmin`](/de/docs/Web/CSS/Reference/Values/length#vmin)
+- [`lvw`](/de/docs/Web/CSS/Reference/Values/length#vw)
+- [`mm`](/de/docs/Web/CSS/Reference/Values/length#mm)
+- [`ms`](/de/docs/Web/CSS/Reference/Values/time#ms)
+- [`pc`](/de/docs/Web/CSS/Reference/Values/length#pc)
+- [`pt`](/de/docs/Web/CSS/Reference/Values/length#pt)
+- [`px`](/de/docs/Web/CSS/Reference/Values/length#px)
+- [`Q`](/de/docs/Web/CSS/Reference/Values/length#q)
+- [`rad`](/de/docs/Web/CSS/Reference/Values/angle#rad)
+- [`rcap`](/de/docs/Web/CSS/Reference/Values/length#rcap)
+- [`rch`](/de/docs/Web/CSS/Reference/Values/length#rch)
+- [`rem`](/de/docs/Web/CSS/Reference/Values/length#rem)
+- [`rex`](/de/docs/Web/CSS/Reference/Values/length#rex)
+- [`ric`](/de/docs/Web/CSS/Reference/Values/length#ric)
+- [`rlh`](/de/docs/Web/CSS/Reference/Values/length#rlh)
+- [`s`](/de/docs/Web/CSS/Reference/Values/time#s)
+- [`svb`](/de/docs/Web/CSS/Reference/Values/length#vb)
+- [`svh`](/de/docs/Web/CSS/Reference/Values/length#vh)
+- [`svi`](/de/docs/Web/CSS/Reference/Values/length#vi)
+- [`svmax`](/de/docs/Web/CSS/Reference/Values/length#vmax)
+- [`svmin`](/de/docs/Web/CSS/Reference/Values/length#vmin)
+- [`svw`](/de/docs/Web/CSS/Reference/Values/length#vw)
+- [`turn`](/de/docs/Web/CSS/Reference/Values/angle#turn)
+- [`vb`](/de/docs/Web/CSS/Reference/Values/length#vb)
+- [`vh`](/de/docs/Web/CSS/Reference/Values/length#vh)
+- [`vi`](/de/docs/Web/CSS/Reference/Values/length#vi)
+- [`vmax`](/de/docs/Web/CSS/Reference/Values/length#vmax)
+- [`vmin`](/de/docs/Web/CSS/Reference/Values/length#vmin)
+- [`vw`](/de/docs/Web/CSS/Reference/Values/length#vw)
+- [`x`](/de/docs/Web/CSS/Reference/Values/resolution#x)
 
-Obwohl Sie im Allgemeinen jeden gewünschten Namen erstellen können, einschließlich Emojis, darf der Identifikator nicht `none`, `unset`, `initial` oder `inherit` sein, nicht mit einer Ziffer oder zwei Bindestrichen beginnen und sollte im Allgemeinen kein anderes vordefiniertes CSS-Schlüsselwort sein. Siehe die Referenzseiten zu {{cssxref("&lt;custom-ident&gt;")}} und {{cssxref("&lt;string&gt;")}} für weitere Details.
+[Flex-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#flex_units) (`fr`) und [Container-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#container_units) (`cqb`, `cqh`, `cqi`, `cqmax`, `cqmin`, `cqw`) sind in den Modulen [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) und [CSS-Bedingungsregeln](/de/docs/Web/CSS/Guides/Conditional_rules) definiert.
 
-### Vordefinierte Schlüsselwortwerte
+#### Einheitskategorisierungen
 
-Vordefinierte Schlüsselwörter sind Textwerte, die in der Spezifikation für diese Eigenschaft definiert sind. Diese Schlüsselwörter sind ebenfalls CSS-Identifikatoren und werden daher ohne Anführungszeichen verwendet.
+- [Absolute Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`cm`, `in`, `mm`, `pc`, `pt`, `px`, `Q`)
+- [Winkeleinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#angle_units) (`deg`, `grad`, `rad`, `turn`)
+- [Standard-Viewporteinheiten](/de/docs/Web/CSS/Reference/Values/length#default_viewport_units) (`vb`, `vh`, `vi`, `vmax`, `vmin`, `vw`)
+- [Dynamische Viewporteinheiten](/de/docs/Web/CSS/Reference/Values/length#dynamic_viewport_units) (`dvb`, `dvh`, `dvi`, `dvmax`, `dvmin`, `dvw`)
+- [Frequenzeinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#frequency_units) (`Hz`, `kHz`)
+- [Große Viewport-Prozenteinheiten](/de/docs/Web/CSS/Reference/Values/length#large_viewport_units) (`lvb`, `lvh`, `lvi`, `lvmax`, `lvmin`, `lvw`)
+- [Lokal schriftverwandte Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#local_font-relative_lengths) (`cap`, `ch`, `em`, `ex`, `ic`, `lh`)
+- [Physikalische Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`cm`, `in`, `mm`, `pc`, `pt`, `Q`)
+- [Relative Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types) (`cap`, `ch`, `em`, `ex`, `ic`, `lh`, `rem`, `rlh`, `vb`, `vh`, `vi`, `vmax`, `vmin`, `vw`)
+- [Auflösungseinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#resolution_units) (`dpcm`, `dpi`, `dppx`, `x`)
+- [Wurzel schriftverwandte Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#root_font-relative_lengths) (`rcap`, `rch`, `rem`, `rex`, `ric`, `rlh`)
+- [Kleine Viewport-Prozenteinheiten](/de/docs/Web/CSS/Reference/Values/length#small_viewport_units) (`svb`, `svh`, `svi`, `svmax`, `svmin`, `svw`)
+- [Zeiteinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#time_units) (`ms`, `s`)
+- [Viewporteinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units) (`dvh`, `dvw`, `lvh`, `lvw`, `svh`, `svw`, `vb`, `vh`, `vi`, `vmax`, `vmin`, `vw`)
+- [Visueller Winkeleinheit](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#absolute_length_units) (`px`)
 
-Wenn Sie die Syntax von CSS-Eigenschaftswerten in einer CSS-Spezifikation oder auf der MDN-Eigenschaftsseite ansehen, werden zulässige Schlüsselwörter in der folgenden Form aufgelistet. Diese Werte sind die vordefinierten Schlüsselwortwerte, die für {{cssxref("float")}} erlaubt sind.
+### Schlüsselkonzepte
 
-```plain
-left | right | none | inline-start | inline-end
-```
+- {{Glossary("Advance_measure", "Vormaße")}}
+- [Geklammerte Bereichsnotation](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax#bracketed_range_notation_minmax)
+- [Komponentenwert-Kombinatoren](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax#component_value_combinators)
+- [CSS-weite Schlüsselwörter](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords)
+- {{Glossary("Device_pixel", "Gerätepixel")}}
+- [Funktionale Notation](/de/docs/Web/CSS/Reference/Values/Functions)
+- {{Glossary("Identifier", "Bezeichner")}}
+- {{Glossary("Interpolation", "Interpolation")}}
+- {{Glossary("Keyword", "Schlüsselwort")}}
+- [Mathematische Funktion](/de/docs/Web/CSS/Guides/Values_and_units/Using_math_functions)
+- [Numerische Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types)
+- {{Glossary("Origin", "Herkunft")}}
+- {{Glossary("Pixel", "Pixel")}}
+- [Textuelle Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Textual_data_types)
+- {{Glossary("URL", "URL")}}
+- [Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
 
-Solche Werte werden ohne Anführungszeichen verwendet:
+## Leitfäden
 
-```css
-.box {
-  float: left;
-}
-```
+- [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
+  - : Einführung in die CSS-Datentypen, die typische Werte definieren, die von CSS-Eigenschaften und -Funktionen akzeptiert werden.
 
-### CSS-Globale Werte
+- [Numerische Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types)
+  - : Überblick über die numerischen Datentypen, einschließlich Ganzzahlen, Zahlen, Prozentsätze und Dimensionen, sowie relative und absolute Dimensionen, Winkel und Zeiteinheiten.
 
-Zusätzlich zu den vordefinierten Schlüsselwörtern, die Teil der Spezifikation einer Eigenschaft sind, akzeptieren alle CSS-Eigenschaften die CSS-weiten Eigenschaftswerte {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}} und {{cssxref("revert-layer")}}, die explizit Standardverhalten spezifizieren.
+- [Textuelle Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Textual_data_types)
+  - : Überblick über die textuellen Datentypen, einschließlich vordefinierter Schlüsselwortwerte, globaler CSS-Schlüsselwortwerte und URLs.
 
-- {{cssxref("initial")}}
-  - : Repräsentiert den als Standardwert der Eigenschaft festgelegten Wert.
-- {{cssxref("inherit")}}
-  - : Repräsentiert den berechneten Wert der Eigenschaft des Eltern-Elements, sofern die Eigenschaft vererbt wird.
-- {{cssxref("unset")}}
-  - : Agiert entweder als `inherit` oder `initial`, abhängig davon, ob die Eigenschaft vererbt wird oder nicht.
-- {{cssxref("revert")}}
-  - : Setzt die Eigenschaft auf ihren geerbten Wert zurück, wenn sie vom Elternteil geerbt wird, oder auf den Standardwert, der vom User-Agent-Stylesheet (oder von Benutzerstilen, falls vorhanden) festgelegt wurde.
-- {{cssxref("revert-layer")}}
-  - : Setzt den Wert einer Eigenschaft in einer [Kaskadenebene](/de/docs/Web/CSS/@layer) auf den Wert zurück, der in einer vorherigen Kaskadenebene für diese Eigenschaft definiert wurde. Der Wert der Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob in der aktuellen Kaskadenebene keine Regeln auf das Ziel-Element angewendet würden.
+- [CSS-Wertfunktionen](/de/docs/Web/CSS/Reference/Values/Functions)
+  - : Überblick über die CSS-Befehle, die spezielle Datenverarbeitung oder Berechnungen aufrufen, um einen CSS-Wert für eine CSS-Eigenschaft zu erhalten.
 
-### URLs
+- [Verwendung von CSS-Mathematikfunktionen](/de/docs/Web/CSS/Guides/Values_and_units/Using_math_functions)
+  - : Die CSS-Mathematikfunktionen, die es ermöglichen, einen Eigenschaftswert als mathematischen Ausdruck zu schreiben.
 
-Ein {{cssxref("url_value", "&lt;url&gt;")}}-Typ verwendet eine Funktionsnotation, die einen `<string>`, der eine URL darstellt, akzeptiert. Dies kann eine absolute oder relative URL sein. Zum Beispiel könnten Sie eine Hintergrundgrafik wie folgt einfügen:
+- [Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
+  - : Die formale Grammatik, die verwendet wird, um die Menge der gültigen Werte für CSS-Eigenschaften und -Funktionen zu definieren.
 
-```css
-.box {
-  background-image: url("images/my-background.png");
-}
+- [Verwendung von CSS-typisierter Arithmetik](/de/docs/Web/CSS/Guides/Values_and_units/Using_typed_arithmetic)
+  - : Eine Erklärung des Verhaltens der CSS-typisierten Arithmetik und der durch sie ermöglichten Anwendungsfälle.
 
-.box {
-  background-image: url("https://www.exammple.com/images/my-background.png");
-}
-```
+- [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
+  - : Ein Überblick über einige der am häufigsten verwendeten Wertetypen, was sie sind und wie sie funktionieren.
 
-Der Parameter für `url()` kann entweder zitiert oder nicht zitiert sein. Wenn er nicht zitiert ist, wird er als `<url-token>` analysiert, das zusätzliche Anforderungen hat, einschließlich des Escapens bestimmter Zeichen. Weitere Informationen finden Sie unter {{cssxref("url_value", "&lt;url&gt;")}}.
+## Verwandte Themen
 
-## Numerische Datentypen
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul
+  - {{cssxref("initial")}}
+  - {{cssxref("inherit")}}
+  - {{cssxref("revert")}}
+  - {{cssxref("revert-layer")}}
+  - {{cssxref("unset")}}
+  - {{cssxref("all")}}
 
-- {{cssxref("&lt;integer&gt;")}}
-- {{cssxref("&lt;number&gt;")}}
-- {{cssxref("&lt;dimension&gt;")}}
-- {{cssxref("&lt;percentage&gt;")}}
+- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+  - {{cssxref("&lt;flex&gt;")}}
+  - [Flex-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#flex_units) (`fr`)
 
-### Ganzzahlen
+- [CSS-Bedingungsregeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
+  - [Container-Einheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#container_units) (`cqb`, `cqh`, `cqi`, `cqmax`, `cqmin`, `cqw`)
 
-Eine Ganzzahl ist eine oder mehrere dezimale Ziffern, `0` bis `9`, wie `1024` oder `-55`. Eine Ganzzahl kann von einem `+`- oder `-`-Symbol vorangestellt sein, ohne Leerzeichen zwischen dem Symbol und der Ganzzahl.
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
+  - {{cssxref("&lt;color&gt;")}}
+  - {{cssxref("system-color")}}
+  - [`color-mix()`](/de/docs/Web/CSS/Reference/Values/color_value/color-mix)
 
-### Zahlen
+- [CSS-Bilder](/de/docs/Web/CSS/Guides/Images) Modul
+  - {{cssxref("&lt;image&gt;")}}
+  - {{cssxref("&lt;gradient&gt;")}}
 
-Ein {{cssxref("&lt;number&gt;")}} repräsentiert eine reelle Zahl, die einen Dezimalpunkt mit einer Bruchkomponente enthalten kann oder nicht, zum Beispiel `0.255`, `128` oder `-1.2`. Zahlen können ebenfalls von einem `+`- oder `-`-Symbol vorangestellt sein.
+## Spezifikationen
 
-### Dimensionen
+{{Specifications}}
 
-Eine {{cssxref("&lt;dimension&gt;")}} ist ein `<number>` mit einer Einheit, zum Beispiel `45deg`, `100ms` oder `10px`. Der angehängte Einheit-Identifikator ist nicht schreibweiseempfindlich. Zwischen der Zahl und dem Einheit-Identifikator darf niemals ein Leerzeichen oder andere Zeichen stehen: z. B. ist `1 cm` nicht gültig.
+## Siehe auch
 
-CSS verwendet Dimensionen, um Folgendes zu definieren:
-
-- {{cssxref("&lt;length&gt;")}} (Distanz-Einheiten)
-- {{cssxref("&lt;angle&gt;")}}
-- {{cssxref("&lt;time&gt;")}}
-- {{cssxref("&lt;frequency&gt;")}}
-- {{cssxref("&lt;flex&gt;")}}
-- {{cssxref("&lt;resolution&gt;")}}
-
-Diese werden in den nachstehenden Abschnitten behandelt.
-
-#### Distanz-Einheiten
-
-Wenn eine Distanz-Einheit, auch bekannt als Länge, als Wert für eine Eigenschaft zulässig ist, wird dies als {{cssxref("&lt;length&gt;")}}-Typ beschrieben. Es gibt zwei Arten von Längen in CSS: relative und absolute. Relative Längeneinheiten geben eine Länge in Bezug auf etwas anderes an.
-
-Es gibt zwei Arten von relativen Längen: schriftart-relative und viewport-prozentuale Längen. Beide kommen in zwei Formen vor. Schriftart-relative Längeneinheiten sind entweder lokal schriftart-relativ oder Wurzel-schriftart-relativ. Viewport-Prozent-Längen sind entweder relativ zur Höhe oder Breite des Viewports oder, wie im [CSS-Containment-Modul](/de/docs/Web/CSS/CSS_containment) definiert, relativ zu einem [Container](/de/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units).
-
-##### Lokal schriftart-relative Längen
-
-...
-
-...
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul

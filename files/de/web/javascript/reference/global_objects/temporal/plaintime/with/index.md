@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainTime.prototype.with()
+short-title: with()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/with
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die Methode **`with()`** von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt ein neues `Temporal.PlainTime`-Objekt zurück, das diese Zeit mit einigen durch neue Werte ersetzten Feldern darstellt. Da alle `Temporal`-Objekte unveränderlich konzipiert sind, fungiert diese Methode im Wesentlichen als Setter für die Felder der Zeit.
+Die **`with()`** Methode von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt ein neues `Temporal.PlainTime`-Objekt zurück, das diese Zeit mit einigen Feldern darstellt, welche durch neue Werte ersetzt wurden. Da alle `Temporal`-Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die Felder der Zeit.
 
 ## Syntax
 
@@ -19,19 +20,19 @@ with(info, options)
 ### Parameter
 
 - `info`
-  - : Ein Objekt, das mindestens eine der durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} anerkannten Eigenschaften enthält: `hour`, `microsecond`, `millisecond`, `minute`, `nanosecond`, `second`. Nicht angegebene Eigenschaften verwenden die Werte der ursprünglichen Zeit.
+  - : Ein Objekt, das mindestens eine der von {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} anerkannten Eigenschaften enthält: `hour`, `microsecond`, `millisecond`, `minute`, `nanosecond`, `second`. Nicht angegebene Eigenschaften verwenden die Werte der ursprünglichen Zeit.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
       - : Ein String, der das Verhalten angibt, wenn eine Zeitkomponente außerhalb des Bereichs liegt. Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Zeitkomponente wird auf den gültigen Bereich begrenzt.
+          - : Die Zeitkomponente wird auf den gültigen Bereich beschränkt.
         - `"reject"`
           - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn die Zeitkomponente außerhalb des Bereichs liegt.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainTime`-Objekt, bei dem die in `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden, und die restlichen Felder werden von der ursprünglichen Zeit übernommen.
+Ein neues `Temporal.PlainTime`-Objekt, bei dem die in `info` angegebenen Felder, die nicht `undefined` sind, durch die entsprechenden Werte ersetzt werden und die restlichen Felder von der ursprünglichen Zeit kopiert werden.
 
 ### Ausnahmen
 
@@ -52,7 +53,7 @@ const newTime = time.with({ hour: 23 });
 console.log(newTime.toString()); // '23:34:56.123456789'
 ```
 
-Für weitere Beispiele lesen Sie die Dokumentation für die einzelnen Eigenschaften, die mit `with()` gesetzt werden können.
+Für weitere Beispiele siehe die Dokumentation zu den einzelnen Eigenschaften, die mit `with()` gesetzt werden können.
 
 ## Spezifikationen
 

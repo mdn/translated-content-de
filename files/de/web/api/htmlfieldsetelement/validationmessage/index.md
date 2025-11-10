@@ -3,16 +3,16 @@ title: "HTMLFieldSetElement: validationMessage-Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLFieldSetElement/validationMessage
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`validationMessage`** schreibgeschützte Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt einen String zurück, der eine lokalisierte Nachricht darstellt, die die Validierungsbedingungen beschreibt, die das {{htmlelement("fieldset")}}-Element nicht erfüllt (falls vorhanden). Dies ist der leere String, da `<fieldset>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate) ist `false`).
+Die **`validationMessage`**-Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces, die nur gelesen werden kann, gibt eine Zeichenkette zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("fieldset")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist die leere Zeichenkette, da `<fieldset>`-Elemente keine Kandidaten für die Beschränkungsvalidierung sind ([`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate) ist `false`).
 
 ## Wert
 
-Der leere String, `""`;
+Die leere Zeichenkette, `""`;
 
 ## Spezifikationen
 
@@ -31,6 +31,6 @@ Der leere String, `""`;
 - [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
 - [`HTMLFieldSetElement.reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)
 - [`HTMLFieldSetElement.setCustomValidity()`](/de/docs/Web/API/HTMLFieldSetElement/setCustomValidity)
-- [Erfahren Sie mehr: Formularvalidierung auf der Client-Seite](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Beschränkungsvalidierung](/de/docs/Web/HTML/Guides/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

@@ -3,7 +3,7 @@ title: "EditContext: compositionstart Ereignis"
 short-title: compositionstart
 slug: Web/API/EditContext/compositionstart_event
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
@@ -12,19 +12,19 @@ Das `compositionstart`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("compositionstart", (event) => {});
+```js-nolint
+addEventListener("compositionstart", (event) => { })
 
-oncompositionstart = (event) => {};
+oncompositionstart = (event) => { }
 ```
 
 ## Beispiele
 
-### Verwendung von `compositionstart`, um den Rand des bearbeitbaren Bereichs zu ändern
+### Verwendung von `compositionstart`, um den Rahmen des editierbaren Bereichs zu ändern
 
-Im folgenden Beispiel wird der Rand des bearbeitbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Rückrufe der Ereignis-Listener in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zur Textzusammensetzung verwendet werden.
+Im folgenden Beispiel wird der Rahmen des editierbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Event-Listener-Callbacks in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zur Textkomposition verwendet werden.
 
 ```css
 #text-editor {

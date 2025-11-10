@@ -1,16 +1,14 @@
 ---
-title: Signature
+title: Signatur
 slug: Glossary/Signature
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
 ---
 
-{{GlossarySidebar}}
-
-Der Begriff **Signature** kann je nach Kontext mehrere Bedeutungen haben. Es kann sich beziehen auf:
+Der Begriff **Signatur** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}
 
 ## Siehe auch
 
-- [Signature](<https://en.wikipedia.org/wiki/Signature_(disambiguation)>) auf Wikipedia
+- [Signatur](<https://en.wikipedia.org/wiki/Signature_(disambiguation)>) auf Wikipedia

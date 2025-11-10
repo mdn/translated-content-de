@@ -1,16 +1,16 @@
 ---
-title: "GPUCommandEncoder: pushDebugGroup()-Methode"
+title: "GPUCommandEncoder: pushDebugGroup() Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPUCommandEncoder/pushDebugGroup
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle startet eine Debug-Gruppe, die mit einem angegebenen Label gekennzeichnet ist und alle nachfolgenden kodierten Befehle bis zum Aufruf einer [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup)-Methode enthalten wird.
+Die **`pushDebugGroup()`** Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) Schnittstelle beginnt eine Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden codierten Befehle enthalten wird, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup) Methode aufgerufen wird.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklertools des Browsers oder anderen Diensten nützlich sein, um beim Debugging zu helfen.
+Dies könnte zur Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein Zeichenfolge, die das Label für die Debug-Gruppe darstellt.
+  - : Ein String, der das Label für die Debug-Gruppe darstellt.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("Undefined")}}).
 ## Beispiele
 
 ```js
-// ...
+// …
 
 commandEncoder.pushDebugGroup("my_group_marker"); // Start labeled debug group
 
@@ -44,7 +44,7 @@ passEncoder.end();
 
 commandEncoder.popDebugGroup(); // End labeled debug group
 
-// ...
+// …
 ```
 
 ## Spezifikationen

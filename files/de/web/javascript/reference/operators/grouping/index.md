@@ -2,20 +2,18 @@
 title: Gruppierungsoperator ( )
 slug: Web/JavaScript/Reference/Operators/Grouping
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 86976a4d11b508763609fca37994406dbd27bca5
 ---
 
-{{jsSidebar("Operators")}}
+Der **Gruppierungsoperator `( )`** steuert die Reihenfolge der Auswertung in Ausdrücken. Er dient auch als Container für beliebige Ausdrücke in bestimmten syntaktischen Konstrukten, in denen es sonst zu Mehrdeutigkeiten oder Syntaxfehlern kommen könnte.
 
-Der **Gruppierungsoperator `( )`** kontrolliert die Vorrangregeln der Auswertung in Ausdrücken. Außerdem fungiert er in bestimmten syntaktischen Konstrukten als Container für beliebige Ausdrücke, wo sonst Mehrdeutigkeiten oder Syntaxfehler auftreten würden.
+{{InteractiveExample("JavaScript Demo: Grouping operator")}}
 
-{{InteractiveExample("JavaScript Demo: Expressions - Grouping operator")}}
-
-```js interactive-example
+```js-nolint interactive-example
 console.log(1 + 2 * 3); // 1 + 6
 // Expected output: 7
 
-console.log(1 + 2 * 3); // 1 + 6
+console.log(1 + (2 * 3)); // 1 + 6
 // Expected output: 7
 
 console.log((1 + 2) * 3); // 3 * 3
@@ -34,17 +32,17 @@ console.log(1 * 3 + 2 * 3); // 3 + 6
 ### Parameter
 
 - `expression`
-  - : Jeder beliebige [Ausdruck](/de/docs/Web/JavaScript/Reference/Operators), der ausgewertet werden soll, einschließlich [durch Komma verbundener](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) Ausdrücke.
+  - : Jeder [Ausdruck](/de/docs/Web/JavaScript/Reference/Operators), der ausgewertet werden soll, einschließlich [durch Kommas verbundener](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) Ausdrücke.
 
 ## Beschreibung
 
-Der Gruppierungsoperator besteht aus einem Paar von Klammern, die einen Ausdruck umschließen und dessen Inhalt gruppieren. Er setzt die normale [Operator-Vorrangregel](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) außer Kraft, sodass Operatoren mit niedriger Priorität (so niedrig wie der [Komma-Operator](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator)) vor einem Operator mit höherer Priorität ausgewertet werden können.
+Der Gruppierungsoperator besteht aus einem Paar von Klammern um einen Ausdruck, der die Inhalte gruppiert. Der Operator überschreibt die normale [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence), sodass Operatoren mit niedriger Priorität (so niedrig wie der [Komma](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) Operator) vor einem Operator mit höherer Priorität ausgewertet werden können.
 
 ## Beispiele
 
 ### Verwendung des Gruppierungsoperators
 
-Addition und Subtraktion werden vor Multiplikation und Division ausgewertet.
+Auswerten von Addition und Subtraktion vor Multiplikation und Division.
 
 ```js-nolint
 const a = 1;
@@ -64,17 +62,17 @@ a + (b * c); // 7
 a * c + b * c; // 9
 ```
 
-Beachten Sie in diesen Beispielen, dass sich die Reihenfolge der _Operatoren_, aber nicht die Reihenfolge der _Operanden_ geändert hat. Zum Beispiel werden in diesem Code die Funktionsaufrufe `a()`, `b()` und `c()` von links nach rechts ausgewertet (die normale Auswertungsreihenfolge), bevor die Reihenfolge der Operatoren berücksichtigt wird.
+Beachten Sie in diesen Beispielen, dass sich die Reihenfolge der \_Operatoren-\_Auswertung geändert hat, nicht jedoch die Reihenfolge der \_Operanden-\_Auswertung. Zum Beispiel werden in diesem Code die Funktionsaufrufe `a()`, `b()` und `c()` von links nach rechts ausgewertet (die normale Auswertungsreihenfolge), bevor die Operatorreihenfolge berücksichtigt wird.
 
 ```js
 a() * (b() + c());
 ```
 
-Die Funktion `a` wird vor der Funktion `b` aufgerufen, und diese wiederum vor der Funktion `c`. Weitere Informationen zur Operator-Präzedenz finden Sie auf der entsprechenden [Referenzseite](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence).
+Die Funktion `a` wird vor der Funktion `b` aufgerufen, die vor der Funktion `c` aufgerufen wird. Weitere Informationen zur Operatorpriorität finden Sie auf der [Referenzseite](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence).
 
-### Verwendung des Gruppierungsoperators zur Beseitigung von Parser-Mehrdeutigkeit
+### Verwendung des Gruppierungsoperators zur Beseitigung von Analysemehrdeutigkeiten
 
-Ein [Ausdrucksstatement](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, da der Parser dies als Beginn einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) ansehen würde. Dies macht die folgende {{Glossary("IIFE", "IIFE")}}-Syntax ungültig:
+Ein [Ausdrucksstattement](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, da der Parser es sonst als Beginn einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) ansehen würde. Das bedeutet, dass die folgende {{Glossary("IIFE", "IIFE")}}-Syntax ungültig ist:
 
 ```js-nolint example-bad
 function () {
@@ -82,7 +80,7 @@ function () {
 }();
 ```
 
-Der Gruppierungsoperator kann verwendet werden, um diese Mehrdeutigkeit zu beseitigen, da der Parser, sobald er die linke Klammer sieht, weiß, dass das Folgende ein Ausdruck und keine Deklaration sein muss.
+Der Gruppierungsoperator kann verwendet werden, um diese Mehrdeutigkeit zu beseitigen, da der Parser, wenn er die linke Klammer sieht, weiß, dass das Folgende ein Ausdruck und keine Deklaration sein muss.
 
 ```js
 (function () {
@@ -90,25 +88,25 @@ Der Gruppierungsoperator kann verwendet werden, um diese Mehrdeutigkeit zu besei
 })();
 ```
 
-Sie können auch den [`void`](/de/docs/Web/JavaScript/Reference/Operators/void#immediately_invoked_function_expressions)-Operator verwenden, um Mehrdeutigkeiten zu vermeiden.
+Sie können auch den [`void`](/de/docs/Web/JavaScript/Reference/Operators/void#immediately_invoked_function_expressions) Operator verwenden, um Mehrdeutigkeiten zu beseitigen.
 
-Im Ausdrucksteil einer [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (der direkt einen Ausdruck ohne das Schlüsselwort `return` zurückgibt) kann der Gruppierungsoperator verwendet werden, um ein Objektliteral zurückzugeben, da andernfalls die linke geschweifte Klammer als Beginn des Funktionskörpers interpretiert würde.
+In einem [Pfeilfunktions-](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) Ausdrückskörper (einer, der direkt einen Ausdruck ohne das Schlüsselwort `return` zurückgibt) kann der Gruppierungsoperator verwendet werden, um einen Objektliteral-Ausdruck zurückzugeben, da ansonsten die linke geschweifte Klammer als Beginn des Funktionskörpers interpretiert werden würde.
 
 ```js
 const f = () => ({ a: 1 });
 ```
 
-Wenn auf ein numerisches Literal eine Eigenschaft zugegriffen wird, könnte der [Eigenschaftszugriffsoperator](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) `.` mit einem Dezimalpunkt verwechselt werden, es sei denn, die Zahl enthält bereits einen Dezimalpunkt. Sie können integer Literale in Klammern einschließen, um diese Mehrdeutigkeit zu eliminieren.
+Wenn eine Eigenschaft auf einem Zahlenliteral zugegriffen wird, könnte der [Eigenschafts-Zugriffsoperator](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) Punkt `.` mit einem Dezimalpunkt verwechselt werden, es sei denn, die Zahl hat bereits einen Dezimalpunkt. Sie können Ganzzahlliterale in Klammern setzen, um diese Mehrdeutigkeit zu beseitigen.
 
 ```js
 (1).toString(); // "1"
 ```
 
-<!-- TODO: In der Zukunft könnten wir einen Abschnitt zu Dekoratoren hinzufügen -->
+<!-- TODO in der Zukunft können wir einen Abschnitt über Dekoratoren hinzufügen -->
 
 ### Gruppierungsoperator und automatische Semikolon-Einfügung
 
-Der Gruppierungsoperator kann Fallstricke der [automatischen Semikolon-Einfügung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) (ASI) abmildern. Zum Beispiel darf das Schlüsselwort `return` und der zurückgegebene Ausdruck nicht durch einen Zeilenumbruch getrennt sein:
+Der Gruppierungsoperator kann [automatische Semikolon-Einfügungs-](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) (ASI) Fallstricke abmildern. Zum Beispiel dürfen zwischen dem `return` Schlüsselwort und dem zurückgegebenen Ausdruck kein Zeilenumbruch stehen:
 
 ```js-nolint example-bad
 function sum(a, b) {
@@ -117,7 +115,7 @@ function sum(a, b) {
 }
 ```
 
-Dieser Code gibt `undefined` zurück, da direkt nach dem Schlüsselwort `return` ein Semikolon eingefügt wird, was dazu führt, dass die Funktion sofort zurückkehrt, ohne `a + b` auszuwerten. Falls der zurückgegebene Ausdruck lang ist und Sie ihn gut formatiert halten möchten, können Sie den Gruppierungsoperator verwenden, um anzuzeigen, dass das Schlüsselwort `return` von einem Ausdruck gefolgt wird, und so die Semikoloneinfügung verhindern:
+Dieser Code wird `undefined` zurückgeben, da direkt nach dem `return` Schlüsselwort ein Semikolon eingefügt wird, was dazu führt, dass die Funktion sofort zurückkehrt, ohne `a + b` auszuwerten. Falls der zurückgegebene Ausdruck lang ist und Sie ihn gut formatiert halten möchten, können Sie den Gruppierungsoperator verwenden, um anzuzeigen, dass dem `return` Schlüsselwort ein Ausdruck folgt und die Semikolon-Einfügung zu verhindern:
 
 ```js-nolint example-good
 function sum(a, b) {
@@ -127,27 +125,27 @@ function sum(a, b) {
 }
 ```
 
-Allerdings kann die Gruppierung auch ASI-Probleme verursachen. Wenn eine Zeile mit einer linken Klammer beginnt und die vorherige Zeile mit einem Ausdruck endet, fügt der Parser kein Semikolon vor dem Zeilenumbruch ein, da es sich um die Mitte eines Funktionsaufrufs handeln könnte. Zum Beispiel:
+Allerdings kann das Gruppieren auch _ASI-\_Gefahren \_einführen_. Wenn eine Zeile mit einer linken Klammer beginnt und die vorherige Zeile mit einem Ausdruck endet, wird der Parser kein Semikolon vor dem Zeilenumbruch einfügen, da es sich in der Mitte eines Funktionsaufrufs befinden könnte. Zum Beispiel:
 
 ```js-nolint example-bad
 const a = 1
 (1).toString()
 ```
 
-Dieser Code wird so geparst:
+Dieser Code würde wie folgt interpretiert werden:
 
 ```js
 const a = 1(1).toString();
 ```
 
-Was "TypeError: 1 is not a function" auslöst. Wenn Ihr Programmierstil keine Semikolons verwendet, denken Sie daran, dass Sie, wenn eine Zeile mit einer linken Klammer beginnt, diese _mit einem Semikolon_ einleiten. Diese Praxis wird von mehreren Formatierern und/oder Styleguides wie [Prettier](https://prettier.io/docs/en/rationale.html#semicolons) und [Standard](https://standardjs.com/rules.html#semicolons) empfohlen:
+Was "TypeError: 1 is not a function" auslöst. Wenn Ihr Codierungsstil keine Semikolons verwendet, denken Sie daran, dass, wenn eine Zeile mit einer linken Klammer beginnt, _diese mit einem Semikolon vorzupenden_. Diese Praxis wird von mehreren Formatierern und/oder Stilrichtlinien empfohlen, darunter [Prettier](https://prettier.io/docs/rationale.html#semicolons) und [standard](https://standardjs.com/rules.html#semicolons).
 
 ```js-nolint example-good
 const a = 1
 ;(1).toString()
 ```
 
-Weitere Ratschläge zum Umgang mit ASI finden Sie in der entsprechenden [Referenzsektion](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion).
+Für weitere Ratschläge zur Arbeit mit ASI sehen Sie im [Referenzabschnitt](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion) nach.
 
 ## Spezifikationen
 
@@ -159,6 +157,6 @@ Weitere Ratschläge zum Umgang mit ASI finden Sie in der entsprechenden [Referen
 
 ## Siehe auch
 
-- [Operatorvorrang](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+- [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
 - {{jsxref("Operators/delete", "delete")}}
 - {{jsxref("Operators/typeof", "typeof")}}

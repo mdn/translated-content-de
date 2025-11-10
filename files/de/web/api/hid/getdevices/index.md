@@ -3,12 +3,12 @@ title: "HID: getDevices()-Methode"
 short-title: getDevices()
 slug: Web/API/HID/getDevices
 l10n:
-  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`getDevices()`**-Methode des [`HID`](/de/docs/Web/API/HID)-Interfaces erhält eine Liste von verbundenen HID-Geräten, auf die der Benutzer zuvor im Rahmen eines [`requestDevice()`](/de/docs/Web/API/HID/requestDevice)-Aufrufs Zugriff gewährt hat.
+Die **`getDevices()`**-Methode der [`HID`](/de/docs/Web/API/HID)-Schnittstelle ruft eine Liste von verbundenen HID-Geräten ab, auf die der Benutzer zuvor Zugriff in Antwort auf einen Aufruf von [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) gewährt hat.
 
 ## Syntax
 
@@ -26,14 +26,12 @@ Ein {{jsxref("Promise")}}, das mit einer Liste von [`HIDDevice`](/de/docs/Web/AP
 
 ## Beispiele
 
-Das folgende Beispiel erhält eine Liste von Geräten und protokolliert die Gerätenamen in der Konsole.
+Das folgende Beispiel erhält eine Liste von Geräten und protokolliert die Gerätenamen in die Konsole.
 
 ```js
-document.addEventListener("DOMContentLoaded", async () => {
-  let devices = await navigator.hid.getDevices();
-  devices.forEach((device) => {
-    console.log(`HID: ${device.productName}`);
-  });
+let devices = await navigator.hid.getDevices();
+devices.forEach((device) => {
+  console.log(`HID: ${device.productName}`);
 });
 ```
 

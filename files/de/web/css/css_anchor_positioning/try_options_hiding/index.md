@@ -1,44 +1,43 @@
 ---
-title: "Umgang mit Überlauf: Fallbacks ausprobieren und bedingtes Verbergen"
+title: Fallback-Optionen und bedingtes Verbergen bei Überlauf
+short-title: Umgang mit Überlauf
 slug: Web/CSS/CSS_anchor_positioning/Try_options_hiding
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{CSSRef}}
+Beim Verwenden von [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) ist es wichtig sicherzustellen, dass ankerpositionierte Elemente immer an einem günstigen Ort erscheinen, an dem der Benutzer mit ihnen interagieren kann, wenn möglich, unabhängig davon, wo der Anker positioniert ist. Zum Beispiel, wenn Sie die Seite nach unten scrollen, bewegen sich Anker und deren zugeordneten positionierten Elemente an den Rand des Viewports. Wenn ein positioniertes Element beginnt, über den Rand des Viewports hinauszulaufen, möchten Sie seine Position ändern, um es wieder auf dem Bildschirm zu platzieren, zum Beispiel auf der gegenüberliegenden Seite des Ankers.
 
-Bei der Verwendung der [CSS-Verankerungspositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) ist es wichtig, sicherzustellen, dass verankerungspositionierte Elemente immer an einer für den Benutzer praktisch zugänglichen Stelle erscheinen, sofern dies möglich ist, unabhängig davon, wo die Verankerung positioniert ist. Beispielsweise wandern beim Scrollen der Seite Verankerungen und deren zugehörige positionierte Elemente zum Rand des Ansichtsfensters. Wenn ein positioniertes Element beginnt, das Ansichtsfenster zu überschreiten, möchten Sie seine Position ändern, um es wieder auf dem Bildschirm sichtbar zu machen, beispielsweise auf der gegenüberliegenden Seite der Verankerung.
+Alternativ kann es in manchen Situationen vorzuziehen sein, überfließende positionierte Elemente einfach zu verbergen – zum Beispiel, wenn ihre Anker außerhalb des Bildschirms sind, könnte ihr Inhalt keinen Sinn ergeben.
 
-Alternativ kann es in einigen Situationen vorzuziehen sein, überlaufende positionierte Elemente einfach zu verbergen — zum Beispiel, wenn ihre Verankerungen außerhalb des Bildschirms sind und deren Inhalt möglicherweise keinen Sinn ergibt.
-
-Dieser Leitfaden erklärt, wie Sie die CSS-Verankerungspositionierungsmechanismen verwenden können, um diese Probleme zu verwalten — **Position-Try-Fallback-Optionen** und **Bedingtes Verbergen**. Position-Try-Fallback-Optionen bieten alternative Positionen, die der Browser versuchen kann zu verwenden, um positionierte Elemente bei Beginn eines Überlaufs auf dem Bildschirm zu halten. Bedingtes Verbergen ermöglicht die Angabe von Bedingungen, unter denen die Verankerung oder ein positioniertes Element verborgen wird.
+Dieser Leitfaden erklärt, wie Sie die CSS-Ankerpositionierungsmechanismen nutzen können, um diese Probleme zu verwalten – **position-try-Fallback-Optionen** und **bedingtes Verbergen**. Position-try-Fallback-Optionen bieten alternative Positionen, in denen der Browser versucht, die positionierten Elemente zu platzieren, wenn sie beginnen, überzulaufen, um sie auf dem Bildschirm zu halten. Bedingtes Verbergen ermöglicht die Festlegung von Bedingungen, unter denen der Anker oder ein positioniertes Element verborgen wird.
 
 > [!NOTE]
-> Informationen zu den grundlegenden Grundlagen der CSS-Verankerungspositionierung finden Sie unter [Verwendung der CSS-Verankerungspositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using).
+> Informationen zu den grundlegenden Grundlagen der CSS-Ankerpositionierung finden Sie in [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
 
 ## Funktionsübersicht
 
-Wenn ein Tooltip oben rechts an einem UI-Element befestigt ist und der Benutzer den Inhalt scrollt, sodass sich das UI-Feature in der oberen rechten Ecke des Ansichtsfensters befindet, wird der Tooltip dieses UI-Features vom Bildschirm gescrollt. Die CSS-Verankerungspositionierung löst solche Probleme. Die {{cssxref("position-try-fallbacks")}}-Eigenschaft des Moduls gibt eine oder mehrere alternative Position-Try-Fallback-Optionen an, die der Browser versuchen kann, um zu verhindern, dass das positionierte Element überschreitet.
+Wenn ein Tooltip am oberen rechten Rand eines UI-Elements fixiert ist, scrollt der Benutzer den Inhalt, sodass das UI-Feature in der oberen rechten Ecke des Viewports ist, wird der Tooltip des UI-Features vom Bildschirm scrollen. Die CSS-Ankerpositionierung löst solche Probleme. Die {{cssxref("position-try-fallbacks")}}-Eigenschaft des Moduls gibt eine oder mehrere alternative position-try-Fallback-Optionen an, damit der Browser versucht, das positionierte Element vor dem Überlauf zu bewahren.
 
-Position-Try-Fallback-Optionen können angegeben werden durch:
+Position-try-Fallback-Optionen können durch folgende Methoden angegeben werden:
 
 - [Vordefinierte Fallback-Optionen](#vordefinierte_fallback-optionen).
 - [`position-area`-Werte](#using_position-area_try_fallback_options).
-- [Benutzerdefinierte Optionen](#benutzerdefinierte_fallback-optionen), die mit der {{cssxref("@position-try")}}-At-Regel definiert werden.
+- [Benutzerdefinierte Optionen](#benutzerdefinierte_fallback-optionen), die mittels der {{cssxref("@position-try")}}-Regel definiert werden.
 
-Darüber hinaus ermöglicht die {{cssxref("position-try-order")}}-Eigenschaft die Angabe verschiedener Optionen, die dazu führen, dass eine verfügbare Position-Try-Option in der Vorzugsreihenfolge anstelle der anfänglichen Positionierung des Elements festgelegt wird. Beispielsweise möchten Sie das Element möglicherweise zunächst in einem Bereich anzeigen, der über mehr verfügbare Höhe oder Breite verfügt.
+Darüber hinaus ermöglicht die {{cssxref("position-try-order")}}-Eigenschaft, verschiedene Optionen anzugeben, die zu einer bevorzugten verfügbaren position-try-Option führen, anstelle der anfänglichen Positionierung des Elements. Zum Beispiel könnten Sie das Element zunächst in einem Bereich anzeigen wollen, der mehr Höhen- oder Breitenfläche bietet.
 
-Die Kurzschreibweise {{cssxref("position-try")}} kann verwendet werden, um `position-try-order`- und `position-try-fallbacks`-Werte in einer einzigen Deklaration anzugeben.
+Die Kurzform-Eigenschaft {{cssxref("position-try")}} kann verwendet werden, um `position-try-order`- und `position-try-fallbacks`-Werte in einer einzigen Deklaration festzulegen.
 
-In einigen Situationen ergibt verankerungspositionierter Inhalt keinen Sinn, wenn die Verankerung außerhalb des Bildschirms ist oder umgekehrt. Beispielsweise könnten Sie eine Verankerung haben, die eine Quizfrage enthält, und Antworten, die in zugehörigen positionierten Elementen enthalten sind, und wünschen, diese entweder zusammen oder gar nicht anzuzeigen. Dies kann mit bedingtem Verbergen erreicht werden, welches über die {{cssxref("position-visibility")}}-Eigenschaft verwaltet wird. Diese Eigenschaft nimmt verschiedene Werte an, die Bedingungen definieren, unter denen überlaufende Elemente verborgen werden.
+In einigen Situationen macht der Inhalt, der an einem Anker positioniert ist, keinen Sinn, wenn der Anker außerhalb des Bildschirms ist oder umgekehrt. Zum Beispiel könnte man einen Anker mit einer Quizfrage haben, und Antworten, die in zugeordneten positionierten Elementen enthalten sind, und möchte, dass beide zusammen oder gar nicht angezeigt werden. Dies kann durch bedingtes Verbergen erreicht werden, das über die {{cssxref("position-visibility")}}-Eigenschaft verwaltet wird. Diese Eigenschaft nimmt verschiedene Werte an, die die Bedingungen definieren, unter denen überlaufende Elemente verborgen werden.
 
 ## Vordefinierte Fallback-Optionen
 
-Die vordefinierten Fallback-Optionswerte der `position-try-fallbacks`-Eigenschaft (in der Spezifikation als [`<try-tactic>`](/de/docs/Web/CSS/position-try-fallbacks#try-tactic) definiert) werden die Position des verankerungspositionierten Elements über eine oder beide Achsen „umkehren“, wenn das Element ansonsten überschreiten würde.
+Die vordefinierten Fallback-Optionen der `position-try-fallbacks`-Eigenschaft (definiert als [`<try-tactic>`](/de/docs/Web/CSS/Reference/Properties/position-try-fallbacks#try-tactic)s in der Spezifikation) "flippen" die Position des ankerpositionierten Elements über eine oder beide Achsen, wenn das Element ansonsten überlaufen würde.
 
-Das Element kann so eingestellt werden, dass es sich über die Blockachse (`flip-block`), die Inline-Achse (`flip-inline`) oder diagonal über eine imaginäre Linie dreht, die von einer Ecke der Verankerung durch ihr Zentrum zur gegenüberliegenden Ecke verläuft (`flip-start`). Diese drei Werte kehren das Element um, spiegeln seine Position auf der gegenüberliegenden Seite für die ersten beiden Werte und auf einer benachbarten Seite für `flip-start`. Wenn ein Element beispielsweise `10px` über seiner Verankerung positioniert ist und beim Überschreiten des Ankers oben beginnt, würde der Wert `flip-block` das positionierte Element um `10px` unterhalb der Verankerung umdrehen.
+Das Element kann so eingestellt werden, dass es über die Block-Achse (`flip-block`), die Inline-Achse (`flip-inline`) oder diagonal über eine imaginäre Linie, die von einer Ecke des Ankers durch dessen Zentrum zur gegenüberliegenden Ecke gezogen wird (`flip-start`), flippt. Diese drei Werte flippen das Element, spiegeln seine Position auf einer gegenüberliegenden Seite für die ersten beiden Werte wider, und auf einer angrenzenden Seite für `flip-start`. Zum Beispiel, wenn ein Element `10px` oberhalb seines Ankers positioniert ist und beginnt, über den oberen Rand des Ankers hinauszulaufen, würde der `flip-block`-Wert das positionierte Element auf 10px unterhalb seines Ankers flippen.
 
-In diesem Beispiel fügen wir zwei {{htmlelement("div")}}-Elemente hinzu. Das erste wird unser Verankerungselement sein, und das zweite wird relativ zur Verankerung positioniert:
+In diesem Beispiel enthalten wir zwei {{htmlelement("div")}}-Elemente. Das erste wird unser Ankerelement sein, und das zweite wird relativ zum Anker positioniert sein:
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -48,7 +47,7 @@ In diesem Beispiel fügen wir zwei {{htmlelement("div")}}-Elemente hinzu. Das er
 </div>
 ```
 
-Wir gestalten das `<body>`-Element größer als das Ansichtsfenster, damit wir die Verankerung und das positionierte Element sowohl horizontal als auch vertikal im Ansichtsfenster scrollen können:
+Wir stylen das `<body>`-Element, um größer als der Viewport zu sein, sodass wir den Anker und das positionierte Element im Viewport sowohl horizontal als auch vertikal scrollen können:
 
 ```css
 body {
@@ -57,7 +56,7 @@ body {
 }
 ```
 
-Zu Illustrationszwecken positionieren wir die Verankerung absolut, sodass sie in der Nähe des Zentrums des anfänglichen `<body>`-Renderings erscheint:
+Zu Illustrationszwecken positionieren wir den Anker absolut, sodass er nahe der Mitte der anfänglichen `<body>`-Darstellung erscheint:
 
 ```css hidden
 .anchor {
@@ -72,20 +71,20 @@ Zu Illustrationszwecken positionieren wir die Verankerung absolut, sodass sie in
 }
 
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
   position: absolute;
   top: 100px;
   left: 45%;
 }
 ```
 
-Das verankerungspositionierte Element erhält eine feste Positionierung und wird mit der linken oberen Ecke der Verankerung durch ein `position-area` verbunden. Es erhält `position-try-fallbacks: flip-block, flip-inline;`, um ihm einige Fallback-Optionen zu geben, um das positionierte Element zu bewegen, um zu verhindern, dass es überschreitet, wenn sich die Verankerung dem Rand des Ansichtsfensters nähert.
+Das ankerpositionierte Element erhält eine feste Positionierung und wird an der oberen linken Ecke des Ankers mittels eines `position-area` angebunden. Es erhält `position-try-fallbacks: flip-block, flip-inline;`, um ihm einige Fallback-Optionen für die Verschiebung des positionierten Elements zu geben, um es davon abzuhalten, überzulaufen, wenn der Anker in die Nähe des Randes des Viewports kommt.
 
 ```css hidden
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -95,33 +94,33 @@ Das verankerungspositionierte Element erhält eine feste Positionierung und wird
 ```css
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
   position-area: top left;
   position-try-fallbacks: flip-block, flip-inline;
 }
 ```
 
 > [!NOTE]
-> Wenn mehrere Position-Try-Fallback-Optionen angegeben sind, werden diese durch Kommas getrennt und in der angegebenen Reihenfolge ausprobiert.
+> Wenn mehrere position-try-Fallback-Optionen angegeben sind, werden sie durch Kommas getrennt und in der angegebenen Reihenfolge ausprobiert.
 
-Versuchen Sie, die Demo zu scrollen, sodass die Verankerung beginnt, sich den Rändern zu nähern:
+Versuchen Sie, die Demo so zu scrollen, dass der Anker beginnt, die Ränder zu erreichen:
 
 {{ EmbedLiveSample("Verwendung vordefinierter Fallback-Optionen", "100%", "250") }}
 
-- Bewegen Sie die Verankerung an den oberen Rand des Ansichtsfensters. Das positionierte Element dreht sich unten links von der Verankerung, um Überläufe zu vermeiden.
-- Bewegen Sie die Verankerung an den linken Rand des Ansichtsfensters. Das positionierte Element dreht sich oben rechts von der Verankerung, um Überläufe zu vermeiden.
+- Bewegen Sie den Anker an die Spitze des Viewports. Das positionierte Element flippt an die untere linke Seite des Ankers, um einen Überlauf zu vermeiden.
+- Bewegen Sie den Anker an die linke Seite des Viewports. Das positionierte Element flippt an die obere rechte Seite des Ankers, um einen Überlauf zu vermeiden.
 
-Wenn Sie die Verankerung in die obere linke Ecke des Ansichtsfensters bewegen, werden Sie ein Problem feststellen — wenn das positionierte Element in der Block- und Inlinerichtung beginnt, zu überschreiten, kehrt es zu seiner Standardposition oben links zurück und überschreitet in beide Richtungen, was wir nicht wollen.
+Wenn Sie den Anker in Richtung der oberen linken Ecke des Viewports bewegen, werden Sie ein Problem bemerken — wenn das positionierte Element beginnt, in der Block- und Inlinerichtung überzulaufen, flippt es zurück in seine Standardoberlinke Position und überläuft in beide Richtungen, was nicht gewünscht ist.
 
-Dies geschieht, weil wir dem Browser nur Positionsoptionen von `flip-block` _oder_ `flip-inline` gegeben haben. Wir haben ihm nicht die Möglichkeit gegeben, beide gleichzeitig auszuprobieren. Der Browser versucht die Fallback-Optionen, nach einer zu suchen, die bewirkt, dass das positionierte Element vollständig im Ansichtsfenster oder Block enthalten ist. Wenn es keine findet, rendert er das positionierte Element in seiner ursprünglich definierten Renderposition, ohne angewandte Fallback-Optionen.
+Dies geschieht, weil wir dem Browser nur Positionsoptionen von `flip-block` _oder_ `flip-inline` gegeben haben. Wir haben ihm nicht die Option gegeben, beides gleichzeitig auszuprobieren. Der Browser versucht die Fallback-Optionen und sucht nach einer, die dazu führt, dass das positionierte Element vollständig innerhalb des Viewports oder des enthaltenen Blocks gerendert wird. Wenn er keine findet, rendert er das positionierte Element in seiner ursprünglich definierten Rendering-Position, ohne dass Fallback-Optionen angewendet werden.
 
-Der nächste Abschnitt zeigt, wie Sie dieses Problem beheben können.
+Der nächste Abschnitt zeigt, wie man dieses Problem beheben kann.
 
-## Kombinieren mehrerer Werte in einer Option
+## Kombination mehrerer Werte in eine Option
 
-Es ist möglich, mehrere [vordefinierte Try-Fallback-Optionen](#vordefinierte_fallback-optionen) oder [benutzerdefinierte Try-Optionen](#benutzerdefinierte_fallback-optionen) Namen in einen einzigen leerzeichengetrennten Try-Fallback-Optionswert innerhalb der kommagetrennten `position-try-fallbacks`-Liste zu stecken. Bei dem Versuch, diese Fallback-Optionen anzuwenden, kombiniert der Browser die einzelnen Effekte zu einer einzigen kombinierten Fallback-Option.
+Es ist möglich, mehrere [vordefinierte Try-Fallback-Optionen](#vordefinierte_fallback-optionen) oder [benutzerdefinierte Optionen](#benutzerdefinierte_fallback-optionen) Namen in einen einzigen durch Leerzeichen getrennten Try-Fallback-Optionswert innerhalb der durch Kommas getrennten `position-try-fallbacks`-Liste einzufügen. Beim Versuch, diese Fallback-Optionen anzuwenden, wird der Browser die einzelnen Effekte zu einer einzigen kombinierten Fallback-Option zusammenfügen.
 
-Verwenden wir eine kombinierte Try-Fallback-Option, um das Problem zu beheben, das wir mit dem vorherigen Demo gefunden haben. Der HTML- und CSS-Code in diesem Demo ist derselbe, außer für die Positionierungsstile der Infobox. In diesem Fall wird ihm eine dritte Position-Try-Fallback-Option gegeben: `flip-block flip-inline`:
+Lassen Sie uns eine kombinierte Try-Fallback-Option verwenden, um das Problem zu beheben, das wir mit der vorherigen Demo gefunden haben. Das HTML und CSS in dieser Demo sind dasselbe, außer für die Infobox-Positionierungsstile. In diesem Fall wird sie mit einer dritten Position-Try-Fallback-Option versehen: `flip-block flip-inline`:
 
 ```html hidden
 <div class="anchor">⚓︎</div>
@@ -149,7 +148,7 @@ body {
 }
 
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
   position: absolute;
   top: 100px;
   left: 45%;
@@ -158,7 +157,7 @@ body {
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -168,7 +167,7 @@ body {
 ```css-nolint
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
   position-area: top left;
   position-try-fallbacks:
     flip-block,
@@ -177,17 +176,17 @@ body {
 }
 ```
 
-Dies bedeutet, dass der Browser zuerst `flip-block` versucht und dann `flip-inline`, um Überlauf zu vermeiden. Wenn diese Fallback-Optionen beide fehlschlagen, wird es dann versuchen, die beiden zu kombinieren, indem er die Position des Elements gleichzeitig in der Block- _und_ Inlinerichtung umdreht. Wenn Sie die Verankerung nun in Richtung der oberen _und_ linken Ränder des Ansichtsfensters scrollen, dreht sich das positionierte Element zur unteren rechten Ecke.
+Dies bedeutet, dass der Browser zuerst `flip-block` und dann `flip-inline` versuchen wird, um einen Überlauf zu vermeiden. Sollte das fehlschlagen, wird er das Kombinieren der beiden ausprobieren, und die Position des Elements gleichzeitig in der Block- _und_ Inlinerichtung flippen. Jetzt, wenn Sie den Anker zu den oberen _und_ linken Rändern des Viewports scrollen, wird das positionierte Element zur unteren rechten Seite flippen.
 
-{{ EmbedLiveSample("Kombinieren mehrerer Werte in einer Option", "100%", "250") }}
+{{ EmbedLiveSample("Kombination mehrerer Werte in eine Option", "100%", "250") }}
 
 ## Verwendung von `position-area` Try-Fallback-Optionen
 
-Die vordefinierten `<try-tactic>` Try-Fallback-Optionen sind nützlich, aber begrenzt, da sie nur die Platzierung des positionierten Elements über Achsen umkehren können. Was, wenn Sie ein verankerungspositioniertes Element haben, das oben links von seiner Verankerung positioniert ist, und seine Position direkt unter der Verankerung ändern möchten, wenn es anfangen sollte zu überschreiten?
+Die vordefinierten `<try-tactic>`-Try-Fallback-Optionen sind nützlich, aber begrenzt, da sie nur die Platzierung von positionierten Elementen über Achsen flippend ermöglichen. Was wäre, wenn Sie ein ankerpositioniertes Element hätten, das an der oberen linken Ecke seines Ankers positioniert ist, und seine Position unter dem Anker ändern wollten, wenn es anfängt, überzulaufen?
 
-Um dies zu erreichen, können Sie einen {{cssxref("position-area")}}-Wert als Position-Try-Fallback-Option verwenden, indem Sie ihn in die `position-try-fallbacks`-Liste aufnehmen. Dies erstellt automatisch eine Try-Fallback-Option basierend auf diesem Positionierungsbereich. In der Tat ist es eine Abkürzung, um eine [benutzerdefinierte Positionsoption](#benutzerdefinierte_fallback-optionen) zu erstellen, die nur diesen `position-area`-Eigenschaftswert enthält.
+Um dies zu erreichen, können Sie einen {{cssxref("position-area")}}-Wert als position-try-Fallback-Option verwenden, indem Sie ihn in der `position-try-fallbacks`-Liste einfügen. Dies erstellt automatisch eine Try-Fallback-Option basierend auf diesem Positionsbereich. Im Effekt ist es eine Abkürzung, um eine [benutzerdefinierte Position-Option](#benutzerdefinierte_fallback-optionen) zu erstellen, die nur diesen `position-area`-Eigenschaftswert enthält.
 
-Das folgende Beispiel zeigt die Verwendung von `position-area`-Positions-Try-Fallback-Optionen. Wir verwenden den gleichen HTML- und CSS-Code, außer für die Positionierung der Infobox. In diesem Fall sind unsere Position-Try-Fallback-Optionen `position-area`-Werte — `top`, `top-right`, `right`, `bottom-right`, `bottom`, `bottom-left` und `left`. Das positionierte Element wird vernünftig positioniert, unabhängig davon, welchen Rand des Ansichtsfensters die Verankerung erreicht. Dieser detaillierte Ansatz ist granulärer und flexibler als der Ansatz mit vordefinierten Werten.
+Das folgende Beispiel zeigt `position-area`-Position-Try-Fallback-Optionen in Verwendung. Wir verwenden dasselbe HTML und CSS, außer für die Infobox-Positionierung. In diesem Fall sind unsere position-try-Fallback-Optionen `position-area`-Werte — `top`, `top-right`, `right`, `bottom-right`, `bottom`, `bottom-left`, und `left`. Das positionierte Element wird vernünftig positioniert sein, egal welchen Viewport-Rand der Anker ansteuert. Dieser ausführliche Ansatz ist granulärer und flexibler als der Ansatz mit den vordefinierten Werten.
 
 ```html hidden
 <div class="anchor">⚓︎</div>
@@ -215,7 +214,7 @@ body {
 }
 
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
   position: absolute;
   top: 100px;
   left: 45%;
@@ -224,7 +223,7 @@ body {
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -234,7 +233,7 @@ body {
 ```css-nolint
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
   position-area: top left;
   position-try-fallbacks:
     top, top right, right,
@@ -244,15 +243,15 @@ body {
 ```
 
 > [!NOTE]
-> Sie können keine `position-area`-Try-Fallback-Optionen in eine durch Leerzeichen getrennte kombinierte Positionsoption innerhalb einer Position-Try-Fallback-Liste hinzufügen.
+> Sie können keine `position-area`-Try-Fallback-Optionen in eine durch Leerzeichen getrennte kombinierte Positionsoption innerhalb einer position-try-Fallback-Liste einfügen.
 
-Scrollen Sie die Seite und überprüfen Sie den Effekt dieser Position-Try-Fallback-Optionen, während sich die Verankerung dem Rand des Ansichtsfensters nähert:
+Scrollen Sie die Seite und überprüfen Sie die Wirkung dieser position-try-Fallback-Optionen, wenn der Anker den Rand des Viewports nähert:
 
 {{ EmbedLiveSample("Verwendung von `position-area` Try-Fallback-Optionen", "100%", "250") }}
 
 ## Benutzerdefinierte Fallback-Optionen
 
-Zum Verwenden von benutzerdefinierten Positions-Fallback-Optionen, die nicht über die oben genannten Mechanismen verfügbar sind, können Sie Ihre eigenen mit der {{cssxref("@position-try")}}-At-Regel erstellen. Die Syntax ist:
+Um benutzerdefinierte Positions-Fallback-Optionen zu verwenden, die nicht über die oben genannten Mechanismen verfügbar sind, können Sie Ihre eigenen mit der {{cssxref("@position-try")}}-Regel erstellen. Die Syntax lautet:
 
 ```plain
 @position-try --try-fallback-name {
@@ -260,22 +259,22 @@ Zum Verwenden von benutzerdefinierten Positions-Fallback-Optionen, die nicht üb
 }
 ```
 
-Der `--try-fallback-name` ist ein vom Entwickler definierter Name für die Positions-Try-Fallback-Option. Dieser Name kann dann innerhalb der kommagetrennten Liste von Try-Fallback-Optionen innerhalb des Werts der {{cssxref("position-try-fallbacks")}}-Eigenschaft angegeben werden. Wenn mehrere `@position-try`-Regeln denselben Namen haben, überschreibt die letzte in der Dokumentenreihenfolge die anderen. Vermeiden Sie die Verwendung des gleichen Namens für Ihre Try-Fallback-Optionen _und_ Ihre Verankerungs- oder benutzerdefinierten Eigenschaftsnamen; dies macht die At-Regel nicht ungültig, aber es wird Ihr CSS sehr schwer nachvollziehbar machen.
+Der `--try-fallback-name` ist ein vom Entwickler definierter Name für die position-try-Fallback-Option. Dieser Name kann dann innerhalb der durch Kommas getrennten Liste von Try-Fallback-Optionen innerhalb des {{cssxref("position-try-fallbacks")}}-Eigenschaftswertes angegeben werden. Wenn mehrere `@position-try`-Regeln denselben Namen haben, überschreibt die letzte in der Dokumentreihenfolge die anderen. Vermeiden Sie es, denselben Namen für Ihre Try-Fallback-Optionen _und_ Ihre Anker- oder benutzerdefinierten Eigenschaftsnamen zu verwenden; es macht die Regel nicht ungültig, wird jedoch Ihr CSS sehr schwer lesbar machen.
 
-Die `descriptor-list` definiert die Eigenschaftswerte für diese individuelle benutzerdefinierte Try-Fallback-Option, einschließlich der Art und Weise, wie das positionierte Element platziert und dimensioniert werden soll, sowie etwaige Ränder. Die begrenzte Liste der zulässigen Eigenschaftsdeskriptoren umfasst:
+Die `descriptor-list` definiert die Eigenschaftswerte für diese einzelne benutzerdefinierte Try-Fallback-Option und umfasst, wie das positionierte Element platziert und dimensioniert werden soll, sowie alle Abstände. Die begrenzte Liste der erlaubten Eigenschafts-Deskriptoren umfasst:
 
 - {{cssxref("position-area")}}
 - {{Glossary("Inset_properties", "Inset-Eigenschaften")}}
-- Randeigenschaften (z.B. {{cssxref("margin-left")}}, {{cssxref("margin-block-start")}})
-- [Selbstausrichtungs-](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) Eigenschaften
-- Dimensionierungseigenschaften ({{cssxref("width")}}, {{cssxref("block-size")}}, etc.)
+- Abstands-Eigenschaften (z. B. {{cssxref("margin-left")}}, {{cssxref("margin-block-start")}})
+- [Self-Alignment](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) Eigenschaften
+- Größen-Eigenschaften ({{cssxref("width")}}, {{cssxref("block-size")}}, etc.)
 - {{cssxref("position-anchor")}}
 
-Die in der At-Regel enthaltenen Werte werden auf das positionierte Element angewendet, wenn die benannte benutzerdefinierte Try-Fallback-Option angewendet wird. Wenn irgendwelche der Eigenschaften zuvor auf dem positionierten Element gesetzt waren, werden diese Eigenschaftswerte durch die Deskriptorwerte überschrieben. Wenn der Benutzer scrollt und eine andere Try-Fallback-Option oder keine Try-Fallback-Option angewendet wird, werden die Werte der zuvor angewendeten Try-Fallback-Option zurückgesetzt.
+Die Werte, die Sie in der Regel aufnehmen, werden auf das positionierte Element angewendet, wenn die benannte benutzerdefinierte Try-Fallback-Option angewendet wird. Wenn eine der Eigenschaften zuvor auf dem positionierten Element gesetzt wurde, werden diese Eigenschaftswerte durch die Deskriptorwerte überschrieben. Wenn der Benutzer scrollt, wodurch eine andere Try-Fallback-Option oder keine Try-Fallback-Option angewendet wird, werden die Werte der zuvor angewendeten Try-Fallback-Option entfernt.
 
-In diesem Beispiel richten wir mehrere benutzerdefinierte Try-Fallback-Optionen ein und verwenden diese. Wir verwenden den gleichen HTML- und CSS-Basiskode wie in den vorherigen Beispielen.
+In diesem Beispiel richten wir mehrere benutzerdefinierte Try-Fallback-Optionen ein und verwenden sie. Wir verwenden denselben Basis-HTML- und CSS-Code wie in den vorherigen Beispielen.
 
-Wir beginnen damit, vier benutzerdefinierte Try-Fallback-Optionen mit `@position-try` zu definieren:
+Wir beginnen mit der Definition von vier benutzerdefinierten Try-Fallback-Optionen durch `@position-try`:
 
 ```html hidden
 <div class="anchor">⚓︎</div>
@@ -303,7 +302,7 @@ body {
 }
 
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
   position: absolute;
   top: 100px;
   left: 45%;
@@ -312,7 +311,7 @@ body {
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -323,18 +322,18 @@ body {
 @position-try --custom-left {
   position-area: left;
   width: 100px;
-  margin: 0 10px 0 0;
+  margin-right: 10px;
 }
 
 @position-try --custom-bottom {
   position-area: bottom;
-  margin: 10px 0 0 0;
+  margin-top: 10px;
 }
 
 @position-try --custom-right {
   position-area: right;
   width: 100px;
-  margin: 0 0 0 10px;
+  margin-left: 10px;
 }
 
 @position-try --custom-bottom-right {
@@ -343,48 +342,47 @@ body {
 }
 ```
 
-Sobald unsere benutzerdefinierten Try-Fallback-Optionen erstellt sind, können wir sie in die Positionsliste aufnehmen, indem wir ihre Namen referenzieren:
+Sobald unsere benutzerdefinierten Try-Fallback-Optionen erstellt sind, können wir sie in die Positionsliste aufnehmen, indem wir ihre Namen angeben:
 
-```css-nolint
+```css
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
   position-area: top;
   width: 200px;
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
   position-try-fallbacks:
-    --custom-left, --custom-bottom,
-    --custom-right, --custom-bottom-right;
+    --custom-left, --custom-bottom, --custom-right, --custom-bottom-right;
 }
 ```
 
-Beachten Sie, dass unsere Standardposition durch `position-area: top` definiert ist. Wenn sich die Infobox in keiner Richtung auf Seite befindet, sitzt die Infobox über der Verankerung, und die im Wert für `position-try-fallbacks` gesetzten Try-Fallback-Optionen werden ignoriert. Stellen Sie auch fest, dass die Infobox eine feste Breite und einen unteren Rand hat. Diese Werte werden geändert, wenn verschiedene Position-Try-Fallback-Optionen angewendet werden.
+Beachten Sie, dass unsere Standardposition durch `position-area: top` definiert ist. Wenn die Infobox in keine Richtung von der Seite überläuft, sitzt die Infobox über dem Anker, und die position-try-Fallback-Optionen, die in der `position-try-fallbacks`-Eigenschaft festgelegt wurden, werden ignoriert. Beachten Sie auch, dass die Infobox eine feste Breite und einen unteren Rand hat. Diese Werte ändern sich, wenn unterschiedliche Try-Fallback-Optionen angewendet werden.
 
-Wenn die Infobox zu überschreiten beginnt, versucht der Browser die im Wert für `position-try-fallbacks` aufgelisteten Positionsoptionen:
+Wenn die Infobox beginnt zu überlaufen, versucht der Browser die in der `position-try-fallbacks`-Eigenschaft aufgeführten Positionsoptionen:
 
-- Der Browser versucht zuerst die `--custom-left` Fallback-Position. Dies bewegt die Infobox nach links der Verankerung, passt den Rand an und gibt der Infobox auch eine andere Breite.
-- Als nächstes versucht der Browser die `--custom-bottom` Position. Dies bewegt die Infobox unterhalb der Verankerung und setzt einen entsprechenden Rand. Sie enthält keinen `width` Deskriptor, sodass die Infobox zu ihrer Standardbreite von `200px` zurückkehrt, die durch die `width`-Eigenschaft festgelegt wurde.
-- Der Browser versucht als nächstes die `--custom-right` Position. Diese funktioniert ähnlich wie die `--custom-left` Position, mit demselben `width`-Deskriptorwert, aber die `position-area` und `margin` Werte sind gespiegelt, um die Infobox entsprechend rechts zu platzieren.
-- Wenn keine der anderen Fallbacks es schaffen, das positionierte Element vom Überlaufen zu stoppen, versucht der Browser die `--custom-bottom-right` Position als letzten Ausweg. Diese funktioniert ähnlich wie die anderen Fallback-Optionen, platziert das positionierte Element jedoch unten rechts von der Verankerung.
+- Der Browser versucht zuerst die `--custom-left`-Fallback-Position. Dies verschiebt die Infobox nach links vom Anker, passt den Rand an und gibt der Infobox auch eine andere Breite.
+- Als nächstes versucht der Browser die `--custom-bottom`-Position. Dies verschiebt die Infobox nach unten vom Anker und setzt einen entsprechenden Rand. Es enthält keinen `width`-Deskriptor, also kehrt die Infobox zu ihrer Standardbreite von `200px` zurück, die durch die `width`-Eigenschaft festgelegt ist.
+- Der Browser versucht als nächstes die `--custom-right`-Position. Diese funktioniert ähnlich wie die `--custom-left`-Position, mit demselben `width`-Deskriptorwert, aber die `position-area`- und `margin`-Werte werden gespiegelt, um die Infobox entsprechend nach rechts zu positionieren.
+- Wenn keine der anderen Fallbacks den Überlauf des positionierten Elements verhindert, versucht der Browser die `--custom-bottom-right`-Position als letzten Ausweg. Dies funktioniert ähnlich wie die anderen Fallback-Optionen, positioniert jedoch das positionierte Element nach unten rechts vom Anker.
 
-Wenn keine der Fallbacks es schaffen, das Überschreiten des positionierten Elements zu stoppen, wird die Position auf den anfänglichen `position-area: top;` Wert zurückgesetzt.
+Wenn keiner der Fallbacks es schafft, das positionierte Element vom Überlaufen abzuhalten, kehrt die Position zum ursprünglichen `position-area: top;`-Wert zurück.
 
 > [!NOTE]
-> Wenn eine Position-Try-Fallback-Option angewendet wird, überschreiben ihre Werte die auf dem positionierten Element gesetzten Standardwerte. Zum Beispiel wird die standardmäßig auf dem positionierten Element gesetzte `width` von `200px` gesetzt, aber wenn die `--custom-right` Position-Try-Fallback-Option angewendet wird, beträgt ihre Breite `100px`.
+> Wenn eine position-try-Fallback-Option angewendet wird, überschreiben ihre Werte die Standardwerte, die auf dem positionierten Element festgelegt sind. Zum Beispiel ist die Standardbreite, die auf dem positionierten Element festgelegt ist, `200px`, aber wenn die `--custom-right` position-try-Fallback-Option angewendet wird, wird ihre Breite auf `100px` gesetzt.
 
-Scrollen Sie die Seite und überprüfen Sie den Effekt dieser Position-Try-Fallback-Optionen, während sich die Verankerung dem Rand des Ansichtsfensters nähert:
+Scrollen Sie die Seite und überprüfen Sie den Effekt dieser position-try-Fallback-Optionen, wenn der Anker den Rand des Viewports nähert:
 
 {{ EmbedLiveSample("Benutzerdefinierte Fallback-Optionen", "100%", "250") }}
 
 ## Verwendung von `position-try-order`
 
-Die {{cssxref("position-try-order")}}-Eigenschaft hat einen etwas anderen Fokus als der Rest der Position-Try-Funktionalität, da sie beim ersten Anzeigen des positionierten Elements auf Position-Try-Fallback-Optionen zurückgreift, anstatt während des Überlaufvorgangs.
+Die {{cssxref("position-try-order")}}-Eigenschaft hat einen leicht anderen Fokus als der Rest der position-try-Funktionalität, da sie die position-try-Fallback-Optionen verwendet, wenn das positionierte Element zuerst angezeigt wird, anstatt wenn es gerade überläuft.
 
-Diese Eigenschaft erlaubt Ihnen zu spezifizieren, dass Sie das positionierte Element zuerst mittels der Position-Try-Fallback-Option angezeigt haben möchten, die dem enthaltenen Block die meiste Breite oder Höhe gibt. Dies wird erreicht, indem die Werte `most-height`, `most-width`, `most-block-size` oder `most-inline-size` gesetzt werden. Sie können auch die Effekte von zuvor gesetzten `position-try-order`-Werten mit dem `normal` Wert entfernen.
+Diese Eigenschaft ermöglicht es Ihnen anzugeben, dass Sie möchten, dass das positionierte Element anfänglich mit der position-try-Fallback-Option angezeigt wird, die dem enthaltenden Block die meiste Breite oder Höhe gibt. Dies wird durch das Setzen der Werte `most-height`, `most-width`, `most-block-size` oder `most-inline-size` erreicht. Sie können auch die Auswirkungen von zuvor gesetzten `position-try-order`-Werten mit dem Wert `normal` entfernen.
 
-Wenn keine Position-Try-Fallback-Option verfügbar ist, die mehr Breite/Höhe als die anfängliche zugewiesene Positionierung des Elements bietet, hat `position-try-order` keinen Effekt.
+Wenn keine position-try-Fallback-Option verfügbar ist, die mehr Breite/Höhe bietet als die dem Element zugewiesene Anfangspositionierung, hat `position-try-order` keine Auswirkung.
 
-Sehen wir uns eine Demo an, die den Effekt dieser Eigenschaft zeigt. Das HTML ist dasselbe wie in den vorherigen Beispielen, außer dass wir ein `<form>` mit Radiobuttons hinzugefügt haben, um verschiedene Werte von `position-try-order` auszuwählen und deren Effekte zu sehen.
+Werfen wir einen Blick auf eine Demo, die den Effekt dieser Eigenschaft zeigt. Das HTML ist dasselbe wie in den vorherigen Beispielen, außer dass wir ein `<form>` hinzugefügt haben, das Radiobuttons enthält, mit denen Sie verschiedene Werte von `position-try-order` auswählen können, um ihre Effekte zu sehen.
 
 ```html hidden
 <div class="anchor">⚓︎</div>
@@ -417,7 +415,7 @@ Sehen wir uns eine Demo an, die den Effekt dieser Eigenschaft zeigt. Das HTML is
 </form>
 ```
 
-Wir fügen eine benutzerdefinierte Try-Fallback-Option hinzu — `--custom-bottom` — die das Element unterhalb der Verankerung positioniert und einen Rand hinzufügt:
+Wir fügen eine benutzerdefinierte Try-Fallback-Option hinzu — `--custom-bottom` —, die das Element unter den Anker positioniert und einen Rand hinzufügt:
 
 ```css hidden
 .anchor {
@@ -432,7 +430,7 @@ Wir fügen eine benutzerdefinierte Try-Fallback-Option hinzu — `--custom-botto
 }
 
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
   position: absolute;
   top: 100px;
   left: 45%;
@@ -441,7 +439,7 @@ Wir fügen eine benutzerdefinierte Try-Fallback-Option hinzu — `--custom-botto
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -463,12 +461,12 @@ form {
 }
 ```
 
-Wir positionieren die Infobox zunächst oben auf der Verankerung und geben ihr dann unsere benutzerdefinierte Fallback-Option:
+Wir positionieren die Infobox zunächst oben am Anker und geben ihr dann unser benutzerdefiniertes Try-Fallback:
 
 ```css
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
   bottom: anchor(top);
   margin-bottom: 10px;
   justify-self: anchor-center;
@@ -476,7 +474,7 @@ Wir positionieren die Infobox zunächst oben auf der Verankerung und geben ihr d
 }
 ```
 
-Schließlich fügen wir etwas JavaScript hinzu, das einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignishandler auf die Radiobuttons setzt. Wenn ein Radiobutton ausgewählt wird, wird sein Wert auf die `position-try-order`-Eigenschaft der Infobox angewendet.
+Schließlich fügen wir etwas JavaScript hinzu, das einen [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis-Handler für die Radiobuttons setzt. Wenn ein Radiobutton ausgewählt wird, wird sein Wert auf die `position-try-order`-Eigenschaft der Infobox angewendet.
 
 ```js
 const infobox = document.querySelector(".infobox");
@@ -492,23 +490,23 @@ function setTryOrder(e) {
 }
 ```
 
-Versuchen Sie, die `most-height` Ordnungsoption auszuwählen. Dies hat den Effekt, die `--custom-bottom` Position-Try-Fallback-Option anzuwenden, die das Element unterhalb der Verankerung positioniert. Dies geschieht, weil es mehr Platz unterhalb der Verankerung gibt als darüber.
+Versuchen Sie die `most-height`-Order-Option auszuwählen. Dies hat den Effekt, die `--custom-bottom` position-try-Fallback-Option anzuwenden, die das Element unter dem Anker positioniert. Dies tritt auf, weil unter dem Anker mehr Platz ist als über ihm.
 
 {{ EmbedLiveSample("Verwendung von `position-try-order`", "100%", "300") }}
 
-## Bedingtes Verbergen von verankerungspositionierten Elementen
+## Bedingtes Verbergen von ankerpositionierten Elementen
 
-In einigen Situationen möchten Sie möglicherweise ein verankerungspositioniertes Element verbergen. Beispielsweise können Sie das zugehörige Element vollständig ausblenden, wenn das Verankerungselement abgeschnitten wird, weil es zu nah am Rand des Ansichtsfensters liegt. Die {{cssxref("position-visibility")}}-Eigenschaft erlaubt Ihnen die Angabe von Bedingungen, unter denen positionierte Elemente verborgen werden.
+In bestimmten Situationen möchten Sie vielleicht ein ankerpositioniertes Element verbergen. Zum Beispiel, wenn das Ankerelement abgeschnitten wird, weil es zu nah am Rand des Viewports ist, möchten Sie vielleicht das zugeordnete Element einfach ganz verbergen. Die {{cssxref("position-visibility")}}-Eigenschaft ermöglicht es Ihnen, Bedingungen anzugeben, unter denen positionierte Elemente verborgen werden.
 
-Standardmäßig wird das positionierte Element `immer` angezeigt. Der Wert `no-overflow` wird das positionierte Element **stark ausblenden**, wenn es beginnt, sein enthaltendes Element oder das Ansichtsfenster zu überschreiten.
+Standardmäßig wird das positionierte Element `always` angezeigt. Der Wert `no-overflow` wird das positionierte Element **stark verbergen**, wenn es beginnt, sein enthaltendes Element oder den Viewport zu überlaufen.
 
-Der `anchors-visible` Wert hingegen blendet das positionierte Element stark aus, wenn seine zugehörigen Verankerungen _vollständig_ verborgen sind, entweder durch Überlaufen seines enthaltenden Elements (oder des Ansichtsfensters) oder durch Abdeckung durch andere Elemente. Das positionierte Element wird sichtbar, wenn ein Teil der Verankerungen noch sichtbar ist.
+Der `anchors-visible`-Wert dagegen verbirgt das positionierte Element stark, wenn seine zugeordneten Anker _komplett_ verborgen sind, sei es durch Überlauf seines enthaltenden Elements (oder des Viewports) oder durch Überdeckung mit anderen Elementen. Das positionierte Element wird sichtbar sein, wenn irgendein Teil des Ankers noch sichtbar ist.
 
-Ein stark verborgenes Element verhält sich, als ob es und seine Nachfahren-Elemente einen {{cssxref("visibility")}} Wert von `hidden` haben, unabhängig davon, was ihr tatsächlicher `visibility`-Wert ist.
+Ein stark verborgenes Element verhält sich so, als ob es und seine Nachkommenelemente einen {{cssxref("visibility")}}-Wert von `hidden` gesetzt hätten, unabhängig davon, was ihr tatsächlicher `visibility`-Wert ist.
 
-Sehen wir uns diese Eigenschaft in Aktion an.
+Lassen Sie uns diese Eigenschaft in Aktion sehen.
 
-Dieses Beispiel verwendet das gleiche HTML und CSS wie in den vorherigen Beispielen, mit der Infobox, die an die untere Kante der Verankerung gebunden ist. Die Infobox erhält `position-visibility: no-overflow;`, um sie vollständig zu verbergen, wenn sie nach oben gescrollt wird, bis sie beginnt, das Ansichtsfenster zu überschreiten.
+Dieses Beispiel verwendet dasselbe HTML und CSS wie in den vorherigen Beispielen, wobei die Infobox an den unteren Rand des Ankers angebunden ist. Der Infobox wird `position-visibility: no-overflow;` gegeben, um sie vollständig zu verstecken, wenn sie nach oben gescrollt wird, bis sie beginnt, über den Viewport hinauszulaufen.
 
 ```html hidden
 <p>
@@ -558,7 +556,7 @@ Dieses Beispiel verwendet das gleiche HTML und CSS wie in den vorherigen Beispie
 }
 
 .anchor {
-  anchor-name: --myAnchor;
+  anchor-name: --my-anchor;
 }
 
 body {
@@ -571,7 +569,7 @@ body {
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -581,21 +579,21 @@ body {
 ```css
 .infobox {
   position: fixed;
-  position-anchor: --myAnchor;
+  position-anchor: --my-anchor;
   margin-bottom: 5px;
   position-area: top span-all;
   position-visibility: no-overflow;
 }
 ```
 
-Scrollen Sie die Seite nach unten und beachten Sie, wie das positionierte Element ausgeblendet wird, sobald es den oberen Rand des Ansichtsfensters erreicht:
+Scrollen Sie die Seite nach unten und beachten Sie, wie das positionierte Element ausgeblendet wird, sobald es den oberen Rand des Viewports erreicht:
 
 {{ EmbedLiveSample("Bedingtes Verbergen mit `position-visibility`", "100%", "250") }}
 
 ## Siehe auch
 
-- [CSS-Verankerungspositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS-Verankerungspositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
 - [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
-- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
-- [Lernen: Dimensionierung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
+- [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)

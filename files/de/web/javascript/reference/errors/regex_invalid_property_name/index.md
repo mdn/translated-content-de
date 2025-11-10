@@ -1,13 +1,11 @@
 ---
-title: "SyntaxError: ungültiger Eigenschaftsname im regulären Ausdruck"
+title: "SyntaxError: Ungültiger Eigenschaftenname im regulären Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_property_name
 l10n:
-  sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "ungültiger Eigenschaftsname im regulären Ausdruck" oder "ungültiger Klassen-Eigenschaftsname im regulären Ausdruck" tritt auf, wenn die `\p`- und `\P`-[Unicode-Zeichenklassen-Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) nicht von einem gültigen Unicode-Eigenschaftsnamen und/oder Wert gefolgt werden.
+Der JavaScript-Fehler "ungültiger Eigenschaftenname im regulären Ausdruck" oder "ungültiger Klassenname im regulären Ausdruck" tritt auf, wenn die `\p` und `\P` [Unicode-Zeichenklassen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) nicht von einem gültigen Unicode-Eigenschaftsnamen und/oder -wert gefolgt werden.
 
 ## Meldung
 
@@ -25,7 +23,7 @@ SyntaxError: Invalid regular expression: invalid property expression (Safari)
 
 ## Was ist schiefgelaufen?
 
-Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden die `\p`- und `\P`-[Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) verwendet, um Zeichen oder Zeichenfolgen basierend auf ihren Unicode-Eigenschaften zu matchen. Die `\p`-Escape-Sequenz matched Zeichen mit der angegebenen Unicode-Eigenschaft, während die `\P`-Escape-Sequenz Zeichen ohne die angegebene Unicode-Eigenschaft matched. Die Syntax ist:
+Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden die `\p` und `\P` [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) verwendet, um Zeichen oder Zeichensequenzen basierend auf ihren Unicode-Eigenschaften zu matchen. Die `\p` Escape-Sequenz matched Zeichen mit der angegebenen Unicode-Eigenschaft, während die `\P` Escape-Sequenz Zeichen ohne die angegebene Unicode-Eigenschaft matched. Die Syntax ist:
 
 ```regex
 \p{loneProperty}
@@ -35,7 +33,7 @@ Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/Re
 \P{property=value}
 ```
 
-Wenn sie nicht von `{`, dann einem erkennbaren Eigenschaftsnamen/-wert, dann `}` gefolgt wird, wird dieser Syntaxfehler ausgegeben. Für weitere Informationen über zulässige Eigenschaften und Eigenschaftsnamen siehe das [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)-Referenz.
+Wenn diese nicht von `{`, dann einem erkennbaren Eigenschaftsnamen/-wert, dann `}` gefolgt wird, wird dieser Syntaxfehler ausgelöst. Weitere Informationen darüber, welche alleinstehenden Eigenschaften und Eigenschaftsnamen erlaubt sind, finden Sie im Referenzdokument zu [Unicode-Zeichenklassen-Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape).
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: "GPUDevice: createShaderModule() Methode"
 short-title: createShaderModule()
 slug: Web/API/GPUDevice/createShaderModule
 l10n:
-  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
+  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createShaderModule()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) aus einem String von [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Quellcode.
+Die **`createShaderModule()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle erstellt ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) aus einem String des [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Quellcodes.
 
 ## Syntax
 
@@ -20,27 +20,27 @@ createShaderModule(descriptor)
 
 - `descriptor`
 
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
 
     - `code`
       - : Ein String, der den WGSL-Quellcode für das Shader-Modul darstellt.
     - `hints` {{optional_inline}}
 
-      - : Eine Sequenz von Datensatztypen mit der Struktur `("string", compilationHint)`. Diese verhalten sich wie [geordnete Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist der `"string"` ein Schlüssel, der zum Identifizieren oder Auswählen des Datensatzes verwendet wird, und `compilationHint` ist entweder eine [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objektinstanz oder ein aufgezählter Wert von `"auto"`.
+      - : Eine Sequenz von Aufzeichnungstypen mit der Struktur `("string", compilationHint)`. Diese verhalten sich wie [geordnete Karten](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist der `"string"` ein Schlüssel, der verwendet wird, um den Datensatz zu identifizieren oder auszuwählen, und `compilationHint` ist entweder ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekt oder ein enumerierter Wert von `"auto"`.
 
-        Der Zweck von `hints` ist es, Informationen über das Pipeline-Layout so früh wie möglich bereitzustellen, um die Leistung zu verbessern. Die Idee ist, die Menge der Kompilierung zu maximieren, die einmal von `createShaderModule()` durchgeführt werden kann, anstatt mehrfach in mehreren Aufrufen von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) und [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline).
+        Der Zweck von `hints` besteht darin, Informationen über das Pipeline-Layout so früh wie möglich bereitzustellen, um die Leistung zu verbessern. Die Idee ist, die Menge an Kompilierung, die einmal durch `createShaderModule()` durchgeführt werden kann, maximal auszunutzen, anstatt mehrmals in mehreren Aufrufen von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) und [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline).
 
         > [!NOTE]
-        > Unterschiedliche Implementierungen können `hints` auf unterschiedliche Weise behandeln, möglicherweise ignorieren sie sogar vollständig. Das Bereitstellen von Hinweisen garantiert keine verbesserte Shader-Kompilierungsleistung in allen Browsern/Systemen.
+        > Verschiedene Implementierungen können `hints` auf unterschiedliche Weise behandeln, einschließlich der Möglichkeit, sie vollständig zu ignorieren. Die Bereitstellung von Hinweisen garantiert nicht, dass die Leistung der Shader-Kompilierung in allen Browsern/Systemen verbessert wird.
 
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, z. B. in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der ein Etikett bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `sourceMap` {{optional_inline}}
 
-      - : Eine Definition der Quellkarte, um die Integration mit Entwicklertools zu ermöglichen, wie z.B. das Debuggen der Quellsprache. WGSL-Namen (Bezeichner) in Quellkarten sollten den in [WGSL identifier comparison](https://gpuweb.github.io/gpuweb/wgsl/#identifier-comparison) definierten Regeln folgen. Wenn definiert, kann die Quellkarte als [source-map-v3 Format](https://sourcemaps.info/spec.html) interpretiert werden.
+      - : Eine Source-Map-Definition zur Bereitstellung von Entwickler-Tool-Integrationen wie Debugging in der Quellsprache. WGSL-Namen (Identifier) in Source Maps sollten den in [WGSL Identifier Comparison](https://gpuweb.github.io/gpuweb/wgsl/#identifier-comparison) definierten Regeln folgen. Wenn sie definiert sind, können die Quellkarten im [source-map-v3-Format](https://sourcemaps.info/spec.html) interpretiert werden.
 
         > [!NOTE]
-        > Unterschiedliche Implementierungen können `sourceMap`s auf unterschiedliche Weise behandeln, möglicherweise ignorieren sie sogar vollständig.
+        > Verschiedene Implementierungen können `sourceMap`s auf unterschiedliche Weise behandeln, einschließlich der Möglichkeit, sie vollständig zu ignorieren.
 
 ### Rückgabewert
 
@@ -50,11 +50,11 @@ Eine [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Objektinstanz.
 
 Die folgenden Kriterien müssen erfüllt sein, wenn **`createShaderModule()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Objekt zurückgegeben:
 
-- Wenn Ihr WGSL-Code des Shaders den halbbreiten Gleitkommatyp [`f16`](https://gpuweb.github.io/gpuweb/wgsl/#extension-f16) verwendet, enthält er `enable f16;` am Anfang und das zugehörige [`GPUDevice`](/de/docs/Web/API/GPUDevice) wird mit dem aktivierten `shader-f16` [Feature](/de/docs/Web/API/GPUSupportedFeatures) erstellt.
+- Wenn der WGSL-Code Ihres Shaders den Halbpräzisionstyp [`f16`](https://gpuweb.github.io/gpuweb/wgsl/#extension-f16) verwendet, muss er `enable f16;` am Anfang enthalten, und das zugehörige [`GPUDevice`](/de/docs/Web/API/GPUDevice) muss mit dem `shader-f16` [Feature](/de/docs/Web/API/GPUSupportedFeatures) aktiviert erstellt werden.
 
 ## Beispiele
 
-In unserem [einfachen Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) wird unser Shader-Modul mit folgendem Code erstellt:
+In unserem [Basis-Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) wird unser Shader-Modul mit dem folgenden Code erstellt:
 
 ```js
 const shaders = `
@@ -90,16 +90,16 @@ async function init() {
     throw Error("Couldn't request WebGPU adapter.");
   }
 
-  let device = await adapter.requestDevice();
+  const device = await adapter.requestDevice();
 
-  // ...
+  // …
   // later on
 
   const shaderModule = device.createShaderModule({
     code: shaders,
   });
 
-  // ...
+  // …
 }
 ```
 

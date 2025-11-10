@@ -1,60 +1,58 @@
 ---
-title: Verwenden von Scroll-Snap-Ereignissen
+title: Verwendung von Scroll Snap-Ereignissen
 slug: Web/CSS/CSS_scroll_snap/Using_scroll_snap_events
 l10n:
-  sourceCommit: 0f7f70e7fd76f8e32cd02261bc10630d753fbf0b
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-{{CSSRef}}
-
-Das [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul definiert zwei **scroll snap events**: [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event). Diese ermöglichen es, JavaScript als Antwort darauf auszuführen, dass der Browser feststellt, dass neue [scroll snap targets](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts) anstehen bzw. ausgewählt wurden.
+Das [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul definiert zwei **Scroll Snap-Ereignisse**: [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event). Diese ermöglichen die Ausführung von JavaScript als Reaktion darauf, dass der Browser feststellt, dass neue [Scroll Snap-Ziele](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts) anstehen bzw. ausgewählt wurden.
 
 Dieser Leitfaden bietet einen Überblick über diese Ereignisse, zusammen mit vollständigen Beispielen.
 
 ## Überblick über die Ereignisse
 
-Scroll snap events sind auf einem {{Glossary("Scroll_container", "scrolling container")}} eingestellt, der potenzielle Scroll-Snap-Ziele enthält:
+Scroll Snap-Ereignisse werden auf einem {{Glossary("Scroll_container", "Scroll-Container")}} festgelegt, der potenzielle Scroll Snap-Ziele enthält:
 
-- Das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis wird ausgelöst, wenn der Browser feststellt, dass ein neues Scroll-Snap-Ziel ausgewählt wird, wenn die aktuelle Scroll-Geste endet. Dies ist das _anstehende_ Scroll-Snap-Ziel. Dieses Ereignis wird während einer Scroll-Geste jedes Mal ausgelöst, wenn der Benutzer über potenzielle neue Snap-Ziele fährt. Obwohl das `scrollsnapchanging`-Ereignis möglicherweise mehrfach für jede Scroll-Geste ausgelöst wird, wird es nicht für alle potenziellen Snap-Ziele für eine Scroll-Geste ausgelöst, die über mehrere Snap-Ziele hinweggeht. Es wird nur für das letzte Ziel ausgelöst, bei dem das Snapping potenziell zum Stillstand kommen wird.
+- Das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis wird ausgelöst, wenn der Browser feststellt, dass ein neues Scroll Snap-Ziel ausgewählt wird, wenn die aktuelle Scroll-Geste endet. Dies ist das _anstehende_ Scroll Snap-Ziel. Insbesondere dieses Ereignis wird während einer Scroll-Geste ausgelöst, jedes Mal, wenn der Benutzer über potenzielle neue Snap-Ziele fährt. Während das `scrollsnapchanging`-Ereignis möglicherweise mehrere Male für jede Scroll-Geste ausgelöst wird, wird es nicht bei allen potenziellen Snap-Zielen für eine Scroll-Geste ausgelöst, die über mehrere Snap-Ziele fährt. Stattdessen wird es nur für das letzte Ziel ausgelöst, auf dem das Snappen potenziell enden wird.
 
-- Das [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignis wird am Ende eines Scroll-Vorgangs ausgelöst, wenn ein neues Scroll-Snap-Ziel ausgewählt wird. Dieses Ereignis wird ausgelöst, wenn eine Scroll-Geste abgeschlossen wird, aber nur, wenn ein neues Snap-Ziel ausgewählt wird. Dieses Ereignis wird unmittelbar vor dem [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis ausgelöst.
+- Das [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignis wird am Ende einer Scroll-Operation ausgelöst, wenn ein neues Scroll Snap-Ziel ausgewählt wurde. Insbesondere wird dieses Ereignis ausgelöst, wenn eine Scroll-Geste abgeschlossen ist, aber nur, wenn ein neues Snap-Ziel ausgewählt wurde. Dieses Ereignis wird direkt vor dem [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis ausgelöst.
 
-Sehen wir uns ein Beispiel an, das die beiden Ereignisse in Aktion zeigt (wie dies erstellt wird, erfahren Sie später im Artikel):
+Betrachten wir ein Beispiel, das die beiden Ereignisse in Aktion zeigt (Sie werden sehen, wie dies später im Artikel aufgebaut ist):
 
-{{ EmbedLiveSample("One-dimensional scroller example", "100%", "500") }}
+{{ EmbedLiveSample("Ein-dimensionales Scroller-Beispiel", "100%", "500") }}
 
-Versuchen Sie, die Liste der Boxen nach oben und unten zu scrollen:
+Versuchen Sie, in der Liste der Kästchen nach oben und unten zu scrollen:
 
-- Versuchen Sie, den Container langsam nach oben und unten zu scrollen, ohne die Scroll-Geste loszulassen. Beispielsweise ziehen Sie Ihren Finger/Ihre Finger über den Bildlaufbereich auf einem Touchscreen-Gerät oder Trackpad oder halten Sie die Maustaste auf der Bildlaufleiste gedrückt und bewegen Sie die Maus. Die Boxen, über die Sie fahren, sollten eine dunklere graue Farbe annehmen, während Sie sie überfahren, und dann zu ihrer normalen Farbe zurückkehren, wenn Sie sich wieder von ihnen entfernen. Dies ist das `scrollsnapchanging`-Ereignis in Aktion.
-- Nun lassen Sie die Scroll-Geste los; die Box, die Ihrer Scroll-Position am nächsten liegt, sollte sich in eine violette Farbe mit weißem Text animieren. Die Animation tritt auf, wenn das `scrollsnapchange`-Ereignis ausgelöst wird.
-- Schließlich versuchen Sie, schnell zu scrollen. Beispielsweise schnippen Sie kräftig mit dem Finger über den Bildschirm, um an mehreren potenziellen Zielen vorbeizuscrollen, bevor Sie beginnen, sich in der Nähe eines Ziels weiter unten im Scroll-Container zur Ruhe zu setzen. Sie sollten nur ein `scrollsnapchanging`-Ereignis sehen, das ausgelöst wird, wenn das Scrolling zu verlangsamen beginnt, bevor das `scrollsnapchange`-Ereignis ausgelöst wird und das ausgewählte Snap-Ziel lila wird.
+- Versuchen Sie, den Container langsam nach oben und unten zu scrollen, ohne die Scroll-Geste loszulassen. Beispielsweise können Sie Ihren Finger über den Scrollbereich auf einem Touchscreen-Gerät oder Trackpad ziehen oder die Maustaste auf der Scrollleiste gedrückt halten und die Maus bewegen. Die Kästchen, über die Sie sich bewegen, sollten eine dunklere Graufarbe annehmen, während Sie über sie fahren, und dann zurück zur Normalität, wenn Sie sich wieder von ihnen entfernen. Dies ist das `scrollsnapchanging`-Ereignis in Aktion.
+- Lassen Sie nun die Scroll-Geste los; das nächste Kästchen zu Ihrer Scroll-Position sollte zu einer lila Farbe mit weißem Text animieren. Die Animation tritt auf, wenn das `scrollsnapchange`-Ereignis ausgelöst wird.
+- Versuchen Sie schließlich, schnell zu scrollen. Beispielsweise können Sie Ihren Finger kräftig über den Bildschirm schnippen, um an mehreren potenziellen Zielen vorbei zu scrollen, bevor Sie sich in der Nähe eines Ziels weiter unten im Scroll-Container beruhigen. Sie sollten nur ein `scrollsnapchanging`-Ereignis sehen, das ausgelöst wird, wenn das Scrollen beginnt, sich zu verlangsamen, bevor das `scrollsnapchange`-Ereignis ausgelöst wird und das ausgewählte Snap-Ziel lila wird.
 
 ## Das `SnapEvent`-Ereignisobjekt
 
-Beide der oben genannten Ereignisse teilen das [`SnapEvent`](/de/docs/Web/API/SnapEvent)-Ereignisobjekt. Dieses hat zwei Eigenschaften, die entscheidend für die Funktionsweise von Scroll-Snap-Ereignissen sind:
+Beide der oben genannten Ereignisse teilen sich das [`SnapEvent`](/de/docs/Web/API/SnapEvent)-Ereignisobjekt. Dieses hat zwei Eigenschaften, die entscheidend dafür sind, wie Scroll Snap-Ereignisse funktionieren:
 
-- [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) gibt eine Referenz auf das Element zurück, zu dem im {{Glossary("Flow_relative_values#block_direction", "Block-Richtung")}} gesnappt wurde, als das Ereignis ausgelöst wurde, oder `null`, wenn Scroll-Snapping nur in der Inline-Richtung stattfindet, sodass zu keinem Element in der Block-Richtung gesnappt wird.
-- [`snapTargetInline`](/de/docs/Web/API/SnapEvent/snapTargetInline) gibt eine Referenz auf das Element zurück, zu dem im {{Glossary("Flow_relative_values#inline_direction", "Inline-Richtung")}} gesnappt wurde, als das Ereignis ausgelöst wurde, oder `null`, wenn das Scroll-Snapping nur in der Block-Richtung stattfindet, sodass zu keinem Element in der Inline-Richtung gesnappt wird.
+- [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) gibt eine Referenz auf das Element zurück, das beim Auslösen des Ereignisses in der {{Glossary("Flow_relative_values#block_direction", "Block-Richtung")}} eingerastet ist, oder `null`, wenn das Scroll Snappen nur in der Inline-Richtung erfolgt und daher kein Element in der Block-Richtung eingerastet ist.
+- [`snapTargetInline`](/de/docs/Web/API/SnapEvent/snapTargetInline) gibt eine Referenz auf das Element zurück, das beim Auslösen des Ereignisses in der {{Glossary("Flow_relative_values#inline_direction", "Inline-Richtung")}} eingerastet ist, oder `null`, wenn das Scroll Snappen nur in der Block-Richtung erfolgt und daher kein Element in der Inline-Richtung eingerastet ist.
 
-Diese Eigenschaften ermöglichen es den Ereignis-Handler-Funktionen, das Element zu melden, zu dem gesnappt wurde (im Falle von `scrollsnapchange`) oder das Element, zu dem _gesnappt würde_, wenn die Scroll-Geste jetzt beendet wäre (im Falle von `scrollsnapchanging`) — und zwar in einer und zwei Dimensionen. Sie können diese Elemente dann auf jede beliebige Weise manipulieren, zum Beispiel indem Sie direkt Stile auf ihnen über ihre [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaften festlegen, Klassen auf ihnen festlegen, die in einem Stylesheet für sie definierte Stile haben, etc.
+Diese Eigenschaften ermöglichen es Ereignis-Handler-Funktionen, das Element zu melden, das eingerastet wurde (im Fall von `scrollsnapchange`) oder das Element, das _eingeschnappt würde_, wenn die Scroll-Geste jetzt beendet wäre (im Fall von `scrollsnapchanging`) — in ein- und zweidimensionalen Fällen. Sie können diese Elemente dann auf jede beliebige Weise manipulieren, zum Beispiel indem Sie direkt Stile über deren [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaften setzen, Klassen auf ihnen festlegen, die Stile in einem Stylesheet definiert haben, usw.
 
-### Beziehung zum CSS `scroll-snap-type`
+### Beziehung mit dem CSS `scroll-snap-type`
 
-Die verfügbaren Eigenschaftswerte von `SnapEvent` entsprechen direkt dem Wert der {{cssxref("scroll-snap-type")}}-CSS-Eigenschaft, die auf den Scroll-Container eingestellt ist:
+Die in `SnapEvent` verfügbaren Eigenschaftswerte entsprechen direkt dem Wert der {{cssxref("scroll-snap-type")}}-CSS-Eigenschaft, der auf dem Scroll-Container festgelegt ist:
 
-- Wenn die Snap-Achse als `block` (oder ein physischer Achsenwert, der in der aktuellen Schreibrichtung als `block` gleichgesetzt wird) angegeben ist, gibt nur `snapTargetBlock` eine Elementreferenz zurück.
-- Wenn die Snap-Achse als `inline` (oder ein physischer Achsenwert, der in der aktuellen Schreibrichtung als `inline` gleichgesetzt wird) angegeben ist, gibt nur `snapTargetInline` eine Elementreferenz zurück.
-- Wenn die Snap-Achse als `both` angegeben ist, geben `snapTargetBlock` und `snapTargetInline` eine Elementreferenz zurück.
+- Wenn die Snap-Achse als `block` festgelegt ist (oder ein physischer Achsenwert, der im aktuellen Schreibmodus `block` entspricht), gibt nur `snapTargetBlock` eine Elementreferenz zurück.
+- Wenn die Snap-Achse als `inline` festgelegt ist (oder ein physischer Achsenwert, der im aktuellen Schreibmodus `inline` entspricht), gibt nur `snapTargetInline` eine Elementreferenz zurück.
+- Wenn die Snap-Achse als `both` festgelegt ist, geben `snapTargetBlock` und `snapTargetInline` eine Elementreferenz zurück.
 
 ### Umgang mit eindimensionalen Scroller
 
-Wenn Sie mit einem horizontalen Scroller zu tun haben, ändert sich nur die `snapTargetInline`-Eigenschaft des Ereignisobjekts, wenn sich das gesnapte Element ändert, sofern der Inhalt eine horizontale {{cssxref("writing-mode")}}-Richtung hat, oder die `snapTargetBlock`-Eigenschaft, sofern der Inhalt eine vertikale `writing-mode`-Richtung hat.
+Wenn Sie es mit einem horizontalen Scroller zu tun haben, ändert sich nur die `snapTargetInline`-Eigenschaft des Ereignisobjekts, wenn sich das eingeschnappte Element ändert, wenn der Inhalt einen horizontalen {{cssxref("writing-mode")}} hat, oder die `snapTargetBlock`-Eigenschaft, wenn der Inhalt einen vertikalen `writing-mode` hat.
 
-Umgekehrt, wenn Sie mit einem vertikalen Scroller zu tun haben, ändert sich nur die `snapTargetBlock`-Eigenschaft, wenn sich das gesnapte Element ändert, sofern der Inhalt eine horizontale `writing-mode`-Richtung hat, oder die `snapTargetInline`-Eigenschaft, sofern der Inhalt eine vertikale `writing-mode`-Richtung hat.
+Umgekehrt, wenn Sie es mit einem vertikalen Scroller zu tun haben, ändert sich nur die `snapTargetBlock`-Eigenschaft, wenn sich das eingeschnappte Element ändert, wenn der Inhalt einen horizontalen `writing-mode` hat, oder die `snapTargetInline`-Eigenschaft, wenn der Inhalt einen vertikalen `writing-mode` hat.
 
-In beiden Fällen gibt die nicht geänderte Eigenschaft der beiden `null` zurück.
+In beiden Fällen gibt die nicht-ändernde Eigenschaft der beiden `null` zurück.
 
-Lassen Sie uns einen Beispielschnipsel ansehen, um eine typische eindimensionale Scroll-Snap-Ereignis-Handler-Funktion zu zeigen:
+Schauen wir uns ein Beispiel-Snippet an, um eine typische eindimensionale Scroll Snap-Ereignis-Handler-Funktion zu zeigen:
 
 ```js
 scrollingElem.addEventListener("scrollsnapchange", (event) => {
@@ -62,16 +60,16 @@ scrollingElem.addEventListener("scrollsnapchange", (event) => {
 });
 ```
 
-In diesem Schnipsel wird eine `scrollsnapchange`-Handler-Funktion auf ein in Block-Richtung scrollendes Container-Element gesetzt, das Snap-Ziele enthält. Wenn das Ereignis ausgelöst wird, setzen wir eine `select-section`-Klasse auf das `snapTargetBlock`-Element, die verwendet werden könnte, um ein neu ausgewähltes Snap-Ziel so zu stylen, dass es als ausgewählt erscheint (zum Beispiel mit einer Animation).
+In diesem Snippet wird eine `scrollsnapchange`-Handler-Funktion auf ein Block-Richtung-Scroll-Container-Element gesetzt, in dem Snap-Ziele erscheinen. Wenn das Ereignis ausgelöst wird, setzen wir eine `select-section`-Klasse auf das `snapTargetBlock`-Element, die verwendet werden könnte, um ein neu ausgewähltes Snap-Ziel zu stylen (zum Beispiel mit einer Animation).
 
 ### Umgang mit zweidimensionalen Scroller
 
-Wenn Sie mit einem horizontalen _und_ vertikalen Scroller zu tun haben, wird der Code komplexer. Dies liegt daran, dass die `snapTargetBlock`-Eigenschaft _und_ die `snapTargetInline`-Eigenschaft Werte eines Elementreferenz zurückgeben (keine der beiden gibt `null` zurück), und eine oder die andere wird sich ändern, abhängig davon, in welche Richtung Sie scrollen und von der `writing-mode` des Inhalts:
+Wenn Sie es mit einem horizontalen _und_ vertikalen Scroller zu tun haben, wird der Code komplexer. Dies liegt daran, dass die `snapTargetBlock`-Eigenschaft _und_ die `snapTargetInline`-Eigenschaft Werte für eine Elementreferenz zurückgeben (keine von beiden gibt `null` zurück), und eine oder die andere wird den Wert ändern, je nachdem, in welche Richtung Sie scrollen und welchem `writing-mode` der Inhalt folgt:
 
-- Wenn der Scroller horizontal gescrollt wird, ändert sich die `snapTargetInline`-Eigenschaft, wenn sich das gesnapte Element ändert, sofern der Inhalt eine horizontale {{cssxref("writing-mode")}}-Richtung hat, oder die `snapTargetBlock`-Eigenschaft, wenn der Inhalt eine vertikale `writing-mode`-Richtung hat.
-- Wenn der Scroller vertikal gescrollt wird, ändert sich die `snapTargetBlock`-Eigenschaft, wenn sich das gesnapte Element ändert, sofern der Inhalt eine horizontale `writing-mode`-Richtung hat, oder die `snapTargetInline`-Eigenschaft, wenn der Inhalt eine vertikale `writing-mode`-Richtung hat.
+- Wenn der Scroller horizontal gescrollt wird, ändert sich die `snapTargetInline`-Eigenschaft, wenn sich das eingeschnappte Element ändert, wenn der Inhalt einen horizontalen {{cssxref("writing-mode")}} hat, oder die `snapTargetBlock`-Eigenschaft, wenn der Inhalt einen vertikalen `writing-mode` hat.
+- Wenn der Scroller vertikal gescrollt wird, ändert sich die `snapTargetBlock`-Eigenschaft, wenn sich das eingeschnappte Element ändert, wenn der Inhalt einen horizontalen `writing-mode` hat, oder die `snapTargetInline`-Eigenschaft, wenn der Inhalt einen vertikalen `writing-mode` hat.
 
-Um dies zu handhaben, müssen Sie wahrscheinlich verfolgen, ob es das `snapTargetBlock` oder das `snapTargetInline`-Element war, das sich geändert hat. Betrachten wir ein Beispiel:
+Um dies zu handhaben, müssen Sie wahrscheinlich im Auge behalten, ob es das `snapTargetBlock`- oder das `snapTargetInline`-Element war, das sich geändert hat. Werfen wir einen Blick auf ein Beispiel:
 
 ```js
 const prevState = {
@@ -97,26 +95,26 @@ scrollingElem.addEventListener("scrollsnapchange", (event) => {
 });
 ```
 
-In diesem Schnipsel definieren wir zunächst ein Objekt (`prevState`), das die ID des vorherigen `snapTargetBlock`- und `snapTargetInline`-Elements speichert.
+In diesem Snippet definieren wir zunächst ein Objekt (`prevState`), das die ID der vorherigen `snapTargetBlock`- und `snapTargetInline`-Elemente speichert.
 
-In der Ereignishandler-Funktion verwenden wir `if`-Anweisungen, um zu prüfen, ob:
+In der Ereignis-Handler-Funktion verwenden wir `if`-Anweisungen, um zu überprüfen, ob:
 
-- Die `prevState.snapTargetBlock`-ID gleich der ID des aktuellen `event.snapTargetBlock`-Elements ist.
-- Die `prevState.snapTargetInline`-ID gleich der ID des aktuellen `event.snapTargetInline`-Elements ist.
+- Die `prevState.snapTargetBlock`-ID identisch mit der ID des aktuellen `event.snapTargetBlock`-Elements ist.
+- Die `prevState.snapTargetInline`-ID identisch mit der ID des aktuellen `event.snapTargetInline`-Elements ist.
 
-Wenn die Werte unterschiedlich sind, bedeutet das, dass der Scroller in dieser Richtung (block oder inline) gescrollt wurde, und wir protokollieren eine Nachricht an die Konsole, um dies anzuzeigen. In einem echten Beispiel würden Sie wahrscheinlich das gesnappte Element in irgendeiner Weise stylen, um anzuzeigen, dass es gesnappt wurde.
+Wenn die Werte unterschiedlich sind, bedeutet dies, dass der Scroller in diese Richtung (Block oder Inline) verschoben wurde, und wir loggen eine Nachricht in der Konsole, um dies anzuzeigen. In einem realen Beispiel würden Sie wahrscheinlich das eingeschnappte Element auf irgendeine Weise stylen, um anzuzeigen, dass es eingeschnappt wurde.
 
-Wir aktualisieren dann die Werte der `prevState.snapTargetBlock`- und `prevState.snapTargetInline` für das nächste Laufen der Ereignishandling-Funktion.
+Wir aktualisieren dann die Werte von `prevState.snapTargetBlock` und `prevState.snapTargetInline`, bereit für die nächste Ausführung der Ereignis-Handler-Funktion.
 
-Im weiteren Verlauf dieses Artikels werden wir uns ein paar vollständige Scroll-Snap-Ereignis-Beispiele ansehen, mit denen Sie in den live gerenderten Versionen am Ende jedes Abschnitts spielen können.
+Im Rest dieses Artikels werden wir uns einige vollständige Scroll Snap-Ereignis-Beispiele ansehen, die Sie in den live gerenderten Versionen am Ende jedes Abschnitts ausprobieren können.
 
-## Beispiel eines eindimensionalen Scrollers
+## Eindimensionales Scroller-Beispiel
 
-Dieses Beispiel zeigt ein vertikal scrollendes {{htmlelement("main")}}-Element, das mehrere hellgraue {{htmlelement("section")}}-Elemente enthält, die alle Scroll-Snap-Ziele sind. Wenn ein neues Snap-Ziel ansteht, wird es in einen dunkleren Grauton umschalten. Wenn ein neues Snap-Ziel ausgewählt wird, wird es sanft zu Violett mit weißem Text animieren. Wenn ein anderes Snap-Ziel vorher ausgewählt wurde, wird es sanft zurück zu Grau mit schwarzem Text animieren.
+Dieses Beispiel zeigt ein vertikal scrollendes {{htmlelement("main")}}-Element, das mehrere hellgraue {{htmlelement("section")}}-Elemente enthält, die alle Scroll Snap-Ziele sind. Wenn ein neues Snap-Ziel ansteht, wird es sich in einen dunkleren Grauton ändern. Wenn ein neues Snap-Ziel ausgewählt wird, wird es sanft in lila mit weißem Text animiert. Wenn zuvor ein anderes Snap-Ziel ausgewählt war, wird es sanft wieder in grau mit schwarzem Text animiert.
 
 ### HTML
 
-Das HTML für das Beispiel ist ein einzelnes `<main>`-Element. Wir werden die `<section>`-Elemente später mit JavaScript dynamisch hinzufügen, um Platz auf der Seite zu sparen.
+Das HTML für das Beispiel ist ein einzelnes `<main>`-Element. Wir werden später mit JavaScript dynamisch `<section>`-Elemente hinzufügen, um Platz auf der Seite zu sparen.
 
 ```html
 <main></main>
@@ -146,9 +144,9 @@ h2 {
 }
 
 section {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   border-radius: 5px;
-  background: #eee;
+  background: #eeeeee;
   box-shadow:
     inset 1px 1px 4px rgb(255 255 255 / 0.5),
     inset -1px -1px 4px rgb(0 0 0 / 0.5);
@@ -161,7 +159,7 @@ section {
 }
 ```
 
-Im CSS beginnen wir damit, dem `<main>`-Element eine kräftige schwarze {{cssxref("border")}} und eine feste {{cssxref("width")}} und {{cssxref("height")}} zu geben. Wir setzen seinen {{cssxref("overflow")}}-Wert auf `scroll`, damit überlaufender Inhalt verborgen wird und gescrollt werden kann, und setzen {{cssxref("scroll-snap-type")}} auf `block mandatory`, sodass Snap-Ziele nur in der Block-Richtung immer gesnappt werden.
+Im CSS beginnen wir, indem wir dem `<main>`-Element einen dicken schwarzen {{cssxref("border")}} und eine feste {{cssxref("width")}} und {{cssxref("height")}} geben. Wir setzen seinen {{cssxref("overflow")}}-Wert auf `scroll`, damit überfließende Inhalte verborgen sind und gescrollt werden können, und setzen {{cssxref("scroll-snap-type")}} auf `block mandatory`, sodass Snap-Ziele nur in der Block-Richtung immer eingeschnappt werden.
 
 ```css
 main {
@@ -173,7 +171,7 @@ main {
 }
 ```
 
-Jedes `<section>`-Element erhält ein {{cssxref("margin")}} von `50px`, um die `<section>`-Elemente zu trennen und das Scroll-Snapping-Verhalten offensichtlicher zu machen. Dann setzen wir {{cssxref("scroll-snap-align")}} auf `center`, um anzugeben, dass wir zum Zentrum jedes Snap-Ziels snappen möchten. Schließlich wenden wir eine {{cssxref("transition")}} an, um sanft zu den Stilanpassungen zu animieren, die vorgenommen werden, wenn eine Snap-Ziel-Auswahl getroffen wurde oder ansteht.
+Jedem `<section>`-Element wird ein {{cssxref("margin")}} von `50px` gegeben, um die `<section>`-Elemente zu trennen und das Scroll Snap-Verhalten deutlicher zu machen. Wir setzen dann {{cssxref("scroll-snap-align")}} auf `center`, um anzugeben, dass wir in der Mitte jedes Snap-Ziels einrasten wollen. Schließlich wenden wir eine {{cssxref("transition")}} an, um sanft zu den Stiländerungen zu animieren, die angewendet werden, wenn eine Snap-Zielauswahl getroffen wurde oder ansteht.
 
 ```css
 section {
@@ -183,11 +181,11 @@ section {
 }
 ```
 
-Die oben erwähnten Stiländerungen werden durch Klassen angewendet, die über JavaScript auf die `<section>`-Elemente angewendet werden. Die `select-section`-Klasse wird angewendet, um eine Auswahl zu signalisieren — dies setzt einen violetten Hintergrund und eine weiße Textfarbe. Die `pending`-Klasse wird angewendet, um eine anstehende Snap-Ziel-Auswahl zu signalisieren — dies färbt den Zielauswahlhintergrund in ein dunkleres Grau.
+Die oben erwähnten Stiländerungen werden durch Klassen angewendet, die über JavaScript auf die `<section>`-Elemente angewendet werden. Die `select-section`-Klasse wird angewendet, um eine Auswahl zu signalisieren — dies setzt einen lila Hintergrund und weiße Textfarbe. Die `pending`-Klasse wird angewendet, um eine anstehende Snap-Zielauswahl zu signalisieren — dies färbt den Hintergrund der Zielauswahl dunkler grau.
 
 ```css
 .pending {
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 
 .select-section {
@@ -198,7 +196,7 @@ Die oben erwähnten Stiländerungen werden durch Klassen angewendet, die über J
 
 ### JavaScript
 
-Im JavaScript beginnen wir, indem wir eine Referenz auf das `<main>`-Element erfassen und die Anzahl der zu generierenden `<section>`-Elemente definieren (in diesem Fall 21) sowie eine Variable, von der aus gezählt wird. Dann verwenden wir eine [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife, um die `<section>`-Elemente zu generieren, jedem eine Kind-`h2`-Überschrift mit Text zu geben, der `Section` plus dem aktuellen Wert von `n` liest.
+Im JavaScript beginnen wir, indem wir eine Referenz auf das `<main>`-Element erhalten und die Anzahl der zu generierenden `<section>`-Elemente definieren (in diesem Fall 21) und eine Variable zum Zählen festlegen. Dann verwenden wir eine [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife, um die `<section>`-Elemente zu generieren und jedem einen Kind-[`h2`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) mit dem Text `Section` plus dem aktuellen Wert von `n` zu geben.
 
 ```js
 const mainElem = document.querySelector("main");
@@ -215,10 +213,10 @@ while (n <= sectionCount) {
 }
 ```
 
-Nun zur [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignishandler-Funktion. Wenn ein Kind des `<main>`-Elements (d. h. ein beliebiges `<section>`-Element) zu einer anstehenden Snap-Ziel-Auswahl wird, tun wir Folgendes:
+Nun zur [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis-Handler-Funktion. Wenn ein Kind des `<main>`-Elements (d.h. jedes `<section>`-Element) ein anstehendes Snap-Ziel wird, dann:
 
-1. Überprüfen, ob ein Element zuvor die `pending`-Klasse angewendet hatte und diese, falls ja, entfernen. Das dient dazu, dass nur das aktuelle anstehende Ziel die `pending`-Klasse erhält und dunkler grau eingefärbt wird. Wir wollen nicht, dass vorher anstehende Ziele, die nicht mehr anstehen, das Styling behalten.
-2. Geben dem Element, auf das die [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock)-Eigenschaft verweist (wobei es sich um eines der `<section>`-Elemente handeln wird), die `pending`-Klasse, damit es dunkler grau wird.
+1. Überprüfen wir, ob ein Element zuvor die `pending`-Klasse hatte und, falls ja, entfernen wir sie. Dies ist so, dass nur das aktuelle anstehende Ziel die `pending`-Klasse erhält und dunkler grau eingefärbt wird. Wir möchten nicht, dass zuvor anstehende Ziele, die nicht mehr anstehen, den Stil beibehalten.
+2. Geben wir dem Element, das von der [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock)-Eigenschaft referenziert wird (was eines der `<section>`-Elemente sein wird), die `pending`-Klasse, damit es sich dunkler grau färbt.
 
 ```js
 mainElem.addEventListener("scrollsnapchanging", (event) => {
@@ -232,12 +230,12 @@ mainElem.addEventListener("scrollsnapchanging", (event) => {
 ```
 
 > [!NOTE]
-> Wir müssen uns in diesem Demo keine Sorgen um die `snapTargetInline`-Eigenschaft des Ereignisobjekts machen — wir scrollen nur vertikal und das Demo verwendet einen horizontalen Schreibmodus, daher wird sich nur der Wert von `snapTargetBlock` ändern. In diesem Fall wird `snapTargetInline` immer `null` zurückgeben.
+> In diesem Beispiel müssen wir uns nicht um die `snapTargetInline`-Eigenschaft des Ereignisobjekts kümmern — wir scrollen nur vertikal und das Beispiel verwendet einen horizontalen Schreibmodus, daher wird sich nur der `snapTargetBlock`-Wert ändern. In diesem Fall wird `snapTargetInline` immer `null` zurückgeben.
 
-Wenn eine Scroll-Geste endet und ein `<section>`-Element tatsächlich als ein Snap-Ziel ausgewählt wird, wird die [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignishandler-Funktion ausgelöst. Diese:
+Wenn eine Scroll-Geste endet und ein `<section>`-Element tatsächlich als Snap-Ziel ausgewählt wird, wird die [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignis-Handler-Funktion ausgelöst. Diese:
 
-1. Überprüft, ob zuvor ein Snap-Ziel ausgewählt wurde — d. h. ob eine `select-section`-Klasse zuvor auf ein Element angewendet wurde. Falls ja, entfernen wir sie.
-2. Wenden die `select-section`-Klasse auf das `<section>`-Element an, das in der `snapTargetBlock`-Eigenschaft referenziert wird, sodass das gerade gewählte Snap-Ziel die Auswahlanimation erhält.
+1. Überprüft, ob zuvor ein Snap-Ziel ausgewählt wurde — d.h. ob eine `select-section`-Klasse zuvor auf ein Element angewendet wurde. Falls ja, entfernen wir sie.
+2. Wendet die `select-section`-Klasse auf das `<section>`-Element an, das in der `snapTargetBlock`-Eigenschaft referenziert ist, damit das gerade ausgewählte Snap-Ziel die Auswahlanimation erhält.
 
 ```js
 mainElem.addEventListener("scrollsnapchange", (event) => {
@@ -252,15 +250,15 @@ mainElem.addEventListener("scrollsnapchange", (event) => {
 
 ### Ergebnis
 
-Versuchen Sie, den Scroll-Container nach oben und unten zu scrollen und beobachten Sie das oben beschriebene Verhalten:
+Versuchen Sie, im Scroll-Container nach oben und unten zu scrollen und beobachten Sie das oben beschriebene Verhalten:
 
-{{ EmbedLiveSample("One-dimensional scroller example", "100%", "500") }}
+{{ EmbedLiveSample("Eindimensionales Scroller-Beispiel", "100%", "500") }}
 
-## Beispiel eines zweidimensionalen Scrollers
+## Zweidimensionales Scroller-Beispiel
 
-Dieses Beispiel ähnelt dem vorherigen, außer dass es ein horizontal _und_ vertikal scrollendes {{htmlelement("main")}}-Element zeigt, das mehrere hellgraue {{htmlelement("section")}}-Elemente enthält, die alle Snap-Ziele sind.
+Dieses Beispiel ist dem vorherigen ähnlich, außer dass es ein horizontal _und_ vertikal scrollendes {{htmlelement("main")}}-Element zeigt, das mehrere hellgraue {{htmlelement("section")}}-Elemente enthält, die alle Snap-Ziele sind.
 
-Das HTML für das Beispiel ist dasselbe wie für das vorherige Beispiel — ein einzelnes `<main>`-Element.
+Das HTML für das Beispiel ist das gleiche wie im vorherigen Beispiel — ein Einzelnes `<main>`-Element.
 
 ```html hidden
 <main></main>
@@ -285,9 +283,9 @@ body {
 }
 
 section {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   border-radius: 5px;
-  background: #eee;
+  background: #eeeeee;
   box-shadow:
     inset 1px 1px 4px rgb(255 255 255 / 0.5),
     inset -1px -1px 4px rgb(0 0 0 / 0.5);
@@ -307,11 +305,11 @@ h2 {
 }
 ```
 
-Das CSS für dieses Beispiel ähnelt dem CSS im vorherigen Beispiel. Die signifikantesten Unterschiede sind wie folgt.
+Das CSS für dieses Beispiel ist dem CSS im vorherigen Beispiel ähnlich. Die bedeutendsten Unterschiede sind folgende.
 
-Erstens betrachten wir das Styling des `<main>`-Elements. Wir möchten, dass die `<section>`-Elemente als Gitterlayout angezeigt werden, daher verwenden wir [CSS grid layout](/de/docs/Web/CSS/CSS_grid_layout), um anzugeben, dass wir sie in sieben Spalten anzeigen wollen, wobei wir einen {{cssxref("grid-template-columns")}}-Wert von `repeat(7, 1fr)` verwenden. Wir geben auch den Raum um die `<section>`-Elemente herum an, indem wir `padding` und {{cssxref("gap")}} auf dem `<main>`-Element setzen, anstatt `margin` auf den `<section>`-Elementen zu setzen.
+Lassen Sie uns zunächst den `<main>`-Element-Stil betrachten. Wir möchten, dass die `<section>`-Elemente als Raster angezeigt werden, daher verwenden wir das [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout), um anzugeben, dass wir sie in sieben Spalten anzeigen möchten, indem wir einen {{cssxref("grid-template-columns")}}-Wert von `repeat(7, 1fr)` verwenden. Wir geben auch den Abstand um die `<section>`-Elemente durch `padding` und einen {{cssxref("gap")}} auf dem `<main>`-Element an, anstelle von `margin` auf den `<section>`-Elementen.
 
-Schließlich, da wir in diesem Beispiel in beide Richtungen scrollen, setzen wir {{cssxref("scroll-snap-type")}} auf `both mandatory`, damit Snap-Ziele sowohl in der Block- als auch in der Inline-Richtung immer gesnappt werden.
+Schließlich, da wir in beide Richtungen in diesem Beispiel scrollen, setzen wir {{cssxref("scroll-snap-type")}} auf `both mandatory`, damit Snap-Ziele sowohl in der Block- als auch in der Inline-Richtung immer eingeschnappt werden.
 
 ```css
 main {
@@ -328,11 +326,11 @@ main {
 }
 ```
 
-Als nächstes verwenden wir in diesem Beispiel CSS-Animationen statt Übergängen. Dies führt zu komplexerem Code, ermöglicht jedoch eine präzisere Steuerung der angewendeten Animationen.
+Als nächstes verwenden wir CSS-Animationen in diesem Beispiel anstelle von Übergängen. Dies führt zu komplexerem Code, ermöglicht jedoch eine feinere Kontrolle über die angewendeten Animationen.
 
-Wir definieren zunächst die Klassen, die angewendet werden, um anzuzeigen, dass eine Snap-Ziel-Auswahl gemacht oder ansteht. Die `select-section` und `deselect-section` Klassen werden Keyframe-Animationen anwenden, um eine Auswahl oder Deselektion zu signalisieren. Die `pending`-Klasse wird angewendet, um eine anstehende Snap-Ziel-Auswahl zu signalisieren (sie sorgt für einen dunkleren Grauton im Hintergrund der Auswahl, wie im vorherigen Beispiel).
+Wir definieren zunächst die Klassen, die angewendet werden, um zu signalisieren, dass eine Snap-Zielauswahl getroffen wurde oder bevorsteht. Die `select-section`- und `deselect-section`-Klassen wenden Keyframe-Animationen an, um eine Auswahl oder Deselektion zu signalisieren. Die `pending`-Klasse wird angewendet, um eine anstehende Snap-Zielauswahl zu signalisieren (sie färbt den Hintergrund der Auswahl dunkler grau, wie im vorherigen Beispiel).
 
-Die {{cssxref("@keyframes")}} animieren von einem grauen Hintergrund und schwarzer (Standard-)Textfarbe zu einem violetten Hintergrund und weißer Textfarbe und wieder zurück. Die letztere Animation ist etwas anders als die erste — sie verwendet auch {{cssxref("opacity")}}, um einen Ein-/Ausblendeffekt zu erzeugen.
+Die {{cssxref("@keyframes")}} animieren von einem grauen Hintergrund und einer schwarzen (Standard-)Textfarbe zu einem lila Hintergrund und weißer Textfarbe und zurück, bzw. Die letzte Animation ist etwas anders als die erste — sie verwendet auch {{cssxref("opacity")}}, um einen Ausblende-/Einblendeeffekt zu erzeugen.
 
 ```css
 .select-section {
@@ -344,12 +342,12 @@ Die {{cssxref("@keyframes")}} animieren von einem grauen Hintergrund und schwarz
 }
 
 .pending {
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 
 @keyframes select {
   from {
-    background: #eee;
+    background: #eeeeee;
     color: black;
   }
 
@@ -367,13 +365,13 @@ Die {{cssxref("@keyframes")}} animieren von einem grauen Hintergrund und schwarz
   }
 
   80% {
-    background: #eee;
+    background: #eeeeee;
     color: black;
     opacity: 0.1;
   }
 
   100% {
-    background: #eee;
+    background: #eeeeee;
     color: black;
     opacity: 1;
   }
@@ -382,7 +380,7 @@ Die {{cssxref("@keyframes")}} animieren von einem grauen Hintergrund und schwarz
 
 ### JavaScript
 
-Im JavaScript beginnen wir auf die gleiche Weise wie im vorherigen Beispiel, außer dass wir diesmal 49 `<section>`-Elemente generieren und jedem eine ID von `s` plus dem aktuellen Wert von `n` zuweisen, um sie später leichter zu verfolgen. Mit dem zuvor angegebenen CSS-Gitterlayout haben wir sieben Spalten mit sieben `<section>`-Elementen.
+Im JavaScript beginnen wir auf die gleiche Weise wie beim vorherigen Beispiel, außer dass wir diesmal 49 `<section>`-Elemente erzeugen und jedem eine ID von `s` plus dem aktuellen Wert von `n` geben, um sie später leichter nachverfolgen zu können. Mit dem CSS-Grid-Layout, das wir oben angegeben haben, haben wir sieben Spalten mit sieben `<section>`-Elementen.
 
 ```js
 const mainElem = document.querySelector("main");
@@ -399,7 +397,7 @@ while (n <= sectionCount) {
 }
 ```
 
-Als Nächstes spezifizieren wir ein Objekt namens `prevState`, das es uns ermöglicht, das zuvor ausgewählte Snap-Ziel zu jedem Zeitpunkt zu verfolgen — seine Eigenschaften speichern die IDs der vorherigen Inline- und Block-Snap-Ziele. Dies ist wichtig, um festzustellen, ob wir das neue Block-Ziel oder das neue Inline-Ziel jedes Mal stylen müssen, wenn ein Ereignishandler ausgelöst wird.
+Als nächstes spezifizieren wir ein Objekt namens `prevState`, das uns ermöglicht, das zuvor ausgewählte Snap-Ziel zu jedem Zeitpunkt nachzuverfolgen — seine Eigenschaften speichern die vorherigen Inline- und Block-Snap-Ziel-IDs. Dies ist wichtig, um herauszufinden, ob wir bei jedem Auslösen der Ereignis-Handler-Funktion das neue Block-Ziel oder das neue Inline-Ziel stylen müssen.
 
 ```js
 const prevState = {
@@ -408,13 +406,13 @@ const prevState = {
 };
 ```
 
-Zum Beispiel, sagen wir, der Scroll-Container wird so gescrollt, dass sich die ID des neuen [`SnapEvent.snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock)-Elements geändert hat (es ist nicht gleich der in `prevState.snapTargetBlock` gespeicherten ID), aber die ID des neuen [`SnapEvent.snapTargetInline`](/de/docs/Web/API/SnapEvent/snapTargetInline)-Elements ist immer noch die gleiche wie die in `prevState.snapTargetInline` gespeicherte ID. Das bedeutet, dass wir zu einem neuen Snap-Ziel in der Block-Richtung gewechselt haben, sodass wir `SnapEvent.snapTargetBlock` stylen sollten, aber wir sind nicht zu einem neuen Snap-Ziel in der Inline-Richtung gewechselt, daher sollten wir `SnapEvent.snapTargetInline` nicht stylen.
+Zum Beispiel, nehmen wir an, der Scroll-Container wird gescrollt, sodass sich die ID des neuen [`SnapEvent.snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock)-Elements geändert hat (sie ist nicht gleich der in `prevState.snapTargetBlock` gespeicherten ID), aber die ID des neuen [`SnapEvent.snapTargetInline`](/de/docs/Web/API/SnapEvent/snapTargetInline)-Elements ist immer noch die gleiche wie die in `prevState.snapTargetInline` gespeicherte ID. Dies bedeutet, dass wir zu einem neuen Snap-Ziel in der Block-Richtung gewechselt haben, daher sollten wir `SnapEvent.snapTargetBlock` stylen, aber wir haben zu keinem neuen Snap-Ziel in der Inline-Richtung gewechselt, daher sollten wir `SnapEvent.snapTargetInline` nicht stylen.
 
-Dieses Mal werden wir die [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignishandler-Funktion zuerst erklären. In dieser Funktion:
+Dieses Mal erklären wir zuerst die [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignis-Handler-Funktion. In dieser Funktion:
 
-1. Prüfen wir zunächst, ob ein zuvor ausgewähltes `<section>`-Element-Snap-Ziel (wie durch das Vorhandensein der `select-section`-Klasse angedeutet) die `deselect-section`-Klasse erhält, damit es die Deselektionsanimation zeigt. Wenn kein Snap-Ziel zuvor ausgewählt wurde, wenden wir die `select-section`-Klasse auf das erste `<section>` im DOM an, damit es als ausgewählt erscheint, wenn die Seite zum ersten Mal geladen wird.
-2. Vergleichen wir die zuvor ausgewählte Snap-Ziel-ID mit der neu ausgewählten Snap-Ziel-ID, sowohl für die Block- als auch für die Inline-Auswahlen. Wenn sie unterschiedlich sind, zeigt das an, dass sich die Auswahl geändert hat, sodass wir die `select-section`-Klasse auf das betreffende Snap-Ziel anwenden, um dies visuell anzuzeigen.
-3. Aktualisieren wir `prevState.snapTargetBlock` und `prevState.snapTargetInline`, sodass sie den IDs der kürzlich ausgewählten Scroll-Snap-Ziele entsprechen, damit sie das nächste Mal, wenn das Ereignis ausgelöst wird, die vorherigen Auswahlziele sind.
+1. Beginnen wir, indem wir sicherstellen, dass ein zuvor ausgewähltes `<section>`-Element-Snap-Ziel (wie durch das Vorhandensein der `select-section`-Klasse signalisiert) die `deselect-section`-Klasse erhält, damit es die Deselektions-Animation zeigt. Wenn zuvor kein Snap-Ziel ausgewählt wurde, wenden wir die `select-section`-Klasse auf das erste `<section>` im DOM an, sodass es bei der ersten Seitenladung als ausgewählt angezeigt wird.
+2. Vergleichen wir die zuvor ausgewählte Snap-Ziel-ID mit der neu ausgewählten Snap-Ziel-ID, sowohl für die Block- als auch für die Inline-Auswahl. Wenn sie unterschiedlich sind, bedeutet dies, dass sich die Auswahl geändert hat, daher wenden wir die `select-section`-Klasse auf das entsprechende Snap-Ziel an, um diese visuell anzuzeigen.
+3. Aktualisieren wir `prevState.snapTargetBlock` und `prevState.snapTargetInline`, sodass sie gleich den IDs der gerade ausgewählten Scroll-Snap-Ziele sind, damit sie beim nächsten Auslösen des Ereignisses die vorherigen Auswahlen sind.
 
 ```js
 mainElem.addEventListener("scrollsnapchange", (event) => {
@@ -437,10 +435,10 @@ mainElem.addEventListener("scrollsnapchange", (event) => {
 });
 ```
 
-Wenn die [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignishandler-Funktion ausgelöst wird, führen wir Folgendes aus:
+Wenn die [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis-Handler-Funktion ausgelöst wird, dann:
 
-1. Entfernen wir die `pending`-Klasse von dem Element, das sie zuvor angewendet bekommen hat, damit nur das aktuelle anstehende Ziel die `pending`-Klasse bekommt und dunkler grau gefärbt wird.
-2. Geben wir dem aktuellen anstehenden Element die `pending`-Klasse, sodass es dunkler grau wird, aber nur, wenn es nicht bereits die `select-section`klasse hat — wir wollen, dass ein zuvor ausgewähltes Ziel die violette Auswahlstilisierung behält, bis ein neues Ziel tatsächlich ausgewählt ist. Wir fügen auch eine zusätzliche Überprüfung in die `if`-Anweisungen ein, um sicherzustellen, dass wir nur das Inline- oder Block-anstehende-Snap-Ziel stylen, je nachdem, welches sich geändert hat. Wieder vergleichen wir das vorherige Snap-Ziel mit dem aktuellen Snap-Ziel in jedem Fall.
+1. Entfernen wir die `pending`-Klasse von dem Element, das sie zuvor hatte, damit nur das aktuelle anstehende Ziel die `pending`-Klasse erhält und dunkler grau eingefärbt wird.
+2. Geben wir dem aktuellen anstehenden Element die `pending`-Klasse, damit es sich dunkler grau färbt, aber nur, wenn es nicht bereits die `select-section`-Klasse hat — wir möchten, dass ein zuvor ausgewähltes Ziel die lila Auswahl-Styling beibehält, bis tatsächlich ein neues Ziel ausgewählt wird. Wir fügen auch einen zusätzlichen Check in die `if`-Anweisungen ein, um sicherzustellen, dass wir nur das Inline- oder Block-anstehende Snap-Ziel stylen, je nachdem, welches sich geändert hat. Wieder vergleichen wir das vorherige Snap-Ziel mit dem aktuellen Snap-Ziel in jedem Fall.
 
 ```js
 mainElem.addEventListener("scrollsnapchanging", (event) => {
@@ -467,20 +465,20 @@ mainElem.addEventListener("scrollsnapchanging", (event) => {
 
 ### Ergebnis
 
-Versuchen Sie, horizontal und vertikal im Scroll-Container zu scrollen und beobachten Sie das oben beschriebene Verhalten:
+Versuchen Sie, horizontal und vertikal im Scroll-Container zu scrollen, und beobachten Sie das oben beschriebene Verhalten:
 
-{{ EmbedLiveSample("Two-dimensional scroller example", "100%", "500") }}
+{{ EmbedLiveSample("Zweidimensionales Scroller-Beispiel", "100%", "500") }}
 
-## Scroll-Snap-Ereignisse auf `Document` und `Window`
+## Scroll Snap-Ereignisse auf `Document` und `Window`
 
-In diesem Artikel haben wir die Scroll-Snap-Ereignisse behandelt, die auf der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ausgelöst werden, aber die gleichen Ereignisse werden auch auf den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten ausgelöst. Siehe:
+In diesem Artikel haben wir die Scroll Snap-Ereignisse behandelt, die auf der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ausgelöst werden, aber dieselben Ereignisse werden auch auf den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten ausgelöst. Siehe:
 
-- `Document` [`scrollsnapchange`](/de/docs/Web/API/Document/scrollsnapchange_event) und [`scrollsnapchanging`](/de/docs/Web/API/Document/scrollsnapchanging_event) Ereignisreferenzen.
-- `Window` [`scrollsnapchange`](/de/docs/Web/API/Window/scrollsnapchange_event) und [`scrollsnapchanging`](/de/docs/Web/API/Window/scrollsnapchanging_event) Ereignisreferenzen.
+- `Document` [`scrollsnapchange`](/de/docs/Web/API/Document/scrollsnapchange_event) und [`scrollsnapchanging`](/de/docs/Web/API/Document/scrollsnapchanging_event)-Ereignisreferenzen.
+- `Window` [`scrollsnapchange`](/de/docs/Web/API/Window/scrollsnapchange_event) und [`scrollsnapchanging`](/de/docs/Web/API/Window/scrollsnapchanging_event)-Ereignisreferenzen.
 
-Diese funktionieren weitgehend auf die gleiche Weise wie die `Element`-Versionen, mit der Ausnahme, dass das gesamte HTML-Dokument als Scroll-Snap-Container gesetzt werden muss (d. h., {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element gesetzt).
+Diese funktionieren ähnlich wie die `Element`-Versionen, außer dass das gesamte HTML-Dokument als das Scroll Snap-Container festgelegt sein muss (d.h. {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element festgelegt).
 
-Zum Beispiel, wenn wir ein ähnliches Beispiel wie die oben betrachteten nehmen, bei dem wir ein `<main>`-Element mit signifikantem Inhalt haben:
+Zum Beispiel, wenn wir ein ähnliches Beispiel wie die oben betrachteten hätten, bei dem wir ein `<main>`-Element mit umfangreichen Inhalten haben:
 
 ```html
 <main>
@@ -488,7 +486,7 @@ Zum Beispiel, wenn wir ein ähnliches Beispiel wie die oben betrachteten nehmen,
 </main>
 ```
 
-Das `<main>`-Element könnte durch eine Kombination von CSS-Eigenschaften in einen Scroll-Container verwandelt werden, zum Beispiel:
+Das `<main>`-Element könnte mit einer Kombination von CSS-Eigenschaften in einen Scroll-Container verwandelt werden, zum Beispiel:
 
 ```css
 main {
@@ -498,7 +496,7 @@ main {
 }
 ```
 
-Sie könnten dann das Scroll-Snapping-Verhalten auf den scrollenden Inhalt anwenden, indem Sie die {{cssxref("scroll-snap-type")}}-Eigenschaft auf dem {{htmlelement("html")}}-Element spezifizieren:
+Sie könnten dann ein Scroll Snap-Verhalten auf den scrollenden Inhalt implementieren, indem Sie die {{cssxref("scroll-snap-type")}}-Eigenschaft auf das {{htmlelement("html")}}-Element spezifizieren:
 
 ```css
 html {
@@ -506,7 +504,7 @@ html {
 }
 ```
 
-Das folgende JavaScript-Schnipsel würde das `scrollsnapchange`-Ereignis beim HTML-Dokument auslösen, wenn ein Kind des `<main>`-Elements zu einem neu ausgewählten Snap-Ziel wird. In der Handler-Funktion setzen wir eine `selected`-Klasse auf das Kind, auf das von [`SnapEvent.snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) verwiesen wird, die verwendet werden könnte, um es so zu stylen, dass es wie ausgewählt aussieht (zum Beispiel, mit einer Animation), wenn das Ereignis ausgelöst wird.
+Das folgende JavaScript-Snippet würde das `scrollsnapchange`-Ereignis im HTML-Dokument auslösen, wenn ein Kind des `<main>`-Elements ein neu ausgewähltes Snap-Ziel wird. In der Handler-Funktion setzen wir eine `selected`-Klasse auf das Kind, das durch die [`SnapEvent.snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock) referenziert wird, die verwendet werden könnte, um es zu stylen, damit es aussieht, als wäre es ausgewählt worden (zum Beispiel mit einer Animation), wenn das Ereignis ausgelöst wird.
 
 ```js
 document.addEventListener("scrollsnapchange", (event) => {
@@ -527,5 +525,5 @@ window.addEventListener("scrollsnapchange", (event) => {
 - [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) Ereignis
 - [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event) Ereignis
 - [`SnapEvent`](/de/docs/Web/API/SnapEvent)
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
 - [Scroll Snap Events](https://developer.chrome.com/blog/scroll-snap-events) auf developer.chrome.com (2024)

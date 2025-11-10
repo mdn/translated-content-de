@@ -1,9 +1,9 @@
 ---
-title: "SVGStringList: numberOfItems Eigenschaft"
+title: "SVGStringList: numberOfItems-Eigenschaft"
 short-title: numberOfItems
 slug: Web/API/SVGStringList/numberOfItems
 l10n:
-  sourceCommit: d2457d93858bde8da4c6db79d9c7e5c1c5799441
+  sourceCommit: 49bbddc34034e59a63c0b2cda79e45c94ea9daa9
 ---
 
 {{APIRef("SVG")}}
@@ -12,7 +12,7 @@ Die **`numberOfItems`**-Eigenschaft der [`SVGStringList`](/de/docs/Web/API/SVGSt
 
 ## Wert
 
-Eine nicht-negative ganze Zahl, die die Anzahl der Elemente in der Liste darstellt.
+Eine nicht-negative Ganzzahl, die die Anzahl der Elemente in der Liste darstellt.
 
 ## Spezifikationen
 

@@ -1,18 +1,16 @@
 ---
-title: Tintenüberlauf
+title: Ink-Überlauf
 slug: Glossary/Ink_overflow
 l10n:
-  sourceCommit: b8f45350a203be9e6e83c6fcb83c93576d8d5d9c
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-{{GlossarySidebar}}
+Der **Ink-Überlauf** eines Kastens bezieht sich auf den Teil des Kastens und dessen Inhalte, der einen visuellen Effekt außerhalb des Randkastens des Kastens erzeugt. Da er nur visuell ist, beeinflusst der Ink-Überlauf nicht das Layout, da er keine Auswirkungen auf die Eigenschaften des Box-Modells hat.
 
-Der **Tintenüberlauf** einer Box bezieht sich auf den Teil der Box und ihres Inhalts, der einen visuellen Effekt außerhalb der Begrenzungsbox der Box erzeugt. Da es sich nur um einen visuellen Effekt handelt, beeinflusst der Tintenüberlauf das Layout nicht, da er keine Auswirkungen auf die Eigenschaften des Box-Modells hat.
+Ink-Überlauf ist das Überlaufen von Maleffekten wie [Box-Schatten](/de/docs/Web/CSS/Reference/Properties/box-shadow), [Rahmenbilder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders), [Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration), [Umrisse](/de/docs/Web/CSS/Reference/Properties/outline), etc., die das Layout nicht beeinflussen oder anderweitig den scrollbaren Überlaufbereich erweitern. Ink-Überlauf ist auch das Überstehen von Glyphen, wie Auf- und Abstriche, die außerhalb des em-Kastens hinausragen.
 
-Der Tintenüberlauf umfasst die Überläufe von Maleffekten wie [Box-Schatten](/de/docs/Web/CSS/box-shadow), [Rahmenbildern](/de/docs/Web/CSS/CSS_backgrounds_and_borders), [Textdekorationen](/de/docs/Web/CSS/CSS_text_decoration), [Rahmenlinien (Outlines)](/de/docs/Web/CSS/outline) usw., die das Layout nicht beeinflussen oder den überlaufbaren Bereich nicht erweitern. Tintenüberlauf umfasst auch überhängende Glyphen, wie z. B. Oberlängen und Unterlängen, die außerhalb der `em`-Box liegen.
-
-Da [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) immer einen unabhängigen [Formatierungskontext](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts) etablieren, ist jeder Überlauf von ersetzten Inhalten immer Tintenüberlauf (im Gegensatz zum [scrollbaren Überlauf](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)).
+Da {{Glossary("replaced_elements", "ersetzte Elemente")}} immer einen unabhängigen [Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Formatting_contexts) etablieren, ist jeglicher Überlauf von ersetztem Inhalt immer Ink-Überlauf (im Gegensatz zum [scrollbaren Überlauf](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)).
 
 ## Siehe auch
 
-- [CSS-Overflow-Modul](/de/docs/Web/CSS/CSS_overflow)
+- [CSS-Überlaufmodul](/de/docs/Web/CSS/Guides/Overflow)

@@ -2,12 +2,10 @@
 title: action.setBadgeTextColor()
 slug: Mozilla/Add-ons/WebExtensions/API/action/setBadgeTextColor
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-{{AddonSidebar}}
-
-Legt die Textfarbe für das Badge der Browser-Aktion fest. Tabs ohne eine spezifische Badge-Textfarbe übernehmen die globale Badge-Textfarbe.
+Setzt die Textfarbe für das Abzeichen der Browser-Aktion. Tabs ohne eine spezifische Abzeichentextfarbe erben die globale Abzeichentextfarbe.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -23,30 +21,26 @@ browser.action.setBadgeTextColor(
 ### Parameter
 
 - `details`
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `color`
-
-      - : Die Farbe, angegeben als eine der folgenden Möglichkeiten:
-
-        - ein String: jeder CSS-[\<color>](/de/docs/Web/CSS/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Versprechen abgelehnt und die Textfarbe wird nicht geändert.
-        - ein `{{WebExtAPIRef('action.ColorArray')}}` Objekt.
-        - `null`. Wenn ein `tabId` angegeben ist, entfernt es die tab-spezifische Badge-Textfarbe, sodass der Tab die globale Badge-Textfarbe übernimmt. Andernfalls wird die globale Badge-Textfarbe auf den Standardwert zurückgesetzt.
+      - : Die Farbe, angegeben als einer der folgenden Werte:
+        - ein String: jedes CSS [\<color>](/de/docs/Web/CSS/Reference/Values/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"`, oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Promise abgelehnt und die Textfarbe wird nicht geändert.
+        - ein {{WebExtAPIRef('action.ColorArray')}} Objekt.
+        - `null`. Wenn eine `tabId` angegeben ist, entfernt es die tab-spezifische Abzeichentextfarbe, sodass der Tab die globale Abzeichentextfarbe erbt. Andernfalls wird die globale Abzeichentextfarbe auf den Standardwert zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt die Badge-Textfarbe nur für den angegebenen Tab. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
+      - : `integer`. Setzt die Abzeichentextfarbe nur für den angegebenen Tab. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt die Badge-Textfarbe nur für das angegebene Fenster.
+      - : `integer`. Setzt die Abzeichentextfarbe nur für das angegebene Fenster.
 
 <!---->
 
-- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird stattdessen die globale Badge-Textfarbe gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` ausgelassen werden, wird stattdessen die globale Abzeichentextfarbe gesetzt.
 
 ## Beispiele
 
-Eine Badge-Textfarbe, die zunächst rot ist und grün wird, wenn auf die Browser-Aktion geklickt wird:
+Eine Abzeichentextfarbe, die zunächst rot ist und sich in grün ändert, wenn auf die Browser-Aktion geklickt wird:
 
 ```js
 browser.action.setBadgeText({ text: "1234" });
@@ -57,7 +51,7 @@ browser.action.onClicked.addListener(() => {
 });
 ```
 
-Setzen Sie die Badge-Textfarbe nur für den aktiven Tab:
+Setzen Sie die Abzeichentextfarbe nur für den aktiven Tab:
 
 ```js
 browser.action.setBadgeText({ text: "1234" });

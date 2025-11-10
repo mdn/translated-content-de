@@ -3,23 +3,23 @@ title: "IDBRequest: success-Ereignis"
 short-title: success
 slug: Web/API/IDBRequest/success_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `success`-Ereignis wird ausgelöst, wenn ein `IDBRequest` erfolgreich ist. Im `success`-Ereignishandler können Sie auf das Ergebnis der Anfrage zugreifen und weitere Anfragen an dieselbe Transaktion stellen.
+Das `success`-Ereignis wird ausgelöst, wenn eine `IDBRequest` erfolgreich ist. Im `success`-Ereignishandler können Sie auf das Ergebnis der Anfrage zugreifen und weitere Anfragen an dieselbe Transaktion stellen.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und es findet kein Bubbling statt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
-```js
-addEventListener("success", (event) => {});
+```js-nolint
+addEventListener("success", (event) => { })
 
-onsuccess = (event) => {};
+onsuccess = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel versucht, eine Datenbank zu öffnen und hört das `success`-Ereignis mit `addEventListener()` ab:
+Dieses Beispiel versucht, eine Datenbank zu öffnen und hört auf das `success`-Ereignis unter Verwendung von `addEventListener()`:
 
 ```js
 // Open the database
@@ -59,7 +59,7 @@ openRequest.addEventListener("success", (event) => {
 });
 ```
 
-Das gleiche Beispiel, aber unter Verwendung der `onsuccess`-Ereignishandler-Eigenschaft:
+Das gleiche Beispiel, aber mit der `onsuccess`-Ereignishandler-Eigenschaft:
 
 ```js
 // Open the database

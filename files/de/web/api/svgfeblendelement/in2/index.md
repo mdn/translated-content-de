@@ -3,12 +3,12 @@ title: "SVGFEBlendElement: in2-Eigenschaft"
 short-title: in2
 slug: Web/API/SVGFEBlendElement/in2
 l10n:
-  sourceCommit: ecd1c8ee446a4958297460e548b2ecca18af35a9
+  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
 ---
 
 {{APIRef("SVG")}}
 
-Die **`in2`** schreibgeschützte Eigenschaft des [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Interfaces spiegelt das {{SVGAttr("in2")}}-Attribut des gegebenen Elements wider.
+Die schreibgeschützte **`in2`**-Eigenschaft des [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Interfaces spiegelt das {{SVGAttr("in2")}}-Attribut des gegebenen Elements wider.
 
 ## Wert
 
@@ -29,14 +29,9 @@ In diesem Beispiel sind zwei {{SVGElement("feBlend")}}-Elemente in einem Filter 
     y="20"
     width="100"
     height="100"
-    style="fill:red;"
+    fill="red"
     filter="url(#blend-filter)" />
-  <circle
-    cx="100"
-    cy="100"
-    r="50"
-    style="fill:blue;"
-    filter="url(#blend-filter)" />
+  <circle cx="100" cy="100" r="50" fill="blue" filter="url(#blend-filter)" />
 </svg>
 ```
 

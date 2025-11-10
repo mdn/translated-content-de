@@ -1,51 +1,51 @@
 ---
-title: "DedicatedWorkerGlobalScope: message-Ereignis"
+title: "DedicatedWorkerGlobalScope: message event"
 short-title: message
 slug: Web/API/DedicatedWorkerGlobalScope/message_event
 l10n:
-  sourceCommit: e6457c34ac16790d4e62bc9ba21e899ac560089c
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Das `message`-Ereignis wird auf einem [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt ausgelöst, wenn der Worker eine Nachricht von seinem übergeordneten Element erhält (d. h. wenn das übergeordnete Element eine Nachricht mit [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) sendet).
+Das `message`-Ereignis wird auf einem [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt ausgelöst, wenn der Worker eine Nachricht von seinem Elternteil erhält (d.h. wenn das Elternteil eine Nachricht mittels [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) sendet).
 
-Dieses Ereignis ist nicht stornierbar und nicht bubbling.
+Dieses Ereignis ist nicht abbruchsicher und wird nicht gebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
-```js
-addEventListener("message", (event) => {});
+```js-nolint
+addEventListener("message", (event) => { })
 
-onmessage = (event) => {};
+onmessage = (event) => { }
 ```
 
 ## Ereignistyp
 
-Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbaut von [`Event`](/de/docs/Web/API/Event).
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
-  - : Die von dem Nachrichtensender gesendeten Daten.
+  - : Die Daten, die vom Nachrichtensender gesendet wurden.
 - [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
-  - : Ein String, der die Herkunft des Nachrichtensenders darstellt.
+  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (kann ein [`Window`](/de/docs/Web/API/Window), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtensender darstellt.
+  - : Eine `MessageEventSource` (die ein [`Window`](/de/docs/Web/API/Window), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtensender darstellt.
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
-  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z.B. im Kanalmessaging oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal assoziiert sind, durch den die Nachricht gesendet wird (wo zutreffend, z. B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen gemeinsamen Worker).
 
 ## Beispiel
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor. Nachrichten werden an den Worker gesendet, wenn sich der Wert des Formulareingabefeldes `first` ändert. Ein [`onmessage`](/de/docs/Web/API/Worker/message_event)-Handler ist ebenfalls vorhanden, um mit zurückgesendeten Nachrichten vom Worker umzugehen.
+Der folgende Codeausschnitt zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor. Nachrichten werden an den Worker übergeben, wenn sich der Wert im Formulareingabefeld `first` ändert. Ein [`onmessage`](/de/docs/Web/API/Worker/message_event)-Handler ist ebenfalls vorhanden, um Nachrichten zu bearbeiten, die vom Worker zurückgesendet werden.
 
 ```js
 // main.js
@@ -67,7 +67,7 @@ self.onmessage = (e) => {
 };
 ```
 
-Im `main.js`-Skript wird ein `onmessage`-Handler verwendet, um Nachrichten vom Worker-Skript zu verarbeiten:
+Im `main.js`-Skript wird ein `onmessage`-Handler verwendet, um Nachrichten aus dem Worker-Skript zu bearbeiten:
 
 ```js
 // main.js
@@ -78,7 +78,7 @@ myWorker.onmessage = (e) => {
 };
 ```
 
-Alternativ kann das Skript mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf das Ereignis hören:
+Alternativ kann das Skript auf die Nachricht mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) lauschen:
 
 ```js
 // worker.js
@@ -89,9 +89,9 @@ self.addEventListener("message", (e) => {
 });
 ```
 
-Beachten Sie, dass im Hauptskript `onmessage` auf `myWorker` aufgerufen werden muss, während im Worker-Skript nur `onmessage` erforderlich ist, da der Worker im Wesentlichen der globale Kontext ist ([`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)).
+Beachten Sie, dass im Hauptskript `onmessage` auf `myWorker` aufgerufen werden muss, während im Worker-Skript nur `onmessage` benötigt wird, da der Worker effektiv der globale Kontext ist ([`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)).
 
-Für ein vollständiges Beispiel siehe unser [Basis-Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+Ein vollständiges Beispiel finden Sie in unserem [Grundlegendes Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
 
 ## Spezifikationen
 
@@ -107,4 +107,4 @@ Für ein vollständiges Beispiel siehe unser [Basis-Beispiel für einen dedizier
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
 - Verwandte Ereignisse: [`messageerror`](/de/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event)
 - [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage)
-- [Verwendung von Kanalmeldungen](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanalnachrichten](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

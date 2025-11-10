@@ -2,18 +2,16 @@
 title: search.search()
 slug: Mozilla/Add-ons/WebExtensions/API/search/search
 l10n:
-  sourceCommit: 1d6016ba801ec08203e3eecbb5f4c1d163eb87d7
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
+Führen Sie eine Suche mit der angegebenen Suchmaschine oder der Standardsuchmaschine durch, wenn keine Suchmaschine angegeben ist.
 
-Führen Sie eine Suche mit der angegebenen Suchmaschine durch oder verwenden Sie die Standardsuchmaschine, wenn keine Suchmaschine angegeben ist.
+Die Ergebnisse werden im aktuellen Tab, einem neuen Tab oder einem neuen Fenster entsprechend der Eigenschaft `disposition` oder im in der Eigenschaft `tabId` angegebenen Tab angezeigt. Wenn keine von beiden angegeben ist, werden die Ergebnisse in einem neuen Tab angezeigt.
 
-Die Ergebnisse werden im aktuellen Tab, einem neuen Tab oder einem neuen Fenster entsprechend der `disposition`-Eigenschaft oder im durch die `tabId`-Eigenschaft angegebenen Tab angezeigt. Wenn keine dieser Eigenschaften angegeben ist, werden die Ergebnisse in einem neuen Tab angezeigt.
+Um diese Funktion zu nutzen, muss Ihre Erweiterung die Berechtigung `"search"` im [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
 
-Um diese Funktion zu verwenden, muss Ihre Erweiterung die `"search"` [Manifestberechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
-
-Um die installierten Suchmaschinen abzurufen, verwenden Sie {{WebExtAPIRef("search.get()")}}.
+Um die installierten Suchmaschinen zu erhalten, verwenden Sie {{WebExtAPIRef("search.get()")}}.
 
 ## Syntax
 
@@ -26,17 +24,15 @@ browser.search.search(
 ### Parameter
 
 - `searchProperties`
-
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
-
     - `disposition` {{optional_inline}}
-      - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardmäßig `NEW_TAB`. Kann nicht mit `tabId` angegeben werden.
+      - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardmäßig `NEW_TAB`. Kann nicht zusammen mit `tabId` angegeben werden.
     - `engine` {{optional_inline}}
-      - : `string`. Der Name der Suchmaschine. Wenn der Suchmaschinenname nicht existiert, lehnt die Funktion den Aufruf mit einem Fehler ab. Wenn diese Eigenschaft ausgelassen wird, wird die Standardsuchmaschine verwendet.
+      - : `string`. Der Name der Suchmaschine. Wenn der Name der Suchmaschine nicht existiert, lehnt die Funktion den Aufruf mit einem Fehler ab. Wenn diese Eigenschaft weggelassen wird, wird die Standardsuchmaschine verwendet.
     - `query`
       - : `string`. Die Suchanfrage.
     - `tabId` {{optional_inline}}
-      - : `integer`. Eine optionale Kennung für den Tab, in dem Sie die Suche ausführen möchten. Wenn diese Eigenschaft ausgelassen wird, werden die Suchergebnisse in einem neuen Tab angezeigt. Kann nicht mit `disposition` angegeben werden.
+      - : `integer`. Eine optionale Kennung für den Tab, in dem Sie die Suche ausführen möchten. Wenn diese Eigenschaft weggelassen wird, werden die Suchergebnisse in einem neuen Tab angezeigt. Kann nicht zusammen mit `disposition` angegeben werden.
 
 ### Rückgabewert
 
@@ -44,7 +40,7 @@ Keiner.
 
 ## Beispiele
 
-Eine Suche mit der Standardsuchmaschine, deren Ergebnisse im aktuellen Tab angezeigt werden (Standard):
+Eine Suche mit der Standardsuchmaschine, wobei die Ergebnisse im aktuellen Tab angezeigt werden (Standard):
 
 ```js
 function search() {
@@ -56,7 +52,7 @@ function search() {
 browser.browserAction.onClicked.addListener(search);
 ```
 
-Eine Suche mit Wikipedia, deren Ergebnisse in einem neuen Fenster angezeigt werden:
+Eine Suche mit Wikipedia, wobei die Ergebnisse in einem neuen Fenster angezeigt werden:
 
 ```js
 async function search() {
@@ -78,7 +74,7 @@ async function search() {
 browser.browserAction.onClicked.addListener(search);
 ```
 
-Eine Suche mit Wikipedia, deren Ergebnisse im aktuellen Tab angezeigt werden:
+Eine Suche mit Wikipedia, wobei die Ergebnisse im aktuellen Tab angezeigt werden:
 
 ```js
 async function search(tab) {

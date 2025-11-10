@@ -1,21 +1,21 @@
 ---
-title: "Navigator: globalPrivacyControl Eigenschaft"
+title: "Navigator: globalPrivacyControl-Eigenschaft"
 short-title: globalPrivacyControl
 slug: Web/API/Navigator/globalPrivacyControl
 l10n:
-  sourceCommit: c1fd7dc9410c14ec9e00b3ec35b7b94d43296389
+  sourceCommit: f89740247002fb71eb339af142482900f3c32349
 ---
 
 {{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer der Website oder dem Dienst das Verkaufen oder Teilen ihrer persönlichen Informationen mit Dritten gestattet.
+Die schreibgeschützte Eigenschaft **`Navigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer zustimmt, dass die Website oder der Dienst seine persönlichen Informationen an Dritte verkauft oder teilt.
 
-Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
+Der Wert der Eigenschaft spiegelt den des {{httpheader("Sec-GPC")}} HTTP-Headers wider.
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich _keine_ Zustimmung zum Verkaufen oder Teilen seiner Daten gibt.
-`false`, wenn der Benutzer entweder Zustimmung erteilt oder keine Präferenz angegeben hat.
+`true`, wenn der Benutzer ausdrücklich _nicht_ zustimmt, seine Daten zu verkaufen oder zu teilen.
+`false`, wenn der Benutzer entweder Zustimmung erteilt hat oder keine Präferenz angegeben hat.
 
 ## Beispiel
 
@@ -34,7 +34,6 @@ console.log(navigator.globalPrivacyControl);
 
 ## Siehe auch
 
-- {{HTTPHeader("Sec-GPC")}} Header
+- {{HTTPHeader("Sec-GPC")}}-Header
 - [globalprivacycontrol.org](https://globalprivacycontrol.org/)
-- [Global Privacy Control Spec](https://privacycg.github.io/gpc-spec/)
 - [Do Not Track auf Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track)

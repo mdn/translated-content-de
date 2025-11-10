@@ -3,12 +3,12 @@ title: "Navigator: devicePosture-Eigenschaft"
 short-title: devicePosture
 slug: Web/API/Navigator/devicePosture
 l10n:
-  sourceCommit: a3d19af7e3eeb1c40748c80cd6b5143cfa201c54
+  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
 ---
 
-{{APIRef("WebdevicePosture API")}}{{SeeCompatTable}}
+{{APIRef("Device Posture API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`Navigator.devicePosture`**-Eigenschaft gibt das [`DevicePosture`](/de/docs/Web/API/DevicePosture)-Objekt des Browsers zurück. Dieses ermöglicht es Entwicklern, die aktuelle Haltung des Geräts abzufragen (also ob der Viewport flach oder gefaltet ist) und Code entsprechend auf Haltungsänderungen zu reagieren.
+Die schreibgeschützte **`Navigator.devicePosture`**-Eigenschaft gibt das [`DevicePosture`](/de/docs/Web/API/DevicePosture)-Objekt des Browsers zurück, das es Entwicklern ermöglicht, die aktuelle Haltung des Geräts abzufragen (das heißt, ob das Viewport in einem flachen oder gefalteten Zustand ist) und Code als Reaktion auf Haltungsänderungen auszuführen.
 
 ## Wert
 
@@ -40,4 +40,4 @@ navigator.devicePosture.addEventListener("change", reportPostureOutput);
 - [`DevicePosture`](/de/docs/Web/API/DevicePosture)
 - [`devicePosture.type`](/de/docs/Web/API/DevicePosture/type)
 - [Device Posture API](/de/docs/Web/API/Device_Posture_API)
-- CSS {{cssxref("@media/device-posture", "device-posture")}}-`@media`-Feature
+- CSS {{cssxref("@media/device-posture", "device-posture")}} `@media`-Funktion

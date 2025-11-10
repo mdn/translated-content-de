@@ -1,15 +1,14 @@
 ---
 title: DataView.prototype.getInt32()
+short-title: getInt32()
 slug: Web/JavaScript/Reference/Global_Objects/DataView/getInt32
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+Die **`getInt32()`** Methode von {{jsxref("DataView")}} Instanzen liest 4 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbytewerte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
-Die **`getInt32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als 32-Bit vorzeichenbehaftete Ganzzahl. Es gibt keine Ausrichtungsbeschränkung; mehrbyteige Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
-
-{{InteractiveExample("JavaScript Demo: DataView.getInt32()")}}
+{{InteractiveExample("JavaScript Demo: DataView.prototype.getInt32()")}}
 
 ```js interactive-example
 // Create an ArrayBuffer with a size in bytes
@@ -32,18 +31,18 @@ getInt32(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, vom Anfang der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes ab dem Beginn der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian-")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Eine Ganzzahl im Bereich von -2147483648 bis 2147483647, einschließlich.
+Eine Ganzzahl von -2147483648 bis 2147483647, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass über das Ende der Ansicht hinaus gelesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass über das Ende der Ansicht hinaus gelesen würde.
 
 ## Beispiele
 

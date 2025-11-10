@@ -15,7 +15,7 @@ Ein Veralterungsbericht wird generiert, wenn eine veraltete Funktion (zum Beispi
 
 ## Konstruktor
 
-Eine Instanz von `DeprecationReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/Type) `deprecation` ist. Die Schnittstelle hat keinen Konstruktor.
+Eine Instanz von `DeprecationReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/type) `deprecation` ist. Die Schnittstelle hat keinen Konstruktor.
 
 ## Instanzeigenschaften
 

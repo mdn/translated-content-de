@@ -2,38 +2,40 @@
 title: MediaSession
 slug: Web/API/MediaSession
 l10n:
-  sourceCommit: 201edb14234b7c58ff16532c3da1bde6bd26804f
+  sourceCommit: d22284cbba8b64afd6ad8c965d4ac2c927c59550
 ---
 
 {{APIRef("Media Session API")}}
 
-Das **`MediaSession`** Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, benutzerdefinierte Verhaltensweisen für standardmäßige Medienwiedergabe-Interaktionen bereitzustellen und Metadaten zu melden, die vom Benutzeragenten an das Gerät oder das Betriebssystem zur Darstellung in standardisierten Benutzerschnittstellenelementen gesendet werden können.
+Das **`MediaSession`** Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, benutzerdefinierte Verhaltensweisen für standardmäßige Medienwiedergabe-Interaktionen bereitzustellen und Metadaten zu melden, die vom Benutzeragenten an das Gerät oder Betriebssystem zur Darstellung in standardisierten Benutzerschnittstellenelementen gesendet werden können.
 
-Ein Smartphone hat beispielsweise ein standardmäßiges Panel im Sperrbildschirm, das Steuerungen für Medienwiedergabe und Informationsanzeige bietet. Ein Browser auf dem Gerät kann `MediaSession` verwenden, um die Browser-Wiedergabe von dieser standardmäßigen/globalen Benutzerschnittstelle aus steuerbar zu machen.
+Ein Smartphone könnte beispielsweise ein standardisiertes Panel auf seinem Sperrbildschirm haben, das Steuerungen für die Medienwiedergabe und die Informationsanzeige bietet. Ein Browser auf dem Gerät kann `MediaSession` verwenden, um die Browserwiedergabe von dieser standardisierten/globalen Benutzerschnittstelle aus steuerbar zu machen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`metadata`](/de/docs/Web/API/MediaSession/metadata)
-  - : Gibt eine Instanz von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) zurück, die umfangreiche Medienmetadaten zur Anzeige in einer Plattform-Benutzeroberfläche enthält.
+  - : Gibt eine Instanz von [`MediaMetadata`](/de/docs/Web/API/MediaMetadata) zurück, die reichhaltige Medienmetadaten zur Anzeige in einer Plattform-Benutzeroberfläche enthält.
 - [`playbackState`](/de/docs/Web/API/MediaSession/playbackState)
-  - : Gibt an, ob die aktuelle Mediensitzung abgespielt wird. Gültige Werte sind `none`, `paused` oder `playing`.
+  - : Gibt an, ob die aktuelle Mediensitzung läuft. Gültige Werte sind `none`, `paused` oder `playing`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler)
-  - : Setzt einen Aktion-Handler für eine Medienaktions-Sitzung, wie z. B. Play oder Pause.
-- [`setCameraActive()`](/de/docs/Web/API/MediaSession/setCameraActive) {{Experimental_Inline}}
-  - : Gibt dem Benutzeragenten an, ob die Kamera des Benutzers als aktiv betrachtet wird.
-- [`setMicrophoneActive()`](/de/docs/Web/API/MediaSession/setMicrophoneActive) {{Experimental_Inline}}
-  - : Gibt dem Benutzeragenten an, ob das Mikrofon des Benutzers momentan stummgeschaltet ist.
+  - : Legt einen Aktionshandler für eine Mediensitzungsaktion, wie abspielen oder pausieren, fest.
+- [`setCameraActive()`](/de/docs/Web/API/MediaSession/setCameraActive)
+  - : Zeigt dem Benutzeragenten an, ob die Kamera des Benutzers als aktiv angesehen wird.
+- [`setMicrophoneActive()`](/de/docs/Web/API/MediaSession/setMicrophoneActive)
+  - : Zeigt dem Benutzeragenten an, ob das Mikrofon des Benutzers derzeit als stummgeschaltet betrachtet wird.
 - [`setPositionState()`](/de/docs/Web/API/MediaSession/setPositionState)
-  - : Setzt die aktuelle Wiedergabeposition und -geschwindigkeit des derzeit wiedergegebenen Mediums.
+  - : Legt die aktuelle Wiedergabeposition und -geschwindigkeit des derzeit präsentierten Mediums fest.
+- [`setScreenshareActive()`](/de/docs/Web/API/MediaSession/setScreenshareActive) {{experimental_inline}}
+  - : Zeigt dem Benutzeragenten den von der Seite gewünschten Status der Bildschirmerkennung an.
 
 ## Beispiele
 
-### Einrichten von Aktions-Handlern für einen Musikplayer
+### Einrichten von Aktionshandlern für einen Musikplayer
 
-Das folgende Beispiel erstellt eine neue Mediensitzung und weist dieser Aktion-Handler zu:
+Das folgende Beispiel erstellt eine neue Mediensitzung und weist ihr Aktionshandler zu:
 
 ```js
 if ("mediaSession" in navigator) {
@@ -114,7 +116,7 @@ if ("mediaSession" in navigator) {
 }
 ```
 
-Das folgende Beispiel richtet zwei Funktionen zum Abspielen und Pausieren ein und verwendet sie dann als Rückrufe mit den entsprechenden Aktion-Handlern.
+Das folgende Beispiel richtet zwei Funktionen zum Abspielen und Pausieren ein und verwendet sie dann als Rückrufe mit den entsprechenden Aktionshandlern.
 
 ```js
 const actionHandlers = [
@@ -152,9 +154,9 @@ for (const [action, handler] of actionHandlers) {
 }
 ```
 
-### Verwendung von Aktions-Handlern zur Steuerung einer Präsentation
+### Verwendung von Aktionshandlern zur Steuerung einer Folienpräsentation
 
-Die `"previousslide"` und `"nextslide"` Aktion-Handler können verwendet werden, um vorwärts und rückwärts durch eine Folienpräsentation zu navigieren, zum Beispiel, wenn der Benutzer seine Präsentation in ein [Bild-im-Bild](/de/docs/Web/API/Picture-in-Picture_API) Fenster legt und die vom Browser bereitgestellten Steuerungen für die Navigation durch Folien verwendet.
+Die `"previousslide"` und `"nextslide"` Aktionshandler können verwendet werden, um das Vor- und Zurückblättern durch eine Folienpräsentation zu steuern, zum Beispiel wenn der Benutzer seine Präsentation in ein [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API) Fenster legt und die vom Browser bereitgestellten Steuerungen zum Navigieren durch Folien drückt.
 
 ```js
 try {
@@ -178,7 +180,7 @@ try {
 }
 ```
 
-Sehen Sie sich [Presenting Slides / Media Session Sample](https://googlechrome.github.io/samples/media-session/slides.html) für ein funktionierendes Beispiel an.
+Siehe [Presenting Slides / Media Session Sample](https://googlechrome.github.io/samples/media-session/slides.html) für ein funktionierendes Beispiel.
 
 ## Spezifikationen
 

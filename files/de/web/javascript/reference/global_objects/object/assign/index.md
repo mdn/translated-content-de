@@ -1,17 +1,15 @@
 ---
 title: Object.assign()
+short-title: assign()
 slug: Web/JavaScript/Reference/Global_Objects/Object/assign
 l10n:
-  sourceCommit: 2982fcbb31c65f324a80fd9cec516a81d4793cd4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
-
-Die **`Object.assign()`** statische Methode
-kopiert alle {{jsxref("Object/propertyIsEnumerable", "enumerablen", "", 1)}}
+Die **statische Methode `Object.assign()`**
+kopiert alle {{jsxref("Object/propertyIsEnumerable", "aufzählbaren", "", 1)}}
 {{jsxref("Object/hasOwn", "eigenen Eigenschaften", "", 1)}} von einem oder mehreren
-_Quellobjekten_ in ein _Zielobjekt_. Sie gibt das modifizierte Zielobjekt
-zurück.
+_Quellobjekten_ zu einem _Zielobjekt_. Sie gibt das modifizierte Zielobjekt zurück.
 
 {{InteractiveExample("JavaScript Demo: Object.assign()")}}
 
@@ -40,27 +38,47 @@ Object.assign(target, source1, source2, /* …, */ sourceN)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt — das Objekt, auf das die Eigenschaften der Quellen angewendet werden und das nach der Modifikation zurückgegeben wird.
+  - : Das Zielobjekt — auf das die Eigenschaften der Quellen angewendet werden sollen und das nach der Modifikation zurückgegeben wird. Wenn ein primitiver Wert als Ziel übergeben wird, wird dieser in ein Objekt umgewandelt.
 - `source1`, …, `sourceN`
-  - : Die Quellobjekte — Objekte, die die anzuwendenden Eigenschaften enthalten.
+  - : Die Quellobjekt(e) — Objekte, die die Eigenschaften enthalten, die angewendet werden sollen.
 
 ### Rückgabewert
 
 Das Zielobjekt.
 
+### Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : In einem der folgenden Fälle ausgelöst:
+    - Der `target`-Parameter ist [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}}.
+    - Die Zuweisung einer Eigenschaft an das Zielobjekt schlägt fehl; beispielsweise weil die Eigenschaft im Zielobjekt nicht beschreibbar ist oder weil der Setter einen Fehler wirft.
+
 ## Beschreibung
 
-Eigenschaften im Zielobjekt werden durch Eigenschaften in den Quellen überschrieben, wenn sie denselben {{jsxref("Object/keys", "Schlüssel", "", 1)}} haben. Eigenschaften späterer Quellen überschreiben die früherer.
+Eigenschaften im Zielobjekt werden durch Eigenschaften in den Quellen überschrieben, wenn sie
+den gleichen {{jsxref("Object/keys", "Schlüssel", "", 1)}} haben. Eigenschaften späterer Quellen
+überschreiben frühere.
 
-Die `Object.assign()`-Methode kopiert nur _enumerable_ und _eigene_ Eigenschaften von einem Quellobjekt in ein Zielobjekt. Sie verwendet `[[Get]]` auf der Quelle und `[[Set]]` am Ziel, daher ruft sie [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [Setter](/de/docs/Web/JavaScript/Reference/Functions/set) auf. Dadurch _weist_ sie die Eigenschaften zu, anstatt neue Eigenschaften zu kopieren oder zu definieren. Dies kann sie ungeeignet machen, um neue Eigenschaften in ein Prototyp zu integrieren, wenn die Merge-Quellen Getter enthalten.
+Die Methode `Object.assign()` kopiert nur _aufzählbare_ und
+_eigene_ Eigenschaften von einem Quellobjekt auf ein Zielobjekt. Sie verwendet
+`[[Get]]` auf der Quelle und `[[Set]]` auf dem Ziel, wodurch
+[getters](/de/docs/Web/JavaScript/Reference/Functions/get) und [setters](/de/docs/Web/JavaScript/Reference/Functions/set) aufgerufen werden. Dadurch werden
+Eigenschaften _zugewiesen_, anstatt sie zu kopieren oder neu zu definieren. Dies kann es
+ungeeignet machen, neue Eigenschaften in ein Prototyp-Muster zu integrieren, wenn die Quellobjekte
+Getters enthalten.
 
-Zum Kopieren von Eigenschaftsdefinitionen (einschließlich ihrer Enumerierbarkeit) in Prototypen, verwenden Sie stattdessen {{jsxref("Object.getOwnPropertyDescriptor()")}} und {{jsxref("Object.defineProperty()")}}.
+Um Eigenschaftsdefinitionen (einschließlich ihrer Aufzählbarkeit) in Prototypen zu kopieren, verwenden Sie
+stattdessen {{jsxref("Object.getOwnPropertyDescriptor()")}} und
+{{jsxref("Object.defineProperty()")}}.
 
 Sowohl {{jsxref("String")}}- als auch {{jsxref("Symbol")}}-Eigenschaften werden kopiert.
 
-Im Falle eines Fehlers, z. B. wenn eine Eigenschaft nicht beschreibbar ist, wird ein {{jsxref("TypeError")}} ausgelöst, und das `target`-Objekt wird geändert, falls vor Auftreten des Fehlers Eigenschaften hinzugefügt wurden.
+Im Fehlerfall, zum Beispiel wenn eine Eigenschaft nicht beschreibbar ist, wird ein
+{{jsxref("TypeError")}} ausgelöst, und das `target`-Objekt wird
+geändert, wenn Eigenschaften hinzugefügt wurden, bevor der Fehler aufgetreten ist.
 
-> **Hinweis:** `Object.assign()` löst keinen Fehler aus bei [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)- oder {{jsxref("undefined")}}-Quellen.
+> [!NOTE]
+> `Object.assign()` wird bei Quellen [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} nicht ausgelöst.
 
 ## Beispiele
 
@@ -72,11 +90,12 @@ const copy = Object.assign({}, obj);
 console.log(copy); // { a: 1 }
 ```
 
-### Warnung für Deep Clone
+### Warnung bei tiefem Klonen
 
-Für {{Glossary("Deep_copy", "Deep Cloning")}} müssen wir Alternativen wie [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) verwenden, da `Object.assign()` Werte der Eigenschaften kopiert.
+Für {{Glossary("Deep_copy", "tiefes Klonen")}} müssen wir Alternativen wie [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) verwenden, da `Object.assign()`
+Eigenschaftswerte kopiert.
 
-Wenn der Quellwert ein Verweis auf ein Objekt ist, wird nur der Referenzwert kopiert.
+Wenn der Quellwert ein Verweis auf ein Objekt ist, wird nur der Verweiswert kopiert.
 
 ```js
 const obj1 = { a: 0, b: { c: 0 } };
@@ -115,7 +134,7 @@ console.log(obj); // { a: 1, b: 2, c: 3 }
 console.log(o1); // { a: 1, b: 2, c: 3 }, target object itself is changed.
 ```
 
-### Zusammenführen von Objekten mit denselben Eigenschaften
+### Zusammenführen von Objekten mit gleichen Eigenschaften
 
 ```js
 const o1 = { a: 1, b: 1, c: 1 };
@@ -126,9 +145,9 @@ const obj = Object.assign({}, o1, o2, o3);
 console.log(obj); // { a: 1, b: 2, c: 3 }
 ```
 
-Die Eigenschaften werden von anderen Objekten, die in der Parameterreihenfolge später kommen, überschrieben, wenn sie dieselben Eigenschaften haben.
+Die Eigenschaften werden von anderen Objekten überschrieben, die später in der Parameterreihenfolge die gleichen Eigenschaften haben.
 
-### Kopieren von Symbol-typisierten Eigenschaften
+### Kopieren von symbolgetypten Eigenschaften
 
 ```js
 const o1 = { a: 1 };
@@ -139,7 +158,7 @@ console.log(obj); // { a : 1, [Symbol("foo")]: 2 } (cf. bug 1207182 on Firefox)
 Object.getOwnPropertySymbols(obj); // [Symbol(foo)]
 ```
 
-### Eigenschaft auf der Prototyp-Kette und nicht-enumerable Eigenschaften können nicht kopiert werden
+### Eigenschaften in der Prototypkette und nicht aufzählbare Eigenschaften können nicht kopiert werden
 
 ```js
 const obj = Object.create(
@@ -160,7 +179,7 @@ const copy = Object.assign({}, obj);
 console.log(copy); // { baz: 3 }
 ```
 
-### Primitive werden zu Objekten umgewandelt
+### Primitive Werte werden in Objekte gekapselt
 
 ```js
 const v1 = "abc";
@@ -172,6 +191,19 @@ const obj = Object.assign({}, v1, null, v2, undefined, v3, v4);
 // Primitives will be wrapped, null and undefined will be ignored.
 // Note, only string wrappers can have own enumerable properties.
 console.log(obj); // { "0": "a", "1": "b", "2": "c" }
+
+// Primitives as the target are also wrapped to objects
+const number = Object.assign(3, { a: 1 });
+console.log(number); // Number {3, a: 1}
+console.log(typeof number); // object
+console.log(number.a); // 1
+
+// null and undefined as targets throw TypeError
+try {
+  Object.assign(null, { a: 1 });
+} catch (e) {
+  console.log(e.message); // "Cannot convert undefined or null to object"
+}
 ```
 
 ### Ausnahmen unterbrechen die laufende Kopieraufgabe
@@ -193,7 +225,7 @@ console.log(target.foo3); // undefined, assign method has finished, foo3 will no
 console.log(target.baz); // undefined, the third source will not be copied either.
 ```
 
-### Kopieren von Accessoren
+### Kopieren von Zugriffsfunktionen
 
 ```js
 const obj = {
@@ -244,6 +276,7 @@ console.log(copy);
 ## Siehe auch
 
 - [Polyfill von `Object.assign` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
+- [Polyfill von `Object.assign` in es-shims](https://www.npmjs.com/package/object.assign)
 - {{jsxref("Object.defineProperties()")}}
-- [Enumerierbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
-- [Spread in Objekt-Literalen](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)
+- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
+- [Spread in Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)

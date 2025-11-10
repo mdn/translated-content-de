@@ -2,12 +2,13 @@
 title: "SyntaxError: missing : after property id"
 slug: Web/JavaScript/Reference/Errors/Missing_colon_after_property_id
 l10n:
-  sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
+  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
 ---
 
-{{jsSidebar("Errors")}}
-
-Die JavaScript-Ausnahme "missing : after property id" tritt auf, wenn Objekte mit der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax erstellt werden. Ein Doppelpunkt (`:`) trennt Schlüssel und Werte für die Eigenschaften des Objekts. Irgendwie fehlt dieser Doppelpunkt oder er ist fehl am Platz.
+Der JavaScript-Ausnahmefehler "missing : after property id" tritt auf, wenn Objekte erstellt werden
+unter Verwendung der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax.
+Ein Doppelpunkt (`:`) trennt Schlüssel und Werte für die
+Eigenschaften des Objekts. Irgendwie fehlt dieser Doppelpunkt oder ist fehl am Platz.
 
 ## Meldung
 
@@ -18,13 +19,14 @@ SyntaxError: Unexpected token '='. Expected a ':' following the property name 'x
 SyntaxError: Unexpected token '+'. Expected an identifier as property name. (Safari)
 ```
 
-## Fehler-Typ
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Beim Erstellen von Objekten mit der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax trennt ein Doppelpunkt (`:`) die Schlüssel und Werte für die Eigenschaften des Objekts.
+Beim Erstellen von Objekten mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax,
+trennt ein Doppelpunkt (`:`) Schlüssel und Werte für die Eigenschaften des Objekts.
 
 ```js
 const obj = { propertyKey: "value" };
@@ -34,14 +36,16 @@ const obj = { propertyKey: "value" };
 
 ### Doppelpunkte vs. Gleichheitszeichen
 
-Dieser Code schlägt fehl, da das Gleichheitszeichen in dieser Objektinitialisierer-Syntax nicht auf diese Weise verwendet werden kann.
+Dieser Code schlägt fehl, da das Gleichheitszeichen in dieser Objekt-Initialisierer-
+Syntax nicht auf diese Weise verwendet werden kann.
 
 ```js-nolint example-bad
 const obj = { propertyKey = "value" };
 // SyntaxError: missing : after property id
 ```
 
-Korrekt wäre es, einen Doppelpunkt zu verwenden oder eckige Klammern zu nutzen, um eine neue Eigenschaft zuzuweisen, nachdem das Objekt bereits erstellt wurde.
+Korrekt wäre es, einen Doppelpunkt zu verwenden, oder eckige Klammern zu verwenden, um eine neue Eigenschaft
+zuzuweisen, nachdem das Objekt bereits erstellt wurde.
 
 ```js example-good
 const obj = { propertyKey: "value" };
@@ -56,7 +60,8 @@ obj.propertyKey = "value";
 
 ### Berechnete Eigenschaften
 
-Wenn Sie einen Eigenschaftsschlüssel aus einem Ausdruck erstellen, müssen Sie eckige Klammern verwenden. Andernfalls kann der Eigenschaftsname nicht berechnet werden:
+Wenn Sie einen Eigenschaftsschlüssel aus einem Ausdruck erstellen, müssen Sie eckige Klammern verwenden.
+Andernfalls kann der Eigenschaftsname nicht berechnet werden:
 
 ```js-nolint example-bad
 const obj = { "b"+"ar": "foo" };
@@ -71,4 +76,4 @@ const obj = { ["b" + "ar"]: "foo" };
 
 ## Siehe auch
 
-- [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)

@@ -1,29 +1,28 @@
 ---
 title: Typische Anwendungsfälle von Flexbox
+short-title: Typische Anwendungsfälle
 slug: Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox
 l10n:
-  sourceCommit: 8a7e911652fcb4a61cc95f458d53f39ad08c0946
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-{{CSSRef}}
-
-In diesem Leitfaden werfen wir einen Blick auf einige der häufigen Anwendungsfälle für Flexbox – dort, wo Flexbox mehr Sinn macht als eine andere Layout-Methode.
+In diesem Leitfaden werfen wir einen Blick auf einige der häufigsten Anwendungsfälle für Flexbox — jene Situationen, in denen Flexbox mehr Sinn macht als eine andere Layout-Methode.
 
 ## Warum Flexbox wählen?
 
-Flexbox ist in der Regel die richtige CSS-Layout-Lösung, wenn Sie eine Sammlung von Elementen in einer Dimension anordnen oder den Abstand zwischen Elementen steuern möchten. In diesem Leitfaden betrachten wir einige der typischen Anwendungsfälle von Flexbox.
+Flexbox ist im Allgemeinen die richtige CSS-Layout-Lösung, wenn Sie eine Sammlung von Elementen in einer Dimension anordnen oder den Abstand zwischen Elementen steuern möchten. In diesem Leitfaden sehen wir uns einige der typischen Anwendungsfälle von Flexbox an.
 
 ## Navigation
 
-Ein häufiges Muster für die Navigation ist eine Liste von Elementen, die als horizontale Leiste angezeigt werden. Das ist wahrscheinlich das häufigste Flexbox-Beispiel und könnte als idealer Anwendungsfall für Flexbox angesehen werden.
+Ein häufiges Muster für Navigationen ist das Anzeigen einer Liste von Elementen als horizontale Leiste. Dies ist wahrscheinlich das häufigste Beispiel für Flexbox und könnte als idealer Anwendungsfall für Flexbox angesehen werden.
 
-Wenn wir eine Reihe von Elementen haben, die wir horizontal anzeigen möchten, kann durchaus zusätzlicher Platz entstehen. Wir müssen entscheiden, was mit diesem Platz geschehen soll, und haben dabei mehrere Optionen. Entweder zeigen wir den Raum außerhalb der Elemente an – und verteilen sie somit mit Leerraum dazwischen oder um sie herum – oder wir absorbieren den zusätzlichen Raum innerhalb der Elemente und benötigen daher eine Methode, um den Elementen zu erlauben, zu wachsen und diesen Raum einzunehmen.
+Wenn wir eine Reihe von Elementen haben, die wir horizontal anzeigen möchten, kann es sein, dass zusätzlicher Platz entsteht. Wir müssen entscheiden, was wir mit diesem Platz tun, und haben ein paar Optionen. Entweder zeigen wir den Platz außerhalb der Elemente an — indem wir sie mit Leerraum zwischen oder um sie herum verteilen — oder wir absorbieren den zusätzlichen Platz in den Elementen und benötigen daher eine Methode, die es den Elementen ermöglicht, zu wachsen und diesen Platz einzunehmen.
 
-### Raum außerhalb der Elemente verteilt
+### Platz außerhalb der Elemente verteilt
 
-Um den Raum zwischen oder um die Elemente zu verteilen, verwenden wir die Ausrichtungs-Eigenschaften in Flexbox und die {{cssxref("justify-content")}}-Eigenschaft. Weitere Informationen zu dieser Eigenschaft finden Sie in [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container), welches die Ausrichtung der Elemente auf der Hauptachse behandelt.
+Um den Platz zwischen oder um die Elemente zu verteilen, verwenden wir die Ausrichtungs-Eigenschaften in Flexbox und die {{cssxref("justify-content")}}-Eigenschaft. Mehr darüber können Sie im Abschnitt [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) lesen, der sich mit der Ausrichtung von Elementen auf der Hauptachse befasst.
 
-In diesem Beispiel zeigen wir die Elemente in ihrer natürlichen Größe an und verwenden `justify-content: space-between`, um die Elemente gleichmäßig zu verteilen. Sie können ändern, wie der Raum verteilt wird, indem Sie die Werte `space-around` oder `space-evenly` verwenden. Sie könnten auch `start` verwenden, um den Raum am Ende der Elemente zu platzieren, `end`, um ihn davor zu platzieren, oder `center`, um die Navigationselemente zu zentrieren.
+In diesem Beispiel zeigen wir die Elemente in ihrer natürlichen Größe an und verwenden `justify-content: space-between`, um die Elemente gleichmäßig zu verteilen. Sie können ändern, wie der Platz verteilt wird, indem Sie die Werte `space-around` oder `space-evenly` verwenden. Sie könnten auch `start` verwenden, um den Platz am Ende der Elemente zu platzieren, `end`, um ihn davor zu platzieren, oder `center`, um die Navigationselemente zu zentrieren.
 
 ```html live-sample___navigation
 <nav>
@@ -43,7 +42,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #000;
+  color: black;
   border: 2px solid rgb(96 139 168);
   border-radius: 5px;
   background-color: rgb(96 139 168 / 0.2);
@@ -62,13 +61,13 @@ nav ul {
 
 {{EmbedLiveSample("navigation")}}
 
-### Raum innerhalb der Elemente verteilt
+### Platz innerhalb der Elemente verteilt
 
-Ein anderes Muster für die Navigation wäre, den verfügbaren Platz innerhalb der Elemente selbst zu verteilen, anstatt Raum zwischen ihnen zu schaffen. Die {{cssxref("flex")}}-Eigenschaften erlauben es Elementen zu wachsen und sich im Verhältnis zueinander zu ändern, wie in [Kontrolle der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis) beschrieben.
+Ein anderes Muster für Navigation wäre es, den verfügbaren Platz innerhalb der Elemente selbst zu verteilen, anstatt Platz zwischen ihnen zu schaffen. Mit den {{cssxref("flex")}}-Eigenschaften können Elemente proportional zueinander wachsen und schrumpfen, wie in [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) beschrieben.
 
-Wenn Sie die Größeneigenschaft Ihrer Navigationselemente respektieren, den verfügbaren Platz jedoch gleichmäßig unter ihnen aufteilen möchten, könnten Sie `flex: auto` verwenden, was die Kurzform für `flex: 1 1 auto` ist – alle Elemente wachsen und schrumpfen von einer flex-basis von `auto`. Dies würde bedeuten, dass das längere Element mehr Platz hätte, da es von einer größeren Größe aus begann, obwohl ihm derselbe verfügbare Platz zugewiesen wird wie den anderen.
+Wenn Sie die Größen-Eigenschaft Ihrer Navigationselemente respektieren, aber den verfügbaren Platz gleichmäßig unter ihnen aufteilen möchten, könnten Sie `flex: auto` verwenden, was die Kurzform für `flex: 1 1 auto` ist — alle Elemente wachsen und schrumpfen von einer Flex-Grundlage von `auto`. Das würde bedeuten, dass das längere Element mehr Platz hätte, da es von einer größeren Größe aus startet, selbst wenn ihm der gleiche verfügbare Raum wie den anderen zugewiesen wird.
 
-Im folgenden Live-Beispiel versuchen Sie, `flex: auto` in `flex: 1` zu ändern. Diese Kurzschreibweise für `flex: 1 1 0` bewirkt, dass alle Elemente die gleiche Breite haben, da sie von einer `flex-basis` von `0` arbeiten, wodurch der gesamte Raum gleichmäßig verteilt wird.
+Versuchen Sie im Live-Beispiel unten, `flex: auto` in `flex: 1` zu ändern. Diese Kurzform für `flex: 1 1 0` bewirkt, dass alle Elemente die gleiche Breite haben, da sie von einer `flex-basis` von `0` ausgehen, sodass der gesamte Platz gleichmäßig verteilt wird.
 
 ```html live-sample___navigation-flex
 <nav>
@@ -94,7 +93,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #000;
+  color: black;
   border: 2px solid rgb(96 139 168);
   border-radius: 5px;
   background-color: rgb(96 139 168 / 0.2);
@@ -109,11 +108,11 @@ nav li {
 
 {{EmbedLiveSample("navigation-flex")}}
 
-## Gesplitterte Navigation
+## Geteilte Navigation
 
-Eine andere Möglichkeit, Elemente auf der Hauptachse auszurichten, ist die Verwendung von automatischen Rändern. Dies ermöglicht das Designmuster einer Navigationsleiste, bei der eine Gruppe von Elementen links und eine andere rechts ausgerichtet ist. Hier verwenden wir die Technik der automatischen Ränder, die in [Verwendung von automatischen Rändern für die Ausrichtung auf der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container#using_auto_margins_for_main_axis_alignment) beschrieben ist.
+Eine andere Möglichkeit, Elemente auf der Hauptachse auszurichten, besteht darin, automatische Ränder zu verwenden. Das ermöglicht ein Designmuster einer Navigationsleiste, bei der eine Gruppe von Elementen links und eine andere rechts ausgerichtet ist. Hier verwenden wir die Technik der automatischen Ränder, wie im Abschnitt [Verwendung von automatischen Rändern zur Ausrichtung auf der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items#using_auto_margins_for_main_axis_alignment) beschrieben.
 
-Die Elemente sind auf der Hauptachse mit `normal` ausgerichtet, was sich wie `start` verhält, da dies das anfängliche Verhalten von Flexbox ist. Die [`gap`](/de/docs/Web/CSS/gap)-Eigenschaft erzeugt Lücken zwischen den Elementen. Und wir richten das letzte Element rechts aus, indem wir ihm einen `margin-left`-Wert von `auto` geben. Sie können die Klasse von einem Element zu einem anderen wechseln, um zu ändern, wo die Teilung erfolgt.
+Die Elemente sind auf der Hauptachse mit `normal` ausgerichtet, was sich wie `start` verhält, da dies das Initialverhalten von Flexbox ist. Mit der [`gap`](/de/docs/Web/CSS/Reference/Properties/gap)-Eigenschaft werden die Abstände zwischen den Elementen erzeugt. Und wir richten das letzte Element durch Zuweisung eines `margin-left`-Werts von `auto` nach rechts aus. Sie können die Klasse von einem Element zu einem anderen verschieben, um zu ändern, wo die Teilung stattfindet.
 
 ```html live-sample___split-navigation
 <nav>
@@ -133,7 +132,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #000;
+  color: black;
   border: 2px solid rgb(96 139 168);
   border-radius: 5px;
   background-color: rgb(96 139 168 / 0.2);
@@ -158,9 +157,9 @@ nav ul {
 
 ## Zentriertes Element
 
-Ein langjähriger Witz unter Entwicklern besagt, dass das schwierigste Problem im Webdesign das vertikale Zentrieren ist. Das vertikale Zentrieren von Inhalten ist mit den Ausrichtungs-Eigenschaften von Flexbox sehr einfach, wie das folgende Live-Beispiel zeigt.
+Ein lang anhaltender Witz unter Entwicklern ist, dass das schwierigste Problem im Webdesign das vertikale Zentrieren ist. Das vertikale Zentrieren von Inhalten ist dank der Flexbox-Ausrichtungs-Eigenschaften sehr einfach, wie das folgende Live-Beispiel zeigt.
 
-Klicken Sie auf **"Play"** und versuchen Sie, die Ausrichtung zu ändern, zum Beispiel das Element mit `start` nach vorne oder mit `end` nach hinten auszurichten:
+Klicken Sie auf **"Play"** und versuchen Sie, die Ausrichtung zu ändern, beispielsweise das Element mit `start` an den Anfang oder mit `end` an das Ende auszurichten:
 
 ```html live-sample___center
 <div class="box">
@@ -188,15 +187,15 @@ Klicken Sie auf **"Play"** und versuchen Sie, die Ausrichtung zu ändern, zum Be
 
 {{EmbedLiveSample("center", "", "320px")}}
 
-Mit den [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)-Eigenschaften können Sie ein Element innerhalb eines anderen ohne Flexbox vertikal zentrieren. Im obigen Beispiel versuchen Sie, die Flex-Eigenschaften aus der Box zu entfernen und `align-content: center` hinzuzufügen. Dann fügen Sie `margin: auto` dem Element hinzu, das Sie horizontal zentrieren möchten.
+Mit den Eigenschaften der [CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) können Sie ein Element innerhalb eines anderen auch ohne Flexbox vertikal zentrieren. Im obigen Beispiel versuchen Sie, die Flex-Eigenschaften aus dem Container zu entfernen und `align-content: center` hinzuzufügen. Fügen Sie dann `margin: auto` zu dem Element hinzu, das Sie horizontal zentrieren möchten.
 
-## Kartendesign schiebt Fußzeile nach unten
+## Kartenlayout mit nach unten gedrücktem Footer
 
-Ob Sie Flexbox oder Raster verwenden, um eine Liste von Kartenkomponenten zu gestalten, diese Layout-Methoden funktionieren nur auf direkten Kindern der Flex- oder Rasterkomponente. Das bedeutet, dass wenn Sie unterschiedliche Inhaltsmengen haben, die Karte auf die Höhe des Rasterbereichs oder des Flex-Containers gestreckt wird. Jeder Inhalt im Inneren verwendet das reguläre Block-Layout, was bedeutet, dass auf einer Karte mit weniger Inhalt die Fußzeile zum unteren Ende des Inhalts hinaufsteigt, anstatt an der Unterseite der Karte zu haften.
+Egal, ob Sie Flexbox oder Grid verwenden, um eine Liste von Kartenkomponenten zu gestalten, diese Layoutmethoden funktionieren nur bei direkten Kindern der Flex- oder Grid-Komponente. Das bedeutet, dass wenn Sie unterschiedliche Mengen an Inhalt haben, die Karte sich bis zur Höhe des Grid-Bereichs oder Flex-Containers erstrecken wird. Jeglicher Inhalt darin verwendet das reguläre Block-Layout, was bedeutet, dass der Footer bei einer Karte mit weniger Inhalt nach unten rückt, statt am unteren Rand der Karte zu bleiben.
 
-![Zwei Kartenkomponenten zeigen, dass die internen Elemente der Komponente sich nicht mit der Hülle strecken.](flex-cards.png)
+![Zwei Kartenkomponenten, die zeigen, dass das Innere der Komponente sich nicht mit dem Wrapper erstreckt.](flex-cards.png)
 
-Flexbox löst dies. Wir machen die Karte zu einem Flex-Container, mit {{cssxref("flex-direction", "flex-direction: column")}}. Wir setzen dann den Inhaltsbereich auf `flex: 1`, was die Kurzform für `flex: 1 1 0` ist – das Element kann von einer flex-Basis von `0` aus wachsen und schrumpfen. Da dies das einzige Element ist, das wachsen kann, nimmt es den gesamten verfügbaren Raum im Flex-Container ein und schiebt die Fußzeile nach unten. Wenn Sie die `flex`-Eigenschaft aus dem Live-Beispiel entfernen, sehen Sie, dass die Fußzeile direkt unter den Inhalt verschoben wird.
+Flexbox löst das. Wir machen die Karte zu einem Flex-Container mit {{cssxref("flex-direction", "flex-direction: column")}}. Dann setzen wir den Inhaltsbereich auf `flex: 1`, was die Kurzform für `flex: 1 1 0` ist — das Element kann von einer Flex-Grundlage von `0` wachsen und schrumpfen. Da dies das einzige Element ist, das wachsen kann, nimmt es den gesamten verfügbaren Platz im Flex-Container ein und drückt den Footer nach unten. Wenn Sie die `flex`-Eigenschaft im Live-Beispiel entfernen, werden Sie sehen, dass der Footer nach oben rückt, um direkt unter dem Inhalt zu sitzen.
 
 ```html live-sample___cards
 <div class="cards">
@@ -251,11 +250,11 @@ body {
 
 ## Medienobjekte
 
-Das Medienobjekt – ein Bild oder ein anderes Medienelement, das zusammen mit etwas beschreibendem Text nebeneinander angezeigt wird – ist ein häufiges Muster im Webdesign. Die Medienobjekte sollten sich umdrehen lassen – das Bild von einer Seite zur anderen verschieben.
+Das Medienobjekt — ein Bild oder anderes Medienelement mit etwas beschreibendem Text nebeneinander — ist ein häufiges Muster im Webdesign. Medienobjekte sollten umgedreht werden können — das Bild von einer Seite zur anderen verschieben.
 
-Dieses Muster wird für Kommentare und andere Orte verwendet, an denen Bilder neben ihren Beschreibungen platziert werden. Wir können Flexbox verwenden, damit der Teil des Medienobjekts, der das Bild enthält, seine Größeninformation vom Bild erhält und der Inhalt des Medienobjekts flexibel den verbleibenden Platz einnimmt.
+Dieses Muster wird für Kommentare und andere Orte verwendet, an denen Bilder neben ihren Beschreibungen platziert werden. Wir können Flexbox verwenden, um den Teil des Medienobjekts, der das Bild enthält, seine Größeninformationen aus dem Bild beziehen zu lassen, wobei der Inhalt des Medienobjekts flexibel den restlichen Platz einnimmt.
 
-In diesem Beispiel wird das Medienobjekt auf `flex-start` ausgerichtet und die `.content` ist auf Wachstum eingestellt, mit dem Wachstumsfaktor auf `1` gesetzt. Diese Eigenschaften sind die gleichen wie die, die für unser Spaltenlayout-Kartenmuster oben verwendet wurden.
+In diesem Beispiel ist das Medienobjekt auf `flex-start` ausgerichtet und der `.content`-Abschnitt ist auf Wachstum eingestellt, mit einem Wachstumsfaktor von `1`. Diese Eigenschaften sind dieselben, die wir auch für unser Spaltenlayout-Kartenmuster oben verwendet haben.
 
 ```html live-sample___media
 <div class="media">
@@ -291,9 +290,9 @@ img {
 
 {{EmbedLiveSample("media", "", "320px")}}
 
-Einige Dinge, die Sie in diesem Live-Beispiel ausprobieren könnten, betreffen die verschiedenen Wege, auf denen Sie das Medienobjekt in Ihrem Design einschränken möchten.
+Einige Dinge, die Sie in diesem Live-Beispiel versuchen könnten, beziehen sich auf die verschiedenen Möglichkeiten, wie Sie das Medienobjekt in Ihrem Design einschränken könnten.
 
-Um zu verhindern, dass das Bild zu groß wird, sollten Sie ein {{cssxref("max-width")}} zum Bild hinzufügen. Da diese Seite des Medienobjekts die anfänglichen Werte von Flexbox verwendet, kann es schrumpfen, aber nicht wachsen, und verwendet eine `flex-basis` von auto. Jede {{cssxref("width")}} oder `max-width`, die auf das Bild angewendet wird, wird zur `flex-basis`.
+Um zu verhindern, dass das Bild zu groß wird, sollten Sie eine {{cssxref("max-width")}} für das Bild hinzufügen. Da diese Seite des Medienobjekts die anfänglichen Werte von Flexbox verwendet, kann sie schrumpfen, aber nicht wachsen, und verwendet eine `flex-basis` von auto. Jede angewendete {{cssxref("width")}} oder `max-width` auf das Bild wird zur `flex-basis`.
 
 ```css
 .image img {
@@ -301,7 +300,7 @@ Um zu verhindern, dass das Bild zu groß wird, sollten Sie ein {{cssxref("max-wi
 }
 ```
 
-Sie könnten auch beide Seiten proportional wachsen und schrumpfen lassen. Wenn Sie beide Seiten auf `flex: 1` setzen, werden sie von einer {{cssxref("flex-basis")}} von `0` aus wachsen und schrumpfen, sodass Sie zwei gleich große Spalten erhalten. Sie könnten auch den Inhalt als Leitfaden nehmen und beide auf `flex: auto` setzen, in diesem Fall würden sie von der Größe des Inhalts oder jeder direkt auf die Flex-Elemente angewendeten Größe wie eine `Breite` auf dem Bild aus wachsen und schrumpfen.
+Sie könnten auch beide Seiten proportional wachsen und schrumpfen lassen. Wenn Sie beide Seiten auf `flex: 1` setzen, wachsen und schrumpfen sie von einer {{cssxref("flex-basis")}} von `0`, sodass Sie letztendlich zwei gleich große Spalten erhalten. Sie könnten auch den Inhalt als Anhaltspunkt nehmen und beide auf `flex: auto` setzen, in welchem Fall sie vom Inhalt oder von einer direkt angewendeten Größe auf die Flex-Elemente wie einer `width` für das Bild wachsen oder schrumpfen würden.
 
 ```css
 .media .content {
@@ -314,7 +313,7 @@ Sie könnten auch beide Seiten proportional wachsen und schrumpfen lassen. Wenn 
 }
 ```
 
-Sie könnten auch jeder Seite unterschiedliche {{cssxref("flex-grow")}}-Faktoren geben, beispielsweise die Seite mit dem Bild auf `flex: 1` und die Inhaltsseite auf `flex: 3` setzen. Dies bedeutet, dass sie eine `flex-basis` von `0` verwenden, aber den Raum in unterschiedlichen Raten gemäß dem `flex-grow`-Faktor verteilen, den Sie zugewiesen haben. Die Flex-Eigenschaften, die wir hierfür verwenden, sind detailliert im Leitfaden [Kontrolle der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis) beschrieben.
+Sie könnten auch jeder Seite unterschiedliche {{cssxref("flex-grow")}}-Faktoren geben, z.B. die Seite mit dem Bild auf `flex: 1` und die Inhaltsseite auf `flex: 3` setzen. Dies bedeutet, dass sie eine `flex-basis` von `0` verwenden, aber diesen Raum mit unterschiedlichen Raten gemäß dem zugewiesenen `flex-grow`-Faktor verteilen. Die Flex-Eigenschaften, die wir dafür verwenden, werden im Leitfaden [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) ausführlich beschrieben.
 
 ```css
 .media .content {
@@ -327,11 +326,11 @@ Sie könnten auch jeder Seite unterschiedliche {{cssxref("flex-grow")}}-Faktoren
 }
 ```
 
-### Umdrehen des Medienobjekts
+### Umgedrehtes Medienobjekt
 
-Um die Anzeige des Medienobjekts zu ändern und das Bild auf der rechten und den Inhalt auf der linken Seite zu haben, setzen wir die `flex-direction`-Eigenschaft auf `row-reverse`.
+Um die Darstellung des Medienobjekts zu wechseln und das Bild auf die rechte und den Inhalt auf die linke Seite zu setzen, ändern wir die `flex-direction`-Eigenschaft in `row-reverse`.
 
-In diesem Beispiel haben wir eine `flipped`-Klasse neben der `media`-Klasse hinzugefügt. Entfernen Sie die Klasse aus dem HTML, um zu sehen, wie sich die Anzeige ändert.
+In diesem Beispiel haben wir eine `flipped`-Klasse neben der `media`-Klasse hinzugefügt. Entfernen Sie die Klasse aus dem HTML, um zu sehen, wie sich die Darstellung ändert.
 
 ```html live-sample___media-flipped
 <div class="media flipped">
@@ -371,11 +370,11 @@ img {
 
 {{EmbedLiveSample("media-flipped", "", "320px")}}
 
-## Formularsteuerungen
+## Formularelemente
 
-Flexbox ist besonders nützlich, wenn es darum geht, Formularsteuerungen zu gestalten. Formulare enthalten mehrere kleine Elemente, die wir typischerweise miteinander ausrichten möchten. Ein häufiges Muster ist ein {{htmlelement("label")}}- und {{htmlelement("input")}}-Paar in Kombination mit einem {{htmlelement("button")}}, vielleicht für ein Suchformular oder ein Newsletter-Anmeldeformular, bei dem Ihr Besucher seine E-Mail-Adresse eingeben soll.
+Flexbox ist besonders nützlich, wenn es um die Gestaltung von Formularelementen geht. Formulare bestehen aus mehreren kleinen Elementen, die wir typischerweise miteinander ausrichten möchten. Ein häufiges Muster ist ein {{htmlelement("label")}}- und {{htmlelement("input")}}-Paar, kombiniert mit einem {{htmlelement("button")}}, eventuell für ein Suchformular oder ein Anmeldeformular für einen Newsletter, bei dem Ihr Besucher seine E-Mail-Adresse eingeben soll.
 
-Flexbox macht diese Art von Layout einfach zu erreichen. Die `<label>`, `<input>` und `<button>` sind in einem Wrapper enthalten, der auf `display: flex` gesetzt ist. Die Flex-Eigenschaften erlauben es dem `<input>`-Feld zu wachsen, während der Button und das Label nicht wachsen. Das Text-Eingabefeld wird je nach verfügbarem Platz wachsen und schrumpfen.
+Flexbox macht es einfach, dieses Layout zu erreichen. Der `<label>`, `<input>` und `<button>` sind in einem Wrapper enthalten, der auf `display: flex` eingestellt ist. Die Flex-Eigenschaften ermöglichen es dem `<input>`-Feld zu wachsen, während der Button und das Label nicht wachsen. Das Texteingabefeld wird je nach verfügbarem Raum wachsen und schrumpfen.
 
 ```html live-sample___label-input-button
 <form class="example">
@@ -399,7 +398,7 @@ Flexbox macht diese Art von Layout einfach zu erreichen. Die `<label>`, `<input>
 .wrapper > * {
   padding: 10px;
   border: none;
-  color: #fff;
+  color: white;
 }
 .wrapper > input[type="text"] {
   background-color: rgb(96 139 168 / 0.5);
@@ -408,19 +407,19 @@ Flexbox macht diese Art von Layout einfach zu erreichen. Die `<label>`, `<input>
 }
 .wrapper input[type="submit"] {
   background-color: rgb(96 139 168);
-  color: #fff;
+  color: white;
 }
 .wrapper label {
-  background-color: #666;
+  background-color: #666666;
 }
 ```
 
 {{EmbedLiveSample("label-input-button")}}
 
-Muster wie dieses können es viel einfacher machen, eine Bibliothek von Formularelementen für Ihr Design zu erstellen, die leicht zusätzliche Elemente aufnehmen. Sie nutzen die Flexibilität von Flexbox, indem Sie nicht wachsende Elemente mit solchen, die es tun, mischen.
+Solche Muster können es viel einfacher machen, eine Sammlung von Formularelementen für Ihr Design zu erstellen, die zusätzliche Elemente leicht aufnehmen. Sie nutzen die Flexibilität von Flexbox, indem Sie Elemente mischen, die nicht wachsen, mit solchen, die es tun.
 
 ## Fazit
 
-Während Sie die obigen Muster erkunden, haben Sie hoffentlich begonnen zu erkennen, wie Sie den besten Weg finden können, Flexbox zu verwenden, um das gewünschte Ergebnis zu erzielen. Oft haben Sie mehr als eine Wahl. Mischen Sie Elemente, die sich nicht strecken können, mit solchen, die es können, nutzen Sie den Inhalt zur Bestimmung der Größe oder erlauben Sie Flexbox, Raum proportional zu verteilen. Es liegt an Ihnen.
+Während Sie die obigen Muster erkundet haben, haben Sie hoffentlich begonnen zu sehen, wie Sie die beste Verwendung von Flexbox durchdenken können, um das gewünschte Ergebnis zu erzielen. Ziemlich oft haben Sie mehr als eine Wahl. Mischen Sie Elemente, die sich nicht strecken können, mit solchen, die es können, verwenden Sie den Inhalt, um die Größe zu informieren, oder lassen Sie Flexbox den Raum proportional verteilen. Es liegt an Ihnen.
 
-Denken Sie über die beste Art nach, den Inhalt, den Sie haben zu präsentieren, und sehen Sie dann, wie Flexbox oder andere Layout-Methoden Ihnen dabei helfen können, dies zu erreichen.
+Denken Sie darüber nach, wie Sie den Inhalt, den Sie haben, am besten präsentieren können, und sehen Sie dann, wie Flexbox oder andere Layout-Methoden Ihnen dabei helfen können, dies zu erreichen.

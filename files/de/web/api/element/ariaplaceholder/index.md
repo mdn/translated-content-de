@@ -3,15 +3,15 @@ title: "Element: ariaPlaceholder-Eigenschaft"
 short-title: ariaPlaceholder
 slug: Web/API/Element/ariaPlaceholder
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: f65f7f6e4fda2cb1bd0e7db17777e2cb20be7d27
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaPlaceholder`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-placeholder`-Attributs wider, welches einen kurzen Hinweis definiert, der dem Benutzer bei der Dateneingabe helfen soll, wenn das Steuerelement keinen Wert hat.
+Die **`ariaPlaceholder`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-placeholder`-Attributs wider, das einen kurzen Hinweis angibt, der dem Benutzer bei der Dateneingabe helfen soll, wenn das Steuerelement keinen Wert hat.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese integrierte Semantik haben und keine ARIA-Attribute benötigen.
+> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik besitzen und keine ARIA-Attribute erfordern.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wurde das `aria-placeholder`-Attribut des Elements mit der ID `txtBoxInput` auf einen String gesetzt. Mithilfe der Eigenschaft `ariaPlaceholder` aktualisieren wir den String auf einen anderen Wert.
+In diesem Beispiel wurde das `aria-placeholder`-Attribut des Elements mit der ID `txtBoxInput` auf einen String gesetzt. Mit `ariaPlaceholder` aktualisieren wir den String auf einen anderen Wert.
 
 ```html
 <div id="txtboxLabel">Enter your five-digit zip code</div>
@@ -48,4 +48,4 @@ console.log(el.ariaPlaceholder); // "12345"
 
 ## Siehe auch
 
-- [ARIA: textbox-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: textbox role](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role)

@@ -1,16 +1,16 @@
 ---
-title: "GPURenderPassEncoder: pushDebugGroup()-Methode"
+title: "GPURenderPassEncoder: pushDebugGroup() Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPURenderPassEncoder/pushDebugGroup
 l10n:
-  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle startet eine Debuggruppe für den Renderpass, die mit einem angegebenen Label markiert ist und alle folgenden kodierten Befehle umfasst, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode aufgerufen wird.
+Die **`pushDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Renderpass-Debug-Gruppe, die mit einem bestimmten Label gekennzeichnet ist und alle folgenden kodierten Befehle bis zur Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup)-Methode enthalten wird.
 
-Diese Methode könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein String, der das Label für die Debuggruppe repräsentiert.
+  - : Ein Zeichenfolgenwert, der das Label für die Debug-Gruppe darstellt.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("Undefined")}}).
 ## Beispiele
 
 ```js
-// ...
+// …
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
@@ -42,7 +42,7 @@ passEncoder.draw(3);
 
 passEncoder.popDebugGroup();
 
-// ...
+// …
 ```
 
 ## Spezifikationen

@@ -2,12 +2,10 @@
 title: Event.removeListener()
 slug: Mozilla/Add-ons/WebExtensions/API/events/Event/removeListener
 l10n:
-  sourceCommit: 8bcd10489059539a341f82985eac9f1115e87483
+  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
 ---
 
-{{AddonSidebar}}
-
-Entfernt einen mit {{WebExtAPIRef("events.Event.addListener()")}} registrierten Ereignislistener aus dem Ereignis.
+Entfernt einen mit {{WebExtAPIRef("events.Event.addListener()")}} registrierten Event-Listener vom Ereignis.
 
 ## Syntax
 
@@ -18,7 +16,6 @@ events.Event.removeListener(listener)
 ### Parameter
 
 - `listener`
-
   - : `function`. Der zu entfernende Listener.
 
 ## Browser-Kompatibilität
@@ -26,7 +23,7 @@ events.Event.removeListener(listener)
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeListener) API. Diese Dokumentation stammt von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeListener) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

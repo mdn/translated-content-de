@@ -1,13 +1,14 @@
 ---
 title: Temporal.PlainTime.compare()
+short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/compare
 l10n:
-  sourceCommit: d0b9cef0713eb263934a98e94202b97c143204a4
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
-Die statische Methode **`Temporal.PlainTime.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob die erste Zeit vor, gleich oder nach der zweiten Zeit liegt. Dies entspricht dem Vergleich der Felder Stunde, Minute, Sekunde, Millisekunde, Mikrosekunde und Nanosekunde nacheinander.
+Die statische Methode **`Temporal.PlainTime.compare()`** gibt eine Zahl zurück (-1, 0 oder 1), die angibt, ob die erste Zeit vor der zweiten Zeit liegt, mit ihr identisch ist oder nach ihr folgt. Sie entspricht dem Vergleich der Felder Stunde, Minute, Sekunde, Millisekunde, Mikrosekunde und Nanosekunde nacheinander.
 
 ## Syntax
 
@@ -18,13 +19,13 @@ Temporal.PlainTime.compare(time1, time2)
 ### Parameter
 
 - `time1`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}}-Instanz, die die erste zu vergleichende Zeit darstellt. Sie wird in ein `Temporal.PlainTime`-Objekt umgewandelt, indem derselbe Algorithmus wie bei {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} verwendet wird.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die die erste zu vergleichende Zeit repräsentiert. Diese wird in ein `Temporal.PlainTime` Objekt umgewandelt, unter Verwendung des gleichen Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}}.
 - `time2`
-  - : Die zweite zu vergleichende Zeit, umgewandelt in ein `Temporal.PlainTime`-Objekt unter Verwendung desselben Algorithmus wie `time1`.
+  - : Die zweite zu vergleichende Zeit, die unter Verwendung des gleichen Algorithmus wie `time1` in ein `Temporal.PlainTime` Objekt umgewandelt wird.
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `time1` vor `time2` liegt, `0`, wenn sie gleich sind, und `1`, wenn `time2` nach `time1` liegt.
+Gibt `-1` zurück, wenn `time1` vor `time2` kommt, `0` wenn sie identisch sind, und `1` wenn `time1` nach `time2` kommt.
 
 ## Beispiele
 
@@ -41,7 +42,7 @@ console.log(Temporal.PlainTime.compare(time1, time3)); // 1
 
 ### Sortieren eines Arrays von Zeiten
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Vergleichsfunktion zu fungieren, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
+Der Zweck dieser `compare()` Funktion ist es, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
 
 ```js
 const times = ["12:34:56", "11:34:56", "12:34:57"];

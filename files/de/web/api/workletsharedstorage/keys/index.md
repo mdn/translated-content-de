@@ -3,12 +3,12 @@ title: "WorkletSharedStorage: keys() Methode"
 short-title: keys()
 slug: Web/API/WorkletSharedStorage/keys
 l10n:
-  sourceCommit: d484785e53cff16c020adc868415bb9b07b0f6af
+  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
 ---
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`keys()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück, der die Schlüssel für jedes Element in einer `WorkletSharedStorage`-Instanz enthält.
+Die **`keys()`** Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück, der die Schlüssel für jedes Element in einer `WorkletSharedStorage`-Instanz enthält.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array der aufzählbaren Eigenschaftsschlüssel der `WorkletSharedStorage`.
+Ein Array der aufzählbaren Eigenschaftsschlüssel des `WorkletSharedStorage`.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die aufrufende Stelle die Shared Storage API im Rahmen eines erfolgreichen [Privacy Sandbox Einschreibungsprozesses](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) nicht eingeschlossen hat.
+  - : Ausgelöst, wenn die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) eingebunden hat.
 
 ## Beispiele
 

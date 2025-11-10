@@ -1,16 +1,16 @@
 ---
-title: "RTCEncodedVideoFrame: getMetadata() Methode"
+title: "RTCEncodedVideoFrame: getMetadata()-Methode"
 short-title: getMetadata()
 slug: Web/API/RTCEncodedVideoFrame/getMetadata
 l10n:
-  sourceCommit: 03b4a9d11d37c9d0be0804669467eadf2d72f2a3
+  sourceCommit: 23398d025295ad1eaf1663a26fbe738a8fe12883
 ---
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`getMetadata()`** Methode der [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame) Schnittstelle gibt ein Objekt zurück, das die mit dem Frame verbundenen Metadaten enthält.
+Die **`getMetadata()`**-Methode der [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Schnittstelle gibt ein Objekt zurück, das die mit dem Frame verknüpften Metadaten enthält.
 
-Dies umfasst Informationen über den Frame, einschließlich seiner Größe, Video-Codierung, anderer Frames, die benötigt werden, um ein vollständiges Bild zu konstruieren, Zeitstempel und weitere Informationen.
+Dies umfasst Informationen über den Frame, wie seine Größe, Video-Codierung, andere Frames, die zur Konstruktion eines vollständigen Bildes benötigt werden, Zeitstempel und weitere Informationen.
 
 ## Syntax
 
@@ -26,55 +26,57 @@ Keine.
 
 Ein Objekt mit den folgenden Eigenschaften:
 
-- `frameId`
-  - : Ein positiver Ganzzahlwert, der die ID dieses Frames angibt.
+- `contributingSources`
+  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zum Frame beigetragen haben.
+    Betrachten Sie den Fall einer Konferenzanwendung, die Audio und Video von mehreren Benutzern kombiniert.
+    Die `synchronizationSource` würde die ssrc der Anwendung enthalten, während `contributingSources` die ssrc-Werte aller einzelnen Video- und Audioquellen enthalten würde.
 - `dependencies`
-  - : Ein {{jsxref("Array")}} von positiven Ganzzahlen, die die `frameIds` der Frames angeben, von denen dieser Frame abhängt.
-    Bei einem Schlüsselbild ist dies leer, da ein Schlüsselbild alle Informationen enthält, die es benötigt, um das Bild zu konstruieren.
-    Bei einem Delta-Frame listet dies alle Frames auf, die benötigt werden, um diesen Frame zu rendern.
-    Der Frame-Typ kann unter Verwendung von [`RTCEncodedVideoFrame.type`](/de/docs/Web/API/RTCEncodedVideoFrame/type) bestimmt werden.
-- `width`
-  - : Eine positive Ganzzahl, die die Breite des Frames angibt.
-    Der Höchstwert ist 65535.
+  - : Ein {{jsxref("Array")}} von positiven ganzen Zahlen, die die frameIds von Frames anzeigen, auf die dieser Frame angewiesen ist.
+    Für einen Schlüssel-Frame wird dies leer sein, da ein Schlüssel-Frame alle Informationen enthält, die benötigt werden, um das Bild zu konstruieren.
+    Für einen Delta-Frame werden alle Frames aufgeführt, die zur Darstellung dieses Frames benötigt werden.
+    Der Typ des Frames kann mit [`RTCEncodedVideoFrame.type`](/de/docs/Web/API/RTCEncodedVideoFrame/type) ermittelt werden.
+- `frameId`
+  - : Ein positiver Ganzzahlenwert, der die ID dieses Frames angibt.
 - `height`
   - : Eine positive Ganzzahl, die die Höhe des Frames angibt.
-    Der Höchstwert ist 65535.
-- `spatialIndex`
-  - : Eine positive Ganzzahl, die den räumlichen Index des Frames angibt.
-    Einige Codecs ermöglichen die Erzeugung von Frame-Schichten mit unterschiedlichen Auflösungsebenen.
-    Frames in höheren Schichten können selektiv fallen gelassen werden, um bei Bedarf die Bitrate zu reduzieren, während eine akzeptable Videoqualität beibehalten wird.
-- `temporalIndex`
-  - : Eine positive Ganzzahl, die den zeitlichen Index des Frames angibt.
-    Einige Codecs gruppieren Frames in Schichten, basierend darauf, ob das Fallenlassen eines Frames verhindern wird, dass andere dekodiert werden können.
-    Frames in höheren Schichten können selektiv fallen gelassen werden, um bei Bedarf die Bitrate zu reduzieren, während eine akzeptable Videoqualität beibehalten wird.
-- `synchronizationSource`
-  - : Ein positiver Ganzzahlwert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die durch diesen codierten Videoframe beschrieben werden.
-    Eine Quelle könnte etwas wie eine Kamera oder ein Mikrofon sein oder eine Art Mixer-Anwendung, die mehrere Quellen kombiniert.
-    Alle Pakete derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können daher relativ zueinander angeordnet werden.
-    Beachten Sie, dass zwei Frames mit demselben Wert auf dieselbe Quelle verweisen (für weitere Informationen siehe [`RTCInboundRtpStreamStats.ssrc`](/de/docs/Web/API/RTCInboundRtpStreamStats#ssrc)).
+    Der Maximalwert beträgt 65535.
+- `mimeType`
+  - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des verwendeten Codecs enthält, wie zum Beispiel "video/VP8".
 - `payloadType`
-  - : Ein positiver Ganzzahlwert im Bereich von 0 bis 127, der das Format der RTP-Nutzdaten beschreibt.
-    Die Zuordnung von Werten zu Formaten ist in RFC3550 definiert.
-- `contributingSources`
-  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zu dem Frame beigetragen haben.
-    Betrachten Sie den Fall einer Konferenzanwendung, die das Audio und Video von mehreren Benutzern kombiniert.
-    Die `synchronizationSource` würde die ssrc der Anwendung einschließen, während `contributingSources` die ssrc-Werte aller individuellen Video- und Audioquellen einschließen würde.
-- `timestamp`
-  - : Der [Medienpräsentations-Zeitstempel (PTS)](https://en.wikipedia.org/wiki/Presentation_timestamp) in Mikrosekunden des rohen Frames, der dem Zeitstempel für rohe Frames entspricht, die zu diesem Frame gehören.
-    Dies wird verwendet, um separate Video-, Audio-, Untertitel- und andere Streams zu synchronisieren, die zur selben Präsentation gehören.
+  - : Ein positiver Ganzzahlenwert im Bereich von 0 bis 127, der das Format der RTP-Nutzlast beschreibt.
+    Die Zuordnungen von Werten zu Formaten sind in RFC3550 definiert.
+- `receiveTime`
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel des letzten empfangenen Pakets eines eingehenden Frames (von einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)) angibt, das zur Erzeugung dieses Medien-Frames verwendet wurde, relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin).
+- `rtpTimestamp`
+  - : Eine positive ganze Zahl, die den Abtastzeitpunkt des ersten Oktetts im RTP-Datenpaket widerspiegelt (siehe {{rfc("3550")}}).
+- `spatialIndex`
+  - : Eine positive ganze Zahl, die den räumlichen Index des Frames angibt.
+    Einige Codecs ermöglichen die Erzeugung von Schichten von Frames mit unterschiedlichen Auflösungen.
+    Frames in höheren Schichten können selektiv weggelassen werden, um bei Bedarf die Bitrate zu reduzieren und dennoch eine akzeptable Videoqualität beizubehalten.
+- `synchronizationSource`
+  - : Ein positiver Ganzzahlenwert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die durch diesen kodierten Video-Frame beschrieben werden.
+    Eine Quelle könnte eine Kamera oder ein Mikrofon sein oder eine Art Mixer-App, die mehrere Quellen kombiniert.
+    Alle Pakete von derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können daher relativ zueinander geordnet werden.
+    Beachten Sie, dass zwei Frames mit demselben Wert sich auf dieselbe Quelle beziehen (für weitere Informationen siehe [`RTCInboundRtpStreamStats.ssrc`](/de/docs/Web/API/RTCInboundRtpStreamStats/ssrc)).
+- `temporalIndex`
+  - : Eine positive ganze Zahl, die den zeitlichen Index des Frames angibt.
+    Einige Codecs gruppieren Frames in Schichten, basierend darauf, ob das Weglassen eines Frames die Dekodierung anderer verhindert.
+    Frames in höheren Schichten können selektiv weggelassen werden, um bei Bedarf die Bitrate zu reduzieren und dennoch eine akzeptable Videoqualität zu gewährleisten.
+- `width`
+  - : Eine positive Ganzzahl, die die Breite des Frames angibt.
+    Der Maximalwert beträgt 65535.
 
 ## Beispiele
 
-Diese Beispielimplementierung einer [WebRTC encoded transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie man die Frame-Metadaten in einer `transform()` Funktion abrufen und protokollieren könnte.
+Diese [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)-Implementierung zeigt, wie Sie die Frame-Metadaten in einer `transform()`-Funktion abrufen und protokollieren können.
 
 ```js
 addEventListener("rtctransform", (event) => {
-  const async transform = new TransformStream({
+  const transform = new TransformStream({
     async transform(encodedFrame, controller) {
-
       // Get the metadata and log
       const frameMetaData = encodedFrame.getMetadata();
-      console.log(frameMetaData)
+      console.log(frameMetaData);
 
       // Enqueue the frame without modifying
       controller.enqueue(encodedFrame);
@@ -86,22 +88,22 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Das resultierende Objekt von einer lokalen Webcam könnte etwa so aussehen wie das unten gezeigte.
-Beachten Sie, dass es keine beitragenden Quellen gibt, da es nur eine Quelle gibt.
+Das resultierende Objekt von einer lokalen Webcam könnte wie das unten gezeigte aussehen.
+Beachten Sie, dass es keine beitragenden Quellen gibt, da nur eine Quelle vorhanden ist.
 
-```js
+```json
 {
   "contributingSources": [],
-  "dependencies": [
-    405
-  ],
-  "frameId": 406,
-  "height": 480,
-  "payloadType": 120,
+  "mimeType": "video/VP8",
+  "payloadType": 96,
+  "rtpTimestamp": 2503280194,
+  "synchronizationSource": 1736709460,
+  "dependencies": [],
+  "frameId": 1,
+  "height": 240,
   "spatialIndex": 0,
-  "synchronizationSource": 3956716931,
   "temporalIndex": 0,
-  "width": 640
+  "width": 320
 }
 ```
 

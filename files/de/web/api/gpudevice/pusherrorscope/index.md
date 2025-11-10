@@ -1,16 +1,16 @@
 ---
-title: "GPUDevice: pushErrorScope()-Methode"
+title: "GPUDevice: pushErrorScope() Methode"
 short-title: pushErrorScope()
 slug: Web/API/GPUDevice/pushErrorScope
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushErrorScope()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle fügt einen neuen GPU-Fehlerbereich zum Fehlerbereich-Stack des Geräts hinzu, wodurch Sie Fehler eines bestimmten Typs erfassen können.
+Die **`pushErrorScope()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle fügt einen neuen GPU-Fehlerbereich zum Fehlerbereich-Stack des Geräts hinzu, was es Ihnen ermöglicht, Fehler eines bestimmten Typs zu erfassen.
 
-Sobald Sie mit der Erfassung von Fehlern fertig sind, können Sie die Erfassung beenden, indem Sie [`GPUDevice.popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) aufrufen. Dadurch wird der Bereich aus dem Stapel entfernt und es wird ein {{jsxref("Promise")}} zurückgegeben, das zu einem Objekt aufgelöst wird, das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn keine Fehler erfasst wurden.
+Sobald Sie mit der Erfassung von Fehlern fertig sind, können Sie die Erfassung durch Aufrufen von [`GPUDevice.popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) beenden. Dies entfernt den Bereich vom Stack und gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn keine Fehler erfasst wurden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushErrorScope(filter)
 ### Parameter
 
 - `filter`
-  - : Ein enumerierter Wert, der angibt, welcher Typ von Fehler in diesem speziellen Fehlerbereich erfasst wird. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der angibt, welcher Fehlertyp in diesem speziellen Fehlerbereich erfasst wird. Mögliche Werte sind:
     - `"internal"`
       - : Der Fehlerbereich erfasst einen [`GPUInternalError`](/de/docs/Web/API/GPUInternalError).
     - `"out-of-memory"`
@@ -35,7 +35,7 @@ Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in der Konsole auszugeben.
+Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in der Konsole zu protokollieren.
 
 ```js
 device.pushErrorScope("validation");
@@ -52,7 +52,7 @@ device.popErrorScope().then((error) => {
 });
 ```
 
-Siehe [WebGPU Error Handling best practices](https://toji.dev/webgpu-best-practices/error-handling) für viele weitere Beispiele und Informationen.
+Sehen Sie sich die [WebGPU-Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling) für viele weitere Beispiele und Informationen an.
 
 ## Spezifikationen
 

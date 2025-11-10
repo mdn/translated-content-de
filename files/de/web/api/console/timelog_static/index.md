@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}}{{AvailableInWorkers}}
 
-Die **`console.timeLog()`** statische Methode protokolliert den aktuellen Wert eines Timers, der zuvor durch Aufruf von [`console.time()`](/de/docs/Web/API/Console/time_static) gestartet wurde.
+Die **`console.timeLog()`** statische Methode protokolliert den aktuellen Wert eines Timers, der zuvor durch Aufruf von [`console.time()`](/de/docs/Web/API/console/time_static) gestartet wurde.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 Die `console.timeLog()`-Methode protokolliert den aktuellen Wert eines Timers.
 
-Der Methode kann der Name eines Timers übergeben werden. Dies wird versuchen, den Wert eines Timers zu protokollieren, der mit diesem Namen in einem vorherigen Aufruf von [`console.time()`](/de/docs/Web/API/Console/time_static) erstellt wurde:
+Der Methode kann der Name eines Timers übergeben werden. Dies wird versuchen, den Wert eines Timers zu protokollieren, der mit diesem Namen in einem vorherigen Aufruf von [`console.time()`](/de/docs/Web/API/console/time_static) erstellt wurde:
 
 ```js
 console.time("reticulating splines");
@@ -105,6 +105,6 @@ Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timer-Wert mit `
 
 ## Siehe auch
 
-- [`console.time()`](/de/docs/Web/API/Console/time_static)
-- Siehe [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) für zusätzliche Beispiele
+- [`console.time()`](/de/docs/Web/API/console/time_static)
+- Siehe [`console.timeEnd()`](/de/docs/Web/API/console/timeEnd_static) für zusätzliche Beispiele
 - [Node.js Dokumentation für `console.timeLog()`](https://nodejs.org/docs/latest/api/console.html#consoletimeloglabel-data)
