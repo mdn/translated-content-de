@@ -2,10 +2,10 @@
 title: padding-block-start
 slug: Web/CSS/Reference/Properties/padding-block-start
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`padding-block-start`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Block-Start-Abstand (Padding) eines Elements. Dieser wird je nach Schreibweise des Elements, Richtung und Textausrichtung in ein physisches Padding umgewandelt.
+Die **`padding-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert das logische Blockanfangs-Padding eines Elements, welches je nach Schreibmodus, Richtung und Textorientierung des Elements einem physischen Padding zugeordnet wird.
 
 {{InteractiveExample("CSS Demo: padding-block-start")}}
 
@@ -76,13 +76,13 @@ padding-block-start: unset;
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow) (_Breite_ in einer horizontalen Sprache) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Paddings als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) (_Breite_ in einer horizontalen Sprache) des [umschließenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die Eigenschaft `padding-block-start` nimmt die gleichen Werte an wie physische Padding-Eigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch `padding-top`, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} entsprechen, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die `padding-block-start`-Eigenschaft nimmt dieselben Werte an wie physische Padding-Eigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch `padding-top`, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} entsprechen, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} gesetzten Werten.
 
-Sie bezieht sich auf {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen Padding-Werte des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}, welche die anderen Padding-Werte des Elements definieren.
 
 ## Formale Definition
 
@@ -94,7 +94,7 @@ Sie bezieht sich auf {{cssxref("padding-block-end")}}, {{cssxref("padding-inline
 
 ## Beispiele
 
-### Block-Start-Padding für vertikalen Text festlegen
+### Festlegen des Blockanfangs-Paddings für vertikalen Text
 
 #### HTML
 
@@ -134,6 +134,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die abgebildeten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

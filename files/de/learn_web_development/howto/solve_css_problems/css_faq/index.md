@@ -3,29 +3,29 @@ title: CSS FAQ
 short-title: FAQ
 slug: Learn_web_development/Howto/Solve_CSS_problems/CSS_FAQ
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 In diesem Artikel finden Sie einige häufig gestellte Fragen (FAQs) zu CSS sowie Antworten, die Ihnen auf Ihrem Weg zum Webentwickler helfen können.
 
 ## Warum wird mein gültiges CSS nicht korrekt gerendert?
 
-Browser verwenden die `doctype`-Deklaration, um zu entscheiden, ob das Dokument in einem Modus angezeigt wird, der mit Webstandards oder mit alten Browserfehlern besser kompatibel ist. Die Verwendung einer korrekten und modernen `doctype`-Deklaration am Anfang Ihres HTML-Dokuments verbessert die Einhaltung der Browserstandards.
+Browser verwenden die `doctype`-Deklaration, um zu entscheiden, ob das Dokument in einem Modus angezeigt wird, der eher mit Webstandards oder mit alten Browserfehlern kompatibel ist. Eine korrekte und moderne `doctype`-Deklaration am Anfang Ihres HTMLs erhöht die Kompatibilität mit Browserstandards.
 
-Moderne Browser haben zwei Hauptmodi für das Rendering:
+Moderne Browser haben zwei Haupt-Rendering-Modi:
 
-- _Quirks-Modus_: auch Rückwärtskompatibilitätsmodus genannt, ermöglicht es, ältere Webseiten so zu rendern, wie ihre Autoren es beabsichtigt haben, gemäß den nicht standardisierten Rendering-Regeln, die von älteren Browsern verwendet wurden. Dokumente mit einer unvollständigen, fehlerhaften oder fehlenden `doctype`-Deklaration oder mit einer bekannten `doctype`-Deklaration, die vor 2001 üblich war, werden im Quirks-Modus gerendert.
-- _Standards-Modus_: Der Browser versucht, die W3C-Standards strikt zu befolgen. Neue HTML-Seiten sollten für standardkonforme Browser gestaltet werden, und infolgedessen werden Seiten mit einer modernen `doctype`-Deklaration im Standards-Modus gerendert.
+- _Quirks-Modus_: auch als Rückwärtskompatibilitätsmodus bezeichnet, erlaubt es, alte Webseiten so darzustellen, wie es ihre Autoren beabsichtigt haben, indem die nicht standardmäßigen Rendering-Regeln verwendet werden, die von älteren Browsern genutzt wurden. Dokumente mit einer unvollständigen, fehlerhaften oder fehlenden `doctype`-Deklaration oder einer bekannten `doctype`-Deklaration, die vor 2001 üblich war, werden im Quirks-Modus gerendert.
+- _Standards-Modus_: Der Browser versucht, die W3C-Standards streng zu befolgen. Neue HTML-Seiten sollen für standardskonforme Browser entwickelt werden, weshalb Seiten mit einer modernen `doctype`-Deklaration im Standards-Modus gerendert werden.
 
-Gecko-basierte Browser haben einen dritten [eingeschränkten Quirks-Modus](https://en.wikipedia.org/wiki/Quirks_mode#Limited_quirks_mode), der nur wenige kleinere Eigenheiten aufweist.
+Gecko-basierte Browser haben einen dritten [eingeschränkten Quirks-Modus](https://de.wikipedia.org/wiki/Quirks_Mode#Limited_quirks_mode), der nur wenige kleinere Besonderheiten aufweist.
 
-Die Standard-`doctype`-Deklaration, die den Standards-Modus aktiviert, ist:
+Die Standard-`doctype`-Deklaration, die den Standards-Modus auslöst, lautet:
 
 ```html
 <!doctype html>
 ```
 
-Wenn möglich, sollten Sie einfach den obigen Doctype verwenden. Es gibt weitere gültige, ältere Doctypes, die den Standards- oder den Fast-Standards-Modus aktivieren:
+Wann immer möglich, sollten Sie nur das obige Doctype verwenden. Es gibt andere gültige ältere Doctypes, die den Standards- oder Beinahe-Standards-Modus auslösen:
 
 ```html
 <!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,27 +48,27 @@ Wenn möglich, sollten Sie einfach den obigen Doctype verwenden. Es gibt weitere
 Hier sind einige mögliche Ursachen:
 
 - Sie haben den Pfad zur CSS-Datei falsch angegeben.
-- Ein CSS-Stylesheet muss mit einem MIME-Typ `text/css` bereitgestellt werden, um angewendet zu werden. Wenn der Webserver es nicht mit diesem Typ bereitstellt, wird es nicht angewendet.
+- Ein CSS-Stylesheet muss mit einem `text/css` MIME-Typ bereitgestellt werden, um angewendet zu werden. Wenn der Webserver es nicht mit diesem Typ liefert, wird es nicht angewendet.
 
 ## Was ist der Unterschied zwischen `id` und `class`?
 
-HTML-Elemente können ein `id`- und/oder `class`-Attribut haben. Das `id`-Attribut weist dem Element, auf das es angewendet wird, einen Namen zu, und es kann im gültigen Markup nur ein Element mit diesem Namen geben. Das `class`-Attribut weist dem Element einen Klassennamen zu, und dieser Name kann auf viele Elemente innerhalb der Seite angewendet werden. CSS ermöglicht es Ihnen, Stile auf bestimmte `id`- und/oder `class`-Namen anzuwenden.
+HTML-Elemente können ein `id`- und/oder ein `class`-Attribut haben. Das `id`-Attribut weist dem Element, zu dem es gehört, einen Namen zu, und es kann nur ein Element mit diesem Namen in einem gültigen Markup geben. Das `class`-Attribut weist dem Element einen Klassennamen zu, und dieser Name kann auf viele Elemente innerhalb der Seite angewendet werden. CSS ermöglicht es, Stile auf bestimmte `id`- und/oder `class`-Namen anzuwenden.
 
-- Verwenden Sie einen klassenspezifischen Stil, wenn Sie die Stilregeln auf viele Blöcke und Elemente innerhalb der Seite anwenden möchten, oder wenn Sie derzeit nur ein Element mit diesem Stil haben, aber später weitere hinzufügen möchten.
-- Verwenden Sie einen id-spezifischen Stil, wenn Sie die angewendeten Stilregeln auf einen bestimmten Block oder ein bestimmtes Element beschränken müssen. Dieser Stil wird nur von dem Element mit dieser bestimmten id verwendet.
+- Verwenden Sie stilspezifische Klassen, wenn Sie die Stilregeln auf viele Blöcke und Elemente innerhalb der Seite anwenden möchten, oder wenn Sie derzeit nur ein Element haben, das mit diesem Stil gestylt werden soll, Sie aber später weitere hinzufügen könnten.
+- Verwenden Sie stilspezifische IDs, wenn Sie die angewendeten Stilregeln auf einen bestimmten Block oder ein Element beschränken müssen. Dieser Stil wird nur von dem Element mit dieser bestimmten ID verwendet.
 
-Es wird allgemein empfohlen, Klassen so weit wie möglich zu verwenden und ids nur dann, wenn sie unbedingt für spezielle Zwecke benötigt werden (wie zum Verbinden von Label- und Formularelementen oder zum Stylen von Elementen, die semantisch einzigartig sein müssen):
+Es wird allgemein empfohlen, so oft wie möglich Klassen zu verwenden und IDs nur dann zu verwenden, wenn es absolut notwendig ist, um bestimmte Verwendungen (wie das Verbinden von Label- und Formularelementen oder für die Stilierung von Elementen, die semantisch einzigartig sein müssen) zu unterstützen:
 
-- Die Verwendung von Klassen macht Ihr Styling erweiterbar — selbst wenn Sie derzeit nur ein Element mit einem bestimmten Regelsatz stylen, könnten Sie später mehr hinzufügen wollen.
-- Klassen ermöglichen es, mehrere Elemente zu stylen, was zu kürzeren Stylesheets führen kann, anstatt die gleiche Styling-Information in mehreren Regeln mit id-Selektoren zu schreiben. Kürzere Stylesheets sind performanter.
-- Klassenselektoren haben eine geringere [Spezifität](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity) als id-Selektoren und sind daher leichter zu überschreiben, wenn nötig.
+- Die Verwendung von Klassen macht Ihre Stile erweiterbar — selbst wenn Sie jetzt nur ein Element haben, das mit einer bestimmten Regel gestylt werden soll, könnten Sie später weitere hinzufügen wollen.
+- Klassen ermöglichen es, mehrere Elemente zu stylen, wodurch kürzere Stylesheets entstehen, anstatt die gleichen Stilinformationen in mehreren Regeln zu schreiben, die ID-Selektoren verwenden. Kürzere Stylesheets sind leistungsfähiger.
+- Klassenselektoren haben eine niedrigere [Spezifität](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity) als ID-Selektoren und sind daher leichter zu überschreiben, wenn nötig.
 
 > [!NOTE]
-> Siehe [Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) für weitere Informationen.
+> Weitere Informationen finden Sie unter [Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors).
 
 ## Wie stelle ich den Standardwert einer Eigenschaft wieder her?
 
-Ursprünglich bot CSS kein "default"-Schlüsselwort, und die einzige Möglichkeit, den Standardwert einer Eigenschaft wiederherzustellen, bestand darin, diese Eigenschaft explizit neu zu deklarieren. Zum Beispiel:
+Ursprünglich bot CSS kein „default“-Schlüsselwort, und der einzige Weg, den Standardwert einer Eigenschaft wiederherzustellen, besteht darin, diese Eigenschaft explizit neu zu deklarieren. Zum Beispiel:
 
 ```css
 /* Heading default color is black */
@@ -80,7 +80,7 @@ h1 {
 }
 ```
 
-Dies hat sich mit CSS 2 geändert; das Schlüsselwort [initial](/de/docs/Web/CSS/Reference/Values/initial) ist jetzt ein gültiger Wert für eine CSS-Eigenschaft. Es setzt diese auf ihren Standardwert zurück, der in der CSS-Spezifikation der jeweiligen Eigenschaft definiert ist.
+Dies hat sich mit CSS 2 geändert; das Schlüsselwort [initial](/de/docs/Web/CSS/Reference/Values/initial) ist jetzt ein gültiger Wert für eine CSS-Eigenschaft. Es setzt sie auf ihren Standardwert zurück, der in der CSS-Spezifikation der jeweiligen Eigenschaft definiert ist.
 
 ```css
 /* Heading default color is black */
@@ -94,7 +94,7 @@ h1 {
 
 ## Wie leite ich einen Stil aus einem anderen ab?
 
-CSS erlaubt es nicht direkt, einen Stil im Sinne eines anderen zu definieren. Jedoch kann die Zuweisung mehrerer Klassen zu einem einzelnen Element den gleichen Effekt erzielen, und [CSS-Variablen](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) bieten nun eine Möglichkeit, Stilinformationen an einem Ort zu definieren, die an mehreren Stellen wiederverwendet werden können.
+CSS erlaubt es nicht genau, dass ein Stil in Bezug auf einen anderen definiert wird. Das Zuweisen mehrerer Klassen zu einem einzigen Element kann jedoch denselben Effekt erzielen, und [CSS-Variablen](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) bieten nun eine Möglichkeit, Stilinformationen an einem Ort zu definieren, die an mehreren Orten wiederverwendet werden können.
 
 ## Wie weise ich einem Element mehrere Klassen zu?
 
@@ -114,15 +114,15 @@ HTML-Elementen können mehrere Klassen zugewiesen werden, indem die Klassen im `
 <div class="news today">Content of today's news goes here.</div>
 ```
 
-Wenn dieselbe Eigenschaft in beiden Regeln deklariert wird, wird der Konflikt zuerst durch Spezifität und dann entsprechend der Reihenfolge der CSS-Deklarationen gelöst. Die Reihenfolge der Klassen im `class`-Attribut ist nicht relevant.
+Wenn dieselbe Eigenschaft in beiden Regeln deklariert ist, wird der Konflikt zuerst durch Spezifität und dann durch die Reihenfolge der CSS-Deklarationen gelöst. Die Reihenfolge der Klassen im `class`-Attribut ist nicht relevant.
 
 ## Warum funktionieren meine Stilregeln nicht richtig?
 
-Stilregeln, die syntaktisch korrekt sind, werden möglicherweise unter bestimmten Umständen nicht angewendet. Sie können die [Regelansicht](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html) des _CSS-Bereichs_ des Inspektors verwenden, um Probleme dieser Art zu debuggen, aber die häufigsten Fälle von ignorierten Stilregeln sind unten aufgelistet.
+Stilregeln, die syntaktisch korrekt sind, können unter bestimmten Umständen nicht angewendet werden. Sie können die [Rules Ansicht](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html) des _CSS-Panels_ des Inspectors verwenden, um Probleme dieser Art zu beheben, aber die häufigsten Instanzen ignorierter Stilregeln sind unten aufgeführt.
 
-### HTML-Elementhierarchie
+### Hierarchie von HTML-Elementen
 
-Die Art und Weise, wie CSS-Stile auf HTML-Elemente angewendet werden, hängt auch von der Hierarchie der Elemente ab. Es ist wichtig, sich daran zu erinnern, dass eine auf einen Nachkommen angewendete Regel den Stil des Elternteils überschreibt, trotz jeglicher Spezifität oder Priorität der CSS-Regeln.
+Wie CSS-Stile auf HTML-Elemente angewendet werden, hängt auch von der Hierarchie der Elemente ab. Es ist wichtig, sich daran zu erinnern, dass eine Regel, die auf einen Nachfahren angewendet wird, den Stil des übergeordneten Elements überschreibt, unabhängig von der Spezifität oder Priorität der CSS-Regeln.
 
 ```css
 .news {
@@ -142,7 +142,7 @@ Die Art und Weise, wie CSS-Stile auf HTML-Elemente angewendet werden, hängt auc
 </div>
 ```
 
-Im Falle komplexer HTML-Hierarchien, wenn eine Regel ignoriert zu werden scheint, überprüfen Sie, ob das Element in einem anderen Element mit einem unterschiedlichen Stil enthalten ist.
+Im Fall komplexer HTML-Hierarchien, wenn eine Regel ignoriert zu werden scheint, überprüfen Sie, ob das Element innerhalb eines anderen Elements mit einem anderen Stil liegt.
 
 ### Explizit neu definierte Stilregel
 
@@ -168,11 +168,11 @@ In CSS-Stylesheets ist die Reihenfolge **wichtig**. Wenn Sie eine Regel definier
 <div id="stockTicker">NYS: <span class="stockSymbol">GE</span> +1.0…</div>
 ```
 
-Um diesen Fehler zu vermeiden, versuchen Sie, Regeln nur einmal für einen bestimmten Selektor zu definieren und gruppieren Sie alle Regeln, die zu diesem Selektor gehören.
+Um diesen Fehler zu vermeiden, versuchen Sie, Regeln nur einmal für einen bestimmten Selektor zu definieren, und gruppieren Sie alle Regeln, die zu diesem Selektor gehören.
 
-### Verwendung einer Kurzschreibweiseigenschaft
+### Verwendung einer Kurzschreibweise
 
-Die Verwendung von Kurzschreibweiseigenschaften zur Definition von Stilregeln ist gut, da sie eine sehr kompakte Syntax verwenden. Es ist möglich und korrekt, Kurzschreibweise mit nur einigen Attributen zu verwenden, aber man muss sich daran erinnern, dass nicht deklarierte Attribute automatisch auf ihre Standardwerte zurückgesetzt werden. Das bedeutet, dass eine vorherige Regel für ein einzelnes Attribut implizit überschrieben werden könnte.
+Die Verwendung von Kurzschreibweisen zum Definieren von Stilregeln ist gut, da sie eine sehr kompakte Syntax verwendet. Die Verwendung der Kurzschreibweise mit nur einigen Attributen ist möglich und korrekt, aber es muss daran gedacht werden, dass nicht deklarierte Attribute automatisch auf ihre Standardwerte zurückgesetzt werden. Dies bedeutet, dass eine vorherige Regel für ein einzelnes Attribut implizit überschrieben werden könnte.
 
 ```css
 #stockTicker {
@@ -190,7 +190,7 @@ Die Verwendung von Kurzschreibweiseigenschaften zur Definition von Stilregeln is
 <div id="stockTicker">NYS: <span class="stockSymbol">GE</span> +1.0…</div>
 ```
 
-Im obigen Beispiel trat das Problem bei Regeln auf, die zu verschiedenen Elementen gehörten, aber es könnte auch für dasselbe Element passieren, da die Reihenfolge der Regeln **wichtig** ist.
+Im vorherigen Beispiel trat das Problem bei Regeln auf, die zu unterschiedlichen Elementen gehören, aber es könnte auch für dasselbe Element passieren, da die Reihenfolge der Regel **wichtig** ist.
 
 ```css
 #stockTicker {
@@ -201,7 +201,7 @@ Im obigen Beispiel trat das Problem bei Regeln auf, die zu verschiedenen Element
 
 ### Verwendung des `*`-Selektors
 
-Der `*`-Wildcard-Selektor bezieht sich auf jedes Element und muss mit besonderer Sorgfalt verwendet werden.
+Der `*`-Wildcard-Selektor bezieht sich auf jedes Element und muss mit besonderer Vorsicht verwendet werden.
 
 ```css
 body * {
@@ -224,13 +224,13 @@ body * {
 </div>
 ```
 
-In diesem Beispiel wird die Regel mit dem `body *`-Selektor auf alle Elemente im body angewendet, auf jeder Hierarchieebene, einschließlich der `.stockUp`-Klasse. Daher wird `font-weight: bold;`, das auf die `.corpName`-Klasse angewendet wird, von `font-weight: normal;` überschrieben, das auf alle Elemente im body angewendet wird.
+In diesem Beispiel wendet der `body *`-Selektor die Regel auf alle Elemente im Körper an, auf jeder Hierarchieebene, einschließlich der `.stockUp`-Klasse. Somit wird `font-weight: bold;`, das auf die `.corpName`-Klasse angewendet wird, durch `font-weight: normal;`, das auf alle Elemente im Körper angewendet wird, überschrieben.
 
-Die Verwendung des \*-Selektors sollte minimiert werden, da er ein langsamer Selektor ist, besonders wenn er nicht als erstes Element eines Selektors verwendet wird. Seine Verwendung sollte so weit wie möglich vermieden werden.
+Der Gebrauch des \* Selektors sollte minimiert werden, da es sich um einen langsamen Selektor handelt, besonders wenn er nicht als erstes Element eines Selektors verwendet wird. Seine Verwendung sollte möglichst vermieden werden.
 
 ### Spezifität in CSS
 
-Wenn mehrere Regeln auf ein bestimmtes Element angewendet werden, hängt die gewählte Regel von ihrer Stil-[Spezifität](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity) ab. Inline-Stil (in HTML `style`-Attributen) hat die höchste Spezifität und überschreibt alle anderen Selektoren, gefolgt von ID-Selektoren, dann Klassenselektoren und schließlich Elementselektoren. Die Textfarbe des untenstehenden {{htmlelement("div")}} wird daher rot sein.
+Wenn mehrere Regeln auf ein bestimmtes Element angewendet werden, hängt die gewählte Regel von ihrer Stil-[Spezifität](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity) ab. Inline-Stil (in HTML `style`-Attributen) hat die höchste Spezifität und überschreibt alle Selektoren, gefolgt von ID-Selektoren, dann Klassenselektoren und schließlich Elementselektoren. Die Textfarbe des unten stehenden {{htmlelement("div")}} wird daher rot sein.
 
 ```css
 div {
@@ -248,17 +248,17 @@ div {
 <div id="orange" class="green" style="color: red;">This is red</div>
 ```
 
-Die Regeln sind komplizierter, wenn der Selektor mehrere Teile hat. Eine detailliertere Erklärung, wie die Spezifität von Selektoren berechnet wird, finden Sie in der [Spezifität-Dokumentation](/de/docs/Web/CSS/CSS_cascade/Specificity).
+Die Regeln sind komplizierter, wenn der Selektor mehrere Teile hat. Eine detailliertere Erklärung darüber, wie die Selektorspezifität berechnet wird, finden Sie in der [CSS-Spezifitätsdokumentation](/de/docs/Web/CSS/Guides/Cascade/Specificity).
 
-## Was machen die -moz-\*, -ms-\*, -webkit-\*, -o-\* und -khtml-\* Eigenschaften?
+## Was bewirken die -moz-\*, -ms-\*, -webkit-\*, -o-\* und -khtml-\* Eigenschaften?
 
-Diese Eigenschaften, _präfixierte Eigenschaften_ genannt, sind Erweiterungen des CSS-Standards. Sie wurden einmal verwendet, um die Nutzung experimenteller und nicht standardgemäßer Features in Browsern zu ermöglichen, ohne den regulären Namensraum zu verschmutzen, um zukünftige Inkompatibilitäten bei der Erweiterung des Standards zu vermeiden.
+Diese Eigenschaften, _vorgehängte Eigenschaften_ genannt, sind Erweiterungen des CSS-Standards. Sie wurden einmal verwendet, um die Verwendung von experimentellen und nicht standardisierten Funktionen in Browsern zu ermöglichen, ohne den regulären Namensraum zu verschmutzen, um zukünftige Inkompatibilitäten zu vermeiden, wenn der Standard erweitert wird.
 
-Die Verwendung solcher Eigenschaften auf Produktionswebsites wird nicht empfohlen — sie haben bereits ein großes Kompatibilitätschaos im Web verursacht. Beispielsweise verwenden viele Entwickler nur die `-webkit-`-präfixierte Version einer Eigenschaft, während die nicht-präfixierte Version in allen Browsern vollständig unterstützt wird. Das bedeutet, dass ein Design, das sich auf diese Eigenschaft stützt, nicht in Nicht-WebKit-basierten Browsern funktionieren würde, obwohl es eigentlich könnte. Dieses Problem wurde so groß, dass andere Browser gezwungen waren, `-webkit-`-präfixierte Aliase zu implementieren, um die Webkompatibilität zu verbessern, wie im [Kompatibilitäts-Living-Standard](https://compat.spec.whatwg.org/) spezifiziert.
+Die Verwendung solcher Eigenschaften auf Produktwebseiten wird nicht empfohlen — sie haben bereits ein riesiges Webkompatibilitätschaos geschaffen. Zum Beispiel verwenden viele Entwickler nur die `-webkit-` vorgehängte Version einer Eigenschaft, wenn die nicht vorgehängte Version in allen Browsern vollständig unterstützt wird. Dies bedeutet, dass ein Design, das auf dieser Eigenschaft basiert, in nicht-webkit-basierten Browsern nicht funktionieren würde, obwohl es könnte. Dies wurde zu einem Problem, das so groß war, dass andere Browser dazu gedrängt wurden, `-webkit-` vorgehängte Aliase zu implementieren, um die Webkompatibilität zu verbessern, wie im [Compatibility Living Standard](https://compat.spec.whatwg.org/) festgelegt.
 
-Browser verwenden keine CSS-Präfixe mehr, wenn sie neue experimentelle Funktionen implementieren. Stattdessen testen sie neue Funktionen hinter konfigurierbaren experimentellen Flags oder nur in Nightly-Browserversionen oder ähnlichen.
+Browser verwenden keine CSS-Präfixe mehr, wenn sie neue experimentelle Funktionen implementieren. Stattdessen testen sie neue Funktionen hinter konfigurierbaren experimentellen Flags oder nur in Nightly-Browserversionen oder ähnlichem.
 
-Wenn Sie gezwungen sind, Präfixe in Ihrer Arbeit zu verwenden, schreiben Sie zuerst die präfixierten Versionen, gefolgt von der nicht-präfixierten Standardversion. Auf diese Weise überschreibt die Standardversion automatisch die präfixierten Versionen, wenn sie unterstützt wird. Zum Beispiel:
+Wenn Sie in Ihrer Arbeit Präfixe verwenden müssen, schreiben Sie zuerst die vorgehängten Versionen und dann die nicht vorgehängte Standardversion. Auf diese Weise überschreibt die Standardversion automatisch die vorgehängten Versionen, wenn sie unterstützt wird. Zum Beispiel:
 
 ```css
 -webkit-border-after-color: navy;
@@ -266,13 +266,13 @@ border-block-end-color: navy;
 ```
 
 > [!NOTE]
-> Siehe die [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions) und [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions) für Listen von browser-präfixierten CSS-Eigenschaften.
+> Siehe die [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions) und [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions) für Listen von browser-vorgehängten CSS-Eigenschaften.
 
-## Wie hängt `z-index` mit der Positionierung zusammen?
+## Wie hängt z-index mit der Positionierung zusammen?
 
-Die Eigenschaft `z-index` gibt die Stapelreihenfolge von Elementen an.
+Die `z-index`-Eigenschaft gibt die Stapelreihenfolge von Elementen an.
 
-Ein Element mit einem höheren z-index/Stapelreihenfolge wird immer vor einem Element mit einer niedrigeren z-index/Stapelreihenfolge auf dem Bildschirm gerendert. Z-index funktioniert nur bei Elementen, die eine spezifizierte Position (`position:absolute`, `position:relative` oder `position:fixed`) haben.
+Ein Element mit einem höheren z-index/Stapelreihenfolge wird immer vor einem Element mit einem niedrigeren z-index/Stapelreihenfolge auf dem Bildschirm dargestellt. Z-index funktioniert nur bei Elementen, die eine bestimmte Position (`position:absolute`, `position:relative` oder `position:fixed`) haben.
 
 > [!NOTE]
-> Für weitere Informationen lesen Sie unseren [Leitfaden zur Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning), insbesondere den Abschnitt [Einführung in z-index](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#introducing_z-index).
+> Weitere Informationen finden Sie in unserem [Positioning](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)-Lernartikel und insbesondere im Abschnitt [Introducing z-index](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#introducing_z-index).

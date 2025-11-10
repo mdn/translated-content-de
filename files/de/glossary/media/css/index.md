@@ -2,18 +2,18 @@
 title: Media (CSS)
 slug: Glossary/Media/CSS
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Im Kontext von {{Glossary("CSS", "CSS")}} (Cascading Style Sheets) bezieht sich der Begriff **_media_** auf das Ziel, auf das das Dokument durch die {{Glossary("Engine/Rendering", "Rendering-Engine")}} gezeichnet werden soll.
+Im Kontext von {{Glossary("CSS", "CSS")}} (Cascading Style Sheets) bezieht sich der Begriff **_media_** auf das Ziel, zu dem das Dokument vom {{Glossary("Engine/Rendering", "Rendering engine")}} gezeichnet werden soll.
 
-Typischerweise ist dies ein Bildschirm, es kann jedoch auch ein Drucker, eine Braille-Anzeige oder ein anderer Gerätetyp sein.
+Typischerweise ist dies ein Bildschirm—es kann jedoch auch ein Drucker, eine Braille-Ausgabe oder ein anderer Gerätetyp sein.
 
-CSS bietet mehrere Funktionen, mit denen Sie die Stile Ihres Dokuments anpassen oder sogar unterschiedliche Stile anbieten können, je nach Medientyp (wie Bildschirm oder Druck, um zwei zu nennen) oder Medienfähigkeiten (wie Breite, Auflösung oder andere Werte) des Geräts des Betrachters.
+CSS bietet mehrere Funktionen, die es Ihnen ermöglichen, die Stile Ihres Dokuments anzupassen—oder sogar unterschiedliche Stile anzubieten—je nach Medientyp (wie Bildschirm oder Druck, um zwei zu nennen) oder Medienfähigkeiten (wie Breite, Auflösung oder andere Werte) des Anzeigegeräts des Betrachters.
 
 ## Siehe auch
 
-- [Medienabfragen verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries)
-- {{cssxref("@media")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules): Wenden Sie einen Teil eines CSS-Stylesheets bedingt an, basierend auf dem Ergebnis einer Medienabfrage.
-- [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia): Testen Sie das Anzeigegerät gegen eine Medienabfrage.
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries)
+- {{cssxref("@media")}} [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules): Bedingte Anwendung eines Teils eines CSS-Stylesheets, basierend auf dem Ergebnis einer Media Query.
+- [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia): Testen Sie das Anzeigegerät gegen eine Media Query

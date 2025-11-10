@@ -1,20 +1,20 @@
 ---
-title: Anleitung zum Hervorheben eines Absatzes, der auf eine Überschrift folgt
-short-title: Einen Absatz nach einer Überschrift hervorheben
+title: Anleitung zur Hervorhebung eines Absatzes nach einer Überschrift
+short-title: Hervorhebung eines Absatzes nach einer Überschrift
 slug: Learn_web_development/Howto/Solve_CSS_problems/Highlight_para_after_h1
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-In diesem Leitfaden erfahren Sie, wie Sie einen Absatz hervorheben, der direkt nach einer Überschrift folgt.
+In diesem Leitfaden erfahren Sie, wie Sie einen Absatz hervorheben können, der direkt nach einer Überschrift steht.
 
-## Styling des ersten Absatzes nach einer Überschrift
+## Gestaltung des ersten Absatzes nach einer Überschrift
 
-Ein häufiges Muster ist es, den ersten Absatz in einem Artikel anders zu gestalten als die nachfolgenden. Normalerweise folgt dieser erste Absatz direkt auf eine Überschrift, und falls dies in Ihrem Design der Fall ist, können Sie diese Kombination von Elementen verwenden, um den Absatz zu targetieren.
+Ein häufiges Muster ist es, den ersten Absatz in einem Artikel anders zu gestalten als die darauf folgenden. Üblicherweise steht dieser erste Absatz direkt nach einer Überschrift, und wenn dies in Ihrem Design der Fall ist, können Sie diese Kombination von Elementen verwenden, um den Absatz anzusprechen.
 
-## Der Nachfolger-Kombinator
+## Der Nachbar-Kombinator
 
-CSS verfügt über eine Gruppe von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors), die als **Kombinatoren** bezeichnet werden, weil sie Dinge basierend auf einer Kombination von Selektoren auswählen. In unserem Fall verwenden wir den [Nachfolger-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator). Dieser Kombinator wählt ein Element basierend darauf aus, dass es neben einem anderen Element steht. In unserem HTML haben wir ein {{htmlelement("Heading_Elements", "h1")}} gefolgt von einem {{htmlelement("p")}}. Das `<p>` ist der nächste Nachfolger des `<h1>`, daher können wir es mit `h1 + p` auswählen.
+CSS verfügt über eine Gruppe von [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors), die als **Kombinatoren** bezeichnet werden, da sie Dinge basierend auf einer Kombination von Selektoren auswählen. In unserem Fall werden wir den [Nachbar-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator) verwenden. Dieser Kombinator wählt ein Element aus, das neben einem anderen Element steht. In unserem HTML haben wir ein {{htmlelement("Heading_Elements", "h1")}} gefolgt von einem {{htmlelement("p")}}. Der `<p>` ist der nächste Nachbar von `<h1>`, daher können wir ihn mit `h1 + p` auswählen.
 
 ```html live-sample___highlight_h1_plus_para
 <div class="wrapper">
@@ -44,5 +44,5 @@ CSS verfügt über eine Gruppe von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selecto
 
 ## Siehe auch
 
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
-- [CSS lernen: Kombinatoren](/de/docs/Learn_web_development/Core/Styling_basics/Combinators)
+- [Lernen Sie CSS: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [Lernen Sie CSS: Kombinatoren](/de/docs/Learn_web_development/Core/Styling_basics/Combinators)

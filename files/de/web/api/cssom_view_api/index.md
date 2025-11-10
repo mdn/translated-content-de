@@ -2,19 +2,19 @@
 title: CSSOM view API
 slug: Web/API/CSSOM_view_API
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{DefaultAPISidebar("CSSOM view API")}}
 
-Die **CSSOM View API** ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, einschließlich der Abfrage der Position von Layout-Boxen eines Elements, der Ermittlung der Breite oder Höhe des Ansichtsfensters durch ein Skript und des Scrollens eines Elements.
+Die **CSSOM View API** ermöglicht es Ihnen, die visuelle Darstellung eines Dokuments zu manipulieren, einschließlich des Abrufens der Position von Elementlayout-Boxen, der Ermittlung der Breite oder Höhe des Ansichtsfensters durch Skripte sowie des Scrollens eines Elements.
 
 ## Leitfäden
 
 - [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)
-  - : Die Koordinatensysteme zur Angabe einer Position in einem Anzeige-Kontext wie einem Fenster auf einem Monitor, einem Ansichtsfenster auf einem mobilen Gerät, oder einer Position auf einem Blatt Papier beim Drucken.
-- [Konzepte des Ansichtsfensters](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
-  - : Das Konzept des Ansichtsfensters — was es ist, seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Ansichtsfenster und dem Layout-Ansichtsfenster.
+  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigekontext wie einem Fenster auf einem Monitor, einem Ansichtsfenster auf einem Mobilgerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
+- [Ansichtsfensterkonzepte](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts)
+  - : Das Konzept des Ansichtsfensters — was es ist, seine Auswirkungen in Bezug auf CSS, SVG und Mobilgeräte — und der Unterschied zwischen dem visuellen Ansichtsfenster und dem Layout-Ansichtsfenster.
 
 ## Schnittstellen
 
@@ -24,11 +24,11 @@ Die **CSSOM View API** ermöglicht es Ihnen, die visuelle Ansicht eines Dokument
 - [`CaretPosition`](/de/docs/Web/API/CaretPosition)
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport)
 
-## Erweiterungen für andere Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
 Dieses Modul fügt Eigenschaften, Methoden und Ereignisse zu Schnittstellen hinzu, die in anderen Spezifikationen definiert sind.
 
-### Erweiterungen für Window
+### Erweiterungen zu Window
 
 - [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio)
 - [`innerHeight`](/de/docs/Web/API/Window/innerHeight)
@@ -55,7 +55,7 @@ Dieses Modul fügt Eigenschaften, Methoden und Ereignisse zu Schnittstellen hinz
 - [`scrollY`](/de/docs/Web/API/Window/scrollY)
 - [`resize`](/de/docs/Web/API/Window/resize_event) Ereignis
 
-### Erweiterungen für Document
+### Erweiterungen zu Document
 
 - [`elementFromPoint()`](/de/docs/Web/API/Document/elementFromPoint)
 - [`caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint)
@@ -63,7 +63,7 @@ Dieses Modul fügt Eigenschaften, Methoden und Ereignisse zu Schnittstellen hinz
 - [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis
 - [`scrollend`](/de/docs/Web/API/Document/scrollend_event) Ereignis
 
-### Erweiterungen für Element
+### Erweiterungen zu Element
 
 - [`checkVisibility()`](/de/docs/Web/API/Element/checkVisibility)
 - [`clientHeight`](/de/docs/Web/API/Element/clientHeight)
@@ -84,7 +84,7 @@ Dieses Modul fügt Eigenschaften, Methoden und Ereignisse zu Schnittstellen hinz
 - [`scroll`](/de/docs/Web/API/Element/scroll_event) Ereignis
 - [`scrollend`](/de/docs/Web/API/Element/scrollend_event) Ereignis
 
-### Erweiterungen für HTMLElement
+### Erweiterungen zu HTMLElement
 
 - [`offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight)
 - [`offsetLeft`](/de/docs/Web/API/HTMLElement/offsetLeft)
@@ -92,17 +92,17 @@ Dieses Modul fügt Eigenschaften, Methoden und Ereignisse zu Schnittstellen hinz
 - [`offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop)
 - [`offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
 
-### Erweiterungen für HTMLImageElement
+### Erweiterungen zu HTMLImageElement
 
 - [`x`](/de/docs/Web/API/HTMLImageElement/x)
 - [`y`](/de/docs/Web/API/HTMLImageElement/y)
 
-### Erweiterungen für Range
+### Erweiterungen zu Range
 
 - [`getBoundingClientRect()`](/de/docs/Web/API/Range/getBoundingClientRect)
 - [`getClientRects()`](/de/docs/Web/API/Range/getClientRects)
 
-### Erweiterungen für MouseEvent
+### Erweiterungen zu MouseEvent
 
 - [`clientX`](/de/docs/Web/API/MouseEvent/clientX)
 - [`clientY`](/de/docs/Web/API/MouseEvent/clientY)
@@ -114,7 +114,7 @@ Dieses Modul fügt Eigenschaften, Methoden und Ereignisse zu Schnittstellen hinz
 - [`x`](/de/docs/Web/API/MouseEvent/x)
 - [`y`](/de/docs/Web/API/MouseEvent/y)
 
-Dieses Modul definiert geometrische Hilfsmethoden, die auf die [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) Schnittstellen anwendbar sind. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
+Dieses Modul definiert geometrische Hilfsmethoden, die auf die [`Text`](/de/docs/Web/API/Text)-, [`Element`](/de/docs/Web/API/Element)-, [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)- und [`Document`](/de/docs/Web/API/Document)-Schnittstellen angewendet werden. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
 
 ## Spezifikationen
 
@@ -122,11 +122,11 @@ Dieses Modul definiert geometrische Hilfsmethoden, die auf die [`Text`](/de/docs
 
 ## Siehe auch
 
-- [CSS-Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
-- [CSSOM View](/de/docs/Web/CSS/CSSOM_view) Modul
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
+- [CSSOM View](/de/docs/Web/CSS/Guides/CSSOM_view) Modul
+- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Overscroll Verhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
 - {{Glossary("Viewport", "Ansichtsfenster")}}
 - {{Glossary("Layout_viewport", "Layout-Ansichtsfenster")}}
 - {{Glossary("Visual_viewport", "Visuelles Ansichtsfenster")}}

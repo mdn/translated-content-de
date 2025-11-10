@@ -2,10 +2,10 @@
 title: scroll-margin
 slug: Web/CSS/Reference/Properties/scroll-margin
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`scroll-margin`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle Scrollränder eines Elements gleichzeitig und weist Werte zu, ähnlich wie die [`margin`](/de/docs/Web/CSS/Reference/Properties/margin)-Eigenschaft dies für die Ränder eines Elements tut.
+Die **`scroll-margin`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt alle Scroll-Ränder eines Elements auf einmal und weist Werte ähnlich zu, wie es die [`margin`](/de/docs/Web/CSS/Reference/Properties/margin)-Eigenschaft für die Ränder eines Elements tut.
 
 {{InteractiveExample("CSS Demo: scroll-margin")}}
 
@@ -69,7 +69,7 @@ scroll-margin: 2em;
 }
 ```
 
-## Zusammensetzende Eigenschaften
+## Bestandteil-Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -96,13 +96,13 @@ scroll-margin: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Ein Abstand vom entsprechenden Rand des Scrollcontainers.
+  - : Ein Abstand vom entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Sie können den Effekt von `scroll-margin` sehen, indem Sie zu einem Punkt zwischen zwei der "Seiten" des Beispielinhalts scrollen. Der für `scroll-margin` angegebene Wert bestimmt, wie viel von der Seite, die sich hauptsächlich außerhalb des {{Glossary("Scroll_snap#snapport", "snapport")}} befindet, sichtbar bleiben soll.
+Den Effekt von `scroll-margin` können Sie sehen, indem Sie zu einem Punkt zwischen zwei der "Seiten" des Inhalts des Beispiels scrollen. Der für `scroll-margin` angegebene Wert bestimmt, wie viel von der Seite, die hauptsächlich außerhalb des {{Glossary("Scroll_snap#snapport", "Snapport")}} liegt, sichtbar bleiben soll.
 
-Die `scroll-margin`-Werte stellen somit Abstände dar, die den Scroll-Snap-Bereich definieren, der verwendet wird, um dieses Feld an den Snapport anzupassen. Der Scroll-Snap-Bereich wird bestimmt, indem das transformierte Border-Box genommen wird, sein rechteckiger Begrenzungsrahmen (achsenparallel im Koordinatenraum des Scrollcontainers) gefunden und dann die angegebenen Abstände hinzugefügt werden.
+Daher repräsentieren die `scroll-margin`-Werte Überstände, die den Scroll-Snap-Bereich definieren, der verwendet wird, um diese Box zum Snapport zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Border-Box genommen wird, deren rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Überstände hinzugefügt werden.
 
 ## Formale Definition
 
@@ -116,9 +116,9 @@ Die `scroll-margin`-Werte stellen somit Abstände dar, die den Scroll-Snap-Berei
 
 ### Grundlegende Demonstration
 
-Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert ist.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, mit dem Unterschied, dass wir Ihnen hier erklären, wie es implementiert ist.
 
-Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, von denen die zweiten und dritten fast, aber nicht ganz an die linke Seite jedes Blocks einrasten.
+Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte fast an den linken Rand jedes Blocks schnappen.
 
 #### HTML
 
@@ -135,7 +135,7 @@ Das HTML enthält einen Scroller mit vier Kindern:
 
 #### CSS
 
-Lassen Sie uns das CSS durchgehen. Der äußere Container ist folgendermaßen gestylt:
+Lassen Sie uns das CSS durchgehen. Der äußere Container ist wie folgt gestaltet:
 
 ```css
 .scroller {
@@ -150,9 +150,9 @@ Lassen Sie uns das CSS durchgehen. Der äußere Container ist folgendermaßen ge
 }
 ```
 
-Die Hauptaspekte, die für das Scrollen von Bedeutung sind, sind `overflow-x: scroll`, das sicherstellt, dass die Inhalte scrollen und nicht verdeckt werden, und `scroll-snap-type: x mandatory`, das vorschreibt, dass das Scrollen entlang der horizontalen Achse einrasten muss und das Scrollen immer auf einem Einrastpunkt zum Stillstand kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, wodurch sichergestellt wird, dass der Inhalt scrollt und nicht verborgen wird, und `scroll-snap-type: x mandatory`, das vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrolling immer an einem Snap-Punkt zur Ruhe kommt.
 
-Die Kindelemente sind wie folgt gestylt:
+Die Kinderelemente sind wie folgt gestaltet:
 
 ```css
 .scroller > div {
@@ -173,9 +173,9 @@ Die Kindelemente sind wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: start`, der angibt, dass die linken Kanten (die "Starts" entlang der x-Achse, in unserem Fall) die festgelegten Einrastpunkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: start`, welches spezifiziert, dass die linken Kanten (die "Starts" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite und dritte Kindelement:
+Zu guter Letzt spezifizieren wir die Scroll-Margin-Werte, unterschiedliche für das zweite und dritte Kind-Element:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -187,14 +187,14 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite
 }
 ```
 
-Das bedeutet, dass beim Scrollen über die mittleren Kindelemente das Scrollen bis `1rem` außerhalb des linken Randes des zweiten `<div>` und `2rems` außerhalb des linken Randes des dritten `<div>` einrastet.
+Das bedeutet, dass beim Scrollen an den mittleren Kind-Elementen das Scrollen zu `1rem` außerhalb der linken Kante des zweiten `<div>` und `2rems` außerhalb der linken Kante des dritten `<div>` schnappen wird.
 
 > [!NOTE]
-> Hier setzen wir `scroll-margin` auf allen Seiten gleichzeitig, aber nur die Startkante ist wirklich relevant. Es würde hier ebenso gut funktionieren, nur an dieser einen Kante eine Scroll-Margin festzulegen, zum Beispiel mit `scroll-margin-inline-start: 1rem`, oder `scroll-margin: 0 0 0 1rem`.
+> Hier setzen wir `scroll-margin` auf allen Seiten gleichzeitig, aber nur die Anfangskante ist wirklich relevant. Es würde genauso gut funktionieren, hier nur einen Scroll-Rand auf dieser einen Kante zu setzen, zum Beispiel mit `scroll-margin-inline-start: 1rem`, oder `scroll-margin: 0 0 0 1rem`.
 
 #### Ergebnis
 
-Versuchen Sie es selbst:
+Probieren Sie es selbst aus:
 
 {{EmbedLiveSample('Basic_demonstration', '100%', 300)}}
 
@@ -208,5 +208,5 @@ Versuchen Sie es selbst:
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

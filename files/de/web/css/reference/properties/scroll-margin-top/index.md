@@ -2,10 +2,10 @@
 title: scroll-margin-top
 slug: Web/CSS/Reference/Properties/scroll-margin-top
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Border-Box genommen wird, ihre rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Ausdehnungen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird ermittelt, indem das transformierte Rahmenrechteck genommen wird, seine rechteckige Umrandung im Koordinatenraum des Scroll-Containers gefunden wird und dann die angegebenen Abstände hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-top")}}
 
@@ -87,7 +87,7 @@ scroll-margin-top: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Ausdehnungswert von der oberen Kante des Scroll-Containers.
+  - : Ein Abstand vom oberen Rand des Scroll-Containers.
 
 ## Formale Definition
 
@@ -107,5 +107,5 @@ scroll-margin-top: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

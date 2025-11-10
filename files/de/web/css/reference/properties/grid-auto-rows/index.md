@@ -2,10 +2,10 @@
 title: grid-auto-rows
 slug: Web/CSS/Reference/Properties/grid-auto-rows
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`grid-auto-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe einer implizit erstellten Grid-Zeilen-{{Glossary("grid_tracks", "Spur")}} oder eines Musters von Spuren fest.
+Die **`grid-auto-rows`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe einer implizit erstellten Grid-Zeile {{Glossary("grid_tracks", "Track")}} oder eines Musters von Tracks fest.
 
 {{InteractiveExample("CSS Demo: grid-auto-rows")}}
 
@@ -60,7 +60,7 @@ grid-auto-rows: minmax(30px, auto);
 }
 ```
 
-Wenn ein Grid-Element in eine Zeile positioniert wird, die nicht explizit durch {{cssxref("grid-template-rows")}} dimensioniert ist, werden implizierte {{Glossary("grid", "Grid")}}-Spuren erstellt, um es zu halten. Dies kann entweder durch explizites Positionieren in eine Zeile geschehen, die außerhalb des Bereichs liegt, oder durch den Auto-Platzierungsalgorithmus, der zusätzliche Zeilen erstellt.
+Wenn ein Grid-Item in eine Zeile positioniert wird, die nicht explizit durch {{cssxref("grid-template-rows")}} dimensioniert ist, werden implizite {{Glossary("grid", "Grid")}}-Tracks erstellt, um es zu halten. Dies kann entweder dadurch geschehen, dass explizit in eine Zeile positioniert wird, die außerhalb des Bereichs liegt, oder durch den Auto-Placement-Algorithmus, der zusätzliche Zeilen erstellt.
 
 ## Syntax
 
@@ -116,27 +116,28 @@ grid-auto-rows: unset;
 - {{cssxref("&lt;percentage&gt;")}}
   - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert relativ zur Blockgröße des Grid-Containers. Wenn die Blockgröße des Grid-Containers unbestimmt ist, wird der Prozentwert wie `auto` behandelt.
 - {{cssxref("&lt;flex&gt;")}}
-  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-dimensionierte Spur nimmt einen Anteil des verbleibenden Raums proportional zu ihrem Flex-Faktor ein.
 
-    Wenn außerhalb einer `minmax()`-Notation erscheint, impliziert es ein automatisches Minimum (d.h., `minmax(auto, <flex>)`).
+  - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-dimensionierte Track nimmt einen Anteil des verbleibenden Platzes im Verhältnis zu seinem Flex-Faktor ein.
+
+    Wenn es außerhalb einer `minmax()`-Notation erscheint, impliziert es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 
 - {{cssxref("max-content")}}
-  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Grid-Elemente repräsentiert, die die Grid-Spur belegen.
+  - : Ist ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Grid-Items darstellt, die den Grid-Track einnehmen.
 - {{cssxref("min-content")}}
-  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Grid-Elemente repräsentiert, die die Grid-Spur belegen.
+  - : Ist ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Grid-Items darstellt, die den Grid-Track einnehmen.
 - {{cssxref("minmax", "minmax(min, max)")}}
-  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Als Maximum setzt ein `<flex>`-Wert den Flex-Faktor der Spur. Als Minimum wird er als null behandelt (oder als minimaler Inhalt, wenn der Grid-Container unter einer minimalen Inhaltsbedingung dimensioniert ist).
+  - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion als _min_ behandelt. Als Maximum setzt ein `<flex>`-Wert den Flex-Faktor des Tracks. Als Minimum wird es als null (oder minimaler Inhalt, wenn der Grid-Container unter einer minimalen Inhaltsbeschränkung dimensioniert ist) behandelt.
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` berechnet wird (d.h., `minmax(auto, max-content)`), außer dass die Spurgröße auf _argument_ begrenzt wird, wenn sie größer als das `auto`-Minimum ist.
+  - : Stellt die Formel `min(max-content, max(auto, argument))` dar, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Track-Größe bei _argument_ begrenzt wird, wenn es größer als das `auto`-Minimum ist.
 - `auto`
-  - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}}-Größe der Elemente in dieser Spur.
 
-    Als Minimum repräsentiert es die größte minimale Größe der Elemente in dieser Spur (festgelegt durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}}-Größe.
+  - : Als Maximum repräsentiert das größte {{cssxref("max-content")}} Größe der Items in diesem Track.
 
-    Wenn außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. In den meisten Fällen verhält es sich ähnlich wie `minmax(min-content,max-content)`.
+    Als Minimum repräsentiert es die größte minimale Größe von Items in diesem Track (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Items). Dies ist häufig, aber nicht immer, die {{cssxref("min-content")}} Größe.
 
-    > [!NOTE]
-    > `auto` Spurgrößen (und nur `auto` Spurgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt eine `auto` dimensionierte Spur standardmäßig jeden verbleibenden Raum im Grid-Container ein.
+    Wenn es außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet wird, repräsentiert `auto` den Bereich zwischen dem oben beschriebenen Minimum und Maximum. Dies verhält sich in den meisten Fällen ähnlich wie `minmax(min-content,max-content)`.
+
+    > [!NOTE] > `auto`-Trackgrößen (und nur `auto`-Trackgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt ein `auto`-dimensionierter Track standardmäßig den verbleibenden Platz im Grid-Container ein.
 
 ## Formale Definition
 
@@ -193,5 +194,5 @@ grid-auto-rows: unset;
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-flow")}}
 - {{cssxref("grid")}}
-- [Automatische Platzierung in Grid-Layout - Dimensionierung von Zeilen im impliziten Grid](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout#sizing_rows_in_the_implicit_grid)
-- Video: [Introducing grid auto-placement and order](https://gridbyexample.com/video/series-auto-placement-order/)
+- [Auto-Placement im Grid-Layout - Zeilen in der impliziten Grid dimensionieren](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement#sizing_rows_in_the_implicit_grid)
+- Video: [Einführung in automatische Platzierung und Reihenfolge im Grid](https://gridbyexample.com/video/series-auto-placement-order/)

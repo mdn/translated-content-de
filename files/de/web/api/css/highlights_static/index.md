@@ -1,22 +1,22 @@
 ---
-title: "CSS: `highlights` statische Eigenschaft"
+title: "CSS: highlights Eigenschaft"
 short-title: highlights
 slug: Web/API/CSS/highlights_static
 l10n:
-  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die statische, schreibgeschützte **`highlights`**-Eigenschaft der [`CSS`](/de/docs/Web/API/CSS)-Schnittstelle ermöglicht den Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textranges mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) zu stylen.
+Die statische, schreibgeschützte **`highlights`** Eigenschaft des [`CSS`](/de/docs/Web/API/CSS) Interface bietet Zugriff auf das `HighlightRegistry`, das verwendet wird, um beliebige Textranges mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) zu gestalten.
 
 ## Wert
 
-Das [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Objekt.
+Das [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie mehrere Textranges erstellt werden, dann ein `Highlight`-Objekt für diese erstellt und dieses Highlight im `HighlightRegistry` registriert wird, um schließlich die Textranges mit dem {{cssxref("::highlight", "::highlight()")}} Pseudo-Element zu stylen.
+Das folgende Beispiel zeigt, wie mehrere Textranges erstellt werden, dann ein `Highlight`-Objekt für diese erstellt, dieses Highlight im `HighlightRegistry` registriert und schließlich die Textranges mit dem {{cssxref("::highlight", "::highlight()")}} Pseudo-Element gestaltet werden.
 
 ```js
 const parentNode = document.getElementById("foo");
@@ -52,5 +52,5 @@ CSS.highlights.set("my-custom-highlight", myCustomHighlight);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API)-Modul
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS custom highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul
+- [CSS Custom Highlight API: Die Zukunft des Markierens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

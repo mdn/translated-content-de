@@ -3,12 +3,12 @@ title: "HTMLSourceElement: media-Eigenschaft"
 short-title: media
 slug: Web/API/HTMLSourceElement/media
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`media`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der das beabsichtigte Zielmedium für die Ressource darstellt. Der Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die eine kommagetrennte Liste von Medientypen, Medienmerkmalen und logischen Operatoren ist.
+Die **`media`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der das beabsichtigte Zielmedium für die Ressource darstellt. Der Wert ist eine [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using), die eine durch Kommas getrennte Liste von Medientypen, medienbezogenen Eigenschaften und logischen Operatoren ist.
 
 Sie spiegelt das `media`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -52,4 +52,4 @@ el.media = "(width >= 800px)"; // Updates the media value
 - {{htmlelement("picture")}}
 - {{htmlelement("audio")}}
 - {{htmlelement("video")}}
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)

@@ -2,10 +2,10 @@
 title: clip-path
 slug: Web/SVG/Reference/Attribute/clip-path
 l10n:
-  sourceCommit: 1c24dd81053cd34f393ce2c4b2ac071886007625
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das Präsentationsattribut **`clip-path`** definiert oder verknüpft einen Clipping-Pfad mit dem zugehörigen Element.
+Das **`clip-path`** Präsentationsattribut definiert oder verknüpft einen Schnittpfad mit dem zugehörigen Element.
 
 > [!NOTE]
 > Als Präsentationsattribut hat `clip-path` auch ein entsprechendes CSS-Eigenschaft: {{cssxref("clip-path")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
@@ -91,7 +91,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -114,10 +114,10 @@ svg {
 </table>
 
 - \<geometry-box>
-  - : Zusätzliche Information, wie eine {{cssxref('basic-shape')}} auf ein Element angewandt wird: `fill-box` gibt an, dass die Umrandungsbox des Objekts verwendet wird; `stroke-box` gibt an, dass die um den Strich erweiterte Umrandungsbox verwendet wird; `view-box` gibt an, dass der nächste SVG-Ansichtsbereich als Referenzbox verwendet wird.
+  - : Eine zusätzliche Information, um festzulegen, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` gibt an, dass die Objektbegrenzungsbox verwendet werden soll; `stroke-box` weist darauf hin, dass die Objektbegrenzungsbox mit dem Strich erweitert verwendet wird; `view-box` gibt an, dass der nächste SVG-Ansichtsbereich als Referenzbox verwendet wird.
 
 > [!NOTE]
-> Für weitere Details zur clip-path Syntax, siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
+> Für weitere Details zur `clip-path` Syntax, siehe die CSS-Eigenschaft {{cssxref('clip-path')}} Referenzseite.
 
 ## Spezifikationen
 
@@ -129,5 +129,5 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("clip-path")}}-Eigenschaft
-- [Einführung in das CSS Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
+- CSS {{cssxref("clip-path")}} Eigenschaft
+- [Einführung in CSS Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping)

@@ -2,10 +2,10 @@
 title: mask-type
 slug: Web/CSS/Reference/Properties/mask-type
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`mask-type`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf das SVG-{{svgElement("mask")}}-Element angewendet. Sie definiert, ob der _Luminanz_ (Helligkeit) oder der _Alpha_ (Transparenz) Inhalt der Maske verwendet wird. Diese Eigenschaft kann durch die {{cssxref("mask-mode")}} Eigenschaft überschrieben werden. Die `mask-type` Eigenschaft hat keinen Effekt auf Bild- oder Verlaufs-Masken.
+Die **`mask-type`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf das SVG-{{svgElement("mask")}}-Element angewendet. Sie definiert, ob der _Luminanz-_ (Helligkeit) oder _Alpha-_ (Transparenz) Inhalt der Maske verwendet werden soll. Diese Eigenschaft kann durch die {{cssxref("mask-mode")}} Eigenschaft überschrieben werden. Die `mask-type` Eigenschaft hat keine Wirkung auf Bild- oder Verlaufsmasken.
 
 ## Syntax
 
@@ -25,40 +25,40 @@ mask-type: unset;
 ### Werte
 
 - `alpha`
-  - : Gibt an, dass die Alpha (Transparenz) Werte des `<mask>` verwendet werden sollen.
+  - : Gibt an, dass die Alpha- (Transparenz) Werte des `<mask>` verwendet werden sollen.
 - `luminance`
-  - : Gibt an, dass die [Luminanz (Helligkeits-) Werte](#verständnis_der_luminanz) des `<mask>` verwendet werden sollen.
+  - : Gibt an, dass die [Luminanz- (Helligkeits-) Werte](#luminanz_verstehen) des `<mask>` verwendet werden sollen.
 
 ## Beschreibung
 
-Die `mask-type` Eigenschaft ist nur für das SVG-`<mask>`-Element relevant. Wenn Sie `mask-type: luminance` festlegen, verwendet die Maske, wie hell jeder Teil der Maske ist; wenn Sie `mask-type: alpha` festlegen, wird verwendet, wie transparent oder opak jeder Teil der Maske ist.
+Die `mask-type` Eigenschaft ist nur für das SVG-`<mask>`-Element relevant. Wenn Sie `mask-type: luminance` festlegen, verwendet die Maske die Helligkeit jedes Teils der Maske; wenn Sie `mask-type: alpha` festlegen, wird verwendet, wie transparent oder undurchsichtig jeder Teil der Maske ist.
 
 ### Standardverhalten
 
-Standardmäßig verwendet das SVG `<mask>`-Element `mask-type: luminance`. Das bedeutet, dass sowohl die Farbe als auch die Transparenz des Maskeninhalts das Maskieren beeinflussen. Ob die Maske opak ist, hängt teilweise von der Helligkeit der Farbe der opaken Bereiche ab:
+Standardmäßig verwendet das SVG-`<mask>`-Element `mask-type: luminance`. Das bedeutet, dass sowohl die Farbe als auch die Transparenz des Maskeninhalts das Maskieren beeinflussen. Ob die Maske undurchsichtig ist, hängt teilweise von der Helligkeit der Farbe der undurchsichtigen Bereiche ab:
 
-- Vollständig opake weiße Bereiche (100% Luminanz) werden maskiert und sichtbar sein.
-- Schwarze (0% Luminanz) oder vollständig transparente Bereiche werden abgeschnitten und unsichtbar sein.
-- Bereiche mit mittleren Luminanzwerten werden teilweise maskiert sein, was sowohl die Luminanz oder Helligkeit der Maskenfarbe als auch die Alpha-Transparenz jedes Bereichs der Maske widerspiegelt.
+- Vollständig undurchsichtige weiße Bereiche (100% Luminanz) werden maskiert und sichtbar.
+- Schwarze (0% Luminanz) oder vollständig transparente Bereiche werden abgeschnitten und unsichtbar.
+- Bereiche mit mittleren Luminanzwerten werden teilweise maskiert, was sowohl die Luminanz oder Helligkeit der Maskenfarbe als auch die Alpha-Transparenz jedes Bereichs der Maske widerspiegelt.
 
-### Verständnis der Luminanz
+### Luminanz verstehen
 
-Die Opazität einer `luminance` Maske wird durch die `R`, `G`, `B` und `A` Werte einer `rgb()` Farbe unter Verwendung der folgenden Formel bestimmt:
+Die Opazität einer `Luminanz`-Maske wird durch die `R`, `G`, `B`, und `A` Werte einer `rgb()`-Farbe unter Verwendung der folgenden Formel bestimmt:
 
 `((0.2125 * R) + (0.7154 * G) + (0.0721 * B)) * A`
 
-Zum Beispiel hat die Farbe `green` (`#008000` oder `rgb(0% 50% 0% / 1)`) einen Luminanzwert von `35,77%`. Jeder Bereich, der durch eine feste `green` Luminanzmaske maskiert wird, wird zu `35,77%` sichtbar sein. Wenn `mask-type` auf `alpha` gesetzt wird, macht die gleiche vollständig opake `green` Farbe den maskierten Bereich `100%` sichtbar.
+Zum Beispiel hat die Farbe `green` (`#008000` oder `rgb(0% 50% 0% / 1)`) einen Luminanzwert von `35.77%`. Ein Bereich, der durch eine feste `green`-Luminanzmaske maskiert wird, ist `35.77%` sichtbar. Wenn der `mask-type` auf `alpha` gesetzt ist, wird dieselbe vollständig undurchsichtige `green`-Farbe den maskierten Bereich `100%` sichtbar machen.
 
-Wenn das SVG-`<mask>`-Element `fill="rgb(0 0 0 / 0.5)"` hat, was ein 50% transparentes Schwarz ist, wird die entsprechende Form auf dem maskierten Element bei `mask-type` auf `alpha` mit 50% Opazität angezeigt, da die Alpha-Werte `0,5` (50% Opazität) betragen. Aber wenn der `mask-type` auf `luminance` gesetzt ist oder standardmäßig so eingestellt ist, wird der maskierte Bereich vollständig abgeschnitten und unsichtbar, da seine Luminanz `0` ist.
+Wenn das SVG-`<mask>`-Element `fill="rgb(0 0 0 / 0.5)"` hat, was zu 50% transparentes Schwarz ist, wird die entsprechende Form auf dem maskierten Element bei 50% Opazität angezeigt, wenn `mask-type` auf `alpha` gesetzt ist, da die Alpha-Werte `0.5` (50% Opazität) sind. Aber wenn der `mask-type` standardmäßig oder auf `luminance` gesetzt ist, wird der maskierte Bereich vollständig abgeschnitten und unsichtbar sein, weil seine Luminanz `0` ist.
 
-### Effekt von `mask-mode` auf `mask-type`
+### Wirkung von `mask-mode` auf `mask-type`
 
-Während die `mask-type` Eigenschaft auf dem SVG-`<mask>`-Element gesetzt ist, wird die {{cssxref("mask-mode")}} Eigenschaft auf dem Element gesetzt, das maskiert wird (das Element, auf das Sie die Maske anwenden).
-Wenn die Maskenbildquelle kein SVG-`<mask>` ist, hat diese Eigenschaft keinen Effekt.
+Während die `mask-type`-Eigenschaft auf das SVG-`<mask>`-Element gesetzt wird, wird die {{cssxref("mask-mode")}}-Eigenschaft auf das maskierte Element (das Element, auf das Sie die Maske anwenden) gesetzt.
+Wenn die Maskenbildquelle kein SVG-`<mask>` ist, hat diese Eigenschaft keine Wirkung.
 
-Der Standardwert von `mask-mode` ist `match-source`, was bedeutet, dass der Browser den `mask-type` Wert vom `<mask>` Element verwendet, um zu bestimmen, wie es interpretiert werden soll. Wenn `mask-mode` auf einen anderen Wert als `match-source` gesetzt ist, hat dieser Wert Vorrang und überschreibt den `mask-type` Wert der angewandten Maske.
+Der Standardwert von `mask-mode` ist `match-source`, was bedeutet, dass der Browser den `mask-type`-Wert aus dem `<mask>`-Element verwendet, um zu bestimmen, wie er interpretiert werden soll. Wenn `mask-mode` auf einen anderen Wert als `match-source` gesetzt ist, hat dieser Wert Vorrang und überschreibt den `mask-type`-Wert der angewandten Maske.
 
-Wenn das `<mask>` als Quelle des Maskenbilds definiert ist und der `mask-mode` als oder standardmäßig auf `match-source` gesetzt ist, wird der `mask-mode` auf den `mask-type` Wert des `<mask>`-Elements aufgelöst: `luminance` oder `alpha`. Wenn nicht explizit festgelegt, lautet der Standardwert `luminance`.
+Wenn das `<mask>` als Quelle des Maskenbildes definiert ist und der `mask-mode` auf `match-source` gesetzt ist oder als solcher vorgegeben ist, wird sich der `mask-mode` auf den `mask-type`-Wert des `<mask>`-Elements einstellen: `luminance` oder `alpha`. Wenn nicht ausdrücklich gesetzt, ist der Wert standardmäßig `luminance`.
 
 ## Formale Definition
 
@@ -72,12 +72,12 @@ Wenn das `<mask>` als Quelle des Maskenbilds definiert ist und der `mask-mode` a
 
 ### Verwendung der `mask-type` Eigenschaft
 
-Dieses Beispiel zeigt, wie die `mask-type` Eigenschaft verwendet wird und welcher Effekt durch ihre unterschiedlichen Werte erzielt wird.
+Dieses Beispiel zeigt, wie Sie die `mask-type` Eigenschaft verwenden und die Wirkung ihrer verschiedenen Werte.
 
 #### HTML
 
 Wir haben zwei Bilder eingefügt, die maskiert werden. Abgesehen von ihren Klassennamen sind die beiden Bilder identisch.
-Wir haben auch ein SVG mit zwei `<mask>` Elementen eingefügt. Abgesehen von ihren `id`-Werten sind die beiden Masken ebenfalls identisch: Jedes hat eine grün-weiße Herzform und einen halbtransparenten, weiß-schwarz gefüllten Kreis.
+Wir haben auch ein SVG mit zwei `<mask>`-Elementen eingefügt. Abgesehen von ihren `id`-Werten sind die beiden Masken ebenfalls identisch: jede hat eine grüne und weiße Herzform und einen halbtransparenten weiß-schwarz gefüllten Kreis.
 
 ```html
 <img
@@ -123,7 +123,7 @@ Wir haben auch ein SVG mit zwei `<mask>` Elementen eingefügt. Abgesehen von ihr
 
 #### CSS
 
-Wir wenden die `mask-type` Eigenschaft auf die `<mask>` Elemente an und dann die `<mask>` Elemente und die Maskenquelle auf die Bilder.
+Wir wenden die `mask-type` Eigenschaft auf die `<mask>`-Elemente an und wenden dann die `<mask>`-Elemente und die Maskenquelle auf die Bilder an.
 
 ```css
 mask#alphaMask {
@@ -147,7 +147,7 @@ img.luminanceMaskType {
 
 {{EmbedLiveSample("Examples", "", "250")}}
 
-Da der Standardwert für die `mask-mode` Eigenschaft `match-source` ist, verwendet die erste Maske nur die Alpha-Kanäle zur Definition der Maske: Die weißen und grünen Bereiche sind vollständig opak, und die 50% weißen und schwarzen Farben sind 50% opak, da nur der Alphawert der Farben zählt. Das zweite Beispiel verwendet die Luminanz der Farben, um die Transparenz der Maske zu bestimmen, wobei Weiß heller ist als Grün und halbtransparentes Weiß heller ist als halbtransparentes Schwarz.
+Da der Standardwert für die `mask-mode` Eigenschaft `match-source` ist, verwendet die erste Maske nur die Alpha-Kanäle, um die Maske zu definieren: das Weiße und Grüne sind vollständig undurchsichtig, und die 50% weißen und schwarzen Farben sind zu 50% undurchsichtig, da nur der Alpha-Wert der Farben zählt. Das zweite Beispiel verwendet die Luminanz der Farben, um die Opazität der Maske zu bestimmen, wobei Weiß heller als Grün ist und halbtransparentes Weiß heller ist als halbtransparentes Schwarz.
 
 ## Spezifikationen
 
@@ -161,6 +161,6 @@ Da der Standardwert für die `mask-mode` Eigenschaft `match-source` ist, verwend
 
 - {{cssxref("mask")}}
 - {{cssxref("mask-mode")}}
-- [Einführung in CSS-Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
-- [CSS-Maskierung](/de/docs/Web/CSS/CSS_masking) Modul
+- [Einführung in CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul
 - SVG {{svgattr("mask-type")}} Attribut

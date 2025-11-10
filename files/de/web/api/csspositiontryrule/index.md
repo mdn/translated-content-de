@@ -2,12 +2,12 @@
 title: CSSPositionTryRule
 slug: Web/API/CSSPositionTryRule
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSPositionTryRule`**-Schnittstelle beschreibt ein Objekt, das eine {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) darstellt.
+Das **`CSSPositionTryRule`**-Interface beschreibt ein Objekt, das eine {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) repräsentiert.
 
 {{InheritanceDiagram}}
 
@@ -16,9 +16,9 @@ Die **`CSSPositionTryRule`**-Schnittstelle beschreibt ein Objekt, das eine {{css
 _Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSPositionTryRule.name`](/de/docs/Web/API/CSSPositionTryRule/name) {{ReadOnlyInline}}
-  - : Repräsentiert den Namen der Positionsversuchsoption, die durch die `@position-try`-At-Regel's {{cssxref("dashed-ident")}} angegeben wird.
+  - : Repräsentiert den Namen der Position Try-Option, die durch die `@position-try` At-Regel's {{cssxref("dashed-ident")}} angegeben wird.
 - [`CSSPositionTryRule.style`](/de/docs/Web/API/CSSPositionTryRule/style) {{ReadOnlyInline}}
-  - : Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors) Objekt, das die Deklarationen darstellt, die im Körper der `@position-try`-At-Regel gesetzt wurden.
+  - : Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt, das die Deklarationen darstellt, die im Körper der `@position-try` At-Regel festgelegt sind.
 
 ## Instanz-Methoden
 
@@ -26,7 +26,7 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSRule`](/de
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try`-At-Regel mit einem Namen von `--custom-left` und drei Deskriptoren.
+Das CSS enthält eine `@position-try` At-Regel mit einem Namen von `--custom-left` und drei Deskriptoren.
 
 ```css
 @position-try --custom-left {
@@ -59,6 +59,6 @@ console.log(tryOption.style.maxWidth); // "200px"
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Überlauf: Versuchsoptionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [CSS Ankerpositionierung verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+- [Umgang mit Überlauf: Try-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)

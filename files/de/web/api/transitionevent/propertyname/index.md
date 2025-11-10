@@ -1,18 +1,18 @@
 ---
-title: "TransitionEvent: Eigenschaft propertyName"
+title: "TransitionEvent: propertyName-Eigenschaft"
 short-title: propertyName
 slug: Web/API/TransitionEvent/propertyName
 l10n:
-  sourceCommit: 76717f752447b6eef25bf29c12272e407ee5cb6b
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{ apiref("CSSOM") }}
 
-Die **`propertyName`** schreibgeschützte Eigenschaft von [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Objekten ist ein Zeichenfolge, die den Namen der CSS-Eigenschaft enthält, die mit der Transition verbunden ist.
+Die schreibgeschützte **`propertyName`**-Eigenschaft von [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Objekten ist ein String, der den Namen der mit der Transition assoziierten CSS-Eigenschaft enthält.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Eine Zeichenfolge.
 
 ## Siehe auch
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Transitionen](/de/docs/Web/CSS/Guides/Transitions/Using)

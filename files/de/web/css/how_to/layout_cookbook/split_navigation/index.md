@@ -1,17 +1,17 @@
 ---
-title: Aufgeteilte Navigation
+title: Geteilte Navigation
 slug: Web/CSS/How_to/Layout_cookbook/Split_navigation
 l10n:
-  sourceCommit: f3bf4e2bd456159093d3820253be9f266ace070a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-**Aufgeteilte Navigation** ist ein Navigationsmuster, bei dem ein oder mehrere Elemente von den restlichen Navigationselementen getrennt sind.
+Die **geteilte Navigation** ist ein Navigationsmuster, bei dem ein oder mehrere Elemente von den restlichen Navigationselementen getrennt sind.
 
-![In zwei Gruppen getrennte Elemente.](split-navigation.png)
+![In zwei Gruppen aufgeteilte Elemente.](split-navigation.png)
 
 ## Anforderungen
 
-Ein häufiges Navigationsmuster besteht darin, ein Element von den anderen wegzuschieben. Wir können Flexbox verwenden, um dies zu erreichen, ohne die beiden Gruppen von Elementen in zwei separate Flex-Container aufteilen zu müssen.
+Ein häufiges Navigationsmuster besteht darin, ein Element von den anderen wegzuschieben. Wir können Flexbox verwenden, um dies zu erreichen, ohne dass die beiden Gruppen von Elementen in zwei separate Flex-Container aufgeteilt werden müssen.
 
 ## Rezept
 
@@ -52,14 +52,14 @@ Klicken Sie auf "Play" in den folgenden Codeblöcken, um das Beispiel im MDN Pla
 
 ## Getroffene Entscheidungen
 
-Dieses Muster kombiniert automatische Ränder mit Flexbox, um die Elemente aufzuteilen.
+Dieses Muster kombiniert automatische Ränder mit Flexbox, um die Elemente zu trennen.
 
-Ein automatischer Rand nimmt den gesamten verfügbaren Raum in der Richtung auf, in der er angewendet wird. So funktioniert das Zentrieren eines Blocks mit automatischen Rändern – Sie haben auf jeder Seite des Blocks einen Rand, der versucht, den gesamten Raum einzunehmen, wodurch der Block in die Mitte gedrückt wird.
+Ein automatischer Rand absorbiert den gesamten verfügbaren Platz in der Richtung, in der er angewendet wird. So funktioniert das Zentrieren eines Blocks mit automatischen Rändern — Sie haben auf jeder Seite des Blocks einen Rand, der versucht, den gesamten Platz einzunehmen, und so den Block in die Mitte schiebt.
 
-In diesem Fall nimmt der linke automatische Rand den verfügbaren Raum ein und schiebt das Element nach rechts. Sie könnten die Klasse `push` auf jedes Element in der Liste anwenden.
+In diesem Fall nimmt der linke automatische Rand jeden verfügbaren Platz ein und schiebt das Element nach rechts. Sie können die Klasse `push` auf jedes Element in der Liste anwenden.
 
 ## Siehe auch
 
-- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS flexible Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
 - {{cssxref("display")}} Eigenschaft
 - {{cssxref("margin")}} Eigenschaft

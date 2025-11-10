@@ -2,17 +2,17 @@
 title: scroll-timeline-name
 slug: Web/CSS/Reference/Properties/scroll-timeline-name
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`scroll-timeline-name`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um den Namen einer _benannten Scroll-Fortschrittszeitleiste_ zu definieren. Diese wird durch das Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) vorangetrieben. `scroll-timeline-name` wird auf den Scroller gesetzt, der die Zeitleiste bereitstellt.
+Die **`scroll-timeline-name`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um den Namen einer _benannten Scroll-Fortschritts-Timeline_ zu definieren, die durch das Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) vorangetrieben wird. `scroll-timeline-name` wird auf dem Scroller festgelegt, der die Timeline bereitstellt.
 
 Der Name wird dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline) Deklaration referenziert, um das Element des Containers anzugeben, das verwendet wird, um den Fortschritt der Animation durch die Scroll-Aktion zu steuern.
 
 > [!NOTE]
-> Wenn das Element in der Achsendimension seinen Container nicht überläuft oder wenn der Überlauf versteckt oder abgeschnitten ist, wird keine Zeitleiste erstellt.
+> Wenn das Element nicht in der Achsendimension seinen Container überläuft oder wenn der Überlauf versteckt oder abgeschnitten ist, wird keine Timeline erstellt.
 
-Die {{cssxref("scroll-timeline-axis")}} und `scroll-timeline-name` Eigenschaften können auch mit der [`scroll-timeline`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline) Kurzschreibweise gesetzt werden.
+Die Eigenschaften {{cssxref("scroll-timeline-axis")}} und `scroll-timeline-name` können auch mit der [`scroll-timeline`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline) Kurzschreibweise eingestellt werden.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ scroll-timeline-name: --custom_name_for_timeline;
 Erlaubte Werte für `scroll-timeline-name` sind:
 
 - `none`
-  - : Die Zeitleiste hat keinen Namen.
+  - : Die Timeline hat keinen Namen.
 - `<dashed-ident>`
-  - : Ein beliebiger benutzerdefinierter Bezeichner, der einen Namen für eine Scroll-Fortschrittszeitleiste definiert, die dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline) Eigenschaft referenziert werden kann.
 
-    > [!NOTE]
-    > [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident) Werte müssen mit `--` beginnen, was hilft, Konflikte mit Standard-CSS-Schlüsselwörtern zu vermeiden.
+  - : Ein beliebiger benutzerdefinierter Bezeichner, der einen Namen für eine Scroll-Fortschritts-Timeline definiert, die dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline) Eigenschaft referenziert werden kann.
+
+    > [!NOTE] > [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident) Werte müssen mit `--` beginnen, um Namenskonflikte mit Standard-CSS-Schlüsselwörtern zu vermeiden.
 
 ## Formale Definition
 
@@ -43,13 +43,13 @@ Erlaubte Werte für `scroll-timeline-name` sind:
 
 ## Beispiele
 
-### Erstellen einer benannten Scroll-Fortschrittszeitleisten-Animation
+### Erstellen einer benannten Scroll-Fortschritts-Timeline-Animation
 
-In diesem Beispiel wird eine Scroll-Zeitleiste namens `--square-timeline` definiert, indem die `scroll-timeline-name` Eigenschaft auf dem Element mit der ID `container` verwendet wird. Diese wird dann auf die Animation des `#square` Elements angewendet, indem `animation-timeline: --square-timeline` gesetzt wird.
+In diesem Beispiel wird eine Scroll-Timeline mit dem Namen `--square-timeline` definiert, indem die Eigenschaft `scroll-timeline-name` auf das Element mit der ID `container` gesetzt wird. Diese wird dann auf die Animation auf dem `#square`-Element angewendet, indem `animation-timeline: --square-timeline` verwendet wird.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten gezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div id="container">
@@ -60,9 +60,9 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das CSS für den Container setzt ihn als Quelle einer Scroll-Zeitleiste namens `--square-timeline` mittels der `scroll-timeline-name` Eigenschaft. Keine [Scrollleistenachse](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-axis) wird hier definiert, da standardmäßig die vertikale Achse verwendet wird.
+Das CSS für den Container legt diesen als Quelle einer Scroll-Timeline mit dem Namen `--square-timeline` fest, indem die Eigenschaft `scroll-timeline-name` verwendet wird. Hier wird keine [Scrollbalken-Achse](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-axis) definiert, da standardmäßig die vertikale Achse verwendet wird.
 
-Die Höhe des Containers ist auf `300px` gesetzt, und der Container ist auch so eingestellt, dass er eine vertikale Scrollleiste erstellt, wenn er überläuft (die CSS `height` Regel auf dem `stretcher` Element unten sorgt dafür, dass der Inhalt seinen Container überläuft).
+Die Höhe des Containers wird auf `300px` gesetzt, und der Container wird auch so eingestellt, dass ein vertikaler Scrollbalken erstellt wird, wenn er überläuft (die CSS `height`-Regel auf dem `stretcher`-Element unten lässt den Inhalt den Container überlaufen).
 
 ```css
 #container {
@@ -73,7 +73,7 @@ Die Höhe des Containers ist auf `300px` gesetzt, und der Container ist auch so 
 }
 ```
 
-Das untenstehende CSS definiert ein Quadrat, das gemäß der durch die `animation-timeline` Eigenschaft bereitgestellten Zeitleiste rotiert, welche auf die oben genannte `--square-timeline` Zeitleiste gesetzt ist.
+Das CSS unten definiert ein Quadrat, das sich gemäß der von der `animation-timeline` Eigenschaft bereitgestellten Timeline dreht, welche auf die oben genannte `--square-timeline` Timeline gesetzt ist.
 
 ```css
 #square {
@@ -104,12 +104,11 @@ Das untenstehende CSS definiert ein Quadrat, das gemäß der durch die `animatio
 }
 ```
 
-Die `stretcher` CSS Regel setzt die Blockhöhe auf `600px`, was Inhalt erzeugt, der das Containerelement überläuft und somit Scrollleisten erstellt.
-Ohne dieses Element würde der Inhalt nicht den Container überlaufen, es gäbe keine Scrollleiste und folglich keine Scroll-Zeitleiste, die mit der Animationszeitleiste assoziiert werden könnte.
+Die `stretcher`-CSS-Regel setzt die Blockhöhe auf `600px`, was Inhalt erzeugt, der das Containerelement überläuft und somit Scrollbalken erzeugt. Ohne dieses Element würde der Inhalt den Container nicht überlaufen, es gäbe keinen Scrollbalken und folglich keine Scroll-Timeline, die mit der Animation-Timeline verknüpft werden könnte.
 
 #### Ergebnis
 
-Scrollen Sie die vertikale Leiste, um zu sehen, wie das Quadrat je nach Scrollbewegung animiert wird.
+Scrollen Sie die vertikale Leiste, um zu sehen, wie sich das Quadrat beim Scrollen animiert.
 
 {{EmbedLiveSample("Creating_a_named_scroll_progress_timeline_animation", "100%", "320px")}}
 
@@ -126,4 +125,4 @@ Scrollen Sie die vertikale Leiste, um zu sehen, wie das Quadrat je nach Scrollbe
 - [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)
 - [`scroll-timeline`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline), [`scroll-timeline-axis`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-axis)
 - {{cssxref("timeline-scope")}}
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)

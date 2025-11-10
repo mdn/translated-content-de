@@ -2,10 +2,10 @@
 title: ellipse()
 slug: Web/CSS/Reference/Values/basic-shape/ellipse
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`ellipse()`** [CSS](/de/docs/Web/CSS) Funktion ist eine der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types).
+Die **`ellipse()`** [CSS](/de/docs/Web/CSS)-Funktion ist eine der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types).
 
 {{InteractiveExample("CSS Demo: ellipse()")}}
 
@@ -50,19 +50,20 @@ shape-outside: ellipse(40% 50% at left);
 shape-outside: ellipse(closest-side farthest-side at 30%);
 ```
 
-Eine Ellipse ist im Wesentlichen ein gestauchter Kreis, und daher funktioniert `ellipse()` sehr ähnlich wie {{cssxref("basic-shape/circle","circle()")}}, außer dass wir zwei Radien x und y angeben müssen.
+Eine Ellipse ist im Wesentlichen ein gestauchter Kreis und daher funktioniert `ellipse()` sehr ähnlich wie {{cssxref("basic-shape/circle","circle()")}}, mit dem Unterschied, dass wir zwei Radien x und y angeben müssen.
 
 ### Werte
 
 - `<shape-radius>`
-  - : Zwei Radien, x und y in dieser Reihenfolge. Diese können eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder die Werte `closest-side` und `farthest-side` sein.
+
+  - : Zwei Radien, x und y in dieser Reihenfolge. Diese können eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder die Werte `closest-side` und `farthest-side` sein.
     - `closest-side`
-      - : Verwendet die Länge von der Mitte der Form zur nächsten Seite der Referenzbox. Bei Ellipsen ist dies die nächste Seite in der Radiusdimension.
+      - : Verwendet die Länge vom Zentrum der Form zur nächstgelegenen Seite des Referenzkastens. Für Ellipsen ist dies die nächstgelegene Seite in der Radienrichtung.
     - `farthest-side`
-      - : Verwendet die Länge von der Mitte der Form zur entferntesten Seite der Referenzbox. Bei Ellipsen ist dies die entfernteste Seite in der Radiusdimension.
+      - : Verwendet die Länge vom Zentrum der Form zur entferntesten Seite des Referenzkastens. Für Ellipsen ist dies die entfernteste Seite in der Radienrichtung.
 
 - `<position>`
-  - : Verschiebt das Zentrum der Ellipse. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder ein Wert wie `left` sein. Der `<position>`-Wert wird auf die Mitte gesetzt, wenn er weggelassen wird.
+  - : Verschiebt das Zentrum der Ellipse. Kann eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder Werte wie `left` sein. Der `<position>`-Wert ist standardmäßig zentriert, wenn er weggelassen wird.
 
 ## Formale Syntax
 
@@ -72,8 +73,7 @@ Eine Ellipse ist im Wesentlichen ein gestauchter Kreis, und daher funktioniert `
 
 ### Einfaches Beispiel für ellipse()
 
-Dieses Beispiel zeigt eine nach links gefloatete Ellipse, die einen horizontalen Radius von 40 %, einen vertikalen Radius von 50 % und eine linke Position hat. Das bedeutet, dass das Zentrum der Ellipse an der linken Kante der Box liegt und uns eine halbe Ellipsenform gibt, um unseren Text darum herumzufließen.
-Klicken Sie auf "Play" in den Code-Blöcken, um diese Werte zu ändern und zu sehen, wie sich die Ellipse verändert:
+Dieses Beispiel zeigt eine Ellipse, die nach links ausgerichtet ist und einen horizontalen Radius von 40%, einen vertikalen Radius von 50% und eine linke Position hat. Das bedeutet, dass sich das Zentrum der Ellipse an der linken Kante des Kastens befindet, was uns eine halbkreisförmige Ellipse gibt, um unseren Text darum zu wickeln. Klicken Sie auf "Abspielen" in den Codeblöcken, um diese Werte zu ändern und zu sehen, wie sich die Ellipse verändert:
 
 ```html live-sample___ellipse
 <div class="box">
@@ -109,7 +109,7 @@ body {
 
 ### Verwendung von closest-side / farthest-side Werten
 
-Die Schlüsselwortwerte `closest-side` und `farthest-side` sind nützlich, um schnell eine Ellipse basierend auf der Größe der gefloateten Element-Referenzbox zu erstellen.
+Die Schlüsselwortwerte `closest-side` und `farthest-side` sind nützlich, um schnell eine Ellipse basierend auf der Größe des referenzierten Kastens des schwebenden Elements zu erstellen.
 
 ```html live-sample___ellipse-keywords
 <div class="box">
@@ -154,4 +154,4 @@ body {
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [Leitfaden zu Basisformen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
+- [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)

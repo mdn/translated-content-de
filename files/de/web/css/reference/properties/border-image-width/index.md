@@ -2,10 +2,10 @@
 title: border-image-width
 slug: Web/CSS/Reference/Properties/border-image-width
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-image-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite eines Elements für das [Randbild](/de/docs/Web/CSS/Reference/Properties/border-image) fest.
+Die **`border-image-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Breite des [Rahmenbildes](/de/docs/Web/CSS/Reference/Properties/border-image) eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-image-width")}}
 
@@ -48,7 +48,7 @@ border-image-width: 20% 8%;
 }
 ```
 
-Wenn der Wert dieser Eigenschaft größer ist als die {{cssxref("border-width")}} des Elements, wird das Randbild über den Rand der Polsterung (und/oder des Inhalts) hinausgehen.
+Wenn der Wert dieser Eigenschaft größer ist als die {{cssxref("border-width")}} des Elements, wird das Rahmenbild über den Rand (und/oder den Inhalt) hinaus erweitert.
 
 ## Syntax
 
@@ -82,21 +82,21 @@ border-image-width: revert-layer;
 border-image-width: unset;
 ```
 
-Die `border-image-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden, die aus der folgenden Liste ausgewählt werden.
+Die `border-image-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten festgelegt werden, die aus der unten stehenden Liste von Werten ausgewählt werden.
 
-- Wenn **ein** Wert angegeben ist, gilt dieselbe Breite für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben sind, gilt die erste Breite für den **oberen und unteren** Rand, die zweite für den **linken und rechten** Rand.
-- Wenn **drei** Werte angegeben sind, gilt die erste Breite für den **oberen** Rand, die zweite für den **linken und rechten**, und die dritte für den **unteren** Rand.
-- Wenn **vier** Werte angegeben sind, gelten die Breiten in der Reihenfolge (im Uhrzeigersinn) für den **oberen**, **rechten**, **unteren** und **linken** Rand.
+- Wenn **ein** Wert angegeben wird, gilt die gleiche Breite für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Breiten in dieser Reihenfolge (im Uhrzeigersinn) für **oben**, **rechts**, **unten** und **links**.
 
 ### Werte
 
 - `<length-percentage>`
-  - : Die Breite des Randes, angegeben als {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich auf die _Breite_ des Randbildbereichs für horizontale Abstände und die _Höhe_ des Randbildbereichs für vertikale Abstände. Darf nicht negativ sein.
+  - : Die Breite des Rahmens, angegeben als {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich auf die _Breite_ des Bereiches des Rahmenbildes für horizontale Versätze und die _Höhe_ des Bereiches des Rahmenbildes für vertikale Versätze. Darf nicht negativ sein.
 - `<number>`
-  - : Die Breite des Randes, angegeben als Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
+  - : Die Breite des Rahmens, angegeben als Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
 - `auto`
-  - : Die Breite des Randes entspricht der intrinsischen Breite oder Höhe (je nachdem, was anwendbar ist) des entsprechenden {{cssxref("border-image-slice")}}. Wenn das Bild die erforderliche intrinsische Dimension nicht hat, wird stattdessen die entsprechende `border-width` verwendet.
+  - : Die Breite des Rahmens ist gleich der intrinsischen Breite oder Höhe (je nachdem, was zutreffend ist) des entsprechenden {{cssxref("border-image-slice")}}. Wenn das Bild die erforderliche intrinsische Dimension nicht hat, wird stattdessen die entsprechende `border-width` verwendet.
 
 ## Formale Definition
 
@@ -108,13 +108,13 @@ Die `border-image-width`-Eigenschaft kann mit einem, zwei, drei oder vier Werten
 
 ## Beispiele
 
-### Ein Randbild kacheln
+### Kacheln eines Rahmenbildes
 
-Dieses Beispiel erstellt ein Randbild mit der folgenden ".png"-Datei, die 90 mal 90 Pixel groß ist:
+Dieses Beispiel erstellt ein Rahmenbild mit der folgenden ".png"-Datei, die 90 mal 90 Pixel groß ist:
 
-![Quadratisches Bild mit acht Kreisen. Die Kreise in jeder Ecke sind hellviolett. Die vier Seitenkreise sind blau. Der Bereich in der Mitte, in dem ein neunter Kreis passen könnte, ist leer.](border.png)
+![Quadratisches Bild mit acht Kreisen. Die Kreise in jeder Ecke sind hell lila. Die vier Seitenkreise sind blau. Der Bereich in der Mitte, wo ein neunter Kreis passen könnte, ist leer.](border.png)
 
-Daher ist jeder Kreis im Ausgangsbild 30 mal 30 Pixel groß.
+Daher ist jeder Kreis im Quellbild 30 mal 30 Pixel groß.
 
 #### HTML
 
@@ -152,6 +152,6 @@ p {
 
 ## Siehe auch
 
-- [Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Randbilder in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [Lernen Sie CSS: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Rahmenbilder in CSS: Ein Schwerpunktbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)

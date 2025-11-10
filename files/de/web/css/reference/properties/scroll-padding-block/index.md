@@ -2,10 +2,10 @@
 title: scroll-padding-block
 slug: Web/CSS/Reference/Properties/scroll-padding-block
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die `scroll-padding-block` [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Block-Dimension.
+Die `scroll-padding-block` [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Padding eines Elements in der Block-Dimension.
 
 {{InteractiveExample("CSS Demo: scroll-padding-block")}}
 
@@ -69,9 +69,9 @@ scroll-padding-block: 2em;
 }
 ```
 
-Die Scroll-Padding-Eigenschaften definieren Abstände für den _optimale Betrachtungsbereich_ des Scrollports: der Bereich, der als Zielregion verwendet wird, um Objekte im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie fest positionierte Toolbars oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Scroll-Padding-Eigenschaften definieren Versätze für den _optimalen Ansichtsbereich_ des Scrollports: den Bereich, der als Zielregion für die Platzierung von Elementen im Benutzerblick dient. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt (wie zum Beispiel fixierten Werkzeugleisten oder Seitenleisten) verdeckt sind oder um mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-## Bestandteileigenschaften
+## Bestandteile
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -100,9 +100,9 @@ scroll-padding-block: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Abstand von der entsprechenden Kante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz vom entsprechenden Rand des Scrollports, entweder in einer gültigen Länge oder einem Prozentsatz.
 - `auto`
-  - : Der Abstand wird vom User-Agent bestimmt. Dies wird in der Regel 0px sein, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein nicht-null Wert angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und vornehmen, wenn ein nicht-null Wert geeigneter ist.
 
 ## Formale Definition
 
@@ -122,5 +122,5 @@ scroll-padding-block: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

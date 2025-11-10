@@ -2,11 +2,11 @@
 title: inherits
 slug: Web/CSS/Reference/At-rules/@property/inherits
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der **`inherits`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rules) steuert, ob die registrierte [benutzerdefinierte CSS-Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) standardmäßig vererbt wird oder nicht.
-Es handelt sich um einen erforderlichen Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property` Regel ungültig und wird ignoriert.
+Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor der {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) steuert, ob die registrierte [CSS benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) standardmäßig vererbt wird oder nicht.
+Es ist ein erforderlicher Deskriptor; fehlt er oder ist er ungültig, ist die gesamte `@property` Regel ungültig und wird ignoriert.
 
 ## Syntax
 
@@ -35,9 +35,9 @@ inherits: true;
 
 ## Beispiele
 
-### Vererbungsverhalten einer benutzerdefinierten Eigenschaft festlegen
+### Einstellen des Verhaltens der Vererbung einer benutzerdefinierten Eigenschaft
 
-Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die ihren Wert nicht von ihren übergeordneten Elementen erbt:
+Dieses Beispiel zeigt, wie eine benutzerdefinierte Eigenschaft `--my-color` definiert wird, die ihren Wert nicht von ihren Elternelementen erbt:
 
 ```css
 @property --my-color {

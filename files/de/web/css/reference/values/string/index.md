@@ -2,29 +2,28 @@
 title: <string>
 slug: Web/CSS/Reference/Values/string
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der **`<string>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine Zeichenfolge. Strings werden in zahlreichen CSS-Eigenschaften verwendet, wie zum Beispiel {{CSSxRef("content")}}, {{CSSxRef("font-family")}} und {{CSSxRef("quotes")}}.
+Der **`<string>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine Folge von Zeichen. Zeichenketten werden in zahlreichen CSS-Eigenschaften verwendet, wie {{CSSxRef("content")}}, {{CSSxRef("font-family")}} und {{CSSxRef("quotes")}}.
 
 ## Syntax
 
-Der `<string>`-Datentyp besteht aus einer beliebigen Anzahl von [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen, die von doppelten (`"`) oder einfachen (`'`) Anführungszeichen umschlossen sind.
+Der `<string>` Datentyp besteht aus einer beliebigen Anzahl von [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen, die entweder von doppelten (`"`) oder einfachen (`'`) Anführungszeichen umschlossen sind.
 
-Die meisten Zeichen können wörtlich dargestellt werden. Alle Zeichen können auch mit ihren jeweiligen [Unicode-Codepunkten](https://en.wikipedia.org/wiki/Unicode#Code_point_planes_and_blocks) in Hexadezimal dargestellt werden, in diesem Fall werden sie von einem Backslash (`\`) vorangestellt. Zum Beispiel repräsentiert `\22` ein doppeltes Anführungszeichen, `\27` ein einfaches Anführungszeichen (`'`) und `\A9` das Copyright-Symbol (`©`).
+Die meisten Zeichen können wörtlich dargestellt werden. Alle Zeichen können auch durch ihre jeweiligen [Unicode-Code-Punkte](https://en.wikipedia.org/wiki/Unicode#Code_point_planes_and_blocks) in Hexadezimal dargestellt werden, wobei sie in diesem Fall von einem Backslash (`\`) vorangestellt werden. Zum Beispiel repräsentiert `\22` ein doppeltes Anführungszeichen, `\27` ein einfaches Anführungszeichen (`'`), und `\A9` das Copyright-Symbol (`©`).
 
-Wichtig ist, dass bestimmte Zeichen, die sonst ungültig wären, mit einem Backslash escaped werden können. Dazu gehören doppelte Anführungszeichen, wenn sie innerhalb eines doppelten Anführungszeichens verwendet werden, einfache Anführungszeichen, wenn sie innerhalb eines einfachen Anführungszeichens verwendet werden, und der Backslash selbst. Zum Beispiel wird `\\` einen einzelnen Backslash erzeugen.
+Es ist wichtig, dass bestimmte Zeichen, die ansonsten ungültig wären, mit einem Backslash maskiert werden können. Dazu gehören doppelte Anführungszeichen, wenn sie innerhalb einer doppelt-umrahmten Zeichenkette verwendet werden, einfache Anführungszeichen, wenn sie innerhalb einer einfach-umrahmten Zeichenkette verwendet werden, und der Backslash selbst. So wird `\\` einen einzelnen Backslash erzeugen.
 
-Um Zeilenumbrüche auszugeben, müssen Sie diese mit einem Zeilenvorschubzeichen wie `\A` oder `\00000A` escapen. In Ihrem Code können Strings jedoch über mehrere Zeilen verteilt sein, wobei jeder neue Zeilenumbruch mit einem `\` als letztes Zeichen der Zeile escaped werden muss.
+Um Zeilenumbrüche auszugeben, müssen diese mit einem Zeilenumschlag-Zeichen wie `\A` oder `\00000A` maskiert werden. In Ihrem Code können jedoch Zeichenketten über mehrere Zeilen gehen, wobei jede neue Zeile mit einem `\` als letztem Zeichen der Zeile maskiert werden muss.
 
-Um jedoch tatsächliche Zeilenumbrüche zu erhalten, müssen Sie auch die Eigenschaft {{cssxref("white-space")}} auf einen entsprechenden Wert einstellen.
+Um jedoch neue Zeilen zu erhalten, müssen Sie auch die {{cssxref("white-space")}} Eigenschaft auf den entsprechenden Wert setzen.
 
-> [!NOTE]
-> {{Glossary("character_reference", "Character references")}} (wie `&nbsp;` oder `&#8212;`) können in einem CSS-`<string>` nicht verwendet werden.
+> [!NOTE] > {{Glossary("character_reference", "Zeichenreferenzen")}} (wie `&nbsp;` oder `&#8212;`) können in einer CSS-`<string>` nicht verwendet werden.
 
 ## Beispiele
 
-### Beispiele für gültige Strings
+### Beispiele für gültige Zeichenketten
 
 ```css
 /* Basic strings */
@@ -57,6 +56,6 @@ awesome string"
 
 ## Siehe auch
 
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
-- [CSS grundlegende Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
+- [CSS-Grunddatentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
 - [Einführung in CSS: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)

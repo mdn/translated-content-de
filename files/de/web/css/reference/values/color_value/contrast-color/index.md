@@ -2,14 +2,14 @@
 title: contrast-color()
 slug: Web/CSS/Reference/Values/color_value/contrast-color
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`contrast-color()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) nimmt einen {{cssxref("color_value","color")}}-Wert und gibt eine kontrastierende Farbe zurück. Die Funktion stellt üblicherweise sicher, dass der [WCAG AA Mindestkontrast](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum) erreicht wird. Die Browser können verschiedene und bessere Algorithmen verwenden.
+Die **`contrast-color()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) nimmt einen {{cssxref("color_value","color")}} Wert entgegen und gibt eine kontrastreiche Farbe zurück. Die Funktion stellt häufig sicher, dass der [WCAG AA Mindestkontrast](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum) erreicht wird. Die Browser können unterschiedliche und bessere Algorithmen verwenden.
 
-`contrast-color()` erleichtert es beispielsweise, eine Textfarbe festzulegen und automatisch eine kontrastierende Hintergrundfarbe zu generieren oder umgekehrt. Es vermeidet die Notwendigkeit, Hintergrund-Text-Farbpaare zu pflegen.
+`contrast-color()` vereinfacht es, beispielsweise eine Textfarbe anzugeben und automatisch eine kontrastreiche Hintergrundfarbe zu generieren, oder umgekehrt. Dadurch entfällt die Notwendigkeit, Hintergrund-Text-Farbpaare zu pflegen.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ contrast-color(var(--backgroundColor))
 ### Parameter
 
 - `color`
-  - : Jeder gültige {{cssxref("&lt;color&gt;")}}-Wert.
+  - : Jeder gültige {{cssxref("&lt;color&gt;")}} Wert.
 
 ### Rückgabewert
 
@@ -29,16 +29,16 @@ Eine {{cssxref("named-color")}} von entweder `white` oder `black`.
 
 ## Beschreibung
 
-Die `contrast-color()`-Funktion gibt einen Wert von `white` oder `black` zurück, abhängig davon, welcher Wert den größten Kontrast zur Eingabefarbe hat. Wenn sowohl `white` als auch `black` den gleichen Kontrast zur Eingabefarbe haben, wird `white` zurückgegeben.
+Die `contrast-color()`-Funktion gibt entweder einen Wert von `white` oder `black` zurück, je nachdem, welcher Wert den größten Kontrast zur Eingabefarbe hat. Wenn sowohl `white` als auch `black` denselben Kontrast zur Eingabefarbe haben, wird `white` zurückgegeben.
 
 > [!WARNING]
-> WCAG AA (4.5:1) Kontrast ist nicht in der Lage, in allen Fällen einen klar lesbaren Text zu erzeugen. Mitteltonige Hintergrundfarben bieten im Allgemeinen nicht genug Kontrast mit entweder schwarzem oder weißem Vordergrund. Zum Beispiel erzeugt `contrast-color()` auf einem königsblauem (`#2277d3`) Hintergrund schwarzen Text, der für kleinen Text nicht lesbar ist. Es wird daher empfohlen, helle oder dunkle Farben mit der `contrast-color()`-Funktion zu verwenden.
+> WCAG AA (4.5:1) Kontrast ist nicht in der Lage, in allen Fällen klar lesbaren Text zu erzeugen. Mittlere Hintergrundfarben liefern im Allgemeinen nicht genug Kontrast zu entweder schwarzem oder weißem Vordergrund. Zum Beispiel erzeugt `contrast-color()` auf einem königsblauem (`#2277d3`) Hintergrund schwarzen Text, der für kleinen Text nicht lesbar ist. Es wird daher empfohlen, helle oder dunkle Farben mit der `contrast-color()`-Funktion zu verwenden.
 
 ## Beispiele
 
-### Kontrastierender Text für einen Button
+### Kontrastreiche Schrift für einen Button
 
-Im folgenden Beispiel wendet der Browser automatisch eine kontrastierende Farbe auf den Text des Absenden-{{htmlelement("button")}} an, wenn Sie dessen Hintergrundfarbe ändern.
+Im folgenden Beispiel wendet der Browser automatisch eine kontrastreiche Farbe auf den Text des Absenden-{{htmlelement("button")}} an, wenn Sie dessen Hintergrundfarbe ändern.
 
 ```html hidden
 <label>
@@ -102,13 +102,13 @@ colorPicker.addEventListener("change", updateColor);
 updateColor();
 ```
 
-{{EmbedLiveSample("Kontrastierender Text für einen Button", "", 250)}}
+{{EmbedLiveSample("Kontrastreiche Schrift für einen Button", "", 250)}}
 
-### Verwendung in Light- und Dark-Modus
+### Verwendung im Hell- und Dunkelmodus
 
-Im folgenden Beispiel wird die [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme) [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet, um eine Hintergrundfarbe basierend auf den Betriebssystem- oder Browser-Farbschemeneinstellungen festzulegen. Die `contrast-color()`-Funktion wird verwendet, um die Textfarbe automatisch festzulegen.
+Im folgenden Beispiel wird die [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme) [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using) verwendet, um eine Hintergrundfarbe basierend auf den Einstellungen des Betriebssystems oder des Browsers zu setzen. Die `contrast-color()`-Funktion wird verwendet, um die Textfarbe automatisch festzulegen.
 
-Versuchen Sie, die Dark-Mode-Einstellung des Browsers oder des Betriebssystems zu ändern, um den Effekt zu sehen.
+Versuchen Sie, die Dunkelmoduseinstellung im Browser oder Betriebssystem zu ändern, um den Effekt zu sehen.
 
 ```html hidden
 <pre>
@@ -164,7 +164,7 @@ pre {
 }
 ```
 
-{{EmbedLiveSample("Verwendung in Light- und Dark-Modus", "", 250)}}
+{{EmbedLiveSample("Verwendung im Hell- und Dunkelmodus", "", 250)}}
 
 ## Spezifikationen
 
@@ -177,9 +177,9 @@ pre {
 ## Siehe auch
 
 - [`contrast()`](/de/docs/Web/CSS/Reference/Values/filter-function/contrast)
-- Modul [CSS colors](/de/docs/Web/CSS/CSS_colors)
-- [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) und {{cssxref("var")}}
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
+- [CSS-Custom-Properties](/de/docs/Web/CSS/Reference/Properties/--*) und {{cssxref("var")}}
 - [`prefers-contrast`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-contrast) und [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme) {{cssxref("@media")}} Funktionen
 - [WCAG: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
-- [Anleitung: Wie der Browser eine kontrastierende Farbe in CSS auswählt](https://webkit.org/blog/16929/contrast-color/) auf webkit.org (2025)
+- [Anleitung, wie der Browser eine kontrastreiche Farbe in CSS auswählt](https://webkit.org/blog/16929/contrast-color/) auf webkit.org (2025)
 - [WebAIM Kontrast-Checker](https://webaim.org/resources/contrastchecker/) auf webaim.org (2025)

@@ -2,10 +2,10 @@
 title: padding-inline-start
 slug: Web/CSS/Reference/Properties/padding-inline-start
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`padding-inline-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Startabstand eines Elements in der Inline-Achse. Dieser wird abhängig vom Schreibmodus des Elements, der Schreibrichtung und der Textorientierung auf einen physischen Abstand abgebildet.
+Die **`padding-inline-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logische Startauffüllung einer Zeile eines Elements, die abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements zu einer physischen Auffüllung wird.
 
 {{InteractiveExample("CSS Demo: padding-inline-start")}}
 
@@ -70,15 +70,15 @@ padding-inline-start: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe der Auffüllung als fester Wert. Muss nicht-negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands in Prozent, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe der Auffüllung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht-negativ sein.
 
 ## Beschreibung
 
-Die `padding-inline-start`-Eigenschaft nimmt dieselben Werte an wie physische Eigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} gesetzt sind, äquivalent zu {{cssxref("padding-left")}}, {{cssxref("padding-right")}}, `padding-top` oder {{cssxref("padding-bottom")}} sein.
+Die `padding-inline-start`-Eigenschaft nimmt die gleichen Werte wie physische Eigenschaften wie {{cssxref("padding-top")}} an. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} gesetzten Werten äquivalent zu {{cssxref("padding-left")}}, {{cssxref("padding-right")}}, `padding-top` oder {{cssxref("padding-bottom")}} sein.
 
-Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-end")}}, die die anderen Abstandswerte des Elements definieren.
+Sie steht in Bezug zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-end")}}, welche die anderen Auffüllungswerte des Elements definieren.
 
 ## Formale Definition
 
@@ -90,7 +90,7 @@ Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("pad
 
 ## Beispiele
 
-### Festlegung des Inline-Startabstands für vertikalen Text
+### Festlegen der Startauffüllung für vertikalen Text
 
 #### HTML
 
@@ -130,6 +130,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
 - Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

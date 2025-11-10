@@ -2,16 +2,16 @@
 title: Ein Element zentrieren
 slug: Web/CSS/How_to/Layout_cookbook/Center_an_element
 l10n:
-  sourceCommit: f3bf4e2bd456159093d3820253be9f266ace070a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-In diesem Rezept erfahren Sie, wie Sie eine Box innerhalb einer anderen zentrieren, indem Sie [flexbox](#verwendung_von_flexbox) und [grid](#verwendung_von_grid) verwenden, um Inhalte sowohl horizontal als auch vertikal zu zentrieren.
+In diesem Rezept erfahren Sie, wie Sie eine Box innerhalb einer anderen Box zentrieren können, indem Sie [Flexbox](#verwendung_von_flexbox) und [Grid](#verwendung_von_grid) verwenden, um den Inhalt sowohl horizontal als auch vertikal zu zentrieren.
 
-![ein Element, das innerhalb einer größeren Box zentriert ist](cookbook-center.png)
+![ein Element, das innerhalb einer größeren Box zentriert wird](cookbook-center.png)
 
 ## Anforderungen
 
-Um ein Element horizontal und vertikal in die Mitte einer anderen Box zu platzieren.
+Ein Element horizontal und vertikal in die Mitte einer anderen Box platzieren.
 
 ## Rezept
 
@@ -45,9 +45,9 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 
 {{EmbedLiveSample("center-example", "", "250px")}}
 
-## Verwendung von flexbox
+## Verwendung von Flexbox
 
-Um eine Box innerhalb einer anderen zu zentrieren, verwandeln Sie zunächst die Box, in der das Element enthalten ist, in einen [flex container](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox#the_flex_container), indem Sie seine {{cssxref("display")}}-Eigenschaft auf `flex` setzen. Setzen Sie dann {{cssxref("align-items")}} auf `center` für die vertikale Zentrierung (auf der Block-Achse) und {{cssxref("justify-content")}} auf `center` für die horizontale Zentrierung (auf der Inline-Achse). Und das ist alles, was nötig ist, um eine Box innerhalb einer anderen zu zentrieren!
+Um eine Box innerhalb einer anderen Box zu zentrieren, verwandeln Sie zuerst die umgebende Box in ein [Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts#the_flex_container), indem Sie die {{cssxref("display")}}-Eigenschaft auf `flex` setzen. Setzen Sie dann {{cssxref("align-items")}} auf `center` für vertikale Zentrierung (auf der Blockachse) und {{cssxref("justify-content")}} auf `center` für horizontale Zentrierung (auf der Inline-Achse). Und das ist alles, was es braucht, um eine Box innerhalb einer anderen zu zentrieren!
 
 ### HTML
 
@@ -85,17 +85,17 @@ div {
 }
 ```
 
-Wir setzen eine Höhe für das Container-Element, um zu demonstrieren, dass das innere Element tatsächlich vertikal innerhalb des Containers zentriert ist.
+Wir haben die Höhe für den Container festgelegt, um zu demonstrieren, dass das innere Element tatsächlich vertikal innerhalb des Containers zentriert ist.
 
 ### Ergebnis
 
 {{EmbedLiveSample("Using_flexbox", "", "200px")}}
 
-Statt `align-items: center;` auf den Container anzuwenden, können Sie das innere Element auch vertikal zentrieren, indem Sie {{cssxref("align-self")}} auf `center` für das innere Element selbst setzen.
+Anstelle von `align-items: center;` auf den Container anzuwenden, können Sie das innere Element auch vertikal zentrieren, indem Sie {{cssxref("align-self")}} auf `center` für das innere Element selbst setzen.
 
-## Verwendung von grid
+## Verwendung von Grid
 
-Eine weitere Methode, die Sie verwenden können, um eine Box innerhalb einer anderen zu zentrieren, besteht darin, die umgebende Box zuerst in einen [grid container](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#grid_container) zu verwandeln und dann seine {{cssxref("place-items")}}-Eigenschaft auf `center` zu setzen, um die Elemente auf beiden Achsen, Block- und Inline-Achse, zu zentrieren.
+Eine weitere Methode, um eine Box innerhalb einer anderen zu zentrieren, ist, die umgebende Box zuerst zu einem [Grid-Container](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#grid_container) zu machen und dann ihre {{cssxref("place-items")}}-Eigenschaft auf `center` zu setzen, um seine Elemente sowohl auf der Block- als auch auf der Inline-Achse zu zentrieren.
 
 ### HTML
 
@@ -136,9 +136,9 @@ div {
 
 {{EmbedLiveSample("Using_grid", "", "200px")}}
 
-Anstatt `place-items: center;` auf den Container anzuwenden, können Sie die gleiche Zentrierung erreichen, indem Sie {{cssxref("place-content", "place-content: center;")}} auf den Container anwenden oder entweder {{cssxref("place-self", "place-self: center")}} oder {{cssxref("margin", "margin: auto;")}} auf das innere Element selbst anwenden.
+Anstelle von `place-items: center;` auf den Container anzuwenden, können Sie die gleiche Zentrierung auch erreichen, indem Sie {{cssxref("place-content", "place-content: center;")}} auf den Container anwenden oder indem Sie entweder {{cssxref("place-self", "place-self: center")}} oder {{cssxref("margin", "margin: auto;")}} auf das innere Element selbst anwenden.
 
 ## Ressourcen auf MDN
 
-- [Box-Ausgleich in flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-- [CSS Box-Ausgleichsleitfaden](/de/docs/Web/CSS/CSS_box_alignment)
+- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox)
+- [CSS-Box-Ausrichtungsleitfaden](/de/docs/Web/CSS/Guides/Box_alignment)

@@ -2,20 +2,20 @@
 title: <number>
 slug: Web/CSS/Reference/Values/number
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine Zahl, sei es eine ganze Zahl, eine Zahl mit einem Bruchteil oder ein basierten `e` oder `E` gefolgt von einer ganzen Zahl, die einen Exponenten in wissenschaftlicher Notation anzeigt.
+Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine Zahl, die entweder eine ganze Zahl, eine Zahl mit einem Bruchteil oder eine Basis-zehn-Potenz in wissenschaftlicher Notation ist.
 
 ## Syntax
 
-Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchwert wird durch einen `.` gefolgt von einer oder mehreren Dezimalstellen dargestellt und kann an eine ganze Zahl angehängt werden. Ein `<number>` kann auch mit dem Buchstaben `e` oder `E` gefolgt von einer ganzen Zahl enden, was einen Exponenten in wissenschaftlicher Notation angibt. Es ist keine Einheit mit Zahlen verbunden.
+Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchwert wird durch ein `.` gefolgt von einer oder mehreren Dezimalstellen dargestellt und kann an eine ganze Zahl angehängt werden. Ein `<number>` kann auch mit dem Buchstaben `e` oder `E` gefolgt von einer ganzen Zahl enden, was eine Basis-zehn-Potenz in wissenschaftlicher Notation anzeigt. Zahlen sind nicht mit einer Maßeinheit verbunden.
 
-Wie bei Ganzzahlen kann das erste Zeichen der Zahl unmittelbar durch - oder + vorangestellt sein, um das Vorzeichen der Zahl zu kennzeichnen: ob die Zahl positiv oder negativ ist.
+Wie bei ganzen Zahlen kann das erste Zeichen der Zahl unmittelbar von einem - oder + vorangestellt werden, um das Vorzeichen der Zahl anzugeben: ob die Zahl positiv oder negativ ist.
 
 ## Interpolation
 
-Beim Animieren werden Werte des CSS-Datentyps `<number>` als reale Gleitkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) bestimmt, die mit der Animation verbunden ist.
+Wenn animiert, werden Werte des CSS-Datentyps `<number>` als reale Fließkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function) bestimmt, die mit der Animation verbunden ist.
 
 ## Beispiele
 
@@ -53,4 +53,4 @@ Beim Animieren werden Werte des CSS-Datentyps `<number>` als reale Gleitkommazah
 
 - {{CSSxRef("integer")}}
 - {{CSSxRef("ratio")}}
-- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul

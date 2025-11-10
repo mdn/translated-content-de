@@ -1,33 +1,33 @@
 ---
-title: "<dashed-function>: CSS Custom-Funktionen"
+title: "<dashed-function>: CSS benutzerdefinierte Funktionen"
 slug: Web/CSS/Reference/Values/dashed-function
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Der **`<dashed-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert die Syntax zur Verwendung von [CSS Custom-Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions), die mit der {{cssxref("@function")}} At-Regel definiert werden.
+Der **`<dashed-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert die Syntax, die verwendet wird, um [CSS benutzerdefinierte Funktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions) aufzurufen, die mit der {{cssxref("@function")}}-Atregel definiert werden.
 
 ## Syntax
 
-Ein `<dashed-function>`-Wert besteht aus dem [`--function-name`](/de/docs/Web/CSS/Reference/At-rules/@function#--function-name), gefolgt von Klammern mit den Argumenten der Funktion (zum Beispiel `--my-function(30px, 3)`).
+Ein `<dashed-function>`-Wert besteht aus dem [`--function-name`](/de/docs/Web/CSS/Reference/At-rules/@function#--function-name), gefolgt von Klammern, die die Argumente der Funktion enthalten (zum Beispiel, `--my-function(30px, 3)`).
 
-Sie können `<dashed-function>`-Werte anstelle von regulären CSS-Property-Werten oder Property-Wert-Komponenten verwenden, in Fällen, in denen Sie die Werte dynamisch basierend auf der Logik der Funktion berechnen möchten, anstatt statische Werte bereitzustellen.
+Sie können `<dashed-function>`-Werte anstelle von regulären CSS-Werteigenschaften oder Komponenten von Eigenschaftswerten verwenden, wenn Sie die Werte dynamisch basierend auf der Logik der Funktion berechnen möchten, anstatt statische Werte bereitzustellen.
 
-In Fällen, in denen Sie [Komma-enthaltende Werte als Argumente übergeben](/de/docs/Web/CSS/Reference/At-rules/@function#passing_comma-containing_values_as_arguments) möchten, können Sie dies tun, indem Sie sie in geschweifte Klammern (`{ }`) setzen.
+In Fällen, in denen Sie [Komma enthaltende Werte als Argumente übergeben](/de/docs/Web/CSS/Reference/At-rules/@function#passing_comma-containing_values_as_arguments) möchten, können Sie diese durch geschweifte Klammern (`{ }`) einschließen.
 
 ## Beispiele
 
-Für weitere Beispiele, siehe unseren [Leitfaden zur Verwendung von CSS-Custom-Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions).
+Für weitere Beispiele siehe unseren [Verwendung von CSS benutzerdefinierten Funktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions) Leitfaden.
 
 ### Grundlegende `<dashed-function>`-Verwendung
 
-Dieses Beispiel zeigt eine grundlegende Funktion, die eine halbtransparente Version der übergebenen Farbe zurückgibt.
+Dieses Beispiel zeigt eine grundlegende Funktion, die eine halbtransparente Version der Farbe zurückgibt, die an sie übergeben wird.
 
 #### HTML
 
-Der Markup beinhaltet ein {{htmlelement("p")}}, das Textinhalt enthält:
+Das Markup enthält ein {{htmlelement("p")}}, das etwas Textinhalt enthält:
 
 ```html live-sample___basic-example
 <p>Some content</p>
@@ -35,7 +35,7 @@ Der Markup beinhaltet ein {{htmlelement("p")}}, das Textinhalt enthält:
 
 #### CSS
 
-In unseren Styles definieren wir zuerst die CSS-Custom-Funktion. Die Funktion heißt `--transparent` und nimmt zwei Parameter entgegen: eine Farbe und einen numerischen Alpha-Kanal-Wert. Innerhalb des Funktionskörpers verwenden wir die [relative Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors), um die übergebene Farbe in eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch) Farbe mit einem Alpha-Kanal umzuwandeln, der dem übergebenen Alpha-Wert entspricht; dies wird zum `result` der Funktion:
+In unseren Styles definieren wir zuerst die CSS benutzerdefinierte Funktion. Die Funktion heißt `--transparent` und akzeptiert zwei Parameter: eine Farbe und einen numerischen Alpha-Kanalwert. Im Funktionskörper verwenden wir die [relative Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors), um die übergebene Farbe in eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch)-Farbe mit einem Alpha-Kanal, der dem übergebenen Alpha-Wert entspricht, umzuwandeln; dies wird zum `result` der Funktion:
 
 ```css live-sample___basic-example
 @function --transparent(--color <color>, --alpha <number>) {
@@ -43,7 +43,7 @@ In unseren Styles definieren wir zuerst die CSS-Custom-Funktion. Die Funktion he
 }
 ```
 
-Anschließend definieren wir eine `--base-color` Custom-Property mit dem Wert `#faa6ff` auf dem `:root` Element. Wir weisen dieser Property den Wert der {{cssxref("border")}}-Farbe des `<p>`-Elements zu und setzen dann ihren {{cssxref("background-color")}}-Wert auf eine transparente Version derselben Farbe. Dies geschieht, indem der Wert gleich der `<dashed-function>`-Syntax gesetzt wird, die die `--transparent()` Funktion spezifiziert und ihr die Argumente `var(--base-color)` und `0.8` übergibt.
+Als nächstes definieren wir eine benutzerdefinierte Eigenschaft `--base-color` mit einem Wert von `#faa6ff` auf dem `:root`-Element. Wir weisen diese Eigenschaft als Wert für die {{cssxref("border")}}-Farbe des `<p>`-Elements zu und setzen dann den Wert von {{cssxref("background-color")}}, um eine transparente Version derselben Farbe zu erhalten. Dies geschieht, indem der Wert auf die `<dashed-function>`-Syntax gesetzt wird, die die `--transparent()`-Funktion spezifiziert und ihr Argumente von `var(--base-color)` und `0.8` übergibt.
 
 ```css hidden live-sample___basic-example
 html,
@@ -92,8 +92,8 @@ p {
 
 ## Siehe auch
 
-- [CSS Custom Properties](/de/docs/Web/CSS/Reference/Properties/--*)
-- {{cssxref("@function")}} At-Regel
-- [`type()`](/de/docs/Web/CSS/Reference/Values/type) Funktion
-- [Verwendung von CSS-Custom-Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions)
-- [CSS-Custom-Funktionen und Mixins](/de/docs/Web/CSS/CSS_custom_functions_and_mixins) Modul
+- [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*)
+- {{cssxref("@function")}} Atregel
+- Funktion [`type()`](/de/docs/Web/CSS/Reference/Values/type)
+- [Verwendung von CSS benutzerdefinierten Funktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions)
+- [CSS benutzerdefinierte Funktionen und Mixins](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins) Modul

@@ -2,10 +2,10 @@
 title: grid-template-areas
 slug: Web/CSS/Reference/Properties/grid-template-areas
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft legt benannte {{Glossary("grid_areas", "Grid-Bereiche")}} fest, definiert die Zellen im Grid und weist ihnen Namen zu.
+Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS)-Eigenschaft spezifiziert benannte {{Glossary("grid_areas", "Grid-Bereiche")}}, legt die Zellen im Grid fest und weist ihnen Namen zu.
 
 {{InteractiveExample("CSS Demo: grid-template-areas")}}
 
@@ -71,7 +71,7 @@ grid-template-areas:
 }
 ```
 
-Diese Bereiche sind mit keinem bestimmten Grid-Element verbunden, können jedoch von den Grid-Platzierungs-Eigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
+Diese Bereiche sind mit keinem bestimmten Grid-Element verbunden, können aber von den Grid-Platzierungseigenschaften {{cssxref("grid-row-start")}}, {{cssxref("grid-row-end")}}, {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}} und deren Kurzformen {{cssxref("grid-row")}}, {{cssxref("grid-column")}} und {{cssxref("grid-area")}} referenziert werden.
 
 ## Syntax
 
@@ -98,9 +98,10 @@ grid-template-areas: unset;
 - `none`
   - : Der Grid-Container definiert keine benannten Grid-Bereiche.
 - {{cssxref("&lt;string&gt;")}}
-  - : Für jede angegebene Zeichenkette wird eine Zeile erstellt, und für jede Zelle in der Zeichenkette wird eine Spalte erstellt. Mehrere Zell-Token mit demselben Namen innerhalb und zwischen Zeilen erzeugen einen einzigen benannten Grid-Bereich, der sich über die entsprechenden Grid-Zellen erstreckt. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
-    Alle verbleibenden unbenannten Bereiche in einem Grid können mit _Null-Zell-Token_ referenziert werden. Ein Null-Zell-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP) Zeichen, z. B. `.`, `...` oder `.....` usw. Ein Null-Zell-Token kann verwendet werden, um leere Räume im Grid zu erstellen.
+  - : Für jede separate Zeichenkette wird eine Zeile erstellt und für jede Zelle in der Zeichenkette eine Spalte. Mehrere Zellentoken mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzigen benannten Grid-Bereich, der die entsprechenden Grid-Zellen umfasst. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
+
+    Alle verbleibenden unbenannten Bereiche in einem Grid können mit _Null-Zellen-Token_ bezeichnet werden. Ein Null-Zellen-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP)-Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zellen-Token kann verwendet werden, um leere Bereiche im Grid zu erstellen.
 
 ## Formale Definition
 
@@ -112,7 +113,7 @@ grid-template-areas: unset;
 
 ## Beispiele
 
-### Benannte Grid-Bereiche angeben
+### Benannte Grid-Bereiche spezifizieren
 
 #### HTML
 
@@ -161,7 +162,7 @@ grid-template-areas: unset;
 }
 ```
 
-Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir genutzt haben, um im unteren linken Eck des Grids einen leeren Raum zu schaffen.
+Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereich im Grid-Container zu erstellen, den wir genutzt haben, um einen leeren Bereich in der unteren linken Ecke des Grids zu schaffen.
 
 #### Ergebnis
 
@@ -180,5 +181,5 @@ Im obigen Code wurde ein Null-Token (`.`) verwendet, um einen unbenannten Bereic
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template")}}
-- [Grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Grid-Bereichsvorlagen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
 - Video: [Grid template areas](https://gridbyexample.com/video/grid-template-areas/)

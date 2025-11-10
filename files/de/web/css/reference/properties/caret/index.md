@@ -2,12 +2,12 @@
 title: caret
 slug: Web/CSS/Reference/Properties/caret
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild und Verhalten des **Eingabecarets** in einer einzigen Deklaration fest.
+Die **`caret`** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild und Verhalten des **Einfüge-Carets** in einer einzigen Deklaration fest.
 
 {{InteractiveExample("CSS Demo: caret")}}
 
@@ -48,9 +48,9 @@ div {
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zuordnende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist ein Shorthand für die folgenden CSS-Eigenschaften:
 
 - [`caret-color`](/de/docs/Web/CSS/Reference/Properties/caret-color)
 - [`caret-animation`](/de/docs/Web/CSS/Reference/Properties/caret-animation)
@@ -81,38 +81,40 @@ caret: revert-layer;
 caret: unset;
 ```
 
-Die `caret`-Eigenschaft wird als ein, zwei oder drei Werte von den zusammengesetzten Eigenschaften angegeben. Werte können in beliebiger Reihenfolge spezifiziert werden, und ausgelassene Werte werden auf ihre Anfangswerte gesetzt.
+Die Eigenschaft `caret` wird als ein, zwei oder drei Werte aus den zugehörigen Eigenschaften angegeben. Werte können in beliebiger Reihenfolge angegeben werden, und ausgelassene Werte werden auf ihre Anfangswerte gesetzt.
 
 ### Werte
 
 - {{cssxref("caret-color")}}
+
   - : Legt die Farbe des Carets fest.
 
 - {{cssxref("caret-animation")}}
-  - : Bestimmt, ob der Caret blinkt.
+
+  - : Steuert, ob das Caret blinkt.
 
 - {{cssxref("caret-shape")}}
   - : Legt die visuelle Form des Carets fest.
 
 ## Beschreibung
 
-Die `caret`-Kurzform ermöglicht es Ihnen, mehrere Caret-Eigenschaften in einer einzigen Deklaration festzulegen, was es bequemer macht, das komplette Erscheinungsbild und Verhalten des Eingabecarets anzupassen.
+Das `caret` Shorthand ermöglicht es Ihnen, mehrere Caret-Eigenschaften in einer einzigen Deklaration festzulegen, was es bequem macht, das vollständige Erscheinungsbild und Verhalten des Einfüge-Carets zu gestalten.
 
-### Wertauflösung
+### Werteauflösung
 
-Wenn Werte in der Kurzform ausgelassen werden, setzen sie sich auf ihre Anfangswerte zurück:
+Wenn Werte im Shorthand ausgelassen werden, werden sie auf ihre Anfangswerte zurückgesetzt:
 
 - `caret-color`: `auto` (löst sich zu `currentColor` auf).
 - `caret-animation`: `auto` (Caret blinkt).
-- `caret-shape`: `auto` (vom Browser bestimmte Form).
+- `caret-shape`: `auto` (browserbestimmte Form).
 
 ### Reihenfolgeunabhängigkeit
 
-Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte in beliebiger Reihenfolge. Der Browser bestimmt, welcher Wert auf welche Eigenschaft angewendet wird, basierend auf dem Werttyp:
+Im Gegensatz zu einigen CSS-Shorthands akzeptiert die `caret` Eigenschaft Werte in beliebiger Reihenfolge. Der Browser bestimmt, welcher Wert auf welche Eigenschaft angewendet wird, basierend auf dem Werttyp:
 
-- {{cssxref("&lt;color>")}}-Werte werden auf `caret-color` angewendet.
-- `auto`/`manual` Schlüsselwörter werden auf `caret-animation` angewendet.
-- Formschlüsselwörter (`bar`, `block`, `underscore`) werden auf `caret-shape` angewendet.
+- {{cssxref("&lt;color>")}} Werte werden auf `caret-color` angewendet.
+- `auto`/`manual` Schlüsselwörter gelten für `caret-animation`.
+- Formschlüsselwörter (`bar`, `block`, `underscore`) gelten für `caret-shape`.
 
 ## Formale Definition
 
@@ -126,9 +128,9 @@ Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte 
 
 ### Retro-Terminal mit animiertem Caret
 
-Dieses Beispiel erstellt eine Vintage-Terminalschnittstelle unter Verwendung der `caret`-Kurzform, um mehrere Caret-Eigenschaften zu kombinieren, und zeigt, wie sie ältere Techniken auf Basis von Rändern ersetzt.
+Dieses Beispiel erstellt eine Vintage-Terminal-Oberfläche mit dem `caret` Shorthand, um mehrere Caret-Eigenschaften zu kombinieren, und zeigt, wie es ältere, auf Rand basierende Techniken ersetzt.
 
-Der Hauptvorteil der `caret`-Kurzform besteht darin, mehrere Eigenschaften in einer Deklaration zu kombinieren. Hier setzen wir die Form auf `block`, deaktivieren das standardmäßige Blinken und setzen die Farbe auf `green`, alles in einer einzigen Zeile.
+Der Hauptvorteil des `caret` Shorthands ist die Kombination mehrerer Eigenschaften in einer Deklaration. Hier setzen wir die Form auf `block`, deaktivieren das standardmäßige Blinken und setzen die Farbe auf `grün`, alles in einer einzigen Zeile.
 
 #### HTML
 
@@ -220,4 +222,4 @@ span {
 ## Siehe auch
 
 - {{cssxref("caret-color")}}, {{cssxref("caret-animation")}}, {{cssxref("caret-shape")}}
-- [CSS basic user interface](/de/docs/Web/CSS/CSS_basic_user_interface) Modul
+- [CSS Benutzeroberfläche](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul

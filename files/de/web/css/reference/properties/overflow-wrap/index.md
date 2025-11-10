@@ -2,13 +2,13 @@
 title: overflow-wrap
 slug: Web/CSS/Reference/Properties/overflow-wrap
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`overflow-wrap`**-Eigenschaft von [CSS](/de/docs/Web/CSS) wird auf Text angewendet und legt fest, ob der Browser Zeilenumbrüche innerhalb einer ansonsten untrennbaren Zeichenkette einfügen sollte, um zu verhindern, dass der Text seine Zeilenbox überläuft.
+Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft gilt für Text und legt fest, ob der Browser Zeilenumbrüche innerhalb eines ansonsten untrennbaren Strings einfügen soll, um zu verhindern, dass der Text seine Zeilenbox überläuft.
 
 > [!NOTE]
-> Die Eigenschaft war ursprünglich eine nicht standardisierte und unveränderte Microsoft-Erweiterung namens `word-wrap` und wurde von den meisten Browsern unter demselben Namen implementiert. Sie wurde seitdem in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
+> Die Eigenschaft war ursprünglich eine nicht standardisierte und unpräfixierte Microsoft-Erweiterung namens `word-wrap` und wurde von den meisten Browsern unter demselben Namen implementiert. Sie wurde seitdem in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
 
 {{InteractiveExample("CSS Demo: overflow-wrap")}}
 
@@ -66,16 +66,16 @@ overflow-wrap: revert-layer;
 overflow-wrap: unset;
 ```
 
-Die `overflow-wrap`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der folgenden Liste von Werten angegeben.
+Die `overflow-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort aus der unten aufgeführten Liste von Werten angegeben.
 
 ### Werte
 
 - `normal`
-  - : Zeilen dürfen nur an normalen Worttrennpunkten brechen (wie z. B. einem Leerzeichen zwischen zwei Wörtern).
+  - : Zeilen können nur an normalen Wortumbruchspunkten (wie einem Leerzeichen zwischen zwei Wörtern) umbrochen werden.
 - `anywhere`
-  - : Um Überlauf zu verhindern, kann eine ansonsten ununterbrochene Zeichenfolge – wie ein langes Wort oder eine URL – an jedem Punkt gebrochen werden, wenn es in der Zeile keine sonst akzeptablen Trennpunkte gibt. Es wird kein Trennstrichzeichen an der Trennstelle eingefügt. Weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden bei der Berechnung von Min-Content intrinsischen Größen berücksichtigt.
+  - : Um Überlauf zu verhindern, kann eine ansonsten untrennbare Zeichenkette — wie ein langes Wort oder eine URL — an jedem Punkt umbrochen werden, wenn es in der Zeile keine anderen akzeptablen Umbruchspunkte gibt. An der Umbruchstelle wird kein Trennzeichen eingefügt. Weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
 - `break-word`
-  - : Identisch mit dem `anywhere`-Wert, bei dem normalerweise untrennbare Wörter an beliebigen Punkten gebrochen werden dürfen, wenn es in der Zeile keine sonst akzeptablen Trennpunkte gibt, aber weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden NICHT bei der Berechnung von Min-Content intrinsischen Größen berücksichtigt.
+  - : Gleicht dem Wert `anywhere`, wobei normalerweise untrennbare Wörter an beliebigen Punkten umbrochen werden dürfen, wenn es in der Zeile keine anderen akzeptablen Umbruchspunkte gibt, aber weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden NICHT bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
 
 ## Formale Definition
 
@@ -89,7 +89,7 @@ Die `overflow-wrap`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der fo
 
 ### Vergleich von overflow-wrap, word-break und hyphens
 
-Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens` beim Aufteilen eines langen Wortes.
+Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens` beim Aufbrechen eines langen Wortes.
 
 #### HTML
 
@@ -176,4 +176,4 @@ p {
 - {{cssxref("white-space")}}
 - {{cssxref("hyphens")}}
 - {{cssxref("text-overflow")}}
-- [Leitfaden zum Umbrechen und Aufteilen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Leitfaden zum Umbruch und Trennung von Text](/de/docs/Web/CSS/Guides/Text/Wrapping_breaking_text)

@@ -3,20 +3,20 @@ title: "MediaQueryList: media-Eigenschaft"
 short-title: media
 slug: Web/API/MediaQueryList/media
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die **`media`**-Eigenschaft der Schnittstelle [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) ist eine schreibgeschützte Zeichenkette, die eine serialisierte Media Query darstellt.
+Die schreibgeschützte **`media`**-Eigenschaft der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle ist ein String, der eine serialisierte Medienabfrage darstellt.
 
 ## Wert
 
-Eine Zeichenkette, die eine serialisierte Media Query darstellt.
+Ein String, der eine serialisierte Medienabfrage darstellt.
 
 ## Beispiele
 
-Dieses Beispiel führt die Media Query `(width <= 600px)` aus und zeigt den Wert der daraus resultierenden `media`-Eigenschaft der `MediaQueryList` in einem {{HTMLElement("span")}} an.
+Dieses Beispiel führt die Medienabfrage `(width <= 600px)` aus und zeigt den Wert der resultierenden `MediaQueryList`-`media`-Eigenschaft in einem {{HTMLElement("span")}} an.
 
 ### JavaScript
 
@@ -26,7 +26,7 @@ let mql = window.matchMedia("(width <= 600px)");
 document.querySelector(".mq-value").innerText = mql.media;
 ```
 
-Der JavaScript-Code übergibt die zu prüfende Media Query an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu kompilieren, und setzt dann die [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der `media`-Eigenschaft des Ergebnisses.
+Der JavaScript-Code übergibt die Medienabfrage, die abgeglichen werden soll, an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu kompilieren, und setzt dann die [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der `media`-Eigenschaft des Ergebnisses.
 
 ### HTML
 
@@ -34,7 +34,7 @@ Der JavaScript-Code übergibt die zu prüfende Media Query an [`matchMedia()`](/
 <span class="mq-value"></span>
 ```
 
-Ein `<span>`, um die Ausgabe zu empfangen.
+Ein `<span>`, um die Ausgabe zu erhalten.
 
 ```css hidden
 .mq-value {
@@ -62,8 +62,8 @@ Ein `<span>`, um die Ausgabe zu empfangen.
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Media Queries aus Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwendung von Medienabfragen im Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

@@ -2,10 +2,10 @@
 title: border-block-width
 slug: Web/CSS/Reference/Properties/border-block-width
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-block-width`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Breite der logischen Block-Ränder eines Elements, was je nach Schreibmodus des Elements, Richtung und Textausrichtung in eine physische Randbreite überführt wird. Sie entspricht der {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}}, und {{cssxref("border-right-width")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`border-block-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite der logischen Blockränder eines Elements, die abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements einer physischen Randbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}} und {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}}, und {{cssxref("border-right-width")}} Eigenschaft, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{InteractiveExample("CSS Demo: border-block-width")}}
 
@@ -117,6 +117,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft entspricht einer der physischen Rand-Eigenschaften: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- [CSS-Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

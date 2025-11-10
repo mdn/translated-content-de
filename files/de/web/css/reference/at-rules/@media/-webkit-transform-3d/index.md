@@ -2,24 +2,24 @@
 title: -webkit-transform-3d
 slug: Web/CSS/Reference/At-rules/@media/-webkit-transform-3d
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`-webkit-transform-3d`** Boolean [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/Reference/Webkit_extensions), deren Wert `true` ist, wenn Vendor-Präfixierte CSS 3D {{cssxref("transform")}}s unterstützt werden.
+Der **`-webkit-transform-3d`** boolesche [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/Reference/Webkit_extensions), deren Wert `true` ist, wenn vendor-präfixierte CSS-3D-{{cssxref("transform")}}s unterstützt werden.
 
 > [!NOTE]
-> Obwohl dieses Medien-Feature derzeit von den meisten [Browsern unterstützt wird](#browser-kompatibilität). Wenn möglich, verwenden Sie stattdessen eine {{cssxref("@supports")}}-Feature-Abfrage.
+> Auch wenn dieses Medienmerkmal derzeit [von den meisten Browsern unterstützt wird](#browser-kompatibilität). Verwenden Sie nach Möglichkeit stattdessen eine {{cssxref("@supports")}}-Merkmalabfrage.
 
 ## Syntax
 
-`-webkit-transform-3d` ist ein Boolean [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features), dessen Wert `true` ist, wenn der Browser `-webkit`-präfixierte CSS 3D {{cssxref("transform")}}s unterstützt.
+`-webkit-transform-3d` ist ein boolesches [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features), dessen Wert `true` ist, wenn der Browser CSS-3D-{{cssxref("transform")}}s mit dem `-webkit`-Präfix unterstützt.
 
 ### Werte
 
 - `true`
-  - : Der Browser unterstützt die 3D-CSS-Transforms mit dem `-webkit`-Präfix und unterstützt nicht-standardspezifische, präfixierte Medienabfragen.
+  - : Der Browser unterstützt die 3D-CSS-Transformationen mit dem `-webkit`-Präfix und unterstützt nicht standardisierte, mit Präfix versehene Medienabfragen.
 - `false`
-  - : Die 3D-CSS-Transforms mit dem Präfix `-webkit` werden vom Browser nicht unterstützt.
+  - : Die 3D-CSS-Transformationen mit dem `-webkit`-Präfix werden vom Browser nicht unterstützt.
 
 ## Beispiele
 
@@ -33,7 +33,7 @@ Das **`-webkit-transform-3d`** Boolean [CSS](/de/docs/Web/CSS) [Medien-Feature](
 }
 ```
 
-Eine bessere Methode zur Überprüfung der Browser-Unterstützung ist die Verwendung einer Feature-Abfrage:
+Eine bessere Methode zur Überprüfung der Browser-Unterstützung ist die Verwendung einer Merkmalabfrage:
 
 ```css
 @supports (transform-style) {
@@ -57,6 +57,6 @@ Eine bessere Methode zur Überprüfung der Browser-Unterstützung ist die Verwen
 - {{cssxref("@media/-webkit-transition", "-webkit-transition")}}
 - {{cssxref("@media/-webkit-animation", "-webkit-animation")}}
 - [Testseite bei quirksmode.org](https://www.quirksmode.org/css/tests/mediaqueries/animation.html)
-- {{cssxref("transform")}} und [Verwendung von CSS-Transforms](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-- {{cssxref("@media")}} und [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- {{cssxref("@supports")}} und [Verwendung von Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+- {{cssxref("transform")}} und [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)
+- {{cssxref("@media")}} und [Verwendung von Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- {{cssxref("@supports")}} und [Verwendung von Merkmalabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries)

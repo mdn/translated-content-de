@@ -2,112 +2,112 @@
 title: CSSPositionTryDescriptors
 slug: Web/API/CSSPositionTryDescriptors
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSPositionTryDescriptors`** Schnittstelle definiert Eigenschaften, die die Liste von CSS-Deskriptoren darstellen, die im Rumpf einer {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) festgelegt werden können.
+Das **`CSSPositionTryDescriptors`** Interface definiert Eigenschaften, die die Liste von CSS-Deskriptoren darstellen, die im Body einer {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) festgelegt werden können.
 
-Jeder Deskriptor im Rumpf der entsprechenden {{cssxref("@position-try")}} At-Regel kann entweder über seinen Eigenschaftsnamen in der [Bracket-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder die Camel-Case-Version des Eigenschaftsnamen "propertyName" in der [Punkt-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) zugegriffen werden. Zum Beispiel können Sie auf die CSS-Eigenschaft "property-name" als `style["property-name"]` oder `style.propertyName` zugreifen, wobei `style` eine Instanz von `CSSPositionTryDescriptors` ist. Eine Eigenschaft mit einem einteiligen Namen wie {{cssxref("height")}} kann mit beiden Notationen zugegriffen werden: `style["height"]` oder `style.height`.
+Jeder Deskriptor im Body der entsprechenden {{cssxref("@position-try")}} At-Regel kann entweder mit seinem Eigenschaftsnamen in [Klammernotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder der camel-case Version des Eigenschaftsnamens "propertyName" in [Punktnotation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) zugegriffen werden. Zum Beispiel können Sie auf die CSS-Eigenschaft "property-name" als `style["property-name"]` oder `style.propertyName` zugreifen, wobei `style` eine `CSSPositionTryDescriptors` Instanz ist. Eine Eigenschaft mit einem Namen mit einem einzigen Wort wie {{cssxref("height")}} kann unter Verwendung beider Notationen zugegriffen werden: `style["height"]` oder `style.height`.
 
 > [!NOTE]
-> Die [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule) Schnittstelle repräsentiert eine {{cssxref("@position-try")}} At-Regel, und die [`CSSPositionTryRule.style`](/de/docs/Web/API/CSSPositionTryRule/style) Eigenschaft ist eine Instanz dieses Objekts.
+> Das [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule) Interface repräsentiert eine {{cssxref("@position-try")}} At-Regel, und die [`CSSPositionTryRule.style`](/de/docs/Web/API/CSSPositionTryRule/style) Eigenschaft ist eine Instanz dieses Objekts.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
-Die folgenden Eigenschaftsnamen, in Snake-Case (zugriffbar über Bracket-Notation) und Camel-Case (zugriffbar über Punkt-Notation), repräsentieren jeweils den Wert eines Deskriptors in der entsprechenden `@position-try` At-Regel:
+Die folgenden Eigenschaftsnamen, in snake-case (zugreifbar mit der Klammernotation) und camel-case (zugreifbar mit der Punktnotation), repräsentieren jeweils den Wert eines Deskriptors in der entsprechenden `@position-try` At-Regel:
 
 - `align-self` oder `alignSelf`
-  - : Ein String, der den Wert eines {{cssxref("align-self")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("align-self")}} Deskriptors darstellt.
 - `block-size` oder `blockSize`
-  - : Ein String, der den Wert eines {{cssxref("block-size")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("block-size")}} Deskriptors darstellt.
 - `bottom`
-  - : Ein String, der den Wert eines {{cssxref("bottom")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("bottom")}} Deskriptors darstellt.
 - `height`
-  - : Ein String, der den Wert eines {{cssxref("height")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("height")}} Deskriptors darstellt.
 - `inline-size` oder `inlineSize`
-  - : Ein String, der den Wert eines {{cssxref("inline-size")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inline-size")}} Deskriptors darstellt.
 - `inset`
-  - : Ein String, der den Wert eines {{cssxref("inset")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset")}} Deskriptors darstellt.
 - `position-area` oder `positionArea`
-  - : Ein String, der den Wert eines {{cssxref("position-area")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("position-area")}} Deskriptors darstellt.
 - `inset-block` oder `insetBlock`
-  - : Ein String, der den Wert eines {{cssxref("inset-block")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset-block")}} Deskriptors darstellt.
 - `inset-block-end` oder `insetBlockEnd`
-  - : Ein String, der den Wert eines {{cssxref("inset-block-end")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset-block-end")}} Deskriptors darstellt.
 - `inset-block-start` oder `insetBlockStart`
-  - : Ein String, der den Wert eines {{cssxref("inset-block-start")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset-block-start")}} Deskriptors darstellt.
 - `inset-inline` oder `insetInline`
-  - : Ein String, der den Wert eines {{cssxref("inset-inline")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset-inline")}} Deskriptors darstellt.
 - `inset-inline-end` oder `insetInlineEnd`
-  - : Ein String, der den Wert eines {{cssxref("inset-inline-end")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset-inline-end")}} Deskriptors darstellt.
 - `inset-inline-start` oder `insetInlineStart`
-  - : Ein String, der den Wert eines {{cssxref("inset-inline-start")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("inset-inline-start")}} Deskriptors darstellt.
 - `justify-self` oder `justifySelf`
-  - : Ein String, der den Wert eines {{cssxref("justify-self")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("justify-self")}} Deskriptors darstellt.
 - `left`
-  - : Ein String, der den Wert eines {{cssxref("left")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("left")}} Deskriptors darstellt.
 - `margin`
-  - : Ein String, der den Wert eines {{cssxref("margin")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin")}} Deskriptors darstellt.
 - `margin-block` oder `marginBlock`
-  - : Ein String, der den Wert eines {{cssxref("margin-block")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-block")}} Deskriptors darstellt.
 - `margin-block-end` oder `marginBlockEnd`
-  - : Ein String, der den Wert eines {{cssxref("margin-block-end")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-block-end")}} Deskriptors darstellt.
 - `margin-block-start` oder `marginBlockStart`
-  - : Ein String, der den Wert eines {{cssxref("margin-block-start")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-block-start")}} Deskriptors darstellt.
 - `margin-bottom` oder `marginBottom`
-  - : Ein String, der den Wert eines {{cssxref("margin-bottom")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-bottom")}} Deskriptors darstellt.
 - `margin-inline` oder `marginInline`
-  - : Ein String, der den Wert eines {{cssxref("margin-inline")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-inline")}} Deskriptors darstellt.
 - `margin-inline-end` oder `marginInlineEnd`
-  - : Ein String, der den Wert eines {{cssxref("margin-inline-end")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-inline-end")}} Deskriptors darstellt.
 - `margin-inline-start` oder `marginInlineStart`
-  - : Ein String, der den Wert eines {{cssxref("margin-inline-start")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-inline-start")}} Deskriptors darstellt.
 - `margin-left` oder `marginLeft`
-  - : Ein String, der den Wert eines {{cssxref("margin-left")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-left")}} Deskriptors darstellt.
 - `margin-right` oder `marginRight`
-  - : Ein String, der den Wert eines {{cssxref("margin-right")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-right")}} Deskriptors darstellt.
 - `margin-top` oder `marginTop`
-  - : Ein String, der den Wert eines {{cssxref("margin-top")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("margin-top")}} Deskriptors darstellt.
 - `max-block-size` oder `maxBlockSize`
-  - : Ein String, der den Wert eines {{cssxref("max-block-size")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("max-block-size")}} Deskriptors darstellt.
 - `max-height` oder `maxHeight`
-  - : Ein String, der den Wert eines {{cssxref("max-height")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("max-height")}} Deskriptors darstellt.
 - `max-inline-size` oder `maxInlineSize`
-  - : Ein String, der den Wert eines {{cssxref("max-inline-size")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("max-inline-size")}} Deskriptors darstellt.
 - `max-width` oder `maxWidth`
-  - : Ein String, der den Wert eines {{cssxref("max-width")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("max-width")}} Deskriptors darstellt.
 - `min-block-size` oder `minBlockSize`
-  - : Ein String, der den Wert eines {{cssxref("min-block-size")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("min-block-size")}} Deskriptors darstellt.
 - `min-height` oder `minHeight`
-  - : Ein String, der den Wert eines {{cssxref("min-height")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("min-height")}} Deskriptors darstellt.
 - `min-inline-size` oder `minInlineSize`
-  - : Ein String, der den Wert eines {{cssxref("min-inline-size")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("min-inline-size")}} Deskriptors darstellt.
 - `min-width` oder `minWidth`
-  - : Ein String, der den Wert eines {{cssxref("min-width")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("min-width")}} Deskriptors darstellt.
 - `place-self` oder `placeSelf`
-  - : Ein String, der den Wert eines {{cssxref("place-self")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("place-self")}} Deskriptors darstellt.
 - `position-anchor` oder `positionAnchor`
-  - : Ein String, der den Wert eines {{cssxref("position-anchor")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("position-anchor")}} Deskriptors darstellt.
 - `right`
-  - : Ein String, der den Wert eines {{cssxref("right")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("right")}} Deskriptors darstellt.
 - `top`
-  - : Ein String, der den Wert eines {{cssxref("top")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("top")}} Deskriptors darstellt.
 - `width`
-  - : Ein String, der den Wert eines {{cssxref("width")}} Deskriptors repräsentiert.
+  - : Ein String, der den Wert eines {{cssxref("width")}} Deskriptors darstellt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try` At-Regel mit einem Namen von `--custom-right` und drei Deskriptoren.
+Das CSS enthält eine `@position-try` At-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-right {
@@ -138,6 +138,6 @@ console.log(tryOption.style["position-area"]); // "right"
 - [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Overflow: Optionen wie try und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [Verwendung der CSS Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+- [Umgang mit Überlauf: try-Optionen und bedingtes Ausblenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)

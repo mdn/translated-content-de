@@ -2,10 +2,10 @@
 title: scroll-margin-left
 slug: Web/CSS/Reference/Properties/scroll-margin-left
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die Eigenschaft `scroll-margin-left` definiert den linken Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird ermittelt, indem man das transformierte Randfeld nimmt, dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) findet und dann die angegebenen Ausdehnungen hinzufügt.
+Die Eigenschaft `scroll-margin-left` definiert den linken Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Schnappbereich")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Randrahmen genommen wird, dessen rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Randzusätze hinzugefügt werden.
 
 {{InteractiveExample("CSS Demo: scroll-margin-left")}}
 
@@ -90,7 +90,7 @@ scroll-margin-left: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Eine Ausdehnung vom linken Rand des Scroll-Containers.
+  - : Ein Randzusatz vom linken Rand des Scroll-Containers.
 
 ## Formale Definition
 
@@ -110,5 +110,5 @@ scroll-margin-left: unset;
 
 ## Siehe auch
 
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

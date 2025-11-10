@@ -1,21 +1,21 @@
 ---
-title: Optimierung von canvas
+title: Optimierung der Leinwand
 slug: Web/API/Canvas_API/Tutorial/Optimizing_canvas
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas", "Web/API/Canvas_API/Tutorial/Finale")}}
 
-Das {{HTMLElement("canvas")}}-Element ist eines der am häufigsten verwendeten Werkzeuge für das Rendern von 2D-Grafiken im Web. Wenn jedoch Websites und Apps die Canvas-API bis an ihre Grenzen ausreizen, leidet die Leistung. Dieser Artikel bietet Vorschläge zur Optimierung der Nutzung des canvas-Elements, um sicherzustellen, dass Ihre Grafiken gut funktionieren.
+Das {{HTMLElement("canvas")}}-Element ist eines der am häufigsten verwendeten Werkzeuge zum Rendern von 2D-Grafiken im Web. Wenn Websites und Apps jedoch die Canvas API maximal ausreizen, leidet die Leistung. Dieser Artikel bietet Vorschläge zur Optimierung der Verwendung des Canvas-Elements, um sicherzustellen, dass Ihre Grafiken gut performen.
 
 ## Leistungstipps
 
-Im Folgenden finden Sie eine Sammlung von Tipps zur Verbesserung der Canvas-Leistung.
+Nachfolgend finden Sie eine Sammlung von Tipps zur Verbesserung der Canvas-Leistung.
 
-### Ähnliche Primitive oder sich wiederholende Objekte auf einem offscreen canvas vor-rendern
+### Vorab-Rendering ähnlicher Primitiven oder sich wiederholender Objekte auf einer Offscreen-Leinwand
 
-Wenn Sie feststellen, dass Sie einige der gleichen Zeichnungsoperationen in jedem Animationsframe wiederholen, sollten Sie in Betracht ziehen, diese auf ein offscreen canvas auszulagern. Sie können das offscreen-Bild dann so oft wie nötig auf Ihr primäres Canvas rendern, ohne die Schritte zur Erzeugung unnötig zu wiederholen.
+Wenn Sie feststellen, dass Sie einige der gleichen Zeichenoperationen in jedem Animationsrahmen wiederholen, sollten Sie in Erwägung ziehen, diese auf eine Offscreen-Leinwand auszulagern. Sie können dann das Offscreen-Bild bei Bedarf so oft wie nötig auf Ihre Hauptleinwand rendern, ohne die Schritte, die zur Erzeugung erforderlich sind, unnötig zu wiederholen.
 
 ```js
 myCanvas.offscreenCanvas = document.createElement("canvas");
@@ -25,25 +25,25 @@ myCanvas.offscreenCanvas.height = myCanvas.height;
 myCanvas.getContext("2d").drawImage(myCanvas.offScreenCanvas, 0, 0);
 ```
 
-### Vermeiden Sie Fließkomma-Koordinaten und verwenden Sie stattdessen Ganzzahlen
+### Vermeiden Sie Floating-Point-Koordinaten und verwenden Sie stattdessen ganze Zahlen
 
-Subpixel-Rendering tritt auf, wenn Sie Objekte auf ein Canvas ohne Ganzzahlen rendern.
+Sub-Pixel-Rendering tritt auf, wenn Sie Objekte ohne ganzzahlige Werte auf einer Leinwand rendern.
 
 ```js
 ctx.drawImage(myImage, 0.3, 0.5);
 ```
 
-Dies zwingt den Browser, zusätzliche Berechnungen für den Anti-Aliasing-Effekt durchzuführen. Um dies zu vermeiden, stellen Sie sicher, dass alle in Aufrufen von [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwendeten Koordinaten mit {{jsxref("Math.floor()")}} gerundet werden, zum Beispiel.
+Dies zwingt den Browser zu zusätzlichen Berechnungen, um den Anti-Aliasing-Effekt zu erzeugen. Um dies zu vermeiden, sollten Sie sicherstellen, dass alle Koordinaten, die in Aufrufen von [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwendet werden, mit {{jsxref("Math.floor()")}} gerundet werden.
 
 ### Skalieren Sie keine Bilder in `drawImage`
 
-Speichern Sie verschiedene Größen Ihrer Bilder auf einem offscreen canvas beim Laden, anstatt sie ständig in [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) zu skalieren.
+Speichern Sie verschiedene Größen Ihrer Bilder auf einer Offscreen-Leinwand beim Laden, anstatt sie ständig in [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) zu skalieren.
 
-### Verwenden Sie mehrere geschichtete Canvas für komplexe Szenen
+### Verwenden Sie mehrere geschichtete Leinwände für komplexe Szenen
 
-In Ihrer Anwendung kann es sein, dass sich einige Objekte häufig bewegen oder ändern müssen, während andere relativ statisch bleiben. Eine mögliche Optimierung in dieser Situation ist es, Ihre Elemente mithilfe mehrerer `<canvas>`-Elemente zu schichten.
+In Ihrer Anwendung kann es vorkommen, dass sich einige Objekte häufig bewegen oder ändern müssen, während andere relativ statisch bleiben. Eine mögliche Optimierung in dieser Situation ist es, Ihre Elemente mit mehreren `<canvas>`-Elementen zu schichten.
 
-Angenommen, Sie haben ein Spiel mit einer Benutzeroberfläche oben, der Gameplay-Aktion in der Mitte und einem statischen Hintergrund unten. In diesem Fall könnten Sie Ihr Spiel in drei `<canvas>`-Schichten aufteilen. Die Benutzeroberfläche würde sich nur bei Benutzereingaben ändern, die Gameplay-Schicht mit jedem neuen Frame und der Hintergrund bliebe im Allgemeinen unverändert.
+Nehmen wir zum Beispiel an, Sie haben ein Spiel mit einer Benutzeroberfläche oben, der Gameplay-Aktion in der Mitte und einem statischen Hintergrund unten. In diesem Fall könnten Sie Ihr Spiel in drei `<canvas>`-Schichten aufteilen. Die Benutzeroberfläche würde sich nur auf Benutzereingaben ändern, die Gameplay-Schicht würde sich mit jedem neuen Frame ändern und der Hintergrund bliebe im Allgemeinen unverändert.
 
 ```html
 <div id="stage">
@@ -77,11 +77,11 @@ canvas {
 
 ### Verwenden Sie einfaches CSS für große Hintergrundbilder
 
-Wenn Sie ein statisches Hintergrundbild haben, können Sie es mit der CSS-{{cssxref("background")}}-Eigenschaft auf ein einfaches {{HTMLElement("div")}}-Element zeichnen und es unter das Canvas positionieren. Dadurch wird vermieden, dass der Hintergrund bei jedem Tick auf das Canvas gerendert werden muss.
+Wenn Sie ein statisches Hintergrundbild haben, können Sie es auf ein einfaches {{HTMLElement("div")}}-Element mit der CSS-{{cssxref("background")}}-Eigenschaft zeichnen und unter der Leinwand positionieren. Dadurch entfällt die Notwendigkeit, den Hintergrund bei jedem Takt auf die Leinwand zu rendern.
 
-### Skalierung von Canvas mit CSS-Transformationen
+### Skalierung der Leinwand mit CSS-Transforms
 
-[CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) sind schneller, da sie die GPU nutzen. Der beste Fall ist, das Canvas nicht zu skalieren, oder ein kleineres Canvas zu haben und es hochzuskalieren, anstatt ein größeres Canvas zu haben und es herunterzuskalieren.
+[CSS-Transforms](/de/docs/Web/CSS/Guides/Transforms/Using) sind schneller, da sie die GPU verwenden. Der beste Fall ist, die Leinwand nicht zu skalieren oder eine kleinere Leinwand zu haben und sie zu vergrößern, anstatt eine größere Leinwand zu haben und sie zu verkleinern.
 
 ```js
 const scaleX = window.innerWidth / canvas.width;
@@ -94,9 +94,9 @@ stage.style.transformOrigin = "0 0"; // Scale from top left
 stage.style.transform = `scale(${scaleToFit})`;
 ```
 
-### Transparenz ausschalten
+### Deaktivieren Sie die Transparenz
 
-Wenn Ihre Anwendung Canvas verwendet und keinen transparenten Hintergrund benötigt, setzen Sie die `alpha`-Option auf `false`, wenn Sie einen Zeichenkontext mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) erstellen. Diese Information kann intern vom Browser verwendet werden, um das Rendering zu optimieren.
+Wenn Ihre Anwendung eine Leinwand verwendet und keinen transparenten Hintergrund benötigt, setzen Sie die `alpha`-Option auf `false`, wenn Sie einen Zeichenkontext mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) erstellen. Diese Information kann intern vom Browser verwendet werden, um das Rendering zu optimieren.
 
 ```js
 const ctx = canvas.getContext("2d", { alpha: false });
@@ -104,7 +104,7 @@ const ctx = canvas.getContext("2d", { alpha: false });
 
 ### Skalierung für hochauflösende Displays
 
-Sie könnten feststellen, dass Canvas-Elemente auf höherauflösenden Displays unscharf erscheinen. Während es viele Lösungen geben mag, ist ein einfacher erster Schritt, die Canvas-Größe gleichzeitig hoch- und herunterzuskalieren, unter Verwendung ihrer Attribute, ihres Stylings und der Skalierung ihres Kontexts.
+Es kann passieren, dass Leinwandelemente auf höher auflösenden Displays verschwommen erscheinen. Während viele Lösungen existieren, ist ein einfacher erster Schritt, die Leinwandgröße gleichzeitig hoch- und herunterzuskalieren, indem Sie ihre Attribute, das Styling und die Skalierung ihres Kontextes verwenden.
 
 ```js
 // Get the DPR and size of the canvas
@@ -125,13 +125,13 @@ canvas.style.height = `${rect.height}px`;
 
 ### Weitere Tipps
 
-- Fassen Sie Canvas-Aufrufe zusammen. Zeichnen Sie zum Beispiel eine Polylinie anstelle mehrerer einzelner Linien.
-- Vermeiden Sie unnötige Canvas-Zustandsänderungen.
-- Rendern Sie nur Bildschirmunterschiede, nicht den gesamten neuen Zustand.
-- Vermeiden Sie die [`shadowBlur`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur)-Eigenschaft wann immer möglich.
-- Vermeiden Sie soweit möglich die [Textrendering](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text).
-- Probieren Sie verschiedene Methoden zum Löschen des Canvas aus ([`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect) vs. [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) vs. Neukalibrieren des Canvas).
-- Bei Animationen verwenden Sie [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle von [`setInterval()`](/de/docs/Web/API/Window/setInterval).
-- Seien Sie vorsichtig mit umfangreichen Physikbibliotheken.
+- Fassen Sie Leinwandaufrufe zusammen. Zeichnen Sie beispielsweise eine Polylinie anstelle mehrerer separater Linien.
+- Vermeiden Sie unnötige Zustandsänderungen der Leinwand.
+- Rendern Sie nur Bildschirmdifferenzen, nicht den gesamten neuen Zustand.
+- Vermeiden Sie die [`shadowBlur`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur)-Eigenschaft, wann immer möglich.
+- Vermeiden Sie [Textrendering](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text), wann immer möglich.
+- Probieren Sie verschiedene Methoden zum Löschen der Leinwand aus ([`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect) vs. [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) vs. Leinwand vergrößern).
+- Verwenden Sie bei Animationen [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle von [`setInterval()`](/de/docs/Web/API/Window/setInterval).
+- Seien Sie vorsichtig mit schweren Physik-Bibliotheken.
 
 {{PreviousNext("Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas", "Web/API/Canvas_API/Tutorial/Finale")}}

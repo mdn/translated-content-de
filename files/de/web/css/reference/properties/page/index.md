@@ -2,12 +2,12 @@
 title: page
 slug: Web/CSS/Reference/Properties/page
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`page`**-Eigenschaft [CSS](/de/docs/Web/CSS) wird verwendet, um die benannte Seite zu spezifizieren, ein spezifischer Seitentyp, der durch die {{cssxref("@page")}}- [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) definiert ist.
+Die **`page`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die benannte Seite, eine spezielle Art von Seite, die durch die {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) definiert wird, anzugeben.
 
-Wenn mehrere Selektoren aufeinanderfolgend eine benannte Seite verwenden, kann ein erzwungener Seitenumbruch mithilfe von [`break-after`](/de/docs/Web/CSS/Reference/Properties/break-after) erforderlich sein.
+Falls mehrere Selektoren aufeinanderfolgend eine benannte Seite verwenden, kann ein erzwungener Seitenumbruch mit [`break-after`](/de/docs/Web/CSS/Reference/Properties/break-after) erforderlich sein.
 
 ## Syntax
 
@@ -30,9 +30,9 @@ page: unset;
 ### Werte
 
 - `auto`
-  - : Standardwert. Verwenden Sie den Wert des nächstgelegenen Vorfahren mit einem nicht-`auto`-Wert. Wenn kein Vorfahr einen benannten Seitenwert festgelegt hat, ist der verwendete Wert für auto der leere String.
+  - : Standardwert. Verwenden Sie den Wert des nächstgelegenen Vorfahren mit einem Nicht-`auto`-Wert. Wenn kein Vorfahr einen benannten Seitenwert festgelegt hat, ist der verwendete Wert für auto der leere String.
 - {{cssxref("custom-ident")}}
-  - : Groß-/Kleinschreibung beachten. Name definiert in einer [`@page`](/de/docs/Web/CSS/Reference/At-rules/@page) At-Regel.
+  - : Groß-/Kleinschreibungssensitive Name, der in einer [`@page`](/de/docs/Web/CSS/Reference/At-rules/@page) At-Regel definiert ist.
 
 ## Formale Definition
 
@@ -44,9 +44,10 @@ page: unset;
 
 ## Beispiele
 
-### Beispiel für eine benannte Seite
+### Beispiel für benannte Seite
 
-In diesem Beispiel gibt es zwei Teile in diesem HTML; Drucksteuerungen und der Inhalt, der gedruckt werden soll. Die Drucksteuerungen ermöglichen es dem Benutzer, auszuwählen, wie die `section`s im `article` gedruckt werden.
+In diesem Beispiel gibt es zwei Teile in diesem HTML; Drucksteuerungen und den zu druckenden Inhalt.
+Die Drucksteuerungen ermöglichen es dem Benutzer auszuwählen, wie die `section`s im `article` gedruckt werden sollen.
 
 ```html live-sample___page-property
 <!-- print options in a fieldset -->
@@ -132,7 +133,7 @@ In diesem Beispiel gibt es zwei Teile in diesem HTML; Drucksteuerungen und der I
 </article>
 ```
 
-Der erste Teil des CSS richtet die **benannten** Seiten ein, diese beinhalten die Größe und Orientierung sowie einige Inhalte, die im [`@top-center`-Rand](/de/docs/Web/CSS/Reference/At-rules/@page#margin_at-rules) der gedruckten Seiten platziert werden sollen.
+Der erste Teil des CSS richtet die **benannten** Seiten ein, einschließlich der Größe und Ausrichtung sowie einiger Inhalte, die in den [`@top-center` Rand](/de/docs/Web/CSS/Reference/At-rules/@page#margin_at-rules) der gedruckten Seiten eingefügt werden sollen.
 
 ```css live-sample___page-property
 @page toc {
@@ -184,7 +185,9 @@ body {
 }
 ```
 
-Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), um die Druckdimensionen, Orientierung und Ränder, die in den benannten `@page`-Regeln im vorherigen CSS-Abschnitt definiert sind, auf Elemente anzuwenden, die die `page`-Eigenschaft nutzen. Die Abschnitte mit `class="chapter"` sind fortlaufend und erscheinen als eine Seite. Das `break-after: page;` wird verwendet, um sie aufzuteilen, was jedes Kapitel auf eine separat gedruckte Seite aufteilt.
+Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), um die in den benannten `@page` Regeln definierten Druckdimensionen, Ausrichtung und Ränder auf Elemente anzuwenden, die die `page` Eigenschaft verwenden.
+Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als eine Seite.
+Das `break-after: page;` wird verwendet, um sie aufzuteilen, was jedes Kapitel in eine separat gedruckte Seite aufteilt.
 
 ```css live-sample___page-property
 @media print {
@@ -232,7 +235,7 @@ Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Refere
 }
 ```
 
-Das JavaScript aktualisiert den Wert des `data-print`-Attributs, welches das Attribut ist, auf das die benannte Seite angewendet wird, wenn Sie eine andere Druckoption auswählen:
+Das JavaScript aktualisiert den Wert des `data-print` Attributs, welches das Attribut ist, auf dem die benannte Seite angewendet wird, wenn Sie eine andere Druckoption auswählen:
 
 ```js live-sample___page-property
 const printArea = document.querySelector("#print-area");
@@ -254,7 +257,7 @@ printButton.addEventListener("click", () => {
 });
 ```
 
-Was gedruckt wird und was im Dialog zur Druckvorschau gezeigt wird, ändert sich abhängig davon, welcher Radiobutton für den Druckstil ausgewählt ist:
+Was gedruckt wird und was im Druckvorschau-Dialog angezeigt wird, ändert sich je nachdem, welcher Druckstil-Radiobutton ausgewählt ist:
 
 {{EmbedLiveSample('page-property', '100%', '540', , , , , "allow-modals")}}
 

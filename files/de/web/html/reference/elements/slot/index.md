@@ -1,18 +1,18 @@
 ---
-title: "<slot>: Das Slot-Element für Webkomponenten"
+title: "<slot>: Das Web Component Slot Element"
 slug: Web/HTML/Reference/Elements/slot
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element — Teil der [Webkomponenten](/de/docs/Web/API/Web_components)-Technologiesuite — ist ein Platzhalter innerhalb einer Webkomponente, den Sie mit eigenem Markup füllen können. Dadurch lassen sich separate DOM-Bäume erstellen und gemeinsam darstellen.
+Das **`<slot>`** [HTML](/de/docs/Web/HTML) Element ist Teil der [Web Components](/de/docs/Web/API/Web_components) Technologie-Suite und dient als Platzhalter innerhalb eines Web-Components, den Sie mit Ihrem eigenen Markup füllen können. Damit lassen sich separate DOM-Bäume erstellen und zusammen präsentieren.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `name`
-  - : Der Name des Slots. Wenn die Komponente, die den Slot enthält, gerendert wird, wird der Slot mit dem Kindelement des benutzerdefinierten Elements gerendert, das über ein passendes [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut verfügt. Ein _benannter Slot_ ist ein `<slot>`-Element mit einem `name`-Attribut. Nicht benannte Slots tragen den Standardnamen des leeren Strings. Namen sollten innerhalb eines Shadow-Roots eindeutig sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem passenden `slot`-Attribut dem ersten Slot mit diesem Namen zugewiesen.
+  - : Der Name des Slots. Wenn die Komponente, die den Slot enthält, gerendert wird, wird der Slot mit dem Kindelement des benutzerdefinierten Elements gerendert, das ein passendes [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut hat. Ein _benannter Slot_ ist ein `<slot>`-Element mit einem `name`-Attribut. Unbenannte Slots haben standardmäßig den leeren String als Namen. Namen sollten pro Shadow Root einzigartig sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem passenden `slot`-Attribut dem ersten Slot mit diesem Namen zugewiesen.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 ```
 
 > [!NOTE]
-> Dieses vollständige Beispiel können Sie in Aktion sehen unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) (sehen Sie es sich [live an](https://mdn.github.io/web-components-examples/element-details/)). Eine Erklärung finden Sie außerdem unter [Templates und Slots verwenden](/de/docs/Web/API/Web_components/Using_templates_and_slots).
+> Sie können dieses vollständige Beispiel in Aktion unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) sehen (siehe es [live in Aktion](https://mdn.github.io/web-components-examples/element-details/)). Außerdem finden Sie eine Erklärung unter [Using templates and slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
 
 ## Technische Zusammenfassung
 
@@ -78,12 +78,12 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
           >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
@@ -92,11 +92,11 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       </td>
     </tr>
     <tr>
-      <th scope="row">Events</th>
+      <th scope="row">Ereignisse</th>
       <td>[`slotchange`](/de/docs/Web/API/HTMLSlotElement/slotchange_event)</td>
     </tr>
     <tr>
-      <th scope="row">Auslassung des Tags</th>
+      <th scope="row">Tag-Auslassung</th>
       <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
@@ -104,13 +104,13 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >
         akzeptiert
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -138,8 +138,8 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ## Siehe auch
 
-- HTML {{HTMLElement("template")}}-Element
-- HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut
-- CSS {{CSSXref("::slotted")}}-Pseudoelement
-- CSS {{cssxref(":has-slotted")}}-Pseudoklasse
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul
+- HTML {{HTMLElement("template")}} Element
+- HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot) Attribut
+- CSS {{CSSXref("::slotted")}} Pseudo-Element
+- CSS {{cssxref(":has-slotted")}} Pseudo-Klasse
+- [CSS Scoping](/de/docs/Web/CSS/Guides/Scoping) Modul

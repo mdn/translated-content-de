@@ -2,17 +2,17 @@
 title: :heading
 slug: Web/CSS/Reference/Selectors/:heading
 l10n:
-  sourceCommit: be8baea744a06feac9320a19eb9446ff1955af76
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`:heading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) passt auf alle [Überschriftselemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) in einem Dokument. Dadurch können Sie alle Überschriften auf einmal stylen, anstatt sie einzeln zu erfassen und zu stylen.
+Die **`:heading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt alle [Überschrift-Elemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) in einem Dokument aus. Dies ermöglicht Ihnen, alle Überschriften auf einmal zu stylen, anstatt sie einzeln auswählen und stylen zu müssen.
 
-Diese Pseudoklasse passt nur auf Elemente, die standardmäßig semantisch als Überschriften (`<h1>` bis `<h6>`) erkannt werden. Elemente mit [`role="heading"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) werden nicht erfasst; Sie können solche mit Hilfe des `[role="heading"]` [Attributselectors](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) wählen.
+Diese Pseudoklasse wählt nur Elemente aus, die standardmäßig semantisch als Überschriften erkannt werden (`<h1>` bis `<h6>`). Elemente mit [`role="heading"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) werden nicht ausgewählt; Sie können diese mit dem [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) `[role="heading"]` auswählen.
 
 > [!NOTE]
-> Die `:heading` Pseudoklasse hat die gleiche [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated) wie ein Klassenselektor, das heißt, `0-1-0`. So hätte `:heading` eine Spezifität von `0-1-0`, und `section:heading` hätte eine Spezifität von `0-1-1`.
+> Die `:heading` Pseudoklasse hat dieselbe [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity#how_is_specificity_calculated) wie ein Klassen-Selektor, das heißt `0-1-0`. Daher hätte `:heading` eine Spezifität von `0-1-0` und `section:heading` eine Spezifität von `0-1-1`.
 
 ## Syntax
 

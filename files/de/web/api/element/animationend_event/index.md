@@ -1,14 +1,14 @@
 ---
-title: "Element: animationend Ereignis"
+title: "Element: animationend-Ereignis"
 short-title: animationend
 slug: Web/API/Element/animationend_event
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`animationend`** Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) abgeschlossen ist. Wenn die Animation abgebrochen wird, bevor sie abgeschlossen ist, zum Beispiel wenn das Element aus dem DOM entfernt wird oder die Animation vom Element entfernt wird, wird das `animationend` Ereignis nicht ausgelöst.
+Das **`animationend`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/Guides/Animations) abgeschlossen ist. Wenn die Animation vor dem Abschluss abgebrochen wird, zum Beispiel, wenn das Element aus dem DOM entfernt wird oder die Animation vom Element entfernt wird, wird das `animationend`-Ereignis nicht ausgelöst.
 
 ## Syntax
 
@@ -28,18 +28,18 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-`Event` [`Event`](/de/docs/Web/API/Event)._
+_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
 
 - [`AnimationEvent.animationName`](/de/docs/Web/API/AnimationEvent/animationName) {{ReadOnlyInline}}
-  - : Ein String, der den Wert des {{cssxref("animation-name")}}, das die Animation erzeugt hat, enthält.
+  - : Ein String, der den Wert des {{cssxref("animation-name")}} enthält, der die Animation erzeugt hat.
 - [`AnimationEvent.elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Ein `float`, das die Zeitangabe in Sekunden angibt, wie lange die Animation schon lief, als dieses Ereignis ausgelöst wurde, ohne die Zeit, in der die Animation pausiert war. Für ein `animationstart` Ereignis ist `elapsedTime` `0,0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime` ausgelöst, die `(-1 * delay)` enthält.
+  - : Ein `float`, der die Zeit in Sekunden angibt, die die Animation beim Auslösen dieses Ereignisses gelaufen ist, ohne die Zeitteile einzuschließen, in denen die Animation pausiert war. Bei einem `animationstart`-Ereignis ist `elapsedTime` `0,0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime`, das `(-1 * delay)` enthält, ausgelöst.
 - [`AnimationEvent.pseudoElement`](/de/docs/Web/API/AnimationEvent/pseudoElement) {{ReadOnlyInline}}
-  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element abläuft, ein leerer String: `''`.
+  - : Ein String, der mit `'::'` beginnt und den Namen des [Pseudoelements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird. Wenn die Animation nicht auf einem Pseudoelement, sondern auf dem Element ausgeführt wird, ein leerer String: `''`.
 
 ## Beispiele
 
-Dieses Beispiel erhält ein Element, das animiert wird, und hört auf das `animationend` Ereignis:
+Dieses Beispiel erhält ein Element, das animiert wird, und lauscht auf das `animationend`-Ereignis:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -49,7 +49,7 @@ animated.addEventListener("animationend", () => {
 });
 ```
 
-Dasselbe, aber mit der `onanimationend` Ereignis-Handler-Eigenschaft:
+Dasselbe, aber unter Verwendung der `onanimationend`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -161,7 +161,7 @@ applyAnimation.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - Verwandte Ereignisse: [`animationstart`](/de/docs/Web/API/Element/animationstart_event), [`animationcancel`](/de/docs/Web/API/Element/animationcancel_event), [`animationiteration`](/de/docs/Web/API/Element/animationiteration_event)

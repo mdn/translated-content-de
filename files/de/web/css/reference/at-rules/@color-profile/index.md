@@ -2,10 +2,10 @@
 title: "@color-profile"
 slug: Web/CSS/Reference/At-rules/@color-profile
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) definiert und benennt ein Farbprofil, das später in der {{cssxref("color_value/color", "color()")}}-Funktion verwendet werden kann, um eine Farbe anzugeben.
+Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) definiert und benennt ein Farbprofil, das später in der {{cssxref("color_value/color", "color()")}}-Funktion verwendet werden kann, um eine Farbe anzugeben.
 
 ## Syntax
 
@@ -25,17 +25,19 @@ Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS
 - `src`
   - : Gibt die URL an, von der die Farbprofilinformationen abgerufen werden sollen.
 - `rendering-intent`
-  - : Wenn das Farbprofil mehr als eine Rendering-Absicht enthält, ermöglicht dieser Deskriptor die Auswahl einer, die verwendet werden soll, um zu definieren, wie die Farbe auf kleinere {{Glossary("gamut", "Gamut")}}s abgebildet werden soll, als dieses Profil definiert ist.
+
+  - : Wenn das Farbprofil mehr als eine Rendering-Intention enthält, ermöglicht dieser Deskriptor, eine als die zu verwendende auszuwählen, um zu definieren, wie die Farbe auf kleinere {{Glossary("gamut", "Gamut")}}s als dieses Profil abgebildet werden soll.
 
     Wenn verwendet, muss es eines der folgenden Schlüsselwörter sein:
+
     - `relative-colorimetric`
-      - : Relative Colorimetrik bezogen auf das Medium muss Quellfarben, die innerhalb des Zielmediums {{Glossary("gamut", "Gamut")}} liegen, relativ zu den jeweiligen Medienweißpunkten unverändert lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mittels verschiedener Methoden auf Farben an der Gamut-Grenze abgebildet.
+      - : Medien-relative kolorimetrische Anpassung muss Quellfarben, die innerhalb des Zielmedium-Gamuts liegen, relativ zu den jeweiligen Medienweißpunkten unverändert lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mithilfe verschiedener Methoden auf Farben an der Gamut-Grenze abgebildet.
     - `absolute-colorimetric`
-      - : ICC-absolute Colorimetrik muss Quellfarben, die innerhalb des Zielmediums {{Glossary("gamut", "Gamut")}} liegen, unverändert relativ zur angewandten Weißfarbe (ein perfekter reflektierender Diffusor) lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mittels verschiedener Methoden auf Farben an der Gamut-Grenze abgebildet.
+      - : ICC-absolute kolorimetrische Anpassung muss Quellfarben, die innerhalb des Zielmedium-Gamuts liegen, relativ zum angenommenen Weiß (einem perfekten reflektierenden Diffusor) unverändert lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mithilfe verschiedener Methoden auf Farben an der Gamut-Grenze abgebildet.
     - `perceptual`
-      - : Diese Methode ist häufig die bevorzugte Wahl für Bilder, besonders wenn es wesentliche Unterschiede zwischen der Quelle und dem Ziel gibt (wie ein Bild auf einem Bildschirm, das auf einem reflektierenden Druck wiedergegeben wird). Sie nimmt die Farben des Quellbildes und optimiert die Darstellung für das Zielmedium mittels proprietärer Methoden neu.
+      - : Diese Methode wird häufig für Bilder bevorzugt, insbesondere wenn es erhebliche Unterschiede zwischen Quelle und Ziel gibt (z. B. ein Bildschirmbild, das auf einem Reflexionsdruck wiedergegeben wird). Sie nimmt die Farben des Quellbildes und optimiert das Erscheinungsbild für das Zielmedium neu unter Verwendung proprietärer Methoden.
     - `saturation`
-      - : Diese Option wurde erstellt, um die relative Sättigung (Chroma) des Originals zu bewahren und Vollfarben rein zu halten. Allerdings traten Interoperabilitätsprobleme ähnlich dem perceptuellen Intent auf.
+      - : Diese Option wurde geschaffen, um die relative Sättigung (Chroma) des Originals zu bewahren und volle Farben rein zu halten. Allerdings trat sie ähnlich wie der wahrnehmungsbezogene Intent auf Interoperabilitätsprobleme.
 
 ## Formale Syntax
 
@@ -43,7 +45,7 @@ Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/CSS
 
 ## Beispiele
 
-Dieses Beispiel demonstriert den Offsetdruck nach ISO 12647-2:2004 unter Verwendung der CGATS/SWOP TR005 2007 Charakterisierungsdaten auf Papier der Klasse 5 mit einem Tintenlimit von 300% Total Area Coverage und mittlerem Grau-Komponentenersatz (GCR). Dieses Beispiel stammt aus der Spezifikation.
+Dieses Beispiel zeigt den Offsetdruck nach ISO 12647-2:2004 unter Verwendung der CGATS/SWOP TR005 2007-Charakterisierungsdaten auf Papier der Qualität 5 mit einem Tintenlimit von 300 % Total Area Coverage und mittlerem Gray Component Replacement (GCR). Dieses Beispiel stammt aus der Spezifikation.
 
 Der `src`-Deskriptor gibt die URL an, von der die Farbprofilinformationen abgerufen werden sollen.
 
@@ -62,8 +64,8 @@ Der `src`-Deskriptor gibt die URL an, von der die Farbprofilinformationen abgeru
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützen keine Browser diese Funktion.
+Derzeit unterstützen keine Browser dieses Feature.
 
 ## Siehe auch
 
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul

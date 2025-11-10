@@ -3,45 +3,26 @@ title: "HTMLImageElement: crossOrigin-Eigenschaft"
 short-title: crossOrigin
 slug: Web/API/HTMLImageElement/crossOrigin
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
-Interface hat ein **`crossOrigin`**-Attribut, das ein String ist und die Cross-Origin Resource Sharing ({{Glossary("CORS", "CORS")}})-Einstellungen angibt, die beim Abrufen des Bildes verwendet werden sollen.
+Die **`crossOrigin`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ist ein String, der die Einstellung für Cross-Origin Resource Sharing ({{Glossary("CORS", "CORS")}}) angibt, die beim Abrufen des Bildes verwendet wird. Sie spiegelt das [`crossorigin`](/de/docs/Web/HTML/Reference/Elements/img#crossorigin)-Inhaltsattribut des `<img>`-Elements wider.
 
 ## Wert
 
-Ein String eines Schlüsselworts, das den CORS-Modus festlegt, der beim Abrufen der Bildressource verwendet werden soll. Wenn Sie `crossOrigin` nicht angeben, wird das Bild ohne CORS abgerufen (der Abruf im `no-cors`-Modus).
-
-Zugelassene Werte sind:
-
-- `anonymous`
-  - : Anfragen vom {{HTMLElement("img")}}-Element haben ihren
-    [`mode`](/de/docs/Web/API/Request/mode) auf `cors` gesetzt und ihren [`credentials`](/de/docs/Web/API/Request/credentials)
-    Modus auf `same-origin`. Das bedeutet, dass CORS aktiviert ist
-    und Anmeldeinformationen gesendet werden _wenn_ das Bild von derselben Herkunft abgerufen wird,
-    von der das Dokument geladen wurde.
-- `use-credentials`
-  - : Anfragen vom [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) verwenden den `cors`-Modus
-    und den `include`-Anmeldeinformationen-Modus; alle Bildanfragen des Elements verwenden
-    CORS, unabhängig davon, von welcher Domain der Abruf stammt.
-
-Wenn `crossOrigin` ein leerer String (`""`) ist,
-wird der `anonymous`-Modus ausgewählt.
+Ein String, dessen Wert entweder `anonymous` oder `use-credentials` ist. Für die Bedeutungen siehe das HTML-Attributsreferenz [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
 
 ## Beispiele
 
-In diesem Beispiel wird ein neues {{HTMLElement("img")}}-Element erstellt und dem
-Dokument hinzugefügt, wobei das Bild im anonymen Zustand geladen wird; das Bild wird mit
-CORS geladen und Anmeldeinformationen werden für alle abgerufenen geladenen Ursprünge verwendet.
+### Das crossorigin-Attribut setzen
 
-### JavaScript
+In diesem Beispiel wird ein neues {{HTMLElement("img")}}-Element erstellt und dem Dokument hinzugefügt, wobei das Bild im anonymen Zustand geladen wird; das Bild wird unter Verwendung von CORS geladen und Anmeldedaten werden für alle Cross-Origin-Ladungen verwendet.
 
-Der folgende Code demonstriert das Setzen der `crossOrigin`-Eigenschaft auf einem
-`<img>`-Element, um den CORS-Zugriff für den Abruf eines
-neu erstellten Bildes zu konfigurieren.
+#### JavaScript
+
+Der folgende Code demonstriert das Setzen der `crossOrigin`-Eigenschaft eines `<img>`-Elements, um CORS-Zugriff für das Abrufen eines neu erstellten Bildes zu konfigurieren.
 
 ```js
 const container = document.querySelector(".container");
@@ -61,7 +42,7 @@ function loadImage(url) {
   image.src = url;
 }
 
-loadImage("clock-demo-400px.png");
+loadImage("/shared-assets/images/examples/balloon.jpg");
 ```
 
 ### HTML
@@ -106,7 +87,7 @@ output {
 
 ### Ergebnis
 
-{{EmbedLiveSample("Examples", 600, 260)}}
+{{EmbedLiveSample("Setting the crossorigin attribute", 600, 260)}}
 
 ## Spezifikationen
 

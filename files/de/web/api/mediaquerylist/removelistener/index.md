@@ -1,20 +1,21 @@
 ---
-title: "MediaQueryList: removeListener() Methode"
+title: "MediaQueryList: Methode removeListener()"
 short-title: removeListener()
 slug: Web/API/MediaQueryList/removeListener
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM view API")}}{{Deprecated_Header}}
 
-Die **`removeListener()`** Methode der
-[`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Schnittstelle entfernt einen Zuhörer vom
+Die **`removeListener()`**-Methode der
+[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle entfernt einen Listener aus dem
 `MediaQueryListener`.
 
-In älteren Browsern hatte `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt,
-deshalb wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
-Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es in den von Ihnen unterstützten Browsern verfügbar ist.
+In älteren Browsern hatte `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget)
+geerbt, daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt.
+Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es
+in den von Ihnen zu unterstützenden Browsern verfügbar ist.
 
 ## Syntax
 
@@ -66,8 +67,8 @@ mediaQueryList.removeListener(screenTest);
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Media Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

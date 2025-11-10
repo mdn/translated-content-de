@@ -2,28 +2,28 @@
 title: MediaQueryListEvent
 slug: Web/API/MediaQueryListEvent
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, die an einem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt erfolgt sind — Instanzen stehen als Ereignisobjekt in einer Funktion zur Verfügung, die durch ein [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis referenziert wird.
+Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, die an einem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt vorgenommen wurden. Instanzen sind als das Ereignisobjekt in einer Funktion verfügbar, die von einem [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis referenziert wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`MediaQueryListEvent()`](/de/docs/Web/API/MediaQueryListEvent/MediaQueryListEvent)
-  - : Erstellt eine neue `MediaQueryListEvent`-Instanz.
+  - : Erstellt eine neue Instanz von `MediaQueryListEvent`.
 
 ## Instanz-Eigenschaften
 
 _Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
+  - : Ein boolean-Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
 - [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
-  - : Ein String, der eine serialisierte Medienabfrage darstellt.
+  - : Ein String, der eine serialisierte Medienabfrage repräsentiert.
 
 ## Instanz-Methoden
 
@@ -58,7 +58,7 @@ mql.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwendung von Medienabfragen im Code](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

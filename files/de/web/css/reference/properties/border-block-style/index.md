@@ -2,10 +2,10 @@
 title: border-block-style
 slug: Web/CSS/Reference/Properties/border-block-style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockrahmen eines Elements, der je nach Schreibmodus des Elements, Ausrichtung und Textorientierung auf einen physischen Rahmenstil abgebildet wird. Sie entspricht den {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}} Eigenschaften, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
+Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockgrenzen eines Elements. Diese werden entsprechend dem Schreibmodus, der Richtung und der Textausrichtung des Elements in einen physischen Rahmenstil umgewandelt. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}}, je nach den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{InteractiveExample("CSS Demo: border-block-style")}}
 
@@ -118,6 +118,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rahmeneigenschaften zugewiesen: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

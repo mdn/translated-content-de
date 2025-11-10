@@ -2,10 +2,10 @@
 title: grid-column-end
 slug: Web/CSS/Reference/Properties/grid-column-end
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`grid-column-end`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Endposition eines Gitterelements innerhalb der Gitterspalte an, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Gitterplatzierung beiträgt und damit die Block-Endkante seines {{Glossary("grid_areas", "Gitterbereiches")}} festlegt.
+Die **`grid-column-end`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die Endposition eines Grid-Elements innerhalb der Grid-Spalte fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt. Dadurch wird die Block-Endkante seines {{Glossary("grid_areas", "Grid-Bereichs")}} spezifiziert.
 
 {{InteractiveExample("CSS Demo: grid-column-end")}}
 
@@ -85,30 +85,33 @@ grid-column-end: unset;
 ### Werte
 
 - `auto`
-  - : Trägt nichts zur Platzierung des Gitterelements bei und gibt eine automatische Platzierung, eine automatische Spannweite oder eine Standardspannweite von `1` an. Dies ist der Standardwert.
+  - : Trägt nichts zur Platzierung des Grid-Elements bei, was eine automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` anzeigt. Dies ist der Standardwert.
 - `<custom-ident>`
-  - : Trägt die erste Linie zur Platzierung des Gitterelements bei, wenn eine benannte Linie mit dem Namen `<custom-ident>-end` existiert.
+
+  - : Trägt die erste Linie zur Platzierung des Grid-Elements bei, wenn es eine benannte Linie mit dem Namen `<custom-ident>-end` gibt.
 
     > [!NOTE]
-    > Benannte Gitterbereiche generieren automatisch implizite benannte Linien dieser Form, sodass `grid-column-end: foo;` die Endkante dieses benannten Gitterbereichs auswählt (es sei denn, eine andere Linie namens `foo-end` wurde vorher explizit angegeben).
+    > Benannte Grid-Bereiche erzeugen automatisch implizite benannte Linien dieser Form, sodass `grid-column-end: foo;` die Endkante des benannten Grid-Bereichs wählt (es sei denn, es wurde zuvor eine andere Linie namens `foo-end` explizit angegeben).
 
-    Andernfalls wird dies behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
+    Andernfalls wird dies behandelt, als wäre die ganze Zahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
-  - : Trägt die n-te Gitterlinie zur Platzierung des Gitterelements bei. Wenn eine negative Ganzzahl angegeben wird, zählt sie stattdessen rückwärts, ausgehend von der Endkante des expliziten Gitters.
 
-    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird davon ausgegangen, dass alle impliziten Gitterlinien diesen Namen haben, um diese Position zu finden.
+  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative ganze Zahl angegeben wird, wird sie stattdessen rückwärts gezählt, beginnend an der Endkante des expliziten Grids.
 
-    Ein {{cssxref("integer")}} Wert von `0` ist ungültig.
+    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien diesen Namen für die Bestimmung dieser Position haben.
+
+    Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-  - : Trägt eine Gitterspanne zur Platzierung des Gitterelements bei, sodass die Endkante der Gitterspalte n Linien von der Anfangskante entfernt ist.
 
-    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird davon ausgegangen, dass alle impliziten Gitterlinien auf der Seite des expliziten Gitters, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.
+  - : Trägt eine Grid-Span zur Platzierung des Grid-Elements bei, sodass die Spaltenendkante des Grid-Bereichs des Elements n Linien von der Anfangskante entfernt ist.
 
-    Wenn das \<integer> weggelassen wird, ist der Standardwert `1`. Negative Ganzzahlen oder 0 sind ungültig.
+    Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen zum Zweck des Zählens dieser Spanne haben.
 
-    Das `<custom-ident>` kann nicht die Werte `span` und `auto` annehmen.
+    Wenn der \<integer> ausgelassen wird, ist der Standardwert `1`. Negative ganze Zahlen oder 0 sind ungültig.
+
+    Der `<custom-ident>` kann nicht die Werte `span` und `auto` annehmen.
 
 ## Formale Definition
 
@@ -120,7 +123,7 @@ grid-column-end: unset;
 
 ## Beispiele
 
-### Festlegung des Spaltenendes für ein Gitterelement
+### Einstellen des Spaltenendes für ein Grid-Element
 
 #### HTML
 
@@ -203,5 +206,5 @@ grid-column-end: unset;
 - {{cssxref("grid-row-start")}}
 - {{cssxref("grid-row-end")}}
 - {{cssxref("grid-row")}}
-- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- Video: [Linienbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)
+- [Linienbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- Video: [Line-based placement](https://gridbyexample.com/video/series-line-based-placement/)

@@ -2,13 +2,13 @@
 title: white-space-collapse
 slug: Web/CSS/Reference/Properties/white-space-collapse
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements zusammengefasst wird.
 
 > [!NOTE]
-> Die `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} Eigenschaften können zusammen mit der {{CSSxRef("white-space")}} Kurzschreibweise deklariert werden.
+> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können gemeinsam mit der Abkürzungs-Eigenschaft {{CSSxRef("white-space")}} deklariert werden.
 
 ## Syntax
 
@@ -28,29 +28,28 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die `white-space-collapse` Eigenschaft wird als ein einzelnes Schlüsselwort festgelegt, das aus der Liste der unten aufgeführten Werte gewählt wird.
+Die Eigenschaft `white-space-collapse` wird als ein einzelnes Schlüsselwort aus der unten stehenden Werteliste angegeben.
 
 ### Werte
 
 - `collapse`
-  - : Leerraumsequenzen werden [zusammengefasst](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation).
+  - : Leerraumsequenzen werden [zusammengefasst](/de/docs/Web/CSS/Guides/Text/Whitespace#collapsing_and_transformation).
 - `preserve`
-  - : Leerraumsequenzen und Zeichenfolgenumbrüche werden beibehalten.
+  - : Leerraumsequenzen und Segmenttrennzeichen werden beibehalten.
 - `preserve-breaks`
-  - : Leerraumsequenzen werden zusammengefasst, während Zeichenfolgenumbrüche erhalten bleiben.
+  - : Leerraumsequenzen werden zusammengefasst, während Segmenttrennzeichen beibehalten werden.
 - `preserve-spaces`
-  - : Leerraumsequenzen werden beibehalten, während Tabs und Zeichenfolgenumbrüche in Leerzeichen umgewandelt werden.
+  - : Leerraumsequenzen werden beibehalten, während Tabs und Segmenttrennzeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
   - : Das Verhalten ist identisch mit `preserve`, außer dass:
-    - Jede beibehaltene Leerraumsequenz nimmt immer Platz ein, auch am Ende der Zeile.
-    - Nach jedem beibehaltenen Leerzeichen-Zeichen besteht eine Zeilenumbruchmöglichkeit, auch zwischen Leerzeichen-Zeichen.
-    - Beibehaltene Leerzeichen nehmen Platz ein und hängen nicht, wodurch sich die intrinsischen Größen des Boxenlayouts ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe) ändern.
+    - Jede beibehaltene Leerraumsequenz immer Platz einnimmt, auch am Ende der Zeile.
+    - Eine Möglichkeit zum Zeilenumbruch nach jedem beibehaltenen Leerzeichen besteht, auch zwischen Leerraumzeichen.
+    - Beibehaltene Leerzeichen nehmen Platz ein und hängen nicht, wodurch die intrinsischen Größen des Kastens ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe) beeinflusst werden.
+
+> [!NOTE] > _Segmenttrennzeichen_ sind Zeichen wie Zeilenumbrüche, die den Text auf neue Zeilen brechen lassen.
 
 > [!NOTE]
-> _Zeichenfolgenumbrüche_ sind Zeichen wie Zeilenumbrüche, die den Text auf neue Zeilen brechen lassen.
-
-> [!NOTE]
-> Das [CSS text](/de/docs/Web/CSS/CSS_text) Modul definiert einen `discard` Wert für die `white-space-collapse` Eigenschaft, um alle Leerzeichen im Element zu verwerfen, jedoch wird dies in keinem Browser unterstützt.
+> Das [CSS Text](/de/docs/Web/CSS/Guides/Text) Modul definiert einen `discard` Wert für die `white-space-collapse` Eigenschaft, um alle Leerzeichen im Element zu verwerfen, jedoch wird dies in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -124,6 +123,6 @@ h2 {
 
 ## Siehe auch
 
-- Kurzschreibweise für `white-space-collapse` und {{CSSxRef("text-wrap-mode")}}: Die {{CSSxRef("white-space")}} Eigenschaft.
-- [CSS text Modul](/de/docs/Web/CSS/CSS_text)
-- [Umgang mit Leerraum in CSS](/de/docs/Web/CSS/CSS_text/Whitespace)
+- Abkürzung für `white-space-collapse` und {{CSSxRef("text-wrap-mode")}}: Die Eigenschaft {{CSSxRef("white-space")}}.
+- [CSS Text Modul](/de/docs/Web/CSS/Guides/Text)
+- [Umgang mit Leerraum in CSS](/de/docs/Web/CSS/Guides/Text/Whitespace)

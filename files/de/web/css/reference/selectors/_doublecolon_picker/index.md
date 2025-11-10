@@ -2,12 +2,12 @@
 title: ::picker()
 slug: Web/CSS/Reference/Selectors/::picker
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Das **`::picker()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) zielt auf den Auswahlbereich eines Elements ab, zum Beispiel den Dropdown-Auswahlbereich eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
+Das **`::picker()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) zielt auf den Auswahlteil eines Elements ab, zum Beispiel den Dropdown-Auswahlbereich eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
 
 ## Syntax
 
@@ -20,27 +20,27 @@ Das **`::picker()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Re
 ### Parameter
 
 - {{cssxref("ident")}}
-  - : Ein String, der das Element darstellt, dessen Auswahlbereich Sie anvisieren möchten. Die folgenden Werte sind verfügbar:
+  - : Ein String, der das Element repräsentiert, dessen Auswahlbereich Sie anvisieren möchten. Die folgenden Werte sind verfügbar:
     - `select`
       - : Der Dropdown-Auswahlbereich von anpassbaren Auswahl-Elementen.
 
 ## Beschreibung
 
-Das `::picker()` Pseudoelement zielt auf den Auswahlbereich eines Formularelements ab, das heißt, auf den Popup-Bereich, der erscheint, um eine Auswahl zu ermöglichen, wenn Sie die Steuerungstaste drücken. Es kann nur dann anvisiert werden, wenn das auslösende Element einen Auswahlbereich hat und das grundlegende Erscheinungsbild über den {{cssxref("appearance")}} Eigenschaftswert `base-select` auf ihm gesetzt wurde.
+Das `::picker()` Pseudo-Element zielt auf den Auswahlteil eines Formularelements ab, also den Popup-Teil, der erscheint, um Ihnen eine Auswahl zu ermöglichen, wenn Sie die Steuertaste drücken. Er ist nur dann anvisierbar, wenn das Ursprungelement einen Auswahlbereich hat und das Grunderscheinungsbild über den `base-select` Wert der {{cssxref("appearance")}} Eigenschaft darauf eingestellt ist.
 
-Der `::picker(select)` Selektor zielt auf alle Nachkommen eines anpassbaren `<select>` Elements ab, mit Ausnahme des ersten `<button>` Kind-Elements; diese Nachkommen werden vom Browser zusammengefasst und als Auswahlbereich dargestellt. Das erste `<button>` Kind-Element repräsentiert die Steuertaste, die den Auswahlbereich öffnet, wenn sie gedrückt wird.
+Der `::picker(select)` Selektor zielt auf alle Nachkommen eines anpassbaren `<select>` Elements ab, mit Ausnahme des ersten `<button>` Kindes; diese Nachkommen werden vom Browser gruppiert und als Auswahlbereich gerendert. Das erste `<button>` Kind repräsentiert die Steuertaste, die den Auswahlbereich öffnet, wenn sie gedrückt wird.
 
-Dies erlaubt es Ihnen, den gesamten Inhalt des Auswahlbereichs als einheitliches Element zu targetieren, beispielsweise wenn Sie dessen Rahmen anpassen, ihn animieren oder beim Erscheinen und Verschwinden anders positionieren möchten als in der Standardposition. Unser [Leitfaden zu anpassbaren Auswahl-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) zeigt viele Beispiele für die Verwendung von `::picker(select)`.
+Dies ermöglicht es Ihnen, alle Inhalte des Auswahlbereichs als eine einzelne Einheit anzusprechen, zum Beispiel, wenn Sie seinen Rahmen anpassen, ihn animieren, wenn er erscheint und verschwindet, oder ihn an einer anderen Stelle als der Standardposition positionieren möchten. Unser [Leitfaden zu anpassbaren Auswahl-Elementen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) zeigt viele Beispiele zur Verwendung von `::picker(select)`.
 
 ### Verhalten des Auswahl-Popovers
 
-Das `<select>` Element und der Auswahlbereich haben eine implizite Aufrufer/Popover-Beziehung, die ihnen automatisch zugewiesen wird, wie durch die [Popover API](/de/docs/Web/API/Popover_API) spezifiziert. Sehen Sie sich [Verwendung der Popover API](/de/docs/Web/API/Popover_API/Using) für weitere Details zum Popover-Verhalten an und betrachten Sie das Beispiel [Animierung des Dropdowns des Auswahlbereichs unter Verwendung von Popover-Zuständen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#animating_the_picker_using_popover_states) für einen typischen Anwendungsfall, der durch die implizite Popover-Verknüpfung ermöglicht wird.
+Das `<select>` Element und der Auswahlbereich haben automatisch eine implizite Invoker/Popover-Beziehung, wie sie durch die [Popover API](/de/docs/Web/API/Popover_API) spezifiziert wird. Weitere Details zum Popover-Verhalten finden Sie unter [Verwendung der Popover API](/de/docs/Web/API/Popover_API/Using), und für einen typischen Anwendungsfall, den die implizite Popover-Zuordnung ermöglicht, siehe [Animation des Dropdown-Auswahlbereichs mittels Popover-Zuständen](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#animating_the_picker_using_popover_states).
 
-### Verankerung der Auswahlposition
+### Positionierung des Auswahlankers
 
-Ein weiterer Nebeneffekt der oben erwähnten impliziten Aufrufer/Popover-Beziehung ist, dass das `<select>` Element und der Auswahlbereich auch eine implizite Ankerreferenz haben, was bedeutet, dass der Auswahlbereich automatisch über [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) mit dem Auswahl-Element verknüpft ist. Dies hat mehrere Vorteile, insbesondere:
+Ein weiterer Nebeneffekt der oben erwähnten impliziten Invoker/Popover-Beziehung ist, dass das `<select>` Element und der Auswahlbereich auch eine implizite Ankerreferenz haben, was bedeutet, dass der Auswahlbereich automatisch über die [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) mit dem `select` assoziiert ist. Dies bietet mehrere Vorteile, insbesondere:
 
-- Die Standardstile des Browsers positionieren den Auswahlbereich relativ zur Taste (dem Anker) und Sie können diese Position anpassen, wie in [Positionierung von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erklärt. Zu Referenzzwecken sind die damit zusammenhängenden Standardstile wie folgt:
+- Die Standardstile des Browsers positionieren den Auswahlbereich relativ zur Taste (dem Anker) und Sie können diese Position anpassen, wie in [Positionierung von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erläutert. Zur Bezugnahme sind die zugehörigen Standardstile wie folgt:
 
   ```css
   inset: auto;
@@ -54,7 +54,7 @@ Ein weiterer Nebeneffekt der oben erwähnten impliziten Aufrufer/Popover-Beziehu
   position-area: block-end span-inline-end;
   ```
 
-- Die Standardstile des Browsers definieren auch einige Fallback-Positionierungsversuche, die den Auswahlbereich neu positionieren, wenn er Gefahr läuft, über den Ansichtsbereich hinaus zu ragen. Die Fallback-Positionierungsversuche werden im [Leitfaden zu Fallback-Optionen und bedingtem Ausblenden bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) erklärt. Zu Referenzzwecken sind die damit zusammenhängenden Standard-Fallback-Stile wie folgt:
+- Die Standardstile des Browsers definieren auch einige Position-versuchen-Alternativen, die den Auswahlbereich neu positionieren, falls er Gefahr läuft, den Viewport zu überschreiten. Position-versuchen-Alternativen werden im [Leitfaden zu Alternativen für Überlauf und bedingtes Verbergen](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding) erklärt. Zur Bezugnahme sind die zugehörigen Standard-Fallback-Stile wie folgt:
 
   ```css
   position-try-order: most-block-size;
@@ -68,13 +68,13 @@ Ein weiterer Nebeneffekt der oben erwähnten impliziten Aufrufer/Popover-Beziehu
   ```
 
 > [!NOTE]
-> Wenn Sie die implizite Ankerreferenz entfernen möchten, um zu verhindern, dass der Auswahlbereich an das `<select>` Element verankert wird, können Sie dies erreichen, indem Sie die `position-anchor` Eigenschaft des Auswahlbereichs auf einen Ankernamen setzen, der im aktuellen Dokument nicht existiert, wie `--not-an-anchor-name`. Siehe auch [Entfernen einer Ankerzuordnung](/de/docs/Web/CSS/CSS_anchor_positioning/Using#removing_an_anchor_association).
+> Wenn Sie die implizite Ankerreferenz entfernen möchten, um zu verhindern, dass der Auswahlbereich mit dem `<select>` Element verankert wird, können Sie dies tun, indem Sie die `position-anchor` Eigenschaft des Auswahlbereichs auf einen Ankernamen setzen, der im aktuellen Dokument nicht existiert, wie z.B. `--not-an-anchor-name`. Siehe auch [Entfernen einer Ankerzuordnung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#removing_an_anchor_association).
 
 ## Beispiele
 
-### Grundlegende Verwendung eines benutzerdefinierten Auswahl-Elements
+### Grundlegende Verwendung von benutzerdefinierten Auswahlelementen
 
-Um die Funktionalität des benutzerdefinierten Auswahl-Elements und die minimalen Browser-Grundstile zu aktivieren (und die vom Betriebssystem bereitgestellten Stile zu entfernen), müssen sowohl das `<select>` Element als auch sein Auswahlbereich einen {{cssxref("appearance")}} Wert von `base-select` gesetzt haben:
+Um sich für die Funktionalität benutzerdefinierter Auswahl und minimale Standardstile des Browsers zu entscheiden (und das von den Betriebssystemen bereitgestellte Styling zu entfernen), müssen sowohl das `<select>` Element als auch sein Auswahlbereich einen {{cssxref("appearance")}} Wert von `base-select` aufweisen:
 
 ```css
 select,
@@ -83,7 +83,7 @@ select,
 }
 ```
 
-Sie könnten dann beispielsweise die standardmäßige schwarze {{cssxref("border")}} des Auswahlbereichs entfernen:
+Sie könnten dann zum Beispiel die Standard-Schwarz {{cssxref("border")}} des Auswahlbereichs entfernen:
 
 ```css
 ::picker(select) {

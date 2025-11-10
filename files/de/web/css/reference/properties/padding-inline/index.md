@@ -2,10 +2,10 @@
 title: padding-inline
 slug: Web/CSS/Reference/Properties/padding-inline
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) definiert den logischen Anfang und das Ende des Inline-Abstands eines Elements. Diese Eigenschaft wird je nach Schriftsystemrichtung, Schreibrichtung und Textausrichtung des Elements auf physische Abstandseigenschaften abgebildet.
+Die **`padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert den logischen Inline-Anfang und -Ende der Auffüllung eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements den physischen Auffüllungseigenschaften zugeordnet wird.
 
 {{InteractiveExample("CSS Demo: padding-inline")}}
 
@@ -49,7 +49,7 @@ direction: rtl;
 }
 ```
 
-## Bestandteil-Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -75,18 +75,18 @@ padding-inline: revert-layer;
 padding-inline: unset;
 ```
 
-Die `padding-inline`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wird ein Wert angegeben, so wird dieser sowohl für {{cssxref("padding-inline-start")}} als auch für {{cssxref("padding-inline-end")}} verwendet. Bei zwei Werten wird der erste für {{cssxref("padding-inline-start")}} und der zweite für {{cssxref("padding-inline-end")}} verwendet.
+Die `padding-inline`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben ist, wird er sowohl für {{cssxref("padding-inline-start")}} als auch für {{cssxref("padding-inline-end")}} verwendet. Wenn zwei Werte angegeben sind, wird der erste für {{cssxref("padding-inline-start")}} und der zweite für {{cssxref("padding-inline-end")}} verwendet.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht-negativ sein.
+  - : Die Größe der Auffüllung als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands in Prozent, relativ zur Inline-Größe (_Breite_ bei einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umfassenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht-negativ sein.
+  - : Die Größe der Auffüllung als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die durch `padding-inline` angegebenen Abstandswerte können äquivalent zu den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder den Eigenschaften {{cssxref("padding-right")}} und {{cssxref("padding-left")}} sein, je nachdem, welche Werte für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
+Die durch `padding-inline` angegebenen Auffüllungswerte können den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder den Eigenschaften {{cssxref("padding-right")}} und {{cssxref("padding-left")}} gleichwertig sein, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
 ## Formale Definition
 
@@ -98,7 +98,7 @@ Die durch `padding-inline` angegebenen Abstandswerte können äquivalent zu den 
 
 ## Beispiele
 
-### Inline-Abstand für vertikalen Text setzen
+### Einstellen der Inline-Auffüllung für vertikalen Text
 
 #### HTML
 
@@ -138,6 +138,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
 - Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

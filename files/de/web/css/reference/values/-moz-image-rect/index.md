@@ -2,7 +2,7 @@
 title: -moz-image-rect
 slug: Web/CSS/Reference/Values/-moz-image-rect
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{Non-standard_Header}}{{Deprecated_Header}}
@@ -18,7 +18,7 @@ Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("backgroun
 ### Werte
 
 - {{CSSxRef("url_value", "&lt;url&gt;")}}
-  - : Die URI des Bildes, aus dem das Teilbild entnommen wird.
+  - : Die URI des Bildes, aus dem das Teilbild entnommen werden soll.
 - `top`
   - : Die obere Kante, angegeben als {{CSSxRef("&lt;integer&gt;")}} oder {{CSSxRef("&lt;percentage&gt;")}}, des Teilbildes innerhalb des angegebenen Bildes.
 - `right`
@@ -30,17 +30,17 @@ Der **`-moz-image-rect`** Wert für [CSS](/de/docs/Web/CSS) {{CSSxRef("backgroun
 
 ## Beschreibung
 
-Diese Eigenschaft ermöglicht es Ihnen, verschiedene Teile eines größeren Bildes als Hintergründe in verschiedenen Teilen Ihres Inhalts zu verwenden.
+Diese Eigenschaft ermöglicht es Ihnen, beispielsweise verschiedene Teile eines größeren Bildes als Hintergründe in verschiedenen Teilen Ihres Inhalts zu verwenden.
 
-Die Syntax für das Rechteck ähnelt der [`rect()`](/de/docs/Web/CSS/Reference/Values/shape#syntax) Funktion, die einen {{CSSxRef("&lt;shape&gt;")}} CSS-Typ erzeugt. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
+Die Syntax für das Rechteck ähnelt der [`rect()`](/de/docs/Web/CSS/Reference/Values/shape#syntax) Funktion, die einen {{CSSxRef("&lt;shape&gt;")}} CSS-Typ generiert. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
 
 ## Beispiele
 
-Dieses Beispiel lädt ein Bild und verwendet es in vier Segmenten, um das Firefox-Logo in vier {{HTMLElement("div")}} Blöcken darzustellen. Ein Klick auf deren Container bewirkt, dass die vier Segmente durch Austauschen der {{CSSxRef("background-image")}} Eigenschaftswerte zwischen den vier {{HTMLElement("div")}} Blöcken rotieren.
+Dieses Beispiel lädt ein Bild und verwendet es in vier Segmenten, um das Firefox-Logo in vier {{HTMLElement("div")}} Blöcken zu zeichnen. Ein Klick auf deren Container veranlasst die vier Segmente, sich durch den Austausch der {{CSSxRef("background-image")}} Eigenschaftswerte unter den vier {{HTMLElement("div")}} Blöcken zu drehen.
 
 ### CSS
 
-Das CSS definiert einen Containerstil und dann die Stile für die vier Boxen, die das vollständige Bild bilden.
+Das CSS definiert einen Containerstil, dann die Stile für die vier Boxen, die das vollständige Bild bilden.
 
 Der Container sieht folgendermaßen aus:
 
@@ -57,7 +57,7 @@ Der Container sieht folgendermaßen aus:
 }
 ```
 
-Dann werden die vier Boxen definiert, die die Segmente des Bildes definieren. Sehen wir uns diese nacheinander an.
+Dann werden die vier Boxen, die die Segmente des Bildes definieren, spezifiziert. Schauen wir sie uns einzeln an.
 
 ```css
 #box1 {
@@ -70,7 +70,7 @@ Dann werden die vier Boxen definiert, die die Segmente des Bildes definieren. Se
 }
 ```
 
-Dies ist die obere linke Ecke des Bildes. Es definiert ein Rechteck, das das obere linke Viertel des Bildes in der Datei `firefox.jpg` enthält.
+Dies ist die obere linke Ecke des Bildes. Sie definiert ein Rechteck, das das obere linke Viertel des Bildes in der Datei `firefox.jpg` enthält.
 
 ```css
 #box2 {
@@ -108,7 +108,7 @@ Die anderen Ecken folgen einem ähnlichen Muster:
 
 ### HTML
 
-Wir schließen einen Container mit vier Boxen ein:
+Wir fügen einen Container mit vier Boxen ein:
 
 ```html
 <div id="container">
@@ -119,11 +119,11 @@ Wir schließen einen Container mit vier Boxen ein:
 </div>
 ```
 
-Dies platziert die vier Segmente unseres Bildes in einem Zwei-mal-zwei-Raster. Diese vier Segmente sind alle in einem größeren {{HTMLElement("div")}} Block enthalten, dessen Hauptzweck darin besteht, Klick-Ereignisse zu empfangen und sie an unseren JavaScript-Code weiterzuleiten.
+Dies platziert die vier Segmente unseres Bildes in einem Zwei-mal-zwei-Boxen-Raster. Diese vier Segmente sind alle in einem größeren {{HTMLElement("div")}} Block enthalten, dessen Hauptzweck darin besteht, Klickereignisse zu empfangen und sie an unseren JavaScript-Code weiterzuleiten.
 
 ### JavaScript
 
-Dieser Code verarbeitet das Klick-Ereignis, wenn der Container einen Mausklick erhält.
+Dieser Code verarbeitet das Klickereignis, wenn der Container einen Mausklick empfängt.
 
 ```js
 function rotate() {
@@ -147,7 +147,7 @@ function rotate() {
 document.getElementById("container").addEventListener("click", rotate);
 ```
 
-Dies verwendet [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle), um den Stil jedes Elements abzurufen und ihn auf das folgende Element zu verschieben. Beachten Sie, dass vor Beginn eine Kopie des Stils der letzten Box gespeichert wird, da dieser durch den Stil des dritten Elements überschrieben wird. Indem Sie die Werte der {{CSSxRef("background-image")}} Eigenschaft bei jedem Mausklick von einem Element zum nächsten kopieren, erreichen wir den gewünschten Effekt.
+Dies verwendet [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle), um den Stil jedes Elements abzurufen und ihn auf das folgende Element zu verschieben. Beachten Sie, dass es, bevor es damit beginnt, eine Kopie des Stils der letzten Box speichert, da dieser durch den Stil des dritten Elements überschrieben wird. Durch das Kopieren der Werte der {{CSSxRef("background-image")}} Eigenschaft von einem Element zum nächsten bei jedem Mausklick erreichen wir den gewünschten Effekt.
 
 ### Wie es aussieht
 
@@ -155,7 +155,7 @@ Dies verwendet [`window.getComputedStyle()`](/de/docs/Web/API/Window/getComputed
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -164,4 +164,4 @@ Teil keiner Norm.
 ## Siehe auch
 
 - [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [CSS Backgrounds and Borders Modul](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [CSS Hintergründe und Rahmen Modul](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)

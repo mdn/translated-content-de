@@ -2,14 +2,14 @@
 title: ScrollTimeline
 slug: Web/API/ScrollTimeline
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`ScrollTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) stellt eine Scroll-Fortschritts-Zeitleiste dar (siehe [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details).
+Die **`ScrollTimeline`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert eine Scroll-Fortschritts-Timeline (sehen Sie sich [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) für weitere Details an).
 
-Übergeben Sie eine `ScrollTimeline`-Instanz an den [`Animation()`](/de/docs/Web/API/Animation/Animation)-Konstruktor oder die [`animate()`](/de/docs/Web/API/Element/animate)-Methode, um sie als Zeitleiste festzulegen, die den Fortschritt der Animation steuert.
+Übergeben Sie eine `ScrollTimeline`-Instanz an den [`Animation()`](/de/docs/Web/API/Animation/Animation)-Konstruktor oder die [`animate()`](/de/docs/Web/API/Element/animate)-Methode, um sie als die Timeline festzulegen, die den Fortschritt der Animation steuern wird.
 
 {{InheritanceDiagram}}
 
@@ -18,24 +18,24 @@ Das **`ScrollTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web
 - [`ScrollTimeline()`](/de/docs/Web/API/ScrollTimeline/ScrollTimeline)
   - : Erstellt eine neue `ScrollTimeline`-Objektinstanz.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface erbt auch die Eigenschaften seines Elternteils, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
+_Diese Schnittstelle erbt auch die Eigenschaften ihrer übergeordneten Klasse, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
 
 - [`source`](/de/docs/Web/API/ScrollTimeline/source) {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das scrollbare Element (_Scroller_) zurück, dessen Scrollposition den Fortschritt der Zeitleiste und somit der Animation antreibt.
+  - : Gibt eine Referenz auf das scrollbarere Element (_scroller_) zurück, dessen Scroll-Position den Fortschritt der Timeline und somit der Animation antreibt.
 - [`axis`](/de/docs/Web/API/ScrollTimeline/axis) {{ReadOnlyInline}}
-  - : Gibt einen enumerierten Wert zurück, der die Scrollachse angibt, die den Fortschritt der Zeitleiste steuert.
+  - : Gibt einen enumerierten Wert zurück, der die Scroll-Achse repräsentiert, die den Fortschritt der Timeline antreibt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Dieses Interface erbt die Methoden seines Elternteils, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
+_Diese Schnittstelle erbt die Methoden ihrer übergeordneten Klasse, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
 
 ## Beispiele
 
-### Anzeigen der Quelle und Achse einer Scroll-Fortschritts-Zeitleiste
+### Anzeige der Quelle und Achse einer Scroll-Fortschritts-Timeline
 
-In diesem Beispiel animieren wir ein Element mit einer `class` von `box` entlang einer View-Fortschritts-Zeitleiste – es animiert über den Bildschirm, während das Dokument scrollt. Wir geben das `source`-Element und die Scroll-`axis` an ein `output`-Element in der oberen rechten Ecke aus.
+In diesem Beispiel animieren wir ein Element mit der `class` `box` entlang einer Ansichtsfortschritts-Timeline – es animiert über den Bildschirm, während das Dokument gescrollt wird. Wir geben das `source`-Element und die Scroll-`axis` in einem `output`-Element in der oberen rechten Ecke aus.
 
 #### HTML
 
@@ -49,7 +49,7 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Der CSS-Code für das Beispiel sieht so aus:
+Der CSS-Code für das Beispiel sieht folgendermaßen aus:
 
 ```css
 .content {
@@ -76,7 +76,7 @@ Der CSS-Code für das Beispiel sieht so aus:
 
 #### JavaScript
 
-Im JavaScript greifen wir auf die Referenzen der `box`- und `output`-`<div>`s zu und erstellen eine neue `ScrollTimeline`, wobei wir angeben, dass das Dokument ({{htmlelement("html")}})-Element das Element ist, das den Fortschritt der Scroll-Zeitleiste antreibt, und die Scrollachse die `block`-Achse ist. Wir animieren dann das `box`-Element mit der Web Animations API. Zuletzt zeigen wir das Quell-Element und die Achse im `output`-Element an.
+Im JavaScript holen wir Referenzen auf die `box`- und `output`-`<div>`-Elemente, erstellen dann eine neue `ScrollTimeline` und geben an, dass das Element, das den Fortschritt der Scroll-Timeline antreiben wird, das Dokument-({{htmlelement("html")}})-Element ist und die Scroll-Achse die `block`-Achse ist. Wir animieren dann das `box`-Element mit der Web Animations API. Zuletzt zeigen wir das Quell-Element und die Achse im `output`-Element an.
 
 ```js
 const box = document.querySelector(".box");
@@ -102,7 +102,7 @@ output.textContent = `Timeline source element: ${timeline.source.nodeName}. Time
 
 #### Ergebnis
 
-Scrollen Sie, um die Animation der Box zu sehen.
+Scrollen Sie, um zu sehen, wie die Box animiert wird.
 
 {{EmbedLiveSample("Displaying the source and axis of a scroll progress timeline", "100%", "320px")}}
 
@@ -117,5 +117,5 @@ Scrollen Sie, um die Animation der Box zu sehen.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)

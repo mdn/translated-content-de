@@ -2,13 +2,13 @@
 title: href
 slug: Web/SVG/Reference/Attribute/href
 l10n:
-  sourceCommit: 12222b32eec33a7411c6de8afc8408d9aa617dd2
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das Attribut **`href`** definiert einen Link zu einer Ressource als Referenz [URL](/de/docs/Web/SVG/Guides/Content_type#url). Die genaue Bedeutung dieses Links hängt vom Kontext des Elements ab, das es verwendet.
+Das **`href`** Attribut definiert einen Link zu einer Ressource als Referenz [URL](/de/docs/Web/SVG/Guides/Content_type#url). Die genaue Bedeutung dieses Links hängt vom Kontext jedes Elements ab, das ihn verwendet.
 
 > [!NOTE]
-> Spezifikationen vor SVG 2 definierten ein {{SVGAttr("xlink:href")}}-Attribut, das nun durch das `href`-Attribut obsolet geworden ist. Wenn Sie frühere Browserversionen unterstützen müssen, kann das veraltete `xlink:href`-Attribut neben dem `href`-Attribut als Fallback verwendet werden, z. B. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
+> Spezifikationen vor SVG 2 definierten ein {{SVGAttr("xlink:href")}} Attribut, das jetzt durch das `href` Attribut obsolet geworden ist. Wenn Sie frühere Browserversionen unterstützen müssen, kann das veraltete `xlink:href` Attribut als Fallback zusätzlich zum `href` Attribut verwendet werden, z.B. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -51,7 +51,7 @@ svg {
 
 ### a
 
-Für {{SVGElement("a")}} definiert `href` den Ort des referenzierten Objekts, ausgedrückt als URL-Referenz.
+Für {{SVGElement("a")}} definiert `href` den Speicherort des referenzierten Objekts, ausgedrückt als URL-Referenz.
 
 <table class="properties">
   <tbody>
@@ -65,7 +65,7 @@ Für {{SVGElement("a")}} definiert `href` den Ort des referenzierten Objekts, au
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -76,15 +76,15 @@ Für {{SVGElement("a")}} definiert `href` den Ort des referenzierten Objekts, au
 
 ### animate, animateMotion, animateTransform, set
 
-Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}} und {{SVGElement("set")}} definiert `href` eine URL, die auf das Element verweist, welches das Ziel dieses Animationselements ist und daher über die Zeit verändert wird.
+Für die {{SVGElement("animate")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}} und {{SVGElement("set")}} definiert `href` eine URL, die auf das Element verweist, welches das Ziel dieses Animationselements ist und somit über die Zeit modifiziert wird.
 
-Die URL muss auf genau ein Ziel-Element verweisen, das als Ziel des gegebenen Animationselements geeignet ist. Wenn die URL auf mehrere Ziel-Elemente verweist, das gegebene Ziel-Element nicht geeignet ist oder nicht Teil des aktuellen Dokuments ist, wirkt sich das Animationselement auf kein Ziel-Element aus. Das Animationselement funktioniert jedoch normal in Bezug auf seine Zeit-Eigenschaften. Insbesondere werden Zeitereignisse gesendet und das Animationselement kann als Synchronbasis in gleicher Weise wie bei einer gültigen Ziel-Element-Referenz verwendet werden.
+Die URL muss auf genau ein Ziel-Element verweisen, das in der Lage ist, das Ziel des gegebenen Animationselements zu sein. Wenn die URL auf mehrere Zielelemente verweist, das gegebene Zielelement nicht in der Lage ist, Ziel des gegebenen Animationselements zu sein oder das gegebene Zielelement nicht Teil des aktuellen Dokuments ist, wird das Animationselement kein Zielelement beeinflussen. Das Animationselement wird jedoch weiterhin normal in Bezug auf seine Zeitsteuerungseigenschaften funktionieren. Insbesondere werden TimeEvents gesendet und das Animationselement kann als Synchronisationsbasis identisch verwendet werden, wie wenn die URL auf ein gültiges Zielelement verweist.
 
-Wenn das `href`-Attribut oder das veraltete {{SVGAttr("xlink:href")}}-Attribut nicht angegeben ist, wird das unmittelbare Elternelement des aktuellen Animationselements das Ziel-Element. Wenn sowohl `xlink:href` als auch `href` angegeben sind, wird der Wert des letzteren Attributs verwendet.
+Wenn das `href` Attribut oder das veraltete {{SVGAttr("xlink:href")}} Attribut nicht angegeben wird, wird das Zielelement das unmittelbare Elternelement des aktuellen Animationselements sein. Wenn sowohl `xlink:href` als auch `href` angegeben sind, wird der Wert des letztgenannten Attributs verwendet.
 
-Siehe die Beschreibungen der einzelnen Animationselemente für Einschränkungen, welche Elementtypen Ziele bestimmter Animationstypen sein können.
+Siehe die Beschreibungen der einzelnen Animationselemente für etwaige Einschränkungen, welche Arten von Elementen Ziele bestimmter Arten von Animationen sein können.
 
-Abgesehen von allen in dieser Spezifikation ausdrücklich erwähnten SVG-spezifischen Regeln ist die normative Definition für dieses Attribut die {{Glossary("SMIL", "SMIL")}}-Animationsspezifikation. Siehe insbesondere [SMIL Animation: Specifying the animation target](https://www.w3.org/TR/smil-animation/#SpecifyingAnimationTarget).
+Abgesehen von eventuell speziell in dieser Spezifikation erwähnten SVG-spezifischen Regeln ist die normative Definition für dieses Attribut die {{Glossary("SMIL", "SMIL")}} Animation Spezifikation. Insbesondere siehe [SMIL Animation: Specifying the animation target](https://www.w3.org/TR/smil-animation/#SpecifyingAnimationTarget).
 
 <table class="properties">
   <tbody>
@@ -98,7 +98,7 @@ Abgesehen von allen in dieser Spezifikation ausdrücklich erwähnten SVG-spezifi
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -109,7 +109,7 @@ Abgesehen von allen in dieser Spezifikation ausdrücklich erwähnten SVG-spezifi
 
 ### feImage
 
-Für {{SVGElement("feImage")}} definiert `href` eine URL, die auf eine Bildressource oder ein Element verweist. Wenn sowohl das {{SVGAttr("xlink:href")}}-Attribut als auch das `href`-Attribut angegeben sind, überschreibt letzteres das erste.
+Für {{SVGElement("feImage")}} definiert `href` eine URL, die auf eine Bildressource oder auf ein Element verweist. Wenn sowohl das {{SVGAttr("xlink:href")}} als auch das `href` Attribut angegeben sind, überschreibt letzteres das erste.
 
 <table class="properties">
   <tbody>
@@ -123,7 +123,7 @@ Für {{SVGElement("feImage")}} definiert `href` eine URL, die auf eine Bildresso
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -134,7 +134,7 @@ Für {{SVGElement("feImage")}} definiert `href` eine URL, die auf eine Bildresso
 
 ### image
 
-Für {{SVGElement("image")}} definiert `href` eine URL, die auf das darzustellende Bild verweist.
+Für {{SVGElement("image")}} definiert `href` eine URL, die auf das anzuzeigende Bild verweist.
 
 <table class="properties">
   <tbody>
@@ -148,7 +148,7 @@ Für {{SVGElement("image")}} definiert `href` eine URL, die auf das darzustellen
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -175,7 +175,7 @@ svg {
 
 ### linearGradient/radialGradient
 
-Für {{SVGElement("linearGradient")}} oder {{SVGElement("radialGradient")}} definiert `href` eine URL, die auf ein Gradienten-Template-Element verweist; die Referenz muss auf ein anderes `<linearGradient>`- oder `<radialGradient>`-Element zeigen, um gültig zu sein.
+Für {{SVGElement("linearGradient")}} oder {{SVGElement("radialGradient")}} definiert `href` eine URL, die auf ein Vorlagen-Gradientenelement verweist; um gültig zu sein, muss die Referenz auf ein anderes `<linearGradient>` oder `<radialGradient>` Element verweisen.
 
 <table class="properties">
   <tbody>
@@ -189,7 +189,7 @@ Für {{SVGElement("linearGradient")}} oder {{SVGElement("radialGradient")}} defi
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -200,7 +200,7 @@ Für {{SVGElement("linearGradient")}} oder {{SVGElement("radialGradient")}} defi
 
 ### mpath
 
-Für {{SVGElement("mpath")}} definiert `href` eine URL, die auf das {{SVGElement("path")}}-Element oder [einfache Form](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) verweist, welches den Bewegungspfad definiert.
+Für {{SVGElement("mpath")}} definiert `href` eine URL, die auf das {{SVGElement("path")}} Element oder [Grundform](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) verweist, welches den Bewegungspfad definiert.
 
 <table class="properties">
   <tbody>
@@ -214,7 +214,7 @@ Für {{SVGElement("mpath")}} definiert `href` eine URL, die auf das {{SVGElement
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -225,7 +225,7 @@ Für {{SVGElement("mpath")}} definiert `href` eine URL, die auf das {{SVGElement
 
 ### pattern
 
-Für {{SVGElement("pattern")}} definiert `href` eine URL, die auf ein anderes `<pattern>`-Element im aktuellen SVG-Dokument verweist. Alle Attribute, die am referenzierten Element definiert sind und nicht an diesem Element, werden von diesem Element geerbt. Wenn dieses Element keine Kinder hat, das referenzierte Element jedoch schon (möglicherweise aufgrund seines eigenen `href`-Attributs), erbt dieses Element die Kinder des referenzierten Elements. Die Vererbung kann indirekt auf beliebiger Ebene erfolgen; wenn das referenzierte Element Attribute oder Kinder aufgrund seines eigenen `href`-Attributs erbt, kann das aktuelle Element diese Attribute oder Kinder erben. Auf dem {{SVGElement("pattern")}}-Element ist das `href`-Attribut animierbar.
+Für {{SVGElement("pattern")}} definiert `href` eine URL, die auf ein anderes `<pattern>` Element innerhalb des aktuellen SVG-Dokuments verweist. Alle Attribute, die auf dem referenzierten Element definiert sind, jedoch nicht auf diesem Element, werden von diesem Element geerbt. Wenn dieses Element keine Kinder hat und das referenzierte Element schon (möglicherweise aufgrund seines eigenen `href` Attributs), dann erbt dieses Element die Kinder vom referenzierten Element. Das Erben kann indirekt auf beliebiger Ebene sein; wenn das referenzierte Element also Attribute oder Kinder aufgrund seines eigenen `href` Attributs erbt, kann das aktuelle Element diese Attribute oder Kinder erben. Auf dem {{SVGElement("pattern")}} Element ist das `href` Attribut animierbar.
 
 <table class="properties">
   <tbody>
@@ -239,7 +239,7 @@ Für {{SVGElement("pattern")}} definiert `href` eine URL, die auf ein anderes `<
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -264,7 +264,7 @@ Für {{SVGElement("script")}} definiert `href` eine URL, die auf eine externe Re
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -275,7 +275,7 @@ Für {{SVGElement("script")}} definiert `href` eine URL, die auf eine externe Re
 
 ### textPath
 
-Für {{SVGElement("textPath")}} definiert `href` eine URL, die auf das {{SVGElement("path")}}-Element oder [einfache Form](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) verweist, auf das der Text gerendert wird, wenn kein {{SVGAttr("path")}}-Attribut angegeben wird. Auf dem {{SVGElement("textPath")}}-Element ist das `href`-Attribut animierbar.
+Für {{SVGElement("textPath")}} definiert `href` eine URL, die auf das {{SVGElement("path")}} Element oder [Grundform](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) verweist, auf die der Text dargestellt wird, wenn kein {{SVGAttr("path")}} Attribut bereitgestellt wird. Auf dem {{SVGElement("textPath")}} Element ist das `href` Attribut animierbar.
 
 <table class="properties">
   <tbody>
@@ -289,7 +289,7 @@ Für {{SVGElement("textPath")}} definiert `href` eine URL, die auf das {{SVGElem
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -302,7 +302,7 @@ Für {{SVGElement("textPath")}} definiert `href` eine URL, die auf das {{SVGElem
 
 Für {{SVGElement("use")}} definiert `href` eine URL, die auf ein Element oder Fragment innerhalb eines SVG-Dokuments verweist, das geklont werden soll.
 
-Das `<use>`-Element kann auf ein gesamtes SVG-Dokument verweisen, indem ein `href`-Wert ohne Fragment angegeben wird. Solche Referenzen werden dahingehend interpretiert, dass sie sich auf das Wurzelelement des referenzierten Dokuments beziehen.
+Das `<use>` Element kann auf ein komplettes SVG-Dokument verweisen, indem es einen `href` Wert ohne Fragment angibt. Solche Verweise sind als Verweise auf das Wurzelelement des referenzierten Dokuments zu verstehen.
 
 <table class="properties">
   <tbody>
@@ -316,7 +316,7 @@ Das `<use>`-Element kann auf ein gesamtes SVG-Dokument verweisen, indem ein `hre
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>

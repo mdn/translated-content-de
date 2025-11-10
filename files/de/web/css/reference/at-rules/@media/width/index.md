@@ -2,14 +2,14 @@
 title: width
 slug: Web/CSS/Reference/At-rules/@media/width
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`width`** [CSS](/de/docs/Web/CSS) [Media-Eigenschaft](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Breite des {{Glossary("viewport", "Viewports")}} (oder des Seitenbereichs, für [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
+Das **`width`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Breite des {{Glossary("viewport", "Viewports")}} (oder des Seitenkastens, bei [seitengestützten Medien](/de/docs/Web/CSS/Guides/Paged_media)) zu testen.
 
 ## Syntax
 
-Die `width`-Eigenschaft wird als ein {{cssxref("&lt;length&gt;")}} Wert angegeben, der die Breite des Viewports darstellt. Es handelt sich um eine Bereichs-Eigenschaft, was bedeutet, dass Sie auch die Präfixe **`min-width`** und **`max-width`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Das `width`-Merkmal wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Breite des Viewports darstellt. Es handelt sich um ein Bereichsmerkmal, was bedeutet, dass Sie auch die Präfixvarianten **`min-width`** und **`max-width`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 
@@ -58,5 +58,5 @@ Die `width`-Eigenschaft wird als ein {{cssxref("&lt;length&gt;")}} Wert angegebe
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

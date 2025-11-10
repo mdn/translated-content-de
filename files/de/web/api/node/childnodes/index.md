@@ -1,34 +1,34 @@
 ---
-title: "Knoten: childNodes-Eigenschaft"
+title: "Node: childNodes-Eigenschaft"
 short-title: childNodes
 slug: Web/API/Node/childNodes
 l10n:
-  sourceCommit: d4a50b63d9afd826e61eb8833e8e6337b5059e8a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`childNodes`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt eine Live-`[`NodeList`](/de/docs/Web/API/NodeList)` der Kind-`[`nodes`](/de/docs/Web/API/Node)` des angegebenen Elements zurück, wobei dem ersten Kindknoten der Index `0` zugewiesen wird. Kindknoten umfassen Elemente, Text und Kommentare.
+Die schreibgeschützte **`childNodes`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt eine Live-[`NodeList`](/de/docs/Web/API/NodeList) von Kind-[`nodes`](/de/docs/Web/API/Node) des angegebenen Elements zurück, wobei dem ersten Kind-Node der Index `0` zugewiesen wird. Kind-Knoten umfassen Elemente, Text und Kommentare.
 
 > [!NOTE]
-> Die Tatsache, dass `[`NodeList`](/de/docs/Web/API/NodeList)` live ist, bedeutet, dass sich ihr Inhalt ändert, wann immer neue Kinder hinzugefügt oder entfernt werden.
+> Die Tatsache, dass die [`NodeList`](/de/docs/Web/API/NodeList) live ist, bedeutet, dass sich ihr Inhalt jedes Mal ändert, wenn neue Kinder hinzugefügt oder entfernt werden.
 >
-> Browser fügen Dokumenten Textknoten hinzu, um Leerraum im Quell-Markup darzustellen. Daher kann ein Knoten, der zum Beispiel mit `Node.childNodes[0]` erhalten wurde, sich auf einen Leerraum-Textknoten beziehen, anstatt auf das tatsächliche Element, das der Autor erhalten wollte.
+> Browser fügen einem Dokument Textknoten hinzu, um Leerzeichen im Quellmarkup darzustellen. Daher kann ein Knoten, der zum Beispiel mit `Node.childNodes[0]` abgerufen wird, auf einen Leerzeichentextknoten verweisen, anstelle des eigentlichen Elements, das der Autor beabsichtigt, abzurufen.
 >
-> Siehe [Arbeiten mit Leerzeichen im DOM](/de/docs/Web/CSS/CSS_text/Whitespace#working_with_whitespace_in_the_dom) für weitere Informationen.
+> Weitere Informationen finden Sie unter [Arbeiten mit Leerzeichen im DOM](/de/docs/Web/CSS/Guides/Text/Whitespace#working_with_whitespace_in_the_dom).
 
-Die Elemente in der Sammlung von Knoten sind Objekte, keine Zeichenfolgen. Um Daten aus Knotenobjekten zu erhalten, verwenden Sie deren Eigenschaften. Zum Beispiel können Sie den Namen des ersten `childNode` mit `elementNodeReference.childNodes[0].nodeName` abrufen.
+Die Elemente in der Sammlung von Knoten sind Objekte, keine Zeichenketten. Um Daten aus Knotenobjekten zu erhalten, verwenden Sie deren Eigenschaften. Zum Beispiel können Sie den Namen des ersten `childNode` mit `elementNodeReference.childNodes[0].nodeName` erhalten.
 
 Das [`document`](/de/docs/Web/API/Document)-Objekt selbst hat zwei Kinder: die Doctype-Deklaration und das Wurzelelement, das typischerweise als `documentElement` bezeichnet wird. In HTML-Dokumenten ist letzteres das {{HTMLElement("html")}}-Element.
 
-Es ist wichtig zu beachten, dass `childNodes` _alle_ Kindknoten umfasst, einschließlich Nicht-Element-Knoten wie Text und Kommentar. Um eine Sammlung zu erhalten, die nur Elemente enthält, verwenden Sie stattdessen [`Element.children`](/de/docs/Web/API/Element/children).
+Es ist wichtig zu beachten, dass `childNodes` _alle_ Knoten umfasst, einschließlich Nicht-Element-Knoten wie Text und Kommentare. Um eine Sammlung zu erhalten, die nur Elemente enthält, verwenden Sie stattdessen [`Element.children`](/de/docs/Web/API/Element/children).
 
 ## Wert
 
-Eine Live-`[`NodeList`](/de/docs/Web/API/NodeList)` mit den Kindern des Knotens.
+Eine Live-[`NodeList`](/de/docs/Web/API/NodeList), die die Kinder des Knotens enthält.
 
 > [!NOTE]
-> Mehrere Aufrufe von `childNodes` geben _dieselbe_ `[`NodeList`](/de/docs/Web/API/NodeList)` zurück.
+> Mehrere Aufrufe von `childNodes` geben dieselbe [`NodeList`](/de/docs/Web/API/NodeList) zurück.
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ if (para.hasChildNodes()) {
 }
 ```
 
-### Entfernen aller Kinder aus einem Knoten
+### Alle Kinder eines Knotens entfernen
 
 ```js
 // This is one way to remove all children from a node

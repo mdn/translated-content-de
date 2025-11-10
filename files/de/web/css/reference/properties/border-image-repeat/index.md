@@ -2,10 +2,10 @@
 title: border-image-repeat
 slug: Web/CSS/Reference/Properties/border-image-repeat
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie die Bilder für die Seiten und den Mittelteil des [Rahmenbildes](/de/docs/Web/CSS/Reference/Properties/border-image) skaliert und gekachelt werden. Der mittlere Bereich kann durch die Verwendung des Schlüsselworts "fill" in der {{cssxref("border-image-slice")}} Eigenschaft angezeigt werden.
+Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie die Bilder für die Seiten und den mittleren Teil des [Rahmenbildes](/de/docs/Web/CSS/Reference/Properties/border-image) skaliert und gekachelt werden. Der mittlere Bereich kann angezeigt werden, indem das Schlüsselwort "fill" in der {{cssxref("border-image-slice")}} Eigenschaft verwendet wird.
 
 {{InteractiveExample("CSS Demo: border-image-repeat")}}
 
@@ -72,21 +72,21 @@ border-image-repeat: revert-layer;
 border-image-repeat: unset;
 ```
 
-Die `border-image-repeat` Eigenschaft kann mit einem oder zwei Werten angegeben werden, die aus der unten stehenden Liste ausgewählt werden.
+Die Eigenschaft `border-image-repeat` kann mit einem oder zwei Werten aus der unten stehenden Liste angegeben werden.
 
-- Wenn **ein** Wert angegeben ist, wird das gleiche Verhalten auf **alle vier Seiten** angewendet.
-- Wenn **zwei** Werte angegeben sind, gilt der erste für **oben, Mitte und unten**, der zweite für **links und rechts**.
+- Wenn **ein** Wert angegeben wird, gilt das gleiche Verhalten auf **allen vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, wird der erste für **oben, Mitte und unten** und der zweite für **links und rechts** angewendet.
 
 ### Werte
 
 - `stretch`
-  - : Die Randbereiche des Quellbildes werden gestreckt, um die Lücke zwischen jedem Rahmen zu füllen.
+  - : Die Kantenregionen des Quellbildes werden gedehnt, um den Abstand zwischen den jeweiligen Rändern zu füllen.
 - `repeat`
-  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rahmen zu füllen. Kacheln können abgeschnitten werden, um die richtige Passform zu erreichen.
+  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen den jeweiligen Rändern zu füllen. Kacheln können abgeschnitten werden, um die richtige Passform zu erreichen.
 - `round`
-  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rahmen zu füllen. Kacheln können gestreckt werden, um die richtige Passform zu erreichen.
+  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen den jeweiligen Rändern zu füllen. Kacheln können gedehnt werden, um die richtige Passform zu erreichen.
 - `space`
-  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rahmen zu füllen. Zusätzlich Platz wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
+  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um den Abstand zwischen den jeweiligen Rändern zu füllen. Zusätzlicher Raum wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
 
 ## Formale Definition
 
@@ -148,6 +148,6 @@ repetition.addEventListener("change", (evt) => {
 
 ## Siehe auch
 
-- [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
 - [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Rahmenbilder in CSS: Ein Schwerpunkt für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Rahmenbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

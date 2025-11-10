@@ -2,10 +2,10 @@
 title: backface-visibility
 slug: Web/CSS/Reference/Properties/backface-visibility
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`backface-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
+Die **`backface-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn es dem Benutzer zugewandt ist.
 
 {{InteractiveExample("CSS Demo: backface-visibility")}}
 
@@ -75,7 +75,7 @@ backface-visibility: hidden;
 }
 ```
 
-Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl sie in 2D unsichtbar ist, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keinen Effekt auf 2D-Transformationen, die keine Perspektive haben.)
+Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl sie in 2D unsichtbar ist, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keine Auswirkung auf 2D-Transformationen, da diese keine Perspektive haben.)
 
 ## Syntax
 
@@ -92,14 +92,14 @@ backface-visibility: revert-layer;
 backface-visibility: unset;
 ```
 
-Die `backface-visibility` Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter angegeben.
+Die Eigenschaft `backface-visibility` wird als eines der unten aufgeführten Schlüsselwörter angegeben.
 
 ### Werte
 
 - `visible`
   - : Die Rückseite ist sichtbar, wenn sie dem Benutzer zugewandt ist.
 - `hidden`
-  - : Die Rückseite ist verborgen, wodurch das Element unsichtbar wird, wenn es vom Benutzer weggerichtet ist.
+  - : Die Rückseite ist verborgen, was das Element effektiv unsichtbar macht, wenn es vom Benutzer abgewandt ist.
 
 ## Formale Definition
 
@@ -261,4 +261,4 @@ td {
 
 ## Siehe auch
 
-- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)

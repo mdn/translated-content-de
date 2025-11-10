@@ -2,15 +2,15 @@
 title: :target-current
 slug: Web/CSS/Reference/Selectors/:target-current
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`:target-current`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den **aktiven** Scroll-Marker aus — das {{cssxref("::scroll-marker")}} Pseudoelement einer {{cssxref("scroll-marker-group")}}, zu der gerade gescrollt wird. Dieser [Selektor](/de/docs/Web/CSS/CSS_selectors) kann verwendet werden, um die aktive Navigationsposition innerhalb einer [Scroll-Marker-Gruppe](/de/docs/Web/CSS/Reference/Selectors/::scroll-marker-group#description) zu stylen.
+Die **`:target-current`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den **aktiven** Scroll-Marker — das {{cssxref("::scroll-marker")}} Pseudo-Element einer {{cssxref("scroll-marker-group")}}, zu der gerade gescrollt wird. Dieser [Selektor](/de/docs/Web/CSS/Guides/Selectors) kann verwendet werden, um die aktive Navigationsposition innerhalb einer [scroll marker group](/de/docs/Web/CSS/Reference/Selectors/::scroll-marker-group#description) zu stylen.
 
 > [!NOTE]
-> Die `:target-current` Pseudoklasse ist nur bei `::scroll-marker` Pseudoelementen gültig.
+> Die `:target-current` Pseudo-Klasse ist nur auf `::scroll-marker` Pseudo-Elementen gültig.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Die **`:target-current`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CS
 
 ## Beispiele
 
-Siehe [Erstellung von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) und {{cssxref("::scroll-marker")}} für vollständige Beispiele, die die `:target-current` Pseudoklasse verwenden.
+Siehe [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels) und {{cssxref("::scroll-marker")}} für komplette Beispiele, die die `:target-current` Pseudo-Klasse verwenden.
 
 ### Grundlegende Verwendung
 
@@ -49,6 +49,6 @@ Siehe [Erstellung von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousel
 - {{cssxref("scroll-marker-group")}}
 - {{cssxref("::scroll-marker")}}
 - {{cssxref("::scroll-marker-group")}}
-- [Erstellung von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)
+- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS-Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)

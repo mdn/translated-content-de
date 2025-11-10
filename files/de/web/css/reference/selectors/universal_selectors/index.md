@@ -1,11 +1,11 @@
 ---
-title: Universalselektoren
+title: Universelle Selektoren
 slug: Web/CSS/Reference/Selectors/Universal_selectors
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der CSS-**Universalselektor** (`*`) entspricht Elementen jeden Typs.
+Der CSS-**universal selector** (`*`) wählt Elemente jeglichen Typs aus.
 
 ```css
 /* Selects all elements */
@@ -14,11 +14,11 @@ Der CSS-**Universalselektor** (`*`) entspricht Elementen jeden Typs.
 }
 ```
 
-Der Universalselektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|*` - entspricht allen Elementen im Namespace _ns_
-- `*|*` - entspricht allen Elementen
-- `|*` - entspricht allen Elementen ohne deklarierte Namespaces
+- `ns|*` - wählt alle Elemente im Namespace _ns_ aus
+- `*|*` - wählt alle Elemente aus
+- `|*` - wählt alle Elemente ohne deklarierten Namespace aus
 
 ## Syntax
 
@@ -72,7 +72,7 @@ Der Asterisk ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning
 
 ### Namespaces
 
-In diesem Beispiel entspricht der Selektor nur Elementen im Beispielfalls-Namespace.
+In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namespace auswählen.
 
 ```css
 @namespace example url("http://www.example.com/");
@@ -91,5 +91,5 @@ example|* {
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul
+- [Lernen Sie CSS: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

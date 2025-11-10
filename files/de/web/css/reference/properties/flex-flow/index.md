@@ -2,10 +2,10 @@
 title: flex-flow
 slug: Web/CSS/Reference/Properties/flex-flow
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) gibt die Richtung eines Flex-Containers sowie dessen Umbruchsverhalten an.
+Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt die Richtung eines Flex-Containers sowie dessen Umbruchverhalten fest.
 
 {{InteractiveExample("CSS Demo: flex-flow")}}
 
@@ -54,7 +54,7 @@ flex-flow: column wrap;
 }
 ```
 
-## Bestandteileigenschaften
+## Zugehörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -102,9 +102,9 @@ Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu
 
 ## Beispiele
 
-### Aufsetzen von column-reverse und wrap
+### Einstellen von column-reverse und wrap
 
-In diesem Beispiel ist die Hauptachse die Block-Richtung mit einem umgekehrten Haupt-Start und Haupt-Ende. Die Flex-Elemente dürfen umbrechen und bei Bedarf neue Zeilen erzeugen.
+In diesem Beispiel ist die Hauptachse die Blockrichtung mit einem umgekehrten main-start und main-end. Die Flex-Elemente dürfen umgebrochen werden und neue Zeilen erstellen, wenn nötig.
 
 ```css
 .container {
@@ -122,5 +122,5 @@ In diesem Beispiel ist die Hauptachse die Block-Richtung mit einem umgekehrten H
 
 ## Siehe auch
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)

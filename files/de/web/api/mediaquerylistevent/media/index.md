@@ -1,19 +1,19 @@
 ---
-title: "MediaQueryListEvent: media Eigenschaft"
+title: "MediaQueryListEvent: media-Eigenschaft"
 short-title: media
 slug: Web/API/MediaQueryListEvent/media
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die **`media`** schreibgeschützte Eigenschaft des
-[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent) Interface ist ein String, der eine serialisierte Media-Query darstellt.
+Die **`media`**-Eigenschaft der
+[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Schnittstelle ist schreibgeschützt und stellt eine Zeichenfolge dar, die eine serialisierte Medienabfrage repräsentiert.
 
 ## Wert
 
-Ein String, der eine serialisierte Media-Query darstellt.
+Eine Zeichenfolge, die eine serialisierte Medienabfrage darstellt.
 
 ## Beispiele
 
@@ -46,8 +46,8 @@ mql.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Media Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Medienabfragen im Code verwenden](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

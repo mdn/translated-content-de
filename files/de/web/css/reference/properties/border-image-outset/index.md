@@ -2,12 +2,12 @@
 title: border-image-outset
 slug: Web/CSS/Reference/Properties/border-image-outset
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-image-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand fest, um den ein Element's [Border-Image](/de/docs/Web/CSS/Reference/Properties/border-image) von seiner Border-Box nach außen gesetzt wird.
+Die **`border-image-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand fest, um den das [Randelementbild](/de/docs/Web/CSS/Reference/Properties/border-image) von seinem Randbereich gesetzt wird.
 
-Die Teile des Border-Images, die außerhalb der Border-Box des Elements mit `border-image-outset` gerendert werden, lösen keine Überlauf-Scrollleisten aus und erfassen keine Mausereignisse.
+Die Teile des Randelementbildes, die außerhalb des Randbereichs des Elements mit `border-image-outset` gerendert werden, lösen keine Überlauf-Scrollleisten aus und erfassen keine Mausereignisse.
 
 {{InteractiveExample("CSS Demo: border-image-outset")}}
 
@@ -76,7 +76,7 @@ border-image-outset: revert-layer;
 border-image-outset: unset;
 ```
 
-Die `border-image-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig und führen dazu, dass die `border-image-outset` Deklaration ignoriert wird.
+Die Eigenschaft `border-image-outset` kann mit einem, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist entweder ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig und führen dazu, dass die `border-image-outset`-Angabe ignoriert wird.
 
 1. Wenn **ein** Wert angegeben ist, gilt er für **alle vier Seiten**.
 2. Wenn **zwei** Werte angegeben sind, gilt der erste für **oben und unten** und der zweite für **links und rechts**.
@@ -86,9 +86,9 @@ Die `border-image-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte a
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des `border-image` Outsets als Dimension — eine Zahl mit einer Einheit.
+  - : Die Größe des `border-image`-Outsets als Dimension — eine Zahl mit einer Einheit.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Größe des `border-image` Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}} des Elements. Zum Beispiel, wenn ein Element `border-width: 1em 2px 0 1.5rem` hat und `border-image-outset: 2`, wird das endgültige `border-image-outset` als `2em 4px 0 3rem` berechnet.
+  - : Die Größe des `border-image`-Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}}s des Elements. Wenn ein Element zum Beispiel `border-width: 1em 2px 0 1.5rem` hat und `border-image-outset: 2`, würde der endgültige `border-image-outset` als `2em 4px 0 3rem` berechnet.
 
 ## Formale Definition
 
@@ -100,7 +100,7 @@ Die `border-image-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte a
 
 ## Beispiele
 
-### Ein Border-Image aussetzen
+### Erweiterung eines Randelementbildes
 
 #### HTML
 
@@ -135,6 +135,6 @@ Die `border-image-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte a
 
 ## Siehe auch
 
-- [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
-- [Border-Images in CSS: Ein zentraler Fokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)
+- [Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Randelementbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)

@@ -3,12 +3,12 @@ title: "Highlight: Highlight() Konstruktor"
 short-title: Highlight()
 slug: Web/API/Highlight/Highlight
 l10n:
-  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Der **`Highlight()`** Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestaltet werden können.
+Der **`Highlight()`** Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight) Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range) Objekten enthalten kann, die mit der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) gestaltet werden können.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ new Highlight(range1, range2, /* …, */ rangeN)
 ### Parameter
 
 - `range1`, …, `rangeN` {{optional_inline}}
-  - : Ein oder mehrere anfängliche [`Range`](/de/docs/Web/API/Range)-Objekte, die dem neuen Highlight hinzugefügt werden sollen.
+  - : Eine oder mehrere anfängliche [`Range`](/de/docs/Web/API/Range) Objekte, die dem neuen Highlight hinzugefügt werden sollen.
 
 ### Rückgabewert
 
-Ein neues `Highlight`-Objekt.
+Ein neues `Highlight` Objekt.
 
 ## Beispiele
 
@@ -54,5 +54,5 @@ const highlight = new Highlight(range1, range2);
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
-- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

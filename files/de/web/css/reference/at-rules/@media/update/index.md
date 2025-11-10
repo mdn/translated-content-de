@@ -2,19 +2,19 @@
 title: update
 slug: Web/CSS/Reference/At-rules/@media/update
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`update`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, wie häufig (wenn überhaupt) das Ausgabegerät in der Lage ist, das Erscheinungsbild von Inhalten nach dem Rendern zu ändern.
+Die **`update`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, wie häufig (oder ob überhaupt) das Ausgabegerät in der Lage ist, das Erscheinungsbild von Inhalten nach dem Rendern zu ändern.
 
 ## Syntax
 
 - `none`
   - : Sobald es gerendert wurde, kann das Layout nicht mehr aktualisiert werden. Beispiel: Dokumente, die auf Papier gedruckt werden.
 - `slow`
-  - : Das Layout kann sich dynamisch gemäß den üblichen Regeln von CSS ändern, aber das Ausgabegerät ist nicht in der Lage, Änderungen schnell genug zu rendern oder anzuzeigen, um als reibungslose Animation wahrgenommen zu werden. Beispiele: E-Book-Reader oder stark leistungsschwache Geräte.
+  - : Das Layout kann sich gemäß den üblichen Regeln von CSS dynamisch ändern, jedoch ist das Ausgabegerät nicht in der Lage, Änderungen schnell genug zu rendern oder anzuzeigen, damit sie als fließende Animation wahrgenommen werden. Beispiele: E-Book-Reader oder stark leistungsschwache Geräte.
 - `fast`
-  - : Das Layout kann sich dynamisch gemäß den üblichen Regeln von CSS ändern, und das Ausgabegerät ist in seiner Geschwindigkeit nicht ungewöhnlich eingeschränkt, sodass regelmäßig aktualisierte Elemente wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computermonitore.
+  - : Das Layout kann sich gemäß den üblichen Regeln von CSS dynamisch ändern, und das Ausgabegerät ist nicht ungewöhnlich in der Geschwindigkeit eingeschränkt, sodass regelmäßig aktualisierende Elemente wie [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) verwendet werden können. Beispiel: Computerbildschirme.
 
 ## Beispiele
 
@@ -61,5 +61,5 @@ Die **`update`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Refer
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

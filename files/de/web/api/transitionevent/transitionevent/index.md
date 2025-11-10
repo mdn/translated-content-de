@@ -3,12 +3,12 @@ title: "TransitionEvent: TransitionEvent() Konstruktor"
 short-title: TransitionEvent()
 slug: Web/API/TransitionEvent/TransitionEvent
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Der **`TransitionEvent()`** Konstruktor gibt ein neues [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Objekt zurück, das ein Ereignis im Zusammenhang mit einer Transition darstellt.
+Der **`TransitionEvent()`**-Konstruktor gibt ein neues [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Objekt zurück, das ein Ereignis im Zusammenhang mit einer Transition darstellt.
 
 ## Syntax
 
@@ -21,26 +21,25 @@ new TransitionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn auf `transitionrun`, `transitionstart`, `transitionend` oder `transitioncancel`.
+    Er ist case-sensitiv und Browser setzen ihn auf `transitionrun`, `transitionstart`, `transitionend` oder `transitioncancel`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `propertyName` {{optional_inline}}
       - : Ein String, der den Namen der CSS-Eigenschaft enthält, die mit der Transition verbunden ist.
-        Standardmäßig ist er `""`.
+        Standardmäßig ist er auf `""` gesetzt.
     - `elapsedTime` {{optional_inline}}
-      - : Eine Zahl, die die Menge der Zeit angibt, die die Animation gelaufen ist,
-        in Sekunden, als dieses Ereignis ausgelöst wurde, ohne die Zeit zu berücksichtigen, in der die Animation pausiert war.
-        Für ein `"animationstart"` Ereignis ist `elapsedTime` `0,0`, es sei denn, es gab einen negativen Wert für [`animation-delay`](/de/docs/Web/CSS/Reference/Properties/animation-delay),
-        in diesem Fall wird das Ereignis mit `elapsedTime`, der `(-1 * delay)` enthält, ausgelöst.
-        Standardmäßig ist er `0,0`.
+      - : Eine Zahl, die die Zeit in Sekunden angibt, die die Animation gelaufen ist, als dieses Ereignis aufgetreten ist, ohne die Zeit zu berücksichtigen, in der die Animation pausiert war.
+        Bei einem `"animationstart"`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für [`animation-delay`](/de/docs/Web/CSS/Reference/Properties/animation-delay),
+        in diesem Fall wird das Ereignis mit `elapsedTime`, das `(-1 * delay)` enthält, ausgelöst.
+        Standardmäßig auf `0.0` gesetzt.
     - `pseudoElement` {{optional_inline}}
-      - : Ein String, der standardmäßig mit `"::"` beginnt und den Namen des [Pseudoelements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft.
-        Wenn die Animation nicht auf einem Pseudoelement, sondern auf dem Element läuft, ist es ein leerer String: `""`.
-        Standardmäßig ist er `""`.
+      - : Ein String, der standardmäßig mit `"::"` belegt ist und den Namen des [Pseudoelements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft.
+        Wenn die Animation nicht auf einem Pseudoelement läuft, sondern auf dem Element, ist dies ein leerer String: `""`.
+        Standardmäßig auf `""` gesetzt.
 
 ### Rückgabewert
 
-Ein neues [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Objekt.
+Ein neues [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -52,7 +51,7 @@ Ein neues [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Objekt.
 
 ## Siehe auch
 
-- [Verwendung von CSS-Transitions](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Transitions](/de/docs/Web/CSS/Guides/Transitions/Using)
 - CSS-Eigenschaften: {{cssxref("transition")}}, {{cssxref("transition-delay")}},
   {{cssxref("transition-duration")}}, {{cssxref("transition-property")}},
   {{cssxref("transition-timing-function")}}.

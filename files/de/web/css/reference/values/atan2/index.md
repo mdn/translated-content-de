@@ -2,10 +2,10 @@
 title: atan2()
 slug: Web/CSS/Reference/Values/atan2
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`atan2()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Arkustangens von zwei Werten zwischen `-unendlich` und `unendlich` zurückgibt. Die Funktion akzeptiert zwei Argumente und gibt die Anzahl der Bogenmaß zurück, die ein {{cssxref("&lt;angle&gt;")}} zwischen `-180deg` und `180deg` repräsentieren.
+Die **`atan2()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den inversen Tangens von zwei Werten zwischen `-unendlich` und `unendlich` zurückgibt. Die Funktion akzeptiert zwei Argumente und gibt die Anzahl der Bogenmaß zurück, die ein {{cssxref("&lt;angle&gt;")}} zwischen `-180deg` und `180deg` darstellt.
 
 ## Syntax
 
@@ -26,16 +26,16 @@ transform: rotate(atan2(e, 30));
 
 ### Parameter
 
-Die `atan2(y, x)`-Funktion akzeptiert zwei durch Komma getrennte Werte als Parameter. Jeder Wert kann ein {{cssxref("&lt;number&gt;")}}, eine {{cssxref("&lt;dimension&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein. Beide Werte müssen vom selben Typ sein, auch wenn sie {{cssxref("&lt;dimension&gt;")}} sind, können sie unterschiedliche Einheiten haben (Beispiel: `atan2(100px, 5vw)` ist gültig).
+Die `atan2(y, x)` Funktion akzeptiert zwei durch Kommas getrennte Werte als ihre Parameter. Jeder Wert kann ein {{cssxref("&lt;number&gt;")}}, eine {{cssxref("&lt;dimension&gt;")}}, oder ein {{cssxref("&lt;percentage&gt;")}} sein. Beide Werte müssen vom gleichen Typ sein, obwohl sie bei {{cssxref("&lt;dimension&gt;")}} unterschiedliche Einheiten haben können (zum Beispiel: `atan2(100px, 5vw)` ist gültig).
 
 - `y`
-  - : Die y-Koordinate des Punktes. Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}}, einer {{cssxref("&lt;dimension&gt;")}} oder einem {{cssxref("&lt;percentage&gt;")}} führt.
+  - : Die y-Koordinate des Punktes. Eine Berechnung, die sich zu einem {{cssxref("&lt;number&gt;")}}, einer {{cssxref("&lt;dimension&gt;")}}, oder einem {{cssxref("&lt;percentage&gt;")}} auflöst.
 - `x`
-  - : Die x-Koordinate des Punktes. Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}}, einer {{cssxref("&lt;dimension&gt;")}} oder einem {{cssxref("&lt;percentage&gt;")}} führt.
+  - : Die x-Koordinate des Punktes. Eine Berechnung, die sich zu einem {{cssxref("&lt;number&gt;")}}, einer {{cssxref("&lt;dimension&gt;")}}, oder einem {{cssxref("&lt;percentage&gt;")}} auflöst.
 
 ### Rückgabewert
 
-Gegeben zwei Werte `x` und `y`, berechnet und gibt die Funktion `atan2(y, x)` das {{cssxref("&lt;angle&gt;")}} zwischen der positiven x-Achse und dem Strahl vom Ursprung zum Punkt `(x, y)` zurück.
+Für zwei Werte `x` und `y` berechnet und gibt die Funktion `atan2(y, x)` das {{cssxref("&lt;angle&gt;")}} zwischen der positiven x-Achse und dem Strahl vom Ursprung zu dem Punkt `(x, y)` zurück.
 
 ## Formale Syntax
 
@@ -45,7 +45,7 @@ Gegeben zwei Werte `x` und `y`, berechnet und gibt die Funktion `atan2(y, x)` da
 
 ### Elemente rotieren
 
-Die `atan2()`-Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu rotieren, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `atan2()` Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
 
 #### HTML
 
@@ -112,4 +112,4 @@ div.box-5 {
 - {{CSSxRef("asin")}}
 - {{CSSxRef("acos")}}
 - {{CSSxRef("atan")}}
-- [Verwendung von typisierter CSS-Arithmetik](/de/docs/Web/CSS/CSS_values_and_units/Using_CSS_typed_arithmetic)
+- [Verwendung von CSS typisierte Arithmetik](/de/docs/Web/CSS/Guides/Values_and_units/Using_typed_arithmetic)

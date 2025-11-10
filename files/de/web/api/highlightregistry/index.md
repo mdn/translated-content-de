@@ -2,54 +2,55 @@
 title: HighlightRegistry
 slug: Web/API/HighlightRegistry
 l10n:
-  sourceCommit: fc37858b298a5e81a455084bf91477fcbf3f3ab7
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`HighlightRegistry`**-Schnittstelle der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird verwendet, um [`Highlight`](/de/docs/Web/API/Highlight)-Objekte zu registrieren, die über die API gestaltet werden können. Sie wird über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) aufgerufen.
+Die **`HighlightRegistry`**-Schnittstelle der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird verwendet, um [`Highlight`](/de/docs/Web/API/Highlight)-Objekte zu registrieren, die mit der API gestylt werden sollen.
+Sie wird über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) aufgerufen.
 
-Eine `HighlightRegistry`-Instanz ist ein [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), in dem jeder Schlüssel ein Namens-String für ein benutzerdefiniertes Highlight ist, und der entsprechende Wert das zugehörige [`Highlight`](/de/docs/Web/API/Highlight)-Objekt ist.
+Eine Instanz von `HighlightRegistry` ist ein [objektähnliches `Map`-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel der Namens-String für ein benutzerdefiniertes Highlight ist und der entsprechende Wert das zugeordnete [`Highlight`](/de/docs/Web/API/Highlight)-Objekt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Die `HighlightRegistry`-Schnittstelle erbt keine Eigenschaften._
 
 - [`HighlightRegistry.size`](/de/docs/Web/API/HighlightRegistry/size) {{ReadOnlyInline}}
-  - : Gibt die Anzahl der momentan registrierten `Highlight`-Objekte zurück.
+  - : Gibt die Anzahl der derzeit registrierten `Highlight`-Objekte zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Die `HighlightRegistry`-Schnittstelle erbt keine Methoden._
+_Die `HighlightRegistry`-Schnittstelle erbt keine Methoden_.
 
 - [`HighlightRegistry.clear()`](/de/docs/Web/API/HighlightRegistry/clear)
-  - : Entfernt alle `Highlight`-Objekte aus dem Registry.
+  - : Entfernt alle `Highlight`-Objekte aus dem Register.
 - [`HighlightRegistry.delete()`](/de/docs/Web/API/HighlightRegistry/delete)
-  - : Entfernt das benannte `Highlight`-Objekt aus dem Registry.
+  - : Entfernt das benannte `Highlight`-Objekt aus dem Register.
 - [`HighlightRegistry.entries()`](/de/docs/Web/API/HighlightRegistry/entries)
-  - : Gibt ein neues Iterator-Objekt zurück, das jedes `Highlight`-Objekt im Registry in Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das jedes `Highlight`-Objekt im Register in Einfügereihenfolge enthält.
 - [`HighlightRegistry.forEach()`](/de/docs/Web/API/HighlightRegistry/forEach)
-  - : Ruft den gegebenen Callback einmal für jedes `Highlight`-Objekt im Registry in Einfügereihenfolge auf.
+  - : Ruft den angegebenen Rückruf einmal für jedes `Highlight`-Objekt im Register in Einfügereihenfolge auf.
 - [`HighlightRegistry.get()`](/de/docs/Web/API/HighlightRegistry/get)
-  - : Ruft das benannte `Highlight`-Objekt aus dem Registry ab.
+  - : Ruft das benannte `Highlight`-Objekt aus dem Register ab.
 - [`HighlightRegistry.has()`](/de/docs/Web/API/HighlightRegistry/has)
-  - : Gibt einen Boolean-Wert zurück, der angibt, ob ein `Highlight`-Objekt im Registry vorhanden ist oder nicht.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob ein `Highlight`-Objekt im Register vorhanden ist oder nicht.
 - [`HighlightRegistry.highlightsFromPoint()`](/de/docs/Web/API/HighlightRegistry/highlightsFromPoint) {{experimental_inline}}
-  - : Gibt ein Array von Objekten zurück, das die benutzerdefinierten Highlights darstellt, die an einem bestimmten Punkt innerhalb des Ansichtsbereichs angewendet werden.
+  - : Gibt ein Array von Objekten zurück, die die benutzerdefinierten Highlights darstellen, die an einem bestimmten Punkt innerhalb des Viewports angewendet werden.
 - [`HighlightRegistry.keys()`](/de/docs/Web/API/HighlightRegistry/keys)
   - : Ein Alias für [`HighlightRegistry.values()`](/de/docs/Web/API/HighlightRegistry/values).
 - [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set)
-  - : Fügt das gegebene `Highlight`-Objekt mit dem gegebenen Namen zum Registry hinzu oder aktualisiert das benannte `Highlight`-Objekt, wenn es bereits im Registry existiert.
+  - : Fügt das angegebene `Highlight`-Objekt mit dem angegebenen Namen dem Register hinzu oder aktualisiert das benannte `Highlight`-Objekt, falls es bereits im Register existiert.
 - [`HighlightRegistry.values()`](/de/docs/Web/API/HighlightRegistry/values)
-  - : Gibt ein neues Iterator-Objekt zurück, das die `Highlight`-Objekte im Registry in Einfügereihenfolge liefert.
+  - : Gibt ein neues Iterator-Objekt zurück, das die `Highlight`-Objekte im Register in Einfügereihenfolge ausgibt.
 
 ## Beispiele
 
 ### Ein Highlight registrieren
 
-Das folgende Beispiel zeigt, wie Bereiche erstellt, ein neues `Highlight`-Objekt dafür instanziiert und das Highlight mittels der `HighlightRegistry` registriert wird, um es auf der Seite zu gestalten:
+Das folgende Beispiel demonstriert, wie man Bereiche erstellt, ein neues `Highlight`-Objekt für sie instanziiert und das Highlight mithilfe der `HighlightRegistry` registriert, um es auf der Seite zu stylen:
 
 #### HTML
 
@@ -105,6 +106,6 @@ CSS.highlights.set("my-custom-highlight", highlight);
 
 ## Siehe auch
 
-- [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS custom highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)-Modul
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

@@ -2,10 +2,10 @@
 title: scroll-margin-block
 slug: Web/CSS/Reference/Properties/scroll-margin-block
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die `scroll-margin-block` [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Block-Dimension.
+Die `scroll-margin-block` [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Block-Richtung.
 
 {{InteractiveExample("CSS Demo: scroll-margin-block")}}
 
@@ -69,7 +69,7 @@ scroll-margin-block: 2em;
 }
 ```
 
-## Bestandeigenschaften
+## Einzelne Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -94,11 +94,11 @@ scroll-margin-block: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand von der entsprechenden Kante des Scroll-Containers.
+  - : Ein Abstand zum entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Die Scroll-Margen-Werte repräsentieren Abstände, die den Scroll-Snap-Bereich definieren, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzupassen. Der Scroll-Snap-Bereich wird ermittelt, indem die transformierte Border-Box genommen wird, deren rechteckige Begrenzungsbox (achsenbündig im Koordinatensystem des Scroll-Containers) ermittelt und dann die angegebenen Abstände hinzugefügt werden.
+Die Werte für die Scroll-Marge stellen Abstände dar, die den Scroll-Snap-Bereich definieren, der verwendet wird, um dieser Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen wird, deren rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) ermittelt wird, und dann die angegebenen Abstände hinzugefügt werden.
 
 ## Formale Definition
 
@@ -118,5 +118,5 @@ Die Scroll-Margen-Werte repräsentieren Abstände, die den Scroll-Snap-Bereich d
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

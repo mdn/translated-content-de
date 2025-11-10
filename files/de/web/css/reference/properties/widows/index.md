@@ -2,12 +2,12 @@
 title: widows
 slug: Web/CSS/Reference/Properties/widows
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`widows`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die oben auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einer Region oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
+Die **`widows`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die minimale Anzahl von Zeilen in einem Blockcontainer fest, die oben auf einer [Seite](/de/docs/Web/CSS/Guides/Paged_media), Region oder [Spalte](/de/docs/Web/CSS/Guides/Multicol_layout) angezeigt werden müssen.
 
-In der Typografie ist eine _Widow_ die letzte Zeile eines Absatzes, die allein am oberen Rand einer Seite erscheint. (Der Absatz wird von einer vorhergehenden Seite fortgesetzt.)
+In der Typografie ist eine _Widow_ die letzte Zeile eines Absatzes, die allein oben auf einer Seite erscheint. (Der Absatz wird von einer vorherigen Seite fortgesetzt.)
 
 ## Syntax
 
@@ -27,7 +27,7 @@ widows: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die minimale Anzahl von Zeilen, die nach einem Fragmentierungsumbruch alleine an der Spitze eines neuen Fragments bleiben können. Der Wert muss positiv sein.
+  - : Die minimale Anzahl von Zeilen, die nach einem Fragmentierungsumbruch am Anfang eines neuen Fragmentes allein stehen können. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -39,7 +39,7 @@ widows: unset;
 
 ## Beispiele
 
-### Kontrolle von Spalten-Widows
+### Steuerung von Spalten-Widows
 
 #### HTML
 
@@ -90,4 +90,4 @@ p:first-child {
 ## Siehe auch
 
 - {{cssxref("orphans")}}
-- [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)
+- [Ausgabe auf Papiere (Paged media)](/de/docs/Web/CSS/Guides/Paged_media)

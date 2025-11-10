@@ -1,14 +1,14 @@
 ---
-title: "DOMMatrixReadOnly: rotateAxisAngle()-Methode"
+title: "DOMMatrixReadOnly: rotateAxisAngle() Methode"
 short-title: rotateAxisAngle()
 slug: Web/API/DOMMatrixReadOnly/rotateAxisAngle
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die Methode `rotateAxisAngle()` der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Drehung der Ausgangsmatrix mittels des angegebenen Vektors und Winkels erstellt wurde. Die ursprüngliche Matrix wird nicht verändert.
+Die `rotateAxisAngle()`-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Drehen der Ausgangsmatrix um den angegebenen Vektor und Winkel erstellt wird. Die ursprüngliche Matrix wird nicht verändert.
 
 Um die Matrix während der Drehung zu verändern, siehe [`DOMMatrix.rotateAxisAngleSelf()`](/de/docs/Web/API/DOMMatrix/rotateAxisAngleSelf).
 
@@ -25,11 +25,11 @@ rotateAxisAngle(rotX, rotY, rotZ, angle)
 ### Parameter
 
 - `rotX`
-  - : Eine Zahl; die x-Koordinate des Vektors, der die Rotationsachse angibt. Wenn ungleich Null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) falsch.
+  - : Eine Zahl; die x-Koordinate des Vektors, der die Rotationsachse angibt. Wenn nicht null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) false.
 - `rotY` {{optional_inline}}
-  - : Eine Zahl; die y-Koordinate des Vektors, der die Rotationsachse angibt. Wenn nicht definiert, wird der `rotX`-Wert verwendet. Wenn ungleich Null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) falsch.
+  - : Eine Zahl; die y-Koordinate des Vektors, der die Rotationsachse angibt. Falls nicht definiert, wird der `rotX`-Wert verwendet. Wenn nicht null, ist [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) false.
 - `rotZ` {{optional_inline}}
-  - : Eine Zahl; die z-Koordinate des Vektors, der die Rotationsachse angibt. Wenn nicht definiert, wird der `rotX`-Wert verwendet.
+  - : Eine Zahl; die z-Koordinate des Vektors, der die Rotationsachse angibt. Falls nicht definiert, wird der `rotX`-Wert verwendet.
 - `angle` {{optional_inline}}
   - : Eine Zahl; der Winkel der Drehung um den Achsenvektor in Grad.
 
@@ -71,8 +71,8 @@ console.log(matrix.toString()); // output: "matrix(1, 0, 0, 1, 0, 0)" (unchanged
 - [`DOMMatrix.rotateAxisAngleSelf()`](/de/docs/Web/API/DOMMatrix/rotateAxisAngleSelf)
 - [`DOMMatrixReadOnly.rotate()`](/de/docs/Web/API/DOMMatrixReadOnly/rotate)
 - [`DOMMatrixReadOnly.rotateFromVector()`](/de/docs/Web/API/DOMMatrixReadOnly/rotateFromVector)
-- CSS {{cssxref("transform")}}-Eigenschaft und {{cssxref("transform-function/rotate3d", "rotate3d()")}}-Funktion
-- CSS {{cssxref("rotate")}}-Eigenschaft
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)-Modul
-- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribut
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle und [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate)-Methode
+- CSS {{cssxref("transform")}} Eigenschaft und {{cssxref("transform-function/rotate3d", "rotate3d()")}} Funktion
+- CSS {{cssxref("rotate")}} Eigenschaft
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms) Modul
+- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) Attribut
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interface und [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate)-Methode

@@ -2,15 +2,15 @@
 title: inherit
 slug: Web/CSS/Reference/Values/inherit
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`inherit`**-[CSS](/de/docs/Web/CSS) Schlüsselwort bewirkt, dass das Element den [berechneten Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) der Eigenschaft von seinem übergeordneten Element übernimmt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweise {{cssxref("all")}}.
+Das **`inherit`** [CSS](/de/docs/Web/CSS)-Schlüsselwort bewirkt, dass das Element den [berechneten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) der Eigenschaft von seinem Elternelement übernimmt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweise {{cssxref("all")}}.
 
-Für [vererbte Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) verstärkt dies das Standardverhalten und ist nur notwendig, um eine andere Regel zu überschreiben.
+Für [vererbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) verstärkt dies das Standardverhalten und wird nur benötigt, um eine andere Regel zu überschreiben.
 
 > [!NOTE]
-> Vererbung erfolgt immer vom übergeordneten Element im Dokumentenbaum, auch wenn das übergeordnete Element nicht der umschließende Block ist.
+> Die Vererbung erfolgt immer vom Elternelement im Dokumentbaum, auch wenn das Elternelement nicht der umgebende Block ist.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ h2 {
 }
 ```
 
-In diesem Beispiel könnten die `h2`-Elemente innerhalb der Seitenleiste unterschiedliche Farben haben. Betrachten wir eines, das ein Kind eines `div` wäre, das durch die Regel ausgewählt wird:
+In diesem Beispiel könnten die `h2`-Elemente innerhalb der Seitenleiste unterschiedliche Farben haben. Zum Beispiel wird eines von ihnen ein Kind eines `div`-Elements sein, das durch die Regel übereinstimmt:
 
 ```css
 div#current {
@@ -48,9 +48,9 @@ Dann wäre es blau.
 
 ## Siehe auch
 
-- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- Verwenden Sie das {{cssxref("initial")}} Schlüsselwort, um eine Eigenschaft auf ihren Anfangswert zurückzusetzen.
-- Verwenden Sie das {{cssxref("revert")}} Schlüsselwort, um eine Eigenschaft auf den vom Benutzeragenten-Stil definierten Wert (oder von Benutzerstilen, falls vorhanden) zurückzusetzen.
-- Verwenden Sie das {{cssxref("revert-layer")}} Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der in einer vorherigen Kaskadenebene festgelegt wurde.
-- Verwenden Sie das {{cssxref("unset")}} Schlüsselwort, um eine Eigenschaft auf ihren geerbten Wert zu setzen, wenn sie vererbt wird, oder auf ihren Anfangswert, wenn nicht.
-- Die {{cssxref("all")}} Eigenschaft ermöglicht es Ihnen, alle Eigenschaften gleichzeitig auf ihren Anfangs-, geerbten, rückgängig gemachten oder ungesetzten Zustand zurückzusetzen.
+- [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+- Benutzen Sie das {{cssxref("initial")}}-Schlüsselwort, um eine Eigenschaft auf ihren Anfangswert zu setzen.
+- Benutzen Sie das {{cssxref("revert")}}-Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der durch das Benutzeragenten-Stylesheet (oder durch Benutzerstile, falls vorhanden) festgelegt wurde.
+- Benutzen Sie das {{cssxref("revert-layer")}}-Schlüsselwort, um eine Eigenschaft auf den in einer vorherigen Kaskadenschicht festgelegten Wert zurückzusetzen.
+- Benutzen Sie das {{cssxref("unset")}}-Schlüsselwort, um eine Eigenschaft auf ihren vererbten Wert zu setzen, wenn sie vererbt, oder auf ihren Anfangswert, wenn nicht.
+- Die {{cssxref("all")}}-Eigenschaft ermöglicht es Ihnen, alle Eigenschaften gleichzeitig auf ihren Anfangs-, vererbten, zurückgesetzten oder nicht gesetzten Zustand zurückzusetzen.

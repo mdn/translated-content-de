@@ -2,10 +2,10 @@
 title: margin-block-start
 slug: Web/CSS/Reference/Properties/margin-block-start
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`margin-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Rand eines Elements, der je nach Schreibrichtung, Richtung und Textorientierung des Elements auf einen physischen Rand abgebildet wird.
+Die **`margin-block-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockanfangsrand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Rand abgebildet wird.
 
 {{InteractiveExample("CSS Demo: margin-block-start")}}
 
@@ -85,13 +85,13 @@ margin-block-start: revert-layer;
 margin-block-start: unset;
 ```
 
-Sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Sie entspricht der Eigenschaft {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-Sie bezieht sich auf {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, die die anderen Ränder des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, welche die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-block-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("margin-left")}} Eigenschaft.
+Die Eigenschaft `margin-block-start` nimmt dieselben Werte wie die Eigenschaft {{cssxref("margin-left")}} an.
 
 ## Formale Definition
 
@@ -103,7 +103,7 @@ Die `margin-block-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxr
 
 ## Beispiele
 
-### Blockanfang-Rand festlegen
+### Festlegen des Blockanfangsrands
 
 #### HTML
 
@@ -143,6 +143,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die abgebildeten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

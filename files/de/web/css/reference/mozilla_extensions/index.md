@@ -1,54 +1,55 @@
 ---
-title: Firefox (-moz-) vendor-prefixed CSS-Erweiterungen
+title: Firefox (-moz-) browser-spezifische CSS-Erweiterungen
 slug: Web/CSS/Reference/Mozilla_extensions
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Ein {{Glossary("vendor_prefix", "Vendor-Präfix")}} wird verwendet, um anzuzeigen, dass ein Merkmal spezifisch für einen bestimmten Browser ist. Firefox unterstützt mehrere Erweiterungen von [CSS](/de/docs/Web/CSS), die mit `-moz-` vorgeprägt sind.
+Ein {{Glossary("vendor_prefix", "browser-spezifisches Präfix")}} wird verwendet, um anzuzeigen, dass ein Feature spezifisch für einen bestimmten Browser ist. Firefox unterstützt mehrere Erweiterungen für [CSS](/de/docs/Web/CSS), die mit `-moz-` präfixiert sind.
 
-## -moz-vorgeprägte Eigenschaften ohne standardmäßige Äquivalente
+## -moz-präfixierte Eigenschaften ohne standardisierte Entsprechungen
 
 > [!NOTE]
-> Diese Erweiterungen sind größtenteils experimentell oder veraltet, werden jedoch zur Rückwärtskompatibilität beibehalten. Sie sollten sie auf Produktionswebseiten vermeiden.
+> Diese Erweiterungen sind größtenteils experimentell oder veraltet, werden aber aus Gründen der Rückwärtskompatibilität beibehalten.
+> Sie sollten diese nicht auf Produktionswebsites verwenden.
 
 - {{CSSxRef("-moz-float-edge")}} {{deprecated_inline}}
 - {{CSSxRef("-moz-force-broken-image-icon")}} {{deprecated_inline}}: Verwenden Sie stattdessen `alt`-Text.
 - {{CSSxRef("-moz-orient")}}
-- `-moz-osx-font-smoothing`: Ein ähnliches {{CSSxRef("font-smooth")}} Äquivalent existiert.
+- `-moz-osx-font-smoothing`: Eine ähnliche {{CSSxRef("font-smooth")}} Entsprechung existiert.
 - {{CSSxRef("-moz-user-focus")}} {{deprecated_inline}}
 - {{CSSxRef("-moz-user-input")}} {{deprecated_inline}}
-- `-moz-user-modify`: Ein nicht vorgesetztes {{CSSxRef("user-modify")}} Äquivalent existiert, aber das HTML [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut wird stattdessen empfohlen.
+- `-moz-user-modify`: Eine nicht präfixierte {{CSSxRef("user-modify")}} Entsprechung existiert, aber das HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) wird stattdessen empfohlen.
 
-## -moz-vorgeprägte Eigenschaften mit standardmäßigen Äquivalenten
+## -moz-präfixierte Eigenschaften mit standardisierten Entsprechungen
 
-Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Präfixes implementiert, werden jetzt aber in Firefox mit der standardmäßigen (nicht vorgesetzten) Syntax unterstützt. Die Unterstützung für die vorgesetzte Version wird typischerweise irgendwann eingestellt, daher verwenden Sie stattdessen die standardmäßige Eigenschaft.
+Die folgenden Eigenschaften wurden zuerst mit dem `-moz-` Präfix implementiert, werden nun aber in Firefox mit der Standard- (nicht präfixierten) Syntax unterstützt. Die Unterstützung für die präfixierte Version wird typischerweise irgendwann eingestellt, daher sollten Sie stattdessen die standardisierte Eigenschaft verwenden.
 
 ### A
 
-- {{CSSxRef("animation", "-moz-animation")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-delay", "-moz-animation-delay")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-direction", "-moz-animation-direction")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-duration", "-moz-animation-duration")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-fill-mode", "-moz-animation-fill-mode")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-iteration-count", "-moz-animation-iteration-count")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-name", "-moz-animation-name")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-play-state", "-moz-animation-play-state")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("animation-timing-function", "-moz-animation-timing-function")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- `-moz-appearance`: Die vorgesetzte Version von {{CSSxRef("appearance")}} wird noch unterstützt.
+- {{CSSxRef("animation", "-moz-animation")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-delay", "-moz-animation-delay")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-direction", "-moz-animation-direction")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-duration", "-moz-animation-duration")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-fill-mode", "-moz-animation-fill-mode")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-iteration-count", "-moz-animation-iteration-count")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-name", "-moz-animation-name")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-play-state", "-moz-animation-play-state")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("animation-timing-function", "-moz-animation-timing-function")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- `-moz-appearance`: Die präfixierte Version von {{CSSxRef("appearance")}} wird noch unterstützt.
 
 ### B
 
-- {{CSSxRef("backface-visibility", "-moz-backface-visibility")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
+- {{CSSxRef("backface-visibility", "-moz-backface-visibility")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
 - `-moz-background-clip` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("background-clip")}}.
 - `-moz-background-origin` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("background-origin")}}.
-- `-moz-box-align` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("align-items")}}.
+- `-moz-box-align` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("align-items")}}.
 - `-moz-background-inline-policy` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("box-decoration-break")}}.
-- `-moz-box-direction` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
-- `-moz-box-flex` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-grow")}}.
-- `-moz-box-ordinal-group` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("order")}}.
-- `-moz-box-orient` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
-- `-moz-box-pack` {{deprecated_inline}}: Verwenden Sie [CSS flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) mit {{CSSxRef("justify-content")}}.
+- `-moz-box-direction` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
+- `-moz-box-flex` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-grow")}}.
+- `-moz-box-ordinal-group` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("order")}}.
+- `-moz-box-orient` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
+- `-moz-box-pack` {{deprecated_inline}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("justify-content")}}.
 - `-moz-background-size` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("background-size")}}.
 - `-moz-border-end` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-end")}}.
 - `-moz-border-end-color` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-end-color")}}.
@@ -59,7 +60,7 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 - `-moz-border-start-color` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-start-color")}}.
 - `-moz-border-start-style` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-start-style")}}.
 - `-moz-border-start-width` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("border-inline-start-width")}}.
-- {{CSSxRef("box-sizing", "-moz-box-sizing")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
+- {{CSSxRef("box-sizing", "-moz-box-sizing")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
 
 ### C
 
@@ -74,9 +75,9 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 
 ### F–M
 
-- {{CSSxRef("font-feature-settings", "-moz-font-feature-settings")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("font-language-override", "-moz-font-language-override")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("hyphens", "-moz-hyphens")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
+- {{CSSxRef("font-feature-settings", "-moz-font-feature-settings")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("font-language-override", "-moz-font-language-override")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("hyphens", "-moz-hyphens")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
 - `-moz-margin-end` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("margin-inline-end")}}.
 - `-moz-margin-start` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("margin-inline-start")}}.
 
@@ -90,8 +91,8 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 - `-moz-outline-width` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("outline-width")}}.
 - `-moz-padding-end` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("padding-inline-end")}}.
 - `-moz-padding-start` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("padding-inline-start")}}.
-- {{CSSxRef("perspective", "-moz-perspective")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("perspective-origin", "-moz-perspective-origin")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
+- {{CSSxRef("perspective", "-moz-perspective")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("perspective-origin", "-moz-perspective-origin")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
 
 ### T–Z
 
@@ -101,9 +102,9 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 - `-moz-text-decoration-line` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("text-decoration-line")}}.
 - `-moz-text-decoration-style` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("text-decoration-style")}}.
 - `-moz-text-size-adjust`: Siehe {{CSSxRef("text-size-adjust")}} {{Experimental_Inline}}.
-- {{CSSxRef("transform", "-moz-transform")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("transform-origin", "-moz-transform-origin")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
-- {{CSSxRef("transform-style", "-moz-transform-style")}} {{deprecated_inline}}: Vorgeprägte Version noch unterstützt.
+- {{CSSxRef("transform", "-moz-transform")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("transform-origin", "-moz-transform-origin")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
+- {{CSSxRef("transform-style", "-moz-transform-style")}} {{deprecated_inline}}: Präfixversion wird noch unterstützt.
 - `-moz-transition` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("transition")}}.
 - `-moz-transition-delay` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("transition-delay")}}.
 - `-moz-transition-duration` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("transition-duration")}}.
@@ -111,7 +112,7 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 - `-moz-transition-timing-function` {{deprecated_inline}}: Nicht unterstützt; verwenden Sie {{CSSxRef("transition-timing-function")}}.
 - `-moz-user-select`: Verwenden Sie {{CSSxRef("user-select")}}.
 
-## -moz-vorgeprägte Eigenschaftswerte
+## -moz-präfixierte Eigenschaftswerte
 
 ### Globale Werte
 
@@ -134,7 +135,7 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 - `-moz-bg-outset` {{deprecated_inline}}
 - `-moz-bg-solid` {{deprecated_inline}}
 
-### \<color\> Schlüsselwörter
+### &lt;color&gt; Schlüsselwörter
 
 **Typ:** {{CSSxRef("&lt;color&gt;")}}
 
@@ -172,7 +173,7 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 
 - `-moz-crisp-edges` {{deprecated_inline}}: Verwenden Sie [`crisp-edges`](/de/docs/Web/CSS/Reference/Properties/image-rendering#crisp-edges).
 
-### \<length\>
+### &lt;length&gt;
 
 **Typ:** {{CSSxRef("&lt;length&gt;")}}
 
@@ -182,7 +183,7 @@ Die folgenden Eigenschaften wurden zuerst unter Verwendung des `-moz-` Vendor-Pr
 
 **Eigenschaft:** {{CSSxRef("list-style-type")}}
 
-Mehrere vorgesetzte Werte für `list-style-type` werden jetzt als Standardwerte ohne `-moz-` Präfix unterstützt, außer den folgenden in der Liste. Siehe [Browser-Kompatibilität](/de/docs/Web/CSS/Reference/Properties/list-style-type#browser_compatibility) für Details.
+Mehrere präfixierte Werte für `list-style-type` werden jetzt als Standardwerte ohne ein `-moz-` Präfix unterstützt, außer für die nachfolgend aufgeführten. Siehe [Browser-Kompatibilität](/de/docs/Web/CSS/Reference/Properties/list-style-type#browser_compatibility) für Details.
 
 - `-moz-ethiopic-halehame`
 - `-moz-ethiopic-halehame-am`
@@ -200,7 +201,7 @@ Mehrere vorgesetzte Werte für `list-style-type` werden jetzt als Standardwerte 
 - `-moz-left` {{deprecated_inline}}: Verwenden Sie {{CSSxRef("text-align", "text-align: left")}}.
 - `-moz-right` {{deprecated_inline}}: Verwenden Sie {{CSSxRef("text-align", "text-align: right")}}.
 
-### width, min-width und max-width
+### width, min-width, und max-width
 
 **Eigenschaften:** {{CSSxRef("width")}}, {{CSSxRef("min-width")}}, und {{CSSxRef("max-width")}}
 
@@ -273,7 +274,7 @@ Mehrere vorgesetzte Werte für `list-style-type` werden jetzt als Standardwerte 
 
 - {{CSSxRef("@document", "@-moz-document")}}
 
-## Media-Features
+## Medien-Features
 
 - {{CSSxRef("@media/-moz-device-pixel-ratio", "-moz-device-pixel-ratio")}} {{deprecated_inline}}
 - `-moz-platform`
@@ -285,5 +286,5 @@ Mehrere vorgesetzte Werte für `list-style-type` werden jetzt als Standardwerte 
 
 ## Siehe auch
 
-- [WebKit (-webkit-) Vendor-Präfix CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
-- {{Glossary("Vendor_Prefix", "Vendor-Präfix")}} Glossar-Eintrag
+- [WebKit (-webkit-) browser-spezifische CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- Eintrag im {{Glossary("Vendor_Prefix", "Glossar für browser-spezifische Präfixe")}}

@@ -2,10 +2,10 @@
 title: lch()
 slug: Web/CSS/Reference/Values/color_value/lch
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`lch()`** Funktionsnotation drückt eine gegebene Farbe unter Verwendung des LCH-{{Glossary("color_space", "Farbraums")}} aus, der Helligkeit, Chroma und Farbton darstellt. Sie verwendet die gleiche `L`-Achse wie die {{cssxref("color_value/lab","lab()")}} Farb-Funktion des {{Glossary("Color_space#cielab_color_spaces", "CIELab-Farbraums")}}, jedoch werden die Polar-Koordinaten `C` (Chroma) und `H` (Farbton) genutzt.
+Die **`lch()`** Funktionale Notation drückt eine gegebene Farbe im LCH-{{Glossary("color_space", "Farbraum")}} aus, der Helligkeit, Chroma und Farbton darstellt. Sie verwendet die gleiche `L`-Achse wie die {{cssxref("color_value/lab","lab()")}} Farb-Funktion des {{Glossary("Color_space#cielab_color_spaces", "CIELab-Farbraums")}}, jedoch mit den Polarkoordinaten `C` (Chroma) und `H` (Farbton).
 
 ## Syntax
 
@@ -24,11 +24,11 @@ lch(from var(--color-value) l c h / calc(alpha - 0.1))
 
 ### Werte
 
-Nachfolgend sind Beschreibungen der erlaubten Werte sowohl für absolute als auch für [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) aufgeführt.
+Unten finden Sie Beschreibungen der zulässigen Werte sowohl für absolute als auch für [relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors).
 
 > [!NOTE]
-> Üblicherweise, wenn Prozentwerte in CSS einen numerischen Äquivalent haben, entspricht `100%` der Zahl `1`.
-> Das ist nicht der Fall für `lch()`. Hier ist `100%` gleich der Zahl `100` für den `L`-Wert und `150` für den `C`-Wert.
+> Üblicherweise entspricht `100%`, wenn Prozentwerte einen numerischen Äquivalent in CSS haben, der Zahl `1`.
+> Dies ist bei `lch()` nicht der Fall. Hier entspricht `100%` der Zahl `100` für den `L`-Wert und `150` für den `C`-Wert.
 
 #### Absolute Wert-Syntax
 
@@ -39,27 +39,30 @@ lch(L C H[ / A])
 Die Parameter sind wie folgt:
 
 - `L`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (entspricht `0%`). Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `100` entspricht `100%` (weiß). Dieser Wert gibt die Helligkeit der Farbe im {{Glossary("Color_space#cielab_color_spaces", "CIELab-Farbraum")}} an.
+
+  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (gleichbedeutend mit `0%`). Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `100` entspricht `100%` (weiß). Dieser Wert spezifiziert die Helligkeit der Farbe im {{Glossary("Color_space#cielab_color_spaces", "CIELab Farbraum")}}.
 
     > [!NOTE]
-    > Das `L` in `lch()` steht für die wahrgenommene Helligkeit, die sich auf die "Helligkeit" bezieht, die wir mit unseren Augen visuell wahrnehmen. Dies ist anders als das `L` in `hsl()`, wo es die Helligkeit im Vergleich zu anderen Farben darstellt.
+    > Das `L` in `lch()` ist die wahrgenommene Helligkeit, die sich auf die "Helligkeit" bezieht, die wir visuell mit unseren Augen wahrnehmen. Dies unterscheidet sich vom `L` in `hsl()`, wo es die Helligkeit im Vergleich zu anderen Farben darstellt.
 
 - `C`
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}}, oder das Schlüsselwort `none` (entspricht `0%` in diesem Fall). Dieser Wert ist ein Maß für das Chroma der Farbe (ungefähr "Menge an Farbe"). Der minimal nützliche Wert ist `0%` oder `0`, während sein Maximum theoretisch unbegrenzt ist (praktisch jedoch nicht mehr als `230` überschreitet), wobei `100%` `150` entspricht.
+
+  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0%`). Dieser Wert ist ein Maß für das Chroma der Farbe (großzügig ausgedrückt die "Menge an Farbe"). Sein minimaler nützlicher Wert ist `0%` oder `0`, während sein Maximalwert theoretisch unbegrenzt ist (in der Praxis jedoch nicht über `230` hinausgeht), wobei `100%` dem Wert `150` entspricht.
 
 - `H`
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (entspricht `0deg`) und stellt den Winkel des {{CSSXref("&lt;hue&gt;")}} der Farbe dar.
+
+  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (gleichbedeutend mit `0deg`) repräsentiert den {{CSSXref("&lt;hue&gt;")}}-Winkel der Farbe.
 
     > [!NOTE]
-    > Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich zwischen den Farbmodellen sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB (verwendet von `lch()`) und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}). Siehe das [Farben in LCH](#farbtöne_in_lch) Beispiel unten und die {{CSSXref("&lt;hue&gt;")}} Referenzseite für mehr Details und Beispiele.
+    > Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich zwischen den Farbräumen sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB (verwendet von `lch()`), und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}). Siehe das Beispiel zu den [Farbtönen in LCH](#farbtöne_in_lch) unten und die {{CSSXref("&lt;hue&gt;")}}-Referenzseite für weitere Details und Beispiele.
 
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alpha-Kanal-Wert der Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig undurchsichtig) entspricht. Außerdem kann das Schlüsselwort `none` verwendet werden, um keinen Alpha-Kanal explizit anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist der Standardwert 100%. Wenn eingeschlossen, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Wert des Alphakanals der Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanal-Wert nicht ausdrücklich angegeben ist, wird er auf 100% voreingestellt. Wenn er enthalten ist, wird der Wert von einem Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Siehe [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components) für weitere Informationen über die Wirkung von `none`.
+> Weitere Informationen zu den Auswirkungen von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components).
 
-#### Relativ Wert-Syntax
+#### Relative Wert-Syntax
 
 ```plain
 lch(from <color> L C H[ / A])
@@ -68,69 +71,73 @@ lch(from <color> L C H[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-  - : Das Schlüsselwort `from` ist immer enthalten, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann jede gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
+
+  - : Das Schlüsselwort `from` ist immer enthalten, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann jede gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 
 - `L`
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht `0%`). Die Zahl `0` entspricht `0%` (schwarz), und die Zahl `100` entspricht `100%` (weiß). Dieser Wert gibt die Helligkeit der Farbe im CIELab-Farbraum an.
+
+  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (gleichbedeutend mit `0%`). Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `100` entspricht `100%` (weiß). Dieser Wert spezifiziert die Helligkeit der Farbe im CIELab-Farbraum.
 
 - `C`
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}}, oder das Schlüsselwort `none` (entspricht `0%` in diesem Fall). Dieser Wert repräsentiert den Chromawert der Ausgabe-Farbe (ungefähr die "Menge an Farbe"). Der minimal nützliche Wert ist `0%`, oder `0`, während sein Maximum theoretisch unbegrenzt ist (praktisch jedoch nicht mehr als `230`), wobei `100%` `150` entspricht.
+
+  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (hier gleichbedeutend mit `0%`). Dieser Wert repräsentiert den Chroma-Wert der Ausgangsfarbe (großzügig ausgedrückt die "Menge an Farbe"). Sein minimaler nützlicher Wert ist `0%` oder `0`, während sein Maximalwert theoretisch unbegrenzt ist (in der Praxis jedoch nicht über `230` hinausgeht), wobei `100%` dem Wert `150` entspricht.
 
 - `H`
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (entspricht `0deg`) und stellt den Winkel des {{CSSXref("&lt;hue&gt;")}} der Ausgabe-Farbe dar. Siehe das [Farbtöne-Beispiel](#result_3) unten.
+
+  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (gleichbedeutend mit `0deg`) repräsentiert den {{CSSXref("&lt;hue&gt;")}}-Winkel der Ausgangsfarbe. Siehe das Beispiel zum [Farbton](#result_3) unten.
 
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alpha-Kanal-Wert der Ausgabe-Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig undurchsichtig) entspricht. Außerdem kann das Schlüsselwort `none` verwendet werden, um keinen Alpha-Kanal explizit anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, entspricht er dem Alpha-Kanal-Wert der Ursprungsfarbe. Wenn eingeschlossen, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alphakanalwert der Ausgangsfarbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanal-Wert nicht ausdrücklich angegeben ist, wird er auf den Alphakanalwert der Ursprungsfarbe voreingestellt. Wenn er enthalten ist, wird der Wert von einem Schrägstrich (`/`) vorangestellt.
 
-#### Definieren von relativen Farbausgabekanalkomponenten
+#### Definition der Ausgangskanal-Komponenten für relative Farben
 
-Beim Verwenden der relativen Farbsyntax innerhalb einer `lch()` Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente Lch-Farbe (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei separate Farbkanalwerte definiert — `l` (Helligkeit), `c` (Chroma) und `h` (Farbton) — plus einen Alpha-Kanal-Wert (`alpha`). Diese Kanalwerte sind innerhalb der Funktion verfügbar, um bei der Definition der Ausgabefarbkanalwerte verwendet zu werden:
+Bei der Verwendung der relativen Farbsyntax innerhalb einer `lch()`-Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente Lch-Farbe (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei unterschiedliche Farbkanal-Werte definiert — `l` (Lichtstärke), `c` (Chroma) und `h` (Farbton) — sowie ein Alphakanal-Wert (`alpha`). Diese Kanal-Werte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgangs-Farbkanal-Werte verwendet zu werden:
 
-- Der `l`-Kanalwert wird auf eine `<number>` zwischen `0` und `100` aufgelöst, inklusive.
-- Der `c`-Kanalwert wird auf eine `<number>` zwischen `0` und `150` aufgelöst, inklusive.
-- Der `h`-Kanalwert wird auf eine `<number>` zwischen `0` und `360` aufgelöst, inklusive.
-- Der `alpha`-Kanal wird auf eine `<number>` zwischen `0` und `1` aufgelöst, inklusive.
+- Der `l`-Kanal-Wert wird in eine `<number>` zwischen `0` und `100`, inklusiv, aufgelöst.
+- Der `c`-Kanal-Wert wird in eine `<number>` zwischen `0` und `150`, inklusiv, aufgelöst.
+- Der `h`-Kanal-Wert wird in eine `<number>` zwischen `0` und `360`, inklusiv, aufgelöst.
+- Der `alpha`-Kanal wird in eine `<number>` zwischen `0` und `1`, inklusiv, aufgelöst.
 
-Beim Definieren einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf verschiedene Arten ausgedrückt werden. Im Folgenden werden einige Beispiele untersucht, um diese zu veranschaulichen.
+Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgangsfarbe auf mehrere verschiedene Arten ausgedrückt werden. Unten werden einige Beispiele untersucht, um dies zu veranschaulichen.
 
-In den ersten beiden Beispielen unten verwenden wir eine relative Farbsyntax. Allerdings gibt das erste dieselbe Farbe wie die Ursprungsfarbe aus und das zweite liefert eine Farbe, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen eigentlich keine relativen Farben! Sie würden diese in einer realen Codebasis wahrscheinlich nie verwenden und stattdessen einfach einen absoluten Farbwert nutzen. Wir haben diese Beispiele aufgenommen, um einen Ausgangspunkt zum Erlernen der relativen `lch()`-Syntax bereitzustellen.
+In den beiden folgenden Beispielen verwenden wir die relative Farbsyntax. Jedoch gibt das erste den gleichen Farbton wie die Ursprungsfarbe aus, und das zweite gibt eine Farbe aus, die nicht auf der Ursprungsfarbe basiert. Sie erstellen tatsächlich keine relativen Farben! Sie würden solche in einem echten Code wahrscheinlich niemals verwenden und wahrscheinlich einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt zum Lernen über die relative `lch()`-Syntax aufgenommen.
 
-Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (äquivalent zu `rot`). Die folgende Funktion gibt dieselbe Farbe wie die Ursprungsfarbe aus — sie verwendet die `l`, `c` und `h`-Kanalwerte der Ursprungsfarbe (`54.29`, `106.854` und `40.856`) als Ausgabekanäle:
+Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (entspricht `red`). Die folgende Funktion liefert die gleiche Farbe wie die Ursprungsfarbe — sie verwendet die `l`, `c`, und `h` Kanal-Werte der Ursprungsfarbe (`54.29`, `106.854`, und `40.856`) als die Ausgangs-Kanalwerte:
 
 ```css
 lch(from hsl(0 100% 50%) l c h)
 ```
 
-Die Ausgabe dieser Funktion ist `lch(54.29 106.854 40.856)`.
+Diese Funktion gibt die Farbe `lch(54.29 106.854 40.856)` aus.
 
-Die nächste Funktion verwendet absolute Werte für die Kanäle der Ausgabefarbe und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
+Die nächste Funktion verwendet absolute Werte für die Ausgangs-Farbkanalwerte und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
 
 ```css
 lch(from hsl(0 100% 50%) 29.6871% 66.83 327.109)
 ```
 
-In dem obigen Fall ist die Ausgabefarbe `lch(29.6871 66.83 327.109)`.
+In diesem Fall ist die Ausgangsfarbe `lch(29.6871 66.83 327.109)`.
 
-Die folgende Funktion erzeugt eine relative Farbe basierend auf der Ursprungsfarbe:
+Die folgende Funktion erstellt eine relative Farbe basierend auf der Ursprungsfarbe:
 
 ```css
 lch(from hsl(0 100% 50%) 70 150 h)
 ```
 
-In diesem Beispiel:
+Dieses Beispiel:
 
-- Die `hsl()`-Ursprungsfarbe wird in eine äquivalente `lch()`-Farbe konvertiert — `lch(54.29 106.854 40.856)`.
-- Der `H`-Kanalwert für die Ausgabefarbe wird auf den `H`-Kanalwert des `lch()`-Äquivalents der Ursprungsfarbe gesetzt — `40.856`.
-- Die `L`- und `C`-Werte der Ausgabefarbe werden auf neue, nicht auf der Ursprungsfarbe basierende Werte gesetzt: `70` beziehungsweise `150`.
+- Konvertiert die `hsl()` Ursprungsfarbe in eine äquivalente `lch()` Farbe — `lch(54.29 106.854 40.856)`.
+- Legt den `H`-Wert der Ausgangsfarbe auf den `H`-Kanalwert der äquivalenten `lch()` Ursprungsfarbe — `40.856`.
+- Setzt die `L`- und `C`-Werte der Ausgangsfarbe auf neue Werte, die nicht auf der Ursprungsfarbe basieren: `70` bzw. `150`.
 
-Die endgültige Ausgabefarbe ist `lch(70 150 40.856)`.
+Die endgültige Ausgangsfarbe ist `lch(70 150 40.856)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wird die Ursprungsfarbe, wenn die Ausgabefarbe ein anderes Farbmodell verwendet, im Hintergrund in dasselbe Modell wie die Ausgabefarbe konvertiert, sodass sie auf eine Weise dargestellt werden kann, die kompatibel ist (d. h. mit denselben Kanälen).
+> Wie oben erwähnt, wenn die Ausgangsfarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgangsfarbe konvertiert, damit sie in einer kompatiblen Weise dargestellt werden kann (d.h. unter Verwendung der gleichen Kanäle).
 
-In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit spezifiziert. Wenn der Alpha-Kanal der Ausgabefarbe nicht angegeben wird, entspricht er standardmäßig demselben Wert wie der Alpha-Kanal der Ursprungsfarbe. Wenn der Alpha-Kanal der Ursprungsfarbe nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), ist der Standardwert `1`. Daher sind die Alpha-Kanal-Werte für die obigen Beispiele `1`.
+In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgangsfarben ausdrücklich angegeben. Wenn der Alphakanal der Ausgangsfarbe nicht angegeben ist, wird er auf den gleichen Wert voreingestellt wie der Alphakanal der Ursprungsfarbe. Wenn der Alphakanal der Ursprungsfarbe nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), wird er auf `1` voreingestellt. Daher sind die Ursprungs- und Ausgangs-Alphakanal-Werte der obigen Beispiele `1`.
 
-Sehen wir uns einige Beispiele an, in denen Alpha-Kanal-Werte für Ursprung und Ausgabe angegeben werden. Das erste gibt den Alpha-Kanal-Wert der Ausgabe explizit als den gleichen Wert wie der Ursprungskanal an, während das zweite Beispiel einen anderen, vom Ursprung unabhängigen Wert für den Alpha-Kanal der Ausgabe angibt.
+Betrachten wir einige Beispiele, die Ursprungs- und Ausgangs-Alphakanal-Werte angeben. Das erste gibt an, dass der Ausgangs-Alphakanal-Wert derselbe ist wie der Ursprungs-Alphakanal-Wert, während das zweite einen anderen Ausgangs-Alphakanalwert angibt, der mit dem Ursprungs-Alphakanal-Wert nicht in Zusammenhang steht.
 
 ```css
 lch(from hsl(0 100% 50% / 0.8) l c h / alpha)
@@ -140,14 +147,14 @@ lch(from hsl(0 100% 50% / 0.8) l c h / 0.5)
 /* Computed output color: lch(54.29 106.854 40.856 / 0.5) */
 ```
 
-Im folgenden Beispiel wird die `hsl()`-Ursprungsfarbe erneut in das `lch()`-Äquivalent konvertiert — `lch(54.29 106.854 40.856)`. {{cssxref("calc")}} Berechnungen werden auf die `L`-, `C`-, `H`- und `A`-Werte angewandt, was zu einer Ausgabefarbe von `lch(74.29 86.8541 0.856018 / 0.9)` führt:
+Im folgenden Beispiel wird die `hsl()` Ursprungsfarbe erneut in die `lch()` äquivalente Farbe — `lch(54.29 106.854 40.856)` — umgewandelt. {{cssxref("calc")}}-Berechnungen werden auf die `L`-, `C`-, `H`- und `A`-Werte angewendet und führen zu einer Ausgangsfarbe von `lch(74.29 86.8541 0.856018 / 0.9)`:
 
 ```css
 lch(from hsl(0 100% 50%) calc(l + 20) calc(c - 20) calc(h - 40) / calc(alpha - 0.1))
 ```
 
 > [!NOTE]
-> Da die Ursprungsfarbkanalwerte auf `<number>`-Werte aufgelöst werden, müssen Sie bei ihrer Verwendung in Berechnungen Zahlen zu ihnen hinzufügen, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Beispielsweise funktioniert das Hinzufügen eines `<percentage>` zu einer `<number>` nicht.
+> Da die Kanal-Werte der Ursprungsfarbe in `<number>`-Werte aufgelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Wertetypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>` funktioniert zum Beispiel nicht.
 
 ## Formale Syntax
 
@@ -157,7 +164,7 @@ lch(from hsl(0 100% 50%) calc(l + 20) calc(c - 20) calc(h - 40) / calc(alpha - 0
 
 ### Anpassen der Helligkeit einer Farbe
 
-Dieses Beispiel zeigt die Wirkung der Variation des `L`- (Helligkeits-)Wertes der `lch()`-Funktionsnotation.
+Dieses Beispiel zeigt die Auswirkung der Variation des `L` (Helligkeit)-Wertes der `lch()` funktionalen Notation.
 
 #### HTML
 
@@ -227,7 +234,7 @@ div {
 
 ### Anpassen der Farbintensität über Chroma
 
-Das folgende Beispiel zeigt die Wirkung der Variation des `C`- (Chroma-)Wertes der `lch()`-Funktionsnotation, wobei die Farben an Intensität abnehmen, wenn der `C`-Wert von vollständig gesättigt zu fast grau abnimmt.
+Das folgende Beispiel zeigt die Auswirkungen der Variation des `C` (Chroma)-Wertes der `lch()` funktionalen Notation, wobei die Farbintensität abnimmt, wenn der `C`-Wert von vollständig gesättigt bis fast grau abnimmt.
 
 #### HTML
 
@@ -250,7 +257,7 @@ Das folgende Beispiel zeigt die Wirkung der Variation des `C`- (Chroma-)Wertes d
 
 #### CSS
 
-Mit den anfänglichen Ausgangsfarben Blau, Rot und Grün deklarieren wir sukzessive kleinere Chromawerte für sie: Beginnend mit voller Farbsättigung am höchsten Wert von `150` (entspricht `100%`) bis hinunter zu `3` (entspricht `2%`), was für alle Farben fast grau ist.
+Mit den anfänglichen Startfarben Blau, Rot und Grün deklarieren wir schrittweise kleinere Werte für Chroma: beginnend mit der vollen Farbsättigung beim höchsten Wert von `150` (entspricht `100%`) bis zu `3` (entspricht `2%`), was für alle Farben fast grau ist.
 
 ```css hidden
 body {
@@ -309,11 +316,11 @@ div {
 
 {{EmbedLiveSample("Adjusting color intensity via chroma", '', '200')}}
 
-Hätten wir `0` anstelle von `3` und `2%`, mit den gleichen Helligkeitswerten verwendet, wären die Farben alle in demselben Grauton. In diesem Beispiel sind sie fast grau.
+Hätten wir `0` anstelle von `3` und `2%` verwendet, mit den gleichen Helligkeitswerten, wären die Farben alle derselbe Grauton gewesen. In diesem Beispiel sind sie fast grau.
 
 ### Farbtöne in LCH
 
-Das folgende Beispiel zeigt Farbpaletten mit unterschiedlichen `H`- (Farbton-)Werten der `lch()`-Funktionsnotation.
+Das folgende Beispiel zeigt Farbmuster mit unterschiedlichen `H` (Farbton)-Werten der `lch()` funktionalen Notation.
 
 #### HTML
 
@@ -432,13 +439,13 @@ und so weiter.
 
 {{EmbedLiveSample("hues in lch")}}
 
-Die Farbtonwinkel in `lch()` unterscheiden sich von denen in {{CSSXref("color_value/hsl", "hsl()")}}. Siehe {{cssxref("hue")}} für mehr Informationen. In `hsl()` repräsentiert die sRGB-Farbe `0deg` Rot. Im CIELab-Farbraum entspricht `0deg` jedoch Magenta, während Rot etwa `41deg` entspricht.
+Die Farbtonwinkel in `lch()` unterscheiden sich von denen in {{CSSXref("color_value/hsl", "hsl()")}}. Siehe {{cssxref("hue")}} für weitere Informationen. In `hsl()` repräsentiert die sRGB-Farbe `0deg` Rot. Im CIELab-Farbraum entspricht jedoch `0deg` Magenta, während Rot ungefähr `41deg` entspricht.
 
 ### Anpassen der Deckkraft mit lch()
 
-Das folgende Beispiel zeigt die Wirkung der Variation des `A`- (Alpha-)Wertes der `lch()`-Funktionsnotation.
-Die `red` und `red-alpha` Elemente überlappen das `#background-div` Element, um den Effekt der Deckkraft zu demonstrieren.
-Durch die Vergabe eines `A`-Wertes von `0,4` wird die Farbe zu 40% undurchsichtig.
+Das folgende Beispiel zeigt die Auswirkungen der Variation des `A` (Alpha)-Wertes der `lch()` funktionalen Notation.
+Die `red`- und `red-alpha`-Elemente überlappen das `#background-div`-Element, um den Effekt der Deckkraft zu demonstrieren.
+Ein Wert von `0.4` für `A` macht die Farbe zu 40% deckend.
 
 #### HTML
 
@@ -480,11 +487,11 @@ div {
 
 {{EmbedLiveSample("adjusting_opacity_with_lch")}}
 
-### Verwendung relativer Farben mit lch()
+### Verwenden relativer Farben mit lch()
 
-Dieses Beispiel stylt drei {{htmlelement("div")}} Elemente mit unterschiedlichen Hintergrundfarben, um die Verwendung relativer Farben zur Änderung der Helligkeit einer Farbe mit der `lch()`-Farbfunktion zu demonstrieren. Das mittlere `<div>` behält die ursprüngliche `--base-color`, während das linke und rechte `<div>` aufgehellte und abgedunkelte Varianten der `--base-color` erhalten.
+Dieses Beispiel stylt drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben und demonstriert die Verwendung relativer Farben, um die Helligkeit einer Farbe mit der `lch()`-Funktion zu ändern. Das mittlere `<div>` behält die ursprüngliche `--base-color`, während die linken und rechten `<div>`s aufgehellte und abgedunkelte Varianten der `--base-color` erhalten.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) wird in eine `lch()`-Funktion übergeben, und die Ausgabefarben haben ihren Helligkeitskanal modifiziert, um den gewünschten Effekt über eine `calc()`-Funktion zu erzielen. Der aufgehellte Farbton hat 15% zum Helligkeitskanal hinzugefügt, und der abgedunkelte Farbton hat 15% vom Helligkeitskanal abgezogen.
+Diese Varianten werden unter Verwendung relativer Farben definiert — die [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) `--base-color` wird in eine `lch()`-Funktion übergeben und die Ausgangsfarben haben ihren Helligkeitskanal modifiziert, um den gewünschten Effekt über eine `calc()`-Funktion zu erzielen. Die aufgehellte Farbe hat 15% zu ihrem Helligkeitskanal hinzugefügt, und die abgedunkelte Farbe hat 15% von ihrem Helligkeitskanal subtrahiert.
 
 ```html hidden
 <div id="container">
@@ -545,7 +552,7 @@ Die Ausgabe ist wie folgt:
 ## Siehe auch
 
 - [Liste aller Farbnotationen](/de/docs/Web/CSS/Reference/Values/color_value)
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
 - {{CSSXref("&lt;hue&gt;")}} Datentyp
-- [LCH Farben in CSS: was, warum und wie?](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/) von Lea Verou (2020)
+- [LCH-Farben in CSS: was, warum und wie?](https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/) von Lea Verou (2020)

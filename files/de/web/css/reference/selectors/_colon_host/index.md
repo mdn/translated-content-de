@@ -2,10 +2,10 @@
 title: :host
 slug: Web/CSS/Reference/Selectors/:host
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`:host`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM), der das CSS enthält, in dem es verwendet wird – mit anderen Worten, es ermöglicht Ihnen, ein benutzerdefiniertes Element aus seinem Shadow DOM heraus auszuwählen.
+Die **`:host`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird — mit anderen Worten, dies ermöglicht Ihnen, ein benutzerdefiniertes Element von innerhalb seines Shadow DOM auszuwählen.
 
 > [!NOTE]
 > Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOM verwendet wird.
@@ -68,9 +68,9 @@ function init() {
 
 ### Den Shadow-Host stylen
 
-Die folgenden Snippets stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([siehe es auch live](https://mdn.github.io/web-components-examples/host-selectors/)).
+Die folgenden Codeausschnitte stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/host-selectors/)).
 
-In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — das Sie um Text herum platzieren können:
+In diesem Beispiel haben wir ein grundlegendes benutzerdefiniertes Element — `<context-span>` — das Sie um Text herumwickeln können:
 
 ```html
 <h1>
@@ -78,7 +78,7 @@ In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<con
 </h1>
 ```
 
-Im Konstruktor des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und füllen das `style`-Element mit einigen CSS-Regeln:
+Im Konstruktor des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und das `style`-Element mit einigen CSS-Regeln:
 
 ```js
 const style = document.createElement("style");
@@ -98,7 +98,7 @@ style.textContent =
   ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
 ```
 
-Die Regel `:host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }` stylt alle Instanzen des `<context-span>`-Elements (den Shadow-Host in diesem Fall) im Dokument.
+Die Regel `:host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }` gestaltet alle Instanzen des `<context-span>`-Elements (in diesem Fall der Shadow-Host) im Dokument.
 
 ## Spezifikationen
 
@@ -115,4 +115,4 @@ Die Regel `:host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }` stylt alle
 - {{cssxref(":host-context", ":host-context()")}}
 - {{CSSxref("::slotted")}}
 - {{CSSxRef(":state",":state()")}}
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
+- [CSS Scoping](/de/docs/Web/CSS/Guides/Scoping) Modul

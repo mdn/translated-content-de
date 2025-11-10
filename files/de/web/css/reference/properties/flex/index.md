@@ -2,10 +2,10 @@
 title: flex
 slug: Web/CSS/Reference/Properties/flex
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`flex`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt fest, wie ein {{Glossary("flex_item", "Flex-Element")}} wachsen oder schrumpfen soll, um in den verfügbaren Raum seines Flex-Containers zu passen.
+Die **`flex`**-[CSS](/de/docs/Web/CSS)-[Kurzschrift-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt fest, wie ein {{Glossary("flex_item", "Flex-Element")}} wachsen oder schrumpfen soll, um in den verfügbaren Raum seines Flex-Containers zu passen.
 
 {{InteractiveExample("CSS Demo: flex")}}
 
@@ -56,9 +56,9 @@ flex: 1 1 100px;
 }
 ```
 
-## Bestandteileigenschaften
+## Bestandteile der Eigenschaft
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("flex-grow")}}
 - {{cssxref("flex-shrink")}}
@@ -99,19 +99,21 @@ flex: unset;
 
 Die `flex`-Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden.
 
-- **Syntax mit einem Wert:** der Wert muss eines der folgenden sein:
-  - Ein gültiger Wert für {{cssxref("&lt;flex-grow&gt;")}}: dann erweitert sich die Kurzschreibweise in allen Browsern zu `flex: <flex-grow> 1 0%`. Die Spezifikation sagt jedoch, dass sie sich zu `flex: <flex-grow> 1 0` erweitern sollte.
-  - Ein gültiger Wert für {{cssxref("&lt;flex-basis&gt;")}}: dann erweitert sich die Kurzschreibweise zu `flex: 1 1 <flex-basis>`.
-  - Das Schlüsselwort `none` oder eines der globalen Schlüsselwörter.
+- **Ein-Wert-Syntax:** der Wert muss einer der folgenden sein:
 
-- **Syntax mit zwei Werten:**
+  - ein gültiger Wert für {{cssxref("&lt;flex-grow&gt;")}}: dann, in allen Browsern, expandiert die Kurzschrift zu `flex: <flex-grow> 1 0%`. Die Spezifikation sagt jedoch, es sollte zu `flex: <flex-grow> 1 0` expandieren.
+  - ein gültiger Wert für {{cssxref("&lt;flex-basis&gt;")}}: dann expandiert die Kurzschrift zu `flex: 1 1 <flex-basis>`.
+  - das Schlüsselwort `none` oder eines der globalen Schlüsselwörter.
+
+- **Zwei-Wert-Syntax:**
+
   - Der erste Wert muss ein gültiger Wert für {{cssxref("flex-grow")}} sein.
 
-  - Der zweite Wert muss eines der folgenden sein:
-    - Ein gültiger Wert für {{cssxref("flex-shrink")}}: dann erweitert sich die Kurzschreibweise in allen Browsern zu `flex: <flex-grow> <flex-shrink> 0%`.
-    - Ein gültiger Wert für {{cssxref("flex-basis")}}: dann erweitert sich die Kurzschreibweise zu `flex: <flex-grow> 1 <flex-basis>`.
+  - Der zweite Wert muss einer der folgenden sein:
+    - ein gültiger Wert für {{cssxref("flex-shrink")}}: dann, in allen Browsern, expandiert die Kurzschrift zu `flex: <flex-grow> <flex-shrink> 0%`.
+    - ein gültiger Wert für {{cssxref("flex-basis")}}: dann expandiert die Kurzschrift zu `flex: <flex-grow> 1 <flex-basis>`.
 
-- **Syntax mit drei Werten:** die Werte müssen in der folgenden Reihenfolge angegeben werden:
+- **Drei-Wert-Syntax:** die Werte müssen in folgender Reihenfolge angegeben werden:
   1. Ein gültiger Wert für {{cssxref("flex-grow")}}.
   2. Ein gültiger Wert für {{cssxref("flex-shrink")}}.
   3. Ein gültiger Wert für {{cssxref("flex-basis")}}.
@@ -119,27 +121,27 @@ Die `flex`-Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden.
 ### Werte
 
 - `<'flex-grow'>`
-  - : Definiert das {{cssxref("flex-grow")}} des Flex-Elements. Negative Werte sind ungültig. Standardmäßig `1`, wenn nicht angegeben. (Initialwert ist `0`)
+  - : Definiert das {{cssxref("flex-grow")}} des Flex-Elements. Negative Werte werden als ungültig angesehen. Standardmäßig `1`, wenn weggelassen. (initial ist `0`)
 - `<'flex-shrink'>`
-  - : Definiert das {{cssxref("flex-shrink")}} des Flex-Elements. Negative Werte sind ungültig. Standardmäßig `1`, wenn nicht angegeben. (Initialwert ist `1`)
+  - : Definiert das {{cssxref("flex-shrink")}} des Flex-Elements. Negative Werte werden als ungültig angesehen. Standardmäßig `1`, wenn weggelassen. (initial ist `1`)
 - `<'flex-basis'>`
-  - : Definiert das {{cssxref("flex-basis")}} des Flex-Elements. Standardmäßig `0%`, wenn nicht angegeben. Der Initialwert ist `auto`.
+  - : Definiert das {{cssxref("flex-basis")}} des Flex-Elements. Standardmäßig `0%`, wenn weggelassen. Der Anfangswert ist `auto`.
 - `none`
-  - : Das Element wird gemäß seiner `width`- und `height`-Eigenschaften dimensioniert. Es ist vollständig unflexibel: Es schrumpft oder wächst nicht in Bezug auf den Flex-Container. Dies entspricht der Einstellung `flex: 0 0 auto`.
+  - : Das Element wird gemäß seinen `width`- und `height`-Eigenschaften dimensioniert. Es ist vollständig unflexibel: Es schrumpft nicht und wächst nicht im Verhältnis zum Flex-Container. Dies entspricht der Einstellung `flex: 0 0 auto`.
 
-Häufig gewünschte Flexbox-Effekte können mit den folgenden `flex`-Werten erzielt werden:
+Gewünschte Flexbox-Effekte können mit den folgenden `flex`-Werten erzielt werden:
 
-- `initial`: Das Flex-Element wächst nicht, kann aber schrumpfen. Dieser Standardwert erweitert sich zu `flex: 0 1 auto`. Das Element wird gemäß seiner `width`- oder `height`-Eigenschaften dimensioniert, abhängig von der `flex-direction`. Wenn negativer verfügbarer Raum vorhanden ist, schrumpft das Element auf seine Mindestgröße, um in den Container zu passen, wächst jedoch nicht, um positiven verfügbaren Raum im Flex-Container aufzunehmen.
-- `auto`: Das Flex-Element kann wachsen und schrumpfen. Dieser Wert erweitert sich zu `flex: 1 1 auto`. Das Element wird gemäß seiner `width`- oder `height`-Eigenschaften dimensioniert, abhängig von der `flex-direction`, wächst jedoch, um verfügbaren positiven Raum im Flex-Container aufzunehmen, oder schrumpft auf seine Mindestgröße, um in den Container zu passen, falls negativer Raum vorhanden ist. Das Flex-Element ist vollständig flexibel.
-- `none`: Das Flex-Element wächst oder schrumpft nicht. Dieser Wert erweitert sich zu `flex: 0 0 auto`. Das Element wird gemäß seiner `width`- oder `height`-Eigenschaften dimensioniert, abhängig von der Richtung des Flex-Containers. Das Flex-Element ist vollständig unflexibel.
-- `flex: <number [1,∞]>`: Die Hauptgröße des Flex-Elements wird proportional zur festgelegten Zahl sein. Dieser Wert erweitert sich zu `flex: <number> 1 0`. Dies setzt die `flex-basis` auf Null und macht das Flex-Element flexibel. Das Element wird mindestens so breit oder hoch wie seine Mindestgröße sein, wobei der positive verfügbare Raum des Containers basierend auf den Wachstumsfaktoren dieses Elements und seiner schwesterlichen Flex-Elemente proportional verteilt wird. Wenn alle Flex-Elemente dieses Muster verwenden, werden alle proportional zu ihren numerischen Werten dimensioniert.
+- `initial`: Das Flex-Element wächst nicht, kann aber schrumpfen. Dieser Standardwert expandiert zu `flex: 0 1 auto`. Das Element wird gemäß seiner `width`- oder `height`-Eigenschaften dimensioniert, abhängig von der `flex-direction`. Wenn es negativen verfügbaren Raum gibt, schrumpft das Element auf seine Mindestgröße, um im Container zu passen, wächst aber nicht, um positiven Raum im Flex-Container aufzunehmen.
+- `auto`: Das Flex-Element kann wachsen und schrumpfen. Dieser Wert expandiert zu `flex: 1 1 auto`. Das Element wird gemäß seiner `width`- oder `height`-Eigenschaften dimensioniert, abhängig von der `flex-direction`, wächst aber, um verfügbaren positiven Raum im Flex-Container aufzunehmen, oder schrumpft auf seine Mindestgröße, um im Container bei negativem Raum zu passen. Das Flex-Element ist vollständig flexibel.
+- `none`: Das Flex-Element wächst nicht und schrumpft nicht. Dieser Wert expandiert zu `flex: 0 0 auto`. Das Element wird gemäß seiner `width`- oder `height`-Eigenschaften dimensioniert, abhängig von der Richtung des Flex-Containers. Das Flex-Element ist vollständig unflexibel.
+- `flex: <number [1,∞]>`: Die Hauptgröße des Flex-Elements wird proportional zur gesetzten Zahl sein. Dieser Wert expandiert zu `flex: <number> 1 0`. Dies setzt die `flex-basis` auf null und macht das Flex-Element flexibel. Das Element wird mindestens so breit oder hoch sein wie seine Mindestgröße, wobei der positive verfügbare Raum des Containers proportional verteilt wird, basierend auf den Wachstumsfaktoren dieses Elements und seiner Geschwister-Flex-Elemente. Wenn alle Flex-Elemente dieses Muster verwenden, werden alle proportional zu ihren numerischen Werten dimensioniert.
 
   > [!WARNING]
-  > Die Browser verwenden `flex-basis`-Wert `0%`, wenn die `flex-basis` in einem `flex`-Wert nicht angegeben ist. Dies ist nicht dasselbe wie `flex-basis`-Wert `0`, wie es die Spezifikation sagt. Dies kann sich in einigen Fällen auf das Flex-Layout auswirken. Siehe dieses Effekt demonstriert in dem [Flex-basis `0` versus `0%`](/de/docs/Web/CSS/Reference/Properties/flex-basis#flex_basis_0_vs_0)-Beispiel.
+  > Die Browser verwenden `flex-basis` Wert `0%`, wenn die `flex-basis` in einem `flex`-Wert nicht angegeben ist. Dies ist nicht dasselbe wie `flex-basis`-Wert `0`, was die Spezifikation sagt. Dies kann das Flex-Layout in einigen Fällen beeinflussen. Sehen Sie diesen Effekt im [Flex-basis `0` versus `0%`](/de/docs/Web/CSS/Reference/Properties/flex-basis#flex_basis_0_vs_0)-Beispiel demonstriert.
 
 ## Beschreibung
 
-Für die meisten Zwecke sollten Autoren `flex` auf einen der folgenden Werte setzen: `auto`, `initial`, `none` oder eine positive einheitslose Zahl. Um die Wirkung dieser Werte zu sehen, versuchen Sie, die Flex-Container unten zu ändern:
+Für die meisten Zwecke sollten Autoren `flex` auf einen der folgenden Werte setzen: `auto`, `initial`, `none` oder eine positive Wert ohne Einheit. Um die Wirkung dieser Werte zu sehen, versuchen Sie, die Flex-Container unten zu ändern:
 
 ```html hidden
 <div class="flex-container">
@@ -236,9 +238,9 @@ Standardmäßig schrumpfen Flex-Elemente nicht unter ihre {{cssxref("min-content
 
 ## Beispiele
 
-### Einstellung von flex: auto
+### Einstellung: flex: auto
 
-Dieses Beispiel zeigt, wie ein Flex-Element mit `flex: auto` wächst, um jeglichen freien Raum im Container zu absorbieren.
+Dieses Beispiel zeigt, wie ein Flex-Element mit `flex: auto` wächst, um freien Raum im Container aufzunehmen.
 
 #### HTML
 
@@ -295,12 +297,12 @@ flexAutoItem.addEventListener("click", () => {
 
 Der Flex-Container enthält zwei Flex-Elemente:
 
-- Das `#flex-auto`-Element hat einen `flex`-Wert von `auto`. Der `auto`-Wert erweitert sich zu `1 1 auto`, d. h. das Element darf sich ausdehnen.
-- Das `#default`-Element hat keinen `flex`-Wert, daher wird es auf den `initial`-Wert zurückgesetzt. Der `initial`-Wert erweitert sich zu `0 1 auto`, d. h. das Element darf sich nicht ausdehnen.
+- Das `#flex-auto`-Element hat einen `flex`-Wert von `auto`. Der `auto`-Wert expandiert zu `1 1 auto`, d.h. das Element darf expandieren.
+- Das `#default`-Element hat keinen `flex`-Wert gesetzt, sodass es auf den `initial`-Wert zurückfällt. Der `initial`-Wert expandiert zu `0 1 auto`, d.h. das Element darf nicht expandieren.
 
-Das `#default`-Element nimmt so viel Platz ein, wie seine Breite erfordert, dehnt sich jedoch nicht aus, um mehr Platz einzunehmen. Der gesamte verbleibende Raum wird vom `#flex-auto`-Element eingenommen.
+Das `#default`-Element nimmt so viel Platz ein, wie seine Breite erfordert, expandiert jedoch nicht, um mehr Platz einzunehmen. Der gesamte verbleibende Raum wird von dem `#flex-auto`-Element eingenommen.
 
-Wenn Sie auf das `#flex-auto`-Element klicken, setzen wir die {{cssxref("display")}}-Eigenschaft des `#default`-Elements auf `none`, wodurch es aus dem Layout entfernt wird. Das `#flex-auto`-Element dehnt sich dann aus, um den gesamten verfügbaren Platz im Container einzunehmen. Wenn Sie erneut auf das `#flex-auto`-Element klicken, wird das `#default`-Element wieder in den Container eingefügt.
+Wenn Sie auf das `#flex-auto`-Element klicken, setzen wir die {{cssxref("display")}}-Eigenschaft des `#default`-Elements auf `none`, wodurch es aus dem Layout entfernt wird. Das `#flex-auto`-Element expandiert dann, um den gesamten verfügbaren Raum im Container zu besetzen. Wenn Sie erneut auf das `#flex-auto`-Element klicken, wird das `#default`-Element wieder in den Container hinzugefügt.
 
 {{EmbedLiveSample('Setting_flex_auto','100%','150')}}
 
@@ -314,6 +316,6 @@ Wenn Sie auf das `#flex-auto`-Element klicken, setzen wir die {{cssxref("display
 
 ## Siehe auch
 
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Verhältnis der Flex-Elemente entlang der Hauptachse steuern](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
-- [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Verhältnis der Flex-Elemente entlang der Hauptachse steuern](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)
+- [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)-Modul

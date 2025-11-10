@@ -2,15 +2,15 @@
 title: scroll-marker-group
 slug: Web/CSS/Reference/Properties/scroll-marker-group
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{seecompattable}}
 
-Die **`scroll-marker-group`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, ob ein {{Glossary("scroll_container", "Scroll-Container")}}-Element ein {{cssxref("::scroll-marker-group")}} Pseudoelement generiert. Falls vorhanden, gibt die Eigenschaft außerdem an, ob die Scroll-Marker-Gruppe `before` _oder_ `after` den Inhalten des Scroll-Gruppen-Containers in der Standard-Visual- und Tabulatorreihenfolge platziert werden soll.
+Die **`scroll-marker-group`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, ob ein {{Glossary("scroll_container", "Scroll-Container")}} Element ein {{cssxref("::scroll-marker-group")}} Pseudo-Element generiert. Falls vorhanden, gibt die Eigenschaft auch an, ob die Scroll-Marker-Gruppe `before` _oder_ `after` den Inhalten des Scroll-Gruppen-Containers in der Standardanzeige und in der Tab-Reihenfolge platziert werden soll.
 
 > [!NOTE]
-> Um einen Scroll-Marker-Gruppen-Container aus einem bestehenden Element zu erstellen, das eine Gruppe von {{htmlelement("a")}} Elementen enthält, verwenden Sie die {{cssxref("scroll-target-group")}} Eigenschaft. Lesen Sie über die [Verhaltensunterschiede](/de/docs/Web/CSS/Reference/Properties/scroll-target-group#differences_between_scroll-target-group_and_scroll-marker-group) zwischen den beiden.
+> Um einen Scroll-Marker-Gruppencontainer aus einem vorhandenen Element zu erstellen, das eine Reihe von {{htmlelement("a")}} Elementen enthält, verwenden Sie die {{cssxref("scroll-target-group")}} Eigenschaft. Lesen Sie über die [Unterschiede im Verhalten](/de/docs/Web/CSS/Reference/Properties/scroll-target-group#differences_between_scroll-target-group_and_scroll-marker-group) zwischen den beiden.
 
 ## Syntax
 
@@ -31,16 +31,18 @@ scroll-marker-group: unset;
 ### Werte
 
 - `after`
-  - : Ein {{cssxref("::scroll-marker-group")}} Pseudoelement wird als Geschwisterelement der Kindelemente des Scroll-Containers generiert, direkt vor diesen und allen generierten {{cssxref("::scroll-button()")}} Pseudoelementen. Es erscheint am Ende der Tabulatorreihenfolge und Layout-Box-Reihenfolge des Containers (aber nicht in der DOM-Struktur).
+
+  - : Ein {{cssxref("::scroll-marker-group")}} Pseudo-Element wird als Geschwister der Kindelemente des Scroll-Containers generiert, das ihnen unmittelbar vorausgeht, sowie allen generierten {{cssxref("::scroll-button()")}} Pseudo-Elementen. Es erscheint am Ende der Tab-Reihenfolge und der Layout-Box-Reihenfolge des Containers (aber nicht der DOM-Struktur).
 
 - `before`
-  - : Ein `::scroll-marker-group` Pseudoelement wird als Geschwisterelement der Kindelemente des Scroll-Containers generiert, direkt vor diesen und allen generierten {{cssxref("::scroll-button()")}} Pseudoelementen. Die Scroll-Marker-Gruppe erscheint am Anfang der Tabulatorreihenfolge und Layout-Box-Reihenfolge des Containers.
+
+  - : Ein `::scroll-marker-group` Pseudo-Element wird als Geschwister der Kindelemente des Scroll-Containers generiert, das ihnen unmittelbar vorausgeht, sowie allen generierten {{cssxref("::scroll-button()")}} Pseudo-Elementen. Die Scroll-Marker-Gruppe erscheint am Anfang der Tab-Reihenfolge und der Layout-Box-Reihenfolge des Containers.
 
 - `none`
-  - : Auf dem Element wird kein `::scroll-marker-group` Pseudoelement generiert. Dies ist der Standardwert.
+  - : Es wird kein `::scroll-marker-group` Pseudo-Element auf dem Element generiert. Dies ist der Standardwert.
 
 > [!NOTE]
-> Als bewährte Praxis für Barrierefreiheit sollte die visuelle Anzeigeposition des Scroll-Marker-Gruppen-Containers mit der Taborder übereinstimmen. Wenn die Markergruppe am Anfang des Inhalts mit auf {{cssxref("::scroll-marker-group")}} angewendeten Stilen positioniert wird, setzen Sie sie mit `before` an den Anfang der Tabulatorreihenfolge. Wenn die Gruppe am Ende des Inhalts positioniert wird, setzen Sie sie mit `after` ans Ende der Tabulatorreihenfolge.
+> Als beste Praxis für die Barrierefreiheit passen Sie die visuelle Rendering-Position des Scroll-Marker-Gruppencontainers an die Tab-Reihenfolge an. Wenn Sie die Marker-Gruppe mit Stilen, die auf {{cssxref("::scroll-marker-group")}} angewendet werden, am Anfang des Inhalts positionieren, setzen Sie sie mit `before` an den Anfang der Tab-Reihenfolge. Wenn Sie die Gruppe am Ende des Inhalts positionieren, setzen Sie sie mit `after` ans Ende der Tab-Reihenfolge.
 
 ## Formale Definition
 
@@ -52,15 +54,15 @@ scroll-marker-group: unset;
 
 ## Beispiele
 
-Siehe [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) für vollständige Beispiele, die die `scroll-marker-group` Eigenschaft verwenden.
+Siehe [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels) für vollständige Beispiele, die die `scroll-marker-group` Eigenschaft verwenden.
 
 ### Platzierung der Scroll-Marker
 
-In diesem Beispiel zeigen wir die drei Werte der `scroll-marker-group` Eigenschaft.
+In diesem Beispiel demonstrieren wir die drei Werte der `scroll-marker-group` Eigenschaft.
 
 #### HTML
 
-Wir haben eine einfache HTML-{{htmlelement("ul")}}-Liste mit mehreren {{htmlelement("li")}}-Listenelementen.
+Wir haben eine grundlegende HTML {{htmlelement("ul")}} Liste mit mehreren {{htmlelement("li")}} Listenelementen.
 
 ```html hidden
 <fieldset>
@@ -86,9 +88,9 @@ Wir haben eine einfache HTML-{{htmlelement("ul")}}-Liste mit mehreren {{htmlelem
 
 #### CSS
 
-Wir verwandeln unser `<ul>` in ein Karussell, indem wir die {{cssxref("display")}} Eigenschaft auf `flex` setzen und eine einzige, nicht umschlagende Zeile von `<li>` Elementen erstellen. Die {{cssxref("overflow-x")}} Eigenschaft ist auf `auto` gesetzt, was bedeutet, dass wenn die Elemente ihren Container auf der x-Achse überlaufen, der Inhalt horizontal scrollt. Dann verwandeln wir das `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "scroll-snap Container")}}, sodass die Elemente immer einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}} Wert von `mandatory` gescrollt wird.
+Wir konvertieren unser `<ul>` in ein Karussell, indem wir das {{cssxref("display")}} auf `flex` setzen, um eine einzelne, nicht umbrechende Reihe von `<li>` Elementen zu erstellen. Die {{cssxref("overflow-x")}} Eigenschaft ist auf `auto` gesetzt, was bedeutet, dass wenn die Elemente ihren Container auf der x-Achse überlaufen, der Inhalt horizontal scrollt. Dann konvertieren wir das `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}, und stellen sicher, dass Elemente immer einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}} Wert von `mandatory` gescrollt wird.
 
-Wir erstellen einen Scroll-Marker-Gruppen-Container mit der `scroll-marker-group` Eigenschaft und platzieren die Gruppe nach dem gesamten Inhalt.
+Wir erstellen einen Scroll-Marker-Gruppencontainer mit der `scroll-marker-group` Eigenschaft, indem wir die Gruppe nach dem gesamten Inhalt platzieren.
 
 ```css
 ul {
@@ -104,7 +106,7 @@ ul {
 }
 ```
 
-Anschließend stylen wir die `<li>` Elemente und verwenden die {{cssxref("flex")}} Eigenschaft, um sie `33%` der Breite des Containers ausmachen zu lassen. Der {{cssxref("scroll-snap-align")}} Wert von `start` lässt die linke Seite des links sichtbarsten Elements an der linken Kante des Containers einrasten, wenn der Inhalt gescrollt wird.
+Als nächstes stylen wir die `<li>` Elemente, indem wir die {{cssxref("flex")}} Eigenschaft verwenden, um sie `33%` der Breite des Containers zu machen. Der {{cssxref("scroll-snap-align")}} Wert von `start` sorgt dafür, dass die linke Seite des am weitesten links sichtbaren Elements an den linken Rand des Containers einrastet, wenn der Inhalt gescrollt wird.
 
 ```css
 li {
@@ -117,7 +119,7 @@ li {
 }
 ```
 
-Wir verwenden dann das {{cssxref("::scroll-marker")}} Pseudoelement, um für jedes Listenelement einen quadratischen Marker mit rotem Rand zu erstellen, und wenden Stile auf das {{cssxref("::scroll-marker-group")}} Pseudoelement an, um die Scroll-Marker in einer Zeile mit einem `0.2em` Abstand dazwischen anzuordnen.
+Wir verwenden dann das {{cssxref("::scroll-marker")}} Pseudo-Element, um einen quadratischen Marker für jedes Listenelement mit einem roten Rand zu erstellen, und wenden Stile auf das {{cssxref("::scroll-marker-group")}} Pseudo-Element an, um die Scroll-Marker in einer Reihe mit einem Abstand von `0.2em` zwischen jedem anzuordnen.
 
 ```css
 li::scroll-marker {
@@ -133,7 +135,7 @@ li::scroll-marker {
 }
 ```
 
-Schließlich, um eine gute Benutzererfahrung zu gewährleisten, gestalten wir den Marker des aktuell gescrollten Elements anders als die anderen, indem wir den Marker mit der {{cssxref(":target-current")}} Pseudoklasse ansprechen.
+Schließlich, um eine gute Benutzererfahrung zu gewährleisten, stylen wir den Marker des gerade gescrollten Elements anders als die anderen, indem wir den Marker mit der {{cssxref(":target-current")}} Pseudo-Klasse anvisieren.
 
 ```css
 ::scroll-marker:target-current {
@@ -167,7 +169,7 @@ label {
 
 {{EmbedLiveSample("Examples", '', '300')}}
 
-Beachten Sie die Platzierung des Scroll-Marker-Gruppen-Containers. Achten Sie darauf, wie sich die Tastatur-Tabulatorreihenfolge bei `before` im Gegensatz zu `after` unterscheidet, und beachten Sie, wie die Gruppe verschwindet, wenn der Wert auf `none` gesetzt ist.
+Beachten Sie die Platzierung des Scroll-Marker-Gruppencontainers. Beobachten Sie, wie die Tastatur-Reihenfolge für `before` gegenüber `after` unterschiedlich ist, und beachten Sie, dass die Gruppe verschwindet, wenn der Wert auf `none` gesetzt ist.
 
 ## Spezifikationen
 
@@ -184,6 +186,6 @@ Beachten Sie die Platzierung des Scroll-Marker-Gruppen-Containers. Achten Sie da
 - {{cssxref("::scroll-marker-group")}}
 - {{cssxref("::scroll-marker")}}
 - {{cssxref(":target-current")}}
-- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Carousel Gallery](https://chrome.dev/carousel/) via chrome.dev (2025)
+- [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)

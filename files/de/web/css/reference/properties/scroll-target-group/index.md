@@ -2,12 +2,12 @@
 title: scroll-target-group
 slug: Web/CSS/Reference/Properties/scroll-target-group
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`scroll-target-group`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Element ein Scroll-Markern-Gruppen-Container ist.
+Die **`scroll-target-group`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Element ein Scroll-Marken-Gruppencontainer ist.
 
 ## Syntax
 
@@ -24,33 +24,33 @@ scroll-target-group: revert-layer;
 scroll-target-group: unset;
 ```
 
-Die `scroll-target-group` Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
+Die Eigenschaft `scroll-target-group` wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 ### Werte
 
 - `none`
-  - : Das Element ist kein Scroll-Markern-Gruppen-Container.
+  - : Das Element ist kein Scroll-Marken-Gruppencontainer.
 - `auto`
-  - : Das Element ist ein Scroll-Markern-Gruppen-Container.
+  - : Das Element ist ein Scroll-Marken-Gruppencontainer.
 
 ## Beschreibung
 
-Wenn `scroll-target-group: auto` bei einem Element gesetzt wird, wird es als **Scroll-Markern-Gruppen-Container** bezeichnet. Dies gruppiert eine Reihe von Navigationselementen, die es Benutzern ermöglichen, zwischen Elementen auf einer Seite (wie Karussell-Elementen oder Artikelabschnitten) zu navigieren und hervorzuheben, welches Element gerade angezeigt wird.
+Ein Element als **Scroll-Marken-Gruppencontainer** zu kennzeichnen, indem `scroll-target-group: auto` gesetzt wird, gruppiert eine Menge von Navigationselementen, die es Benutzern ermöglichen, zwischen Elementen auf einer Seite (wie Karussell-Elementen oder Artikelabschnitten) zu navigieren und hervorzuheben, welches Element gerade sichtbar ist.
 
-Alle {{htmlelement("a")}} Elemente mit Fragment-Identifikatoren innerhalb des Containers werden automatisch als Scroll-Marker festgelegt. Das Ankerelement, dessen Scroll-Ziel gerade angezeigt wird, kann über die {{cssxref(":target-current")}} Pseudoklasse gestaltet werden.
+Alle {{htmlelement("a")}}-Elemente mit Fragmentbezeichnern innerhalb des Containers werden automatisch als Scroll-Marker festgelegt. Das Ankerelement, dessen Scroll-Ziel gerade sichtbar ist, kann über die {{cssxref(":target-current")}} Pseudoklasse gestylt werden.
 
 ### Unterschiede zwischen `scroll-target-group` und `scroll-marker-group`
 
-Scroll-Markern-Gruppen-Container, die mit `scroll-target-group` erstellt wurden, verhalten sich sehr ähnlich wie die, die mit der {{cssxref("scroll-marker-group")}} Eigenschaft erstellt wurden, mit einigen Unterschieden:
+Scroll-Marken-Gruppencontainer, die mit `scroll-target-group` erstellt werden, verhalten sich sehr ähnlich wie diejenigen, die mit der Eigenschaft {{cssxref("scroll-marker-group")}} erstellt werden, mit einigen Unterschieden:
 
-- Mit `scroll-target-group` müssen Sie Ihr eigenes Markup erstellen, um den Scroll-Markern-Gruppen-Container und die Scroll-Marker darzustellen, während `scroll-marker-group` automatisch eine Reihe von Pseudoelementen erstellt, um den Container ({{cssxref("::scroll-marker-group")}}) und die Marker (eine oder mehrere Instanzen von {{cssxref("::scroll-marker")}}) darzustellen. Diese haben automatisch die erwarteten Navigationszuordnungen mit dem {{Glossary("scroll_container", "scroll container")}}, auf dem sie erstellt werden. Die Verwendung von `scroll-marker-group` bietet eine schnellere Einrichtung, da Sie nicht Ihr eigenes Markup verwenden müssen. Das Erstellen Ihres eigenen Markups und dessen Einstellen als Scroll-Markern-Gruppen-Container über `scroll-target-group` bietet jedoch mehr Kontrolle und Flexibilität.
-- Links, die als Scroll-Marker über `scroll-target-group` festgelegt sind, haben kein besonderes Navigationsverhalten, während Marker, die über `scroll-marker-group` generiert werden, automatisch [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) Semantik auf sich angewandt haben, was bedeutet, dass sie sich wie ein einzelnes Element in der Tab-Reihenfolge verhalten und Benutzer zwischen Scroll-Markern mit den Pfeiltasten wechseln können. `scroll-marker-group` bietet nützliches Standardverhalten, aber Sie haben die Flexibilität, alternative Semantiken und Verhaltensweisen für Marker zu bieten, die mit `scroll-target-group` spezifiziert sind.
+- Bei `scroll-target-group` müssen Sie Ihr eigenes Markup erstellen, um den Scroll-Marken-Gruppencontainer und die Scroll-Marker darzustellen, während `scroll-marker-group` automatisch eine Reihe von Pseudoelementen erstellt, um den Container ({{cssxref("::scroll-marker-group")}}) und die Marker (eine oder mehrere Instanzen von {{cssxref("::scroll-marker")}}) darzustellen. Diese haben automatisch die erwarteten Navigationsverknüpfungen mit dem {{Glossary("scroll_container", "Scroll-Container")}}, auf dem sie generiert werden. Die Verwendung von `scroll-marker-group` bietet eine schnellere Einrichtung, da Sie Ihr eigenes Markup nicht verwenden müssen. Wenn Sie jedoch Ihr eigenes Markup erstellen und es als Scroll-Marken-Gruppencontainer über `scroll-target-group` festlegen, bietet das mehr Kontrolle und Flexibilität.
+- Links, die als Scroll-Marker über `scroll-target-group` gekennzeichnet sind, haben kein besonderes Navigationsverhalten, während über `scroll-marker-group` generierte Marker automatisch [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) Semantiken erhalten, was bedeutet, dass sie sich wie ein einzelnes Element in der Tab-Reihenfolge verhalten, und Benutzer können mit den Pfeiltasten zwischen den Scroll-Markern wechseln. Auch hier bietet `scroll-marker-group` nützliches Standardverhalten, Sie haben jedoch die Flexibilität, alternative Semantiken und Verhalten für Marker anzugeben, die mit `scroll-target-group` spezifiziert werden.
 
-## Formaldefinition
+## Formale Definition
 
 {{cssinfo}}
 
-## Formalsyntax
+## Formale Syntax
 
 {{csssyntax}}
 
@@ -58,11 +58,11 @@ Scroll-Markern-Gruppen-Container, die mit `scroll-target-group` erstellt wurden,
 
 ### Grundlegende Verwendung von `scroll-target-group`
 
-Dieses Beispiel zeigt eine Seite mit einem Inhaltsverzeichnis, das auf verschiedene Abschnitte verweist.
+Dieses Beispiel zeigt eine Seite mit einem Inhaltsverzeichnis, das mit verschiedenen Abschnitten verlinkt ist.
 
 #### HTML
 
-Unser Markup enthält eine Reihe von {{htmlelement("section")}} Elementen mit Inhalt und ein Inhaltsverzeichnis, das mit einer sortierten Liste ({{htmlelement("ol")}}/{{htmlelement("li")}}) und {{htmlelement("a")}} Elementen erstellt wurde.
+Unser Markup besteht aus einer Reihe von {{htmlelement("section")}}-Elementen, die Inhalte enthalten, und einem Inhaltsverzeichnis, das mit einer geordneten Liste ({{htmlelement("ol")}}/{{htmlelement("li")}}) und {{htmlelement("a")}}-Elementen erstellt wird.
 
 ```html
 <nav id="toc">
@@ -197,7 +197,7 @@ Unser Markup enthält eine Reihe von {{htmlelement("section")}} Elementen mit In
 
 #### CSS
 
-Wir haben den größten Teil der Stilregeln der Kürze halber ausgelassen. Am wichtigsten für dieses Beispiel ist, dass wir `scroll-target-group: auto` auf das `<ol>` gesetzt haben, um es in einen Scroll-Markern-Gruppen-Container zu verwandeln und den Algorithmus des Browsers auszulösen, der berechnet, welches `<a>` Element zu einem bestimmten Zeitpunkt `:target-current` ist (das heißt, welches Linkziel gerade angezeigt wird). Wir stylen dann die `:target-current` Pseudoklasse mit einer `roten` {{cssxref("color")}}, sodass sie deutlich heraussticht.
+Wir haben das meiste Styling zur Kürze weggelassen. Am relevantesten für dieses Beispiel haben wir `scroll-target-group: auto` auf dem `<ol>` gesetzt, um es in einen Scroll-Marken-Gruppencontainer zu verwandeln und den Algorithmus des Browsers zu aktivieren, der berechnet, welches `<a>`-Element zu jedem Zeitpunkt `:target-current` ist (das heißt, welches Link-Ziel gerade sichtbar ist). Wir stylen dann die `:target-current` Pseudoklasse mit einer `red` {{cssxref("color")}}, damit sie deutlich hervorsticht.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -253,17 +253,17 @@ ol {
 
 #### Ergebnis
 
-Versuchen Sie, durch Aktivieren der Links und durch Scrollen zu navigieren. Sie werden sehen, dass sich in jedem Fall das rote Highlight zwischen den Links bewegt, um den Abschnitt anzuzeigen, der gerade angezeigt wird.
+Versuchen Sie, durch Aktivieren der Links und durch Scrollen zu navigieren. Sie werden sehen, dass sich in jedem Fall die rote Hervorhebung zwischen den Links bewegt, um mit dem aktuell angezeigten Abschnitt übereinzustimmen.
 
 {{EmbedLiveSample("basic-usage", "100%", 500)}}
 
 ### CSS-Karussell mit `scroll-target-group` Scroll-Markern
 
-Dieses Beispiel zeigt, wie man [CSS-Karussell](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) Scroll-Marker mit `scroll-target-group` erstellt. Der Code für dieses Beispiel ähnelt unserem [Karussell mit einzelnen Seiten](/de/docs/Web/CSS/CSS_overflow/CSS_carousels#carousel_with_single_pages) Beispiel; wir werden nur die Unterschiede unten erklären.
+Dieses Beispiel zeigt, wie man [CSS-Karussell](/de/docs/Web/CSS/Guides/Overflow/Carousels) Scroll-Marker unter Verwendung von `scroll-target-group` erstellt. Der Code für dieses Beispiel ähnelt unserem [Karussell mit einzelnen Seiten](/de/docs/Web/CSS/Guides/Overflow/Carousels#carousel_with_single_pages) Beispiel; Wir werden unten nur die Unterschiede erklären.
 
 #### HTML
 
-Das Markup hat IDs, die auf den Listeneinträgen gesetzt sind, die jede Seite definieren, und eine sortierte Liste hinzugefügt, die wir mit CSS in einen Scroll-Markern-Gruppen-Container verwandeln werden.
+Das Markup hat IDs auf den Listenelementen gesetzt, die jede Seite definieren, und eine geordnete Liste hinzugefügt, die wir mit CSS in einen Scroll-Marken-Gruppencontainer verwandeln werden.
 
 ```html live-sample___carousel
 <h1>CSS carousel single item per page</h1>
@@ -291,9 +291,9 @@ Das Markup hat IDs, die auf den Listeneinträgen gesetzt sind, die jede Seite de
 
 #### CSS
 
-Wir erstellen den Scroll-Markern-Gruppen-Container und die Scroll-Marker, indem wir `scroll-target-group` auf das `<ol>` Element setzen. Der Rest des Codes zum Stylen dieser ist sehr ähnlich, abgesehen davon, dass wir Elemente unserer eigenen Wahl (`<ol>` und `<a>`) anvisieren, statt die {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudoelemente.
+Wir erstellen den Scroll-Marken-Gruppencontainer und die Scroll-Marker, indem wir `scroll-target-group` auf dem `<ol>`-Element setzen. Der Rest des Codes zum Stylen dieser ist sehr ähnlich, außer dass wir Elemente unserer eigenen Wahl (`<ol>` und `<a>`) anvisieren, anstatt die {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudoelemente.
 
-Wir vervollständigen den Code, indem wir einige Stile auf die `:target-current`, `a:hover` und `a:focus` Zustände setzen, um anzuzeigen, welche Seite gerade angezeigt wird und welche Links gerade fokussiert oder hervorgehoben werden.
+Wir vervollständigen den Code, indem wir einige Stile auf die Zustände `:target-current`, `a:hover` und `a:focus` setzen, um anzuzeigen, welche Seite gerade angezeigt wird und welche Links gehovt/gefokust werden.
 
 ```css hidden live-sample___carousel
 /* General styles */
@@ -431,7 +431,7 @@ ol a:focus,
 
 #### Ergebnis
 
-Versuchen Sie, auf eine der drei Arten zu navigieren: durch Aktivieren der Scroll-Markern-Links, durch horizontales Scrollen oder durch Drücken der Scroll-Buttons auf beiden Seiten. Sie werden sehen, dass sich in jedem Fall das Highlight zwischen den Links bewegt, um den Abschnitt anzuzeigen, der gerade angezeigt wird.
+Versuchen Sie, auf drei Arten zu navigieren: durch Aktivieren der Scroll-Marker-Links, durch horizontales Scrollen oder durch Drücken der Scroll-Tasten auf beiden Seiten. Sie werden sehen, dass sich in jedem Fall die Hervorhebung zwischen den Links bewegt, um mit dem aktuell angezeigten Abschnitt übereinzustimmen.
 
 {{EmbedLiveSample("carousel", "100%", 500)}}
 
@@ -448,5 +448,5 @@ Versuchen Sie, auf eine der drei Arten zu navigieren: durch Aktivieren der Scrol
 - {{cssxref("scroll-marker-group")}}
 - {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudoelemente
 - {{cssxref(":target-current")}} Pseudoklasse
-- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Karussells erstellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul

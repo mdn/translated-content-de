@@ -2,23 +2,23 @@
 title: CSSFontFeatureValuesRule
 slug: Web/API/CSSFontFeatureValuesRule
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontFeatureValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-feature-values")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) und ermöglicht es Entwicklern, für jede Schriftart einen gemeinsamen Namen zuzuweisen, um Feature-Indizes zu spezifizieren, die in {{cssxref("font-variant-alternates")}} verwendet werden sollen.
+Das **`CSSFontFeatureValuesRule`**-Interface repräsentiert eine {{cssxref("@font-feature-values")}} [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules), die Entwicklern ermöglicht, jeder Schriftart ein gemeinsamer Name zuzuweisen, um die Features-Indizes zu spezifizieren, die in {{cssxref("font-variant-alternates")}} verwendet werden sollen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSFontFeatureValuesRule.fontFamily`](/de/docs/Web/API/CSSFontFeatureValuesRule/fontFamily)
   - : Ein String, der die Schriftfamilie identifiziert, auf die diese Regel angewendet wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
@@ -26,7 +26,7 @@ _Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ### Schriftfamilie lesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Anschließend verwenden wir das CSSOM, um diese Schriftfamilien zu lesen und ins Protokoll anzuzeigen.
+In diesem Beispiel definieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Anschließend verwenden wir die CSSOM, um diese Schriftfamilien zu lesen und sie im Log anzuzeigen.
 
 #### HTML
 

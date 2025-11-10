@@ -1,33 +1,33 @@
 ---
-title: Flussbezogene Werte
+title: Flow-relative Werte
 slug: Glossary/Flow_relative_values
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-In CSS sind **flussbezogene Werte** richtungsabhängige Schlüsselwortwerte, die sich auf die Block- und Inline-Achsen eines Elements beziehen. Diese Werte umfassen `block-start`, `block-end`, `inline-start`, `inline-end`, `start` und `end`.
+In CSS sind **flow-relative Werte** richtungsbezogene Schlüsselwortwerte, die relativ zu den Block- und Inline-Achsen eines Elements sind. Diese Werte umfassen `block-start`, `block-end`, `inline-start`, `inline-end`, `start` und `end`.
 
-In CSS definieren {{Glossary("physical_properties", "physikalische Eigenschaften")}} Positionen basierend auf physikalischen Richtungen und beziehen sich auf spezifische Seiten eines Elements.
+In CSS definieren {{Glossary("physical_properties", "physische Eigenschaften")}} Positionen basierend auf physischen Richtungen und beziehen sich auf bestimmte Seiten eines Elements.
 
-CSS {{Glossary("logical_properties", "logische Eigenschaften")}} hingegen definieren Stile basierend auf dem Schreibmodus und der Richtung des Dokuments anstatt der physikalischen Dimensionen des Ansichtsfensters. Logische Eigenschaften sind relativ zum Inhaltsfluss und verwenden richtungsabhängige Schlüsselwörter, die sich auf die Block- und Inline-Achsen beziehen.
+CSS {{Glossary("logical_properties", "logische Eigenschaften")}} hingegen definieren Stile basierend auf dem Schreibrichtung-Modus des Dokuments und nicht auf den physischen Dimensionen des Ansichtsfensters. Logische Eigenschaften sind relativ zum Inhaltsfluss und verwenden richtungsbezogene Schlüsselwörter relativ zu den Block- und Inline-Achsen.
 
 ## Blockrichtung
 
-Die **Blockachse** bezieht sich auf die Achse, die die Stapelreihenfolge von Elementen im Block-Layout definiert. Im Wesentlichen ist dies die Richtung, entlang der Blöcke von Inhalten – wie Absätze ({{htmlelement("p")}}), Überschriften und Divs ({{htmlelement("div")}}) – auf einer Webseite angeordnet sind. Dies wird auch als **Blockrichtung** bezeichnet. In links-nach-rechts und rechts-nach-links Sprachen ist die Blockrichtung die vertikale Richtung des Inhaltsflusses, der von oben nach unten verläuft.
+Die **Blockachse** bezieht sich auf die Achse, die die Stapelreihenfolge von Elementen in einem Block-Layout definiert. Es ist im Wesentlichen die Richtung, entlang der die Inhaltsblöcke – wie Absätze ({{htmlelement("p")}}), Überschriften und Divs ({{htmlelement("div")}}) – auf einer Webseite angeordnet sind. Dies wird auch als **Blockrichtung** bezeichnet. In Links-nach-Rechts- und Rechts-nach-Links-Sprachen ist die Blockrichtung die vertikale Richtung des Inhaltsflusses, die von oben nach unten verläuft.
 
-Die **block-start** und **block-end** Richtungen repräsentieren die _Startkante_ und _Endkante_ des Inhalts entlang der Blockachse, beziehungsweise die "von" und "zu" Richtungen, wobei `block-start` dem Äquivalent von `top` und `block-end` dem Äquivalent von `bottom` in horizontalen Schreibmodi entspricht.
+Die Richtungen **block-start** und **block-end** repräsentieren die _Anfangskante_ und _Endkante_ des Inhalts entlang der Blockachse oder entsprechend die "von" und "zu" Richtungen, wobei `block-start` dem `top` und `block-end` dem `bottom` in horizontalen Schreibmodi entspricht.
 
 ## Inline-Richtung
 
-Die **Inline-Achse** steht senkrecht zur Blockachse. Die Inline-Achse repräsentiert die Richtung, entlang der inline Inhalte wie Text innerhalb eines Blocks fließen. Dies wird auch als **Inline-Richtung** bezeichnet. In links-nach-rechts Schreibmodi, wie Englisch, ist die Inline-Richtung horizontal, von links nach rechts. In rechts-nach-links Sprachen, wie Arabisch und Hebräisch, ist die Inline-Richtung horizontal, von rechts nach links.
+Die **Inline-Achse** steht senkrecht zur Blockachse. Die Inline-Achse repräsentiert die Richtung, entlang der Inline-Inhalte wie Text innerhalb eines Blocks fließen. Dies wird auch als **Inline-Richtung** bezeichnet. In Links-nach-Rechts-Schreibmodi, wie Englisch, ist die Inline-Richtung horizontal, von links nach rechts. In Rechts-nach-Links-Sprachen, wie Arabisch und Hebräisch, ist die Inline-Richtung horizontal, von rechts nach links.
 
-**Inline-start** und **inline-end** repräsentieren die _Startkante_ und _Endkante_ des Inhalts entlang der Inline-Achse, wobei die Werte und Eigenschaften `inline-start` und `inline-end` dem Äquivalent der `left` und `right` Eigenschaften und Werte in horizontalen Schreibmodi entsprechen. Ob sie `right` oder `left` entsprechen hängt von der Schreibrichtung ab. Zum Beispiel entspricht `inline-start` in links-nach-rechts Sprachen `left` und in rechts-nach-links Sprachen `right`.
+**Inline-start** und **inline-end** repräsentieren die _Anfangskante_ und _Endkante_ des Inhalts entlang der Inline-Achse, wobei die Werte und Eigenschaften `inline-start` und `inline-end` dem `left` und `right` in horizontalen Schreibmodi entsprechen. Ob sie `right` oder `left` entsprechen, hängt von der Schreibrichtung ab. Zum Beispiel entspricht `inline-start` `left` in Links-nach-Rechts-Sprachen und `right` in Rechts-nach-Links-Sprachen.
 
-## Start und Ende
+## Anfang und Ende
 
-Die Auswirkungen einer CSS-Eigenschaft können entweder eindimensional oder zweidimensional sein. Zum Beispiel betrifft {{cssxref("text-align")}} nur die Inline-Richtung des Textes und ist daher eindimensional. Wenn kontextuell auf eine Dimension eingeschränkt, werden die flussbezogenen Schlüsselwörter nur auf `start` oder `end` abgekürzt.
+Die Auswirkungen einer CSS-Eigenschaft können ein- oder zweidimensional sein. Zum Beispiel betrifft {{cssxref("text-align")}} nur die Inline-Richtung des Textes und ist somit eindimensional. Wenn kontextuell auf eine Dimension beschränkt, werden die flow-relativen Schlüsselwörter auf `start` oder `end` abgekürzt.
 
 ## Siehe auch
 
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
-- [Grundlagen der logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values)
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
+- [Grundkonzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts)

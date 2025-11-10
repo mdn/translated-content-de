@@ -2,12 +2,12 @@
 title: "Custom properties (--*): CSS variables"
 slug: Web/CSS/Reference/Properties/--*
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 Eigenschaftsnamen, die mit `--` beginnen, wie `--example-name`, repräsentieren _benutzerdefinierte Eigenschaften_, die einen Wert enthalten, der in anderen Deklarationen mit der {{cssxref("var", "var()")}}-Funktion verwendet werden kann.
 
-Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf denen sie deklariert wurden, und nehmen an der Kaskade teil: Der Wert einer solchen benutzerdefinierten Eigenschaft ist derjenige aus der Deklaration, die durch den Kaskadenalgorithmus entschieden wurde.
+Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf dem/denen sie deklariert werden, und nehmen an der Kaskade teil: Der Wert einer solchen benutzerdefinierten Eigenschaft stammt aus der Deklaration, die durch den Kaskaden-Algorithmus bestimmt wird.
 
 {{CSSInfo}}
 
@@ -20,10 +20,10 @@ Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf de
 ```
 
 - `<declaration-value>`
-  - : Dieser Wert entspricht jeder Sequenz von einem oder mehreren Token, solange die Sequenz kein unzulässiges Token enthält. Er repräsentiert die Gesamtheit dessen, was eine gültige Deklaration als Wert haben kann.
+  - : Dieser Wert entspricht jeder Sequenz von einem oder mehreren Tokens, solange die Sequenz kein unzulässiges Token enthält. Er stellt die Gesamtheit dessen dar, was eine gültige Deklaration als Wert haben kann.
 
 > [!NOTE]
-> Namen benutzerdefinierter Eigenschaften sind case-sensitiv — `--my-color` wird als separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
+> Namen von benutzerdefinierten Eigenschaften sind case-sensitiv – `--my-color` wird als eine separate benutzerdefinierte Eigenschaft gegenüber `--My-color` behandelt.
 
 ## Beispiel
 
@@ -86,6 +86,6 @@ Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf de
 ## Siehe auch
 
 - Die {{cssxref("var", "var()")}}-Funktion
-- {{cssxref("@property")}}-Regel
-- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) Leitfaden
-- [CSS benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- {{cssxref("@property")}}-At-Regel
+- [Verwendung von CSS-Benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) Leitfaden
+- [CSS-Benutzerdefinierte Eigenschaften für Kaskadenvariablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul

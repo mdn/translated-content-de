@@ -2,14 +2,14 @@
 title: corner-top-left-shape
 slug: Web/CSS/Reference/Properties/corner-top-left-shape
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-top-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der oberen linken Ecke eines Kastens, innerhalb seines {{cssxref("border-radius")}} Bereichs.
+Die **`corner-top-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der oberen linken Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}}-Bereiches fest.
 
-Eine vollständige Beschreibung des Eckformverhaltens und mehrere Beispiele finden Sie auf der Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
+Eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele finden Sie auf der Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ corner-top-left-shape: unset;
 
 ### Werte
 
-Die Eigenschaft `corner-top-left-shape` wird mit einem {{cssxref("&lt;corner-shape-value>")}} Wert angegeben.
+Die `corner-top-left-shape`-Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes spezifiziert.
 
 ## Formale Definition
 
@@ -46,11 +46,11 @@ Die Eigenschaft `corner-top-left-shape` wird mit einem {{cssxref("&lt;corner-sha
 
 Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
-### Grundlegende Nutzung von `corner-top-left-shape`
+### Grundlegende Verwendung von `corner-top-left-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -58,7 +58,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgelassen haben. Außerdem wenden wir einen {{cssxref("box-shadow")}}, einen `border-radius` von `25% 100px` und eine `corner-top-left-shape` von `scoop` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `25% 100px` und eine `corner-top-left-shape` von `scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -111,5 +111,5 @@ Das gerenderte Ergebnis sieht so aus:
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
 - {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-top-left-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Ränder und Kastendekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

@@ -2,10 +2,10 @@
 title: border-right
 slug: Web/CSS/Reference/Properties/border-right
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-right`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
+Die **`border-right`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Rands](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-right")}}
 
@@ -47,23 +47,23 @@ border-right: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Kurzschreibweisen setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzschreibweisen setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben werden, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-right-style: dotted;
 border-right: thick green;
 ```
 
-Er ist tatsächlich derselbe wie dieser:
+Es ist tatsächlich das gleiche wie dieser hier:
 
 ```css
 border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-right-style")}}, der vor `border-right` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rand.
 
-## Bestandteileigenschaften
+## Bestandteile der Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -86,7 +86,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, wobei einer oder zwei von ihnen weggelassen werden können.
+Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -107,7 +107,7 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Anwenden eines rechten Rahmens
+### Anwenden eines rechten Rands
 
 #### HTML
 

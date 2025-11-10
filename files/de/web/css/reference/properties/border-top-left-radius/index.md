@@ -2,10 +2,10 @@
 title: border-top-left-radius
 slug: Web/CSS/Reference/Properties/border-top-left-radius
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-top-left-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft rundet die obere linke Ecke eines Elements ab, indem sie den Radius (oder den Radius der Haupt- und Nebenachsen) der Ellipse angibt, die die Krümmung der Ecke definiert.
+Die **`border-top-left-radius`** [CSS](/de/docs/Web/CSS) Eigenschaft rundet die obere linke Ecke eines Elements, indem der Radius (oder die Radien der Haupt- und Nebenachse) der Ellipse angegeben wird, die die Krümmung der Ecke definiert.
 
 {{InteractiveExample("CSS Demo: border-top-left-radius")}}
 
@@ -48,14 +48,14 @@ background-clip: content-box;
 }
 ```
 
-Die Abrundung kann entweder ein Kreis oder eine Ellipse sein, oder wenn einer der Werte `0` ist, wird keine Abrundung vorgenommen und die Ecke bleibt eckig.
+Die Abrundung kann ein Kreis oder eine Ellipse sein, oder wenn einer der Werte `0` ist, erfolgt keine Abrundung und die Ecke bleibt quadratisch.
 
 ![border-radius.png](border-radius.png)
 
-Ein Hintergrund, sei es ein Bild oder eine Farbe, wird an der Grenze abgeschnitten, auch bei abgerundeten Ecken; der genaue Ort des Abschneidens wird durch den Wert der {{cssxref("background-clip")}} Eigenschaft definiert.
+Ein Hintergrund, sei es ein Bild oder eine Farbe, wird an der Grenze, auch einer abgerundeten, abgeschnitten. Der genaue Ort des Zuschnitts wird durch den Wert der {{cssxref("background-clip")}} Eigenschaft definiert.
 
 > [!NOTE]
-> Wenn der Wert dieser Eigenschaft nicht in einer {{cssxref("border-radius")}} Kurzschreibweise gesetzt ist, die auf das Element nach der `border-top-left-radius` CSS-Eigenschaft angewendet wird, wird der Wert dieser Eigenschaft dann durch die [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) auf seinen Initialwert zurückgesetzt.
+> Wenn der Wert dieser Eigenschaft nicht in einer {{cssxref("border-radius")}} Kurzform-Eigenschaft gesetzt wird, die nach der `border-top-left-radius` CSS-Eigenschaft auf das Element angewendet wird, wird der Wert dieser Eigenschaft von der [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) auf seinen ursprünglichen Wert zurückgesetzt.
 
 ## Syntax
 
@@ -80,17 +80,17 @@ border-top-left-radius: unset;
 
 Mit einem Wert:
 
-- der Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der den Radius des Kreises angibt, der für die Grenze in dieser Ecke verwendet wird.
+- Der Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der den Radius des Kreises angibt, der für die Grenze in dieser Ecke verwendet wird.
 
 Mit zwei Werten:
 
-- der erste Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die horizontale Hauptachse der Ellipse angibt, die für die Grenze in dieser Ecke verwendet wird.
-- der zweite Wert ist ein {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die vertikale Hauptachse der Ellipse angibt, die für die Grenze in dieser Ecke verwendet wird.
+- Der erste Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die horizontale Hauptachse der Ellipse angibt, die für die Grenze in dieser Ecke verwendet wird.
+- Der zweite Wert ist eine {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}, der die vertikale Hauptachse der Ellipse angibt, die für die Grenze in dieser Ecke verwendet wird.
 
 ### Werte
 
 - `<length-percentage>`
-  - : Bezeichnet die Größe des Kreisradius oder der Haupt- und Nebenachsen der Ellipse. Als absolute Länge kann es in jeder im CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubten Einheit ausgedrückt werden. Prozentsätze für die horizontale Achse beziehen sich auf die Breite der Box, Prozentsätze für die vertikale Achse beziehen sich auf die Höhe der Box. Negative Werte sind ungültig.
+  - : Gibt die Größe des Kreisradius oder der Haupt- und Nebenachse der Ellipse an. Als absolute Länge kann es in jeder von der CSS {{cssxref("&lt;length&gt;")}} Datenart erlaubten Einheit ausgedrückt werden. Prozentwerte für die horizontale Achse beziehen sich auf die Breite des Kastens, Prozentwerte für die vertikale Achse beziehen sich auf die Höhe des Kastens. Negative Werte sind ungültig.
 
 ## Formale Definition
 
@@ -124,7 +124,7 @@ div {
 
 ### Ellipsenbogen
 
-Zwei verschiedene `<length>` Werte erzeugen einen Bogen einer Ellipse.
+Zwei unterschiedliche `<length>` Werte erzeugen einen Ellipsenbogen.
 
 ```html hidden
 <div></div>
@@ -144,7 +144,7 @@ div {
 
 ### Quadratisches Element mit Prozentwert-Radius
 
-Ein quadratisches Element mit einem einzigen `<percentage>` Wert erzeugt einen Kreisbogen.
+Ein quadratisches Element mit einem einzelnen `<percentage>` Wert erzeugt einen Kreisbogen.
 
 ```html hidden
 <div></div>
@@ -164,7 +164,7 @@ div {
 
 ### Nicht-quadratisches Element mit Prozentwert-Radius
 
-Ein nicht-quadratisches Element mit einem einzigen `<percentage>` Wert erzeugt einen Ellipsenbogen.
+Ein nicht-quadratisches Element mit einem einzelnen `<percentage>` Wert erzeugt einen Ellipsenbogen.
 
 ```html hidden
 <div></div>
@@ -192,5 +192,5 @@ div {
 
 ## Siehe auch
 
-- {{cssxref("border-radius")}} Kurzschreibweise
+- {{cssxref("border-radius")}} Kurzform-Eigenschaft
 - {{cssxref("border-top-right-radius")}}, {{cssxref("border-bottom-right-radius")}}, und {{cssxref("border-bottom-left-radius")}}

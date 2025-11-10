@@ -2,10 +2,10 @@
 title: order
 slug: Web/CSS/Reference/Properties/order
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`order`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt die Reihenfolge fest, in der ein Element in einem Flex- oder Grid-Container angeordnet wird. Elemente in einem Container werden nach aufsteigendem `order`-Wert und anschließend nach ihrer Quellcode-Reihenfolge sortiert. Elementen ohne expliziten `order`-Wert wird der Standardwert `0` zugewiesen.
+Die **`order`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Reihenfolge fest, in der ein Element in einem Flex- oder Grid-Container angeordnet wird. Elemente in einem Container werden nach aufsteigendem `order`-Wert und dann nach ihrer Quellcode-Reihenfolge sortiert. Elementen, denen kein expliziter `order`-Wert zugewiesen wird, erhalten den Standardwert `0`.
 
 {{InteractiveExample("CSS Demo: order")}}
 
@@ -62,9 +62,9 @@ order: 2;
 }
 ```
 
-Im obigen Demo-Beispiel wählen Sie die Optionen auf der linken Seite aus, um den Wert der `order`-Eigenschaft des pinken Kastens zu ändern. Den hellblauen Kästen wurden feste `order`-Werte zugewiesen.
+In der obigen Demo wählen Sie die Optionen auf der linken Seite, um den Wert der `order`-Eigenschaft des rosa Kastens zu ändern. Den hellblauen Kästchen wurden feste `order`-Werte zugewiesen.
 
-Bedenken Sie den Effekt der Quellreihenfolge. Zum Beispiel, wenn `order: 2;` ausgewählt ist, wird der pinke Kasten vor den beiden blauen Kästen mit `order: 2;` platziert. Dies liegt daran, dass der pinke Kasten im Quellcode vor den blauen Kästen erscheint.
+Beachten Sie die Wirkung der Quellreihenfolge. Zum Beispiel, wenn `order: 2;` ausgewählt ist, wird der rosa Kasten vor den beiden blauen Kästen mit `order: 2;` platziert. Das liegt daran, dass der rosa Kasten vor den blauen Kästen im Quellcode erscheint.
 
 ## Syntax
 
@@ -81,23 +81,23 @@ order: revert-layer;
 order: unset;
 ```
 
-Da `order` nur dazu bestimmt ist, die _visuelle Reihenfolge_ der Elemente und nicht deren logische oder Tab-Reihenfolge zu beeinflussen, sollte es nicht in nicht-visuellen Medien wie [Sprache](https://drafts.csswg.org/css-speech/) verwendet werden.
+Da `order` nur die _visuelle Reihenfolge_ von Elementen und nicht deren logische oder Tab-Reihenfolge beeinflussen soll, darf sie nicht in nicht-visuellen Medien wie [Speech](https://drafts.csswg.org/css-speech/) verwendet werden.
 
-Definiert im [CSS display](/de/docs/Web/CSS/CSS_display)-Modul, beeinflusst diese Eigenschaft nur Grid- und Flex-Elemente. Wenn `order` auf ein Element gesetzt wird, dessen Eltern-{{cssxref("display")}}-Eigenschaft keinen Flex- oder Grid-Container erstellt, hat es keine Wirkung.
+Definiert im [CSS display](/de/docs/Web/CSS/Guides/Display)-Modul, beeinflusst diese Eigenschaft nur Grid- und Flex-Elemente. Wenn `order` auf ein Element eingestellt wird, dessen übergeordnete {{cssxref("display")}}-Eigenschaft keinen Flex- oder Grid-Container erstellt, hat das keine Wirkung.
 
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Stellt die Ordinalgruppe dar, die vom Element verwendet werden soll.
+  - : Repräsentiert die Ordnungsgruppe, die vom Element verwendet werden soll.
 
 ## Barrierefreiheit
 
-Die Verwendung der `order`-Eigenschaft führt zu einer Trennung zwischen der visuellen Darstellung von Inhalten und der DOM-Reihenfolge. Dies wirkt sich nachteilig auf sehbehinderte Benutzer aus, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren. Wenn die visuelle Reihenfolge von der DOM-Reihenfolge abweicht, werden Ihre Benutzer je nach Zugriffsart unterschiedliche Inhalte erleben.
+Durch die Verwendung der `order`-Eigenschaft entsteht ein Unterschied zwischen der visuellen Darstellung von Inhalten und der DOM-Reihenfolge. Dies wirkt sich nachteilig auf sehbehinderte Benutzer aus, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren. Wenn die visuelle Reihenfolge von der DOM-Reihenfolge abweicht, haben Ihre Benutzer unterschiedliche Erfahrungen, je nachdem, wie sie auf Ihre Inhalte zugreifen.
 
-- [Flexbox & the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/) über Tink (2016)
-- [Source Order Matters](https://adrianroselli.com/2015/09/source-order-matters.html) über Adrian Roselli (2015)
-- [Verständnis der WCAG, Richtlinie 1.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
-- [Verständnis des Erfolgskriteriums 1.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html)
+- [Flexbox & the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/) via Tink (2016)
+- [Source Order Matters](https://adrianroselli.com/2015/09/source-order-matters.html) via Adrian Roselli (2015)
+- [Understanding WCAG, Guideline 1.3 explanations](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_—_create_content_that_can_be_presented_in_different_ways)
+- [Understanding Success Criterion 1.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html)
 
 ## Formale Definition
 
@@ -109,13 +109,13 @@ Die Verwendung der `order`-Eigenschaft führt zu einer Trennung zwischen der vis
 
 ## Beispiele
 
-### Elemente in einem Flex-Container anordnen
+### Anordnen von Elementen in einem Flex-Container
 
-In diesem Beispiel erstellen wir ein klassisches Layout mit zwei Seitenleisten.
+In diesem Beispiel erstellen wir ein klassisches Zwei-Sidebar-Layout.
 
 #### HTML
 
-Wir fügen einen Header, einen Footer und einen Hauptinhaltsbereich hinzu. Der Hauptinhalt enthält einen Artikel und zwei Seitenleisten. Beachten Sie deren Reihenfolge! Wir verwenden die CSS-`order`-Eigenschaft, um ihre visuelle Reihenfolge zu ändern.
+Wir fügen einen Header, einen Footer und einen Hauptinhaltbereich ein. Der Hauptinhalt enthält einen Artikel und zwei Sidebars. Beachten Sie deren Reihenfolge! Wir verwenden die CSS `order`-Eigenschaft, um deren visuelle Reihenfolge zu ändern.
 
 ```html
 <header>Header</header>
@@ -129,9 +129,9 @@ Wir fügen einen Header, einen Footer und einen Hauptinhaltsbereich hinzu. Der H
 
 #### CSS
 
-Wir gestalten den Hauptbereich mit der [Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-Modulfunktion; indem wir {{cssxref("display")}} auf `flex` setzen, wird das {{htmlelement("main")}}-Element zu einem Flex-Container. Standardmäßig werden dadurch Flex-Elemente mit gleicher vertikaler Größe erstellt. Den Seitenleisten wird eine absolute {{cssxref("width")}} zugewiesen, während der {{htmlelement("article")}} den gesamten [positiven freien Platz](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis#positive_and_negative_free_space) mit einem {{cssxref("flex-grow")}}-Faktor über die {{cssxref("flex")}}-Kurzform einnimmt.
+Wir gestalten den Hauptbereich mit den Eigenschaften des [flexiblen Box-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout); indem wir {{cssxref("display")}} auf `flex` setzen, wird das {{htmlelement("main")}}-Element zu einem Flex-Container. Dies erzeugt standardmäßig Flex-Elemente von gleicher vertikaler Größe. Den Sidebars wird eine absolute {{cssxref("width")}} zugewiesen, während das {{htmlelement("article")}} allen [positiven freien Raum](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios#positive_and_negative_free_space) mit einem {{cssxref("flex-grow")}}-Faktor, der über die {{cssxref("flex")}}-Abkürzung gesetzt ist, einnimmt.
 
-Wir setzen dann unterschiedliche `order`-Eigenschaftswerte auf jedes der drei Kinder des Flex-Containers; das bedeutet, dass das CSS die visuelle Reihenfolge dieser Komponente definiert, anstatt dass sie in der im HTML deklarierten Reihenfolge erscheint.
+Wir setzen dann unterschiedliche `order`-Eigenschaftswerte auf jedes der drei Kinder des Flex-Containers; das bedeutet, dass das CSS die visuelle Reihenfolge dieser Komponenten definiert, anstatt sie in der im HTML angegebenen Reihenfolge erscheinen zu lassen.
 
 ```css
 main {
@@ -156,7 +156,7 @@ main > aside {
 
 {{ EmbedLiveSample('Ordering_items_in_a_flex_container') }}
 
-Das `<article>` erscheint zuerst in der Quellreihenfolge, wird jedoch visuell in der Mitte gerendert.
+Das `<article>` erscheint zuerst in der Quellreihenfolge, wird jedoch visuell in der Mitte angezeigt.
 
 ## Spezifikationen
 
@@ -168,8 +168,8 @@ Das `<article>` erscheint zuerst in der Quellreihenfolge, wird jedoch visuell in
 
 ## Siehe auch
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Flex-Elemente anordnen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
-- [CSS-Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
-- [CSS display](/de/docs/Web/CSS/CSS_display) Modul
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
+- [CSS Grid Layout und Barrierefreiheit](/de/docs/Web/CSS/Guides/Grid_layout/Accessibility)
+- [CSS display](/de/docs/Web/CSS/Guides/Display)-Modul
 - {{Glossary("Reading_order", "Lesereihenfolge")}}

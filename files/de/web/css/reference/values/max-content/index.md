@@ -2,12 +2,12 @@
 title: max-content
 slug: Web/CSS/Reference/Values/max-content
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das `max-content`-Größenbestimmungs-Keyword repräsentiert die {{Glossary("Intrinsic_Size#maximum_intrinsic_size", "maximale intrinsische Größe")}} eines Elements. Das Keyword erweitert das Element auf die größte Größe, die benötigt wird, um seinen Inhalt ohne weiche Umbrüche anzuzeigen. Für Textinhalte bricht dieses Keyword den Inhalt überhaupt nicht um, selbst wenn es zu einem Überlauf führt.
+Das Schlüsselwort `max-content` steht für die {{Glossary("Intrinsic_Size#maximum_intrinsic_size", "maximale intrinsische Größe")}} eines Elements. Das Schlüsselwort erweitert das Element auf die größtmögliche Größe, die nötig ist, um den gesamten Inhalt ohne Umbrüche darzustellen. Bei Textinhalt sorgt dieses Schlüsselwort dafür, dass der Inhalt nicht umbrochen wird, selbst wenn dies zu Überlauf führt.
 
-Die {{cssxref("interpolate-size")}}-Eigenschaft und die {{cssxref("calc-size()")}}-Funktion können verwendet werden, um Animationen zu und von `max-content` zu ermöglichen.
+Die Eigenschaft {{cssxref("interpolate-size")}} und die Funktion {{cssxref("calc-size()")}} können verwendet werden, um Animationen zu und von `max-content` zu ermöglichen.
 
 ## Syntax
 
@@ -104,5 +104,5 @@ grid-template-columns: 200px 1fr max-content;
 
 ## Siehe auch
 
-- Verwandte Größenbestimmungs-Keywords: {{cssxref("min-content")}}, {{cssxref("fit-content")}}
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- Verwandte Größen-Schlüsselwörter: {{cssxref("min-content")}}, {{cssxref("fit-content")}}
+- [CSS-Box-Modul für Größenanpassungen](/de/docs/Web/CSS/Guides/Box_sizing)

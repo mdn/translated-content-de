@@ -3,25 +3,24 @@ title: "CSSImportRule: layerName-Eigenschaft"
 short-title: layerName
 slug: Web/API/CSSImportRule/layerName
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`layerName`**-Eigenschaft der [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt den Namen der Kaskadenschicht zurück, die durch die {{cssxref("@import")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rules) erstellt wurde.
+Die schreibgeschützte **`layerName`**-Eigenschaft der [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt den Namen der Kaskadenschicht zurück, die von der {{cssxref("@import")}}- [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) erstellt wurde.
 
-Wenn die erstellte Schicht anonym ist, ist die Zeichenfolge leer (`""`), wenn keine Schicht erstellt wurde, ist es das `null`-Objekt.
+Wenn die erstellte Schicht anonym ist, ist der String leer (`""`), wenn keine Schicht erstellt wurde, ist es das `null`-Objekt.
 
 ## Wert
 
-Eine Zeichenfolge, die leer sein kann, oder das `null`-Objekt.
+Ein String, der leer sein kann, oder das `null`-Objekt.
 
 ## Beispiele
 
-Das einzige Stylesheet des Dokuments enthält drei {{cssxref("@import")}}-Regeln. Die erste Deklaration importiert ein Stylesheet in eine benannte Schicht. Die zweite Deklaration importiert ein Stylesheet in eine anonyme Schicht. Die dritte Deklaration importiert ein Stylesheet ohne Schichtdeklaration.
+Das einzelne Stylesheet des Dokuments enthält drei {{cssxref("@import")}}-Regeln. Die erste Deklaration importiert ein Stylesheet in eine benannte Schicht. Die zweite Deklaration importiert ein Stylesheet in eine anonyme Schicht. Die dritte Deklaration importiert ein Stylesheet ohne Schichtdeklaration.
 
-Die `layerName`-Eigenschaft gibt den Namen der Schicht zurück, die mit dem importierten
-Stylesheet verbunden ist.
+Die `layerName`-Eigenschaft gibt den Namen der Schicht zurück, die mit dem importierten Stylesheet verbunden ist.
 
 ```css
 @import "style1.css" layer(layer-1);

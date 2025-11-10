@@ -3,12 +3,12 @@ title: "CSSGroupingRule: insertRule() Methode"
 short-title: insertRule()
 slug: Web/API/CSSGroupingRule/insertRule
 l10n:
-  sourceCommit: 546c31e548e0c03ada8e4c5f37883549299e17ea
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`insertRule()`** Methode der [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)-Schnittstelle fügt eine neue CSS-Regel zu einer Liste von CSS-Regeln hinzu.
+Die **`insertRule()`** Methode der [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) Schnittstelle fügt eine neue CSS-Regel zu einer Liste von CSS-Regeln hinzu.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ insertRule(rule, index)
 - `rule`
   - : Ein String
 - `index` {{optional_inline}}
-  - : Ein optionaler Index, an dem die Regel eingefügt werden soll; Standard ist 0.
+  - : Ein optionaler Index, an dem die Regel eingefügt werden soll; standardmäßig 0.
 
 ### Rückgabewert
 
@@ -31,11 +31,11 @@ Der Index der neuen Regel.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn _index_ größer ist als die Anzahl der untergeordneten CSS-Regeln.
+  - : Wird ausgelöst, wenn _index_ größer als die Anzahl der untergeordneten CSS-Regeln ist.
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `rule` aufgrund einer CSS-Einschränkung nicht an der angegebenen Stelle eingefügt werden kann.
+  - : Wird ausgelöst, wenn `rule` aufgrund einer CSS-Einschränkung nicht an dem angegebenen Index eingefügt werden kann.
 - `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `rule` eine gültige Anweisung ist, aber keine [verschachtelte Anweisung](/de/docs/Web/CSS/CSS_syntax/Syntax#nested_statements) darstellt.
+  - : Wird ausgelöst, wenn die `rule` eine gültige Anweisung, aber keine [verschachtelte Anweisung](/de/docs/Web/CSS/Guides/Syntax/Introduction#nested_statements) ist.
 
 ## Beispiele
 

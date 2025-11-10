@@ -2,12 +2,12 @@
 title: overflow-anchor
 slug: Web/CSS/Reference/Properties/overflow-anchor
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scroll-Ankersystem des Browsers zu deaktivieren, das die Scrollposition anpasst, um Inhaltsverschiebungen zu minimieren.
+Die **`overflow-anchor`**-Eigenschaft von [CSS](/de/docs/Web/CSS) bietet eine Möglichkeit, das Scrollanker-Verhalten des Browsers zu deaktivieren, das die Scrollposition anpasst, um Inhaltsverschiebungen zu minimieren.
 
-Das Verhalten des Scroll-Ankersystems ist in jedem Browser, der es unterstützt, standardmäßig aktiviert. Daher ist es in der Regel nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn Sie Probleme mit dem Scroll-Ankersystem in einem Dokument oder einem Teil eines Dokuments haben und das Verhalten deaktivieren müssen.
+Das Scrollanker-Verhalten ist in jedem Browser, der es unterstützt, standardmäßig aktiviert. Daher ist es in der Regel nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn Sie Probleme mit dem Scrollanker in einem Dokument oder einem Teil des Dokuments haben und das Verhalten deaktivieren müssen.
 
 {{InteractiveExample("CSS Demo: overflow-anchor")}}
 
@@ -131,9 +131,9 @@ overflow-anchor: unset;
 
 ## Beispiele
 
-### Scroll-Ankersystem verhindern
+### Scrollanker verhindern
 
-Um das Scroll-Ankersystem in einem Dokument zu verhindern, verwenden Sie die `overflow-anchor` Eigenschaft.
+Um das Scrollanker-Verhalten in einem Dokument zu verhindern, verwenden Sie die `overflow-anchor`-Eigenschaft.
 
 ```css
 * {
@@ -151,5 +151,5 @@ Um das Scroll-Ankersystem in einem Dokument zu verhindern, verwenden Sie die `ov
 
 ## Siehe auch
 
-- [Übersicht des Scroll-Ankersystems](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
-- [CSS Scroll-Ankersystem](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
+- [Übersicht zum Scrollanker](/de/docs/Web/CSS/Guides/Scroll_anchoring/Overview)
+- [CSS Scrollanker](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul

@@ -3,31 +3,17 @@ title: "HTMLScriptElement: fetchPriority-Eigenschaft"
 short-title: fetchPriority
 slug: Web/API/HTMLScriptElement/fetchPriority
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`fetchPriority`**-Eigenschaft der Schnittstelle [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) stellt einen Hinweis für den Browser dar, der angibt, wie er das Laden eines externen Skripts im Vergleich zu anderen externen Skripten priorisieren soll. Sie spiegelt das [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority)-Attribut des {{HTMLElement("script")}}-Elements wider.
-
-Die Eigenschaft ermöglicht es einem Entwickler, anzugeben, dass das frühere oder spätere Laden eines bestimmten Skripts mehr oder weniger Einfluss auf die Benutzererfahrung hat, als ein Browser vernünftigerweise schließen könnte, wenn er eine interne Priorität zuweist. Dies ermöglicht es dem Browser, die Priorität zu erhöhen oder zu verringern und das Skript möglicherweise früher oder später zu laden, als es sonst der Fall wäre. Die Eigenschaft sollte sparsam verwendet werden, da übermäßige oder falsche Priorisierung die Leistung beeinträchtigen kann.
-
-Die Abrufpriorität ermöglicht es, die Priorität von Skripten am Ende des Dokuments zu verringern oder die Priorität von `async`-Skripten zu erhöhen, ohne auf [Preloading](/de/docs/Web/HTML/Reference/Attributes/rel/preload) zurückgreifen zu müssen. Wenn das frühe Laden eines Skripts wichtig ist, kann die Priorität verwendet werden, um Preloading zu ergänzen, indem die Priorität gegenüber weniger wichtigen Ressourcen mit höherer Standardpriorität erhöht wird.
-
-Beachten Sie, dass sowohl die interne Priorität einer Abrufoperation als auch der Einfluss von `fetchPriority` auf die Priorität vollständig vom Browser abhängen.
+Die **`fetchPriority`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) Interfaces stellt einen Hinweis für den Browser dar, wie er das Laden eines externen Skripts im Vergleich zu anderen externen Skripten priorisieren soll.
+Sie spiegelt das [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority) Inhaltsattribut des `<script>`-Elements wider.
 
 ## Wert
 
-Ein String, der den Prioritätshinweis repräsentiert. Mögliche Werte sind:
-
-- `high`
-  - : Das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten abrufen.
-- `low`
-  - : Das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten abrufen.
-- `auto`
-  - : Keine Präferenz für die Abrufpriorität festlegen.
-    Dies ist die Standardeinstellung.
-    Sie wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
+Ein String. Die erlaubten Werte finden Sie im HTML-Attribut [`fetchpriority`](/de/docs/Web/HTML/Reference/Attributes/fetchpriority).
 
 ## Beispiele
 
@@ -52,5 +38,5 @@ console.log(el.fetchPriority); // Output: "high"
 
 - [`HTMLImageElement.fetchPriority`](/de/docs/Web/API/HTMLImageElement/fetchPriority)
 - [`HTMLLinkElement.fetchPriority`](/de/docs/Web/API/HTMLLinkElement/fetchPriority)
-- HTTP {{httpheader("Link")}}-Header
-- [Optimierung der Ressourcenladezeiten mit der Fetch Priority API](https://web.dev/articles/fetch-priority?hl=en#browser_priority_and_fetchpriority) für Informationen darüber, wie diese API die Prioritäten in Chrome beeinflusst.
+- HTTP {{httpheader("Link")}} Header
+- [Optimieren der Ressourcennutzung mit der Fetch Priority API](https://web.dev/articles/fetch-priority?hl=en#browser_priority_and_fetchpriority) für Informationen darüber, wie diese API Prioritäten in Chrome beeinflusst.

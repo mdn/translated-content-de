@@ -1,22 +1,22 @@
 ---
-title: Scroll Snap
+title: Scroll-Snap
 slug: Glossary/Scroll_snap
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-**Scroll Snapping** bedeutet, dass Inhalte an eine bestimmte Position "schnappen", anstatt an einem beliebigen Punkt anzuhalten, wenn ein Scrollvorgang abgeschlossen ist. Normale Scrollvorgänge sind ungenau. Sie richten sich nicht an einem Absatz, einem Satz oder einer Bildgrenze aus. In einem Karussell könnte ein Scrollvorgang beispielsweise in der Mitte eines Bildes enden, sodass es nur teilweise sichtbar bleibt. Webentwickler haben sich lange auf JavaScript-basierte Lösungen verlassen. Kürzlich haben Browser begonnen, [CSS Scroll-Snap-Features](/de/docs/Web/CSS/CSS_scroll_snap) zu unterstützen, die es ermöglichen, Scroll-Snap-Container und Snapping-Verhalten zu definieren.
+**Scroll-Snapping** tritt auf, wenn Inhalte an eine bestimmte Position "springen", anstatt an einem beliebigen Punkt anzuhalten, wenn ein Scroll-Vorgang endet. Normale Scroll-Vorgänge sind unpräzise. Sie richten sich nicht an einem Absatz, einem Satz oder einem Bildrand aus. Zum Beispiel könnte in einem Karussell ein Scroll-Vorgang in der Mitte eines Bildes enden, wodurch es teilweise sichtbar bleibt. Webentwickler haben lange auf JavaScript-basierte Lösungen zurückgegriffen. Kürzlich haben Browser begonnen, [CSS-Scroll-Snap-Features](/de/docs/Web/CSS/Guides/Scroll_snap) zu unterstützen, die das Definieren von Scroll-Snap-Containern und Snap-Verhalten ermöglichen.
 
-Scroll Snapping ist eine gut kontrollierte Scroll-Erfahrung, bei der Entwickler ein Element als {{Glossary("Scroll_container", "Scroll-Container")}} mit Grenzen für Scrollvorgänge definieren. Scrollvorgänge enden dann an diesen Snap-Positionsgrenzen, wobei die gescrollten Inhalte an Ort und Stelle schnappen. Im obigen Karussellbeispiel schnappt das sichtbare Bild, wenn der Benutzer das Scrollen im Karussell beendet, in seine Position.
+Scroll-Snapping ist ein gut kontrolliertes Scroll-Erlebnis, bei dem Entwickler ein Element als {{Glossary("Scroll_container", "Scroll-Container")}} mit Grenzen für Scroll-Vorgänge definieren. Scroll-Vorgänge enden dann an diesen Snap-Positions-Grenzen, wobei der gescrollte Inhalt einrastet. Im obigen Karussell-Beispiel wird das sichtbare Bild, wenn der Benutzer das Scrollen des Karussells beendet, an Ort und Stelle einrasten.
 
-- Scroll Snap-Container
-  - : Der **Scroll Snap-Container** ist ein Scroll-Container mit angewendetem Scroll Snapping. Wenn eine Box beispielsweise überlaufenden Inhalt hat und ein {{CSSXref("scroll-snap-type")}} auf einen anderen Wert als `none` gesetzt ist, dann erfasst die Box Snap-Positionen. Der Scroll Snap-Container einer Box ist der nächstgelegene ancestor des Elements, der Snap-Positionen erfassender Scroll-Container ist. Hat eine Box keinen Scroll Snap-Container, lösen ihre Snap-Positionen, falls vorhanden, kein Snapping aus.
+- Scroll-Snap-Container
+  - : Der **Scroll-Snap-Container** ist ein Scroll-Container, bei dem Scroll-Snapping angewendet wird. Wenn eine Box zum Beispiel überlaufende Inhalte hat und ein {{CSSXref("scroll-snap-type")}} auf einen anderen Wert als `none` gesetzt ist, dann erfasst die Box Snap-Positionen. Der Scroll-Snap-Container einer Box ist der nächste Snap-Positions-erfassende Scroll-Container-Vorfahre des Elements. Wenn eine Box keinen Scroll-Snap-Container hat, lösen ihre eventuell vorhandenen Snap-Positionen kein Snapping aus.
 - Snapport
-  - : Der **Snapport** ist der Bereich des {{Glossary("Scroll_container#scrollport", "Scrollports")}}, der als Ausrichtungscontainer für die Scroll-Snap-Bereiche beim Berechnen der Snap-Positionen dient. Standardmäßig ist er identisch mit dem visuellen Viewport des Scroll-Containers, aber er ist der Bereich des Scrollports, der durch die {{CSSXref("scroll-padding")}} Eigenschaft definiert ist. Die [Snap-Bereiche](#snap_area) sind auf den Scrollport ausgerichtet.
+  - : Der **Snapport** ist der Bereich des {{Glossary("Scroll_container#scrollport", "Scrollports")}}, der als Ausrichtungs-Container für die Scroll-Snap-Bereiche bei der Berechnung von Snap-Positionen verwendet wird. Standardmäßig ist es dasselbe wie das visuelle Viewport des Scroll-Containers, aber es ist der Bereich des Scrollports, der durch die {{CSSXref("scroll-padding")}}-Eigenschaft definiert ist. Die [Snap-Bereiche](#snap_area) sind am Scrollport ausgerichtet.
 - Snap-Bereich
-  - : Der **Snap-Bereich** eines Elements in einem Scroll-Container ist der Bereich, der mit {{CSSXref("scroll-margin")}}-Abständen, die auf dem Element spezifiziert sind, definiert ist. Der Snap-Bereich wird verwendet, um das Element an seinem Snapport schnappen zu lassen.
+  - : Der **Snap-Bereich** eines Elements in einem Scroll-Container ist der Bereich, der durch die in den Ausdehnungen der {{CSSXref("scroll-margin")}}-Eigenschaft auf dem Element definiert ist. Der Snap-Bereich wird verwendet, um das Element an seinen Snapport zu bringen.
 - Snap-Ziel
-  - : Ein untergeordnetes Element in einem Scroll Snap-Container, das beim Scrollen des Containers angeschnappt wird. Die {{CSSXref("scroll-snap-align")}} Eigenschaft definiert die Snap-Position jedes Snap-Ziels.
+  - : Ein Nachkommelement innerhalb eines Scroll-Snap-Containers, das eingerastet wird, wenn der Container scrollt. Die {{CSSXref("scroll-snap-align")}}-Eigenschaft definiert die Snap-Position jedes Snap-Ziels.
 
 ## Siehe auch
 
@@ -24,4 +24,4 @@ Scroll Snapping ist eine gut kontrollierte Scroll-Erfahrung, bei der Entwickler 
 - {{CSSXref("scroll-snap-align")}}
 - {{CSSXref("scroll-padding")}}
 - {{CSSXref("scroll-margin")}}
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul

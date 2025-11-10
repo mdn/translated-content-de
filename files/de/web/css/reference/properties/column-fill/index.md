@@ -2,10 +2,10 @@
 title: column-fill
 slug: Web/CSS/Reference/Properties/column-fill
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`column-fill`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Inhalt eines Elements ausgeglichen wird, wenn er in Spalten aufgeteilt wird.
+Die **`column-fill`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert, wie der Inhalt eines Elements ausbalanciert wird, wenn er in Spalten aufgeteilt wird.
 
 {{InteractiveExample("CSS Demo: column-fill")}}
 
@@ -50,16 +50,16 @@ column-fill: revert-layer;
 column-fill: unset;
 ```
 
-Die Eigenschaft `column-fill` wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der Anfangswert ist `balance`, sodass der Inhalt gleichmäßig über die Spalten verteilt wird.
+Die `column-fill`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der anfängliche Wert ist `balance`, sodass der Inhalt über die Spalten hinweg ausbalanciert wird.
 
 ### Werte
 
 - `auto`
-  - : Spalten werden der Reihe nach gefüllt. Der Inhalt nimmt nur den Platz ein, den er benötigt, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
+  - : Die Spalten werden nacheinander gefüllt. Der Inhalt beansprucht nur den benötigten Platz, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
 - `balance`
-  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie z.B. [Paged Media](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Daher wird bei Paged Media nur die letzte Seite ausgeglichen.
+  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie [Seitenmedien](/de/docs/Web/CSS/Guides/Paged_media), wird nur das letzte Fragment ausbalanciert. Daher wird im Seitenmedium nur die letzte Seite ausbalanciert.
 
-Die Spezifikation definiert einen `balance-all` Wert, bei dem der Inhalt gleichmäßig auf die Spalten in fragmentierten Kontexten, wie z.B. [Paged Media](/de/docs/Web/CSS/CSS_paged_media), verteilt wird. Dieser Wert wird derzeit in keinem Browser unterstützt.
+Die Spezifikation definiert einen `balance-all`-Wert, bei dem der Inhalt in fragmentierten Kontexten, wie [Seitenmedien](/de/docs/Web/CSS/Guides/Paged_media), gleichmäßig auf die Spalten verteilt wird. Dieser Wert wird derzeit in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -71,7 +71,7 @@ Die Spezifikation definiert einen `balance-all` Wert, bei dem der Inhalt gleichm
 
 ## Beispiele
 
-### Ausgleichen von Spalteninhalten
+### Ausbalancieren von Spalteninhalten
 
 #### HTML
 
@@ -118,9 +118,9 @@ p.fill-balance {
 {{Compat}}
 
 > [!WARNING]
-> Es gibt einige Interoperabilitätsprobleme und Fehler mit `column-fill` über verschiedene Browser hinweg, aufgrund ungelöster Probleme in der Spezifikation.
+> Es gibt einige Interoperabilitätsprobleme und Fehler mit `column-fill` über verschiedene Browser hinweg, aufgrund ungelöster Fragen in der Spezifikation.
 >
-> Insbesondere bei der Verwendung von `column-fill: auto`, um Spalten der Reihe nach zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multi-Col-Container eine Größe in der Block-Dimension hat (z.B. Höhe in einem horizontalen Schreibmodus). Firefox wird diese Eigenschaft immer berücksichtigen und daher die erste Spalte mit dem gesamten Inhalt füllen, wenn keine Größe vorhanden ist.
+> Insbesondere bei der Verwendung von `column-fill: auto`, um Spalten der Reihe nach zu füllen, wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multicol-Container eine Größe in der Blockdimension hat (z.B. Höhe in einem horizontalen Schreibmodus). Firefox wird diese Eigenschaft immer berücksichtigen, wodurch die erste Spalte mit dem gesamten Inhalt gefüllt wird, wenn keine Größe angegeben ist.
 
 ## Siehe auch
 

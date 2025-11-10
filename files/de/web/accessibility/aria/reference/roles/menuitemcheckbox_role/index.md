@@ -1,9 +1,9 @@
 ---
-title: "ARIA: Rolle `menuitemcheckbox`"
+title: "ARIA: menuitemcheckbox Rolle"
 short-title: menuitemcheckbox
 slug: Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 Ein `menuitemcheckbox` ist ein `menuitem` mit einem überprüfbaren Zustand, dessen mögliche Werte `true`, `false` oder `mixed` sind.
@@ -12,31 +12,31 @@ Ein `menuitemcheckbox` ist ein `menuitem` mit einem überprüfbaren Zustand, des
 
 Die Elemente in Menüs und Menüleisten sind Menüelemente. Es gibt drei Arten von Menüelementen: [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role), [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role) und `menuitemcheckbox`.
 
-Diese drei Elemente können nur in einem Element mit der Rolle [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) oder [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) enthalten oder von einem solchen Element besessen sein, optional eingebettet in ein Gruppierungselement mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role). Durch das Eingebettetsein oder das Besitztum (siehe [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)) in einem `menu` oder `menubar` werden die Menüelemente als verwandte Widgets identifiziert.
+Diese drei Elemente können nur in einem Element mit der Rolle [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) oder [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) enthalten oder von diesem besessen sein, optional verschachtelt innerhalb eines Gruppierungselements mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role). Das Verschachteln oder anderweitige Besitzverhältnis (siehe [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)) in einem `menu` oder `menubar` identifiziert die Menüelemente als verwandte Widgets.
 
-Menüelemente, einschließlich `menuitemcheckbox`-Elemente, können innerhalb von `group`-Elementen gruppiert oder durch Elemente mit der Rolle [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) oder einer anderen gleichwertigen nativen Rolle wie {{HTMLElement('fieldset')}} und {{HTMLElement('hr')}} getrennt werden.
+Menüelemente, einschließlich `menuitemcheckbox`-Elementen, können innerhalb von `group`-Elementen gruppiert oder durch Elemente mit der [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role)-Rolle oder einer anderen gleichwertigen nativen Rolle wie {{HTMLElement('fieldset')}} und {{HTMLElement('hr')}} getrennt werden.
 
-Menüelemente mit der Rolle `menuitemcheckbox` müssen das Attribut [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) einschließen, um den Zustand des Kontrollkästchens für unterstützende Technologien offenzulegen, es sei denn, es wird [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) verwendet, in welchem Fall das Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked) verwendet werden sollte.
+Menüelemente mit der Rolle `menuitemcheckbox` müssen das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attribut enthalten, um den Zustand des Kontrollkästchens für unterstützende Technologien sichtbar zu machen, es sei denn, es wird [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) verwendet, in welchem Fall das [`checked`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#checked)-Attribut verwendet werden sollte.
 
-Ähnlich dem `checked`-Attribut von {{HTMLElement('input')}}-Elementen des Typs `checkbox`, gibt das `aria-checked`-Attribut eines `menuitemcheckbox` an, ob das Menüelement aktiviert (`true`), deaktiviert (`false`) ist oder ob es ein Untermenü anderer Menüelemente darstellt, die eine Mischung aus aktivierten und deaktivierten Werten haben (`mixed`). Der `mixed`-Wert ist ähnlich dem [`indeterminate`-Attribut](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes) eines Kontrollkästchens, welches das Aussehen eines dritten, weder aktivierten noch deaktivierten, Zustands gibt.
+Ähnlich dem `checked`-Attribut von {{HTMLElement('input')}}s vom Typ `checkbox` zeigt das `aria-checked`-Attribut eines `menuitemcheckbox` an, ob das Menüelement aktiviert (`true`), deaktiviert (`false`) ist oder ein Untermenü von anderen Menüelementen darstellt, die eine Mischung aus aktivierten und deaktivierten Werten aufweisen (`mixed`). Der `mixed`-Wert ähnelt dem [`indeterminate`](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes)-Attribut eines Kontrollkästchens, das das Erscheinungsbild eines dritten Zustands, weder aktiviert noch deaktiviert, vermittelt.
 
-Ein zugänglicher Name ist erforderlich. Idealerweise sollte der zugängliche Name von einem zugehörigen {{htmlelement('label')}}-Element kommen, falls `<input type="checkbox">` verwendet wird oder von sichtbarem, nachfolgendem Inhalt. Wenn das Label oder der nachfolgende Inhalt nicht ausreicht und vorzugsweise [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet wird, das auf nicht-nachfolgenden Inhalt verweist, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet wird, verbergen diese zwei ARIA-Eigenschaften anderen nachfolgenden Inhalt für unterstützende Technologien.
+Ein zugänglicher Name ist erforderlich. Idealerweise sollte der zugängliche Name von einem zugehörigen {{htmlelement('label')}}-Element kommen, wenn `<input type="checkbox">` verwendet wird, oder von sichtbarem, nachgeordnetem Inhalt. Wenn das Label oder der nachgeordnete Inhalt nicht ausreicht, sollte vorzugsweise [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet werden, das nicht-nachgeordneten Inhalt referenziert, oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet werden, da diese beiden ARIA-Eigenschaften anderen nachgeordneten Inhalt von unterstützenden Technologien verbergen.
 
-Wenn nicht alle Elemente des Sets im DOM vorhanden sind, schließen Sie die Attribute [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset) ein. Beim Festlegen von `aria-setsize` und `aria-posinset` auf einem `menuitemcheckbox`, setzen Sie den Wert im Hinblick auf die Gesamtzahl der Elemente im Menü, abzüglich aller Trennzeichen.
+Wenn nicht alle Elemente im Set im DOM vorhanden sind, enthalten Sie die Eigenschaften [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-posinset). Bei der Angabe von `aria-setsize` und `aria-posinset` auf einem `menuitemcheckbox`, setzen Sie den Wert in Bezug auf die Gesamtanzahl der Elemente im Menü, ausgenommen jegliche Separatoren.
 
-Das `menuitemcheckbox`-Element kann Phrasierungsinhalt haben, darf jedoch keinen interaktiven Inhalt als Nachfolger und keine Nachfolger mit einem angegebenen `tabindex`-Attribut haben.
+Das `menuitemcheckbox`-Element kann phrasenartige Inhalte enthalten, darf jedoch keinen interaktiven Inhalt als Nachkommen haben und keine Nachkommen mit einem spezifizierten `tabindex`-Attribut haben.
 
-### Alle Nachfolger sind präsentativ
+### Alle Nachkommen sind präsentativ
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeits-API dargestellt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keinen Weg zum Darstellen von semantischen Elementen, die in einem `menuitemcheckbox` enthalten sind. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle nachfolgenden Elemente eines `menuitemcheckbox`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeits-API dargestellt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente in einem `menuitemcheckbox` darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle nachgeordneten Elemente eines `menuitemcheckbox`-Elements an, da es eine Rolle ist, die keine semantischen Kinder unterstützt.
 
-Beispielsweise betrachten Sie das folgende `menuitemcheckbox`-Element, das eine Überschrift enthält.
+Zum Beispiel, betrachten Sie das folgende `menuitemcheckbox`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="menuitemcheckbox"><h6>Name of my checkbox</h6></div>
 ```
 
-Da Nachfolger des `menuitemcheckbox` präsentativ sind, ist der folgende Code äquivalent:
+Da Nachkommen von `menuitemcheckbox` präsentativ sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="menuitemcheckbox">
@@ -44,58 +44,58 @@ Da Nachfolger des `menuitemcheckbox` präsentativ sind, ist der folgende Code ä
 </div>
 ```
 
-Aus der Perspektive des Nutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Codebeispiele dem Folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} entsprechen:
+Aus der Perspektive des Benutzers von unterstützenden Technologien existiert die Überschrift nicht, da die vorherigen Code-Snippets im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} gleichwertig zum folgenden sind:
 
 ```html
 <div role="menuitemcheckbox">Name of my checkbox</div>
 ```
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`menu`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menu_role) Rolle
-  - : Widget, das eine Liste von häufigen Aktionen oder Funktionen bietet, die der Benutzer aufrufen kann.
+  - : Widget, das eine Liste von häufigen Aktionen oder Funktionen bietet, die der Benutzer ausführen kann.
 - [`menubar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menubar_role) Rolle
-  - : Ähnlich wie `menu` für ein konsistentes Set von häufig genutzten Befehlen, die sichtbar bleiben und normalerweise horizontal dargestellt werden.
+  - : Ähnlich wie `menu` für einen konsistenten Satz häufig verwendeter Befehle, die sichtbar bleiben und normalerweise horizontal dargestellt werden.
 - [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) Rolle
   - : Container für eine Gruppe von `menuitem`-Elementen, einschließlich `menuitemcheckbox`-Elementen innerhalb eines `menu` oder `menubar`.
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) (Erforderlich)
-  - : Auf `true`, `false` oder `mixed` eingestellt, gibt es den aktuellen "geprüften" Zustand des `menuitemcheckbox` an
+  - : Auf `true`, `false` oder `mixed` gesetzt, zeigt es den aktuellen "geprüften" Zustand des menuitemcheckbox an.
 
 ### Tastaturinteraktionen
 
-Wenn ein `menu` öffnet oder ein `menubar` den Fokus erhält, wird der Tastaturfokus auf das erste Element gesetzt. Alle Elemente in beiden sind fokussierbar, einschließlich aller `menuitemcheckbox`-Elemente.
+Wenn ein `menu` geöffnet wird oder wenn ein `menubar` den Fokus erhält, wird der Tastaturfokus auf das erste Element gesetzt. Alle Elemente in beiden sind fokussierbar, einschließlich aller `menuitemcheckbox`-Elemente.
 
-Wenn das `menuitemcheckbox` in einem Untermenü in einer `menubar` oder einem mit einer Schaltfläche geöffneten Menü ist, müssen die folgenden Tastaturinteraktionen programmiert werden:
+Wenn sich das `menuitemcheckbox` in einem Untermenü in einem `menubar` oder einem mit einer Menüschaltfläche geöffneten Menü befindet, müssen die folgenden Tastaturinteraktionen programmiert werden:
 
 - <kbd>Enter</kbd>
-  - : Schaltet den `aria-checked`-Zustand des `menuitemcheckbox` um und schließt das Menü.
+  - : Wechselt den `aria-checked`-Zustand des `menuitemcheckbox` und schließt das Menü.
 - <kbd>Leertaste</kbd>
-  - : Schaltet den `aria-checked`-Zustand des `menuitemcheckbox` um. Schließt das Menü nicht.
+  - : Wechselt den `aria-checked`-Zustand des `menuitemcheckbox`. Schließt das Menü nicht.
 - <kbd>Escape</kbd>
-  - : Schließt das Menü. In der Menüleiste verschiebt es den Fokus auf das übergeordnete Menüleistelement.
+  - : Schließt das Menü. In der Menüleiste wird der Fokus auf das übergeordnete Menüleiste-Element bewegt.
 - <kbd>Pfeil nach rechts</kbd>
-  - : Schließt das Untermenü. In der Menüleiste verschiebt es den Fokus auf das nächste Element in der Menüleiste, öffnet ein Untermenü, falls vorhanden.
+  - : Schließt das Untermenü. In der Menüleiste wird der Fokus auf das nächste Element in der Menüleiste bewegt, und ein eventuell vorhandenes Untermenü wird geöffnet.
 - <kbd>Pfeil nach links</kbd>
-  - : Schließt das Menü. In der Menüleiste verschiebt es den Fokus auf das vorherige Element in der Menüleiste, öffnet ein Untermenü, falls vorhanden.
+  - : Schließt das Menü. In der Menüleiste wird der Fokus auf das vorherige Element in der Menüleiste bewegt, und ein eventuell vorhandenes Untermenü wird geöffnet.
 - <kbd>Pfeil nach unten</kbd>
-  - : Verschiebt den Fokus auf das nächste Element im Menü. Wenn der Fokus auf dem letzten Element ist, wird er auf das erste Element verschoben.
+  - : Bewegt den Fokus auf das nächste Element im Menü. Wenn der Fokus auf dem letzten Element liegt, wird der Fokus auf das erste Element bewegt.
 - <kbd>Pfeil nach oben</kbd>
-  - : Verschiebt den Fokus auf das vorherige Element im Menü. Wenn der Fokus auf dem ersten Element ist, wird er auf das letzte Element verschoben.
+  - : Bewegt den Fokus auf das vorherige Element im Menü. Wenn der Fokus auf dem ersten Element liegt, wird der Fokus auf das letzte Element bewegt.
 - <kbd>Home</kbd>
-  - : Verschiebt den Fokus auf das erste Element im Menü.
+  - : Bewegt den Fokus auf das erste Element im Menü.
 - <kbd>Ende</kbd>
-  - : Verschiebt den Fokus auf das letzte Element im Menü.
-- <kbd>Buchstabe</kbd>
-  - : Verschiebt den Fokus auf das nächste Element, dessen Name mit dem eingegebenen Buchstaben beginnt. Wenn keines der Elemente einen Namen hat, der mit dem eingegebenen Buchstaben beginnt, bewegt sich der Fokus nicht.
+  - : Bewegt den Fokus auf das letzte Element im Menü.
+- <kbd>Zeichen</kbd>
+  - : Bewegt den Fokus auf das nächste Element mit einem Namen, der mit dem getippten Zeichen beginnt. Wenn keines der Elemente einen Namen hat, der mit dem getippten Zeichen beginnt, bewegt sich der Fokus nicht.
 
 ### Erforderliches JavaScript
 
-#### Erforderliche Ereignis-Handler
+#### Erforderliche Ereignisbehandler
 
 - `onclick`
-  - : Verarbeitet Mausklicks sowohl auf das Kontrollkästchen als auch auf das zugehörige Label, das den Zustand des Kontrollkästchens durch Ändern des Wertes des `aria-checked`-Attributs und des Erscheinungsbilds des Kontrollkästchens ändern wird, sodass es aktiviert oder deaktiviert für den sehenden Benutzer aussieht.
+  - : Behandelt Mausklicks sowohl auf das Kontrollkästchen als auch das zugehörige Label, um den Zustand des Kontrollkästchens zu ändern, indem der Wert des `aria-checked`-Attributs und das Erscheinungsbild des Kontrollkästchens geändert wird, sodass es für den sehenden Benutzer als aktiviert oder nicht aktiviert erscheint.
 - `onKeyDown`
-  - : Behandelt den Fall, in dem der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand des Kontrollkästchens zu ändern, indem der Wert des `aria-checked`-Attributs geändert wird und das Erscheinungsbild des Kontrollkästchens so geändert wird, dass es aktiviert oder deaktiviert für den sehenden Benutzer aussieht. Behandelt auch alle Tasten, die im Abschnitt zur Tastaturnavigation aufgeführt sind.
+  - : Behandelt den Fall, in dem der Benutzer die <kbd>Leertaste</kbd> drückt, um den Zustand des Kontrollkästchens zu ändern, indem der Wert des `aria-checked`-Attributs und das Erscheinungsbild des Kontrollkästchens geändert wird, sodass es für den sehenden Benutzer als aktiviert oder nicht aktiviert erscheint. Behandelt auch alle im Abschnitt zur Tastaturnavigation aufgeführten Tasten.
 
 ## Beispiele
 
@@ -103,9 +103,9 @@ Wenn das `menuitemcheckbox` in einem Untermenü in einer `menubar` oder einem mi
 <li role="menuitemcheckbox" tabindex="-1" aria-checked="false">Purple</li>
 ```
 
-Das [`tabindex="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) macht das `menuitemcheckbox` fokussierbar, aber nicht Teil der Reihenfolge der Seitenregisterkarten. Hätten wir `aria-checked="true"` eingeschlossen, hätte das angezeigt, dass das `menuitemcheckbox` aktiviert war, und wir hätten den ausgewählten Zustand visuell so gestaltet, dass er aktiviert aussieht, indem wir den Attributselektor `[role='menuitemcheckbox'][aria-checked='true']` verwenden. Stattdessen zeigt das Vorhandensein von `aria-checked="false"` unterstützenden Technologien an, dass das `menuitemcheckbox` überprüfbar, aber derzeit nicht aktiviert ist. Der zugängliche Name "purple" kommt aus dem Inhalt.
+Der [`tabindex="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) macht das `menuitemcheckbox` fokussierbar, aber nicht Teil der Tabulatorabfolge der Seite. Hätten wir `aria-checked="true"` hinzugefügt, hätte dies angezeigt, dass das `menuitemcheckbox` aktiviert war, und wir hätten den ausgewählten Zustand visuell so gestaltet, dass er durch den Attributselektor `[role='menuitemcheckbox'][aria-checked='true']` aktiviert aussieht. Stattdessen zeigt das Vorhandensein von `aria-checked="false"` unterstützenden Technologien an, dass das `menuitemcheckbox` überprüfbar, aber derzeit nicht aktiviert ist. Der zugängliche Name "purple" stammt aus dem Inhalt.
 
-Die visuelle Darstellung des ausgewählten Zustands ist ein überprüftes Kontrollkästchen, das wir mit [generiertem Inhalt](/de/docs/Web/CSS/CSS_generated_content) erstellen können, indem wir es sichtbar und in derselben Farbe wie der Inhalt gestalten, indem wir den `aria-checked`-Wert mithilfe von CSS [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) und [Vererbung](/de/docs/Web/CSS/Reference/Values/inherit) der Farbe synchronisieren.
+Das visuelle Erscheinungsbild des ausgewählten Zustands ist ein überprüftes Kontrollkästchen, das wir unter Verwendung von [erzeugtem Inhalt](/de/docs/Web/CSS/Guides/Generated_content) erstellen können, indem es sichtbar und in derselben Farbe wie der Inhalt gemacht wird, indem es mit dem `aria-checked`-Wert unter Verwendung von CSS [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) synchronisiert und die Farbe [erbt](/de/docs/Web/CSS/Reference/Values/inherit).
 
 ```css
 [role="menuitemcheckbox"]::before {
@@ -126,7 +126,7 @@ Die visuelle Darstellung des ausgewählten Zustands ist ein überprüftes Kontro
 
 ### Bevorzugen Sie HTML
 
-Die erste Regel von ARIA lautet: Wenn ein nativer HTML-Tag oder ein Attribut die benötigten Semantik und das Verhalten bietet, verwenden Sie es anstelle einer Umnutzung eines Elements und dem Hinzufügen einer ARIA-Rolle, eines Zustands oder einer Eigenschaft, um es zugänglich zu machen. Daher wird empfohlen, die native [HTML-Kontrollkästchen](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Formularsteuerung zu verwenden, anstatt die Funktionalität eines Kontrollkästchens mit JavaScript und ARIA neu zu erstellen.
+Die erste Regel von ARIA lautet: Wenn ein natives HTML-Element oder -Attribut die von Ihnen benötigten Semantiken und das Verhalten besitzt, verwenden Sie es anstelle der Umfunktionierung eines Elements und der Hinzufügung einer ARIA-Rolle, eines Zustands oder einer Eigenschaft, um es zugänglich zu machen. Daher wird empfohlen, das native [HTML-Kontrollkästchen](/de/docs/Web/HTML/Reference/Elements/input/checkbox) zu verwenden, anstelle die Funktionalität eines Kontrollkästchens mit JavaScript und ARIA neu zu erstellen.
 
 ## Spezifikationen
 

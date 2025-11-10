@@ -2,14 +2,14 @@
 title: corner-bottom-right-shape
 slug: Web/CSS/Reference/Properties/corner-bottom-right-shape
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-bottom-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form der unteren rechten Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs an.
+Die **`corner-bottom-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form der unteren rechten Ecke einer Box innerhalb ihres {{cssxref("border-radius")}} Bereichs an.
 
-Für eine vollständige Beschreibung des Eckformverhaltens und mehrere Beispiele siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite zur Kurzform-Eigenschaft {{cssxref("corner-shape")}}.
 
 ## Syntax
 
@@ -44,9 +44,9 @@ Die `corner-bottom-right-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Weitere verwandte Beispiele finden Sie auf der Referenzseite {{cssxref("corner-shape")}}.
 
-### Grundlegende Verwendung von `corner-bottom-right-shape`
+### Grundlegende Nutzung von `corner-bottom-right-shape`
 
 #### HTML
 
@@ -58,7 +58,7 @@ Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Ele
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgelassen haben. Wir wenden auch eine {{cssxref("box-shadow")}}, einen `border-radius` von `30% / 20%` und eine `corner-bottom-right-shape` von `notch` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgelassen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `30% / 20%` und eine `corner-bottom-right-shape` von `notch` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -92,7 +92,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht so aus:
+Das gerenderte Ergebnis sieht wie folgt aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -106,10 +106,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzschreibweise
+- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, und {{cssxref("corner-bottom-left-shape")}}
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
-- {{cssxref("border-radius")}} Kurzschreibweise
+- {{cssxref("border-radius")}} Kurzform-Eigenschaft
 - {{cssxref("border-bottom-right-radius")}}
-- [CSS-Rahmen und Kastenverzierungen](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Ränder und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
