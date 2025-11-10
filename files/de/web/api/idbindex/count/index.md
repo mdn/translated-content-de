@@ -89,7 +89,7 @@ function displayDataByIndex() {
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 

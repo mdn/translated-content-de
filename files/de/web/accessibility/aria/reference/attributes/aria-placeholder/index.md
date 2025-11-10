@@ -62,7 +62,7 @@ Vererbt in Rollen:
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Siehe auch
 

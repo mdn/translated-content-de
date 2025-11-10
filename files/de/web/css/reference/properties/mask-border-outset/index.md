@@ -33,7 +33,7 @@ mask-border-outset: revert-layer;
 mask-border-outset: unset;
 ```
 
-Die `mask-border-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist eine {{cssxref("\<length>")}} oder {{cssxref("\<number>")}}. Negative Werte sind ungültig.
+Die `mask-border-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
 
 - Wenn **ein** Wert angegeben wird, gilt der gleiche Abstand für **alle vier Seiten**.
 - Wenn **zwei** Werte angegeben werden, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
@@ -42,9 +42,9 @@ Die `mask-border-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte an
 
 ### Werte
 
-- {{cssxref("\<length>")}}
+- {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Maskenrandabstands als Dimension.
-- {{cssxref("\<number>")}}
+- {{cssxref("&lt;number&gt;")}}
   - : Die Größe des Maskenrandabstands als Vielfaches der entsprechenden {{cssxref("border-width")}}.
 
 ## Formale Definition
