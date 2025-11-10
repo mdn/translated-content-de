@@ -2,12 +2,12 @@
 title: CSSLayerBlockRule
 slug: Web/API/CSSLayerBlockRule
 l10n:
-  sourceCommit: 91830b19375f5cc2416302f044d37c58d241de5d
+  sourceCommit: d7e665f6202179fcccbe753a1bfd358c224c3928
 ---
 
 {{APIRef("CSSOM")}}
 
-Der **`CSSLayerBlockRule`** stellt eine {{cssxref("@layer")}} Blockregel dar.
+Die **`CSSLayerBlockRule`** repräsentiert eine {{cssxref("@layer")}} Blockregel.
 
 {{InheritanceDiagram}}
 
@@ -44,9 +44,7 @@ _Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGrou
 
 ```js
 const item = document.getElementsByTagName("p")[0];
-const rules = document.styleSheets[1].cssRules;
-// Note that stylesheet #1 is the stylesheet associated with this embedded example,
-// while stylesheet #0 is the stylesheet associated with the whole MDN page
+const rules = document.getElementById("css-output").sheet.cssRules;
 
 const layer = rules[0]; // A CSSLayerBlockRule
 
@@ -69,4 +67,4 @@ item.textContent = `The CSSLayerBlockRule is for the "${layer.name}" layer`;
 
 - {{cssxref("@layer")}}
 - [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)
-- [CSS-Kaskadenschichten lernen](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
+- [CSS-Kaskadenebenen kennenlernen](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
