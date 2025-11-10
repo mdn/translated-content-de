@@ -12861,7 +12861,7 @@
 /de/docs/Web/CSS/Inheritance	/de/docs/Web/CSS/Guides/Cascade/Inheritance
 /de/docs/Web/CSS/Inline_formatting_context	/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context
 /de/docs/Web/CSS/Interactive	/de/docs/Web/CSS/Reference/At-rules/@media
-# /de/docs/Web/CSS/Layout_cookbook	/de/docs/Web/CSS/How_to/Layout_cookbook
+/de/docs/Web/CSS/Layout_cookbook	/de/docs/Web/CSS/How_to/Layout_cookbook
 /de/docs/Web/CSS/Layout_cookbook/Breadcrumb_Navigation	/de/docs/Web/CSS/How_to/Layout_cookbook/Breadcrumb_navigation
 /de/docs/Web/CSS/Layout_cookbook/Card	/de/docs/Web/CSS/How_to/Layout_cookbook/Card
 /de/docs/Web/CSS/Layout_cookbook/Center_an_element	/de/docs/Web/CSS/How_to/Layout_cookbook/Center_an_element

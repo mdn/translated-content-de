@@ -2,17 +2,15 @@
 title: browsingData.removeFormData()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeFormData
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: b2685e330f887359ec886b08199a22a6fcbe0caf
 ---
 
 Löscht Daten, die der Browser zum automatischen Ausfüllen von Formularen gespeichert hat.
 
-Sie können den Parameter `removalOptions` verwenden, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
+Sie können den Parameter `removalOptions`, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, verwenden, um:
 
-- nur Formulardaten zu löschen, die nach einem bestimmten Zeitpunkt eingegeben wurden
-- zu steuern, ob nur Formulardaten auf normalen Webseiten gelöscht werden sollen oder auch Daten, die in gehosteten Apps und Erweiterungen eingegeben wurden.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+- Formulardaten zu löschen, die nach einer bestimmten Zeit eingegeben wurden.
+- zu steuern, ob Daten auf Webseiten oder sowohl auf Webseiten als auch in Erweiterungen gelöscht werden.
 
 ## Syntax
 
@@ -25,15 +23,15 @@ let removing = browser.browsingData.removeFormData(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Formulardaten zu löschen, die nach einem bestimmten Zeitpunkt eingegeben wurden, und um zu steuern, ob nur Formulardaten gelöscht werden sollen, die auf normalen Webseiten eingegeben wurden oder auch Daten, die in gehosteten Apps und Erweiterungen eingegeben wurden.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, welches verwendet werden kann, um nur Formulardaten zu löschen, die nach einer bestimmten Zeit eingegeben wurden, und um zu steuern, ob Formulardaten auf Webseiten oder sowohl auf Webseiten als auch in Erweiterungen gelöscht werden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Löschung abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argument erfüllt wird, wenn das Entfernen abgeschlossen ist. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Formulardaten löschen, die in der letzten Woche gespeichert wurden:
+Löschen von Formulardaten, die in der letzten Woche gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -55,7 +53,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Alle gespeicherten Formulardaten löschen:
+Löschen aller gespeicherten Formulardaten:
 
 ```js
 function onRemoved() {
@@ -76,4 +74,4 @@ browser.browsingData.removeFormData({}).then(onRemoved, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
