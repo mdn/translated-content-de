@@ -47,7 +47,6 @@ p {
 }
 ```
 
-
 Wenn das Filtern abgeschlossen ist, hat jedes Element null oder mehr [deklarierte Werte](#deklarierter_wert) für jede CSS-Eigenschaft. Diese deklarierten Werte sind der Ausgangspunkt für die [Kaskadierungs](#kaskadierung)-Verarbeitungsstufe.
 
 ### Kaskadierung
@@ -65,7 +64,6 @@ p.large {
   font-size: 1.5em;
 }
 ```
-
 
 Nach dem Kaskadieren bestimmt der Browser den [**kaskadierten Wert**](#kaskadierter_wert) für jede Eigenschaft jedes Elements. Dies ist der Wert, der in der nächsten Verarbeitungsstufe verwendet wird: [Standardwertsetzung](#standardwertsetzung).
 
@@ -118,7 +116,6 @@ p {
 }
 ```
 
-
 Es könnte viele andere `font-size`-Deklarationen in unseren Stylesheets geben, aber nur Deklarationen, deren Selektoren mit dem Element übereinstimmen, werden zu deklarierten Werten. In diesem Beispiel, da unser `<p>`-Element die `class="large"` hat, sind alle drei Deklarationen deklarierte Werte für dieses Element.
 
 ### Kaskadierter Wert
@@ -130,7 +127,6 @@ Von unseren deklarierten Werten gewinnen Autorstile über Benutzeragentenstile. 
 ```css
 font-size: 2em;
 ```
-
 
 Wenn es keine deklarierten Werte für eine Eigenschaft gibt, gibt es keinen kaskadierten Wert, was bedeutet, dass der [spezifizierte Wert](#spezifizierter_wert) für diese Eigenschaft durch den [Standardwert](#standardwertsetzung)-Prozess bestimmt wird.
 
@@ -147,7 +143,6 @@ In unserem Beispiel, da wir einen [kaskadierten Wert](#kaskadierter_wert) von `2
 ```css
 font-size: 2em;
 ```
-
 
 Für Eigenschaften ohne kaskadierte Werte bestimmt der Standardwertprozess den Wert. Zum Beispiel, wenn `color` nicht spezifiziert ist, wird `color` vom berechneten Wert des übergeordneten Elements geerbt, da es sich um eine geerbte Eigenschaft handelt. Wenn `margin` nicht spezifiziert ist, wird der `Anfangs`wert von `0` verwendet, da `margin` keine [geerbte Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) ist:
 
@@ -245,7 +240,6 @@ function updateAllUsedWidths() {
 updateAllUsedWidths();
 window.addEventListener("resize", updateAllUsedWidths);
 ```
-
 
 Während die drei spezifizierten Werte `auto`, `50%` und `inherit` Schlüsselwort- und {{cssxref("percentage")}}-Werte sind, gibt das Abrufen der `width` mit `window.getComputedStyle(el)["width"];` einen [absoluten Längen](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units)-`px`-Wert zurück:
 

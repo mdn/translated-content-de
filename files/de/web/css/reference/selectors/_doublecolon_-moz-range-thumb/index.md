@@ -7,7 +7,7 @@ l10n:
 
 {{Non-standard_header}}
 
-Das **`::-moz-range-thumb`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die den _Schieberegler_ (d. h. den virtuellen Knopf) eines {{HTMLElement("input")}} vom `type="range"` darstellt. Der Nutzer kann den Schieberegler entlang der Spur der Eingabe bewegen, um deren numerischen Wert zu verändern.
+Das **`::-moz-range-thumb`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die den _Schieberegler_ (d.h. den virtuellen Knopf) eines {{HTMLElement("input")}} vom `type="range"` darstellt. Der Nutzer kann den Schieberegler entlang der Spur der Eingabe bewegen, um deren numerischen Wert zu verändern.
 
 > [!NOTE]
 > Die Verwendung von `::-moz-range-thumb` mit etwas anderem als einem `<input type="range">` passt zu nichts und hat keine Wirkung.
