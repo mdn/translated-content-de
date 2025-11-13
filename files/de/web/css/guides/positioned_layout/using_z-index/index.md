@@ -20,7 +20,7 @@ Die `z-index`-Eigenschaft kann mit einem ganzzahligen Wert (positiv, null oder n
 > [!NOTE]
 >
 > - Wenn keine `z-index`-Eigenschaft angegeben ist, werden Elemente auf der Standard-Rendering-Schicht (Schicht 0) gerendert.
-> - Wenn mehrere Elemente denselben `z-index`-Wert haben (d.h., sie befinden sich auf derselben Schicht), gelten die Stapelregeln, die im Abschnitt [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index) erklärt werden.
+> - Wenn mehrere Elemente denselben `z-index`-Wert haben (d.h. sie befinden sich auf derselben Schicht), gelten die Stapelregeln, die im Abschnitt [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index) erklärt werden.
 
 ## Beispiel
 

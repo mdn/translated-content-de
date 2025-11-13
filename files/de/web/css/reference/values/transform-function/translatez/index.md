@@ -5,7 +5,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`translateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) verschiebt ein Element entlang der z-Achse im dreidimensionalen Raum, d. h. näher an den Betrachter heran oder weiter von ihm weg. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) verschiebt ein Element entlang der z-Achse im dreidimensionalen Raum, d.h. näher an den Betrachter heran oder weiter von ihm weg. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translateZ()")}}
 

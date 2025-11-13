@@ -37,8 +37,8 @@ Zusätzlich zu diesen zugeordneten Eigenschaften gibt es einige zusätzliche Kur
 
 Die physikalischen Werte, die mit den Eigenschaften {{cssxref("float")}} und {{cssxref("clear")}} verwendet werden, sind `left`, `right` und `both`. Das Modul für CSS logische Eigenschaften und Werte definiert die Werte `inline-start` und `inline-end` als Zuordnungen für `left` und `right`.
 
-Im folgenden Beispiel wird die erste Box mit `float: left` gefloatet und die zweite mit `float: inline-start`. 
-Wenn Sie `direction: rtl` auf den `.inner`-Selektor anwenden, bleibt die nach links gefloatete Box immer links, während das `inline-start`-Element der `direction` des Textes folgt. 
+Im folgenden Beispiel wird die erste Box mit `float: left` gefloatet und die zweite mit `float: inline-start`.
+Wenn Sie `direction: rtl` auf den `.inner`-Selektor anwenden, bleibt die nach links gefloatete Box immer links, während das `inline-start`-Element der `direction` des Textes folgt.
 Sie können dies mit `writing-mode: vertical-rl` kombinieren, um den Unterschied des Block-Layouts in Kombination mit `direction`-Werten zu sehen.
 
 ```html live-sample___float
