@@ -1,32 +1,35 @@
 ---
-title: "RTCIceCandidateStats: Eigenschaft priority"
+title: "RTCIceCandidateStats: `priority`-Eigenschaft"
 short-title: priority
 slug: Web/API/RTCIceCandidateStats/priority
 l10n:
-  sourceCommit: ef82d981d563626248276acbf9516aac7445d4fa
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`priority`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein positiver Ganzzahlenwert, der die Priorität (oder Erwünschtheit) des beschriebenen Kandidaten angibt.
+Die **`priority`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Dictionaries ist ein positiver Ganzzahlenwert, der die Priorität (oder Erwünschtheit) des beschriebenen Kandidaten angibt.
 
-### Wert
+## Wert
 
-Ein positiver Ganzzahlenwert, der die Priorität des durch das `RTCIceCandidateStats`-Objekt beschriebenen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) angibt. Der Wert kann zwischen 1 und 2.147.483.647 liegen.
+Ein positiver Ganzzahlenwert, der die Priorität des durch das `RTCIceCandidateStats`-Objekt beschriebenen [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) angibt.
+Der Wert kann zwischen 1 und 2.147.483.647 liegen.
 
 ## Beschreibung
 
-Während der {{Glossary("ICE", "ICE")}}-Aushandlung beim Einrichten einer WebRTC-Peer-Verbindung werden die Prioritätswerte, die dem entfernten Peer von einem {{Glossary("user_agent", "User-Agent")}} gemeldet werden, dazu verwendet, festzustellen, welche Kandidaten als "erwünschenswerter" angesehen werden. Je höher der Wert, desto erwünschter ist der Kandidat.
+Während der {{Glossary("ICE", "ICE")}}-Aushandlung beim Aufbau einer WebRTC-Peer-Verbindung werden die Prioritätswerte, die dem entfernten Peer von einem {{Glossary("user_agent", "User-Agent")}} gemeldet werden, verwendet, um zu bestimmen, welche Kandidaten als "erwünschter" betrachtet werden.
+Je höher der Wert, desto erwünschter ist der Kandidat.
 
-### Priorität bestimmen
+### Bestimmung der Priorität
 
-Die ICE-Spezifikation beschreibt, wie User-Agents und andere Software, die WebRTC verwendet, die Priorität berechnen sollten. Die Priorität eines Kandidaten wird unter Verwendung der folgenden Variablen als Eingaben berechnet:
+Die ICE-Spezifikation beschreibt, wie User Agents und andere Software, die WebRTC verwenden, die Priorität berechnen sollten.
+Die Priorität eines Kandidaten wird anhand der folgenden Variablen als Eingaben berechnet:
 
-- Die Vorzugshierarchie des Kandidatentyps (lokal, serverreflexiv, peerreflexiv oder weitergeleitet)
-- Die Vorzugshierarchie der spezifischen IP-Adresse des Kandidaten (für multi-homed Agents)
+- Die Präferenz des Kandidatentyps (lokal, serverreflexiv, peerreflexiv oder weitergeleitet)
+- Die Präferenz der speziellen IP-Adresse des Kandidaten (für mehrheimische Agents)
 - Die Komponenten-ID des Kandidaten (1 für RTP, 2 für RTCP)
 
-Die Priorität des Kandidaten wird mit der Formel berechnet (_p<sub>type</sub>_ ist die Priorität des Kandidatentyps und _p<sub>local</sub>_ ist die Priorität der IP-Adresse):
+Die Priorität des Kandidaten wird anhand der folgenden Formel berechnet (_p<sub>type</sub>_ ist die Priorität des Kandidatentyps und _p<sub>local</sub>_ ist die Priorität der IP-Adresse):
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -34,7 +37,7 @@ Die Priorität des Kandidaten wird mit der Formel berechnet (_p<sub>type</sub>_ 
 </math>
 <!-- prettier-ignore-end -->
 
-Dies entspricht der Zuordnung der Prioritäten des Kandidatentyps, der lokalen IP und der Komponenten-ID in verschiedene Bit-Bereiche innerhalb des 32-Bit-`priority`-Werts.
+Dies entspricht der Zuordnung der Prioritäten des Kandidatentyps, der lokalen IP und der Komponenten-ID in verschiedene Bitbereiche innerhalb des 32-Bit-`priority`-Werts.
 
 ## Spezifikationen
 
@@ -46,4 +49,4 @@ Dies entspricht der Zuordnung der Prioritäten des Kandidatentyps, der lokalen I
 
 ## Siehe auch
 
-- {{RFC(5245, "", "4.1.2.1")}}: Abschnitt Empfohlene Formel in der ICE-Spezifikation
+- {{RFC(5245, "", "4.1.2.1")}}: Abschnitt "Recommended Formula" in der ICE-Spezifikation

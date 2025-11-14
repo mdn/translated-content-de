@@ -2,10 +2,10 @@
 title: font-variant-caps
 slug: Web/CSS/Reference/Properties/font-variant-caps
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
-Die **`font-variant-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung alternativer Glyphen für kleine oder Petite-Großbuchstaben oder für Titelschriften.
+Die **`font-variant-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen, die für kleine oder zierliche Großbuchstaben oder für Titeln verwendet werden.
 
 {{InteractiveExample("CSS Demo: font-variant-caps")}}
 
@@ -46,18 +46,6 @@ section {
 }
 ```
 
-Wenn eine gegebene Schriftart Großbuchstabenglyphen in mehreren verschiedenen Größen enthält, wählt diese Eigenschaft die am besten geeigneten aus. Wenn Petite-Großbuchstabenglyphen nicht verfügbar sind, werden sie mit kleinen Großbuchstabenglyphen dargestellt. Wenn diese nicht vorhanden sind, werden sie vom Browser aus den Großbuchstabenglyphen synthetisiert.
-
-Schriftarten enthalten manchmal spezielle Glyphen für verschiedene zeichenlose Zeichen (wie Satzzeichen), um besser zu den umgebenden Großbuchstaben zu passen. Kleine Großbuchstabenglyphen werden jedoch nie für zeichenlose Zeichen synthetisiert.
-
-### Sprachspezifische Regeln
-
-Diese Eigenschaft berücksichtigt sprachspezifische Regeln zur Umwandlung von Buchstaben. Zum Beispiel:
-
-- In türkischen Sprachen wie Türkisch (tr), Aserbaidschanisch (az), Krimtatarisch (crh), Wolga-Tatarisch (tt) und Baschkirisch (ba) gibt es zwei Arten von `i` (eines mit Punkt, eines ohne) und zwei Groß-/Kleinschreibungspaarungen: `i`/`İ` und `ı`/`I`.
-- Im Deutschen (de) kann das `ß` zu `ẞ` (U+1E9E) im Großbuchstaben werden.
-- Im Griechischen (el) verlieren Vokale ihren Akzent, wenn das ganze Wort in Großbuchstaben steht (`ά`/`Α`), außer beim disjunktiven Eta (`ή`/`Ή`). Auch verlieren Diphthonge mit einem Akzent auf dem ersten Vokal den Akzent und erhalten ein diakritisches Zeichen auf dem zweiten Vokal (`άι`/`ΑΪ`).
-
 ## Syntax
 
 ```css
@@ -78,30 +66,44 @@ font-variant-caps: revert-layer;
 font-variant-caps: unset;
 ```
 
-Die `font-variant-caps` Eigenschaft wird mit einem einzelnen Schlüsselwortwert aus der untenstehenden Liste spezifiziert. In jedem Fall, wenn die Schriftart den OpenType-Wert nicht unterstützt, werden die Glyphen synthetisiert.
+Die Eigenschaft `font-variant-caps` wird mit einem einzelnen Schlüsselwortwert aus der untenstehenden Liste angegeben. In jedem Fall, wenn die Schriftart den OpenType-Wert nicht unterstützt, werden die Glyphen synthetisiert.
 
 ### Werte
 
 - `normal`
-  - : Deaktiviert die Verwendung alternativer Glyphen.
+  - : Deaktiviert die Verwendung von alternativen Glyphen.
 - `small-caps`
-  - : Ermöglicht die Anzeige von kleinen Großbuchstaben (OpenType-Funktion: `smcp`). Kleine Großbuchstabenglyphen nutzen typischerweise die Form von Großbuchstaben, werden aber in der gleichen Größe wie Kleinbuchstaben angezeigt.
+  - : Aktiviert die Anzeige von kleinen Großbuchstaben (OpenType-Feature: `smcp`). Kleine-Großbuchstaben-Glyphen haben typischerweise die Form von Großbuchstaben, werden aber in der gleichen Größe wie Kleinbuchstaben dargestellt.
 - `all-small-caps`
-  - : Ermöglicht die Anzeige von kleinen Großbuchstaben für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2sc`, `smcp`).
+  - : Aktiviert die Anzeige von kleinen Großbuchstaben sowohl für große als auch für kleine Buchstaben (OpenType-Features: `c2sc`, `smcp`).
 - `petite-caps`
-  - : Ermöglicht die Anzeige von Petite-Großbuchstaben (OpenType-Funktion: `pcap`).
+  - : Aktiviert die Anzeige von zierlichen Großbuchstaben (OpenType-Feature: `pcap`).
 - `all-petite-caps`
-  - : Ermöglicht die Anzeige von Petite-Großbuchstaben für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2pc`, `pcap`).
+  - : Aktiviert die Anzeige von zierlichen Großbuchstaben sowohl für große als auch für kleine Buchstaben (OpenType-Features: `c2pc`, `pcap`).
 - `unicase`
-  - : Ermöglicht die Anzeige einer Mischung aus kleinen Großbuchstaben für Großbuchstaben mit normalen Kleinbuchstaben (OpenType-Funktion: `unic`).
+  - : Aktiviert die Anzeige einer Mischung aus kleinen Großbuchstaben für Großbuchstaben mit normalen Kleinbuchstaben (OpenType-Feature: `unic`).
 - `titling-caps`
-  - : Ermöglicht die Anzeige von Titelschriften in Großbuchstaben (OpenType-Funktion: `titl`). Großbuchstabenglyphen sind oft so gestaltet, dass sie mit Kleinbuchstaben verwendet werden. Wenn sie in komplett großbuchstabigen Titelsequenzen verwendet werden, können sie zu stark wirken. Titelschriften wurden speziell für diese Situation entworfen.
+  - : Aktiviert die Anzeige von Titeln-Großbuchstaben (OpenType-Feature: `titl`). Die Glyphen der Großbuchstaben sind oft für die Verwendung mit Kleinbuchstaben konzipiert. Wenn sie in durchgehend großen Titelsequenzen verwendet werden, können sie zu stark wirken. Titeln-Großbuchstaben sind speziell für diese Situation entworfen.
+
+## Beschreibung
+
+Wenn eine gegebene Schriftart Großbuchstabenglyphen in mehreren unterschiedlichen Größen enthält, wählt diese Eigenschaft die am besten geeigneten aus. Wenn keine zierlichen Großbuchstabenglyphen verfügbar sind, werden sie unter Verwendung von kleinen Großbuchstabenglyphen gerendert. Wenn diese nicht vorhanden sind, synthetisiert der Browser sie aus den Großbuchstabenglyphen.
+
+Schriftarten enthalten manchmal spezielle Glyphen für verschiedene zeichenlose Zeichen (wie Satzzeichen), um besser mit den kapitalisierten Zeichen um sie herum übereinzustimmen. Allerdings werden kleine Großbuchstabenglyphen niemals für zeichenlose Zeichen synthetisiert.
+
+### Sprachspezifische Regeln
+
+Diese Eigenschaft berücksichtigt sprachspezifische Regeln zur Groß- und Kleinschreibung. Zum Beispiel:
+
+- In Turksprachen, wie Türkisch (tr), Aserbaidschanisch (az), Krimtatarisch (crh), Wolgatatarisch (tt) und Baschkirisch (ba), gibt es zwei Arten von `i` (einmal mit und einmal ohne Punkt) und zwei Paarungen: `i`/`İ` und `ı`/`I`.
+- Im Deutschen (de) kann das `ß` in Großbuchstaben zu `ẞ` (U+1E9E) werden.
+- Im Griechischen (el) verlieren Vokale ihren Akzent, wenn das ganze Wort in Großbuchstaben steht (`ά`/`Α`), außer für das disjunktive Eta (`ή`/`Ή`). Auch Diphtonge, bei denen der erste Vokal einen Akzent hat, verlieren den Akzent und erhalten ein Diakritikum auf dem zweiten Vokal (`άι`/`ΑΪ`).
 
 ## Barrierefreiheit
 
-Große Textabschnitte, die mit einem `font-variant`-Wert von `all-small-caps` oder `all-petite-caps` gesetzt sind, können für Menschen mit kognitiven Beeinträchtigungen wie Legasthenie schwer lesbar sein.
+Große Textabschnitte, die mit einem `font-variant`-Wert von `all-small-caps` oder `all-petite-caps` gesetzt sind, können für Menschen mit kognitiven Schwierigkeiten, wie Legasthenie, schwer zu lesen sein.
 
-- [MDN Verständnis von WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
 - [W3C Verständnis von WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/#visual-presentation)
 
 ## Formale Definition
@@ -114,7 +116,7 @@ Große Textabschnitte, die mit einem `font-variant`-Wert von `all-small-caps` od
 
 ## Beispiele
 
-### Einstellung der Schriftvariante small-caps
+### Festlegen der Schriftvariante small-caps
 
 #### HTML
 

@@ -1,41 +1,41 @@
 ---
-title: Session Hijacking
+title: Session-Hijacking
 slug: Glossary/Session_Hijacking
 l10n:
-  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
-**Session Hijacking** tritt auf, wenn ein Angreifer eine gültige Sitzung zwischen zwei Computern übernimmt. Der Angreifer stiehlt eine gültige Sitzungs-ID, um ins System einzubrechen und Daten auszuspionieren.
+**Session-Hijacking** tritt auf, wenn ein Angreifer eine gültige Sitzung zwischen zwei Computern übernimmt. Der Angreifer stiehlt eine gültige Sitzungs-ID, um in das System einzubrechen und Daten auszuspionieren.
 
-Die meiste Authentifizierung erfolgt nur zu Beginn einer {{Glossary("TCP", "TCP")}}-Sitzung. Beim TCP-Session-Hijacking erlangt ein Angreifer Zugang, indem er eine TCP-Sitzung zwischen zwei Maschinen während der laufenden Sitzung übernimmt.
+Die meiste Authentifizierung erfolgt nur zu Beginn einer {{Glossary("TCP", "TCP")}}-Sitzung. Beim TCP-Session-Hijacking erlangt ein Angreifer Zugriff, indem er eine TCP-Sitzung zwischen zwei Maschinen in der Mitte einer Sitzung übernimmt.
 
-![Der Angreifer überwacht und greift auf eine legitime Sitzungs-ID von einem Benutzer zu, der mit einem Webserver interagiert, und verwendet diese Sitzungskennung, um die Sitzung zwischen dem regulären Benutzer und dem Server zu fälschen, um die Sitzung des Benutzers auszunutzen und direkt auf den Server zuzugreifen.](session_hijacking_3.jpg)
+![Der Angreifer schnüffelt und greift auf eine legitime Sitzungs-ID eines Benutzers zu, der mit einem Webserver interagiert, und verwendet dann diesen Sitzungsidentifikator, um die Sitzung zwischen dem regulären Benutzer und dem Server zu fälschen, um die Sitzung des Benutzers auszunutzen und direkt auf den Server zuzugreifen.](session_hijacking_3.jpg)
 
-### Session Hijacking tritt aufgrund folgender Gründe auf
+## Session-Hijacking tritt auf, weil
 
-- keine Kontosperre für ungültige Sitzungs-IDs
-- schwacher Algorithmus zur Erstellung von Sitzungs-IDs
+- kein Kontosperren für ungültige Sitzungs-IDs
+- schwacher Sitzungs-ID-Generierungsalgorithmus
 - unsichere Handhabung
-- unbegrenzte Ablaufzeit der Sitzung
+- unbestimmte Sitzungsablaufzeit
 - kurze Sitzungs-IDs
 - Übertragung im Klartext
 
-### Prozess des Session Hijacking
+## Prozess des Session-Hijacking
 
-1. **Überwachen**, d.h. einen Man-in-the-Middle (MITM)-Angriff durchführen, platzieren Sie sich zwischen Opfer und Server.
-2. **Pakete überwachen**, die zwischen Server und Benutzer fließen.
-3. **Verbindung des Opferrechners trennen**.
-4. **Die Kontrolle über die Sitzung übernehmen**.
-5. **Neue Pakete mit der Sitzungs-ID des Opfers an den Server senden**.
+1. **Schnüffeln**, d.h. einen Man-in-the-Middle (MITM)-Angriff durchführen, sich zwischen Opfer und Server platzieren.
+2. **Überwachen** der zwischen Server und Benutzer fließenden Pakete.
+3. **Unterbrechen** der Verbindung der Opfermaschine.
+4. **Übernehmen** der Sitzungskontrolle.
+5. **Einschleusen** neuer Pakete zum Server unter Verwendung der Sitzungs-ID des Opfers.
 
-### Schutz vor Session Hijacking
+## Schutz vor Session-Hijacking
 
-- Einen sicheren Kommunikationskanal mit SSH (secure shell) erstellen
-- Authentifizierungs-Cookies über eine HTTPS-Verbindung übertragen
-- Abmeldefunktion implementieren, sodass der Benutzer die Sitzung beenden kann
-- Die Sitzungs-ID nach erfolgreichem Login generieren
-- Verschlüsselte Daten zwischen den Benutzern und dem Webserver austauschen
-- Einen String oder lange Zufallsnummer als Sitzungsschlüssel verwenden
+- Erstellen Sie einen sicheren Kommunikationskanal mit SSH (Secure Shell)
+- Übertragen Sie Authentifizierungs-Cookies über eine HTTPS-Verbindung
+- Implementieren Sie eine Abmeldefunktion, damit der Benutzer die Sitzung beenden kann
+- Generieren Sie die Sitzungs-ID nach erfolgreichem Login
+- Übertragen Sie verschlüsselte Daten zwischen den Benutzern und dem Webserver
+- Verwenden Sie einen Zeichenfolgenwert oder eine lange Zufallszahl als Sitzungs-Schlüssel
 
 ## Siehe auch
 

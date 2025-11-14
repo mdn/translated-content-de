@@ -1,15 +1,15 @@
 ---
-title: Vollbild-Zoom
+title: Vollständiges Seitenzoom
 slug: Mozilla/Firefox/Releases/3/Full_page_zoom
 l10n:
-  sourceCommit: 1d3d0c10ebf5c8c55f75b9adce74d1e5001866c6
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
-Vollbild-Zoom (oder einfach fullZoom) ist ein neues Feature in [Firefox 3](/de/docs/Mozilla/Firefox/Releases/3).
+Das vollständige Seitenzoom (oder einfach fullZoom) ist eine neue Funktion in [Firefox 3](/de/docs/Mozilla/Firefox/Releases/3).
 
-### Beispiel (XUL:browser)
+## Beispiel (XUL:browser)
 
-Das folgende Beispiel zeigt die Verwendung für das aktuell fokussierte Browserfenster. Dies ist die typische Anwendung für eine Firefox-Erweiterung.
+Das folgende Beispiel demonstriert die Nutzung für das aktuell fokussierte Browserfenster. Dies ist die typische Verwendung für eine Firefox-Erweiterung.
 
 ```js
 var zoom = ZoomManager.getZoomForBrowser(gBrowser.selectedBrowser);
@@ -17,11 +17,11 @@ ZoomManager.enlarge();
 ZoomManager.setZoomForBrowser(gBrowser.selectedBrowser, ZoomManager.MIN);
 ```
 
-### Beispiel (XUL:iframe)
+## Beispiel (XUL:iframe)
 
 Hinweis: Dies ist wahrscheinlich veraltet.
 
-Sie können das fullZoom-Feature auch für ein `<XUL:iframe>` verwenden. Da ein iframe jedoch keine markupDocumentViewer-Eigenschaft hat, müssen wir diese zuerst besorgen:
+Sie können die Funktion fullZoom auch für ein `<XUL:iframe>` verwenden. Da ein iframe jedoch keine markupDocumentViewer-Eigenschaft hat, müssen wir diese zuerst erhalten:
 
 ```js
 var zoom = 1.5;
@@ -33,8 +33,8 @@ var docViewer = contViewer.QueryInterface(
 docViewer.fullZoom = zoom;
 ```
 
-### Referenzen
+## Referenzen
 
-- Seitenerweiterung von Ted Mielczarek [fullpagezoom.xpi](https://ted.mielczarek.org/code/mozilla/fullpagezoom.xpi) für die neuesten Firefox 3.0 Nightlies
-- Der [Bugzilla-Bug](https://bugzil.la/4821) über fullZoom.
-- `nsIMarkupDocumentViewer` Schnittstellendokumentation.
+- Seitenzoom-Erweiterung von Ted Mielczarek [fullpagezoom.xpi](https://ted.mielczarek.org/code/mozilla/fullpagezoom.xpi) für die neuesten Firefox 3.0 Nightlies
+- Der [bugzilla Bug](https://bugzil.la/4821) über fullZoom.
+- Dokumentation der `nsIMarkupDocumentViewer`-Schnittstelle.
