@@ -7269,15 +7269,15 @@
 /de/docs/Security/CSP/Using_Content_Security_Policy	/de/docs/Web/HTTP/Guides/CSP
 /de/docs/Security/Firefox_Security_Guidelines	/de/docs/Web/Security/Firefox_Security_Guidelines
 /de/docs/Security/HTTP_Strict_Transport_Security	/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security
-/de/docs/Security/InsecurePasswords	/de/docs/Web/Security/Insecure_passwords
-/de/docs/Security/Insecure_passwords	/de/docs/Web/Security/Insecure_passwords
+/de/docs/Security/InsecurePasswords	/de/docs/Web/Security/Authentication/Passwords
+/de/docs/Security/Insecure_passwords	/de/docs/Web/Security/Authentication/Passwords
 /de/docs/Security/MixedContent	/de/docs/Web/Security/Mixed_content
 /de/docs/Security/MixedContent/How_to_fix_website_with_mixed_content	/de/docs/Web/Security/Mixed_content#developer_console
 /de/docs/Security/MixedContent/fix_website_with_mixed_content	/de/docs/Web/Security/Mixed_content#developer_console
 /de/docs/Security/Mixed_content	/de/docs/Web/Security/Mixed_content
 /de/docs/Security/Mixed_content/How_to_fix_website_with_mixed_content	/de/docs/Web/Security/Mixed_content#developer_console
 /de/docs/Security/Securing_your_site	/de/docs/Web/Security/Practical_implementation_guides
-/de/docs/Security/Weak_Signature_Algorithm	/de/docs/Web/Security/Weak_Signature_Algorithm
+/de/docs/Security/Weak_Signature_Algorithm	/de/docs/Glossary/Hash_function
 /de/docs/Security_changes_in_Firefox_3.1	/de/docs/Mozilla/Firefox/Releases/3.5/Security_changes
 /de/docs/Security_changes_in_Firefox_3.5	/de/docs/Mozilla/Firefox/Releases/3.5/Security_changes
 /de/docs/Security_in_Firefox_2	/de/docs/Mozilla/Firefox/Releases/2/Security_changes
@@ -16302,6 +16302,7 @@
 /de/docs/Web/Security/Do_not_track_field_guide/Tutorials/3_Collecting_aggregate_data_based_on_DNT	/de/docs/Web/HTTP/Reference/Headers/DNT
 /de/docs/Web/Security/Do_not_track_field_guide/Tutorials/Additional_resources	/de/docs/Web/HTTP/Reference/Headers/DNT
 /de/docs/Web/Security/HTTP_strict_transport_security	/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security
+/de/docs/Web/Security/Insecure_passwords	/de/docs/Web/Security/Authentication/Passwords
 /de/docs/Web/Security/Mixed_content/How_to_fix_website_with_mixed_content	/de/docs/Web/Security/Mixed_content#developer_console
 /de/docs/Web/Security/Practical_implementation_guides/CSRF_prevention	/de/docs/Web/Security/Attacks/CSRF
 /de/docs/Web/Security/Practical_implementation_guides/Clickjacking	/de/docs/Web/Security/Attacks/Clickjacking
@@ -16311,6 +16312,7 @@
 /de/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion	/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
 /de/docs/Web/Security/Subdomain_takeovers	/de/docs/Web/Security/Attacks/Subdomain_takeover
 /de/docs/Web/Security/Types_of_attacks	/de/docs/Web/Security/Attacks
+/de/docs/Web/Security/Weak_Signature_Algorithm	/de/docs/Glossary/Hash_function
 /de/docs/Web/Text_fragments	/de/docs/Web/URI/Reference/Fragment/Text_fragments
 /de/docs/Web/Tutorials	/de/docs/MDN/Tutorials
 /de/docs/Web/URI/Authority	/de/docs/Web/URI/Reference/Authority
