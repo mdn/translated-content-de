@@ -34,7 +34,7 @@ Die _Blockflussrichtung_ ist die Richtung, in der Block- und Linien-Boxen innerh
 
 ## Schreibsystem-Modi
 
-Unterschiedliche Schreibsysteme haben unterschiedliche Schreibmodi. Ein horizontaler Schreibmodus ist einer mit horizontalen Textlinien, d.h., eine Blockfließrichtung nach unten oder oben. Ein vertikaler Schreibmodus ist einer mit vertikalen Textlinien, d.h., eine Blockfließrichtung nach links oder rechts.
+Unterschiedliche Schreibsysteme haben unterschiedliche Schreibmodi. Ein horizontaler Schreibmodus ist einer mit horizontalen Textlinien, d.h. eine Blockfließrichtung nach unten oder oben. Ein vertikaler Schreibmodus ist einer mit vertikalen Textlinien, d.h. eine Blockfließrichtung nach links oder rechts.
 
 Latein- und slawisch-basierte Systeme werden typischerweise mit einer von links nach rechts gerichteten Inline-Richtung und einer von oben nach unten gerichteten Blockflussrichtung geschrieben. Lateinische Sprachen umfassen Englisch, Spanisch, Rumänisch und Portugiesisch. Slawische Sprachen umfassen Ukrainisch, Polnisch und Tschechisch.
 

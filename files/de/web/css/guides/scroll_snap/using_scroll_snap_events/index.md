@@ -213,7 +213,7 @@ while (n <= sectionCount) {
 }
 ```
 
-Nun zur [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis-Handler-Funktion. Wenn ein Kind des `<main>`-Elements (d. h. eines der `<section>`-Elemente) ein ausstehendes Snap-Ziel wird, dann:
+Nun zur [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event)-Ereignis-Handler-Funktion. Wenn ein Kind des `<main>`-Elements (d.h. eines der `<section>`-Elemente) ein ausstehendes Snap-Ziel wird, dann:
 
 1. Prüfen wir, ob ein Element zuvor die `pending`-Klasse zugewiesen bekommen hat und entfernen diese, falls vorhanden. Dies ist damit nur das aktuelle ausstehende Ziel die `pending`-Klasse zugewiesen bekommt und dunkler grau wird. Wir möchten nicht, dass zuvor ausstehende Ziele, die nicht mehr ausstehend sind, die Stilisierung behalten.
 2. Geben wir dem Element, auf das von der [`snapTargetBlock`](/de/docs/Web/API/SnapEvent/snapTargetBlock)-Eigenschaft verwiesen wird (welches eines der `<section>`-Elemente sein wird), die `pending`-Klasse, damit es dunkler grau wird.
@@ -234,7 +234,7 @@ mainElem.addEventListener("scrollsnapchanging", (event) => {
 
 Wenn eine Scrollgeste endet und ein `<section>`-Element tatsächlich als Snap-Ziel ausgewählt wird, wird die [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event)-Ereignis-Handler-Funktion ausgelöst. Diese:
 
-1. Prüft, ob bereits ein Snap-Ziel ausgewählt wurde - d. h. wenn zuvor eine `select-section`-Klassen zugewiesen wurde. Wenn ja, entfernen wir diese.
+1. Prüft, ob bereits ein Snap-Ziel ausgewählt wurde - d.h. wenn zuvor eine `select-section`-Klassen zugewiesen wurde. Wenn ja, entfernen wir diese.
 2. Wendet die Klasse `select-section` auf das `<section>`-Element an, auf das über die `snapTargetBlock`-Eigenschaft verwiesen wird, sodass auf das gerade ausgewählte Snap-Ziel die Auswahlanimation angewendet wird.
 
 ```js
@@ -476,7 +476,7 @@ In diesem Artikel haben wir die Scroll-Snap-Ereignisse behandelt, die auf der [`
 - Event-Referenzen für [`scrollsnapchange`](/de/docs/Web/API/Document/scrollsnapchange_event) und [`scrollsnapchanging`](/de/docs/Web/API/Document/scrollsnapchanging_event) auf `Document`.
 - Event-Referenzen für [`scrollsnapchange`](/de/docs/Web/API/Window/scrollsnapchange_event) und [`scrollsnapchanging`](/de/docs/Web/API/Window/scrollsnapchanging_event) auf `Window`.
 
-Diese funktionieren im Wesentlichen genauso wie die `Element`-Versionen, außer dass das gesamte HTML-Dokument als Scroll-Snap-Container gesetzt werden muss (d. h., {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element gesetzt).
+Diese funktionieren im Wesentlichen genauso wie die `Element`-Versionen, außer dass das gesamte HTML-Dokument als Scroll-Snap-Container gesetzt werden muss (d.h. {{cssxref("scroll-snap-type")}} wird auf dem {{htmlelement("html")}}-Element gesetzt).
 
 Zum Beispiel, wenn wir ein ähnliches Beispiel nehmen zu denen, die wir oben betrachtet haben, wo wir ein `<main>`-Element mit signifikantem Inhalt haben:
 

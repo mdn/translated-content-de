@@ -17,7 +17,7 @@ Ein {{cssxref("&lt;number&gt;")}} stellt eine reelle Zahl dar, die möglicherwei
 
 ## Dimensionen
 
-Ein {{cssxref("&lt;dimension&gt;")}} ist ein `<number>` mit einer dazugehörigen Einheit, z.B. `45deg`, `100ms` oder `10px`. Der angehängte Einheitenbezeichner ist nicht case-sensitiv. Zwischen der Nummer und dem Einheitenbezeichner darf nie ein Leerzeichen oder andere Zeichen stehen: d.h., `1 cm` ist nicht gültig.
+Ein {{cssxref("&lt;dimension&gt;")}} ist ein `<number>` mit einer dazugehörigen Einheit, z.B. `45deg`, `100ms` oder `10px`. Der angehängte Einheitenbezeichner ist nicht case-sensitiv. Zwischen der Nummer und dem Einheitenbezeichner darf nie ein Leerzeichen oder andere Zeichen stehen: d.h. `1 cm` ist nicht gültig.
 
 CSS verwendet Dimensionen zur Spezifizierung von:
 

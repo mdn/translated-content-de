@@ -93,7 +93,7 @@ transform: rotate3d(0, 1, 0.5, 3.142rad);
 }
 ```
 
-Im 3D-Raum haben Drehungen drei Freiheitsgrade, die zusammen eine einzige Rotationsachse beschreiben. Die Rotationsachse wird durch einen \[x, y, z] Vektor definiert und verläuft durch den Ursprung (wie durch die {{ cssxref("transform-origin") }} Eigenschaft definiert). Wenn der angegebene Vektor nicht _normiert_ ist (d. h., wenn die Summe der Quadrate seiner drei Koordinaten nicht 1 ist), wird der {{Glossary("user_agent", "User-Agent")}} ihn intern normieren. Ein nicht normalisierbarer Vektor, wie z. B. der Nullvektor \[0, 0, 0], wird dazu führen, dass die Drehung ignoriert wird, ohne die gesamte CSS-Eigenschaft zu ungültig zu machen.
+Im 3D-Raum haben Drehungen drei Freiheitsgrade, die zusammen eine einzige Rotationsachse beschreiben. Die Rotationsachse wird durch einen \[x, y, z] Vektor definiert und verläuft durch den Ursprung (wie durch die {{ cssxref("transform-origin") }} Eigenschaft definiert). Wenn der angegebene Vektor nicht _normiert_ ist (d.h. wenn die Summe der Quadrate seiner drei Koordinaten nicht 1 ist), wird der {{Glossary("user_agent", "User-Agent")}} ihn intern normieren. Ein nicht normalisierbarer Vektor, wie z. B. der Nullvektor \[0, 0, 0], wird dazu führen, dass die Drehung ignoriert wird, ohne die gesamte CSS-Eigenschaft zu ungültig zu machen.
 
 > [!NOTE]
 > Im Gegensatz zu Drehungen in der 2D-Ebene ist die Komposition von 3D-Drehungen in der Regel nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Drehungen angewendet werden, beeinflusst das Ergebnis.
