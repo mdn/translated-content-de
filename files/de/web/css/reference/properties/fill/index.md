@@ -9,7 +9,7 @@ Die **`fill`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert, wie SVG-Textin
 
 Die Bereiche innerhalb der Umrisse der SVG-Form oder des Textes werden bemalt. Was "innen" in einer Form ist, mag nicht immer klar sein. Die Pfade, die eine Form definieren, können sich überschneiden. Die durch diese komplexen Formen als "innen" betrachteten Bereiche werden durch die {{cssxref("fill-rule")}}-Eigenschaft oder das Attribut verdeutlicht.
 
-Wenn Unterpfade offen sind, schließt `fill` den Pfad vor dem Bemalen, als ob ein "closepath"-Befehl hinzugefügt wurde, der den letzten Punkt des Unterpfades mit dem ersten Punkt des Unterpfades verbindet. Mit anderen Worten, `fill` wird auf offene Unterpfade innerhalb von `path`-Elementen angewandt (d. h. Unterpfade ohne einen closepath-Befehl) und `polyline`-Elementen.
+Wenn Unterpfade offen sind, schließt `fill` den Pfad vor dem Bemalen, als ob ein "closepath"-Befehl hinzugefügt wurde, der den letzten Punkt des Unterpfades mit dem ersten Punkt des Unterpfades verbindet. Mit anderen Worten, `fill` wird auf offene Unterpfade innerhalb von `path`-Elementen angewandt (d.h. Unterpfade ohne einen closepath-Befehl) und `polyline`-Elementen.
 
 > [!NOTE]
 > Die `fill`-Eigenschaft gilt nur für {{SVGElement('circle')}}, {{SVGElement('ellipse')}}, {{SVGElement('path')}}, {{SVGElement('polygon')}}, {{SVGElement('polyline')}}, {{SVGElement('rect')}}, {{SVGElement('text')}}, {{SVGElement('textPath')}}, und {{SVGElement('tspan')}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.

@@ -50,7 +50,7 @@ Insbesondere {{CSSxRef("background-image")}} wird ignoriert.
 
 Wenn sie überschrieben werden, ist es wichtig sicherzustellen, dass das **Kontrastverhältnis** zwischen den Text- und Hintergrundfarben der Auswahl hoch genug ist, damit Menschen mit Sehschwäche es lesen können.
 
-Das Farbkontrastverhältnis wird ermittelt, indem die Helligkeit des ausgewählten Textes und der ausgewählten Hintergrundfarben verglichen wird. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, muss Textinhalt ein Kontrastverhältnis von **4.5:1** aufweisen, oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight) oder `24px` oder größer.) 
+Das Farbkontrastverhältnis wird ermittelt, indem die Helligkeit des ausgewählten Textes und der ausgewählten Hintergrundfarben verglichen wird. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, muss Textinhalt ein Kontrastverhältnis von **4.5:1** aufweisen, oder 3:1 für größeren Text wie Überschriften. (WCAG definiert großen Text als zwischen `18.66px` und `24px` und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight) oder `24px` oder größer.)
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [MDN Understanding WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)

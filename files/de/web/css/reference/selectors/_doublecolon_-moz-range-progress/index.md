@@ -7,7 +7,7 @@ l10n:
 
 {{Non-standard_header}}
 
-Der **`::-moz-range-progress`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die den unteren Teil der _Schiene_ (d. h. Rille) darstellt, in der der Indikator in einem {{HTMLElement("input")}} vom `type="range"` gleitet. Dieser Abschnitt entspricht Werten, die niedriger sind als der Wert, der derzeit vom _Schieber_ (d. h. virtuellem Knopf) ausgewählt wurde.
+Der **`::-moz-range-progress`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die den unteren Teil der _Schiene_ (d.h. Rille) darstellt, in der der Indikator in einem {{HTMLElement("input")}} vom `type="range"` gleitet. Dieser Abschnitt entspricht Werten, die niedriger sind als der Wert, der derzeit vom _Schieber_ (d.h. virtuellem Knopf) ausgewählt wurde.
 
 > [!NOTE]
 > Die Verwendung von `::-moz-range-progress` mit etwas anderem als einem `<input type="range">` passt zu nichts und hat keine Wirkung.
