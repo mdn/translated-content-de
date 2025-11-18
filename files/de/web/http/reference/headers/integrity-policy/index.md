@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 55bb65bb6a84808896ed0f6c83e57c60dbd8480e
 ---
 
-Der HTTP-Antwortheader **`Integrity-Policy`** ermöglicht es Website-Administratoren sicherzustellen, dass alle Ressourcen, die der Benutzeragent lädt (eines bestimmten Typs), [Subresource Integrity](/de-DE/docs/Web/Security/Subresource_Integrity)-Garantien erfüllen.
+Der HTTP-Antwortheader **`Integrity-Policy`** ermöglicht es Website-Administratoren sicherzustellen, dass alle Ressourcen, die der Benutzeragent lädt (eines bestimmten Typs), [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Garantien erfüllen.
 
 Wenn dieser gesetzt ist, blockiert der Benutzeragent Anfragen zu bestimmten [Zielanforderungen](#blocked-destinations), die Integritätsmetadaten weglassen, und blockiert auch Anfragen im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus, bevor sie überhaupt gemacht werden.
 

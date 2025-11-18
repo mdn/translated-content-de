@@ -18,9 +18,7 @@ Das **`RsaHashedKeyGenParams`** Dictionary der [Web Crypto API](/de/docs/Web/API
 - `publicExponent`
   - : Ein {{jsxref("Uint8Array")}}. Der öffentliche Exponent. Wenn Sie keinen triftigen Grund haben, etwas anderes zu verwenden, geben Sie hier 65537 an (`[0x01, 0x00, 0x01]`).
 - `hash`
-
   - : Ein String oder ein Objekt, das eine einzelne Eigenschaft namens `name` mit einem String-Wert enthält. Es ist ein Bezeichner für den zu verwendenden [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest). Dies sollte einer der folgenden sein:
-
     - `SHA-256`: Wählt den [SHA-256](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) Algorithmus aus.
     - `SHA-384`: Wählt den [SHA-384](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) Algorithmus aus.
     - `SHA-512`: Wählt den [SHA-512](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) Algorithmus aus.

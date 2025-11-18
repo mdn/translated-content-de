@@ -15,7 +15,6 @@ Die schreibgeschützte Eigenschaft **`preserveAspectRatio`** des [`SVGMarkerElem
 Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio)-Objekt zurück, mit den folgenden Eigenschaften:
 
 - `align`
-
   - : Einer der folgenden numerischen Konstanten:
     - `0`
       - : `SVG_PRESERVEASPECTRATIO_UNKNOWN`

@@ -19,11 +19,8 @@ encodingInfo(configuration)
 ### Parameter
 
 - `configuration`
-
   - : Ein Objekt mit einer Eigenschaft `type` und _entweder_ einer `video`- oder `audio`-Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält: <!-- MediaEncodingConfiguration in der Spezifikation -->
-
     - `type`
-
       - : Der Typ der getesteten Medien. Dies nimmt einen von zwei Werten an:
         - `record`
           - : Stellt eine Konfiguration für die Aufzeichnung von Medien dar, z.B. mit [`MediaRecorder`](/de/docs/Web/API/MediaRecorder).
@@ -33,7 +30,6 @@ encodingInfo(configuration)
           - : Das Synonym zu `webrtc`, das in Firefox verwendet werden soll.
 
     - `video`
-
       - : Konfigurationsobjekt für eine Video-Medienquelle.
         Dieses hat folgende Eigenschaften: <!-- VideoConfiguration in der Spezifikation -->
         - `contentType`

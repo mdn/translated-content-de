@@ -57,7 +57,6 @@ user-select: unset;
 - `none`
   - : Der Text des Elements und seiner Unterelemente ist nicht auswählbar. Beachten Sie, dass das [`Selection`](/de/docs/Web/API/Selection)-Objekt diese Elemente enthalten kann.
 - `auto`
-
   - : Der verwendete Wert von `auto` wird wie folgt bestimmt:
     - Bei den Pseudoelementen `::before` und `::after` ist der verwendete Wert `none`.
     - Wenn der verwendete Wert von `user-select` des übergeordneten Elements `none` ist, ist der verwendete Wert `none`.

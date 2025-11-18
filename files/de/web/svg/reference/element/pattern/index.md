@@ -22,7 +22,6 @@ Das `<pattern>` wird durch die Attribute {{SVGAttr("fill")}} und/oder {{SVGAttr(
   - : Dieses Attribut referenziert ein Vorlagenmuster, das Standardwerte für die `<pattern>` Attribute bereitstellt.
     _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Guides/Content_type#url); _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("patternContentUnits")}}
-
   - : Dieses Attribut definiert das Koordinatensystem für den Inhalt des `<pattern>`.
     _Werttyp_: `userSpaceOnUse` | `objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 
@@ -48,7 +47,6 @@ Das `<pattern>` wird durch die Attribute {{SVGAttr("fill")}} und/oder {{SVGAttr(
   - : Dieses Attribut bestimmt die x-Koordinatenverschiebung der Mustergrafik.
     _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Guides/Content_type#length); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-
   - : Dieses Attribut referenziert ein Vorlagenmuster, das Standardwerte für die `<pattern>` Attribute bereitstellt.
     _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Guides/Content_type#url); _Standardwert_: _none_; _Animierbar_: **ja**
 

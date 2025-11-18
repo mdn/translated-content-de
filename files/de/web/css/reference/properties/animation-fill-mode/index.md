@@ -137,7 +137,6 @@ animation-fill-mode: unset;
 - `none`
   - : Die Animation wird keine Stile auf das Ziel anwenden, wenn sie nicht ausgeführt wird. Das Element wird stattdessen mit anderen darauf angewendeten CSS-Regeln angezeigt. Dies ist der Standardwert.
 - `forwards`
-
   - : Das Ziel behält die berechneten Werte, die durch den letzten während der Ausführung aufgetretenen [Keyframe](/de/docs/Web/CSS/Reference/At-rules/@keyframes) festgelegt wurden. Der letzte Keyframe hängt vom Wert von {{cssxref("animation-direction")}} und {{cssxref("animation-iteration-count")}} ab:
 
     | `animation-direction` | `animation-iteration-count` | letzter aufgetretener Keyframe |
@@ -152,7 +151,6 @@ animation-fill-mode: unset;
     Animierte Eigenschaften verhalten sich, als ob sie in einem Satz [`will-change`](/de/docs/Web/CSS/Reference/Properties/will-change) Eigenschaftswert enthalten sind. Wenn während der Animation ein neuer Stacking-Kontext erstellt wurde, behält das Zielelement den Stacking-Kontext bei, nachdem die Animation beendet ist.
 
 - `backwards`
-
   - : Die Animation wird die Werte anwenden, die im ersten relevanten [Keyframe](/de/docs/Web/CSS/Reference/At-rules/@keyframes) definiert sind, sobald sie auf das Ziel angewendet wird, und dies während der {{cssxref("animation-delay")}} Periode beibehalten. Der erste relevante Keyframe hängt vom Wert von {{cssxref("animation-direction")}} ab:
 
     | `animation-direction`              | erster relevanter Keyframe |

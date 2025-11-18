@@ -56,9 +56,7 @@ Ein oder zwei Werte, die den [`animation-range-start`](/de/docs/Web/CSS/Referenc
 - `<length-percentage>`
   - : Ein Längen- oder Prozentwert, gemessen vom Anfang der Zeitleiste.
 - `<timeline-range-name>`
-
   - : Ein spezifisch benannter Zeitleistenbereich innerhalb der gesamten Zeitleiste. Mögliche Werte sind:
-
     - `cover`
       - : Repräsentiert den gesamten Bereich einer _benannten Ansichtsfortschrittszeitleiste_ (siehe [CSS scroll-getriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) für mehr Details), vom Punkt, an dem das Subjektelement das Sichtbarkeitsbereich des Ansichtsfortschritts der Scrollport erstmals zu betreten beginnt (0% Fortschritt) bis zu dem Punkt, an dem es diesen vollständig verlassen hat (100% Fortschritt).
     - `contain`

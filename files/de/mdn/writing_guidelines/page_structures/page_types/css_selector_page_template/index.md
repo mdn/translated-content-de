@@ -39,7 +39,6 @@ l10n:
 > - **status**
 >   - : Kennzeichnungen, die den Status dieser Funktion beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe ["Wie Leistungsstatus hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->
 >   - : Ersetzen Sie den Platzhalterwert <code>css.selectors.NameOfTheSelector</code> mit dem Abfrage-String für den Selektor im [Browser-Compat-Daten-Repo](https://github.com/mdn/browser-compat-data).
 >     Die Werkzeugkette verwendet diesen Schlüssel automatisch, um die Abschnitte Kompatibilität und Spezifikationen auszufüllen (jeweils Ersatz der `\{{Compat}}` und `\{{Specifications}}` Makros in diesen Abschnitten).
 >

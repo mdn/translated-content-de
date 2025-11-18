@@ -22,7 +22,6 @@ getElementsByTagNameNS(namespace, name)
 - `namespace`
   - : Die Namensraum-URI der zu suchenden Elemente (siehe [`element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)).
 - `name`
-
   - : Entweder der lokale Name der zu suchenden Elemente oder der spezielle Wert `*`, der auf alle Elemente zutrifft (siehe [`element.localName`](/de/docs/Web/API/Element/localName)).
 
     > [!NOTE]

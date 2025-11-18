@@ -19,7 +19,6 @@ bindBufferBase(target, index, buffer)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel für die Bindungsoperation angibt. Mögliche Werte:
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
     - `gl.UNIFORM_BUFFER`

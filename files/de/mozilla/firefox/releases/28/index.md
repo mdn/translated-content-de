@@ -40,7 +40,6 @@ Weitere Details in [diesem Beitrag](https://hacks.mozilla.org/2013/12/split-cons
 ### JavaScript
 
 - Die Implementierung von ECMAScript 2015 wird fortgesetzt:
-
   - Neue `Array` Methoden wurden implementiert: {{jsxref("Array.prototype.entries()")}} und {{jsxref("Array.prototype.keys()")}} ([Firefox Fehler 894658](https://bugzil.la/894658)).
 
 - Ein Fehler, der dazu führte, dass {{jsxref("Object.getOwnPropertyNames()")}} in {{jsxref("Error")}} Objekten ungelöste Eigenschaften nicht sehen konnte, wurde behoben ([Firefox Fehler 724768](https://bugzil.la/724768)).

@@ -34,7 +34,6 @@ Ein Verweis auf ein [`MediaStream`](/de/docs/Web/API/MediaStream) Objekt, das ei
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn der Wert von `frameRate` negativ ist.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)

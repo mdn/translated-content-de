@@ -63,14 +63,11 @@ greetUser("Veronica");
 Dieses kurze Programm enthält drei Ausführungskontexte, von denen einige im Laufe der Programmausführung mehrmals erstellt und zerstört werden. Jeder Kontext wird beim Erstellen auf den **Ausführungskontext-Stack** gelegt. Beim Beenden wird der Kontext von diesem Stack entfernt.
 
 - Beim Start des Programms wird der globale Kontext erstellt.
-
   - Wenn `greetUser("Mike")` erreicht wird, wird ein Kontext für die `greetUser()`-Funktion erstellt; dieser Ausführungskontext wird auf den Ausführungskontext-Stack geschoben.
-
     - Wenn `greetUser()` die Funktion `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstack entfernt und zerstört. Die Programmausführung wird mit dem nächsten Kontext im Stack fortgesetzt, was `greetUser()` ist; diese Funktion wird an der Stelle fortgesetzt, an der sie unterbrochen wurde.
     - Die Funktion `greetUser()` kehrt zurück und ihr Kontext wird aus dem Stack entfernt und zerstört.
 
   - Wenn `greetUser("Teresa")` erreicht wird, wird ein Kontext dafür erstellt und auf den Stack geschoben.
-
     - Wenn `greetUser()` die Funktion `localGreeting()` aufruft, wird ein weiterer Kontext erstellt, um diese Funktion auszuführen. Wenn diese Funktion zurückkehrt, wird der Kontext für `localGreeting()` aus dem Ausführungsstack entfernt und zerstört. `greetUser()` wird an der Stelle fortgesetzt, an der es unterbrochen wurde.
     - Die Funktion `greetUser()` kehrt zurück und ihr Kontext wird aus dem Stack entfernt und zerstört.
 

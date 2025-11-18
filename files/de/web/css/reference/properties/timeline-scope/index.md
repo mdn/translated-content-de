@@ -28,7 +28,6 @@ Erlaubte Werte für `timeline-scope` sind:
 - `none`
   - : Es gibt keine Änderung im Geltungsbereich der Timeline.
 - `<dashed-ident>`
-
   - : Gibt den Namen einer bestehenden benannten Timeline an (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem Nachfahrelement definiert ist. Dies führt dazu, dass der Geltungsbereich der Timeline auf das Element, auf dem `timeline-scope` gesetzt ist, und all dessen Nachfahren erhöht wird.
 
     > [!NOTE] > [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/custom-ident) Werte müssen mit `--` beginnen, was hilft, Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.

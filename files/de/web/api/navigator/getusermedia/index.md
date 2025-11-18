@@ -28,7 +28,6 @@ getUserMedia(constraints, successCallback, errorCallback)
 - `constraints`
   - : Ein Objekt, das die Arten von Medien angibt, die angefordert werden sollen, zusammen mit allen Anforderungen für jede Art. Für Details siehe den [Abschnitt über die Beschränkungen](/de/docs/Web/API/MediaDevices/getUserMedia#parameters) unter der modernen [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) Methode sowie den Artikel [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
 - `successCallback`
-
   - : Eine Funktion, die aufgerufen wird, wenn die Anfrage auf Medienzugang genehmigt wird. Die Funktion wird mit einem Parameter aufgerufen: dem [`MediaStream`](/de/docs/Web/API/MediaStream) Objekt, das den Medienstrom enthält. Ihr Callback kann dann den Stream dem gewünschten Objekt zuweisen (wie einem {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element), wie im folgenden Beispiel gezeigt:
 
     ```js

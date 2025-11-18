@@ -37,14 +37,12 @@ anchor(<anchor-name> <anchor-side>, <length-percentage>)
 Die Parameter sind:
 
 - `<anchor-name>` {{optional_inline}}
-
   - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/Reference/Properties/anchor-name)-Eigenschaft eines Anker-Elements, zu dem Sie die Seite des Elements positionieren möchten. Dies ist ein `<dashed-ident>`-Wert. Wird er weggelassen, wird der **Standardanker** des Elements verwendet, der in seiner [`position-anchor`](/de/docs/Web/CSS/Reference/Properties/position-anchor)-Eigenschaft referenziert oder dem Element über das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) HTML-Attribut zugeordnet ist.
 
     > [!NOTE]
     > Das Angeben eines `<anchor-name>` innerhalb einer `anchor()`-Funktion verbindet ein Element nicht mit einem Anker; es positioniert das Element lediglich relativ zu diesem Anker. Die [`position-anchor`](/de/docs/Web/CSS/Reference/Properties/position-anchor)-CSS-Eigenschaft oder das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor)-HTML-Attribut wird weiterhin benötigt, um die Verbindung zu schaffen.
 
 - `<anchor-side>`
-
   - : Gibt die Seite des Ankers an, oder die relative Distanz von der `start`-Seite, zu der das Element relativ positioniert ist. Wenn ein physischer oder logischer Wert verwendet wird, der nicht [kompatibel](#compatibility_of_inset_properties_and_anchor-side_values) mit der `inset`-Eigenschaft ist, bei der `anchor()` festgelegt ist, wird der Fallback-Wert verwendet. Gültige Werte sind:
     - `top`
       - : Die obere Kante des Anker-Elements.

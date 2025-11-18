@@ -19,7 +19,6 @@ drawElements(mode, count, type, offset)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
@@ -33,14 +32,11 @@ drawElements(mode, count, type, offset)
 - `count`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Elemente des gebundenen Element-Array-Puffers angibt. Zum Beispiel, um ein Drahtgitterdreieck mit `gl.LINES` zu zeichnen, sollte die Anzahl 2 Endpunkte pro Linie × 3 Linien = 6 Elemente betragen. Um jedoch dasselbe Drahtgitterdreieck mit `gl.LINE_STRIP` zu zeichnen, wiederholt der Element-Array-Puffer nicht die Indizes für das Ende der ersten Linie/den Anfang der zweiten Linie und das Ende der zweiten Linie/den Anfang der dritten Linie, daher wird `count` vier sein. Um dasselbe Dreieck mit `gl.LINE_LOOP` zu zeichnen, wiederholt der Element-Array-Puffer auch nicht den ersten/letzten Scheitelpunkt, daher wird `count` drei sein.
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
-
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`
 
     Bei Verwendung der [`OES_element_index_uint`](/de/docs/Web/API/OES_element_index_uint) Erweiterung:
-
     - `gl.UNSIGNED_INT`
 
 - `offset`

@@ -20,19 +20,15 @@ texParameteri(target, pname, param)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Target) angibt. Mögliche Werte:
-
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`: Eine Würfelkarten-Textur.
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
-
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `param`
-
   - : Der `param`-Parameter ist ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) oder
     [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Wert für den angegebenen Parameter angibt.
 

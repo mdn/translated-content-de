@@ -56,23 +56,19 @@ animation-timeline: unset;
 - `none`
   - : Die Animation ist nicht mit einer Zeitleiste verknüpft.
 - `auto`
-
   - : Die Zeitleiste der Animation ist die Standardsichtbarkeitszeitleiste des Dokuments.
 
 - `scroll()`
-
   - : Eine anonyme Scroll-Fortschrittszeitleiste wird von einem beliebigen Vorfahren-Scroller des aktuellen Elements bereitgestellt. Die Funktionsparameter ermöglichen es Ihnen, den Scroller und die Scroll-Achse auszuwählen, entlang derer die Zeitleiste gemessen wird.
 
     Weitere Informationen finden Sie unter {{cssxref("animation-timeline/scroll", "scroll()")}}.
 
 - `view()`
-
   - : Eine anonyme Ansichtsfortschrittszeitleiste wird durch das Subjekt bereitgestellt, auf dem `animation-timeline: view();` gesetzt ist. Die Funktionsparameter ermöglichen es Ihnen, die Scrollbar-Achse auszuwählen, entlang derer der Fortschritt der Zeitleiste verfolgt wird, und einen Einzug, der die Position der Box anpasst, in der das Subjekt als sichtbar betrachtet wird.
 
     Weitere Informationen finden Sie unter {{cssxref("animation-timeline/view", "view()")}}.
 
 - `<dashed-ident>`
-
   - : Ein {{cssxref('dashed-ident')}} identifiziert eine benannte, zuvor deklarierte Zeitleiste mit der {{cssxref('scroll-timeline-name')}} oder {{cssxref('view-timeline-name')}} Eigenschaft (oder der Kurzform {{cssxref('scroll-timeline')}} oder {{cssxref('view-timeline')}}).
 
     > [!NOTE]

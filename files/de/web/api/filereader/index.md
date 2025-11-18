@@ -25,7 +25,6 @@ Siehe [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Usin
 - [`FileReader.error`](/de/docs/Web/API/FileReader/error) {{ReadOnlyInline}}
   - : Ein [`DOMException`](/de/docs/Web/API/DOMException), das den Fehler darstellt, der beim Lesen der Datei aufgetreten ist.
 - [`FileReader.readyState`](/de/docs/Web/API/FileReader/readyState) {{ReadOnlyInline}}
-
   - : Eine Zahl, die den Zustand des `FileReader` angibt. Dies ist einer der folgenden:
 
     | Name      | Wert | Beschreibung                                 |

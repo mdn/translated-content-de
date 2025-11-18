@@ -21,7 +21,6 @@ getBufferSubData(target, srcByteOffset, dstData, dstOffset, length)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
     - `gl.ARRAY_BUFFER`
       - : Puffer, der Scheitelpunktattribute enthält, wie zum Beispiel Scheitelpunktkoordinaten, Texturkoordinatendaten oder Scheitelpunktfarbdaten.

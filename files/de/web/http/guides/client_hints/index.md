@@ -22,7 +22,6 @@ Die Reihe von "Hint"-Headern sind im Thema [HTTP Headers](/de/docs/Web/HTTP/Refe
    ```
 
    Diese Header liefern folgende Informationen:
-
    - {{httpheader("Sec-CH-UA")}}: Die Hauptbrowser-Version und andere damit verbundene Marken.
    - {{httpheader("Sec-CH-UA-Platform")}}: Die Plattform.
    - {{httpheader("Sec-CH-UA-Mobile")}}: Ein Boolescher Wert, der anzeigt, ob der Browser auf einem mobilen Gerät (`?1`) oder nicht (`?0`) läuft.
@@ -34,7 +33,6 @@ Die Reihe von "Hint"-Headern sind im Thema [HTTP Headers](/de/docs/Web/HTTP/Refe
    ```
 
    Der Standardsatz von Headern wird immer gesendet; in diesem Fall haben wir auch angefordert:
-
    - {{httpheader("Sec-CH-UA-Model")}}: Das Gerätemodell, auf dem die Plattform läuft.
    - {{httpheader("Sec-CH-UA-Form-Factors")}}: Die Formfaktoren des Geräts, die angeben, wie der Nutzer mit dem User-Agent interagiert — die Bildschirmgröße, Steuerungen etc.
 

@@ -76,7 +76,6 @@ Das `options`-Objekt, das dem Konstruktor [`IntersectionObserver()`](/de/docs/We
     Wenn die Sichtbarkeit verfolgt wird, wird der Wert für jeden Wert unter 100 auf 100 gesetzt, und Sie sollten den größten tolerierbaren Wert verwenden.
     Der Wert ist standardmäßig 0.
 - `trackVisibility` {{experimental_inline}}
-
   - : Ein Boolescher Wert, der angibt, ob dieser `IntersectionObserver` Änderungen in der Sichtbarkeit eines Ziels verfolgt.
 
     Wenn `false`, meldet der Browser Überschneidungen, wenn das Zielelement in den Viewport des Wurzelelements gescrollt wird.

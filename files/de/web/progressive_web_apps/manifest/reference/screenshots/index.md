@@ -45,48 +45,39 @@ Diese Bilder helfen Benutzern, die Benutzeroberfläche und Funktionen Ihrer Weba
 ### Werte
 
 - `screenshots`
-
   - : Ein Array von Objekten.
     Jedes Objekt repräsentiert einen Screenshot der Webanwendung in einem häufigen Nutzungsszenario.
 
     Jedes Screenshot-Objekt kann eine oder mehrere Eigenschaften haben. Davon ist nur `src` erforderlich. Die möglichen Eigenschaften umfassen:
-
     - `src`
-
       - : Ein String, der den Pfad zur Bilddatei angibt.
         Er hat dasselbe Format wie die `src`-Eigenschaft des `icons`-Mitglieds [`src`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons#src).
 
     - `sizes` {{Optional_Inline}}
-
       - : Ein String, der eine oder mehrere Größen des Bildes angibt.
         Er hat dasselbe Format wie die `sizes`-Eigenschaft des `icons`-Mitglieds [`sizes`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons#sizes).
 
     - `type` {{Optional_Inline}}
-
       - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des Bildes angibt.
         Er hat dasselbe Format wie die `type`-Eigenschaft des `icons`-Mitglieds [`type`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons#type).
 
     - `label` {{Optional_Inline}}
-
       - : Ein String, der den zugänglichen Namen des Screenshot-Objekts darstellt.
         Halten Sie ihn beschreibend, da er als alternativer Text für den gerenderten Screenshot dienen kann.
         Für die Barrierefreiheit wird empfohlen, diese Eigenschaft für jeden Screenshot anzugeben.
 
     - `form_factor` {{Optional_Inline}}
-
       - : Ein String, der die Bildschirmform einer breiten Klasse von Geräten darstellt, auf die der Screenshot zutrifft.
         Geben Sie diese Eigenschaft nur an, wenn der Screenshot für ein bestimmtes Bildschirmlayout gilt.
         Wenn `form_factor` nicht angegeben ist, wird der Screenshot als geeignet für alle Bildschirmtypen betrachtet.
 
         Gültige Werte umfassen:
-
         - `narrow`
           - : Gibt an, dass der Screenshot nur für schmale Bildschirme, wie mobile Geräte, geeignet ist.
         - `wide`
           - : Gibt an, dass der Screenshot nur für breite Bildschirme, wie Desktop-Computer, geeignet ist.
 
     - `platform`
-
       - : Ein String, der die Plattform darstellt, für die der Screenshot gilt.
         Geben Sie diese Eigenschaft nur an, wenn der Screenshot für ein bestimmtes Gerät oder eine bestimmte Vertriebsplattform gilt.
         Wenn `platform` nicht angegeben ist, wird der Screenshot als geeignet für alle Plattformen betrachtet.

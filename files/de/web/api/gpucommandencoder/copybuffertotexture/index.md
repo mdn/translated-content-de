@@ -29,13 +29,9 @@ copyBufferToTexture(source, destination, copySize)
     - `rowsPerImage` {{optional_inline}}
       - : Die Anzahl der Blockzeilen pro Einzelbild innerhalb der Daten. `bytesPerRow` &times; `rowsPerImage` ergibt den Abstand in Bytes zwischen dem Beginn jedes vollständigen Bildes. Dies ist erforderlich, wenn mehrere Bilder kopiert werden sollen.
 - `destination`
-
   - : Ein Objekt, das die Textur definiert, in die die Daten geschrieben werden sollen. Zusammen mit `copySize` definiert es den Bereich der Zieltexturunterressource. `destination` kann die folgenden Eigenschaften haben:
-
     - `aspect` {{optional_inline}}
-
       - : Ein enumerierter Wert, der definiert, welche Aspekte der Textur die Daten geschrieben werden sollen. Mögliche Werte sind:
-
         - `"all"`
           - : Alle verfügbaren Aspekte des Texturformats werden beschriftet, was je nach Format alle oder einige der folgenden sein können: Farbe, Tiefe und Stencil.
         - `"depth-only"`
@@ -48,7 +44,6 @@ copyBufferToTexture(source, destination, copySize)
     - `mipLevel` {{optional_inline}}
       - : Eine Zahl, die die Mip-Map-Ebene der Textur repräsentiert, in die die Daten geschrieben werden sollen. Wenn nicht angegeben, ist der Standardwert von `mipLevel` 0.
     - `origin` {{optional_inline}}
-
       - : Ein Objekt oder Array, das den Ursprung der Kopie angibt — die minimale Ecke des Texturbereichs, in den die Daten geschrieben werden sollen. Zusammen mit `size` definiert dies das volle Ausmaß des zu kopierenden Bereichs. Die `x`, `y` und `z`-Werte haben den Standardwert 0, wenn `origin` nicht oder nicht vollständig angegeben ist.
 
         Zum Beispiel kann ein Array wie `[0, 0, 0]` übergeben werden, oder das entsprechende Objekt `{ x: 0, y: 0, z: 0 }`.
@@ -57,7 +52,6 @@ copyBufferToTexture(source, destination, copySize)
       - : Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt, das die Textur darstellt, in die die Daten geschrieben werden sollen.
 
 - `copySize`
-
   - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Ebenenzahl der kopierten Daten angibt. Der Breitenwert muss immer angegeben werden, während die Höhen- und Tiefen-/Array-Ebenenzahl optional sind und den Standardwert 1 haben, wenn sie nicht angegeben sind.
 
     Zum Beispiel kann ein Array `[16, 16, 2]` übergeben werden, oder das entsprechende Objekt `{ width: 16, height: 16, depthOrArrayLayers: 2 }`.

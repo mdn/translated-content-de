@@ -22,11 +22,9 @@ device-cmyk(0 81% 81% 30% / .5, rgb(178 34 34));
 Funktionalnotation: `device-cmyk(C M Y K[ / A][, color])`
 
 - `C`, `M`, `Y`, `K`
-
   - : {{CSSXref("number")}} oder {{CSSXref("percentage")}} Werte, die die Cyan-, Magenta-, Gelb- und Schwarzkomponenten der CMYK-Farbe angeben.
 
 - `A` {{optional_inline}}
-
   - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, wobei die Zahl `1` `100%` (volle Deckkraft) entspricht.
 
 - `color` {{optional_inline}}

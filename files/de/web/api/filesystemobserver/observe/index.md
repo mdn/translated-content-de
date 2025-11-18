@@ -20,17 +20,13 @@ observe(handle, options)
 ### Parameter
 
 - `handle`
-
   - : Der Handle des Dateisystemeintrags, der die zu beobachtende Datei oder das Verzeichnis darstellt.
     - Für das benutzerbeobachtbare Dateisystem kann dies ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) sein.
     - Für das [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) kann es ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) sein.
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das Optionen für den `observe()`-Aufruf angibt. Es kann die folgenden Eigenschaften enthalten:
-
     - `recursive`
-
       - : Ein boolescher Wert, der angibt, ob Sie Änderungen an einem Verzeichnis rekursiv beobachten möchten. Wenn auf `true` gesetzt, werden Änderungen im Verzeichnis selbst und in allen enthaltenen Unterverzeichnissen und Dateien beobachtet. Wenn auf `false` gesetzt, werden Änderungen nur im Verzeichnis selbst und in direkt enthaltenen Dateien beobachtet (d.h. Dateien in Unterverzeichnissen werden ausgeschlossen). Standardmäßig `false`.
 
         Diese Eigenschaft hat keine Wirkung, wenn `handle` eine Datei darstellt.

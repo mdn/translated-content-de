@@ -30,7 +30,7 @@ In diesem Leitfaden lernen wir die Grundlagen von Container-Abfragen anhand von:
 
 1. [Containergrößen-Abfragen](#container_size_queries_2),
 2. [Benennung von Containern](#benennung_von_containern) zur Einschränkung ihres Anwendungsbereichs und
-3. der Verwendung der `style()` funktionalen Notation innerhalb der {{cssxref("@container")}} At-Regel`s `<container-condition>`, um [Stilabfragen mit benutzerdefinierten Eigenschaften](#stilabfragen_für_benutzerdefinierte_eigenschaften) zu erstellen.
+3. der Verwendung der `style()` funktionalen Notation innerhalb der `<container-condition>` einer {{cssxref("@container")}} At-Regel, um [Stilabfragen mit benutzerdefinierten Eigenschaften](#stilabfragen_für_benutzerdefinierte_eigenschaften) zu erstellen.
 
 Scrollzustands-Abfragen werden in [Verwenden von Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) behandelt.
 

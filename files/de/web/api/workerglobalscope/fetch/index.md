@@ -31,7 +31,6 @@ fetch(resource, options)
 ### Parameter
 
 - `resource`
-
   - : Dies definiert die Ressource, die Sie abrufen möchten. Dies kann entweder sein:
     - Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts — das die URL der Ressource bereitstellt, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, die im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments oder im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) ist.
     - Ein [`Request`](/de/docs/Web/API/Request)-Objekt.

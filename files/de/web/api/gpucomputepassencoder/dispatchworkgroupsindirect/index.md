@@ -19,7 +19,6 @@ dispatchWorkgroupsIndirect(indirectBuffer, indirectOffset)
 ### Parameter
 
 - `indirectBuffer`
-
   - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die X-, Y- und Z-Dimensionen des Rasters von Workgroups enthält, die gestartet werden sollen. Der Puffer muss einen fest gepackten Block von drei 32-Bit-Ganzzahlen ohne Vorzeichen enthalten, der die Dimensionen (insgesamt 12 Bytes) in der gleichen Reihenfolge wie die Argumente für [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) darstellt. Zum Beispiel:
 
     ```js

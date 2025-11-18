@@ -70,7 +70,6 @@ Das `PointerEvent` Interface hat verschiedene Ereignistypen. Um zu bestimmen, we
 - [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event)
   - : Dieses Ereignis wird ausgelöst, wenn ein Zeigegerät in die Treffer-Test-Grenzen eines Elements oder eines seiner Nachkommen bewegt wird, einschließlich als Resultat eines `pointerdown` Ereignisses von einem Gerät, das den Schwebemodus nicht unterstützt (siehe `pointerdown`). Dieser Ereignistyp ist ähnlich wie `pointerover`, unterscheidet sich jedoch dadurch, dass er sich nicht blasenförmig ausbreitet.
 - [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)
-
   - : Das Ereignis wird ausgelöst, wenn ein Zeiger _aktiv_ wird. Bei einer Maus wird es ausgelöst, wenn das Gerät vom Zustand ohne gedrückte Tasten zu mindestens einer gedrückten Taste wechselt. Bei Berührung wird es ausgelöst, wenn physischer Kontakt mit dem Digitalisierer hergestellt wird. Bei Stift wird es ausgelöst, wenn der Stylus physischen Kontakt mit dem Digitalisierer herstellt.
 
     > [!NOTE]

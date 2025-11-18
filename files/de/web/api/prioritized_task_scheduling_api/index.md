@@ -96,12 +96,10 @@ Geplante Tasks werden in Prioritätsreihenfolge ausgeführt, gefolgt von der Rei
 Es gibt nur drei Prioritäten, die unten aufgeführt sind (geordnet von hoch nach niedrig):
 
 - `user-blocking`
-
   - : Tasks, die Benutzer daran hindern, mit der Seite zu interagieren.
     Dazu gehört das Rendern der Seite bis zu dem Punkt, an dem sie verwendet werden kann, oder das Reagieren auf Benutzereingaben.
 
 - `user-visible`
-
   - : Tasks, die für den Benutzer sichtbar, aber nicht unbedingt blockierend für Benutzeraktionen sind.
     Dazu könnte das Rendern von nicht wesentlichen Teilen der Seite gehören, wie z.B. nicht wesentliche Bilder oder Animationen.
 

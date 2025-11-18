@@ -23,11 +23,8 @@ new TextDecoderStream(label, options)
   - : Eine Zeichenfolge, die standardmäßig auf `utf-8` gesetzt ist.
     Dies kann [jedes gültige Label](/de/docs/Web/API/Encoding_API/Encodings) sein.
 - `options` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `fatal` {{optional_inline}}
-
       - : Ein boolescher Wert, der angibt, ob die Methode [`TextDecoder.decode()`](/de/docs/Web/API/TextDecoder/decode) einen {{jsxref("TypeError")}} auslösen muss, wenn ungültige Daten dekodiert werden.
         Standardmäßig ist er auf `false` gesetzt, was bedeutet, dass der Decoder fehlerhafte Daten mit einem Ersatzzeichen ersetzt.
 

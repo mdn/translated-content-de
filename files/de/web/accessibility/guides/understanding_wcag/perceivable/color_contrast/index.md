@@ -115,13 +115,11 @@ Sie können den Farbkontrast auch währenddessen mit den Entwickler-Tools von Fi
 ## Verwandte WCAG-Erfolgskriterien
 
 - [1.4.3 Mindestkontrast (AA)](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum)
-
   - : Der Farbkontrast zwischen Hintergrund und Vordergrundinhalt sollte mindestens ein Niveau haben, um die Lesbarkeit zu gewährleisten:
     - Text und sein Hintergrund sollten ein Kontrastverhältnis von mindestens 4,5:1 haben.
     - Überschriften (oder nur größere) Texte sollten ein Verhältnis von mindestens 3:1 haben. Größerer Text ist definiert als mindestens 18pt oder 14pt fett.
 
 - [1.4.6 Erhöhter Kontrast (AAA)](https://w3c.github.io/wcag/guidelines/22/#contrast-enhanced)
-
   - : Dies baut auf dem Kriterium 1.4.3 auf.
     - Text und sein Hintergrund sollten ein Kontrastverhältnis von mindestens 7:1 haben.
     - Überschriften (oder nur größere) Texte sollten ein Verhältnis von mindestens 4,5:1 haben.

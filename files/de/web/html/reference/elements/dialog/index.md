@@ -19,15 +19,12 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 > Das `tabindex`-Attribut darf nicht auf dem `<dialog>`-Element verwendet werden. Siehe [Verwendungsnotizen](#verwendungsnotizen).
 
 - `closedby`
-
   - : Gibt die Arten von Benutzeraktionen an, die verwendet werden können, um das `<dialog>`-Element zu schließen. Dieses Attribut unterscheidet drei Methoden, mit denen ein Dialog geschlossen werden kann:
-
     - Eine _Light-Dismiss-Benutzeraktion_, bei der das `<dialog>` geschlossen wird, wenn der Benutzer außerhalb klickt oder tippt. Dies entspricht dem ["Light-Dismiss"-Verhalten von "auto"-Zustand Popovers](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss).
     - Eine _Plattform-spezifische Benutzeraktion_, wie das Drücken der <kbd>Esc</kbd>-Taste auf Desktop-Plattformen oder eine "Zurück"- oder "Abschließen"-Geste auf mobilen Plattformen.
     - Ein vom Entwickler spezifizierter Mechanismus, wie ein {{htmlelement("button")}} mit einem [`click`](/de/docs/Web/API/Element/click_event)-Handler, der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) aufruft, oder eine {{htmlelement("form")}}-Übermittlung.
 
     Mögliche Werte sind:
-
     - `any`
       - : Der Dialog kann mit jeder der drei Methoden geschlossen werden.
     - `closerequest`
@@ -36,12 +33,10 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       - : Der Dialog kann nur mit einem vom Entwickler spezifizierten Mechanismus geschlossen werden.
 
     Wenn das `<dialog>`-Element keinen gültigen `closedby`-Wert hat, dann
-
     - wenn es mit [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde, verhält es sich, als ob der Wert `"closerequest"` wäre
     - andernfalls verhält es sich, als ob der Wert `"none"` wäre.
 
 - `open`
-
   - : Zeigt an, dass das Dialogfeld aktiv und für die Interaktion verfügbar ist. Wenn das `open`-Attribut nicht gesetzt ist, wird das Dialogfeld dem Benutzer nicht sichtbar angezeigt.
     Es wird empfohlen, die Methode `.show()` oder `.showModal()` zu verwenden, um Dialoge darzustellen, anstatt des `open`-Attributs. Wenn ein `<dialog>` mit dem `open`-Attribut geöffnet wird, ist es nicht-modal.
 

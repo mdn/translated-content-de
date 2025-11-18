@@ -68,15 +68,12 @@ caret-shape: unset;
 ### Werte
 
 - `auto`
-
   - : Der Standardwert. Der Browser bestimmt die Form des Carets. Dies folgt in der Regel den Plattformkonventionen und kann je nach Kontext variieren.
 
 - `bar`
-
   - : Das Caret erscheint als dünne vertikale Linie an der Einfügestelle, zwischen den Zeichen positioniert, anstatt über ihnen.
 
 - `block`
-
   - : Das Caret erscheint als ein Rechteck, das das nächste Zeichen nach der Einfügestelle überlappt. Wenn kein Zeichen folgt, erscheint es nach dem letzten Zeichen.
 
 - `underscore`

@@ -46,7 +46,6 @@ Ein Beispielalgorithmus zum Erstellen eines benutzerdefinierten Audiobearbeitung
 
 1. Erstellen Sie eine separate Datei;
 2. In der Datei:
-
    1. Erweitern Sie die `AudioWorkletProcessor`-Klasse (siehe Abschnitt ["Ableitende Klassen"](#ableitende_klassen)) und geben Sie Ihre eigene [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode an;
    2. Registrieren Sie den Prozessor mit der [`AudioWorkletGlobalScope.registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor)-Methode;
 

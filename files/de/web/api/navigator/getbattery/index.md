@@ -34,7 +34,6 @@ Ein {{JSxRef("Promise")}}, das mit einem [`BatteryManager`](/de/docs/Web/API/Bat
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)

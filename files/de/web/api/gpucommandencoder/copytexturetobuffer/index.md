@@ -19,13 +19,9 @@ copyTextureToBuffer(source, destination, copySize)
 ### Parameter
 
 - `source`
-
   - : Ein Objekt, das die Textur definiert, aus der die Daten kopiert werden. In Kombination mit `copySize` definiert es den Bereich der Quelltextur-Subressource. `source` kann die folgenden Eigenschaften haben:
-
     - `aspect` {{optional_inline}}
-
       - : Ein enumerierter Wert, der definiert, welche Aspekte der Textur kopiert werden sollen. Mögliche Werte sind:
-
         - `"all"`
           - : Alle verfügbaren Aspekte des Texturformats werden kopiert, was alle oder beliebige von Farbe, Tiefe und Stencil bedeuten kann, abhängig vom verwendeten Format.
         - `"depth-only"`
@@ -38,7 +34,6 @@ copyTextureToBuffer(source, destination, copySize)
     - `mipLevel` {{optional_inline}}
       - : Eine Zahl, die die Mip-Map-Ebene der Textur darstellt, aus der die Daten kopiert werden sollen. Wenn ausgelassen, wird `mipLevel` auf 0 festgelegt.
     - `origin` {{optional_inline}}
-
       - : Ein Objekt oder Array, das den Ursprung der Kopie angibt — die minimalen Ecken des Texturbereichs, aus dem die Daten kopiert werden sollen. Zusammen mit `size` definiert dies das gesamte Ausmaß des zu kopierenden Bereichs. Die Werte `x`, `y` und `z` werden auf 0 festgelegt, wenn ein Teil von `origin` weggelassen wird.
 
         Beispielsweise können Sie ein Array `[0, 0, 0]` oder das entsprechende Objekt `{ x: 0, y: 0, z: 0 }` übergeben.
@@ -47,7 +42,6 @@ copyTextureToBuffer(source, destination, copySize)
       - : Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture) Objekt, das die Textur darstellt, aus der die Daten kopiert werden.
 
 - `destination`
-
   - : Ein Objekt, das den Puffer definiert, in den geschrieben werden soll, sowie das Layout der Daten, die in den Puffer geschrieben werden sollen. In Kombination mit `copySize` definiert es den Bereich des Zielpuffers. `source` kann die folgenden Eigenschaften haben:
     - `buffer`
       - : Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), in den geschrieben werden soll.
@@ -59,7 +53,6 @@ copyTextureToBuffer(source, destination, copySize)
       - : Die Anzahl der Blockreihen pro einzelnes Bild innerhalb der Daten. `bytesPerRow` &times; `rowsPerImage` gibt Ihnen den Abstand, in Bytes, zwischen dem Beginn jedes vollständigen Bildes. Dies ist erforderlich, wenn mehrere Bilder kopiert werden sollen.
 
 - `copySize`
-
   - : Ein Objekt oder Array, das die Breite, Höhe und die Tiefe/Array-Ebenenzahl der kopierten Daten angibt. Der Breitenwert muss immer angegeben werden, während die Höhen- und Tiefen/Array-Ebenenzahl-Werte optional sind und, wenn weggelassen, auf 1 festgelegt werden.
 
     Beispielsweise können Sie ein Array `[16, 16, 2]` oder das entsprechende Objekt `{ width: 16, height: 16, depthOrArrayLayers: 2 }` übergeben.

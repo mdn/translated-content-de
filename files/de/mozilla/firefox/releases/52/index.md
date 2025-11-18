@@ -45,7 +45,6 @@ Firefox 52 wurde am 7. März 2017 veröffentlicht. Dieser Artikel listet wichtig
 - Das Strecken von flexiblen Spuren mit einer unbestimmten Länge des enthaltenden Blocks achtet jetzt auf die min/max Größe ([Firefox-Bug 1309407](https://bugzil.la/1309407)).
 - Die Anfangswerte von {{cssxref("mask-position")}} und {{cssxref("mask-repeat")}} wurden auf `0% 0%` bzw. `repeat` geändert ([Firefox-Bug 1308963](https://bugzil.la/1308963)).
 - Es gab eine Reihe von Änderungen an CSS {{cssxref("&lt;color&gt;")}} Werten (siehe [Firefox-Bug 1295456](https://bugzil.la/1295456)):
-
   - `rgba()` und `hsla()` wurden jetzt als Aliase von `rgb()` und `hsl()` neu definiert; beide akzeptieren die gleiche Parametersyntax.
   - `rgb(`) und `hsl()` akzeptieren jetzt einen optionalen Alphawert, z.B. `rgb(255, 0, 0, 0.5)`.
   - Farb-Funktionen akzeptieren jetzt durch Leerzeichen getrennte Parameter statt Kommas, z.B. `rgb(255 0 0 / 0.5)`.

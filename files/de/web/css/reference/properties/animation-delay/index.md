@@ -128,7 +128,6 @@ animation-delay: unset;
 ### Werte
 
 - {{cssxref("&lt;time&gt;")}}
-
   - : Der Zeitversatz, ab dem Zeitpunkt, an dem die Animation auf das Element angewendet wird, zu dem die Animation beginnen soll. Dieser kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Die Einheit ist erforderlich.
 
     Ein positiver Wert gibt an, dass die Animation beginnen soll, nachdem die angegebene Zeitspanne verstrichen ist. Ein Wert von `0s`, der Standardwert, gibt an, dass die Animation beginnen soll, sobald sie angewendet wird.

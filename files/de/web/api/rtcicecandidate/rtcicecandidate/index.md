@@ -20,13 +20,10 @@ new RTCIceCandidate(candidateInfo)
 ### Parameter
 
 - `candidateInfo` {{optional_inline}}
-
   - : Ein optionales Objekt, das bereitgestellt werden kann, um den Kandidaten zu konfigurieren. Das Objekt hat die folgenden Eigenschaften:
 
     <!-- Die Spezifikation nennt dieses Objekt ein RTCIceCandidateInit -->
-
     - `candidate` {{optional_inline}}
-
       - : Ein String, der die Eigenschaften des Kandidaten beschreibt, entnommen direkt aus dem [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp)-Attribut `"candidate"`.
         Der Kandidaten-String spezifiziert die Netzwerkverbindungsinformationen für den Kandidaten.
         Wenn der `candidate` ein leerer String (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat wird als "end-of-candidates"-Marker bezeichnet.
@@ -44,7 +41,6 @@ new RTCIceCandidate(candidateInfo)
         Der {{Glossary("user_agent", "user agent")}} bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alle anderen Bedingungen gleich sind.
         Im obigen Beispiel ist die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge angeordnet.
         Die vollständige Liste der Attribute für diesen Beispielkandidaten ist:
-
         - [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation) = 4234997325
         - [`component`](/de/docs/Web/API/RTCIceCandidate/component) = `"rtp"` (die Zahl 1 wird in diesen String kodiert; 2 wird zu `"rtcp"`)
         - [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol) = `"udp"`
@@ -59,19 +55,16 @@ new RTCIceCandidate(candidateInfo)
         > Aus Kompatibilitätsgründen mit älteren Versionen der WebRTC-Spezifikation akzeptiert der Konstruktor auch diesen String direkt als Argument.
 
     - `sdpMid` {{optional_inline}}
-
       - : Ein String, der das Identifikationskennzeichen des Mediastreams enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein Mediastream verknüpft ist. Der Standardwert ist `null`.
 
         Zusätzliche Informationen finden sich in [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
 
     - `sdpMLineIndex` {{optional_inline}}
-
       - : Eine numerische Eigenschaft, die den nullbasierten Index der m-line enthält, mit der der Kandidat verbunden ist, innerhalb des Medienbeschreibungs-[SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp), oder `null`, wenn keine solche Verbindung besteht. Der Standardwert ist `null`.
 
         Zusätzliche Informationen finden sich in [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
 
     - `usernameFragment` {{optional_inline}}
-
       - : Ein String, der das Benutzername-Fragment enthält (in der Regel als "ufrag" oder "ice-ufrag" abgekürzt).
         Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eine einzelne laufende ICE-Interaktion eindeutig (einschließlich jeglicher Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server).
 

@@ -37,17 +37,14 @@ Das [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Objekt, das verwen
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-
   - : Wird ausgelöst, wenn `trackOrKind` weder `"audio"` noch `"video"` war.
 
     Wenn das `sendEncodings`-Argument verwendet wird, kann dieser Fehler auch auftreten, wenn es ein schlecht formatiertes `rid`-Mitglied gibt, einige, aber nicht alle Encodings ein `rid`-Mitglied enthalten, oder wenn verschiedene Encodings denselben `rid`-Wert haben.
 
 - {{jsxref("RangeError")}}
-
   - : Wird ausgelöst, wenn eines der `sendEncodings`-Encodings einen `maxFramerate`-Wert von weniger als 0.0 oder einen `scaleResolutionDownBy`-Wert von weniger als 1.0 hat.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn die Methode aufgerufen wird, während die zugehörige Verbindung geschlossen ist.
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)

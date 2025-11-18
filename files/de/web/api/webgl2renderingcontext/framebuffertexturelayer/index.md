@@ -21,14 +21,12 @@ framebufferTextureLayer(target, attachment, texture, level, layer)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
     - `gl.FRAMEBUFFER`: Speichert Kollektionen von Pufferdaten von Farbe, Alpha, Tiefe und Stencil-Puffern, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`: Entspricht `gl.FRAMEBUFFER`.
     - `gl.READ_FRAMEBUFFER`: Wird als Quelle für Leseoperationen verwendet.
 
 - `attachment`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Befestigungspunkt für die `texture` angibt. Mögliche Werte:
     - `gl.COLOR_ATTACHMENT{0-15}`: Hängt die Textur an einen der Farbpuffer des Framebuffers an.
     - `gl.DEPTH_ATTACHMENT`: Hängt die Textur an den Tiefenpuffer des Framebuffers an.

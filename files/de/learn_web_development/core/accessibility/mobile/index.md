@@ -104,7 +104,6 @@ Zum Beispiel, wenn TalkBack eingeschaltet ist:
 1. Öffnen Sie Ihren Webbrowser.
 2. Aktivieren Sie die URL-Leiste.
 3. Geben Sie eine Webseite ein, die viele Überschriften enthält, wie zum Beispiel die Startseite von bbc.co.uk. Um den Text der URL einzugeben:
-
    - Markieren Sie die URL-Leiste, indem Sie links/rechts wischen, bis Sie sie erreichen, und dann doppeltippen.
    - Halten Sie Ihren Finger auf der virtuellen Tastatur gedrückt, bis Sie das gewünschte Zeichen erreichen, und lassen Sie dann Ihren Finger los, um es einzugeben. Wiederholen Sie dies für jedes Zeichen.
    - Wenn Sie fertig sind, finden Sie die Eingabetaste und drücken Sie sie.
@@ -159,7 +158,6 @@ Probieren wir das Surfen im Web mit VoiceOver aus:
 1. Öffnen Sie Ihren Webbrowser.
 2. Aktivieren Sie die URL-Leiste.
 3. Geben Sie eine Webseite ein, die viele Überschriften enthält, wie zum Beispiel die Startseite von bbc.co.uk. Um den Text der URL einzugeben:
-
    - Markieren Sie die URL-Leiste, indem Sie nach links/rechts wischen, bis Sie sie erreichen, und dann doppeltippen.
    - Für jedes Zeichen halten Sie Ihren Finger auf der virtuellen Tastatur gedrückt, bis Sie das gewünschte Zeichen erreichen, und lassen Sie dann Ihren Finger los, um es auszuwählen. Doppeltippen Sie, um es einzugeben.
    - Wenn Sie fertig sind, finden Sie die Eingabetaste und drücken Sie sie.
@@ -167,7 +165,6 @@ Probieren wir das Surfen im Web mit VoiceOver aus:
 4. Wischen Sie nach links und rechts, um zwischen Elementen auf der Seite zu wechseln. Sie können ein Element doppeltippen, um es auszuwählen (z. B. einem Link zu folgen).
 5. Standardmäßig ist die ausgewählte Rotor-Option die Sprechgeschwindigkeit; Sie können derzeit nach oben und unten wischen, um die Sprechgeschwindigkeit zu erhöhen oder zu verringern.
 6. Drehen Sie nun zwei Finger wie ein Ziffernblatt um den Bildschirm, um den Rotor anzuzeigen und zwischen seinen Optionen zu wechseln. Hier sind einige Beispiele für verfügbare Optionen:
-
    - _Sprechgeschwindigkeit_: Ändern der Sprechgeschwindigkeit.
    - _Container_: Wechseln zwischen verschiedenen semantischen Containern auf der Seite.
    - _Überschriften_: Wechseln zwischen Überschriften auf der Seite.

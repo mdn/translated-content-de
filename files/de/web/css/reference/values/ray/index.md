@@ -25,11 +25,9 @@ offset-path: ray(45deg);
 Die Parameter können in beliebiger Reihenfolge angegeben werden.
 
 - [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)
-
   - : Gibt die Richtung an, in die sich das Liniensegment von der Offset-Startposition aus erstreckt. Der Winkel `0deg` liegt auf der y-Achse nach oben zeigend, und positive Winkel nehmen im Uhrzeigersinn zu.
 
 - `<size>`
-
   - : Gibt die Länge des Liniensegments an, das den Abstand zwischen {{cssxref("offset-distance")}} `0%` und `100%` relativ zur umgebenden Box darstellt. Dies ist ein optionaler Parameter (`closest-side` wird verwendet, wenn keine `<size>` angegeben ist). Es akzeptiert einen der folgenden Schlüsselwortwerte:
 
     `closest-side`: Abstand zwischen dem Startpunkt des Rays und der nächsten Seite des [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) des Elements. Liegt der Startpunkt des Rays auf einem Rand des enthältenden Blocks, ist die Länge des Liniensegments null. Liegt der Startpunkt des Rays außerhalb des enthältenden Blocks, wird der Rand des enthältenden Blocks als unendlich angesehen. Dies ist der Standardwert.
@@ -43,7 +41,6 @@ Die Parameter können in beliebiger Reihenfolge angegeben werden.
     `sides`: Abstand zwischen dem Startpunkt des Rays und dem Punkt, an dem das Liniensegment die Begrenzung des enthältenden Blocks schneidet. Befindet sich der Startpunkt auf oder außerhalb der Begrenzung des enthältenden Blocks, ist die Länge des Liniensegments null.
 
 - `contain`
-
   - : Reduziert die Länge des Liniensegments, damit das Element auch bei `offset-distance: 100%` innerhalb des enthältenden Blocks bleibt. Insbesondere wird die Länge des Segments um die Hälfte der Breite oder die Hälfte der Höhe der Border-Box des Elements reduziert, je nachdem, welches größer ist, und niemals weniger als null. Dies ist ein optionaler Parameter.
 
 - `at <position>`

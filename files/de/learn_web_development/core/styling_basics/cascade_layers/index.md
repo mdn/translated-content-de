@@ -329,11 +329,11 @@ Sie können Stile importieren und Ebenen basierend auf spezifischen Bedingungen 
 
 ## Übersicht über verschachtelte Cascade-Ebenen
 
-Verschachtelte Ebenen sind Ebenen innerhalb einer ben<span class="tox-spellchecker-word" data-word="e-n"><b>e-n</b></span>annten oder <span class="tox-spellchecker-word" data-word="an-n"><b>an-n</b></span>ymen Ebene. Jede C<span class="tox-spellchecker-word" data-word="ascade-"><b>ascade-</b></span>ebene, <span class="tox-spellchecker-word" data-word="auch e-b-en- anonym"><b>auch e-b-en- anonym</b></span>, kann verschachtelte Ebenen enthalten. Ebenen, die in eine andere Ebene importiert werden, werden zu verschachtelten Ebenen innerhalb dieser Ebene.
+Verschachtelte Ebenen sind Ebenen innerhalb einer benannten oder anonymen Ebene. Jede Cascade-Ebene, auch anonym, kann verschachtelte Ebenen enthalten. Ebenen, die in eine andere Ebene importiert werden, werden zu verschachtelten Ebenen innerhalb dieser Ebene.
 
 ### Vorteile des Verschachtelns von Ebenen
 
-Die Fähigkeit, Ebenen zu verschachteln, ermöglicht es Teams, C<span class="tox-spellchecker-word" data-word="ascade-"><b>ascade-</b></span>ebenen zu erstellen, ohne sich s<span class="tox-spellchecker-word" data-word="orgen machen zu müssen"><b>orgen machen zu müssen</b></span>, ob andere Teams sie in eine Ebene importieren werden. Ebenso ermöglicht das V<span class="tox-spellchecker-word" data-word="erschachteln"><b>erschachteln</b></span>, Drittanbieter-Stylesheets in eine Ebene zu importieren, ohne sich s<span class="tox-spellchecker-word" data-word="orgen machen zu müssen"><b>orgen machen zu müssen</b></span>, ob das Stylesheet selbst Ebenen hat. Da Ebenen verschachtelt werden können, müssen Sie sich keine Sorgen darum machen, ob es Konflikte bei den Ebenennamen zwischen externen und internen Stylesheets gibt.
+Die Fähigkeit, Ebenen zu verschachteln, ermöglicht es Teams, Cascade-Ebenen zu erstellen, ohne sich sorgen machen zu müssen, ob andere Teams sie in eine Ebene importieren werden. Ebenso ermöglicht das Verschachteln, Drittanbieter-Stylesheets in eine Ebene zu importieren, ohne sich sorgen machen zu müssen, ob das Stylesheet selbst Ebenen hat. Da Ebenen verschachtelt werden können, müssen Sie sich keine Sorgen darum machen, ob es Konflikte bei den Ebenennamen zwischen externen und internen Stylesheets gibt.
 
 ### Erstellen von verschachtelten Cascade-Ebenen
 

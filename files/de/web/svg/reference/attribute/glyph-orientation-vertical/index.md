@@ -49,7 +49,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto`
-
   - : Vollbreite {{Glossary("ideographic", "ideographic")}} und vollbreiter lateinischer Text wird mit einer Glyphenorientierung von 0 Grad gesetzt. Ideografische Interpunktion und andere ideografische Zeichen, die alternative horizontale und vertikale Formen haben, verwenden die vertikale Form der Glyphe. Text, der nicht vollbreit ist, wird mit einer Glyphenorientierung von 90 Grad gesetzt.
 
     Diese Reorientierungsregel gilt nur für den erste Ebene nicht-ideografischen Text. Alle weiteren Einbettungen von Schreibweisen oder bidirektionaler Verarbeitung basieren auf der erste Ebene Rotation.

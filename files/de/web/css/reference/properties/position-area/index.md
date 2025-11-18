@@ -59,7 +59,6 @@ position-area: unset;
 Der Eigenschaftswert sind zwei `<position-area>` Schlüsselbegriffe oder das Schlüsselwort `none`. Wenn nur ein `<position-area>` Schlüsselbegriff bereitgestellt wird, wird der zweite Schlüsselbegriff impliziert.
 
 - [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value)
-
   - : Gibt den Bereich des Positionierungsrasters an, auf dem ausgewählte positionierte Elemente platziert werden sollen.
 
 - `none`

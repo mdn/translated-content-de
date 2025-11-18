@@ -15,9 +15,7 @@ Die **`type`**-Schreibgeschützte Eigenschaft der [`Response`](/de/docs/Web/API/
 Ein String, der einen der folgenden Werte annehmen kann:
 
 - `basic`
-
   - : Dies gilt in einem der folgenden Fälle:
-
     - Die Anfrage ist gleich-origin.
     - Das Schema der angeforderten URL ist [`data:`](/de/docs/Web/URI/Reference/Schemes/data).
     - Der [`mode`](/de/docs/Web/API/Request/mode) der Anfrage ist `navigate` oder `websocket`.
@@ -27,7 +25,6 @@ Ein String, der einen der folgenden Werte annehmen kann:
 - `cors`
   - : Die Anfrage war cross-origin und wurde erfolgreich unter Verwendung von [CORS](/de/docs/Web/HTTP/Guides/CORS) verarbeitet. Bei diesem Typ sind nur {{Glossary("CORS-safelisted_response_header", "CORS-sicher gelistete Antwortheader")}} sichtbar.
 - `error`
-
   - : Ein Netzwerkfehler ist aufgetreten. Die [`status`](/de/docs/Web/API/Response/status)-Eigenschaft ist auf `0` gesetzt, [`body`](/de/docs/Web/API/Response/body) ist `null`, Header sind leer und unveränderlich.
 
     Dies ist der Typ der Antwort, die von [`Response.error()`](/de/docs/Web/API/Response/error_static) zurückgegeben wird. Eine Antwort dieses Typs wird nicht bei einem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) zurückgegeben, da bei einem Netzwerkfehler das Versprechen zurückgewiesen wird.

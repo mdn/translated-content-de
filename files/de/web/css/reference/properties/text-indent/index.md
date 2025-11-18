@@ -246,7 +246,6 @@ p {
 
 - [Lernen Sie, HTML mit CSS zu gestalten](/de/docs/Learn_web_development/Core/Styling_basics)
 - Verwandte CSS-Eigenschaften:
-
   - [`text-justify`](/de/docs/Web/CSS/Reference/Properties/text-justify)
   - [`text-orientation`](/de/docs/Web/CSS/Reference/Properties/text-orientation)
   - [`text-overflow`](/de/docs/Web/CSS/Reference/Properties/text-overflow)

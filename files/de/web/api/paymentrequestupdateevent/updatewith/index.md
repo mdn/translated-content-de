@@ -19,11 +19,8 @@ updateWith(details)
 ### Parameter
 
 - `details`
-
   - : Entweder ein Objekt oder ein {{jsxref("Promise")}}, das sich zu einem Objekt auflöst und die Änderungen angibt, die auf die Zahlungsanforderung angewendet werden:
-
     - `displayItems` {{optional_inline}}
-
       - : Ein Array von Objekten, die jeweils eine Zeile für die Zahlungsanforderung beschreiben. Diese stellen die Zeilenartikel auf einer Quittung oder Rechnung dar, jeweils mit den folgenden Eigenschaften:
         - `amount`
           - : Ein Objekt, das den Geldwert des Artikels beschreibt. Dieses Objekt enthält die folgenden Felder:
@@ -37,11 +34,9 @@ updateWith(details)
           - : Ein Boolean-Wert, der `true` ist, wenn der angegebene `amount` noch nicht abgeschlossen ist. Dies kann verwendet werden, um Posten wie Versand- oder Steuerbeträge anzuzeigen, die von der Auswahl der Versandadresse, Versandoption oder anderem abhängig sind. Der Benutzeragent kann diese Information anzeigen, ist aber nicht dazu verpflichtet.
 
     - `error` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
-
       - : Ein String, der eine Fehlermeldung angibt, die dem Benutzer angezeigt werden soll. Beim Aufruf von `updateWith()` bewirkt die Aufnahme von `error` in die aktualisierten Daten, dass der {{Glossary("user_agent", "Benutzeragent")}} den Text als allgemeine Fehlermeldung anzeigt. Für feldspezifische Fehler bei der Adresse verwenden Sie das `shippingAddressErrors`-Feld.
 
     - `modifiers` {{optional_inline}}
-
       - : Ein {{jsxref("Array")}} von `PaymentDetailsModifier`-Objekten, dessen Eigenschaften in [`PaymentRequestEvent.modifiers`](/de/docs/Web/API/PaymentRequestEvent/modifiers) beschrieben sind.
 
         Zum Beispiel kann eines verwendet werden, um den Gesamtzahlungsbetrag basierend auf der ausgewählten Zahlungsmethode anzupassen ("5% Barzahlungsrabatt!").

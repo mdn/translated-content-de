@@ -23,7 +23,6 @@ new Worker(url, options)
 ### Parameter
 
 - `url`
-
   - : Ein String, der die URL des Skripts darstellt, das der Worker ausführen wird. Sie muss der Same-Origin-Policy entsprechen. Die URL wird relativ zum aktuellen Speicherort der HTML-Seite aufgelöst.
 
     > [!NOTE]

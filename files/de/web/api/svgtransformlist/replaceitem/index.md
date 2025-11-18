@@ -38,7 +38,6 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das eingefügte Elem
 Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)

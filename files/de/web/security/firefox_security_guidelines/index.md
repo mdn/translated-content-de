@@ -25,7 +25,6 @@ Stellen Sie sicher, dass die Anwendung den [OWASP Secure Coding Principles](http
 ## Eingabeverifizierung
 
 1. Akzeptiert die Anwendung Benutzereingaben?
-
    1. Überprüfen Sie eine Auswahl an Eingabestellen, um sicherzustellen, dass vernünftige Maximalwerte bei der Annahme von Benutzerdaten vorhanden sind
    2. Überprüfen Sie eine Auswahl an Eingabestellen, um sicherzustellen, dass die Anwendung nur eine definierte Menge akzeptabler Zeichen zulässt
    3. Stellen Sie sicher, dass das Allowlisting anstelle des Denylisting verwendet wird
@@ -63,7 +62,6 @@ Falls ja, stellen Sie sicher, dass sie sicher sind und keine besseren Alternativ
 ## URLs
 
 1. Verwendet die Anwendung unzuverlässige Daten, um URLs zu konstruieren?
-
    - Stellen Sie sicher, dass solche Daten vor der Verwendung ausreichend bereinigt und kodiert werden.
    - Stellen Sie sicher, dass Daten, die aus diesen URLs abgeleitet werden, vor der Verwendung oder Speicherung geprüft werden.
 
@@ -86,22 +84,18 @@ Falls ja, stellen Sie sicher, dass sie sicher sind und keine besseren Alternativ
 ## Informationsspeicherung
 
 1. Dateispeicherung
-
    1. Stellen Sie sicher, dass die Anwendung überprüft, dass alle erstellten Dateien unter erlaubten Pfaden gespeichert werden
    2. Werden Dateinamen aus unzuverlässigen Daten generiert?
-
       - Stellen Sie sicher, dass die Daten geeignet kodiert sind
 
    3. Überprüfen Sie, dass Dateien von einem akzeptablen Typ sind
    4. Überprüfen Sie, dass Dateien vernünftige Größenlimits nicht überschreiten
 
 2. Datenbankspeicherung
-
    1. Stellen Sie sicher, dass alle an die Datenbank gesendeten, unzuverlässigen Informationen ausreichend bereinigt werden
    2. Wenn möglich, verwenden Sie typsichere Parametrisierung zur Vermeidung von Injection-Angriffen
 
 3. Sensible Informationen
-
    1. Stellen Sie sicher, dass alle sicherheitsrelevanten oder personenbezogenen Informationen ausreichend geschützt sind (siehe Abschnitt Verschlüsselung)
    2. Besondere Vorsicht ist bei Anmeldedaten (Passwörter etc.) geboten - Wenn Sie mit solchen Informationen arbeiten und unsicher sind, was zu tun ist, lohnt es sich immer nachzufragen
 
@@ -124,7 +118,6 @@ Falls ja, stellen Sie sicher, dass sie sicher sind und keine besseren Alternativ
 1. Präsentiert die Anwendung dem Benutzer irgendwelche Sicherheitswarnungen?
 2. Sind sie klar verständlich und angemessen?
 3. Kann unzuverlässige Daten die Bedeutung von Nachrichten für den Benutzer ändern?
-
    - Kann Benutzereingaben die Bedeutung von Nachrichten ändern?
    - Kann Benutzereingaben Systemnachrichten außerhalb des sichtbaren Bildschirms erzwingen?
    - Kann Benutzereingaben Sonderzeichen enthalten, die die Bedeutung von Nachrichten ändern können (z.B. Unicode-Rechts-nach-Links-Override U+202E)
@@ -140,7 +133,6 @@ Falls ja, stellen Sie sicher, dass sie sicher sind und keine besseren Alternativ
 ## Front-End
 
 1. Werden sichere Mechanismen verwendet, um XUL- und HTML-UI-Elemente zu erstellen?
-
    - Zum Beispiel verwenden Sie createTextNode anstelle von innerHTML oder ähnlichem
 
 2. Erstellt die Anwendung eigene Docshells (Tabs, iframes)?

@@ -22,7 +22,6 @@ linear(0, 0.5 25% 75%, 1)
 Die Funktion akzeptiert zwei oder mehr der folgenden Werte, die Fortschrittspunkte in der Animationstimeline darstellen:
 
 - {{cssxref("&lt;number&gt;")}}
-
   - : Repräsentiert einen Zeitpunkt in der Dauer der Animation oder des Übergangs.
     Mindestens zwei Werte müssen angegeben werden.
     Der Wert `0` repräsentiert den Beginn des Übergangs, und `1` repräsentiert das Ende.

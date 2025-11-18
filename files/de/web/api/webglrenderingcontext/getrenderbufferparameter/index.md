@@ -19,21 +19,17 @@ getRenderbufferParameter(target, pname)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel-Renderbuffer-Objekt spezifiziert. Mögliche Werte:
     - `gl.RENDERBUFFER`
       - : Puffer-Datenspeicher für Einzelbilder in einem renderbaren internen Format.
 
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragenden Informationen spezifiziert. Mögliche Werte:
-
     - `gl.RENDERBUFFER_WIDTH`
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Breite des Bildes des aktuell gebundenen Renderbuffers angibt.
     - `gl.RENDERBUFFER_HEIGHT`
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Höhe des Bildes des aktuell gebundenen Renderbuffers angibt.
     - `gl.RENDERBUFFER_INTERNAL_FORMAT`
-
       - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das das interne Format des aktuell gebundenen Renderbuffers angibt. Der Standard ist `gl.RGBA4`. Mögliche Rückgabewerte:
         - `gl.RGBA4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alpha-Bits.
         - `gl.RGB565`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
@@ -55,7 +51,6 @@ getRenderbufferParameter(target, pname)
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Schablonen-Komponente ist.
 
     Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext) ist zusätzlich der folgende Wert verfügbar:
-
     - `gl.RENDERBUFFER_SAMPLES`
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der Proben des Bildes des aktuell gebundenen Renderbuffers angibt.
 

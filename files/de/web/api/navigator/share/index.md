@@ -23,13 +23,11 @@ share(data)
 ### Parameter
 
 - `data` {{optional_inline}}
-
   - : Ein Objekt, das die zu teilenden Daten enthält.
 
     Vom Benutzeragenten unbekannte Eigenschaften werden ignoriert; Freigabedaten werden nur auf Eigenschaften bewertet, die vom Benutzeragenten verstanden werden. Alle Eigenschaften sind optional, aber es muss mindestens eine bekannte Dateneigenschaft angegeben werden.
 
     Mögliche Werte sind:
-
     - `url` {{optional_inline}}
       - : Ein String, der eine zu teilende URL darstellt.
     - `text` {{optional_inline}}
@@ -52,7 +50,6 @@ Das {{jsxref("Promise")}} kann mit einem der folgenden `DOMException`-Werte abge
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Eine `web-share` [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) wurde verwendet, um die Verwendung dieser Funktion zu blockieren, das Fenster hat keine {{Glossary("transient_activation", "temporäre Aktivierung")}}, oder eine Dateifreigabe wird aus Sicherheitsüberlegungen blockiert.
 - {{jsxref("TypeError")}}
-
   - : Die angegebenen Freigabedaten können nicht validiert werden. Mögliche Gründe sind:
     - Das `data`-Parameter wurde vollständig weggelassen oder enthält nur Eigenschaften mit unbekannten Werten. Beachten Sie, dass alle vom Benutzeragenten nicht erkannten Eigenschaften ignoriert werden.
     - Eine URL ist schlecht formatiert.

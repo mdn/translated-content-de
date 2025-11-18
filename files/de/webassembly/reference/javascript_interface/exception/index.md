@@ -29,7 +29,6 @@ Der Konstruktor kann dann eine Ausnahme zurückgeben, die einen Stack-Trace in d
 ## Instanzmethoden
 
 - [`Exception.prototype.is()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/is)
-
   - : Prüft, ob die Ausnahme mit einem bestimmten Tag übereinstimmt.
 
 - [`Exception.prototype.getArg()`](/de/docs/WebAssembly/Reference/JavaScript_interface/Exception/getArg)

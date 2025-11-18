@@ -21,9 +21,7 @@ CropTarget.fromElement(element)
 ### Parameter
 
 - `element`
-
   - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das Sie als Zuschneideziel verwenden möchten. Damit ein Element als Zuschneideziel verwendet werden kann, muss es:
-
     - Auf dem Bildschirm sein
     - Sichtbar sein, das heißt, nicht beispielsweise durch `display: none` ausgeblendet.
 

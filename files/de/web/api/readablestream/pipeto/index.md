@@ -22,7 +22,6 @@ pipeTo(destination, options)
 ### Parameter
 
 - `destination`
-
   - : Ein [`WritableStream`](/de/docs/Web/API/WritableStream), der als endgültiges Ziel für den [`ReadableStream`](/de/docs/Web/API/ReadableStream) dient.
 
 - `options` {{optional_inline}}

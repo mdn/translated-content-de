@@ -67,7 +67,6 @@ svg {
 </table>
 
 - `<media-query-list>`
-
   - : Dieser Wert enthält eine Media Query, die übereinstimmen muss, damit das Stylesheet angewendet wird.
 
     Wenn nicht angegeben, wird das Stylesheet bedingungslos angewendet.

@@ -139,23 +139,18 @@ Die `<container-condition>` kann eine oder mehrere boolesche Größenabfragen en
 ```
 
 - `aspect-ratio`
-
   - : Das {{cssxref("aspect-ratio")}} des Containers, berechnet als Breite zu Höhe des Containers, ausgedrückt als ein {{cssxref("ratio")}} Wert.
 
 - `block-size`
-
   - : Die {{cssxref("block-size")}} des Containers, ausgedrückt als ein {{cssxref("length")}} Wert.
 
 - `height`
-
   - : Die Höhe des Containers, ausgedrückt als ein {{cssxref("length")}} Wert.
 
 - `inline-size`
-
   - : Die {{cssxref("inline-size")}} des Containers, ausgedrückt als ein {{cssxref("length")}} Wert.
 
 - `orientation`
-
   - : Die [Ausrichtung](/de/docs/Web/CSS/Reference/At-rules/@media/orientation) des Containers, entweder `landscape` oder `portrait`.
 
 - `width`
@@ -180,9 +175,7 @@ Scroll-Zustands-Containerdeskriptoren werden innerhalb der `<container-condition
 Unterstützte Schlüsselwörter für Scroll-Zustands-Containerdeskriptoren umfassen physische und {{Glossary("flow_relative_values", "flussrelative Werte")}}
 
 - `scrollable`
-
   - : Überprüft, ob der Container in die angegebene Richtung durch benutzerinitiierte Scrollvorgänge gescrollt werden kann, wie z.B. durch Ziehen der Bildlaufleiste oder durch eine Gestenbedienung des Trackpads. Mit anderen Worten, gibt es in der angegebenen Richtung überfließenden Inhalt, der gescrollt werden kann? Gültige `scrollable` Werte umfassen die folgenden Schlüsselwörter:
-
     - `none`
       - : Der Container ist kein {{Glossary("scroll_container", "Scroll-Container")}} oder kann anderweitig nicht in irgendeine Richtung gescrollt werden.
     - `top`
@@ -221,9 +214,7 @@ Unterstützte Schlüsselwörter für Scroll-Zustands-Containerdeskriptoren umfas
     ```
 
 - `snapped`
-
   - : Überprüft, ob der Container an einen [Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Container-Vorfahren entlang der gegebenen Achse geschnappt wird. Gültige `snapped` Werte umfassen die folgenden Schlüsselwörter:
-
     - `none`
       - : Der Container ist kein Scroll {{Glossary("Scroll_snap#snap_target", "Schnappziel")}} für seinen Vorfahren-Scroll-Container. Wenn eine `snapped: none` Abfrage durchgeführt wird, werden Container, die _sind_ Schnappziele für den Scroll-Container _nicht_ die `@container` Stile angewendet, während an Nicht-Schnappziele _werden_ die Stile angewendet.
     - `x`
@@ -250,9 +241,7 @@ Unterstützte Schlüsselwörter für Scroll-Zustands-Containerdeskriptoren umfas
     ```
 
 - `stuck`
-
   - : Überprüft, ob ein Container mit einem {{cssxref("position")}} Wert von [`sticky`](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#sticky_positioning) an einem Rand seines scrollenden Container-Vorfahren klebt. Gültige `stuck` Werte umfassen die folgenden Schlüsselwörter:
-
     - `none`
       - : Der Container klebt an keinem Rand seines Containers. Beachten Sie, dass `none` Abfragen auch übereinstimmen, wenn der Container nicht `position: sticky` darauf gesetzt hat.
     - `top`

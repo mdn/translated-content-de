@@ -181,7 +181,6 @@ Wenn `:invalid-pseudo-class` ein gültiger Selektor wäre, wären die ersten bei
 - [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
 - [Lernen: Pseudoklassen und Pseudo-Elemente](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements)
 - Andere funktionale CSS Pseudoklassen:
-
   - {{cssxref(":has", ":has()")}}
   - {{cssxref(":is", ":is()")}}
   - {{cssxref(":where", ":where()")}}

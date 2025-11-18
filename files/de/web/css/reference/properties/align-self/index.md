@@ -94,7 +94,6 @@ align-self: unset;
 - `auto`
   - : Berechnet den Wert des übergeordneten Elements von {{cssxref("align-items")}}.
 - `normal`
-
   - : Die Wirkung dieses Schlüsselworts hängt vom Layout-Modus ab, in dem wir uns befinden:
     - In absolut-positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut-positionierten Boxen und wie `stretch` bei _allen anderen_ absolut-positionierten Boxen.
     - In der statischen Position von absolut-positionierten Layouts verhält sich das Schlüsselwort wie `stretch`.

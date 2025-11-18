@@ -27,11 +27,8 @@ decodingInfo(configuration)
 ### Parameter
 
 - `configuration`
-
   - : Ein Objekt mit einer Eigenschaft `type`, _entweder_ einer `video`- oder `audio`-Eigenschaft, die eine Konfiguration des entsprechenden Typs enthält, und optional einer `keySystemConfiguration`, wenn Medien mit einem Schlüsselsystem dekodiert werden:
-
     - `type`
-
       - : Der Typ der getesteten Medien. Dies nimmt einen von drei Werten an:
         - `file`
           - : Repräsentiert eine Konfiguration, die für die Wiedergabe einer einfachen Datei gedacht ist.
@@ -41,7 +38,6 @@ decodingInfo(configuration)
           - : Repräsentiert eine Konfiguration, die über [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) empfangen werden soll (nicht erlaubt, wenn `keySystemConfiguration` gesetzt ist).
 
     - `video`
-
       - : Konfigurationsobjekt für eine Video-Medienquelle.
         Dies hat die folgenden Eigenschaften:
         - `contentType`
@@ -56,7 +52,6 @@ decodingInfo(configuration)
           - : Die Anzahl der Frames, die eine Sekunde Videowiedergabe bilden.
 
     - `audio`
-
       - : Konfigurationsobjekt für eine Audio-Medienquelle.
         Dies hat die folgenden Eigenschaften:
         - `contentType`
@@ -69,26 +64,21 @@ decodingInfo(configuration)
           - : Die Anzahl der Audio-Samples, die eine Sekunde der Audiodatei bilden.
 
     - `keySystemConfiguration` {{optional_inline}}
-
       - : Objekt, das die Schlüsselsystemkonfiguration für verschlüsselte Medien angibt.
 
         > [!NOTE] > [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) nimmt Arrays von denselben Datentypen im Argument `supportedConfigurations`.
 
         Wenn angegeben, muss der [`type`](#type) `media-source` oder `file` sein (nicht `webrtc`).
         Dies hat die folgenden Eigenschaften:
-
         - `keySystem`
-
           - : Ein String, der das Mediaschlüsselsystem identifiziert.
             Zum Beispiel `org.w3.clearkey` oder `com.widevine.alpha`.
 
         - `initDataType` {{optional_inline}}
-
           - : Ein String, der den Datentypnamen des Initialisierungsdatenformats angibt, wie `"cenc"`, `"keyids"` und `"webm"`.
             Erlaubte Namen sind im [Encrypted Media Extensions Initialization Data Format Registry](https://w3c.github.io/encrypted-media/format-registry/initdata/) definiert.
 
         - `distinctiveIdentifier` {{optional_inline}}
-
           - : Ein String, der angibt, ob die Implementierung "unverwechselbare Bezeichner" (oder unverwechselbare permanente Bezeichner) für Operationen verwenden darf, die mit einem aus dieser Konfiguration erstellten Objekt verbunden sind.
             Die erlaubten Werte sind:
             - `required`
@@ -100,7 +90,6 @@ decodingInfo(configuration)
               - : Das zurückgegebene Objekt darf dieses Merkmal nicht unterstützen oder nutzen.
 
         - `persistentState` {{optional_inline}}
-
           - : Ein String, der angibt, ob das zurückgegebene Objekt in der Lage sein muss, Sitzungsdaten oder eine andere Art von Zustand zu speichern.
             Die erlaubten Werte sind:
             - `required`
@@ -113,7 +102,6 @@ decodingInfo(configuration)
                 Nur "temporäre" Sitzungen dürfen erstellt werden, wenn der persistente Zustand nicht erlaubt ist.
 
         - `sessionTypes` {{optional_inline}}
-
           - : Ein Array von Strings, das die Sitzungstypen angibt, die unterstützt werden müssen.
             Erlaubte Werte schließen ein:
             - `temporary`
@@ -125,7 +113,6 @@ decodingInfo(configuration)
                 Ein Eintrag der Lizenz und der dazugehörigen Schlüssel bleibt auch dann erhalten, wenn die Lizenz zerstört wird, was eine Bestätigung dafür liefert, dass die Lizenz und die enthaltenen Schlüssel vom Client nicht mehr nutzbar sind.
 
         - `audio` {{optional_inline}}
-
           - : Die Audioschlüsselsystem-Track-Konfiguration, die mit der [`audio`-Konfiguration](#audio) oben verbunden ist.
             Wenn gesetzt, muss auch die [`audio`-Konfiguration](#audio) gesetzt sein.
             - `encryptionScheme`
@@ -164,11 +151,9 @@ Alle unterstützten Audio-Codecs melden `powerEfficient` als true.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-
   - : Wird ausgelöst, wenn die an die `decodingInfo()`-Methode übergebene `configuration` ungültig ist, entweder weil der Typ nicht Video oder Audio ist, der `contentType` kein gültiger Codec-MIME-Typ ist, die Medien-Dekodierkonfiguration kein gültiger Wert für den `type` (file, media-source oder webrtc) ist, oder ein anderer Fehler in der an die Methode übergebenen Medienkonfiguration, einschließlich des Auslassens von Werten.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Die Methode wird in einem Worker aufgerufen, wenn [`configuration.keySystemConfiguration`](#keysystemconfiguration) definiert ist.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)

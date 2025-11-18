@@ -26,7 +26,6 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
 - [`HTMLTrackElement.default`](/de/docs/Web/API/HTMLTrackElement/default)
   - : Ein boolescher Wert, der das Attribut [`default`](/de/docs/Web/HTML/Reference/Elements/track#default) wiedergibt und angibt, dass der Track aktiviert werden soll, wenn die Präferenzen des Benutzers nicht angeben, dass ein anderer Track geeigneter wäre.
 - [`HTMLTrackElement.readyState`](/de/docs/Web/API/HTMLTrackElement/readyState) {{ReadOnlyInline}}
-
   - : Gibt ein `unsigned short` zurück, das den Bereitschaftszustand des Tracks zeigt:
 
     | Konstante | Wert | Beschreibung                                                                                                                                                                                            |

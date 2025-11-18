@@ -149,7 +149,6 @@ Es gibt eine vierte Form, `<name-repeat>`, die verwendet wird, um Liniennamen zu
 - `auto-fill`
   - : Wenn der Gittercontainer eine bestimmte oder maximale Größe in der relevanten Achse hat, dann ist die Anzahl der Wiederholungen die größte mögliche positive Ganzzahl, die nicht dazu führt, dass das Gitter seinen Gittercontainer überschreitet. Jedes Spurenelement wird als seine maximale Spurengröße behandelt (jeder unabhängige Wert verwendet, um `grid-template-rows` oder `grid-template-columns` zu definieren), falls dies feststeht. Andernfalls wird es als seine minimale Spurengröße behandelt, wobei der Gitterabstand berücksichtigt wird. Wenn jede Anzahl von Wiederholungen die Grenzen überschreiten würde, dann ist die Wiederholung `1`. Andernfalls, wenn der Gittercontainer eine bestimmte Mindestgröße in der relevanten Achse hat, ist die Anzahl der Wiederholungen die kleinstmögliche positive Ganzzahl, die diese Mindestanforderung erfüllt. Andernfalls wird die angegebene Spurliste nur einmal wiederholt.
 - `auto-fit`
-
   - : Verhält sich gleich wie `auto-fill`, außer dass nach dem Platzieren der Gitterelemente alle leeren wiederholten Spuren zusammengebrochen werden. Eine leere Spur ist eine ohne im Fluss befindliche Gitterelemente, die darin platziert sind oder über sie hinweg gespannen. (Dies kann zur Folge haben, dass alle Spuren zusammenbrechen, wenn sie alle leer sind.)
 
     Eine zusammengebrochene Spur wird so behandelt, als hätte sie eine feste Spurengröße-Funktion von `0px`, und die Abstände auf beiden Seiten davon werden zusammengebrochen.

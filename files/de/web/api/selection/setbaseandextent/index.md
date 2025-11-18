@@ -23,7 +23,6 @@ setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)
 - `anchorNode`
   - : Der Knoten am Anfang der Auswahl.
 - `anchorOffset`
-
   - : Die Anzahl der Kindknoten vom Anfang des Ankerknotens, die von der Auswahl ausgeschlossen werden sollen.
     Wenn der Wert beispielsweise 0 ist, wird der ganze Knoten einbezogen.
     Wenn der Wert 1 ist, wird der ganze Knoten minus des ersten Kindknotens einbezogen.
@@ -34,7 +33,6 @@ setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)
 - `focusNode`
   - : Der Knoten am Ende der Auswahl.
 - `focusOffset`
-
   - : Die Anzahl der Kindknoten vom Anfang des Fokus-Knotens, die in die Auswahl einbezogen werden sollen.
     Wenn der Wert beispielsweise 0 ist, wird der ganze Knoten ausgeschlossen.
     Wenn der Wert 1 ist, wird der erste Kindknoten einbezogen. Und so weiter.

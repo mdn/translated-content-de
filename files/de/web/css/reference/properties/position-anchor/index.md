@@ -25,7 +25,6 @@ position-anchor: unset;
 ### Werte
 
 - `auto`
-
   - : Verknüpft ein positioniertes Element mit seinem impliziten Ankerelement, falls es eines hat — zum Beispiel wie durch das nicht standardisierte HTML [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) Attribut festgelegt.
 
 - {{cssxref("dashed-ident")}}

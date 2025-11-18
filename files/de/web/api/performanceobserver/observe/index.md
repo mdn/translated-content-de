@@ -23,15 +23,12 @@ observe(options)
 ### Parameter
 
 - `options`
-
   - : Ein Objekt mit den folgenden möglichen Mitgliedern:
-
     - `buffered`
       - : Ein boolesches Flag, das anzeigt, ob gepufferte Einträge in den Puffer des Observers eingereiht werden sollen. Darf nur mit der `type`-Option verwendet werden.
     - `durationThreshold`
       - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Schwelle für [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Einträge definiert. Standardmäßig 104ms und auf das nächste von 8ms gerundet. Die niedrigste mögliche Schwelle beträgt 16ms. Darf nicht zusammen mit der `entryTypes`-Option verwendet werden.
     - `entryTypes`
-
       - : Ein Array von Zeichenfolgen, die jeweils einen zu beobachtenden Leistungseintragstyp spezifizieren. Darf nicht zusammen mit
         den Optionen `type`, `buffered` oder `durationThreshold` verwendet werden.
 

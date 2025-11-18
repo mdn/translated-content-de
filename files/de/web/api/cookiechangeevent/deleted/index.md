@@ -29,7 +29,6 @@ Ein Array von Objekten, das die gelöschten Cookies enthält. Jedes Objekt enth�
 - `secure`
   - : Ein {{jsxref("boolean")}}, der angibt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS anstelle von HTTP).
 - `sameSite`
-
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)-Werte:
     - `"strict"`
       - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen gesendet, die von Drittanbieter-Websites initiiert werden.

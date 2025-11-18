@@ -19,7 +19,6 @@ pad: "+" 5;
 Der Deskriptor akzeptiert die folgenden zwei Werte, die durch ein Leerzeichen getrennt sind und in beliebiger Reihenfolge angegeben werden können:
 
 - {{cssxref("integer")}}
-
   - : Gibt die Mindestlänge an, die alle Markerdarstellungen erreichen müssen. Der Wert muss nicht-negativ sein. Im Falle des `pad` Deskriptors wird dieser Wert auch als _pad length_ bezeichnet.
 
 - [`<symbol>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols#symbol)

@@ -46,7 +46,6 @@ Die `scroll-timeline` Kurzschreibweise-Eigenschaft kann auf ein Containerelement
 ### Werte
 
 - `<scroll-timeline-name>`
-
   - : Siehe [`scroll-timeline-name`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-name).
 
 - `<scroll-timeline-axis>`

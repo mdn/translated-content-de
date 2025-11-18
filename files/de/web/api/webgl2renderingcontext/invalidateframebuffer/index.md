@@ -21,7 +21,6 @@ invalidateFramebuffer(target, attachments)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindepunkt (Ziel) angibt. Mögliche Werte:
     - `gl.FRAMEBUFFER`
       - : Sammlung von Pufferdaten für Farbtiefe, Alpha,

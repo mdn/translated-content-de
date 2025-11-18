@@ -26,12 +26,10 @@ new MutationObserver(callback)
 ### Parameter
 
 - `callback`
-
   - : Eine Funktion, die bei jeder DOM-Änderung aufgerufen wird, die gemäß dem
     beobachteten Knoten oder Teilbaum und den Optionen qualifiziert ist.
 
     Die `callback`-Funktion nimmt zwei Parameter als Eingabe:
-
     1. Ein Array von [`MutationRecord`](/de/docs/Web/API/MutationRecord) Objekten, die jede aufgetretene Änderung
        beschreiben.
     2. Den [`MutationObserver`](/de/docs/Web/API/MutationObserver), der den

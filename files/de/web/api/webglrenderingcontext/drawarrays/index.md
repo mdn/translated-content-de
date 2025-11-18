@@ -19,9 +19,7 @@ drawArrays(mode, first, count)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
-
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
     - `gl.LINE_LOOP`: Zeichnet eine gerade Linie zum nächsten Vertex und

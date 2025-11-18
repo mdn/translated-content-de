@@ -35,7 +35,6 @@ Die `alertdialog` muss einen zugänglichen Namen haben, der mit [`aria-labelledb
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-
   - : Verwenden Sie dieses Attribut, um den alertdialog zu kennzeichnen. Das `aria-labelledby`-Attribut ist im Allgemeinen die ID des Elements, das verwendet wird, um den alertdialog zu betiteln.
 
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)

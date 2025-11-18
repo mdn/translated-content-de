@@ -19,7 +19,6 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
     - `gl.FRAMEBUFFER`
       - : Sammlung von Puffer-Datenspeichern für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
@@ -29,7 +28,6 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
       - : Wird als Quelle für Leseoperationen verwendet.
 
 - `attachments`
-
   - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Anhangspunkte angibt, die invalidiert werden sollen. Mögliche Werte:
     - `gl.COLOR_ATTACHMENT{0-15}`
       - : Invalidiert einen der Farbe-Puffer des Framebuffers.

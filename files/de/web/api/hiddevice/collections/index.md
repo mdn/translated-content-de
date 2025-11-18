@@ -15,7 +15,6 @@ Die **`collections`**-Eigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-
 Ein Array von Berichtsformaten. Jedes Element enthält Folgendes:
 
 - `usagePage`
-
   - : Ein Integer, der die "Usage Page"-Komponente der HID-Nutzung darstellt, die mit dieser Sammlung verbunden ist. Die Nutzung eines obersten Sammelobjekts wird verwendet, um den Gerätetyp zu identifizieren.
 
     Standardwerte für HID-Nutzungen finden Sie im Dokument [HID Usage Tables](https://usb.org/document-library/hid-usage-tables-16).
@@ -23,9 +22,7 @@ Ein Array von Berichtsformaten. Jedes Element enthält Folgendes:
 - `usage`
   - : Ein Integer, der die Nutzungs-ID-Komponente der HID-Nutzung darstellt, die mit dieser Sammlung verbunden ist.
 - `type`
-
   - : Ein 8-Bit-Wert, der den Sammlungstyp darstellt, welcher eine unterschiedliche Beziehung zwischen den gruppierten Elementen beschreibt. Einer der folgenden:
-
     - `0x00`
       - : Physikalisch (Gruppe von Achsen)
     - `0x01`

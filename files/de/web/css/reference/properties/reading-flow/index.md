@@ -34,27 +34,21 @@ reading-flow: unset;
 Die `reading-flow`-Eigenschaft nimmt eines der folgenden Schlüsselwörter als Wert:
 
 - `normal`
-
   - : Der Standardwert. Die Lesereihenfolge folgt der Reihenfolge der Elemente im DOM.
 
 - `flex-visual`
-
   - : Betrifft nur {{Glossary("Flex_Container", "Flex-Container")}}. Die Lesereihenfolge folgt der visuellen Reihenfolge der `flex`-Elemente, wobei der {{cssxref("writing-mode")}} berücksichtigt wird. Ein Dokument in Englisch mit `flex-direction: row-reverse` und gesetztem `reading-flow: flex-visual` hätte daher eine Lesereihenfolge von links nach rechts.
 
 - `flex-flow`
-
   - : Betrifft nur Flex-Container. Die Lesereihenfolge folgt der {{cssxref("flex-flow")}}-Richtung.
 
 - `grid-columns`
-
   - : Betrifft nur {{Glossary("Grid_Container", "Grid-Container")}}. Die Lesereihenfolge folgt der visuellen Reihenfolge der Grid-Elemente, spaltenweise, wobei der Schreibmodus berücksichtigt wird.
 
 - `grid-rows`
-
   - : Betrifft nur Grid-Container. Die Lesereihenfolge folgt der visuellen Reihenfolge der Grid-Elemente, zeilenweise, wobei der Schreibmodus berücksichtigt wird.
 
 - `grid-order`
-
   - : Betrifft nur Grid-Container. Wenn die {{cssxref("order")}}-Eigenschaft auf eines der Kinder des Containers angewendet wird, folgt die Lesereihenfolge der modifizierten Elementreihenfolge. Wenn die `order`-Eigenschaft nicht auf die Grid-Elemente angewendet wird, verhält sich `grid-order` wie `normal`.
 
 - `source-order`

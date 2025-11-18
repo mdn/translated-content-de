@@ -88,7 +88,6 @@ Jede einzelne Animation ist spezifiziert als:
 - Null, eine oder zwei Vorkommen des {{cssxref("&lt;time&gt;")}} Wertes
 
 - Null oder ein Vorkommen der folgenden Werte:
-
   - [`<single-easing-function>`](#single-easing-function)
   - [`<single-animation-iteration-count>`](#single-animation-iteration-count)
   - [`<single-animation-direction>`](#single-animation-direction)

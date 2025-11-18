@@ -19,9 +19,7 @@ add(contentDescription)
 ### Parameter
 
 - `contentDescription`
-
   - : Ein {{jsxref('Object')}} mit den folgenden Daten:
-
     - `id`
       - : Ein eindeutiger {{jsxref('String')}}-Bezeichner.
     - `title`
@@ -31,7 +29,6 @@ add(contentDescription)
     - `url`
       - : Ein {{jsxref('String')}} mit der URL des entsprechenden HTML-Dokuments. Muss unter dem Geltungsbereich des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
     - `category` {{Optional_Inline}}
-
       - : Ein {{jsxref('String')}} zur Definition der Inhaltkategorie. Kann sein:
         - `''` Ein leerer {{jsxref('String')}}, dies ist die Standardeinstellung.
         - `homepage`

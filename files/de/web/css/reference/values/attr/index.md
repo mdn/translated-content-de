@@ -68,11 +68,8 @@ Die Parameter sind:
 - `<attr-name>`
   - : Der Attributname, dessen Wert von den ausgewählten HTML-Element(en) abgerufen werden soll.
 - `<attr-type>`
-
   - : Gibt an, wie der Attributwert in einen CSS-Wert geparst werden soll. Dies kann das Keyword `raw-string`, eine {{cssxref("type()")}}-Funktion oder eine CSS-Dimensionseinheit (spezifiziert mit einem `<attr-unit>`-Bezeichner) sein. Wenn nichts angegeben ist, wird standardmäßig `raw-string` verwendet.
-
     - `raw-string`
-
       - : Das `raw-string`-Keyword bewirkt, dass der wörtliche Wert des Attributs als Wert eines CSS-Strings behandelt wird, ohne dass ein CSS-Parsing durchgeführt wird (einschließlich CSS-Escape-Zeichenfolgen, Leerzeichenentfernung, Kommentare usw.). Der `<fallback-value>` wird nur verwendet, wenn das Attribut weggelassen wird; das Angeben eines leeren Wertes löst nicht den Fallback aus.
 
         ```css
@@ -83,13 +80,11 @@ Die Parameter sind:
         > Dieses Keyword wurde ursprünglich in Chromium-Browsern als `string` benannt und unterstützt. Beide Keywords werden kurzzeitig unterstützt, aus Gründen der Rückwärtskompatibilität.
 
     - {{cssxref("type()")}}
-
       - : Die `type()`-Funktion nimmt ein `<syntax>` als Argument an, das angibt, in welchen Datentyp der Wert geparst werden soll.
         > [!NOTE]
         > Aus [Sicherheitsgründen](#einschränkungen_und_sicherheit) ist {{CSSxRef("url_value", "&lt;url&gt;")}} nicht als `attr()`-Datentyp erlaubt.
 
     - `<attr-unit>`
-
       - : Der `<attr-unit>`-Bezeichner gibt die Einheit an, die ein numerischer Wert haben soll (falls vorhanden). Dies kann das `%`-Zeichen (Prozentsatz) oder eine [CSS-Abstandseinheit](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#distance_units) wie `px`, `rem`, `deg`, `s` usw. sein.
 
         ```css

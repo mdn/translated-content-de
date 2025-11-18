@@ -34,7 +34,6 @@ scrollbar-color: unset;
 ### Werte
 
 - `<scrollbar-color>`
-
   - : Definiert die Farbe der Scrollleiste.
 
     <table class="standard-table">

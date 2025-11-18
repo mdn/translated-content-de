@@ -21,7 +21,6 @@ Der `<text-edge>` Datentyp besteht aus einem oder zwei Schlüsselwörtern, die s
 #### Einzelne Schlüsselwortwerte
 
 - `text`
-
   - : Die oberen und unteren Kanten des Schriftsatzes sind seine Textoberlinie/Textunterlinie: Dies schließt die An- und Abstriche des Schriftsatzes ein, schließt jedoch das {{Glossary("Leading", "Halblattlinie")}}, das auf den Text gesetzt wird, aus.
 
     > [!NOTE]

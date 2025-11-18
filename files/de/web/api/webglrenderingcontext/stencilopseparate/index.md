@@ -20,7 +20,6 @@ stencilOpSeparate(face, fail, zfail, zpass)
 ### Parameter
 
 - `face`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob der Stencil-Zustand der Vorder- und/oder Rückseite
     aktualisiert wird. Die möglichen Werte sind:
     - `gl.FRONT`

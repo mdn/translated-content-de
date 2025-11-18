@@ -22,7 +22,6 @@ bufferData(target, srcData, usage, srcOffset, length)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
     - `gl.ARRAY_BUFFER`
       - : Puffer, der Vertex-Attribute enthält, wie z. B.
@@ -47,7 +46,6 @@ bufferData(target, srcData, usage, srcOffset, length)
 - `srcData` {{optional_inline}}
   - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das ein {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} ansieht, das in den Datenspeicher kopiert wird. Wenn `null`, wird trotzdem ein Datenspeicher erstellt, dessen Inhalt jedoch nicht initialisiert und undefiniert ist. Eines von `size` und `srcData` muss angegeben werden.
 - `usage`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das für die beabsichtigte Nutzungsmuster des Datenspeichers zur Optimierung angegeben wird. Mögliche Werte:
     - `gl.STATIC_DRAW`
       - : Der Inhalt soll einmal von der Anwendung spezifiziert werden und wird mehrmals als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet.

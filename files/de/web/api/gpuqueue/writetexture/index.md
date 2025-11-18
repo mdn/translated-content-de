@@ -21,13 +21,9 @@ writeTexture(destination, data, dataLayout, size)
 ### Parameter
 
 - `destination`
-
   - : Ein Objekt, das die Textur-Subresource und den Ursprung definiert, um die Datenquelle zu schreiben. Es kann folgende Eigenschaften enthalten:
-
     - `aspect` {{optional_inline}}
-
       - : Ein enumerierter Wert, der definiert, welche Aspekte der Textur die Daten geschrieben werden sollen. Mögliche Werte sind:
-
         - `"all"`
           - : Alle verfügbaren Aspekte des Texturformats werden beschrieben, was je nach Formattyp Farbe, Tiefe und Stencil umfassen kann.
         - `"depth-only"`
@@ -40,7 +36,6 @@ writeTexture(destination, data, dataLayout, size)
     - `mipLevel` {{optional_inline}}
       - : Eine Zahl, die das Mip-Map-Level der Textur angibt, zu dem die Daten geschrieben werden sollen. Wenn weggelassen, ist der Standardwert für `mipLevel` 0.
     - `origin` {{optional_inline}}
-
       - : Ein Objekt oder Array, das den Ursprung der Kopie spezifiziert — die minimale Ecke der Texturregion, zu der die Daten geschrieben werden sollen. Zusammen mit `size` definiert dies den vollständigen Bereich der zu kopierenden Region. Die `x`, `y` und `z` Werte haben den Standardwert 0, falls `origin` teilweise oder vollständig weggelassen wird.
 
         Zum Beispiel können Sie ein Array wie `[0, 0, 0]` oder das entsprechende Objekt `{ x: 0, y: 0, z: 0 }` übergeben.

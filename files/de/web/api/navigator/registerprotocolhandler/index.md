@@ -27,17 +27,14 @@ registerProtocolHandler(scheme, url)
 ### Parameter
 
 - `scheme`
-
   - : Ein String, der das Schema für das Protokoll enthält, das die Seite bearbeiten möchte.
 
     Dies kann ein benutzerdefiniertes Schema sein, in diesem Fall:
-
     - Beginnt es mit `web+`
     - Enthält mindestens einen Buchstaben nach dem `web+` Präfix
     - Enthält nur Kleinbuchstaben des {{Glossary("ASCII", "ASCII")}} Zeichensatzes.
 
     Andernfalls muss das Schema eines der folgenden sein:
-
     - `bitcoin`
     - `ftp`
     - `ftps`
@@ -66,7 +63,6 @@ registerProtocolHandler(scheme, url)
     <!-- Dies muss übereinstimmen: https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme -->
 
 - `url`
-
   - : Ein String, der die URL des Handlers enthält.
     Diese URL muss `%s` enthalten, als Platzhalter, der durch die [escapte](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) URL ersetzt wird, die behandelt werden soll.
 
@@ -79,7 +75,6 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Der Benutzeragent hat die Registrierung blockiert.
     Dies könnte passieren, wenn:
     - Das registrierte Schema (Protokoll) ungültig ist, zum Beispiel ein Schema, das der Browser selbst verarbeitet (`https:`, `about:`, etc.)

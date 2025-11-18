@@ -178,7 +178,6 @@ document.querySelector("#reload").addEventListener("click", () => {
 - Zuerst erstellen wir den Worker mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor. Wir übergeben ihm eine URL, die auf das Worker-Skript zeigt. Sobald der Worker erstellt ist, wird das Worker-Skript ausgeführt.
 
 - Als nächstes fügen wir, wie in der synchronen Version, einen `click`-Ereignishandler zum "Generate primes"-Button hinzu. Aber jetzt senden wir eine Nachricht an den Worker, anstatt eine `generatePrimes()`-Funktion aufzurufen, indem wir [`worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) verwenden. Diese Nachricht kann ein Argument annehmen, und in diesem Fall übergeben wir ein JSON-Objekt mit zwei Eigenschaften:
-
   - `command`: ein String, der das kennzeichnet, was wir den Worker tun lassen wollen (falls unser Worker mehr als eine Sache tun könnte)
   - `quota`: die Anzahl der zu generierenden Primzahlen.
 

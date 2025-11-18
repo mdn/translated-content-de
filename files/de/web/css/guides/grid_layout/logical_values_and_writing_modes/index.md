@@ -78,7 +78,7 @@ Dies ist eine grundlegende Demonstration der Probleme, die auftreten können, we
 
 ## Block und Inline
 
-Wenn logische anstatt physische Eigenschaften verwendet werden, sehen wir die Welt nicht mehr als von links nach rechts und von oben nach unten. Wir haben einen anderen Bezugspunkt. Hierbei ist es sehr nützlich, die _Block-_ und _Inline-_Achse zu verstehen, die im [Grid-Ausrichtungsleitfaden](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment) eingeführt wurden. Wenn Sie das Layout in Bezug auf Block und Inline betrachten, macht die Funktionsweise im CSS-Grid-Layout viel Sinn.
+Wenn logische anstatt physische Eigenschaften verwendet werden, sehen wir die Welt nicht mehr als von links nach rechts und von oben nach unten. Wir haben einen anderen Bezugspunkt. Hierbei ist es sehr nützlich, die _Block-_ und \_Inline-\_Achse zu verstehen, die im [Grid-Ausrichtungsleitfaden](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment) eingeführt wurden. Wenn Sie das Layout in Bezug auf Block und Inline betrachten, macht die Funktionsweise im CSS-Grid-Layout viel Sinn.
 
 ![Ein Bild, das die Standardrichtung der Block- und Inline-Achsen zeigt.](8-horizontal-tb.png)
 
@@ -183,7 +183,7 @@ In diesem Beispiel hat das Grid drei Spalten- und zwei Zeilentracks. Das bedeute
 
 ### Schreibmodus einstellen
 
-Wenn wir `writing-mode: vertical-lr` dem Grid-Container im vorherigen Beispiel hinzufügen, können wir sehen, dass die Block- und Inline-Achsen nun in eine andere Richtung verlaufen. Die Block- oder _Spalten-_Achse verläuft nun über die Seite von links nach rechts, während die Inline-Achse nach unten verläuft und Zeilen von oben nach unten erstellt.
+Wenn wir `writing-mode: vertical-lr` dem Grid-Container im vorherigen Beispiel hinzufügen, können wir sehen, dass die Block- und Inline-Achsen nun in eine andere Richtung verlaufen. Die Block- oder \_Spalten-\_Achse verläuft nun über die Seite von links nach rechts, während die Inline-Achse nach unten verläuft und Zeilen von oben nach unten erstellt.
 
 ```css hidden
 * {

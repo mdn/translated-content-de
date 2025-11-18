@@ -103,35 +103,27 @@ font-variant: unset;
 ### Werte
 
 - `normal`
-
   - : Gibt eine normale Schriftart an. Jede detaillierte Eigenschaft hat einen Anfangswert von `normal`.
 
 - `none`
-
   - : Setzt den Wert der [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures) als `none` und die Werte der anderen detaillierten Eigenschaften als `normal`, ihren Anfangswert.
 
 - `<common-lig-values>`, `<discretionary-lig-values>`, `<historical-lig-values>`, `<contextual-alt-values>`
-
   - : Gibt die Schlüsselwörter an, die sich auf die detaillierte Eigenschaft [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures) beziehen. Die möglichen Werte sind `common-ligatures`, `no-common-ligatures`, `discretionary-ligatures`, `no-discretionary-ligatures`, `historical-ligatures`, `no-historical-ligatures`, `contextual`, und `no-contextual`.
 
 - `stylistic()`, `historical-forms`, `styleset()`, `character-variant()`, `swash()`, `ornaments()`, `annotation()`
-
   - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die detaillierte Eigenschaft [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures) beziehen.
 
 - `small-caps`, `all-small-caps`, `petite-caps`, `all-petite-caps`, `unicase`, `titling-caps`
-
   - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die detaillierte Eigenschaft [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps) beziehen. Der Wert `small-caps` ist die einzige nicht-`normal` Schriftvariante, die innerhalb der {{cssxref("font")}} Kurzschreibweise gültig ist.
 
 - `<numeric-figure-values>`, `<numeric-spacing-values>`, `<numeric-fraction-values>`, `ordinal`, `slashed-zero`
-
   - : Gibt die Schlüsselwörter an, die sich auf die detaillierte Eigenschaft [`font-variant-numeric`](/de/docs/Web/CSS/Reference/Properties/font-variant-numeric) beziehen. Die möglichen Werte sind `lining-nums`, `oldstyle-nums`, `proportional-nums`, `tabular-nums`, `diagonal-fractions`, `stacked-fractions`, `ordinal`, und `slashed-zero`.
 
 - `<east-asian-variant-values>`, `<east-asian-width-values>`, `ruby`
-
   - : Gibt die Schlüsselwörter an, die sich auf die detaillierte Eigenschaft [`font-variant-east-asian`](/de/docs/Web/CSS/Reference/Properties/font-variant-east-asian) beziehen. Die möglichen Werte sind `jis78`, `jis83`, `jis90`, `jis04`, `simplified`, `traditional`, `full-width`, `proportional-width`, und `ruby`.
 
 - `sub`, `super`
-
   - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die detaillierte Eigenschaft [`font-variant-position`](/de/docs/Web/CSS/Reference/Properties/font-variant-position) beziehen.
 
 - `text`, `emoji`, `unicode`

@@ -48,31 +48,24 @@ alignment-baseline: unset;
 ### Werte
 
 - `baseline`
-
   - : Verwende den {{cssxref("dominant-baseline")}} Wert des Elternteils.
 
 - `alphabetic`
-
   - : Wird beim Schreiben in lateinischen, kyrillischen, griechischen und vielen anderen Schriftsystemen verwendet; passt die alphabetische Grundlinie der Box an die des Elternteils an, entsprechend dem unteren Bereich der meisten, aber nicht aller Zeichen.
 
 - `central`
-
   - : Passt die zentrale Grundlinie der Box an die zentrale Grundlinie ihres Elternteils an, entsprechend der ideografischen zentralen Grundlinie, auf halbem Weg zwischen den ideografisch-unteren und ideografisch-obereren Grundlinien.
 
 - `ideographic`
-
   - : Passt die ideografische Zeichenflächenunterkanten-Grundlinie der Box an die des Elternteils an, wobei die abgeleitete Grundlinientabelle unter Verwendung der ideografischen Grundlinientabelle in der Schriftart konstruiert wird.
 
 - `mathematical`
-
   - : Passt die mathematische Grundlinie der Box an die ihres Elternteils an, entsprechend der zentralen Grundlinie, um die mathematische Zeichen entworfen sind.
 
 - `middle`
-
   - : Richtet den vertikalen Mittelpunkt der Box mit der Grundlinie der Elternbox plus der halben x-Höhe des Elternteils aus. Verwendet die x-middle Grundlinien; außer unter [`text-orientation: upright;`](/de/docs/Web/CSS/Reference/Properties/text-orientation) (wo die alphabetische und x-Höhen-Grundlinien im Wesentlichen bedeutungslos sind), in diesem Fall wird stattdessen die `central` Grundlinie verwendet.
 
 - `text-bottom`
-
   - : Passt die Unterkante der Box an die Oberkante des Inhaltsbereichs des Elternteils an, unter Verwendung der Kante unter einer Inline-Inhaltsbox.
 
 - `text-top`

@@ -86,11 +86,9 @@ Die Eigenschaft `caret` wird als ein, zwei oder drei Werte aus den zugehörigen 
 ### Werte
 
 - {{cssxref("caret-color")}}
-
   - : Legt die Farbe des Carets fest.
 
 - {{cssxref("caret-animation")}}
-
   - : Steuert, ob das Caret blinkt.
 
 - {{cssxref("caret-shape")}}

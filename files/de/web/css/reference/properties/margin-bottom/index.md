@@ -89,7 +89,6 @@ Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Die Größe des Randes als fester Wert.
     - Bei _ankerpositionierten Elementen_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Element-Rand basierend auf Ankergröße setzen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 

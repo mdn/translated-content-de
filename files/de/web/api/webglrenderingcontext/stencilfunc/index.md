@@ -21,7 +21,6 @@ stencilFunc(func, ref, mask)
 ### Parameter
 
 - `func`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Testfunktion angibt. Die Standardfunktion ist
     `gl.ALWAYS`. Die möglichen Werte sind:
     - `gl.NEVER`: Niemals bestehen.

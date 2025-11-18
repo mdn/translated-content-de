@@ -120,19 +120,14 @@ offset-path: unset;
 Die `offset-path`-Eigenschaft nimmt als Wert einen `<offset-path>` Wert, einen [`<coord-box>`](/de/docs/Web/CSS/Reference/Values/box-edge#values) Wert oder beides, oder das Schlüsselwort `none` an. Der `<offset-path>` Wert ist eine {{cssxref("ray","ray()")}} Funktion, ein {{cssxref("url_value", "&lt;url&gt;")}} Wert oder ein [`<basic-shape>`](/de/docs/Web/CSS/Reference/Values/basic-shape) Wert.
 
 - `none`
-
   - : Gibt an, dass das Element keinem Offset-Pfad folgt. Der `none` Wert entspricht dem Fall, dass das Element keine [Offset-Transformation](/de/docs/Web/CSS/Reference/Properties/offset) hat. Die Bewegung des Elements wird in diesem Fall durch seine Standardpositions-Eigenschaften, wie {{cssxref("top")}} und {{cssxref("left")}}, statt durch einen Offset-Pfad bestimmt. Dies ist der Standardwert.
 
 - `<offset-path>`
-
   - : Eine `ray()` Funktion, ein `<url>` Wert oder ein `<basic-shape>` Wert, der den geometrischen Offset-Pfad angibt. Falls nicht angegeben, ist die Pfadform des `<coord-box>` Werts `inset(0 round X)`, wobei `X` der Wert von {{cssxref("border-radius")}} des Elements ist, das den [Enthaltenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) festlegt.
-
     - {{cssxref("ray","ray()")}}
-
       - : Definiert eine Linie, die von einer festgelegten Position aus startet, eine festgelegte Länge hat und in einem bestimmten Winkel verläuft. Die Funktion `ray()` akzeptiert bis zu vier Parameter – einen {{CSSxRef("angle")}}, einen optionalen Größenwert, das optionale Schlüsselwort `contain` und einen optionalen `at <position>`.
 
     - {{cssxref("url_value", "&lt;url&gt;")}}
-
       - : Gibt die ID eines [SVG-Formelements](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes) an. Der Pfad ist die Form des SVG-{{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}} oder {{SVGElement("rect")}} Elements, auf das mit seiner `id` in der `url()` Funktion verwiesen wird. Wenn die URL kein Formelement referenziert oder ungültig ist, wird der aufgelöste Wert für den Offset-Pfad `path("M0,0")` (was ein gültiger `<basic-shape>` Wert ist).
 
     - {{cssxref("basic-shape")}}

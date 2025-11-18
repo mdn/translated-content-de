@@ -48,19 +48,15 @@ mask-size: unset;
 Die `mask-size` Eigenschaft akzeptiert eine durch Kommas getrennte Liste von `<bg-size>` Werten. Ein `<bg-size>` Wert ist entweder `cover`, `contain`, ein Paar von Werten, das die Breite und Höhe angibt (in dieser Reihenfolge), oder ein einzelner Wert, der die Breite angibt (in diesem Fall wird die Höhe auf `auto` gesetzt). Werte beinhalten:
 
 - `contain`
-
   - : Skaliert das Maskenbild hoch oder runter, wobei das Seitenverhältnis beibehalten wird, sodass die Maske so groß wie möglich innerhalb ihres Containers ist, ohne sie zu beschneiden oder zu strecken. Wenn das Maskenbild kleiner als der Container ist, wird die Maske gekachelt oder wiederholt, es sei denn, die Eigenschaft {{cssxref("mask-repeat")}} ist auf `no-repeat` gesetzt.
 
 - `cover`
-
   - : Skaliert das Maskenbild auf die kleinstmögliche Größe, um den Container auszufüllen, während das Seitenverhältnis beibehalten wird. Wenn das Seitenverhältnis des Maskenbildes vom Element abweicht, wird es vertikal oder horizontal beschnitten.
 
 - `auto`
-
   - : Bewahrt das ursprüngliche Seitenverhältnis des Maskenquellbildes. Wenn sowohl die Breite als auch die Höhe eingestellt sind, wird die ursprüngliche Größe der Maskenressource verwendet. Andernfalls skaliert `auto` das Maskenbild in der entsprechenden Richtung, sodass das ursprüngliche Seitenverhältnis beibehalten wird.
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Rendert das Maskenbild in der angegebenen Länge in der entsprechenden Dimension (Breite, wenn als erster oder einziger Wert gesetzt, Höhe, wenn als zweiter Wert gesetzt). Negative Werte sind nicht erlaubt.
 
 - {{cssxref("&lt;percentage&gt;")}}

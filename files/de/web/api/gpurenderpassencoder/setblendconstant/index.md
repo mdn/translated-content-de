@@ -20,7 +20,6 @@ setBlendConstant(color)
 ### Parameter
 
 - `color`
-
   - : Ein Objekt oder Array, das die beim Mischen verwendete Farbe darstellt — die Komponenten `r`, `g`, `b` und `a` werden als Gleitkommazahlen zwischen 0.0 und 1.0 dargestellt.
 
     Nachfolgend ein Beispiel für ein Objekt:

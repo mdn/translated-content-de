@@ -14,9 +14,7 @@ Das `records`-Argument, das an die Rückruffunktion des Konstruktors [`FileSyste
 ## Instanz-Eigenschaften
 
 - `changedHandle`
-
   - : Eine Referenz auf den Dateisystem-Handle, bei dem die Änderung beobachtet wurde.
-
     - Für das für Benutzer sichtbare Dateisystem kann dies ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) sein.
     - Für das [Origin Private File System](/de/docs/Web/API/File_System_API/Origin_private_file_system) (OPFS) kann es ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle), ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) oder ein [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) sein.
 

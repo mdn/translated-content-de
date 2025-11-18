@@ -46,9 +46,7 @@ Wenn Sie mehrere `<style>`- und `<link>`-Elemente in Ihrem Dokument einfügen, w
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `blocking`
-
   - : Dieses Attribut gibt explizit an, dass bestimmte Operationen beim Abrufen kritischer Subressourcen und der Anwendung des Stylesheets auf das Dokument blockiert werden sollten. [`@import`](/de/docs/Web/CSS/Reference/At-rules/@import)-Stylesheets werden im Allgemeinen als kritische Subressourcen betrachtet, während [`background-image`](/de/docs/Web/CSS/Reference/Properties/background-image) und Fonts dies nicht sind. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste der unten aufgeführten Blocking-Tokens sein. Derzeit gibt es nur ein Token:
-
     - `render`: Das Rendering des Inhalts auf dem Bildschirm wird blockiert.
 
     > [!NOTE]

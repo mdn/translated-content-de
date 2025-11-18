@@ -34,27 +34,21 @@ Wenn die listbox-Rolle einem Element hinzugefügt wird oder ein solches Element 
 - [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-activedescendant)
   - : Enthält den `id`-String des aktuell aktiven Elements innerhalb der Listbox. Wenn es sich um ein Optionselement handelt, dann wäre das die `id` der zuletzt interagierten Option, unabhängig davon, ob diese Option einen [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Wert von `true` hat oder nicht. Nimmt den Wert von nur einer `id`, selbst in einer Listbox mit mehreren Auswahlmöglichkeiten. Wenn die `id` nicht auf einen DOM-Nachkommen der Listbox verweist, muss diese `id` unter den IDs im [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) Attribut enthalten sein.
 - [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)
-
   - : Dies ist eine leerzeichengetrennte Liste von Element-IDs, die keine DOM-Kindelemente der Listbox sind. IDs, die hier aufgelistet sind, können auch nicht in [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns) Attributen anderer Elemente aufgelistet sein.
 
 - [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-multiselectable)
-
   - : Fügen Sie ein und setzen Sie auf `true`, wenn der Benutzer mehr als eine Option auswählen kann. Wenn auf `true` gesetzt, sollte _jede_ auswählbare Option ein [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Attribut enthalten und auf `true` oder `false` gesetzt sein. Optionen, die _nicht_ auswählbar sind, _sollten nicht_ das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Attribut haben. Wenn `false` oder weggelassen, benötigt nur die aktuell ausgewählte Option, falls eine Option ausgewählt ist, das [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) Attribut, und es muss auf `true` gesetzt sein.
 
 - [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)
-
   - : Ein boolesches Attribut, das anzeigt, dass eine Option mit einem nicht leeren Stringwert ausgewählt werden muss.
 
 - [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)
-
   - : Der Benutzer kann nicht ändern, welche Optionen ausgewählt oder nicht ausgewählt sind, aber die Listbox ist ansonsten bedienbar.
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-
   - : Ein menschenlesbarer Stringwert, der die Listbox identifiziert. Wenn es ein sichtbares Label gibt, sollte stattdessen [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) verwendet werden, um auf dieses Label zu verweisen.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-
   - : Identifiziert das sichtbare Element oder die sichtbaren Elemente in einer leerzeichengetrennten Liste von Element-IDs, die die Listbox identifizieren. Wenn es kein sichtbares Label gibt, sollte stattdessen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) verwendet werden, um ein Label einzuschließen. (Hinweis: "labelled" mit zwei L ist die korrekte Schreibweise gemäß den Konventionen der Zugänglichkeits-API.)
 
 - [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)
@@ -63,12 +57,10 @@ Wenn die listbox-Rolle einem Element hinzugefügt wird oder ein solches Element 
 ### Tastaturinteraktionen
 
 - Wenn eine Einzelauswahl-Listbox den Fokus erhält:
-
   - Wenn keine der Optionen vor dem Empfang des Fokus ausgewählt war, erhält die erste Option den Fokus. Optional kann die erste Option automatisch ausgewählt werden.
   - Wenn eine Option vor dem Empfang des Fokus ausgewählt ist, wird der Fokus auf die ausgewählte Option gesetzt.
 
 - Wenn eine Mehrfachauswahl-Listbox den Fokus erhält:
-
   - Wenn keine der Optionen vor dem Empfang des Fokus ausgewählt war, wird der Fokus auf die erste Option gesetzt und es erfolgt keine automatische Änderung im Auswahlzustand.
   - Wenn eine oder mehrere Optionen vor dem Empfang des Fokus ausgewählt sind, wird der Fokus auf die erste ausgewählte Option gesetzt.
 
@@ -89,7 +81,6 @@ Wenn die listbox-Rolle einem Element hinzugefügt wird oder ein solches Element 
   (Optional): Bewegt den Fokus zur letzten Option. Optional kann in einer Einzelauswahl-Listbox die Auswahl auch mit dem Fokus bewegt werden. Die Unterstützung dieser Taste wird für Listen mit mehr als fünf Optionen stark empfohlen.
 
 - Typen vorwärts ist für alle Listboxen empfohlen, insbesondere für solche mit mehr als sieben Optionen:
-
   - Ein Zeichen eingeben: Der Fokus bewegt sich zum nächsten Element, dessen Name mit dem eingegebenen Zeichen beginnt.
   - Mehrere Zeichen schnell hintereinander eingeben: Der Fokus bewegt sich zum nächsten Element, dessen Name mit der eingegebenen Zeichenfolge beginnt.
 

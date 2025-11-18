@@ -109,7 +109,6 @@ align-content: unset;
 - `flex-end`
   - : Die Objekte werden bündig zueinander gegen den Rand des Ausrichtungskontainers entsprechend der Cross-End-Seite des Flex-Containers gepackt. Dies gilt nur für Objekte im Flex-Layout. Für Objekte, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
 - `baseline`, `first baseline`, `last baseline`
-
   - : Spezifiziert die Teilnahme an der Ausrichtung der ersten oder letzten Basislinie: richtet die Ausrichtungsbasislinie der ersten oder letzten Basislinieneinstellung der Box mit der entsprechenden Basislinie in der gemeinsamen ersten oder letzten Basislinieneinstellung aller Boxen in ihrer Basislinien-Gruppe aus.
 
     ![Die Basislinie ist die Linie, auf der die meisten Buchstaben "sitzen" und unter der sich die Unterlängen erstrecken.](410px-typography_line_terms.svg.png)

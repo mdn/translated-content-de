@@ -20,31 +20,24 @@ Die Schriftgröße-Schlüsselwörter sind dem veralteten HTML-Attribut `size` zu
 Der `<absolute-size>` Datentyp wird durch einen Schlüsselwortwert definiert, der aus der folgenden Liste ausgewählt wird.
 
 - `xx-small`
-
   - : Eine absolute Größe, die 60% der Größe von `medium` entspricht. Zugeordnet zum veralteten `size="1"`.
 
 - `x-small`
-
   - : Eine absolute Größe, die 75% der Größe von `medium` entspricht.
 
 - `small`
-
   - : Eine absolute Größe, die 89% der Größe von `medium` entspricht. Zugeordnet zum veralteten `size="2"`.
 
 - `medium`
-
   - : Die bevorzugte Schriftgröße des Nutzers. Dieser Wert wird als Referenzmittelwert verwendet. Zugeordnet zu `size="3"`.
 
 - `large`
-
   - : Eine absolute Größe, die 20% größer als `medium` ist. Zugeordnet zum veralteten `size="4"`.
 
 - `x-large`
-
   - : Eine absolute Größe, die 50% größer als `medium` ist. Zugeordnet zum veralteten `size="5"`.
 
 - `xx-large`
-
   - : Eine absolute Größe, die doppelt so groß wie `medium` ist. Zugeordnet zum veralteten `size="6"`.
 
 - `xxx-large`

@@ -38,7 +38,6 @@ Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Referenzpunk
 </table>
 
 - `<length-percentage>`
-
   - : Längen werden im Koordinatensystem des Marker-Inhalts interpretiert, nachdem die Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} angewendet wurden.
 
     Prozentwerte werden als Prozentsatz der Breite der {{SVGAttr("viewBox")}} interpretiert.
@@ -82,7 +81,6 @@ Anders als bei anderen Positionierungsattributen wird `refX` im Koordinatensyste
 </table>
 
 - `<length-percentage>`
-
   - : Längen werden im Koordinatensystem des Marker-Inhalts interpretiert, nachdem die Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} angewendet wurden.
 
     Prozentwerte werden als Prozentsatz der Breite der {{SVGAttr("viewBox")}} interpretiert.

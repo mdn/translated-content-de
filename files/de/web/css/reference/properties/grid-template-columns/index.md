@@ -103,7 +103,6 @@ grid-template-columns: unset;
   - : Ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert, der sich auf die Inline-Größe des Grid-Containers bezieht. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, behandelt der Browser den Prozentsatz als `auto`.
     Der Browser kann die intrinsischen Größenbeiträge des Tracks zur Größe des Grid-Containers anpassen und die endgültige Größe des Tracks um den Mindestbetrag erhöhen, der erforderlich ist, um dem Prozentsatz gerecht zu werden.
 - {{cssxref("&lt;flex&gt;")}}
-
   - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks spezifiziert. Jeder `<flex>`-Track nimmt einen Anteil des verbleibenden Raums proportional zu seinem Flex-Faktor ein.
 
     Wenn er außerhalb einer `minmax()`-Notation erscheint, impliziert er ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
@@ -115,7 +114,6 @@ grid-template-columns: unset;
 - {{cssxref("minmax", "minmax(min, max)")}}
   - : Ist eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion behandelt es als _min_. Als Maximum legt ein `<flex>`-Wert den Flex-Faktor des Tracks fest. Er ist als Minimum ungültig.
 - `auto`
-
   - : Als Maximalwert repräsentiert er die größte {{cssxref("max-content")}}-Größe der Elemente in diesem Track.
 
     Als Minimalwert repräsentiert er die größte Mindestgröße der Elemente in diesem Track (spezifiziert durch die Eigenschaften {{cssxref("min-width")}}/{{cssxref("min-height")}} der Elemente). Dies entspricht oft der {{cssxref("min-content")}}-Größe, aber nicht immer.

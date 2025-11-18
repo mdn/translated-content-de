@@ -81,7 +81,6 @@ hsl(H S L[ / A])
 Die Parameter sind wie folgt:
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (in diesem Fall äquivalent zu `0deg`), das den Hue-Winkel der Farbe darstellt.
 
     > [!NOTE]

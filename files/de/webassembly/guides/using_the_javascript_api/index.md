@@ -227,7 +227,6 @@ const global = new WebAssembly.Global({ value: "i32", mutable: true }, 0);
 Sie sehen, dass dies zwei Parameter akzeptiert:
 
 - Ein Objekt, das zwei Eigenschaften enthält, die die globale Variable beschreiben:
-
   - `value`: sein Datentyp, der jeder Datentyp sein kann, der innerhalb von WebAssembly-Modulen akzeptiert wird — `i32`, `i64`, `f32` oder `f64`.
   - `mutable`: ein Boolean-Wert, der definiert, ob der Wert veränderlich ist oder nicht.
 

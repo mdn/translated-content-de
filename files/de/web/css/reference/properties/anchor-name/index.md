@@ -28,7 +28,6 @@ anchor-name: unset;
 ### Werte
 
 - `none`
-
   - : Der Standardwert. Wenn `anchor-name: none` auf ein Element gesetzt ist, bedeutet dies, dass es nicht als Ankerelement definiert ist. Wenn das Element zuvor als Anker definiert war und mit einem positionierten Element verknüpft war, trennt `anchor-name: none` die beiden Elemente.
 
 - {{cssxref("dashed-ident")}}

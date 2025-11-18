@@ -110,12 +110,10 @@ Wenn `font` als Systemschlüsselwort angegeben wird, muss es eines der folgenden
 Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wird, dann:
 
 - muss es Werte enthalten für:
-
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
 - kann es optional Werte enthalten für:
-
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
   - {{cssxref("&lt;font-weight&gt;")}}

@@ -112,7 +112,6 @@ grid-area: unset;
 - `auto`
   - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Rasterelements beiträgt, was auf eine automatische Platzierung oder eine Standardspanne von `1` hinweist.
 - `<custom-ident>`
-
   - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start` oder `<custom-ident>-end` gibt, trägt sie die erste derartige Linie zur Platzierung des Rasterelements bei.
 
     > [!NOTE]
@@ -121,7 +120,6 @@ grid-area: unset;
     Andernfalls wird dies behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
-
   - : Trägt die n-te Rasterlinie zur Platzierung des Rasterelements bei. Wenn eine negative Ganzzahl angegeben wird, zählt sie stattdessen rückwärts, beginnend vom Endrand des expliziten Rasters.
 
     Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird davon ausgegangen, dass alle impliziten Rasterlinien für diesen Zweck diesen Namen haben.
@@ -129,7 +127,6 @@ grid-area: unset;
     Ein {{cssxref("&lt;integer&gt;")}} Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-
   - : Trägt eine Rasterspanne zur Platzierung des Rasterelements bei, so dass der entsprechende Rand des Rasterbereichs des Elements _n_ Linien vom gegenüberliegenden Rand entfernt ist.
 
     Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird davon ausgegangen, dass alle impliziten Rasterlinien auf der Seite des expliziten Rasters, das der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.

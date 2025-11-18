@@ -27,7 +27,6 @@ Keine.
 Ein {{jsxref("Promise")}}, der zu einem Objekt mit den folgenden Eigenschaften aufgelöst wird:
 
 - `outcome` {{experimental_inline}} {{non-standard_inline}}
-
   - : Ein String, der angibt, ob der Benutzer sich entschieden hat, die App zu installieren oder nicht. Er muss einen der folgenden Werte haben:
     - `"accepted"`: Der Benutzer hat die App installiert.
     - `"dismissed"`: Der Benutzer hat die App nicht installiert.

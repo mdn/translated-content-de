@@ -23,7 +23,6 @@ Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang u
 - **rpIdHash** (32 Bytes)
   - : Der SHA-256 Hash der [Relying Party ID](https://w3c.github.io/webauthn/#relying-party-identifier), auf die die Anmeldeinformationen bezogen sind. Der Server stellt sicher, dass dieser Hash mit dem SHA256-Hash seiner eigenen Relying Party ID übereinstimmt, um Phishing oder andere Man-in-the-Middle-Angriffe zu verhindern.
 - **flags** (1 Byte)
-
   - : Ein Bitfeld, das verschiedene Attribute angibt, die vom Authenticator bestätigt wurden. Die Bits sind wie folgt, wobei Bit 0 das am wenigsten signifikante Bit ist und alle nicht unten genannten Bits "für zukünftige Verwendung reserviert" sind:
     - Bit 0, Benutzerpräsenz (UP): Wenn gesetzt (d.h. auf `1`), hat der Authenticator bestätigt, dass der Benutzer durch einen Test der Benutzerpräsenz (TUP), zum Beispiel durch Berühren eines Knopfes auf dem Authenticator, anwesend war.
     - Bit 2, Benutzerüberprüfung (UV): Wenn gesetzt, hat der Authenticator den tatsächlichen Benutzer durch biometrische Identifikation, PIN oder andere Methode überprüft.
@@ -35,9 +34,7 @@ Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang u
 - **signCount** (4 Bytes)
   - : Ein Signaturzähler, wenn vom Authenticator unterstützt (anders auf 0 gesetzt). Server können diesen Zähler optional verwenden, um die Klonung des Authenticators zu erkennen.
 - **attestedCredentialData** (variable Länge)
-
   - : Die Anmeldeinformationen, die erstellt wurden. Diese sind nur bei einem [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) Aufruf vorhanden. Dies ist eine Byte-Sequenz mit dem folgenden Format:
-
     - **AAGUID** (16 Bytes): Der Authenticator Attestation Globally Unique Identifier, eine eindeutige Nummer, die das Modell des Authenticators identifiziert (nicht die spezifische Instanz des Authenticators). Eine vertrauende Partei kann diese verwenden, um anhand der FIDO-Metadaten-Dienst die Eigenschaften des Authenticators zu ermitteln. Dies ist in bestimmten Situationen relevant, wie zum Beispiel bei Unternehmensbereitstellungen oder wenn gesetzliche Anforderungen die Verwendung eines bestimmten Authentifikatortyps vorschreiben; ansonsten sollte es ignoriert werden.
 
     - **_credentialIdLength_** (2 Bytes): Die Länge der Anmelde-ID, die diesen Bytes unmittelbar folgt.
@@ -45,7 +42,6 @@ Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang u
     - **credentialPublicKey** (variable Länge): Ein [COSE](https://datatracker.ietf.org/doc/html/rfc8152)-codierter öffentlicher Schlüssel. Dieser öffentliche Schlüssel wird auf dem Server im Zusammenhang mit dem Konto eines Benutzers gespeichert und für zukünftige Authentifizierungen verwendet. Die vertrauende Parteien können die DER-codierte Form davon abrufen, ohne die COSE-codierten Authenticator-Daten zu analysieren, über die [`AuthenticatorAttestationResponse.getPublicKey()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getPublicKey) Methode.
 
 - **extensions** (variable Länge)
-
   - : Eine optionale [CBOR](https://datatracker.ietf.org/doc/html/rfc7049) Karte, die die Antwortausgaben von Erweiterungen enthält, die vom Authenticator verarbeitet wurden.
 
     Erweiterungen sind optional, und unterschiedliche Browser können unterschiedliche Erweiterungen erkennen. Die Verarbeitung von Erweiterungen ist für den Browser stets optional: Wenn ein Browser eine bestimmte Erweiterung nicht erkennt, wird sie einfach ignoriert. Informationen zur Verwendung von Erweiterungen und welche von welchen Browsern unterstützt werden, finden Sie unter [Web Authentication extensions](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).

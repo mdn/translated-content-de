@@ -20,7 +20,6 @@ generateKeyFrame(rid)
 ### Parameter
 
 - `rid` {{optional_inline}}
-
   - : Ein String, der die "Einschränkungskennung" ("RID") des Streams/Encoders enthält, der das neue Schlüsselbild erzeugen muss.
 
     Der Wert muss zwischen 1 und 255 Zeichen lang sein (einschließlich) und darf nur alphanumerische Zeichen, Unterstrich und Bindestrich (`A-Z`, `a-z`, `0-9`, `-`, `_`) enthalten.

@@ -20,7 +20,6 @@ new ReportingObserver(callback, options)
 ### Parameter
 
 - `callback`
-
   - : Eine Callback-Funktion, die ausgeführt wird, wenn der Observer beginnt, Berichte zu sammeln (d.h. über
     [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)). Der Callback-Funktion werden zwei
     Parameter übergeben:

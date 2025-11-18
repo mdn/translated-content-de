@@ -24,19 +24,15 @@ Die Box-Edge-Schlüsselwörter sind Bestandteile, aber nicht beschränkt auf, di
 Ein `<box-edge>` kann vom Typ `<visual-box>`, `<layout-box>`, `<paint-box>`, `<coord-box>` oder `<geometry-box>` sein.
 
 - `<visual-box>`
-
   - : Bezieht sich auf das rechteckige Box-Modell, das für ein Element erzeugt wird, wie es von einem Benutzer auf einer Webseite gesehen wird. Es umfasst den Inhalt des Elements, den Innenabstand (Padding) und den Rahmen (Border). Auch als `<box>` bezeichnet, schließt dieser Wert den Randbereich (Margin) aus. Dieser Wert wird für die Eigenschaften {{cssxref("background-clip")}} und {{cssxref("overflow-clip-margin")}} verwendet.
 
 - `<layout-box>`
-
   - : Bezieht sich auf den Raum, den ein Element einnimmt, einschließlich seines Inhalts, Innenabstands, Rahmens und Randes. Dieser Wert wird für Layout- und Positionierungszwecke verwendet. Auch als `<shape-box>` bezeichnet, wird dieser Wert für die Eigenschaft {{cssxref("shape-outside")}} verwendet.
 
 - `<paint-box>`
-
   - : Bezieht sich auf den Bereich innerhalb der Layout-Box, der zur visuellen Darstellung des Inhalts verwendet wird. Dies umfasst den Bereich, in dem der Hintergrund und die Rahmen eines Elements gemalt werden. Da der bemalbare Bereich eines Elements seine Ränder nicht umfasst, schließt dieser Wert `margin-box` aus.
 
 - `<coord-box>`
-
   - : Bezieht sich auf die Koordinaten-Box, die zur Positionierung und Größenbestimmung eines Elements innerhalb seines übergeordneten Containers verwendet wird. Sie wird verwendet, um zu steuern, wie der Inhalt um die Ränder der Box fließt. Es schließt den Randbereich aus. Dieser Wert wird für die Eigenschaft {{cssxref("offset-path")}} verwendet.
 
 - `<geometry-box>`
@@ -47,27 +43,21 @@ Ein `<box-edge>` kann vom Typ `<visual-box>`, `<layout-box>`, `<paint-box>`, `<c
 Die `<box-edge>` Schlüsselwörter sind wie folgt definiert:
 
 - `content-box`
-
   - : Bezieht sich auf die äußere Kante des Inhaltsbereichs der Box. Die Content-Box ist die innerste Box. Der Inhaltsbereich enthält den tatsächlichen Inhalt, wie Text, Bilder oder andere HTML-Elemente. In SVG wird dieser Wert als `fill-box` behandelt.
 
 - `padding-box`
-
   - : Bezieht sich auf die äußere Kante des Innenabstands der Box. Wenn es auf einer Seite keinen Innenabstand gibt, ist der Wert derselbe wie `content-box`. In SVG wird `padding-box` als `fill-box` behandelt. Der Innenbereich umgibt den Inhaltsbereich und beginnt an der äußeren Kante der Content-Box.
 
 - `border-box`
-
   - : Bezieht sich auf die äußere Kante des Rahmens der Box. Wenn es auf einer Seite keinen Rahmen gibt, ist der Wert derselbe wie `padding-box`. In SVG wird `border-box` als `stroke-box` behandelt. Der Rahmenbereich umgibt den Innenbereich und beginnt an der äußeren Kante der Padding-Box.
 
 - `margin-box`
-
   - : Bezieht sich auf die äußere Kante des Randes der Box. Wenn es auf einer Seite keinen Rand gibt, ist der Wert derselbe wie `border-box`. In SVG wird `margin-box` als `stroke-box` behandelt.
 
 - `fill-box`
-
   - : Bezieht sich auf die Objektumrahmungsbox in SVG. In CSS wird `fill-box` als `content-box` behandelt. Es wird verwendet, um den Inhalt um die durch die `coord-box` Werte definierten Ränder zu legen.
 
 - `stroke-box`
-
   - : Bezieht sich auf die Strichumrahmungsbox in SVG. In CSS wird `stroke-box` als `border-box` behandelt. Es wird verwendet, um die Form des Elements zu definieren, wenn Striche angewendet werden.
 
 - `view-box`

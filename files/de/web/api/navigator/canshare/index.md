@@ -30,7 +30,6 @@ canShare(data)
 ### Parameter
 
 - `data` {{optional_inline}}
-
   - : Ein Objekt, das die zu überprüfenden Teilungsdaten definiert.
     Typischerweise wird ein Objekt mit den gleichen Eigenschaften an [`navigator.share()`](/de/docs/Web/API/Navigator/share) übergeben, wenn dieser Aufruf `true` zurückgibt.
 
@@ -38,7 +37,6 @@ canShare(data)
     Alle Eigenschaften sind optional, aber mindestens eine bekannte Dateneigenschaft muss angegeben werden, sonst gibt die Methode `false` zurück.
 
     Mögliche Werte sind:
-
     - `url` {{optional_inline}}
       - : Ein String, der eine zu teilende URL darstellt.
     - `text` {{optional_inline}}

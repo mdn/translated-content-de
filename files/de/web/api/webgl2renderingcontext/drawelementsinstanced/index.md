@@ -24,7 +24,6 @@ drawElementsInstanced(mode, count, type, offset, instanceCount)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitives angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
@@ -37,7 +36,6 @@ drawElementsInstanced(mode, count, type, offset, instanceCount)
 - `count`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der zu rendernden Elemente angibt.
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ der Werte im Elementarray-Puffer angibt. Mögliche Werte sind:
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`

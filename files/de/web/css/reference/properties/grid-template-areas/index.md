@@ -98,7 +98,6 @@ grid-template-areas: unset;
 - `none`
   - : Der Grid-Container definiert keine benannten Grid-Bereiche.
 - {{cssxref("&lt;string&gt;")}}
-
   - : Für jede separate Zeichenkette wird eine Zeile erstellt und für jede Zelle in der Zeichenkette eine Spalte. Mehrere Zellentoken mit demselben Namen innerhalb und zwischen Zeilen erstellen einen einzigen benannten Grid-Bereich, der die entsprechenden Grid-Zellen umfasst. Wenn diese Zellen kein Rechteck bilden, ist die Deklaration ungültig.
 
     Alle verbleibenden unbenannten Bereiche in einem Grid können mit _Null-Zellen-Token_ bezeichnet werden. Ein Null-Zellen-Token ist eine Folge von einem oder mehreren `.` (U+002E FULL STOP)-Zeichen, z.B. `.`, `...` oder `.....` usw. Ein Null-Zellen-Token kann verwendet werden, um leere Bereiche im Grid zu erstellen.

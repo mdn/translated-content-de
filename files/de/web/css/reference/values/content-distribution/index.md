@@ -18,15 +18,12 @@ Der **`<content-distribution>`** {{Glossary("enumerated", "enumerierte")}} Wertt
 Die folgenden Schlüsselwortwerte werden durch den `<content-distribution>` Grammatikterm repräsentiert:
 
 - `space-between`
-
   - : Verteilt das {{Glossary("alignment_subject", "Ausrichtungsobjekt")}} gleichmäßig innerhalb des {{Glossary("alignment_container", "Ausrichtungscontainers")}}. Das erste Element wird bündig mit der Startkante des Ausrichtungscontainers platziert, das letzte Element bündig mit der Endkante, und die restlichen Elemente werden so gleichmäßig verteilt, dass der Abstand zwischen zwei benachbarten Elementen derselbe ist. Die standardmäßige Fallback-Ausrichtung für `space-between` ist `safe flex-start` für das Flexlayout und `start` in anderen Fällen. Wenn es nur ein Element gibt, wird dieses bündig mit der Startkante sein.
 
 - `space-around`
-
   - : Die Elemente werden gleichmäßig im Container verteilt, mit einem halben Abstand an beiden Enden. Der Abstand zwischen zwei benachbarten Elementen ist derselbe, und der Abstand vor dem ersten und nach dem letzten Element ist halb so groß wie der übrige Abstand. Die standardmäßige Fallback-Ausrichtung für `space-around` ist `safe center`. Wenn der Container nur ein Kind hat, wird dieses zentriert.
 
 - `space-evenly`
-
   - : Die Elemente werden gleichmäßig im Container verteilt, mit einem vollen Abstand an beiden Enden. Der Abstand zwischen zwei benachbarten Elementen, vor dem ersten und nach dem letzten Element ist derselbe. Die standardmäßige Fallback-Ausrichtung für `space-evenly` ist `safe center`. Wenn der Container nur ein Kind hat, wird dieses zentriert.
 
 - `stretch`

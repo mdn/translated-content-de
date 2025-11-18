@@ -35,7 +35,6 @@ Eine `GPUCommandEncoder`-Objektinstanz wird über die Eigenschaft [`GPUDevice.cr
 - [`copyTextureToTexture()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToTexture)
   - : Kodiert einen Befehl, der Daten von einer [`GPUTexture`](/de/docs/Web/API/GPUTexture) in eine andere kopiert.
 - [`finish()`](/de/docs/Web/API/GPUCommandEncoder/finish)
-
   - : Beendet die Aufzeichnung der auf diesem `GPUCommandEncoder` kodierten Befehlssequenz und gibt einen entsprechenden [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) zurück.
 
 - [`insertDebugMarker()`](/de/docs/Web/API/GPUCommandEncoder/insertDebugMarker)
@@ -43,7 +42,6 @@ Eine `GPUCommandEncoder`-Objektinstanz wird über die Eigenschaft [`GPUDevice.cr
 - [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup)
   - : Beendet eine Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/pushDebugGroup) begonnen wurde.
 - [`pushDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/pushDebugGroup)
-
   - : Beginnt eine Debug-Gruppe, die mit einem angegebenen Label markiert wird und alle folgenden kodierten Befehle bis zur Aufrufmethode [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup) enthält.
 
 - [`resolveQuerySet()`](/de/docs/Web/API/GPUCommandEncoder/resolveQuerySet)

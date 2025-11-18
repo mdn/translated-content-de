@@ -152,7 +152,6 @@ Der folgende Checkliste ist hilfreich, während Sie Inhalte schreiben und überp
   Zum Beispiel, wenn eine Schnittstelle die Eigenschaften `width` und `height` hat, ist es einfach, dass der Text auf den beiden Seiten, die diese beiden Eigenschaften dokumentieren, überraschend ähnlich ist, wobei nur ein paar Wörter ausgetauscht und dasselbe Beispiel verwendet wird. Dies macht es Suchmaschinen schwer, zu wissen, welche welche ist, und sie teilen letztendlich das Seitenranking, was dazu führt, dass beide schwerer zu finden sind als sie sollten.
 
   Es ist daher wichtig, sicherzustellen, dass jede Seite ihren eigenen Inhalt hat. Die folgenden Vorschläge können Ihnen helfen, dies zu erreichen:
-
   - **Erklären Sie mehr einzigartige Konzepte**: Betrachten Sie Anwendungsfälle, in denen es möglicherweise mehr Unterschiede gibt, als man denkt. Zum Beispiel im Fall der Dokumentation von `width` und `height` Eigenschaften, schreiben Sie vielleicht über die unterschiedlichen Verwendungen von horizontalem und vertikalem Raum und bieten eine Diskussion über die entsprechenden Konzepte. Vielleicht können Sie die Verwendung von `width` im Sinne von Platzmachen für eine Sidebar erwähnen, während `height` verwendet wird, um vertikales Scrollen oder Fußzeilen zu handhaben. Informationen über Zugänglichkeitsprobleme zu ihrer Seite zu haben ist auch eine gute und nützliche Idee.
   - **Verwenden Sie unterschiedliche Beispiele**: Beispiele in diesen Situationen sind oft noch ähnlicher als der Haupttext, weil die Beispiele möglicherweise sowohl (oder alle) der ähnlichen Methoden oder Eigenschaften verwenden, um zu beginnen, wodurch keine wirklichen Änderungen erforderlich sind, wenn sie wiederverwendet werden. Also werfen Sie das Beispiel weg und schreiben Sie ein neues, oder sorgen Sie zumindest dafür, dass mehrere Beispiele vorhanden sind, von denen einige anders sind.
   - **Fügen Sie Beschreibungen zu Beispielen hinzu**: Sowohl eine Übersicht darüber, was das Beispiel macht, als auch eine Beschreibung, wie es funktioniert, sollten im Detail erklärt werden, abhängig von der Komplexität des Themas und der Zielgruppe.
@@ -162,7 +161,6 @@ Der folgende Checkliste ist hilfreich, während Sie Inhalte schreiben und überp
 - **Stellen Sie sicher, dass Seiten nicht zu kurz sind**: Wenn der Inhalt auf einer Seite zu wenig ist (im SEO-Jargon als "dünne Seiten" bezeichnet), werden solche Seiten von Suchmaschinen nicht richtig (oder überhaupt nicht) katalogisiert. Zu kurze Inhaltsseiten sind schwer zu finden. Als Leitprinzip sollten Seiten auf MDN Web Docs im Allgemeinen nicht kürzer als 300 Wörter sein. Versuchen Sie nicht künstlich, eine Seite aufzublähen, behandeln Sie dies jedoch als Mindestlängenrichtlinie, wenn möglich.
 
   Diese grundlegenden Richtlinien können Ihnen helfen, Seiten zu erstellen, die genug Inhalt haben, um wirklich durchsuchbar zu sein, ohne sie mit unnötigem Text zu überladen:
-
   - **Vermeiden Sie Stubs**: Natürlich, wenn der Artikel ein Stub ist oder Inhalte fehlen, fügen Sie sie hinzu. Wir versuchen, "Stub"-Seiten auf MDN Web Docs zu vermeiden, obwohl sie existieren; es gibt jedoch viele Seiten, bei denen große Teile ihrer Inhalte fehlen.
   - **Überprüfen Sie die Seitenstruktur**: Stellen Sie sicher, dass die Seite korrekt strukturiert ist für den Typ der [page](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) sie ist. Überprüfen Sie, ob alle Abschnitte präsent und mit den entsprechenden Inhalten gefüllt sind.
   - **Stellen Sie Vollständigkeit sicher**: Überprüfen Sie die Abschnitte, um sicherzustellen, dass keine Informationen fehlen. Stellen Sie sicher, dass alle Parameter aufgelistet und erklärt sind. Stellen Sie sicher, dass alle Ausnahmen behandelt sind — dies ist ein besonders häufiger Ort, an dem Inhalte fehlen.
@@ -197,24 +195,20 @@ Neben dem Schreiben von grammatisch korrekten Sätzen in Englisch, empfehlen wir
 Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein Akronym ein neues Wort ist, das mit dem ersten Buchstaben jedes Wortes eines Satzes erstellt wurde. Dieser Abschnitt beschreibt Richtlinien für Abkürzungen und Akronyme.
 
 - **Erklärungen**: Bei der ersten Erwähnung eines Begriffs auf einer Seite erläutern Sie Akronyme, die den Benutzern möglicherweise unbekannt sind. Im Zweifelsfall den Begriff erläutern. Besser noch, verlinken Sie ihn zum Artikel oder [Glossar](/de/docs/Glossary), das die Technologie beschreibt.
-
   - **Richtig**: "XUL (XML User Interface Language) ist Mozillas XML-basierte Sprache ..."
   - **Falsch**: "XUL ist Mozillas XML-basierte Sprache ..."
 
 - **Großschreibung und Punkte**: Verwenden Sie durchgehend Großbuchstaben und löschen Sie Punkte in allen Abkürzungen und Akronymen, einschließlich Organisationen wie "US" und "UN".
-
   - **Richtig**: XUL
   - **Falsch**: X.U.L.; Xul
 
 - **Lateinische Abkürzungen**: Sie können gängige lateinische Abkürzungen (etc., i.e., e.g.) in klammergeschriebenen Ausdrücken und Notizen verwenden. Verwenden Sie Punkte in diesen Abkürzungen, gefolgt von einem Komma oder einem anderen geeigneten Satzzeichen.
-
   - **Richtig**: Webbrowser (z.B. Firefox) können verwendet werden ...
   - **Falsch**: Webbrowser, z.B. Firefox, können verwendet werden ...
   - **Falsch**: Webbrowser e.g. Firefox können verwendet werden ...
   - **Falsch**: Webbrowser, (z. B. Firefox) können verwendet werden ...
 
   Im normalen Text (d.h. außerhalb von Notizen oder Klammern) verwenden Sie die englische Entsprechung der Abkürzung.
-
   - **Richtig**: ... Webbrowser usw.
   - **Falsch**: ... Webbrowser, etc.
 
@@ -239,7 +233,6 @@ Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein
   > Stellen Sie außerdem sicher, dass _Sie_ sie korrekt verwenden, wenn Sie sich dazu entscheiden. Zum Beispiel passen Sie auf, "e.g." nicht mit "i.e." zu verwechseln, was ein häufiger Fehler ist.
 
 - **Plural von Abkürzungen und Akronymen**: Für das Plural von Abkürzungen und Akronymen fügen Sie _s_ hinzu. Verwenden Sie keinesfalls ein Apostroph.
-
   - **Richtig**: CD-ROMs
   - **Falsch**: CD-ROM's
 
@@ -274,22 +267,18 @@ Unser Schreibstil neigt dazu, locker zu sein, daher sollten Sie sich frei fühle
 ### Zahlen und Ziffern
 
 - **Kommas**: In fließendem Text verwenden Sie Kommas nur in fünfstelligen und größeren Zahlen.
-
   - **Richtig**: 4000; 54,000
   - **Falsch**: 4,000; 54000
 
 - **Daten**: Für Daten (außer Daten in Codebeispiele) verwenden Sie das Format "1. Januar 1900".
-
   - **Richtig**: 24. Februar, 1906
   - **Falsch**: 24. Februar, 1906; 24 Februar, 1906; 24/02/1906
 
   Alternativ können Sie das Format JJJJ/MM/TT verwenden.
-
   - **Richtig**: 1906/02/24
   - **Falsch**: 02/24/1906; 24/02/1906; 02/24/06
 
 - **Jahrzehnte**: Verwenden Sie das Format "1990s". Verwenden Sie kein Apostroph.
-
   - **Richtig**: 1920s
   - **Falsch**: 1920's
 
@@ -316,7 +305,6 @@ Verwenden Sie keine "gekrümmten" Anführungszeichen und Apostrophe. Auf MDN Web
 Die folgende Liste beschreibt einige der häufigen Situationen, in denen wir uns der Regeln zur Kommasetzung bewusst sein müssen:
 
 - **Nach einleitenden Nebensätzen**: Ein einleitender Nebensatz ist ein abhängiger Satz, der sich normalerweise am Anfang eines Satzes befindet. Verwenden Sie nach einem einleitenden Nebensatz ein Komma, um ihn vom nachfolgenden unabhängigen Satz zu trennen.
-
   - Beispiel 1:
     - **Richtig**: "In diesem Beispiel erfahren Sie, wie ein Komma verwendet wird."
     - **Falsch**: "In diesem Beispiel erfahren Sie wie ein Komma verwendet wird."
@@ -328,17 +316,14 @@ Die folgende Liste beschreibt einige der häufigen Situationen, in denen wir uns
     - **Falsch**: "Auf Mobilplattformen erhalten Sie tendenziell ein Ziffernblock für die Dateneingabe."
 
 - **Vor Konjunktionen**: Das Serialkomma (auch bekannt als "Oxford-Komma") ist das Komma, das vor der Konjunktion in einer Serie von drei oder mehr Elementen erscheint. Auf MDN Web Docs verwenden wir das Serialkomma. Kommas trennen auch jedes Element der Liste.
-
   - **Richtig**: "Ich werde mit Zügen, Flugzeugen und Autos reisen."
   - **Falsch**: "Ich werde mit Zügen, Flugzeugen und Autos reisen."
 
   Verwenden Sie kein Komma vor "und" und "oder" in einer Liste, die zwei Elemente enthält.
-
   - **Richtig**: "Mein Hund ist süß und intelligent."
   - **Falsch**: "Mein Hund ist süß, und intelligent."
 
   Verwenden Sie ein Komma vor den Konjunktionen "und", "aber" und "oder", wenn sie zwei unabhängige Sätze verbinden. Wenn der Satz durch die Konjunktion jedoch sehr lang oder komplex wird, ziehen Sie in Betracht, ihn in zwei Sätze umzuschreiben.
-
   - Beispiel 1:
     - **Richtig**: "Sie können diesen Schritt ausführen, aber Sie müssen auf die Dateieinstellung achten."
     - **Falsch**: "Sie können diesen Schritt ausführen aber Sie müssen auf die Dateieinstellung achten."
@@ -347,22 +332,18 @@ Die folgende Liste beschreibt einige der häufigen Situationen, in denen wir uns
     - **Falsch**: "Mein Vater ist streng, aber liebevoll."
 
 - **Vor "dass" und "welches"**: Ein restriktiver Satz ist für die Bedeutung des Satzes unerlässlich und benötigt keine Kommas, um sich vom verbleibenden Satz abzusetzen. Ein restriktiver Satz wird normalerweise durch "dass" eingeführt und sollte **nicht** von einem Komma vorangestellt werden.
-
   - **Richtig**: "Wir haben einen Kurs vorbereitet, der alle wesentlichen Informationen enthält, die Sie zur Erreichung Ihrer Ziele benötigen."
   - **Falsch**: "Wir haben einen Kurs vorbereitet, der , alle wesentlichen Informationen enthält, die Sie zur Erreichung Ihrer Ziele benötigen."
 
   Ein nicht restriktiver Satz bietet zusätzliche Informationen und ist für die Bedeutung des Satzes nicht wesentlich. Ein nicht restriktiver Satz wird normalerweise durch "welches" eingeführt und sollte von einem Komma vorangestellt werden.
-
   - **Richtig**: "Sie schreiben eine Richtlinie, welche eine erlaubte Liste von Herkunftsangaben für jede Funktion ist."
   - **Falsch**: "Sie schreiben eine Richtlinie welche eine erlaubte Liste von Herkunftsangaben für jede Funktion ist."
 
 - **Vor "zum Beispiel"**: Wenn "zum Beispiel" Teil eines nicht restriktiven Satzes ist und der verbleibende Satz ein unabhängiger Satz ist, verwenden Sie ein Komma vor "zum Beispiel".
-
   - **Richtig**: "Das Array-Objekt hat Methoden zum Manipulieren von Arrays auf verschiedene Arten, z.B. durch das Verbinden, das Umkehren und das Sortieren dieser."
   - **Falsch**: "Das Array-Objekt hat Methoden zum Manipulieren von Arrays auf verschiedene Arten, z.B. durch das Verbinden, das Umkehren und das Sortieren dieser."
 
   Das folgende Beispiel zeigt, wann ein Komma mit "zum Beispiel" nicht verwendet werden sollte. In diesem Fall ist der Satz, der "zum Beispiel" enthält, für die Bedeutung des Satzes unerlässlich.
-
   - **Richtig**: "Webanwendungen werden leistungsfähiger, indem sie Funktionen wie Audio- und Videomanipulation hinzufügen und den Zugriff auf Rohdaten mit WebSockets erlauben."
   - **Falsch**: "Webanwendungen werden leistungsfähiger, indem sie Funktionen wie Audio- und Videomanipulation hinzufügen, und den Zugriff auf Rohdaten mit WebSockets erlauben."
 
@@ -392,12 +373,10 @@ Im Repository pflegen wir mehrere Wortlisten, die sich unter [`.vscode/dictionar
 Dies sind unsere Empfehlungen für die Verwendung bestimmter technischer Begriffe:
 
 - **HTML-Elemente**: Verwenden Sie den Begriff "Element", um sich auf HTML- und XML-Elemente zu beziehen, anstelle von "Tag". Zudem sollte das Element in Spitzklammern "<>" eingeschlossen und mit Backticks (`` ` ``) formatiert sein. Zum Beispiel wird \<input\> innerhalb von Backticks als `<input>` dargestellt, wie erwartet.
-
   - **Richtig**: das `<span>`-Element
   - **Falsch**: das Span-Tag
 
   Auf MDN können Sie optional das HTML-Element im [`HTMLElement`-Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) angeben, welches das Element formatiert, die Spitzklammern "<>" hinzufügt und einen Link zu seiner Referenzseite hinzufügt.
-
   - **Mit Backticks**: `<span>`
   - **Mit dem Makro**: {{HTMLElement("span")}} (Quelltext in Markdown: `\{{HTMLElement("span")}}`)
 
@@ -478,14 +457,12 @@ Im Allgemeinen, wenn Sie daran denken, einen externen Link hinzuzufügen, müsse
 > Bevor Sie einen externen Link hinzufügen, sollten Sie Inhalte innerhalb von MDN Web Docs in Betracht ziehen. Interne Links sind einfacher zu pflegen und machen MDN Web Docs als Ganzes wertvoller für Leser:innen.
 
 - **Gute externe Links**: Gute externe Links führen Leser zu Ressourcen, die relevant, langlebig und allgemein vertrauenswürdig sind. Sie sollten bevorzugt Links zu externen Inhalten hinzufügen, die:
-
   - Einzigartig oder unersetzlich sind (z.B. ein IETF RFC)
   - Notwendig für die Zitation, den Zitiervermerk oder die Anerkennung sind (zum Beispiel im Rahmen einer Creative-Commons-Gutschrift)
   - Für das Thema eher gewartet werden als den Inhalt auf MDN Web Docs selbst einzubeziehen (zum Beispiel die Veröffentlichungsnotizen eines Anbieters)
   - Open-Source oder Community-gesteuert sind, wie MDN Web Docs selbst
 
 - **Schlechte externe Links**: Schlechte externe Links haben keine Relevanz, Wartungsfähigkeit, Zugänglichkeit oder stellen auf andere Weise Barrieren für Leser:innen auf. Vermeiden Sie es, Links zu externen Inhalten hinzuzufügen, die:
-
   - Allgemein oder nicht spezifisch sind (z.B. die Homepage eines Anbieters statt der zugehörigen Dokumentation)
   - Kurzlebig oder ungepflegt sind (z.B. eine einmalige Ankündigung)
   - Eigenlinkend oder selbstvermarktend sind (z.B. die eigene Arbeit des Autors außerhalb von MDN Web Docs)
@@ -636,7 +613,6 @@ Seitentitel werden in Suchergebnissen verwendet und auch zum Strukturieren der S
 Halten Sie die folgenden Richtlinien beim Schreiben von Titeln ein:
 
 - **Groß- und Kleinschreibungsstil**: Auf MDN Web Docs sollten Seitentitel und Abschnittsüberschriften Satzstil-Groß- und Kleinschreibung verwenden (nur das erste Wort und Eigennamen großschreiben) anstelle von Überschriftenstil-Groß- und Kleinschreibung:
-
   - **Richtig**: "Eine neue Methode zur Erstellung von JavaScript-Rollovers"
   - **Falsch**: "Eine Neue Methode zur Erstellung von JavaScript-Rollovers"
 
@@ -645,7 +621,6 @@ Halten Sie die folgenden Richtlinien beim Schreiben von Titeln ein:
 - **Allgemeine Richtlinien**: Die Entscheidung, was Sie dokumentieren möchten und wie Sie diesen Inhalt strukturieren werden, ist eines der ersten Schritte beim Schreiben. Das Schreiben eines Inhaltsverzeichnisses kann Ihnen helfen zu entscheiden, wie Sie Informationen ordnen möchten. Decken Sie einfache Konzepte zuerst ab und gehen Sie dann zu komplizierteren und fortgeschritteneren Konzepten über. Decken Sie konzeptionelle Informationen erst ab und gehen Sie dann zu aktionsorientierten Themen über.
 
   Halten Sie folgende Richtlinien beim Schreiben von Titeln für eine Seite und Abschnitte oder Unterabschnitte ein:
-
   - **Gehen Sie von höher nach niedriger**: Wie im Abschnitt [Überschriftsebenen](#überschriftsebenen) erklärt, gehen Sie von einer höheren `##` zu einer niedrigeren `####`, ohne Ebenen zu überspringen. Verwenden Sie höhere Überschriften für allgemeinere Einführungstitel und detailliertere Titel, wenn Sie zu niedrigeren Überschriftsebenen übergehen.
   - **Logisch gruppieren**: Stellen Sie sicher, dass alle zugehörigen Unterabschnitte logisch unter einer höheren Überschrift gruppiert sind. Das Benennen von Titeln verschiedener Abschnitte kann Ihnen bei dieser Übung helfen.
   - **Halten Sie Titel kurz**: Kürzere Titel sind leichter im Text und im Inhaltsverzeichnis zu erfassen.

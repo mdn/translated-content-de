@@ -19,7 +19,6 @@ decrypt(algorithm, key, data)
 ### Parameter
 
 - `algorithm`
-
   - : Ein Objekt, das den zu verwendenden [Algorithmus](#unterstützte_algorithmen) und alle erforderlichen zusätzlichen Parameter angibt. Die angegebenen Werte für die zusätzlichen Parameter müssen mit denen übereinstimmen, die im entsprechenden [`encrypt()`](/de/docs/Web/API/SubtleCrypto/encrypt) Aufruf übergeben wurden.
     - Um [RSA-OAEP](#rsa-oaep) zu verwenden, geben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams) Objekt an.
     - Um [AES-CTR](#aes-ctr) zu verwenden, geben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams) Objekt an.

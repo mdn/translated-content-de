@@ -17,13 +17,11 @@ Sie spiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/
 Ein aufgezählter Wert; mögliche Werte sind:
 
 - `"auto"`
-
   - : [`auto`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss)-Popovers können "leicht geschlossen" werden — das bedeutet, dass Sie den Popover ausblenden können, indem Sie außerhalb davon klicken oder die <kbd>Esc</kbd>-Taste drücken.
 
     Normalerweise kann nur ein `auto`-Popover gleichzeitig angezeigt werden — das Anzeigen eines zweiten Popovers, wenn bereits eines angezeigt wird, blendet das erste aus. Die Ausnahme von dieser Regel ist, wenn Sie verschachtelte auto-Popovers haben. Siehe [Verschachtelte Popovers](/de/docs/Web/API/Popover_API/Using#nested_popovers) für weitere Details.
 
 - `"hint"` {{experimental_inline}}
-
   - : [`hint`](/de/docs/Web/API/Popover_API/Using#using_hint_popover_state)-Popovers schließen beim Anzeigen keine `auto`-Popovers, schließen aber andere `hint`-Popovers.
     Sie können leicht geschlossen werden und reagieren auf Schließanforderungen.
 

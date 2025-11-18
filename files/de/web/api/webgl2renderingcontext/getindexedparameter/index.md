@@ -19,10 +19,8 @@ getIndexedParameter(target, index)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel angibt, für das Informationen zurückgegeben werden sollen.
     Mögliche Werte:
-
     - `gl.TRANSFORM_FEEDBACK_BUFFER_BINDING`: Gibt ein
       [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) zurück.
     - `gl.TRANSFORM_FEEDBACK_BUFFER_SIZE`: Gibt ein
@@ -34,7 +32,6 @@ getIndexedParameter(target, index)
     - `gl.UNIFORM_BUFFER_START`: Gibt ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) zurück.
 
     Bei Verwendung der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL 2 Erweiterung sind zusätzlich folgende Werte verfügbar:
-
     - `gl.BLEND_EQUATION_RGB`: Gibt die RGB-Blend-Gleichung für den Zeichnungspuffer bei `index` zurück.
     - `gl.BLEND_EQUATION_ALPHA`: Gibt die Alpha-Blend-Gleichung für den Zeichnungspuffer bei `index` zurück.
     - `gl.BLEND_SRC_RGB`: Gibt die Quell-RGB-Blending-Funktion für den Zeichnungspuffer bei `index` zurück.

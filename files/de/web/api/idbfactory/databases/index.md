@@ -38,7 +38,6 @@ Beachten Sie, dass die Reihenfolge der zurückgegebenen Objekte nicht definiert 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn die Methode von einem [undurchsichtigen Ursprung](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802#42242802) aufgerufen wird oder der Benutzer den Speicher deaktiviert hat.
 
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)

@@ -38,7 +38,6 @@ additive-symbols:
 Der Deskriptor akzeptiert eine durch Komma getrennte Liste von _additiven Tupeln_, wobei jedes Tupel aus folgenden zwei durch ein Leerzeichen getrennten Werten besteht:
 
 - {{cssxref("integer")}}
-
   - : Ein nicht-negativer Ganzzahlenwert, der das ganzzahlige Gewicht des zugehörigen Symbolwertes des Tupels spezifiziert.
 
 - [`<symbol>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols#symbol)

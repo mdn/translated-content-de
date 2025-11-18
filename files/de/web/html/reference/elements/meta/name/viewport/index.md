@@ -15,10 +15,8 @@ Wenn angegeben, definieren Sie die mit dem Viewport verbundenen Verhaltensweisen
 Ein `<meta name="viewport">`-Element hat die folgenden zusätzlichen Attribute:
 
 - [`content`](/de/docs/Web/HTML/Reference/Elements/meta#content)
-
   - : Das `content`-Attribut muss definiert sein, und sein Wert legt verschiedene mit dem Viewport verbundene Verhaltensweisen fest.
     Sein Wert ist eine kommaseparierte Liste von einem oder mehreren Schlüssel-Wert-Paaren, die als `key=value` angegeben sind. Die folgenden Schlüssel sind definiert:
-
     - `width`
       - : Kontrolliert die (Mindest-)Pixelbreite des Viewports (siehe [Viewport-Breite und Bildschirmbreite](#viewport-breite_und_bildschirmbreite)). Es kann auf eine positive ganze Zahl von Pixeln zwischen 1 und 10000 gesetzt werden (wie `width=600`) oder auf den speziellen Wert `device-width`, der die physische Größe des Geräts in CSS-Pixeln ist. Dieser Wert definiert den Wert der [`vw`](/de/docs/Web/CSS/Reference/Values/length#relative_length_units_based_on_viewport)-Einheit.
     - `height`
@@ -46,10 +44,8 @@ Ein `<meta name="viewport">`-Element hat die folgenden zusätzlichen Attribute:
         > - [MDN Understanding WCAG, Guideline 1.4 explanations](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
         > - [Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
     - `interactive-widget`
-
       - : Gibt den Effekt an, den interaktive Benutzeroberflächen-Widgets, wie virtuelle Tastaturen, auf den Viewport einer Seite haben.
         Es kann das Schlüsselwort `resizes-visual`, `resizes-content` oder `overlays-content` sein.
-
         - `resizes-visual`: Der {{Glossary("visual_viewport", "visuelle Viewport")}} wird vom interaktiven Widget vergrößert. Dies ist der Standard.
         - `resizes-content`: Der {{Glossary("viewport", "Viewport")}} wird vom interaktiven Widget vergrößert.
         - `overlays-content`: Weder der Viewport noch der visuelle Viewport werden vom interaktiven Widget vergrößert.

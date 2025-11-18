@@ -74,7 +74,6 @@ fit-content(40%)
 - {{cssxref("&lt;length&gt;")}}
   - : Eine absolute Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-
   - : Ein Prozentsatz relativ zum verfügbaren Raum in der gegebenen Achse.
 
     In Gittereigenschaften bezieht es sich auf die Inline-Größe des Gittercontainers in Spuren und auf die Blockgröße des Gittercontainers für Zeilenspuren. Andernfalls bezieht es sich auf die verfügbare Inline-Größe oder Blockgröße der ausgelegten Box, abhängig vom Schreibmodus.

@@ -31,11 +31,9 @@ scroll-marker-group: unset;
 ### Werte
 
 - `after`
-
   - : Ein {{cssxref("::scroll-marker-group")}} Pseudo-Element wird als Geschwister der Kindelemente des Scroll-Containers generiert, das ihnen unmittelbar vorausgeht, sowie allen generierten {{cssxref("::scroll-button()")}} Pseudo-Elementen. Es erscheint am Ende der Tab-Reihenfolge und der Layout-Box-Reihenfolge des Containers (aber nicht der DOM-Struktur).
 
 - `before`
-
   - : Ein `::scroll-marker-group` Pseudo-Element wird als Geschwister der Kindelemente des Scroll-Containers generiert, das ihnen unmittelbar vorausgeht, sowie allen generierten {{cssxref("::scroll-button()")}} Pseudo-Elementen. Die Scroll-Marker-Gruppe erscheint am Anfang der Tab-Reihenfolge und der Layout-Box-Reihenfolge des Containers.
 
 - `none`

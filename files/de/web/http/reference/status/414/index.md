@@ -25,7 +25,7 @@ Einige Systeme implementieren `414 URI Too Long` als `414 Request-URI Too Large`
 
 ### Formularübermittlung mit GET
 
-Im folgenden Beispiel verwendet ein HTML-<form>-Element versehentlich die Methode `get` anstelle von `post`.
+Im folgenden Beispiel verwendet ein HTML-`<form>`-Element versehentlich die Methode `get` anstelle von `post`.
 Eine große Menge an Formulardaten wird der im `action`-Attribut des Formulars angegebenen URL angefügt und als GET-Anfrage gesendet:
 
 ```http

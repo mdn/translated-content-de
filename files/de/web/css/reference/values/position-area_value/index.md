@@ -104,19 +104,15 @@ Zum Beispiel wählt `top left` das obere linke Feld aus, während `center right`
 Die physischen überbrückenden Schlüsselwörter — in Kombination mit einem physischen Reihen- oder Spaltenschlüsselwort — spezifizieren ein zweites Rasterfeld, in das sich der Positionierungsbereich ausdehnen soll. Wenn eine solche Kombination als `position-area`-Eigenschaftswert festgelegt ist, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Reihe oder Spalte platziert; es erstreckt sich dann in die durch das überbrückende Schlüsselwort spezifizierte Richtung und erstreckt sich über zwei Rasterfelder:
 
 - `span-left`
-
   - : Erstreckt sich über die Mittelsäule und die linke Säule des Rasters.
 
 - `span-right`
-
   - : Erstreckt sich über die Mittelsäule und die rechte Säule des Rasters.
 
 - `span-top`
-
   - : Erstreckt sich über die Mittelreihe und die obere Reihe des Rasters.
 
 - `span-bottom`
-
   - : Erstreckt sich über die Mittelreihe und die untere Reihe des Rasters.
 
 - `span-all`
@@ -132,7 +128,6 @@ Zum Beispiel erstreckt sich `top span-left` über die oberen mittleren und obere
 Wenn nur ein einzelnes physisches Schlüsselwort im `position-area`-Wert spezifiziert ist, wird der andere Wert wie folgt impliziert:
 
 - `left`, `right`, `top` oder `bottom`
-
   - : Der andere Wert geht implizit von [`span-all`](#span-all_2) aus, wodurch das Element alle drei Kacheln der Spalte oder Reihe überspannt, in der es ursprünglich platziert wurde. Zum Beispiel ist `left` gleichbedeutend mit `left span-all`.
 
 - `center`, `span-left`, `span-right`, `span-top` oder `span-bottom`
@@ -147,19 +142,15 @@ Die logischen Raster-Schlüsselwörter spezifizieren einen Bereich des Positioni
 Die allgemeinen logischen Schlüsselwörter verwenden dieselben Begriffe für die Inline- und Blockrichtungen, wobei die Richtung durch die Position des Schlüsselbegriffs innerhalb eines Paares von `<position-area>`-Werten bestimmt wird. Der erste Wert definiert die Blockrichtungsposition und der zweite Wert definiert den Inline-Wert. Sie können ein oder zwei Schlüsselbegriffe aus der folgenden Liste angeben. Zwei aus dieser Liste spezifizieren ein einzelnes spezifisches Rasterfeld. Die Schlüsselwortposition oder -richtung ist:
 
 - `start`
-
   - : Der Anfang der Block- oder Inlinerichtung des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `end`
-
   - : Das Ende der Block- oder Inlinerichtung des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `self-start`
-
   - : Der Anfang der Block- oder Inlinerichtung des Rasters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `self-end`
-
   - : Das Ende der Block- oder Inlinerichtung des Rasters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `center`
@@ -172,15 +163,12 @@ Zum Beispiel beschreiben `start end` und `self-start self-end` beide die Positio
 Die allgemeinen logischen überbrückenden Schlüsselwörter — in Kombination mit einem logischen Reihen- oder Spaltenschlüsselwort — spezifizieren ein zweites Rasterfeld, in das sich der Positionierungsbereich ausdehnen soll. Wenn eine solche Kombination als `position-area`-Eigenschaftswert festgelegt ist, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Reihe oder Spalte platziert, und es spannt sich dann in die durch das überbrückende Schlüsselwort spezifizierte Richtung und erstreckt sich über zwei Rasterfelder:
 
 - `span-start`
-
   - : Erstreckt sich über das mittlere Feld und das Startfeld der Gitterreihe/-spalte, wobei sich die Richtung auf den Schreibmodus des enthältenden Blocks des Elements bezieht.
 
 - `span-end`
-
   - : Erstreckt sich über das mittlere Feld und das Endfeld der Gitterreihe/-spalte, wobei sich die Richtung auf den Schreibmodus des enthältenden Blocks des Elements bezieht.
 
 - `span-self-start`
-
   - : Erstreckt sich über das mittlere Feld und das Startfeld der Gitterreihe/-spalte für den eigenen Schreibmodus des positionierten Elements.
 
 - `span-self-end`
@@ -193,15 +181,12 @@ Zum Beispiel spezifizieren `start span-end` und `self-start span-self-end` beide
 Die expliziten inline- und block-logischen Reihen- und Spaltenschlüsselwörter beziehen sich explizit auf eine Block- (Reihe) oder Inline- (Spalte) Position. Sie können ein Schlüsselwort für die Blockrichtung und eines für die Inlinerichtung angeben, um ein einzelnes spezifisches Rasterfeld auszuwählen. Im Gegensatz zu den generischen logischen Schlüsselwortwerten spielt die Reihenfolge der Schlüsselwörter keine Rolle. Das Deklarieren von zwei Schlüsselwörtern in derselben Achse macht jedoch den Wert ungültig.
 
 - `block-start`
-
   - : Der Anfang der Blockrichtung des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `block-end`
-
   - : Das Ende der Blockrichtung des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `inline-start`
-
   - : Der Anfang der Inlinerichtung des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `inline-end`
@@ -217,15 +202,12 @@ Zum Beispiel spezifiziert `block-start inline-end` das Feld am Anfang der Blockr
 Die expliziten logischen überbrückenden Schlüsselwörter — wenn sie mit einem logischen Reihen- oder Spaltenschlüsselwort kombiniert werden — spezifizieren ein zweites Rasterfeld für den Positionierungsbereich, in das sich das Element ausdehnt. Wenn eine solche Kombination als `position-area`-Eigenschaftswert festgelegt ist, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Reihe oder Spalte, basierend auf dem Schreibmodus des enthältenden Blocks, platziert, und es spannt sich dann in die durch das überbrückende Schlüsselwort spezifizierte Richtung, über zwei Rasterfelder:
 
 - `span-block-start`
-
   - : Erstreckt sich über das mittlere Feld und das Block-Start-Feld der angegebenen Inline-Spalte.
 
 - `span-block-end`
-
   - : Erstreckt sich über das mittlere Feld und das Block-End-Feld der angegebenen Inline-Spalte.
 
 - `span-inline-start`
-
   - : Erstreckt sich über das mittlere Feld und das Inline-Start-Feld der angegebenen Blockreihe.
 
 - `span-inline-end`
@@ -244,15 +226,12 @@ Zum Beispiel, `block-end span-inline-start` wählt das mittlere Feld der Endbloc
 Wenn nur ein einzelnes logisches `<position-area>`-Schlüsselwort angegeben ist, wird der andere Wert wie folgt impliziert:
 
 - `start`, `end`, `self-start` oder `self-end`
-
   - : Der andere Wert wird mit demselben Wert wie der erste angegeben, der die Rasterzelle in der Startreihe und -spalte oder der Endreihe und -spalte auswählt.
 
 - `span-start`, `span-self-start`, `span-end`, `span-self-end`
-
   - : Der andere Wert ist `center`. Zum Beispiel ist `span-start` gleichbedeutend mit `span-start center`.
 
 - `block-start`, `block-end`, `inline-start`, `inline-end`
-
   - : Der andere Wert ist [`span-all`](#span-all_2), der alle drei Kacheln der Spalte oder Reihe überspannt, in der es ursprünglich platziert wurde. Zum Beispiel ist `block-start` gleichbedeutend mit `block-start span-all`.
 
 - `span-block-start`, `span-block-end`, `span-inline-start`, `span-inline-end`
@@ -272,19 +251,15 @@ Mit den Koordinatenreihen- und -spaltenschlüsselwörtern können Sie ein Schlü
 Die x-Achsen-Schlüsselwörter umfassen:
 
 - `x-start`
-
   - : Die Startkachel entlang der x-Achse des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `x-end`
-
   - : Die Endkachel entlang der x-Achse des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `self-x-start`
-
   - : Die Startkachel entlang der x-Achse des Rasters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `self-x-end`
-
   - : Die Endkachel entlang der x-Achse des Rasters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `center`
@@ -293,19 +268,15 @@ Die x-Achsen-Schlüsselwörter umfassen:
 Die y-Achsen-Schlüsselwörter umfassen:
 
 - `y-start`
-
   - : Die Startkachel entlang der y-Achse des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `y-end`
-
   - : Die Endkachel entlang der y-Achse des Rasters, berechnet aus dem Schreibmodus des enthältenden Blocks.
 
 - `self-y-start`
-
   - : Die Startkachel entlang der y-Achse des Rasters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `self-y-end`
-
   - : Die Endkachel entlang der y-Achse des Rasters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `center`
@@ -318,15 +289,12 @@ Zum Beispiel wählen `x-end y-start` und `self-x-end self-y-start` beide die Ras
 In Kombination mit einem Koordinatenreihen- oder -spaltenschlüsselwort spezifizieren die koordinatenüberbrückenden Schlüsselwörter ein zweites Rasterfeld für den Positionierungsbereich, in das sich das Element ausdehnen soll. Wenn eine solche Kombination als `position-area`-Eigenschaftswert festgelegt ist, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Reihe oder Spalte platziert, und es spannt sich dann in die durch das überbrückende Schlüsselwort spezifizierte Richtung und erstreckt sich über zwei Rasterfelder:
 
 - `span-x-start`
-
   - : Erstreckt sich über das mittlere Feld und das x-Start-Feld der angegebenen y-Achsenreihe.
 
 - `span-x-end`
-
   - : Erstreckt sich über das mittlere Feld und das x-End-Feld der angegebenen y-Achsenreihe.
 
 - `span-y-start`
-
   - : Erstreckt sich über das mittlere Feld und das y-Start-Feld der angegebenen x-Achsenspalte.
 
 - `span-y-end`
@@ -342,7 +310,6 @@ Zum Beispiel selektiert `y-end span-x-end` das Feld in der Mitte der End-y-Reihe
 Wenn nur ein einzelnes Koordinatenraster-`<position-area>`-Schlüsselwort angegeben ist, wird der andere Wert wie folgt impliziert:
 
 - `x-start`, `self-x-start`, `x-end`, `self-x-end`, `y-start`, `self-y-start`, `y-end` oder `self-y-end`
-
   - : Der andere Wert ist [`span-all`](#span-all_2), wobei die Rasterzellen alle drei Kacheln der Spalte oder Reihe überspannen, in der es ursprünglich platziert wurde. Zum Beispiel ist `x-start` gleichbedeutend mit `x-start span-all`.
 
 - `span-x-start`, `span-x-end`, `span-y-start`, `span-y-end`, `span-self-x-start`, `span-self-x-end`, `span-self-y-end` oder `span-self-y-start`

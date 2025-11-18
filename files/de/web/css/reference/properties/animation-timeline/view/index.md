@@ -45,7 +45,6 @@ animation-timeline: view(x 200px auto);
 ### Parameter
 
 - axis
-
   - : Der Wert der Scrollbalkenachse kann einer der folgenden sein:
     - `block`
       - : Der Scrollbalken auf der Blockachse des Scrollcontainers, die Achse in der Richtung senkrecht zur Textflussrichtung innerhalb einer Zeile.

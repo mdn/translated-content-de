@@ -25,24 +25,20 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
 - `keySystem`
   - : Ein String, der das Key-System identifiziert, z.B. `com.example.some-system` oder `org.w3.clearkey`.
 - `supportedConfigurations`
-
   - : Ein nicht-leeres {{jsxref('Array')}} von Objekten, die dem Objekt entsprechen, welches von [`MediaKeySystemAccess.getConfiguration`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration) zurückgegeben wird. Das erste Element mit einer erfüllbaren Konfiguration wird verwendet.
 
     Jedes Objekt kann die folgenden Eigenschaften haben:
 
     > [!NOTE]
     > Entweder `videoCapabilities` oder `audioCapabilities` kann leer sein, aber nicht beide!
-
     - `label` {{optional_inline}}
       - : Ein optionaler Bezeichner für die Konfiguration, der standardmäßig `""` ist. Dieser Bezeichner wird für Konfigurationen beibehalten, die mit [`MediaKeySystemAccess.getConfiguration`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration) abgerufen werden.
     - `initDataTypes`
       - : Ein Array von Strings, die die Datentypnamen für die unterstützten Initialisierungsdatenformate angeben (standardmäßig ein leeres Array). Diese Namen sind ähnlich `"cenc"`, `"keyids"` und `"webm"`, die im [Encrypted Media Extensions Initialisierungsdatenformat-Register](https://w3c.github.io/encrypted-media/format-registry/initdata/) definiert sind.
     - `audioCapabilities`
-
       - : Ein Array unterstützter Audiofähigkeiten. Wenn das Array leer ist, unterstützt der Inhaltstyp keine Audiofähigkeiten.
 
         Jedes Objekt im Array hat folgende Eigenschaften:
-
         - `contentType`
           - : Ein String, der den Medien-MIME-Typ der Medienressource angibt, wie `"audio/mp4;codecs=\"mp4a.40.2\"`. Beachten Sie, dass der leere String ungültig ist und dass, wenn die MIME-Typ-Definition Parameter, wie `codecs`, enthält, diese auch enthalten sein müssen.
         - `encryptionScheme`
@@ -51,11 +47,9 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
           - : Die Robustheitsstufe, die mit dem Inhaltstyp verbunden ist. Der leere String zeigt an, dass jegliche Fähigkeit, den Inhaltstyp zu entschlüsseln und zu decodieren, akzeptabel ist.
 
     - `videoCapabilities`
-
       - : Ein Array unterstützter Videofähigkeiten. Die Objekte im Array haben dieselbe Form wie die in `audioCapabilities`.
 
     - `distinctiveIdentifier`
-
       - : Ein String, der angibt, ob die Implementierung "eindeutige Identifikatoren" (oder eindeutige permanente Identifikatoren) für Operationen verwenden darf, die mit einem aus dieser Konfiguration erstellten Objekt verbunden sind. Die zulässigen Werte sind:
         - `required`
           - : Das zurückgegebene Objekt muss diese Funktion unterstützen.
@@ -65,7 +59,6 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
           - : Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
 
     - `persistentState`
-
       - : Ein String, der angibt, ob das zurückgegebene Objekt in der Lage sein muss, Sitzungsdaten oder andere Zustandsarten dauerhaft zu speichern. Die Werte sind die gleichen wie für `distinctiveIdentifier` und haben die gleiche Bedeutung: `required`, `optional` (Standard), `not-allowed`. Nur "temporäre" Sitzungen dürfen erstellt werden, wenn der dauerhafte Zustand nicht erlaubt ist.
 
     - `sessionTypes`

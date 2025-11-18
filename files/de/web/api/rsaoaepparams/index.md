@@ -14,7 +14,6 @@ Das **`RsaOaepParams`** Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Cr
 - `name`
   - : Ein String. Dies sollte auf `RSA-OAEP` gesetzt werden.
 - `label` {{optional_inline}}
-
   - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} — ein Array von Bytes, das selbst nicht verschlüsselt werden muss, aber an den Chiffretext gebunden werden sollte. Ein Digest des Labels ist Teil der Eingabe für den Verschlüsselungsvorgang.
 
     Wenn Ihre Anwendung kein Label benötigt, können Sie dieses Argument einfach weglassen, und es wird die Sicherheit des Verschlüsselungsvorgangs nicht beeinflussen.

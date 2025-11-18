@@ -24,24 +24,20 @@ revoke(permissionDescriptor)
 ### Parameter
 
 - `permissionDescriptor`
-
   - : Ein Objekt, das Optionen für die `revoke`-Operation festlegt.
     Die verfügbaren Optionen für diesen Deskriptor hängen von der Berechtigungsart ab.
 
     Alle Berechtigungen haben einen Namen:
-
     - `name`
       - : Ein String, der den Namen der API enthält, deren Berechtigungen Sie abfragen möchten.
         Das zurückgegebene {{jsxref("Promise")}} wird mit einem {{jsxref("TypeError")}} ablehnen, wenn der Berechtigungsname vom Browser nicht unterstützt wird.
 
     Für die `push` Berechtigungen können Sie auch angeben:
-
     - `userVisibleOnly` {{optional_inline}}
       - : (Nur Push, nicht unterstützt in Firefox — siehe den Abschnitt Browser-Unterstützung unten) Gibt an, ob Sie für jede Nachricht eine Benachrichtigung anzeigen oder stille Push-Benachrichtigungen senden möchten.
         Der Standardwert ist `false`.
 
     Für die `midi` Berechtigung können Sie auch angeben:
-
     - `sysex` {{optional_inline}}
       - : Gibt an, ob Sie System-Exklusivnachrichten benötigen und/oder empfangen.
         Der Standardwert ist `false`.

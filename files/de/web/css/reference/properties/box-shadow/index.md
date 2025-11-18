@@ -91,7 +91,6 @@ box-shadow: unset;
 Einzelnen Kastenschatten angeben mit:
 
 - Zwei, drei oder vier {{cssxref("length")}}-Werten.
-
   - Wenn nur zwei Werte angegeben werden, werden sie als `<offset-x>` und `<offset-y>`-Werte interpretiert.
   - Wenn ein dritter Wert angegeben wird, wird er als `<blur-radius>` interpretiert.
   - Wenn ein vierter Wert angegeben wird, wird er als `<spread-radius>` interpretiert.
@@ -104,13 +103,10 @@ Um mehrere Schatten anzugeben, geben Sie eine durch Kommas getrennte Liste von S
 ### Werte
 
 - `<color>` {{optional_inline}}
-
   - : Spezifiziert die Farbe des Schattens. Siehe {{cssxref("&lt;color&gt;")}} Werte für mögliche Schlüsselwörter und Notationen. Wenn nicht angegeben, wird der Wert der {{cssxref("color")}}-Eigenschaft des übergeordneten Elements verwendet.
 
 - `<length>`
-
   - : Spezifiziert die Offset-Länge des Schattens. Dieser Parameter akzeptiert zwei, drei oder vier Werte. Dritte und vierte Werte sind optional. Sie werden wie folgt interpretiert:
-
     - Wenn zwei Werte angegeben werden, werden sie als `<offset-x>` (horizontales Offset) und `<offset-y>` (vertikales Offset) Werte interpretiert. Ein negativer `<offset-x>`-Wert platziert den Schatten links vom Element. Ein negativer `<offset-y>`-Wert platziert den Schatten über dem Element.\
       Wenn nicht angegeben, wird der Wert `0` für die fehlende Länge verwendet. Wenn sowohl `<offset-x>` als auch `<offset-y>` auf `0` gesetzt sind, wird der Schatten hinter dem Element platziert (und es kann ein Blur-Effekt entstehen, wenn `<blur-radius>` und/oder `<spread-radius>` festgelegt ist).
     - Wenn drei Werte angegeben werden, wird der dritte Wert als `<blur-radius>` interpretiert. Je größer dieser Wert, desto größer der Blur, wodurch der Schatten größer und heller wird. Negative Werte sind nicht erlaubt. Wenn nicht angegeben, wird er auf `0` gesetzt (was bedeutet, dass die Kante des Schattens scharf sein wird). Die Spezifikation enthält keinen genauen Algorithmus für die Berechnung des Blur-Radius; sie erläutert jedoch:

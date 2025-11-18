@@ -49,15 +49,12 @@ Wenn ein `feed` innerhalb eines anderen `feed` verschachtelt ist, wie z. B. ein 
 ### <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr>-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-
   - : Wenn der `feed` keinen sichtbaren Titel hat, hat das `feed`-Element ein mit `aria-label` angegebenes Label. Wenn es einen sichtbaren Titel gibt, siehe `aria-labelledby`.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-
   - : Wenn der `feed` einen sichtbaren Titel hat, hat das `feed`-Element `aria-labelledby`, das auf das Element verweist, das den Titel enthält. Wenn nicht, fügen Sie ein `aria-label` hinzu.
 
 - [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-busy)
-
   - : Wenn beschäftigt, wie z.B. wenn Artikel zum `feed` hinzugefügt oder daraus entfernt werden, setzen Sie `aria-busy="true"` während der Aktualisierung. Stellen Sie sicher, dass es zurück auf `false` gesetzt wird, wenn der Vorgang abgeschlossen ist oder die Änderungen möglicherweise nicht sichtbar werden.
 
 - article

@@ -93,7 +93,6 @@ align-items: unset;
 ### Werte
 
 - `normal`
-
   - : Die Wirkung dieses Schlüsselworts hängt vom Layoutmodus ab, in dem wir uns befinden:
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
     - In der statischen Position absolut positionierter Layouts verhält sich das Schlüsselwort wie `stretch`.
@@ -102,39 +101,30 @@ align-items: unset;
     - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenzellen.
 
 - `center`
-
   - : Die Margenboxen der Flex-Elemente sind innerhalb der Linie auf der Kreuzachse zentriert. Wenn die Kreuzgröße eines Elements größer als der Flex-Container ist, wird es gleichmäßig in beide Richtungen überlaufen.
 
 - `start`
-
   - : Die Elemente sind bündig zueinander gepackt am Startrand des Ausrichtungscontainers auf der entsprechenden Achse.
 
 - `end`
-
   - : Die Elemente sind bündig zueinander gepackt am Endrand des Ausrichtungscontainers auf der entsprechenden Achse.
 
 - `self-start`
-
   - : Die Elemente sind bündig zum Rand der Startseite des Items im Ausrichtungscontainer auf der entsprechenden Achse.
 
 - `self-end`
-
   - : Die Elemente sind bündig zum Rand der Endseite des Items im Ausrichtungscontainer auf der entsprechenden Achse.
 
 - `baseline`, `first baseline`, `last baseline`
-
   - : Alle Flex-Elemente sind so angeordnet, dass ihre [Flex-Container-Basislinien](https://drafts.csswg.org/css-flexbox-1/#flex-baselines) übereinstimmen. Das Element mit der größten Entfernung zwischen seinem Kreuz-Start-Margenrand und seiner Basislinie wird mit dem Kreuz-Start-Rand der Linie bündig gemacht.
 
 - `stretch`
-
   - : Wenn die Kreuzgröße des Elements `auto` ist, wird die verwendete Größe auf die notwendige Länge gesetzt, um dem Container so nahe wie möglich zu kommen, wobei die Breiten- und Höhenbegrenzungen des Elements beachtet werden. Wenn das Element nicht automatisch dimensioniert ist, fällt dieser Wert auf `flex-start` zurück und auf `self-start` oder `self-end`, wenn das {{cssxref("align-content")}} des Containers `first baseline` (oder `baseline`) oder `last baseline` ist.
 
 - `anchor-center`
-
   - : Bei [anker-positionierten](/de/docs/Web/CSS/Guides/Anchor_positioning) Elementen richtet es die Elemente in der Blockrichtung mittig zum zugehörigen Ankerelement aus. Siehe [Zentrieren auf dem Anker mit `anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
 
 - `safe`
-
   - : Verwendet zusammen mit einem Ausrichtungs-Schlüsselwort. Wenn das gewählte Schlüsselwort bedeutet, dass das Element den Ausrichtungscontainer überläuft und dabei Datenverlust verursacht, wird das Element stattdessen so ausgerichtet, als wäre der Ausrichtungsmodus `start`.
 
 - `unsafe`
@@ -143,7 +133,6 @@ align-items: unset;
 Es gibt auch zwei Werte, die für Flexbox definiert wurden, da sie auf Konzepten der [Flexmodellachsen](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox#the_flex_model) basieren, die auch im Grid-Layout funktionieren:
 
 - `flex-start`
-
   - : Nur im Flex-Layout verwendet, richtet die Flex-Elemente bündig gegen die Haupt-Start- oder Kreuz-Start-Seite des Flex-Containers aus. Außerhalb eines Flex-Formatierkontexts verhält sich dieser Wert wie `start`.
 
 - `flex-end`

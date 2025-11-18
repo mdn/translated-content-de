@@ -22,7 +22,6 @@ Eine `MIDIPort`-Instanz wird erstellt, wenn ein neues MIDI-Gerät angeschlossen 
 - [`MIDIPort.name`](/de/docs/Web/API/MIDIPort/name) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der den Systemnamen des Ports enthält.
 - [`MIDIPort.type`](/de/docs/Web/API/MIDIPort/type) {{ReadOnlyInline}}
-
   - : Gibt einen String zurück, der den Typ des Ports enthält, einer von:
     - `"input"`
       - : Das `MIDIPort` ist ein Eingangsport.
@@ -32,7 +31,6 @@ Eine `MIDIPort`-Instanz wird erstellt, wenn ein neues MIDI-Gerät angeschlossen 
 - [`MIDIPort.version`](/de/docs/Web/API/MIDIPort/version) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der die Version des Ports enthält.
 - [`MIDIPort.status`](/de/docs/Web/API/MIDIPort/state) {{ReadOnlyInline}}
-
   - : Gibt einen String zurück, der den Status des Ports enthält, einer von:
     - `"disconnected"`
       - : Das Gerät, das dieses `MIDIPort` repräsentiert, ist vom System getrennt.

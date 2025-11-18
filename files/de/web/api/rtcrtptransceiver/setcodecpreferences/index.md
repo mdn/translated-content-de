@@ -36,7 +36,6 @@ setCodecPreferences(codecs)
 ### Parameter
 
 - `codecs`
-
   - : Ein Array von Objekten, die jeweils die Parameter eines der vom Transceiver unterstützten [Mediencodecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) bereitstellen, in Präferenzreihenfolge sortiert.
     Wenn `codecs` leer ist, werden die Codec-Konfigurationen auf die Standardeinstellungen der Benutzeragentur zurückgesetzt.
 
@@ -45,21 +44,17 @@ setCodecPreferences(codecs)
     > So können Sie die Verwendung von Codecs verhindern, die Sie nicht verwenden möchten.
 
     Jedes Codec-Objekt im Array hat die folgenden Eigenschaften:
-
     - `channels` {{optional_inline}}
-
       - : Eine positive ganze Zahl, die die Anzahl der vom Codec unterstützten Kanäle angibt.
         Zum Beispiel gibt ein Wert von 1 für Audio-Codecs monauralen Klang an, während 2 Stereo bedeutet.
 
     - `clockRate`
-
       - : Eine positive ganze Zahl, die die Abtastrate des Codecs in Hertz (Hz) angibt.
         Die Abtastrate ist die Rate, mit der der RTP-Zeitstempel des Codecs fortschreitet.
         Die meisten Codecs haben spezifische Werte oder Wertebereiche, die sie zulassen.
         Die IANA führt eine [Liste von Codecs und ihren Parametern](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Abtastraten.
 
     - `mimeType`
-
       - : Eine Zeichenkette, die den MIME-Medientyp und -Untertyp des Codecs angibt und als Zeichenkette in der Form `"type/subtype"` spezifiziert ist.
         Die MIME-Typzeichenketten, die von RTP verwendet werden, unterscheiden sich von denen, die anderswo verwendet werden.
         Die IANA führt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2).

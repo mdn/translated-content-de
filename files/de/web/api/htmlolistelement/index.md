@@ -20,7 +20,6 @@ _Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLE
 - [`HTMLOListElement.start`](/de/docs/Web/API/HTMLOListElement/start)
   - : Ein `long`-Wert, der das [`start`](/de/docs/Web/HTML/Reference/Elements/ol#start) widerspiegelt und den Wert der ersten Zahl des ersten Elements der Liste definiert.
 - [`HTMLOListElement.type`](/de/docs/Web/API/HTMLOListElement/type)
-
   - : Ein String-Wert, der den [`type`](/de/docs/Web/HTML/Reference/Elements/ol#type) widerspiegelt und die Art des verwendeten Markers zur Anzeige definiert. Es kann folgende Werte annehmen:
     - `'1'` bedeutet, dass dezimale Zahlen verwendet werden: `1`, `2`, `3`, `4`, `5`, …
     - `'a'` bedeutet, dass das lateinische Alphabet in Kleinbuchstaben verwendet wird: `a`, `b`, `c`, `d`, `e`, …

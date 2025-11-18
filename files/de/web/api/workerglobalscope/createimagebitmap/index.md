@@ -42,12 +42,9 @@ createImageBitmap(image, sx, sy, sw, sh, options)
 - `sh`
   - : Die Höhe des Rechtecks, aus dem das `ImageBitmap` extrahiert wird. Dieser Wert kann negativ sein.
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das Optionen für die Extraktion des Bildes festlegt.
     Die verfügbaren Optionen sind:
-
     - `imageOrientation`
-
       - : Gibt an, wie das Bitmap-Bild ausgerichtet werden soll.
         - `from-image`
           - : Bild gemäß EXIF-Ausrichtungsmetadaten ausgerichtet, falls vorhanden (Standard).

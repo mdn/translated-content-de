@@ -29,7 +29,6 @@ container-name: unset;
 ### Werte
 
 - `none`
-
   - : Standardwert. Der Abfragecontainer hat keinen Namen.
 
 - {{cssxref("custom-ident")}}

@@ -321,7 +321,6 @@ Wir müssen noch die Funktionalität implementieren, die es uns ermöglicht, bes
    ```
 
 2. Wir müssen entscheiden, welche Ereignisse unsere `Todo`-Komponente auslösen wird:
-
    - Wir könnten unterschiedliche Ereignisse für das Umschalten des Status und das Bearbeiten des Namens auslösen (zum Beispiel `updateTodoStatus` und `updateTodoName`).
    - Oder wir könnten einen allgemeineren Ansatz wählen und ein einzelnes `update`-Ereignis für beide Operationen auslösen.
 

@@ -39,7 +39,6 @@ animation-timeline: scroll(x self);
 ### Parameter
 
 - scroller
-
   - : Der Wert zur Angabe des Scroller-Elements, das die Scroll-Fortschritts-Timeline bereitstellt, kann einer der folgenden sein:
     - `nearest`
       - : Der nächstgelegene Vorfahre des aktuellen Elements, der Scrollleisten auf einer der Achsen hat. Dies ist der Standardwert.

@@ -19,19 +19,14 @@ new PerformanceObserver(callback)
 ### Parameter
 
 - `callback`
-
   - : Ein `PerformanceObserverCallback` Callback, das aufgerufen wird, wenn beobachtete Performance-Ereignisse aufgezeichnet werden. Wenn der Callback aufgerufen wird, sind die folgenden Parameter verfügbar:
-
     - `entries`
       - : Die [Liste der Performance-Observer-Einträge](/de/docs/Web/API/PerformanceObserverEntryList).
     - `observer`
       - : Das [`observer`](/de/docs/Web/API/PerformanceObserver) Objekt, das die oben genannten Einträge erhält.
     - `options`
-
       - : Ein Objekt mit den folgenden Eigenschaften:
-
         - `droppedEntriesCount`
-
           - : Die Anzahl der Einträge, die nicht aufgezeichnet werden konnten, da der interne Puffer des [`Performance`](/de/docs/Web/API/Performance) Objekts voll war.
 
             Beachten Sie, dass dies nur beim ersten Aufruf des Callbacks durch den Beobachter bereitgestellt wird, wenn die gepufferten Einträge wiedergegeben werden. Sobald der Beobachter beginnt, zukünftige Beobachtungen zu machen, muss er den Puffer nicht mehr verwenden. Nach dem ersten Mal wird `options` ein leeres Objekt (`{}`) sein.

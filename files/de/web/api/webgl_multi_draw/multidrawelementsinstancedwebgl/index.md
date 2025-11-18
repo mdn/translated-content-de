@@ -28,7 +28,6 @@ multiDrawElementsInstancedWEBGL(mode,
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types),
     der den Typ des Primitivs festlegt, das gerendert werden soll. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
@@ -50,7 +49,6 @@ multiDrawElementsInstancedWEBGL(mode,
   - : Ein [`GLUint`](/de/docs/Web/API/WebGL_API/Types),
     der den Startpunkt in das `countsList` Array definiert.
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der
     den Typ der Werte im Element-Array-Puffer festlegt. Mögliche Werte sind:
     - `gl.UNSIGNED_BYTE`

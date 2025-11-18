@@ -23,7 +23,6 @@ respondWithNewView(view)
 ### Parameter
 
 - `view`
-
   - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, auf den der Verbraucher des zugehörigen lesbaren Bytestreams schreiben soll, anstelle von [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view).
 
     Dies muss eine Ansicht auf denselben Speicherbereich wie [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) sein und den gleichen oder weniger Speicher belegen. Insbesondere muss es entweder der Puffer der Ansicht oder eine übertragene Version davon sein, denselben `byteOffset` haben und eine `byteLength` (Anzahl der geschriebenen Bytes), die kleiner oder gleich derjenigen der Ansicht ist.
@@ -35,7 +34,6 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-
   - : Wird ausgelöst, wenn das Quellobjekt nicht `ReadableStreamBYOBRequest` ist, oder wenn kein zugehöriger Controller existiert, oder wenn der zugehörige interne Array-Puffer nicht existent oder getrennt ist. Es kann auch ausgelöst werden, wenn die `view` eine Länge von null hat, während ein aktiver Leser vorhanden ist, oder eine nicht-null Länge hat, wenn es auf einem geschlossenen Stream aufgerufen wird.
 
 - {{jsxref("RangeError")}}

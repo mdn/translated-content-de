@@ -20,7 +20,6 @@ pushState(state, unused, url)
 ### Parameter
 
 - `state`
-
   - : Das `state` Objekt ist ein JavaScript-Objekt, das mit dem neuen Verlaufseintrag verbunden ist, der durch `pushState()` erstellt wird. Jedes Mal, wenn der Benutzer zu dem neuen `state` navigiert, wird ein [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis ausgelöst und die `state` Eigenschaft des Ereignisses enthält eine Kopie des `state` Objekts des Verlaufseintrags.
 
     Das `state` Objekt kann alles sein, das serialisiert werden kann.
@@ -29,7 +28,6 @@ pushState(state, unused, url)
     > Einige Browser speichern `state` Objekte auf der Festplatte des Benutzers, damit sie nach einem Neustart des Browsers wiederhergestellt werden können, und legen eine Größenbeschränkung für die serialisierte Darstellung eines `state` Objekts fest. Sie werfen eine Ausnahme, wenn ein `state` Objekt übergeben wird, dessen serialisierte Darstellung größer als diese Größenbeschränkung ist. In Fällen, in denen Sie sicherstellen möchten, dass Ihnen mehr Speicherplatz zur Verfügung steht, als einige Browser möglicherweise festlegen, wird empfohlen, [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage) und/oder [`localStorage`](/de/docs/Web/API/Window/localStorage) zu verwenden.
 
 - `unused`
-
   - : Dieser Parameter existiert aus historischen Gründen und kann nicht weggelassen werden; die Übergabe eines leeren Strings ist sicher gegen künftige Änderungen der Methode.
 
 - `url` {{optional_inline}}

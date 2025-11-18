@@ -20,7 +20,6 @@ Ein Objekt dieses Typs kann durch Aufruf des schreibgeschützten Attributs [`Per
 _Das `PerformanceNavigation`-Interface erbt keine Eigenschaften._
 
 - [`PerformanceNavigation.type`](/de/docs/Web/API/PerformanceNavigation/type) {{ReadOnlyInline}} {{deprecated_inline}}
-
   - : Ein `unsigned short`, der anzeigt, wie die Navigation zu dieser Seite durchgeführt wurde. Mögliche Werte sind:
     - `TYPE_NAVIGATE` (0)
       - : Die Seite wurde durch das Folgen eines Links, eines Lesezeichens, einer Formularübermittlung oder eines Skripts, oder durch Eingabe der URL in die Adressleiste aufgerufen.

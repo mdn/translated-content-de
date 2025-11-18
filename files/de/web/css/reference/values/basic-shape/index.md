@@ -67,21 +67,17 @@ Der `<basic-shape>` Datentyp wird verwendet, um grundlegende Formen zu erstellen
 Zu den Parametern, die in der Syntax einiger grundlegender Formfunktionen gemeinsam sind, gehören:
 
 - `round <'border-radius'>`
-
   - : Definiert abgerundete Ecken für [Rechtecke durch Container-Einfügungen](#syntax_für_rechtecke_durch_container-einfügungen), [Rechtecke nach Abständen](#syntax_für_rechtecke_nach_abständen) und [Rechtecke mit Dimensionen](#syntax_für_rechtecke_mit_dimensionen) mit derselben Syntax wie die CSS [`border-radius`](/de/docs/Web/CSS/Reference/Properties/border-radius) Kurzform-Eigenschaft.
 
 - `<shape-radius>`
-
   - : Definiert den Radius für einen [Kreis](#syntax_für_kreise) oder eine [Ellipse](#syntax_für_ellipsen). Gültige Werte umfassen {{cssxref("length")}}, {{cssxref("percentage")}}, `closest-side` (Standard) und `farthest-side`. Negative Werte sind ungültig.
 
     Der `closest-side` Schlüsselwortwert verwendet die Länge vom Zentrum der Form zur nächsten Seite der Referenzbox, um die Radiuslänge zu erstellen. Der `farthest-side` Schlüsselwortwert verwendet die Länge vom Zentrum der Form zur entferntesten Seite der Referenzbox.
 
 - `<position>`
-
   - : Definiert das Zentrum [`<position>`](/de/docs/Web/CSS/Reference/Values/position_value) eines [Kreises](#syntax_für_kreise) oder einer [Ellipse](#syntax_für_ellipsen). Es wird auf `center` gesetzt, wenn es weggelassen wird.
 
 - `<fill-rule>`
-
   - : Legt die {{SVGAttr("fill-rule")}} fest, die verwendet wird, um zu bestimmen, wie das Innere der durch die grundlegenden Formen definierten Form [Polygon](#syntax_für_polygone), [Pfad](#syntax_für_pfade) und [Form](#syntax_für_formen) gefüllt werden soll. Mögliche Werte sind `nonzero` (Standard) und `evenodd`.
 
     > [!NOTE] > `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt und macht die Eigenschaft ungültig.
@@ -204,7 +200,6 @@ Jeder Wert in den Listen der zwei `<basic-shape>` Funktionen wird basierend auf 
 - **Beide Formen sind vom Typ `path()`**: Interpolation wird auf jeden Parameter als {{cssxref("&lt;number&gt;")}} angewendet, falls die Pfadzeichenfolgen in beiden Formen die Anzahl, den Typ und die Abfolge von [Pfaddatenbefehlen](/de/docs/Web/SVG/Reference/Attribute/d#path_commands) übereinstimmen.
 
 - **Beide Formen sind vom Typ `shape()`**: Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn sie dasselbe Befehls-Schlüsselwort und dasselbe `<by-to>` Schlüsselwort verwenden. Wenn `shape()` in der {{cssxref("clip-path")}} Eigenschaft verwendet wird, interpolieren sich die beiden Formen ebenfalls, wenn sie dieselbe `<fill-rule>` aufweisen.
-
   - Wenn sie den `<curve-command>` oder den `<smooth-command>` verwenden, muss die Anzahl der Kontrollpunkte für die Interpolation übereinstimmen.
 
   - Wenn sie den `<arc-command>` mit unterschiedlichen `<arc-sweep>` Richtungen verwenden, wird das interpolierte Ergebnis im Uhrzeigersinn (`cw`) ausgeführt. Wenn sie unterschiedliche `<arc-size>` Schlüsselwörter verwenden, wird die Größe mit dem Wert `large` interpoliert.

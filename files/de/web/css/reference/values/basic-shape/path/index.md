@@ -58,9 +58,7 @@ path(evenodd,"M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80")
 ### Parameter
 
 - [`<fill-rule>`](/de/docs/Web/SVG/Reference/Attribute/fill-rule) {{optional_inline}}
-
   - : Definiert, welche Teile des Pfades innerhalb der Form liegen. Die möglichen Werte umfassen:
-
     - `nonzero`: Ein Punkt wird als innerhalb der Form liegend betrachtet, wenn ein Strahl vom Punkt aus mehr von links nach rechts als von rechts nach links Pfadsegmente überquert und so zu einer nichtnull Anzahl führt. Dies ist der Standardwert, wenn `<fill-rule>` weggelassen wird.
 
     - `evenodd`: Ein Punkt wird als innerhalb der Form liegend betrachtet, wenn ein Strahl vom Punkt aus eine ungerade Anzahl von Pfadsegmenten überquert. Dies bedeutet, dass für jedes Mal, wenn der Strahl die Form betritt, er sie nicht eine gleiche Anzahl von Malen verlässt, was auf eine ungerade Anzahl von Eintritten ohne entsprechende Austritte hinweist.

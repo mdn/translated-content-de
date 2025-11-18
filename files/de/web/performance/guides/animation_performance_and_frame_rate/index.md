@@ -35,7 +35,6 @@ Diese Sequenz muss in ein einzelnes Frame passen, da der Bildschirm erst aktuali
 Im Kontext des Rendering-Wasserfalls sind einige Eigenschaften teurer als andere:
 
 - Eigenschaften, die die **Geometrie** oder **Position** eines Elements beeinflussen, lösen aus:
-
   - Style neu berechnen
   - Layout
   - Neuzeichnung
@@ -43,14 +42,12 @@ Im Kontext des Rendering-Wasserfalls sind einige Eigenschaften teurer als andere
   Zum Beispiel: {{cssxref("left")}}, {{cssxref("max-width")}}, {{cssxref("border-width")}}, {{cssxref("margin-left")}}, {{cssxref("font-size")}}
 
 - Eigenschaften, die die Geometrie oder Position _nicht_ beeinflussen und _nicht_ in ihrer eigenen Ebene gerendert werden, lösen _keinen_ Layout aus. Sie lösen aus:
-
   - Style neu berechnen
   - Neuzeichnung
 
   Zum Beispiel: {{cssxref("color")}}
 
 - Eigenschaften, die in ihrer **eigenen Ebene** gerendert werden, lösen nicht einmal eine Neuzeichnung aus, da das Update in der **Komposition** behandelt wird. Sie lösen aus:
-
   - Style neu berechnen
 
   Zum Beispiel: {{cssxref("transform")}}, {{cssxref("opacity")}}

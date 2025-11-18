@@ -19,15 +19,11 @@ new ScrollTimeline(options)
 ### Parameter
 
 - `options`
-
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
-
     - `source`
       - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das das scrollbare Element (_scroller_) darstellt, dessen Scrollposition den Fortschritt der Zeitleiste steuert.
     - `axis` {{optional_inline}}
-
       - : Ein enumerierter Wert, der die Scrollachse darstellt, die den Fortschritt der Zeitleiste steuert. Mögliche Werte sind:
-
         - `"block"`: Der Scrollbalken auf der Blockachse des Scroll-Containers, die Achse, die senkrecht zur Textflussrichtung innerhalb einer Zeile verläuft. Für horizontale Schreibweisen, wie im Standard-Englisch, entspricht dies `"y"`, während es für vertikale Schreibweisen `"x"` entspricht.
         - `"inline"`: Der Scrollbalken auf der Inline-Achse des Scroll-Containers, die Achse, die parallel zur Textflussrichtung einer Zeile verläuft. Für horizontale Schreibweisen entspricht dies `"x"`, während es für vertikale Schreibweisen `"y"` entspricht.
         - `"y"`: Der Scrollbalken auf der vertikalen Achse des Scroll-Containers.

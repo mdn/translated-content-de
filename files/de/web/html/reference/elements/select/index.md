@@ -59,7 +59,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
   - : Dieses Boolean-Attribut zeigt an, dass der Benutzer nicht mit dem Steuerelement interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt das Steuerelement seine Einstellung vom umgebenden Element, beispielsweise {{htmlelement("fieldset")}}; wenn es kein umgebendes Element mit dem gesetzten `disabled`-Attribut gibt, ist das Steuerelement aktiviert.
 - [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
-
   - : Das {{HTMLElement("form")}}-Element, mit dem das `<select>` verbunden werden soll (sein _Formularbesitzer_). Der Wert dieses Attributs muss die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) eines `<form>` im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird das `<select>` seinem Vorfahren `<form>`-Element zugeordnet, falls vorhanden.)
 
     Dieses Attribut ermöglicht es Ihnen, `<select>`-Elemente mit `<form>`s überall im Dokument zu verbinden, nicht nur innerhalb eines `<form>`. Es kann auch ein übergeordnetes `<form>`-Element überschreiben.
@@ -71,7 +70,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 - [`required`](/de/docs/Web/HTML/Reference/Attributes/required)
   - : Ein Boolean-Attribut, das anzeigt, dass eine Option mit einem nicht-leeren String-Wert ausgewählt werden muss.
 - [`size`](/de/docs/Web/HTML/Reference/Attributes/size)
-
   - : Wenn das Steuerelement als Scrollfeld dargestellt ist (z.B., wenn `multiple` festgelegt ist), stellt dieses Attribut die Anzahl der Zeilen in der Liste dar, die gleichzeitig sichtbar sein sollen. Browser sind nicht verpflichtet, ein Select-Element als Scrollfeld darzustellen. Der Standardwert ist `0`.
 
     > [!NOTE]

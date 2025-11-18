@@ -30,7 +30,6 @@ Die folgenden Abschnitte beschreiben die verfügbaren Builtins. Andere Builtins 
 Die verfügbaren {{jsxref("String")}} Builtins sind:
 
 - [`"wasm:js-string" "cast"`](https://github.com/WebAssembly/js-string-builtins/blob/main/proposals/js-string-builtins/Overview.md#wasmjs-string-cast)
-
   - : Wirft einen Fehler, wenn der bereitgestellte Wert kein String ist. Grob äquivalent zu:
 
     ```js
@@ -62,7 +61,6 @@ Die verfügbaren {{jsxref("String")}} Builtins sind:
 - [`"wasm:js-string" "substring"`](https://github.com/WebAssembly/js-string-builtins/blob/main/proposals/js-string-builtins/Overview.md#wasmjs-string-substring)
   - : Entspricht {{jsxref("String.prototype.substring()")}}.
 - [`"wasm:js-string" "test"`](https://github.com/WebAssembly/js-string-builtins/blob/main/proposals/js-string-builtins/Overview.md#wasmjs-string-test)
-
   - : Gibt `0` zurück, wenn der bereitgestellte Wert kein String ist, oder `1`, wenn er ein String ist. Grob äquivalent zu:
 
     ```js

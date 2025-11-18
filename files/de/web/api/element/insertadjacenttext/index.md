@@ -19,7 +19,6 @@ insertAdjacentText(where, data)
 ### Parameter
 
 - `where`
-
   - : Ein String, der die Position relativ zu dem Element darstellt, von dem die Methode aufgerufen wird. Er muss einer der folgenden Strings sein:
     - `'beforebegin'`: Vor dem `element` selbst.
     - `'afterbegin'`: Direkt innerhalb des `element`, vor dessen erstem Kind.

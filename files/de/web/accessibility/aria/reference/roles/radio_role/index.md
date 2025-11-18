@@ -105,7 +105,6 @@ Aus der Sicht des Benutzers von unterstützender Technologie existiert die Über
 ### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radiogroup_role) Rolle
-
   - : Die Optionsfelder sind in einem Element mit der Rolle `radiogroup` enthalten oder gehören zu diesem. Wenn sie nicht innerhalb einer `radiogroup` in der Markupstruktur verschachtelt werden können, enthält das `aria-owns` Attribut der `radiogroup` die `id` Werte der nicht verschachtelten Optionsfelder in der Gruppe.
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)
@@ -121,15 +120,12 @@ Aus der Sicht des Benutzers von unterstützender Technologie existiert die Über
 ### Tastaturinteraktionen
 
 - <kbd>Tab</kbd> + <kbd>Shift</kbd>
-
   - : Verschieben Sie den Fokus in und aus der Radio-Gruppe. Wenn der Fokus in eine Radio-Gruppe verschoben wird, und ein Optionsfeld bereits aktiviert ist, wird der Fokus auf das aktivierte Feld gesetzt. Falls keines der Optionsfelder aktiviert ist, wird der Fokus auf das erste Optionsfeld in der Gruppe gesetzt.
 
 - <kbd>Space</kbd>
-
   - : Aktiviert das Optionsfeld, wenn es nicht bereits aktiviert ist. Deaktiviert ein zuvor aktiviertes Optionsfeld in der Radio-Gruppe.
 
 - <kbd>Rechte Pfeiltaste</kbd> und <kbd>Untere Pfeiltaste</kbd>
-
   - : Verschieben Sie den Fokus auf und aktivieren Sie das nächste Optionsfeld in der Gruppe, während Sie das zuvor fokussierte Optionsfeld deaktivieren. Befindet sich der Fokus auf dem letzten Optionsfeld, wird der Fokus auf das erste Optionsfeld verschoben.
 
 - <kbd>Linke Pfeiltaste</kbd> und <kbd>Obere Pfeiltaste</kbd>

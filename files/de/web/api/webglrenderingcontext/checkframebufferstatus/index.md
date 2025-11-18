@@ -21,15 +21,12 @@ checkFramebufferStatus(target)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) spezifiziert. Mögliche Werte:
-
     - `gl.FRAMEBUFFER`
       - : Sammlung von Puffer-Datenspeichern für Farb-, Alpha-,
         Tiefen- und Stencil-Puffer, die zum Rendern eines Bildes verwendet werden.
 
     Bei Verwendung eines [WebGL 2 Context](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich folgende Werte zur Verfügung:
-
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
         Wird als Ziel für Zeichnungs-, Rendering-, Lösch- und Schreiboperationen verwendet.
@@ -48,7 +45,6 @@ Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Vollständigkeitsstatu
   Anhangs sind nicht gleich.
 - `gl.FRAMEBUFFER_UNSUPPORTED`: Das Format des Anhangs wird nicht unterstützt oder wenn Tiefen- und Stencil-Anhänge nicht der gleiche Renderbuffer sind.
 - Bei Verwendung eines [WebGL 2 Context](/de/docs/Web/API/WebGL2RenderingContext) können zusätzlich folgende Werte zurückgegeben werden:
-
   - `gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE`: Die Werte von
     `gl.RENDERBUFFER_SAMPLES` sind unterschiedlich zwischen den angehängten Renderbuffers
     oder sind ungleich null, wenn die angehängten Bilder eine Mischung aus Renderbuffers und Texturen sind.

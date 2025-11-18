@@ -149,7 +149,6 @@ Um eine Methode in der `ToDoForm`-Komponente verfügbar zu machen, müssen wir s
 3. Wenn Sie dies ausführen, sendet die App die Daten immer noch an den Server, wodurch ein Refresh ausgelöst wird. Da wir alle unsere Verarbeitungen auf dem Client durchführen, gibt es keinen Server, der die Rückmeldung behandelt. Wir verlieren auch den gesamten lokalen Status bei einem Seiten-Refresh. Um zu verhindern, dass der Browser an den Server sendet, müssen wir die Standardaktion des Ereignisses stoppen, während es die Seite hinaufblubbert ([`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault), in Vanilla JavaScript). Vue hat eine spezielle Syntax namens **Ereignis-Modifikatoren**, die dies direkt in unserer Vorlage für uns erledigen kann.
 
    Modifikatoren werden am Ende eines Ereignisses mit einem Punkt angehängt, etwa so: `@event.modifier`. Hier ist eine Liste von Ereignis-Modifikatoren:
-
    - `.stop`: Stoppt das Ereignis vor der Weiterleitung. Entspricht [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) in regulären JavaScript-Ereignissen.
    - `.prevent`: Verhindert das Standardverhalten des Ereignisses. Entspricht [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault).
    - `.self`: Löst den Handler nur aus, wenn das Ereignis von genau diesem Element gesendet wurde.

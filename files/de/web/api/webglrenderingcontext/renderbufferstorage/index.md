@@ -20,16 +20,13 @@ renderbufferStorage(target, internalFormat, width, height)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
     - `gl.RENDERBUFFER`
       - : Pufferdatenspeicherung für einzelne Bilder in einem renderbaren internen Format.
 
 - `internalFormat`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das interne Format des Renderbuffers angibt. Mögliche
     Werte:
-
     - `gl.RGBA4`: 4 Red-Bits, 4 Green-Bits, 4 Blue-Bits, 4 Alpha-Bits.
     - `gl.RGB565`: 5 Red-Bits, 6 Green-Bits, 5 Blue-Bits.
     - `gl.RGB5_A1`: 5 Red-Bits, 5 Green-Bits, 5 Blue-Bits, 1 Alpha-Bit.
@@ -39,7 +36,6 @@ renderbufferStorage(target, internalFormat, width, height)
 
     Bei Verwendung eines [WebGL 2 Kontextes](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich die folgenden Werte verfügbar:
-
     - `gl.R8`
     - `gl.R8UI`
     - `gl.R8I`
@@ -71,17 +67,14 @@ renderbufferStorage(target, internalFormat, width, height)
     - `gl.DEPTH32F_STENCIL8`
 
     Bei Verwendung der [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) Erweiterung:
-
     - `ext.RGBA32F_EXT`: RGBA 32-Bit Gleitkommatyp.
     - `ext.RGB32F_EXT`: RGB 32-Bit Gleitkommatyp.
 
     Bei Verwendung der [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB) Erweiterung:
-
     - `ext.SRGB8_ALPHA8_EXT`: 8-Bit sRGB und Alpha.
 
     Bei Verwendung eines [WebGL 2 Kontextes](/de/docs/Web/API/WebGL2RenderingContext) und
     der [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) Erweiterung:
-
     - `gl.R16F`
     - `gl.RG16F`
     - `gl.RGBA16F`

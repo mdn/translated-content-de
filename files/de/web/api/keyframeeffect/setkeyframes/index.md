@@ -19,7 +19,6 @@ setKeyframes(keyframes)
 ### Parameter
 
 - `keyframes`
-
   - : Ein Keyframe-Objekt oder `null`. Wenn auf `null` gesetzt, werden die Keyframes durch eine Sequenz leerer Keyframes ersetzt.
 
     Weitere Informationen über das [Format](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats#syntax) eines Keyframe-Objekts.

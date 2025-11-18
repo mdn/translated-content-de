@@ -87,16 +87,13 @@ Ein Prozessflussdiagramm, wie Django Formularanfragen handhabt, wird unten gezei
 Basierend auf dem obigen Diagramm sind die Hauptsachen, die Djangos Formularverarbeitung tut,:
 
 1. Zeigen Sie das Standardformular an, das erste Mal, wenn es vom Benutzer angefordert wird.
-
    - Das Formular kann leere Felder enthalten, wenn Sie einen neuen Datensatz erstellen, oder es kann mit anfänglichen Werten vorab ausgefüllt sein (zum Beispiel, wenn Sie einen Datensatz ändern oder nützliche Standardanfangswerte haben).
    - Das Formular ist in diesem Punkt als _ungebunden_ bezeichnet, da es nicht mit vom Benutzer eingegebenen Daten assoziiert ist (obwohl es Anfangswerte haben kann).
 
 2. Empfangen Sie Daten von einer Übermittlungsanfrage und binden Sie sie an das Formular.
-
    - Die Daten an das Formular zu binden bedeutet, dass die vom Benutzer eingegebenen Daten und alle Fehler verfügbar sind, wenn wir das Formular erneut anzeigen müssen.
 
 3. Bereinigen und validieren Sie die Daten.
-
    - Die Datenreinigung führt eine Bereinigung der Eingabefelder durch, wie das Entfernen ungültiger Zeichen, die verwendet werden könnten, um bösartige Inhalte an den Server zu senden, und sie in konsistente Python-Typen zu konvertieren.
    - Die Validierung überprüft, ob die Werte für das Feld geeignet sind (zum Beispiel, dass sie sich im richtigen Datumsbereich befinden, nicht zu kurz oder zu lang sind usw.)
 

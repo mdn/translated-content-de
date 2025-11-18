@@ -24,7 +24,6 @@ samplerParameterf(sampler, pname, param)
 - `sampler`
   - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler) Objekt.
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welcher Parameter gesetzt werden soll. Mögliche Werte:
     - `gl.TEXTURE_COMPARE_FUNC`
       - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die

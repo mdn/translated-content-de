@@ -21,17 +21,14 @@ supports(type)
 ### Parameter
 
 - `type`
-
   - : Ein String, der den zu testenden {{Glossary("MIME_type", "MIME-Typ")}} angibt.
 
     Diese MIME-Typen werden immer unterstützt:
-
     - `text/plain`
     - `text/html`
     - `image/png`
 
     Diese MIME-Typen können unterstützt werden:
-
     - `image/svg+xml`
     - Benutzerdefinierte MIME-Typ-Formate, die mit `"web "` beginnen.
       Der benutzerdefinierte Typ (ohne das Präfix `"web "`) muss das korrekte Format für einen MIME-Typ haben.

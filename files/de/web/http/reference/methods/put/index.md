@@ -34,7 +34,7 @@ Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `P
     </tr>
     <tr>
       <th scope="row">
-        Erlaubt in <a href="/de-DE/docs/Learn_web_development/Extensions/Forms">HTML-Formularen</a>
+        Erlaubt in <a href="/de/docs/Learn_web_development/Extensions/Forms">HTML-Formularen</a>
       </th>
       <td>Nein</td>
     </tr>
@@ -90,11 +90,11 @@ Content-Location: /existing.html
 ## Browser-Kompatibilität
 
 Der Browser verwendet die `PUT`-Methode nicht für benutzerinitiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
-Entwickler können diese Anforderungsmethode mit [`fetch()`](/de-DE/docs/Web/API/Window/fetch) festlegen.
+Entwickler können diese Anforderungsmethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) festlegen.
 
 ## Siehe auch
 
-- [HTTP-Anfragemethoden](/de-DE/docs/Web/HTTP/Reference/Methods)
-- [HTTP-Antwortstatuscodes](/de-DE/docs/Web/HTTP/Reference/Status)
-- [HTTP-Header](/de-DE/docs/Web/HTTP/Reference/Headers)
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
+- [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
 - {{HTTPStatus("201", "201 Created")}}, {{HTTPStatus("204", "204 No Content")}} Antwortstatus

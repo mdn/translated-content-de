@@ -24,7 +24,6 @@ copyTextureToTexture(source, destination, copySize)
 - `destination`
   - : Ein Objekt (siehe [Struktur des Kopiertexturobjekts](#struktur_des_kopiertexturobjekts)), das die Textur definiert, in die die Daten geschrieben werden. Zusammen mit `copySize` definiert es den Bereich der Zieltextur-Unterressource.
 - `copySize`
-
   - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Lagenanzahl der kopierten Daten spezifiziert. Der Breite-Wert muss immer angegeben werden, während die Höhe und die Tiefe/Array-Lagenanzahl optional sind und bei Weglassen einen Standardwert von 1 haben.
 
     Sie können zum Beispiel ein Array `[16, 16, 2]` oder sein äquivalentes Objekt `{ width: 16, height: 16, depthOrArrayLayers: 2 }` übergeben.
@@ -34,9 +33,7 @@ copyTextureToTexture(source, destination, copySize)
 Ein Kopiertexturobjekt hat die folgende Struktur:
 
 - `aspect` {{optional_inline}}
-
   - : Ein enumerierter Wert, der definiert, welche Aspekte der Textur die Daten von/nach kopiert werden. Mögliche Werte sind:
-
     - `"all"`
       - : Alle verfügbaren Aspekte des Texturformats werden von/nach kopiert, was alles oder einen beliebigen der Farb-, Tiefen- und Schablonenastpekte bedeuten kann, je nach Format.
     - `"depth-only"`
@@ -49,7 +46,6 @@ Ein Kopiertexturobjekt hat die folgende Struktur:
 - `mipLevel` {{optional_inline}}
   - : Eine Zahl, die die Mip-Map-Ebene der Textur darstellt, von der/die auf die Daten kopiert werden. Wenn weggelassen, ist `mipLevel` standardmäßig 0.
 - `origin` {{optional_inline}}
-
   - : Ein Objekt oder Array, das den Ursprung des Kopier-/Zielbereichs angibt — die minimale Ecke des Texturbereichs, von dem/zu dem die Daten kopiert werden. Zusammen mit `size` wird das gesamte Ausmaß des Bereichs definiert, der kopiert wird. Die `x`, `y` und `z` Werte sind standardmäßig 0, wenn `origin` weggelassen wird.
 
     Zum Beispiel können Sie ein Array wie `[0, 0, 0]` oder sein äquivalentes Objekt `{ x: 0, y: 0, z: 0 }` übergeben.

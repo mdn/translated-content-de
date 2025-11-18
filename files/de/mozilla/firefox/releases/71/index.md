@@ -103,7 +103,6 @@ Die folgenden nicht standardmäßigen [`DataTransfer`](/de/docs/Web/API/DataTran
 ### API-Änderungen
 
 - {{WebExtAPIRef("downloads.download")}} identifiziert und meldet jetzt die folgenden HTTP-Antwortcodes als Fehler:
-
   - 404 mit Rückgabe `SERVER_BAD_CONTENT`
   - 403 mit Rückgabe `SERVER_FORBIDDEN`
   - 402 und Proxy 407 mit Rückgabe `SERVER_UNAUTHORIZED`

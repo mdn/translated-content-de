@@ -31,7 +31,6 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen existieren auch die fo
 - [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)
   - : Eine durch Leerzeichen getrennte Liste der Klassen eines Elements. Klassen ermöglichen es CSS und JavaScript, spezifische Elemente über [Klassen-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) oder Funktionen wie die Methode [`Document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und zuzugreifen.
 - [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)
-
   - : Ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. In diesem Fall modifiziert der Browser sein Widget, um die Bearbeitung zu ermöglichen. Das Attribut muss einen der folgenden Werte annehmen:
     - `true` oder den _leeren String_, was anzeigt, dass das Element bearbeitbar sein muss;
     - `false`, was anzeigt, dass das Element nicht bearbeitbar sein darf.
@@ -40,14 +39,12 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen existieren auch die fo
 - [`data-*`](/de/docs/Web/HTML/Reference/Global_attributes/data-*)
   - : Bildet eine Klasse von Attributen, genannt benutzerdefinierte Datenattribute, die es erlauben, proprietäre Informationen zwischen dem [HTML](/de/docs/Web/HTML) und seiner {{Glossary("DOM", "DOM")}}-Darstellung auszutauschen, die von Skripten verwendet werden können. Alle solche benutzerdefinierten Daten sind über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle des Elements zugänglich, auf dem das Attribut gesetzt ist. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft ermöglicht den Zugriff auf sie.
 - [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)
-
   - : Ein enumeriertes Attribut, das die Richtung des Textes des Elements angibt. Es kann die folgenden Werte haben:
     - `ltr`, was _von links nach rechts_ bedeutet und für Sprachen verwendet wird, die von links nach rechts geschrieben werden (wie Englisch);
     - `rtl`, was _von rechts nach links_ bedeutet und für Sprachen verwendet wird, die von rechts nach links geschrieben werden (wie Arabisch);
     - `auto`, was dem Benutzeragenten die Entscheidung überlässt. Er verwendet einen einfachen Algorithmus, indem er die Zeichen innerhalb des Elements parst, bis er ein Zeichen mit starker Richtung findet, dann wendet er diese Richtung auf das gesamte Element an.
 
 - [`draggable`](/de/docs/Web/HTML/Reference/Global_attributes/draggable)
-
   - : Ein enumeriertes Attribut, das angibt, ob das Element gezogen werden kann, unter Verwendung der [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API). Es kann die folgenden Werte haben:
     - `true`, was darauf hinweist, dass das Element gezogen werden kann;
     - `false`, was darauf hinweist, dass das Element nicht gezogen werden kann.
@@ -93,7 +90,6 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen existieren auch die fo
 - [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)
   - : Weist einem Element einen Slot in einem [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Schattenbaum zu: Ein Element mit einem `slot`-Attribut wird dem Slot zugewiesen, der von dem {{HTMLElement("slot")}}-Element erstellt wurde, dessen [`name`](/de/docs/Web/HTML/Reference/Elements/slot#name)-Attributswert mit dem des `slot`-Attributs übereinstimmt.
 - [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)
-
   - : Ein enumeriertes Attribut, das definiert, ob das Element auf Rechtschreibfehler überprüft werden kann. Es kann die folgenden Werte haben:
     - ein leerer String oder `true`, was anzeigt, dass das Element, wenn möglich, auf Rechtschreibfehler überprüft werden soll;
     - `false`, was anzeigt, dass das Element nicht auf Rechtschreibfehler überprüft werden soll.
@@ -101,7 +97,6 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen existieren auch die fo
 - [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)
   - : Beinhaltet [CSS](/de/docs/Web/CSS)-Styling-Deklarationen, die auf das Element angewendet werden sollen. Es wird empfohlen, Styles in einer separaten Datei oder in separaten Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element haben hauptsächlich den Zweck, schnelle Styling-Möglichkeiten bereitzustellen, beispielsweise zu Testzwecken.
 - [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)
-
   - : Ein ganzzahliges Attribut, das angibt, ob das Element den Eingabefokus erhalten kann (fokussierbar ist), ob es an der sequentiellen Tastaturnavigation teilnehmen soll, und wenn ja, an welcher Position. Es kann mehrere Werte annehmen:
     - ein _negativer Wert_ bedeutet, dass das Element fokussierbar sein soll, aber nicht über die sequentielle Tastaturnavigation erreichbar sein soll;
     - `0` bedeutet, dass das Element fokussierbar und über die sequentielle Tastaturnavigation erreichbar sein soll, aber seine relative Reihenfolge wird durch die Plattformkonvention definiert;
@@ -110,13 +105,11 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen existieren auch die fo
 - [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)
   - : Beinhaltet einen Text, der beratende Informationen im Zusammenhang mit dem Element enthält, zu dem er gehört. Solche Informationen können typischerweise, aber nicht unbedingt, dem Benutzer als Tooltip präsentiert werden.
 - [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate)
-
   - : Ein enumeriertes Attribut, das verwendet wird, um festzulegen, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt oder unverändert bleiben sollen. Es kann die folgenden Werte haben:
     - ein leerer String oder `yes`, was anzeigt, dass das Element übersetzt wird.
     - `no`, was anzeigt, dass das Element nicht übersetzt wird.
 
 - [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy) {{Experimental_Inline}}
-
   - : Ein {{Glossary("enumerated", "enumeriertes")}} Attribut, das verwendet wird, um das Verhalten der auf dem Bildschirm angezeigten virtuellen Tastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen möglicherweise keine Hardwaretastatur verfügbar ist, zu steuern. Dies gilt für Elemente, deren Inhalt bearbeitbar ist (z.B. es ist ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem gesetzten [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut).
     - `auto` oder ein _leerer String_, was die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angeklickt wird.
     - `manual`, was den Fokus und Klick auf das Element vom Status der virtuellen Tastatur entkoppelt.

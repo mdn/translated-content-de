@@ -29,7 +29,6 @@ Nachdem Sie den Peer erstellt haben, möchten Sie die Berechtigung des Browsers 
    ```
 
    Lassen Sie uns die wichtigsten Zeilen erklären:
-
    - `window.localStream = stream` hängt das `MediaStream`-Objekt (das wir in der vorherigen Zeile `stream` zugewiesen haben) als `localStream` an das Fenster an.
    - `window.localAudio.srcObject = stream` setzt das `src`-Attribut des [`<audio>`-Elements](/de/docs/Web/HTML/Reference/Elements/audio) mit der ID `localAudio` auf den `MediaStream`, der durch das Promise zurückgegeben wird, sodass unser Stream wiedergegeben wird.
    - `window.localAudio.autoplay = true` setzt das `autoplay`-Attribut des `<audio>`-Elements auf true, damit der Ton automatisch abgespielt wird.

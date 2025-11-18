@@ -116,7 +116,6 @@ grid-template: unset;
 - `<'grid-template-rows'> / <'grid-template-columns'>`
   - : Setzt {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} auf die angegebenen Werte und setzt {{cssxref("grid-template-areas")}} auf `none`.
 - `[ <line-names>? <string> <track-size>? <line-names>? ]+ [ / <explicit-track-list> ]?`
-
   - : Setzt {{cssxref("grid-template-areas")}} auf die aufgelisteten Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die nach jeder Zeichenfolge folgenden Streckengrößen (füllt `auto` für fehlende Größen ein) und fügt die vor/nach jeder Größe definierten benannten Linien ein, und {{cssxref("grid-template-columns")}} auf die nach dem Schrägstrich angegebene Streckenliste (oder `none`, wenn nicht angegeben).
 
     > [!NOTE]

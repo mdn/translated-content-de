@@ -12,11 +12,8 @@ Das **`<template>`** [HTML](/de/docs/Web/HTML) Element dient als Mechanismus zum
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `shadowrootmode`
-
   - : Erzeugt einen {{Glossary("Shadow_tree", "Shadow Root")}} für das Elternelement. Es ist eine deklarative Version der [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) Methode und akzeptiert die gleichen {{Glossary("enumerated", "aufzählbaren")}} Werte.
-
     - `open`
-
       - : Macht den internen Shadow Root DOM für JavaScript zugänglich (empfohlen für die meisten Anwendungsfälle).
 
     - `closed`
@@ -31,12 +28,10 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     > Sie könnten das nicht standardisierte `shadowroot` Attribut in älteren Tutorials und Beispielen finden, das früher in Chrome 90-110 unterstützt wurde. Dieses Attribut wurde inzwischen entfernt und durch das standardisierte `shadowrootmode` Attribut ersetzt.
 
 - `shadowrootclonable`
-
   - : Setzt den Wert der [`clonable`](/de/docs/Web/API/ShadowRoot/clonable) Eigenschaft eines mittels dieses Elements erzeugten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`.
     Wenn gesetzt, wird ein Klon des Shadow-Hosts (des Elternelements dieses `<template>`), der mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) erstellt wurde, einen Shadow Root in der Kopie enthalten.
 
 - `shadowrootdelegatesfocus`
-
   - : Setzt den Wert der [`delegatesFocus`](/de/docs/Web/API/ShadowRoot/delegatesFocus) Eigenschaft eines mittels dieses Elements erzeugten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`.
     Wenn dies gesetzt ist und ein nicht fokussierbares Element im Shadow-Baum ausgewählt wird, wird der Fokus an das erste fokussierbare Element im Baum delegiert.
     Der Wert ist standardmäßig `false`.

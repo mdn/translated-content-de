@@ -95,24 +95,19 @@ Der Wert kann sein:
 Die oben genannten Schlüsselwörter und Datentypen werden im Folgenden ausführlicher beschrieben:
 
 - `none`
-
   - : Wird es auf ein Pseudo-Element angewendet, wird das Pseudo-Element nicht generiert.
     Wird es auf ein Element angewendet, hat der Wert keine Wirkung.
 
 - `normal`
-
   - : Bei den {{cssxref("::before")}} und {{cssxref("::after")}} Pseudo-Elementen wird dieser Wert zu `none` berechnet. Bei anderen Pseudo-Elementen wie {{cssxref("::marker")}}, {{cssxref("::placeholder")}} oder {{cssxref("::file-selector-button")}} erzeugt er den initialen (oder normalen) Inhalt des Elements. Bei regulären Elementen oder Randboxen berechnet er sich zu den Nachkommen des Elements. Dies ist der Standardwert.
 
 - {{cssxref("&lt;string&gt;")}}
-
   - : Eine Zeichenfolge in passenden einfachen oder doppelten Anführungszeichen. Mehrere Zeichenfolgenwerte werden verkettet (es gibt keinen Verkettungsoperator in CSS).
 
 - {{cssxref("&lt;image&gt;")}}
-
   - : Ein {{cssxref("&lt;image&gt;")}}, das ein darzustellendes Bild darstellt. Dies kann einem {{cssxref("url_value", "&lt;url&gt;")}}, {{cssxref("image/image-set", "image-set()")}}, oder {{cssxref("&lt;gradient&gt;")}} Datentyp entsprechen oder ein Teil der Webseite selbst sein, definiert durch die {{cssxref("element", "element()")}}-Funktion.
 
 - `<counter>`
-
   - : Der `<counter>`-Wert ist ein [CSS Counter](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters), im Allgemeinen eine Zahl, die durch Berechnungen definiert wird, die von den Eigenschaften {{cssxref("&lt;counter-reset&gt;")}} und {{cssxref("&lt;counter-increment&gt;")}} vorgegeben werden. Er kann entweder durch die {{cssxref("counter", "counter()")}}- oder {{cssxref("counters", "counters()")}}-Funktion angezeigt werden.
     - {{cssxref("counter", "counter()")}}
       - : Die {{cssxref("counter", "counter()")}}-Funktion hat zwei Formen: 'counter(_name_)' oder 'counter(_name_, style)'. Der generierte Text ist der Wert des innersten Zählers des angegebenen Namens im Geltungsbereich des gegebenen Pseudo-Elements. Er ist im angegebenen {{cssxref("&lt;list-style-type&gt;")}} (`decimal` standardmäßig) formatiert.
@@ -120,7 +115,6 @@ Die oben genannten Schlüsselwörter und Datentypen werden im Folgenden ausführ
       - : Die {{cssxref("counters", "counters()")}}-Funktion hat ebenfalls zwei Formen: 'counters(_name_, _string_)' oder 'counters(_name_, _string_, _style_)'. Der generierte Text ist der Wert aller Zähler mit dem gegebenen Namen im Geltungsbereich des gegebenen Pseudo-Elements, vom äußersten zum innersten, getrennt durch die angegebene Zeichenfolge. Die Zähler werden im angegebenen {{cssxref("&lt;list-style-type&gt;")}} (`decimal` standardmäßig) dargestellt.
 
 - `<quote>`
-
   - : Der `<quote>` Datentyp enthält sprach- und positionsabhängige Schlüsselwörter:
     - `open-quote` und `close-quote`
       - : Diese Werte werden durch die entsprechende Zeichenfolge aus der {{cssxref("quotes")}} Eigenschaft ersetzt.
@@ -128,15 +122,12 @@ Die oben genannten Schlüsselwörter und Datentypen werden im Folgenden ausführ
       - : Fügt keinen Inhalt ein, erhöht (verringert) jedoch die Verschachtelungsebene für Anführungszeichen.
 
 - `<target>`
-
   - : Der `<target>` Datentyp umfasst drei Ziel-Funktionen, `<target-counter()>`, `<target-counters()>` und `<target-text()>`, die Querverweise aus dem Zielende eines Links erstellen. Siehe [Formale Syntax](#formale_syntax).
 
 - `<leader()>`
-
   - : Der `<leader()>` Datentyp enthält eine Leader-Funktion: `leader( <leader-type> )`. Diese Funktion akzeptiert die Schlüsselwert `dotted`, `solid` oder `space` (entspricht `leader(".")`, `leader("_")` und `leader(" ")`), oder einen `<string>` als Parameter. Wenn unterstützt und als Wert für `content` verwendet, wird der bereitgestellte Leader-Typ als sich wiederholendes Muster eingefügt, das den Inhalt über eine horizontale Linie visuell verbindet.
 
 - `attr(x)`
-
   - : Die `attr(x)` CSS-Funktion ruft den Wert eines Attributs des ausgewählten Elements oder des Ursprungs-Elements des Pseudo-Elements ab. Der Wert des Attributs `x` des Elements ist eine unverarbeitete Zeichenfolge, die den Attributnamen darstellt. Gibt es kein Attribut `x`, wird eine leere Zeichenfolge zurückgegeben. Die Groß-/Kleinschreibung des Attributnamenparameters hängt von der Dokumentsprache ab.
 
 - Alternativtext: `/ <string> | <counter>`

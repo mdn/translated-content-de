@@ -22,11 +22,8 @@ requestWindow(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
-
     - `disallowReturnToOpener` {{optional_inline}}
-
       - : Ein boolescher Wert. Wenn auf `true` gesetzt, weist diese Option den Browser darauf hin, dass er keine UI-Steuerung anzeigen soll, die es dem Benutzer ermöglicht, zum ursprünglichen Tab zurückzukehren und das Picture-in-Picture-Fenster zu schließen. Standardmäßig ist dies `false`.
 
         Zum Beispiel, in Chromes Implementierung dieser Funktion, ist die bereitgestellte UI-Steuerung ein „Zurück zum Tab“-Knopf in der oberen Leiste des Picture-in-Picture-Fensters:
@@ -36,7 +33,6 @@ requestWindow(options)
     - `height` {{optional_inline}}
       - : Eine nicht-negative Zahl, die die Höhe des Viewports des Picture-in-Picture-Fensters in Pixeln darstellt. Standardmäßig auf `0`.
     - `preferInitialWindowPlacement` {{optional_inline}}
-
       - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, bewirkt er, dass das Picture-in-Picture-Fenster immer an der Position und Größe erscheint, an der es ursprünglich geöffnet wurde, wenn es geschlossen und dann wieder geöffnet wird. Im Gegensatz dazu wird, wenn `preferInitialWindowPlacement` `false` ist, die Größe und Position des Picture-in-Picture-Fensters beim Schließen und erneuten Öffnen beibehalten – es wird an seiner vorherigen Position und Größe geöffnet, beispielsweise wie vom Benutzer festgelegt.
 
     - `width` {{optional_inline}}

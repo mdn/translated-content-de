@@ -58,7 +58,6 @@ Der String kann einen der folgenden Werte haben:
 ### Ausnahmen
 
 - `TypeError`
-
   - : Die `policy` hat keine definierten Eigenschaften (Richtlinienbeschränkungen), oder ein Eigenschaftsschlüssel ist nicht gültig.
 
 - `NotSupportedError`

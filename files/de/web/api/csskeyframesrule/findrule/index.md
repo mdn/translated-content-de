@@ -19,9 +19,7 @@ findRule(select)
 ### Parameter
 
 - `select`
-
   - : Ein String, der den Keyframe-Selektor der zu findenden Regel enthält. Dieser muss sein:
-
     - eine durch Kommas getrennte Liste von Prozentwerten zwischen 0% und 100%;
     - oder die Schlüsselwörter `from` oder `to`
 

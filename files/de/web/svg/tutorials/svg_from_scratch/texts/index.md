@@ -56,7 +56,6 @@ Das `tspan`-Element hat die folgenden benutzerdefinierten Attribute:
 - `x`
   - : Setzt eine neue absolute `x`-Koordinate für den enthaltenen Text. Dies überschreibt die standardmäßige aktuelle Textposition. Das Attribut kann auch eine Liste von Zahlen enthalten, die nacheinander auf die einzelnen Zeichen des `tspan`-Elements angewendet werden.
 - `dx`
-
   - : Beginnt das Zeichnen des Textes mit einem horizontalen Offset `dx` von der standardmäßigen aktuellen Position. Auch hier können Sie eine Liste von Werten angeben, die auf aufeinanderfolgende Zeichen angewendet werden, sodass sich der Offset im Laufe der Zeit erhöht.
 
     Ebenso gibt es **`y`** und **`dy`** für die vertikale Verschiebung.

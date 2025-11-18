@@ -43,7 +43,6 @@ Höhepunkte:
 - Der [`RegExp`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp) löst keinen Fehler mehr aus, wenn das erste Argument ein `RegExp` ist und das zweite `flags`-Argument vorhanden ist ([Firefox Bug 1108949](https://bugzil.la/1108949)).
 - Die Eigenschaft `Object.prototype.__noSuchMethod__` ist jetzt veraltet und gibt eine Konsolenwarnung aus (siehe [Firefox Bug 1140428](https://bugzil.la/1140428) und diese [Plattform-Ankündigung](https://groups.google.com/forum/#!topic/mozilla.dev.platform/0EkHgphxUo8)).
 - Die Implementierung des {{jsxref("Proxy")}}-Objekts wurde aktualisiert, um besser mit der ES2015-Spezifikation übereinzustimmen:
-
   - Die {{jsxref("Global_Objects/Proxy/Proxy/defineProperty", "defineProperty")}}- und {{jsxref("Global_Objects/Proxy/Proxy/set", "set")}}-Handler müssen jetzt explizit `true` zurückgeben, um erfolgreich zu sein, andernfalls wird im strikten Modus eine {{jsxref("TypeError")}}-Ausnahme ausgelöst ([Firefox Bug 1132522](https://bugzil.la/1132522)).
   - Wenn das [`window`](/de/docs/Web/API/Window)-Objekt als Ziel festgelegt ist, werden diese Handler jetzt eine `TypeError`-Ausnahme auslösen ([Firefox Bug 828137](https://bugzil.la/828137)).
 

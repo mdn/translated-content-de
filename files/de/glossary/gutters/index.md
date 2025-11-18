@@ -61,7 +61,6 @@ Die Eigenschaften `row-gap` und `column-gap` sind nicht die einzigen Dinge, die 
 
 - [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
 - Eigenschaftenreferenz
-
   - {{cssxref("column-gap")}}
   - {{cssxref("row-gap")}}
   - {{cssxref("gap")}}

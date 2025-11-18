@@ -109,7 +109,6 @@ Diese Eigenschaft kann eine von drei verschiedenen Formen annehmen:
 - `auto`
   - : Der verwendete Wert ist der Wert der `justify-items`-Eigenschaft des übergeordneten Elements, es sei denn, das Element hat kein übergeordnetes Element oder ist absolut positioniert; in diesen Fällen repräsentiert `auto` `normal`.
 - `normal`
-
   - : Die Wirkung dieses Schlüsselworts hängt vom verwendeten Layoutmodus ab:
     - In Block-Level-Layouts ist das Schlüsselwort ein Synonym für `start`.
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.

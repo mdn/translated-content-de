@@ -73,7 +73,6 @@ svg {
 </table>
 
 - `<length-percentage>`
-
   - : Eine Länge stellt eine Distanz entlang des Pfads dar, gemessen im aktuellen Benutzerkoordinatensystem für das {{SVGElement("textPath")}}-Element.
 
     Wenn ein Prozentsatz angegeben wird, dann stellt der Startversatz eine prozentuale Distanz entlang des gesamten Pfads dar. So bedeutet `0%` der Anfangspunkt des Pfads und `100%` das Endpunkt des Pfads.

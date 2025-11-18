@@ -20,7 +20,6 @@ forEach(callback, thisArg)
 ### Parameter
 
 - `callback`
-
   - : Funktion, die für jedes Element ausgeführt wird. Sie erhält die folgenden Argumente:
     - `value`
       - : Der Wert des aktuellen Eintrags, der im `URLSearchParams`-Objekt verarbeitet wird.

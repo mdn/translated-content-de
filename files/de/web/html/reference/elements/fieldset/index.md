@@ -49,7 +49,6 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 - [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
   - : Dieses Attribut nimmt den Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs eines {{HTMLElement("form")}}-Elements ein, dem Sie das `<fieldset>` zuordnen möchten, auch wenn es sich nicht innerhalb des Formulars befindet. Bitte beachten Sie, dass die Verwendung verwirrend ist — wenn Sie möchten, dass die {{HTMLElement("input")}}-Elemente innerhalb des `<fieldset>` dem Formular zugeordnet sind, müssen Sie das `form`-Attribut direkt auf diese Elemente anwenden. Sie können überprüfen, welche Elemente einem Formular zugeordnet sind, indem Sie JavaScript verwenden, mit [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements).
 - `name`
-
   - : Der mit der Gruppe verbundene Name.
 
     > [!NOTE]

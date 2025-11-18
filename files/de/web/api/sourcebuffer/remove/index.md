@@ -30,7 +30,6 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn entweder die Eigenschaft [`MediaSource.duration`](/de/docs/Web/API/MediaSource/duration) gleich `NaN` ist, der `start`-Parameter negativ oder größer als [`MediaSource.duration`](/de/docs/Web/API/MediaSource/duration) ist, oder der `end`-Parameter kleiner oder gleich `start` oder gleich `NaN` ist.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)

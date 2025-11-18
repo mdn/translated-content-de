@@ -132,11 +132,9 @@ animation-timing-function: unset;
 ### Werte
 
 - {{cssxref("&lt;easing-function&gt;")}}
-
   - : Die zu einer bestimmten Animation gehörende Ease-Funktion, wie durch {{cssxref("animation-name")}} bestimmt.
 
     Die nicht-schrittweisen Schlüsselwortwerte (`ease`, `linear`, `ease-in-out`, etc.) repräsentieren jeweils kubische Bézier-Kurven mit festen Vier-Punkt-Werten, während der Wert `cubic-bezier()` die Angabe nicht vordefinierter Werte ermöglicht. Die `steps()` Ease-Funktion teilt die Eingabezeit in eine bestimmte Anzahl von gleich langen Intervallen. Ihre Parameter beinhalten eine Anzahl von Schritten und eine Schrittposition.
-
     - `linear`
       - : Entspricht `cubic-bezier(0.0, 0.0, 1.0, 1.0)`, animiert mit gleichmäßiger Geschwindigkeit.
     - `ease`
@@ -146,19 +144,15 @@ animation-timing-function: unset;
     - `ease-out`
       - : Entspricht `cubic-bezier(0, 0, 0.58, 1.0)`, beginnt schnell, verlangsamt sich während die Animation fortschreitet.
     - `ease-in-out`
-
       - : Entspricht `cubic-bezier(0.42, 0, 0.58, 1.0)`, die animierten Eigenschaften wechseln langsam, beschleunigen und verlangsamen sich dann wieder.
 
     - `cubic-bezier(<number [0,1]> , <number> , <number [0,1]> , <number>)`
-
       - : Eine von Autoren definierte kubische Bézier-Kurve, wobei der erste und der dritte Wert im Bereich von 0 bis 1 liegen müssen.
 
     - `linear(<number> <percentage>{1,2}, …)`
-
       - : Die Funktion interpoliert linear zwischen den angegebenen Ease-Stoppunkten. Ein Stoppunkt ist ein Paar aus einem Ausgabefortschritt und einem Eingabeprozentsatz. Der Eingabeprozentsatz ist optional und wird abgeleitet, wenn er nicht angegeben ist. Wenn kein Eingabeprozentsatz angegeben wird, werden der erste und letzte Stoppunkt auf `0%` beziehungsweise `100%` gesetzt, und die mittleren Stoppunkte erhalten Prozentsätze, die durch lineare Interpolation zwischen den nächstgelegenen vorhergehenden und nächsten Punkten, die einen Prozentsatzwert haben, abgeleitet werden.
 
     - `steps(<integer>, <step-position>)`
-
       - : Zeigt eine Animationsiteration entlang _n_ Stops entlang des Übergangs mit jedem Stop für die gleiche Zeit an. Zum Beispiel, wenn _n_ gleich 5 ist, gibt es 5 Schritte. Ob die Animation kurzzeitig bei 0%, 20%, 40%, 60% und 80%, auf der 20%, 40%, 60%, 80% und 100% anhält oder 5 Stops zwischen den 0% und 100% macht oder 5 Stops inklusive der 0% und 100% Werte macht (bei den 0%, 25%, 50%, 75% und 100%), hängt davon ab, welche der folgenden Schrittpositionen verwendet wird:
         - `jump-start`
           - : Bezeichnet eine links-stetige Funktion, sodass der erste Sprung stattfindet, wenn die Animation beginnt.

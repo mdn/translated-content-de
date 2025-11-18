@@ -25,11 +25,9 @@ observe(target, options)
 - `target`
   - : Ein DOM [`Node`](/de/docs/Web/API/Node) (der ein [`Element`](/de/docs/Web/API/Element) sein kann) innerhalb des DOM-Baumes, der auf Änderungen überwacht werden soll, oder als Wurzel eines Teilbaumes von Knoten, die überwacht werden sollen.
 - `options`
-
   - : Ein Objekt, das Optionen bereitstellt, die beschreiben, welche DOM-Mutationen dem `mutationObserver` 's `callback` gemeldet werden sollen. Mindestens eines von `childList`, `attributes` und/oder `characterData` muss `true` sein, wenn Sie `observe()` aufrufen. Andernfalls wird eine `TypeError`-Ausnahme ausgelöst.
 
     Die Optionen sind wie folgt:
-
     - `subtree` {{optional_inline}}
       - : Setzen Sie dies auf `true`, um die Überwachung auf den gesamten Teilbaum von Knoten auszuweiten, die in `target` verwurzelt sind. Alle anderen Eigenschaften werden dann auf alle Knoten im Teilbaum ausgedehnt, anstatt nur auf den `target`-Knoten anzuwenden. Der Standardwert ist `false`. Beachten Sie, dass, wenn ein Nachkomme von `target` entfernt wird, Änderungen in diesem Nachkommen-Teilbaum weiterhin beobachtet werden, bis die Benachrichtigung über die Entfernung selbst ausgeliefert wurde.
     - `childList` {{optional_inline}}

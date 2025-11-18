@@ -38,7 +38,6 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </table>
 
 - `default`
-
   - : Mit diesem Wert eingestellt, werden Leerzeichen in folgender Reihenfolge verarbeitet:
     1. Alle Zeilenumbrüche werden entfernt.
     2. Alle Tabulatorzeichen werden in Leerzeichen umgewandelt.
@@ -46,7 +45,6 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
     4. Alle aufeinanderfolgenden Leerzeichen werden zu einem einzelnen Leerzeichen zusammengefasst.
 
 - `preserve`
-
   - : Dieser Wert teilt dem Benutzeragenten mit, alle Zeilenumbrüche und Tabulatorzeichen in Leerzeichen umzuwandeln. Dann werden alle Leerzeichen dargestellt (einschließlich führender, nachgestellter und mehrfach aufeinanderfolgender Leerzeichen).
 
     Zum Beispiel trennt der String "a&nbsp;&nbsp;&nbsp;b" (drei Leerzeichen zwischen "a" und "b") "a" und "b" mehr als "a b" (ein Leerzeichen zwischen "a" und "b").

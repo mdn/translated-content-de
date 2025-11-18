@@ -39,9 +39,7 @@ Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Gl
 - `compact` {{Deprecated_inline}}
   - : Dieses boolesche Attribut deutet an, dass die Liste in einem kompakten Stil gerendert werden sollte. Die Interpretation dieses Attributs ist browserabhängig. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 - `type` {{Deprecated_inline}}
-
   - : Dieses Attribut legt den Aufzählungsstil für die Liste fest. Die in HTML3.2 und der Übergangsversion von HTML 4.0/4.01 definierten Werte sind:
-
     - `circle`
     - `disc`
     - `square`

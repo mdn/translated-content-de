@@ -55,7 +55,6 @@ Eine Ellipse ist im Wesentlichen ein gestauchter Kreis und daher funktioniert `e
 ### Werte
 
 - `<shape-radius>`
-
   - : Zwei Radien, x und y in dieser Reihenfolge. Diese können eine {{cssxref("length")}}, ein {{cssxref("percentage")}}, oder die Werte `closest-side` und `farthest-side` sein.
     - `closest-side`
       - : Verwendet die Länge vom Zentrum der Form zur nächstgelegenen Seite des Referenzkastens. Für Ellipsen ist dies die nächstgelegene Seite in der Radienrichtung.

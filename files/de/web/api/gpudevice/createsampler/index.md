@@ -20,13 +20,9 @@ createSampler(descriptor)
 ### Parameter
 
 - `descriptor` {{optional_inline}}
-
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
-
     - `addressModeU` {{optional_inline}}
-
       - : Ein enumerierter Wert, der das Verhalten des Samplers angibt, wenn die Breite des Proben-Fußabdrucks über die Breite der Textur hinausgeht. Mögliche Werte sind:
-
         - `"clamp-to-edge"`: Die Texturkoordinaten werden zwischen 0,0 und 1,0 inklusive begrenzt.
         - `"repeat"`: Die Texturkoordinaten umschließen die andere Seite der Textur.
         - `"mirror-repeat"`: Die Texturkoordinaten umschließen die andere Seite der Textur, aber die Textur wird gespiegelt, wenn der ganzzahlige Teil der Koordinate ungerade ist.
@@ -36,13 +32,10 @@ createSampler(descriptor)
     - `addressModeV` {{optional_inline}}
       - : Ein enumerierter Wert, der das Verhalten des Samplers angibt, wenn die Höhe des Proben-Fußabdrucks über die Höhe der Textur hinausgeht. Mögliche und Standardwerte sind die gleichen wie für `addressModeU`.
     - `addressModeW` {{optional_inline}}
-
       - : Ein enumerierter Wert, der das Verhalten des Samplers angibt, wenn die Tiefe des Proben-Fußabdrucks über die Tiefe der Textur hinausgeht. Mögliche und Standardwerte sind die gleichen wie für `addressModeU`.
 
     - `compare` {{optional_inline}}
-
       - : Wenn angegeben, wird der Sampler ein Vergleichssampler des angegebenen Typs. Mögliche (enumerierte) Werte sind:
-
         - `"never"`: Vergleichstests schlagen nie fehl.
         - `"less"`: Ein bereitgestellter Wert besteht den Vergleichstest, wenn er kleiner als der abgetastete Wert ist.
         - `"equal"`: Ein bereitgestellter Wert besteht den Vergleichstest, wenn er gleich dem abgetasteten Wert ist.
@@ -55,25 +48,20 @@ createSampler(descriptor)
         Vergleichssampler können Filtern verwenden, aber die Abtastergebnisse sind implementierungsabhängig und können von den normalen Filterregeln abweichen.
 
     - `label` {{optional_inline}}
-
       - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
     - `lodMinClamp` {{optional_inline}}
       - : Eine Zahl, die das minimale Detaillevel angibt, das intern verwendet wird, wenn eine Textur abgetastet wird. Wenn weggelassen, ist der Standardwert für `lodMinClamp` 0.
     - `lodMaxClamp` {{optional_inline}}
-
       - : Eine Zahl, die das maximale Detaillevel angibt, das intern verwendet wird, wenn eine Textur abgetastet wird. Wenn weggelassen, ist der Standardwert für `lodMaxClamp` 32.
 
     - `maxAnisotropy` {{optional_inline}}
-
       - : Gibt den maximalen Anisotropie-Wert an, der durch den Sampler begrenzt wird. Wenn weggelassen, ist der Standardwert für `maxAnisotropy` 1.
 
         Die meisten Implementierungen unterstützen `maxAnisotropy`-Werte in einem Bereich zwischen 1 und 16 inklusive. Der benutzte Wert wird auf den maximalen Wert begrenzt, den die zugrunde liegende Plattform unterstützt.
 
     - `magFilter` {{optional_inline}}
-
       - : Ein enumerierter Wert, der das Abtastverhalten angibt, wenn der Proben-Fußabdruck kleiner oder gleich einem Texel ist. Mögliche Werte sind:
-
         - `"nearest"`: Gibt den Wert des Texels zurück, der den Texturkoordinaten am nächsten liegt.
         - `"linear"`: Wählt zwei Texels in jeder Dimension und gibt eine lineare Interpolation zwischen deren Werten zurück.
 

@@ -55,7 +55,6 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
 - [`HTMLLinkElement.charset`](/de/docs/Web/API/HTMLLinkElement/charset) {{deprecated_inline}}
   - : Ein String, der die Zeichencodierung für die Zielressource darstellt.
 - [`HTMLLinkElement.rev`](/de/docs/Web/API/HTMLLinkElement/rev) {{deprecated_inline}}
-
   - : Ein String, der die Rückwärtsbeziehung der verlinkten Ressource von der Ressource zum Dokument darstellt.
 
     > [!NOTE]

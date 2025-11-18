@@ -131,7 +131,6 @@ Hier können Sie die Ergebnisse in Aktion sehen. Während Sie mit der Maus in de
 - [Konzepte des Viewports](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts)
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using): wie man ein Koordinatensystem ändert
 - Koordinaten eines [`MouseEvent`](/de/docs/Web/API/MouseEvent):
-
   - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) und [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY)
   - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) und [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY)
   - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) und [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY)

@@ -23,9 +23,7 @@ new MouseEvent(type, options)
   - : Ein String mit dem Namen des Ereignisses.
     Er ist case-sensitive und Browser setzen ihn auf `click`, `dblclick`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseout`, `mouseover` oder `mouseup`.
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
-
     - `screenX` {{optional_inline}}
       - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und die horizontale Position des Mausereignisses auf dem Bildschirm des Benutzers darstellt;
         das Setzen dieses Wertes bewegt den Mauszeiger nicht.
@@ -47,7 +45,6 @@ new MouseEvent(type, options)
     - `metaKey` {{optional_inline}}
       - : Ein boolescher Wert, der anzeigt, ob die <kbd>meta</kbd>-Taste gleichzeitig gedrückt wurde. Der Standardwert ist `false`.
     - `button` {{optional_inline}}
-
       - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und beschreibt, welche Taste während der Ereignisse im Zusammenhang mit dem Drücken oder Loslassen einer Taste gedrückt wird:
 
         | Wert | Bedeutung                                                               |
@@ -57,7 +54,6 @@ new MouseEvent(type, options)
         | `2`  | Sekundärtaste gedrückt (meistens die rechte Taste)                      |
 
     - `buttons` {{optional_inline}}
-
       - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und beschreibt, welche Tasten gedrückt sind, wenn das Ereignis ausgelöst wird:
 
         | Bit-Feld Wert | Bedeutung                                          |

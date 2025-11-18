@@ -19,9 +19,7 @@ configure(config)
 ### Parameter
 
 - `config`
-
   - : Ein Dictionary-Objekt, das die folgenden Mitglieder enthält:
-
     - `codec`
       - : Ein String, der einen [gültigen Codec-String](https://w3c.github.io/webcodecs/codec_registry.html#audio-codec-registry) enthält. Weitere Informationen zur Konstruktion des Codec-Strings finden Sie im ["codecs" Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter#codec_options_by_container).
     - `sampleRate`
@@ -31,9 +29,7 @@ configure(config)
     - `bitrate` {{optional_inline}}
       - : Ein Integer, der die Bitrate darstellt.
     - `bitrateMode` {{optional_inline}}
-
       - : Ein enumerierter Wert, der den Bitratenmodus definiert, den der Encoder verwenden soll. Mögliche Werte sind:
-
         - `"constant"`
           - : Erzwingt, dass ein Audio-Encoder die gleiche Bitrate beibehält, unabhängig vom Audiogehalt. Dies kann nützlich sein, wenn ein vorhersehbarer Bandbreitenverbrauch erwünscht ist.
         - `"variable"` (Voreinstellung)

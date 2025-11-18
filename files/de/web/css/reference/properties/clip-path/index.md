@@ -118,7 +118,6 @@ Die `clip-path`-Eigenschaft wird als eine oder eine Kombination der unten aufgef
 - `<clip-source>`
   - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, das auf ein [SVG](/de/docs/Web/SVG) {{SVGElement("clipPath")}}-Element verweist.
 - {{cssxref("&lt;basic-shape&gt;")}}
-
   - : Eine Form, deren Größe und Position durch den `<geometry-box>`-Wert definiert ist. Wenn keine Geometrie-Box angegeben ist, wird die `border-box` als Referenz-Box verwendet. Eine der folgenden:
     - {{cssxref("basic-shape/inset","inset()")}}
       - : Definiert ein inneres Rechteck.
@@ -138,7 +137,6 @@ Die `clip-path`-Eigenschaft wird als eine oder eine Kombination der unten aufgef
       - : Definiert ein Rechteck unter Verwendung der angegebenen Abstände von den oberen und linken Kanten der Referenz-Box sowie der angegebenen Breite und Höhe des Rechtecks.
 
 - `<geometry-box>`
-
   - : Wenn in Kombination mit einer `<basic-shape>` angegeben, definiert dieser Wert die Referenz-Box für die Grundform. Wenn es alleine angegeben wird, sorgt es dafür, dass die Kanten der angegebenen Box, einschließlich jeder Eckformung (wie ein {{cssxref("border-radius")}}), der Pfad für das Clipping ist. Die Geometriebox kann einen der folgenden Werte haben:
     - `margin-box`
       - : Verwendet die [Randbox](/de/docs/Web/CSS/Guides/Shapes/From_box_values#margin-box) als Referenz-Box.

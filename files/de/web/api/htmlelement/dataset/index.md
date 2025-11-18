@@ -38,7 +38,6 @@ Neben den folgenden Informationen finden Sie eine Anleitung zur Verwendung von H
 ### Namenskonvertierung
 
 - Umwandlung von `dash-style` zu `camelCase`
-
   - : Ein benutzerdefinierter Datenattributname wird zu einem Schlüssel für den
     [`DOMStringMap`](/de/docs/Web/API/DOMStringMap)-Eintrag folgendermaßen umgewandelt:
     1. Alle ASCII-Großbuchstaben (`A` bis

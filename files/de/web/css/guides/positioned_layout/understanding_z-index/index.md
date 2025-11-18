@@ -15,13 +15,13 @@ Standardmäßig werden Elemente auf Ebene 0 gerendert. Die `z-index`-Eigenschaft
 
 Wenn Sie mit dem Begriff 'z-Achse' nicht vertraut sind, stellen Sie sich die Seite als einen Stapel von Ebenen vor, von denen jede eine zugewiesene Nummer hat. Ebenen werden in numerischer Reihenfolge gerendert, wobei größere Zahlen oberhalb kleinerer Zahlen erscheinen (_X_ in der untenstehenden Tabelle repräsentiert eine beliebige positive Ganzzahl):
 
-| Ebene        | Beschreibung                             |
-| ------------ | ---------------------------------------- |
-| Unterste Ebene | Am weitesten vom Betrachter entfernt   |
-| Ebene -X     | Ebenen mit negativen `z-index`-Werten      |
-| Ebene 0      | Standard-Darstellungsebene               |
-| Ebene X      | Ebenen mit positiven `z-index`-Werten      |
-| Oberste Ebene| Am nächsten zum Betrachter               |
+| Ebene          | Beschreibung                          |
+| -------------- | ------------------------------------- |
+| Unterste Ebene | Am weitesten vom Betrachter entfernt  |
+| Ebene -X       | Ebenen mit negativen `z-index`-Werten |
+| Ebene 0        | Standard-Darstellungsebene            |
+| Ebene X        | Ebenen mit positiven `z-index`-Werten |
+| Oberste Ebene  | Am nächsten zum Betrachter            |
 
 ## Elemente im normalen Fluss
 

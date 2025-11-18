@@ -22,7 +22,6 @@ drawIndexedIndirect(indirectBuffer, indirectOffset)
 ### Parameter
 
 - `indirectBuffer`
-
   - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die `indexCount`, `instanceCount`, `firstIndex`, `baseVertex` und `firstInstance` Werte enthält, die zur Durchführung der Zeichenoperation benötigt werden. Der Puffer muss einen dicht gepackten Block von fünf 32-Bit-unsigned Integer-Werten enthalten, die die Werte in der gleichen Reihenfolge darstellen wie die Argumente für [`GPURenderBundleEncoder.drawIndexed()`](/de/docs/Web/API/GPURenderBundleEncoder/drawIndexed). Zum Beispiel:
 
     ```js

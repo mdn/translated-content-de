@@ -186,7 +186,6 @@ Planen Sie sorgfältig, was Sie tatsächlich aufzeichnen möchten und üben Sie 
 
 - Beginnen Sie ein Video nicht mitten in einem Prozess – überlegen Sie, ob der Betrachter genügend Kontext für Ihre Aktionen hat, um sie zu verstehen. In einem kurzen DevTools Video ist es beispielsweise eine gute Idee, mit dem Öffnen der DevTools zu beginnen, damit der Betrachter sich orientieren kann.
 - Überlegen Sie, welche Aktionen Sie ausführen, verlangsamen Sie und machen Sie sie offensichtlich. Immer wenn Sie eine Aktion ausführen müssen (z.B. auf ein Symbol klicken), seien Sie langsam und machen Sie es offensichtlich. So, zum Beispiel:
-
   - Bewegen Sie die Maus über das Symbol.
   - Hervorheben oder zoomen (nicht immer, je nachdem, ob es notwendig erscheint).
   - Halten Sie kurz inne.

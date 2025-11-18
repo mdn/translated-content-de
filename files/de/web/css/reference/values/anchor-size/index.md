@@ -45,34 +45,26 @@ anchor-size(<anchor-name> <anchor-size>, <length-percentage>)
 Die Parameter sind:
 
 - `<anchor-name>` {{optional_inline}}
-
   - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/Reference/Properties/anchor-name) Eigenschaft eines Ankerelements, zu dem Sie die Größe, Position oder Ränder des Elements relativ setzen möchten. Dies ist ein `<dashed-ident>` Wert. Wenn er weggelassen wird, wird der Standardanker des Elements verwendet.
 
     > [!NOTE]
     > Wenn Sie einen `<anchor-name>` in einer `anchor-size()` Funktion angeben, wird weder ein Element mit einem Anker verknüpft noch daran gebunden; es definiert lediglich, zu welchem Anker die Eigenschaftswerte des Elements relativ gesetzt werden sollen.
 
 - `<anchor-size>` {{optional_inline}}
-
   - : Gibt die Abmessung des Ankerelements an, zu der die Eigenschaftswerte des positionierten Elements relativ gesetzt werden. Gültige Werte sind:
-
     - `width`
-
       - : Die Breite des Ankerelements.
 
     - `height`
-
       - : Die Höhe des Ankerelements.
 
     - `block`
-
       - : Die Länge des [enthältenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block) des Ankerelements in Blockrichtung.
 
     - `inline`
-
       - : Die Länge des enthältenden Blocks des Ankerelements in Innenlinienrichtung.
 
     - `self-block`
-
       - : Die Länge des Ankerelements in Blockrichtung.
 
     - `self-inline`

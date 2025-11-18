@@ -129,7 +129,7 @@ Das CSS-Farben-Modul führt auch die Schnittstelle `CSSColorProfileRule` ein. De
 ## Siehe auch
 
 - [Modul zur CSS-Farbanpassung](/de/docs/Web/CSS/Guides/Color_adjustment) und die Eigenschaft {{cssxref("print-color-adjust")}}.
-- [CSS-Bilder](/de/docs/Web/CSS/Guides/Images)-Modul, in dem CSS-<gradient>-Bilder definiert sind.
+- [CSS-Bilder](/de/docs/Web/CSS/Guides/Images)-Modul, in dem CSS-`<gradient>`-Bilder definiert sind.
 - Die [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle
 - Das SVG-Element [`<feColorMatrix>`](/de/docs/Web/SVG/Reference/Element/feColorMatrix)
 - [Canvas API: Stile und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors#colors)

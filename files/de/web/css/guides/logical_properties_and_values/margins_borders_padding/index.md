@@ -17,52 +17,52 @@ Das Modul beschreibt Zuordnungen für jeden logischen Wert zu einem physischen G
 Wenn Sie einen `horizontal-tb` Schreibrichtung mit einer Lese-Richtung von rechts nach links verwenden würden, wäre {{cssxref("margin-inline-start")}} gleichbedeutend mit {{cssxref("margin-right")}}, und in einem vertikalen Schriftsystem wäre es gleichbedeutend mit der Verwendung von {{cssxref("margin-top")}}.
 
 | {{Glossary("Logical_properties", "Logische Eigenschaft")}} | {{Glossary("Physical_properties", "Physische Eigenschaft")}} |
-| ----------------------------------------------------- | -------------------------------------------------------- |
-| {{cssxref("border-block-end")}}                       | {{cssxref("border-bottom")}}                             |
-| {{cssxref("border-block-end-color")}}                 | {{cssxref("border-bottom-color")}}                       |
-| {{cssxref("border-block-end-style")}}                 | {{cssxref("border-bottom-style")}}                       |
-| {{cssxref("border-block-end-width")}}                 | {{cssxref("border-bottom-width")}}                       |
-| {{cssxref("border-block-start")}}                     | {{cssxref("border-top")}}                                |
-| {{cssxref("border-block-start-color")}}               | {{cssxref("border-top-color")}}                          |
-| {{cssxref("border-block-start-style")}}               | {{cssxref("border-top-style")}}                          |
-| {{cssxref("border-block-start-width")}}               | {{cssxref("border-top-width")}}                          |
-| {{cssxref("border-inline-end")}}                      | {{cssxref("border-right")}}                              |
-| {{cssxref("border-inline-end-color")}}                | {{cssxref("border-right-color")}}                        |
-| {{cssxref("border-inline-end-style")}}                | {{cssxref("border-right-style")}}                        |
-| {{cssxref("border-inline-end-width")}}                | {{cssxref("border-right-width")}}                        |
-| {{cssxref("border-inline-start")}}                    | {{cssxref("border-left")}}                               |
-| {{cssxref("border-inline-start-color")}}              | {{cssxref("border-left-color")}}                         |
-| {{cssxref("border-inline-start-style")}}              | {{cssxref("border-left-style")}}                         |
-| {{cssxref("border-inline-start-width")}}              | {{cssxref("border-left-width")}}                         |
-| {{cssxref("border-start-start-radius")}}              | {{cssxref("border-top-left-radius")}}                    |
-| {{cssxref("border-end-start-radius")}}                | {{cssxref("border-bottom-left-radius")}}                 |
-| {{cssxref("border-start-end-radius")}}                | {{cssxref("border-top-right-radius")}}                   |
-| {{cssxref("border-end-end-radius")}}                  | {{cssxref("border-bottom-right-radius")}}                |
-| {{cssxref("margin-block-end")}}                       | {{cssxref("margin-bottom")}}                             |
-| {{cssxref("margin-block-start")}}                     | {{cssxref("margin-top")}}                                |
-| {{cssxref("margin-inline-end")}}                      | {{cssxref("margin-right")}}                              |
-| {{cssxref("margin-inline-start")}}                    | {{cssxref("margin-left")}}                               |
-| {{cssxref("padding-block-end")}}                      | {{cssxref("padding-bottom")}}                            |
-| {{cssxref("padding-block-start")}}                    | {{cssxref("padding-top")}}                               |
-| {{cssxref("padding-inline-end")}}                     | {{cssxref("padding-right")}}                             |
-| {{cssxref("padding-inline-start")}}                   | {{cssxref("padding-left")}}                              |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| {{cssxref("border-block-end")}}                            | {{cssxref("border-bottom")}}                                 |
+| {{cssxref("border-block-end-color")}}                      | {{cssxref("border-bottom-color")}}                           |
+| {{cssxref("border-block-end-style")}}                      | {{cssxref("border-bottom-style")}}                           |
+| {{cssxref("border-block-end-width")}}                      | {{cssxref("border-bottom-width")}}                           |
+| {{cssxref("border-block-start")}}                          | {{cssxref("border-top")}}                                    |
+| {{cssxref("border-block-start-color")}}                    | {{cssxref("border-top-color")}}                              |
+| {{cssxref("border-block-start-style")}}                    | {{cssxref("border-top-style")}}                              |
+| {{cssxref("border-block-start-width")}}                    | {{cssxref("border-top-width")}}                              |
+| {{cssxref("border-inline-end")}}                           | {{cssxref("border-right")}}                                  |
+| {{cssxref("border-inline-end-color")}}                     | {{cssxref("border-right-color")}}                            |
+| {{cssxref("border-inline-end-style")}}                     | {{cssxref("border-right-style")}}                            |
+| {{cssxref("border-inline-end-width")}}                     | {{cssxref("border-right-width")}}                            |
+| {{cssxref("border-inline-start")}}                         | {{cssxref("border-left")}}                                   |
+| {{cssxref("border-inline-start-color")}}                   | {{cssxref("border-left-color")}}                             |
+| {{cssxref("border-inline-start-style")}}                   | {{cssxref("border-left-style")}}                             |
+| {{cssxref("border-inline-start-width")}}                   | {{cssxref("border-left-width")}}                             |
+| {{cssxref("border-start-start-radius")}}                   | {{cssxref("border-top-left-radius")}}                        |
+| {{cssxref("border-end-start-radius")}}                     | {{cssxref("border-bottom-left-radius")}}                     |
+| {{cssxref("border-start-end-radius")}}                     | {{cssxref("border-top-right-radius")}}                       |
+| {{cssxref("border-end-end-radius")}}                       | {{cssxref("border-bottom-right-radius")}}                    |
+| {{cssxref("margin-block-end")}}                            | {{cssxref("margin-bottom")}}                                 |
+| {{cssxref("margin-block-start")}}                          | {{cssxref("margin-top")}}                                    |
+| {{cssxref("margin-inline-end")}}                           | {{cssxref("margin-right")}}                                  |
+| {{cssxref("margin-inline-start")}}                         | {{cssxref("margin-left")}}                                   |
+| {{cssxref("padding-block-end")}}                           | {{cssxref("padding-bottom")}}                                |
+| {{cssxref("padding-block-start")}}                         | {{cssxref("padding-top")}}                                   |
+| {{cssxref("padding-inline-end")}}                          | {{cssxref("padding-right")}}                                 |
+| {{cssxref("padding-inline-start")}}                        | {{cssxref("padding-left")}}                                  |
 
 Es gibt auch einige zusätzliche Kurzformen, die möglich sind, weil wir sowohl die Block- als auch die Inline-Ränder der Box gleichzeitig anvisieren können. Diese Kurzformen haben kein physisches Äquivalent.
 
-| Eigenschaft                       | Zweck                                                                                                                |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| {{cssxref("border-block")}}       | Legt {{cssxref("border-color")}}, {{cssxref("border-style")}} und {{cssxref("border-width")}} für beide Block-Ränder fest. |
-| {{cssxref("border-block-color")}} | Legt `border-color` für beide Block-Ränder fest.                                                                      |
-| {{cssxref("border-block-style")}} | Legt `border-style` für beide Block-Ränder fest.                                                                      |
-| {{cssxref("border-block-width")}} | Legt `border-width` für beide Block-Ränder fest.                                                                      |
-| {{cssxref("border-inline")}}      | Legt `border-color`, `-style` und `-width` für beide Inline-Ränder fest.                                              |
-| {{cssxref("border-inline-color")}}| Legt `border-color` für beide Inline-Ränder fest.                                                                     |
-| {{cssxref("border-inline-style")}}| Legt `border-style` für beide Inline-Ränder fest.                                                                     |
-| {{cssxref("border-inline-width")}}| Legt `border-width` für beide Inline-Ränder fest.                                                                     |
-| {{cssxref("margin-block")}}       | Legt alle Block-Ränder von {{cssxref("margin")}} fest.                                                               |
-| {{cssxref("margin-inline")}}      | Legt alle Inline-`margin`s fest.                                                                                      |
-| {{cssxref("padding-block")}}      | Legt die Block-{{cssxref("padding")}} fest.                                                                           |
-| {{cssxref("padding-inline")}}     | Legt die Inline-`padding` fest.                                                                                       |
+| Eigenschaft                        | Zweck                                                                                                                      |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| {{cssxref("border-block")}}        | Legt {{cssxref("border-color")}}, {{cssxref("border-style")}} und {{cssxref("border-width")}} für beide Block-Ränder fest. |
+| {{cssxref("border-block-color")}}  | Legt `border-color` für beide Block-Ränder fest.                                                                           |
+| {{cssxref("border-block-style")}}  | Legt `border-style` für beide Block-Ränder fest.                                                                           |
+| {{cssxref("border-block-width")}}  | Legt `border-width` für beide Block-Ränder fest.                                                                           |
+| {{cssxref("border-inline")}}       | Legt `border-color`, `-style` und `-width` für beide Inline-Ränder fest.                                                   |
+| {{cssxref("border-inline-color")}} | Legt `border-color` für beide Inline-Ränder fest.                                                                          |
+| {{cssxref("border-inline-style")}} | Legt `border-style` für beide Inline-Ränder fest.                                                                          |
+| {{cssxref("border-inline-width")}} | Legt `border-width` für beide Inline-Ränder fest.                                                                          |
+| {{cssxref("margin-block")}}        | Legt alle Block-Ränder von {{cssxref("margin")}} fest.                                                                     |
+| {{cssxref("margin-inline")}}       | Legt alle Inline-`margin`s fest.                                                                                           |
+| {{cssxref("padding-block")}}       | Legt die Block-{{cssxref("padding")}} fest.                                                                                |
+| {{cssxref("padding-inline")}}      | Legt die Inline-`padding` fest.                                                                                            |
 
 ## Beispiel für Ränder
 

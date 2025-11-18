@@ -37,7 +37,6 @@ _Erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 ## Ereignisse
 
 - [`error`](/de/docs/Web/API/RTCDtlsTransport/error_event)
-
   - : Wird gesendet, wenn ein Transport-Level-Fehler auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftritt.
 
 - [`statechange`](/de/docs/Web/API/RTCDtlsTransport/statechange_event)

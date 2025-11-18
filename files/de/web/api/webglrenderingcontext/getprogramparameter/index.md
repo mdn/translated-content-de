@@ -23,9 +23,7 @@ getProgramParameter(program, pname)
 - `program`
   - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), von dem die Parameterinformationen abgerufen werden sollen.
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen spezifiziert. Mögliche Werte:
-
     - `gl.DELETE_STATUS`
       - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt,
         ob das Programm zur Löschung markiert ist.
@@ -47,7 +45,6 @@ getProgramParameter(program, pname)
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich folgende Werte verfügbar:
-
     - `gl.TRANSFORM_FEEDBACK_BUFFER_MODE`
       - : Gibt ein
         [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Puffer-Modus angibt, wenn Transform-Feedback

@@ -14,7 +14,6 @@ Die **`GeolocationPositionError`**-Schnittstelle repräsentiert den Grund für e
 _Die `GeolocationPositionError`-Schnittstelle erbt keine Eigenschaften._
 
 - [`GeolocationPositionError.code`](/de/docs/Web/API/GeolocationPositionError/code) {{ReadOnlyInline}}
-
   - : Gibt einen `unsigned short` zurück, der den Fehlercode darstellt. Die folgenden Werte sind möglich:
 
     | Wert | Zugehörige Konstante   | Beschreibung                                                                                                                                                                                                                                      |

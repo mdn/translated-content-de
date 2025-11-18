@@ -72,7 +72,6 @@ quotes: unset;
 - `auto`
   - : Anführungszeichen, die typografisch für die geerbte Sprache geeignet sind (d.h. über das [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut, das am Eltern- oder einem anderen Vorfahren gesetzt ist).
 - {{cssxref("&lt;string&gt;")}}
-
   - : Definiert ein oder mehrere Paare von Anführungszeichenwerten für öffnende und schließende Anführungszeichen. In jedem Paar wird das erste der jeweiligen Anführungszeichenpaare als Wert für `open-quote` und das zweite als `close-quote` verwendet.
 
     Das erste Paar repräsentiert die äußere Ebene des Zitats. Das zweite Paar, falls vorhanden, repräsentiert die erste verschachtelte Ebene. Das nächste Paar wird für doppelt verschachtelte Ebenen verwendet, und so weiter. Wenn die Tiefe der Zitatverschachtelung größer ist als die Anzahl der Paare, wird das letzte Paar im `quotes`-Wert wiederholt.

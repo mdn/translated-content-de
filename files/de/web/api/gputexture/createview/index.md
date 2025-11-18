@@ -20,23 +20,17 @@ createView(descriptor)
 ### Parameter
 
 - `descriptor` {{optional_inline}}
-
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
-
     - `arrayLayerCount` {{optional_inline}}
-
       - : Eine Zahl, die definiert, wie viele Array-Ebenen für die Ansicht zugänglich sind, ausgehend von dem Wert `baseArrayLayer`.
 
         Wenn `arrayLayerCount` weggelassen wird, erhält es einen Wert wie folgt:
-
         - Wenn `dimension` `"1d"`, `"2d"` oder `"3d"` ist, ist `arrayLayerCount` 1.
         - Wenn `dimension` `"cube"` ist, ist `arrayLayerCount` 6.
         - Wenn `dimension` `"2d-array"` oder `"cube-array"` ist, ist `arrayLayerCount` [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) - `baseArrayLayer`.
 
     - `aspect` {{optional_inline}}
-
       - : Ein enumerierter Wert, der angibt, welche Aspekte der Textur für die Texturansicht zugänglich sind. Mögliche Werte sind:
-
         - `"all"`
           - : Alle verfügbaren Aspekte des Texturformats sind für die Ansicht zugänglich, was Farbe, Tiefe und Schablone bedeuten kann, abhängig von der Art des Formats.
         - `"depth-only"`
@@ -51,9 +45,7 @@ createView(descriptor)
     - `baseMipLevel` {{optional_inline}}
       - : Eine Zahl, die die erste (detaillierteste) Mipmap-Ebene repräsentiert, die für die Ansicht zugänglich ist. Wenn weggelassen, nimmt `baseMipLevel` den Wert 0 an.
     - `dimension` {{optional_inline}}
-
       - : Ein enumerierter Wert, der das Format angibt, wie die Textur betrachtet wird. Mögliche Werte sind:
-
         - `"1d"`: Die Textur wird als eindimensionales Bild betrachtet.
         - `"2d"`: Die Textur wird als einzelnes zweidimensionales Bild betrachtet.
         - `"2d-array"`: Die Textur wird als ein Array von zweidimensionalen Bildern betrachtet.
@@ -62,31 +54,26 @@ createView(descriptor)
         - `"3d"`: Die Textur wird als dreidimensionales Bild betrachtet.
 
         Wenn `dimension` weggelassen wird, erhält es einen Wert wie folgt:
-
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"1d"` ist, ist `dimension` `"1d"`.
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"2d"` ist und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) 1 ist, ist `dimension` `"2d"`.
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"2d"` ist und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) mehr als 1 ist, ist `dimension` `"2d-array"`.
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"3d"` ist, ist `dimension` `"3d"`.
 
     - `format` {{optional_inline}}
-
       - : Ein enumerierter Wert, der das Format der Texturansicht angibt. Siehe den Abschnitt [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
 
         Wenn `format` weggelassen wird, wird es einen Wert wie folgt erhalten:
-
         - Wenn `aspect` `"depth-only"` oder `"stencil-only"` ist, und [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) ein [Tiefen- oder Schablonenformat](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist, wird `format` auf das entsprechende [aspektspezifische Format](https://gpuweb.github.io/gpuweb/#aspect-specific-format) gesetzt.
         - Andernfalls wird es gleich [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) gesetzt.
 
     - `label` {{optional_inline}}
       - : Eine Zeichenkette zur Bereitstellung einer Kennzeichnung, die zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
     - `mipLevelCount` {{optional_inline}}
-
       - : Eine Zahl, die angibt, wie viele Mipmap-Ebenen für die Ansicht zugänglich sind, beginnend mit dem Wert `baseMipLevel`.
 
         Wenn `mipLevelCount` weggelassen wird, erhält es den Wert [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount) - `baseMipLevel`.
 
     - `usage` {{optional_inline}}
-
       - : Eine Menge von {{Glossary("bitwise_flags", "bitweise Flags")}}, die eine Teilmenge der Nutzungsflags der Quelltextur (verfügbar in der [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage)-Eigenschaft) darstellen, die mit dem ausgewählten Ansichtformat kompatibel sind. Dies kann verwendet werden, um die erlaubte Nutzung der Ansicht zu beschränken, wenn das Ansichtformat mit bestimmten Nutzungen inkompatibel ist. Die verfügbaren Nutzungsflags sind im [`GPUTexture.usage` Wertetabelle](/de/docs/Web/API/GPUTexture/usage#value) aufgeführt.
 
         Der Standardwert ist `0`, was die vollständige Menge von Nutzungsflags der Quelltextur repräsentiert. Wenn das `format` der Ansicht nicht alle Nutzungen der Textur unterstützt, schlägt der Standard fehl, und die Nutzung der Ansicht muss explizit angegeben werden.

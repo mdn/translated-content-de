@@ -60,7 +60,6 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 68, die Ent
 ### CSS
 
 - [CSS Scroll Snapping](/de/docs/Web/CSS/Guides/Scroll_snap) wurde auf die neueste Version der Spezifikation aktualisiert ([Firefox Bug 1312163](https://bugzil.la/1312163)) und ([Firefox Bug 1544136](https://bugzil.la/1544136)), dies schließt ein:
-
   - Die `scroll-padding` Eigenschaft ([Firefox Bug 1373832](https://bugzil.la/1373832))
   - Die `scroll-margin` Eigenschaft ([Firefox Bug 1373833](https://bugzil.la/1373833))
   - Die {{CSSxRef("scroll-snap-align")}} Eigenschaft ([Firefox Bug 1373835](https://bugzil.la/1373835))

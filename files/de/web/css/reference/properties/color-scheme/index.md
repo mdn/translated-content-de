@@ -71,7 +71,6 @@ Der Wert der `color-scheme` Eigenschaft muss eines der folgenden Schlüsselwört
 - `dark`
   - : Gibt an, dass das Element unter Verwendung des Betriebssystem-Farbschemas _dark_ gerendert werden kann.
 - `only`
-
   - : Verbietet dem Benutzeragenten, das Farbschema für das Element zu überschreiben.
 
     Kann verwendet werden, um Farbüberschreibungen zu deaktivieren, die durch Chromes [Auto Dark Theme](https://developer.chrome.com/blog/auto-dark-theme/#per-element-opt-out) verursacht werden, indem `color-scheme: only light;` auf ein spezifisches Element oder `:root` angewendet wird.

@@ -26,7 +26,6 @@ insertRule(rule, index)
 ### Parameter
 
 - `rule`
-
   - : Ein String, der die einzufügende Regel enthält. Was die eingefügte
     Regel beinhalten muss, hängt von ihrem Typ ab:
     - **Für [Regel-Sets](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_statements)**, sowohl

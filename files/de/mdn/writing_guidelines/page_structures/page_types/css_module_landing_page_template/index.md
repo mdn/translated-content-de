@@ -37,7 +37,6 @@ l10n:
 > - **page-type**
 >   - : Der `page-type`-Wert für CSS Modul-Startseiten ist immer `css-module`.
 > - **spec-urls**
->
 >   - : Der `spec-urls`-Wert ist eine URL der Spezifikation. Falls es mehr als eine relevante Version der Spezifikation gibt, sollten diese in einer Liste dargestellt werden. Zum Beispiel der Wert für den Schlüssel `spec-urls` für die [Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul-Startseite ist:
 >
 >     ```plain

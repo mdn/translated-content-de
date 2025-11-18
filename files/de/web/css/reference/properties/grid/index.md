@@ -115,13 +115,11 @@ grid: unset;
 - `<'grid-template'>`
   - : Definiert die {{cssxref("grid-template")}} einschließlich {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-areas")}}.
 - `<'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>?`
-
   - : Richtet ein Auto-Flow ein, indem die Zeilenspuren explizit über die {{cssxref("grid-template-rows")}}-Eigenschaft (und die {{cssxref("grid-template-columns")}}-Eigenschaft auf `none`) gesetzt werden und spezifiziert wird, wie die Spaltenspuren über {{cssxref("grid-auto-columns")}} automatisch wiederholt werden sollen (und die {{cssxref("grid-auto-rows")}} auf `auto` setzen). {{cssxref("grid-auto-flow")}} wird entsprechend auf `column` gesetzt, mit `dense` falls angegeben.
 
     Alle anderen `grid`-Untereigenschaften werden auf ihre Anfangswerte zurückgesetzt.
 
 - `[ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>`
-
   - : Richtet ein Auto-Flow ein, indem die Spaltenbahnen explizit über die {{cssxref("grid-template-columns")}}-Eigenschaft (und die {{cssxref("grid-template-rows")}}-Eigenschaft auf `none`) gesetzt werden und spezifiziert wird, wie die Zeilenbahnen über {{cssxref("grid-auto-rows")}} automatisch wiederholt werden sollen (und die {{cssxref("grid-auto-columns")}} auf `auto` setzen). {{cssxref("grid-auto-flow")}} wird entsprechend auf `row` gesetzt, mit `dense` falls angegeben.
 
     Alle anderen `grid`-Untereigenschaften werden auf ihre Anfangswerte zurückgesetzt.

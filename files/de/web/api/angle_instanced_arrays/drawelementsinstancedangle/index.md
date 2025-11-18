@@ -22,7 +22,6 @@ drawElementsInstancedANGLE(mode, count, type, offset, primcount)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
@@ -35,7 +34,6 @@ drawElementsInstancedANGLE(mode, count, type, offset, primcount)
 - `count`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl von zu rendernden Elementen spezifiziert.
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`

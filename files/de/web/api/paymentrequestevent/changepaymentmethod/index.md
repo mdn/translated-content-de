@@ -35,7 +35,6 @@ Ein {{jsxref("Promise")}}, das mit einem `PaymentRequestDetailsUpdate`-Objekt au
 - `total`
   - : Eine aktualisierte Gesamtsumme basierend auf der geänderten Zahlungsmethode. Die Gesamtsumme kann sich ändern, zum Beispiel weil die Rechnungsadresse der vom Benutzer gewählten Zahlungsmethode die anwendbare Mehrwertsteuer beeinflusst.
 - `modifiers`
-
   - : Ein {{jsxref("Array")}} von `PaymentDetailsModifier`-Objekten, deren Eigenschaften in [`PaymentRequestEvent.modifiers`](/de/docs/Web/API/PaymentRequestEvent/modifiers) beschrieben sind.
 
 - `paymentMethodErrors`

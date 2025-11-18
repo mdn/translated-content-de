@@ -16,27 +16,22 @@ Das `display_override` Mitglied löst dieses Problem, indem es dem Entwickler er
 Display-Override-Objekte sind Anzeigemodus-Strings, die möglichen Werte sind:
 
 - `browser`
-
   - : Die Anwendung öffnet sich in einem herkömmlichen Browser-Tab oder einem neuen Fenster, abhängig vom Browser und der Plattform.
     Dies ist der Standard.
 
 - `fullscreen`
-
   - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird kein User-Agent {{Glossary("chrome", "chrome")}} angezeigt.
 
 - `minimal-ui`
-
   - : Die Anwendung wird wie eine eigenständige Anwendung mit einem minimalen Satz von UI-Elementen zur Steuerung der Navigation aussehen und sich anfühlen.
     Die Elemente variieren je nach Browser.
 
 - `standalone`
-
   - : Die Anwendung wird wie eine eigenständige Anwendung aussehen und sich anfühlen.
     Dies kann beinhalten, dass die Anwendung ein eigenes Fenster hat, ein eigenes Symbol im Anwendungsstarter besitzt usw.
     In diesem Modus wird der User-Agent UI-Elemente zur Steuerung der Navigation ausschließen, aber er kann andere UI-Elemente wie eine Statusleiste enthalten.
 
 - `tabbed` {{experimental_inline}}
-
   - : Die Anwendung kann mehrere Anwendungskontexte innerhalb eines einzelnen OS-Level-Fensters enthalten.
     Unterstützende Browser können wählen, wie diese Kontexte angezeigt werden, aber ein üblicher Ansatz ist, eine Tableiste bereitzustellen, um zwischen ihnen zu wechseln.
 

@@ -116,7 +116,6 @@ Diese Eigenschaft kann folgendermaßen angegeben werden:
 - {{cssxref("minmax", "minmax(min, max)")}}
   - : Eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner ist als _min_, wird _max_ ignoriert und die Funktion als _min_ behandelt. Als Maximum setzt ein `<flex>`-Wert den Flex-Faktor der Spur. Es ist als Minimum ungültig.
 - `auto`
-
   - : Als maximaler Wert repräsentiert es die größte {{cssxref("max-content")}}-Größe der Elemente in dieser Spur.
 
     Als Minimalwert repräsentiert es die größte minimale Größe der Elemente in dieser Spur (definiert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} Eigenschaften der Elemente). Dies entspricht oft der {{cssxref("min-content")}}-Größe, aber nicht immer.

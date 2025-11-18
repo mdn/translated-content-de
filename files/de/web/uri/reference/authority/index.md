@@ -22,7 +22,6 @@ user@host:port
 - `port` {{optional_inline}}
   - : Der _Port_ ist eine Nummer, die den Port angibt, auf dem der Server auf Anfragen wartet. Er ist optional und hat für HTTP den Standardwert 80 und für HTTPS den Standardwert 443. Andere Schemas können ihre eigenen Standardwerte definieren oder ihn als obligatorisch festlegen.
 - `user` {{optional_inline}}
-
   - : Der _Benutzer_ ist optional und wird zu Authentifizierungszwecken verwendet. Er wird in Web-URIs nicht häufig verwendet.
 
     > [!WARNING]

@@ -73,7 +73,6 @@ _Keine Änderungen._
 #### DOM
 
 - Die folgenden Teile der [Web Animations API](/de/docs/Web/API/Web_Animations_API) wurden standardmäßig aktiviert (siehe [Firefox-Bug 1476158](https://bugzil.la/1476158)):
-
   - Die [`Animation`](/de/docs/Web/API/Animation) Eigenschaften [`ready`](/de/docs/Web/API/Animation/ready) und [`finished`](/de/docs/Web/API/Animation/finished), die die `Animation` Objekt `ready` und `finished` {{JSxRef("Promise")}}s spezifizieren.
   - Die [`Animation`](/de/docs/Web/API/Animation) Objekt [`effect`](/de/docs/Web/API/Animation/effect) Eigenschaft.
   - Die Schnittstellen [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) und [`AnimationEffect`](/de/docs/Web/API/AnimationEffect).
@@ -171,7 +170,6 @@ _Keine Änderungen._
 - {{WebExtAPIRef("browserAction.getBadgeTextColor()")}} und {{WebExtAPIRef("browserAction.setBadgeTextColor()")}} ermöglichen es Ihnen, die Textfarbe von Browseraktionsabzeichen zu bekommen und zu setzen ([Firefox-Bug 1424620](https://bugzil.la/1424620)).
 - Der `colors` Schlüssel im `manifest.json` unterstützt jetzt die `ntp_text` Eigenschaft, um die Textfarbe in einem neuen Tab festzulegen, und die `ntp_background` Eigenschaft, um die Farbe eines neuen Tabs festzulegen ([Firefox-Bug 1347204](https://bugzil.la/1347204)).
 - Designs können jetzt die Farben für Seitenleisten definieren, wie z.B. die Lesezeichen-Seitenleiste ([Firefox-Bug 1418602](https://bugzil.la/1418602)). Die relevanten Eigenschaften sind:
-
   - `sidebar`: Die Hintergrundfarbe für Seitenleisten.
   - `sidebar_text`: Die Textfarbe für Seitenleisten.
   - `sidebar_highlight`: Die Hintergrundfarbe eines ausgewählten Elements in einer Seitenleiste.

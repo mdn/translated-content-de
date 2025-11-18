@@ -20,7 +20,6 @@ forEach(callback, thisArg)
 ### Parameter
 
 - `callback`
-
   - : Eine Funktion, die einmal für jeden Eintrag im Array `xrInputSourceArray` ausgeführt wird. Der Callback akzeptiert bis zu drei Parameter:
     - `currentValue`
       - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekt, das den Wert des aktuell im `xrInputSourceArray` verarbeiteten Elements darstellt.

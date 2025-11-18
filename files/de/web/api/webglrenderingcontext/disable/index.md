@@ -19,7 +19,6 @@ disable(capability)
 ### Parameter
 
 - `capability`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche WebGL-Funktion deaktiviert werden soll. Mögliche Werte:
 
     | Konstante                     | Beschreibung                                                                                                                                                                                           |

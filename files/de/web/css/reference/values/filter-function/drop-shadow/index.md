@@ -68,7 +68,6 @@ Die `drop-shadow()`-Funktion akzeptiert einen Parameter vom Typ `<shadow>` (defi
 ### Parameter
 
 - `<color>` {{optional_inline}}
-
   - : Bestimmt die Farbe des Schattens. Wenn nicht angegeben, wird der Wert der in dem übergeordneten Element definierten {{cssxref("color")}}-Eigenschaft verwendet.
 
 - `<length>`

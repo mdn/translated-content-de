@@ -22,7 +22,6 @@ setImmediate(func, param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `func`
-
   - : Die Funktion, die Sie aufrufen möchten.
 
 - `param1`, …, `paramN`

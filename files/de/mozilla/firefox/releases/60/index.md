@@ -37,7 +37,6 @@ _Keine Änderungen._
 ### JavaScript
 
 - ECMAScript 2015 Module wurden standardmäßig aktiviert ([Firefox-Bug 1438139](https://bugzil.la/1438139)). Siehe [ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) und [ES modules: A cartoon deep dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) für mehr Informationen oder konsultieren Sie die MDN-Referenzdokumente:
-
   - [`<script src="main.js" type="module">`](/de/docs/Web/HTML/Reference/Elements/script/type) und [`<script nomodule src="fallback.js">`](/de/docs/Web/HTML/Reference/Elements/script#nomodule)
   - [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) und [`export`](/de/docs/Web/JavaScript/Reference/Statements/export) Anweisungen.
 

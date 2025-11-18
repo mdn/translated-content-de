@@ -19,13 +19,10 @@ createShaderModule(descriptor)
 ### Parameter
 
 - `descriptor`
-
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
-
     - `code`
       - : Ein String, der den WGSL-Quellcode für das Shader-Modul darstellt.
     - `hints` {{optional_inline}}
-
       - : Eine Sequenz von Aufzeichnungstypen mit der Struktur `("string", compilationHint)`. Diese verhalten sich wie [geordnete Karten](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist der `"string"` ein Schlüssel, der verwendet wird, um den Datensatz zu identifizieren oder auszuwählen, und `compilationHint` ist entweder ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekt oder ein enumerierter Wert von `"auto"`.
 
         Der Zweck von `hints` besteht darin, Informationen über das Pipeline-Layout so früh wie möglich bereitzustellen, um die Leistung zu verbessern. Die Idee ist, die Menge an Kompilierung, die einmal durch `createShaderModule()` durchgeführt werden kann, maximal auszunutzen, anstatt mehrmals in mehreren Aufrufen von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) und [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline).
@@ -36,7 +33,6 @@ createShaderModule(descriptor)
     - `label` {{optional_inline}}
       - : Ein String, der ein Etikett bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `sourceMap` {{optional_inline}}
-
       - : Eine Source-Map-Definition zur Bereitstellung von Entwickler-Tool-Integrationen wie Debugging in der Quellsprache. WGSL-Namen (Identifier) in Source Maps sollten den in [WGSL Identifier Comparison](https://gpuweb.github.io/gpuweb/wgsl/#identifier-comparison) definierten Regeln folgen. Wenn sie definiert sind, können die Quellkarten im [source-map-v3-Format](https://sourcemaps.info/spec.html) interpretiert werden.
 
         > [!NOTE]

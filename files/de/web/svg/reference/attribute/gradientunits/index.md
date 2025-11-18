@@ -37,7 +37,6 @@ Für {{SVGElement("linearGradient")}} definiert `gradientUnits` das Koordinatens
   - : Dieser Wert zeigt an, dass die Attribute Werte im Koordinatensystem repräsentieren, das sich ergibt, wenn das aktuelle Benutzerkoordinatensystem zum Zeitpunkt des Referenzierens des Gradienten-Elements verwendet wird (d.h. das Benutzerkoordinatensystem für das Element, das das Gradienten-Element über eine {{SVGAttr("fill")}}- oder {{SVGAttr("stroke")}}-Eigenschaft referenziert) und dann die durch das Attribut {{SVGAttr("gradientTransform")}} angegebene Transformation anwenden.
     Prozentsätze repräsentieren Werte relativ zum aktuellen SVG-Viewport.
 - `objectBoundingBox`
-
   - : Dieser Wert zeigt an, dass das Benutzerkoordinatensystem für die Attribute unter Verwendung der Umrandung des Elements festgelegt wird, auf das der Verlauf angewendet wird, und dann die durch das Attribut `gradientTransform` angegebene Transformation anwenden.
 
     Prozentsätze repräsentieren Werte relativ zur Umrandung des Objekts.

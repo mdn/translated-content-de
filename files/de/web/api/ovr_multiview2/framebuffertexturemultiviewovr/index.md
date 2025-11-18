@@ -19,7 +19,6 @@ framebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
     - `gl.FRAMEBUFFER`
       - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencilpuffer, die zum Rendern eines Bildes verwendet werden.
@@ -29,9 +28,7 @@ framebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex
       - : Wird als Quelle für Leseoperationen verwendet.
 
 - `attachment`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Anhangspunkt für die `texture` angibt. Mögliche Werte:
-
     - `gl.COLOR_ATTACHMENT0`: Verbindet die Textur mit dem Farb-Puffer des Framebuffers.
     - `gl.DEPTH_ATTACHMENT`: Verbindet die Textur mit dem Tiefen-Puffer des Framebuffers.
     - `gl.STENCIL_ATTACHMENT`: Verbindet die Textur mit dem Stencil-Puffer des Framebuffers.
@@ -42,7 +39,6 @@ framebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex
         `ext.COLOR_ATTACHMENT1_WEBGL ext.COLOR_ATTACHMENT2_WEBGL ext.COLOR_ATTACHMENT3_WEBGL ext.COLOR_ATTACHMENT4_WEBGL ext.COLOR_ATTACHMENT5_WEBGL ext.COLOR_ATTACHMENT6_WEBGL ext.COLOR_ATTACHMENT7_WEBGL ext.COLOR_ATTACHMENT8_WEBGL ext.COLOR_ATTACHMENT9_WEBGL ext.COLOR_ATTACHMENT10_WEBGL ext.COLOR_ATTACHMENT11_WEBGL ext.COLOR_ATTACHMENT12_WEBGL ext.COLOR_ATTACHMENT13_WEBGL ext.COLOR_ATTACHMENT14_WEBGL ext.COLOR_ATTACHMENT15_WEBGL`
 
     Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture) Erweiterung:
-
     - `ext.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Stencil-Puffer-Datenspeicher.
 
 - `texture`
@@ -61,12 +57,10 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn
-
   - `target` nicht `gl.FRAMEBUFFER` ist.
   - `attachment` nicht einer der akzeptierten Anhangspunkte ist.
 
 - Ein `gl.INVALID_VALUE` Fehler wird ausgelöst, wenn
-
   - `level` nicht 0 ist.
   - `numViews` weniger als eins oder mehr als `MAX_VIEWS_OVR` ist.
 

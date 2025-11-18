@@ -27,7 +27,6 @@ clip-rule: unset;
 ### Werte
 
 - `nonzero`
-
   - : Für jeden Punkt im Kasten der Clipping-Maske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl einen Teil des Clip-Pfads schneidet, wird das Zählergebnis um eins erhöht, wenn sich der Teil des Clip-Pfads von links nach rechts über den Strahl bewegt, und um eins verringert, wenn sich der Teil des Pfads von rechts nach links über den Strahl bewegt. Wenn die endgültige Summe des Zählergebnisses null ist, befindet sich der Punkt außerhalb der Form des Pfads. Andernfalls ist er innerhalb der Form des Pfads.
 
 - `even-odd`

@@ -22,7 +22,6 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
 - [`HTMLSourceElement.sizes`](/de/docs/Web/API/HTMLSourceElement/sizes)
   - : Ein String, der Bildgrößen zwischen Breakpoints darstellt
 - [`HTMLSourceElement.src`](/de/docs/Web/API/HTMLSourceElement/src)
-
   - : Ein String, der das HTML-Attribut [`src`](/de/docs/Web/HTML/Reference/Elements/source#src) widerspiegelt und die URL für die Medienressource enthält. Die [`HTMLSourceElement.src`](/de/docs/Web/API/HTMLSourceElement/src)-Eigenschaft hat nur eine Bedeutung, wenn das zugehörige {{HTMLElement("source")}}-Element in einem Medienelement verschachtelt ist, das ein {{htmlelement("video")}} oder ein {{htmlelement("audio")}}-Element ist. Es hat keine Bedeutung und wird ignoriert, wenn es in einem {{HTMLElement("picture")}}-Element verschachtelt ist.
 
     > [!NOTE]

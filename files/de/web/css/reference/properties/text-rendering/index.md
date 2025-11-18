@@ -34,25 +34,21 @@ text-rendering: unset;
 ### Werte
 
 - `auto`
-
   - : Der Browser trifft fundierte Entscheidungen darüber, wann Text für Geschwindigkeit, Lesbarkeit und geometrische Präzision optimiert werden soll. Unterschiede in der Interpretation dieses Werts durch den Browser finden Sie in der Kompatibilitätstabelle.
 
     Der `auto` Wert ist eine gute Standardeinstellung, um Qualität und Leistung auszugleichen, insbesondere für längere, einfache Texte.
 
 - `optimizeSpeed`
-
   - : Der Browser betont Rendering-Geschwindigkeit über Lesbarkeit und geometrische Präzision beim Zeichnen von Text und deaktiviert Kerning und Ligaturen.
 
     Der `optimizeSpeed` Wert ist vorzuziehen in ressourcenbeschränkten Rendering-Szenarien, wie langsame Prozessoren oder geringe Batterieleistung.
 
 - `optimizeLegibility`
-
   - : Der Browser betont Lesbarkeit über Rendering-Geschwindigkeit und geometrische Präzision. Dies aktiviert Kerning und optionale Ligaturen.
 
     Der `optimizeLegibility` Wert ist vorzuziehen für Texte, die groß sind, aber kurz im Inhalt, wie Überschriften oder Banner, um deren Lesbarkeit zu verbessern. Es könnte auch für hochwertige professionelle Typografie, wie veröffentlichte Artikel, verwendet werden. Für normale Artikel ist es nicht empfohlen, da es zu Leistungseinbußen führen kann.
 
 - `geometricPrecision`
-
   - : Der Browser betont geometrische Präzision über Rendering-Geschwindigkeit und Lesbarkeit. Bei bestimmten Schriftarten — wie Kerning — skaliert dies nicht linear. So kann dieser Wert Text, der diese Schriften nutzt, gut aussehen lassen.
 
     In SVG, wenn Text vergrößert oder verkleinert wird, berechnen Browser die endgültige Größe des Textes (die durch die angegebene Schriftgröße und den angewendeten Maßstab bestimmt wird) und fordern eine Schrift dieser berechneten Größe aus dem Schriftsystem der Plattform an. Wenn Sie jedoch zum Beispiel eine Schriftgröße von 9 mit einem Maßstab von 140% anfordern, existiert die resultierende Schriftgröße von 12,6 explizit nicht im Schriftsystem, und der Browser rundet die Schriftgröße stattdessen auf 12. Dies führt zu einer treppenstufenartigen Skalierung von Text.
@@ -158,7 +154,6 @@ p {
 - [Zeichnen von Text in einem `<canvas>`](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
 - [CSS Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) CSS-Modul
 - Verwandte CSS-Eigenschaften
-
   - [`text-decoration`](/de/docs/Web/CSS/Reference/Properties/text-decoration) (und dessen Einzelwerteigenschaften, wie [`text-decoration-line`](/de/docs/Web/CSS/Reference/Properties/text-decoration-line), [`text-decoration-style`](/de/docs/Web/CSS/Reference/Properties/text-decoration-style), und [`text-decoration-thickness`](/de/docs/Web/CSS/Reference/Properties/text-decoration-thickness))
   - [`text-emphasis`](/de/docs/Web/CSS/Reference/Properties/text-emphasis) (und dessen Einzelwerteigenschaften, einschließlich [`text-emphasis-color`](/de/docs/Web/CSS/Reference/Properties/text-emphasis-color), [`text-emphasis-position`](/de/docs/Web/CSS/Reference/Properties/text-emphasis-position), und [`text-emphasis-style`](/de/docs/Web/CSS/Reference/Properties/text-emphasis-style))
   - [`text-shadow`](/de/docs/Web/CSS/Reference/Properties/text-shadow)

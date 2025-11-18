@@ -93,11 +93,9 @@ transition-timing-function: unset;
 ### Werte
 
 - `<easing-function>`
-
   - : Jede {{cssxref("&lt;easing-function&gt;")}} stellt die Easing-Funktion dar, die mit der entsprechenden Eigenschaft verknüpft werden soll, wie in {{ cssxref("transition-property") }} definiert.
 
     Die nicht-stufigen Schlüsselwortwerte (ease, linear, ease-in-out, usw.) repräsentieren jeweils eine kubische Bézier-Kurve mit festen vier Punktwerten, wobei der `cubic-bezier()` Funktionswert eine nicht vordefinierte Darstellung erlaubt. Die Stufen-Easing-Funktionen unterteilen die Eingangszeit in eine angegebene Anzahl gleich langer Intervalle. Sie werden durch eine Anzahl von Schritten und eine Schrittposition definiert.
-
     - `ease`
       - : Entspricht `cubic-bezier(0.25, 0.1, 0.25, 1.0)`, dem Standardwert, der die Geschwindigkeit in der Mitte des Übergangs erhöht und am Ende wieder verlangsamt.
     - `linear`
@@ -111,7 +109,6 @@ transition-timing-function: unset;
     - `cubic-bezier(p1, p2, p3, p4)`
       - : Eine vom Autor definierte kubische Bezierkurve, wobei die p1- und p3-Werte im Bereich von 0 bis 1 liegen müssen.
     - `steps(n, <jump-term>)`
-
       - : Zeigt den Übergang an _n Haltepunkten entlang des Übergangs, wobei jeder Stopp für_ gleiche Zeitdauern angezeigt wird. Wenn _n_ zum Beispiel 5 ist, gibt es 5 Schritte. Ob der Übergang vorübergehend bei 0%, 20%, 40%, 60% und 80%, bei 20%, 40%, 60%, 80% und 100%, oder 5 Halte zwischen 0% und 100% entlang des Übergangs oder 5 Halte einschließlich der 0%- und 100%-Marken (bei 0%, 25%, 50%, 75% und 100%) macht, hängt davon ab, welcher der folgenden Sprungbegriffe verwendet wird:
         - `jump-start`
           - : Bezeichnet eine links-stetige Funktion, sodass der erste Sprung beim Übergangsbeginn erfolgt;

@@ -21,9 +21,7 @@ bufferSubData(target, offset, srcData)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (das Ziel) angibt. Mögliche Werte:
-
     - `gl.ARRAY_BUFFER`
       - : Puffer, der Vertex-Attribute enthält, wie z.B.
         Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbendaten.
@@ -32,7 +30,6 @@ bufferSubData(target, offset, srcData)
 
     Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext)
     sind zusätzlich folgende Werte verfügbar:
-
     - `gl.COPY_READ_BUFFER`
       - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
     - `gl.COPY_WRITE_BUFFER`

@@ -17,11 +17,9 @@ Das **`PublicKeyCredential`**-Interface stellt Informationen über ein öffentli
 ## Instanz-Eigenschaften
 
 - [`PublicKeyCredential.authenticatorAttachment`](/de/docs/Web/API/PublicKeyCredential/authenticatorAttachment) {{ReadOnlyInline}}
-
   - : Ein String, der den Mechanismus angibt, mit dem die WebAuthn-Implementierung zu dem Zeitpunkt an den Authentifikator angeschlossen ist, wenn der zugehörige Aufruf von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) abgeschlossen wird.
 
 - [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id) {{ReadOnlyInline}}
-
   - : Geerbt von [`Credential`](/de/docs/Web/API/Credential) und überschrieben, um die {{Glossary("Base64", "base64url-Codierung")}} von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) darzustellen.
 
 - [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) {{ReadOnlyInline}}

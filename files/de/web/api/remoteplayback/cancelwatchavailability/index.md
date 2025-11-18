@@ -20,7 +20,6 @@ cancelWatchAvailability(id)
 ### Parameter
 
 - `id` {{optional_inline}}
-
   - : Die `callbackId` eines bestimmten Remote-Playback-Geräts.
 
     Wenn eine `callbackId` eines spezifischen Geräts übergeben wird, dann wird dieses Gerät aus der Liste der überwachten Geräte entfernt. Andernfalls wird die gesamte Liste gelöscht.

@@ -19,15 +19,12 @@ playEffect(type, params)
 ### Parameter
 
 - `type`
-
   - : Ein String, der den gewünschten Effekt darstellt. Mögliche Werte sind `"dual-rumble"` und `"trigger-rumble"`, wobei ihre Auswirkungen je nach Hardwaretyp variieren können. Siehe [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects) für weitere Details zu den Effektarten.
 
 - `params`
-
   - : Ein Objekt zur Beschreibung eines gewünschten haptischen Effekts.
 
     Erwartete Werte sind:
-
     - `duration` {{optional_inline}}
       - : Die Dauer des Effekts in Millisekunden.
         Standardwert ist `0`.

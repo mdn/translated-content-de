@@ -29,7 +29,6 @@ label {
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `value`
-
   - : Der aktuelle numerische Wert. Dieser muss zwischen den minimalen und maximalen Werten (`min`-Attribut und `max`-Attribut) liegen, wenn sie angegeben sind. Wenn nicht angegeben oder fehlerhaft, ist der Wert `0`. Wenn angegeben, aber nicht innerhalb des durch die `min`- und `max`-Attribute definierten Bereichs, entspricht der Wert dem nächstgelegenen Ende des Bereichs.
 
     > [!NOTE]

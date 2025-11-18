@@ -90,7 +90,6 @@ linear-gradient(45deg, red 0 50%, blue 50% 100%)
 ### Werte
 
 - `<side-or-corner>`
-
   - : Die Position des Startpunkts der Gradientenlinie. Falls angegeben, besteht sie aus dem Wort `to` und bis zu zwei Schlüsselwörtern: eines gibt die horizontale Seite (`left` oder `right`) an, das andere die vertikale Seite (`top` oder `bottom`). Die Reihenfolge der Seiten-Schlüsselwörter ist egal. Falls nicht angegeben, lautet der Standardwert `to bottom`.
 
     Die Werte `to top`, `to bottom`, `to left` und `to right` entsprechen den Winkeln `0deg`, `180deg`, `270deg` und `90deg`. Die anderen Werte werden in einen Winkel umgerechnet.

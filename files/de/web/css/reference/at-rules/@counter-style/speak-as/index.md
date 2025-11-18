@@ -24,7 +24,6 @@ speak-as: <counter-style-name>;
 ### Werte
 
 - `auto`
-
   - : Wenn der Wert von `speak-as` als `auto` angegeben wird, wird der effektive Wert von `speak-as` basierend auf dem Wert des Deskriptors {{cssxref("@counter-style/system", "system")}} bestimmt:
     - Wenn der Wert von `system` `alphabetic` ist, wird der effektive Wert von `speak-as` `spell-out` sein.
     - Wenn `system` `cyclic` ist, wird der effektive Wert von `speak-as` `bullets` sein.

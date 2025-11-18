@@ -95,60 +95,47 @@ justify-content: unset;
 ### Werte
 
 - `start`
-
   - : Die Elemente sind flächenbündig zueinander an der Startkante des Ausrichtungscontainers entlang der Hauptachse gepackt.
 
 - `end`
-
   - : Die Elemente sind flächenbündig zueinander an der Endkante des Ausrichtungscontainers entlang der Hauptachse gepackt.
 
 - `flex-start`
-
   - : Die Elemente sind flächenbündig zueinander an der Startkante des Ausrichtungscontainers auf der Haupt-Startseite des Flex-Containers gepackt.
     Dies gilt nur für Elemente des Flex-Layouts. Bei Elementen, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
 
 - `flex-end`
-
   - : Die Elemente sind flächenbündig zueinander an der Endkante des Ausrichtungscontainers auf der Haupt-Endseite des Flex-Containers gepackt.
     Dies gilt nur für Elemente des Flex-Layouts. Bei Elementen, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
 
 - `center`
-
   - : Die Elemente sind flächenbündig zueinander an der Mitte des Ausrichtungscontainers entlang der Hauptachse gepackt.
 
 - `left`
-
   - : Die Elemente sind flächenbündig zueinander an der linken Kante des Ausrichtungscontainers gepackt. Wenn die horizontale Achse der Eigenschaft nicht parallel zur Inline-Achse verläuft, wie etwa bei [`flex-direction: column;`](/de/docs/Web/CSS/Reference/Properties/flex-direction), verhält sich dieser Wert wie `start`.
 
 - `right`
-
   - : Die Elemente sind flächenbündig zueinander an der rechten Kante des Ausrichtungscontainers in der entsprechenden Achse gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse (in einem Grid-Container) oder der Hauptachse (in einem Flexbox-Container) ist, verhält sich dieser Wert wie `start`.
 
 - `normal`
-
   - : Verhält sich wie `stretch`, außer im Fall von Multicolumn-Containern mit einer nicht-`auto` [`column-width`](/de/docs/Web/CSS/Reference/Properties/column-width), wobei die Spalten ihre angegebene `column-width` beibehalten, anstatt sich auszudehnen, um den Container zu füllen. Da `stretch` sich in Flex-Containern wie `start` verhält, verhält sich `normal` auch wie `start`.
 
 - `space-between`
-
   - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Das erste Element ist flächenbündig mit der Haupt-Startkante, und das letzte Element ist flächenbündig mit der Haupt-Endkante.
 
 - `space-around`
-
   - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Der Freiraum vor dem ersten und nach dem letzten Element entspricht der Hälfte des Abstands zwischen jedem Paar benachbarter Elemente. Gibt es nur ein Element, wird es zentriert.
 
 - `space-evenly`
-
   - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, der Haupt-Startkante und dem ersten Element sowie der Haupt-Endkante und dem letzten Element ist genau gleich.
 
 - `stretch`
-
   - : Wenn die kombinierte Größe der Elemente entlang der Hauptachse kleiner als die Größe des Ausrichtungscontainers ist, werden alle `auto`-Größenelemente gleich (nicht proportional) vergrößert, wobei die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder gleichwertige Funktionalität) auferlegte Beschränkungen respektiert werden, sodass die kombinierte Größe genau den Ausrichtungscontainer entlang der Hauptachse füllt.
 
     > [!NOTE]
     > Bei [Flexboxen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) verhält sich der Wert `stretch` wie `flex-start` oder `start`. Dies liegt daran, dass in Flexboxen die Dehnung mithilfe der {{CSSXref("flex-grow")}} Eigenschaft gesteuert wird.
 
 - `safe`
-
   - : Wenn das Element den Ausrichtungscontainer überschreitet, wird das Element so ausgerichtet, als ob der Ausrichtungsmodus `start` ist. Die gewünschte Ausrichtung wird nicht umgesetzt.
 
 - `unsafe`

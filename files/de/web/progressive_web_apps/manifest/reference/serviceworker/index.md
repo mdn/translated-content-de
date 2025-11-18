@@ -14,11 +14,9 @@ Das `serviceworker`-Mitglied spezifiziert einen Serviceworker, der Just-In-Time 
 `serviceworker`-Objekte können die folgenden Werte enthalten:
 
 - `scope` {{experimental_inline}} {{non-standard_inline}}
-
   - : Ein String, der den Registrierungsbereich des Serviceworkers darstellt.
 
 - `src` {{experimental_inline}} {{non-standard_inline}}
-
   - : Ein String, der die URL zum Herunterladen des Serviceworker-Skripts darstellt.
 
 - `use_cache` {{experimental_inline}} {{non-standard_inline}}

@@ -21,7 +21,6 @@ stencilMaskSeparate(face, mask)
 ### Parameter
 
 - `face`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Schreibmaske der vorderen und/oder hinteren Stenzelebenen aktualisiert wird. Die möglichen Werte sind:
     - `gl.FRONT`
     - `gl.BACK`

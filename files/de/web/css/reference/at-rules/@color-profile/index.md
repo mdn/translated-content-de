@@ -25,11 +25,9 @@ Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Gui
 - `src`
   - : Gibt die URL an, von der die Farbprofilinformationen abgerufen werden sollen.
 - `rendering-intent`
-
   - : Wenn das Farbprofil mehr als eine Rendering-Intention enthält, ermöglicht dieser Deskriptor, eine als die zu verwendende auszuwählen, um zu definieren, wie die Farbe auf kleinere {{Glossary("gamut", "Gamut")}}s als dieses Profil abgebildet werden soll.
 
     Wenn verwendet, muss es eines der folgenden Schlüsselwörter sein:
-
     - `relative-colorimetric`
       - : Medien-relative kolorimetrische Anpassung muss Quellfarben, die innerhalb des Zielmedium-Gamuts liegen, relativ zu den jeweiligen Medienweißpunkten unverändert lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mithilfe verschiedener Methoden auf Farben an der Gamut-Grenze abgebildet.
     - `absolute-colorimetric`

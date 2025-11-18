@@ -28,7 +28,6 @@ Erlaubte Werte für `view-timeline-name` sind:
 - `none`
   - : Die Zeitleiste hat keinen Namen.
 - `<dashed-ident>`
-
   - : Ein beliebiger benutzerdefinierter Bezeichner, der einen Namen für eine View-Fortschrittszeitleiste definiert, welche dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline) Eigenschaft referenziert werden kann.
 
     > [!NOTE] > [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident) Werte müssen mit `--` beginnen, was hilft, Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.

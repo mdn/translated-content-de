@@ -19,7 +19,6 @@ newValueSpecifiedUnits(unitType, valueInSpecifiedUnits)
 ### Parameter
 
 - `unitType`
-
   - : Ein konstantes Zeichen, das den Einheitstyp darstellt, in den der Längenwert umgewandelt werden soll. Dies muss einer der konstanten Werte sein, die für die [`unitType`](/de/docs/Web/API/SVGLength/unitType)-Eigenschaft definiert sind, mit Ausnahme von `SVG_LENGTHTYPE_UNKNOWN`.
     - `SVGLength.SVG_LENGTHTYPE_NUMBER`: Umwandlung in eine einheitslose Zahl
     - `SVGLength.SVG_LENGTHTYPE_PERCENTAGE`: Umwandlung in Prozent

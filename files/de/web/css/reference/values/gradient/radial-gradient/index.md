@@ -68,7 +68,6 @@ Ein radialer Verlauf wird spezifiziert, indem das Zentrum des Verlaufs (wo die 0
 - `<ending-shape>`
   - : Die Endform des Verlaufs. Der Wert kann `circle` (was bedeutet, die Form des Verlaufs ist ein Kreis mit konstantem Radius) oder `ellipse` (was bedeutet, die Form ist eine achsenausgerichtete Ellipse) sein. Wenn nicht angegeben, lautet der Standardwert `ellipse`.
 - `<size>`
-
   - : Bestimmt die Größe der Endform des Verlaufs. Wenn ausgelassen, ist der Standardwert farthest-corner. Es kann explizit oder durch Schlüsselwort angegeben werden. Bei der Definition der Schlüsselwörter sind die Kanten des Verlaufsrahmens als ins Unendliche in beide Richtungen verlaufend zu betrachten, anstatt als endliche Liniensegmente.
 
     Sowohl Kreis- als auch Ellipsenverläufe akzeptieren die folgenden Schlüsselwörter für ihre `<size>`:

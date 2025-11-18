@@ -26,19 +26,15 @@ Das **`<source>`**-Element von [HTML](/de/docs/Web/HTML) spezifiziert eine oder 
 Dieses Element unterstützt alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes). Zusätzlich können folgende Attribute verwendet werden:
 
 - `type`
-
   - : Spezifiziert den [MIME-Medientyp des Bildes](/de/docs/Web/Media/Guides/Formats/Image_types) oder [andere Medientypen](/de/docs/Web/Media/Guides/Formats/Containers), optional einschließlich eines [`codecs` Parameters](/de/docs/Web/Media/Guides/Formats/codecs_parameter).
 
 - `src`
-
   - : Gibt die URL der Medienressource an. Erforderlich, wenn das übergeordnete Element von `<source>` {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("picture")}} ist.
 
 - `srcset`
-
   - : Gibt eine kommagetrennte Liste von einem oder mehreren Bild-URLs und ihren Beschreibungen an. Erforderlich, wenn das übergeordnete Element von `<source>` {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
     Die Liste besteht aus kommaseparierten Zeichenfolgen, die eine Reihe möglicher Bilder für den Browser zur Auswahl angeben. Jede Zeichenfolge besteht aus:
-
     - Einer URL, die den Speicherort eines Bildes angibt.
     - Einem optionalen Breitenbeschreibung—eine positive Ganzzahl, gefolgt von `"w"`, z. B. `300w`.
     - Einem optionalen Pixeldichtebeschreibung—eine positive Gleitkommazahl, gefolgt von `"x"`, z. B. `2x`.
@@ -46,23 +42,19 @@ Dieses Element unterstützt alle [globalen Attribute](/de/docs/Web/HTML/Referenc
     Jede Zeichenfolge in der Liste muss entweder eine Breitenbeschreibung oder eine Pixeldichtebeschreibung haben, um gültig zu sein. Diese beiden Beschreibungen sollten nicht zusammen verwendet werden; nur eine sollte konsequent in der gesamten Liste verwendet werden. Der Wert jeder Beschreibung in der Liste muss eindeutig sein. Der Browser wählt das am besten geeignete Bild, um es zu einem gegebenen Zeitpunkt anzuzeigen. Wenn die Beschreibungen nicht angegeben werden, wird der Standardwert `1x` verwendet. Wenn das `sizes` Attribut ebenfalls vorhanden ist, muss jede Zeichenfolge eine Breitenbeschreibung enthalten. Wenn der Browser `srcset` nicht unterstützt, wird `src` als Standardbildquelle verwendet.
 
 - `sizes`
-
   - : Gibt eine Liste von Quellengrößen an, die die endgültige gerenderte Breite des Bildes beschreiben. Erlaubt, wenn das übergeordnete Element von `<source>` {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
     Die Liste besteht aus Quellengrößen, getrennt durch Kommata. Jede Quellengröße ist ein Paar aus Medienbedingung und Länge. Bevor die Seite dargestellt wird, verwendet der Browser diese Informationen, um zu bestimmen, welches Bild in [`srcset`](#srcset) angezeigt werden soll. Beachten Sie, dass `sizes` nur wirksam wird, wenn mit `srcset` Breitenbeschreibungen angegeben werden, nicht bei Pixeldichtebeschreibungen (d.h. es sollte `200w` anstelle von `2x` verwendet werden).
 
 - `media`
-
   - : Gibt die [Medienabfrage](/de/docs/Web/CSS/Guides/Media_queries) für das beabsichtigte Medium der Ressource an.
 
 - `height`
-
   - : Gibt die intrinsische Höhe des Bildes in Pixeln an. Erlaubt, wenn das übergeordnete Element von `<source>` ein {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
     Der Höhenwert muss eine Ganzzahl ohne Einheiten sein.
 
 - `width`
-
   - : Gibt die intrinsische Breite des Bildes in Pixeln an. Erlaubt, wenn das übergeordnete Element von `<source>` ein {{HTMLElement("picture")}} ist. Nicht erlaubt, wenn das übergeordnete Element {{HTMLElement("audio")}} oder {{HTMLElement("video")}} ist.
 
     Der Breitenwert muss eine Ganzzahl ohne Einheiten sein.

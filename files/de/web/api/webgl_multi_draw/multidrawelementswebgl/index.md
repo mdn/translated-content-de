@@ -27,7 +27,6 @@ multiDrawElementsWEBGL(mode,
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den zu rendernden Primitivtyp angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
@@ -43,7 +42,6 @@ multiDrawElementsWEBGL(mode,
 - `countsOffset`
   - : Ein [`GLUint`](/de/docs/Web/API/WebGL_API/Types), das den Anfangspunkt im `countsList` Array definiert.
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`

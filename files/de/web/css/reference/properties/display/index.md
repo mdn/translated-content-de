@@ -145,11 +145,8 @@ Die Schlüsselwortwerte können in sechs Wertkategorien gruppiert werden.
 ### Inside
 
 - {{CSSxRef("&lt;display-inside&gt;")}}
-
   - : Diese Schlüsselwörter spezifizieren den inneren Display-Typ des Elements, welcher den Typ des Formatierungskontexts definiert, in dem seine Inhalte ausgelegt werden (vorausgesetzt, es handelt sich um ein nicht ersetztes Element). Wenn eines dieser Schlüsselwörter alleine als einzelner Wert verwendet wird, ist der äußere Display-Typ des Elements standardmäßig `block` (mit Ausnahme von `ruby`, das standardmäßig `inline` ist).
-
     - `flow`
-
       - : Das Element ordnet seine Inhalte mithilfe des Flusslayouts an (Block-und-Inline-Layout).
 
         Wenn der äußere Display-Typ `inline` ist und es an einem Block- oder Inline-Formatierungskontext teilnimmt, dann erzeugt es eine Inline-Box. Ansonsten erzeugt es eine Block-Box.
@@ -216,11 +213,8 @@ Ein einzelner Wert von `list-item` bewirkt, dass das Element sich wie ein Listen
 ### Box
 
 - {{CSSxRef("&lt;display-box&gt;")}}
-
   - : Diese Werte definieren, ob ein Element überhaupt Anzeigeboxen generiert.
-
     - `contents`
-
       - : Diese Elemente erzeugen keine spezifische Box für sich selbst. Sie werden durch ihre Pseudo-Box und ihre Kinderboxen ersetzt. Bitte beachten Sie, dass die CSS Display Level 3-Spezifikation definiert, wie der `contents`-Wert "ungewöhnliche Elemente" beeinflussen sollte — Elemente, die nicht rein durch CSS-Box-Konzepte wie ersetzte Elemente gerendert werden. Weitere Details finden Sie in [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox).
 
     - `none`
@@ -230,29 +224,23 @@ Ein einzelner Wert von `list-item` bewirkt, dass das Element sich wie ein Listen
 ### Precomposed
 
 - {{CSSxRef("&lt;display-legacy&gt;")}}
-
   - : CSS 2 verwendete eine Einzel-Schlüsselwort-Precomposed-Syntax für die `display`-Eigenschaft, die separate Schlüsselwörter für Block-Level- und Inline-Level-Varianten desselben Layout-Modus erforderte.
-
     - `inline-block`
-
       - : Das Element erzeugt eine Blockbox, die mit umliegendem Inhalt als wäre es eine einzelne Inline-Box geflossen wird (es verhält sich ähnlich wie ein ersetztes Element).
 
         Es ist äquivalent zu `inline flow-root`.
 
     - `inline-table`
-
       - : Der `inline-table`-Wert hat keine direkte Zuordnung in HTML. Es verhält sich wie ein HTML-{{HTMLElement("table")}}-Element, jedoch als Inline-Box statt als Block-Level-Box. Innerhalb der Tabellenbox befindet sich ein Block-Level-Kontext.
 
         Es ist äquivalent zu `inline table`.
 
     - `inline-flex`
-
       - : Das Element verhält sich wie ein Inline-Level-Element und ordnet seinen Inhalt nach dem Flexbox-Modell an.
 
         Es ist äquivalent zu `inline flex`.
 
     - `inline-grid`
-
       - : Das Element verhält sich wie ein Inline-Level-Element und ordnet seinen Inhalt nach dem Grid-Modell an.
 
         Es ist äquivalent zu `inline grid`.

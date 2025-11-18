@@ -19,12 +19,10 @@ Die Entwicklertools befinden sich in einem Unterfenster Ihres Browsers und sehen
 Wie öffnet man diese? Es gibt drei Wege:
 
 - **_Tastenkombination:_**
-
   - **Windows:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> oder <kbd>F12</kbd>
   - **macOS:** <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>I</kbd>
 
 - **_Menüleiste:_**
-
   - **Firefox:** _Menü (☰) ➤ Weitere Werkzeuge ➤ Web-Entwickler-Werkzeuge_
   - **Chrome:** _Weitere Werkzeuge ➤ Entwicklerwerkzeuge_
   - **Opera**: _Entwickler ➤ Entwicklerwerkzeuge_

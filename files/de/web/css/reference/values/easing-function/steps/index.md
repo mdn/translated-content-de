@@ -27,7 +27,6 @@ steps(3, jump-both)
 Die Funktion akzeptiert die folgenden Parameter:
 
 - `<integer>`
-
   - : Repräsentiert die Anzahl der gleichmäßig verteilten Intervalle oder 'Schritte'.
     Es muss eine positive ganze Zahl größer als `0` sein, es sei denn, der zweite Parameter ist `jump-none`, in diesem Fall muss es eine positive ganze Zahl größer als `1` sein.
 

@@ -123,25 +123,21 @@ position: unset;
 - `static`
   - : Das Element wird entsprechend dem [normalen Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow) des Dokuments positioniert. Die Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, {{cssxref("left")}} und {{cssxref("z-index")}} haben _keine Wirkung_. Dies ist der Standardwert.
 - `relative`
-
   - : Das Element wird entsprechend dem normalen Fluss des Dokuments positioniert und dann _relativ zu sich selbst_ basierend auf den Werten von `top`, `right`, `bottom` und `left` verschoben. Die Verschiebung beeinflusst nicht die Position von anderen Elementen; der für das Element im Seitenlayout vorgesehene Platz ist derselbe, als ob die Position `static` wäre.
 
     Dieser Wert erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context), wenn der Wert von `z-index` nicht `auto` ist. Seine Wirkung auf Elemente von Typ `table-*-group`, `table-row`, `table-column`, `table-cell` und `table-caption` ist undefiniert.
 
 - `absolute`
-
   - : Das Element wird aus dem normalen Dokumentfluss entfernt, und es wird kein Platz für das Element im Seitenlayout geschaffen. Das Element wird relativ zu seinem nächsten positionierten Vorfahren (falls vorhanden) oder zum initialen [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block) positioniert. Seine endgültige Position wird durch die Werte von `top`, `right`, `bottom` und `left` bestimmt.
 
     Dieser Wert erzeugt einen neuen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context), wenn der Wert von `z-index` nicht `auto` ist. Die Ränder von absolut positionierten Boxen kollabieren nicht mit anderen Rändern.
 
 - `fixed`
-
   - : Das Element wird aus dem normalen Dokumentfluss entfernt, und es wird kein Platz für das Element im Seitenlayout geschaffen. Das Element wird relativ zu seinem initialen [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block) positioniert, was bei visuellen Medien der Viewport ist. Seine endgültige Position wird durch die Werte von `top`, `right`, `bottom` und `left` bestimmt.
 
     Dieser Wert erzeugt immer einen neuen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context). In gedruckten Dokumenten wird das Element auf _jeder Seite_ an der gleichen Position platziert.
 
 - `sticky`
-
   - : Das Element wird entsprechend dem normalen Fluss des Dokuments positioniert und dann relativ zu seinem _nächsten scrollbaren Vorfahren_ und [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) (nächster Block-Level-Vorfahre), einschließlich tabellenbezogener Elemente, basierend auf den Werten von `top`, `right`, `bottom` und `left` verschoben. Die Verschiebung beeinflusst nicht die Position von anderen Elementen.
 
     Dieser Wert erzeugt immer einen neuen [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context). Beachten Sie, dass ein Sticky-Element an seinem nächsten Vorfahren "haftet", der einen "Scrollmechanismus" hat (erstellt, wenn `overflow` auf `hidden`, `scroll`, `auto` oder `overlay` gesetzt ist), auch wenn dieser Vorfahr nicht der nächstgelegene tatsächlich scrollende Vorfahr ist.

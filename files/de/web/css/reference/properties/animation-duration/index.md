@@ -107,15 +107,12 @@ animation-duration: unset;
 ### Werte
 
 - `auto`
-
   - : Für zeitbasierte Animationen ist `auto` äquivalent zu einem Wert von `0s` (siehe unten). Bei [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) füllt `auto` die gesamte Zeitleiste mit der Animation aus.
 
 - {{cssxref("&lt;time&gt;")}}
-
   - : Die Zeit, die eine Animation benötigt, um einen Zyklus abzuschließen. Diese kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Der Wert muss positiv oder null sein und die Einheit ist erforderlich.
 
     Wenn kein Wert angegeben ist, wird der Standardwert von `0s` verwendet, in diesem Fall wird die Animation dennoch ausgeführt (die [`animationStart`](/de/docs/Web/API/Element/animationstart_event) und [`animationEnd`](/de/docs/Web/API/Element/animationend_event) Ereignisse werden ausgelöst). Ob die Animation sichtbar sein wird, wenn die Dauer `0s` beträgt, hängt vom Wert von [`animation-fill-mode`](/de/docs/Web/CSS/Reference/Properties/animation-fill-mode) ab, wie unten erläutert:
-
     - Wenn `animation-fill-mode` auf `backwards` oder `both` gesetzt ist, wird das erste Bild der Animation, wie durch `animation-direction` definiert, während des [`animation-delay`](/de/docs/Web/CSS/Reference/Properties/animation-delay) Countdown angezeigt.
     - Wenn `animation-fill-mode` auf `forwards` oder `both` gesetzt ist, wird das letzte Bild der Animation, wie durch `animation-direction` definiert, nach Ablauf der `animation-delay` angezeigt.
     - Wenn `animation-fill-mode` auf `none` gesetzt ist, hat die Animation keinen sichtbaren Effekt.

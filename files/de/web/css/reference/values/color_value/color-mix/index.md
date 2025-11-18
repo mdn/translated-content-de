@@ -28,11 +28,9 @@ color-mix(in lch longer hue, hsl(200deg 50% 80%) 44%, coral 16%)
 Der `color-mix( <color-interpolation-method>, <color> [<percentage>], <color> [<percentage>] )` akzeptiert die folgenden Parameter:
 
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
-
   - : Gibt an, welche Interpolationsmethode verwendet werden soll, um die Farben zu mischen. Es besteht aus dem Schlüsselwort `in`, gefolgt von einem {{Glossary("color_space", "Farbraum")}} (einer der in der [formalen Syntax](#formale_syntax) gelisteten Farbräume) und optional einer {{CSSXref("&lt;hue-interpolation-method&gt;")}}.
 
 - {{CSSXref("&lt;color&gt;")}}
-
   - : Eine Farbe, die gemischt werden soll; kann jeden gültigen `<color>` Wert annehmen.
 
 - {{CSSXref("&lt;percentage&gt;")}} {{optional_inline}}

@@ -72,7 +72,6 @@ Wie das obige Code-Snippet zeigt, gibt es zwei verschiedene Orte, an denen Sie I
 1. Sie können die Ergebnisse der Client (Benutzeragenten) Erweiterungsverarbeitung finden, indem Sie die Methode [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults) aufrufen. Diese gibt eine {{jsxref("Map", "map")}} zurück, wobei jeder Eintrag ein Erweiterungs-Identifikator-String als Schlüssel und die Ausgabe aus der Verarbeitung der Erweiterung durch den Client als Wert enthält. In dem obigen Beispiel würde, wenn der Browser die `credProps`-Erweiterung unterstützt und korrekt verarbeitet wurde, das `myClientExtResults`-Map-Objekt einen Eintrag, `"credProps"`, mit einem Wert von `{ rk: true }` enthalten. Dies würde bestätigen, dass die erstellte Anmeldeinformation tatsächlich erkennbar ist.
 
 2. Sie können die Ergebnisse der Authentifikator-Erweiterungsverarbeitung in den Authentifikatordaten für die Operation finden:
-
    - Im Fall von `PublicKeyCredential`s, die von erfolgreichen `create()`-Aufrufen zurückgegeben wurden, kann dies über einen Aufruf von [`publicKeyCredential.response.getAuthenticatorData()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getAuthenticatorData) zurückgegeben werden.
    - Im Fall von `PublicKeyCredential`s, die von erfolgreichen `get()`-Aufrufen zurückgegeben wurden, kann dies in der [`publicKeyCredential.response.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)-Eigenschaft gefunden werden.
 

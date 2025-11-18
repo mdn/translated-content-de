@@ -14,7 +14,6 @@ Das **`<menclose>`** [MathML](/de/docs/Web/MathML)-Element rendert seinen Inhalt
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
 
 - `notation` {{Non-standard_Inline}}
-
   - : Eine Liste von Notationen, getrennt durch Leerzeichen, die auf die Kindelemente angewendet werden sollen. Die Symbole werden jeweils so gezeichnet, als ob die anderen nicht vorhanden wären, und können sich daher überlappen. Mögliche Werte sind:
 
     | Wert                 | Beispielanzeige                                                  | Darstellung in Ihrem Browser                                                                                                                 | Beschreibung                                                                                                           |

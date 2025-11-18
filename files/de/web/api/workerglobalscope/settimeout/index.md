@@ -33,7 +33,6 @@ setTimeout(functionRef, delay, param1, param2, /* …, */ paramN)
     empfohlen**, aus den gleichen Gründen, die die Verwendung von
     {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen.
 - `delay` {{optional_inline}}
-
   - : Die Zeit in Millisekunden, die der Timer warten soll, bevor
     die angegebene Funktion oder der Code ausgeführt wird. Wenn dieser Parameter weggelassen wird, wird ein Wert von 0
     verwendet, was bedeutet, "sofort" oder genauer gesagt im nächsten Ereigniszyklus zu reagieren.

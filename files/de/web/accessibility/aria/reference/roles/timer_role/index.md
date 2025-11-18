@@ -23,7 +23,6 @@ Zusammen mit [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_rol
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)
-
   - : Einige Bildschirmleser kündigen den Namen eines Timer-Elements an, bevor sie dessen Inhalt ansagen. Wenn ein Name sichtbar ist, verweisen Sie mit `aria-labelledby` darauf. Durch das Hinzufügen eines `aria-label` kann der sichtbare Inhalt eines Timer-Elements mit einem Text versehen werden, der beim Vorlesen durch einen Bildschirmleser nicht angezeigt wird. Das Benennen eines Timers ist nicht erforderlich, daher können beide Attribute ausgelassen werden, wenn nichts Passendes vorhanden ist.
 
 - [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)

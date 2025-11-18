@@ -69,16 +69,16 @@ Jedes Element kann, zusätzlich zu den Kindknoten, auch Attribute haben, die als
 
 Das `Node`-Interface definiert eine [`nodeType`](/de/docs/Web/API/Node/nodeType) Eigenschaft, die den Typ des Knotens angibt. Zusammengefasst haben wir die folgenden Knotentypen eingeführt:
 
-| Knotentyp                            | `nodeType`-Wert                       | Gültige Kinder (außer `Comment` und `ProcessingInstruction`)           |
-| ------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------ |
-| [`Document`](/de/docs/Web/API/Document)              | `Node.DOCUMENT_NODE` (9)               | [`DocumentType`](/de/docs/Web/API/DocumentType), [`Element`](/de/docs/Web/API/Element)                      |
-| [`DocumentType`](/de/docs/Web/API/DocumentType)          | `Node.DOCUMENT_TYPE_NODE` (10)         | Keine                                                                     |
-| [`Element`](/de/docs/Web/API/Element)               | `Node.ELEMENT_NODE` (1)                | [`Element`](/de/docs/Web/API/Element), [`Text`](/de/docs/Web/API/Text), [`CDATASection`](/de/docs/Web/API/CDATASection) |
-| [`Text`](/de/docs/Web/API/Text)                  | `Node.TEXT_NODE` (3)                   | Keine                                                                     |
-| [`CDATASection`](/de/docs/Web/API/CDATASection)          | `Node.CDATA_SECTION_NODE` (4)          | Keine                                                                     |
-| [`Comment`](/de/docs/Web/API/Comment)               | `Node.COMMENT_NODE` (8)                | Keine                                                                     |
-| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | `Node.PROCESSING_INSTRUCTION_NODE` (7) | Keine                                                                     |
-| [`Attr`](/de/docs/Web/API/Attr)                  | `Node.ATTRIBUTE_NODE` (2)              | Keine                                                                     |
+| Knotentyp                                                         | `nodeType`-Wert                        | Gültige Kinder (außer `Comment` und `ProcessingInstruction`)                                                            |
+| ----------------------------------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [`Document`](/de/docs/Web/API/Document)                           | `Node.DOCUMENT_NODE` (9)               | [`DocumentType`](/de/docs/Web/API/DocumentType), [`Element`](/de/docs/Web/API/Element)                                  |
+| [`DocumentType`](/de/docs/Web/API/DocumentType)                   | `Node.DOCUMENT_TYPE_NODE` (10)         | Keine                                                                                                                   |
+| [`Element`](/de/docs/Web/API/Element)                             | `Node.ELEMENT_NODE` (1)                | [`Element`](/de/docs/Web/API/Element), [`Text`](/de/docs/Web/API/Text), [`CDATASection`](/de/docs/Web/API/CDATASection) |
+| [`Text`](/de/docs/Web/API/Text)                                   | `Node.TEXT_NODE` (3)                   | Keine                                                                                                                   |
+| [`CDATASection`](/de/docs/Web/API/CDATASection)                   | `Node.CDATA_SECTION_NODE` (4)          | Keine                                                                                                                   |
+| [`Comment`](/de/docs/Web/API/Comment)                             | `Node.COMMENT_NODE` (8)                | Keine                                                                                                                   |
+| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | `Node.PROCESSING_INSTRUCTION_NODE` (7) | Keine                                                                                                                   |
+| [`Attr`](/de/docs/Web/API/Attr)                                   | `Node.ATTRIBUTE_NODE` (2)              | Keine                                                                                                                   |
 
 > [!NOTE]
 > Sie werden bemerken, dass wir hier einige Knotentypen übersprungen haben. Die `Node.ENTITY_REFERENCE_NODE` (5), `Node.ENTITY_NODE` (6) und `Node.NOTATION_NODE` (12) Werte werden nicht mehr verwendet, während der `Node.DOCUMENT_FRAGMENT_NODE` (11) Wert im [Erstellen und Aktualisieren des DOM-Baums](/de/docs/Web/API/Document_Object_Model/Building_and_updating_the_DOM_tree) eingeführt wird.
@@ -87,16 +87,16 @@ Das `Node`-Interface definiert eine [`nodeType`](/de/docs/Web/API/Node/nodeType)
 
 Jeder Knotentyp hat seine eigene Art, die Daten darzustellen, die er hält. Die `Node`-Schnittstelle selbst definiert drei Eigenschaften, die mit Daten zu tun haben, die in der folgenden Tabelle zusammengefasst sind:
 
-| Knotentyp                            | [`nodeName`](/de/docs/Web/API/Node/nodeName)             | [`nodeValue`](/de/docs/Web/API/Node/nodeValue) | [`textContent`](/de/docs/Web/API/Node/textContent)               |
-| ------------------------------------ | ---------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------ |
-| [`Document`](/de/docs/Web/API/Document)              | `"#document"`                                        | `null`                                     | `null`                                                       |
-| [`DocumentType`](/de/docs/Web/API/DocumentType)          | Sein [`name`](#documenttype) (z.B., `"html"`)         | `null`                                     | `null`                                                       |
-| [`Element`](/de/docs/Web/API/Element)               | Sein [`tagName`](#element) (z.B., `"HTML"`, `"BODY"`) | `null`                                     | Verkettung aller seiner Textknoten-Nachfahren in Baumreihenfolge |
-| [`Text`](/de/docs/Web/API/Text)                  | `"#text"`                                            | Sein [`data`](#characterdata)               | Sein [`data`](#characterdata)                                 |
-| [`CDATASection`](/de/docs/Web/API/CDATASection)          | `"#cdata-section"`                                   | Sein [`data`](#characterdata)               | Sein [`data`](#characterdata)                                 |
-| [`Comment`](/de/docs/Web/API/Comment)               | `"#comment"`                                         | Sein [`data`](#characterdata)               | Sein [`data`](#characterdata)                                 |
-| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | Sein [`target`](#characterdata)                       | Sein [`data`](#characterdata)               | Sein [`data`](#characterdata)                                 |
-| [`Attr`](/de/docs/Web/API/Attr)                  | Sein [`name`](#attr)                                  | Sein [`value`](#attr)                       | Sein [`value`](#attr)                                         |
+| Knotentyp                                                         | [`nodeName`](/de/docs/Web/API/Node/nodeName)          | [`nodeValue`](/de/docs/Web/API/Node/nodeValue) | [`textContent`](/de/docs/Web/API/Node/textContent)               |
+| ----------------------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------- |
+| [`Document`](/de/docs/Web/API/Document)                           | `"#document"`                                         | `null`                                         | `null`                                                           |
+| [`DocumentType`](/de/docs/Web/API/DocumentType)                   | Sein [`name`](#documenttype) (z.B., `"html"`)         | `null`                                         | `null`                                                           |
+| [`Element`](/de/docs/Web/API/Element)                             | Sein [`tagName`](#element) (z.B., `"HTML"`, `"BODY"`) | `null`                                         | Verkettung aller seiner Textknoten-Nachfahren in Baumreihenfolge |
+| [`Text`](/de/docs/Web/API/Text)                                   | `"#text"`                                             | Sein [`data`](#characterdata)                  | Sein [`data`](#characterdata)                                    |
+| [`CDATASection`](/de/docs/Web/API/CDATASection)                   | `"#cdata-section"`                                    | Sein [`data`](#characterdata)                  | Sein [`data`](#characterdata)                                    |
+| [`Comment`](/de/docs/Web/API/Comment)                             | `"#comment"`                                          | Sein [`data`](#characterdata)                  | Sein [`data`](#characterdata)                                    |
+| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | Sein [`target`](#characterdata)                       | Sein [`data`](#characterdata)                  | Sein [`data`](#characterdata)                                    |
+| [`Attr`](/de/docs/Web/API/Attr)                                   | Sein [`name`](#attr)                                  | Sein [`value`](#attr)                          | Sein [`value`](#attr)                                            |
 
 ### Dokument
 

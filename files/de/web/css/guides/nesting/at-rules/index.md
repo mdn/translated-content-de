@@ -113,7 +113,7 @@ Wir beginnen damit, die benannten Kaskadenschichten zu definieren, bevor wir sie
 
 #### Zuweisung von Regeln zu Schichten mit Verschachtelung
 
-Hier weist der `.`foo`-Selektor seine Regeln der **Base** `@layer` zu. Die verschachtelte **Support** `@layer` erstellt die `base.support`-Unterschicht, und der `&`-Verschachtelungsselektor wird verwendet, um die Regeln für den `.foo .bar`-Selektor zu erstellen.
+Hier weist der `.`foo`-Selektor seine Regeln der **Base** `@layer`zu. Die verschachtelte **Support**`@layer`erstellt die`base.support`-Unterschicht, und der `&`-Verschachtelungsselektor wird verwendet, um die Regeln für den `.foo .bar`-Selektor zu erstellen.
 
 ```css
 .foo {

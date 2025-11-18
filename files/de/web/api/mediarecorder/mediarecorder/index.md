@@ -26,9 +26,7 @@ new MediaRecorder(stream, options)
 - `stream`
   - : Der [`MediaStream`](/de/docs/Web/API/MediaStream), der aufgezeichnet werden soll. Diese Quellmedien können von einem Stream stammen, der mit [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erstellt wurde, oder von einem {{HTMLElement("audio")}}, {{HTMLElement("video")}} oder {{HTMLElement("canvas")}} Element.
 - `options` {{optional_inline}}
-
   - : Ein Wörterbuchobjekt, das die folgenden Eigenschaften enthalten kann:
-
     - `mimeType` {{optional_inline}}
       - : Ein MIME-Typ, der das Format für das resultierende Medium angibt; Sie können das Containerformat angeben (der Browser wählt seine bevorzugten Codecs für Audio und/oder Video), oder Sie können [den `codecs` Parameter](/de/docs/Web/Media/Guides/Formats/codecs_parameter) und/oder den `profiles` Parameter verwenden, um detaillierte Informationen darüber zu geben, welche Codecs verwendet werden sollen und wie sie zu konfigurieren sind. Anwendungen können im Voraus prüfen, ob ein `mimeType` vom {{Glossary("user_agent", "User Agent")}} unterstützt wird, indem sie [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) aufrufen. Standardmäßig leerer String.
     - `audioBitsPerSecond` {{optional_inline}}

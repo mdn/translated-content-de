@@ -36,7 +36,6 @@ Diese Anfrage enthält:
 
 - Eine URL, die den Zielserver und die Ressource identifiziert (zum Beispiel eine HTML-Datei, einen bestimmten Datenpunkt auf dem Server oder ein Werkzeug, das ausgeführt werden soll).
 - Eine Methode, die die erforderliche Aktion definiert (z.B., eine Datei zu holen oder einige Daten zu speichern oder zu aktualisieren). Die verschiedenen Methoden/Verben und ihre zugehörigen Aktionen sind unten aufgelistet:
-
   - `GET`: Eine spezifische Ressource erhalten (z.B., eine HTML-Datei, die Informationen über ein Produkt enthält, oder eine Liste von Produkten).
   - `POST`: Eine neue Ressource erstellen (z.B., einen neuen Artikel zu einem Wiki hinzufügen, einen neuen Kontakt zu einer Datenbank hinzufügen).
   - `HEAD`: Die Metadateninformationen über eine spezifische Ressource erhalten, ohne den Body abzurufen, wie es `GET` tun würde. Sie könnten z.B. eine `HEAD`-Anfrage verwenden, um herauszufinden, wann eine Ressource zuletzt aktualisiert wurde, und dann nur die (kostenintensivere) `GET`-Anfrage verwenden, um die Ressource herunterzuladen, falls sie sich geändert hat.

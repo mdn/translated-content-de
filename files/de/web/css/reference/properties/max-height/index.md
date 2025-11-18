@@ -90,7 +90,6 @@ max-height: unset;
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
   - : Verwendet die `fit-content`-Formel mit dem verfügbaren Raum, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-
   - : Begrenzung der maximalen Höhe der [Margin-Box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Höhe des [enthältenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es wird versucht, die Margin-Box so zu füllen, dass sie den verfügbaren Raum im enthältenden Block einnimmt, und verhält sich damit ähnlich wie `100%`, wendet die resultierende Größe jedoch auf die Margin-Box an anstatt auf die Box, die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmt wird.
 
     > [!NOTE]

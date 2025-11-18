@@ -20,7 +20,6 @@ requestSubmit(submitter)
 ### Parameter
 
 - `submitter` {{optional_inline}}
-
   - : Ein {{Glossary("submit_button", "Absende-Button")}}, der ein Mitglied des Formulars ist.
 
     Wenn der `submitter` `form*` Attribute spezifiziert, {{Glossary("Submit_button#overriding_the_forms_behavior", "werden diese das Absendeverhalten des Formulars überschreiben")}} (z.B. `formmethod="POST"`).

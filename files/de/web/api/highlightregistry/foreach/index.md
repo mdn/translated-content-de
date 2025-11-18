@@ -22,7 +22,6 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callback`
-
   - : Funktion, die für jedes `Highlight`-Objekt ausgeführt wird und drei Argumente annimmt:
     - `highlight`
       - : Das aktuelle Highlight.

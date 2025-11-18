@@ -133,7 +133,6 @@ Wir haben bereits ein Beispiel für einen JavaScript-Test zur Funktionsprüfung 
 Übliche Muster für nachweisbare Funktionen umfassen:
 
 - Mitglieder eines Objekts
-
   - : Überprüfen Sie, ob eine bestimmte Methode oder Eigenschaft (typischerweise ein Einstiegspunkt für die Verwendung der API oder einer anderen Funktion, die Sie erkennen) in ihrem Eltern-`Objekt` existiert.
 
     Unser früheres Beispiel nutzte dieses Muster, um die Unterstützung für [Geolocation](/de/docs/Web/API/Geolocation_API) zu erkennen, indem das [`navigator`](/de/docs/Web/API/Navigator) Objekt auf ein `geolocation` Mitglied getestet wurde:
@@ -145,7 +144,6 @@ Wir haben bereits ein Beispiel für einen JavaScript-Test zur Funktionsprüfung 
     ```
 
 - Eigenschaften eines Elements
-
   - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und prüfen Sie, ob eine Eigenschaft daran existiert.
 
     Dieses Beispiel zeigt eine Möglichkeit, die Unterstützung der [Canvas API](/de/docs/Web/API/Canvas_API) zu erkennen:
@@ -164,7 +162,6 @@ Wir haben bereits ein Beispiel für einen JavaScript-Test zur Funktionsprüfung 
     > Das doppelte `NOT` im obigen Beispiel (`!!`) ist eine Methode, um einen Rückgabewert in einen "richtigen" booleschen Wert zu zwingen, anstatt einen {{Glossary("Truthy", "Truthy")}}/{{Glossary("Falsy", "Falsy")}} Wert, der die Ergebnisse verfälschen könnte.
 
 - Spezifische Rückgabewerte einer Methode auf einem Element
-
   - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und prüfen Sie, ob eine Methode daran existiert. Wenn sie existiert, prüfen Sie, welchen Wert sie zurückgibt.
 
 - Beibehaltung des zugewiesenen Eigenschaftswerts durch ein Element

@@ -92,15 +92,15 @@ src: url("fonts.svg#WhichFont");
 
 Die folgende Tabelle zeigt die gültigen Schriftart-Schlüsselwörter und ihre entsprechenden Schriftformate. Um zu überprüfen, ob ein Schriftformat von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} Regel.
 
-| Schlüsselwort       | Schriftformat         | Übliche Erweiterungen |
-| ------------------- | --------------------- | --------------------- |
-| `collection`        | OpenType Sammlung     | .otc, .ttc            |
+| Schlüsselwort       | Schriftformat          | Übliche Erweiterungen |
+| ------------------- | ---------------------- | --------------------- |
+| `collection`        | OpenType Sammlung      | .otc, .ttc            |
 | `embedded-opentype` | Eingebettetes OpenType | .eot                  |
-| `opentype`          | OpenType              | .otf, .ttf            |
+| `opentype`          | OpenType               | .otf, .ttf            |
 | `svg`               | SVG Schrift (veraltet) | .svg, .svgz           |
-| `truetype`          | TrueType              | .ttf                  |
-| `woff`              | WOFF 1.0              | .woff                 |
-| `woff2`             | WOFF 2.0              | .woff2                |
+| `truetype`          | TrueType               | .ttf                  |
+| `woff`              | WOFF 1.0               | .woff                 |
+| `woff2`             | WOFF 2.0               | .woff2                |
 
 > [!NOTE]
 >
@@ -109,29 +109,29 @@ Die folgende Tabelle zeigt die gültigen Schriftart-Schlüsselwörter und ihre e
 
 Ältere, nicht normalisierte `format()` Werte haben die folgende äquivalente Syntax; aus Gründen der Rückwärtskompatibilität als Zeichenfolge in Anführungszeichen bereitgestellt:
 
-| Alte Syntax                   | Äquivalente Syntax                    |
-| ----------------------------- | -------------------------------------- |
-| `format("woff2-variations")`  | `format(woff2) tech(variations)`       |
-| `format("woff-variations")`   | `format(woff) tech(variations)`        |
-| `format("opentype-variations")`| `format(opentype) tech(variations)`   |
-| `format("truetype-variations")`| `format(truetype) tech(variations)`  |
+| Alte Syntax                     | Äquivalente Syntax                  |
+| ------------------------------- | ----------------------------------- |
+| `format("woff2-variations")`    | `format(woff2) tech(variations)`    |
+| `format("woff-variations")`     | `format(woff) tech(variations)`     |
+| `format("opentype-variations")` | `format(opentype) tech(variations)` |
+| `format("truetype-variations")` | `format(truetype) tech(variations)` |
 
 ### Schrifttyptechnologien
 
 Die folgende Tabelle zeigt die gültigen Werte für den `tech()` Deskriptor und ihre entsprechenden Schrifttyptechnologien. Um zu überprüfen, ob eine Schrifttyptechnologie von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} at-rule.
 
-| Schlüsselwort       | Beschreibung                                                                            |
-| :------------------ | :--------------------------------------------------------------------------------------- |
-| `color-cbdt`        | Farb-Bitmap-Datentabellen                                                                |
-| `color-colrv0`      | Mehrfarbige Glyphen über COLR-Version 0 Tabelle                                          |
-| `color-colrv1`      | Mehrfarbige Glyphen über COLR-Version 1 Tabelle                                          |
-| `color-sbix`        | Standard Bitmap Grafiktabellen                                                           |
-| `color-svg`         | SVG mehrfarbige Tabellen                                                                 |
-| `features-aat`      | TrueType `morx` und `kerx` Tabellen                                                      |
-| `features-graphite` | Graphite-Funktionen, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen          |
-| `features-opentype` | OpenType `GSUB` und `GPOS` Tabellen                                                      |
-| `incremental`       | Inkrementelles Schriftsatzladen                                                          |
-| `palettes`          | Schriftpaletten durch `font-palette`, um eine von vielen Farbpaletten in der Schriftart auszuwählen |
+| Schlüsselwort       | Beschreibung                                                                                                     |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------- |
+| `color-cbdt`        | Farb-Bitmap-Datentabellen                                                                                        |
+| `color-colrv0`      | Mehrfarbige Glyphen über COLR-Version 0 Tabelle                                                                  |
+| `color-colrv1`      | Mehrfarbige Glyphen über COLR-Version 1 Tabelle                                                                  |
+| `color-sbix`        | Standard Bitmap Grafiktabellen                                                                                   |
+| `color-svg`         | SVG mehrfarbige Tabellen                                                                                         |
+| `features-aat`      | TrueType `morx` und `kerx` Tabellen                                                                              |
+| `features-graphite` | Graphite-Funktionen, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                                  |
+| `features-opentype` | OpenType `GSUB` und `GPOS` Tabellen                                                                              |
+| `incremental`       | Inkrementelles Schriftsatzladen                                                                                  |
+| `palettes`          | Schriftpaletten durch `font-palette`, um eine von vielen Farbpaletten in der Schriftart auszuwählen              |
 | `variations`        | Größenvariationen in TrueType und OpenType Schriften, um die Schriftexachse, Gewichtung, Glyphen usw. zu steuern |
 
 ## Formale Definition

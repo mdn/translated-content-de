@@ -21,14 +21,11 @@ blendEquationSeparate(modeRGB, modeAlpha)
 ### Parameter
 
 - `modeRGB`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie die Rot-, Grün- und Blaukomponenten der Quell- und Ziel-Farben kombiniert werden. Muss eine der folgenden sein:
-
     - `gl.FUNC_ADD`: Quelle + Ziel (Standardwert),
     - `gl.FUNC_SUBTRACT`: Quelle - Ziel,
     - `gl.FUNC_REVERSE_SUBTRACT`: Ziel - Quelle,
     - Bei Verwendung der [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax) Erweiterung:
-
       - `ext.MIN_EXT`: Minimum von Quelle und Ziel,
       - `ext.MAX_EXT`: Maximum von Quelle und Ziel.
 
@@ -38,14 +35,11 @@ blendEquationSeparate(modeRGB, modeAlpha)
       - `gl.MAX`: Maximum von Quelle und Ziel.
 
 - `modeAlpha`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie die Alphakomponente (Transparenz) der Quell- und Zielfarben kombiniert wird. Muss eine der folgenden sein:
-
     - `gl.FUNC_ADD`: Quelle + Ziel (Standardwert),
     - `gl.FUNC_SUBTRACT`: Quelle - Ziel,
     - `gl.FUNC_REVERSE_SUBTRACT`: Ziel - Quelle,
     - Bei Verwendung der [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax) Erweiterung:
-
       - `ext.MIN_EXT`: Minimum von Quelle und Ziel,
       - `ext.MAX_EXT`: Maximum von Quelle und Ziel.
 

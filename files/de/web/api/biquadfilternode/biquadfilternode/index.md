@@ -21,22 +21,16 @@ new BiquadFilterNode(context, options)
 - `context`
   - : Ein Verweis auf ein [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `type`
-
       - : Einer der folgenden Strings. Die Bedeutung der anderen Optionen hängt vom Wert von `type` ab.
-
         - `lowpass`
-
           - : Der Standardwert. Lässt Frequenzen unterhalb einer Grenzfrequenz durch und dämpft Frequenzen oberhalb der Grenzfrequenz. Dies ist ein Standard-Zweitordnungs-Resonanz-Tiefpassfilter mit einer Dämpfung von 12 dB/Oktave. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: steuert die Ausgeprägtheit der Antwort bei der Grenzfrequenz. Ein großer Wert macht die Antwort ausgeprägter. Bitte beachten Sie, dass dieser Wert bei diesem Filtertyp kein traditionelles Q ist, sondern einen Resonanzwert in Dezibel darstellt.
             - `frequency`: die Grenzfrequenz.
             - `gain`: wird nicht verwendet.
 
         - `highpass`
-
           - : Ein Hochpassfilter ist das Gegenteil eines Tiefpassfilters.
             Frequenzen oberhalb der Grenzfrequenz werden durchgelassen, aber Frequenzen unterhalb der Grenzfrequenz werden gedämpft. Er implementiert einen Standard-Zweitordnungs-Resonanz-Hochpassfilter mit einer Dämpfung von 12 dB/Oktave. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: steuert die Ausgeprägtheit der Antwort bei der Grenzfrequenz. Ein großer Wert macht die Antwort ausgeprägter. Bitte beachten Sie, dass dieser Wert bei diesem Filtertyp kein traditionelles Q ist, sondern einen Resonanzwert in Dezibel darstellt.
@@ -44,7 +38,6 @@ new BiquadFilterNode(context, options)
             - `gain`: wird nicht verwendet.
 
         - `bandpass`
-
           - : Ein Bandpassfilter lässt einen Bereich von Frequenzen durch
             und dämpft die Frequenzen unterhalb und oberhalb dieses Frequenzbereichs. Er implementiert einen Zweitordnungs-Bandpassfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: steuert die Breite des Bandes. Die Breite wird schmaler, wenn der Q-Wert erhöht wird.
@@ -52,7 +45,6 @@ new BiquadFilterNode(context, options)
             - `gain`: wird nicht verwendet.
 
         - `lowshelf`
-
           - : Das Tiefregalfilter lässt alle Frequenzen durch, fügt aber
             einen Boost (oder eine Dämpfung) für die tieferen Frequenzen hinzu. Es implementiert ein Zweitordnungs-Tiefregalfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: wird nicht verwendet.
@@ -60,7 +52,6 @@ new BiquadFilterNode(context, options)
             - `gain`: der Boost in dB, der angewendet wird. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
 
         - `highshelf`
-
           - : Das Hochregalfilter ist das Gegenteil des Tiefregalfilters
             und lässt alle Frequenzen durch, fügt jedoch einen Boost für die höheren Frequenzen hinzu. Es implementiert ein Zweitordnungs-Hochregalfilter. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: wird nicht verwendet.
@@ -68,7 +59,6 @@ new BiquadFilterNode(context, options)
             - `gain`: der Boost in dB, der angewendet wird. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
 
         - `peaking`
-
           - : Das Spitzenfilter lässt alle Frequenzen durch und fügt einen
             Boost oder eine Dämpfung für einen Bereich von Frequenzen hinzu. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: die Breite des Frequenzbandes, das geboostet wird. Ein großer Wert bedeutet eine schmale Breite.
@@ -76,7 +66,6 @@ new BiquadFilterNode(context, options)
             - `gain`: der Boost in dB, der angewendet wird. Wenn der Wert negativ ist, werden die Frequenzen gedämpft.
 
         - `notch`
-
           - : Das Kerbfilter (auch Bandstopp- oder Bandsperrfilter genannt) ist das Gegenteil eines Bandpassfilters. Es lässt alle Frequenzen durch, außer einem Bereich von Frequenzen. Bei diesem Filtertyp haben die anderen Optionen folgende Bedeutungen:
             - `Q`: die Breite des Frequenzbandes, das gedämpft wird. Ein großer Wert bedeutet eine schmale Breite.
             - `frequency`: die Mittelfrequenz des Dämpfungsbereichs.

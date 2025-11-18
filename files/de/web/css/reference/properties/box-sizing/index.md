@@ -89,13 +89,11 @@ Die `box-sizing`-Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, da
 ### Werte
 
 - `content-box`
-
   - : Dies ist der initiale und standardmäßige Wert, wie er im CSS-Standard angegeben ist. Die {{Cssxref("width")}} und {{Cssxref("height")}}-Eigenschaften umfassen den Inhalt, jedoch nicht die Auffüllung, den Rand oder den Abstand. Zum Beispiel rendert `.box {width: 350px; border: 10px solid black;}` eine Box, die 370px breit ist.
 
     Hier werden die Abmessungen des Elements berechnet als: _width = Breite des Inhalts_ und _height = Höhe des Inhalts_. (Ränder und Auffüllungen werden in die Berechnung nicht einbezogen.)
 
 - `border-box`
-
   - : Die {{Cssxref("width")}} und {{Cssxref("height")}}-Eigenschaften umfassen den Inhalt, die Auffüllung und den Rand, jedoch nicht den Abstand. Beachten Sie, dass Auffüllung und Rand innerhalb der Box liegen. Zum Beispiel rendert `.box {width: 350px; border: 10px solid black;}` eine Box, die 350px breit ist, wobei der Bereich für den Inhalt 330px breit ist. Das Inhaltsfeld kann nicht negativ sein und wird auf 0 abgerundet, was es unmöglich macht, `border-box` zu verwenden, um das Element verschwinden zu lassen.
 
     Hier werden die Abmessungen des Elements berechnet als: _width = Rand + Auffüllung + Breite des Inhalts_ und _height = Rand + Auffüllung + Höhe des Inhalts_.

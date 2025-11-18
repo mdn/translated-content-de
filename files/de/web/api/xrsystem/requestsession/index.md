@@ -26,7 +26,6 @@ requestSession(mode, options)
 ### Parameter
 
 - `mode`
-
   - : Ein {{jsxref("String")}}, der den XR-Sitzungsmodus definiert. Die unterstützten Modi sind:
     - {{Experimental_Inline}} `immersive-ar`: Die Ausgabe der Sitzung erhält exklusiven Zugriff auf das immersive Gerät,
       jedoch wird der gerenderte Inhalt mit der realen Umgebung vermischt.

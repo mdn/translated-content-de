@@ -99,7 +99,6 @@ Die `shape-outside` Eigenschaft wird unter Verwendung der unten aufgeführten We
 - `none`
   - : Der float-Bereich bleibt unbeeinflusst. Inline-Content wickelt sich wie gewohnt um den Rand des Elements.
 - `<shape-box>`
-
   - : Der float-Bereich wird gemäß der Form der Kanten eines Float-Elements berechnet (wie durch das [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) definiert). Dies kann `margin-box`, `border-box`, `padding-box` oder `content-box` sein. Die Form schließt jede Krümmung ein, die durch die {{cssxref("border-radius")}} Eigenschaft erzeugt wird (ähnliches Verhalten wie {{cssxref("background-clip")}}).
     - `margin-box`
       - : Definiert die Form, die von der äußeren Margenkante umschlossen wird. Die Eckradien dieser Form werden durch die entsprechenden {{cssxref("border-radius")}} und {{cssxref("margin")}} Werte bestimmt. Wenn das Verhältnis `border-radius / margin` `1` oder mehr ist, dann ist der Eckradius der Margen-Box `border-radius + margin`. Ist das Verhältnis kleiner als `1`, dann ist der Eckradius der Margen-Box `border-radius + (margin * (1 + (ratio - 1) ^ 3))`.

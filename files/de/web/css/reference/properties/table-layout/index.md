@@ -88,16 +88,13 @@ table-layout: unset;
 ### Werte
 
 - `auto`
-
   - : Der automatische Tabellenlayout-Algorithmus wird verwendet. Die Breiten der Tabelle und ihrer Zellen werden angepasst, um zum Inhalt zu passen. Die meisten Browser verwenden diesen Algorithmus standardmäßig.
 
 - `fixed`
-
   - : Der feste Tabellenlayout-Algorithmus wird verwendet. Wenn dieses Schlüsselwort verwendet wird, _muss_ die Breite der Tabelle explizit mit der [`width`](/de/docs/Web/CSS/Reference/Properties/width) Eigenschaft angegeben werden. Wenn der Wert der `width` Eigenschaft auf `auto` eingestellt ist oder nicht angegeben wird, verwendet der Browser den automatischen Tabellenlayout-Algorithmus, wobei der `fixed` Wert keine Wirkung hat.\
     Der feste Tabellenlayout-Algorithmus ist schneller als der automatische Layout-Algorithmus, da das horizontale Layout der Tabelle nur von der Breite der Tabelle, der Breite der Spalten sowie von Rändern oder Zellabständen abhängt. Das horizontale Layout hängt nicht vom Inhalt der Zellen ab, da es nur von explizit festgelegten Breiten abhängt.
 
     Im festen Tabellenlayout-Algorithmus wird die Breite jeder Spalte wie folgt bestimmt:
-
     - Ein Spaltenelement mit expliziter Breite setzt die Breite für diese Spalte.
     - Andernfalls bestimmt eine Zelle in der ersten Zeile mit expliziter Breite die Breite für diese Spalte.
     - Andernfalls erhält die Spalte die Breite aus dem geteilten verbleibenden horizontalen Raum.

@@ -43,7 +43,6 @@ Unser letzter Ember-Artikel bietet Ihnen eine Liste von Ressourcen, die Sie für
 ## Weitere Ressourcen
 
 - [Ember.JS Leitfäden](https://guides.emberjs.com/release/)
-
   - [Tutorial: Super Rentals](https://guides.emberjs.com/release/tutorial/part-1/)
 
 - [Ember.JS API-Dokumentation](https://api.emberjs.com/ember/release/)

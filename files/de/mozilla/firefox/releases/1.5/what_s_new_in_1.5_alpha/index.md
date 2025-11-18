@@ -71,56 +71,44 @@ Diese Seite basiert größtenteils auf [https://www.squarefree.com/burningedg...
 ### Neue Funktionen für Erweiterungsentwickler
 
 - Versteckte Referrer-Spalte für Verlauf
-
   - : Erweiterungen können jetzt die Referrer-Informationen für im Browserverlauf gespeicherte Seiten abrufen. Diese Funktion kann verwendet werden, um alternative Verlaufsansichten und andere nützliche Funktionen bereitzustellen. [Firefox Fehler 128398](https://bugzil.la/128398)
 
 - API zur Priorisierung von HTTP-Verbindungen
-
   - : Die Mozilla-Netzwerkbibliothek unterstützt jetzt die Priorisierung von Verbindungen zu einem bestimmten Server mithilfe von `nsISupportsPriority`. [Firefox Fehler 278531](https://bugzil.la/278531)
 
 - API zur Verwaltung von Benutzer- und UA-Stylesheets
-
   - : Erweiterungen können jetzt Stylesheet-URIs als zusätzliche Benutzer- und UA-Stylesheets registrieren. Das bedeutet, dass Erweiterungen nicht mehr versuchen müssen, `userContent.css` zu bearbeiten, um Styling (z. B. für XBL-Bindungsanhänge) zu Webseiten hinzuzufügen. Siehe [Verwendung des Stylesheet-Service](https://web.archive.org/web/20210413211020/https://developer.mozilla.org/de/docs/Archive/Add-ons/Using_the_Stylesheet_Service).
 
 - API zur Proxy-Konfiguration
-
   - : Es ist jetzt möglich, dass Erweiterungen die Proxy-Konfiguration einfach überschreiben, ohne die für Benutzer sichtbaren Präferenzen zu beeinflussen. Siehe `nsIProtocolProxyService`, `nsIProtocolProxyFilter` und `nsIProtocolProxyCallback`. [Firefox Fehler 282442](https://bugzil.la/282442)
 
 - Dynamische Overlays
-
   - : Das Laden von XUL-Overlays nach der Anzeige des Dokuments wird jetzt unterstützt. Siehe `nsIDOMXULDocument`. [Firefox Fehler 282103](https://bugzil.la/282103)
 
 - ECMAScript für XML (E4X)
-
   - : Die Mozilla JavaScript-Engine unterstützt jetzt ECMAScript für XML (E4X), einen Entwurf des ECMA-Standards, der der Sprache native XML-Datentypen hinzufügt und Operatoren für gängige XML-Operationen bereitstellt. Siehe [die ECMA-Spezifikation](https://ecma-international.org/publications-and-standards/standards/ecma-357/). [Firefox Fehler 246441](https://bugzil.la/246441)
 
 - Translucente Fenster (Windows/Linux)
-
   - : Unter Windows und Linux werden jetzt XUL-Fenster mit transparentem Hintergrund unterstützt. Dies ermöglicht, dass alles unterhalb des Fensters durch den Fensterhintergrund hindurch sichtbar ist.
 
 - Hinzufügen von Token zur User-Agent-Zeichenfolge
-
   - : Es ist jetzt möglich, dass Anwendungen, Erweiterungen und Anbieter alle Token zur User-Agent-Zeichenfolge hinzufügen (mithilfe von Standardpräferenzen), ohne sich gegenseitig zu überschreiben.
     Siehe [Dokumentation](/de/docs/Web/HTTP/Reference/Headers/User-Agent). [Firefox Fehler 274928](https://bugzil.la/274928)
 
 - Toolkit-Chrome-Registry
-
   - : Die Chrome-Registrierung wurde erheblich verbessert, um einfache Klartext-Chrome-Registrierungsmanifeste zu verwenden und keinen chrome.rdf/overlayinfo-Cache mehr zu pflegen.
     Siehe [Chrome-Registrierung](https://web.archive.org/web/20191029205045/https://developer.mozilla.org/de/docs/Mozilla/Chrome_Registration).
 
 - Erweiterungs-Manager
-
   - : Die neuen Funktionen sind:
     - Es ist jetzt möglich, Erweiterungen außerhalb der Profil- und Anwendungs-Erweiterungsverzeichnisse zu haben.
     - Die Installation von Erweiterungen kann jetzt durch das Ablegen einer XPI im Profil- oder Anwendungs-Erweiterungsverzeichnis erfolgen.
     - Die Deinstallation einer Erweiterung erfolgt jetzt durch Löschen ihres Ordners aus dem Profil- oder Anwendungs-Erweiterungsverzeichnis.
 
 - Neue Präferenzenbindungen
-
   - : Diese [neuen Bindungen](https://forums.mozillazine.org/viewtopic.php?t=263028) machen es einfacher, Präferenzfenster für Erweiterungen zu erstellen. Die neuen Präferenzfenster unterstützen das Sofortübernahmeverhalten, das standardmäßig auf Mac und Linux aktiviert ist.
 
 - API zur Implementierung neuer Kommandozeilen-Schalter
-
   - : Eine API wurde eingeführt, damit Erweiterungen komplexe Kommandozeilen-Flags einfach bearbeiten können. Diese API wird stabil und eingefroren für 1.1 sein. Siehe die Schnittstellen `nsICommandLine` und `nsICommandLineHandler`.
 
 - XTF-Unterstützung

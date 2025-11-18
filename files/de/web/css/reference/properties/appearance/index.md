@@ -66,19 +66,15 @@ appearance: checkbox;
 Die `appearance` Eigenschaft kann auf alle Elemente und Pseudo-Elemente angewendet werden, aber die Wirkung des angegebenen Wertes, falls vorhanden, hängt vom Element ab, auf das sie angewendet wird.
 
 - `none`
-
   - : Verleiht dem Widget ein _primitives_ Erscheinungsbild, das durch CSS stilisierbar ist, während die native Funktionalität des Widgets erhalten bleibt. Dieser Wert beeinflusst keine Nicht-Widgets.
 
 - `auto`
-
   - : Setzt interaktive Widgets so, dass sie mit ihrem _OS-nativen_ Erscheinungsbild gerendert werden. Verhält sich wie `none` bei Elementen ohne OS-natives Styling.
 
 - `base-select`
-
   - : Nur relevant für das {{htmlelement("select")}} Element und das {{cssxref("::picker()", "::picker(select)")}} Pseudo-Element, wodurch sie gestylt werden können.
 
 - `<compat-special>`
-
   - : Hat einen Effekt ähnlich wie `auto` bei bestimmten Elementen.
     - `textfield`
       - : Führt dazu, dass das Erscheinungsbild bestimmter `<input>` Typen [dem Erscheinungsbild des `text` Typs entspricht](#try_it).
@@ -96,7 +92,6 @@ Die `appearance` Eigenschaft kann auf alle Elemente und Pseudo-Elemente angewend
 Einige nicht-standardmäßige Werte werden in einigen Browsern unterstützt:
 
 - `slider-vertical`
-
   - : Macht den Slider vertikal, wenn auf `<input type="range">` Elemente angewendet. Um einen [vertikalen Slider zu erstellen](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls) sollten Sie stattdessen den {{cssxref("writing-mode")}} auf `vertical-lr` und die {{cssxref("direction")}} auf `rtl` setzen.
 
 - `-apple-pay-button`

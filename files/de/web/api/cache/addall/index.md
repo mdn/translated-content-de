@@ -21,7 +21,6 @@ addAll(requests)
 ### Parameter
 
 - `requests`
-
   - : Ein Array von Anfragen für die Ressourcen, die Sie dem Cache hinzufügen möchten. Diese können [`Request`](/de/docs/Web/API/Request)-Objekte oder URLs sein.
 
     Diese Anfragen werden als Parameter für den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor verwendet, daher folgen die URLs denselben Regeln wie für diesen Konstruktor. Insbesondere können URLs relativ zur Basis-URL sein, die im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments und im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) ist.
@@ -33,7 +32,6 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-
   - : Das URL-Schema ist nicht `http` oder `https`.
 
     Der Response-Status befindet sich nicht im Bereich 200 (d.h. keine erfolgreiche Antwort). Dies tritt auf, wenn die Anforderung nicht erfolgreich zurückgegeben wird, aber auch, wenn es sich um eine _cross-origin no-cors_-Anforderung handelt (in diesem Fall wird der gemeldete Status immer 0 sein.)

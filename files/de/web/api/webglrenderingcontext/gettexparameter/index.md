@@ -21,20 +21,16 @@ getTexParameter(target, pname)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
-
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`: Eine würfelgemappte Textur.
 
     Beim Verwenden eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext)
     stehen zusätzlich folgende Werte zur Verfügung:
-
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die zu abfragende Information spezifiziert. Mögliche Werte:
 
     <table class="standard-table">

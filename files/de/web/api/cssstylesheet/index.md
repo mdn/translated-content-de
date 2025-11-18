@@ -36,7 +36,6 @@ Siehe den Abschnitt [Ein Stylesheet erhalten](#ein_stylesheet_erhalten) für die
 _Erbt Eigenschaften von seinem Elternteil, [`StyleSheet`](/de/docs/Web/API/StyleSheet)._
 
 - [`CSSStyleSheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) {{ReadOnlyInline}}
-
   - : Gibt eine Live-`CSSRuleList` zurück, die eine aktuelle Liste der `CSSRule`-Objekte enthält, die das Stylesheet bilden.
 
     > [!NOTE]
@@ -70,7 +69,6 @@ _Diese Eigenschaften sind veraltete Eigenschaften, die von Microsoft eingeführt
 _Diese Methoden sind veraltete Methoden, die von Microsoft eingeführt wurden; sie werden zur Kompatibilität mit bestehenden Sites beibehalten._
 
 - [`addRule()`](/de/docs/Web/API/CSSStyleSheet/addRule) {{Deprecated_Inline}}
-
   - : Fügt eine neue Regel zum Stylesheet hinzu, basierend auf dem Selektor, auf den der Stil angewendet wird, und dem Stilblock, der auf die übereinstimmenden Elemente angewendet werden soll.
 
     Dies unterscheidet sich von [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule), das die textuelle Darstellung der gesamten Regel als einzelne Zeichenkette verwendet.

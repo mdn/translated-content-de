@@ -25,13 +25,11 @@ Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `HTMLCollecti
 ## Instanz-Methoden
 
 - [`HTMLCollection.item()`](/de/docs/Web/API/HTMLCollection/item)
-
   - : Gibt das spezifische Element an der gegebenen nullbasierten `index`-Position in der Liste zurück. Gibt `null` zurück, wenn der `index` außerhalb des Bereichs liegt.
 
     Eine Alternative zum Zugriff auf `collection[i]` (was stattdessen `undefined` zurückgibt, wenn `i` außerhalb des Bereichs liegt). Dies ist hauptsächlich nützlich für nicht-JavaScript-DOM-Implementierungen.
 
 - [`HTMLCollection.namedItem()`](/de/docs/Web/API/HTMLCollection/namedItem)
-
   - : Gibt den spezifischen Knoten zurück, dessen ID oder, falls dies nicht möglich ist, Name mit der durch `name` angegebenen Zeichenfolge übereinstimmt. Das Zuordnen nach Name erfolgt nur als letzter Ausweg, nur in HTML und nur, wenn das referenzierte Element das `name`-Attribut unterstützt. Gibt `null` zurück, wenn kein Knoten mit dem angegebenen Namen existiert.
 
     Eine Alternative zum Zugriff auf `collection[name]` (was stattdessen `undefined` zurückgibt, wenn `name` nicht existiert). Dies ist hauptsächlich nützlich für nicht-JavaScript-DOM-Implementierungen.

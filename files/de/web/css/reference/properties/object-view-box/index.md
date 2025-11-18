@@ -84,7 +84,6 @@ object-view-box: unset;
 ### Werte
 
 - `none`
-
   - : Das Element hat keine Viewbox. Dies ist der Standardwert.
 
 - [`<basic-shape-rect>`](/de/docs/Web/CSS/Reference/Values/basic-shape#syntax_for_rectangles_basic-shape-rect)

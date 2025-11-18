@@ -22,7 +22,6 @@ new Blob(blobParts, options)
 ### Parameter
 
 - `blobParts` {{optional_inline}}
-
   - : Ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)
     wie ein {{jsxref("Array")}}, das {{jsxref("ArrayBuffer")}}s,
     {{jsxref("TypedArray")}}s, {{jsxref("DataView")}}s, [`Blob`](/de/docs/Web/API/Blob)s, Strings

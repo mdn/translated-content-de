@@ -19,11 +19,9 @@ clip-path: rect(50px 70px 80% 20%);
 Das eingelassene Rechteck wird durch Spezifizierung von vier Versatzwerten definiert, beginnend mit dem oberen Randversatz im Uhrzeigersinn, und einem optionalen `round` Schlüsselwort mit dem `border-radius` Parameter, um abgerundete Ecken zum Rechteck hinzuzufügen. Jeder Versatzwert kann entweder eine `<length>`, eine `<percentage>`, oder das Schlüsselwort `auto` sein.
 
 - `<length-percentage>`
-
   - : Gibt den {{cssxref("&lt;length-percentage&gt;")}} Wert des Abstands des oberen, rechten, unteren oder linken Randes des Rechtecks vom oberen oder linken Rand des umgebenden Blocks an. Die ersten (oben) und dritten (unten) Werte sind Abstände vom oberen Rand des umgebenden Blocks, und die zweiten (rechts) und vierten (links) Werte sind Abstände vom linken Rand des umgebenden Blocks. Die zweiten (rechts) und dritten (unten) Werte werden durch die vierten (links) und ersten (oben) Werte jeweils begrenzt, um zu verhindern, dass der untere Rand sich über den oberen Rand und der rechte Rand sich über den linken Rand bewegt. Zum Beispiel wird `rect(10px 0 0 20px)` zu `rect(10px 20px 10px 20px)` begrenzt.
 
 - `auto`
-
   - : Lässt den Rand, für den dieser Wert verwendet wird, mit dem entsprechenden Rand des umgebenden Blocks zusammenfallen. Wenn `auto` für den ersten (oben) oder vierten (links) Wert verwendet wird, beträgt der Wert von `auto` `0`, und wenn er für den zweiten (rechts) oder dritten (unten) Wert verwendet wird, beträgt der Wert von `auto` `100%`.
 
 - `round <'border-radius'>`

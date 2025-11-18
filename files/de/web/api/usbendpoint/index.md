@@ -19,13 +19,11 @@ Das `USBEndpoint`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) bietet
 - [`USBEndpoint.endpointNumber`](/de/docs/Web/API/USBEndpoint/endpointNumber) {{Experimental_Inline}}
   - : Gibt die "Endpunktnummer" dieses Endpunkts zurück, die ein Wert von 1 bis 15 ist, extrahiert aus dem `bEndpointAddress`-Feld des Endpunktdeskriptors, der diesen Endpunkt definiert. Dieser Wert wird verwendet, um den Endpunkt zu identifizieren, wenn Methoden auf `USBDevice` aufgerufen werden.
 - [`USBEndpoint.direction`](/de/docs/Web/API/USBEndpoint/direction) {{Experimental_Inline}}
-
   - : Gibt die Richtung zurück, in die dieser Endpunkt Daten überträgt, eine der folgenden:
     - `"in"` - Daten werden vom Gerät zum Host übertragen.
     - `"out"` - Daten werden vom Host zum Gerät übertragen.
 
 - [`USBEndpoint.type`](/de/docs/Web/API/USBEndpoint/type) {{Experimental_Inline}}
-
   - : Gibt den Typ dieses Endpunkts zurück, einer von:
     - `"bulk"` - Bietet zuverlässige Datenübertragung für große Nutzdaten. Daten, die über einen Bulk-Endpunkt gesendet werden, sind garantiert geliefert oder erzeugen einen Fehler, können jedoch von anderem Datenverkehr unterbrochen werden.
     - `"interrupt"` - Bietet zuverlässige Datenübertragung für kleine Nutzdaten. Daten, die über einen Interrupt-Endpunkt gesendet werden, sind garantiert geliefert oder erzeugen einen Fehler und erhalten auch dedizierte Buszeit für die Übertragung.

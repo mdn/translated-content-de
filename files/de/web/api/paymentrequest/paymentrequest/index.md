@@ -20,18 +20,14 @@ new PaymentRequest(methodData, details, options)
 ### Parameter
 
 - `methodData`
-
   - : Enthält ein Array von Identifikatoren für die Zahlungsmethoden, die die Händlerwebsite akzeptiert, sowie alle zugehörigen zahlungsmethodenspezifischen Daten. Jedes Element im Array enthält die folgenden Felder:
-
     - `supportedMethods`
-
       - : Ein String, der einen [Zahlungsmethoden-Identifikator](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers) enthält. Dies ist entweder eine URL oder einer der [standardisierten Zahlungsmethoden-Identifikatoren](/de/docs/Web/API/Payment_Request_API/Concepts#standardized_payment_method_identifiers). Der Wert und die Struktur des `data` Feldes variieren je nach Wert des `supportedMethods` Feldes.
 
     - `data`
       - : Ein JSON-serialisierbares Objekt, das optionale Informationen bereitstellt, die von den unterstützten Zahlungsmethoden benötigt werden könnten. Es muss dem von dem durch `supportedMethods` angegebenen Payment-Handler erwarteten Typ entsprechen. Entwickler müssen sich mit den Verantwortlichen der Zahlungsmethoden in Verbindung setzen, um die erwartete Struktur des Datenobjekts zu erfragen. Wenn `supportedMethods` `secure-payment-confirmation` ist, muss `data` dem [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest) Dictionary entsprechen.
 
 - `details`
-
   - : Bietet Informationen über die angeforderte Transaktion. Dieser Parameter enthält die folgenden Felder:
     - `total`
       - : Der Gesamtbetrag der Zahlungsanforderung.

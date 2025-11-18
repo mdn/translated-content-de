@@ -171,7 +171,6 @@ Dieser Artikel sollte Ihnen einen nützlichen Überblick auf hohem Niveau über 
 ## Siehe auch
 
 - [WCAG](/de/docs/Web/Accessibility/Guides/Understanding_WCAG)
-
   - [Wahrnehmbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable)
   - [Bedienbar](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Operable)
   - [Verständlich](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable)

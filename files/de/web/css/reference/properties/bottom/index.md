@@ -94,7 +94,6 @@ bottom: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}:
     - für _absolut positionierte Elemente_ stellt es den Abstand zur Unterkante des umgebenden Blocks dar.
     - für _relativ positionierte Elemente_ stellt es die Entfernung dar, um die das Element über seine normale Position hinaus bewegt wird.

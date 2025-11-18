@@ -24,7 +24,6 @@ Die `@counter-style` At-Regel wird durch einen [Counter-Style-Namen](#counter-st
 ### Counter-Style-Name
 
 - `<counter-style-name>`
-
   - : Bietet einen Namen für Ihren Zählerstil. Er wird als Groß-/Kleinschreibung beachtendes {{cssxref("custom-ident")}} ohne Anführungszeichen angegeben. Der Wert sollte nicht `none` sein. Wie alle benutzerdefinierten Bezeichner kann der Wert Ihres Zählerstils kein [CSS-generisches Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) sein. Vermeiden Sie andere aufgezählte CSS-Eigenschaftenwerte, einschließlich der Werte der [listen](/de/docs/Web/CSS/Guides/Lists#properties) und [Counter-Style](/de/docs/Web/CSS/Guides/Counter_styles#properties) Eigenschaften. Der Name Ihres Zählers kann nicht die Groß-/Kleinschreibung nicht beachtende {{cssxref("list-style-type")}} Eigenschaftswerte von `decimal`, `disc`, `square`, `circle`, `disclosure-open` und `disclosure-closed` sein.
 
     > [!NOTE]
@@ -33,39 +32,30 @@ Die `@counter-style` At-Regel wird durch einen [Counter-Style-Namen](#counter-st
 ### Deskriptoren
 
 - {{cssxref("@counter-style/system", "system")}}
-
   - : Gibt den zu verwendenden Algorithmus an, um den ganzzahligen Wert eines Zählers in eine Zeichenketten-Darstellung umzuwandeln. Wenn der Wert `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, muss der `symbols` Deskriptor ebenfalls angegeben werden. Wenn der Wert `additive` ist, muss der `additive-symbols` Deskriptor ebenfalls angegeben werden.
 
 - {{cssxref("@counter-style/symbols", "symbols")}}
-
   - : Gibt die Symbole an, die für die Markerdarstellungen verwendet werden sollen. Symbole können Zeichenketten, Bilder oder benutzerdefinierte Bezeichner enthalten. Dieser Deskriptor ist erforderlich, wenn der `system` Deskriptor auf `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` gesetzt ist.
 
 - {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}
-
   - : Definiert die _additiven Tupel_ für additive Systeme. Während die im `symbols` Deskriptor angegebenen Symbole von den meisten Algorithmen zur Darstellung von Markern verwendet werden, bestehen additive Zählsysteme, wie römische Zahlen, aus einer Reihe von gewichteten Symbolen. Die Deskriptorenliste enthält Zählersymbole zusammen mit ihren nicht-negativen ganzzahligen Gewichten, nach Gewicht in absteigender Reihenfolge aufgelistet. Dieser Deskriptor ist erforderlich, wenn der `system` Deskriptor auf `additive` gesetzt ist.
 
 - {{cssxref("@counter-style/negative", "negative")}}
-
   - : Gibt Symbole an, die der Zählerdarstellung hinzugefügt oder vorangestellt werden, wenn der Wert negativ ist.
 
 - {{cssxref("@counter-style/prefix", "prefix")}}
-
   - : Gibt ein Symbol an, das der Markerdarstellung vorangestellt werden soll. Präfixe werden in der endgültigen Phase zur Darstellung hinzugefügt, vor allen Zeichen, die durch den `negative` Deskriptor zu negativen Zählerwerten hinzugefügt wurden.
 
 - {{cssxref("@counter-style/suffix", "suffix")}}
-
   - : Gibt, ähnlich dem Präfix-Deskriptor, ein Symbol an, das der Markerdarstellung hinzugefügt wird. Suffixe kommen nach der Markerdarstellung, einschließlich nach allen Zeichen, die durch den `negative` Deskriptor zu negativen Zählerwerten hinzugefügt wurden.
 
 - {{cssxref("@counter-style/range", "range")}}
-
   - : Definiert den Bereich von Werten, über die der Zählerstil anwendbar ist. Wenn ein Zählerstil verwendet wird, um einen Zählerwert darzustellen, der außerhalb der durch diesen Deskriptor definierten Bereiche liegt, wird der Zählerstil auf seinen `fallback`-Stil zurückfallen.
 
 - {{cssxref("@counter-style/pad", "pad")}}
-
   - : Wird verwendet, wenn Sie möchten, dass die Markerdarstellungen eine Mindestlänge haben. Wenn Sie beispielsweise möchten, dass die Zähler bei 01 beginnen und mit 02, 03, 04 usw. fortfahren, dann ist der `pad` Deskriptor zu verwenden. Für Darstellungen, die größer als der angegebene `pad`-Wert sind, wird der Marker wie gewohnt konstruiert.
 
 - {{cssxref("@counter-style/speak-as", "speak-as")}}
-
   - : Beschreibt, wie Sprachsynthesizer, wie Bildschirmlesegeräte, den Zählerstil ankündigen sollen. Zum Beispiel kann der Wert des Listenelements als Zahlen oder Alphabete für geordnete Listen oder als Audiohinweise für ungeordnete Listen vorgelesen werden, basierend auf dem Wert dieses Deskriptors.
 
 - {{cssxref("@counter-style/fallback", "fallback")}}

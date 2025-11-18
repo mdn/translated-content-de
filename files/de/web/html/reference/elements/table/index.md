@@ -104,39 +104,30 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 Die folgenden Attribute sind veraltet und sollten nicht mehr verwendet werden. Sie werden hier nur zu Referenzzwecken dokumentiert, um bestehenden Code zu aktualisieren und aus historischem Interesse.
 
 - `align` {{deprecated_inline}}
-
   - : Gibt die horizontale Ausrichtung der Tabelle innerhalb ihres übergeordneten Elements an. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `left`, `center` und `right`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
-
   - : Definiert die Hintergrundfarbe der Tabelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliges hexadezimales RGB-Code](/de/docs/Web/CSS/Reference/Values/hex-color), vorangestellt durch ein `#`, oder ein [Farbbegriff](/de/docs/Web/CSS/Reference/Values/named-color). Andere CSS-Werte {{cssxref("color_value", "&lt;color&gt;")}} werden nicht unterstützt. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}}, da dieses Attribut veraltet ist.
 
 - `border` {{deprecated_inline}}
-
   - : Definiert in nicht-negativen Ganzzahlen (in Pixeln) die Größe des Rahmens um die Tabelle. Wenn auf `0` gesetzt, wird das [`frame`](#frame)-Attribut auf `void` gesetzt. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("border")}}, da dieses Attribut veraltet ist.
 
 - `cellpadding` {{deprecated_inline}}
-
   - : Definiert den Abstand zwischen dem Inhalt einer Zelle und ihrem Rand. Dieses Attribut ist veraltet: Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("padding")}} für die Elemente {{HTMLElement("th")}} und {{HTMLElement("td")}}.
 
 - `cellspacing` {{deprecated_inline}}
-
   - : Definiert die Größe des Abstands zwischen zwei Zellen. Dieses Attribut ist veraltet: Stattdessen sollte die CSS-Eigenschaft {{cssxref("border-spacing")}} auf dem `<table>`-Element gesetzt werden. Beachten Sie, dass dies keine Wirkung hat, wenn die CSS-Eigenschaft {{cssxref("border-collapse")}} des `<table>`-Elements auf `collapse` gesetzt ist.
 
 - `frame` {{deprecated_inline}}
-
   - : Definiert, welche Seite des Rahmens um die Tabelle angezeigt werden soll. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `void`, `above`, `below`, `hsides`, `vsides`, `lhs`, `rhs`, `box` und `border`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("border-style")}} und {{cssxref("border-width")}}, da dieses Attribut veraltet ist.
 
 - `rules` {{deprecated_inline}}
-
   - : Definiert, wo in der Tabelle Regeln (Ränder) angezeigt werden. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `none` (Standardwert), `groups` ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}}-Elemente), `rows` (horizontale Linien), `cols` (vertikale Linien) und `all` (Rand um jede Zelle). Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("border")}} auf den entsprechenden tabellenbezogenen Elementen sowie auf der `<table>` selbst, da dieses Attribut veraltet ist.
 
 - `summary` {{deprecated_inline}}
-
   - : Definiert einen alternativen Text, der den Inhalt der Tabelle zusammenfasst. Verwenden Sie stattdessen das {{htmlelement("caption")}}-Element, da dieses Attribut veraltet ist.
 
 - `width` {{deprecated_inline}}
-
   - : Gibt die Breite der Tabelle an. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("width")}}, da dieses Attribut veraltet ist.
 
     > [!NOTE]

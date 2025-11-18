@@ -21,9 +21,7 @@ subscribe(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das optionale Konfigurationsparameter enthält. Es kann die folgenden Eigenschaften haben:
-
     - `userVisibleOnly`
       - : Ein Boolean, der angibt, dass das zurückgegebene Push-Abonnement nur für Nachrichten verwendet wird, deren Wirkung dem Benutzer sichtbar gemacht wird.
     - `applicationServerKey`

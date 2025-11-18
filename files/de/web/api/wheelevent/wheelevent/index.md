@@ -27,9 +27,7 @@ new WheelEvent(type, options)
   - : Ein String mit dem Namen des Ereignisses.
     Er ist case-sensitive und Browser setzen ihn immer auf `wheel`.
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das _zusätzlich zu den in [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
-
     - `deltaX` {{optional_inline}}
       - : Eine Fließkommazahl, die die horizontale Scrollmenge in der Einheit `deltaMode` darstellt.
         Der Standardwert ist `0.0`.
@@ -40,7 +38,6 @@ new WheelEvent(type, options)
       - : Eine Fließkommazahl, die die Scrollmenge für die z-Achse in der Einheit `deltaMode` darstellt.
         Der Standardwert ist `0.0`.
     - `deltaMode` {{optional_inline}}
-
       - : Ein Integer, der die Einheit der Delta-Werte Scrollmenge darstellt. Der Standardwert ist `0x00`. Erlaubte Werte sind:
 
         | Konstante         | Wert   | Beschreibung                              |

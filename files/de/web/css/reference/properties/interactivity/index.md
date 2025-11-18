@@ -27,7 +27,6 @@ interactivity: unset;
 ### Werte
 
 - `auto`
-
   - : Ausgewählte Elemente befinden sich im Standardzustand in Bezug auf Inertheit. Dies bedeutet normalerweise, dass sie interaktiv sind, aber das ist [nicht immer der Fall](#standard-inertheit). Dies ist der Standardwert.
 
 - `inert`

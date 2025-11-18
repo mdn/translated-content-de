@@ -129,7 +129,6 @@ Basierend auf den intrinsischen Abmessungen und Proportionen wird die gerenderte
 - **Wenn der `background-size` `contain` oder `cover` ist:** Unter Beibehaltung der intrinsischen Proportionen wird das Bild in der größten Größe dargestellt, die innerhalb des Hintergrundpositionierungsbereichs enthalten ist oder diesen abdeckt.
   Wenn das Bild keine intrinsischen Proportionen hat, wird es in der Größe des Hintergrundpositionierungsbereichs dargestellt.
 - **Wenn der `background-size` `auto` oder `auto auto` ist:**
-
   - Wenn das Bild sowohl horizontale als auch vertikale intrinsische Dimensionen hat, wird es in dieser Größe dargestellt.
   - Wenn das Bild keine intrinsischen Dimensionen und keine intrinsischen Proportionen hat, wird es in der Größe des Hintergrundpositionierungsbereichs dargestellt.
   - Wenn das Bild keine intrinsischen Dimensionen, aber intrinsische Proportionen hat, wird es so dargestellt, als ob `contain` angegeben worden wäre.

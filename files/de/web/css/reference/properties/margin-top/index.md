@@ -87,7 +87,6 @@ Die `margin-top` Eigenschaft wird entweder als Schlüsselwort `auto`, oder als `
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Die Größe des Randes als fester Wert.
     - Für _ankerpositionierte Elemente_ löst sich die {{cssxref("anchor-size()")}} Funktion zu einem {{cssxref("&lt;length&gt;")}} Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ auf (siehe [Elementrand basierend auf Ankergröße setzen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 

@@ -20,7 +20,6 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-
   - : Die Funktion, die für jedes Element ausgeführt werden soll und drei Argumente annimmt:
     - `currentValue`
       - : Der Wert des aktuellen Elements, das verarbeitet wird.

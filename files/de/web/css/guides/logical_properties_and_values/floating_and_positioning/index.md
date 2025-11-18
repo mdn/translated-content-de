@@ -13,24 +13,24 @@ Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical
 Die folgende Tabelle beschreibt die in diesem Leitfaden diskutierten {{Glossary("logical_properties", "logischen Eigenschaften")}} und Werte sowie deren Zuordnung zu {{Glossary("physical_properties", "physikalischen Eigenschaften")}} und Werten. Sie gehen von einem horizontalen {{cssxref("writing-mode")}} mit einer Richtung von links nach rechts aus.
 
 | Logische Eigenschaft oder Wert     | Physikalische Eigenschaft oder Wert |
-| ---------------------------------- | ---------------------------------- |
-| {{cssxref("float")}}: inline-start | {{cssxref("float")}}: left         |
-| {{cssxref("float")}}: inline-end   | {{cssxref("float")}}: right        |
-| {{cssxref("clear")}}: inline-start | {{cssxref("clear")}}: left         |
-| {{cssxref("clear")}}: inline-end   | {{cssxref("clear")}}: right        |
-| {{cssxref("inset-inline-start")}}  | {{cssxref("left")}}                |
-| {{cssxref("inset-inline-end")}}    | {{cssxref("right")}}               |
-| {{cssxref("inset-block-start")}}   | {{cssxref("top")}}                 |
-| {{cssxref("inset-block-end")}}     | {{cssxref("bottom")}}              |
-| {{cssxref("text-align")}}: start   | {{cssxref("text-align")}}: left    |
-| {{cssxref("text-align")}}: end     | {{cssxref("text-align")}}: right   |
+| ---------------------------------- | ----------------------------------- |
+| {{cssxref("float")}}: inline-start | {{cssxref("float")}}: left          |
+| {{cssxref("float")}}: inline-end   | {{cssxref("float")}}: right         |
+| {{cssxref("clear")}}: inline-start | {{cssxref("clear")}}: left          |
+| {{cssxref("clear")}}: inline-end   | {{cssxref("clear")}}: right         |
+| {{cssxref("inset-inline-start")}}  | {{cssxref("left")}}                 |
+| {{cssxref("inset-inline-end")}}    | {{cssxref("right")}}                |
+| {{cssxref("inset-block-start")}}   | {{cssxref("top")}}                  |
+| {{cssxref("inset-block-end")}}     | {{cssxref("bottom")}}               |
+| {{cssxref("text-align")}}: start   | {{cssxref("text-align")}}: left     |
+| {{cssxref("text-align")}}: end     | {{cssxref("text-align")}}: right    |
 
 Zusätzlich zu diesen zugeordneten Eigenschaften gibt es einige zusätzliche Kurzschrift-Eigenschaften, die möglich sind, indem Block- und Inline-Dimensionen adressiert werden. Diese haben keine Zuordnung zu physikalischen Eigenschaften, abgesehen von der {{cssxref("inset")}}-Eigenschaft.
 
-| Logische Eigenschaft        | Zweck                                                                       |
-| --------------------------- | ----------------------------------------------------------------------------|
-| {{cssxref("inset-inline")}} | Setzt gleichzeitig beide der oben genannten Einfügewerte für die inline-Dimension.  |
-| {{cssxref("inset-block")}}  | Setzt gleichzeitig beide der oben genannten Einfügewerte für die block-Dimension.   |
+| Logische Eigenschaft        | Zweck                                                                                      |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| {{cssxref("inset-inline")}} | Setzt gleichzeitig beide der oben genannten Einfügewerte für die inline-Dimension.         |
+| {{cssxref("inset-block")}}  | Setzt gleichzeitig beide der oben genannten Einfügewerte für die block-Dimension.          |
 | {{cssxref("inset")}}        | Setzt alle vier Einfügewerte gleichzeitig mit physikalischer Zuordnung bei Mehrfachwerten. |
 
 ## Beispiel: Float und Clear

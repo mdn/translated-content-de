@@ -52,7 +52,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - `text-bottom`
   - : Passt den unteren Teil des Rahmens an den oberen Teil des Inhaltsbereichs des Elternteils an.
 - `text-before-edge`
-
   - : Der Ausrichtungspunkt des ausgerichteten Objekts wird mit der "text-before-edge"-Grundlinie des übergeordneten Textelementinhalts ausgerichtet.
 
     > [!NOTE]
@@ -67,7 +66,6 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - `text-top`
   - : Passt den oberen Teil des Rahmens an den oberen Teil des Inhaltsbereichs des Elternteils an.
 - `text-after-edge`
-
   - : Der Ausrichtungspunkt des ausgerichteten Objekts wird mit der "text-after-edge"-Grundlinie des übergeordneten Textelementinhalts ausgerichtet.
 
     > [!NOTE]

@@ -81,7 +81,6 @@ repeating-linear-gradient(in hsl longer hue, blue, red 50px)
 ### Werte
 
 - `<side-or-corner>`
-
   - : Die Position des Startpunkts der Verlaufsachse. Falls angegeben, besteht sie aus dem Wort `to` und bis zu zwei Schlüsselwörtern: eins gibt die horizontale Seite (`left` oder `right`) und das andere die vertikale Seite (`top` oder `bottom`) an. Die Reihenfolge der Seiten-Schlüsselwörter ist nicht von Bedeutung. Wenn nichts angegeben wird, ist die Standardeinstellung `to bottom`.
 
     Die Werte `to top`, `to bottom`, `to left` und `to right` entsprechen den Winkeln `0deg`, `180deg`, `270deg` bzw. `90deg`. Die anderen Werte werden in einen Winkel übersetzt.
