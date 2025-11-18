@@ -2,14 +2,14 @@
 title: -webkit-text-stroke
 slug: Web/CSS/Reference/Properties/-webkit-text-stroke
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
 ---
 
-Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die [Breite](/de/docs/Web/CSS/Reference/Values/length) und [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Umrandungen für Textzeichen. Dies ist eine Kurzform für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die [Breite](/de/docs/Web/CSS/Reference/Values/length) und [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Umrissen für Textzeichen. Dies ist eine Kurzschreibweise für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
 
-## Einzelne Eigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`-webkit-text-stroke-color`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-stroke-color)
 - [`-webkit-text-stroke-width`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-stroke-width)
@@ -31,9 +31,9 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite der Umrandung.
+  - : Die Breite des Umrisses.
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Umrandung.
+  - : Die Farbe des Umrisses.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 ## Beispiele
 
-### Hinzufügen einer roten Textumrandung
+### Einen roten Textumriss hinzufügen
 
 #### HTML
 

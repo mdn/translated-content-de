@@ -1,24 +1,24 @@
 ---
-title: "HTMLImageElement: Eigenschaft useMap"
+title: "HTMLImageElement: useMap-Eigenschaft"
 short-title: useMap
 slug: Web/API/HTMLImageElement/useMap
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`useMap`**-Eigenschaft der Schnittstelle [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gibt den Namen der clientseitigen Imagemap an, die auf das Bild angewendet werden soll. Sie spiegelt das [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap)-Inhaltsattribut des `<img>`-Elements wider.
+Die **`useMap`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt den Namen der clientseitigen Bildkarte an, die auf das Bild angewendet werden soll. Sie spiegelt das [`usemap`](/de/docs/Web/HTML/Reference/Elements/img#usemap)-Inhaltsattribut des `<img>`-Elements wider.
 
 ## Wert
 
-Ein String, der das Rauten-Symbol `#` gefolgt vom [`name`](/de/docs/Web/HTML/Reference/Elements/map#name) des {{HTMLElement("map")}}-Elements enthält, das die Imagemap definiert, die auf das Bild angewendet werden soll.
+Ein String, der das Hash-Symbol `#` gefolgt vom [`name`](/de/docs/Web/HTML/Reference/Elements/map#name) des {{HTMLElement("map")}}-Elements enthält, welches die Bildkarte definiert, die auf das Bild angewendet werden soll.
 
 ## Beispiele
 
 ### Verwendung von useMap
 
-Betrachten Sie eine `<map>`, die folgendermaßen aussieht:
+Betrachten Sie ein `<map>`, das folgendermaßen aussieht:
 
 ```html
 <map name="mainmenu-map">
@@ -31,16 +31,16 @@ Betrachten Sie eine `<map>`, die folgendermaßen aussieht:
 </map>
 ```
 
-Basierend auf der Imagemap namens `mainmenu-map` können Sie dynamisch Bilder konstruieren, die auf die Imagemap verweisen, wie folgt:
+Da die Bildkarte `mainmenu-map` genannt wird, können Sie dynamisch Bilder erstellen, die auf die Bildkarte wie folgt verweisen:
 
 ```js
 const image = new Image();
-image.src = "menubox.png";
+image.src = "menu-box.png";
 image.alt = "";
 image.useMap = "#mainmenu-map";
 ```
 
-Für zusätzliche Beispiele (einschließlich interaktiver) lesen Sie die Artikel über die Elemente {{HTMLElement("map")}} und {{HTMLElement("area")}} sowie den [Leitfaden zur Verwendung von Imagemaps](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image).
+Für zusätzliche Beispiele (einschließlich interaktiver) lesen Sie die Artikel über die {{HTMLElement("map")}}- und {{HTMLElement("area")}}-Elemente sowie den [Leitfaden zur Verwendung von Bildkarten](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image).
 
 ## Spezifikationen
 
@@ -52,6 +52,6 @@ Für zusätzliche Beispiele (einschließlich interaktiver) lesen Sie die Artikel
 
 ## Siehe auch
 
-- [Fügen Sie eine Klickkarte auf einem Bild hinzu](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image)
+- [Eine Trefferkarte oben auf einem Bild hinzufügen](/de/docs/Web/HTML/How_to/Add_a_hit_map_on_top_of_an_image)
 - {{HTMLElement("map")}}
 - {{HTMLElement("area")}}

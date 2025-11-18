@@ -1,14 +1,14 @@
 ---
-title: "TouchList: item() Methode"
+title: "TouchList: item()-Methode"
 short-title: item()
 slug: Web/API/TouchList/item
 l10n:
-  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
+  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
 ---
 
 {{ APIRef("Touch Events") }}
 
-Die **`item()`** Methode gibt das [`Touch`](/de/docs/Web/API/Touch)-Objekt am angegebenen Index in der [`TouchList`](/de/docs/Web/API/TouchList) zurück.
+Die **`item()`**-Methode gibt das [`Touch`](/de/docs/Web/API/Touch)-Objekt am angegebenen Index in der [`TouchList`](/de/docs/Web/API/TouchList) zurück.
 
 ## Syntax
 
@@ -23,13 +23,11 @@ item(index)
 
 ### Rückgabewert
 
-- `touchPoint`
-  - : Das angeforderte [`Touch`](/de/docs/Web/API/Touch)-Objekt aus der [`TouchList`](/de/docs/Web/API/TouchList).
-    Gibt `null` zurück, wenn der Index nicht kleiner als die Länge der Liste ist.
+Das angeforderte [`Touch`](/de/docs/Web/API/Touch)-Objekt aus der [`TouchList`](/de/docs/Web/API/TouchList). Gibt `null` zurück, wenn der Index nicht kleiner als die Länge der Liste ist.
 
 ## Beispiele
 
-Dieses Codebeispiel veranschaulicht die Verwendung der [`TouchList`](/de/docs/Web/API/TouchList)-Schnittstelle der `item`-Methode und der [`length`](/de/docs/Web/API/TouchList/length)-Eigenschaft.
+Dieses Codebeispiel veranschaulicht die Verwendung der `item`-Methode der [`TouchList`](/de/docs/Web/API/TouchList)-Schnittstelle und der [`length`](/de/docs/Web/API/TouchList/length)-Eigenschaft.
 
 ```js
 const target = document.getElementById("target");

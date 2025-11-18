@@ -2,10 +2,10 @@
 title: border-top
 slug: Web/CSS/Reference/Properties/border-top
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
 ---
 
-Die **`border-top`** [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des oberen [Randes](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
+Die **`border-top`** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des oberen [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-top")}}
 
@@ -47,23 +47,7 @@ border-top: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Kurzform-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
-
-```css
-border-top-style: dotted;
-border-top: thick green;
-```
-
-Er ist tatsächlich derselbe wie dieser:
-
-```css
-border-top-style: dotted;
-border-top: none thick green;
-```
-
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wird, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nichterwähnen des `border-style`-Teils zu keinem Rahmen.
-
-## Bestandteileigenschaften
+## Zusätzliche Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -86,7 +70,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -96,6 +80,24 @@ Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angege
   - : Siehe {{cssxref("border-top-style")}}.
 - {{cssxref("&lt;color&gt;")}}
   - : Siehe {{cssxref("border-top-color")}}.
+
+## Beschreibung
+
+Wie bei allen Kurzform-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, selbst wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+
+```css
+border-top-style: dotted;
+border-top: thick green;
+```
+
+Es ist eigentlich dasselbe wie dieser:
+
+```css
+border-top-style: dotted;
+border-top: none thick green;
+```
+
+Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils dazu, dass kein Rahmen vorhanden ist.
 
 ## Formale Definition
 

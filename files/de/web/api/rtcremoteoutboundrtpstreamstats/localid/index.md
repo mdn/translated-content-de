@@ -3,35 +3,35 @@ title: "RTCRemoteOutboundRtpStreamStats: localId-Eigenschaft"
 short-title: localId
 slug: Web/API/RTCRemoteOutboundRtpStreamStats/localId
 l10n:
-  sourceCommit: a9022d6a71668aa945c6a0c1dbe0d531a98e0816
+  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`localId`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs ist ein String, der verwendet werden kann, um das [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekt zu identifizieren, dessen [`remoteId`](/de/docs/Web/API/RTCInboundRtpStreamStats/remoteId) mit diesem Wert übereinstimmt.
+Die **`localId`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Dictionaries ist ein String, der verwendet werden kann, um das [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekt zu identifizieren, dessen [`remoteId`](/de/docs/Web/API/RTCInboundRtpStreamStats/remoteId) mit diesem Wert übereinstimmt.
 
-Zusammen bieten diese beiden Objekte Statistiken über die ein- und ausgehenden Seiten derselben Synchronisationsquelle (SSRC).
+Diese beiden Objekte liefern zusammen Statistiken über die eingehende und ausgehende Seite derselben Synchronisationsquelle (SSRC).
 
 ## Wert
 
-Ein String, der mit dem Wert einer [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekteigenschaft [`remoteId`](/de/docs/Web/API/RTCInboundRtpStreamStats/remoteId) verglichen werden kann, um festzustellen, ob die beiden Statistiken für jede der beiden Seiten desselben Datensatzes repräsentieren, der vom lokalen Peer empfangen wird.
+Ein String, der mit dem Wert der [`remoteId`](/de/docs/Web/API/RTCInboundRtpStreamStats/remoteId)-Eigenschaft eines [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekts verglichen werden kann, um zu prüfen, ob die beiden Statistiken für jede der beiden Seiten desselben Datensatzes darstellen, der vom lokalen Peer empfangen wurde.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Sie können sich die lokale und entfernte Ansicht desselben RTP-Streams als Paare vorstellen, von denen jedes einen Bezug zum anderen hat.
-Wenn ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) ein `remote-outbound-rtp`-Statistikobjekt (vom Typ `RTCRemoteOutboundRtpStreamStats`) enthält, sollte es auch ein entsprechendes `inbound-rtp`-Objekt haben.
-Beide bieten Informationen über denselben Satz von Paketen, die vom entfernten Peer zum lokalen Gerät übertragen werden.
+Sie können sich die lokalen und entfernten Ansichten desselben RTP-Streams als Paare vorstellen, die jeweils eine Referenz zueinander haben.
+Daher sollte ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), das ein Statistikobjekt vom Typ `remote-outbound-rtp` (vom Typ `RTCRemoteOutboundRtpStreamStats`) enthält, auch ein entsprechendes `inbound-rtp`-Objekt enthalten.
+Beide liefern Informationen über denselben Paketstapel, der vom entfernten Peer an das lokale Gerät gesendet wird.
 
-Der Unterschied besteht darin, dass `remote-outbound-rtp` Statistiken über Daten beschreibt, die vom entfernten Peer aus dessen Perspektive gesendet werden, während `inbound-rtp` Statistiken über die eingehenden Daten aus der Perspektive des lokalen Peers bietet.
+Der Unterschied besteht darin, dass `remote-outbound-rtp` Statistiken über die vom entfernten Peer gesendeten Daten aus der Perspektive des entfernten Peers beschreibt, während `inbound-rtp` Statistiken über die eingehenden Daten aus der Perspektive des lokalen Peers bietet.
 
 ## Beispiele
 
-In diesem Beispiel haben wir ein Paar von Funktionen: Die erste, `networkTestStart()`, erfasst einen anfänglichen Bericht, und die zweite, `networkTestStop()`, erfasst einen zweiten Bericht.
+In diesem Beispiel haben wir ein Paar von Funktionen: die erste, `networkTestStart()`, erfasst einen anfänglichen Bericht, und die zweite, `networkTestStop()`, erfasst einen zweiten Bericht.
 Die zweite Funktion verwendet die beiden Berichte, um einige Informationen über die Netzwerkbedingungen auszugeben.
 
 ### networkTestStart()
 
-Diese Funktion ruft die Methode [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auf, um einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) anzufordern und diesen in der Variablen `startReport` zu speichern.
+Diese Funktion ruft die Methode [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auf, um einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) anzufordern und ihn in der Variable `startReport` zu speichern.
 
 ```js
 let startReport;
@@ -43,19 +43,19 @@ async function networkTestStart(pc) {
 }
 ```
 
-Angenommen, wir haben eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`. Diese ruft die Methode [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) auf, um ein Statistikberichtobjekt zu erhalten, das in `startReport` gespeichert wird, um es zu verwenden, sobald die End-Daten vom `networkTestStop()` gesammelt wurden.
+Gegeben ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, ruft diese Funktion die Methode [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) auf, um ein Statistikberichtobjekt zu erhalten, das es in `startReport` speichert, um es zu verwenden, sobald die Endtestdaten von `networkTestStop()` gesammelt wurden.
 
 ### networkTestStop()
 
-Die Funktion `networkTestStop()` erhält einen zweiten Bericht, `endReport`, berechnet die Ergebnisse und gibt sie aus.
+Die Funktion `networkTestStop()` erhält einen zweiten Bericht, `endReport`, und berechnet und gibt dann die Ergebnisse aus.
 
-#### Finden von gekoppelten Statistiken
+#### Paired-Statistiken finden
 
-Jeder Statistikdatensatz vom [`type`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/type) `remote-outbound-rtp` (der Statistiken eines entfernten Peers über das Senden von Daten an den lokalen Peer beschreibt) hat einen entsprechenden Datensatz vom Typ `inbound-rtp`, der die Perspektive des lokalen Peers auf dieselben Daten beschreibt, die zwischen den beiden Peers bewegt werden.
-Erstellen wir eine Hilfsfunktion, um uns beim Suchen des Werts eines Schlüssels im gekoppelten Statistikobjekt zu unterstützen.
+Jeder Statistikdatensatz vom [`type`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/type) `remote-outbound-rtp` (der Statistiken eines entfernten Peers über das Senden von Daten an den lokalen Peer beschreibt) hat einen entsprechenden Datensatz vom Typ `inbound-rtp`, der die Sicht des lokalen Peers auf dieselben Daten beschreibt, die zwischen den beiden Peers verschoben werden.
+Lassen Sie uns eine Hilfsfunktion erstellen, die uns hilft, den Wert eines Schlüssels im gepaarten Statistikobjekt nachzuschlagen.
 
-Die unten gezeigte Funktion `findReportEntry()` untersucht einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) und gibt den [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-basierten Statistikdatensatz zurück, der den angegebenen `key` enthält — _und_ für den der Schlüssel den angegebenen `value` hat.
-Wenn keine Übereinstimmung gefunden wird oder der Statistikbericht keinen Datensatz entsprechend der durch `key` angegebenen Statistik-Kategorie hat.
+Die unten gezeigte Funktion `findReportEntry()` durchsucht ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) und gibt den auf [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-basierenden Statistikdatensatz zurück, der den angegebenen `Schlüssel` enthält — _und_ für den der Schlüssel den angegebenen `Wert` hat.
+Wenn kein Treffer gefunden wird oder der Statistikbericht keinen Datensatz entsprechend der durch `Schlüssel` angegebenen Statistikkategorie hat.
 
 ```js
 function findReportEntry(report, key, value) {
@@ -68,14 +68,14 @@ function findReportEntry(report, key, value) {
 }
 ```
 
-Da der `RTCStatsReport` eine JavaScript-[`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) ist, können wir die [`values()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/values) der Karte durchlaufen, um jeden der auf `RTCStats` basierenden Statistikdatensätze im Bericht zu prüfen, bis wir einen finden, der die `key`-Eigenschaft mit dem angegebenen `value` hat.
-Wenn eine Übereinstimmung gefunden wird, wird das Statistikobjekt zurückgegeben.
+Da das `RTCStatsReport` ein JavaScript-[`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) ist, können wir die [`values()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/values) dieser Map iterieren, um jeden der auf `RTCStats`-basierten Statistikdatensätze im Bericht zu untersuchen, bis wir einen finden, der die `key`-Eigenschaft mit dem angegebenen `value` hat.
+Wenn ein Treffer gefunden wird, wird das Statistikobjekt zurückgegeben.
 
-Wenn keine Übereinstimmung gefunden wird, gibt die Funktion `null` zurück.
+Wenn kein Treffer gefunden wird, gibt die Funktion `null` zurück.
 
 #### Die Hauptfunktion networkTestStop()
 
-Schauen wir uns nun die `networkTestStop()`-Funktion selbst an. Sie nimmt als Eingabe die getestete [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), ruft `getStats()` auf, um einen neuen `RTCStatsReport` mit aktuellen Statistiken zu erhalten, und berechnet dann die gesuchten Ergebnisse, indem sie diese Ergebnisse dem Benutzer durch Anhängen von geeignetem HTML an den Inhalt des {{HTMLElement("div")}}-Elements ausgibt, dessen Klasse `stats-box` ist.
+Nun sehen wir uns die Funktion `networkTestStop()` selbst an. Sie nimmt als Eingabe die getestete [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), ruft `getStats()` auf, um einen neuen `RTCStatsReport` mit aktuellen Statistiken zu erhalten, und berechnet dann die gesuchten Ergebnisse und gibt diese entsprechend dem Benutzer aus, indem sie geeigneten HTML-Code an den Inhalt des {{HTMLElement("div")}}-Elements anhängt, dessen Klasse `stats-box` ist.
 
 ```js
 async function networkTestStop(pc) {
@@ -139,38 +139,38 @@ async function networkTestStop(pc) {
 }
 ```
 
-Das ist es, was in der `networkTestStop()`-Funktion passiert: Nachdem die Methode [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufgerufen wurde, um den neuesten Statistikbericht für die Verbindung zu erhalten und ihn in `endReport` zu speichern.
-Dies ist ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt, das Strings zu Objekten des entsprechenden auf [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) basierenden Typs abbildet.
+Hier ist, was in der `networkTestStop()`-Funktion passiert: Nachdem die Methode [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufgerufen wurde, um den neuesten Statistikbericht für die Verbindung zu erhalten, wird dieser in `endReport` gespeichert.
+Dies ist ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt, das Strings auf Objekte des entsprechenden auf [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-basierten Typs abbildet.
 
-Nun können wir beginnen, die Ergebnisse zu verarbeiten, ausgehend mit den Endstatistiken, die in `endReport` gefunden wurden.
+Jetzt können wir anfangen, die Ergebnisse zu verarbeiten, beginnend mit den Endstatistiken, die in `endReport` gefunden wurden.
 In diesem Fall suchen wir nach Statistikdatensätzen, deren `type` `remote-outbound-rtp` ist, also durchlaufen wir die Einträge im Statistikbericht, bis wir einen Eintrag dieses Typs finden.
-Dieses Objekt ist speziell vom Typ [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats) und liefert Statistiken, die Details über den Zustand der Dinge _aus der Perspektive des entfernten Peers_ geben.
+Dieses Objekt ist speziell vom Typ [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats), und es liefert Statistiken, die Details über den Zustand der Dinge _aus der Perspektive des entfernten Peers_ bieten.
 Dieser Statistikdatensatz wird in `endRemoteOutbound` gespeichert.
 
-Sobald der Enddatensatz `remote-outbound-rtp` gefunden ist, verwenden wir dessen [`id`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/id)-Eigenschaft, um seine ID zu erhalten.
-Damit in der Hand können wir den `remote-outbound-rtp`-Datensatz im Startstatistikdatensatz (`startReport`) nachschlagen, den wir dann in `startRemoteOutbound` speichern.
+Sobald der `remote-outbound-rtp`-Enddatensatz gefunden ist, verwenden wir seine [`id`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/id)-Eigenschaft, um seine ID zu erhalten.
+Damit in der Hand können wir den `remote-outbound-rtp`-Datensatz im Startstatistikdatensatz (`startReport`) nachschlagen, den wir in `startRemoteOutbound` speichern.
 
-Nun erhalten wir die `inbound-rtp`-Statistiken, die diesen beiden `remote-outbound-rtp`-Datensätzen entsprechen, indem wir die `remoteId`-Eigenschaft in ihnen finden, deren Wert die ID des `remote-outbound-rtp`-Datensatzes ist.
-Wir verwenden dazu die in dem vorhergehenden Abschnitt beschriebene Funktion `findReportEntry()` und speichern die gefundenen `inbound-rtp`-Datensätze in `startInboundStats` und `endInboundStats`.
+Nun erhalten wir die `inbound-rtp`-Statistiken, die diesen beiden `remote-outbound-rtp`-Datensätzen entsprechen, indem wir die `remoteId`-Eigenschaft innerhalb von ihnen finden, deren Wert die ID des `remote-outbound-rtp`-Datensatzes ist.
+Wir verwenden die in der vorherigen Sektion beschriebene `findReportEntry()`-Funktion dafür und speichern die gefundenen `inbound-rtp`-Datensätze in `startInboundStats` und `endInboundStats`.
 
-Nun haben wir alle Rohdaten, die benötigt werden, um die Informationen zu berechnen, die wir anzeigen wollen, also tun wir dies:
+Jetzt haben wir alle Rohstatistiken, die benötigt werden, um die Informationen zu berechnen, die wir anzeigen möchten, also tun wir dies:
 
-- Wir berechnen die vergangene Zeit—`elapsedTime`—zwischen den beiden gesendeten Berichten, indem wir den [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp) von `startReport` von dem von `endReport` subtrahieren.
+- Wir berechnen die verstrichene Zeit—`elapsedTime`—die zwischen den beiden Berichten verstrichen ist, indem wir den [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp) von `startReport` von dem von `endReport` abziehen.
   Dann teilen wir durch 1000, um das Ergebnis von Millisekunden in Sekunden umzurechnen.
-- Wir berechnen die Anzahl der gesendeten Pakete während dieses Intervalls—`packetsSent`—indem wir die Werte für die [`packetsSent`](/de/docs/Web/API/RTCSentRtpStreamStats/packetsSent)-Eigenschaft der beiden Berichte subtrahieren.
-- Ähnlich wird die Anzahl der während dieses Intervalls gesendeten Bytes—`bytesSent`—berechnet, indem die [`bytesSent`](/de/docs/Web/API/RTCSentRtpStreamStats/bytesSent)-Eigenschaft des Startstatistikobjekts von der des Endstatistikobjekts subtrahiert wird.
-- Die Anzahl der während dieses Intervalls dekodierten Frames—`framesDecoded`—wird ermittelt, indem die [`framesDecoded`](/de/docs/Web/API/RTCInboundRtpStreamStats/framesDecoded) von `startRecord` von `endRecord.framesDecoded` subtrahiert wird.
-- Schließlich wird die Framerate über die vergangene Zeitspanne berechnet, indem `framesDecoded` durch `elapsedTime` geteilt wird.
+- Wir berechnen die Anzahl der während dieses Intervalls gesendeten Pakete—`packetsSent`—indem wir die Werte der beiden Berichte für die [`packetsSent`](/de/docs/Web/API/RTCSentRtpStreamStats/packetsSent)-Eigenschaft voneinander abziehen.
+- Ebenso wird die Anzahl der während dieses Intervalls gesendeten Bytes—`bytesSent`—berechnet, indem wir die [`bytesSent`](/de/docs/Web/API/RTCSentRtpStreamStats/bytesSent)-Eigenschaft des Startstatistikobjekts von der der Endstatistiken abziehen.
+- Die Anzahl der während dieses Intervalls dekodierten Frames—`framesDecoded`—wird bestimmt, indem `startRecord`'s [`framesDecoded`](/de/docs/Web/API/RTCInboundRtpStreamStats/framesDecoded) von `endRecord.framesDecoded` subtrahiert wird.
+- Schließlich wird die Bildrate über den verstrichenen Zeitraum berechnet, indem `framesDecoded` durch `elapsedTime` geteilt wird.
 
-Der Rest der `networkTestStop()`-Funktion konstruiert das HTML, das verwendet wird, um die Ausgabe der gesammelten und berechneten Ergebnisse an den Benutzer anzuzeigen und sie dann an das Element `statsBox` anzuhängen, das wir verwenden, um die Statusaktualisierungen an den Benutzer anzuzeigen.
+Der Rest der `networkTestStop()`-Funktion konstruiert das HTML, das verwendet wird, um die Ausgabe der gesammelten und berechneten Ergebnisse dem Benutzer anzuzeigen, und fügt es dann dem Element `statsBox` hinzu, das wir verwenden, um die Statusaktualisierungen dem Benutzer anzuzeigen.
 
-Das Ausgabenprotokoll, gegeben durch die im Beispiel verwendeten Styles, sieht so aus:
+Das Ausgabelog, unter Berücksichtigung der im Beispiel verwendeten Stile, sieht folgendermaßen aus:
 
-![Ein Screenshot des Beispiels, das aufgezeichnete Statistiken aus gepaarten remote-outbound-rtp- und inbound-rtp-Statistikdatensätzen zeigt](rtc-log-screenshot.png)
+![Ein Screenshot des Beispiels, der aufgezeichnete Statistiken aus gepaarten remote-outbound-rtp und inbound-rtp Statistikatensätzen zeigt](rtc-log-screenshot.png)
 
-Im Screenshot sehen wir eine Überschrift gefolgt von dem scrollbar {{HTMLElement("div")}}, den wir als `statsBox` bezeichnen.
-Die Box enthält eine Reihe von Protokolleinträgen, die letzten Handvoll von ihnen sind sichtbar.
-Jeder repräsentiert etwa eine Sekunde Zeit (da das die Zeit ist, die wir zwischen den Aufrufen von `networkTestStart()` und `networkTestStop()` warten).
+Im Screenshot sehen wir eine Überschrift, gefolgt von dem scrollbaren {{HTMLElement("div")}}, den wir als `statsBox` bezeichnen.
+Die Box enthält eine Reihe von Logeinträgen, von denen die letzten wenige sichtbar sind.
+Jeder repräsentiert ungefähr eine Sekunde Zeit (da wir so lange warten, zwischen dem Aufruf von `networkTestStart()` und `networkTestStop()`).
 
 ## Spezifikationen
 

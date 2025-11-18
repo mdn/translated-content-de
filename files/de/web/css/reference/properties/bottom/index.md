@@ -2,10 +2,10 @@
 title: bottom
 slug: Web/CSS/Reference/Properties/bottom
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`bottom`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist an der Festlegung der vertikalen Position eines [positionierten Elements](/de/docs/Web/CSS/Reference/Properties/position) beteiligt. Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
+Die **`bottom`**-Eigenschaft von [CSS](/de/docs/Web/CSS) beteiligt sich an der Festlegung der vertikalen Position eines [positionierten Elements](/de/docs/Web/CSS/Reference/Properties/position). Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: bottom")}}
 
@@ -59,15 +59,6 @@ bottom: 20px;
 }
 ```
 
-Die Wirkung von `bottom` hängt davon ab, wie das Element positioniert ist (d.h. vom Wert der {{cssxref("position")}}-Eigenschaft):
-
-- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `bottom`-Eigenschaft den Abstand zwischen dem Außenrand des [unteren Randes](/de/docs/Web/CSS/Guides/Box_model/Introduction) des Elements und dem Außenrand der unteren Polsterung des umgebenden Blocks an. Bei [verankerten positionierten Elementen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using), wenn die {{cssxref("anchor()")}}-Funktion innerhalb des Werts verwendet wird, ist sie relativ zur Position der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/Reference/Values/anchor#anchor-side) Kante. Die `bottom`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/Reference/Values/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `top`, `bottom`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
-- Wenn `position` auf `relative` gesetzt ist, gibt die `bottom`-Eigenschaft den Abstand an, um den die Unterkante des Elements über ihre normale Position verschoben wird.
-- Wenn `position` auf `sticky` gesetzt ist, wird die `bottom`-Eigenschaft verwendet, um das klebrige Beschränkungsrechteck zu berechnen.
-- Wenn `position` auf `static` gesetzt ist, hat die `bottom`-Eigenschaft _keine Wirkung_.
-
-Wenn sowohl {{cssxref("top")}} als auch `bottom` angegeben sind, `position` auf `absolute` oder `fixed` gesetzt ist _und_ {{cssxref("height")}} nicht spezifiziert ist (entweder `auto` oder `100%`), werden sowohl die `top`- als auch die `bottom`-Abstände berücksichtigt. In allen anderen Situationen, wenn {{cssxref("height")}} in irgendeiner Weise eingeschränkt ist oder `position` auf `relative` gesetzt ist, hat die `top`-Eigenschaft Vorrang und die `bottom`-Eigenschaft wird ignoriert.
-
 ## Syntax
 
 ```css
@@ -94,18 +85,28 @@ bottom: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}:
-    - für _absolut positionierte Elemente_ stellt es den Abstand zur Unterkante des umgebenden Blocks dar.
-    - für _relativ positionierte Elemente_ stellt es die Entfernung dar, um die das Element über seine normale Position hinaus bewegt wird.
-    - für _verankert positionierte Elemente_ wird die {{cssxref("anchor()")}}-Funktion zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position der oberen oder unteren Kante des zugehörigen _Ankerelements_ aufgelöst (siehe [Verwendung von inset-Eigenschaften mit `anchor()`-Funktionswerten](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)), und die {{cssxref("anchor-size()")}}-Funktion wird zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen Ankerelements aufgelöst (siehe [Festlegung der Elementposition basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size)).
+    - für _absolut positionierte Elemente_ stellt er die Distanz zur unteren Kante des umgebenden Blocks dar.
+    - für _relativ positionierte Elemente_ stellt er die Distanz dar, um die das Element über seine normale Position hinaus verschoben wird.
+    - für _anker-positionierte Elemente_ löst sich die {{cssxref("anchor()")}}-Funktion in einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position der oberen oder unteren Kante des zugehörigen _Ankerelements_ auf (siehe [Verwenden von Inset-Eigenschaften mit `anchor()`-Funktionswerten](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)), und die {{cssxref("anchor-size()")}}-Funktion löst sich in einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen Ankerelements auf (siehe [Festlegen der Elementposition basierend auf Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
   - : Ein {{cssxref("&lt;percentage&gt;")}} der Höhe des umgebenden Blocks.
 - `auto`
   - : Gibt an, dass:
-    - für _absolut positionierte Elemente_ die Position des Elements auf der {{Cssxref("top")}}-Eigenschaft basiert, während `height: auto` als eine höhenbasierte Größe auf dem Inhalt behandelt wird; oder wenn `top` auch `auto` ist, wird das Element dort positioniert, wo es vertikal positioniert werden sollte, wenn es sich um ein statisches Element handeln würde.
-    - für _relativ positionierte Elemente_ die Entfernung des Elements von seiner normalen Position auf der {{Cssxref("top")}}-Eigenschaft basiert; oder wenn `top` auch `auto` ist, wird das Element überhaupt nicht vertikal verschoben.
+    - für _absolut positionierte Elemente_ die Position des Elements auf der {{cssxref("top")}}-Eigenschaft basiert, während `height: auto` als Höhe basierend auf dem Inhalt behandelt wird; oder wenn `top` ebenfalls `auto` ist, wird das Element dort positioniert, wo es vertikal stehen sollte, wenn es ein statisches Element wäre.
+    - für _relativ positionierte Elemente_ die Distanz des Elements von seiner normalen Position auf der {{cssxref("top")}}-Eigenschaft basiert; oder wenn `top` ebenfalls `auto` ist, wird das Element überhaupt nicht vertikal verschoben.
+
+## Beschreibung
+
+Die Wirkung von `bottom` hängt davon ab, wie das Element positioniert ist (d.h. vom Wert der {{cssxref("position")}}-Eigenschaft):
+
+- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `bottom`-Eigenschaft die Distanz zwischen der äußeren Kante des unteren Randes des Elements und der äußeren Kante des unteren Innenabstandes des umgebenden Blocks an, oder im Fall von [anker-positionierten Elementen](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) wenn die {{cssxref("anchor()")}}-Funktion innerhalb des Wertes verwendet wird, relativ zur Position der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/Reference/Values/anchor#anchor-side)-Kante. Die `bottom`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/Reference/Values/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `top`, `bottom`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
+- Wenn `position` auf `relative` gesetzt ist, gibt die `bottom`-Eigenschaft die Distanz an, um die die untere Kante des Elements über seine normale Position hinaus verschoben wird.
+- Wenn `position` auf `sticky` gesetzt ist, wird die `bottom`-Eigenschaft verwendet, um das klebrige Beschränkungsrechteck zu berechnen.
+- Wenn `position` auf `static` gesetzt ist, hat die `bottom`-Eigenschaft _keine Wirkung_.
+
+Wenn sowohl {{cssxref("top")}} als auch `bottom` angegeben sind und `position` auf `absolute` oder `fixed` gesetzt ist _und_ {{cssxref("height")}} nicht festgelegt ist (entweder `auto` oder `100%`), werden sowohl die `top`- als auch die `bottom`-Abstände respektiert. In allen anderen Situationen, wenn {{cssxref("height")}} in irgendeiner Weise eingeschränkt ist oder `position` auf `relative` gesetzt ist, hat die `top`-Eigenschaft Vorrang und die `bottom`-Eigenschaft wird ignoriert.
 
 ## Formale Definition
 
@@ -117,9 +118,9 @@ bottom: unset;
 
 ## Beispiele
 
-### Absolute und feste Positionierung
+### Absolute und fixe Positionierung
 
-Dieses Beispiel demonstriert den Unterschied im Verhalten der `bottom`-Eigenschaft, wenn {{cssxref("position")}} auf `absolute` im Gegensatz zu `fixed` gesetzt ist.
+Dieses Beispiel zeigt den Unterschied im Verhalten der `bottom`-Eigenschaft, wenn {{cssxref("position")}} `absolute` gegenüber `fixed` ist.
 
 #### HTML
 
@@ -174,8 +175,8 @@ div {
 ## Siehe auch
 
 - {{cssxref("top")}}, {{cssxref("left")}}, und {{cssxref("right")}}
-- {{cssxref("inset")}} Kurzschreibweise
+- {{cssxref("inset")}} Kurzform
 - {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
-- {{cssxref("inset-block")}} und {{cssxref("inset-inline")}} Kurzschreibweisen
+- {{cssxref("inset-block")}} und {{cssxref("inset-inline")}} Kurzformen
 - {{cssxref("position")}}
-- [CSS positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul
+- [CSS Positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul

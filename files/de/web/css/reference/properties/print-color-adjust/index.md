@@ -2,10 +2,11 @@
 title: print-color-adjust
 slug: Web/CSS/Reference/Properties/print-color-adjust
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f28f4c26a3d95e41d01a505af3388881abd6e49c
 ---
 
-Die **`print-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was der {{Glossary("user_agent", "User Agent")}} möglicherweise tun darf, um das Erscheinungsbild des Elements auf dem Ausgabegerät zu optimieren. Standardmäßig darf der Browser alle Anpassungen am Erscheinungsbild des Elements vornehmen, die er für notwendig und vernünftig hält, basierend auf der Art und den Fähigkeiten des Ausgabegeräts.
+Die **`print-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was der {{Glossary("user_agent", "User-Agent")}} tun darf, um das Erscheinungsbild des Elements auf dem Ausgabegerät zu optimieren.
+Standardmäßig darf der Browser alle Anpassungen am Erscheinungsbild des Elements vornehmen, die er für notwendig und sinnvoll hält, abhängig von Typ und Fähigkeiten des Ausgabegeräts.
 
 ## Syntax
 
@@ -26,24 +27,26 @@ Der Wert der `print-color-adjust` Eigenschaft muss eines der folgenden Schlüsse
 ### Werte
 
 - `economy`
-  - : Der User Agent darf Anpassungen am Element vornehmen, die er für angemessen und vernünftig hält, um die Ausgabe für das Gerät, auf dem sie dargestellt wird, zu optimieren.
-    Zum Beispiel könnte ein Browser beim Drucken alle Hintergrundbilder weglassen und die Textfarben anpassen, um sicherzustellen, dass der Kontrast zum Lesen auf weißem Papier optimiert ist.
-    Dies ist der Standardwert.
+  - : Dem User-Agent ist erlaubt, Anpassungen am Element vorzunehmen, die er für angemessen und sinnvoll hält, um die Ausgabe für das Gerät, auf dem es gerendert wird, zu optimieren.
+    Beispielsweise könnte ein Browser beim Drucken darauf verzichten, alle Hintergrundbilder darzustellen, und Textfarben anpassen, um sicherzustellen, dass der Kontrast für das Lesen auf weißem Papier optimiert ist.
+    Dies ist die Standardeinstellung.
 - `exact`
-  - : Der Inhalt des Elements wurde speziell und sorgfältig erstellt, um Farben, Bilder und Stile auf eine durchdachte und/oder wichtige Weise zu verwenden, sodass eine Veränderung durch den Browser die Situation eher verschlechtern als verbessern könnte.
-    Das Erscheinungsbild des Inhalts sollte nicht verändert werden, außer auf Wunsch des Benutzers.
-    Zum Beispiel könnte eine Seite eine Liste von Informationen enthalten, bei der sich die Hintergrundfarben der Zeilen zwischen weiß und hellgrau abwechseln.
+  - : Der Inhalt des Elements wurde speziell und sorgfältig gestaltet, um Farben, Bilder und Stile überlegt und/oder wichtig zu verwenden, sodass eine Veränderung durch den Browser die Situation verschlechtern könnte.
+    Das Erscheinungsbild des Inhalts sollte nur auf Anfrage des Benutzers verändert werden.
+    Ein Beispiel wäre eine Seite, die eine Liste von Informationen enthält, bei der sich die Hintergrundfarben der Zeilen zwischen Weiß und Hellgrau abwechseln.
     Das Entfernen der Hintergrundfarbe würde die Lesbarkeit des Inhalts verringern.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Es gibt eine Reihe von Gründen, warum ein Browser vom angegebenen Erscheinungsbild abweichen möchte, wie zum Beispiel:
+Es gibt mehrere Gründe, aus denen ein Browser vom spezifizierten Erscheinungsbild abweichen möchte, wie zum Beispiel:
 
-- Der Inhalt verwendet Text- und Hintergrundfarben, die auf dem Ausgabegerät für Lesbarkeitszwecke zu ähnlich sind.
+- Der Inhalt verwendet Text- und Hintergrundfarben, die auf dem Ausgabegerät zu ähnlich sein könnten, um die Lesbarkeit zu gewährleisten.
 - Wenn das Ausgabegerät ein Drucker ist, könnten zur Einsparung von Tinte dunkle oder extrem dichte Hintergrundbilder entfernt werden.
-- Beim Drucken einer Seite möchte der Browser möglicherweise hellen Text auf dunklem Hintergrund durch dunklen Text auf weißem Hintergrund ersetzen.
+- Beim Drucken einer Seite könnte der Browser hellen Text auf dunklem Hintergrund mit dunklem Text auf weißem Hintergrund ersetzen wollen.
 
-Alle Optionen, die der User Agent dem Benutzer zur Verfügung stellt, um die Verwendung von Farben und Bildern zu steuern, haben Vorrang vor dem Wert von `print-color-adjust`. Mit anderen Worten, es gibt keine Garantie, dass `print-color-adjust` irgendetwas bewirken wird. Nicht nur kann der Benutzer das Verhalten überschreiben, sondern jeder User Agent kann selbst entscheiden, wie er `print-color-adjust` in einer gegebenen Situation behandelt.
+Alle Optionen, die der User-Agent dem Benutzer anbietet, um die Verwendung von Farbe und Bildern zu steuern, haben Vorrang vor dem Wert von `print-color-adjust`.
+Das bedeutet, dass es keine Garantie gibt, dass `print-color-adjust` etwas bewirkt.
+Nicht nur kann der Benutzer das Verhalten überschreiben, sondern jeder User-Agent darf selbst entscheiden, wie er `print-color-adjust` in jeder gegebenen Situation handhabt.
 
 ## Formale Definition
 
@@ -55,9 +58,10 @@ Alle Optionen, die der User Agent dem Benutzer zur Verfügung stellt, um die Ver
 
 ## Beispiele
 
-### Niedrigen Kontrast beibehalten
+### Erhaltung von geringem Kontrast
 
-In diesem Beispiel wird eine Box gezeigt, die eine {{cssxref("background-image")}} und eine durchscheinende {{cssxref("gradient/linear-gradient", "linear-gradient()")}} Funktion über einer schwarzen Hintergrundfarbe nutzt, um einen dunkelblauen Verlauf hinter mittelrotem Text anzuzeigen. Aus welchem Grund auch immer, ist dies das gewünschte Erscheinungsbild in jeder Rendering-Umgebung, einschließlich auf Papier, sodass wir auch `print-color-adjust: exact` verwenden, um dem Browser mitzuteilen, dass er beim Rendern keine Farb- oder Stiländerungen an der Box vornehmen soll.
+In diesem Beispiel wird ein Kasten gezeigt, der ein {{cssxref("background-image")}} und eine transparente {{cssxref("gradient/linear-gradient", "linear-gradient()")}} Funktion über einer schwarzen Hintergrundfarbe verwendet, um einen dunkelblauen Verlauf hinter mittelrotem Text zu erzeugen.
+Aus welchen Gründen auch immer, dies ist das gewünschte Erscheinungsbild in jeder Rendering-Umgebung, einschließlich auf Papier. Daher verwenden wir auch `print-color-adjust: exact`, um dem Browser zu signalisieren, keine Farb- oder Stiländerungen am Kasten beim Rendern vorzunehmen.
 
 #### CSS
 
@@ -101,5 +105,5 @@ In diesem Beispiel wird eine Box gezeigt, die eine {{cssxref("background-image")
 
 ## Siehe auch
 
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}
+- Weitere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}
 - {{cssxref("background-image")}}

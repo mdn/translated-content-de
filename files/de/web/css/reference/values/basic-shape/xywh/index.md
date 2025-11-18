@@ -2,10 +2,10 @@
 title: xywh()
 slug: Web/CSS/Reference/Values/basic-shape/xywh
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`xywh()`** [CSS](/de/docs/Web/CSS) Funktion erstellt ein Rechteck mit den angegebenen Abständen von den linken (`x`) und oberen (`y`) Rändern des umgebenden Blocks sowie der angegebenen Breite (`w`) und Höhe (`h`) des Rechtecks. Es ist eine Grundform-Funktion des {{cssxref("&lt;basic-shape&gt;")}} [Datentyps](/de/docs/Web/CSS/Reference/Values/Data_types). Sie können die `xywh()`-Funktion in CSS-Eigenschaften wie {{cssxref("offset-path")}} verwenden, um den rechteckigen Pfad zu erstellen, entlang dem sich ein Element bewegt, und in {{cssxref("clip-path")}}, um die Form des Ausschnittbereichs zu definieren.
+Die **`xywh()`** [CSS](/de/docs/Web/CSS) Funktion erstellt ein Rechteck mit den angegebenen Abständen von den linken (`x`) und oberen (`y`) Rändern des umschließenden Blocks und der angegebenen Breite (`w`) und Höhe (`h`) des Rechtecks. Sie ist eine grundlegende Formfunktion des {{cssxref("&lt;basic-shape&gt;")}} [Datentyps](/de/docs/Web/CSS/Reference/Values/Data_types). Sie können die `xywh()`-Funktion in CSS-Eigenschaften wie {{cssxref("offset-path")}} verwenden, um den rechteckigen Pfad zu erstellen, auf dem sich ein Element bewegt, und in {{cssxref("clip-path")}}, um die Form des Clippingbereichs zu definieren.
 
 ## Syntax
 
@@ -17,11 +17,11 @@ clip-path: xywh(1px 2% 3px 4em round 0 1% 2px 3em);
 ### Werte
 
 - `<length-percentage>`
-  - : Gibt die {{cssxref("&lt;length-percentage&gt;")}} Werte für die `x`- und `y`-Koordinaten des Rechtecks an.
+  - : Spezifiziert die {{cssxref("&lt;length-percentage&gt;")}} Werte für die `x`- und `y`-Koordinaten des Rechtecks.
 - `<length-percentage [0,∞]>`
-  - : Gibt nicht-negative {{cssxref("&lt;length-percentage&gt;")}} Werte für die Breite und Höhe des Rechtecks an. Der Mindestwert kann null sein, und der Maximalwert hat keine Begrenzung.
+  - : Spezifiziert nicht-negative {{cssxref("&lt;length-percentage&gt;")}} Werte für die Breite und Höhe des Rechtecks. Der Mindestwert kann null sein, und es gibt kein Maximum.
 - `round <'border-radius'>`
-  - : Gibt den Radius der abgerundeten Ecken des Rechtecks an, unter Verwendung derselben Syntax wie die CSS-`border-radius`-Kurzschreibweise. Dieser Parameter ist optional.
+  - : Gibt den Radius der abgerundeten Ecken des Rechtecks an, unter Verwendung der gleichen Syntax wie die CSS-[`border-radius`](/de/docs/Web/CSS/Reference/Properties/border-radius) Kurzform-Eigenschaft. Dieser Parameter ist optional.
 
 ## Formale Syntax
 
@@ -29,9 +29,9 @@ clip-path: xywh(1px 2% 3px 4em round 0 1% 2px 3em);
 
 ## Beispiele
 
-### Erstellen eines offset-paths mit xywh()
+### Erstellung eines offset-paths mit xywh()
 
-Im folgenden Beispiel verwendet die {{cssxref("offset-path")}} Eigenschaft die `xywh()`-Funktion, um die Form des Pfades zu definieren, auf dem sich das Element, in diesem Fall ein magentafarbener Kasten, bewegt. Zwei verschiedene Szenarien werden gezeigt, jeweils mit unterschiedlichen Werten für die `xywh()`-Funktion. Der Pfeil innerhalb der Kästen zeigt auf den rechten Rand des Kastens.
+Im untenstehenden Beispiel verwendet die {{cssxref("offset-path")}} Eigenschaft die `xywh()`-Funktion, um die Form des Pfads zu definieren, auf dem sich das Element, ein magentafarbenes Kästchen in diesem Fall, bewegt. Zwei verschiedene Szenarien werden gezeigt, jeweils mit unterschiedlichen Werten für die `xywh()`-Funktion. Der Pfeil in den Kästchen zeigt auf den rechten Rand des Kästchens.
 
 ```html
 <div class="container">
@@ -83,10 +83,10 @@ Im folgenden Beispiel verwendet die {{cssxref("offset-path")}} Eigenschaft die `
 
 #### Ergebnis
 
-{{EmbedLiveSample("Creating offset-path using xywh", "100%", 600)}}
+{{EmbedLiveSample("Erstellung eines offset-paths mit xywh", "100%", 600)}}
 
-- Das Rechteck des Pfads 1 ist um `20px` von den linken und oberen Rändern des umgebenden Blocks versetzt. Dieses Pfad-Rechteck hat die gleiche Dimension wie der umgebende Block, das heißt, die Breite beträgt `100%` der Breite des umgebenden Blocks, und die Höhe beträgt `100%` der Höhe des umgebenden Blocks. Beachten Sie, wie der Pfeil innerhalb des Kastens der `10%` Kurve (definiert durch `round 10%`) an den Ecken des rechteckigen Pfads folgt.
-- Da das obere Limit von sowohl Breite als auch Höhe in `xywh()` unendlich ist, macht das Setzen der Höhe auf `200%` im Pfad 2 Rechteck das generierte Rechteck doppelt so hoch wie den umgebenden Block. Beachten Sie, wie der Pfeil innerhalb des Kastens sich an den Ecken verhält, wenn kein `round <'border-radius'>` angegeben ist.
+- Das Rechteck des Pfads 1 ist um `20px` von den linken und oberen Rändern des umschließenden Blocks versetzt. Dieses Pfadrechteck hat die gleichen Dimensionen wie der umschließende Block, also ist die Breite `100%` der Breite des umschließenden Blocks, und die Höhe ist `100%` der Höhe des umschließenden Blocks. Beachten Sie, wie der Pfeil im Kästchen der `10%`-Kurve (definiert durch `round 10%`) an den Ecken des rechteckigen Pfades folgt.
+- Da das obere Limit sowohl für die Breite als auch für die Höhe in `xywh()` unendlich ist, erzeugt das Festlegen der Höhe auf `200%` im Pfad 2 Rechteck ein Rechteck, das doppelt so hoch ist wie der umschließende Block. Beachten Sie, wie sich der Pfeil im Kästchen an den Ecken verhält, wenn kein `round <'border-radius'>` angegeben ist.
 
 ## Spezifikationen
 
@@ -103,5 +103,5 @@ Im folgenden Beispiel verwendet die {{cssxref("offset-path")}} Eigenschaft die `
 - {{cssxref("clip-path")}} Eigenschaft
 - {{cssxref("offset-path")}} Eigenschaft
 - {{cssxref("&lt;basic-shape&gt;")}} Datentyp
-- [CSS-Shapes](/de/docs/Web/CSS/Guides/Shapes) Modul
-- [Leitfaden zu Grundformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)
+- [CSS shapes](/de/docs/Web/CSS/Guides/Shapes) Modul
+- [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)

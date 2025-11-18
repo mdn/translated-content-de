@@ -2,15 +2,15 @@
 title: browsingData.removeFormData()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeFormData
 l10n:
-  sourceCommit: b2685e330f887359ec886b08199a22a6fcbe0caf
+  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
 ---
 
 Löscht Daten, die der Browser zum automatischen Ausfüllen von Formularen gespeichert hat.
 
-Sie können den Parameter `removalOptions`, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, verwenden, um:
+Sie können den Parameter `removalOptions`, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, verwenden, um:
 
-- Formulardaten zu löschen, die nach einer bestimmten Zeit eingegeben wurden.
-- zu steuern, ob Daten auf Webseiten oder sowohl auf Webseiten als auch in Erweiterungen gelöscht werden.
+- Formulardaten zu löschen, die nach einem bestimmten Zeitpunkt eingegeben wurden.
+- zu steuern, ob Formulardaten, die auf Webseiten oder auf Webseiten und Erweiterungen eingegeben wurden, gelöscht werden sollen.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ let removing = browser.browsingData.removeFormData(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, welches verwendet werden kann, um nur Formulardaten zu löschen, die nach einer bestimmten Zeit eingegeben wurden, und um zu steuern, ob Formulardaten auf Webseiten oder sowohl auf Webseiten als auch in Erweiterungen gelöscht werden.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Formulardaten zu löschen, die nach einem bestimmten Zeitpunkt eingegeben wurden, und das steuert, ob Formulardaten gelöscht werden sollen, die auf Webseiten oder auf Webseiten und Erweiterungen eingegeben wurden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argument erfüllt wird, wenn das Entfernen abgeschlossen ist. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente erfüllt wird, wenn das Löschen abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Löschen von Formulardaten, die in der letzten Woche gespeichert wurden:
+Löschen Sie die Formulardaten, die in der letzten Woche gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -53,7 +53,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Löschen aller gespeicherten Formulardaten:
+Löschen Sie alle gespeicherten Formulardaten:
 
 ```js
 function onRemoved() {
@@ -74,4 +74,34 @@ browser.browsingData.removeFormData({}).then(onRemoved, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

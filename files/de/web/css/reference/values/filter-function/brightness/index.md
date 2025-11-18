@@ -2,10 +2,10 @@
 title: brightness()
 slug: Web/CSS/Reference/Values/filter-function/brightness
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Der **`brightness()`** [CSS](/de/docs/Web/CSS) {{cssxref("&lt;filter-function&gt;")}} wendet einen linearen Multiplikatorwert auf ein Element oder ein Eingabebild an und lässt das Bild heller oder dunkler erscheinen.
+Die **`brightness()`** [CSS](/de/docs/Web/CSS) {{cssxref("&lt;filter-function&gt;")}} wendet einen linearen Multiplikatorwert auf ein Element oder ein Eingabebild an, wodurch das Bild heller oder dunkler erscheint.
 
 {{InteractiveExample("CSS Demo: brightness()")}}
 
@@ -44,9 +44,9 @@ brightness(amount)
 ### Werte
 
 - `amount` {{Optional_Inline}}
-  - : Die Helligkeit wird als {{cssxref("&lt;number&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert unter `100%` verdunkelt das Eingabebild oder Element, während ein Wert über `100%` es aufhellt. Ein Wert von `0%` erstellt ein vollständig schwarzes Bild oder Element, während ein Wert von `100%` das Eingabebild unverändert lässt. Andere Werte zwischen `0%` und `100%` haben einen linearen Multiplikatoreffekt. Werte größer als `100%` sind erlaubt und führen zu helleren Ergebnissen. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Negative Werte sind nicht erlaubt. Der Standardwert ist `1`.
+  - : Helligkeit, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert kleiner als `100%` verdunkelt das Eingabebild oder Element, während ein Wert über `100%` es aufhellt. Ein Wert von `0%` erzeugt ein komplett schwarzes Bild oder Element, während ein Wert von `100%` das Eingabebild unverändert lässt. Andere Werte zwischen `0%` und `100%` haben einen linearen Multiplikatoreffekt. Werte größer als `100%` sind erlaubt und führen zu helleren Ergebnissen. Der initiale Wert für {{Glossary("interpolation", "Interpolation")}} ist `1`. Negative Werte sind nicht erlaubt. Der Standardwert ist `1`.
 
-Die folgenden sind Paare von gleichwertigen Werten:
+Die folgenden Paare von Werten sind äquivalent:
 
 ```css
 brightness(0)   /* Brightness is reduced to zero, so input turns black */
@@ -69,9 +69,9 @@ brightness(200%)
 
 ## Beispiele
 
-### Anwenden von Helligkeit mit der Eigenschaft backdrop-filter
+### Anwendung von Helligkeit mit der Eigenschaft backdrop-filter
 
-Dieses Beispiel zeigt, wie der `brightness()`-Filter über die [`backdrop-filter`](/de/docs/Web/CSS/Reference/Properties/backdrop-filter)-CSS-Eigenschaft auf einen Absatz angewendet wird.
+Dieses Beispiel zeigt, wie der `brightness()` Filter auf einen Absatz über die [`backdrop-filter`](/de/docs/Web/CSS/Reference/Properties/backdrop-filter) CSS-Eigenschaft angewendet wird.
 
 #### CSS
 
@@ -110,11 +110,11 @@ p {
 
 {{EmbedLiveSample('Applying_brightness_using_the_backdrop_filter_property', '100%', '280')}}
 
-In diesem Beispiel verschieben sich die Farben im Bereich hinter dem `<p>`-Element linear. Wenn die `backdrop-filter`-Eigenschaft auf `brightness(0%)` gesetzt wäre, wäre der `<div>`-Bereich mit dem `<p>`-Element schwarz und würde das Bild dahinter verbergen. Bei `brightness(100%)` wäre die `<div>`-Bereichsfarbe dieselbe wie der Eingabe-`#d4d5b2`, und das Bild dahinter wäre vollständig transparent. Bei einer Helligkeit von `150%`, wie in diesem Beispiel, werden die Farben im Bild dahinter durch die Helligkeit des `<div>`-Elements verborgen.
+In diesem Beispiel verschieben sich die Farben im Bereich hinter dem `<p>` Element linear. Wenn die `backdrop-filter` Eigenschaft auf `brightness(0%)` gesetzt wäre, wäre der `<div>` Bereich mit dem `<p>` Element schwarz und hätte das Bild dahinter verdeckt. Bei `brightness(100%)` wäre die Farbe des `<div>` Bereichs dieselbe wie die Eingabe `#d4d5b2`, und das Bild dahinter wäre komplett transparent. Mit der Helligkeit auf `150%`, wie in diesem Beispiel, werden die Farben im Bild dahinter durch die Helligkeit des `<div>` Elements verdeckt.
 
-### Anwenden von Helligkeit mit der Eigenschaft filter
+### Anwendung von Helligkeit mit der Eigenschaft filter
 
-In diesem Beispiel wird ein `brightness()`-Filter auf das gesamte Element angewendet, einschließlich Inhalt, Rahmen und Hintergrundbild über die CSS-Eigenschaft [`filter`](/de/docs/Web/CSS/Reference/Properties/filter). Das Ergebnis zeigt drei Variationen mit unterschiedlichen Helligkeitswerten.
+In diesem Beispiel wird ein `brightness()` Filter auf das gesamte Element, einschließlich Inhalt, Rand und Hintergrundbild, über die [`filter`](/de/docs/Web/CSS/Reference/Properties/filter) CSS-Eigenschaft angewendet. Das Ergebnis zeigt drei Variationen verschiedener Helligkeitswerte.
 
 ```css
 p:first-of-type {
@@ -149,13 +149,13 @@ p {
 
 {{EmbedLiveSample('Applying_brightness_using_the_filter_property','100%','280')}}
 
-### Anwenden von Helligkeit mit dem url()-SVG-Helligkeitsfilter
+### Anwendung von Helligkeit mittels url() SVG Helligkeitsfilter
 
-Das SVG-{{SVGElement("filter")}}-Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann durch [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Der `<filter>`-Element-Primitive {{SVGElement("feComponentTransfer")}} ermöglicht eine Pixel-zu-Pixel-Farbzuordnung.
+Das SVG {{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann über [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Das Primitive {{SVGElement("feComponentTransfer")}} des `<filter>` Elements ermöglicht eine Pixel-für-Pixel-Farbneuzuordnung.
 
-In diesem Beispiel, um einen Filter zu erstellen, der den angewendeten Inhalt um 25% abdunkelt (d.h. 75% der ursprünglichen Helligkeit), wird das `slope`-Attribut auf `0.75` gesetzt. Wir können dann auf den Filter durch `id` verweisen.
+In diesem Beispiel wird zur Erstellung eines Filters, der den Inhalt, auf den er angewendet wird, um 25% abdunkelt (d.h. 75% der ursprünglichen Helligkeit), das Attribut `slope` auf `0.75` gesetzt. Der Filter kann dann über `id` referenziert werden.
 
-Unter Berücksichtigung des Folgenden:
+Gegeben:
 
 ```html live-sample___svg_filter
 <svg role="none">
@@ -169,7 +169,7 @@ Unter Berücksichtigung des Folgenden:
 </svg>
 ```
 
-Die folgenden Deklarationen erzeugen ähnliche Effekte:
+Führen die folgenden Deklarationen zu ähnlichen Effekten:
 
 ```css
 filter: brightness(75%);
@@ -177,7 +177,7 @@ filter: url("#darken25"); /* with embedded SVG */
 filter: url("folder/fileName.svg#darken25"); /* external svg filter definition */
 ```
 
-In den untenstehenden Bildern hat das erste Bild eine `brightness()`-Filterfunktion angewendet, das zweite eine ähnliche SVG-Helligkeitsfunktion, und das dritte ist das Originalbild zum Vergleich.
+In den untenstehenden Bildern hat das erste einen `brightness()` Filterfunktion, das zweite eine ähnliche SVG Helligkeitsfunktion und das dritte ist das Originalbild zum Vergleich.
 
 ```html hidden live-sample___svg_filter
 <table>
@@ -241,8 +241,8 @@ svg:not(:root) {
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects)-Modul
-- Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in Werten der {{cssxref("filter")}}- und {{cssxref("backdrop-filter")}}-Eigenschaften verwendet werden können, beinhalten:
+- [CSS Filter-Effekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul
+- Die weiteren {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
   - {{cssxref("filter-function/blur", "blur()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
