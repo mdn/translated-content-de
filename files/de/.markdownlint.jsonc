@@ -241,4 +241,6 @@
       },
     ],
   },
+  // Disabled in de, because table formatting isn't that important here.
+  "table-column-style": false,
 }
