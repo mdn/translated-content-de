@@ -2,10 +2,10 @@
 title: border-bottom
 slug: Web/CSS/Reference/Properties/border-bottom
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`border-bottom`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die untere [Grenze](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie setzt die Werte von {{cssxref("border-bottom-width")}}, {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-color")}}.
+Die **`border-bottom`** [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt den unteren [Rand](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie setzt die Werte von {{cssxref("border-bottom-width")}}, {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-color")}}.
 
 {{InteractiveExample("CSS Demo: border-bottom")}}
 
@@ -47,25 +47,9 @@ border-bottom: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Kurzschreibungen setzt `border-bottom` immer die Werte aller Eigenschaften, die es setzen kann, selbst wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
-
-```css
-border-bottom-style: dotted;
-border-bottom: thick green;
-```
-
-Er entspricht tatsächlich diesem:
-
-```css
-border-bottom-style: dotted;
-border-bottom: none thick green;
-```
-
-Der vor `border-bottom` angegebene Wert von {{cssxref("border-bottom-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-bottom-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keiner Umrandung.
-
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-bottom-color")}}
 - {{cssxref("border-bottom-style")}}
@@ -86,7 +70,7 @@ border-bottom: revert-layer;
 border-bottom: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -96,6 +80,24 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
   - : Siehe {{cssxref("border-bottom-style")}}.
 - {{cssxref("&lt;color&gt;")}}
   - : Siehe {{cssxref("border-bottom-color")}}.
+
+## Beschreibung
+
+Wie bei allen Kurzform-Eigenschaften setzt `border-bottom` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+
+```css
+border-bottom-style: dotted;
+border-bottom: thick green;
+```
+
+Dies entspricht tatsächlich diesem:
+
+```css
+border-bottom-style: dotted;
+border-bottom: none thick green;
+```
+
+Der Wert von {{cssxref("border-bottom-style")}} vor `border-bottom` wird ignoriert. Da der Standardwert von {{cssxref("border-bottom-style")}} `none` ist, führt das Weglassen des `border-style`-Teils zu keinem Rand.
 
 ## Formale Definition
 
@@ -107,7 +109,7 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Eine untere Umrandung anwenden
+### Anwenden eines unteren Rands
 
 #### HTML
 

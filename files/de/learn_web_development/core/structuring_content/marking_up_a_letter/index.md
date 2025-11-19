@@ -1,18 +1,18 @@
 ---
-title: "Herausforderung: Ein Brief in HTML-Text umwandeln"
-short-title: "Herausforderung: Briefauszeichnung"
+title: "Herausforderung: Ein Brief markieren"
+short-title: "Herausforderung: Briefmarkierung"
 slug: Learn_web_development/Core/Structuring_content/Marking_up_a_letter
 l10n:
-  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
+  sourceCommit: fd6595b667e89cee9f54e7d956a05e1fab175b33
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
 
-Wir lernen alle früher oder später, einen Brief zu schreiben; es ist auch ein nützliches Beispiel, um unsere Fähigkeiten im Textformatieren zu testen. In dieser Herausforderung geben wir Ihnen einen Brief, den Sie als Test für Ihre HTML-Textformatierungsfähigkeiten und Ihr Wissen über den Inhalt des HTML-`<head>`-Elements auszeichnen sollen.
+Wir alle lernen früher oder später, einen Brief zu schreiben; es ist auch ein nützliches Beispiel, um unsere Fähigkeiten in der Textformatierung zu testen. In dieser Herausforderung geben wir Ihnen einen Brief, den Sie zur Prüfung Ihrer HTML-Textformatierungsfähigkeiten und Ihres Wissens über die Inhalte des HTML-`<head>`-Elements markieren sollen.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Taste im Codebeispiel-Panel unten, um den bereitgestellten Text im MDN Playground zu öffnen. Sie folgen den Anweisungen in den folgenden Abschnitten, um den Text entsprechend zu markieren.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche im Codesample-Panel unten, um den bereitgestellten Text im MDN Playground zu öffnen. Sie werden den Anweisungen in den folgenden Abschnitten folgen, um den Text entsprechend zu markieren.
 
 ```html-nolint live-sample___start
 Dr. Eleanor Gaye
@@ -107,34 +107,34 @@ The memoirs of Bill S Preston, Esq.
 
 {{embedlivesample("start", "100%", "200px")}}
 
-## Projektbeschreibung
+## Projektauftrag
 
-Für dieses Projekt besteht Ihre Aufgabe darin, einen Brief auszuzeichnen, der auf einem Universitätsintranet gehostet werden soll. Der Brief ist eine Antwort eines Forschungsstipendiaten an einen angehenden Doktoranden bezüglich ihrer Bewerbung an der Universität.
+Für dieses Projekt besteht Ihre Aufgabe darin, einen Brief zu markieren, der auf einem Universitätsintranet gehostet werden muss. Der Brief ist eine Antwort eines Forschungsmitarbeiters an einen angehenden Doktoranden bezüglich seiner Bewerbung an der Universität.
 
 ### Block-/strukturelle Semantik
 
-- Fügen Sie eine geeignete HTML-Struktur ein, einschließlich Doctype und {{htmlelement("html")}}, {{htmlelement("head")}} und {{htmlelement("body")}}-Elementen.
-- Im Allgemeinen sollte der Brief als eine Organisation von Überschriften und Absätzen ausgezeichnet werden, mit Ausnahme der Adressen, die im nächsten Punkt erwähnt werden. Es gibt eine Hauptüberschrift (die "Re:"-Zeile) und drei Überschriften zweiter Ebene.
-- Setzen Sie die beiden Adressen in {{htmlelement("address")}}-Elemente. Jede Zeile der Adresse sollte in einer neuen Zeile stehen, aber nicht in einem neuen Absatz.
-- Verwenden Sie einen geeigneten Listentyp, um die Semesterstartdaten, Studienfächer und exotischen Tänze auszuzeichnen.
+- Fügen Sie eine geeignete HTML-Struktur einschließlich Doctype sowie {{htmlelement("html")}}, {{htmlelement("head")}} und {{htmlelement("body")}} Elemente hinzu.
+- Im Allgemeinen sollte der Brief als eine Organisation von Überschriften und Absätzen markiert werden, mit Ausnahme der Adressen, die im nächsten Punkt erwähnt werden. Es gibt eine Hauptüberschrift (die „Re:“-Zeile) und drei Unterebenenüberschriften.
+- Setzen Sie die beiden Adressen in {{htmlelement("address")}} Elemente. Jede Zeile der Adresse sollte in einer neuen Zeile stehen, aber nicht in einem neuen Absatz.
+- Verwenden Sie einen geeigneten Listentyp, um die Semesteranfangszeiten, Studienfächer und exotischen Tänze zu markieren.
 
 ### Inline-Semantik
 
-- Die Namen des Absenders und Empfängers (und _Tel_ und _Email_) sollten mit starker Wichtigkeit ausgezeichnet werden.
-- Die vier Daten im Dokument sollten in geeignete Elemente mit maschinenlesbaren Daten eingebunden werden.
-- Die erste Adresse und das erste Datum im Brief sollten ein `class`-Attribut mit dem Wert `sender-column` gesetzt haben. Das später hinzugefügte CSS wird bewirken, dass diese rechtsbündig sind, wie es in einem klassischen Brieflayout sein sollte.
-- Zeichnen Sie die folgenden fünf Akronyme/Abkürzungen im Haupttext des Briefes aus — "PhD," "HTML," "CSS," "BC," und "Esq." —, um Erweiterungen für jedes bereitzustellen.
-- Die sechs Tief-/Hochstellungen sollten angemessen ausgezeichnet werden — in den chemischen Formeln und den Zahlen 103 und 104 (sie sollten 10 hoch 3 und 4 sein).
-- Zeichnen Sie mindestens zwei weitere passende Wörter im Text mit starker Wichtigkeit/Betonung aus.
-- Zeichnen Sie das Universitätsmotto-Zitat und die Quellenangabe mit geeigneten Elementen aus.
+- Die Namen des Absenders und Empfängers (und _Tel_ und _Email_) sollten mit starker Bedeutung markiert werden.
+- Die vier Daten im Dokument sollten in geeignete Elemente eingeschlossen werden, die maschinenlesbare Daten enthalten.
+- Die erste Adresse und das erste Datum im Brief sollten ein `class`-Attribut mit dem Wert `sender-column` haben. Das CSS, das Sie später hinzufügen, wird diese rechtsbündig ausrichten, wie es in einem klassischen Brieflayout der Fall sein sollte.
+- Markieren Sie die folgenden fünf Akronyme/Abkürzungen im Haupttext des Briefes — "PhD," "HTML," "CSS," "BCE," und "Esq." — um jeweils Erweiterungen bereitzustellen.
+- Die sechs Unter-/Hochzahlen sollten dementsprechend markiert werden — in den chemischen Formeln und den Zahlen 103 und 104 (sie sollten 10 hoch 3 bzw. 4 sein).
+- Markieren Sie mindestens zwei weitere geeignete Wörter im Text mit starker Bedeutung/Betonung.
+- Markieren Sie das Universitätsmotto-Zitat und die Zitierung mit geeigneten Elementen.
 
 ### Der Kopf des Dokuments
 
-- Der Zeichensatz des Dokuments sollte mit dem geeigneten `<meta>`-Tag als `utf-8` festgelegt werden.
+- Der Zeichensatz des Dokuments sollte mit dem passenden `<meta>`-Tag als `utf-8` gesetzt werden.
 - Der Autor des Briefes sollte in einem geeigneten `<meta>`-Tag angegeben werden.
 - Sie sollten die Sprache des Dokuments als `en-US` festlegen.
-- Schließen Sie den folgenden Text in ein Dokumenttitel-Element ein: "Awesome science application correspondence".
-- Das folgende CSS sollte in einem geeigneten Element im Kopf enthalten sein:
+- Fügen Sie den folgenden Text innerhalb eines Dokumententitel-Elements ein: "Awesome science application correspondence".
+- Das folgende CSS sollte innerhalb eines geeigneten Elements im Kopf eingefügt werden:
 
   ```css
   body {
@@ -154,14 +154,14 @@ Für dieses Projekt besteht Ihre Aufgabe darin, einen Brief auszuzeichnen, der a
   }
   ```
 
-## Hinweise und Tipps
+## Tipps und Hinweise
 
-- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um Ihr HTML zu validieren. Geben Sie sich Extrapunkte, wenn es validiert.
-- Sie müssen kein CSS wissen, um diese Aufgabe zu erledigen. Sie müssen nur das bereitgestellte CSS in ein HTML-Element einfügen.
+- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um Ihr HTML zu validieren. Belohnen Sie sich selbst mit Bonuspunkten, wenn es validiert wird.
+- Sie müssen kein CSS kennen, um diese Aufgabe zu erledigen. Sie müssen das bereitgestellte CSS nur in ein HTML-Element einfügen.
 
 ## Beispiel
 
-Das folgende Live-Beispiel zeigt, wie der Brief aussehen sollte, nachdem er ausgezeichnet wurde. Wenn Sie Schwierigkeiten haben, wie Sie einige dieser Dinge erreichen können, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Das folgende Live-Beispiel zeigt, wie der Brief nach der Markierung aussehen sollte. Wenn Sie Schwierigkeiten haben, dies zu erreichen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
 
 {{embedlivesample("finish", "100%", "500px")}}
 

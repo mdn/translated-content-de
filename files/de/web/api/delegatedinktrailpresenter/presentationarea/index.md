@@ -3,18 +3,18 @@ title: "DelegatedInkTrailPresenter: presentationArea-Eigenschaft"
 short-title: presentationArea
 slug: Web/API/DelegatedInkTrailPresenter/presentationArea
 l10n:
-  sourceCommit: bcc977bc3e79a87edd64cd9ef977b515f63daa2c
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die **`presentationArea`**-Eigenschaft der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) zurück, innerhalb dessen das Rendern von Tintenzeichen eingeschränkt ist.
+Die schreibgeschützte Eigenschaft **`presentationArea`** der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) zurück, innerhalb dessen die Darstellung von Tintenstrichen eingeschränkt ist.
 
-Wenn der vorherige Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische `presentationArea`-Elementdefinition enthielt, dann wird dieses Element zurückgegeben. Andernfalls wird der Standardwert zurückgegeben, welcher der enthaltene Viewport ist.
+Wenn der vorausgehende Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische `presentationArea`-Elementdefinition beinhaltete, dann wird dieses Element zurückgegeben. Andernfalls wird der Standardwert zurückgegeben, welcher der umgebende Viewport ist.
 
-Dieser Bereich ist immer die Client-Koordinaten der Rahmenbox des Elements, sodass das Bewegen oder Scrollen des Elements keine Neuberechnung seitens der Entwickler erfordert.
+Dieser Bereich entspricht immer den Client-Koordinaten des Randbereichs des Elements. Daher ist keine Neuberechnung durch den Entwickler erforderlich, wenn das Element verschoben oder gescrollt wird.
 
-### Wert
+## Wert
 
 Ein [`Element`](/de/docs/Web/API/Element).
 

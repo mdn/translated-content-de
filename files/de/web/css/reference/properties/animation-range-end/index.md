@@ -2,14 +2,15 @@
 title: animation-range-end
 slug: Web/CSS/Reference/Properties/animation-range-end
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
 ---
 
-Die **`animation-range-end`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um das Ende des Anwendungsbereichs einer Animation entlang ihrer Zeitachse festzulegen, d.h. wo entlang der Zeitachse eine Animation enden wird.
+Die **`animation-range-end`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um das Ende des Animationsbereichs entlang ihrer Zeitleiste festzulegen, d.h. wo entlang der Zeitleiste eine Animation enden wird.
 
-Die Eigenschaften `animation-range-end` und {{cssxref("animation-range-start")}} können auch mithilfe der [`animation-range`](/de/docs/Web/CSS/Reference/Properties/animation-range) Kurzschrift-Eigenschaft festgelegt werden.
+Die Eigenschaften `animation-range-end` und {{cssxref("animation-range-start")}} können auch mit der [`animation-range`](/de/docs/Web/CSS/Reference/Properties/animation-range) Kurznotation gesetzt werden.
 
-> [!NOTE] > `animation-range-end` ist in der {{cssxref("animation")}} Kurzschrift als reiner Rücksetz-Wert enthalten. Das bedeutet, dass das Einschließen von `animation` einen zuvor deklarierten `animation-range-end` Wert auf `normal` zurücksetzt, aber ein spezifischer Wert nicht über `animation` festgelegt werden kann. Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) müssen Sie `animation-range-end` nach der Deklaration eines `animation` Kurzschrift-Werts angeben, damit es wirksam wird.
+> [!NOTE]
+> `animation-range-end` ist in der {{cssxref("animation")}} Kurznotation als ein Wert, der nur als Rücksetzung dient, enthalten. Das bedeutet, dass `animation` eine zuvor deklarierte `animation-range-end` Angabe auf `normal` zurücksetzt, aber ein spezifischer Wert kann nicht über `animation` gesetzt werden. Bei der Erstellung von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) müssen Sie `animation-range-end` nach der Deklaration einer `animation` Kurznotation angeben, damit es wirksam wird.
 
 ## Syntax
 
@@ -28,9 +29,9 @@ animation-range-end: contain 700px;
 
 ### Werte
 
-Zulässige Werte für `animation-range-end` sind `normal`, ein {{cssxref("length-percentage")}}, ein `<timeline-range-name>`, oder ein `<timeline-range-name>` mit einem nachfolgenden `<length-percentage>`. Siehe [`animation-range`](/de/docs/Web/CSS/Reference/Properties/animation-range) für eine detaillierte Beschreibung der verfügbaren Werte.
+Erlaubte Werte für `animation-range-end` sind `normal`, ein {{cssxref("length-percentage")}}, ein `<timeline-range-name>`, oder ein `<timeline-range-name>` mit folgendem `<length-percentage>`. Sehen Sie [`animation-range`](/de/docs/Web/CSS/Reference/Properties/animation-range) für eine detaillierte Beschreibung der verfügbaren Werte.
 
-Sehen Sie sich auch den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an, der genau zeigt, was die verschiedenen Werte in einem leicht verständlichen visuellen Format bedeuten.
+Werfen Sie auch einen Blick auf den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/), der genau zeigt, welche Bedeutung die verschiedenen Werte in einem leicht verständlichen visuellen Format haben.
 
 ## Formale Definition
 
@@ -42,12 +43,12 @@ Sehen Sie sich auch den [View Timeline Ranges Visualizer](https://scroll-driven-
 
 ## Beispiele
 
-### Erstellen einer benannten Sichtfortschritts-Zeitleiste mit Bereichsende
+### Erstellung einer benannten View-Progress-Zeitleiste mit Range-Ende
 
-Eine Sichtfortschritts-Zeitleiste namens `--subject-reveal` wird mit der `view-timeline` Eigenschaft auf einem Element mit der `class` von `animation` definiert.
-Dies wird dann als Zeitleiste für dasselbe Element unter Verwendung von `animation-timeline: --subject-reveal;` festgelegt. Das Ergebnis ist, dass das Element animiert wird, während es durch das Dokument nach oben bewegt wird, während es gescrollt wird.
+Eine View-Progress-Zeitleiste namens `--subject-reveal` wird mit der Eigenschaft `view-timeline` auf einem Subjektelement mit einer `class` von `animation` definiert.
+Dies wird dann als Zeitleiste für dasselbe Element mithilfe von `animation-timeline: --subject-reveal;` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, wenn es sich nach oben durch das Dokument bewegt, während es gescrollt wird.
 
-Eine `animation-range-end` Deklaration wird ebenfalls festgelegt, um die Animation früher als erwartet enden zu lassen.
+Eine `animation-range-end` Deklaration wird ebenfalls gesetzt, um die Animation früher als erwartet enden zu lassen.
 
 #### HTML
 
@@ -90,7 +91,7 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und sein enthaltendes `content`-Element werden minimal gestylt, und der Textinhalt wird mit einigen einfachen Schriftart-Einstellungen versehen:
+Das `subject` Element und sein beinhaltendes `content` Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteneinstellungen:
 
 ```css
 .subject {
@@ -121,9 +122,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline` festgelegt, um eine benannte Sichtfortschritts-Zeitleiste zu definieren. Es erhält auch einen `animation-timeline` Namen mit demselben Wert, um zu erklären, dass dies das Element sein wird, das animiert wird, während die Sichtfortschritts-Zeitleiste fortschreitet. Wir geben ihm auch eine `animation-range-end` Deklaration, um die Animation früher als erwartet beenden zu lassen.
+Dem `<div>` mit der Klasse `subject` wird auch eine Klasse `animation` gegeben — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Zeitleiste zu definieren. Es wird auch ein `animation-timeline` Name mit demselben Wert gegeben, um zu deklarieren, dass dies das Element sein wird, das animiert wird, wenn die View-Progress-Zeitleiste fortschreitet. Wir geben ihm auch eine `animation-range-end` Deklaration, um die Animation früher als erwartet enden zu lassen.
 
-Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Größe animiert, wodurch es beim Hochrollen verblasst und an Größe zunimmt.
+Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Opazität und Skalierung animiert, wodurch es beim Hochscrollen verblasst und größer wird.
 
 ```css
 .animation {
@@ -151,7 +152,7 @@ Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft un
 
 #### Ergebnis
 
-Scrollen Sie, um das animierte Element zu sehen.
+Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 
 {{EmbedLiveSample("Creating a named view progress timeline with range end", "100%", "480px")}}
 

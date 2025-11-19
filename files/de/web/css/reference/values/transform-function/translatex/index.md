@@ -2,10 +2,10 @@
 title: translateX()
 slug: Web/CSS/Reference/Values/transform-function/translateX
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`translateX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) repositioniert ein Element horizontal auf der 2D-Ebene. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translateX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) verlagert ein Element horizontal auf der 2D-Ebene. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translateX()")}}
 
@@ -67,8 +67,8 @@ transform: translateX(50%);
 ### Werte
 
 - `<length-percentage>`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Abszisse (horizontal, x-Komponente) des Übersetzungsvektors [tx, 0] repräsentiert. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates) repräsentiert es die Verschiebung entlang der x-Achse. Ein Prozentwert bezieht sich auf die Breite des durch die
-    {{cssxref("transform-box")}} Eigenschaft definierten Referenzrahmens.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} und repräsentiert die Abszisse (horizontal, x-Komponente) des Translationsvektors [tx, 0]. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/Reference/Values/transform-function#cartesian_coordinates) stellt es die Verschiebung entlang der x-Achse dar. Ein Prozentwert bezieht sich auf die Breite des durch die
+    {{cssxref("transform-box")}} Eigenschaft definierten Referenzbox.
 
 <table class="standard-table">
   <thead>
@@ -83,7 +83,7 @@ transform: translateX(50%);
     <tr>
       <td rowspan="2">
         <p>
-          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer Matrix im kartesischen Koordinatensystem dargestellt werden.
+          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
         </p>
       </td>
       <td>

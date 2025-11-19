@@ -2,12 +2,12 @@
 title: anchor-size()
 slug: Web/CSS/Reference/Values/anchor-size
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`anchor-size()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ermöglicht es, die [Größe](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#sizing_elements_based_on_anchor_size), [Position](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size) und [Ränder](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size) von ankerpositionierten Elementen relativ zu den Abmessungen von Ankerelementen festzulegen. Sie gibt die `<length>` einer bestimmten Seite des Zielankerelements zurück. `anchor-size()` ist nur gültig, wenn es innerhalb des Wertes von ankerpositionierten Elementen für deren [Größen-, Einfüge- und Rand-Eigenschaften](#properties_that_accept_anchor-size_function_values) verwendet wird.
+Die **`anchor-size()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ermöglicht das Festlegen der [Größe](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#sizing_elements_based_on_anchor_size), [Position](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size) und [Ränder](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size) von positionsverankerten Elementen relativ zu den Dimensionen von Ankerelementen. Sie gibt die `<length>` einer angegebenen Seite des Zielankerelements zurück. `anchor-size()` ist nur gültig, wenn es innerhalb des Werts der [Größen-, Einfüge- und Rand-Eigenschaften](#properties_that_accept_anchor-size_function_values) von positionsverankerten Elementen verwendet wird.
 
-Für detaillierte Informationen zu Ankerfunktionen und deren Verwendung, siehe die Modul-Startseite der [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) und den [Anleitung zur Verwendung von CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
+Detaillierte Informationen zu Ankerfunktionen und deren Verwendung finden Sie auf der Modul-Startseite für [CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) und im [Verwenden von CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) Leitfaden.
 
 ## Syntax
 
@@ -45,13 +45,13 @@ anchor-size(<anchor-name> <anchor-size>, <length-percentage>)
 Die Parameter sind:
 
 - `<anchor-name>` {{optional_inline}}
-  - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/Reference/Properties/anchor-name) Eigenschaft eines Ankerelements, zu dem Sie die Größe, Position oder Ränder des Elements relativ setzen möchten. Dies ist ein `<dashed-ident>` Wert. Wenn er weggelassen wird, wird der Standardanker des Elements verwendet.
+  - : Der [`anchor-name`](/de/docs/Web/CSS/Reference/Properties/anchor-name) Eigenschaftenwert eines Ankerelements, zu dem Sie die Größe, Position oder Ränder des Elements relativ festlegen möchten. Dies ist ein `<dashed-ident>` Wert. Wenn weggelassen, wird der Standardanker des Elements verwendet.
 
     > [!NOTE]
-    > Wenn Sie einen `<anchor-name>` in einer `anchor-size()` Funktion angeben, wird weder ein Element mit einem Anker verknüpft noch daran gebunden; es definiert lediglich, zu welchem Anker die Eigenschaftswerte des Elements relativ gesetzt werden sollen.
+    > Die Angabe eines `<anchor-name>` innerhalb einer `anchor-size()` Funktion verknüpft oder verankert kein Element mit einem Anker; es definiert lediglich, an welchem Anker die Eigenschaftswerte des Elements relativ festgelegt werden sollen.
 
 - `<anchor-size>` {{optional_inline}}
-  - : Gibt die Abmessung des Ankerelements an, zu der die Eigenschaftswerte des positionierten Elements relativ gesetzt werden. Gültige Werte sind:
+  - : Gibt die Dimension des Ankerelements an, auf die die Eigenschaftswerte des positionierten Elements relativ festgelegt werden. Gültige Werte sind:
     - `width`
       - : Die Breite des Ankerelements.
 
@@ -59,25 +59,25 @@ Die Parameter sind:
       - : Die Höhe des Ankerelements.
 
     - `block`
-      - : Die Länge des [enthältenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block) des Ankerelements in Blockrichtung.
+      - : Die Länge des Ankerelements im [block direction](/de/docs/Web/CSS/Guides/Display/Containing_block).
 
     - `inline`
-      - : Die Länge des enthältenden Blocks des Ankerelements in Innenlinienrichtung.
+      - : Die Länge des Ankerelements in der Inline-Richtung.
 
     - `self-block`
-      - : Die Länge des Ankerelements in Blockrichtung.
+      - : Die Länge des Ankerelements in der Blockrichtung.
 
     - `self-inline`
-      - : Die Länge des Ankerelements in Innenlinienrichtung.
+      - : Die Länge des Ankerelements in der Inline-Richtung.
 
     > [!NOTE]
-    > Wenn dieser Parameter weggelassen wird, wird die Abmessung standardmäßig auf das `<anchor-size>` Schlüsselwort gesetzt, das zur Achse der Eigenschaft passt, in der die Funktion enthalten ist. Zum Beispiel ist `width: anchor-size();` äquivalent zu `width: anchor-size(width);`.
+    > Wenn dieser Parameter weggelassen wird, wird die Dimension standardmäßig auf den `<anchor-size>` Schlüsselbegriff gesetzt, der mit der Achse der Eigenschaft, in der die Funktion enthalten ist, übereinstimmt. Beispielsweise ist `width: anchor-size();` gleichbedeutend mit `width: anchor-size(width);`.
 
 - {{cssxref("length-percentage")}} {{optional_inline}}
-  - : Gibt die Größe an, die als Rückfallwert verwendet werden soll, wenn das Element nicht absolut oder fix positioniert ist oder das Ankerelement nicht existiert. Wenn dieser Parameter in einem Fall, in dem der Rückfallwert sonst verwendet würde, weggelassen wird, ist die Deklaration ungültig.
+  - : Gibt die Größe an, die als Fallback-Wert verwendet werden soll, wenn das Element nicht absolut oder fest positioniert ist oder das Ankerelement nicht existiert. Wenn dieser Parameter in einem Fall weggelassen wird, in dem der Fallback sonst verwendet würde, ist die Deklaration ungültig.
 
 > [!NOTE]
-> Die Ankerdimension, zu der Sie die Eigenschaftswerte des positionierten Elements relativ setzen, muss nicht entlang derselben Achse wie der gesetzte Größenwert liegen. Zum Beispiel ist `width: anchor-size(height)` gültig.
+> Die Ankerdimension, die Sie für die Eigenschaftswerte des positionierten Elements relativ festlegen, muss nicht entlang derselben Achse sein wie der festgelegte Größenwert. Beispielsweise ist `width: anchor-size(height)` gültig.
 
 ### Rückgabewert
 
@@ -85,31 +85,31 @@ Gibt einen {{cssxref("length")}} Wert zurück.
 
 ## Beschreibung
 
-Die `anchor-size()` Funktion ermöglicht es, die Größen-, Positions- und Randwerte eines positionierten Elements in Bezug auf die Abmessungen eines Ankerelements auszudrücken; sie gibt einen {{cssxref("length")}} Wert zurück, der die Dimension eines bestimmten Ankerelements repräsentiert, zu dem die Eigenschaftswerte des positionierten Elements relativ gesetzt sind. Es ist ein gültiger Wert für [Größen-, Einfüge- und Randeigenschaften](#properties_that_accept_anchor-size_function_values), die auf ankerpositionierten Elementen gesetzt sind.
+Die `anchor-size()` Funktion ermöglicht es, die Größen-, Position- und Randwerte eines positionierten Elements in Bezug auf die Abmessungen eines Ankerelements auszudrücken. Sie gibt einen {{cssxref("length")}} Wert zurück, der die Dimension eines spezifischen Ankerelements darstellt, zu dem die Eigenschaftswerte des positionierten Elements relativ festgelegt werden. Es ist ein gültiger Wert für [Größen-, Einfüge- und Rand-Eigenschaften](#properties_that_accept_anchor-size_function_values) bei positionsverankerten Elementen.
 
-Die zurückgegebene Länge ist die vertikale oder horizontale Größe eines Ankerelements oder seines enthältenden Blocks. Die verwendete Dimension wird durch den `<anchor-size>` Parameter definiert. Wenn dieser Parameter weggelassen wird, entspricht die verwendete Dimension der Achse der aufgesetzten Größen-, Positions- oder Rand-Eigenschaft. So zum Beispiel:
+Die zurückgegebene Länge ist die vertikale oder horizontale Größe eines Ankerelements oder seines umgebenden Blocks. Die verwendete Dimension wird durch den `<anchor-size>` Parameter definiert. Wenn dieser Parameter weggelassen wird, entspricht die verwendete Dimension der Achse der Eigenschaft, auf der sie festgelegt wird. Zum Beispiel:
 
-- `width: anchor-size()` entspricht `width: anchor-size(width)`.
-- `top: anchor-size()` entspricht `top: anchor-size(height)`.
-- `margin-inline-end: anchor-size()` entspricht `margin-inline-end: anchor-size(self-inline)`. `margin-inline-end: anchor-size()` entspricht auch `margin-inline-end: anchor-size(width)` in horizontalen Schreibmodi oder `margin-inline-end: anchor-size(height)` in vertikalen Schreibmodi.
+- `width: anchor-size()` ist gleichbedeutend mit `width: anchor-size(width)`.
+- `top: anchor-size()` ist gleichbedeutend mit `top: anchor-size(height)`.
+- `margin-inline-end: anchor-size()` ist gleichbedeutend mit `margin-inline-end: anchor-size(self-inline)`. `margin-inline-end: anchor-size()` ist auch gleichbedeutend mit `margin-inline-end: anchor-size(width)` in horizontalen Schreibmodi oder `margin-inline-end: anchor-size(height)` in vertikalen Schreibmodi.
 
-Das Ankerelement, das als Grundlage für die Dimensionslänge verwendet wird, ist das Element mit dem in dem `<anchor-name>` Parameter spezifizierten `anchor-name`. Wenn mehr als ein Element denselben Ankernamen hat, wird das letzte Element mit diesem Ankernamen in der DOM-Reihenfolge verwendet.
+Das als Grundlage für die Längenmaßangabe verwendete Ankerelement ist das Element mit dem im Parameter `<anchor-name>` angegebenen `anchor-name`. Wenn mehr als ein Element denselben Ankernamen hat, wird das letzte Element mit diesem Ankernamen in der DOM-Reihenfolge verwendet.
 
-Wenn kein `<anchor-name>` Parameter im Funktionsaufruf enthalten ist, wird der **Standardanker** des Elements verwendet, der in seiner [`position-anchor`](/de/docs/Web/CSS/Reference/Properties/position-anchor) Eigenschaft referenziert oder dem Element über das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) HTML-Attribut zugeordnet ist.
+Wenn in der Funktionsaufruf kein `<anchor-name>` Parameter enthalten ist, wird der **Standardanker** des Elements verwendet, wie in seiner [`position-anchor`](/de/docs/Web/CSS/Reference/Properties/position-anchor) Eigenschaft referenziert oder dem Element über das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) HTML-Attribut zugeordnet.
 
-Wenn ein `<anchor-name>` Parameter enthalten ist und keine Elemente mit diesem Ankernamen übereinstimmen, wird der Rückfallwert verwendet. Wenn kein Rückfallwert enthalten war, wird die Deklaration ignoriert. Wenn zum Beispiel `width: anchor-size(--foo width, 50px); height: anchor-size(--foo width);` auf das positionierte Element angewendet wird, aber kein Anker namens `--foo` im DOM existiert, würde die `width` `50px` betragen und die `height` Deklaration hätte keinen Effekt.
+Wenn ein `<anchor-name>` Parameter enthalten ist und es keine Elemente mit diesem Ankernamen gibt, wird der Fallback-Wert verwendet. Wenn kein Fallback enthalten war, wird die Deklaration ignoriert. Wenn beispielsweise `width: anchor-size(--foo width, 50px); height: anchor-size(--foo width);` auf das positionierte Element angegeben wurde, aber kein Anker namens `--foo` im DOM existiert, wäre die `width` `50px` und die `height` Deklaration hätte keine Wirkung.
 
-Wenn ein Element Größen-, Positions- oder Randeigenschaften mit `anchor-size()` Werten hat, die darauf gesetzt sind, es jedoch kein ankerpositioniertes Element ist (es hat seine {{cssxref("position")}} Eigenschaft nicht auf `absolute` oder `fixed` gesetzt oder hat keinen Anker, der ihm über seine `position-anchor` Eigenschaft zugeordnet ist), wird der Rückfallwert verwendet, wenn einer verfügbar ist. Wenn kein Rückfallwert verfügbar ist, wird die Deklaration ignoriert.
+Wenn ein Element Größen-, Position- oder Randwerte mit `anchor-size()` Werten festgelegt hat, aber kein positionsverankertes Element ist (es hat seine {{cssxref("position")}} Eigenschaft nicht auf `absolute` oder `fixed` gesetzt oder hat keinen Anker über seine `position-anchor` Eigenschaft zugeordnet), wird der Fallback-Wert verwendet, wenn einer verfügbar ist. Wenn kein Fallback verfügbar ist, wird die Deklaration ignoriert.
 
-Wenn zum Beispiel `width: anchor-size(width, 50px);` auf das positionierte Element gesetzt wird, aber kein Anker ihm zugeordnet ist, würde der Rückfallwert verwendet werden, sodass `width` einen berechneten Wert von `50px` erhält.
+Wenn beispielsweise `width: anchor-size(width, 50px);` auf das positionierte Element angegeben wurde, aber kein Anker damit assoziiert war, würde der Fallback-Wert verwendet, sodass `width` einen berechneten Wert von `50px` hätte.
 
-Für detaillierte Informationen zu Ankerfunktionen und deren Verwendung, siehe die Modul-Startseite der [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) und den [Anleitung zur Verwendung von CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
+Detaillierte Informationen zu Ankerfunktionen und deren Verwendung finden Sie auf der Modul-Startseite für [CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) und im [Verwenden von CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) Leitfaden.
 
 ### Eigenschaften, die `anchor-size()` Funktionswerte akzeptieren
 
 Die Eigenschaften, die eine `anchor-size()` Funktion als Wert akzeptieren, umfassen:
 
-- Größeneigenschaften:
+- Größen-Eigenschaften:
   - {{cssxref("width")}}
   - {{cssxref("height")}}
   - {{cssxref("min-width")}}
@@ -122,7 +122,7 @@ Die Eigenschaften, die eine `anchor-size()` Funktion als Wert akzeptieren, umfas
   - {{cssxref("min-inline-size")}}
   - {{cssxref("max-block-size")}}
   - {{cssxref("max-inline-size")}}
-- Einfügeeigenschaften:
+- Einfüge-Eigenschaften:
   - {{cssxref("bottom")}}
   - {{cssxref("left")}}
   - {{cssxref("right")}}
@@ -134,7 +134,7 @@ Die Eigenschaften, die eine `anchor-size()` Funktion als Wert akzeptieren, umfas
   - {{cssxref("inset-inline")}} Kurzform
   - {{cssxref("inset-inline-end")}}
   - {{cssxref("inset-inline-start")}}
-- Randeigenschaften:
+- Rand-Eigenschaften:
   - {{cssxref("margin")}} Kurzform
   - {{cssxref("margin-bottom")}}
   - {{cssxref("margin-left")}}
@@ -149,9 +149,9 @@ Die Eigenschaften, die eine `anchor-size()` Funktion als Wert akzeptieren, umfas
 
 ### Verwendung von `anchor-size()` innerhalb von `calc()`
 
-Die häufigsten `anchor-size()` Funktionen, die Sie verwenden, werden sich einfach auf eine Dimension des Standardankers beziehen. Alternativ können Sie die `anchor-size()` Funktion innerhalb einer {{cssxref("calc")}} Funktion verwenden, um die auf das positionierte Element angewandte Größe zu modifizieren.
+Die häufigsten `anchor-size()` Funktionen, die Sie verwenden werden, beziehen sich einfach auf eine Dimension des Standardankers. Alternativ können Sie die `anchor-size()` Funktion innerhalb einer {{cssxref("calc")}} Funktion einschließen, um die auf das positionierte Element angewendete Größe zu modifizieren.
 
-Zum Beispiel, diese Regel stellt die Breite des positionierten Elements gleich der Breite des Standardankerelements ein:
+Zum Beispiel dimensioniert diese Regel die Breite des positionierten Elements gleich der Breite des Standardankerelements:
 
 ```css
 .positionedElem {
@@ -159,7 +159,7 @@ Zum Beispiel, diese Regel stellt die Breite des positionierten Elements gleich d
 }
 ```
 
-Diese Regel stellt die Innenlänge des positionierten Elements auf das Vierfache der Innenlänge des Ankerelements ein, wobei die Multiplikation innerhalb einer {{cssxref("calc()")}} Funktion durchgeführt wird:
+Diese Regel dimensioniert die Inline-Größe des positionierten Elements auf das Vierfache der Inline-Größe des Ankerelements, wobei die Multiplikation innerhalb einer {{cssxref("calc()")}} Funktion erfolgt:
 
 ```css
 .positionedElem {
@@ -173,13 +173,13 @@ Diese Regel stellt die Innenlänge des positionierten Elements auf das Vierfache
 
 ## Beispiele
 
-### Grundlegende Verwendung von `anchor-size()`
+### Grundlegende `anchor-size()` Verwendung
 
 Dieses Beispiel zeigt zwei Elemente, die relativ zu einem Anker positioniert und mit `anchor-size()` Funktionen dimensioniert werden.
 
 #### HTML
 
-Wir spezifizieren drei {{htmlelement("div")}} Elemente, ein `anchor` Element und die zwei `infobox` Elemente, die wir relativ zum Anker positionieren werden. Wir fügen auch Fülltext hinzu, um den {{htmlelement("body")}} hoch genug zu machen, um Scrollen zu erfordern, jedoch wurde dies der Übersichtlichkeit halber weggelassen.
+Wir spezifizieren drei {{htmlelement("div")}} Elemente, ein `anchor` Element und die zwei `infobox` Elemente, die wir relativ zum Anker positionieren werden. Wir fügen auch Fülltext hinzu, um den {{htmlelement("body")}} hoch genug zu machen, um das Scrollen zu erfordern, aber dies wurde der Kürze halber ausgeblendet.
 
 ```html hidden
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -216,7 +216,7 @@ Wir spezifizieren drei {{htmlelement("div")}} Elemente, ein `anchor` Element und
 
 #### CSS
 
-Wir deklarieren das `anchor` `<div>` als Ankerelement, indem wir ihm einen {{cssxref("anchor-name")}} geben. Die positionierten Elemente, mit ihren {{cssxref("position")}} Eigenschaften auf `fixed` gesetzt, sind über ihre {{cssxref("position-anchor")}} Eigenschaften mit dem Ankerelement verbunden. Wir setzen auch absolute {{cssxref("height")}} und {{cssxref("width")}} Dimensionen auf den Anker, um einen Bezugspunkt beim Überprüfen der Dimensionen des positionierten Elements zu bieten, zum Beispiel mit Entwicklertools des Browsers:
+Wir deklarieren das `anchor` `<div>` als ein Ankerelement, indem wir ihm einen {{cssxref("anchor-name")}} geben. Die positionierten Elemente, deren {{cssxref("position")}} Eigenschaften auf `fixed` gesetzt sind, sind mit dem Ankerelement über ihre {{cssxref("position-anchor")}} Eigenschaften verbunden. Wir setzen auch absolute {{cssxref("height")}} und {{cssxref("width")}} Dimensionen auf das Anker, um einen Referenzpunkt zu bieten, wenn die Dimensionen des positionierten Elements überprüft werden, zum Beispiel mit den Entwicklertools des Browsers:
 
 ```css hidden
 .anchor {
@@ -257,12 +257,12 @@ body {
 }
 ```
 
-Wir setzen einige deutliche Eigenschaftswerte auf die positionierten Elemente:
+Wir setzen einige unterschiedliche Eigenschaftswerte auf die positionierten Elemente:
 
-- Die positionierten Elemente sind mit unterschiedlichen {{cssxref("position-area")}} Werten an den Anker gebunden, die die Elemente an verschiedenen Stellen um das Ankerelement herum positionieren.
-- Die {{cssxref("height")}} der ersten Infobox ist auf dieselbe Höhe wie das Ankerelement eingestellt: `anchor-size(height)` gibt die Höhe des Ankerelements zurück. Die {{cssxref("width")}} des Elements ist auf das Doppelte der Breite des Ankerelements gesetzt, indem die `anchor-size()` Funktion innerhalb einer {{cssxref("calc()")}} Funktion verwendet wird: `anchor-size(width)` ruft die Breite des Ankerelements ab, die dann mit zwei multipliziert wird.
-- Die {{cssxref("height")}} der zweiten Infobox ist auf zwei Drittel der Höhe des Ankerelements eingestellt, mit einer ähnlichen Technik.
-- Randwerte sind enthalten, um etwas Abstand vom Ankerelement einzuhalten.
+- Die positionierten Elemente sind mit dem Anker durch verschiedene {{cssxref("position-area")}} Werte verbunden, die die Elemente an verschiedenen Stellen rund um das Ankerelement positionieren.
+- Die {{cssxref("height")}} der ersten Infobox wird auf die gleiche Höhe wie das Ankerelement gesetzt: `anchor-size(height)` gibt die Höhe des Ankerelements zurück. Die {{cssxref("width")}} des Elements wird auf das Doppelte der Breite des Ankerelements gesetzt, wobei die `anchor-size()` Funktion innerhalb einer {{cssxref("calc()")}} Funktion verwendet wird: `anchor-size(width)` ruft die Breite des Ankerelements ab, die dann mit zwei multipliziert wird.
+- Die {{cssxref("height")}} der zweiten Infobox wird auf zwei Drittel der Höhe des Ankerelements gesetzt, wobei eine ähnliche Technik verwendet wird.
+- Randwerte werden hinzugefügt, um eine gewisse Trennung vom Ankerelement zu schaffen.
 
 ```css
 #infobox1 {
@@ -283,11 +283,11 @@ Wir setzen einige deutliche Eigenschaftswerte auf die positionierten Elemente:
 
 {{EmbedLiveSample("Basic `anchor-size()` usage", "100%", "240")}}
 
-Verwenden Sie Ihre Browser-Tools, um die ankerpositionierten Elemente zu inspizieren. Die erste Infobox ist `100px` hoch und `200px` breit, während die zweite Infobox eine Höhe von ungefähr `66.7px` hat, wobei die `width` auf {{cssxref("max-content")}} standardmäßig gesetzt ist.
+Verwenden Sie Ihre Browser-Tools, um die positionsverankerten Elemente zu inspizieren. Die erste Infobox wird `100px` hoch und `200px` breit sein, während die zweite Infobox eine Höhe von etwa `66,7px` hat, wobei die `width` auf {{cssxref("max-content")}} voreingestellt ist.
 
-### Positions- und Randbeispiel
+### Beispiel für Position und Rand
 
-Siehe [`anchor-size()` Positions- und Randbeispiel](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#anchor-size_position_and_margin_example).
+Siehe [`anchor-size()` Beispiel für Position und Rand](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#anchor-size_position_and_margin_example).
 
 ## Spezifikationen
 
@@ -302,5 +302,5 @@ Siehe [`anchor-size()` Positions- und Randbeispiel](/de/docs/Web/CSS/Guides/Anch
 - {{cssxref("anchor-name")}}
 - {{cssxref("position-anchor")}}
 - {{cssxref("anchor()")}} Funktion
-- [Anleitung zur Verwendung von CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [Verwenden von CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) Leitfaden
+- [CSS-Verankerungspositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul

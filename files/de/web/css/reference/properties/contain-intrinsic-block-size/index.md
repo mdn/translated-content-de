@@ -2,12 +2,12 @@
 title: contain-intrinsic-block-size
 slug: Web/CSS/Reference/Properties/contain-intrinsic-block-size
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
 ---
 
-Die **`contain-intrinsic-block-size`** [CSS](/de/docs/Web/CSS) [logische Eigenschaft](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert die Blockgröße eines Elements, die ein Browser für das Layout verwenden kann, wenn das Element einer [Größenbegrenzung](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) unterliegt.
+Die **`contain-intrinsic-block-size`** [CSS](/de/docs/Web/CSS) [logische Eigenschaft](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert die Blockgröße eines Elements, die ein Browser für das Layout verwenden kann, wenn das Element einer [Größenbeschränkung](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) unterliegt.
 
-Die Blockgröße ist die Größe eines Elements in der Dimension, die senkrecht zum Textfluss innerhalb einer Zeile steht. In einem horizontalen [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode) wie in der Standardsprache Englisch ist die Blockgröße die vertikale Dimension (Höhe); in einem vertikalen Schreibmodus ist die Blockgröße die horizontale Dimension.
+Blockgröße ist die Größe eines Elements in der Dimension, die senkrecht zum Textfluss innerhalb einer Zeile steht. In einem horizontalen [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode) wie dem standardmäßigen Englischen ist die Blockgröße die vertikale Dimension (Höhe); in einem vertikalen Schreibmodus ist die Blockgröße die horizontale Dimension.
 
 ## Syntax
 
@@ -39,21 +39,21 @@ Die folgenden Werte können für die intrinsische Blockgröße eines Elements an
 - `<length>`
   - : Das Element hat die angegebene Blockgröße, ausgedrückt mit dem Datentyp ({{cssxref("&lt;length&gt;")}}).
 - `auto <length>`
-  - : Wenn das Element in der Größenbegrenzung ist und seine Inhalte überspringt (zum Beispiel, wenn es außerhalb des Bildschirms ist und `content-visibility: auto` eingestellt ist), wird die Blockgröße aus der tatsächlichen Größe des Elements abgeleitet, als es zuletzt in der Lage war, seine Kindelemente zu rendern.
-    Wenn das Element seine Kindelemente niemals gerendert hat und daher keinen gespeicherten Wert für die normalerweise gerenderte Elementgröße hat, oder wenn es seine Inhalte nicht überspringt, ist die Blockgröße der angegebene `<length>`.
+  - : Wenn sich das Element in einer Größenbeschränkung befindet und seine Inhalte übersprungen werden (z. B. wenn es außerhalb des Bildschirms ist und `content-visibility: auto` gesetzt ist), wird die Blockgröße aus der tatsächlichen Größe des Elements gespeichert, als es zuletzt in der Lage war, seine Kindelemente zu rendern.
+    Wenn das Element seine Kindelemente nie gerendert hat und daher keinen gespeicherten Wert für die normalerweise gerenderte Elementgröße hat oder wenn es seine Inhalte nicht überspringt, ist die Blockgröße der angegebene `<length>`.
 
 ## Beschreibung
 
-Die Eigenschaft wird häufig neben Elementen angewendet, die eine Größenbegrenzung auslösen können, wie zum Beispiel [`contain: size`](/de/docs/Web/CSS/Reference/Properties/contain) und [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility).
+Die Eigenschaft wird häufig zusammen mit Elementen verwendet, die eine Größenbeschränkung auslösen können, wie z. B. [`contain: size`](/de/docs/Web/CSS/Reference/Properties/contain) und [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility).
 
-Größenbegrenzung erlaubt es einem Benutzeragenten, ein Element so zu layouten, als ob es eine feste Größe hätte.
-Dies verhindert unnötige Neuzuweisungen von Layouts, indem die Neudarstellung von Kindelementen vermieden wird, um die tatsächliche Größe zu bestimmen (dadurch wird die Benutzererfahrung verbessert).
-Standardmäßig behandelt die Größenbegrenzung Elemente so, als ob sie keine Inhalte hätten und das Layout in gleicher Weise wie bei Inhalten ohne Breite oder Höhe kollabieren könnte.
-Die Eigenschaft `contain-intrinsic-block-size` erlaubt es Autoren, einen angemessenen Wert anzugeben, der als Blockgröße für das Layout verwendet werden soll.
+Größenbeschränkung ermöglicht es einem Benutzeragenten, ein Element so zu layouten, als hätte es eine feste Größe.
+Dadurch werden unnötige Neulayouts vermieden, indem das erneute Rendern von Kindelementen zur Bestimmung der tatsächlichen Größe vermieden wird (was die Benutzererfahrung verbessert).
+Standardmäßig behandelt die Größenbeschränkung Elemente so, als hätten sie keine Inhalte, und kann das Layout so zusammenfallen lassen, als hätten die Inhalte keine Breite oder Höhe.
+Die Eigenschaft `contain-intrinsic-block-size` ermöglicht es Autoren, einen geeigneten Wert anzugeben, der als Blockgröße für das Layout verwendet wird.
 
-Der Wert `auto <length>` erlaubt es, die Blockgröße eines Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kindelementen) und dann anstelle des angegebenen Wertes verwendet wird, wenn das Element keine Inhalte hat.
-Dies ermöglicht es, dass außerhalb des Bildschirms liegende Elemente mit [`content-visibility: auto`](/de/docs/Web/CSS/Reference/Properties/content-visibility) von der Größenbegrenzung profitieren, ohne dass Entwickler ihre Schätzungen der Elementgröße genau festlegen müssen.
-Der gespeicherte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden; wenn die Größenbegrenzung aktiviert ist, wird der `<length>`-Wert verwendet.
+Der Wert `auto <length>` ermöglicht es, die Blockgröße eines Elements zu speichern, wenn das Element jemals "normal gerendert" wird (mit seinen Kindelementen) und dann anstelle des angegebenen Wertes verwendet wird, wenn das Element keine Inhalte hat.
+Dies ermöglicht es, dass außerhalb des Bildschirms befindliche Elemente mit [`content-visibility: auto`](/de/docs/Web/CSS/Reference/Properties/content-visibility) von der Größenbeschränkung profitieren, ohne dass Entwickler ihre Schätzungen der Elementgröße genau angeben müssen.
+Der gespeicherte Wert wird nicht verwendet, wenn die Kindelemente gerendert werden; wenn die Größenbeschränkung aktiviert ist, wird der `<length>`-Wert verwendet.
 
 ## Formale Definition
 
@@ -67,7 +67,7 @@ Der gespeicherte Wert wird nicht verwendet, wenn die Kindelemente gerendert werd
 
 ### Festlegen der intrinsischen Blockgröße
 
-Das untenstehende HTML definiert ein Element "contained_element", das einer Größenbegrenzung unterliegen wird und ein Kindelement enthält.
+Der folgende HTML-Code definiert ein Element "contained_element", das einer Größenbeschränkung unterliegt und ein Kindelement enthält.
 
 ```html
 <div id="contained_element">
@@ -75,8 +75,8 @@ Das untenstehende HTML definiert ein Element "contained_element", das einer Grö
 </div>
 ```
 
-Das nachstehende CSS setzt die [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility) von `contained_element` auf `auto`, so dass, wenn das Element versteckt ist, es einer Größenbegrenzung unterliegt.
-Die intrinsische Blockgröße und die Inline-Größe, die verwendet werden, wenn es Größen eingeschränkt ist, werden gleichzeitig mithilfe von `contain-intrinsic-block-size` und `contain-intrinsic-inline-size` festgelegt.
+Das folgende CSS setzt die [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility) von `contained_element` auf `auto`, sodass das Element bei Verdeckung größenbeschränkt wird.
+Die intrinsische Blockgröße und die Inline-Größe, die verwendet werden, wenn es größenbeschränkt ist, werden gleichzeitig mit `contain-intrinsic-block-size` und `contain-intrinsic-inline-size` festgelegt.
 
 ```css
 #contained_element {

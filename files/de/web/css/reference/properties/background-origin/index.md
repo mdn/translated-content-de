@@ -2,10 +2,12 @@
 title: background-origin
 slug: Web/CSS/Reference/Properties/background-origin
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrundes fest: vom Anfang des Rands, innerhalb des Rands oder innerhalb des Abstands.
+Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: von Beginn des Rahmens, innerhalb des Rahmens oder innerhalb des Abstandes.
+
+Beachten Sie, dass `background-origin` ignoriert wird, wenn {{cssxref("background-attachment")}} auf `fixed` gesetzt ist.
 
 {{InteractiveExample("CSS Demo: background-origin")}}
 
@@ -42,8 +44,6 @@ background-repeat: no-repeat;
 }
 ```
 
-Beachten Sie, dass `background-origin` ignoriert wird, wenn {{cssxref("background-attachment")}} auf `fixed` gesetzt ist.
-
 ## Syntax
 
 ```css
@@ -65,7 +65,7 @@ Die `background-origin` Eigenschaft wird als eines der unten aufgeführten Schl�
 ### Werte
 
 - `border-box`
-  - : Der Hintergrund wird relativ zur Randbox positioniert.
+  - : Der Hintergrund wird relativ zur Rahmenbox positioniert.
 - `padding-box`
   - : Der Hintergrund wird relativ zur Abstandsbox positioniert. Standardwert.
 - `content-box`
@@ -81,7 +81,7 @@ Die `background-origin` Eigenschaft wird als eines der unten aufgeführten Schl�
 
 ## Beispiele
 
-### Hintergrundursprünge festlegen
+### Setzen von Hintergrundursprüngen
 
 ```css
 .example {
@@ -114,9 +114,9 @@ div {
 }
 ```
 
-### Verwendung von zwei Verläufen
+### Verwenden von zwei Verläufen
 
-In diesem Beispiel hat die Box einen dicken, gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin` und der Hintergrund sitzt daher innerhalb des Randes. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat die Box eine dicke gepunktete Grenze. Der erste Verlauf verwendet die `padding-box` als `background-origin` und der Hintergrund sitzt daher innerhalb des Rahmens. Der zweite verwendet die `content-box` und wird daher nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {

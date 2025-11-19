@@ -2,10 +2,10 @@
 title: scale3d()
 slug: Web/CSS/Reference/Values/transform-function/scale3d
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element im 3D-Raum skaliert. Da der Umfang der Skalierung durch einen Vektor [sx, sy, sz] definiert ist, können verschiedene Dimensionen in unterschiedlichen Maßstäben skaliert werden. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element im dreidimensionalen Raum skaliert. Da das Maß der Skalierung durch einen Vektor [sx, sy, sz] definiert ist, können unterschiedliche Dimensionen in unterschiedlichen Maßstäben skaliert werden. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scale3d()")}}
 
@@ -95,9 +95,9 @@ transform: scale3d(-1.4, 0.4, 0.7);
 }
 ```
 
-Diese Skalierungstransformation ist durch einen dreidimensionalen Vektor charakterisiert. Dessen Koordinaten definieren, wie viel Skalierung in jeder Richtung stattfindet. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotropisch_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements wird beibehalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalierungstransformation ist durch einen dreidimensionalen Vektor charakterisiert. Dessen Koordinaten definieren, wie stark die Skalierung in jeder Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung einheitlich (_isotrop_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
-Befindet sich ein Koordinatenwert außerhalb des Bereichs \[-1, 1], wächst das Element in dieser Dimension; innerhalb schrumpft es. Wenn er negativ ist, resultiert in dieser Dimension eine [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection). Ein Wert von 1 hat keinen Effekt.
+Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element in dieser Dimension; liegt er innerhalb, schrumpft es. Ist der Wert negativ, führt dies zu einer [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keinen Effekt.
 
 ## Syntax
 
@@ -108,11 +108,11 @@ scale3d(sx, sy, sz)
 ### Werte
 
 - `sx`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die Abszisse (horizontal, x-Komponente) des Skalierungsvektors repräsentiert.
 - `sy`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die Ordinate (vertikal, y-Komponente) des Skalierungsvektors repräsentiert.
 - `sz`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der die z-Komponente des Skalierungsvektors darstellt.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die z-Komponente des Skalierungsvektors repräsentiert.
 
 <table class="standard-table">
   <thead>
@@ -126,7 +126,7 @@ scale3d(sx, sy, sz)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -148,7 +148,7 @@ scale3d(sx, sy, sz)
 
 ## Beispiele
 
-### Ohne Änderung des Ursprungs
+### Ohne das Ursprungsobjekt zu verändern
 
 #### HTML
 
@@ -176,7 +176,7 @@ div {
 
 {{EmbedLiveSample("Without_changing_the_origin","200","200")}}
 
-### Übersetzen des Ursprungs der Transformation
+### Den Ursprung der Transformation verschieben
 
 #### HTML
 

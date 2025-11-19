@@ -2,10 +2,10 @@
 title: list-style-image
 slug: Web/CSS/Reference/Properties/list-style-image
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 7b291dab974ec1ceb97c83f45ce76c3afada2e63
 ---
 
-Die **`list-style-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt ein Bild fest, das als Listenmarker verwendet wird.
+Die **`list-style-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt ein Bild fest, das als Markierungselement für Listeneinträge verwendet wird.
 
 Es ist oft bequemer, die Kurzform {{ cssxref("list-style") }} zu verwenden.
 
@@ -71,7 +71,7 @@ hr {
 ```
 
 > [!NOTE]
-> Diese Eigenschaft wird auf Listenelemente angewendet, d.h. Elemente mit `{{cssxref("display")}}: list-item;`. [Standardmäßig](https://html.spec.whatwg.org/multipage/rendering.html#lists) umfasst dies {{HTMLElement("li")}} Elemente. Da diese Eigenschaft vererbt wird, kann sie am übergeordneten Element (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um für alle Listenelemente zu gelten.
+> Diese Eigenschaft wird auf Listeneinträge angewendet, d.h. Elemente mit `{{cssxref("display")}}: list-item;` [standardmäßig](https://html.spec.whatwg.org/multipage/rendering.html#lists) sind dies {{HTMLElement("li")}} Elemente. Da diese Eigenschaft vererbt wird, kann sie auf das übergeordnete Element (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) festgelegt werden, um sie auf alle Listeneinträge anzuwenden.
 
 ## Syntax
 
@@ -96,9 +96,9 @@ list-style-image: unset;
 ### Werte
 
 - {{cssxref("&lt;image&gt;")}}
-  - : Ein gültiges Bild, das als Marker verwendet wird.
+  - : Ein gültiges Bild, das als Markierung verwendet wird.
 - `none`
-  - : Gibt an, dass kein Bild als Marker verwendet wird. Wenn dieser Wert gesetzt ist, wird stattdessen der in {{ Cssxref("list-style-type") }} definierte Marker verwendet. Dies ist der Standardwert für {{cssxref("list-style")}}.
+  - : Gibt an, dass kein Bild als Markierung verwendet wird. Wenn dieser Wert gesetzt ist, wird stattdessen die Markierung verwendet, die in {{ Cssxref("list-style-type") }} definiert ist. Dies ist der Standardwert für {{cssxref("list-style")}}.
 
 ## Formale Definition
 
@@ -110,9 +110,9 @@ list-style-image: unset;
 
 ## Beispiele
 
-### Verwendung eines url-Werts
+### Verwendung eines url-Wertes
 
-In diesem Beispiel ist ein Stern als Marker vorhanden, den wir mit der {{cssxref("url_value", "&lt;url&gt;")}} Bildfunktion einfügen.
+Dieses Beispiel hat einen Stern als Markierung, den wir mithilfe der Bildfunktion {{cssxref("url_value", "&lt;url&gt;")}} einbinden.
 
 #### HTML
 
@@ -135,9 +135,9 @@ ul {
 
 {{ EmbedLiveSample('Using_a_url_value') }}
 
-### Verwendung eines Farbverlaufs
+### Verwendung eines Gradienten
 
-In diesem Beispiel wird ein [CSS-Farbverlauf](/de/docs/Web/CSS/Guides/Images/Using_gradients) als Marker verwendet, den wir mit der {{cssxref("gradient/linear-gradient", "linear-gradient()")}} Bildfunktion erstellen.
+Dieses Beispiel hat einen [CSS-Gradienten](/de/docs/Web/CSS/Guides/Images/Using_gradients) als Markierung, den wir mit der Bildfunktion {{cssxref("gradient/linear-gradient", "linear-gradient()")}} erstellen.
 
 #### HTML
 
@@ -174,6 +174,6 @@ ul {
 - {{Cssxref("list-style")}} Kurzform
 - {{Cssxref("list-style-type")}} Eigenschaft
 - {{Cssxref("list-style-position")}} Eigenschaft
-- {{cssxref("::marker")}} Pseudoelement
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- {{cssxref("::marker")}} Pseudo-Element
+- [CSS-Listen und -Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
 - [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul

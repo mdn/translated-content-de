@@ -1,17 +1,16 @@
 ---
-title: "CanvasRenderingContext2D: restore()-Methode"
+title: "CanvasRenderingContext2D: restore() Methode"
 short-title: restore()
 slug: Web/API/CanvasRenderingContext2D/restore
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.restore()`**-Methode der Canvas 2D API stellt den zuletzt gespeicherten Canvas-Zustand wieder her, indem der oberste Eintrag im Zeichnungszustands-Stack entfernt wird. Wenn kein gespeicherter Zustand vorhanden ist, macht diese Methode nichts.
+Die **`CanvasRenderingContext2D.restore()`** Methode der Canvas 2D API stellt den zuletzt gespeicherten Canvas-Zustand wieder her, indem der oberste Eintrag im Zeichenstatus-Stack entfernt wird. Wenn kein gespeicherter Zustand vorhanden ist, tut diese Methode nichts.
 
-Für weitere Informationen über den [Zeichnungszustand](/de/docs/Web/API/CanvasRenderingContext2D/save#the_drawing_state) lesen Sie [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save).
+Weitere Informationen zum [Zeichenstatus](/de/docs/Web/API/CanvasRenderingContext2D/save#description) finden Sie unter [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save).
 
 ## Syntax
 
@@ -25,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Wiederherstellen eines gespeicherten Zustandes
+### Wiederherstellen eines gespeicherten Zustands
 
-Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern, und `restore()`, um ihn später wiederherzustellen, so dass Sie in der Lage sind, ein Rechteck mit dem aktuellen Zustand später zu zeichnen.
+In diesem Beispiel wird die `save()` Methode verwendet, um den aktuellen Zustand zu speichern und `restore()`, um ihn später wiederherzustellen, sodass Sie später mit dem aktuellen Zustand ein Rechteck zeichnen können.
 
 #### HTML
 
@@ -71,5 +70,5 @@ ctx.fillRect(150, 40, 100, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save)

@@ -2,10 +2,10 @@
 title: mask-border-outset
 slug: Web/CSS/Reference/Properties/mask-border-outset
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 7b291dab974ec1ceb97c83f45ce76c3afada2e63
 ---
 
-Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand fest, um den der [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements von seiner Rahmenbox eingerückt wird.
+Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Distanz an, um die der [mask border](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements von seinem border box abgesetzt ist.
 
 ## Syntax
 
@@ -33,19 +33,19 @@ mask-border-outset: revert-layer;
 mask-border-outset: unset;
 ```
 
-Die `mask-border-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
+Die Eigenschaft `mask-border-outset` kann mit ein, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind unzulässig.
 
-- Wenn **ein** Wert angegeben wird, gilt der gleiche Abstand für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben werden, gilt der erste Abstand für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Abstände in der Reihenfolge **oben**, **rechts**, **unten** und **links** (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben ist, gilt der gleiche Abstand für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben sind, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben sind, gilt der erste Abstand für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben sind, gelten die Abstände für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Maskenrandabstands als Dimension.
+  - : Die Größe des mask border Outsets als Dimension.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Größe des Maskenrandabstands als Vielfaches der entsprechenden {{cssxref("border-width")}}.
+  - : Die Größe des mask border Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}}.
 
 ## Formale Definition
 
@@ -59,20 +59,20 @@ Die `mask-border-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte an
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit noch nicht unterstützt zu werden. Sobald sie unterstützt wird, kann sie dazu dienen, die Maske vom inneren Rand der Rahmenbox des Elements weg zu bewegen. Sie können diese Eigenschaft verwenden, um die Maske von einem Teil des Rahmens aus starten zu lassen, anstatt von der Innenseite.
+Diese Eigenschaft scheint derzeit nirgendwo unterstützt zu werden. Sobald sie unterstützt wird, wird sie dazu dienen, die Maske von der inneren Kante des border box des Elements zu entfernen — Sie können sie verwenden, um die Maske teilweise entlang des Rands beginnen zu lassen, anstatt an der Innenseite.
 
 ```css
 mask-border-outset: 1rem;
 ```
 
-Browser auf Chromium-Basis unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-outset` — mit einem Präfix:
+Auf Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-outset` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-outset: 1rem;
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, in Chromium unterstützten border mask-Eigenschaften mit Präfix), damit Sie eine Vorstellung von der Wirkung bekommen können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten prefixed border mask Eigenschaften in Chromium), damit Sie eine Vorstellung von der Wirkung bekommen.
 
 ## Spezifikationen
 

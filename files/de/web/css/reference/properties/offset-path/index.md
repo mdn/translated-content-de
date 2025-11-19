@@ -2,12 +2,12 @@
 title: offset-path
 slug: Web/CSS/Reference/Properties/offset-path
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: f28f4c26a3d95e41d01a505af3388881abd6e49c
 ---
 
-Die **`offset-path`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Pfad fest, dem ein Element folgen soll, und bestimmt die Positionierung des Elements innerhalb des Pfad-Elterncontainers oder des SVG-Koordinatensystems. Der Pfad ist eine Linie, eine Kurve oder eine geometrische Form, entlang der das Element positioniert wird oder sich bewegt.
+Die **`offset-path`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) legt einen Pfad fest, dem ein Element folgen soll, und bestimmt die Positionierung des Elements innerhalb des übergeordneten Containers des Pfades oder innerhalb des SVG-Koordinatensystems. Der Pfad ist eine Linie, eine Kurve oder eine geometrische Form, entlang derer das Element positioniert oder bewegt wird.
 
-Die Eigenschaft `offset-path` wird in Kombination mit den Eigenschaften {{cssxref("offset-distance")}}, {{cssxref("offset-rotate")}} und {{cssxref("offset-anchor")}} verwendet, um die Position und Orientierung des Elements entlang eines Pfades zu steuern.
+Die `offset-path`-Eigenschaft wird in Kombination mit den Eigenschaften {{cssxref("offset-distance")}}, {{cssxref("offset-rotate")}} und {{cssxref("offset-anchor")}} verwendet, um die Position und Orientierung des Elements entlang eines Pfades zu steuern.
 
 {{InteractiveExample("CSS Demo: offset-path")}}
 
@@ -117,30 +117,30 @@ offset-path: unset;
 
 ### Werte
 
-Die `offset-path`-Eigenschaft nimmt als Wert einen `<offset-path>` Wert, einen [`<coord-box>`](/de/docs/Web/CSS/Reference/Values/box-edge#values) Wert oder beides, oder das Schlüsselwort `none` an. Der `<offset-path>` Wert ist eine {{cssxref("ray","ray()")}} Funktion, ein {{cssxref("url_value", "&lt;url&gt;")}} Wert oder ein [`<basic-shape>`](/de/docs/Web/CSS/Reference/Values/basic-shape) Wert.
+Die `offset-path`-Eigenschaft nimmt als Wert einen `<offset-path>`-Wert, einen [`<coord-box>`](/de/docs/Web/CSS/Reference/Values/box-edge#values)-Wert oder beides oder das Schlüsselwort `none` an. Der `<offset-path>`-Wert ist eine {{cssxref("ray","ray()")}}-Funktion, ein {{cssxref("url_value", "&lt;url&gt;")}}-Wert oder ein [`<basic-shape>`](/de/docs/Web/CSS/Reference/Values/basic-shape)-Wert.
 
 - `none`
-  - : Gibt an, dass das Element keinem Offset-Pfad folgt. Der `none` Wert entspricht dem Fall, dass das Element keine [Offset-Transformation](/de/docs/Web/CSS/Reference/Properties/offset) hat. Die Bewegung des Elements wird in diesem Fall durch seine Standardpositions-Eigenschaften, wie {{cssxref("top")}} und {{cssxref("left")}}, statt durch einen Offset-Pfad bestimmt. Dies ist der Standardwert.
+  - : Gibt an, dass das Element keinem Offset-Pfad folgt. Der `none`-Wert entspricht dem Element, das keine [Offset-Transformation](/de/docs/Web/CSS/Reference/Properties/offset) hat. Die Bewegung des Elements wird in diesem Fall durch seine Standardpositions-Eigenschaften wie {{cssxref("top")}} und {{cssxref("left")}} bestimmt, anstatt durch einen Offset-Pfad. Dies ist der Standardwert.
 
 - `<offset-path>`
-  - : Eine `ray()` Funktion, ein `<url>` Wert oder ein `<basic-shape>` Wert, der den geometrischen Offset-Pfad angibt. Falls nicht angegeben, ist die Pfadform des `<coord-box>` Werts `inset(0 round X)`, wobei `X` der Wert von {{cssxref("border-radius")}} des Elements ist, das den [Enthaltenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) festlegt.
+  - : Eine `ray()`-Funktion, ein `<url>`-Wert oder ein `<basic-shape>`-Wert, der den geometrischen Offset-Pfad angibt. Wird weggelassen, ist die Pfadform für den `<coord-box>`-Wert `inset(0 round X)`, wobei `X` der Wert von {{cssxref("border-radius")}} des Elements ist, das den [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) festlegt.
     - {{cssxref("ray","ray()")}}
-      - : Definiert eine Linie, die von einer festgelegten Position aus startet, eine festgelegte Länge hat und in einem bestimmten Winkel verläuft. Die Funktion `ray()` akzeptiert bis zu vier Parameter – einen {{CSSxRef("angle")}}, einen optionalen Größenwert, das optionale Schlüsselwort `contain` und einen optionalen `at <position>`.
+      - : Definiert eine Linie, die an einer bestimmten Position beginnt, eine bestimmte Länge hat und sich im angegebenen Winkel erstreckt. Die `ray()`-Funktion akzeptiert bis zu vier Parameter – einen {{CSSxRef("angle")}}, einen optionalen Größenwert, das optionale Schlüsselwort `contain` und eine optionale `at <position>`.
 
     - {{cssxref("url_value", "&lt;url&gt;")}}
-      - : Gibt die ID eines [SVG-Formelements](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes) an. Der Pfad ist die Form des SVG-{{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}} oder {{SVGElement("rect")}} Elements, auf das mit seiner `id` in der `url()` Funktion verwiesen wird. Wenn die URL kein Formelement referenziert oder ungültig ist, wird der aufgelöste Wert für den Offset-Pfad `path("M0,0")` (was ein gültiger `<basic-shape>` Wert ist).
+      - : Gibt die ID eines [SVG-Formelementes](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes) an. Der Pfad ist die Form des SVG-{{SVGElement("circle")}}, {{SVGElement("ellipse")}}, {{SVGElement("line")}}, {{SVGElement("path")}}, {{SVGElement("polygon")}}, {{SVGElement("polyline")}} oder {{SVGElement("rect")}}-Elementes, das durch seine `id` in der `url()`-Funktion referenziert wird. Wenn die URL kein Formelement referenziert oder anderweitig ungültig ist, ist der aufgelöste Wert für den Offset-Pfad `path("M0,0")` (was ein gültiger `<basic-shape>`-Wert ist).
 
     - {{cssxref("basic-shape")}}
-      - : Gibt den Offset-Pfad als den äquivalenten Pfad einer [CSS-Basisform-Funktion](/de/docs/Web/CSS/Reference/Values/basic-shape) an, wie z. B. {{cssxref("basic-shape/circle","circle()")}}, {{cssxref("basic-shape/ellipse","ellipse()")}}, {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/path","path()")}}, {{cssxref("basic-shape/polygon","polygon()")}}, {{cssxref("basic-shape/rect","rect()")}}, oder {{cssxref("basic-shape/xywh","xywh()")}}. Zum Beispiel, wenn die `<basic_shape>` eine `ellipse()` Funktion ist, dann ist der Pfad die Kontur der Ellipse, beginnend am rechten Punkt der Ellipse, im Uhrzeigersinn durch eine vollständige Drehung. Bei `ellipse()` und `circle()`, die den `at <position>` Parameter akzeptieren, gilt, wenn die `<position>` weggelassen wird, dass die Position standardmäßig auf `center` gesetzt ist, es sei denn, das Element hat einen {{cssxref("offset-position")}} angegeben. In diesem Fall wird der `offset-position` Wert als `at <position>` Parameter verwendet. Komplexere Formen können mit der {{cssxref("basic-shape/shape","shape()")}} Funktion definiert werden.
+      - : Bestimmt den Offset-Pfad als den äquivalenten Pfad einer [CSS-Basisform-Funktion](/de/docs/Web/CSS/Reference/Values/basic-shape), wie {{cssxref("basic-shape/circle","circle()")}}, {{cssxref("basic-shape/ellipse","ellipse()")}}, {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/path","path()")}}, {{cssxref("basic-shape/polygon","polygon()")}}, {{cssxref("basic-shape/rect","rect()")}}, oder {{cssxref("basic-shape/xywh","xywh()")}}. Zum Beispiel, wenn die `<basic_shape>` eine `ellipse()`-Funktion ist, dann ist der Pfad die Umrandung der Ellipse, beginnend am rechten Punkt der Ellipse, im Uhrzeigersinn durch eine vollständige Rotation. Für `ellipse()` und `circle()`, die den `at <position>`-Parameter akzeptieren, falls die `<position>` weggelassen wird, wird die Position standardmäßig auf `center` gesetzt, es sei denn, das Element hat eine spezifizierte {{cssxref("offset-position")}}. In diesem Fall wird der Wert von `offset-position` für den `at <position>`-Parameter verwendet. Komplexere Formen können mit der {{cssxref("basic-shape/shape","shape()")}}-Funktion definiert werden.
 
 - [`<coord-box>`](/de/docs/Web/CSS/Reference/Values/box-edge#values)
-  - : Gibt die Größeninformationen des [Referenzrechts](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) an, das den Pfad enthält. Das Referenzrechteck leitet sich von dem Element ab, das den Enthaltenden Block für dieses Element festlegt. Dieser Parameter ist optional. Wenn nicht angegeben, ist der Standardwert in CSS-Kontexten `border-box`. In SVG-Kontexten wird der Wert als `view-box` behandelt. Wenn `ray()` oder `<basic-shape>` verwendet wird, um den Offset-Pfad zu definieren, stellt der `<coord-box>` Wert das Referenzrechteck für den Strahl oder die `<basic-shape>` dar. Wenn `<url>` verwendet wird, um den Offset-Pfad zu definieren, stellt der `<coord-box>` Wert das Ansichtsfenster und das Benutzerkoordinatensystem für das Formelement bereit, wobei der Ursprung (`0 0`) in der oberen linken Ecke liegt und die Größe `1px` beträgt.
+  - : Gibt die Größeninformationen der [Referenzbox](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box) an, die den Pfad enthält. Die Referenzbox wird von dem Element abgeleitet, das den enthältenden Block für dieses Element festlegt. Dieser Parameter ist optional. Wenn nicht angegeben, ist der Standardwert `border-box` in CSS-Kontexten. In SVG-Kontexten wird der Wert als `view-box` behandelt. Wenn `ray()` oder `<basic-shape>` zur Definition des Offset-Pfades verwendet wird, liefert der `<coord-box>`-Wert die Referenzbox für den Strahl oder die `<basic-shape>`. Wenn `<url>` zur Definition des Offset-Pfades verwendet wird, liefert der `<coord-box>`-Wert den Ansichtsbereich und das Benutzersystem für das Formelement, wobei der Ursprung (`0 0`) in der oberen linken Ecke liegt und die Größe `1px` beträgt.
 
 ## Beschreibung
 
-Die `offset-path`-Eigenschaft definiert einen Pfad, dem ein animiertes Element folgen kann. Ein Offset-Pfad ist entweder ein spezifizierter Pfad mit einem oder mehreren Teilpfaden oder die Geometrie einer nicht-stilierten Basisform. Die genaue Position des Elements auf dem Offset-Pfad wird durch die Eigenschaft {{cssxref("offset-distance")}} bestimmt. Jede Form oder jeder Pfad muss eine Ausgangsposition für den berechneten Wert von `0` für {{cssxref("offset-distance")}} festlegen und eine Anfangsrichtung, die die Rotation des Objekts zur Ausgangsposition angibt.
+Die `offset-path`-Eigenschaft definiert einen Pfad, dem ein animiertes Element folgen kann. Ein Offset-Pfad ist entweder ein spezifizierter Pfad mit einem oder mehreren Teilpfaden oder die Geometrie einer nicht gestylten einfachen Form. Die genaue Position des Elements auf dem Offset-Pfad wird durch die {{cssxref("offset-distance")}}-Eigenschaft bestimmt. Jede Form oder jeder Pfad muss eine Anfangsposition für den berechneten Wert von `0` für {{cssxref("offset-distance")}} und eine Anfangsrichtung festlegen, die die Rotation des Objekts zur Anfangsposition angibt.
 
-In frühen Versionen der Spezifikation wurde diese Eigenschaft `motion-path` genannt. Sie wurde in `offset-path` umbenannt, da die Eigenschaft statische Positionen und keine Bewegung beschreibt.
+In frühen Versionen der Spezifikation wurde diese Eigenschaft als `motion-path` bezeichnet. Sie wurde in `offset-path` geändert, da die Eigenschaft statische Positionen und nicht Bewegung beschreibt.
 
 ## Formale Definition
 
@@ -152,9 +152,9 @@ In frühen Versionen der Spezifikation wurde diese Eigenschaft `motion-path` gen
 
 ## Beispiele
 
-### Erstellung eines Offset-Pfads unter Verwendung von Box-Edge-Positionierung
+### Erstellen eines Offset-Pfades mit Box-Kanten-Positionierung
 
-Dieses Beispiel zeigt die Verwendung verschiedener `<coord-box>` Werte in der `offset-path`-Eigenschaft.
+Dieses Beispiel zeigt die Verwendung verschiedener `<coord-box>`-Werte in der `offset-path`-Eigenschaft.
 
 ```html hidden
 <div class="box blueBox"></div>
@@ -211,17 +211,17 @@ body {
 }
 ```
 
-In diesem Beispiel wurden der Rand, die Grenze und die Polsterung absichtlich auf große Werte gesetzt, um die Platzierung der blauen, grünen und roten Rechtecke auf ihren jeweiligen `<coord-box>` Kanten zu demonstrieren: border-box, padding-box und content-box.
+In diesem Beispiel wurden absichtlich große Werte für Rand, Rahmen und Polsterung gewählt, um die Platzierung der blauen, grünen und roten Rechtecke auf ihren jeweiligen `<coord-box>`-Kanten zu demonstrieren: border-box, padding-box und content-box.
 
-![Das blaue Rechteck sitzt am äußeren Rand der border-box, das grüne Rechteck befindet sich an der inneren Grenze, die der äußere Rand der padding-box ist, und das rote Rechteck befindet sich am äußeren Rand der content-box.](offset-path-coord-box.png)
+![Das blaue Rechteck sitzt auf der äußeren Kante der Rahmenbox, das grüne Rechteck auf der inneren Rahmenkante, die die äußere Kante der Polsterbox ist, und das rote Rechteck auf der äußeren Kante der Inhaltsbox.](offset-path-coord-box.png)
 
 #### Ergebnis
 
-{{EmbedLiveSample('Erstellung eines Offset-Pfads unter Verwendung von Box-Edge-Positionierung', '100%', 400)}}
+{{EmbedLiveSample('Erstellen eines Offset-Pfades mit Box-Kanten-Positionierung', '100%', 400)}}
 
-### Erstellung eines Offset-Pfads unter Verwendung von path()
+### Erstellen eines Offset-Pfades mit path()
 
-Im folgenden Beispiel erstellt das {{svgelement("svg")}} Element ein Haus mit einem Schornstein und definiert auch zwei Hälften einer Schere. Das Haus und der Schornstein bestehen aus Rechtecken und Polygonen, und die Scherenhälften werden durch zwei verschiedene Pfadelemente dargestellt. Im CSS-Code wird die `offset-path`-Eigenschaft verwendet, um einen Pfad zu spezifizieren, dem die beiden Scherenhälften folgen sollen. Dieser CSS-definierte Pfad ist identisch mit dem durch das `<path>` Element im SVG dargestellten, welches die Umrisse des Hauses einschließlich des Schornsteins ist.
+In diesem Beispiel erstellt das {{svgelement("svg")}}-Element ein Haus mit einem Kamin und definiert auch zwei Hälften einer Schere. Das Haus und der Kamin bestehen aus Rechtecken und Polygonen, und die Scherenhälften werden durch zwei separate path-Elemente dargestellt. Im CSS-Code wird die `offset-path`-Eigenschaft verwendet, um einen Pfad anzugeben, dem die beiden Scherenhälften folgen sollen. Dieser CSS-definierte Pfad entspricht dem durch das `<path>`-Element im SVG dargestellten Pfad, der die Umrandung des Hauses einschließlich des Kamins ist.
 
 ```html live-sample___offset_path_path
 <svg
@@ -314,15 +314,15 @@ Im folgenden Beispiel erstellt das {{svgelement("svg")}} Element ein Haus mit ei
 
 #### Ergebnis
 
-Ohne die `offset-path`-Eigenschaft würden die beiden Hälften der Scheren standardmäßig in der oberen linken Ecke der Leinwand angezeigt werden. Durch die Verwendung von `offset-path` sind die beiden Scherenhälften jedoch mit dem Startpunkt des SVG-Pfads ausgerichtet, sodass sie sich entlang dieses bewegen können.
+Ohne die `offset-path`-Eigenschaft würden die beiden Hälften der Schere standardmäßig in die obere linke Ecke der Zeichenfläche ausgerichtet. Durch die Verwendung von `offset-path` werden die beiden Scherenhälften mit dem Startpunkt des SVG-Pfads ausgerichtet und ermöglichen es ihnen, sich entlang dieses Pfads zu bewegen.
 
 {{EmbedLiveSample('offset_path_path', '100%', '450')}}
 
-### Erstellung eines Offset-Pfads unter Verwendung von url()
+### Erstellen eines Offset-Pfades mit url()
 
-Dieses Beispiel veranschaulicht, wie auf eine SVG-Form verwiesen werden kann, um die Form des Pfads zu definieren, dem ein Element folgen kann. Der grüne Kreis (definiert durch `.target`) folgt dem Pfad eines Rechtecks, das durch die Übergabe der ID der SVG-Form (`svgRect`) an die `offset-path`-Eigenschaft mithilfe von `url()` definiert wird.
+Dieses Beispiel zeigt, wie auf eine SVG-Form verwiesen werden kann, um die Form des Pfades zu definieren, dem ein Element folgen kann. Der grüne Kreis (definiert durch `.target`) folgt dem Pfad eines Rechtecks, der durch die Übergabe der ID der SVG-Form (`svgRect`) an die `offset-path`-Eigenschaft mit `url()` definiert wird.
 
-Das SVG-Rechteck, das die Pfadform definiert, wird hier nur gezeigt, um visuell zu demonstrieren, dass der grüne Kreis tatsächlich dem Pfad folgt, der durch dieses Rechteck definiert ist.
+Das SVG-Rechteck, das die Pfadform definiert, wird hier nur gezeigt, um visuell zu demonstrieren, dass der grüne Kreis tatsächlich dem durch dieses Rechteck definierten Pfad folgt.
 
 ```html live-sample___offset_path_url
 <div class="outer">
@@ -370,7 +370,7 @@ Das SVG-Rechteck, das die Pfadform definiert, wird hier nur gezeigt, um visuell 
 
 ### Verschiedene Formen
 
-Dieses Beispiel beinhaltet verschiedene {{cssxref("&lt;basic-shape&gt;")}} Werte: {{cssxref("basic-shape/circle", "circle()")}}, {{cssxref("basic-shape/ellipse", "ellipse()")}}, {{cssxref("basic-shape/inset", "inset()")}}, {{cssxref("basic-shape/polygon", "polygon()")}}.
+Dieses Beispiel beinhaltet verschiedene {{cssxref("&lt;basic-shape&gt;")}}-Werte: {{cssxref("basic-shape/circle", "circle()")}}, {{cssxref("basic-shape/ellipse", "ellipse()")}}, {{cssxref("basic-shape/inset", "inset()")}}, {{cssxref("basic-shape/polygon", "polygon()")}}.
 
 ```html
 <div class="container">

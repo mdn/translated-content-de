@@ -2,10 +2,13 @@
 title: Pseudo-Elemente
 slug: Web/CSS/Reference/Selectors/Pseudo-elements
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 93b85a5bc2b4589d93185263fd2c14381c36f821
 ---
 
-Ein CSS-**Pseudo-Element** ist ein Schlüsselwort, das zu einem Selektor hinzugefügt wird, um einen spezifischen Teil des ausgewählten Elements oder der ausgewählten Elemente zu gestalten.
+Ein CSS **Pseudo-Element** ist ein Schlüsselwort, das zu einem Selektor hinzugefügt wird und es Ihnen ermöglicht, einen bestimmten Teil des ausgewählten Elements(s) zu stylen.
+
+> [!NOTE]
+> Diese Seite ist ein Index aller Pseudo-Elemente in CSS. Die Seite [CSS Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) führt das Modul ein, das einige, aber nicht alle dieser Pseudo-Elemente definiert.
 
 ## Syntax
 
@@ -25,11 +28,11 @@ p::first-line {
 }
 ```
 
-Doppelpunkte (`::`) werden für Pseudo-Elemente verwendet. Dies unterscheidet Pseudo-Elemente von [Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), die einen einzelnen Doppelpunkt (`:`) in ihrer Notation verwenden. Beachten Sie, dass Browser die Syntax mit einem Doppelpunkt für die ursprünglichen vier Pseudo-Elemente unterstützen: `::before`, `::after`, `::first-line`, und `::first-letter`.
+Doppelpunkte (`::`) werden für Pseudo-Elemente verwendet. Dies unterscheidet Pseudo-Elemente von [Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), die in ihrer Notation einen einfachen Doppelpunkt (`:`) verwenden. Beachten Sie, dass Browser die Einfachkolonsyntax für die ursprünglichen vier Pseudo-Elemente unterstützen: `::before`, `::after`, `::first-line` und `::first-letter`.
 
-Pseudo-Elemente existieren nicht unabhängig. Das Element, von dem ein Pseudo-Element ein Teil ist, wird als sein _ursprüngliches Element_ bezeichnet. Ein Pseudo-Element muss nach allen anderen Komponenten des [komplexen](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) Selektors erscheinen. Das letzte Element im Selektor ist das ursprüngliche Element des Pseudo-Elements. Zum Beispiel können Sie die erste Zeile eines Absatzes mit `p::first-line` auswählen, aber nicht die Kinder der ersten Zeile. Daher ist `p::first-line > *` ungültig.
+Pseudo-Elemente existieren nicht unabhängig. Das Element, von dem ein Pseudo-Element ein Teil ist, wird als sein _ausgehendes Element_ bezeichnet. Ein Pseudo-Element muss nach allen anderen Komponenten im [komplexen](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) Selektor erscheinen. Das letzte Element im Selektor ist das ausgehende Element des Pseudo-Elements. Zum Beispiel können Sie die erste Zeile eines Absatzes mit `p::first-line` auswählen, aber nicht die Kinder der ersten Zeile. Also ist `p::first-line > *` ungültig.
 
-Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des ursprünglichen Elements ausgewählt werden. Zum Beispiel wählt `p:hover::first-line` die erste Zeile (Pseudo-Element) eines Absatzes, wenn der Absatz selbst gehovt wird (Pseudo-Klasse).
+Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des ausgehenden Elements ausgewählt werden. Zum Beispiel wählt `p:hover::first-line` die erste Zeile (Pseudo-Element) eines Absatzes aus, wenn der Absatz selbst gerade überfahren wird (Pseudo-Klasse).
 
 > [!NOTE]
 > Wenn eine [Selektorliste](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#selector_list) einen ungültigen Selektor enthält, wird der gesamte Stilblock ignoriert.
@@ -37,79 +40,79 @@ Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des ursprünglichen 
 ## Typografische Pseudo-Elemente
 
 - {{CSSxRef("::first-line")}}
-  - : Die erste Zeilenbox des ursprünglichen Elements.
+  - : Die erste Zeilen-Box des ausgehenden Elements.
 - {{CSSxRef("::first-letter")}}
-  - : Der erste Buchstabe, die erste Zahl oder das erste Symbolzeichen auf der ersten Zeile seines ursprünglichen Elements.
+  - : Der erste Buchstabe, die Zahl oder das Symbolzeichen in der ersten Zeile seines ausgehenden Elements.
 - {{CSSxRef("::cue")}}
-  - : Die [WebVTT](/de/docs/Web/API/WebVTT_API) Hinweispunkte innerhalb eines ausgewählten Elements.
-    Dies kann verwendet werden, um [Untertitel und andere Hinweise](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks zu gestalten.
-    Das [CSS Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul definiert auch die `::postfix` und `::prefix` Sub-Pseudo-Elemente. Diese werden noch von keinem Browser unterstützt.
+  - : Die [WebVTT](/de/docs/Web/API/WebVTT_API) Cues innerhalb eines ausgewählten Elements.
+    Dies kann verwendet werden, um [Untertitel und andere Cues zu stylen](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks.
+    Das [CSS Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul definiert außerdem die `::postfix` und `::prefix` Sub-Pseudo-Elemente. Diese werden von keinem Browser unterstützt.
 
-## Hervorhebungs-Pseudo-Elemente
+## Highlight Pseudo-Elemente
 
-Wählt Dokumentabschnitte basierend auf Inhalt und Dokumentstatus aus, wodurch diese Bereiche unterschiedlich gestaltet werden können, um den Status dem Benutzer anzuzeigen.
+Selektiert Dokumentabschnitte basierend auf Inhalt und Dokumentstatus und ermöglicht es, diese Bereiche unterschiedlich zu stylen, um diesen Status dem Nutzer anzuzeigen.
 
 - {{CSSxRef("::selection")}}
-  - : Der Abschnitt eines Dokuments, der ausgewählt wurde.
+  - : Der Teil eines Dokuments, der ausgewählt wurde.
 - {{CSSxRef("::target-text")}}
-  - : Das Zielelement des Dokuments. Das Zielelement wird durch den Fragmentbezeichner der URL identifiziert.
+  - : Das Ziel-Element des Dokuments. Das Ziel-Element wird mithilfe des Fragment-Identifiers der URL identifiziert.
 - {{CSSxRef("::spelling-error")}}
   - : Ein Textabschnitt, den der Browser für falsch geschrieben hält.
 - {{CSSxRef("::grammar-error")}}
-  - : Ein Textabschnitt, den der Browser für grammatikalisch inkorrekt hält.
+  - : Ein Textabschnitt, den der Browser für grammatikalisch falsch hält.
 - {{CSSxRef("::highlight()")}}
   - : Die Elemente im [Highlight-Register](/de/docs/Web/API/CSS/highlights_static). Es wird verwendet, um benutzerdefinierte Hervorhebungen zu erstellen.
 
-## Baumgebundene Pseudo-Elemente
+## Baumkonforme Pseudo-Elemente
 
-Diese Pseudo-Elemente verhalten sich wie normale Elemente, die nahtlos innerhalb des Box-Modells passen. Sie agieren als Kind-Element, das direkt innerhalb der Hierarchie des ursprünglichen Elements gestaltet werden kann.
+Diese Pseudo-Elemente verhalten sich wie reguläre Elemente, die sich nahtlos in das Box-Modell einfügen. Sie agieren als Kindelement, das direkt innerhalb der Hierarchie des ausgehenden Elements gestylt werden kann.
 
 - {{CSSxRef("::before")}}
   - : Erstellt ein Pseudo-Element, das das erste Kind des ausgewählten Elements ist.
 - {{CSSxRef("::after")}}
   - : Erstellt ein Pseudo-Element, das das letzte Kind des ausgewählten Elements ist.
 - {{CSSxRef("::column")}}
-  - : Jedes Spalten-Fragment eines [Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout).
+  - : Jedes Spaltenfragment eines [Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout).
 - {{CSSxRef("::marker")}}
-  - : Die automatisch generierte Markierungsbox eines Listenelements.
+  - : Die automatisch generierte Marker-Box eines Listenelements.
 - {{CSSxRef("::backdrop")}}
-  - : Der Hintergrund des ursprünglichen Elements, der in der {{Glossary("Top_layer", "obersten Schicht")}} gerendert wird.
+  - : Der Hintergrund des ausgehenden Elements, dargestellt in der {{Glossary("Top_layer", "oberen Schicht")}}.
 - {{CSSxRef("::scroll-button()")}}
-  - : Erstellt eine Schaltfläche, die das Scrollen des {{Glossary("scroll_container", "Scroll-Containers")}} kontrollieren kann, auf den es angewendet wird.
+  - : Erstellt einen Button, der das Scrollen des {{Glossary("scroll_container", "Scroll-Containers")}} steuert, auf den er angewendet wird.
 - {{CSSxRef("::scroll-marker")}}
-  - : Erstellt ein Pseudo-Element, das ein Scroll-Marker ist — ein Scroll-Zielknopf für sein ursprüngliches Element, das in einer Scroll-Marker-Gruppe verschachtelt ist.
+  - : Erstellt ein Pseudo-Element, das ein Scroll-Marker ist — ein Scroll-Ziel-Button für sein ausgehendes Element, das in einer Scroll-Marker-Gruppe verschachtelt ist.
 - {{CSSxRef("::scroll-marker-group")}}
-  - : Erzeugt einen Container vor oder nach einem Scroll-Container, um die {{cssxref("::scroll-marker")}} Pseudo-Elemente zu enthalten, die auf dem Element oder seinen Nachkommen generiert werden.
+  - : Generiert einen Container vor oder nach einem Scroll-Container, um die von dem Element oder seinen Nachfahren generierten {{cssxref("::scroll-marker")}} Pseudo-Elemente zu enthalten.
 
 ## Elementgestützte Pseudo-Elemente
 
-Diese Pseudo-Elemente sind reale Elemente, die ansonsten nicht wählbar sind.
+Diese Pseudo-Elemente sind echte Elemente, die sonst nicht auswählbar sind.
 
 - {{CSSxRef("::details-content")}}
-  - : Der erweiterbare/zusammenklappbare Inhalt eines {{HTMLElement("details")}} Elements.
+  - : Die ein- und ausblendbaren Inhalte eines {{HTMLElement("details")}} Elements.
 - {{CSSxRef("::part", "::part()")}}
-  - : Jedes Element innerhalb eines [Schattenbaums](/de/docs/Web/API/Web_components/Using_shadow_DOM), das ein übereinstimmendes [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) Attribut hat.
+  - : Jedes Element innerhalb eines [Shadow-Baums](/de/docs/Web/API/Web_components/Using_shadow_DOM), das ein passendes [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) Attribut hat.
 - {{CSSxRef("::slotted", "::slotted()")}}
-  - : Jedes Element, das in einen Slot innerhalb einer HTML-Vorlage eingesetzt wird.
+  - : Jedes Element, das in einem Slot innerhalb einer HTML-Vorlage platziert ist.
 
 ## Formularbezogene Pseudo-Elemente
 
-Die Pseudo-Elemente beziehen sich auf Formularelemente.
+Die Pseudo-Elemente sind mit Formularelementen verbunden.
 
 - {{CSSxRef("::checkmark")}}
-  - : Ziel der Markierung, die in das aktuell ausgewählte `<option>` Element eines [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) eingefügt wird, um anzuzeigen, welches ausgewählt ist.
+  - : Zielt auf das Häkchen im derzeit ausgewählten `<option>`-Element eines [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select), um eine visuelle Anzeige des ausgewählten Elements zu bieten.
 - {{CSSxRef("::file-selector-button")}}
-  - : Der Knopf eines {{HTMLElement("input") }} vom [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
+  - : Der Button eines {{HTMLElement("input") }} vom [`type="file"`](/de/docs/Web/HTML/Reference/Elements/input/file).
 - {{CSSxRef("::picker()")}}
-  - : Der Picker-Teil eines Elements, zum Beispiel der Dropdown-Picker eines [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
+  - : Der Auswahlteil eines Elements, zum Beispiel der Drop-Down-Auswähler eines [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select).
 - {{CSSxRef("::picker-icon")}}
-  - : Das Picker-Symbol in Formularelementen, die mit einem Symbol verbunden sind. Im Fall eines [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) wird der Pfeil ausgewählt, der nach unten zeigt, wenn die Auswahl geschlossen ist.
+  - : Das Auswahl-Icon innerhalb der Formularelemente, die ein zugeordnetes Symbol haben. Im Fall eines [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) wählt es den Pfeil aus, der nach unten zeigt, wenn die Auswahl geschlossen ist.
 - {{CSSxRef("::placeholder")}}
   - : Der Platzhaltertext in einem Eingabefeld.
 
-## Alphabetisches Verzeichnis
+## Alphabetischer Index
 
-Pseudo-Elemente, die durch eine Reihe von CSS-Spezifikationen definiert werden, umfassen die folgenden:
+Pseudo-Elemente, die durch eine Reihe von CSS-Spezifikationen definiert sind, umfassen die folgenden:
 
 A
 
@@ -176,31 +179,64 @@ V
 - {{cssxref("::view-transition-new()")}}
 - {{cssxref("::view-transition-old()")}}
 
-## Verschachtelung von Pseudo-Elementen
+### Nicht-standardisierte Pseudo-Elemente
 
-Sie können einige Pseudo-Element-Selektoren verkettet verwenden, um Pseudo-Elemente innerhalb anderer Pseudo-Elemente zu gestalten. Die folgenden verschachtelten Pseudo-Element-Kombinationen werden unterstützt:
+Nicht-standardisierte, mit Anbieter-Präfix versehenen Pseudo-Elemente umfassen:
+
+#### `-moz-` Präfix
+
+- {{CSSxRef("::-moz-color-swatch")}}
+- {{CSSxRef("::-moz-focus-inner")}}
+- {{CSSxRef("::-moz-list-bullet")}}
+- {{CSSxRef("::-moz-list-number")}}
+- {{CSSxRef("::-moz-meter-bar")}}
+- {{CSSxRef("::-moz-progress-bar")}}
+- {{CSSxRef("::-moz-range-progress")}}
+- {{CSSxRef("::-moz-range-thumb")}}
+- {{CSSxRef("::-moz-range-track")}}
+
+#### `-webkit-` Präfix
+
+- {{CSSxRef("::-webkit-inner-spin-button")}}
+- {{CSSxRef("::-webkit-meter-bar")}}
+- {{CSSxRef("::-webkit-meter-even-less-good-value")}}
+- {{CSSxRef("::-webkit-meter-inner-element")}}
+- {{CSSxRef("::-webkit-meter-optimum-value")}}
+- {{CSSxRef("::-webkit-meter-suboptimum-value")}}
+- {{CSSxRef("::-webkit-progress-bar")}}
+- {{CSSxRef("::-webkit-progress-inner-element")}}
+- {{CSSxRef("::-webkit-progress-value")}}
+- {{CSSxRef("::-webkit-scrollbar")}}
+- {{CSSxRef("::-webkit-search-cancel-button")}}
+- {{CSSxRef("::-webkit-search-results-button")}}
+- {{CSSxRef("::-webkit-slider-runnable-track")}}
+- {{CSSxRef("::-webkit-slider-thumb")}}
+
+## Pseudo-Elemente verschachteln
+
+Sie können einige Pseudo-Elemente-Selektoren zusammen verketten, um Pseudo-Elemente zu stylen, die innerhalb anderer Pseudo-Elemente verschachtelt sind. Die folgenden verschachtelten Pseudo-Element-Kombinationen werden unterstützt:
 
 - {{CSSxRef("::after")}}
-  - `::after::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::after` Pseudo-Elements, wenn `::after` als Listeneintrag mit {{CSSxRef("display", "display: list-item")}} gestaltet wird.
+  - `::after::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::after` Pseudo-Elements aus, wenn `::after` als Listenelement gestylt ist, mit {{CSSxRef("display", "display: list-item")}}.
 - {{CSSxRef("::before")}}
-  - `::before::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::before` Pseudo-Elements, wenn `::before` als Listeneintrag mit {{CSSxRef("display", "display: list-item")}} gestaltet wird.
+  - `::before::marker`: Wählt das {{CSSxRef("::marker")}} Pseudo-Element eines `::before` Pseudo-Elements aus, wenn `::before` als Listenelement gestylt ist, mit {{CSSxRef("display", "display: list-item")}}.
 
-Sehen Sie sich die einzelnen Pseudo-Element-Referenzseiten für Beispiele und Browser-Kompatibilitätsinformationen an.
+Sehen Sie sich die einzelnen Referenzseiten der Pseudo-Elemente für Beispiele und Informationen zur Browser-Kompatibilität an.
 
-## Vererbung von Hervorhebungs-Pseudo-Elementen
+## Highlight-Pseudo-Elemente Vererbung
 
-[Hervorhebungs-Pseudo-Elemente](#hervorhebungs-pseudo-elemente), wie {{CSSxref("::selection")}}, {{CSSxref("::target-text")}}, {{CSSxref("::highlight()")}}, {{CSSxref("::spelling-error")}}, und {{CSSxref("::grammar-error")}}, folgen einem konsistenten Vererbungsmodell, das sich von der [normalen Elementvererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) unterscheidet.
+[Highlight Pseudo-Elemente](#highlight_pseudo-elemente), wie {{CSSxref("::selection")}}, {{CSSxref("::target-text")}}, {{CSSxref("::highlight()")}}, {{CSSxref("::spelling-error")}}, und {{CSSxref("::grammar-error")}}, folgen einem konsistenten Vererbungsmodell, das sich von der [regulären Elementvererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) unterscheidet.
 
-Wenn Sie Stile auf Hervorhebungs-Pseudo-Elemente anwenden, erben sie sowohl von:
+Wenn Sie Stile auf Highlight Pseudo-Elemente anwenden, erben sie von sowohl:
 
-1. Ihren übergeordneten Elementen (folgend der normalen Vererbung).
-2. Den Hervorhebungs-Pseudo-Elementen ihrer übergeordneten Elemente (folgend der Hervorhebungsvererbung).
+1. Ihren Elternelementen (gemäß normaler Vererbung).
+2. Den Highlight Pseudo-Elementen ihrer Elternelemente (gemäß Highlight Vererbung).
 
-Das bedeutet, dass wenn Sie sowohl ein Hervorhebungs-Pseudo-Element eines übergeordneten Elements als auch ein Hervorhebungs-Pseudo-Element eines Kindelements gestalten, der hervorgehobene Text des Kindelements Eigenschaften von beiden Quellen kombiniert.
+Das bedeutet, dass, wenn Sie sowohl ein Highlight Pseudo-Element eines Elternelements als auch das eines Kindelements stylen, der Text des Kindelements hervorgehoben wird, indem Eigenschaften aus beiden Quellen kombiniert werden.
 
 Hier ist ein konkretes Beispiel.
 
-Zuerst haben wir etwas HTML, das zwei verschachtelte {{htmlelement("div")}}-Elemente enthält. Ein Teil des enthaltenen Textinhalts befindet sich direkt im übergeordneten `<div>`, und ein Teil ist im Kind-`<div>` verschachtelt.
+Zuerst haben wir etwas HTML, das zwei verschachtelte {{htmlelement("div")}} Elemente enthält. Ein Teil des enthaltenen Textinhalts befindet sich direkt innerhalb des Elternelements `<div>`, und ein Teil ist innerhalb des Kindelements `<div>` verschachtelt.
 
 ```html live-sample___highlight_inheritance
 <div class="parent">
@@ -209,7 +245,7 @@ Zuerst haben wir etwas HTML, das zwei verschachtelte {{htmlelement("div")}}-Elem
 </div>
 ```
 
-Als Nächstes fügen wir etwas CSS hinzu, das die übergeordneten und die Kind-`<div>`-Elemente separat auswählt und ihnen unterschiedliche {{cssxref("color")}}-Werte gibt, und die Auswahl des Textes im übergeordneten und Kind-Element auswählt ({{cssxref("::selection")}}). Dies gibt jedem `<div>` eine andere {{cssxref("background-color")}} und legt eine andere Text-`color` auf der übergeordneten Auswahl fest.
+Anschließend fügen wir etwas CSS hinzu, das die übergeordneten und untergeordneten `<div>` Elemente separat auswählt und ihnen unterschiedliche {{cssxref("color")}} Werte gibt, und wählt den ausgewählten Text des Eltern- und Kindelements ({{cssxref("::selection")}}). Dies gibt jedem `<div>` eine andere {{cssxref("background-color")}} und setzt eine andere Textfarbe auf der Elternauswahl.
 
 ```css live-sample___highlight_inheritance
 /* Style for the parent element */
@@ -238,16 +274,16 @@ Das Beispiel wird wie folgt gerendert:
 
 {{EmbedLiveSample("highlight_inheritance", , "150")}}
 
-Versuchen Sie, den Text in den übergeordneten und den Kind-Elementen auszuwählen. Beachten Sie, dass:
+Versuchen Sie, den Text in beiden Elementen, Eltern- und Kindelemente, auszuwählen. Beachten Sie, dass:
 
-1. Wenn Sie den übergeordneten Text auswählen, verwendet er den gelben Hintergrund und die rote Textfarbe, die in `.parent::selection` definiert sind.
-2. Wenn Sie den Kindtext auswählen, verwendet er:
-   - Den orangefarbenen Hintergrund aus `.child::selection`.
-   - Die rot geerbte Textfarbe vom `::selection` Pseudo-Element des übergeordneten Elements.
+1. Wenn Sie den Text des Elternelements auswählen, wird der gelbe Hintergrund und die rote Textfarbe verwendet, die in `.parent::selection` definiert sind.
+2. Wenn Sie den Text des Kindelements auswählen, wird verwendet:
+   - Der orange Hintergrund von `.child::selection`.
+   - Die rote Textfarbe, die vom `::selection` Pseudo-Element des Elternteils geerbt wird.
 
-Dies demonstriert, wie das Hervorhebungs-Pseudo-Element des Kindelements sowohl vom übergeordneten Element als auch vom Hervorhebungs-Pseudo-Element des übergeordneten Elements erbt.
+Dies zeigt, wie das Highlight Pseudo-Element des Kindelements sowohl von seinem Elternteil als auch vom Highlight Pseudo-Element des Elternteils erbt.
 
-[CSS-Benutzerdefinierte Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) in Hervorhebungs-Pseudo-Elementen erben von ihrem ursprünglichen Element (dem Element, auf das sie angewendet werden), nicht durch die Hervorhebungsvererbungskette. Zum Beispiel:
+[CSS benutzerdefinierte Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) in Highlight Pseudo-Elementen erben von ihrem ausgehenden Element (dem Element, auf das sie angewendet werden), nicht durch die Highlight-Vererbungskette. Zum Beispiel:
 
 ```css
 :root {
@@ -263,7 +299,7 @@ Dies demonstriert, wie das Hervorhebungs-Pseudo-Element des Kindelements sowohl 
 }
 ```
 
-Bei Verwendung des universellen Selektors mit Hervorhebungs-Pseudo-Elementen wird die Hervorhebungsvererbung verhindert. Zum Beispiel:
+Bei der Verwendung des universellen Selektors mit Highlight Pseudo-Elementen wird die Highlight-Vererbung verhindert. Zum Beispiel:
 
 ```css
 /* This prevents highlight inheritance */
@@ -287,4 +323,4 @@ Bei Verwendung des universellen Selektors mit Hervorhebungs-Pseudo-Elementen wir
 - [Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
 - [CSS Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
 - [Lernen: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements)
-- [Vererbungsveränderungen für CSS Auswahlstile](https://developer.chrome.com/blog/selection-styling) - Detaillierte Erklärung der Änderungen im Vererbungsmodell der Hervorhebungs-Pseudo-Elemente in Chrome 134
+- [Vererbungsänderungen für CSS-Auswahl-Styling](https://developer.chrome.com/blog/selection-styling) - Detaillierte Erklärung der Highlight Pseudo-Element-Vererbungsmodelländerungen in Chrome 134

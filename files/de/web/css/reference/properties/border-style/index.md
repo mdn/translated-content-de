@@ -2,10 +2,10 @@
 title: border-style
 slug: Web/CSS/Reference/Properties/border-style
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
 ---
 
-Die **`border-style`** [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) legt den Linienstil für alle vier Seiten des Rahmens eines Elements fest.
+Die **`border-style`** [Kurzschrift](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil für alle vier Seiten des Randes eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-style")}}
 
@@ -56,7 +56,7 @@ body {
 }
 ```
 
-## Zugehörige Eigenschaften
+## Bestandteile der Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -99,43 +99,43 @@ border-style: unset;
 
 Die `border-style` Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt er für **alle vier Seiten**.
-- Bei **zwei** angegebenen Werten gilt der erste Stil für **oben und unten**, der zweite für **links und rechts**.
-- Bei **drei** angegebenen Werten gilt der erste Stil für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
-- Bei **vier** angegebenen Werten gelten die Stile in dieser Reihenfolge (im Uhrzeigersinn): **oben**, **rechts**, **unten** und **links**.
+- Wenn **ein** Wert angegeben wird, gilt derselbe Stil für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt der erste Stil für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt der erste Stil für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Stile für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
-Jeder Wert ist ein Schlüsselwort, das aus der unten stehenden Liste ausgewählt wird.
+Jeder Wert ist ein Schlüsselwort aus der untenstehenden Liste.
 
 ### Werte
 
 - `<line-style>`
-  - : Beschreibt den Stil des Rahmens. Er kann folgende Werte haben:
+  - : Beschreibt den Stil der Umrandung. Es kann die folgenden Werte haben:
     - `none`
-      - : Wie das `hidden` Schlüsselwort wird kein Rahmen angezeigt. Es sei denn, es ist ein {{cssxref("background-image")}} gesetzt, wird der berechnete Wert der gleichen Seite {{cssxref("border-width")}} `0` sein, auch wenn der angegebene Wert etwas anderes ist. Im Fall von Tabellenzellen und Rahmenzusammenführung hat der Wert `none` die _niedrigste_ Priorität: Wenn irgendein anderer sich überschneidender Rahmen gesetzt ist, wird dieser angezeigt.
+      - : Wie das Schlüsselwort `hidden`, zeigt keinen Rand an. Sofern kein {{cssxref("background-image")}} festgelegt ist, wird der berechnete Wert der selben Seite von {{cssxref("border-width")}} `0` sein, selbst wenn der angegebene Wert etwas anderes ist. Im Fall von Tabellenzellen und Randzusammenführung, hat der Wert `none` die _niedrigste_ Priorität: Wenn irgendein anderer sich widersprechender Rand gesetzt ist, wird er angezeigt.
     - `hidden`
-      - : Wie das `none` Schlüsselwort wird kein Rahmen angezeigt. Es sei denn, es ist ein {{cssxref("background-image")}} gesetzt, wird der berechnete Wert der gleichen Seite {{cssxref("border-width")}} `0` sein, auch wenn der angegebene Wert etwas anderes ist. Im Fall von Tabellenzellen und Rahmenzusammenführung hat der Wert `hidden` die _höchste_ Priorität: Wenn irgendein anderer sich überschneidender Rahmen gesetzt ist, wird dieser nicht angezeigt.
+      - : Wie das Schlüsselwort `none`, zeigt keinen Rand an. Sofern kein {{cssxref("background-image")}} festgelegt ist, wird der berechnete Wert der selben Seite von {{cssxref("border-width")}} `0` sein, selbst wenn der angegebene Wert etwas anderes ist. Im Fall von Tabellenzellen und Randzusammenführung, hat der Wert `hidden` die _höchste_ Priorität: Wenn irgendein anderer sich widersprechender Rand gesetzt ist, wird er nicht angezeigt.
     - `dotted`
-      - : Zeigt eine Reihe von abgerundeten Punkten an. Der Abstand der Punkte ist nicht durch die Spezifikation definiert und hängt von der Implementierung ab. Der Radius der Punkte beträgt die Hälfte des berechneten Wertes der gleichen Seite {{cssxref("border-width")}}.
+      - : Zeigt eine Reihe von runden Punkten an. Der Abstand der Punkte ist nicht durch die Spezifikation definiert und implementationsspezifisch. Der Radius der Punkte ist halb so groß wie der berechnete Wert der selben Seite von {{cssxref("border-width")}}.
     - `dashed`
-      - : Zeigt eine Reihe von kurzen, quadratisch endenden Strichen oder Liniensegmenten an. Die genaue Größe und Länge der Segmente ist nicht durch die Spezifikation definiert und hängt von der Implementierung ab.
+      - : Zeigt eine Reihe von kurzen, quadratischen Strichen oder Liniensegmenten an. Die genaue Größe und Länge der Segmente ist nicht durch die Spezifikation definiert und implementationsspezifisch.
     - `solid`
-      - : Zeigt eine einzelne, gerade und durchgehende Linie an.
+      - : Zeigt eine einzige, gerade, durchgehende Linie an.
     - `double`
-      - : Zeigt zwei gerade Linien an, die zusammen die Pixelgröße ergeben, die durch {{cssxref("border-width")}} definiert ist.
+      - : Zeigt zwei gerade Linien an, die zusammen die Pixelgröße bilden, die durch {{cssxref("border-width")}} definiert wird.
     - `groove`
-      - : Zeigt einen Rahmen mit einer eingekerbten Erscheinung an. Es ist das Gegenteil von `ridge`.
+      - : Zeigt einen Rand mit einem eingravierten Aussehen an. Es ist das Gegenteil von `ridge`.
     - `ridge`
-      - : Zeigt einen Rahmen mit einer hervorgehobenen Erscheinung an. Es ist das Gegenteil von `groove`.
+      - : Zeigt einen Rand mit einem erhabenen Aussehen an. Es ist das Gegenteil von `groove`.
     - `inset`
-      - : Zeigt einen Rahmen, der das Element eingebettet erscheinen lässt. Es ist das Gegenteil von `outset`. Wenn es auf eine Tabellenzelle angewendet wird, bei der {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `ridge`.
+      - : Zeigt einen Rand an, der das Element eingebettet erscheinen lässt. Es ist das Gegenteil von `outset`. Wenn es auf eine Tabellenzelle angewendet wird und {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `ridge`.
     - `outset`
-      - : Zeigt einen Rahmen, der das Element erhaben erscheinen lässt. Es ist das Gegenteil von `inset`. Wenn es auf eine Tabellenzelle angewendet wird, bei der {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `groove`.
+      - : Zeigt einen Rand an, der das Element erhaben erscheinen lässt. Es ist das Gegenteil von `inset`. Wenn es auf eine Tabellenzelle angewendet wird und {{cssxref("border-collapse")}} auf `collapsed` gesetzt ist, verhält sich dieser Wert wie `groove`.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
@@ -216,7 +216,7 @@ pre {
 }
 ```
 
-#### Ergebnis
+#### Resultat
 
 {{EmbedLiveSample('All_property_values', "1200", 450)}}
 
@@ -230,4 +230,4 @@ pre {
 
 ## Siehe auch
 
-- Die CSS-Kurzform Eigenschaften in Bezug auf Rand: {{Cssxref("border")}}, {{Cssxref("border-width")}}, {{Cssxref("border-color")}}, {{Cssxref("border-radius")}}
+- Die Kurzschrift-CSS-Eigenschaften für Ränder: {{Cssxref("border")}}, {{Cssxref("border-width")}}, {{Cssxref("border-color")}}, {{Cssxref("border-radius")}}

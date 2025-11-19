@@ -3,14 +3,14 @@ title: "DelegatedInkTrailPresenter: expectedImprovement-Eigenschaft"
 short-title: expectedImprovement
 slug: Web/API/DelegatedInkTrailPresenter/expectedImprovement
 l10n:
-  sourceCommit: bcc977bc3e79a87edd64cd9ef977b515f63daa2c
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("Ink API")}}{{Deprecated_header}}{{Non-Standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`expectedImprovement`** der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt einen Wert in Millisekunden zurück, der die erwartete Latenzverbesserung angibt, die durch die Verwendung dieses Presenters zu erwarten ist.
+Die schreibgeschützte **`expectedImprovement`**-Eigenschaft der [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Schnittstelle gibt einen Wert in Millisekunden zurück, der die Latenzverbesserung angibt, die bei Verwendung dieses Presenters erwartet werden kann.
 
-### Wert
+## Wert
 
 Eine Zahl.
 
@@ -28,7 +28,7 @@ async function inkInit() {
 
 ## Spezifikationen
 
-Das Feature ist nicht länger Teil der Spezifikation.
+Dieses Feature ist nicht mehr Teil der Spezifikation.
 
 ## Browser-Kompatibilität
 

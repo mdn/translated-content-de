@@ -1,18 +1,18 @@
 ---
-title: CSS-Selektorstruktur
+title: CSS-Selector-Struktur
 short-title: Selector structure
 slug: Web/CSS/Guides/Selectors/Selector_structure
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
-Der CSS-Selektor repräsentiert ein bestimmtes Muster von Elementen oder Elementen in einer Baumstruktur. Der Begriff "Selektor" kann sich auf einen [einfachen Selektor](#einfacher_selektor), einen [zusammengesetzten Selektor](#zusammengesetzter_selektor) oder einen [komplexen Selektor](#komplexer_selektor) beziehen. Wenn sie als Parameter in der Pseudo-Klasse `:has()` enthalten sind, werden diese Selektoren als [relative Selektoren](#relativer_selektor) bezeichnet, die Elemente relativ zu einem oder mehreren Ankerelementen darstellen.
+Der CSS-Selector stellt ein bestimmtes Muster von Elementen in einer Baumstruktur dar. Der Begriff "Selector" kann sich auf einen [einfachen Selector](#einfacher_selector), einen [zusammengesetzten Selector](#zusammengesetzter_selector) oder einen [komplexen Selector](#komplexer_selector) beziehen. Wenn sie als Parameter in der `:has()` Pseudo-Klasse verwendet werden, werden diese Selektoren als [relative Selektoren](#relativer_selector) bezeichnet und stellen Elemente relativ zu einem oder mehreren Anker-Elementen dar.
 
-Diese Selektoren können zu einer durch Komma getrennten [Selektorliste](#selektorliste) kombiniert werden. Wenn ein beliebiger Selektor in einer [nicht verzeihenden Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#valid_and_invalid_selector_lists) ungültig ist, wird die gesamte Selektorliste ungültig.
+Diese Selektoren können zu einer kommagetrennten [Selector-Liste](#selector-liste) kombiniert werden. Wenn ein Selector in einer [nicht verzeihenden Selector-Liste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#valid_and_invalid_selector_lists) ungültig ist, wird die gesamte Selector-Liste ungültig.
 
-### Einfacher Selektor
+## Einfacher Selector
 
-Ein **einfacher Selektor** ist ein Selektor mit einer einzelnen Komponente, wie ein einzelner Typselektor, Attributselektor oder eine Pseudo-Klasse, die nicht in Kombination mit oder in einem anderen Selektorkomponent oder Kombinator enthalten ist. Ein bestimmtes Element passt zu einem einfachen Selektor, wenn dieser einfache Selektor das Element genau beschreibt. Jeder Selektor, der einen einzigen [Basisselektor](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#basic_selectors), [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) oder [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, ist ein einfacher Selektor.
+Ein **einfacher Selector** ist ein Selector mit einer einzigen Komponente, wie beispielsweise ein einfacher Typ-Selector, Attribut-Selector oder eine Pseudo-Klasse, die nicht in Kombination mit oder ohne andere Selector-Komponente oder Kombinator verwendet wird. Ein bestimmtes Element wird als passend zu einem einfachen Selector betrachtet, wenn dieser einfache Selector das Element genau beschreibt. Jeder Selector, der einen einzigen [Basis-Selector](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#basic_selectors), [Attribut-Selector](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) oder [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, ist ein einfacher Selector.
 
 ```css
 #myId {
@@ -22,9 +22,9 @@ Ein **einfacher Selektor** ist ein Selektor mit einer einzelnen Komponente, wie 
 }
 ```
 
-### Zusammengesetzter Selektor
+## Zusammengesetzter Selector
 
-Ein **zusammengesetzter Selektor** ist eine Sequenz von [einfachen Selektoren](#einfacher_selektor), die nicht durch einen [Kombinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators) getrennt sind. Ein zusammengesetzter Selektor stellt eine Reihe von gleichzeitigen Bedingungen an ein einzelnes Element dar. Ein bestimmtes Element passt zu einem zusammengesetzten Selektor, wenn das Element zu allen einfachen Selektoren im zusammengesetzten Selektor passt.
+Ein **zusammengesetzter Selector** ist eine Sequenz von [einfachen Selectoren](#einfacher_selector), die nicht durch einen [Kombinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators) getrennt sind. Ein zusammengesetzter Selector repräsentiert eine Reihe von gleichzeitigen Bedingungen für ein einzelnes Element. Ein bestimmtes Element wird als passend zu einem zusammengesetzten Selector betrachtet, wenn das Element alle einfachen Selectoren im zusammengesetzten Selector erfüllt.
 
 ```css
 a#selected {
@@ -34,13 +34,13 @@ a#selected {
 }
 ```
 
-In einem zusammengesetzten Selektor muss der [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) oder [Universalselektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) zuerst in der Sequenz der Selektoren stehen. Nur ein Typselektor oder Universalselektor ist in der Sequenz erlaubt. Da Leerzeichen den [Nachfolgekombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator) darstellen, sind keine Leerzeichen zwischen den einfachen Selektoren erlaubt, die einen zusammengesetzten Selektor bilden.
+In einem zusammengesetzten Selector muss der [Typ-Selector](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) oder [Universal-Selector](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) an erster Stelle in der Sequenz der Selectoren stehen. Nur ein Typ-Selector oder Universal-Selector ist in der Sequenz erlaubt. Da Leerraum den [Nachkommen-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator) darstellt, ist zwischen den einfachen Selectoren, die einen zusammengesetzten Selector bilden, kein Leerraum erlaubt.
 
-### Komplexer Selektor
+## Komplexer Selector
 
-Ein **komplexer Selektor** ist eine Sequenz von einem oder mehreren einfachen und/oder zusammengesetzten Selektoren, die durch Kombinatoren getrennt sind, einschließlich des Leerzeichen [Nachfolgekombinators](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator).
+Ein **komplexer Selector** ist eine Sequenz von einem oder mehreren einfachen und/oder zusammengesetzten Selectoren, die durch Kombinatoren getrennt sind, einschließlich des Leerraum-Nachkommen-Kombinators.
 
-Ein komplexer Selektor stellt eine Reihe von gleichzeitigen Bedingungen für eine Gruppe von Elementen dar.
+Ein komplexer Selector repräsentiert eine Reihe von gleichzeitigen Bedingungen für eine Gruppe von Elementen.
 
 ```css
 a#selected > .icon {
@@ -50,11 +50,11 @@ a#selected > .icon {
 }
 ```
 
-Selektoren können von rechts nach links gelesen werden. Zum Beispiel passt `a#selected > .icon` zu allen Elementen mit der Klasse `icon`, die direkte Kinder des `<a>`-Elements mit der ID `selected` sind. Der Selektor `.box h2 + p` passt zu den ersten `<p>`s, die direkt nach einem `<h2>`-Element kommen, das ein Nachkommen eines Elements mit der Klasse `box` ist.
+Selectoren können von rechts nach links gelesen werden. Zum Beispiel: `a#selected > .icon` passt auf alle Elemente mit einer Klasse von `icon`, die unmittelbare Kinder des `<a>`-Elements mit der ID `selected` sind. Der Selector `.box h2 + p` passt auf die ersten `<p>`-Elemente, die unmittelbar nach jedem `<h2>` kommen, das ein Nachkomme eines beliebigen Elements mit der Klasse `box` ist.
 
-### Selektorliste
+## Selector-Liste
 
-Eine [**Selektorliste**](/de/docs/Web/CSS/Reference/Selectors/Selector_list) ist eine durch Komma getrennte Liste von einfachen, zusammengesetzten und/oder komplexen Selektoren. Ein bestimmtes Element passt zu einer Selektorliste, wenn das Element zu einem (mindestens einem) der Selektoren in dieser Selektorliste passt.
+Eine [**Selector-Liste**](/de/docs/Web/CSS/Reference/Selectors/Selector_list) ist eine kommagetrennte Liste von einfachen, zusammengesetzten und/oder komplexen Selectoren. Ein bestimmtes Element wird als passend zu einer Selector-Liste betrachtet, wenn es mit einem (mindestens einem) der Selectoren in dieser Liste übereinstimmt.
 
 ```css
 #main,
@@ -62,7 +62,7 @@ article.heading {
 }
 ```
 
-Wenn ein beliebiger Selektor in einer [nicht verzeihenden Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#valid_and_invalid_selector_lists) ungültig ist, wird die gesamte Selektorliste ungültig.
+Wenn ein Selector in einer [nicht verzeihenden Selector-Liste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#valid_and_invalid_selector_lists) ungültig ist, wird die gesamte Selector-Liste ungültig.
 
 ```css
 #main,
@@ -72,13 +72,13 @@ Wenn ein beliebiger Selektor in einer [nicht verzeihenden Selektorliste](/de/doc
 }
 ```
 
-Die Pseudo-Klassen {{cssxref(":is", ":is()")}} und {{cssxref(":where", ":where()")}} können verwendet werden, um [verzeihende Selektorlisten](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) zu konstruieren.
+Die Pseudo-Klassen {{cssxref(":is", ":is()")}} und {{cssxref(":where", ":where()")}} können verwendet werden, um [verzeihende Selector-Listen](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) zu erstellen.
 
-### Relativer Selektor
+## Relativer Selector
 
-Ein **relativer Selektor** ist ein Selektor, der ein Element relativ zu einem oder mehreren Ankerelementen darstellt, die von einem Kombinator vorausgehen. Relative Selektoren, die nicht mit einem expliziten Kombinator beginnen, haben einen implizierten [Nachfolgekombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator).
+Ein **relativer Selector** ist ein Selector, der ein Element relativ zu einem oder mehreren Anker-Elementen darstellt, die von einem Kombinator vorangehen. Relative Selektoren, die nicht mit einem expliziten Kombinator beginnen, haben einen implizierten [Nachkommen-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator).
 
-Relative Selektoren können nicht in einer Selektorliste verwendet werden. Sie werden innerhalb bestimmter Kontexte akzeptiert, wie der Pseudo-Klasse {{cssxref(":has", ":has()")}}.
+Relative Selektoren können nicht in einer Selector-Liste verwendet werden. Vielmehr werden sie in bestimmten Kontexten akzeptiert, wie z.B. in der {{cssxref(":has", ":has()")}} Pseudo-Klasse.
 
 ```css
 :has(+ div#topic > #reference) {
@@ -98,7 +98,7 @@ dt:has(+ img) ~ dd {
 ## Siehe auch
 
 - [CSS-Selektoren und Kombinatoren](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators)
-- [Verzeihende Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list)
+- [Verzeihende Selector-Liste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list)
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector)
 - [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
 - [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul

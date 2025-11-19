@@ -2,12 +2,12 @@
 title: clip-rule
 slug: Web/CSS/Reference/Properties/clip-rule
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
 ---
 
-Die **`clip-rule`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, wenn Teile des Pfades andere Teile überlappen, welche Pixel in einem Maskenkasten innerhalb der durch einen [Clip-Pfad](/de/docs/Web/CSS/Reference/Properties/clip-path) definierten Form liegen und welche außerhalb.
+Die **`clip-rule`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, wenn Teile des Pfades andere Teile überlappen, welche Pixel in einer Maske innerhalb der durch einen [clip path](/de/docs/Web/CSS/Reference/Properties/clip-path) definierten Form liegen und welche außerhalb.
 
-Die `clip-rule` Eigenschaft gilt nur für SVG-Elemente, die innerhalb eines {{SVGElement("clipPath")}} Elements enthalten sind, und überschreibt den Wert des {{SVGAttr("clip-rule")}} Attributs des Elements, falls vorhanden. Die `clip-rule` Eigenschaft funktioniert im Grunde wie die {{cssxref("fill-rule")}} Eigenschaft, außer dass sie auf `<clipPath>` Definitionen angewendet wird. Sie hat keine Auswirkungen auf CSS {{cssxref("basic-shape")}}s.
+Die `clip-rule` Eigenschaft gilt nur für SVG-Elemente, die in einem {{SVGElement("clipPath")}} Element enthalten sind, und überschreibt den Wert des {{SVGAttr("clip-rule")}} Attributs des Elements, falls vorhanden. Die `clip-rule` Eigenschaft funktioniert im Wesentlichen wie die {{cssxref("fill-rule")}} Eigenschaft, außer dass sie auf `<clipPath>` Definitionen angewendet wird. Sie hat keine Auswirkungen auf CSS {{cssxref("basic-shape")}}s.
 
 ## Syntax
 
@@ -27,10 +27,10 @@ clip-rule: unset;
 ### Werte
 
 - `nonzero`
-  - : Für jeden Punkt im Kasten der Clipping-Maske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl einen Teil des Clip-Pfads schneidet, wird das Zählergebnis um eins erhöht, wenn sich der Teil des Clip-Pfads von links nach rechts über den Strahl bewegt, und um eins verringert, wenn sich der Teil des Pfads von rechts nach links über den Strahl bewegt. Wenn die endgültige Summe des Zählergebnisses null ist, befindet sich der Punkt außerhalb der Form des Pfads. Andernfalls ist er innerhalb der Form des Pfads.
+  - : Für jeden Punkt im Kasten der Schnittmaske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl einen Teil des Schnittpfads schneidet, wird ein Zähler um eins erhöht, wenn der Teil des Schnittpfads von links nach rechts über den Strahl verläuft, während er um eins verringert wird, wenn der Pfadteil von rechts nach links über den Strahl verläuft. Wenn die endgültige Summe des Zählers null ist, liegt der Punkt außerhalb der Form des Pfades. Andernfalls liegt er innerhalb der Form des Pfades.
 
 - `even-odd`
-  - : Für jeden Punkt im Kasten der Clipping-Maske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl einen Teil des Clippfads schneidet, wird das Zählergebnis um eins erhöht. Wenn die endgültige Summe des Zählergebnisses gerade ist, befindet sich der Punkt außerhalb der Form des Pfads; andernfalls ist er innerhalb der Form des Pfads. Null wird als gerade betrachtet.
+  - : Für jeden Punkt im Kasten der Schnittmaske wird ein Strahl in eine zufällige Richtung gezeichnet. Jedes Mal, wenn der Strahl einen Teil des Schnittpfads schneidet, wird ein Zähler um eins erhöht. Wenn die endgültige Summe des Zählers gerade ist, liegt der Punkt außerhalb der Form des Pfades; andernfalls liegt er innerhalb der Form des Pfades. Null wird als gerade angesehen.
 
 ## Formale Syntax
 
@@ -40,11 +40,11 @@ clip-rule: unset;
 
 ### Wertvergleich
 
-In diesem Beispiel werden wir verschiedene CSS `clip-rule` Werte auf ähnliche SVG {{SVGElement("path")}} Elemente anwenden, um den Unterschied zwischen `evenodd` und `nonzero` zu demonstrieren.
+In diesem Beispiel wenden wir verschiedene CSS `clip-rule` Werte auf ähnliche SVG {{SVGElement("path")}} Elemente an, um den Unterschied zwischen `evenodd` und `non-zero` zu demonstrieren.
 
 #### HTML
 
-Das Markup enthält mehrere `<svg>` Container, die jeweils ein `<clipPath>` Element enthalten, das eine Sternform definiert, und ein `<rect>` Element, um den Stern darin zu zeichnen. Die Sterne werden mit sich überlappenden Linien erstellt. Abgesehen von der `id` ist das Markup der ersten beiden SVG-Elemente identisch. Das dritte SVG enthält nur das `<path>` Element und zeigt, wie die Linien des Pfads, die den Stern erstellt haben, sich überlappen.
+Das Markup enthält mehrere `<svg>` Container, die jeweils ein `<clipPath>` Element enthalten, das eine Sternform definiert, und ein `<rect>` Element, um den Stern darzustellen. Die Sterne werden mit sich überschneidenden Linien erstellt. Abgesehen von der `id` sind das Markup der ersten beiden SVG-Elemente identisch. Das dritte SVG enthält nur das `<path>` Element, um zu zeigen, wie sich die Linien des Pfades, der den Stern erstellt hat, überschneiden.
 
 ```html
 <svg>
@@ -68,7 +68,7 @@ Das Markup enthält mehrere `<svg>` Container, die jeweils ein `<clipPath>` Elem
 
 #### CSS
 
-Die `clip-rule` für das `<path>` im ersten SVG ist auf `evenodd` gesetzt; `nonzero` im zweiten SVG. Für das Pfad-alleinige SVG haben wir den Standardwert {{cssxref("fill")}} entfernt und sowohl eine {{cssxref("stroke")}}-Farbe als auch einen {{cssxref("stroke-width")}} definiert, um die sich überlappenden Pfadlinien sichtbar zu machen:
+Die `clip-rule` für das `<path>` im ersten SVG ist auf `evenodd` gesetzt; `nonzero` im zweiten SVG. Für das nur aus Pfaden bestehende SVG haben wir die standardmäßige {{cssxref("fill")}} entfernt und sowohl eine {{cssxref("stroke")}} Farbe als auch eine {{cssxref("stroke-width")}} definiert, um die sich überschneidenden Pfadlinien sichtbar zu machen:
 
 ```css hidden
 body {
@@ -101,7 +101,7 @@ svg {
 
 {{EmbedLiveSample("Value comparison", "", "130")}}
 
-### Innerhalb der Definitionen von grundlegenden Formen
+### Innerhalb von Basisform-Definitionen
 
 Dieses Beispiel zeigt, dass, während die `clip-rule` keine Auswirkungen auf CSS {{cssxref("basic-shape")}}s hat, sie ein `<clipPath>` beeinflussen kann, das als Quelle einer Form verwendet wird.
 
@@ -127,7 +127,7 @@ Wir fügen ein SVG mit zwei `<clipPath>` Elementen ein, die Sternformen definier
 
 #### CSS
 
-Wir stellen den `<div>` Elementen eine feste {{cssxref("width")}} und {{cssxref("height")}} zur Verfügung und fügen ihnen einen [`conic-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/conic-gradient) für ihren {{cssxref("background-image")}} Wert hinzu:
+Wir versehen die `<div>` Elemente mit einer festgelegten {{cssxref("width")}} und {{cssxref("height")}} und fügen einen [`conic-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/conic-gradient) für deren {{cssxref("background-image")}} Wert hinzu:
 
 ```css hidden
 body {
@@ -150,7 +150,7 @@ div {
 }
 ```
 
-Wir verwenden die {{cssxref("clip-path")}} Eigenschaft, um die verschiedenen `<clipPath>` Elemente als Clipping-Pfad für jedes `<div>` festzulegen:
+Wir verwenden die {{cssxref("clip-path")}} Eigenschaft, um die verschiedenen `<clipPath>` Elemente als Schnittpfad für jedes `<div>` festzulegen:
 
 ```css
 div:first-of-type {
@@ -161,7 +161,7 @@ div:last-of-type {
 }
 ```
 
-Schließlich setzen wir die verschiedenen `clip-rule` Werte für jedes `<clipPath>` Element des `<path>`s:
+Schließlich setzen wir die verschiedenen `clip-rule` Werte für jedes der `<clipPath>` Element `<path>`:
 
 ```css
 #star1 path {
@@ -176,9 +176,9 @@ Schließlich setzen wir die verschiedenen `clip-rule` Werte für jedes `<clipPat
 
 {{EmbedLiveSample("Within basic shape definitions", "", "200")}}
 
-### Auswahl zwischen Regeln für einen Pfad mit nur im Uhrzeigersinn gezeichneten Pfaden
+### Auswahl zwischen Regeln für einen Pfad mit nur im Uhrzeigersinn verlaufenden Pfaden
 
-In diesem SVG-Bild haben wir zwei Rechtecke, die jeweils mit einer der beiden Clipping-Regeln ausgeschnitten sind. Es gibt zwei {{SVGElement("clipPath")}} Elemente, sodass eines auf die nicht-null Regel gesetzt werden kann und das andere die Gerade-Ungerade-Regel verwendet. Beide Pfade sind für sowohl ihre inneren als auch äußeren Teile im Uhrzeigersinn gezeichnet.
+In diesem SVG-Bild haben wir zwei Rechtecke, die jeweils mit einer der beiden Schnittregeln zugeschnitten sind. Es gibt zwei {{SVGElement("clipPath")}} Elemente, sodass eines auf die non-zero Schnittregel eingestellt werden kann und das andere die even-odd Regel verwendet. Beide Pfade werden im Uhrzeigersinn für ihre inneren und äußeren Teile gezeichnet.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
@@ -207,7 +207,7 @@ In diesem SVG-Bild haben wir zwei Rechtecke, die jeweils mit einer der beiden Cl
 </svg>
 ```
 
-Bei den Clipping-Pfaden, die auf die ausgeschnittenen Rechtecke angewendet werden, wird die CSS `clip-rule` Eigenschaft verwendet, um einen Pfad auf die `nonzero` Regeln und den anderen auf die `evenodd` Regeln zu setzen. Diese überschreiben die Werte der `clip-path` Attribute im SVG, die absichtlich auf die entgegengesetzten Werte zu den CSS-Einstellungen gesetzt wurden.
+Für die Schnittpfade, die auf die zugeschnittenen Rechtecke angewendet werden, wird die CSS `clip-rule` Eigenschaft verwendet, um einen Pfad auf die `nonzero` Regeln und den anderen auf die `evenodd` Regel einzustellen. Diese überschreiben die Werte der `clip-path` Attribute im SVG, die absichtlich auf die entgegengesetzten Werte zu denen, die CSS vorgibt, eingestellt wurden.
 
 ```css
 #clipper1 {
@@ -218,13 +218,13 @@ Bei den Clipping-Pfaden, die auf die ausgeschnittenen Rechtecke angewendet werde
 }
 ```
 
-Da sowohl die inneren als auch äußeren Teile des Pfades im Uhrzeigersinn (von links nach rechts) verlaufen, wird die resultierende Clip-Form zwischen den beiden Clipping-Regeln unterschiedlich ausfallen. Für `nonzero` wird jeder Strahl im inneren Teil der Form auf einen Wert über Null aufaddiert, da er auf eines oder mehrere von links nach rechts verlaufende Pfadteile trifft. Für `even-odd` haben Punkte zwischen den zwei Teilen des Pfades eine ungerade Zählung, während jeder Punkt entweder innerhalb des inneren Pfades oder außerhalb des äußeren Teils eine gerade Zählung hat.
+Da sowohl die inneren als auch die äußeren Teile des Pfades im Uhrzeigersinn (von links nach rechts) verlaufen, wird die resultierende Schnittform zwischen den beiden Schnittregeln unterschiedlich sein. Für `nonzero` wird jeder Strahl innerhalb des äußeren Teils der Form auf einen Wert über null addiert, weil er auf einen oder mehrere von links nach rechts verlaufende Pfadfragmente trifft. Für `even-odd` haben Punkte zwischen den beiden Teilen des Pfades eine ungerade Zählung, während jeder Punkt entweder innerhalb des inneren Pfades oder außerhalb des äußeren Teils eine gerade Zählung hat.
 
 {{EmbedLiveSample("Choosing between rules for a path with all clockwise paths", "500", "200")}}
 
-### Auswahl zwischen Regeln für einen Pfad mit unterschiedlichen Wickelpfaden
+### Auswahl zwischen Regeln für einen Pfad mit entgegengesetzten Windungen
 
-Dieses Beispiel verwendet das gleiche SVG wie im vorherigen Beispiel, mit der Änderung, dass der innere Teil des Clippfads in eine entgegengesetzte Richtung verläuft.
+Dieses Beispiel verwendet das gleiche SVG wie das vorherige Beispiel, mit der Änderung, dass der innere Teil des Schnittpfades in gegen den Uhrzeigersinn verläuft.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
@@ -251,7 +251,7 @@ Dieses Beispiel verwendet das gleiche SVG wie im vorherigen Beispiel, mit der Ä
 </svg>
 ```
 
-Wir wenden das gleiche CSS an wie zuvor.
+Wir wenden den gleichen CSS wie zuvor an.
 
 ```css
 #clipper1 {
@@ -262,7 +262,7 @@ Wir wenden das gleiche CSS an wie zuvor.
 }
 ```
 
-In diesem Fall, da der äußere Teil des Pfades im Uhrzeigersinn (von links nach rechts) verläuft und der innere Teil des Pfades in eine entgegengesetzte Richtung verläuft, wird die resultierende Clip-Form unabhängig von der verwendeten Clipping-Regel gleich sein.
+In diesem Fall, da der äußere Teil des Pfades im Uhrzeigersinn (von links nach rechts) verläuft und der innere Teil des Pfades gegen den Uhrzeigersinn (von rechts nach links) verläuft, wird die resultierende Schnittform unabhängig von der verwendeten Schnittregel gleich sein.
 
 {{EmbedLiveSample("Choosing between rules for a path with different winding paths", "500", "200")}}
 
@@ -278,8 +278,8 @@ In diesem Fall, da der äußere Teil des Pfades im Uhrzeigersinn (von links nach
 
 - {{cssxref("fill-rule")}}
 - {{cssxref("clip-path")}}
-- [Einführung in das Zuschneiden in CSS](/de/docs/Web/CSS/Guides/Masking/Clipping)
-- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul
+- [Einführung in CSS Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping)
+- [CSS Maskierung](/de/docs/Web/CSS/Guides/Masking) Modul
 - SVG {{SVGAttr("clip-rule")}} Attribut
 - SVG {{SVGElement("clipPath")}} Element
 - SVG {{SVGAttr("fill-rule")}} Attribut

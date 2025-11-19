@@ -2,15 +2,15 @@
 title: view()
 slug: Web/CSS/Reference/Properties/animation-timeline/view
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
 ---
 
-Die **`view()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann mit {{cssxref("animation-timeline")}} verwendet werden, um ein Subjektelement anzugeben, das eine anonyme View-Progress-Timeline zur Animation bereitstellen wird. Die View-Progress-Timeline wird durch eine Änderung der Sichtbarkeit des Subjektelements innerhalb des nächstgelegenen Vorfahren-Scrollers vorangetrieben. Die Sichtbarkeit des Subjekts innerhalb des Scrollers wird verfolgt — standardmäßig ist die Timeline bei 0 %, wenn das Subjekt zunächst an einem Rand des Scrollers sichtbar ist, und bei 100 %, wenn es den gegenüberliegenden Rand erreicht.
+Die **`view()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann mit {{cssxref("animation-timeline")}} verwendet werden, um ein Zielelement anzugeben, das eine anonyme Fortschritts-Timeline zur Animation bereitstellt. Die Fortschritts-Timeline wird durch eine Änderung der Sichtbarkeit des Zielelements innerhalb des nächstgelegenen Vorfahren-Scrollers vorangetrieben. Die Sichtbarkeit des Ziels innerhalb des Scrollers wird verfolgt – standardmäßig ist die Timeline bei 0%, wenn das Ziel zum ersten Mal an einem Rand des Scrollers sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht.
 
-Die Funktionsparameter können die Scrollbalkenachse angeben, entlang der der Fortschritt der Timeline verfolgt wird, sowie einen Rand, der die Position der Box, in der das Subjekt als sichtbar gilt, anpasst.
+Die Funktionsparameter können die Scrollleistenachse angeben, entlang der der Fortschritt der Timeline verfolgt wird, sowie ein Inset, das die Position der Box anpasst, in der das Ziel als sichtbar gilt.
 
 > [!NOTE]
-> Wenn die angegebene Achse keinen Scrollbalken enthält, bleibt die Animation-Timeline inaktiv (ohne Fortschritt).
+> Wenn die angegebene Achse keine Scrollleiste enthält, ist die Animationstimeline inaktiv (hat keinen Fortschritt).
 
 > [!NOTE]
 > Jede Verwendung von `view()` entspricht einer eigenen Instanz von [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) in der [Web Animations API](/de/docs/Web/API/Web_Animations_API).
@@ -45,41 +45,39 @@ animation-timeline: view(x 200px auto);
 ### Parameter
 
 - axis
-  - : Der Wert der Scrollbalkenachse kann einer der folgenden sein:
+  - : Der Wert für die Scrollleistenachse kann einer der folgenden sein:
     - `block`
-      - : Der Scrollbalken auf der Blockachse des Scrollcontainers, die Achse in der Richtung senkrecht zur Textflussrichtung innerhalb einer Zeile.
-        Für horizontale Schriftmodi, wie etwa Standardenglisch, entspricht dies `y`, während es für vertikale Schriftmodi `x` entspricht. Dies ist der Standardwert.
+      - : Die Scrollleiste auf der Block-Achse des Scrollcontainers, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Bei horizontalen Schreibmodi, wie z. B. standardmäßigem Englisch, entspricht dies `y`, während es bei vertikalen Schreibmodi `x` ist. Dies ist der Standardwert.
     - `inline`
-      - : Der Scrollbalken auf der Inline-Achse des Scrollcontainers, die Achse in der Richtung parallel zur Textflussrichtung in einer Zeile.
-        Für horizontale Schriftmodi ist dies dasselbe wie `x`, während es für vertikale Schriftmodi dasselbe wie `y` ist.
+      - : Die Scrollleiste auf der Inline-Achse des Scrollcontainers, welche die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Bei horizontalen Schreibmodi entspricht dies `x`, während es bei vertikalen Schreibmodi `y` ist.
     - `y`
-      - : Der Scrollbalken auf der vertikalen Achse des Scrollcontainers.
+      - : Die Scrollleiste auf der vertikalen Achse des Scrollcontainers.
     - `x`
-      - : Der Scrollbalken auf der horizontalen Achse des Scrollcontainers.
+      - : Die Scrollleiste auf der horizontalen Achse des Scrollcontainers.
 
 - inset
-  - : Der Einfügewert kann ein oder zwei Werte sein, die entweder `auto` oder ein {{cssxref("length-percentage")}} sein können. Es spezifiziert eine Einfüge- (positive) oder Ausfüge- (negative) Anpassung des {{Glossary("Scroll_container#scrollport", "Scrollports")}}. Die Einfügung wird verwendet, um zu bestimmen, ob das Element sichtbar ist, was die Länge der Animation-Timeline bestimmt. Mit anderen Worten, die Animation dauert so lange, wie das Element in der einfügungsangepassten Ansicht ist.
+  - : Der Inset-Wert kann ein oder zwei Werte sein, die entweder `auto` oder ein {{cssxref("length-percentage")}} sein können. Er spezifiziert eine Inward- (positiv) oder eine Outward-Verschiebung (negativ) des {{Glossary("Scroll_container#scrollport", "Scrollports")}}. Der Inset wird verwendet, um zu bestimmen, ob das Element im Sichtbereich ist, was die Dauer der Animationstimeline bestimmt. Mit anderen Worten, die Animation dauert, solange das Element im inset-angepassten Sichtbereich ist.
     - start
-      - : Nach innen gerichteter Abstand vom Anfang des Scrollports.
+      - : Inward-Verschiebung vom Anfang des Scrollports.
     - end
-      - : Nach innen gerichteter Abstand vom Ende des Scrollports.
+      - : Inward-Verschiebung vom Ende des Scrollports.
 
 > [!NOTE]
-> Die Scroller- und Einfügewerte können in beliebiger Reihenfolge angegeben werden.
+> Der Scroller und die Inset-Werte können in beliebiger Reihenfolge angegeben werden.
 
-## Formaler Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Einstellen einer anonymen View-Progress-Timeline
+### Einstellen einer anonymen Fortschritts-Timeline
 
-Eine anonyme View-Progress-Timeline wird auf ein Element mit der Klasse `subject` mit `animation-timeline: view()` eingestellt. Das Ergebnis ist, dass das `subject`-Element animiert wird, wenn es beim Scrollen durch das Dokument nach oben bewegt wird.
+Eine anonyme Fortschritts-Timeline wird auf einem Element mit der Klasse `subject` unter Verwendung von `animation-timeline: view()` eingestellt. Das Ergebnis ist, dass das `subject`-Element animiert wird, während es durch das Dokument nach oben bewegt wird, während gescrollt wird.
 
 #### HTML
 
-Das HTML für das Beispiel wird unten gezeigt.
+Der HTML-Code für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -121,7 +119,7 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und die `content`-Elemente sind minimal gestylt und der Textinhalt erhält einige grundlegende Schriftarteneinstellungen:
+Das `subject`-Element und die `content`-Elemente sind minimal gestylt und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
 
 ```css
 .subject {
@@ -142,7 +140,7 @@ p {
 }
 ```
 
-Zur Verdeutlichung des Ergebnisses wurden zusätzliche Elemente `subject-container`, `top` und `bottom` verwendet. Der `subject-container` zeigt die Grenzen der Animation. Halbtransparente `top`- und `bottom`-Overlays markieren den versetzten Scrollport.
+Um das Verständnis des Ergebnisses zu erleichtern, wurden zusätzliche Elemente `subject-container`, `top` und `bottom` verwendet. Der `subject-container` zeigt die Grenzen der Animation. Und halbtransparente `top`- und `bottom`-Overlays markieren den offsettierten Scrollport.
 
 ```css
 .subject-container {
@@ -174,11 +172,11 @@ Zur Verdeutlichung des Ergebnisses wurden zusätzliche Elemente `subject-contain
 }
 ```
 
-Im folgenden Code wird dem `<div>` mit der Klasse `subject` auch die Klasse `animation` zugewiesen. Die `grow`-Animation bewirkt, dass das `subject`-Element wächst oder schrumpft. Die `animation-timeline: view(block 55% 10%)` wird eingestellt, um zu deklarieren, dass es animiert wird, während es durch die von seinem scrollenden Vorfahren (in diesem Fall das Wurzelelement des Dokuments) bereitgestellte View-Progress-Timeline fortschreitet.
+Im folgenden Code erhält das `<div>` mit der Klasse `subject` auch eine Klasse `animation`. Die `grow`-Animation bewirkt, dass das `subject`-Element wächst oder schrumpft. Die `animation-timeline: view(block 55% 10%)` wird gesetzt, um zu erklären, dass es animiert wird, während es durch die Fortschritts-Timeline voranschreitet, die von seinem scrollenden Vorfahren bereitgestellt wird (in diesem Fall das Wurzelelement des Dokuments).
 
-Während des Herunterscrollens beachten Sie, wie der Einfügewert von `50% 10%` dazu führt, dass die Animation bei 10% vom unteren Rand beginnt und bei 50% vom oberen Rand endet. Wenn die Animation entlang der Timeline voranschreitet, wächst das `subject`. Umgekehrt, beim Hochscrollen verläuft die Animation in umgekehrter Richtung, beginnend bei 50% vom oberen Rand, rückwärts durch die Animation, endend bei 10% vom unteren Rand. Während die Animation rückwärts abläuft, schrumpft das `subject`.
+Beim Herunterscrollen beachten Sie, wie der Inset-Wert `50% 10%` bewirkt, dass die Animation bei 10% von unten beginnt und bei 50% von oben endet. Während die Animation entlang der Timeline fortschreitet, wächst das `subject`. Umgekehrt, beim Heraufscrollen verläuft die Animation in die entgegengesetzte Richtung, beginnt bei 50% von oben, bewegt sich rückwärts durch die Animation und endet bei 10% von unten. Während die Animation rückwärts abläuft, schrumpft das `subject`.
 
-Ein wichtiger Punkt ist, dass die Animation so lange dauert, wie das `subject`-Element in der eingestellten und mit `50% 10%` versetzten Ansicht ist.
+Ein wichtiger Punkt, den Sie sich merken sollten, ist, dass die Animation so lange dauert, wie das `subject`-Element im Sichtbereich ist, welcher gesetzt und mithilfe von `50% 10%` offsettiert wurde.
 
 ```css
 .animation {
@@ -203,7 +201,7 @@ Ein wichtiger Punkt ist, dass die Animation so lange dauert, wie das `subject`-E
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
+Scrollen Sie, um zu sehen, wie das Zielelement animiert wird.
 
 {{EmbedLiveSample("Setting an anonymous view progress timeline", "100%", "480px")}}
 
@@ -217,6 +215,6 @@ Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 
 ## Siehe auch
 
-- [Scroll-getriebene CSS-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
 - [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)

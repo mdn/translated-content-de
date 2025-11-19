@@ -2,10 +2,12 @@
 title: border-block-style
 slug: Web/CSS/Reference/Properties/border-block-style
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockgrenzen eines Elements. Diese werden entsprechend dem Schreibmodus, der Richtung und der Textausrichtung des Elements in einen physischen Rahmenstil umgewandelt. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}}, je nach den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil der logischen Blockgrenzen eines Elements, der je nach Schreibmodus des Elements, Richtung und Textorientierung einem physischen Rahmenstil zugeordnet wird. Sie entspricht den Eigenschaften {{cssxref("border-top-style")}} und {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} und {{cssxref("border-right-style")}}, je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
+
+Der Rahmenstil in der anderen Dimension kann mit {{cssxref("border-inline-style")}} festgelegt werden, das {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}} setzt.
 
 {{InteractiveExample("CSS Demo: border-block-style")}}
 
@@ -45,8 +47,6 @@ direction: rtl;
 }
 ```
 
-Der Rahmenstil in der anderen Dimension kann mit {{cssxref("border-inline-style")}} festgelegt werden, das {{cssxref("border-inline-start-style")}} und {{cssxref("border-inline-end-style")}} setzt.
-
 ## Syntax
 
 ```css
@@ -78,7 +78,7 @@ border-block-style: unset;
 
 ## Beispiele
 
-### Gestrichelter Rahmen mit vertikalem Text
+### Gestreifter Rahmen mit vertikalem Text
 
 #### HTML
 
@@ -118,6 +118,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
 - Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

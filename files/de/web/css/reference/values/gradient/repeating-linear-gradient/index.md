@@ -2,10 +2,10 @@
 title: repeating-linear-gradient()
 slug: Web/CSS/Reference/Values/gradient/repeating-linear-gradient
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`repeating-linear-gradient()`**-[CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erzeugt ein Bild, das aus sich wiederholenden linearen Verläufen besteht. Sie ist der {{cssxref("gradient/linear-gradient", "linear-gradient()")}}-Funktion ähnlich und nimmt die gleichen Argumente, wiederholt jedoch die Farbstopps unendlich in alle Richtungen, um den gesamten Container abzudecken. Das Ergebnis der Funktion ist ein Objekt des Datentyps {{cssxref("&lt;gradient&gt;")}}, der eine spezielle Art von {{cssxref("&lt;image&gt;")}} ist.
+Die **`repeating-linear-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erzeugt ein Bild aus sich wiederholenden linearen Verläufen. Sie ist ähnlich zur {{cssxref("gradient/linear-gradient", "linear-gradient()")}} und nimmt die gleichen Argumente, aber wiederholt die Farbstops unendlich in alle Richtungen, um den gesamten Container abzudecken. Das Ergebnis der Funktion ist ein Objekt des Datentyps {{cssxref("&lt;gradient&gt;")}}, welcher eine spezielle Art von {{cssxref("&lt;image&gt;")}} ist.
 
 {{InteractiveExample("CSS Demo: repeating-linear-gradient()")}}
 
@@ -40,11 +40,11 @@ background:
 }
 ```
 
-Die Länge des sich wiederholenden Verlaufs beträgt die Distanz zwischen dem ersten und letzten Farb-Stopp. Wenn die erste Farbe keine Farb-Stopp-Länge hat, wird die Länge standardmäßig auf 0 gesetzt. Mit jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Länge des grundlegenden linearen Verlaufs verschoben. Somit fällt die Position jedes endenden Farbstopps mit einem startenden Farbstop zusammen; wenn die Farbwerte unterschiedlich sind, führt dies zu einem scharfen visuellen Übergang. Dies kann geändert werden, indem die erste Farbe am Ende erneut wiederholt wird.
+Die Länge des sich wiederholenden Verlaufs ist der Abstand zwischen dem ersten und letzten Farbstop. Wenn die erste Farbe keine Farbstopplänge hat, ist die Farbstopplänge standardmäßig 0. Bei jeder Wiederholung werden die Positionen der Farbstops um ein Vielfaches der Länge des grundlegenden linearen Verlaufs verschoben. Dadurch fällt die Position jedes endenden Farbstops mit einem startenden Farbstop zusammen; sind die Farbwerte unterschiedlich, ergibt dies einen scharfen visuellen Übergang. Dies kann geändert werden, indem die erste Farbe als letzte Farbe wiederholt wird.
 
-Wie bei jedem Verlauf hat auch ein sich wiederholender linearer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); d.h. er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird.
+Wie bei jedem Verlauf hat ein sich wiederholender linearer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); das heißt, er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das es angewendet wird.
 
-Da `<gradient>`s zum `<image>`-Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s benutzt werden können. Aus diesem Grund funktioniert `repeating-linear-gradient()` nicht bei {{Cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}}-Datentyp verwenden.
+Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-linear-gradient()` nicht bei {{Cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}} Datentyp verwenden.
 
 ## Syntax
 
@@ -81,19 +81,19 @@ repeating-linear-gradient(in hsl longer hue, blue, red 50px)
 ### Werte
 
 - `<side-or-corner>`
-  - : Die Position des Startpunkts der Verlaufsachse. Falls angegeben, besteht sie aus dem Wort `to` und bis zu zwei Schlüsselwörtern: eins gibt die horizontale Seite (`left` oder `right`) und das andere die vertikale Seite (`top` oder `bottom`) an. Die Reihenfolge der Seiten-Schlüsselwörter ist nicht von Bedeutung. Wenn nichts angegeben wird, ist die Standardeinstellung `to bottom`.
+  - : Die Ausgangsposition der Verlaufslinie. Falls angegeben, besteht sie aus dem Wort `to` und bis zu zwei Schlüsselwörtern: eines für die horizontale Seite (`left` oder `right`) und eines für die vertikale Seite (`top` oder `bottom`). Die Reihenfolge der Seiten-Schlüsselwörter ist unerheblich. Falls nicht angegeben, wird standardmäßig `to bottom` verwendet.
 
     Die Werte `to top`, `to bottom`, `to left` und `to right` entsprechen den Winkeln `0deg`, `180deg`, `270deg` bzw. `90deg`. Die anderen Werte werden in einen Winkel übersetzt.
 
 - {{cssxref("&lt;angle&gt;")}}
-  - : Der Winkel der Verlaufsachse. Ein Wert von `0deg` entspricht `to top`; steigende Werte rotieren im Uhrzeigersinn von dort aus.
+  - : Der Winkel der Verlaufsrichtung. Ein Wert von `0deg` entspricht `to top`; steigende Werte rotieren im Uhrzeigersinn ab dort.
 - `<linear-color-stop>`
-  - : Ein Farb-Stopp-Wert der {{CSSxRef("&lt;color&gt;")}}, gefolgt von einer oder zwei optionalen Stopp-Positionen (jeweils entweder ein {{CSSxRef("&lt;percentage&gt;")}} oder ein {{CSSxRef("&lt;length&gt;")}} entlang der Verlaufsachse). 0% oder eine Länge von 0 repräsentiert den Start des Verlaufs; der Wert 100% ist 100% der Bildgröße, was bedeutet, dass der Verlauf nicht wiederholt wird.
+  - : Ein {{CSSxRef("&lt;color&gt;")}} Wert eines Farbverlaufs-Stops, gefolgt von ein oder zwei optionalen Stopppositionen (jeweils entweder ein {{CSSxRef("&lt;percentage&gt;")}} oder ein {{CSSxRef("&lt;length&gt;")}} entlang der Verlaufsachse). Ein Prozentsatz von `0%` oder eine Länge von `0` stellt den Start des Verlaufs dar; der Wert `100%` ist 100% der Bildgröße, was bedeutet, dass der Verlauf sich nicht wiederholen wird.
 - `<color-hint>`
-  - : Der Farbhint ist ein Interpolationshinweis, der definiert, wie der Verlauf zwischen benachbarten Farbstopps fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps die Verlaufsfarbe den Übergangs-Mittelpunkt erreichen sollte. Wenn weggelassen, ist der Übergangs-Mittelpunkt der Mittelwert zwischen zwei Farbstopps.
+  - : Der color-hint ist ein Interpolationshinweis, der definiert, wie der Verlauf zwischen benachbarten Farbstops verläuft. Die Länge definiert, an welchem Punkt zwischen zwei Farbstops der Verlauf die Mitte des Farbübergangs erreichen sollte. Wenn weggelassen, ist die Mitte des Farbübergangs die Mitte zwischen zwei Farbstops.
 
 > [!NOTE]
-> Die Darstellung von Farbstopps in wiederholenden linearen Verläufen folgt den gleichen Regeln wie [Farbstopps in linearen Verläufen](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient#composition_of_a_linear_gradient).
+> Die Darstellung von Farbstops in sich wiederholenden linearen Verläufen folgt den gleichen Regeln wie [Farbstops in linearen Verläufen](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient#composition_of_a_linear_gradient).
 
 ## Formale Syntax
 
@@ -152,7 +152,7 @@ body {
 
 {{EmbedLiveSample('Ten_repeating_horizontal_bars', 120, 120)}}
 
-Da der letzte Farb-Stopp 10% beträgt und der Verlauf vertikal ist, ist jeder Einzelverlauf im wiederholten Verlauf 10% der Höhe, sodass 10 horizontale Balken passen.
+Da der letzte Farbstop 10% beträgt und der Verlauf vertikal ist, ist jeder Verlauf im wiederholten Verlauf 10% der Höhe, was 10 horizontale Balken ergibt.
 
 ### Interpolation im rechteckigen Farbraum
 
@@ -187,7 +187,7 @@ div {
 }
 ```
 
-In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl)-Farbsystem verwendet und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) wird interpoliert.
+In diesem Beispiel für Interpolation wird das [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl) Farbsystem verwendet, und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) wird interpoliert.
 
 ```css
 .shorter {
@@ -207,12 +207,12 @@ In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/Reference/Value
 }
 ```
 
-Das obere Kästchen verwendet die [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe vom Rot zum Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} geht. Das untere Kästchen verwendet die [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe vom Rot zum Blau über den längeren Bogen geht und Grün, Gelb und Orange durchläuft.
+Das obere Kästchen verwendet die [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von Rot zu Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbrad")}} verläuft. Das untere Kästchen verwendet die [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen verläuft und dabei durch Grün-, Gelb- und Orangetöne geht.
 
 {{EmbedLiveSample("Interpolating with hue", 120, 120)}}
 
 > [!NOTE]
-> Bitte sehen Sie sich [CSS-Verläufe verwenden](/de/docs/Web/CSS/Guides/Images/Using_gradients) für weitere Beispiele an.
+> Bitte schauen Sie sich [CSS-Verläufe verwenden](/de/docs/Web/CSS/Guides/Images/Using_gradients) für mehr Beispiele an.
 
 ## Spezifikationen
 
@@ -225,7 +225,7 @@ Das obere Kästchen verwendet die [kürzere Interpolation](/de/docs/Web/CSS/Refe
 ## Siehe auch
 
 - [CSS-Verläufe verwenden](/de/docs/Web/CSS/Guides/Images/Using_gradients)
-- Andere Verlauf-Funktionen: {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
+- Andere Verlaufsfunktionen: {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
 - [`<hue-interpolation-method>`](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method)
 - [`<color-interpolation-method>`](/de/docs/Web/CSS/Reference/Values/color-interpolation-method)
 - {{cssxref("&lt;image&gt;")}}

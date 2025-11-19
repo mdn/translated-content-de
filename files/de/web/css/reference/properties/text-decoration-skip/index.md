@@ -2,15 +2,15 @@
 title: text-decoration-skip
 slug: Web/CSS/Reference/Properties/text-decoration-skip
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: e316a03cc74a78004dbba837c9d5df297e2eb0aa
 ---
 
 {{SeeCompatTable}}
 
-Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, welche Teile des Inhalts eines Elements von einer Textdekoration, die das Element betrifft, übersprungen werden müssen. Sie steuert alle von dem Element gezeichneten Textdekorationen sowie alle Textdekorationen, die von seinen Vorfahren gezeichnet werden.
+Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, welche Teile des Inhalts eines Elements von einer Textdekoration, die das Element betrifft, übersprungen werden müssen. Sie steuert alle von dem Element gezeichneten Textdekorationslinien und auch alle von seinen Vorfahren gezeichneten Textdekorationslinien.
 
 > [!NOTE]
-> Die meisten anderen Browser unterstützen zunehmend die einfachere Eigenschaft {{cssxref("text-decoration-skip-ink")}}.
+> Die meisten anderen Browser nähern sich der Unterstützung der einfacheren {{cssxref("text-decoration-skip-ink")}} Eigenschaft an.
 
 ## Syntax
 
@@ -38,22 +38,22 @@ text-decoration-skip: unset;
 ### Werte
 
 - `none`
-  - : Nichts wird übersprungen. Daher wird die Textdekoration für alle Textinhalte und über atomare Inline-Boxen hinweg gezeichnet.
+  - : Es wird nichts übersprungen. Somit wird die Textdekoration für alle Textinhalte und über atomare inline-level Boxen hinweg gezeichnet.
 - `objects`
-  - : Die gesamte Randbox des Elements wird übersprungen, wenn es sich um ein atomares Inline-Element wie ein Bild oder ein Inline-Block handelt.
+  - : Die gesamte Margenbox des Elements wird übersprungen, wenn es sich um einen atomaren Inline handelt, wie z. B. ein Bild oder ein Inline-Block.
 - `spaces`
-  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrennzeichen, plus jeglicher angrenzender {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
+  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichen-Zeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrennzeichen, plus alle angrenzenden {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
 - `leading-spaces`
-  - : Dasselbe wie `spaces`, außer dass nur führende Leerzeichen übersprungen werden.
+  - : Das gleiche wie `spaces`, außer dass nur führende Leerzeichen übersprungen werden.
 - `trailing-spaces`
-  - : Dasselbe wie `spaces`, außer dass nur nachfolgende Leerzeichen übersprungen werden.
+  - : Das gleiche wie `spaces`, außer dass nur nachfolgende Leerzeichen übersprungen werden.
 - `edges`
-  - : Der Anfang und das Ende der Textdekoration sind leicht (z. B. um die Hälfte der Linienstärke) von der Inhaltkante der dekorierenden Box eingezogen. So erhalten angrenzende Elemente separate Unterstreichungen. (Dies ist in Chinesisch wichtig, wo Unterstreichung eine Form der Interpunktion ist.)
+  - : Der Anfang und das Ende der Textdekoration sind leicht (z. B. durch die Hälfte der Liniendicke) vom Inhaltsrand der dekorierenden Box zur Innenseite versetzt. Somit erhalten angrenzende Elemente separate Unterstreichungen. (Dies ist im Chinesischen wichtig, wo das Unterstreichen eine Form der Interpunktion darstellt.)
 
     ![Ein Beispiel für "text-decoration-skip: edges;".](decoration-skip-edges.png)
 
 - `box-decoration`
-  - : Die Textdekoration wird über die Rand-, Rahmen- und Auffüllungsbereiche der Box übersprungen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _dekorierende Box_ zeichnet nie über ihre eigene Box-Dekoration.
+  - : Die Textdekoration wird über den Margen-, Rand- und Polsterungsbereichen der Box übersprungen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _dekorierende Box_ zeichnet nie über ihre eigene Box-Dekoration.
 
 ## Formale Definition
 
@@ -65,7 +65,7 @@ text-decoration-skip: unset;
 
 ## Beispiele
 
-### Überspringen von Kanten
+### Ränder überspringen
 
 #### HTML
 
