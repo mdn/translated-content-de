@@ -1,14 +1,14 @@
 ---
-title: "VisualViewport: resize-Ereignis"
+title: "VisualViewport: resize Event"
 short-title: resize
 slug: Web/API/VisualViewport/resize_event
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: 9be502ee0f8b030908e59d30884190281acb8054
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Das **`resize`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn das visuelle Viewport geändert wird. Dies ermöglicht es Ihnen, Elemente relativ zum visuellen Viewport zu positionieren, während es gezoomt wird, was normalerweise am Layout-Viewport verankert wäre.
+Das **`resize`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn der visuelle Viewport in der Größe verändert wird. Dadurch können Sie Elemente relativ zum visuellen Viewport positionieren, wenn hineingezoomt wird, was normalerweise an den Layout-Viewport verankert wäre.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Siehe die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Nutzungsdemo.
+Sehen Sie sich die [`VisualViewport`](/de/docs/Web/API/VisualViewport#examples) Hauptseite für eine Anwendungsdemo an.
 
 ## Spezifikationen
 

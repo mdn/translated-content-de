@@ -3,12 +3,12 @@ title: "Viewport: segments-Eigenschaft"
 short-title: segments
 slug: Web/API/Viewport/segments
 l10n:
-  sourceCommit: 7860297e91985460147c2bd6ced2bfa8cab5aba7
+  sourceCommit: 9be502ee0f8b030908e59d30884190281acb8054
 ---
 
 {{APIRef("Viewport Segments API")}}{{SeeCompatTable}}
 
-Die **`segments`** schreibgeschützte Eigenschaft des [`Viewport`](/de/docs/Web/API/Viewport)-Interfaces gibt ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Position und Abmessungen jedes Viewport-Segments innerhalb der gesamten Anzeige darstellen.
+Die **`segments`**-Eigenschaft, die nur lesbar ist, der [`Viewport`](/de/docs/Web/API/Viewport)-Schnittstelle gibt ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Position und die Abmessungen jedes Viewport-Segments innerhalb des gesamten Displays darstellen.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten.
 
 ### Grundlegende Verwendung von `Viewport.segments`
 
-Dieses Snippet wird durch jedes Segment im Viewport schleifen und eine Zeichenkette in die Konsole protokollieren, die die Indexnummer, Breite und Höhe detailliert beschreibt.
+Dieses Snippet wird durch jedes Segment im Viewport schleifen und eine Zeichenkette in die Konsole ausgeben, die die Indexnummer, Breite und Höhe beschreibt.
 
 ```js
 const segments = window.viewport.segments;
@@ -41,5 +41,5 @@ segments.forEach((segment) =>
 ## Siehe auch
 
 - [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API)
-- [Visual viewport API](/de/docs/Web/API/Visual_Viewport_API)
+- [CSSOM view API](/de/docs/Web/API/CSSOM_view_API)
 - [Origin trial for Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) über developer.chrome.com (2024)

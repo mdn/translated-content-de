@@ -10553,6 +10553,7 @@
 /de/docs/Web/API/View_Transitions_API/Using	/de/docs/Web/API/View_Transition_API/Using
 /de/docs/Web/API/VisualViewport/onresize	/de/docs/Web/API/VisualViewport/resize_event
 /de/docs/Web/API/VisualViewport/onscroll	/de/docs/Web/API/VisualViewport/scroll_event
+/de/docs/Web/API/Visual_Viewport_API	/de/docs/Web/API/VisualViewport
 /de/docs/Web/API/WEBGL_compressed_texture_es3	/de/docs/Web/API/WEBGL_compressed_texture_etc
 /de/docs/Web/API/WakeLockSentinel/onrelease	/de/docs/Web/API/WakeLockSentinel/release_event
 /de/docs/Web/API/WaveShaperNode.curve	/de/docs/Web/API/WaveShaperNode/curve
