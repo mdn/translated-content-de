@@ -1,5 +1,5 @@
 ---
-title: "Window: `pageshow`-Ereignis"
+title: "Window: pageshow-Ereignis"
 short-title: pageshow
 slug: Web/API/Window/pageshow_event
 l10n:

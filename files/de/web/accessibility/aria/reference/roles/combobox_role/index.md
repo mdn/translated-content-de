@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle `combobox`"
+title: "ARIA: Rolle combobox"
 short-title: combobox
 slug: Web/Accessibility/ARIA/Reference/Roles/combobox_role
 l10n:

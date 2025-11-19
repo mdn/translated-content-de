@@ -1,5 +1,5 @@
 ---
-title: "HTMLCollection: `item()`-Methode"
+title: "HTMLCollection: item()-Methode"
 short-title: item()
 slug: Web/API/HTMLCollection/item
 l10n:

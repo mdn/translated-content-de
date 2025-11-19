@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: `values()`-Methode"
+title: "KeyboardLayoutMap: values()-Methode"
 short-title: values()
 slug: Web/API/KeyboardLayoutMap/values
 l10n:

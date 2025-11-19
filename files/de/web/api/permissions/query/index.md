@@ -1,5 +1,5 @@
 ---
-title: "Berechtigungen: `query()` Methode"
+title: "Berechtigungen: query() Methode"
 short-title: query()
 slug: Web/API/Permissions/query
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "Permissions-Policy: `serial` Direktive"
+title: "Permissions-Policy: serial Direktive"
 short-title: serial
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/serial
 l10n:

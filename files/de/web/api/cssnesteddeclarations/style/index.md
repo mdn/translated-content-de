@@ -1,5 +1,5 @@
 ---
-title: "CSSNestedDeclarations: Eigenschaft `style`"
+title: "CSSNestedDeclarations: Eigenschaft style"
 short-title: style
 slug: Web/API/CSSNestedDeclarations/style
 l10n:

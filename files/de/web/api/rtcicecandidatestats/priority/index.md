@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidateStats: `priority`-Eigenschaft"
+title: "RTCIceCandidateStats: priority-Eigenschaft"
 short-title: priority
 slug: Web/API/RTCIceCandidateStats/priority
 l10n:

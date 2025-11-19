@@ -1,5 +1,5 @@
 ---
-title: "Leistung: `getEntries()`-Methode"
+title: "Leistung: getEntries()-Methode"
 short-title: getEntries()
 slug: Web/API/Performance/getEntries
 l10n:

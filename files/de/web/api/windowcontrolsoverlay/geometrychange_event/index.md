@@ -1,5 +1,5 @@
 ---
-title: "WindowControlsOverlay: `geometrychange`-Ereignis"
+title: "WindowControlsOverlay: geometrychange-Ereignis"
 short-title: geometrychange
 slug: Web/API/WindowControlsOverlay/geometrychange_event
 l10n:

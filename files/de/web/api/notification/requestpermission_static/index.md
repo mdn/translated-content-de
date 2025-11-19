@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: `requestPermission()` statische Methode"
+title: "Benachrichtigung: requestPermission() statische Methode"
 short-title: requestPermission()
 slug: Web/API/Notification/requestPermission_static
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "Summarizer: `availability()` statische Methode"
+title: "Summarizer: availability() statische Methode"
 short-title: availability()
 slug: Web/API/Summarizer/availability_static
 l10n:

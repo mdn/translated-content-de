@@ -1,5 +1,5 @@
 ---
-title: "HTMLDialogElement: `close()`-Methode"
+title: "HTMLDialogElement: close()-Methode"
 short-title: close()
 slug: Web/API/HTMLDialogElement/close
 l10n:

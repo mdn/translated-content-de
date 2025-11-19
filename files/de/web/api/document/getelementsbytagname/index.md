@@ -1,5 +1,5 @@
 ---
-title: "Dokument: `getElementsByTagName()` Methode"
+title: "Dokument: getElementsByTagName() Methode"
 short-title: getElementsByTagName()
 slug: Web/API/Document/getElementsByTagName
 l10n:

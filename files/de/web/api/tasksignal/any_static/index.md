@@ -1,5 +1,5 @@
 ---
-title: "TaskSignal: `any()` statische Methode"
+title: "TaskSignal: any() statische Methode"
 short-title: any()
 slug: Web/API/TaskSignal/any_static
 l10n:

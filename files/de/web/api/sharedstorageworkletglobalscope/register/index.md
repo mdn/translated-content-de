@@ -1,5 +1,5 @@
 ---
-title: "SharedStorageWorkletGlobalScope: `register()`-Methode"
+title: "SharedStorageWorkletGlobalScope: register()-Methode"
 short-title: register()
 slug: Web/API/SharedStorageWorkletGlobalScope/register
 l10n:

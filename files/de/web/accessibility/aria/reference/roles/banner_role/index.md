@@ -1,5 +1,5 @@
 ---
-title: "ARIA: `banner`-Rolle"
+title: "ARIA: banner-Rolle"
 short-title: banner
 slug: Web/Accessibility/ARIA/Reference/Roles/banner_role
 l10n:

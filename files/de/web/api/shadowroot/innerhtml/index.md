@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: `innerHTML`-Eigenschaft"
+title: "ShadowRoot: innerHTML-Eigenschaft"
 short-title: innerHTML
 slug: Web/API/ShadowRoot/innerHTML
 l10n:

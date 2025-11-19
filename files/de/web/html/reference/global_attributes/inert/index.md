@@ -1,5 +1,5 @@
 ---
-title: HTML `inert` globales Attribut
+title: HTML inert globales Attribut
 short-title: inert
 slug: Web/HTML/Reference/Global_attributes/inert
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle `meter`"
+title: "ARIA: Rolle meter"
 short-title: meter
 slug: Web/Accessibility/ARIA/Reference/Roles/meter_role
 l10n:

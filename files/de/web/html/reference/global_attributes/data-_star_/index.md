@@ -1,5 +1,5 @@
 ---
-title: HTML `data-*` globales Attribut
+title: HTML data-* globales Attribut
 short-title: data-*
 slug: Web/HTML/Reference/Global_attributes/data-*
 l10n:

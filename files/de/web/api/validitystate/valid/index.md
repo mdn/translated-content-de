@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: Eigenschaft `valid`"
+title: "ValidityState: Eigenschaft valid"
 short-title: valid
 slug: Web/API/ValidityState/valid
 l10n:

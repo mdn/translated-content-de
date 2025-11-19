@@ -1,5 +1,5 @@
 ---
-title: "CredentialsContainer: `create()`-Methode"
+title: "CredentialsContainer: create()-Methode"
 short-title: create()
 slug: Web/API/CredentialsContainer/create
 l10n:

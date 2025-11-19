@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: `append()` Methode"
+title: "URLSearchParams: append() Methode"
 short-title: append()
 slug: Web/API/URLSearchParams/append
 l10n:

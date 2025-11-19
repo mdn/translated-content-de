@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rollenbeschreibung `treeitem`"
+title: "ARIA: Rollenbeschreibung treeitem"
 short-title: treeitem
 slug: Web/Accessibility/ARIA/Reference/Roles/treeitem_role
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "PublicKeyCredential: `signalAllAcceptedCredentials()` statische Methode"
+title: "PublicKeyCredential: signalAllAcceptedCredentials() statische Methode"
 short-title: signalAllAcceptedCredentials()
 slug: Web/API/PublicKeyCredential/signalAllAcceptedCredentials_static
 l10n:

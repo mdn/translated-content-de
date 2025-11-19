@@ -1,5 +1,5 @@
 ---
-title: "NodeList: `values()` Methode"
+title: "NodeList: values() Methode"
 short-title: values()
 slug: Web/API/NodeList/values
 l10n:

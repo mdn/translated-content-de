@@ -1,5 +1,5 @@
 ---
-title: "`Iterator()` Konstruktor"
+title: "Iterator() Konstruktor"
 short-title: Iterator()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/Iterator
 l10n:

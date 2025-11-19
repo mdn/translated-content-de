@@ -1,5 +1,5 @@
 ---
-title: "FileSystemObserver: `disconnect()`-Methode"
+title: "FileSystemObserver: disconnect()-Methode"
 short-title: disconnect()
 slug: Web/API/FileSystemObserver/disconnect
 l10n:

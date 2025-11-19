@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: `getDepthInformation()` Methode"
+title: "XRFrame: getDepthInformation() Methode"
 short-title: getDepthInformation()
 slug: Web/API/XRFrame/getDepthInformation
 l10n:

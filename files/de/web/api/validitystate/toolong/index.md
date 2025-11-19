@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: Eigenschaft `tooLong`"
+title: "ValidityState: Eigenschaft tooLong"
 short-title: tooLong
 slug: Web/API/ValidityState/tooLong
 l10n:

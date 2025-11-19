@@ -1,5 +1,5 @@
 ---
-title: HTML-Attribut `style` (global)
+title: HTML-Attribut style (global)
 short-title: style
 slug: Web/HTML/Reference/Global_attributes/style
 l10n:

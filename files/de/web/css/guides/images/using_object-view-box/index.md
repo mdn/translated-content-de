@@ -1,5 +1,5 @@
 ---
-title: Verwendung der CSS-Eigenschaft `object-view-box`
+title: Verwendung der CSS-Eigenschaft object-view-box
 short-title: Verwendung von `object-view-box`
 slug: Web/CSS/Guides/Images/Using_object-view-box
 l10n:

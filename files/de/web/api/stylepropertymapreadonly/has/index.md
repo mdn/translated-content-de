@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMapReadOnly: `has()`-Methode"
+title: "StylePropertyMapReadOnly: has()-Methode"
 short-title: has()
 slug: Web/API/StylePropertyMapReadOnly/has
 l10n:

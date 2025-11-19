@@ -1,5 +1,5 @@
 ---
-title: "Anfrage: `text()` Methode"
+title: "Anfrage: text() Methode"
 short-title: text()
 slug: Web/API/Request/text
 l10n:

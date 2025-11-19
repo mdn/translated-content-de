@@ -1,5 +1,5 @@
 ---
-title: "ARIA: `contentinfo`-Rolle"
+title: "ARIA: contentinfo-Rolle"
 short-title: contentinfo
 slug: Web/Accessibility/ARIA/Reference/Roles/contentinfo_role
 l10n:

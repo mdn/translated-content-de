@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: `item()` Methode"
+title: "DOMTokenList: item() Methode"
 short-title: item()
 slug: Web/API/DOMTokenList/item
 l10n:

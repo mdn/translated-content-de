@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: `selectionchange`-Ereignis"
+title: "HTMLInputElement: selectionchange-Ereignis"
 short-title: selectionchange
 slug: Web/API/HTMLInputElement/selectionchange_event
 l10n:

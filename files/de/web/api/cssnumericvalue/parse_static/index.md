@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: `parse()` statische Methode"
+title: "CSSNumericValue: parse() statische Methode"
 short-title: parse()
 slug: Web/API/CSSNumericValue/parse_static
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: HTML `contenteditable` globales Attribut
+title: HTML contenteditable globales Attribut
 short-title: contenteditable
 slug: Web/HTML/Reference/Global_attributes/contenteditable
 l10n:

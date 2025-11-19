@@ -1,5 +1,5 @@
 ---
-title: "Element: `blur`-Ereignis"
+title: "Element: blur-Ereignis"
 short-title: blur
 slug: Web/API/Element/blur_event
 l10n:

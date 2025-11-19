@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: `values()`-Methode"
+title: "DOMTokenList: values()-Methode"
 short-title: values()
 slug: Web/API/DOMTokenList/values
 l10n:

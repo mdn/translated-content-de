@@ -1,5 +1,5 @@
 ---
-title: Globales HTML-Attribut `itemref`
+title: Globales HTML-Attribut itemref
 short-title: itemref
 slug: Web/HTML/Reference/Global_attributes/itemref
 l10n:

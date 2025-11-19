@@ -1,5 +1,5 @@
 ---
-title: "FileSystemDirectoryHandle: `entries()`-Methode"
+title: "FileSystemDirectoryHandle: entries()-Methode"
 short-title: entries()
 slug: Web/API/FileSystemDirectoryHandle/entries
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle `definition`"
+title: "ARIA: Rolle definition"
 short-title: definition
 slug: Web/Accessibility/ARIA/Reference/Roles/definition_role
 l10n:

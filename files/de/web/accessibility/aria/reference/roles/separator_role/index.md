@@ -1,5 +1,5 @@
 ---
-title: "ARIA: `separator`-Rolle"
+title: "ARIA: separator-Rolle"
 short-title: separator
 slug: Web/Accessibility/ARIA/Reference/Roles/separator_role
 l10n:

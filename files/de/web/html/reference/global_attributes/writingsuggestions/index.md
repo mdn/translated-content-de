@@ -1,5 +1,5 @@
 ---
-title: HTML `writingsuggestions` globales Attribut
+title: HTML writingsuggestions globales Attribut
 short-title: writingsuggestions
 slug: Web/HTML/Reference/Global_attributes/writingsuggestions
 l10n:

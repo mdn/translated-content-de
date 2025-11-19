@@ -1,5 +1,5 @@
 ---
-title: "`<audio>`: Das Einbettungs-Element für Audio"
+title: "<audio>: Das Einbettungs-Element für Audio"
 slug: Web/HTML/Reference/Elements/audio
 l10n:
   sourceCommit: b0c2ce683687410406fa7ccdef391ff1d41503bb

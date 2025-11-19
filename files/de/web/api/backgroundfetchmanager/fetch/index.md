@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchManager: `fetch()` Methode"
+title: "BackgroundFetchManager: fetch() Methode"
 short-title: fetch()
 slug: Web/API/BackgroundFetchManager/fetch
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "`RegExp()` Konstruktor"
+title: "RegExp() Konstruktor"
 short-title: RegExp()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/RegExp
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "Navigator: `contacts`-Eigenschaft"
+title: "Navigator: contacts-Eigenschaft"
 short-title: contacts
 slug: Web/API/Navigator/contacts
 l10n:

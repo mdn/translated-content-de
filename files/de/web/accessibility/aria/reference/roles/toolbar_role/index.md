@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle `toolbar`"
+title: "ARIA: Rolle toolbar"
 short-title: toolbar
 slug: Web/Accessibility/ARIA/Reference/Roles/toolbar_role
 l10n:

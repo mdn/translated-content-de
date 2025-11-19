@@ -1,5 +1,5 @@
 ---
-title: "Dokument: `afterscriptexecute`-Ereignis"
+title: "Dokument: afterscriptexecute-Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Document/afterscriptexecute_event
 l10n:

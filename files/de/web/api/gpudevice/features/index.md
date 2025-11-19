@@ -1,5 +1,5 @@
 ---
-title: "GPUDevice: `features`-Eigenschaft"
+title: "GPUDevice: features-Eigenschaft"
 short-title: features
 slug: Web/API/GPUDevice/features
 l10n:
