@@ -10,7 +10,7 @@ Das `aria-modal`-Attribut gibt an, ob ein Element modal angezeigt wird.
 
 ## Beschreibung
 
-Ein Inhaltsbereich ist "modal", wenn die Navigation auf den Bereich selbst beschränkt ist und der Hintergrund (die Vorfahren und Geschwister des Modals) ausgeblendet wird. Das Setzen von `aria-modal="true"` auf [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)- und [`alertdialog`-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) -Containern signalisiert den Benutzern von assistiven Technologien das Vorhandensein eines "modales" Elements, macht das Element jedoch nicht tatsächlich modal. Die Funktionen, die das Element tatsächlich modal machen, müssen vom Entwickler implementiert werden.
+Ein Inhaltsbereich ist "modal", wenn die Navigation auf den Bereich selbst beschränkt ist und der Hintergrund (die Vorfahren und Geschwister des Modals) ausgeblendet wird. Das Setzen von `aria-modal="true"` auf [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)- und [`alertdialog`-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)-Containern signalisiert den Benutzern von assistiven Technologien das Vorhandensein eines "modales" Elements, macht das Element jedoch nicht tatsächlich modal. Die Funktionen, die das Element tatsächlich modal machen, müssen vom Entwickler implementiert werden.
 
 > [!NOTE]
 > ARIA ändert nur den Barrierefreiheitsbaum, indem es beeinflusst, wie assistive Technologien den Inhalt Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements. Um einen Modaleffekt zu erzeugen, müssen Sie JavaScript verwenden, um das Verhalten, den Fokus und die ARIA-Zustände zu verwalten.

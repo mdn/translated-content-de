@@ -382,10 +382,10 @@ Für weitere Beispiele, die verschiedene Aspekte der Implementierung benutzerdef
 - [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace)
 - [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync)
 - {{HTMLelement("template")}}
-- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping) -Modul
+- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping)-Modul
 - {{CSSXref(":host")}}
 - {{CSSXref(":host_function", ":host()")}}
 - {{CSSXref(":host-context", ":host-context()")}}
 - {{CSSXref("::slotted", "::slotted()")}}
-- [CSS Shadow Parts](/de/docs/Web/CSS/Guides/Shadow_parts) -Modul
+- [CSS Shadow Parts](/de/docs/Web/CSS/Guides/Shadow_parts)-Modul
 - {{CSSXref("::part")}}

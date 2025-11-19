@@ -119,7 +119,7 @@ In diesem Fall erfolgt die Interaktion, wodurch der Browser die Quelldaten speic
 
 ### Auf Window.open() basierende Navigationsquellen
 
-Sie können auch das `attributionsrc`-Feature-Schlüsselwort zur Features-Eigenschaft eines [`Window.open()`](/de/docs/Web/API/Window/open) -Aufrufs hinzufügen. In diesem Beispiel führen wir es als Reaktion auf ein ausgelöstes `click`-Ereignis aus:
+Sie können auch das `attributionsrc`-Feature-Schlüsselwort zur Features-Eigenschaft eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs hinzufügen. In diesem Beispiel führen wir es als Reaktion auf ein ausgelöstes `click`-Ereignis aus:
 
 ```js
 elem.addEventListener("click", () => {

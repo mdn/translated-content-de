@@ -47,7 +47,7 @@ Zur Wiederholung, was wir im vorherigen Artikel gesagt haben:
 - [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)
 - {{HTMLElement("progress")}} und {{HTMLElement("meter")}}
 
-Zunächst sprechen wir über die [`appearance`](/de/docs/Web/CSS/Reference/Properties/appearance) -Eigenschaft, die nützlich ist, um alle oben genannten Elemente einfacher zu stylen.
+Zunächst sprechen wir über die [`appearance`](/de/docs/Web/CSS/Reference/Properties/appearance)-Eigenschaft, die nützlich ist, um alle oben genannten Elemente einfacher zu stylen.
 
 ## `appearance`: Betriebssystem-Ebene Styling kontrollieren
 
