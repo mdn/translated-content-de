@@ -1,5 +1,5 @@
 ---
-title: "Navigator: `presentation`-Eigenschaft"
+title: "Navigator: presentation-Eigenschaft"
 short-title: presentation
 slug: Web/API/Navigator/presentation
 l10n:

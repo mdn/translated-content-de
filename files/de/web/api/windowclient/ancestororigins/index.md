@@ -1,5 +1,5 @@
 ---
-title: "WindowClient: `ancestorOrigins`-Eigenschaft"
+title: "WindowClient: ancestorOrigins-Eigenschaft"
 short-title: ancestorOrigins
 slug: Web/API/WindowClient/ancestorOrigins
 l10n:

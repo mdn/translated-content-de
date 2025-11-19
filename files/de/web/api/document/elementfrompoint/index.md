@@ -1,5 +1,5 @@
 ---
-title: "Dokument: `elementFromPoint()`-Methode"
+title: "Dokument: elementFromPoint()-Methode"
 short-title: elementFromPoint()
 slug: Web/API/Document/elementFromPoint
 l10n:

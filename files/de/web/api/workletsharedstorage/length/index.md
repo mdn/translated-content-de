@@ -1,5 +1,5 @@
 ---
-title: "WorkletSharedStorage: `length()` Methode"
+title: "WorkletSharedStorage: length() Methode"
 short-title: length()
 slug: Web/API/WorkletSharedStorage/length
 l10n:

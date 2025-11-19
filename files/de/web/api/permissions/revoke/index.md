@@ -1,5 +1,5 @@
 ---
-title: "Berechtigungen: `revoke()`-Methode"
+title: "Berechtigungen: revoke()-Methode"
 short-title: revoke()
 slug: Web/API/Permissions/revoke
 l10n:

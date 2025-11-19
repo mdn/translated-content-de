@@ -1,5 +1,5 @@
 ---
-title: "PerformanceElementTiming: `intersectionRect`-Eigenschaft"
+title: "PerformanceElementTiming: intersectionRect-Eigenschaft"
 short-title: intersectionRect
 slug: Web/API/PerformanceElementTiming/intersectionRect
 l10n:

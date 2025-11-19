@@ -1,5 +1,5 @@
 ---
-title: Das `arguments`-Objekt
+title: Das arguments-Objekt
 slug: Web/JavaScript/Reference/Functions/arguments
 l10n:
   sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4

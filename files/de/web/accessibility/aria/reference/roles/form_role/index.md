@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rollenmerkmal `form`"
+title: "ARIA: Rollenmerkmal form"
 short-title: form
 slug: Web/Accessibility/ARIA/Reference/Roles/form_role
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "Navigation: `entries()`-Methode"
+title: "Navigation: entries()-Methode"
 short-title: entries()
 slug: Web/API/Navigation/entries
 l10n:

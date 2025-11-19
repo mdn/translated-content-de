@@ -1,5 +1,5 @@
 ---
-title: HTML `anchor` globales Attribut
+title: HTML anchor globales Attribut
 short-title: anchor
 slug: Web/HTML/Reference/Global_attributes/anchor
 l10n:

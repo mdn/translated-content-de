@@ -1,5 +1,5 @@
 ---
-title: "MutationRecord: `attributeName`-Eigenschaft"
+title: "MutationRecord: attributeName-Eigenschaft"
 short-title: attributeName
 slug: Web/API/MutationRecord/attributeName
 l10n:

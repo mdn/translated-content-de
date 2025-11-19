@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: `closed`-Eigenschaft"
+title: "WebTransport: closed-Eigenschaft"
 short-title: closed
 slug: Web/API/WebTransport/closed
 l10n:

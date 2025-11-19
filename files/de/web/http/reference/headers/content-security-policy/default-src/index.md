@@ -1,5 +1,5 @@
 ---
-title: "Content-Security-Policy: Direktive `default-src`"
+title: "Content-Security-Policy: Direktive default-src"
 short-title: default-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/default-src
 l10n:

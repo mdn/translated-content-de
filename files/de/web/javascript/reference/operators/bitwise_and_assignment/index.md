@@ -1,5 +1,5 @@
 ---
-title: Bitweises UND-Zuweisung (`&=`)
+title: Bitweises UND-Zuweisung (&=)
 slug: Web/JavaScript/Reference/Operators/Bitwise_AND_assignment
 l10n:
   sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4

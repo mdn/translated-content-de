@@ -1,5 +1,5 @@
 ---
-title: "CustomElementRegistry: `define()`-Methode"
+title: "CustomElementRegistry: define()-Methode"
 short-title: define()
 slug: Web/API/CustomElementRegistry/define
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: `uniformMatrix[234]fv()` Methode"
+title: "WebGLRenderingContext: uniformMatrix[234]fv() Methode"
 short-title: uniformMatrix[234]fv()
 slug: Web/API/WebGLRenderingContext/uniformMatrix
 l10n:

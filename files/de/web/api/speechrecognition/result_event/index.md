@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: `result` Ereignis"
+title: "SpeechRecognition: result Ereignis"
 short-title: result
 slug: Web/API/SpeechRecognition/result_event
 l10n:

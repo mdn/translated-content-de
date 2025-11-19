@@ -1,5 +1,5 @@
 ---
-title: "MediaKeyStatusMap: `entries()`-Methode"
+title: "MediaKeyStatusMap: entries()-Methode"
 short-title: entries()
 slug: Web/API/MediaKeyStatusMap/entries
 l10n:

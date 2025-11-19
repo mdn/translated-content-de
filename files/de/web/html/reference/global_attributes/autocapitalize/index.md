@@ -1,5 +1,5 @@
 ---
-title: HTML `autocapitalize` globales Attribut
+title: HTML autocapitalize globales Attribut
 short-title: autocapitalize
 slug: Web/HTML/Reference/Global_attributes/autocapitalize
 l10n:

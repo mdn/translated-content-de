@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: Eigenschaft `controlsList`"
+title: "HTMLMediaElement: Eigenschaft controlsList"
 short-title: controlsList
 slug: Web/API/HTMLMediaElement/controlsList
 l10n:

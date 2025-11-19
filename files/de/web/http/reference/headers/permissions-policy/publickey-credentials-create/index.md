@@ -1,5 +1,5 @@
 ---
-title: "Permissions-Policy: Directive `publickey-credentials-create`"
+title: "Permissions-Policy: Directive publickey-credentials-create"
 short-title: publickey-credentials-create
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/publickey-credentials-create
 l10n:

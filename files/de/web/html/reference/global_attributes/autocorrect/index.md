@@ -1,5 +1,5 @@
 ---
-title: HTML `autocorrect` globales Attribut
+title: HTML autocorrect globales Attribut
 short-title: autocorrect
 slug: Web/HTML/Reference/Global_attributes/autocorrect
 l10n:

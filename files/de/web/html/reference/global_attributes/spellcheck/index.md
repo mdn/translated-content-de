@@ -1,5 +1,5 @@
 ---
-title: HTML `spellcheck` globales Attribut
+title: HTML spellcheck globales Attribut
 short-title: spellcheck
 slug: Web/HTML/Reference/Global_attributes/spellcheck
 l10n:

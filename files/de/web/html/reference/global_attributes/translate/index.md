@@ -1,5 +1,5 @@
 ---
-title: HTML `translate` Globales Attribut
+title: HTML translate Globales Attribut
 short-title: translate
 slug: Web/HTML/Reference/Global_attributes/translate
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "IdleDetector: `requestPermission()` statische Methode"
+title: "IdleDetector: requestPermission() statische Methode"
 short-title: requestPermission()
 slug: Web/API/IdleDetector/requestPermission_static
 l10n:

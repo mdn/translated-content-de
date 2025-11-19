@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: `speechend`-Ereignis"
+title: "SpeechRecognition: speechend-Ereignis"
 short-title: speechend
 slug: Web/API/SpeechRecognition/speechend_event
 l10n:

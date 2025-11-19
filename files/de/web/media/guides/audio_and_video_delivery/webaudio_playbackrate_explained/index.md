@@ -1,5 +1,5 @@
 ---
-title: Web-Audio-`playbackRate` erklärt
+title: Web-Audio-playbackRate erklärt
 slug: Web/Media/Guides/Audio_and_video_delivery/WebAudio_playbackRate_explained
 l10n:
   sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553

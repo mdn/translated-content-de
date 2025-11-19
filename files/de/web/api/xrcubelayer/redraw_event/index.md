@@ -1,5 +1,5 @@
 ---
-title: "XRCubeLayer: `redraw`-Ereignis"
+title: "XRCubeLayer: redraw-Ereignis"
 short-title: redraw
 slug: Web/API/XRCubeLayer/redraw_event
 l10n:

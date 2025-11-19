@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: `available()` statische Methode"
+title: "SpeechRecognition: available() statische Methode"
 short-title: available()
 slug: Web/API/SpeechRecognition/available_static
 l10n:

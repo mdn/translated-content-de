@@ -1,5 +1,5 @@
 ---
-title: "GPUCommandEncoder: Eigentum `label`"
+title: "GPUCommandEncoder: Eigentum label"
 short-title: label
 slug: Web/API/GPUCommandEncoder/label
 l10n:

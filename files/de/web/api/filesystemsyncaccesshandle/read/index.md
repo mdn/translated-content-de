@@ -1,5 +1,5 @@
 ---
-title: "FileSystemSyncAccessHandle: `read()`-Methode"
+title: "FileSystemSyncAccessHandle: read()-Methode"
 short-title: read()
 slug: Web/API/FileSystemSyncAccessHandle/read
 l10n:

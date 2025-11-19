@@ -1,5 +1,5 @@
 ---
-title: HTML-Attribut globales `virtualkeyboardpolicy`
+title: HTML-Attribut globales virtualkeyboardpolicy
 short-title: virtualkeyboardpolicy
 slug: Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy
 l10n:

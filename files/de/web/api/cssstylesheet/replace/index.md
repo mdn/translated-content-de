@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleSheet: `replace()`-Methode"
+title: "CSSStyleSheet: replace()-Methode"
 short-title: replace()
 slug: Web/API/CSSStyleSheet/replace
 l10n:

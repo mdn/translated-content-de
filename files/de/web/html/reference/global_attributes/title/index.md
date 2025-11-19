@@ -1,5 +1,5 @@
 ---
-title: HTML-Globale Attribut `title`
+title: HTML-Globale Attribut title
 short-title: title
 slug: Web/HTML/Reference/Global_attributes/title
 l10n:

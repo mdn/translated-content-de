@@ -1,5 +1,5 @@
 ---
-title: "Gamepad: `hapticActuators`-Eigenschaft"
+title: "Gamepad: hapticActuators-Eigenschaft"
 short-title: hapticActuators
 slug: Web/API/Gamepad/hapticActuators
 l10n:

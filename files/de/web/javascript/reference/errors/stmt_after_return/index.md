@@ -1,5 +1,5 @@
 ---
-title: "Warnung: unerreichbarer Code nach dem `return`-Statement"
+title: "Warnung: unerreichbarer Code nach dem return-Statement"
 slug: Web/JavaScript/Reference/Errors/Stmt_after_return
 l10n:
   sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4

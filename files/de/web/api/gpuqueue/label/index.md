@@ -1,5 +1,5 @@
 ---
-title: "GPUQueue: `label`-Eigenschaft"
+title: "GPUQueue: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUQueue/label
 l10n:

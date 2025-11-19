@@ -1,5 +1,5 @@
 ---
-title: "XRView: Eigenschaft `projectionMatrix`"
+title: "XRView: Eigenschaft projectionMatrix"
 short-title: projectionMatrix
 slug: Web/API/XRView/projectionMatrix
 l10n:

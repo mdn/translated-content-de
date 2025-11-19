@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle `math`"
+title: "ARIA: Rolle math"
 short-title: math
 slug: Web/Accessibility/ARIA/Reference/Roles/math_role
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: Eigenschaft `ideographicBaseline`"
+title: "TextMetrics: Eigenschaft ideographicBaseline"
 short-title: ideographicBaseline
 slug: Web/API/TextMetrics/ideographicBaseline
 l10n:

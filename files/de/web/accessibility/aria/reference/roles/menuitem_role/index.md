@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle `menuitem`"
+title: "ARIA: Rolle menuitem"
 short-title: menuitem
 slug: Web/Accessibility/ARIA/Reference/Roles/menuitem_role
 l10n:

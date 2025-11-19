@@ -1,5 +1,5 @@
 ---
-title: "`<form>`: Das Formularelement"
+title: "<form>: Das Formularelement"
 slug: Web/HTML/Reference/Elements/form
 l10n:
   sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a

@@ -1,5 +1,5 @@
 ---
-title: "CryptoKey: `usages`-Eigenschaft"
+title: "CryptoKey: usages-Eigenschaft"
 short-title: usages
 slug: Web/API/CryptoKey/usages
 l10n:

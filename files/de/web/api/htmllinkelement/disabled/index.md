@@ -1,5 +1,5 @@
 ---
-title: "HTMLLinkElement: Eigenschaft `disabled`"
+title: "HTMLLinkElement: Eigenschaft disabled"
 short-title: disabled
 slug: Web/API/HTMLLinkElement/disabled
 l10n:

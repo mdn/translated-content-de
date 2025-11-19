@@ -1,5 +1,5 @@
 ---
-title: "LanguageDetector: `create()` statische Methode"
+title: "LanguageDetector: create() statische Methode"
 short-title: create()
 slug: Web/API/LanguageDetector/create_static
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "WritableStreamDefaultWriter: `abort()` Methode"
+title: "WritableStreamDefaultWriter: abort() Methode"
 short-title: abort()
 slug: Web/API/WritableStreamDefaultWriter/abort
 l10n:

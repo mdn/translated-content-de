@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleValue: `parse()` statische Methode"
+title: "CSSStyleValue: parse() statische Methode"
 short-title: parse()
 slug: Web/API/CSSStyleValue/parse_static
 l10n:

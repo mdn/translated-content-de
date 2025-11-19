@@ -1,5 +1,5 @@
 ---
-title: "Animation: `effect`-Eigenschaft"
+title: "Animation: effect-Eigenschaft"
 short-title: effect
 slug: Web/API/Animation/effect
 l10n:

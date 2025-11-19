@@ -1,5 +1,5 @@
 ---
-title: "CSSFunctionRule: `getParameters()`-Methode"
+title: "CSSFunctionRule: getParameters()-Methode"
 short-title: getParameters()
 slug: Web/API/CSSFunctionRule/getParameters
 l10n:

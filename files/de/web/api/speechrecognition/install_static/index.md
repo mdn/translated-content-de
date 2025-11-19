@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: `install()` statische Methode"
+title: "SpeechRecognition: install() statische Methode"
 short-title: install()
 slug: Web/API/SpeechRecognition/install_static
 l10n:

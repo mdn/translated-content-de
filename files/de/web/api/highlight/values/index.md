@@ -1,5 +1,5 @@
 ---
-title: "Highlight: Methode `values()`"
+title: "Highlight: Methode values()"
 short-title: values()
 slug: Web/API/Highlight/values
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: Eigenschaft `periodicSync`"
+title: "ServiceWorkerRegistration: Eigenschaft periodicSync"
 short-title: periodicSync
 slug: Web/API/ServiceWorkerRegistration/periodicSync
 l10n:

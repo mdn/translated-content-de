@@ -1,5 +1,5 @@
 ---
-title: "Permissions-Policy: `deferred-fetch-minimal` Direktive"
+title: "Permissions-Policy: deferred-fetch-minimal Direktive"
 short-title: deferred-fetch-minimal
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/deferred-fetch-minimal
 l10n:

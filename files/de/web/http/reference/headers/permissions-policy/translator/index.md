@@ -1,5 +1,5 @@
 ---
-title: "Permissions-Policy: `translator`-Direktive"
+title: "Permissions-Policy: translator-Direktive"
 short-title: translator
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/translator
 l10n:

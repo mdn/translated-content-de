@@ -1,5 +1,5 @@
 ---
-title: "PressureObserver: `disconnect()`-Methode"
+title: "PressureObserver: disconnect()-Methode"
 short-title: disconnect()
 slug: Web/API/PressureObserver/disconnect
 l10n:

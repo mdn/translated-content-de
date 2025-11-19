@@ -1,5 +1,5 @@
 ---
-title: "Anfrage: `clone()`-Methode"
+title: "Anfrage: clone()-Methode"
 short-title: clone()
 slug: Web/API/Request/clone
 l10n:

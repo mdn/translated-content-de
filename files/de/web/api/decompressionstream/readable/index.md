@@ -1,5 +1,5 @@
 ---
-title: "DecompressionStream: `readable`-Eigenschaft"
+title: "DecompressionStream: readable-Eigenschaft"
 short-title: readable
 slug: Web/API/DecompressionStream/readable
 l10n:

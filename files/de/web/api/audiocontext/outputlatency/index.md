@@ -1,5 +1,5 @@
 ---
-title: "AudioContext: Eigenschaft `outputLatency`"
+title: "AudioContext: Eigenschaft outputLatency"
 short-title: outputLatency
 slug: Web/API/AudioContext/outputLatency
 l10n:

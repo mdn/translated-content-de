@@ -1,5 +1,5 @@
 ---
-title: "Element: `pointermove`-Ereignis"
+title: "Element: pointermove-Ereignis"
 short-title: pointermove
 slug: Web/API/Element/pointermove_event
 l10n:

@@ -1,5 +1,5 @@
 ---
-title: "ARIA: `structure`-Rolle"
+title: "ARIA: structure-Rolle"
 short-title: structure
 slug: Web/Accessibility/ARIA/Reference/Roles/structure_role
 l10n:

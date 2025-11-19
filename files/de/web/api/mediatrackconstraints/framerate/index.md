@@ -1,5 +1,5 @@
 ---
-title: "MediaTrackConstraints: `frameRate`-Eigenschaft"
+title: "MediaTrackConstraints: frameRate-Eigenschaft"
 short-title: frameRate
 slug: Web/API/MediaTrackConstraints/frameRate
 l10n:

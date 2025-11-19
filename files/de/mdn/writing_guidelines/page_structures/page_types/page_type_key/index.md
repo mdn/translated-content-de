@@ -1,5 +1,5 @@
 ---
-title: Der `page-type` Front Matter Schlüssel
+title: Der page-type Front Matter Schlüssel
 slug: MDN/Writing_guidelines/Page_structures/Page_types/Page_type_key
 l10n:
   sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d

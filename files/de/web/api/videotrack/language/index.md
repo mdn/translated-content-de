@@ -1,5 +1,5 @@
 ---
-title: "VideoTrack: `language`-Eigenschaft"
+title: "VideoTrack: language-Eigenschaft"
 short-title: language
 slug: Web/API/VideoTrack/language
 l10n:

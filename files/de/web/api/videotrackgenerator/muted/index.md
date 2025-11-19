@@ -1,5 +1,5 @@
 ---
-title: "VideoTrackGenerator: `muted`-Eigenschaft"
+title: "VideoTrackGenerator: muted-Eigenschaft"
 short-title: muted
 slug: Web/API/VideoTrackGenerator/muted
 l10n:
