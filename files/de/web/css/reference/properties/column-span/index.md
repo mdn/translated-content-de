@@ -2,10 +2,12 @@
 title: column-span
 slug: Web/CSS/Reference/Properties/column-span
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`column-span`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es einem Element, sich über alle Spalten auszubreiten, wenn ihr Wert auf `all` gesetzt ist.
+Die **`column-span`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es einem Element, sich über alle Spalten auszudehnen, wenn ihr Wert auf `all` gesetzt ist.
+
+Ein Element, das sich über mehr als eine Spalte erstreckt, wird als **durchspannendes Element** bezeichnet.
 
 {{InteractiveExample("CSS Demo: column-span")}}
 
@@ -53,8 +55,6 @@ column-span: all;
 }
 ```
 
-Ein Element, das sich über mehr als eine Spalte erstreckt, wird als **spanning element** bezeichnet.
-
 ## Syntax
 
 ```css
@@ -70,14 +70,14 @@ column-span: revert-layer;
 column-span: unset;
 ```
 
-Die `column-span` Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter angegeben.
+Die `column-span`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `none`
   - : Das Element erstreckt sich nicht über mehrere Spalten.
 - `all`
-  - : Das Element erstreckt sich über alle Spalten. Inhalt im normalen Fluss, der vor dem Element erscheint, wird automatisch über alle Spalten verteilt, bevor das Element erscheint. Das Element etabliert einen neuen Block-Formatierungskontext.
+  - : Das Element erstreckt sich über alle Spalten. Inhalt im normalen Fluss, der vor dem Element erscheint, wird automatisch über alle Spalten ausgeglichen, bevor das Element erscheint. Das Element etabliert einen neuen Block-Formatierungskontext.
 
 ## Formale Definition
 
@@ -89,9 +89,9 @@ Die `column-span` Eigenschaft wird als eines der unten aufgeführten Schlüsselw
 
 ## Beispiele
 
-### Eine Überschrift über Spalten erstrecken
+### Einen Titel über Spalten erstrecken
 
-In diesem Beispiel wird die Überschrift so eingestellt, dass sie sich über alle Spalten des Artikels erstreckt.
+In diesem Beispiel wird der Titel so gestaltet, dass er sich über alle Spalten des Artikels erstreckt.
 
 #### HTML
 
@@ -147,6 +147,6 @@ h2 {
 
 ## Siehe auch
 
-- [Spannen und Ausbalancieren von Spalten](/de/docs/Web/CSS/Guides/Multicol_layout/Spanning_balancing_columns)
+- [Spanning und Ausgleich von Spalten](/de/docs/Web/CSS/Guides/Multicol_layout/Spanning_balancing_columns)
 - {{Glossary("Inline-level_content", "Inline-Level-Elemente")}}
 - [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)

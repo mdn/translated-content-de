@@ -2,7 +2,7 @@
 title: border-spacing
 slug: Web/CSS/Reference/Properties/border-spacing
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
 Die **`border-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen den Rändern benachbarter Zellen in einem {{htmlelement("table")}} fest. Diese Eigenschaft gilt nur, wenn {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
@@ -55,11 +55,6 @@ td {
 }
 ```
 
-Der Wert von `border-spacing` wird auch am äußeren Rand der Tabelle verwendet, wobei der Abstand zwischen dem Rand der Tabelle und den Zellen in der ersten/letzten Spalte oder Reihe die Summe des entsprechenden (horizontalen oder vertikalen) `border-spacing` und des entsprechenden (oben, rechts, unten oder links) {{cssxref("padding")}} auf der Tabelle ist.
-
-> [!NOTE]
-> Die Eigenschaft `border-spacing` ist gleichwertig mit dem veralteten `cellspacing` Attribut des `<table>` Elements, außer dass `border-spacing` einen optionalen zweiten Wert hat, der verwendet werden kann, um unterschiedliche horizontale und vertikale Abstände festzulegen.
-
 ## Syntax
 
 ```css
@@ -77,15 +72,22 @@ border-spacing: revert-layer;
 border-spacing: unset;
 ```
 
-Die `border-spacing` Eigenschaft kann entweder mit einem oder zwei Werten spezifiziert werden.
+Die `border-spacing`-Eigenschaft kann mit entweder einem oder zwei Werten angegeben werden.
 
-- Wenn **ein** `<length>` Wert angegeben wird, definiert er sowohl die horizontalen als auch die vertikalen Abstände zwischen den Zellen.
-- Wenn **zwei** `<length>` Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Reihen_).
+- Wenn **ein** `<length>`-Wert angegeben wird, definiert er sowohl den horizontalen als auch den vertikalen Abstand zwischen den Zellen.
+- Wenn **zwei** `<length>`-Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Reihen_).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Abstands als fester Wert.
+
+## Beschreibung
+
+Der `border-spacing`-Wert wird auch entlang der Außenkante der Tabelle verwendet, wobei der Abstand zwischen der Tabellenumrandung und den Zellen in der ersten/letzten Spalte oder Zeile die Summe des relevanten (horizontalen oder vertikalen) `border-spacing` und des relevanten (oben, rechts, unten oder links) {{cssxref("padding")}} auf der Tabelle ist.
+
+> [!NOTE]
+> Die `border-spacing`-Eigenschaft entspricht dem veralteten `cellspacing`-Attribut des `<table>` Elements, außer dass `border-spacing` einen optionalen zweiten Wert hat, der verwendet werden kann, um unterschiedliche horizontale und vertikale Abstände festzulegen.
 
 ## Formale Definition
 
@@ -97,9 +99,9 @@ Die `border-spacing` Eigenschaft kann entweder mit einem oder zwei Werten spezif
 
 ## Beispiele
 
-### Abstand und Padding für Tabellenzellen
+### Abstände und Auffüllen von Tabellenzellen
 
-Dieses Beispiel verwendet einen vertikalen Abstand von `.5em` und einen horizontalen Abstand von `1em` zwischen den Zellen einer Tabelle. Beachten Sie, wie an den äußeren Rändern der Tabelle die `padding`-Werte zu den `border-spacing`-Werten hinzugefügt werden.
+In diesem Beispiel wird ein Abstand von `.5em` vertikal und `1em` horizontal zwischen den Zellen einer Tabelle angewendet. Beachten Sie, wie entlang der Außenkanten der Tabelle die `padding`-Werte zu den `border-spacing`-Werten hinzugefügt werden.
 
 #### HTML
 
@@ -158,5 +160,5 @@ td {
 ## Siehe auch
 
 - {{cssxref("border-collapse")}}, {{cssxref("border-style")}}
-- Die `border-spacing` Eigenschaft verändert das Erscheinungsbild des {{htmlelement("table")}} HTML Elements.
-- [CSS table](/de/docs/Web/CSS/Guides/Table) Modul
+- Die `border-spacing`-Eigenschaft verändert das Aussehen des {{htmlelement("table")}} HTML-Elements.
+- [CSS Tabelle](/de/docs/Web/CSS/Guides/Table) Modul

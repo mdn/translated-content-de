@@ -3,18 +3,18 @@ title: "RTCIceCandidateStats: foundation-Eigenschaft"
 short-title: foundation
 slug: Web/API/RTCIceCandidateStats/foundation
 l10n:
-  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`foundation`**-Eigenschaft der [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Schnittstelle ist ein String, der die Korrelation von Kandidaten aus einem gemeinsamen Netzwerkpfad auf mehreren [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekten ermöglicht.
+Die **`foundation`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Interfaces ist ein String, der die Korrelation von Kandidaten über einen gemeinsamen Netzwerkpfad auf mehreren [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekten ermöglicht.
 
-Sie ist für zwei Kandidaten identisch, die vom gleichen Typ sind, dasselbe Transportprotokoll verwenden, von derselben IP-Adresse stammen, Ports innerhalb desselben Bereichs nutzen und vom selben STUN-Server kommen.
+Sie ist identisch für zwei Kandidaten, die vom gleichen Typ sind, dasselbe Transportprotokoll verwenden, von derselben IP-Adresse stammen, Ports aus demselben Bereich verwenden und vom selben STUN-Server kommen.
 
-Weitere Informationen finden Sie unter [`RTCIceCandidate.foundation`](/de/docs/Web/API/RTCIceCandidate/foundation).
+Für weitere Informationen siehe [`RTCIceCandidate.foundation`](/de/docs/Web/API/RTCIceCandidate/foundation).
 
-### Wert
+## Wert
 
 Ein String, der die [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation) des entsprechenden [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) darstellt.
 

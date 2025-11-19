@@ -1,16 +1,16 @@
 ---
-title: CSS-Transitions
+title: CSS-Übergänge
 short-title: Transitions
 slug: Web/CSS/Guides/Transitions
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 81f8fcd666952c1782653a3675347c392cc997ca
 ---
 
-Das **CSS-Transitions**-Modul spezifiziert Funktionalitäten zur Erstellung schrittweiser Übergänge zwischen verschiedenen CSS-Eigenschaftswerten. Das Verhalten dieser Übergänge kann durch Festlegen der Ease-Funktion, der Dauer und anderer Werte gesteuert werden.
+Das **CSS-Transitions**-Modul spezifiziert Funktionalitäten zur Erstellung von allmählichen Übergängen zwischen verschiedenen CSS-Property-Werten. Das Verhalten dieser Übergänge kann durch die Angabe ihrer Timing-Funktion, Dauer und anderer Werte gesteuert werden.
 
-Normalerweise, wenn sich der Wert einer CSS-Eigenschaft ändert, erfolgt das Ergebnis der Änderung vom alten zum neuen Wert sofort. Das CSS-Transitions-Modul ermöglicht das Kontrollieren eines Fortschritts vom alten Zustand der Eigenschaft zum neuen Zustand über einen festgelegten Zeitraum. Es bietet auch Ereignis-Handler, die Code ausführen lassen, als Reaktion auf das Erreichen verschiedener Phasen eines Übergangs.
+Normalerweise erfolgt die Änderung eines CSS-Property-Werts sofort von dem alten Wert zum neuen Wert. Das CSS-Transition-Modul ermöglicht die Steuerung eines Übergangs vom alten Zustand der Eigenschaft zu dem neuen Zustand über einen bestimmten Zeitraum. Es bietet auch Ereignis-Handler, um Code in Reaktion auf verschiedene Stadien eines Übergangs auszuführen.
 
-In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Übergang. Zum Beispiel, wenn ein Element dem DOM hinzugefügt wird, sind die definierten Stile für den "zu"-Zustand. Dieses Modul stellt die {{cssxref("@starting-style")}} At-Regel bereit, die das Definieren von Anfangsstilen für solche Fälle ermöglicht. Das Modul definiert auch, wie diskrete Eigenschaftswerte übergangen werden sollten, wie zum Beispiel das Übergehen der diskret animierten {{cssxref("display")}} Eigenschaft vom `none`-Wert zu einem angezeigten Wert.
+In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Übergang. Zum Beispiel, wenn ein Element dem DOM hinzugefügt wird, sind die definierten Stile für den "zu"-Zustand bestimmt. Dieses Modul bietet die {{cssxref("@starting-style")}} at-rule, die es ermöglicht, Startstile für solche Fälle zu definieren. Das Modul definiert auch, wie diskrete Eigenschaftswerte übergehen sollten, wie zum Beispiel das Überblenden der diskret animierten {{cssxref("display")}} Eigenschaft vom `none` Wert zu einem angezeigten Wert.
 
 ## Referenz
 
@@ -23,7 +23,7 @@ In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Über
 - {{cssxref("transition-property")}}
 - {{cssxref("transition-timing-function")}}
 
-### At-Regeln
+### At-Rules
 
 - {{cssxref("@starting-style")}}
 
@@ -44,24 +44,24 @@ In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Über
 
 ## Leitfäden
 
-- [CSS-Transitions verwenden](/de/docs/Web/CSS/Guides/Transitions/Using)
-  - : Schritt-für-Schritt-Anleitung zur Erstellung von Übergängen mit CSS. Dieser Artikel beschreibt jede relevante CSS-Eigenschaft und erklärt, wie sie miteinander interagieren.
-- [`display` animieren](/de/docs/Web/CSS/Reference/Properties/display#animating_display)
-  - : Übergänge zu und vom `none`-Wert der diskret animierten {{cssxref("display")}} Eigenschaft.
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
+  - : Schritt-für-Schritt-Anleitung, die erklärt, wie man Übergänge mit CSS erstellt. Dieser Artikel beschreibt jede relevante CSS-Eigenschaft und erklärt, wie sie miteinander interagieren.
+- [Animierung von `display`](/de/docs/Web/CSS/Reference/Properties/display#animating_display)
+  - : Übergang zum und vom `none` Wert der diskret animierten {{cssxref("display")}} Eigenschaft.
 - [Übergang eines Popovers](/de/docs/Web/CSS/Reference/Properties/overlay#transitioning_a_popover) und [Übergang eines `<dialog>`](/de/docs/Web/HTML/Reference/Elements/dialog#transitioning_dialog_elements)
-  - : Beispiele für Übergänge von {{cssxref("@starting-style")}} zu den finalen {{cssxref(":popover-open")}} und {{cssxref(":open")}} Pseudo-Klassenstilen.
+  - : Beispiele für Übergänge von {{cssxref("@starting-style")}} zu finalen {{cssxref(":popover-open")}} und {{cssxref(":open")}} Pseudoklassen-Stilen.
 
 ## Verwandte Konzepte
 
 - {{cssxref("interpolate-size")}} Eigenschaft
 - {{cssxref("calc-size()")}} Funktion
-- {{Glossary("Intrinsic_size", "Intrinsic Size")}} Glossar-Term
+- {{Glossary("Intrinsic_size", "Intrinsische Größe")}} Glossarbegriff
 
-- [CSS-Ease-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions) Modul
+- [CSS-Timing-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions) Modul
   - [`<easing-function>`](/de/docs/Web/CSS/Reference/Values/easing-function) Datentyp
 
 - [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul.
-  - {{cssxref("animation")}} Shorthand
+  - {{cssxref("animation")}} Kurzform
   - {{cssxref("animation-delay")}}
   - {{cssxref("animation-direction")}}
   - {{cssxref("animation-duration")}}

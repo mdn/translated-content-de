@@ -2,29 +2,29 @@
 title: device-height
 slug: Web/CSS/Reference/At-rules/@media/device-height
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
 ---
 
 {{deprecated_header}}
 
 > [!NOTE]
-> Um die Höhe des Viewports abzufragen, sollten Entwickler die [`height`](/de/docs/Web/CSS/Reference/At-rules/@media/height) Medienfunktion verwenden.
+> Um die Höhe des Viewports abzufragen, sollten Entwickler stattdessen die [`height`](/de/docs/Web/CSS/Reference/At-rules/@media/height) Medienfunktion verwenden.
 
-Die **`device-height`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Höhe der Darstellungsfläche eines Ausgabegeräts zu testen.
+Das **`device-height`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Höhe der Ausgabefläche eines Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `device-height`-Funktion wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-device-height`** und **`max-device-height`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Die `device-height` Funktion wird als {{cssxref("&lt;length&gt;")}} Wert angegeben. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-device-height`** und **`max-device-height`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 
-### Anwenden eines speziellen Stylesheets für Geräte, die kürzer als 800 Pixel sind
+### Anwenden eines speziellen Stylesheet für Geräte, die kürzer als 800 Pixel sind
 
 ```html
 <link
   rel="stylesheet"
   media="screen and (max-device-height: 799px)"
-  href="http://foo.bar.com/short-styles.css" />
+  href="https://cdn.example.com/short-styles.css" />
 ```
 
 ## Spezifikationen
@@ -37,5 +37,5 @@ Die `device-height`-Funktion wird als ein {{cssxref("&lt;length&gt;")}}-Wert ang
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwenden von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

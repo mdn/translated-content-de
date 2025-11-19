@@ -2,20 +2,20 @@
 title: ReportBody
 slug: Web/API/ReportBody
 l10n:
-  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Das **`ReportBody`**-Interface der [Reporting-API](/de/docs/Web/API/Reporting_API) repräsentiert den Körper eines Berichts. Einzelne Berichtstypen erben von diesem Interface und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
+Die **`ReportBody`**-Schnittstelle der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Körper eines Berichts. Einzelne Berichtstypen erben von dieser Schnittstelle und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
 
-### Berichte, die von `ReportBody` erben
+Die folgenden Schnittstellen erben von `ReportBody`:
 
 - [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)
 - [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)
 - [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)
 
-Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben. Das Interface besitzt keinen Konstruktor.
+Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben. Die Schnittstelle hat keinen Konstruktor.
 
 ## Instanzmethoden
 
@@ -24,7 +24,7 @@ Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zur Beobachtung von Intervention Reports. Das [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interface erbt von `ReportBody`.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten. Die Schnittstelle [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) erbt von `ReportBody`.
 
 ```js
 const options = {

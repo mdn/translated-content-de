@@ -2,14 +2,14 @@
 title: color-index
 slug: Web/CSS/Reference/At-rules/@media/color-index
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
 ---
 
-Die **`color-index`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbsuch-Lookup-Tabelle des Ausgabegeräts zu testen.
+Die **`color-index`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `color-index`-Eigenschaft wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Einträge in der Farbsuch-Lookup-Tabelle des Ausgabegeräts repräsentiert. (Dieser Wert ist null, wenn das Gerät eine solche Tabelle nicht verwendet.) Es handelt sich um ein Bereichs-Feature, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um Mindest- und Höchstwerte abzufragen.
+Die `color-index`-Funktion wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts darstellt. (Dieser Wert ist null, wenn das Gerät keine solche Tabelle verwendet.) Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die präfixierten Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um nach Mindest- bzw. Höchstwerten zu fragen.
 
 ## Beispiele
 
@@ -50,11 +50,11 @@ p {
 Dieses HTML wird ein spezielles Stylesheet für Geräte anwenden, die mindestens 256 Farben haben.
 
 ```html
-<link rel="stylesheet" href="http://foo.bar.com/base.css" />
+<link rel="stylesheet" href="https://cdn.example.com/base.css" />
 <link
   rel="stylesheet"
   media="(color-index >= 256)"
-  href="http://foo.bar.com/color-stylesheet.css" />
+  href="https://cdn.example.com/color-stylesheet.css" />
 ```
 
 ## Spezifikationen

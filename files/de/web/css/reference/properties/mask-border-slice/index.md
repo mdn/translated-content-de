@@ -2,10 +2,10 @@
 title: mask-border-slice
 slug: Web/CSS/Reference/Properties/mask-border-slice
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 7b291dab974ec1ceb97c83f45ce76c3afada2e63
 ---
 
-Die **`mask-border-slice`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt das durch {{cssxref("mask-border-source")}} festgelegte Bild in Bereiche. Diese Bereiche werden verwendet, um die Komponenten des [Maskenrahmens](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements zu bilden.
+Die **`mask-border-slice`** [CSS](/de/docs/Web/CSS) Eigenschaft teilt das durch {{cssxref("mask-border-source")}} festgelegte Bild in Regionen. Diese Regionen werden verwendet, um die Komponenten des [Maskierungsrahmens](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements zu bilden.
 
 ## Syntax
 
@@ -33,37 +33,37 @@ mask-border-slice: revert-layer;
 mask-border-slice: unset;
 ```
 
-Die `mask-border-slice` Eigenschaft kann angegeben werden, indem ein bis vier `<number-percentage>` Werte verwendet werden, um die Position jedes Bildausschnitts darzustellen. Negative Werte sind ungültig; Werte, die ihre entsprechende Dimension übersteigen, werden auf `100%` begrenzt.
+Die `mask-border-slice`-Eigenschaft kann mit einem bis vier `<number-percentage>`-Werten spezifiziert werden, um die Position jedes Bildschnittes darzustellen. Negative Werte sind ungültig; Werte, die über ihrer entsprechenden Dimension liegen, werden auf `100%` begrenzt.
 
-- Wenn **ein** Wert angegeben wird, werden alle vier Ausschnitte in gleichem Abstand zu ihren jeweiligen Seiten erstellt.
-- Wenn **zwei** Werte angegeben werden, wird mit dem ersten Wert der Abstand vom **oberen und unteren** Rand gemessen, mit dem zweiten Wert der Abstand vom **linken und rechten** Rand.
-- Wenn **drei** Werte angegeben werden, wird mit dem ersten Wert der Abstand vom **oberen** Rand gemessen, mit dem zweiten Wert der Abstand vom **linken und rechten** Rand, mit dem dritten Wert der Abstand vom **unteren** Rand.
-- Wenn **vier** Werte angegeben werden, werden die Abstände in der Reihenfolge **oben**, **rechts**, **unten** und **links** im Uhrzeigersinn gemessen.
+- Wenn **eine** Position angegeben wird, werden alle vier Schnitte im gleichen Abstand von ihren jeweiligen Seiten erstellt.
+- Wenn **zwei** Positionen angegeben werden, erstellt der erste Wert Schnitte, die vom **oberen und unteren** Rand gemessen werden, der zweite erstellt Schnitte, die vom **linken und rechten** Rand gemessen werden.
+- Wenn **drei** Positionen angegeben werden, erstellt der erste Wert einen Schnitt, der vom **oberen** Rand gemessen wird, der zweite erstellt Schnitte, die vom **linken und rechten** Rand gemessen werden, der dritte erstellt einen Schnitt, der vom **unteren** Rand gemessen wird.
+- Wenn **vier** Positionen angegeben werden, erstellen sie Schnitte, die im Uhrzeigersinn vom **oberen**, **rechten**, **unteren** und **linken** Rand gemessen werden.
 
 Der optionale Wert `fill`, falls verwendet, kann an beliebiger Stelle in der Deklaration platziert werden.
 
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Stellt einen Randversatz in _Pixeln_ für Rastergrafiken und _Koordinaten_ für Vektorgrafiken dar. Für Vektorgrafiken ist die Nummer relativ zur Größe des Elements und nicht zur Größe des Quellbildes, daher sind in diesen Fällen in der Regel Prozentsätze vorzuziehen.
+  - : Stellt einen Randabstand in _Pixeln_ für Rasterbilder und _Koordinaten_ für Vektorbilder dar. Für Vektorbilder ist die Zahl relativ zur Größe des Elements, nicht zur Größe des Quellbildes, daher sind in diesen Fällen Prozentsätze im Allgemeinen vorzuziehen.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Stellt einen Randversatz als Prozentsatz der Quellbildgröße dar: die Breite des Bildes für horizontale, die Höhe für vertikale Versätze.
+  - : Stellt einen Randabstand als Prozentsatz der Größe des Quellbildes dar: die Breite des Bildes für horizontale Versätze, die Höhe für vertikale Versätze.
 - `fill`
-  - : Bewahrt den mittleren Bildbereich. Seine Breite und Höhe sind so bemessen, dass sie dem oberen und linken Bildbereich entsprechen.
+  - : Bewahrt die mittlere Bildregion. Ihre Breite und Höhe werden so bemessen, dass sie den oberen und linken Bildregionen entsprechen.
 
 ## Beschreibung
 
-Der Schneideprozess erzeugt insgesamt neun Bereiche: vier Ecken, vier Ränder und einen mittleren Bereich. Vier Schneidelinien, die in einem bestimmten Abstand zu ihren jeweiligen Seiten gesetzt sind, bestimmen die Größe der Bereiche.
+Der Schneideprozess erstellt insgesamt neun Regionen: vier Ecken, vier Kanten und eine mittlere Region. Vier Schnittlinien, die einen bestimmten Abstand von ihren jeweiligen Seiten haben, kontrollieren die Größe der Regionen.
 
-![Die neun durch die border-image oder border-image-slice Eigenschaften definierten Bereiche](border-image-slice.png)
+![Die neun durch die Eigenschaften border-image oder border-image-slice definierten Regionen](border-image-slice.png)
 
-Das obige Diagramm veranschaulicht die Position jedes Bereichs.
+Das obige Diagramm veranschaulicht die Lage jeder Region.
 
-- Zonen 1-4 sind Eckbereiche. Jeder wird ein einziges Mal verwendet, um die Ecken des endgültigen Randbildes zu formen.
-- Zonen 5-8 sind Randbereiche. Diese werden im endgültigen Randbild [wiederholt, skaliert oder anderweitig modifiziert](/de/docs/Web/CSS/Reference/Properties/mask-border-repeat), um den Dimensionen des Elements zu entsprechen.
-- Zone 9 ist der mittlere Bereich. Standardmäßig wird er verworfen, aber er wird wie ein Hintergrundbild verwendet, wenn das Schlüsselwort `fill` gesetzt ist.
+- Zonen 1-4 sind Eckregionen. Jede wird einmal verwendet, um die Ecken des endgültigen Rahmenbildes zu bilden.
+- Zonen 5-8 sind Kantenregionen. Diese werden [wiederholt, skaliert oder anderweitig modifiziert](/de/docs/Web/CSS/Reference/Properties/mask-border-repeat), um im endgültigen Rahmenbild den Abmessungen des Elements zu entsprechen.
+- Zone 9 ist die mittlere Region. Sie wird standardmäßig verworfen, aber wie ein Hintergrundbild verwendet, wenn das Schlüsselwort `fill` gesetzt ist.
 
-Die {{cssxref("mask-border-repeat")}}, {{cssxref("mask-border-width")}}, und {{cssxref("mask-border-outset")}} Eigenschaften bestimmen, wie diese Bereiche verwendet werden, um den endgültigen Maskenrand zu bilden.
+Die {{cssxref("mask-border-repeat")}}, {{cssxref("mask-border-width")}} und {{cssxref("mask-border-outset")}} Eigenschaften bestimmen, wie diese Regionen verwendet werden, um den endgültigen Maskierungsrahmen zu bilden.
 
 ## Formale Definition
 
@@ -75,25 +75,25 @@ Die {{cssxref("mask-border-repeat")}}, {{cssxref("mask-border-width")}}, und {{c
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-`mask-border-slice` dient dazu, die Größe der Ausschnitte aus dem Quellbild zu definieren und wird verwendet, um die Maskenrahmen zu erstellen.
+`mask-border-slice` dient dazu, die Größe der aus dem Quellbild genommenen Schnitte zu definieren und wird verwendet, um die Maskenrahmen zu erstellen.
 
 ```css
 mask-border-slice: 30 fill;
 ```
 
-Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-slice` — mit einem Präfix:
+Browser, die auf Chromium basieren, unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-slice` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-slice: 30 fill;
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Maskenrahmeneigenschaften, die in Chromium unterstützt werden), damit Sie eine Vorstellung von der Wirkung bekommen können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten maskierten Rahmen-Eigenschaften mit Präfix in Chromium), sodass Sie eine Vorstellung vom Effekt bekommen.
 
 > [!NOTE]
-> Das Schlüsselwort fill muss eingeschlossen werden, wenn Sie möchten, dass der Inhalt des Elements sichtbar ist.
+> Das fill-Schlüsselwort muss eingefügt werden, wenn Sie den Inhalt des Elements sichtbar haben möchten.
 
 ## Spezifikationen
 
@@ -111,4 +111,4 @@ Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaf
 - {{cssxref("mask-border-repeat")}}
 - {{cssxref("mask-border-source")}}
 - {{cssxref("mask-border-width")}}
-- [Illustrierte Beschreibung der 1-bis-4-Werte-Syntax](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties#tricky_edge_cases)
+- [Illustrierte Beschreibung der 1-bis-4-Wert-Syntax](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties#tricky_edge_cases)

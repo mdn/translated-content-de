@@ -2,17 +2,15 @@
 title: browsingData.removeHistory()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeHistory
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: b2685e330f887359ec886b08199a22a6fcbe0caf
 ---
 
-Löscht die Aufzeichnungen der vom Nutzer besuchten Webseiten (Browserverlauf).
+Löscht die Aufzeichnungen der vom Benutzer besuchten Webseiten (Browserverlauf).
 
-Sie können den Parameter `removalOptions` verwenden, ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, um:
+Sie können den Parameter `removalOptions` verwenden, welcher ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
 
-- nur Aufzeichnungen von Seiten zu entfernen, die nach einem bestimmten Zeitpunkt besucht wurden
-- zu steuern, ob nur Aufzeichnungen normaler Webseiten oder auch von gehosteten Apps und Erweiterungen gelöscht werden sollen.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+- Aufzeichnungen von nach einem bestimmten Zeitpunkt besuchten Webseiten zu löschen.
+- Zu steuern, ob die Aufzeichnungen von Webseiten oder von Webseiten und Erweiterungen gelöscht werden sollen.
 
 ## Syntax
 
@@ -25,15 +23,15 @@ let removing = browser.browsingData.removeHistory(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Aufzeichnungen von Seiten zu löschen, die nach einem bestimmten Zeitpunkt besucht wurden, und um festzulegen, ob nur Aufzeichnungen normaler Webseiten oder auch von gehosteten Apps und Erweiterungen gelöscht werden sollen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um Aufzeichnungen von nach einem bestimmten Zeitpunkt besuchten Webseiten zu löschen und zu steuern, ob Aufzeichnungen von Webseiten oder von Webseiten und Erweiterungen gelöscht werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Entfernen abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Löschvorgang abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Entfernen von Aufzeichnungen besuchter Seiten der letzten Woche:
+Löschen von Aufzeichnungen der in der letzten Woche besuchten Seiten:
 
 ```js
 function onRemoved() {
@@ -55,7 +53,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Entfernen aller Aufzeichnungen besuchter Seiten:
+Löschen aller Aufzeichnungen besuchter Seiten:
 
 ```js
 function onRemoved() {

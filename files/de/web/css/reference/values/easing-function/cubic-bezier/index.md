@@ -2,11 +2,11 @@
 title: cubic-bezier()
 slug: Web/CSS/Reference/Values/easing-function/cubic-bezier
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`cubic-bezier()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erstellt einen sanften Übergang mithilfe einer kubischen {{Glossary("Bezier_curve", "Bézier-Kurve")}}.
-Als [`<easing-function>`](/de/docs/Web/CSS/Reference/Values/easing-function) kann sie verwendet werden, um den Anfang und das Ende der {{Glossary("interpolation", "Interpolation")}} abzumildern.
+Die **`cubic-bezier()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erzeugt einen weichen Übergang unter Verwendung einer kubischen {{Glossary("Bezier_curve", "Bézier-Kurve")}}.
+Als [`<easing-function>`](/de/docs/Web/CSS/Reference/Values/easing-function) kann sie verwendet werden, um den Anfang und das Ende der {{Glossary("interpolation", "Interpolation")}} zu glätten.
 
 ## Syntax
 
@@ -21,29 +21,32 @@ cubic-bezier(0, 0, 1, 1)
 Die Funktion akzeptiert die folgenden vier Parameter, die die Koordinaten von zwei Kontrollpunkten darstellen:
 
 - `<x1>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die x-Achsen-Koordinate des ersten Kontrollpunkts darstellt. Sie muss im Bereich `[0, 1]` liegen.
+  - : Eine {{cssxref("&lt;number&gt;")}}-Angabe, die die x-Achsen-Koordinate des ersten Kontrollpunkts repräsentiert.
+    Sie muss im Bereich `[0, 1]` liegen.
 - `<y1>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die y-Achsen-Koordinate des ersten Kontrollpunkts darstellt.
+  - : Eine {{cssxref("&lt;number&gt;")}}-Angabe, die die y-Achsen-Koordinate des ersten Kontrollpunkts repräsentiert.
 - `<x2>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die x-Achsen-Koordinate des zweiten Kontrollpunkts darstellt. Sie muss im Bereich `[0, 1]` liegen.
+  - : Eine {{cssxref("&lt;number&gt;")}}-Angabe, die die x-Achsen-Koordinate des zweiten Kontrollpunkts repräsentiert.
+    Sie muss im Bereich `[0, 1]` liegen.
 - `<y2>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die y-Achsen-Koordinate des zweiten Kontrollpunkts darstellt.
+  - : Eine {{cssxref("&lt;number&gt;")}}-Angabe, die die y-Achsen-Koordinate des zweiten Kontrollpunkts repräsentiert.
 
 ## Beschreibung
 
-Die kubischen Bézier-Funktionen, oft als "sanfte" Easing-Funktionen bezeichnet, korrelieren einen Eingangsfortschritt mit einem Ausgangsfortschritt, beide ausgedrückt als {{cssxref("&lt;number&gt;")}}, wobei `0.0` den Anfangszustand und `1.0` den Endzustand darstellt. Wenn die kubische Bézier-Kurve ungültig ist, ignoriert CSS die gesamte Eigenschaft.
+Die kubischen Bézier-Funktionen, oft als "glatte" Easing-Funktionen bezeichnet, korrelieren einen Eingabe-Fortschritt mit einem Ausgabe-Fortschritt, beide ausgedrückt als {{cssxref("&lt;number&gt;")}}, wobei `0.0` den Anfangszustand und `1.0` den Endzustand repräsentiert.
+Wenn die kubische Bézier-Kurve ungültig ist, ignoriert CSS die gesamte Eigenschaft.
 
-Eine kubische Bézier-Kurve wird durch vier Punkte definiert: P0, P1, P2 und P3. Die Punkte P0 und P3 repräsentieren den Anfang und das Ende der Kurve. In CSS ist der Startpunkt P0 bei `(0, 0)` und der Endpunkt P3 bei `(1, 1)` festgelegt, während die Zwischenpunkte P1 und P2 durch die Funktionsparameter `(<x1>, <y1>)` und `(<x2>, <y2>)` definiert werden. Die x-Achse stellt den Eingangsfortschritt dar und die y-Achse den Ausgangsfortschritt.
+Eine kubische Bézier-Kurve wird durch vier Punkte definiert: P0, P1, P2 und P3. Die Punkte P0 und P3 repräsentieren den Anfang und das Ende der Kurve. In CSS ist der Anfangspunkt P0 auf `(0, 0)` und der Endpunkt P3 auf `(1, 1)` festgelegt, während die Zwischenpunkte P1 und P2 durch die Funktionsparameter `(<x1>, <y1>)` und `(<x2>, <y2>)` definiert werden. Die x-Achse repräsentiert den Eingabe-Fortschritt und die y-Achse den Ausgabe-Fortschritt.
 
-![Grafik des Eingangs- und Ausgangsfortschritts, die eine S-förmige Linie zeigt, die sich von der Ursprungsposition bis zu (1, 1) mit den Bézier-Kontrollpunkten P1(0.1, 0.6) und P2(0.7, 0.2) krümmt.](cubic-bezier.svg)
+![Graph des Eingabefortschritts zum Ausgabefortschritt zeigt eine S-förmige Linie, die von (0,0) zu (1,1) mit den Bézier-Kontrollpunkten P1(0.1,0.6) und P2(0.7,0.2) verläuft.](cubic-bezier.svg)
 
-Nicht alle kubischen Bézier-Kurven eignen sich als Easing-Funktionen, da nicht alle [mathematische Funktionen](https://en.wikipedia.org/wiki/Function_%28mathematics%29) sind; d.h. Kurven, die für eine gegebene x-Achsen-Koordinate null oder einen Wert haben. Mit den festgelegten P0 und P3, wie von CSS definiert, ist eine kubische Bézier-Kurve eine Funktion und daher gültig, wenn und nur wenn die x-Achsen-Koordinaten von P1 und P2 beide im Bereich `[0, 1]` liegen.
+Nicht alle kubischen Bézier-Kurven sind als Easing-Funktionen geeignet, da nicht alle [mathematische Funktionen](https://en.wikipedia.org/wiki/Function_%28mathematics%29) sind; d.h. Kurven, die für eine gegebene x-Achsen-Koordinate null oder einen Wert haben. Mit P0 und P3, die durch CSS festgelegt sind, ist eine kubische Bézier-Kurve eine Funktion und daher gültig, wenn und nur wenn die x-Achsenkoordinaten von P1 und P2 beide im Bereich `[0, 1]` liegen.
 
-Kubische Bézier-Kurven mit dem P1- oder P2-Ordinate außerhalb des Bereichs `[0, 1]` können dazu führen, dass der Wert weiter als der Endzustand geht und dann zurückkehrt. In Animationen führt dies zu einem Art "Bouncing"-Effekt.
+Kubische Bézier-Kurven, bei denen die Ordinate von P1 oder P2 außerhalb des Bereichs `[0, 1]` liegt, können dazu führen, dass der Wert weiter als der Endzustand geht und dann zurückkehrt. In Animationen erzeugt dies eine Art "springenden" Effekt.
 
-![Graphen der Easing-Funktion cubic-bezier(0.3, 0.2, 0.2, 1.4), einer zeigt den Ausgangsfortschritt, der einen bestimmten Punkt über `1` erreicht und dann dorthin zurückkehrt, der andere zeigt den Ausgangsfortschritt, der auf `1` ankommt und dort bleibt.](cubic-bezier_out_of_range.svg)
+![Graphen der Easing-Funktion cubic-bezier(0.3, 0.2, 0.2, 1.4), einer zeigt den Ausgabefortschritt, der über `1` geht, beginnend von einem bestimmten Eingabefortschritt, der andere zeigt den Ausgabefortschritt, der `1` erreicht und dort bleibt.](cubic-bezier_out_of_range.svg)
 
-Jedoch werden bestimmte Eigenschaften die Ausgabe beschränken, wenn sie außerhalb eines zulässigen Bereichs liegt. Zum Beispiel wird eine Farbbestandteil größer als `255` oder kleiner als `0` in {{CSSXref("color_value/rgb", "rgb()")}} auf den nächstgelegenen zulässigen Wert (`255` bzw. `0`) gekürzt. Einige `cubic-bezier()`-Werte zeigen diese Eigenschaft.
+Bestimmte Eigenschaften beschränken jedoch die Ausgabe, wenn sie außerhalb eines zulässigen Bereichs geht. Zum Beispiel wird eine Farbkomponente, die größer als `255` oder kleiner als `0` ist, in {{CSSXref("color_value/rgb", "rgb()")}} auf den nächste zulässige Wert (`255` und `0`, jeweils) abgeschnitten. Einige `cubic-bezier()` Werte zeigen dieses Verhalten.
 
 ## Formale Syntax
 
@@ -51,9 +54,9 @@ Jedoch werden bestimmte Eigenschaften die Ausgabe beschränken, wenn sie außerh
 
 ## Beispiele
 
-### Bouncing-Effekt
+### Springender Effekt
 
-In diesem Beispiel springt die rote Kugel aus dem Kasten, wenn sie von ihrer ursprünglichen Position wechselt. Dies liegt daran, dass einer der P2-Werte, `2.3`, außerhalb des Bereichs `[0, 1]` liegt.
+In diesem Beispiel springt der rote Ball aus der Box heraus, wenn er von seiner ursprünglichen Position wechselt. Dies liegt daran, dass einer der P2-Werte, `2.3`, außerhalb des Bereichs `[0, 1]` liegt.
 
 ```html hidden
 <div tabindex="0">
@@ -92,7 +95,7 @@ span {
 
 {{EmbedLiveSample("Bouncing effect")}}
 
-### Verwendung der cubic-bezier() Funktion
+### Verwendung der Funktion cubic-bezier()
 
 Diese kubischen Bézier-Kurven sind für die Verwendung in CSS gültig:
 
@@ -110,7 +113,7 @@ cubic-bezier(0.1, -0.6, 0.2, 0)
 cubic-bezier(0, 1.1, 0.8, 4)
 ```
 
-Diese Definitionen von kubischen Bézier-Kurven sind ungültig:
+Diese kubischen Bézier-Kurven-Definitionen sind ungültig:
 
 ```css example-bad
 /* Parameters must be numbers */

@@ -1,25 +1,37 @@
 ---
-title: "CanvasRenderingContext2D: save()-Methode"
+title: "CanvasRenderingContext2D: save() Methode"
 short-title: save()
 slug: Web/API/CanvasRenderingContext2D/save
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.save()`**
-Methode der Canvas 2D API speichert den gesamten Zustand der Leinwand, indem sie den aktuellen Zustand auf einen Stapel schiebt.
+Die **`CanvasRenderingContext2D.save()`**-Methode der Canvas 2D API speichert den gesamten Zustand der Leinwand, indem sie den aktuellen Zustand auf einen Stapel schiebt.
 
-### Der Zeichen-Zustand
+## Syntax
 
-Der Zeichen-Zustand, der auf den Stapel gespeichert wird, besteht aus:
+```js-nolint
+save()
+```
+
+### Parameter
+
+Keine.
+
+### Rückgabewert
+
+Keiner ({{jsxref("undefined")}}).
+
+## Beschreibung
+
+Der Zeichenstatus, der auf einen Stapel gespeichert wird, besteht aus:
 
 - Der aktuellen Transformationsmatrix.
-- Der aktuellen Ausschnittsregion.
+- Der aktuellen Clipping-Region.
 - Der aktuellen Strichliste.
-- Die aktuellen Werte der folgenden Attribute:
+- Den aktuellen Werten der folgenden Attribute:
   - [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction)
   - [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle)
   - [`filter`](/de/docs/Web/API/CanvasRenderingContext2D/filter)
@@ -47,25 +59,11 @@ Der Zeichen-Zustand, der auf den Stapel gespeichert wird, besteht aus:
   - [`textRendering`](/de/docs/Web/API/CanvasRenderingContext2D/textRendering)
   - [`wordSpacing`](/de/docs/Web/API/CanvasRenderingContext2D/wordSpacing)
 
-## Syntax
-
-```js-nolint
-save()
-```
-
-### Parameter
-
-Keine.
-
-### Rückgabewert
-
-Keine ({{jsxref("undefined")}}).
-
 ## Beispiele
 
-### Den Zeichen-Zustand speichern
+### Speichern des Zeichenstatus
 
-Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern, und `restore()`, um ihn später wiederherzustellen, damit Sie in der Lage sind, später ein Rechteck mit dem aktuellen Zustand zu zeichnen.
+Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern und `restore()`, um ihn später wiederherzustellen, damit Sie in der Lage sind, später ein Rechteck mit dem aktuellen Zustand zu zeichnen.
 
 #### HTML
 
@@ -105,5 +103,5 @@ ctx.fillRect(150, 40, 100, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore)

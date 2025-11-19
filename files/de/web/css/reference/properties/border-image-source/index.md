@@ -2,10 +2,12 @@
 title: border-image-source
 slug: Web/CSS/Reference/Properties/border-image-source
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Rahmenbild](/de/docs/Web/CSS/Reference/Properties/border-image) eines Elements zu erstellen.
+Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das zum Erstellen des [Rahmenbildes](/de/docs/Web/CSS/Reference/Properties/border-image) eines Elements verwendet wird.
+
+Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in verschiedene Bereiche zu unterteilen, die dann dynamisch auf das endgültige Rahmenbild angewendet werden.
 
 {{InteractiveExample("CSS Demo: border-image-source")}}
 
@@ -52,8 +54,6 @@ border-image-source: none;
 }
 ```
 
-Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf das endgültige Rahmenbild angewendet werden.
-
 ## Syntax
 
 ```css
@@ -75,9 +75,9 @@ border-image-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Rahmenbild verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Erscheinungsbild angezeigt.
+  - : Es wird kein Rahmenbild verwendet. Stattdessen wird das Erscheinungsbild gezeigt, das durch {{cssxref("border-style")}} definiert ist.
 - {{cssxref("&lt;image&gt;")}}
-  - : Bildreferenz, die für den Rahmen verwendet wird.
+  - : Bildreferenz, die für den Rahmen verwendet werden soll.
 
 ## Formale Definition
 
@@ -112,4 +112,4 @@ border-image-source: unset;
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
 - {{cssxref("url_value", "&lt;url&gt;")}} Typ
-- [Rahmenbilder in CSS: Ein Hauptfokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)
+- [Rahmenbilder in CSS: Ein zentraler Fokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

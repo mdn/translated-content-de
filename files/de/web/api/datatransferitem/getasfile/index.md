@@ -3,12 +3,13 @@ title: "DataTransferItem: getAsFile()-Methode"
 short-title: getAsFile()
 slug: Web/API/DataTransferItem/getAsFile
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Wenn das Element eine Datei ist, gibt die **`DataTransferItem.getAsFile()`**-Methode das [`File`](/de/docs/Web/API/File)-Objekt des Drag-Datenobjekts zurück. Wenn das Element keine Datei ist, gibt diese Methode `null` zurück.
+Wenn das Element eine Datei ist, gibt die **`DataTransferItem.getAsFile()`**-Methode das [`File`](/de/docs/Web/API/File)-Objekt des Ziehdatenobjekts zurück.
+Wenn das Element keine Datei ist, gibt diese Methode `null` zurück.
 
 ## Syntax
 
@@ -22,8 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-- [`File`](/de/docs/Web/API/File)
-  - : Wenn das Drag-Datenobjekt eine Datei ist, wird ein [`File`](/de/docs/Web/API/File)-Objekt zurückgegeben; andernfalls wird `null` zurückgegeben.
+Wenn das Ziehdatenobjekt eine Datei ist, wird ein [`File`](/de/docs/Web/API/File)-Objekt zurückgegeben; andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 

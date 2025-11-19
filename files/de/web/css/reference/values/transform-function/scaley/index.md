@@ -2,11 +2,10 @@
 title: scaleY()
 slug: Web/CSS/Reference/Values/transform-function/scaleY
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`scaleY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element entlang der
-y-Achse (vertikal) vergrößert oder verkleinert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element entlang der y-Achse (vertikal) skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scaleY()")}}
 
@@ -36,11 +35,10 @@ transform: scaleY(-0.5);
 </section>
 ```
 
-Sie verändert die Ordinate (vertikal, y-Koordinate) jedes Punktes eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist. In diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop und die Winkel des Elements bleiben nicht erhalten. `scaleY(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer horizontalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}}
-Eigenschaft angegeben).
+Sie modifiziert die Ordinate (vertikal, y-Koordinate) jedes Punktes des Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop, und die Winkel des Elements bleiben nicht erhalten. `scaleY(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer horizontalen Achse, die durch den Ursprung läuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
 
 > [!NOTE]
-> `scaleY(sy)` ist gleichwertig mit
+> `scaleY(sy)` ist gleichbedeutend mit
 > `scale(1, sy)` oder
 > `scale3d(1, sy, 1)`.
 >
@@ -55,8 +53,7 @@ scaleY(s)
 ### Werte
 
 - `s`
-  - : Ist eine {{cssxref("&lt;number&gt;")}} und repräsentiert den Skalierungsfaktor, der auf die Ordinate (vertikal, y-Koordinate) jedes Punkts des
-    Elements angewandt wird.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor repräsentiert, der auf die Ordinate (vertikale y-Koordinate) jedes Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>
@@ -147,4 +144,4 @@ div {
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew`-Eigenschaft
+  - Hinweis: Es gibt keine `skew` Eigenschaft

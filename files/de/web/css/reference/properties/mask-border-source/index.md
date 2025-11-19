@@ -2,12 +2,12 @@
 title: mask-border-source
 slug: Web/CSS/Reference/Properties/mask-border-source
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 7b291dab974ec1ceb97c83f45ce76c3afada2e63
 ---
 
-Die **`mask-border-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um den [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements zu erstellen.
+Die **`mask-border-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um den [Maskierungsrand](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements zu erstellen.
 
-Die {{cssxref("mask-border-slice")}} Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf den endgültigen Maskenrand angewendet werden.
+Die {{cssxref("mask-border-slice")}} Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf den endgültigen Maskierungsrand angewendet werden.
 
 ## Syntax
 
@@ -30,9 +30,9 @@ mask-border-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Maskenrand verwendet.
+  - : Es wird kein Maskierungsrand verwendet.
 - {{cssxref("&lt;image&gt;")}}
-  - : Bildreferenz, die für den Maskenrand verwendet werden soll.
+  - : Bildreferenz, die für den Maskierungsrand verwendet wird.
 
 ## Formale Definition
 
@@ -46,20 +46,20 @@ mask-border-source: unset;
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit nirgendwo unterstützt zu werden. Wenn sie schließlich unterstützt wird, wird sie dazu dienen, die Quelle des Maskenrandes zu definieren.
+Diese Eigenschaft scheint noch nirgends unterstützt zu werden. Sobald sie schließlich unterstützt wird, dient sie dazu, die Quelle des Maskierungsrandes zu definieren.
 
 ```css
 mask-border-source: url("image.jpg");
 ```
 
-Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-source` — mit einem Präfix:
+Browser, die auf Chromium basieren, unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-source` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-source: url("image.jpg");
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten mit Präfix versehenen Maskenrand-Eigenschaften, die in Chromium unterstützt werden), sodass Sie eine Vorstellung von der Wirkung bekommen können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (mit den veralteten, verpräfixte Maskierungsrand-Eigenschaften, die in Chromium unterstützt werden), damit Sie eine Vorstellung vom Effekt bekommen können.
 
 ## Spezifikationen
 

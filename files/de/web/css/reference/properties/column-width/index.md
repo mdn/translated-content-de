@@ -2,10 +2,12 @@
 title: column-width
 slug: Web/CSS/Reference/Properties/column-width
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`column-width`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die ideale Spaltenbreite in einem Mehrspalten-Layout fest. Der Container hat so viele Spalten, wie es passt, ohne dass eine von ihnen eine geringere Breite als der `column-width`-Wert hat. Wenn die Breite des Containers schmaler ist als der angegebene Wert, wird die Breite der einzelnen Spalte kleiner sein als die deklarierte Spaltenbreite.
+Die **`column-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die ideale Spaltenbreite in einem Mehrspaltenlayout fest. Der Container wird so viele Spalten haben, wie hereinpassen, ohne dass eine von ihnen eine Breite hat, die kleiner ist als der `column-width` Wert. Wenn die Breite des Containers schmaler ist als der angegebene Wert, wird die Breite der einzelnen Spalte kleiner sein als die deklarierte Spaltenbreite.
+
+Diese Eigenschaft kann Ihnen dabei helfen, responsive Designs zu erstellen, die zu verschiedenen Bildschirmgrößen passen. Besonders in Verbindung mit der {{cssxref("column-count")}} Eigenschaft (die Vorrang hat), müssen Sie alle zugehörigen Längenwerte angeben, um eine genaue Spaltenbreite zu erreichen. Bei horizontalem Text sind dies {{cssxref('width')}}, `column-width`, {{cssxref('column-gap')}}, und {{cssxref('column-rule-width')}}.
 
 {{InteractiveExample("CSS Demo: column-width")}}
 
@@ -45,8 +47,6 @@ column-width: 18ch;
 }
 ```
 
-Diese Eigenschaft kann Ihnen helfen, responsive Designs zu erstellen, die sich an verschiedene Bildschirmgrößen anpassen. Besonders bei Anwesenheit der {{cssxref("column-count")}}-Eigenschaft (die Vorrang hat), müssen Sie alle verwandten Längenwerte angeben, um eine genaue Spaltenbreite zu erreichen. Bei horizontalem Text sind dies {{cssxref('width')}}, `column-width`, {{cssxref('column-gap')}} und {{cssxref('column-rule-width')}}.
-
 ## Syntax
 
 ```css
@@ -66,12 +66,12 @@ column-width: revert-layer;
 column-width: unset;
 ```
 
-Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
+Die `column-width` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Gibt die optimale Spaltenbreite an. Die tatsächliche Spaltenbreite kann vom angegebenen Wert abweichen: Sie kann breiter sein, wenn es notwendig ist, den verfügbaren Platz zu füllen, und schmaler, wenn der verfügbare Platz zu klein ist. Der Wert muss strikt positiv sein oder die Deklaration ist ungültig. Prozentwerte sind ebenfalls ungültig.
+  - : Gibt die optimale Spaltenbreite an. Die tatsächliche Spaltenbreite kann vom angegebenen Wert abweichen: Sie kann breiter sein, wenn nötig, um den verfügbaren Platz auszufüllen, und schmaler, wenn der verfügbare Platz zu klein ist. Der Wert muss strikt positiv sein, andernfalls ist die Deklaration ungültig. Prozentuale Werte sind ebenfalls ungültig.
 - `auto`
   - : Die Breite der Spalte wird durch andere CSS-Eigenschaften bestimmt, wie z. B. {{cssxref("column-count")}}.
 
@@ -85,7 +85,7 @@ Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte ange
 
 ## Beispiele
 
-### Spaltenbreite in Pixel festlegen
+### Spaltenbreite in Pixeln festlegen
 
 #### HTML
 

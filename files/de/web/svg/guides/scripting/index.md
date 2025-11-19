@@ -1,21 +1,21 @@
 ---
-title: Skripting
+title: Skripterstellung
 slug: Web/SVG/Guides/Scripting
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
-Es gibt mehrere Möglichkeiten, SVG mit JavaScript zu erstellen und zu manipulieren. Dieses Dokument beschreibt die Ereignisbehandlung, Interaktivität und die Arbeit mit eingebetteten SVG-Inhalten.
+Es gibt mehrere Möglichkeiten, SVG mit JavaScript zu erstellen und zu manipulieren. Dieses Dokument beschreibt Ereignissteuerung, Interaktivität und die Arbeit mit eingebetteten SVG-Inhalten.
 
-Man kann Standardverhalten des Browsers mit der Methode `evt.preventDefault()` überschreiben, Ereignislistener mit der Syntax `element.addEventListener(event, function, useCapture)` zu Objekten hinzufügen und Eigenschaften von Elementen mit einer Syntax wie `svgElement.style.setProperty("fill-opacity", "0.0", "")` setzen. Beachten Sie, dass alle drei Argumente beim Setzen von Eigenschaften vorhanden sein müssen.
+Man kann das Standardverhalten des Browsers mit der Methode `evt.preventDefault()` überschreiben, Ereignislistener zu Objekten mit der Syntax `element.addEventListener(event, function, useCapture)` hinzufügen und Eigenschaften von Elementen mit einer Syntax wie `svgElement.style.setProperty("fill-opacity", "0.0", "")` festlegen. Beachten Sie das Vorhandensein aller drei Argumente beim Festlegen von Eigenschaften.
 
-### Standardverhalten im Ereigniscode verhindern
+## Verhindern des Standardverhaltens im Ereigniscode
 
-Beim Schreiben von Drag-and-Drop-Code passiert es manchmal, dass Text auf der Seite versehentlich beim Ziehen ausgewählt wird. Oder wenn Sie die Rücktaste in Ihrem Code verwenden möchten, möchten Sie das Standardverhalten des Browsers überschreiben, wenn die Rücktaste gedrückt wird, welches darin besteht, auf die vorherige Seite zurückzugehen. Die Methode `evt.preventDefault()` ermöglicht Ihnen dies.
+Beim Schreiben von Drag-and-Drop-Code kann es vorkommen, dass Text auf der Seite versehentlich ausgewählt wird, während Sie ziehen. Oder wenn Sie die Rücktaste in Ihrem Code verwenden möchten, möchten Sie das Standardverhalten des Browsers überschreiben, das bei Druck auf die Rücktaste die vorherige Seite aufruft. Die Methode `evt.preventDefault()` ermöglicht Ihnen dies.
 
-### Verwendung von `eventListeners` mit Objekten
+## Verwendung von `eventListeners` mit Objekten
 
-Die Methoden `addEventListener()` und `removeEventListener()` sind sehr nützlich beim Schreiben interaktiver SVG. Sie können ein Objekt, das die `handleEvent` Schnittstelle implementiert, als zweites Argument an diese Methoden übergeben.
+Die Methoden `addEventListener()` und `removeEventListener()` sind sehr nützlich beim Schreiben von interaktiven SVGs. Sie können ein Objekt, das die `handleEvent`-Schnittstelle implementiert, als zweiten Parameter an diese Methoden übergeben.
 
 ```js
 function myRect(x, y, w, h, message) {
@@ -40,42 +40,44 @@ function myRect(x, y, w, h, message) {
 }
 ```
 
-### Inter-Dokument-Skripting: Referenzieren eingebetteter SVG
+## Inter-Dokument-Skripting
 
-Beim Verwenden von SVG innerhalb von HTML schließt Adobes SVG Viewer 3.0 automatisch eine Fenster-Eigenschaft namens `svgDocument` ein, die auf das SVG-Dokument zeigt. Dies ist bei Mozillas nativer SVG-Implementierung nicht der Fall, daher funktioniert `window.svgDocument` in Mozilla nicht. Stattdessen können Sie
+### Referenzieren von eingebettetem SVG
+
+Bei Verwendung von SVG innerhalb von HTML umfasst Adobe's SVG Viewer 3.0 automatisch eine Fenster-Eigenschaft namens `svgDocument`, die auf das SVG-Dokument verweist. Dies ist nicht der Fall bei Mozillas nativer SVG-Implementierung; daher funktioniert die Verwendung von `window.svgDocument` in Mozilla nicht. Stattdessen können Sie
 
 ```js
 const svgDoc = document.embeds["name_of_svg"].getSVGDocument();
 ```
 
-verwenden, um eine Referenz zu einem eingebetteten SVG-Dokument zu erhalten.
+verwenden, um eine Referenz auf ein eingebettetes SVG-Dokument zu erhalten.
 
-Der beste Weg, Zugang zu dem [`Document`](/de/docs/Web/API/Document) zu erhalten, das ein SVG-Dokument repräsentiert, ist, [`HTMLIFrameElement.contentDocument`](/de/docs/Web/API/HTMLIFrameElement/contentDocument) anzusehen (wenn das Dokument in einem {{HTMLElement("iframe")}} präsentiert wird) oder [`HTMLObjectElement.contentDocument`](/de/docs/Web/API/HTMLObjectElement/contentDocument) (wenn das Dokument in einem {{HTMLElement("object")}} Element präsentiert wird), so wie:
+Der beste Weg, Zugang zu dem [`Document`](/de/docs/Web/API/Document) zu erhalten, das ein SVG-Dokument darstellt, besteht darin, [`HTMLIFrameElement.contentDocument`](/de/docs/Web/API/HTMLIFrameElement/contentDocument) zu betrachten (wenn das Dokument in einem {{HTMLElement("iframe")}} präsentiert wird) oder [`HTMLObjectElement.contentDocument`](/de/docs/Web/API/HTMLObjectElement/contentDocument) (wenn das Dokument in einem {{HTMLElement("object")}}-Element präsentiert wird), wie hier:
 
 ```js
 const svgDoc = document.getElementById("iframe_element").contentDocument;
 ```
 
-Darüber hinaus bieten die {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} und {{HTMLElement("object")}} Elemente eine Methode, `getSVGDocument()`, die das [`XMLDocument`](/de/docs/Web/API/XMLDocument) zurückgibt, das das eingebettete SVG des Elements darstellt, oder `null`, wenn das Element kein SVG-Dokument darstellt.
+Zusätzlich bieten die Elemente {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} und {{HTMLElement("object")}} eine Methode `getSVGDocument()`, die das [`XMLDocument`](/de/docs/Web/API/XMLDocument) zurückgibt, das das eingebettete SVG des Elements darstellt, oder `null`, wenn das Element kein SVG-Dokument darstellt.
 
 Sie können auch `document.getElementById("svg_elem_name").getSVGDocument()` verwenden, was das gleiche Ergebnis liefert.
 
 > [!NOTE]
-> Möglicherweise finden Sie Dokumentationen, die auf eine `SVGDocument` Schnittstelle verweisen. Vor SVG 2 wurden SVG-Dokumente mit dieser Schnittstelle dargestellt. Heutzutage werden SVG-Dokumente jedoch mit der [`XMLDocument`](/de/docs/Web/API/XMLDocument) Schnittstelle dargestellt.
+> Möglicherweise finden Sie Dokumentationen, die sich auf eine `SVGDocument`-Schnittstelle beziehen. Vor SVG 2 wurden SVG-Dokumente unter Verwendung dieser Schnittstelle dargestellt. SVG-Dokumente werden jedoch jetzt unter Verwendung der [`XMLDocument`](/de/docs/Web/API/XMLDocument)-Schnittstelle dargestellt.
 
-### Inter-Dokument-Skripting: Aufrufen von JavaScript-Funktionen
+### Aufrufen von JavaScript-Funktionen
 
-Beim Aufrufen einer JavaScript-Funktion, die sich in der HTML-Datei befindet, von einer SVG-Datei, die in ein HTML-Dokument eingebettet ist, sollten Sie `parent.functionName()` verwenden, um die Funktion zu referenzieren. Obwohl das Adobe SVG Viewer Plugin die Nutzung von `functionName()` erlaubt, ist dies nicht die bevorzugte Methode.
+Wenn eine JavaScript-Funktion, die sich in der HTML-Datei befindet, von einer eingebetteten SVG-Datei in einem HTML-Dokument aufgerufen wird, sollten Sie `parent.functionName()` verwenden, um auf die Funktion zu verweisen. Obwohl das Adobe SVG Viewer Plugin die Verwendung von `functionName()` zulässt, ist es nicht der bevorzugte Weg, Dinge zu tun.
 
 > [!NOTE]
-> Laut dem [SVG Wiki](https://web.archive.org/web/20100223210744/http://wiki.svg.org/Inter-Document_Communication) ist die `"parent"` JS-Variable im Adobe SVG-Version 6 Vorschau-Plugin fehlerhaft. Der empfohlene Workaround besteht darin, `"top"` anstelle von `"parent"` zu verwenden. Da es sich um eine Betaversion ihres Plugins handelt, können wir dies wahrscheinlich getrost ignorieren.
+> Laut [SVG-Wiki](https://web.archive.org/web/20100223210744/http://wiki.svg.org/Inter-Document_Communication) ist die `"parent"` JS-Variable im Adobe SVG Version 6 Vorschau-Plugin defekt. Der vorgeschlagene Workaround besteht darin, stattdessen `"top"` zu verwenden. Da es sich um eine Betaversion ihres Plugins handelt, können wir dies wahrscheinlich getrost ignorieren.
 
-Weitere Informationen und einige Beispiele finden Sie auf der [SVG Wiki-Seite zum Inter-Dokument-Skripting](https://web.archive.org/web/20100223210744/http://wiki.svg.org/Inter-Document_Communication).
+Weitere Informationen und einige Beispiele finden Sie auf der [SVG-Wiki-Seite zur Inter-Dokument-Skripterstellung](https://web.archive.org/web/20100223210744/http://wiki.svg.org/Inter-Document_Communication).
 
-### `setProperty` hat drei Parameter
+## `setProperty` hat drei Parameter
 
-Die Funktion `svgElement.style.setProperty("fill-opacity", "0.0")` wirft eine DOMException - `SYNTAX ERR` in Mozilla. Dieses Verhalten ist in der DOM Level 2 Style Specification des W3C spezifiziert. Die Funktion `setProperty` wird als Funktion mit drei Parametern definiert. Der obige Code kann durch `'svgElement.style.setProperty("fill-opacity", "0.0", "")'` ersetzt werden, welches standardkonform ist.
+Die Funktion `svgElement.style.setProperty("fill-opacity", "0.0")` wirft eine DOMException - `SYNTAX ERR` in Mozilla. Dieses Verhalten wird von der W3C in der DOM Level 2 Style Specification festgelegt. Die Funktion `setProperty` ist als eine Funktion mit drei Parametern definiert. Das oben Genannte kann durch `'svgElement.style.setProperty("fill-opacity", "0.0", "")'` ersetzt werden, was den Standards entspricht.
 
-### Links
+## Siehe auch
 
-[SVG Wiki zu Skripting und Programmierung](https://web.archive.org/web/20100212202713/http://wiki.svg.org/Main_Page#Scripting_and_Programming)
+- [SVG-Wiki zu Skripten und Programmierung](https://web.archive.org/web/20100212202713/http://wiki.svg.org/Main_Page#Scripting_and_Programming)

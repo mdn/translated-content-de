@@ -3,18 +3,18 @@ title: "RTCIceCandidatePairStats: packetsDiscardedOnSend-Eigenschaft"
 short-title: packetsDiscardedOnSend
 slug: Web/API/RTCIceCandidatePairStats/packetsDiscardedOnSend
 l10n:
-  sourceCommit: 1ea99c8e68a85aac13ba846bbe95a6f686771221
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
 Die **`packetsDiscardedOnSend`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der aufgrund von Socket-Fehlern verworfenen Pakete an.
 
-Die Fehler können beispielsweise verursacht werden, wenn versucht wird, Pakete an den Socket zu übergeben, wenn dieser voll ist.
+Die Fehler können zum Beispiel durch den Versuch verursacht werden, Pakete an den Socket zu übergeben, wenn dieser voll ist.
 
-### Wert
+## Wert
 
-Ein Ganzzahlenwert, der die Gesamtanzahl der aufgrund von Socket-Fehlern verworfenen Pakete angibt.
+Ein ganzzahliger Wert, der die Gesamtzahl der aufgrund von Socket-Fehlern verworfenen Pakete angibt.
 
 ## Spezifikationen
 

@@ -2,17 +2,15 @@
 title: browsingData.removeCookies()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeCookies
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: b2685e330f887359ec886b08199a22a6fcbe0caf
 ---
 
-Löscht die Cookies im Browser.
+Löscht die Cookies des Browsers.
 
-Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um:
+Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
 
-- nur Cookies zu löschen, die nach einer bestimmten Zeit erstellt wurden
-- zu steuern, ob nur Cookies von normalen Webseiten gelöscht werden sollen oder auch Cookies, die von gehosteten Apps und Erweiterungen gesetzt wurden.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+- Cookies zu löschen, die nach einem bestimmten Zeitpunkt erstellt wurden.
+- zu steuern, ob Cookies gelöscht werden sollen, die von Webseiten oder von Webseiten und Erweiterungen gesetzt wurden.
 
 ## Syntax
 
@@ -25,15 +23,15 @@ let removing = browser.browsingData.removeCookies(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, welches verwendet werden kann, um nur Cookies zu löschen, die nach einer bestimmten Zeit erstellt wurden, und ob nur Cookies von normalen Webseiten gelöscht werden sollen oder auch Cookies, die von gehosteten Apps und Erweiterungen gesetzt wurden.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um Cookies zu löschen, die nach einem bestimmten Zeitpunkt erstellt wurden, und um zu steuern, ob Cookies gelöscht werden sollen, die von Webseiten oder von Webseiten und Erweiterungen gesetzt wurden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Löschung abgeschlossen ist. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Löschen abgeschlossen ist. Tritt ein Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Cookies entfernen, die in der letzten Woche erstellt wurden:
+Cookies löschen, die in der letzten Woche erstellt wurden:
 
 ```js
 function onRemoved() {
@@ -55,12 +53,12 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Alle Cookies entfernen:
+Alle Cookies löschen:
 
 > [!WARNING]
-> Die Verwendung der API zum Entfernen aller Cookies wird gleichzeitig alle lokalen Speicherobjekte (einschließlich derjenigen anderer Erweiterungen) löschen.
+> Die Verwendung der API zum Löschen aller Cookies wird gleichzeitig alle lokalen Speicherobjekte löschen (einschließlich derjenigen anderer Erweiterungen).
 >
-> Wenn Sie alle Cookies entfernen möchten, ohne die lokalen Speicherfunktionen zu stören, verwenden Sie [browser.cookies](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies), um durch alle Cookie-Speicher zu iterieren und deren Inhalte zu entfernen.
+> Wenn Sie alle Cookies löschen möchten, ohne lokale Speichermöglichkeiten zu stören, verwenden Sie [browser.cookies](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies), um durch die Inhalte aller Cookie-Speicher zu iterieren und sie zu löschen.
 
 ```js
 function onRemoved() {

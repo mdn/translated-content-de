@@ -2,16 +2,16 @@
 title: font-variant-position
 slug: Web/CSS/Reference/Properties/font-variant-position
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
 ---
 
 Die **`font-variant-position`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen, kleineren Glyphen, die als Hoch- oder Tiefstellung positioniert sind.
 
-Die Glyphen werden relativ zur Basislinie der Schrift positioniert, die unverändert bleibt. Diese Glyphen werden typischerweise in den Elementen {{HTMLElement("sub")}} und {{HTMLElement("sup")}} verwendet.
+Die Glyphen sind relativ zur Grundlinie der Schrift positioniert, die unverändert bleibt. Diese Glyphen werden typischerweise in {{HTMLElement("sub")}} und {{HTMLElement("sup")}} Elementen verwendet.
 
-Wenn die Verwendung dieser alternativen Glyphen aktiviert ist und ein Zeichen im Lauf keine typografisch verbesserte Glyphe hat, wird die gesamte Zeichenreihe des Laufs mit einer Fallback-Methode gerendert, die diese Glyphen synthetisiert.
+Wenn die Nutzung dieser alternativen Glyphen aktiviert ist, wird, falls ein Zeichen im Lauf keinen solchen typografisch verbesserten Glyphen hat, der gesamte Satz von Zeichen des Laufs mithilfe einer Ersatzmethode gerendert und diese Glyphen synthetisiert.
 
-Diese alternativen Glyphen teilen sich den gleichen em-Kasten und die gleiche Basislinie wie der Rest der Schrift. Sie sind lediglich grafisch verbessert und haben keinen Einfluss auf die Zeilenhöhe und andere Box-Eigenschaften.
+Diese alternativen Glyphen teilen sich die gleiche Em-Box und die gleiche Grundlinie wie der Rest der Schrift. Sie sind lediglich grafisch verbessert und haben keinen Einfluss auf die Zeilenhöhe und andere Box-Eigenschaften.
 
 ## Syntax
 
@@ -29,16 +29,16 @@ font-variant-position: revert-layer;
 font-variant-position: unset;
 ```
 
-Die `font-variant-position` Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter angegeben.
+Die `font-variant-position` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `normal`
   - : Deaktiviert alternative Hoch- und Tiefstellungsglyphen.
 - `sub`
-  - : Aktiviert alternative Tiefstellungsglyphen. Wenn in einem gegebenen Lauf eine solche Glyphe für ein Zeichen nicht verfügbar ist, werden alle Zeichen im Lauf mit synthetisierten Glyphen gerendert.
+  - : Aktiviert alternative Tiefstellungsglyphen. Sollte in einem gegebenen Lauf ein solches Glyphe für ein Zeichen nicht verfügbar sein, werden alle Zeichen im Lauf mit synthetisierten Glyphen gerendert.
 - `super`
-  - : Aktiviert alternative Hochstellungsglyphen. Wenn in einem gegebenen Lauf eine solche Glyphe für ein Zeichen nicht verfügbar ist, werden alle Zeichen im Lauf mit synthetisierten Glyphen gerendert.
+  - : Aktiviert alternative Hochstellungsglyphen. Sollte in einem gegebenen Lauf ein solches Glyphe für ein Zeichen nicht verfügbar sein, werden alle Zeichen im Lauf mit synthetisierten Glyphen gerendert.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Die `font-variant-position` Eigenschaft wird als eines der unten aufgeführten S
 
 ## Beispiele
 
-### Einstellen von Hoch- und Tiefstellungsformen
+### Einstellung von Hoch- und Tiefstellungsformen
 
 #### HTML
 

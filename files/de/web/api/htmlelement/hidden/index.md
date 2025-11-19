@@ -3,7 +3,7 @@ title: "HTMLElement: hidden-Eigenschaft"
 short-title: hidden
 slug: Web/API/HTMLElement/hidden
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -19,21 +19,21 @@ Dieses Attribut kann einen von drei Werten haben:
 - `false`
   - : Das Element ist nicht versteckt. Dies ist der Standardwert für das Attribut.
 - `"until-found"`
-  - : Das Element ist _versteckt bis es gefunden wird_, das bedeutet, es ist verborgen, wird aber angezeigt, wenn es über eine Seitensuche gefunden oder durch Fragmentnavigation erreicht wird.
+  - : Das Element ist _versteckt bis gefunden_, was bedeutet, dass es versteckt ist, aber sichtbar wird, wenn es durch die Suchfunktion auf der Seite gefunden oder über Fragmentnavigation erreicht wird.
 
-Für Details zur Verwendung dieses Attributs siehe die Seite für das [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-HTML-Attribut, das diese Eigenschaft reflektiert.
+Für Details zur Verwendung dieses Attributs siehe die Seite für das [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)-HTML-Attribut, das diese Eigenschaft widerspiegelt.
 
 ## Beispiele
 
-Hier ist ein Beispiel, in dem ein versteckter Block verwendet wird, der eine 'Danke'-Nachricht enthält, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine "Danke"-Nachricht zu enthalten, die nach der Zustimmung eines Nutzers zu einer ungewöhnlichen Anfrage angezeigt wird.
 
 ### HTML
 
-Das HTML enthält zwei Panels: ein Willkommens-Paneel, das die Nutzer auffordert, dem "awesome"-Sein zuzustimmen, und ein Folge-Paneel, das zunächst versteckt ist.
+Das HTML enthält zwei Bereiche: ein Willkommensfeld, das die Nutzer auffordert, einer großartigen Sache zuzustimmen, und ein nachträgliches Feld, das anfänglich versteckt ist.
 
 ```html
 <div id="welcome" class="panel">
-  <h1>Welcome to Foobar.com!</h1>
+  <h1>Welcome to my website!</h1>
   <p>By clicking "OK" you agree to be awesome today!</p>
   <button class="button" id="okButton">OK</button>
 </div>
@@ -46,7 +46,7 @@ Das HTML enthält zwei Panels: ein Willkommens-Paneel, das die Nutzer auffordert
 
 ### CSS
 
-Der Inhalt wird mit dem folgenden CSS gestylt.
+Der Inhalt wird mithilfe des folgenden CSS gestylt.
 
 ```css
 .panel {
@@ -78,7 +78,7 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Event-Listener für die "OK"-Schaltfläche hinzu, die das "welcome"-Panel ausblendet und das "awesome"-Panel zeigt:
+Das JavaScript fügt dem "OK"-Button einen Event Listener hinzu, der das "welcome"-Panel versteckt und das "awesome"-Panel anzeigt:
 
 ```js
 document.getElementById("okButton").addEventListener("click", () => {

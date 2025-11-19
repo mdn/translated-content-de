@@ -2,20 +2,20 @@
 title: RegExp
 slug: Web/JavaScript/Reference/Global_Objects/RegExp
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
 ---
 
-Das **`RegExp`**-Objekt wird verwendet, um Text mit einem Muster abzugleichen.
+Das **`RegExp`**-Objekt wird zum Abgleichen von Texten anhand eines Musters verwendet.
 
-Für eine Einführung in reguläre Ausdrücke lesen Sie das Kapitel [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) im JavaScript-Leitfaden. Für detaillierte Informationen zur Syntax von regulären Ausdrücken lesen Sie die [Referenz für reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions).
+Für eine Einführung in reguläre Ausdrücke lesen Sie das [Kapitel über reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) im JavaScript-Leitfaden. Für detaillierte Informationen zur Syntax regulärer Ausdrücke lesen Sie die [Referenz zu regulären Ausdrücken](/de/docs/Web/JavaScript/Reference/Regular_expressions).
 
 ## Beschreibung
 
-### Literal-Notation und Konstruktor
+### Literale Notation und Konstruktor
 
-Es gibt zwei Möglichkeiten, ein `RegExp`-Objekt zu erstellen: eine _Literal-Notation_ und einen _Konstruktor_.
+Es gibt zwei Möglichkeiten, ein `RegExp`-Objekt zu erstellen: eine _literale Notation_ und einen _Konstruktor_.
 
-- Die _Literal-Notation_ verwendet ein Muster zwischen zwei Schrägstrichen, gefolgt von optionalen [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) nach dem zweiten Schrägstrich.
+- Die _literale Notation_ nimmt ein Muster zwischen zwei Schrägstrichen, gefolgt von optionalen [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) nach dem zweiten Schrägstrich.
 - Die _Konstruktor-Funktion_ nimmt entweder einen String oder ein `RegExp`-Objekt als ersten Parameter und einen String von optionalen [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) als zweiten Parameter.
 
 Die folgenden drei Ausdrücke erzeugen dasselbe reguläre Ausdrucksobjekt:
@@ -28,19 +28,19 @@ const re = new RegExp("ab+c", "i"); // constructor with string pattern as first 
 const re = new RegExp(/ab+c/, "i"); // constructor with regular expression literal as first argument
 ```
 
-Bevor reguläre Ausdrücke verwendet werden können, müssen sie kompiliert werden. Dieser Prozess ermöglicht es ihnen, Übereinstimmungen effizienter durchzuführen. Mehr über den Prozess finden Sie in den [dotnet docs](https://learn.microsoft.com/en-us/dotnet/standard/base-types/compilation-and-reuse-in-regular-expressions).
+Bevor reguläre Ausdrücke verwendet werden können, müssen sie kompiliert werden. Dieser Prozess ermöglicht es ihnen, Übereinstimmungen effizienter zu finden. Mehr über den Prozess finden Sie in den [dotnet-Dokumenten](https://learn.microsoft.com/en-us/dotnet/standard/base-types/compilation-and-reuse-in-regular-expressions).
 
-Die Literal-Notation führt zur Kompilierung des regulären Ausdrucks, wenn der Ausdruck ausgewertet wird. Andererseits führt der Konstruktor des `RegExp`-Objekts, `new RegExp('ab+c')`, zur Laufzeitkompilierung des regulären Ausdrucks.
+Die literale Notation führt zur Kompilierung des regulären Ausdrucks, wenn der Ausdruck ausgewertet wird. Andererseits führt der Konstruktor des `RegExp`-Objekts, `new RegExp('ab+c')`, zur Laufzeit zur Kompilierung des regulären Ausdrucks.
 
-Verwenden Sie einen String als erstes Argument für den `RegExp()`-Konstruktor, wenn Sie [den regulären Ausdruck aus dynamischen Eingaben erstellen möchten](#einen_regulären_ausdruck_aus_dynamischen_eingaben_erstellen).
+Verwenden Sie einen String als erstes Argument des `RegExp()` Konstruktors, wenn Sie [den regulären Ausdruck aus dynamischen Eingaben erstellen](#erstellung_eines_regulären_ausdrucks_aus_dynamischen_eingaben) wollen.
 
 ### Flags im Konstruktor
 
-Der Ausdruck `new RegExp(/ab+c/, flags)` wird einen neuen `RegExp` unter Verwendung der Quelle des ersten Parameters und der durch den zweiten bereitgestellten [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) erstellen.
+Der Ausdruck `new RegExp(/ab+c/, flags)` erstellt ein neues `RegExp`, indem die Quelle des ersten Parameters und die vom zweiten bereitgestellten [Flags](/de/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags) verwendet werden.
 
-Bei der Verwendung der Konstruktorfunktion sind die normalen Escape-Regeln für Zeichenfolgen (Spezialzeichen mit `\` voranstellen, wenn sie in einer Zeichenfolge enthalten sind) erforderlich.
+Beim Verwenden der Konstruktorfunktion sind die normalen String-Escape-Regeln erforderlich (besondere Zeichen müssen in einem String mit `\` eingefügt werden).
 
-Zum Beispiel sind die folgenden Äquivalente:
+Zum Beispiel sind die folgenden gleichwertig:
 
 ```js
 const re = /\w+/;
@@ -48,36 +48,36 @@ const re = /\w+/;
 const re = new RegExp("\\w+");
 ```
 
-### Spezielle Behandlung für Regexes
+### Spezielle Behandlung von Regexen
 
 > [!NOTE]
-> Ob etwas ein "Regex" ist, kann durch [Duck-Typisierung](https://en.wikipedia.org/wiki/Duck_typing) bestimmt werden. Es muss kein `RegExp` sein!
+> Ob etwas ein "Regex" ist, kann über [Duck-Typing](https://en.wikipedia.org/wiki/Duck_typing) bestimmt werden. Es muss kein `RegExp` sein!
 
-Einige eingebaute Methoden behandeln Regexes speziell. Sie entscheiden, ob `x` ein Regex ist, durch [mehrere Schritte](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-isregexp):
+Einige eingebaute Methoden behandeln Regexe speziell. Sie bestimmen in [mehreren Schritten](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-isregexp), ob `x` ein Regex ist:
 
-1. `x` muss ein Objekt sein (nicht primitiv).
-2. Wenn [`x[Symbol.match]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match) nicht `undefined` ist, überprüfen Sie, ob es {{Glossary("Truthy", "wahr")}} ist.
-3. Andernfalls, wenn `x[Symbol.match]` `undefined` ist, überprüfen Sie, ob `x` mit dem `RegExp`-Konstruktor erstellt wurde. (Dieser Schritt sollte selten vorkommen, da wenn `x` ein `RegExp`-Objekt ist, das nicht manipuliert wurde, es eine `Symbol.match`-Eigenschaft haben sollte.)
+1. `x` muss ein Objekt sein (kein primitiver Typ).
+2. Wenn [`x[Symbol.match]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match) nicht `undefined` ist, überprüfen Sie, ob es {{Glossary("Truthy", "truthy")}} ist.
+3. Andernfalls, wenn `x[Symbol.match]` `undefined` ist, überprüfen Sie, ob `x` mit dem `RegExp`-Konstruktor erstellt wurde. (Dieser Schritt sollte selten auftreten, da, wenn `x` ein `RegExp`-Objekt ist, das nicht verändert wurde, es eine `Symbol.match`-Eigenschaft haben sollte.)
 
 Beachten Sie, dass in den meisten Fällen die `Symbol.match`-Überprüfung durchgeführt wird, was bedeutet:
 
-- Ein tatsächliches `RegExp`-Objekt, dessen `Symbol.match`-Eigenschaftswert {{Glossary("Falsy", "falsch")}} ist, aber nicht `undefined` (auch wenn alles andere intakt ist, wie [`exec`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace)), kann verwendet werden, als ob es kein Regex wäre.
+- Ein tatsächliches `RegExp`-Objekt, dessen `Symbol.match`-Eigenschaftswert {{Glossary("Falsy", "falsy")}} aber nicht `undefined` ist (selbst wenn alles andere intakt bleibt, wie [`exec`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace)), kann verwendet werden, als ob es kein Regex wäre.
 - Ein Nicht-`RegExp`-Objekt mit einer `Symbol.match`-Eigenschaft wird behandelt, als wäre es ein Regex.
 
-Diese Entscheidung wurde getroffen, weil `[Symbol.match]()` die aussagekräftigste Eigenschaft ist, die darauf hinweist, dass etwas zum Abgleichen verwendet werden soll. (`exec` könnte auch verwendet werden, aber da es sich nicht um eine Symboleigenschaft handelt, würde es zu viele Fehlalarme geben.) Die Orte, die Regexes speziell behandeln, umfassen:
+Diese Wahl wurde getroffen, weil `[Symbol.match]()` die am besten indizierende Eigenschaft ist, dass etwas zum Abgleichen verwendet werden soll. (`exec` könnte auch verwendet werden, aber da es keine Symbol-Eigenschaft ist, würde es zu viele Fehlalarme geben.) Zu den Stellen, die Regexe speziell behandeln, gehören:
 
-- [`String.prototype.endsWith()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith), [`startsWith()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith), und [`includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/includes) werfen einen {{jsxref("TypeError")}}, wenn das erste Argument ein Regex ist.
-- [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) und [`replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) überprüfen, ob das [globale](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) Flag gesetzt ist, wenn das erste Argument ein Regex ist, bevor es seine [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/matchAll) oder [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace) Methode aufruft.
-- Der [`RegExp()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp) Konstruktor gibt direkt das `pattern`-Argument zurück, nur wenn `pattern` ein Regex ist (unter einigen anderen Bedingungen). Wenn `pattern` ein Regex ist, würde es auch die `source`- und `flags`-Eigenschaften von `pattern` abfragen, anstatt `pattern` zu einem String zu zwingen.
+- [`String.prototype.endsWith()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith), [`startsWith()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) und [`includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/includes) werfen einen {{jsxref("TypeError")}}, wenn das erste Argument ein Regex ist.
+- [`String.prototype.matchAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) und [`replaceAll()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll) überprüfen, ob das [globale](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) Flag gesetzt ist, wenn das erste Argument ein Regex ist, bevor seine [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/matchAll) oder [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/replace) Methode aufgerufen wird.
+- Der [`RegExp()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp) Konstruktor gibt direkt das `pattern`-Argument nur dann zurück, wenn `pattern` ein Regex ist (neben einigen anderen Bedingungen). Wenn `pattern` ein Regex ist, würde es auch die `source`- und `flags`-Eigenschaften von `pattern` abfragen, anstatt `pattern` in einen String zu zwingen.
 
-Zum Beispiel würde [`String.prototype.endsWith()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith) alle Eingaben zu Strings zwingen, aber es würde einen Fehler werfen, wenn das Argument ein Regex ist, da es nur dazu gedacht ist, Strings abzugleichen, und die Verwendung eines Regex wahrscheinlich ein Entwicklerfehler ist.
+Zum Beispiel würde [`String.prototype.endsWith()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith) alle Eingaben in Strings umwandeln, aber es würde eine Ausnahme auslösen, wenn das Argument ein Regex ist, da es nur zum Abgleichen von Strings gedacht ist und die Verwendung eines Regex wahrscheinlich ein Entwicklerfehler ist.
 
 ```js
 "foobar".endsWith({ toString: () => "bar" }); // true
 "foobar".endsWith(/bar/); // TypeError: First argument to String.prototype.endsWith must not be a regular expression
 ```
 
-Sie können die Überprüfung umgehen, indem Sie `[Symbol.match]` auf einen {{Glossary("Falsy", "falschen")}} Wert setzen, der nicht `undefined` ist. Das würde bedeuten, dass der Regex nicht für `String.prototype.match()` verwendet werden kann (da ohne `[Symbol.match]`, `match()` ein neues `RegExp`-Objekt mit den beiden umgebenden Schrägstrichen, die durch [`re.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/toString) hinzugefügt werden, erstellen würde), aber er kann praktisch für alles andere verwendet werden.
+Sie können die Prüfung umgehen, indem Sie `[Symbol.match]` auf einen {{Glossary("Falsy", "falsy")}} Wert setzen, der nicht `undefined` ist. Dies würde bedeuten, dass das Regex nicht für `String.prototype.match()` verwendet werden kann (da ohne `[Symbol.match]`, `match()` ein neues `RegExp`-Objekt mit den zwei durch [`re.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/toString) hinzugefügten umschließenden Schrägstrichen konstruieren würde), aber es kann für praktisch alles andere verwendet werden.
 
 ```js
 const re = /bar/g;
@@ -87,9 +87,9 @@ re.exec("bar"); // [ 'bar', index: 0, input: 'bar', groups: undefined ]
 "bar & bar".replace(re, "foo"); // 'foo & foo'
 ```
 
-### Perl-ähnliche RegExp-Eigenschaften
+### Perl-ähnliche Eigenschaften von RegExp
 
-Beachten Sie, dass mehrere der `RegExp`-Eigenschaften sowohl lange als auch kurze (Perl-ähnliche) Namen haben. Beide Namen beziehen sich immer auf denselben Wert. (Perl ist die Programmiersprache, aus der JavaScript seine regulären Ausdrücke modelliert hat.) Siehe auch [Veraltete `RegExp`-Eigenschaften](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp).
+Beachten Sie, dass mehrere der `RegExp`-Eigenschaften sowohl lange als auch kurze (Perl-ähnliche) Namen haben. Beide Namen beziehen sich immer auf denselben Wert. (Perl ist die Programmiersprache, nach der sich JavaScript bei der Modellierung seiner regulären Ausdrücke gerichtet hat.) Siehe auch [veraltete `RegExp`-Eigenschaften](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp).
 
 ## Konstruktor
 
@@ -99,51 +99,51 @@ Beachten Sie, dass mehrere der `RegExp`-Eigenschaften sowohl lange als auch kurz
 ## Statische Eigenschaften
 
 - [`RegExp.$1`, …, `RegExp.$9`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/n) {{deprecated_inline}}
-  - : Statische, schreibgeschützte Eigenschaften, die klammernde Teilstringübereinstimmungen enthalten.
+  - : Statische, schreibgeschützte Eigenschaften, die geklammerte Teilstring-Übereinstimmungen enthalten.
 - [`RegExp.input` (`$_`)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/input) {{deprecated_inline}}
   - : Eine statische Eigenschaft, die den letzten String enthält, gegen den ein regulärer Ausdruck erfolgreich abgeglichen wurde.
 - [`RegExp.lastMatch` (`$&`)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastMatch) {{deprecated_inline}}
-  - : Eine statische, schreibgeschützte Eigenschaft, die den zuletzt abgeglichenen Teilstring enthält.
+  - : Eine statische, schreibgeschützte Eigenschaft, die den letzten übereinstimmenden Teilstring enthält.
 - [`RegExp.lastParen` (`$+`)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastParen) {{deprecated_inline}}
-  - : Eine statische, schreibgeschützte Eigenschaft, die die zuletzt klammernde Teilstringübereinstimmung enthält.
+  - : Eine statische, schreibgeschützte Eigenschaft, die die letzte geklammerte Teilstring-Übereinstimmung enthält.
 - [`RegExp.leftContext` (`` $` ``)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/leftContext) {{deprecated_inline}}
-  - : Eine statische, schreibgeschützte Eigenschaft, die den vor der letzten Übereinstimmung stehenden Teilstring enthält.
+  - : Eine statische, schreibgeschützte Eigenschaft, die den Teilstring vor der zuletzt gefundenen Übereinstimmung enthält.
 - [`RegExp.rightContext` (`$'`)](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/rightContext) {{deprecated_inline}}
-  - : Eine statische, schreibgeschützte Eigenschaft, die den nach der letzten Übereinstimmung stehenden Teilstring enthält.
+  - : Eine statische, schreibgeschützte Eigenschaft, die den Teilstring nach der zuletzt gefundenen Übereinstimmung enthält.
 - [`RegExp[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.species)
-  - : Die Konstruktorfunktion, die zum Erstellen abgeleiteter Objekte verwendet wird.
+  - : Die Konstruktorfunktion, die verwendet wird, um abgeleitete Objekte zu erstellen.
 
 ## Statische Methoden
 
 - {{jsxref("RegExp.escape()")}}
-  - : [Escapes](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) alle potenziellen regulären Ausdrucks-Syntaxzeichen in einem String und gibt einen neuen String zurück, der als [literal](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster für den {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktor sicher verwendet werden kann.
+  - : [Entfernt](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) alle potenziellen Regex-Syntaxzeichen aus einem String und gibt einen neuen String zurück, der sicher als [literal](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster für den {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktor verwendet werden kann.
 
 ## Instanz-Eigenschaften
 
 Diese Eigenschaften sind auf `RegExp.prototype` definiert und werden von allen `RegExp`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "RegExp.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `RegExp`-Instanzen ist der Anfangswert der {{jsxref("RegExp/RegExp", "RegExp")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanz-Objekt erstellt hat. Für `RegExp`-Instanzen ist der Anfangswert der {{jsxref("RegExp/RegExp", "RegExp")}}-Konstruktor.
 - {{jsxref("RegExp.prototype.dotAll")}}
-  - : Ob `.` Zeilenumbrüche matched oder nicht.
+  - : Ob `.` Zeilenumbrüche abgleicht oder nicht.
 - {{jsxref("RegExp.prototype.flags")}}
   - : Ein String, der die Flags des `RegExp`-Objekts enthält.
 - {{jsxref("RegExp.prototype.global")}}
-  - : Ob der reguläre Ausdruck gegen alle möglichen Übereinstimmungen in einem String getestet wird oder nur gegen die erste.
+  - : Ob der reguläre Ausdruck gegen alle möglichen Übereinstimmungen in einem String getestet werden soll oder nur gegen die erste.
 - {{jsxref("RegExp.prototype.hasIndices")}}
-  - : Ob das reguläre Ausdrucksergebnis die Start- und Endindizes der erfassten Teilstrings freilegt.
+  - : Ob das Ergebnis des regulären Ausdrucks die Anfangs- und Endindices der erfassten Teilstrings freilegt.
 - {{jsxref("RegExp.prototype.ignoreCase")}}
-  - : Ob die Groß- und Kleinschreibung beim Versuch, eine Übereinstimmung in einem String zu finden, ignoriert wird.
+  - : Ob die Groß-/Kleinschreibung beim Versuch eines Abgleichs in einem String ignoriert werden soll.
 - {{jsxref("RegExp.prototype.multiline")}}
-  - : Ob in Strings über mehrere Zeilen hinweg gesucht wird oder nicht.
+  - : Ob in Strings über mehrere Zeilen hinweg gesucht werden soll oder nicht.
 - {{jsxref("RegExp.prototype.source")}}
   - : Der Text des Musters.
 - {{jsxref("RegExp.prototype.sticky")}}
-  - : Ob die Suche sticky ist oder nicht.
+  - : Ob die Suche "sticky" ist oder nicht.
 - {{jsxref("RegExp.prototype.unicode")}}
   - : Ob Unicode-Funktionen aktiviert sind oder nicht.
 - {{jsxref("RegExp.prototype.unicodeSets")}}
-  - : Ob das `v`-Flag, ein Upgrade auf den `u`-Modus, aktiviert ist oder nicht.
+  - : Ob das `v`-Flag, ein Upgrade des `u`-Modus, aktiviert ist oder nicht.
 
 Diese Eigenschaften sind eigene Eigenschaften jeder `RegExp`-Instanz.
 
@@ -153,31 +153,31 @@ Diese Eigenschaften sind eigene Eigenschaften jeder `RegExp`-Instanz.
 ## Instanz-Methoden
 
 - {{jsxref("RegExp.prototype.compile()")}} {{deprecated_inline}}
-  - : (Neu-)kompiliert einen regulären Ausdruck während der Ausführung eines Skripts.
+  - : Kompiliert den regulären Ausdruck während der Ausführung eines Skripts neu.
 - {{jsxref("RegExp.prototype.exec()")}}
-  - : Führt eine Suche nach einer Übereinstimmung in seinem String-Parameter aus.
+  - : Führt eine Suche nach einer Übereinstimmung in seinem Zeichenkettenparameter aus.
 - {{jsxref("RegExp.prototype.test()")}}
-  - : Testet nach einer Übereinstimmung in seinem String-Parameter.
+  - : Testet eine Übereinstimmung in seinem Zeichenkettenparameter.
 - {{jsxref("RegExp.prototype.toString()")}}
   - : Gibt einen String zurück, der das angegebene Objekt darstellt. Überschreibt die {{jsxref("Object.prototype.toString()")}} Methode.
 - [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match)
-  - : Führt eine Übereinstimmung auf einen gegebenen String aus und gibt das Übereinstimmungsergebnis zurück.
+  - : Führt den Abgleich mit der angegebenen Zeichenfolge durch und gibt das Übereinstimmungsergebnis zurück.
 - [`RegExp.prototype[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll)
-  - : Gibt alle Übereinstimmungen des regulären Ausdrucks in einem String zurück.
+  - : Gibt alle Übereinstimmungen des regulären Ausdrucks gegen eine Zeichenfolge zurück.
 - [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace)
-  - : Ersetzt Übereinstimmungen in einem gegebenen String durch einen neuen Teilstring.
+  - : Ersetzt Übereinstimmungen in der angegebenen Zeichenfolge durch einen neuen Teilstring.
 - [`RegExp.prototype[Symbol.search]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.search)
-  - : Sucht die Übereinstimmung in einem gegebenen String und gibt den Index zurück, an dem das Muster im String gefunden wurde.
+  - : Sucht die Übereinstimmung in der angegebenen Zeichenfolge und gibt den Index zurück, an dem das Muster in der Zeichenfolge gefunden wurde.
 - [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split)
-  - : Teilt einen gegebenen String in ein Array, indem der String in Teilstrings aufgetrennt wird.
+  - : Teilt die angegebene Zeichenfolge in ein Array, indem die Zeichenfolge in Teilstrings getrennt wird.
 
 ## Beispiele
 
 ### Verwendung eines regulären Ausdrucks zur Änderung des Datenformats
 
-Das folgende Skript verwendet die Methode {{jsxref("String.prototype.replace()")}}, um einen Namen im Format _Vorname Nachname_ abzugleichen und ihn im Format _Nachname, Vorname_ auszugeben.
+Das folgende Skript verwendet die {{jsxref("String.prototype.replace()")}} Methode, um einen Namen im Format _Vorname Nachname_ abzugleichen und in das Format _Nachname, Vorname_ auszugeben.
 
-Im Ersetzungstext verwendet das Skript `$1` und `$2`, um die Ergebnisse der entsprechenden Klammernpaarungen im regulären Ausdrucksmuster anzuzeigen.
+Im Ersetzungstext verwendet das Skript `$1` und `$2`, um die Ergebnisse der entsprechenden Klammerausdrücke im regulären Ausdrucksmuster anzugeben.
 
 ```js
 const re = /(\w+)\s(\w+)/;
@@ -186,11 +186,11 @@ const newStr = str.replace(re, "$2, $1");
 console.log(newStr);
 ```
 
-Dies zeigt `"Cruz, Maria"`.
+Dies zeigt `"Cruz, Maria"` an.
 
-### Verwendung eines regulären Ausdrucks zum Aufteilen von Zeilen mit unterschiedlichen Zeilenenden/Zeilenumbrüchen
+### Verwendung eines regulären Ausdrucks zum Aufteilen von Zeilen mit unterschiedlichen Zeilenendungen/Enden von Zeilen/Zeilenumbrüchen
 
-Das Standardzeilenende variiert je nach Plattform (Unix, Windows, usw.). Die in diesem Beispiel gezeigte Zeilenaufteilung funktioniert auf allen Plattformen.
+Das Standard-Zeilenende variiert je nach Plattform (Unix, Windows, etc.). Die Zeilenaufteilung, die in diesem Beispiel bereitgestellt wird, funktioniert auf allen Plattformen.
 
 ```js
 const text = "Some text\nAnd some more\r\nAnd yet\nThis is the end";
@@ -200,7 +200,7 @@ console.log(lines); // [ 'Some text', 'And some more', 'And yet', 'This is the e
 
 Beachten Sie, dass die Reihenfolge der Muster im regulären Ausdruck von Bedeutung ist.
 
-### Verwendung eines regulären Ausdrucks über mehrere Zeilen hinweg
+### Verwendung eines regulären Ausdrucks über mehrere Zeilen
 
 Standardmäßig stimmt das Zeichen `.` nicht mit Zeilenumbrüchen überein. Um es mit Zeilenumbrüchen übereinstimmen zu lassen, verwenden Sie das `s`-Flag (`dotAll`-Modus).
 
@@ -216,7 +216,7 @@ s.match(/yes.*day/s);
 
 ### Verwendung eines regulären Ausdrucks mit dem Sticky-Flag
 
-Das {{jsxref("RegExp/sticky", "sticky")}}-Flag zeigt an, dass der reguläre Ausdruck beim Zielstring ein Sticky-Matching durchführt, indem versucht wird, bei {{jsxref("RegExp.prototype.lastIndex")}} zu beginnen.
+Das {{jsxref("RegExp/sticky", "sticky")}}-Flag zeigt an, dass der reguläre Ausdruck eine Sticky-Übereinstimmung in der Zielzeichenfolge durchführt, indem versucht wird, abzuklären ab {{jsxref("RegExp.prototype.lastIndex")}} zu beginnen.
 
 ```js
 const str = "#foo#";
@@ -231,7 +231,7 @@ regex.lastIndex; // 0 (reset after match failure)
 
 ### Der Unterschied zwischen dem Sticky-Flag und dem globalen Flag
 
-Mit dem Sticky-Flag `y` muss das nächste Ergebnis an der `lastIndex`-Position auftreten, während mit dem globalen Flag `g` die Übereinstimmung an der `lastIndex`-Position oder später auftreten kann:
+Mit dem Sticky-Flag `y` muss das nächste Match an der `lastIndex`-Position stattfinden, während mit dem globalen Flag `g` das Match an der `lastIndex`-Position oder später stattfinden kann:
 
 ```js
 const re = /\d/y;
@@ -246,15 +246,15 @@ while ((r = re.exec("123 456"))) {
 //  … and no more match.
 ```
 
-Mit dem globalen Flag `g` würden alle 6 Ziffern übereinstimmen, nicht nur 3.
+Mit dem globalen Flag `g` würden alle 6 Ziffern abgeglichen, nicht nur 3.
 
-### Reguläre Ausdrücke und Unicode-Zeichen
+### Regulärer Ausdruck und Unicode-Zeichen
 
-`\w` und `\W` stimmen nur mit ASCII-basierten Zeichen überein; zum Beispiel `a` bis `z`, `A` bis `Z`, `0` bis `9` und `_`.
+`\w` und `\W` stimmen nur mit Zeichen auf ASCII-Basis überein, zum Beispiel von `a` bis `z`, `A` bis `Z`, `0` bis `9` und `_`.
 
-Um Zeichen aus anderen Sprachen wie Kyrillisch oder Hebräisch abzugleichen, verwenden Sie `\uHHHH`, wobei `HHHH` der Unicode-Wert des Zeichens in hexadezimaler Schreibweise ist.
+Um Zeichen aus anderen Sprachen wie Kyrillisch oder Hebräisch abzugleichen, verwenden Sie `\uHHHH`, wobei `HHHH` der Unicode-Wert des Zeichens in Hexadezimaldarstellung ist.
 
-Dieses Beispiel zeigt, wie man Unicide-Zeichen eines Wortes trennen kann.
+Dieses Beispiel zeigt, wie man Unicode-Zeichen aus einem Wort heraustrennen kann.
 
 ```js
 const text = "Образец text на русском языке";
@@ -271,19 +271,19 @@ console.log(regex.lastIndex); // 15
 // and so on
 ```
 
-Die [Unicode-Eigenschaftszeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) Funktion bietet eine einfachere Möglichkeit, bestimmte Unicode-Bereiche anzusprechen, indem Anweisungen wie `\p{scx=Cyrl}` (um ein beliebiges kyrillisches Zeichen abzugleichen) oder `\p{L}/u` (um einen Buchstaben aus einer beliebigen Sprache abzugleichen) ermöglicht werden.
+Die [Unicode-Eigenschafts-Eskapaden](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) Funktion bietet eine einfachere Möglichkeit, bestimmte Unicode-Bereiche zu anvisieren, indem Erklärungen wie `\p{scx=Cyrl}` (um einen beliebigen kyrillischen Buchstaben abzugleichen) oder `\p{L}/u` (um einen Buchstaben aus jeder Sprache abzugleichen) erlaubt werden.
 
-### Herausfiltern des Subdomain-Namens aus einer URL
+### Extrahierung des Subdomainnamens aus einer URL
 
 ```js
-const url = "http://xxx.domain.com";
+const url = "http://xxx.example.com";
 console.log(/^https?:\/\/(.+?)\./.exec(url)[1]); // 'xxx'
 ```
 
 > [!NOTE]
-> Anstatt reguläre Ausdrücke zum Parsen von URLs zu verwenden, ist es in der Regel besser, den eingebauten URL-Parser des Browsers mit dem [URL API](/de/docs/Web/API/URL_API) zu verwenden.
+> Anstatt reguläre Ausdrücke zu verwenden, um URLs zu parsen, ist es normalerweise besser, den eingebauten URL-Parser des Browsers mit der Verwendung der [URL API](/de/docs/Web/API/URL_API) zu verwenden.
 
-### Einen regulären Ausdruck aus dynamischen Eingaben erstellen
+### Erstellung eines regulären Ausdrucks aus dynamischen Eingaben
 
 ```js
 const breakfasts = ["bacon", "eggs", "oatmeal", "toast", "cereal"];
@@ -303,7 +303,7 @@ order.match(new RegExp(`\\b(${breakfasts.join("|")})\\b`, "g"));
 
 ### Firefox-spezifische Hinweise
 
-Ab Firefox 34 ist im Fall einer erkennenden Gruppe mit Quantoren, die ihre Übung verhindern, der abgeglichene Text für eine Klammerngruppe nun `undefined` anstelle eines leeren Strings:
+Beginnend mit Firefox 34 ist im Fall einer Fanggruppe mit Quantoren, die deren Ausführung verhindern, der abgeglichene Text für eine Fanggruppe jetzt `undefined` anstelle eines leeren Strings:
 
 ```js
 // Firefox 33 or older
@@ -319,12 +319,12 @@ Ab Firefox 34 ist im Fall einer erkennenden Gruppe mit Quantoren, die ihre Übun
 // group: undefined
 ```
 
-Beachten Sie, dass aufgrund der Web-Kompatibilität `RegExp.$N` immer noch einen leeren String anstelle von `undefined` zurückgibt ([Bug 1053944](https://bugzil.la/1053944)).
+Beachten Sie, dass aufgrund der Webkompatibilität `RegExp.$N` weiterhin einen leeren String anstelle von `undefined` zurückgeben wird ([Bug 1053944](https://bugzil.la/1053944)).
 
 ## Siehe auch
 
-- [Polyfill vieler moderner `RegExp`-Funktionen (`dotAll`, `sticky` Flags, benannte Erfassungsgruppen, usw.) in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
+- [Polyfill vieler moderner `RegExp`-Funktionen (`dotAll`, `sticky` Flags, benannte Fanggruppen usw.) in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - {{jsxref("String.prototype.match()")}}
 - {{jsxref("String.prototype.replace()")}}

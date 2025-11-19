@@ -1,36 +1,30 @@
 ---
-title: "RTCRtpReceiver: transform Eigenschaft"
+title: "RTCRtpReceiver: transform-Eigenschaft"
 short-title: transform
 slug: Web/API/RTCRtpReceiver/transform
 l10n:
-  sourceCommit: 32f666e453bdb8c93d305075453b6e304cae94de
+  sourceCommit: 0c81cbce5f95a0be935724bcd936f5592774eb3a
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`transform`**-Eigenschaft des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekts wird verwendet, um einen Transformations-Stream ([`TransformStream`](/de/docs/Web/API/TransformStream)), der in einem Worker-Thread läuft, in die Empfänger-Pipeline einzufügen.
-Dies ermöglicht es, dass Streaming-Transformationen auf kodierte Video- und Audioframes angewendet werden, sobald sie vom Paketierer eintreffen (bevor sie abgespielt/dargestellt werden).
+Die **`transform`**-Eigenschaft des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekts wird verwendet, um einen Transform-Stream ([`TransformStream`](/de/docs/Web/API/TransformStream)), der in einem Worker-Thread läuft, in die Empfangspipeline einzufügen. Dadurch können Transformationsprozesse auf codierte Video- und Audio-Frames angewendet werden, sobald sie vom Paketizer ankommen (bevor sie abgespielt/gerendert werden).
 
-Die Transformation, die hinzugefügt werden soll, wird unter Verwendung eines [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) und seines zugehörigen [`Worker`](/de/docs/Web/API/Worker) definiert.
-Wenn die Transformation im [`track` event](/de/docs/Web/API/RTCPeerConnection/track_event)-Handler der Peerverbindung festgelegt wird, erhält der Transformationsstream die ersten vollständigen eingehenden Frames für das Track.
+Die hinzuzufügende Transformation wird mithilfe eines [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) und des zugehörigen [`Worker`](/de/docs/Web/API/Worker) definiert. Wenn die Transformation im Handler des [`track`-Ereignisses](/de/docs/Web/API/RTCPeerConnection/track_event) der Peer-Verbindung gesetzt wird, erhält der Transform-Stream das erste vollständige eingehende Frame für den Track.
 
-### Wert
+## Wert
 
-Ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)<!-- oder [`SFrameTransform`](/de/docs/Web/API/SFrameTransform) -->, oder `null`, wenn der Empfänger keinen zugeordneten Transformationsstream hat.
+Ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)<!-- oder [`SFrameTransform`](/de/docs/Web/API/SFrameTransform) --> oder `null`, wenn der Empfänger keinen zugehörigen Transform-Stream hat.
 
 ## Beispiel
 
-Bitte beachten Sie, dass dies Teil eines größeren Beispiels im Leitfaden-Thema [Verwendung von WebRTC-kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) ist.
+Beachten Sie, dass dies Teil eines größeren Beispiels im Leitfaden-Thema [Verwendung von WebRTC codierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) ist.
 
 ## Hinzufügen einer Transformation für eingehende Frames
 
-Dieses Beispiel zeigt, wie Sie eine WebRTC-kodierte Transformation hinzufügen, um einen eingehenden Stream zu modifizieren.
-Der Code geht davon aus, dass es eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `peerConnection` gibt, die bereits mit einem entfernten Peer verbunden ist.
+Dieses Beispiel zeigt, wie Sie eine WebRTC-codierte Transformation hinzufügen, um einen eingehenden Stream zu modifizieren. Der Code geht davon aus, dass es eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `peerConnection` gibt, die bereits mit einem entfernten Peer verbunden ist.
 
-Um einen Transformationsstream in die Pipeline für eingehende Frames hinzuzufügen, müssen wir ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) konstruieren und es der `transform`-Eigenschaft des Empfängers zuweisen.
-Wir können dies im [`track` event](/de/docs/Web/API/RTCPeerConnection/track_event)-Handler wie gezeigt tun.
-Dieses Ereignis wird an der Peerverbindung ausgelöst, wann immer das entfernte Ende einen Track sendet.
-Die `event.receiver`-Eigenschaft ist ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver).
+Um einen Transform-Stream in die Pipeline für eingehende Frames einzufügen, müssen wir ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) konstruieren und es der `transform`-Eigenschaft des Empfängers zuweisen. Dies können wir im [`track`-Ereignis](/de/docs/Web/API/RTCPeerConnection/track_event)-Handler wie gezeigt tun. Dieses Ereignis wird auf der Peer-Verbindung ausgelöst, wenn das entfernte Ende einen Track sendet. Die `event.receiver`-Eigenschaft ist ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver).
 
 ```js
 const worker = new Worker("worker.js");
@@ -41,8 +35,7 @@ peerConnection.ontrack = (event) => {
 };
 ```
 
-Weil die Transformation unmittelbar nach der Erstellung des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) konstruiert wird, erhält sie den ersten eingehenden Frame.
-Das Objekt, das als zweiter Parameter im Konstruktor von [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) übergeben wird, wird an den Worker-Thread gesendet und kann durch Worker-Code verwendet werden, um eine andere Transformation für die eingehenden Frames bereitzustellen als für die ausgehenden Frames verwendet wird.
+Da die Transformation unmittelbar nach der Erstellung des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) konstruiert wird, wird sie das erste eingehende Frame empfangen. Das Objekt, das als zweiter Parameter im Konstruktor des [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) übergeben wird, wird an den Worker-Thread gesendet und kann von Workercode verwendet werden, um eine andere Transformation für die eingehenden Frames bereitzustellen als für die ausgehenden Frames verwendet wird.
 
 ## Spezifikationen
 
@@ -54,5 +47,5 @@ Das Objekt, das als zweiter Parameter im Konstruktor von [`RTCRtpScriptTransform
 
 ## Siehe auch
 
-- [Verwendung von WebRTC-kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC codierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
 - [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform)

@@ -2,21 +2,21 @@
 title: scroll-timeline
 slug: Web/CSS/Reference/Properties/scroll-timeline
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: e316a03cc74a78004dbba837c9d5df297e2eb0aa
 ---
 
-Die **`scroll-timeline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) wird verwendet, um eine _benannte Scroll-Fortschritts-Timeline_ zu definieren, die durch das Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) fortschreitet. `scroll-timeline` wird auf dem Scroller gesetzt, der die Timeline bereitstellen soll. Die startende Scroll-Position repräsentiert 0 % Fortschritt und die endende Scroll-Position repräsentiert 100 % Fortschritt. Wenn die 0%-Position und die 100%-Position identisch sind (d.h. der Scroll-Container hat keinen Überlauf zum Scrollen), ist die Timeline inaktiv.
+Die **`scroll-timeline`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) wird verwendet, um eine _benannte Scroll-Fortschritts-Timeline_ zu definieren, die durch das Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) fortschreitet. `scroll-timeline` wird auf dem Scroller gesetzt, der die Timeline bereitstellen wird. Die Start-Scrollposition repräsentiert einen Fortschritt von 0 % und die End-Scrollposition 100 % Fortschritt. Wenn die 0 %-Position und die 100 %-Position zusammenfallen (d.h. der Scroll-Container hat keinen Überlauf zum Scrollen), ist die Timeline inaktiv.
 
-`scroll-timeline` kann zwei ursprüngliche Werte enthalten — einen Namen für die benannte Scroll-Fortschritts-Timeline und einen optionalen Scroll-Achsenwert.
+`scroll-timeline` kann zwei wesentliche Werte enthalten — einen Namen für die benannte Scroll-Fortschritts-Timeline und einen optionalen Scroll-Achsenwert.
 
-Der Name wird dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)-Deklaration referenziert, um das Element des Containers anzugeben, das durch die Scrolling-Aktion den Fortschritt der Animation steuert.
+Der Name wird dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)-Deklaration referenziert, um anzugeben, welches Element des Containers verwendet wird, um den Fortschritt der Animation durch die Scroll-Aktion zu steuern.
 
 > [!NOTE]
-> Wenn der Scroller in der Achs-Dimension nicht seinen Container überläuft oder wenn der Überlauf verborgen oder abgeschnitten ist, wird keine Timeline erstellt.
+> Wenn der Scroller in der Achsendimension nicht aus seinem Container überläuft oder der Überlauf verborgen oder abgeschnitten ist, wird keine Timeline erstellt.
 
-## Ursprüngliche Eigenschaften
+## Wesentliche Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für folgende CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`scroll-timeline-name`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-name)
 - [`scroll-timeline-axis`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-axis)
@@ -39,14 +39,14 @@ scroll-timeline: none;
 scroll-timeline: --custom_name_for_timeline;
 ```
 
-Die `scroll-timeline` Kurzschreibweise-Eigenschaft kann auf ein Containerelement als Kombination der Werte `<scroll-timeline-name>` und `<scroll-timeline-axis>` angewendet werden. Mindestens einer der Werte muss angegeben werden. Wenn beide Werte angegeben sind, muss die Reihenfolge dem `<scroll-timeline-name>` Wert gefolgt vom `<scroll-timeline-axis>` Wert folgen.
+Die `scroll-timeline`-Kurzform-Eigenschaft kann auf ein Container-Element als Kombination der `<scroll-timeline-name>` und `<scroll-timeline-axis>` Werte angewendet werden. Mindestens einer der Werte muss angegeben werden. Wenn beide Werte angegeben sind, muss die Reihenfolge eingehalten werden: zuerst der `<scroll-timeline-name>` Wert, gefolgt von dem `<scroll-timeline-axis>` Wert.
 
-> [!NOTE] > `<scroll-timeline-name>`s müssen [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident) Werte sein, was bedeutet, dass sie mit `--` beginnen müssen. Dies hilft, Namenskonflikte mit Standard-CSS-Schlüsselwörtern zu vermeiden.
+> [!NOTE]
+> `<scroll-timeline-name>`s müssen [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident)-Werte sein, was bedeutet, dass sie mit `--` beginnen müssen. Dies hilft, Namenskollisionen mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
 
 ### Werte
 
 - `<scroll-timeline-name>`
-
   - : Siehe [`scroll-timeline-name`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-name).
 
 - `<scroll-timeline-axis>`
@@ -62,10 +62,9 @@ Die `scroll-timeline` Kurzschreibweise-Eigenschaft kann auf ein Containerelement
 
 ## Beispiele
 
-### Erstellen einer benannten Scroll-Fortschritts-Timeline-Animation
+### Eine benannte Scroll-Fortschritts-Timeline-Animation erstellen
 
-In diesem Beispiel wird eine Scroll-Timeline namens `--square-timeline` mithilfe der `scroll-timeline-name` Eigenschaft auf dem Element mit der ID `container` definiert.
-Diese wird dann auf die Animation des `#square` Elements mit `animation-timeline: --square-timeline` angewendet.
+In diesem Beispiel wird eine Scroll-Timeline namens `--square-timeline` unter Verwendung der `scroll-timeline-name`-Eigenschaft auf dem Element mit der ID `container` definiert. Diese wird dann auf die Animation des `#square`-Elements angewendet, indem `animation-timeline: --square-timeline` verwendet wird.
 
 #### HTML
 
@@ -80,10 +79,9 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das CSS für den Container legt es als Quelle für eine Scroll-Timeline mit dem Namen `--square-timeline` mithilfe der `scroll-timeline` Eigenschaft fest.
-Es legt auch fest, dass der zu verwendende Scrollbalken für die Timeline der vertikale Scrollbalken ist (dies ist eigentlich nicht nötig, da es der Standard ist).
+Das CSS für den Container legt ihn als Quelle einer Scroll-Timeline namens `--square-timeline` unter Verwendung der `scroll-timeline`-Eigenschaft fest. Es wird auch festgelegt, dass die vertikale Scrollleiste für die Timeline verwendet werden soll (dies ist eigentlich nicht nötig, da es der Standard ist).
 
-Die Höhe des Containers ist auf `300px` gesetzt, und der Container ist auch darauf eingestellt, einen vertikalen Scrollbalken zu erzeugen, wenn er überläuft (die CSS `height` Regel auf dem `stretcher` Element unten sorgt tatsächlich dafür, dass der Inhalt den Container überläuft).
+Die Höhe des Containers ist auf `300px` festgelegt, und der Container ist auch darauf eingestellt, eine vertikale Scrollleiste zu erstellen, wenn er überläuft (die CSS-`height`-Regel auf dem unten stehenden `stretcher`-Element lässt den Inhalt den Container überlaufen).
 
 ```css
 #container {
@@ -96,7 +94,7 @@ Die Höhe des Containers ist auf `300px` gesetzt, und der Container ist auch dar
 }
 ```
 
-Das nachfolgende CSS definiert ein Quadrat, das sich gemäß der durch die `animation-timeline` Eigenschaft gelieferten Timeline dreht, die auf die oben genannte `--square-timeline` Timeline eingestellt ist.
+Das untenstehende CSS definiert ein Quadrat, das sich entsprechend der durch die `animation-timeline`-Eigenschaft bereitgestellten Timeline dreht, die auf die oben benannte `--square-timeline` gesetzt ist.
 
 ```css
 #square {
@@ -126,8 +124,7 @@ Das nachfolgende CSS definiert ein Quadrat, das sich gemäß der durch die `anim
 }
 ```
 
-Die `stretcher` CSS Regel setzt die Blockhöhe auf `600px`, was einen Inhalt erzeugt, der den Container überläuft und somit Scrollbalken erzeugt.
-Ohne dieses Element würde der Inhalt den Container nicht überlaufen, es gäbe keinen Scrollbalken und daher auch keine Scroll-Timeline, die mit der Animation-Timeline verknüpft werden könnte.
+Die CSS-Regel für `stretcher` setzt die Blockhöhe auf `600px`, wodurch ein Inhalt entsteht, der das Container-Element überläuft und somit Scrollleisten erstellt. Ohne dieses Element würde der Inhalt den Container nicht überlaufen, es gäbe keine Scrollleiste und folglich keine Scroll-Timeline, die mit der Animations-Timeline verknüpft werden könnte.
 
 #### Ergebnis
 
@@ -135,7 +132,7 @@ Scrollen Sie die vertikale Leiste, um zu sehen, wie das Quadrat animiert wird, w
 
 {{EmbedLiveSample("Creating_a_named_scroll_progress_timeline_animation", "100%", "320px")}}
 
-Das Quadrat animiert sich, während Sie scrollen, und die Animationsdauer bei Verwendung von `scroll-timeline` hängt von der Scroll-Geschwindigkeit ab (dennoch wurde die `animation-duration` Eigenschaft definiert, damit Sie die scrollgesteuerte Animation erkennen können).
+Das Quadrat animiert sich während des Scrollens, und die Animationsdauer bei Verwendung von `scroll-timeline` hängt von der Scrollgeschwindigkeit ab (dennoch wurde die `animation-duration`-Eigenschaft definiert, damit Sie die scrollgesteuerte Animation wahrnehmen können).
 
 ## Spezifikationen
 
@@ -150,4 +147,4 @@ Das Quadrat animiert sich, während Sie scrollen, und die Animationsdauer bei Ve
 - [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)
 - [`scroll-timeline-axis`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-axis), [`scroll-timeline-name`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-name)
 - {{cssxref("timeline-scope")}}
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)

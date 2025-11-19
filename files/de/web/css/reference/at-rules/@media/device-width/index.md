@@ -2,7 +2,7 @@
 title: device-width
 slug: Web/CSS/Reference/At-rules/@media/device-width
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 6ef7bc04d63cf8b512bdbea149a6cb875cc063e3
 ---
 
 {{deprecated_header}}
@@ -10,11 +10,11 @@ l10n:
 > [!NOTE]
 > Um die Breite des Viewports abzufragen, sollten Entwickler stattdessen das [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width) Media-Feature verwenden.
 
-Das **`device-width`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Breite der Darstellungsfläche eines Ausgabegeräts zu testen.
+Das **`device-width`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um die Breite der Rendering-Oberfläche eines Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `device-width`-Feature wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die Varianten mit Präfix **`min-device-width`** und **`max-device-width`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Das `device-width`-Feature wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die vorgestellten Varianten **`min-device-width`** und **`max-device-width`** verwenden können, um Mindest- und Höchstwerte abzufragen.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ Das `device-width`-Feature wird als ein {{cssxref("&lt;length&gt;")}}-Wert angeg
 <link
   rel="stylesheet"
   media="screen and (max-device-width: 799px)"
-  href="http://foo.bar.com/narrow-styles.css" />
+  href="https://cdn.example.com/narrow-styles.css" />
 ```
 
 ## Spezifikationen
@@ -37,5 +37,5 @@ Das `device-width`-Feature wird als ein {{cssxref("&lt;length&gt;")}}-Wert angeg
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [Verwenden von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

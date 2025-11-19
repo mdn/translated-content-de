@@ -3,16 +3,16 @@ title: "CSSLayerStatementRule: nameList-Eigenschaft"
 short-title: nameList
 slug: Web/API/CSSLayerStatementRule/nameList
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: d7e665f6202179fcccbe753a1bfd358c224c3928
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`nameList`**-Eigenschaft der [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)-Schnittstelle gibt die Liste der zugehörigen Kaskadierschichtnamen zurück. Die Namen können nicht geändert werden.
+Die schreibgeschützte **`nameList`**-Eigenschaft der [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)-Schnittstelle gibt die Liste der zugehörigen Kaskaden-Ebenennamen zurück. Diese Namen können nicht geändert werden.
 
 ## Wert
 
-Ein {{jsxref("Array")}} von Zeichenfolgen, wobei jede eine Kaskadierschicht darstellt, die durch die {{cssxref("@layer")}}-Anweisungsregel repräsentiert wird.
+Ein {{jsxref("Array")}} von Zeichenfolgen, von denen jede eine durch die {{cssxref("@layer")}}-Anweisung dargestellte Kaskadenebene darstellt.
 
 ## Beispiele
 
@@ -38,9 +38,7 @@ Ein {{jsxref("Array")}} von Zeichenfolgen, wobei jede eine Kaskadierschicht dars
 
 ```js
 const item = document.getElementsByTagName("div")[0];
-const rules = document.styleSheets[1].cssRules;
-// Note that stylesheet #1 is the stylesheet associated with this embedded example,
-// while stylesheet #0 is the stylesheet associated with the whole MDN page
+const rules = document.getElementById("css-output").sheet.cssRules;
 
 const layerStatementRule = rules[0]; // A CSSLayerStatementRule
 const layerBlockRule = rules[1]; // A CSSLayerBlockRule; no nameList property.
@@ -62,4 +60,4 @@ item.textContent = `@layer declares the following layers: ${layer.nameList.join(
 
 - [`CSSLayerBlockRule.name`](/de/docs/Web/API/CSSLayerBlockRule/name)
 - {{CSSXref("@layer")}}
-- [Die `@layer` At-Regel für benannte Schichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
+- [Die `@layer`-Anweisung für benannte Ebenen](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)

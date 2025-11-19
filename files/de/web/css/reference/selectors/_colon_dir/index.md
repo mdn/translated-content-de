@@ -14,7 +14,7 @@ Die **`:dir()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Refere
 }
 ```
 
-Die `:dir()` Pseudo-Klasse verwendet nur den _semantischen_ Wert der Richtung, d.h., den im Dokument selbst definierten. Sie berücksichtigt nicht die _stilistische_ Richtung, d.h., die durch CSS-Eigenschaften wie {{cssxref("direction")}} festgelegte Richtung.
+Die `:dir()` Pseudo-Klasse verwendet nur den _semantischen_ Wert der Richtung, d.h. den im Dokument selbst definierten. Sie berücksichtigt nicht die _stilistische_ Richtung, d.h. die durch CSS-Eigenschaften wie {{cssxref("direction")}} festgelegte Richtung.
 
 > [!NOTE]
 > Beachten Sie, dass das Verhalten der `:dir()` Pseudo-Klasse nicht dem der `[dir=…]` [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) entspricht. Letztere richten sich nach dem HTML-Attribut [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) und ignorieren Elemente, die es nicht haben—selbst wenn sie eine Richtung von ihrem übergeordneten Element erben. (Ebenso werden `[dir=rtl]` und `[dir=ltr]` nicht den `auto` Wert treffen.) Im Gegensatz dazu wird `:dir()` den vom {{Glossary("user_agent", "User Agent")}} berechneten Wert treffen, selbst wenn er geerbt wird.

@@ -2,10 +2,10 @@
 title: scaleX()
 slug: Web/CSS/Reference/Values/transform-function/scaleX
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
 ---
 
-Die **`scaleX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element entlang der x-Achse (horizontal) vergrößert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert eine Transformation, die ein Element entlang der x-Achse (horizontal) skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scaleX()")}}
 
@@ -35,10 +35,10 @@ transform: scaleX(-0.5);
 </section>
 ```
 
-Sie verändert die Abszisse (horizontal, x-Koordinate) jedes Punkts des Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop, und die Winkel des Elements werden im Allgemeinen nicht beibehalten, außer bei Vielfachen von 90 Grad. `scaleX(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry) mit einer vertikalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft spezifiziert).
+Sie modifiziert die Abszisse (horizontal, x-Koordinate) jedes Punktelements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in welchem Fall die Funktion die Identitätstransformation ist. Die Skalierung ist nicht isotrop, und die Winkel des Elements sind im Allgemeinen nicht erhalten, außer bei Vielfachen von 90 Grad. `scaleX(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer vertikalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
 
 > [!NOTE]
-> `scaleX(sx)` ist äquivalent zu
+> `scaleX(sx)` ist gleichwertig mit
 > `scale(sx, 1)` oder
 > `scale3d(sx, 1, 1)`.
 
@@ -51,8 +51,7 @@ scaleX(s)
 ### Werte
 
 - `s`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor repräsentiert, der auf die Abszisse (horizontal, x-Koordinate) jedes Punkts des
-    Elements angewendet wird.
+  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor darstellt, der auf die Abszisse (horizontal, x-Koordinate) jedes Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>

@@ -1,33 +1,33 @@
 ---
-title: Umgang mit Leerzeichen
+title: Umgang mit Leerraum
 slug: Web/CSS/Guides/Text/Whitespace
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 81f8fcd666952c1782653a3675347c392cc997ca
 ---
 
-Das Vorhandensein von Leerzeichen im [DOM](/de/docs/Web/API/Document_Object_Model) kann Layoutprobleme verursachen und es schwierig machen, den Inhalt des Baums auf unerwartete Weise zu manipulieren, je nachdem, wo sie sich befinden. Dieser Artikel untersucht, wann Schwierigkeiten auftreten können, und zeigt auf, was getan werden kann, um daraus resultierende Probleme zu mildern.
+Das Vorhandensein von Leerraum im [DOM](/de/docs/Web/API/Document_Object_Model) kann Layoutprobleme verursachen und die Manipulation des Inhaltsbaums auf unerwartete Weise erschweren, je nachdem, wo er sich befindet. Dieser Artikel untersucht, wann Schwierigkeiten auftreten können, und behandelt Möglichkeiten zur Minderung der daraus resultierenden Probleme.
 
-## Was sind Leerzeichen?
+## Was ist Leerraum?
 
-{{Glossary("Whitespace", "Leerzeichen")}}-Zeichen bestehen in verschiedenen Programmiersprachenkontexten aus unterschiedlichen Zeichen. [_Dokumenten-Leerzeichen-Zeichen_](https://drafts.csswg.org/css-text-4/#white-space), soweit es die CSS-Leerraumverarbeitungsregeln betrifft, beinhalten nur Leerzeichen (U+0020), Tabs (U+0009), Zeilenumbrüche (LF, U+000A) und Wagenrückläufe (CR, U+000D), wobei CR-Zeichen in jeder Hinsicht gleichbedeutend mit Leerzeichen sind. Diese Zeichen ermöglichen es Ihnen, Ihren Code lesbar zu formatieren. Ein Großteil unseres Quellcodes ist voll von diesen Leerzeichen-Zeichen, und wir neigen dazu, sie nur als Teil eines Produktions-Build-Schritts zu entfernen, um die Dateigröße zu reduzieren.
+{{Glossary("Whitespace", "Leerraum")}}-Zeichen bestehen aus verschiedenen Zeichen in unterschiedlichen Programmierkontexten. [_Dokument-Leerzeichen-Zeichen_](https://drafts.csswg.org/css-text-4/#white-space) umfassen laut den CSS-Verarbeitungsregeln für Leerraum nur Leerzeichen (U+0020), Tabulatoren (U+0009), Zeilenumbrüche (LF, U+000A) und Wagenrückläufe (CR, U+000D), wobei CR-Zeichen in jeder Hinsicht den Leerzeichen gleichgestellt sind. Diese Zeichen ermöglichen es Ihnen, Ihren Code zur besseren Lesbarkeit zu formatieren. Ein Großteil unseres Quellcodes ist voll von diesen Leerzeichen, und wir entfernen sie in der Regel nur als Teil eines Produktions-Build-Schritts, um die Dateigröße zu reduzieren.
 
-Beachten Sie, dass diese Liste keine geschützten Leerzeichen (U+00A0, `&nbsp;` in HTML) beinhaltet. Diese Zeichen lösen daher kein [Zusammenfallen](#zusammenfallen_und_transformation) aus, weshalb sie oft verwendet werden, um längere Leerzeichen in HTML zu erzeugen.
+Beachten Sie, dass diese Liste keine geschützten Leerzeichen (U+00A0, `&nbsp;` in HTML) enthält. Diese Zeichen lösen keine [Reduzierung](#reduzierung_und_transformation) aus, weshalb sie häufig verwendet werden, um längere Abstände in HTML zu erstellen.
 
-CSS definiert auch das Konzept von [_Segmentumbrüchen_](https://drafts.csswg.org/css-text-4/#segment-break), die im Kontext von HTML den LF-Zeichen entsprechen.
+CSS definiert auch das Konzept von [_Segmentumbruch_](https://drafts.csswg.org/css-text-4/#segment-break), welches im HTML-Kontext den LF-Zeichen entspricht.
 
-## Wie verarbeitet HTML Leerzeichen?
+## Wie verarbeitet HTML Leerraum?
 
-Es ist ein häufiger Mythos, dass "HTML Leerzeichen ignoriert", was nicht stimmt: **HTML bewahrt alle Leerzeichentexteinhalte so, wie Sie sie im Quellcode geschrieben haben.** Als Markup-Sprache erzeugt HTML ein {{Glossary("DOM", "DOM")}}, in dem alle Leerzeichen im Textinhalt bewahrt werden. Diese können über DOM-APIs wie [`Node.textContent`](/de/docs/Web/API/Node/textContent) abgerufen und manipuliert werden. Wenn HTML Leerzeichen aus dem DOM entfernen würde, könnte CSS, eine nachgelagerte Rendering-Engine, die auf dem DOM arbeitet, diese nicht mehr mit der {{cssxref("white-space")}} Eigenschaft bewahren.
-
-> [!NOTE]
-> Um klarzustellen: Wir sprechen über Leerzeichen _zwischen HTML-Tags_, die im DOM zu Textknoten werden. Alle Leerzeichen _innerhalb eines Tags_ (zwischen den spitzen Klammern, jedoch nicht als Teil eines Attributwerts) sind nur Teil der HTML-Syntax und erscheinen nicht im DOM.
+Es ist ein verbreiteter Mythos, dass "HTML Leerraum ignoriert", was nicht stimmt: **HTML bewahrt den gesamten Leerraum-Textinhalt so auf, wie Sie ihn im Quellcode geschrieben haben.** Als Markup-Sprache erzeugt HTML ein {{Glossary("DOM", "DOM")}}, in dem der gesamte Leerraum im Textinhalt bewahrt wird, das über DOM-APIs wie [`Node.textContent`](/de/docs/Web/API/Node/textContent) abgerufen und manipuliert werden kann. Wenn HTML den Leerraum aus dem DOM entfernen würde, könnte CSS, eine nachgeschaltete Rendering-Engine, die auf dem DOM arbeitet, diesen nicht mit der {{cssxref("white-space")}}-Eigenschaft bewahren.
 
 > [!NOTE]
-> Aufgrund der Magie des HTML-Parsings (Zitat aus der [DOM-Spezifikation](https://dom.spec.whatwg.org/#introduction-to-the-dom)) gibt es bestimmte Stellen, an denen Leerzeichen ignoriert werden könnten. Beispielsweise werden Leerzeichen zwischen den `<html>` und `<head>` öffnenden Tags oder zwischen den `</body>` und `</html>` schließenden Tags ignoriert und erscheinen nicht im DOM. Außerdem wird beim Parsen des Textinhalts des {{HTMLElement("pre")}} Elements ein einzelnes führendes Zeilenumbruchszeichen entfernt. Diese Randfälle ignorieren wir.
+> Um es klarzustellen, wir sprechen von Leerraum _zwischen HTML-Tags_, der zu Textknoten im DOM wird. Jeglicher Leerraum _innerhalb eines Tags_ (zwischen den spitzen Klammern, aber nicht als Teil eines Attributwerts) ist einfach Teil der HTML-Syntax und erscheint nicht im DOM.
+
+> [!NOTE]
+> Aufgrund der "Magie", die HTML-Parsing ist (Zitat aus der [DOM-Spezifikation](https://dom.spec.whatwg.org/#introduction-to-the-dom)), gibt es bestimmte Stellen, an denen Leerraumzeichen ignoriert werden könnten. Zum Beispiel wird Leerraum zwischen den Öffnungstags `<html>` und `<head>` oder zwischen den Schließungstags `</body>` und `</html>` ignoriert und erscheint nicht im DOM. Auch beim Parsen des Textinhalts des {{HTMLElement("pre")}}-Elements wird ein führendes Newline-Zeichen entfernt. Diese Randfälle ignorieren wir.
 >
-> Darüber hinaus _normalisiert_ der HTML-Parser bestimmte Leerzeichen](https://html.spec.whatwg.org/multipage/parsing.html#preprocessing-the-input-stream): Er ersetzt CR- und {{Glossary("CRLF", "CRLF")}}-Sequenzen mit einem einzelnen LF. CR-Zeichen können jedoch auch entweder über {{Glossary("Character_reference", "Zeichenreferenzen")}} oder JavaScript in das DOM eingefügt werden, sodass die CSS-Leerstellenverarbeitungsregeln immer noch definieren müssen, wie mit ihnen umzugehen ist.
+> Darüber hinaus normalisiert der HTML-Parser [_bestimmte Leerzeichen_](https://html.spec.whatwg.org/multipage/parsing.html#preprocessing-the-input-stream): Er ersetzt CR und {{Glossary("CRLF", "CRLF")}}-Sequenzen durch ein einziges LF. CR-Zeichen können jedoch entweder über {{Glossary("Character_reference", "Zeichenreferenzen")}} oder JavaScript in das DOM eingefügt werden, sodass die CSS-Verarbeitungsregeln für Leerraum weiterhin definieren müssen, wie sie zu behandeln sind.
 
-Nehmen Sie das folgende Dokument als Beispiel:
+Betrachten Sie folgendes Dokumentbeispiel:
 
 ```html
 <!doctype html>
@@ -43,23 +43,23 @@ Nehmen Sie das folgende Dokument als Beispiel:
 </html>
 ```
 
-Der DOM-Baum dazu sieht folgendermaßen aus:
+Der DOM-Baum für dieses Beispiel sieht folgendermaßen aus:
 
 ![Der DOM-Baum, der ein einfaches HTML-Dokument darstellt](dom-string.png)
 
-Beachten Sie, dass:
+Beachten Sie:
 
-- Einige Textknoten nur Leerzeichen enthalten.
-- Andere Textknoten Leerzeichen am Anfang oder Ende haben können.
+- Einige Textknoten enthalten nur Leerraum.
+- Andere Textknoten können Leerraum am Anfang oder Ende haben.
 
 > [!NOTE]
-> [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) unterstützt das Hervorheben von Textknoten, was es einfacher macht, genau zu sehen, welche Knoten Leerzeichen enthalten. Reine Leerzeichenknoten sind mit einem "whitespace"-Label gekennzeichnet.
+> [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/index.html) unterstützt das Hervorheben von Textknoten, wodurch es einfacher wird, genau zu sehen, welche Knoten Leerraumzeichen enthalten. Reine Leerraumknoten sind mit einem "whitespace"-Label markiert.
 
-Das Bewahren von Leerzeichen-Zeichen im DOM ist in vielerlei Hinsicht nützlich, kann aber auch bestimmte Layouts schwerer umsetzbar machen und Probleme für Entwickler verursachen, die über DOM-Knoten iterieren möchten. Wir werden diese Probleme und einige Lösungsmöglichkeiten später in der [Lösung von häufigen Problemen mit Leerzeichen-Knoten](#lösen_von_häufigen_problemen_mit_leerzeilenknoten) erläutern.
+Das Beibehalten von Leerraumzeichen im DOM ist in vielerlei Hinsicht nützlich, kann jedoch auch die Implementierung bestimmter Layouts erschweren und Probleme für Entwickler verursachen, die über DOM-Knoten iterieren möchten. Diese Probleme und einige Lösungen werden wir später im Abschnitt [Lösungen für häufige Probleme mit Leerraumknoten](#lösungen_für_häufige_probleme_mit_leerraumknoten) untersuchen.
 
-## Wie verarbeitet CSS Leerzeichen?
+## Wie verarbeitet CSS Leerraum?
 
-Wenn das DOM an CSS zur Darstellung übergeben wird, werden die Leerzeichen standardmäßig größtenteils entfernt. Dies bedeutet, dass die Formatierung Ihres Codes für den Endbenutzer nicht sichtbar ist — das Erstellen von Raum um und in Elementen ist die Aufgabe von CSS.
+Wenn das DOM an CSS zum Rendern übergeben wird, wird der Leerraum standardmäßig weitgehend entfernt. Das bedeutet, dass die Art und Weise, wie Ihr Code formatiert ist, für den Endbenutzer nicht sichtbar ist — das Erzeugen von Abständen um und in Elementen ist die Aufgabe von CSS.
 
 ```html-nolint live-sample___html-whitespace
 <!doctype html>
@@ -67,15 +67,15 @@ Wenn das DOM an CSS zur Darstellung übergeben wird, werden die Leerzeichen stan
   <h1>      Hello      World!     </h1>
 ```
 
-Dieser Quellcode enthält ein paar Zeilenumbrüche nach dem `doctype` und eine Menge Leerzeichenzeichen vor, nach und im `<h1>`-Element. Aber der Browser ignoriert diese Leerzeichen und zeigt einfach die Worte "Hello World!" an, als ob diese Zeichen überhaupt nicht existieren würden:
+Dieser Quellcode enthält ein paar Zeilenumbrüche nach dem `doctype` und eine Menge Leerzeichen vor, nach und innerhalb des `<h1>`-Elements. Aber der Browser ignoriert diese Leerzeichen und zeigt die Worte "Hello World!" an, als ob diese Zeichen überhaupt nicht existieren:
 
 {{EmbedLiveSample("html-whitespace")}}
 
-CSS ignoriert die meisten, aber nicht alle Leerzeichen-Zeichen. In diesem Beispiel existiert ein Leerzeichen zwischen "Hello" und "World!", wenn die Seite in einem Browser dargestellt wird. CSS verwendet [einen speziellen Algorithmus](https://drafts.csswg.org/css-text-4/#white-space-processing), um zu entscheiden, welche Leerzeichen für den Benutzer irrelevant sind und wie sie entfernt oder transformiert werden. Wir werden in den nächsten Abschnitten erklären, wie diese Verarbeitung funktioniert.
+CSS ignoriert die meisten, aber nicht alle Leerzeichenzeichen. In diesem Beispiel existiert eines der Leerzeichen zwischen "Hello" und "World!" noch, wenn die Seite in einem Browser angezeigt wird. CSS verwendet [einen spezifischen Algorithmus](https://drafts.csswg.org/css-text-4/#white-space-processing), um zu entscheiden, welche Leerzeichenzeichen für den Benutzer irrelevant sind und wie sie entfernt oder transformiert werden. Wir werden erklären, wie diese Verarbeitung in den nächsten Abschnitten funktioniert.
 
-### Zusammenfallen und Transformation
+### Reduzierung und Transformation
 
-Betrachten wir ein Beispiel. Um die Leerzeichen-Zeichen deutlicher zu machen, haben wir auch einen Kommentar hinzugefügt, um alle Leerzeichen als ◦, alle Tabs als ⇥ und alle Zeilenumbrüche als ⏎ darzustellen:
+Schauen wir uns ein Beispiel an. Um die Leerzeichenzeichen auffälliger zu machen, haben wir auch einen Kommentar hinzugefügt, um alle Leerzeichen als ◦, alle Tabs als ⇥ und alle Zeilenumbrüche als ⏎ darzustellen:
 
 <!-- markdownlint-disable no-hard-tabs -->
 
@@ -91,92 +91,92 @@ Betrachten wir ein Beispiel. Um die Leerzeichen-Zeichen deutlicher zu machen, ha
 
 <!-- markdownlint-enable no-hard-tabs -->
 
-Dieses Beispiel wird im Browser folgendermaßen dargestellt:
+Dieses Beispiel wird im Browser so gerendert:
 
 {{EmbedLiveSample('ex-inline')}}
 
 Das `<h1>`-Element enthält:
 
 - Einen Textknoten (bestehend aus einigen Leerzeichen, dem Wort "Hello", einem Zeilenumbruch und einigen Tabs).
-- Ein Inline-Element (`<span>`, das ein Leerzeichen und das Wort "World!" enthält).
+- Ein Inline-Element (`<span>`, welches ein Leerzeichen und das Wort "World!" enthält).
 - Einen weiteren Textknoten (mit einem Tab und Leerzeichen nach dem `<span>`).
 
-Da dieses `<h1>`-Element nur Inline-Elemente enthält, etabliert es einen [Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context). Dies ist einer der mehreren Layout-Renderkontexte, die Browser-Engines verwenden, um Inhalte auf der Seite anzuordnen.
+Da dieses `<h1>`-Element nur Inline-Elemente enthält, etabliert es einen [Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context). Dies ist einer der mehreren Layoutkontexte, die Browser-Engines verwenden, um Inhalte auf der Seite anzuordnen.
 
-In diesem Inline-Formatierungskontext werden Leerzeichen-Zeichen wie folgt verarbeitet:
+Innerhalb dieses Inline-Formatierungskontextes werden Leerzeichenzeichen wie folgt verarbeitet:
 
 > [!NOTE]
-> Dieser Algorithmus kann über die {{cssxref("white-space-collapse")}} Eigenschaft (oder ihre Kurzform {{cssxref("white-space")}}) konfiguriert werden. Wir beginnen mit der Annahme ihres Standardwerts (`white-space-collapse: collapse`), dann betrachten wir, wie verschiedene Eigenschaftswerte diesen Algorithmus beeinflussen.
+> Dieser Algorithmus kann über die {{cssxref("white-space-collapse")}}-Eigenschaft (oder deren Kurzform {{cssxref("white-space")}}) konfiguriert werden. Wir beginnen mit der Annahme des Standardwertes (`white-space-collapse: collapse`) und sehen dann, wie verschiedene Eigenschaftswerte diesen Algorithmus beeinflussen.
 
-1. Zuerst werden alle Leerzeichen und Tabs unmittelbar vor und nach einem Zeilenumbruch ignoriert. Wenn wir also unser vorheriges Beispiel-Markup nehmen:
+1. Zuerst werden alle Leerzeichen und Tabs unmittelbar vor und nach einem Zeilenumbruch ignoriert. Nehmen wir also unser Beispiel-Markup von vorher:
 
    ```html-nolint
    <h1>◦◦◦Hello◦⏎
    ⇥⇥⇥⇥<span>◦World!</span>⇥◦◦</h1>
    ```
 
-   ...und diese erste Regel anwenden, erhalten wir:
+   ...und wenden diese erste Regel an, erhalten wir:
 
    ```html-nolint
    <h1>◦◦◦Hello⏎
    <span>◦World!</span>⇥◦◦</h1>
    ```
 
-2. Anschließend werden aufeinanderfolgende Zeilenumbrüche zu einem einzigen Zeilenumbruch zusammengefasst. Wir haben in diesem Beispiel keine.
-3. Danach werden Zeilen im Quellcode durch Entfernen aller verbleibenden Zeilenumbruchszeichen zu einzelnen Zeilen zusammengefasst. Sie werden entweder in Leerzeichen (U+0020) umgewandelt oder einfach entfernt, je nach dem Kontext vor und nach dem Umbruch. Die genaue Wahl zwischen den beiden ist browser- und sprachabhängig. In unserem Beispiel hier im Englischen (wo Leerzeichen zwischen Wörter trennen) können wir erwarten, dass alle Zeilenumbrüche "in" Leerzeichen umgewandelt werden. Also erhalten wir:
+2. Dann werden aufeinanderfolgende Zeilenumbrüche zu einem einzigen Zeilenumbruch zusammengefasst. In diesem Beispiel haben wir keinen.
+3. Danach werden Zeilen im Quellcode zu einzelnen Zeilen zusammengefügt, indem alle verbleibenden Zeilenumbruchzeichen entfernt werden. Sie werden entweder in Leerzeichen (U+0020) umgewandelt oder einfach entfernt, abhängig vom Kontext vor und nach dem Umbruch. Die genaue Wahl hängt vom Browser und der Sprache ab. In unserem Beispiel hier auf Englisch (wo Leerzeichen Wörter trennen), können wir erwarten, dass alle Zeilenumbrüche in Leerzeichen umgewandelt werden. So enden wir mit:
 
    ```html-nolint
    <h1>◦◦◦Hello◦<span>◦World!</span>◦◦◦</h1>
    ```
 
-   Bemerkenswerterweise werden in Sprachen, die keine Worttrennzeichen haben, wie Chinesisch, Zeilen ohne Zwischenraum verbunden. Also:
+   Bemerkenswert ist, dass in Sprachen ohne Worttrennzeichen, wie Chinesisch, die Zeilen ohne dazwischenliegende Leerzeichen zusammengefügt werden. So:
 
    ```html-nolint
    <div>你好
    世界</div>
    ```
 
-   könnte ohne Zwischenräume als "你好世界" wiedergegeben werden, abhängig von den Heuristiken des Browsers.
+   könnte je nach Browserheuristik als "你好世界" ohne Leerzeichen dazwischen gerendert werden.
 
-4. Danach werden alle Tab-Zeichen in Leerzeichen umgewandelt, sodass das Beispiel zu:
+4. Als nächstes werden alle Tabulatorzeichen in Leerzeichen umgewandelt, so dass das Beispiel wird zu:
 
    ```html-nolint
    <h1>◦◦◦Hello⏎
    <span>◦World!</span>◦◦◦</h1>
    ```
 
-5. Danach wird jedes Leerzeichen, das unmittelbar einem anderen Leerzeichen folgt (auch über zwei separate Inline-Elemente hinweg), ignoriert, sodass wir mit:
+5. Danach wird jedes Leerzeichen, das unmittelbar auf ein anderes Leerzeichen folgt (sogar über zwei separate Inline-Elemente hinweg), ignoriert, so dass wir am Ende haben:
 
    ```html-nolint
    <h1>◦Hello◦<span>World!</span>◦</h1>
    ```
 
-Dies ist der Grund, warum die Besucher der Webseite den Ausdruck "Hello World!" sauber geschrieben oben auf der Seite sehen, anstatt ein merkwürdig eingerücktes "Hello", gefolgt von einem noch merkwürdiger eingerückten "World!" in der nächsten Zeile.
+Aus diesem Grund werden Besucher der Webseite den Ausdruck "Hello World!" schön geschrieben oben auf der Seite sehen, anstatt ein seltsam eingezogenes "Hello", gefolgt von einem noch seltsamer eingezogenen "World!" in der nächsten Zeile.
 
-Nach diesen Schritten verarbeitet der Browser Zeilenumbruch und bidirektionalen Text, den wir hier ignorieren. Beachten Sie, dass nach dem öffnenden `<h1>`-Tag und vor dem schließenden `</h1>`-Tag immer noch Leerzeichen übrig sind, die im Browser jedoch nicht gerendert werden. Dies behandeln wir als Nächstes, wenn jede Zeile angelegt ist.
+Nach diesen Schritten verarbeitet der Browser den Zeilenumbruch und den bidirektionalen Text, was wir hier ignorieren werden. Beachten Sie, dass nach dem Öffnen des `<h1>`-Tags und vor dem Schließen des `</h1>`-Tags weiterhin Leerzeichen vorhanden sind, aber diese werden im Browser nicht angezeigt. Darauf gehen wir als nächstes ein, wenn jede Zeile Layout erhält.
 
-Unterschiedliche {{cssxref("white-space-collapse")}} Werte überspringen unterschiedliche Schritte dieses Algorithmus:
+Verschiedene {{cssxref("white-space-collapse")}}-Werte überspringen verschiedene Schritte dieses Algorithmus:
 
-- `preserve` und `break-spaces`: der gesamte Algorithmus wird übersprungen, und es erfolgt keine Leerraumreduzierung oder -transformation.
-- `preserve-breaks`: Schritte 2 und 3 werden übersprungen, und Zeilenumbrüche werden erhalten.
-- `preserve-spaces`: Der gesamte Algorithmus wird übersprungen und durch einen einzelnen Schritt ersetzt, um jedes Tab- oder Zeilenumbruchszeichen in ein Leerzeichen zu konvertieren.
+- `preserve` und `break-spaces`: Der gesamte Algorithmus wird übersprungen, und es erfolgt keine Leerzeichenzusammenführung oder Transformation.
+- `preserve-breaks`: Schritte 2 und 3 werden übersprungen, und Zeilenumbrüche werden beibehalten.
+- `preserve-spaces`: Der gesamte Algorithmus wird übersprungen und durch einen einzelnen Schritt ersetzt, um jedes Tabulatorzeichen oder jeden Zeilenumbruch in ein Leerzeichen umzuwandeln.
 
-Zusammengefasst werden verschiedene Leerzeichen-Zeichen wie folgt reduziert und umgewandelt:
+Zusammengefasst werden verschiedene Leerzeichenzeichen auf folgende Weise zusammengefasst und transformiert:
 
-- Tabs werden in der Regel in Leerzeichen umgewandelt.
-- Wenn Segmentumbrüche reduziert werden sollen:
-  - Sequenzen von Segmentumbrüchen werden zu einem einzelnen Segmentumbruch reduziert.
-  - Sie werden in Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), zu Leerzeichen umgewandelt oder in Sprachen, die keine Worttrennung mit Leerzeichen haben (wie Chinesisch), vollständig entfernt.
-- Wenn Leerzeichen reduziert werden sollen:
+- Tabs werden im Allgemeinen in Leerzeichen umgewandelt.
+- Wenn Segmentumbrüche zusammengefasst werden sollen:
+  - Sequenzen von Segmentumbrüchen werden zu einem einzigen Segmentumbruch zusammengefasst.
+  - Sie werden in Sprachen, in denen Wörter mit Leerzeichen getrennt werden (wie Englisch), in Leerzeichen umgewandelt oder in Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch), ganz entfernt.
+- Wenn Leerzeichen zusammengefügt werden sollen:
   - Leerzeichen oder Tabs vor oder nach Segmentumbrüchen werden entfernt.
-  - Sequenzen von Leerzeichen werden zu einem einzelnen Leerzeichen reduziert.
-- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht trennend behandelt, außer dass sie am Ende jeder Sequenz weich umschlagen - das heißt, die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Falle des `break-spaces` Wertes könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
+  - Sequenzen von Leerzeichen werden zu einem einzigen Leerzeichen zusammengefasst.
+- Wenn Leerzeichen erhalten bleiben, werden Sequenzen von Leerzeichen als nicht brechend behandelt, außer dass sie am Ende jeder Sequenz weich umbrechen - das heißt, die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichenzeichen. Im Fall des `break-spaces`-Wertes könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
 
 ### Kürzen und Positionieren
 
-In sowohl [Inline-](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context) als auch [Block-](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Formatierungskontexten werden Elemente in _Zeilen_ angelegt. In einem Inline-Formatierungskontext werden Zeilen durch Textumbrüche erstellt. In einem Block-Formatierungskontext hingegen bildet jeder Block seine eigene Zeile. Wenn jede Zeile angelegt wird, werden Leerzeichen weiter verarbeitet. Lassen Sie uns anhand eines Beispiels erklären, wie dies funktioniert.
+In sowohl [Inline](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context) als auch [Block](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Formatierungskontexten werden Elemente in _Zeilen_ angeordnet. In einem Inline-Formatierungskontext werden Zeilen durch Textumbruch erstellt. In einem Blockformatierungskontext hingegen bildet jeder Block seine eigene Zeile. Wenn jede Zeile layoutiert wird, wird der Leerraum weiter verarbeitet. Schauen wir uns ein Beispiel an, um zu erklären, wie das funktioniert.
 
-In diesem Beispiel haben wir wie zuvor die Leerzeichen-Zeichen in einem Kommentar markiert. Wir haben drei Textknoten, die nur Leerzeichen enthalten: einer vor dem ersten `<div>`, einer zwischen den zwei `<div>` und einer nach dem zweiten `<div>`.
+In diesem Beispiel, wie zuvor, haben wir Leerraumzeichen in einem Kommentar markiert. Wir haben drei Textknoten, die nur Leerraum enthalten: einen vor dem ersten `<div>`, einen zwischen den beiden `<div>`s und einen nach dem zweiten `<div>`.
 
 <!-- markdownlint-disable no-hard-tabs -->
 
@@ -198,16 +198,16 @@ In diesem Beispiel haben wir wie zuvor die Leerzeichen-Zeichen in einem Kommenta
 
 <!-- markdownlint-enable no-hard-tabs -->
 
-Dies wird wie folgt gerendert:
+Dies wird so gerendert:
 
 {{EmbedLiveSample('ex-block')}}
 
-Die Leerzeichen in diesem Beispiel werden wie folgt behandelt:
+Der Leerraum in diesem Beispiel wird folgendermaßen behandelt:
 
 > [!NOTE]
-> Dieser Algorithmus kann über die {{cssxref("white-space-collapse")}} Eigenschaft (oder ihre Kurzform {{cssxref("white-space")}}) konfiguriert werden. Wir starten mit der Annahme ihres Standardwerts (`white-space-collapse: collapse`) und sehen uns dann an, wie unterschiedliche Eigenschaftswerte diesen Algorithmus beeinflussen.
+> Dieser Algorithmus kann über die {{cssxref("white-space-collapse")}}-Eigenschaft (oder deren Kurzform {{cssxref("white-space")}}) konfiguriert werden. Wir beginnen mit der Annahme des Standardwertes (`white-space-collapse: collapse`) und sehen dann, wie verschiedene Eigenschaftswerte diesen Algorithmus beeinflussen.
 
-1. Zuerst werden die Leerzeichen auf dieselbe Weise [reduziert](#zusammenfallen_und_transformation), wie wir es im vorherigen Abschnitt gesehen haben, was dies:
+1. Zuerst wird der Leerraum in der gleichen Weise [zusammengefasst](#reduzierung_und_transformation), wie wir es im vorherigen Abschnitt gesehen haben, sodass daraus:
 
    ```html-nolint
    <body>⏎
@@ -217,13 +217,13 @@ Die Leerzeichen in diesem Beispiel werden wie folgt behandelt:
    </body>
    ```
 
-   ...in dies verwandelt:
+   ...dies wird:
 
    ```html-nolint
    <body>◦<div>◦Hello◦</div>◦<div>◦World!◦</div>◦</body>
    ```
 
-   Die Zeilen werden dann gemäß dem von `<body>` etablierten Block-Formatierungskontext angelegt. In diesem Beispiel wird jeder der fünf Kindknoten von `<body>` als eine separate Zeile angelegt. (Jede Zeile in diesem Codeblock steht für eine Zeile im gerenderten Layout, nicht für eine Zeile in unserem ursprünglichen HTML-Code):
+   Die Zeilen werden dann entsprechend dem durch `<body>` etablierten Blockformatierungskontext layoutiert. In diesem Beispiel wird jeder der fünf Kindknoten von `<body>` als separate Zeile layoutiert. (Jede Zeile in diesem Codeblock repräsentiert eine Zeile im gerenderten Layout und nicht eine Zeile in unserem ursprünglichen HTML-Code):
 
    ```html-nolint
    <body>
@@ -235,9 +235,9 @@ Die Leerzeichen in diesem Beispiel werden wie folgt behandelt:
    </body>
    ```
 
-   Beachten Sie, dass, wenn die Zeilen zu lang werden, jede Zeile umgebrochen und weitere Zeilen erstellt werden können. In Wirklichkeit bestimmen Browser den Inhalt der Zeilen, während die Zeilen angelegt werden. Den Teil, wie der Textumbruch funktioniert, überspringen wir hier.
+   Beachten Sie, dass, wenn die Zeilen zu lang werden, jede Zeile umgebrochen werden kann und mehr Zeilen entstehen können. In Wirklichkeit bestimmen Browser den Inhalt der Zeilen während die Zeilen layoutiert werden. Wir überspringen den Teil darüber, wie der Textumbruch funktioniert.
 
-2. Sequenzen von Leerzeichen am Anfang einer Zeile werden entfernt, also wird das Beispiel zu:
+2. Sequenzen von Leerzeichen am Anfang einer Zeile werden entfernt, sodass das Beispiel wird zu:
 
    ```html-nolint
    <body>
@@ -249,8 +249,8 @@ Die Leerzeichen in diesem Beispiel werden wie folgt behandelt:
    </body>
    ```
 
-3. Jedes Tab, das zu diesem Zeitpunkt beibehalten wird, wird gemäß {{cssxref("tab-size")}} gerendert. Dies kann nur mit `white-space-collapse` auf `preserve` oder `break-spaces` passieren, weil alle anderen Einstellungen Tabs in Leerzeichen umwandeln.
-4. Sequenzen von Leerzeichen am Ende einer Zeile werden entfernt, sodass das oben stehende zu:
+3. Jede Tabulator, die zu diesem Zeitpunkt beibehalten wird, wird gemäß {{cssxref("tab-size")}} gerendert. Dies kann nur mit `white-space-collapse` auf `preserve` oder `break-spaces` passieren, da alle anderen Einstellungen Tabs in Leerzeichen umwandeln.
+4. Sequenzen von Leerzeichen am Ende einer Zeile werden entfernt, somit wird das oben genannte:
 
    ```html-nolint
    <body>
@@ -262,19 +262,19 @@ Die Leerzeichen in diesem Beispiel werden wie folgt behandelt:
    </body>
    ```
 
-Die drei leeren Zeilen, die wir jetzt haben, werden im endgültigen Layout keinen Platz einnehmen, da sie keinen sichtbaren Inhalt enthalten. Deshalb haben wir am Ende nur zwei Zeilen, die Platz auf der Seite einnehmen. Die Leute, die die Webseite ansehen, sehen die Wörter "Hello" und "World!" auf zwei separaten Zeilen, genau so, wie man erwarten würde, dass zwei `<div>`-Elemente angelegt werden. Browser ignorieren im Wesentlichen alle Leerzeichen, die im HTML-Code enthalten waren.
+Die drei leeren Zeilen, die wir jetzt haben, nehmen im endgültigen Layout keinen Platz ein, da sie keinen sichtbaren Inhalt enthalten. So enden wir mit nur zwei Zeilen, die Platz auf der Seite einnehmen. Die Besucher der Webseite sehen die Wörter "Hello" und "World!" auf zwei separaten Zeilen, genau so, wie man erwarten würde, dass zwei `<div>`s angeordnet sind. Browser ignorieren im Wesentlichen den gesamten Leerraum, der im HTML-Code enthalten war.
 
-Unterschiedliche {{cssxref("white-space-collapse")}} Werte überspringen unterschiedliche Schritte dieses Algorithmus:
+Verschiedene {{cssxref("white-space-collapse")}}-Werte überspringen verschiedene Schritte dieses Algorithmus:
 
-- `preserve` und `break-spaces`: Der gesamte Algorithmus wird, bis auf Schritt 3, übersprungen, sodass keine Leerzeichen-Kompaktierung oder -Transformation erfolgt.
-- `preserve-spaces`: Der gesamte Algorithmus wird übersprungen, sodass Leerzeichen-Zeichen am Anfang und Ende der Zeilen beibehalten werden.
-- `preserve-breaks`: Derselbe Algorithmus wird angewendet wie beim `collapse`-Wert.
+- `preserve` und `break-spaces`: Der gesamte Algorithmus wird übersprungen, außer Schritt 3, also erfolgt keine Leerzeichenzusammenführung oder Transformation.
+- `preserve-spaces`: Der gesamte Algorithmus wird übersprungen, also werden Leerzeichen am Anfang und Ende von Zeilen beibehalten.
+- `preserve-breaks`: Der gleiche Algorithmus wird angewendet wie beim `collapse`-Wert.
 
-## Wie verarbeiten DOM-APIs Leerzeichen?
+## Wie verarbeiten DOM-APIs Leerraum?
 
-Wie bereits erwähnt, werden [Leerzeichen im DOM beibehalten](#how_does_html_process_whitespace). Das bedeutet, dass, wenn Sie [`Node.textContent`](/de/docs/Web/API/Node/textContent) abrufen, Sie den Textinhalt so erhalten, wie Sie ihn im HTML-Quellcode geschrieben haben, und wenn Sie [`Node.childNodes`](/de/docs/Web/API/Node/childNodes) abrufen, Sie alle Textknoten erhalten, einschließlich derjenigen, die nur Leerzeichen enthalten.
+Wie zuvor erwähnt, wird [Leerraum im DOM beibehalten](#how_does_html_process_whitespace). Das bedeutet, dass wenn Sie [`Node.textContent`](/de/docs/Web/API/Node/textContent) abrufen, erhalten Sie den Textinhalt, wie Sie ihn im HTML-Quellcode geschrieben haben, und wenn Sie [`Node.childNodes`](/de/docs/Web/API/Node/childNodes) abrufen, erhalten Sie alle Textknoten, einschließlich derer, die nur Leerraum enthalten.
 
-Nicht alle DOM-APIs bewahren Leerzeichen; einige APIs befassen sich von vornherein mit dem _gerenderten Text_. Zum Beispiel gibt [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) den Text genau so zurück, wie er gerendert wurde, mit allen zusammengestrichenen und gekürzten Leerzeichen. [`Selection.toString()`](/de/docs/Web/API/Selection/toString) gibt den Text so zurück, wie er eingefügt würde, was in der Regel bedeutet, dass Leerzeichen zusammengestrichen wurden. In Firefox (das Leerzeichen zwischen chinesischen Zeichen reduziert, wie im Abschnitt [Zusammenfallen und Transformation](#zusammenfallen_und_transformation) oben erwähnt) werden die zusammengestrichenen Leerzeichen sowohl in dem von `toString()` zurückgegebenen String als auch im eingefügten Text beibehalten.
+Nicht alle DOM-APIs bewahren Leerraum; einige APIs arbeiten mit dem _gerenderten Text_ nach Design. Beispielsweise gibt [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) den Text genau so zurück, wie er gerendert wurde, mit allen Leerzeichen zusammengefasst und abgeschnitten. [`Selection.toString()`](/de/docs/Web/API/Selection/toString) gibt den Text so zurück, wie er eingefügt würde, was im Allgemeinen bedeutet, dass Leerraum zusammengefasst wird. In Firefox (das den Leerraum zwischen chinesischen Zeichen zusammenfasst, wie im Abschnitt [Reduzierung und Transformation](#reduzierung_und_transformation) oben erwähnt), bleibt der zusammengefasste Leerraum sowohl in der von `toString()` zurückgegebenen Zeichenkette als auch im eingefügten Text erhalten.
 
 ```html
 <div id="test">Hello world!</div>
@@ -289,17 +289,17 @@ selection.selectAllChildren(div);
 console.log(selection.toString()); // "Hello world!"
 ```
 
-## Lösen von häufigen Problemen mit Leerzeilenknoten
+## Lösungen für häufige Probleme mit Leerraumknoten
 
-Leerzeichenknoten sind für den Webseitenbesucher aufgrund der CSS-Verarbeitungsregeln unsichtbar, können jedoch bei bestimmten Layouts und DOM-Manipulationen, die auf der genauen Struktur des DOM beruhen, stören. Schauen wir uns einige häufige Probleme an und wie man sie löst.
+Leerraumknoten sind für den Webseitenbesucher aufgrund der CSS-Verarbeitungsregeln unsichtbar, aber sie können bestimmte Layouts und DOM-Manipulationen stören, die auf der genauen Struktur des DOM basieren. Lassen Sie uns einige häufige Probleme und deren Lösungen betrachten.
 
-### Verarbeitung von Leerzeichen zwischen Inline- und Inline-Block-Elementen
+### Leerraumverarbeitung zwischen Inline- und Inline-Blockelementen
 
-Sehen wir uns ein Layoutproblem mit Leerzeichen-Knoten an: Abstände zwischen Inline- und Inline-Block-Elementen. Wie wir zuvor bei Inline- und Blockelementen gesehen haben, werden die meisten Leerzeichen-Zeichen ignoriert, aber worttrennende Zeichen wie Leerzeichen bleiben bestehen. Der zusätzliche Leerraum, der tatsächlich im Layout erscheint, ist hilfreich, um die Wörter im Satz zu trennen.
+Schauen wir uns ein Layoutproblem mit Leerraumknoten an: Leerzeichen zwischen Inline- und Inline-Blockelementen. Wie wir zuvor bei Inline- und Blockelementen gesehen haben, werden die meisten Leerzeichenzeichen ignoriert, aber worttrennende Zeichen wie Leerzeichen bleiben bestehen. Der zusätzliche Leerraum, der ins Layout gelangt, hilft, die Wörter im Satz zu trennen.
 
-Bei `inline-block`-Elementen wird es interessanter: Diese Elemente verhalten sich außen wie Inline-Elemente und innen wie Blöcke. (Sie werden oft verwendet, um komplexere UI-Teile anzuzeigen, die nebeneinander auf derselben Zeile platziert werden, wie z.B. Navigationsmenüelemente.) Jegliche Leerzeichen zwischen den angrenzenden Inline- oder Inline-Block-Elementen führen zu Leerzeichen im Layout, genau wie die Leerzeichen zwischen Worten im Text. (Dies kann Entwickler überraschen, denn sie sind Blöcke, und Blöcke zeigen normalerweise keine zusätzlichen Leerzeichen an.)
+Mit `inline-block`-Elementen wird es interessanter: Diese Elemente verhalten sich außen wie Inline-Elemente und innen wie Blöcke. (Sie werden oft verwendet, um komplexere UI-Stücke darzustellen, die nebeneinander auf derselben Zeile platziert sind, wie Navigationsmenüelemente.) Jeder Leerraum zwischen benachbarten Inline- oder Inline-Blockelementen führt zu Leerstellen im Layout, genauso wie die Leerstellen zwischen Wörtern im Text. (Dies kann Entwickler überraschen, da sie Blöcke sind und Blöcke normalerweise keine zusätzlichen Leerstellen zeigen.)
 
-Betrachten Sie dieses Beispiel (wie zuvor haben wir einen Kommentar im HTML-Code hinzugefügt, um die Leerzeichen-Zeichen zu zeigen):
+Betrachten Sie dieses Beispiel (wie zuvor, haben wir einen Kommentar im HTML-Code hinzugefügt, um die Leerzeichenzeichen darzustellen):
 
 ```css live-sample___inline-block
 .people-list {
@@ -349,15 +349,15 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample('inline-block')}}
 
-Sie wollen wahrscheinlich nicht die Lücken zwischen den Blöcken. Abhängig von Ihrem Anwendungsfall (wie einer Liste von Avataren oder einer horizontalen Reihe von Navigationsschaltflächen) möchten Sie wahrscheinlich, dass die Elemente dicht aneinander anliegen und den Abstand selbst steuern können.
+Sie wollen wahrscheinlich nicht die Lücken zwischen den Blöcken. Abhängig von Ihrem Anwendungsfall (wie einer Liste von Avataren oder einer horizontalen Reihe von Navigationsknöpfen) möchten Sie wahrscheinlich, dass die Elemente aneinander stoßen und in der Lage sein, jeden Abstand selbst zu steuern.
 
-Der HTML-Inspektor der Firefox DevTools kann Textknoten hervorheben und Ihnen auch genau den Bereich zeigen, den die Elemente einnehmen. Dies ist nützlich, um zu prüfen, ob Sie vermuten, dass es zusätzlichen Rand oder unerwarteten Leerraum gibt, die Lücken verursachen.
+Der Firefox DevTools HTML Inspector kann Textknoten hervorheben und auch genau das Gebiet zeigen, das die Elemente einnehmen. Dies ist nützlich, um zu überprüfen, ob Sie vermuten, dass zusätzliche Ränder oder unerwarteter Leerraum Lücken verursachen.
 
-![Beispiel für das Darstellen von Leerzeichen zwischen Blöcken im HTML-Inspektor der Firefox DevTools](whitespace-devtools.png)
+![Beispiel für die Anzeige von Leerzeichen zwischen Blöcken im Firefox DevTools HTML Inspector](whitespace-devtools.png)
 
-Es gibt ein paar Möglichkeiten, dieses Problem zu umgehen:
+Es gibt einige Möglichkeiten, dieses Problem zu umgehen:
 
-- Verwenden Sie [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um die horizontale Liste von Elementen zu erstellen, anstatt eine `inline-block`-Lösung zu versuchen. Flexbox kümmert sich um den Abstand und die Ausrichtung für Sie und ist definitiv die bevorzugte Lösung:
+- Verwenden Sie [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um die horizontale Liste von Elementen zu erstellen, anstatt zu versuchen, eine `inline-block`-Lösung. Flexbox kümmert sich um Abstände und Ausrichtung und ist definitiv die bevorzugte Lösung:
 
   ```css
   ul {
@@ -368,7 +368,7 @@ Es gibt ein paar Möglichkeiten, dieses Problem zu umgehen:
   }
   ```
 
-- Wenn Sie sich auf `inline-block` verlassen müssen, könnten Sie die `font-size` der Liste auf `0` setzen. Dies funktioniert nur, wenn die Blöcke nicht mit `em`-Einheiten dimensioniert sind (da `em` auf `font-size` basiert, hätten die Blöcke dann auch die Größe `0`). `rem`-Einheiten wären hier eine gute Wahl:
+- Wenn Sie sich auf `inline-block` verlassen müssen, könnten Sie die [`font-size`](/de/docs/Web/CSS/Reference/Properties/font-size) der Liste auf `0` setzen. Dies funktioniert nur, wenn die Blöcke nicht mit `em`-Einheiten dimensioniert sind (da `em` auf `font-size` basiert, würde die Blockgröße auch auf `0` enden). Das Verwenden von `rem`-Einheiten wäre hier eine gute Wahl:
 
   ```css
   ul {
@@ -384,7 +384,7 @@ Es gibt ein paar Möglichkeiten, dieses Problem zu umgehen:
   }
   ```
 
-- Alternativ könnten Sie negativen Rand auf die Listenelemente setzen:
+- Alternativ könnten Sie einen negativen Rand auf die Listenelemente setzen:
 
   ```css
   li {
@@ -395,7 +395,7 @@ Es gibt ein paar Möglichkeiten, dieses Problem zu umgehen:
   }
   ```
 
-- Sie können dieses Problem auch lösen, indem Sie Leerzeichenknoten zwischen `<li>`-Elementen vermeiden:
+- Sie können dieses Problem auch lösen, indem Sie Leerraumknoten zwischen den `<li>`-Elementen vermeiden:
 
   ```html-nolint
   <li>
@@ -405,13 +405,13 @@ Es gibt ein paar Möglichkeiten, dieses Problem zu umgehen:
   </li>
   ```
 
-### Arbeiten mit Leerzeichen im DOM
+### Arbeiten mit Leerraum im DOM
 
-Wie bereits erwähnt, werden Leerzeichen beim Rendern [zusammengestrichen und gekürzt](#zusammenfallen_und_transformation), bleiben jedoch im DOM erhalten. Dies kann beim Versuch, Manipulationen am [DOM](/de/docs/Web/API/Document_Object_Model) in JavaScript durchzuführen, einige Fallstricke bieten. Wenn Sie beispielsweise eine Referenz zu einem übergeordneten Knoten haben und dessen erstes Kinderelement mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) manipulieren möchten, kann ein zwischengeschalteter Leerzeichenknoten direkt nach dem öffnenden übergeordneten Tag Ihnen das falsche Ergebnis liefern. Der Textknoten würde ausgewählt, anstatt des Elements, das Sie anvisieren möchten.
+Wie zuvor erwähnt, wird Leerraum beim Rendern [zusammengefasst und gekürzt](#reduzierung_und_transformation), aber im DOM beibehalten. Dies kann einige Stolpersteine darstellen, wenn Sie in JavaScript [DOM](/de/docs/Web/API/Document_Object_Model)-Manipulationen durchführen möchten. Wenn Sie beispielsweise einen Verweis auf einen übergeordneten Knoten haben und dessen erstes Kindelement über [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) manipulieren möchten, gibt ein rätselhaft vorhandener Leerraumknoten direkt nach dem öffnenden Eltern-Tag das falsche Ergebnis. Der Textknoten würde anstelle des Ziel-Elements ausgewählt.
 
-Ein weiteres Beispiel: Wenn Sie etwas mit einem Teil der Elemente basierend darauf tun möchten, ob sie leer sind (keine Kindknoten haben), könnten Sie [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) verwenden. Aber wenn irgendeines dieser Elemente Textknoten enthält, könnten Sie mit falschen Ergebnissen enden.
+Ein weiteres Beispiel: Wenn Sie etwas für eine Teilmenge von Elementen basierend darauf tun möchten, ob sie leer sind (keine Kindknoten haben), könnten Sie [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) verwenden. Aber wenn eines dieser Elemente Textknoten enthält, könnten Sie zu falschen Ergebnissen kommen.
 
-Der folgende JavaScript-Code zeigt mehrere Funktionen, die den Umgang mit Leerzeichen im DOM erleichtern:
+Der folgende JavaScript-Code zeigt mehrere Funktionen, die es einfacher machen, mit Leerraum im DOM umzugehen:
 
 ```js
 /**
@@ -556,7 +556,7 @@ function dataOf(txt) {
 }
 ```
 
-Der folgende Code demonstriert die Verwendung der oben beschriebenen Funktionen. Er iteriert über die Kinder eines Elements (dessen Kinder alle Elemente sind), um dasjenige zu finden, dessen Text `"This is the third paragraph"` ist, und ändert dann das Klassenattribut und den Inhalt dieses Absatzes.
+Der folgende Code demonstriert die Verwendung der obigen Funktionen. Er iteriert über die Kinder eines Elements (dessen Kinder alle Elemente sind), um dasjenige zu finden, dessen Text "This is the third paragraph" ist, und ändert dann das Klassenattribut und den Inhalt jenes Absatzes.
 
 ```js
 let cur = firstChild(document.getElementById("test"));

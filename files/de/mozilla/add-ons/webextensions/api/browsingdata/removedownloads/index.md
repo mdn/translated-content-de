@@ -2,17 +2,15 @@
 title: browsingData.removeDownloads()
 slug: Mozilla/Add-ons/WebExtensions/API/browsingData/removeDownloads
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: b2685e330f887359ec886b08199a22a6fcbe0caf
 ---
 
-Löscht den Downloadverlauf des Browsers. Beachten Sie, dass dabei nicht die heruntergeladenen Objekte selbst gelöscht werden, sondern nur die Download-Einträge im Verlauf des Browsers.
+Löscht den Download-Verlauf des Browsers. Beachten Sie, dass dies nicht die heruntergeladenen Objekte selbst löscht, sondern nur die Aufzeichnungen der Downloads im Verlauf des Browsers.
 
-Sie können den Parameter `removalOptions`, ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, verwenden, um:
+Sie können den `removalOptions`-Parameter verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt ist, um:
 
-- Einträge von nach einem bestimmten Zeitpunkt heruntergeladenen Objekten zu löschen
-- zu steuern, ob nur Einträge von normal heruntergeladenen Objekten oder auch Einträge von gehosteten Apps und Erweiterungen gelöscht werden sollen.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+- Aufzeichnungen von Elementen zu löschen, die nach einer bestimmten Zeit heruntergeladen wurden.
+- zu steuern, ob Aufzeichnungen von Elementen gelöscht werden sollen, die von Webseiten oder von Webseiten und Erweiterungen heruntergeladen wurden.
 
 ## Syntax
 
@@ -25,7 +23,7 @@ let removing = browser.browsingData.removeDownloads(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Einträge zu löschen, die nach einem bestimmten Zeitpunkt erstellt wurden, und um zu entscheiden, ob nur Einträge von normal heruntergeladenen Objekten oder auch von gehosteten Apps und Erweiterungen gelöscht werden sollen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}}-Objekt, das verwendet werden kann, um nur Aufzeichnungen zu löschen, die nach einer bestimmten Zeit erstellt wurden, und um zu steuern, ob Aufzeichnungen von Elementen gelöscht werden sollen, die von Webseiten oder von Webseiten und Erweiterungen heruntergeladen wurden.
 
 ### Rückgabewert
 
@@ -33,7 +31,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Löschen Sie Einträge von in der letzten Woche heruntergeladenen Objekten:
+Löschen von Aufzeichnungen der in der letzten Woche heruntergeladenen Objekte:
 
 ```js
 function onRemoved() {
@@ -55,7 +53,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Löschen Sie alle Einträge heruntergeladener Objekte:
+Löschen aller Aufzeichnungen von heruntergeladenen Objekten:
 
 ```js
 function onRemoved() {
@@ -76,4 +74,4 @@ browser.browsingData.removeDownloads({}).then(onRemoved, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData) API von Chromium.
+> Diese API basiert auf der [`chrome.browsingData`](https://developer.chrome.com/docs/extensions/reference/api/browsingData)-API von Chromium.

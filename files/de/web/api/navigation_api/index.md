@@ -2,113 +2,115 @@
 title: Navigation API
 slug: Web/API/Navigation_API
 l10n:
-  sourceCommit: 602754279b511738a24c27adbdaccd5471185615
+  sourceCommit: 280e77d96ea10ee5169e5b9e5e329f10fe84869d
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Navigation API")}}
 
-Die **Navigation API** bietet die Möglichkeit, Browser-Navigationsaktionen zu initiieren, abzufangen und zu verwalten. Sie kann auch die Verlaufseinträge einer Anwendung untersuchen. Dies ist ein Nachfolger früherer Webplattformfunktionen wie der [History API](/de/docs/Web/API/History_API) und [`window.location`](/de/docs/Web/API/Window/location), der deren Mängel behebt und speziell auf die Bedürfnisse von {{Glossary("SPA", "Single-Page-Applications (SPAs)")}} ausgerichtet ist.
+Die **Navigation API** bietet die Möglichkeit, Browser-Navigationsaktionen zu initiieren, abzufangen und zu verwalten. Sie kann auch die Verlaufseinträge einer Anwendung untersuchen. Sie ist ein Nachfolger früherer Webplattform-Funktionen wie der [History API](/de/docs/Web/API/History_API) und [`window.location`](/de/docs/Web/API/Window/location), welche deren Mängel behebt und speziell auf die Bedürfnisse von {{Glossary("SPA", "Single-Page-Applications (SPAs)")}} ausgerichtet ist.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-In SPAs bleibt die Seitenvorlage während der Nutzung in der Regel gleich, und der Inhalt wird dynamisch neu geschrieben, während der Benutzer verschiedene Seiten oder Funktionen besucht. Dadurch wird nur eine einzige, eindeutige Seite im Browser geladen, was die erwartete Benutzererfahrung des Vorwärts- und Rückwärtsnavigierens zwischen verschiedenen Orten im Verlauf unterbricht. Dieses Problem kann bis zu einem gewissen Grad durch die [History API](/de/docs/Web/API/History_API) gelöst werden, aber diese ist nicht für die Bedürfnisse von SPAs konzipiert. Die Navigation API zielt darauf ab, diese Lücke zu schließen.
+In SPAs bleibt die Seitenschablone während der Nutzung meist gleich, und der Inhalt wird dynamisch umgeschrieben, wenn der Benutzer verschiedene Seiten oder Funktionen besucht. Dadurch wird im Browser nur eine eindeutige Seite geladen, was die erwartete Benutzererfahrung des Vor- und Zurücknavigierens zwischen verschiedenen Orten im Verlaufserlauf bricht. Dieses Problem kann bis zu einem gewissen Grad über die [History API](/de/docs/Web/API/History_API) gelöst werden, aber sie ist nicht für die Bedürfnisse von SPAs ausgelegt. Die Navigation API zielt darauf ab, diese Lücke zu schließen.
 
 Auf die API wird über die [`Window.navigation`](/de/docs/Web/API/Window/navigation)-Eigenschaft zugegriffen, die eine Referenz auf ein globales [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurückgibt. Jedes `window`-Objekt hat seine eigene entsprechende `navigation`-Instanz.
 
-### Handhabung von Navigationsvorgängen
+### Umgang mit Navigationen
 
-Das `navigation`-Interface hat mehrere zugehörige Events, wobei das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Event das bemerkenswerteste ist. Dieses wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, was bedeutet, dass Sie alle Seitennavigationsvorgänge von einem zentralen Ort aus steuern können, ideal für Routing-Funktionen in SPA-Frameworks. (Dies ist nicht der Fall bei der [History API](/de/docs/Web/API/History_API), bei der es manchmal schwierig ist, auf alle Navigationsvorgänge zu reagieren.) Der `navigate`-Event-Handler erhält ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Objekt, das detaillierte Informationen einschließlich Details zum Navigationsziel, Typ, ob es `POST`-Formulardaten oder eine Download-Anfrage enthält, und mehr beinhaltet.
+Das `navigation`-Interface hat mehrere zugehörige Ereignisse, wobei das bemerkenswerteste das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis ist. Dies wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, was bedeutet, dass Sie alle Seitennavigationen von einem zentralen Ort aus steuern können, ideal für die Routing-Funktionalität in SPA-Frameworks. (Dies ist nicht der Fall bei der [History API](/de/docs/Web/API/History_API), bei der es manchmal schwierig ist, auf alle Navigationen zu reagieren.) Der `navigate`-Ereignis-Handler erhält ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Objekt, das detaillierte Informationen enthält, einschließlich Einzelheiten über das Ziel der Navigation, Typ, ob es `POST`-Formulardaten oder eine Download-Anfrage enthält und mehr.
 
 Das `NavigationEvent`-Objekt bietet auch zwei Methoden:
 
-- [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) ermöglicht es Ihnen, benutzerdefiniertes Verhalten für Navigationsvorgänge zu spezifizieren, und kann die folgenden Argumente annehmen:
-  - Callback-Handler-Funktionen, die es Ihnen ermöglichen zu bestimmen, was passiert, sowohl _wenn_ die Navigation festgeschrieben wird, als auch _unmittelbar bevor_ die Navigation festgeschrieben wird. Zum Beispiel könnten Sie relevante neue Inhalte in die Benutzeroberfläche laden, basierend auf dem Pfad der URL, zu dem navigiert wurde, oder den Browser auf eine Anmeldeseite umleiten, wenn die URL auf eine eingeschränkte Seite zeigt und der Benutzer nicht angemeldet ist.
-  - Eigenschaften, die es Ihnen ermöglichen, das standardmäßige Fokus- und Scrollverhalten des Browsers nach der Navigation zu aktivieren oder zu deaktivieren.
-- [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll) ermöglicht es Ihnen, das Scrollverhalten des Browsers manuell zu initialisieren (z. B. zu einem Fragment-Identifier in der URL), falls dies für Ihren Code sinnvoll ist, anstatt darauf zu warten, dass der Browser es automatisch behandelt.
+- [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) ermöglicht es Ihnen, benutzerdefiniertes Verhalten für Navigationen zu spezifizieren und kann die folgenden Argumente annehmen:
+  - Callback-Handler-Funktionen, die es Ihnen erlauben, zu spezifizieren, was passiert, sowohl wenn die Navigation begangen wird als auch kurz bevor die Navigation begangen wird. Beispielsweise könnten Sie relevanten neuen Inhalt in die Benutzeroberfläche laden basierend auf dem Pfad der URL, zu der navigiert wird, oder den Browser zu einer Anmeldeseite weiterleiten, wenn die URL auf eine eingeschränkte Seite zeigt und der Benutzer nicht angemeldet ist.
+  - Eigenschaften, die es Ihnen erlauben, das Standardverhalten des Browsers bezüglich Fokus und Bildlauf nach einer Navigation zu aktivieren oder zu deaktivieren.
+- [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll) erlaubt es Ihnen, das Scrollverhalten des Browsers manuell zu initiieren (z.B. zu einem Fragmentbezeichner in der URL), wenn es für Ihren Code sinnvoll ist, anstatt darauf zu warten, dass der Browser es automatisch handhabt.
 
-Sobald eine Navigation initiiert wird und Ihr `intercept()`-Handler aufgerufen wird, wird eine Instanz eines [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekts erstellt (erreichbar über [`Navigation.transition`](/de/docs/Web/API/Navigation/transition)), die verwendet werden kann, um den Prozess der laufenden Navigation zu verfolgen.
-
-> [!NOTE]
-> In diesem Kontext bezieht sich "transition" auf den Übergang zwischen einem Verlaufs-Eintrag und einem anderen. Es steht nicht im Zusammenhang mit CSS-Übergängen.
+Sobald eine Navigation initiiert ist und Ihr `intercept()`-Handler aufgerufen wird, wird eine Instanz des [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekts erstellt (zugänglich über [`Navigation.transition`](/de/docs/Web/API/Navigation/transition)), die verwendet werden kann, um den Prozess der laufenden Navigation zu verfolgen.
 
 > [!NOTE]
-> Sie können auch [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen, um die Navigation vollständig zu stoppen, für die meisten [Navigationstypen](/de/docs/Web/API/NavigateEvent/navigationType#value); die Abbruchfunktion für Navigationsvorgänge ist noch nicht implementiert.
-
-Wenn die Versprechen, die von den `intercept()`-Handler-Funktionen zurückgegeben werden, erfüllt werden, wird das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Event des `Navigation`-Objekts ausgelöst, wodurch Sie Bereinigungs-Code nach Abschluss einer erfolgreichen Navigation ausführen können. Wenn sie abgelehnt werden, was bedeutet, dass die Navigation fehlgeschlagen ist, wird stattdessen [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event) ausgelöst, was Ihnen ermöglicht, den Fehlerfall elegant zu handhaben. Es gibt auch eine `finished`-Eigenschaft am Rückgabewert von Navigationsmethoden (wie [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)), die sich erfüllt oder ablehnt, wenn die oben genannten Events ausgelöst werden, und bietet einen weiteren Weg zur Handhabung der Erfolgs- und Fehlerfälle.
+> In diesem Kontext bezieht sich „Übergang“ auf den Übergang zwischen einem Verlaufseintrag und einem anderen. Es steht nicht im Zusammenhang mit CSS-Übergängen.
 
 > [!NOTE]
-> Bevor die Navigation API verfügbar war, mussten Sie, um etwas Ähnliches zu tun, alle Klick-Events auf Links abhören, `e.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen und dann die Seitenansicht basierend auf der neuen URL einrichten. Und dies würde nicht alle Navigationsvorgänge behandeln - nur vom Benutzer initiierte Link-Klicks.
+> Sie können auch [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen, um die Navigation vollständig zu stoppen, für die meisten [Navigationstypen](/de/docs/Web/API/NavigateEvent/navigationType#value); die Stornierung von Durchsuchen-Navigationen ist noch nicht implementiert.
 
-### Programmatische Aktualisierung und Durchquerung des Navigationsverlaufs
-
-Während der Benutzer Ihre Anwendung durchläuft, führt jeder neue besuchte Ort zur Erstellung eines Navigationsverlaufs-Eintrags. Jeder Verlaufs-Eintrag wird durch eine eindeutige Instanz eines [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekts repräsentiert. Diese enthalten mehrere Eigenschaften wie den Schlüssel des Eintrags, die URL und Zustandsinformationen. Sie können den Eintrag abrufen, auf dem sich der Benutzer gerade befindet, indem Sie [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) verwenden, und ein Array aller bestehenden Verlaufs-Einträge mit [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries). Jedes `NavigationHistoryEntry`-Objekt hat ein [`dispose`](/de/docs/Web/API/NavigationHistoryEntry/dispose_event)-Event, das ausgelöst wird, wenn der Eintrag nicht mehr Teil des Browserverlaufs ist. Wenn der Benutzer zum Beispiel dreimal zurück navigiert und dann irgendwo anders hin navigiert, werden diese drei Verlaufs-Einträge entfernt.
+Wenn die von den `intercept()`-Handler-Funktionen zurückgegebenen Promises erfüllt werden, löst das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis des `Navigation`-Objekts aus, wodurch Sie Aufräumcode ausführen können, nachdem eine erfolgreiche Navigation abgeschlossen ist. Wenn sie abgelehnt werden, was bedeutet, dass die Navigation fehlgeschlagen ist, wird stattdessen das [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event)-Ereignis ausgelöst, wodurch Sie den Fehlerfall elegant behandeln können. Es gibt auch eine `finished`-Eigenschaft im Rückgabewert von Navigationsmethoden (wie [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)), die gleichzeitig mit den vorgenannten Ereignissen erfüllt oder abgelehnt wird und einen weiteren Weg bietet, um die Erfolg- und Fehlerfälle zu behandeln.
 
 > [!NOTE]
-> Die Navigation API gibt nur Verlaufs-Einträge in dem aktuellen Browsing-Kontext preis, die den gleichen Ursprung wie die aktuelle Seite haben (z. B. keine Navigationen innerhalb eingebetteter {{htmlelement("iframe")}}, oder Cross-Origin-Navigationen), und liefert eine genaue Liste aller vorherigen Verlaufs-Einträge nur für Ihre App. Dies macht das Durchqueren des Verlaufs zu einer viel weniger anfälligen Aufgabe als mit der älteren [History API](/de/docs/Web/API/History_API).
+> Bevor die Navigation API verfügbar war, musste man, um etwas Ähnliches zu tun, alle Klickereignisse auf Links abhören, `e.preventDefault()` ausführen, den passenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf tätigen und dann die Seitenansicht basierend auf der neuen URL einrichten. Und dies würde nicht alle Navigationen behandeln — nur vom Benutzer initiierte Link-Klicks.
 
-Das `Navigation`-Objekt enthält alle Methoden, die Sie benötigen, um den Navigationsverlauf zu aktualisieren und zu durchqueren:
+### Programmatische Aktualisierung und Durchlauf des Navigationsverlaufs
+
+Während der Benutzer durch Ihre Anwendung navigiert, führt jeder neue besuchte Standort zur Erstellung eines Navigationsverlaufs-Eintrags. Jeder Verlaufseintrag wird durch eine eindeutige [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objektinstanz dargestellt. Diese enthalten mehrere Eigenschaften wie den Schlüssel, die URL und die Zustandsinformationen des Eintrags. Sie können den Eintrag, auf dem der Benutzer sich aktuell befindet, mit [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) abrufen und ein Array aller bestehenden Verlaufs-Einträge mit [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries). Jedes `NavigationHistoryEntry`-Objekt hat ein [`dispose`](/de/docs/Web/API/NavigationHistoryEntry/dispose_event)-Ereignis, das ausgelöst wird, wenn der Eintrag nicht mehr Teil des Browserverlaufs ist. Zum Beispiel, wenn der Benutzer dreimal zurücknavigiert und dann an einen anderen Ort navigiert, werden diese drei Verlaufs-Einträge gelöscht.
+
+> [!NOTE]
+> Die Navigation API zeigt nur solche Verlaufs-Einträge an, die im aktuellen Browsing-Kontext erstellt wurden und denselben Ursprung wie die aktuelle Seite haben (z.B. keine Navigationsvorgänge in eingebetteten {{htmlelement("iframe")}}s oder Navigationsvorgänge über Ursprünge hinweg), und liefert so eine genaue Liste aller vorherigen Verlaufs-Einträge nur für Ihre App. Dies macht das Durchlaufen des Verlaufs zu einem viel weniger fragilen Unterfangen als bei der älteren [History API](/de/docs/Web/API/History_API).
+
+Das `Navigation`-Objekt enthält alle Methoden, die Sie benötigen, um den Navigationsverlauf zu aktualisieren und durch ihn zu navigieren:
 
 - [`navigate()`](/de/docs/Web/API/Navigation/navigate) {{Experimental_Inline}}
   - : Navigiert zu einer neuen URL und erstellt einen neuen Navigationsverlaufs-Eintrag.
 - [`reload()`](/de/docs/Web/API/Navigation/reload) {{Experimental_Inline}}
   - : Lädt den aktuellen Navigationsverlaufs-Eintrag neu.
 - [`back()`](/de/docs/Web/API/Navigation/back) {{Experimental_Inline}}
-  - : Navigiert zum vorherigen Navigationsverlaufs-Eintrag, falls dies möglich ist.
+  - : Navigiert zum vorherigen Navigationsverlaufs-Eintrag, sofern möglich.
 - [`forward()`](/de/docs/Web/API/Navigation/forward) {{Experimental_Inline}}
-  - : Navigiert zum nächsten Navigationsverlaufs-Eintrag, falls dies möglich ist.
+  - : Navigiert zum nächsten Navigationsverlaufs-Eintrag, sofern möglich.
 - [`traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) {{Experimental_Inline}}
-  - : Navigiert zu einem bestimmten Navigationsverlaufs-Eintrag, der durch seinen Schlüsselwert identifiziert wird, welcher über die entsprechende Eigenschaft [`NavigationHistoryEntry.key`](/de/docs/Web/API/NavigationHistoryEntry/key) des Eintrags abgerufen wird.
+  - : Navigiert zu einem spezifischen Navigationsverlaufs-Eintrag, identifiziert durch seinen Schlüsselwert, der über die relevante [`NavigationHistoryEntry.key`](/de/docs/Web/API/NavigationHistoryEntry/key)-Eigenschaft abgerufen wird.
 
-Jede der oben genannten Methoden gibt ein Objekt zurück, das zwei Versprechen enthält — `{ committed, finished }`. Dies ermöglicht der aufrufenden Funktion, mit weiteren Aktionen zu warten, bis:
+Jede der oben genannten Methoden gibt ein Objekt zurück, das zwei Promises enthält — `{ committed, finished }`. Dies ermöglicht es der aufrufenden Funktion, mit weiteren Maßnahmen zu warten, bis:
 
-- `committed` erfüllt wird, was bedeutet, dass die sichtbare URL geändert wurde und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
-- `finished` erfüllt wird, was bedeutet, dass alle von Ihrem `intercept()`-Handler zurückgegebenen Versprechen erfüllt sind. Dies entspricht dem Erfüllen des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished)-Versprechens, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Event ausgelöst wird, wie bereits erwähnt.
-- Eines der oben genannten Versprechen abgelehnt wird, was bedeutet, dass die Navigation aus irgendeinem Grund fehlgeschlagen ist.
+- `committed` erfüllt wurde, was bedeutet, dass sich die sichtbare URL geändert hat und ein neues [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
+- `finished` erfüllt wurde, was bedeutet, dass alle Promises, die von Ihrem `intercept()`-Handler zurückgegeben werden, erfüllt sind. Dies entspricht der Erfüllung des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished)-Promises, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird, wie zuvor erwähnt.
+- eines der oben genannten Promises wird abgelehnt, was bedeutet, dass die Navigation aus irgendeinem Grund fehlgeschlagen ist.
 
-### Zustand
+### Status
 
-Die Navigation API ermöglicht es Ihnen, Zustandsinformationen auf jedem Verlaufs-Eintrag zu speichern. Dies sind vom Entwickler definierte Informationen — sie können beliebig sein. Zum Beispiel könnten Sie ein `visitCount`-Eigenschaft speichern, die die Anzahl der Besuche einer Ansicht aufzeichnet, oder ein Objekt mit mehreren Eigenschaften, die sich auf den UI-Zustand beziehen, damit dieser Zustand beim Zurückkehren des Benutzers zu dieser Ansicht wiederhergestellt werden kann.
+Die Navigation API erlaubt es Ihnen, Zustandsinformationen auf jedem Verlaufs-Eintrag zu speichern. Dies sind vom Entwickler definierte Informationen — es kann sein, was auch immer Sie möchten. Zum Beispiel könnten Sie eine `visitCount`-Eigenschaft speichern wollen, die die Anzahl der Male aufzeichnet, die eine Ansicht besucht wurde, oder ein Objekt mit mehreren Eigenschaften im Zusammenhang mit dem UI-Status, sodass der Status wiederhergestellt werden kann, wenn ein Benutzer zu dieser Ansicht zurückkehrt.
 
-Um den Zustand eines [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) abzurufen, rufen Sie dessen [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState)-Methode auf. Er ist anfangs `undefined`, aber wenn Zustandsinformationen auf dem Eintrag gesetzt werden, gibt er die vorher festgelegten Zustandsinformationen zurück.
+Um den Zustand eines [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) abzurufen, rufen Sie seine [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState)-Methode auf. Sie ist anfangs `undefined`, aber wenn Zustandsinformationen auf dem Eintrag gesetzt werden, gibt sie die zuvor gesetzten Zustandsinformationen zurück.
 
-Das Setzen des Zustands ist etwas komplexer. Sie können den Zustandswert nicht abrufen und dann direkt aktualisieren — die Kopie, die auf dem Eintrag gespeichert ist, ändert sich nicht. Stattdessen aktualisieren Sie ihn während des Ausführens eines [`navigate()`](/de/docs/Web/API/Navigation/navigate) oder [`reload()`](/de/docs/Web/API/Navigation/reload) — jede dieser Methoden nimmt optional ein Options-Objekt als Parameter an, das eine `state`-Eigenschaft enthält, die den neuen Zustand enthält, der auf dem Verlaufs-Eintrag gesetzt werden soll. Wenn diese Navigationen festgeschrieben werden, wird die Zustandsänderung automatisch angewendet.
+Das Setzen des Zustands ist etwas nuancierter. Sie können den Zustandswert nicht abrufen und dann direkt aktualisieren — die Kopie, die auf dem Eintrag gespeichert ist, wird sich nicht ändern. Stattdessen aktualisieren Sie ihn, während Sie eine [`navigate()`](/de/docs/Web/API/Navigation/navigate) oder [`reload()`](/de/docs/Web/API/Navigation/reload) durchführen — jede dieser Methoden nimmt optional ein Objektparameter entgegen, das eine `state`-Eigenschaft enthält, die den neuen Zustand enthält, der auf den Verlaufs-Eintrag gesetzt werden soll. Wenn diese Navigationen begangen werden, wird die Zustandsänderung automatisch angewendet.
 
-In einigen Fällen ist jedoch eine Zustandsänderung unabhängig von einer Navigation oder einem Neuladen — zum Beispiel wenn eine Seite ein erweiterbares/zusammenklappbares {{htmlelement("details")}}-Element enthält. In diesem Fall möchten Sie möglicherweise den erweiterten/zusammengeklappten Zustand in Ihrem Verlaufs-Eintrag speichern, damit er wiederhergestellt wird, wenn der Benutzer zur Seite zurückkehrt oder seinen Browser neu startet. Solche Fälle werden mit [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry) behandelt. Das [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event) wird ausgelöst, wenn der aktuelle Eintrag vollständig geändert wurde.
+In einigen Fällen jedoch ist eine Zustandsänderung unabhängig von einer Navigation oder einem Neuladen — beispielsweise wenn eine Seite ein expandierbares/zusammenklappbares {{htmlelement("details")}}-Element enthält. In diesem Fall möchten Sie möglicherweise den erweiterten/zusammengeklappten Zustand in Ihrem Verlaufs-Eintrag speichern, damit Sie ihn wiederherstellen können, wenn der Benutzer zur Seite zurückkehrt oder seinen Browser neu startet. Fälle wie dieser werden mit [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry) gehandhabt. Das [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event)-Ereignis wird ausgelöst, wenn die Änderung des aktuellen Eintrags abgeschlossen ist.
 
 ### Einschränkungen
 
-Es gibt einige wahrgenommene Einschränkungen bei der Navigation API:
+Es gibt einige wahrgenommene Einschränkungen mit der Navigation API:
 
-1. Die aktuelle Spezifikation löst kein [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Event bei der ersten Lade der Seite aus. Dies könnte für Webseiten, die Server-Side-Rendering (SSR) verwenden, in Ordnung sein — Ihr Server könnte den korrekten Anfangszustand zurückgeben, was der schnellste Weg ist, um Inhalte zu Ihren Benutzern zu bringen. Aber Websites, die clientseitigen Code verwenden, um ihre Seiten zu erstellen, benötigen möglicherweise eine zusätzliche Funktion, um die Seite zu initialisieren.
-2. Die Navigation API funktioniert nur innerhalb eines einzelnen Rahmens - der obersten Seite oder eines einzelnen spezifischen {{htmlelement("iframe")}}. Dies hat einige interessante Konsequenzen, die [weiter im Spezifikationsdokument beschrieben werden](https://github.com/WICG/navigation-api#warning-backforward-are-not-always-opposites), aber in der Praxis Entwicklern Verwirrung ersparen werden. Die vorherige [History API](/de/docs/Web/API/History_API) hat mehrere verwirrende Randfälle, wie die Unterstützung von Frames, die die Navigation API von vornherein behandelt.
-3. Sie können die Navigation API derzeit nicht verwenden, um die Liste der Verlaufseinträge programmgesteuert zu ändern oder neu anzuordnen. Es könnte nützlich sein, einen temporären Zustand zu haben, z. B. den Benutzer zu einem temporären Modal zu navigieren, das ihn zur Eingabe einiger Informationen auffordert, und dann zur vorherigen URL zurückzukehren. In diesem Fall würden Sie den temporären Modal-Verlaufs-Eintrag löschen wollen, damit der Benutzer den Anwendungsfluss nicht durcheinander bringen kann, indem er den Vorwärts-Button drückt und ihn erneut öffnet.
+1. Die derzeitige Spezifikation löst kein [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis beim ersten Laden einer Seite aus. Dies könnte für Websites, die Server Side Rendering (SSR) verwenden, in Ordnung sein — Ihr Server könnte den korrekten Anfangszustand zurückgeben, was der schnellste Weg ist, Inhalte zu Ihren Benutzern zu bringen. Aber Seiten, die clientsseitigen Code verwenden, um ihre Seiten zu erstellen, benötigen möglicherweise eine zusätzliche Funktion, um die Seite zu initialisieren.
+2. Die Navigation API operiert nur innerhalb eines einzelnen Frames — der obersten Ebene der Seite oder eines einzelnen spezifischen {{htmlelement("iframe")}}. Dies hat einige interessante Implikationen, die [weiter in der Spezifikation dokumentiert](https://github.com/WICG/navigation-api#warning-backforward-are-not-always-opposites) sind, aber in der Praxis wird es die Verwirrung der Entwickler reduzieren. Die vorherige [History API](/de/docs/Web/API/History_API) hat mehrere verwirrende Grenzfälle, wie die Unterstützung für Frames, die die Navigation API von Anfang an handhabt.
+3. Sie können die Navigation API derzeit nicht verwenden, um die Verlaufsliste programmgesteuert zu bearbeiten oder neu anzuordnen. Es könnte nützlich sein, einen temporären Zustand zu haben, zum Beispiel indem der Benutzer zu einem temporären Modal navigiert wird, das einige Informationen von ihm erfordert, um dann zur vorherigen URL zurückzukehren. In diesem Fall würden Sie den temporären Modal-Navigations-Eintrag löschen wollen, damit der Benutzer nicht den Anwendungsfluss durch Klicken auf die Vorwärtstaste stören und erneut öffnen kann.
 
 ## Schnittstellen
 
 - [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) {{Experimental_Inline}}
-  - : Event-Objekt für das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Event, das ausgelöst wird, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird. Es bietet Zugriff auf Informationen über diese Navigation und vor allem auf [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept), das es ermöglicht, zu steuern, was passiert, wenn die Navigation initiiert wird.
+  - : Ereignisobjekt für das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis, das ausgelöst wird, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird. Es bietet Zugang zu Informationen über diese Navigation und vor allem die [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept), die es Ihnen erlaubt zu kontrollieren, was passiert, wenn die Navigation initiiert wird.
 - [`Navigation`](/de/docs/Web/API/Navigation) {{Experimental_Inline}}
-  - : Ermöglicht die Kontrolle über alle Navigationsaktionen für das aktuelle `window` an einem zentralen Ort, einschließlich des programmatischen Startens von Navigationsvorgängen, des Untersuchens von Navigationsverlaufs-Einträgen und des Verwalten von Navigationsvorgängen, während diese stattfinden.
+  - : Erlaubt die Kontrolle über alle Navigationsaktionen für das aktuelle `window` an einem zentralen Ort, einschließlich der programmatischen Initiierung von Navigationen, der Überprüfung von Verlaufs-Einträgen und der Verwaltung von Navigationen während ihrer Ausführung.
 - [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) {{Experimental_Inline}}
-  - : Repräsentiert eine kürzliche cross-document Navigation. Es enthält den Navigationstyp sowie die aktuellen und Ziel-Dokument-Verlaufseinträge.
+  - : Repräsentiert eine kürzlich erfolgte dokumentübergreifende Navigation. Es enthält den Navigationstyp und die aktuellen sowie die Ziel-Verlaufs-Einträge des Dokuments.
 - [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent) {{Experimental_Inline}}
-  - : Event-Objekt für das [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event)-Event, das ausgelöst wird, wenn sich die [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) geändert hat. Es bietet Zugriff auf den Navigationstyp und den vorherigen Verlaufseintrag, von dem aus navigiert wurde.
+  - : Ereignisobjekt für das [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event)-Ereignis, das ausgelöst wird, wenn sich [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) geändert hat. Es bietet Zugriff auf den Navigationstyp und den vorherigen Verlaufs-Eintrag, von dem aus navigiert wurde.
 - [`NavigationDestination`](/de/docs/Web/API/NavigationDestination) {{Experimental_Inline}}
-  - : Repräsentiert das Ziel, zu dem im aktuellen Navigationsvorgang navigiert wird.
+  - : Repräsentiert das Ziel, zu dem im Rahmen der aktuellen Navigation navigiert wird.
 - [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) {{Experimental_Inline}}
-  - : Repräsentiert einen einzelnen Navigationsverlaufseintrag.
+  - : Repräsentiert einen einzelnen Navigationsverlaufs-Eintrag.
+- [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) {{Experimental_Inline}}
+  - : Definiert Umleitungsverhalten für einen Navigation-Vorcommit-Handler, wenn es in den [`precommitHandler`](/de/docs/Web/API/NavigateEvent/intercept#precommithandler) Callback eines [`NavigateEvent.intercept()`](/de/docs/Web/API/NavigateEvent/intercept)-Methodenaufrufs übergeben wird.
 - [`NavigationTransition`](/de/docs/Web/API/NavigationTransition) {{Experimental_Inline}}
   - : Repräsentiert eine laufende Navigation.
 
-## Erweiterungen zu anderen Schnittstellen
+## Erweiterungen für andere Schnittstellen
 
 - [`Window.navigation`](/de/docs/Web/API/Window/navigation) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt das zum aktuellen `window` gehörende [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück. Dies ist der Einstiegspunkt zur Navigation API.
+  - : Gibt das mit dem aktuellen `window` assoziierte [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück. Dies ist der Einstiegspunkt für die Navigation API.
 
 ## Beispiele
 
 > [!NOTE]
-> Schauen Sie sich das [Navigation API Live-Demo](https://mdn.github.io/dom-examples/navigation-api/) ([Quellcode der Demo anzeigen](https://github.com/mdn/dom-examples/tree/main/navigation-api)) an.
+> Sehen Sie sich das [Navigation API Live-Demo](https://mdn.github.io/dom-examples/navigation-api/) ([Quellcode der Demo anzeigen](https://github.com/mdn/dom-examples/tree/main/navigation-api)) an.
 
 ### Handhabung einer Navigation mit `intercept()`
 
@@ -138,9 +140,9 @@ navigation.addEventListener("navigate", (event) => {
 });
 ```
 
-### Handhabung des Scrollens mit `scroll()`
+### Handhabung von Bildläufen mit `scroll()`
 
-In diesem Beispiel eines abgefangenen Navigationsvorgangs startet die `handler()`-Funktion, indem sie einige Artikelinhalte abruft und rendert, um dann anschließend einige sekundäre Inhalte abzurufen und zu rendern. Es macht Sinn, die Seite zum Hauptartikelinhalt zu scrollen, sobald dieser verfügbar ist, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch der sekundäre Inhalt gerendert wird. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen den beiden hinzugefügt.
+In diesem Beispiel wird bei der Abfangung einer Navigation die Funktion `handler()` verwendet, um einige Artikeldaten abzurufen und zu rendern, wobei anschließend sekundäre Inhalte abgerufen und gerendert werden. Es ist sinnvoll, die Seite sofort zum Hauptartikel-Inhalt zu scrollen, sobald dieser verfügbar ist, damit der Benutzer interagieren kann, anstatt zu warten, bis auch der sekundäre Inhalt gerendert wird. Um dies zu erreichen, haben wir zwischen den beiden einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf eingefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -165,7 +167,7 @@ navigation.addEventListener("navigate", (event) => {
 });
 ```
 
-### Wandern zu einem spezifischen Verlaufseintrag
+### Traversierung zu einem spezifischen Verlaufs-Eintrag
 
 ```js
 // On JS startup, get the key of the first loaded page
@@ -177,7 +179,7 @@ backToHomeButton.onclick = () => navigation.traverseTo(key);
 await navigation.navigate("/another_url").finished;
 ```
 
-### Zustand aktualisieren
+### Aktualisierung des Statuses
 
 ```js
 navigation.navigate(url, { state: newState });
@@ -189,7 +191,7 @@ Oder
 navigation.reload({ state: newState });
 ```
 
-Oder wenn der Zustand unabhängig von einer Navigation oder einem Neuladen ist:
+Oder wenn der Status unabhängig von einer Navigation oder einem Neuladen ist:
 
 ```js
 navigation.updateCurrentEntry({ state: newState });
@@ -205,5 +207,5 @@ navigation.updateCurrentEntry({ state: newState });
 
 ## Siehe auch
 
-- [Moderne client-seitige Router: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

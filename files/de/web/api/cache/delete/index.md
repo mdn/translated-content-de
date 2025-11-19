@@ -3,12 +3,12 @@ title: "Cache: delete() Methode"
 short-title: delete()
 slug: Web/API/Cache/delete
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
 ---
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`delete()`** Methode der [`Cache`](/de/docs/Web/API/Cache) Schnittstelle findet den [`Cache`](/de/docs/Web/API/Cache) Eintrag, dessen Schlüssel die Anfrage ist, und falls gefunden, löscht den [`Cache`](/de/docs/Web/API/Cache) Eintrag und gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst. Wenn kein [`Cache`](/de/docs/Web/API/Cache) Eintrag gefunden wird, löst es sich zu `false` auf.
+Die **`delete()`** Methode der [`Cache`](/de/docs/Web/API/Cache)-Schnittstelle findet den [`Cache`](/de/docs/Web/API/Cache)-Eintrag, dessen Schlüssel die Anfrage ist, und wenn sie gefunden wird, löscht sie den [`Cache`](/de/docs/Web/API/Cache)-Eintrag und gibt ein {{jsxref("Promise")}} zurück, das auf `true` aufgelöst wird. Wenn kein [`Cache`](/de/docs/Web/API/Cache)-Eintrag gefunden wird, wird es auf `false` aufgelöst.
 
 ## Syntax
 
@@ -20,33 +20,21 @@ delete(request, options)
 ### Parameter
 
 - `request`
-  - : Der [`Request`](/de/docs/Web/API/Request), den Sie löschen möchten.
-    Dies kann ein `Request` Objekt oder eine URL sein.
+  - : Die [`Request`](/de/docs/Web/API/Request), die Sie löschen möchten. Dies kann ein `Request`-Objekt oder eine URL sein.
 - `options` {{optional_inline}}
-  - : Ein Objekt, dessen Eigenschaften steuern, wie das Matching in der `delete` Operation durchgeführt wird.
-    Die verfügbaren Optionen sind:
+  - : Ein Objekt, dessen Eigenschaften steuern, wie das Matching in der `delete`-Operation durchgeführt wird. Die verfügbaren Optionen sind:
     - `ignoreSearch`
-      - : Ein boolescher Wert, der angibt, ob der Matching-Prozess den Abfrage-String in der URL ignorieren soll.
-        Wenn auf `true` gesetzt, wird der Teil `?value=bar` von `http://foo.com/?value=bar` beim Matching ignoriert.
-        Standardmäßig ist er `false`.
+      - : Ein boolescher Wert, der angibt, ob der Abgleichprozess den Abfrage-String in der URL ignorieren soll. Wenn auf `true` gesetzt, würde der Teil `?value=bar` von `https://example.com/?value=bar` beim Abgleichen ignoriert. Standardmäßig ist es `false`.
     - `ignoreMethod`
-      - : Ein boolescher Wert, der, wenn auf
-        `true` gesetzt, verhindert, dass Matching-Operationen die
-        [`Request`](/de/docs/Web/API/Request) `HTTP` Methode validieren (normalerweise sind nur `GET`
-        und `HEAD` erlaubt.) Standardmäßig ist er `false`.
+      - : Ein boolescher Wert, der, wenn auf `true` gesetzt, die Abgleichoperation daran hindert, die `HTTP`-Methode der [`Request`](/de/docs/Web/API/Request) zu validieren (normalerweise sind nur `GET` und `HEAD` erlaubt). Standardmäßig ist es `false`.
     - `ignoreVary`
-      - : Ein boolescher Wert, der, wenn auf
-        `true` gesetzt, dem Matching-Prozess mitteilt, keine `VARY`
-        Header-Abstimmung durchzuführen. Mit anderen Worten: Wenn die URL übereinstimmt, gibt es einen Treffer,
-        unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response) Objekt einen `VARY`
-        Header hat. Standardmäßig ist er `false`.
+      - : Ein boolescher Wert, der, wenn auf `true` gesetzt, der Abgleichoperation mitteilt, kein `VARY`-Header-Matching durchzuführen. Mit anderen Worten, wenn die URL übereinstimmt, erhalten Sie eine Übereinstimmung, unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response)-Objekt einen `VARY`-Header hat. Standardmäßig ist es `false`.
     - `cacheName`
-      - : Ein String, der einen bestimmten Cache repräsentiert, in dem gesucht werden soll. Beachten Sie, dass diese Option von `Cache.delete()` ignoriert wird.
+      - : Ein String, der einen spezifischen Cache repräsentiert, in dem gesucht werden soll. Beachten Sie, dass diese Option von `Cache.delete()` ignoriert wird.
 
 ### Rückgabewert
 
-ein {{jsxref("Promise")}}, das sich zu `true` auflöst, wenn der Cache-Eintrag
-gelöscht wird, oder `false` andernfalls.
+Ein {{jsxref("Promise")}}, das auf `true` aufgelöst wird, wenn der Cache-Eintrag gelöscht wird, oder andernfalls `false`.
 
 ## Beispiele
 
@@ -69,6 +57,6 @@ caches
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [`Cache`](/de/docs/Web/API/Cache)
 - [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)

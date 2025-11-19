@@ -2,10 +2,12 @@
 title: background-position-y
 slug: Web/CSS/Reference/Properties/background-position-y
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 46a4425d4b7160129fd4c8d0f684ccd0617326b7
 ---
 
-Die **`background-position-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche vertikale Position für jedes Hintergrundbild fest. Die Position ist relativ zur Positionsebene, die durch {{cssxref("background-origin")}} festgelegt wurde.
+Die **`background-position-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche vertikale Position für jedes Hintergrundbild fest. Die Position ist relativ zur Positionsebene, die durch {{cssxref("background-origin")}} festgelegt wird.
+
+Der Wert dieser Eigenschaft wird durch jede Deklaration der Kurzformen {{cssxref("background")}} oder {{cssxref("background-position")}}, die auf das Element danach angewendet werden, überschrieben.
 
 {{InteractiveExample("CSS Demo: background-position-y")}}
 
@@ -44,8 +46,6 @@ background-position-y: bottom 32px;
 }
 ```
 
-Der Wert dieser Eigenschaft wird von jeder Deklaration der {{cssxref("background")}} oder {{cssxref("background-position")}} Kurzform-Eigenschaften für das Element überschrieben, wenn sie danach angewendet werden.
-
 ## Syntax
 
 ```css
@@ -77,26 +77,26 @@ background-position-y: revert-layer;
 background-position-y: unset;
 ```
 
-Die Eigenschaft `background-position-y` wird als ein oder mehrere Werte angegeben, die durch Kommas getrennt sind.
+Die `background-position-y` Eigenschaft wird als ein oder mehrere Werte angegeben, die durch Kommas getrennt sind.
 
 ### Werte
 
 - `top`
   - : Richtet die obere Kante des Hintergrundbildes an der oberen Kante der Hintergrundpositionsebene aus.
 - `center`
-  - : Richtet das vertikale Zentrum des Hintergrundbildes an dem vertikalen Zentrum der Hintergrundpositionsebene aus.
+  - : Richtet das vertikale Zentrum des Hintergrundbildes am vertikalen Zentrum der Hintergrundpositionsebene aus.
 - `bottom`
   - : Richtet die untere Kante des Hintergrundbildes an der unteren Kante der Hintergrundpositionsebene aus.
 - {{cssxref("&lt;length&gt;")}}
-  - : Der Versatz der horizontalen Kante des gegebenen Hintergrundbildes von der entsprechenden oberen horizontalen Kante der Hintergrundpositionsebene. (Einige Browser erlauben die Zuweisung der unteren Kante für den Versatz).
+  - : Der Versatz der horizontalen Kante des angegebenen Hintergrundbildes von der oberen horizontalen Kante der entsprechenden Hintergrundpositionsebene. (Einige Browser erlauben das Festlegen des unteren Randes für den Versatz).
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Der Versatz der vertikalen Position des gegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0 % bedeutet, dass die obere Kante des Hintergrundbildes mit der oberen Kante des Containers ausgerichtet ist. Ein Wert von 100 % bedeutet, dass die _untere_ Kante des Hintergrundbildes mit der _unteren_ Kante des Containers ausgerichtet ist, daher zentriert ein Wert von 50 % das Hintergrundbild vertikal.
+  - : Der Versatz der vertikalen Position des angegebenen Hintergrundbildes relativ zum Container. Ein Wert von 0% bedeutet, dass die obere Kante des Hintergrundbildes mit der oberen Kante des Containers ausgerichtet ist, und ein Wert von 100% bedeutet, dass die _untere_ Kante des Hintergrundbildes mit der _unteren_ Kante des Containers ausgerichtet ist, so dass ein Wert von 50% das Hintergrundbild vertikal zentriert.
 
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formelle Syntax
 
 {{csssyntax}}
 
@@ -104,7 +104,7 @@ Die Eigenschaft `background-position-y` wird als ein oder mehrere Werte angegebe
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel zeigt eine Hintergrundbildimplementierung, bei der `background-position-x` und `background-position-y` verwendet werden, um die horizontalen und vertikalen Positionen des Bildes separat zu definieren.
+Das folgende Beispiel zeigt eine Implementierung eines Hintergrundbildes, bei der `background-position-x` und `background-position-y` verwendet werden, um die horizontalen und vertikalen Positionen des Bildes separat zu definieren.
 
 #### HTML
 
@@ -130,9 +130,9 @@ div {
 
 {{EmbedLiveSample('Basic_example', '100%', 300)}}
 
-### Seitenbezogene Werte
+### Seitenrelative Werte
 
-Das folgende Beispiel zeigt die Unterstützung für die seitenspezifische Versatzsyntax, die es Entwicklern ermöglicht, den Hintergrund von jeder Kante zu verschieben.
+Das folgende Beispiel zeigt die Unterstützung der seitenrelativen Offset-Syntax, die es dem Entwickler ermöglicht, das Hintergrundbild von jeder Kante aus zu versetzen.
 
 #### HTML
 

@@ -2,10 +2,10 @@
 title: Universelle Selektoren
 slug: Web/CSS/Reference/Selectors/Universal_selectors
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: ca0d81a57fd36cf5da9621c44171d0f333f3f3e1
 ---
 
-Der CSS-**universal selector** (`*`) wählt Elemente jeglichen Typs aus.
+Der CSS **universelle Selektor** (`*`) wählt Elemente jeden Typs aus.
 
 ```css
 /* Selects all elements */
@@ -14,11 +14,17 @@ Der CSS-**universal selector** (`*`) wählt Elemente jeglichen Typs aus.
 }
 ```
 
-Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Der universelle Selektor ist ein spezieller [Typ-Selektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namensräume wie HTML mit eingebettetem SVG oder MathML oder XML enthalten, das mehrere Vokabulare mischt.
 
-- `ns|*` - wählt alle Elemente im Namespace _ns_ aus
+- `ns|*` - wählt alle Elemente im Namensraum _ns_ aus
 - `*|*` - wählt alle Elemente aus
-- `|*` - wählt alle Elemente ohne deklarierten Namespace aus
+- `|*` - wählt alle Elemente ohne erklärten Namensraum aus
+
+> [!NOTE]
+> Der universelle Selektor (`*`) wählt **nur Elemente** aus.
+> Er wählt **nicht** direkt Pseudo-Elemente aus.
+>
+> Um beispielsweise alle {{cssxref("::before")}} Pseudo-Elemente auf einer Seite zu wählen, müssten Sie einen Selektor wie `*::before` verwenden. Dies funktioniert, weil das `*` alle Elemente auswählt und das `::before` Pseudo-Element auf allen Elementen verfügbar ist.
 
 ## Syntax
 
@@ -26,7 +32,7 @@ Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Refer
 * { style properties }
 ```
 
-Der Asterisk ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` gleichwertig.
+Das Sternchen ist bei einfachen Selektoren optional. Beispielsweise sind `*.warning` und `.warning` gleichwertig.
 
 ## Beispiele
 
@@ -72,7 +78,7 @@ Der Asterisk ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning
 
 ### Namespaces
 
-In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namespace auswählen.
+In diesem Beispiel wählt der Selektor nur Elemente im Beispiel-Namensraum aus.
 
 ```css
 @namespace example url("http://www.example.com/");
@@ -91,5 +97,5 @@ example|* {
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
 - [Lernen Sie CSS: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

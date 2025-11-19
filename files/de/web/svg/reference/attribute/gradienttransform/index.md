@@ -2,12 +2,12 @@
 title: gradientTransform
 slug: Web/SVG/Reference/Attribute/gradientTransform
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: bb3478393fbb30212a6aeb33235dadf2d627fd4a
 ---
 
-Das **`gradientTransform`**-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht z.B. das Scheren des Gradienten. Diese zusätzliche Transformationsmatrix wird nachträglich multipliziert (d.h. rechts von) mit allen zuvor definierten Transformationen, einschließlich der impliziten Transformation, die notwendig ist, um von Objektrahmeneinheiten in den Benutzerraum zu konvertieren.
+Das **`gradientTransform`** Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht beispielsweise das Verzerren des Gradienten. Diese zusätzliche Transformationsmatrix wird nachmultipliziert (d.h. rechts eingefügt) zu allen zuvor definierten Transformationen, einschließlich der impliziten Transformation, die notwendig ist, um von Einheiten des Objektrahmens in den Benutzerraum zu konvertieren.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
@@ -44,7 +44,7 @@ svg {
     r="100"
     fx="100"
     fy="100"
-    gradientTransform="skewX(20) translate(-35, 0)">
+    gradientTransform="skewX(20) translate(185, 0)">
     <stop offset="0%" stop-color="darkblue" />
     <stop offset="50%" stop-color="skyblue" />
     <stop offset="100%" stop-color="darkblue" />
@@ -57,7 +57,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ svg {
 </table>
 
 - `<transform-list>`
-  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/Reference/Values/transform-function), die eine zusätzliche Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem spezifizieren.
+  - : Eine Liste von [Transformation functions](/de/docs/Web/CSS/Reference/Values/transform-function), die einige zusätzliche Transformationen vom Gradientenkoordinatensystem auf das Zielkoordinatensystem angeben.
 
 ## Spezifikationen
 
