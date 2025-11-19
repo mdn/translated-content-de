@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Die **`font-synthesis-weight`** [CSS](/de-DE/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen anzugeben, ob der Browser die Fettschriftart synthetisieren darf, wenn sie in einer Schriftfamilie fehlt.
+Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen anzugeben, ob der Browser die Fettschriftart synthetisieren darf, wenn sie in einer Schriftfamilie fehlt.
 
 Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftartensynthese-Werte zu steuern.
 
@@ -86,5 +86,5 @@ Dieses Beispiel zeigt, wie die Synthese der Fettschriftart durch den Browser in 
 
 ## Siehe auch
 
-- [font-synthesis](/de-DE/docs/Web/CSS/Reference/Properties/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de-DE/docs/Web/CSS/Reference/Properties/font-synthesis-small-caps), [font-synthesis-style](/de-DE/docs/Web/CSS/Reference/Properties/font-synthesis-style)
+- [font-synthesis](/de/docs/Web/CSS/Reference/Properties/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de/docs/Web/CSS/Reference/Properties/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/Reference/Properties/font-synthesis-style)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}

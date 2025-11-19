@@ -93,7 +93,7 @@ Unser {{htmlelement("body")}} hat zwei Kinder; das {{htmlelement("main")}} enth�
 </body>
 ```
 
-Das `<body>` ist als Flex-Container definiert, der die Höhe des Ansichtsfensters ausfüllt. Die `<main>`-Anwendung darf wachsen, um jeden Platz zu füllen, der nicht von seinem Geschwister-<footer> eingenommen wird.
+Das `<body>` ist als Flex-Container definiert, der die Höhe des Ansichtsfensters ausfüllt. Die `<main>`-Anwendung darf wachsen, um jeden Platz zu füllen, der nicht von seinem Geschwister-`<footer>` eingenommen wird.
 
 ```css
 body {

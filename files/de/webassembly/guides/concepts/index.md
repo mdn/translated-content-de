@@ -32,7 +32,7 @@ WebAssembly wird als offener Standard innerhalb der [W3C WebAssembly Community G
 Die Web-Plattform kann als aus zwei Teilen bestehend betrachtet werden:
 
 - Eine virtuelle Maschine (VM), die den Code der Web-App ausführt, z.B. der JavaScript-Code, der Ihre Apps antreibt.
-- Ein Satz von [Web-APIs](/de-DE/docs/Web/API), die die Web-App aufrufen kann, um die Funktionalität des Webbrowsers/Geräts zu steuern und Dinge geschehen zu lassen ([DOM](/de/docs/Web/API/Document_Object_Model), [CSSOM](/de/docs/Web/API/CSS_Object_Model), [WebGL](/de/docs/Web/API/WebGL_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Web Audio API](/de/docs/Web/API/Web_Audio_API) usw.).
+- Ein Satz von [Web-APIs](/de/docs/Web/API), die die Web-App aufrufen kann, um die Funktionalität des Webbrowsers/Geräts zu steuern und Dinge geschehen zu lassen ([DOM](/de/docs/Web/API/Document_Object_Model), [CSSOM](/de/docs/Web/API/CSS_Object_Model), [WebGL](/de/docs/Web/API/WebGL_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Web Audio API](/de/docs/Web/API/Web_Audio_API) usw.).
 
 Historisch gesehen konnte die VM nur JavaScript laden. Das hat gut funktioniert, da JavaScript mächtig genug ist, um die meisten Probleme zu lösen, die Menschen heute im Web haben. Wir sind jedoch auf Leistungsprobleme gestoßen, wenn wir versuchen, JavaScript für intensivere Anwendungsfälle zu verwenden, wie z.B. 3D-Spiele, Virtual und Augmented Reality, Computer Vision, Bild-/Video-Bearbeitung und eine Reihe anderer Domänen, die native Leistung erfordern (siehe [WebAssembly-Anwendungsfälle](https://webassembly.org/docs/use-cases/) für mehr Ideen).
 

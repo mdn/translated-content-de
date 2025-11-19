@@ -212,7 +212,7 @@ select[multiple]:active {
 */
 ```
 
-Es gibt einige Möglichkeiten, mehrere Optionen in einem `<select>`-Element mit einem `multiple`-Attribut auszuwählen. Je nach Betriebssystem können Mausbenutzer die <kbd>Strg</kbd>, <kbd>Befehl</kbd> oder <kbd>Shift</kbd>-Tasten halten und dann mehrere Optionen durch Klicken auswählen/abwählen. Tastaturbenutzer können mehrere zusammenhängende Elemente auswählen, indem sie das `<select>`-Element fokussieren, ein Element am oberen oder unteren Ende des Bereichs, den sie auswählen möchten, auswählen und die <kbd>Auf</kbd>- und <kbd>Ab</kbd>-Pfeiltasten verwenden, um die Optionen nach oben und unten zu bewegen. Die Auswahl von nicht zusammenhängenden Elementen wird weniger gut unterstützt: Elemente sollten durch Drücken von <kdb>Leertaste</kbd> ausgewählt und abgewählt werden können, aber die Unterstützung variiert zwischen den Browsern.
+Es gibt einige Möglichkeiten, mehrere Optionen in einem `<select>`-Element mit einem `multiple`-Attribut auszuwählen. Je nach Betriebssystem können Mausbenutzer die <kbd>Strg</kbd>, <kbd>Befehl</kbd> oder <kbd>Shift</kbd>-Tasten halten und dann mehrere Optionen durch Klicken auswählen/abwählen. Tastaturbenutzer können mehrere zusammenhängende Elemente auswählen, indem sie das `<select>`-Element fokussieren, ein Element am oberen oder unteren Ende des Bereichs, den sie auswählen möchten, auswählen und die <kbd>Auf</kbd>- und <kbd>Ab</kbd>-Pfeiltasten verwenden, um die Optionen nach oben und unten zu bewegen. Die Auswahl von nicht zusammenhängenden Elementen wird weniger gut unterstützt: Elemente sollten durch Drücken von <kbd>Leertaste</kbd> ausgewählt und abgewählt werden können, aber die Unterstützung variiert zwischen den Browsern.
 
 ## Spezifikationen
 
