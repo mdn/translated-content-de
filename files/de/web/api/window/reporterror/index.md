@@ -1,18 +1,18 @@
 ---
-title: "Window: reportError()-Methode"
+title: "Window: reportError() Methode"
 short-title: reportError()
 slug: Web/API/Window/reportError
 l10n:
-  sourceCommit: a44e9fc017ec15af0b8e0c0101ea895b9cb30522
+  sourceCommit: 4f90930051faa1ff1f4278068885e59c5bbb0069
 ---
 
 {{APIRef("DOM")}}
 
-Die **`reportError()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle kann verwendet werden, um Fehler an die Konsole oder Ereignishandler globaler Bereiche zu melden und emuliert so eine nicht abgefangene JavaScript-Ausnahme.
+Die **`reportError()`** Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle kann verwendet werden, um Fehler in der Konsole oder in den Ereignishandlern globaler Gültigkeitsbereiche zu melden, indem ein nicht abgefangener JavaScript-Fehler simuliert wird.
 
-Dieses Feature ist in erster Linie für benutzerdefinierte Event-Dispatching- oder Callback-Manipulationsbibliotheken gedacht.
-Bibliotheken können diese Funktion nutzen, um Fehler im Callback-Code abzufangen und sie an den obersten Handler weiterzuleiten.
-Dies stellt sicher, dass eine Ausnahme in einem Callback nicht verhindert, dass andere behandelt werden, während gleichzeitig sichergestellt wird, dass Stack-Trace-Informationen für das Debugging auf oberster Ebene leicht zugänglich sind.
+Dieses Feature ist in erster Linie für Bibliotheken gedacht, die benutzerdefinierte Ereignis-Dispatching- oder Callback-Manipulationen durchführen.
+Bibliotheken können dieses Feature verwenden, um Fehler im Callback-Code abzufangen und sie erneut an den übergeordneten Handler weiterzuleiten.
+Dies stellt sicher, dass eine Ausnahme in einem Callback keine anderen daran hindert, behandelt zu werden, während gleichzeitig sichergestellt wird, dass Stack-Trace-Informationen auf oberster Ebene leicht verfügbar sind, um Fehler zu beheben.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ reportError(throwable)
 ### Parameter
 
 - `throwable`
-  - : Ein Fehlerobjekt wie zum Beispiel ein {{jsxref("TypeError")}}.
+  - : Jeder JavaScript-Wert, vorzugsweise jedoch ein Fehlerobjekt wie ein {{jsxref("TypeError")}}.
 
 ### Rückgabewert
 
@@ -32,11 +32,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Die Methode wird ohne ein Fehlerargument aufgerufen.
+  - : Die Methode wird ohne Argument aufgerufen, das einen Fehler darstellt.
 
 ## Beispiele
 
-Funktionsprüfung für die Methode mit:
+### Feature-Erkennung
+
+Feature-Test für die Methode unter Verwendung von:
 
 ```js
 if (typeof window.reportError === "function") {
@@ -44,26 +46,40 @@ if (typeof window.reportError === "function") {
 }
 ```
 
-Der folgende Code zeigt, wie Sie einen Fehler erstellen und melden können und wie er entweder mit der `onerror`-Ereignishandlereigenschaft oder durch Hinzufügen eines Listeners für das `error`-Ereignis abgefangen werden kann.
-Beachten Sie, dass der Handler, der `onerror` zugewiesen ist, `true` zurückgeben muss, um zu verhindern, dass das Ereignis weiter verbreitet wird.
+### Telemetrie
+
+`reportError()` ermöglicht es, asynchrone Fehler genauso zu melden wie eingebaute Fehler. Das Sammeln aller Fehler an einem einzigen Punkt erleichtert es, Telemetriedaten über auftretende Fehler in einer Anwendung zu erfassen.
+
+Zum Beispiel könnte eine Webanwendung einen globalen [`error`](/de/docs/Web/API/Window/error_event)-Ereignislistener einrichten, um alle nicht abgefangenen Fehler zu sammeln und zur Analyse an einen Server zu senden, wie z.B. durch die Nutzung von [Sentry](https://sentry.io/):
 
 ```js
-const newError = new Error("Some error message", "someFile.js", 11);
-window.reportError(newError);
-
-window.onerror = (message, source, lineno, colno, error) => {
-  console.error(`message: ${error.message}, lineno: ${lineno}`);
-  return true;
-};
-
-window.addEventListener("error", (error) => {
-  console.error(error.filename);
+window.addEventListener("error", (event) => {
+  event.preventDefault(); // Prevent the default logging to console
+  Sentry.captureException(event.error);
+  console.error("Error encountered:", event.error);
+  showToastNotification("An error occurred. Our team has been notified.");
 });
-
-// Output
-// > "message:Some error message, lineno: 11"
-// > "someFile.js"
 ```
+
+Standardmäßig kann dieser Listener für nicht abgefangene Ausnahmen lauschen, die in synchroner `<script>`-Ausführung, `setTimeout`-Callbacks, Ereignishandlern, asynchronen Promise-Callbacks usw. geworfen werden. Bibliotheken und Anwendungen können `reportError()` verwenden, um ihre eigenen Fehler an diesen Listener zu übermitteln und sicherzustellen, dass alle Fehler auf konsistente Weise erfasst werden.
+
+```js
+function fetchUser(userId) {
+  return fetch(`/api/users?id=${encodeURIComponent(userId)}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch user with ID ${userId}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      // Report the error to the global error handler
+      window.reportError(error);
+    });
+}
+```
+
+Durch die Verwendung von `reportError()` anstatt den Fehler nicht abgefangen zu lassen, wird die nachfolgende Codeausführung nicht unterbrochen, während gleichzeitig sichergestellt wird, dass der Fehler protokolliert und analysiert werden kann. Diese Funktion kann beispielsweise in einem Test-Runner ohne zusätzliche `try...catch`-Handhabung aufgerufen werden.
 
 ## Spezifikationen
 

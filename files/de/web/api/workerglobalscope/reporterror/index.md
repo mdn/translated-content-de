@@ -1,18 +1,20 @@
 ---
-title: "WorkerGlobalScope: reportError() Methode"
+title: "WorkerGlobalScope: reportError()-Methode"
 short-title: reportError()
 slug: Web/API/WorkerGlobalScope/reportError
 l10n:
-  sourceCommit: 63297dea804061944e7430acd2c057d773770a4f
+  sourceCommit: 4f90930051faa1ff1f4278068885e59c5bbb0069
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`reportError()`** Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interface kann verwendet werden, um Fehler an die Konsole oder die Ereignishandler globaler Bereiche zu melden und dabei eine nicht abgefangene JavaScript-Ausnahme zu simulieren.
+Die **`reportError()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle kann verwendet werden, um Fehler an die Konsole oder Ereignishandler globaler Geltungsbereiche zu melden und so eine nicht abgefangene JavaScript-Ausnahme zu emulieren.
 
-Dieses Feature ist in erster Linie für benutzerdefinierte Event-Dispatching- oder Callback-Manipulations-Bibliotheken vorgesehen.
-Bibliotheken können dieses Feature nutzen, um Fehler im Callback-Code abzufangen und auf den obersten Ebenen erneut auszulösen.
-Dies stellt sicher, dass eine Ausnahme in einem Callback andere nicht daran hindert, behandelt zu werden, während gleichzeitig sichergestellt wird, dass Stack-Trace-Informationen für das Debugging auf oberster Ebene weiterhin leicht verfügbar sind.
+Diese Funktion ist hauptsächlich für Bibliotheken gedacht, die benutzerdefinierte Ereignisdispositionen oder Callback-Manipulationen durchführen.
+Bibliotheken können diese Funktion nutzen, um Fehler in Callback-Code abzufangen und sie an den obersten Handler weiterzuleiten.
+Dies stellt sicher, dass eine Ausnahme in einem Callback nicht verhindert, dass andere behandelt werden, und gleichzeitig bleibt die Informationen des Stack-Traces für das Debugging auf oberster Ebene leicht zugänglich.
+
+Weitere Informationen finden Sie unter [`window.reportError()`](/de/docs/Web/API/Window/reportError).
 
 ## Syntax
 
@@ -23,7 +25,7 @@ reportError(throwable)
 ### Parameter
 
 - `throwable`
-  - : Ein Fehlerobjekt wie ein {{jsxref("TypeError")}}.
+  - : Jeder JavaScript-Wert, vorzugsweise jedoch ein Fehlerobjekt wie ein {{jsxref("TypeError")}}.
 
 ### Rückgabewert
 
@@ -33,37 +35,6 @@ Keiner ({{jsxref("undefined")}}).
 
 - {{jsxref("TypeError")}}
   - : Die Methode wird ohne ein Fehlerargument aufgerufen.
-
-## Beispiele
-
-Feature-Test für die Methode mit:
-
-```js
-if (typeof self.reportError === "function") {
-  // function is defined
-}
-```
-
-Der folgende Code zeigt, wie Sie einen Fehler erstellen und melden können und wie er entweder mit der `onerror`-Ereignishandler-Eigenschaft oder durch Hinzufügen eines Listeners für das `error`-Ereignis abgefangen werden kann.
-Beachten Sie, dass der Handler, der `onerror` zugewiesen ist, `true` zurückgeben muss, um zu verhindern, dass das Ereignis weiter propagiert wird.
-
-```js
-const newError = new Error("Some error message", "someFile.js", 11);
-self.reportError(newError);
-
-self.onerror = (message, source, lineno, colno, error) => {
-  console.error(`message: ${error.message}, lineno: ${lineno}`);
-  return true;
-};
-
-self.addEventListener("error", (error) => {
-  console.error(error.filename);
-});
-
-// Output
-// > "message:Some error message, lineno: 11"
-// > "someFile.js"
-```
 
 ## Spezifikationen
 

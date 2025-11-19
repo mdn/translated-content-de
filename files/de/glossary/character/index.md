@@ -2,10 +2,10 @@
 title: Zeichen
 slug: Glossary/Character
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: df9652f304077e033f6217ac06874c3bc9565062
 ---
 
-Ein **Zeichen** ist entweder ein Symbol (Buchstabe, Zahl, Interpunktionszeichen) oder ein nicht druckbares "Steuerzeichen" (z. B. Wagenrücklauf oder bedingter Trennstrich). {{Glossary("UTF-8", "UTF-8")}} ist der gebräuchlichste Zeichensatz und umfasst die Grapheme der bekanntesten menschlichen Sprachen.
+Ein **Zeichen** ist entweder ein Symbol (Buchstabe, Zahl, Interpunktionszeichen) oder ein nicht druckbares "Steuerzeichen" (z.B. Wagenrücklauf oder bedingter Trennstrich). {{Glossary("Unicode", "Unicode")}} ist der am häufigsten verwendete Zeichensatz und umfasst die Grapheme der am weitesten verbreiteten menschlichen Sprachen.
 
 ## Siehe auch
 
