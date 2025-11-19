@@ -21,10 +21,8 @@ HTMLScriptElement.supports(type)
 ### Parameter
 
 - `type`
-
   - : Ein Zeichenfolgenliteral, das den Skripttyp anzeigt, für den die Unterstützung überprüft werden soll.
     Die unterstützten Werte unterscheiden zwischen Groß- und Kleinschreibung und umfassen:
-
     - `"classic"`
       - : Testet, ob _klassische Skripte_ unterstützt werden.
         "Klassische" Skripte sind die normalen/traditionellen JavaScript-Dateien, die den Modulskripten vorausgingen.

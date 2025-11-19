@@ -41,9 +41,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 - `value`
   - : Dieses ganzzahlige Attribut gibt den aktuellen Ordinalwert des Listenelements an, wie er durch das {{HTMLElement("ol")}}-Element definiert ist. Der einzig erlaubte Wert für dieses Attribut ist eine Zahl, selbst wenn die Liste mit römischen Ziffern oder Buchstaben angezeigt wird. Nachfolgende Listenelemente setzen die Nummerierung ab dem festgelegten Wert fort. Dieses Attribut hat keine Bedeutung für ungeordnete Listen ({{HTMLElement("ul")}}) oder für Menüs ({{HTMLElement("menu")}}).
 - `type` {{Deprecated_inline}}
-
   - : Dieses Zeichenattribut gibt die Nummerierungsart an:
-
     - `a`: Kleinbuchstaben
     - `A`: Großbuchstaben
     - `i`: Kleinbuchstaben in römischen Ziffern

@@ -12,11 +12,9 @@ Die MDN-Community wird ermutigt, [Diskussionen über die MDN Web Docs Dokumentat
 Die meisten Diskussionen benötigen keinen formalen Lösungsprozess. Diese MDN-Diskussionsrichtlinien sind für die Diskussionen gedacht, die eine zeitnahe Lösung benötigen, ins Stocken geraten sind, Gefahr laufen, ins Stocken zu geraten, oder anderweitig nicht zu einer Schlussfolgerung kommen und von einem formalen Prozess profitieren würden:
 
 1. Jede Diskussion wird in einer [Diskussion auf GitHub](https://github.com/orgs/mdn/discussions) gehalten/verankert. Diese GitHub-Diskussion dient als "Quelle der Wahrheit" für das Thema.
-
    - Um die Kontinuität zu wahren, denken Sie daran, Zusammenfassungen und Notizen von Meetings und asynchronen Diskussionen in diesen GitHub-Diskussionsthread einzufügen.
 
 2. Jedes Diskussionsthema benötigt einen Treiber. Der Treiber ist oft der Verfasser der Diskussion, kann aber auch eine andere Person sein, die sich verpflichtet hat, die Diskussion zu lösen. Der Treiber ist verantwortlich für:
-
    - Die Führung der Unterhaltung.
    - Das Bewusstsein für die Existenz der Diskussion schaffen.
    - Festlegen des Feedback-Zeitplans, die Beteiligten darüber informieren, den Zeitplan nach Bedarf ändern und den Zeitplan konsequent einhalten.

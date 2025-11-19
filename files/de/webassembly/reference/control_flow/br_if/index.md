@@ -63,6 +63,6 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `br_if`     | `0x0d`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `br_if`   | `0x0d`         |

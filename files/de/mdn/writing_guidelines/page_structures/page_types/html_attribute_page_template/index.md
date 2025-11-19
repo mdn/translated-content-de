@@ -45,7 +45,6 @@ Beachten Sie, dass die meisten element-spezifischen Attribute keine eigenständi
 > - **status**
 >   - : Kennzeichnungen, die den Status dieser Funktion beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für die Funktion festgelegt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->
 >   - : Ersetzen Sie den Platzhalterwert `html.global_attributes.name-of-the-attribute` durch den Abfragestring für das globale Attribut im [Browser compat data repo](https://github.com/mdn/browser-compat-data).
 >     Für element-spezifische Attribute verwenden Sie das Format `html.elements.name-of-the-element.name-of-the-attribute`, wobei jede Abfragezeichenfolge in einer eigenen Zeile steht, der ein Bindestrich vorangestellt ist. Zum Beispiel:
 >

@@ -21,7 +21,6 @@ new TaskPriorityChangeEvent(type, options)
 ### Parameter
 
 - `type`
-
   - : Ein String mit dem Groß-/Kleinschreibung beachtenden Namen des zugehörigen Ereignisses.
     Benutzeragenten setzen diesen auf `"prioritychange"`.
 

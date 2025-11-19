@@ -82,7 +82,6 @@ text {
 </table>
 
 - `auto`
-
   - : Wenn diese Eigenschaft auf einem {{SVGElement("text")}}-Element vorkommt, hängt der berechnete Wert vom Wert des {{SVGAttr("writing-mode")}}-Attributs ab.
 
     Wenn der {{SVGAttr("writing-mode")}} horizontal ist, dann ist der Wert der Komponente dominant-baseline `alphabetic`. Andernfalls, wenn der {{SVGAttr("writing-mode")}} vertikal ist, dann ist der Wert der Komponente dominant-baseline `central`.

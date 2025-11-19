@@ -26,7 +26,6 @@ env(viewport-segment-width 0 0, 40%);
 Die Funktion `env( <environment-variable>, <fallback> )` akzeptiert die folgenden Parameter:
 
 - [`<environment-variable>`](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables)
-
   - : Ein {{cssxref("&lt;custom-ident>")}}, das den Namen der einzufügenden Umgebungsvariable angibt. Wenn der bereitgestellte Name einer array-ähnlichen Umgebungsvariable entspricht, wird der Name von {{cssxref("&lt;integer>")}}-Werten gefolgt, die die spezifische Instanz identifizieren, auf die sich der Name bezieht. Der case-sensitive Name der Umgebungsvariable kann einer der folgenden sein:
     - `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom`, `safe-area-inset-left`
       - : Der sichere Abstand von der oberen, rechten, unteren oder linken Einpassungskante des Ansichtsfensters, der definiert, wo es sicher ist, Inhalte ohne Risiko, durch die Form eines nicht-rechteckigen Displays abgeschnitten zu werden, zu platzieren. Die vier Werte bilden ein Rechteck, innerhalb dessen alle Inhalte sichtbar sind. Die Werte sind `0`, wenn das Ansichtsfenster ein Rechteck ist und keine Features - wie z. B. Werkzeugleisten oder dynamische Tastaturen - den Ansichtsfensterraum beanspruchen; andernfalls ist es ein `px`-Wert, der größer als `0` ist.

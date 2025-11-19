@@ -10,7 +10,6 @@ Ein **Layout-Modus**, manchmal auch _Layout_ genannt, ist ein [CSS](/de/docs/Web
 Es gibt mehrere Layout-Modi:
 
 - **[Fließlayout oder normaler Fluss](/de/docs/Web/CSS/Guides/Display/Flow_layout)**
-
   - : Alle Elemente sind Teil des normalen Flusses, bis Sie etwas tun, um sie daraus zu entfernen. Der normale Fluss umfasst:
     - **[Block-Layout](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout)**
       - : Konzipiert für das Layout von Boxen wie Absätze.

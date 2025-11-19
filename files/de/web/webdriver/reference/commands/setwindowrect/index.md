@@ -33,7 +33,6 @@ Der Set Window Rect-Befehl ist blockierend.
 Die Eingabe ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/WindowRect) Objekt:
 
 - `x`
-
   - : Horizontale Position des [`window`](/de/docs/Web/API/Window), die [`Window.screenX`](/de/docs/Web/API/Window/screenX) entspricht. Muss eine Zahl im Bereich −(2^31) bis 2^31 − 1 sein, null oder undefined.
 
 - `y`
@@ -67,7 +66,6 @@ Die Antwort-Nutzlast ist ein [`WindowRect`](/de/docs/Web/WebDriver/Reference/Web
 - [Unerwartetes Alert-Fenster geöffnet](/de/docs/Web/WebDriver/Reference/Errors/UnexpectedAlertOpen)
   - : Eine Benutzeraufforderung, wie [`window.alert`](/de/docs/Web/API/Window/alert), blockiert die Ausführung des Befehls, bis sie behandelt wird.
 - [Nicht unterstützte Operation](/de/docs/Web/WebDriver/Reference/Errors/UnsupportedOperation)
-
   - : Wenn der Treiber das Ändern der Fenstergröße oder -position nicht unterstützt. Dies ist normalerweise bei mobilen Geräten der Fall, bei denen der Browser eine feste Dimension hat und nicht auf dem Bildschirm verschoben werden kann.
 
     Sie können die [`setWindowRect`-Fähigkeit](/de/docs/Web/WebDriver/Reference/Capabilities/setWindowRect) prüfen, um festzustellen, ob das Gerät diesen Befehl unterstützt.

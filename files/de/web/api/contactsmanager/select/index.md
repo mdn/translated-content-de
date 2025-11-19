@@ -20,7 +20,6 @@ select(properties, options)
 ### Parameter
 
 - `properties`
-
   - : Ein Array von {{jsxref('String', 'Strings')}}, die definieren, welche Informationen aus einem Kontakt abgerufen werden sollen. Erlaubte Werte sind wie folgt:
     - `'name'`: Der Name des Kontakts.
     - `'tel'`: Die Telefonnummer(n) des Kontakts.

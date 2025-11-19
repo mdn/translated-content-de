@@ -18,7 +18,6 @@ Die folgenden Eigenschaften und Methoden beziehen sich alle auf die Attribute de
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 - [`SVGMarkerElement.markerUnits`](/de/docs/Web/API/SVGMarkerElement/markerUnits) {{ReadOnlyInline}}
-
   - : Gibt ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt zurück, mit einem der folgenden Werte:
     - 0
       - : `SVG_MARKERUNITS_UNKNOWN` bedeutet, dass das {{SVGattr("markerUnits")}}-Attribut einen anderen Wert hat als die beiden vordefinierten Schlüsselwörter.
@@ -32,7 +31,6 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGElement`
 - [`SVGMarkerElement.markerHeight`](/de/docs/Web/API/SVGMarkerElement/markerHeight) {{ReadOnlyInline}}
   - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das die Höhe des {{SVGElement("marker")}}-Viewports enthält.
 - [`SVGMarkerElement.orientType`](/de/docs/Web/API/SVGMarkerElement/orientType) {{ReadOnlyInline}}
-
   - : Gibt ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt zurück, mit einem der folgenden Werte:
     - 0
       - : `SVG_MARKER_ORIENT_UNKNOWN` bedeutet, dass das {{SVGattr("orient")}}-Attribut einen anderen Wert hat als die beiden vordefinierten Schlüsselwörter.

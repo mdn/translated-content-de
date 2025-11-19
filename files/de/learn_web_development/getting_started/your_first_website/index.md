@@ -20,19 +20,15 @@ Falls dies nicht der Fall ist, empfehlen wir, zunächst das [Einrichtungsmodul](
 ## Tutorials
 
 - [Wie wird Ihre Website aussehen?](/de/docs/Learn_web_development/Getting_started/Your_first_website/What_will_your_website_look_like)
-
   - : Bevor Sie damit beginnen, den Code für Ihre Website zu schreiben, sollten Sie sie zunächst planen. Welche Informationen möchten Sie präsentieren? Welche Schriftarten und Farben verwenden Sie? Hier skizzieren wir eine einfache Methode, die Sie befolgen können, um den Inhalt und das Design Ihrer Website zu planen.
 
 - [Erstellung des Inhalts](/de/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content)
-
   - : HTML (**H**yper**T**ext **M**arkup **L**anguage) ist der Code, der verwendet wird, um eine Webseite und deren Inhalt zu strukturieren. Beispielsweise kann der Inhalt in einem Satz von Absätzen, einer Liste mit Aufzählungspunkten oder unter Verwendung von Bildern und Datentabellen strukturiert werden. Dieser Artikel bietet ein grundlegendes Verständnis von HTML und dessen Funktionen und zeigt Ihnen, wie Sie die grundlegenden Inhalte für Ihre erste Website erstellen.
 
 - [Stil des Inhalts](/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content)
-
   - : CSS (Cascading Style Sheets) ist der Code, der Webinhalte gestaltet. _Stil des Inhalts_ führt Sie durch das, was Sie für den Anfang benötigen. Wir beantworten Fragen wie: Wie mache ich Text rot? Wie bringe ich Inhalt dazu, an einem bestimmten Ort im (Webseiten-)Layout angezeigt zu werden? Wie dekoriere ich meine Webseite mit Hintergrundbildern und -farben?
 
 - [Interaktivität hinzufügen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)
-
   - : JavaScript ist eine Programmiersprache, die Webseiten Interaktivität hinzufügt. Dies geschieht in Spielen, im Verhalten von Antworten, wenn Tasten gedrückt werden, oder bei der Dateneingabe in Formulare, mit dynamischem Styling, mit Animation usw. Dieser Artikel hilft Ihnen beim Einstieg in JavaScript und vertieft Ihr Verständnis dessen, was möglich ist.
 
 - [Veröffentlichen Ihrer Website](/de/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website)

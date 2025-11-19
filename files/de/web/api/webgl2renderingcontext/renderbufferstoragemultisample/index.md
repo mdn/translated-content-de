@@ -19,7 +19,6 @@ renderbufferStorageMultisample(target, samples, internalFormat, width, height)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
     - `gl.RENDERBUFFER`
       - : Pufferdatenablage für einzelne Bilder in einem renderbaren internen Format.
@@ -27,7 +26,6 @@ renderbufferStorageMultisample(target, samples, internalFormat, width, height)
 - `samples`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu verwendenden Muster für die Renderbuffer-Speicherung angibt.
 - `internalFormat`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das interne Format des Renderbuffers angibt. Mögliche Werte (Unterstützt `gl.DEPTH_STENCIL` nicht):
     - `gl.R8`
     - `gl.R8UI`

@@ -38,7 +38,6 @@ Für {{SVGElement("marker")}} definiert `refY` die y-Koordinate des Referenzpunk
 </table>
 
 - `<length-percentage>`
-
   - : Längen werden als im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 
     Prozentwerte werden als Prozentsatz der Höhe des {{SVGAttr("viewBox")}} interpretiert.
@@ -82,7 +81,6 @@ Im Gegensatz zu anderen Positionierungsattributen wird `refY` im Koordinatensyst
 </table>
 
 - `<length-percentage>`
-
   - : Längen werden als im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}}.
 
     Prozentwerte werden als Prozentsatz der Höhe des {{SVGAttr("viewBox")}} interpretiert.

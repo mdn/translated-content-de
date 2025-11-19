@@ -19,7 +19,6 @@ drawIndirect(indirectBuffer, indirectOffset)
 ### Parameter
 
 - `indirectBuffer`
-
   - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die für den Zeichenprozess benötigten Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält. Der Puffer muss einen dicht gepackten Block von vier 32-Bit-unsigned-Integer-Werten enthalten, die die Werte in derselben Reihenfolge wie die Argumente für [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw) darstellen (insgesamt 16 Byte). Zum Beispiel:
 
     ```js

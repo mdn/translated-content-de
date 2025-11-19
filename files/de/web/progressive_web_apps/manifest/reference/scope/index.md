@@ -23,7 +23,6 @@ Das `scope`-Manifestmitglied wird verwendet, um den obersten URL-Pfad anzugeben,
 ### Werte
 
 - `scope`
-
   - : Ein String, der eine URL darstellt. Die URL kann absolut oder relativ sein. Wenn der Wert relativ ist, wird er gegen die URL der Manifestdatei aufgelöst.
 
     Wenn `scope` im Manifest nicht angegeben oder der Wert ungültig ist (d.h. kein String, keine gültige URL oder `start_url` nicht innerhalb des angegebenen `scope`), wird der effektive Scope auf den Wert von `start_url` gesetzt, nachdem dessen Dateiname, Abfrage und Fragment entfernt wurden.

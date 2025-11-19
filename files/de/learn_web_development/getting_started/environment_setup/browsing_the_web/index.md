@@ -189,7 +189,6 @@ Daher müssen Sie vorsichtig sein, die Antworten zu überprüfen, die sie Ihnen 
 - Wenn Ihr Code eine bestimmte Fehlermeldung zurückgibt, versuchen Sie, die Fehlermeldung in eine Suchmaschine oder ein KI-Eingabefeld einzugeben. Andere Menschen haben das gleiche Problem wahrscheinlich in der Vergangenheit bereits gelöst und die Lösungen öffentlich irgendwo dokumentiert.
 - Halten Sie sich möglichst an empfohlene Websites wie MDN und [StackOverflow](https://stackoverflow.com/).
 - Es gibt viele erweiterte Suchtechniken, die Sie in Suchmaschinen verwenden können und die Ihnen bessere Ergebnisse liefern als das bloße Eingeben eines einfachen Suchbegriffs. Das Eingeben eines einfachen Suchbegriffs wie `Ameise Fisch Käse` wird Ergebnisse liefern, die jede Kombination dieser Wörter enthalten. Die meisten Suchmaschinen unterstützen jedoch Variationen der folgenden Syntaxmuster:
-
   - Das Eingeben von `"Ameise Fisch Käse"` (mit Anführungszeichen) liefert nur Ergebnisse, die genau diese Phrase enthalten.
   - `Ameise Käse -Fisch` wird Ergebnisse liefern, die `Ameise` und/oder `Käse` aber nicht `Fisch` enthalten.
   - `Ameise ODER Käse` wird nur Ergebnisse mit einem der beiden Begriffe, nicht beiden gleichzeitig liefern. Nach unseren Tests funktionierte dies nur effektiv bei Google.

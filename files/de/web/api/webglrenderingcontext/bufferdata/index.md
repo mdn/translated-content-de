@@ -20,9 +20,7 @@ bufferData(target, srcData, usage)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (Ziel) spezifiziert. Mögliche Werte:
-
     - `gl.ARRAY_BUFFER`
       - : Puffer, der Vertex-Attribute enthält, wie z. B.
         Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbwerte.
@@ -30,7 +28,6 @@ bufferData(target, srcData, usage)
       - : Puffer, der für Elementindizes verwendet wird.
 
     Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
-
     - `gl.COPY_READ_BUFFER`
       - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
     - `gl.COPY_WRITE_BUFFER`
@@ -52,9 +49,7 @@ bufferData(target, srcData, usage)
     das in den Datenspeicher kopiert wird.
     Wenn `null`, wird ein Datenspeicher trotzdem erstellt, aber der Inhalt ist nicht initialisiert und undefiniert.
 - `usage`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das beabsichtigte Verwendungsmuster des Datenspeichers für Optimierungszwecke angibt. Mögliche Werte:
-
     - `gl.STATIC_DRAW`
       - : Der Inhalt soll einmalig von der Anwendung angegeben und häufig als Quelle für WebGL-Zeichnungs- und Bildspezifikationsbefehle verwendet werden.
     - `gl.DYNAMIC_DRAW`
@@ -63,7 +58,6 @@ bufferData(target, srcData, usage)
       - : Der Inhalt soll einmalig von der Anwendung angegeben und höchstens einige Male als Quelle für WebGL-Zeichnungs- und Bildspezifikationsbefehle verwendet werden.
 
     Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
-
     - `gl.STATIC_READ`
       - : Der Inhalt soll einmalig durch das Lesen von Daten aus WebGL angegeben und häufig von der Anwendung abgefragt werden.
     - `gl.DYNAMIC_READ`

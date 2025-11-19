@@ -139,19 +139,16 @@ Die Unterstützung für die nicht standardisierten `pcast:`- und `feed:`-Protoko
 ### WebExtensions
 
 - Updates zu [Themes](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme):
-
   - neue Eigenschaften: `colors.background_tab_text`, `colors.toolbar_field_border`
   - alle Farbeigenschaften unterstützen jetzt sowohl Chrome-Style Arrays als auch CSS-Farbwerte.
 
 - Neue [Browsereinstellungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings):
-
   - [`contextMenuShowEvent`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/contextMenuShowEvent)
   - [`openBookmarksInNewTabs`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/openBookmarksInNewTabs)
   - [`openSearchResultsInNewTabs`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/openSearchResultsInNewTabs)
   - [`proxyConfig`](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/settings)
 
 - Neue [`tabs`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs)-APIs:
-
   - [`tabs.captureTab()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/captureTab)
   - [`tabs.hide()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/hide)
   - [`tabs.show()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/show)
@@ -159,13 +156,11 @@ Die Unterstützung für die nicht standardisierten `pcast:`- und `feed:`-Protoko
 - Die `contextMenus`-API unterstützt jetzt einen ["bookmark" Kontext](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/ContextType).
 - Neue [`contentScripts`](/de/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts)-API ermöglicht die laufzeitliche Registrierung von Content Scripts.
 - Neue [`pageAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction), [`browserAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction), [`SidebarAction`](/de/docs/Mozilla/Add-ons/WebExtensions/API/sidebarAction) APIs:
-
   - `browserAction/pageAction/sidebarAction.set*` Funktionen akzeptieren jetzt `null`, um Änderungen rückgängig zu machen.
   - [`browserAction.isEnabled()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/isEnabled), [`pageAction.isShown()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/isShown), [`sidebarAction.isOpen()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/sidebarAction/isOpen) Funktionen.
 
 - Neue Option im [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action), um Page Actions standardmäßig anzuzeigen.
 - Neue Werte für `protocol_handlers`:
-
   - "ssb" für Secure Scuttlebutt Kommunikationen
   - "dat" für DATproject
   - "ipfs", "ipns", "dweb" für IPFS

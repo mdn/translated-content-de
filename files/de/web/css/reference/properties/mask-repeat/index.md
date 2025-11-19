@@ -50,17 +50,14 @@ Die `mask-repeat`-Eigenschaft ist eine durch Kommas getrennte Liste von zwei `<r
 Die `<repeat-style>`-Werte umfassen:
 
 - `repeat`
-
   - : Das Bild wird so oft wie nötig wiederholt, um den gesamten maskenmalenden Bereich zu bedecken. Maskenbilder entlang der Kanten werden abgeschnitten, wenn die Größe des [maskenursprungsbereichs](/de/docs/Web/CSS/Reference/Properties/mask-origin) kein genaues Vielfaches der Größe des Maskenbildes ist.
 
 - `space`
-
   - : Das Maskenbild wird so oft wie möglich ohne Abschneiden wiederholt. Wenn die Ursprunggröße des Elements mindestens doppelt so groß ist wie die Größe des Maskenbildes in der zugehörigen Dimension, wird die {{cssxref("mask-position")}}-Eigenschaft ignoriert und die ersten und letzten Bilder an den Kanten des maskenursprungscontainers positioniert. Wenn der maskenursprungsbereich kein genaues Vielfaches der Größe des Maskenbildes ist, wird der Leerraum gleichmäßig zwischen den wiederholten Maskenbildern verteilt.
 
     Wenn die Ursprungsboxgröße weniger als doppelt so groß ist wie die Größe des Maskenbildes in der gegebenen Dimension, kann nur ein Maskenbild angezeigt werden. In diesem Fall wird das Bild so positioniert, wie es durch die `mask-position`-Eigenschaft definiert ist, die standardmäßig auf `0% 0%` eingestellt ist. Das Maskenbild wird nur abgeschnitten, wenn es größer ist als der maskenursprungsbereich.
 
 - `round`
-
   - : Das Maskenbild wird so oft wie möglich in seinen ursprünglichen Abmessungen wiederholt. Wenn die Größe des maskenursprungsbereichs kein genaues Vielfaches der Größe des Maskenbildes ist, werden alle Maskenbilder [verkleinert oder gestreckt](#gerundete_wiederholungen), um sicherzustellen, dass keine Wiederholungen abgeschnitten werden.
 
 - `no-repeat`
@@ -106,7 +103,6 @@ Die Ein-Wert-Syntax ist eine Kurzform für die vollständige Zwei-Wert-Syntax:
 </table>
 
 - `repeat-x`
-
   - : Entspricht `repeat no-repeat`. Das Bild wird horizontal so oft wiederholt, wie nötig, um die Breite des maskenmalenden Bereichs abzudecken. Maskenbilder entlang der rechten oder linken Kanten, oder beides je nach {{cssxref("mask-position")}}-Wert, werden abgeschnitten, wenn die Breite des maskenursprungsbereichs kein genaues Vielfaches der Breite des Maskenbildes ist.
 
 - `repeat-y`

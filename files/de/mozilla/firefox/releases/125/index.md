@@ -33,18 +33,15 @@ Keine bemerkenswerten Änderungen.
   Das Popover und sein auslösendes Button/Input können entweder mittels HTML-Attribute oder JavaScript erstellt und mit CSS gestaltet werden.
 
   Die folgenden Web-APIs sind implementiert:
-
   - [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Eigenschaften [`popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement) und [`popoverTargetAction`](/de/docs/Web/API/HTMLButtonElement/popoverTargetAction).
   - [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Eigenschaften [`popoverTargetElement`](/de/docs/Web/API/HTMLInputElement/popoverTargetElement) und [`popoverTargetAction`](/de/docs/Web/API/HTMLInputElement/popoverTargetAction).
   - [`HTMLElement`](/de/docs/Web/API/HTMLElement) Eigenschaft [`popover`](/de/docs/Web/API/HTMLElement/popover), [`hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover), [`showPopover()`](/de/docs/Web/API/HTMLElement/showPopover), und [`togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover) Methoden, und [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle_event`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignisse (vom Typ [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)).
 
   Die folgenden CSS-Pseudoklasse und -Elemente werden jetzt für die Verwendung mit Popovers unterstützt:
-
   - [`:popover-open`](/de/docs/Web/CSS/Reference/Selectors/:popover-open)
   - [`::backdrop`](/de/docs/Web/CSS/Reference/Selectors/::backdrop) wurde erweitert, um Popovers zu unterstützen
 
   Die folgenden globalen HTML-Attribute werden unterstützt:
-
   - [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)
   - [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction)
 
@@ -57,7 +54,6 @@ Keine bemerkenswerten Änderungen.
 
 - Unterstützung hinzugefügt, um Webanwendungen ein sanftes Wiederherstellen zu ermöglichen, wenn ein Canvas vorübergehend seinen 2D-Kontext verliert, was passieren könnte, wenn das Canvas hardwarebeschleunigt auf einer GPU läuft und sein Treiber abstürzt ([Firefox Fehler 1887729](https://bugzil.la/1887729)).
   Nachfolgend einige zusätzliche Details zu den Ereignissen für verlorene und wiederhergestellte Canvas-Kontexte:
-
   - Anwendungen können [`contextlost`](/de/docs/Web/API/HTMLCanvasElement/contextlost_event) und [`contextrestored`](/de/docs/Web/API/HTMLCanvasElement/contextrestored_event) Ereignisse überwachen, die auf [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) ausgelöst werden, wenn der Kontext verloren geht und wiederhergestellt wird, und können den Kontext auch mit [`CanvasRenderingContext2D.isContextLost()`](/de/docs/Web/API/CanvasRenderingContext2D/isContextLost) überprüfen.
   - Nach der Ausgabe von `contextlost` wird ein Browser versuchen, den verlorenen Kontext standardmäßig neu zu starten, aber der Code kann dies verhindern, indem das Ereignis abgebrochen wird.
   - Offscreen-Canvas können auf die gleiche Weise überwacht werden, jedoch mit [`OffScreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Ereignissen [`contextlost`](/de/docs/Web/API/OffscreenCanvas/contextlost_event) und [`contextrestored`](/de/docs/Web/API/OffscreenCanvas/contextrestored_event), zusammen mit [`OffscreenCanvasRenderingContext2D.isContextLost()`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D#context).

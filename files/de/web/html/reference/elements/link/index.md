@@ -83,7 +83,6 @@ Weitere Nutzungshinweise:
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `as`
-
   - : Dieses Attribut ist erforderlich, wenn [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) auf das `<link>`-Element gesetzt wurde, optional, wenn [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) gesetzt wurde, und sollte ansonsten nicht verwendet werden.
     Es spezifiziert den Typ des Inhalts, der durch das `<link>` geladen wird, was für die Anforderungsabstimmung, die Anwendung der korrekten [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) und das Setzen des korrekten {{HTTPHeader("Accept")}}-Anforderungsheaders notwendig ist.
 
@@ -175,20 +174,16 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     </table>
 
 - `blocking`
-
   - : Dieses Attribut gibt explizit an, dass bestimmte Operationen blockiert werden sollen, bis bestimmte Bedingungen erfüllt sind. Es darf nur verwendet werden, wenn das `rel`-Attribut die Schlüsselwörter `expect` oder `stylesheet` enthält. Mit [`rel="expect"`](/de/docs/Web/HTML/Reference/Attributes/rel#expect) zeigt es an, dass Operationen blockiert werden sollen, bis ein bestimmter DOM-Knoten geparst wurde. Mit [`rel="stylesheet"`](/de/docs/Web/HTML/Reference/Attributes/rel#stylesheet) zeigt es an, dass Operationen blockiert werden sollen, bis ein externes Stylesheet und seine kritischen Subressourcen abgerufen und auf das Dokument angewendet wurden. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste von Blockierungstoken sein, die unten aufgelistet sind. Derzeit gibt es nur ein Token:
-
     - `render`: Das Rendern des Inhalts auf dem Bildschirm wird blockiert.
 
     > [!NOTE]
     > Nur `link`-Elemente im `<head>` des Dokuments können möglicherweise das Rendern blockieren. Standardmäßig blockiert ein `link`-Element mit `rel="stylesheet"` im `<head>` das Rendern, wenn der Browser es während des Parsens entdeckt. Wenn ein solches `link`-Element dynamisch über Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` festlegen, damit es das Rendern blockiert.
 
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
-
   - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, ob {{Glossary("CORS", "CORS")}} verwendet werden muss, wenn die Ressource abgerufen wird.
     [CORS-fähige Bilder](/de/docs/Web/HTML/How_to/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne _verfälscht_ zu werden.
     Die erlaubten Werte sind:
-
     - `anonymous`
       - : Eine Cross-Origin-Anfrage (d.h. mit einem {{HTTPHeader("Origin")}} HTTP-Header) wird durchgeführt, aber es werden keine Anmeldedaten gesendet (d.h. kein Cookie, X.509-Zertifikat oder HTTP-Basisautorisierung).
         Wenn der Server keine Anmeldedaten an die Origin-Site gibt (indem er den {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Header nicht setzt), wird die Ressource verfälscht und ihre Verwendung eingeschränkt.
@@ -200,7 +195,6 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     Siehe [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für zusätzliche Informationen.
 
 - `disabled`
-
   - : Nur für `rel="stylesheet"`, zeigt das boolesche `disabled`-Attribut an, ob das beschriebene Stylesheet geladen und auf das Dokument angewendet werden soll.
     Wenn `disabled` im HTML beim Laden angegeben ist, wird das Stylesheet beim Seitenladen nicht geladen.
     Stattdessen wird das Stylesheet bei Bedarf geladen, wenn und falls das `disabled`-Attribut auf `false` geändert oder entfernt wird.
@@ -234,12 +228,10 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     Das Attribut darf nur angegeben werden, wenn das `rel`-Attribut auf `stylesheet`, `preload` oder `modulepreload` gesetzt ist.
     Siehe [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity).
 - `media`
-
   - : Dieses Attribut gibt die Medien an, auf die die verlinkte Ressource anwendbar ist. Sein Wert muss ein Medientyp / [Medienabfrage](/de/docs/Web/CSS/Guides/Media_queries) sein.
     Dieses Attribut ist hauptsächlich nützlich, wenn man auf externe Stylesheets verlinkt – es ermöglicht dem Benutzeragenten, das am besten angepasste für das Gerät, auf dem es läuft, auszuwählen.
 
 - `referrerpolicy`
-
   - : Ein Zeichenfolge, die angibt, welcher Referrer zum Abrufen der Ressource verwendet werden soll:
     - `no-referrer` bedeutet, dass der {{HTTPHeader("Referer")}}-Header nicht gesendet wird.
     - `no-referrer-when-downgrade` bedeutet, dass kein {{HTTPHeader("Referer")}}-Header gesendet wird, wenn zu einem Ursprung ohne TLS (HTTPS) navigiert wird.
@@ -252,11 +244,9 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 - [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)
   - : Dieses Attribut benennt die Beziehung des verknüpften Dokuments zum aktuellen Dokument. Das Attribut muss eine durch Leerzeichen getrennte Liste von [Link-Typ-Werten](/de/docs/Web/HTML/Reference/Attributes/rel) sein.
 - `sizes`
-
   - : Dieses Attribut definiert die Größen der Icons für visuelle Medien, die in der Ressource enthalten sind.
     Es darf nur vorhanden sein, wenn der [`rel`](#rel) eine Wert von `icon` oder einen nicht-standardmäßigen Typ wie Apples `apple-touch-icon` enthält.
     Es kann die folgenden Werte haben:
-
     - `any`, was bedeutet, dass das Icon auf jede Größe skaliert werden kann, da es in einem Vektorformat wie `image/svg+xml` vorliegt.
     - eine durch Leerzeichen getrennte Liste von Größen, jede im Format `<Breite in Pixel>x<Höhe in Pixel>` oder `<Breite in Pixel>X<Höhe in Pixel>`. Jede dieser Größen muss in der Ressource enthalten sein.
 
@@ -281,7 +271,6 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 ### Veraltete Attribute
 
 - `charset` {{deprecated_inline}}
-
   - : Dieses Attribut definiert die Zeichenkodierung der verlinkten Ressource.
     Der Wert ist eine durch Leerzeichen und/oder Kommas getrennte Liste von Zeichensätzen, wie in {{rfc(2045)}} definiert.
     Der Standardwert ist `iso-8859-1`.
@@ -290,7 +279,6 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     > Um denselben Effekt wie dieses veraltete Attribut zu erzielen, verwenden Sie den {{HTTPHeader("Content-Type")}} HTTP-Header für die verlinkte Ressource.
 
 - `rev` {{deprecated_inline}}
-
   - : Der Wert dieses Attributs zeigt die Beziehung des aktuellen Dokuments zur verlinkten Ressource, wie durch das [`href`](#href)-Attribut definiert.
     Das Attribut definiert somit die umgekehrte Beziehung im Vergleich zu dem Wert des `rel`-Attributs.
     [Link-Typ-Werte](/de/docs/Web/HTML/Reference/Attributes/rel) für das Attribut sind ähnlich den möglichen Werten für [`rel`](#rel).

@@ -14,7 +14,6 @@ Das `Serial`-Interface der [Web Serial API](/de/docs/Web/API/Web_Serial_API) bie
 ## Instanzmethoden
 
 - [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) {{Experimental_Inline}}
-
   - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird, die das vom Benutzer ausgewählte Gerät darstellt. Diese Methode muss über eine {{Glossary("Transient_activation", "flüchtige Aktivierung")}} aufgerufen werden.
 
 - [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts) {{Experimental_Inline}}

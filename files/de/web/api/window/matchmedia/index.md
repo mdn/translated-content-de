@@ -20,7 +20,6 @@ matchMedia(mediaQueryString)
 ### Parameter
 
 - `mediaQueryString`
-
   - : Eine Zeichenkette, die die Media Query angibt, die in ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) geparst werden soll.
 
     Wie in CSS muss jede [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) innerhalb von Klammern in dem Ausdruck eingeschlossen werden. Zum Beispiel: `matchMedia("(width <= 600px)")` oder `matchMedia("(orientation: landscape)")` funktionieren, während `matchMedia("width < 600px")` oder `matchMedia("orientation: landscape")` nicht funktionieren. Schlüsselwörter für Medientypen (`all`, `print`, `screen`) und logische Operatoren (`and`, `or`, `not`, `only`) müssen nicht in Klammern eingeschlossen werden.

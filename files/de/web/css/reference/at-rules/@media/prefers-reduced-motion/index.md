@@ -24,7 +24,6 @@ Solche Animationen können bei Personen mit [vestibulären Bewegungsstörungen](
 Für Firefox wird die `reduce`-Anforderung beachtet, wenn:
 
 - In GTK/GNOME: Einstellungen > Barrierefreiheit > Sehen > Reduzierte Animationen ist aktiviert.
-
   - In älteren Versionen von GNOME ist GNOME Tweaks > Allgemeiner Tab (oder Darstellung, je nach Version) > Animationen deaktiviert.
   - Alternativ fügen Sie `gtk-enable-animations = false` zum `[Settings]` Block der [GTK 3 Konfigurationsdatei](https://wiki.archlinux.org/title/GTK#Configuration) hinzu.
 

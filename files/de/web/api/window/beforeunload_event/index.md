@@ -44,7 +44,6 @@ Um den Dialog anzuzeigen, wenn der Benutzer den Tab schließt oder navigiert, so
 Das `beforeunload`-Ereignis weist einige Probleme auf:
 
 - Es wird nicht zuverlässig ausgelöst, insbesondere auf mobilen Plattformen. Beispielsweise wird das `beforeunload`-Ereignis in folgendem Szenario überhaupt nicht ausgelöst:
-
   1. Ein mobiler Benutzer besucht Ihre Seite.
   2. Der Benutzer wechselt dann zu einer anderen App.
   3. Später schließt der Benutzer den Browser aus dem App-Manager.

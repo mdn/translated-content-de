@@ -35,7 +35,6 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird unter den folgenden Bedingungen ausgelöst:
     - Der _Name_ ist ein leerer String.
     - Ein Konstruktor unter dem angegebenen _Namen_ ist bereits registriert. Die zweimalige Registrierung desselben Namens ist nicht erlaubt.

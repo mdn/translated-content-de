@@ -27,7 +27,6 @@ getFloatValue(unit)
 ### Parameter
 
 - `unit`
-
   - : Ein `unsigned short`, der den Code für den Einheitentyp darstellt, in dem der Wert zurückgegeben werden soll. Gültige Werte sind:
 
     | Konstante        | Beschreibung                                                                                                              |

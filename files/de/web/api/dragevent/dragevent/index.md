@@ -24,7 +24,6 @@ new DragEvent(type, dragEventInit)
 ### Parameter
 
 - `type`
-
   - : Ein String, der den Namen des Ereignisses darstellt (siehe [DragEvent-Ereignistypen](/de/docs/Web/API/DragEvent#event_types)).
 
 - `eventInitDict` {{optional_inline}}

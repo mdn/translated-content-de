@@ -134,9 +134,7 @@ Hinweis: Auch wenn diese Attribute beim ersten Laden einer Seite viel helfen, so
 ## Beispielhafter Seitenaufbau
 
 - `{{htmlelement('html')}}`
-
   - `{{htmlelement('head')}}`
-
     - `{{htmlelement('link')}}`
 
       CSS-Dateien, die für das Aussehen der Seite erforderlich sind. Minimieren Sie die Anzahl der Dateien für die Leistung, während Sie nicht zusammenhängendes CSS in separaten Dateien für die Wartung belassen.
@@ -150,7 +148,6 @@ Hinweis: Auch wenn diese Attribute beim ersten Laden einer Seite viel helfen, so
   - `{{htmlelement('body')}}`
 
     Für den Nutzer sichtbare Seiteninhalte in kleinen Abschnitten (`{{htmlelement('header')}}`/ `{{htmlelement('main')}}/` `{{htmlelement('table')}}`), die angezeigt werden können, ohne auf das vollständige Herunterladen der Seite zu warten.
-
     - `{{htmlelement('script')}}`
 
       Alle Skripte, die für Interaktivität verwendet werden. Interaktionsskripte können typischerweise erst ausgeführt werden, nachdem die Seite vollständig geladen und alle notwendigen Objekte initialisiert wurden. Es besteht keine Notwendigkeit, diese Skripte vor den Seiteninhalten zu laden. Das würde nur das anfängliche Erscheinen der Seitenladezeit verlangsamen.

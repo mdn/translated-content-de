@@ -24,9 +24,7 @@ setLocalDescription(sessionDescription, successCallback, errorCallback) // depre
 ### Parameter
 
 - `sessionDescription` {{optional_inline}}
-
   - : Ein Objekt, das die Konfiguration spezifiziert, die auf das lokale Ende der Verbindung angewendet werden soll. Es sollte die folgenden Eigenschaften enthalten:
-
     - `type` {{optional_inline}}
       - : Ein String, der den Typ der Sitzungsbeschreibung angibt. Wenn Sie nicht explizit eine Sitzungsbeschreibung angeben, versucht die WebRTC-Laufzeitumgebung, sie korrekt zu behandeln. Wenn der Signalisierungszustand einer der folgenden ist: `stable`, `have-local-offer` oder `have-remote-pranswer`, erstellt die WebRTC-Laufzeitumgebung automatisch ein neues Angebot und legt es als neue lokale Beschreibung fest. Andernfalls erstellt `setLocalDescription()` eine Antwort, die zur neuen lokalen Beschreibung wird.
     - `sdp` {{optional_inline}}

@@ -75,15 +75,12 @@ hwb(H W B[ / A])
 Die Parameter sind wie folgt:
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (äquivalent zu `0deg` in diesem Fall), das den {{CSSXref("&lt;hue&gt;")}} Winkel der Farbe repräsentiert.
 
 - `W`
-
   - : Ein {{CSSXref("&lt;percentage&gt;")}}, das den Weißanteil der Farbe repräsentiert, oder das Schlüsselwort `none` (äquivalent zu `0%`), das zum Mischen verwendet wird. `0%` bedeutet kein Weißanteil. `100%` bedeutet voller Weißanteil, wenn `B` `0` ist, andernfalls werden die Werte von `W` und `B` normalisiert.
 
 - `B`
-
   - : Ein {{CSSXref("&lt;percentage&gt;")}}, das den Schwarzanteil der Farbe repräsentiert, oder das Schlüsselwort `none` (äquivalent zu `0%`), das zum Mischen verwendet wird. `0%` bedeutet kein Schwarzanteil. `100%` bedeutet voller Schwarzanteil, wenn `W` `0` ist, andernfalls werden die Werte von `W` und `B` normalisiert.
 
 - `A` {{optional_inline}}
@@ -104,19 +101,15 @@ hwb(from <color> H W B[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-
   - : Das Schlüsselwort `from` wird immer beim Definieren einer relativen Farbe verwendet, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** repräsentiert. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (äquivalent zu `0deg` in diesem Fall), das den {{CSSXref("&lt;hue&gt;")}} Winkel der Ausgabefarbe repräsentiert.
 
 - `W`
-
   - : Ein {{CSSXref("&lt;percentage&gt;")}}, das den Weißanteil der Farbe repräsentiert, oder das Schlüsselwort `none` (äquivalent zu `0%`), das zum Mischen verwendet wird. `0%` bedeutet kein Weißanteil. `100%` bedeutet voller Weißanteil, wenn `B` `0` ist, andernfalls werden die Werte von `W` und `B` normalisiert.
 
 - `B`
-
   - : Ein {{CSSXref("&lt;percentage&gt;")}}, das den Schwarzanteil der Farbe repräsentiert, oder das Schlüsselwort `none` (äquivalent zu `0%`), das zum Mischen verwendet wird. `0%` bedeutet kein Schwarzanteil. `100%` bedeutet voller Schwarzanteil, wenn `W` `0` ist, andernfalls werden die Werte von `W` und `B` normalisiert.
 
 - `A` {{optional_inline}}

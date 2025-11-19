@@ -20,11 +20,9 @@ Die Werte `first` und `last` geben einem Kästchen eine Vorzugsbasislinienausric
 Der `<baseline-position>` aufzählbare Wertetyp wird durch einen optionalen `first` oder `last` Modifikator mit dem `baseline` Wert spezifiziert. Wenn ein Kästchen nicht zu einem gemeinsamen Ausrichtungskontext gehört, wird die Ersatzausrichtung verwendet. Die Ersatzausrichtung wird auch verwendet, um die Basislinienteilgruppe innerhalb ihres {{Glossary("alignment_container", "Ausrichtungscontainers")}} auszurichten.
 
 - `baseline`
-
   - : Berechnet sich zu `first baseline`, wie unten definiert.
 
 - `first baseline`
-
   - : Richtet die Ausrichtungsbasislinie des ersten Basisliniensatzes des Kästchens mit der entsprechenden Basislinie seiner Basislinienteilgruppe aus. Die Ersatzausrichtung ist `safe self-start` für die Eigenausrichtung oder `safe start` für die Inhaltsverteilung.
 
 - `last baseline`

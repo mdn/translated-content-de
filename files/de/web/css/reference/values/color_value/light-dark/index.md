@@ -37,7 +37,6 @@ color: light-dark(var(--light), var(--dark));
 Funktionale Notation: `light-dark(light-color, dark-color)`
 
 - `light-color`
-
   - : {{CSSXref("&lt;color&gt;")}}-Wert, der für ein helles {{CSSXref("color-scheme")}} festgelegt wird.
 
 - `dark-color`

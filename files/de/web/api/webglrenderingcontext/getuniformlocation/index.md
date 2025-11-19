@@ -34,13 +34,11 @@ getUniformLocation(program, name)
 - `program`
   - : Das [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), in dem die angegebene uniform-Variable zu lokalisieren ist.
 - `name`
-
   - : Ein String, der den Namen der uniform-Variable angibt, deren Standort zurückgegeben werden soll. Der Name darf keine Leerzeichen enthalten, und Sie können diese Funktion nicht verwenden, um den Standort von uniform-Variablen zu erhalten, die mit dem reservierten String `"gl_"` beginnen, da diese intern in der WebGL-Schicht sind.
 
     Die möglichen Werte entsprechen den uniform-Namen, die von [`getActiveUniform`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden. Sehen Sie sich diese Funktion für spezifische Informationen darüber an, wie deklarierte uniforms zu uniform-Standortnamen abgebildet werden.
 
     Zusätzlich sind für als Arrays deklarierte uniforms auch folgende Namen gültig:
-
     - Der uniform-Name ohne den `[0]`-Suffix. Z.B. der Standort, der für `arrayUniform` zurückgegeben wird, entspricht dem für `arrayUniform[0]`.
     - Der uniform-Name mit einem Integer-Indizierung. Z.B. der Standort, der für `arrayUniform[2]` zurückgegeben wird, würde direkt auf den dritten Eintrag der `arrayUniform`-uniform-Variable zeigen.
 

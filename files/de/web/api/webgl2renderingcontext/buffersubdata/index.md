@@ -22,7 +22,6 @@ bufferSubData(target, dstByteOffset, srcData, srcOffset, length)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (Ziel) angibt. Mögliche Werte:
     - `gl.ARRAY_BUFFER`
       - : Puffer, der Vertex-Attribute enthält, wie z.B.

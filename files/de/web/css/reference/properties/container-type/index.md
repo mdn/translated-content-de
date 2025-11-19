@@ -35,15 +35,12 @@ container-type: unset;
 Die Eigenschaft `container-type` kann einen einzelnen Wert aus der untenstehenden Liste annehmen oder zwei Werte – einer muss `scroll-state` und der andere kann `inline-size` oder `size` sein. Mit anderen Worten, ein Element kann als Größenabfragecontainer, Scroll-Zustandsabfragecontainer, beides oder keines von beidem definiert werden.
 
 - `inline-size`
-
   - : Definiert einen Abfragecontainer für dimensionale Abfragen auf der [Inline-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) des Containers. Wendet [style](/de/docs/Web/CSS/Reference/Properties/contain#style) und [inline-size](/de/docs/Web/CSS/Reference/Properties/contain#inline-size)-Einschränkungen auf das Element an. Die Inline-Größe des Elements kann [isoliert berechnet](/de/docs/Web/CSS/Guides/Containment/Using#size_containment) werden, wobei die Kindelemente ignoriert werden (siehe [Using CSS containment](/de/docs/Web/CSS/Guides/Containment/Using)).
 
 - `normal`
-
   - : Standardwert. Das Element ist kein Abfragecontainer für irgendwelche Containergrößenabfragen, bleibt jedoch ein Abfragecontainer für [Container-Stilabfragen](/de/docs/Web/CSS/Reference/At-rules/@container#container_style_queries).
 
 - `scroll-state`
-
   - : Definiert einen Abfragecontainer für Scroll-Zustandsabfragen auf dem Container. In diesem Fall wird die Größe des Elements nicht isoliert berechnet; es wird keine Einschränkung angewendet.
 
 - `size`

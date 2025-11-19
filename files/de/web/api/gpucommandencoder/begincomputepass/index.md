@@ -20,15 +20,11 @@ beginComputePass(descriptor)
 ### Parameter
 
 - `descriptor` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `label` {{optional_inline}}
       - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen zu identifizieren.
     - `timestampWrites` {{optional_inline}}
-
       - : Ein Array von Objekten, das definiert, wo und wann Zeitstempelabfrage-Werte für diesen Pass geschrieben werden. Diese Objekte haben die folgenden Eigenschaften:
-
         - `querySet`
           - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) vom Typ `"timestamp"`, zu dem die Ergebnisse der Zeitstempelabfrage geschrieben werden.
         - `beginningOfPassWriteIndex`

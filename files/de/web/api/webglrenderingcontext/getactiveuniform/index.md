@@ -77,7 +77,6 @@ Wenn `gl.linkProgram` aufgerufen wird, erstellt WebGL eine Liste von aktiven Uni
 - Array eines Basistyps: ein Eintrag mit dem Namen des Uniforms, gefolgt von `[0]`. Z.B. `uniform vec4 b[];` ergibt `b[0]`.
 - Strukt-Typ: ein Eintrag für jedes Mitglied der Struktur. Z.B. `uniform struct { float foo; vec4 bar; } c;` ergibt `c.foo` und `c.bar`.
 - Arrays von Strukturen oder Arrays: jeder Eintrag im Array erzeugt eigene Einträge. Z.B. `uniform struct { float foo; vec4 bar; } d[2];` ergibt:
-
   - `d[0].foo`
   - `d[0].bar`
   - `d[1].foo`

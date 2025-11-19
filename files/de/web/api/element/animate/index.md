@@ -29,16 +29,12 @@ animate(keyframes, options)
   - : Entweder ein Array von Keyframe-Objekten **oder** ein Keyframe-Objekt, dessen
     Eigenschaften Arrays von Werten zum Iterieren sind. Weitere Details finden Sie unter [Keyframe Formats](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats).
 - `options`
-
   - : Entweder ein **Ganzzahlwert, der die Dauer der Animation** (in
     Millisekunden) darstellt, **oder** ein Objekt, das eine oder mehrere Zeitsteuerungseigenschaften enthält, die im [`KeyframeEffect()` options Parameter](/de/docs/Web/API/KeyframeEffect/KeyframeEffect#parameters) beschrieben sind, und/oder die folgenden Optionen:
-
     - `id` {{optional_inline}}
       - : Eine Eigenschaft, die einzigartig für `animate()` ist: Ein String, mit dem die Animation referenziert werden kann.
     - `rangeEnd` {{optional_inline}}
-
       - : Gibt das Ende des Anheftungsbereichs einer Animation entlang ihrer Zeitachse an, d.h. wo entlang der Zeitachse eine Animation enden wird. Das JavaScript-Äquivalent der CSS-Eigenschaft {{cssxref("animation-range-end")}}. `rangeEnd` kann mehrere verschiedene Wertetypen annehmen, wie folgt:
-
         - Ein String, der `normal` sein kann (was keine Änderung des Anheftungsbereichs der Animation bedeutet), ein CSS {{cssxref("length-percentage")}}, das einen Versatz darstellt, ein `<timeline-range-name>`, oder ein `<timeline-range-name>` mit einem darauf folgenden `<length-percentage>`. Zum Beispiel: `"normal"`, `"entry"`, oder `"cover 100%"`.
 
           Siehe [`animation-range`](/de/docs/Web/CSS/Reference/Properties/animation-range) für eine detaillierte Beschreibung der verfügbaren Werte. Schauen Sie sich auch den [View Timeline Ranges Visualizer](https://scroll-driven-animations.style/tools/view-timeline/ranges/) an, der genau zeigt, was die verschiedenen Werte in einem einfach visuellen Format bedeuten.

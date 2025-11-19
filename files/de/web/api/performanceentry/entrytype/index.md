@@ -17,85 +17,71 @@ Alle unterstützten `entryTypes` sind über die statische Eigenschaft [`Performa
 Eine Zeichenfolge. Der Rückgabewert hängt vom Subtyp des `PerformanceEntry`-Objekts ab. Einige Subtypen haben mehr als einen `entryType`.
 
 - `element`
-
   - : Berichtet die Ladezeit von Elementen.
 
     Die Eintragsinstanz wird ein [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekt sein.
 
 - `event`
-
   - : Berichtet über Ereignisverzögerungen.
 
     Die Eintragsinstanz wird ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt sein.
 
 - `first-input`
-
   - : Berichtet über die {{Glossary("First_Input_Delay", "First Input Delay")}} (FID).
 
     Die Eintragsinstanz wird ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt sein.
 
 - `largest-contentful-paint`
-
   - : Berichtet über das größte Rendering, das ein Element auf dem Bildschirm ausgelöst hat.
 
     Die Eintragsinstanz wird ein [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Objekt sein.
 
 - `layout-shift`
-
   - : Berichtet über die Stabilität des Layouts von Webseiten basierend auf Bewegungen der Elemente auf der Seite.
 
     Die Eintragsinstanz wird ein [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekt sein.
 
 - `long-animation-frame`
-
   - : Berichtet über Instanzen von [langen Animationsrahmen (LoAFs)](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#what_is_a_long_animation_frame).
 
     Die Eintragsinstanz wird ein [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Objekt sein.
 
 - `longtask`
-
   - : Berichtet über Instanzen langer Aufgaben.
 
     Die Eintragsinstanz wird ein [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Objekt sein.
 
 - `mark`
-
   - : Berichtet über eigene, benutzerdefinierte Leistungsmarkierungen.
 
     Die Eintragsinstanz wird ein [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekt sein.
 
 - `measure`
-
   - : Berichtet über eigene, benutzerdefinierte Leistungsmaße.
 
     Die Eintragsinstanz wird ein [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt sein.
 
 - `navigation`
-
   - : Berichtet über das Timing der Dokumentennavigation.
 
     Die Eintragsinstanz wird ein [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekt sein.
 
 - `paint`
-
   - : Berichtet über wichtige Momente des Dokumentenrenderings (erster Anstrich, erster inhaltlicher Anstrich) während des Seitenladevorgangs.
 
     Die Eintragsinstanz wird ein [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)-Objekt sein.
 
 - `resource`
-
   - : Berichtet über Timing-Informationen für Ressourcen in einem Dokument.
 
     Die Eintragsinstanz wird ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt sein.
 
 - `taskattribution`
-
   - : Berichtet über die Art der Arbeit, die wesentlich zur langen Aufgabe beigetragen hat.
 
     Die Eintragsinstanz wird ein [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekt sein.
 
 - `visibility-state`
-
   - : Berichtet über das Timing von Sichtbarkeitszustandsänderungen der Seite, d.h. wenn ein Tab von Vordergrund zu Hintergrund oder umgekehrt wechselt.
 
     Die Eintragsinstanz wird ein [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)-Objekt sein.

@@ -119,7 +119,6 @@ grid-auto-columns: unset;
 - {{cssxref("&lt;percentage&gt;")}}
   - : Ist ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert relativ zur Blockgröße des Grid-Containers. Wenn die Blockgröße des Grid-Containers unbestimmt ist, wird der Prozentwert wie `auto` behandelt.
 - {{cssxref("&lt;flex&gt;")}}
-
   - : Ist eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-dimensionierte Spur nimmt im Verhältnis zu ihrem Flex-Faktor einen Teil des verbleibenden Raums ein.
 
     Wenn sie außerhalb einer `minmax()`-Notation erscheint, impliziert sie ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
@@ -133,7 +132,6 @@ grid-auto-columns: unset;
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
   - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` (d.h. `minmax(auto, max-content)`) berechnet wird, außer dass die Spurgröße bei _argument_ abgeschnitten wird, wenn sie größer als das `auto`-Minimum ist.
 - `auto`
-
   - : Als Maximum repräsentiert es die größte {{cssxref("max-content")}}-Größe der Items in dieser Spur.
 
     Als Minimum repräsentiert es die größte Mindestgröße der Items in dieser Spur (spezifiziert durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} der Items). Dies ist oft, aber nicht immer, die {{cssxref("min-content")}}-Größe.

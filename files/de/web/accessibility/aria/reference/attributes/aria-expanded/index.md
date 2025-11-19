@@ -69,11 +69,9 @@ Eine übergeordnete Zeile in einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/
 ## Werte
 
 - `false`
-
   - : Das Gruppierungselement, das dieses Element besitzt oder steuert, ist eingeklappt.
 
 - `true`
-
   - : Das Gruppierungselement, das dieses Element besitzt oder steuert, ist erweitert.
 
 - `undefined` (Standard)

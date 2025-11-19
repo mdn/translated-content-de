@@ -20,14 +20,11 @@ getFramebufferAttachmentParameter(target, attachment, pname)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
-
     - `gl.FRAMEBUFFER`
       - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Buffer zur Bilddarstellung.
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
-
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
         Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
@@ -35,38 +32,30 @@ getFramebufferAttachmentParameter(target, attachment, pname)
       - : Wird als Quelle für Leseoperationen verwendet.
 
 - `attachment`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Anhangspunkt für die `texture` angibt. Mögliche Werte:
-
     - `gl.COLOR_ATTACHMENT0`: Texturanhang für den Farbpuffer des Framebuffers.
     - `gl.DEPTH_ATTACHMENT`: Texturanhang für den Tiefenpuffer des Framebuffers.
     - `gl.STENCIL_ATTACHMENT`: Texturanhang für den Stencil-Puffer des Framebuffers.
     - `gl.DEPTH_STENCIL_ATTACHMENT`: Texturanhang sowohl für den Tiefen- als auch den Stencil-Puffer.
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
-
     - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 gl.COLOR_ATTACHMENT3 gl.COLOR_ATTACHMENT4 gl.COLOR_ATTACHMENT5 gl.COLOR_ATTACHMENT6 gl.COLOR_ATTACHMENT7 gl.COLOR_ATTACHMENT8 gl.COLOR_ATTACHMENT9 gl.COLOR_ATTACHMENT10 gl.COLOR_ATTACHMENT11 gl.COLOR_ATTACHMENT12 gl.COLOR_ATTACHMENT13 gl.COLOR_ATTACHMENT14 gl.COLOR_ATTACHMENT15`
 
     Bei Verwendung der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers) Erweiterung:
-
     - `ext.COLOR_ATTACHMENT0_WEBGL` (gleich wie `gl.COLOR_ATTACHMENT0`)
       `ext.COLOR_ATTACHMENT1_WEBGL ext.COLOR_ATTACHMENT2_WEBGL ext.COLOR_ATTACHMENT3_WEBGL ext.COLOR_ATTACHMENT4_WEBGL ext.COLOR_ATTACHMENT5_WEBGL ext.COLOR_ATTACHMENT6_WEBGL ext.COLOR_ATTACHMENT7_WEBGL ext.COLOR_ATTACHMENT8_WEBGL ext.COLOR_ATTACHMENT9_WEBGL ext.COLOR_ATTACHMENT10_WEBGL ext.COLOR_ATTACHMENT11_WEBGL ext.COLOR_ATTACHMENT12_WEBGL ext.COLOR_ATTACHMENT13_WEBGL ext.COLOR_ATTACHMENT14_WEBGL ext.COLOR_ATTACHMENT15_WEBGL`
 
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen angibt. Mögliche Werte:
-
     - `gl.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE`: Der Typ, der das angehängte Bild enthält.
     - `gl.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME`: Die Textur oder der Renderbuffer des angehängten Bildes ([`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) oder [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)).
     - `gl.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL`: Mipmap-Stufe. Standardwert: 0.
     - `gl.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE`: Der Name der Cube-Map-Seite der Textur.
 
     Bei Verwendung der [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB) Erweiterung:
-
     - `ext.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT`: Die Farbcodierung des Framebuffers.
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
-
     - `gl.FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE`
     - `gl.FRAMEBUFFER_ATTACHMENT_BLUE_SIZE`
     - `gl.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING`
@@ -78,7 +67,6 @@ getFramebufferAttachmentParameter(target, attachment, pname)
     - `gl.FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER`
 
     Bei Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2) Erweiterung:
-
     - `ext.FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR`: die Anzahl der Ansichten des Framebuffer-Objekt-Anhangs.
     - `ext.FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR`: der Basisansichtsindex des Framebuffer-Objekt-Anhangs.
 

@@ -29,7 +29,6 @@ start(timeslice)
 ### Parameter
 
 - `timeslice` {{optional_inline}}
-
   - : Die Anzahl der Millisekunden, die in jedes [`Blob`](/de/docs/Web/API/Blob) aufgezeichnet werden sollen. Wenn dieser Parameter nicht enthalten ist, wird die gesamte Mediadauer in ein einzelnes `Blob` aufgezeichnet, es sei denn, die [`requestData()`](/de/docs/Web/API/MediaRecorder/requestData)-Methode wird aufgerufen, um das `Blob` zu erhalten und die Erstellung eines neuen `Blob` zu triggern, in das die Medien weiterhin aufgezeichnet werden.
 
     > [!NOTE]

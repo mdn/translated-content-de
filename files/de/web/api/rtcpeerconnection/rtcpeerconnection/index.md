@@ -20,17 +20,13 @@ new RTCPeerConnection(configuration)
 ### Parameter
 
 - `configuration` {{optional_inline}}
-
   - : Ein Objekt, das Optionen zur Konfiguration der neuen Verbindung bereitstellt:
-
     - `bundlePolicy` {{optional_inline}}
-
       - : Gibt an, wie mit der Verhandlung von Kandidaten umgegangen werden soll, wenn der entfernte Peer nicht mit dem [SDP BUNDLE Standard](https://datatracker.ietf.org/doc/rfc8843/) kompatibel ist. Wenn der entfernte Endpunkt BUNDLE-fähig ist, werden alle Medientracks und Datenkanäle unabhängig von der verwendeten Richtlinie am Ende der Verhandlung auf einen einzigen Transport gebündelt, und alle überflüssigen Transporte, die ursprünglich erstellt wurden, werden an diesem Punkt geschlossen.
 
         Technisch gesehen lässt ein BUNDLE alle Medien zwischen zwei Peers über ein einziges **5-Tuple** fließen; das bedeutet, von einer einzelnen IP und einem Port auf einem Peer zu einer einzelnen IP und einem Port auf dem anderen Peer, unter Verwendung desselben Transportprotokolls.
 
         Dies muss einer der folgenden Zeichenfolgenwerte sein, falls nicht wird `balanced` angenommen:
-
         - `"balanced"`
           - : Der ICE-Agent erstellt zunächst einen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) für jeden hinzugefügten Inhaltstyp: Audio, Video und Datenkanäle. Wenn der entfernte Endpunkt nicht BUNDLE-fähig ist, dann verwaltet jeder dieser DTLS-Transporte die gesamte Kommunikation für einen Datentyp.
         - `"max-compat"`
@@ -39,21 +35,18 @@ new RTCPeerConnection(configuration)
           - : Der ICE-Agent erstellt zunächst nur einen einzigen [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), um alle Daten der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu transportieren. Wenn der entfernte Endpunkt nicht BUNDLE-fähig ist, wird nur ein einziger Track verhandelt und der Rest ignoriert.
 
     - `certificates` {{optional_inline}}
-
       - : Ein {{jsxref("Array")}} von Objekten des Typs [`RTCCertificate`](/de/docs/Web/API/RTCCertificate), die von der Verbindung zur Authentifizierung verwendet werden. Wird diese Eigenschaft nicht angegeben, wird für jede [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz automatisch eine Gruppe von Zertifikaten generiert. Obwohl pro Verbindung nur ein Zertifikat verwendet wird, kann die Bereitstellung von Zertifikaten für mehrere Algorithmen in einigen Fällen die Chancen auf eine erfolgreiche Verbindung erhöhen. Siehe [Verwendung von Zertifikaten](#verwendung_von_zertifikaten) für weitere Informationen.
 
         > [!NOTE]
         > Diese Konfigurationsoption kann nicht geändert werden, nachdem sie erstmals festgelegt wurde; sobald die Zertifikate festgelegt sind, wird diese Eigenschaft in zukünftigen Aufrufen von [`RTCPeerConnection.setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) ignoriert.
 
     - `iceCandidatePoolSize` {{optional_inline}}
-
       - : Ein vorzeichenloser 16-Bit-Integer-Wert, der die Größe des vorab geladenen ICE-Kandidatenpools angibt. Der Standardwert ist 0 (das bedeutet, es findet kein Kandidatenvorabruf statt). In einigen Fällen kann es sein, dass Verbindungen schneller hergestellt werden können, indem der ICE-Agent damit beginnt, ICE-Kandidaten abzurufen, bevor Sie versuchen, eine Verbindung herzustellen, sodass sie bereits zur Überprüfung bereitstehen, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufgerufen wird.
 
         > [!NOTE]
         > Eine Änderung der Größe des ICE-Kandidatenpools kann das Starten der ICE-Sammlung auslösen.
 
     - `iceServers` {{optional_inline}}
-
       - : Ein Array von Objekten, von denen jedes einen Server beschreibt, der vom ICE-Agent verwendet werden kann; es handelt sich dabei normalerweise um STUN- und/oder TURN-Server. Wird dies nicht angegeben, wird der Verbindungsversuch ohne verfügbaren STUN- oder TURN-Server unternommen, was die Verbindung auf lokale Peers beschränkt. Jedes Objekt kann die folgenden Eigenschaften haben:
         - `credential` {{optional_inline}}
           - : Das Anmeldekennwort für die Anmeldung am Server. Dies wird nur verwendet, wenn das Objekt einen TURN-Server darstellt.
@@ -65,7 +58,6 @@ new RTCPeerConnection(configuration)
           - : Wenn das Objekt einen TURN-Server darstellt, ist dies der Benutzername, der während der Authentifizierung verwendet wird.
 
     - `iceTransportPolicy` {{optional_inline}}
-
       - : Eine Zeichenkette, die die aktuelle ICE-Transportpolitik darstellt. Mögliche Werte sind:
         - `"all"`
           - : Alle ICE-Kandidaten werden berücksichtigt. Dies ist der Standardwert.

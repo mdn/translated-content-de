@@ -74,7 +74,6 @@ svg {
 - `none`
   - : Wählen Sie die Größe der Schrift nur basierend auf der Eigenschaft {{ Cssxref("font-size") }}.
 - {{cssxref("&lt;number&gt;")}}
-
   - : Wählen Sie die Größe der Schrift so, dass ihre Kleinbuchstaben (bestimmt durch die x-Höhe der Schrift) die angegebene Zahl mal der {{ Cssxref("font-size") }} ist.
 
     Die angegebene Zahl sollte im Allgemeinen das {{Glossary("aspect_ratio", "Seitenverhältnis")}} (Verhältnis von x-Höhe zu Schriftgröße) der erstgewählten {{ Cssxref("font-family") }} sein. Dies bedeutet, dass die erstgewählte Schriftart, wenn verfügbar, in Browsern gleich groß erscheint, unabhängig davon, ob sie `font-size-adjust` unterstützen oder nicht.

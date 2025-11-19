@@ -48,13 +48,11 @@ Die Motivation ist, dass das {{HTMLElement("form")}}-Element aus HTML 4.0 (das C
 Eine _einfache Anfrage_ ist eine, die **alle folgenden Bedingungen erfüllt**:
 
 - Eine der erlaubten Methoden:
-
   - {{HTTPMethod("GET")}}
   - {{HTTPMethod("HEAD")}}
   - {{HTTPMethod("POST")}}
 
 - Abgesehen von den automatisch vom Benutzeragenten gesetzten Headern (zum Beispiel {{HTTPHeader("Connection")}}, {{HTTPHeader("User-Agent")}} oder den {{Glossary("Forbidden_request_header", "verbotenen Anforderungs-Headern")}}), sind die einzigen Header, die manuell gesetzt werden dürfen, die {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungs-Header")}}, die sind:
-
   - {{HTTPHeader("Accept")}}
   - {{HTTPHeader("Accept-Language")}}
   - {{HTTPHeader("Content-Language")}}
@@ -62,7 +60,6 @@ Eine _einfache Anfrage_ ist eine, die **alle folgenden Bedingungen erfüllt**:
   - {{HTTPHeader("Range")}} (nur mit einem [einfachen Bereichsheader-Wert](https://fetch.spec.whatwg.org/#simple-range-header-value); z. B. `bytes=256-` oder `bytes=127-255`)
 
 - Die einzigen erlaubten Typ/Subtyp-Kombinationen für den {{Glossary("MIME_type", "Medientyp")}}, die im {{HTTPHeader("Content-Type")}}-Header angegeben sind, sind:
-
   - `application/x-www-form-urlencoded`
   - `multipart/form-data`
   - `text/plain`

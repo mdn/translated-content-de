@@ -19,7 +19,6 @@ Das marquee muss einen zugänglichen Namen haben. Verwenden Sie [`aria-labelledb
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)
-
   - : Definiert, wann unterstützende Technologien den Benutzer über Aktualisierungen des Inhalts informieren sollten. Elemente mit der Rolle `marquee` haben einen impliziten `aria-live`-Wert von `off`, was bedeutet, dass Screenreader Änderungen innerhalb des Marquees nicht ankündigen werden, auch wenn der Benutzer inaktiv ist.
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)

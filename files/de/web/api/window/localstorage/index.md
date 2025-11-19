@@ -19,9 +19,7 @@ Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das verwendet werden kann, um 
 ### Ausnahmen
 
 - `SecurityError`
-
   - : Wird in einem der folgenden Fälle ausgelöst:
-
     - Der Ursprung ist kein [gültiges Schema/Host/Port-Tupel](/de/docs/Web/Security/Same-origin_policy#definition_of_an_origin). Dies kann passieren, wenn der Ursprung beispielsweise die Schemas `file:` oder `data:` verwendet.
     - Die Anfrage verletzt eine Richtlinienentscheidung. Zum Beispiel, wenn der Benutzer den Browser so konfiguriert hat, dass verhindert wird, dass die Seite Daten speichert.
 

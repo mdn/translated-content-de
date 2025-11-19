@@ -115,7 +115,6 @@ Es ist nicht mehr möglich, XPCOM-Objekte aus ChromeWorkers zuzugreifen. XPConne
 ### Änderungen am Build-System
 
 - Die folgenden Build-Konfigurationsoptionen wurden entfernt:
-
   - `--enable-timeline`
   - `--disable-storage`
   - `--necko-disk-cache`

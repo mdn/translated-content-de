@@ -86,19 +86,15 @@ Die `font-weight` Eigenschaft wird entweder durch einen `<font-weight-absolute>`
 ### Werte
 
 - `normal`
-
   - : Normale Schriftstärke. Entspricht `400`.
 
 - `bold`
-
   - : Fette Schriftstärke. Entspricht `700`.
 
 - `<number>`
-
   - : Ein {{cssxref("&lt;number&gt;")}} Wert zwischen 1 und 1000, beide eingeschlossen. Höhere Zahlen repräsentieren Stärken, die fetter als (oder genauso fett wie) niedrigere Zahlen sind. Dies ermöglicht eine fein abgestufte Kontrolle für [variable Schriften](#variable_schriften). Bei nicht-variablen Schriften wird, wenn die exakt spezifizierte Stärke nicht verfügbar ist, ein [Fallback-Gewicht](#fallback-gewichte) Algorithmus verwendet — numerische Werte, die durch 100 teilbar sind, entsprechen gebräuchlichen Gewichtsbezeichnungen, wie im Abschnitt [Abbildung gebräuchlicher Gewichtsbezeichnungen](#abbildung_gebräuchlicher_gewichtsbezeichnungen) unten beschrieben.
 
 - `lighter`
-
   - : Eine relative Schriftstärke leichter als das Elternelement. Beachten Sie, dass nur vier Schriftstärken zur Berechnung relativer Gewichte herangezogen werden; siehe den Abschnitt [Bedeutung relativer Gewichte](#bedeutung_relativer_gewichte) unten.
 
 - `bolder`
@@ -109,7 +105,6 @@ Die `font-weight` Eigenschaft wird entweder durch einen `<font-weight-absolute>`
 Wenn das genau angegebene Gewicht nicht verfügbar ist, wird die folgende Regel verwendet, um das tatsächlich gerenderte Gewicht zu bestimmen:
 
 - Wenn das angegebene Zielgewicht zwischen `400` und `500` inklusiv liegt:
-
   - Suchen Sie nach verfügbaren Gewichten zwischen dem Ziel und `500`, in aufsteigender Reihenfolge.
   - Wenn keine Übereinstimmung gefunden wird, suchen Sie nach verfügbaren Gewichten unterhalb des Ziels, in absteigender Reihenfolge.
   - Wenn keine Übereinstimmung gefunden wird, suchen Sie nach verfügbaren Gewichten oberhalb von `500`, in aufsteigender Reihenfolge.

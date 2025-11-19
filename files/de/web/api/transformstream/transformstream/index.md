@@ -22,11 +22,9 @@ new TransformStream(transformer, writableStrategy, readableStrategy)
 ### Parameter
 
 - `transformer` {{optional_inline}}
-
   - : Ein Objekt, das den `transformer` darstellt. Wenn es nicht angegeben wird, resultiert der Stream in einem **Identitäts-Transform-Stream**, der alle an seine beschreibbare Seite geschriebenen Chunks an seine lesbare Seite weiterleitet, ohne Änderungen vorzunehmen.
 
     Das Transformer-Objekt kann eine der folgenden Methoden enthalten. In jeder Methode ist `controller` eine Instanz von [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController).
-
     - `start(controller)`
       - : Wird aufgerufen, wenn der `TransformStream` konstruiert wird. Es wird typischerweise verwendet, um Chunks mit [`TransformStreamDefaultController.enqueue()`](/de/docs/Web/API/TransformStreamDefaultController/enqueue) in die Warteschlange zu stellen.
     - `transform(chunk, controller)`
@@ -35,7 +33,6 @@ new TransformStream(transformer, writableStrategy, readableStrategy)
       - : Wird aufgerufen, nachdem alle an die beschreibbare Seite geschriebenen Chunks erfolgreich transformiert wurden und die beschreibbare Seite geschlossen werden soll.
 
 - `writableStrategy` {{optional_inline}}
-
   - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert. Dies nimmt zwei
     Parameter:
     - `highWaterMark`

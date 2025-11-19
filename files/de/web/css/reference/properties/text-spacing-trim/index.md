@@ -29,9 +29,7 @@ text-spacing-trim: unset;
 ### Werte
 
 - `<spacing-trim>`
-
   - : Definiert die verschiedenen Optionen für das Abstands-Trimming. Verfügbare Werte sind:
-
     - `normal`
       - : Setzt CJK-Vollbreite-öffnende Satzzeichen am Anfang jeder Zeile auf Vollbreite. Setzt CJK-Vollbreite-schließende Satzzeichen am Ende jeder Zeile auf Vollbreite oder auf halbe Breite, wenn sie nicht vor der Ausrichtung in die Zeile passen. [Kollabiert Abstände](#kollabieren_von_vollbreite-satzzeichen) zwischen Satzzeichen.
     - `space-all`

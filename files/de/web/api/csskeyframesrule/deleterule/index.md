@@ -19,9 +19,7 @@ deleteRule(select)
 ### Parameter
 
 - `select`
-
   - : Ein String, der den Keyframe-Selektor der zu löschenden Regel enthält und muss:
-
     - eine kommagetrennte Liste von Prozentwerten zwischen 0% und 100% sein;
     - oder die Schlüsselwörter `from` oder `to`
 

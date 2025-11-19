@@ -24,17 +24,13 @@ mapAsync(mode, offset, size)
 ### Parameter
 
 - `mode`
-
   - : Ein {{Glossary("bitwise_flags", "bitweises Flag")}}, das angibt, ob der `GPUBuffer` zum Lesen oder Schreiben gemappt ist. Mögliche Werte sind:
-
     - `GPUMapMode.READ`
-
       - : Der `GPUBuffer` ist zum Lesen gemappt. Werte können gelesen werden, aber alle Änderungen, die am zurückgegebenen {{jsxref("ArrayBuffer")}} durch [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) vorgenommen werden, werden verworfen, sobald [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) aufgerufen wird.
 
         Das Lesen-Modus-Mapping kann nur auf `GPUBuffer`s verwendet werden, die eine Nutzung von `GPUBufferUsage.MAP_READ` haben (d.h. wenn sie mit [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) erstellt wurden).
 
     - `GPUMapMode.WRITE`
-
       - : Der `GPUBuffer` ist zum Schreiben gemappt. Werte können gelesen und aktualisiert werden — alle Änderungen, die am zurückgegebenen {{jsxref("ArrayBuffer")}} durch [`GPUBuffer.getMappedRange()`](/de/docs/Web/API/GPUBuffer/getMappedRange) vorgenommen werden, werden auf dem `GPUBuffer` gespeichert, sobald [`GPUBuffer.unmap()`](/de/docs/Web/API/GPUBuffer/unmap) aufgerufen wird.
 
         Das Schreiben-Modus-Mapping kann nur auf `GPUBuffer`s verwendet werden, die eine Nutzung von `GPUBufferUsage.MAP_WRITE` haben (d.h. wenn sie mit [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) erstellt wurden).

@@ -15,7 +15,6 @@ Dieser Artikel enthält Informationen über die Änderungen in Firefox 61, die E
 - Die neue Gestaltung der Console-UI wurde standardmäßig für die [Browser Console](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html) und das [Browser Toolbox](https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html) aktiviert ([Firefox bug 1362023](https://bugzil.la/1362023)/[Firefox bug 1347127](https://bugzil.la/1347127)). Die alte UI wurde entfernt.
 - Im [Network Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) wird beim Klicken auf _Open in New Tab_ im Kontextmenü einer `POST`-Anfrage die Anfrage mit den erwarteten `POST`-Parametern korrekt erneut gesendet ([Firefox bug 1407515](https://bugzil.la/1407515)).
 - [CSS-Variablen vervollständigen jetzt automatisch](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html#css-variable-autocompletion) mit Farbfeldern, sodass Sie genau sehen können, welcher Farbwert in jeder Variablen gespeichert ist ([Firefox bug 1451211](https://bugzil.la/1451211)).
-
   - Zusätzlich erscheint beim Überfahren eines CSS-Variablennamens ein Tooltip, der anzeigt, welcher Farbwert in dieser Variablen gespeichert ist ([Firefox bug 1431949](https://bugzil.la/1431949)).
 
 - Die Werkzeugleiste des Haupttools wurde neu gestaltet. Hervorzuheben sind bessere Reaktionsfähigkeit für schmale und breite Ansichtsfenster mit einem neuen Dropdown-Menü für Überlauf, aufgeräumtes Drei-Punkte-Menü und sortierbare Registerkarten, die es Ihnen ermöglichen, Ihre am häufigsten verwendeten Panels nach oben zu verschieben ([Firefox bug 1226272](https://bugzil.la/1226272)).
@@ -43,7 +42,6 @@ _Keine Änderungen._
 - {{cssxref("overflow")}} akzeptiert jetzt eine Zwei-Werte-Syntax ([Firefox bug 1453148](https://bugzil.la/1453148)).
 - Flex-Elemente, die entsprechend ihrem Inhalt dimensioniert sind, werden jetzt mit `max-content` und nicht mit `fit-content` dimensioniert ([Firefox bug 1282821](https://bugzil.la/1282821)). Weitere Details zu diesen Werten finden Sie in den [`width`-Wertedefinitionen](/de/docs/Web/CSS/Reference/Properties/width#values).
 - {{cssxref("font-weight")}}, {{cssxref("font-stretch")}} und {{cssxref("font-style")}} unterstützen jetzt zusätzliche Werte, wie sie von [CSS Fonts Level 4](https://drafts.csswg.org/css-fonts-4/) definiert sind ([Firefox bug 1436048](https://bugzil.la/1436048)):
-
   - {{cssxref("font-weight")}} akzeptiert jetzt einen Gleitkommawert zwischen 1 und 1000 (einschließlich).
   - {{cssxref("font-stretch")}} akzeptiert jetzt Prozentwerte.
   - {{cssxref("font-style")}} akzeptiert jetzt einen Winkel nach dem `oblique` Schlüsselwort.
@@ -146,7 +144,6 @@ _Keine Änderungen._
 
 - Die veraltete (und nie richtig implementierte) `SVGViewElement.viewTarget` Eigenschaft wurde entfernt ([Firefox bug 1455763](https://bugzil.la/1455763)).
 - Die folgenden veralteten Eigenschaften wurden aus [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement) entfernt ([Firefox bug 1133172](https://bugzil.la/1133172)):
-
   - `pixelUnitToMillimeterX`
   - `pixelUnitToMillimeterY`
   - `screenPixelToMillimeterX`

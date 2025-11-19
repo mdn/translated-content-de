@@ -30,7 +30,6 @@ Ein [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt; das entfernte Elemen
 Diese Methode kann einen [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)

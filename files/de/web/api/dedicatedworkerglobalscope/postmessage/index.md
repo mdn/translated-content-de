@@ -29,7 +29,6 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-
   - : Das Objekt, das an den Haupt-Thread übermittelt werden soll; dies wird im Datenfeld des an das [`message`](/de/docs/Web/API/Window/message_event)-Event übermittelten Events vorhanden sein.
     Dies kann jeden Wert oder jedes JavaScript-Objekt enthalten, das vom [Structured Clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus behandelt wird, der zirkuläre Verweise einschließt.
 

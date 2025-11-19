@@ -16,7 +16,6 @@ Der Hauptzweck der DTMF-Unterstützung in WebRTC besteht darin, dass WebRTC-basi
 ## Instanzeigenschaften
 
 - [`RTCDTMFSender.canInsertDTMF`](/de/docs/Web/API/RTCDTMFSender/canInsertDTMF) {{ReadOnlyInline}}
-
   - : Ein boolescher Wert, der `true` ist, wenn der `RTCDTMFSender` in der Lage ist, DTMF-Töne zu senden, oder `false`, wenn nicht.
 
 - [`RTCDTMFSender.toneBuffer`](/de/docs/Web/API/RTCDTMFSender/toneBuffer) {{ReadOnlyInline}}

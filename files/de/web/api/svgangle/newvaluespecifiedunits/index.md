@@ -19,7 +19,6 @@ newValueSpecifiedUnits(unitType, valueInSpecifiedUnits)
 ### Parameter
 
 - `unitType`
-
   - : Eine Konstante, die den Einheitentyp darstellt, in den der Wert des Winkels umgewandelt werden soll. Dies muss einer der für die [`unitType`](/de/docs/Web/API/SVGAngle/unitType)-Eigenschaft definierten konstanten Werte sein, mit Ausnahme von `SVG_ANGLETYPE_UNKNOWN`.
     - `SVGAngle.SVG_ANGLETYPE_DEG`: Umwandlung in Grad
     - `SVGAngle.SVG_ANGLETYPE_RAD`: Umwandlung in Radiant
@@ -38,7 +37,6 @@ Keiner ({{jsxref('undefined')}}).
 Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) einer der folgenden Typen auslösen:
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird ausgelöst, wenn `unitType` `SVG_ANGLETYPE_UNKNOWN` ist oder keine gültige Einheitentypkonstante ist.
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)

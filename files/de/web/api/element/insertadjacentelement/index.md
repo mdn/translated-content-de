@@ -19,7 +19,6 @@ insertAdjacentElement(position, element)
 ### Parameter
 
 - `position`
-
   - : Ein String, der die Position relativ zu `targetElement` repräsentiert; muss (unabhängig von der Groß-/Kleinschreibung) mit einem der folgenden Strings übereinstimmen:
     - `'beforebegin'`: Vor dem `targetElement` selbst.
     - `'afterbegin'`: Direkt innerhalb des `targetElement`, vor dessen erstem Kind.

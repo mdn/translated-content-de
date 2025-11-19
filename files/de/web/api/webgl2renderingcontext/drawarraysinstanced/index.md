@@ -27,7 +27,6 @@ drawArraysInstanced(mode, first, count, instanceCount)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den zu rendernden Typ primitiver Formen angibt. Mögliche Werte
     sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.

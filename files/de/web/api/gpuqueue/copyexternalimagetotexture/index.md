@@ -21,13 +21,10 @@ copyExternalImageToTexture(source, destination, copySize)
 ### Parameter
 
 - `source`
-
   - : Ein Objekt, das die Quelle darstellt, die zum Ziel geschrieben werden soll, sowie deren Ursprung. Dies kann die folgenden Eigenschaften haben:
-
     - `source`
       - : Ein Objekt, das die Quelle des Schnappschusses bereitstellt, der kopiert werden soll. Dies kann ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), [`ImageBitmap`](/de/docs/Web/API/ImageBitmap), [`ImageData`](/de/docs/Web/API/ImageData), [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) oder [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt sein. Die Bildquelldaten werden genau in dem Moment erfasst, wenn `copyExternalImageToTexture()` aufgerufen wird.
     - `origin` {{optional_inline}}
-
       - : Ein Objekt oder Array, das den Ursprung der Kopie spezifiziert – die obere linke Ecke des Quellsubbereichs, von dem kopiert werden soll. Zusammen mit `copySize` definiert dies das volle Ausmaß des Quellsubbereichs. Die `x`- und `y`-Werte standardisieren auf 0, wenn `origin` vollständig oder teilweise weggelassen wird.
 
         Zum Beispiel können Sie ein Array wie `[0, 0]` oder das entsprechende Objekt `{ x: 0, y: 0 }` übergeben.
@@ -36,13 +33,9 @@ copyExternalImageToTexture(source, destination, copySize)
       - : Ein boolescher Wert. Wenn auf `true` gesetzt, wird die Bildaufnahme vertikal gespiegelt. Wenn ausgelassen, standardisiert `flipY` auf `false`.
 
 - `destination`
-
   - : Ein Objekt, das die Textur-Subressource und den Ursprung definiert, um das aufgenommene Bild zu schreiben, sowie Metadaten zur Kodierung. Dies kann die folgenden Eigenschaften haben:
-
     - `aspect` {{optional_inline}}
-
       - : Ein enumerierter Wert, der definiert, auf welche Aspekte der Textur das Bild geschrieben werden soll. Mögliche Werte sind:
-
         - `"all"`
           - : Alle verfügbaren Aspekte des Texturformats werden beschrieben, das kann Farb-, Tiefen- und Stencil-Aspekte bedeuten, abhängig von dem verwendeten Format.
         - `"depth-only"`
@@ -53,7 +46,6 @@ copyExternalImageToTexture(source, destination, copySize)
         Wenn ausgelassen, nimmt `aspect` den Wert `"all"` an.
 
     - `colorSpace` {{optional_inline}}
-
       - : Ein enumerierter Wert, der den Farbraum und die Kodierung beschreibt, die verwendet werden, um Daten in die Zieltextur zu kodieren. Mögliche Werte sind `"srgb"` und `"display-p3"`. Wenn ausgelassen, standardisiert `colorSpace` auf `"srgb"`.
 
         > [!NOTE]
@@ -62,13 +54,11 @@ copyExternalImageToTexture(source, destination, copySize)
     - `mipLevel` {{optional_inline}}
       - : Eine Zahl, die das Mip-Map-Level der Textur darstellt, auf das das Bild geschrieben werden soll. Wenn ausgelassen, standardisiert `mipLevel` auf 0.
     - `origin` {{optional_inline}}
-
       - : Ein Objekt oder Array, das den Ursprung der Kopie spezifiziert – die minimale Ecke des Texturbereichs, in den die Bilddaten geschrieben werden sollen. Zusammen mit `copySize` definiert dies das volle Ausmaß des Bereichs, in den kopiert werden soll. Die `x`-, `y`- und `z`-Werte standardisieren auf 0, wenn `origin` vollständig oder teilweise weggelassen wird.
 
         Zum Beispiel können Sie ein Array wie `[0, 0, 0]` oder das entsprechende Objekt `{ x: 0, y: 0, z: 0 }` übergeben.
 
     - `premultipliedAlpha` {{optional_inline}}
-
       - : Ein boolescher Wert. Wenn auf `true` gesetzt, werden die RGB-Kanäle der Bilddaten, die in die Textur geschrieben wurden, mit dem Alphakanal vorvermultipliziert. Wenn ausgelassen, standardisiert `premultipliedAlpha` auf `false`.
 
         > [!NOTE]
@@ -78,7 +68,6 @@ copyExternalImageToTexture(source, destination, copySize)
       - : Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt, das die Textur darstellt, in die die Daten geschrieben werden sollen.
 
 - `copySize`
-
   - : Ein Objekt oder Array, das `width`, `height` und `depthOrArrayLayers` — des Bereichs, von dem/zu dem kopiert werden soll, spezifiziert.
 
     Zum Beispiel können Sie ein Array wie `[16, 1, 1]` oder das entsprechende Objekt `{ width: 16, height: 1, depthOrArrayLayers: 1 }` übergeben.

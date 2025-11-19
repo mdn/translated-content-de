@@ -31,9 +31,7 @@ setRemoteDescription(sessionDescription, successCallback, errorCallback)
 ### Parameter
 
 - `sessionDescription`
-
   - : Ein Objekt, das das aktuelle Angebot oder die Antwort des entfernten Peers angibt. Es sollte die folgenden Eigenschaften enthalten:
-
     - `type`
       - : Ein String, der den Typ der Sitzungsbeschreibung angibt. Siehe [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type).
     - `sdp` {{optional_inline}}

@@ -16,14 +16,14 @@ Die folgende Tabelle bietet Zuordnungen zwischen logischen und physikalischen Ei
 
 Wenn Sie sich in einem vertikalen Schreibmodus befinden würden, würde {{CSSxRef("inline-size")}} auf {{CSSxRef("height")}} abgebildet werden.
 
-| Logische Eigenschaft           | Physikalische Eigenschaft  |
-| ------------------------------ | -------------------------- |
-| {{CSSxRef("inline-size")}}     | {{CSSxRef("width")}}       |
-| {{CSSxRef("block-size")}}      | {{CSSxRef("height")}}      |
-| {{CSSxRef("min-inline-size")}} | {{CSSxRef("min-width")}}   |
-| {{CSSxRef("min-block-size")}}  | {{CSSxRef("min-height")}}  |
-| {{CSSxRef("max-inline-size")}} | {{CSSxRef("max-width")}}   |
-| {{CSSxRef("max-block-size")}}  | {{CSSxRef("max-height")}}  |
+| Logische Eigenschaft           | Physikalische Eigenschaft |
+| ------------------------------ | ------------------------- |
+| {{CSSxRef("inline-size")}}     | {{CSSxRef("width")}}      |
+| {{CSSxRef("block-size")}}      | {{CSSxRef("height")}}     |
+| {{CSSxRef("min-inline-size")}} | {{CSSxRef("min-width")}}  |
+| {{CSSxRef("min-block-size")}}  | {{CSSxRef("min-height")}} |
+| {{CSSxRef("max-inline-size")}} | {{CSSxRef("max-width")}}  |
+| {{CSSxRef("max-block-size")}}  | {{CSSxRef("max-height")}} |
 
 ## Beispiel für Breite und Höhe
 

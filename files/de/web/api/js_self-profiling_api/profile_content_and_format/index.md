@@ -55,9 +55,7 @@ Obwohl der Abschnitt oben die _logische_ Struktur eines Profils beschreibt, ist 
 Das Profilobjekt enthält vier Eigenschaften, die alle Arrays sind:
 
 - `frames`
-
   - : Ein Array von Objekten, die jeweils Informationen über einen Stack-Frame enthalten:
-
     - `column`: die Spaltennummer der Funktionsdefinition.
     - `line`: die Zeilennummer der Funktionsdefinition.
     - `name`: der Name der Funktion.

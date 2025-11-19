@@ -25,14 +25,12 @@ close(code, reason)
 ### Parameter
 
 - `code` {{optional_inline}}
-
   - : Ein ganzzahliger [WebSocket-Verbindungs-Schließcode](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.5), der einen Grund für die Schließung angibt:
     - Wenn nicht angegeben, wird der Schließcode für die Verbindung automatisch auf `1000` für eine normale Schließung gesetzt; andernfalls auf [einen anderen Standardwert im Bereich `1001`-`1015`](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.4.1), der den tatsächlichen Grund für die Schließung der Verbindung angibt.
     - Wenn angegeben, überschreibt der Wert dieses `code`-Parameters die automatische Einstellung des Schließcodes für die Verbindung und setzt stattdessen einen benutzerdefinierten Code.
       Der Wert muss eine Ganzzahl sein: entweder `1000` oder ein benutzerdefinierter Code Ihrer Wahl im Bereich `3000`-`4999`. Wenn Sie einen `code`-Wert angeben, sollten Sie auch einen [`reason`](#reason)-Wert angeben.
 
 - `reason` {{optional_inline}}
-
   - : Ein String, der einen benutzerdefinierten [WebSocket-Verbindungs-Schließungsgrund](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) bietet (eine kurze, für Menschen lesbare Erklärung für die Schließung). Der Wert darf nicht länger als 123 Bytes (in UTF-8 kodiert) sein.
 
     > [!NOTE]

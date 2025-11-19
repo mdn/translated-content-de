@@ -75,7 +75,6 @@ Firefox 55 wurde am 8. August 2017 veröffentlicht. Dieser Artikel listet die wi
 
 - Die [Selection API](/de/docs/Web/API/Selection) wurde aktualisiert, um mit anderen Browsern hinsichtlich der Fokussierung von Bearbeitungshosts gleichzuziehen, wenn sich die Auswahl in ihnen bewegt ([Firefox Fehler 1318312](https://bugzil.la/1318312)). Siehe [Behavior of Selection API in terms of editing host focus changes](/de/docs/Web/API/Selection#behavior_of_selection_api_in_terms_of_editing_host_focus_changes) für weitere Details.
 - Die [`Selection`](/de/docs/Web/API/Selection) API wurde angepasst, um einige kürzlich erfolgte Änderungen in der Spezifikation widerzuspiegeln ([Firefox Fehler 1359371](https://bugzil.la/1359371)):
-
   - Der `offset`-Parameter der Methoden [`collapse()`](/de/docs/Web/API/Selection/collapse) und [`extend()`](/de/docs/Web/API/Selection/extend) ist jetzt optional.
   - Der `node`-Parameter der Methode [`collapse()`](/de/docs/Web/API/Selection/collapse) ist jetzt nullable.
   - Der `partialContainment`-Parameter der Methode [`containsNode()`](/de/docs/Web/API/Selection/containsNode) ist jetzt optional.

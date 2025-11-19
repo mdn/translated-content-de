@@ -22,26 +22,20 @@ pipeThrough(transformStream, options)
 ### Parameter
 
 - `transformStream`
-
   - : Ein [`TransformStream`](/de/docs/Web/API/TransformStream) (oder ein Objekt mit der Struktur `{writable, readable}`), bestehend aus einem lesbaren und einem schreibbaren Stream, die zusammenarbeiten, um Daten von einer Form in eine andere zu transformieren.
     Daten, die in den `writable` Stream geschrieben werden, können in einem transformierten Zustand vom `readable` Stream gelesen werden.
     Beispielsweise werden in einen [`TextDecoder`](/de/docs/Web/API/TextDecoder) Bytes geschrieben und Zeichenketten ausgelesen, während ein Videodecoder codierte Bytes geschrieben und unkomprimierte Videoframes ausgelesen werden.
 
 - `options` {{optional_inline}}
-
   - : Die Optionen, die beim Leiten zum `writable` Stream verwendet werden sollen.
     Verfügbare Optionen sind:
-
     - `preventClose`
-
       - : Wenn dies auf `true` gesetzt ist, führt das Schließen des Quellen-`ReadableStream` nicht mehr dazu, dass der Ziel-`WritableStream` geschlossen wird.
 
     - `preventAbort`
-
       - : Wenn dies auf `true` gesetzt ist, führen Fehler im Quellen-`ReadableStream` nicht mehr dazu, dass der Ziel-`WritableStream` abgebrochen wird.
 
     - `preventCancel`
-
       - : Wenn dies auf `true` gesetzt ist, führen Fehler im Ziel-`WritableStream` nicht mehr dazu, dass der Quellen-`ReadableStream` abgebrochen wird.
 
     - `signal`

@@ -21,7 +21,6 @@ new Response(body, options)
 ### Parameter
 
 - `body` {{optional_inline}}
-
   - : Ein Objekt, das einen Body für die Antwort definiert. Dies kann `null` sein (was der Standardwert ist) oder eines der folgenden:
     - [`Blob`](/de/docs/Web/API/Blob)
     - {{jsxref("ArrayBuffer")}}

@@ -27,9 +27,7 @@ Der Mehrfachargument-Konstruktor (siehe oben) erstellt eine völlig neue [`Keyfr
 - `keyframes`
   - : Ein [Keyframes-Objekt](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats) oder `null`.
 - `options` {{optional_inline}}
-
   - : Entweder eine Ganzzahl, die die Dauer der Animation (in Millisekunden) darstellt, oder ein Objekt, das eine oder mehrere der folgenden Optionen enthält:
-
     - `delay` {{optional_inline}}
       - : Die Anzahl der Millisekunden, um die der Start der Animation verzögert wird. Standardwert ist 0.
     - `direction` {{optional_inline}}
@@ -47,7 +45,6 @@ Der Mehrfachargument-Konstruktor (siehe oben) erstellt eine völlig neue [`Keyfr
     - `iterations` {{optional_inline}}
       - : Die Anzahl der Male, die die Animation wiederholt werden soll. Standardwert ist `1` und kann auch den Wert {{jsxref("Infinity")}} annehmen, um sie so lange zu wiederholen, wie das Element existiert.
     - `composite` {{optional_inline}}
-
       - : Bestimmt, wie Werte zwischen dieser Animation und anderen separaten Animationen, die keine eigene spezifische Kompositionsoperation angeben, kombiniert werden. Standardwert ist `replace`.
         - `add` bestimmt einen additiven Effekt, bei dem jede aufeinanderfolgende Iteration auf der vorherigen aufbaut. Zum Beispiel würde bei `transform`, ein `translateX(-200px)` nicht einen früheren Wert von `rotate(20deg)` überschreiben, sondern in einem `translateX(-200px) rotate(20deg)` resultieren.
         - `accumulate` ist ähnlich, aber etwas intelligenter: `blur(2)` und `blur(5)` werden zu `blur(7)`, nicht zu `blur(2) blur(5)`.

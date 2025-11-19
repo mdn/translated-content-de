@@ -159,7 +159,6 @@ Für diese Komponente verwenden wir die Methode der Objektregistrierung.
 2. Fügen Sie eine `props`-Eigenschaft innerhalb des Exports `default {}`-Objekts hinzu, das ein leeres Objekt enthält.
 3. Fügen Sie in diesem Objekt zwei Eigenschaften mit den Schlüsseln `label` und `done` hinzu.
 4. Der `label`-Schlüssel sollte ein Objekt mit 2 Eigenschaften (oder **Props**, wie sie im Kontext der Verfügbarkeit für die Komponenten genannt werden) sein.
-
    1. Die erste ist eine `required`-Eigenschaft, die den Wert `true` haben wird. Dies wird Vue mitteilen, dass wir erwarten, dass jede Instanz dieser Komponente ein Label-Feld hat. Vue wird uns warnen, wenn ein `ToDoItem`-Komponente kein Label-Feld hat.
    2. Die zweite Eigenschaft, die wir hinzufügen, ist eine `type`-Eigenschaft. Setzen Sie den Wert für diese Eigenschaft auf den JavaScript-`String`-Typ (beachten Sie das große "S"). Dies sagt Vue, dass wir erwarten, dass der Wert dieser Eigenschaft ein String ist.
 

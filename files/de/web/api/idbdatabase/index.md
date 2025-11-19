@@ -41,7 +41,6 @@ Erbt von: [EventTarget](/de/docs/Web/API/EventTarget)
 Hören Sie auf diese Ereignisse mit `addEventListener()` oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces.
 
 - [`close`](/de/docs/Web/API/IDBDatabase/close_event)
-
   - : Ein Ereignis, das ausgelöst wird, wenn die Datenbankverbindung unerwartet geschlossen wird.
 
 - [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event)

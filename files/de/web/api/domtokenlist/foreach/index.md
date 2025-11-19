@@ -20,7 +20,6 @@ forEach(callback, thisArg)
 ### Parameter
 
 - `callback`
-
   - : Die Funktion, die für jedes Element ausgeführt wird, nimmt schließlich drei Argumente entgegen:
     - `currentValue`
       - : Das aktuelle Element, das im Array verarbeitet wird.

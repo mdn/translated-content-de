@@ -26,7 +26,6 @@ Ein Schlüsselbereich kann einen einzelnen Wert oder einen Bereich mit oberen un
 Ein Schlüssel befindet sich in einem Schlüsselbereich, wenn die folgenden Bedingungen zutreffen:
 
 - Der untere Wert des Schlüsselbereichs ist einer der folgenden:
-
   - `undefined`
   - Kleiner als der Schlüsselwert
   - Gleich dem Schlüsselwert, wenn `lowerOpen` `false` ist.

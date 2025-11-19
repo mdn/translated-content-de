@@ -41,7 +41,6 @@ Ein _dynamisches_ [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Ob
 ### Ausnahmen
 
 - {{JSxRef("TypeError")}}
-
   - : Wenn das übergebene Objekt kein [`Element`](/de/docs/Web/API/Element) ist oder `pseudoElt` kein gültiger Pseudo-Element-Selektor ist oder {{CSSxRef("::part", "::part()")}} oder {{CSSxRef("::slotted", "::slotted()")}}.
 
     > [!NOTE]

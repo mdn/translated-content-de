@@ -17,13 +17,11 @@ Als Teil des Aufrufs von [`CredentialsContainer.create()`](/de/docs/Web/API/Cred
 Nach der Dekodierung des [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-codierten `ArrayBuffer` enthält das resultierende JavaScript-Objekt die folgenden Eigenschaften:
 
 - `authData`
-
   - : Die [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) für die Operation. Beachten Sie, dass in [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) die `authenticatorData` als eine Eigenschaft in einem JavaScript-Objekt verfügbar ist (siehe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)), während in [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) die `authenticatorData` eine Eigenschaft in einer [CBOR](https://datatracker.ietf.org/doc/html/rfc8949)-Map ist.
 
     Dasselbe [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData)-Feld wird sowohl von `AuthenticatorAttestationResponse` als auch von `AuthenticatorAssertionResponse` verwendet. Bei der Verwendung in der Attestation enthält es ein optionales Feld, `attestedCredentialData`. Dieses Feld ist nicht enthalten, wenn es im `AuthenticatorAssertionResponse` verwendet wird. Das attestedCredentialData-Feld enthält die `credentialId` und `credentialPublicKey`.
 
 - `fmt`
-
   - : Ein Textstring, der das Format der attStmt angibt. Die [WebAuthn-Spezifikation definiert eine Reihe von Formaten](https://w3c.github.io/webauthn/#sctn-defined-attestation-formats); jedoch können Formate auch in anderen Spezifikationen definiert und in einem [IANA-Register](https://w3c.github.io/webauthn/#sctn-att-fmt-reg) registriert werden. Von WebAuthn definierte Formate sind:
     - `"packed"`
     - `"tpm"`

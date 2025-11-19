@@ -14,49 +14,38 @@ Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/R
 Der `<generic-family>` {{Glossary("enumerated", "aufgezählte")}} Typ wird mit einem der unten aufgeführten Werte angegeben:
 
 - `serif`
-
   - : Ein Serif ist eine kleine Linie oder ein Strich, der am Ende eines größeren Strichs in einem Buchstaben angebracht ist. In Serif-Schriften haben die Glyphen Abschlussstriche, verbreiterte oder sich verjüngende Enden. Beispiele sind Lucida Bright, Lucida Fax, Palatino, Palatino Linotype, Palladio und URW Palladio.
 
 - `sans-serif`
-
   - : Eine Schriftart ohne Serifen; Glyphen haben glatte Strichenden ohne Verzierungen. Beispiele für Sans-Serif-Schriften sind Open Sans, Fira Sans, Lucida Sans, Lucida Sans Unicode, Trebuchet MS, Liberation Sans und Nimbus Sans L.
 
 - `monospace`
-
   - : Alle Glyphen haben die gleiche feste Breite. Beispiele für Monospace-Schriften sind Fira Mono, DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, Monaco und Lucida Console.
 
 - `cursive`
-
   - : Glyphen in Kursivschriftarten verwenden im Allgemeinen eine Kursivschrift oder einen anderen Handschriftstil, und das Ergebnis sieht mehr wie handgeschriebenes Stift- oder Pinselwerk aus als wie gedrucktes Schriftsatz. CSS verwendet den Begriff "cursive", um auf eine Schriftart für jedes Skript anzuwenden, einschließlich solcher, die keine zusammenhängenden Striche haben. Beispiele für Kursivschriftarten sind Brush Script MT, Brush Script Std, Lucida Calligraphy, Lucida Handwriting und Apple Chancery.
 
 - `fantasy`
-
   - : Fantasy-Schriften sind hauptsächlich dekorative Schriften, die spielerische Darstellungen von Charakteren enthalten. Beispiele für Fantasy-Schriften sind Papyrus, Herculanum, Party LET, Curlz MT, Harrington und Comic Sans MS.
 
 - `system-ui`
-
   - : Glyphen stammen aus der Standardschriftart der Benutzeroberfläche auf einer gegebenen Plattform. Da typografische Traditionen weltweit stark variieren, wird diese generische Familie für Schriftarten bereitgestellt, die nicht eindeutig in die anderen passen.
     > [!NOTE]
     > Wie der Name schon sagt, ist `system-ui` dafür gedacht, UI-Elemente wie native Apps aussehen zu lassen, und nicht für das Setzen großer Textabsätze. Es kann dazu führen, dass die angezeigte Schriftart für einige Benutzer unerwünscht ist — zum Beispiel kann die Standardschriftart Windows CJK lateinische Skripte schlecht rendern, und das `lang`-Attribut kann die angezeigte Schriftart möglicherweise nicht beeinflussen. Einige Betriebssysteme erlauben keine Anpassung von `system-ui`, während Browser im Allgemeinen eine Anpassung der `sans-serif`-Schriftfamilie erlauben. Für große Absätze verwenden Sie stattdessen `sans-serif` oder eine andere Nicht-UI-Schriftfamilie.
 
 - `ui-serif`
-
   - : Die Standardschriftart für serifenbetonte Benutzeroberflächen. Siehe die Definition von `serif` oben.
 
 - `ui-sans-serif`
-
   - : Die Standardschriftart für serifenlose Benutzeroberflächen. Siehe die Definition von `sans-serif` oben.
 
 - `ui-monospace`
-
   - : Die Standardschriftart für monospaced Benutzeroberflächen. Siehe die Definition von `monospace` oben.
 
 - `ui-rounded`
-
   - : Die Standardschriftart für Benutzeroberflächen mit abgerundeten Merkmalen.
 
 - `math`
-
   - : Schriftarten zur Darstellung mathematischer Ausdrücke, beispielsweise Hoch- und Tiefstellen, Klammern, die über mehrere Zeilen gehen, verschachtelte Ausdrücke und doppelt gestrichene Glyphen mit unterschiedlichen Bedeutungen.
 
 - `fangsong`

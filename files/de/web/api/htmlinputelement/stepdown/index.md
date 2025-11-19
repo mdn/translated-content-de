@@ -67,7 +67,6 @@ stepDown(stepDecrement)
 ### Parameter
 
 - `stepDecrement` {{optional_inline}}
-
   - : Ein numerischer Wert. Wenn kein Parameter übergeben wird, verwendet _stepDecrement_ standardmäßig 1.
 
     Wenn der Wert ein Gleitkomma ist, wird der Wert verringert, als ob [`Math.floor(stepDecrement)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) übergeben wurde. Wenn der Wert negativ ist, wird der Wert statt verringert, inkrementiert.

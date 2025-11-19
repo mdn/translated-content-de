@@ -100,13 +100,11 @@ flex: unset;
 Die `flex`-Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden.
 
 - **Ein-Wert-Syntax:** der Wert muss einer der folgenden sein:
-
   - ein gültiger Wert für {{cssxref("&lt;flex-grow&gt;")}}: dann, in allen Browsern, expandiert die Kurzschrift zu `flex: <flex-grow> 1 0%`. Die Spezifikation sagt jedoch, es sollte zu `flex: <flex-grow> 1 0` expandieren.
   - ein gültiger Wert für {{cssxref("&lt;flex-basis&gt;")}}: dann expandiert die Kurzschrift zu `flex: 1 1 <flex-basis>`.
   - das Schlüsselwort `none` oder eines der globalen Schlüsselwörter.
 
 - **Zwei-Wert-Syntax:**
-
   - Der erste Wert muss ein gültiger Wert für {{cssxref("flex-grow")}} sein.
 
   - Der zweite Wert muss einer der folgenden sein:

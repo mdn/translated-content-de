@@ -19,7 +19,6 @@ drawRangeElements(mode, start, end, count, type, offset)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
@@ -36,7 +35,6 @@ drawRangeElements(mode, start, end, count, type, offset)
 - `count`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Elemente angibt.
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Typ der Werte im Element-Array-Puffer angibt. Mögliche Werte sind:
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT`

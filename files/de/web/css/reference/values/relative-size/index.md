@@ -18,7 +18,6 @@ Der **`<relative-size>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Re
 Der `<relative-size>` Datentyp wird durch ein Schlüsselwort aus der folgenden Liste definiert.
 
 - `smaller`
-
   - : Eine relative Größe, eine Größe kleiner als die geerbte Größe.
 
 - `larger`

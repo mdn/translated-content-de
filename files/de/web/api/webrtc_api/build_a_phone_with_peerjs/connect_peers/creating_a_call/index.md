@@ -36,7 +36,6 @@ Spannende Zeiten — nun geben Sie Ihren Nutzern die Möglichkeit, Anrufe zu tä
    ```
 
    Gehen wir den Code durch:
-
    - `const call = peer.call(code, window.localStream)`: Dies erstellt einen Anruf mit dem `code` und `window.localStream`, die wir zuvor zugewiesen haben. Beachten Sie, dass der `localStream` der `localStream` des Nutzers sein wird. Für den Anrufer A wird es ihr Stream sein und für B, ihr eigener Stream.
    - `call.on('stream', (stream) => {`: peerJS gibt uns ein `stream`-Ereignis, das Sie auf dem erstellten `call` verwenden können. Wenn ein Anruf mit dem Streaming beginnt, müssen Sie sicherstellen, dass der entfernte Stream vom Anruf den richtigen HTML-Elementen und Fenstern zugewiesen wird, und hier machen Sie das.
    - Die anonyme Funktion nimmt ein `MediaStream`-Objekt als Argument, das Sie dann wie zuvor auf das HTML Ihres Fensters setzen müssen. Hier erhalten wir Ihr entferntes `<audio>`-Element und weisen den zur Funktion übergebenen Stream der `srcObject`-Eigenschaft zu.

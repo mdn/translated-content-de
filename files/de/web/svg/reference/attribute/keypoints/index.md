@@ -73,7 +73,6 @@ svg {
 </table>
 
 - `<number> [; <number>] ;?`
-
   - : Dieser Wert definiert eine durch Semikolons getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit das Objekt entlang des Bewegungswegs zu dem im entsprechenden {{SVGAttr("keyTimes")}}-Wert angegebenen Zeitpunkt bewegt werden soll. Die Entfernung wird entlang des durch das {{SVGAttr("path")}}-Attribut angegebenen Pfades berechnet. Jeder Fortschrittswert in der Liste entspricht einem Wert in der `keyTimes`-Attributliste.
 
     Wenn eine Liste von Schlüsselpunkten angegeben wird, muss es genau so viele Werte in der `keyPoints`-Liste wie in der `keyTimes`-Liste geben.

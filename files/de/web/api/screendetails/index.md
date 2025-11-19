@@ -20,11 +20,9 @@ Diese Informationen werden über die Methode [`Window.getScreenDetails()`](/de/d
 _Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`currentScreen`](/de/docs/Web/API/ScreenDetails/currentScreen) {{ReadOnlyInline}} {{Experimental_Inline}}
-
   - : Ein einzelnes [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt, das detaillierte Informationen über den Bildschirm darstellt, auf dem das aktuelle Browserfenster angezeigt wird.
 
 - [`screens`](/de/docs/Web/API/ScreenDetails/screens) {{ReadOnlyInline}} {{Experimental_Inline}}
-
   - : Ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, von denen jedes detaillierte Informationen über einen bestimmten Bildschirm enthält, der dem Gerät des Benutzers zur Verfügung steht.
 
     > [!NOTE] > `screens` umfasst nur "erweiterte" Displays, nicht solche, die ein anderes Display spiegeln.

@@ -43,7 +43,6 @@ _Dieses Interface erbt auch Methoden von seinem Elternteil, [`HTMLElement`](/de/
 - [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
   - : Überprüft die Gültigkeit des Elements und gibt einen booleschen Wert zurück, der das Ergebnis der Überprüfung enthält.
 - [`HTMLOutputElement.reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity)
-
   - : Diese Methode meldet dem Benutzer die Probleme mit den Einschränkungen des Elements, falls vorhanden. Wenn es Probleme gibt, wird ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis am Element ausgelöst und `false` zurückgegeben; wenn keine Probleme vorliegen, wird `true` zurückgegeben.
 
     Wenn das Problem gemeldet wird, kann der Benutzeragent das Element in den Fokus rücken und die Scrollposition des Dokuments ändern oder eine andere Aktion ausführen, um das Element in den Fokus des Benutzers zu rücken. Benutzeragenten können mehr als eine Einschränkungsverletzung melden, wenn dieses Element unter mehreren Problemen gleichzeitig leidet. Wenn das Element nicht gerendert wird, kann der Benutzeragent den Fehler für das laufende Skript melden, anstatt den Benutzer zu benachrichtigen.

@@ -26,9 +26,7 @@ send(body)
 ### Parameter
 
 - `body` {{optional_inline}}
-
   - : Ein Datenkörper, der in der XHR-Anfrage gesendet werden soll. Dies kann sein:
-
     - Ein [`Document`](/de/docs/Web/API/Document), das vor dem Senden serialisiert wird.
     - Ein `XMLHttpRequestBodyInit`, das [laut Fetch-Spezifikation](https://fetch.spec.whatwg.org/#typedefdef-xmlhttprequestbodyinit) ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein [`FormData`](/de/docs/Web/API/FormData), ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) oder ein String sein kann.
     - `null`

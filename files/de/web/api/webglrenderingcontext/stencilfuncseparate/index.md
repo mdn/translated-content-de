@@ -24,7 +24,6 @@ stencilFuncSeparate(face, func, ref, mask)
 ### Parameter
 
 - `face`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob der vordere und/oder hintere Stencil-Zustand
     aktualisiert wird. Die möglichen Werte sind:
     - `gl.FRONT`
@@ -32,7 +31,6 @@ stencilFuncSeparate(face, func, ref, mask)
     - `gl.FRONT_AND_BACK`
 
 - `func`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Testfunktion angibt. Die Standardfunktion ist
     `gl.ALWAYS`. Die möglichen Werte sind:
     - `gl.NEVER`: Niemals bestehen.

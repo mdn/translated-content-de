@@ -32,7 +32,6 @@ Kopieren Sie den Code und fügen Sie ihn in eine Datei namens demo1.svg ein. Öf
 Der Rendering-Prozess umfasst Folgendes:
 
 1. Wir beginnen mit dem {{SVGElement("svg")}} Wurzelelement:
-
    - Eine Doctype-Deklaration, wie sie aus (X)HTML bekannt ist, sollte weggelassen werden, da DTD-basierte SVG-Validierung mehr Probleme verursacht als sie löst.
    - Vor SVG 2, um die Version des SVG für andere Validierungsarten zu identifizieren, sollten stattdessen immer die Attribute `version` und `baseProfile` verwendet werden. Sowohl `version` als auch `baseProfile` Attribute sind in SVG 2 veraltet.
    - Als XML-Dialekt muss SVG immer die Namespaces korrekt binden (im xmlns-Attribut). Weitere Informationen finden Sie auf der Seite [Namespaces Crash Course](/de/docs/Web/SVG/Guides/Namespaces_crash_course).
@@ -45,7 +44,6 @@ Der Rendering-Prozess umfasst Folgendes:
 
 - Das erste wichtige Merkmal ist die Reihenfolge der Darstellung der Elemente. Die global gültige Regel für SVG-Dateien ist, dass _spätere_ Elemente _auf vorherigen_ Elementen gerendert werden. Je weiter unten ein Element steht, desto sichtbarer wird es sein.
 - SVG-Dateien im Web können direkt im Browser angezeigt oder über verschiedene Methoden in HTML-Dateien eingebettet werden:
-
   - Wenn HTML XHTML ist und als Typ `application/xhtml+xml` geliefert wird, kann SVG direkt in die XML-Quelle eingebettet werden.
   - SVG kann auch direkt in HTML eingebettet werden.
   - Ein `img` Element kann verwendet werden.

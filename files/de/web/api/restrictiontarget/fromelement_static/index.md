@@ -19,9 +19,7 @@ RestrictionTarget.fromElement(element)
 ### Parameter
 
 - `element`
-
   - : Eine Referenz zu einem [`Element`](/de/docs/Web/API/Element), das Sie als Einschränkungsziel verwenden möchten. Damit ein Element als Einschränkungsziel verwendet werden kann, muss es:
-
     - Einen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) bilden.
     - Im 3D-Raum abgeflacht sein (zum Beispiel darf es keinen 3D-[Transformationen](/de/docs/Web/CSS/Guides/Transforms) unterliegen).
     - Gerendert sein (zum Beispiel nicht außerhalb des Bildschirms oder über `display: none` versteckt sein).

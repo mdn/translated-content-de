@@ -52,11 +52,9 @@ type(<syntax>)
 Der `<syntax>` Parameter ist ein Ausdruck, der den Datentyp definiert. Dieser kann folgende Formen annehmen:
 
 - `<ident>`
-
   - : Ein CSS-Schlüsselwortwert, ohne spitze Klammern geschrieben.
 
 - `<syntax-type>`
-
   - : Ein Typname, in spitzen Klammern geschrieben, der einen CSS-Datentyp darstellt. Die folgenden Datentypen werden unterstützt:
     - `<angle>`
       - : Akzeptiert jeden gültigen {{cssxref("&lt;angle&gt;")}} Wert.

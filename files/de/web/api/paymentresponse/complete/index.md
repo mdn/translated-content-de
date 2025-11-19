@@ -22,9 +22,7 @@ complete(result)
 ### Parameter
 
 - `result` {{optional_inline}}
-
   - : Ein String, der den Zustand der Zahlungsoperation nach Abschluss angibt. Er muss einer der folgenden sein:
-
     - `success`
       - : Die Zahlung wurde erfolgreich verarbeitet. Der User Agent kann dem Benutzer eine Art "Zahlung erfolgreich"-Anzeige präsentieren oder auch nicht.
     - `fail`

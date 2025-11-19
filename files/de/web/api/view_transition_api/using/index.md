@@ -20,7 +20,6 @@ Lassen Sie uns den Prozess durchgehen, wie ein Ansichtsübergang funktioniert:
      > Ein aktiver Ansichtsübergang hat eine zugehörige [`ViewTransition`](/de/docs/Web/API/ViewTransition) Instanz (zum Beispiel zurückgegeben von `startViewTransition()` im Falle von Same-Document (SPA) Übergängen). Das `ViewTransition`-Objekt enthält mehrere Versprechen, die Ihnen erlauben, Code als Antwort auf verschiedene Teile des Ansichtsübergangsprozesses auszuführen. Weitere Informationen finden Sie unter [Steuerung von Ansichtsübergängen mit JavaScript](#steuerung_von_ansichtsübergängen_mit_javascript).
 2. Im aktuellen (alten Seiten-) Ansicht erfasst die API statische Bild-**Schnappschüsse** von Elementen, die eine {{cssxref("view-transition-name")}} deklariert haben.
 3. Der Ansichtswechsel findet statt:
-
    - Bei Same-Document-Übergängen (SPAs) wird der Callback, der an `startViewTransition()` übergeben wurde, aufgerufen, wodurch sich das DOM ändert.
 
      Wenn der Callback erfolgreich ausgeführt wurde, wird das Versprechen [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone) erfüllt, was Ihnen ermöglicht, auf die DOM-Aktualisierung zu reagieren.

@@ -5,6 +5,7 @@
 build/
 /files/**/_wikihistory.json
 /files/**/_githistory.json
+/files/**/PROMPT.md
 
 # Conflicting/orphaned files
 /files/**/conflicting/**/*.md

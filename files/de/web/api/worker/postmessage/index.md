@@ -25,7 +25,6 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-
   - : Das Objekt, das an den Worker gesendet werden soll; dies wird im `data`-Feld im Event platziert, das an das [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event)-Ereignis geliefert wird. Dies kann jeder Wert oder jedes JavaScript-Objekt sein, das vom [structured clone](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)-Algorithmus verarbeitet werden kann, einschließlich zyklischer Referenzen.
 
     Der `message`-Parameter ist obligatorisch. Wenn die an den Worker zu übergebenden Daten unwichtig sind, muss `null` oder `undefined` explizit übergeben werden.

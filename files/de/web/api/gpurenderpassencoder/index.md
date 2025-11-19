@@ -35,7 +35,6 @@ Ein `GPURenderPassEncoder` Objekt wird über die [`GPUCommandEncoder.beginRender
 - [`drawIndirect()`](/de/docs/Web/API/GPURenderPassEncoder/drawIndirect)
   - : Zeichnet Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 - [`drawIndexedIndirect()`](/de/docs/Web/API/GPURenderPassEncoder/drawIndexedIndirect)
-
   - : Zeichnet indizierte Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 
 - [`end()`](/de/docs/Web/API/GPURenderPassEncoder/end)
@@ -53,11 +52,9 @@ Ein `GPURenderPassEncoder` Objekt wird über die [`GPUCommandEncoder.beginRender
 - [`setBindGroup()`](/de/docs/Web/API/GPURenderPassEncoder/setBindGroup)
   - : Setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Befehle verwendet werden soll, für einen bestimmten Index.
 - [`setBlendConstant()`](/de/docs/Web/API/GPURenderPassEncoder/setBlendConstant)
-
   - : Setzt die konstanten Mischfarb- und Alphawerte, die mit `"constant"` und `"one-minus-constant"` Mischfaktoren verwendet werden (wie im Deskriptor der Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) im `blend`-Eigenschaftensatz festgelegt).
 
 - [`setIndexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setIndexBuffer)
-
   - : Setzt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Indiz-Daten für nachfolgende Zeichnungsbefehle bereitstellen wird.
 
 - [`setPipeline()`](/de/docs/Web/API/GPURenderPassEncoder/setPipeline)
@@ -65,7 +62,6 @@ Ein `GPURenderPassEncoder` Objekt wird über die [`GPUCommandEncoder.beginRender
 - [`setScissorRect()`](/de/docs/Web/API/GPURenderPassEncoder/setScissorRect)
   - : Setzt das Scherrechteck, das während der Rasterisierungsstufe verwendet wird. Nach der Transformation in Ansichtsport-Koordinaten werden alle Fragmente, die außerhalb des Scherrechtecks liegen, verworfen.
 - [`setStencilReference()`](/de/docs/Web/API/GPURenderPassEncoder/setStencilReference)
-
   - : Setzt den Stencil-Referenzwert, der bei Stencil-Tests mit der `"replace"` Stencil-Operation verwendet wird (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) Methode festgelegt, in den Eigenschaften, die die verschiedenen Stencil-Operationen definieren).
 
 - [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer)

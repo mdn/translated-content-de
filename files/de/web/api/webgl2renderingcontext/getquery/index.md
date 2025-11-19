@@ -20,7 +20,6 @@ getQuery(target, pname)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Query spezifiziert. Mögliche Werte:
     - `gl.ANY_SAMPLES_PASSED`
       - : Gibt eine Occlusion-Query an: Diese Queries

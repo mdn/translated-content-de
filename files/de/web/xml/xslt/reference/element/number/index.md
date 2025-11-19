@@ -31,7 +31,6 @@ Keine.
 - `count`
   - : Gibt an, was im Quellbaum sequenziell nummeriert werden soll. Es verwendet einen XPath-Ausdruck.
 - `level`
-
   - : Definiert, wie Ebenen des Quellbaums bei der Generierung sequenzieller Zahlen betrachtet werden sollen. Es hat drei gültige Werte: `single`, `multiple` und `any`. Der Standardwert ist `single`:
     - `single`
       - : Nummeriert Geschwisterknoten sequenziell, wie in den Elementen einer Liste. Der Prozessor geht zum ersten Knoten in der [`ancestor-or-self`](/de/docs/Web/XML/XPath/Reference/Axes#ancestor-or-self) Achse, der dem `count` Attribut entspricht, und zählt dann diesen Knoten sowie alle seine vorhergehenden Geschwister (Stoppen bei einem Treffer des `from` Attributs, falls vorhanden), die ebenfalls dem `count` Attribut entsprechen. Wenn kein Treffer gefunden wird, ist die Sequenz eine leere Liste.
@@ -45,7 +44,6 @@ Keine.
 - `value`
   - : Wendet ein bestimmtes Format auf eine Zahl an. Dies ist eine schnelle Möglichkeit, eine benutzergelieferte Zahl (im Gegensatz zu einer Knotensequenznummer) in einem der Standardformate von `<xsl:number>` zu formatieren.
 - `format`
-
   - : Definiert das Format der generierten Nummer:
     - `format="1"`
       - : `1 2 3 . . .` (Dies ist das einzige derzeit unterstützte Format)

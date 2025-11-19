@@ -20,9 +20,7 @@ Damit eine übergreifende Dokumentenansichtstransition funktioniert, müssen sic
 ### Deskriptoren
 
 - `navigation`
-
   - : Bestimmt den Effekt, den diese At-Regel auf das View-Transition-Verhalten des Dokuments hat. Mögliche Werte sind:
-
     - `auto`: Das Dokument wird eine Ansichtstransition durchlaufen, wenn es an einer Navigation teilnimmt, vorausgesetzt, die Navigation ist gleich-origin, ohne cross-origin Weiterleitungen, und der [`navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) ist `traverse`, `push` oder `replace`. Im Fall von `push` oder `replace` muss die Navigation durch eine Benutzerinteraktion mit dem Seiteninhalt initiiert werden und nicht durch eine Browser-UI-Funktion.
 
     - `none`: Das Dokument wird keine Ansichtstransition durchlaufen.

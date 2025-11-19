@@ -24,7 +24,6 @@ l10n:
 ### HTML
 
 - Die {{HTMLElement("details")}} und {{HTMLElement("summary")}} Elemente sind standardmäßig in Nightly und Aurora (DevTools) aktiviert, aber nicht in Beta oder Release:
-
   - Der Standardstil für diese Elemente wurde angepasst, um der Spezifikation zu entsprechen ([Firefox-Bug 1258657](https://bugzil.la/1258657)).
   - Das `toggle`-Event wird jetzt an das {{HTMLElement("details")}} Element gesendet, wenn dieses geöffnet oder geschlossen wird ([Firefox-Bug 1225412](https://bugzil.la/1225412)).
 
@@ -33,12 +32,10 @@ l10n:
 ### CSS
 
 - Die {{cssxref("calc", "calc()")}} Funktion wurde verbessert, um näher an der Spezifikation zu sein:
-
   - {{cssxref("calc", "calc()")}} wird jetzt auf der {{cssxref("line-height")}} Eigenschaft unterstützt ([Firefox-Bug 594933](https://bugzil.la/594933)).
   - Unterstützung für geschachtelte CSS {{cssxref("calc", "calc()")}} hinzugefügt ([Firefox-Bug 968761](https://bugzil.la/968761)).
 
 - Unsere experimentelle Implementierung von CSS-Grids wurde aktualisiert:
-
   - Fragmentierung für das Grid-Layout wurde implementiert ([Firefox-Bug 1144096](https://bugzil.la/1144096)).
   - \[css-grid] Prozentuale Tracks werden jetzt als `auto` behandelt, wenn die Größe des Gittercontainers unbestimmt ist ([Firefox-Bug 1264607](https://bugzil.la/1264607)).
   - {{HTMLElement("fieldset")}} unterstützt jetzt Grid- und Flex-Layouts ([Firefox-Bug 1230207](https://bugzil.la/1230207)).
@@ -49,7 +46,6 @@ l10n:
 - Unterstützung für die experimentelle {{cssxref("print-color-adjust", "color-adjust")}} Eigenschaft wurde hinzugefügt, sodass Seiten angeben können, dass Hintergrundfarben und Bilder gedruckt werden sollen ([Firefox-Bug 1209273](https://bugzil.la/1209273)).
 - Das {{cssxref("::first-letter")}} Pseudoelement passt jetzt auch auf Satzzeichen vom Typ Pd, die dem eigentlichen ersten Buchstaben vorangehen oder unmittelbar folgen; dies ist eine neue Anforderung des CSS-Pseudo-Element-Moduls Level 4 ([Firefox-Bug 1260366](https://bugzil.la/1260366)).
 - Mehrere `-webkit`-präprafixierte Eigenschaften und Werte wurden zur Webkompatibilität hinzugefügt, hinter der Präferenz `layout.css.prefixes.webkit`, die standardmäßig auf `false` gesetzt ist:
-
   - {{cssxref("-webkit-text-fill-color")}} ([Firefox-Bug 1247777](https://bugzil.la/1247777)).
   - {{cssxref("-webkit-text-stroke")}}, {{cssxref("-webkit-text-stroke-color")}}, {{cssxref("-webkit-text-stroke-width")}} ([Firefox-Bug 1248708](https://bugzil.la/1248708)).
   - `-webkit-background-clip` (als background-clip) Textwert ([Firefox-Bug 759568](https://bugzil.la/759568)).

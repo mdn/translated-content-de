@@ -21,7 +21,6 @@ isEnabled(cap)
 ### Parameter
 
 - `cap`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche WebGL-Fähigkeit getestet werden soll. Mögliche Werte:
 
     | Konstante                     | Beschreibung                                                                                                                                                                    |

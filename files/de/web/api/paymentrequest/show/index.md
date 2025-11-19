@@ -35,11 +35,8 @@ show(details)
 ### Parameter
 
 - `details` {{optional_inline}}
-
   - : Entweder ein Objekt oder ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird. Geben Sie dies an, wenn Ihre Architektur erfordert, dass die Details der Zahlungsanforderung zwischen der Instanziierung der Zahlungsoberfläche und dem Benutzerinteraktion aktualisiert werden müssen. Das Objekt sollte die aktualisierten Informationen enthalten:
-
     - `displayItems` {{optional_inline}}
-
       - : Ein Array von Objekten, die jeweils einen Einzelposten der Zahlungsanforderung beschreiben. Diese repräsentieren die Einzelposten auf einem Beleg oder einer Rechnung, jeweils mit den folgenden Eigenschaften:
         - `amount`
           - : Ein Objekt, das den Geldwert des Postens beschreibt. Dieses Objekt enthält die folgenden Felder:
@@ -53,13 +50,10 @@ show(details)
           - : Ein Boolean-Wert, der `true` ist, wenn der angegebene `amount` noch nicht finalisiert wurde. Dies kann verwendet werden, um Artikel wie Versand- oder Steuerbeträge anzuzeigen, die von der Auswahl der Versandadresse, Versandoption oder ähnlichem abhängen. Der Benutzeragent kann diese Informationen anzeigen, ist aber nicht dazu verpflichtet.
 
     - `error` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
-
       - : Eine Zeichenkette, die eine Fehlermeldung angibt, die dem Benutzer präsentiert werden soll. Wenn `updateWith()` aufgerufen wird, führt das Einfügen von `error` in die aktualisierten Daten dazu, dass der {{Glossary("user_agent", "Benutzeragent")}} den Text als allgemeine Fehlermeldung anzeigt. Für spezifische Fehler bei Adressfeldern verwenden Sie das Feld `shippingAddressErrors`.
 
     - `modifiers` {{optional_inline}}
-
       - : Ein Array von Objekten, die jeweils einen Modifikator für bestimmte Zahlungsmethoden-Identifikatoren beschreiben, jeweils mit den folgenden Eigenschaften:
-
         - `supportedMethods`
           - : Eine Zeichenkette, die den Identifikator der Zahlungsmethode darstellt. Der Identifikator der Zahlungsmethode gilt nur, wenn der Benutzer diese Zahlungsmethode auswählt.
         - `total` {{optional_inline}}
@@ -89,7 +83,6 @@ aufgelöst wird. Das Versprechen wird erfüllt, wenn der Benutzer die Zahlungsan
 Ausnahmen werden nicht ausgelöst, sondern zurückgegeben, wenn das {{jsxref("Promise")}} abgelehnt wird.
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird zurückgegeben, wenn der {{Glossary("user_agent", "Benutzeragent")}} bereits ein Zahlungspanel anzeigt. Es darf nur ein Zahlungspanel gleichzeitig sichtbar sein _über alle Dokumente, die vom Benutzeragenten geladen werden_.
 
     Das Versprechen wird auch mit `AbortError` abgelehnt, wenn der Benutzer die Zahlungsanforderung abbricht.

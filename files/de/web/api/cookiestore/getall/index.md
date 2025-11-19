@@ -42,31 +42,24 @@ Ein {{jsxref("Promise")}}, das ein Array von Objekten zurückgibt, die Cookies r
 Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `domain`
-
   - : Eine Zeichenfolge, die die Domain des Cookies enthält.
 
 - `expires`
-
   - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 
 - `name`
-
   - : Eine Zeichenfolge, die den Namen des Cookies enthält.
 
 - `partitioned`
-
   - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
 
 - `path`
-
   - : Eine Zeichenfolge, die den Pfad des Cookies enthält.
 
 - `sameSite`
-
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) Werte: [`"strict"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#strict), [`"lax"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#lax) oder [`"none"`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#none).
 
 - `secure`
-
   - : Ein boolescher Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
 
 - `value`

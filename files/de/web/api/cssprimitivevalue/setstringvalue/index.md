@@ -30,7 +30,6 @@ setStringValue(stringType, stringValue)
 ### Parameter
 
 - `stringType`
-
   - : Ein `unsigned short`, der den Typ des Wertes darstellt. Mögliche Werte sind:
 
     | Konstante    | Beschreibung                                              |

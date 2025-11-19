@@ -63,10 +63,8 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
     Der Text sollte so formuliert sein, dass er dem Benutzer dieselbe Art von Wahl bietet, wie das Bild es ohne den Alternativtext tun würde.
     Dieses Attribut ist nur erforderlich, wenn das [`href`](#href) Attribut verwendet wird.
 - `coords`
-
   - : Das `coords` Attribut beschreibt die Koordinaten des [`shape`](#shape) Attributs in Größe, Form und Platzierung eines `<area>`.
     Dieses Attribut darf nicht verwendet werden, wenn `shape` auf `default` gesetzt ist.
-
     - `rect`: der Wert ist `x1,y1,x2,y2`.
       Der Wert gibt die Koordinaten der oberen linken und unteren rechten Ecke des Rechtecks an.
       Zum Beispiel, in `<area shape="rect" coords="0,0,253,27" href="#" target="_blank" alt="Mozilla">` sind die Koordinaten `0,0` und `253,27`, was die obere linke und die untere rechte Ecke des Rechtecks angibt.
@@ -88,7 +86,6 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
   - : Enthält eine durch Leerzeichen getrennte Liste von URLs, an die, wenn der Hyperlink aufgerufen wird, {{HTTPMethod("POST")}} Anfragen mit dem Körper `PING` vom Browser (im Hintergrund) gesendet werden.
     Wird typischerweise für Tracking verwendet.
 - `referrerpolicy`
-
   - : Ein String, der angibt, welcher Referer beim Abrufen der Ressource verwendet werden soll:
     - `no-referrer`: Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
     - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "origin")}}s ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
@@ -108,10 +105,8 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - `shape`
   - : Die Form des zugehörigen Hotspots. Die Spezifikationen für HTML definieren die Werte `rect`, die eine rechteckige Region definiert; `circle`, die eine kreisförmige Region definiert; `poly`, die ein Polygon definiert; und `default`, die den gesamten Bereich jenseits jeglicher definierten Formen angibt.
 - `target`
-
   - : Ein Schlüsselwort oder ein vom Autor definierter Name des {{Glossary("browsing_context", "browsing context")}}, in dem die verlinkte Ressource angezeigt werden soll.
     Die folgenden Schlüsselwörter haben besondere Bedeutungen:
-
     - `_self` (Standard): Zeigt die Ressource im aktuellen Browsing-Kontext an.
     - `_blank`: Zeigt die Ressource in einem neuen, unbenannten Browsing-Kontext an.
     - `_parent`: Zeigt die Ressource im übergeordneten Browsing-Kontext des aktuellen Kontexts an, falls die aktuelle Seite in einem Frame ist.

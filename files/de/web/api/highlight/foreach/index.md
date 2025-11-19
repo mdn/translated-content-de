@@ -22,7 +22,6 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callback`
-
   - : Funktion, die für jedes `Range`-Objekt ausgeführt werden soll und drei Argumente nimmt:
     - `range`, `key`
       - : Das aktuelle `Range`-Objekt, das im `Highlight` verarbeitet wird. Da es in `Highlight` keine

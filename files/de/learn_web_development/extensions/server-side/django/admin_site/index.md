@@ -131,7 +131,6 @@ Django macht einen ziemlich guten Job beim Erstellen einer grundlegenden Admin-S
 Sie können die Schnittstelle weiter anpassen, um sie noch einfacher zu verwenden. Einige der Dinge, die Sie tun können, sind:
 
 - Listenansichten:
-
   - Zusätzliche Felder/Informationen für jeden Datensatz hinzufügen.
   - Filter hinzufügen, um auszuwählen, welche Datensätze aufgelistet sind, basierend auf Datum oder einem anderen Auswahlwert (z.B. Buchausleihstatus).
   - Zusätzliche Optionen für das Aktionsmenü in Listenansichten hinzufügen und auswählen, wo dieses Menü auf dem Formular angezeigt wird.

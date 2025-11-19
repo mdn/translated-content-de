@@ -20,7 +20,6 @@ enable(cap)
 ### Parameter
 
 - `cap`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche WebGL-Fähigkeit aktiviert werden soll. Mögliche
     Werte:
 

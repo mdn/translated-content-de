@@ -57,7 +57,6 @@ _Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioN
 - [`BiquadFilterNode.gain`](/de/docs/Web/API/BiquadFilterNode/gain) {{ReadOnlyInline}}
   - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Double, das den [Gain](https://en.wikipedia.org/wiki/Gain) im aktuellen Filteralgorithmus darstellt.
 - [`BiquadFilterNode.type`](/de/docs/Web/API/BiquadFilterNode/type)
-
   - : Ein String-Wert, der die Art des Filteralgorithmus definiert, den der Knoten implementiert.
 
     <table class="standard-table">

@@ -20,7 +20,6 @@ forEach(callback, thisArg)
 ### Parameter
 
 - `callback`
-
   - : Eine Funktion, die auf jedes Element der `someNodeList` angewendet wird. Sie akzeptiert 3 Parameter:
     - `currentValue`
       - : Das aktuelle Element, das in `someNodeList` verarbeitet wird.

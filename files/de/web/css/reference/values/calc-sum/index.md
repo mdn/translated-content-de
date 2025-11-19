@@ -12,7 +12,6 @@ Der **`<calc-sum>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Referen
 Der `<calc-sum>` Typ definiert zwei numerische Werte und einen der folgenden [arithmetischen Operatoren](/de/docs/Learn_web_development/Core/Scripting/Math#arithmetic_operators) zwischen ihnen.
 
 - `+`
-
   - : Addiert zwei Zahlen.
 
 - `-`

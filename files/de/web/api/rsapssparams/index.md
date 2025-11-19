@@ -14,7 +14,6 @@ Das **`RsaPssParams`**-Wörterbuch des [Web Crypto API](/de/docs/Web/API/Web_Cry
 - `name`
   - : Ein String. Dieser sollte auf `RSA-PSS` gesetzt werden.
 - `saltLength`
-
   - : Ein `long`-Integer, der die Länge des zu verwendenden zufälligen Salzes in Bytes darstellt.
 
     [RFC 3447](https://datatracker.ietf.org/doc/html/rfc3447) besagt, dass "Typische Salzlängen" entweder 0 oder die Länge der Ausgabe des [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto#supported_algorithms) sind, der ausgewählt wurde, als dieser Schlüssel [generiert](/de/docs/Web/API/SubtleCrypto/generateKey) wurde. Zum Beispiel, wenn Sie [SHA-256](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) als Digest-Algorithmus verwenden, könnte dies 32 sein.

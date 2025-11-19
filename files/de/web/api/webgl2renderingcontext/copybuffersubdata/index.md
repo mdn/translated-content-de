@@ -19,7 +19,6 @@ copyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size)
 ### Parameter
 
 - `readTarget`, `writeTarget`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Target) spezifiziert, von dessen Datenspeicher gelesen oder in den geschrieben werden soll. Mögliche Werte:
     - `gl.ARRAY_BUFFER`: Puffer, der Vertex-Attribute enthält, wie zum Beispiel Vertex-Koordinaten, Texturkoordinaten-Daten oder Vertex-Farb-Daten.
     - `gl.ELEMENT_ARRAY_BUFFER`: Puffer, der für Elementindizes verwendet wird.

@@ -30,13 +30,11 @@ _Das `History` Interface erbt keine Eigenschaften._
 _Das `History` Interface erbt keine Methoden._
 
 - [`back()`](/de/docs/Web/API/History/back)
-
   - : Diese asynchrone Methode geht zur vorherigen Seite im Sitzungsverlauf, vergleichbar mit der Aktion, wenn der Benutzer die <kbd>Zurück</kbd>-Taste des Browsers klickt. Entspricht `history.go(-1)`.
 
     Wenn diese Methode aufgerufen wird, um über die erste Seite im Sitzungsverlauf hinaus zurückzugehen, hat dies keine Wirkung und löst keine Ausnahme aus.
 
 - [`forward()`](/de/docs/Web/API/History/forward)
-
   - : Diese asynchrone Methode geht zur nächsten Seite im Sitzungsverlauf, vergleichbar mit der Aktion, wenn der Benutzer die <kbd>Vorwärts</kbd>-Taste des Browsers klickt; dies entspricht `history.go(1)`.
 
     Wenn diese Methode aufgerufen wird, um über die zuletzt besuchte Seite im Sitzungsverlauf hinaus vorwärts zu gehen, hat dies keine Wirkung und löst keine Ausnahme aus.
@@ -44,7 +42,6 @@ _Das `History` Interface erbt keine Methoden._
 - [`go()`](/de/docs/Web/API/History/go)
   - : Lädt asynchron eine Seite aus dem Sitzungsverlauf, identifiziert durch ihre relative Position zur aktuellen Seite, zum Beispiel `-1` für die vorherige Seite oder `1` für die nächste Seite. Wenn Sie einen ungültigen Wert angeben (zum Beispiel `-1`, wenn es keine zuvor besuchten Seiten im Sitzungsverlauf gibt), hat diese Methode stillschweigend keine Wirkung. Das Aufrufen von `go()` ohne Parameter oder mit einem Wert von `0` lädt die aktuelle Seite neu.
 - [`pushState()`](/de/docs/Web/API/History/pushState)
-
   - : Fügt die angegebenen Daten mit dem angegebenen Titel (und, falls bereitgestellt, der URL) dem Sitzungsverlauf-Stack hinzu. Die Daten werden vom DOM als undurchsichtig behandelt; Sie können jedes JavaScript-Objekt angeben, das serialisiert werden kann. Beachten Sie, dass alle Browser außer Safari derzeit den _title_-Parameter ignorieren. Für weitere Informationen siehe [Arbeiten mit der History API](/de/docs/Web/API/History_API/Working_with_the_History_API).
 
 - [`replaceState()`](/de/docs/Web/API/History/replaceState)

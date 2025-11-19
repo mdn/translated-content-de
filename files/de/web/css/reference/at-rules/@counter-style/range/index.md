@@ -33,7 +33,6 @@ range:
 Der Wert ist eine kommagetrennte Liste von Bereichen, von denen jeder eine untere und obere Grenze oder das Schlüsselwort `auto` enthält.
 
 - `auto`
-
   - : Der gesamte Satz von Zahlen, die durch den Zähler darstellbar sind, hängt vom Zähler{{cssxref("@counter-style/system","system")}} ab. Diese Bereichswerte hängen vom Zählersystem ab:
     - Für `cyclic`, `numeric` und `fixed` Systeme reicht der Bereich von negativer `Unendlichkeit` bis positiver `Unendlichkeit`.
     - Für `alphabetic` und `symbolic` Systeme reicht der Bereich von `1` bis zur positiven `Unendlichkeit`.

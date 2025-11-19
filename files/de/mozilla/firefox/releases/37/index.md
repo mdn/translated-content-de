@@ -39,7 +39,6 @@ Höhepunkte:
 - Die nicht standardisierte Methode `String.prototype.quote()` wurde entfernt ([Firefox-Bug 1103181](https://bugzil.la/1103181)).
 - Die Eigenschaft {{jsxref("RegExp.prototype.flags")}} wurde implementiert ([Firefox-Bug 1108467](https://bugzil.la/1108467)).
 - Verschiedene {{jsxref("Array")}}-Methoden wurden auch für [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) implementiert:
-
   - Die Methoden {{jsxref("TypedArray.every", "every()")}} und {{jsxref("TypedArray.some", "some()")}} ([Firefox-Bug 1116390](https://bugzil.la/1116390)).
   - Die Methoden {{jsxref("TypedArray.find", "find()")}} und {{jsxref("TypedArray.findIndex", "findIndex()")}} ([Firefox-Bug 1078975](https://bugzil.la/1078975)).
   - Die Methode {{jsxref("TypedArray.fill", "fill()")}} ([Firefox-Bug 1113722](https://bugzil.la/1113722)).
@@ -60,7 +59,6 @@ Höhepunkte:
 - Die experimentelle, standardmäßig nicht aktivierte, Implementierung von [Service Workers](/de/docs/Web/API/Service_Worker_API) schreitet voran: [`ServiceWorkerGlobalScope.update()`](/de/docs/Web/API/ServiceWorkerRegistration/update) wurde implementiert [Firefox-Bug 1065366](https://bugzil.la/1065366).
 - Die [IndexedDB API](/de/docs/Web/API/IndexedDB_API) kann jetzt in [Web-Arbeitern](/de/docs/Web/API/Web_Workers_API) verwendet werden ([Firefox-Bug 701634](https://bugzil.la/701634)).
 - Unsere experimentelle Implementierung von WebGL 2.0 entwickelt sich weiter!
-
   - Die Methode [`WebGL2RenderingContext.getBufferSubData()`](/de/docs/Web/API/WebGL2RenderingContext/getBufferSubData) wurde implementiert, um Zugriff auf Pufferobjekte zu gewähren ([Firefox-Bug 1048731](https://bugzil.la/1048731)).
 
 - In Übereinstimmung mit der sich entwickelnden WebRTC-Spezifikation haben wir `RTCIceServer.url` zugunsten von `RTCIceServer.urls` veraltet, was es ermöglicht, mehr als eine URL für einen gegebenen ICE-Server anzugeben.

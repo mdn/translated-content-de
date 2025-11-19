@@ -34,14 +34,12 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird in einer der folgenden Situationen ausgelöst:
     - Die [`XRSession`](/de/docs/Web/API/XRSession) ist bereits beendet, sodass der Render-Zustand nicht mehr geändert werden kann.
     - `baseLayer` wurde von einer anderen `XRSession` als derjenigen erstellt, auf der `updateRenderState()` aufgerufen wurde.
     - Die `inlineVerticalFieldOfView`-Option wurde festgelegt, aber die Sitzung ist immersiv und erlaubt diese Eigenschaft daher nicht.
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Wird in einer der folgenden Situationen ausgelöst:
     - Die `layers`-Option wird in einer Sitzung verwendet, die ohne das `layers`-Feature erstellt wurde.
     - Sowohl die `baseLayer`- als auch die `layers`-Optionen sind angegeben.

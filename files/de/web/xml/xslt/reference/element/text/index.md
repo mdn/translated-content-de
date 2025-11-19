@@ -22,7 +22,6 @@ Keine.
 ### Optionale Attribute
 
 - `disable-output-escaping`
-
   - : Gibt an, ob Sonderzeichen beim Schreiben in die Ausgabe umgewandelt werden. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird zum Beispiel das Zeichen `>` als `>` ausgegeben und nicht als `&gt;`.
 
     > [!NOTE]

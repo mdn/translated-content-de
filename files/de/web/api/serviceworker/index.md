@@ -45,7 +45,6 @@ _Das `ServiceWorker`-Interface erbt Methoden von seinem Eltern-Interface, [`Even
 ## Ereignisse
 
 - [`statechange`](/de/docs/Web/API/ServiceWorker/statechange_event)
-
   - : Wird ausgelöst, wenn sich [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) ändert.
 
 - [`error`](/de/docs/Web/API/ServiceWorker/error_event)

@@ -21,7 +21,6 @@ Wenn weggelassen, ist die Standard-Überlauf-Ausrichtung eine Mischung aus `safe
 Die folgenden Schlüsselwortwerte werden durch den `<overflow-position>` Grammatik-Begriff dargestellt:
 
 - `safe`
-
   - : Wenn die Größe des {{Glossary("alignment_subject", "Ausrichtungsgegenstands")}} den {{Glossary("alignment_container", "Ausrichtungscontainer")}} überläuft, wird der Ausrichtungsgegenstand stattdessen ausgerichtet, als wäre der Ausrichtungsmodus `start`.
 
 - `unsafe`

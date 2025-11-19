@@ -22,7 +22,6 @@ Das **`CSSValue`**-Interface repräsentiert den aktuellen berechneten Wert einer
 - [`CSSValue.cssText`](/de/docs/Web/API/CSSValue/cssText) {{Deprecated_Inline}}
   - : Ein String, der den aktuellen Wert darstellt.
 - [`CSSValue.cssValueType`](/de/docs/Web/API/CSSValue/cssValueType) {{ReadOnlyInline}} {{Deprecated_Inline}}
-
   - : Ein `unsigned short`, der einen Code repräsentiert, der den Typ des Wertes definiert. Mögliche Werte sind:
 
     | Konstante             | Beschreibung                                                                                                                                                                                                                                            |

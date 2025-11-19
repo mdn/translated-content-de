@@ -87,7 +87,6 @@ grid-column-end: unset;
 - `auto`
   - : Trägt nichts zur Platzierung des Grid-Elements bei, was eine automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` anzeigt. Dies ist der Standardwert.
 - `<custom-ident>`
-
   - : Trägt die erste Linie zur Platzierung des Grid-Elements bei, wenn es eine benannte Linie mit dem Namen `<custom-ident>-end` gibt.
 
     > [!NOTE]
@@ -96,7 +95,6 @@ grid-column-end: unset;
     Andernfalls wird dies behandelt, als wäre die ganze Zahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
-
   - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative ganze Zahl angegeben wird, wird sie stattdessen rückwärts gezählt, beginnend an der Endkante des expliziten Grids.
 
     Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien diesen Namen für die Bestimmung dieser Position haben.
@@ -104,7 +102,6 @@ grid-column-end: unset;
     Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-
   - : Trägt eine Grid-Span zur Platzierung des Grid-Elements bei, sodass die Spaltenendkante des Grid-Bereichs des Elements n Linien von der Anfangskante entfernt ist.
 
     Wenn ein Name als \<custom-ident> angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen zum Zweck des Zählens dieser Spanne haben.

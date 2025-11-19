@@ -34,7 +34,6 @@ createElementNS(namespaceURI, qualifiedName, options)
   - : Ein String, der den Typ des zu erstellenden Elements angibt.
     Die [`nodeName`](/de/docs/Web/API/Node/nodeName) Eigenschaft des erstellten Elements wird mit dem Wert von _qualifiedName_ initialisiert.
 - `options` {{Optional_Inline}}
-
   - : Ein optionales `ElementCreationOptions` Objekt, das eine einzige Eigenschaft namens `is` enthält, deren Wert der Tag-Name für ein zuvor mit `customElements.define()` definiertes benutzerdefiniertes Element ist.
     Aus Gründen der Rückwärtskompatibilität erlauben einige Browser, dass Sie hier statt eines Objekts einen String übergeben, wobei der Wert des Strings der Tag-Name des benutzerdefinierten Elements ist.
     Siehe [Erweitern von nativen HTML-Elementen](https://web.dev/articles/web-components) für weitere Informationen zur Verwendung dieses Parameters.

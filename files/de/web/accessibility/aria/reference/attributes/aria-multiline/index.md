@@ -24,7 +24,6 @@ Achten Sie auf den Fokus und die Tastendrücke beim Entwerfen von Textboxen. ARI
 ## Werte
 
 - `true`
-
   - : Die Textbox akzeptiert mehrere Zeilen Eingabe.
 
 - `false`

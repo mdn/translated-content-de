@@ -190,7 +190,6 @@ Sie können auch mehrere Media Queries in einer einzigen Regel kombinieren, inde
   - : Wird verwendet, um mehrere Medienmerkmale in einer einzigen Media Query zu kombinieren, wobei jedes verknüpfte Merkmal `true` zurückgeben muss, damit die Abfrage `true` ist.
     Es wird auch zum Verbinden von Medienmerkmalen mit Medientypen verwendet.
 - `not`
-
   - : Wird verwendet, um eine Media Query zu negieren, wobei `true` zurückgegeben wird, wenn die Abfrage ansonsten `false` wäre.
     Wenn es in einer kommagetrennten Liste von Abfragen vorhanden ist, wird es nur die spezifische Abfrage negieren, auf die es angewendet wird.
 

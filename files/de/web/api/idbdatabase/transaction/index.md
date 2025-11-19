@@ -21,7 +21,6 @@ transaction(storeNames, mode, options)
 ### Parameter
 
 - `storeNames`
-
   - : Die Namen der Objekt-Stores, die im Geltungsbereich der neuen Transaktion sind, deklariert als ein Array von Strings. Geben Sie nur die Objekt-Stores an, auf die Sie zugreifen müssen.
     Wenn Sie nur auf einen Objekt-Store zugreifen müssen, können Sie dessen Namen als String angeben.
     Daher sind die folgenden Zeilen gleichwertig:
@@ -40,7 +39,6 @@ transaction(storeNames, mode, options)
     Das Übergeben eines leeren Arrays führt zu einer Ausnahme.
 
 - `mode` {{optional_inline}}
-
   - : Die Arten des Zugriffs, die in der Transaktion durchgeführt werden können.
     Transaktionen werden in einem von drei Modi geöffnet:
     - `readonly`

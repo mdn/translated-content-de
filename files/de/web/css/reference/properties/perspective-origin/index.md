@@ -124,7 +124,6 @@ perspective-origin: unset;
 ### Werte
 
 - _x-position_
-
   - : Gibt die Position der Abszisse des _Fluchtpunkts_ an. Sie kann einen der folgenden Werte haben:
     - {{cssxref("&lt;length-percentage&gt;")}}, was die Position als absoluten Längenwert oder relativ zur Breite des Elements angibt. Der Wert kann negativ sein.
     - `left`, ein Schlüsselwort, das eine Abkürzung für den Längenwert `0` ist.

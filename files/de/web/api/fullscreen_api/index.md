@@ -39,7 +39,6 @@ Die Fullscreen-API fügt den Schnittstellen [`Document`](/de/docs/Web/API/Docume
 ### Veraltete Eigenschaften
 
 - [`Document.fullscreen`](/de/docs/Web/API/Document/fullscreen) {{Deprecated_Inline}}
-
   - : Ein Boolean-Wert, der `true` ist, wenn das Dokument derzeit ein Element im Vollbildmodus darstellt; andernfalls wird `false` zurückgegeben.
 
     > [!NOTE]

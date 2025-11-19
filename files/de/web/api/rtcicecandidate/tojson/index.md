@@ -32,12 +32,10 @@ Ein JSON-Objekt mit den folgenden Eigenschaften, die auf die entsprechenden Wert
   - : Ein String, der die Netzwerkverbindungsinformationen für den Kandidaten beschreibt.
     Weitere Informationen finden Sie in [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate).
 - `sdpMid` {{optional_inline}}
-
   - : Ein String, der das Identifikations-Tag des Medienstroms enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein zugeordneter Medienstrom vorhanden ist.
     Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
 
 - `sdpMLineIndex` {{optional_inline}}
-
   - : Eine Zahleneigenschaft, die den nullbasierten Index der m-Linie enthält, mit der der Kandidat in der [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn keine solche Verknüpfung besteht.
     Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
 

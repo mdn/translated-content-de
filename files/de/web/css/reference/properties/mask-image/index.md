@@ -34,11 +34,9 @@ mask-image: unset;
 ### Werte
 
 - `none`
-
   - : Dieses Schlüsselwort wird als ein transparentes schwarzes Bildebene interpretiert.
 
 - `<mask-source>`
-
   - : Ein {{cssxref("url_value", "&lt;url&gt;")}} Verweis auf eine {{SVGElement("mask")}} oder auf ein CSS-Bild.
 
 - {{cssxref("&lt;image&gt;")}}

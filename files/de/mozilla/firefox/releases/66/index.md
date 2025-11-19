@@ -29,7 +29,6 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 66, die Ent
 - [Scroll Anchoring](https://drafts.csswg.org/css-scroll-anchoring/) wurde in Firefox Desktop implementiert (aber noch nicht mobil), einschließlich der {{cssxref("overflow-anchor")}}-Eigenschaft ([Firefox-Bug 1305957](https://bugzil.la/1305957)).
 - Wir haben den case-sensitiven [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors)-Modifikator, `s`, implementiert ([Firefox-Bug 1512386](https://bugzil.la/1512386)).
 - Mehrere [logische Eigenschafts-](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Kürzel wurden hinzugefügt, zusammen mit den flussrelativen Border-Radius Eigenschaften:
-
   - {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} ([Firefox-Bug 1519847](https://bugzil.la/1519847)).
   - {{cssxref("margin-block")}} und {{cssxref("margin-inline")}} ([Firefox-Bug 1519944](https://bugzil.la/1519944)).
   - {{cssxref("inset")}}, {{cssxref("inset-block")}}, und {{cssxref("inset-inline")}} ([Firefox-Bug 1520229](https://bugzil.la/1520229)).
@@ -115,7 +114,6 @@ _Keine Änderungen._
 - `WebDriver:NewWindow` wurde hinzugefügt, um das Öffnen eines neuen Browsing-Kontextes zu unterstützen, der entweder ein Fenster oder ein Tab sein kann ([Firefox-Bug 1504756](https://bugzil.la/1504756)).
 - `WebDriver:SwitchToFrame` löst jetzt einen `no such element` Fehler aus, wenn das angegebene Element nicht Teil des aktuellen Browsing-Kontextes ist ([Firefox-Bug 1517196](https://bugzil.la/1517196)).
 - `WebDriver:ExecuteScript` und `WebDriver:ExecuteAsyncScript` unterstützen nicht mehr den nicht spezifikationskonformen `scriptTimeout` Parameter. Verwenden Sie stattdessen `WebDriver:SetTimeout` oder die `timeouts`-Funktion, um diesen Wert zu definieren ([Firefox-Bug 1510929](https://bugzil.la/1510929)).
-
   - Zusätzlich werden jetzt unbestimmte Skript-Timeouts unterstützt ([Firefox-Bug 1128997](https://bugzil.la/1128997)).
 
 - `WebDriver:SetWindowRect` gibt den Fensterstatus in seiner Antwort nicht mehr zurück ([Firefox-Bug 1517587](https://bugzil.la/1517587)).

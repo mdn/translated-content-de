@@ -33,9 +33,7 @@ Um das Risiko für Cookie-Schwachstellen auf Ihrer Website zu minimieren, beschr
 - `Path`
   - : Cookies sollten auf den restriktivsten möglichen `Path` gesetzt werden.
 - `SameSite`
-
   - : Verbieten Sie das Senden von Cookies über Cross-Origin-Anfragen (zum Beispiel von {{htmlelement("img")}}-Elementen) mithilfe von `SameSite`. Sie sollten einen der folgenden beiden Werte verwenden:
-
     - `SameSite=Strict`: Senden Sie das Cookie nur in Same-Site-Kontexten (Navigieren und andere Anfragen). Cookies werden bei Cross-Site-Anfragen (z.B. Einbetten von Bildern oder anderen Ressourcen von anderen Websites) und Cross-Site-Navigation (z.B. beim Folgen eines Links von einer anderen Webseite) weggelassen. Dies ist eine sehr strenge Einstellung, bietet jedoch einen starken Schutz gegen [CSRF](/de/docs/Web/Security/Attacks/CSRF)-Angriffe. Verwenden Sie diesen Wert, wenn möglich.
     - `SameSite=Lax`: Senden Sie das Cookie in Same-Site-Anfragen und beim Navigieren _zu_ Ihrer Website. Dies sollte verwendet werden, wenn `Strict` zu restriktiv ist.
 

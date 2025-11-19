@@ -26,7 +26,6 @@ new AudioWorkletNode(context, name, options)
 - `name`
   - : Ein String, der den Namen des [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) repräsentiert, auf dem dieser Knoten basiert. Ein Prozessor mit dem angegebenen Namen muss zunächst registriert werden, indem die Methode [`AudioWorkletGlobalScope.registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor) verwendet wird.
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das null oder mehr der folgenden optionalen Eigenschaften enthält, um den neuen Knoten zu konfigurieren:
 
     <!-- Die Spezifikation bezeichnet dieses Objekt als: AudioWorkletNodeOptions -->
@@ -35,7 +34,6 @@ new AudioWorkletNode(context, name, options)
     > Das Ergebnis des [strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm),
     > angewendet auf das Objekt, wird intern auch an den zugehörigen [`AudioWorkletProcessor()`](/de/docs/Web/API/AudioWorkletProcessor/AudioWorkletProcessor)-Konstruktor übergeben
     > — dies ermöglicht eine benutzerdefinierte Initialisierung eines zugrunde liegenden, benutzerdefinierten [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor).
-
     - `numberOfInputs` {{optional_inline}}
       - : Der Wert zum Initialisieren der [`numberOfInputs`](/de/docs/Web/API/AudioNode/numberOfInputs)-Eigenschaft. Standard ist 1.
     - `numberOfOutputs` {{optional_inline}}
@@ -50,7 +48,6 @@ new AudioWorkletNode(context, name, options)
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Die angegebene `options.outputChannelCount` ist `0` oder größer, als die aktuelle Implementierung unterstützt.
 
     Sowohl `options.numberOfInputs` als auch `options.numberOfOutputs` sind 0.

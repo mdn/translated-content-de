@@ -16,7 +16,6 @@ Für Details darüber, wie der ICE-Prozess funktioniert, siehe [Lebensdauer eine
 ## Konstruktor
 
 - [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)
-
   - : Erstellt ein `RTCIceCandidate`-Objekt, um einen einzelnen ICE-Kandidaten darzustellen, optional basierend auf einem Konfigurationsobjekt konfiguriert.
 
     > [!NOTE]

@@ -86,7 +86,6 @@ Die `flex-basis`-Eigenschaft wird entweder als das Schlüsselwort `content` oder
 ### Werte
 
 - `content`
-
   - : Zeigt automatische Größenbestimmung an, basierend auf dem Inhalt des Flex-Elements.
 
 - `<'width'>`

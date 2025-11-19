@@ -390,7 +390,6 @@ Das Muster für das Abonnieren von Push-Nachrichten sieht folgendermaßen aus:
 1. Als Voraussetzung muss der App-Server mit einem {{Glossary("Public-key_cryptography", "öffentlich-privaten Schlüsselpaar")}} ausgestattet werden, damit er Push-Nachrichten signieren kann. Das Signieren der Nachrichten muss der [VAPID](https://datatracker.ietf.org/doc/html/draft-thomson-webpush-vapid-02)-Spezifikation folgen.
 
 2. Auf dem Gerät verwendet die App die Methode [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe), um Nachrichten vom Server zu abonnieren. Die `subscribe()`-Methode:
-
    - Nimmt den öffentlichen Schlüssel des App-Servers als Argument: Dies ist, was der Push-Dienst verwenden wird, um die Signatur auf Nachrichten vom App-Server zu überprüfen.
 
    - Gibt ein `Promise` zurück, das sich in ein [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt auflöst. Dieses Objekt beinhaltet:

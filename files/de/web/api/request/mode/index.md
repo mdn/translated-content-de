@@ -22,15 +22,12 @@ Beachten Sie, dass das Setzen bestimmter Modi, insbesondere `no-cors`, Einschrä
 Einer der folgenden Werte:
 
 - `same-origin`
-
   - : Verbietet Cross-Origin-Anfragen. Wenn bei diesem Modus eine Anfrage an einen anderen Ursprung gestellt wird, führt dies zu einem Fehler.
 
 - `no-cors`
-
   - : Deaktiviert CORS für Cross-Origin-Anfragen. Die Antwort ist _opak_, was bedeutet, dass ihre Header und der Body für JavaScript nicht verfügbar sind.
 
 - `cors`
-
   - : Wenn die Anfrage cross-origin ist, wird der [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)-Mechanismus verwendet.
 
 - `navigate`

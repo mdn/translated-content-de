@@ -84,19 +84,15 @@ Aus der Perspektive des Benutzers von unterstützender Technologie existiert die
 ### Zugeordnete WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) (Standard ist horizontal für Separator)
-
   - : Standardmäßig wird davon ausgegangen, dass der Teiler für `separator`-Rollen horizontal ist. Der Wert kann angegeben und auf horizontal, undefiniert (der Standard für andere Rollen, sofern nicht anders angegeben) oder vertikal gesetzt werden.
 
 - [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)
-
   - : Wenn der Separator fokussierbar ist und einen bekannten Wert hat, definiert `aria-valuenow` den aktuellen Wert. Wenn nicht fokussierbar oder der Wert unbekannt ist, dieses Attribut nicht einbeziehen.
 
 - [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemin) (Standard ist 0)
-
   - : Wenn der Separator fokussierbar ist und der Mindestwert nicht 0 ist, geben Sie den Mindestwert mit `aria-valuemin` an. Wenn der
 
 - [`aria-valuemax`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuemax) (Standard ist 100)
-
   - : Wenn der Separator fokussierbar ist und der Höchstwert nicht 100 ist, geben Sie `aria-valuemax` mit einem Wert an, der gleich oder größer als `aria-valuemin` ist.
 
 - [`aria-valuetext`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuetext)

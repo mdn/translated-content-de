@@ -21,9 +21,7 @@ getBufferParameter(target, pname)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Zielpufferobjekt angibt. Mögliche Werte:
-
     - `gl.ARRAY_BUFFER`
       - : Puffer enthält Vertex-Attribute, wie z.B.
         Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
@@ -32,7 +30,6 @@ getBufferParameter(target, pname)
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
     stehen zusätzlich die folgenden Werte zur Verfügung:
-
     - `gl.COPY_READ_BUFFER`
       - : Puffer zum Kopieren von einem Pufferobjekt in ein anderes.
     - `gl.COPY_WRITE_BUFFER`
@@ -47,24 +44,19 @@ getBufferParameter(target, pname)
       - : Puffer, der für Pixeltransferoperationen verwendet wird.
 
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragende Information spezifiziert. Mögliche Werte:
-
     - `gl.BUFFER_SIZE`
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Größe
         des Puffers in Bytes angibt.
     - `gl.BUFFER_USAGE`
-
       - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das das
         Nutzungsmuster des Puffers angibt. Einer der folgenden Werte:
-
         - `gl.STATIC_DRAW`
         - `gl.DYNAMIC_DRAW`
         - `gl.STREAM_DRAW`
 
         Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
         stehen zusätzlich die folgenden Werte zur Verfügung:
-
         - `gl.STATIC_READ`
         - `gl.DYNAMIC_READ`
         - `gl.STREAM_READ`

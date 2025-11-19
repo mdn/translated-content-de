@@ -22,9 +22,7 @@ getVertexAttrib(index, pname)
 - `index`
   - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des Vertex-Attributs angibt.
 - `pname`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragende Information spezifiziert. Mögliche Werte:
-
     - `gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING`
       - : Gibt den aktuell gebundenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) zurück.
     - `gl.VERTEX_ATTRIB_ARRAY_ENABLED`
@@ -34,7 +32,6 @@ getVertexAttrib(index, pname)
     - `gl.VERTEX_ATTRIB_ARRAY_STRIDE`
       - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Anzahl der Bytes zwischen aufeinanderfolgenden Elementen im Array angibt. 0 bedeutet, dass die Elemente fortlaufend sind.
     - `gl.VERTEX_ATTRIB_ARRAY_TYPE`
-
       - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Array-Typ repräsentiert. Einer von
         - `gl.BYTE`
         - `gl.UNSIGNED_BYTE`
@@ -51,7 +48,6 @@ getVertexAttrib(index, pname)
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich folgende Werte verfügbar:
-
     - `gl.VERTEX_ATTRIB_ARRAY_INTEGER`
       - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der angibt, ob ein Ganzzahldatentyp im
         Vertex-Attribut-Array am angegebenen `index` vorhanden ist.
@@ -59,7 +55,6 @@ getVertexAttrib(index, pname)
       - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Frequenzteiler beschreibt, der für das instanzierte Rendering verwendet wird.
 
     Bei Verwendung der [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung:
-
     - `ext.VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE`
       - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Frequenzteiler beschreibt, der für das instanzierte Rendering verwendet wird.
 

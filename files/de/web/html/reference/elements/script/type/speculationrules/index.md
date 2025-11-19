@@ -79,26 +79,21 @@ Jedes Aktionsfeld enthält ein Array, das wiederum ein oder mehrere Objekte enth
 Jedes Objekt kann die folgenden Eigenschaften enthalten:
 
 - `"source"` {{experimental_inline}}
-
   - : Ein String, der die Quelle der URLs angibt, auf die die Regel angewendet wird. Dies ist optional, da der Wert immer aus anderen Eigenschaften abgeleitet werden kann.
 
     Dies kann einer der folgenden sein:
-
     - `"document"`
       - : Gibt an, dass die URLs von Navigationslinks im zugehörigen Dokument (wie in den {{htmlelement("a")}}- und {{htmlelement("area")}}-Elementen definiert) anhand der durch einen `"where"`-Schlüssel beschriebenen Bedingungen abgeglichen werden. Beachten Sie, dass das Vorhandensein eines `"where"`-Schlüssels `"source": "document"` impliziert, sodass es optional ist.
     - `"list"`
       - : Gibt an, dass die URLs aus einer Liste stammen, die im `"urls"`-Schlüssel angegeben ist. Beachten Sie, dass das Vorhandensein eines `"urls"`-Schlüssels `"source": "list"` impliziert, sodass es optional ist.
 
 - `"urls"` {{experimental_inline}}
-
   - : Ein Array von Strings, das eine Liste von URLs darstellt, auf die die Regel angewendet werden soll. Diese können absolute oder relative URLs sein. Relative URLs werden relativ zur Basis-URL des Dokuments geparst (wenn sie inline in einem Dokument sind) oder relativ zur externen Ressourcen-URL (wenn sie extern abgerufen werden). `"urls"` und `"where"` können nicht beide in derselben Regel festgelegt werden.
 
 - `"where"` {{experimental_inline}}
-
   - : Ein Objekt, das die Bedingungen darstellt, unter denen die Regel URLs im zugehörigen Dokument abgleicht. Im Wesentlichen repräsentiert das `"where"`-Objekt einen Test, der auf jeden Link auf der Seite durchgeführt wird, um zu überprüfen, ob die Spekulationsregel darauf angewendet wird. `"where"` und `"urls"` können nicht beide in derselben Regel festgelegt werden.
 
     Dieses Objekt kann genau eine der folgenden Eigenschaften enthalten:
-
     - `"href_matches"`
       - : Ein String, der ein URL-Muster enthält, oder ein Array, das mehrere URL-Muster-Strings enthält, die der Standard-[URL Pattern API-Syntax](/de/docs/Web/API/URL_Pattern_API) folgen. Links im Dokument, deren URLs mit dem/den Muster(n) übereinstimmen, werden die Regel angewendet.
     - `"relative_to"`
@@ -115,9 +110,7 @@ Jedes Objekt kann die folgenden Eigenschaften enthalten:
     `"where"`-Bedingungen können mehrere Ebenen tief verschachtelt werden, um komplexe Bedingungen zu erstellen, oder Sie können sie in separate Regeln aufteilen, um sie einfach zu halten. Siehe [where examples](#where_syntax_examples) für eine weitere Erklärung und mehrere Nutzungsbeispiele.
 
 - `"eagerness"` {{experimental_inline}}
-
   - : Ein String, der dem Browser einen Hinweis darauf gibt, wie eifrig er Linkziele vorladen/vorrendern soll, um Leistungsvorteile gegen die Ressourcennutzung abzuwägen. Mögliche Werte sind:
-
     - `"immediate"`
       - : Der Autor denkt, dass der Link sehr wahrscheinlich gefolgt wird, und/oder das Dokument möglicherweise erhebliche Zeit zum Abrufen benötigt. Prefetch/Prerender sollte so schnell wie möglich beginnen, nur unter Berücksichtigung von Benutzerpräferenzen und Ressourcenbeschränkungen.
     - `"eager"`
@@ -130,11 +123,9 @@ Jedes Objekt kann die folgenden Eigenschaften enthalten:
     Wenn `"eagerness"` nicht explizit angegeben ist, sind Listen (`"urls"`) Regeln standardmäßig auf `immediate` und Dokument (`"where"`) Regeln auf `conservative` gesetzt. Der Browser berücksichtigt diesen Hinweis zusammen mit seinen eigenen Heuristiken, sodass er möglicherweise einen Link auswählt, den der Autor als weniger eifrig angezeigt hat, wenn der weniger eifrige Kandidat als die bessere Wahl angesehen wird.
 
 - `"expects_no_vary_search"` {{experimental_inline}}
-
   - : Ein String, der dem Browser einen Hinweis darauf gibt, welcher {{httpheader("No-Vary-Search")}} Headerwert für Antworten festgelegt wird, für die er Prefetch/Prerender-Anfragen erhält. Der Browser kann dies nutzen, um im Voraus zu bestimmen, ob es sinnvoller ist, auf einen bestehenden Prefetch/Prerender abzuwarten oder eine neue Abrufanfrage zu starten, wenn die Spekulationsregel übereinstimmt. Siehe das [`"expects_no_vary_search"`-Beispiel](#expects_no_vary_search_example) für eine genauere Erklärung, wie dies verwendet werden kann.
 
 - `"referrer_policy"` {{experimental_inline}}
-
   - : Ein String, der eine spezifische Referrer-Policy darstellt, die bei Anfragen an die in der Regel angegebenen URLs verwendet werden soll — siehe [`Referrer-Policy`](/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy) für mögliche Werte. Dies soll es der verweisenden Seite ermöglichen, eine strengere Richtlinie speziell für die spekulative Anfrage festzulegen als die Richtlinie, die die Seite bereits festgelegt hat (entweder standardmäßig oder durch Verwendung von `Referrer-Policy`).
 
     > [!NOTE]
@@ -144,9 +135,7 @@ Jedes Objekt kann die folgenden Eigenschaften enthalten:
     > Im Falle von Dokumentregeln wird die angegebene Referrer-Policy des übereinstimmenden Links (z.B. durch Verwendung des [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/a#referrerpolicy)-Attributs) verwendet, es sei denn, die Regel gibt eine Policy an, die diese überschreibt.
 
 - `"relative_to"` {{experimental_inline}}
-
   - : Ein String, der angibt, wo Sie möchten, dass die Links, die anhand der URL übereinstimmen, relativ dazu abgeglichen werden sollen. Der Wert kann einer der folgenden sein:
-
     - `"document"`
       - : URLs sollen relativ zu dem Dokument abgeglichen werden, auf das die Spekulationsregeln angewendet werden.
     - `"ruleset"`
@@ -155,14 +144,12 @@ Jedes Objekt kann die folgenden Eigenschaften enthalten:
     Diese Schlüsseleinstellung ist nur relevant für Regeln, die in einer externen Datei definiert sind (festgelegt über den {{httpheader("Speculation-Rules")}} Header). Wenn Regeln innerhalb desselben Dokuments angegeben werden, für das sie gelten (d.h. in einem Inline-`<script>`-Element), macht das keinen Unterschied.
 
 - `"requires"` {{experimental_inline}}
-
   - : Ein Array von Strings, das Fähigkeiten des Browsers darstellt, der die Regel parst, die verfügbar sein müssen, wenn die Regel auf die angegebenen URLs angewendet werden soll.
 
     > [!WARNING]
     > Prefetches werden in Browsern, die eine angegebene Anforderung nicht erfüllen können, automatisch fehlschlagen, auch wenn sie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) unterstützen.
 
     Mögliche Werte sind:
-
     - `"anonymous-client-ip-when-cross-origin"`
       - : (nur-prefetch) Gibt an, dass die Regel nur übereinstimmt, wenn der User-Agent verhindern kann, dass die Client-IP-Adresse für den Ursprungsserver sichtbar ist, wenn eine Cross-Origin Prefetch-Anfrage ausgegeben wird. Wie dies genau funktioniert, hängt von den spezifischen Implementierungsdetails des Browsers ab. Beispielsweise:
         - Chromes Implementierung verbirgt die IP-Adresse mit einem von Google betriebenen Proxy, daher funktioniert es standardmäßig nur für von Google kontrollierte Referrer (da in diesem Fall das Senden der URLs des Ziels an Google keine zusätzliche Datenschutzverletzung darstellt). Wenn dies auf einer nicht von Google betriebenen Seite verwendet wird, werden Regeln, die dies beinhalten, nur für Benutzer übereinstimmen, die "Erweitertes Vorladen" in `chrome://settings/preloading` aktivieren.
@@ -171,7 +158,6 @@ Jedes Objekt kann die folgenden Eigenschaften enthalten:
         - Eine zukünftige Firefox-Implementierung könnte etwas auf Basis des [Mozilla VPN](https://www.mozilla.org/en-US/products/vpn/) Produkts verwenden.
 
 - `"tag"` {{experimental_inline}}
-
   - : Ein String, der zur Identifizierung einer Regel oder eines Regelsatzes verwendet wird. Dieser wird im {{HTTPHeader("Sec-Speculation-Tags")}} Header für Anfragen enthalten sein, die von dieser Regel abgedeckt werden.
 
 - `"target_hint"` {{experimental_inline}}
@@ -399,7 +385,6 @@ Im obigen Beispiel wird nur die erste `"href_matches"` relativ zur Basis-URL des
 1. Wenn das Dokument unter `https://example.com/some/subpage.html` und die Regeln unter `https://example.com/resources/rules.json` liegen, dann entspricht `/home` immer `https://example.com/home`, unabhängig davon, ob `relative_to` auf `document` oder `ruleset` gesetzt ist.
 
 2. Wenn das Dokument jedoch unter `https://example.com/some/subpage.html` und die Regeln unter `https://other.example/resources/rules.json` (z.B. bei einem Drittanbieterserver oder cookieless Ursprungsserver) liegen, dann:
-
    - `"relative_to": "document"` führt dazu, dass `/home` zu `https://example.com/home` entspricht.
    - `"relative_to": "ruleset"` führt dazu, dass `/home` zu `https://other.example/home` entspricht.
 

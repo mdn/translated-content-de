@@ -22,7 +22,6 @@ createScriptProcessor(bufferSize, numberOfInputChannels, numberOfOutputChannels)
 ### Parameter
 
 - `bufferSize`
-
   - : Die Puffergröße in Einheiten von Abtastrahmen. Wenn angegeben, muss die bufferSize einen der folgenden Werte haben: 256, 512, 1024, 2048, 4096, 8192, 16384. Wenn sie nicht angegeben wird oder der Wert 0 ist, wählt die Implementierung die beste Puffergröße für die gegebene Umgebung, die während der gesamten Lebensdauer des Knotens eine konstante Potenz von 2 sein wird.
 
     Dieser Wert steuert, wie häufig das `audioprocess`-Ereignis ausgelöst wird und wie viele Abtastrahmen bei jedem Aufruf bearbeitet werden müssen. Niedrigere Werte für `bufferSize` führen zu einer geringeren (besseren) Latenz. Höhere Werte sind notwendig, um Audioausfälle und Störungen zu vermeiden. Es wird empfohlen, diese Puffergröße nicht anzugeben und die Implementierung eine gute Puffergröße auswählen zu lassen, um ein Gleichgewicht zwischen Latenz und Audioqualität zu erreichen.

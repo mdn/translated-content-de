@@ -48,7 +48,6 @@ Jetzt können unsere Benutzer einen Anruf tätigen, aber sie können keinen entg
    ```
 
    Lassen Sie uns die wichtigsten Teile dieses Codes durchgehen:
-
    - `call.answer(window.localStream)`: Wenn `answerCall` `true` ist, sollten Sie die `answer()`-Funktion von peerJS auf den Anruf aufrufen, um eine Antwort zu erstellen und den lokalen Stream zu übergeben.
    - `showCallContent`: Ähnlich wie bei dem, was Sie im Ereignis-Listener für den Anruf-Button getan haben, sollten Sie sicherstellen, dass die Person, die angerufen wird, den richtigen HTML-Inhalt sieht.
    - Alles im Block `call.on('stream', () => { }` ist genau dasselbe wie im Ereignis-Listener des Anruf-Buttons. Der Grund, warum Sie es hier ebenfalls hinzufügen müssen, ist, damit der Browser auch für die Person aktualisiert wird, die den Anruf annimmt.

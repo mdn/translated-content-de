@@ -23,7 +23,6 @@ Dieses Interface erbt von [`AuthenticatorResponse`](/de/docs/Web/API/Authenticat
 _Erbt auch Eigenschaften von seinem übergeordneten Element, [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)._
 
 - [`AuthenticatorAttestationResponse.attestationObject`](/de/docs/Web/API/AuthenticatorAttestationResponse/attestationObject) {{ReadOnlyInline}}
-
   - : Ein {{jsxref("ArrayBuffer")}}, der Authentifikator-Daten und eine Attestation-Aussage für ein neues Schlüsselpaar enthält, das vom Authentifikator generiert wurde.
 
 - [`AuthenticatorResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON) {{ReadOnlyInline}}

@@ -73,9 +73,7 @@ li:nth-child(even) {
 #### Funktionale Notation
 
 - `<An+B>`
-
   - : Repräsentiert Elemente, deren numerische Position in einer Geschwisterserie das Muster `An+B` erfüllt, für jeden positiven ganzzahligen oder null Wert von `n`, wobei:
-
     - `A` eine ganzzahlige Schrittweite ist,
     - `B` ein ganzzahliger Versatz ist,
     - `n` alle nicht-negativen Ganzzahlen sind, beginnend bei 0.

@@ -38,7 +38,6 @@ Im Gegensatz zur [`article`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/art
 ### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)
-
   - : Sollte mit einem Wert von `true` oder `false` angegeben werden, wenn das Dokumentelement zusammenklappbar ist, um anzuzeigen, ob das Dokument derzeit erweitert oder eingeklappt ist. Andere Werte schließen die Standardeinstellung `undefined` ein, was bedeutet, dass das Dokument nicht zusammenklappbar ist.
 
 - tabindex="0"

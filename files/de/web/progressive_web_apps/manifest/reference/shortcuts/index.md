@@ -50,27 +50,21 @@ Das `shortcuts`-Manifestmitglied wird verwendet, um Links zu wichtigen Aufgaben 
 ### Werte
 
 - `shortcuts`
-
   - : Ein Array von Objekten. Jedes Objekt repräsentiert eine wichtige Aufgabe oder Seite in der Web-App.
 
     Jedes Objekt kann eine oder mehrere Eigenschaften haben. Davon sind nur `name` und `url` erforderlich. Die möglichen Eigenschaften umfassen:
-
     - `name`
-
       - : Ein String, der den Namen der Verknüpfung darstellt, der den Benutzern in einem Kontextmenü angezeigt wird.
 
     - `short_name` {{Optional_Inline}}
-
       - : Ein String, der eine kurze Version des Namens der Verknüpfung darstellt.
         Browser können dies in Kontexten verwenden, in denen nicht genug Platz ist, um den vollständigen Namen anzuzeigen.
 
     - `description` {{Optional_Inline}}
-
       - : Ein String, der den Zweck der Verknüpfung beschreibt.
         Browser können diese Information assistiven Technologien, wie z.B. Screenreadern, zur Verfügung stellen, die Nutzern helfen können, den Zweck der Verknüpfung zu verstehen.
 
     - `url`
-
       - : Eine App-URL, die geöffnet wird, wenn die zugehörige Verknüpfung aktiviert wird.
         Die URL muss innerhalb des [scope](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) des Web-App-Manifests liegen.
         Wenn der Wert absolut ist, sollte er gleichen Ursprungs wie die Seite sein, die auf die Manifestdatei verweist.

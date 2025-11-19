@@ -23,14 +23,11 @@ generateMipmap(target)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindepunkt (Ziel) der aktiven Textur angibt, deren Mipmaps generiert werden. Mögliche Werte:
-
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`: Eine Cube-Map-Textur.
 
     Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
-
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 

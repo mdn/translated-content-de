@@ -20,7 +20,6 @@ new WritableStream(underlyingSink, queuingStrategy)
 ### Parameter
 
 - `underlyingSink` {{optional_inline}}
-
   - : Ein Objekt, das Methoden und Eigenschaften enthält, die definieren, wie sich die erstellte Stream-Instanz verhalten wird.
     Der `controller`-Parameter, der an die Methoden dieses Objekts übergeben wird, ist ein [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController), der Abbruch- und Fehlersignale bereitstellt.
     `underlyingSink` kann Folgendes enthalten:
@@ -43,10 +42,8 @@ new WritableStream(underlyingSink, queuingStrategy)
         Der `reason`-Parameter enthält eine Zeichenkette, die beschreibt, warum der Stream abgebrochen wurde.
 
 - `queuingStrategy` {{optional_inline}}
-
   - : Ein Objekt, das optional eine Warteschlangenstrategie für den Stream definiert.
     Dies nimmt zwei Parameter auf:
-
     - `highWaterMark`
       - : Eine nicht-negative Ganzzahl — dies definiert die Gesamtanzahl der Datenblöcke, die in der internen Warteschlange enthalten sein können, bevor Gegenverkehr angewendet wird.
     - `size(chunk)`

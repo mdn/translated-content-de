@@ -39,7 +39,6 @@ Siehe das [Beispiel](#beispiele) unten für ein ausführliches Beispiel, aber da
    (`new` [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest))
 2. Zeigen Sie die Zahlungsanforderung an ([`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)
 3. Wenn `show()` aufgelöst wird, beschreibt die zurückgegebene [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) die angeforderte Zahlung und die vom Benutzer gewählten Optionen. Fahren Sie mit den folgenden Schritten fort:
-
    1. Validieren Sie die zurückgegebene Antwort; wenn es Felder gibt, deren Werte nicht akzeptabel sind, rufen Sie die Methode [`complete()`](/de/docs/Web/API/PaymentResponse/complete) der Antwort mit einem Wert `"fail"` auf, um das Scheitern anzuzeigen.
    2. Wenn die Daten der Antwort gültig und akzeptabel sind, rufen Sie `complete("success")` auf, um die Zahlung abzuschließen und zu verarbeiten.
 

@@ -42,21 +42,17 @@ Das `icons`-Manifest-Element wird verwendet, um eine oder mehrere Bilddateien an
 ### Werte
 
 - `icons`
-
   - : Ein Array von Objekten.
     Jedes Objekt repräsentiert ein Symbol, das in einem bestimmten Kontext verwendet werden kann.
     Zum Beispiel können Sie Symbole hinzufügen, um Ihre Web-App auf Geräten mit verschiedenen Bildschirmgrößen, zur Integration mit verschiedenen Betriebssystemen, für Startbildschirme oder für App-Benachrichtigungen zu repräsentieren.
 
     Jedes Symbolobjekt kann eine oder mehrere Eigenschaften haben. Davon ist nur `src` erforderlich. Mögliche Eigenschaften sind:
-
     - `src`
-
       - : Ein String, der den Pfad zur Symbolbilddatei angibt.
         Wenn `src` relativ ist, wird der Pfad relativ zur URL der Manifestdatei aufgelöst.
         Zum Beispiel wird die relative URL `images/icon-192x192.png` für die Manifestdatei unter `https://example.com/manifest.json` als `https://example.com/images/icon-192x192.png` aufgelöst.
 
     - `sizes` {{Optional_Inline}}
-
       - : Ein String, der eine oder mehrere Größen angibt, bei denen die Symboldatei verwendet werden kann.
         Jede Größe wird als `<width in pixels>x<height in pixels>` angegeben.
         Wenn mehrere Größen angegeben sind, werden sie durch Leerzeichen getrennt; zum Beispiel `48x48 96x96`.
@@ -68,13 +64,11 @@ Das `icons`-Manifest-Element wird verwendet, um eine oder mehrere Bilddateien an
         Beachten Sie, dass das Format von `sizes` dem HTML `<link>`-Element [`sizes`](/de/docs/Web/HTML/Reference/Elements/link#sizes) Attribut ähnelt.
 
     - `type` {{Optional_Inline}}
-
       - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des Symbols angibt.
         Der Wert sollte im Format `image/<subtype>` sein, wobei `<subtype>` ein spezifisches Bildformat ist; zum Beispiel zeigt `image/png` ein PNG-Bild an.
         Wenn weggelassen, leiten Browser normalerweise den Bildtyp aus der Dateierweiterung ab.
 
     - `purpose` {{Optional_Inline}}
-
       - : Ein Groß-/Kleinschreibung-sensitiver Schlüsselwort-String, der einen oder mehrere Kontexte angibt, in denen das Symbol vom Browser oder Betriebssystem verwendet werden kann.
         Der Wert kann ein einzelnes Schlüsselwort oder mehrere durch Leerzeichen getrennte Schlüsselwörter sein.
         Wenn weggelassen, kann der Browser das Symbol für jeden Zweck verwenden.
@@ -86,14 +80,11 @@ Das `icons`-Manifest-Element wird verwendet, um eine oder mehrere Bilddateien an
         Wenn jedoch nur nicht erkannte Zwecke angegeben sind (z. B. `fizzbuzz`), wird es ignoriert.
 
         Gültige Werte umfassen:
-
         - `monochrome`
-
           - : Gibt an, dass das Symbol als monochromes Symbol mit durchgehender Füllung verwendet werden soll.
             Mit diesem Wert verwirft ein Browser die Farbinformationen im Symbol und verwendet nur den Alphakanal als Maske über eine beliebige durchgehende Füllung.
 
         - `maskable`
-
           - : Gibt an, dass das Symbol mit Symbolmasken und Sicherungszone entworfen wurde, so dass jeder Teil des Bildes außerhalb der Sicherungszone ignoriert und maskiert werden kann.
 
         - `any`

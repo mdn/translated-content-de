@@ -95,7 +95,6 @@ Diese Eigenschaft wird als einzelner `<grid-line>` Wert angegeben. Ein `<grid-li
 - `auto`
   - : Ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was eine automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` bedeutet.
 - `<custom-ident>`
-
   - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start` gibt, trägt sie die erste solche Linie zur Platzierung des Grid-Elements bei.
 
     > [!NOTE]
@@ -104,7 +103,6 @@ Diese Eigenschaft wird als einzelner `<grid-line>` Wert angegeben. Ein `<grid-li
     Andernfalls wird dies behandelt, als ob die Zahl `1` zusammen mit dem `<custom-ident>` angegeben wurde.
 
 - `<integer> && <custom-ident>?`
-
   - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative Zahl angegeben wird, wird rückwärts gezählt, beginnend von der Endkante des expliziten Grids.
 
     Wenn als `<custom-ident>` ein Name angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitterlinien diesen Namen haben, um diese Position zu finden.
@@ -112,7 +110,6 @@ Diese Eigenschaft wird als einzelner `<grid-line>` Wert angegeben. Ein `<grid-li
     Ein {{cssxref("integer")}} Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-
   - : Trägt eine Grid-Spanne zur Platzierung des Grid-Elements bei, sodass die Startkante der Spalte des Grid-Bereichs des Grid-Elements n Linien von der Endkante entfernt ist.
 
     Wenn als `<custom-ident>` ein Name angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitterlinien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.

@@ -33,9 +33,7 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
 - `height`
   - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe des Rechtecks angibt.
 - `format`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format der Pixeldaten angibt. Mögliche Werte:
-
     - `gl.ALPHA`
       - : Ignoriert die roten, grünen und blauen Komponenten und liest die Alphakomponente.
     - `gl.RGB`
@@ -44,7 +42,6 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
       - : Rote, grüne, blaue und alpha Komponenten werden aus dem Farb-Buffer gelesen.
 
     WebGL2 fügt hinzu
-
     - `gl.RED`
     - `gl.RG`
     - `gl.RED_INTEGER`
@@ -53,9 +50,7 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
     - `gl.RGBA_INTEGER`
 
 - `type`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Pixeldaten angibt. Mögliche Werte:
-
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT_5_6_5`
     - `gl.UNSIGNED_SHORT_4_4_4_4`
@@ -63,7 +58,6 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
     - `gl.FLOAT`
 
     WebGL2 fügt hinzu
-
     - `gl.BYTE`
     - `gl.UNSIGNED_INT_2_10_10_10_REV`
     - `gl.HALF_FLOAT`
@@ -75,7 +69,6 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
     - `gl.UNSIGNED_INT_5_9_9_9_REV`
 
 - `pixels`
-
   - : Ein Objekt, in das die Daten gelesen werden sollen. Der Array-Typ muss mit dem Typ des `type`-Parameters übereinstimmen:
     - {{jsxref("Uint8Array")}} für `gl.UNSIGNED_BYTE`.
     - {{jsxref("Uint16Array")}} für `gl.UNSIGNED_SHORT_5_6_5`, `gl.UNSIGNED_SHORT_4_4_4_4` oder `gl.UNSIGNED_SHORT_5_5_5_1`.
@@ -92,7 +85,6 @@ Keiner ({{jsxref("undefined")}}).
 
 - Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `format` oder `type` kein akzeptierter Wert ist.
 - Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn
-
   - `type` `gl.UNSIGNED_SHORT_5_6_5` ist und `format` nicht `gl.RGB` ist.
   - `type` `gl.UNSIGNED_SHORT_4_4_4_4` ist und `format` nicht `gl.RGBA` ist.
   - `type` nicht dem typisierten Array-Typ von `pixels` entspricht.

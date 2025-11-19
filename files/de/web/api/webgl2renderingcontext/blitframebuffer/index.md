@@ -27,7 +27,6 @@ blitFramebuffer(srcX0, srcY0, srcX1, srcY1,
 - `dstX0`, `dstY0`, `dstX1`, `dstY1`
   - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Grenzen des Zielrechtecks angibt.
 - `mask`
-
   - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), der eine Bitmaske angibt, welche Puffer zu kopieren sind. Mögliche Werte:
     - `gl.COLOR_BUFFER_BIT`
     - `gl.DEPTH_BUFFER_BIT`

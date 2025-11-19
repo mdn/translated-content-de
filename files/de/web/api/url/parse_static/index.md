@@ -24,7 +24,6 @@ URL.parse(url, base)
 - `url`
   - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}}, das eine absolute URL oder eine relative Referenz zu einer URL darstellt. Wenn `url` eine relative Referenz ist, ist `base` erforderlich und wird verwendet, um die endgültige URL zu ermitteln. Wenn `url` eine absolute URL ist, wird eine angegebene `base` nicht verwendet, um die resultierende URL zu erstellen.
 - `base` {{optional_inline}}
-
   - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `url` eine relative URL ist. Falls nicht angegeben, ist der Standardwert `undefined`.
 
     Wenn Sie eine `base`-URL angeben, ist die ermittelte URL nicht einfach eine Verkettung von `url` und `base`. Relative Referenzen zum übergeordneten und aktuellen Verzeichnis werden relativ zum aktuellen Verzeichnis der `base`-URL aufgelöst, das nur Pfadsegmente bis zum letzten Schrägstrich, aber keine danach enthält. Relative Referenzen zur Wurzel werden relativ zum Basis-Ursprung aufgelöst. Weitere Informationen finden Sie unter [Resolving relative references to a URL](/de/docs/Web/API/URL_API/Resolving_relative_references).

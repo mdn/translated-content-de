@@ -39,18 +39,15 @@ lch(L C H[ / A])
 Die Parameter sind wie folgt:
 
 - `L`
-
   - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (gleichbedeutend mit `0%`). Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `100` entspricht `100%` (weiß). Dieser Wert spezifiziert die Helligkeit der Farbe im {{Glossary("Color_space#cielab_color_spaces", "CIELab Farbraum")}}.
 
     > [!NOTE]
     > Das `L` in `lch()` ist die wahrgenommene Helligkeit, die sich auf die "Helligkeit" bezieht, die wir visuell mit unseren Augen wahrnehmen. Dies unterscheidet sich vom `L` in `hsl()`, wo es die Helligkeit im Vergleich zu anderen Farben darstellt.
 
 - `C`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0%`). Dieser Wert ist ein Maß für das Chroma der Farbe (großzügig ausgedrückt die "Menge an Farbe"). Sein minimaler nützlicher Wert ist `0%` oder `0`, während sein Maximalwert theoretisch unbegrenzt ist (in der Praxis jedoch nicht über `230` hinausgeht), wobei `100%` dem Wert `150` entspricht.
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (gleichbedeutend mit `0deg`) repräsentiert den {{CSSXref("&lt;hue&gt;")}}-Winkel der Farbe.
 
     > [!NOTE]
@@ -71,19 +68,15 @@ lch(from <color> L C H[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-
   - : Das Schlüsselwort `from` ist immer enthalten, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann jede gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 
 - `L`
-
   - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder das Schlüsselwort `none` (gleichbedeutend mit `0%`). Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `100` entspricht `100%` (weiß). Dieser Wert spezifiziert die Helligkeit der Farbe im CIELab-Farbraum.
 
 - `C`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (hier gleichbedeutend mit `0%`). Dieser Wert repräsentiert den Chroma-Wert der Ausgangsfarbe (großzügig ausgedrückt die "Menge an Farbe"). Sein minimaler nützlicher Wert ist `0%` oder `0`, während sein Maximalwert theoretisch unbegrenzt ist (in der Praxis jedoch nicht über `230` hinausgeht), wobei `100%` dem Wert `150` entspricht.
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (gleichbedeutend mit `0deg`) repräsentiert den {{CSSXref("&lt;hue&gt;")}}-Winkel der Ausgangsfarbe. Siehe das Beispiel zum [Farbton](#result_3) unten.
 
 - `A` {{optional_inline}}

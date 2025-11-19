@@ -90,17 +90,14 @@ Die `background-position` Eigenschaft wird als ein oder mehrere `<position>` Wer
 ### Werte
 
 - `<position>`
-
   - : Ein {{cssxref("&lt;position&gt;")}}. Eine Position definiert eine X/Y-Koordinate, um ein Element relativ zu den Rändern eines Elementboxen zu platzieren. Es kann mit einem bis vier Werten definiert werden. Wenn zwei nicht-schlüsselwortliche Werte verwendet werden, stellt der erste Wert die horizontale Position dar und der zweite den vertikalen. Wenn nur ein Wert angegeben ist, wird der zweite Wert als `center` angenommen. Bei drei oder vier Werten sind die Längen-Prozentwerte Versätze für die vorangehenden Schlüsselwortwerte.
 
     **1-Wert-Syntax:** Der Wert kann sein:
-
     - Der Schlüsselwortwert `center`, der das Bild zentriert.
     - Einer der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Dies gibt eine Kante an, an der das Element platziert wird. Die andere Dimension wird dann auf 50 % gesetzt, sodass das Element in der Mitte der angegebenen Kante platziert wird.
     - Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Dies gibt die X-Koordinate relativ zum linken Rand an, wobei die Y-Koordinate auf 50 % gesetzt wird.
 
     **2-Wert-Syntax:** Ein Wert definiert X und der andere definiert Y. Jeder Wert kann sein:
-
     - Einer der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Wenn `left` oder `right` angegeben ist, dann definiert dies X und der andere angegebene Wert definiert Y. Wenn `top` oder `bottom` angegeben ist, dann definiert dies Y und der andere Wert definiert X.
     - Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Wenn der andere Wert `left` oder `right` ist, dann definiert dieser Wert Y, relativ zur oberen Kante. Wenn der andere Wert `top` oder `bottom` ist, dann definiert dieser Wert X, relativ zur linken Kante. Wenn beide Werte `<length>` oder `<percentage>` Werte sind, dann definiert der erste X und der zweite Y.
     - Beachten Sie, dass: Wenn ein Wert `top` oder `bottom` ist, dann darf der andere Wert nicht `top` oder `bottom` sein. Wenn ein Wert `left` oder `right` ist, dann darf der andere Wert nicht `left` oder `right` sein. Dies bedeutet z.B., dass `top top` und `left right` nicht gültig sind.
@@ -108,13 +105,11 @@ Die `background-position` Eigenschaft wird als ein oder mehrere `<position>` Wer
     - Der Standardwert ist `left top` oder `0% 0%`.
 
     **3-Wert-Syntax:** Zwei Werte sind Schlüsselwortwerte, und der dritte ist der Versatz für den vorangehenden Wert:
-
     - Der erste Wert ist einer der Schlüsselwortwerte `top`, `left`, `bottom`, `right` oder `center`. Wenn `left` oder `right` hier angegeben sind, dann definiert dies X. Wenn `top` oder `bottom` angegeben sind, dann definiert dies Y und der andere Schlüsselwortwert definiert X.
     - Der {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert, wenn er der zweite Wert ist, ist der Versatz für den ersten Wert. Wenn es der dritte Wert ist, ist es der Versatz für den zweiten Wert.
     - Der einzelne Längen- oder Prozentwert ist ein Versatz für den vorangehenden Schlüsselwortwert. Die Kombination eines Schlüsselworts mit zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werten ist nicht gültig.
 
     **4-Wert-Syntax:** Die ersten und dritten Werte sind Schlüsselwortwerte, die X und Y definieren. Die zweiten und vierten Werte sind Versätze für die vorangehenden X- und Y-Schlüsselwortwerte:
-
     - Die ersten und dritten Werte entsprechen einem der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Wenn `left` oder `right` für den ersten Wert angegeben ist, dann definiert dies X und der andere Wert definiert Y. Wenn `top` oder `bottom` für den ersten Wert angegeben ist, dann definiert dies Y und der andere Schlüsselwortwert definiert X.
     - Die zweiten und vierten Werte sind {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte. Der zweite Wert ist der Versatz für das erste Schlüsselwort. Der vierte Wert ist der Versatz für das zweite Schlüsselwort.
 

@@ -20,7 +20,6 @@ Zusätzlich zu den unten aufgelisteten Eigenschaften verfügt `MediaStreamTrack`
 - [`MediaStreamTrack.contentHint`](/de/docs/Web/API/MediaStreamTrack/contentHint)
   - : Ein String, der von der Webanwendung verwendet werden kann, um einen Hinweis auf die Art des Inhalts der Spur zu geben, um zu steuern, wie diese von API-Verbrauchern behandelt werden sollte. Zulässige Werte hängen vom Wert der [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft ab.
 - [`MediaStreamTrack.enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)
-
   - : Ein Boolean, dessen Wert `true` ist, wenn die Spur aktiviert ist, d.h. sie darf den Media-Quellenstrom wiedergeben; oder `false`, wenn sie deaktiviert ist und den Media-Quellenstrom, sondern Stille und Schwärze nicht wiedergibt. Wenn die Spur getrennt wurde, kann dieser Wert geändert werden, hat aber keine Wirkung mehr.
 
     > [!NOTE]
@@ -33,7 +32,6 @@ Zusätzlich zu den unten aufgelisteten Eigenschaften verfügt `MediaStreamTrack`
 - [`MediaStreamTrack.label`](/de/docs/Web/API/MediaStreamTrack/label) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der ein vom User Agent zugewiesenes Label enthält, das die Spurquelle identifiziert, etwa `"internal microphone"`. Der String kann leer bleiben und ist leer, solange keine Quelle verbunden wurde. Wenn die Spur von ihrer Quelle getrennt wird, ändert sich das Label nicht.
 - [`MediaStreamTrack.muted`](/de/docs/Web/API/MediaStreamTrack/muted) {{ReadOnlyInline}}
-
   - : Gibt einen Boolean-Wert zurück, der angibt, ob die Spur aufgrund eines technischen Problems keine Mediendaten bereitstellen kann.
 
     > [!NOTE]

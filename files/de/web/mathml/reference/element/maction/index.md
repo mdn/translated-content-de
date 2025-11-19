@@ -17,7 +17,6 @@ Das **`<maction>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht es, Aktion
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes) sowie die folgenden Attribute:
 
 - `actiontype` {{Deprecated_Inline}} {{Non-standard_Inline}}
-
   - : Die Aktion, die angibt, was für dieses Element geschieht. Spezielles Verhalten für die folgenden Werte wurde von einigen Browsern implementiert:
     - `statusline`: Wenn auf den _Ausdruck_ geklickt wird oder der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statusleiste des Browsers gesendet. Die Syntax lautet: `<maction actiontype="statusline"> expression message </maction>`.
     - `toggle`: Bei einem Klick auf den Unterausdruck wechselt die Anzeige der ausgewählten Unterausdrücke. Daher erhöht jeder Klick den `selection`-Wert.

@@ -24,12 +24,10 @@ new AudioWorkletProcessor(options)
 ### Parameter
 
 - `options`
-
   - : Ein Objekt, das als _options_ Parameter an den
     [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode) Konstruktor übergeben und durch [den strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) geleitet wird. Verfügbare Eigenschaften sind wie folgt:
 
     <!-- Die Spezifikation bezeichnet dieses Objekt als: AudioWorkletNodeOptions -->
-
     - `numberOfInputs` {{optional_inline}}
       - : Der Wert zur Initialisierung der [`numberOfInputs`](/de/docs/Web/API/AudioNode/numberOfInputs) Eigenschaft. Standardmäßig auf 1 gesetzt.
     - `numberOfOutputs` {{optional_inline}}

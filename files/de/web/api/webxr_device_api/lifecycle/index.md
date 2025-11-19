@@ -14,14 +14,12 @@ In diesem Leitfaden erhalten Sie einen Überblick darüber, was bei der Erstellu
 Die meisten Anwendungen, die WebXR verwenden, folgen einem ähnlichen Gesamtentwurfsmuster:
 
 1. Überprüfen Sie, ob das Gerät und der Browser des Benutzers in der Lage sind, das von Ihnen geplante XR-Erlebnis zu präsentieren.
-
    1. Stellen Sie sicher, dass die WebXR-API verfügbar ist; wenn [`navigator.xr`](/de/docs/Web/API/Navigator/xr) undefiniert ist, können Sie davon ausgehen, dass der Browser und/oder das Gerät des Benutzers WebXR nicht unterstützt. Wenn es nicht unterstützt wird, deaktivieren Sie jegliche Benutzeroberfläche, die verwendet wird, um XR-Funktionen zu aktivieren, und verzichten Sie auf jegliche Versuche, den XR-Modus zu betreten.
    2. Rufen Sie [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) auf und spezifizieren Sie den WebXR-Erfahrungsmodus, den Sie bereitstellen möchten: `inline`, `immersive-vr` oder `immersive-ar`, um festzustellen, ob die Art der Sitzung, die Sie anbieten möchten, verfügbar ist.
    3. Wenn der gewünschte Sitzungsmodus verfügbar ist, stellen Sie dem Benutzer die geeignete Schnittstelle zur Verfügung, um ihm die Aktivierung zu ermöglichen.
 
 2. Wenn der Benutzer die Aktivierung der WebXR-Funktionalität anfordert, indem er mit der oben aktivierten Benutzeroberfläche interagiert, fordern Sie eine [`XRSession`](/de/docs/Web/API/XRSession) im gewünschten Modus an. Dies erfolgt durch den Aufruf von [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession), wobei Sie erneut die Zeichenfolge angeben, die den Modus kennzeichnet, den Sie aktivieren möchten: `inline`, `immersive-vr` oder `immersive-ar`.
 3. Wenn das von `requestSession()` zurückgegebene Versprechen aufgelöst wird, verwenden Sie die neue [`XRSession`](/de/docs/Web/API/XRSession), um die WebXR-Sitzung für die Dauer der WebXR-Erfahrung zu verwalten. Dies beinhaltet die Verwaltung von Eingaben, Animationen und Rendering.
-
    1. Rufen Sie die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) von [`XRSession`](/de/docs/Web/API/XRSession) auf, um das Rendern des ersten Frames für das XR-Gerät zu planen.
    2. Wenn Ihre Szene komplex ist, sollten Sie in Erwägung ziehen, einen [`Worker`](/de/docs/Web/API/Worker) zu erstellen — oder einen zu verwenden, den Sie zuvor für diesen Zweck erstellt haben —, um die Berechnungen durchzuführen, die für jeden zu rendernden Frame erforderlich sind. Dies verringert die Wahrscheinlichkeit, dass der Rendering-Prozess die App merklich zum Stocken bringt.
    3. Jeder `requestAnimationFrame()`-Callback sollte die bereitgestellten Informationen über die im 3D-Raum positionierten Objekte verwenden, um den Frame mit WebGL zu rendern.

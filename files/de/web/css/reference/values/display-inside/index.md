@@ -12,7 +12,6 @@ Diese Schlüsselwörter spezifizieren den inneren {{CSSxRef("display")}}-Typ ein
 Gültige `<display-inside>` Werte:
 
 - `flow`
-
   - : Das Element ordnet seinen Inhalt unter Verwendung des Flow-Layouts (Block-und-Inline-Layout) an.
 
     Wenn der äußere Anzeigetyp `inline` ist und es an einem Block- oder Inline-Formatierungskontext teilnimmt, dann erzeugt es eine Inline-Box. Andernfalls erzeugt es eine Block-Container-Box.
@@ -84,7 +83,6 @@ In diesem Beispiel wurde der übergeordneten Box `display: flow-root` gegeben, s
 ## Siehe auch
 
 - {{CSSxRef("display")}}
-
   - {{CSSxRef("&lt;display-outside&gt;")}}
   - {{CSSxRef("&lt;display-listitem&gt;")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}

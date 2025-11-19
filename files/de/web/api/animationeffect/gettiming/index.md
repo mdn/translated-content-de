@@ -30,13 +30,11 @@ Keine.
 Ein Objekt, das die folgenden Eigenschaften enthält:
 
 - `delay`
-
   - : Die Anzahl (`number`) der Millisekunden Verzögerung vor dem Beginn des Effekts.
 
     (Siehe auch {{cssxref("animation-delay")}}.)
 
 - `direction`
-
   - : `"normal"`, `"reverse"`, `"alternate"`, oder `"alternate-reverse"`.
 
     Gibt an, ob der Effekt vorwärts (`"normal"`), rückwärts (`"reverse"`) läuft, die Richtung nach jeder
@@ -46,7 +44,6 @@ Ein Objekt, das die folgenden Eigenschaften enthält:
     (Siehe auch {{cssxref("animation-direction")}}.)
 
 - `duration`
-
   - : Eine Anzahl (`number`) Millisekunden oder der `string` `"auto"`.
 
     Gibt die Zeit an, die eine Iteration der Animation benötigt, um abgeschlossen zu werden.
@@ -56,19 +53,16 @@ Ein Objekt, das die folgenden Eigenschaften enthält:
     (Siehe auch {{cssxref("animation-duration")}}.)
 
 - `easing`
-
   - : Ein `string`, der eine {{cssxref("easing-function")}} darstellt und die Änderungsrate des Effekts über die Zeit beschreibt.
 
     (Siehe auch {{cssxref("animation-timing-function")}}.)
 
 - `endDelay`
-
   - : Die Anzahl (`number`) der Millisekunden Verzögerung nach dem Ende des Effekts.
 
     Dies ist hauptsächlich von Nutzen, wenn Animationen basierend auf der Endzeit einer anderen Animation sequenziert werden.
 
 - `fill`
-
   - : `"none"`, `"forwards"`, `"backwards"`, `"both"`, oder `"auto"`.
 
     Gibt an, ob der Effekt von seinen Zielen vor dem Abspielen reflektiert wird (`"backwards"`),
@@ -81,7 +75,6 @@ Ein Objekt, das die folgenden Eigenschaften enthält:
     (Siehe auch {{cssxref("animation-fill-mode")}}.)
 
 - `iterations`
-
   - : Die Anzahl (`number`) der Wiederholungen des Effekts. Ein Wert von {{jsxref("Infinity")}} gibt an,
     dass der Effekt unendlich oft wiederholt wird.
 

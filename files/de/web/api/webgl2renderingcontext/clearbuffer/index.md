@@ -30,7 +30,6 @@ clearBufferfi(buffer, drawbuffer, depth, stencil)
 ### Parameter
 
 - `buffer`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den zu löschenden Puffer angibt. Mögliche Werte sind:
     - `gl.COLOR`: Farb-Puffer.
     - `gl.DEPTH`: Tiefen-Puffer.

@@ -27,34 +27,28 @@ Ein Objekt, das die aktuelle Konfiguration des Empfängers angibt.
 <!-- Spec defines as RTCRtpReceiveParameters, which is just a RTCRtpParameters -->
 
 - `codecs`
-
   - : Ein Array von Objekten, das die [Mediakodecs](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) beschreibt, die der Empfänger verwenden kann.
     Dies ist die Teilmenge von Codecs, die der Empfänger bevorzugt und die der entfernte Endpunkt bereit ist zu senden.
     Dieser Parameter kann nach der ersten Einstellung nicht geändert werden.
 
     Jedes Codec-Objekt im Array kann die folgenden Eigenschaften aufweisen: <!-- RTCRtpCodecParameters -->
-
     - `channels` {{optional_inline}}
-
       - : Eine positive ganze Zahl, die die Anzahl der Kanäle angibt, die vom Codec unterstützt werden.
         Beispielsweise gibt für Audiocodecs ein Wert von 1 monauralen Ton an, während 2 Stereo bedeutet.
 
     - `clockRate`
-
       - : Eine positive ganze Zahl, die die Clockrate des Codecs in Hertz (Hz) spezifiziert.
         Die Clockrate ist die Geschwindigkeit, mit der der RTP-Zeitstempel des Codecs voranschreitet.
         Die meisten Codecs haben spezifische Werte oder Wertbereiche, die sie zulassen.
         Die IANA führt eine [Liste von Codecs und deren Parametern](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Clockraten.
 
     - `mimeType`
-
       - : Ein String, der den MIME-Medientyp und Subtypen des Codecs angibt, spezifiziert als ein String der Form `"type/subtype"`.
         Die von RTP verwendeten MIME-Type-Strings unterscheiden sich von denen, die anderswo verwendet werden.
         IANA hält ein [Register der gültigen MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2).
         Auch siehe [Codec's, die von WebRTC verwendet werden](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs) für Details zu möglichen Codecs, die hier referenziert werden könnten.
 
     - `payloadType`
-
       - : Der [RTP-Payloadtyp](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), der verwendet wird, um diesen Codec zu identifizieren.
 
     - `sdpFmtpLine` {{optional_inline}}

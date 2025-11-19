@@ -20,16 +20,13 @@ bindTexture(target, texture)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (das Ziel) angibt. Mögliche Werte:
-
     - `gl.TEXTURE_2D`
       - : Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`
       - : Eine Würfelkarten-Textur.
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte verfügbar:
-
     - `gl.TEXTURE_3D`
       - : Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`

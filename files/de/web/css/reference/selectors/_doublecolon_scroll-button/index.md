@@ -20,9 +20,7 @@ Das **`::scroll-button()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web
 ### Parameter
 
 - `<scroll-button-direction>`
-
   - : Ein Wert, der die Richtung des zu wählenden Scroll-Buttons repräsentiert. Die folgenden Werte sind verfügbar:
-
     - `*`
       - : Wählt alle Scroll-Buttons des ursprünglichen Elements aus und ermöglicht das Anwenden von Stilen auf alle in einer einzigen Regel.
     - `down`

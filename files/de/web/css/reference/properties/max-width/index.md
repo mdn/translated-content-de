@@ -90,7 +90,6 @@ max-width: unset;
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
   - : Verwendet die `fit-content`-Formel mit dem angegebenen Argument anstelle des verfügbaren Raums, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-
   - : Begrenzt die maximale Breite der [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [Containerelements](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box den verfügbaren Platz im Containerelement ausfüllen zu lassen, verhält sich also in gewisser Weise ähnlich wie `100%`, jedoch wird die resultierende Größe auf die Margin-Box anstatt auf die Box angewendet, die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmt wird.
 
     > [!NOTE]

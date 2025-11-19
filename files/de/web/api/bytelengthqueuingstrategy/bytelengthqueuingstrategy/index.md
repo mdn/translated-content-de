@@ -19,11 +19,8 @@ new ByteLengthQueuingStrategy(options)
 ### Parameter
 
 - `options`
-
   - : Ein Objekt mit der folgenden Eigenschaft:
-
     - `highWaterMark`
-
       - : Die Gesamtanzahl an Bytes, die in der internen Warteschlange enthalten sein können, bevor Rückdruck angewendet wird.
 
         Im Gegensatz zu [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei der `highWaterMark` eine einfache Anzahl von Fragmenten angibt, gibt `highWaterMark` bei `ByteLengthQueuingStrategy()` eine Anzahl von _Bytes_ an — speziell, wie viele Bytes dieser Fragmente in der internen Warteschlange enthalten sein können, bevor Rückdruck angewendet wird, anstelle einer Zählung, wie viele dieser Fragmente enthalten sein können.

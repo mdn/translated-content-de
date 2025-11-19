@@ -43,15 +43,12 @@ Ein {{jsxref("Promise")}}, der ein [`Blob`](/de/docs/Web/API/Blob)-Objekt zurüc
 Das Versprechen kann mit den folgenden Ausnahmen abgelehnt werden:
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Der `OffscreenCanvas` ist nicht getrennt; mit anderen Worten, er ist noch mit dem DOM und nicht mit dem aktuellen Worker verbunden.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Der Canvas-Kontextmodus ist 2d und das Bitmap ist nicht origin-clean; mindestens einige seiner Inhalte wurden oder könnten von einer anderen Seite als der geladen worden sein, von der das Dokument selbst geladen wurde.
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-
   - : Das Canvas-Bitmap hat keine Pixel (entweder die horizontale oder vertikale Dimension ist null).
 
 - `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)

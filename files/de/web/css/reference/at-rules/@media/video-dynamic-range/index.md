@@ -14,7 +14,6 @@ Einige User-Agents, einschließlich vieler Fernseher, rendern Video und Grafik i
 Das Merkmal `video-dynamic-range` wird als Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
 
 - `standard`
-
   - : Dieser Wert passt auf jedes visuelle Gerät und schließt Geräte ohne visuelle Fähigkeiten aus. Ein User-Agent oder ein Ausgabegerät, das `high` entspricht, wird auch dem Wert `standard` entsprechen.
 
 - `high`

@@ -55,11 +55,8 @@ Der Parameter ist eine durch Semikolon getrennte Liste von `<if-branch>`en. Jede
 ```
 
 - `<if-condition>`
-
   - : Ein `<if-test>` oder das Schlüsselwort `else`.
-
     - `<if-test>`
-
       - : Eine [Stile-Abfrage](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries), [Media-Abfrage](/de/docs/Web/CSS/Guides/Media_queries/Using) oder [Feature-Abfrage](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries).
 
     - `else`

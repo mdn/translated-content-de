@@ -19,7 +19,6 @@ controlTransferOut(setup, data)
 ### Parameter
 
 - `setup`
-
   - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
     - `requestType`
       - : Muss einer von drei Werten sein, die angeben, ob die Übertragung `"standard"` (gemeinsam für alle USB-Geräte) `"class"` (gemeinsam für eine industrienormierte Geräteklasse) oder `"vendor"` ist.

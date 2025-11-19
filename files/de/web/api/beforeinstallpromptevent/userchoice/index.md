@@ -15,7 +15,6 @@ Die **`userChoice`**-Eigenschaft des [`BeforeInstallPromptEvent`](/de/docs/Web/A
 Ein {{jsxref("Promise")}}, der zu einem Objekt aufgelöst wird, das zwei Eigenschaften enthält:
 
 - `outcome` {{experimental_inline}} {{non-standard_inline}}
-
   - : Ein String, der angibt, ob der Benutzer sich entschieden hat, die App zu installieren oder nicht. Er muss einer der folgenden Werte sein:
     - `"accepted"`: Der Benutzer hat die App installiert.
     - `"dismissed"`: Der Benutzer hat die App nicht installiert.

@@ -61,7 +61,6 @@ caret-color: unset;
 ### Werte
 
 - `auto`
-
   - : Wird im Allgemeinen auf [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) aufgelöst, die {{cssxref("color")}} des Textes, der geändert wird.
 
 - {{cssxref("&lt;color&gt;")}}

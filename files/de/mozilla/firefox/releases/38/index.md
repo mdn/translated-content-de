@@ -31,7 +31,6 @@ Höhepunkte:
 - Der vordefinierte Stil {{cssxref("list-style-type", "ethiopic-numeric")}} verwendet jetzt ein Leerzeichen, anstatt eines Punktes, als Suffix, um einer kürzlichen Änderung in der Spezifikation zu entsprechen ([Firefox-Bug 1120721](https://bugzil.la/1120721)).
 - CSS-Übergänge auf generierten Inhalten (mit {{cssxref("::before")}} und {{cssxref("::after")}}) sowohl auf einem Inline- als auch auf dem Block, der sie trennt, starten nun wie von der Spezifikation erwartet ([Firefox-Bug 1110277](https://bugzil.la/1110277)).
 - Die Implementierung der CSS Logical Properties hat große Fortschritte gemacht. Die folgenden Eigenschaften sind hinter dem Flag `layout.css.vertical-text.enabled` verfügbar (`false` standardmäßig):
-
   - Richtungsunabhängige Äquivalente von {{cssxref("width")}} und {{cssxref("height")}}: {{cssxref("block-size")}} und {{cssxref("inline-size")}} ([Firefox-Bug 1117983](https://bugzil.la/1117983)).
   - Richtungsunabhängige Äquivalente von {{cssxref("min-width")}} und {{cssxref("min-height")}}: {{cssxref("min-block-size")}} und {{cssxref("min-inline-size")}} ([Firefox-Bug 1117983](https://bugzil.la/1117983)).
   - Richtungsunabhängige Äquivalente von {{cssxref("max-width")}} und {{cssxref("max-height")}}: {{cssxref("max-block-size")}} und {{cssxref("max-block-size")}} ([Firefox-Bug 1117983](https://bugzil.la/1117983)).
@@ -54,7 +53,6 @@ Höhepunkte:
 - {{jsxref("Functions/set", "Setter")}} mit einem {{jsxref("Functions/rest_parameters", "Rest-Parameter", "", 1)}} verursacht jetzt einen {{jsxref("SyntaxError")}} ([Firefox-Bug 1089632](https://bugzil.la/1089632)).
 - Die {{jsxref("Function/name", "name")}}-Eigenschaft von Funktionen ist jetzt konfigurierbar ([Firefox-Bug 1084019](https://bugzil.la/1084019)).
 - Mehrere {{jsxref("Array")}}-Methoden wurden auch für [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) implementiert:
-
   - Die Methoden {{jsxref("TypedArray.of", "of()")}} und {{jsxref("TypedArray.from", "from()")}} ([Firefox-Bug 896608](https://bugzil.la/896608)).
   - Die Methode {{jsxref("TypedArray.forEach", "forEach()")}} ([Firefox-Bug 1107645](https://bugzil.la/1107645)).
   - Die Methoden {{jsxref("TypedArray.filter", "filter()")}} und {{jsxref("TypedArray.map", "map()")}} ([Firefox-Bug 1121936](https://bugzil.la/1121936)).

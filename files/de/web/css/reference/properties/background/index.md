@@ -88,7 +88,6 @@ Die `background`-Eigenschaft wird als ein oder mehrere Hintergrundschichten, get
 Die Syntax jeder Schicht ist wie folgt:
 
 - Jede Schicht darf null oder eine Vorkommen von einem der folgenden Werte enthalten:
-
   - `<attachment>`
   - `<bg-image>`
   - `<bg-position>`

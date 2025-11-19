@@ -21,7 +21,6 @@ new Request(input, options)
 ### Parameter
 
 - `input`
-
   - : Definiert die Ressource, die Sie abrufen möchten. Dies kann entweder sein:
     - Ein String, der die URL der Ressource enthält, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, welche im Dokumentkontext das [`baseURI`](/de/docs/Web/API/Node/baseURI) ist oder im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location).
     - Ein [`Request`](/de/docs/Web/API/Request)-Objekt, wodurch effektiv eine Kopie erstellt wird. Beachten Sie die folgenden Verhaltensänderungen, um die Sicherheit zu gewährleisten und den Konstruktor weniger anfällig für Ausnahmen zu machen:
@@ -31,7 +30,6 @@ new Request(input, options)
         wird der `mode`-Wert in `same-origin` umgewandelt.
 
 - `options` {{optional_inline}}
-
   - : Ein [`RequestInit`](/de/docs/Web/API/RequestInit)-Objekt, das alle benutzerdefinierten Einstellungen enthält, die Sie auf die Anfrage anwenden möchten.
 
     Wenn Sie einen neuen `Request` aus einem vorhandenen `Request` konstruieren, ersetzen alle Optionen, die Sie im _options_-Argument für den neuen Request setzen, alle entsprechenden Optionen, die im ursprünglichen `Request` festgelegt wurden. Zum Beispiel:

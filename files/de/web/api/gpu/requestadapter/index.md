@@ -22,13 +22,9 @@ requestAdapter(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
-
     - `powerPreference` {{optional_inline}}
-
       - : Ein enumerierter Wert, der dem Benutzeragenten einen Hinweis geben kann, welche Klasse von Adapter aus den verfügbaren Adaptern des Systems ausgewählt werden soll. Verfügbare Werte sind:
-
         - `undefined` (oder nicht spezifiziert), was keinen Hinweis gibt.
         - `"low-power"`, was einen Hinweis gibt, Energieeinsparungen gegenüber der Leistung zu priorisieren. Wenn Ihre Anwendung mit dieser Einstellung gut funktioniert, wird empfohlen, sie zu nutzen, da sie die Akkulaufzeit auf tragbaren Geräten erheblich verbessern kann. Dies ist normalerweise die Standardeinstellung, wenn keine Optionen angegeben sind.
         - `"high-performance"`, was einen Hinweis gibt, die Leistung gegenüber dem Energieverbrauch zu priorisieren. Es wird empfohlen, diesen Wert nur anzugeben, wenn es absolut notwendig ist, da er die Akkulaufzeit auf tragbaren Geräten erheblich verringern kann. Es kann auch zu einem höheren Verlust von [`GPUDevice`](/de/docs/Web/API/GPUDevice) führen – das System wird manchmal beschließen, zu einem energiesparenderen Adapter zu wechseln, um Energie zu sparen.

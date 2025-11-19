@@ -85,7 +85,6 @@ left: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}:
     - Für _absolut positionierte Elemente_ stellt es die Entfernung zum linken Rand des umschließenden Blocks dar.
     - Für _anker-positionierte Elemente_ löst die {{cssxref("anchor()")}}-Funktion sich zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Position der linken oder rechten Kante des zugehörigen _Ankerelements_ auf (siehe [Verwendung von Inset-Eigenschaften mit `anchor()`-Funktionswerten](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)), und die {{cssxref("anchor-size()")}}-Funktion löst sich zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen Ankerelements auf (siehe [Festlegen der Elementposition basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_position_based_on_anchor_size)).

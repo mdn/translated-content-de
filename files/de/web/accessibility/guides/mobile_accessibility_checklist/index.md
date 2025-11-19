@@ -10,7 +10,6 @@ Dieses Dokument bietet eine prägnante Checkliste der Barrierefreiheitsanforderu
 ## Farbe
 
 - Der Farbkontrast muss den [WCAG 2.2 AA-Level-Anforderungen](https://w3c.github.io/wcag/guidelines/22/#contrast-minimum) entsprechen:
-
   - Kontrastverhältnis von 4.5:1 für normalen Text (weniger als 18 Punkt oder 14 Punkt fett).
   - Kontrastverhältnis von 3:1 für großen Text (mindestens 18 Punkt oder 14 Punkt fett).
 
@@ -26,7 +25,6 @@ Dieses Dokument bietet eine prägnante Checkliste der Barrierefreiheitsanforderu
 ## Fokus
 
 - Alle aktivierbaren Elemente müssen fokussierbar sein:
-
   - Standardkontrollen wie Links, Buttons und Formularfelder sind standardmäßig fokussierbar.
   - Nicht-Standardkontrollen müssen eine geeignete [ARIA Role](/de/docs/Web/Accessibility/ARIA/Reference/Roles) zugewiesen bekommen, wie `button`, `link` oder `checkbox`.
 
@@ -35,7 +33,6 @@ Dieses Dokument bietet eine prägnante Checkliste der Barrierefreiheitsanforderu
 ## Textersatz
 
 - Für jedes nicht strikt präsentative nicht-textuelle Element innerhalb der App muss ein Textersatz bereitgestellt werden.
-
   - Verwenden Sie _alt_ und _title_, wo angemessen (lesen Sie Steve Faulkners Beitrag über [die Verwendung des HTML title-Attributs](https://www.tpgi.com/using-the-html-title-attribute-updated/) für einen guten Leitfaden).
   - Wenn die obigen Attribute nicht anwendbar sind, verwenden Sie geeignete [ARIA-Zustände und -Eigenschaften](/de/docs/Web/Accessibility/ARIA/Reference/Attributes) wie `aria-label`, `aria-labelledby` oder `aria-describedby`.
 
@@ -66,7 +63,6 @@ Dieses Dokument bietet eine prägnante Checkliste der Barrierefreiheitsanforderu
 
 - [ARIA-Landmark-Rollen](/de/docs/Web/Accessibility/ARIA/Reference/Roles#3._landmark_roles) sollten verwendet werden, um eine App- oder Dokumentstruktur zu beschreiben, wie `banner`, `complementary`, `contentinfo`, `main`, `navigation`, `search`.
 - Für Touch-Ereignisse stellen Sie sicher Folgendes ([WCAG 2.1: Zeigerabbruch](https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation.html)):
-
   - Das Down-Event sollte nicht verwendet werden, um irgendeinen Teil der Funktion auszuführen;
   - Falls das obige nicht befolgt wird, sollte der _Abschluss_ der Funktion auf dem Up-Event erfolgen, und ein Mechanismus sollte verfügbar sein, um die Aktion vor ihrem Abschluss abzubrechen oder die Aktion nach ihrem Abschluss rückgängig zu machen;
   - Falls das obige nicht befolgt wird, sollte das Up-Event in der Lage sein, jede Aktion rückgängig zu machen, die auf einem Down-Event ausgelöst wurde;

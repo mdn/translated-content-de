@@ -19,11 +19,9 @@ Elemente mit der Rolle status haben einen impliziten [`aria-live`](/de/docs/Web/
 ### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
 - [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-atomic)
-
   - : Definiert, ob unterstützende Technologien den gesamten oder nur Teile des geänderten Bereichs präsentieren sollen. Elemente mit der Rolle `status` haben einen impliziten `aria-atomic` Wert von `true`.
 
 - [`aria-live`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live)
-
   - : Definiert, wann unterstützende Technologien den Benutzer über Updates von Inhalten informieren sollen. Elemente mit der Rolle `status` haben einen impliziten `aria-live` Wert von `polite`, was bedeutet, dass Screenreader Änderungen im Log ankündigen, wenn der Benutzer inaktiv ist.
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby)

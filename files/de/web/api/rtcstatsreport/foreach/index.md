@@ -24,7 +24,6 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-
   - : Eine Funktion, die für jeden Eintrag im Bericht ausgeführt wird.
     Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `report`

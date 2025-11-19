@@ -89,23 +89,18 @@ Alternativ kann das wiederholte Hintergrundbild gestreckt werden, um den gesamte
 Die Eigenschaft akzeptiert eine komma-separierte Liste von zwei `<repeat-style>` Schlüsselbegriffen oder einem Schlüsselbegriff als Kurzform für die zwei Werte. Der erste Wert ist die horizontale Wiederholung. Der zweite Wert ist das vertikale Verhalten. Wenn nur ein einzelner Wert auf einen anderen Wert als `repeat-x` oder `repeat-y` gesetzt ist, wird dieser Wert auf beide Richtungen angewendet. Die Werte umfassen:
 
 - `repeat`
-
   - : Der Standardwert. Das Bild wird so oft wie nötig wiederholt, um den gesamten Bereich der Hintergrundmalerei zu bedecken, wobei das Randbild abgeschnitten wird, wenn die Abmessung des Malbereichs kein Vielfaches der Abmessung Ihres Hintergrundbildes ist.
 
 - `no-repeat`
-
   - : Das Bild wird nicht wiederholt (und daher wird der Bereich der Hintergrundbildmalerei möglicherweise nicht vollständig abgedeckt). Die Position des nicht wiederholten Hintergrundbildes wird durch die {{cssxref("background-position")}} CSS-Eigenschaft definiert.
 
 - `space`
-
   - : Das Bild wird so oft wie möglich ohne Beschnitt wiederholt. Die ersten und letzten Bilder sind an den Seiten des Elements verankert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die {{cssxref("background-position")}} Eigenschaft wird ignoriert, es sei denn, nur ein Bild kann ohne Beschnitt angezeigt werden. Das einzige Szenario, bei dem `space` zu einem Beschnitt führt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
 
 - `round`
-
   - : Während der verfügbare Platz größer wird, werden die wiederholten Bilder gestreckt (ohne Lücken), bis Platz für ein weiteres hinzugefügt werden kann. Dies ist der einzige `<repeat-style>` Wert, der zur Verzerrung des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des Hintergrundbildes führen kann, was auftritt, wenn das Seitenverhältnis des Hintergrundbildes vom Seitenverhältnis des Hintergrundmalbereichs abweicht.
 
 - `repeat-x`
-
   - : Kurzform für `repeat no-repeat`, das Hintergrundbild wiederholt sich nur horizontal, wobei das Randbild abgeschnitten wird, wenn die Breite des Malbereichs kein Vielfaches der Breite des Hintergrundbildes ist.
 
 - `repeat-y`

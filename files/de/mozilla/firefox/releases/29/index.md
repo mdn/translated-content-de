@@ -46,9 +46,7 @@ _Siehe den [Mozilla Hacks Blogbeitrag](https://hacks.mozilla.org/2014/02/css-sou
 
 - Neue ECMAScript 2015 String Methoden: {{jsxref("String.prototype.codePointAt()")}} und {{jsxref("String.prototype.fromCodePoint()")}} wurden implementiert ([Firefox Fehler 918879](https://bugzil.la/918879)).
 - Die [ECMAScript Internationalization API (ECMA-402)](https://402.ecma-international.org/1.0/) wurde implementiert und ist jetzt standardmäßig in Firefox Desktop aktiviert ([Firefox Fehler 853301](https://bugzil.la/853301)):
-
   - Neue Objekte im {{jsxref("Intl")}} Objekt-Namespace:
-
     - {{jsxref("Intl/Collator", "Intl.Collator")}}
     - {{jsxref("Intl/DateTimeFormat", "Intl.DateTimeFormat")}}
     - {{jsxref("Intl/NumberFormat", "Intl.NumberFormat")}}

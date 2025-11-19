@@ -34,7 +34,6 @@ add(request)
 ### Parameter
 
 - `request`
-
   - : Eine Anfrage für die Ressource, die Sie dem Cache hinzufügen möchten. Dies kann ein [`Request`](/de/docs/Web/API/Request) Objekt oder eine URL sein.
 
     Dieser Parameter wird als Parameter für den [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor verwendet, sodass URLs denselben Regeln wie für diesen Konstruktor folgen. Insbesondere können URLs relativ zur Basis-URL sein, die im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments oder im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) ist.
@@ -46,7 +45,6 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-
   - : Das URL-Schema ist nicht `http` oder `https`.
 
     Der Antwortstatus liegt nicht im 200-Bereich (d.h. es ist keine erfolgreiche Antwort). Dies tritt auf, wenn die Anfrage nicht erfolgreich ist, aber auch, wenn die Anfrage eine _cross-origin no-cors_ Anfrage ist (in diesem Fall ist der gemeldete Status immer 0).

@@ -77,7 +77,6 @@ svg {
 Der Attributwert ist eine durch Semikolons getrennte Liste von Kontrollpunktbeschreibungen.
 
 - `<control-point>`
-
   - : Jede Kontrollpunktbeschreibung besteht aus vier Werten: `x1 y1 x2 y2`, die die Bézier-Kontrollpunkte für ein Zeitintervall beschreiben. Die {{SVGAttr("keyTimes")}}-Werte, die das zugehörige Segment definieren, sind die Bézier-„Ankerpunkte“, und die `keySplines`-Werte sind die Kontrollpunkte. Daher muss es eine Kontrollpunktmenge weniger geben als es {{SVGAttr("keyTimes")}} gibt.
 
     Die Werte von `x1 y1 x2 y2` müssen alle im Bereich von 0 bis 1 liegen.

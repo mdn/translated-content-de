@@ -19,15 +19,10 @@ createComputePipeline(descriptor)
 ### Parameter
 
 - `descriptor`
-
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
-
     - `compute`
-
       - : Ein Objekt, das den Compute-Shader-Einstiegspunkt der Pipeline beschreibt. Dieses Objekt kann die folgenden Eigenschaften enthalten:
-
         - `constants` {{optional_inline}}
-
           - : Eine Sequenz von Aufzeichnungsarten mit der Struktur `(id, value)`, die Überschreibungswerte für [WGSL-Konstanten, die in der Pipeline überschrieben werden können](https://gpuweb.github.io/gpuweb/#typedefdef-gpupipelineconstantvalue), darstellen. Diese verhalten sich wie [geordnete Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist `id` ein Schlüssel, der zur Identifizierung oder Auswahl der Aufzeichnung verwendet wird, und die `constant` ist ein enumerierter Wert, der eine WGSL darstellt.
 
             Abhängig davon, welche Konstante Sie überschreiben möchten, kann `id` die Form der numerischen ID der Konstante annehmen, falls eine angegeben ist, oder anderweitig der Bezeichnername der Konstante.
@@ -49,7 +44,6 @@ createComputePipeline(descriptor)
             ```
 
         - `entryPoint` {{optional_inline}}
-
           - : Der Name der Funktion im `module`, die diese Stage zur Ausführung ihrer Aufgabe verwenden wird. Die entsprechende Shader-Funktion muss das `@compute`-Attribut haben, um als dieser Einstiegspunkt erkannt zu werden. Siehe [Entry Point Declaration](https://gpuweb.github.io/gpuweb/wgsl/#entry-point-decl) für weitere Informationen.
 
             Sie können die `entryPoint`-Eigenschaft weglassen, wenn Ihr Shader-Code eine einzelne Funktion enthält, bei der das `@compute`-Attribut gesetzt ist — der Browser wird diese als den Standard-Einstiegspunkt verwenden. Wenn `entryPoint` weggelassen wird und der Browser keinen Standard-Einstiegspunkt bestimmen kann, wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und die resultierende [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) ist ungültig.

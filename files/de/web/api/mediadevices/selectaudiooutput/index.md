@@ -24,11 +24,8 @@ selectAudioOutput(options)
 ### Parameter
 
 - `options` {{Optional_Inline}}
-
   - : Ein Objekt, das konfiguriert, welches Gerät(e) im Benutzerabfragefenster angeboten werden können.
-
     - `deviceId` {{Optional_Inline}}
-
       - : Ein String, der die ID eines einzelnen, zuvor offenbarten/erlaubten Geräts darstellt.
         Wenn nicht festgelegt, wird eine Eingabeaufforderung mit allen verfügbaren Audioausgabegeräten angezeigt.
 

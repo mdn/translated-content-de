@@ -32,15 +32,12 @@ await browser.scripting.insertCSS(
 ### Parameter
 
 - `details`
-
   - : Ein Objekt, das das einzufügende CSS beschreibt und wo es eingefügt werden soll. Es enthält die folgenden Eigenschaften:
-
     - `css` {{optional_inline}}
       - : `string`. Ein String, der das zu injizierende CSS enthält. Entweder `css` oder `files` muss angegeben werden.
     - `files` {{optional_inline}}
       - : `array` von `string`. Der Pfad der CSS-Dateien, die relativ zum Stammverzeichnis der Erweiterung injiziert werden sollen. Entweder `files` oder `css` muss angegeben werden.
     - `origin` {{optional_inline}}
-
       - : `string`. Der Stil-Ursprung für die Injektion, entweder `USER`, um das CSS als Benutzer-Stylesheet hinzuzufügen, oder `AUTHOR`, um es als Autoren-Stylesheet hinzuzufügen. Standardmäßig `AUTHOR`. Diese Eigenschaft ist in Firefox 144 unveränderlich.
         - `USER` ermöglicht es Ihnen, zu verhindern, dass Websites das von Ihnen eingefügte CSS überschreiben: siehe [Cascading order](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order).
         - `AUTHOR`-Stylesheets verhalten sich so, als ob sie nach allen vom Webdokument spezifizierten Autorenregeln erscheinen. Dieses Verhalten umfasst alle Autoren-Stylesheets, die dynamisch durch die Skripte der Seite hinzugefügt werden, selbst wenn diese Hinzufügung nach Abschluss des `insertCSS`-Aufrufs erfolgt.

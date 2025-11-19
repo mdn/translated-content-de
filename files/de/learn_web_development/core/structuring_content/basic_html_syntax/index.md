@@ -299,7 +299,6 @@ Hier haben wir:
 An diesem Punkt möchten wir, dass Sie üben, einige etwas umfangreichere HTML-Inhalte zu schreiben. Dazu haben Sie ein paar Möglichkeiten — Sie können das HTML auf Ihrem lokalen Computer erstellen oder den MDN Playground wie in den vorherigen Beispielen verwenden.
 
 - Um es auf Ihrem lokalen Computer zu tun:
-
   1. Kopieren Sie das im vorherigen Abschnitt aufgeführte HTML-Seitenbeispiel und fügen Sie es in eine neue Datei in Ihrem Code-Editor ein.
   2. Nehmen Sie die im Folgenden aufgeführten Änderungen an der Seite vor.
   3. Speichern Sie die Datei als `index.html` und laden Sie sie dann in einem neuen Browser-Tab, um die Ergebnisse zu sehen.

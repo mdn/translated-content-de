@@ -20,7 +20,6 @@ beginQuery(target, query)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel der Abfrage angibt. Mögliche Werte:
     - `gl.ANY_SAMPLES_PASSED`
       - : Bestimmt eine Okklusionsabfrage: Diese Abfragen

@@ -25,13 +25,10 @@ lockOrientation(orientation)
 ### Parameter
 
 - `orientation`
-
   - : Die Ausrichtung, in der der Bildschirm gesperrt werden soll. Dies ist entweder ein String oder ein Array von Strings. Durch Übergeben mehrerer Strings kann der Bildschirm nur in den ausgewählten Ausrichtungen gedreht werden.
 
     Die folgenden Strings repräsentieren die möglichen Ausrichtungsvorgaben, die Sie angeben können:
-
     - `portrait-primary`
-
       - : Es repräsentiert die Ausrichtung des Bildschirms im primären Hochformatmodus. Ein Bildschirm befindet sich im primären Hochformatmodus, wenn das Gerät in seiner normalen Position gehalten wird und diese Position im Hochformat ist, oder wenn die normale Position des Geräts im Querformat ist und das Gerät um 90° im Uhrzeigersinn gedreht gehalten wird. Die normale Position ist geräteabhängig.
 
     - `portrait-secondary`

@@ -70,11 +70,9 @@ Wenn das Element kein ersetztes Element ist, wird das angegebene `ratio` verwend
 ### Werte
 
 - `auto`
-
   - : {{Glossary("Replaced_elements", "Ersetzte Elemente")}} mit einem intrinsischen Seitenverhältnis verwenden _dieses_ Seitenverhältnis, ansonsten hat die Box kein bevorzugtes Seitenverhältnis. Größenberechnungen, die das intrinsische Seitenverhältnis betreffen, arbeiten immer mit den Abmessungen des Inhaltsbereichs.
 
 - {{cssxref("&lt;ratio&gt;")}}
-
   - : Das bevorzugte Seitenverhältnis der Box ist das angegebene Verhältnis von `width` / `height`. Wenn `height` und das vorausgehende Schrägstrich-Zeichen weggelassen werden, hat `height` den Standardwert `1`. Größenberechnungen, die das bevorzugte Seitenverhältnis betreffen, arbeiten mit den Abmessungen der Box, die durch `box-sizing` angegeben werden.
 
 - `auto && <ratio>`

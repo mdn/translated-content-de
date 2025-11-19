@@ -39,11 +39,9 @@ Ein `GPURenderBundleEncoder`-Objekt wird über die [`GPUDevice.createRenderBundl
 - [`drawIndirect()`](/de/docs/Web/API/GPURenderBundleEncoder/drawIndirect)
   - : Zeichnen von Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 - [`drawIndexedIndirect()`](/de/docs/Web/API/GPURenderBundleEncoder/drawIndexedIndirect)
-
   - : Zeichnen von indizierten Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 
 - [`finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish)
-
   - : Beendet die Aufzeichnung der aktuellen Render-Pass-Befehlssequenz.
 
 - [`insertDebugMarker()`](/de/docs/Web/API/GPURenderBundleEncoder/insertDebugMarker)
@@ -53,15 +51,12 @@ Ein `GPURenderBundleEncoder`-Objekt wird über die [`GPUDevice.createRenderBundl
 - [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup)
   - : Beginnt eine Debug-Gruppe, die mit einem spezifischen Label markiert wird und alle nachfolgenden kodierten Befehle bis zur Ausführung der Methode [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup) enthält.
 - [`setBindGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/setBindGroup)
-
   - : Setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bündelbefehle an einem bestimmten Index verwendet werden soll.
 
 - [`setIndexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setIndexBuffer)
-
   - : Setzt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der Indexdaten für nachfolgende Zeichnungsbefehle bereitstellt.
 
 - [`setPipeline()`](/de/docs/Web/API/GPURenderBundleEncoder/setPipeline)
-
   - : Setzt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die für dieses Render-Bündel verwendet werden soll.
 
 - [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer)

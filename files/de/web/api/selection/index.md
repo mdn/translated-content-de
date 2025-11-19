@@ -146,7 +146,6 @@ Andere wichtige Begriffe in diesem Abschnitt.
 - Bearbeitungshost
   - : Ein bearbeitbares Element (z.B. ein HTML-Element mit gesetztem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) oder das HTML-Kind eines Dokuments, bei dem [`designMode`](/de/docs/Web/API/Document/designMode) aktiviert ist).
 - Fokus einer Auswahl
-
   - : Der _Fokus_ einer Auswahl ist der Endpunkt der Auswahl. Bei der Auswahl mit der Maus ist der Fokus der Punkt im Dokument, an dem die Maustaste losgelassen wird. Wenn der Benutzer die Auswahl mit der Maus oder der Tastatur ändert, bewegt sich der Fokus, da der Fokus das Ende der Auswahl ist, das sich bewegt.
 
     > [!NOTE]

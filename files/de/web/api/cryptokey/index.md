@@ -14,15 +14,12 @@ Aus Sicherheitsgründen kann das `CryptoKey`-Interface nur in einem [sicheren Ko
 ## Instanzeigenschaften
 
 - [`CryptoKey.type`](/de/docs/Web/API/CryptoKey/type) {{ReadOnlyInline}}
-
   - : Der Typ des Schlüssels, den das Objekt repräsentiert. Er kann einen der folgenden Werte annehmen: `"secret"`, `"private"` oder `"public"`.
 
 - [`CryptoKey.extractable`](/de/docs/Web/API/CryptoKey/extractable) {{ReadOnlyInline}}
-
   - : Ein boolescher Wert, der angibt, ob der Schlüssel unter Verwendung von [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) extrahiert werden kann oder nicht.
 
 - [`CryptoKey.algorithm`](/de/docs/Web/API/CryptoKey/algorithm) {{ReadOnlyInline}}
-
   - : Ein Objekt, das den Algorithmus beschreibt, für den dieser Schlüssel verwendet werden kann, und alle zugehörigen zusätzlichen Parameter.
 
 - [`CryptoKey.usages`](/de/docs/Web/API/CryptoKey/usages) {{ReadOnlyInline}}

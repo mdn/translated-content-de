@@ -26,7 +26,6 @@ Ein Array von Objekten, die jeweils eine der Synchronisationsquellen beschreiben
 Diese Objekte enthalten die folgenden Eigenschaften:
 
 - `audioLevel`
-
   - : Ein Gleitkommawert zwischen 0,0 und 1,0, der den Audiopegel des letzten RTP-Pakets angibt, das von der Synchronisationsquelle abgespielt wurde.
 
     Der Wert ist auf einer linearen Skala definiert und in Einheiten von dBov, oder Dezibel (Übersteuerung), angegeben.
@@ -36,13 +35,11 @@ Diese Objekte enthalten die folgenden Eigenschaften:
     Dieser Wert ist erforderlich und immer vorhanden.
 
 - `rtpTimestamp` {{optional_inline}}
-
   - : Der RTP-Zeitstempel (ein ganzzahliger [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) der Medien.
     Dieser durch die Quelle erzeugte Zeitstempel gibt die Zeit an, zu der die Medien in diesem Paket, die zum Zeitpunkt, der durch `timestamp` angezeigt wird, ausgespielt werden sollen, ursprünglich abgetastet oder erzeugt wurden.
     Er kann für Sequenzierungs- und Synchronisationszwecke nützlich sein.
 
 - `source` {{optional_inline}}
-
   - : Ein positiver Ganzzahlwert, der den SSRC-Identifier der Synchronisationsquelle angibt.
     Dieser identifiziert eindeutig die Quelle der bestimmten Stream-RTP-Pakete.
 

@@ -58,7 +58,6 @@ Aus der Sicht des Benutzers unterstützender Technologien existiert die Übersch
 ### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)
-
   - : Der Wert von `aria-checked` definiert den Zustand einer Checkbox. Dieses Attribut hat einen von drei möglichen Werten:
     - `true`
       - : Die Checkbox ist ausgewählt.

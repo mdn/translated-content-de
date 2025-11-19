@@ -23,7 +23,6 @@ Das Erscheinungsbild und die spezifischen Funktionen dieser Benachrichtigungen v
 _Erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 - [`Notification.permission`](/de/docs/Web/API/Notification/permission_static) {{ReadOnlyInline}}
-
   - : Ein String, der die aktuelle Berechtigung zur Anzeige von Benachrichtigungen darstellt. Mögliche Werte sind:
     - `denied` — Der Benutzer lehnt es ab, Benachrichtigungen anzuzeigen.
     - `granted` — Der Benutzer stimmt zu, Benachrichtigungen anzuzeigen.

@@ -25,9 +25,7 @@ Keine.
 Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von `contentDescription`-Elementen aufgelöst wird.
 
 - `contentDescription`
-
   - : Jedes zurückgegebene Element ist ein {{jsxref('Object')}} und enthält die folgenden Daten:
-
     - `id`
       - : Ein eindeutiger {{jsxref('String')}}-Bezeichner.
     - `title`
@@ -40,7 +38,6 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von `c
       - : Ein {{jsxref('String')}} mit der URL des entsprechenden HTML-Dokuments.
         Muss unter dem Bereich des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
     - `category` {{Optional_Inline}}
-
       - : Ein {{jsxref('String')}} der die Kategorie des Inhalts definiert.
         Kann sein:
         - `''` Ein leerer {{jsxref('String')}}, dies ist der Standard.

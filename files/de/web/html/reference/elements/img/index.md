@@ -70,7 +70,6 @@ Tritt ein Fehler beim Laden oder Rendern eines Bildes auf und wurde ein `onerror
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `alt`
-
   - : Definiert Text, der das Bild auf der Seite ersetzen kann.
 
     > [!NOTE]
@@ -87,7 +86,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     Dieses Attribut wird auch verwendet, wenn das Bild in Text kopiert oder ein verlinktes Bild zu einem Lesezeichen gespeichert wird.
 
 - `attributionsrc` {{experimental_inline}}
-
   - : Gibt an, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}} Header zusammen mit der Bildanforderung senden soll.
 
     Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}} oder {{httpheader("Attribution-Reporting-Register-Trigger")}} Headers in der Antwort auszulösen, um eine Bildquelle oder einen Bild-Trigger für die Attribution zu registrieren. Welcher Antwort-Header gesendet werden soll, hängt vom Wert des `Attribution-Reporting-Eligible` Headers ab, der die Registrierung ausgelöst hat.
@@ -98,7 +96,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     > Weitere Einzelheiten finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
     Es gibt zwei Versionen dieses Attributs, die Sie festlegen können:
-
     - Boolean, d.h. nur der Name `attributionsrc`. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}} Header an denselben Server gesendet wird, auf den das `src`-Attribut zeigt. Dies ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle oder des Triggers auf demselben Server verarbeiten. Bei der Registrierung eines Attribution-Triggers ist diese Eigenschaft optional und ein Boolean-Wert wird verwendet, wenn er weggelassen wird.
     - Wert, der eine oder mehrere URLs enthält, zum Beispiel:
 
@@ -116,7 +113,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     > Durch das Angeben mehrerer URLs können mehrere Attributionsquellen auf derselben Funktion registriert werden. Sie könnten zum Beispiel verschiedene Kampagnen haben, deren Erfolg Sie messen möchten, was die Erstellung unterschiedlicher Berichte zu unterschiedlichen Daten erfordert.
 
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
-
   - : Gibt an, ob das Abrufen des Bildes mit einer {{Glossary("CORS", "CORS")}} Anfrage erfolgen muss. Bilddaten von einem [CORS-aktivierten Bild](/de/docs/Web/HTML/How_to/CORS_enabled_image), das von einer CORS-Anfrage zurückgegeben wird, können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne als "[verfälscht](/de/docs/Web/HTML/How_to/CORS_enabled_image#security_and_tainted_canvases)" markiert zu werden.
 
     Wenn das `crossorigin`-Attribut _nicht_ angegeben ist, wird eine Nicht-CORS-Anfrage gesendet (ohne den {{httpheader("Origin")}} Request-Header), und der Browser markiert das Bild als verfälscht und schränkt den Zugriff auf seine Bilddaten ein und verhindert seine Nutzung in {{HTMLElement("canvas")}}-Elementen.
@@ -124,7 +120,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     Wenn das `crossorigin`-Attribut _angegeben_ ist, wird eine CORS-Anfrage gesendet (mit dem {{httpheader("Origin")}} Request-Header); wenn der Server jedoch nicht wählt, den Cross-Origin-Zugriff auf die Bilddaten durch die Ursprungsseite zu erlauben (indem er keinen {{httpheader("Access-Control-Allow-Origin")}} Response-Header sendet, oder indem er die Ursprungsseite nicht in irgendeinem {{httpheader("Access-Control-Allow-Origin")}} Response-Header einschließt, den er sendet), blockiert der Browser das Laden des Bildes und protokolliert einen CORS-Fehler in die Entwicklerkonsole.
 
     Erlaubte Werte:
-
     - `anonymous`
       - : Eine CORS-Anfrage wird mit weggelassenen Anmeldeinformationen gesendet (das heißt, keine {{Glossary("cookie", "Cookies")}}, [X.509 Zertifikate](https://datatracker.ietf.org/doc/html/rfc5280) oder {{httpheader("Authorization")}} Request-Header).
     - `use-credentials`
@@ -133,7 +128,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     Wenn das Attribut einen ungültigen Wert hat, behandeln Browser es so, als ob der Wert `anonymous` verwendet wurde. Siehe [CORS-Einstellungen für Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für zusätzliche Informationen.
 
 - `decoding`
-
   - : Dieses Attribut gibt einen Hinweis an den Browser, ob die Bilddekodierung zusammen mit dem Rendern der anderen DOM-Inhalte in einem einzigen Präsentationsschritt durchgeführt werden soll, der "korrekter" aussieht (`sync`), oder ob zuerst die anderen DOM-Inhalte gerendert und präsentiert werden sollen und das Bild später dekodiert und präsentiert wird (`async`). In der Praxis bedeutet `async`, dass das nächste Rendern nicht darauf wartet, dass das Bild dekodiert wird.
 
     Es ist oft schwierig, einen merklichen Effekt bei der Verwendung von `decoding` auf statischen `<img>`-Elementen wahrzunehmen. Sie werden wahrscheinlich zunächst als leere Bilder dargestellt, während die Bilddateien (entweder aus dem Netzwerk oder aus dem Cache) abgerufen und dann unabhängig verarbeitet werden, sodass die "Synchronisierung" von Inhaltsaktualisierungen weniger offensichtlich ist. Das Blockieren des Renderings während des Durchführens der Dekodierung kann, obwohl oft sehr klein, _gemessen_ werden — auch wenn es schwierig ist, dies mit dem menschlichen Auge zu beobachten. Siehe [Was macht das Image-Decoding-Attribut eigentlich?](https://www.tunetheweb.com/blog/what-does-the-image-decoding-attribute-actually-do/) für eine detailliertere Analyse (tunetheweb.com, 2023).
@@ -141,7 +135,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     Die Verwendung unterschiedlicher `decoding`-Typen kann zu auffälligeren Unterschieden führen, wenn `<img>`-Elemente dynamisch über JavaScript in das DOM eingefügt werden — siehe [`HTMLImageElement.decoding`](/de/docs/Web/API/HTMLImageElement/decoding) für weitere Details.
 
     Erlaubte Werte:
-
     - `sync`
       - : Dekodiere das Bild synchron zusammen mit dem Rendern der anderen DOM-Inhalte und präsentiere alles gemeinsam.
     - `async`
@@ -150,7 +143,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
       - : Keine Präferenz für den Dekodiermodus; der Browser entscheidet, was das Beste für den Benutzer ist. Dies ist der Standardwert.
 
 - [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming)
-
   - : Markiert das Bild zum Beobachten durch die [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming) API. Der angegebene Wert wird zu einem Bezeichner für das beobachtete Bildelement. Siehe auch die Seite über das [`elementtiming`](/de/docs/Web/HTML/Reference/Attributes/elementtiming) Attribut.
 
 - [`fetchpriority`](/de/docs/Web/HTML/Reference/Attributes/fetchpriority)
@@ -164,23 +156,19 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
         Dies ist der Standard.
         Es wird verwendet, wenn kein oder ein ungültiger Wert festgelegt ist.
 - `height`
-
   - : Die intrinsische Höhe des Bildes in Pixeln. Muss eine ganze Zahl ohne Einheit sein.
 
     > [!NOTE]
     > Das Einfügen von `height` und [`width`](#width) ermöglicht es dem Browser, das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Bildes vor dem Laden zu berechnen. Dieses Seitenverhältnis wird verwendet, um den benötigten Platz für die Anzeige des Bildes zu reservieren, wodurch Layoutverschiebungen bei tDas Herunterladen und Anzeigen des Bildes reduziert oder sogar verhindert werden. Das Reduzieren von Layoutverschiebungen ist ein wesentlicher Bestandteil einer guten Benutzererfahrung und Web-Performance.
 
 - `ismap`
-
   - : Dieses Boolean-Attribut gibt an, dass das Bild Teil einer [serverseitigen Karte](https://en.wikipedia.org/wiki/Image_map#Server-side) ist. Wenn ja, werden die Koordinaten, an denen der Benutzer auf das Bild geklickt hat, an den Server gesendet.
 
     > [!NOTE]
     > Dieses Attribut ist nur zulässig, wenn das `<img>`-Element ein Nachkomme eines {{htmlelement("a")}}-Elements mit einem gültigen [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) Attribut ist. Dies bietet Benutzern ohne Zeigegeräte ein alternatives Ziel.
 
 - `loading`
-
   - : Gibt an, wie der Browser das Bild laden soll:
-
     - `eager`
       - : Lädt das Bild sofort, unabhängig davon, ob das Bild derzeit im sichtbaren Viewport ist (dies ist der Standardwert).
     - `lazy`
@@ -193,7 +181,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     Das Laden wird nur verzögert, wenn JavaScript aktiviert ist. Dies ist eine Anti-Tracking-Maßnahme, denn wenn ein Benutzeragent Lazy Loading unterstützt, wenn das Skripting deaktiviert ist, wäre es dennoch möglich, die ungefähre Scroll-Position eines Benutzers während einer Sitzung zu verfolgen, indem strategisch Bilder im Markup einer Seite platziert werden, sodass ein Server verfolgen kann, wie viele Bilder angefordert werden und wann.
 
 - `referrerpolicy`
-
   - : Ein String, der angibt, welchen Referrer beim Abrufen der Ressource verwendet werden soll:
     - `no-referrer`: Der {{HTTPHeader("Referer")}} Header wird nicht gesendet.
     - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}} Header wird nicht an {{Glossary("origin", "Origin")}} gesendet, die kein {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) verwenden.
@@ -205,11 +192,9 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad einschließen (aber nicht den [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder [Benutzername](/de/docs/Web/API/HTMLAnchorElement/username)). **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten zu unsicheren Ursprüngen leakt.
 
 - `sizes`
-
   - : Ein oder mehrere durch Kommas getrennte Werte, die Quellengrößen oder das `auto` Schlüsselwort sein können. Die Spezifikation erfordert, dass das `sizes`-Attribut nur vorhanden ist, wenn `srcset` Breitenbeschreibungen verwendet.
 
     Eine **Quellengröße** besteht aus:
-
     1. Einer [Medienbedingung](/de/docs/Web/CSS/Guides/Media_queries/Using#syntax), weggelassen für das letzte Element in der Liste.
     2. Einem Quellengrößenwert.
 
@@ -239,17 +224,14 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
     ```
 
 - `src`
-
   - : Die Bild- {{Glossary("URL", "URL")}}. Mindestens eines der Attribute `src` und [`srcset`](#srcset) ist für ein `<img>`-Element erforderlich. Wenn [`srcset`](#srcset) angegeben ist, wird `src` in einer von zwei Weisen verwendet:
     - als Fallback für Browser, die `srcset` nicht unterstützen.
     - wenn `srcset` den "x"-Beschreiber verwendet, dann ist `src` äquivalent zu einer Quelle mit dem Dichtebeschreiber `1x`; das heißt, das in `src` angegebene Bild wird auf Bildschirmen mit geringer Dichte verwendet (wie typische 72 DPI- oder 96 DPI-Displays).
 
 - `srcset`
-
   - : Eine oder mehrere durch Kommas getrennte Zeichenfolgen, die mögliche Bildquellen für den {{Glossary("user_agent", "Benutzeragenten")}} zur Verwendung angeben.
 
     Jede Zeichenfolge ist zusammengesetzt aus:
-
     1. Einer {{Glossary("URL", "URL")}} zu einem Bild.
     2. Optional, Leerzeichen gefolgt von einem der folgenden:
        - Einem Breitenbeschreiber (eine positive ganze Zahl unmittelbar gefolgt von `w`). Es _muss_ mit der inhärenten Breite des referenzierten Bildes übereinstimmen. Der Breitenbeschreiber wird durch die in dem `sizes`-Attribut angegebene Quellengröße geteilt, um die effektive Pixeldichte zu berechnen. Zum Beispiel, um eine Bildressource bereitzustellen, die verwendet wird, wenn der Renderer ein 450 Pixel breites Bild benötigt, verwenden Sie den Breitenbeschreiber `450w`. Wenn ein `srcset` "w"-Beschreiber enthält, verwendet der Browser diese Beschreiber zusammen mit dem `sizes`-Attribut, um eine Ressource auszuwählen.
@@ -266,7 +248,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 - `width`
   - : Die intrinsische Breite des Bildes in Pixeln. Muss eine Ganzzahl ohne Einheit sein.
 - `usemap`
-
   - : Der partielle {{Glossary("URL", "URL")}} (beginnend mit `#`) einer [Bildkarte](/de/docs/Web/HTML/Reference/Elements/map), die mit dem Element verknüpft ist.
 
     > [!NOTE]
@@ -275,7 +256,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 ### Veraltete Attribute
 
 - `align` {{deprecated_inline}}
-
   - : Richtet das Bild mit seinem umgebenden Kontext aus. Verwenden Sie die {{cssxref('float')}} und/oder {{cssxref('vertical-align')}} {{Glossary("CSS", "CSS")}} Eigenschaften anstelle dieses Attributs. Erlaubte Werte:
     - `top`
       - : Entspricht `vertical-align: top` oder `vertical-align: text-top`
@@ -293,7 +273,6 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 - `hspace` {{deprecated_inline}}
   - : Die Anzahl der Pixel des Leerraums auf der linken und rechten Seite des Bildes. Verwenden Sie die {{cssxref('margin')}} CSS-Eigenschaft stattdessen.
 - `longdesc` {{deprecated_inline}}
-
   - : Ein Link zu einer detaillierteren Beschreibung des Bildes. Mögliche Werte sind eine {{Glossary("URL", "URL")}} oder ein Element- [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id).
 
     > [!NOTE]

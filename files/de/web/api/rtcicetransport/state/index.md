@@ -21,7 +21,6 @@ Ein String, dessen Wert einer der folgenden ist:
 - `"checking"`
   - : Es wurde mindestens ein Remote-Kandidat empfangen und der `RTCIceTransport` hat begonnen, Paarungen von Remote- und lokalen Kandidaten zu untersuchen, um zu versuchen, geeignete Paare zu identifizieren, die zur Herstellung einer Verbindung verwendet werden könnten. Beachten Sie, dass das Sammeln von lokalen Kandidaten noch im Gange sein kann und das Remote-Gerät möglicherweise auch noch eigene Kandidaten sammelt.
 - `"connected"`
-
   - : Ein geeignetes Kandidatenpaar wurde gefunden und ausgewählt, und der `RTCIceTransport` hat die beiden Peers mit diesem Paar verbunden. Es gibt jedoch noch Kandidatenpaarungen zu berücksichtigen, und es kann weiterhin auf einem oder beiden Geräten gesammelt werden.
 
     Der Transport kann vom Zustand `"connected"` in den Zustand `"checking"` zurückfallen, wenn ein Peer beschließt, die Zustimmung zur Verwendung des ausgewählten Kandidatenpaares zu widerrufen, und kann in `"disconnected"` zurückfallen, wenn keine Kandidaten mehr zu überprüfen sind, aber einer oder beide Clients noch Kandidaten sammeln.

@@ -14,7 +14,6 @@ Ein `SVGNumber`-Objekt kann als schreibgeschützt gekennzeichnet sein, was bedeu
 ## Instanz-Eigenschaften
 
 - [`SVGNumber.value`](/de/docs/Web/API/SVGNumber/value)
-
   - : Ein Gleitkommawert, der die Zahl darstellt.
 
     Hinweis: Wenn das `SVGNumber`-Objekt schreibgeschützt ist, wird bei einem Versuch, den Wert zu ändern, ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code NO_MODIFICATION_ALLOWED_ERR ausgelöst.

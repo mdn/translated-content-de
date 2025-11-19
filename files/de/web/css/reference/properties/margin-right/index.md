@@ -85,14 +85,12 @@ Die `margin-right`-Eigenschaft wird als das Schlüsselwort `auto`, oder als `<le
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-
   - : Die Größe des Rands als fester Wert.
     - Für _ankerpositionierte Elemente_ löst die {{cssxref("anchor-size()")}}-Funktion einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aus (siehe [Festlegung des Element-Rands basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 
 - {{cssxref("&lt;percentage&gt;")}}
   - : Die Größe des Rands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Umgebungsblocks](/de/docs/Web/CSS/Guides/Display/Containing_block).
 - `auto`
-
   - : Der rechte Rand erhält einen Anteil des nicht genutzten horizontalen Raums, hauptsächlich bestimmt durch den verwendeten Layout-Modus. Wenn die Werte von `margin-left` und `margin-right` beide `auto` sind, wird der berechnete Raum gleichmäßig verteilt. Diese Tabelle fasst die verschiedenen Fälle zusammen:
 
     <table class="standard-table">

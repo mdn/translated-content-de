@@ -26,7 +26,6 @@ multiDrawArraysWEBGL(mode,
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types),
     der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.

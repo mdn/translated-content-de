@@ -31,11 +31,9 @@ mask-mode: unset;
 Die `mask-mode` Eigenschaft kann mehrere kommagetrennte `<masking-mode>` Schlüsselwortwerte annehmen, einschließlich:
 
 - `alpha`
-
   - : Gibt an, dass die Alpha (Transparenz) Werte des Maskenbilds verwendet werden sollen.
 
 - `luminance`
-
   - : Gibt an, dass die [Luminanz (Helligkeit)](#luminanz_verstehen) Werte des Maskenbilds verwendet werden sollen.
 
 - `match-source`

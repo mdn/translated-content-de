@@ -23,21 +23,17 @@ blendEquation(mode)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, wie Quell- und Ziel-Farben kombiniert werden. Muss entweder sein:
-
     - `gl.FUNC_ADD`: Quelle + Ziel (Standardwert)
     - `gl.FUNC_SUBTRACT`: Quelle - Ziel
     - `gl.FUNC_REVERSE_SUBTRACT`: Ziel - Quelle
 
     Bei Verwendung der [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax)-Erweiterung:
-
     - `ext.MIN_EXT`: Minimum von Quelle und Ziel
     - `ext.MAX_EXT`: Maximum von Quelle und Ziel
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich folgende Werte verfügbar:
-
     - `gl.MIN`: Minimum von Quelle und Ziel
     - `gl.MAX`: Maximum von Quelle und Ziel
 

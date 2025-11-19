@@ -39,9 +39,7 @@ Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Refere
 - `start`
   - : Eine ganze Zahl, ab der die Listenelemente gezählt werden sollen. Immer eine arabische Zahl (1, 2, 3, etc.), auch wenn der Nummerierungstyp Buchstaben oder römische Zahlen sind. Zum Beispiel, um nummerierte Elemente von dem Buchstaben "d" oder der römischen Zahl "iv" zu starten, verwenden Sie `start="4"`.
 - `type`
-
   - : Legt den Nummerierungstyp fest:
-
     - `a` für Kleinbuchstaben
     - `A` für Großbuchstaben
     - `i` für kleine römische Zahlen

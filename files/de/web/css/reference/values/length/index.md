@@ -71,7 +71,6 @@ Schriftarten-relative Längeneinheiten des Wurzelelements definieren den `<lengt
 Die **Viewport-Prozentlängen-Einheiten** basieren auf vier verschiedenen Viewport-Größen: klein, groß, dynamisch und Standard. Die Berücksichtigung unterschiedlicher Viewport-Größen spiegelt wider, dass Browser-Oberflächen dynamisch expandieren und zurückziehen sowie den darunterliegenden Inhalt ausblenden und anzeigen können.
 
 - **Kleine Viewport-Einheiten**
-
   - : Wenn Sie die kleinstmögliche Viewport-Größe in Reaktion auf dynamisch erweiternde Browser-Schnittstellen wünschen, sollten Sie die kleine Viewport-Größe verwenden. Die kleine Viewport-Größe ermöglicht dem von Ihnen gestalteten Inhalt, den gesamten Viewport zu füllen, wenn die Browser-Oberflächen erweitert sind. Die Auswahl dieser Größe kann möglicherweise zu leeren Bereichen führen, wenn sich die Browser-Oberflächen zurückziehen.
 
     Beispielsweise wird ein Element, das mit Viewport-Prozentlängen-Einheiten basierend auf der kleinen Viewport-Größe dimensioniert ist, den Bildschirm perfekt füllen, ohne dass irgendwelche Inhalte des Elements verdeckt sind, wenn alle dynamischen Browser-Oberflächen angezeigt werden. Wenn diese Browser-Oberflächen ausgeblendet werden, kann jedoch zusätzlicher Raum um das Element sichtbar sein. Daher sind die kleinen Viewport-Prozentlängen-Einheiten im Allgemeinen "sicherer" zu verwenden, könnten jedoch nachteilig auf das Layout wirken, nachdem ein Benutzer beginnt, mit der Seite zu interagieren.
@@ -79,7 +78,6 @@ Die **Viewport-Prozentlängen-Einheiten** basieren auf vier verschiedenen Viewpo
     Die kleine Viewport-Größe wird durch das `sv`-Präfix repräsentiert und führt zu den `sv*` Viewport-Prozentlängen-Einheiten. Die Größen der kleinen Viewport-Prozentlängen-Einheiten sind fest und damit stabil, es sei denn, der Viewport selbst wird geändert.
 
 - **Große Viewport-Einheiten**
-
   - : Wenn Sie die größtmögliche Viewport-Größe in Reaktion auf dynamisch zurückziehende Browser-Schnittstellen wünschen, sollten Sie die große Viewport-Größe verwenden. Die große Viewport-Größe ermöglicht dem von Ihnen gestalteten Inhalt, den gesamten Viewport zu füllen, wenn die Browser-Oberflächen zurückziehen. Sie müssen sich bewusst sein, dass Inhalte verborgen werden können, wenn Browser-Oberflächen expandieren.
 
     Beispielsweise verstecken Browser auf Mobiltelefonen oft Teile oder die gesamte Titel- und Adressleiste, wenn ein Benutzer zu scrollen beginnt. Wenn ein Element mit einer Viewport-Prozenteinheit basierend auf der großen Viewport-Größe dimensioniert wird, füllt der Inhalt des Elements die gesamte sichtbare Seite, wenn diese Browser-Oberflächen ausgeblendet sind. Wenn diese zurückziehbaren Browser-Oberflächen angezeigt werden, können sie den Inhalt verdecken, der mit den _großen_ Viewport-Prozenteinheiten dimensioniert oder positioniert wird.
@@ -87,7 +85,6 @@ Die **Viewport-Prozentlängen-Einheiten** basieren auf vier verschiedenen Viewpo
     Die große Viewport-Einheit wird durch das `lv`-Präfix repräsentiert und führt zu den `lv*` Viewport-Prozenteinheiten. Die Größen der großen Viewport-Prozenteinheiten sind fest und somit stabil, es sei denn, der Viewport selbst wird geändert.
 
 - **Dynamische Viewport-Einheiten**
-
   - : Wenn Sie möchten, dass der Viewport automatisch dimensioniert wird, indem er auf dynamisch expandierende oder zurückziehende Browser-Schnittstellen reagiert, können Sie die dynamische Viewport-Größe verwenden. Die dynamische Viewport-Größe erlaubt es dem gestalteten Inhalt, genau innerhalb des Viewports zu passen, unabhängig von der Existenz dynamischer Browser-Schnittstellen.
 
     Die dynamische Viewport-Einheit wird durch das `dv`-Präfix repräsentiert und führt zu den `dv*` Viewport-Prozenteinheiten. Die Größen der dynamischen Viewport-Prozenteinheiten sind nicht stabil, selbst wenn der Viewport selbst unverändert bleibt.
@@ -96,7 +93,6 @@ Die **Viewport-Prozentlängen-Einheiten** basieren auf vier verschiedenen Viewpo
     > Während die dynamische Viewport-Größe Ihnen mehr Kontrolle und Flexibilität bietet, kann die Verwendung von Viewport-Prozenteinheiten basierend auf der dynamischen Viewport-Größe dazu führen, dass sich der Inhalt während des Scrollens der Seite ändert. Dies kann eine Verschlechterung der Benutzeroberfläche verursachen und zu Leistungseinbußen führen.
 
 - **Standard-Viewport-Einheiten**
-
   - : Die Standard-Viewport-Größe wird vom Browser definiert. Das Verhalten der resultierenden Viewport-Prozenteinheit könnte der Viewport-Prozenteinheit basierend auf der kleinen Viewport-Größe, der großen Viewport-Größe, einer Zwischengröße zwischen den beiden oder der dynamischen Viewport-Größe entsprechen.
 
     > [!NOTE]
@@ -108,41 +104,35 @@ Viewport-Prozenteinheiten definieren `<length>`-Werte in Prozent relativ zur Gr�
 > Viewport-Längen sind ungültig in {{cssxref("@page")}} Deklarationsblöcken.
 
 - `vh`
-
   - : Repräsentiert einen Prozentsatz der Höhe des initialen Containing Block des Viewports. `1vh` beträgt 1% der Viewport-Höhe. Zum Beispiel, wenn die Viewport-Höhe `300px` beträgt, würde ein Wert von `70vh` auf einer Eigenschaft `210px` betragen.
 
     Die jeweiligen Viewport-Prozenteinheiten für kleine, große und dynamische Viewport-Größen sind `svh`, `lvh` und `dvh`. `vh` ist äquivalent zu `lvh`, welche die Viewport-Prozenteinheit basierend auf der großen Viewport-Größe repräsentiert.
 
 - `vw`
-
   - : Repräsentiert einen Prozentsatz der Breite des initialen Containing Block des Viewports. `1vw` beträgt 1% der Viewport-Breite. Zum Beispiel, wenn die Viewport-Breite `800px` beträgt, würde ein Wert von `50vw` auf einer Eigenschaft `400px` betragen.
 
     Für kleine, große und dynamische Viewport-Größen wären die jeweiligen Viewport-Prozenteinheiten `svw`, `lvw` und `dvw`.
     `vw` ist äquivalent zu `lvw`, welche die Viewport-Prozenteinheit basierend auf der großen Viewport-Größe repräsentiert.
 
 - `vmax`
-
   - : Repräsentiert in Prozent den größten Wert von `vw` und `vh`.
 
     Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozenteinheiten `svmax`, `lvmax` und `dvmax`.
     `vmax` ist äquivalent zu `lvmax`, welche die Viewport-Prozenteinheit basierend auf der großen Viewport-Größe repräsentiert.
 
 - `vmin`
-
   - : Repräsentiert in Prozent den kleinsten Wert von `vw` und `vh`.
 
     Für kleine, große und dynamische Viewport-Größen sind die jeweiligen Viewport-Prozenteinheiten `svmin`, `lvmin` und `dvmin`.
     `vmin` ist äquivalent zu `lvmin`, welche die Viewport-Prozenteinheit basierend auf der großen Viewport-Größe repräsentiert.
 
 - `vb`
-
   - : Repräsentiert den Prozentsatz der Größe des initialen [Containing Block](/de/docs/Web/CSS/Guides/Display/Containing_block), in der Richtung der [Block-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values) des Wurzelelements.
 
     Für kleine, große und dynamische Viewport-Größen wären die jeweiligen Viewport-Prozenteinheiten `svb`, `lvb` und `dvb` entsprechend.
     `vb` ist äquivalent zu `lvb`, welche die Viewport-Prozenteinheit basierend auf der großen Viewport-Größe repräsentiert.
 
 - `vi`
-
   - : Repräsentiert einen Prozentsatz der Größe des initialen [Containing Block](/de/docs/Web/CSS/Guides/Display/Containing_block), in der Richtung der [Inline-Achse](/de/docs/Web/CSS/Guides/Logical_properties_and_values) des Wurzelelements.
 
     Für kleine, große und dynamische Viewport-Größen wären die jeweiligen Viewport-Prozenteinheiten `svi`, `lvi` und `dvi`.
@@ -159,23 +149,18 @@ Wenn kein geeigneter Container für die Abfrage verfügbar ist, standardisiert d
 Für weitere Informationen siehe [Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries).
 
 - `cqw`
-
   - : Repräsentiert einen Prozentsatz der Breite des Abfragecontainers. `1cqw` ist 1% der Breite des Abfragecontainers. Zum Beispiel, wenn die Breite des Abfragecontainers `800px` ist, dann beträgt ein Wert von `50cqw` auf einer Eigenschaft `400px`.
 
 - `cqh`
-
   - : Repräsentiert einen Prozentsatz der Höhe des Abfragecontainers. `1cqh` ist 1% der Höhe des Abfragecontainers. Zum Beispiel, wenn die Höhe des Abfragecontainers `300px` ist, dann beträgt ein Wert von `10cqh` auf einer Eigenschaft `30px`.
 
 - `cqi`
-
   - : Repräsentiert einen Prozentsatz der Inline-Größe des Abfragecontainers. `1cqi` ist 1% der Inline-Größe des Abfragecontainers. Zum Beispiel, wenn die Inline-Größe des Abfragecontainers `800px` ist, dann beträgt ein Wert von `50cqi` auf einer Eigenschaft `400px`.
 
 - `cqb`
-
   - : Repräsentiert einen Prozentsatz der Blockgröße des Abfragecontainers. `1cqb` ist 1% der Blockgröße des Abfragecontainers. Zum Beispiel, wenn die Blockgröße des Abfragecontainers `300px` ist, dann beträgt ein Wert von `10cqb` auf einer Eigenschaft `30px`.
 
 - `cqmin`
-
   - : Repräsentiert einen Prozentsatz des kleineren Wertes entweder der Inline-Größe oder Blockgröße des Abfragecontainers. `1cqmin` ist 1% des kleineren Wertes entweder der Inline-Größe oder Blockgröße des Abfragecontainers. Zum Beispiel, wenn die Inline-Größe des Abfragecontainers `800px` und dessen Blockgröße `300px` ist, beträgt ein Wert von `50cqmin` auf einer Eigenschaft `150px`.
 
 - `cqmax`

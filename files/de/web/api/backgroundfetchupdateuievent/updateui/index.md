@@ -22,11 +22,8 @@ updateUI(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das eines oder mehrere der folgenden enthält:
-
     - `icons` {{optional_inline}}
-
       - : Eine Liste von einem oder mehreren Bildressourcen, die Symbole für die Verwendung in der Benutzeroberfläche enthalten. Eine Bildressource ist ein Objekt, das Folgendes enthält:
         - `src`
           - : Ein String, der eine URL eines Bildes ist.

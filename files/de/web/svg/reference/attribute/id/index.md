@@ -52,7 +52,6 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </table>
 
 - \<id>
-
   - : Bestimmt die ID des Elements. Die ID muss eindeutig innerhalb des Knotens sein, darf kein leerer String sein und keine Leerzeichen enthalten.
 
     > [!NOTE]

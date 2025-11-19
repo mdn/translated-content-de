@@ -82,7 +82,6 @@ svg {
 </table>
 
 - \<dasharray>
-
   - : Eine Liste von durch Komma und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken spezifizieren.
 
     Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu erzielen. So ist `5,3,2` gleichwertig mit `5,3,2,5,3,2`.

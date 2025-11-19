@@ -93,7 +93,6 @@ Diese Eigenschaft kann eine von zwei Formen annehmen:
 - `column`
   - : Elemente werden durch Füllen jeder Spalte der Reihe nach platziert, wobei bei Bedarf neue Spalten hinzugefügt werden.
 - `dense`
-
   - : Der "dichte" Verpackungsalgorithmus versucht, Löcher früher im Raster zu füllen, falls später kleinere Elemente auftauchen. Dies kann dazu führen, dass Elemente außerhalb der Reihenfolge erscheinen, wenn dadurch Löcher gefüllt wären, die von größeren Elementen hinterlassen wurden.
 
     Wenn es weggelassen wird, wird ein "sparsamer" Algorithmus verwendet, bei dem der Platzierungsalgorithmus beim Platzieren von Elementen immer nur "vorwärts" im Raster geht und nie zurückweicht, um Löcher zu füllen. Dies stellt sicher, dass alle automatisch platzierten Elemente "in Ordnung" erscheinen, selbst wenn dadurch Löcher entstehen, die von späteren Elementen hätten gefüllt werden können.

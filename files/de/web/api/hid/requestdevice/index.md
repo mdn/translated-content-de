@@ -21,15 +21,12 @@ requestDevice(options)
 ### Parameter
 
 - `options`
-
   - : Ein Objekt, das ein Array von Filterobjekten für mögliche Geräte, mit denen eine Kopplung hergestellt werden soll, enthält. Jedes Filterobjekt kann die folgenden Eigenschaften haben:
-
     - `vendorId` {{optional_inline}}
       - : Eine ganze Zahl, die die vendorId des angeforderten HID-Geräts darstellt.
     - `productId` {{optional_inline}}
       - : Eine ganze Zahl, die die productId des angeforderten HID-Geräts darstellt.
     - `usagePage` {{optional_inline}}
-
       - : Eine ganze Zahl, die die Komponente des verwendeten Bereichs der HID-Nutzung des angeforderten Geräts darstellt. Die Nutzung einer oberster Ebene Sammlung wird verwendet, um den Gerätetyp zu identifizieren.
 
         Standard-HID-Nutzungswerte finden Sie im Dokument [HID Usage Tables](https://usb.org/document-library/hid-usage-tables-16).

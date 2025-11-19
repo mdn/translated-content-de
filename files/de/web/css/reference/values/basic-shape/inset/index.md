@@ -52,7 +52,6 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 ### Werte
 
 - `<length-percentage>{1,4}`
-
   - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die Innenabstände von der Referenzbox für oben, rechts, unten und links, die die Positionen der Kanten des Rechtecks definieren. Diese Argumente folgen der Syntax der Margin-Kurzschreibweise, die es Ihnen ermöglicht, alle
     vier Innenabstände mit einem, zwei oder vier Werten zu setzen.
 

@@ -21,19 +21,14 @@ requestDevice(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das Optionen für die Auswahl eines geeigneten Geräts festlegt.
     Die verfügbaren Optionen sind:
-
     - `filters` {{optional_inline}}
-
       - : Ein Array von Filterobjekten, die die Eigenschaften von Geräten angeben, die übereinstimmen sollen.
         Um mit einem Filterobjekt übereinzustimmen, muss ein Gerät mit allen Werten des Filters übereinstimmen: allen angegebenen `services`, `name`, `namePrefix` usw.
 
         Jeder Filter besteht aus einem Array von Objekten mit den folgenden Eigenschaften:
-
         - `services` {{optional_inline}}
-
           - : Ein Array von Werten, die die Bluetooth GATT (Generic Attribute Profile) Dienste angeben, die ein Bluetooth-Gerät unterstützen muss.
             Jeder Wert kann ein gültiger Name aus der [GATT-zugeordneten Diensteliste](https://github.com/WebBluetoothCG/registries/blob/master/gatt_assigned_services.txt) sein, wie z.B. `'battery_service'` oder `'blood_pressure'`.
             Sie können auch eine vollständige Dienst-UUID wie `'0000180F-0000-1000-8000-00805f9b34fb'` oder den kurzen 16-Bit (`0x180F`) oder den 32-Bit-Alias übergeben.
@@ -45,7 +40,6 @@ requestDevice(options)
           - : Ein String, der das Namenspräfix enthält, das übereinstimmen soll.
             Alle Geräte, die einen Namen haben, der mit diesem String beginnt, werden übereinstimmen.
         - `manufacturerData` {{optional_inline}}
-
           - : Ein Array von Objekten, die mit Herstellerdaten in den Bluetooth Low Energy (BLE) Werbepaketen übereinstimmen. <!-- BluetoothManufacturerDataFilterInit -->
             Jedes Filterobjekt hat die folgenden Eigenschaften:
             - `companyIdentifier`
@@ -74,13 +68,11 @@ requestDevice(options)
       - : Ein Array von Filterobjekten, die die Eigenschaften von Geräten angeben, die von der Übereinstimmung ausgeschlossen werden.
         Die Eigenschaften der Array-Elemente sind die gleichen wie bei [`filters`](#filters).
     - `optionalServices` {{optional_inline}}
-
       - : Ein Array von optionalen Dienstkennungen.
 
         Die Kennungen nehmen die gleichen Werte an wie die Elemente des [`services`](#services)-Arrays (ein GATT-Dienstname, Dienst-UUID oder UUID-kurzer 16-Bit- oder 32-Bit-Form).
 
     - `optionalManufacturerData` {{optional_inline}}
-
       - : Ein optionales Array von Hersteller-Codes als ganze Zahlen.
         Dies nimmt die gleichen Werte an wie [`companyIdentifier`](#companyidentifier).
 
@@ -88,7 +80,6 @@ requestDevice(options)
         Dies ist nützlich, weil es Code erlaubt, ein Interesse an Daten, die von Bluetooth-Geräten empfangen werden, anzugeben, ohne den Filter einzuschränken, der bestimmt, welche Geräte dem Benutzer im Berechtigungs-Prompt vorgestellt werden.
 
     - `acceptAllDevices` {{optional_inline}}
-
       - : Ein boolescher Wert, der angibt, dass das anfordernde Skript alle Bluetooth-Geräte akzeptieren kann.
         Der Standardwert ist `false`.
 

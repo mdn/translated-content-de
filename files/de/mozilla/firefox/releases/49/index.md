@@ -19,7 +19,6 @@ l10n:
 - Der Inspektor unterstützt jetzt die `#RRGGBBAA`- und `#RGBA`-Syntax für Farbwerte ([Firefox-Bug 1271191](https://bugzil.la/1271191)).
 - Die Entwicklertools zeigen keine selbstschließenden Tags wie {{HTMLElement("br")}} und {{HTMLElement("img")}} mehr so an, als hätten sie ein Schlusstag auf HTML-Seiten; das Verhalten bleibt für XHTML-Seiten unverändert ([Firefox-Bug 820926](https://bugzil.la/820926)).
 - Barrierefreiheit Verbesserungen!
-
   - Das Werkzeugfenster stellt sicher, dass die Tastaturfokus sichtbarer ist ([Firefox-Bug 1242851](https://bugzil.la/1242851)).
   - Barrierefreiheitskennzeichnungen wurden zu nicht gekennzeichneten Steuerelementen hinzugefügt ([Firefox-Bug 1242715](https://bugzil.la/1242715)).
   - Richtige Baumansicht-Semantik und Tastaturnavigation wurden zur Markierungansicht des Inspektors hinzugefügt ([Firefox-Bug 1242694](https://bugzil.la/1242694)).
@@ -53,13 +52,11 @@ l10n:
 - Die Eigenschaft {{cssxref("text-align-last")}} wurde präfixfrei gemacht ([Firefox-Bug 1039541](https://bugzil.la/1039541)).
 - Unterstützung für {{cssxref("overflow-wrap")}} hinzugefügt, das `word-wrap` ersetzt, was weiterhin als alternativer Name unterstützt wird ([Firefox-Bug 955857](https://bugzil.la/955857)).
 - Unsere experimentelle [CSS Grid](/de/docs/Web/CSS/Guides/Grid_layout)-Implementierung wurde verbessert:
-
   - {{cssxref("&lt;percentage&gt;")}} für die Eigenschaften `grid-gap`, `grid-row-gap` und `grid-column-gap` implementiert ([Firefox-Bug 1266268](https://bugzil.la/1266268)).
   - Unterstützung für Gitterlayouts bei {{cssxref("align-self")}}, {{cssxref("justify-self")}}-Werten `baseline` und `last-baseline` (auch bekannt als "Baseline-Selbstausrichtung") implementiert ([Firefox-Bug 1221525](https://bugzil.la/1221525)).
   - Implementierung der Grundlinien-Inhaltsausrichtung für Gitterelemente ([Firefox-Bug 1256429](https://bugzil.la/1256429)).
 
 - Unsere experimentelle [CSS Masks](/de/docs/Web/CSS/Guides/Masking)-Implementierung wurde verbessert:
-
   - Die Eigenschaft {{cssxref("mask-origin")}} verwendet jetzt `border-box` statt `padding-box` als Anfangswert, um der Spezifikation zu entsprechen ([Firefox-Bug 1258286](https://bugzil.la/1258286)).
   - Die Eigenschaft {{cssxref("mask-repeat")}} unterstützt jetzt die Werte `space` und `round` ([Firefox-Bug 1258626](https://bugzil.la/1258626)).
   - Ein Problem behoben, das verhinderte, dass das {{cssxref("mask-position")}}-Attribut animiert werden konnte ([Firefox-Bug 1273804](https://bugzil.la/1273804)).
@@ -191,7 +188,6 @@ Dies markiert den nächsten Schritt auf dem Weg in eine plugin-freie Zukunft. HT
 Um die Kompatibilität mit vorhandenen Inhalten zu verbessern, akzeptiert Firefox jetzt einige WebKit-präfixierte Eigenschaften und Attribute.
 
 - Die folgenden Eigenschaften funktionieren jetzt auch mit dem Präfix `-webkit`:
-
   - `-webkit-align-items`
   - `-webkit-align-content`
   - `-webkit-align-self`
@@ -239,7 +235,6 @@ Um die Kompatibilität mit vorhandenen Inhalten zu verbessern, akzeptiert Firefo
   - `-webkit-user-select`
 
 - Die folgenden Eigenschaften werden auf die entsprechenden präfixierten Eigenschaften abgebildet:
-
   - `-webkit-box-flex`
   - `-webkit-box-ordinal-group`
   - `-webkit-box-orient`
@@ -247,19 +242,16 @@ Um die Kompatibilität mit vorhandenen Inhalten zu verbessern, akzeptiert Firefo
   - `-webkit-box-pack`
 
 - Für {{cssxref("&lt;image&gt;")}} Werte:
-
   - Die folgenden Funktionen werden auf ihre unpräfixierten Entsprechungen abgebildet: `-webkit-linear-gradient()`, `-webkit-radial-gradient()`, `-webkit-repeating-linear-gradient()` und `-webkit-repeating-radial-gradient()`.
   - Das veraltete `-webkit-gradient` wird unterstützt (und in einen regulären Verlauf übersetzt)
 
 - Die folgenden {{cssxref("display")}}-Werte werden übersetzt:
-
   - `-webkit-box` zu `-moz-box`
   - `-webkit-flex` zu `flex`
   - `-webkit-inline-box` zu `inline-flex`
   - `-webkit-inline-flex` zu `-moz-inline-flex`
 
 - Die folgenden Eigenschaften werden unterstützt (und nicht auf unpräfixierte Entsprechungen abgebildet):
-
   - {{cssxref("-webkit-text-fill-color")}}
   - {{cssxref("-webkit-text-stroke-color")}}
   - {{cssxref("-webkit-text-stroke-width")}}

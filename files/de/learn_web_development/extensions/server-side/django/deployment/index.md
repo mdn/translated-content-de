@@ -992,7 +992,6 @@ Der nächste Schritt ist, unsere letzten Artikel zu lesen und dann die Bewertung
 ## Siehe auch
 
 - [Deploying Django](https://docs.djangoproject.com/en/5.0/howto/deployment/) (Django-Dokumentation)
-
   - [Deployment-Checkliste](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/) (Django-Dokumentation)
   - [Bereitstellung statischer Dateien](https://docs.djangoproject.com/en/5.0/howto/static-files/deployment/) (Django-Dokumentation)
   - [Wie man mit WSGI bereitstellt](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/) (Django-Dokumentation)
@@ -1000,11 +999,9 @@ Der nächste Schritt ist, unsere letzten Artikel zu lesen und dann die Bewertung
   - [Wie man Django mit Gunicorn verwendet](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) (Django-Dokumentation)
 
 - Railway-Dokumentation
-
   - [CLI](https://docs.railway.com/guides/cli)
 
 - DigitalOcean
-
   - [Wie man Django-Anwendungen mit uWSGI und Nginx auf Ubuntu 16.04 bereitstellt](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)
   - [Weitere DigitalOcean Django Community-Dokumente](https://www.digitalocean.com/community/tutorials?q=django)
 

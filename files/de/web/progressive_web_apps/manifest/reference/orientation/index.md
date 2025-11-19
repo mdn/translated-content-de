@@ -27,49 +27,39 @@ Das `orientation`-Manifest-Element wird verwendet, um die Standardorientierung f
 ### Werte
 
 - `orientation`
-
   - : Ein String, der die Standardorientierung für die Web-App angibt.
     Wenn das `orientation`-Element nicht angegeben ist oder ein ungültiger Wert bereitgestellt wird, verwendet die Web-App typischerweise die natürliche Orientierung des Geräts und alle Benutzer- oder Systemeinstellungen zur Orientierung.
 
     Der `orientation`-Wert muss eines der folgenden Schlüsselwörter sein:
-
     - `any`
-
       - : Zeigt die Web-App in jeder vom Betriebssystem des Geräts oder den Benutzereinstellungen erlaubten Orientierung an.
         Dies ermöglicht der App, sich frei zu drehen, um der Orientierung des Geräts zu entsprechen, wenn es gedreht wird.
 
     - `natural`
-
       - : Zeigt die Web-App in der vom Gerät als am natürlichsten betrachteten Orientierung an, wie vom Browser, Betriebssystem, den Benutzereinstellungen oder dem Bildschirm selbst bestimmt. Es entspricht der Art und Weise, wie das Gerät am häufigsten gehalten oder verwendet wird:
-
         - Auf Geräten, die typischerweise vertikal gehalten werden, wie Mobiltelefone, ist `natural` normalerweise `portrait-primary`.
         - Auf Geräten, die typischerweise horizontal verwendet werden, wie Computermonitore und Tablets, ist `natural` normalerweise `landscape-primary`.
 
         Wenn das Gerät gedreht wird, kann es sein, dass die App rotieren wird oder auch nicht, um der natürlichen Orientierung des Geräts zu entsprechen; dieses Verhalten kann je nach spezifischem Gerät, Browserverhalten und Benutzereinstellungen variieren.
 
     - `portrait`
-
       - : Zeigt die Web-App mit größerer Höhe als Breite an.
         Dies ermöglicht der App, zwischen den Orientierungen `portrait-primary` und `portrait-secondary` zu wechseln, wenn das Gerät gedreht wird.
 
     - `portrait-primary`
-
       - : Zeigt die Web-App im Hochformat an, typischerweise mit dem Gerät in aufrechter Position.
         Dies ist normalerweise die Standard-App-Orientierung auf Geräten, die von Natur aus hochformatig sind.
         Abhängig von Gerät und Browserverhalten wird die App typischerweise diese Orientierung beibehalten, selbst wenn das Gerät gedreht wird.
 
     - `portrait-secondary`
-
       - : Zeigt die Web-App im invertierten Hochformat an, was `portrait-primary` um 180 Grad gedreht entspricht.
         Abhängig von Gerät und Browserverhalten wird die App typischerweise diese Orientierung beibehalten, selbst wenn das Gerät gedreht wird.
 
     - `landscape`
-
       - : Zeigt die Web-App mit größerer Breite als Höhe an.
         Dies ermöglicht der App, zwischen den Orientierungen `landscape-primary` und `landscape-secondary` zu wechseln, wenn das Gerät gedreht wird.
 
     - `landscape-primary`
-
       - : Zeigt die Web-App im Querformat an, typischerweise mit dem Gerät in seiner standardmäßigen horizontalen Position.
         Dies ist normalerweise die Standard-App-Orientierung auf Geräten, die von Natur aus querformatig sind.
         Abhängig von Gerät und Browserverhalten wird die App typischerweise diese Orientierung beibehalten, selbst wenn das Gerät gedreht wird.
@@ -241,12 +231,10 @@ Während das `orientation`-Element im Manifest die Standardorientierung der Web-
 Die `orientation`-Werte sind im Web-App-Manifest und in der Screen Orientation API ähnlich, aber ihr Verhalten und Zweck unterscheiden sich.
 
 - Web-App-Manifest:
-
   - Gibt die bevorzugte Standardorientierung der Web-App über das `orientation`-Element vor.
   - Setzt die anfängliche Orientierung, wenn die App gestartet wird.
 
 - Screen Orientation API:
-
   - Verwendet Orientierungswerte, um den Bildschirm auf eine bestimmte Ausrichtung zu sperren.
   - Erlaubt dynamische Änderungen der Orientierung zur Laufzeit (z. B. Sperren der Orientierung mit [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock)).
 

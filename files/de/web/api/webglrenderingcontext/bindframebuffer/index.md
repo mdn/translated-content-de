@@ -20,14 +20,11 @@ bindFramebuffer(target, framebuffer)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
-
     - `gl.FRAMEBUFFER`
       - : Sammlungspufferdaten für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die sowohl als Ziel für das Zeichnen als auch als Quelle für das Lesen verwendet werden (siehe unten).
 
     Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich folgende Werte zur Verfügung:
-
     - `gl.DRAW_FRAMEBUFFER`
       - : Wird als Ziel für Zeichenoperationen wie `gl.draw*`, `gl.clear*` und `gl.blitFramebuffer` verwendet.
     - `gl.READ_FRAMEBUFFER`

@@ -46,7 +46,6 @@ Die XML-Datei, die eine Suchmaschine beschreibt, folgt dem untenstehenden Grundm
 - InputEncoding
   - : Die {{Glossary("Character_encoding", "Zeichenkodierung")}}, die verwendet wird, wenn Eingaben an die Suchmaschine übermittelt werden.
 - Image
-
   - : URL eines Symbols für die Suchmaschine. Wenn möglich, fügen Sie ein 16×16 Bild vom Typ `image/x-icon` (wie z.B. `/favicon.ico`) und ein 64×64 Bild vom Typ `image/jpeg` oder `image/png` hinzu.
 
     Die URL kann auch das [`data:` URL-Schema](/de/docs/Web/URI/Reference/Schemes/data) verwenden. (Sie können eine `data:` URL aus einer Bilddatei mit [The `data:` URL kitchen](https://software.hixie.ch/utilities/cgi/data/data) generieren.)
@@ -65,11 +64,9 @@ Die XML-Datei, die eine Suchmaschine beschreibt, folgt dem untenstehenden Grundm
     ![Suchvorschläge von Google, angezeigt im Suchfeld von Firefox](searchsuggestionsample.png)
 
 - Url
-
   - : Beschreibt die URL oder URLs, die für die Suche verwendet werden. Das Attribut `template` gibt die Basis-URL für die Suchanfrage an.
 
     Firefox unterstützt drei URL-Typen:
-
     - `type="text/html"` gibt die URL für die eigentliche Suchanfrage an.
     - `type="application/x-suggestions+json"` gibt die URL für das Abrufen von Suchvorschlägen an. Ab Firefox 63 wird `type="application/json"` als Alias dafür akzeptiert.
     - `type="application/x-moz-keywordsearch"` gibt die URL an, die verwendet wird, wenn eine Stichwortsuche in der Adressleiste eingegeben wird. Dies wird nur in Firefox unterstützt.

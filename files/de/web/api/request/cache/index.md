@@ -15,7 +15,6 @@ Die schreibgeschützte **`cache`**-Eigenschaft der [`Request`](/de/docs/Web/API/
 Ein `RequestCache`-Wert. Die verfügbaren Werte sind:
 
 - `default` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
-
   - Wenn es eine Übereinstimmung gibt und diese [aktuell](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
   - Wenn es eine Übereinstimmung gibt, die jedoch [veraltet](/de/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) an den entfernten Server stellen. Wenn der Server anzeigt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
   - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
@@ -23,17 +22,14 @@ Ein `RequestCache`-Wert. Die verfügbaren Werte sind:
 - `no-store` — Der Browser ruft die Ressource vom entfernten Server ab, ohne vorher im Cache nachzusehen, und wird den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
 - `reload` — Der Browser ruft die Ressource vom entfernten Server ab, ohne vorher im Cache nachzusehen, wird aber dann den Cache mit der heruntergeladenen Ressource aktualisieren.
 - `no-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
-
   - Wenn es eine Übereinstimmung gibt, _aktuell oder veraltet,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Guides/Conditional_requests) an den entfernten Server stellen. Wenn der Server anzeigt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
   - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
 - `force-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
-
   - Wenn es eine Übereinstimmung gibt, _aktuell oder veraltet_, wird sie aus dem Cache zurückgegeben.
   - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
 - `only-if-cached` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache. {{experimental_inline}}
-
   - Wenn es eine Übereinstimmung gibt, _aktuell oder veraltet_, wird sie aus dem Cache zurückgegeben.
   - Wenn es keine Übereinstimmung gibt, wird der Browser mit einem [504 Gateway timeout](/de/docs/Web/HTTP/Reference/Status/504) Status antworten.
 

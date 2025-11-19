@@ -43,7 +43,6 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
 - [`HTMLButtonElement.popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement)
   - : Ruft das Popover-Element ab und setzt es, das über einen Knopf gesteuert werden soll. Das JavaScript-Äquivalent des HTML-Attributs [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget).
 - [`HTMLButtonElement.type`](/de/docs/Web/API/HTMLButtonElement/type)
-
   - : Eine Zeichenfolge, die das Verhalten des Knopfes anzeigt. Dies ist ein enumeriertes Attribut mit den folgenden möglichen Werten:
     - `submit`: Der Knopf übermittelt das Formular. Dies ist der Standardwert, wenn das Attribut nicht angegeben oder dynamisch auf einen leeren oder ungültigen Wert geändert wird.
     - `reset`: Der Knopf setzt das Formular zurück.

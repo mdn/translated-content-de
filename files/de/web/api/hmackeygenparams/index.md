@@ -12,13 +12,10 @@ Das **`HmacKeyGenParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web
 ## Instanzeigenschaften
 
 - `name`
-
   - : Ein String. Dieser sollte auf `HMAC` gesetzt werden.
 
 - `hash`
-
   - : Ein String oder ein Objekt, das eine einzelne Eigenschaft namens `name` mit einem Stringwert enthält. Es ist ein Bezeichner für den zu verwendenden [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest). Dies sollte einer der folgenden sein:
-
     - `SHA-256`: Wählt den [SHA-256](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus.
     - `SHA-384`: Wählt den [SHA-384](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus.
     - `SHA-512`: Wählt den [SHA-512](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus.

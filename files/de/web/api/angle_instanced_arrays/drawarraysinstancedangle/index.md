@@ -22,7 +22,6 @@ drawArraysInstancedANGLE(mode, first, count, primcount)
 ### Parameter
 
 - `mode`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), welcher den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.

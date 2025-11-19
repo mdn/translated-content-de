@@ -26,7 +26,6 @@ Ein Array von Objekten, die jeweils eine der beitragenden Quellen beschreiben, d
 Diese Objekte enthalten die folgenden Eigenschaften:
 
 - `audioLevel` {{optional_inline}}
-
   - : Ein Gleitkommawert zwischen 0,0 und 1,0, der den Audiopegel im letzten von der beitragenden Quelle gespielten RTP-Paket angibt.
 
     Der Wert ist auf einer linearen Skala und wird in Einheiten von dBov oder Dezibel (Übersteuerung) definiert.
@@ -36,13 +35,11 @@ Diese Objekte enthalten die folgenden Eigenschaften:
     Wenn diese Eigenschaft nicht vorhanden ist, wurde vom Quellmedium keine Lautstärke bereitgestellt.
 
 - `rtpTimestamp` {{optional_inline}}
-
   - : Der RTP-Zeitstempel (ein ganzzahliger [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) des Mediums.
     Dieser von der Quelle generierte Zeitstempel gibt die Zeit an, zu der das im Paket enthaltene Medium, das zum im `timestamp` angegebenen Zeitpunkt ausgespielt werden soll, ursprünglich abgetastet oder erzeugt wurde.
     Er kann für Sequenzierungs- und Synchronisationszwecke nützlich sein.
 
 - `source` {{optional_inline}}
-
   - : Ein positiver Integerwert, der den CSRC-Identifikator der beitragenden Quelle angibt.
     Dies identifiziert eindeutig die Quelle des bestimmten Streams der RTP-Pakete.
 

@@ -25,7 +25,6 @@ querySelector(selectors)
 ### Parameter
 
 - `selectors`
-
   - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; falls nicht, wird eine `SyntaxError`-Ausnahme ausgelöst.
 
     Beachten Sie, dass die HTML-Spezifikation nicht erfordert, dass Attributwerte gültige CSS-Bezeichner sind. Falls ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attributwert kein gültiger CSS-Bezeichner ist, müssen Sie ihn vor der Verwendung in einem Selektor escapen, entweder indem Sie [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert aufrufen oder eine der in [Zeichen escapen](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) beschriebenen Techniken anwenden. Siehe [Attributwerte escapen](#attributwerte_escapen) für ein Beispiel.

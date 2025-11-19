@@ -28,20 +28,16 @@ create(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-
   - : Ein Objekt, das Optionen für das angeforderte neue `Credentials`-Objekt enthält. Es kann die folgenden Eigenschaften enthalten:
-
     - `signal` {{optional_inline}}
       - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objektinstanz, die es ermöglicht, eine laufende `create()`-Operation abzubrechen. Eine abgebrochene Operation kann normal abgeschlossen werden (im Allgemeinen, wenn der Abbruch nach Abschluss der Operation empfangen wurde) oder mit einem `AbortError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt werden.
 
     Jede der folgenden Eigenschaften stellt einen _Credential-Typ_ dar, der erstellt wird. Es muss genau einer von ihnen angegeben werden:
-
     - `federated` {{optional_inline}}
       - : Ein [`FederatedCredentialInit`](/de/docs/Web/API/FederatedCredentialInit)-Objekt, das Anforderungen zur Erstellung eines föderierten Identitätsanbieter-Credentials enthält.
     - `password` {{optional_inline}}
       - : Ein [`PasswordCredentialInit`](/de/docs/Web/API/PasswordCredentialInit)-Objekt, das Anforderungen zur Erstellung eines Passwort-Credentials enthält.
     - `publicKey` {{optional_inline}}
-
       - : Ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions)-Objekt, das Anforderungen zur Erstellung eines Public Key Credentials enthält. Führt dazu, dass der `create()`-Aufruf den User-Agent auffordert, neue Credentials über einen Authenticator zu erstellen – entweder zur Registrierung eines neuen Kontos oder zum Verknüpfen eines neuen asymmetrischen Schlüsselpaares mit einem bestehenden Konto.
 
         > [!NOTE]

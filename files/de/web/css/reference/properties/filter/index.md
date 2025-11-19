@@ -110,7 +110,6 @@ Die `filter`-Eigenschaft wird als `none` oder eine oder mehrere der unten aufgef
 Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Filter in der angegebenen Reihenfolge angewendet.
 
 - {{cssxref("filter-function/blur", "blur()")}}
-
   - : Wendet eine Gaußsche Unschärfe auf das Eingabebild an.
 
     ```css
@@ -118,7 +117,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/brightness", "brightness()")}}
-
   - : Wendet einen linearen Multiplikator auf das Eingabebild an, wodurch es heller oder dunkler erscheint. Die Werte sind lineare Multiplikatoren für den Effekt, wobei `0%` ein vollständig schwarzes Bild erzeugt, `100%` keinen Effekt hat und Werte über `100%` das Bild aufhellen.
 
     ```css
@@ -126,7 +124,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/contrast", "contrast()")}}
-
   - : Passt den Kontrast des Eingabebildes an. Ein Wert von `0%` macht das Bild grau, `100%` hat keinen Effekt, und Werte über `100%` erzeugen einen stärkeren Kontrast.
 
     ```css
@@ -134,7 +131,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-
   - : Wendet den Parameter `<shadow>` als Schlagschatten an, der den Konturen des Bildes folgt. Die Schatten-Syntax ist ähnlich wie `<box-shadow>` (definiert im [CSS Hintergrund- und Randmodul](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)), mit der Ausnahme, dass das Schlüsselwort `inset` und der Parameter `spread` nicht erlaubt sind. Wie bei allen `filter`-Eigenschaftswerten werden alle Filter nach dem `drop-shadow()` auf den Schatten angewendet.
 
     ```css
@@ -142,7 +138,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/grayscale", "grayscale()")}}
-
   - : Wandelt das Bild in Graustufen um. Ein Wert von `100%` ist vollständig in Graustufen. Der Anfangswert von `0%` belässt das Eingabebild unverändert. Werte zwischen `0%` und `100%` erzeugen lineare Multiplikatoren für den Effekt.
 
     ```css
@@ -150,7 +145,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-
   - : Wendet eine Farbton-Drehung an. Der `<angle>`-Wert definiert die Anzahl der Grad um den Farbkreishue, bei dem die Eingabemuster angepasst werden. Ein Wert von `0deg` lässt das Eingabebild unverändert.
 
     ```css
@@ -158,7 +152,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/invert", "invert()")}}
-
   - : Invertiert die Muster im Eingabebild. Ein Wert von `100%` invertiert das Bild vollständig. Ein Wert von `0%` macht keine Änderungen. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren für den Effekt.
 
     ```css
@@ -166,7 +159,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/opacity", "opacity()")}}
-
   - : Wendet Transparenz an. `0%` macht das Bild vollständig transparent und `100%` lässt das Bild unverändert.
 
     ```css
@@ -174,7 +166,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/saturate", "saturate()")}}
-
   - : Sättigt das Bild, wobei `0%` vollständig entsättigt ist, `100%` das Bild unverändert lässt, und Werte über `100%` die Sättigung erhöhen.
 
     ```css
@@ -182,7 +173,6 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
     ```
 
 - {{cssxref("filter-function/sepia", "sepia()")}}
-
   - : Wandelt das Bild in Sepia um, wobei ein Wert von `100%` das Bild vollständig in Sepia umwandelt und `0%` keine Änderung bewirkt.
 
     ```css

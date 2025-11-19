@@ -114,7 +114,6 @@ Die `margin`-Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben w
 ### Werte
 
 - {{cssxref("length")}}
-
   - : Die Größe des Randes als fester Wert.
     - Bei _ankerpositionierten Elementen_ wird die {{cssxref("anchor-size()")}}-Funktion auf einen {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegen der Elementrand basierend auf der Ankergröße](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
 

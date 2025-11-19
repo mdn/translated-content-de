@@ -53,11 +53,9 @@ Standardmäßig werden HTML-Buttons in einem Stil dargestellt, der der Plattform
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `autofocus`
-
   - : Dieses Boolean-Attribut gibt an, dass der Button den Eingabe-[Fokus](/de/docs/Web/API/HTMLElement/focus) haben soll, wenn die Seite geladen wird. **Nur ein Element in einem Dokument kann dieses Attribut haben.**
 
 - `command`
-
   - : Gibt die Aktion an, die auf einem Element ausgeführt werden soll, das von einem Steuerelement `<button>` gesteuert wird, das über das `commandfor`-Attribut angegeben ist. Die möglichen Werte sind:
     - `"show-modal"`
       - : Der Button zeigt einen {{htmlelement("dialog")}} als Modal an. Wenn der Dialog bereits modal ist, wird keine Aktion ergriffen. Dies ist das deklarative Äquivalent zum Aufrufen der Methode [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) auf dem `<dialog>`-Element.
@@ -79,7 +77,6 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled)
   - : Dieses Boolean-Attribut verhindert, dass der Benutzer mit dem Button interagiert: er kann nicht gedrückt oder fokussiert werden.
 - [`form`](/de/docs/Web/HTML/Reference/Attributes/form)
-
   - : Das {{HTMLElement("form")}}-Element, mit dem der Button verknüpft werden soll (seine _Formularbesitzer_). Der Wert dieses Attributs muss die `id` eines `<form>` im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, ist das `<button>` mit seinem Vorfahren `<form>`-Element verknüpft, falls vorhanden.)
 
     Dieses Attribut ermöglicht es Ihnen, `<button>`-Elemente mit `<form>`-Elementen an beliebiger Stelle im Dokument zu verknüpfen, nicht nur innerhalb eines `<form>`. Es kann auch ein Vorfahre-`<form>`-Element überschreiben.
@@ -87,9 +84,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - `formaction`
   - : Die URL, die die Informationen verarbeitet, die vom Button übermittelt werden. Überschreibt das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)-Attribut des Formularbesitzers des Buttons. Tut nichts, wenn kein Formularbesitzer vorhanden ist.
 - `formenctype`
-
   - : Wenn der Button ein Sende-Button ist (innerhalb/assoziiert mit einem `<form>` und nicht `type="button"`), gibt an, wie die übermittelten Formulardaten kodiert werden. Mögliche Werte:
-
     - `application/x-www-form-urlencoded`: Der Standardwert, wenn das Attribut nicht verwendet wird.
     - `multipart/form-data`: Wird verwendet, um {{HTMLElement("input")}}-Elemente mit deren [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attributen, die auf `file` gesetzt sind, zu übermitteln.
     - `text/plain`: Wird als Debugging-Hilfe angegeben; sollte nicht für die tatsächliche Formularübermittlung verwendet werden.
@@ -97,9 +92,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
     Wenn dieses Attribut angegeben ist, überschreibt es das [`enctype`](/de/docs/Web/HTML/Reference/Elements/form#enctype)-Attribut des Formularbesitzers des Buttons.
 
 - `formmethod`
-
   - : Wenn der Button ein Sende-Button ist (innerhalb/assoziiert mit einem `<form>` und nicht `type="button"`), gibt dieses Attribut die [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) an, die zur Übermittlung des Formulars verwendet wird. Mögliche Werte:
-
     - `post`: Die Daten aus dem Formular werden im Body der HTTP-Anfrage enthalten, wenn sie an den Server gesendet werden. Verwenden Sie dies, wenn das Formular Informationen enthält, die nicht öffentlich sein sollten, wie z. B. Anmeldedaten.
     - `get`: Die Formulardaten werden an die `action`-URL des Formulars angehängt, mit einem `?` als Trennzeichen, und die resultierende URL wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebenwirkungen")}} hat, wie z. B. Suchformulare.
     - `dialog`: Diese Methode wird verwendet, um anzuzeigen, dass der Button den [Dialog](/de/docs/Web/HTML/Reference/Elements/dialog) schließt, mit dem er assoziiert ist, und die Formulardaten überhaupt nicht übermittelt.
@@ -107,13 +100,11 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
     Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Reference/Elements/form#method)-Attribut des Formularbesitzers des Buttons.
 
 - `formnovalidate`
-
   - : Wenn der Button ein Sende-Button ist, gibt dieses Boolean-Attribut an, dass das Formular beim Absenden nicht [validiert](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) werden soll. Wenn dieses Attribut angegeben ist, überschreibt es das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate)-Attribut des Formularbesitzers des Buttons.
 
     Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Reference/Elements/input/image) und [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit)-Elementen verfügbar.
 
 - `formtarget`
-
   - : Wenn der Button ein Sende-Button ist, ist dieses Attribut ein vom Autor definierter Name oder ein standardisiertes, unterstrichenes Schlüsselwort, das angibt, wo die Antwort auf die Formularübermittlung angezeigt werden soll. Dies ist der `name` eines oder ein Schlüsselwort für einen _Browsing-Kontext_ (ein Tab, ein Fenster oder {{HTMLElement("iframe")}}). Wenn dieses Attribut angegeben ist, überschreibt es das [`target`](/de/docs/Web/HTML/Reference/Elements/form#target)-Attribut des Formularbesitzers des Buttons. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
     - `_self`: Die Antwort wird im selben Browsing-Kontext wie der aktuelle geladen. Dies ist der Standardwert, wenn das Attribut nicht angegeben ist.
     - `_blank`: Die Antwort wird in einem neuen unbenannten Browsing-Kontext geladen – in der Regel ein neuer Tab oder ein neues Fenster, abhängig von den Browsereinstellungen des Benutzers.
@@ -121,17 +112,14 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
     - `_top`: Die Antwort wird im obersten Browsing-Kontext geladen (also der, der ein Vorfahre des aktuellen ist und keinen übergeordneten Kontext hat). Wenn kein übergeordneter Kontext vorhanden ist, verhält sich diese Option genauso wie `_self`.
 
 - `name`
-
   - : Der Name des Buttons, der zusammen mit dem Wert des Buttons als Teil der Formulardaten übermittelt wird, wenn dieser Button zum Absenden des Formulars verwendet wird.
 
 - `popovertarget`
-
   - : Wandelt ein `<button>`-Element in einen Popover-Steuerbutton um; nimmt die ID des Popover-Elements an, das als Wert zu steuern ist. Die Einrichtung einer Beziehung zwischen einem Popover und seinem auslösenden Button mit dem `popovertarget`-Attribut hat zwei weitere nützliche Effekte:
     - Der Browser erstellt eine implizite [`aria-details`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-details) und [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Beziehung zwischen Popover und Auslöser und platziert das Popover in einer logischen Position in der Tastaturfokus-Navigationsreihenfolge, wenn es angezeigt wird. Dies macht das Popover für Tastatur- und unterstützende Technologiebenutzer (AT) zugänglicher (siehe auch [Popover-Zugänglichkeitsmerkmale](/de/docs/Web/API/Popover_API/Using#popover_accessibility_features)).
     - Der Browser erstellt eine implizite Ankerreferenz zwischen den beiden, was es sehr bequem macht, Popover relativ zu ihren Steuerelementen mit [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) zu positionieren. Weitere Details finden Sie unter [Popover-Ankerpositionierung](/de/docs/Web/API/Popover_API/Using#popover_anchor_positioning).
 
 - `popovertargetaction`
-
   - : Gibt die Aktion an, die auf einem Popover-Element ausgeführt werden soll, das von einem Steuer-`<button>` kontrolliert wird. Mögliche Werte sind:
     - `"hide"`
       - : Der Button wird ein angezeigtes Popover verbergen. Wenn Sie versuchen, ein bereits verborgenes Popover auszublenden, wird keine Aktion ergriffen.
@@ -141,7 +129,6 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       - : Der Button schaltet ein Popover zwischen sichtbar und verborgen um. Wenn das Popover verborgen ist, wird es angezeigt; wenn das Popover sichtbar ist, wird es ausgeblendet. Wenn `popovertargetaction` weggelassen wird, ist `"toggle"` die Standardaktion, die vom Steuerbutton ausgeführt wird.
 
 - `type`
-
   - : Das Standardverhalten des Buttons. Mögliche Werte sind:
     - `submit`: Der Button übermittelt die Formulardaten an den Server. Dies ist der Standardwert, wenn das Attribut für Buttons, die mit einem `<form>` assoziiert sind, nicht angegeben ist oder wenn das Attribut leer oder ungültig ist.
     - `reset`: Der Button setzt alle Steuerelemente auf ihre Anfangswerte zurück, ähnlich wie [\<input type="reset">](/de/docs/Web/HTML/Reference/Elements/input/reset). (Dieses Verhalten neigt dazu, Benutzer zu verärgern.)

@@ -30,13 +30,10 @@ getAutoplayPolicy(context)
 Die Methode muss mit einem (und nur einem) der folgenden drei Parameter aufgerufen werden:
 
 - `type` {{optional_inline}}
-
   - : Ein String, der das Medienwiedergabe-_Feature_ angibt, für das die allgemeine Autoplay-Richtlinie erforderlich ist.
 
     Die unterstützten Werte sind:
-
     - `mediaelement`
-
       - : Ermittelt die allgemeine Autoplay-Richtlinie für Medienelemente im Dokument.
         Medienelemente sind von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) abgeleitete Objekte wie [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) und [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und ihre entsprechenden Tags {{HTMLElement("audio")}} und {{HTMLElement("video")}}.
 
@@ -44,7 +41,6 @@ Die Methode muss mit einem (und nur einem) der folgenden drei Parameter aufgeruf
       - : Holt die allgemeine Autoplay-Richtlinie für [Web Audio API](/de/docs/Web/API/Web_Audio_API)-Player im Dokument.
 
 - `element` {{optional_inline}}
-
   - : Ein spezifisches Medienelement.
     Dies muss ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) sein, einschließlich abgeleiteter Elemente wie [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement).
 

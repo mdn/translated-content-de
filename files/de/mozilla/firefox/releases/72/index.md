@@ -41,7 +41,6 @@ _Keine Änderungen._
 
 - CSS Shadow Parts sind jetzt aktiviert. Dies beinhaltet das [`part` Attribut](/de/docs/Web/HTML/Reference/Global_attributes/part) und das [`::part` Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/::part), die es Shadow Hosts ermöglichen, ausgewählte Elemente aus ihrem Shadow-Baum zur Stilgestaltung an die Außenseite der Seite freizugeben ([Firefox Fehler 1559074](https://bugzil.la/1559074)).
 - [CSS Bewegungspfad](/de/docs/Web/CSS/Guides/Motion_path) wurde eingeführt ([Firefox Fehler 1582554](https://bugzil.la/1582554), siehe auch den [Intent to Ship](https://groups.google.com/forum/#!topic/mozilla.dev.platform/nOOIRsuxvuc)). Dies umfasst:
-
   - {{cssxref("offset")}}
   - {{cssxref("offset-path")}}
   - {{cssxref("offset-anchor")}}
@@ -70,7 +69,6 @@ _Keine Änderungen._
 #### DOM
 
 - Die [Geolocation API](/de/docs/Web/API/Geolocation_API) hat einige Interface-Namen-Updates erhalten, entsprechend den neuesten Spezifikationsänderungen ([Firefox Fehler 1575144](https://bugzil.la/1575144)):
-
   - `Coordinates` wurde zu [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) geändert.
   - `Position` wurde zu [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition) geändert.
   - `PositionError` wurde zu [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError) geändert.

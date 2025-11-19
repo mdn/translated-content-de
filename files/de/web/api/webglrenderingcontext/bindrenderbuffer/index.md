@@ -19,7 +19,6 @@ bindRenderbuffer(target, renderbuffer)
 ### Parameter
 
 - `target`
-
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (das Ziel) angibt. Mögliche Werte:
     - `gl.RENDERBUFFER`
       - : Puffer-Datenspeicher für einzelne Bilder in einem renderbaren internen Format.

@@ -50,9 +50,7 @@ Ein Domain-Name hat eine einfache Struktur, die aus mehreren Teilen besteht (es 
 Jeder dieser Teile bietet spezifische Informationen über den gesamten Domain-Namen.
 
 - {{Glossary("TLD", "TLD")}} (Top-Level-Domain).
-
   - : TLDs geben den Nutzern den allgemeinen Zweck des Dienstes hinter dem Domain-Namen an. Die allgemeinsten TLDs (`.com`, `.org`, `.net`) erfordern nicht, dass Webdienste bestimmte Kriterien erfüllen, aber einige TLDs setzen strengere Richtlinien durch, um den Zweck klarer zu machen. Zum Beispiel:
-
     - Lokale TLDs wie `.us`, `.fr` oder `.se` können erfordern, dass der Dienst in einer bestimmten Sprache bereitgestellt oder in einem bestimmten Land gehostet wird — sie sollen eine Ressource in einer bestimmten Sprache oder einem bestimmten Land anzeigen.
     - TLDs, die `.gov` enthalten, dürfen nur von Regierungsabteilungen verwendet werden.
     - Die `.edu` TLD ist nur für die Nutzung durch Bildungs- und akademische Institutionen vorgesehen.
@@ -62,7 +60,6 @@ Jeder dieser Teile bietet spezifische Informationen über den gesamten Domain-Na
     Die vollständige Liste der TLDs wird von [ICANN gepflegt](https://www.icann.org/en/contracted-parties/registry-operators/resources/list-of-top-level-domains).
 
 - Label (oder Komponente)
-
   - : Die Labels sind das, was der TLD folgt. Ein Label ist eine nicht case-sensitive Zeichenfolge, die zwischen einem und dreiundsechzig Zeichen lang ist, nur die Buchstaben `A` bis `Z`, Ziffern `0` bis `9` und das Zeichen '-' enthält (das nicht das erste oder letzte Zeichen des Labels sein darf). `a`, `97` und `hello-strange-person-16-how-are-you` sind alles Beispiele für gültige Labels.
 
     Das Label direkt vor der TLD wird auch _Secondary Level Domain_ (SLD) genannt.

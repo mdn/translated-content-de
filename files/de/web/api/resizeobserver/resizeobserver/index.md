@@ -19,9 +19,7 @@ new ResizeObserver(callback)
 ### Parameter
 
 - `callback`
-
   - : Die Funktion, die jedes Mal aufgerufen wird, wenn eine beobachtete Größenänderung auftritt. Die Funktion wird mit zwei Parametern aufgerufen:
-
     - `entries`
       - : Ein Array von [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)-Objekten, das verwendet werden kann, um auf die neuen Abmessungen des Elements nach jeder Änderung zuzugreifen.
     - `observer`

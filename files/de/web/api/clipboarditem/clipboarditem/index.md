@@ -32,11 +32,8 @@ new ClipboardItem(data, options)
     - eine Zeichenfolge
     - ein {{jsxref("Promise")}}, das entweder zu einem `Blob` oder einer Zeichenfolge aufgelöst wird.
 - `options` {{optional_inline}}
-
   - : Ein Objekt mit den folgenden Eigenschaften:
-
     - `presentationStyle` {{optional_inline}}
-
       - : Einer der drei Zeichenfolgen: `unspecified`, `inline` oder `attachment`.
         Der Standardwert ist `unspecified`.
 

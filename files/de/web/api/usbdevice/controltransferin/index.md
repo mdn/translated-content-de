@@ -19,7 +19,6 @@ controlTransferIn(setup, length)
 ### Parameter
 
 - `setup`
-
   - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
     - `requestType`
       - : Muss einer von drei Werten sein, der angibt, ob die Übertragung `"standard"` (allgemein für alle USB-Geräte), `"class"` (allgemein für eine branchenweit standardisierte Klasse von Geräten) oder `"vendor"` ist.

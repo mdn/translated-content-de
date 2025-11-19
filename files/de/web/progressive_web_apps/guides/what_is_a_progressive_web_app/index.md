@@ -40,14 +40,12 @@ PWAs haben die Vorteile von Websites, einschließlich:
 PWAs haben auch viele der Vorteile plattformspezifischer Apps, einschließlich:
 
 - [**PWAs können auf dem Gerät installiert werden**](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable). Das bedeutet:
-
   - Die PWA kann über den App-Store der Plattform oder direkt aus dem Web installiert werden.
   - Die PWA kann wie eine plattformspezifische App installiert werden und den Installationsprozess anpassen.
   - Einmal installiert, erhält die PWA ein App-Icon auf dem Gerät, neben plattformspezifischen Apps.
   - Einmal installiert, kann die PWA als eigenständige App gestartet werden, anstatt als Website im Browser.
 
 - [**PWAs können im Hintergrund und offline arbeiten**](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation): Eine typische Website ist nur aktiv, während die Seite im Browser geladen ist. Eine PWA kann:
-
   - Arbeiten, während das Gerät keine Netzwerkverbindung hat.
   - Inhalte im Hintergrund aktualisieren.
   - Auf [Push-Nachrichten](/de/docs/Web/API/Push_API) vom Server reagieren.

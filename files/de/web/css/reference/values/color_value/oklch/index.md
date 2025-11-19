@@ -39,18 +39,15 @@ oklch(L C H[ / A])
 Die Parameter sind wie folgt:
 
 - `L`
-
   - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `1`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). In diesem Fall entspricht die Zahl `0` `0%` (schwarz) und die Zahl `1` `100%` (weiß). Dieser Wert gibt die wahrgenommene Helligkeit oder "Leuchtkraft" der Farbe an.
 
     > [!NOTE]
     > Das `L` in `oklch()` steht für die wahrgenommene Helligkeit, die die "Leuchtkraft" beschreibt, die wir mit unseren Augen wahrnehmen. Dies unterscheidet sich vom `L` in `hsl()`, wo es die Helligkeit im Vergleich zu anderen Farben darstellt.
 
 - `C`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}}, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert ist ein Maß für das Chroma der Farbe (ungefähr die "Farbmenge"). Sein minimal nützlicher Wert ist `0`, während das Maximum theoretisch unbegrenzt ist (in der Praxis jedoch nicht über `0.5` hinausgeht). In diesem Fall ist `0%` `0` und `100%` ist die Zahl `0.4`.
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (entspricht in diesem Fall `0deg`) und stellt den Winkel des Farbtons {{CSSXref("&lt;hue&gt;")}} der Farbe dar.
 
     > [!NOTE]
@@ -71,19 +68,15 @@ oklch(from <color> L C H[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-
   - : Das Schlüsselwort `from` wird immer verwendet, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** darstellt: Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann jede gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 
 - `L`
-
   - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `1`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dies repräsentiert den Helligkeitswert der Ausgabefarbe. Hier entspricht die Zahl `0` `0%` (schwarz) und die Zahl `1` `100%` (weiß).
 
 - `C`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;percentage&gt;")}}, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert den Chroma-Wert der Ausgabefarbe (ungefähr die "Farbmenge"). Sein minimal nützlicher Wert ist `0`, während sein Maximum theoretisch unbegrenzt ist (in der Praxis jedoch nicht über `0.5` hinausgeht). In diesem Fall ist `0%` `0` und `100%` ist die Zahl `0.4`.
 
 - `H`
-
   - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (entspricht in diesem Fall `0deg`), das den {{CSSXref("&lt;hue&gt;")}}-Winkel der Ausgabefarbe repräsentiert. Siehe ein [Beispiel verschiedener Farbtöne](#result_3) im Abschnitt [Beispiele](#beispiele) unten.
 
 - `A` {{optional_inline}}

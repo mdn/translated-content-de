@@ -42,11 +42,8 @@ steps(10, jump-both)
 Eine `<easing-function>` kann einer der folgenden Typen sein:
 
 - `<linear-easing-function>`
-
   - : Erstellt Transitionen, die mit einer konstanten Rate verlaufen. Diese Funktion kann auf folgende Weise angegeben werden:
-
     - `linear`
-
       - : Gibt eine konstante Interpolationsrate an, ohne Änderung der Fortschrittsrate über die gesamte Dauer hinweg (d.h. keine Beschleunigung oder Verzögerung).
         Dieser Schlüsselwortwert entspricht `linear(0, 1)`.
         Er kann auch als `cubic-bezier(0, 0, 1, 1)` dargestellt werden.
@@ -60,27 +57,21 @@ Eine `<easing-function>` kann einer der folgenden Typen sein:
       - : Definiert mehrere Fortschrittspunkte unter Verwendung von {{cssxref("&lt;number&gt;")}}-Werten mit optionalen {{cssxref("&lt;percentage&gt;")}}-Werten, um deren Timing zu steuern.
 
 - `<cubic-bezier-easing-function>`
-
   - : Erstellt sanfte Transitionen mit variablen Änderungsraten. Diese Funktion kann auf folgende Weise angegeben werden:
-
     - `ease`
-
       - : Repräsentiert die Easing-Funktion `cubic-bezier(0.25, 0.1, 0.25, 1)`.
         Sie zeigt an, dass die Interpolation langsam beginnt, stark beschleunigt und dann allmählich gegen Ende verlangsamt.
         Sie ist ähnlich dem Schlüsselwort `ease-in-out`, beschleunigt jedoch am Anfang stärker.
 
     - `ease-in`
-
       - : Repräsentiert die Easing-Funktion `cubic-bezier(0.42, 0, 1, 1)`.
         Sie zeigt an, dass die Interpolation langsam beginnt und dann allmählich schneller wird, bis sie abrupt endet.
 
     - `ease-out`
-
       - : Repräsentiert die Easing-Funktion `cubic-bezier(0, 0, 0.58, 1)`.
         Sie zeigt an, dass die Interpolation abrupt beginnt und dann allmählich gegen Ende verlangsamt.
 
     - `ease-in-out`
-
       - : Repräsentiert die Easing-Funktion `cubic-bezier(0.42, 0, 0.58, 1)`.
         Sie zeigt an, dass die Interpolation langsam beginnt, schneller wird und gegen Ende wieder langsamer.
         Am Anfang verhält sie sich wie das Schlüsselwort `ease-in`; am Ende ist sie wie das Schlüsselwort `ease-out`.
@@ -92,17 +83,13 @@ Eine `<easing-function>` kann einer der folgenden Typen sein:
         Die X-Koordinaten müssen im Bereich `[0, 1]` liegen.
 
 - `<step-easing-function>`
-
   - : Erstellt stufenweise Transitionen, die die Animation in eine bestimmte Anzahl gleichlanger Intervalle unterteilen, wobei die Animation von einem Schritt zum nächsten springt, anstatt sanft zu übergehen.
     Diese Funktion kann auf folgende Weise angegeben werden:
-
     - `step-start`
-
       - : Repräsentiert die Easing-Funktion `steps(1, jump-start)` oder `steps(1, start)`.
         Sie zeigt an, dass die Interpolation sofort in ihren Endzustand springt, in dem sie bis zum Ende verbleibt.
 
     - `step-end`
-
       - : Repräsentiert die Easing-Funktion `steps(1, jump-end)` oder `steps(1, end)`.
         Sie zeigt an, dass die Interpolation in ihrem Anfangszustand verbleibt, bis sie direkt in ihren Endzustand springt.
 

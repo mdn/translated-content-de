@@ -15,7 +15,6 @@ Das **`dynamic-range`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS
 Das `dynamic-range` Feature wird als Schlüsselwortwert angegeben, der aus der nachstehenden Liste ausgewählt wird.
 
 - `standard`
-
   - : Dieser Wert passt zu jedem visuellen Gerät und schließt Geräte ohne visuelle Fähigkeiten aus. Ein User-Agent oder ein Ausgabegerät, das zu `high` passt, wird auch den `standard`-Wert erfüllen.
 
 - `high`

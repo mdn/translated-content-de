@@ -34,7 +34,6 @@ open(method, url, async, user, password)
 - `url`
   - : Ein String oder ein beliebiges anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts —, das die URL der Ressource angibt, an die die Anfrage gesendet werden soll.
 - `async` {{optional_inline}}
-
   - : Ein optionaler Boolean-Parameter, der standardmäßig auf `true` gesetzt ist und angibt, ob die Operation asynchron ausgeführt werden soll. Wenn dieser Wert `false` ist,
     gibt die `send()`-Methode erst zurück, wenn die Antwort empfangen wurde. Wenn
     `true`, wird die Benachrichtigung über eine abgeschlossene Transaktion mithilfe von Ereignislistenern bereitgestellt. Dies _muss_ true sein, wenn das `multipart`-Attribut

@@ -37,7 +37,6 @@ Wenn das Menü visuell dauerhaft ist, ziehen Sie stattdessen die Rolle [`menubar
 - Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)
   - : Menüpunkte können in einem [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role) verschachtelt werden.
 - Rolle [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role)
-
   - : Ein Trenner, der Abschnitte des Inhalts oder Gruppen von Menüpunkten innerhalb des Menüs voneinander trennt und unterscheidet.
 
 - Attribut [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)

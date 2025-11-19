@@ -16,7 +16,6 @@ Dieser Artikel enthält Informationen über die Änderungen in Firefox 64, die E
 - Die Geräteauswahl des [Modus für responsives Design](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) wird nun zwischen den Sitzungen gespeichert ([Firefox-Bug 1248619](https://bugzil.la/1248619)).
 - Ressourcen, die potenziell von [Tracking-Schutz](/de/docs/Web/Privacy/Guides/Firefox_tracking_protection) betroffen sind, werden nun im [Netzwerk-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) angezeigt ([Firefox-Bug 1333994](https://bugzil.la/1333994)).
 - Die [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) erhielt Verbesserungen beim Eingeben und Auswerten von Code:
-
   - Die [Autocomplete-Funktion](https://firefox-source-docs.mozilla.org/devtools-user/web_console/the_command_line_interpreter/index.html#autocomplete) für Konsolenausdrücke ist jetzt nicht mehr groß- und kleinschreibungsempfindlich ([Firefox-Bug 672733](https://bugzil.la/672733)).
   - Man kann nun den [Verlauf der Konsolenausdrücke](https://firefox-source-docs.mozilla.org/devtools-user/web_console/the_command_line_interpreter/index.html#command-history) mit einer bash-ähnlichen Rückwärtssuche durchlaufen ([Firefox-Bug 1024913](https://bugzil.la/1024913)).
   - Der [ausgewertete Code](https://firefox-source-docs.mozilla.org/devtools-user/web_console/the_command_line_interpreter/index.html) in der Konsole ist nun sowohl im Eingabefeld als auch in der Ausgabe farblich hervorgehoben ([Firefox-Bug 1463669](https://bugzil.la/1463669)).
@@ -67,7 +66,6 @@ _Keine Änderungen._
 #### DOM
 
 - Eine Reihe von Änderungen im Zusammenhang mit der [Fullscreen API](/de/docs/Web/API/Fullscreen_API) wurden implementiert:
-
   - Die API ist nun ohne Präfix ([Firefox-Bug 1269276](https://bugzil.la/1269276)).
   - Die Methoden [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) und [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) geben jetzt beide ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Moduswechsel abgeschlossen ist ([Firefox-Bug 1188256](https://bugzil.la/1188256) und [Firefox-Bug 1491212](https://bugzil.la/1491212)).
   - Früher wurden [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event) und [`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event) Ereignisse zuerst an das [`Document`](/de/docs/Web/API/Document) und dann an das [`Element`](/de/docs/Web/API/Element) gesendet. Dies wurde umgekehrt, sodass das Element zuerst das Ereignis erhält. Dies entspricht der neuesten Spezifikation sowie dem Verhalten von Google Chrome ([Firefox-Bug 1375319](https://bugzil.la/1375319)).
@@ -128,7 +126,6 @@ _Keine Änderungen._
 #### Menüs
 
 - Eine neue API, {{WebExtAPIRef("menus.overrideContext()")}}, kann vom `contextmenu` DOM-Event aufgerufen werden, um ein benutzerdefiniertes Kontextmenü auf Erweiterungsseiten festzulegen. Diese API erlaubt es Erweiterungen, alle Standardmenüeinträge von Firefox zu verstecken, zugunsten eines benutzerdefinierten Kontextmenü-UI. Dieses Kontextmenü kann aus mehreren obersten Menüeinträgen der Erweiterung bestehen und kann optional Registerkarten- oder Lesezeichen-Kontextmenüeinträge anderer Erweiterungen enthalten. Siehe [diesen Blog-Post](https://blog.mozilla.org/addons/2018/11/08/extensions-in-firefox-64/#cm) für weitere Details.
-
   - {{WebExtAPIRef("menus.overrideContext()")}} wurde implementiert in ([Firefox-Bug 1280347](https://bugzil.la/1280347)).
   - Die Option `showDefaults: false`, die verwendet werden kann, um die standardmäßigen Kontextmenüoptionen zu verstecken, wurde implementiert in ([Firefox-Bug 1367160](https://bugzil.la/1367160)).
   - `documentURLPatterns` kann jetzt verwendet werden, um eine `moz-extension://` Dokument-URL zu matchen, selbst wenn {{WebExtAPIRef("menus.overrideContext()")}} verwendet wird. Dadurch kann es zuverlässig verwendet werden, um benutzerdefinierte Menüeinträge auf bestimmte Dokumente zu beschränken ([Firefox-Bug 1498896](https://bugzil.la/1498896)).

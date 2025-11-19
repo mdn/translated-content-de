@@ -28,7 +28,6 @@ Umwandlungen sind zwischen absoluten Werten erlaubt (von Millimetern zu Zentimet
 _Erbt Eigenschaften von seinem Elternteil, [`CSSValue`](/de/docs/Web/API/CSSValue)_.
 
 - [`CSSPrimitiveValue.primitiveType`](/de/docs/Web/API/CSSPrimitiveValue/primitiveType) {{ReadOnlyInline}} {{Deprecated_Inline}}
-
   - : Ein `unsigned short`, das den Typ des Wertes darstellt. Mögliche Werte sind:
 
     | Konstante        | Beschreibung                                                                                                                                                                                   |

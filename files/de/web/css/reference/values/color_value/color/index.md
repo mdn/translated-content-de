@@ -34,11 +34,9 @@ color(colorspace c1 c2 c3[ / A])
 Die Parameter sind wie folgt:
 
 - `colorspace`
-
   - : Ein {{CSSXref("&lt;ident&gt;")}} bezeichnet einen der vordefinierten Farbräume: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
 
 - `c1`, `c2`, `c3`
-
   - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}} oder das Schlüsselwort `none` (entspricht in diesem Fall `0`) geschrieben werden. Diese Werte repräsentieren die Komponentenwerte für den Farbraum. Bei Verwendung eines `<number>`-Wertes repräsentiert im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind zulässig, liegen jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum. Bei Verwendung eines Prozentwertes repräsentiert `100%` `1` und `0%` `0`.
 
 - `A` {{optional_inline}}
@@ -56,15 +54,12 @@ color(from <color> colorspace c1 c2 c3[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-
   - : Das Schlüsselwort `from` wird immer verwendet, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** repräsentiert. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann jede gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 
 - `colorspace`
-
   - : Ein {{CSSXref("&lt;ident&gt;")}} bezeichnet den {{Glossary("color_space", "Farbraum")}} der Ausgabefarbe, im Allgemeinen einer der vordefinierten Farbräume: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
 
 - `c1`, `c2`, `c3`
-
   - : Jeder Wert kann als {{CSSXref("number")}}, als {{CSSXref("percentage")}} oder als das Schlüsselwort `none` (in diesem Fall gleich `0`) geschrieben werden. Diese Werte repräsentieren die Komponentenwerte für die Ausgabefarbe. Bei Verwendung eines `<number>`-Wertes repräsentiert im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind zulässig, liegen jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den angegebenen Farbraum. Im Allgemeinen repräsentiert ein Prozentsatz bei Nutzen `100%` `1` und `0%` `0`.
 
 - `A` {{optional_inline}}
@@ -75,7 +70,6 @@ Die Parameter sind wie folgt:
 Wenn Sie relative Farbsyntax innerhalb einer `color()`-Funktion verwenden, konvertiert der Browser die Ursprungsfarbe in eine äquivalente Farbe im angegebenen Farbraum (falls sie nicht bereits so spezifiziert ist). Die Farbe wird als drei separate Farbkanalwerte plus einem Alpha-Kanal-Wert (`alpha`) definiert. Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgabe-Farbkanalwerte verwendet zu werden:
 
 - Die drei Farbkanalwerte der Ursprungsfarbe werden auf ein `<number>` aufgelöst. Für vordefinierte Farbräume sind dies abhängig davon, welcher spezifiziert ist, einer der folgenden:
-
   - `r`, `g` und `b`: Farbkanalwerte für die RGB-basierten Farbräume `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb` und `rec2020`.
   - `x`, `y` und `z`: Farbkanalwerte für die CIE XYZ-basierten Farbräume `xyz`, `xyz-d50` und `xyz-d65`.
 

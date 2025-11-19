@@ -324,6 +324,7 @@ Das Breitbild-Layout muss auf die Seite bei einer Ansichtsfensterbreite von übe
    ```
 
    Dieses Mal befinden sich alle drei Elemente in derselben Zeile. Die `<nav>`- und `<aside>`-Elemente sollten die gleiche Breite einnehmen; das `<article>`-Element sollte dreimal die Breite der anderen beiden einnehmen.
+
 2. Die Navigationslistenelemente werden als Zeile als Ergebnis des mittleren Layouts angezeigt; für das Breitbild-Layout müssen Sie die Listenstilierung anpassen, damit die Listenelemente wieder in einer Spalte angezeigt werden, wie im mobile Layout.
 3. Die Listenelemente haben derzeit einen `flex`-Wert von `1`, was bedeutet, dass sie sich dehnen, um die gesamte Höhe der Spalte zu füllen. Passen Sie diesen Eigenschaftswert so an, dass die Navigationselemente nur so hoch wie ihr Inhalt und der eingestellte `padding` sind.
 

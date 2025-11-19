@@ -20,53 +20,44 @@ Der Wert des `preserveAspectRatio`-Attributs besteht aus bis zu zwei Schlüsselw
 Der Ausrichtungswert zeigt an, ob eine einheitliche Skalierung erzwungen werden soll und, falls ja, welche Ausrichtungsmethode zu verwenden ist, falls das Seitenverhältnis des {{ SVGAttr("viewBox") }} nicht dem Seitenverhältnis des Anzeigebereichs entspricht. `xMidYMid` ist der Standardwert. Der Ausrichtungswert muss einer der folgenden Schlüsselwortwerte sein:
 
 - `none`
-
   - : Erzwingt keine einheitliche Skalierung. Skaliert den grafischen Inhalt des angegebenen Elements, falls nötig, nicht einheitlich, sodass die Begrenzungsbox des Elements genau dem Rechteck des Anzeigebereichs entspricht. Beachten Sie, dass, wenn `<align>` `none` ist, dann der optionale `<meetOrSlice>`-Wert ignoriert wird.
 
 - `xMinYMin`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den `<min-x>` des Elements {{ SVGAttr("viewBox") }} am kleinsten X-Wert des Anzeigebereichs aus.
     Richten Sie den `<min-y>` des Elements {{ SVGAttr("viewBox") }} am kleinsten Y-Wert des Anzeigebereichs aus.
 
 - `xMidYMin`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den Mittenwert X des Elements {{ SVGAttr("viewBox") }} am Mittenwert X des Anzeigebereichs aus.
     Richten Sie den `<min-y>` des Elements {{ SVGAttr("viewBox") }} am kleinsten Y-Wert des Anzeigebereichs aus.
 
 - `xMaxYMin`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den `<min-x>+<width>` des Elements {{ SVGAttr("viewBox") }} am maximalen X-Wert des Anzeigebereichs aus.
     Richten Sie den `<min-y>` des Elements {{ SVGAttr("viewBox") }} am kleinsten Y-Wert des Anzeigebereichs aus.
 
 - `xMinYMid`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den `<min-x>` des Elements {{ SVGAttr("viewBox") }} am kleinsten X-Wert des Anzeigebereichs aus.
     Richten Sie den Mittenwert Y des Elements {{ SVGAttr("viewBox") }} am Mittenwert Y des Anzeigebereichs aus.
 
 - `xMidYMid`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den Mittenwert X des Elements {{ SVGAttr("viewBox") }} am Mittenwert X des Anzeigebereichs aus.
     Richten Sie den Mittenwert Y des Elements {{ SVGAttr("viewBox") }} am Mittenwert Y des Anzeigebereichs aus. Dies ist der Standardwert.
 
 - `xMaxYMid`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den `<min-x>+<width>` des Elements {{ SVGAttr("viewBox") }} am maximalen X-Wert des Anzeigebereichs aus.
     Richten Sie den Mittenwert Y des Elements {{ SVGAttr("viewBox") }} am Mittenwert Y des Anzeigebereichs aus.
 
 - `xMinYMax`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den `<min-x>` des Elements {{ SVGAttr("viewBox") }} am kleinsten X-Wert des Anzeigebereichs aus.
     Richten Sie den `<min-y>+<height>` des Elements {{ SVGAttr("viewBox") }} am maximalen Y-Wert des Anzeigebereichs aus.
 
 - `xMidYMax`
-
   - : Erzwingt eine einheitliche Skalierung.
     Richten Sie den Mittenwert X des Elements {{ SVGAttr("viewBox") }} am Mittenwert X des Anzeigebereichs aus.
     Richten Sie den `<min-y>+<height>` des Elements {{ SVGAttr("viewBox") }} am maximalen Y-Wert des Anzeigebereichs aus.
@@ -79,9 +70,7 @@ Der Ausrichtungswert zeigt an, ob eine einheitliche Skalierung erzwungen werden 
 Die folgenden zwei Schlüsselwörter bestimmen, wie das SVG relativ zu den Begrenzungen des Containers skaliert werden soll. Die Angabe der `meet`- oder `slice`-Referenz ist optional, und falls angegeben, muss es sich um eines von zwei Schlüsselwörtern handeln. `meet` ist der Standardwert.
 
 - `meet`
-
   - : Skaliert die Grafik so, dass:
-
     - Das Seitenverhältnis erhalten bleibt.
     - Die gesamte {{ SVGAttr("viewBox") }} innerhalb des Anzeigebereichs sichtbar ist.
     - Die {{ SVGAttr("viewBox") }} so weit wie möglich vergrößert wird, während die anderen Kriterien eingehalten werden.
@@ -89,9 +78,7 @@ Die folgenden zwei Schlüsselwörter bestimmen, wie das SVG relativ zu den Begre
     In diesem Fall, wenn das Seitenverhältnis der Grafik nicht mit dem Anzeigebereich übereinstimmt, wird ein Teil des Anzeigebereichs über die Grenzen der {{ SVGAttr("viewBox") }} hinausgehen (d.h. der Bereich, in den die {{ SVGAttr("viewBox") }} zeichnen wird, ist kleiner als der Anzeigebereich).
 
 - `slice`
-
   - : Skaliert die Grafik so, dass:
-
     - Das Seitenverhältnis erhalten bleibt.
     - Der gesamte Anzeigebereich von der {{ SVGAttr("viewBox") }} abgedeckt wird.
     - Die {{ SVGAttr("viewBox") }} so weit wie möglich verkleinert wird, während die anderen Kriterien eingehalten werden.
