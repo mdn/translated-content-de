@@ -3,20 +3,18 @@ title: Allow header
 short-title: Allow
 slug: Web/HTTP/Reference/Headers/Allow
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
 ---
 
-Der HTTP **`Allow`** {{Glossary("response_header", "Antwort-Header")}} listet die Menge der von einer Ressource unterstützten [Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods) auf. Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405", "405 Method Not Allowed")}} Statuscode antwortet, um anzuzeigen, welche Anfragemethoden stattdessen verwendet werden können. Ein leerer `Allow`-Wert zeigt an, dass die Ressource keine Anfragemethoden zulässt, was vorübergehend für eine gegebene Ressource auftreten kann.
+Der HTTP **`Allow`** {{Glossary("response_header", "Response-Header")}} listet die Menge an [Request-Methoden](/de/docs/Web/HTTP/Reference/Methods) auf, die von einer Ressource unterstützt werden.
+Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405", "405 Method Not Allowed")}} Statuscode antwortet, um anzugeben, welche Request-Methoden stattdessen verwendet werden können.
+Ein leerer `Allow`-Wert zeigt an, dass die Ressource keine Request-Methoden erlaubt, was möglicherweise vorübergehend für eine gegebene Ressource auftreten kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
-      <td>Nein</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -30,7 +28,7 @@ Allow: <http-methods>
 ## Direktiven
 
 - `<http-methods>`
-  - : Eine durch Kommas getrennte Liste der von einer Ressource unterstützten zulässigen Anfragemethoden.
+  - : Eine kommagetrennte Liste der erlaubten Request-Methoden, die von einer Ressource unterstützt werden.
 
 ## Beispiele
 

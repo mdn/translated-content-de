@@ -3,20 +3,16 @@ title: Timing-Allow-Origin header
 short-title: Timing-Allow-Origin
 slug: Web/HTTP/Reference/Headers/Timing-Allow-Origin
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
 ---
 
-Der HTTP **`Timing-Allow-Origin`** {{Glossary("response_header", "Antwort-Header")}} gibt Ursprünge an, die berechtigt sind, Werte von Attributen einzusehen, die über Features der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden. Diese würden ansonsten aufgrund von Cross-Origin-Beschränkungen als null gemeldet.
+Der HTTP **`Timing-Allow-Origin`**-{{Glossary("response_header", "Antwort-Header")}} gibt Ursprünge an, die berechtigt sind, die Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden. Diese Werte würden andernfalls aufgrund von Cross-Origin-Beschränkungen als Null gemeldet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
-      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -28,10 +24,10 @@ Timing-Allow-Origin: *
 Timing-Allow-Origin: <origin>, …, <originN>
 ```
 
-## Anweisungen
+## Direktiven
 
 - `*` (Wildcard)
-  - : Jeder Ursprung darf Timing-Ressourcen einsehen.
+  - : Jeder Ursprung darf Timing-Ressourcen sehen.
 - `<origin>`
   - : Gibt eine URI an, die die Timing-Ressourcen einsehen darf. Sie können mehrere Ursprünge angeben, getrennt durch Kommas.
 
@@ -39,7 +35,7 @@ Timing-Allow-Origin: <origin>, …, <originN>
 
 ### Verwendung von Timing-Allow-Origin
 
-Um jedem Ressource das Einsehen von Timing-Ressourcen zu erlauben:
+Um jeder Ressource das Einsehen von Timing-Ressourcen zu ermöglichen:
 
 ```http
 Timing-Allow-Origin: *
@@ -62,5 +58,5 @@ Timing-Allow-Origin: https://developer.mozilla.org
 ## Siehe auch
 
 - [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing)
-- {{HTTPHeader("Server-Timing")}} Header
-- {{HTTPHeader("Vary")}} Header
+- {{HTTPHeader("Server-Timing")}}-Header
+- {{HTTPHeader("Vary")}}-Header

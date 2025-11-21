@@ -3,38 +3,38 @@ title: "HTMLScriptElement: textContent-Eigenschaft"
 short-title: textContent
 slug: Web/API/HTMLScriptElement/textContent
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: 65cbd4ff030e6763d6868917137d728c3ec29288
 ---
 
 {{APIRef("DOM")}}
 
 > [!WARNING]
-> Diese Eigenschaft repräsentiert den Textinhalt eines Skriptelements, das je nach Skripttyp ausführbar sein kann.
-> Solche APIs werden als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe sein.
+> Diese Eigenschaft repräsentiert den Textinhalt eines Skriptelements, der je nach Skripttyp ausführbar sein kann.
+> Solche APIs sind bekannt als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und stellen potenziell einen Vektor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar.
 >
-> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenfolgen zuweisen und [trusted types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
+> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenketten zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
 
-Die **`textContent`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle repräsentiert den eingebetteten Textinhalt des {{HTMLElement("script")}}-Elements.
-Sie verhält sich genauso wie die Eigenschaften [`text`](/de/docs/Web/API/HTMLScriptElement/text) und [`innerText`](/de/docs/Web/API/HTMLScriptElement/innerText).
+Die **`textContent`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces repräsentiert den Inline-Textinhalt des {{HTMLElement("script")}}-Elements.
+Sie verhält sich genauso wie die [`text`](/de/docs/Web/API/HTMLScriptElement/text)- und [`innerText`](/de/docs/Web/API/HTMLScriptElement/innerText)-Eigenschaften.
 
 ## Wert
 
-Das Abrufen der Eigenschaft gibt eine Zeichenfolge mit dem Text des Skripts zurück.
+Beim Abrufen der Eigenschaft wird eine Zeichenkette zurückgegeben, die den Text des Skripts enthält.
 
-Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt oder eine Zeichenfolge.
+Beim Setzen der Eigenschaft wird entweder ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt oder eine Zeichenkette akzeptiert.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Wird geworfen, wenn die Eigenschaft auf eine Zeichenfolge gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenkette gesetzt wird, während [vertrauenswürdige Typen](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-Die **`textContent`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle repräsentiert den Textinhalt innerhalb des {{HTMLElement("script")}}-Elements.
+Die **`textContent`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces repräsentiert den Textinhalt innerhalb des {{HTMLElement("script")}}-Elements.
 
-Für ein ausführbares Skript (d.h. ein Skript, dessen [`type`](/de/docs/Web/API/HTMLScriptElement/type) angibt, dass es sich um ein Modul oder ein klassisches Skript handelt) ist dieser Text eingebetteter ausführbarer Code.
-Für andere Typen kann es eine Importkarte, Spekulationsregeln oder eine andere Art von Datenblock repräsentieren.
+Für ein ausführbares Skript (das heißt, ein Skript, dessen [`type`](/de/docs/Web/API/HTMLScriptElement/type) angibt, dass es sich um ein Modul oder klassisches Skript handelt) ist dieser Text ein Inline-Ausführungscode.
+Für andere Typen könnte es eine Importmap, Spekulationsregeln oder eine andere Art von Datenblock darstellen.
 
 Beachten Sie, dass, wenn die [`src`](/de/docs/Web/API/HTMLScriptElement/src)-Eigenschaft gesetzt ist, der Inhalt der `textContent`-Eigenschaft ignoriert wird.
 
@@ -43,29 +43,29 @@ Wenn sie mit anderen Elementen verwendet wird, erwartet oder erzwingt sie nicht 
 
 ### Sicherheitsüberlegungen
 
-Die `textContent`-Eigenschaft - und die identischen `text` und `innerText`-Eigenschaften - sind ein möglicher Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, bei denen potenziell unsichere Zeichenfolgen, die von einem Benutzer bereitgestellt werden, ausgeführt werden.
-Zum Beispiel geht das folgende Beispiel davon aus, dass `scriptElement` ein ausführbares `<script>`-Element ist und dass `untrustedCode` von einem Benutzer bereitgestellt wurde:
+Die `textContent`-Eigenschaft — sowie die identischen `text`- und `innerText`-Eigenschaften — sind ein möglicher Vektor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe, bei denen potenziell unsichere Zeichenfolgen, die von einem Benutzer bereitgestellt werden, ausgeführt werden.
+Zum Beispiel nimmt das folgende Beispiel an, dass das `scriptElement` ein ausführbares `<script>`-Element ist und dass `untrustedCode` von einem Benutzer bereitgestellt wurde:
 
 ```js
 const untrustedCode = "alert('Potentially evil code!');";
 scriptElement.textContent = untrustedCode; // shows the alert
 ```
 
-Sie können diese Probleme mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenfolgen zuweisen und [trusted types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geführt wird, die die Möglichkeit hat, den Text zu [sanitizen](/de/docs/Web/Security/Attacks/XSS#sanitization) oder abzulehnen, bevor er eingefügt wird.
+Sie können diese Probleme mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenketten zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types), indem Sie die [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive verwenden.
+Dies stellt sicher, dass die Eingaben durch eine Transformationsfunktion geleitet werden, die die Möglichkeit hat, den Text [zu bereinigen](/de/docs/Web/Security/Attacks/XSS#sanitization) oder abzulehnen, bevor er injiziert wird.
 
-Das Verhalten der Transformationsfunktion hängt vom spezifischen Anwendungsfall ab, der ein vom Benutzer bereitgestelltes Skript erfordert.
-Wenn möglich, sollten Sie die erlaubten Skripte genau auf den Code beschränken, dem Sie vertrauen, um ihn auszuführen.
-Wenn das nicht möglich ist, könnten Sie die Nutzung bestimmter Funktionen innerhalb der bereitgestellten Zeichenfolge erlauben oder blockieren.
+Das Verhalten der Transformationsfunktion hängt vom spezifischen Anwendungsfall ab, der ein vom Benutzer bereitgestelltes Skript benötigt.
+Wenn möglich, sollten Sie die erlaubten Skripte genau auf den Code beschränken, dem Sie vertrauen, den Sie ausführen möchten.
+Wenn das nicht möglich ist, könnten Sie die Verwendung bestimmter Funktionen innerhalb der bereitgestellten Zeichenkette erlauben oder blockieren.
 
 ## Beispiele
 
 ### Verwendung von TrustedScript
 
-Um das Risiko von XSS zu mindern, sollten wir immer `TrustedScript`-Instanzen der `textContent`-Eigenschaft zuweisen.
+Um das Risiko von XSS zu mindern, sollten wir stets `TrustedScript`-Instanzen der `textContent`-Eigenschaft zuweisen.
 
-Trusted Types werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst die [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparente Ersatzlösung für die Trusted Types JavaScript-API:
+Vertrauenswürdige Typen werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst den [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Dies dient als transparenter Ersatz für die Trusted Types JavaScript API:
 
 ```js
 if (typeof trustedTypes === "undefined")
@@ -73,7 +73,7 @@ if (typeof trustedTypes === "undefined")
 ```
 
 Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScript()`](/de/docs/Web/API/TrustedTypePolicy/createScript)-Methode definiert, um Eingabezeichenfolgen in [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Instanzen zu transformieren.
-Für den Zweck dieses Beispiels erlauben wir genau das Skript, das wir benötigen.
+Für dieses Beispiel lassen wir genau das Skript zu, das wir benötigen.
 
 ```js
 const policy = trustedTypes.createPolicy("inline-script-policy", {
@@ -87,7 +87,7 @@ const policy = trustedTypes.createPolicy("inline-script-policy", {
 });
 ```
 
-Als nächstes erstellen wir das Skriptelement, dem wir den Wert zuweisen werden, und erhalten einen Handle zu dem Element.
+Als nächstes erstellen wir das Skriptelement, dem wir den Wert zuweisen werden, und erhalten einen Zugriff auf das Element.
 
 ```html
 <script id="el"></script>
@@ -113,9 +113,9 @@ el.textContent = trustedScript;
 
 ### Vergleich von `textContent`, `text` und `innerText`
 
-Dieses Beispiel zeigt, dass die Zuweisung eines Skripts zu jeder der Texteigenschaften, wie `textContent`, dazu führt, dass derselbe Wert von allen Texteigenschaften gelesen wird.
+Dieses Beispiel zeigt, dass das Zuweisen eines Skripts zu jeder der Texteigenschaften, wie `textContent`, dazu führt, dass der gleiche Wert von allen Texe Eigenschaften gelesen wird.
 
-Beachten Sie, dass wir in diesem Fall die Richtlinie nicht verwenden, um vertrauenswürdige Skripte zu erstellen (um der Kürze willen gehen wir davon aus, dass die bereitgestellten Zeichenfolgen vertrauenswürdig sind).
+Beachten Sie, dass wir in diesem Fall die Richtlinie nicht verwenden, um vertrauenswürdige Skripte zu erstellen (der Einfachheit halber nehmen wir an, dass die bereitgestellten Zeichenfolgen vertrauenswürdig sind).
 
 ```js
 // Set the textContent property
