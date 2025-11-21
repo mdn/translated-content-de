@@ -54,4 +54,4 @@ Content-Length: 123
 ## Siehe auch
 
 - [HTTP-Statuscodes für Antworten](/de/docs/Web/HTTP/Reference/Status)
-- {{HTTPHeader("Upgrade")}} -Header
+- {{HTTPHeader("Upgrade")}}-Header

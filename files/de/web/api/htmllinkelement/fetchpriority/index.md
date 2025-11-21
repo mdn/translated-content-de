@@ -37,5 +37,5 @@ document.head.appendChild(preloadLink);
 
 - [`HTMLImageElement.fetchPriority`](/de/docs/Web/API/HTMLImageElement/fetchPriority)
 - [`HTMLScriptElement.fetchPriority`](/de/docs/Web/API/HTMLScriptElement/fetchPriority)
-- HTTP {{httpheader("Link")}} -Header
+- HTTP {{httpheader("Link")}}-Header
 - [Optimieren der Ressourcennutzung mit der Fetch Priority API](https://web.dev/articles/fetch-priority?hl=en#browser_priority_and_fetchpriority) für Informationen darüber, wie diese API die Prioritäten in Chrome beeinflusst.

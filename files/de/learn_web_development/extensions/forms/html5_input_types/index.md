@@ -189,7 +189,7 @@ Eine andere Möglichkeit, eine Zahl auszuwählen, besteht darin, einen **Schiebe
 
 In der Praxis sind Schieberegler weniger genau als Textfelder. Daher werden sie verwendet, um eine Zahl auszuwählen, deren _genauer_ Wert nicht unbedingt wichtig ist.
 
-Ein Schieberegler wird mit dem {{HTMLElement("input")}} -Element erstellt, dessen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut auf den Wert `range` gesetzt ist. Der Schieberegler-Daumen kann über Maus oder Berührung oder mit den Pfeilen der Tastatur bewegt werden.
+Ein Schieberegler wird mit dem {{HTMLElement("input")}}-Element erstellt, dessen [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) Attribut auf den Wert `range` gesetzt ist. Der Schieberegler-Daumen kann über Maus oder Berührung oder mit den Pfeilen der Tastatur bewegt werden.
 
 Es ist wichtig, Ihren Schieberegler richtig zu konfigurieren. Dazu wird dringend empfohlen, die [`min`](/de/docs/Web/HTML/Reference/Attributes/min), [`max`](/de/docs/Web/HTML/Reference/Attributes/max) und [`step`](/de/docs/Web/HTML/Reference/Attributes/step)-Attribute zu setzen, die die minimalen, maximalen und Inkrementwerte festlegen.
 
@@ -243,7 +243,7 @@ Im Allgemeinen ist es für eine gute Benutzererfahrung beim Sammeln von Datums- 
 
 HTML-Datumskontrollen sind verfügbar, um diese spezielle Art von Daten zu bewältigen und Kalender-Widgets bereitzustellen, wodurch die Daten einheitlich werden.
 
-Eine Datums- und Zeitsteuerung wird mit dem {{HTMLElement("input")}} -Element und einem entsprechenden Wert für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type) -Attribut erstellt, je nachdem, ob Sie Daten, Uhrzeiten oder beides sammeln möchten. Hier ist ein Live-Beispiel:
+Eine Datums- und Zeitsteuerung wird mit dem {{HTMLElement("input")}}-Element und einem entsprechenden Wert für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut erstellt, je nachdem, ob Sie Daten, Uhrzeiten oder beides sammeln möchten. Hier ist ein Live-Beispiel:
 
 ```html hidden live-sample___date1
 <label for="party">Choose a date and time for your party:</label>

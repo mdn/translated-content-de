@@ -443,7 +443,7 @@ function drawVRScene() {
 }
 ```
 
-### Darstellung der Pose (Position, Ausrichtung usw.) -Daten
+### Darstellung der Pose (Position, Ausrichtung usw.)-Daten
 
 In diesem Abschnitt werden wir die `displayPoseStats()`-Funktion besprechen, die unsere aktualisierten Pose-Daten bei jedem Frame anzeigt. Die Funktion ist ziemlich einfach.
 

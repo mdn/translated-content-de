@@ -240,6 +240,13 @@
         "replace": "d.h.",
         "searchScope": "text",
       },
+      {
+        "name": "remove-space-before-hyphen",
+        "message": "Remove space before hyphen",
+        "searchPattern": "/([)}]) -([A-Z])/g",
+        "replace": "$1-$2",
+        "searchScope": "text",
+      },
     ],
   },
   // Disabled in de, because table formatting isn't that important here.
