@@ -1,24 +1,24 @@
 ---
-title: Block-Level-Inhalt
+title: Block-Inhalt
 slug: Glossary/Block-level_content
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 96a73163513476fe49bfba695acedb7622135354
 ---
 
-In CSS wird Inhalt, der an einem Blocklayout teilnimmt, als **Block-Level-Inhalt** bezeichnet.
+In CSS wird Inhalt, der an der Block-Layout-Teilnahme beteiligt ist, als **Block-Inhalt** bezeichnet.
 
-In einem Blocklayout werden Boxen hintereinander vertikal angeordnet, beginnend am oberen Rand eines umschließenden Blocks. Die linke Außenkante jeder Box berührt die linke Kante des umschließenden Blocks.\
-Ein Block-Level-Element beginnt immer in einer neuen Zeile. In horizontalen Schreibrichtungen, wie Englisch oder Arabisch, nimmt es den gesamten horizontalen Raum seines Elternelements (Containers) ein und einen vertikalen Raum, der der Höhe seines Inhalts entspricht, wodurch ein "Block" entsteht.
-
-> [!NOTE]
-> Das oben beschriebene Verhalten des Blocklayouts ändert sich, wenn der [`writing-mode`](/de/docs/Web/CSS/Reference/Properties/writing-mode) des umschließenden Blocks auf einen anderen Wert als [den Standardwert](/de/docs/Web/CSS/Reference/Properties/writing-mode#formal_definition) gesetzt wird.
+In einem Block-Layout werden Boxen nacheinander vertikal angeordnet, beginnend oben in einem enthaltenden Block. Die linke Außenkante jeder Box berührt die linke Kante des enthaltenden Blocks.\
+Ein Block-Element beginnt immer auf einer neuen Zeile. In horizontalen Schreibrichtungen, wie Englisch oder Arabisch, nimmt es den gesamten horizontalen Raum seines Elternelements (Containers) ein und den vertikalen Raum, der der Höhe seines Inhalts entspricht, wodurch ein "Block" entsteht.
 
 > [!NOTE]
-> HTML (_HyperText Markup Language_) Elemente wurden historisch als entweder "Block-Level"-Elemente oder "Inline"-Elemente kategorisiert. Diese präsentationstechnische Eigenschaft wird nun durch CSS spezifiziert.
+> Das oben beschriebene Verhalten des Block-Layouts ändert sich, wenn der {{cssxref("writing-mode")}} des enthaltenden Blocks auf einen anderen Wert als [den Standardwert](/de/docs/Web/CSS/Reference/Properties/writing-mode#formal_definition) gesetzt ist.
+
+> [!NOTE]
+> HTML (_HyperText Markup Language_) Elemente wurden historisch entweder als "Block-Level"-Elemente oder "Inline"-Elemente kategorisiert. Als präsentationstechnisches Merkmal wird dies jetzt durch CSS festgelegt.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei Paragraph ({{HTMLElement("p")}}) Elemente in ein {{HTMLElement("div")}} gestellt.
+In diesem Beispiel werden zwei Absatz- ({{HTMLElement("p")}}) Elemente in einem {{HTMLElement("div")}} platziert.
 
 ```html
 <div>
@@ -30,7 +30,7 @@ In diesem Beispiel werden zwei Paragraph ({{HTMLElement("p")}}) Elemente in ein 
 </div>
 ```
 
-Die Paragraph ({{HTMLElement("p")}}) Elemente sind standardmäßig Block-Level-Elemente. Deshalb werden sie im Blocklayout angezeigt:
+Die Absatz- ({{HTMLElement("p")}}) Elemente sind standardmäßig blockmäßig. Deshalb werden sie im Block-Layout angezeigt:
 
 ```css hidden
 p {
@@ -43,7 +43,7 @@ p {
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Inline-level_content", "Inline-Level-Inhalt")}}
-- [Blockformatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+  - {{Glossary("Inline-level_content", "Inline-Inhalt")}}
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
 - {{cssxref("display")}}
-- [`writing-mode`](/de/docs/Web/CSS/Reference/Properties/writing-mode)
+- {{cssxref("writing-mode")}}

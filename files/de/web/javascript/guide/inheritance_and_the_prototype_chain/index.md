@@ -1,32 +1,32 @@
 ---
-title: Vererbung und die Prototypen-Kette
+title: Vererbung und die Prototyp-Kette
 slug: Web/JavaScript/Guide/Inheritance_and_the_prototype_chain
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 4fc928963dcb04fece336fb3a2f34958fa4bdcb3
 ---
 
-In der Programmierung bezieht sich _Vererbung_ darauf, Merkmale von einem Elternteil an ein Kind weiterzugeben, sodass ein neuer Code vorhandene Funktionen wiederverwenden und darauf aufbauen kann. JavaScript implementiert Vererbung durch die Verwendung von [Objekten](/de/docs/Web/JavaScript/Guide/Data_structures#objects). Jedes Objekt hat einen internen Link zu einem anderen Objekt, das als _Prototyp_ bezeichnet wird. Dieses Prototypobjekt hat einen eigenen Prototyp und so weiter, bis ein Objekt mit `null` als Prototyp erreicht wird. Per Definition hat `null` keinen Prototyp und fungiert als letzter Link in dieser **Prototypen-Kette**. Es ist möglich, jedes Mitglied der Prototypen-Kette zu ändern oder sogar den Prototyp zur Laufzeit auszutauschen, sodass Konzepte wie [statische Dispatching](https://en.wikipedia.org/wiki/Static_dispatch) in JavaScript nicht existieren.
+In der Programmierung bezieht sich _Vererbung_ auf das Weitergeben von Eigenschaften von einem Elternteil zu einem Kind, sodass ein neuer Code auf die Funktionen eines vorhandenen aufbauen und diese wiederverwenden kann. JavaScript implementiert Vererbung durch die Verwendung von [Objekten](/de/docs/Web/JavaScript/Guide/Data_structures#objects). Jedes Objekt hat eine interne Verknüpfung zu einem anderen Objekt, das sein _Prototyp_ genannt wird. Dieses Prototyp-Objekt hat wiederum einen eigenen Prototyp, und so weiter, bis ein Objekt erreicht wird, dessen Prototyp `null` ist. Per Definition hat `null` keinen Prototyp und fungiert als letztes Glied in dieser **Prototyp-Kette**. Es ist möglich, jedes Glied der Prototyp-Kette zu verändern oder sogar zur Laufzeit den Prototyp auszutauschen, weshalb Konzepte wie [statische Zuweisung](https://en.wikipedia.org/wiki/Static_dispatch) in JavaScript nicht existieren.
 
-JavaScript kann für Entwickler, die Erfahrung mit klassenbasierten Sprachen (wie Java oder C++) haben, etwas verwirrend sein, da es [dynamisch](/de/docs/Web/JavaScript/Guide/Data_structures#dynamic_and_weak_typing) ist und keine statischen Typen hat. Während diese Verwirrung oft als eine der Schwächen von JavaScript angesehen wird, ist das prototypische Vererbungsmodell selbst tatsächlich mächtiger als das klassische Modell. Es ist zum Beispiel recht einfach, ein klassisches Modell auf einem prototypischen Modell aufzubauen – was die Art ist, wie [Klassen](/de/docs/Web/JavaScript/Reference/Classes) implementiert werden.
+JavaScript ist für Entwickler, die Erfahrung mit klassenbasierten Sprachen (wie Java oder C++) haben, ein wenig verwirrend, da es [dynamisch](/de/docs/Web/JavaScript/Guide/Data_structures#dynamic_and_weak_typing) ist und keine statischen Typen hat. Während diese Verwirrung oft als eine der Schwächen von JavaScript angesehen wird, ist das Prototyp-Vererbungskonzept selbst tatsächlich mächtiger als das klassische Modell. Es ist beispielsweise relativ einfach, auf einem Prototyp-Modell ein klassisches Modell aufzubauen – so werden [Klassen](/de/docs/Web/JavaScript/Reference/Classes) implementiert.
 
-Obwohl Klassen mittlerweile weit verbreitet sind und zu einem neuen Paradigma in JavaScript geworden sind, bringen Klassen kein neues Vererbungsmuster mit sich. Während Klassen die meisten prototypischen Mechanismen abstrahieren, ist es dennoch nützlich, zu verstehen, wie Prototypen im Hintergrund funktionieren.
+Obwohl Klassen mittlerweile weit verbreitet sind und zu einem neuen Paradigma in JavaScript geworden sind, bringen sie kein neues Vererbungsmuster mit sich. Selbst wenn Klassen die meisten Prototyp-Mechanismen abstrahieren, ist es dennoch nützlich zu verstehen, wie Prototypen intern funktionieren.
 
 ## Vererbung mit der Prototyp-Kette
 
-### Vererbung von Eigenschaften
+### Vererben von Eigenschaften
 
-JavaScript-Objekte sind dynamische "Taschen" von Eigenschaften (als **eigene Eigenschaften** bezeichnet). JavaScript-Objekte haben einen Link zu einem Prototypobjekt. Beim Versuch, auf eine Eigenschaft eines Objekts zuzugreifen, wird die Eigenschaft nicht nur im Objekt selbst gesucht, sondern auch im Prototyp des Objekts, im Prototyp des Prototyps und so weiter, bis entweder eine Eigenschaft mit dem passenden Namen gefunden wird oder das Ende der Prototyp-Kette erreicht ist.
+JavaScript-Objekte sind dynamische "Taschen" von Eigenschaften (als **eigene Eigenschaften** bezeichnet). JavaScript-Objekte haben eine Verbindung zu einem Prototyp-Objekt. Beim Versuch, auf eine Eigenschaft eines Objekts zuzugreifen, wird die Eigenschaft nicht nur auf dem Objekt, sondern auch auf dessen Prototyp, dem Prototyp des Prototyps usw. gesucht, bis entweder eine Eigenschaft mit gleichem Namen gefunden oder das Ende der Prototyp-Kette erreicht ist.
 
 > [!NOTE]
-> Gemäß dem ECMAScript-Standard wird die Notation `someObject.[[Prototype]]` verwendet, um den Prototyp von `someObject` zu bezeichnen. Der interne Slot `[[Prototype]]` kann mit den Funktionen {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}} entsprechend zugegriffen und geändert werden. Dies entspricht dem JavaScript-Accessor [`__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto), der nicht standardisiert ist, aber von vielen JavaScript-Engines de facto implementiert wird. Um Verwirrung zu vermeiden und es prägnant zu halten, werden wir in unserer Notation `obj.__proto__` vermeiden und stattdessen `obj.[[Prototype]]` verwenden. Dies entspricht `Object.getPrototypeOf(obj)`.
+> Gemäß dem ECMAScript-Standard wird die Notation `someObject.[[Prototype]]` verwendet, um den Prototyp von `someObject` zu bezeichnen. Der interne Slot `[[Prototype]]` kann mit den Funktionen {{jsxref("Object.getPrototypeOf()")}} und {{jsxref("Object.setPrototypeOf()")}} abgerufen und modifiziert werden. Dies entspricht dem JavaScript-Zugriffsobjekt [`__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto), das nicht standardisiert, aber de-facto von vielen JavaScript-Engines implementiert ist. Um Verwirrung zu vermeiden und es prägnant zu halten, werden wir in unserer Notation darauf verzichten, `obj.__proto__` zu verwenden, sondern stattdessen `obj.[[Prototype]]`. Dies entspricht `Object.getPrototypeOf(obj)`.
 >
-> Es sollte nicht mit der Eigenschaft `func.prototype` von Funktionen verwechselt werden, die stattdessen den `[[Prototype]]` festlegt, der allen _Instanzen_ von Objekten zugewiesen wird, die durch die gegebene Funktion erstellt werden, wenn sie als Konstruktor verwendet wird. Wir werden die `prototype`-Eigenschaft von Konstruktorfunktionen in [einem späteren Abschnitt](#konstruktoren) besprechen.
+> Es sollte nicht mit der `func.prototype`-Eigenschaft von Funktionen verwechselt werden, die stattdessen den `[[Prototype]]` festlegt, der allen _Instanzen_ von Objekten zugewiesen wird, die von der angegebenen Funktion beim Einsatz als Konstruktor erstellt werden. Wir werden die `prototype`-Eigenschaft von Konstruktorfunktionen in [einem späteren Abschnitt](#konstruktoren) diskutieren.
 
-Es gibt mehrere Möglichkeiten, den `[[Prototype]]` eines Objekts anzugeben, die in [einem späteren Abschnitt](#verschiedene_arten_zum_erstellen_und_ändern_von_prototyp-ketten) aufgeführt sind. Für jetzt werden wir die [`__proto__`-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) zur Veranschaulichung verwenden. Es ist bemerkenswert, dass die Syntax `{ __proto__: ... }` sich von dem `obj.__proto__`-Accessor unterscheidet: Ersteres ist standardisiert und nicht veraltet.
+Es gibt mehrere Möglichkeiten, den `[[Prototype]]` eines Objekts festzulegen, die in [einem späteren Abschnitt](#verschiedene_möglichkeiten_zur_erstellung_und_mutation_von_prototyp-ketten) aufgeführt sind. Vorläufig werden wir die [`__proto__`-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#prototype_setter) zur Veranschaulichung verwenden. Es sei darauf hingewiesen, dass die `{ __proto__: ... }`-Syntax von dem `obj.__proto__`-Zugriffsobjekt unterschiedlich ist: Ersteres ist standardmäßig und nicht veraltet.
 
-In einem Objektliteral wie `{ a: 1, b: 2, __proto__: c }` wird der Wert `c` (der entweder `null` oder ein anderes Objekt sein muss) zum `[[Prototype]]` des durch das Literal dargestellten Objekts, während die anderen Schlüssel wie `a` und `b` zu den _eigenen Eigenschaften_ des Objekts werden. Diese Syntax liest sich sehr natürlich, da `[[Prototype]]` nur eine "interne Eigenschaft" des Objekts ist.
+In einem Objekt-Literal wie `{ a: 1, b: 2, __proto__: c }` wird der Wert `c` (der entweder `null` oder ein anderes Objekt sein muss) zum `[[Prototype]]` des durch das Literal repräsentierten Objekts, während die anderen Schlüssel wie `a` und `b` zu den _eigenen Eigenschaften_ des Objekts werden. Diese Syntax liest sich sehr natürlich, da `[[Prototype]]` nur eine "interne Eigenschaft" des Objekts ist.
 
-Dies geschieht, wenn versucht wird, auf eine Eigenschaft zuzugreifen:
+So geschieht es, wenn versucht wird, auf eine Eigenschaft zuzugreifen:
 
 ```js
 const o = {
@@ -70,9 +70,9 @@ console.log(o.d); // undefined
 // no property found, return undefined.
 ```
 
-Das Setzen einer Eigenschaft zu einem Objekt erstellt eine eigene Eigenschaft. Die einzige Ausnahme von den Regeln zum Abrufen und Setzen von Verhalten besteht darin, wenn sie von einem [Getter oder Setter](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_getters_and_setters) abgefangen wird.
+Das Setzen einer Eigenschaft auf ein Objekt erzeugt eine eigene Eigenschaft. Die einzige Ausnahme von den Regeln des Abruf- und Setzverhaltens ist, wenn es durch einen [Getter oder Setter](/de/docs/Web/JavaScript/Guide/Working_with_objects#defining_getters_and_setters) abgefangen wird.
 
-Ähnlich können Sie längere Prototyp-Ketten erstellen und eine Eigenschaft wird auf all diesen gesucht.
+Ähnlich können Sie längere Prototyp-Ketten erstellen, und eine Eigenschaft wird auf allen von ihnen gesucht.
 
 ```js
 const o = {
@@ -94,11 +94,11 @@ const o = {
 console.log(o.d); // 5
 ```
 
-### Vererbung von "Methoden"
+### Vererben von "Methoden"
 
-JavaScript hat keine "{{Glossary("Method", "Methoden")}}" in der Form, wie klassenbasierte Sprachen sie definieren. In JavaScript kann jede Funktion in Form einer Eigenschaft zu einem Objekt hinzugefügt werden. Eine geerbte Funktion verhält sich wie jede andere Eigenschaft, einschließlich des schattenähnlichen Verhaltens von Eigenschaften (in diesem Fall eine Form von _Methodenüberschreibung_).
+JavaScript verfügt nicht über "{{Glossary("Method", "Methode")}}" in der Form, wie sie von klassenbasierten Sprachen definiert werden. In JavaScript kann jede Funktion einem Objekt in Form einer Eigenschaft hinzugefügt werden. Eine geerbte Funktion verhält sich wie jede andere Eigenschaft, einschließlich der oben gezeigten Eigenschaftsüberschattung (in diesem Fall eine Form von _Methodenüberschreibung_).
 
-Wenn eine geerbte Funktion ausgeführt wird, zeigt der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf das vererbende Objekt und nicht auf das Prototypobjekt, bei dem die Funktion eine eigene Eigenschaft ist.
+Wenn eine geerbte Funktion ausgeführt wird, verweist der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf das vererbende Objekt, nicht auf das Prototyp-Objekt, bei dem die Funktion eine eigene Eigenschaft ist.
 
 ```js
 const parent = {
@@ -133,7 +133,7 @@ console.log(child.method()); // 5
 
 ## Konstruktoren
 
-Die Stärke von Prototypen besteht darin, dass wir eine Menge von Eigenschaften wiederverwenden können, wenn sie bei jeder Instanz vorhanden sein sollen – insbesondere für Methoden. Angenommen, wir wollen eine Reihe von Boxen erstellen, bei denen jede Box ein Objekt ist, das einen Wert enthält, auf den über eine `getValue`-Funktion zugegriffen werden kann. Eine naive Implementierung wäre:
+Die Stärke der Prototypen liegt darin, dass wir eine Menge von Eigenschaften wiederverwenden können, wenn sie in jeder Instanz vorhanden sein sollen – insbesondere für Methoden. Angenommen, wir sollen eine Reihe von Boxen erstellen, wobei jede Box ein Objekt ist, das einen Wert enthält, auf den über eine `getValue`-Funktion zugegriffen werden kann. Eine naive Implementierung wäre:
 
 ```js-nolint
 const boxes = [
@@ -159,7 +159,7 @@ const boxes = [
 ];
 ```
 
-Auf diese Weise wird die `getValue`-Methode aller Boxen auf dieselbe Funktion verweisen, wodurch der Speicherverbrauch reduziert wird. Das manuelle Binden des `__proto__` für jede Objekterstellung ist jedoch immer noch sehr umständlich. Dies ist der Moment, in dem wir eine _Konstruktor_-Funktion verwenden würden, die den `[[Prototype]]` automatisch für jedes hergestellte Objekt festlegt. Konstruktoren sind Funktionen, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden.
+Auf diese Weise verweisen alle Boxen mit der `getValue`-Methode auf dieselbe Funktion, was den Speicherverbrauch reduziert. Es ist jedoch immer noch sehr unpraktisch, manuell den `__proto__` für jede Objekterstellung zu binden. An dieser Stelle würden wir eine _Konstruktorfunktion_ verwenden, die automatisch das `[[Prototype]]` für jedes hergestellte Objekt festlegt. Konstruktoren sind Funktionen, die mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden.
 
 ```js
 // A constructor function
@@ -176,12 +176,12 @@ Box.prototype.getValue = function () {
 const boxes = [new Box(1), new Box(2), new Box(3)];
 ```
 
-Wir sagen, dass `new Box(1)` eine _Instanz_ ist, die von der `Box`-Konstruktor-Funktion erstellt wurde. `Box.prototype` ist nicht viel anders als das `boxPrototype`-Objekt, das wir zuvor erstellt haben – es ist nur ein einfaches Objekt. Jede Instanz, die aus einer Konstruktionsfunktion erstellt wird, hat automatisch die `prototype`-Eigenschaft des Konstruktors als `[[Prototype]]` – das heißt, `Object.getPrototypeOf(new Box()) === Box.prototype`. `Constructor.prototype` hat standardmäßig eine eigene Eigenschaft: [`constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor), welche die Konstruktionsfunktion selbst referenziert – das heißt, `Box.prototype.constructor === Box`. Dies ermöglicht es, den ursprünglichen Konstruktor von jeder Instanz aus zu erreichen.
+Wir sagen, dass `new Box(1)` eine _Instanz_ ist, die von der `Box`-Konstruktorfunktion erstellt wurde. `Box.prototype` unterscheidet sich nicht wesentlich von dem `boxPrototype`-Objekt, das wir zuvor erstellt haben – es ist einfach ein schlichtes Objekt. Jede Instanz, die von einer Konstruktorfunktion erstellt wird, hat automatisch die [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft des Konstruktors als ihr `[[Prototype]]` – das heißt, `Object.getPrototypeOf(new Box()) === Box.prototype`. `Constructor.prototype` hat standardmäßig eine eigene Eigenschaft: [`constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor), die auf die Konstruktorfunktion selbst verweist – das heißt, `Box.prototype.constructor === Box`. Dies ermöglicht es, aus jeder Instanz auf den ursprünglichen Konstruktor zuzugreifen.
 
 > [!NOTE]
-> Wenn aus der Konstruktionsfunktion ein Nicht-Primitiv zurückgegeben wird, wird dieser Wert zum Ergebnis des `new`-Ausdrucks. In diesem Fall könnte der `[[Prototype]]` nicht korrekt gebunden sein – aber in der Praxis sollte dies nicht häufig vorkommen.
+> Wenn aus der Konstruktorfunktion ein nicht-primitives Objekt zurückgegeben wird, wird dieser Wert zum Ergebnis des `new`-Ausdrucks. In diesem Fall könnte das `[[Prototype]]` möglicherweise nicht korrekt gebunden werden – aber das sollte in der Praxis nicht häufig vorkommen.
 
-Die oben genannte Konstruktionsfunktion kann in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) umgeschrieben werden als:
+Die obige Konstruktorfunktion kann in [Klassen](/de/docs/Web/JavaScript/Reference/Classes) wie folgt umgeschrieben werden:
 
 ```js
 class Box {
@@ -196,9 +196,9 @@ class Box {
 }
 ```
 
-Klassen sind syntaktischer Zucker über Konstruktionsfunktionen, was bedeutet, dass Sie `Box.prototype` weiterhin manipulieren können, um das Verhalten aller Instanzen zu ändern. Da Klassen jedoch so konzipiert sind, dass sie eine Abstraktion über den zugrunde liegenden Prototyp-Mechanismus darstellen, werden wir für dieses Tutorial die leichtergewichtige Konstruktionsfunktion-Syntax verwenden, um vollständig zu demonstrieren, wie Prototypen funktionieren.
+Klassen sind Zucker über Konstruktorfunktionen, was bedeutet, dass Sie `Box.prototype` trotzdem manipulieren können, um das Verhalten aller Instanzen zu ändern. Da Klassen jedoch als Abstraktion über den zugrunde liegenden Prototyp-Mechanismus konzipiert sind, verwenden wir für dieses Tutorial die leichtere Konstruktorfunktions-Syntax, um vollständig zu demonstrieren, wie Prototypen funktionieren.
 
-Da `Box.prototype` dasselbe Objekt referenziert wie der `[[Prototype]]` aller Instanzen, können wir das Verhalten aller Instanzen ändern, indem wir `Box.prototype` ändern.
+Weil `Box.prototype` dasselbe Objekt referenziert wie das `[[Prototype]]` aller Instanzen, können wir das Verhalten aller Instanzen ändern, indem wir `Box.prototype` ändern.
 
 ```js
 function Box(value) {
@@ -216,16 +216,16 @@ Box.prototype.getValue = function () {
 box.getValue(); // 2
 ```
 
-Ein Korollar ist, _das Neuerstellen_ von `Constructor.prototype` (`Constructor.prototype = ...`) ist aus zwei Gründen eine schlechte Idee:
+Ein Korollar ist, dass das _Neuzuweisen_ von `Constructor.prototype` (`Constructor.prototype = ...`) eine schlechte Idee aus zwei Gründen ist:
 
-- Der `[[Prototype]]` der Instanzen, die vor der Neuzuweisung erstellt wurden, referenziert nun ein anderes Objekt als der `[[Prototype]]` der Instanzen, die nach der Neuzuweisung erstellt wurden – das Ändern des `[[Prototype]]` eines verändert nicht den anderen.
-- Es sei denn, Sie setzen die `constructor`-Eigenschaft manuell zurück, die Konstruktionsfunktion kann nicht mehr über `instance.constructor` zurückverfolgt werden, was die Benutzererwartung verletzen könnte. Einige eingebaute Operationen lesen auch die `constructor`-Eigenschaft, und wenn sie nicht gesetzt ist, funktionieren sie möglicherweise nicht wie erwartet.
+- Das `[[Prototype]]` von Instanzen, die vor der Neuzuweisung erstellt wurden, referenziert nun ein anderes Objekt als das `[[Prototype]]` von Instanzen, die nach der Neuzuweisung erstellt wurden – das Ändern des `[[Prototype]]` von einem beeinflusst daher nicht mehr das andere.
+- Es sei denn, Sie setzen die `constructor`-Eigenschaft manuell neu, kann die Konstruktorfunktion nicht mehr von `instance.constructor` zurückverfolgt werden, was die Benutz erwartet. Einige eingebaute Operationen werden ebenfalls die `constructor`-Eigenschaft lesen, und wenn sie nicht gesetzt ist, könnten sie nicht wie erwartet funktionieren.
 
-`Constructor.prototype` ist nur nützlich beim Erstellen von Instanzen. Es hat nichts mit `Constructor.[[Prototype]]` zu tun, was der _eigene_ Prototyp der Konstruktionsfunktion ist, welcher `Function.prototype` ist – das heißt, `Object.getPrototypeOf(Constructor) === Function.prototype`.
+`Constructor.prototype` ist nur dann nützlich, wenn Instanzen erzeugt werden. Es hat nichts mit `Constructor.[[Prototype]]` zu tun, das der _eigene_ Prototyp der Konstruktorfunktion ist, nämlich `Function.prototype` – das heißt, `Object.getPrototypeOf(Constructor) === Function.prototype`.
 
 ### Implizite Konstruktoren von Literalen
 
-Einige Literal-Syntaxen in JavaScript erstellen Instanzen, die implizit den `[[Prototype]]` festlegen. Zum Beispiel:
+Einige Literalsyntaxen in JavaScript erstellen Instanzen, die implizit das `[[Prototype]]` festlegen. Zum Beispiel:
 
 ```js
 // Object literals (without the `__proto__` key) automatically
@@ -242,23 +242,23 @@ const regexp = /abc/;
 Object.getPrototypeOf(regexp) === RegExp.prototype; // true
 ```
 
-Wir können sie in ihre Konstruktorform "entsüßen".
+Wir können sie in ihre Konstruktorform "entzuckern".
 
 ```js
 const array = new Array(1, 2, 3);
 const regexp = new RegExp("abc");
 ```
 
-Zum Beispiel sind "Array-Methoden" wie [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) einfach Methoden, die auf `Array.prototype` definiert sind, weshalb sie automatisch auf allen Array-Instanzen verfügbar sind.
+Beispielsweise sind "Array-Methoden" wie [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) einfach Methoden, die auf `Array.prototype` definiert sind, was erklärt, warum sie automatisch bei allen Array-Instanzen verfügbar sind.
 
 > [!WARNING]
-> Es gibt eine Fehlfunktion, die früher weit verbreitet war – das Erweitern von `Object.prototype` oder einem der anderen eingebauten Prototypen. Ein Beispiel für diese Fehlfunktion ist das Definieren von `Array.prototype.myMethod = function () {...}` und dann die Verwendung von `myMethod` auf allen Array-Instanzen.
+> Es gibt ein Merkmals, das früher sehr verbreitet war – das Erweitern von `Object.prototype` oder einem der anderen eingebauten Prototypen. Ein Beispiel für dieses Merkmal ist das Definieren von `Array.prototype.myMethod = function () {...}` und das anschließende Verwenden von `myMethod` bei allen Array-Instanzen.
 >
-> Diese Fehlfunktion wird als _Monkey Patching_ bezeichnet. Monkey Patching birgt das Risiko der Vorwärtskompatibilität, da Ihre Implementierung bei einer späteren Einfügung dieser Methode in die Sprache, jedoch mit einer anderen Signatur, fehlerhaft sein wird. Dies führte zu Vorfällen wie dem [SmooshGate](https://developer.chrome.com/blog/smooshgate/) und kann eine erhebliche Hürde für die Weiterentwicklung der Sprache sein, da JavaScript versucht, "das Web nicht zu zerstören".
+> Dieses Merkmal wird als _Monkey-Patching_ bezeichnet. Das Durchführen von Monkey-Patching birgt Risiken bezüglich der zukünftigen Kompatibilität, da Ihr Code fehlerhaft wird, wenn die Sprache in Zukunft diese Methode mit einer anderen Signatur hinzufügt. Es hat zu Vorfällen wie dem [SmooshGate](https://developer.chrome.com/blog/smooshgate/) geführt und kann ein großes Hindernis für die Weiterentwicklung der Sprache sein, da JavaScript versucht "das Web nicht zu brechen".
 >
-> Der **einzige** gute Grund, einen eingebauten Prototyp zu erweitern, besteht darin, die Funktionen neuerer JavaScript-Engines nachzurüsten, wie `Array.prototype.forEach`.
+> Der **einzige** triftige Grund, einen eingebauten Prototyp zu erweitern, ist, um die Funktionen neuer JavaScript-Engines rückzuportieren, wie `Array.prototype.forEach`.
 
-Es ist interessant zu bemerken, dass einige eingebaute Konstruktoren aus historischen Gründen selbst Instanzen sind. Zum Beispiel ist `Number.prototype` eine Zahl 0, `Array.prototype` ist ein leeres Array und `RegExp.prototype` ist `/(?:)/`.
+Es mag interessant sein zu erwähnen, dass einige eingebauten Konstruktoren aufgrund historischer Gründe selbst Instanzen sind. Zum Beispiel ist `Number.prototype` eine Zahl 0, `Array.prototype` ist ein leeres Array, und `RegExp.prototype` ist `/(?:)/`.
 
 ```js
 Number.prototype + 1; // 1
@@ -268,7 +268,7 @@ RegExp.prototype.source; // "(?:)"
 Function.prototype(); // Function.prototype is a no-op function by itself
 ```
 
-Bei benutzerdefinierten Konstruktoren oder modernen Konstruktoren wie `Map` ist dies jedoch nicht der Fall.
+Dies gilt jedoch nicht für benutzerdefinierte Konstruktoren oder moderne Konstruktoren wie `Map`.
 
 ```js
 Map.prototype.get(1);
@@ -277,7 +277,7 @@ Map.prototype.get(1);
 
 ### Längere Vererbungsketten erstellen
 
-Die `Constructor.prototype`-Eigenschaft wird zum `[[Prototype]]` der Instanzen des Konstruktors, wie sie ist – einschließlich `Constructor.prototype`'s eigenem `[[Prototype]]`. Standardmäßig ist `Constructor.prototype` ein _einfaches Objekt_ – das heißt, `Object.getPrototypeOf(Constructor.prototype) === Object.prototype`. Die einzige Ausnahme ist `Object.prototype` selbst, dessen `[[Prototype]]` `null` ist – das heißt, `Object.getPrototypeOf(Object.prototype) === null`. Daher erstellt ein typischer Konstruktor die folgende Prototypen-Kette:
+Die `Constructor.prototype`-Eigenschaft wird, wie sie ist, zum `[[Prototype]]` von Instanzen des Konstruktors – einschließlich des eigenen `[[Prototype]]` von `Constructor.prototype`. Standardmäßig ist `Constructor.prototype` ein _einfaches Objekt_ – das heißt, `Object.getPrototypeOf(Constructor.prototype) === Object.prototype`. Die einzige Ausnahme ist `Object.prototype` selbst, dessen `[[Prototype]]` `null` ist – das heißt, `Object.getPrototypeOf(Object.prototype) === null`. Daher baut ein typischer Konstruktor die folgende Prototyp-Kette auf:
 
 ```js
 function Constructor() {}
@@ -286,7 +286,7 @@ const obj = new Constructor();
 // obj ---> Constructor.prototype ---> Object.prototype ---> null
 ```
 
-Um längere Prototyp-Ketten zu erstellen, können wir den `[[Prototype]]` von `Constructor.prototype` mit der Funktion [`Object.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) festlegen.
+Um längere Prototyp-Ketten zu erstellen, können wir den `[[Prototype]]` von `Constructor.prototype` über die Funktion [`Object.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) festlegen.
 
 ```js
 function Base() {}
@@ -299,7 +299,7 @@ const obj = new Derived();
 // obj ---> Derived.prototype ---> Base.prototype ---> Object.prototype ---> null
 ```
 
-In Klassentermen entspricht dies der Verwendung der [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends)-Syntax.
+In Klassenausdrücken entspricht dies der Verwendung der Syntax [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends).
 
 ```js
 class Base {}
@@ -309,7 +309,7 @@ const obj = new Derived();
 // obj ---> Derived.prototype ---> Base.prototype ---> Object.prototype ---> null
 ```
 
-Sie werden möglicherweise auch einige Legacy-Codes sehen, die {{jsxref("Object.create()")}} verwenden, um die Vererbungskette zu erstellen. Da dies jedoch die `prototype`-Eigenschaft neu zuweist und die [`constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)-Eigenschaft entfernt, kann dies fehleranfälliger sein, während Leistungsgewinne nicht offensichtlich sein können, wenn die Konstruktoren noch keine Instanzen erstellt haben.
+Sie können auch einige veraltete Codes sehen, die {{jsxref("Object.create()")}} zur Erstellung der Vererbungskette verwenden. Da dies jedoch die `prototype`-Eigenschaft neu zuweist und die [`constructor`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)-Eigenschaft entfernt, kann dies fehleranfälliger sein, während Leistungsgewinne nicht offensichtlich sein können, solange die Konstruktoren noch keine Instanzen erstellt haben.
 
 ```js example-bad
 function Base() {}
@@ -322,9 +322,9 @@ Derived.prototype = Object.create(Base.prototype);
 
 ## Prototypen inspizieren: ein tieferer Einblick
 
-Sehen wir uns an, was hinter den Kulissen im Detail passiert.
+Lassen Sie uns genauer betrachten, was hinter den Kulissen passiert.
 
-In JavaScript, wie oben erwähnt, können Funktionen Eigenschaften haben. Alle Funktionen haben eine spezielle Eigenschaft namens `prototype`. Bitte beachten Sie, dass der nachfolgende Code eigenständig ist (es wird angenommen, dass es keine andere JavaScript auf der Webseite gibt, außer dem folgenden Code). Für das beste Lernerlebnis wird dringend empfohlen, eine Konsole zu öffnen, zum Tab "Konsole" zu navigieren, den unten stehenden JavaScript-Code zu kopieren und dann durch Drücken der Enter/Return-Taste auszuführen. (Die Konsole ist in den meisten Webbrowser-Entwicklertools enthalten. Weitere Informationen finden Sie in den [Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/index.html), [Chrome DevTools](https://developer.chrome.com/docs/devtools/) und [Edge DevTools](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/).)
+In JavaScript, wie oben erwähnt, können Funktionen Eigenschaften haben. Alle Funktionen haben eine besondere Eigenschaft namens `prototype`. Beachten Sie, dass der untenstehende Code für sich steht (es wird davon ausgegangen, dass es keine andere JavaScript auf der Webseite außer dem folgenden Code gibt). Für das beste Lernerlebnis wird dringend empfohlen, eine Konsole zu öffnen, zur Registerkarte "Konsole" zu navigieren, den untenstehenden JavaScript-Code zu kopieren und einzufügen und ihn durch Drücken der Eingabe-/Return-Taste auszuführen. (Die Konsole ist in den meisten Entwicklertools für Webbrowser enthalten. Weitere Informationen sind verfügbar für die [Firefox-Entwicklertools](https://firefox-source-docs.mozilla.org/devtools-user/index.html), [Chrome DevTools](https://developer.chrome.com/docs/devtools/), und [Edge DevTools](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/).)
 
 ```js
 function doSomething() {}
@@ -337,7 +337,7 @@ const doSomethingFromArrowFunction = () => {};
 console.log(doSomethingFromArrowFunction.prototype);
 ```
 
-Wie oben gezeigt, hat `doSomething()` eine Standard-`prototype`-Eigenschaft, wie von der Konsole demonstriert. Nach dem Ausführen dieses Codes sollte die Konsole ein Objekt angezeigt haben, das diesem ähnlich sieht.
+Wie oben gesehen, hat `doSomething()` eine Standard-`prototype`-Eigenschaft, wie von der Konsole demonstriert. Nach Ausführung dieses Codes sollte die Konsole ein ähnliches Objekt wie dieses angezeigt haben.
 
 ```plain
 {
@@ -355,9 +355,9 @@ Wie oben gezeigt, hat `doSomething()` eine Standard-`prototype`-Eigenschaft, wie
 ```
 
 > [!NOTE]
-> Die Chrome-Konsole verwendet `[[Prototype]]`, um den Prototyp des Objekts zu bezeichnen, gemäß den Begriffsbedingungen der Spezifikation; Firefox verwendet `<prototype>`. Der Konsistenz halber werden wir `[[Prototype]]` verwenden.
+> Die Chrome-Konsole verwendet `[[Prototype]]`, um den Prototyp des Objekts zu bezeichnen, entsprechend den Spezifikationsbedingungen; Firefox verwendet `<prototype>`. Der Übersicht halber verwenden wir `[[Prototype]]`.
 
-Wir können dem Prototyp von `doSomething()` Eigenschaften hinzufügen, wie unten gezeigt.
+Wir können Eigenschaften zum Prototyp von `doSomething()` hinzufügen, wie unten gezeigt.
 
 ```js
 function doSomething() {}
@@ -365,7 +365,7 @@ doSomething.prototype.foo = "bar";
 console.log(doSomething.prototype);
 ```
 
-Dies führt zu:
+Das führt zu:
 
 ```plain
 {
@@ -383,9 +383,9 @@ Dies führt zu:
 }
 ```
 
-Wir können jetzt den `new`-Operator verwenden, um eine Instanz von `doSomething()` basierend auf diesem Prototyp zu erstellen. Um den `new`-Operator zu verwenden, rufen Sie die Funktion normal auf, jedoch mit `new` als Präfix. Das Aufrufen einer Funktion mit dem `new`-Operator gibt ein Objekt zurück, das eine Instanz der Funktion ist. Eigenschaften können dann auf dieses Objekt hinzugefügt werden.
+Wir können jetzt den `new`-Operator verwenden, um eine Instanz von `doSomething()` basierend auf diesem Prototyp zu erstellen. Um den neuen Operator zu verwenden, rufen Sie die Funktion normal auf, jedoch mit dem Präfix `new`. Das Aufrufen einer Funktion mit dem `new`-Operator gibt ein Objekt zurück, das eine Instanz der Funktion ist. Eigenschaften können dann zu diesem Objekt hinzugefügt werden.
 
-Probieren Sie den folgenden Code aus:
+Probieren Sie folgenden Code aus:
 
 ```js
 function doSomething() {}
@@ -395,7 +395,7 @@ doSomeInstancing.prop = "some value"; // add a property onto the object
 console.log(doSomeInstancing);
 ```
 
-Dies führt zu einer Ausgabe ähnlich der folgenden:
+Das Ergebnis ist eine Ausgabe ähnlich der folgenden:
 
 ```plain
 {
@@ -416,15 +416,15 @@ Dies führt zu einer Ausgabe ähnlich der folgenden:
 }
 ```
 
-Wie oben gesehen, ist der `[[Prototype]]` von `doSomeInstancing` `doSomething.prototype`. Aber was macht das? Wenn Sie auf eine Eigenschaft von `doSomeInstancing` zugreifen, sucht die Laufzeit zuerst, ob `doSomeInstancing` diese Eigenschaft hat.
+Wie oben gesehen, ist das `[[Prototype]]` von `doSomeInstancing` `doSomething.prototype`. Aber was bewirkt das? Wenn auf eine Eigenschaft von `doSomeInstancing` zugegriffen wird, prüft die Laufzeit zuerst, ob `doSomeInstancing` diese Eigenschaft hat.
 
-Wenn `doSomeInstancing` die Eigenschaft nicht hat, sucht die Laufzeit nach der Eigenschaft in `doSomeInstancing.[[Prototype]]` (alias `doSomething.prototype`). Wenn `doSomeInstancing.[[Prototype]]` die gesuchte Eigenschaft hat, wird die Eigenschaft auf `doSomeInstancing.[[Prototype]]` verwendet.
+Falls `doSomeInstancing` die Eigenschaft nicht hat, sucht die Laufzeit nach der Eigenschaft in `doSomeInstancing.[[Prototype]]` (also `doSomething.prototype`). Wenn `doSomeInstancing.[[Prototype]]` die gesuchte Eigenschaft hat, wird diese Eigenschaft auf `doSomeInstancing.[[Prototype]]` verwendet.
 
-Andernfalls, wenn `doSomeInstancing.[[Prototype]]` die Eigenschaft nicht hat, wird `doSomeInstancing.[[Prototype]].[[Prototype]]` auf die gesuchte Eigenschaft geprüft. Standardmäßig ist der `[[Prototype]]` der `prototype`-Eigenschaft einer Funktion `Object.prototype`. So wird `doSomeInstancing.[[Prototype]].[[Prototype]]` (alias `doSomething.prototype.[[Prototype]]` (alias `Object.prototype`)) auf die gesuchte Eigenschaft durchsucht.
+Andernfalls, wenn `doSomeInstancing.[[Prototype]]` die Eigenschaft nicht hat, wird `doSomeInstancing.[[Prototype]].[[Prototype]]` auf die Eigenschaft geprüft. Standardmäßig ist der `[[Prototype]]` der `prototype`-Eigenschaft einer Funktion `Object.prototype`. Also wird `doSomeInstancing.[[Prototype]].[[Prototype]]` (also `doSomething.prototype.[[Prototype]]` (also `Object.prototype`)) dann auf die gesuchte Eigenschaft durchsucht.
 
-Wenn die Eigenschaft nicht in `doSomeInstancing.[[Prototype]].[[Prototype]]` gefunden wird, wird `doSomeInstancing.[[Prototype]].[[Prototype]].[[Prototype]]` durchsucht. Es gibt jedoch ein Problem: `doSomeInstancing.[[Prototype]].[[Prototype]].[[Prototype]]` existiert nicht, da `Object.prototype.[[Prototype]]` `null` ist. Dann, und nur dann, nachdem die gesamte Prototyp-Kette der `[[Prototype]]`s durchsucht wurde, stellt die Laufzeit fest, dass die Eigenschaft nicht existiert, und schlussfolgert, dass der Wert an der Eigenschaft `undefined` ist.
+Falls bei `doSomeInstancing.[[Prototype]].[[Prototype]]` die Eigenschaft nicht gefunden wird, wird `doSomeInstancing.[[Prototype]].[[Prototype]].[[Prototype]]` durchsucht. Allerdings gibt es ein Problem: `doSomeInstancing.[[Prototype]].[[Prototype]].[[Prototype]]` existiert nicht, da `Object.prototype.[[Prototype]]` `null` ist. Dann und nur dann, nachdem die gesamte Prototyp-Kette der `[[Prototype]]`s durchsucht wurde, stellt die Laufzeit fest, dass die Eigenschaft nicht existiert und schließt, dass der Wert an der Eigenschaft `undefined` ist.
 
-Geben wir noch etwas mehr Code in die Konsole ein:
+Versuchen wir, noch mehr Code in die Konsole einzugeben:
 
 ```js
 function doSomething() {}
@@ -439,7 +439,7 @@ console.log("doSomething.prototype.prop:", doSomething.prototype.prop);
 console.log("doSomething.prototype.foo: ", doSomething.prototype.foo);
 ```
 
-Dies führt zu folgendem:
+Das resultiert in folgendem:
 
 ```plain
 doSomeInstancing.prop:      some value
@@ -450,11 +450,11 @@ doSomething.prototype.prop: undefined
 doSomething.prototype.foo:  bar
 ```
 
-## Verschiedene Arten zum Erstellen und Ändern von Prototyp-Ketten
+## Verschiedene Möglichkeiten zur Erstellung und Mutation von Prototyp-Ketten
 
-Wir sind auf viele Arten gestoßen, Objekte zu erstellen und ihre Prototyp-Ketten zu ändern. Wir werden die verschiedenen Ansätze systematisch zusammenfassen und die Vor- und Nachteile jedes Ansatzes vergleichen.
+Wir haben verschiedene Möglichkeiten zur Erstellung von Objekten und zur Veränderung ihrer Prototyp-Ketten kennengelernt. Wir werden systematisch die verschiedenen Methoden zusammenfassen, wobei wir die Vor- und Nachteile jeder Methode vergleichen.
 
-### Objekte erstellt mit Syntaxkonstrukten
+### Objekte, die mit Syntaxkonstrukten erstellt wurden
 
 ```js
 const o = { a: 1 };
@@ -482,7 +482,7 @@ const p = { b: 2, __proto__: o };
 // p ---> o ---> Object.prototype ---> null
 ```
 
-Beim Verwenden des `__proto__`-Schlüssels in [Objektinitialisierern](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) wird das Hinweisen des `__proto__`-Schlüssels auf etwas, das kein Objekt ist, nur stillschweigend fehlschlagen, ohne eine Ausnahme auszulösen. Im Gegensatz zu dem [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)-Setter ist `__proto__` in Objektliteral-Initialisierern standardisiert und optimiert und kann sogar performanter sein als {{jsxref("Object.create")}}. Zusätzlich zur Deklaration von zusätzlichen eigenen Eigenschaften auf dem Objekt bei der Erstellung ist es ergonomischer als {{jsxref("Object.create")}}.
+Wenn der `__proto__`-Schlüssel in [Objektinitialisierern](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) verwendet wird, schlägt das Zeigen des `__proto__`-Schlüssels auf etwas, das kein Objekt ist, einfach stillschweigend fehl, ohne eine Ausnahme zu werfen. Anders als bei dem [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Setter, ist `__proto__` in Objektliteral-Initialisierern standardisiert und optimiert und kann sogar leistungsfähiger sein als {{jsxref("Object.create")}}. Zusätzliche eigene Eigenschaften beim Erstellen des Objekts zu deklarieren, ist ergonomischer als bei {{jsxref("Object.create")}}.
 
 ### Mit Konstruktorfunktionen
 
@@ -501,11 +501,11 @@ const g = new Graph();
 // g.[[Prototype]] is the value of Graph.prototype when new Graph() is executed.
 ```
 
-Konstruktorfunktionen sind seit sehr frühem JavaScript verfügbar. Daher sind sie sehr schnell, sehr standardisiert und sehr JIT-optimierbar. Jedoch ist es auch schwer, sie "richtig" zu machen, da auf diese Weise hinzugefügte Methoden standardmäßig aufzählbar sind, was inkonsistent mit der Klassensyntax oder dem Verhalten eingebauter Methoden ist. Das Erstellen längerer Vererbungsketten ist ebenfalls fehleranfällig, wie zuvor demonstriert.
+Konstruktorfunktionen gibt es seit sehr frühen JavaScript-Versionen. Daher sind sie sehr schnell, sehr standardisiert und sehr JIT-optimierbar. Sie "richtig zu machen", kann jedoch schwierig sein, da auf diese Weise hinzugefügte Methoden standardmäßig aufzählbar sind, was inkonsistent mit der Klassensyntax oder wie eingebaute Methoden sich verhalten ist. Längere Vererbungsketten sind ebenfalls fehleranfällig, wie zuvor demonstriert.
 
 ### Mit Object.create()
 
-Durch Aufrufen von {{jsxref("Object.create()")}} wird ein neues Objekt erstellt. Der `[[Prototype]]` dieses Objekts ist das erste Argument der Funktion:
+Der Aufruf von {{jsxref("Object.create()")}} erstellt ein neues Objekt. Die `[[Prototype]]` dieses Objekts ist das erste Argument der Funktion:
 
 ```js
 const a = { a: 1 };
@@ -524,11 +524,11 @@ console.log(d.hasOwnProperty);
 // undefined, because d doesn't inherit from Object.prototype
 ```
 
-Ähnlich wie der `__proto__`-Schlüssel in Objektinitialisierern ermöglicht `Object.create()` das direkte Festlegen des Prototyps eines Objekts zum Erstellungszeitpunkt, was es der Laufzeit ermöglicht, das Objekt weiter zu optimieren. Es ermöglicht auch das Erstellen von Objekten mit `null`-Prototypen, indem `Object.create(null)` verwendet wird. Der zweite Parameter von `Object.create()` erlaubt es, die Attribute jeder Eigenschaft im neuen Objekt präzise zu spezifizieren, was ein zweischneidiges Schwert sein kann:
+Ähnlich wie der `__proto__`-Schlüssel in Objektinitialisierungen ermöglicht `Object.create()` das direkte Festlegen des Prototyps eines Objekts zur Erstellungszeit, was der Laufzeit erlaubt, das Objekt weiter zu optimieren. Es ermöglicht auch die Erstellung von Objekten mit `null`-Prototyp, wie bei `Object.create(null)`. Der zweite Parameter von `Object.create()` erlaubt es, die Attribute jeder Eigenschaft im neuen Objekt genau festzulegen, was ein doppelschneidiges Schwert sein kann:
 
-- Es erlaubt das Erstellen von nicht-aufrufbaren Eigenschaften usw. während der Objekterstellung, was mit Objektliteralen nicht möglich ist.
+- Es erlaubt Ihnen, nicht aufzählbare Eigenschaften usw. während der Objekterstellung zu erstellen, was mit Objektliteralen nicht möglich ist.
 - Es ist viel ausführlicher und fehleranfälliger als Objektliterale.
-- Es kann langsamer sein als Objektliterale, insbesondere wenn viele Eigenschaften erstellt werden.
+- Es kann langsamer als Objektliterale sein, insbesondere bei der Erstellung vieler Eigenschaften.
 
 ### Mit Klassen
 
@@ -553,11 +553,11 @@ const filledRectangle = new FilledRectangle(5, 10, "blue");
 // filledRectangle ---> FilledRectangle.prototype ---> Rectangle.prototype ---> Object.prototype ---> null
 ```
 
-Klassen bieten die höchste Lesbarkeit und Wartbarkeit beim Definieren komplexer Vererbungsstrukturen. [Private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) sind ein Feature ohne triviale Ersatzlösung in der prototypischen Vererbung. Klassen sind jedoch weniger optimiert als traditionelle Konstruktorfunktionen und werden in älteren Umgebungen nicht unterstützt.
+Klassen bieten die höchste Lesbarkeit und Wartbarkeit bei der Definition komplexer Vererbungsstrukturen. [Private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) sind ein Feature, das im prototypischen Erbe-Modell keinen trivialen Ersatz hat. Klassen sind jedoch weniger optimiert als traditionelle Konstruktorfunktionen und werden in älteren Umgebungen nicht unterstützt.
 
 ### Mit Object.setPrototypeOf()
 
-Während alle oben genannten Methoden die Prototyp-Kette beim Erstellungszeitpunkt von Objekten festlegen, erlaubt [`Object.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) das Ändern der `[[Prototype]]`-internen Eigenschaft eines bestehenden Objekts. Es kann sogar einen Prototyp auf ein prototyploses Objekt erzwingen, das mit `Object.create(null)` erstellt wurde, oder den Prototyp eines Objekts durch Festlegen auf `null` entfernen.
+Während alle oben genannten Methoden die Prototypenkette zur Objekterstellung festlegen, ermöglicht [`Object.setPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) das Mutieren der `[[Prototype]]`-internen Eigenschaft eines bestehenden Objekts. Es kann sogar einen Prototyp zu einem objektlosen Objekt auszwingen, das mit `Object.create(null)` erstellt wurde, oder den Prototyp eines Objekts durch Setzen auf `null` entfernen.
 
 ```js
 const obj = { a: 1 };
@@ -566,14 +566,14 @@ Object.setPrototypeOf(obj, anotherObj);
 // obj ---> anotherObj ---> Object.prototype ---> null
 ```
 
-Es sollte jedoch nach Möglichkeit beim Erstellen des Prototyps festgelegt werden, da das dynamische Festlegen des Prototyps alle Optimierungen, die Engines an der Prototyp-Kette vorgenommen haben, unterbricht. Es könnte dazu führen, dass einige Engines Ihren Code zur Deoptimierung neu kompilieren, damit er gemäß den Spezifikationen funktioniert.
+Sie sollten jedoch nach Möglichkeit den Prototyp während der Erstellung einstellen, da das dynamische Einstellen des Prototyps alle Optimierungen stört, die Engines an der Prototyp-Kette vorgenommen haben. Es könnte einige Engines dazu bringen, Ihren Code zur Deoptimierung neu zu kompilieren, damit er den Spezifikationen entspricht.
 
-### Mit dem \_\_proto\_\_ Accessor
+### Mit dem \_\_proto\_\_-Zugriffsobjekt
 
-Alle Objekte erben den [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)-Setter, der verwendet werden kann, um den `[[Prototype]]` eines bestehenden Objekts festzulegen (wenn der `__proto__`-Schlüssel auf dem Objekt nicht überschrieben wird).
+Alle Objekte erben den [`Object.prototype.__proto__`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) Setter, der verwendet werden kann, um das `[[Prototype]]` eines bestehenden Objekts festzulegen (wenn der `__proto__` Schlüssel nicht im Objekt überschrieben wird).
 
 > [!WARNING]
-> `Object.prototype.__proto__` Accessoren sind **nicht standardisiert** und veraltet. Sie sollten fast immer stattdessen `Object.setPrototypeOf` verwenden.
+> Die Accessoren `Object.prototype.__proto__` sind **nicht standardisiert** und veraltet. Sie sollten fast immer `Object.setPrototypeOf` verwenden.
 
 ```js
 const obj = {};
@@ -584,13 +584,13 @@ console.log(obj.fooProp);
 console.log(obj.barProp);
 ```
 
-Im Vergleich zu `Object.setPrototypeOf` schlägt das Festlegen von `__proto__` auf etwas, das kein Objekt ist, stillschweigend ohne Ausnahme fehl. Es hat auch eine etwas bessere Browser-Unterstützung. Es ist jedoch nicht standardisiert und veraltet. Sie sollten fast immer `Object.setPrototypeOf` stattdessen verwenden.
+Verglichen mit `Object.setPrototypeOf` schlägt das Setzen von `__proto__` auf etwas, das kein Objekt ist, stillschweigend fehl, ohne eine Ausnahme zu werfen. Es hat auch eine etwas bessere Browserunterstützung. Es ist jedoch nicht standard und veraltet. Sie sollten fast immer `Object.setPrototypeOf` verwenden.
 
 ## Leistung
 
-Die Suchzeit für Eigenschaften, die sich weit oben in der Prototyp-Kette befinden, kann sich negativ auf die Leistung auswirken, und dies kann in Code, in dem die Leistung kritisch ist, signifikant sein. Außerdem wird beim Versuch, auf nicht existierende Eigenschaften zuzugreifen, die gesamte Prototyp-Kette immer durchlaufen.
+Die Zugriffszeit für Eigenschaften, die hoch oben in der Prototyp-Kette liegen, kann negative Auswirkungen auf die Leistung haben, und dies könnte signifikant in kritischen Codebereichen sein, wo Leistung wichtig ist. Außerdem durchläuft der Versuch, auf nicht vorhandene Eigenschaften zuzugreifen, stets die gesamte Prototyp-Kette.
 
-Wenn auch über die Eigenschaften eines Objekts iteriert wird, werden **alle** aufzählbaren Eigenschaften, die sich in der Prototyp-Kette befinden, aufgezählt. Um zu überprüfen, ob ein auf einem Objekt definierte Eigenschaft _an sich_ und nicht irgendwo in seiner Prototyp-Kette vorliegt, müssen die Methoden [`hasOwnProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) oder [`Object.hasOwn`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) verwendet werden. Alle Objekte, außer diejenigen mit `null` als `[[Prototype]]`, erben [`hasOwnProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) von `Object.prototype` — sofern es nicht weiter unten in der Prototyp-Kette überschrieben wurde. Um Ihnen ein konkretes Beispiel zu geben, nehmen wir das obige Graph-Code-Beispiel zur Veranschaulichung:
+Außerdem werden beim Iterieren über die Eigenschaften eines Objekts **jede** aufzählbare Eigenschaft, die sich in der Prototyp-Kette befindet, aufgezählt. Um zu überprüfen, ob eine Eigenschaft auf _ihm selbst_ und nicht irgendwo in seiner Prototyp-Kette definiert ist, ist es notwendig, die Methoden [`hasOwnProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) oder [`Object.hasOwn`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) zu verwenden. Alle Objekte, außer diejenigen mit `null` als `[[Prototype]]`, erben [`hasOwnProperty`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) von `Object.prototype` – es sei denn, es wurde weiter unten in der Prototyp-Kette überschrieben. Um Ihnen ein konkretes Beispiel zu geben, nehmen wir den obigen Beispielcode des Graphen, um dies zu veranschaulichen:
 
 ```js
 function Graph() {
@@ -617,14 +617,14 @@ Object.hasOwn(g, "addVertex"); // false
 Object.getPrototypeOf(g).hasOwnProperty("addVertex"); // true
 ```
 
-Hinweis: Es ist **nicht** ausreichend zu überprüfen, ob eine Eigenschaft [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) ist. Die Eigenschaft könnte durchaus existieren, aber ihr Wert ist zufällig auf `undefined` gesetzt.
+Hinweis: Es reicht **nicht** aus, zu überprüfen, ob eine Eigenschaft [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) ist. Die Eigenschaft könnte sehr wohl existieren, aber ihr Wert ist einfach `undefined` gesetzt.
 
 ## Fazit
 
-JavaScript kann für Entwickler, die von Java oder C++ kommen, etwas verwirrend sein, da alles dynamisch ist, alles zur Laufzeit abläuft und es überhaupt keine statischen Typen gibt. Alles ist entweder ein Objekt (Instanz) oder eine Funktion (Konstruktor), und selbst Funktionen sind Instanzen des `Function`-Konstruktors. Selbst die "Klassen" als Syntaxkonstrukte sind zur Laufzeit nur Konstruktionsfunktionen.
+JavaScript kann für Entwickler, die von Java oder C++ kommen, etwas verwirrend sein, da alles dynamisch und im Laufzeitmodus ist und überhaupt keine statischen Typen hat. Alles ist entweder ein Objekt (Instanz) oder eine Funktion (Konstruktor), und sogar die "Klassen" als Syntaxkonstrukte sind lediglich Konstruktorfunktionen zur Laufzeit.
 
-Alle Konstruktionsfunktionen in JavaScript haben eine spezielle Eigenschaft namens `prototype`, die mit dem `new`-Operator arbeitet. Der Verweis auf das Prototypobjekt wird auf die interne `[[Prototype]]`-Eigenschaft der neuen Instanz kopiert. Beispielsweise wird beim Ausführen von `const a1 = new A()` von JavaScript (nachdem das Objekt im Speicher erstellt wurde und bevor die Funktion `A()` mit definiertem `this` ausgeführt wird) `a1.[[Prototype]] = A.prototype` festgelegt. Wenn Sie dann auf die Eigenschaften der Instanz zugreifen, überprüft JavaScript zuerst, ob diese direkt an diesem Objekt vorhanden sind, und wenn nicht, schaut es in `[[Prototype]]`. `[[Prototype]]` wird _rekursiv_ betrachtet, d.h. `a1.doSomething`, `Object.getPrototypeOf(a1).doSomething`, `Object.getPrototypeOf(Object.getPrototypeOf(a1)).doSomething` usw., bis es gefunden wird oder `Object.getPrototypeOf` `null` zurückgibt. Dadurch werden alle auf `prototype` definierten Eigenschaften effektiv von allen Instanzen gemeinsam genutzt, und Sie können sogar später Teile von `prototype` ändern und die Änderungen werden in allen vorhandenen Instanzen sichtbar.
+Alle Konstruktorfunktionen in JavaScript haben eine spezielle Eigenschaft namens `prototype`, die mit dem `new`-Operator arbeitet. Die Referenz auf das Prototyp-Objekt wird in die interne `[[Prototype]]`-Eigenschaft der neuen Instanz kopiert. Wenn Sie beispielsweise `const a1 = new A()` ausführen, legt JavaScript (nach dem Erstellen des Objekts im Speicher und bevor es die Funktion `A()` mit `this` aufruft) `a1.[[Prototype]] = A.prototype` fest. Wenn Sie dann auf die Eigenschaften der Instanz zugreifen, prüft JavaScript zuerst, ob diese Eigenschaften direkt auf diesem Objekt existieren, und wenn nicht, sucht es in `[[Prototype]]`. `[[Prototype]]` wird _rekursiv_ betrachtet, d.h. `a1.doSomething`, `Object.getPrototypeOf(a1).doSomething`, `Object.getPrototypeOf(Object.getPrototypeOf(a1)).doSomething` usw., bis es gefunden wird oder `Object.getPrototypeOf` `null` zurückgibt. Dies bedeutet, dass alle auf `prototype` definierten Eigenschaften effektiv von allen Instanzen geteilt werden, und Sie können sogar später Teile von `prototype` ändern und die Änderungen erscheinen in allen vorhandenen Instanzen.
 
-Wenn Sie im Beispiel oben `const a1 = new A(); const a2 = new A();` ausführen, dann würde `a1.doSomething` tatsächlich auf `Object.getPrototypeOf(a1).doSomething` verweisen – was dem entspricht, wie Sie `A.prototype.doSomething` definiert haben, d.h. `Object.getPrototypeOf(a1).doSomething === Object.getPrototypeOf(a2).doSomething === A.prototype.doSomething`.
+Wenn Sie im obigen Beispiel `const a1 = new A(); const a2 = new A();` ausführen, würde `a1.doSomething` tatsächlich `Object.getPrototypeOf(a1).doSomething` referenzieren – was dasselbe ist wie `A.prototype.doSomething`, das Sie definiert haben, also `Object.getPrototypeOf(a1).doSomething === Object.getPrototypeOf(a2).doSomething === A.prototype.doSomething`.
 
-Es ist wichtig, das prototypische Vererbungsmodell zu verstehen, bevor man komplexen Code schreibt, der es nutzt. Beachten Sie auch die Länge der Prototyp-Ketten in Ihrem Code und teilen Sie sie bei Bedarf auf, um mögliche Leistungsprobleme zu vermeiden. Weiterhin sollten die nativen Prototypen **niemals** erweitert werden, es sei denn, es dient zur Kompatibilität mit neueren JavaScript-Funktionen.
+Es ist wichtig, das Prototyp-Vererbungskonzept zu verstehen, bevor Sie komplexen Code schreiben, der es verwendet. Achten Sie auch auf die Länge der Prototyp-Ketten in Ihrem Code und unterbrechen Sie sie notfalls, um mögliche Leistungsprobleme zu vermeiden. Darüber hinaus sollten die nativen Prototypen **niemals** erweitert werden, es sei denn, es ist für die Kompatibilität mit neueren JavaScript-Funktionen.
