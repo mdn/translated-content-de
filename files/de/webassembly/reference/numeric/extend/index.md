@@ -1,11 +1,12 @@
 ---
-title: Extend
-slug: WebAssembly/Reference/Numeric/Extend
+title: "extend: Wasm-Textanweisung"
+short-title: extend
+slug: WebAssembly/Reference/Numeric/extend
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`extend`**-Anweisungen werden verwendet, um Zahlen vom Typ `i32` in den Typ `i64` zu konvertieren (erweitern). Es gibt signierte und unsignierte Versionen dieser Anweisung.
+Die **`extend`**-Anweisungen werden verwendet, um Zahlen des Typs `i32` in den Typ `i64` zu konvertieren (erweitern). Es gibt signierte und unsignierte Versionen dieser Anweisung.
 
 {{InteractiveExample("Wat Demo: extend", "tabbed-taller")}}
 
@@ -42,7 +43,7 @@ i64.extend_i32_s
 ;; the top item on the stack will now be the value 10 of type i64
 ```
 
-| Anweisung          | Binäroperation |
+| Anweisung          | Binärer Opcode |
 | ------------------ | -------------- |
 | `i64.extend_i32_s` | `0xac`         |
 | `i64.extend_i32_u` | `0xad`         |

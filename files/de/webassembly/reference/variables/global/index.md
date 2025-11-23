@@ -1,11 +1,12 @@
 ---
-title: Global
-slug: WebAssembly/Reference/Variables/Global
+title: "global: Wasm-Textinstruktion"
+short-title: global
+slug: WebAssembly/Reference/Variables/global
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`global`**-Anweisung deklariert eine neue globale Variable.
+Die **`global`**-Instruktion deklariert eine neue globale Variable.
 
 {{InteractiveExample("Wat Demo: global", "tabbed-taller")}}
 

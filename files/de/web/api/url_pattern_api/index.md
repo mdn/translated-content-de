@@ -2,37 +2,44 @@
 title: URL Pattern API
 slug: Web/API/URL_Pattern_API
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: db9696f0f6e4a9ed4fd353d03ed104fc02077dfe
 ---
 
 {{DefaultAPISidebar("URL Pattern API")}} {{AvailableInWorkers}}
 
-Die **URL Pattern API** definiert eine Syntax, die zum Erstellen von URL-Musterabgleichern verwendet wird. Diese Muster können mit URLs oder einzelnen URL-Komponenten abgeglichen werden.
+Die **URL-Muster-API** definiert eine Syntax, die zum Erstellen von URL-Mustermatchern verwendet wird.
+Diese Muster können mit URLs oder einzelnen URL-Komponenten verglichen werden.
 
 ## Konzepte und Verwendung
 
-Muster werden mit dem [`URLPattern`](/de/docs/Web/API/URLPattern)-Interface festgelegt. Die Mustersyntax basiert auf der Syntax der [path-to-regexp](https://github.com/pillarjs/path-to-regexp)-Bibliothek. Muster können Folgendes enthalten:
+Muster werden mit der [`URLPattern`](/de/docs/Web/API/URLPattern)-Schnittstelle angegeben.
+Die Mustersyntax basiert auf der Syntax aus der [path-to-regexp](https://github.com/pillarjs/path-to-regexp)-Bibliothek.
+Muster können folgende Elemente enthalten:
 
-- Wörtliche Zeichenfolgen, die genau übereinstimmen.
-- Platzhalter (`/posts/*`), die beliebige Zeichen abgleichen.
-- Benannte Gruppen (`/books/:id`), die einen Teil der übereinstimmenden URL extrahieren.
-- Nicht erfassende Gruppen (`/books{/old}?`), die Teile eines Musters optional machen oder mehrmals abgeglichen werden können.
-- {{jsxref("RegExp")}}-Gruppen (`/books/(\\d+)`), die beliebig komplexe Regex-Übereinstimmungen ermöglichen. _Beachten Sie, dass die Klammern nicht Teil des Regex sind, sondern ihren Inhalt als Regex definieren._ Einige APIs verbieten die Verwendung von regulären Ausdrucksgruppen in `URLPattern`-Objekten. Die Eigenschaft [`hasRegExpGroups`](/de/docs/Web/API/URLPattern/hasRegExpGroups) gibt an, ob reguläre Ausdrucksgruppen verwendet werden.
+- Wörtliche Zeichenfolgen, die exakt übereinstimmen.
+- Platzhalter (`/posts/*`), die jedes Zeichen matchen.
+- Benannte Gruppen (`/books/:id`), die einen Teil der gematchten URL extrahieren.
+- Nicht erfasste Gruppen (`/books{/old}?`), die Teile eines Musters optional machen oder mehrfach übereinstimmen lassen.
+- {{jsxref("RegExp")}}-Gruppen (`/books/(\\d+)`), die beliebig komplexe Regex-Übereinstimmungen ermöglichen. _Beachten Sie, dass die Klammern nicht Teil des Regex sind, sondern deren Inhalt als Regex definieren._ Manche APIs verbieten die Verwendung von regulären Ausdrucksgruppen in `URLPattern`-Objekten. Die Eigenschaft [`hasRegExpGroups`](/de/docs/Web/API/URLPattern/hasRegExpGroups) gibt an, ob reguläre Ausdrucksgruppen verwendet werden.
 
 Details zur Syntax finden Sie im Abschnitt [Mustersyntax](#mustersyntax) weiter unten.
 
 ## Schnittstellen
 
 - [`URLPattern`](/de/docs/Web/API/URLPattern)
-  - : Stellt ein Muster dar, das mit URLs oder Teilen von URLs übereinstimmen kann. Das Muster kann erfassende Gruppen enthalten, die Teile der übereinstimmenden URL extrahieren.
+  - : Repräsentiert ein Muster, das mit URLs oder Teilen von URLs übereinstimmen kann. Das Muster kann erfasste Gruppen enthalten, die Teile der gematchten URL extrahieren.
 
 ## Mustersyntax
 
-Die Syntax für Muster basiert auf der [path-to-regexp](https://github.com/pillarjs/path-to-regexp) JavaScript-Bibliothek. Diese Syntax ähnelt der in [Ruby on Rails](https://rubyonrails.org/) oder JavaScript-Frameworks wie [Express](https://expressjs.com/) oder [Next.js](https://nextjs.org/) verwendeten.
+Die Syntax für Muster basiert auf der [path-to-regexp](https://github.com/pillarjs/path-to-regexp) JavaScript-Bibliothek.
+Diese Syntax ähnelt derjenigen, die in [Ruby on Rails](https://rubyonrails.org/) oder JavaScript-Frameworks wie [Express](https://expressjs.com/) oder [Next.js](https://nextjs.org/) verwendet wird.
 
 ### Fester Text und Erfassungsgruppen
 
-Jedes Muster kann eine Kombination aus festem Text und Gruppen enthalten. Der feste Text ist eine Zeichenfolge, die genau abgeglichen wird. Gruppen gleichen eine beliebige Zeichenfolge basierend auf Abgleichsregeln ab. Jeder URL-Teil hat seine eigenen Standardregeln, die unten erklärt werden, aber sie können überschrieben werden.
+Jedes Muster kann eine Kombination aus festem Text und Gruppen enthalten.
+Der feste Text ist eine Zeichenfolge, die genau übereinstimmt.
+Gruppen matchen eine willkürliche Zeichenfolge basierend auf Übereinstimmungsregeln.
+Jeder URL-Teil hat seine eigenen Standardregeln, die unten erklärt werden, sie können jedoch überschrieben werden.
 
 ```js
 // A pattern matching some fixed text
@@ -50,11 +57,15 @@ console.log(pattern.exec("https://example.com/books/123").pathname.groups); // {
 
 ### Segment-Platzhalter
 
-Standardmäßig wird eine Gruppe, die den `pathname`-Teil der URL abgleicht, alle Zeichen außer dem Schrägstrich (`/`) abgleichen. Im `hostname`-Teil wird die Gruppe alle Zeichen außer dem Punkt (`.`) abgleichen. In allen anderen Teilen wird die Gruppe alle Zeichen abgleichen. Der Segment-Platzhalter ist nicht gierig, was bedeutet, dass er die kürzeste mögliche Zeichenfolge abgleichen wird.
+Standardmäßig wird eine Gruppe, die den `pathname`-Teil der URL matcht, alle Zeichen außer den Schrägstrich (`/`) matchen. Im `hostname`-Teil wird die Gruppe alle Zeichen außer dem Punkt (`.`) matchen.
+In allen anderen Teilen wird die Gruppe alle Zeichen matchen.
+Der Segment-Platzhalter ist nicht gierig, was bedeutet, dass er die kürzest mögliche Zeichenfolge matchen wird.
 
 ### Regex-Matcher
 
-Anstelle der Standard-Abgleichsregeln für eine Gruppe können Sie für jede Gruppe ein Regex definieren, indem Sie es in Klammern angeben. Dieses Regex definiert die Abgleichsregeln für die Gruppe. Unten ist ein Beispiel eines Regex-Matchers in einer benannten Gruppe, die die Gruppe nur abgleichen lässt, wenn sie eine oder mehrere Ziffern enthält:
+Anstelle der Standardübereinstimmungsregeln für eine Gruppe können Sie einen Regex für jede Gruppe angeben, indem Sie ihn in Klammern angeben.
+Dieses Regex definiert die Übereinstimmungsregeln für die Gruppe.
+Unten steht ein Beispiel für einen Regex-Matcher in einer benannten Gruppe, die die Gruppe nur dann einschränkt, wenn sie eine oder mehrere Ziffern enthält:
 
 ```js
 const pattern1 = new URLPattern("/books/:id(\\d+)", "https://example.com");
@@ -63,7 +74,7 @@ console.log(pattern1.test("https://example.com/books/abc")); // false
 console.log(pattern1.test("https://example.com/books/")); // false
 ```
 
-Sie können auch Regex verwenden, wenn Sie ein `URLPattern` mit der Objektsyntax konstruieren.
+Sie können auch Regex verwenden, wenn Sie ein `URLPattern` mit der Objektsyntax erstellen.
 
 ```js
 const pattern2 = new URLPattern({ pathname: "/books/:id(\\d+)" });
@@ -72,9 +83,11 @@ console.log(pattern2.test("https://example.com/books/abc")); // false
 console.log(pattern2.test("https://example.com/books/")); // false
 ```
 
-#### Pfadnamensabgleich
+#### Pfadname-Übereinstimmung
 
-Der `pathname`-URL-Teil beginnt immer mit `/`. Wenn Sie das `/` in Ihrem regulären Ausdruck weglassen, schlägt der Abgleich fehl. Das folgende Beispiel zeigt dies:
+Der `pathname`-URL-Teil beginnt immer mit `/`.
+Wenn Sie das `/` in Ihrem regulären Ausdruck weglassen, wird die Übereinstimmung fehlschlagen.
+Das folgende Beispiel
 
 ```js example-bad
 // Doesn't match, because omits the `/`
@@ -83,7 +96,7 @@ console.log(pattern1.test("https://example.com/b")); // false
 console.log(pattern1.test("https://example.com/ba")); // false
 ```
 
-Die folgenden Beispiele enthalten die `/`:
+Die folgenden Beispiele beinhalten das `/`:
 
 ```js example-good
 // Matches URL where path is exactly "/b"
@@ -97,11 +110,14 @@ console.log(pattern3.test("https://example.com/b")); // true
 console.log(pattern3.test("https://example.com/ba")); // true
 ```
 
-#### Anfangs- und Endanker
+#### Anfangs- und Endzeichenanker
 
-Der Anfangsanker (`^`) und der Endanker (`$`) werden verwendet, um Muster am Anfang bzw. Ende der Testzeichenfolge zu verankern. Während sie für den Anfang und das Ende eines URL-Teils angegeben werden können, sind sie redundant. Dies liegt daran, dass alle URL-Teile implizit mit dem `^`-Anker vorangestellt und mit dem `$`-Anker abgeschlossen sind.
+Der Anfangszeichenanker (`^`) und der Endzeichenanker (`$`) werden verwendet, um Muster an den Anfang bzw. das Ende der Testzeichenfolge zu verankern.
+Obwohl diese am Anfang und Ende eines URL-Teils angegeben werden können, sind sie redundant.
+Dies liegt daran, dass alle URL-Teile implizit von dem `^` Anker vorangestellt und von dem `$` Anker gefolgt werden.
 
-Der folgende Code zeigt, dass es egal ist, ob `^` angegeben ist oder nicht. Das Beispiel verwendet ein Muster im `protocol`-URL-Teil, aber die anderen Teile der URL verhalten sich gleich.
+Der folgende Code zeigt, dass es keinen Unterschied macht, ob `^` angegeben wird oder nicht.
+Das Beispiel verwendet ein Muster im `protocol`-URL-Teil, aber die anderen Teile der URL verhalten sich genauso.
 
 ```js
 // with `^` in protocol
@@ -113,7 +129,7 @@ const pattern2 = new URLPattern({ protocol: "(https?)" });
 console.log(pattern2.test("https://example.com/index.html")); // true
 ```
 
-Der folgende Code zeigt, dass es egal ist, ob `$` angegeben ist oder nicht.
+Der untenstehende Code zeigt, dass es keinen Unterschied macht, ob `$` angegeben ist oder nicht.
 
 ```js
 // with `$` in pathname
@@ -133,27 +149,30 @@ const pattern4 = new URLPattern({ hash: "(/hash)" });
 console.log(pattern4.test("https://example.com/#hash")); // true
 ```
 
-#### Forward- und Backward-Assertions
+#### Lookahead- und Lookbehind-Assertions
 
-[Lookahead](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) und [Lookbehind](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion) Assertions ermöglichen es Ihnen, anzugeben, dass Text vor oder hinter der aktuellen Parsing-Position ein bestimmtes Muster abgleicht, ohne dass dieser Abgleich erfasst wird oder die Zeichen konsumiert werden.
+[Lookahead](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)- und [Lookbehind](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)-Assertions erlauben es Ihnen, anzugeben, dass Text vor oder hinter der aktuellen Parsing-Position einem bestimmten Muster entspricht, ohne dass dieses Match erfasst oder die Zeichen konsumiert werden.
 
 Es gibt vier Arten von Assertions:
 
-- `(?=...)`: Eine positive Lookahead-Assertion gibt ein Muster an, das die folgenden Zeichen abgleichen müssen.
-- `(?!...)`: Eine negative Lookahead-Assertion gibt ein Muster an, das die folgenden Zeichen nicht abgleichen dürfen.
-- `(?<=...)`: Eine positive Lookbehind-Assertion gibt ein Muster an, das die vorhergehenden Zeichen abgleichen müssen.
-- `(?<!...)`: Eine negative Lookbehind-Assertion gibt ein Muster an, das die vorhergehenden Zeichen nicht abgleichen dürfen.
+- `(?=...)`: Eine positive Lookahead-Assertion gibt ein Muster an, dem die folgenden Zeichen entsprechen müssen.
+- `(?!...)`: Eine negative Lookahead-Assertion gibt ein Muster an, dem die folgenden Zeichen nicht entsprechen dürfen.
+- `(?<=...)`: Eine positive Lookbehind-Assertion gibt ein Muster an, dem die vorhergehenden Zeichen entsprechen müssen.
+- `(?<!...)`: Eine negative Lookbehind-Assertion gibt ein Muster an, dem die vorhergehenden Zeichen nicht entsprechen dürfen.
 
-Seien Sie vorsichtig bei der Verwendung von Lookahead- und Lookbehind-Assertions mit `URLPattern`, da das Verhalten eventuell nicht intuitiv ist. Zum Beispiel würden Sie erwarten, dass die folgende Lookahead-Assertion einen `pathname` von `/ab` abgleicht, aber das ist nicht, was passiert.
+Seien Sie vorsichtig, wenn Sie Lookahead- und Lookbehind-Assertions mit `URLPattern` verwenden, da einige Verhaltensweisen möglicherweise nicht intuitiv erscheinen.
+Zum Beispiel würden Sie erwarten, dass die folgende Lookahead-Assertion einem `pathname` von `/ab` entspricht, aber das passiert nicht.
 
 ```js example-bad
 const pattern = new URLPattern({ pathname: "(/a(?=b))" });
 console.log(pattern.test("https://example.com/ab")); // false
 ```
 
-Die `URLPattern`-Engine gleicht die Testzeichenfolge gegen das `pathname`-Muster ab, indem sie zuerst die Übereinstimmung für `/a` findet und anschließend überprüft, dass das nächste Zeichen in der Test-URL `b` ist — ohne es zu konsumieren. Die Engine fährt dann mit dem Abgleich der Test-URL am nicht konsumierten Zeichen `b` fort, aber es gibt nichts mehr im Muster, um es abzugleichen, was dazu führt, dass der Abgleich fehlschlägt.
+Die `URLPattern`-Engine vergleicht die Testzeichenfolge mit dem `pathname`-Muster und findet zuerst das Match für `/a` und stellt dann fest, dass das nächste Zeichen in der Test-URL ein `b` ist — verbraucht es jedoch nicht.
+Die Engine setzt den Vergleich der Test-URL mit dem ungenutzen Zeichen `b` fort, aber es bleibt nichts mehr im Muster übrig, mit dem es verglichen werden kann, was dazu führt, dass der Match fehlschlägt.
 
-Damit der Abgleich funktioniert, muss das Muster alle Zeichen in der Testzeichenfolge konsumieren. Um das `b`-Zeichen zu konsumieren, könnten Sie `b` am Ende des Ausdrucks hinzufügen, einen `.` zum Abgleichen eines beliebigen Zeichens oder `.*` zum Abgleichen aller Zeichen nach der Lookahead-Assertion:
+Damit das Match funktioniert, muss das Muster alle Zeichen in der Testzeichenfolge konsumieren.
+Um das `b`-Zeichen zu konsumieren, könnten Sie ein `b`, einen `.` um jedes Zeichen zu matchen oder `.*` hinzufügen, um alle Zeichen nach der Lookahead-Assertion zu matchen:
 
 ```js example-good
 // positive-lookahead
@@ -162,7 +181,8 @@ console.log(pattern1.test("https://example.com/ab")); // true
 console.log(pattern1.test("https://example.com/ax")); // false
 ```
 
-Das nächste Beispiel zeigt einen negativen Lookahead-Abgleich für `/a`, dem kein `b` folgt. Beachten Sie, dass der Assertion ein `.*` folgt, um das Zeichen zu konsumieren, das von der Assertion abgeglichen wird.
+Das nächste Beispiel zeigt einen negativen Lookahead-Match für `/a`, das nicht von `b` gefolgt wird.
+Beachten Sie, dass der Assertion ein `.*` folgt, um das Zeichen, das durch die Assertion gematcht wird, zu konsumieren.
 
 ```js
 // negative-lookahead - matches /a<not b><anything>
@@ -171,7 +191,8 @@ console.log(pattern2.test("https://example.com/ab")); // false
 console.log(pattern2.test("https://example.com/ax")); // true
 ```
 
-Das folgende Beispiel zeigt einen positiven Lookbehind-Abgleich, der auf einem Pfadnamen wie `/ba` übereinstimmt. Das Muster gleicht `/` ab, dann `.` um das nächste Zeichen zu konsumieren, gefolgt von der Assertion, dass das vorherige Zeichen ein `b` war, und dann ein `a`.
+Das folgende Beispiel zeigt einen positiven Lookbehind-Match, der bei einem Pfadnamen wie `/ba` matcht.
+Das Muster matcht `/`, dann `.` zum Konsumieren des nächsten Zeichens, gefolgt von der Assertion, dass das vorhergehende Zeichen ein `b` war, und dann ein `a`.
 
 ```js
 // positive-lookbehind
@@ -180,7 +201,8 @@ console.log(pattern.test("https://example.com/ba")); // true
 console.log(pattern.test("https://example.com/xa")); // false
 ```
 
-Dieses Beispiel zeigt einen negativen Lookbehind-Abgleich, der auf einem Pfadnamen wie `/<not b>a` übereinstimmt. Das Muster gleicht `/` ab, dann `.` um das nächste Zeichen (`x`) zu konsumieren, gefolgt von der Assertion, dass das vorherige Zeichen nicht `b` war, und dann ein `a`.
+Dieses Beispiel zeigt einen negativen Lookbehind-Match, der bei einem Pfadnamen wie `/<not b>a` matcht.
+Das Muster matcht `/`, dann `.` zum Konsumieren des nächsten Zeichens (`x`), gefolgt von der Assertion, dass das vorhergehende Zeichen kein `b` war, und dann ein `a`.
 
 ```js
 // negative-lookbehind
@@ -189,11 +211,11 @@ console.log(pattern4.test("https://example.com/ba")); // false
 console.log(pattern4.test("https://example.com/xa")); // true
 ```
 
-#### Andere Einschränkungen von Regex-Matchern
+#### Andere Einschränkungen bei Regex-Matchern
 
 Einige andere Regex-Muster funktionieren möglicherweise nicht wie erwartet:
 
-- Klammern müssen in Bereichsausdrücken innerhalb von URLPattern escaped werden, obwohl sie dies in RegExp nicht tun müssen.
+- Klammern müssen in Bereichsausdrücken innerhalb von URLPattern escaped werden, obwohl sie es in RegExp nicht müssen.
 
   ```js
   new URLPattern({ pathname: "([()])" }); // throws
@@ -205,7 +227,8 @@ Einige andere Regex-Muster funktionieren möglicherweise nicht wie erwartet:
 
 ### Unbenannte und benannte Gruppen
 
-Gruppen können entweder benannt oder unbenannt sein. Benannte Gruppen werden angegeben, indem der Gruppenname mit einem Doppelpunkt (`:`) vorangestellt wird. Regex-Gruppen, die nicht mit einem Doppelpunkt und einem Namen vorangestellt sind, sind unbenannt. Unbenannte Gruppen werden im Match-Ergebnis basierend auf ihrer Reihenfolge im Muster numerisch indiziert.
+Gruppen können entweder benannt oder unbenannt sein. Benannte Gruppen werden durch Hinzufügen eines Doppelpunkts (`:`) vor dem Gruppennamen angegeben.
+Regex-Gruppen, die nicht durch einen Doppelpunkt und einen Namen vorangestellt sind, sind unbenannt. Unbenannte Gruppen werden basierend auf ihrer Reihenfolge im Muster nummerisch im Übereinstimmungsergebnis indiziert.
 
 ```js
 // A named group
@@ -221,7 +244,9 @@ console.log(pattern.exec("https://example.com/books/123").pathname.groups); // {
 
 ### Gruppenmodifikatoren
 
-Gruppen können auch Modifikatoren haben. Diese werden nach dem Gruppennamen (oder nach dem Regex, falls vorhanden) angegeben. Es gibt drei Modifikatoren: `?`, um die Gruppe optional zu machen, `+`, um die Gruppe einmal oder mehrmals zu wiederholen, und `*`, um die Gruppe null- oder mehrmals zu wiederholen.
+Gruppen können auch Modifikatoren haben.
+Diese werden nach dem Gruppennamen (oder nach dem Regex, falls vorhanden) angegeben.
+Es gibt drei Modifikatoren: `?` um die Gruppe optional zu machen, `+` um die Gruppe einmal oder mehrmals zu wiederholen, und `*` um die Gruppe null- oder mehrmals zu wiederholen.
 
 ```js
 // An optional group
@@ -253,9 +278,12 @@ console.log(pattern.test("https://example.com/books/123/456")); // true
 console.log(pattern.test("https://example.com/books/123/456/789")); // true
 ```
 
-### Gruppentrenner
+### Gruppentrennzeichen
 
-Muster können auch Gruppentrenner enthalten. Dies sind Teile eines Musters, die von geschweiften Klammern (`{}`) umgeben sind. Diese Gruppentrenner werden im Match-Ergebnis nicht erfasst wie erfassende Gruppen, können jedoch ebenso wie Gruppen Modifikatoren auf sie angewendet werden. Wenn Gruppentrenner nicht durch einen Modifikator modifiziert werden, werden sie behandelt, als ob die Elemente in ihnen einfach Teil des übergeordneten Musters wären. Gruppentrenner dürfen keine anderen Gruppentrenner enthalten, aber sie dürfen alle anderen Musterbestandteile (erfassende Gruppen, Regex, Platzhalter oder festen Text) enthalten.
+Muster können auch Gruppentrennzeichen enthalten. Diese sind Teile eines Musters, die von geschweiften Klammern (`{}`) umgeben sind.
+Diese Gruppentrennzeichen werden im Übereinstimmungsergebnis nicht wie erfassende Gruppen erfasst, aber sie können wie Gruppen auch mit Modifikatoren versehen werden.
+Wenn Gruppentrennzeichen nicht durch einen Modifikator modifiziert werden, werden sie behandelt, als ob die Elemente in ihnen nur Teil des übergeordneten Musters wären.
+Gruppentrennzeichen dürfen keine anderen Gruppentrennzeichen enthalten, können jedoch alle anderen Musterelemente (erfassende Gruppen, Regex, Platzhalter oder fester Text) enthalten.
 
 ```js
 // A group delimiter with a ? (optional) modifier
@@ -281,11 +309,13 @@ console.log(pattern.test("https://example.com/blog/123")); // true
 console.log(pattern.test("https://example.com/blog/my-blog")); // false
 ```
 
-### Automatische Gruppenprefixe in Pfadnamen
+### Automatisches Gruppenvorzeichen in Pfadnamen
 
-In Mustern, die gegen den `pathname`-Teil einer URL abgleichen, erhalten Gruppen automatisch ein Schrägstrich (`/`)-Prefix hinzugefügt, wenn die Gruppendefinition von einem Schrägstrich (`/`) vorangestellt ist. Dies ist nützlich für Gruppen mit Modifikatoren, da es ermöglicht, dass wiederholte Gruppen wie erwartet funktionieren.
+In Mustern, die gegen den `pathname`-Teil einer URL verglichen werden, erhalten Gruppen automatisch ein Schrägstrich (`/`) als Vorzeichen hinzugefügt, wenn der Gruppendefinition ein Schrägstrich (`/`) vorangestellt ist.
+Dies ist nützlich für Gruppen mit Modifikatoren, da es sich ermöglicht, dass sich wiederholende Gruppen erwartungsgemäß verhalten.
 
-Wenn Sie kein automatisches Prefixing möchten, können Sie es deaktivieren, indem Sie die Gruppe mit Gruppentrennern (`{}`) umgeben. Gruppentrenner haben kein automatisches Prefixing-Verhalten.
+Wenn Sie keine automatische Vorzeichenvergabe möchten, können Sie sie deaktivieren, indem Sie die Gruppe mit Gruppentrennzeichen (`{}`) umgeben.
+Gruppentrennzeichen haben kein automatisches Vorzeichenverhalten.
 
 ```js
 // A pattern with an optional group, preceded by a slash
@@ -320,9 +350,11 @@ console.log(pattern.test("https://example.com/books")); // false
 console.log(pattern.test("https://example.com/books/")); // true
 ```
 
-### Wildcard-Token
+### Platzhalter für Zeichen
 
-Das Wildcard-Token (`*`) ist eine Abkürzung für eine unbenannte erfassende Gruppe, die alle Zeichen null- oder mehrmals abgleicht. Sie können es an beliebiger Stelle im Muster platzieren. Der Wildcard ist gierig, was bedeutet, dass er die längstmögliche Zeichenfolge abgleichen wird.
+Der Platzhalter für Zeichen (`*`) ist eine Kurzform für eine unbenannte erfasste Gruppe, die alle Zeichen null- oder mehrmals matcht.
+Sie können diesen Platzhalter überall im Muster platzieren.
+Der Platzhalter ist gierig, was bedeutet, dass er die längste mögliche Zeichenfolge matchen wird.
 
 ```js
 // A wildcard at the end of a pattern
@@ -342,9 +374,10 @@ console.log(pattern.test("https://example.com/folder/image.png")); // true
 console.log(pattern.test("https://example.com/.png")); // true
 ```
 
-### Abschließende Schrägstriche im Pfadnamen werden standardmäßig nicht abgeglichen
+### Nachlaufende Schrägstriche im Pfadnamen werden standardmäßig nicht gematcht
 
-Abschließende Schrägstriche in einem Pfadnamen werden nicht automatisch abgeglichen. Das folgende Beispiel zeigt, dass ein `URLPattern`-Abgleich für einen Pfadnamen von `/books` `https://example.com/books` abgleichen wird, aber nicht `https://example.com/books/` (und umgekehrt):
+Nachlaufende Schrägstriche in einem Pfadnamen werden nicht automatisch gematcht.
+Das folgende Beispiel zeigt, dass ein `URLPattern`-Match für einen Pfadnamen von `/books` `https://example.com/books` aber nicht `https://example.com/books/` (und umgekehrt) matchen wird:
 
 ```js
 const patternSlash = new URLPattern({ pathname: "/books/" });
@@ -352,11 +385,13 @@ console.log(patternSlash.test("https://example.com/books")); // false
 console.log(patternSlash.test("https://example.com/books/")); // true
 
 const patternNoSlash = new URLPattern({ pathname: "/books" });
-console.log(patternNoSlash.test("https://example.com/books")); // false
-console.log(patternNoSlash.test("https://example.com/books/")); // true
+console.log(patternNoSlash.test("https://example.com/books")); // true
+console.log(patternNoSlash.test("https://example.com/books/")); // false
 ```
 
-Wenn Sie möchten, dass beides abgeglichen wird, müssen Sie ein Abgleichsmuster verwenden, das beides zulässt. Der einfachste Ansatz ist die Verwendung eines [Gruppentrenners](#gruppentrenner), der einen Schrägstrich enthält, gefolgt vom optionalen Modifikator. Dies wird das Muster mit oder ohne abschließendem Schrägstrich abgleichen.
+Wenn Sie beides matchen möchten, müssen Sie ein Matchmuster verwenden, das beides zulässt.
+Der einfachste Ansatz ist die Verwendung eines [Gruppentrenners](#gruppentrennzeichen), der einen Schrägstrich enthält, gefolgt von dem optionalen Modifikator.
+Dies wird das Muster mit oder ohne abschließenden Schrägstrich matchen.
 
 ```js
 const patternOptionalSlash = new URLPattern({ pathname: "/books{/}?" });
@@ -364,30 +399,39 @@ console.log(patternOptionalSlash.test("https://example.com/books")); // true
 console.log(patternOptionalSlash.test("https://example.com/books/")); // true
 ```
 
-### Musternormalisierung
+### Muster-Normalisierung
 
-Wenn ein Muster geparst wird, wird es automatisch in eine kanonische Form normalisiert. Zum Beispiel werden Unicode-Zeichen in der `pathname`-Eigenschaft {{Glossary("Percent-encoding", "prozentkodiert")}}, Punycode-Kodierung wird im Hostnamen verwendet, Standardportnummern werden weggelassen, Pfade wie `/foo/./bar/` werden zu `/foo/bar` zusammengeführt, usw. Zusätzlich gibt es einige Musterrepräsentationen, die auf dieselbe zugrunde liegende Bedeutung geparst werden, wie `foo` und `{foo}`. Solche Fälle werden auf die einfachste Form normalisiert. In diesem Fall wird `{foo}` zum Beispiel zu `foo` normalisiert.
+Wenn ein Muster analysiert wird, wird es automatisch auf eine kanonische Form normalisiert.
+Zum Beispiel werden Unicode-Zeichen in der Pfadnamenseigenschaft {{Glossary("Percent-encoding", "prozentcodiert")}} und Punycode-Codierung im Hostnamen verwendet, Standardportnummern werden ausgelassen, Pfade wie `/foo/./bar/` werden auf `/foo/bar` reduziert usw.
+Zusätzlich gibt es einige Musterdarstellungen, die sich auf die gleiche zugrunde liegende Bedeutung analysieren, wie `foo` und `{foo}`.
+Solche Fälle werden auf die einfachste Form normalisiert.
+In diesem Fall wird `{foo}` zum Beispiel zu `foo` normalisiert.
 
 ## Vererbung von einer Basis-URL
 
-Sowohl die in [`URLPattern`](/de/docs/Web/API/URLPattern) definierten Abgleichsmuster als auch die in [`URLPattern.test()`](/de/docs/Web/API/URLPattern/test) und [`URLPattern.exec()`](/de/docs/Web/API/URLPattern/exec) verwendeten Test-URLs ermöglichen es, die Eingaben mit einer optionalen Basis-URL zu spezifizieren (diese Basis-URL ist ein separates Parameter, wenn die URL als Zeichenkette angegeben wird, und eine separate Eigenschaft, wenn die URL als Objekt angegeben wird).
+Sowohl die in [`URLPattern`](/de/docs/Web/API/URLPattern) definierten Matchmuster als auch die in [`URLPattern.test()`](/de/docs/Web/API/URLPattern/test) und [`URLPattern.exec()`](/de/docs/Web/API/URLPattern/exec) verwendeten Test-URLs erlauben die Angabe der Eingaben mit einer optionalen Basis-URL (diese Basis-URL ist ein separater Parameter, wenn die URL als Zeichenfolge angegeben wird, und eine separate Eigenschaft, wenn die URL als Objekt angegeben wird).
 
-Wenn eine Basis-URL definiert ist, dann können URL-Teile von der Basis-URL geerbt werden und verwendet werden, um Teile des Musters oder der Test-URL festzulegen. Die URL-Auflösung ist nahezu so, wie es erwartet wird, wenn eine [`URL`](/de/docs/Web/API/URL) aufgelöst wird, die mit einer Basis-URL angegeben ist.
+Wenn eine Basis-URL definiert ist, können URL-Teile von der Basis-URL geerbt und verwendet werden, um Teile des Musters oder der Test-URL festzulegen.
+Die URL-Auflösung funktioniert weitgehend so, wie Sie es erwarten würden, wenn Sie eine [`URL`](/de/docs/Web/API/URL), die mit einer Basis-URL angegeben wurde, auflösen.
 
-Der `username` und das `password` werden niemals von der Basis-URL geerbt.
+Der `username` und das `password` werden nie von der Basis-URL geerbt.
 
-Nur URL-Teile, die "spezifischer" sind als der spezifischste Teil, der in der Eingabe definiert ist, werden von der Basis-URL geerbt. Die folgenden Listen zeigen die Reihenfolge der Spezifität:
+Es werden nur die URL-Teile geerbt, die spezifischer sind als der spezifischste Teil, der in der Eingabe definiert ist.
+Die folgenden Listen zeigen die Spezifitätsreihenfolge:
 
 - `protocol` (am spezifischsten), `hostname`, `port`, `pathname`, `search`, `hash`
 - `protocol`, `hostname`, `port`, `username`, `password`
 
-Was das bedeutet, ist, dass, wenn `protocol` in der Eingabe-URL angegeben ist, dann ist nichts spezifischer, also wird nichts von der Basis-URL geerbt. Wenn jedoch der `pathname`-Teil in der Eingabe angegeben ist, können `protocol`, `hostname` und `port` von der Basis-URL geerbt werden, aber `search` und `hash` nicht.
+Das bedeutet beispielsweise, dass, wenn das `protocol` in der Eingabe-URL angegeben ist, nichts spezifischer ist und daher nichts von der Basis-URL geerbt wird.
+Wenn jedoch der `pathname`-Teil in der Eingabe angegeben ist, können das `protocol`, der `hostname` und der `port` von der Basis-URL geerbt werden, aber das `search` und das `hash` nicht.
 
-Beachten Sie, dass URL-Komponenten, die nicht in der Zeichenfolge/Eingabeobjekt angegeben wurden oder von der Basis-URL geerbt wurden, standardmäßig den Wildcard-Wert (`"*"`) für ein `URLPattern` und die leere Zeichenkette (`""`) für eine Test-URL erhalten.
+Beachten Sie, dass URL-Komponenten, die nicht in der Zeichenfolge/dem Eingabeobjekt angegeben oder von der Basis-URL geerbt werden, auf den Platzhalterwert (`"*"`) für ein `URLPattern` und auf die leere Zeichenfolge (`""`) für eine Test-URL standardmäßig eingestellt werden.
 
-## Groß- und Kleinschreibung
+## Groß-/Kleinschreibungsempfindlichkeit
 
-Die URL Pattern API behandelt viele Teile der URL standardmäßig als groß- und kleinschreibungssensitiv beim Abgleichen. Im Gegensatz dazu verwenden viele clientseitige JavaScript-Frameworks einen nicht groß- und kleinschreibungssensitiven URL-Abgleich. Eine `ignoreCase`-Option ist beim [`URLPattern()`](/de/docs/Web/API/URLPattern/URLPattern)-Konstruktor verfügbar, um bei Bedarf einen nicht groß- und kleinschreibungssensitiven Abgleich zu ermöglichen.
+Die URL Pattern API behandelt viele Teile der URL standardmäßig als groß-/kleinschreibungsempfindlich bei der Übereinstimmung.
+Im Gegensatz dazu verwenden viele clientseitige JavaScript-Frameworks groß-/kleinschreibungsunempfindliche URL-Übereinstimmungen.
+Eine `ignoreCase`-Option ist im [`URLPattern()`](/de/docs/Web/API/URLPattern/URLPattern)-Konstruktor verfügbar, um bei Bedarf eine groß-/kleinschreibungsunempfindliche Übereinstimmung zu ermöglichen.
 
 ```js
 // Case-sensitive matching by default
@@ -396,7 +440,7 @@ console.log(pattern.test("https://example.com/2022/feb/xc44rsz")); // true
 console.log(pattern.test("https://example.com/2022/Feb/xc44rsz")); // false
 ```
 
-Das Setzen der `ignoreCase`-Option auf `true` im Konstruktor schaltet alle Abgleichsoperationen für das gegebene Muster auf nicht groß- und kleinschreibungssensitiv um:
+Das Setzen der `ignoreCase`-Option auf `true` im Konstruktor schaltet alle Übereinstimmungsoperationen für das gegebene Muster auf groß-/kleinschreibungsunempfindlich um:
 
 ```js
 // Case-insensitive matching
@@ -409,9 +453,10 @@ console.log(pattern.test("https://example.com/2022/Feb/xc44rsz")); // true
 
 ## Beispiele
 
-### Filter auf eine spezifische URL-Komponente
+### Auf eine spezifische URL-Komponente filtern
 
-Das folgende Beispiel zeigt, wie ein `URLPattern` eine spezifische URL-Komponente filtert. Wenn der `URLPattern()`-Konstruktor mit einem strukturierten Objekt von Komponentenmustern aufgerufen wird, erhalten alle fehlenden Komponenten standardmäßig den `*`-Wildcard-Wert.
+Das folgende Beispiel zeigt, wie ein `URLPattern` eine spezifische URL-Komponente filtert.
+Wenn der `URLPattern()`-Konstruktor mit einem strukturierten Objekt von Komponentenmustern aufgerufen wird, werden alle fehlenden Komponenten standardmäßig auf den `*`-Platzhalterwert gesetzt.
 
 ```js
 // Construct a URLPattern that matches a specific domain and its subdomains.
@@ -438,9 +483,11 @@ console.log(pattern.test("custom-protocol://example.com/other/path?q=1")); // tr
 console.log(pattern.test("https://cdn-example.com/foo/bar"));
 ```
 
-### Konstruieren eines URLPattern aus einer vollständigen URL-Zeichenkette
+### URLPattern aus einer vollständigen URL-Zeichenfolge konstruieren
 
-Das folgende Beispiel zeigt, wie ein `URLPattern` aus einer vollständigen URL-Zeichenkette mit eingebetteten Mustern konstruiert wird. Zum Beispiel kann ein `:` sowohl das URL-Protokoll-Suffix, wie `https:`, als auch der Beginn einer benannten Mustergruppe, wie `:foo`, sein. Es "funktioniert einfach", wenn es keine Doppeldeutigkeit zwischen der Bedeutung eines Zeichens als Teil der URL-Syntax oder als Teil der Mustersyntax gibt.
+Das folgende Beispiel zeigt, wie ein `URLPattern` aus einer vollständigen URL-Zeichenfolge mit eingebetteten Mustern konstruiert wird.
+Beispielsweise kann ein `:` sowohl das URL-Protokollsuffix sein, wie `https:`, als auch der Beginn einer benannten Mustervariable, wie `:foo`.
+Es funktioniert "einfach", wenn es keine Mehrdeutigkeit zwischen einem Zeichen gibt, das Teil der URL-Syntax oder der Mustersyntax ist.
 
 ```js
 // Construct a URLPattern that matches URLs to CDN servers loading jpg images.
@@ -467,9 +514,12 @@ console.log(
 );
 ```
 
-### Konstruieren eines URLPattern mit einer mehrdeutigen URL-Zeichenkette
+### Konstruieren eines URLPattern mit einer mehrdeutigen URL-Zeichenfolge
 
-Das folgende Beispiel zeigt, wie ein `URLPattern`, das aus einer mehrdeutigen Zeichenkette konstruiert wird, Zeichen lieber als Teil der Mustersyntax behandelt. In diesem Fall könnte das Zeichen `:` das Protokollkomponentensuffix oder es könnte das Präfix für eine benannte Gruppe im Muster sein. Der Konstruktor entscheidet sich, dies als Teil des Musters zu behandeln und daher festzustellen, dass dies ein relatives Pfadmuster ist. Da keine Basis-URL existiert, kann das relative Pfadmuster nicht aufgelöst werden, und es wird ein Fehler geworfen.
+Das folgende Beispiel zeigt, wie ein `URLPattern`, das aus einer mehrdeutigen Zeichenfolge konstruiert wird, Zeichen als Teil der Mustersyntax bevorzugt behandelt.
+In diesem Fall könnte das Zeichen `:` das Suffix der Protokollkomponente oder das Präfix einer benannten Gruppe im Muster sein.
+Der Konstruktor entscheidet sich dafür, dies als Teil des Musters zu behandeln, und bestimmt daher, dass dies ein relatives Pfadnamenmuster ist.
+Da es keine Basis-URL gibt, kann der relative Pfadname nicht aufgelöst werden und es wird ein Fehler ausgegeben.
 
 ```js
 // Throws because this is interpreted as a single relative pathname pattern
@@ -477,9 +527,10 @@ Das folgende Beispiel zeigt, wie ein `URLPattern`, das aus einer mehrdeutigen Ze
 const pattern = new URLPattern("data:foo*");
 ```
 
-### Escapen von Zeichen zur Entwirrung von URLPattern-Konstruktorzeichenfolgen
+### Zeichen zum Disambiguieren von URLPattern-Konstruktorzeichenfolgen escapeen
 
-Das folgende Beispiel zeigt, wie ein mehrdeutiges Konstruktor-Zeichen, das als URL-Trennzeichen anstelle eines Musterzeichens behandelt werden soll, escapet werden kann. Hier wird `:` als `\\:` escapet.
+Das folgende Beispiel zeigt, wie ein mehrdeutiges Konstruktorzeichen als URL-Trennzeichen behandelt werden kann, indem es als Musterzeichen geopfert wird.
+Hier wird `:` als `\\:` escaped.
 
 ```js
 // Constructs a URLPattern treating the `:` as the protocol suffix.
@@ -497,7 +548,7 @@ console.log(pattern.hash); // '*'
 console.log(pattern.test("data:foobar")); // true
 ```
 
-### Verwenden von Basis-URLs für test() und exec()
+### Basis-URLs für test() und exec() verwenden
 
 Das folgende Beispiel zeigt, wie `test()` und `exec()` Basis-URLs verwenden können.
 
@@ -537,13 +588,16 @@ console.log(result.pathname.groups[0]); // 'bar'
 console.log(result.hostname.input); // 'example.com'
 ```
 
-### Verwenden von Basis-URLs im URLPattern-Konstruktor
+### Basis-URLs im URLPattern-Konstruktor verwenden
 
-Das folgende Beispiel zeigt, wie Basis-URLs auch verwendet werden können, um das `URLPattern` zu konstruieren. Die Basis-URL wird streng als URL behandelt und kann keine Mustersyntax selbst enthalten.
+Das folgende Beispiel zeigt, wie Basis-URLs auch zur Konstruktion des `URLPattern` verwendet werden können.
+Die Basis-URL wird streng als URL behandelt und kann keine Mustersyntax selbst enthalten.
 
-Das Muster erbt nur [Teile von der Basis-URL, die weniger spezifisch sind](#vererbung_von_einer_basis-url) als die in den anderen Eigenschaften.
+Das Muster [erbt nur URL-Teile von der Basis-URL](#vererbung_von_einer_basis-url), die weniger spezifisch sind als die anderen Eigenschaften.
 
-In diesem Fall ist der `pathname` angegeben, sodass das Protokoll und der Host geerbt werden können, aber nicht `search`, `hash`, `username` oder `password`. Die nicht geerbten Eigenschaften standardmäßig auf den Wildcard-String (`"*"`). Eine Ausnahme bildet der Port, der auf die leere Zeichenkette gesetzt wird, da der _Hostname_ von der Basis-URL geerbt wird ([was einen implizierten "Standardport"-Wert hat](/de/docs/Web/API/URLPattern/URLPattern#hostname_in_url_or_baseurl_affects_default_port)).
+In diesem Fall ist der `pathname` angegeben, sodass das Protokoll und der Host geerbt werden können, jedoch nicht die Suche, der Hash, der Benutzername oder das Passwort.
+Die Eigenschaften, die nicht geerbt werden, standardmäßig auf die Platzhalter-Zeichenfolge (`"*"`).
+Die Ausnahme ist der Port, der auf die leere Zeichenfolge gesetzt wird, da der _Hostname_ von der Basis-URL geerbt wird ([was einen implizierten "Standardport"-Wert hat](/de/docs/Web/API/URLPattern/URLPattern#hostname_in_url_or_baseurl_affects_default_port)).
 
 ```js
 const pattern1 = new URLPattern({
@@ -570,11 +624,13 @@ try {
 } catch (e) {}
 ```
 
-### Zugriff auf abgeglichene Gruppenwerte
+### Zugriff auf gematchte Gruppenwerte
 
-Das folgende Beispiel zeigt, wie Eingabewerte, die Mustern entsprechen, später vom Ergebnisobjekt von [`exec()`](/de/docs/Web/API/URLPattern/exec) abgerufen werden können.
+Das folgende Beispiel zeigt, wie Eingabewerte, die Mustervariablen matchen, später aus dem [`exec()`](/de/docs/Web/API/URLPattern/exec)-Ergebnisobjekt abgerufen werden können.
 
-Die `input`-Eigenschaft ist die Zeichenkette, die von dem Muster abgeglichen wird: in diesem Fall ist es `cdn.example.com`. Die `groups`-Eigenschaft enthält erfasste Gruppen, nummerisch indiziert für unbenannte Gruppen und nach Namen für benannte Gruppen. In diesem Fall gibt es nur eine unbenannte Gruppe für die Wildcard-Eigenschaft mit dem Wert `cdn`.
+Die `input`-Eigenschaft ist die Zeichenfolge, die durch das Muster gematcht wird: in diesem Fall ist es `cdn.example.com`.
+Die `groups`-Eigenschaft enthält erfasste Gruppen, nummerisch für unbenannte Gruppen indiziert, und mit Namen für benannte Gruppen.
+In diesem Fall gibt es nur eine unbenannte Gruppe für die Platzhaltereigenschaft, mit dem Wert `cdn`.
 
 ```js
 const pattern = new URLPattern({ hostname: "*.example.com" });
@@ -583,11 +639,13 @@ const result = pattern.exec({ hostname: "cdn.example.com" });
 console.log(result.hostname); // {"groups": {"0": "cdn"}, "input": "cdn.example.com"}
 ```
 
-### Zugriff auf abgeglichene benannte Gruppenwerte
+### Zugriff auf gematchte benannte Gruppenwerte
 
-Das folgende Beispiel zeigt, wie Gruppen benutzerdefinierte Namen gegeben werden können, die verwendet werden können, um den abgeglichenen Wert im Ergebnisobjekt abzurufen.
+Das folgende Beispiel zeigt, wie Gruppen benutzerdefinierte Namen gegeben werden können, die verwendet werden können, um den gematchten Wert im Ergebnisobjekt zu erhalten.
 
-Die Match-Muster im Muster werden durch das `:`-Symbol gefolgt von einem Namen angezeigt. Dieselben Namen erscheinen dann als Schlüssel in der `groups`-Eigenschaft, wobei die übereinstimmenden Werte der abgeglichene Teil der Test-URL sind. Die `input`-Eigenschaft enthält den gesamten Teil der URL, der dem `pathname`-Muster entspricht.
+Die Match-Muster im Muster werden durch das `:`-Symbol gefolgt von einem Namen angezeigt.
+Die gleichen Namen erscheinen dann als Schlüssel in der `groups`-Eigenschaft, wobei die übereinstimmenden Werte der gematchte Teil der Test-URL sind.
+Die `input`-Eigenschaft enthält den gesamten Teil der URL, der dem `pathname`-Muster entspricht.
 
 ```js
 // Construct a URLPattern using matching groups with custom names.
@@ -614,7 +672,8 @@ console.log(result.pathname.groups.user); // 'wanderview'
 
 ### Regulärer Ausdruck mit unbenannter Gruppe
 
-Das folgende Beispiel zeigt, wie eine übereinstimmende Gruppe einen regulären Ausdruck verwenden kann, um entweder `/foo` oder `/bar` in einer Test-URL abzugleichen. Die Gruppe ist unbenannt, also wird sie im Ergebnis durch eine Indexnummer referenziert.
+Das folgende Beispiel zeigt, wie eine Matching-Gruppe einen regulären Ausdruck verwenden kann, um entweder `/foo` oder `/bar` in einer Test-URL zu matchen.
+Die Gruppe ist unbenannt, sodass sie im Ergebnis durch eine Indexnummer referenziert wird.
 
 ```js
 const pattern = new URLPattern({ pathname: "/(foo|bar)" });
@@ -629,9 +688,9 @@ console.log(result.pathname.groups[0]); // 'foo'
 
 ### Regulärer Ausdruck mit einer benannten Gruppe
 
-Das folgende Beispiel zeigt, wie ein benutzerdefinierter regulärer Ausdruck mit einer benannten Gruppe verwendet werden kann.
+Das folgende Beispiel zeigt, wie man einen benutzerdefinierten regulären Ausdruck mit einer benannten Gruppe verwendet.
 
-Die Gruppe ist `type` genannt und stimmt mit einem Pfad überein, der entweder `/foo` oder `/bar` ist.
+Die Gruppe ist `type` benannt und matcht einen Pfad, der entweder `/foo` oder `/bar` ist.
 
 ```js
 const pattern = new URLPattern({ pathname: "/:type(foo|bar)" });
@@ -640,11 +699,11 @@ const result = pattern.exec({ pathname: "/foo" });
 console.log(result.pathname.groups.type); // 'foo'
 ```
 
-### Erfassungsgruppen optional machen
+### Matching-Gruppen optional machen
 
-Das folgende Beispiel zeigt, wie man eine erfassende Gruppe optional macht, indem man einen `?`-Modifikator danach setzt.
+Das folgende Beispiel zeigt, wie man eine Matching-Gruppe optional macht, indem man einen `?`-Modifikator hinten anhängt.
 
-Für die `pathname`-Komponente führt dies auch dazu, dass ein beliebiges vorangehendes `/`-Zeichen als optionales Präfix für die Gruppe behandelt wird.
+Für die `pathname`-Komponente bewirkt dies auch, dass jedes vorangehende `/`-Zeichen als optionales Präfix der Gruppe behandelt wird.
 
 ```js
 const pattern = new URLPattern({ pathname: "/product/(index.html)?" });
@@ -658,7 +717,8 @@ console.log(pattern2.test({ pathname: "/product/view" })); // true
 console.log(pattern2.test({ pathname: "/product" })); // true
 ```
 
-Auch Wildcards können optional gemacht werden. Dies scheint möglicherweise nicht sinnvoll, da sie bereits die leere Zeichenkette abgleichen, aber es macht auch das Präfix `/` in einem `pathname`-Muster optional.
+Platzhalter können ebenfalls optional gemacht werden.
+Dies mag zwar keinen Sinn ergeben, da sie bereits die leere Zeichenfolge matchen, aber es macht auch das Präfix `/` in einem Pfadnamensmuster optional.
 
 ```js
 const pattern3 = new URLPattern({ pathname: "/product/*?" });
@@ -668,9 +728,10 @@ console.log(pattern3.test({ pathname: "/product" })); // true
 console.log(pattern3.test({ pathname: "/product/" })); // true
 ```
 
-### Erfassungsgruppen wiederholt abgleichen
+### Matching-Gruppen wiederholbar machen
 
-Das folgende Beispiel zeigt, wie eine erfassende Gruppe wiederholt abgeglichen werden kann, indem man einen `+`-Modifikator danach setzt. In der `pathname`-Komponente wird auch das `/`-Prefix als speziell behandelt, sodass es im Wesentlichen den Beginn der wiederholten Gruppe darstellt.
+Das folgende Beispiel zeigt, wie eine Matching-Gruppe wiederholbar gemacht werden kann, indem ein `+`-Modifikator hinten angehängt wird.
+In der `pathname`-Komponente wird das `/`-Präfix ebenfalls als speziell behandelt, sodass es effektiv der Start der sich wiederholenden Gruppe ist.
 
 ```js
 const pattern = new URLPattern({ pathname: "/product/:action+" });
@@ -680,7 +741,7 @@ console.log(result.pathname);
 // { "groups": { "action": "do/some/thing/cool" }, "input": "/product/do/some/thing/cool" }
 ```
 
-Beachten Sie, dass `/product` nicht übereinstimmt, da es nicht von `/` und mindestens einem Zeichen gefolgt wird.
+Beachtes, dass `/product` nicht matcht, da es nicht von `/` gefolgt wird und mindestens ein Zeichen.
 
 ```js
 console.log(pattern.test({ pathname: "/product" })); // false
@@ -689,11 +750,13 @@ console.log(pattern.test({ pathname: "/product/do" })); // true
 console.log(pattern.test({ pathname: "/product/do/" })); // false
 ```
 
-### Erfassungsgruppen optional und wiederholt machen
+### Matching-Gruppen optional und wiederholbar machen
 
-Das folgende Beispiel zeigt, wie man eine erfassende Gruppe erstellt, die sowohl optional als auch wiederholt ist. Machen Sie dies, indem Sie einen `*`-Modifikator nach der Gruppe platzieren. Wieder behandelt die `pathname`-Komponente das `/`-Prefix als speziell.
+Das folgende Beispiel zeigt, wie man eine Matching-Gruppe, die sowohl optional als auch wiederholbar ist, erstellen kann.
+Dies geschieht, indem ein `*`-Modifikator hinter die Gruppe platziert wird.
+Wiederum wird das `/`-Präfix in der Pfadnamenskomponente als speziell behandelt.
 
-Dieses wird sowohl optional als auch wiederholt mit der Gruppe.
+Es wird sowohl optional als auch wiederholt mit der Gruppe.
 
 ```js
 const pattern = new URLPattern({ pathname: "/product/:action*" });
@@ -703,7 +766,8 @@ console.log(result.pathname);
 // { "groups": { "action": "do/some/thing/cool" }, "input": "/product/do/some/thing/cool" }
 ```
 
-Beachten Sie, dass im Gegensatz zum vorhergehenden Beispiel `/product` übereinstimmt, da die wiederholenden Segmente, einschließlich `/`, optional sind. Es muss jedoch mindestens ein Zeichen zum Erfassen nach einem Schrägstrich vorhanden sein, um mit der wiederholten Gruppe übereinzustimmen.
+Beachten Sie, dass im Gegensatz zum vorherigen Beispiel `/product` matches, da sich die wiederholten Segmente, einschließlich `/`, optional sind.
+Es muss jedoch mindestens ein Zeichen zum Aufnehmen nach einem Schrägstrich vorhanden sein, um die wiederholte Gruppe zu matchen.
 
 ```js
 console.log(pattern.test({ pathname: "/product" })); // true
@@ -712,11 +776,12 @@ console.log(pattern.test({ pathname: "/product/do" })); // true
 console.log(pattern.test({ pathname: "/product/do/" })); // false
 ```
 
-### Verwendung eines benutzerdefinierten Prefixes oder Suffixes für einen optionalen oder wiederholten Modifikator
+### Einen benutzerdefinierten Präfix oder Suffix für einen optionalen oder wiederholten Modifikator verwenden
 
-Das folgende Beispiel zeigt, wie geschweifte Klammern (ein [Gruppentrenner](#gruppentrenner)) mit einer benannten Gruppe verwendet werden können, um ein benutzerdefiniertes Präfix und/oder Suffix zu bezeichnen, auf das ein nachfolgender `?`, `*` oder `+`-Modifikator angewendet wird.
+Das folgende Beispiel zeigt, wie geschweifte Klammern (ein [Gruppentrenner](#gruppentrennzeichen)) mit einer benannten Gruppe verwendet werden können, um ein benutzerdefiniertes Präfix und/oder Suffix anzugeben, auf das ein nachfolgender `?`, `*` oder `+`-Modifikator angewendet wird.
 
-Zum Beispiel stimmt `{:subdomain.}*` mit jedem Subdomain von `example.com` und der Domain selbst überein. Der Abgleich wird der benannten Gruppe "subdomain" zugewiesen.
+Zum Beispiel matcht `{:subdomain.}*` gegen jede Subdomäne von `example.com` und die Domain selbst.
+Der Match wird der benannten Gruppe "subdomain" zugeordnet.
 
 ```js
 const pattern = new URLPattern({ hostname: "{:subdomain.}*example.com" });
@@ -730,11 +795,11 @@ console.log(result.hostname);
 // { "groups": { "subdomain": "foo.bar" }, "input": "foo.bar.example.com" }
 ```
 
-### Text optional oder wiederholt machen ohne eine erfassende Gruppe
+### Text optional oder wiederholbar machen, ohne eine Matching-Gruppe
 
-Das folgende Beispiel zeigt, wie geschweifte Klammern verwendet werden können, um feste Textwerte optional oder wiederholt zu machen, ohne eine erfassende Gruppe zu verwenden.
+Das folgende Beispiel zeigt, wie geschweifte Klammern verwendet werden können, um feste Textwerte als optional oder wiederholbar zu kennzeichnen, ohne eine Matching-Gruppe zu verwenden.
 
-Das Muster unten stimmt entweder mit `/product` oder `/products/` überein, aber weil [Gruppentrenner](#gruppentrenner) standardmäßig nicht erfassend sind, wird das Ergebnis nicht in einer entsprechenden Erfassungsgruppe gefunden.
+Das folgende Muster matcht entweder `/product` oder `/products/`, aber da [Gruppentrenner](#gruppentrennzeichen) standardmäßig nicht erfassend sind, wird das Ergebnis nicht in einer entsprechenden Match-Gruppe gefunden.
 
 ```js
 const pattern = new URLPattern({ pathname: "/product{/}?" });
@@ -746,7 +811,7 @@ const result = pattern.exec({ pathname: "/product/" });
 console.log(result.pathname.groups); // {}
 ```
 
-### Mehrere Komponenten und Features auf einmal verwenden
+### Mehrere Komponenten und Funktionen zugleich verwenden
 
 Das folgende Beispiel zeigt, wie viele Features über mehrere URL-Komponenten hinweg kombiniert werden können.
 
@@ -779,5 +844,5 @@ console.log(result.pathname.groups.action); // 'view'
 
 ## Siehe auch
 
-- Ein Polyfill von `URLPattern` ist verfügbar [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)
-- Die Mustersyntax von URLPattern ähnelt der Syntax, die von [path-to-regexp](https://github.com/pillarjs/path-to-regexp) verwendet wird
+- Ein Polyfill von `URLPattern` ist [auf GitHub](https://github.com/kenchris/urlpattern-polyfill) verfügbar
+- Die von URLPattern verwendete Mustersyntax ist ähnlich der Syntax, die von [path-to-regexp](https://github.com/pillarjs/path-to-regexp) verwendet wird

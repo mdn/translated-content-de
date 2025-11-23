@@ -1,18 +1,18 @@
 ---
-title: "fill: Wasm-Text-Instruktion"
+title: "fill: Wasm-Textanweisung"
 short-title: fill
-slug: WebAssembly/Reference/Memory/Fill
+slug: WebAssembly/Reference/Memory/fill
 l10n:
-  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`fill`**-[Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein vorgegebenes Byte.
+Die **`fill`**- [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) setzt alle Bytes in einem Speicherbereich auf ein gegebenes Byte.
 
-Die Instruktion liefert keinen Wert zurück. Sie erzeugt eine Ausnahme, wenn der angegebene Speicherbereich außerhalb des zulässigen Bereichs liegt.
+Die Anweisung gibt keinen Wert zurück. Sie löst eine Ausnahme aus (trap), wenn der angegebene Speicherbereich außerhalb des zulässigen Bereichs liegt.
 
 ## Syntax
 
-Füllen innerhalb des Standardspeichers
+Fill im Standard-Speicher
 
 ```wat
 ;; Fill region at offset/range in default memory with 255
@@ -25,7 +25,7 @@ memory.fill ;; Fill default memory
 (memory.fill (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-Füllen des angegebenen Speichers (falls Multi-Speicher unterstützt wird)
+Fill im angegebenen Speicher (wenn Multi-Memory unterstützt wird)
 
 ```wat
 ;; Fill specific memory referenced by its index
@@ -44,9 +44,9 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 (memory.fill (memory $memoryName) (i32.const 200) (i32.const 255) (i32.const 100))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binärer Opcode |
+| Anweisung     | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.fill` | `0xFC 0x0b`    |
 
@@ -59,4 +59,4 @@ memory.fill (memory $memoryName) ;; Fill memory with name "$memoryName"
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle zeigt Versionen an, in denen `fill` mit einem angegebenen Speicher verwendet werden kann.
+> Die `multiMemory`-Kompatibilitätstabelle zeigt an, in welchen Versionen `fill` mit einem angegebenen Speicher verwendet werden kann.

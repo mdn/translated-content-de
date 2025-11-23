@@ -1,8 +1,9 @@
 ---
-title: br
+title: "br: Wasm Text-Instruktion"
+short-title: br
 slug: WebAssembly/Reference/Control_flow/br
 l10n:
-  sourceCommit: c699955e1e368bd42d6ea9318a6afc9256c3036f
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
 Die **`br`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop), einem [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung.
@@ -52,6 +53,6 @@ await WebAssembly.instantiateStreaming(fetch(url), { console });
 )
 ```
 
-| Anweisung | Binäroperator |
-| --------- | ------------- |
-| `br`      | `0x0c`        |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `br`        | `0x0c`         |

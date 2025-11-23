@@ -1,8 +1,9 @@
 ---
-title: nop
+title: "nop: Wasm-Textanweisung"
+short-title: nop
 slug: WebAssembly/Reference/Control_flow/nop
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
 **`nop`** steht für keine Operation. Es tut buchstäblich nichts.

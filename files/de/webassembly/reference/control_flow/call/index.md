@@ -1,15 +1,16 @@
 ---
-title: call
+title: "call: Wasm-Textbefehl"
+short-title: call
 slug: WebAssembly/Reference/Control_flow/call
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle mit der `return_call_indirect` Tail-Call-Version ebenfalls auf.
+**`call`** ruft eine Funktion auf, wobei `return_call` die Tail-Call-Version davon ist. `call_indirect` ruft eine Funktion in einer Tabelle auf, wobei es auch die `return_call_indirect` Tail-Call-Version gibt.
 
 ## Beispiele
 
-Aufruf der `greet` Funktion, die aus JavaScript importiert wurde, mit `call`:
+Aufruf der `greet`-Funktion, die aus JavaScript importiert wurde, mit `call`:
 
 {{InteractiveExample("Wat Demo: call", "tabbed-standard")}}
 
@@ -40,7 +41,7 @@ await WebAssembly.instantiateStreaming(fetch(url), {
 });
 ```
 
-Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Ergebnisses mit der exportierten `fac` Funktion:
+Berechnung der Fakultät einer Zahl mit `return_call` und Protokollierung des Ergebnisses mithilfe der exportierten `fac`-Funktion:
 
 {{InteractiveExample("Wat Demo: return_call", "tabbed-standard")}}
 
@@ -93,5 +94,5 @@ call $greet
 
 ## Siehe auch
 
-- [Übersicht über den Vorschlag zur Tail Call-Erweiterung](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
+- [Überblick über den Tail Call Extension Vorschlag](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
 - [V8 über die Unterstützung von WebAssembly-Tail-Calls](https://v8.dev/blog/wasm-tail-call)

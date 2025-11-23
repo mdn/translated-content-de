@@ -1,11 +1,12 @@
 ---
-title: Drop
-slug: WebAssembly/Reference/Control_flow/Drop
+title: "drop: Wasm Textanweisung"
+short-title: drop
+slug: WebAssembly/Reference/Control_flow/drop
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`drop`**-Anweisung nimmt einen Wert vom Stapel und verwirft ihn.
+Die **`drop`**-Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
 
 {{InteractiveExample("Wat Demo: drop", "tabbed-taller")}}
 

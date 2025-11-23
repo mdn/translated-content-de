@@ -1,13 +1,14 @@
 ---
-title: br_table
+title: "br_table: Wasm-Textanweisung"
+short-title: br_table
 slug: WebAssembly/Reference/Control_flow/br_table
 l10n:
-  sourceCommit: c81e6b0eabd3c4132767f8f422648247cd9cf3cd
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`br_table`**-Anweisung verzweigt je nach Argument zu verschiedenen [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisungen.
+Die **`br_table`**-Anweisung verzweigt zu verschiedenen [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisungen, basierend auf einem Argument.
 
-In mancher Hinsicht ist `br_table` ähnlich der [`switch`](/de/docs/Web/JavaScript/Reference/Statements/switch)-Anweisung, da sie je nach Argument zu unterschiedlichen Codeblöcken verzweigt.
+In gewisser Weise ähnelt `br_table` der [`switch`](/de/docs/Web/JavaScript/Reference/Statements/switch)-Anweisung, indem es je nach Argument zu unterschiedlichen Codeblöcken verzweigt.
 
 {{InteractiveExample("Wat Demo: br_table", "tabbed-taller")}}
 

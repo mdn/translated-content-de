@@ -1,8 +1,9 @@
 ---
-title: Const
-slug: WebAssembly/Reference/Numeric/Const
+title: "const: Wasm-Textanweisung"
+short-title: const
+slug: WebAssembly/Reference/Numeric/const
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
 Die **`const`** Anweisungen werden verwendet, um Zahlen zu deklarieren.

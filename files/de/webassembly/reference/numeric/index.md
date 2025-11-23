@@ -2,103 +2,103 @@
 title: WebAssembly numerische Anweisungen
 slug: WebAssembly/Reference/Numeric
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
 WebAssembly numerische Anweisungen.
 
 ## Konstanten
 
-- [Const](/de/docs/WebAssembly/Reference/Numeric/Const)
-  - : Konstante Zahlen deklarieren.
+- [`const`](/de/docs/WebAssembly/Reference/Numeric/const)
+  - : Deklariert eine konstante Zahl.
 
 ## Vergleich
 
-- [Equal](/de/docs/WebAssembly/Reference/Numeric/Equal)
+- [`eq`](/de/docs/WebAssembly/Reference/Numeric/eq)
   - : Überprüfen, ob zwei Zahlen gleich sind.
-- [Not equal](/de/docs/WebAssembly/Reference/Numeric/Not_equal)
+- [`ne`](/de/docs/WebAssembly/Reference/Numeric/ne)
   - : Überprüfen, ob zwei Zahlen ungleich sind.
-- [Greater than](/de/docs/WebAssembly/Reference/Numeric/Greater_than)
+- [`gt`](/de/docs/WebAssembly/Reference/Numeric/gt)
   - : Überprüfen, ob eine Zahl größer als eine andere Zahl ist.
-- [Less than](/de/docs/WebAssembly/Reference/Numeric/Less_than)
+- [`lt`](/de/docs/WebAssembly/Reference/Numeric/lt)
   - : Überprüfen, ob eine Zahl kleiner als eine andere Zahl ist.
-- [Greater or equal](/de/docs/WebAssembly/Reference/Numeric/Greater_or_equal)
+- [`ge`](/de/docs/WebAssembly/Reference/Numeric/ge)
   - : Überprüfen, ob eine Zahl größer oder gleich einer anderen Zahl ist.
-- [Less or equal](/de/docs/WebAssembly/Reference/Numeric/Less_or_equal)
+- [`le`](/de/docs/WebAssembly/Reference/Numeric/le)
   - : Überprüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist.
 
 ## Arithmetik
 
-- [Addition](/de/docs/WebAssembly/Reference/Numeric/Addition)
-  - : Zwei Zahlen zusammenzählen.
-- [Subtraction](/de/docs/WebAssembly/Reference/Numeric/Subtraction)
+- [`add`](/de/docs/WebAssembly/Reference/Numeric/add)
+  - : Zwei Zahlen addieren.
+- [`sub`](/de/docs/WebAssembly/Reference/Numeric/sub)
   - : Eine Zahl von einer anderen Zahl subtrahieren.
-- [Multiplication](/de/docs/WebAssembly/Reference/Numeric/Multiplication)
+- [`mul`](/de/docs/WebAssembly/Reference/Numeric/mul)
   - : Eine Zahl mit einer anderen Zahl multiplizieren.
-- [Division](/de/docs/WebAssembly/Reference/Numeric/Division)
-  - : Eine Zahl durch eine andere Zahl teilen.
-- [Remainder](/de/docs/WebAssembly/Reference/Numeric/Remainder)
-  - : Den Rest berechnen, wenn eine ganze Zahl durch eine andere ganze Zahl geteilt wird.
+- [`div`](/de/docs/WebAssembly/Reference/Numeric/div)
+  - : Eine Zahl durch eine andere Zahl dividieren.
+- [`rem`](/de/docs/WebAssembly/Reference/Numeric/rem)
+  - : Den Rest berechnen, der übrig bleibt, wenn ein Ganzzahl durch eine andere Ganzzahl dividiert wird.
 
 ## Konvertierung
 
-- [Extend](/de/docs/WebAssembly/Reference/Numeric/Extend)
-  - : `i32` zu `i64` konvertieren (erweitern).
-- [Wrap](/de/docs/WebAssembly/Reference/Numeric/Wrap)
-  - : `i64` zu `i32` konvertieren (umwickeln).
-- [Promote](/de/docs/WebAssembly/Reference/Numeric/Promote)
-  - : `f32` zu `f64` konvertieren (fördern).
-- [Demote](/de/docs/WebAssembly/Reference/Numeric/Demote)
-  - : `f64` zu `f32` konvertieren (herabstufen).
-- [Convert](/de/docs/WebAssembly/Reference/Numeric/Convert)
-  - : Ganzzahlen zu Gleitkommazahlen konvertieren.
-- [Truncate (float to int)](/de/docs/WebAssembly/Reference/Numeric/Truncate_float_to_int)
-  - : Gleitkommazahlen zu Ganzzahlen konvertieren (Bruchteil abschneiden).
-- [Reinterpret](/de/docs/WebAssembly/Reference/Numeric/Reinterpret)
-  - : Die Bytes von Ganzzahlen als Gleitkommazahlen und umgekehrt umdeuten.
+- [`extend`](/de/docs/WebAssembly/Reference/Numeric/extend)
+  - : Konvertieren (erweitern) von `i32` zu `i64`.
+- [`wrap`](/de/docs/WebAssembly/Reference/Numeric/wrap)
+  - : Konvertieren (umwickeln) von `i64` zu `i32`.
+- [`promote`](/de/docs/WebAssembly/Reference/Numeric/promote)
+  - : Konvertieren (fördern) von `f32` zu `f64`.
+- [`demote`](/de/docs/WebAssembly/Reference/Numeric/demote)
+  - : Konvertieren (herabstufen) von `f64` zu `f32`.
+- [`convert`](/de/docs/WebAssembly/Reference/Numeric/convert)
+  - : Konvertieren von Ganzzahlen zu Gleitkommazahlen.
+- [`trunc` (to int)](/de/docs/WebAssembly/Reference/Numeric/trunc_int)
+  - : Konvertieren (Abschneiden des Bruchteils) von Gleitkommazahlen zu Ganzzahlen.
+- [`reinterpret`](/de/docs/WebAssembly/Reference/Numeric/reinterpret)
+  - : Umdeuten der Bytes von Ganzzahlen als Gleitkommazahlen und umgekehrt.
 
 ## Gleitkomma-spezifische Anweisungen
 
-- [Min](/de/docs/WebAssembly/Reference/Numeric/Min)
-  - : Die kleinere von zwei Zahlen ermitteln.
-- [Max](/de/docs/WebAssembly/Reference/Numeric/Max)
-  - : Die größere von zwei Zahlen ermitteln.
-- [Nearest](/de/docs/WebAssembly/Reference/Numeric/Nearest)
-  - : Eine Zahl auf die nächste ganze Zahl runden.
-- [Ceil](/de/docs/WebAssembly/Reference/Numeric/Ceil)
+- [`min`](/de/docs/WebAssembly/Reference/Numeric/min)
+  - : Den kleineren von zwei Zahlen ermitteln.
+- [`max`](/de/docs/WebAssembly/Reference/Numeric/max)
+  - : Den größeren von zwei Zahlen ermitteln.
+- [`nearest`](/de/docs/WebAssembly/Reference/Numeric/nearest)
+  - : Eine Zahl auf die nächste Ganzzahl runden.
+- [`ceil`](/de/docs/WebAssembly/Reference/Numeric/ceil)
   - : Eine Zahl aufrunden.
-- [Floor](/de/docs/WebAssembly/Reference/Numeric/Floor)
+- [`floor`](/de/docs/WebAssembly/Reference/Numeric/floor)
   - : Eine Zahl abrunden.
-- [Truncate (float to float)](/de/docs/WebAssembly/Reference/Numeric/Truncate_float_to_float)
+- [`trunc` (to float)](/de/docs/WebAssembly/Reference/Numeric/trunc_float)
   - : Den Bruchteil einer Zahl verwerfen.
-- [Absolute](/de/docs/WebAssembly/Reference/Numeric/Absolute)
+- [`abs`](/de/docs/WebAssembly/Reference/Numeric/abs)
   - : Den Absolutwert einer Zahl ermitteln.
-- [Negate](/de/docs/WebAssembly/Reference/Numeric/Negate)
+- [`neg`](/de/docs/WebAssembly/Reference/Numeric/neg)
   - : Eine Zahl negieren.
-- [Square root](/de/docs/WebAssembly/Reference/Numeric/Square_root)
+- [`sqrt`](/de/docs/WebAssembly/Reference/Numeric/sqrt)
   - : Die Quadratwurzel einer Zahl ermitteln.
-- [Copy sign](/de/docs/WebAssembly/Reference/Numeric/Copy_sign)
+- [`copysign`](/de/docs/WebAssembly/Reference/Numeric/copysign)
   - : Nur das Vorzeichenbit von einer Zahl auf eine andere kopieren.
 
-## Bitweise
+## Bitweise Anweisungen
 
-- [AND](/de/docs/WebAssembly/Reference/Numeric/AND)
-  - : Wird verwendet, um ein bitweises UND durchzuführen.
-- [OR](/de/docs/WebAssembly/Reference/Numeric/OR)
-  - : Wird verwendet, um ein bitweises OR durchzuführen.
-- [XOR](/de/docs/WebAssembly/Reference/Numeric/XOR)
-  - : Wird verwendet, um ein bitweises XOR durchzuführen.
-- [Left shift](/de/docs/WebAssembly/Reference/Numeric/Left_shift)
-  - : Wird verwendet, um ein bitweises Links-Shift durchzuführen.
-- [Right shift](/de/docs/WebAssembly/Reference/Numeric/Right_shift)
-  - : Wird verwendet, um ein bitweises Rechts-Shift durchzuführen.
-- [Left rotate](/de/docs/WebAssembly/Reference/Numeric/Left_rotate)
-  - : Wird verwendet, um ein bitweises Links-Rotieren durchzuführen.
-- [Right rotate](/de/docs/WebAssembly/Reference/Numeric/Right_rotate)
-  - : Wird verwendet, um ein bitweises Rechts-Rotieren durchzuführen.
-- [Count leading zeros](/de/docs/WebAssembly/Reference/Numeric/Count_leading_zeros)
-  - : Die Anzahl der führenden Nullen in der binären Darstellung einer Zahl zählen.
-- [Count trailing zeros](/de/docs/WebAssembly/Reference/Numeric/Count_trailing_zeros)
-  - : Die Anzahl der nachfolgenden Nullen in der binären Darstellung einer Zahl zählen.
-- [Population count](/de/docs/WebAssembly/Reference/Numeric/Population_count)
-  - : Die Gesamtanzahl der 1en in der binären Darstellung einer Zahl zählen.
+- [`and`](/de/docs/WebAssembly/Reference/Numeric/and)
+  - : Wird für die Ausführung eines bitweisen AND verwendet.
+- [`or`](/de/docs/WebAssembly/Reference/Numeric/or)
+  - : Wird für die Ausführung eines bitweisen OR verwendet.
+- [`xor`](/de/docs/WebAssembly/Reference/Numeric/xor)
+  - : Wird für die Ausführung eines bitweisen XOR verwendet.
+- [`shl`](/de/docs/WebAssembly/Reference/Numeric/shl)
+  - : Wird für die Ausführung einer bitweisen Linksverschiebung verwendet.
+- [`shr`](/de/docs/WebAssembly/Reference/Numeric/shr)
+  - : Wird für die Ausführung einer bitweisen Rechtsverschiebung verwendet.
+- [`rotl`](/de/docs/WebAssembly/Reference/Numeric/rotl)
+  - : Wird für die Ausführung einer bitweisen Linksdrehung verwendet.
+- [`rotr`](/de/docs/WebAssembly/Reference/Numeric/rotr)
+  - : Wird für die Ausführung einer bitweisen Rechtsdrehung verwendet.
+- [`clz`](/de/docs/WebAssembly/Reference/Numeric/clz)
+  - : Zählt die Anzahl der führenden Nullen in der binären Darstellung einer Zahl.
+- [`ctz`](/de/docs/WebAssembly/Reference/Numeric/ctz)
+  - : Zählt die Anzahl der nachgestellten Nullen in der binären Darstellung einer Zahl.
+- [`popcnt`](/de/docs/WebAssembly/Reference/Numeric/popcnt)
+  - : Zählt die Gesamtanzahl der Einsen in der binären Darstellung einer Zahl.

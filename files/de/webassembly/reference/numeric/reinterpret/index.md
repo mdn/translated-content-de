@@ -1,11 +1,12 @@
 ---
-title: Reinterpretieren
-slug: WebAssembly/Reference/Numeric/Reinterpret
+title: "reinterpret: Wasm Textinstruktion"
+short-title: reinterpret
+slug: WebAssembly/Reference/Numeric/reinterpret
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`reinterpret`**-Anweisungen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
+Die **`reinterpret`** Instruktionen werden verwendet, um die Bits einer Zahl als einen anderen Typ neu zu interpretieren.
 
 {{InteractiveExample("Wat Demo: reinterpret", "tabbed-taller")}}
 
@@ -46,7 +47,7 @@ i32.reinterpret_f32
 ;; the top item on the stack will now be the value -2147483648 of type i32
 ```
 
-| Anweisung             | Binärer Opcode |
+| Instruktion           | Binärer Opcode |
 | --------------------- | -------------- |
 | `i32.reinterpret_f32` | `0xbc`         |
 | `i64.reinterpret_f64` | `0xbd`         |

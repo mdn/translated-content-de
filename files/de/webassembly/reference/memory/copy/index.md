@@ -1,18 +1,18 @@
 ---
-title: "copy: Wasm-Textinstruktion"
+title: "copy: Wasm-Textanweisung"
 short-title: copy
-slug: WebAssembly/Reference/Memory/Copy
+slug: WebAssembly/Reference/Memory/copy
 l10n:
-  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`copy`** [Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Speicherbereich in einen anderen.
+Die **`copy`**-[Memory-Anweisung](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Bereich eines Speichers in einen anderen.
 
-Die Instruktion gibt keinen Wert zurück. Wenn der Quell- oder Zielbereich außerhalb der Grenzen liegt, wird die Instruktion angehalten.
+Die Anweisung gibt keinen Wert zurück. Wenn entweder der Quell- oder der Zielbereich außerhalb des gültigen Bereichs liegt, führt die Anweisung zu einem Fehler.
 
 ## Syntax
 
-Kopie innerhalb des Standardspeichers
+Kopieren innerhalb des Standardspeichers
 
 ```wat
 ;; Copy data in default memory from [100, 125] to [50, 75]
@@ -25,7 +25,7 @@ memory.copy  ;; Copy memory
 (memory.copy (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-Kopie eines angegebenen Speichers (wenn mehrfache Speicher unterstützt werden)
+Kopieren des angegebenen Speichers (falls Multi-Memory unterstützt wird)
 
 ```wat
 ;; Copy data in specific memory  [100, 125] to [50, 75]
@@ -44,9 +44,9 @@ memory.copy (memory $memoryName) ;; Copy memory with memory named "$memoryName"
 (memory.copy (memory $memoryName) (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binärer Opcode |
+| Anweisung     | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.copy` | `0xFC 0x0a`    |
 
@@ -59,4 +59,4 @@ memory.copy (memory $memoryName) ;; Copy memory with memory named "$memoryName"
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle gibt die Versionen an, in denen `copy` mit einem angegebenen Speicher verwendet werden kann.
+> Die `multiMemory`-Kompatibilitätstabelle gibt an, in welchen Versionen `copy` mit einem angegebenen Speicher verwendet werden kann.

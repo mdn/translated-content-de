@@ -1,11 +1,12 @@
 ---
-title: unreachable
+title: "unreachable: Wasm Textanweisung"
+short-title: unreachable
 slug: WebAssembly/Reference/Control_flow/unreachable
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreicht werden sollte. `unreachable` ist eine bedingungslose Falle: Wenn ein `unreachable` erreicht und ausgeführt wird, erzeugt die Anweisung eine Falle.
+**`unreachable`** wird verwendet, um einen Punkt im Code zu kennzeichnen, der nicht erreichbar sein sollte. `unreachable` ist eine bedingungslose Falle: Im Fall, dass ein `unreachable` erreicht und ausgeführt wird, löst die Anweisung eine Falle aus.
 
 {{InteractiveExample("Wat Demo: unreachable", "tabbed-shorter")}}
 

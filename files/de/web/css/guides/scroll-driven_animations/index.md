@@ -1,16 +1,16 @@
 ---
-title: CSS scroll-gesteuerte Animationen
-short-title: Scroll-gesteuerte Animationen
+title: CSS scrollgesteuerte Animationen
+short-title: Scrollgesteuerte Animationen
 slug: Web/CSS/Guides/Scroll-driven_animations
 l10n:
-  sourceCommit: 82679bcf992aaae0688f98c83bbe205cbba92bb4
+  sourceCommit: e9d014225ac5c28294a68d3743a3ef80794912b9
 ---
 
-Das **CSS scroll-gesteuerte Animationen** Modul bietet Funktionalitäten, die auf dem [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) aufbauen. Es ermöglicht Ihnen, Eigenschaftswerte entlang einer scrollbasierten Zeitleiste anstelle der standardmäßigen zeitbasierten Dokumentzeitleiste zu animieren. Das bedeutet, dass Sie ein Element durch das Scrollen des Elements, seines Scroll-Containers oder seines Wurzelelements anstelle des bloßen Zeitablaufs animieren können.
+Das **CSS scrollgesteuerte Animationen**-Modul bietet Funktionalitäten, die auf dem [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) aufbauen. Es ermöglicht Ihnen, Eigenschaftswerte entlang einer scrollbasierten Zeitleiste zu animieren, statt entlang der standardmäßigen, zeitbasieren Dokumentzeitleiste. Das bedeutet, dass Sie ein Element durch Scrollen des Elements, seines Scroll-Containers oder seines Wurzelelements animieren können, nicht nur durch den Ablauf der Zeit.
 
-## Scroll-gesteuerte Animationen in Aktion
+## Scrollgesteuerte Animationen in Aktion
 
-Sie können den Scroller, der die Animation steuert, entweder durch Benennung der Animation oder mit der {{cssxref("scroll")}} Funktion definieren.
+Sie können den Scroller, der die Animation steuert, entweder benennen oder mit der {{cssxref("scroll")}}-Funktion definieren.
 
 ```html hidden live-sample___scroll_animation
 <main>
@@ -107,7 +107,7 @@ div::after {
 
 {{EmbedLiveSample("scroll_animation", "", "400px")}}
 
-Scrollen Sie das Element in der Inline-Richtung, um zu sehen, wie sich seine Hintergrundfarbe ändert. Scrollen Sie es vertikal, um zu sehen, wie der generierte Inhalt sich bewegt, dreht und Farben ändert.
+Scrollen Sie das Element in Inline-Richtung, um zu sehen, wie sich seine Hintergrundfarbe ändert. Scrollen Sie es vertikal, um zu sehen, wie der generierte Inhalt sich bewegt, dreht und die Farbe ändert.
 
 ## Referenz
 
@@ -128,7 +128,6 @@ Scrollen Sie das Element in der Inline-Richtung, um zu sehen, wie sich seine Hin
 ### Datentypen und Werte
 
 - [`<axis>`](/de/docs/Web/CSS/Reference/Values/axis)
-- {{cssxref("scroller")}}
 - [`<timeline-range-name>`](/de/docs/Web/CSS/Reference/Properties/animation-range#timeline-range-name)
 
 ### Funktionen
@@ -143,8 +142,8 @@ Scrollen Sie das Element in der Inline-Richtung, um zu sehen, wie sich seine Hin
 
 ## Leitfäden
 
-- [Scroll-gesteuerte Animationszeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-  - : Scroll-gesteuerte Animationszeitleisten und das Erstellen von scroll-gesteuerten Animationen.
+- [Scrollgesteuerte Animationszeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+  - : Scrollgesteuerte Animationszeitleisten und das Erstellen scrollgesteuerter Animationen.
 
 ## Verwandte Konzepte
 
@@ -167,4 +166,4 @@ Scrollen Sie das Element in der Inline-Richtung, um zu sehen, wie sich seine Hin
 
 ## Siehe auch
 
-- [Elemente beim Scrollen mit scrollgesteuerten Animationen animieren](https://developer.chrome.com/docs/css-ui/scroll-driven-animations) über developer.chrome.com (2023)
+- [Elemente bei Scrollen mit scrollgesteuerten Animationen animieren](https://developer.chrome.com/docs/css-ui/scroll-driven-animations) über developer.chrome.com (2023)

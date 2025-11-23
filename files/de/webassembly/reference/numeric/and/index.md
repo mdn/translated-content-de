@@ -1,11 +1,12 @@
 ---
-title: AND
-slug: WebAssembly/Reference/Numeric/AND
+title: "and: Wasm-Textinstruktion"
+short-title: and
+slug: WebAssembly/Reference/Numeric/and
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`and`** Anweisungen werden verwendet, um eine bitweise UND-Operation durchzuführen, ähnlich dem **`&`** Operator in anderen Sprachen.
+Die **`and`**-Instruktion wird zum Ausführen eines bitweisen UND verwendet, ähnlich wie der **`&`**-Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: and", "tabbed-taller")}}
 
@@ -54,7 +55,7 @@ i32.and
 ;; the top item on the stack will now be 1 (00000001)
 ```
 
-| Anweisung | Binäre Opcode |
-| --------- | ------------- |
-| `i32.and` | `0x71`        |
-| `i64.and` | `0x83`        |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.and`   | `0x71`         |
+| `i64.and`   | `0x83`         |

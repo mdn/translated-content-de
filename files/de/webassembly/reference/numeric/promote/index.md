@@ -1,11 +1,12 @@
 ---
-title: Promote
-slug: WebAssembly/Reference/Numeric/Promote
+title: "promote: Wasm Text-Instruktion"
+short-title: promote
+slug: WebAssembly/Reference/Numeric/promote
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`promote`**-Anweisung wird verwendet, um Zahlen vom Typ `f32` in den Typ `f64` umzuwandeln (zu fördern).
+Die **`promote`**-Instruktion wird verwendet, um Zahlen des Typs `f32` in den Typ `f64` zu konvertieren (promoten).
 
 {{InteractiveExample("Wat Demo: promote", "tabbed-taller")}}
 
@@ -42,6 +43,6 @@ f64.promote_f32
 ;; the top item on the stack will now be the value 10.5 of type f64
 ```
 
-| Anweisung         | Binärer Opcode |
+| Instruktion       | Binärer Opcode |
 | ----------------- | -------------- |
 | `f64.promote_f32` | `0xbb`         |
