@@ -2,17 +2,17 @@
 title: r
 slug: Web/SVG/Reference/Attribute/r
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 7c90842660507d716c4e9deac52c1ed3bb465fb3
 ---
 
-Das **`r`**-Attribut definiert den Radius eines Kreises.
+Das **`r`** Attribut definiert den Radius eines Kreises.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("radialGradient")}}
 
-Prozentsätze beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports, die als <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math> berechnet wird.
+Prozentangaben beziehen sich auf die normierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
 
 ## Beispiel
 
@@ -53,7 +53,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und somit seine Größe. Mit einem Wert kleiner oder gleich null wird der Kreis überhaupt nicht gezeichnet.
+Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und somit seine Größe. Bei einem Wert kleiner oder gleich null wird der Kreis überhaupt nicht gezeichnet.
 
 <table class="properties">
   <tbody>
@@ -85,13 +85,13 @@ Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und somit sei
 </table>
 
 > [!NOTE]
-> Die Radiusgröße eines `<circle>` kann auch mit der {{cssxref("r")}} _Geometrie-Eigenschaft_ definiert werden.
+> Die Radiusgröße eines `<circle>` kann auch mit der {{cssxref("r")}} _Geometrieeigenschaft_ definiert werden.
 
 ## radialGradient
 
 Für {{ SVGElement("radialGradient") }} definiert `r` den Radius des Endkreises für den radialen Verlauf.
 
-Der Verlauf wird so gezeichnet, dass der **100%** Verlaufspunkt auf den Umkreis dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich als einfarbig mit der Farbe und Deckkraft des letzten Verlauf-{{ SVGElement("stop") }} eingefärbt wird.
+Der Verlauf wird so gezeichnet, dass der **100%** Verlaufsstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich in einer einzigen Farbe unter Verwendung der Farbe und Deckkraft des letzten {{ SVGElement("stop") }} des Verlaufs eingefärbt wird.
 
 <table class="properties">
   <tbody>
@@ -126,4 +126,4 @@ Der Verlauf wird so gezeichnet, dass der **100%** Verlaufspunkt auf den Umkreis 
 
 ## Siehe auch
 
-- CSS {{cssxref("r")}} Eigenschaft
+- CSS-Eigenschaft {{cssxref("r")}}
