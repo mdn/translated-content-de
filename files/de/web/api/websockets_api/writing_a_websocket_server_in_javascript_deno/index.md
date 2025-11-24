@@ -2,30 +2,30 @@
 title: Schreiben eines WebSocket-Servers in JavaScript (Deno)
 slug: Web/API/WebSockets_API/Writing_a_WebSocket_server_in_JavaScript_Deno
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: 7a4f2c94798ab3b2355accd50cb4f1f8451b346b
 ---
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Dieses Beispiel zeigt Ihnen, wie Sie mit Deno einen WebSocket-API-Server erstellen können, begleitet von einer zugehörigen Webseite.
+Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket-API-Server mit Deno erstellen, zusammen mit einer dazugehörigen Webseite.
 
-Deno ist eine JavaScript-Laufzeitumgebung, die das Kompilieren und Zwischenspeichern von TypeScript unterstützt. Deno verfügt über einen integrierten Formatter, Linter, Test-Runner und mehr, und implementiert viele Web-APIs. Da es konform mit den Webstandards ist, werden alle Deno-spezifischen APIs im `Deno`-Namensraum implementiert.
+Deno ist eine JavaScript-Laufzeitumgebung, die das Kompilieren und Zwischenspeichern von TypeScript im laufenden Betrieb unterstützt. Deno verfügt über einen integrierten Formatter, Linter, Test Runner und mehr und implementiert auch viele Web-APIs. Indem es den Webstandards entspricht, sind alle Deno-spezifischen APIs unter dem `Deno`-Namespace implementiert.
 
 Die [Deno-Website](https://deno.com/) bietet Anleitungen zur Installation von Deno.
 
-Zum Zeitpunkt des Verfassens: Deno-Version `1.36`.
+Deno-Version zum Zeitpunkt des Schreibens: `1.36`.
 
 ## Code
 
-Der Code wird in zwei Dateien enthalten sein, eine für den Server und eine für den Client.
+Der Code wird in zwei Dateien aufgeteilt: eine für den Server und eine für den Client.
 
 ### Server
 
-Erstellen Sie eine `main.js`-Datei. Diese Datei wird den Code für einen einfachen HTTP-Server enthalten, der auch die Client-HTML bereitstellen wird.
+Erstellen Sie eine Datei namens `main.js`. Diese Datei wird den Code für einen einfachen HTTP-Server enthalten, der auch das Client-HTML bereitstellen wird.
 
 ```js
 Deno.serve({
-  port: 80,
+  port: 8080,
   async handler(request) {
     if (request.headers.get("upgrade") !== "websocket") {
       // If the request is a normal HTTP request,
@@ -52,12 +52,12 @@ Deno.serve({
 });
 ```
 
-`Deno.upgradeWebSocket()` wertet die Verbindung zu einer WebSocket-Verbindung auf, was im [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism) weiter erläutert wird.
+`Deno.upgradeWebSocket()` aktualisiert die Verbindung auf eine WebSocket-Verbindung, was im [Leitfaden zum Protokollaktualisierungsmechanismus](/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism) näher erläutert wird.
 
-[`Deno.serve()`](https://docs.deno.com/api/deno/~/Deno.serve) verwendet unter der Haube `Deno.listen()` und `Deno.serveHttp()` und bietet eine höherstufige Schnittstelle, um einfach einen HTTP-Server einzurichten. Ohne diese würde der Code folgendermaßen aussehen.
+[`Deno.serve()`](https://docs.deno.com/api/deno/~/Deno.serve) nutzt `Deno.listen()` und `Deno.serveHttp()` im Hintergrund und ist eine höherstufige Schnittstelle, um einfach einen HTTP-Server einzurichten. Ohne sie würde der Code ungefähr so aussehen.
 
 ```js
-for await (const conn of Deno.listen({ port: 80 })) {
+for await (const conn of Deno.listen({ port: 8080 })) {
   for await (const { request, respondWith } of Deno.serveHttp(conn)) {
     respondWith(handler(request));
   }
@@ -66,7 +66,7 @@ for await (const conn of Deno.listen({ port: 80 })) {
 
 ### Client
 
-Erstellen Sie eine `index.html`-Datei. Diese Datei wird ein Skript ausführen, das den Server alle fünf Sekunden pingt, nachdem eine Verbindung hergestellt wurde. Sie sollte auch das folgende Markup enthalten:
+Erstellen Sie eine Datei namens `index.html`. Diese Datei wird ein Skript aufrufen, das den Server alle fünf Sekunden ab der Herstellung einer Verbindung pingt. Sie sollte auch das folgende Markup enthalten:
 
 ```html
 <h2>WebSocket Test</h2>
@@ -113,16 +113,16 @@ websocket.onerror = (e) => {
 
 ## Ausführen des Codes
 
-Mit den beiden Dateien führen Sie die Anwendung mit Deno aus.
+Mit den beiden Dateien führen Sie die App mit Deno aus.
 
 ```sh
-deno run --allow-net=0.0.0.0:80 --allow-read=./index.html main.js
+deno run --allow-net=0.0.0.0:8080 --allow-read=./index.html main.js
 ```
 
-Deno erfordert, dass wir explizite Berechtigungen für den Zugriff auf die Hostmaschine erteilen.
+Deno erfordert, dass wir explizite Berechtigungen dafür angeben, was wir auf dem Host-Rechner zugreifen können.
 
-- `--allow-net=0.0.0.0:80` erlaubt der App, sich an localhost auf Port 80 anzuhängen
-- `--allow-read=./index.html` erlaubt den Zugriff auf die HTML-Datei für den Client
+- `--allow-net=0.0.0.0:8080` erlaubt der App, sich an localhost auf Port 8080 anzuschließen
+- `--allow-read=./index.html` ermöglicht den Zugriff auf die HTML-Datei für den Client
 
 ## Siehe auch
 
