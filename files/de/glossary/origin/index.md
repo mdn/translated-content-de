@@ -2,33 +2,33 @@
 title: Ursprung
 slug: Glossary/Origin
 l10n:
-  sourceCommit: 7ff752fba26e0bb950998bb5476157ff96c7d314
+  sourceCommit: 39381e0841cf574bf72f02c68d22babc19f89127
 ---
 
-Der **Ursprung** von Webinhalten wird durch das _Schema_ (Protokoll), den _Hostnamen_ (Domain) und den _Port_ der {{Glossary("URL", "URL")}} definiert, die zum Zugriff verwendet wird. Zwei Objekte haben denselben Ursprung nur dann, wenn das Schema, der Hostname und der Port übereinstimmen.
+Der **Ursprung** von Webinhalt wird durch das _Schema_ (Protokoll), den _Hostname_ (Domain) und den _Port_ der {{Glossary("URL", "URL")}} definiert, die zum Zugriff darauf verwendet wird. Zwei Objekte haben nur dann denselben Ursprung, wenn Schema, Hostname und Port übereinstimmen.
 
-Einige Operationen sind auf Inhalte mit demselben Ursprung beschränkt, und diese Einschränkung kann durch {{Glossary("CORS", "CORS")}} aufgehoben werden.
+Einige Operationen sind auf Inhalte mit demselben Ursprung beschränkt, und diese Beschränkung kann durch {{Glossary("CORS", "CORS")}} aufgehoben werden.
 
 ## Opaquer Ursprung
 
-Ein opaker Ursprung ist eine spezielle Art von internem Browserwert, der den wahren Ursprung einer Ressource verbirgt (opake Ursprünge werden immer als `null` serialisiert). Sie werden vom Browser verwendet, um die Ressourcentrennung sicherzustellen, da sie nie als gleich zu einem anderen Ursprung betrachtet werden — einschließlich anderer opaker Ursprünge.
+Ein opaker Ursprung ist eine spezielle Art von browserinternem Wert, der den wahren Ursprung einer Ressource verschleiert (opake Ursprünge werden immer als `null` serialisiert). Sie werden vom Browser verwendet, um die Isolation von Ressourcen sicherzustellen, da sie niemals als gleich mit einem anderen Ursprung angesehen werden — einschließlich anderer opaker Ursprünge.
 
-Opake Ursprünge werden in Fällen angewendet, in denen der wahre Ursprung einer Ressource sensibel ist, nicht sicher für Sicherheitsüberprüfungen verwendet werden kann oder nicht existiert. Eine Ressource mit einem opaken Ursprung wird ihren {{httpheader("Origin")}} HTTP-Header in Anfragen auf [`null`](/de/docs/Web/HTTP/Reference/Headers/Origin#null) setzen. Sie wird auch bei Prüfungen auf denselben Ursprung mit jeder anderen Ressource fehlschlagen und ist daher auf diejenigen Operationen beschränkt, die für ressourcenübergreifende Vorgänge verfügbar sind.
+Opake Ursprünge werden in Fällen angewendet, in denen der wahre Ursprung einer Ressource sensibel ist, nicht sicher für Sicherheitsüberprüfungen verwendet werden kann oder nicht existiert. Eine Ressource mit einem opaken Ursprung wird in Anfragen ihren {{httpheader("Origin")}} HTTP-Header auf [`null`](/de/docs/Web/HTTP/Reference/Headers/Origin#null) gesetzt haben. Sie wird auch bei Überprüfungen auf denselben Ursprung mit jeder anderen Ressource scheitern und ist daher nur auf diejenigen Operationen beschränkt, die für Cross-Origin-Ressourcen verfügbar sind.
 
-Häufige Anwendungsfälle für opake Ursprünge sind:
+Häufige Fälle, in denen opake Ursprünge verwendet werden, sind:
 
-- Ein Dokument innerhalb eines iframes, das das [sandbox](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/sandbox)-Attribut gesetzt hat und nicht das `allow-same-origin`-Flag enthält.
-- `file:` URLs werden in der Regel als opake Ursprünge behandelt, sodass Dateien im Dateisystem einander nicht lesen können.
+- Ein Dokument innerhalb eines iframes, das das [sandbox](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/sandbox) Attribut gesetzt hat und nicht das `allow-same-origin` Flag enthält.
+- `file:` URLs werden in der Regel als opake Ursprünge behandelt, damit Dateien im Dateisystem nicht gegenseitig gelesen werden können.
 - Dokumente, die programmatisch unter Verwendung von APIs wie [`DOMImplementation.createDocument()`](/de/docs/Web/API/DOMImplementation/createDocument) erstellt werden.
 
 ## Beispiele
 
-Diese haben denselben Ursprung, da sie dasselbe Schema (`http`) und denselben Hostname (`example.com`) haben, und der unterschiedliche Dateipfad ist nicht relevant:
+Diese haben denselben Ursprung, da sie dasselbe Schema (`http`) und denselben Hostname (`example.com`) haben, und der unterschiedliche Dateipfad spielt keine Rolle:
 
 - `http://example.com/app1/index.html`
 - `http://example.com/app2/index.html`
 
-Diese haben denselben Ursprung, weil ein Server HTTP-Inhalte standardmäßig über Port 80 liefert:
+Diese haben denselben Ursprung, da ein Server HTTP-Inhalte standardmäßig über Port 80 liefert:
 
 - `http://example.com:80`
 - `http://example.com`
@@ -51,7 +51,7 @@ Diese haben nicht denselben Ursprung, da sie unterschiedliche Ports verwenden:
 
 ## Siehe auch
 
-- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
-- Verwandte Glossarbegriffe:
+- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- Zugehörige Glossarbegriffe:
   - {{Glossary("Site", "Site")}}
 - [HTML-Spezifikation: Ursprung](https://html.spec.whatwg.org/multipage/origin.html#origin)
