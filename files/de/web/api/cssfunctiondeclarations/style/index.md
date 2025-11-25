@@ -3,16 +3,18 @@ title: "CSSFunctionDeclarations: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSFunctionDeclarations/style
 l10n:
-  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`style`**-Eigenschaft der [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations)-Schnittstelle gibt ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt zurück, das die im Körper einer {{cssxref("@function")}} verfügbaren Deskriptoren darstellt.
+Die schreibgeschützte **`style`**-Eigenschaft der [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations)-Schnittstelle enthält ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt, das die im Körper der {{cssxref("@function")}}-Regel verfügbaren Deskriptoren darstellt.
 
 ## Wert
 
 Ein [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Objekt.
+
+Obwohl die `style`-Eigenschaft im Sinne der Nicht-Ersetzbarkeit des `CSSFunctionDescriptors`-Objekts schreibgeschützt ist, können Sie dennoch direkt der `style`-Eigenschaft einen Wert zuweisen. Dies entspricht der Zuweisung zu ihrer [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft. Zudem können Sie das `CSSFunctionDescriptors`-Objekt mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
 
 ## Beispiele
 

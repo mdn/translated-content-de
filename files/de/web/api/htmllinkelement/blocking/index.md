@@ -3,24 +3,18 @@ title: "HTMLLinkElement: blocking-Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLLinkElement/blocking
 l10n:
-  sourceCommit: 0e2ec54f4eb55cccad11af843d83061857918bee
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`blocking`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Abrufen einer externen Ressource blockiert werden sollen.
-
-Sie spiegelt das `blocking`-Attribut des {{HTMLElement("link")}}-Elements wider.
+Die schreibgeschützte **`blocking`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) gibt ein lebendes [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt zurück, das die Operationen enthält, die beim Abrufen einer externen Ressource blockiert werden sollten. Sie spiegelt das [`blocking`](/de/docs/Web/HTML/Reference/Elements/link#blocking)-Inhaltsattribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten Blocking-Tokens sein, die die zu blockierenden Operationen angeben:
+Ein lebendes [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt.
 
-- `render`
-  - : Das Rendering des Inhalts auf dem Bildschirm wird blockiert.
-
-    > [!NOTE]
-    > Nur `link`-Elemente im `<head>`-Abschnitt des Dokuments können möglicherweise das Rendering blockieren. Standardmäßig blockiert ein `link`-Element mit `rel="stylesheet"` im `<head>` das Rendering, wenn der Browser es während des Parsens entdeckt. Wenn ein solches `link`-Element dynamisch über ein Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` setzen, damit es das Rendering blockiert.
+Obwohl die `blocking`-Eigenschaft selbst schreibgeschützt ist in dem Sinne, dass das `DOMTokenList`-Objekt nicht ersetzt werden kann, können Sie trotzdem direkt der `blocking`-Eigenschaft einen Wert zuweisen, was dem Zuweisen zu ihrer [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft entspricht. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) modifizieren.
 
 ## Beispiele
 
@@ -35,7 +29,7 @@ Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten 
 
 ```js
 const el = document.getElementById("el");
-console.log(el.blocking); // Output: "render"
+console.log(el.blocking); // Output: DOMTokenList ["render"]
 ```
 
 ## Spezifikationen

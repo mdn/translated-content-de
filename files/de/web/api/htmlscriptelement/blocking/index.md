@@ -3,24 +3,18 @@ title: "HTMLScriptElement: blocking-Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLScriptElement/blocking
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`blocking`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle ist ein String, der angibt, dass bestimmte Operationen beim Abrufen des Skripts blockiert werden sollten.
-
-Sie spiegelt das `blocking`-Attribut des {{HTMLElement("script")}}-Elements wider.
+Die schreibgeschützte **`blocking`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) gibt ein dynamisches [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt zurück, das die Operationen enthält, die beim Abrufen einer externen Ressource blockiert werden sollten. Sie spiegelt das [`blocking`](/de/docs/Web/HTML/Reference/Elements/script#blocking)-Inhaltsattribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste der folgenden Blockierungstokens sein, die die zu blockierenden Operationen angeben:
+Ein dynamisches [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt.
 
-- `render`
-  - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
-
-    > [!NOTE]
-    > Nur `script`-Elemente im `<head>` des Dokuments können möglicherweise das Rendern blockieren. Skripte blockieren standardmäßig nicht das Rendern; wenn ein `script`-Element nicht `type="module"`, `async` oder `defer` enthält, blockiert es das _Parsen_, nicht das _Rendern_. Wenn ein solches `script`-Element dynamisch über ein Skript hinzugefügt wird, müssen Sie `blocking = "render"` setzen, damit es das Rendern blockiert.
+Obwohl die `blocking`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `DOMTokenList`-Objekt nicht ersetzen können, können Sie dennoch direkt der `blocking`-Eigenschaft einen Wert zuweisen, was gleichbedeutend mit der Zuweisung zu ihrer [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft ist. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) modifizieren.
 
 ## Beispiele
 
