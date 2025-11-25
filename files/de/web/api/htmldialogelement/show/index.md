@@ -3,12 +3,12 @@ title: "HTMLDialogElement: show() Methode"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: e1a895da256b94f28be74b6f92ed18b5c2bec366
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt das Dialogfeld modelless an, d.h. sie ermöglicht weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
+Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle zeigt das Dialogfeld modelless an, d.h. sie ermöglicht weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
 
 ## Syntax
 
@@ -31,12 +31,18 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()` Methode öffnet. Von dort aus können Sie den _Cancel_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über den Absenden-Button einreichen.
+### Grundlegende Nutzung
+
+Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()` Methode öffnet.
+Von dort aus können Sie auf die _Abbrechen_-Schaltfläche ("X") klicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über die Absenden-Schaltfläche einreichen.
+
+#### HTML
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
+    <button type="button" id="cancel">X</button>
     <section>
       <p>
         <label for="favAnimal">Favorite animal:</label>
@@ -62,6 +68,8 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmle
 <button id="updateDetails">Update details</button>
 ```
 
+#### JavaScript
+
 ```js
 const updateButton = document.getElementById("updateDetails");
 const cancelButton = document.getElementById("cancel");
@@ -72,7 +80,7 @@ function openCheck(dialog) {
   if (dialog.open) {
     console.log("Dialog open");
   } else {
-    console.log("Dialog closed");
+    console.log("Dialog cancelled");
   }
 }
 
@@ -89,6 +97,10 @@ cancelButton.addEventListener("click", () => {
 });
 ```
 
+#### Ergebnisse
+
+{{EmbedLiveSample("Basic usage",100, 200)}}
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -99,4 +111,4 @@ cancelButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
