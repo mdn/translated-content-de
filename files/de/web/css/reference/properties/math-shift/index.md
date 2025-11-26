@@ -2,12 +2,10 @@
 title: math-shift
 slug: Web/CSS/Reference/Properties/math-shift
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 6de2b9ea9385f46a701534b4c20eddbb7b5d753c
 ---
 
-{{SeeCompatTable}}
-
-Die `math-shift`-Eigenschaft gibt an, ob Superskripte innerhalb von MathML-Formeln mit einer normalen oder kompakten Verschiebung angehoben werden sollen.
+Die Eigenschaft `math-shift` gibt an, ob Hochzahlen in MathML-Formeln durch einen normalen oder kompakten Abstand angehoben werden sollen.
 
 ## Syntax
 
@@ -27,9 +25,9 @@ math-shift: unset;
 ### Werte
 
 - `normal`
-  - : Der Anfangswert, der eine normale Darstellung angibt. Superskripte in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup)-Parameter aus der OpenType MATH-Tabelle.
+  - : Der Anfangswert, der normales Rendering angibt. Hochzahlen in MathML-Formeln verwenden den [superscriptShiftUp](https://w3c.github.io/mathml-core/#dfn-superscriptshiftup)-Parameter aus der OpenType MATH-Tabelle.
 - `compact`
-  - : Gibt eine kompakte Darstellung an. Superskripte in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped)-Parameter aus der OpenType MATH-Tabelle, der im Allgemeinen kleiner ist.
+  - : Gibt kompaktes Rendering an. Hochzahlen in MathML-Formeln verwenden den [superscriptShiftUpCramped](https://w3c.github.io/mathml-core/#dfn-superscriptshiftupcramped)-Parameter aus der OpenType MATH-Tabelle, der in der Regel kleiner ist.
 
 ## Formale Definition
 
@@ -59,7 +57,7 @@ math {
 
 ### MathML
 
-Das folgende MathML zeigt zwei Versionen von "x hoch zwei" unter Verwendung einer Schriftart mit einer OpenType MATH-Tabelle. Browser, die die `math-shift`-Eigenschaft implementieren, sollten die Superskripte mit leicht unterschiedlichen Verschiebungen anheben.
+Das folgende MathML zeigt zwei Versionen von "x zum Quadrat" unter Verwendung einer Schriftart mit einer OpenType MATH-Tabelle. Browser, die die `math-shift`-Eigenschaft implementieren, sollten die Hochzahlen mit leicht unterschiedlichen Abständen anheben.
 
 ```html
 <math>

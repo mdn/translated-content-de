@@ -1,26 +1,26 @@
 ---
-title: Sicheres Einfügen von externen Inhalten in eine Seite
+title: Sicheres Einfügen externer Inhalte in eine Seite
 short-title: Externe Inhalte einfügen
 slug: Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page
 l10n:
-  sourceCommit: c39cf764d2e9ae7de92ad027c73a7d643ed5bc63
+  sourceCommit: b9850ebb7c55331766b1976f861907fbc90352a1
 ---
 
-Es gibt Zeiten, in denen Sie Inhalte aus einer externen Quelle in Ihre Erweiterung aufnehmen möchten oder müssen. Es besteht jedoch das Risiko, dass die Quelle bösartige Skripte eingebettet hat - entweder durch den Entwickler der Quelle oder durch eine bösartige Drittpartei.
+Es gibt Situationen, in denen Sie Inhalte aus einer externen Quelle in Ihre Erweiterung einbinden möchten oder müssen. Es besteht jedoch das Risiko, dass die Quelle möglicherweise bösartige Skripte eingebettet hat – entweder durch den Entwickler der Quelle oder durch eine böswillige Drittpartei.
 
-Nehmen Sie einen RSS-Reader als Beispiel. Sie wissen nicht, welche RSS-Feeds Ihre Erweiterung öffnen wird, und haben keine Kontrolle über den Inhalt dieser RSS-Feeds. Es ist also möglich, dass der Benutzer einen Feed abonniert, in dem beispielsweise der Titel eines Feed-Elements ein Skript enthält. Das könnte so einfach sein wie das Einfügen von JavaScript-Code innerhalb von `<script></script>`-Tags. Wenn Sie den Titel extrahieren, annehmen, dass es sich um reinen Text handelt, und ihn dem DOM einer von Ihrer Erweiterung erstellten Seite hinzufügen, läuft nun ein unbekanntes Skript im Browser Ihres Nutzers. Daher muss vorsichtig vermieden werden, beliebigen Text als HTML zu interpretieren.
+Betrachten Sie zum Beispiel einen RSS-Reader. Sie wissen nicht, welche RSS-Feeds Ihre Erweiterung öffnen wird, und haben keine Kontrolle über den Inhalt dieser RSS-Feeds. Es ist also möglich, dass der Benutzer einen Feed abonniert, bei dem beispielsweise der Titel eines Feed-Elements ein Skript enthält. Dies könnte so einfach sein wie das Einfügen von JavaScript-Code innerhalb von `<script></script>`-Tags. Wenn Sie den Titel extrahieren, annehmen, dass es sich um einfachen Text handelt, und ihn dem DOM einer von Ihrer Erweiterung erstellten Seite hinzufügen, führt Ihr Benutzer jetzt ein unbekanntes Skript in seinem Browser aus. Daher muss darauf geachtet werden, dass beliebiger Text nicht als HTML ausgewertet wird.
 
-Sie müssen sich auch daran erinnern, dass Erweiterungen privilegierte Kontexte haben, zum Beispiel in Hintergrundskripten und Inhalteskripten. Im schlimmsten Fall könnte ein eingebettetes Skript in einem dieser Kontexte ausgeführt werden, eine Situation, die als Privilegienerweiterung bekannt ist. Diese Situation kann den Browser eines Benutzers für einen Fernangriff anfällig machen, indem die Website, die den Code injizierte, in die Lage versetzt wird, auf kritische Benutzerdaten zuzugreifen, wie etwa Passwörter, Browserverlauf oder Browsing-Verhalten.
+Sie müssen auch bedenken, dass Erweiterungen privilegierte Kontexte haben, zum Beispiel in Hintergrundskripten und Inhaltsskripten. Im schlimmsten Fall könnte ein eingebettetes Skript in einem dieser Kontexte ausgeführt werden, was als Privilegieneskalation bekannt ist. Diese Situation kann den Browser eines Benutzers für einen entfernten Angriff öffnen, indem der Website, die den Code injiziert hat, ermöglicht wird, auf kritische Benutzerdaten zuzugreifen, wie z.B. Passwörter, Browserhistorie oder Surfverhalten.
 
-Dieser Artikel untersucht, wie Sie sicher mit Remote-Daten arbeiten und sie einem DOM hinzufügen können.
+Dieser Artikel untersucht, wie man sicher mit entfernten Daten arbeitet und sie einem DOM hinzufügt.
 
 ## Arbeiten mit beliebigen Zeichenfolgen
 
-Beim Arbeiten mit Zeichenfolgen gibt es einige empfohlene Optionen, um sie sicher einer Seite hinzuzufügen: die standardmäßigen DOM-Node-Erstellungsmethoden oder jQuery.
+Beim Arbeiten mit Zeichenfolgen gibt es einige empfohlene Optionen, um diese sicher in eine Seite einzufügen: die Standard-DOM-Knoten-Erstellungsmethoden oder jQuery.
 
 ### DOM-APIs zur Knoten-Erstellung und sicheren Texteingabe
 
-Für eine leichte und sichere Methode zum Einfügen von Zeichenfolgen verwenden Sie native DOM-APIs: Erstellen Sie Elemente mit [`document.createElement`](/de/docs/Web/API/Document/createElement) und setzen Sie nur validierte, nicht-ausführbare Attribute mit [`Element.setAttribute`](/de/docs/Web/API/Element/setAttribute). Um Textinhalt hinzuzufügen, verwenden Sie die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft. Ein sicherer Ansatz ist, die Knoten separat zu erstellen und ihren Inhalt mit `textContent` zuzuweisen:
+Für eine leichte und sichere Methode, Zeichenfolgen einzufügen, verwenden Sie native DOM-APIs: Erstellen Sie Elemente mit [`document.createElement`](/de/docs/Web/API/Document/createElement) und setzen Sie nur validierte, nicht ausführbare Attribute mit [`Element.setAttribute`](/de/docs/Web/API/Element/setAttribute). Um Textinhalt hinzuzufügen, verwenden Sie die [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft. Eine sichere Vorgehensweise besteht darin, die Knoten separat zu erstellen und deren Inhalt mit `textContent` zuzuweisen:
 
 ```js example-good
 let data = JSON.parse(responseText);
@@ -30,20 +30,20 @@ div.textContent = `Your favorite color is now ${data.color}`;
 addonElement.appendChild(div);
 ```
 
-Dieser Ansatz ist sicher, da die Verwendung von `.textContent` automatisch alle externen HTML in `data.color` maskiert.
+Dieser Ansatz ist sicher, da die Verwendung von `.textContent` automatisch jegliches remote HTML in `data.color` maskiert.
 
-Seien Sie jedoch vorsichtig, da Sie auch native Methoden verwenden können, die nicht sicher sind. Nehmen Sie den folgenden Code:
+Achtung, es gibt native Methoden, die nicht sicher sind. Betrachten Sie den folgenden Code:
 
 ```js example-bad
 let data = JSON.parse(responseText);
 addonElement.innerHTML = `<div class='${data.className}'>Your favorite color is now ${data.color}</div>`;
 ```
 
-Hier könnten die Inhalte von `data.className` oder `data.color` HTML enthalten, das das Tag vorzeitig schließen, beliebigen weiteren HTML-Inhalt einfügen und dann ein weiteres Tag öffnen könnte.
+Hier könnten die Inhalte von `data.className` oder `data.color` HTML enthalten, das das Tag frühzeitig schließen, beliebigen weiteren HTML-Inhalt einfügen und dann ein weiteres Tag öffnen kann.
 
 ### jQuery
 
-Beim Verwenden von jQuery, Funktionen wie `attr()` und `text()` maskieren Inhalte beim Hinzufügen zu einem DOM. Das oben angeführte Beispiel "Lieblingsfarbe", implementiert mit jQuery, würde so aussehen:
+Bei der Verwendung von jQuery vermeiden Funktionen wie `attr()` und `text()` die Behandlung eines beliebigen Zeichens als HTML-Syntax. Das "Favorite Color"-Beispiel von oben würde in jQuery so aussehen:
 
 ```js example-good
 let node = $("<div>");
@@ -51,15 +51,15 @@ node.addClass(data.className);
 node.text(`Your favorite color is now ${data.color}`);
 ```
 
-## Arbeiten mit HTML-Inhalten
+## Arbeiten mit HTML-Inhalt
 
-Beim Arbeiten mit extern bezogenen Inhalten, von denen Sie wissen, dass sie HTML sind, ist das Desinfizieren des HTMLs unerlässlich, bevor es einer Seite hinzugefügt wird. Die beste Praxis für die Desinfektion von HTML ist die Verwendung einer HTML-Desinfektionsbibliothek oder einer Template-Engine mit HTML-Desinfektionsfunktionen. In diesem Abschnitt werfen wir einen Blick auf einige geeignete Werkzeuge und deren Anwendung.
+Beim Arbeiten mit extern bezogenem Inhalt, den Sie als HTML kennen, ist es wesentlich, das HTML zu bereinigen, bevor es einer Seite hinzugefügt wird. Die beste Praxis für das Bereinigen von HTML ist die Verwendung einer HTML-Bereinigungsbibliothek oder einer Template-Engine mit HTML-Bereinigungsfunktionen. In diesem Abschnitt betrachten wir einige geeignete Werkzeuge und deren Anwendung.
 
-### HTML-Desinfektion
+### HTML-Bereinigung
 
-Eine HTML-Desinfektionsbibliothek entfernt alles, was zu Skriptausführung führen könnte, aus HTML, sodass Sie vollständige HTML-Knotensätze sicher aus einer externen Quelle in Ihr DOM injizieren können. [DOMPurify](https://github.com/cure53/DOMPurify), das von verschiedenen Sicherheitsexperten überprüft wurde, ist eine geeignete Bibliothek für diese Aufgabe in Erweiterungen.
+Eine HTML-Bereinigungsbibliothek entfernt alles aus HTML, was zur Skriptausführung führen könnte, sodass Sie sicher vollständige HTML-Knoten von einer externen Quelle in Ihr DOM injizieren können. [DOMPurify](https://github.com/cure53/DOMPurify), das von verschiedenen Sicherheitsexperten überprüft wurde, ist eine geeignete Bibliothek für diese Aufgabe in Erweiterungen.
 
-Für den Produktionseinsatz kommt [DOMPurify](https://github.com/cure53/DOMPurify) als minifizierte Version: purify.min.js. Sie können dieses Skript auf die für Ihre Erweiterung am besten geeignete Weise verwenden. Zum Beispiel könnten Sie es als Inhalteskript hinzufügen:
+Für die Produktion kommt [DOMPurify](https://github.com/cure53/DOMPurify) als minimierte Version: purify.min.js. Sie können dieses Skript in der für Ihre Erweiterung am besten geeigneten Weise verwenden. Zum Beispiel könnten Sie es als Inhaltsskript hinzufügen:
 
 ```json
 "content_scripts": [
@@ -70,7 +70,7 @@ Für den Produktionseinsatz kommt [DOMPurify](https://github.com/cure53/DOMPurif
 ]
 ```
 
-Dann können Sie in `my-injection-script.js` das externe HTML lesen, es desinfizieren und es einem Seiten-DOM hinzufügen:
+Dann können Sie in `my-injection-script.js` das externe HTML lesen, bereinigen und es dem DOM einer Seite hinzufügen:
 
 ```js
 let elem = document.createElement("div");
@@ -78,7 +78,7 @@ let cleanHTML = DOMPurify.sanitize(externalHTML);
 elem.innerHTML = cleanHTML;
 ```
 
-Sie können jede Methode verwenden, um das desinfizierte HTML zu Ihrem DOM hinzuzufügen, zum Beispiel die `.html()`-Funktion von jQuery. Beachten Sie jedoch, dass in diesem Fall das `SAFE_FOR_JQUERY`-Flag verwendet werden muss:
+Sie können jede Methode verwenden, um das bereinigte HTML Ihrem DOM hinzuzufügen, zum Beispiel die `.html()`-Funktion von jQuery. Beachten Sie jedoch, dass das `SAFE_FOR_JQUERY`-Flag in diesem Fall verwendet werden muss:
 
 ```js
 let elem = $("<div/>");
@@ -88,14 +88,14 @@ elem.html(cleanHTML);
 
 ### Template-Engines
 
-Ein weiteres häufiges Muster ist das Erstellen einer lokalen HTML-Vorlage für eine Seite und das Einfügen von Remote-Werten in die Lücken. Während dieser Ansatz im Allgemeinen akzeptabel ist, sollte darauf geachtet werden, keine Konstrukte zu verwenden, die das Einfügen von ausführbarem Code ermöglichen würden. Dies kann passieren, wenn die Template-Engine Konstrukte verwendet, die rohes HTML in das Dokument einfügen. Wenn die Variable, die rohes HTML einfügt, von einer externen Quelle stammt, unterliegt sie dem gleichen Sicherheitsrisiko, das in der Einleitung erwähnt wird.
+Ein weiteres häufiges Muster besteht darin, eine lokale HTML-Vorlage für eine Seite zu erstellen und entfernte Werte zu verwenden, um Lücken zu füllen. Während dieser Ansatz im Allgemeinen akzeptabel ist, sollte darauf geachtet werden, keine Konstrukte zu verwenden, die die Ausführung von Code erlauben würden. Dies kann passieren, wenn die Template-Engine Konstrukte verwendet, die rohe HTML in das Dokument einfügen. Wenn die Variable, die verwendet wird, um rohes HTML einzufügen, von einer entfernten Quelle stammt, unterliegt sie dem gleichen Sicherheitsrisiko, das in der Einführung erwähnt wurde.
 
-Zum Beispiel müssen Sie beim Verwenden von [Mustache-Vorlagen](https://mustache.github.io/) den doppelten Mustache verwenden, `\{{variable}}`, der beliebige HTML maskiert. Die Nutzung des dreifachen Mustache, `\{\{{variable}}}`, muss vermieden werden, da dieser eine rohe HTML-Zeichenfolge injiziert und ausführbaren Code zu Ihrer Vorlage hinzufügen könnte. [Handlebars](https://handlebarsjs.com/) funktioniert auf ähnliche Weise, wobei Variablen in doppelten Handlebar-Klammern, `\{{variable}}`, maskiert werden. Hingegen werden Variablen in dreifachen Handlebar-Klammern roh gelassen und müssen vermieden werden. Wenn Sie auch einen Handlebars-Helfer mit `Handlebars.SafeString` erstellen, verwenden Sie `Handlebars.escapeExpression()`, um alle dynamischen Parameter, die dem Helfer übergeben werden, zu maskieren. Dies ist erforderlich, da die resultierende Variable von `Handlebars.SafeString` als sicher betrachtet wird und nicht maskiert wird, wenn sie mit doppelten Handlebar-Klammern eingefügt wird.
+Zum Beispiel bei der Verwendung von [Mustache-Templates](https://mustache.github.io/) müssen Sie den doppelten Mustache `\{{variable}}` verwenden, der jegliches HTML maskiert. Die Verwendung des dreifachen Mustache `\{\{{variable}}}` muss vermieden werden, da dies eine rohe HTML-Zeichenfolge einfügt und ausführbaren Code zu Ihrer Vorlage hinzufügen könnte. [Handlebars](https://handlebarsjs.com/) funktioniert auf ähnliche Weise, wobei Variablen in doppelten Handlebars `\{{variable}}` maskiert werden. Während Variablen in dreifachen Handlebars roh bleiben und vermieden werden müssen. Wenn Sie auch einen Handlebars-Helper mit `Handlebars.SafeString` erstellen, verwenden Sie `Handlebars.escapeExpression()`, um alle dynamischen Parameter zu maskieren, die dem Helper übergeben werden. Dies ist erforderlich, da die resultierende Variable aus `Handlebars.SafeString` als sicher gilt und nicht maskiert wird, wenn sie mit doppelten Handlebars eingefügt wird.
 
-Ähnliche Konstrukte gibt es in anderen Template-Systemen, die mit der gleichen Sorgfalt behandelt werden müssen.
+Es gibt ähnliche Konstrukte in anderen Template-Systemen, die mit der gleichen Sorgfalt behandelt werden müssen.
 
-## Weiterführende Literatur
+## Weiterführende Informationen
 
-Für weitere Informationen zu diesem Thema sehen Sie die folgenden Artikel an:
+Für weitere Informationen zu diesem Thema lesen Sie die folgenden Artikel:
 
 - [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://owasp.org/www-community/xss-filter-evasion-cheatsheet)
