@@ -3,18 +3,18 @@ title: CSS-Datentypen
 short-title: Data types
 slug: Web/CSS/Reference/Values/Data_types
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: 01768f6dcc74acdbd32d2e91512939003b86ac6c
 ---
 
-**CSS-Datentypen** definieren typische Werte (einschließlich Schlüsselwörter und Einheiten), die von CSS-Eigenschaften und -Funktionen akzeptiert werden. Sie sind eine besondere Art von [Komponentenwerttyp](https://drafts.csswg.org/css-values/#component-types).
+**CSS-Datentypen** definieren typische Werte (einschließlich Schlüsselwörtern und Einheiten), die von CSS-Eigenschaften und -Funktionen akzeptiert werden. Sie sind eine spezielle Art von [Komponentenwerttypen](https://drafts.csswg.org/css-values/#component-types).
 
-Die am häufigsten verwendeten Typen sind im Modul [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) definiert. Dieses Modul definiert auch [funktionale Notationen](/de/docs/Web/CSS/Reference/Values/Functions), die komplexere Typen oder Verarbeitungen ermöglichen. Andere Typen sind in den Spezifikationen definiert, auf die sie zutreffen.
+Die am häufigsten verwendeten Typen sind im [CSS Values and Units](/de/docs/Web/CSS/Guides/Values_and_units) Modul definiert. Dieses Modul definiert auch [funktionale Notationen](/de/docs/Web/CSS/Reference/Values/Functions), die komplexere Typen oder Verarbeitungen ermöglichen. Andere Typen sind in den jeweiligen Spezifikationen definiert.
 
-Unten finden Sie einen Verweis auf die Typen, die Ihnen wahrscheinlich am häufigsten begegnen, es handelt sich jedoch nicht um einen umfassenden Verweis auf alle in jeder CSS-Spezifikation definierten Typen.
+Im Folgenden finden Sie einen Verweis auf die Typen, die Sie am ehesten antreffen werden. Es handelt sich jedoch nicht um eine umfassende Referenz aller in jeder CSS-Spezifikation definierten Typen.
 
 ## Syntax
 
-In der formalen CSS-Syntax werden Datentypen durch ein Schlüsselwort gekennzeichnet, das zwischen den spitzen Klammern `<` und `>` steht. Sie entsprechen keiner greifbaren CSS-Code-Entität.
+In der formalen CSS-Syntax werden Datentypen durch ein Schlüsselwort zwischen den spitzen Klammern `<` und `>` gekennzeichnet. Sie entsprechen keiner greifbaren CSS-Code-Entität.
 
 ## Textuelle Datentypen
 
@@ -25,125 +25,125 @@ Diese Typen umfassen Schlüsselwörter und Bezeichner sowie Zeichenketten und UR
 - CSS-weite Schlüsselwörter
   - : Alle Eigenschaften, einschließlich benutzerdefinierter Eigenschaften, akzeptieren die CSS-weiten Schlüsselwörter:
     - {{CSSXref("initial")}}
-      - : Der angegebene Wert als Anfangswert der Eigenschaft.
+      - : Der als Anfangswert der Eigenschaft angegebene Wert.
     - {{CSSXref("inherit")}}
-      - : Der berechnete Wert der Eigenschaft des Elternelements.
+      - : Der berechnete Wert der Eigenschaft beim übergeordneten Element.
     - {{CSSXref("revert")}}
       - : Setzt die Kaskade auf den Wert des früheren Ursprungs zurück.
     - {{CSSXref("revert-layer")}}
-      - : Setzt die Kaskade auf den Wert der vorherigen [Kaskadenschicht](/de/docs/Web/CSS/Reference/At-rules/@layer) zurück.
+      - : Setzt die Kaskade auf den Wert der früheren [Kaskadenebene](/de/docs/Web/CSS/Reference/At-rules/@layer) zurück.
     - {{CSSXref("unset")}}
       - : Wirkt wie `inherit` oder `initial`, je nachdem, ob die Eigenschaft vererbt wird oder nicht.
 - {{cssxref("&lt;custom-ident&gt;")}}
-  - : Ein vom Benutzer definierter Bezeichner, zum Beispiel der mit der Eigenschaft {{cssxref("grid-area")}} zugewiesene Name.
+  - : Ein benutzerdefinierter Bezeichner, zum Beispiel der mit der Eigenschaft {{cssxref("grid-area")}} zugewiesene Name.
 - {{cssxref("&lt;dashed-ident&gt;")}}
-  - : Ein `<custom-ident>` mit der zusätzlichen Einschränkung, dass er mit zwei Bindestrichen beginnen muss, zum Beispiel bei [CSS-benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties).
+  - : Ein `<custom-ident>` mit der zusätzlichen Einschränkung, dass er mit zwei Bindestrichen beginnen muss, zum Beispiel bei [CSS Custom Properties](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties).
 - {{cssxref("&lt;string&gt;")}}
-  - : Eine in Anführungszeichen gesetzte Zeichenkette, wie sie für einen Wert der Eigenschaft {{cssxref("content")}} verwendet wird.
+  - : Eine zitierte Zeichenkette, wie sie als Wert der Eigenschaft {{cssxref("content")}} verwendet wird.
 - {{cssxref("url_value", "&lt;url&gt;")}}
   - : Ein Verweis auf eine Ressource, zum Beispiel als Wert von {{cssxref("background-image")}}.
 
 ## Numerische Datentypen
 
-Diese Datentypen werden zur Angabe von Mengen, Indizes und Positionen verwendet. Der Großteil dieser Typen ist im Modul CSS Werte und Einheiten definiert, jedoch werden zusätzliche Typen in anderen Modulen beschrieben, wo sie nur für diese Spezifikation spezifisch sind – zum Beispiel die Einheit `fr` im Modul [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout).
+Diese Datentypen werden verwendet, um Mengen, Indizes und Positionen anzugeben. Die meisten davon sind im CSS-Werte- und -Einheitenmodul definiert, jedoch werden zusätzliche Typen in anderen Modulen beschrieben, wenn sie spezifisch für diese Spezifikation sind — zum Beispiel die `fr`-Einheit im [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Modul.
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Eine oder mehrere Dezimaleinheiten 0 bis 9, optional vorangestellt mit `-` oder `+`.
+  - : Eine oder mehrere Dezimalstellen 0 bis 9, optional mit vorangestelltem `-` oder `+`.
 - {{cssxref("&lt;number&gt;")}}
   - : Reelle Zahlen, die auch eine Bruchkomponente haben können, zum Beispiel `1` oder `1.34`.
 - {{cssxref("&lt;dimension&gt;")}}
-  - : Eine Zahl mit einer angehängten Einheit, zum Beispiel `90deg`, `50ms` oder `15em`. Dieser Typ beinhaltet Entfernungen ({{cssxref("&lt;length&gt;")}}), Zeitdauern ({{cssxref("&lt;time&gt;")}}), Frequenzen ({{cssxref("&lt;frequency&gt;")}}), Auflösungen ({{cssxref("&lt;resolution&gt;")}}) und andere Mengen.
+  - : Eine Zahl mit einer zugehörigen Einheit, zum Beispiel `90deg`, `50ms` oder `15em`. Dieser Typ umfasst Entfernungen ({{cssxref("&lt;length&gt;")}}), Dauer ({{cssxref("&lt;time&gt;")}}), Frequenzen ({{cssxref("&lt;frequency&gt;")}}), Auflösungen ({{cssxref("&lt;resolution&gt;")}}) und andere Mengen.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Eine Zahl mit einem angehängten Prozentzeichen, zum Beispiel `10%`.
+  - : Eine Zahl mit einem Prozentzeichen dahinter, zum Beispiel `10%`.
 - {{cssxref("&lt;ratio&gt;")}}
-  - : Ein Verhältnis, geschrieben im Syntax `<number> / <number>`.
+  - : Ein Verhältnis, geschrieben mit der Syntax `<number> / <number>`.
 - {{cssxref("&lt;flex&gt;")}}
-  - : Eine flexible Länge, die für das [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) eingeführt wurde, geschrieben als ein `<number>` mit der `fr` Einheit angehängt und für das Größen von Grid-Spuren verwendet.
+  - : Eine flexible Länge, die für [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) eingeführt wurde, geschrieben als `<number>` mit der `fr`-Einheit und für die Größenbestimmung von Gittern verwendet.
 
-## Größenangaben
+## Mengen
 
-Diese {{cssxref("&lt;dimension&gt;")}} Typen werden verwendet, um Entfernungen und andere Mengen anzugeben.
+Diese {{cssxref("&lt;dimension&gt;")}}-Typen werden verwendet, um Entfernungen und andere Mengen anzugeben.
 
 - {{cssxref("&lt;length&gt;")}}
   - : Längen sind ein `<dimension>` und beziehen sich auf Entfernungen.
 - {{cssxref("&lt;angle&gt;")}}
-  - : Winkel werden in Eigenschaften wie {{cssxref("gradient/linear-gradient", "linear-gradient()")}} verwendet und sind ein `<dimension>` mit einer der Einheiten `deg`, `grad`, `rad` oder `turn`.
+  - : Winkel werden in Eigenschaften wie {{cssxref("gradient/linear-gradient", "linear-gradient()")}} verwendet und sind ein `<dimension>` mit einer der Einheiten `deg`, `grad`, `rad`, oder `turn`.
 - {{cssxref("&lt;time&gt;")}}
-  - : Dauerseinheiten sind ein `<dimension>` mit einer `s` oder `ms` Einheit.
+  - : Zeiteinheiten sind ein `<dimension>` mit einer `s`- oder `ms`-Einheit.
 - {{cssxref("&lt;frequency&gt;")}}
-  - : Frequenzen sind ein `<dimension>` mit einer `Hz` oder `kHz` Einheit.
+  - : Frequenzen sind ein `<dimension>` mit einer `Hz`- oder `kHz`-Einheit.
 - {{cssxref("&lt;resolution&gt;")}}
-  - : Ist ein `<dimension>` mit einem Einheitenbezeichner von `dpi`, `dpcm`, `dppx` oder `x`.
+  - : Ist ein `<dimension>` mit einem Einheitenkennzeichen von `dpi`, `dpcm`, `dppx`, oder `x`.
 
 ## Kombinationen von Typen
 
-Einige CSS-Eigenschaften können einen {{cssxref("&lt;dimension&gt;")}} oder einen {{cssxref("&lt;percentage&gt;")}} Wert übernehmen. In diesem Fall wird der Prozentwert auf eine Größe aufgelöst, die mit der zulässigen Dimension übereinstimmt. Eigenschaften, die zusätzlich zu einer Dimension auch einen Prozentsatz akzeptieren können, verwenden einen der unten aufgeführten Typen.
+Einige CSS-Eigenschaften können entweder einen {{cssxref("&lt;dimension&gt;")}} oder einen {{cssxref("&lt;percentage&gt;")}}-Wert annehmen. In diesem Fall wird der Prozentwert in eine Menge aufgelöst, die mit der zulässigen Dimension übereinstimmt. Eigenschaften, die zusätzlich zur Dimension ein Prozent akzeptieren können, verwenden einen der unten aufgeführten Typen.
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein Typ, der eine Länge oder einen Prozentsatz als Wert akzeptieren kann.
+  - : Ein Typ, der eine Länge oder ein Prozent als Wert akzeptieren kann.
 - {{cssxref("&lt;frequency-percentage&gt;")}}
-  - : Ein Typ, der eine Frequenz oder einen Prozentsatz als Wert akzeptieren kann.
+  - : Ein Typ, der eine Frequenz oder ein Prozent als Wert akzeptieren kann.
 - {{cssxref("&lt;angle-percentage&gt;")}}
-  - : Ein Typ, der einen Winkel oder einen Prozentsatz als Wert akzeptieren kann.
+  - : Ein Typ, der einen Winkel oder ein Prozent als Wert akzeptieren kann.
 - {{cssxref("&lt;time-percentage&gt;")}}
-  - : Ein Typ, der eine Zeit oder einen Prozentsatz als Wert akzeptieren kann.
+  - : Ein Typ, der eine Zeit oder ein Prozent als Wert akzeptieren kann.
 
 ## Farbe
 
-Das [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul definiert den {{cssxref("&lt;color&gt;")}} Datentyp und andere Typen, die sich auf Farbe in CSS beziehen.
+Das [CSS Color](/de/docs/Web/CSS/Guides/Colors) Modul definiert den {{cssxref("&lt;color&gt;")}} Datentyp und andere Typen, die sich auf Farbe in CSS beziehen.
 
 - {{cssxref("&lt;color&gt;")}}
   - : Angegeben als Schlüsselwort oder numerischer Farbwert.
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Gibt die Transparenz einer Farbe an. Kann ein `<number>` sein, wobei 0 vollständig transparent und 1 vollständig deckend ist, oder ein `<percentage>`, wobei 0% vollständig transparent und 100% vollständig deckend sind.
+  - : Gibt die Transparenz einer Farbe an. Kann ein `<number>` sein, wobei 0 vollständig transparent und 1 vollständig opak ist, oder ein `<percentage>`, wobei 0% vollständig transparent und 100% vollständig opak ist.
 - {{cssxref("&lt;hue&gt;")}}
-  - : Gibt den `<angle>` an, mit einem Einheitencode von `deg`, `grad`, `rad` oder `turn`, oder eine einheitslose `<number>`, die als `deg` interpretiert wird, des {{Glossary("color_wheel", "Farbkreises")}}, der spezifisch für die `<absolute-color-functions>` ist, deren Teil er ist.
+  - : Bestimmt den `<angle>`, mit einem Einheitenkennzeichen `deg`, `grad`, `rad`, oder `turn`, oder eine einheitslose `<number>`, die als `deg` interpretiert wird, des {{Glossary("color_wheel", "Farbkreises")}}, spezifisch für die `<absolute-color-functions>`, von denen es ein Bestandteil ist.
 
 ## Bilder
 
-Das [CSS-Bilder](/de/docs/Web/CSS/Guides/Images) Modul definiert die Datentypen, die sich mit Bildern befassen, einschließlich Verläufen.
+Das [CSS Images](/de/docs/Web/CSS/Guides/Images) Modul definiert die Datentypen, die sich mit Bildern befassen, einschließlich Verläufen.
 
 - {{cssxref("&lt;image&gt;")}}
   - : Ein URL-Verweis auf ein Bild oder einen Farbverlauf.
 - `<color-stop-list>`
-  - : Eine Liste von zwei oder mehr Farbstopps mit optionalen Übergangsinformationen unter Verwendung eines Farbhints.
+  - : Eine Liste von zwei oder mehr Farbstopps mit optionaler Übergangsinformation unter Verwendung eines Farbhints.
 - `<linear-color-stop>`
-  - : Eine `<color>` und eine `<length-percentage>`, um den Farbverlauf für diesen Teil des Gradienten anzugeben.
+  - : Eine `<color>` und eine `<length-percentage>`, um den Farbstop für diesen Teil des Verlaufs anzugeben.
 - `<linear-color-hint>`
   - : Eine `<length-percentage>`, um anzugeben, wie die Farbe interpoliert wird.
 - `<ending-shape>`
-  - : Wird für radiale Gradienten verwendet; kann einen Schlüsselwortwert von `circle` oder `ellipse` haben.
+  - : Wird für radiale Verläufe verwendet; kann einen Schlüsselwortwert `circle` oder `ellipse` haben.
 - `<size>`
-  - : Bestimmt die Größe der Endform des radialen Gradienten. Dies akzeptiert einen Wert eines Schlüsselwortes oder eines `<length>`, aber nicht einen Prozentsatz.
+  - : Bestimmt die Größe der Endform des radialen Verlaufs. Dies akzeptiert einen Wert eines Schlüsselworts oder einer `<length>`, aber nicht eines Prozents.
 
 ## 2D-Positionierung
 
-Der {{cssxref("&lt;position&gt;")}} Datentyp wird wie für die Eigenschaft {{cssxref("&lt;background-position&gt;")}} definiert interpretiert.
+Der {{cssxref("&lt;position&gt;")}}-Datentyp wird interpretiert wie definiert für die Eigenschaft {{cssxref("&lt;background-position&gt;")}}.
 
 - {{cssxref("&lt;position&gt;")}}
   - : Definiert die Position eines Objektbereichs. Akzeptiert einen Schlüsselwortwert wie `top` oder `left` oder eine `<length-percentage>`.
 
 ## Berechnungsdatentypen
 
-Diese Datentypen werden in [CSS-Mathematikfunktionen](/de/docs/Web/CSS/Reference/Values/Functions#math_functions) Berechnungen verwendet.
+Diese Datentypen werden in [CSS-Math-Funktion](/de/docs/Web/CSS/Reference/Values/Functions#math_functions) Berechnungen verwendet.
 
 - {{cssxref("&lt;calc-sum&gt;")}}
-  - : Eine Berechnung, die eine Folge von Berechnungswerten mit Addition (`+`) und Subtraktion (`-`) Operatoren enthält. Dieser Datentyp erfordert, dass beide Werte Einheiten haben.
+  - : Eine Berechnung, die eine Sequenz von Berechnungswerten umfasst, die mit Additions (`+`) und Subtraktions (`-`) Operatoren durchsetzt sind. Dieser Datentyp erfordert, dass beide Werte Einheiten haben.
 - {{cssxref("&lt;calc-product&gt;")}}
-  - : Eine Berechnung, die eine Folge von Berechnungswerten mit Multiplikation (`*`) und Division (`/`) Operatoren enthält. Beim Multiplizieren muss ein Wert einheitslos sein. Beim Teilen muss der zweite Wert einheitslos sein.
+  - : Eine Berechnung, die eine Sequenz von Berechnungswerten umfasst, die mit Multiplikations (`*`) und Divisions (`/`) Operatoren durchsetzt sind. Beim Multiplizieren muss ein Wert einheitslos sein. Beim Dividieren muss der zweite Wert einheitslos sein.
 - {{cssxref("&lt;calc-value&gt;")}}
   - : Definiert akzeptierte Werte für Berechnungen, Werte wie {{cssxref("&lt;number&gt;")}}, {{cssxref("&lt;dimension&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, {{cssxref("&lt;calc-keyword&gt;")}} oder verschachtelte {{cssxref("&lt;calc-sum&gt;")}} Berechnungen.
 - {{cssxref("&lt;calc-keyword&gt;")}}
-  - : Definiert eine Reihe von CSS-Schlüsselwörtern, die numerische Konstanten wie `e` und `π` darstellen, die in CSS-Mathematikfunktionen verwendet werden können.
+  - : Definiert eine Anzahl von CSS-Schlüsselwörtern, die numerische Konstanten wie `e` und `π` darstellen, die in CSS-Math-Funktionen verwendet werden können.
 
-## Formdatentypen
+## Form-Datentypen
 
-Die [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) und [CSS-Ränder und Box-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Module definieren Formdatentypen:
+Die [CSS Shapes](/de/docs/Web/CSS/Guides/Shapes) und [CSS Borders and Box Decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Module definieren Form-Datentypen:
 
 - {{cssxref("&lt;basic-shape>")}}
-  - : Beschreibt Formfunktionen, die in den Eigenschaften {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}, und {{cssxref("offset-path")}} verwendet werden.
+  - : Beschreibt Formfunktionen, die in den Eigenschaften {{cssxref("clip-path")}}, {{cssxref("shape-outside")}} und {{cssxref("offset-path")}} verwendet werden.
 - {{cssxref("&lt;corner-shape-value>")}}
-  - : Beschreibt die Form einer Behälterecke. Es wird von der Kurzform- Eigenschaft {{cssxref("corner-shape")}} und ihren [Bestandteileigenschaften](/de/docs/Web/CSS/Reference/Properties/corner-shape#constituent_properties) verwendet, um die Form anzugeben, die auf die betroffenen Behälterecken angewendet wird.
+  - : Beschreibt die Form einer Behälterecke. Er wird von der Kurzschreibweise {{cssxref("corner-shape")}} und ihren [Bestandteilen](/de/docs/Web/CSS/Reference/Properties/corner-shape#constituent_properties) verwendet, um die Form zu spezifizieren, die auf betroffene Behälterecken angewendet wird.
 
 ## Alphabetischer Index der Datentypen
 
@@ -151,6 +151,7 @@ Die [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) und [CSS-Ränder und Box-Dekora
 - {{cssxref("alpha-value")}}
 - {{cssxref("angle")}}
 - {{cssxref("angle-percentage")}}
+- {{cssxref("axis")}}
 - {{cssxref("baseline-position")}}
 - {{cssxref("basic-shape")}}
 - {{cssxref("blend-mode")}}
@@ -214,6 +215,6 @@ Die [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) und [CSS-Ränder und Box-Dekora
 
 ## Siehe auch
 
-- Modul [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units)
-- [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
-- [CSS-Funktionsnotation](/de/docs/Web/CSS/Reference/Values/Functions)
+- [CSS Values and Units](/de/docs/Web/CSS/Guides/Values_and_units) Modul
+- [Lernen: Values und Units](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
+- [CSS-Funktionale Notation](/de/docs/Web/CSS/Reference/Values/Functions)

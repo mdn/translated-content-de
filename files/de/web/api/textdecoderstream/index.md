@@ -2,31 +2,32 @@
 title: TextDecoderStream
 slug: Web/API/TextDecoderStream
 l10n:
-  sourceCommit: 64cadd5fed8c49a9655724a49b3b2747a4fbae2d
+  sourceCommit: ae6626ec9a5729a51f202b77586f37958088ed77
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Das **`TextDecoderStream`**-Interface der [Encoding API](/de/docs/Web/API/Encoding_API) konvertiert einen Strom von Text in einer binären Kodierung, wie UTF-8 usw., zu einem Strom von Zeichenfolgen.
+Das **`TextDecoderStream`**-Interface der [Encoding API](/de/docs/Web/API/Encoding_API) wandelt einen Textstrom in einer binären Kodierung, wie z.B. UTF-8, in einen Strom von Zeichenketten um.
 Es ist das Streaming-Äquivalent zu [`TextDecoder`](/de/docs/Web/API/TextDecoder).
+Es implementiert dieselbe Form wie ein [`TransformStream`](/de/docs/Web/API/TransformStream), wodurch es in Methoden wie [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) verwendet werden kann.
 
 ## Konstruktor
 
 - [`TextDecoderStream()`](/de/docs/Web/API/TextDecoderStream/TextDecoderStream)
   - : Erstellt ein neues `TextDecoderStream`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`TextDecoderStream.encoding`](/de/docs/Web/API/TextDecoderStream/encoding) {{ReadOnlyInline}}
   - : Eine Kodierung.
 - [`TextDecoderStream.fatal`](/de/docs/Web/API/TextDecoderStream/fatal) {{ReadOnlyInline}}
   - : Ein {{jsxref("boolean")}}, der angibt, ob der Fehlermodus fatal ist.
 - [`TextDecoderStream.ignoreBOM`](/de/docs/Web/API/TextDecoderStream/ignoreBOM) {{ReadOnlyInline}}
-  - : Ein {{jsxref("boolean")}}, der angibt, ob das byte order mark ignoriert wird.
+  - : Ein {{jsxref("boolean")}}, der angibt, ob das Byte Order Mark ignoriert wird.
 - [`TextDecoderStream.readable`](/de/docs/Web/API/TextDecoderStream/readable) {{ReadOnlyInline}}
-  - : Gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem Objekt kontrolliert wird.
+  - : Gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem Objekt gesteuert wird.
 - [`TextDecoderStream.writable`](/de/docs/Web/API/TextDecoderStream/writable) {{ReadOnlyInline}}
-  - : Gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem Objekt kontrolliert wird.
+  - : Gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem Objekt gesteuert wird.
 
 ## Beispiele
 
@@ -43,6 +44,8 @@ Es ist das Streaming-Äquivalent zu [`TextDecoder`](/de/docs/Web/API/TextDecoder
 ## Siehe auch
 
 - [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)
+- [`TextDecoder`](/de/docs/Web/API/TextDecoder)
+- [`TransformStream`](/de/docs/Web/API/TransformStream)
 - [Konzepte der Streams API](/de/docs/Web/API/Streams_API/Concepts)
 - [Experimentieren mit der Streams API](https://deanhume.com/experimenting-with-the-streams-api/)
-- [Streaming von Anfragen mit der fetch API](https://developer.chrome.com/docs/capabilities/web-apis/fetch-streaming-requests), developer.chrome.com (2020)
+- [Streaming von Anfragen mit der Fetch API](https://developer.chrome.com/docs/capabilities/web-apis/fetch-streaming-requests), developer.chrome.com (2020)

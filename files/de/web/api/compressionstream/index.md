@@ -2,28 +2,28 @@
 title: CompressionStream
 slug: Web/API/CompressionStream
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: ae6626ec9a5729a51f202b77586f37958088ed77
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die **`CompressionStream`**-Schnittstelle der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) ist eine API zum Komprimieren eines Datenstroms.
+Das **`CompressionStream`**-Interface der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) komprimiert einen Datenstrom. Es implementiert dasselbe Format wie ein [`TransformStream`](/de/docs/Web/API/TransformStream), sodass es in [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) und ähnlichen Methoden verwendet werden kann.
 
 ## Konstruktor
 
 - [`CompressionStream()`](/de/docs/Web/API/CompressionStream/CompressionStream)
-  - : Erstellt einen neuen `CompressionStream`
+  - : Erstellt einen neuen `CompressionStream`.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`CompressionStream.readable`](/de/docs/Web/API/CompressionStream/readable)
-  - : Gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem Objekt gesteuert wird.
+  - : Gibt die vom Objekt kontrollierte [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück.
 - [`CompressionStream.writable`](/de/docs/Web/API/CompressionStream/writable)
-  - : Gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem Objekt gesteuert wird.
+  - : Gibt die vom Objekt kontrollierte [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Datenstrom unter Verwendung der "gzip"-Komprimierung komprimiert.
+In diesem Beispiel wird ein Stream unter Verwendung von Gzip-Komprimierung komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(
@@ -38,3 +38,8 @@ const compressedReadableStream = inputReadableStream.pipeThrough(
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)
+- [`TransformStream`](/de/docs/Web/API/TransformStream)

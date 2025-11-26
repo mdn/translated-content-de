@@ -3,12 +3,12 @@ title: "TextEncoderStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/TextEncoderStream/writable
 l10n:
-  sourceCommit: 0f42b8ccf6bef96f27e678163954b3a363b9dcf6
+  sourceCommit: ae6626ec9a5729a51f202b77586f37958088ed77
 ---
 
 {{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Interfaces gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
+Die schreibgeschützte **`writable`**-Eigenschaft der [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück, der Zeichenfolgen akzeptiert, die in Binärdaten codiert werden sollen.
 
 ## Wert
 
@@ -16,11 +16,29 @@ Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein `WritableStream` aus einem `TextEncoderStream`-Objekt zurückgegeben wird.
+Dieses Beispiel erstellt einen `TextEncoderStream`, der Zeichenfolgen als UTF-8 codiert. Es schreibt einige Zeichenfolgen in den `writable`-Stream und liest dann die codierten Binärdaten aus dem `readable`-Stream.
 
 ```js
 const stream = new TextEncoderStream();
-console.log(stream.writable); // A WritableStream
+
+// Write data to be encoded
+const data = "你好世界";
+const writer = stream.writable.getWriter();
+writer.write(data);
+writer.close();
+
+// Read compressed data
+const reader = stream.readable.getReader();
+let done = false;
+let output = [];
+while (!done) {
+  const result = await reader.read();
+  if (result.value) {
+    output.push(...result.value);
+  }
+  done = result.done;
+}
+console.log(new Uint8Array(output).toBase64()); // 5L2g5aW95LiW55WM
 ```
 
 ## Spezifikationen
@@ -30,3 +48,7 @@ console.log(stream.writable); // A WritableStream
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`TransformStream.writable`](/de/docs/Web/API/TransformStream/writable)

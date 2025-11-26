@@ -3,12 +3,12 @@ title: "DecompressionStream: readable-Eigenschaft"
 short-title: readable
 slug: Web/API/DecompressionStream/readable
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: ae6626ec9a5729a51f202b77586f37958088ed77
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`readable`**-Eigenschaft der [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
+Die **`readable`** schreibgeschützte Eigenschaft der [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der dekomprimierte Daten als {{jsxref("Uint8Array")}}-Chunks ausgibt.
 
 ## Wert
 
@@ -16,11 +16,31 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus einem `DecompressionStream` zurück.
+Dieses Beispiel erstellt einen `DecompressionStream`, der die Gzip-Dekompression durchführt. Es wird etwas komprimierte Binärdaten in den `writable`-Stream geschrieben und anschließend die dekomprimierten Daten aus dem `readable`-Stream gelesen und als UTF-8-Text dekodiert.
 
 ```js
 const stream = new DecompressionStream("gzip");
-console.log(stream.readable); // A ReadableStream
+
+// Write data to be compressed
+const data = Uint8Array.fromBase64(
+  "H4sIAAAAAAAAE/NIzcnJ11Eozy/KSVEEAObG5usNAAAA",
+);
+const writer = stream.writable.getWriter();
+writer.write(data);
+writer.close();
+
+// Read compressed data
+const reader = stream.readable.getReader();
+let done = false;
+let output = [];
+while (!done) {
+  const result = await reader.read();
+  if (result.value) {
+    output.push(...result.value);
+  }
+  done = result.done;
+}
+console.log(new TextDecoder().decode(new Uint8Array(output))); // Hello, world!
 ```
 
 ## Spezifikationen
@@ -30,3 +50,7 @@ console.log(stream.readable); // A ReadableStream
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`TransformStream.readable`](/de/docs/Web/API/TransformStream/readable)
