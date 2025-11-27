@@ -3,18 +3,18 @@ title: "Headers: get() Methode"
 short-title: get()
 slug: Web/API/Headers/get
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 93bf38a7f79a39cf5ec50ecbb5c3ddfedf2f1e81
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
 Die **`get()`** Methode der [`Headers`](/de/docs/Web/API/Headers) Schnittstelle
 gibt einen Byte-String aller Werte eines Headers innerhalb eines `Headers`-Objekts
-mit einem gegebenen Namen zurück. Existiert der angeforderte Header nicht im `Headers`-Objekt, gibt sie `null` zurück.
+mit einem gegebenen Namen zurück. Wenn der angeforderte Header im `Headers`-Objekt
+nicht existiert, gibt er `null` zurück.
 
-Aus Sicherheitsgründen können einige Header nur vom Benutzeragent gesteuert werden. Zu diesen
-Headern gehören die {{Glossary("Forbidden_request_header", "verbotenen Anforderungsheader")}}
-und {{Glossary("Forbidden_response_header_name", "verbotenen Antwortheader-Namen")}}.
+Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten kontrolliert werden. Zu diesen Headern gehören die {{Glossary("Forbidden_request_header", "forbidden request headers")}}
+und {{Glossary("Forbidden_response_header_name", "forbidden response header names")}}.
 
 ## Syntax
 
@@ -25,14 +25,16 @@ get(name)
 ### Parameter
 
 - `name`
-  - : Der Name des HTTP-Headers, dessen Werte Sie vom
-    `Headers`-Objekt abrufen möchten. Wenn der angegebene Name nicht der Name eines HTTP-Headers ist, löst diese
-    Methode einen {{jsxref("TypeError")}} aus. Der Name ist nicht case-sensitiv.
+  - : Der Name des HTTP-Headers, dessen Werte Sie aus dem
+    `Headers`-Objekt abrufen möchten. Wenn der angegebene Name nicht mit der
+    [field-name](https://httpwg.org/specs/rfc9110.html#fields.names)
+    Produktion in der HTTP-Spezifikation übereinstimmt, löst diese Methode einen {{jsxref("TypeError")}} aus.
+    Der Name ist nicht case-sensitiv.
 
 ### Rückgabewert
 
-Eine {{jsxref("String")}}-Sequenz, die die Werte des abgerufenen Headers darstellt, oder
-`null`, wenn dieser Header nicht gesetzt ist.
+Eine {{jsxref("String")}}-Sequenz, die die Werte des abgerufenen Headers oder
+`null` darstellt, wenn dieser Header nicht gesetzt ist.
 
 ## Beispiele
 
@@ -43,15 +45,15 @@ const myHeaders = new Headers(); // Currently empty
 myHeaders.get("Not-Set"); // Returns null
 ```
 
-Sie könnten einen Header mit [`Headers.append`](/de/docs/Web/API/Headers/append) hinzufügen und ihn dann mit `get()` abrufen:
+Sie könnten mit [`Headers.append`](/de/docs/Web/API/Headers/append) einen Header hinzufügen und diesen dann mit `get()` abrufen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
 myHeaders.get("Content-Type"); // Returns "image/jpeg"
 ```
 
-Wenn der Header mehrere Werte damit verknüpft hat, wird der Byte-String alle
-diese Werte enthalten, in der Reihenfolge, in der sie dem Headers-Objekt hinzugefügt wurden:
+Wenn der Header mehrere damit verbundene Werte hat, wird der Byte-String alle
+Werte in der Reihenfolge enthalten, in der sie dem Headers-Objekt hinzugefügt wurden:
 
 ```js
 myHeaders.append("Accept-Encoding", "deflate");

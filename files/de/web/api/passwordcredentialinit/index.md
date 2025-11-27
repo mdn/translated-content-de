@@ -2,50 +2,50 @@
 title: PasswordCredentialInit
 slug: Web/API/PasswordCredentialInit
 l10n:
-  sourceCommit: 662d8cb5f7f95378325a85ab5382adc130666069
+  sourceCommit: 0fe625f488d9b548f57bb7f4c714287ba093d96b
 ---
 
 {{APIRef("Credential Management API")}}
 
-Das **`PasswordCredentialInit`**-Wörterbuch repräsentiert das Objekt, das an [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) als Wert der Option `password` übergeben wird, wenn ein Passwort-Credential erstellt wird.
+Das **`PasswordCredentialInit`**-Wörterbuch repräsentiert das Objekt, das an [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) als Wert der Option `password` übergeben wird, wenn ein Passwort-Anmeldedatensatz erstellt wird.
 
 ## Initialisierung aus einem Formular
 
-Anstatt dieses Wörterbuch direkt zu übergeben, kann eine Website ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) übergeben, und die Implementierung von `create()` wird die Daten des Credentials aus den Werten der im Formular sendbaren Elemente basierend auf dem Wert des [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attributs des Elements füllen.
+Anstatt dieses Wörterbuch direkt zu übergeben, kann eine Website ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) übergeben, und die Implementierung von `create()` wird die Daten des Anmeldedatensatzes basierend auf den Werten der abschickbaren Elemente des Formulars und dem Wert des [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attributs des Elements ausfüllen.
 
-| `autocomplete`-Wert                        | Ziel-Credential-Eigenschaft |
-| ------------------------------------------ | --------------------------- |
-| `"username"`                               | `id`                        |
-| `"name"` oder `"nickname"`                 | `name`                      |
-| `"new-password"` oder `"current-password"` | `password`                  |
-| `"photo"`                                  | `iconURL`                   |
+| `autocomplete`-Wert                        | Ziel-Eigenschaft des Anmeldedatensatzes |
+| ------------------------------------------ | --------------------------------------- |
+| `"username"`                               | `id`                                    |
+| `"name"` oder `"nickname"`                 | `name`                                  |
+| `"new-password"` oder `"current-password"` | `password`                              |
+| `"photo"`                                  | `iconURL`                               |
 
-Wenn das Formular sowohl `"new-password"` als auch `"current-password"` Elemente enthält, wird der Wert für `"new-password"` verwendet.
+Falls das Formular sowohl `"new-password"` als auch `"current-password"` enthält, wird der Wert für `"new-password"` verwendet.
 
-Die Eigenschaft `origin` wird auf den Ursprung des Dokuments gesetzt, in dem das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) enthalten ist.
+Die `origin`-Eigenschaft wird auf den Ursprung des Dokuments gesetzt, in dem das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) enthalten ist.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - `iconURL` {{optional_inline}}
-  - : Ein String, der die URL eines Symbols oder Avatars repräsentiert, das mit dem Credential verbunden werden soll.
+  - : Ein String, der die URL eines Icons oder Avatars darstellt, das mit dem Anmeldedatensatz assoziiert werden soll.
 - `id`
-  - : Ein String, der den Benutzernamen-Teil der Kombinations aus Benutzername und Passwort darstellt.
+  - : Ein String, der den Benutzernamen-Teil der Benutzername/Passwort-Kombination darstellt.
 - `name` {{optional_inline}}
-  - : Ein String, der einen für Menschen verständlichen Namen repräsentiert, der mit dem Credential verbunden ist, und dem Benutzer helfen soll, dieses Credential in einer Benutzeroberfläche auszuwählen.
+  - : Ein String, der einen für Menschen verständlichen Namen darstellt, der mit dem Anmeldedatensatz assoziiert ist und dem Benutzer helfen soll, diesen Anmeldedatensatz in einer Benutzeroberfläche auszuwählen.
 - `origin`
-  - : Ein String, der den Ursprung des Credentials repräsentiert. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) Objekte sind ursprungsgebunden, was bedeutet, dass sie nur auf dem angegebenen Ursprung verwendbar sind, für den sie vorgesehen sind.
+  - : Ein String, der den Ursprung des Anmeldedatensatzes darstellt. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekte sind ursprungsgebunden, was bedeutet, dass sie nur auf dem angegebenen Ursprung verwendbar sind, für den sie vorgesehen sind.
 - `password`
-  - : Ein String, der das Credential-Passwort darstellt.
+  - : Ein String, der das Passwort des Anmeldedatensatzes darstellt.
 
 ## Beispiele
 
-### Erstellen eines Passwort-Credentials aus einem Objektliteral
+### Erstellen eines Passwort-Anmeldedatensatzes aus einem Objektliteral
 
-Dieses Beispiel konstruiert ein Objektliteral zur Initialisierung eines Passwort-Credentials.
+Dieses Beispiel konstruiert ein Objektliteral, um einen Passwort-Anmeldedatensatz zu initialisieren.
 
 ```js
 const credInit = {
-  id: "serp1234", // "username" in a typical username/password pair
+  id: "serpent1234", // "username" in a typical username/password pair
   name: "Serpentina", // display name for credential
   origin: "https://example.org",
   password: "the last visible dog",
@@ -60,19 +60,19 @@ makeCredential.addEventListener("click", async () => {
   console.log(cred.name);
   // Serpentina
   console.log(cred.id);
-  // serp1234
+  // serpent1234
   console.log(cred.password);
   // the last visible dog
 });
 ```
 
-### Erstellen eines Passwort-Credentials aus einem Formular
+### Erstellen eines Passwort-Anmeldedatensatzes aus einem Formular
 
-Dieses Beispiel verwendet ein Formular zur Initialisierung eines Passwort-Credentials.
+Dieses Beispiel verwendet ein Formular, um einen Passwort-Anmeldedatensatz zu initialisieren.
 
 #### HTML
 
-Das HTML deklariert ein {{HTMLElement("form")}}, das drei sendbare Elemente enthält und die Benutzer-ID, den Anzeigenamen des Benutzers und das Passwort darstellt.
+Das HTML deklariert ein {{HTMLElement("form")}} mit drei abschickbaren Elementen, die die Benutzer-ID, den Anzeigenamen des Benutzers und das Passwort repräsentieren.
 
 ```html
 <form>
@@ -131,9 +131,9 @@ label {
 
 #### JavaScript
 
-Das JavaScript übergibt das Formular in `create()` und protokolliert einige der Werte des resultierenden Credentials.
+Das JavaScript übergibt das Formular an `create()` und protokolliert einige der Werte des resultierenden Anmeldedatensatzes.
 
-Das von `create()` zurückgegebene Versprechen wird abgelehnt, wenn das Formular keine Werte für die obligatorischen Credential-Eigenschaften enthält.
+Das von `create()` zurückgegebene Promise wird zurückgewiesen, wenn das Formular keine Werte für die obligatorischen Anmeldedatensatzeigenschaften enthält.
 
 ```js
 const makeCredential = document.querySelector("#make-credential");
@@ -162,7 +162,7 @@ function log(text) {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Erstellen eines Passwort-Credentials aus einem Formular", "", "260")}}
+{{EmbedLiveSample("Erstellen eines Passwort-Anmeldedatensatzes aus einem Formular", "", "260")}}
 
 ## Spezifikationen
 

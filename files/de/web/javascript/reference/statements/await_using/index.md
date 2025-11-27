@@ -2,10 +2,10 @@
 title: await using
 slug: Web/JavaScript/Reference/Statements/await_using
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 419694495e070daaf466c923b413b3f476740fd6
 ---
 
-Die **`await using`**-Deklaration deklariert block-skopierte lokale Variablen, die _asynchron entsorgt_ werden. Wie bei {{jsxref("Statements/const", "const")}} müssen Variablen, die mit `await using` deklariert werden, initialisiert werden und können nicht neu zugewiesen werden. Der Wert der Variablen muss entweder `null`, `undefined` oder ein Objekt mit einer [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose) oder [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/dispose)-Methode sein. Wenn die Variable außerhalb des Gültigkeitsbereichs liegt, wird die `[Symbol.asyncDispose]()`- oder `[Symbol.dispose]()`-Methode des Objekts aufgerufen und erwartet, um sicherzustellen, dass Ressourcen freigegeben werden.
+Die **`await using`**-Deklaration deklariert lokale Variablen mit Blockumfang, die _asynchron entsorgt_ werden. Wie {{jsxref("Statements/const", "const")}} müssen Variablen, die mit `await using` deklariert wurden, initialisiert werden und können nicht neu zugewiesen werden. Der Wert der Variablen muss entweder `null`, `undefined` oder ein Objekt sein, das über eine [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose) oder [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/dispose)-Methode verfügt. Wenn die Variable außer Geltungsbereich gerät, wird die Methode `[Symbol.asyncDispose]()` oder `[Symbol.dispose]()` des Objekts aufgerufen und erwartet, um sicherzustellen, dass Ressourcen freigegeben werden.
 
 ## Syntax
 
@@ -16,36 +16,36 @@ await using name1 = value1, name2 = value2, /* …, */ nameN = valueN;
 ```
 
 - `nameN`
-  - : Der Name der zu deklarierenden Variable. Jede muss ein gültiger JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) sein und _keine_ [Destrukturierungsbindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
+  - : Der Name der zu deklarierenden Variablen. Jede muss ein legaler JavaScript-[Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) sein und _kein_ [Destructuring-Bindungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring).
 - `valueN`
-  - : Anfangswert der Variablen. Es kann jeder gültige Ausdruck sein, aber sein Wert muss entweder `null`, `undefined` oder ein Objekt mit einer [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose) oder [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/dispose)-Methode sein.
+  - : Initialwert der Variablen. Es kann jeder legale Ausdruck sein, aber sein Wert muss entweder `null`, `undefined` oder ein Objekt mit einer [`[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncDispose) oder [`[Symbol.dispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/dispose)-Methode sein.
 
 ## Beschreibung
 
-Diese Deklaration kann nur an Stellen verwendet werden, an denen sowohl {{jsxref("Operators/await", "await")}} als auch {{jsxref("Statements/using", "using")}} verwendet werden können, dazu gehören:
+Diese Deklaration kann nur dort verwendet werden, wo sowohl {{jsxref("Operators/await", "await")}} als auch {{jsxref("Statements/using", "using")}} verwendet werden können, dazu gehören:
 
-- Innerhalb eines [Blocks](/de/docs/Web/JavaScript/Reference/Statements/block) (wenn der Block sich ebenfalls in einem asynchronen Kontext befindet)
-- Innerhalb eines [async function](/de/docs/Web/JavaScript/Reference/Statements/async_function)- oder async-Generatorfunktion-Körpers
+- Innerhalb eines [Blocks](/de/docs/Web/JavaScript/Reference/Statements/block) (wenn sich der Block auch in einem asynchronen Kontext befindet)
+- Innerhalb eines [async functions](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder async-Generator-Funktionskörpers
 - Auf oberster Ebene eines [Moduls](/de/docs/Web/JavaScript/Guide/Modules)
-- In der Initialisierung eines [`for`](/de/docs/Web/JavaScript/Reference/Statements/for), [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) (wenn die `for`-Schleife sich ebenfalls in einem asynchronen Kontext befindet) oder einer [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleife
+- In der Initialisierung einer [`for`](/de/docs/Web/JavaScript/Reference/Statements/for), [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) (wenn die `for`-Schleife sich auch in einem asynchronen Kontext befindet) oder [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleife
 
-Ein `await using` deklariert eine asynchron entsorgbare Ressource, die an die Lebensdauer des Variablenbereichs gebunden ist (Block, Funktion, Modul usw.). Wenn der Gültigkeitsbereich endet, wird die Ressource asynchron entsorgt. Die Syntax mag etwas verwirrend erscheinen, da das `await` keine wartende Wirkung hat, wenn die Variable zuerst deklariert wird, sondern erst, wenn die Variable außerhalb des Gültigkeitsbereichs liegt.
+Ein `await using` deklariert eine asynchron entbehrliche Ressource, die an die Lebensdauer des Variablenbereichs (Block, Funktion, Modul, etc.) gebunden ist. Wenn der Bereich beendet wird, wird die Ressource asynchron entsorgt. Die Syntax mag etwas verwirrend sein, da `await` keinen Wartungseffekt hat, wenn die Variable zuerst deklariert wird, sondern nur, wenn die Variable außer Geltungsbereich gerät.
 
-Wenn eine Variable zuerst deklariert wird und ihr Wert nicht null ist, wird ein _Disposer_ aus dem Objekt abgeleitet. Die `[Symbol.asyncDispose]`-Eigenschaft wird zuerst versucht und fällt auf `[Symbol.dispose]` zurück, wenn `[Symbol.asyncDispose]` `undefined` ist. Wenn keine der Eigenschaften eine Funktion enthält, wird ein `TypeError` ausgelöst. Bemerkenswert ist, dass die `[Symbol.dispose]()`-Methode in eine Funktion wie `async () => { object[Symbol.dispose](); }` eingewickelt wird, was bedeutet, dass wenn sie ein Versprechen zurückgibt, dieses Versprechen _nicht_ erwartet wird. Dieser Disposer wird im Bereich gespeichert.
+Wenn eine Variable zuerst deklariert wird und ihr Wert nicht null ist, wird ein _Disposer_ vom Objekt abgerufen. Die `[Symbol.asyncDispose]`-Eigenschaft wird zuerst versucht und fällt auf `[Symbol.dispose]` zurück, wenn `[Symbol.asyncDispose]` `undefined` ist. Wenn keine der beiden Eigenschaften eine Funktion enthält, wird ein `TypeError` ausgelöst. Bemerkenswert ist, dass die `[Symbol.dispose]()`-Methode in eine Funktion eingeschlossen wird, die aussieht wie `async () => { object[Symbol.dispose](); }`, was bedeutet, dass, wenn sie ein Versprechen zurückgibt, dieses Versprechen _nicht_ erwartet wird. Dieser Disposer wird im Bereich gespeichert.
 
-Wenn die Variable außerhalb des Gültigkeitsbereichs liegt, wird der Disposer aufgerufen und erwartet. Enthält der Bereich mehrere {{jsxref("Statements/using", "using")}}- oder `await using`-Deklarationen, werden alle Disposer in umgekehrter Deklarationsreihenfolge in Folge ausgeführt, unabhängig von der Art der Deklaration. Alle Disposer werden garantiert ausgeführt (wie der `finally`-Block in {{jsxref("Statements/try...catch", "try...catch...finally")}}). Alle während der Entsorgung geworfenen Fehler, einschließlich des ersten Fehlers, der den Bereichsabschluss verursacht hat (falls zutreffend), werden alle innerhalb eines einzelnen {{jsxref("SuppressedError")}} aggregiert, wobei jede frühere Ausnahme als `suppressed`-Eigenschaft und die spätere Ausnahme als `error`-Eigenschaft dient. Dieser `SuppressedError` wird nach Abschluss der Entsorgung geworfen.
+Wenn die Variable außer Geltungsbereich gerät, wird der Disposer aufgerufen und erwartet. Wenn der Bereich mehrere {{jsxref("Statements/using", "using")}}- oder `await using`-Deklarationen enthält, werden alle Disposer in umgekehrter Reihenfolge ihrer Deklaration sequenziell ausgeführt, unabhängig von der Art der Deklaration. Alle Disposer werden garantierterweise ausgeführt (ähnlich dem `finally`-Block in {{jsxref("Statements/try...catch", "try...catch...finally")}}). Alle während der Entsorgung ausgelösten Fehler, einschließlich des initialen Fehlers, der den Skope-Verlust verursachte (falls zutreffend), werden alle innerhalb eines {{jsxref("SuppressedError")}} aggregiert, wobei jede frühere Ausnahme die Eigenschaft `suppressed` und die spätere Ausnahme die Eigenschaft `error` ist. Dieser `SuppressedError` wird nach Abschluss der Entsorgung ausgelöst.
 
-Die Variable darf den Wert `null` oder `undefined` haben, sodass die Ressource optional vorhanden sein kann. Solange mindestens eine `await using`-Variable in diesem Bereich deklariert ist, wird mindestens ein `await` beim Bereichsende garantiert, selbst wenn die Variable tatsächlich den Wert `null` oder `undefined` hat. Dies verhindert, dass die Entsorgung synchron geschieht, was zu Timing-Problemen führen würde (siehe [Kontrollfluss-Effekte von `await`](/de/docs/Web/JavaScript/Reference/Operators/await#control_flow_effects_of_await)).
+Die Variable darf den Wert `null` oder `undefined` haben, sodass die Ressource optional vorhanden sein kann. Solange eine `await using`-Variable in diesem Bereich deklariert wird, wird mindestens ein `await` beim Verlassen des Bereichs garantiert, auch wenn die Variable tatsächlich den Wert `null` oder `undefined` hat. Dies verhindert, dass die Entsorgung synchron erfolgt und verursacht zeitliche Probleme (siehe [Kontrollflusseffekte von `await`](/de/docs/Web/JavaScript/Reference/Operators/await#control_flow_effects_of_await)).
 
-`await using` bindet das Ressourcenmanagement an lexikalische Bereiche, was sowohl praktisch als auch manchmal verwirrend ist. Unten finden Sie einige Beispiele, bei denen es möglicherweise nicht wie erwartet funktioniert. Wenn Sie die Entsorgung von Ressourcen manuell verwalten möchten, während Sie die gleichen Fehlerbehandlungsrichtlinien beibehalten, können Sie stattdessen {{jsxref("AsyncDisposableStack")}} verwenden.
+`await using` bindet das Ressourcenmanagement an lexikalische Bereiche, was sowohl bequem als auch manchmal verwirrend ist. Schauen Sie sich unten einige Beispiele an, in denen es möglicherweise nicht so funktioniert, wie Sie es erwarten. Wenn Sie die Entsorgung von Ressourcen manuell verwalten möchten, während Sie die gleichen Fehlerbehandlungsgarantien beibehalten, können Sie stattdessen {{jsxref("AsyncDisposableStack")}} verwenden.
 
 ## Beispiele
 
-Sie sollten auch {{jsxref("Statements/using", "using")}} für weitere Beispiele prüfen, insbesondere einige allgemeine Vorbehalte in Bezug auf das bereichsbasierte Ressourcenmanagement.
+Sie sollten auch {{jsxref("Statements/using", "using")}} für weitere Beispiele überprüfen, insbesondere einige allgemeine Vorbehalte in Bezug auf das bereichsbasierte Ressourcenmanagement.
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Normalerweise verwenden Sie `await using` für eine von einer Bibliothek bereitgestellte Ressource, die bereits das asynchrone entsorgbare Protokoll implementiert. Zum Beispiel ist der Node.js [`FileHandle`](https://nodejs.org/api/fs.html#filehandlesymbolasyncdispose) asynchron entsorgbar:
+Normalerweise verwenden Sie `await using` auf einigen bibliotheksbereitgestellten Ressourcen, die bereits das asynchrone Entsorgungsprotokoll implementieren. Zum Beispiel ist das Node.js [`FileHandle`](https://nodejs.org/api/fs.html#filehandlesymbolasyncdispose) asynchron entsorgbar:
 
 ```js
 import fs from "node:fs/promises";
@@ -57,11 +57,11 @@ async function example() {
 }
 ```
 
-Beachten Sie, dass es zwei `await`-Operationen in der Deklaration für `file` gibt, die unterschiedliche Dinge tun und beide notwendig sind. `await fs.open()` bewirkt ein Await während der _Akquisition_: Es wartet darauf, dass die Datei geöffnet wird und das zurückgegebene Versprechen in ein `FileHandle`-Objekt umgewandelt wird. `await using file` bewirkt ein Await während der _Entsorgung_: Es bewirkt, dass `file` asynchron entsorgt wird, wenn die Variable außerhalb des Gültigkeitsbereichs liegt.
+Beachten Sie, dass es zwei `await`-Operationen in der Deklaration für `file` gibt, die unterschiedliche Dinge tun und beide notwendig sind. `await fs.open()` bewirkt ein Warten während der _Erwerbung_: es wartet darauf, dass die Datei geöffnet wird und entpackt das zurückgegebene Versprechen in ein `FileHandle`-Objekt. `await using file` bewirkt ein Warten während der _Entsorgung_: es sorgt dafür, dass `file` asynchron entsorgt wird, wenn die Variable außer Geltungsbereich gerät.
 
 ### `await using` mit `for await...of`
 
-Es ist sehr leicht, die folgenden drei Syntaxen zu verwechseln:
+Es ist sehr einfach, die folgenden drei Syntaxen zu verwechseln:
 
 - `for await (using x of y) { ... }`
 - `for (await using x of y) { ... }`
@@ -75,20 +75,20 @@ for await (await using x of await y) {
 }
 ```
 
-Zuerst macht `await y` das, was Sie erwarten: wir {{jsxref("Operators/await", "await")}} das Versprechen `y`, das erwartet wird, um zu einem Objekt aufzulösen, das wir iterieren. Lassen Sie uns diese Variante beiseite legen.
+Zuerst macht `await y` das, was Sie erwarten: wir {{jsxref("Operators/await", "await")}} das Versprechen `y`, welches erwartet wird, um sich in ein Objekt aufzulösen, das wir durchlaufen. Lassen Sie uns diese Variante beiseitelegen.
 
-Die {{jsxref("Statements/for-await...of", "for await...of")}}-Schleife erfordert, dass das `y`-Objekt ein _asynchrones iterierbares_ ist. Das bedeutet, dass das Objekt eine `[Symbol.asyncIterator]`-Methode haben muss, die einen _asynchronen Iterator_ zurückgibt, dessen `next()`-Methode ein Versprechen zurückgibt, das das Ergebnis darstellt. Dies ist, wenn der Iterable nicht weiß, was der nächste Wert ist oder sogar ob es schon fertig ist, bis eine asynchrone Operation abgeschlossen ist.
+Die {{jsxref("Statements/for-await...of", "for await...of")}}-Schleife erfordert, dass das Objekt `y` ein _asynchroner Iterierbar_ ist. Das bedeutet, dass das Objekt eine `[Symbol.asyncIterator]`-Methode haben muss, die einen _asynchronen Iterator_ zurückgibt, dessen `next()`-Methode ein Versprechen zurückgibt, das das Ergebnis darstellt. Dies ist der Fall, wenn der Iterator nicht weiß, was der nächste Wert ist oder sogar, ob es schon fertig ist, bis eine asynchrone Operation abgeschlossen ist.
 
-Auf der anderen Seite erfordert die `await using x`-Syntax, dass das `x`-Objekt, wie vom Iterable geliefert, ein _asynchron entsorgbares_ ist. Das bedeutet, dass das Objekt eine `[Symbol.asyncDispose]`-Methode haben muss, die ein Versprechen zurückgibt, das die Entsorgungsoperation darstellt. Dies ist ein separates Anliegen von der Iteration selbst und wird nur aufgerufen, wenn die Variable `x` außerhalb des Gültigkeitsbereichs liegt.
+Andererseits verlangt die `await using x`-Syntax, dass das Objekt `x`, das aus dem Iterator stammt, ein _asynchron entsorgbar_ ist. Das bedeutet, dass das Objekt eine `[Symbol.asyncDispose]`-Methode haben muss, die ein Versprechen zurückgibt, das die Entsorgungsoperation darstellt. Dies ist ein separates Anliegen vom eigentlichen Iterationsvorgang und wird nur aufgerufen, wenn die Variable `x` außer Geltungsbereich gerät.
 
-Mit anderen Worten, alle der folgenden vier Kombinationen sind gültig und tun unterschiedliche Dinge:
+Mit anderen Worten, alle folgenden vier Kombinationen sind gültig und tun unterschiedliche Dinge:
 
-- `for (using x of y)`: `y` wird synchron iteriert, liefert ein Ergebnis nach dem anderen, das synchron entsorgt werden kann.
-- `for await (using x of y)`: `y` wird asynchron iteriert, liefert ein Ergebnis nach dem anderen nach dem Awaiting, aber der Ergebniswert kann synchron entsorgt werden.
-- `for (await using x of y)`: `y` wird synchron iteriert, liefert ein Ergebnis nach dem anderen, aber der Ergebniswert kann nur asynchron entsorgt werden.
-- `for await (await using x of y)`: `y` wird asynchron iteriert, liefert ein Ergebnis nach dem anderen nach dem Awaiting, und der Ergebniswert kann nur asynchron entsorgt werden.
+- `for (using x of y)`: `y` wird synchron durchlaufen und liefert ein Ergebnis nach dem anderen, das synchron entsorgt werden kann.
+- `for await (using x of y)`: `y` wird asynchron durchlaufen und liefert ein Ergebnis nach dem anderen, nachdem gewartet wird, aber der Ergebniswert kann synchron entsorgt werden.
+- `for (await using x of y)`: `y` wird synchron durchlaufen und liefert ein Ergebnis nach dem anderen, aber der Ergebniswert kann nur asynchron entsorgt werden.
+- `for await (await using x of y)`: `y` wird asynchron durchlaufen und liefert ein Ergebnis nach dem anderen, nachdem gewartet wird, und der Ergebniswert kann nur asynchron entsorgt werden.
 
-Im Folgenden erzeugen wir einige fiktive Werte von `y`, um ihre Anwendungsfälle zu demonstrieren. Für asynchrone APIs basieren wir unseren Code auf dem Node.js [`fs/promises`](https://nodejs.org/api/fs.html#promises-api)-Modul.
+Unten erstellen wir einige fiktive Werte von `y`, um ihre Anwendungsfälle zu demonstrieren. Für asynchrone APIs basiert unser Code auf dem Node.js [`fs/promises`](https://nodejs.org/api/fs.html#promises-api)-Modul.
 
 ```js
 const syncIterableOfSyncDisposables = [
@@ -117,9 +117,9 @@ for await (using reader of asyncIterableOfSyncDisposables) {
 ```
 
 ```js
-const syncIterableOfAsyncDisposables = fs
-  .globSync("*.txt")
-  .map((path) => fs.open(path, "r"));
+const syncIterableOfAsyncDisposables = await Promise.all(
+  fs.globSync("*.txt").map((path) => fs.open(path, "r")),
+);
 for (await using file of syncIterableOfAsyncDisposables) {
   console.log(await file.read());
 }
@@ -137,11 +137,11 @@ for await (await using file of asyncIterableOfAsyncDisposables) {
 }
 ```
 
-### Implizites Await beim Bereichsende
+### Implizites Warten beim Beenden des Geltungsbereichs
 
-Sobald ein `await using` in einem Bereich deklariert ist, wird der Bereich beim Verlassen immer ein `await` haben, selbst wenn die Variable `null` oder `undefined` ist. Dies gewährleistet eine stabile Ausführungsreihenfolge und Fehlerbehandlung. Die [Kontrollfluss-Effekte von await](/de/docs/Web/JavaScript/Reference/Operators/await#control_flow_effects_of_await)-Beispiele enthalten mehr Details dazu.
+Sobald ein `await using` in einem Geltungsbereich deklariert wird, wird der Bereich immer ein `await` beim Beenden haben, selbst wenn die Variable `null` oder `undefined` ist. Dies stellt eine stabile Ausführungsreihenfolge und Fehlerbehandlung sicher. Die Beispiele unter [Kontrollflusseffekte von await](/de/docs/Web/JavaScript/Reference/Operators/await#control_flow_effects_of_await) enthalten mehr Details dazu.
 
-Im folgenden Beispiel wird der `example()`-Aufruf unten nicht aufgelöst, bis ein Takt später, wegen eines impliziten `await`, wenn die Funktion zurückkehrt.
+Im Beispiel unten löst der `example()`-Aufruf unten erst eine Takt später auf, aufgrund eines impliziten `await`, wenn die Funktion zurückkehrt.
 
 ```js
 async function example() {
@@ -157,7 +157,7 @@ Promise.resolve().then(() => console.log("Microtask done"));
 // Example done
 ```
 
-Betrachten Sie denselben Code, aber mit einem synchronen {{jsxref("Statements/using", "using")}} stattdessen. Dieses Mal wird der `example()`-Aufruf sofort aufgelöst, sodass die beiden `then()`-Handler im gleichen Takt aufgerufen werden.
+Betrachten Sie den gleichen Code, aber mit einem synchronen {{jsxref("Statements/using", "using")}} stattdessen. Dieses Mal wird der `example()`-Aufruf sofort aufgelöst, sodass die beiden `then()`-Handler im gleichen Takt aufgerufen werden.
 
 ```js
 async function example() {
@@ -204,7 +204,7 @@ example(2, false);
 // Disposing resource required 2
 ```
 
-Wie Sie sehen können, wird die Ressource `required 2` im gleichen Takt wie `required 1` entsorgt. Wenn die `optional`-Ressource nicht ein redundantes `await` verursacht hätte, wäre `required 2` früher entsorgt worden, was gleichzeitig mit `optional` wäre.
+Wie Sie sehen, wird die Ressource `required 2` im gleichen Takt wie `required 1` entsorgt. Wenn die `optional`-Ressource kein redundantes `await` verursacht hätte, wäre `required 2` früher entsorgt worden, was gleichzeitig mit `optional` wäre.
 
 ## Spezifikationen
 
