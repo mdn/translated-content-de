@@ -86,7 +86,9 @@ Die Attributsyntax ist so konzipiert, dass sie erweiterbar ist — obwohl nur `t
 - Auflösung: Das Attribut ist Teil des Modulspezifizierers (des Strings in der `from`-Klausel). Daher können bei gleichem String-Pfad unterschiedliche Attribute dazu führen, dass völlig unterschiedliche Module geladen werden. Beispielsweise unterstützt [TypeScript das `resolution-mode`-Attribut](https://devblogs.microsoft.com/typescript/announcing-typescript-5-3/#stable-support-resolution-mode-in-import-types).
 
   ```ts
-  import type { TypeFromRequire } from "pkg" with { "resolution-mode": "require" };
+  import type { TypeFromRequire } from "pkg" with {
+    "resolution-mode": "require",
+  };
   ```
 
 - Abrufen: Zum Beispiel werden CSS-Module mit dem [`destination`](/de/docs/Web/API/Request/destination) auf `"style"` gesetzt abgerufen, und JSON-Module mit `destination: "json"`. Dies bedeutet, dass der Server, selbst bei derselben Ziel-URL, unterschiedliche Inhalte zurückgeben kann.

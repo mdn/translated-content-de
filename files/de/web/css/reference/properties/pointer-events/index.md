@@ -169,8 +169,7 @@ Dieses Beispiel deaktiviert Zeigerereignisse für den Link zu `http://example.co
 #### CSS
 
 ```css
-a[href="http://example.com"]
-{
+a[href="http://example.com"] {
   pointer-events: none;
 }
 ```
