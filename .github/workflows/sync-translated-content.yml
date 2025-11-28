@@ -56,7 +56,7 @@ jobs:
 
       - name: Install (yari)
         working-directory: ${{ github.workspace }}/mdn/yari
-        run: yarn --frozen-lockfile
+        run: npm ci
         env:
           # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -69,8 +69,8 @@ jobs:
         run: |
           set -eo pipefail
 
-          yarn build:prepare
-          yarn tool sync-translated-content ${{ matrix.lang }}
+          npm run build:prepare
+          npm run tool sync-translated-content ${{ matrix.lang }}
 
       - name: Ignore conflicting/orphaned pages
         working-directory: ${{ github.workspace }}/mdn/translated-content-de
