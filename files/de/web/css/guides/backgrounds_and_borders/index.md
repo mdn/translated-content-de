@@ -1,18 +1,18 @@
 ---
-title: CSS-Hintergründe und Rahmen
-short-title: Hintergründe und Rahmen
+title: CSS-Hintergrund und -Ränder
+short-title: Hintergründe und Ränder
 slug: Web/CSS/Guides/Backgrounds_and_borders
 l10n:
-  sourceCommit: ca5d9f9e63b460fc0c9e15ac57d9739e10e4ea0d
+  sourceCommit: d8022a15df88029e3ff0cd7b7474bd3c43a2e25e
 ---
 
-Das **CSS backgrounds and borders**-Modul bietet Eigenschaften zum Hinzufügen von Hintergründen, Rahmen, abgerundeten Ecken und Box-Schatten zu Elementen.
+Das **CSS-Hintergrund und -Ränder** Modul bietet Eigenschaften zum Hinzufügen von Hintergründen, Rändern, abgerundeten Ecken und Box-Schatten zu Elementen.
 
-Sie können verschiedene Arten von Rahmenstilen hinzufügen, einschließlich Rahmen, die aus Bildern beliebigen Typs bestehen, von Rasterbildern bis hin zu CSS-Verläufen. Rahmen können quadratisch oder abgerundet sein, und für jede Ecke kann ein anderer Radius festgelegt werden. Elemente können abgerundet sein, unabhängig davon, ob sie einen sichtbaren Rahmen haben oder nicht.
+Sie können verschiedene Arten von Randstilen hinzufügen, einschließlich Rändern, die aus Bildern jeder Bildart bestehen, von Rasterbildern bis hin zu CSS-Verläufen. Ränder können quadratisch oder abgerundet sein, und ein unterschiedlicher Radius kann für jede Ecke festgelegt werden. Elemente können abgerundet werden, unabhängig davon, ob sie einen sichtbaren Rand haben oder nicht.
 
-Box-Schatten umfassen Ein- und Aus-Schattierungen, einzelne oder mehrere Schatten, und können solid oder mit Übergang zu transparent gestaltet sein. Ein äußerer Box-Schatten wirft einen Schatten, als ob der border-box des Elements undurchsichtig wäre. Ein innerer Box-Schatten wirft einen Schatten, als ob alles außerhalb der padding-Kante undurchsichtig wäre. Der Schatten kann solid sein oder eine Ausbreitungsdistanz enthalten, bei der die Schattenfarbe zu transparent übergeht.
+Box-Schatten umfassen innere und äußere Schatten, einzelne oder mehrere Schatten, und können solide oder allmählich transparent werden. Ein äußerer Box-Schatten wirft einen Schatten, als ob die Border-Box des Elements opak wäre. Ein innerer Box-Schatten wirft einen Schatten, als ob alles außerhalb des Polsterrands opak wäre. Der Schatten kann solide sein oder eine Ausbreitungsdistanz mit einer Farbüberblendung zum Transparenten enthalten.
 
-Die Eigenschaften in diesem Modul ermöglichen es Ihnen auch zu definieren, ob Zellen innerhalb einer {{HTMLElement("table")}} gemeinsame oder separate Rahmen haben sollten.
+Die Eigenschaften in diesem Modul erlauben es Ihnen auch zu definieren, ob Zellen innerhalb eines {{HTMLElement("table")}} gemeinsame oder separate Ränder haben sollen.
 
 ## Referenz
 
@@ -24,64 +24,66 @@ Die Eigenschaften in diesem Modul ermöglichen es Ihnen auch zu definieren, ob Z
 - {{cssxref("background-image")}}
 - {{cssxref("background-origin")}}
 - {{cssxref("background-position")}}
-- {{cssxref("background-repeat")}}
+- {{cssxref("background-repeat-x")}}
+- {{cssxref("background-repeat-y")}}
+- {{cssxref("background-repeat")}} Kurzform
 - {{cssxref("background-size")}}
-- {{cssxref("background")}} Kurzschreibweise
+- {{cssxref("background")}} Kurzform
 - {{cssxref("background-position-x")}}
 - {{cssxref("background-position-y")}}
 - {{cssxref("border-bottom-color")}}
 - {{cssxref("border-bottom-style")}}
 - {{cssxref("border-bottom-width")}}
-- {{cssxref("border-bottom")}} Kurzschreibweise
+- {{cssxref("border-bottom")}} Kurzform
 - {{cssxref("border-left-color")}}
 - {{cssxref("border-left-style")}}
 - {{cssxref("border-left-width")}}
-- {{cssxref("border-left")}} Kurzschreibweise
+- {{cssxref("border-left")}} Kurzform
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
 - {{cssxref("border-right-width")}}
-- {{cssxref("border-right")}} Kurzschreibweise
+- {{cssxref("border-right")}} Kurzform
 - {{cssxref("border-top-color")}}
 - {{cssxref("border-top-style")}}
 - {{cssxref("border-top-width")}}
-- {{cssxref("border-top")}} Kurzschreibweise
-- {{cssxref("border-color")}} Kurzschreibweise
-- {{cssxref("border-style")}} Kurzschreibweise
-- {{cssxref("border-width")}} Kurzschreibweise
-- {{cssxref("border")}} Kurzschreibweise
+- {{cssxref("border-top")}} Kurzform
+- {{cssxref("border-color")}} Kurzform
+- {{cssxref("border-style")}} Kurzform
+- {{cssxref("border-width")}} Kurzform
+- {{cssxref("border")}} Kurzform
 - {{cssxref("border-bottom-left-radius")}}
 - {{cssxref("border-bottom-right-radius")}}
 - {{cssxref("border-top-left-radius")}}
 - {{cssxref("border-top-right-radius")}}
-- {{cssxref("border-radius")}} Kurzschreibweise
+- {{cssxref("border-radius")}} Kurzform
 - {{cssxref("border-image-outset")}}
 - {{cssxref("border-image-repeat")}}
 - {{cssxref("border-image-slice")}}
 - {{cssxref("border-image-source")}}
 - {{cssxref("border-image-width")}}
-- {{cssxref("border-image")}} Kurzschreibweise
+- {{cssxref("border-image")}} Kurzform
 - {{cssxref("box-shadow")}}
 
-Das CSS backgrounds-Modul Level 4 führt auch die Eigenschaften `background-position-block`, `background-position-inline`, `background-repeat-block`, `background-repeat-inline`, `background-repeat-x`, `background-repeat-y` und `background-tbd` ein. Derzeit unterstützen keine Browser diese Funktionen.
+Das CSS-Hintergrund Modul Level 4 führt auch die Eigenschaften `background-position-block`, `background-position-inline`, `background-repeat-block`, `background-repeat-inline` und `background-tbd` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Datentypen
 
-- {{cssxref("line-style")}} enumerierter Typ
+- {{cssxref("line-style")}} Aufzähldatentyp
 
 ## Leitfäden
 
 - [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
-  - : Festlegen eines oder mehrerer Hintergründe für ein Element.
+  - : Ein oder mehrere Hintergründe auf einem Element einstellen.
 - [Hintergrundbilder skalieren](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images)
-  - : Ändern der Größe und Wiederholungsverhalten von Hintergrundbildern.
-- [Skalierung von SVG-Hintergründen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Scaling_SVG_backgrounds)
-  - : Wie das SVG-Seitenverhältnis, SVG-Dimensionen und die CSS-Eigenschaft `background-size` die Skalierung von SVG-Hintergrundbildern beeinflussen.
+  - : Die Größe und das Wiederholverhalten von Hintergrundbildern ändern.
+- [SVG-Hintergründe skalieren](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Scaling_SVG_backgrounds)
+  - : Wie das SVG-Seitenverhältnis, SVG-Dimensionen und die CSS-Eigenschaft `background-size` das Skalieren von SVG-Hintergrundbildern beeinflussen.
 - [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
-  - : Erstellung von CSS-Verläufen und deren Verwendung als Hintergrundbilder.
-- [Lernen Sie CSS: Hintergrund und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+  - : CSS-Verläufe erstellen und als Hintergrundbilder verwenden.
+- [Lernen Sie CSS: Hintergrund und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
   - : Lernen Sie, wie Sie dekorative Bilder mit CSS-Hintergrundbildern implementieren.
-- [Lernen Sie CSS: Das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)
-  - : Lernen Sie, wie Rahmen und andere Box-Modell-Eigenschaften das CSS-Box-Modell beeinflussen.
+- [Lernen Sie CSS: das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)
+  - : Lernen Sie, wie Ränder und andere Boxmodell-Eigenschaften das CSS-Box-Modell beeinflussen.
 
 ## Verwandte Konzepte
 
@@ -112,9 +114,9 @@ Das CSS backgrounds-Modul Level 4 führt auch die Eigenschaften `background-posi
 
 ## Beispiele
 
-### Hintergründe, Rahmen und Box-Schatten in Aktion
+### Hintergründe, Ränder und Box-Schatten im Einsatz
 
-Dieses Beispiel von Rahmen, Hintergründen und Box-Schatten besteht aus zentrierten Hintergrundbildern, die aus linearen und radialen Verläufen bestehen. Eine Reihe von Box-Schatten lässt den Rahmen "herausspringen". Das Element links hat ein Rahmenbild gesetzt. Das Element rechts hat einen abgerundeten gepunkteten Rahmen.
+Dieses Beispiel von Rändern, Hintergründen und Box-Schatten besteht aus zentrierten Hintergrundbildern aus linearen und radialen Verläufen. Eine Reihe von Box-Schatten lässt den Rand hervortreten. Das Element links hat ein Randbild eingestellt. Das Element rechts hat einen abgerundeten gepunkteten Rand.
 
 ```html hidden live-sample___backgrounds
 <article>
@@ -171,9 +173,9 @@ div:first-of-type {
 
 {{EmbedLiveSample("backgrounds", "", "450px")}}
 
-Die Hintergrundbilder sind mit {{cssxref("background-image")}} definiert. Die Bilder sind mit {{cssxref("background-position")}} zentriert. Verschiedene Werte der Eigenschaft {{cssxref("background-clip")}} für die mehreren Hintergrundbilder werden verwendet, um die Hintergrundbilder innerhalb des content-box zu halten. Die Hintergrundfarbe wird zum padding-box abgeschnitten, um zu verhindern, dass der Hintergrund durch die transparenten Bereiche für die {{cssxref("border-image")}} und den {{cssxref("border-style", "dotted")}} {{cssxref("border")}} erscheint. Die abgerundeten Ecken im Element rechts werden mit der Eigenschaft {{cssxref("border-radius")}} erstellt. Eine einzelne {{cssxref("box-shadow")}}-Deklaration wird verwendet, um alle Schatten sowohl einwärts als auch auswärts festzulegen.
+Die Hintergrundbilder werden mit {{cssxref("background-image")}} definiert. Die Bilder sind mit {{cssxref("background-position")}} zentriert. Verschiedene Werte der {{cssxref("background-clip")}} Eigenschaft für die mehreren Hintergrundbilder werden verwendet, um die Hintergrundbilder innerhalb der Inhaltsbox zu halten. Die Hintergrundfarbe wird auf die Polsterbox zugeschnitten, um zu verhindern, dass der Hintergrund durch die transparenten Abschnitte für das {{cssxref("border-image")}} und der {{cssxref("border-style", "dotted")}} {{cssxref("border")}} erscheint. Die abgerundeten Ecken im rechten Element werden mit der {{cssxref("border-radius")}} Eigenschaft erstellt. Eine einzige {{cssxref("box-shadow")}} Deklaration wird verwendet, um alle Schatten einzustellen, sowohl inneren als auch äußeren.
 
-Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN Playground anzuzeigen oder zu bearbeiten.
+Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN Playground zu sehen oder zu bearbeiten.
 
 ## Spezifikationen
 
@@ -184,8 +186,8 @@ Klicken Sie im obigen Beispiel auf "Play", um den Code für die Animation im MDN
 - {{cssxref("filter")}}
 - {{cssxref("backdrop-filter")}}
 - [`drop-shadow()`](/de/docs/Web/CSS/Reference/Values/filter-function/drop-shadow) Filterfunktion
-- [Anwenden von Farben auf HTML-Elemente mit CSS](/de/docs/Web/CSS/Guides/Colors/Applying_color)
-- Werkzeuge:
-  - [Border-Image-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
-  - [Border-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
-  - [Box-Shadow-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Box-shadow_generator)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- Tools:
+  - [Randbild-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
+  - [Randradius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
+  - [Box-Schatten-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Box-shadow_generator)
