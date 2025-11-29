@@ -17,7 +17,7 @@ Die Systemzwischenablage wird über die globale Eigenschaft [`Navigator.clipboar
 Alle Methoden der Clipboard API arbeiten asynchron; sie geben ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Zugriff auf die Zwischenablage abgeschlossen ist.
 Das Versprechen wird abgelehnt, wenn der Zugriff auf die Zwischenablage verweigert wird.
 
-Alle Methoden erfordern einen [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts).
+Alle Methoden erfordern einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts).
 Zusätzliche Anforderungen für die Nutzung der API werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtsthemas besprochen.
 
 ## Instanzmethoden

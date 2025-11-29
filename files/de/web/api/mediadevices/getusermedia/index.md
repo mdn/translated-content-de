@@ -84,7 +84,7 @@ Ein {{jsxref("Promise")}}, dessen Erfüllungshandler ein [`MediaStream`](/de/doc
 
 Da die API erhebliche Datenschutzbedenken aufwerfen kann, legt die `getUserMedia()`-Spezifikation eine Vielzahl von Datenschutz- und Sicherheitsanforderungen fest, die von den Browsern erfüllt werden müssen.
 
-`getUserMedia()` ist eine leistungsstarke Funktion, die nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) genutzt werden kann; in unsicheren Kontexten ist `navigator.mediaDevices` `undefined`, was den Zugriff auf `getUserMedia()` verhindert.
+`getUserMedia()` ist eine leistungsstarke Funktion, die nur in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) genutzt werden kann; in unsicheren Kontexten ist `navigator.mediaDevices` `undefined`, was den Zugriff auf `getUserMedia()` verhindert.
 Ein sicherer Kontext ist im Wesentlichen eine Seite, die über HTTPS oder das `file:///`-URL-Schema geladen ist oder von `localhost`.
 
 Darüber hinaus ist immer die Erlaubnis des Nutzers erforderlich, um auf seine Audio- und Videoeingaben zuzugreifen.
@@ -138,7 +138,7 @@ Hier geben Sie an, dass die Möglichkeit zur Nutzung von sowohl Kamera als auch 
 
 #### Verschlüsselungsbasierte Sicherheit
 
-Die Methode `getUserMedia()` ist nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar.
+Die Methode `getUserMedia()` ist nur in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar.
 Ein sicherer Kontext ist einer, von dem der Browser mit einiger Sicherheit annehmen kann, dass er ein Dokument enthält, das sicher mit HTTPS/TLS geladen wurde und nur begrenzte Exposition gegenüber unsicheren Kontexten hat.
 Wenn ein Dokument nicht in einem sicheren Kontext geladen wird, ist die [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices)-Eigenschaft `undefined`, was den Zugriff auf `getUserMedia()` unmöglich macht.
 

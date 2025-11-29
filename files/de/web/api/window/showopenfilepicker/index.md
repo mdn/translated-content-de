@@ -45,7 +45,7 @@ Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein {{jsxref('Array')}} vo
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Benutzer die Eingabeaufforderung ohne Auswahl abbricht oder wenn der User-Agent feststellt, dass ausgewählte Dateien zu sensibel oder gefährlich sind.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie das Drücken eines Buttons erfolgt ist.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie das Drücken eines Buttons erfolgt ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn Akzeptanztypen nicht verarbeitet werden können, was passieren kann, wenn:
     - Ein Schlüsselstring der `accept`-Optionen eines Elements in den `types`-Optionen keinen gültigen MIME-Typ parsen kann.
@@ -54,7 +54,7 @@ Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein {{jsxref('Array')}} vo
 
 ## Sicherheit
 
-[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 

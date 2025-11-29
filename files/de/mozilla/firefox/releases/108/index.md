@@ -46,7 +46,7 @@ Keine bemerkenswerten Änderungen
 
 #### Medien, WebRTC und Web Audio
 
-- Die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) ist nun in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar.
+- Die [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) ist nun in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar.
   Aufrufe von [`navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) werden Benutzer mit aktiven MIDI-Geräten auffordern, ein [Site-Permission-Add-On](https://support.mozilla.org/en-US/kb/site-permission-add-ons) zu installieren, das erforderlich ist, um die API zu aktivieren.
   Weitere Informationen finden Sie unter [Firefox-Bug 1795025](https://bugzil.la/1795025).
 

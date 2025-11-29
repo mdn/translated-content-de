@@ -54,8 +54,8 @@ Ein {{ jsxref("Promise") }}, das mit einem [`MediaDeviceInfo`](/de/docs/Web/API/
 
 Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
-- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
-- [Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich.
+- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
+- [Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich.
   Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 - Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden.
 

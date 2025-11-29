@@ -39,7 +39,7 @@ _Keine Änderungen._
 
 ### Sicherheit
 
-- Firefox stellt jetzt sicher, dass `localhost`-URLs — wie `http://localhost/` und `http://dev.localhost/` — auf die Loopback-Schnittstelle des lokalen Hosts verweisen (z. B. `http://127.0.0.1`). Infolgedessen wird angenommen, dass von `localhost` geladene Ressourcen sicher bereitgestellt wurden (siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)) und sie werden auch nicht als [gemischte Inhalte](/de/docs/Web/Security/Mixed_content) behandelt ([Firefox-Bug 1220810](https://bugzil.la/1220810), [Firefox-Bug 1488740](https://bugzil.la/1488740)).
+- Firefox stellt jetzt sicher, dass `localhost`-URLs — wie `http://localhost/` und `http://dev.localhost/` — auf die Loopback-Schnittstelle des lokalen Hosts verweisen (z. B. `http://127.0.0.1`). Infolgedessen wird angenommen, dass von `localhost` geladene Ressourcen sicher bereitgestellt wurden (siehe [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts)) und sie werden auch nicht als [gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content) behandelt ([Firefox-Bug 1220810](https://bugzil.la/1220810), [Firefox-Bug 1488740](https://bugzil.la/1488740)).
 
 ### APIs
 

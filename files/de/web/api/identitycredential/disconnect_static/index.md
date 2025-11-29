@@ -45,7 +45,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird.
     - Die Anfrage von einer [`connect-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src) {{httpheader("Content-Security-Policy")}}-Richtlinie abgelehnt wird.
     - Ein weiterer `disconnect()`-Aufruf zuvor gemacht wurde und noch nicht gelöst ist.
     - Die FedCM API global deaktiviert wurde.
-    - Die `configURL` des IdP weder sicher noch [potenziell vertrauenswürdig](/de/docs/Web/Security/Secure_Contexts#potentially_trustworthy_origins) ist.
+    - Die `configURL` des IdP weder sicher noch [potenziell vertrauenswürdig](/de/docs/Web/Security/Defenses/Secure_Contexts#potentially_trustworthy_origins) ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das einbettende `<iframe>` keine passende {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesetzt hat, um die Nutzung von `disconnect()` zu erlauben, oder wenn die FedCM API global durch eine Richtlinie im übergeordneten Dokument deaktiviert ist.
 

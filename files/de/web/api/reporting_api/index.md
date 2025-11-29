@@ -90,7 +90,7 @@ Diese Schnittstellen sind Teil der HTTP [Content Security Policy (CSP)](/de/docs
 - [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)
   - : Repräsentiert das Ereignisobjekt eines `securitypolicyviolation`-Ereignisses, das auf einem Element, Dokument oder Worker ausgelöst wird, wenn dessen CSP verletzt wird.
 
-Diese Schnittstelle ist Teil der [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Spezifikation:
+Diese Schnittstelle ist Teil der [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Spezifikation:
 
 - [`IntegrityViolationReportBody`](/de/docs/Web/API/IntegrityViolationReportBody)
   - : Enthält Informationen über eine Ressource, die blockiert wurde, weil sie die Integritätsgarantien der Subressource nicht erfüllt hat, die von ihrer {{httpheader("Integrity-Policy")}} gefordert werden, oder die für Berichte in "Nur-Bericht"-Richtlinien blockiert werden würde, die mit {{httpheader("Integrity-Policy-Report-Only")}} festgelegt wurden.

@@ -32,7 +32,7 @@ Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Inhalt der Zwischenab
 
 ## Sicherheitserwägungen
 
-Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) erfolgen.
+Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) erfolgen.
 
 Weitere Sicherheitsanforderungen sind im Abschnitt [Sicherheitserwägungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Überblicks behandelt.
 

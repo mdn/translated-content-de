@@ -10,7 +10,7 @@ l10n:
 
 Der **`SharedWorker()`** Konstruktor erstellt ein
 [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt, das das Skript an der angegebenen URL ausführt. Dieses
-Skript muss die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) einhalten.
+Skript muss die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) einhalten.
 
 > [!NOTE]
 > Es gibt Uneinigkeit unter den Browser-Herstellern darüber, ob eine Daten-URL von derselben Herkunft ist oder nicht. Obwohl Firefox 10.0 und später Daten-URLs akzeptieren, trifft das nicht auf alle anderen Browser zu.

@@ -50,7 +50,7 @@ Sobald der `onclose`-Ereignishandler abgeschlossen ist, wird der `CloseWatcher` 
 In einigen Anwendungen darf das UI-Element nur geschlossen werden, wenn es sich in einem bestimmten Zustand befindet; beispielsweise, wenn einige benötigte Informationen ausgefüllt sind.
 Um diese Fälle zu adressieren, können Anwendungen verhindern, dass das `close`-Ereignis ausgegeben wird, indem sie einen Handler für das `cancel`-Ereignis implementieren, der [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, wenn das UI-Element nicht bereit ist, geschlossen zu werden.
 
-Sie können `CloseWatcher`-Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/User_activation) erstellen, was nützlich ist, um Fälle wie Inaktivitätszeitüberschreitung-Dialoge zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, werden die Watcher gruppiert, sodass eine einzelne Schließanforderung beide schließt.
+Sie können `CloseWatcher`-Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) erstellen, was nützlich ist, um Fälle wie Inaktivitätszeitüberschreitung-Dialoge zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, werden die Watcher gruppiert, sodass eine einzelne Schließanforderung beide schließt.
 Darüber hinaus muss der erste Close Watcher nicht unbedingt ein `CloseWatcher`-Objekt sein: Es könnte ein modales Dialogelement oder ein durch ein Element mit dem Popover-Attribut generiertes Popover sein.
 
 ## Beispiele

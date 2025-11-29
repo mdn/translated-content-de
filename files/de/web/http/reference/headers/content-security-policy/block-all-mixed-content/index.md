@@ -15,7 +15,7 @@ l10n:
 
 Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`block-all-mixed-content`**-Direktive verhindert das Laden jeglicher Ressourcen über HTTP, wenn die Seite HTTPS verwendet.
 
-Alle [gemischten Inhalte](/de/docs/Web/Security/Mixed_content) Ressourcenzugriffe werden blockiert, einschließlich sowohl blockierbarer als auch hochstufbarer gemischter Inhalte.
+Alle [gemischten Inhalte](/de/docs/Web/Security/Defenses/Mixed_content) Ressourcenzugriffe werden blockiert, einschließlich sowohl blockierbarer als auch hochstufbarer gemischter Inhalte.
 Dies gilt auch für {{HTMLElement("iframe")}}-Dokumente, um sicherzustellen, dass die gesamte Seite frei von gemischten Inhalten ist.
 
 > [!NOTE]
@@ -56,4 +56,4 @@ Wurde zuvor in der veralteten [Mixed Content Level 1](https://www.w3.org/TR/2015
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("upgrade-insecure-requests")}}
-- [Gemischte Inhalte](/de/docs/Web/Security/Mixed_content)
+- [Gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content)

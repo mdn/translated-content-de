@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`integrity`** schreibgeschützte Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Wert der Anfrage.
+Die **`integrity`** schreibgeschützte Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Wert der Anfrage.
 
 ## Wert
 

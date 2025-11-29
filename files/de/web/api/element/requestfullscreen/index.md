@@ -52,7 +52,7 @@ _Anstelle einer herkömmlichen Ausnahme wirft das `requestFullscreen()`-Verfahre
 
 ## Sicherheit
 
-[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
 
 ## Verwendungshinweise
 

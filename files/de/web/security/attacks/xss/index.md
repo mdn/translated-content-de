@@ -9,7 +9,7 @@ Ein Cross-site Scripting (XSS) Angriff ist ein Angriff, bei dem ein Angreifer in
 
 ## Überblick
 
-Ein Webbrowser lädt Code von vielen verschiedenen Websites herunter und führt ihn auf dem Computer des Benutzers aus. Einige dieser Websites sind sehr vertrauenswürdig, und der Benutzer kann sie für sensible Operationen nutzen, wie zum Beispiel Finanztransaktionen oder medizinische Beratung. Bei anderen, wie einer lässigen Spieleseite, hat der Benutzer möglicherweise keine solche Vertrauensbeziehung. Die Grundlage des Sicherheitsmodells des Browsers ist, dass diese Seiten voneinander getrennt gehalten werden sollten, sodass Code von einer Website nicht in der Lage sein sollte, auf Objekte oder {{Glossary("credential", "Anmeldeinformationen")}} in einer anderen Website zuzugreifen. Dies wird als das [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) bezeichnet.
+Ein Webbrowser lädt Code von vielen verschiedenen Websites herunter und führt ihn auf dem Computer des Benutzers aus. Einige dieser Websites sind sehr vertrauenswürdig, und der Benutzer kann sie für sensible Operationen nutzen, wie zum Beispiel Finanztransaktionen oder medizinische Beratung. Bei anderen, wie einer lässigen Spieleseite, hat der Benutzer möglicherweise keine solche Vertrauensbeziehung. Die Grundlage des Sicherheitsmodells des Browsers ist, dass diese Seiten voneinander getrennt gehalten werden sollten, sodass Code von einer Website nicht in der Lage sein sollte, auf Objekte oder {{Glossary("credential", "Anmeldeinformationen")}} in einer anderen Website zuzugreifen. Dies wird als das [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) bezeichnet.
 
 ![Diagramm von 2 Seiten im Browser, in separaten Welten](same-origin.svg)
 

@@ -30,7 +30,7 @@ Es gibt zwei Arten von Benutzeraktivierungszuständen im Fenster:
 - {{Glossary("Transient_activation", "Vorübergehende Aktivierung")}} (der Benutzer interagiert derzeit mit der Seite) und
 - {{Glossary("Sticky_activation", "Dauerhafte Aktivierung")}} (der Benutzer hat mindestens einmal seit dem Seitenaufruf interagiert).
 
-Weitere Informationen und eine Liste von APIs, die entweder eine dauerhafte oder vorübergehende Benutzeraktivierung erfordern, finden Sie unter [Features, die durch Benutzeraktivierung gesperrt sind](/de/docs/Web/Security/User_activation).
+Weitere Informationen und eine Liste von APIs, die entweder eine dauerhafte oder vorübergehende Benutzeraktivierung erfordern, finden Sie unter [Features, die durch Benutzeraktivierung gesperrt sind](/de/docs/Web/Security/Defenses/User_activation).
 
 ## Beispiele
 
@@ -65,4 +65,4 @@ if (navigator.userActivation.hasBeenActive) {
 ## Siehe auch
 
 - [`navigator.userActivation`](/de/docs/Web/API/Navigator/userActivation)
-- [Features, die durch Benutzeraktivierung gesperrt sind](/de/docs/Web/Security/User_activation)
+- [Features, die durch Benutzeraktivierung gesperrt sind](/de/docs/Web/Security/Defenses/User_activation)

@@ -38,4 +38,4 @@ if (navigator.userActivation.isActive) {
 
 - [`UserActivation`](/de/docs/Web/API/UserActivation)
 - [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive)
-- [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/User_activation)
+- [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/Defenses/User_activation)

@@ -80,7 +80,7 @@ Die Verwendung von Code in JAR-Dateien, die von anderen Domains geladen wurden, 
 
 ### Änderungen der Same-Origin-Richtlinie für file: URIs
 
-Die Same-Origin-Richtlinie für file: URIs hat sich in Firefox 3 geändert. Dies kann sich auf Ihre Inhalte auswirken; bitte lesen Sie [Same-Origin-Richtlinie für file: URIs](/de/docs/Web/Security/Same-origin_policy#file_origins) für Details.
+Die Same-Origin-Richtlinie für file: URIs hat sich in Firefox 3 geändert. Dies kann sich auf Ihre Inhalte auswirken; bitte lesen Sie [Same-Origin-Richtlinie für file: URIs](/de/docs/Web/Security/Defenses/Same-origin_policy#file_origins) für Details.
 
 ## Änderungen in JavaScript
 

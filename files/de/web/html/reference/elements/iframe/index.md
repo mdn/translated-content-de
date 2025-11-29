@@ -119,7 +119,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     - `allow-presentation`
       - : Erlaubt Einbettungsmitteln zu kontrollieren, ob ein iframe eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
     - `allow-same-origin`
-      - : Wenn dieses Token nicht verwendet wird, wird die Ressource als aus einem speziellen Ursprung stammend behandelt, der immer die {{Glossary("same-origin_policy", "gleiche Ursprungsrichtlinie")}} fehlschlagen lässt (was möglicherweise den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
+      - : Wenn dieses Token nicht verwendet wird, wird die Ressource als aus einem speziellen Ursprung stammend behandelt, der immer die {{Glossary("same-origin_policy", "gleiche Ursprungsrichtlinie")}} fehlschlagen lässt (was möglicherweise den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Defenses/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
     - `allow-scripts`
       - : Erlaubt der Seite das Ausführen von Skripten (aber nicht das Erstellen von Popup-Fenstern). Wenn dieses Schlüsselwort nicht verwendet wird, ist diese Operation nicht erlaubt.
     - `allow-storage-access-by-user-activation` {{experimental_inline}}
@@ -140,7 +140,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     > Beim Weiterleiten des Benutzers, beim Öffnen eines Popup-Fensters oder eines neuen Tabs von einer eingebetteten Seite in einem `<iframe>` mit dem `sandbox`-Attribut, unterliegt der neue Browsing-Kontext denselben `sandbox`-Einschränkungen. Dies kann Probleme verursachen — zum Beispiel, wenn eine Seite, die in einem `<iframe>` ohne ein `sandbox="allow-forms"` oder `sandbox="allow-popups-to-escape-sandbox"`-Attribut eingebettet ist, eine neue Seite in einem separaten Tab öffnet, und Formularübermittlungen in diesem neuen Browsing-Kontext stillschweigend fehlschlagen.
 
 - `src`
-  - : Die URL der Seite, die eingebettet werden soll. Verwenden Sie einen Wert von `about:blank`, um eine leere Seite einzubetten, die den [gleichen Ursprungsrichtlinien](/de/docs/Web/Security/Same-origin_policy#inherited_origins) entspricht. Beachten Sie auch, dass das programmgesteuerte Entfernen eines `src`-Attributs von einem `<iframe>` (z.B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Frame in Firefox (ab Version 65), in browserbasierten Chromium-Browsern und in Safari/iOS geladen wird.
+  - : Die URL der Seite, die eingebettet werden soll. Verwenden Sie einen Wert von `about:blank`, um eine leere Seite einzubetten, die den [gleichen Ursprungsrichtlinien](/de/docs/Web/Security/Defenses/Same-origin_policy#inherited_origins) entspricht. Beachten Sie auch, dass das programmgesteuerte Entfernen eines `src`-Attributs von einem `<iframe>` (z.B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Frame in Firefox (ab Version 65), in browserbasierten Chromium-Browsern und in Safari/iOS geladen wird.
 
     > [!NOTE]
     > Die `about:blank`-Seite verwendet die URL des einbettenden Dokuments als basis URL beim Auflösen aller relativen URLs, wie z.B. Ankerlinks.
@@ -185,7 +185,7 @@ Mit dem DOM [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Objekt kö
 
 Aus dem Inneren eines Frames kann ein Skript eine Referenz auf sein übergeordnetes Fenster mit [`window.parent`](/de/docs/Web/API/Window/parent) erhalten.
 
-Der Skriptzugriff auf den Inhalt eines Frames unterliegt der [gleiche Ursprungsrichtlinie](/de/docs/Web/Security/Same-origin_policy). Skripte können auf die meisten Eigenschaften in anderen `window`-Objekten nicht zugreifen, wenn das Skript aus einem anderen Ursprung geladen wurde, einschließlich Skripten innerhalb eines Frames, die auf das übergeordnete Frame zugreifen. Übergreifende Kommunikation kann durch Verwendung von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) erreicht werden.
+Der Skriptzugriff auf den Inhalt eines Frames unterliegt der [gleiche Ursprungsrichtlinie](/de/docs/Web/Security/Defenses/Same-origin_policy). Skripte können auf die meisten Eigenschaften in anderen `window`-Objekten nicht zugreifen, wenn das Skript aus einem anderen Ursprung geladen wurde, einschließlich Skripten innerhalb eines Frames, die auf das übergeordnete Frame zugreifen. Übergreifende Kommunikation kann durch Verwendung von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) erreicht werden.
 
 ### Navigation auf oberster Ebene in cross-origin Frames
 

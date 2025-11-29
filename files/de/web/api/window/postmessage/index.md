@@ -10,7 +10,7 @@ l10n:
 
 Die **`window.postMessage()`**-Methode ermöglicht sichere, herkunftsübergreifende Kommunikation zwischen [`Window`](/de/docs/Web/API/Window)-Objekten; _z.B._ zwischen einer Seite und einem von ihr erzeugten Pop-up oder zwischen einer Seite und einem darin eingebetteten iframe.
 
-Normalerweise dürfen Skripte auf verschiedenen Seiten nur dann aufeinander zugreifen, wenn die Seiten, von denen sie stammen, die gleiche [Herkunft](/de/docs/Web/API/Location/origin) teilen (auch bekannt als die "[Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)"). `window.postMessage()` bietet einen kontrollierten Mechanismus, um diese Einschränkung sicher zu umgehen (sofern richtig verwendet).
+Normalerweise dürfen Skripte auf verschiedenen Seiten nur dann aufeinander zugreifen, wenn die Seiten, von denen sie stammen, die gleiche [Herkunft](/de/docs/Web/API/Location/origin) teilen (auch bekannt als die "[Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)"). `window.postMessage()` bietet einen kontrollierten Mechanismus, um diese Einschränkung sicher zu umgehen (sofern richtig verwendet).
 
 Darüber hinaus muss ein zugreifendes Skript zuvor das Fensterobjekt des zuzugreifenden Dokuments erhalten haben. Dies kann durch Methoden wie [`window.open()`](/de/docs/Web/API/Window/open) für Pop-ups oder [`iframe.contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) für iframes geschehen.
 

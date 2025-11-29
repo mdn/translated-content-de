@@ -81,7 +81,7 @@ open(url, target, windowFeatures)
 ### Rückgabewert
 
 Wenn der Browser den neuen Browsing-Kontext erfolgreich öffnet, wird ein {{Glossary("WindowProxy", "`WindowProxy`")}}-Objekt zurückgegeben.
-Die zurückgegebene Referenz kann verwendet werden, um Eigenschaften und Methoden des neuen Kontextes zuzugreifen, solange sie die Sicherheitsanforderungen [der Same-origin policy](/de/docs/Web/Security/Same-origin_policy) erfüllt.
+Die zurückgegebene Referenz kann verwendet werden, um Eigenschaften und Methoden des neuen Kontextes zuzugreifen, solange sie die Sicherheitsanforderungen [der Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy) erfüllt.
 
 Wenn der {{httpheader("Cross-Origin-Opener-Policy")}} HTTP-Header verwendet wird und die Dokumentrichtlinien so sind, dass das Dokument in einem neuen {{Glossary("Browsing_context", "Browsing-Kontext-Gruppe")}} geöffnet wird, werden die Referenzen zum geöffneten Fenster getrennt und das zurückgegebene Objekt wird anzeigen, dass das geöffnete Fenster geschlossen ist ([`closed`](/de/docs/Web/API/Window/closed) ist `true`).
 
@@ -252,7 +252,7 @@ console.log(sameOriginContext.origin);
 // https://example.com
 ```
 
-Für weitere Informationen siehe den Artikel zur [Same-origin policy](/de/docs/Web/Security/Same-origin_policy).
+Für weitere Informationen siehe den Artikel zur [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy).
 
 ## Barrierefreiheitsbedenken
 
@@ -310,4 +310,4 @@ Wenn extreme Änderungen im Kontext explizit identifiziert werden, bevor sie auf
 - [`window.focus()`](/de/docs/Web/API/Window/focus)
 - [`window.opener`](/de/docs/Web/API/Window/opener)
 - [`rel="opener"`](/de/docs/Web/HTML/Reference/Attributes/rel#opener) und [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel#noopener)
-- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy)

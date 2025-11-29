@@ -37,7 +37,7 @@ Dieser Artikel enthält Informationen über die Änderungen in Firefox 127, die 
 
 - Firefox wird jetzt Anfragen für Audio-, Video- und Bildressourcen automatisch von HTTP auf HTTPS in sicheren Inhalten hochstufen und HTTP-Anfragen für andere Arten von Medien blockieren. Wenn eine hochgestufte Anfrage fehlschlägt, weil der Host des Mediums kein HTTPS unterstützt, wird das Medium nicht gefunden.
   Dies stellt sicher, dass, wenn Inhalte sicher über HTTPS bereitgestellt werden, alle seine Ressourcen ebenfalls sicher bereitgestellt oder überhaupt nicht bereitgestellt werden.
-  Da Seiten keinen [Mixed Content](/de/docs/Web/Security/Mixed_content) mehr anzeigen, hat Firefox auch das Symbol entfernt, das anzeigt, wenn eine Seite Gemischte Inhalte enthält, und die Mixed-Content-Konsolenwarnung wurde durch eine ersetzt, die anzeigt, wenn Anfragen hochgestuft werden.
+  Da Seiten keinen [Mixed Content](/de/docs/Web/Security/Defenses/Mixed_content) mehr anzeigen, hat Firefox auch das Symbol entfernt, das anzeigt, wenn eine Seite Gemischte Inhalte enthält, und die Mixed-Content-Konsolenwarnung wurde durch eine ersetzt, die anzeigt, wenn Anfragen hochgestuft werden.
   ([Firefox-Bug 1779757](https://bugzil.la/1779757)).
 
 ### APIs

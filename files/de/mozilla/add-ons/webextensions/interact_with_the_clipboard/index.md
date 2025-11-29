@@ -28,7 +28,7 @@ Dieser Abschnitt beschreibt die Optionen zum Schreiben von Daten in die Zwischen
 
 ### Verwendung der Clipboard-API
 
-Die Clipboard-API schreibt beliebige Daten von Ihrer Erweiterung in die Zwischenablage. Die Verwendung der API erfordert die Berechtigungen `"clipboardRead"` oder `"clipboardWrite"` in Ihrer `manifest.json`-Datei. Da die API nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar ist, kann sie nicht von einem Inhalts-Script verwendet werden, das auf `http:`-Seiten läuft, nur auf `https:`-Seiten.
+Die Clipboard-API schreibt beliebige Daten von Ihrer Erweiterung in die Zwischenablage. Die Verwendung der API erfordert die Berechtigungen `"clipboardRead"` oder `"clipboardWrite"` in Ihrer `manifest.json`-Datei. Da die API nur in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist, kann sie nicht von einem Inhalts-Script verwendet werden, das auf `http:`-Seiten läuft, nur auf `https:`-Seiten.
 
 Für Seitenskripte muss die Berechtigung `"clipboard-write"` über die Web-API [`navigator.permissions`](/de/docs/Web/API/Permissions) angefordert werden. Sie können diese Berechtigung mit [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) prüfen:
 
@@ -127,7 +127,7 @@ Dieser Abschnitt beschreibt die Optionen zum Lesen oder Einfügen von Daten aus 
 
 ### Verwendung der Clipboard-API
 
-Die Methoden [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) der Clipboard-API erlauben Ihnen, beliebigen Text oder Binärdaten aus der Zwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) zu lesen. Dies ermöglicht es Ihnen, auf die Daten in der Zwischenablage zuzugreifen, ohne sie in ein bearbeitbares Element einfügen zu müssen.
+Die Methoden [`navigator.clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`navigator.clipboard.read()`](/de/docs/Web/API/Clipboard/read) der Clipboard-API erlauben Ihnen, beliebigen Text oder Binärdaten aus der Zwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) zu lesen. Dies ermöglicht es Ihnen, auf die Daten in der Zwischenablage zuzugreifen, ohne sie in ein bearbeitbares Element einfügen zu müssen.
 
 Sobald Sie die Berechtigung `"clipboard-read"` von der [Permissions API](/de/docs/Web/API/Permissions_API) haben, können Sie einfach aus der Zwischenablage lesen. Beispielsweise holt dieses Code-Snippet den Text aus der Zwischenablage und ersetzt den Inhalt des Elements mit der ID `"outbox"` mit diesem Text.
 

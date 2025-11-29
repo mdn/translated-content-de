@@ -79,7 +79,7 @@ Das Erlauben von vertrauenswürdigen Domänen, wie im obigen Abschnitt gezeigt, 
 
 Eine alternative Methode besteht darin, erlaubte Skripte mit Dateihashes zu spezifizieren.
 Mit diesem Ansatz kann eine externe Datei in einem `<script>`-Element nur geladen und ausgeführt werden, wenn alle gültigen Hash-Werte in ihrem [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) Attribut mit den erlaubten Werten im CSP-Header übereinstimmen.
-Die [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Funktion überprüft zusätzlich, ob die heruntergeladene Datei den angegebenen Hash-Wert hat und daher nicht verändert wurde.
+Die [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Funktion überprüft zusätzlich, ob die heruntergeladene Datei den angegebenen Hash-Wert hat und daher nicht verändert wurde.
 Dies ist sicherer als das Vertrauen in eine Domäne, da Dateien nur verwendet werden, wenn sie unverändert sind, selbst wenn sie von einer kompromittierten Site geladen werden.
 Es ist jedoch granularer und erfordert, dass Hash-Werte in CSP- und Skriptelementen aktualisiert werden, wann immer die zugehörigen Skripte geändert werden.
 
@@ -120,7 +120,7 @@ Werte, die vom Browser nicht als Hashes erkannt werden, werden ignoriert, sodass
   crossorigin="anonymous"></script>
 ```
 
-[Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) enthält weitere Informationen zur Berechnung von Hashes und zur Verwendung des `integrity`-Attributs.
+[Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) enthält weitere Informationen zur Berechnung von Hashes und zur Verwendung des `integrity`-Attributs.
 
 ### Unsichere Inline-Skripte
 

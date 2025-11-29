@@ -70,7 +70,7 @@ Siehe auch [Neu in Firefox 78: Verbesserungen bei den DevTools, neue Regex-Engin
 
 ### TLS 1.0 und 1.1 Entfernen
 
-- Die Unterstützung für die [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security) (TLS)-Protokollversionen 1.0 und 1.1 wird in allen Browsern eingestellt. Lesen Sie [TLS 1.0 und 1.1 Entfernen Update](https://hacks.mozilla.org/2019/05/tls-1-0-and-1-1-removal-update/) für die vorherige Ankündigung und welche Maßnahmen Sie ergreifen sollten, wenn Sie betroffen sind ([Firefox-Bug 1643229](https://bugzil.la/1643229)).
+- Die Unterstützung für die [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security) (TLS)-Protokollversionen 1.0 und 1.1 wird in allen Browsern eingestellt. Lesen Sie [TLS 1.0 und 1.1 Entfernen Update](https://hacks.mozilla.org/2019/05/tls-1-0-and-1-1-removal-update/) für die vorherige Ankündigung und welche Maßnahmen Sie ergreifen sollten, wenn Sie betroffen sind ([Firefox-Bug 1643229](https://bugzil.la/1643229)).
 
 ## Änderungen für Add-on-Entwickler
 

@@ -10,7 +10,7 @@ Cross-Origin Resource Sharing (CORS) wird mittels [`Access-Control-Allow-Origin`
 
 ## Problem
 
-Standardmäßig blockiert die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) von Skripten initiierte Cross-Origin-HTTP-Anfragen. Es gibt mehrere Anwendungsfälle, die den Zugriff von Skripten über Ursprungsgrenzen hinweg erfordern; zum Beispiel Content Delivery Networks (CDNs), die das Hosting für JavaScript/CSS-Bibliotheken und öffentliche API-Endpunkte bereitstellen. Jedoch stellt der Zugriff über Ursprungsgrenzen ein erhebliches Sicherheitsrisiko dar und muss sorgfältig kontrolliert werden.
+Standardmäßig blockiert die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) von Skripten initiierte Cross-Origin-HTTP-Anfragen. Es gibt mehrere Anwendungsfälle, die den Zugriff von Skripten über Ursprungsgrenzen hinweg erfordern; zum Beispiel Content Delivery Networks (CDNs), die das Hosting für JavaScript/CSS-Bibliotheken und öffentliche API-Endpunkte bereitstellen. Jedoch stellt der Zugriff über Ursprungsgrenzen ein erhebliches Sicherheitsrisiko dar und muss sorgfältig kontrolliert werden.
 
 ## Lösung
 

@@ -11,7 +11,7 @@ Das **`Worker`**-Interface der [Web Workers API](/de/docs/Web/API/Web_Workers_AP
 
 Ein Worker wird erstellt, indem der `Worker("path/to/worker/script")`-Konstruktor aufgerufen wird.
 
-Worker können selbst neue Worker erstellen, solange diese Worker vom gleichen [Origin](/de/docs/Web/Security/Same-origin_policy) wie die übergeordnete Seite gehostet werden.
+Worker können selbst neue Worker erstellen, solange diese Worker vom gleichen [Origin](/de/docs/Web/Security/Defenses/Same-origin_policy) wie die übergeordnete Seite gehostet werden.
 
 Beachten Sie, dass nicht alle Schnittstellen und Funktionen für Web-Worker verfügbar sind. Siehe [Funktionen und Klassen, die Web Workern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) für Details.
 

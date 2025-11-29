@@ -19,7 +19,7 @@ Die **Clipboard-API** bietet die Möglichkeit, auf Zwischenablagebefehle (Aussch
 
 Die _Systemzwischenablage_ ist ein von dem Betriebssystem, das den Browser hostet, bereitgestellter Datenpuffer, der für die kurzfristige Datenspeicherung und/oder den Datenaustausch zwischen Dokumenten oder Anwendungen verwendet wird. Sie wird normalerweise als anonymer, temporärer [Datenpuffer](https://en.wikipedia.org/wiki/Data_buffer) implementiert, manchmal als _Paste-Buffer_ bezeichnet, der über definierte Programmierschnittstellen von den meisten oder allen Programmen innerhalb der Umgebung zugänglich ist.
 
-Die Clipboard-API ermöglicht es Benutzern, programmgesteuert Text und andere Datenarten in und aus der Systemzwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) zu lesen und zu schreiben, sofern der Benutzer die im Abschnitt [Sicherheitsüberlegungen](#sicherheitsüberlegungen) beschriebenen Kriterien erfüllt hat.
+Die Clipboard-API ermöglicht es Benutzern, programmgesteuert Text und andere Datenarten in und aus der Systemzwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) zu lesen und zu schreiben, sofern der Benutzer die im Abschnitt [Sicherheitsüberlegungen](#sicherheitsüberlegungen) beschriebenen Kriterien erfüllt hat.
 
 Ereignisse werden als Ergebnis von [`cut`](/de/docs/Web/API/Element/cut_event)-, [`copy`](/de/docs/Web/API/Element/copy_event)- und [`paste`](/de/docs/Web/API/Element/paste_event)-Operationen ausgelöst, die die Zwischenablage verändern. Die Ereignisse haben eine Standardaktion, zum Beispiel kopiert die `copy`-Aktion standardmäßig die aktuelle Auswahl in die Systemzwischenablage. Die Standardaktion kann vom Ereignishandler überschrieben werden — siehe die einzelnen Ereignisse für weitere Informationen.
 
@@ -51,10 +51,10 @@ Die Clipboard-API erweitert die folgenden APIs und fügt die aufgeführten Funkt
 
 ## Sicherheitsüberlegungen
 
-Die Clipboard-API ermöglicht es Benutzern, programmgesteuert Text und andere Datenarten in und aus der Systemzwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) zu lesen und zu schreiben.
+Die Clipboard-API ermöglicht es Benutzern, programmgesteuert Text und andere Datenarten in und aus der Systemzwischenablage in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) zu lesen und zu schreiben.
 
-Beim Lesen von der Zwischenablage erfordert die Spezifikation, dass der Benutzer kürzlich mit der Seite interagiert hat ([transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation)) und dass der Aufruf als Ergebnis der Interaktion des Benutzers mit einem Browser- oder OS-„Paste-Element“ (wie das Auswählen von „Einfügen“ in einem nativen Kontextmenü) erfolgt. In der Praxis erlauben Browser oft Lesevorgänge, die diese Anforderungen nicht erfüllen, während sie andere Anforderungen stellen (wie eine Berechtigung oder eine Abfrage pro Vorgang).
-Zum Schreiben in die Zwischenablage erwartet die Spezifikation, dass der Seite die [Permissions API](/de/docs/Web/API/Permissions_API) `clipboard-write` Berechtigung erteilt wurde, und der Browser kann auch [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) erfordern.
+Beim Lesen von der Zwischenablage erfordert die Spezifikation, dass der Benutzer kürzlich mit der Seite interagiert hat ([transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation)) und dass der Aufruf als Ergebnis der Interaktion des Benutzers mit einem Browser- oder OS-„Paste-Element“ (wie das Auswählen von „Einfügen“ in einem nativen Kontextmenü) erfolgt. In der Praxis erlauben Browser oft Lesevorgänge, die diese Anforderungen nicht erfüllen, während sie andere Anforderungen stellen (wie eine Berechtigung oder eine Abfrage pro Vorgang).
+Zum Schreiben in die Zwischenablage erwartet die Spezifikation, dass der Seite die [Permissions API](/de/docs/Web/API/Permissions_API) `clipboard-write` Berechtigung erteilt wurde, und der Browser kann auch [transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) erfordern.
 Browser können zusätzliche Einschränkungen für die Nutzung der Methoden zur Zugriffssteuerung der Zwischenablage festlegen.
 
 Die Implementierungen der Browser haben sich von der Spezifikation entfernt.

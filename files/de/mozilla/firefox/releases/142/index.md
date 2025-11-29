@@ -94,7 +94,7 @@ Keine bemerkenswerten Änderungen.
 
 - **`Integrity-Policy` und `Integrity-Policy-Report-Only`** für Skripte (Nightly): `security.integrity_policy.enabled`
 
-  Die {{httpheader("Integrity-Policy")}}- und {{httpheader("Integrity-Policy-Report-Only")}}-HTTP-Header werden jetzt für Skriptressourcen unterstützt. Diese ermöglichen es Websites, entweder [Unversehrtheitsgarantien für Subressourcen](/de/docs/Web/Security/Subresource_Integrity) für Skripte durchzusetzen oder nur Verstöße gegen die Richtlinie zu melden.
+  Die {{httpheader("Integrity-Policy")}}- und {{httpheader("Integrity-Policy-Report-Only")}}-HTTP-Header werden jetzt für Skriptressourcen unterstützt. Diese ermöglichen es Websites, entweder [Unversehrtheitsgarantien für Subressourcen](/de/docs/Web/Security/Defenses/Subresource_Integrity) für Skripte durchzusetzen oder nur Verstöße gegen die Richtlinie zu melden.
   ([Firefox Bug 1976656](https://bugzil.la/1976656)).
 
 - **`Integrity-Policy` und `Integrity-Policy-Report-Only`** für Stylesheets: `security.integrity_policy.stylesheet.enabled`

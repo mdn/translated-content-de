@@ -21,7 +21,7 @@ Die Eigenschaft **`HTMLIFrameElement.referrerPolicy`** spiegelt das HTML-Attribu
 - `origin-when-cross-origin`
   - : Eine vollständige URL wird bei einer selben Ursprungsanforderung gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
 - `same-origin`
-  - : Ein Referrer wird für [same-site origins](/de/docs/Web/Security/Same-origin_policy) gesendet, aber Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
+  - : Ein Referrer wird für [same-site origins](/de/docs/Web/Security/Defenses/Same-origin_policy) gesendet, aber Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
 - `strict-origin`
   - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel (HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)

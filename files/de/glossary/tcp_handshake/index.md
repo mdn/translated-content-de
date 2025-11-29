@@ -23,7 +23,7 @@ Dieser Handshake-Schritt erfolgt nach einer {{Glossary("DNS", "DNS-Abfrage")}} u
 
 ## Siehe auch
 
-- [Transport Layer Security (TLS)-Protokoll](/de/docs/Web/Security/Transport_Layer_Security)
+- [Transport Layer Security (TLS)-Protokoll](/de/docs/Web/Security/Defenses/Transport_Layer_Security)
 - Verwandte Glossarbegriffe:
   - {{Glossary("HTTPS", "HTTPS")}}
 - [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) auf Wikipedia

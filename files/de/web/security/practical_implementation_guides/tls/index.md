@@ -14,7 +14,7 @@ l10n:
 
 Wenn Daten unverschlüsselt über das Web gesendet werden, können sie von Dritten abgefangen werden, die auf die Daten zugreifen und sie ändern können — dies wird oft als {{Glossary("MitM", "Manipulator-in-der-Mitte")}} (MiTM) Angriff bezeichnet. MiTM-Angriffe haben schwerwiegende Folgen für die Sicherheit Ihres Systems.
 
-Alle Anfragen und Antworten sollten daher über HTTPS gesendet werden, das TLS zur Verschlüsselung der Daten verwendet. Das moderne Web erzwingt dies praktisch — alle Browser bewegen sich in Richtung der standardmäßigen Anforderung von {{Glossary("HTTPS", "HTTPS")}}, und viele Web-Features können nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verwendet werden.
+Alle Anfragen und Antworten sollten daher über HTTPS gesendet werden, das TLS zur Verschlüsselung der Daten verwendet. Das moderne Web erzwingt dies praktisch — alle Browser bewegen sich in Richtung der standardmäßigen Anforderung von {{Glossary("HTTPS", "HTTPS")}}, und viele Web-Features können nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verwendet werden.
 
 ### Lösung
 
@@ -26,7 +26,7 @@ Sie sollten Ihre Server-Software so einrichten, dass sie eine sichere Konfigurat
 
 Alle Ressourcen, unabhängig von ihrem Ursprung, sollten über sichere Kanäle geladen werden.
 
-Sichere (HTTPS) Websites, die versuchen, aktive Ressourcen wie JavaScript über unsichere Verbindungen (HTTP) zu laden, werden von Browsern blockiert. Infolgedessen werden Benutzer eine verschlechterte Benutzeroberfläche und [gemischte Inhalte](/de/docs/Web/Security/Mixed_content) Warnungen erleben. Im nachfolgenden Code-Beispiel wird HTTP fälschlicherweise verwendet, um eine JavaScript-Bibliothek zu laden:
+Sichere (HTTPS) Websites, die versuchen, aktive Ressourcen wie JavaScript über unsichere Verbindungen (HTTP) zu laden, werden von Browsern blockiert. Infolgedessen werden Benutzer eine verschlechterte Benutzeroberfläche und [gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content) Warnungen erleben. Im nachfolgenden Code-Beispiel wird HTTP fälschlicherweise verwendet, um eine JavaScript-Bibliothek zu laden:
 
 ```html example-bad
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -141,6 +141,6 @@ Content-Security-Policy: upgrade-insecure-requests;
 
 ## Siehe auch
 
-- [Transport layer security (TLS)](/de/docs/Web/Security/Transport_Layer_Security)
-- [Zertifikatstransparenz](/de/docs/Web/Security/Certificate_Transparency)
-- [Gemischte Inhalte](/de/docs/Web/Security/Mixed_content)
+- [Transport layer security (TLS)](/de/docs/Web/Security/Defenses/Transport_Layer_Security)
+- [Zertifikatstransparenz](/de/docs/Web/Security/Defenses/Certificate_Transparency)
+- [Gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content)

@@ -44,7 +44,7 @@ Dieser Artikel enthält Informationen über die Änderungen in Firefox 103, die 
   Nach der Übertragung kann das Originalobjekt nicht verwendet werden.
   Weitere Details finden Sie unter [Firefox Bug 1659025](https://bugzil.la/1659025).
 
-- [`Window.caches`](/de/docs/Web/API/Window/caches), [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches), [`CacheStorage`](/de/docs/Web/API/CacheStorage) und [`Cache`](/de/docs/Web/API/Cache) erfordern jetzt einen [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts); die Eigenschaften/Schnittstellen sind nicht definiert, wenn sie in einem unsicheren Kontext verwendet werden.
+- [`Window.caches`](/de/docs/Web/API/Window/caches), [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches), [`CacheStorage`](/de/docs/Web/API/CacheStorage) und [`Cache`](/de/docs/Web/API/Cache) erfordern jetzt einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts); die Eigenschaften/Schnittstellen sind nicht definiert, wenn sie in einem unsicheren Kontext verwendet werden.
   Zuvor würde `cache` ein `CacheStorage` zurückgeben, das eine Ausnahme wirft, wenn es außerhalb eines sicheren Kontexts verwendet wird.
   Weitere Details finden Sie unter [Firefox Bug 1112134](https://bugzil.la/1112134).
 

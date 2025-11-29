@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}
 
-Der HTTP-**`Early-Data`**-{{Glossary("request_header", "Anforderungsheader")}} wird von einem Vermittler gesetzt, um anzuzeigen, dass die Anforderung in [TLS-Early-Data](/de/docs/Web/Security/Transport_Layer_Security#tls_1.3) übermittelt wurde und auch anzeigt, dass der Vermittler den {{HTTPStatus("425", "425 Too Early")}}-Statuscode versteht.
+Der HTTP-**`Early-Data`**-{{Glossary("request_header", "Anforderungsheader")}} wird von einem Vermittler gesetzt, um anzuzeigen, dass die Anforderung in [TLS-Early-Data](/de/docs/Web/Security/Defenses/Transport_Layer_Security#tls_1.3) übermittelt wurde und auch anzeigt, dass der Vermittler den {{HTTPStatus("425", "425 Too Early")}}-Statuscode versteht.
 
-Wenn ein Client kürzlich mit einem Server interagiert hat, ermöglicht es Early Data (auch bekannt als Zero Round-Trip Time [(0-RTT) Data](/de/docs/Web/Security/Transport_Layer_Security#tls_1.3)) dem Client, Daten in der ersten Runde eines Verbindungsaufbaus zu einem Server zu senden, ohne auf den Abschluss des TLS-{{Glossary("TCP_handshake", "Handshakes")}} zu warten.
+Wenn ein Client kürzlich mit einem Server interagiert hat, ermöglicht es Early Data (auch bekannt als Zero Round-Trip Time [(0-RTT) Data](/de/docs/Web/Security/Defenses/Transport_Layer_Security#tls_1.3)) dem Client, Daten in der ersten Runde eines Verbindungsaufbaus zu einem Server zu senden, ohne auf den Abschluss des TLS-{{Glossary("TCP_handshake", "Handshakes")}} zu warten.
 Dies reduziert die Latenz bei wiederholten Verbindungen zwischen einem Client und Server, hat jedoch sicherheitsrelevante Auswirkungen, da Early Data anfällig für Replay-Angriffe ist.
 
 Der `Early-Data`-Header wird **nicht** vom Urheber der Anforderung (d.h. einem Browser) gesetzt.

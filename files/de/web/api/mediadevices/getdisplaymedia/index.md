@@ -95,7 +95,7 @@ Da `getDisplayMedia()` auf bösartige Weise verwendet werden könnte, kann es ei
 
 - Die angegebenen Optionen können nicht verwendet werden, um die dem Benutzer zur Verfügung stehenden Auswahlmöglichkeiten einzuschränken. Stattdessen müssen sie angewandt werden, nachdem der Benutzer eine Quelle gewählt hat, um eine Ausgabe zu generieren, die den Optionen entspricht.
 - Die Erlaubnis, `getDisplayMedia()` zu verwenden, kann nicht für eine spätere Verwendung gespeichert werden. Der Benutzer muss jedes Mal um Erlaubnis gebeten werden.
-- [Flüchtige Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+- [Flüchtige Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 - Browser werden dazu ermutigt, Benutzer zu warnen, wenn Sie Bildschirme oder Fenster teilen, die Browser enthalten, und genau darauf zu achten, welche anderen Inhalte möglicherweise erfasst und anderen Benutzern angezeigt werden könnten.
 
 ## Beispiele

@@ -20,13 +20,13 @@ Die transiente Aktivierung läuft nach einem Timeout ab (falls sie nicht durch w
 
 Transiente Aktivierung wird häufig als Mechanismus verwendet, um sicherzustellen, dass eine Web-API nur funktionieren kann, wenn sie durch Benutzerinteraktion ausgelöst wird.
 Zum Beispiel können Skripte nicht willkürlich ein Popup starten, das _transiente Aktivierung_ erfordert ⁠— es muss über einen Ereignishandler eines UI-Elements ausgelöst werden.
-Siehe [Funktionen, die eine Benutzeraktivierung erfordern](/de/docs/Web/Security/User_activation) für Informationen zu APIs, die _transiente Aktivierung_ erfordern.
+Siehe [Funktionen, die eine Benutzeraktivierung erfordern](/de/docs/Web/Security/Defenses/User_activation) für Informationen zu APIs, die _transiente Aktivierung_ erfordern.
 
 Die [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) Eigenschaft kann programmatisch verwendet werden, um den aktuellen transienten Aktivierungszustand des Fensters zu überprüfen.
 
 ## Siehe auch
 
-- [Vergleich zwischen transienter und persistenter Aktivierung](/de/docs/Web/Security/User_activation#comparison_between_transient_and_sticky_activation) in _Funktionen, die eine Benutzeraktivierung erfordern_
+- [Vergleich zwischen transienter und persistenter Aktivierung](/de/docs/Web/Security/Defenses/User_activation#comparison_between_transient_and_sticky_activation) in _Funktionen, die eine Benutzeraktivierung erfordern_
 - Verwandte Glossarbegriffe:
   - {{Glossary("Sticky_activation", "Persistente Aktivierung")}}
 - [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)

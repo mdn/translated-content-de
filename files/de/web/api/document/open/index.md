@@ -50,7 +50,7 @@ Ein automatischer `document.open()`-Aufruf erfolgt, wenn
 
 ### Inhaltssicherheit
 
-Diese Methode unterliegt derselben [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) wie andere Eigenschaften und funktioniert nicht, wenn dies dazu führen würde, dass der Ursprung des Dokuments geändert wird.
+Diese Methode unterliegt derselben [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) wie andere Eigenschaften und funktioniert nicht, wenn dies dazu führen würde, dass der Ursprung des Dokuments geändert wird.
 
 ## Drei-Argumente document.open()
 

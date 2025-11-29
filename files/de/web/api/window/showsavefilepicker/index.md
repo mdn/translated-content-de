@@ -52,7 +52,7 @@ Ein {{jsxref("Promise")}} dessen Erfüllungs-Handler ein [`FileSystemFileHandle`
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Benutzer den Dateiauswahldialog schließt, ohne eine Datei auszuwählen oder einzugeben, oder wenn der Benutzeragent eine ausgewählte Datei als zu sensibel oder gefährlich betrachtet.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder er nicht durch eine Benutzerinteraktion wie einen Button-Druck vorgenommen wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde oder er nicht durch eine Benutzerinteraktion wie einen Button-Druck vorgenommen wurde.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn die akzeptierten Typen nicht verarbeitet werden können, was passieren kann, wenn:
     - Ein beliebiger Schlüssel-String der `accept` Optionen eines Elements in den `types` Optionen keinen gültigen MIME-Typ parsen kann.
@@ -61,7 +61,7 @@ Ein {{jsxref("Promise")}} dessen Erfüllungs-Handler ein [`FileSystemFileHandle`
 
 ## Sicherheit
 
-[Übergangsaktivierung des Benutzers](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Übergangsaktivierung des Benutzers](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 

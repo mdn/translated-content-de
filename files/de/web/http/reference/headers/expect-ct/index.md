@@ -8,7 +8,7 @@ l10n:
 
 {{Deprecated_Header}}
 
-Der `Expect-CT`-{{Glossary("response_header", "Antwortheader")}} ermöglicht es Websites, die Berichterstattung und/oder Durchsetzung der Anforderungen von [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) zu unterstützen.
+Der `Expect-CT`-{{Glossary("response_header", "Antwortheader")}} ermöglicht es Websites, die Berichterstattung und/oder Durchsetzung der Anforderungen von [Certificate Transparency](/de/docs/Web/Security/Defenses/Certificate_Transparency) zu unterstützen.
 Certificate Transparency (CT) zielt darauf ab, die Verwendung falsch ausgestellter Zertifikate für diese Website unbemerkt zu verhindern.
 
 Nur Google Chrome und andere auf Chromium basierende Browser haben `Expect-CT` implementiert, und Chromium hat den Header ab Version 107 als veraltet eingestuft, da Chromium jetzt CT standardmäßig durchsetzt.
@@ -92,7 +92,7 @@ Builds von Chrome sind so konzipiert, dass sie die `Expect-CT`-Richtlinie 10 Woc
 
 ## Siehe auch
 
-- [Secure Contexts](/de/docs/Web/Security/Secure_Contexts)
+- [Secure Contexts](/de/docs/Web/Security/Defenses/Secure_Contexts)
 - Glossarbegriffe:
   - {{Glossary("TLS", "Transport Layer Security (TLS)")}}
   - {{Glossary("SSL", "Secure Sockets Layer (SSL)")}}

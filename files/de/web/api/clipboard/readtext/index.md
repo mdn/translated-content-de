@@ -39,7 +39,7 @@ Gibt einen leeren String zurück, wenn die Zwischenablage leer ist, keinen Text 
 
 ## Sicherheitsüberlegungen
 
-Lesen von der Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) erfolgen.
+Lesen von der Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) erfolgen.
 
 Zusätzliche Sicherheitsanforderungen werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Überblicks behandelt.
 

@@ -48,7 +48,7 @@ Die Parameter `filename` und `filename*` unterscheiden sich nur darin, dass `fil
 Browser können Transformationen anwenden, um den Anforderungen des Dateisystems zu entsprechen, z. B. das Konvertieren von Pfadtrennzeichen (`/` und `\`) zu Unterstrichen (`_`).
 
 > [!NOTE]
-> Chrome und Firefox 82 und später priorisieren das HTML-Attribut `download` des [`<a>`-Elements](/de/docs/Web/HTML/Reference/Elements/a) über den Parameter `Content-Disposition: inline` (für [gleichherkunftsbezogene URLs](/de/docs/Web/Security/Same-origin_policy)). Frühere Firefox-Versionen priorisieren den Header und zeigen den Inhalt inline an.
+> Chrome und Firefox 82 und später priorisieren das HTML-Attribut `download` des [`<a>`-Elements](/de/docs/Web/HTML/Reference/Elements/a) über den Parameter `Content-Disposition: inline` (für [gleichherkunftsbezogene URLs](/de/docs/Web/Security/Defenses/Same-origin_policy)). Frühere Firefox-Versionen priorisieren den Header und zeigen den Inhalt inline an.
 
 ### Als Header für einen multipart-Body
 

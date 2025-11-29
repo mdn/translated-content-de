@@ -24,7 +24,7 @@ Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das verwendet werden kann, um 
 
 - `SecurityError`
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Der Origin ist kein [gültiges Schema/Host/Port-Tupel](/de/docs/Web/Security/Same-origin_policy#definition_of_an_origin). Dies kann passieren, wenn der Origin z.B. die Schemas `file:` oder `data:` verwendet.
+    - Der Origin ist kein [gültiges Schema/Host/Port-Tupel](/de/docs/Web/Security/Defenses/Same-origin_policy#definition_of_an_origin). Dies kann passieren, wenn der Origin z.B. die Schemas `file:` oder `data:` verwendet.
     - Die Anforderung verstößt gegen eine Richtlinienentscheidung. Beispielsweise hat der Benutzer den Browser so konfiguriert, dass verhindert wird, dass die Seite Daten speichert.
 
     Beachten Sie, dass, wenn der Benutzer Cookies blockiert, Browser dies wahrscheinlich als Anweisung interpretieren, dass die Seite keine Daten speichern soll.

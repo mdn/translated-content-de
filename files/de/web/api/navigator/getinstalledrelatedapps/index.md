@@ -11,7 +11,7 @@ l10n:
 Die **`getInstalledRelatedApps()`**-Methode gibt ein Promise zurück, das mit einem Array von Objekten aufgelöst wird, die alle benutzerinstallierten plattformspezifischen Apps oder [Progressive Web Apps](/de/docs/Web/Progressive_web_apps) repräsentieren. Dies könnte zur Personalisierung von Inhalten verwendet werden, beispielsweise um "Installieren Sie unsere App"-Banner aus der Web-App zu entfernen, wenn die plattformspezifische App und/oder PWA bereits installiert ist.
 
 > [!NOTE]
-> Diese Methode muss in einem Top-Level-[sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden, das heißt, nicht eingebettet in ein {{htmlelement("iframe")}}.
+> Diese Methode muss in einem Top-Level-[sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden, das heißt, nicht eingebettet in ein {{htmlelement("iframe")}}.
 
 ## Beschreibung
 

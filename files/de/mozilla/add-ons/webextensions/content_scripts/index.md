@@ -10,7 +10,7 @@ Ein Inhaltsskript ist ein Teil Ihrer Erweiterung, der im Kontext einer Webseite 
 Inhaltsskripte können auf [einen kleinen Teil der WebExtension-APIs zugreifen](#webextension-apis), aber sie können [über ein Nachrichtensystem mit Hintergrundskripten kommunizieren](#kommunikation_mit_hintergrundskripten) und damit indirekt auf die WebExtension-APIs zugreifen. [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) können auf alle [WebExtension-JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) zugreifen, jedoch nicht direkt auf den Inhalt von Webseiten.
 
 > [!NOTE]
-> Einige Web-APIs sind auf [sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) beschränkt, was auch für Inhaltsskripte gilt, die in diesen Kontexten ausgeführt werden. Eine Ausnahme ist [`PointerEvent.getCoalescedEvents()`](/de/docs/Web/API/PointerEvent/getCoalescedEvents), die in Inhaltsskripten in unsicheren Kontexten in Firefox aufgerufen werden kann.
+> Einige Web-APIs sind auf [sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) beschränkt, was auch für Inhaltsskripte gilt, die in diesen Kontexten ausgeführt werden. Eine Ausnahme ist [`PointerEvent.getCoalescedEvents()`](/de/docs/Web/API/PointerEvent/getCoalescedEvents), die in Inhaltsskripten in unsicheren Kontexten in Firefox aufgerufen werden kann.
 
 ## Laden von Inhaltsskripten
 

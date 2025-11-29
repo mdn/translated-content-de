@@ -21,7 +21,7 @@ SecurityError: Blocked a frame with origin "x" from accessing a cross-origin fra
 
 ## Was ist schiefgelaufen?
 
-Es gab den Versuch, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben. Dies ist wahrscheinlich ein {{HTMLElement("iframe")}}-Element, das von einer anderen Domäne geladen wurde, bei der Sie gegen die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verstoßen haben.
+Es gab den Versuch, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben. Dies ist wahrscheinlich ein {{HTMLElement("iframe")}}-Element, das von einer anderen Domäne geladen wurde, bei der Sie gegen die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) verstoßen haben.
 
 ## Beispiele
 
@@ -39,4 +39,4 @@ console.log(frames[0].document);
 ## Siehe auch
 
 - {{HTMLElement("iframe")}}
-- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)

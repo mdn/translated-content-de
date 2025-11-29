@@ -264,7 +264,7 @@ audioElement.addEventListener("ended", () => {
 
 ### Sie haben zusätzliche Sicherheitsmechanismen, wo es angebracht ist
 
-Web-API-Funktionen unterliegen den gleichen Sicherheitsüberlegungen wie JavaScript und andere Web-Technologien (zum Beispiel [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)), aber sie verfügen manchmal über zusätzliche Sicherheitsmechanismen. Zum Beispiel funktionieren einige der moderneren Web-APIs nur auf Seiten, die über HTTPS bereitgestellt werden, da sie potenziell sensible Daten übertragen (Beispiele sind [Service Workers](/de/docs/Web/API/Service_Worker_API) und [Push](/de/docs/Web/API/Push_API)).
+Web-API-Funktionen unterliegen den gleichen Sicherheitsüberlegungen wie JavaScript und andere Web-Technologien (zum Beispiel [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)), aber sie verfügen manchmal über zusätzliche Sicherheitsmechanismen. Zum Beispiel funktionieren einige der moderneren Web-APIs nur auf Seiten, die über HTTPS bereitgestellt werden, da sie potenziell sensible Daten übertragen (Beispiele sind [Service Workers](/de/docs/Web/API/Service_Worker_API) und [Push](/de/docs/Web/API/Push_API)).
 
 Darüber hinaus fordern einige Web-APIs Erlaubnis an, um von den Benutzern aktiviert zu werden, sobald Aufrufe an sie in Ihrem Code gemacht werden. Ein Beispiel hierfür ist die [Benachrichtigungs-API](/de/docs/Web/API/Notifications_API), die mit einem Dialogfeld um Erlaubnis bittet:
 

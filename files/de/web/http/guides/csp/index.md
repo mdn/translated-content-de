@@ -467,7 +467,7 @@ Webentwickler werden stark ermutigt, ihren gesamten Inhalt über HTTPS bereitzus
 <script src="http://example.org/my-cat.js"></script>
 ```
 
-Dies wird als _gemischter Inhalt_ bezeichnet, und das Vorhandensein unsicherer Ressourcen schwächt den durch HTTPS gebotenen Schutz erheblich. Gemäß dem [Algorithmus für gemischte Inhalte](/de/docs/Web/Security/Mixed_content), den Browser implementieren, werden, wenn ein Dokument über HTTPS bereitgestellt wird, unsichere Ressourcen in "aufrüstbare Inhalte" und "blockierbare Inhalte" kategorisiert. Aufrüstbare Inhalte werden auf HTTPS aufgerüstet, und blockierbare Inhalte werden blockiert, was die Seite möglicherweise zerstört.
+Dies wird als _gemischter Inhalt_ bezeichnet, und das Vorhandensein unsicherer Ressourcen schwächt den durch HTTPS gebotenen Schutz erheblich. Gemäß dem [Algorithmus für gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content), den Browser implementieren, werden, wenn ein Dokument über HTTPS bereitgestellt wird, unsichere Ressourcen in "aufrüstbare Inhalte" und "blockierbare Inhalte" kategorisiert. Aufrüstbare Inhalte werden auf HTTPS aufgerüstet, und blockierbare Inhalte werden blockiert, was die Seite möglicherweise zerstört.
 
 Die endgültige Lösung für gemischte Inhalte besteht darin, dass Entwickler alle Ressourcen über HTTPS laden. Selbst wenn eine Site tatsächlich in der Lage ist, allen Inhalt über HTTPS bereitzustellen, kann es jedoch sehr schwierig (oder sogar praktisch unmöglich, wenn archivierter Inhalt betroffen ist) für einen Entwickler sein, alle von der Site verwendeten URLs zum Laden von Ressourcen umzuschreiben.
 

@@ -69,6 +69,6 @@ Die maximale Nachrichtengröße kann mit dem SDP-Attribut `max-message-size` aus
 
 ## Sicherheit
 
-Alle mit WebRTC übertragenen Daten sind verschlüsselt. Im Fall von `RTCDataChannel` wird die Verschlüsselung durch Datagram Transport Layer Security (DTLS) durchgeführt, das auf [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security) (TLS) basiert. Da TLS verwendet wird, um jede HTTPS-Verbindung zu sichern, sind alle Daten, die Sie über einen Datenkanal senden, genauso sicher wie alle anderen Daten, die vom Browser des Nutzers gesendet oder empfangen werden.
+Alle mit WebRTC übertragenen Daten sind verschlüsselt. Im Fall von `RTCDataChannel` wird die Verschlüsselung durch Datagram Transport Layer Security (DTLS) durchgeführt, das auf [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security) (TLS) basiert. Da TLS verwendet wird, um jede HTTPS-Verbindung zu sichern, sind alle Daten, die Sie über einen Datenkanal senden, genauso sicher wie alle anderen Daten, die vom Browser des Nutzers gesendet oder empfangen werden.
 
 Grundlegender ist, dass WebRTC eine Peer-to-Peer-Verbindung zwischen zwei Benutzeragenten ist, sodass die Daten niemals über den Web- oder Anwendungsserver geleitet werden. Dies verringert die Möglichkeiten, dass die Daten abgefangen werden.

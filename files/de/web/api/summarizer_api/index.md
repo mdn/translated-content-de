@@ -44,7 +44,7 @@ Siehe [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using) fü
 
 ## Sicherheitsüberlegungen
 
-Die Spezifikation verlangt, dass ein Benutzer kürzlich mit der Seite interagiert hat, wenn `Summarizer`-Objekte erstellt werden (eine [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich).
+Die Spezifikation verlangt, dass ein Benutzer kürzlich mit der Seite interagiert hat, wenn `Summarizer`-Objekte erstellt werden (eine [transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich).
 
 Zusätzlich steuert die Spezifikation den Zugriff auf die API über die {{httpheader('Permissions-Policy/summarizer','summarizer')}}-{{httpheader("Permissions-Policy")}}-Direktiven.
 

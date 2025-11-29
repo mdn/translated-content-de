@@ -86,7 +86,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
         Dies ist die Standardeinstellung.
         Sie wird verwendet, wenn kein Wert oder ein ungültiger Wert festgelegt ist.
 - `integrity`
-  - : Dieses Attribut enthält Inline-Metadaten, die ein Benutzeragent verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde. Das Attribut darf nicht angegeben werden, wenn das `src`-Attribut fehlt. Siehe [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity).
+  - : Dieses Attribut enthält Inline-Metadaten, die ein Benutzeragent verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde. Das Attribut darf nicht angegeben werden, wenn das `src`-Attribut fehlt. Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
 - `nomodule`
   - : Dieses boolesche Attribut wurde gesetzt, um anzuzeigen, dass das Skript in Browsern, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen, nicht ausgeführt werden sollte — effektiv kann dies verwendet werden, um Fallback-Skripte für ältere Browser bereitzustellen, die modularen JavaScript-Code nicht unterstützen.
 - `nonce`

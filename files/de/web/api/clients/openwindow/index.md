@@ -32,11 +32,11 @@ Ein {{jsxref("Promise")}}, das auf ein [`WindowClient`](/de/docs/Web/API/WindowC
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Versprechen wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App [transiente Aktivierung](/de/docs/Web/Security/User_activation) hat.
+  - : Das Versprechen wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App [transiente Aktivierung](/de/docs/Web/Security/Defenses/User_activation) hat.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprung der App muss [transiente Aktivierung](/de/docs/Web/Security/User_activation) aufweisen.
+- Mindestens ein Fenster im Ursprung der App muss [transiente Aktivierung](/de/docs/Web/Security/Defenses/User_activation) aufweisen.
 
 ## Beispiele
 

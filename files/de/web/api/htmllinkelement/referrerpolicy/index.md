@@ -25,7 +25,7 @@ Ein String; einer der folgenden:
 - `origin-when-cross-origin`
   - : Eine vollständige URL wird bei einer Anfrage mit gleichem Ursprung gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
 - `same-origin`
-  - : Ein Referrer wird für [gleicher-Ursprung-Anfragen](/de/docs/Web/Security/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten sein.
+  - : Ein Referrer wird für [gleicher-Ursprung-Anfragen](/de/docs/Web/Security/Defenses/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten sein.
 - `strict-origin`
   - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z.B., HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (z.B., HTTPS→HTTP) gesendet.
 - `strict-origin-when-cross-origin` (Standard)

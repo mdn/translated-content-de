@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
 ---
 
-Der HTTP-**`Integrity-Policy`**-Antwort-Header ermöglicht es Website-Administratoren sicherzustellen, dass alle Ressourcen, die der User Agent lädt (eines bestimmten Typs), [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Garantie aufweisen.
+Der HTTP-**`Integrity-Policy`**-Antwort-Header ermöglicht es Website-Administratoren sicherzustellen, dass alle Ressourcen, die der User Agent lädt (eines bestimmten Typs), [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Garantie aufweisen.
 
 Wenn der Header gesetzt ist, blockiert der User Agent Anfragen bei angegebenen [Request Destinations](#blocked-destinations), die keine Integritätsmetadaten enthalten, und verhindert auch, dass Anfragen im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus überhaupt gestellt werden.
 
@@ -93,5 +93,5 @@ Die [Berichtnutzlast](/de/docs/Web/API/Reporting_API#reporting_server_endpoints)
 ## Siehe auch
 
 - {{HTTPHeader("Integrity-Policy-Report-Only")}}
-- [Integritätsrichtlinie](/de/docs/Web/Security/Subresource_Integrity#integrity_policy)
+- [Integritätsrichtlinie](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)

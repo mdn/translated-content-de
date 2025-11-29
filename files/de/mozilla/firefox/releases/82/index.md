@@ -35,7 +35,7 @@ Dieser Artikel bietet Informationen zu den Änderungen in Firefox 82, die Entwic
 
 ### HTTP
 
-- Die `inline`-Direktive des [`Content-Disposition`](/de/docs/Web/HTTP/Reference/Headers/Content-Disposition) Headers wird jetzt ignoriert, wenn das `download` Attribut des HTML [`<a>`](/de/docs/Web/HTML/Reference/Elements/a) Elements angegeben ist (für [gleichartige URLs](/de/docs/Web/Security/Same-origin_policy)). Beachten Sie, dass, wenn angegeben, der `filename` des `Content-Disposition` Headers gegenüber einem im `download` Attribut angegebenen Dateinamen bevorzugt wird ([Firefox Bug 1658877](https://bugzil.la/1658877)).
+- Die `inline`-Direktive des [`Content-Disposition`](/de/docs/Web/HTTP/Reference/Headers/Content-Disposition) Headers wird jetzt ignoriert, wenn das `download` Attribut des HTML [`<a>`](/de/docs/Web/HTML/Reference/Elements/a) Elements angegeben ist (für [gleichartige URLs](/de/docs/Web/Security/Defenses/Same-origin_policy)). Beachten Sie, dass, wenn angegeben, der `filename` des `Content-Disposition` Headers gegenüber einem im `download` Attribut angegebenen Dateinamen bevorzugt wird ([Firefox Bug 1658877](https://bugzil.la/1658877)).
 
 ### APIs
 

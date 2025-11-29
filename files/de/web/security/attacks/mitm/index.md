@@ -27,7 +27,7 @@ Moderne Webhosting-Dienste unterstützen HTTPS für Sie, entweder standardmäßi
 
 ### Laden Sie Unterressourcen über HTTPS
 
-Wenn eine Seite Ressourcen lädt (Skripte, Stylesheets, Schriftarten, Bilder usw.), sollten diese Ressourcen ebenfalls über HTTPS bereitgestellt werden. Wenn eine Seite über HTTPS geladen wird und versucht, Ressourcen über HTTP zu laden, wird der Browser entweder versuchen, die Ladeanforderung auf HTTPS umzustellen oder die Anforderung blockieren: Dies wird als [mixed content blocking](/de/docs/Web/Security/Mixed_content) bezeichnet.
+Wenn eine Seite Ressourcen lädt (Skripte, Stylesheets, Schriftarten, Bilder usw.), sollten diese Ressourcen ebenfalls über HTTPS bereitgestellt werden. Wenn eine Seite über HTTPS geladen wird und versucht, Ressourcen über HTTP zu laden, wird der Browser entweder versuchen, die Ladeanforderung auf HTTPS umzustellen oder die Anforderung blockieren: Dies wird als [mixed content blocking](/de/docs/Web/Security/Defenses/Mixed_content) bezeichnet.
 
 Wenn es Ihnen nicht möglich ist, Ihren Code zu aktualisieren, um Ressourcen von HTTPS-URLs zu laden (zum Beispiel, weil Ihr HTML archiviert wurde), kann Ihr Server eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) einstellen, die die [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Guides/CSP#upgrading_insecure_requests) Direktive enthält, und der Browser wird diese Anfragen automatisch auf HTTPS umstellen.
 

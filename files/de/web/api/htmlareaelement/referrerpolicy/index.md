@@ -32,7 +32,7 @@ Ein String; einer der folgenden:
   - : Sendet eine vollständige URL bei einer Anfrage, die vom selben Ursprung kommt, sendet jedoch nur den Ursprung des
     Dokuments in anderen Fällen.
 - `same-origin`
-  - : Ein Referrer wird für [gleichartige Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, jedoch
+  - : Ein Referrer wird für [gleichartige Ursprünge](/de/docs/Web/Security/Defenses/Same-origin_policy) gesendet, jedoch
     enthalten Anfragen zwischen unterschiedlichen Ursprüngen keine Referrer-Informationen.
 - `strict-origin`
   - : Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS),

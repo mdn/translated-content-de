@@ -35,7 +35,7 @@ Daher kann die API sowohl für musikalische als auch nicht-musikalische Zwecke v
 
 Der Zugriff auf die API wird mithilfe der [`navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess)-Methode angefordert.
 
-- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
+- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
 - Der Zugriff kann durch die [`midi`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/midi) HTTP-[Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) begrenzt sein.
 - Der Benutzer muss ausdrücklich die Erlaubnis erteilen, die API zu verwenden, über einen benutzerspezifischen Mechanismus oder hat zuvor die Erlaubnis erteilt.
   Beachten Sie, dass, wenn der Zugriff durch eine Berechtigungsrichtlinie verweigert wird, er nicht durch eine Benutzerberechtigung gewährt werden kann.

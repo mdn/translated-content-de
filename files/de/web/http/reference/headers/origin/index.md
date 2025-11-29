@@ -51,7 +51,7 @@ Er wird verwendet, um den Sicherheitskontext für die Ursprungsanfrage bereitzus
 Im Allgemeinen fügen Benutzeragenten den `Origin`-Request-Header zu:
 
 - {{Glossary("CORS", "cross-origin")}}-Anfragen hinzu.
-- [same-origin](/de/docs/Web/Security/Same-origin_policy)-Anfragen, außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfragen (d.h. sie werden zu same-origin {{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}} Anfragen hinzugefügt).
+- [same-origin](/de/docs/Web/Security/Defenses/Same-origin_policy)-Anfragen, außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfragen (d.h. sie werden zu same-origin {{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}} Anfragen hinzugefügt).
 
 Es gibt einige Ausnahmen zu den oben genannten Regeln; zum Beispiel, wenn eine cross-origin {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfrage im [no-cors Modus](/de/docs/Web/API/Request/mode#value) gestellt wird, wird der `Origin`-Header nicht hinzugefügt.
 
@@ -91,5 +91,5 @@ Origin: https://developer.mozilla.org:80
 
 - {{HTTPHeader("Host")}}
 - {{HTTPHeader("Referer")}}
-- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy)
 - [Wann senden Browser den Origin-Header? Wann setzen Browser den Ursprung auf null?](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802) (Stack Overflow)

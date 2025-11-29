@@ -141,7 +141,7 @@ Der Browser fällt auf den nächsten spezifischsten gescopten Pfad zurück, wenn
 
 ### Integrität-Metadaten-Karte
 
-Sie können den `integrity`-Schlüssel verwenden, um eine Zuordnung für Modul-[Integrität-Metadaten](/de/docs/Web/Security/Subresource_Integrity#using_subresource_integrity) bereitzustellen.
+Sie können den `integrity`-Schlüssel verwenden, um eine Zuordnung für Modul-[Integrität-Metadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) bereitzustellen.
 Dies ermöglicht es Ihnen, die Integrität von dynamisch oder statisch importierten Modulen sicherzustellen.
 `integrity` ermöglicht Ihnen auch, ein Fallback für auf oberster Ebene oder vorbeladene Module bereitzustellen, falls diese noch kein `integrity`-Attribut enthalten.
 
@@ -305,7 +305,7 @@ Die Importkarte muss ein gültiges JSON-Objekt sein, das beliebige optionale Sch
         - Die Reihenfolge der Objekteigenschaften ist irrelevant: Wenn mehrere Schlüssel den Modulspezifizierer abgleichen können, wird der spezifischste Schlüssel verwendet (mit anderen Worten, ein Spezifizierer "olive/branch/" würde vor "olive/" übereinstimmen).
 
 - `integrity` {{optional_inline}}
-  - : Definiert ein gültiges JSON-Objekt, bei dem die _Schlüssel_ Zeichenfolgen mit gültigen absoluten oder relativen URLs (beginnend mit `/`, `./`, oder `../`) sind und die entsprechenden _Werte_ gültige [Integrität-Metadaten](/de/docs/Web/Security/Subresource_Integrity#using_subresource_integrity) sind.
+  - : Definiert ein gültiges JSON-Objekt, bei dem die _Schlüssel_ Zeichenfolgen mit gültigen absoluten oder relativen URLs (beginnend mit `/`, `./`, oder `../`) sind und die entsprechenden _Werte_ gültige [Integrität-Metadaten](/de/docs/Web/Security/Defenses/Subresource_Integrity#using_subresource_integrity) sind.
 
     Wenn die URL eines Skripts, das ein Modul importiert oder vorlädt, mit einem Schlüssel im `integrity`-Objekt übereinstimmt, werden die entsprechenden Integrität-Metadaten auf die Abrufoptionen des Skripts angewendet, es sei denn, sie haben bereits Integrität-Metadaten angehängt.
 

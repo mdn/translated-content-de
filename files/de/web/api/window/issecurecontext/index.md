@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`isSecureContext`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Secure_Contexts) (`true`) oder nicht (`false`).
+Die **`isSecureContext`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Defenses/Secure_Contexts) (`true`) oder nicht (`false`).
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein boolescher Wert.
 
 ## Siehe auch
 
-- [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
+- [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts)

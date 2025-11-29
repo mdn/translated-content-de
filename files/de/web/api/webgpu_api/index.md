@@ -587,7 +587,7 @@ Weitere Informationen zur Fehlerbehandlung in WebGPU finden Sie im Erklärer –
 
 ## Sicherheitsanforderungen
 
-Die gesamte API ist nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar.
+Die gesamte API ist nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar.
 
 ## Beispiele
 

@@ -49,7 +49,7 @@ Ein {{jsxref('Promise')}}, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAcc
 
 Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
-- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
+- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
 - Der Zugriff kann durch die [`midi`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/midi) HTTP [Permission Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden.
 - Der Benutzer muss ausdrücklich die Erlaubnis zur Nutzung der API über einen benutzerspezifischen Mechanismus erteilen oder zuvor die Erlaubnis erteilt haben.
   Beachten Sie, dass, wenn der Zugriff durch eine Berechtigungspolitik verweigert wird, diese nicht durch eine Benutzerberechtigung gewährt werden kann.

@@ -70,7 +70,7 @@ Ein {{jsxref("Promise")}}, der mit `undefined` erfüllt wird, wenn der Zugriff a
     - Der `types`-Parameter bereitgestellt wird und alle seine Eigenschaften `false` sind.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Das Fenster des Dokuments kein [sicherer Kontext](/de/docs/Web/Security/Secure_Contexts) ist.
+    - Das Fenster des Dokuments kein [sicherer Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) ist.
     - Die Nutzung durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
     - Das Dokument oder das oberste Dokument einen `null`-Ursprung hat.
     - Das einbettende {{htmlelement("iframe")}} sandboxed ist und das `allow-storage-access-by-user-activation` Token nicht gesetzt ist.

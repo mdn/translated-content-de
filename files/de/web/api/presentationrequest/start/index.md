@@ -26,7 +26,7 @@ Ein {{jsxref("Promise")}}, das mit einer [`PresentationConnection`](/de/docs/Web
 
 ## Sicherheit
 
-[Eingeforderte Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Eingeforderte Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Spezifikationen
 

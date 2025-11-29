@@ -6,7 +6,7 @@ l10n:
   sourceCommit: ade8d870ed7e18a71dc51fe25aa13d812fb82558
 ---
 
-[Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) (SRI) ermöglicht es Browsern, zu überprüfen, dass Ressourcen, die sie abrufen (z. B. von einem CDN), ohne unerwartete Manipulationen geliefert werden. Dies funktioniert durch das Bereitstellen eines kryptografischen Hashes, den die abgerufene Ressource erfüllen muss.
+[Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) (SRI) ermöglicht es Browsern, zu überprüfen, dass Ressourcen, die sie abrufen (z. B. von einem CDN), ohne unerwartete Manipulationen geliefert werden. Dies funktioniert durch das Bereitstellen eines kryptografischen Hashes, den die abgerufene Ressource erfüllen muss.
 
 ## Problem
 

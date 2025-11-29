@@ -78,4 +78,4 @@ Auf diese Weise werten Sie weiterhin unsichere Anfragen auf Ihrer sicheren Websi
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{HTTPHeader("Upgrade-Insecure-Requests")}} Header
 - {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}}) Header
-- [Gemischte Inhalte](/de/docs/Web/Security/Mixed_content)
+- [Gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content)

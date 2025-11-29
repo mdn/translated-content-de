@@ -33,7 +33,7 @@ Sie können ein neues `Request` Objekt mit dem [`Request()`](/de/docs/Web/API/Re
 - [`Request.headers`](/de/docs/Web/API/Request/headers) {{ReadOnlyInline}}
   - : Beinhaltet das zugehörige [`Headers`](/de/docs/Web/API/Headers) Objekt der Anfrage.
 - [`Request.integrity`](/de/docs/Web/API/Request/integrity) {{ReadOnlyInline}}
-  - : Beinhaltet den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) Wert der Anfrage (z. B. `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
+  - : Beinhaltet den [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) Wert der Anfrage (z. B. `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
 - [`Request.isHistoryNavigation`](/de/docs/Web/API/Request/isHistoryNavigation) {{ReadOnlyInline}}
   - : Ein Boolean, der anzeigt, ob die Anfrage eine Verlaufsnavigation ist.
 - [`Request.keepalive`](/de/docs/Web/API/Request/keepalive) {{ReadOnlyInline}}

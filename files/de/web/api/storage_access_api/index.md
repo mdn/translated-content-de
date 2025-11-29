@@ -189,7 +189,7 @@ Verschiedene Sicherheitsmaßnahmen können dazu führen, dass ein Aufruf von [`D
      In solchen Fällen muss `requestStorageAccess()` wahrscheinlich gar nicht aufgerufen werden.
 2. Das Dokument und das oberste Dokument dürfen keinen `null`-Ursprung haben.
 3. Ursprünge, die noch nie als First-Party verwendet wurden, haben keine Vorstellung von First-Party-Storage. Aus der Sicht des Benutzers haben sie nur eine Third-Party-Beziehung zu diesem Ursprung. Zugriffsanfragen werden automatisch abgelehnt, wenn der Browser erkennt, dass der Benutzer zuletzt nicht in einem First-Party-Kontext mit den eingebetteten Inhalten interagiert hat (in Firefox bedeutet "zuletzt" innerhalb von 30 Tagen).
-4. Das Fenster des Dokuments muss ein [sicherer Kontext](/de/docs/Web/Security/Secure_Contexts) sein.
+4. Das Fenster des Dokuments muss ein [sicherer Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) sein.
 5. Sandboxed {{htmlelement("iframe")}}s können aus Sicherheitsgründen standardmäßig keinen Speicherzugriff erteilt bekommen.
    Um dies zu handhaben, stellt die API den [`allow-storage-access-by-user-activation`](/de/docs/Web/HTML/Reference/Elements/iframe#allow-storage-access-by-user-activation) [Sandbox-Token](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox) bereit.
    Das `<iframe>` muss dies enthalten, um Speicherzugriffsanfragen zu aktivieren, zusammen mit `allow-scripts` und `allow-same-origin`, um es ihm zu ermöglichen, ein Skript auszuführen, um die API aufzurufen und es in einem Ursprung auszuführen, der Cookies/Zustand haben kann:

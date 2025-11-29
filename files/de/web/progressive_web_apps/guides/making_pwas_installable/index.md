@@ -74,7 +74,7 @@ Eine vollständige Beschreibung jedes Mitglieds finden Sie in der [Web-App-Manif
 
 Damit eine PWA installierbar ist, muss sie über das `https`-Protokoll bereitgestellt werden oder aus einer lokalen Entwicklungsumgebung mit `localhost` oder `127.0.0.1` — mit oder ohne Portnummer.
 
-Dies ist eine strengere Anforderung als [sichere Kontexte](/de/docs/Web/Security/Secure_Contexts), die Ressourcen, die von `file://` URLs geladen werden, als sicher betrachten.
+Dies ist eine strengere Anforderung als [sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts), die Ressourcen, die von `file://` URLs geladen werden, als sicher betrachten.
 
 ## Installation aus einem App-Store
 

@@ -33,12 +33,12 @@ Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/P
   - : Wird ausgelöst, wenn kein Parameter angegeben wird oder der `mode` nicht `'read'`, `'write'`, oder `'readwrite'` ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) mit dem Top-Level-Kontext ist (d.h. eine Cross-Origin-iframe).
+    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Defenses/Same-origin_policy) mit dem Top-Level-Kontext ist (d.h. eine Cross-Origin-iframe).
     - Es gab keine vorübergehende Benutzeraktivierung wie einen Tastendruck. Dies schließt ein, wenn das Handle sich in einem Nicht-Window-Kontext befindet, der keine Benutzeraktivierung konsumieren kann, wie etwa ein Worker.
 
 ## Sicherheit
 
-[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion arbeitet.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion arbeitet.
 
 ## Beispiele
 

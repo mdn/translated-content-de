@@ -36,7 +36,7 @@ Das Versprechen wird abgelehnt, wenn die Zwischenablage nicht in der Lage ist, i
 
 ## Sicherheitsüberlegungen
 
-Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) erfolgen.
+Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) erfolgen.
 
 Weitere Sicherheitsanforderungen werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtsartikels behandelt.
 

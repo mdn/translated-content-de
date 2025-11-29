@@ -191,5 +191,5 @@ Aufbauend auf dem vorherigen Beispiel fügt der untenstehende Code den beiden Ve
 - [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) Manifestmitglied
 - [`scope`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) Manifestmitglied
 - [`start_url`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/start_url) Manifestmitglied
-- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy)
 - Anleitung zum [Expose common actions as shortcuts](/de/docs/Web/Progressive_web_apps/How_to/Expose_common_actions_as_shortcuts) in PWAs

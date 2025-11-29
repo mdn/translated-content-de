@@ -40,7 +40,7 @@ Ein {{jsxref("Promise")}}, das zu {{jsxref("undefined")}} aufgelöst wird.
 
 Der Zugriff auf die API unterliegt den folgenden Beschränkungen:
 
-- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
+- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
 - Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) eingeschränkt sein.
 - Es ist die Erlaubnis des Benutzers erforderlich, um auf ein nicht standardmäßiges Gerät zuzugreifen.
   Der Benutzer erteilt die Erlaubnis, indem er das Gerät auswählt, das mit der ID in der durch [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) angezeigten Eingabeaufforderung verknüpft ist.

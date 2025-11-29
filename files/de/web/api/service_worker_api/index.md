@@ -20,7 +20,7 @@ Service Worker laufen in einem Worker-Kontext: Daher haben sie keinen DOM-Zugrif
 
 Service Worker können keine JavaScript-Module dynamisch importieren, und [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import) löst einen Fehler aus, wenn es im globalen Scope eines Service Workers aufgerufen wird. Statische Importe mit der [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Anweisung sind erlaubt.
 
-Service Worker sind nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar: Das bedeutet, dass ihr Dokument über HTTPS bereitgestellt wird, obwohl Browser auch `http://localhost` als sicheren Kontext behandeln, um die lokale Entwicklung zu erleichtern. HTTP-Verbindungen sind anfällig für eine bösartige Code-Injektion durch {{Glossary("MitM", "Man-in-the-Middle")}}-Angriffe, und solche Angriffe könnten schlimmer sein, wenn sie Zugang zu diesen mächtigen APIs hätten.
+Service Worker sind nur in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar: Das bedeutet, dass ihr Dokument über HTTPS bereitgestellt wird, obwohl Browser auch `http://localhost` als sicheren Kontext behandeln, um die lokale Entwicklung zu erleichtern. HTTP-Verbindungen sind anfällig für eine bösartige Code-Injektion durch {{Glossary("MitM", "Man-in-the-Middle")}}-Angriffe, und solche Angriffe könnten schlimmer sein, wenn sie Zugang zu diesen mächtigen APIs hätten.
 
 > [!NOTE]
 > In Firefox können Sie für Tests Service Worker über HTTP (unsicher) betreiben; aktivieren Sie einfach die Option **Enable Service Workers over HTTP (when toolbox is open)** im Firefox DevTools-Optionen-/Zahnrad-Menü.

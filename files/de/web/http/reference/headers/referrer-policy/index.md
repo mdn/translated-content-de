@@ -187,6 +187,6 @@ Alle diese Einstellungen nehmen denselben Satz von Werten an: `0 = no-referrer`,
 
 - [Web-Sicherheit > Referer-Header: Datenschutz- und Sicherheitsüberlegungen](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns)
 - Bei Verwendung von [Fetch](/de/docs/Web/API/Fetch_API): [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy)
-- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)
 - [HTTP Referer auf Wikipedia](https://en.wikipedia.org/wiki/HTTP_referer)
 - [Strengere Kontrolle über Ihre Referrer – Mozilla Sicherheits-Blog](https://blog.mozilla.org/security/2015/01/21/meta-referrer/)

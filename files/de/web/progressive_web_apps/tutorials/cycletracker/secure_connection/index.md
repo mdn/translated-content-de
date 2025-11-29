@@ -8,7 +8,7 @@ l10n:
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/CycleTracker/HTML_and_CSS", "Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}
 
-PWAs können nur mit einer Manifestdatei installiert werden, wenn sie über das `https://`-Protokoll bereitgestellt werden oder lokal von `127.0.0.1` und `localhost` URLs mit dem `http://`-Protokoll bereitgestellt werden. Sie verwenden auch häufig APIs, die auf [sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
+PWAs können nur mit einer Manifestdatei installiert werden, wenn sie über das `https://`-Protokoll bereitgestellt werden oder lokal von `127.0.0.1` und `localhost` URLs mit dem `http://`-Protokoll bereitgestellt werden. Sie verwenden auch häufig APIs, die auf [sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts).
 
 Im vorherigen Abschnitt haben wir HTML und CSS verwendet, um die Hülle unserer Menstruations-Tracking-Anwendung zu erstellen. In diesem Abschnitt werden wir die statischen Inhalte von CycleTracker in einem Browser öffnen, die Inhalte aus einer lokal gestarteten Entwicklungsumgebung anzeigen und die Inhalte auf einem entfernten, sicheren Server betrachten.
 
@@ -20,10 +20,10 @@ Mit der aktualisierten `index.html` und der `style.css` im selben Verzeichnis so
 
 ![Hellgrüne Webseite mit großem Header, einem Formular mit Legende, zwei Datumsauswahlen und einem Button. Unten sind zwei Platzhalter Menstruationszyklen und ein Header dargestellt.](filefile.jpg)
 
-Wir betrachten unsere Seite über das `file://`-Protokoll, das einen [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) bietet. Dies stellt sicher, dass die Seiten mit dem aktuellen Zustand unserer Codebasis angezeigt werden können und weiterhin funktionieren, wenn wir [JavaScript-Funktionen hinzufügen](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality), die einen sicheren Kontext erfordern.
+Wir betrachten unsere Seite über das `file://`-Protokoll, das einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) bietet. Dies stellt sicher, dass die Seiten mit dem aktuellen Zustand unserer Codebasis angezeigt werden können und weiterhin funktionieren, wenn wir [JavaScript-Funktionen hinzufügen](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality), die einen sicheren Kontext erfordern.
 
 > [!NOTE]
-> Das Bereitstellen Ihrer App über `https` ist nicht nur für PWAs gut, sondern für alle Websites, da es sicherstellt, dass die Informationen, die zwischen Ihrem Webserver und dem Browser des Benutzers übertragen werden, Ende-zu-Ende verschlüsselt sind. Mehrere [Web-APIs erfordern sichere Kontexte](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts). Selbst wenn Sie keine installierbaren PWAs erstellen, können Sie beim Hinzufügen von Funktionen zu einer beliebigen Webanwendung auf Fälle stoßen, in denen ein sicherer Kontext erforderlich ist.
+> Das Bereitstellen Ihrer App über `https` ist nicht nur für PWAs gut, sondern für alle Websites, da es sicherstellt, dass die Informationen, die zwischen Ihrem Webserver und dem Browser des Benutzers übertragen werden, Ende-zu-Ende verschlüsselt sind. Mehrere [Web-APIs erfordern sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts). Selbst wenn Sie keine installierbaren PWAs erstellen, können Sie beim Hinzufügen von Funktionen zu einer beliebigen Webanwendung auf Fälle stoßen, in denen ein sicherer Kontext erforderlich ist.
 
 Obwohl wir die meisten Anwendungsfunktionen mit dem `file://`-Protokoll anzeigen und testen können, können wir es nicht verwenden, um die Anwendungsinstallation mit unserer [Manifestdatei](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file) zu testen.
 

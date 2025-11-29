@@ -156,9 +156,9 @@ Weitere Informationen finden Sie in der [CORS-Dokumentation](/de/docs/Web/HTTP/G
 ## Integritätsrichtlinie
 
 - {{HTTPHeader("Integrity-Policy")}}
-  - : Stellt sicher, dass alle vom Benutzeragenten geladenen Ressourcen (einer bestimmten Art) [Subressourcen-Integrität](/de/docs/Web/Security/Subresource_Integrity) garantieren.
+  - : Stellt sicher, dass alle vom Benutzeragenten geladenen Ressourcen (einer bestimmten Art) [Subressourcen-Integrität](/de/docs/Web/Security/Defenses/Subresource_Integrity) garantieren.
 - {{HTTPHeader("Integrity-Policy-Report-Only")}}
-  - : Meldet, welche Ressourcen der Benutzeragent lädt, die gegen die [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Garantien verstoßen würden, wenn die Integritätsrichtlinie durchgesetzt würde (unter Verwendung des `Integrity-Policy`-Headers).
+  - : Meldet, welche Ressourcen der Benutzeragent lädt, die gegen die [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Garantien verstoßen würden, wenn die Integritätsrichtlinie durchgesetzt würde (unter Verwendung des `Integrity-Policy`-Headers).
 
 ## Informationsaustausch der Nachrichtenkörper
 
@@ -245,7 +245,7 @@ Bereichsanfragen sind nützlich für Anwendungen wie Mediaplayer, die zufällige
 - {{HTTPHeader("Content-Security-Policy-Report-Only")}}
   - : Ermöglicht es Webentwicklern, mit Richtlinien zu experimentieren, indem sie deren Effekte überwachen, aber nicht durchsetzen. Diese Verstöße Berichte bestehen aus {{Glossary("JSON", "JSON")}} Dokumenten, die über eine HTTP-`POST`-Anfrage an die angegebene URI gesendet werden.
 - {{HTTPHeader("Expect-CT")}} {{deprecated_inline}}
-  - : Ermöglicht es Websites, die Meldung und Durchsetzung der [Zertifikatstransparenz](/de/docs/Web/Security/Certificate_Transparency) zu melden, um die Verwendung von fehlerhaft ausgestellten Zertifikaten für diese Seite zu erkennen.
+  - : Ermöglicht es Websites, die Meldung und Durchsetzung der [Zertifikatstransparenz](/de/docs/Web/Security/Defenses/Certificate_Transparency) zu melden, um die Verwendung von fehlerhaft ausgestellten Zertifikaten für diese Seite zu erkennen.
 - {{HTTPHeader("Permissions-Policy")}}
   - : Bietet einen Mechanismus, um die Verwendung von Browserfunktionen in einer Websiteeigener Frame sowie in {{htmlelement("iframe")}}s, die sie einbettet, zu erlauben und zu verweigern.
 - {{HTTPHeader("Reporting-Endpoints")}} {{experimental_inline}}
@@ -259,7 +259,7 @@ Bereichsanfragen sind nützlich für Anwendungen wie Mediaplayer, die zufällige
 - {{HTTPHeader("X-Frame-Options")}} (XFO)
   - : Gibt an, ob ein Browser eine Seite in einem {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} rendern darf.
 - {{HTTPHeader("X-Permitted-Cross-Domain-Policies")}}
-  - : Eine Ccross-Domain-Policy-Datei kann Clients wie Adobe Acrobat oder Apache Flex (unter anderen) die Berechtigung erteilen, Daten domainsübergreifend zu behandeln, die ansonsten aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) beschränkt wären.
+  - : Eine Ccross-Domain-Policy-Datei kann Clients wie Adobe Acrobat oder Apache Flex (unter anderen) die Berechtigung erteilen, Daten domainsübergreifend zu behandeln, die ansonsten aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) beschränkt wären.
     Der `X-Permitted-Cross-Domain-Policies`-Header überschreibt solche Policy-Dateien, sodass Clients unerwünschte Anfragen dennoch blockieren.
 - {{HTTPHeader("X-Powered-By")}}
   - : Kann von Hosting-Umgebungen oder anderen Frameworks festgelegt werden und enthält Informationen über diese, ohne dass sie für die Anwendung oder ihre Besucher von Nutzen sind. Entfernen Sie diesen Header, um potenzielle Schwachstellen zu verbergen.

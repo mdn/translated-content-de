@@ -19,7 +19,7 @@ Um dieses Problem zu beheben, stellen Sie sicher, dass Sie HTTPS-URLs verwenden,
 
 ### Laden einer lokalen Datei
 
-Lokale Dateien aus demselben Verzeichnis und Unterverzeichnissen wurden historisch als vom [gleichen Ursprung](/de/docs/Web/Security/Same-origin_policy) stammend betrachtet. Dies bedeutete, dass eine Datei und alle ihre Ressourcen während der Tests aus einem lokalen Verzeichnis oder Unterverzeichnis geladen werden konnten, ohne einen CORS-Fehler auszulösen.
+Lokale Dateien aus demselben Verzeichnis und Unterverzeichnissen wurden historisch als vom [gleichen Ursprung](/de/docs/Web/Security/Defenses/Same-origin_policy) stammend betrachtet. Dies bedeutete, dass eine Datei und alle ihre Ressourcen während der Tests aus einem lokalen Verzeichnis oder Unterverzeichnis geladen werden konnten, ohne einen CORS-Fehler auszulösen.
 
 Leider hatte dies sicherheitstechnische Auswirkungen, wie in dieser Beratung vermerkt: [CVE-2019-11730](https://www.mozilla.org/en-US/security/advisories/mfsa2019-21/#CVE-2019-11730). Viele Browser, darunter Firefox und Chrome, behandeln jetzt alle lokalen Dateien standardmäßig als _opake Ursprünge_. Daher führt das Laden einer lokalen Datei mit eingeschlossenen lokalen Ressourcen jetzt zu CORS-Fehlern.
 

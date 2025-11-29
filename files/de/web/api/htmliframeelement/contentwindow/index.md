@@ -18,7 +18,7 @@ Ein [Window](/de/docs/Web/API/Window)-Objekt.
 
 ## Beschreibung
 
-Der Zugriff auf das [`Window`](/de/docs/Web/API/Window), das von `contentWindow` zurückgegeben wird, unterliegt den Regeln, die durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) definiert sind. Das bedeutet, dass, wenn der iframe die gleiche Herkunft wie das übergeordnete Element hat, das übergeordnete Element auf das Dokument des iframes und dessen internes DOM zugreifen kann. Wenn sie unterschiedliche Herkunft haben, hat es sehr eingeschränkten Zugriff auf die Attribute des Fensters. Siehe ["Cross-origin script API access"](/de/docs/Web/Security/Same-origin_policy#cross-origin_script_api_access) für Details.
+Der Zugriff auf das [`Window`](/de/docs/Web/API/Window), das von `contentWindow` zurückgegeben wird, unterliegt den Regeln, die durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) definiert sind. Das bedeutet, dass, wenn der iframe die gleiche Herkunft wie das übergeordnete Element hat, das übergeordnete Element auf das Dokument des iframes und dessen internes DOM zugreifen kann. Wenn sie unterschiedliche Herkunft haben, hat es sehr eingeschränkten Zugriff auf die Attribute des Fensters. Siehe ["Cross-origin script API access"](/de/docs/Web/Security/Defenses/Same-origin_policy#cross-origin_script_api_access) für Details.
 
 Seiten können diese Eigenschaft auch nutzen, um herauszufinden, welcher iframe eine Nachricht gesendet hat, indem sie es mit der [`source`](/de/docs/Web/API/MessageEvent/source)-Eigenschaft des Message-Events vergleichen, die von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) verwendet wird.
 

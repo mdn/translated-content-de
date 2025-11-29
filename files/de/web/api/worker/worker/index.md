@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("window_and_worker_except_service")}}
 
-Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das Skript an der angegebenen URL ausführt. Dieses Skript muss der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) entsprechen.
+Der **`Worker()`**-Konstruktor erstellt ein [`Worker`](/de/docs/Web/API/Worker)-Objekt, das das Skript an der angegebenen URL ausführt. Dieses Skript muss der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) entsprechen.
 
 > [!NOTE]
 > Es gibt eine Meinungsverschiedenheit unter den Browserherstellern darüber, ob eine Daten-URL als same-origin angesehen wird oder nicht. Obwohl Firefox 10 und spätere Versionen Daten-URLs akzeptieren, ist dies nicht bei allen anderen Browsern der Fall.

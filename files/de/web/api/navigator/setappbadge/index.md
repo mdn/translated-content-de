@@ -31,7 +31,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Richtlinie](/de/docs/Web/Security/Same-origin_policy) blockiert wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Richtlinie](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 

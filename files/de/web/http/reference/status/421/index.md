@@ -43,6 +43,6 @@ Server: Apache/2.4.1 (Unix)
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [Mehrere Hosts und fehlgeleitete Anfragen](https://httpd.apache.org/docs/2.4/mod/mod_http2.html#misdirected) Apache-Server-Dokumentation
-- [TLS 1.3](/de/docs/Web/Security/Transport_Layer_Security#tls_1.3)
+- [TLS 1.3](/de/docs/Web/Security/Defenses/Transport_Layer_Security#tls_1.3)
 - [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)
 - [Transport Layer Security (TLS) Konfiguration](/de/docs/Web/Security/Practical_implementation_guides/TLS)

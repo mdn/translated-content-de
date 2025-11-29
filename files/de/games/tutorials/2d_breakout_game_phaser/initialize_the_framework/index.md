@@ -74,7 +74,7 @@ Das {{htmlelement("canvas")}}-Element wird automatisch vom Framework generiert. 
 
 ## Ausführung der Anwendung
 
-Um die App auszuführen, können Sie die `index.html`-Datei nicht direkt öffnen, da wir später externe Assets laden werden, die durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) des Browsers blockiert werden.
+Um die App auszuführen, können Sie die `index.html`-Datei nicht direkt öffnen, da wir später externe Assets laden werden, die durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) des Browsers blockiert werden.
 
 Um das Problem zu beheben, müssen Sie einen lokalen Webserver betreiben, um die HTML-Dateien und die Bilddateien bereitzustellen. [Wie das offizielle Dokument von Phaser vorschlägt](https://docs.phaser.io/phaser/getting-started/set-up-dev-environment#installing-a-web-server), haben wir viele Optionen, um einen lokalen Webserver zu betreiben. Wir haben auch unsere eigenen [Tutorials zur Einrichtung eines lokalen Servers](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) - verwenden Sie jede beliebige Option, die Sie bevorzugen. Wenn Sie beispielsweise den Python-HTTP-Server verwenden möchten, dann öffnen Sie ein Terminal, navigieren Sie zu dem Verzeichnis, in dem sich Ihre `index.html`-Datei befindet, und führen Sie den folgenden Befehl aus:
 

@@ -35,7 +35,7 @@ Keine Änderungen
 
 ### HTTP
 
-- Die [Gamepad API](/de/docs/Web/API/Gamepad_API) erfordert jetzt einen [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) ([Firefox-Bug 1704005](https://bugzil.la/1704005)).
+- Die [Gamepad API](/de/docs/Web/API/Gamepad_API) erfordert jetzt einen [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) ([Firefox-Bug 1704005](https://bugzil.la/1704005)).
 
 ### APIs
 

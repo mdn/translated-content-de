@@ -6,11 +6,11 @@ l10n:
   sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
 ---
 
-Der HTTP **`Integrity-Policy-Report-Only`**-Antwort-Header ermöglicht es Website-Administratoren, Berichte über Ressourcen zu erstellen, die der User-Agent lädt und die gegen die [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) Garantien verstoßen würden, wenn die Integritätsrichtlinie durchgesetzt würde (unter Verwendung des {{HTTPHeader("Integrity-Policy")}}-Headers).
+Der HTTP **`Integrity-Policy-Report-Only`**-Antwort-Header ermöglicht es Website-Administratoren, Berichte über Ressourcen zu erstellen, die der User-Agent lädt und die gegen die [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) Garantien verstoßen würden, wenn die Integritätsrichtlinie durchgesetzt würde (unter Verwendung des {{HTTPHeader("Integrity-Policy")}}-Headers).
 
 Berichte können für Anfragen auf bestimmten [Anfragezielen](#blocked-destinations) generiert werden, die Integritätsmetadaten auslassen oder die im [no-cors](/de/docs/Web/API/Request/mode#no-cors) Modus getätigt werden. Damit Berichte an einen Meldungsendpunkt gesendet werden, muss der `Integrity-Policy-Report-Only`-Header einen gültigen Endpunkt für Berichterstattung angeben, der zu einem Endpunkt passt, der mit dem {{HTTPHeader("Reporting-Endpoints")}}-Header deklariert wurde. Berichte werden mit der [Reporting API](/de/docs/Web/API/Reporting_API) generiert und können auch auf der Seite beobachtet werden, für die die Integritätsrichtlinie gemeldet wird, unter Verwendung eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver). Das Format des Berichtskörpers wird durch das [`IntegrityViolationReportBody`](/de/docs/Web/API/IntegrityViolationReportBody)-Wörterbuch angegeben (eine JSON-serielle Form dieses Körpers wird in POSTs an die Endpunkte des Berichtsservers gesendet).
 
-Der Header ermöglicht es Entwicklern, [Integritätsrichtlinien](/de/docs/Web/Security/Subresource_Integrity#integrity_policy) zu testen und etwaige Inhaltsprobleme zu beheben, bevor schließlich ein {{HTTPHeader("Integrity-Policy")}}-Header eingesetzt wird, um die Richtlinie durchzusetzen.
+Der Header ermöglicht es Entwicklern, [Integritätsrichtlinien](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) zu testen und etwaige Inhaltsprobleme zu beheben, bevor schließlich ein {{HTTPHeader("Integrity-Policy")}}-Header eingesetzt wird, um die Richtlinie durchzusetzen.
 
 <table class="properties">
   <tbody>
@@ -90,5 +90,5 @@ Die [Nutzlast des Berichts](/de/docs/Web/API/Reporting_API#reporting_server_endp
 
 - {{HTTPHeader("Integrity-Policy")}}
 - {{HTTPHeader("Reporting-Endpoints")}}
-- [Integritätsrichtlinie](/de/docs/Web/Security/Subresource_Integrity#integrity_policy)
+- [Integritätsrichtlinie](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)

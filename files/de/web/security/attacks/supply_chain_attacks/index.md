@@ -194,7 +194,7 @@ Dies fügt jedoch eine zusätzliche Wartungslast hinzu: Jedes Mal, wenn sich die
 
 Das {{htmlelement("link")}}-Element unterstützt ebenfalls das `integrity`-Attribut, sodass Sie es für CSS-Stylesheets ebenso wie für Skripte verwenden können (und sollten).
 
-Siehe [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) für weitere Details.
+Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) für weitere Details.
 
 ## Verteidigungs-Checkliste
 

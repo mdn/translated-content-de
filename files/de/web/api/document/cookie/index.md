@@ -271,7 +271,7 @@ clearBtn.addEventListener("click", () => {
 
 ## Sicherheit
 
-Es ist wichtig zu beachten, dass das `path`-Attribut _nicht_ vor unbefugtem Lesen des Cookies aus einem anderen Pfad schützt. Es kann leicht umgangen werden, indem das DOM verwendet wird, zum Beispiel durch das Erstellen eines versteckten {{HTMLElement("iframe")}}-Elements mit dem Pfad des Cookies und dann Zugriff auf die `contentDocument.cookie`-Eigenschaft dieses Iframes. Der einzige Weg, um das Cookie zu schützen, besteht darin, eine andere Domain oder Subdomain zu verwenden, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy).
+Es ist wichtig zu beachten, dass das `path`-Attribut _nicht_ vor unbefugtem Lesen des Cookies aus einem anderen Pfad schützt. Es kann leicht umgangen werden, indem das DOM verwendet wird, zum Beispiel durch das Erstellen eines versteckten {{HTMLElement("iframe")}}-Elements mit dem Pfad des Cookies und dann Zugriff auf die `contentDocument.cookie`-Eigenschaft dieses Iframes. Der einzige Weg, um das Cookie zu schützen, besteht darin, eine andere Domain oder Subdomain zu verwenden, aufgrund der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy).
 
 Cookies werden in Web-Anwendungen häufig verwendet, um einen Benutzer und seine authentifizierte Sitzung zu identifizieren. Das Stehlen eines Cookies von einer Web-Anwendung führt zur Übernahme der authentifizierten Benutzersitzung. Häufige Methoden zum Stehlen von Cookies umfassen die Verwendung von [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder das Ausnutzen einer {{Glossary("Cross-site_scripting", "Cross-Site-Scripting")}} (XSS)-Schwachstelle in der Anwendung -
 

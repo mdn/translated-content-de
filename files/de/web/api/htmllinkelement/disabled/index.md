@@ -49,4 +49,4 @@ console.log(el.disabled); // Output: false
 ## Siehe auch
 
 - [`HTMLScriptElement.integrity`](/de/docs/Web/API/HTMLScriptElement/integrity)
-- [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)
+- [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)

@@ -117,7 +117,7 @@ Mehrere Sitzungs-Features und die verschiedenen Referenzräume haben minimale Si
 | `unbounded`      | Immer erforderlich                      | `xr-spatial-tracking`                      |
 | `viewer`         | Immer erforderlich                      | —                                          |
 
-Siehe auch [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation).
+Siehe auch [transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation).
 
 ## Beispiele
 

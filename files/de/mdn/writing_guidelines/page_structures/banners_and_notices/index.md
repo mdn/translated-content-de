@@ -13,7 +13,7 @@ Dieser Artikel beschreibt die wichtigsten Banner und wie sie hinzugefügt werden
 
 ## Wo werden Banner-Makros hinzugefügt
 
-Banner werden mithilfe von Makros hinzugefügt, die üblicherweise unterhalb der Seiten-Metadaten, neben dem Seiten-Sidebar-Makro eingefügt werden. Im folgenden Block wurde zum Beispiel das `\{{SecureContext_Header}}`-Makro verwendet, um anzuzeigen, dass das [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interface nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist. Das `\{{AvailableInWorkers}}`-Makro wurde verwendet, um anzuzeigen, dass das [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interface nur im [Window-Kontext](/de/docs/Web/API/Window) und im [dedizierten Worker-Kontext](/de/docs/Web/API/DedicatedWorkerGlobalScope) verfügbar ist. `\{{SeeCompatTable}}` wurde hinzugefügt, um darauf hinzuweisen, dass das Interface experimentell ist.
+Banner werden mithilfe von Makros hinzugefügt, die üblicherweise unterhalb der Seiten-Metadaten, neben dem Seiten-Sidebar-Makro eingefügt werden. Im folgenden Block wurde zum Beispiel das `\{{SecureContext_Header}}`-Makro verwendet, um anzuzeigen, dass das [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interface nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist. Das `\{{AvailableInWorkers}}`-Makro wurde verwendet, um anzuzeigen, dass das [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interface nur im [Window-Kontext](/de/docs/Web/API/Window) und im [dedizierten Worker-Kontext](/de/docs/Web/API/DedicatedWorkerGlobalScope) verfügbar ist. `\{{SeeCompatTable}}` wurde hinzugefügt, um darauf hinzuweisen, dass das Interface experimentell ist.
 
 ```md
 ---
@@ -32,7 +32,7 @@ browser-compat: api.AudioDecoder
 
 Sie müssen die folgenden Makros manuell hinzufügen:
 
-- `\{{SecureContext_Header}}` — dies erzeugt ein **Sicherer Kontext**-Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+- `\{{SecureContext_Header}}` — dies erzeugt ein **Sicherer Kontext**-Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist.
 - `\{{AvailableInWorkers}}` — dies erzeugt eine **Verfügbar in Workers**-Notiz, die anzeigt, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 
 ## Banner, die automatisch hinzugefügt werden

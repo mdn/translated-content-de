@@ -17,7 +17,7 @@ Alle modernen Browser unterstützen das TLS-Protokoll, wobei der Server ein gül
 - [Transport Layer Security](https://de.wikipedia.org/wiki/Transport_Layer_Security) (Wikipedia)
 - [RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446) (The Transport Layer Security Protocol, Version 1.3)
 - [RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246) (The Transport Layer Security Protocol, Version 1.2)
-- [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security)
+- [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security)
 - [Transport Layer Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html) (OWASP)
 - Verwandte Glossarbegriffe:
   - {{Glossary("HTTPS", "HTTPS")}}

@@ -37,11 +37,11 @@ Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein [`FileSystemDirectoryH
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Benutzer das Dialogfeld schließt, ohne eine Auswahl zu treffen, oder wenn der Benutzeragent das ausgewählte Verzeichnis als zu sensibel oder gefährlich erachtet, oder wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das ausgewählte Verzeichnis nicht `"granted"` im angegebenen `mode` ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Richtlinie](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie einen Tastendruck ausgeführt wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Richtlinie](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie einen Tastendruck ausgeführt wurde.
 
 ## Sicherheit
 
-[Flüchtige Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Flüchtige Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 

@@ -48,7 +48,7 @@ Für weitere Informationen über die Nutzung der Geolocation lesen Sie [Verwendu
 
 ## Sicherheitsüberlegungen
 
-Die Geolocation-API ermöglicht Benutzern den programmatischen Zugriff auf Standortinformationen in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts).
+Die Geolocation-API ermöglicht Benutzern den programmatischen Zugriff auf Standortinformationen in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts).
 
 Der Zugriff kann zusätzlich durch die Direktive [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden {{HTTPHeader("Permissions-Policy/geolocation","geolocation")}}. Die Standard-Zugriffsliste für `geolocation` ist `self`, was den Zugriff auf Standortinformationen in gleichseitig angegebenen verschachtelten Frames ermöglicht. Die Verwendung durch Dritte wird ermöglicht, indem ein `Permissions-Policy`-Response-Header gesetzt wird, um einer bestimmten Drittpartei-Quelle die Erlaubnis zu erteilen:
 

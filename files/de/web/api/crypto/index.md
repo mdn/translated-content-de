@@ -34,7 +34,7 @@ Das `Crypto` ist in Fenstern über die [`Window.crypto`](/de/docs/Web/API/Window
 ## Siehe auch
 
 - [Web-Sicherheit](/de/docs/Web/Security)
-- [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
-- [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts)
-- [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security)
+- [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts)
+- [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts)
+- [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security)
 - [Strict-Transport-Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security)

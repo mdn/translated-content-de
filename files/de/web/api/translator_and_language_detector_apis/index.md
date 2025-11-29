@@ -46,7 +46,7 @@ Siehe [Verwendung der Übersetzer- und Spracherkennungs-APIs](/de/docs/Web/API/T
 
 ## Sicherheitsüberlegungen
 
-Die Erstellung von `LanguageDetector`- und `Translator`-Objekten erfordert, dass der Benutzer kürzlich mit der Seite interagiert hat ([vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich).
+Die Erstellung von `LanguageDetector`- und `Translator`-Objekten erfordert, dass der Benutzer kürzlich mit der Seite interagiert hat ([vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich).
 
 Der Zugriff auf die API wird außerdem über die {{httpheader("Permissions-Policy/language-detector", "language-detector")}}- und {{httpheader("Permissions-Policy/translator", "translator")}}-{{httpheader("Permissions-Policy")}}-Direktiven gesteuert.
 

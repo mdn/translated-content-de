@@ -29,7 +29,7 @@ Keine bemerkenswerten Änderungen
 
 ### Sicherheit
 
-- [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) ist ein Standard, der sicherstellt, dass Zertifikate öffentlich bekannt gemacht werden, bevor Webbrowser ihnen vertrauen. Firefox unterstützt diese Funktion jetzt in Desktop-Versionen (aber nicht auf Android).
+- [Certificate Transparency](/de/docs/Web/Security/Defenses/Certificate_Transparency) ist ein Standard, der sicherstellt, dass Zertifikate öffentlich bekannt gemacht werden, bevor Webbrowser ihnen vertrauen. Firefox unterstützt diese Funktion jetzt in Desktop-Versionen (aber nicht auf Android).
   Dies betrifft nur Server, die Zertifikate verwenden, die von einer Zertifizierungsstelle im Mozilla Root CA Program ausgestellt wurden.
   ([Firefox-Bug 1938242](https://bugzil.la/1938242)).
 

@@ -27,11 +27,11 @@ Ein {{jsxref("Promise")}}, das auf den bestehenden [`WindowClient`](/de/docs/Web
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Versprechen wird mit dieser Ausnahme zurückgewiesen, wenn keines der Fenster im Ursprung der App eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) aufweist.
+  - : Das Versprechen wird mit dieser Ausnahme zurückgewiesen, wenn keines der Fenster im Ursprung der App eine [vorübergehende Aktivierung](/de/docs/Web/Security/Defenses/User_activation) aufweist.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprung der App muss eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) aufweisen.
+- Mindestens ein Fenster im Ursprung der App muss eine [vorübergehende Aktivierung](/de/docs/Web/Security/Defenses/User_activation) aufweisen.
 
 ## Beispiele
 

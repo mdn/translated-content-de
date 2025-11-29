@@ -119,8 +119,8 @@ Firefox 55 wurde am 8. August 2017 veröffentlicht. Dieser Artikel listet die wi
 
 ### Sicherheit
 
-- Die [Geolocation API](/de/docs/Web/API/Geolocation_API) ist jetzt nur noch für [sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) verfügbar ([Firefox Fehler 1072859](https://bugzil.la/1072859)).
-- Die [Storage API](/de/docs/Web/API/Storage_API) ist jetzt nur noch für [sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) verfügbar ([Firefox Fehler 1268804](https://bugzil.la/1268804)).
+- Die [Geolocation API](/de/docs/Web/API/Geolocation_API) ist jetzt nur noch für [sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ([Firefox Fehler 1072859](https://bugzil.la/1072859)).
+- Die [Storage API](/de/docs/Web/API/Storage_API) ist jetzt nur noch für [sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ([Firefox Fehler 1268804](https://bugzil.la/1268804)).
 - Das Laden von gemischten Inhalten ist jetzt auf localhost erlaubt ([Firefox Fehler 903966](https://bugzil.la/903966)).
 - Das Laden von Remote-JAR-Dateien wurde erneut deaktiviert ([Firefox Fehler 1329336](https://bugzil.la/1329336)).
 

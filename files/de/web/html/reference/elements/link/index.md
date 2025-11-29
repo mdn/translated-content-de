@@ -226,7 +226,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
   - : Enthält Inline-Metadaten — einen base64-codierten kryptografischen Hash der Ressource (Datei), die Sie dem Browser zu laden anweisen.
     Der Browser kann dies verwenden, um zu überprüfen, dass die abgerufene Ressource ohne unerwartete Manipulation geliefert wurde.
     Das Attribut darf nur angegeben werden, wenn das `rel`-Attribut auf `stylesheet`, `preload` oder `modulepreload` gesetzt ist.
-    Siehe [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity).
+    Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
 - `media`
   - : Dieses Attribut gibt die Medien an, auf die die verlinkte Ressource anwendbar ist. Sein Wert muss ein Medientyp / [Medienabfrage](/de/docs/Web/CSS/Guides/Media_queries) sein.
     Dieses Attribut ist hauptsächlich nützlich, wenn man auf externe Stylesheets verlinkt – es ermöglicht dem Benutzeragenten, das am besten angepasste für das Gerät, auf dem es läuft, auszuwählen.

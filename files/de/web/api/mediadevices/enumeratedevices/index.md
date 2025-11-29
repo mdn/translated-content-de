@@ -36,7 +36,7 @@ Wenn die Aufzählung fehlschlägt, wird die Promise abgelehnt.
 
 Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
-- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
+- Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
 - Das Dokument muss vollständig aktiv sein und seine Sichtbarkeit muss "visible" sein.
 
 ## Beispiele

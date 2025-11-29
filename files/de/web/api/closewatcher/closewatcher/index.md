@@ -10,7 +10,7 @@ l10n:
 
 Der **`CloseWatcher()`** Konstruktor erstellt ein neues [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Objekt.
 
-Sie können `CloseWatcher` Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/User_activation) erstellen, was nützlich sein kann, um Fälle wie Sitzungstimeout-Dialoge zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, wird der neu erstellte mit dem letzten gruppiert, sodass eine einzige Schließen-Anfrage beide schließen wird. Das bedeutet, dass es wichtig ist, [`destroy()`](/de/docs/Web/API/CloseWatcher/destroy), [`close()`](/de/docs/Web/API/CloseWatcher/close) und [`requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) ordnungsgemäß aufzurufen.
+Sie können `CloseWatcher` Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) erstellen, was nützlich sein kann, um Fälle wie Sitzungstimeout-Dialoge zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, wird der neu erstellte mit dem letzten gruppiert, sodass eine einzige Schließen-Anfrage beide schließen wird. Das bedeutet, dass es wichtig ist, [`destroy()`](/de/docs/Web/API/CloseWatcher/destroy), [`close()`](/de/docs/Web/API/CloseWatcher/close) und [`requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) ordnungsgemäß aufzurufen.
 
 ## Syntax
 

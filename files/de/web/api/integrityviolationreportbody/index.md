@@ -27,7 +27,7 @@ Berichte über Integritätsverletzungen können an [Endpunkte von Berichtsserver
 
 ## Beschreibung
 
-Verletzungen der Integritätsrichtlinien werden gemeldet, wenn ein Dokument versucht, eine Ressource zu laden, die nicht den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Garantien einer Richtlinie entspricht, die entweder über die HTTP-Header {{httpheader("Integrity-Policy")}} oder {{httpheader("Integrity-Policy-Report-Only")}} gesetzt wurde.
+Verletzungen der Integritätsrichtlinien werden gemeldet, wenn ein Dokument versucht, eine Ressource zu laden, die nicht den [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Garantien einer Richtlinie entspricht, die entweder über die HTTP-Header {{httpheader("Integrity-Policy")}} oder {{httpheader("Integrity-Policy-Report-Only")}} gesetzt wurde.
 
 Insbesondere wird ein Bericht gesendet, wenn ein Dokument versucht, eine {{htmlelement("script")}}-Ressource (oder ein anderes in der Richtlinie aufgeführtes [Anforderungsziel](/de/docs/Web/API/Request/destination)) zu laden, die keine gültigen Integritätsmetadaten aufweist, oder eine Anforderung im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus zu stellen.
 
@@ -151,5 +151,5 @@ Der Bericht in diesem Fall würde genauso aussehen wie unser JSON-Bericht im vor
 - {{HTTPHeader("Integrity-Policy")}}
 - {{HTTPHeader("Integrity-Policy-Report-Only")}}
 - {{HTTPHeader("Reporting-Endpoints")}}
-- [Integrity Policy](/de/docs/Web/Security/Subresource_Integrity#integrity_policy) in [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity#integrity_policy)
+- [Integrity Policy](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) in [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)

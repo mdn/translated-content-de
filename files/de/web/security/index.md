@@ -34,7 +34,7 @@ Webbrowser folgen einem strengen Sicherheitsmodell, das eine starke Sicherheit f
 
 ### Same-Origin-Policy und CORS
 
-Die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) ist ein grundlegender Sicherheitsmechanismus des Webs, der einschränkt, wie ein Dokument oder ein Script, das von einem {{Glossary("origin", "Origin")}} geladen wird, mit einer Ressource von einem anderen Origin interagieren kann. Sie trägt dazu bei, potenziell bösartige Dokumente zu isolieren und mögliche Angriffsvektoren zu reduzieren.
+Die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) ist ein grundlegender Sicherheitsmechanismus des Webs, der einschränkt, wie ein Dokument oder ein Script, das von einem {{Glossary("origin", "Origin")}} geladen wird, mit einer Ressource von einem anderen Origin interagieren kann. Sie trägt dazu bei, potenziell bösartige Dokumente zu isolieren und mögliche Angriffsvektoren zu reduzieren.
 
 Im Allgemeinen können Dokumente von einem Origin keine Anfragen an andere Origins stellen. Das ist sinnvoll, denn Sie möchten nicht, dass Websites miteinander interferieren und unbefugten Zugang zu Daten erhalten.
 
@@ -50,13 +50,13 @@ Alle Browser bewegen sich darauf zu, HTTPS standardmäßig zu verlangen; dies is
 
 Verwandte Themen:
 
-- [Transport Layer Security](/de/docs/Web/Security/Transport_Layer_Security) (TLS)
+- [Transport Layer Security](/de/docs/Web/Security/Defenses/Transport_Layer_Security) (TLS)
   - : Das TLS-Protokoll ist der Standard für die private und robuste Informationsübertragung zwischen zwei vernetzten Anwendungen oder Geräten. Anwendungen, die TLS verwenden, können ihre Sicherheitsparameter wählen, die einen wesentlichen Einfluss auf die Sicherheit und Zuverlässigkeit der Daten haben können.
 - [HTTP Strict-Transport-Security](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security)
   - : Der `Strict-Transport-Security` [HTTP](/de/docs/Web/HTTP)-Header erlaubt einer Website zu spezifizieren, dass sie nur mit HTTPS zugänglich ist.
-- [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency)
+- [Certificate Transparency](/de/docs/Web/Security/Defenses/Certificate_Transparency)
   - : Certificate Transparency (CT) ist ein offener Rahmen, der entwickelt wurde, um Missbrauch von Zertifikaten zu verhindern und zu überwachen. Neu ausgestellte Zertifikate werden in öffentlich betriebenen, häufig unabhängigen CT-Logs 'protokolliert'. Diese bieten nur anhängbare, kryptografisch gesicherte Aufzeichnungen der ausgestellten TLS-Zertifikate.
-- [Mixed Content](/de/docs/Web/Security/Mixed_content)
+- [Mixed Content](/de/docs/Web/Security/Defenses/Mixed_content)
   - : Eine HTTPS-Seite, die Inhalte einbindet, die über {{Glossary("Plaintext", "Cleartext")}} HTTP abgerufen werden, wird als **Mixed Content**-Seite bezeichnet. Solche Seiten sind nur teilweise verschlüsselt und lassen den unverschlüsselten Inhalt für Lauschangriffe und Man-in-the-Middle-Angriffe zugänglich.
 
 ### Sichere Kontexte und Funktionsberechtigungen
@@ -70,13 +70,13 @@ Browser steuern die Nutzung von "leistungsstarken Funktionen" auf verschiedene W
 
 Diese "leistungsstarken Funktionen" werden auf folgende Weise kontrolliert:
 
-- Die Nutzung dieser Funktionen ist nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) erlaubt. Ein sicherer Kontext ist ein [`window`](/de/docs/Web/API/Window) oder ein [`worker`](/de/docs/Web/API/WorkerGlobalScope), für das hinreichendes Vertrauen besteht, dass der Inhalt sicher übermittelt wurde (über HTTPS/TLS). In einem sicheren Kontext ist das Potenzial für die Kommunikation mit Kontexten, die **nicht** sicher sind, eingeschränkt. Sichere Kontexte helfen auch, [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf leistungsstarke Funktionen zu verhindern.
+- Die Nutzung dieser Funktionen ist nur in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) erlaubt. Ein sicherer Kontext ist ein [`window`](/de/docs/Web/API/Window) oder ein [`worker`](/de/docs/Web/API/WorkerGlobalScope), für das hinreichendes Vertrauen besteht, dass der Inhalt sicher übermittelt wurde (über HTTPS/TLS). In einem sicheren Kontext ist das Potenzial für die Kommunikation mit Kontexten, die **nicht** sicher sind, eingeschränkt. Sichere Kontexte helfen auch, [Man-in-the-Middle-Angriffe](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) auf leistungsstarke Funktionen zu verhindern.
 
-  Um eine Liste der Webplattform-Funktionen einzusehen, die nur in sicheren Kontexten verfügbar sind, siehe [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts).
+  Um eine Liste der Webplattform-Funktionen einzusehen, die nur in sicheren Kontexten verfügbar sind, siehe [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts).
 
 - Die Nutzung dieser Funktionen ist durch ein System von Benutzerberechtigungen gesperrt: Benutzer müssen ausdrücklich zustimmen, um Zugriff auf solche Funktionen zu gewähren, was bedeutet, dass sie nicht automatisch genutzt werden können. Benutzerberechtigungsanfragen erfolgen automatisch und Sie können den Status einer API-Berechtigung mithilfe der [Permissions API](/de/docs/Web/API/Permissions_API) abfragen.
 
-- Mehrere andere Browser-Funktionen können nur als Reaktion auf eine Benutzeraktion wie das Klicken eines Buttons genutzt werden, was bedeutet, dass sie von einem entsprechenden Ereignishandler aus aufgerufen werden müssen. Dies wird als **transiente Aktivierung** bezeichnet. Siehe [Funktionen, die von Benutzeraktivierung abhängig sind](/de/docs/Web/Security/User_activation) für weitere Informationen.
+- Mehrere andere Browser-Funktionen können nur als Reaktion auf eine Benutzeraktion wie das Klicken eines Buttons genutzt werden, was bedeutet, dass sie von einem entsprechenden Ereignishandler aus aufgerufen werden müssen. Dies wird als **transiente Aktivierung** bezeichnet. Siehe [Funktionen, die von Benutzeraktivierung abhängig sind](/de/docs/Web/Security/Defenses/User_activation) für weitere Informationen.
 
 ## Sicherheitsüberlegungen auf hoher Ebene
 
@@ -131,7 +131,7 @@ Im Anschluss an den vorherigen Abschnitt sollten Sie bei der Erlaubnis von Featu
 
 Verwandte Themen:
 
-- [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)
+- [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)
   - : **Subresource Integrity** (SRI) ist eine Sicherheitsfunktion, die es Browsern ermöglicht, zu überprüfen, ob die von ihnen abgerufenen Ressourcen (z. B. von einem {{Glossary("CDN", "CDN")}}) ohne unerwartete Manipulation bereitgestellt werden. Sie funktioniert, indem Sie einen kryptografischen Hash bereitstellen, den eine abgerufene Ressource erfüllen muss.
 - [HTTP Access-Control-Allow-Origin](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin)
   - : Der **`Access-Control-Allow-Origin`** Antwortheader gibt an, ob die Antwort mit anfordernem Code vom angegebenen {{Glossary("origin", "Origin")}} geteilt werden darf.

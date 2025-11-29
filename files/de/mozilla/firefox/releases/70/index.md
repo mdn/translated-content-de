@@ -111,7 +111,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 70, die Ent
 
 ### WebDriver-Konformität (Marionette)
 
-- Der Befehl `WebDriver:TakeScreenshot` wurde aktualisiert, um Fission-kompatibel zu sein. Das bedeutet, dass Inhalte von [Cross-Origin](/de/docs/Web/Security/Same-origin_policy)-IFrames jetzt in einem Screenshot der Seite enthalten sind. Oder beim Verwenden aus dem Chrome-Kontext, dass der Inhalt des aktiven Tabs jetzt innerhalb des Browserfensters sichtbar ist ([Firefox Bug 1559592](https://bugzil.la/1559592)).
+- Der Befehl `WebDriver:TakeScreenshot` wurde aktualisiert, um Fission-kompatibel zu sein. Das bedeutet, dass Inhalte von [Cross-Origin](/de/docs/Web/Security/Defenses/Same-origin_policy)-IFrames jetzt in einem Screenshot der Seite enthalten sind. Oder beim Verwenden aus dem Chrome-Kontext, dass der Inhalt des aktiven Tabs jetzt innerhalb des Browserfensters sichtbar ist ([Firefox Bug 1559592](https://bugzil.la/1559592)).
 - `WebDriver:TakeScreenshot` akzeptiert keine Liste von DOM-Elementen mehr für Hervorhebungen ([Firefox Bug 1575511](https://bugzil.la/1575511)).
 - `WebDriver:ExecuteScript` und `WebDriver:ExecuteAsyncScript` setzen `window.onunload` nicht mehr auf Arten, die Web-exponiert sind ([Firefox Bug 1568991](https://bugzil.la/1568991)).
 

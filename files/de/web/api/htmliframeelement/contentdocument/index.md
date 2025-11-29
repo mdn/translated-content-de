@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Wenn das `<iframe>` und das übergeordnete Dokument des `<iframe>` [Same Origin](/de/docs/Web/Security/Same-origin_policy) sind, wird ein [`Document`](/de/docs/Web/API/Document) zurückgegeben (das ist das aktive Dokument im verschachtelten Browsing-Kontext des Inline-Frames), andernfalls wird `null` zurückgegeben.
+Wenn das `<iframe>` und das übergeordnete Dokument des `<iframe>` [Same Origin](/de/docs/Web/Security/Defenses/Same-origin_policy) sind, wird ein [`Document`](/de/docs/Web/API/Document) zurückgegeben (das ist das aktive Dokument im verschachtelten Browsing-Kontext des Inline-Frames), andernfalls wird `null` zurückgegeben.
 
 ## Beispiel für contentDocument
 

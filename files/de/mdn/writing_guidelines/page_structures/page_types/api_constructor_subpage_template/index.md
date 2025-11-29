@@ -62,9 +62,9 @@ l10n:
 >
 > Sie sollten die folgenden Makros nach dem untenstehenden Rat aktualisieren oder löschen:
 >
-> - `\{{SecureContext_Header}}` — generiert ein **Sicherer Kontext** Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+> - `\{{SecureContext_Header}}` — generiert ein **Sicherer Kontext** Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist.
 >   Wenn dies nicht der Fall ist, können Sie den Makroaufruf entfernen.
->   Wenn dies der Fall ist, sollten Sie auch einen Eintrag dafür in der Seite [Features beschränkt auf sichere Kontexte](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) hinzufügen.
+>   Wenn dies der Fall ist, sollten Sie auch einen Eintrag dafür in der Seite [Features beschränkt auf sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts) hinzufügen.
 > - `\{{AvailableInWorkers}}` — generiert eine **Verfügbar in Workern** Notiz, die anzeigt, dass die Technologie in einem [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 >   Wenn sie nur im Fenster-Kontext verfügbar ist, können Sie den Makroaufruf entfernen.
 >   Wenn sie auch im Worker-Kontext oder nur im Worker-Kontext verfügbar ist, könnte es notwendig sein, einen Parameter hinzuzufügen, um ihre Verfügbarkeit anzugeben (siehe [\\{{AvailableInWorkers}} Makro-Quellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs) für alle verfügbaren Werte), Sie könnten auch einen Eintrag dafür in der Seite [Verfügbare Web APIs in Workern](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#web_apis_available_in_workers) hinzufügen müssen.

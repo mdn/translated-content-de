@@ -11,7 +11,7 @@ Moderne Browser unterstützen die Verwendung von [SVG](/de/docs/Web/SVG) innerha
 Sie können SVG in Stilen entweder innerhalb desselben Dokuments oder in einem externen Stylesheet angeben. Es gibt 3 Eigenschaften, die Sie verwenden können: [`mask`](/de/docs/Web/CSS/Reference/Properties/mask), [`clip-path`](/de/docs/Web/CSS/Reference/Properties/clip-path) und [`filter`](/de/docs/Web/CSS/Reference/Properties/filter).
 
 > [!NOTE]
-> Verweise auf SVG in externen Dateien müssen auf demselben [Ursprung](/de/docs/Web/Security/Same-origin_policy) wie das referenzierende Dokument liegen.
+> Verweise auf SVG in externen Dateien müssen auf demselben [Ursprung](/de/docs/Web/Security/Defenses/Same-origin_policy) wie das referenzierende Dokument liegen.
 
 ## Verwendung eingebetteter SVGs
 

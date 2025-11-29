@@ -181,7 +181,7 @@ Dies markiert den nächsten Schritt auf dem Weg in eine plugin-freie Zukunft. HT
 
 ## Sicherheit
 
-- Die [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext)-Eigenschaft, die anzeigt, ob ein Kontext in der Lage ist, Funktionen zu verwenden, die [sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) erfordern, wurde implementiert ([Firefox-Bug 1162772](https://bugzil.la/1162772)).
+- Die [`Window.isSecureContext`](/de/docs/Web/API/Window/isSecureContext)-Eigenschaft, die anzeigt, ob ein Kontext in der Lage ist, Funktionen zu verwenden, die [sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) erfordern, wurde implementiert ([Firefox-Bug 1162772](https://bugzil.la/1162772)).
 
 ## Kompatibilität
 

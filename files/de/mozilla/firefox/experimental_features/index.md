@@ -751,7 +751,7 @@ Beachten Sie, dass unterstützte Richtlinien über das [`allow`](/de/docs/Web/HT
 
 ### Integritätsrichtlinie für Stylesheet-Ressourcen
 
-Die {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} HTTP-Header werden jetzt für Style-Ressourcen unterstützt. Diese ermöglichen es Websites, entweder [Unterressourcen-Integrität-Garantien](/de/docs/Web/Security/Subresource_Integrity) für Styles zu erzwingen oder nur Verstöße gegen die Richtlinie zu melden.
+Die {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} HTTP-Header werden jetzt für Style-Ressourcen unterstützt. Diese ermöglichen es Websites, entweder [Unterressourcen-Integrität-Garantien](/de/docs/Web/Security/Defenses/Subresource_Integrity) für Styles zu erzwingen oder nur Verstöße gegen die Richtlinie zu melden.
 Beachten Sie, dass Firefox Berichtsendpunkte ignoriert und Verstöße in der Entwicklertoolkonsole protokolliert.
 Bei Verwendung von `Integrity-Policy` blockiert der Browser das Laden von Stilen, die in einem {{HTMLElement("link")}} Element mit [`rel="stylesheet"`](/de/docs/Web/HTML/Reference/Attributes/rel#stylesheet) referenziert werden, wenn ihnen entweder das [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity) Attribut fehlt oder sie einen Integritätshash haben, der nicht mit der Ressource auf dem Server übereinstimmt.
 ([Firefox-Bug 1976656](https://bugzil.la/1976656)).

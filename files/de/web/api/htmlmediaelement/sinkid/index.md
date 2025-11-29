@@ -20,7 +20,7 @@ Eine Zeichenfolge, die das aktuelle Audioausgabegerät angibt, oder die leere Ze
 
 Der Zugriff auf die Eigenschaft unterliegt den folgenden Einschränkungen:
 
-- Die Eigenschaft muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
+- Die Eigenschaft muss in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
 
 ## Spezifikationen
 

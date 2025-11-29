@@ -56,7 +56,7 @@ wobei `<value>` optional einer der folgenden Werte sein kann:
   - : Erlaubt Embedders die Kontrolle darüber, ob ein iframe eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
 - `allow-same-origin`
   - : Erlaubt einer sandboxed Ressource, ihren {{Glossary("origin", "Ursprung")}} beizubehalten.
-    Eine sandboxed Ressource wird ansonsten als von einem {{Glossary("Origin#opaque_origin", "opaken Ursprung")}} stammend behandelt, was sicherstellt, dass sie immer die Überprüfungen der {{Glossary("same-origin_policy", "Same-Origin-Policy")}} nicht bestehen kann und daher keinen Zugriff auf [`localstorage` und `document.cookie`](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs hat.
+    Eine sandboxed Ressource wird ansonsten als von einem {{Glossary("Origin#opaque_origin", "opaken Ursprung")}} stammend behandelt, was sicherstellt, dass sie immer die Überprüfungen der {{Glossary("same-origin_policy", "Same-Origin-Policy")}} nicht bestehen kann und daher keinen Zugriff auf [`localstorage` und `document.cookie`](/de/docs/Web/Security/Defenses/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs hat.
     Die {{httpheader("Origin")}} von sandboxed Ressourcen ohne das `allow-same-origin` Schlüsselwort ist `null`.
 - `allow-scripts`
   - : Erlaubt der Seite das Ausführen von Skripten (aber nicht das Erstellen von Pop-up-Fenstern). Wenn dieses Schlüsselwort nicht verwendet wird, ist diese Operation nicht erlaubt.

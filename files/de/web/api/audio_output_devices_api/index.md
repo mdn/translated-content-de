@@ -41,11 +41,11 @@ Die Audio Output Devices API erweitert die folgenden APIs und fügt die aufgefü
 
 Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
 
-- Alle Methoden und Eigenschaften dürfen nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
+- Alle Methoden und Eigenschaften dürfen nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) aufgerufen werden.
 
 - [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput) gewährt eine Erlaubnis des Nutzers für ein ausgewähltes Gerät als Audio-Ausgang:
   - Der Zugang kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) beschränkt sein.
-  - [Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Nutzer muss mit der Seite oder einem UI-Element interagieren, damit die Methode aufgerufen werden kann.
+  - [Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Nutzer muss mit der Seite oder einem UI-Element interagieren, damit die Methode aufgerufen werden kann.
 
 - [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) setzt eine erlaubte ID als Audio-Ausgabe:
   - Der Zugang kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) beschränkt sein.

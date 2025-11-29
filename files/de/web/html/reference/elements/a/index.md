@@ -63,7 +63,7 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
 
     > [!NOTE]
     >
-    > - `download` funktioniert nur für [same-origin-URLs](/de/docs/Web/Security/Same-origin_policy) oder die `blob:` und `data:` Schemes.
+    > - `download` funktioniert nur für [same-origin-URLs](/de/docs/Web/Security/Defenses/Same-origin_policy) oder die `blob:` und `data:` Schemes.
     > - Wie Browser Downloads behandeln, hängt vom Browser, den Benutzereinstellungen und anderen Faktoren ab. Der Benutzer könnte aufgefordert werden, bevor ein Download beginnt, oder die Datei könnte automatisch gespeichert oder automatisch geöffnet werden, entweder in einer externen Anwendung oder im Browser selbst.
     > - Wenn der `Content-Disposition`-Header unterschiedliche Informationen vom `download`-Attribut enthält, können die resultierenden Verhaltensweisen variieren:
     >   - Wenn der Header einen `filename` angibt, hat er Vorrang vor einem im `download`-Attribut angegebenen Dateinamen.

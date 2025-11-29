@@ -39,7 +39,7 @@ Ein {{jsxref('Promise')}} das mit {{jsxref('undefined')}} aufgelöst wird, wenn 
 
 ## Sicherheit
 
-[Temporäre Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Temporäre Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
 
 ## Beispiele
 

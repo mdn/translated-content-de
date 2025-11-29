@@ -68,7 +68,7 @@ Die meisten Attribute auf `<use>` werden ignoriert, wenn das entsprechende Attri
 
 Da die geklonten Knoten nicht sichtbar sind, muss beim Styling eines `<use>`-Elements und seiner geklonten Nachkommen mit [CSS](/de/docs/Web/CSS) Sorgfalt walten lassen. CSS-Eigenschaften werden nicht garantiert vom geklonten DOM geerbt, es sei denn, sie werden explizit durch [CSS-Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) angefordert.
 
-Aus Sicherheitsgründen können Browser die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) auf `<use>`-Elementen anwenden und möglicherweise das Laden einer URL aus einer anderen Herkunft im {{SVGAttr("href")}}-Attribut ablehnen. Derzeit gibt es keinen definierten Weg, eine Cross-Origin-Policy für `<use>`-Elemente festzulegen.
+Aus Sicherheitsgründen können Browser die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) auf `<use>`-Elementen anwenden und möglicherweise das Laden einer URL aus einer anderen Herkunft im {{SVGAttr("href")}}-Attribut ablehnen. Derzeit gibt es keinen definierten Weg, eine Cross-Origin-Policy für `<use>`-Elemente festzulegen.
 
 ### Laden von Ressourcen aus externen Dateien über `<use>`
 

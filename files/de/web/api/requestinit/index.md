@@ -102,7 +102,7 @@ Es ist auch möglich, ein `Request` mit einem `RequestInit` zu konstruieren und 
     Siehe [Header setzen](/de/docs/Web/API/Fetch_API/Using_Fetch#setting_headers) für weitere Details.
 
 - `integrity` {{optional_inline}}
-  - : Enthält den [Subresource-Integrity](/de/docs/Web/Security/Subresource_Integrity)
+  - : Enthält den [Subresource-Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)
     Wert der Anfrage.
 
     Dies wird überprüft, wenn die Ressource abgerufen wird, genauso wie sie überprüft würde, wenn das [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity)-Attribut auf einem {{htmlelement("script")}}-Element gesetzt ist. Der Browser wird den {{Glossary("hash_function", "Hash")}} der abgerufenen Ressource mit dem angegebenen Algorithmus berechnen, und wenn das Ergebnis nicht mit dem angegebenen Wert übereinstimmt, wird der Browser die Abrufanfrage mit einem Netzwerkausfall ablehnen.

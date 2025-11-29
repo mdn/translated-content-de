@@ -77,13 +77,13 @@ Browser-Anbieter sind sich der Notwendigkeit bewusst, die Privatsphäre der Benu
 
 ### HTTPS standardmäßig
 
-[Transport Layer Security (TLS)](/de/docs/Web/Security/Transport_Layer_Security) bietet Sicherheit und Datenschutz, indem es Daten während des Transports über das Netzwerk verschlüsselt und die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}} Protokoll ist. TLS ist gut für die Privatsphäre, weil es Dritte daran hindert, übertragene Daten abzufangen und böswillig zu verwenden, zum Beispiel zum Tracking.
+[Transport Layer Security (TLS)](/de/docs/Web/Security/Defenses/Transport_Layer_Security) bietet Sicherheit und Datenschutz, indem es Daten während des Transports über das Netzwerk verschlüsselt und die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}} Protokoll ist. TLS ist gut für die Privatsphäre, weil es Dritte daran hindert, übertragene Daten abzufangen und böswillig zu verwenden, zum Beispiel zum Tracking.
 
 Alle Browser bewegen sich darauf zu, HTTPS standardmäßig zu verlangen; dies ist praktisch bereits der Fall, weil Sie im Web ohne dieses Protokoll nicht viel tun können.
 
 Verwandte Themen sind unter anderem:
 
-- [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency)
+- [Certificate Transparency](/de/docs/Web/Security/Defenses/Certificate_Transparency)
   - : Ein offener Standard zur Überwachung und zum Überprüfen von Zertifikaten, der eine Datenbank öffentlicher Protokolle erstellt, die verwendet werden kann, um falsche oder bösartige Zertifikate zu identifizieren.
 - [HTTP Strict Transport Security (HSTS)](/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security)
   - : HSTS wird von Servern verwendet, um sich vor Protokolldowngrades und Cookie-Hijacking-Angriffen zu schützen, indem sie den Sites erlauben, den Clients mitzuteilen, dass sie nur HTTPS verwenden können, um mit dem Server zu kommunizieren.
@@ -92,7 +92,7 @@ Verwandte Themen sind unter anderem:
 
 ### Opt-in für "leistungsstarke Funktionen"
 
-So genannte "leistungsstarke" Web-API-Funktionen, die Zugriff auf potenziell sensible Daten und Operationen bieten, sind nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar, was im Grunde bedeutet: nur über HTTPS. Darüber hinaus sind diese Webfunktionen hinter einem System von Benutzerberechtigungen eingeschränkt. Benutzer müssen sich explizit für Funktionen wie das Erlauben von Benachrichtigungen, den Zugriff auf Geolokationsdaten, das Setzen des Browsers in den Vollbildmodus, den Zugriff auf Medien-Streams von Webcams, die Nutzung von Webzahlungen usw. entscheiden.
+So genannte "leistungsstarke" Web-API-Funktionen, die Zugriff auf potenziell sensible Daten und Operationen bieten, sind nur in [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar, was im Grunde bedeutet: nur über HTTPS. Darüber hinaus sind diese Webfunktionen hinter einem System von Benutzerberechtigungen eingeschränkt. Benutzer müssen sich explizit für Funktionen wie das Erlauben von Benachrichtigungen, den Zugriff auf Geolokationsdaten, das Setzen des Browsers in den Vollbildmodus, den Zugriff auf Medien-Streams von Webcams, die Nutzung von Webzahlungen usw. entscheiden.
 
 ### Anti-Tracking-Technologie
 
@@ -172,7 +172,7 @@ Natürlich wäre es einfach, die Privatsphäre zu verwalten, wenn Sie sich nur u
 
 Drittanbieter-Ressourcen sind ein wesentlicher Bestandteil der modernen Webentwicklung, sie bieten viel Power. Allerdings hat jede Drittanbieter-Ressource, die Sie auf Ihrer Website erlauben, potenziell dieselben Berechtigungen wie Ihre eigenen Ressourcen; es hängt alles davon ab, wie sie auf Ihrer Website eingebunden ist:
 
-- JavaScript, das innerhalb von Drittanbieter-Inhalten läuft, die über ein `<iframe>` in Ihre Website eingebettet sind, ist durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) getrennt, das bedeutet, dass es keinen Zugriff auf andere Skripte und Daten im obersten Browsing-Kontext hätte.
+- JavaScript, das innerhalb von Drittanbieter-Inhalten läuft, die über ein `<iframe>` in Ihre Website eingebettet sind, ist durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) getrennt, das bedeutet, dass es keinen Zugriff auf andere Skripte und Daten im obersten Browsing-Kontext hätte.
 - Ein Drittanbieter-Skript, das direkt in Ihrer Seite über ein {{htmlelement("script")}}-Element eingebunden ist, hätte jedoch Zugriff auf Ihre anderen Skripte und Daten, unabhängig davon, ob es auf Ihrer Site oder einer anderen Site gehostet wird. Es wäre im Grunde ein Erstanbieter-Code. Ein bösartiges Skript, das auf diese Weise eingebunden wird, könnte heimlich die Daten Ihrer Benutzer stehlen, indem es sie beispielsweise an einen Drittanbieterserver sendet.
 
 Es ist wichtig, alle Drittanbieter-Ressourcen zu prüfen, die Sie auf Ihrer Site verwenden. Stellen Sie sicher, dass Sie wissen, welche Daten sie sammeln, welche Anfragen sie stellen und an wen, und wie ihre Datenschutzrichtlinien lauten. Ihre sorgfältig gestaltete Datenschutzrichtlinie ist nutzlos, wenn Sie ein Drittanbieter-Skript verwenden, das diese verletzt.

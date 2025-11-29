@@ -10,7 +10,7 @@ l10n:
 
 Die **`domain`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)
 Interfaces ruft den Domain-Teil des {{Glossary("origin", "Ursprungs")}} des aktuellen Dokuments
-ab oder setzt diesen, wie er von der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) genutzt wird.
+ab oder setzt diesen, wie er von der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) genutzt wird.
 
 ## Wert
 
@@ -84,7 +84,7 @@ nicht dasselbe getan haben.
 
 #### Veraltend
 
-Der `document.domain`-Setter ist veraltet. Er untergräbt die Sicherheitsvorkehrungen, die von der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) bereitgestellt werden, und kompliziert das Ursprungsmodell in Browsern, was zu
+Der `document.domain`-Setter ist veraltet. Er untergräbt die Sicherheitsvorkehrungen, die von der [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) bereitgestellt werden, und kompliziert das Ursprungsmodell in Browsern, was zu
 Interoperabilitätsproblemen und Sicherheitslücken führt.
 
 Der Versuch, `document.domain` zu setzen, ist gefährlich. Er öffnet den vollständigen Zugriff auf
@@ -143,7 +143,7 @@ Betroffene APIs umfassen (aber sind nicht beschränkt auf):
 
 ## Siehe auch
 
-- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)
 - [`Location.hostname`](/de/docs/Web/API/Location/hostname)
 - [`Location.host`](/de/docs/Web/API/Location/host)
 - [`Window.origin`](/de/docs/Web/API/Window/origin)

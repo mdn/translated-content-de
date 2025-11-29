@@ -1,16 +1,16 @@
 ---
-title: Funktionen, die auf sichere Kontexte beschränkt sind
-short-title: Beschränkte Funktionen
-slug: Web/Security/Secure_Contexts/features_restricted_to_secure_contexts
+title: Auf sichere Kontexte beschränkte Funktionen
+short-title: Eingeschränkte Funktionen
+slug: Web/Security/Defenses/Secure_Contexts/features_restricted_to_secure_contexts
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: 39070892d5d1a5cc55312a0ac10c97f4c339384f
 ---
 
-Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
+Diese Referenz listet die Web-Plattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts) für eine Definition und weitere Details.
 
 ## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
-Dieser Abschnitt listet APIs auf, die gemäß den Spezifikationen nur in sicheren Kontexten verfügbar sind.
+Dieser Abschnitt listet APIs auf, die in Spezifikationen nur für sichere Kontexte verfügbar gemacht werden.
 
 - [Async Clipboard API](/de/docs/Web/API/Clipboard)
 - [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API)
@@ -72,5 +72,5 @@ Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (auch we
 
 ## Siehe auch
 
-- [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts)
-- ["secure context" Suchanfrage auf Chrome Platform Status](https://chromestatus.com/features#secure%20context)
+- [Sichere Kontexte](/de/docs/Web/Security/Defenses/Secure_Contexts)
+- [„secure context“ Anfrage auf Chrome Platform Status](https://chromestatus.com/features#secure%20context)

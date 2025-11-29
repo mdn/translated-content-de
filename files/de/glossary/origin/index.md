@@ -51,7 +51,7 @@ Diese haben nicht denselben Ursprung, da sie unterschiedliche Ports verwenden:
 
 ## Siehe auch
 
-- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy)
 - Zugehörige Glossarbegriffe:
   - {{Glossary("Site", "Site")}}
 - [HTML-Spezifikation: Ursprung](https://html.spec.whatwg.org/multipage/origin.html#origin)

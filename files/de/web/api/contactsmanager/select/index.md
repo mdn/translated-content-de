@@ -52,7 +52,7 @@ Gibt ein {{jsxref('Promise')}} zurück, das sich mit einem Array von Objekten au
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn der Browsing-Kontext nicht auf oberster Ebene ist, wenn der Kontaktpicker eine Markierung anzeigt, die einen bereits vorhandenen Kontaktpicker anzeigt, da zu jedem Zeitpunkt nur ein Picker existieren kann, oder wenn das Starten eines Kontaktpickers fehlschlägt.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn die Methode nicht durch [Benutzeraktivierung](/de/docs/Web/Security/User_activation) ausgelöst wurde.
+  - : Wird zurückgegeben, wenn die Methode nicht durch [Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ausgelöst wurde.
 - {{jsxref("TypeError")}}
   - : Wird zurückgegeben, wenn `properties` leer ist oder wenn eine der angegebenen Eigenschaften nicht unterstützt wird.
 

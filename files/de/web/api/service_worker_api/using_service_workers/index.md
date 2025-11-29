@@ -96,7 +96,7 @@ Ein einziger Service Worker kann viele Seiten kontrollieren. Jedes Mal, wenn ein
 
 Ein Service Worker schlägt aus einem der folgenden Gründe bei der Registrierung fehl:
 
-- Sie führen Ihre Anwendung nicht in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) (über HTTPS) aus.
+- Sie führen Ihre Anwendung nicht in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) (über HTTPS) aus.
 - Der Pfad der Service Worker-Datei ist falsch.
   Der Pfad muss relativ zum Ursprung sein, nicht zum Stammverzeichnis der App.
   In unserem Beispiel befindet sich der Worker unter `https://bncb2v.csb.app/sw.js`, und das Stammverzeichnis der App ist `https://bncb2v.csb.app/`, daher muss der Service Worker als `/sw.js` angegeben werden.

@@ -8,7 +8,7 @@ l10n:
 {{APIRef("Web Audio API")}}{{SecureContext_Header}}
 
 > [!NOTE]
-> Obwohl die Schnittstelle außerhalb von [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar ist, ist die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) nicht verfügbar, sodass benutzerdefinierte [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)s außerhalb dieser Kontexte nicht definiert werden können.
+> Obwohl die Schnittstelle außerhalb von [sicheren Kontexten](/de/docs/Web/Security/Defenses/Secure_Contexts) verfügbar ist, ist die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) nicht verfügbar, sodass benutzerdefinierte [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)s außerhalb dieser Kontexte nicht definiert werden können.
 
 Das **`AudioWorkletNode`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert eine Basisklasse für einen benutzerdefinierten [`AudioNode`](/de/docs/Web/API/AudioNode), der zusammen mit anderen Knoten mit einem Audio-Routing-Graph verbunden werden kann. Es gibt einen zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor), der die eigentliche Audioverarbeitung in einem Web Audio-Rendering-Thread durchführt.
 
