@@ -49,7 +49,7 @@ JavaScript muss verwendet werden, um die `scrollbar`-Aktion in Scrollbefehle zu 
 
 1. Visuelles Aktualisieren des `scrollbar`-Elements,
 2. Scrollen des Inhalts des Viewports und
-3. Aktualisieren des Wertes der [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow) -Eigenschaft.
+3. Aktualisieren des Wertes der [`aria-valuenow`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-valuenow)-Eigenschaft.
 
 Die Standardausrichtung der Rolle `scrollbar` ist vertikal. Das Einfügen von [`aria-orientation="vertical"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-orientation) ist in diesem Fall optional. Die Orientierung repräsentiert die Ausrichtung der Scrollleiste und den Bildlaufeffekt auf den durch die Scrollleiste kontrollierten Ansichtsbereich. Wenn das Scrollen von links nach rechts oder von rechts nach links und nicht von oben nach unten erfolgt, verwenden Sie `aria-orientation="horizontal"` auf dem Element mit der Rolle `scrollbar`.
 
