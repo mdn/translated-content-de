@@ -11,7 +11,7 @@ on:
     paths:
       - ".github/**"
       - package.json
-      - yarn.lock
+      - package-lock.json
 
 # No GITHUB_TOKEN permissions, as we don't use it.
 permissions: {}
