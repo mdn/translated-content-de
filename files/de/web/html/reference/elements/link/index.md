@@ -1,12 +1,12 @@
 ---
-title: "<link>: Das External Resource Link-Element"
+title: "<link>: Das External Resource Link Element"
 slug: Web/HTML/Reference/Elements/link
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 Das **`<link>`** [HTML](/de/docs/Web/HTML) Element spezifiziert Beziehungen zwischen dem aktuellen Dokument und einer externen Ressource.
-Dieses Element wird am häufigsten verwendet, um auf {{Glossary("CSS", "Stylesheets")}} zu verlinken, aber auch, um Seitenfavoriten (sowohl "Favicon"-Stil-Icons als auch Icons für den Startbildschirm und Apps auf mobilen Geräten) zu erstellen, unter anderem.
+Dieses Element wird am häufigsten verwendet, um auf {{Glossary("CSS", "Stylesheets")}} zu verlinken, wird aber auch zur Einrichtung von Webseite-Icons (sowohl "favicon"-ähnlichen Icons als auch Icons für den Startbildschirm und Apps auf mobilen Geräten) verwendet, unter anderem.
 
 {{InteractiveExample("HTML Demo: &lt;link&gt;", "tabbed-shorter")}}
 
@@ -19,21 +19,21 @@ Dieses Element wird am häufigsten verwendet, um auf {{Glossary("CSS", "Styleshe
 </p>
 ```
 
-Um ein externes Stylesheet zu verlinken, fügen Sie ein `<link>`-Element in Ihr {{HTMLElement("head")}}-Element ein, wie folgt:
+Um ein externes Stylesheet zu verlinken, fügen Sie ein `<link>` Element in Ihr {{HTMLElement("head")}} ein, wie folgt:
 
 ```html
 <link href="main.css" rel="stylesheet" />
 ```
 
-Dieses Beispiel gibt den Pfad zum Stylesheet innerhalb eines `href`-Attributs an und ein [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut mit dem Wert `stylesheet`. `rel` steht für "relationship" (Beziehung), und ist eines der Schlüsselelemente des `<link>`-Elements – der Wert gibt an, wie das verknüpfte Element mit dem einbettenden Dokument in Verbindung steht.
+Dieses Beispiel weist den Pfad zum Stylesheet im `href` Attribut und einem [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel) Attribut mit dem Wert `stylesheet` zu. `rel` steht für "relationship" (Beziehung) und ist eines der Kernelemente des `<link>` Elements — der Wert gibt an, wie das verlinkte Element zum enthaltenen Dokument in Beziehung steht.
 
-Es gibt eine Reihe anderer gebräuchlicher Typen, auf die Sie stoßen werden. Zum Beispiel ein Link zum Favicon der Website:
+Es gibt eine Vielzahl anderer üblicher Typen, denen Sie begegnen werden. Beispielsweise ein Link zum Favicon der Website:
 
 ```html
 <link rel="icon" href="favicon.ico" />
 ```
 
-Es gibt eine Reihe von anderen Icon-`rel`-Werten, hauptsächlich um spezielle Icon-Typen für verschiedene mobile Plattformen anzugeben, z. B.:
+Es gibt eine Reihe anderer Icon-`rel`-Werte, die hauptsächlich verwendet werden, um spezielle Icon-Typen für verschiedene mobile Plattformen zu kennzeichnen, z.B.:
 
 ```html
 <link
@@ -43,17 +43,17 @@ Es gibt eine Reihe von anderen Icon-`rel`-Werten, hauptsächlich um spezielle Ic
   type="image/png" />
 ```
 
-Das `sizes`-Attribut gibt die Icon-Größe an, während das `type`-Attribut den MIME-Typ der verlinkten Ressource enthält.
-Diese bieten nützliche Hinweise, die es dem Browser ermöglichen, das am besten geeignete Icon auszuwählen.
+Das `sizes` Attribut gibt die Icon-Größe an, während `type` den MIME-Typ der verlinkten Ressource enthält.
+Diese bieten nützliche Hinweise, um dem Browser die Auswahl des am besten geeigneten Icons zu erleichtern.
 
-Sie können auch einen Medientyp oder eine Abfrage innerhalb eines `media`-Attributs angeben; diese Ressource wird dann nur geladen, wenn die Medienbedingung zutrifft. Zum Beispiel:
+Sie können auch einen Medientyp oder eine Abfrage innerhalb eines `media` Attributs bereitstellen; diese Ressource wird dann nur geladen, wenn die Medienbedingung zutrifft. Zum Beispiel:
 
 ```html
 <link href="print.css" rel="stylesheet" media="print" />
 <link href="mobile.css" rel="stylesheet" media="screen and (width <= 600px)" />
 ```
 
-Einige interessante neue Leistungs- und Sicherheitsmerkmale wurden dem `<link>`-Element ebenfalls hinzugefügt. Sehen Sie sich dieses Beispiel an:
+Einige interessante neue Leistungs- und Sicherheitsfunktionen wurden ebenfalls zum `<link>` Element hinzugefügt. Nehmen Sie dieses Beispiel:
 
 ```html
 <link
@@ -64,30 +64,30 @@ Einige interessante neue Leistungs- und Sicherheitsmerkmale wurden dem `<link>`-
   crossorigin="anonymous" />
 ```
 
-Ein `rel`-Wert von `preload` gibt an, dass der Browser diese Ressource vorladen soll (siehe [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) für weitere Details), wobei das `as`-Attribut die spezifische Klasse des abgerufenen Inhalts angibt.
-Das `crossorigin`-Attribut gibt an, ob die Ressource mit einer {{Glossary("CORS", "CORS")}}-Anfrage abgerufen werden soll.
+Ein `rel`-Wert von `preload` zeigt an, dass der Browser diese Ressource vorab laden soll (siehe [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) für mehr Details), wobei das `as` Attribut die spezifische Klasse der geladenen Inhalte angibt.
+Das `crossorigin` Attribut zeigt an, ob die Ressource mit einer {{Glossary("CORS", "CORS")}}-Anfrage abgerufen werden soll.
 
 Weitere Nutzungshinweise:
 
-- Ein `<link>`-Element kann entweder im {{HTMLElement("head")}} oder im {{HTMLElement("body")}}-Element auftreten, je nachdem, ob es einen [Link-Typ](https://html.spec.whatwg.org/multipage/links.html#body-ok) hat, der **body-ok** ist.
-  Zum Beispiel ist der `stylesheet`-Link-Typ body-ok und wird daher im Body erlaubt.
-  Dennoch ist es keine gute Praxis, dies zu tun; es ist sinnvoller, die `<link>`-Elemente vom Body-Content zu trennen, indem Sie diese im `<head>` platzieren.
-- Wenn Sie `<link>` verwenden, um ein Favicon für eine Seite zu erstellen, und Ihre Seite eine Content Security Policy (CSP) verwendet, um die Sicherheit zu erhöhen, gilt die Richtlinie für das Favicon.
-  Wenn Sie auf Probleme stoßen, bei denen das Favicon nicht geladen wird, überprüfen Sie, ob die {{HTTPHeader("Content-Security-Policy")}}-Richtlinie durch die [`img-src`-Direktive](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/img-src) den Zugriff nicht verhindert.
-- Die HTML- und XHTML-Spezifikationen definieren Event Handler für das `<link>`-Element, aber es ist unklar, wie diese verwendet werden würden.
-- Unter XHTML 1.0 erfordern {{Glossary("void_element", "void elements")}} wie `<link>` einen abschließenden Slash: `<link />`.
-- WebTV unterstützt die Verwendung des Werts `next` für `rel`, um die nächste Seite in einer Dokumentserie vorzuladen.
+- Ein `<link>` Element kann entweder im {{HTMLElement("head")}} oder {{HTMLElement("body")}} Element vorkommen, abhängig davon, ob es einen [Link-Typ](https://html.spec.whatwg.org/multipage/links.html#body-ok) hat, der **body-ok** ist.
+  Zum Beispiel ist der `stylesheet` Link-Typ body-ok, und daher ist `<link rel="stylesheet">` im Body erlaubt.
+  Es ist jedoch keine gute Praxis, dem zu folgen; es macht mehr Sinn, Ihre `<link>` Elemente von Ihrem Body-Inhalt zu trennen, indem Sie sie in den `<head>` stellen.
+- Wenn Sie `<link>` verwenden, um ein Favicon für eine Website einzurichten, und Ihre Website eine Content Security Policy (CSP) verwendet, um die Sicherheit zu erhöhen, gilt die Richtlinie für das Favicon.
+  Wenn es Probleme gibt, dass das Favicon nicht lädt, überprüfen Sie, dass die {{HTTPHeader("Content-Security-Policy")}} Überschrift's [`img-src` Anweisung](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/img-src) den Zugriff nicht verhindert.
+- Die HTML und XHTML Spezifikationen definieren Event-Handler für das `<link>` Element, aber es ist unklar, wie sie verwendet werden würden.
+- Unter XHTML 1.0 erfordern {{Glossary("void_element", "void elements")}} wie `<link>` einen Schrägstrich am Ende: `<link />`.
+- WebTV unterstützt die Verwendung des Wertes `next` für `rel`, um die nächste Seite in einer Dokumentenreihe vorab zu laden.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes) ein.
 
 - `as`
-  - : Dieses Attribut ist erforderlich, wenn [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) auf das `<link>`-Element gesetzt wurde, optional, wenn [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) gesetzt wurde, und sollte ansonsten nicht verwendet werden.
-    Es spezifiziert den Typ des Inhalts, der durch das `<link>` geladen wird, was für die Anforderungsabstimmung, die Anwendung der korrekten [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) und das Setzen des korrekten {{HTTPHeader("Accept")}}-Anforderungsheaders notwendig ist.
+  - : Dieses Attribut ist erforderlich, wenn [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) auf dem `<link>` Element gesetzt wurde, optional wenn [`rel="modulepreload"`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) gesetzt ist, und sonst sollte es nicht verwendet werden.
+    Es spezifiziert den Typ der von `<link>` geladenen Inhalte, was notwendig ist für Abgleich der Anforderung, Anwendung der richtigen [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) und Festlegung des korrekten {{HTTPHeader("Accept")}} Anfrage-Headers.
 
-    Darüber hinaus verwendet `rel="preload"` dies als Signal für die Priorisierung von Anforderungen.
-    Die folgende Tabelle listet die gültigen Werte für dieses Attribut und die Elemente oder Ressourcen, auf die sie angewendet werden, auf.
+    Darüber hinaus verwendet `rel="preload"` dies als Signal zur Priorisierung der Anfrage.
+    Die folgende Tabelle listet die gültigen Werte für dieses Attribut und die Elemente oder Ressourcen, auf die sie angewendet werden können.
 
     <table class="standard-table">
       <thead>
@@ -99,15 +99,15 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       <tbody>
         <tr>
           <td>audio</td>
-          <td><code>&#x3C;audio></code>-Elemente</td>
+          <td><code>&#x3C;audio></code> Elemente</td>
         </tr>
         <tr>
           <td>document</td>
-          <td><code>&#x3C;iframe></code> und <code>&#x3C;frame></code>-Elemente</td>
+          <td><code>&#x3C;iframe></code> und <code>&#x3C;frame></code> Elemente</td>
         </tr>
         <tr>
           <td>embed</td>
-          <td><code>&#x3C;embed></code>-Elemente</td>
+          <td><code>&#x3C;embed></code> Elemente</td>
         </tr>
         <tr>
           <td>fetch</td>
@@ -115,8 +115,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
             <p>fetch, XHR</p>
             <div class="notecard note">
               <p>
-                <strong>Hinweis:</strong> Dieser Wert erfordert auch
-                <code>&#x3C;link></code> das <code>crossorigin</code>-Attribut, siehe <a href="/de/docs/Web/HTML/Reference/Attributes/rel/preload#cors-enabled_fetches">CORS-fähige Abrufe</a>.
+                <strong>Hinweis:</strong> Dieser Wert erfordert auch, dass <code>&#x3C;link></code> das `crossorigin` Attribut enthält, siehe <a href="/de/docs/Web/HTML/Reference/Attributes/rel/preload#cors-enabled_fetches">CORS-activierte Abrufe</a>.
               </p>
             </div>
           </td>
@@ -127,8 +126,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
             <p>CSS @font-face</p>
             <div class="notecard note">
               <p>
-                <strong>Hinweis:</strong> Dieser Wert erfordert auch
-                <code>&#x3C;link></code> das <code>crossorigin</code>-Attribut, siehe <a href="/de/docs/Web/HTML/Reference/Attributes/rel/preload#cors-enabled_fetches">CORS-fähige Abrufe</a>.
+                <strong>Hinweis:</strong> Dieser Wert erfordert auch, dass <code>&#x3C;link></code> das `crossorigin` Attribut enthält, siehe <a href="/de/docs/Web/HTML/Reference/Attributes/rel/preload#cors-enabled_fetches">CORS-activierte Abrufe</a>.
               </p>
             </div>
           </td>
@@ -136,35 +134,34 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
         <tr>
           <td>image</td>
           <td>
-            <code>&#x3C;img></code> und <code>&#x3C;picture></code>-Elemente mit
-            srcset oder imageset Attributen, SVG <code>&#x3C;image></code>-Elemente,
+            <code>&#x3C;img></code> und <code>&#x3C;picture></code> Elemente mit
+            `srcset` oder `imageset` Attributen, SVG <code>&#x3C;image></code> Elemente,
             CSS <code>*-image</code> Regeln
           </td>
         </tr>
         <tr>
           <td>object</td>
-          <td><code>&#x3C;object></code>-Elemente</td>
+          <td><code>&#x3C;object></code> Elemente</td>
         </tr>
         <tr>
           <td>script</td>
           <td>
-            <code>&#x3C;script></code>-Elemente, Worker <code>importScripts</code>
+            <code>&#x3C;script></code> Elemente, Worker <code>importScripts</code>
           </td>
         </tr>
         <tr>
           <td>style</td>
           <td>
-            <code>&#x3C;link rel=stylesheet></code>-Elemente, CSS
-            <code>@import</code>
+            <code>&#x3C;link rel=stylesheet></code> Element, CSS <code>@import</code>
           </td>
         </tr>
         <tr>
           <td>track</td>
-          <td><code>&#x3C;track></code>-Elemente</td>
+          <td><code>&#x3C;track></code> Elemente</td>
         </tr>
         <tr>
           <td>video</td>
-          <td><code>&#x3C;video></code>-Elemente</td>
+          <td><code>&#x3C;video></code> Elemente</td>
         </tr>
         <tr>
           <td>worker</td>
@@ -174,124 +171,124 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     </table>
 
 - `blocking`
-  - : Dieses Attribut gibt explizit an, dass bestimmte Operationen blockiert werden sollen, bis bestimmte Bedingungen erfüllt sind. Es darf nur verwendet werden, wenn das `rel`-Attribut die Schlüsselwörter `expect` oder `stylesheet` enthält. Mit [`rel="expect"`](/de/docs/Web/HTML/Reference/Attributes/rel#expect) zeigt es an, dass Operationen blockiert werden sollen, bis ein bestimmter DOM-Knoten geparst wurde. Mit [`rel="stylesheet"`](/de/docs/Web/HTML/Reference/Attributes/rel#stylesheet) zeigt es an, dass Operationen blockiert werden sollen, bis ein externes Stylesheet und seine kritischen Subressourcen abgerufen und auf das Dokument angewendet wurden. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste von Blockierungstoken sein, die unten aufgelistet sind. Derzeit gibt es nur ein Token:
-    - `render`: Das Rendern des Inhalts auf dem Bildschirm wird blockiert.
+  - : Dieses Attribut gibt explizit an, dass bestimmte Operationen blockiert werden sollen, bis spezifische Bedingungen erfüllt sind. Es darf nur verwendet werden, wenn das `rel` Attribut die Schlüsselwörter `expect` oder `stylesheet` enthält. Bei [`rel="expect"`](/de/docs/Web/HTML/Reference/Attributes/rel#expect) zeigt es an, dass Operationen blockiert werden sollen, bis ein bestimmter DOM-Knoten geparst wurde. Bei [`rel="stylesheet"`](/de/docs/Web/HTML/Reference/Attributes/rel#stylesheet) zeigt es an, dass Operationen blockiert werden sollen, bis ein externes Stylesheet und seine kritischen Subressourcen abgerufen und auf das Dokument angewendet wurden. Die Operationen, die blockiert werden sollen, müssen eine durch Leerzeichen getrennte Liste von Blockierungs-Tokens aus der unten angegebenen Liste sein. Derzeit gibt es nur ein Token:
+    - `render`: Die Darstellung des Inhalts auf dem Bildschirm wird blockiert.
 
     > [!NOTE]
-    > Nur `link`-Elemente im `<head>` des Dokuments können möglicherweise das Rendern blockieren. Standardmäßig blockiert ein `link`-Element mit `rel="stylesheet"` im `<head>` das Rendern, wenn der Browser es während des Parsens entdeckt. Wenn ein solches `link`-Element dynamisch über Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` festlegen, damit es das Rendern blockiert.
+    > Nur `link` Elemente im `<head>` des Dokuments können möglicherweise die Darstellung blockieren. Standardmäßig blockiert ein `link` Element mit `rel="stylesheet"` im `<head>` die Darstellung, wenn der Browser es beim Parsen entdeckt. Wenn ein solches `link` Element dynamisch über ein Skript hinzugefügt wird, müssen Sie zusätzlich `blocking = "render"` setzen, damit es die Darstellung blockiert.
 
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
-  - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, ob {{Glossary("CORS", "CORS")}} verwendet werden muss, wenn die Ressource abgerufen wird.
-    [CORS-fähige Bilder](/de/docs/Web/HTML/How_to/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne _verfälscht_ zu werden.
+  - : Dieses {{Glossary("Enumerated", "Aufzählungs-")}} Attribut gibt an, ob {{Glossary("CORS", "CORS")}} beim Abrufen der Ressource verwendet werden muss.
+    [CORS-aktivierte Bilder](/de/docs/Web/HTML/How_to/CORS_enabled_image) können im {{HTMLElement("canvas")}} Element wiederverwendet werden, ohne dass sie _verunreinigt_ werden.
     Die erlaubten Werte sind:
     - `anonymous`
-      - : Eine Cross-Origin-Anfrage (d.h. mit einem {{HTTPHeader("Origin")}} HTTP-Header) wird durchgeführt, aber es werden keine Anmeldedaten gesendet (d.h. kein Cookie, X.509-Zertifikat oder HTTP-Basisautorisierung).
-        Wenn der Server keine Anmeldedaten an die Origin-Site gibt (indem er den {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Header nicht setzt), wird die Ressource verfälscht und ihre Verwendung eingeschränkt.
+      - : Eine Cross-Origin-Anfrage (d.h. mit einem {{HTTPHeader("Origin")}} HTTP-Header) wird durchgeführt, aber keine Anmeldeinformationen werden gesendet (d.h. kein Cookie, kein X.509-Zertifikat und keine HTTP-Basisauthentifizierung).
+        Wenn der Server keine Anmeldeinformationen zur Ursprungsseite gewährt (indem er den {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Header nicht setzt), wird die Ressource verunreinigt und ihre Nutzung eingeschränkt sein.
     - `use-credentials`
-      - : Eine Cross-Origin-Anfrage (d.h. mit einem `Origin` HTTP-Header) wird zusammen mit einem Anmeldedatum gesendet (d.h. es wird ein Cookie, Zertifikat und/oder HTTP-Basisautorisierung durchgeführt).
-        Wenn der Server keine Anmeldedaten an die Origin-Site gibt (durch den {{HTTPHeader("Access-Control-Allow-Credentials")}} HTTP-Header), wird die Ressource _verfälscht_ und ihre Verwendung eingeschränkt.
+      - : Eine Cross-Origin-Anfrage (d.h. mit einem `Origin` HTTP-Header) wird zusammen mit einer Anmeldeinformation (d.h. ein Cookie, Zertifikat und/oder HTTP-Basisauthentifizierung wird durchgeführt) durchgeführt.
+        Wenn der Server keine Anmeldeinformationen zur Ursprungsseite übermittelt (durch den {{HTTPHeader("Access-Control-Allow-Credentials")}} HTTP-Header), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
 
-    Wenn das Attribut nicht vorhanden ist, wird die Ressource ohne eine {{Glossary("CORS", "CORS")}}-Anfrage abgerufen (d.h. ohne den `Origin` HTTP-Header zu senden), wodurch ihre unverfälschte Nutzung verhindert wird. Wenn ungültig, wird es behandelt, als ob das Schlüsselwort **anonymous** verwendet wurde.
-    Siehe [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für zusätzliche Informationen.
+    Wenn das Attribut nicht vorhanden ist, wird die Ressource ohne eine {{Glossary("CORS", "CORS")}} Anfrage abgerufen (d.h. ohne den `Origin` HTTP-Header zu senden), wodurch ihre nicht-verunreinigte Nutzung verhindert wird. Falls ungültig, wird es behandelt, als ob das aufgelistete Schlüsselwort **anonymous** verwendet wurde.
+    Sehen Sie sich [CORS-Einstellungsattribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für zusätzliche Informationen an.
 
 - `disabled`
-  - : Nur für `rel="stylesheet"`, zeigt das boolesche `disabled`-Attribut an, ob das beschriebene Stylesheet geladen und auf das Dokument angewendet werden soll.
-    Wenn `disabled` im HTML beim Laden angegeben ist, wird das Stylesheet beim Seitenladen nicht geladen.
-    Stattdessen wird das Stylesheet bei Bedarf geladen, wenn und falls das `disabled`-Attribut auf `false` geändert oder entfernt wird.
+  - : Nur für `rel="stylesheet"` gibt das `disabled` Boolean-Attribut an, ob das beschriebene Stylesheet geladen und auf das Dokument angewendet werden soll.
+    Wenn `disabled` in dem HTML zur Ladezeit angegeben ist, wird das Stylesheet während des Seitenladens nicht geladen.
+    Stattdessen wird das Stylesheet bei Bedarf geladen, wenn und wann das `disabled` Attribut auf `false` geändert oder entfernt wird.
 
-    Das Setzen der `disabled`-Eigenschaft im DOM führt dazu, dass das Stylesheet aus der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Liste des Dokuments entfernt wird.
+    Das Setzen der `disabled` Eigenschaft im DOM bewirkt, dass das Stylesheet aus der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) Liste des Dokuments entfernt wird.
 
 - [`fetchpriority`](/de/docs/Web/HTML/Reference/Attributes/fetchpriority)
-  - : Gibt einen Hinweis auf die relative Priorität, die beim Abrufen einer Ressource eines bestimmten Typs verwendet werden soll. Erlaubte Werte:
+  - : Stellt einen Hinweis auf die relative Priorität zur Verfügung, die beim Abrufen einer Ressource eines bestimmten Typs verwendet werden soll. Erlaubte Werte:
     - `high`
-      - : Abrufen der Ressource mit hoher Priorität im Vergleich zu anderen Ressourcen desselben Typs.
+      - : Holen Sie die Ressource mit hoher Priorität im Verhältnis zu anderen Ressourcen desselben Typs ein.
     - `low`
-      - : Abrufen der Ressource mit niedriger Priorität im Vergleich zu anderen Ressourcen desselben Typs.
+      - : Holen Sie die Ressource mit niedriger Priorität im Verhältnis zu anderen Ressourcen desselben Typs ein.
     - `auto`
-      - : Keine Präferenz für die Abrufpriorität festlegen.
+      - : Es wird keine Präferenz für die Abrufpriorität festgelegt.
         Dies ist der Standard.
         Es wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
 - `href`
-  - : Dieses Attribut gibt die {{Glossary("URL", "URL")}} der verlinkten Ressource an. Eine URL kann absolut oder relativ sein.
+  - : Dieses Attribut spezifiziert die {{Glossary("URL", "URL")}} der verlinkten Ressource. Eine URL kann absolut oder relativ sein.
 - `hreflang`
-  - : Dieses Attribut zeigt die Sprache der verlinkten Ressource an.
+  - : Dieses Attribut gibt die Sprache der verlinkten Ressource an.
     Es ist rein beratend.
     Werte sollten gültige {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tags")}} sein.
-    Verwenden Sie dieses Attribut nur, wenn das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut vorhanden ist.
+    Verwenden Sie dieses Attribut nur, wenn das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) Attribut vorhanden ist.
 - `imagesizes`
-  - : Nur für `rel="preload"` und `as="image"`, das `imagesizes`-Attribut hat eine ähnliche Syntax und Semantik wie das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Attribut, welches anzeigt, die entsprechende Ressource vorzuladen, die von einem `img`-Element mit entsprechenden Werten für die `srcset`- und `sizes`-Attribute verwendet wird.
+  - : Nur für `rel="preload"` und `as="image"` hat das `imagesizes` Attribut eine ähnliche Syntax und Semantik wie das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) Attribut, das das vorzuladende geeignete Ressourcen festlegt, das von einem `img` Element mit entsprechenden Werten für seine `srcset` und `sizes` Attribute verwendet wird.
 - `imagesrcset`
-  - : Nur für `rel="preload"` und `as="image"`, das `imagesrcset`-Attribut hat eine ähnliche Syntax und Semantik wie das [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut, welches anzeigt, die entsprechende Ressource vorzuladen, die von einem `img`-Element mit entsprechenden Werten für die `srcset`- und `sizes`-Attribute verwendet wird.
+  - : Nur für `rel="preload"` und `as="image"` hat das `imagesrcset` Attribut eine ähnliche Syntax und Semantik wie das [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) Attribut, das das vorzuladende geeignete Ressourcen festlegt, das von einem `img` Element mit entsprechenden Werten für seine `srcset` und `sizes` Attribute verwendet wird.
 - `integrity`
-  - : Enthält Inline-Metadaten — einen base64-codierten kryptografischen Hash der Ressource (Datei), die Sie dem Browser zu laden anweisen.
-    Der Browser kann dies verwenden, um zu überprüfen, dass die abgerufene Ressource ohne unerwartete Manipulation geliefert wurde.
-    Das Attribut darf nur angegeben werden, wenn das `rel`-Attribut auf `stylesheet`, `preload` oder `modulepreload` gesetzt ist.
+  - : Beinhaltet Inline-Metadaten — eine base64-kodierte kryptografische Prüfsumme der Ressource, die der Browser abrufen soll.
+    Der Browser kann dies verwenden, um zu überprüfen, dass die abgerufene Ressource ohne unerwartete Manipulationen geliefert wurde.
+    Das Attribut muss nur dann angegeben werden, wenn das `rel` Attribut auf `stylesheet`, `preload`, oder `modulepreload` festgelegt ist.
     Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
 - `media`
-  - : Dieses Attribut gibt die Medien an, auf die die verlinkte Ressource anwendbar ist. Sein Wert muss ein Medientyp / [Medienabfrage](/de/docs/Web/CSS/Guides/Media_queries) sein.
-    Dieses Attribut ist hauptsächlich nützlich, wenn man auf externe Stylesheets verlinkt – es ermöglicht dem Benutzeragenten, das am besten angepasste für das Gerät, auf dem es läuft, auszuwählen.
+  - : Dieses Attribut gibt die Medien an, auf die die verlinkte Ressource angewendet wird. Sein Wert muss ein Medientyp / [media query](/de/docs/Web/CSS/Guides/Media_queries) sein.
+    Dieses Attribut ist hauptsächlich nützlich, wenn auf externe Stylesheets verlinkt wird — es ermöglicht es dem Benutzeragenten, das am besten angepasste für das Gerät auszuwählen, auf dem es ausgeführt wird.
 
 - `referrerpolicy`
-  - : Ein Zeichenfolge, die angibt, welcher Referrer zum Abrufen der Ressource verwendet werden soll:
-    - `no-referrer` bedeutet, dass der {{HTTPHeader("Referer")}}-Header nicht gesendet wird.
-    - `no-referrer-when-downgrade` bedeutet, dass kein {{HTTPHeader("Referer")}}-Header gesendet wird, wenn zu einem Ursprung ohne TLS (HTTPS) navigiert wird.
-      Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie sonst angegeben ist.
-    - `origin` bedeutet, dass der Referrer der Ursprung der Seite sein wird, der ungefähr das Schema, den Host und den Port umfasst.
-    - `origin-when-cross-origin` bedeutet, dass die Navigation zu anderen Ursprüngen auf das Schema, den Host und den Port beschränkt wird, während die Navigation auf demselben Ursprung den Pfad des Referrers umfasst.
-    - `unsafe-url` bedeutet, dass der Referrer den Ursprung und den Pfad umfasst (aber nicht das Fragment, Passwort oder den Benutzernamen).
-      Dieser Fall ist unsicher, weil er Ursprünge und Pfade von TLS-geschützten Ressourcen zu unsicheren Ursprüngen leaken kann.
+  - : Ein String, der angibt, welchen Referrer beim Abrufen der Ressource verwendet werden soll:
+    - `no-referrer` bedeutet, dass der {{HTTPHeader("Referer")}} Header nicht gesendet wird.
+    - `no-referrer-when-downgrade` bedeutet, dass kein {{HTTPHeader("Referer")}} Header gesendet wird, wenn zu einem Ursprung ohne TLS (HTTPS) navigiert wird.
+      Dies ist das Standardverhalten eines Benutzeragenten, wenn keine andere Richtlinie angegeben ist.
+    - `origin` bedeutet, dass der Referrer der Ursprung der Seite sein wird, was ungefähr das Schema, den Host und den Port betrifft.
+    - `origin-when-cross-origin` bedeutet, dass das Navigieren zu anderen Ursprüngen auf das Schema, den Host und den Port beschränkt wird, während beim Navigieren am selben Ursprung der Pfad des Referrers enthalten ist.
+    - `unsafe-url` bedeutet, dass der Referrer den Ursprung und den Pfad (aber nicht das Fragment, Passwort oder den Benutzernamen) umfassen wird.
+      Dieser Fall ist unsicher, da er Ursprünge und Pfade von TLS-geschützten Ressourcen zu unsicheren Ursprüngen leaken kann.
 
 - [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)
-  - : Dieses Attribut benennt die Beziehung des verknüpften Dokuments zum aktuellen Dokument. Das Attribut muss eine durch Leerzeichen getrennte Liste von [Link-Typ-Werten](/de/docs/Web/HTML/Reference/Attributes/rel) sein.
+  - : Dieses Attribut benennt eine Beziehung des verlinkten Dokuments zum aktuellen Dokument. Das Attribut muss eine durch Leerzeichen getrennte Liste von [link type values](/de/docs/Web/HTML/Reference/Attributes/rel) sein.
 - `sizes`
   - : Dieses Attribut definiert die Größen der Icons für visuelle Medien, die in der Ressource enthalten sind.
-    Es darf nur vorhanden sein, wenn der [`rel`](#rel) eine Wert von `icon` oder einen nicht-standardmäßigen Typ wie Apples `apple-touch-icon` enthält.
+    Es muss nur dann vorhanden sein, wenn das [`rel`](#rel) Attribut einen Wert von `icon` oder einen nicht standardmäßigen Typ wie Apples `apple-touch-icon` enthält.
     Es kann die folgenden Werte haben:
-    - `any`, was bedeutet, dass das Icon auf jede Größe skaliert werden kann, da es in einem Vektorformat wie `image/svg+xml` vorliegt.
-    - eine durch Leerzeichen getrennte Liste von Größen, jede im Format `<Breite in Pixel>x<Höhe in Pixel>` oder `<Breite in Pixel>X<Höhe in Pixel>`. Jede dieser Größen muss in der Ressource enthalten sein.
+    - `any`, bedeutet, dass das Icon auf jede Größe skaliert werden kann, da es sich im Vektorformat befindet, wie `image/svg+xml`.
+    - Eine durch Leerzeichen getrennte Liste von Größen, jede im Format `<Breite in Pixel>x<Höhe in Pixel>` oder `<Breite in Pixel>X<Höhe in Pixel>`. Jede dieser Größen muss in der Ressource enthalten sein.
 
     > [!NOTE]
-    > Die meisten Icon-Formate können nur ein einzelnes Icon speichern; daher enthält das [`sizes`](#sizes)-Attribut meist nur einen Eintrag.
-    > Microsofts ICO-Format und Apples ICNS-Format können mehrere Icon-Größen in einer einzigen Datei speichern. ICO hat eine bessere Browser-Unterstützung, daher sollten Sie dieses Format verwenden, wenn eine browserübergreifende Unterstützung von Bedeutung ist.
+    > Die meisten Icon-Formate können nur ein einzelnes Icon speichern; daher enthält das [`sizes`](#sizes) Attribut die meiste Zeit nur einen Eintrag.
+    > Microsofts ICO Format und Apples ICNS Format können mehrere Icon-Größen in einer einzigen Datei speichern. ICO hat bessere Browser-Unterstützung, daher sollten Sie dieses Format verwenden, wenn plattformübergreifende Unterstützung wichtig ist.
 
 - `title`
-  - : Das `title`-Attribut hat spezielle Semantik auf dem `<link>`-Element.
-    Wenn auf einem `<link rel="stylesheet">` verwendet, definiert es ein [Standard- oder Alternativ-Stylesheet](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet).
+  - : Das `title` Attribut hat spezielle Semantik auf dem `<link>` Element.
+    Wenn es auf einem `<link rel="stylesheet">` verwendet wird, definiert es ein [Standard- oder alternatives Stylesheet](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet).
 - `type`
-  - : Dieses Attribut wird zur Definition des Typs des verlinkten Inhalts verwendet.
-    Der Wert des Attributs sollte ein MIME-Typ sein, wie **text/html**, **text/css** und so weiter.
-    Der übliche Gebrauch dieses Attributs ist die Definition des Typs des referenzierten Stylesheets (wie **text/css**), aber da CSS die einzige verwendete Stylesheet-Sprache im Web ist, ist es nicht nur möglich, das `type`-Attribut wegzulassen, sondern es ist mittlerweile empfohlene Praxis.
-    Es wird auch für `rel="preload"` Link-Typen verwendet, um sicherzustellen, dass der Browser nur Dateitypen herunterlädt, die er unterstützt.
+  - : Dieses Attribut wird verwendet, um den Typ des verlinkten Inhalts zu definieren.
+    Der Wert des Attributs sollte ein MIME-Typ wie **text/html**, **text/css** usw. sein.
+    Der übliche Gebrauch dieses Attributes ist es, den Typ des referenzierten Stylesheets zu definieren (zum Beispiel **text/css**), aber da CSS die einzige Stylesheet-Sprache im Web ist, ist es nicht nur möglich, das `type` Attribut wegzulassen, es wird sogar empfohlen.
+    Es wird auch bei `rel="preload"` Link-Typen verwendet, um sicherzustellen, dass der Browser nur Dateitypen herunterlädt, die er unterstützt.
 
-### Nicht-standardmäßige Attribute
+### Nicht-standardisierte Attribute
 
 - `target` {{Deprecated_Inline}}
-  - : Definiert den Frame- oder Fensternamen, der die definierte Verknüpfungsbeziehung hat oder die Darstellung einer verlinkten Ressource zeigt.
+  - : Definiert den Name des Fensters oder Frames, das die definierte Verknüpfungsbeziehung hat oder das die Darstellung jeder verknüpften Ressource zeigen wird.
 
 ### Veraltete Attribute
 
 - `charset` {{deprecated_inline}}
-  - : Dieses Attribut definiert die Zeichenkodierung der verlinkten Ressource.
-    Der Wert ist eine durch Leerzeichen und/oder Kommas getrennte Liste von Zeichensätzen, wie in {{rfc(2045)}} definiert.
+  - : Dieses Attribut definiert die Zeichencodierung der verknüpften Ressource.
+    Der Wert ist eine durch Leerzeichen und / oder Kommas getrennte Liste von Zeichensätzen, wie in {{rfc(2045)}} definiert.
     Der Standardwert ist `iso-8859-1`.
 
     > [!NOTE]
-    > Um denselben Effekt wie dieses veraltete Attribut zu erzielen, verwenden Sie den {{HTTPHeader("Content-Type")}} HTTP-Header für die verlinkte Ressource.
+    > Um denselben Effekt wie dieses veraltete Attribut zu erzielen, verwenden Sie den {{HTTPHeader("Content-Type")}} HTTP-Header auf der verknüpften Ressource.
 
 - `rev` {{deprecated_inline}}
-  - : Der Wert dieses Attributs zeigt die Beziehung des aktuellen Dokuments zur verlinkten Ressource, wie durch das [`href`](#href)-Attribut definiert.
-    Das Attribut definiert somit die umgekehrte Beziehung im Vergleich zu dem Wert des `rel`-Attributs.
-    [Link-Typ-Werte](/de/docs/Web/HTML/Reference/Attributes/rel) für das Attribut sind ähnlich den möglichen Werten für [`rel`](#rel).
+  - : Der Wert dieses Attributs zeigt die Beziehung des aktuellen Dokuments zum verlinkten Dokument, wie durch das [`href`](#href) Attribut definiert, an.
+    Das Attribut definiert somit die umgekehrte Beziehung im Vergleich zum Wert des `rel` Attributs.
+    [Linktyp-Werte](/de/docs/Web/HTML/Reference/Attributes/rel) für das Attribut sind ähnlich wie die möglichen Werte für [`rel`](#rel).
 
     > [!NOTE]
-    > Statt `rev` sollten Sie das [`rel`](#rel)-Attribut mit dem entgegengesetzten [Link-Typ-Wert](/de/docs/Web/HTML/Reference/Attributes/rel) verwenden.
-    > Zum Beispiel, um den umgekehrten Link für `made` zu erstellen, spezifizieren Sie `author`. Auch steht dieses Attribut nicht für "Revision" und darf nicht mit einer Versionsnummer benutzt werden, obwohl viele Seiten es in dieser Art und Weise missbrauchen.
+    > Statt `rev` sollten Sie das [`rel`](#rel) Attribut mit dem umgekehrten [linktyp-Wert](/de/docs/Web/HTML/Reference/Attributes/rel) verwenden.
+    > Zum Beispiel, um den umgekehrten Link für `made` festzustellen, geben Sie `author` an. Dieses Attribut steht nicht für "revision" (Version) und darf nicht mit einer Versionsnummer verwendet werden, auch wenn viele Seiten es auf diese Weise missbrauchen.
 
 ## Beispiele
 
 ### Einbinden eines Stylesheets
 
-Um ein Stylesheet auf einer Seite einzubinden, verwenden Sie die folgende Syntax:
+Um ein Stylesheet in einer Seite einzubinden, verwenden Sie die folgende Syntax:
 
 ```html
 <link href="style.css" rel="stylesheet" />
@@ -301,8 +298,8 @@ Um ein Stylesheet auf einer Seite einzubinden, verwenden Sie die folgende Syntax
 
 Sie können auch [alternative Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) angeben.
 
-Der Benutzer kann auswählen, welches Stylesheet verwendet werden soll, indem er es aus dem Menü **Ansicht > Seitenstil** auswählt.
-Dies bietet eine Möglichkeit für Benutzer, mehrere Versionen einer Seite zu sehen.
+Der Benutzer kann auswählen, welches Stylesheet verwendet werden soll, indem er es aus dem **Ansicht > Seitendesign** Menü auswählt.
+Dies bietet eine Möglichkeit, mehrere Versionen einer Seite für Benutzer zugänglich zu machen.
 
 ```html
 <link href="default.css" rel="stylesheet" title="Default Style" />
@@ -310,9 +307,9 @@ Dies bietet eine Möglichkeit für Benutzer, mehrere Versionen einer Seite zu se
 <link href="basic.css" rel="alternate stylesheet" title="Basic" />
 ```
 
-### Bereitstellung von Icons für verschiedene Nutzungskontexte
+### Bereitstellung von Icons für unterschiedliche Nutzungskontexte
 
-Sie können Links zu mehreren Icons auf derselben Seite einfügen, und der Browser wählt aus, welches am besten für seinen jeweiligen Kontext geeignet ist, indem er `rel` und `sizes`-Werte als Hinweise verwendet.
+Sie können Verknüpfungen zu mehreren Icons auf derselben Seite einfügen, und der Browser wird basierend auf dem Kontext auswählen, welches am besten funktioniert, indem er die `rel` und `sizes` Werte als Hinweis verwendet.
 
 ```html
 <!-- iPad Pro with high-resolution Retina display: -->
@@ -336,14 +333,14 @@ Sie können Links zu mehreren Icons auf derselben Seite einfügen, und der Brows
 <link rel="icon" href="/favicon.ico" />
 ```
 
-Für Informationen darüber, welche `sizes` für Apple-Icons zu wählen sind, siehe [Apples Dokumentation zur Konfiguration von Web-Anwendungen](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4) und die referenzierten [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-icons#App-icon-sizes). Meist reicht es aus, ein großes Bild, wie 192x192, bereitzustellen, und den Browser es bei Bedarf verkleinern zu lassen, aber Sie möchten vielleicht Bilder mit verschiedenen Detailstufen für unterschiedliche Größen bereitstellen, wie es die Apple Designrichtlinie empfiehlt. Das Bereitstellen kleinerer Icons für niedrigere Auflösungen spart auch Bandbreite.
+Für Informationen, welche `sizes` für Apple-Icons zu wählen sind, siehe [Apples Dokumentation zur Konfiguration von Webanwendungen](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW4) und den verlinkten [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/app-icons#App-icon-sizes). Normalerweise genügt es, ein großes Bild wie 192x192 bereitzustellen und den Browser es nach Bedarf verkleinern zu lassen, aber möglicherweise möchten Sie Bilder mit unterschiedlichen Detailstufen für verschiedene Größen bereitstellen, wie die Apple-Designrichtlinie empfiehlt. Kleinere Icons für niedrigere Auflösungen zu bereitzustellen, spart auch Bandbreite.
 
-Es ist möglicherweise nicht notwendig, `<link>`-Elemente bereitzustellen. Zum Beispiel fordern Browser automatisch `/favicon.ico` aus der Wurzelverzeichnis einer Site, und Apple fordert automatisch `/apple-touch-icon-[size].png`, `/apple-touch-icon.png`, etc. an. Allerdings schützen explizite Links Sie vor Änderungen dieser Konventionen.
+Es kann nicht notwendig sein, `<link>` Elemente überhaupt bereitzustellen. Zum Beispiel fordern Browser automatisch `/favicon.ico` vom Hauptverzeichnis einer Seite an, und Apple fordert auch automatisch `/apple-touch-icon-[size].png`, `/apple-touch-icon.png` usw. an. Durch explizite Links schützen Sie sich jedoch vor Änderungen dieser Konventionen.
 
 ### Bedingtes Laden von Ressourcen mit Medienabfragen
 
-Sie können einen Medientyp oder eine Abfrage innerhalb eines `media`-Attributs angeben;
-die Ressource wird dann nur geladen, wenn die Medienbedingung zutrifft. Zum Beispiel:
+Sie können eine Medientyp- oder Abfrage innerhalb eines `media` Attributs bereitstellen;
+diese Ressource wird dann nur geladen, wenn die Medienbedingung wahr ist. Beispielsweise:
 
 ```html
 <link href="print.css" rel="stylesheet" media="print" />
@@ -355,9 +352,9 @@ die Ressource wird dann nur geladen, wenn die Medienbedingung zutrifft. Zum Beis
   media="screen and (resolution >= 300dpi)" />
 ```
 
-### Stylesheet-Ladeereignisse
+### Stylesheet Ladeereignisse
 
-Sie können feststellen, wann ein Stylesheet geladen wurde, indem Sie auf das `load`-Ereignis achten; ähnlich können Sie feststellen, wenn beim Prozessieren eines Stylesheets ein Fehler aufgetreten ist, indem Sie auf ein `error`-Ereignis achten:
+Sie können ermitteln, wann ein Stylesheet geladen wurde, indem Sie auf ein `load` Ereignis warten, das darauf ausgelöst wird; ähnlich können Sie erkennen, ob ein Fehler bei der Verarbeitung eines Stylesheets aufgetreten ist, indem Sie auf ein `error` Ereignis warten:
 
 ```html
 <link rel="stylesheet" href="mystylesheet.css" id="my-stylesheet" />
@@ -376,16 +373,16 @@ stylesheet.onerror = () => {
 ```
 
 > [!NOTE]
-> Das `load`-Ereignis wird ausgelöst, sobald das Stylesheet und all seine importierten Inhalte geladen und geparst wurden, und unmittelbar bevor die Styles auf den Inhalt angewendet werden.
+> Das `load` Ereignis wird ausgelöst, sobald das Stylesheet und alle importierten Inhalte geladen und geparst wurden und direkt bevor die Stile auf den Inhalt angewendet werden.
 
-### Beispiel für Preload
+### Preload-Beispiele
 
-Sie können eine Reihe von `<link rel="preload">` Beispielen in [Content vorladen mit `rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) finden.
+Sie finden eine Reihe von `<link rel="preload">` Beispielen in [Inhalte vorladen mit `rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload).
 
-### Rendering blockieren, bis eine Ressource abgerufen wird
+### Blockieren der Darstellung bis eine Ressource abgerufen ist
 
-Sie können das `render`-Token innerhalb eines `blocking`-Attributs einfügen;
-das Rendern der Seite wird blockiert, bis die Ressource und ihre kritischen Subressourcen abgerufen und auf das Dokument angewendet wurden. Zum Beispiel:
+Sie können ein `render` Token innerhalb eines `blocking` Attributs aufnehmen;
+die Darstellung der Seite wird blockiert, bis die Ressource und ihre kritischen Subressourcen abgerufen und auf das Dokument angewendet wurden. Zum Beispiel:
 
 ```html
 <link blocking="render" rel="stylesheet" href="example.css" crossorigin />
@@ -400,10 +397,10 @@ das Rendern der Seite wird blockiert, bis die Ressource und ihre kritischen Subr
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        Metadateninhalt.
-        Falls <code><a href="/de/docs/Web/HTML/Reference/Global_attributes/itemprop">itemprop</a></code> vorhanden ist:
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a> und
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalt</a>.
+        Metadateneinhalte.
+        Wenn <code><a href="/de/docs/Web/HTML/Reference/Global_attributes/itemprop">itemprop</a></code> vorhanden ist:
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalte</a> und
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasinhalte</a>.
       </td>
     </tr>
     <tr>
@@ -412,22 +409,22 @@ das Rendern der Seite wird blockiert, bis die Ressource und ihre kritischen Subr
     </tr>
     <tr>
       <th>Tag-Auslassung</th>
-      <td>Muss ein Anfangstag haben und darf keinen Endtag haben.</td>
+      <td>Er muss einen Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
-      <th>Zulässige Elternelemente</th>
+      <th>Erlaubte Eltern</th>
       <td>
-        Jedes Element, das Metadatenelemente akzeptiert.
-        Falls <a href="/de/docs/Web/HTML/Reference/Global_attributes/itemprop">itemprop</a> vorhanden ist: jedes Element, das
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalt</a> akzeptiert.
+        Jedes Element, das Metadaten-Elemente akzeptiert.
+        Wenn <a href="/de/docs/Web/HTML/Reference/Global_attributes/itemprop">itemprop</a> vorhanden ist: jedes Element, das
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasinhalte</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Impliziert ARIA-Rolle</th>
-      <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/link_role"><code>link</code></a> mit <code>href</code>-Attribut</td>
+      <th scope="row">Implizite ARIA Rolle</th>
+      <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/link_role"><code>link</code></a> mit <code>href</code> Attribut</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
@@ -447,4 +444,4 @@ das Rendern der Seite wird blockiert, bis die Ressource und ihre kritischen Subr
 
 ## Siehe auch
 
-- {{HTTPHeader("Link")}} HTTP-Header
+- {{HTTPHeader("Link")}} HTTP Header
