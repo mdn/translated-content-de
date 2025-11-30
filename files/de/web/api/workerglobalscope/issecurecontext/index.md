@@ -3,12 +3,12 @@ title: "WorkerGlobalScope: isSecureContext-Eigenschaft"
 short-title: isSecureContext
 slug: Web/API/WorkerGlobalScope/isSecureContext
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`isSecureContext`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Defenses/Secure_Contexts) (`true`) oder nicht (`false`).
+Die **`isSecureContext`** schreibgeschützte Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Defenses/Secure_Contexts) (`true`) oder nicht (`false`).
 
 ## Wert
 

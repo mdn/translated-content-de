@@ -1,20 +1,20 @@
 ---
-title: "HTMLMediaElement: sinkId Eigenschaft"
+title: "HTMLMediaElement: sinkId-Eigenschaft"
 short-title: sinkId
 slug: Web/API/HTMLMediaElement/sinkId
 l10n:
-  sourceCommit: 49dc4da9aa540af04aa4585cb90665326bbf52fa
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Audio Output Devices API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`sinkId`**-Eigenschaft der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle gibt eine Zeichenfolge zurück, die die eindeutige ID des Geräts ist, das für die Wiedergabe der Audioausgabe verwendet werden soll.
+Die schreibgeschützte **`sinkId`**-Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt einen String zurück, der die eindeutige ID des Geräts ist, das für die Audioausgabe verwendet werden soll.
 
-Diese ID sollte einer der [`MediaDeviceInfo.deviceId`](/de/docs/Web/API/MediaDeviceInfo/deviceId)-Werte sein, die von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben werden. Wenn das Standardgerät des Benutzeragenten verwendet wird, wird eine leere Zeichenfolge zurückgegeben.
+Diese ID sollte einer der [`MediaDeviceInfo.deviceId`](/de/docs/Web/API/MediaDeviceInfo/deviceId)-Werte sein, die von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) zurückgegeben werden. Wenn das Standardgerät des Benutzer-Agents verwendet wird, wird ein leerer String zurückgegeben.
 
 ## Wert
 
-Eine Zeichenfolge, die das aktuelle Audioausgabegerät angibt, oder die leere Zeichenfolge, wenn das Standard-Ausgabegerät des Benutzeragenten verwendet wird.
+Ein String, der das aktuelle Audioausgabegerät angibt, oder der leere String, wenn das Standard-Ausgabegerät des Benutzer-Agents verwendet wird.
 
 ## Sicherheitsanforderungen
 

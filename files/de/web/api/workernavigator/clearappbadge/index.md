@@ -3,12 +3,12 @@ title: "WorkerNavigator: clearAppBadge()-Methode"
 short-title: clearAppBadge()
 slug: Web/API/WorkerNavigator/clearAppBadge
 l10n:
-  sourceCommit: dbfd14568c69f049452ab4fdc9c2629b63ca78d2
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die **`clearAppBadge()`**-Methode des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces entfernt alle Abzeichen auf dem Icon der aktuellen App, indem es auf `nichts` gesetzt wird. Der Wert `nichts` bedeutet, dass derzeit kein Abzeichen gesetzt ist, und der Status des Abzeichens ist _gelöscht_.
+Die **`clearAppBadge()`**-Methode des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces entfernt ein Abzeichen vom Symbol der aktuellen App, indem es auf `nothing` gesetzt wird. Der Wert `nothing` zeigt an, dass derzeit kein Abzeichen gesetzt ist und der Status des Abzeichens _gelöscht_ ist.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 
-Sobald alle Nachrichten in einer Anwendung gelesen wurden, kann `clearAppBadge()` aufgerufen werden, um das Abzeichen zu löschen und die Benachrichtigung zu entfernen.
+Sobald alle Nachrichten in einer Anwendung gelesen wurden, rufen Sie `clearAppBadge()` auf, um das Abzeichen zu entfernen und die Benachrichtigung zu löschen.
 
 ```js
 navigator.clearAppBadge();
@@ -51,4 +51,4 @@ navigator.clearAppBadge();
 
 ## Siehe auch
 
-- [Abzeichen für App-Icons](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)
+- [Abzeichen für App-Symbole](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)

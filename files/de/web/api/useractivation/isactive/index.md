@@ -1,14 +1,14 @@
 ---
-title: "UserActivation: Eigenschaft isActive"
+title: "UserActivation: isActive-Eigenschaft"
 short-title: isActive
 slug: Web/API/UserActivation/isActive
 l10n:
-  sourceCommit: 7907a38073627c84ff795b1c0ea20513a90b4a4e
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`isActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine {{Glossary("transient_activation", "vorübergehende Benutzeraktivierung")}} hat.
+Die schreibgeschützte **`isActive`**-Eigenschaft der [`UserActivation`](/de/docs/Web/API/UserActivation)-Schnittstelle gibt an, ob das aktuelle Fenster eine {{Glossary("transient_activation", "transiente Benutzerauslösung")}} hat.
 
 ## Wert
 

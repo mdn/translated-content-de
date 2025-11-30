@@ -3,17 +3,20 @@ title: "SharedWorker: SharedWorker() Konstruktor"
 short-title: SharedWorker()
 slug: Web/API/SharedWorker/SharedWorker
 l10n:
-  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Web Workers API")}}
 
-Der **`SharedWorker()`** Konstruktor erstellt ein
+Der **`SharedWorker()`**-Konstruktor erstellt ein
 [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt, das das Skript an der angegebenen URL ausführt. Dieses
 Skript muss die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) einhalten.
 
 > [!NOTE]
-> Es gibt Uneinigkeit unter den Browser-Herstellern darüber, ob eine Daten-URL von derselben Herkunft ist oder nicht. Obwohl Firefox 10.0 und später Daten-URLs akzeptieren, trifft das nicht auf alle anderen Browser zu.
+> Es gibt Uneinigkeit unter Browser-Herstellern darüber,
+> ob eine Daten-URL von derselben Herkunft ist oder nicht. Obwohl Firefox ab Version 10.0
+> Daten-URLs akzeptiert, ist dies nicht in allen anderen
+> Browsern der Fall.
 
 ## Syntax
 
@@ -26,48 +29,48 @@ new SharedWorker(url, options)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des Skripts repräsentiert, das der Worker
+  - : Ein String, der die URL des Skripts darstellt, das der Worker
     ausführen wird. Es muss die Same-Origin-Policy einhalten.
 - `name` {{optional_inline}}
   - : Ein String, der einen identifizierenden Namen für den
-    [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) spezifiziert, der den Geltungsbereich des Workers darstellt, was nützlich ist, um neue Instanzen desselben SharedWorkers zu erstellen und zu debuggen.
+    [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) angibt, der den Geltungsbereich des Workers darstellt. Dies ist nützlich, um neue Instanzen desselben SharedWorkers zu erstellen und zu debuggen.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Optionen enthält, die beim Erstellen der Objektinstanz festgelegt werden können. Verfügbare Eigenschaften sind wie folgt:
+  - : Ein Objekt, das Options-Eigenschaften enthält, die beim Erstellen der Objektinstanz festgelegt werden können. Verfügbare Eigenschaften sind wie folgt:
     - `type`
-      - : Ein String, der den Typ des zu erstellenden Workers
-        spezifiziert. Der Wert kann `classic` oder `module` sein. Falls nicht
-        angegeben, wird standardmäßig `classic` verwendet.
+      - : Ein String, der den Typ des zu
+        erstellenden Workers angibt. Der Wert kann `classic` oder `module` sein. Wenn nicht angegeben,
+        wird `classic` als Standard verwendet.
     - `credentials`
-      - : Ein String, der die Art der
+      - : Ein String, der den Typ der
         Anmeldeinformationen angibt, die für den Worker verwendet werden sollen. Der Wert kann `omit`,
-        `same-origin` oder `_include` sein. Falls nicht
-        angegeben oder wenn `type` `classic` ist, wird standardmäßig
-        `omit` (keine Anmeldeinformationen erforderlich) verwendet.
+        `same-origin` oder `include` sein. Wenn nicht
+        angegeben, oder wenn der Typ `classic` ist, wird `omit` (keine Anmeldeinformationen erforderlich) als Standard verwendet.
     - `name`
       - : Ein String, der einen
-        identifizierenden Namen für den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) spezifiziert, der den Geltungsbereich des Workers darstellt, was hauptsächlich zu Debugging-Zwecken nützlich ist.
+        identifizierenden Namen für den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) angibt, der den
+        Geltungsbereich des Workers darstellt, hauptsächlich nützlich für Debugging-Zwecke.
     - `sameSiteCookies`
-      - : Ein String, der angibt, welche [`SameSite`-Cookies](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)
+      - : Ein String, der angibt, welche [`SameSite` Cookies](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value)
         dem Worker zur Verfügung stehen sollen. Kann einen der folgenden zwei Werte haben:
         - 'all'
-          - : `SameSite=Strict`, `SameSite=Lax` und `SameSite=None` Cookies werden dem Worker alle zur Verfügung stehen.
-            Diese Option wird nur in First-Party-Kontexten unterstützt und ist in First-Party-Kontexten der Standard.
+          - : `SameSite=Strict`, `SameSite=Lax` und `SameSite=None` Cookies stehen alle dem Worker zur Verfügung.
+            Diese Option wird nur in Erstanbieter-Kontexten unterstützt und ist der Standard in Erstanbieter-Kontexten.
         - 'none'
-          - : Nur `SameSite=None` Cookies werden dem Worker zur Verfügung stehen. Diese Option wird in First-Party-
-            und Third-Party-Kontexten unterstützt und ist in Third-Party-Kontexten der Standard.
+          - : Nur `SameSite=None` Cookies stehen dem Worker zur Verfügung. Diese Option wird sowohl in Erstanbieter-
+            als auch Drittanbieter-Kontexten unterstützt und ist der Standard in Drittanbieter-Kontexten.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Dokument nicht berechtigt ist, Workers zu starten, zum Beispiel wenn die URL eine ungültige Syntax hat, die Same-Origin-Policy verletzt wird, oder wenn der `sameSiteCookies`-Wert im gegebenen Kontext nicht unterstützt wird.
+  - : Wird ausgelöst, wenn das Dokument keine Berechtigung hat, Worker zu starten, zum Beispiel, wenn die URL eine ungültige Syntax hat oder wenn die Same-Origin-Policy verletzt wird, oder wenn der `sameSiteCookies` Wert im gegebenen Kontext nicht unterstützt wird.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts falsch ist. Er sollte _immer_ `text/javascript` sein (aus historischen Gründen können [andere JavaScript-MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) akzeptiert werden).
+  - : Wird ausgelöst, wenn der MIME-Typ des Worker-Skripts falsch ist. Es sollte _immer_ `text/javascript` sein (aus historischen Gründen können [andere JavaScript MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript) akzeptiert werden).
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `url` nicht geparst werden kann.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt die Erstellung eines [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekts unter Verwendung des `SharedWorker()` Konstruktors und die anschließende Verwendung des Objekts:
+Der folgende Code-Ausschnitt zeigt die Erstellung eines [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekts mit dem `SharedWorker()`-Konstruktor und die anschließende Nutzung des Objekts:
 
 ```js
 const myWorker = new SharedWorker("worker.js");
@@ -87,7 +90,7 @@ myWorker.port.onmessage = (e) => {
 };
 ```
 
-Für ein vollständiges Beispiel sehen Sie unser [Einfaches Shared Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([Shared Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/).)
+Für ein vollständiges Beispiel siehe unser [Einfaches Shared-Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-shared-worker) ([Shared-Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-shared-worker/).)
 
 ## Spezifikationen
 
@@ -99,4 +102,4 @@ Für ein vollständiges Beispiel sehen Sie unser [Einfaches Shared Worker Beispi
 
 ## Siehe auch
 
-- Das [`SharedWorker`](/de/docs/Web/API/SharedWorker) Interface, zu dem es gehört.
+- Die [`SharedWorker`](/de/docs/Web/API/SharedWorker) Schnittstelle, zu der sie gehört.

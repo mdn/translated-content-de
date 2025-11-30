@@ -2,10 +2,10 @@
 title: shortcuts
 slug: Web/Progressive_web_apps/Manifest/Reference/shortcuts
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
-Das `shortcuts`-Manifestmitglied wird verwendet, um Links zu wichtigen Aufgaben oder Seiten innerhalb Ihrer Webanwendung zu spezifizieren. Browser können diese Informationen verwenden, um ein Kontextmenü zu erstellen, das typischerweise angezeigt wird, wenn ein Benutzer mit dem Symbol der Web-App interagiert.
+Das `shortcuts` Manifest-Mitglied wird verwendet, um Links zu wichtigen Aufgaben oder Seiten innerhalb Ihrer Webanwendung anzugeben. Browser können diese Informationen nutzen, um ein Kontextmenü zu erstellen, das typischerweise angezeigt wird, wenn ein Benutzer mit dem Symbol der Web-App interagiert.
 
 ## Syntax
 
@@ -52,63 +52,64 @@ Das `shortcuts`-Manifestmitglied wird verwendet, um Links zu wichtigen Aufgaben 
 - `shortcuts`
   - : Ein Array von Objekten. Jedes Objekt repräsentiert eine wichtige Aufgabe oder Seite in der Web-App.
 
-    Jedes Objekt kann eine oder mehrere Eigenschaften haben. Davon sind nur `name` und `url` erforderlich. Die möglichen Eigenschaften umfassen:
+    Jedes Objekt kann eine oder mehrere Eigenschaften haben. Davon sind nur `name` und `url` erforderlich.
+    Die möglichen Eigenschaften sind:
     - `name`
       - : Ein String, der den Namen der Verknüpfung darstellt, der den Benutzern in einem Kontextmenü angezeigt wird.
 
     - `short_name` {{Optional_Inline}}
       - : Ein String, der eine kurze Version des Namens der Verknüpfung darstellt.
-        Browser können dies in Kontexten verwenden, in denen nicht genug Platz ist, um den vollständigen Namen anzuzeigen.
+        Browser können diesen in Kontexten verwenden, in denen nicht genug Platz zur Verfügung steht, um den vollständigen Namen anzuzeigen.
 
     - `description` {{Optional_Inline}}
       - : Ein String, der den Zweck der Verknüpfung beschreibt.
-        Browser können diese Information assistiven Technologien, wie z.B. Screenreadern, zur Verfügung stellen, die Nutzern helfen können, den Zweck der Verknüpfung zu verstehen.
+        Browser können diese Informationen assistierender Technologie, wie z.B. Bildschirmlesegeräten, bereitstellen, um den Benutzern zu helfen, den Zweck der Verknüpfung zu verstehen.
 
     - `url`
       - : Eine App-URL, die geöffnet wird, wenn die zugehörige Verknüpfung aktiviert wird.
-        Die URL muss innerhalb des [scope](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) des Web-App-Manifests liegen.
-        Wenn der Wert absolut ist, sollte er gleichen Ursprungs wie die Seite sein, die auf die Manifestdatei verweist.
-        Wenn der Wert relativ ist, wird er relativ zur URL der Manifestdatei aufgelöst.
+        Die URL muss innerhalb des [scopes](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) des Web-App-Manifests liegen.
+        Wenn der Wert absolut ist, sollte er von derselben Herkunft sein wie die Seite, die auf die Manifestdatei verweist.
+        Wenn der Wert relativ ist, wird er gegen die URL der Manifestdatei aufgelöst.
 
     - [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) {{Optional_Inline}}
-      - : Ein Array von Icon-Objekten, die die Verknüpfung in verschiedenen Kontexten repräsentieren.
-        Dies hat das gleiche Format wie das [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons)-Manifestmitglied.
+      - : Ein Array von Icon-Objekten, die die Verknüpfung in verschiedenen Kontexten darstellen.
+        Dies hat dasselbe Format wie das [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) Manifest-Mitglied.
 
 ## Beschreibung
 
-Das `shortcuts`-Mitglied ermöglicht es Ihnen, Nutzern direkten Zugriff auf wichtige Funktionen Ihrer Web-App zu bieten. Verknüpfungen werden in der Regel in einem Kontextmenü angezeigt, wenn Nutzer mit dem Symbol der Web-App interagieren, z. B. durch Rechtsklick oder langes Drücken. Wenn Nutzer eine Verknüpfung aus diesem Menü aktivieren, navigieren Browser sie zur in der `url` der Verknüpfung angegebenen Adresse.
+Das `shortcuts` Mitglied ermöglicht es Ihnen, den Benutzern direkten Zugriff auf wichtige Funktionen Ihrer Web-App zu bieten. Verknüpfungen werden normalerweise den Benutzern in einem Kontextmenü angezeigt, wenn sie mit dem Symbol der Web-App interagieren, z.B. durch Rechtsklick oder langes Drücken. Wenn Benutzer eine Verknüpfung aus diesem Menü aktivieren, navigieren die Browser sie zu der im `url` der Verknüpfung angegebenen Adresse.
 
-Browser geben Verknüpfungen normalerweise in der gleichen Reihenfolge wieder, in der sie in der Manifestdatei der App angegeben sind.
+Browser rendern Verknüpfungen in der Regel in der gleichen Reihenfolge, wie sie in der Manifestdatei der App angegeben sind.
 
 > [!NOTE]
-> Die Präsentation und die Anzahl der Verknüpfungen, die den Nutzern angezeigt werden, liegen im Ermessen der Browser und/oder des Betriebssystems.
-> Beispielsweise können Browser die Liste der angegebenen Verknüpfungen kürzen, um mit den Konventionen oder Einschränkungen des Host-Betriebssystems übereinzustimmen.
+> Die Präsentation und die Anzahl der den Benutzern gezeigten Verknüpfungen liegt im Ermessen der Browser und/oder des Betriebssystems.
+> Beispielsweise können Browser die Liste der deklarierten Verknüpfungen kürzen, um die Konventionen oder Beschränkungen des zugrunde liegenden Betriebssystems einzuhalten.
 
 ### Vorteile der Hinzufügung von Verknüpfungen
 
-Verknüpfungen können die Benutzererfahrung verbessern, indem sie:
+Verknüpfungen können das Benutzererlebnis verbessern durch:
 
-- Direkte Navigation zu häufig genutzten Funktionen oder Seiten innerhalb der Web-App bieten.
-- Ihre Web-App sich für Nutzer plattformnativer und vertrauter anfühlen lassen.
+- Bereitstellung direkter Navigation zu häufig genutzten Funktionen oder Seiten innerhalb der Web-App
+- Dafür sorgen, dass sich Ihre Web-App für die Benutzer plattformspezifischer und vertrauter anfühlt.
 
-Zum Beispiel können Verknüpfungen verwendet werden, um direkt zur Zeitleiste eines Nutzers innerhalb einer Social-Media-App zu verlinken oder schnellen Zugriff auf die letzten Bestellungen eines Nutzers in einem E-Commerce-Kontext zu bieten.
+Zum Beispiel können Verknüpfungen verwendet werden, um direkt zur Zeitleiste eines Benutzers innerhalb einer Social-Media-App zu verlinken oder um schnellen Zugriff auf die letzten Bestellungen eines Benutzers in einem E-Commerce-Kontext zu bieten.
 
-### Beste Praktiken für das Hinzufügen von Verknüpfungen
+### Beste Praktiken für die Hinzufügung von Verknüpfungen
 
-Wenn Sie Verknüpfungen für Ihre Web-App erstellen, beachten Sie die folgenden Richtlinien:
+Wenn Sie Verknüpfungen für Ihre Web-App erstellen, beachten Sie die folgenden Leitlinien:
 
-- Halten Sie die Verknüpfungsnamen kurz, aber aussagekräftig genug, um ihren Zweck für die Nutzer klar zu vermitteln.
-- Stellen Sie sicher, dass die URLs der Verknüpfungen innerhalb des Geltungsbereichs Ihrer Web-App liegen.
-- Fügen Sie Icons für Verknüpfungen hinzu, um die visuelle Erkennung zu verbessern.
-  Stellen Sie Icons in mehreren Größen zur Verfügung, um eine qualitativ hochwertige Anzeige über verschiedene Geräte und Kontexte hinweg zu gewährleisten.
-- Ordnen Sie die Verknüpfungen von der wichtigsten zur am wenigsten wichtigen Funktion in Bezug auf Relevanz und Nutzung.
-- Fügen Sie lieber einige wenige wichtige Verknüpfungen hinzu. Eine lange Liste kann Nutzer nicht nur überfordern, sondern könnte auch von einigen Plattformen oder Browsern gekürzt werden.
+- Halten Sie die Namen der Verknüpfungen kurz, aber aussagekräftig genug, um ihren Zweck für die Benutzer klar zu vermitteln.
+- Stellen Sie sicher, dass Verknüpfungs-URLs innerhalb des Scopes Ihrer Web-App liegen.
+- Schließen Sie Icons für Verknüpfungen ein, um die visuelle Erkennung zu verbessern.
+  Stellen Sie Icons in mehreren Größen bereit, um eine qualitativ hochwertige Darstellung auf verschiedenen Geräten und in verschiedenen Kontexten zu gewährleisten.
+- Ordnen Sie die Verknüpfungen von der wichtigsten bis zur unwichtigsten, basierend auf der Relevanz und Nutzung der Funktionen, zu denen sie verlinken.
+- Bevorzugen Sie das Hinzufügen weniger wichtiger Verknüpfungen. Eine lange Liste kann Benutzer nicht nur überwältigen, sondern möglicherweise auch von einigen Plattformen oder Browsern gekürzt werden.
 
 ## Beispiele
 
-### Definition von Verknüpfungen für eine Aufgabenmanagement-Web-App
+### Definition von Verknüpfungen für eine Aufgabenverwaltungs-Web-App
 
-Betrachten Sie eine Aufgabenmanagement-App. Dieses Beispiel zeigt, wie zwei Verknüpfungen hinzugefügt werden. Die Verknüpfung "Neue Aufgabe" führt die Nutzer direkt zur Aufgaben-Erstellungsseite, und die Verknüpfung "Heutige Aufgaben" bietet schnellen Zugriff auf ihre Aufgabenliste für den aktuellen Tag.
+Betrachten Sie eine Aufgabenverwaltungs-App. Dieses Beispiel zeigt, wie man zwei Verknüpfungen hinzufügt. Die "New Task"-Verknüpfung führt die Benutzer direkt zur Aufgaben-Erstellungsseite, und die "Today's Tasks"-Verknüpfung bietet schnellen Zugriff auf ihre Aufgabenliste für den aktuellen Tag.
 
 ```json
 {
@@ -133,9 +134,9 @@ Betrachten Sie eine Aufgabenmanagement-App. Dieses Beispiel zeigt, wie zwei Verk
 }
 ```
 
-### Hinzufügen von Verknüpfungs-Icons und Verwendung relativer URLs
+### Hinzufügen von Verknüpfungssymbolen und Verwenden relativer URLs
 
-Aufbauend auf dem vorherigen Beispiel fügt der untenstehende Code den beiden Verknüpfungen Icons hinzu und demonstriert die Verwendung einer relativen URL in einer zusätzlichen dritten Verknüpfung. Die `../projects`-URL wird relativ zur URL des App-Manifests aufgelöst. Zum Beispiel, wenn sich die Manifestdatei der App unter `/dashboard/manifest.json` befindet, würde diese Verknüpfung zu `/projects` navigieren.
+Aufbauend auf dem vorherigen Beispiel fügt der folgende Code den beiden Verknüpfungen Symbole hinzu und zeigt die Verwendung einer relativen URL in einer zusätzlichen dritten Verknüpfung. Die `../projects` URL wird relativ zur URL des App-Manifests aufgelöst. Wenn die Manifestsda Datei beispielsweise unter `/dashboard/manifest.json` gespeichert ist, würde diese Verknüpfung zu `/projects` navigieren.
 
 ```json
 {
@@ -188,8 +189,8 @@ Aufbauend auf dem vorherigen Beispiel fügt der untenstehende Code den beiden Ve
 
 ## Siehe auch
 
-- [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) Manifestmitglied
-- [`scope`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) Manifestmitglied
-- [`start_url`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/start_url) Manifestmitglied
+- [`icons`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/icons) Manifest-Mitglied
+- [`scope`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/scope) Manifest-Mitglied
+- [`start_url`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/start_url) Manifest-Mitglied
 - [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy)
-- Anleitung zum [Expose common actions as shortcuts](/de/docs/Web/Progressive_web_apps/How_to/Expose_common_actions_as_shortcuts) in PWAs
+- Anleitung zum [Exponieren häufiger Aktionen als Verknüpfungen](/de/docs/Web/Progressive_web_apps/How_to/Expose_common_actions_as_shortcuts) in PWAs

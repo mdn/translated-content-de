@@ -1,16 +1,16 @@
 ---
-title: "HTMLLinkElement: Eigenschaft disabled"
+title: "HTMLLinkElement: disabled Eigenschaft"
 short-title: disabled
 slug: Web/API/HTMLLinkElement/disabled
 l10n:
-  sourceCommit: 7c68e9bbf680784817e6415336c7dde5ae96360a
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`disabled`**-Eigenschaft der Schnittstelle [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) ist ein boolescher Wert, der angibt, ob der Link deaktiviert ist. Sie wirkt sich nur auf Stylesheet-Links aus (Eigenschaft `rel` auf `stylesheet` gesetzt).
+Die **`disabled`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein boolescher Wert, der angibt, ob der Link deaktiviert ist. Sie hat nur eine Wirkung bei Stylesheet-Links (wenn die `rel`-Eigenschaft auf `stylesheet` gesetzt ist).
 
-Wenn das `disabled`-Attribut im HTML beim Laden spezifiziert ist, wird das Stylesheet nicht während des Seitenladens geladen. Stattdessen wird das Stylesheet nur geladen, wenn die `disabled`-Eigenschaft auf `false` gesetzt oder entfernt wird. Das Festlegen der `disabled`-Eigenschaft mit JavaScript führt dazu, dass das Stylesheet aus der Liste der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) des Dokuments entfernt wird.
+Wenn das `disabled`-Attribut im HTML beim Laden der Seite angegeben wird, wird das Stylesheet nicht während des Seitenladevorgangs geladen. Stattdessen wird das Stylesheet nur geladen, wenn die `disabled`-Eigenschaft auf `false` gesetzt oder entfernt wird. Wenn die `disabled`-Eigenschaft per JavaScript gesetzt wird, wird das Stylesheet aus der Liste der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) des Dokuments entfernt.
 
 Sie spiegelt das `disabled`-Attribut des {{HTMLElement("link")}}-Elements wider.
 

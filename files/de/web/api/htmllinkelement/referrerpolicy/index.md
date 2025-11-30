@@ -3,12 +3,14 @@ title: "HTMLLinkElement: referrerPolicy-Eigenschaft"
 short-title: referrerPolicy
 slug: Web/API/HTMLLinkElement/referrerPolicy
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`referrerPolicy`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces spiegelt das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/link#referrerpolicy) des {{HTMLElement("link")}}-Elements wider, welches definiert, welcher Referrer beim Abrufen der Ressource gesendet wird.
+Die **`referrerPolicy`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces
+entspricht dem HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Reference/Elements/link#referrerpolicy) des
+{{HTMLElement("link")}}-Elements, das definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird.
 
 Siehe den HTTP-{{HTTPHeader("Referrer-Policy")}}-Header für Details.
 
@@ -19,19 +21,19 @@ Ein String; einer der folgenden:
 - `no-referrer`
   - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine Referrer-Informationen zusammen mit Anfragen gesendet.
 - `no-referrer-when-downgrade`
-  - : Die URL wird als Referrer gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z.B. HTTP→HTTP, HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (z.B. HTTPS→HTTP) gesendet.
+  - : Die URL wird als Referrer gesendet, wenn das Protokollsicherheitslevel gleich bleibt (z. B. HTTP→HTTP, HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel gesendet wird (z. B. HTTPS→HTTP).
 - `origin`
-  - : Nur der Ursprung des Dokuments wird in allen Fällen als Referrer gesendet. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
+  - : Sendet in allen Fällen nur den Ursprung des Dokuments als Referrer. Das Dokument `https://example.com/page.html` wird den Referrer `https://example.com/` senden.
 - `origin-when-cross-origin`
-  - : Eine vollständige URL wird bei einer Anfrage mit gleichem Ursprung gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
+  - : Sendet eine vollständige URL, wenn eine Anfrage im selben Ursprung erfolgt, aber nur den Ursprung des Dokuments in anderen Fällen.
 - `same-origin`
-  - : Ein Referrer wird für [gleicher-Ursprung-Anfragen](/de/docs/Web/Security/Defenses/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten sein.
+  - : Ein Referrer wird für [same-site origins](/de/docs/Web/Security/Defenses/Same-origin_policy) gesendet, aber bei cross-origin Anfragen werden keine Referrer-Informationen enthalten.
 - `strict-origin`
-  - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z.B., HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (z.B., HTTPS→HTTP) gesendet.
+  - : Sendet den Ursprung des Dokuments nur als Referrer, wenn das Protokollsicherheitslevel gleich bleibt (z. B. HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (z. B. HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
-  - : Dies ist das Standardverhalten des Benutzeragents, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird bei einer Anfrage mit gleichem Ursprung gesendet, nur der Ursprung wird gesendet, wenn das Protokoll-Sicherheitsniveau gleich bleibt (z.B. HTTPS→HTTPS), und es wird kein Header an ein weniger sicheres Ziel gesendet (z.B. HTTPS→HTTP).
+  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Sendet eine vollständige URL bei einer Anfrage im selben Ursprung, sendet nur den Ursprung, wenn das Protokollsicherheitslevel gleich bleibt (z. B. HTTPS→HTTPS), und sendet keinen Header an ein weniger sicheres Ziel (z. B. HTTPS→HTTP).
 - `unsafe-url`
-  - : Eine vollständige URL wird sowohl bei Anfragen mit gleichem Ursprung als auch bei Cross-Origin-Anfragen gesendet. Diese Richtlinie wird Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge preisgeben. Überlegen Sie sorgfältig die Auswirkungen dieser Einstellung.
+  - : Sendet eine vollständige URL bei einer Anfrage im selben oder einem anderen Ursprung. Diese Richtlinie kann Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge preisgeben. Betrachten Sie die Auswirkungen dieser Einstellung sorgfältig.
 
 ## Beispiele
 

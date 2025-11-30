@@ -1,14 +1,14 @@
 ---
-title: "Clipboard: writeText() Methode"
+title: "Zwischenablage: writeText() Methode"
 short-title: writeText()
 slug: Web/API/Clipboard/writeText
 l10n:
-  sourceCommit: fff3c2948f6eb9452568bb48e016bd199ce54b95
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`writeText()`** Methode der [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle schreibt den angegebenen Text in die System-Zwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die System-Zwischenablage aktualisiert wurde.
+Die **`writeText()`** Methode der [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle schreibt den angegebenen Text in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Systemzwischenablage aktualisiert wurde.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Inhalt der Zwischenab
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Schreiben in die Zwischenablage nicht erlaubt ist.
 
-## Sicherheitserwägungen
+## Sicherheitsüberlegungen
 
-Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) erfolgen.
+Das Schreiben in die Zwischenablage kann nur in einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) durchgeführt werden.
 
-Weitere Sicherheitsanforderungen sind im Abschnitt [Sicherheitserwägungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Überblicks behandelt.
+Zusätzliche Sicherheitsanforderungen sind im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtsthemas enthalten.
 
 ## Beispiele
 
@@ -63,7 +63,7 @@ async function writeClipboardText(text) {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)
+- [Bildunterstützung für asynchrone Zwischenablage Artikel](https://web.dev/articles/async-clipboard)
 - [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write)
 - [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read)
 - [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText)

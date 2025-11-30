@@ -1,16 +1,14 @@
 ---
-title: "Window: showSaveFilePicker() Methode"
+title: "Window: showSaveFilePicker()-Methode"
 short-title: showSaveFilePicker()
 slug: Web/API/Window/showSaveFilePicker
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("File System API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`showSaveFilePicker()`** Methode der
-[`Window`](/de/docs/Web/API/Window) Schnittstelle zeigt einen Dateiauswahldialog, der es einem Benutzer ermöglicht, eine Datei zu speichern.
-Entweder durch Auswählen einer vorhandenen Datei oder durch Eingabe eines Namens für eine neue Datei.
+Die **`showSaveFilePicker()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle zeigt einen Dateiauswahldialog an, der es einem Benutzer ermöglicht, eine Datei zu speichern. Dies kann entweder durch die Auswahl einer vorhandenen Datei oder durch Eingabe eines Namens für eine neue Datei geschehen.
 
 ## Syntax
 
@@ -24,48 +22,43 @@ showSaveFilePicker(options)
 - `options` {{Optional_Inline}}
   - : Ein Objekt, das Optionen enthält, die wie folgt sind:
     - `excludeAcceptAllOption` {{Optional_Inline}}
-      - : Ein boolescher Wert, der standardmäßig auf
-        `false` gesetzt ist. Standardmäßig sollte der Auswahldialog eine Option enthalten, keine Dateitypfilter anzuwenden (veranlasst durch die unten angegebene Typ-Option). Wenn diese Option auf `true` gesetzt ist, steht diese Option _nicht_ zur Verfügung.
+      - : Ein boolescher Wert, der standardmäßig auf `false` gesetzt ist. Standardmäßig sollte der Auswahldialog eine Option enthalten, um keine Dateitypenfilter anzuwenden (initiiert mit der unten stehenden Typ-Option). Wenn diese Option auf `true` gesetzt ist, ist diese Option _nicht_ verfügbar.
     - `id` {{Optional_Inline}}
-      - : Durch Spezifizieren einer ID kann der Browser sich unterschiedliche Verzeichnisse für verschiedene
-        IDs merken. Wenn dieselbe ID für einen anderen Picker verwendet wird, öffnet sich der Picker im selben
-        Verzeichnis.
+      - : Durch die Angabe einer ID kann der Browser verschiedene Verzeichnisse für unterschiedliche IDs speichern. Wenn die gleiche ID für einen anderen Auswahldialog verwendet wird, öffnet sich der Dialog im gleichen Verzeichnis.
     - `startIn` {{Optional_Inline}}
-      - : Ein [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) oder ein bekanntes Verzeichnis (`"desktop"`, `"documents"`,
-        `"downloads"`, `"music"`, `"pictures"`, oder `"videos"`) in dem der Dialog geöffnet wird.
+      - : Ein [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) oder ein bekanntes Verzeichnis (`"desktop"`, `"documents"`, `"downloads"`, `"music"`, `"pictures"` oder `"videos"`) in dem sich das Dialogfenster öffnet.
     - `suggestedName` {{Optional_Inline}}
-      - : Eine {{jsxref('String')}}. Der vorgeschlagene Dateiname.
+      - : Ein {{jsxref('String')}}. Der vorgeschlagene Dateiname.
     - `types` {{Optional_Inline}}
-      - : Ein {{jsxref('Array')}} der erlaubten Dateitypen zum Speichern. Jedes
-        Element ist ein Objekt mit den folgenden Optionen:
+      - : Ein {{jsxref('Array')}} von erlaubten Dateitypen zum Speichern. Jedes Element ist ein Objekt mit den folgenden Optionen:
         - `description` {{Optional_Inline}}
-          - : Eine optionale Beschreibung der Kategorie von erlaubten Dateitypen. Standardmäßig ein leerer String.
+          - : Eine optionale Beschreibung der Kategorie der zugelassenen Dateitypen. Standardmäßig ein leerer String.
         - `accept`
-          - : Ein {{jsxref('Object')}} mit den Schlüsseln für den [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types/Common_types) und den Werten, einem {{jsxref('Array')}} von Dateierweiterungen (siehe unten für ein Beispiel).
+          - : Ein {{jsxref('Object')}} mit den Schlüsseln, die auf den [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types/Common_types) gesetzt sind, und den Werten, die ein {{jsxref('Array')}} von Dateiendungen sind (siehe unten für ein Beispiel).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}} dessen Erfüllungs-Handler ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) Objekt erhält.
+Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Objekt erhält.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Benutzer den Dateiauswahldialog schließt, ohne eine Datei auszuwählen oder einzugeben, oder wenn der Benutzeragent eine ausgewählte Datei als zu sensibel oder gefährlich betrachtet.
+  - : Wird ausgelöst, wenn der Benutzer den Dateiauswahldialog schließt, ohne eine Datei auszuwählen oder einzugeben, oder wenn der User Agent ausgewählte Dateien als zu sensibel oder gefährlich einstuft.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde oder er nicht durch eine Benutzerinteraktion wie einen Button-Druck vorgenommen wurde.
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie einen Tastendruck erfolgte.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die akzeptierten Typen nicht verarbeitet werden können, was passieren kann, wenn:
-    - Ein beliebiger Schlüssel-String der `accept` Optionen eines Elements in den `types` Optionen keinen gültigen MIME-Typ parsen kann.
-    - Ein beliebiger Wert-String der `accept` Optionen eines Elements in den `types` Optionen ungültig ist, z.B. wenn er nicht mit `.` beginnt und mit `.` endet oder wenn er ungültige Codepunkte enthält und seine Länge mehr als 16 beträgt.
+  - : Wird ausgelöst, wenn akzeptierte Typen nicht verarbeitet werden können, was passieren kann, wenn:
+    - Ein beliebiger Schlüsselstring der `accept` Optionen eines Elements in `types` keine gültige MIME-Type parsen kann.
+    - Ein beliebiger Wertstring der `accept` Optionen eines Elements in `types` ungültig ist, zum Beispiel, wenn er nicht mit `.` beginnt und mit `.` endet, oder wenn er ungültige Zeichen enthält und seine Länge mehr als 16 beträgt.
     - Die `types` Optionen leer sind und die `excludeAcceptAllOption` Optionen `true` ist.
 
 ## Sicherheit
 
-[Übergangsaktivierung des Benutzers](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Temporäre Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Die folgende Funktion zeigt einen Dateiauswahldialog, in dem Textdateien zur Auswahl hervorgehoben sind.
+Die folgende Funktion zeigt einen Dateiauswahldialog an, mit hervorgehobenen Textdateien zur Auswahl.
 
 ```js
 async function getNewFileHandle() {

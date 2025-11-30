@@ -1,18 +1,18 @@
 ---
-title: "Window: isSecureContext Eigenschaft"
+title: "Window: isSecureContext-Eigenschaft"
 short-title: isSecureContext
 slug: Web/API/Window/isSecureContext
 l10n:
-  sourceCommit: 964e2254ff85284e27121394dc5b6c5ac34a5ee3
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("DOM")}}
 
-Die **`isSecureContext`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Defenses/Secure_Contexts) (`true`) oder nicht (`false`).
+Die schreibgeschützte **`isSecureContext`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt einen Boolean-Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Defenses/Secure_Contexts) (`true`) oder nicht (`false`).
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean-Wert.
 
 ## Spezifikationen
 

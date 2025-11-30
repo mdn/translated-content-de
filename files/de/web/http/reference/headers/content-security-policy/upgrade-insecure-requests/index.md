@@ -1,15 +1,14 @@
 ---
-title: "Content-Security-Policy: upgrade-insecure-requests-Direktive"
+title: "Content-Security-Policy: Direktive upgrade-insecure-requests"
 short-title: upgrade-insecure-requests
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests
 l10n:
-  sourceCommit: e34a63d834d0d445073ef711537c6aeb7bd11ad5
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`upgrade-insecure-requests`**-Direktive weist Benutzeragenten an, alle unsicheren URLs einer Website (die über HTTP bereitgestellt werden) so zu behandeln, als wären sie durch sichere URLs (die über HTTPS bereitgestellt werden) ersetzt worden. Diese Direktive ist für Websites gedacht, die eine große Anzahl unsicherer Legacy-URLs haben, die neu geschrieben werden müssen.
+Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`upgrade-insecure-requests`** weist Benutzeragenten an, alle unsicheren URLs einer Website (die über HTTP bereitgestellt werden) so zu behandeln, als wären sie durch sichere URLs (die über HTTPS bereitgestellt werden) ersetzt worden. Diese Direktive ist für Websites gedacht, die eine große Anzahl unsicherer, veralteter URLs haben, die umgeschrieben werden müssen.
 
-Die `upgrade-insecure-requests`-Direktive stellt nicht sicher, dass Benutzer, die Ihre Website über Links auf Drittanbieter-Websites besuchen, für die oberste Navigation auf HTTPS umgestellt werden. Daher ersetzt sie nicht den {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})-Header, der weiterhin mit einem geeigneten `max-age` gesetzt werden sollte, um sicherzustellen, dass Benutzer nicht Ziel von SSL-Stripping-Angriffen werden.
+Die `upgrade-insecure-requests`-Direktive stellt nicht sicher, dass Benutzer, die Ihre Website über Links von Drittanbieter-Websites besuchen, für die Hauptnavigation auf HTTPS aufgerüstet werden. Sie ersetzt daher nicht den {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})-Header, der weiterhin mit einem geeigneten `max-age` gesetzt werden sollte, um sicherzustellen, dass Benutzer nicht SSL-Stripping-Angriffen ausgesetzt sind.
 
 ## Syntax
 
@@ -33,37 +32,37 @@ Content-Security-Policy: upgrade-insecure-requests;
   content="upgrade-insecure-requests" />
 ```
 
-Mit dem oben genannten Header, der auf einer Domain example.com gesetzt ist, die von HTTP zu HTTPS migrieren möchte, werden nicht navigationsbezogene unsichere Ressourcenanforderungen automatisch aufgewertet (sowohl Erstanbieter- als auch Drittanbieteranforderungen).
+Mit dem obigen Header, der auf einer Domain wie example.com gesetzt ist, die von HTTP zu HTTPS migrieren möchte, werden nicht-navigierende unsichere Ressourcenanforderungen automatisch aufgerüstet (sowohl erst- als auch drittanbieter-Anfragen).
 
 ```html
 <img src="http://example.com/image.png" />
 <img src="http://not-example.com/image.png" />
 ```
 
-Diese URLs werden umgeschrieben, bevor die Anfrage erfolgt, was bedeutet, dass keine unsicheren Anforderungen das Netzwerk erreichen. Beachten Sie, dass, wenn die angeforderte Ressource tatsächlich nicht über HTTPS verfügbar ist, die Anfrage fehlschlägt, ohne auf HTTP zurückzufallen.
+Diese URLs werden umgeschrieben, bevor die Anfrage gestellt wird, was bedeutet, dass keine unsicheren Anfragen das Netzwerk erreichen. Beachten Sie, dass die Anfrage fehlschlägt, wenn die angeforderte Ressource tatsächlich nicht über HTTPS verfügbar ist, ohne dass ein Fallback zu HTTP erfolgt.
 
 ```html
 <img src="https://example.com/image.png" />
 <img src="https://not-example.com/image.png" />
 ```
 
-Navigations-Upgrades zu Drittanbieterressourcen haben ein signifikant höheres Potenzial für Fehler, diese werden nicht aufgewertet:
+Navigationsaufrüstungen zu Ressourcen von Drittanbietern bringen ein signifikant höheres Potenzial für Brüche mit sich, diese werden nicht aufgerüstet:
 
 ```html
 <a href="https://example.com/">Home</a>
 <a href="http://not-example.com/">Home</a>
 ```
 
-### Unsichere Anfragen finden
+### Aufspüren unsicherer Anfragen
 
-Mit Hilfe des {{HTTPHeader("Content-Security-Policy-Report-Only")}}-Headers und der {{CSP("report-uri")}}-Direktive können Sie eine durchgesetzte Richtlinie und eine berichtete Richtlinie wie folgt einrichten:
+Mit Hilfe des Headers {{HTTPHeader("Content-Security-Policy-Report-Only")}} und der Direktive {{CSP("report-uri")}} können Sie eine erzwungene Richtlinie und eine gemeldete Richtlinie wie folgt einrichten:
 
 ```http
 Content-Security-Policy: upgrade-insecure-requests; default-src https:
 Content-Security-Policy-Report-Only: default-src https:; report-uri /endpoint
 ```
 
-Auf diese Weise werten Sie weiterhin unsichere Anfragen auf Ihrer sicheren Website auf, aber nur die Überwachungsrichtlinie wird verletzt und meldet unsichere Ressourcen an Ihren Endpunkt.
+Auf diese Weise rüsten Sie immer noch unsichere Anfragen auf Ihrer sicheren Website auf, aber nur die Überwachungsrichtlinie wird verletzt und meldet unsichere Ressourcen an Ihren Endpunkt.
 
 ## Spezifikationen
 
@@ -76,6 +75,6 @@ Auf diese Weise werten Sie weiterhin unsichere Anfragen auf Ihrer sicheren Websi
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- {{HTTPHeader("Upgrade-Insecure-Requests")}} Header
-- {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}}) Header
-- [Gemischte Inhalte](/de/docs/Web/Security/Defenses/Mixed_content)
+- {{HTTPHeader("Upgrade-Insecure-Requests")}}-Header
+- {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})-Header
+- [Mixed content](/de/docs/Web/Security/Defenses/Mixed_content)

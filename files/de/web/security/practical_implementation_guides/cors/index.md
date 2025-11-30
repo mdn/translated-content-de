@@ -1,30 +1,30 @@
 ---
-title: Cross-Origin Resource Sharing (CORS)-Konfiguration
+title: Cross-Origin Resource Sharing (CORS) Konfiguration
 short-title: Cross-Origin Resource Sharing (CORS)
 slug: Web/Security/Practical_implementation_guides/CORS
 l10n:
-  sourceCommit: 86fa532a00024e7c85a4c0d6339adce8b1bd9f61
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
-Cross-Origin Resource Sharing (CORS) wird mittels [`Access-Control-Allow-Origin`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) und verwandter Header gehandhabt. `Access-Control-Allow-Origin` definiert die nicht selben Ursprünge, die berechtigt sind, Anfragen an Seiten auf Ihrer Domain zu stellen (d.h. über [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`fetch()`](/de/docs/Web/API/Window/fetch)).
+Cross-Origin Resource Sharing (CORS) wird mit Hilfe von [`Access-Control-Allow-Origin`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) und verwandten Headern gehandhabt. `Access-Control-Allow-Origin` definiert die nicht gleichen Ursprünge, die berechtigt sind, Anfragen an Seiten auf Ihrer Domain zu senden (d.h. über [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`fetch()`](/de/docs/Web/API/Window/fetch)).
 
 ## Problem
 
-Standardmäßig blockiert die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) von Skripten initiierte Cross-Origin-HTTP-Anfragen. Es gibt mehrere Anwendungsfälle, die den Zugriff von Skripten über Ursprungsgrenzen hinweg erfordern; zum Beispiel Content Delivery Networks (CDNs), die das Hosting für JavaScript/CSS-Bibliotheken und öffentliche API-Endpunkte bereitstellen. Jedoch stellt der Zugriff über Ursprungsgrenzen ein erhebliches Sicherheitsrisiko dar und muss sorgfältig kontrolliert werden.
+Standardmäßig blockiert die [Same-Origin-Policy](/de/docs/Web/Security/Defenses/Same-origin_policy) von Skripten initiierte Cross-Origin HTTP-Anfragen. Es gibt mehrere Anwendungsfälle, die einen Zugriff von skriptübergreifenden Quellen erfordern; zum Beispiel Content Delivery Networks (CDNs), die das Hosting für JavaScript/CSS-Bibliotheken und öffentliche API-Endpunkte bereitstellen. Jedoch stellt der Cross-Origin-Zugriff ein großes Sicherheitsrisiko dar und muss sorgfältig kontrolliert werden.
 
 ## Lösung
 
-Verwenden Sie `Access-Control-Allow-Origin`, um die nicht selben Ursprünge zu definieren, die berechtigt sind, Anfragen an Seiten auf Ihrer Domain zu stellen.
+Verwenden Sie `Access-Control-Allow-Origin`, um die nicht gleichen Ursprünge zu definieren, die berechtigt sind, Anfragen an Seiten auf Ihrer Domain zu senden.
 
-Falls vorhanden, sollte `Access-Control-Allow-Origin` die minimale Anzahl an Ursprüngen und Ressourcen spezifizieren, die für die Funktion Ihrer Seite notwendig sind. Zum Beispiel, wenn Ihr Server sowohl eine Webseite als auch eine API bereitstellt, die für Remote-`XMLHttpRequest`-Zugriffe bestimmt ist, sollten nur die API-Ressourcen den `Access-Control-Allow-Origin`-Header zurückgeben.
+Wenn vorhanden, sollte `Access-Control-Allow-Origin` die minimale Anzahl an Ursprüngen und Ressourcen angeben, die für das Funktionieren Ihrer Website notwendig sind. Wenn Ihr Server beispielsweise sowohl eine Website als auch eine API bereitstellt, die für den entfernten `XMLHttpRequest`-Zugriff gedacht ist, sollten nur die API-Ressourcen den Header `Access-Control-Allow-Origin` zurückgeben.
 
-Wenn `Access-Control-Allow-Origin` nicht richtig eingestellt ist, können unautorisierte Ursprünge die Inhalte jeder Seite auf Ihrer Seite lesen. Dies kann besonders gefährlich sein, wenn diese Seiten in der Lage sind, Anmeldedaten zu senden, was Ihre Seite potentiell [CSRF](/de/docs/Web/Security/Attacks/CSRF)-Angriffen aussetzen könnte.
+Wenn `Access-Control-Allow-Origin` nicht korrekt gesetzt wird, können unautorisierte Ursprünge die Inhalte jeder Seite auf Ihrer Website lesen. Dies kann besonders gefährlich sein, wenn diese Seiten in der Lage sind, Anmeldeinformationen zu senden, wodurch Ihre Website potenziell [CSRF](/de/docs/Web/Security/Attacks/CSRF)-Angriffen ausgesetzt wird.
 
-Falls ein beglaubigter Zugriff von bestimmten Ursprüngen erforderlich ist, stellen Sie sicher, dass `Access-Control-Allow-Origin` nur auf diese Ursprünge gesetzt ist und nicht den [`Origin`](/de/docs/Web/HTTP/Reference/Headers/Origin)-Header widerspiegelt. Falls ein öffentlicher nicht beglaubigter Zugriff erforderlich ist, setzen Sie `Access-Control-Allow-Origin` auf `*` und lassen Sie den `Access-Control-Allow-Credentials`-Header weg. Andernfalls lassen Sie beide Header weg.
+Wenn ein authentifizierter Zugriff von bestimmten Ursprüngen erforderlich ist, stellen Sie sicher, dass `Access-Control-Allow-Origin` nur auf diese Ursprünge gesetzt wird, anstatt den [`Origin`](/de/docs/Web/HTTP/Reference/Headers/Origin)-Header zu spiegeln. Wenn öffentlicher, nicht authentifizierter Zugriff erforderlich ist, setzen Sie `Access-Control-Allow-Origin` auf `*` und lassen Sie den Header `Access-Control-Allow-Credentials` weg. Andernfalls lassen Sie beide Header weg.
 
 ## Beispiele
 
-Erlauben Sie jeder Webseite, die Inhalte einer JavaScript-Bibliothek zu lesen:
+Erlauben Sie jeder Website, den Inhalt einer JavaScript-Bibliothek zu lesen:
 
 ```http
 Access-Control-Allow-Origin: *
@@ -51,4 +51,4 @@ Access-Control-Allow-Origin: https://random-dashboard.example.org
 - [`Access-Control-Request-Method`](/de/docs/Web/HTTP/Reference/Headers/Access-Control-Request-Method)
 - [`Origin`](/de/docs/Web/HTTP/Reference/Headers/Origin)
 - [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/Guides/CORS)
-- [CORS für Entwickler](https://w3c.github.io/webappsec-cors-for-developers/) von W3C (2016)
+- [CORS for Developers](https://w3c.github.io/webappsec-cors-for-developers/) von W3C (2016)

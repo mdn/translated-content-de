@@ -1,21 +1,21 @@
 ---
-title: Man-in-the-Middle (MITM)
+title: Manipulator in the Middle (MITM)
 slug: Web/Security/Attacks/MITM
 l10n:
-  sourceCommit: b07e3b87504a8984cf31d7a735ec373d33a11cd5
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
-Bei einem Man-in-the-Middle (MITM)-Angriff schaltet sich der Angreifer zwischen zwei Einheiten, die versuchen, miteinander zu kommunizieren.
+Bei einem Manipulator in the Middle (MITM)-Angriff schaltet sich der Angreifer zwischen zwei Einheiten, die versuchen, miteinander zu kommunizieren.
 
-Im Web erfolgt ein MITM-Angriff in der Regel zwischen dem Browser des Benutzers und dem Server und ermöglicht es dem Angreifer, jeglichen über HTTP ausgetauschten Datenverkehr zu sehen und möglicherweise zu modifizieren.
+Im Web findet ein MITM-Angriff in der Regel zwischen dem Browser des Benutzers und dem Server statt und ermöglicht es dem Angreifer, den gesamten über HTTP ausgetauschten Datenverkehr zu sehen und möglicherweise zu modifizieren.
 
-Eine gängige Methode für einen Angreifer, einen MITM-Angriff durchzuführen, ist das Einrichten eines drahtlosen Zugangspunkts an einem öffentlichen Ort, wie einem Café oder einem Flughafen, und darauf zu warten, dass sich ein Opfer mit diesem verbindet. Wenn sich ein Opfer verbindet, kann der Angreifer alle Daten lesen und modifizieren, die zwischen dem Browser des Benutzers und den von ihm besuchten Websites ausgetauscht werden.
+Eine übliche Methode für einen Angreifer, einen MITM-Angriff auszuführen, besteht darin, einen drahtlosen Zugangspunkt an einem öffentlichen Ort, wie einem Café oder einem Flughafen, einzurichten und darauf zu warten, dass ein Opfer sich damit verbindet. Wenn sich ein Opfer verbindet, kann der Angreifer alle zwischen dem Browser des Benutzers und den von ihm besuchten Websites ausgetauschten Daten lesen und modifizieren.
 
 ## Abwehrmaßnahmen gegen MITM
 
-Die primäre Verteidigung gegen MITM besteht darin, Ihre Website über {{Glossary("HTTPS", "HTTPS")}} (HTTP über {{Glossary("TLS", "TLS")}}) bereitzustellen. HTTPS verhindert, dass ein Angreifer den Datenverkehr lesen oder auf vorhersehbare Weise modifizieren kann.
+Die primäre Abwehrmaßnahme gegen MITM besteht darin, Ihre Website über {{Glossary("HTTPS", "HTTPS")}} (HTTP über {{Glossary("TLS", "TLS")}}) bereitzustellen. HTTPS verhindert, dass ein Angreifer den Datenverkehr lesen oder in vorhersagbarer Weise modifizieren kann.
 
-Sie sollten alle Seiten über HTTPS bereitstellen, nicht nur Seiten, die Sie als besonders sensibel betrachten.
+Sie sollten alle Seiten über HTTPS bereitstellen, nicht nur die Seiten, die Sie für besonders sensibel halten.
 
 ### Verwenden Sie eine sichere TLS-Konfiguration
 
@@ -23,28 +23,28 @@ Um HTTPS zu unterstützen, benötigt eine Website ein TLS-Zertifikat. [Let's Enc
 
 Nicht alle TLS-Konfigurationen sind gleichermaßen sicher: Wenn Sie Ihren eigenen Server konfigurieren müssen, konsultieren Sie eine Ressource wie Mozillas [TLS Recommended Configurations](https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_configurations).
 
-Moderne Webhosting-Dienste unterstützen HTTPS für Sie, entweder standardmäßig oder über eine Konfigurationseinstellung. In diesem Fall verwaltet der Hosting-Dienst wahrscheinlich Ihr Zertifikat und konfiguriert den Server in Ihrem Namen.
+Moderne Webhosting-Dienste unterstützen HTTPS für Sie, entweder standardmäßig oder durch eine Konfigurationseinstellung. In diesem Fall wird wahrscheinlich der Hosting-Dienst Ihr Zertifikat verwalten und den Server in Ihrem Namen konfigurieren.
 
-### Laden Sie Unterressourcen über HTTPS
+### Laden Sie Subressourcen über HTTPS
 
-Wenn eine Seite Ressourcen lädt (Skripte, Stylesheets, Schriftarten, Bilder usw.), sollten diese Ressourcen ebenfalls über HTTPS bereitgestellt werden. Wenn eine Seite über HTTPS geladen wird und versucht, Ressourcen über HTTP zu laden, wird der Browser entweder versuchen, die Ladeanforderung auf HTTPS umzustellen oder die Anforderung blockieren: Dies wird als [mixed content blocking](/de/docs/Web/Security/Defenses/Mixed_content) bezeichnet.
+Wenn eine Seite Ressourcen (Skripte, Stylesheets, Schriftarten, Bilder usw.) lädt, sollten diese Ressourcen ebenfalls über HTTPS bereitgestellt werden. Wenn eine Seite über HTTPS geladen wird und versucht, Ressourcen über HTTP zu laden, wird der Browser entweder versuchen, die Ladeanforderung auf HTTPS upzugraden oder die Anforderung blockieren: Dies wird als [Mixed Content Blocking](/de/docs/Web/Security/Defenses/Mixed_content) bezeichnet.
 
-Wenn es Ihnen nicht möglich ist, Ihren Code zu aktualisieren, um Ressourcen von HTTPS-URLs zu laden (zum Beispiel, weil Ihr HTML archiviert wurde), kann Ihr Server eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) einstellen, die die [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Guides/CSP#upgrading_insecure_requests) Direktive enthält, und der Browser wird diese Anfragen automatisch auf HTTPS umstellen.
+Wenn es Ihnen nicht möglich ist, Ihren Code zu aktualisieren, um Ressourcen von HTTPS-URLs zu laden (zum Beispiel, weil Ihr HTML archiviert wurde), kann Ihr Server eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) setzen, die die [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Guides/CSP#upgrading_insecure_requests)-Direktive enthält, und der Browser wird diese Anfragen automatisch zu HTTPS upgraden.
 
 ### Verwenden Sie HSTS beim Upgraden von HTTP-Anfragen
 
-Selbst wenn Ihre Website nur über HTTPS bereitgestellt wird, können Benutzer sie dennoch über HTTP anfordern: Zum Beispiel, indem sie `http://example.org` in die Adressleiste eingeben. Um Ihre Website in solch einem Fall funktionsfähig zu machen, können Sie auf HTTP-Anfragen hören und mit einer [301 Moved Permanently](/de/docs/Web/HTTP/Reference/Status/301) Antwort auf die HTTPS-Version umleiten.
+Auch wenn Ihre Website nur über HTTPS bereitgestellt wird, können Benutzer sie dennoch über HTTP anfragen: zum Beispiel, indem sie `http://example.org` in die Adressleiste eingeben. Um Ihre Seite in solchen Fällen zugänglich zu machen, können Sie auf HTTP-Anfragen lauschen und eine [301 Moved Permanently](/de/docs/Web/HTTP/Reference/Status/301)-Antwort verwenden, um auf die HTTPS-Version umzuleiten.
 
-Dies gibt Angreifern jedoch die Möglichkeit, den anfänglichen Austausch abzufangen und dann das Upgrade auf HTTPS zu verhindern. Dies wird manchmal als _SSL-Stripping_-Angriff bezeichnet ({{Glossary("SSL", "SSL")}} ist der Vorgänger von TLS).
+Dies gibt jedoch Angreifern die Möglichkeit, den ersten Austausch abzufangen und dann zu verhindern, dass das Upgrade auf HTTPS erfolgt. Dies wird manchmal als _SSL-Stripping_-Angriff bezeichnet ({{Glossary("SSL", "SSL")}} ist der Vorgänger von TLS).
 
-Um das Risiko dieses Angriffs zu verringern, sollte Ihr Server auch den {{httpheader("Strict-Transport-Security")}} HTTP-Antwortheader senden (auch bekannt als HSTS): Dies informiert die Clients, dass Sie HTTPS verwenden möchten, und wird den Browser dazu veranlassen, bei zukünftigen Besuchen direkt über HTTPS zu verbinden, auch bei Anfragen über HTTP-URLs.
+Um das Risiko dieses Angriffs zu verringern, sollte Ihr Server auch den {{httpheader("Strict-Transport-Security")}} HTTP-Antwortheader senden (auch als HSTS bekannt): Dies informiert die Clients darüber, dass Sie möchten, dass sie HTTPS verwenden, und der Browser wird bei jedem nachfolgenden Besuch direkt über HTTPS verbinden, selbst bei Anforderungen, die HTTP-URLs verwenden.
 
-Mit HSTS wird SSL-Stripping verhindert, außer beim ersten Mal, wenn der Browser versucht, sich mit Ihrer Website zu verbinden (oder, da HSTS ein Ablaufdatum hat, beim ersten Mal nach dem Ablauf eines HSTS-Eintrags im Browser). Um Ihre Website sogar bei der ersten Verbindung oder dem Ablauf eines HSTS-Eintrags zu schützen, pflegt Chrome eine Liste von Domains, die als [HSTS preload list](https://hstspreload.org/) bezeichnet wird: Wenn eine Domain auf dieser Liste steht, wird Chrome HTTP-Anfragen immer auf HTTPS umstellen, als ob der Server bereits den HSTS-Header gesendet hätte. Safari und Firefox haben ein ähnliches Verhalten und verwenden eine Liste, die von der Chrome-Liste abgeleitet ist.
+Mit HSTS wird SSL-Stripping verhindert, außer beim ersten Versuch des Browsers, sich mit Ihrer Website zu verbinden (oder, da HSTS ein Ablaufdatum hat, beim ersten Versuch nach Ablauf eines HSTS-Eintrags im Browser). Um Ihre Website auch beim ersten Verbindung oder Ablauf des HSTS-Eintrags zu schützen, führt Chrome eine Liste von Domains namens [HSTS Preload List](https://hstspreload.org/): Wenn sich eine Domain auf dieser Liste befindet, wird Chrome immer die HTTP-Anfrage auf HTTPS upgraden, was effektiv so funktioniert, als hätte der Server bereits den HSTS-Header gesendet. Safari und Firefox zeigen ein ähnliches Verhalten, da sie eine Liste verwenden, die von der Chrome-Liste abgeleitet ist.
 
-## Zusammenfassende Checkliste zur Verteidigung
+## Zusammenfassung der Abwehrmaßnahmen
 
-- Stellen Sie alle Seiten und Unterressourcen Ihrer Website über HTTPS bereit.
-- Wenn Sie HTTP-Anfragen auf HTTPS umleiten möchten, verwenden Sie HSTS und ziehen Sie in Betracht, Ihre Website zur HSTS-Vorliste hinzuzufügen.
+- Stellen Sie alle Seiten und Subressourcen Ihrer Website über HTTPS bereit.
+- Wenn Sie HTTP-Anfragen auf HTTPS umleiten möchten, verwenden Sie HSTS und erwägen Sie, Ihre Website zur HSTS-Preload-Liste hinzuzufügen.
 
 ## Siehe auch
 

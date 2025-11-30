@@ -3,12 +3,12 @@ title: "Performance: measureUserAgentSpecificMemory() Methode"
 short-title: measureUserAgentSpecificMemory()
 slug: Web/API/Performance/measureUserAgentSpecificMemory
 l10n:
-  sourceCommit: 6d363614de8a40c33d1afe92e4e846b75beea986
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`measureUserAgentSpecificMemory()`** Methode wird verwendet, um die Speichernutzung einer Webanwendung einschließlich aller ihrer Iframes und Worker abzuschätzen.
+Die **`measureUserAgentSpecificMemory()`**-Methode wird verwendet, um den Speicherverbrauch einer Webanwendung einschließlich aller ihrer Iframes und Worker zu schätzen.
 
 ## Syntax
 
@@ -22,30 +22,30 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, das die folgenden Eigenschaften enthält:
+Ein {{jsxref("Promise")}}, das in ein Objekt mit den folgenden Eigenschaften aufgelöst wird:
 
 - `bytes`
-  - : Eine Zahl, die die gesamte Speichernutzung darstellt.
+  - : Eine Zahl, die den gesamten Speicherverbrauch repräsentiert.
 - `breakdown`
-  - : Ein {{jsxref("Array")}} von Objekten, die die gesamten `bytes` aufteilen und Zugehörigkeits- und Typinformationen bereitstellen. Das Objekt enthält die folgenden Eigenschaften:
+  - : Ein {{jsxref("Array")}} von Objekten, das die gesamten `bytes` unterteilt und Zuordnungs- und Typinformationen bereitstellt. Das Objekt enthält die folgenden Eigenschaften:
     - `bytes`
-      - : Die Größe des Speichers, die dieser Eintrag beschreibt.
+      - : Die Größe des Speichers, den dieser Eintrag beschreibt.
     - `attribution`
-      - : Ein {{jsxref("Array")}} von Containerelementen der JavaScript-Bereiche, die den Speicher verwenden. Dieses Objekt hat die folgenden Eigenschaften:
+      - : Ein {{jsxref("Array")}} von Containerelementen der JavaScript-Reiche, die den Speicher verwenden. Dieses Objekt hat die folgenden Eigenschaften:
         - `url`
-          - : Wenn diese Zuordnung einem Same-Origin-JavaScript-Bereich entspricht, enthält diese Eigenschaft die URL des Bereichs. Andernfalls ist es der String "cross-origin-url".
+          - : Wenn diese Zuordnung einem gleich-origen JavaScript-Reich entspricht, dann enthält diese Eigenschaft die URL des Reichs. Andernfalls ist es der String "cross-origin-url".
         - `container`
-          - : Ein Objekt, das das DOM-Element beschreibt, das diesen JavaScript-Bereich enthält. Dieses Objekt hat die folgenden Eigenschaften:
+          - : Ein Objekt, das das DOM-Element beschreibt, das dieses JavaScript-Reich enthält. Dieses Objekt hat die folgenden Eigenschaften:
             - `id`
               - : Das `id`-Attribut des Containerelements.
             - `src`
-              - : Das `src`-Attribut des Containerelements. Wenn das Containerelement ein {{HTMLElement("object")}} Element ist, enthält dieses Feld den Wert des `data`-Attributs.
+              - : Das `src`-Attribut des Containerelements. Wenn das Containerelement ein {{HTMLElement("object")}}-Element ist, dann enthält dieses Feld den Wert des `data`-Attributs.
         - `scope`
-          - : Ein String, der den Typ des Same-Origin-JavaScript-Bereichs beschreibt. Entweder `"Window"`, `"DedicatedWorkerGlobalScope"`, `"SharedWorkerGlobalScope"`, `"ServiceWorkerGlobalScope"` oder `"cross-origin-aggregated"` für den Cross-Origin-Fall.
+          - : Ein String, der den Typ des gleich-origen JavaScript-Reichs beschreibt. Entweder `"Window"`, `"DedicatedWorkerGlobalScope"`, `"SharedWorkerGlobalScope"`, `"ServiceWorkerGlobalScope"` oder `"cross-origin-aggregated"` für den Cross-Origin-Fall.
     - `types`
       - : Ein Array von implementierungsdefinierten Speichertypen, die dem Speicher zugeordnet sind.
 
-Ein Beispiel für einen Rückgabewert sieht so aus:
+Ein Beispiel-Rückgabewert sieht folgendermaßen aus:
 
 ```json
 {
@@ -91,11 +91,11 @@ Ein Beispiel für einen Rückgabewert sieht so aus:
 
 ## Beschreibung
 
-Der Browser weist automatisch Speicher zu, wenn Objekte erstellt werden, und gibt ihn frei, wenn sie nicht mehr erreichbar sind (Garbage Collection). Diese Garbage Collection (GC) ist eine Annäherung, da das allgemeine Problem der Bestimmung, ob ein bestimmtes Speicherstück noch benötigt wird, unmöglich ist (siehe auch [JavaScript Memory Management](/de/docs/Web/JavaScript/Guide/Memory_management)). Entwickler müssen sicherstellen, dass Objekte gesammelt werden, das Speichervolumen nicht unnötig wächst und dadurch langsame und nicht reaktionsfähige Webanwendungen entstehen. Speicherlecks werden typischerweise eingeführt, indem vergessen wird, einen Ereignis-Listener abzumelden, einen Worker nicht geschlossen wird, Objekte in Arrays angesammelt werden und mehr.
+Der Browser weist automatisch Speicher zu, wenn Objekte erstellt werden, und gibt ihn frei, wenn sie nicht mehr erreichbar sind (Garbage Collection). Diese Garbage Collection (GC) ist eine Näherung, da das allgemeine Problem zu bestimmen, ob ein bestimmter Speicherblock noch benötigt wird, unmöglich ist (siehe auch [JavaScript-Speicherverwaltung](/de/docs/Web/JavaScript/Guide/Memory_management)). Entwickler müssen sicherstellen, dass Objekte gesammelt werden, dass kein Speicherverlust stattfindet und dass der Speicherverbrauch im Laufe der Zeit nicht unnötig wächst, was zu langsamen und nicht reagierenden Webanwendungen führen würde. Speicherlecks werden typischerweise eingeführt, indem vergessen wird, einen Event-Listener zu deregistrieren, einen Worker zu schließen, Objekte in Arrays anzusammeln und mehr.
 
-Die `measureUserAgentSpecificMemory()` API aggregiert Speichernutzungsdaten, um Ihnen bei der Suche nach Speicherlecks zu helfen. Sie kann zur Erkennung von Speicherregressionen oder für A/B-Tests von Funktionen verwendet werden, um ihre Auswirkungen auf den Speicher zu bewerten. Anstatt einzelne Aufrufe dieser Methode zu tätigen, ist es besser, periodische Aufrufe zu machen, um zu verfolgen, wie sich die Speichernutzung über die Dauer einer Sitzung ändert.
+Die `measureUserAgentSpecificMemory()`-API aggregiert Speicherverbrauchsdaten, um bei der Erkennung von Speicherlecks zu helfen. Sie kann für das Erkennen von Speicherregressionen oder für A/B-Tests von Funktionen verwendet werden, um ihren Speichereinfluss zu bewerten. Anstatt einmalige Aufrufe dieser Methode zu machen, ist es besser, sie regelmäßig aufzurufen, um zu verfolgen, wie sich der Speicherverbrauch im Laufe einer Sitzung ändert.
 
-Die `byte` Werte, die diese API zurückgibt, sind nicht über Browser oder zwischen verschiedenen Versionen desselben Browsers vergleichbar, da sie stark von der Implementierung abhängen. Auch wie `breakdown` und `attribution` Arrays bereitgestellt werden, liegt ebenfalls im Ermessen des Browsers. Es ist am besten, keine Annahmen über diese Daten fest zu kodieren. Diese API soll vielmehr periodisch (mit einem zufälligen Intervall) aufgerufen werden, um Daten zu aggregieren und die Unterschiede zwischen den Stichproben zu analysieren.
+Die `byte`-Werte, die diese API zurückgibt, sind nicht zwischen verschiedenen Browsern oder zwischen unterschiedlichen Versionen desselben Browsers vergleichbar, da diese stark von der Implementierung abhängen. Auch wie `breakdown` und `attribution` Arrays bereitgestellt werden, obliegt dem Browser. Am besten ist es, keine Annahmen über diese Daten festzucodieren. Diese API soll vielmehr periodisch (mit einem zufälligen Intervall) aufgerufen werden, um Daten zu aggregieren und die Unterschiede zwischen den Stichproben zu analysieren.
 
 ## Sicherheitsanforderungen
 
@@ -111,9 +111,9 @@ if (crossOriginIsolated) {
 
 ## Beispiele
 
-### Überwachung der Speichernutzung
+### Überwachung des Speicherverbrauchs
 
-Der folgende Code zeigt, wie die `measureUserAgentSpecificMemory()` Methode alle fünf Minuten zu einem zufälligen Intervall mittels [Exponentialverteilung](https://en.wikipedia.org/wiki/Exponential_distribution#Random_variate_generation) aufgerufen wird.
+Der folgende Code zeigt, wie man die `measureUserAgentSpecificMemory()`-Methode einmal alle fünf Minuten mit einem zufälligen Intervall unter Verwendung der [Exponentialverteilung](https://en.wikipedia.org/wiki/Exponential_distribution#Random_variate_generation) aufruft.
 
 ```js
 function runMemoryMeasurements() {
@@ -144,4 +144,4 @@ if (crossOriginIsolated) {
 ## Siehe auch
 
 - [`setTimeout()`](/de/docs/Web/API/Window/setTimeout)
-- [Überwachen Sie die gesamte Speichernutzung Ihrer Webseite mit measureUserAgentSpecificMemory() - web.dev](https://web.dev/articles/monitor-total-page-memory-usage)
+- [Überwachen Sie den Gesamtspeicherverbrauch Ihrer Webseite mit measureUserAgentSpecificMemory() - web.dev](https://web.dev/articles/monitor-total-page-memory-usage)

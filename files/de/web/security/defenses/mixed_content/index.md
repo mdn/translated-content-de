@@ -1,154 +1,154 @@
 ---
-title: Gemischte Inhalte
+title: Mixed Content
 slug: Web/Security/Defenses/Mixed_content
 l10n:
-  sourceCommit: 39070892d5d1a5cc55312a0ac10c97f4c339384f
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 Wenn eine Webseite von einem sicheren Ursprung über einen sicheren Kanal wie {{Glossary("HTTPS", "HTTPS")}} geladen wird, ist die Verbindung mit dem Webserver verschlüsselt und somit vor Abhören und Manipulation durch Man-in-the-Middle-Angriffe geschützt.
-Wenn die sicher geladene Webseite nur Bilder, Skripte und andere Ressourcen umfasst, die ebenfalls auf sicheren Ursprüngen gehostet werden, können Benutzer sicher sein, dass die gesamte Seite vor diesen Arten von Angriffen geschützt ist.
+Wenn die sicher geladene Webseite nur Bilder, Skripte und andere Ressourcen enthält, die ebenfalls auf sicheren Ursprüngen gehostet werden, können Benutzer zuversichtlich sein, dass die gesamte Seite vor diesen Arten von Angriffen sicher ist.
 
-"Gemischte Inhalte" beziehen sich auf sicher geladene Webseiten, die Ressourcen verwenden, die über HTTP oder ein anderes unsicheres Protokoll abgerufen werden.
-Diese Art von Webseiten ist potenziell unsicher, da alle unsicher gesendeten Ressourcen eingesehen werden können, wodurch möglicherweise sensible Informationen preisgegeben oder von einem Angreifer verändert werden können.
-Skripte sind besonders gefährlich, da sie jeden Aspekt der Seite ändern können, aber alle Arten von Ressourcen bergen ein gewisses Risiko.
-Beispielsweise können Bilder manipuliert werden, um dem Benutzer falsche oder irreführende Informationen zu geben oder um die scheinbare Funktion einer Schaltfläche zu ändern.
+"Mixed Content" bezieht sich auf sicher geladene Webseiten, die Ressourcen verwenden, die über HTTP oder ein anderes unsicheres Protokoll abgerufen werden sollen.
+Diese Art von Webseite ist potenziell unsicher, da alle unsicher gesendeten Ressourcen eingesehen werden können, was möglicherweise sensible Informationen offenlegt, und/oder von einem Angreifer modifiziert werden können.
+Skripte sind besonders gefährlich, da sie jeden Aspekt der Seite verändern können, aber alle Ressourcentypen bergen ein gewisses Risiko.
+Zum Beispiel können Bilder verändert werden, um dem Benutzer falsche oder irreführende Informationen zu geben oder um die scheinbare Funktion eines Buttons zu ändern.
 
-"Gemischte Downloads" beziehen sich auf Ressourcen-Downloads, die von einem sicheren Kontext aus initiiert werden, aber über eine unsichere Verbindung abgerufen werden.
-Sie bergen dieselben Risiken wie gemischte Inhalte: Downloads scheinen von einem sicheren Ursprung zu stammen, könnten aber unterwegs verändert oder eingesehen worden sein.
+"Mixed Downloads" beziehen sich auf Ressourcen-Downloads, die von einem sicheren Kontext initiiert, aber über eine unsichere Verbindung abgerufen werden.
+Diese bergen die gleichen Risiken wie Mixed Content: Downloads scheinen aus einem sicheren Ursprung zu stammen, könnten aber unterwegs modifiziert oder eingesehen worden sein.
 
-Sie sollten gemischte Inhalte und gemischte Downloads auf Ihren Websites vermeiden!
-Browser verringern die Risiken gemischter Inhalte, indem sie Anfragen für gemischte Inhalte von Bildern, Videos und Audios von HTTP auf HTTPS automatisch aktualisieren und unsichere Anfragen für alle anderen Ressourcentypen blockieren.
-Sie sollten auch _gemischte Downloads_ standardmäßig blockieren.
+Sie sollten die Verwendung von Mixed Content und Mixed Downloads auf Ihren Websites vermeiden!
+Browser mindern die Risiken von Mixed Content, indem sie automatisch Image-, Video- und Audio-Mixed Content-Anfragen von HTTP auf HTTPS upgraden und unsichere Anfragen für alle anderen Ressourcentypen blockieren.
+Sie sollten auch standardmäßig _mixed downloads_ blockieren.
 
-## Arten von gemischten Inhalten
+## Arten von Mixed Content
 
-Gemischte Inhalte auf einer Webseite werden in zwei Kategorien unterteilt: "aktualisierbare Inhalte" und "blockierbare Inhalte".
-Browser sollten Anfragen für aktualisierbare Inhalte von HTTP auf HTTPS automatisch aktualisieren und Anfragen für die blockierbaren Inhalte blockieren.
+Mixed Content in einer Webseite wird in zwei Kategorien unterteilt: "upgradable content" und "blockable content".
+Browser sollten Anfragen für upgradable Content automatisch von HTTP auf HTTPS upgraden und Anfragen für blockable Content blockieren.
 
-Dieser Ansatz stellt sicher, dass alle Inhalte in einem sicheren Kontext entweder über einen sicheren Kanal geladen oder blockiert werden, was für Benutzer sicherer ist als die Anzeige einer Mischung aus sicheren und unsicheren Inhalten und weniger störend als das vollständige Blockieren aller unsicheren Inhalte, wodurch Webseiten unbrauchbar werden könnten.
+Dieser Ansatz stellt sicher, dass alle Inhalte in einem sicheren Kontext entweder über einen sicheren Kanal geladen oder blockiert werden, was für Benutzer sicherer ist als das Anzeigen einer Mischung aus sicheren und unsicheren Inhalten und weniger störend, als Web-Seiten zu unterbrechen, indem sämtlicher unsicherer Inhalt vollständig blockiert wird.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation unterteilten gemischte Inhalte in die Kategorien "blockierbar" und "optional blockierbar":
+> Frühere Versionen der Spezifikation unterteilten Mixed Content in "blockable" und "optionally blockable" Kategorien:
 >
-> - Blockierbare Inhaltstypen, auch als "aktive gemischte Inhalte" bezeichnet, waren solche, die andere Teile der Webseite ändern konnten, wie Skripte und Stylesheets.
->   Das potenzielle Risiko, wenn diese Dateien verändert werden, ist sehr hoch, und Browser wurden verpflichtet, diese zu blockieren.
-> - Optional blockierbare Inhaltstypen, auch als "passive gemischte Inhalte" bekannt, konnten andere Inhalte auf der Webseite nicht ändern, wie Bilder, Videos und Audiodateien.
->   Das potenzielle Risiko, diese Dateien zuzulassen, war geringer, sodass Browser diese blockieren, anzeigen oder die Entscheidung dem Benutzer überlassen konnten.
+> - Blockable Content-Typen, auch als "aktive Mixed Content" bezeichnet, waren diejenigen, die andere Teile der Webseite ändern konnten, wie Skripte und Stylesheets.
+>   Das potenzielle Risiko, wenn diese Dateien verändert werden, ist sehr hoch, und Browser waren verpflichtet, sie zu blockieren.
+> - Optionally Blockable Content-Typen, auch als "passive Mixed Content" bekannt, konnten andere Inhalte der Webseite nicht verändern, wie Bilder, Videos und Audiodateien.
+>   Das potenzielle Risiko, diese Dateien zuzulassen, war geringer, sodass Browser wählen konnten, sie zu blockieren oder anzuzeigen oder die Entscheidung dem Benutzer zu überlassen.
 
-Die Menge an Ressourcentypen, die "aktualisierbare Inhalte" umfassen, wurde aus der Kategorie der "optional blockierbaren" gemischten Inhalte übernommen.
-Die Erwartung ist, dass jede neue Art von Datei als blockierbarer Inhalt definiert wird und einige aktualisierbare Inhalte in Zukunft blockierbar werden könnten.
+Der Satz von Ressourcentypen, der "upgradable content" bildet, wurde aus dem Satz von "optionally blockable" Mixed Content gebildet.
+Die Erwartung ist, dass alle neuen Dateitypen als blockable content definiert werden und einige upgradable content in Zukunft blockable werden können.
 
-### Aktualisierbare Inhalte
+### Upgradable Content
 
-Aktualisierbare Inhalte sind Anfragen, bei denen eine unsichere Anfrage automatisch in eine sichere Anfrage aktualisiert wird, indem das Ursprungsschema von `http` auf `https` geändert wird.
-Der Remote-Server antwortet entweder mit der Ressource oder einem Statuscode, der anzeigt, dass sie nicht gefunden wurde.
+Upgradable Content-Anfragen sind solche, bei denen eine unsichere Anfrage automatisch in eine sichere Anfrage umgewandelt wird, indem das Ursprungsschema von `http` auf `https` geändert wird.
+Der entfernte Server wird entweder mit der Ressource antworten oder einen Statuscode zur Angabe senden, dass sie nicht gefunden wurde.
 
-Die Ressourcentypen in dieser Kategorie sind solche, bei denen das Blockieren der Anfrage riskieren würde, wesentliche Teile des Webs zu unterbrechen.
-Diese entsprechen derzeit den gemischten Inhaltstypen, die zuvor "optional blockierbar" waren, da sie immer noch auf einigen Websites genutzt werden.
+Die Ressourcentypen in dieser Kategorie sind diejenigen, bei denen das Blockieren der Anfrage das Risiko birgt, bedeutende Teile des Webs zu unterbrechen.
+Diese entsprechen derzeit den Mixed Content-Typen, die zuvor "optionally blockable" waren, da diese immer noch auf einigen Websites verwendet werden.
 
-Die folgenden Elemente sind aktualisierbar (außer wenn der URL-Host als IP-Adresse angegeben ist – siehe den folgenden Abschnitt):
+Die folgenden Elemente sind upgradbar (es sei denn, der URL-Host ist als IP-Adresse angegeben — siehe den folgenden Abschnitt):
 
-- {{HTMLElement("img")}} bei dem der Ursprung über das `src` Attribut gesetzt ist, einschließlich SVG-Dokumente (aber nicht beim Setzen von Ressourcen mit `srcset` oder `<picture>`).
+- {{HTMLElement("img")}} bei dem der Ursprung über das `src` Attribut gesetzt wird, einschließlich SVG-Dokumenten (aber nicht beim Setzen von Ressourcen mit `srcset` oder `<picture>`).
 - CSS-Bildelemente wie: `background-image`, `border-image`, etc.
-- {{HTMLElement("audio")}} bei dem der Ursprung mit dem `src` Attribut gesetzt ist.
-- {{HTMLElement("video")}} bei dem der Ursprung mit dem `src` Attribut gesetzt ist.
-- {{HTMLElement("source")}} bei dem das Video- oder Ursprungsressource gesetzt ist.
+- {{HTMLElement("audio")}} bei dem der Ursprung mit dem `src` Attribut gesetzt wird.
+- {{HTMLElement("video")}} bei dem der Ursprung mit dem `src` Attribut gesetzt wird.
+- {{HTMLElement("source")}} bei dem das Video oder der Ursprungsressource gesetzt wird.
 
-### Blockierbare Inhalte
+### Blockable Content
 
-Blockierbare Inhalte werden als "alle gemischten Inhalte, die nicht aktualisierbar sind" definiert.
+Blockable Content wird als "aller Mixed Content, der nicht upgradbar ist" definiert.
 
-Dazu gehören HTTP-Anfragen, die von den folgenden Elementen resultieren (diese Liste ist nicht erschöpfend):
+Dies schließt HTTP-Anfragen ein, die sich aus den folgenden Elementen ergeben (diese Liste ist nicht erschöpfend):
 
-- {{HTMLElement("script")}} bei dem der Ursprung über das `src` Attribut gesetzt ist
-- {{HTMLElement("link")}} bei dem der Ursprung im `href` Attribut gesetzt ist und Stylesheets einschließt
-- {{HTMLElement("iframe")}} bei dem der Ursprung über das `src` Attribut gesetzt ist
+- {{HTMLElement("script")}} bei dem der Ursprung über das `src` Attribut gesetzt wird
+- {{HTMLElement("link")}} bei dem der Ursprung im `href` Attribut gesetzt wird und Stylesheets einschließt
+- {{HTMLElement("iframe")}} bei dem der Ursprung über das `src` Attribut gesetzt wird
 - [`fetch()`](/de/docs/Web/API/Window/fetch) Anfragen
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Anfragen
-- Alle Fälle in CSS, wo ein {{CSSXref("url_value", "&lt;url&gt;")}} Wert verwendet wird ({{cssxref("@font-face")}}, {{cssxref("cursor")}}, {{cssxref("background-image")}}, usw.).
+- Alle Fälle in CSS, bei denen ein {{CSSXref("url_value", "&lt;url&gt;")}} Wert verwendet wird ({{cssxref("@font-face")}}, {{cssxref("cursor")}}, {{cssxref("background-image")}}, und so weiter).
 - {{HTMLElement("object")}} (`data` Attribut)
 - [`Navigator.sendBeacon`](/de/docs/Web/API/Navigator/sendBeacon) (`url` Attribut)
-- {{HTMLElement("img")}} bei dem der Ursprung mit `srcset` oder `<picture>` gesetzt ist.
-- Web-Fonts
+- {{HTMLElement("img")}} bei dem der Ursprung über `srcset` oder `<picture>` gesetzt wird.
+- Webfonts
 
-Gemischte Inhaltsanfragen, die andernfalls aktualisiert würden, werden blockiert, wenn der Host der URL eine IP-Adresse anstelle eines Domainnamens ist.
-So wird `<img src="http://example.com/image.png">` aktualisiert, aber `<img src="http://93.184.215.14/image.png">` wird blockiert.
+Mixed Content-Anfragen, die ansonsten upgegradet würden, werden blockiert, wenn der Host der URL eine IP-Adresse anstelle eines Domainnamens ist.
+Also wird `<img src="http://example.com/image.png">` upgegradet, aber `<img src="http://93.184.215.14/image.png">` wird blockiert.
 
-## Beispiele für gemischte Inhaltsanfragen
+## Beispiele für Mixed Content-Anfragen
 
-Gemischte Inhaltsanfragen sind unsichere Anfragen nach Ressourcen von einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts):
+Mixed Content-Anfragen sind unsichere Anfragen nach Ressourcen aus einem [sicheren Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts):
 
-Die folgenden Beispiele zeigen sichere, unsichere und gemischte Inhaltsanfragen:
+Die folgenden Beispiele zeigen sichere, unsichere und Mixed Content-Anfragen:
 
-- `http://insecure.com` lädt `http://also.insecure.com` – ist keine gemischte Inhaltsanfrage, da beide Ursprünge unsicher sind.
-- `https://secure.com` lädt `http://insecure.com` – ist eine gemischte Inhaltsanfrage, da die unsichere Ressource `http://insecure.com` in den sicheren Kontext `https://secure.com` geladen wird.
-- `http://insecure.com` lädt `https://secure.com` in einem `<iframe>`, welches wiederum `http://also.insecure.com` lädt – das Laden von `https://secure.com` in `http://insecure.com` ist keine gemischte Inhaltsanfrage (es gibt keine Einschränkung beim Laden eines sicheren Kontexts in einen unsicheren Kontext).
-  Allerdings ist das Laden von `http://also.insecure.com` in den sicheren Rahmen `https://secure.com` eine gemischte Inhaltsanfrage.
-- `https://secure.com` rahmt eine `data:` URL ein, die `http://insecure.com` lädt – dies ist eine gemischte Inhaltsanfrage, da `https://secure.com` (und somit `data:`) sicher geladen wurde und `http://insecure.com` unsicher ist.
+- `http://insecure.com` lädt `http://also.insecure.com` — ist keine Mixed Content-Anfrage, da beide Ursprünge unsicher sind.
+- `https://secure.com` lädt `http://insecure.com` — ist eine Mixed Content-Anfrage, da die unsichere Ressource `http://insecure.com` in den sicheren Kontext `https://secure.com` geladen wird.
+- `http://insecure.com` lädt `https://secure.com` in einem `<iframe>`, das wiederum `http://also.insecure.com` lädt — das Laden von `https://secure.com` in `http://insecure.com` ist keine Mixed Content-Anfrage (es gibt keine Einschränkung beim Laden eines sicheren Kontexts in einen unsicheren Kontext).
+  Allerdings ist das Laden von `http://also.insecure.com` in den sicheren Frame `https://secure.com` eine Mixed Content-Anfrage.
+- `https://secure.com` framed eine `data:` URL, die `http://insecure.com` lädt — dies ist eine Mixed Content-Anfrage, weil `https://secure.com` (und daher `data:`) sicher geladen wurde und `http://insecure.com` unsicher ist.
 
-Gemischte Kontextanfragen können auch aus sicheren Kontexten wie Plugins oder Arbeitern gesendet werden und werden auf die gleiche Weise aktualisiert/blockiert.
+Mixed Context-Anfragen können auch von sicheren Kontexten wie Plugins oder Arbeitern gemacht werden und werden auf die gleiche Weise upgegradet/ blockiert.
 
-Zu beachten ist jedoch, dass Navigationsanfragen aus einem sicheren Kontext, die auf unsichere, zielende, oberste Browsing-Kontexte abzielen, nicht als gemischte Inhalte betrachtet werden, da sie einen neuen Kontext erschaffen, der entweder sicher oder unsicher ist, unabhängig von der Herkunft der Anfrage.
+Beachten Sie jedoch, dass Navigationsanfragen von einem sicheren Kontext, die unsichere Ziel-Top-Level-Browsing-Kontexte anvisieren, nicht als Mixed Content angesehen werden, da sie einen neuen Kontext erzeugen, der entweder sicher oder unsicher ist, unabhängig vom Ursprung der Anfrage.
 
-### Laden lokal bereitgestellter gemischter Ressourcen
+### Laden von lokal bereitgestellten Mixed-Ressourcen
 
-Lokale Ressourcen werden wie HTTPS-Ursprünge als sichere Ursprünge betrachtet.
-Dies umfasst `file:` URLs und Inhalte, die über Loopback-Adressen wie `http://127.0.0.1/` oder `http://localhost/` zugegriffen werden.
+Lokale Ressourcen gelten als von sicheren Ursprüngen, genau wie HTTPS-Ursprünge.
+Dazu gehören `file:` URLs und Inhalte, die von Loopback-Adressen wie `http://127.0.0.1/` oder `http://localhost/` abgerufen werden.
 
-Sie können diese Dateien aus sicheren Kontexten laden, und Sie haben weiterhin einen sicheren Kontext.
-Wenn jedoch eine lokale Datei eine unsichere Ressource über `http:` lädt, wäre dies eine gemischte Inhaltsanfrage.
+Sie können diese Dateien von sicheren Kontexten aus laden, und Sie haben immer noch einen sicheren Kontext.
+Wenn jedoch eine lokale Datei eine unsichere Ressource über `http:` lädt, wäre dies eine Mixed Content-Anfrage.
 
 Die Unterstützung für das Laden lokaler Inhalte kann im Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) überprüft werden.
 
-## Gemischte Downloads
+## Mixed Downloads
 
-Ein gemischter Download ist ein Ressourcen-Download von einem sicheren Kontext über eine unsichere Verbindung.
-Sie sind aus denselben Gründen wie gemischte Inhalte problematisch — Inhalte können von einem Angreifer abgefangen und/oder verändert werden, und es ist für Benutzer nicht offensichtlich, dass dies auf einer sicheren Website passieren könnte.
+Ein Mixed Download ist ein Download einer Ressource aus einem sicheren Kontext über eine unsichere Verbindung.
+Diese sind aus den gleichen Gründen problematisch wie Mixed Content — Inhalte können von einem Angreifer abgefangen und/oder modifiziert werden, und es ist für Benutzer nicht ersichtlich, dass dies auf einer sicheren Seite passieren könnte.
 
-Zum Beispiel definiert der folgende Code ein [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#download)-Element, das verwendet werden könnte, um die Seite am unsicheren Ursprung `http://example.com/` herunterzuladen.
-Wenn dieser Code sich auf einer Seite befindet, die über HTTPS bereitgestellt wird, führt das Speichern des Links zu einem gemischten Download.
+Zum Beispiel definiert der folgende Code ein [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#download) Element, das verwendet werden könnte, um die Seite am unsicheren Ursprung `http://example.com/` herunterzuladen.
+Wenn dieser Code auf einer Seite ist, die über HTTPS ausgeliefert wird, führt das Speichern des Links zu einem Mixed Download.
 
 ```html
 <a href="http://example.com/" download>Download</a>
 ```
 
-Von Browsern wird erwartet, dass sie gemischte Downloads blockieren, und sichere Websites sollten diese nicht enthalten.
+Es wird erwartet, dass Browser Mixed Downloads blockieren, und sichere Websites sollten sie nicht enthalten.
 
 > [!NOTE]
-> Browser blockieren häufig standardmäßig gemischte Downloads, informieren Benutzer über das Risiko und erlauben ihnen, den Download fortzusetzen oder abzubrechen.
+> Browser blockieren häufig standardmäßig Mixed Downloads, informieren die Benutzer jedoch über das Risiko und erlauben ihnen, den Download fortzusetzen oder zu verwerfen.
 
 ## Entwicklerkonsole
 
-Die Entwicklerkonsole zeigt Warnungen an, wenn gemischte Inhalte aktualisiert oder blockiert werden.
-Diese können verwendet werden, um gemischte Inhalte auf Ihrer Webseite zu debuggen und zu beheben.
+Die Entwicklerkonsole zeigt Warnungen an, wenn Mixed Content upgegradet oder blockiert wird.
+Diese können verwendet werden, um Mixed Content-Probleme auf Ihren Websites zu debuggen und zu beheben.
 
-Der folgende Bildschirm zeigt die Konsolenwarnung, wenn ein Bild in Firefox aktualisiert wird (Chrome hat eine ähnliche Warnung).
+Der untenstehende Screenshot zeigt die Konsolenwarnung, wenn ein Bild in Firefox upgegradet wird (Chrome hat eine ähnliche Warnung).
 
-![Bildschirmfoto der Web-Konsole mit Upgrade-Warnung für gemischte Inhaltsbilder.](mixed_content_console_upgradable.png)
+![Bildschirmfoto der Webkonsole mit Upgrade-Warnung für ein Mixed Content-Bild.](mixed_content_console_upgradable.png)
 
-In Browserversionen, die immer noch "optional blockierbare" Inhalte anzeigen, wird ein Symbol verwendet, um anzuzeigen, dass es gemischte Inhalte in den angezeigten Inhalten gibt, zusammen mit einer Konsolenwarnung.
-Das folgende Bildschirmfoto zeigt das Symbol und die Konsolenwarnung für Firefox, das das Update von gemischten Inhalten unterstützt.
+In Browserversionen, die immer noch "optionally blockable" Content anzeigen, wird ein Icon verwendet, um anzuzeigen, dass es Mixed Content in den angezeigten Inhalten gibt, zusammen mit einer Konsolenwarnung.
+Das folgende Screenshot zeigt das Icon und die Konsolenwarnung für Firefox, das Mixed Content-Upgrades unterstützt.
 
-![Bildschirmfoto der Web-Konsole mit Anzeige-Warnung für gemischte Inhaltsbilder.](mixed_content_console_displayed.png)
+![Bildschirmfoto der Webkonsole mit Anzeige-Warnung für ein Mixed Content-Bild.](mixed_content_console_displayed.png)
 
-## Behebung von gemischten Inhaltsproblemen
+## Behebung von Mixed Content-Problemen
 
-Die beste Strategie, um Probleme mit gemischten Inhalten zu vermeiden, besteht darin, alle Inhalte als HTTPS bereitzustellen:
+Die beste Strategie zur Vermeidung von Mixed Content-Problemen besteht darin, alle Inhalte als HTTPS anzubieten:
 
-- Bereitstellung aller Inhalte Ihrer Domain als HTTPS.
-- Machen Sie alle Referenzen zu Ressourcen, die auf Ihrer Domain gehostet werden, zu relativen Links oder HTTPS-Links, einschließlich für Downloads.
-- Wenn Sie Ressourcen auf anderen Sites verwenden, nutzen Sie die HTTPS-Versionen, falls verfügbar.
+- Stellen Sie sicher, dass alle Inhalte von Ihrer Domain als HTTPS bereitgestellt werden.
+- Machen Sie alle Verweise auf Ressourcen, die auf Ihrer Domain gehostet werden, zu relativen Links oder HTTPS-Links, einschließlich Downloads.
+- Wenn Sie Ressourcen auf anderen Seiten verwenden, nutzen Sie, wenn möglich, HTTPS-Versionen.
 
-  Die meisten Sites bieten HTTPS-Versionen von geteilten Ressourcen an.
-  Oft ist der einfachste Ansatz, alle `http://` Links durch `https://` zu ersetzen und dann Tools wie [LinkChecker](https://linkchecker.github.io/linkchecker/) zu verwenden, um zu überprüfen, dass alle Links funktionieren.
+  Die meisten Seiten bieten HTTPS-Versionen von gemeinsamen Ressourcen an.
+  Oft ist der einfachste Ansatz, alle `http://` Links durch `https://` zu ersetzen und dann Tools wie [LinkChecker](https://linkchecker.github.io/linkchecker/) zu verwenden, um zu überprüfen, dass die Links alle funktionieren.
 
-Es gibt verschiedene Möglichkeiten, um zu überprüfen, ob Ihre Seite frei von gemischten Inhalten ist:
+Es gibt eine Reihe von Möglichkeiten, zu überprüfen, dass Ihre Website frei von Mixed Content ist:
 
-- Navigieren Sie auf Ihrer Website und überprüfen Sie die [Entwicklerkonsole](#entwicklerkonsole) Ihres Browsers auf Warnungen zu gemischten Inhalten.
-- Deaktivieren Sie alle gemischten Inhalte in Ihrem Browser und testen Sie, ob die Seiten wie erwartet funktionieren.
-  Dies ist der Standard für Safari, aber die meisten Browser unterstützen irgendeinen Mechanismus zum Blockieren aller gemischten Inhalte (siehe [Kompatibilitätsdaten](#browser-kompatibilität)).
-- Verwenden Sie einen Desktop-basierten Webcrawler wie [HTTPSChecker](https://httpschecker.net/how-it-works) oder ein CLI-Tool wie [mcdetect](https://github.com/agis/mcdetect), um Ihre Website rekursiv zu überprüfen und Links zu unsicheren Inhalten zu finden.
-- Verwenden Sie ein Online-Tool wie [Mixed Content Checker](https://www.crawlcenter.com/mixed-content-checker) um Ihre Seite zu überprüfen.
+- Besuchen Sie Ihre Seite und prüfen Sie die [Entwicklerkonsole](#entwicklerkonsole) Ihres Browsers auf Warnungen zu Mixed Content.
+- Deaktivieren Sie sämtlichen Mixed Content in Ihrem Browser und testen Sie, dass die Seiten wie erwartet funktionieren.
+  Dies ist der Standard für Safari, aber die meisten Browser unterstützen irgendeinen Mechanismus zum Blockieren allen Mixed Contents (siehe [Kompatibilitätsdaten](#browser-kompatibilität)).
+- Verwenden Sie einen desktopbasierten Webcrawler wie [HTTPSChecker](https://httpschecker.net/how-it-works) oder ein CLI-Tool wie [mcdetect](https://github.com/agis/mcdetect), um Ihre Website rekursiv zu überprüfen und Links zu unsicherem Inhalt zu finden.
+- Nutzen Sie ein Online-Tool wie den [Mixed Content Checker](https://www.crawlcenter.com/mixed-content-checker), um Ihre Seite zu überprüfen.
 
 ## Spezifikationen
 
@@ -160,4 +160,4 @@ Es gibt verschiedene Möglichkeiten, um zu überprüfen, ob Ihre Seite frei von 
 
 ## Siehe auch
 
-- [CSP: `upgrade-insecure-requests`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests) aktualisiert alle Anfragen auf HTTPS, einschließlich blockierbarer gemischter Inhalte
+- [CSP: `upgrade-insecure-requests`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/upgrade-insecure-requests) upgraded alle Anfragen auf HTTPS, einschließlich blockbarem Mixed Content

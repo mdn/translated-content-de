@@ -3,24 +3,24 @@ title: "Content-Security-Policy: block-all-mixed-content Direktive"
 short-title: block-all-mixed-content
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/block-all-mixed-content
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{deprecated_header}}
 
 > [!WARNING]
-> Diese Direktive ist in der Spezifikation als obsolet gekennzeichnet.
-> Diese Direktive wurde zuvor verwendet, um zu verhindern, dass "optional blockierbare" gemischte Inhalte unsicher abgerufen und angezeigt werden.
-> Inhalte, die nicht blockiert werden, werden jetzt immer auf eine sichere Verbindung hochgestuft, daher ist diese Direktive nicht mehr erforderlich.
+> Diese Direktive ist in der Spezifikation als veraltet markiert.
+> Diese Direktive wurde früher verwendet, um zu verhindern, dass "optional blockierbarer" gemischter Inhalt unsicher abgerufen und angezeigt wird.
+> Inhalte, die nicht blockiert werden, werden nun immer auf eine sichere Verbindung aktualisiert, so dass diese Direktive nicht mehr benötigt wird.
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`block-all-mixed-content`**-Direktive verhindert das Laden jeglicher Ressourcen über HTTP, wenn die Seite HTTPS verwendet.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`block-all-mixed-content`**-Direktive verhindert das Laden von Assets über HTTP, wenn die Seite HTTPS verwendet.
 
-Alle [gemischten Inhalte](/de/docs/Web/Security/Defenses/Mixed_content) Ressourcenzugriffe werden blockiert, einschließlich sowohl blockierbarer als auch hochstufbarer gemischter Inhalte.
-Dies gilt auch für {{HTMLElement("iframe")}}-Dokumente, um sicherzustellen, dass die gesamte Seite frei von gemischten Inhalten ist.
+Alle [gemischten Inhalte](/de/docs/Web/Security/Defenses/Mixed_content)-Ressourcenanfragen werden blockiert, einschließlich sowohl blockierbarer als auch upgradefähiger gemischter Inhalte.
+Dies gilt auch für {{HTMLElement("iframe")}}-Dokumente, wodurch sichergestellt wird, dass die gesamte Seite frei von gemischten Inhalten ist.
 
 > [!NOTE]
-> Die Direktive {{CSP("upgrade-insecure-requests")}} wird vor `block-all-mixed-content` ausgewertet.
-> Wenn die erstere gesetzt ist, tut die letztere nichts, daher setzen Sie eine Direktive oder die andere – nicht beide, es sei denn, Sie möchten HTTPS in älteren Browsern erzwingen, die es nach einer Umleitung zu HTTP nicht erzwingen.
+> Die {{CSP("upgrade-insecure-requests")}}-Direktive wird vor `block-all-mixed-content` ausgewertet.
+> Ist erstere gesetzt, tut letztere nichts, daher sollte eine Direktive oder die andere gesetzt werden – nicht beide, es sei denn, Sie möchten HTTPS in älteren Browsern erzwingen, die es nicht nach einer Umleitung auf HTTP erzwingen.
 
 ## Syntax
 
@@ -36,7 +36,7 @@ Content-Security-Policy: block-all-mixed-content;
 <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 ```
 
-Um HTTP-Ressourcen auf einer granuleren Ebene zu verbieten, können Sie auch individuelle Direktiven auf `https:` setzen.
+Um HTTP-Assets auf einer detaillierteren Ebene zu verbieten, können Sie auch individuelle Direktiven auf `https:` setzen.
 Zum Beispiel, um unsichere HTTP-Bilder zu verbieten:
 
 ```http
@@ -45,8 +45,8 @@ Content-Security-Policy: img-src https:
 
 ## Spezifikationen
 
-Teil keiner aktuellen Spezifikation.
-Wurde zuvor in der veralteten [Mixed Content Level 1](https://www.w3.org/TR/2015/CR-mixed-content-20150317/#strict-opt-in) Spezifikation definiert.
+Nicht Teil einer aktuellen Spezifikation.
+War früher in der veralteten [Mixed Content Level 1](https://www.w3.org/TR/2015/CR-mixed-content-20150317/#strict-opt-in)-Spezifikation definiert.
 
 ## Browser-Kompatibilität
 

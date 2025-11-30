@@ -2,52 +2,51 @@
 title: IntegrityViolationReportBody
 slug: Web/API/IntegrityViolationReportBody
 l10n:
-  sourceCommit: 55bb65bb6a84808896ed0f6c83e57c60dbd8480e
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Reporting API")}} {{SecureContext_Header}}
 
-Das `IntegrityViolationReportBody`-Wörterbuch ist eine Erweiterung der [Reporting API](/de/docs/Web/API/Reporting_API) und stellt den Körper eines Berichts über eine Verletzung der [Integrity Policy](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy) dar.
+Das `IntegrityViolationReportBody` Wörterbuch ist eine Erweiterung der [Reporting API](/de/docs/Web/API/Reporting_API), die den Körper eines Berichts über Verletzungen einer [Integritätsrichtlinie](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy) repräsentiert.
 
-Berichte über Integritätsverletzungen können an [Endpunkte von Berichtsservern](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) oder über einen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) gemeldet werden. Sie haben einen [`type`](/de/docs/Web/API/Report/type) von `"integrity-violation"`, eine [`url`](/de/docs/Web/API/Report/url), die das Dokument angibt, das die Verletzung enthält, und eine [`body`](/de/docs/Web/API/Report/body)-Eigenschaft, die ein Objekt ist, das mit diesem Wörterbuch übereinstimmt.
+Berichte über Integritätsverletzungen können an [Reporting-Server-Endpunkte](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) oder über einen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) gemeldet werden. Sie haben einen [`type`](/de/docs/Web/API/Report/type) von `"integrity-violation"`, eine [`url`](/de/docs/Web/API/Report/url), die auf das Dokument verweist, das die Verletzung enthält, und eine [`body`](/de/docs/Web/API/Report/body)-Eigenschaft, die ein Objekt ist, das diesem Wörterbuch entspricht.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - `blockedURL` {{ReadOnlyInline}}
-  - : Ein String, der die URL der Ressource repräsentiert, die durch eine durchgesetzte Integritätspolitik blockiert wurde (oder nur für eine [reportOnly](#reportonly)-Politik gemeldet wurde).
+  - : Ein String, der die URL der Ressource beschreibt, die durch eine durchgesetzte Integritätsrichtlinie blockiert wurde (oder nur für eine [reportOnly](#reportonly)-Richtlinie gemeldet wurde).
 - `documentURL` {{ReadOnlyInline}}
-  - : Ein String, der die URL des Dokuments darstellt, das versucht, die Ressource zu laden.
+  - : Ein String, der die URL des Dokuments beschreibt, das versucht, die Ressource zu laden.
 - `destination` {{ReadOnlyInline}}
-  - : Ein String, der das [`Request.destination`](/de/docs/Web/API/Request/destination#script) der blockierten Ressource angibt.
-    Derzeit kann dies nur `"script"` sein.
+  - : Ein String, der das [`Request.destination`](/de/docs/Web/API/Request/destination#script) der Ressource angibt, die blockiert wurde. Dies kann momentan nur `"script"` sein.
 - `reportOnly` {{ReadOnlyInline}}
   - : Ein Boolean: `false`, wenn die Richtlinie durchgesetzt wurde, und `true`, wenn die Verletzung nur gemeldet wurde.
 
 ## Beschreibung
 
-Verletzungen der Integritätsrichtlinien werden gemeldet, wenn ein Dokument versucht, eine Ressource zu laden, die nicht den [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Garantien einer Richtlinie entspricht, die entweder über die HTTP-Header {{httpheader("Integrity-Policy")}} oder {{httpheader("Integrity-Policy-Report-Only")}} gesetzt wurde.
+Integritätsrichtlinien-Verletzungen werden gemeldet, wenn ein Dokument versucht, eine Ressource zu laden, die nicht den [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)-Garantien einer Richtlinie entspricht, die entweder mit den HTTP-Headern {{httpheader("Integrity-Policy")}} oder {{httpheader("Integrity-Policy-Report-Only")}} festgelegt wurde.
 
-Insbesondere wird ein Bericht gesendet, wenn ein Dokument versucht, eine {{htmlelement("script")}}-Ressource (oder ein anderes in der Richtlinie aufgeführtes [Anforderungsziel](/de/docs/Web/API/Request/destination)) zu laden, die keine gültigen Integritätsmetadaten aufweist, oder eine Anforderung im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus zu stellen.
+Speziell wird ein Bericht gesendet, wenn ein Dokument versucht, eine {{htmlelement("script")}}-Ressource (oder ein anderes [request destination](/de/docs/Web/API/Request/destination), das in der Richtlinie aufgeführt ist) zu laden, die keine gültigen Integritätsmetadaten hat, oder um eine Anfrage im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus zu stellen.
 
-Verletzungsberichte können in einem verletzenden Dokument mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Callbacks erhalten werden (definiert im [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)-Konstruktor), der auf Berichtsobjekte filtert, die einen `type` von `"integrity-violation"` haben.
+Verletzungsberichte können in einem verletzenden Dokument unter Verwendung eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Callbacks (definiert im [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver) Konstruktor) erhalten werden, indem auf Berichtsobjekte gefiltert wird, die einen `type` von `"integrity-violation"` haben.
 
-Verletzungsberichte können auch als JSON-Objekte in `POST`-Anfragen an die in den Headern {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} angegebenen [`endpoints`](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy#endpoints) gesendet werden. Die JSON-Berichtsobjekte sind eine Serialisierung der Berichte, die im [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zurückgegeben werden, und haben daher auch einen `type` von `"integrity-violation"` und eine `body`-Eigenschaft, die eine Serialisierung dieses Objekts ist. Beachten Sie, dass Endpunktwerte, die in der Richtlinie gesetzt sind, auf Bezeichner abbilden müssen, die mit dem {{HTTPHeader("Reporting-Endpoints")}}-Header gesetzt werden.
+Verletzungsberichte können auch als JSON-Objekte in `POST`-Anfragen an die in den {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} Headern angegebenen [`endpoints`](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy#endpoints) gesendet werden. Die JSON-Berichtsobjekte sind eine Serialisierung der Berichte, die im [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zurückgegeben werden und haben daher ebenfalls einen `type` von `"integrity-violation"` und eine `body`-Eigenschaft, die eine Serialisierung dieses Objekts ist. Beachten Sie, dass Endpunktwerte, die in der Richtlinie festgelegt sind, zu Kennungen passen müssen, die mit dem {{HTTPHeader("Reporting-Endpoints")}}-Header festgelegt wurden.
 
 ## Beispiele
 
-### Berichterstattung über die API
+### Bericht mit der API
 
-Dieses Beispiel zeigt, wie Sie Berichte über Integritätsrichtlinienverletzungen mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) erhalten können.
+Dieses Beispiel zeigt, wie Sie Integritätsrichtlinien-Verletzungsberichte mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) erhalten können.
 
-Zuerst setzen wir die Integritätspolitik einer Seite mithilfe der {{httpheader("Integrity-Policy")}}. Die untenstehende Richtlinie meldet und blockiert das Laden von Ressourcen jedes {{htmlelement("script")}}-Elements oder [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Objekts, das kein `integrity`-Attribut angibt, oder wenn eine Skriptressource im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus angefordert wird. Beachten Sie, dass wir in diesem Beispiel nur an der Meldung der Verstöße über die API interessiert sind, daher lassen wir die Reporting-Endpunkte aus:
+Zuerst legen wir die Integritätsrichtlinie einer Seite mit dem {{httpheader("Integrity-Policy")}} fest. Die Richtlinie unten berichtet und blockiert das Laden von Ressourcen bei jedem {{htmlelement("script")}}-Element oder [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Objekt, das kein `integrity`-Attribut angibt, oder wenn eine Skriptressource im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus angefordert wird. Beachten Sie, dass wir uns in diesem Beispiel nur für die Berichterstattung der Verstöße über die API interessieren, daher lassen wir die Reporting-Endpunkte weg:
 
 ```http
 Integrity-Policy: blocked-destinations=(script)
 ```
 
-Als nächstes nehmen wir an, dass unsere Seite das folgende Element enthält, um ein Skript zu laden. Da wir eine Verletzung auslösen möchten, lassen wir das `integrity`-Attribut aus, das zum Überprüfen des Skripts verwendet wird, dass es unserer erwarteten Version entspricht. Wir könnten auch das `cross-origin`-Attribut weglassen, damit die Anfrage im `no-cors`-Modus gesendet wird.
+Als nächstes nehmen wir an, dass unsere Seite das folgende Element umfasst, um ein Skript zu laden. Da wir eine Verletzung auslösen möchten, lassen wir das `integrity`-Attribut weg, das verwendet wird, um zu prüfen, ob das Skript unserer erwarteten Version entspricht. Wir könnten auch das `cross-origin`-Attribut weglassen, damit die Anfrage im `no-cors`-Modus gesendet wird.
 
 ```html
 <script
@@ -56,7 +55,7 @@ Als nächstes nehmen wir an, dass unsere Seite das folgende Element enthält, um
 ```
 
 > [!NOTE]
-> Ein Skript, das den Richtlinien entspricht, könnte so aussehen:
+> Ein Skript, das mit der Richtlinie übereinstimmt, könnte so aussehen:
 >
 > ```html
 > <script
@@ -65,7 +64,7 @@ Als nächstes nehmen wir an, dass unsere Seite das folgende Element enthält, um
 >   crossorigin="anonymous"></script>
 > ```
 
-Um Verletzungen innerhalb der Seite zu beobachten, konstruieren wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um auf Berichte mit dem Typ `"integrity-violation"` zu lauschen. Dabei übergeben wir einen Callback, der die Berichte empfängt und protokolliert. Dieser Code muss geladen werden, bevor das Skript, das die Verletzung auslöst, auf derselben Seite geladen wird:
+Um Verstöße innerhalb der Seite zu beobachten, konstruieren wir ein neues [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Objekt, um Berichte mit dem Typ `"integrity-violation"` zu lauschen, indem wir ein Callback übergeben, das die Berichte empfängt und protokolliert. Dieser Code muss vor dem Skript geladen werden, das die Verletzung verursacht, auf derselben Seite:
 
 ```js
 const observer = new ReportingObserver(
@@ -84,7 +83,7 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Oben protokollieren wir jedes Verletzungsberichtobjekt und eine JSON-String-Version des Objekts, die dem folgenden Objekt ähnlich aussehen könnte.
+Oben protokollieren wir jedes Verletzungsberichtobjekt und eine JSON-String-Version des Objekts, die möglicherweise so aussieht wie das untenstehende Objekt.
 
 ```json
 {
@@ -99,20 +98,20 @@ Oben protokollieren wir jedes Verletzungsberichtobjekt und eine JSON-String-Vers
 }
 ```
 
-### Versenden eines Berichts an einen Reporting-Endpunkt
+### Einen Bericht an einen Reporting-Endpunkt senden
 
-Die Konfiguration einer Webseite zum Senden eines Berichts über eine Integritätsrichtlinienverletzung an einen [Endpunkt des Berichtsservers](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) ist sehr ähnlich wie im vorherigen Beispiel.
+Die Konfiguration einer Webseite, um einen Integritätsrichtlinien-Verletzungsbericht an einen [Reporting-Server-Endpunkt](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) zu senden, ist sehr ähnlich zum vorherigen Beispiel.
 
-Der Hauptunterschied besteht darin, dass wir einen oder mehrere Berichtsendpunkte angeben müssen, an die wir die Berichte senden wollen, indem wir den Antwortheader {{httpheader("Reporting-Endpoints")}} verwenden und diese dann im `endpoints`-Feld bei der Festlegung der Richtlinie referenzieren.
+Der Hauptunterschied besteht darin, dass wir einen oder mehrere Reporting-Endpunkte angeben müssen, an die wir die Berichte senden möchten, indem wir den {{httpheader("Reporting-Endpoints")}}-Antwortheader verwenden und dann diese im `endpoints`-Feld bei der Festlegung der Richtlinie referenzieren.
 
-Sie können dies unten sehen, wo wir zuerst zwei Endpunkte definieren — `integrity-endpoint` und `backup-integrity-endpoint` — und diese dann in unserer Richtlinie referenzieren:
+Im Folgenden sehen Sie, wie wir zuerst zwei Endpunkte definieren — `integrity-endpoint` und `backup-integrity-endpoint` — und sie dann in unserer Richtlinie referenzieren:
 
 ```http
 Reporting-Endpoints: integrity-endpoint=https://example.com/integrity, backup-integrity-endpoint=https://report-provider.example/integrity
 Integrity-Policy: blocked-destinations=(script), endpoints=(integrity-endpoint, backup-integrity-endpoint)
 ```
 
-Wir können eine Verletzung auslösen, indem wir ein externes Skript von der Seite laden, das nicht den Richtlinien zur Subresource Integrity entspricht. Um vom vorherigen Beispiel etwas abzuweichen, senden wir hier die Anfrage im `no-cors`-Modus:
+Wir können eine Verletzung auslösen, indem wir ein externes Skript von der Seite laden, das den Richtlinien zur Subresource-Integrität nicht entspricht. Um sich vom vorherigen Beispiel zu unterscheiden, senden wir hier die Anfrage im `no-cors`-Modus:
 
 ```html
 <script
@@ -120,9 +119,9 @@ Wir können eine Verletzung auslösen, indem wir ein externes Skript von der Sei
   integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>
 ```
 
-Der Verletzungsbericht wird dann als JSON-Datei an den angegebenen Endpunkt gesendet. Wie Sie im untenstehenden Beispiel sehen können, ist der `type` `"integrity-violation"` und die `body`-Eigenschaft ist eine Serialisierung dieses `IntegrityViolationReportBody`-Objekts:
+Der Verletzungsbericht wird dann als JSON-Datei an den angegebenen Endpunkt gesendet. Wie Sie im folgenden Beispiel sehen können, ist der `type` `"integrity-violation"` und die `body`-Eigenschaft eine Serialisierung dieses `IntegrityViolationReportBody`-Objekts:
 
-Der Bericht in diesem Fall würde genauso aussehen wie unser JSON-Bericht im vorherigen Beispiel.
+Der Bericht würde in diesem Fall genauso aussehen wie unser JSON-Bericht im vorherigen Beispiel.
 
 ```json
 {
@@ -151,5 +150,5 @@ Der Bericht in diesem Fall würde genauso aussehen wie unser JSON-Bericht im vor
 - {{HTTPHeader("Integrity-Policy")}}
 - {{HTTPHeader("Integrity-Policy-Report-Only")}}
 - {{HTTPHeader("Reporting-Endpoints")}}
-- [Integrity Policy](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) in [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
+- [Integritätsrichtlinie](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy) in [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity#integrity_policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)

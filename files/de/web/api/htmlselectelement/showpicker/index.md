@@ -3,14 +3,14 @@ title: "HTMLSelectElement: showPicker() Methode"
 short-title: showPicker()
 slug: Web/API/HTMLSelectElement/showPicker
 l10n:
-  sourceCommit: fc763b932ad89104bcf06e3886d014a8485ad7d8
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.showPicker()`** Methode zeigt den Browserauswähler für ein `select`-Element an.
+Die **`HTMLSelectElement.showPicker()`** Methode zeigt den Browser-Picker für ein `select`-Element an.
 
-Dies ist derselbe Auswähler, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, kann aber durch einen Tastendruck oder eine andere Benutzerinteraktion ausgelöst werden.
+Dies ist derselbe Picker, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, kann aber durch einen Tastendruck oder eine andere Benutzerinteraktion ausgelöst werden.
 
 ## Syntax
 
@@ -24,30 +24,31 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Element nicht veränderbar ist, was bedeutet, dass der Benutzer es nicht ändern kann und/oder es nicht automatisch vorausgefüllt werden kann.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn nicht ausdrücklich durch eine Benutzeraktion wie eine Tippgeste oder einen Mausklick ausgelöst (der Auswähler erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}).
+  - : Wird ausgelöst, wenn nicht explizit durch eine Benutzeraktion wie eine Berührungsgeste oder Mausklick ausgelöst (der Picker erfordert {{Glossary("Transient_activation", "Transiente Aktivierung")}}).
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das mit dem Auswähler verknüpfte Element nicht dargestellt wird.
+  - : Wird ausgelöst, wenn das mit dem Picker verbundene Element nicht gerendert wird.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn in einem Cross-Origin-Iframe aufgerufen.
+  - : Wird ausgelöst, wenn in einem cross-origin iframe aufgerufen.
 
 ## Sicherheitsüberlegungen
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich.
+Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
-Die Methode darf nur in Same-Origin-Iframes aufgerufen werden; eine Ausnahme wird ausgelöst, wenn sie in einem Cross-Origin-Iframe aufgerufen wird.
+Die Methode darf nur in same-origin iframes aufgerufen werden; eine Ausnahme wird ausgelöst, wenn diese in einem cross-origin iframe aufgerufen wird.
 
 ## Beispiele
 
-### Funktionserkennung
+### Feature-Erkennung
 
-Der unten stehende Code zeigt, wie geprüft werden kann, ob `showPicker()` unterstützt wird:
+Der folgende Code zeigt, wie Sie überprüfen können, ob `showPicker()` unterstützt wird:
 
 ```js
 if ("showPicker" in HTMLSelectElement.prototype) {
@@ -55,9 +56,9 @@ if ("showPicker" in HTMLSelectElement.prototype) {
 }
 ```
 
-### Starten des Auswählers
+### Starten des Pickers
 
-Dieses Beispiel zeigt, wie Sie mit einer Schaltfläche den Auswähler für ein `<select>`-Element mit zwei Optionen starten.
+Dieses Beispiel zeigt, wie Sie einen Button verwenden, um den Picker für ein `<select>`-Element mit zwei Optionen zu starten.
 
 #### HTML
 
@@ -73,7 +74,8 @@ Dieses Beispiel zeigt, wie Sie mit einer Schaltfläche den Auswähler für ein `
 
 #### JavaScript
 
-Der Code erhält das `<button>`-Element und fügt einen Listener für sein `click`-Ereignis hinzu. Der Ereignishandler ruft das `<select>`-Element ab und ruft `showPicker()` darauf auf.
+Der Code holt das `<button>`-Element und fügt einen Listener für dessen `click`-Ereignis hinzu.
+Der Ereignishandler holt das `<select>`-Element und ruft `showPicker()` darauf auf.
 
 ```js
 const button = document.querySelector("button");
@@ -87,7 +89,7 @@ button.addEventListener("click", (event) => {
 });
 ```
 
-<!-- Ein Live-Beispiel kann hier nicht gezeigt werden, da sie in einem Cross-Origin-Frame ausgeführt werden und einen SecurityError verursachen würden -->
+<!-- Ein Live-Beispiel kann hier nicht gezeigt werden, da sie in einem cross-origin Frame ausgeführt werden und einen SecurityError verursachen würden -->
 
 ## Spezifikationen
 
