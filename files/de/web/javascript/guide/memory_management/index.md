@@ -2,26 +2,26 @@
 title: Speicherverwaltung
 slug: Web/JavaScript/Guide/Memory_management
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: 2daa58aa61e3dac68d77908b27512d2ae339dbb6
 ---
 
-Niedrigstufige Programmiersprachen wie C verfügen über manuelle Speicherverwaltungsmechanismen wie [`malloc()`](https://pubs.opengroup.org/onlinepubs/009695399/functions/malloc.html) und [`free()`](https://en.wikipedia.org/wiki/C_dynamic_memory_allocation#Overview_of_functions). Im Gegensatz dazu weist JavaScript automatisch Speicher zu, wenn Objekte erstellt werden, und gibt diesen frei, wenn sie nicht mehr verwendet werden (_Garbage Collection_). Diese Automatisierung kann eine mögliche Quelle der Verwirrung sein: Sie kann Entwicklern den falschen Eindruck vermitteln, dass sie sich nicht um Speicherverwaltung kümmern müssen.
+Low-Level-Sprachen wie C verfügen über manuelle Speicherverwaltungsprimitive wie [`malloc()`](https://pubs.opengroup.org/onlinepubs/009695399/functions/malloc.html) und [`free()`](https://en.wikipedia.org/wiki/C_dynamic_memory_allocation#Overview_of_functions). Im Gegensatz dazu weist JavaScript automatisch Speicher zu, wenn Objekte erstellt werden, und gibt ihn frei, wenn sie nicht mehr verwendet werden (_Garbage Collection_). Diese Automatisierung kann eine potenzielle Quelle der Verwirrung sein: Sie kann Entwicklern den falschen Eindruck vermitteln, dass sie sich keine Sorgen über die Speicherverwaltung machen müssen.
 
-## Speicherlebenszyklus
+## Lebenszyklus des Speichers
 
-Unabhängig von der Programmiersprache ist der Speicherlebenszyklus fast immer derselbe:
+Unabhängig von der Programmiersprache ist der Speicherlebenszyklus nahezu immer gleich:
 
-1. Fordern Sie den benötigten Speicher an
-2. Verwenden Sie den zugewiesenen Speicher (lesen, schreiben)
-3. Geben Sie den zugewiesenen Speicher frei, wenn er nicht mehr benötigt wird
+1. Den Speicher, den Sie benötigen, zuweisen
+2. Den zugewiesenen Speicher verwenden (lesen, schreiben)
+3. Den zugewiesenen Speicher freigeben, wenn er nicht mehr benötigt wird
 
-Der zweite Teil ist in allen Sprachen explizit. Der erste und letzte Teil sind in niedrigstufigen Programmiersprachen explizit, aber in hochstufigen Sprachen wie JavaScript meistens implizit.
+Der zweite Teil ist in allen Sprachen explizit. Die ersten und letzten Teile sind in Low-Level-Sprachen explizit, aber in High-Level-Sprachen wie JavaScript hauptsächlich implizit.
 
 ### Zuweisung in JavaScript
 
 #### Wertinitialisierung
 
-Um den Programmierer nicht mit Zuweisungen zu belasten, weist JavaScript automatisch Speicher zu, wenn Werte initial deklariert werden.
+Um den Programmierer nicht mit Zuweisungen zu belasten, wird JavaScript automatisch Speicher zuweisen, wenn Werte initial deklariert werden.
 
 ```js
 const n = 123; // allocates memory for a number
@@ -48,7 +48,7 @@ someElement.addEventListener("click", () => {
 
 #### Zuweisung über Funktionsaufrufe
 
-Einige Funktionsaufrufe führen zur Objektzuweisung.
+Einige Funktionsaufrufe führen zur Zuweisung von Objekten.
 
 ```js
 const d = new Date(); // allocates a Date object
@@ -74,32 +74,32 @@ const a3 = a.concat(a2);
 
 ### Verwendung von Werten
 
-Die Verwendung von Werten bedeutet im Wesentlichen das Lesen und Schreiben im zugewiesenen Speicher. Dies kann durch das Lesen oder Schreiben des Werts einer Variablen oder einer Objekteigenschaft oder sogar durch die Übergabe eines Arguments an eine Funktion erfolgen.
+Die Verwendung von Werten bedeutet im Wesentlichen, in zugewiesenem Speicher zu lesen und zu schreiben. Dies kann durch das Lesen oder Schreiben des Werts einer Variablen oder einer Objekteigenschaft oder sogar durch das Übergeben eines Arguments an eine Funktion erfolgen.
 
 ### Freigabe, wenn der Speicher nicht mehr benötigt wird
 
-Die meisten Probleme bei der Speicherverwaltung treten in dieser Phase auf. Der schwierigste Aspekt dieser Phase besteht darin, zu bestimmen, wann der zugewiesene Speicher nicht mehr benötigt wird.
+Die meisten Speicherverwaltungsprobleme treten in dieser Phase auf. Der schwierigste Aspekt dieser Phase ist es festzustellen, wann der zugewiesene Speicher nicht mehr benötigt wird.
 
-Niedrigstufige Programmiersprachen erfordern, dass der Entwickler manuell bestimmt, zu welchem Zeitpunkt im Programm der zugewiesene Speicher nicht mehr benötigt wird und diesen freigibt.
+Low-Level-Sprachen erfordern, dass der Entwickler manuell festlegt, wann der zugewiesene Speicher im Programm nicht mehr benötigt wird und ihn freigibt.
 
-Einige hochstufige Sprachen, wie JavaScript, nutzen eine Form der automatischen Speicherverwaltung, die als [Garbage Collection](<https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>) (GC) bekannt ist. Der Zweck eines Garbage Collectors besteht darin, die Speicherzuweisung zu überwachen und zu bestimmen, wann ein Block des zugewiesenen Speichers nicht mehr benötigt wird, und diesen zurückzufordern. Dieser automatische Prozess ist eine Näherung, da das allgemeine Problem der Bestimmung, ob ein bestimmtes Stück Speicher noch benötigt wird, [nicht entscheidbar](https://en.wikipedia.org/wiki/Decidability_%28logic%29) ist.
+Einige High-Level-Sprachen, wie JavaScript, verwenden eine Form der automatischen Speicherverwaltung, bekannt als [Garbage Collection](<https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>) (GC). Der Zweck eines Garbage Collectors ist es, die Speicherzuweisung zu überwachen, zu bestimmen, wann ein zugewiesener Speicherblock nicht mehr benötigt wird, und ihn zurückzugewinnen. Dieser automatische Prozess ist eine Annäherung, da das allgemeine Problem, festzustellen, ob ein bestimmtes Speicherelement noch benötigt wird, [unentscheidbar](https://en.wikipedia.org/wiki/Decidability_%28logic%29).
 
 ## Garbage Collection
 
-Wie oben erwähnt, ist das allgemeine Problem, automatisch festzustellen, ob ein Speicher "nicht mehr benötigt wird", unentscheidbar. Folglich implementieren Garbage Collector eine Einschränkung einer Lösung für das allgemeine Problem. In diesem Abschnitt werden die Konzepte erklärt, die zum Verständnis der Hauptalgorithmen der Garbage Collection und ihrer jeweiligen Einschränkungen erforderlich sind.
+Wie oben erwähnt, ist das allgemeine Problem, automatisch festzustellen, ob Speicher "nicht mehr benötigt wird", unentscheidbar. Folglich implementieren Garbage Collector eine Einschränkung einer Lösung des allgemeinen Problems. In diesem Abschnitt werden die Konzepte erläutert, die notwendig sind, um die Hauptalgorithmen der Garbage Collection und deren jeweiligen Einschränkungen zu verstehen.
 
 ### Referenzen
 
-Das Hauptkonzept, auf dem Garbage Collection-Algorithmen basieren, ist das Konzept der _Referenz_. Im Kontext der Speicherverwaltung wird gesagt, dass ein Objekt ein anderes Objekt referenziert, wenn das erstere auf das letztere zugreifen kann (entweder implizit oder explizit). Beispielsweise hat ein JavaScript-Objekt eine Referenz auf seinen [Prototypen](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) (implizite Referenz) und auf seine Eigenschaftswerte (explizite Referenz).
+Das Hauptkonzept, auf dem Garbage Collection-Algorithmen beruhen, ist das Konzept der _Referenz_. Im Kontext der Speicherverwaltung wird gesagt, dass ein Objekt ein anderes Objekt referenziert, wenn das erste auf das zweite zugreifen kann (entweder implizit oder explizit). Beispielsweise hat ein JavaScript-Objekt eine Referenz auf seinen [Prototypen](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) (implizite Referenz) und auf seine Eigenschaftswerte (explizite Referenz).
 
-In diesem Kontext wird der Begriff „Objekt“ auf etwas erweitert, das breiter ist als reguläre JavaScript-Objekte und auch Funktionsskope (oder den globalen lexikalischen Bereich) umfasst.
+In diesem Kontext wird der Begriff "Objekt" auf etwas breiteres als reguläre JavaScript-Objekte erweitert und umfasst auch Funktionsbereiche (oder den globalen lexikalischen Bereich).
 
 ### Referenzzählende Garbage Collection
 
 > [!NOTE]
-> Kein moderner JavaScript-Engine verwendet mehr Referenzzählung für die Garbage Collection.
+> Kein moderner JavaScript-Engine verwendet mehr die Referenzzählung für Garbage Collection.
 
-Dies ist der naivste Algorithmus für Garbage Collection. Dieser Algorithmus vereinfacht das Problem von der Bestimmung, ob ein Objekt noch benötigt wird, auf die Bestimmung, ob ein Objekt immer noch von anderen Objekten referenziert wird. Ein Objekt wird als „Garbage“ oder sammelbar angesehen, wenn keine Referenzen mehr darauf zeigen.
+Dies ist der naivste Algorithmus der Garbage Collection. Dieser Algorithmus reduziert das Problem darauf, festzustellen, ob ein Objekt noch benötigt wird, indem geprüft wird, ob ein Objekt noch von anderen Objekten referenziert wird. Ein Objekt wird als "Garbage" oder sammelbar bezeichnet, wenn es keine Referenzen darauf gibt.
 
 Zum Beispiel:
 
@@ -136,7 +136,7 @@ z = null;
 // has zero references to it. It can be garbage collected.
 ```
 
-Es gibt eine Einschränkung bei zirkulären Referenzen. Im folgenden Beispiel werden zwei Objekte erstellt, deren Eigenschaften sich gegenseitig referenzieren und dadurch einen Zyklus bilden. Sie werden außer Reichweite sein, nachdem der Funktionsaufruf abgeschlossen ist. Zu diesem Zeitpunkt werden sie nicht mehr benötigt und ihr zugewiesener Speicher sollte zurückgefordert werden. Der Referenzzählungsalgorithmus wird sie jedoch nicht als rückgewinnbar betrachten, da jedes der beiden Objekte mindestens eine Referenz aufweist, die auf sie zeigt, was dazu führt, dass keines von ihnen für die Garbage Collection markiert wird. Zirkuläre Referenzen sind eine häufige Ursache für Speicherlecks.
+Es gibt eine Einschränkung bei zyklischen Referenzen. Im folgenden Beispiel werden zwei Objekte erstellt, deren Eigenschaften sich gegenseitig referenzieren, wodurch ein Zyklus entsteht. Sie werden nach Abschluss des Funktionsaufrufs außer Geltung geraten. Zu diesem Zeitpunkt werden sie nicht mehr benötigt und ihr zugewiesener Speicher sollte zurückgefordert werden. Der Referenzzählungsalgorithmus wird sie jedoch nicht als rückforderbar betrachten, da jedes der beiden Objekte mindestens eine Referenz auf sie hat, was dazu führt, dass keines von ihnen für die Garbage Collection markiert wird. Zyklische Referenzen sind eine häufige Ursache für Speicherlecks.
 
 ```js
 function f() {
@@ -151,23 +151,23 @@ function f() {
 f();
 ```
 
-### Mark-and-sweep-Algorithmus
+### Mark-and-Sweep-Algorithmus
 
-Dieser Algorithmus reduziert die Definition von „ein Objekt wird nicht mehr benötigt“ auf „ein Objekt ist nicht erreichbar“.
+Dieser Algorithmus reduziert die Definition von "ein Objekt wird nicht mehr benötigt" auf "ein Objekt ist nicht erreichbar".
 
-Dieser Algorithmus geht davon aus, dass eine Menge von Objekten bekannt ist, die als _Wurzeln_ bezeichnet werden. In JavaScript ist die Wurzel das globale Objekt. Der Garbage Collector beginnt regelmäßig von diesen Wurzeln aus, findet alle Objekte, die von diesen Wurzeln referenziert werden, dann alle Objekte, die von diesen referenziert werden, usw. Ausgehend von den Wurzeln wird der Garbage Collector so alle _erreichbaren_ Objekte finden und alle nicht erreichbaren Objekte sammeln.
+Dieser Algorithmus setzt voraus, dass eine Menge von Objekten bekannt ist, die als _Wurzeln_ bezeichnet werden. In JavaScript ist die Wurzel das globale Objekt. Periodisch beginnt der Garbage Collector bei diesen Wurzeln, findet alle Objekte, die von diesen Wurzeln referenziert werden, dann alle Objekte, die von diesen referenziert werden, usw. Ausgehend von den Wurzeln wird der Garbage Collector somit alle _erreichbaren_ Objekte finden und alle nicht erreichbaren Objekte sammeln.
 
-Dieser Algorithmus ist eine Verbesserung gegenüber dem vorherigen, da ein Objekt mit null Referenzen tatsächlich nicht erreichbar ist. Das Gegenteil ist nicht der Fall, wie wir bei zirkulären Referenzen gesehen haben.
+Dieser Algorithmus ist eine Verbesserung gegenüber dem vorherigen, da ein Objekt ohne Referenzen tatsächlich nicht erreichbar ist. Das Gegenteil gilt jedoch nicht, wie wir bei den zyklischen Referenzen gesehen haben.
 
-Derzeit liefern alle modernen Engines einen mark-and-sweep-Garbage Collector. Alle Verbesserungen im Bereich der JavaScript-Garbage Collection (generationale/incrementale/konkurrierende/parallele Garbage Collection) in den letzten Jahren sind Implementierungsverbesserungen dieses Algorithmus, jedoch keine Verbesserungen des Garbage Collection-Algorithmus selbst oder seiner Reduzierung der Definition, wann „ein Objekt nicht mehr benötigt wird“.
+Derzeit haben alle modernen Engines einen Mark-and-Sweep-Garbage Collector. Alle Verbesserungen im Bereich der JavaScript-Garbage Collection (generational/incremental/concurrent/parallel Garbage Collection) in den letzten Jahren sind Implementierungsverbesserungen dieses Algorithmus, aber keine Verbesserungen des Garbage-Collection-Algorithmus selbst noch seiner Reduktion der Definition, wann "ein Objekt nicht mehr benötigt wird".
 
-Der unmittelbare Vorteil dieses Ansatzes ist, dass Zyklen kein Problem mehr darstellen. Im ersten Beispiel oben, nachdem der Funktionsaufruf zurückkehrt, werden die beiden Objekte von keiner Ressource mehr referenziert, die vom globalen Objekt aus erreichbar ist. Folglich werden sie vom Garbage Collector als nicht erreichbar betrachtet und ihr zugewiesener Speicher zurückgefordert.
+Der unmittelbare Vorteil dieses Ansatzes ist, dass Zyklen kein Problem mehr darstellen. Im ersten Beispiel oben sind die beiden Objekte nach der Rückkehr des Funktionsaufrufs nicht mehr von einer Ressource referenziert, die vom globalen Objekt aus erreichbar ist. Folglich werden sie vom Garbage Collector als unerreichbar identifiziert und ihr zugewiesener Speicher zurückgefordert.
 
-Jedoch bleibt die Unfähigkeit, die Garbage Collection manuell zu steuern, bestehen. Es gibt Zeiten, in denen es praktisch wäre, manuell zu entscheiden, wann und welcher Speicher freigegeben wird. Um den Speicher eines Objekts freizugeben, muss es explizit unerreichbar gemacht werden. Außerdem ist es nicht möglich, die Garbage Collection in JavaScript programmgesteuert auszulösen — und es wird wahrscheinlich niemals im Kern der Sprache sein, obwohl Engines möglicherweise APIs hinter Opt-in-Flags bereitstellen.
+Die Unfähigkeit, die Garbage Collection manuell zu steuern, bleibt jedoch bestehen. Es gibt Zeiten, in denen es praktisch wäre, manuell zu entscheiden, wann und welcher Speicher freigegeben wird. Um den Speicher eines Objekts freizugeben, muss er explizit unerreichbar gemacht werden. Es ist auch nicht möglich, die Garbage Collection programmgesteuert in JavaScript auszulösen – und es wird wahrscheinlich nie innerhalb der Kernsprache möglich sein, obwohl Engines APIs hinter Opt-in-Flags bereitstellen können.
 
-## Konfigurieren des Speichermodells einer Engine
+## Konfigurieren des Speicher-Modells einer Engine
 
-JavaScript-Engines bieten typischerweise Flags, die das Speichermodell offenlegen. Zum Beispiel bietet Node.js zusätzliche Optionen und Werkzeuge, die die zugrunde liegenden V8-Mechanismen zur Konfiguration und Debugging von Speicherproblemen darstellen. Diese Konfiguration ist möglicherweise nicht in Browsern verfügbar und noch weniger für Webseiten (über HTTP-Header usw.).
+JavaScript-Engines bieten in der Regel Flags, die das Speicher-Modell freilegen. Zum Beispiel bietet Node.js zusätzliche Optionen und Tools, die die zugrunde liegenden V8-Mechanismen zur Konfiguration und Fehlerbehebung bieten. Diese Konfigurationen sind möglicherweise in Browsern nicht verfügbar und noch weniger für Webseiten (über HTTP-Header usw.).
 
 Die maximale Menge des verfügbaren Heap-Speichers kann mit einem Flag erhöht werden:
 
@@ -175,7 +175,7 @@ Die maximale Menge des verfügbaren Heap-Speichers kann mit einem Flag erhöht w
 node --max-old-space-size=6000 index.js
 ```
 
-Wir können auch den Garbage Collector zur Fehlerbehebung bei Speicherproblemen mit einem Flag und dem [Chrome-Debugger](https://nodejs.org/en/learn/getting-started/debugging) offenlegen:
+Wir können den Garbage Collector auch für die Fehlerbehebung bei Speicherproblemen mithilfe eines Flags und des [Chrome Debuggers](https://nodejs.org/en/learn/getting-started/debugging) freilegen:
 
 ```bash
 node --expose-gc --inspect index.js
@@ -183,18 +183,18 @@ node --expose-gc --inspect index.js
 
 ## Datenstrukturen zur Unterstützung der Speicherverwaltung
 
-Obwohl JavaScript die Garbage Collector API nicht direkt bereitstellt, bietet die Sprache mehrere Datenstrukturen, die indirekt Garbage Collection beobachten und genutzt werden können, um die Speichernutzung zu verwalten.
+Obwohl JavaScript die Garbage-Collector-API nicht direkt bereitstellt, bietet die Sprache mehrere Datenstrukturen, die die Garbage Collection indirekt beobachten und zur Verwaltung der Speichernutzung verwendet werden können.
 
 ### WeakMaps und WeakSets
 
-[`WeakMap`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) und [`WeakSet`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) sind Datenstrukturen, deren APIs ihre nicht-schwachen Gegenstücke spiegeln: [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set). `WeakMap` ermöglicht es Ihnen, eine Sammlung von Schlüssel-Wert-Paaren zu verwalten, während `WeakSet` es Ihnen ermöglicht, eine Sammlung einzigartiger Werte zu verwalten, beide mit performanter Hinzufügung, Löschung und Abfrage.
+[`WeakMap`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) und [`WeakSet`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) sind Datenstrukturen, deren APIs eng ihren nicht-weak Gegenstücken entsprechen: [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set). `WeakMap` ermöglicht es, eine Sammlung von Schlüssel-Wert-Paaren zu verwalten, während `WeakSet` es ermöglicht, eine Sammlung einzigartiger Werte zu verwalten, beide mit performanten Hinzufügungs-, Lösch- und Abfrageoperationen.
 
-`WeakMap` und `WeakSet` haben ihren Namen vom Konzept der _schwach gehaltenen_ Werte. Wenn `x` schwach von `y` gehalten wird, bedeutet das, dass obwohl Sie über `y` auf den Wert von `x` zugreifen können, der mark-and-sweep-Algorithmus `x` nicht als erreichbar betrachten wird, wenn nichts anderes _stark hält_ es. Die meisten Datenstrukturen, außer denen, die hier besprochen werden, halten stark auf die übergebenen Objekte, sodass Sie sie jederzeit abrufen können. Die Schlüssel von `WeakMap` und `WeakSet` können garbage collected werden (für `WeakMap`-Objekte wären die Werte dann ebenfalls für die Garbage Collection berechtigt), solange nichts anderes im Programm den Schlüssel referenziert. Dies wird durch zwei Eigenschaften sichergestellt:
+`WeakMap` und `WeakSet` haben ihren Namen vom Konzept des _schwach gehaltenen_ Werten. Wenn `x` schwach von `y` gehalten wird, bedeutet das, dass Sie den Wert von `x` über `y` zwar zugreifen können, der Mark-and-Sweep-Algorithmus `x` jedoch nicht als erreichbar betrachtet, wenn nichts anderes _stark hält_ es. Die meisten Datenstrukturen außer den hier besprochenen halten die Objekte, die ihnen übergeben werden, stark fest, sodass Sie sie jederzeit abrufen können. Die Schlüssel von `WeakMap` und `WeakSet` können garbage-gemäßigt werden (bei `WeakMap`-Objekten wären dann auch die Werte für die Garbage Collection geeignet), solange nichts anderes im Programm auf den Schlüssel verweist. Dies wird durch zwei Merkmale sichergestellt:
 
-- `WeakMap` und `WeakSet` können nur Objekte oder Symbole speichern. Dies liegt daran, dass nur Objekte garbage collected werden — primitive Werte können immer gefälscht werden (das heißt, `1 === 1`, aber `{} !== {}`), was dazu führt, dass sie ewig in der Sammlung bleiben. [Registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) (wie `Symbol.for("key")`) können auch gefälscht werden und sind daher nicht garbage collectable, aber Symbole, die mit `Symbol("key")` erstellt wurden, sind garbage collectable. [Bekannte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) wie `Symbol.iterator` kommen in einer festen Menge und sind während der gesamten Programmlaufzeit einzigartig, ähnlich wie intrinsische Objekte wie `Array.prototype`, sodass sie auch als Schlüssel zugelassen sind.
-- `WeakMap` und `WeakSet` sind nicht iterierbar. Dies verhindert, dass Sie `Array.from(map.keys()).length` verwenden, um die Lebendigkeit von Objekten zu beobachten, oder einen beliebigen Schlüssel zu erhalten, der sonst sammelbar sein sollte. (Garbage Collection sollte so unsichtbar wie möglich sein.)
+- `WeakMap` und `WeakSet` können nur Objekte oder Symbole speichern. Dies liegt daran, dass nur Objekte garbage-gemäßigt werden – primitive Werte lassen sich immer nachbilden (das heißt, `1 === 1`, aber `{} !== {}`), wodurch sie für immer in der Sammlung bleiben. [Registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) (wie `Symbol.for("key")`) können ebenfalls nachgebildet und daher nicht garbage-gemäßigt werden, aber Symbole, die mit `Symbol("key")` erstellt wurden, sind garbage-gemäßigt. [Gut bekannte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) wie `Symbol.iterator` kommen in einem festen Satz und sind einzigartig während der gesamten Lebensdauer des Programms, ähnlich wie intrinsische Objekte wie `Array.prototype`, weshalb sie auch als Schlüssel zugelassen sind.
+- `WeakMap` und `WeakSet` sind nicht iterierbar. Dies verhindert, dass Sie `Array.from(map.keys()).length` verwenden, um die Lebendigkeit von Objekten zu beobachten oder sich einen beliebigen Schlüssel zu verschaffen, der andernfalls für die Garbage Collection in Frage kommen sollte. (Die Garbage-Collection sollte so unsichtbar wie möglich sein.)
 
-In typischen Erklärungen von `WeakMap` und `WeakSet` (wie oben) wird oft impliziert, dass der Schlüssel zuerst garbage collected wird, sodass der Wert ebenfalls für die Garbage Collection freigegeben wird. Jedoch, betrachten Sie den Fall, dass der Wert den Schlüssel referenziert:
+In typischen Erklärungen von `WeakMap` und `WeakSet` (wie der oben genannten) wird oft impliziert, dass der Schlüssel zuerst garbage-gemäßigt wird und somit auch der Wert für die Garbage Collection frei wird. Berücksichtigen Sie jedoch den Fall, dass der Wert den Schlüssel referenziert:
 
 ```js
 const wm = new WeakMap();
@@ -205,14 +205,14 @@ wm.set(key, { key });
 // and the value is strongly held in the map!
 ```
 
-Wenn `key` als tatsächliche Referenz gespeichert wird, würde dies eine zirkuläre Referenz erstellen und sowohl den Schlüssel als auch den Wert für die Garbage Collection unberechtigt machen, selbst wenn nichts anderes `key` referenziert — denn wenn `key` garbage collected wird, bedeutet das, dass zu einem bestimmten Zeitpunkt `value.key` auf eine nicht existierende Adresse zeigen würde, was nicht legal ist. Um dies zu beheben, sind die Einträge von `WeakMap` und `WeakSet` keine tatsächlichen Referenzen, sondern [Ephemerons](https://dl.acm.org/doi/pdf/10.1145/263700.263733), eine Verbesserung des mark-and-sweep-Mechanismus. [Barros et al.](https://www.jucs.org/jucs_14_21/eliminating_cycles_in_weak/jucs_14_21_3481_3497_barros.pdf) bieten eine gute Zusammenfassung des Algorithmus (Seite 4). Ein Absatz, um zu zitieren:
+Wenn `key` als tatsächliche Referenz gespeichert würde, würde es eine zyklische Referenz erstellen und sowohl den Schlüssel als auch den Wert für die Garbage Collection ungeeignet machen, selbst wenn nichts anderes `key` referenziert – denn wenn `key` garbage-gemäßigt wird, würde es bedeuten, dass zu einem bestimmten Zeitpunkt `value.key` auf eine nicht existente Adresse zeigen würde, was nicht legal ist. Um das zu beheben, sind die Einträge von `WeakMap` und `WeakSet` keine tatsächlichen Referenzen, sondern [Ephemerons](https://dl.acm.org/doi/pdf/10.1145/263700.263733), eine Verbesserung des Mark-and-Sweep-Mechanismus. [Barros et al.](https://www.jucs.org/jucs_14_21/eliminating_cycles_in_weak/jucs_14_21_3481_3497_barros.pdf) bietet eine gute Zusammenfassung des Algorithmus (Seite 4). Um einen Absatz zu zitieren:
 
-> Ephemerons sind eine Verfeinerung schwacher Paare, bei denen weder der Schlüssel noch der Wert als schwach oder stark klassifiziert werden können. Die Konnektivität des Schlüssels bestimmt die Konnektivität des Wertes, aber die Konnektivität des Wertes beeinflusst die Konnektivität des Schlüssels nicht. […] wenn die Garbage Collection Unterstützung für Ephemerons bietet, erfolgt sie in drei Phasen statt zwei (Markieren und Aufräumen).
+> Ephemerons sind eine Verfeinerung von schwachen Paaren, bei denen weder der Schlüssel noch der Wert als schwach oder stark klassifiziert werden können. Die Konnektivität des Schlüssels bestimmt die Konnektivität des Werts, aber die Konnektivität des Werts beeinflusst nicht die Konnektivität des Schlüssels. […] wenn die Garbage Collection die Unterstützung für Ephemerons bietet, erfolgt sie in drei Phasen statt in zwei (Mark und Sweep).
 
-Als ein grobes mentales Modell können Sie sich `WeakMap` als folgende Implementierung vorstellen:
+Als grobes Denkmodell stellen Sie sich `WeakMap` als die folgende Implementierung vor:
 
 > [!WARNING]
-> Dies ist kein Polyfill und steht der Implementierung der Engine (die in den Garbage Collection-Mechanismus eingreift) in keinem Maße nahe.
+> Dies ist weder ein Polyfill noch ist es irgendwie nah an der echten Implementierung in der Engine (die in den Garbage-Collection-Mechanismus eingehakt ist).
 
 ```js
 class MyWeakMap {
@@ -232,18 +232,18 @@ class MyWeakMap {
 }
 ```
 
-Wie Sie sehen können, hält die `MyWeakMap` tatsächlich nie eine Sammlung von Schlüsseln. Sie fügt einfach Metadaten zu jedem übergebenen Objekt hinzu. Das Objekt ist dann über mark-and-sweep garbage collectable. Daher ist es nicht möglich, über die Schlüssel in einer `WeakMap` zu iterieren, noch die `WeakMap` zu leeren (da dies auch das Wissen über die gesamte Schlüsselsammlung erfordern würde).
+Wie Sie sehen, hält `MyWeakMap` niemals tatsächlich eine Sammlung von Schlüsseln. Vielmehr fügt es jedem übergebenen Objekt Metadaten hinzu. Das Objekt ist dann über Mark-and-Sweep garbage-gemäßigt. Daher ist es nicht möglich, über die Schlüssel in einer `WeakMap` zu iterieren oder die `WeakMap` zu leeren (da das auch das Wissen über die gesamte Schlüsselsammlung voraussetzt).
 
-Für mehr Informationen zu ihren APIs, siehe den [Leitfaden über geordnete Sammlungen](/de/docs/Web/JavaScript/Guide/Keyed_collections).
+Für weitere Informationen zu deren APIs siehe den [Leitfaden für Sammlungen mit Schlüsselwerten](/de/docs/Web/JavaScript/Guide/Keyed_collections).
 
 ### WeakRefs und FinalizationRegistry
 
 > [!NOTE]
-> `WeakRef` und `FinalizationRegistry` bieten direkte Einsicht in den Garbage Collection-Apparat. [Vermeiden Sie ihre Verwendung, wo möglich](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#avoid_where_possible), da die Laufzeitsemantik fast vollständig nicht garantiert ist.
+> `WeakRef` und `FinalizationRegistry` bieten direkte Einsicht in den Garbage-Collection-Mechanismus. [Vermeiden Sie deren Verwendung, wo immer möglich](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#avoid_where_possible), da die Laufzeitsemantik fast vollständig ungarantiert ist.
 
-Alle Variablen mit einem Objekt als Wert sind Referenzen auf dieses Objekt. Solche Referenzen sind jedoch _stark_ — ihre Existenz würde den Garbage Collector daran hindern, das Objekt als sammelbar zu markieren. Ein [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) ist eine _schwache Referenz_ auf ein Objekt, die es ermöglicht, dass das Objekt garbage collected wird, während gleichzeitig die Möglichkeit erhalten bleibt, den Inhalt des Objekts während seiner Lebensdauer zu lesen.
+Alle Variablen mit einem Objekt als Wert sind Referenzen für dieses Objekt. Solche Referenzen sind jedoch _stark_ – ihre Existenz verhindert, dass der Garbage Collector das Objekt als für die Sammlung geeignet markiert. Ein [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) ist eine _schwache Referenz_ auf ein Objekt, die es dem Objekt ermöglicht, garbage-gemäßigt zu werden, während es dennoch möglich bleibt, den Inhalt des Objekts während seiner Lebensdauer zu lesen.
 
-Ein Anwendungsfall für `WeakRef` ist ein Cache-System, das Zeichenfolgen-URLs großen Objekten zuordnet. Wir können für diesen Zweck kein `WeakMap` verwenden, da `WeakMap` Objekte ihre _Schlüssel_ schwach gehalten haben, nicht aber ihre _Werte_ — wenn Sie auf einen Schlüssel zugreifen, würden Sie immer deterministisch den Wert erhalten (da der Zugriff auf den Schlüssel bedeutet, dass er noch lebt). Hier ist es für uns in Ordnung, `undefined` für einen Schlüssel zu erhalten (wenn der entsprechende Wert nicht mehr lebt), da wir ihn einfach neu berechnen können, aber wir möchten nicht, dass nicht erreichbare Objekte im Cache verbleiben. In diesem Fall können wir eine normale `Map` verwenden, jedoch mit jedem Wert als `WeakRef` des Objekts anstelle des tatsächlichen Objektwerts.
+Ein Anwendungsfall für `WeakRef` ist ein Cache-System, das String-URLs großen Objekten zuordnet. Wir können für diesen Zweck keine `WeakMap` verwenden, da bei `WeakMap`-Objekten ihre _Schlüssel_ schwach gehalten werden, aber nicht ihre _Werte_ – wenn Sie auf einen Schlüssel zugreifen, würden Sie immer deterministisch den Wert erhalten (da der Zugriff auf den Schlüssel bedeutet, dass er immer noch lebt). Hier ist es okay, `undefined` für einen Schlüssel zu erhalten (wenn der entsprechende Wert nicht mehr lebt), da wir ihn einfach neu berechnen können, aber wir möchten nicht, dass unerreichbare Objekte im Cache bleiben. In diesem Fall können wir eine normale `Map` verwenden, aber mit jedem Wert als `WeakRef` des Objekts anstelle des tatsächlichen Objektwerts.
 
 ```js
 function cached(getter) {
@@ -265,7 +265,7 @@ function cached(getter) {
 const getImage = cached((url) => fetch(url).then((res) => res.blob()));
 ```
 
-[`FinalizationRegistry`](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) bietet einen noch stärkeren Mechanismus, um Garbage Collection zu beobachten. Es erlaubt Ihnen, Objekte zu registrieren und benachrichtigt zu werden, wenn sie garbage collected werden. Zum Beispiel kann für das oben angeführte Cache-System, selbst wenn die Blobs selbst für die Sammlung freigegeben sind, die `WeakRef`-Objekte, die sie halten, nicht — und über die Zeit kann die `Map` viele nutzlose Einträge ansammeln. Die Verwendung einer `FinalizationRegistry` ermöglicht es einem, in diesem Fall eine Bereinigung durchzuführen.
+[`FinalizationRegistry`](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) bietet einen noch stärkeren Mechanismus zur Beobachtung der Garbage Collection. Es ermöglicht Ihnen die Registrierung von Objekten und benachrichtigt Sie, wenn sie garbage-gemäßigt werden. Zum Beispiel, für das oben genannte Cache-System, selbst wenn die Blobs selbst für die Sammlung freigegeben sind, sind die `WeakRef`-Objekte, die sie halten, nicht – und mit der Zeit kann die `Map` viele nutzlose Einträge ansammeln. Die Verwendung einer `FinalizationRegistry` ermöglicht es in diesem Fall, Aufräumarbeiten durchzuführen.
 
 ```js
 function cached(getter) {
@@ -296,6 +296,6 @@ function cached(getter) {
 const getImage = cached((url) => fetch(url).then((res) => res.blob()));
 ```
 
-Aufgrund von Leistungs- und Sicherheitsbedenken gibt es keine Garantie, wann der Rückruf aufgerufen wird oder ob er überhaupt aufgerufen wird. Er sollte nur für die Bereinigung verwendet werden — und für nicht-kritische Bereinigung. Es gibt andere Möglichkeiten für eine deterministischere Ressourcenverwaltung, wie zum Beispiel [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch), der immer den `finally`-Block ausführt. `WeakRef` und `FinalizationRegistry` existieren ausschließlich zur Optimierung der Speichernutzung in langlaufenden Programmen.
+Aufgrund von Leistungs- und Sicherheitsbedenken gibt es keine Garantie, wann der Callback aufgerufen wird, oder ob er überhaupt aufgerufen wird. Es sollte nur zur Aufräumung verwendet werden – und zur nicht kritischen Aufräumung. Es gibt andere Möglichkeiten für eine deterministische Ressourcenverwaltung, wie [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch), welche immer den `finally`-Block ausführt. `WeakRef` und `FinalizationRegistry` existieren ausschließlich zur Optimierung der Speichernutzung in lang laufenden Programmen.
 
-Für mehr Informationen zur API von [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) und [`FinalizationRegistry`](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry), siehe deren Referenzseiten.
+Für weitere Informationen zu den APIs von [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) und [`FinalizationRegistry`](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) sehen Sie sich deren Referenzseiten an.
