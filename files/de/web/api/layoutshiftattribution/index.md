@@ -2,48 +2,47 @@
 title: LayoutShiftAttribution
 slug: Web/API/LayoutShiftAttribution
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: b5a74ef0b42f3585521b06dae93b72547649d83c
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die `LayoutShiftAttribution` Schnittstelle bietet Debugging-Informationen über Elemente, die sich verschoben haben.
+Das `LayoutShiftAttribution`-Interface liefert Debugging-Informationen zu Elementen, die sich verschoben haben.
 
-Instanzen von `LayoutShiftAttribution` werden in einem Array zurückgegeben, wenn [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) aufgerufen wird.
+Instanzen von `LayoutShiftAttribution` werden in einem Array zurückgegeben, indem [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) aufgerufen wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`LayoutShiftAttribution.node`](/de/docs/Web/API/LayoutShiftAttribution/node) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt das Element zurück, das sich verschoben hat (null, wenn es entfernt wurde).
 - [`LayoutShiftAttribution.previousRect`](/de/docs/Web/API/LayoutShiftAttribution/previousRect) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt zurück, das die Position des Elements vor der Verschiebung repräsentiert.
+  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die Position des Elements vor der Verschiebung repräsentiert.
 - [`LayoutShiftAttribution.currentRect`](/de/docs/Web/API/LayoutShiftAttribution/currentRect) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt zurück, das die Position des Elements nach der Verschiebung repräsentiert.
+  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die Position des Elements nach der Verschiebung repräsentiert.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`LayoutShiftAttribution.toJSON()`](/de/docs/Web/API/LayoutShiftAttribution/toJSON) {{Experimental_Inline}}
-  - : Gibt eine JSON-Darstellung des `LayoutShiftAttribution` Objekts zurück.
+  - : Gibt eine JSON-Darstellung des `LayoutShiftAttribution`-Objekts zurück.
 
 ## Beispiele
 
-Das folgende Beispiel findet das Element mit dem höchsten Layout-Verschiebungswert und gibt das Element in diesem Eintrag mit der größten Größe vor der Verschiebung (`previousRect`) zurück. Für weitere Details siehe [Debuggen Sie Web Vitals im Feld](https://web.dev/articles/debug-performance-in-the-field).
+Das folgende Beispiel beobachtet Layoutverschiebungen und identifiziert das Element mit dem größten Einfluss. Das `sources`-Array ist absteigend nach Einflussbereich sortiert, sodass das erste Element (`sources[0]`) das Element darstellt, das am meisten zur Layoutverschiebung beigetragen hat. Weitere Details dazu finden Sie unter [Debug Web Vitals in the field](https://web.dev/articles/debug-performance-in-the-field).
 
 ```js
-function getCLSDebugTarget(entries) {
-  const largestEntry = entries.reduce((a, b) =>
-    a && a.value > b.value ? a : b,
-  );
-  if (largestEntry?.sources?.length) {
-    const largestSource = largestEntry.sources.reduce((a, b) => {
-      const area = (el) => el.previousRect.width * el.previousRect.height;
-      return a.node && area(a) > area(b) ? a : b;
-    });
-    if (largestSource) {
-      return largestSource.node;
-    }
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) {
+    if (!entry.sources || entry.sources.length === 0) continue;
+
+    const mostImpactfulSource = entry.sources[0];
+    console.log("Layout shift score:", entry.value);
+    console.log("Most impactful element:", largestShiftSource.node);
+    console.log("Previous position:", largestShiftSource.previousRect);
+    console.log("Current position:", largestShiftSource.currentRect);
   }
-}
+});
+
+observer.observe({ type: "layout-shift", buffered: true });
 ```
 
 ## Spezifikationen
@@ -56,5 +55,5 @@ function getCLSDebugTarget(entries) {
 
 ## Siehe auch
 
-- [Layout-Verschiebungen debuggen](https://web.dev/articles/debug-layout-shifts)
-- [Debuggen Sie Web Vitals im Feld](https://web.dev/articles/debug-performance-in-the-field)
+- [Debug layout shifts](https://web.dev/articles/debug-layout-shifts)
+- [Debug Web Vitals in the field](https://web.dev/articles/debug-performance-in-the-field)

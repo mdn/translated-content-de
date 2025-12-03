@@ -1,14 +1,14 @@
 ---
-title: "CustomElementRegistry: getName()-Methode"
+title: "CustomElementRegistry: getName() Methode"
 short-title: getName()
 slug: Web/API/CustomElementRegistry/getName
 l10n:
-  sourceCommit: 6f8924937f1c3fcaa2a7a9779741ff1af6e8e17f
+  sourceCommit: 730741c750cc299b85798f1adbaf7adbd6e2016d
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`getName()`**-Methode des [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) Interfaces gibt den Namen eines zuvor definierten benutzerdefinierten Elements zurück.
+Die **`getName()`** Methode der [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Schnittstelle gibt den Namen eines zuvor definierten benutzerdefinierten Elements zurück.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ getName(constructor)
 
 ### Rückgabewert
 
-Der Name des zuvor definierten benutzerdefinierten Elements oder `null`, wenn kein benutzerdefiniertes Element mit dem Konstruktor definiert ist.
+Der Name des zuvor definierten benutzerdefinierten Elements oder `null`, wenn es kein benutzerdefiniertes Element mit dem Konstruktor gibt.
 
 ## Beispiele
 
 ```js
 class MyParagraph extends HTMLElement {
   constructor() {
-    let templateContent = document.getElementById("custom-paragraph").content;
+    const template = document.getElementById("custom-paragraph");
     super() // returns element this scope
       .attachShadow({ mode: "open" }) // sets AND returns this.shadowRoot
-      .append(templateContent.cloneNode(true));
+      .append(document.importNode(template.content, true));
   }
 }
 

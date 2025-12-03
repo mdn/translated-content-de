@@ -2,12 +2,12 @@
 title: ::slotted()
 slug: Web/CSS/Reference/Selectors/::slotted
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 730741c750cc299b85798f1adbaf7adbd6e2016d
 ---
 
-Das **`::slotted()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert jedes Element, das in einen Slot innerhalb eines HTML-Templates platziert wurde (siehe [Verwendung von Vorlagen und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für mehr Informationen).
+Das **`::slotted()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert jedes Element, das in einen Slot innerhalb eines HTML-Templates eingefügt wurde (siehe [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
 
-Dies funktioniert nur, wenn es innerhalb von CSS verwendet wird, das innerhalb eines [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) platziert ist. Beachten Sie, dass dieser Selektor keinen in einen Slot platzierten Textknoten auswählt; er zielt nur auf tatsächliche Elemente ab.
+Dies funktioniert nur, wenn es innerhalb von CSS verwendet wird, das im [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) platziert ist. Beachten Sie, dass dieser Selektor keinen Textknoten auswählt, der in einen Slot eingefügt wurde; er zielt nur auf tatsächliche Elemente ab.
 
 {{InteractiveExample("CSS Demo: ::slotted()", "tabbed-shorter")}}
 
@@ -46,7 +46,7 @@ customElements.define(
 
       const template = document.getElementById("card-template");
       const shadow = this.attachShadow({ mode: "open" });
-      shadow.appendChild(template.content.cloneNode(true));
+      shadow.appendChild(document.importNode(template.content, true));
 
       const elementStyle = document.createElement("style");
       elementStyle.textContent = `
@@ -91,7 +91,7 @@ customElements.define(
 
 ## Beispiele
 
-### Hervorheben von geslotteten Elementen
+### Hervorheben von eingefügten Elementen
 
 In diesem Beispiel verwenden wir ein Template mit drei Slots:
 
@@ -108,7 +108,7 @@ In diesem Beispiel verwenden wir ein Template mit drei Slots:
 </template>
 ```
 
-Wir definieren das `<person-details>`-benutzerdefinierte Element. In diesem Fall fügen wir die Stile mithilfe von JavaScript hinzu, obwohl wir sie mit dem gleichen Effekt in einem {{HTMLElement("style")}}-Block innerhalb des {{HTMLElement("template")}} hätten hinzufügen können:
+Wir definieren das `<person-details>`-Custom-Element. In diesem Fall fügen wir Styles mit JavaScript hinzu, obwohl wir sie mit demselben Effekt in einem {{HTMLElement("style")}}-Block innerhalb des {{HTMLElement("template")}} hätten hinzufügen können:
 
 ```js
 customElements.define(
@@ -116,12 +116,11 @@ customElements.define(
   class extends HTMLElement {
     constructor() {
       super();
-      let template = document.getElementById("person-template");
-      let templateContent = template.content;
+      const template = document.getElementById("person-template");
 
       const shadowRoot = this.attachShadow({ mode: "open" });
 
-      let style = document.createElement("style");
+      const style = document.createElement("style");
       style.textContent =
         "div { padding: 10px; border: 1px solid gray; width: 200px; margin: 10px; }" +
         "h2 { margin: 0 0 10px; }" +
@@ -131,15 +130,15 @@ customElements.define(
         "::slotted(span) {text-decoration: underline;} ";
 
       shadowRoot.appendChild(style);
-      shadowRoot.appendChild(templateContent.cloneNode(true));
+      shadowRoot.appendChild(document.importNode(template.content, true));
     }
   },
 );
 ```
 
-Wenn Sie das `style`-Element mit Inhalt füllen, werden Sie sehen, dass wir alle geslotteten Elemente (`::slotted(*)`) auswählen und ihnen eine andere Schriftart und Farbe geben. Dies unterscheidet sie von den Slots, die nicht gefüllt wurden. Wir haben alle geslotteten {{HTMLElement("span")}}s (`::slotted(span)`) gestaltet, um die `<span>`s von den {{HTMLElement("p")}}s zu unterscheiden.
+Wenn Sie das `style`-Element mit Inhalt füllen, werden Sie sehen, dass wir alle eingefügten Elemente (`::slotted(*)`) auswählen und ihnen eine andere Schriftart und Farbe geben. Dies differenziert sie von den Slots, die nicht gefüllt wurden. Wir haben alle eingefügten {{HTMLElement("span")}}s (`::slotted(span)`) gestylt, um die `<span>`s von den {{HTMLElement("p")}}s zu unterscheiden.
 
-Unser Markup umfasst drei benutzerdefinierte Elemente, einschließlich eines benutzerdefinierten Elements mit einem ungültigen Slot-Namen in einer Quellreihenfolge, die sich vom `<template>` unterscheidet:
+Unser Markup enthält drei Custom-Elemente, einschließlich eines Custom-Elements mit einem ungültigen Slotnamen in einer Quellreihenfolge, die sich vom `<template>` unterscheidet:
 
 ```html
 <person-details>
@@ -179,7 +178,7 @@ Unser Markup umfasst drei benutzerdefinierte Elemente, einschließlich eines ben
 - {{cssxref(":host_function", ":host()")}}
 - {{cssxref(":host-context", ":host-context()")}}
 - {{cssxref(":has-slotted")}}
-- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping)-Modul
+- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping) -Modul
 - HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut
 - HTML {{HTMLElement("slot")}}-Element
 - HTML {{HTMLElement("template")}}-Element

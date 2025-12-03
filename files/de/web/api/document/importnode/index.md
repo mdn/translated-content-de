@@ -1,18 +1,20 @@
 ---
-title: "Dokument: importNode()-Methode"
+title: "Dokument: importNode() Methode"
 short-title: importNode()
 slug: Web/API/Document/importNode
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 730741c750cc299b85798f1adbaf7adbd6e2016d
 ---
 
 {{APIRef("DOM")}}
 
-Die **`importNode()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Objekts erstellt eine Kopie eines [`Node`](/de/docs/Web/API/Node)- oder [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Elements aus einem anderen Dokument, um es später in das aktuelle Dokument einzufügen.
+Die **`importNode()`** Methode des [`Document`](/de/docs/Web/API/Document) Interfaces erstellt eine Kopie eines [`Node`](/de/docs/Web/API/Node) oder [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) aus einem anderen Dokument, um diese später in das aktuelle Dokument einzufügen.
 
-Der importierte Knoten ist noch nicht im Dokumentenbaum enthalten. Um ihn einzufügen, müssen Sie eine Einfügemethode wie [`appendChild()`](/de/docs/Web/API/Node/appendChild) oder [`insertBefore()`](/de/docs/Web/API/Node/insertBefore) mit einem Knoten aufrufen, der _bereits_ im Dokumentenbaum vorhanden ist.
+Der importierte Knoten ist noch nicht im Dokumentbaum enthalten. Um ihn hinzuzufügen, müssen Sie eine Einfügemethode wie [`appendChild()`](/de/docs/Web/API/Node/appendChild) oder [`insertBefore()`](/de/docs/Web/API/Node/insertBefore) mit einem Knoten aufrufen, der _bereits_ im Dokumentbaum enthalten ist.
 
-Im Gegensatz zu [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) wird der originale Knoten nicht aus seinem ursprünglichen Dokument entfernt. Der importierte Knoten ist eine Kopie des Originals.
+Im Gegensatz zu [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) wird der Originalknoten nicht aus seinem ursprünglichen Dokument entfernt. Der importierte Knoten ist eine Kopie des Originals.
+
+Die Methode [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) erstellt ebenfalls eine Kopie eines Knotens. Der Unterschied besteht darin, dass `importNode()` den Knoten im Kontext des aufrufenden Dokuments klont, während `cloneNode()` das Dokument des zu klonenden Knotens verwendet. Der Dokumentkontext bestimmt das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) für den Aufbau von benutzerdefinierten Elementen. Aus diesem Grund sollten Sie, um Knoten zu klonen, die in einem anderen Dokument verwendet werden sollten, `importNode()` auf dem Ziel-Dokument verwenden. Das [`HTMLTemplateElement.content`](/de/docs/Web/API/HTMLTemplateElement/content) gehört zu einem separaten Dokument, daher sollte es ebenfalls mithilfe von `document.importNode()` geklont werden, damit benutzerdefinierte Elemente mit den Definitionen im aktuellen Dokument erstellt werden. Siehe die Beispiele auf der Seite zu [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) für weitere Details.
 
 ## Syntax
 
@@ -26,18 +28,22 @@ importNode(externalNode, deep)
 - `externalNode`
   - : Der externe [`Node`](/de/docs/Web/API/Node) oder [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), der in das aktuelle Dokument importiert werden soll.
 - `deep` {{optional_inline}}
-  - : Ein boolescher Wert, dessen Standardwert `false` ist, der steuert, ob der gesamte DOM-Unterbaum des `externalNode` in den Import einbezogen wird.
-    - Wenn `deep` auf `true` gesetzt ist, dann werden `externalNode` und alle seine Nachkommen kopiert.
-    - Wenn `deep` auf `false` gesetzt ist, dann wird nur `externalNode` importiert — der neue Knoten hat keine Kinder.
+  - : Ein boolesches Flag, dessen Standardwert `false` ist, das steuert, ob der gesamte DOM-Unterbaum des `externalNode` in den Import einbezogen wird.
+    - Wenn `deep` auf `true` gesetzt ist, dann werden
+      `externalNode` und alle seine Nachkommen kopiert.
+    - Wenn `deep` auf `false` gesetzt ist, dann wird nur
+      `externalNode` importiert — der neue Knoten hat keine Kinder.
 
 ### Rückgabewert
 
 Der kopierte `importedNode` im Kontext des importierenden Dokuments.
 
 > [!NOTE]
-> Der `importedNode` hat `null` als [`Node.parentNode`](/de/docs/Web/API/Node/parentNode), da er noch nicht in den Dokumentenbaum eingefügt wurde!
+> `importedNode`'s [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) ist `null`, da es noch nicht in den Dokumentbaum eingefügt wurde!
 
 ## Beispiele
+
+### Verwendung von importNode()
 
 ```js
 const iframe = document.querySelector("iframe");
@@ -56,7 +62,7 @@ Bevor sie in das aktuelle Dokument eingefügt werden können, sollten Knoten aus
 > [!NOTE]
 > Obwohl Firefox diese Regel derzeit nicht durchsetzt, empfehlen wir Ihnen, diese Regel zu befolgen, um die zukünftige Kompatibilität zu verbessern.
 
-Weitere Informationen zu den Fragen im Zusammenhang mit [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) finden Sie in den W3C DOM-FAQ.
+Weitere Informationen zu den [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) Problemen finden Sie in den W3C DOM FAQ.
 
 ## Spezifikationen
 
@@ -68,6 +74,6 @@ Weitere Informationen zu den Fragen im Zusammenhang mit [`Node.ownerDocument`](/
 
 ## Siehe auch
 
-- [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode), welches sich sehr ähnlich wie diese Methode verhält
+- [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode), die sich sehr ähnlich wie diese Methode verhält
 - [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
 - [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)

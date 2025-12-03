@@ -1,16 +1,14 @@
 ---
-title: "Sanitizer: replaceElementWithChildren()-Methode"
+title: "Sanitizer: replaceElementWithChildren() Methode"
 short-title: replaceElementWithChildren()
 slug: Web/API/Sanitizer/replaceElementWithChildren
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: 8b449a5846c1de417894acfe9b4471447181b57f
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`replaceElementWithChildren()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle ersetzt ein Element durch seine untergeordneten HTML-Elemente, wenn der Sanitizer verwendet wird. Sie wird hauptsächlich zum Entfernen von Stilen aus Texten verwendet.
-
-Das angegebene Element, zusammen mit seinem Namensraum, wird zur Liste der [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) in der Konfiguration dieses Sanitizers hinzugefügt. Das Element wird aus den Listen [`elements`](/de/docs/Web/API/SanitizerConfig#elements) oder [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) entfernt, falls es dort vorhanden ist.
+Die **`replaceElementWithChildren()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass ein Element durch seine Kind-HTML-Elemente ersetzt wird, wenn der Sanitizer verwendet wird. Dies wird hauptsächlich verwendet, um Stile aus Text zu entfernen.
 
 ## Syntax
 
@@ -25,17 +23,17 @@ replaceElementWithChildren(element)
     - `name`
       - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
-      - : Ein String, der den Namensraum des Elements angibt. Der Standard-Namensraum ist `"http://www.w3.org/1999/xhtml"`.
+      - : Ein String, der den Namespace des Elements enthält. Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
 
 ### Rückgabewert
 
-Keiner (`undefined`).
+`true`, wenn die Operation die Konfiguration dahingehend geändert hat, das Element durch seine Kinder zu ersetzen, und `false`, wenn der Sanitizer das Element bereits ersetzte.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt die grundlegende Verwendung der Methode, indem ein Sanitizer konfiguriert wird, der das `<em>`-Element in Eingaben durch seinen Inhalt ersetzt.
+Dieses Beispiel zeigt die grundlegende Verwendung der Methode, die einen Sanitizer konfiguriert, der das `<em>`-Element in Eingaben durch seinen Kind-Inhalt ersetzt.
 
 ```js
 // Create sanitizer (in this case the default)
@@ -71,9 +69,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das zunächst die {{htmlelement("p")}}, {{htmlelement("em")}} und {{htmlelement("strong")}}-Elemente zulässt. Anschließend wird `replaceElementWithChildren()` auf dem Sanitizer aufgerufen, wobei angegeben wird, dass `<strong>`-Elemente ersetzt werden sollen.
+Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das anfänglich {{htmlelement("p")}}, {{htmlelement("em")}} und {{htmlelement("strong")}}-Elemente zulässt. Wir rufen dann `replaceElementWithChildren()` am Sanitizer auf und geben an, dass `<strong>`-Elemente ersetzt werden sollen.
 
-Der Code definiert einen String, der `<strong>`-Elemente enthält, und verwendet [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Sanitizer, um den String einzufügen. Der Original-String, das bereinigte HTML-Element und der Sanitizer werden protokolliert.
+Der Code definiert einen String, der `<strong>`-Elemente enthält, und nutzt [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) mit dem Sanitizer, um den String einzufügen. Der Originalstring, das sanitierte HTML aus dem Element und der Sanitizer werden geloggt.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -110,7 +108,7 @@ log(`\n\nsanitizerConfig:\n ${JSON.stringify(sanitizerConfig, null, 2)}`);
 
 #### Ergebnisse
 
-Der ursprüngliche unbereinigte HTML-String, der bereinigte String aus dem Element und der Sanitizer werden unten protokolliert. Beachten Sie, dass das `<strong>`-Styling aus dem Text entfernt wird, das `<em>`-Element jedoch nicht. Beachten Sie auch, dass das `<strong>`-Element ursprünglich in der `elements`-Liste in der Konfiguration war, aber entfernt wurde, als es zur `replaceWithChildrenElements`-Liste hinzugefügt wurde.
+Der ursprüngliche unsanitisierte HTML-String, der sanitisierte String aus dem Element und der Sanitizer werden unten geloggt. Beachten Sie, dass das `<strong>`-Styling aus dem Text entfernt wurde, aber das `<em>`-Element nicht. Beachten Sie auch, dass das `<strong>`-Element ursprünglich in der `elements`-Liste der Konfiguration war, aber entfernt wurde, als es zur `replaceWithChildrenElements`-Liste hinzugefügt wurde.
 
 {{EmbedLiveSample("How to strip styles from text","100","520px")}}
 

@@ -1,14 +1,14 @@
 ---
-title: CSS-At-Regeln
+title: CSS-Regeln
 short-title: At-rules
 slug: Web/CSS/Reference/At-rules
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 3ee2355c3c90cf92c3119b82f8ebfa5d16c91c53
 ---
 
-**At-Regeln** sind [CSS-Anweisungen](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_statements), die CSS anweisen, wie es sich verhalten soll. Sie werden verwendet, um Stilregeln und andere At-Regeln zu gruppieren und zu strukturieren, Style-Informationen zu deklarieren, die nicht direkt mit ausgewähltem Inhalt verbunden sind, und um syntaktische Konstrukte wie Importe und Namespaces-Schlüsselwortzuordnungen zu verwalten. Sie beginnen mit einem At-Zeichen, `@` (U+0040 COMMERCIAL AT), gefolgt von einem Bezeichner.
+**At-Regeln** sind [CSS-Anweisungen](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_statements), die dem CSS Anweisungen geben, wie es sich verhalten soll. Sie werden verwendet, um Stilregeln und andere At-Regeln zu gruppieren und zu strukturieren, Stilinformationen zu deklarieren, die nicht direkt mit ausgewähltem Inhalt verbunden sind, und syntaktische Konstrukte wie Importe und Namensraum-Zuordnungen zu verwalten. Sie beginnen mit einem At-Zeichen, `@` (U+0040 COMMERCIAL AT), gefolgt von einem Bezeichner.
 
-## Index der At-Regeln und At-Regel-Beschreibungen
+## Index der At-Regeln und At-Regel-Deskriptoren
 
 - {{cssxref("@charset")}}
 - {{cssxref("@color-profile")}}
@@ -24,7 +24,8 @@ l10n:
   - {{cssxref("@counter-style/suffix")}}
   - {{cssxref("@counter-style/symbols")}}
   - {{cssxref("@counter-style/system")}}
-- {{cssxref("@document")}} {{non-standard_inline}} {{deprecated_inline}}
+- {{cssxref("@custom-media")}}
+- {{cssxref("@document")}} {{non-standard_inline}} {{veraltet_inline}}
 - {{cssxref("@font-face")}}
   - {{cssxref("@font-face/ascent-override")}}
   - {{cssxref("@font-face/descent-override")}}
@@ -113,7 +114,7 @@ l10n:
 
 ## Siehe auch
 
-- [Funktionen der CSS-At-Regeln](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)
-- [Verschachtelung von At-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules)
+- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)
+- [Verschachteln von At-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules)
 - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) Modul
-- [CSS-Bedingungsregeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
+- [CSS bedingte Regeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
