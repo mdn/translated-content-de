@@ -23,7 +23,8 @@
     "lint:yml": "prettier -c \"**/*.yml\""
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24",
+    "npm": "^11"
   },
   "dependencies": {
     "autocorrect-node": "2.14.0",
