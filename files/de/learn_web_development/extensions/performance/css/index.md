@@ -1,29 +1,34 @@
 ---
-title: CSS Leistungsoptimierung
+title: CSS-Leistungsoptimierung
 short-title: Performantes CSS
 slug: Learn_web_development/Extensions/Performance/CSS
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: d64e1ee3cdbe602324fce3f7320d026f58186715
 ---
 
-{{PreviousMenuNext("Learn_web_development/Extensions/Performance/html", "Learn_web_development/Extensions/Performance/business_case_for_performance", "Learn_web_development/Extensions/Performance")}}
+{{PreviousMenuNext("Learn_web_development/Extensions/Performance/HTML", "Learn_web_development/Extensions/Performance/business_case_for_performance", "Learn_web_development/Extensions/Performance")}}
 
-Beim Entwickeln einer Website müssen Sie berücksichtigen, wie der Browser das CSS auf Ihrer Seite verarbeitet. Um mögliche Leistungsprobleme, die durch CSS verursacht werden könnten, zu verringern, sollten Sie es optimieren. Beispielsweise sollten Sie das CSS optimieren, um {{Glossary("Render_blocking", "Render-Blocking")}} zu minimieren und die Anzahl der erforderlichen Reflows zu reduzieren. Dieser Artikel führt Sie durch wichtige Techniken zur CSS-Leistungsoptimierung.
+Bei der Entwicklung einer Website müssen Sie berücksichtigen, wie der Browser das CSS auf Ihrer Seite verarbeitet. Um mögliche Leistungsprobleme, die durch CSS verursacht werden, zu mindern, sollten Sie es optimieren. Zum Beispiel sollten Sie das CSS optimieren, um {{Glossary("Render_blocking", "Render-Blocking")}} zu reduzieren und die Anzahl erforderlicher Neuberechnungen zu minimieren. Dieser Artikel führt Sie durch wichtige CSS-Leistungsoptimierungstechniken.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software">Grundlegende Software installiert</a> und Grundkenntnisse über
-        <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website">Client-seitige Webtechnologien</a>.
+        <a
+          href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software"
+          >Grundlegende Software installiert</a
+        >, und grundlegende Kenntnisse über
+        <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
+          >clientseitige Webtechnologien</a
+        >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Um zu lernen, wie sich CSS auf die Leistung von Websites auswirkt
-        und wie Sie Ihr CSS optimieren können, um die Leistung zu verbessern.
+        Informationen über den Einfluss von CSS auf die Website-Leistung
+        zu erhalten und wie Sie Ihr CSS optimieren können, um die Leistung zu verbessern.
       </td>
     </tr>
   </tbody>
@@ -31,21 +36,21 @@ Beim Entwickeln einer Website müssen Sie berücksichtigen, wie der Browser das 
 
 ## Optimieren oder nicht optimieren
 
-Die erste Frage, die Sie beantworten sollten, bevor Sie mit der Optimierung Ihres CSS beginnen, lautet: "Was muss ich optimieren?". Einige der unten diskutierten Tipps und Techniken sind gute Praktiken, die fast jedem Webprojekt zugutekommen, während andere nur in bestimmten Situationen benötigt werden. Der Versuch, all diese Techniken überall anzuwenden, ist wahrscheinlich unnötig und könnte Zeitverschwendung sein. Sie sollten herausfinden, welche Leistungsoptimierungen in jedem Projekt tatsächlich benötigt werden.
+Die erste Frage, die Sie beantworten sollten, bevor Sie beginnen, Ihr CSS zu optimieren, ist: "Was muss ich optimieren?". Einige der hier besprochenen Tipps und Techniken sind gute Praktiken, die fast jedem Webprojekt zugutekommen, während einige nur in bestimmten Situationen benötigt werden. Der Versuch, all diese Techniken überall anzuwenden, ist wahrscheinlich unnötig und könnte eine Verschwendung Ihrer Zeit sein. Sie sollten herausfinden, welche Leistungsoptimierungen in jedem Projekt tatsächlich benötigt werden.
 
-Um dies zu tun, müssen Sie die [Leistung Ihrer Website messen](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance). Wie der vorherige Link zeigt, gibt es verschiedene Möglichkeiten, die Leistung zu messen, einige nutzen komplexe [Performance-APIs](/de/docs/Web/API/Performance_API). Der beste Weg, um anzufangen, ist jedoch, zu lernen, wie man Tools wie integrierte Browser-[Netzwerk](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#network_monitor_tools) und [Performance](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#performance_monitor_tools) Tools verwendet, um zu sehen, welche Teile des Seitenladens lange dauern und optimiert werden müssen.
+Dazu müssen Sie die [Leistung Ihrer Website messen](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance). Wie der vorherige Link zeigt, gibt es mehrere verschiedene Möglichkeiten, die Leistung zu messen, einige umfassen raffinierte [Performance-APIs](/de/docs/Web/API/Performance_API). Der beste Weg, um anzufangen, besteht jedoch darin, zu lernen, wie man Tools wie die integrierten Browser-[Netzwerk-](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#network_monitor_tools) und [Performance-](/de/docs/Learn_web_development/Extensions/Performance/Measuring_performance#performance_monitor_tools)Tools verwendet, um zu sehen, welche Teile des Seitenladens lange dauern und optimiert werden müssen.
 
-## Optimierung des Renderings
+## Rendering optimieren
 
-Browser folgen einem spezifischen Rendering-Pfad – das Zeichnen erfolgt erst nach dem Layout, welches nach der Erstellung des Renderbaums erfolgt, der wiederum sowohl den DOM- als auch den CSSOM-Baum erfordert.
+Browser folgen einem bestimmten Renderpfad — Painting erfolgt nur nach dem Layout, das nach Erstellung des Renderbaums erfolgt, der wiederum sowohl den DOM- als auch den CSSOM-Baum benötigt.
 
-Den Benutzern eine ungestylte Seite anzuzeigen und sie dann nach dem Analysieren der CSS-Stile neu zu zeichnen, würde eine schlechte Benutzererfahrung darstellen. Aus diesem Grund blockiert CSS das Rendering, bis der Browser bestimmt hat, dass das CSS benötigt wird. Der Browser kann die Seite zeichnen, nachdem er das CSS heruntergeladen und das {{Glossary("CSSOM", "CSS-Objektmodell (CSSOM)")}} erstellt hat.
+Ein Nutzer eine ungestylte Seite zu zeigen und sie dann neu zu rendern, nachdem die CSS-Stile geparst wurden, wäre eine schlechte Benutzererfahrung. Aus diesem Grund blockiert CSS das Rendern, bis der Browser feststellt, dass das CSS erforderlich ist. Der Browser kann die Seite malen, nachdem er das CSS heruntergeladen und das {{Glossary("CSSOM", "CSS-Objektmodell (CSSOM)")}} erstellt hat.
 
-Um die Konstruktion des CSSOM zu optimieren und die Seitenleistung zu verbessern, können Sie eines oder mehrere der folgenden Dinge basierend auf dem aktuellen Zustand Ihres CSS tun:
+Um die Erstellung des CSSOM zu optimieren und die Seitenleistung zu verbessern, können Sie je nach dem aktuellen Stand Ihres CSS eines oder mehrere der folgenden Dinge tun:
 
-- **Überflüssige Stile entfernen**: Dies mag offensichtlich klingen, aber es ist überraschend, wie viele Entwickler vergessen, nicht genutzte CSS-Regeln zu bereinigen, die während der Entwicklung zu ihren Stylesheets hinzugefügt, aber letztendlich nicht verwendet wurden. Alle Stile werden analysiert, unabhängig davon, ob sie während des Layouts und Zeichnens verwendet werden oder nicht, sodass es die Seitendarstellung beschleunigen kann, ungenutzte zu entfernen. Wie [How Do You Remove Unused CSS From a Site?](https://css-tricks.com/how-do-you-remove-unused-css-from-a-site/) (csstricks.com, 2019) zusammenfasst, ist dies ein schwieriges Problem für eine große Codebasis zu lösen, und es gibt keine einfache Lösung, um nicht genutztes CSS zuverlässig zu finden und zu entfernen. Sie müssen die harte Arbeit leisten, Ihr CSS modular zu halten und sorgfältig und überlegt vorzugehen, was hinzugefügt und entfernt wird.
+- **Unnötige Stile entfernen**: Dies mag offensichtlich klingen, aber überraschend viele Entwickler vergessen, nicht verwendete CSS-Regeln aufzuräumen, die während der Entwicklung zu ihren Stylesheets hinzugefügt wurden und am Ende nicht verwendet wurden. Alle Stile werden geparst, unabhängig davon, ob sie während des Layouts und des Paintings verwendet werden oder nicht, sodass es die Seitenrendering-Beschleunigung beschleunigt, die nicht verwendeten zu entfernen. Wie [Wie entfernen Sie nicht verwendetes CSS von einer Website?](https://css-tricks.com/how-do-you-remove-unused-css-from-a-site/) (csstricks.com, 2019) zusammenfasst, ist dies ein schwieriges Problem, das für einen großen Codebestand zu lösen ist, und es gibt keine Wunderwaffe, um nicht verwendetes CSS zuverlässig zu finden und zu entfernen. Sie müssen die mühsame Arbeit leisten, Ihr CSS modular zu halten und sorgfältig und bewusst zu sein, was hinzugefügt und entfernt wird.
 
-- **CSS in separate Module aufteilen**: Das Halten von CSS modular bedeutet, dass CSS, das beim Laden der Seite nicht benötigt wird, später geladen werden kann, wodurch das anfängliche Render-Blocking und die Ladezeiten des CSSs reduziert werden. Der einfachste Weg, dies zu tun, besteht darin, Ihr CSS in separate Dateien aufzuteilen und nur das zu laden, was benötigt wird:
+- **CSS in separate Module aufteilen**: CSS modular zu halten bedeutet, dass das CSS, das beim Laden der Seite nicht benötigt wird, später geladen werden kann, wodurch das anfängliche CSS-Renderblocking und die Ladezeiten reduziert werden. Der einfachste Weg, dies zu tun, besteht darin, Ihr CSS in separate Dateien aufzuteilen und nur das zu laden, was benötigt wird:
 
   ```html
   <!-- Loading and parsing styles.css is render-blocking -->
@@ -61,11 +66,11 @@ Um die Konstruktion des CSSOM zu optimieren und die Seitenleistung zu verbessern
     media="screen and (width <= 480px)" />
   ```
 
-  Das obige Beispiel bietet drei Sätze von Stilen – standardmäßige Stile, die immer geladen werden, Stile, die nur geladen werden, wenn das Dokument gedruckt wird, und Stile, die nur von Geräten mit schmalen Bildschirmen geladen werden. Standardmäßig geht der Browser davon aus, dass jedes angegebene Stylesheet das Rendering blockiert. Sie können dem Browser mitteilen, wann ein Stylesheet angewendet werden soll, indem Sie ein `media` Attribut mit einer [Medienabfrage](/de/docs/Web/CSS/Guides/Media_queries/Using) hinzufügen. Wenn der Browser ein Stylesheet sieht, das er nur in einem bestimmten Szenario anwenden muss, lädt er das Stylesheet zwar herunter, blockiert jedoch nicht das Rendering. Indem das CSS in mehrere Dateien unterteilt wird, ist die Haupt-Render-Blocking-Datei, in diesem Fall `styles.css`, viel kleiner, wodurch die Zeit verkürzt wird, in der das Rendering blockiert ist.
+  Das obige Beispiel bietet drei Sets von Stilen — Standardstile, die immer geladen werden, Stile, die nur geladen werden, wenn das Dokument gedruckt wird, und Stile, die nur von Geräten mit schmalen Bildschirmen geladen werden. Standardmäßig nimmt der Browser an, dass jedes angegebene Stylesheet das Rendering blockiert. Sie können dem Browser mitteilen, wann ein Stylesheet angewendet werden soll, indem Sie ein `media` Attribut mit einer [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using) hinzufügen. Wenn der Browser ein Stylesheet sieht, das er nur in einem bestimmten Szenario anwenden muss, lädt er das Stylesheet herunter, blockiert jedoch nicht das Rendering. Indem Sie das CSS in mehrere Dateien aufteilen, ist die Hauptdatei, die das Rendering blockiert, in diesem Fall `styles.css`, viel kleiner und reduziert die Zeit, in der das Rendering blockiert ist.
 
-- **CSS minimieren und komprimieren**: Das Minifizieren beinhaltet das Entfernen aller Leerzeichen in der Datei, die nur für die Lesbarkeit durch Menschen vorhanden sind, sobald der Code in die Produktion geht. Sie können die Ladezeiten erheblich reduzieren, indem Sie Ihr CSS minimieren. Minifizierung wird in der Regel als Teil eines Build-Prozesses durchgeführt (zum Beispiel minimieren die meisten JavaScript-Frameworks den Code, wenn Sie ein Projekt bereitstellen, das für den Einsatz bereit ist). Zusätzlich zur Minifizierung stellen Sie sicher, dass der Server, auf dem Ihre Website gehostet wird, Komprimierung wie gzip für Dateien verwendet, bevor sie bereitgestellt werden.
+- **Minimieren und komprimieren Sie Ihr CSS**: Das Minimieren bedeutet, alle Leerzeichen in der Datei zu entfernen, die nur zur besseren Lesbarkeit vorhanden sind, wenn der Code in Produktion gestellt wird. Sie können die Ladezeiten erheblich reduzieren, indem Sie Ihr CSS minimieren. Die Minimierung erfolgt in der Regel als Teil eines Build-Prozesses (zum Beispiel minimieren die meisten JavaScript-Frameworks den Code, wenn Sie ein Projekt für die Bereitstellung bereitstellen). Zusätzlich zur Minimierung stellen Sie sicher, dass der Server, auf dem Ihre Website gehostet wird, Dateien vor dem Bereitstellen komprimiert, z.B. mit gzip.
 
-- **Selektoren vereinfachen**: Menschen schreiben oft Selektoren, die komplexer sind, als es für die Anwendung der erforderlichen Stile nötig ist. Dies erhöht nicht nur die Dateigrößen, sondern auch die Analysezeit für diese Selektoren. Zum Beispiel:
+- **Selektoren vereinfachen**: Menschen schreiben oft Selektoren, die komplexer sind als nötig, um die erforderlichen Stile anzuwenden. Dies erhöht nicht nur die Dateigrößen, sondern auch die Parsing-Zeit für diese Selektoren. Zum Beispiel:
 
   ```css
   /* Very specific selector */
@@ -79,9 +84,9 @@ Um die Konstruktion des CSSOM zu optimieren und die Seitenleistung zu verbessern
   }
   ```
 
-  Ihre Selektoren weniger komplex und spezifisch zu machen, ist auch gut für die Wartung. Es ist leicht zu verstehen, was einfache Selektoren tun, und es ist einfach, Stile bei Bedarf später zu überschreiben, wenn die Selektoren weniger [spezifisch](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity_2) sind.
+  Ihre Selektoren weniger komplex und spezifisch zu machen, ist auch gut für die Wartung. Es ist leicht zu verstehen, was einfache Selektoren tun, und es ist einfach, Stile bei Bedarf zu überschreiben, wenn die Selektoren weniger [spezifisch](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#specificity_2) sind.
 
-- **Stile nicht auf mehr Elemente als nötig anwenden**: Ein häufiger Fehler ist es, Stile auf alle Elemente mit dem [universellen Selektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) oder zumindest auf mehr Elemente als nötig anzuwenden. Diese Art von Styling kann die Leistung negativ beeinträchtigen, insbesondere auf größeren Websites.
+- **Wenden Sie Stile nicht auf mehr Elemente an als nötig**: Ein häufiger Fehler ist, Stile auf alle Elemente anzuwenden, zum Beispiel mit dem [universellen Selektor](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors), oder zumindest auf mehr Elemente als nötig. Diese Art von Styling kann die Leistung negativ beeinflussen, insbesondere auf größeren Websites.
 
   ```css
   /* Selects every element inside the <body> */
@@ -91,11 +96,11 @@ Um die Konstruktion des CSSOM zu optimieren und die Seitenleistung zu verbessern
   }
   ```
 
-  Denken Sie daran, dass viele Eigenschaften (wie {{cssxref("font-size")}}) ihre Werte von ihren Eltern erben, sodass Sie sie nicht überall anwenden müssen. Und leistungsstarke Werkzeuge wie [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) sollten sparsam eingesetzt werden. Sie überall einzusetzen, kann zu allerlei unerwartetem Verhalten führen.
+  Denken Sie daran, dass viele Eigenschaften (wie {{cssxref("font-size")}}) ihre Werte von ihren Eltern erben, sodass Sie sie nicht überall anwenden müssen. Und leistungsstarke Werkzeuge wie [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) sollten sparsam eingesetzt werden. Wenn Sie sie überall verwenden, kann dies zu unerwartetem Verhalten führen.
 
-- **Reduzieren Sie HTTP-Anfragen für Bilder mit CSS-Sprites**: [CSS-Sprites](https://css-tricks.com/css-sprites/) sind eine Technik, bei der mehrere kleine Bilder (wie Symbole), die Sie auf Ihrer Website verwenden möchten, in einer einzigen Bilddatei zusammengestellt werden und dann verschiedene {{cssxref("background-position")}} Werte verwenden, um das gewünschte Bildsegment an jedem Ort anzuzeigen. Dies kann die Anzahl der notwendigen HTTP-Anfragen zum Abrufen der Bilder erheblich reduzieren.
+- **HTTP-Anfragen für Bilder mit CSS-Sprites reduzieren**: [CSS-Sprites](https://css-tricks.com/css-sprites/) ist eine Technik, bei der mehrere kleine Bilder (wie Symbole), die Sie auf Ihrer Website verwenden möchten, in eine einzelne Bilddatei platziert werden und dann unterschiedliche {{cssxref("background-position")}} Werte verwendet werden, um den Bildausschnitt anzuzeigen, den Sie an jedem einzelnen Ort zeigen möchten. Dies kann die Anzahl der HTTP-Anfragen, die benötigt werden, um die Bilder abzurufen, erheblich reduzieren.
 
-- **Wichtige Ressourcen vorladen**: Sie können [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) verwenden, um {{htmlelement("link")}} Elemente zu Preloadern für kritische Ressourcen zu machen. Dazu gehören CSS-Dateien, Schriftarten und Bilder:
+- **Wichtige Ressourcen vorab laden**: Sie können [`rel="preload"`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) verwenden, um {{htmlelement("link")}} Elemente in Vorlader für kritische Ressourcen zu verwandeln. Dazu gehören CSS-Dateien, Schriftarten und Bilder:
 
   ```html
   <link rel="preload" href="style.css" as="style" />
@@ -114,51 +119,52 @@ Um die Konstruktion des CSSOM zu optimieren und die Seitenleistung zu verbessern
     media="(width > 600px)" />
   ```
 
-  Mit `preload` wird der Browser die referenzierten Ressourcen so schnell wie möglich abrufen und im Browser-Cache verfügbar machen, damit sie schneller verwendet werden können, wenn sie im nachfolgenden Code referenziert werden. Es ist nützlich, hochpriorisierte Ressourcen vorzuladen, die der Benutzer früh auf einer Seite antreffen wird, damit das Erlebnis so flüssig wie möglich ist. Beachten Sie, dass Sie auch `media` Attribute verwenden können, um responsive Preloader zu erstellen.
+  Mit `preload` wird der Browser die referenzierten Ressourcen so schnell wie möglich abrufen und sie im Browsercache verfügbar machen, sodass sie früher bereitstehen, wenn sie im weiteren Codeverlauf referenziert werden. Es ist nützlich, hochpriorisierte Ressourcen vorab zu laden, denen der Nutzer frühzeitig auf einer Seite begegnet, sodass das Erlebnis so reibungslos wie möglich ist. Beachten Sie auch, dass Sie `media` Attribute verwenden können, um responsive Vorlader zu erstellen.
 
   Siehe auch [Preload critical assets to improve loading speed](https://web.dev/articles/preload-critical-assets) auf web.dev (2020)
 
 ## Umgang mit Animationen
 
-Animationen können die wahrgenommene Leistung verbessern, indem sie Schnittstellen flüssiger erscheinen lassen und Benutzer das Gefühl geben, dass Fortschritte erzielt werden, wenn sie auf das Laden einer Seite warten (z. B. Lade-Spinner). Größere Animationen und eine größere Anzahl von Animationen erfordern jedoch naturgemäß mehr Rechenleistung, was die Leistung beeinträchtigen kann.
+Animationen können die wahrgenommene Leistung verbessern, indem sie Oberflächen reaktionsschneller erscheinen lassen und Nutzer das Gefühl geben, dass Fortschritte gemacht werden, während sie darauf warten, dass eine Seite geladen wird (zum Beispiel Ladeindikatoren). Größere Animationen und eine höhere Anzahl von Animationen erfordern jedoch zwangsläufig mehr Rechenleistung, um sie zu verarbeiten, was die Leistung beeinträchtigen kann.
 
-Der einfachste Rat ist es, alle unnötigen Animationen zu reduzieren. Sie könnten den Benutzern auch eine Steuerung/Seiteneinstellung zur Verfügung stellen, um Animationen auszuschalten, wenn sie ein leistungsschwaches Gerät oder ein mobiles Gerät mit begrenzter Batteriekapazität verwenden. Sie könnten auch JavaScript verwenden, um zu steuern, ob Animationen überhaupt auf die Seite angewendet werden. Es gibt auch eine Medienabfrage namens [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion), die verwendet werden kann, um Animationen basierend auf den bevorzugten Animationseinstellungen des Betriebssystems des Benutzers selektiv zu bedienen oder nicht.
+Der einfachste Rat ist, alle unnötigen Animationen zu reduzieren. Sie könnten Nutzern auch eine Kontrollmöglichkeit bzw. Website-Einstellung bieten, um Animationen abzuschalten, wenn sie ein leistungsschwaches Gerät oder ein mobiles Gerät mit begrenzter Batterieleistung verwenden. Auch könnten Sie JavaScript verwenden, um zu steuern, ob Animationen überhaupt auf die Seite angewendet werden. Es gibt auch eine Media Query namens [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion), die verwendet werden kann, um Animationsstile selektiv bereitzustellen oder nicht, basierend auf den Betriebssystemvorlieben des Nutzers in Bezug auf Animationen.
 
-Für wesentliche DOM-Animationen wird empfohlen, [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) zu verwenden, wo immer möglich, statt JavaScript-Animationen (die [Web Animations API](/de/docs/Web/API/Web_Animations_API) bietet eine Möglichkeit, CSS-Animationen direkt mit JavaScript zu verbinden).
+Für wesentliche DOM-Animationen wird empfohlen, [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) zu verwenden, wo möglich, anstatt JavaScript-Animationen (die [Web Animations API](/de/docs/Web/API/Web_Animations_API) bietet eine Möglichkeit, direkt in CSS-Animationen mit JavaScript einzuhaken).
 
 ### Zu animierende Eigenschaften auswählen
 
-Die Leistungsfähigkeit von Animationen hängt stark davon ab, welche Eigenschaften Sie animieren. Einige Eigenschaften lösen beim Animieren einen {{Glossary("Reflow", "Reflow")}} (und daher auch ein {{Glossary("Repaint", "Repaint")}}) aus und sollten vermieden werden. Diese schließen Eigenschaften ein, die:
+Als nächstes hängt die Animationsleistung stark davon ab, welche Eigenschaften Sie animieren. Bestimmte Eigenschaften, die bei der Animation eine {{Glossary("Reflow", "Neuberechnung")}} (und daher auch eine {{Glossary("Repaint", "Neumalung")}}) auslösen, sollten vermieden werden. Dazu gehören Eigenschaften, die:
 
-- Die Dimensionen eines Elements ändern, wie [`width`](/de/docs/Web/CSS/Reference/Properties/width), [`height`](/de/docs/Web/CSS/Reference/Properties/height), [`border`](/de/docs/Web/CSS/Reference/Properties/border) und [`padding`](/de/docs/Web/CSS/Reference/Properties/padding).
-- Ein Element umpositionieren, wie [`margin`](/de/docs/Web/CSS/Reference/Properties/margin), [`top`](/de/docs/Web/CSS/Reference/Properties/top), [`bottom`](/de/docs/Web/CSS/Reference/Properties/bottom), [`left`](/de/docs/Web/CSS/Reference/Properties/left) und [`right`](/de/docs/Web/CSS/Reference/Properties/right).
-- Das Layout eines Elements ändern, wie [`align-content`](/de/docs/Web/CSS/Reference/Properties/align-content), [`align-items`](/de/docs/Web/CSS/Reference/Properties/align-items) und [`flex`](/de/docs/Web/CSS/Reference/Properties/flex).
-- Visuelle Effekte hinzufügen, die die Geometrie des Elements ändern, wie [`box-shadow`](/de/docs/Web/CSS/Reference/Properties/box-shadow).
+- Die Abmessungen eines Elements ändern, wie [`width`](/de/docs/Web/CSS/Reference/Properties/width), [`height`](/de/docs/Web/CSS/Reference/Properties/height), [`border`](/de/docs/Web/CSS/Reference/Properties/border), und [`padding`](/de/docs/Web/CSS/Reference/Properties/padding).
+- Ein Element umpositionieren, wie [`margin`](/de/docs/Web/CSS/Reference/Properties/margin), [`top`](/de/docs/Web/CSS/Reference/Properties/top), [`bottom`](/de/docs/Web/CSS/Reference/Properties/bottom), [`left`](/de/docs/Web/CSS/Reference/Properties/left), und [`right`](/de/docs/Web/CSS/Reference/Properties/right).
+- Das Layout eines Elements ändern, wie [`align-content`](/de/docs/Web/CSS/Reference/Properties/align-content), [`align-items`](/de/docs/Web/CSS/Reference/Properties/align-items), und [`flex`](/de/docs/Web/CSS/Reference/Properties/flex).
+- Visuelle Effekte hinzufügen, die die Elementgeometrie ändern, wie [`box-shadow`](/de/docs/Web/CSS/Reference/Properties/box-shadow).
 
-Moderne Browser sind klug genug, um nur den veränderten Bereich des Dokuments zu aktualisieren, anstatt die gesamte Seite. Aus diesem Grund sind größere Animationen kostspieliger.
+Moderne Browser sind intelligent genug, um nur den geänderten Bereich des Dokuments neu zu malen, anstatt die gesamte Seite. Infolgedessen sind größere Animationen kostspieliger.
 
-Wenn möglich, ist es besser, Eigenschaften zu animieren, die keinen Reflow/Repaint auslösen. Dazu gehören:
+Wenn es irgendwie möglich ist, ist es besser, Eigenschaften zu animieren, die keine Neuberechnung/Neumalung verursachen. Dazu gehören:
 
-- [Transforms](/de/docs/Web/CSS/Guides/Transforms)
+- [Transformationen](/de/docs/Web/CSS/Guides/Transforms)
 - [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity)
 - [`filter`](/de/docs/Web/CSS/Reference/Properties/filter)
 
-### Auf der GPU animieren
+### Animationen auf der GPU
 
-Um die Leistung weiter zu verbessern, sollten Sie erwägen, Animationsarbeiten vom Haupt-Thread auf die GPU des Geräts zu verlagern (auch als Komposition bezeichnet). Dies wird durch die Auswahl spezifischer Arten von Animationen erreicht, die der Browser automatisch an die GPU zur Verarbeitung sendet; dazu gehören:
+Um die Leistung weiter zu verbessern, sollten Sie in Betracht ziehen, Animationsarbeit vom Haupt-Thread auf die GPU des Geräts zu verlagern (auch als Compositing bezeichnet). Dies geschieht, indem Sie bestimmte Arten von Animationen wählen, die der Browser automatisch an die GPU sendet, um sie zu bearbeiten; dazu gehören:
 
 - 3D-Transformationsanimationen wie [`transform: translateZ()`](/de/docs/Web/CSS/Reference/Properties/transform) und [`rotate3d()`](/de/docs/Web/CSS/Reference/Values/transform-function/rotate3d).
-- Elemente mit bestimmten anderen animierten Eigenschaften wie [`position: fixed`](/de/docs/Web/CSS/Reference/Properties/position).
-- Elemente mit angewendetem [`will-change`](/de/docs/Web/CSS/Reference/Properties/will-change) (siehe untenstehenden Abschnitt).
-- Bestimmte Elemente, die in ihrer eigenen Ebene gerendert werden, einschließlich [`<video>`](/de/docs/Web/HTML/Reference/Elements/video), [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas) und [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe).
+- Elemente mit bestimmten anderen animierten Eigenschaften, wie [`position: fixed`](/de/docs/Web/CSS/Reference/Properties/position).
+- Elemente, auf die [`will-change`](/de/docs/Web/CSS/Reference/Properties/will-change) angewendet wurde (siehe Abschnitt unten).
+- Bestimmte Elemente, die in ihrer eigenen Ebene gerendert werden, einschließlich [`<video>`](/de/docs/Web/HTML/Reference/Elements/video), [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas), und [`<iframe>`](/de/docs/Web/HTML/Reference/Elements/iframe).
 
-Animationen auf der GPU können die Leistung insbesondere auf mobilen Geräten verbessern. Allerdings ist es nicht immer so einfach, Animationen auf die GPU zu verschieben. Lesen Sie [CSS GPU Animation: Doing It Right](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/) (smashingmagazine.com, 2016) für eine sehr nützliche und detaillierte Analyse.
+Animationen auf der GPU können zu einer verbesserten Leistung führen, insbesondere auf mobilen Geräten. Das Verlegen von Animationen zur GPU ist jedoch nicht immer einfach. Lesen Sie [CSS GPU Animation: Doing It Right](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/) (smashingmagazine.com, 2016) für eine sehr nützliche und detaillierte Analyse.
 
 ## Optimierung von Elementänderungen mit `will-change`
 
-Browser können Optimierungen einrichten, bevor ein Element tatsächlich geändert wird. Diese Arten von Optimierungen können die Reaktionsfähigkeit einer Seite erhöhen, indem potenziell teure Arbeiten durchgeführt werden, bevor sie erforderlich sind. Die CSS [`will-change`](/de/docs/Web/CSS/Reference/Properties/will-change) Eigenschaft deutet Browsern an, wie sich ein Element voraussichtlich ändern wird.
+Browser können Optimierungen einrichten, bevor ein Element tatsächlich geändert wird. Solche Optimierungen können die Reaktionsfähigkeit einer Seite erhöhen, indem potenziell aufwändige Arbeiten durchgeführt werden, bevor sie erforderlich sind. Die CSS-Eigenschaft [`will-change`](/de/docs/Web/CSS/Reference/Properties/will-change) gibt Browsern an, wie sich ein Element voraussichtlich ändern wird.
 
-> [!NOTE] > `will-change` ist als letztes Mittel gedacht, um mit bestehenden Leistungsproblemen umzugehen. Es sollte nicht verwendet werden, um Leistungsprobleme im Voraus zu erwarten.
+> [!NOTE]
+> `will-change` ist als letzter Ausweg zu verwenden, um bestehende Leistungsprobleme zu beheben. Es sollte nicht verwendet werden, um Leistungsprobleme im Voraus zu antizipieren.
 
 ```css
 .element {
@@ -168,7 +174,7 @@ Browser können Optimierungen einrichten, bevor ein Element tatsächlich geände
 
 ## Optimierung für Render-Blocking
 
-CSS kann Stile auf bestimmte Bedingungen mit Medienabfragen einschränken. Medienabfragen sind wichtig für ein responsives Webdesign und helfen uns, einen kritischen Rendering-Pfad zu optimieren. Der Browser blockiert das Rendering, bis er all diese Stile analysiert hat, aber er blockiert das Rendering nicht bei Stilen, von denen er weiß, dass sie nicht verwendet werden, zum Beispiel bei den Druckstylesheets. Durch das Aufteilen des CSS in mehrere Dateien basierend auf Medienabfragen können Sie Render-Blocking während des Herunterladens von nicht verwendetem CSS verhindern. Um einen nicht-blockierenden CSS-Link zu erstellen, verschieben Sie die nicht sofort verwendeten Stile, wie beispielsweise Druckstile, in eine separate Datei, fügen Sie einen [`<link>`](/de/docs/Web/HTML/Reference/Elements/link) in das HTML-Markup ein und fügen Sie eine Medienabfrage hinzu, in diesem Fall, dass es sich um ein Druckstylesheet handelt.
+CSS kann Stile auf bestimmte Bedingungen mit Media Queries abzielen. Media Queries sind wichtig für ein responsives Webdesign und helfen uns, einen kritischen Rendering-Pfad zu optimieren. Der Browser blockiert das Rendering, bis er alle diese Stile analysiert hat, er blockiert jedoch nicht das Rendering bei Stilen, von denen er weiß, dass er sie nicht verwenden wird, wie zum Beispiel die Druckstylesheets. Indem Sie das CSS in mehrere Dateien basierend auf Media Queries aufteilen, können Sie das Renderblockieren während des Downloads von nicht verwendetem CSS verhindern. Um einen nicht blockierenden CSS-Link zu erstellen, verschieben Sie die nicht sofort verwendeten Stile, wie zum Beispiel Druckstile, in separate Dateien, fügen Sie der HTML-Auszeichnung ein [`<link>`](/de/docs/Web/HTML/Reference/Elements/link) hinzu und fügen Sie eine Media Query hinzu, in diesem Fall, dass es sich um ein Druck Stylesheet handelt.
 
 ```html
 <!-- Loading and parsing styles.css is render-blocking -->
@@ -181,17 +187,17 @@ CSS kann Stile auf bestimmte Bedingungen mit Medienabfragen einschränken. Medie
 <link rel="stylesheet" href="mobile.css" media="screen and (width <= 480px)" />
 ```
 
-Standardmäßig geht der Browser davon aus, dass jedes angegebene Stylesheet das Rendering blockiert. Teilen Sie dem Browser mit, wann das Stylesheet angewendet werden soll, indem Sie ein `media` Attribut mit der [Medienabfrage](/de/docs/Web/CSS/Guides/Media_queries/Using) hinzufügen. Wenn der Browser sieht, dass ein Stylesheet nur in einem bestimmten Szenario angewendet werden muss, lädt er das Stylesheet zwar herunter, blockiert jedoch nicht das Rendering. Durch das Aufteilen des CSS in mehrere Dateien wird die Haupt-Render-Blocking-Datei, in diesem Fall `styles.css`, deutlich kleiner, wodurch die Zeit verkürzt wird, in der das Rendering blockiert ist.
+Standardmäßig nimmt der Browser an, dass jedes angegebene Stylesheet das Rendering blockiert. Sagen Sie dem Browser, wann das Stylesheet angewendet werden soll, indem Sie ein `media` Attribut mit der [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using) hinzufügen. Wenn der Browser ein Stylesheet sieht, weiß er, dass es nur für ein bestimmtes Szenario angewendet werden muss, und lädt jedoch nicht blockierend herunter. Indem Sie das CSS in mehrere Dateien aufteilen, ist die Hauptdatei, die das Rendering blockiert, in diesem Fall `styles.css`, viel kleiner und reduziert die Zeit, in der das Rendering blockiert ist.
 
-## Verbesserung der Schriftleistung
+## Verbesserung der Schriftartleistung
 
-Dieser Abschnitt enthält einige nützliche Tipps zur Verbesserung der Webschrift-Performance.
+Dieser Abschnitt enthält einige nützliche Tipps zur Verbesserung der Web-Schriftartenleistung.
 
-Im Allgemeinen sollten Sie sorgfältig überlegen, welche Schriften Sie auf Ihrer Website verwenden. Einige Schriftdateien können sehr groß sein (mehrere Megabytes). Während es verlockend sein kann, viele Schriften für visuelle Spannung zu verwenden, kann dies das Laden der Seite erheblich verlangsamen und dazu führen, dass Ihre Website chaotisch aussieht. Sie benötigen wahrscheinlich nur etwa zwei oder drei Schriften, und Sie können mit weniger auskommen, wenn Sie sich entscheiden, [websichere Schriften](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#web_safe_fonts) zu verwenden.
+Im Allgemeinen sollten Sie sorgfältig über die Schriften nachdenken, die Sie auf Ihrer Website verwenden. Einige Schriftdateien können sehr groß sein (mehrere Megabyte). Obwohl es verlockend sein kann, viele Schriftarten für visuelle Aufregung zu verwenden, kann dies die Seitenladezeit erheblich verlangsamen und dazu führen, dass Ihre Site wie ein Durcheinander aussieht. Sie benötigen wahrscheinlich nur etwa zwei oder drei Schriftarten, und weniger können ausreichen, wenn Sie sich entscheiden, [web-sichere Schriftarten](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#web_safe_fonts) zu verwenden.
 
-### Schriftladeverhalten
+### Schriftartenladen
 
-Beachten Sie, dass eine Schriftart nur geladen wird, wenn sie tatsächlich mit der [`font-family`](/de/docs/Web/CSS/Reference/Properties/font-family) Eigenschaft auf ein Element angewendet wird, nicht wenn sie zuerst mit der [`@font-face`](/de/docs/Web/CSS/Reference/At-rules/@font-face) Regel referenziert wird:
+Bedenken Sie, dass eine Schriftart nur geladen wird, wenn sie tatsächlich auf ein Element mit der Eigenschaft [`font-family`](/de/docs/Web/CSS/Reference/Properties/font-family) angewendet wird, nicht wenn sie zum ersten Mal mit der At-Regel [`@font-face`](/de/docs/Web/CSS/Reference/At-rules/@font-face) referenziert wird:
 
 ```css
 /* Font not loaded here */
@@ -208,7 +214,7 @@ h3 {
 }
 ```
 
-Es kann daher vorteilhaft sein, `rel="preload"` zu verwenden, um wichtige Schriften frühzeitig zu laden, sodass sie schneller verfügbar sind, wenn sie tatsächlich benötigt werden:
+Es kann daher von Vorteil sein, `rel="preload"` zu verwenden, um wichtige Schriftarten frühzeitig zu laden, sodass sie schneller verfügbar sind, wenn sie tatsächlich benötigt werden:
 
 ```html
 <link
@@ -219,18 +225,18 @@ Es kann daher vorteilhaft sein, `rel="preload"` zu verwenden, um wichtige Schrif
   crossorigin />
 ```
 
-Dies ist wahrscheinlicher vorteilhaft, wenn Ihre `font-family` Deklaration in einem großen externen Stylesheet versteckt ist und nicht wesentlich später im Parsing-Prozess erreicht wird. Es ist jedoch ein Kompromiss – Schriftdateien sind ziemlich groß, und wenn Sie zu viele von ihnen vorladen, könnten Sie andere Ressourcen verzögern.
+Dies ist wahrscheinlich von Vorteil, wenn Ihre `font-family` Deklaration in einem großen externen Stylesheet versteckt ist und nicht deutlich später im Parsing-Prozess erreicht wird. Es ist jedoch ein Kompromiss — Schriftdateien sind ziemlich groß, und wenn Sie zu viele davon vorab laden, könnten Sie andere Ressourcen verzögern.
 
-Sie können auch erwägen:
+Sie können auch in Betracht ziehen:
 
-- Die Verwendung von [`rel="preconnect"`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect), um eine frühe Verbindung mit dem Schriftanbieter herzustellen. Details finden Sie unter [Preconnect to critical third-party origins](https://web.dev/articles/font-best-practices#preconnect_to_critical_third-party_origins).
-- Die Verwendung der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API), um das Schriftladeverhalten über JavaScript anzupassen.
+- Das Verwenden von [`rel="preconnect"`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect), um eine frühe Verbindung mit dem Schriftartenanbieter herzustellen. Siehe [Preconnect to critical third-party origins](https://web.dev/articles/font-best-practices#preconnect_to_critical_third-party_origins) für Details.
+- Die Verwendung der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API), um das Schriftarten-Ladeverhalten über JavaScript anzupassen.
 
 ### Nur die benötigten Glyphen laden
 
-Wenn Sie eine Schriftart für den Fließtext auswählen, ist es schwieriger, sich der Glyphen bewusst zu sein, die darin verwendet werden, insbesondere wenn Sie es mit benutzergenerierten Inhalten und/oder Inhalten in mehreren Sprachen zu tun haben.
+Wenn Sie eine Schriftart für Textkörper wählen, ist es schwieriger, sicher zu sein, welche Glyphen darin verwendet werden, insbesondere wenn Sie mit nutzergenerierten Inhalten und/oder Inhalten in mehreren Sprachen arbeiten.
 
-Wenn Sie jedoch wissen, dass Sie ein bestimmtes Set von Glyphen verwenden werden (zum Beispiel nur Glyphen für Überschriften oder bestimmte Satzzeichen), könnten Sie die Anzahl der Glyphen, die der Browser herunterladen muss, einschränken. Dies kann erreicht werden, indem eine Schriftdatei erstellt wird, die nur das erforderliche Subset enthält – ein Prozess, der [subsetting](https://fonts.google.com/knowledge/glossary/subsetting) genannt wird. Der [`unicode-range`](/de/docs/Web/CSS/Reference/At-rules/@font-face/unicode-range) Descriptor bei `@font-face` kann dann verwendet werden, um anzugeben, wann Ihre Subset-Schrift verwendet wird. Wenn die Seite kein Zeichen in diesem Bereich verwendet, wird die Schrift nicht heruntergeladen.
+Wenn Sie jedoch wissen, dass Sie eine bestimmte Gruppe von Glyphen verwenden werden (zum Beispiel nur Glyphen für Überschriften oder spezifische Satzzeichen), könnten Sie die Anzahl der Glyphen begrenzen, die der Browser herunterladen muss. Dies kann getan werden, indem eine Schriftdatei erstellt wird, die nur das erforderliche Subset enthält. Ein Prozess, der als [Subsetting](https://fonts.google.com/knowledge/glossary/subsetting) bezeichnet wird. Der [`unicode-range`](/de/docs/Web/CSS/Reference/At-rules/@font-face/unicode-range) `@font-face` Deskriptor kann dann verwendet werden, um anzugeben, wann Ihre Teilmenge-Schriftart benutzt wird. Wenn die Seite keine Zeichen in diesem Bereich verwendet, wird die Schriftart nicht heruntergeladen.
 
 ```css
 @font-face {
@@ -240,9 +246,9 @@ Wenn Sie jedoch wissen, dass Sie ein bestimmtes Set von Glyphen verwenden werden
 }
 ```
 
-### Schriftanzeigeverhalten mit dem `font-display` Descriptor definieren
+### Anzeigeverhalten von Schriftarten mit dem `font-display` Deskriptor definieren
 
-Angewendet auf die `@font-face` Regel, definiert der [`font-display`](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-display) Descriptor, wie Schriftdateien vom Browser geladen und dargestellt werden, wodurch Text mit einer Ersatzschrift angezeigt werden kann, während eine Schrift lädt oder das Laden fehlschlägt. Dies verbessert die Leistung, indem der Text sichtbar wird, anstatt einen leeren Bildschirm zu haben, wobei der Kompromiss ein Flackern von ungestaltetem Text ist.
+Angewandt auf die At-Regel `@font-face`, definiert der [`font-display`](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-display) Deskriptor, wie Schriftdateien vom Browser geladen und angezeigt werden, damit Text mit einer Ersatzschrift erscheint, während eine Schrift geladen wird, oder nicht geladen werden kann. Dies verbessert die Leistung, indem der Text sichtbar gemacht wird, anstatt einen leeren Bildschirm anzuzeigen, mit dem Kompromiss eines ungestylten Textblitzes.
 
 ```css
 @font-face {
@@ -254,11 +260,11 @@ Angewendet auf die `@font-face` Regel, definiert der [`font-display`](/de/docs/W
 }
 ```
 
-## Optimierung der Neuberechnung des Stylings mit CSS-Containment
+## Optimierung der Neuberechnung von Stilen mit CSS-Containment
 
-Durch die Verwendung der im Modul [CSS-Containment](/de/docs/Web/CSS/Guides/Containment) definierten Eigenschaften können Sie den Browser anweisen, verschiedene Teile einer Seite zu isolieren und ihr Rendering unabhängig voneinander zu optimieren. Dies ermöglicht eine verbesserte Leistung beim Rendern einzelner Abschnitte. Als Beispiel können Sie dem Browser angeben, bestimmte Container nicht zu rendern, bis sie im Ansichtsfenster sichtbar sind.
+Durch die Verwendung der im [CSS-Containment](/de/docs/Web/CSS/Guides/Containment) Modul definierten Eigenschaften können Sie dem Browser mitteilen, dass er verschiedene Teile einer Seite isolieren und deren Rendering unabhängig voneinander optimieren soll. Dies ermöglicht eine verbesserte Leistung beim Rendering einzelner Abschnitte. Beispielsweise können Sie dem Browser angeben, dass er bestimmte Container nicht rendern soll, bis sie im Viewport sichtbar sind.
 
-Die {{cssxref("contain")}} Eigenschaft ermöglicht es einem Autor, genau anzugeben, welche [Containment-Typen](/de/docs/Web/CSS/Guides/Containment/Using) auf einzelne Container auf der Seite angewendet werden sollen. Dies erlaubt dem Browser, Layout, Stil, Zeichnung, Größe oder jede Kombination davon für einen begrenzten Teil des DOMs neu zu berechnen.
+Die {{cssxref("contain")}}-Eigenschaft ermöglicht es einem Autor, genau anzugeben, welche [Containment-Typen](/de/docs/Web/CSS/Guides/Containment/Using) sie auf einzelne Container auf der Seite angewendet haben möchten. Dadurch kann der Browser Layout, Stil, Malerei, Größe oder eine Kombination davon für einen begrenzten Teil des DOM neu berechnen.
 
 ```css
 article {
@@ -266,9 +272,9 @@ article {
 }
 ```
 
-Die {{cssxref("content-visibility")}} Eigenschaft ist eine nützliche Abkürzung, die es Autoren ermöglicht, eine starke Menge von Containments auf ein Set von Containern anzuwenden und anzugeben, dass der Browser diese Container nicht gestalten und rendern soll, bis sie benötigt werden.
+Die {{cssxref("content-visibility")}}-Eigenschaft ist eine nützliche Abkürzung, die es Autoren ermöglicht, eine starke Reihe von Containments auf eine Gruppe von Containern anzuwenden und dem Browser anzugeben, dass er diese Container nicht layouten und rendern soll, bis sie benötigt werden.
 
-Eine zweite Eigenschaft, {{cssxref("contain-intrinsic-size")}}, ist ebenfalls verfügbar, die es ermöglicht, eine Platzhaltergröße für Container bereitzustellen, während sie den Effekten von Containment unterliegen. Dies bedeutet, dass die Container Platz einnehmen, auch wenn ihre Inhalte noch nicht gerendert wurden, was Containment erlaubt, seine Leistungsoptimierung ohne das Risiko von Scrollleistenverschiebungen und Ruckeln zu machen, wenn Elemente angezeigt werden und sichtbar werden. Dies verbessert die Benutzererfahrung, wenn der Inhalt geladen wird.
+Eine zweite Eigenschaft, {{cssxref("contain-intrinsic-size")}}, ist ebenfalls verfügbar und ermöglicht es Ihnen, eine Platzhaltergröße für Container bereitzustellen, während sie den Auswirkungen von Containment unterliegen. Dies bedeutet, dass die Container Platz beanspruchen, auch wenn ihre Inhalte noch nicht gerendert wurden, was Containment ermöglicht, seine Leistungszauberei zu entfalten, ohne das Risiko von Scrollbalkenverschiebungen und Ruckeln, während Elemente gerendert und sichtbar werden. Dies verbessert die Qualität der Benutzererfahrung, während der Inhalt geladen wird.
 
 ```css
 article {
@@ -279,12 +285,12 @@ article {
 
 ## Optimierung von `:has()` Selektoren
 
-Die {{cssxref(":has", ":has()")}} Pseudo-Klasse ermöglicht leistungsstarke Auswahlmöglichkeiten, erfordert jedoch eine sorgfältige Verwendung, um Leistungsengpässe zu vermeiden. Ausführliche Anleitungen zum Schreiben effizienter `:has()` Selektoren finden Sie unter [Performance considerations in the `:has()` reference documentation](/de/docs/Web/CSS/Reference/Selectors/:has#performance_considerations).
+Die {{cssxref(":has", ":has()")}} Pseudo-Klasse ermöglicht leistungsstarke Auswahlmöglichkeiten, erfordert jedoch sorgfältigen Umgang, um Leistungsengpässe zu vermeiden. Für detaillierte Anleitungen zum Schreiben effizienter `:has()` Selektoren siehe [Leistungsüberlegungen in der `:has()` Referenzdokumentation](/de/docs/Web/CSS/Reference/Selectors/:has#performance_considerations).
 
 ## Siehe auch
 
 - [CSS-Animationsleistung](/de/docs/Web/Performance/Guides/CSS_JavaScript_animation_performance)
-- [Beste Praktiken für Schriften](https://web.dev/articles/font-best-practices) auf web.dev (2022)
-- [content-visibility: the new CSS property that boosts your rendering performance](https://web.dev/articles/content-visibility) auf web.dev (2022)
+- [Best Practices für Schriftarten](https://web.dev/articles/font-best-practices) auf web.dev (2022)
+- [content-visibility: das neue CSS-Attribut, das Ihre Rendering-Leistung steigert](https://web.dev/articles/content-visibility) auf web.dev (2022)
 
-{{PreviousMenuNext("Learn_web_development/Extensions/Performance/html", "Learn_web_development/Extensions/Performance/business_case_for_performance", "Learn_web_development/Extensions/Performance")}}
+{{PreviousMenuNext("Learn_web_development/Extensions/Performance/HTML", "Learn_web_development/Extensions/Performance/business_case_for_performance", "Learn_web_development/Extensions/Performance")}}
