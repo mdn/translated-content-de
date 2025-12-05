@@ -2,10 +2,10 @@
 title: mask-border-outset
 slug: Web/CSS/Reference/Properties/mask-border-outset
 l10n:
-  sourceCommit: 7b291dab974ec1ceb97c83f45ce76c3afada2e63
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Distanz an, um die der [mask border](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements von seinem border box abgesetzt ist.
+Die **`mask-border-outset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand fest, um den der [Maskenrand](/de/docs/Web/CSS/Reference/Properties/mask-border) eines Elements von seiner Randbox abgesetzt wird.
 
 ## Syntax
 
@@ -33,19 +33,19 @@ mask-border-outset: revert-layer;
 mask-border-outset: unset;
 ```
 
-Die Eigenschaft `mask-border-outset` kann mit ein, zwei, drei oder vier Werten angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind unzulässig.
+Die `mask-border-outset` Eigenschaft kann als ein, zwei, drei oder vier Werte angegeben werden. Jeder Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;number&gt;")}}. Negative Werte sind ungültig.
 
-- Wenn **ein** Wert angegeben ist, gilt der gleiche Abstand für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben sind, gilt der erste Abstand für **oben und unten**, der zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben sind, gilt der erste Abstand für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
-- Wenn **vier** Werte angegeben sind, gelten die Abstände für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben wird, gilt derselbe Ansatz für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben werden, gilt der erste Ansatz für **oben und unten**, der zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt der erste Ansatz für **oben**, der zweite für **links und rechts**, der dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Ansätze für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des mask border Outsets als Dimension.
+  - : Die Größe des Maskenrand-Ansatzes als Dimension.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Größe des mask border Outsets als Vielfaches der entsprechenden {{cssxref("border-width")}}.
+  - : Die Größe des Maskenrand-Ansatzes als Vielfaches der entsprechenden {{cssxref("border-width")}}.
 
 ## Formale Definition
 
@@ -59,20 +59,20 @@ Die Eigenschaft `mask-border-outset` kann mit ein, zwei, drei oder vier Werten a
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit nirgendwo unterstützt zu werden. Sobald sie unterstützt wird, wird sie dazu dienen, die Maske von der inneren Kante des border box des Elements zu entfernen — Sie können sie verwenden, um die Maske teilweise entlang des Rands beginnen zu lassen, anstatt an der Innenseite.
+Diese Eigenschaft scheint derzeit noch nirgends unterstützt zu werden. Wenn sie schließlich unterstützt wird, wird sie dazu dienen, die Maske von der inneren Kante der Randbox des Elements weg zu bewegen — Sie können sie verwenden, um die Maske teilweise über den Rand hinweg beginnen zu lassen, statt innerhalb davon.
 
 ```css
 mask-border-outset: 1rem;
 ```
 
-Auf Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-outset` — mit einem Präfix:
+Browser auf Chromium-Basis unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-outset` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-outset: 1rem;
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/Reference/Properties/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten prefixed border mask Eigenschaften in Chromium), damit Sie eine Vorstellung von der Wirkung bekommen.
+> Die Seite {{cssxref("mask-border")}} enthält ein funktionierendes Beispiel (mit den veralteten präfixierten Randmaskeneigenschaften, die in Chromium unterstützt werden), damit Sie eine Vorstellung vom Effekt bekommen.
 
 ## Spezifikationen
 

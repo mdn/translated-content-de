@@ -2,170 +2,223 @@
 title: Storage Access API
 slug: Web/API/Storage_Access_API
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: 2290fdbf9d5cf68482245d07d388b883156058ac
 ---
 
 {{DefaultAPISidebar("Storage Access API")}}{{securecontext_header}}
 
-Die Storage Access API bietet eine Möglichkeit für cross-site Inhalte, die in einem Drittanbieter-Kontext geladen werden (d.h. eingebettet in ein {{htmlelement("iframe")}}), um Zugang zu [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und [unpartitionierten Zuständen](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) zu erhalten, auf die sie normalerweise nur in einem Erstanbieter-Kontext (d.h. wenn sie direkt in einem Browser-Tab geladen werden) Zugriff hätten.
+Die Storage Access API bietet eine Möglichkeit für domänenübergreifende Inhalte, die in einem Drittanbieter-Kontext geladen werden (d.h. eingebettet in ein {{htmlelement("iframe")}}), Zugriff auf [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) und [unpartitionierten Status](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) zu erhalten, auf die es normalerweise nur in einem Erstanbieter-Kontext zugreifen könnte (d.h. wenn es direkt in einem Browser-Tab geladen wird).
 
-Die Storage Access API ist relevant für User Agents, die standardmäßig den Zugriff auf Drittanbieter-Cookies und unpartitionierte Zustände blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern). Es gibt legitime Verwendungen für Drittanbieter-Cookies und unpartitionierte Zustände, die wir trotz dieser Standardbeschränkungen weiterhin ermöglichen möchten. Beispiele sind Single Sign-On (SSO) mit föderierten Identitätsanbietern (IdPs) oder das Speichern von Benutzerdaten wie Standortdaten oder Anzeigepräferenzen über verschiedene Seiten hinweg.
+Die Storage Access API ist für Benutzeragenten relevant, die standardmäßig den Zugriff auf Drittanbieter-Cookies und unpartitionierten Status blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern). Es gibt legitime Verwendungen für Drittanbieter-Cookies und unpartitionierten Status, die wir trotz dieser Standardeinschränkungen weiterhin ermöglichen möchten. Beispiele hierfür sind Single Sign-On (SSO) mit föderierten Identitätsanbietern (IdPs) oder das Speichern von Benutzerdetails wie Standortdaten oder Anzeigevorlieben über verschiedene Websites hinweg.
 
-Die API bietet Methoden, die eingebetteten Ressourcen erlauben, zu überprüfen, ob sie derzeit Zugang zu Drittanbieter-Cookies haben und, falls nicht, den Zugang beim User Agent zu beantragen.
+Die API bietet Methoden, mit denen eingebettete Ressourcen überprüfen können, ob sie derzeit Zugriff auf Drittanbieter-Cookies haben, und falls nicht, Zugang vom Benutzeragenten anfordern können.
 
 ## Konzepte und Verwendung
 
-Browser implementieren verschiedene Funktionen und Richtlinien zum Zugriff auf Speicherressourcen, die den Zugang zu Drittanbieter-Cookies und unpartitionierten Zuständen einschränken. Diese reichen von der Vergabe eines einzigartigen Cookie-Speicherplatzes für eingebettete Ressourcen unter jedem Top-Level-Ursprung ([partitionierte Cookies](#unpartitionierte_versus_partitionierte_cookies)) bis hin zur vollständigen Blockierung des Cookie-Zugriffs, wenn Ressourcen in einem Drittanbieter-Kontext geladen werden.
+Browser implementieren mehrere Speicherzugriffsfunktionen und -richtlinien, die den Zugriff auf Drittanbieter-Cookies und unpartitionierten Status einschränken. Diese reichen von der Bereitstellung eines einzigartigen Speicherbereichs für Cookies ([partitionierte Cookies](#unpartitionierte_versus_partitionierte_cookies)) für eingebettete Ressourcen unter jedem obersten Ursprung bis hin zum vollständigen Blockieren des Cookie-Zugriffs, wenn Ressourcen in einem Drittanbieter-Kontext geladen werden.
 
-Die Semantik rund um das Blockieren von Drittanbieter-Cookies und unpartitionierten Zuständen und die entsprechenden Richtlinien unterscheiden sich von Browser zu Browser, die Kernfunktionalität bleibt jedoch ähnlich. Cross-site Ressourcen, die in einem Drittanbieter-Kontext eingebettet sind, erhalten keinen Zugang zu demselben Zustand, auf den sie zugreifen könnten, wenn sie in einem Erstanbieter-Kontext geladen würden. Dies geschieht in guter Absicht — Browseranbieter wollen Schritte unternehmen, um die Privatsphäre und Sicherheit ihrer Nutzer besser zu schützen. Beispiele hierfür sind weniger Angriffsflächen, um ihre Aktivitäten über verschiedene Seiten hinweg zu tracken, und ein geringeres Risiko bei Exploits wie Cross-Site Request Forgery ({{Glossary("CSRF", "CSRF")}}).
+Die Semantik der Funktionen und Richtlinien zur Blockierung von Drittanbieter-Cookies und unpartitioniertem Status unterscheidet sich von Browser zu Browser, aber die Kernfunktionalität ist ähnlich. Im Drittanbieter-Kontext eingebettete domänenübergreifende Ressourcen erhalten keinen Zugriff auf den gleichen Status, auf den sie im Erstanbieter-Kontext zugreifen könnten. Dies geschieht mit guter Absicht — Browserhersteller möchten Schritte unternehmen, um die Privatsphäre und Sicherheit ihrer Nutzer besser zu schützen. Beispiele hierfür sind, sie weniger anfällig für das Verfolgen ihrer Aktivitäten über verschiedene Websites hinweg zu machen, und sie weniger anfällig für Exploits wie Cross-Site Request Forgery ({{Glossary("CSRF", "CSRF")}}) zu machen.
 
-Es gibt jedoch legitime Verwendungen für eingebettete Cross-site-Inhalte, die Zugriff auf Drittanbieter-Cookies und unpartitionierte Zustände benötigen, welche durch die oben genannten Funktionen und Richtlinien beeinträchtigt werden. Angenommen, Sie haben eine Reihe von verschiedenen Websites, die Zugang zu verschiedenen Produkten bieten — `heads-example.com`, `shoulders-example.com`, `knees-example.com` und `toes-example.com`.
+Es gibt jedoch legitime Verwendungen für eingebettete domänenübergreifende Inhalte, die auf Drittanbieter-Cookies und unpartitionierten Status zugreifen, die durch die oben genannten Funktionen und Richtlinien beeinträchtigt werden. Nehmen wir an, Sie betreiben eine Reihe unterschiedlicher Websites, die Zugriff auf verschiedene Produkte bieten — `heads-example.com`, `shoulders-example.com`, `knees-example.com` und `toes-example.com`.
 
-Alternativ könnten Sie Ihre Inhalte oder Dienste zur Lokalisierung in verschiedene Länderdomains aufteilen — `example.com`, `example.ua`, `example.br` usw. — oder in einer anderen Art.
+Alternativ könnten Sie Ihre Inhalte oder Dienste in unterschiedliche Länderdomains für Lokalisierungszwecke trennen — `example.com`, `example.ua`, `example.br` usw. — oder auf eine andere Weise.
 
-Sie könnten auch begleitende Utility-Sites mit Komponenten haben, die in alle anderen Sites eingebettet sind, zum Beispiel, um SSO (`sso-example.com`) oder allgemeine Personalisierungsdienste (`services-example.com`) bereitzustellen. Diese Utility-Sites werden ihren Zustand mit den Sites, in die sie eingebettet sind, über Cookies teilen wollen. Sie können keine Erstanbieter-Cookies teilen, da sie sich auf verschiedenen Domains befinden, und Drittanbieter-Cookies funktionieren in Browsern, die sie blockieren, nicht mehr.
+Vielleicht haben Sie begleitende Utility-Websites mit Komponenten, die in alle anderen Websites eingebettet sind, beispielsweise um SSO (`sso-example.com`) oder generalisierte Personalisierungsdienste (`services-example.com`) bereitzustellen. Diese Utility-Websites möchten ihren Status mithilfe von Cookies mit den Websites teilen, in denen sie eingebettet sind. Sie können keine Erstanbieter-Cookies teilen, weil sie auf unterschiedlichen Domains liegen, und Drittanbieter-Cookies funktionieren in Browsern, die sie blockieren, nicht mehr.
 
-In solchen Situationen ermutigen Site-Besitzer oft die Nutzer, ihre Site als Ausnahme hinzuzufügen oder Drittanbieter-Cookie-Blockierungsrichtlinien komplett zu deaktivieren. Nutzer, die weiterhin mit ihren Inhalten interagieren möchten, müssen ihre Blockierungsrichtlinie für Ressourcen, die von allen eingebetteten Ursprüngen geladen werden, erheblich lockern und möglicherweise über alle Websites hinweg.
+In solchen Situationen ermutigen Website-Betreiber oft die Benutzer, ihre Website als Ausnahme hinzuzufügen oder Drittanbieter-Cookie-Blockierungsrichtlinien vollständig zu deaktivieren. Benutzer, die weiterhin mit ihrem Inhalt interagieren möchten, müssen ihre Blockierungsrichtlinie für Ressourcen aus allen eingebetteten Ursprüngen und möglicherweise über alle Websites hinweg erheblich lockern.
 
-Die Storage Access API ist dazu gedacht, dieses Problem zu lösen; eingebettete cross-site Inhalte können unbeschränkten Zugang zu Drittanbieter-Cookies und unpartitionierten Zuständen auf Basis eines Frames anfordern, indem sie die Methode [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) verwenden. Es kann auch überprüft werden, ob es bereits Zugang hat, durch die Methode [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess).
+Die Storage Access API ist vorgesehen, um dieses Problem zu lösen; eingebettete domänenübergreifende Inhalte können über die Methode [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) uneingeschränkten Zugriff auf Drittanbieter-Cookies und unpartitionierten Status frameweise anfordern. Sie kann auch mittels der Methode [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) überprüfen, ob sie bereits Zugriff hat.
 
 > [!NOTE]
-> Die [storage access headers](#speicherzugangs-header) sind eine HTTP-Erweiterung der API, die einen effizienteren Storage-API-Workflow ermöglicht und auch verwendet werden können, um eine zuvor gewährte Speicherzugangserlaubnis für passive Ressourcen wie Bilder zu aktivieren.
+> Die [Storage Access Headers](#storage_access_headers) sind eine HTTP-Erweiterung der API, die einen effizienteren Speicher-API-Workflow ermöglicht und auch verwendet werden kann, um eine zuvor gewährte Speicherzugriffsberechtigung für passive Ressourcen, wie Bilder, zu aktivieren.
 
 ### Unpartitionierte versus partitionierte Cookies
 
-Die Storage Access API ist nur notwendig, um Zugriff auf _unpartitionierte_ Drittanbieter-Cookies zu ermöglichen! Unpartitionierte Cookies sind solche, bei denen alle Cookies auf derselben Site im selben Cookie-Tiegel gespeichert werden — die traditionelle Methode seit den frühen Zeiten des Webs. Da ein Risiko besteht, dass Daten, die für eine Site bestimmt sind, auf andere Sites offengelegt werden, blockieren Browser normalerweise das Senden unpartitionierter Drittanbieter-Cookies in Anfragen und erlauben keinen Zugriff darauf in eingebetteten Kontexten.
+Die Storage Access API wird nur benötigt, um Zugriff auf _unpartitionierte_ Drittanbieter-Cookies zu gewähren! Unpartitionierte Cookies sind solche, bei denen alle auf derselben Seite gesetzten Cookies im selben Cookie-Container gespeichert sind — die traditionelle Methode seit den Anfängen des Webs. Da die Gefahr besteht, Daten, die für eine Website bestimmt sind, für andere freizulegen, blockieren Browser häufig das Senden von unpartitionierten Drittanbieter-Cookies in Anfragen und erlauben keinen Zugriff auf sie in eingebetteten Kontexte.
 
-Im Gegensatz dazu stehen _partitionierte_ Cookies, bei denen eingebettete Ressourcen unter jeder Top-Level-Site einen einzigartigen Cookie-Speicherplatz erhalten, der von denen anderer Sites isoliert ist. Da kein Risiko der Privatsphäre besteht, da es nicht möglich ist, Benutzer über Sites hinweg durch partitionierte Cookies zu tracken, senden Browser partitionierte Cookies in Anfragen und machen sie für eingebettete Ressourcen verfügbar. Beachten Sie jedoch, dass, da die Cookies nicht zwischen Sites geteilt werden, sie auch nicht automatisch zwischen Sites synchronisiert werden. Browser haben verschiedene Mechanismen, um den Zugriff auf Drittanbieter-Cookies zu partitionieren, zum Beispiel [Firefox Total Cookie Protection](https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/) und [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
+Dies steht im Gegensatz zu _partitionierten_ Cookies, bei denen eingebetteten Ressourcen unter jeder obersten Website ein einzigartiger Cookie-Speicherplatz zugewiesen wird, der von denen anderer Websites isoliert ist. Da kein Risiko für die Privatsphäre besteht, weil es nicht möglich ist, Benutzer über Websites hinweg über partitionierte Cookies zu verfolgen, senden Browser partitionierte Cookies in Anfragen und machen sie eingebetteten Ressourcen verfügbar. Beachten Sie jedoch, dass, da die Cookies nicht zwischen den Websites geteilt werden, sie auch nicht automatisch über Websites hinweg synchronisiert werden. Browser haben verschiedene Mechanismen, um den Zugriff auf Drittanbieter-Cookies zu partitionieren, beispielsweise [Firefox Total Cookie Protection](https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/) und [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies).
 
-Wenn wir im Kontext der Storage Access API von Drittanbieter-Cookies sprechen, meinen wir implizit _unpartitionierte_ Drittanbieter-Cookies.
+Wenn wir im Kontext der Storage Access API über Drittanbieter-Cookies sprechen, meinen wir implizit _unpartitionierte_ Drittanbieter-Cookies.
 
 ### Funktionsweise
 
-Drittanbieter-Inhalte, die in ein {{htmlelement("iframe")}} eingebettet sind, und Zugriff auf Cookies oder andere unpartitionierte Zustände benötigen, können den Zugang über die Storage Access API wie folgt beantragen:
+Drittanbieter-Inhalte, die in einem {{htmlelement("iframe")}} eingebettet sind und auf Cookies oder anderen unpartitionierten Status zugreifen müssen, können den Zugriff mit der Storage Access API wie folgt anfordern:
 
-1. [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) kann aufgerufen werden, um zu überprüfen, ob der eingebettete Inhalt bereits Zugang zu unpartitionierten Cookies hat.
-2. Falls nicht, kann [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) mit {{Glossary("transient_activation", "transient activation")}} aufgerufen werden, um die Erlaubnis `storage-access` anzufordern.
+1. [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) kann aufgerufen werden, um zu überprüfen, ob die eingebetteten Inhalte bereits Zugriff auf unpartitionierte Cookies haben.
+2. Wenn nicht, kann [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) mit {{Glossary("transient_activation", "transient activation")}} aufgerufen werden, um die Berechtigung `storage-access` anzufordern.
 
-   Je nach Browser wird der Nutzer gefragt, ob er der anfordernden Einbettung die Erlaubnis erteilen möchte, auf leicht unterschiedliche Weisen.
-   - Safari zeigt Eingabeaufforderungen für alle eingebetteten Inhalte, die bislang keinen Speicherzugang erhalten haben.
-   - Firefox fordert Benutzer nur dann auf, nachdem ein Ursprung auf mehr als einer bestimmten Anzahl von Sites Speicherzugang angefordert hat.
-   - Chrome zeigt Eingabeaufforderungen für alle eingebetteten Inhalte, die bislang keinen Speicherzugang erhalten haben.
-     Es wird jedoch automatisch Zugriff gewähren und Eingabeaufforderungen überspringen, wenn die eingebetteten Inhalte und die einbettende Site Teil desselben [related website set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sind.
+   Je nach Browser wird der Benutzer auf leicht unterschiedliche Weise gefragt, ob er die Berechtigung für die anfragende Einbettung erteilen möchte.
+   - Safari zeigt Eingabeaufforderungen für alle eingebetteten Inhalte an, die vorher keinen Speicherzugriff erhalten haben.
+   - Firefox fordert Benutzer nur auf, nachdem ein Ursprung auf mehr als einer Mindestanzahl von Websites Speicherzugriff angefordert hat.
+   - Chrome zeigt Eingabeaufforderungen für alle eingebetteten Inhalte an, die vorher keinen Speicherzugriff erhalten haben. Es wird jedoch automatisch Zugriff gewährt und Eingabeaufforderungen übersprungen, wenn die eingebetteten Inhalte und die einbettende Seite Teil derselben [related website set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) sind.
 
-3. Die Erlaubnis wird gewährt oder verweigert, basierend darauf, ob die Inhalte alle Sicherheitsanforderungen erfüllen — siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für allgemeine Anforderungen und [Browser-spezifische Unterschiede](#browser-spezifische_unterschiede) für einige spezifische Sicherheitsanforderungen von Browsern. Die auf {{jsxref("Promise")}} basierte Natur von `requestStorageAccess()` ermöglicht es, Code auszuführen, um Erfolgs- und Misserfolgsfälle zu behandeln.
+3. Die Berechtigung wird basierend darauf gewährt oder abgelehnt, ob der Inhalt alle Sicherheitsanforderungen erfüllt – siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für allgemeine Anforderungen und [Browserspezifische Variationen](#browserspezifische_variationen) für einige browserspezifische Sicherheitsanforderungen. Die versprochene Natur von `requestStorageAccess()` ermöglicht es Ihnen, Code auszuführen, um Erfolgs- und Fehlerfälle zu behandeln.
 
-   Sobald die Erlaubnis erteilt ist, wird ein Berechtigungsschlüssel im Browser gespeichert mit der Struktur `<top-level site, embedded site>`.
-   Zum Beispiel, wenn die einbettende Site `embedder.com` ist und die Einbettung `locator.example.com`, wäre der Schlüssel `<embedder.com, example.com>`.
+   Sobald die Berechtigung erteilt wurde, wird ein Berechtigungsschlüssel mit der Struktur `<oberste Website, eingebettete Website>` im Browser gespeichert. Wenn die einbettende Website beispielsweise `embedder.com` ist und die Einbettung `locator.example.com`, wäre der Schlüssel `<embedder.com, example.com>`.
 
-   Das bedeutet, dass die Erlaubnis für den Zugriff auf unpartitionierte Cookies auf jede Seite der `example.com` Site oder eine ihrer Subdomains gewährt wird, die in irgendeiner Seite der `embedder.com` Site eingebettet ist. Zum Beispiel können `docs.example.com`, `profile.example.com` nun `requestStorageAccess()` aufrufen, und das Versprechen würde automatisch erfüllt.
+   Dies bedeutet, dass die Berechtigung für den Zugriff auf unpartitionierte Cookies für jede Seite auf der `example.com`-Site oder einen ihrer Subdomains erteilt wird, die in einer Seite auf der `embedder.com`-Site eingebettet ist. `docs.example.com`, `profile.example.com` können jetzt beispielsweise `requestStorageAccess()` aufrufen, und das Versprechen würde automatisch erfüllt.
 
    > [!NOTE]
-   > Ältere Spezifikationsversionen verwendeten die spezifischere Berechtigungsschlüsselstruktur `<top-level site, embedded origin>`, was bedeutete, dass gleichseitige, cross-origin Einbettungen nicht mit dem Berechtigungsschlüssel übereinstimmten und den gesamten Prozess separat durchlaufen mussten.
+   > Ältere Spezifikationsversionen verwendeten die spezifischere Berechtigungsschlüsselstruktur `<oberste Website, eingebetteter Ursprung>`, was bedeutete, dass dieselbe Site, cross-origin Einbettungen nicht mit dem Berechtigungsschlüssel übereinstimmten und den gesamten Prozess separat durchlaufen mussten.
 
-4. Die Erlaubnis muss für jeden _Kontext_ explizit aktiviert werden.
+4. Die Berechtigung muss explizit für jeden _Kontext_ aktiviert werden.
 
-   Wenn einer Einbettung die Erlaubnis erteilt wird, wird diese Erlaubnis auch für den aktuellen Kontext aktiviert. Andere Kontexte, wie neue Browser-Tabs oder Inhalte in anderen {{htmlelement("iframe")}} Elementen auf der Seite, haben ihren Drittanbieter-Cookie-Zugriff standardmäßig blockiert. Das bedeutet, dass selbst wenn die Erlaubnis erteilt wurde, die Seite geladen werden muss und `requestStorageAccess()` aufrufen muss, um die Erlaubnis zu aktivieren. Wenn die Erlaubnis bereits gewährt wurde, erfordert ein Aufruf von `requestStorageAccess()` keine transient activation, und das Versprechen wird automatisch erfüllt.
+   Wenn eine Einbettung eine Berechtigung erhält, wird diese Berechtigung auch für den aktuellen Kontext aktiviert. Andere Kontexte, wie andere Browser-Tabs oder Inhalte in anderen {{htmlelement("iframe")}} Elementen auf der Seite, haben jedoch ihren Drittanbieter-Cookie-Zugriff standardmäßig blockiert. Das bedeutet, dass auch wenn eine Berechtigung erteilt wird, die Seite geladen und `requestStorageAccess()` aufgerufen werden muss, um die Berechtigung zu aktivieren. Wenn die Berechtigung bereits gewährt wurde, benötigt ein Aufruf von `requestStorageAccess()` keine transient activation und das Versprechen wird automatisch erfüllt.
 
-   Die einzige Ausnahme vom Standardverhalten "standardmäßig blockiert" ist, wenn eine Einbettung eine gleichseitige Navigation durchführt, um sich nach der Eingewährung oder Aktivierung einer Berechtigung neu zu laden. In solchen Fällen wird der Speicherzugang von der vorherigen Navigation übernommen. Dies ermöglicht es der eingebetteten Ressource, sich selbst neu zu laden und Zugang zu ihren Cookies zu erhalten.
+   Die einzige Ausnahme vom "standardmäßig blockierten" Verhalten ist, wenn eine Einbettung eine gleichursprüngige Navigation durchführt, um sich nach der Gewährung oder Aktivierung einer Berechtigung neu zu laden. In solchen Fällen wird der Speicherzugriff aus der vorherigen Navigation übernommen. Dies ermöglicht es der eingebetteten Ressource, sich neu zu laden und Zugriff auf ihre Cookies zu erhalten.
 
    > [!NOTE]
-   > In älteren Versionsspezifikationen war der Zugriff _pro Seite_ (Safari ist der einzige Browser, der dieses Modell noch verwendet). Wenn eine Einbettung über `requestStorageAccess()` Drittanbieter-Cookie-Zugriff erhielt, erhielten alle anderen gleichseitigen Einbettungen automatisch Zugriff.
-   > Dies war aus Sicherheitsperspektive nicht wünschenswert — zum Beispiel, wenn `shop.example.com` `locator.users.com` einbettete, um Nutzern zu ermöglichen, während des Einkaufens ihre Standortinformationen zu verwenden, und `locator.users.com` `requestStorageAccess()` aufrief, konnte `shop.example.com` und jede andere eingebettete Seite auf ihre Cookies zugreifen, aber auch auf Cookies von `private.users.com`, die nicht eingebettet werden sollte. [Lesen Sie mehr über die Beweggründe](https://github.com/privacycg/storage-access/issues/113) hinter dieser Änderung.
+   > In älteren Spezifikationsversionen war der Zugriff _pro Seite_ (Safari ist der einzige Browser, der dieses Modell noch verwendet). Wenn eine Einbettung über `requestStorageAccess()` Drittanbieter-Cookie-Zugriff erhielt, erhielten alle anderen Einbettungen derselben Site automatisch Zugriff. Dies war aus Sicherheitsgründen kein wünschenswertes Verhalten — zum Beispiel, wenn `shop.example.com` `locator.users.com` einbettet, um Benutzern zu ermöglichen, ihre Standortinformationen beim Einkaufen zu verwenden, und `locator.users.com` `requestStorageAccess()` aufruft, könnten `shop.example.com` und alle anderen eingebetteten Websites auf dessen Cookies zugreifen, aber auch auf Cookies von `private.users.com`, welche nicht eingebettet werden sollten. [Erfahren Sie mehr über die Beweggründe](https://github.com/privacycg/storage-access/issues/113) hinter dieser Änderung.
 
-5. Nachdem eine Einbettung die Speicherzugangserlaubnis aktiviert hat, sollte sie sich selbst neu laden. Der Browser wird die Ressource erneut mit Drittanbieter-Cookies anfordern und sie der eingebetteten Ressource zur Verfügung stellen, sobald sie geladen ist.
+5. Nachdem eine Einbettung die Speicherzugriffsberechtigung aktiviert hat, sollte sie sich neu laden. Der Browser fordert die Ressource erneut an, diesmal mit beinhalteten Drittanbieter-Cookies, und stellt sie der eingebetteten Ressource zur Verfügung, sobald sie geladen ist.
 
-### Speicherzugangs-Header
+### Storage access headers
 
-Die API erfordert, dass eine Ressource für jeden neuen Kontext `requestStorageAccess()` aufruft, um die Speicherzugangserlaubnis zu aktivieren, die bereits gewährt worden sein muss. Dies wiederum bedeutet, dass die eingebettete Ressource zunächst ohne Cookies angefordert und geladen werden muss, damit sie die Methode aufrufen kann.
+Die API erfordert, dass eine Ressource `requestStorageAccess()` für jeden neuen Kontext aufrufen muss, um sich zur Aktivierung der Speicherzugriffsberechtigung anzumelden, die bereits gewährt worden sein muss. Das bedeutet wiederum, dass die eingebettete Ressource zuerst ohne Cookies und geladen angefordert werden muss, damit sie die Methode aufrufen kann.
 
-Die Speicherzugangs-Header ermöglichen einen Workflow, bei dem der Server anfordern kann, dass die Erlaubnis für den Kontext aktiviert wird, dadurch wird eine unnötige zusätzliche Ladung der eingebetteten Ressource vermieden, wenn die Erlaubnis bereits erteilt wurde. Die Ressource muss immer noch geladen werden, um die Erlaubnis das erste Mal anzufordern.
+Die storage access headers ermöglichen einen Workflow, bei dem der Server anfordern kann, dass die Berechtigung für den Kontext aktiviert wird. Auf diese Weise kann eine unnötige zusätzliche Last der eingebetteten Ressource vermieden werden, wenn die Berechtigung bereits gewährt wurde. Die Ressource muss dennoch geladen werden, um die Berechtigung erstmals anzufordern.
 
 Es gibt zwei Header:
 
-- Der Browser fügt der Anfrage den Header {{HTTPHeader("Sec-Fetch-Storage-Access")}} hinzu, um den Speicherzugangsstatus des aktuellen Abfragekontextes anzugeben, beispielsweise ob die Erlaubnis aktiviert, gewährt oder nicht gewährt wurde.
-- Abhängig vom Speicherzugangsstatus der Anfrage kann der Server mit einem {{HTTPHeader("Activate-Storage-Access")}} Header antworten, um zu verlangen, dass der Browser die Erlaubnis für den Kontext aktiviert und die Anfrage mit Cookies wiederholt (wodurch vermieden wird, dass die Ressource geladen wird, damit sie `requestStorageAccess()` aufrufen kann, um dasselbe zu erreichen), oder die Erlaubnis aktiviert und die zurückgegebene Ressource lädt.
+- Der Browser fügt der Anfrage den Header {{HTTPHeader("Sec-Fetch-Storage-Access")}} hinzu, um den Speicherzugriffsstatus des aktuellen Anforderungs-Kontexts anzuzeigen, z.B., ob die Berechtigung aktiviert, gewährt oder nicht gewährt wurde.
+- Je nach Speicherzugriffsstatus der Anfrage kann der Server mit einem Header {{HTTPHeader("Activate-Storage-Access")}} antworten, um zu verlangen, dass der Browser die Berechtigung für den Kontext aktiviert und die Anfrage mit Cookies wiederholt (um zu vermeiden, dass die Ressource geladen werden muss, um `requestStorageAccess()` aufzurufen, um denselben Effekt zu erzielen) oder die Berechtigung aktiviert und die zurückgegebene Ressource lädt.
 
-Die Speicherzugangs-Header können auch verwendet werden, um Erlaubnis für passive Ressourcen wie Bilder zu aktivieren, vorausgesetzt, der Kontext hat bereits Erlaubnis erhalten. Dies könnte beispielsweise verwendet werden, um verschiedene Bilder für verschiedene Benutzer, demografische Gruppen oder Regionen bereitzustellen.
+Die storage access headers können auch verwendet werden, um die Berechtigung für passive Ressourcen zu aktivieren, z.B. Bilder, vorausgesetzt der Kontext hat bereits die Berechtigung erhalten. Dies könnte zum Beispiel verwendet werden, um verschiedene Bilder für verschiedene Benutzer, Zielgruppen oder Regionen anzubieten.
 
-Die Arbeitsabläufe sind im Abschnitt [Storage access header sequences](#speicherzugangs-header-sequenzen) dargestellt.
+Die Workflows sind im Abschnitt [Storage access header sequences](#storage_access_header-abfolgen) dargestellt.
 
-### Anfragen-/Antwortfluss
+### Anfrage-/Antwortfluss
 
-#### JavaScript-Sequenzen
+#### JavaScript-Abfolgen
 
-Betrachten wir das Beispiel einer Bibliothek, die in ein {{htmlelement("iframe")}} geladen wird, die über mehrere Sites hinweg geteilt werden muss und auf in unpartitionierten Cookies gespeicherten Anmeldeinformationen beruht.
+Betrachten Sie das Beispiel einer in einem {{htmlelement("iframe")}} geladenen Bibliothek, die über eine Reihe von Websites hinweg geteilt werden muss und auf in unpartitionierten Cookies gespeicherte Anmeldeinformationen angewiesen ist.
 
-Zuerst betrachten wir den Fall, in dem die Erlaubnis nicht erteilt wurde:
+Zunächst betrachten wir den Fall, in dem die Berechtigung nicht gewährt wurde:
 
-1. Der Browser fordert die Ressource ohne Drittanbieter-Cookies an.
-2. Der Server antwortet mit einer "Fallback"-Version des Inhalts, die nicht auf Anmeldeinformationen angewiesen ist und die bei der Ladezeit keinen Zugang zu ihren Cookies hat.
-   - Nach dem Laden ruft die Ressource `requestStorageAccess()` mit transient activation auf, um die `storage-access` Erlaubnis anzufordern und zu aktivieren.
-   - Wenn die Erlaubnis erteilt ist, lädt die Ressource sich dann selbst neu.
+1. Der Browser fordert die Ressource an, ohne Drittanbieter-Cookies einzuschließen.
+2. Der Server antwortet mit einer "Fallback"-Version von Inhalten, die nicht auf Anmeldeinformationen angewiesen ist und die beim Laden keinen Zugriff auf ihre Cookies hat.
+   - Nach dem Laden ruft die Ressource `requestStorageAccess()` mit transient activation auf, um die Berechtigung für den `storage-access` anzufordern und zu aktivieren.
+   - Wenn die Berechtigung gewährt wird, lädt die Ressource sich selbst neu.
 
-3. Der Browser fordert die Ressource erneut an, diesmal mit enthaltenen Drittanbieter-Cookies.
-4. Die Server-Antwort enthält eine "credentialed" Version der Ressource.
+3. Der Browser fordert die Ressource erneut an, diesmal einschließlich der Drittanbieter-Cookies.
+4. Die Serverantwort enthält eine "mit Anmeldeinformationen ausgestattete" Version der Ressource.
 
-Der Browser lädt die Ressource, die dann auf ihre eigenen Cookies zugreifen kann, da sie über eine aktivierte `storage-access` Erlaubnis verfügt.
+Der Browser lädt die Ressource, die Zugriff auf ihre eigenen Cookies hat, da sie eine aktivierte `storage-access`-Berechtigung besitzt.
 
-![Speicher-API Arbeitsablauf - ohne storage-access Erlaubnis](storage_api_no_permission.png)
+![Storage API Workflow - ohne Speicherzugriffsberechtigung](storage_api_no_permission.png)
 
-Jetzt betrachten wir den Fall, in dem die Erlaubnis bereits erteilt, aber nicht aktiviert wurde. Dies würde geschehen, wenn Sie dasselbe URL in einem neuen Browser-Tab öffnen oder versuchen, dieselbe Ressource von einer anderen Seite in derselben Site einzubetten.
+<!--
+[![Bild: Storage API Workflow - ohne Speicherzugriffsberechtigung](https://mermaid.ink/img/pako:eNqFks1u2zAQhF-F4MkBnEB_lmU1MWC4ufZQo5dGOdDkWiYikSq5StoafveuRCgIHBjVRdrBfrOrIU9cWgW85B5-9WAkfNWidqL9UhlGTyccaqk7YZBtGw0GP-s7cK_ggh56btfrIJbsKX4u2ffB2yNz4G3vJNzv3XpmLJPWvmjwN4ENyC3BwYXgZIR9Z40foaeDaJq9kC-EGqSe54B-swjMEs0m9LHdg2KS2j2NHcfv0DpRw0ZK8H52w940HgdTdML4gWJCon4VqK1haCeMdeBa7T2p14b98FRQagb9h-7BO6zhoLFCeabRQ3Ngs8lZG9n0CvxFEJ9DTK-EuB25kvW0gFYPcZJejTK7jPJ_CYY3C5u_aVUDjpGx3Wbz4S9DaFAZPuc1LcFLdD3MeUsdYij5aZhQcTxCCxUv6VPBQfQNVrwyZ8LoFv20tp1IZ_v6yEs6ak9V3ymB0628UB-VpjN9Fx0YBW5re4O8jFfx6MzLE__NyyRb3aWLokjyPIuyfDHnf6iHxOVimWdFvMyTNCnOc_533CS6W-ZRGhfZooiKKFnFy_M_V38SSw?type=png)](https://mermaid.live/edit#pako:eNqFks1u2zAQhF-F4MkBnEB_lmU1MWC4ufZQo5dGOdDkWiYikSq5StoafveuRCgIHBjVRdrBfrOrIU9cWgW85B5-9WAkfNWidqL9UhlGTyccaqk7YZBtGw0GP-s7cK_ggh56btfrIJbsKX4u2ffB2yNz4G3vJNzv3XpmLJPWvmjwN4ENyC3BwYXgZIR9Z40foaeDaJq9kC-EGqSe54B-swjMEs0m9LHdg2KS2j2NHcfv0DpRw0ZK8H52w940HgdTdML4gWJCon4VqK1haCeMdeBa7T2p14b98FRQagb9h-7BO6zhoLFCeabRQ3Ngs8lZG9n0CvxFEJ9DTK-EuB25kvW0gFYPcZJejTK7jPJ_CYY3C5u_aVUDjpGx3Wbz4S9DaFAZPuc1LcFLdD3MeUsdYij5aZhQcTxCCxUv6VPBQfQNVrwyZ8LoFv20tp1IZ_v6yEs6ak9V3ymB0628UB-VpjN9Fx0YBW5re4O8jFfx6MzLE__NyyRb3aWLokjyPIuyfDHnf6iHxOVimWdFvMyTNCnOc_533CS6W-ZRGhfZooiKKFnFy_M_V38SSw)
 
-Der Arbeitsablauf ist fast identisch, weil die Ressource das erste Mal auch ohne Cookies geladen werden muss, und sie muss dann `requestStorageAccess()` aufrufen, um die Erlaubnis für den Kontext zu aktivieren. In diesem Fall benötigt sie jedoch keine transient activation und kann sofort beim Laden ausgeführt werden.
+sequenceDiagram;
+    Teilnehmer Client
+    Teilnehmer Server
+    Client->>Server: [1]: Anfrage Ressource<br>(ohne Cookies)
+    Server-- >>Client: [2]: Antwort<br>[Fallback-Inhalt]
+    Hinweis über Client: Einbettung ruft requestStorageAccess() mit<br>transient activation auf, um Berechtigung anzufordern
+    Hinweis über Client: Benutzer erteilt Berechtigung<br>Einbettung lädt sich neu (Anfrage enthält Cookies)
+    Client->>Server: [3]: Anfrage Ressource<br>Cookie: userid=123
+    Server-- >>Client: [4]: Antwort<br>[Inhalt]
+    Hinweis über Client: Client lädt Widget mit aktiver SAA-Berechtigung
+-->
 
-![Speicher-API Arbeitsablauf - storage-access Erlaubnis aktivieren](storage_api_permission.png)
+Nun betrachten wir den Fall, dass die Berechtigung gewährt, aber nicht aktiviert wurde. Dies würde passieren, wenn Sie dieselbe URL in einem neuen Browser-Tab öffnen oder versuchen, dieselbe Ressource von einer anderen Seite derselben Website einzubetten.
 
-#### Speicherzugangs-Header-Sequenzen
+Der Workflow ist fast identisch, da die Ressource immer noch zuerst ohne Cookies geladen werden muss und dann `requestStorageAccess()` aufrufen muss, um die Berechtigung für den Kontext zu aktivieren. In diesem Fall benötigt es jedoch keine transient activation und kann beim Laden ausgeführt werden.
 
-Die Speicherzugangs-Header ermöglichen einen verbesserten Arbeitsablauf, der es dem Server ermöglicht, Browser zu bitten, eine bereits erteilte Erlaubnis zu aktivieren und die Anfrage mit enthaltenen Cookies erneut zu senden. Dadurch wird die Notwendigkeit vermieden, die Ressource zu laden, um `requestStorageAccess()` aufzurufen, wenn der Benutzer bereits die Erlaubnis erteilt hat.
+![Storage API Workflow - Speicherzugriffsberechtigung aktivieren](storage_api_permission.png)
+
+<!--
+[![Bild: Storage API Workflow - Speicherzugriffsberechtigung aktivieren](https://mermaid.ink/img/pako:eNqFkk1P4zAQhv-K5VORSpWvJqmBSlWX6x7oDcLBtaepRWJn_cHuUvW_M40BrYpYfLE9nued8WsfqDASKKMOfgXQAn4o3lreXzWa4Bi49UqogWtP1p0C7T_HN2CfwcZ4zLlcLmOQkYf0kZG7k7bzxIIzwQq43trlRBsijHlS4C4iG5FLhKMKwtkIu8FoN0IPO951Wy6eENUecx4j-tN4IAZp8o7e9luQRGC6w7Jj-Y03lrewEgKcm1wQbwgXXj1zZAewvXJOGf1_QQud4dIR5R10OzJ5kyZKiy5IcGdX-mxH_oUd65FjJDiwSt6kWf6lKcW5Kd95EWcSO_-tZAseJ78nm9Xqn5tHN6DRdEpbbIIybwNMaY8Z_LSlh1OFhvo99NBQhksJOx4639BGHxHD_3BvTP9OWhPaPWX4aA53YZBo9dv_OoveSoWv8xG0oCXYtQnaU5YW81GZsgP9Q1lWLGb5vK6zsiySosSzv6ecxayaV2VRp1WZ5Vl9nNKXsZNkVpVJntbFvE7qJFuk1fEVT-z9Kg?type=png)](https://mermaid.live/edit#pako:eNqFkk1P4zAQhv-K5VORSpWvJqmBSlWX6x7oDcLBtaepRWJn_cHuUvW_M40BrYpYfLE9nued8WsfqDASKKMOfgXQAn4o3lreXzWa4Bi49UqogWtP1p0C7T_HN2CfwcZ4zLlcLmOQkYf0kZG7k7bzxIIzwQq43trlRBsijHlS4C4iG5FLhKMKwtkIu8FoN0IPO951Wy6eENUecx4j-tN4IAZp8o7e9luQRGC6w7Jj-Y03lrewEgKcm1wQbwgXXj1zZAewvXJOGf1_QQud4dIR5R10OzJ5kyZKiy5IcGdX-mxH_oUd65FjJDiwSt6kWf6lKcW5Kd95EWcSO_-tZAseJ78nm9Xqn5tHN6DRdEpbbIIybwNMaY8Z_LSlh1OFhvo99NBQhksJOx4639BGHxHD_3BvTP9OWhPaPWX4aA53YZBo9dv_OoveSoWv8xG0oCXYtQnaU5YW81GZsgP9Q1lWLGb5vK6zsiySosSzv6ecxayaV2VRp1WZ5Vl9nNKXsZNkVpVJntbFvE7qJFuk1fEVT-z9Kg)
+
+sequenceDiagram;
+    Teilnehmer Client
+    Teilnehmer Server
+    Client->>Server: [1]: Anfrage Ressource<br>(ohne Cookies)
+    Server-- >>Client: [2]: Antwort<br>[Fallback-Inhalt]
+    Hinweis über Client: Einbettung ruft requestStorageAccess() auf, um Berechtigung zu aktivieren
+    Hinweis über Client: Einbettung lädt sich neu (Anfrage enthält Cookies)
+    Client->>Server: [3]: Anfrage Ressource<br>Cookie: userid=123
+    Server-- >>Client: [4]: Antwort<br>[Inhalt]
+    Hinweis über Client: Client lädt Widget mit aktiver SAA-Berechtigung
+-->
+
+#### Storage access header-Abfolgen
+
+Die storage access headers ermöglichen einen verbesserten Workflow, bei dem der Server anfordern kann, dass der Browser eine bereits gewährte Berechtigung aktiviert und die Anfrage mit enthaltenen Cookies wiederholt. Dies vermeidet die Anforderung, die Ressource zu laden, um `requestStorageAccess()` aufzurufen, wenn der Benutzer bereits die Berechtigung erteilt hat.
 
 > [!NOTE]
-> Diese Header bieten keinen Mechanismus zur Erteilung der Speicherzugangserlaubnis. Die Erlaubnis muss immer von der eingebetteten Ressource durch `requestStorageAccess()` mit transient activation angefordert werden.
+> Diese Header bieten keinen Mechanismus, um die Speicherzugriffsberechtigung erstmals zu erteilen. Die Berechtigung muss immer von der eingebetteten Ressource durch Aufruf von `requestStorageAccess()` mit transient activation angefordert werden.
 
-Der {{HTTPHeader("Sec-Fetch-Storage-Access")}} Header wird zu Anfragen hinzugefügt, um den Speicherzugangsstatus des aktuellen Abrufkontextes anzugeben, zum Beispiel, ob die Erlaubnis aktiviert, gewährt oder nicht gewährt wurde. Abhängig vom Speicherzugangsstatus der Anfrage kann der Server mit einem {{HTTPHeader("Activate-Storage-Access")}} Header antworten, um den Browser aufzufordern, die Erlaubnis für den Kontext zu aktivieren und die Anfrage mit Cookies erneut zu senden.
+Der {{HTTPHeader("Sec-Fetch-Storage-Access")}}-Header wird Anfragen hinzugefügt, um den Speicherzugriffsstatus des aktuellen Anforderungs-Kontexts anzuzeigen, wie z.B., ob die Berechtigung aktiviert, gewährt oder nicht gewährt wurde. Je nach Speicherzugriffsstatus der Anfrage kann der Server mit dem Header {{HTTPHeader("Activate-Storage-Access")}} antworten, um zu verlangen, dass der Browser die Berechtigung für den Kontext aktiviert und die Anfrage mit Cookies wiederholt.
 
-Zuerst betrachten wir den Fall, in dem versucht wird, eine eingebettete Ressource für einen neuen Kontext zu laden, der bereits Erlaubnis erhalten hat:
+Schauen wir uns zunächst den Fall an, in dem versucht wird, eine eingebettete Ressource für einen neuen Kontext zu laden, der bereits die Berechtigung erhalten hat:
 
-1. Der Browser sendet eine Anfrage mit `Sec-Fetch-Storage-Access: inactive`, um anzuzeigen, dass die Erlaubnis erteilt, aber inaktiv für den Kontext ist.
-   - Die Anfrage wird auch den {{httpheader("Origin")}} Header enthalten, um dem Server zu helfen zu entscheiden, ob er die Erlaubnis aktivieren möchte.
-2. Der Server kann dann mit `Activate-Storage-Access: retry` antworten, um anzuzeigen, dass der Browser die Erlaubnis aktivieren und die Anfrage mit Cookies wiederholen soll.
-   - Die Antwort sollte auch den {{httpheader("Vary","Vary: Sec-Fetch-Storage-Access")}} Header enthalten, da sie vom Wert von `Sec-Fetch-Storage-Access` abhängt.
+1. Der Browser sendet eine Anfrage mit `Sec-Fetch-Storage-Access: inactive`, um anzuzeigen, dass die Berechtigung für den Kontext gewährt, aber inaktiv ist.
+   - Die Anfrage enthält auch den {{httpheader("Origin")}}-Header, um dem Server zu helfen zu entscheiden, ob er die Berechtigung aktivieren möchte.
+2. Der Server kann dann mit `Activate-Storage-Access: retry` antworten, um anzuzeigen, dass der Browser die Berechtigung aktivieren und die Anfrage mit Cookies wiederholen soll.
+   - Die Antwort sollte auch den {{httpheader("Vary","Vary: Sec-Fetch-Storage-Access")}} enthalten, da sie vom Wert `Sec-Fetch-Storage-Access` abhängt.
    - Beachten Sie, dass die Antwort keinen Inhalt enthält.
 3. Wenn der Browser die Anfrage wiederholt, fügt er `Sec-Fetch-Storage-Access: active` zur Anfrage hinzu, zusammen mit den Cookies.
-4. Der Server antwortet dann mit `Activate-Storage-Access: load`, was dem Browser sagt, die neue Version der Bibliothek mit Zugang zu Drittanbieter-Cookies zu laden.
+4. Der Server antwortet dann mit `Activate-Storage-Access: load`, was dem Browser mitteilt, die neue Version der Bibliothek mit Zugriff auf Drittanbieter-Cookies zu laden.
 
-![Speicherzugang-Header Arbeitsablauf - storage-access Erlaubnis aktivieren und erneut senden](storage_headers_activate_permission.png)
+![Storage access header Workflow - Speicherzugriffsberechtigung aktivieren und wiederholen](storage_headers_activate_permission.png)
 
-Der letzte Zustand, den wir betrachten, ist das Laden einer eingebetteten Ressource, für die die Erlaubnis nicht erteilt wurde:
+<!--
+[![Bild: Storage access header Workflow - Speicherzugriffsberechtigung aktivieren und wiederholen](https://mermaid.ink/img/pako:eNqFkkFP4zAQhf-KNSdWaqq2SWhr2EpVYY_LoRIHCAdjD6m1jd21J0Cp-t-ZJGW1oqJEimw_zXxv_OQdaG8QJET8W6PTeGVVGVR1UTjB30YFstpulCOxWFt0dKwvMTxj6PSuJpnNOlGK--GD5Aqd_ELSq2RJPqgSk7nWGKMU1ilN9hkvH8PsJtjSOikufbuZNdqZ80J7_8di_NE5dOCELTovthixxbzBKMIjh4AUtg3qVoXt16N08N-eUHjmiw94twp1wEcRD22qbRMbDJWN0XrXeChnWkMel1cONJI4e7G0-nSJ45jSkzGdDmnRsqWoIwZrfg5H6ZdRZaeiWntlvk-qqbjX3hETH76JrSFG8WJNiSTaHJbz-X-ZHS5WOOhBybODpFBjDyquUM0Rdo1DAbTCCguQvDX4pOo1FVC4PbfxE7zzvvroDL4uVyCf1Dryqd4YvujhSX9Sr43le_0TAzqDYeFrRyBHk0lLBrmDV5BpOujnwywfTPkfT_PzHmxB5ml_mo6z8ZCFLM8G6b4Hb-0og_5knO_fAfjRIqA?type=png)](https://mermaid.live/edit#pako:eNqFkkFP4zAQhf-KNSdWaqq2SWhr2EpVYY_LoRIHCAdjD6m1jd21J0Cp-t-ZJGW1oqJEimw_zXxv_OQdaG8QJET8W6PTeGVVGVR1UTjB30YFstpulCOxWFt0dKwvMTxj6PSuJpnNOlGK--GD5Aqd_ELSq2RJPqgSk7nWGKMU1ilN9hkvH8PsJtjSOikufbuZNdqZ80J7_8di_NE5dOCELTovthixxbzBKMIjh4AUtg3qVoXt16N08N-eUHjmiw94twp1wEcRD22qbRMbDJWN0XrXeChnWkMel1cONJI4e7G0-nSJ45jSkzGdDmnRsqWoIwZrfg5H6ZdRZaeiWntlvk-qqbjX3hETH76JrSFG8WJNiSTaHJbz-X-ZHS5WOOhBybODpFBjDyquUM0Rdo1DAbTCCguQvDX4pOo1FVC4PbfxE7zzvvroDL4uVyCf1Dryqd4YvujhSX9Sr43le_0TAzqDYeFrRyBHk0lLBrmDV5BpOujnwywfTPkfT_PzHmxB5ml_mo6z8ZCFLM8G6b4Hb-0og_5knO_fAfjRIqA)
+
+sequenceDiagram;
+    Teilnehmer Client
+    Teilnehmer Server
+    Client->>Server: [1]: Sec-Fetch-Storage-Access: inactive<br>Origin: <origin><br>(ohne Cookies)
+    Server-- >>Client: [2]: Activate-Storage-Access: retry<br>Vary: Sec-Fetch-Storage-Access
+    Hinweis über Client: Client aktiviert Speicherzugriffsberechtigung<br>und wiederholt Anfrage (mit Cookies)
+    Client->>Server: [3]: Sec-Fetch-Storage-Access: active<br>Origin: <origin><br>Cookie: userid=123
+    Server-- >>Client: [4]: Activate-Storage-Access: load<br>Vary: Sec-Fetch-Storage-Access<br>[Inhalt]
+    Hinweis über Client: Client lädt Widget mit aktiver SAA-Berechtigung
+-->
+
+Der letzte zu berücksichtigende Zustand ist, wenn eine eingebettete Ressource geladen wird, für die die Berechtigung nicht gewährt wurde:
 
 > [!NOTE]
-> Da wir die Header nicht verwenden können, um die Erlaubnis zu erteilen, müssen wir die Ressource ohne Cookies laden, damit sie die Erlaubnis anfordern kann.
-> Dies ist die gleiche Sequenz, als ob die Header nicht angewendet wurden.
+> Da die Header nicht zum Gewähren von Berechtigungen verwendet werden können, müssen wir die Ressource ohne Cookies laden, damit sie die Berechtigung anfragen kann. Dies ist die gleiche Abfolge, als ob die Header nicht angewendet würden.
 
-1. Der Browser sendet eine Anfrage mit `Sec-Fetch-Storage-Access: none`, um anzuzeigen, dass die Erlaubnis nicht erteilt wurde.
-2. Der Server antwortet dann mit der Ressource, die beim Laden mit transient activation die Erlaubnis für sicheren Zugang anfordert.
-   Der `Activate-Storage-Access` Header wird nicht in die Antwort aufgenommen, aber der Server sollte {{httpheader("Vary","Vary: Sec-Fetch-Storage-Access")}} hinzufügen.
+1. Der Browser sendet eine Anfrage mit `Sec-Fetch-Storage-Access: none`, um anzuzeigen, dass die Berechtigung nicht erteilt wurde.
+2. Der Server antwortet dann mit der Ressource, die beim Laden die Berechtigung für den sicheren Zugriff mit transient activation anfordert. Der `Activate-Storage-Access`-Header wird in die Antwort nicht aufgenommen, aber der Server sollte {{httpheader("Vary","Vary: Sec-Fetch-Storage-Access")}} hinzufügen.
 
-   Nachdem der Benutzer die Erlaubnis erteilt (und damit aktiviert) hat, lädt sich die Einbettung selbst neu.
+   Nachdem der Benutzer die Berechtigung erteilt (und damit aktiviert) hat, lädt sich die Einbettung neu.
 
-3. Der Browser fügt `Sec-Fetch-Storage-Access: active` zur Anfrage hinzu, um anzuzeigen, dass der Kontext eine aktivierte `storage-access` Erlaubnis hat, und enthält die Drittanbieter-Cookies.
-4. Der Server antwortet mit `Activate-Storage-Access: load`, was dem Browser anweist, die neue Version der Bibliothek mit Zugang zu Drittanbieter-Cookies zu laden.
+3. Der Browser fügt `Sec-Fetch-Storage-Access: active` zur Anfrage hinzu, um anzuzeigen, dass der Kontext eine aktivierte Speicherzugriffsberechtigung hat, und schließt die Drittanbieter-Cookies ein.
+4. Der Server antwortet mit `Activate-Storage-Access: load`, was dem Browser mitteilt, die neue Version der Bibliothek mit Zugriff auf Drittanbieter-Cookies zu laden.
 
-![Speicherzugang-Header Arbeitsablauf - ohne storage-access Erlaubnis](storage_headers_no_permission.png)
+![Storage access header Workflow - ohne Speicherzugriffsberechtigung](storage_headers_no_permission.png)
+
+<!--
+[![Bild: Storage access header Workflow - ohne Speicherzugriffsberechtigung](https://mermaid.ink/img/pako:eNqNk01v2zAMhv-KoFMKxEH8EcfWugBB1h23Q7AdVvegyIwj1JYySW7XBfnvpaxkKBpkmy82X5APyVfygQpdA2XUws8elIBPkjeGdx8qRfDZc-OkkHuuHFm1EpS71NdgnsAEPeREi0UQGbmPHxhmiOgzOLGL1k4b3kC0FAKsZURpBbcbs_hqZCMVI7d6-Fh4baQ0EVo_SrA3gR6gEeJDH8QniP_Ozcv1Jh51v-Vtu-HiEYHKYeVDAH7RDohGJjkD77oN1ERguiXGW2LdCRdooxvyLN3OQ53hyvoqwoWTT9xJrYjT5zKyB9NJa1GdXOv2zWKAditn36R7eJjDQKt5bYl0FtotGZ3RUom2r8G-8-fS_fSv7g9zX_V_NbAZ6XFIWX-Mk_TqKWTYZhlMgIsufgXP-49j-tfphDcJpjzLugE3HAdZL5dvDDwtVik6pg3OTpkzPYxphxnch_TgO1TU7aCDijL8rGHL-9ZVtFJHLMOb_UPr7lxpdN_sKMNrZDHq9zUuevpT3ql3tcS9_ogGVA1mpXvlKEuSZCBTdqC_MMzKSToriiTPs2mWz8b0hbIYxflsnmdFPM-TNCmOY_p7mGQ6mefTNC6yWVmWSZklx1dtqUSP?type=png)](https://mermaid.live/edit#pako:eNqNk01v2zAMhv-KoFMKxEH8EcfWugBB1h23Q7AdVvegyIwj1JYySW7XBfnvpaxkKBpkmy82X5APyVfygQpdA2XUws8elIBPkjeGdx8qRfDZc-OkkHuuHFm1EpS71NdgnsAEPeREi0UQGbmPHxhmiOgzOLGL1k4b3kC0FAKsZURpBbcbs_hqZCMVI7d6-Fh4baQ0EVo_SrA3gR6gEeJDH8QniP_Ozcv1Jh51v-Vtu-HiEYHKYeVDAH7RDohGJjkD77oN1ERguiXGW2LdCRdooxvyLN3OQ53hyvoqwoWTT9xJrYjT5zKyB9NJa1GdXOv2zWKAditn36R7eJjDQKt5bYl0FtotGZ3RUom2r8G-8-fS_fSv7g9zX_V_NbAZ6XFIWX-Mk_TqKWTYZhlMgIsufgXP-49j-tfphDcJpjzLugE3HAdZL5dvDDwtVik6pg3OTpkzPYxphxnch_TgO1TU7aCDijL8rGHL-9ZVtFJHLMOb_UPr7lxpdN_sKMNrZDHq9zUuevpT3ql3tcS9_ogGVA1mpXvlKEuSZCBTdqC_MMzKSToriiTPs2mWz8b0hbIYxflsnmdFPM-TNCmOY_p7mGQ6mefTNC6yWVmWSZklx1dtqUSP)
+
+sequenceDiagram;
+    Teilnehmer Client
+    Teilnehmer Server
+    Client->>Server: [1]: Sec-Fetch-Storage-Access: none<br>Origin: <origin><br>(ohne Cookies)
+    Server-- >>Client: [2]: Vary: Sec-Fetch-Storage-Access<br>[Fallback-Inhalt]
+    Hinweis über Client: Einbettung ruft requestStorageAccess() mit<br>transient activation auf, um Berechtigung anzufordern.
+    Hinweis über Client: Benutzer erteilt Berechtigung<br>Einbettung lädt sich neu (Anfrage enthält Cookies)
+    Client->>Server: [3]: Sec-Fetch-Storage-Access: active<br>Origin: <origin><br>Cookie: userid=123
+    Server-- >>Client: [4]: Activate-Storage-Access: load<br>Vary: Sec-Fetch-Storage-Access<br>[Inhalt]
+    Hinweis über Client: Client lädt Widget mit aktiver SAA-Berechtigung
+-->
 
 ## Sicherheitsüberlegungen
 
-Verschiedene Sicherheitsmaßnahmen könnten einen Aufruf von [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) zum Scheitern bringen. Überprüfen Sie die untenstehende Liste, wenn Sie Schwierigkeiten haben, eine Anfrage zu bearbeiten:
+Verschiedene Sicherheitsmaßnahmen könnten dazu führen, dass ein Aufruf von [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) fehlschlägt. Prüfen Sie die folgende Liste, wenn Sie Probleme haben, eine Anfrage erfolgreich zu gestalten:
 
-1. Die Anforderung der Erlaubnis muss mit einer Benutzeraktion verbunden sein ({{Glossary("transient_activation", "transient activation")}}) wie ein Tap oder Klick. Dies verhindert, dass eingebettete Inhalte auf der Seite den Browser oder den Nutzer mit übermäßigen Zugriffsanforderungen spammt. Beachten Sie, dass dies nicht erforderlich ist, wenn:
-   - Die Erlaubnis zur Nutzung der API bereits einem anderen Kontext mit dem selben `<top-level site, embedded site>` Schlüssel gewährt wurde.
-   - Der Aufrufer ein Top-Level-Dokument ist oder zur gleichen Site wie das Top-Level-Dokument gehört.
-     In solchen Fällen muss `requestStorageAccess()` wahrscheinlich überhaupt nicht aufgerufen werden.
-2. Das Dokument und das Top-Level-Dokument dürfen keinen `null` Ursprung haben.
-3. Ursprünge, mit denen nie als Erstpartei interagiert wurde, haben kein Konzept von Erstparteispeicherung. Aus der Perspektive des Nutzers haben sie nur eine Drittparteibeziehung zu diesem Ursprung. Zugriffsanfragen werden automatisch abgelehnt, wenn der Browser feststellt, dass der Benutzer kürzlich nicht in einem Erstanbieter-Kontext mit dem eingebetteten Inhalt interagiert hat (in Firefox bedeutet "kürzlich" innerhalb von 30 Tagen).
+1. Der Berechtigungsantrag muss mit einer Benutzergeste ({{Glossary("transient_activation", "transient activation")}}) wie einem Tippen oder Klicken verbunden sein. Dies verhindert, dass eingebettete Inhalte auf der Seite den Browser oder Benutzer mit übermäßigen Zugriffsanfragen spammen. Beachten Sie, dass dies nicht erforderlich ist, wenn:
+   - Die API-Berechtigung bereits für einen anderen Kontext mit demselben `<oberste Website, eingebettete Website>`-Schlüssel erteilt wurde.
+   - Der Aufrufer ein oberstes Dokument oder eine gleiche Site wie das oberste Dokument ist. In solchen Fällen muss `requestStorageAccess()` wahrscheinlich überhaupt nicht aufgerufen werden.
+2. Das Dokument und das oberste Dokument dürfen keinen `null` Ursprung haben.
+3. Ursprünge, mit denen nie als Erstparteie interagiert wurde, haben kein Konzept von Erstparteiespeicher. Aus Sicht der Benutzer haben sie nur eine Drittpartei-Beziehung zu diesem Ursprung. Zugriffsanfragen werden automatisch abgelehnt, wenn der Browser erkennt, dass der Benutzer kürzlich nicht im Erstparteie-Kontext mit den eingebetteten Inhalten interagiert hat (in Firefox bedeutet "kürzlich" innerhalb von 30 Tagen).
 4. Das Fenster des Dokuments muss ein [sicherer Kontext](/de/docs/Web/Security/Defenses/Secure_Contexts) sein.
-5. Sandboxed {{htmlelement("iframe")}}s können aus Sicherheitsgründen standardmäßig keinen Speicherzugang erhalten. Um dies zu handhaben, bietet die API das [`allow-storage-access-by-user-activation`](/de/docs/Web/HTML/Reference/Elements/iframe#allow-storage-access-by-user-activation) [sandbox token](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox) an. Das `<iframe>` muss dies enthalten, um Speicherzugangsanforderungen zu ermöglichen, zusammen mit `allow-scripts` und `allow-same-origin`, um es zu erlauben, ein Skript auszuführen, um die API aufzurufen und es zu einem Ursprung auszuführen, der Cookies/Status haben kann:
+5. Sandboxed {{htmlelement("iframe")}}s können aus Sicherheitsgründen standardmäßig keinen Speicherzugriff erhalten. Um dies zu handeln, stellt die API den [`allow-storage-access-by-user-activation`](/de/docs/Web/HTML/Reference/Elements/iframe#allow-storage-access-by-user-activation) [sandbox token](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox) bereit. Das `<iframe>` muss dies enthalten, um Speicherzugriffsanfragen zu ermöglichen, zusammen mit `allow-scripts` und `allow-same-origin`, damit es ein Skript ausführen kann, um die API aufzurufen und sie in einem Ursprung auszuführen, der Cookies/Zustand haben kann:
 
    ```html
    <iframe
@@ -176,70 +229,72 @@ Verschiedene Sicherheitsmaßnahmen könnten einen Aufruf von [`Document.requestS
    </iframe>
    ```
 
-6. Die Nutzung dieses Features kann durch eine auf Ihrem Server eingestellte {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden.
+6. Die Verwendung dieser Funktion kann durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert werden, die auf Ihrem Server eingestellt ist.
 
 > [!NOTE]
-> Das Dokument muss möglicherweise auch zusätzliche browserspezifische Prüfungen bestehen. Beispiele: Positivlisten, Negativlisten, On-Device-Klassifizierung, Benutzereinstellungen, Anti-[Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Heuristiken oder Einholung der expliziten Erlaubnis eines Benutzers.
+> Das Dokument muss möglicherweise auch zusätzliche browserspezifische Prüfungen bestehen. Beispiele: Allowlisten, Blocklisten, On-Device-Klassifikation, Benutzereinstellungen, Anti-[Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Heuristiken oder das Anfordern des expliziten Benutzerbestätigung.
 
-## Browser-spezifische Unterschiede
+## Browserspezifische Variationen
 
-Obwohl die API-Oberfläche identisch ist, sollten Websites, die die Storage Access API nutzen, Unterschiede in der Höhe und dem Umfang des Zugangs zu Drittanbieter-Cookies erwarten, je nach den Speicherzugangsrichtlinien der verschiedenen Browser.
+Obwohl die API-Oberfläche gleich ist, sollten Websites, die die Storage Access API verwenden, Unterschiede im Grad und Umfang des Zugriffs auf Drittanbieter-Cookies erwarten, den sie zwischen verschiedenen Browsern erhalten, aufgrund der Unterschiede in deren Speicherzugriffspolitiken.
 
 ### Chrome
 
-- Cookies müssen explizit auf [`SameSite=None`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) gesetzt sein, weil der Standardwert für Chrome `SameSite=Lax` ist (`SameSite=None` ist der Standardwert in Firefox und Safari).
-- Cookies müssen das [`Secure`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#secure) Attribut gesetzt haben.
-- Die Speicherzugangserlaubnisse laufen 30 Tage nach der Nutzung des Browsers ohne Benutzerinteraktion ab. Interaktionen mit dem eingebetteten Inhalt verlängern dieses Limit um weitere 30 Tage. Dies geschieht nicht, wenn [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) aufgerufen wird, weil sich der Benutzer bereits auf der Seite befindet.
+- Cookies müssen explizit [`SameSite=None`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) gesetzt haben, da der Standardwert für Chrome `SameSite=Lax` ist (`SameSite=None` ist der Standard in Firefox und Safari).
+- Cookies müssen das [`Secure`](/de/docs/Web/HTTP/Reference/Headers/Set-Cookie#secure)-Attribut gesetzt haben.
+- Die Speicherzugriffsberechtigungen werden nach 30 Tagen ohne Benutzerinteraktion im Browser schrittweise entfernt. Die Interaktion mit den eingebetteten Inhalten verlängert diese Grenze um weitere 30 Tage. Dies tritt nicht auf, wenn [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) aufgerufen wird, da sich der Benutzer bereits auf der Seite befindet.
 
 ### Firefox
 
-- Wenn der eingebettete Ursprung `tracker.example` bereits Drittanbieter-Cookie-Zugriff auf dem Top-Level-Ursprung `foo.example` erhalten hat und der Benutzer innerhalb von weniger als 30 Tagen erneut eine Seite von `foo.example` besucht, die eine Seite von `tracker.example` einbindet, hat der eingebettete Ursprung sofort dritten Anbieter Cookie Zugriff.
-- Die Speicherzugangserlaubnisse laufen 30 Kalendertage nach Gewährung ab.
+- Wenn der eingebettete Ursprung `tracker.example` bereits Drittanbieter-Cookie-Zugriff auf den obersten Ursprung `foo.example` erhalten hat und der Benutzer eine Seite von `foo.example` besucht, die eine Seite von `tracker.example` erneut einbindet, kann der eingebettete Ursprung sofort Drittanbieter-Cookie-Zugriff beim Laden haben, wenn dieser Besuch vor weniger als 30 Tagen stattfand.
+- Die Speicherzugriffsberechtigungen werden nach Ablauf von 30 Kalendertagen schrittweise entfernt.
 
-Dokumentation zur neuen Speicherzugangsrichtlinie von Firefox zum Blockieren von Tracking-Cookies beinhaltet [eine detaillierte Beschreibung](/de/docs/Web/Privacy/Guides/Storage_Access_Policy#storage_access_grants) des Umfangs von Speicherzugangserlaubnissen.
+Die Dokumentation zur neuen Speicherzugriffspolitik von Firefox zum Blockieren von Tracking-Cookies enthält eine [detaillierte Beschreibung](/de/docs/Web/Privacy/Guides/Storage_Access_Policy#storage_access_grants) des Umfangs der Speicherzugriffsberechtigungen.
 
 ### Safari
 
-- Die Speicherzugangserlaubnisse laufen nach 30 Tagen ab, in denen der Browser ohne Benutzerinteraktion genutzt wurde. Ein erfolgreicher Einsatz der Storage Access API setzt diesen Zähler auf Null.
+- Die Speicherzugriffsberechtigungen werden nach 30 Tagen ohne Benutzerinteraktion im Browser schrittweise aufgehoben. Der erfolgreiche Einsatz der Storage Access API setzt diesen Zähler zurück.
 
 ## Beispiele
 
-- Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für einen Implementierungsleitfaden mit Code-Beispielen.
+- Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für einen Implementierungs-Leitfaden mit Codebeispielen.
 
 ## API-Methoden
 
 - [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert aufgelöst wird, der angibt, ob das Dokument Zugriff auf Drittanbieter-Cookies hat.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf Drittanbieter-Cookies hat.
 - [`Document.hasUnpartitionedCookieAccess()`](/de/docs/Web/API/Document/hasUnpartitionedCookieAccess)
   - : Neuer Name für [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess).
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-  - : Erlaubt Inhalten, die in einem Drittanbieter-Kontext geladen werden (d.h. eingebettet in ein {{htmlelement("iframe")}}), den Zugriff auf Drittanbieter-Cookies und unpartitionierte Zustände anzufordern; gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
+  - : Erlaubt Inhalten, die in einem Drittanbieter-Kontext geladen sind (d.h. eingebettet in ein {{htmlelement("iframe")}}), Zugriff auf Drittanbieter-Cookies und unpartitionierten Status anzufordern; gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, wenn der Zugriff gewährt wurde, und ablehnt, wenn der Zugriff verweigert wurde.
 - [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) {{experimental_inline}}
-  - : Ein vorgeschlagener Erweiterung zur Storage Access API, die es Top-Level-Sites ermöglicht, Drittanbieter-Cookie-Zugriff im Namen von eingebetteten Inhalten von einer anderen Seite im selben [related website set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) anzufordern. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
+  - : Ein vorgeschlagener Erweiterung der Storage Access API, die es obersten Websites ermöglicht, den Zugriff auf Drittanbieter-Cookies im Namen von eingebetteten Inhalten von einer anderen Website in derselben [related website set](/de/docs/Web/API/Storage_Access_API/Related_website_sets) anzufordern. Gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, wenn der Zugriff gewährt wurde, und ablehnt, wenn der Zugriff verweigert wurde.
 
 > [!NOTE]
-> Benutzerinteraktion wird auf das Versprechen übertragen, das von diesen Methoden zurückgegeben wird, was den Aufrufern ermöglicht, Aktionen durchzuführen, die Benutzerinteraktion erfordern, ohne dass ein zweiter Klick erforderlich ist. Zum Beispiel könnte ein Aufrufer ein Pop-up-Fenster aus dem aufgelösten Versprechen öffnen, ohne den Pop-up-Blocker von Firefox auszulösen.
+> Benutzerinteraktionen werden an das von diesen Methoden zurückgegebene Versprechen weitergeleitet, sodass die Aufrufer Aktionen ausführen können, die Benutzerg
+
+interaktion erfordern, ohne einen zweiten Klick zu verlangen. Beispielsweise könnte ein Aufrufer ein Popup-Fenster von dem aufgelösten Versprechen aus öffnen, ohne Firefox' Pop-Up-Blocker auszulösen.
 
 ### Ergänzungen zu anderen APIs
 
 - [`Permissions.query()`](/de/docs/Web/API/Permissions/query), der `"storage-access"` Funktionsname
-  - : In unterstützenden Browsern kann damit abgefragt werden, ob Drittanbieter-Cookie-Zugriff im Allgemeinen gewährt wurde, das heißt, einer anderen gleichseitigen Einbettung. Falls ja, können Sie `requestStorageAccess()` ohne Benutzerinteraktion aufrufen, und das Versprechen wird automatisch aufgelöst.
+  - : In unterstützenden Browsern kann dies abfragen, ob der Drittanbieter-Cookie-Zugriff im Allgemeinen gewährt wurde, d.h. an eine andere Same-Site-Einbettung. Ist dies der Fall, können Sie `requestStorageAccess()` ohne Benutzerinteraktion aufrufen, und das Versprechen wird automatisch aufgelöst.
 - `Permissions.query()`, der `"top-level-storage-access"` Funktionsname {{experimental_inline}}
-  - : Ein separater Funktionsname, der verwendet wird, um abzufragen, ob die Erlaubnis, auf Drittanbieter-Cookies zuzugreifen, bereits über `requestStorageAccessFor()` gewährt wurde. Wenn ja, brauchen Sie `requestStorageAccessFor()` nicht erneut aufzurufen.
+  - : Ein separater Funktionsname, der verwendet wird, um abzufragen, ob die Berechtigung für den Zugriff auf Drittanbieter-Cookies bereits über `requestStorageAccessFor()` gewährt wurde. In diesem Fall müssen Sie `requestStorageAccessFor()` nicht erneut aufrufen.
 
 ### Ergänzungen zu HTTP
 
 #### Permissions-Policy
 
 - {{httpheader("Permissions-Policy/storage-access","Permissions-Policy: storage-access")}}
-  - : Die `storage-access` {{HTTPHeader("Permissions-Policy")}} Direktive kontrolliert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wird (d.h. in ein {{htmlelement("iframe")}} eingebettet), die Storage Access API verwenden darf, um Zugriff auf unpartitionierte Cookies anzufordern.
+  - : Die `storage-access` {{HTTPHeader("Permissions-Policy")}}-Direktive kontrolliert, ob ein in einem Drittanbieter-Kontext geladenes Dokument (d.h. eingebettet in ein {{htmlelement("iframe")}}) die Speicherzugriffs-API verwenden darf, um Zugriff auf unpartitionierte Cookies anzufordern.
 
-#### Speicherzugangs-Header
+#### Storage access headers
 
 - {{HTTPHeader("Sec-Fetch-Storage-Access")}}
-  - : Gibt den "Speicherzugangsstatus" für den aktuellen Anforderungskontext an, der einer von `none`, `inactive` oder `active` ist.
+  - : Gibt den "Speicherzugriffstatus" für den aktuellen Anforderungs-Kontext an, der einer von `none`, `inactive` oder `active` sein wird.
 - {{HTTPHeader("Activate-Storage-Access")}}
-  - : Wird als Antwort auf `Sec-Fetch-Storage-Access` verwendet, um anzugeben, dass der Browser eine bestehende Erlaubnis für sicheren Zugriff aktivieren und die Anfrage mit Cookies wiederholen kann, oder eine Ressource mit Cookie-Zugriff laden kann, wenn er bereits eine aktivierte Erlaubnis hat.
+  - : Wird als Antwort auf `Sec-Fetch-Storage-Access` verwendet, um anzuzeigen, dass der Browser eine bestehende Berechtigung für sicheren Zugang aktivieren und die Anfrage mit Cookies erneut ausführen kann oder eine Ressource mit Cookie-Zugang laden kann, wenn er bereits eine aktivierte Berechtigung hat.
 
 ## Spezifikationen
 
@@ -251,5 +306,5 @@ Dokumentation zur neuen Speicherzugangsrichtlinie von Firefox zum Blockieren von
 
 ## Siehe auch
 
-- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
-- [Einführung der Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit-Blog)
+- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Introducing Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit Blog)

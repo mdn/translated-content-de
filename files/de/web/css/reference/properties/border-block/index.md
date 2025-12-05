@@ -2,10 +2,10 @@
 title: border-block
 slug: Web/CSS/Reference/Properties/border-block
 l10n:
-  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`border-block`**-Eigenschaft [CSS](/de/docs/Web/CSS) ist eine [Kurzschrift-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zum Festlegen der einzelnen logischen Blockrandwerte an einer einzigen Stelle im Stylesheet.
+Die **`border-block`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zum Festlegen der individuellen logischen Blockrand-Eigenschaftswerte an einer einzigen Stelle im Stylesheet.
 
 {{InteractiveExample("CSS Demo: border-block")}}
 
@@ -44,13 +44,13 @@ direction: rtl;
 }
 ```
 
-## Zugehörige Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
-- [`border-block-color`](/de/docs/Web/CSS/Reference/Properties/border-block-color)
-- [`border-block-style`](/de/docs/Web/CSS/Reference/Properties/border-block-style)
-- [`border-block-width`](/de/docs/Web/CSS/Reference/Properties/border-block-width)
+- {{cssxref("border-block-color")}}
+- {{cssxref("border-block-style")}}
+- {{cssxref("border-block-width")}}
 
 ## Syntax
 
@@ -69,20 +69,20 @@ border-block: unset;
 
 ### Werte
 
-Das `border-block` wird mit einem oder mehreren der folgenden Werte in beliebiger Reihenfolge angegeben:
+`border-block` wird mit einem oder mehreren der folgenden Werte in beliebiger Reihenfolge angegeben:
 
 - `<'border-width'>`
-  - : Die Breite des Rands. Siehe {{cssxref("border-width")}}.
+  - : Die Breite des Rahmens. Siehe {{cssxref("border-width")}}.
 - `<'border-style'>`
-  - : Der Linienstil des Rands. Siehe {{cssxref("border-style")}}.
+  - : Der Linienstil des Rahmens. Siehe {{cssxref("border-style")}}.
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Rands.
+  - : Die Farbe des Rahmens.
 
 ## Beschreibung
 
-`border-block` kann verwendet werden, um die Werte für eines oder mehrere von {{cssxref("border-block-width")}}, {{cssxref("border-block-style")}} und {{cssxref("border-block-color")}} festzulegen und dabei sowohl den Anfang als auch das Ende in der Block-Dimension gleichzeitig zu setzen. Die physischen Ränder, auf die es abzielt, hängen vom Schreibmodus des Elements, der Richtung und der Textausrichtung ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}} und {{cssxref("border-left")}}, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+`border-block` kann verwendet werden, um die Werte für eine oder mehrere der Eigenschaften {{cssxref("border-block-width")}}, {{cssxref("border-block-style")}}, und {{cssxref("border-block-color")}} festzulegen, wodurch sowohl der Anfang als auch das Ende in der Blockdimension gleichzeitig gesetzt werden. Auf welche physischen Rahmen es abbildet, hängt vom Schreibmodus, der Richtung und der Textausrichtung des Elements ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}}, und {{cssxref("border-left")}} je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
 
-Die Ränder in der anderen Dimension können mit {{cssxref("border-inline")}} gesetzt werden, welches {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}} setzt.
+Die Rahmen in der anderen Dimension können mit {{cssxref("border-inline")}} festgelegt werden, welche {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}} setzt.
 
 ## Formale Definition
 
@@ -94,7 +94,7 @@ Die Ränder in der anderen Dimension können mit {{cssxref("border-inline")}} ge
 
 ## Beispiele
 
-### Rand mit vertikalem Text
+### Rahmen mit vertikalem Text
 
 #### HTML
 
@@ -134,5 +134,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft ordnet sich einer der physischen Rand-Eigenschaften zu: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
+- Diese Eigenschaft wird auf eine der physischen Rahmeneigenschaften abgebildet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

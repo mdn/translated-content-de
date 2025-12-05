@@ -2,10 +2,10 @@
 title: border
 slug: Web/CSS/Reference/Properties/border
 l10n:
-  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`border`**-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Grenze eines Elements fest. Sie setzt die Werte von {{Cssxref("border-width")}}, {{Cssxref("border-style")}} und {{Cssxref("border-color")}}.
+Die **`border`** [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt den Rahmen eines Elements fest. Sie setzt die Werte von {{Cssxref("border-width")}}, {{Cssxref("border-style")}} und {{Cssxref("border-color")}}.
 
 {{InteractiveExample("CSS Demo: border")}}
 
@@ -47,13 +47,13 @@ border: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-## Bestandteileigenschaften
+## Zugehörige Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
-- [`border-width`](/de/docs/Web/CSS/Reference/Properties/border-width)
-- [`border-style`](/de/docs/Web/CSS/Reference/Properties/border-style)
-- [`border-color`](/de/docs/Web/CSS/Reference/Properties/border-color)
+- {{cssxref("border-width")}}
+- {{cssxref("border-style")}}
+- {{cssxref("border-color")}}
 
 ## Syntax
 
@@ -81,29 +81,29 @@ border: unset;
 Die `border`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle.
 
 > [!NOTE]
-> Die Grenze wird unsichtbar sein, wenn ihr Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig auf `none` gesetzt ist.
+> Der Rahmen wird unsichtbar sein, wenn sein Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig auf `none` gesetzt ist.
 
 ### Werte
 
 - `<line-width>`
-  - : Legt die Dicke der Grenze fest. Standardmäßig `medium`, wenn nicht angegeben. Siehe {{Cssxref("border-width")}}.
+  - : Legt die Dicke des Rahmens fest. Standardmäßig `medium`, wenn nicht angegeben. Siehe {{Cssxref("border-width")}}.
 - {{cssxref("&lt;line-style&gt;")}}
-  - : Legt den Stil der Grenze fest. Standardmäßig `none`, wenn nicht angegeben. Siehe {{Cssxref("border-style")}}.
+  - : Legt den Stil des Rahmens fest. Standardmäßig `none`, wenn nicht angegeben. Siehe {{Cssxref("border-style")}}.
 - {{cssxref("&lt;color&gt;")}}
-  - : Legt die Farbe der Grenze fest. Standardmäßig `currentColor`, wenn nicht angegeben. Siehe {{Cssxref("border-color")}}.
+  - : Legt die Farbe des Rahmens fest. Standardmäßig `currentColor`, wenn nicht angegeben. Siehe {{Cssxref("border-color")}}.
 
 ## Beschreibung
 
-Wie bei allen Kurzschreibweisen werden alle ausgelassenen Teilwerte auf ihren [Anfangswert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) gesetzt. Wichtig ist, dass `border` nicht verwendet werden kann, um einen benutzerdefinierten Wert für {{cssxref("border-image")}} anzugeben, sondern ihn stattdessen auf seinen Anfangswert `none` setzt.
+Wie bei allen Kurzform-Eigenschaften werden alle ausgelassenen Unterwerte auf ihren [Anfangswert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) gesetzt. Wichtig ist, dass `border` nicht verwendet werden kann, um einen benutzerdefinierten Wert für {{cssxref("border-image")}} festzulegen, sondern stattdessen auf seinen Anfangswert, d.h. `none`, gesetzt wird.
 
-Die `border`-Kurzschreibweise ist besonders nützlich, wenn alle vier Grenzen gleich sein sollen. Um sie jedoch voneinander zu unterscheiden, können Sie die Langform-Eigenschaften {{Cssxref("border-width")}}, {{Cssxref("border-style")}} und {{Cssxref("border-color")}} verwenden, die unterschiedliche Werte für jede Seite akzeptieren. Alternativ können Sie eine Grenze nach der anderen mit den physikalischen (z.B. {{Cssxref("border-top")}}) und logischen (z.B. {{Cssxref("border-block-start")}}) Grenz-Eigenschaften anvisieren.
+Die `border`-Kurzform ist besonders nützlich, wenn Sie möchten, dass alle vier Rahmen gleich sind. Um sie jedoch voneinander zu unterscheiden, können Sie die Langform {{Cssxref("border-width")}}, {{Cssxref("border-style")}} und {{Cssxref("border-color")}} Eigenschaften verwenden, die unterschiedliche Werte für jede Seite akzeptieren. Alternativ können Sie einen Rahmen nach dem anderen mit den physikalischen (z. B. {{Cssxref("border-top")}}) und logischen (z. B. {{Cssxref("border-block-start")}}) Rahmen-Eigenschaften ansprechen.
 
-### Grenzen vs. Umrisse
+### Rahmen vs. Umrisse
 
-Grenzen und [Umrisse](/de/docs/Web/CSS/Reference/Properties/outline) sind sehr ähnlich. Jedoch unterscheiden sich Umrisse von Grenzen in folgenden Punkten:
+Rahmen und [Umrisse](/de/docs/Web/CSS/Reference/Properties/outline) sind sehr ähnlich. Allerdings unterscheiden sich Umrisse von Rahmen in den folgenden Punkten:
 
-- Umrisse nehmen nie Platz ein, da sie außerhalb des Inhalts eines Elements gezeichnet werden.
-- Gemäß der Spezifikation müssen Umrisse nicht rechteckig sein, obwohl sie es in der Regel sind.
+- Umrisse beanspruchen nie Platz, da sie außerhalb des Inhalts eines Elements gezeichnet werden.
+- Laut Spezifikation müssen Umrisse nicht rechteckig sein, obwohl sie es normalerweise sind.
 
 ## Formale Definition
 
@@ -115,7 +115,7 @@ Grenzen und [Umrisse](/de/docs/Web/CSS/Reference/Properties/outline) sind sehr �
 
 ## Beispiele
 
-### Festlegen einer rosa "outset"-Grenze
+### Festlegung eines rosa hervortretenden Rahmens
 
 #### HTML
 
@@ -156,5 +156,5 @@ div {
 - {{Cssxref("border-style")}}
 - {{Cssxref("border-color")}}
 - {{Cssxref("outline")}}
-- [Hintergründe und Grenzen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
-- [CSS-Lernen: Hintergründe und Grenzen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
+- [CSS Lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)

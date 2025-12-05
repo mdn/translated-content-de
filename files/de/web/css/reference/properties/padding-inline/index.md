@@ -2,10 +2,10 @@
 title: padding-inline
 slug: Web/CSS/Reference/Properties/padding-inline
 l10n:
-  sourceCommit: f28f4c26a3d95e41d01a505af3388881abd6e49c
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert den logischen Inline-Anfangs- und -Endabstand eines Elements, der je nach Schreibmodus, Ausrichtung und Textorientierung des Elements auf physische Abstandseigenschaften abgebildet wird.
+Die **`padding-inline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert den logischen Inline-Anfangs- und Endabstand eines Elements, der je nach Schreibmodus, Richtung und Textorientierung des Elements auf physikalische Abstands-Eigenschaften abgebildet wird.
 
 {{InteractiveExample("CSS Demo: padding-inline")}}
 
@@ -51,10 +51,10 @@ direction: rtl;
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
-- [`padding-inline-end`](/de/docs/Web/CSS/Reference/Properties/padding-inline-end)
-- [`padding-inline-start`](/de/docs/Web/CSS/Reference/Properties/padding-inline-start)
+- {{cssxref("padding-inline-end")}}
+- {{cssxref("padding-inline-start")}}
 
 ## Syntax
 
@@ -75,18 +75,18 @@ padding-inline: revert-layer;
 padding-inline: unset;
 ```
 
-Die `padding-inline`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben wird, wird dieser als Wert für sowohl {{cssxref("padding-inline-start")}} als auch {{cssxref("padding-inline-end")}} verwendet. Wenn zwei Werte angegeben sind, wird der erste für {{cssxref("padding-inline-start")}} und der zweite für {{cssxref("padding-inline-end")}} verwendet.
+Die `padding-inline`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben wird, wird dieser sowohl für {{cssxref("padding-inline-start")}} als auch für {{cssxref("padding-inline-end")}} verwendet. Wenn zwei Werte angegeben werden, wird der erste für {{cssxref("padding-inline-start")}} und der zweite für {{cssxref("padding-inline-end")}} verwendet.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Enthaltenen Blockelementes](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-Die von `padding-inline` angegebenen Abstandswerte können äquivalent zu den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder den Eigenschaften {{cssxref("padding-right")}} und {{cssxref("padding-left")}} sein, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die durch `padding-inline` festgelegten Abstände können äquivalent zu den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder den Eigenschaften {{cssxref("padding-right")}} und {{cssxref("padding-left")}} sein, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
 ## Formale Definition
 
@@ -98,7 +98,7 @@ Die von `padding-inline` angegebenen Abstandswerte können äquivalent zu den Ei
 
 ## Beispiele
 
-### Inline-Abstand für vertikalen Text festlegen
+### Festlegen von Inline-Abstand für vertikalen Text
 
 #### HTML
 
@@ -139,5 +139,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die abgebildeten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

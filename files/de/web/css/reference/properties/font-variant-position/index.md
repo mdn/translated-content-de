@@ -2,14 +2,14 @@
 title: font-variant-position
 slug: Web/CSS/Reference/Properties/font-variant-position
 l10n:
-  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`font-variant-position`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen, kleineren Glyphen, die als Hoch- oder Tiefstellung positioniert sind.
+Die **`font-variant-position`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen, kleineren Glyphen, die als hoch- oder tiefgestellt positioniert sind.
 
 Die Glyphen sind relativ zur Grundlinie der Schrift positioniert, die unverändert bleibt. Diese Glyphen werden typischerweise in {{HTMLElement("sub")}} und {{HTMLElement("sup")}} Elementen verwendet.
 
-Wenn die Nutzung dieser alternativen Glyphen aktiviert ist, wird, falls ein Zeichen im Lauf keinen solchen typografisch verbesserten Glyphen hat, der gesamte Satz von Zeichen des Laufs mithilfe einer Ersatzmethode gerendert und diese Glyphen synthetisiert.
+Wenn die Verwendung dieser alternativen Glyphen aktiviert ist und ein Zeichen im Durchlauf nicht über eine solche typographisch verbesserte Glyphe verfügt, wird der gesamte Zeichensatz des Durchlaufs mithilfe einer Fallback-Methode gerendert, um diese Glyphen zu synthetisieren.
 
 Diese alternativen Glyphen teilen sich die gleiche Em-Box und die gleiche Grundlinie wie der Rest der Schrift. Sie sind lediglich grafisch verbessert und haben keinen Einfluss auf die Zeilenhöhe und andere Box-Eigenschaften.
 
@@ -34,11 +34,11 @@ Die `font-variant-position` Eigenschaft wird als einer der unten aufgeführten S
 ### Werte
 
 - `normal`
-  - : Deaktiviert alternative Hoch- und Tiefstellungsglyphen.
+  - : Deaktiviert alternative hoch- und tiefgestellte Glyphen.
 - `sub`
-  - : Aktiviert alternative Tiefstellungsglyphen. Sollte in einem gegebenen Lauf ein solches Glyphe für ein Zeichen nicht verfügbar sein, werden alle Zeichen im Lauf mit synthetisierten Glyphen gerendert.
+  - : Aktiviert tiefgestellte alternative Glyphen. Wenn in einem gegebenen Durchlauf für ein Zeichen eine solche Glyphe nicht verfügbar ist, werden alle Zeichen im Durchlauf unter Verwendung synthetisierter Glyphen gerendert.
 - `super`
-  - : Aktiviert alternative Hochstellungsglyphen. Sollte in einem gegebenen Lauf ein solches Glyphe für ein Zeichen nicht verfügbar sein, werden alle Zeichen im Lauf mit synthetisierten Glyphen gerendert.
+  - : Aktiviert hochgestellte alternative Glyphen. Wenn in einem gegebenen Durchlauf für ein Zeichen eine solche Glyphe nicht verfügbar ist, werden alle Zeichen im Durchlauf unter Verwendung synthetisierter Glyphen gerendert.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Die `font-variant-position` Eigenschaft wird als einer der unten aufgeführten S
 
 ## Beispiele
 
-### Einstellung von Hoch- und Tiefstellungsformen
+### Einstellung von hoch- und tiefgestellten Formen
 
 #### HTML
 
@@ -94,10 +94,10 @@ p {
 
 ## Siehe auch
 
-- [`font-variant`](/de/docs/Web/CSS/Reference/Properties/font-variant)
-- [`font-variant-alternates`](/de/docs/Web/CSS/Reference/Properties/font-variant-alternates)
-- [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps)
-- [`font-variant-east-asian`](/de/docs/Web/CSS/Reference/Properties/font-variant-east-asian)
-- [`font-variant-emoji`](/de/docs/Web/CSS/Reference/Properties/font-variant-emoji)
-- [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures)
-- [`font-variant-numeric`](/de/docs/Web/CSS/Reference/Properties/font-variant-numeric)
+- {{cssxref("font-variant")}}
+- {{cssxref("font-variant-alternates")}}
+- {{cssxref("font-variant-caps")}}
+- {{cssxref("font-variant-east-asian")}}
+- {{cssxref("font-variant-emoji")}}
+- {{cssxref("font-variant-ligatures")}}
+- {{cssxref("font-variant-numeric")}}

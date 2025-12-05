@@ -2,10 +2,10 @@
 title: scroll-margin-block
 slug: Web/CSS/Reference/Properties/scroll-margin-block
 l10n:
-  sourceCommit: e316a03cc74a78004dbba837c9d5df297e2eb0aa
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die `scroll-margin-block` [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Blockrichtung.
+Die `scroll-margin-block`-[Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Blockdimension.
 
 {{InteractiveExample("CSS Demo: scroll-margin-block")}}
 
@@ -69,12 +69,12 @@ scroll-margin-block: 2em;
 }
 ```
 
-## Bestandteileigenschaften
+## Einzelne Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
-- [`scroll-margin-block-end`](/de/docs/Web/CSS/Reference/Properties/scroll-margin-block-end)
-- [`scroll-margin-block-start`](/de/docs/Web/CSS/Reference/Properties/scroll-margin-block-start)
+- {{cssxref("scroll-margin-block-end")}}
+- {{cssxref("scroll-margin-block-start")}}
 
 ## Syntax
 
@@ -94,11 +94,11 @@ scroll-margin-block: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Versatz von der entsprechenden Kante des Scroll-Containers.
+  - : Ein Vorsprung von der entsprechenden Kante des Scroll-Containers.
 
 ## Beschreibung
 
-Die `scroll-margin`-Werte stellen äußere Ränder dar, die den Bereich für das Scroll-Schnappen definieren, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Schnappbereich wird bestimmt, indem die transformierte Rahmenbox genommen, ihre rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen äußeren Ränder hinzugefügt werden.
+Die Werte der Scroll-Margen stellen Vorsprünge dar, die den Scroll-Schnappbereich definieren, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Schnappbereich wird bestimmt, indem die transformierte Rahmenbox genommen, ihre rechteckige Begrenzungsbox (achsenallein in den Koordinaten des Scroll-Containers) gefunden und dann die angegebenen Vorsprünge hinzugefügt werden.
 
 ## Formale Definition
 
@@ -119,4 +119,4 @@ Die `scroll-margin`-Werte stellen äußere Ränder dar, die den Bereich für das
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrolling mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

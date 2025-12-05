@@ -2,15 +2,15 @@
 title: ::-moz-focus-inner
 slug: Web/CSS/Reference/Selectors/::-moz-focus-inner
 l10n:
-  sourceCommit: 21da3683d67c91c9a75a1c3fe98d406c82d8bf8b
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
 {{non-standard_header}}{{deprecated_header}}
 
-Der **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die einen inneren Fokus-Ring des {{HTMLElement("button")}}-Elements sowie der Typen {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} des {{HTMLElement("input")}}-Elements darstellt.
+Das **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die einen inneren Fokus-Ring des {{HTMLElement("button")}}-Elements sowie der Typen {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} des {{HTMLElement("input")}}-Elements darstellt.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-focus-inner` mit anderen Elementen als den unterstützten Schaltflächen führt zu keinem Treffer und hat keine Wirkung.
+> Die Verwendung von `::-moz-focus-inner` mit anderen als den unterstützten Schaltflächen bewirkt nichts und hat keine Wirkung.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ input[type="submit"]::-moz-focus-inner {
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 
@@ -60,7 +60,7 @@ Teil keiner Norm.
 
 - [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
 - Verwandte CSS-Eigenschaften:
-  - [`-moz-user-focus`](/de/docs/Web/CSS/Reference/Properties/-moz-user-focus)
+  - {{cssxref("-moz-user-focus")}}
 
 - Verwandte CSS-Selektoren:
   - [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus)

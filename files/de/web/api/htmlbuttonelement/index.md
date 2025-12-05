@@ -2,72 +2,74 @@
 title: HTMLButtonElement
 slug: Web/API/HTMLButtonElement
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLButtonElement`** Interface bietet Eigenschaften und Methoden (zusätzlich zu dem normalen [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface, das es ebenfalls von der Vererbung her zur Verfügung hat) zum Manipulieren von {{HTMLElement("button")}}-Elementen.
+Das **`HTMLButtonElement`**-Interface bietet Eigenschaften und Methoden (zusätzlich zu denen des regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces, die ihm durch Vererbung ebenfalls zur Verfügung stehen) zur Manipulation von {{HTMLElement("button")}}-Elementen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLButtonElement.command`](/de/docs/Web/API/HTMLButtonElement/command)
-  - : Ein Zeichenfolgewert, der die Aktion angibt, die an einem durch diesen Knopf gesteuerten Element ausgeführt werden soll.
+  - : Ein String-Wert, der die Aktion angibt, die an einem durch diesen Button gesteuerten Element ausgeführt werden soll.
 - [`HTMLButtonElement.commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)
-  - : Ein Verweis auf ein existierendes [`Element`](/de/docs/Web/API/Element), das durch den Knopf gesteuert wird.
+  - : Eine Referenz auf ein vorhandenes [`Element`](/de/docs/Web/API/Element), das der Button kontrolliert.
 - [`HTMLButtonElement.disabled`](/de/docs/Web/API/HTMLButtonElement/disabled)
-  - : Ein boolescher Wert, der angibt, ob die Steuerung deaktiviert ist, was bedeutet, dass sie keine Klicks annimmt.
+  - : Ein boolean-Wert, der anzeigt, ob das Steuerelement deaktiviert ist, was bedeutet, dass es keine Klicks akzeptiert.
 - [`HTMLButtonElement.form`](/de/docs/Web/API/HTMLButtonElement/form) {{ReadOnlyInline}}
-  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular darstellt, mit dem dieser Knopf verknüpft ist. Wenn der Knopf ein Nachkomme eines Formular-Elements ist, dann ist dieses Attribut eine Referenz auf das zugehörige `HTMLFormElement` dieses Formulars.
-    Wenn der Knopf kein Nachkomme eines Formular-Elements ist, dann kann das Attribut ein Verweis auf ein beliebiges `HTMLFormElement` im selben Dokument sein, mit dem es verknüpft ist, oder der Wert `null`, wenn kein entsprechendes vorhanden ist.
+  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular widerspiegelt, mit dem dieser Button verknüpft ist. Wenn der Button ein Nachkomme eines Formularelements ist, ist dieses Attribut eine Referenz auf das zugehörige `HTMLFormElement` des Formulars.
+    Wenn der Button kein Nachkomme eines Formularelements ist, kann das Attribut eine Referenz auf ein `HTMLFormElement`-Element im gleichen Dokument sein, mit dem es in Beziehung steht, oder der `null`-Wert, wenn keines übereinstimmt.
 - [`HTMLButtonElement.formAction`](/de/docs/Web/API/HTMLButtonElement/formAction)
-  - : Eine Zeichenfolge, die die URI einer Ressource darstellt, die die vom Knopf übermittelten Informationen verarbeitet. Wenn angegeben, überschreibt dieses Attribut das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action) Attribut des {{HTMLElement("form")}} Elements, zu dem es gehört.
+  - : Ein String, der die URI einer Ressource widerspiegelt, die Informationen verarbeitet, die vom Button übermittelt werden. Wenn angegeben, überschreibt dieses Attribut das [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)-Attribut des {{HTMLElement("form")}}-Elements, das dieses Element besitzt.
 - [`HTMLButtonElement.formEnctype`](/de/docs/Web/API/HTMLButtonElement/formEnctype)
-  - : Eine Zeichenfolge, die den Inhaltstyp darstellt, der verwendet wird, um das Formular an den Server zu übermitteln. Wenn angegeben, überschreibt dieses Attribut das [`enctype`](/de/docs/Web/HTML/Reference/Elements/form#enctype) Attribut des {{HTMLElement("form")}} Elements, zu dem es gehört.
+  - : Ein String, der den Typ des Inhalts widerspiegelt, der zum Übermitteln des Formulars an den Server verwendet wird. Wenn angegeben, überschreibt dieses Attribut das [`enctype`](/de/docs/Web/HTML/Reference/Elements/form#enctype)-Attribut des {{HTMLElement("form")}}-Elements, das dieses Element besitzt.
 - [`HTMLButtonElement.formMethod`](/de/docs/Web/API/HTMLButtonElement/formMethod)
-  - : Eine Zeichenfolge, die die HTTP-Methode darstellt, die der Browser verwendet, um das Formular zu übermitteln. Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Reference/Elements/form#method) Attribut des {{HTMLElement("form")}} Elements, zu dem es gehört.
+  - : Ein String, der die HTTP-Methode widerspiegelt, die der Browser zur Übermittlung des Formulars verwendet. Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Reference/Elements/form#method)-Attribut des {{HTMLElement("form")}}-Elements, das dieses Element besitzt.
 - [`HTMLButtonElement.formNoValidate`](/de/docs/Web/API/HTMLButtonElement/formNoValidate)
-  - : Ein boolescher Wert, der angibt, dass das Formular beim Senden nicht validiert werden soll. Wenn angegeben, überschreibt dieses Attribut das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate) Attribut des {{HTMLElement("form")}} Elements, zu dem es gehört.
+  - : Ein boolean-Wert, der angibt, dass das Formular beim Absenden nicht validiert werden soll. Wenn angegeben, überschreibt dieses Attribut das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate)-Attribut des {{HTMLElement("form")}}-Elements, das dieses Element besitzt.
 - [`HTMLButtonElement.formTarget`](/de/docs/Web/API/HTMLButtonElement/formTarget)
-  - : Eine Zeichenfolge, die einen Namen oder ein Schlüsselwort darstellt, das angibt, wo die Antwort angezeigt werden soll, die nach dem Absenden des Formulars erhalten wird. Wenn angegeben, überschreibt dieses Attribut das [`target`](/de/docs/Web/HTML/Reference/Elements/form#target) Attribut des {{HTMLElement("form")}} Elements, zu dem es gehört.
+  - : Ein String, der einen Namen oder ein Schlüsselwort widerspiegelt, welcher angibt, wo die Antwort angezeigt wird, die nach dem Absenden des Formulars empfangen wurde. Wenn angegeben, überschreibt dieses Attribut das [`target`](/de/docs/Web/HTML/Reference/Elements/form#target)-Attribut des {{HTMLElement("form")}}-Elements, das dieses Element besitzt.
+- [`HTMLButtonElement.interestForElement`](/de/docs/Web/API/HTMLButtonElement/interestForElement) {{experimental_inline}}
+  - : Ruft das Ziel-Element eines "interest invoker" ab oder setzt es in Fällen, in denen das zugehörige {{htmlelement("button")}}-Element als [Interest Invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker) angegeben ist.
 - [`HTMLButtonElement.labels`](/de/docs/Web/API/HTMLButtonElement/labels) {{ReadOnlyInline}}
-  - : Ein [`NodeList`](/de/docs/Web/API/NodeList), das eine Liste von {{HTMLElement("label")}}-Elementen darstellt, die Labels für diesen Knopf sind.
+  - : Eine [`NodeList`](/de/docs/Web/API/NodeList), die eine Liste von {{HTMLElement("label")}}-Elementen darstellt, die Labels für diesen Button sind.
 - [`HTMLButtonElement.name`](/de/docs/Web/API/HTMLButtonElement/name)
-  - : Eine Zeichenfolge, die den Namen des Objekts darstellt, wenn es mit einem Formular übermittelt wird. Wenn angegeben, darf es nicht die leere Zeichenfolge sein.
+  - : Ein String, der den Namen des Objekts beim Absenden mit einem Formular repräsentiert. Wenn angegeben, darf er nicht der leere String sein.
 - [`HTMLButtonElement.popoverTargetAction`](/de/docs/Web/API/HTMLButtonElement/popoverTargetAction)
-  - : Ruft die Aktion ab und setzt sie (`"hide"`, `"show"` oder `"toggle"`), die an einem durch einen Steuerknopf kontrollierten Popover-Element ausgeführt werden soll. Es spiegelt den Wert des HTML-Attributs [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction) wider.
+  - : Ruft die Aktion ab oder setzt sie, die (`"hide"`, `"show"` oder `"toggle"`) auf einem "popover"-Element durchgeführt werden soll, das von einem Steuerungsbutton gesteuert wird. Es spiegelt den Wert des [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction)-HTML-Attributs wider.
 - [`HTMLButtonElement.popoverTargetElement`](/de/docs/Web/API/HTMLButtonElement/popoverTargetElement)
-  - : Ruft das Popover-Element ab und setzt es, das über einen Knopf gesteuert werden soll. Das JavaScript-Äquivalent des HTML-Attributs [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget).
+  - : Ruft das "popover"-Element ab, das über einen Button gesteuert wird oder setzt es. Das JavaScript-Äquivalent des [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-HTML-Attributes.
 - [`HTMLButtonElement.type`](/de/docs/Web/API/HTMLButtonElement/type)
-  - : Eine Zeichenfolge, die das Verhalten des Knopfes anzeigt. Dies ist ein enumeriertes Attribut mit den folgenden möglichen Werten:
-    - `submit`: Der Knopf übermittelt das Formular. Dies ist der Standardwert, wenn das Attribut nicht angegeben oder dynamisch auf einen leeren oder ungültigen Wert geändert wird.
-    - `reset`: Der Knopf setzt das Formular zurück.
-    - `button`: Der Knopf tut nichts.
-    - `menu`: Der Knopf zeigt ein Menü an. {{experimental_inline}}
+  - : Ein String, der das Verhalten des Buttons angibt. Dies ist ein aufgezähltes Attribut mit den folgenden möglichen Werten:
+    - `submit`: Der Button übermittelt das Formular. Dies ist der Standardwert, wenn das Attribut nicht angegeben ist oder wenn es dynamisch in einen leeren oder ungültigen Wert geändert wurde.
+    - `reset`: Der Button setzt das Formular zurück.
+    - `button`: Der Button führt keine Aktion aus.
+    - `menu`: Der Button zeigt ein Menü an. {{experimental_inline}}
 
 - [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob der Knopf ein Kandidat für die Einschränkungsvalidierung ist. Er ist `false`, wenn Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich: seine `type`-Eigenschaft ist `reset` oder `button`; es hat einen {{HTMLElement("datalist")}} Vorfahren; oder die `disabled` Eigenschaft ist auf `true` gesetzt.
+  - : Ein boolean-Wert, der angibt, ob der Button für die Einschränkungsvalidierung in Frage kommt. Es ist `false`, wenn irgendwelche Bedingungen ihn von der Einschränkungsvalidierung ausschließen, einschließlich: seine `type`-Eigenschaft ist `reset` oder `button`; er hat einen {{HTMLElement("datalist")}}-Vorfahren; oder die `disabled`-Eigenschaft ist auf `true` gesetzt.
 - [`HTMLButtonElement.validationMessage`](/de/docs/Web/API/HTMLButtonElement/validationMessage) {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die die lokalisierten Nachricht darstellt, welche die Validierungsbedingungen beschreibt, die die Steuerung nicht erfüllt (falls vorhanden). Dieses Attribut ist die leere Zeichenkette, wenn die Steuerung kein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `false`), oder wenn sie ihre Einschränkungen erfüllt.
+  - : Ein String, der die lokalisierte Nachricht darstellt, die die Validierungseinschränkungen beschreibt, die die Steuerung nicht erfüllt (falls vorhanden). Dieses Attribut ist der leere String, wenn die Steuerung kein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `false`), oder wenn sie ihre Einschränkungen erfüllt.
 - [`HTMLButtonElement.validity`](/de/docs/Web/API/HTMLButtonElement/validity) {{ReadOnlyInline}}
-  - : Ein [`ValidityState`](/de/docs/Web/API/ValidityState), das die Gültigkeitszustände darstellt, in denen sich dieser Knopf befindet.
+  - : Ein [`ValidityState`](/de/docs/Web/API/ValidityState), der die Gültigkeitszustände darstellt, in denen sich dieser Button befindet.
 - [`HTMLButtonElement.value`](/de/docs/Web/API/HTMLButtonElement/value)
-  - : Eine Zeichenfolge, die den aktuellen Formularsteuerwert des Knopfes darstellt.
+  - : Ein String, der den aktuellen Wert der Formularsteuerung des Buttons repräsentiert.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
-  - : Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls gibt es `false` zurück.
+  - : Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls `false`.
 - [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
-  - : Führt die gleiche Aktion wie `checkValidity()` aus, aber berichtet das Ergebnis auch dem Benutzer, wenn das `invalid`-Ereignis nicht abgebrochen wurde.
+  - : Führt die gleiche Aktion wie `checkValidity()` aus, berichtet aber auch das Ergebnis an den Benutzer, wenn das `invalid`-Ereignis nicht abgebrochen wurde.
 - [`HTMLButtonElement.setCustomValidity()`](/de/docs/Web/API/HTMLButtonElement/setCustomValidity)
-  - : Setzt die benutzerdefinierte Gültigkeitsnachricht für das Element. Verwenden Sie die leere Zeichenfolge, um anzugeben, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler hat.
+  - : Setzt die benutzerdefinierte Gültigkeitsnachricht für das Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler aufweist.
 
 ## Spezifikationen
 
@@ -79,4 +81,4 @@ _Erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLEleme
 
 ## Siehe auch
 
-- HTML-Element, das dieses Interface implementiert: {{HTMLElement("button")}}
+- HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("button")}}
