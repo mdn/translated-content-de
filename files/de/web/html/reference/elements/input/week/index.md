@@ -1,5 +1,5 @@
 ---
-title: '<input type="week">'
+title: <input type="week">
 slug: Web/HTML/Reference/Elements/input/week
 l10n:
   sourceCommit: 13856107d2cab5bb9e40de608ee38a5770ef7c4d
