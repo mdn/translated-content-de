@@ -3,16 +3,16 @@ title: "NavigationHistoryEntry: index-Eigenschaft"
 short-title: index
 slug: Web/API/NavigationHistoryEntry/index
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`index`**-Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt den Index des Verlaufseintrags in der Liste der Verlaufseinträge zurück (das ist die Liste, die von [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries) zurückgegeben wird), oder `-1`, wenn der Eintrag nicht in der Liste erscheint oder wenn das aktuelle Dokument nicht vollständig aktiv ist.
+Die **`index`**-Eigenschaft der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt den Index des Verlaufseintrags in der Verlaufseintragsliste zurück (also die Liste, die von [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries) zurückgegeben wird), oder `-1`, wenn der Eintrag nicht in der Liste erscheint oder das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 
-Eine Zahl, die den `index` des Eintrags in der Liste der Verlaufseinträge darstellt, oder `-1`, wenn dieses Element nicht in der Liste erscheint.
+Eine Zahl, die den `index` des Eintrags in der Verlaufseintragsliste darstellt, oder `-1`, wenn dieses Element nicht in der Liste erscheint.
 
 ## Beispiele
 
@@ -31,5 +31,5 @@ console.log(current.index);
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)

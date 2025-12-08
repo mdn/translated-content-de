@@ -3,16 +3,14 @@ title: Temporal.ZonedDateTime.prototype.hoursInDay
 short-title: hoursInDay
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/hoursInDay
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`hoursInDay`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine positive Ganzzahl zurück, die die Anzahl der Stunden des Tages in dieser Zeitzone darstellt. Es kann mehr oder weniger als 24 sein im Fall von Offset-Änderungen wie der Sommerzeit.
 
-Die **`hoursInDay`** Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine positive ganze Zahl zurück, die die Anzahl der Stunden im Tag dieses Datums in der Zeitzone darstellt. Es können mehr oder weniger als 24 sein, im Falle von Zeitzonenänderungen wie der Sommerzeit.
+Da `ZonedDateTime` die einzige Klasse ist, die zeitzonenbewusst ist und sich die Stunden eines Tages nur durch Offset-Änderungen ändern können, gehen alle anderen Klassen von 24-Stunden-Tagen aus.
 
-Da `ZonedDateTime` die einzige Klasse ist, die zeitzonenbewusst ist, und sich die Stunden in einem Tag nur durch Zeitzonenänderungen ändern können, nehmen alle anderen Klassen 24-Stunden-Tage an.
-
-Der set-Accessor von `hoursInDay` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Zugriff von `hoursInDay` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

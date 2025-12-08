@@ -3,14 +3,12 @@ title: Temporal.PlainYearMonth.prototype.monthCode
 short-title: monthCode
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/monthCode
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`monthCode`** Zugriffseigenschaft von Instanzen von {{jsxref("Temporal.PlainYearMonth")}} gibt einen kalenderabhängigen String zurück, der den Monat dieses Jahres-Monats darstellt. Es ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
 
-Die **`monthCode`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainYearMonth")}} Instanzen gibt einen kalenderabhängigen String zurück, der den Monat dieses Jahres-Monats darstellt. Er ist [kalender-](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
-
-Normalerweise ist es `M` plus eine zweistellige Monatszahl. Für Schaltmonate ist es der Code des vorherigen Monats, gefolgt von `L` (selbst wenn es konzeptionell ein Derivat des folgenden Monats ist; zum Beispiel hat im hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, lautet der Code `M00L`.
+In der Regel ist es `M`, gefolgt von einer zweistelligen Monatszahl. Für Schaltmonate ist es der Code des vorherigen Monats, gefolgt von einem `L` (selbst wenn es konzeptionell von dem nachfolgenden Monat abgeleitet ist; zum Beispiel hat im hebräischen Kalender Adar I den Code `M05L`, aber Adar II hat den Code `M06`). Wenn der Schaltmonat der erste Monat des Jahres ist, lautet der Code `M00L`.
 
 Der Set-Accessor von `monthCode` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainYearMonth/with", "with()")}} Methode, um ein neues `Temporal.PlainYearMonth` Objekt mit dem gewünschten neuen Wert zu erstellen.
 

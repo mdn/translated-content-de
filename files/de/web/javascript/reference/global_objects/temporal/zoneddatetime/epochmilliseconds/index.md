@@ -3,14 +3,12 @@ title: Temporal.ZonedDateTime.prototype.epochMilliseconds
 short-title: epochMilliseconds
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/epochMilliseconds
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`epochMilliseconds`** Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Millisekunden darstellt, die seit der Unix-Epoche (Mitternacht zu Beginn des 1. Januar 1970, UTC) bis zu diesem Zeitpunkt verstrichen sind. Es ist äquivalent dazu, `epochNanoseconds` durch `1e6` zu teilen und das Ergebnis zu runden.
 
-Die **`epochMilliseconds`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Millisekunden darstellt, die seit dem Unix-Epoch (Mitternacht zu Beginn des 1. Januar 1970, UTC) bis zu diesem Zeitpunkt verstrichen sind. Es ist äquivalent dazu, `epochNanoseconds` durch `1e6` zu teilen und das Ergebnis abzurunden.
-
-Der set Accessor von `epochMilliseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen `epochMilliseconds`-Wert zu erstellen, siehe unten.
+Der Set-Accessor von `epochMilliseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen `epochMilliseconds`-Wert zu erstellen, siehe unten.
 
 ## Beispiele
 
@@ -35,7 +33,7 @@ const zdt = instant.toZonedDateTimeISO("UTC");
 console.log(zdt.toString()); // 2021-08-01T12:34:56.789+00:00[UTC]
 ```
 
-Alternativ können Sie den {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}} Konstruktor verwenden, jedoch zuerst die Millisekunden in Nanosekunden umwandeln:
+Alternativ verwenden Sie den {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}} Konstruktor, konvertieren Sie jedoch zuerst die Millisekunden in Nanosekunden:
 
 ```js
 const epochMilliseconds = 1627821296789;

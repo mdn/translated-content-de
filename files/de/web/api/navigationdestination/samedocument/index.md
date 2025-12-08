@@ -3,18 +3,18 @@ title: "NavigationDestination: sameDocument-Eigenschaft"
 short-title: sameDocument
 slug: Web/API/NavigationDestination/sameDocument
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`sameDocument`**-Eigenschaft des [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Interfaces gibt `true` zurück, wenn die Navigation zum gleichen `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert erfolgt, oder `false` andernfalls.
+Die schreibgeschützte Eigenschaft **`sameDocument`** des [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Interfaces gibt `true` zurück, wenn die Navigation zum gleichen `Document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert erfolgt, oder `false` andernfalls.
 
-Dies ist nützlich, um zu überprüfen, ob die Navigation innerhalb desselben Dokuments oder zwischen unterschiedlichen Dokumenten stattfindet.
+Dies ist nützlich, um zu überprüfen, ob die Navigation im gleichen Dokument oder zwischen verschiedenen Dokumenten erfolgt.
 
 ## Wert
 
-Ein boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -34,5 +34,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderner clientseitiger Routing: die Navigation-API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

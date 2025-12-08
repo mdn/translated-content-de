@@ -3,12 +3,10 @@ title: Temporal.ZonedDateTime.prototype.equals()
 short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/equals
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`equals()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt `true` zurück, wenn dieses Datum-Uhrzeit-Objekt einem anderen Datum-Uhrzeit-Objekt gleichwertig ist (in einer Form, die durch {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist), und `false` andererseits. Sie werden sowohl nach ihren Instant-Werten, Zeitzonen als auch ihren Kalendern verglichen. Daher können zwei Datum-Uhrzeit-Objekte in unterschiedlichen Kalendern oder Zeitzonen durch {{jsxref("Temporal.ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} als gleich betrachtet werden, aber nicht durch `equals()`.
+Die **`equals()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt `true` zurück, wenn diese Datum-Uhrzeit in Wert einer anderen Datum-Uhrzeit entspricht (in einer Form, die von {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden sowohl anhand ihrer Instant-Werte, Zeitzonen als auch ihrer Kalender verglichen, sodass zwei Datum-Uhrzeiten aus unterschiedlichen Kalendern oder Zeitzonen möglicherweise von {{jsxref("Temporal.ZonedDateTime/compare", "Temporal.ZonedDateTime.compare()")}} als gleich betrachtet werden, jedoch nicht von `equals()`.
 
 ## Syntax
 
@@ -19,13 +17,13 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die das andere Datum-Uhrzeit-Objekt darstellt, das verglichen werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal.ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime` Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.ZonedDateTime")}} Instanz, die die andere Datum-Uhrzeit zum Vergleichen darstellt. Es wird mit dem gleichen Algorithmus wie {{jsxref("Temporal/ZonedDateTime/from", "Temporal.ZonedDateTime.from()")}} in ein `Temporal.ZonedDateTime` Objekt umgewandelt.
 
 ### Rückgabewert
 
-`true`, wenn dieses Datum-Uhrzeit-Objekt `other` sowohl in ihrem Instant-Wert, in der Zeitzone als auch in ihrem Kalender entspricht, `false` andernfalls.
+`true`, wenn diese Datum-Uhrzeit sowohl im Instant-Wert, in der Zeitzone als auch im Kalender gleich `other` ist, andernfalls `false`.
 
-Beachten Sie, dass die Zeitzonen vor dem Vergleich kanonisiert werden. Wenn ihre [Zeitzonen-IDs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) sowohl benannt als auch dieselbe Zeitzone identifizieren, dann würden sie als gleich betrachtet, selbst wenn die genauen Namen Aliasse voneinander sein können. Offset-Identifikatoren werden durch die Offset-Werte verglichen, die sie repräsentieren. Offset-Identifikatoren sind niemals gleich benannten Identifikatoren, selbst wenn die benannte Zeitzone immer diesen Offset verwendet.
+Beachten Sie, dass die Zeitzonen vor dem Vergleich kanonisiert werden. Wenn ihre [Zeitzonen-IDs](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) sowohl benannt sind als auch die gleiche Zeitzone identifizieren, werden sie als gleich angesehen, selbst wenn die genauen Namen möglicherweise Aliase voneinander sind. Offset-Identifikatoren werden anhand der Offset-Werte verglichen, die sie repräsentieren. Offset-Identifikatoren sind niemals gleich benannten Identifikatoren, selbst wenn die benannte Zeitzone immer diesen Offset verwendet.
 
 ## Beispiele
 
@@ -50,7 +48,7 @@ const dt4 = Temporal.ZonedDateTime.from(
 console.log(dt1.equals(dt4)); // false
 ```
 
-### Testen, ob zwei Zeitzonen-Identifikatoren äquivalent sind
+### Testen, ob zwei Zeitzonen-Identifikatoren gleichwertig sind
 
 ```js
 function sameTimeZone(timeZone1, timeZone2) {

@@ -3,18 +3,16 @@ title: Temporal.ZonedDateTime.prototype.hour
 short-title: hour
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/hour
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`hour`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl zwischen 0 und 23 zurück, die die Stundenkomponente dieser Zeit repräsentiert.
 
-Die **`hour`**-Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt eine Ganzzahl von 0 bis 23 zurück, die die Stundenkomponente dieser Zeit darstellt.
+Der Set-Accessor von `hour` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
-Der Set-Accessor von `hour` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}}-Methode, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Weitere allgemeine Informationen und mehr Beispiele finden Sie unter {{jsxref("Temporal/PlainTime/hour", "Temporal.PlainTime.prototype.hour")}}.
 
-Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainTime/hour", "Temporal.PlainTime.prototype.hour")}}.
-
-Für `ZonedDateTime` kann `hour` diskontinuierlich sein aufgrund von Offset-Änderungen wie den Übergängen der Sommerzeit. In diesem Fall kann die Stunde wiederholt oder übersprungen werden.
+Für `ZonedDateTime` kann `hour` aufgrund von Offset-Änderungen wie Zeitumstellungen nicht kontinuierlich sein. In diesem Fall kann die Stunde wiederholt oder übersprungen werden.
 
 ## Beispiele
 
@@ -27,9 +25,9 @@ const dt = Temporal.ZonedDateTime.from(
 console.log(dt.hour); // 12
 ```
 
-### Diskontinuierliche Stunde
+### Nicht-kontinuierliche Stunde
 
-Diskontinuierliche Stunden sind sehr häufig aufgrund von Übergängen der Sommerzeit, was näher erklärt wird unter [Ambiguität und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time).
+Nicht-kontinuierliche Stunden sind aufgrund von Zeitumstellungen sehr häufig, was in [Mehrdeutigkeit und Lücken von lokaler Zeit zu UTC-Zeit](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#ambiguity_and_gaps_from_local_time_to_utc_time) näher erläutert wird.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -49,7 +47,7 @@ console.log(dt4.hour); // 3
 console.log(dt4.toString()); // 2024-03-10T03:00:00-04:00[America/New_York]
 ```
 
-Aus diesem Grund sollten Sie immer {{jsxref("Temporal/ZonedDateTime/add", "add()")}} und {{jsxref("Temporal/ZonedDateTime/subtract", "subtract()")}} bevorzugen, um Daten und Zeiten zu manipulieren, anstatt die `hour`-Eigenschaft direkt zu ändern.
+Aus diesem Grund sollten Sie immer {{jsxref("Temporal/ZonedDateTime/add", "add()")}} und {{jsxref("Temporal/ZonedDateTime/subtract", "subtract()")}} bevorzugen, um Daten und Zeiten zu manipulieren, anstatt die `hour` Eigenschaft direkt zu ändern.
 
 ## Spezifikationen
 

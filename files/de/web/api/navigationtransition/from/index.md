@@ -3,13 +3,12 @@ title: "NavigationTransition: from-Eigenschaft"
 short-title: from
 slug: Web/API/NavigationTransition/from
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`from`**-Eigenschaft der
-[`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Schnittstelle gibt den [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem der Übergang ausgeht.
+Die schreibgeschützte **`from`**-Eigenschaft des [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Interfaces gibt den [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem der Übergang kommt.
 
 ## Wert
 
@@ -31,5 +30,5 @@ console.log(navigation.transition.from);
 
 ## Siehe auch
 
-- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

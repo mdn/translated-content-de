@@ -3,14 +3,12 @@ title: Map.prototype.getOrInsertComputed()
 short-title: getOrInsertComputed()
 slug: Web/JavaScript/Reference/Global_Objects/Map/getOrInsertComputed
 l10n:
-  sourceCommit: a1f1a8348bdf6dd80af9e1ac7b5b748ef74df12d
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`getOrInsertComputed()`**-Methode von {{jsxref("Map")}}-Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` entspricht. Ist der Schlüssel nicht vorhanden, wird ein neuer Eintrag mit dem Schlüssel und einem Standardwert, der aus einem gegebenen Callback berechnet wird, eingefügt und der eingefügte Wert zurückgegeben.
 
-Die **`getOrInsertComputed()`** Methode von {{jsxref("Map")}} Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` entspricht. Wenn der Schlüssel nicht vorhanden ist, fügt sie einen neuen Eintrag mit dem Schlüssel und einem Standardwert ein, der von einer angegebenen Rückruffunktion berechnet wird, und gibt den eingefügten Wert zurück.
-
-Verwenden Sie diese Methode anstelle von {{jsxref("Map.prototype.getOrInsert()")}}, wenn der Standardwert aufwendig zu berechnen ist und Sie vermeiden möchten, ihn zu berechnen, es sei denn, es ist wirklich notwendig.
+Verwenden Sie diese Methode anstelle von {{jsxref("Map.prototype.getOrInsert()")}}, wenn der Standardwert aufwendig zu berechnen ist und Sie vermeiden möchten, ihn zu berechnen, es sei denn, er wird wirklich benötigt.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.getOrInsertComputed()")}}
 
@@ -34,21 +32,21 @@ getOrInsertComputed(key, callback)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map` Objekt zurückgegeben werden soll. Objektschlüssel werden durch {{Glossary("Object_reference", "Referenz")}} verglichen, nicht durch Wert.
+  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt zurückgegeben werden soll. Objektschlüssel werden durch {{Glossary("Object_reference", "Referenz")}}, nicht durch Wert, verglichen.
 - `callback`
-  - : Eine Funktion, die den Wert zurückgibt, der eingefügt und zurückgegeben werden soll, wenn der Schlüssel im `Map` Objekt noch nicht vorhanden ist. Die Funktion wird mit folgendem Argument aufgerufen:
+  - : Eine Funktion, die den Wert zurückgibt, der eingefügt und zurückgegeben werden soll, wenn der Schlüssel im `Map`-Objekt nicht bereits vorhanden ist. Die Funktion wird mit dem folgenden Argument aufgerufen:
     - `key`
       - : Der gleiche Schlüssel, der an `getOrInsertComputed()` übergeben wurde.
 
 ### Rückgabewert
 
-Der Wert, der dem angegebenen Schlüssel im `Map` Objekt zugeordnet ist. Wenn der Schlüssel nicht gefunden werden kann, wird das Ergebnis von `callback(key)` eingefügt und zurückgegeben.
+Der mit dem angegebenen Schlüssel im `Map`-Objekt verknüpfte Wert. Wenn der Schlüssel nicht gefunden werden kann, wird das Ergebnis von `callback(key)` eingefügt und zurückgegeben.
 
 ## Beispiele
 
-### Vermeidung unnötiger Standardberechnungen
+### Vermeidung unnötiger Standardberechnung
 
-Bei Verwendung von {{jsxref("Map.prototype.getOrInsert()")}} wird der Standardwert jedes Mal berechnet, auch wenn er nicht benötigt wird. Mit `getOrInsertComputed()` wird der Standardwert nur bei Bedarf berechnet.
+Bei Verwendung von {{jsxref("Map.prototype.getOrInsert()")}} wird der Standardwert jedes Mal berechnet, auch wenn er nicht benötigt wird. Mit `getOrInsertComputed()` wird der Standardwert nur berechnet, wenn dies erforderlich ist.
 
 ```js
 const map = new Map([["bar", "foo"]]);

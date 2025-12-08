@@ -3,23 +3,23 @@ title: "Dokument: activeViewTransition-Eigenschaft"
 short-title: activeViewTransition
 slug: Web/API/Document/activeViewTransition
 l10n:
-  sourceCommit: 1889aacdd5cb4dd3e6e5a5ef2f305fda0985c89b
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("DOM")}}{{SeeCompatTable}}
+{{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`activeViewTransition`** der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die derzeit auf dem Dokument aktive [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) repräsentiert.
+Die schreibgeschützte **`activeViewTransition`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die aktuell aktive [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) des Dokuments darstellt.
 
-Der aktuelle [`ViewTransition`](/de/docs/Web/API/ViewTransition) kann auf andere Weise zugänglich gemacht werden:
+Der aktuelle [`ViewTransition`](/de/docs/Web/API/ViewTransition) kann auf andere Weise abgerufen werden:
 
 - Der Rückgabewert von [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) im Fall von gleichseitigen Ansichtsübergängen.
-- Die `viewTransition`-Eigenschaft der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)- und [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisobjekte im Fall von dokumentübergreifenden Ansichtsübergängen.
+- Die `viewTransition`-Eigenschaft der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)- und [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisobjekte im Fall von übergreifenden Dokumentenübergängen.
 
-Jedoch bietet die `activeViewTransition`-Eigenschaft eine konsistente Möglichkeit, auf den aktiven Ansichtsübergang in jedem Kontext zuzugreifen, ohne sich später Gedanken darüber machen zu müssen, wie man ihn leicht zugänglich speichert.
+Jedoch bietet die `activeViewTransition`-Eigenschaft eine konsistente Möglichkeit, auf den aktiven Ansichtsübergang in jedem Kontext zuzugreifen, ohne sich Sorgen machen zu müssen, diesen für einen späteren einfachen Zugriff zu speichern.
 
 ## Wert
 
-Eine [`ViewTransition`](/de/docs/Web/API/ViewTransition) oder `null`, wenn kein aktiver Ansichtsübergang vorhanden ist.
+Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition) oder `null`, wenn kein aktiver Ansichtsübergang vorhanden ist.
 
 ## Beispiele
 

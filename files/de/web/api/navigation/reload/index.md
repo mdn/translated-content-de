@@ -3,12 +3,12 @@ title: "Navigation: reload() Methode"
 short-title: reload()
 slug: Web/API/Navigation/reload
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`reload()`** Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces lädt die aktuelle URL neu und aktualisiert dabei jeden bereitgestellten Zustand in der Liste der Verlaufseinträge.
+Die **`reload()`**-Methode der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle lädt die aktuelle URL neu und aktualisiert ggf. bereitgestellten Zustand in der Liste der Verlaufseinträge.
 
 ## Syntax
 
@@ -22,25 +22,25 @@ reload(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `state` {{optional_inline}}
-      - : Entwicklerdefinierte Informationen, die im zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden, sobald die Navigation abgeschlossen ist und über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState) abgerufen werden können. Dies kann jeder Datentyp sein. Sie könnten beispielsweise die Besuche einer Seite zu Analysezwecken speichern oder Details zum UI-Zustand speichern, damit die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle in `state` gespeicherten Daten müssen [strukturiert klonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Vom Entwickler definierte Informationen, die im zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden, sobald die Navigation abgeschlossen ist und über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState) abrufbar sind. Dies kann beliebiger Datentyp sein. Sie könnten zum Beispiel eine Seitenaufrufanzahl für Analysezwecke speichern oder UI-Zustandsdetails speichern, damit die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle im `state` gespeicherten Daten müssen [strukturierte-klonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
     - `info` {{optional_inline}}
-      - : Entwicklerdefinierte Informationen, die dem [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Event übergeben werden, verfügbar in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info). Dies kann jeder Datentyp sein. Sie könnten beispielsweise neu navigierte Inhalte mit einer anderen Animation abhängig davon anzeigen wollen, wie navigiert wurde (nach links wischen, nach rechts wischen oder zurück zur Startseite). Ein String, der angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
+      - : Vom Entwickler definierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis übergeben werden und in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info) verfügbar sind. Dies kann beliebiger Datentyp sein. Sie könnten zum Beispiel den neu navigierten Inhalt mit einer anderen Animation anzeigen, je nachdem, wie er navigiert wurde (nach links wischen, nach rechts wischen oder zur Startseite gehen). Eine Zeichenkette, die angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
 
 ### Rückgabewert
 
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `committed`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn die sichtbare URL geändert wurde und ein neues [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn sich die sichtbare URL geändert hat und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
 - `finished`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle von dem `intercept()` Handler zurückgegebenen Versprechen erfüllt sind. Dies entspricht dem Erfüllen des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished)-Versprechens, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Event ausgelöst wird.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle `intercept()`-Handler-Promises erfüllt sind. Dies entspricht dem Erfüllen des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Promise, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird.
 
-Eines dieser Versprechen wird zurückgewiesen, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
+Einer dieser Promises wird abgelehnt, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
 
 ### Ausnahmen
 
 - `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `state`-Parameter Werte enthielt, die nicht strukturiert klonbar sind.
+  - : Wird ausgelöst, wenn der `state`-Parameter Werte enthält, die nicht strukturierte-klonbar sind.
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ async function handleReload() {
 }
 ```
 
-Seite neu laden und ein neues State-Element hinzufügen:
+Seite neu laden und einen neuen Zustandselement hinzufügen:
 
 ```js
 async function handleReload() {
@@ -81,5 +81,5 @@ async function handleReload() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne client-seitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

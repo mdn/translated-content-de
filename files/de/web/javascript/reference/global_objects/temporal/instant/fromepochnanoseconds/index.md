@@ -3,12 +3,10 @@ title: Temporal.Instant.fromEpochNanoseconds()
 short-title: fromEpochNanoseconds()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/fromEpochNanoseconds
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die statische Methode **`Temporal.Instant.fromEpochNanoseconds()`** erstellt ein neues `Temporal.Instant`-Objekt anhand der Anzahl von Nanosekunden seit dem Unix-Epoch (Mitternacht zu Beginn des 1. Januar 1970, UTC).
+Die statische Methode **`Temporal.Instant.fromEpochNanoseconds()`** erstellt ein neues `Temporal.Instant`-Objekt aus der Anzahl der Nanosekunden seit dem Unix-Epoch (Mitternacht zu Beginn des 1. Januar 1970, UTC).
 
 Um ein {{jsxref("Date")}}-Objekt in ein `Temporal.Instant`-Objekt zu konvertieren, verwenden Sie stattdessen {{jsxref("Date.prototype.toTemporalInstant()")}}.
 
@@ -21,16 +19,16 @@ Temporal.Instant.fromEpochNanoseconds(epochNanoseconds)
 ### Parameter
 
 - `epochNanoseconds`
-  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), der die Anzahl von Nanosekunden seit dem Unix-Epoch darstellt.
+  - : Ein [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt), das die Anzahl der Nanosekunden seit dem Unix-Epoch repräsentiert.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant`-Objekt, das den Zeitpunkt repräsentiert, der durch `epochNanoseconds` angegeben ist.
+Ein neues `Temporal.Instant`-Objekt, das den durch `epochNanoseconds` angegebenen Zeitpunkt darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `epochNanoseconds` nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, welcher ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre ab dem Unix-Epoch umfasst.
+  - : Wird ausgelöst, wenn `epochNanoseconds` nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates) liegt, der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre vom Unix-Epoch umfasst.
 
 ## Beispiele
 

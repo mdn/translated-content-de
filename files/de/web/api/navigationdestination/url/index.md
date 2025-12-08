@@ -3,12 +3,12 @@ title: "NavigationDestination: url-Eigenschaft"
 short-title: url
 slug: Web/API/NavigationDestination/url
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte Eigenschaft **`url`** des [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Interfaces gibt die URL zurück, zu der navigiert wird.
+Die **`url`**-Eigenschaft, die nur lesbar ist und zur [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gehört, gibt die URL zurück, zu der navigiert wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-### Umgang mit einer Navigation mithilfe von `intercept()`
+### Umgang mit einer Navigation mit `intercept()`
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -54,5 +54,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderner clientseitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne client-seitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

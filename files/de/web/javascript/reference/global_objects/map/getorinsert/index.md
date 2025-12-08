@@ -3,14 +3,12 @@ title: Map.prototype.getOrInsert()
 short-title: getOrInsert()
 slug: Web/JavaScript/Reference/Global_Objects/Map/getOrInsert
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`getOrInsert()`** Methode von {{jsxref("Map")}} Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` entspricht. Wenn der Schlüssel nicht vorhanden ist, wird ein neuer Eintrag mit dem Schlüssel und einem gegebenen Standardwert eingefügt und der eingefügte Wert zurückgegeben.
 
-Die **`getOrInsert()`**-Methode von {{jsxref("Map")}}-Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `Map` entspricht. Ist der Schlüssel nicht vorhanden, fügt sie einen neuen Eintrag mit dem Schlüssel und einem angegebenen Standardwert ein und gibt den eingefügten Wert zurück.
-
-Wenn die Berechnung des Standardwerts aufwendig ist, ziehen Sie stattdessen {{jsxref("Map.prototype.getOrInsertComputed()")}} in Betracht, das einen Callback verwendet, um den Standardwert nur dann zu berechnen, wenn er tatsächlich benötigt wird.
+Wenn die Berechnung des Standardwerts aufwendig ist, ziehen Sie in Betracht, stattdessen {{jsxref("Map.prototype.getOrInsertComputed()")}} zu verwenden, das einen Callback verwendet, um den Standardwert nur bei Bedarf zu berechnen.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.getOrInsert()")}}
 
@@ -32,7 +30,7 @@ getOrInsert(key, defaultValue)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Werts, der aus dem `Map`-Objekt zurückgegeben werden soll. Objekt-Schlüssel werden nach {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
+  - : Der Schlüssel des Werts, der aus dem `Map` Objekt zurückgegeben werden soll. Objektschlüssel werden nach {{Glossary("Object_reference", "Referenz")}} verglichen, nicht nach Wert.
 - `defaultValue`
   - : Der Wert, der eingefügt und zurückgegeben wird, wenn der Schlüssel im `Map`-Objekt noch nicht vorhanden ist.
 
@@ -42,7 +40,7 @@ Der Wert, der dem angegebenen Schlüssel im `Map`-Objekt zugeordnet ist. Wenn de
 
 ## Beschreibung
 
-Die `getOrInsert()`-Methode ist äquivalent zu folgendem:
+Die Methode `getOrInsert()` ist äquivalent zu folgendem:
 
 ```js
 if (map.has(key)) {
@@ -52,7 +50,7 @@ map.set(key, defaultValue);
 return defaultValue;
 ```
 
-Sie ähnelt auch dem folgenden Muster (das etwas weniger zuverlässig ist, wenn `null` oder `undefined` gültige Werte in Ihrer Map sind):
+Sie ähnelt auch folgendem Muster (das etwas weniger verlässlich ist, wenn `null` oder `undefined` gültige Werte in Ihrer Map sind):
 
 ```js
 map.set(key, map.get(key) ?? defaultValue);
@@ -60,11 +58,11 @@ map.set(key, map.get(key) ?? defaultValue);
 
 ## Beispiele
 
-### Anwendung von Standardwerten
+### Anwenden von Standardwerten
 
-Sie können `getOrInsert()` verwenden, um sicherzustellen, dass ein Schlüssel in einer Map existiert, auch wenn Sie seinen Wert derzeit nicht benötigen. Dies dient normalerweise zur Normalisierung von Benutzereingaben.
+Sie können `getOrInsert()` verwenden, um sicherzustellen, dass ein Schlüssel in einer Map existiert, selbst wenn Sie seinen Wert momentan nicht benötigen. Dies wird üblicherweise verwendet, um Benutzereingaben zu normalisieren.
 
-Stellen Sie sich vor, Sie haben eine Map mit Benutzerpräferenzen und möchten sicherstellen, dass eine bestimmte Präferenz immer auf einen Standardwert gesetzt wird, wenn der Benutzer sie nicht angegeben hat:
+Stellen Sie sich vor, Sie haben eine Map von Benutzervorlieben und möchten sicherstellen, dass eine bestimmte Präferenz immer auf einen Standardwert gesetzt wird, wenn der Benutzer sie nicht angegeben hat:
 
 ```js
 const options = readConfig();
@@ -86,7 +84,7 @@ document.body.dataset.theme = options.get("theme");
 ## Siehe auch
 
 - [Polyfill von `Map.prototype.getOrInsert` in `core-js`](https://github.com/zloirock/core-js#map-upsert)
-- [es-shims-Polyfill von `Map.prototype.getOrInsert`](https://www.npmjs.com/package/map.prototype.getorinsert)
+- [es-shims Polyfill von `Map.prototype.getOrInsert`](https://www.npmjs.com/package/map.prototype.getorinsert)
 - {{jsxref("Map")}}
 - {{jsxref("Map.prototype.get()")}}
 - {{jsxref("Map.prototype.set()")}}

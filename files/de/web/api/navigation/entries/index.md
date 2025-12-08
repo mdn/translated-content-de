@@ -3,12 +3,12 @@ title: "Navigation: entries()-Methode"
 short-title: entries()
 slug: Web/API/Navigation/entries
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`entries()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Verlaufseinträge darstellen.
+Die **`entries()`**-Methode der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Verlaufs-Einträge darstellen.
 
 ## Syntax
 
@@ -30,15 +30,15 @@ Keine.
 
 ## Beispiele
 
-### Die Anzahl der Einträge im Verlauf zurückgeben
+### Anzahl der Einträge im Verlauf zurückgeben
 
 ```js
 let numOfEntries = navigation.entries().length - 1;
 ```
 
-### Eine intelligente Zurück-Schaltfläche
+### Ein intelligenter "Zurück"-Button
 
-Eine auf der Seite bereitgestellte "Zurück"-Schaltfläche kann Sie zurückbringen, sogar nach einem Neuladen, indem sie die vorherigen Verlaufseinträge inspiziert:
+Ein von der Seite bereitgestellter "Zurück"-Button kann Sie zurückbringen, selbst nach dem Neuladen, indem er die vorherigen Verlaufs-Einträge überprüft:
 
 ```js
 backButtonEl.addEventListener("click", () => {
@@ -65,5 +65,5 @@ backButtonEl.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderner client-seitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

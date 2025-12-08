@@ -3,18 +3,18 @@ title: "NavigationHistoryEntry: key-Eigenschaft"
 short-title: key
 slug: Web/API/NavigationHistoryEntry/key
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`key`**-Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt den `key` des Verlaufseintrags zurück, oder einen leeren String, wenn das aktuelle Dokument nicht vollständig aktiv ist. Dies ist ein eindeutiger, vom User-Agent generierter Wert, der den Slot des Verlaufseintrags in der Eintragsliste repräsentiert. Er wird verwendet, um zu diesem bestimmten Slot über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu navigieren. Der `key` wird von anderen Einträgen wiederverwendet, die den Eintrag in der Liste ersetzen (d.h. wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist).
+Die schreibgeschützte **`key`**-Eigenschaft der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt den `key` des Verlaufseintrags zurück oder einen leeren String, wenn das aktuelle Dokument nicht vollständig aktiv ist. Dies ist ein einzigartiger, vom Benutzeragenten (UA) generierter Wert, der den Slot des Verlaufseintrags in der Liste der Einträge darstellt. Er wird verwendet, um zu diesem bestimmten Slot über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu navigieren. Der `key` wird von anderen Einträgen, die den Eintrag in der Liste ersetzen (das heißt, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist), wiederverwendet.
 
-Dies unterscheidet sich von der [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) eines Verlaufseintrags. Die `id` ist ein eindeutiger, vom User-Agent generierter Wert, der immer einen spezifischen Verlaufseintrag repräsentiert, anstatt seinen Slot in der Eintragsliste. Dies ist nützlich, um ihn mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
+Dies unterscheidet sich von der [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) eines Verlaufseintrags. Die `id` ist ein einzigartiger, vom UA generierter Wert, der immer einen bestimmten Verlaufseintrag darstellt, anstatt seinen Slot in der Liste der Einträge. Dies ist nützlich, um ihn mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
 
 ## Wert
 
-Ein String, der den `key` des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) repräsentiert.
+Ein String, der den `key` der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) darstellt.
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ const current = navigation.currentEntry;
 console.log(current.key);
 ```
 
-### Einrichtung einer Home-Schaltfläche
+### Ein Home-Button einrichten
 
 ```js
 function initHomeBtn() {
@@ -58,5 +58,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

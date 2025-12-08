@@ -1,25 +1,25 @@
 ---
-title: "NavigationActivation: from-Eigenschaft"
+title: "NavigationActivation: from Eigenschaft"
 short-title: from
 slug: Web/API/NavigationActivation/from
 l10n:
-  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`from`**-Eigenschaft der [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Schnittstelle enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Verlaufseintrag für das ausgehende ("von") Dokument in der Navigation darstellt.
+Die schreibgeschützte **`from`** Eigenschaft des [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) Interfaces enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekt, das den Verlaufseintrag für das ausgehende ("from") Dokument in der Navigation darstellt.
 
 ## Wert
 
-Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt oder `null`, wenn das ausgehende Dokument:
+Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) Objekt oder `null`, wenn das ausgehende Dokument:
 
-- Nicht vom gleichen Ursprung wie das eingehende Dokument ist.
-- Das anfängliche `about:blank`-Dokument ist.
+- Nicht gleichen Ursprungs wie das eingehende Dokument ist.
+- Das initiale `about:blank` Dokument ist.
 
 ## Beispiele
 
-Siehe die Hauptseite zu [`NavigationActivation`](/de/docs/Web/API/NavigationActivation).
+Siehe die Hauptseite der [`NavigationActivation`](/de/docs/Web/API/NavigationActivation).
 
 ## Spezifikationen
 

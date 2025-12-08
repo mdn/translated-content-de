@@ -3,16 +3,14 @@ title: Temporal.ZonedDateTime.prototype.epochNanoseconds
 short-title: epochNanoseconds
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/epochNanoseconds
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`epochNanoseconds`**-Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt ein {{jsxref("BigInt")}} zurück, das die Anzahl der Nanosekunden darstellt, die seit dem Unix-Epoch (Mitternacht zu Beginn des 1. Januar 1970, UTC) bis zu diesem Moment vergangen sind.
 
-Die **`epochNanoseconds`** Zugriffs-Eigenschaft der {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt ein {{jsxref("BigInt")}} zurück, das die Anzahl der Nanosekunden darstellt, die seit dem Unix-Epoch (Mitternacht am Anfang des 1. Januar 1970, UTC) bis zu diesem Zeitpunkt vergangen sind.
+Der Set-Accessor von `epochNanoseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen `epochNanoseconds`-Wert zu erstellen, verwenden Sie stattdessen den {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "new Temporal.ZonedDateTime()")}}-Konstruktor.
 
-Der set-Zugriff von `epochNanoseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen `epochNanoseconds`-Wert zu erstellen, verwenden Sie stattdessen den {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "new Temporal.ZonedDateTime()")}} Konstruktor.
-
-Ein Zeitpunkt kann nur ±10<sup>8</sup> Tage (etwa ±273.972,6 Jahre) um den Epoch herum darstellen, was ±8,64e21 Nanosekunden entspricht. Der Versuch, `epochNanoseconds` über diese Grenze zu setzen, löst einen {{jsxref("RangeError")}} aus.
+Ein Zeitpunkt kann nur ±10<sup>8</sup> Tage (etwa ±273.972,6 Jahre) um die Epoche herum darstellen, was ±8,64e21 Nanosekunden entspricht. Der Versuch, `epochNanoseconds` über diesen Grenzwert hinaus festzulegen, führt zu einem {{jsxref("RangeError")}}.
 
 ## Beispiele
 
@@ -28,7 +26,7 @@ console.log(zdt2.epochNanoseconds); // -13173903211000000n
 
 ### Erstellen eines ZonedDateTime-Objekts aus einem epochNanoseconds-Wert
 
-Sie können ein `Temporal.ZonedDateTime`-Objekt aus einem `epochNanoseconds`-Wert mithilfe des {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}} Konstruktors erstellen.
+Sie können ein `Temporal.ZonedDateTime`-Objekt aus einem `epochNanoseconds`-Wert unter Verwendung des {{jsxref("Temporal/ZonedDateTime/ZonedDateTime", "Temporal.ZonedDateTime()")}}-Konstruktors erstellen.
 
 ```js
 const epochNanoseconds = 1627821296789000000n;

@@ -3,16 +3,16 @@ title: "Navigation: canGoForward-Eigenschaft"
 short-title: canGoForward
 slug: Web/API/Navigation/canGoForward
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte Eigenschaft **`canGoForward`** der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle gibt `true` zurück, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte Eintrag in der Historieneintragsliste), und `false`, wenn dies nicht möglich ist.
+Die schreibgeschützte Eigenschaft **`canGoForward`** des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt `true` zurück, wenn es möglich ist, vorwärts in der Navigation durch den Verlauf zu navigieren (d.h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte Eintrag in der Verlaufs-Eintragsliste), und `false`, wenn dies nicht möglich ist.
 
 ## Wert
 
-Ein boolescher Wert: `true`, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren, andernfalls `false`.
+Ein boolescher Wert: `true`, wenn es möglich ist, vorwärts in der Navigation durch den Verlauf zu navigieren, `false` andernfalls.
 
 ## Beispiele
 
@@ -48,5 +48,5 @@ async function forwardHandler() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API-Erklärungsdokument](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routenplanung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

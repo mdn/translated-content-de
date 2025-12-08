@@ -3,12 +3,10 @@ title: Temporal.PlainDateTime.prototype.toPlainDate()
 short-title: toPlainDate()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/toPlainDate
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`toPlainDate()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainDate")}} Objekt zurück, welches den Datumsanteil (Jahr, Monat, Tag) dieses Datums-Zeitpunkts im selben Kalendersystem darstellt.
+Die **`toPlainDate()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt ein neues {{jsxref("Temporal.PlainDate")}}-Objekt zurück, das den Datumsanteil (Jahr, Monat, Tag) dieses Datums in demselben Kalendersystem repräsentiert.
 
 ## Syntax
 
@@ -22,7 +20,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDate` Objekt, das den Datumsanteil (Jahr, Monat, Tag) dieses Datums-Zeitpunkts im selben Kalendersystem darstellt.
+Ein neues `Temporal.PlainDate`-Objekt, das den Datumsanteil (Jahr, Monat, Tag) dieses Datums in demselben Kalendersystem repräsentiert.
 
 ## Beispiele
 

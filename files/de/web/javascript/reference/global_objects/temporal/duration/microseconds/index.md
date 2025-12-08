@@ -3,16 +3,14 @@ title: Temporal.Duration.prototype.microseconds
 short-title: microseconds
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/microseconds
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die Zugriffseigenschaft **`microseconds`** von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Mikrosekunden in der Dauer darstellt.
 
-Die **`microseconds`** Zugriffsproperty von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Mikrosekunden in der Dauer repräsentiert.
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen erkennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit oberhalb von Mikrosekunden ausgeglichen ist, liegt der absolute Wert von `microseconds` zwischen 0 und 999, einschließlich.
 
-Es sei denn, die Dauer ist [ausbalanciert](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing), können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können sein Vorzeichen erkennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Property der Dauer überprüfen. Wenn sie zu einer Einheit oberhalb von Mikrosekunden ausbalanciert ist, wird der absolute Wert der `microseconds` zwischen 0 und 999, einschließlich, liegen.
-
-Die Set-Accessor der `microseconds` ist `undefined`. Sie können diese Property nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/Duration/with", "with()")}}, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `microseconds` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

@@ -3,12 +3,10 @@ title: Temporal.PlainDate.prototype.toPlainYearMonth()
 short-title: toPlainYearMonth()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/toPlainYearMonth
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`toPlainYearMonth()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainYearMonth")}} Objekt zurück, das das {{jsxref("Temporal/PlainDate/year", "Jahr")}} und den {{jsxref("Temporal/PlainDate/month", "Monat")}} dieses Datums im gleichen Kalendersystem darstellt.
+Die **`toPlainYearMonth()`** Methode von {{jsxref("Temporal.PlainDate")}} Instanzen gibt ein neues {{jsxref("Temporal.PlainYearMonth")}} Objekt zurück, das das {{jsxref("Temporal/PlainDate/year", "Jahr")}} und den {{jsxref("Temporal/PlainDate/month", "Monat")}} dieses Datums im selben Kalendersystem darstellt.
 
 ## Syntax
 
@@ -22,7 +20,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainYearMonth` Objekt, das das {{jsxref("Temporal/PlainDate/year", "Jahr")}} und den {{jsxref("Temporal/PlainDate/month", "Monat")}} dieses Datums im gleichen Kalendersystem darstellt.
+Ein neues `Temporal.PlainYearMonth` Objekt, das das {{jsxref("Temporal/PlainDate/year", "Jahr")}} und den {{jsxref("Temporal/PlainDate/month", "Monat")}} dieses Datums im selben Kalendersystem darstellt.
 
 ## Beispiele
 

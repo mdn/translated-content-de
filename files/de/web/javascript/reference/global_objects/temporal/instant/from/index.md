@@ -3,12 +3,10 @@ title: Temporal.Instant.from()
 short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/from
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`Temporal.Instant.from()`** statische Methode erstellt ein neues `Temporal.Instant` Objekt aus einem anderen `Temporal.Instant` Objekt oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) String.
+Die statische Methode **`Temporal.Instant.from()`** erstellt ein neues `Temporal.Instant` Objekt aus einem anderen `Temporal.Instant` Objekt oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) String.
 
 ## Syntax
 
@@ -21,11 +19,11 @@ Temporal.Instant.from(info)
 - `info`
   - : Eines der folgenden:
     - Eine {{jsxref("Temporal.Instant")}} Instanz, die eine Kopie der Instanz erstellt.
-    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) String, der ein Datum, eine Uhrzeit und einen Zeitzonen-Offset enthält. Der Zeitzonenname wird ignoriert; nur der Offset wird verwendet.
+    - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Instant#rfc_9557_format) String, der ein Datum, eine Uhrzeit und einen Zeitzonenoffset enthält. Der Name der Zeitzone wird ignoriert; nur der Offset wird verwendet.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Instant` Objekt, das den durch `info` angegebenen Zeitpunkt darstellt.
+Ein neues `Temporal.Instant` Objekt, das den Zeitpunkt in der Zeit repräsentiert, der durch `info` angegeben ist.
 
 ### Ausnahmen
 
@@ -34,11 +32,11 @@ Ein neues `Temporal.Instant` Objekt, das den durch `info` angegebenen Zeitpunkt 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
     - Der String ist kein gültiger RFC 9557 String.
-    - Die Information liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), der ±10<sup>8</sup> Tage oder etwa ±273.972,6 Jahre ab der Unix-Epoche umfasst.
+    - Die Info liegt nicht im [darstellbaren Bereich](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#representable_dates), welcher ±10<sup>8</sup> Tage oder etwa ±273,972.6 Jahre ab der Unix-Epoche umfasst.
 
 ## Beispiele
 
-### Erstellen eines Zeitpunkts aus einem String
+### Erstellen eines Instants aus einem String
 
 ```js
 const instant = Temporal.Instant.from("1970-01-01T00Z");
@@ -52,7 +50,7 @@ const instant3 = Temporal.Instant.from("1970-01-01T00+08:00[America/New_York]");
 console.log(instant3.toString()); // 1969-12-31T16:00:00Z; the time zone name is ignored
 ```
 
-### Erstellen eines Zeitpunkts aus einem anderen Zeitpunkt
+### Erstellen eines Instants aus einem anderen Instant
 
 ```js
 const instant = Temporal.Instant.from("1970-01-01T00Z");

@@ -3,24 +3,24 @@ title: "HTMLButtonElement: interestForElement-Eigenschaft"
 short-title: interestForElement
 slug: Web/API/HTMLButtonElement/interestForElement
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{ApiRef("HTML DOM")}}
+{{ApiRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`interestForElement`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ruft das Ziel-Element eines "interest invoker" ab oder setzt es, in Fällen, in denen das zugehörige {{htmlelement("button")}}-Element als "interest invoker" angegeben ist.
+Die **`interestForElement`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces ruft das Zielelement eines "interest invoker" ab oder legt es fest, falls das zugehörige {{htmlelement("button")}}-Element als "interest invoker" angegeben wurde.
 
-Weitere Details finden Sie unter [Erstellung eines interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker).
+Siehe [Erstellen eines Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker) für weitere Details.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objektinstanz oder `null`, wenn das zugehörige `<button>`-Element kein Ziel-Element gesetzt hat.
+Eine Instanz des [`Element`](/de/docs/Web/API/Element)-Objekts oder `null`, wenn das zugehörige `<button>`-Element kein Zielelement gesetzt hat.
 
 ## Beispiele
 
 ### Grundlegende Nutzung von `interestForElement`
 
-In diesem Beispiel verwenden wir die `interestForElement`-Eigenschaft eines `<button>`-Elements, um dessen Ziel-Element zu setzen und dann das `tagName` des Ziel-Elements abzurufen. Das `tagName` wird dann im Textinhalt des `<button>`-Elements ausgegeben.
+In diesem Beispiel nutzen wir die `interestForElement`-Eigenschaft eines `<button>`-Elements, um sein Zielelement festzulegen, und rufen anschließend das `tagName` des Zielelements ab. Das `tagName` wird dann im Textinhalt des `<button>`-Elements ausgegeben.
 
 #### HTML
 
@@ -33,7 +33,7 @@ Wir fügen ein `<button>`-Element und ein `<div>`-Element ein. Wir verwandeln da
 
 #### JavaScript
 
-Wir erhalten Referenzen zu den `<button>`- und `<div>`-Elementen im Skript und deklarieren dann eine Interessens-Initiator-Ziel-Beziehung zwischen dem `<button>` und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<button>`-Elements auf eine Referenz zum `<div>` setzen. Wir setzen dann den Textinhalt des Buttons auf einen String, der das `tagName` des Ziel-Elements enthält, das über `invoker.interestForElement.tagName` abgerufen wird.
+Wir erhalten Referenzen zu den `<button>`- und `<div>`-Elementen im Skript und deklarieren dann eine "interest invoker"-Ziel-Beziehung zwischen dem `<button>` und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<button>`-Elements auf eine Referenz zum `<div>` setzen. Anschließend setzen wir den Textinhalt des Buttons auf einen String, der das `tagName` des Zielelements enthält, abgerufen über `invoker.interestForElement.tagName`.
 
 ```js live-sample___basic-interest-invoker
 const invoker = document.querySelector("button");
@@ -46,11 +46,11 @@ invoker.textContent = `My target is a ${invoker.interestForElement.tagName} elem
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt angezeigt:
+Das Beispiel wird wie folgt gerendert:
 
 {{embedlivesample("basic-interest-invoker", "100%", "100")}}
 
-Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Hovern oder Fokussieren), um das `<div>` erscheinen zu lassen.
+Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel, indem Sie ihn fokussieren oder darüber schweben), um das `<div>` erscheinen zu lassen.
 
 ## Spezifikationen
 
@@ -62,5 +62,5 @@ Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Hovern oder Fok
 
 ## Siehe auch
 
-- [Verwendung von interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [Das Popover-API](/de/docs/Web/API/Popover_API)
+- [Verwendung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [Die Popover-API](/de/docs/Web/API/Popover_API)

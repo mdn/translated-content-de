@@ -3,12 +3,10 @@ title: Temporal.Instant.prototype.equals()
 short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Instant/equals
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die Methode **`equals()`** von {{jsxref("Temporal.Instant")}}-Instanzen gibt `true` zurück, wenn dieser Zeitpunkt einem anderen Zeitpunkt im Wert entspricht (in einer Form, die von {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} konvertierbar ist), und `false` andernfalls. Sie werden durch ihre {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} verglichen. Es entspricht `Temporal.Instant.compare(this, other) === 0`.
+Die **`equals()`** Methode von {{jsxref("Temporal.Instant")}} Instanzen gibt `true` zurück, wenn dieser Zeitpunkt im Wert mit einem anderen Zeitpunkt (in einer Form, die durch {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} konvertierbar ist) gleichwertig ist, und `false` sonst. Sie werden durch ihre {{jsxref("Temporal/Instant/epochNanoseconds", "epochNanoseconds")}} verglichen. Es ist äquivalent zu `Temporal.Instant.compare(this, other) === 0`.
 
 ## Syntax
 
@@ -19,11 +17,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String oder eine {{jsxref("Temporal.Instant")}}-Instanz, die den anderen zu vergleichenden Zeitpunkt darstellt. Er wird mit demselben Algorithmus, den {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} verwendet, in ein `Temporal.Instant`-Objekt konvertiert.
+  - : Ein String oder eine {{jsxref("Temporal.Instant")}} Instanz, die den anderen zu vergleichenden Zeitpunkt darstellt. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Instant/from", "Temporal.Instant.from()")}} in ein `Temporal.Instant` Objekt konvertiert.
 
 ### Rückgabewert
 
-`true`, wenn dieser Zeitpunkt gleich `other` in Nanosekunden ist, `false` sonst.
+`true` wenn dieser Zeitpunkt nanosekunden-genau gleich `other` ist, andernfalls `false`.
 
 ## Beispiele
 

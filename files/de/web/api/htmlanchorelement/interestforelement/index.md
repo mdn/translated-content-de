@@ -3,14 +3,14 @@ title: "HTMLAnchorElement: interestForElement-Eigenschaft"
 short-title: interestForElement
 slug: Web/API/HTMLAnchorElement/interestForElement
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{ApiRef("HTML DOM")}}
+{{ApiRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`interestForElement`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ruft das Zielelement eines Interesse-Auslösers ab oder setzt es, in Fällen, in denen das zugehörige {{htmlelement("a")}}-Element als Interesse-Auslöser angegeben ist.
+Die **`interestForElement`**-Eigenschaft der [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Schnittstelle ruft das Zielelement eines Interest Invokers ab oder legt es fest, in Fällen, in denen das zugehörige {{htmlelement("a")}}-Element als Interest Invoker angegeben ist.
 
-Weitere Details finden Sie unter [Erstellen eines Interesse-Auslösers](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker).
+Siehe [Erstellen eines Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker) für weitere Details.
 
 ## Wert
 
@@ -18,13 +18,13 @@ Eine Instanz eines [`Element`](/de/docs/Web/API/Element)-Objekts oder `null`, we
 
 ## Beispiele
 
-### Grundlegende Verwendung von `interestForElement`
+### Grundlegende Nutzung von `interestForElement`
 
-In diesem Beispiel verwenden wir die `interestForElement`-Eigenschaft eines `<a>`-Elements, um sein Zielelement festzulegen und anschließend das `tagName` dieses Elements abzurufen. Das `tagName` wird dann im Textinhalt des `<a>`-Elements angezeigt.
+In diesem Beispiel verwenden wir die `interestForElement`-Eigenschaft eines `<a>`-Elements, um dessen Zielelement festzulegen und anschließend dessen `tagName` abzurufen. Der `tagName` wird dann im Textinhalt des `<a>`-Elements angezeigt.
 
 #### HTML
 
-Das Markup enthält ein `<a>`-Element und ein `<div>`-Element. Wir verwandeln das `<div>`-Element in ein Popover, indem wir ein `popover`-Attribut darauf setzen.
+Das Markup beinhaltet ein `<a>`-Element und ein `<div>`-Element. Wir verwandeln das `<div>`-Element in ein Popover, indem wir ihm ein `popover`-Attribut zuweisen.
 
 ```html live-sample___basic-interest-invoker
 <a href="#">a link</a>
@@ -33,7 +33,7 @@ Das Markup enthält ein `<a>`-Element und ein `<div>`-Element. Wir verwandeln da
 
 #### JavaScript
 
-Wir holen uns Referenzen zu den `<a>`- und `<div>`-Elementen im Skript. Dann erstellen wir die Interesse-Auslöser-Ziel-Beziehung zwischen dem `<a>`- und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<a>`-Elements auf eine Referenz zum `<div>` setzen. Anschließend aktualisieren wir den Textinhalt des `<a>`-Elements, um einen String mit dem `tagName` des Zielelements zu enthalten, abgerufen über `invoker.interestForElement.tagName`.
+Wir erhalten in einem Skript Referenzen auf die `<a>`- und `<div>`-Elemente. Dann erstellen wir die Beziehung zwischen Interest Invoker und Ziel, indem wir die `interestForElement`-Eigenschaft des `<a>`-Elements auf eine Referenz zu dem `<div>` setzen. Anschließend aktualisieren wir den Textinhalt des `<a>`-Elements, indem wir eine Zeichenkette einfügen, die den `tagName` des Zielelements enthält, der über `invoker.interestForElement.tagName` abgerufen wird.
 
 ```js live-sample___basic-interest-invoker
 const invoker = document.querySelector("a");
@@ -46,11 +46,11 @@ invoker.textContent = `My target is a ${invoker.interestForElement.tagName} elem
 
 #### Ergebnis
 
-Das Beispiel rendert so:
+Das Beispiel wird folgendermaßen dargestellt:
 
 {{embedlivesample("basic-interest-invoker", "100%", "100")}}
 
-Versuchen Sie, Interesse an dem Link zu zeigen (beispielsweise durch darüber Hovern oder fokussieren), um das `<div>` erscheinen zu lassen.
+Versuchen Sie, Interesse am Link zu zeigen (zum Beispiel durch Schweben oder Fokussieren), um das `<div>` erscheinen zu lassen.
 
 ## Spezifikationen
 
@@ -62,5 +62,5 @@ Versuchen Sie, Interesse an dem Link zu zeigen (beispielsweise durch darüber Ho
 
 ## Siehe auch
 
-- [Verwendung von Interesse-Auslösern](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [Die Popover-API](/de/docs/Web/API/Popover_API)
+- [Verwendung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [The Popover API](/de/docs/Web/API/Popover_API)

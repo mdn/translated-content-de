@@ -1,18 +1,18 @@
 ---
-title: "Navigation: Aktivierungs-Eigenschaft"
+title: "Navigation: activation-Eigenschaft"
 short-title: activation
 slug: Web/API/Navigation/activation
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte Eigenschaft **`activation`** der Schnittstelle [`Navigation`](/de/docs/Web/API/Navigation) gibt ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt zurück, das Informationen über die letzte Dokument-übergreifende Navigation enthält, welche dieses Dokument "aktiviert" hat. Die Eigenschaft bleibt bei gleichbleibenden Dokument-Navigationen konstant.
+Die schreibgeschützte **`activation`**-Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt zurück, das Informationen über die letzte dokumentübergreifende Navigation enthält, die dieses Dokument "aktiviert" hat. Die Eigenschaft bleibt bei gleiches-Dokument-Navigationen konstant.
 
 ## Wert
 
-Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt oder `null`, wenn das aktuelle Dokument das initiale `about:blank` Dokument ist.
+Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt oder `null`, wenn das aktuelle Dokument das anfängliche `about:blank`-Dokument ist.
 
 ## Beispiele
 
@@ -32,5 +32,5 @@ if (navigation.activation) {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routenerstellung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

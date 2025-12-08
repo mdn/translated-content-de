@@ -3,16 +3,14 @@ title: Temporal.PlainDate.prototype.yearOfWeek
 short-title: yearOfWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/yearOfWeek
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`yearOfWeek`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine Ganzzahl zurück, die das Jahr repräsentiert, das mit dem {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} dieses Datums gepaart wird, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Es ist [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
-Die **`yearOfWeek`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine ganze Zahl zurück, die das Jahr darstellt, das mit der {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} dieses Datums gepaart werden soll, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Sie ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Normalerweise ist dies das Jahr des Datums, aber für ISO 8601 können die ersten und letzten Tage des Jahres der letzten Woche des vorangegangenen Jahres oder der ersten Woche des nächsten Jahres zugeordnet werden, wodurch sich `yearOfWeek` um 1 unterscheiden kann. Siehe {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}} für weitere Details.
 
-Normalerweise ist dies das Jahr des Datums, aber bei ISO 8601 können die ersten und letzten Tage des Jahres der letzten Woche des Vorjahres oder der ersten Woche des nächsten Jahres zugeordnet werden, wodurch sich das `yearOfWeek` um 1 unterscheidet. Weitere Details finden Sie unter {{jsxref("Temporal/PlainDate/weekOfYear", "weekOfYear")}}.
-
-Der set-Zugriff von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `yearOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

@@ -3,14 +3,12 @@ title: Temporal.PlainTime.prototype.toLocaleString()
 short-title: toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/toLocaleString
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`toLocaleString()`** Methode von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine sprachsensitiv formatierte Zeichenkette dieser Zeit zurück. In Implementierungen mit Unterstützung der [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) delegiert diese Methode an `Intl.DateTimeFormat`.
 
-Die **`toLocaleString()`** Methode von Instanzen von {{jsxref("Temporal.PlainTime")}} gibt einen string mit einer sprachsensitiven Darstellung dieser Zeit zurück. In Implementierungen mit Unterstützung für die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) delegiert diese Methode an `Intl.DateTimeFormat`.
-
-Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungszeichenfolgen durchgeführt werden, was potenziell ineffizient sein kann. Wenn die Methode oft mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}} Objekt zu erstellen und dessen {{jsxref("Intl/DateTimeFormat/format", "format()")}} Methode zu verwenden, da ein `DateTimeFormat` Objekt die übergebenen Argumente speichert und möglicherweise einen Teil der Datenbank zwischenspeichert, sodass zukünftige `format` Aufrufe innerhalb eines eingeschränkteren Kontexts nach Lokalisierungszeichenfolgen suchen können.
+Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank mit Lokalisierungszeichenfolgen durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode viele Male mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DateTimeFormat")}} Objekt zu erstellen und die {{jsxref("Intl/DateTimeFormat/format", "format()")}} Methode zu verwenden, da ein `DateTimeFormat` Objekt sich die übergebenen Argumente merkt und entscheiden kann, einen Ausschnitt der Datenbank zwischenzuspeichern, so dass zukünftige `format` Aufrufe Lokalisierungszeichenfolgen in einem eingeschränkteren Kontext suchen können.
 
 ## Syntax
 
@@ -22,28 +20,28 @@ toLocaleString(locales, options)
 
 ### Parameter
 
-Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache zu spezifizieren, deren Formatierungskonventionen verwendet werden sollen.
+Die Parameter `locales` und `options` passen das Verhalten der Funktion an und erlauben es Anwendungen, die Sprache anzugeben, deren Formatierungsrichtlinien verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) Konstruktors. Implementierungen ohne `Intl.DateTimeFormat` Unterstützung geben exakt denselben string zurück wie {{jsxref("Temporal/PlainTime/toString", "toString()")}}, wobei beide Parameter ignoriert werden.
+In Implementierungen, die die [`Intl.DateTimeFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.DateTimeFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) Konstruktors. Implementierungen ohne Unterstützung von `Intl.DateTimeFormat` geben exakt denselben String zurück wie {{jsxref("Temporal/PlainTime/toString", "toString()")}}, indem beide Parameter ignoriert werden.
 
 - `locales` {{optional_inline}}
-  - : Ein string mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales) Parameter des `Intl.DateTimeFormat()` Konstruktors.
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#locales) Parameter des `Intl.DateTimeFormat()` Konstruktors.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options) Parameter des `Intl.DateTimeFormat()` Konstruktors. Bezüglich der [Datum-Zeit-Komponenten-Optionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) und der Stilabkürzungen (`dateStyle` und `timeStyle`) sollten die Optionen eine der folgenden Formen annehmen:
-    - Keine davon bereitstellen: `hour`, `minute` und `second` werden standardmäßig auf `"numeric"` gesetzt.
-    - Nur `timeStyle` bereitstellen: es erweitert sich zu `dayPeriod`, `hour`, `minute`, `second` und `fractionalSecondDigits` Formaten.
-    - Einige Datum-Zeit-Komponenten-Optionen bereitstellen, wobei mindestens eine davon eine Zeitoption ist (`dayPeriod`, `hour`, `minute`, `second`, `fractionalSecondDigits`). Nur die angegebenen Zeitkomponenten werden in der Ausgabe enthalten sein.
+  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options) Parameter des `Intl.DateTimeFormat()` Konstruktors. In Bezug auf die [Datum-Zeit-Komponentenoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#date-time_component_options) und die Stil-Abkürzungen (`dateStyle` und `timeStyle`) sollten die Optionen eine der folgenden Formen annehmen:
+    - Keine von ihnen angeben: `hour`, `minute` und `second` werden standardmäßig auf `"numeric"` gesetzt.
+    - Nur `timeStyle` angeben: es erweitert sich zu den Formaten `dayPeriod`, `hour`, `minute`, `second` und `fractionalSecondDigits`.
+    - Einige Datum-Zeit-Komponentenoptionen angeben, wobei mindestens eine davon eine Zeitoption (`dayPeriod`, `hour`, `minute`, `second`, `fractionalSecondDigits`) ist. Nur die angegebenen Zeitkomponenten werden in der Ausgabe enthalten sein.
 
-Siehe den [`Intl.DateTimeFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und wie sie verwendet werden.
+Siehe den [`Intl.DateTimeFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) für Details zu diesen Parametern und deren Verwendung.
 
 ### Rückgabewert
 
-Ein string, der die angegebene Zeit gemäß sprachspezifischen Konventionen darstellt.
+Eine Zeichenkette, die die angegebene Zeit gemäß sprachspezifischen Konventionen darstellt.
 
-In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTimeFormat(locales, options).format(time)`, wobei `options` wie oben beschrieben normalisiert wurde.
+In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTimeFormat(locales, options).format(time)`, wobei `options` wie oben beschrieben normalisiert wurden.
 
 > [!NOTE]
-> Meistens ist das von `toLocaleString()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb desselben Gebietsschemas — Variationen in der Ausgabe sind beabsichtigt und durch die Spezifikation erlaubt. Es kann auch nicht dem entsprechen, was Sie erwarten. Beispielsweise kann der string nicht unterbrechende Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist die von `toLocaleString()` zurückgegebene Formatierung konsistent. Allerdings kann die Ausgabe zwischen den Implementierungen variieren, selbst innerhalb derselben Lokale — Abweichungen in der Ausgabe sind gewollt und von der Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Beispielsweise kann die Zeichenfolge geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
 
 ### Ausnahmen
 
@@ -56,7 +54,7 @@ In Implementierungen mit `Intl.DateTimeFormat` entspricht dies `new Intl.DateTim
 
 ### Verwendung von toLocaleString()
 
-Der grundlegende Gebrauch dieser Methode ohne Angabe eines `locales` gibt einen formatierten string in der Standard-Gebietsschema und mit Standardeinstellungen zurück.
+Die grundlegende Verwendung dieser Methode ohne Angabe eines `locale` gibt eine formatierte Zeichenkette in der Standardlokale und mit Standardoptionen zurück.
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");
@@ -66,7 +64,7 @@ console.log(time.toLocaleString()); // 12:34:56 PM (assuming en-US locale)
 
 ### Verwendung von toLocaleString() mit Optionen
 
-Sie können anpassen, welche Teile der Zeit in der Ausgabe enthalten sind, indem Sie den `options` Parameter bereitstellen.
+Sie können anpassen, welche Teile der Zeit in der Ausgabe enthalten sind, indem Sie den `options` Parameter angeben.
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

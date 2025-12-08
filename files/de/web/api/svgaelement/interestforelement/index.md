@@ -3,18 +3,18 @@ title: "SVGAElement: interestForElement-Eigenschaft"
 short-title: interestForElement
 slug: Web/API/SVGAElement/interestForElement
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{ApiRef("HTML DOM")}}
+{{ApiRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`interestForElement`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces liest oder setzt das Zielelement eines "interest invoker", wenn das zugehörige {{svgelement("a")}}-Element als "interest invoker" angegeben ist.
+Die **`interestForElement`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement)-Interfaces ruft das Zielelement eines Interesse-Initiators ab oder setzt dieses, wenn das zugehörige {{svgelement("a")}}-Element als Interesse-Initiator festgelegt ist.
 
-Weitere Informationen finden Sie unter [Erstellen eines "interest invoker"](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker).
+Siehe [Erstellen eines Interesse-Initiators](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker) für weitere Details.
 
 ## Wert
 
-Eine Instanz eines [`Element`](/de/docs/Web/API/Element)-Objekts oder `null`, wenn das zugehörige `<a>`-Element kein Zielelement festgelegt hat.
+Ein [`Element`](/de/docs/Web/API/Element)-Objektinstanz oder `null`, wenn das zugehörige `<a>`-Element kein Zielelement gesetzt hat.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ In diesem Beispiel verwenden wir die `interestForElement`-Eigenschaft eines SVG-
 
 #### HTML
 
-Die Markierung enthält ein SVG-{{svgelement("a")}}-Element mit einem {{svgelement("text")}}-Element, und der Linktext ist innerhalb des `<text>`-Elements enthalten. Es gibt auch ein HTML-`<div>`-Element. Wir machen das `<div>`-Element zu einem Popover, indem wir das `popover`-Attribut darauf setzen.
+Das Markup enthält ein SVG-{{svgelement("a")}}-Element mit einem {{svgelement("text")}}-Element, und der Linktext ist innerhalb des `<text>`-Elements enthalten. Es gibt auch ein HTML-`<div>`-Element. Wir verwandeln das `<div>`-Element in ein Popover, indem wir das Attribut `popover` darauf setzen.
 
 ```html live-sample___basic-interest-invoker
 <svg>
@@ -49,7 +49,7 @@ svg a text {
 
 #### JavaScript
 
-Wir erhalten Referenzen auf die `<a>`, `<text>` und `<div>` Elemente im Script. Dann erstellen wir die "interest invoker"-Ziel-Beziehung zwischen dem `<a>` und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<a>`-Elements auf eine Referenz auf das `<div>` setzen. Anschließend aktualisieren wir den `<text>`-Inhalt, um den `tagName` des Zielelements anzuzeigen, abgerufen über `invoker.interestForElement.tagName`.
+Im Skript erhalten wir Referenzen zu den `<a>`, `<text>` und `<div>`-Elementen. Dann erstellen wir die Beziehung zwischen Interesse-Initiator und Ziel zwischen dem `<a>` und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<a>`-Elements gleich einer Referenz auf das `<div>` setzen. Danach aktualisieren wir den `<text>`-Inhalt, um den `tagName` des Zielelements anzuzeigen, der über `invoker.interestForElement.tagName` abgerufen wird.
 
 ```js live-sample___basic-interest-invoker
 const invoker = document.querySelector("a");
@@ -63,11 +63,11 @@ invokerText.textContent = `My target is a ${invoker.interestForElement.tagName} 
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt dargestellt:
+Das Beispiel wird so dargestellt:
 
 {{embedlivesample("basic-interest-invoker", "100%", "100")}}
 
-Versuchen Sie, Interesse am Link zu zeigen (zum Beispiel durch Hovern oder Fokussieren), um das `<div>` erscheinen zu lassen.
+Versuchen Sie, das Interesse an dem Link zu zeigen (zum Beispiel durch darüberfahren oder fokussieren), um das `<div>` sichtbar zu machen.
 
 ## Spezifikationen
 
@@ -79,5 +79,5 @@ Versuchen Sie, Interesse am Link zu zeigen (zum Beispiel durch Hovern oder Fokus
 
 ## Siehe auch
 
-- [Using interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [The Popover API](/de/docs/Web/API/Popover_API)
+- [Verwendung von Interesse-Initiatoren](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [Die Popover-API](/de/docs/Web/API/Popover_API)

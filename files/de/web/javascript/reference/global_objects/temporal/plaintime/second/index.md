@@ -3,14 +3,12 @@ title: Temporal.PlainTime.prototype.second
 short-title: second
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/second
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`second`** Zugriffseigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 59 zurück, die die Sekundenkomponente dieser Uhrzeit darstellt.
 
-Die **`second`** Zugriffseigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 59 zurück, die die Sekundenkomponente dieser Zeit darstellt.
-
-Der set Zugriff von `second` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}} Methode, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der set-Zugriff der `second`-Eigenschaft ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainTime/with", "with()")}} Methode, um ein neues `Temporal.PlainTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -21,7 +19,7 @@ const time = Temporal.PlainTime.from("12:34:56");
 console.log(time.second); // 56
 ```
 
-### Änderung von second
+### Ändern von second
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");
@@ -29,7 +27,7 @@ const newTime = time.with({ second: 15 });
 console.log(newTime.toString()); // 12:34:15
 ```
 
-Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Sekunden von der aktuellen Zeit zu verschieben.
+Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Sekunden von der aktuellen Uhrzeit hinzuzufügen oder abzuziehen.
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

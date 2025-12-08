@@ -3,28 +3,28 @@ title: "HTMLAreaElement: interestForElement-Eigenschaft"
 short-title: interestForElement
 slug: Web/API/HTMLAreaElement/interestForElement
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{ApiRef("HTML DOM")}}
+{{ApiRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`interestForElement`**-Eigenschaft der Schnittstelle [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) ruft das Zielelement eines Interest Invokers ab oder setzt es, in den Fällen, in denen das zugehörige {{htmlelement("area")}}-Element als Interest Invoker spezifiziert ist.
+Die **`interestForElement`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces holt oder setzt das Zielelement eines Interessenaufrufers, in Fällen, in denen das zugehörige {{htmlelement("area")}}-Element als Interessenaufrufer festgelegt ist.
 
-Weitere Details finden Sie unter [Erstellen eines Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker).
+Siehe [Erstellen eines Interessenaufrufers](/de/docs/Web/API/Popover_API/Using_interest_invokers#creating_an_interest_invoker) für weitere Details.
 
 ## Wert
 
-Eine [`Element`](/de/docs/Web/API/Element)-Objektinstanz oder `null`, wenn das zugehörige `<area>`-Element kein Zielelement zugewiesen hat.
+Eine [`Element`](/de/docs/Web/API/Element)-Objektinstanz oder `null`, wenn das zugehörige `<area>`-Element kein Zielelement gesetzt hat.
 
 ## Beispiele
 
-### Grundlegende Nutzung von `interestForElement`
+### Grundlegende Verwendung von `interestForElement`
 
-In diesem Beispiel verwenden wir die `interestForElement`-Eigenschaft eines `<area>`-Elements, um dessen Zielelement festzulegen. Anschließend rufen wir das `tagName` des Zielelements ab. Das `tagName` wird dann im Textinhalt des `<area>`-Elements angezeigt.
+In diesem Beispiel nutzen wir die `interestForElement`-Eigenschaft eines `<area>`-Elements, um sein Zielelement zu setzen und dann den `tagName` des Zielelements abzurufen. Der `tagName` wird dann im Textinhalt des `<area>`-Elements ausgegeben.
 
 #### HTML
 
-Wir fügen ein `<area>`-Element und ein `<div>`-Element ein. Wir verwandeln das `<div>`-Element in ein Popover, indem wir ein `popover`-Attribut darauf setzen.
+Wir fügen ein `<area>`-Element und ein `<div>`-Element hinzu. Wir machen das `<div>`-Element zu einem Popover, indem wir ein `popover`-Attribut darauf setzen.
 
 ```html live-sample___basic-interest-invoker
 <map>
@@ -44,7 +44,7 @@ map {
 
 #### JavaScript
 
-Wir holen Referenzen auf die `<area>`- und `<div>`-Elemente im Skript und deklarieren dann eine Interest Invoker-Ziel-Beziehung zwischen dem `<area>` und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<area>`-Elements auf eine Referenz zum `<div>` setzen. Wir setzen dann den Textinhalt des `<area>`-Elements auf einen String, der das `tagName` des Zielelements enthält, welcher über `invoker.interestForElement.tagName` abgerufen wird.
+Wir erhalten Verweise auf die `<area>`- und `<div>`-Elemente im Skript und erklären dann eine Interessenaufrufer-Zielfernbeziehung zwischen dem `<area>` und dem `<div>`, indem wir die `interestForElement`-Eigenschaft des `<area>`-Elements auf einen Verweis zum `<div>` setzen. Anschließend setzen wir den Textinhalt des `<area>`-Elements auf einen String, der den `tagName` des Zielelements enthält, abgerufen über `invoker.interestForElement.tagName`.
 
 ```js live-sample___basic-interest-invoker
 const invoker = document.querySelector("area");
@@ -61,7 +61,7 @@ Das Beispiel wird wie folgt dargestellt:
 
 {{embedlivesample("basic-interest-invoker", "100%", "100")}}
 
-Versuchen Sie, Interesse an dem Bereich zu zeigen (zum Beispiel durch Hovern oder Fokussieren), um das `<div>` erscheinen zu lassen.
+Versuchen Sie, Interesse an dem Bereich zu zeigen (zum Beispiel durch Hover oder Fokussierung), um das `<div>` anzuzeigen.
 
 ## Spezifikationen
 
@@ -73,5 +73,5 @@ Versuchen Sie, Interesse an dem Bereich zu zeigen (zum Beispiel durch Hovern ode
 
 ## Siehe auch
 
-- [Nutzung von Interest Invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [Die Popover-API](/de/docs/Web/API/Popover_API)
+- [Verwendung von Interessenaufrufern](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [Das Popover API](/de/docs/Web/API/Popover_API)

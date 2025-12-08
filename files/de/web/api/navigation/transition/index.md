@@ -1,14 +1,14 @@
 ---
-title: "Navigation: transition-Eigenschaft"
+title: "Navigation: transition Eigenschaft"
 short-title: transition
 slug: Web/API/Navigation/transition
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`transition`** schreibgeschützte Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation) Interfaces gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition) Objekt zurück, das den Status einer laufenden Navigation darstellt, die zur Nachverfolgung verwendet werden kann.
+Die **`transition`** schreibgeschützte Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition) Objekt zurück, das den Status einer laufenden Navigation darstellt, welche zur Verfolgung verwendet werden kann.
 
 ## Wert
 
@@ -36,5 +36,5 @@ async function handleTransition() {
 
 ## Siehe auch
 
-- [Moderne client-seitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne client-seitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)

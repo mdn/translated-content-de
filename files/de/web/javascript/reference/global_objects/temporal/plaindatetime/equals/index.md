@@ -3,12 +3,10 @@ title: Temporal.PlainDateTime.prototype.equals()
 short-title: equals()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/equals
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`equals()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt `true` zurück, wenn dieses Datum-Uhrzeit-Wert gleichwertig zu einem anderen Datum-Uhrzeit-Wert ist (in einer Form, die durch {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} konvertierbar ist), und `false` ansonsten. Sie werden sowohl durch ihre Datums- und Zeitwerte als auch durch ihre Kalender verglichen, sodass zwei Datum-Uhrzeite aus verschiedenen Kalendern möglicherweise als gleich durch {{jsxref("Temporal/PlainDateTime/compare", "Temporal.PlainDateTime.compare()")}} angesehen werden, jedoch nicht durch `equals()`.
+Die **`equals()`**-Methode von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt `true` zurück, wenn dieser Datum-Uhrzeit-Wert einem anderen Datum-Uhrzeit-Wert (in einer Form, die durch {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDateTime.from()")}} umgewandelt werden kann) gleichwertig ist, und ansonsten `false`. Sie werden sowohl anhand ihrer Datum- und Uhrzeitwerte als auch ihrer Kalender verglichen, daher können zwei Datum-Uhrzeiten aus verschiedenen Kalendern von {{jsxref("Temporal/PlainDateTime/compare", "Temporal.PlainDateTime.compare()")}} als gleich angesehen werden, jedoch nicht von `equals()`.
 
 ## Syntax
 
@@ -19,11 +17,11 @@ equals(other)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}} Instanz, die das andere zu vergleichende Datum-Uhrzeit darstellt. Es wird mithilfe des gleichen Algorithmus wie {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} in ein `Temporal.PlainDateTime` Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDateTime")}}-Instanz, die die andere zu vergleichende Datum-Uhrzeit darstellt. Diese wird in ein `Temporal.PlainDateTime`-Objekt konvertiert, indem derselbe Algorithmus wie bei {{jsxref("Temporal/PlainDateTime/from", "Temporal.PlainDateTime.from()")}} verwendet wird.
 
 ### Rückgabewert
 
-`true`, wenn diese Datum-Uhrzeit in ihrem Datum/Zeit-Wert und ihrem Kalender dem `other` gleich ist, sonst `false`.
+`true`, wenn diese Datum-Uhrzeit sowohl in ihrem Datum/Uhrzeit-Wert als auch in ihrem Kalender gleich `other` ist, andernfalls `false`.
 
 ## Beispiele
 

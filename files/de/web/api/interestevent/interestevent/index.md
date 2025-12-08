@@ -3,12 +3,12 @@ title: "InterestEvent: InterestEvent() Konstruktor"
 short-title: InterestEvent()
 slug: Web/API/InterestEvent/InterestEvent
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Popover API")}}
+{{APIRef("Popover API")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Der **`InterestEvent()`**-Konstruktor erstellt ein neues [`InterestEvent`](/de/docs/Web/API/InterestEvent)-Objekt.
+Der **`InterestEvent()`** Konstruktor erstellt ein neues [`InterestEvent`](/de/docs/Web/API/InterestEvent)-Objekt.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ new InterestEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses darstellt. Für `InterestEvent` ist dies immer `interest` oder `loseinterest`.
+  - : Ein String, der den Typ des Ereignisses darstellt. Bei `InterestEvent` ist dies immer `interest` oder `loseinterest`.
 - `init` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `source` {{optional_inline}}
-      - : Ein [`Element`](/de/docs/Web/API/Element), das das Interesse auslösende Element darstellt, bei dem Interesse gezeigt oder verloren wurde.
+      - : Ein [`Element`](/de/docs/Web/API/Element), das das interessierende Auslöser-Element darstellt, bei dem Interesse gezeigt oder verloren wurde.
 
 ## Beispiele
 
-Normalerweise würden Sie diesen Konstruktor nicht manuell verwenden. Ein neues `InterestEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens eines relevanten Ereignisses aufgerufen wird.
+Normalerweise würden Sie diesen Konstruktor nicht manuell verwenden. Ein neues `InterestEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis eines entsprechenden ausgelösten Ereignisses aufgerufen wird.
 
-Siehe den [Leitfaden zur Verwendung von Interesse-Auslösern](/de/docs/Web/API/Popover_API/Using_interest_invokers) und die Referenzseite des [`interest`](/de/docs/Web/API/HTMLElement/interest_event)-Ereignisses für Beispiele.
+Siehe den [Leitfaden zur Verwendung von Interessenauslösern](/de/docs/Web/API/Popover_API/Using_interest_invokers) und die [`interest`](/de/docs/Web/API/HTMLElement/interest_event) Ereignis-Referenzseite für Beispiele.
 
 ## Spezifikationen
 
@@ -42,4 +42,4 @@ Siehe den [Leitfaden zur Verwendung von Interesse-Auslösern](/de/docs/Web/API/P
 ## Siehe auch
 
 - [Popover API](/de/docs/Web/API/Popover_API)
-- [Verwendung von Interesse-Auslösern](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [Verwendung von Interessenauslösern](/de/docs/Web/API/Popover_API/Using_interest_invokers)

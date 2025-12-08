@@ -1,17 +1,17 @@
 ---
-title: "HTMLElement: interest-Ereignis"
+title: "HTMLElement: interest event"
 slug: Web/API/HTMLElement/interest_event
 l10n:
-  sourceCommit: e00212a2a707a57b49b58b37a6a6c978aaef2bbd
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`interest`**-Ereignis der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle wird auf einem [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers)-Zielelement ausgelöst, wenn Interesse gezeigt wird, wodurch es möglich ist, Code in Reaktion darauf auszuführen.
+Das **`interest`**-Ereignis des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces wird auf dem Ziel-Element eines [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) ausgelöst, wenn Interesse gezeigt wird, und ermöglicht es, Code als Reaktion auszuführen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("interest", (event) => { })
@@ -29,11 +29,11 @@ Ein [`InterestEvent`](/de/docs/Web/API/InterestEvent). Erbt von [`Event`](/de/do
 
 ### Grundlegende Nutzung von interest invoker-Ereignissen
 
-In diesem Beispiel verwenden wir die Ereignisse `interest` und `loseinterest`, um zu melden, wann Interesse an einem {{htmlelement("button")}}-Element gezeigt und verloren wird, das als interest invoker fungiert. Wir tun dies, indem wir Nachrichten in den Textinhalt des Ziel-{{htmlelement("p")}}-Elements einfügen.
+In diesem Beispiel verwenden wir die `interest`- und `loseinterest`-Ereignisse, um zu berichten, wenn Interesse auf einem {{htmlelement("button")}}-Element gezeigt und verloren wird, das als interest invoker fungiert. Wir tun dies, indem wir Nachrichten in die Textinhalte des Ziel-{{htmlelement("p")}}-Elements drucken.
 
 #### HTML
 
-Wir richten die Beziehung zwischen dem `<button>`-Element interest invoker und seinem Ziel-`<p>`-Element ein, indem wir den Wert des `interestfor`-Attributs des `<button>`-Elements auf die `id` des `<p>`-Elements setzen.
+Wir richten die Beziehung zwischen dem `<button>`-Element interest invoker und seinem Ziel-`<p>`-Element ein, indem wir den Wert des `interestfor`-Attributs des `<button>`-Elements gleich der `id` des `<p>`-Elements setzen.
 
 ```html live-sample___basic-interest-invoker
 <button href="#" interestfor="mytarget">Interest invoker</button>
@@ -42,17 +42,17 @@ Wir richten die Beziehung zwischen dem `<button>`-Element interest invoker und s
 
 #### JavaScript
 
-Wir erhalten eine Referenz auf das `<button>`-Element und sein Zielelement über die [`interestForElement`](/de/docs/Web/API/HTMLButtonElement/interestForElement)-Eigenschaft.
+Wir erhalten eine Referenz auf das `<button>`-Element und sein Ziel-Element über die [`interestForElement`](/de/docs/Web/API/HTMLButtonElement/interestForElement)-Eigenschaft.
 
 ```js live-sample___basic-interest-invoker
 const invoker = document.querySelector("[interestfor]");
 const target = invoker.interestForElement;
 ```
 
-Wir setzen dann zwei Ereignis-Listener auf das Zielelement, für die Ereignisse `interest` und `loseinterest`.
+Dann setzen wir zwei Ereignislistener auf das Ziel-Element, für die `interest`- und `loseinterest`-Ereignisse.
 
-- Wenn Interesse gezeigt wird, aktualisieren wir den Textinhalt des Ziel-`<p>`-Elements, um das Ereignis zu melden und das Element anzugeben, das es ausgelöst hat; in diesem Beispiel ist das das `<button>`-Element. Beachten Sie, wie Sie eine Referenz auf den interest invoker über die [`source`](/de/docs/Web/API/InterestEvent/source)-Eigenschaft des Ereignisobjekts erhalten können.
-- Wenn Interesse verloren geht, aktualisieren wir den Text des Absatzes, um zu melden, dass kein Interesse mehr gezeigt wird.
+- Wenn Interesse gezeigt wird, aktualisieren wir den Textinhalt des Ziel-`<p>`-Elements, um das Ereignis zu melden und das auslösende Element einzuschließen; in diesem Beispiel ist das das `<button>`-Element. Beachten Sie, wie Sie über die [`source`](/de/docs/Web/API/InterestEvent/source)-Eigenschaft des Ereignisobjekts eine Referenz auf den interest invoker erhalten können.
+- Wenn Interesse verloren geht, aktualisieren wir den Absatztext, um zu melden, dass Interesse nicht mehr gezeigt wird.
 
 ```js live-sample___basic-interest-invoker
 target.addEventListener("interest", (e) => {
@@ -66,11 +66,11 @@ target.addEventListener("loseinterest", () => {
 
 #### Ergebnis
 
-Das Beispiel wird wie folgt dargestellt:
+Das Beispiel wird folgendermaßen dargestellt:
 
 {{embedlivesample("basic-interest-invoker", "100%", "100")}}
 
-Versuchen Sie, Interesse an dem Button zu zeigen und zu verlieren (zum Beispiel durch Hovern oder Fokussieren), um zu sehen, wie sich der `<p>`-Text ändert.
+Versuchen Sie, Interesse zu zeigen und zu verlieren (zum Beispiel durch Überfahren oder Fokussieren der Schaltfläche), um zu sehen, wie sich der `<p>`-Text ändert.
 
 ## Spezifikationen
 

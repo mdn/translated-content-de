@@ -3,17 +3,15 @@ title: Temporal.ZonedDateTime.prototype.timeZoneId
 short-title: timeZoneId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/timeZoneId
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die Zugriffseigenschaft **`timeZoneId`** von {{jsxref("Temporal.ZonedDateTime")}}-Instanzen gibt einen String zurück, der den [Zeitzonenidentifikator](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) darstellt, der verwendet wird, um den internen Moment zu interpretieren. Der String ist entweder ein benannter Identifikator im bevorzugten Format (z. B. `"America/New_York"`) oder eine Verschiebung in der Form `"±hh:mm"`. Wenn die Zeitzone Aliasse hat, ist `timeZoneId` der Identifikator, der zur Erstellung des `ZonedDateTime` verwendet wurde, ohne Kanonisierung auf den primären Identifikator.
+Die **`timeZoneId`** Accessor-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine Zeichenkette zurück, die den [Zeitzonenbezeichner](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#time_zones_and_offsets) repräsentiert, der verwendet wird, um den internen Zeitpunkt zu interpretieren. Die Zeichenkette ist entweder ein benannter Bezeichner im bevorzugten Format (wie `"America/New_York"`), oder ein Offset in der Form `"±hh:mm"`. Wenn die Zeitzone Aliasse hat, ist `timeZoneId` der Bezeichner, der verwendet wurde, um die `ZonedDateTime` zu erstellen, ohne eine Kanonisierung zum primären Bezeichner.
 
 Der Set-Accessor von `timeZoneId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/ZonedDateTime/withTimeZone", "withTimeZone()")}}, um ein neues `Temporal.ZonedDateTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 > [!NOTE]
-> Dieser String ist nicht zur Anzeige für Benutzer gedacht. Verwenden Sie {{jsxref("Temporal/ZonedDateTime/toLocaleString", "toLocaleString()")}} mit den entsprechenden Optionen, um einen lokalisierten String zu erhalten.
+> Diese Zeichenkette ist nicht für die Anzeige an Benutzer vorgesehen. Verwenden Sie {{jsxref("Temporal.ZonedDateTime/toLocaleString", "toLocaleString()")}} mit den entsprechenden Optionen, um eine lokalisierte Zeichenkette zu erhalten.
 
 ## Beispiele
 
@@ -32,7 +30,7 @@ const dt3 = dt2.withTimeZone("Asia/Shanghai");
 console.log(dt3.timeZoneId); // "Asia/Shanghai"
 ```
 
-Der `timeZoneId` wird niemals auf den primären Identifikator kanonisiert; er ist derselbe wie derjenige, der zur Erstellung des `ZonedDateTime` verwendet wurde.
+Die `timeZoneId` wird nie zum primären Bezeichner kanonisiert; sie ist identisch mit derjenigen, die zur Erstellung der `ZonedDateTime` verwendet wurde.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(
@@ -45,7 +43,7 @@ console.log(dt.timeZoneId); // "Asia/Ho_Chi_Minh"
 console.log(dt2.timeZoneId); // "Asia/Saigon"
 ```
 
-Präsentationsunterschiede werden jedoch kanonisiert.
+Darstellungsunterschiede werden jedoch kanonisiert.
 
 ```js
 const dt = Temporal.ZonedDateTime.from(

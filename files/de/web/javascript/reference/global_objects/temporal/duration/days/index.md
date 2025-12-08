@@ -3,16 +3,14 @@ title: Temporal.Duration.prototype.days
 short-title: days
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/days
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`days`** Zugriffs-Property von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Tage in der Dauer darstellt.
 
-Die **`days`** Zugriffs-Property von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Tage in der Dauer repräsentiert.
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Wertebereich dieses Wertes nicht annehmen, aber Sie können dessen Vorzeichen erkennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit über Tage hinaus ausgeglichen ist, hängt der Wertebereich des absoluten Werts von `days` vom Kalender ab (wie viele Tage in einer Woche oder einem Monat sind).
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können das Vorzeichen durch Überprüfung der [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer feststellen. Wenn es zu einer Einheit über den Tagen ausgeglichen ist, hängt der absolute Wertebereich von `days` vom Kalender ab (wie viele Tage sich in einer Woche oder einem Monat befinden).
-
-Der set-Accessor von `days` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Setzugriff von `days` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Nutzen Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

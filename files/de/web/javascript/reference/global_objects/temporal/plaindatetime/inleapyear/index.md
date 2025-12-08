@@ -3,12 +3,10 @@ title: Temporal.PlainDateTime.prototype.inLeapYear
 short-title: inLeapYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/inLeapYear
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`inLeapYear`** Accessor-Eigenschaft von Instanzen von {{jsxref("Temporal.PlainDateTime")}} gibt einen booleschen Wert zurück, der anzeigt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr mit mehr Tagen (aufgrund eines Schalt- oder Zusatzmonats) als ein normales Jahr. Es ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig.
+Die **`inLeapYear`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainDateTime")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob dieses Datum in einem Schaltjahr liegt. Ein Schaltjahr ist ein Jahr, das aufgrund eines Schalttages oder Schaltmonats mehr Tage als ein normales Jahr hat. Es ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
 Der Set-Accessor von `inLeapYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 

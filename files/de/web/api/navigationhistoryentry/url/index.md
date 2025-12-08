@@ -3,16 +3,16 @@ title: "NavigationHistoryEntry: url-Eigenschaft"
 short-title: url
 slug: Web/API/NavigationHistoryEntry/url
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`url`**-Schreibgeschützte Eigenschaft der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt die absolute URL dieses Verlaufs-Eintrags zurück. Wenn der Eintrag einem anderen Dokument als dem aktuellen entspricht (wie zum Beispiel wenn die Eigenschaft `sameDocument` `false` ist) und dieses Dokument mit einem {{httpheader("Referrer-Policy")}}-Header mit dem Wert `no-referrer` oder `origin` abgerufen wurde, gibt die Eigenschaft `null` zurück. Wenn das aktuelle Dokument nicht vollständig aktiv ist, wird ein leerer String zurückgegeben.
+Die **`url`**-Schreibgeschützte Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt die absolute URL dieses Verlaufs-Eintrags zurück. Wenn der Eintrag einem anderen Dokument als dem aktuellen entspricht (wie wenn die `sameDocument`-Eigenschaft `false` ist), und dieses Dokument mit einem {{httpheader("Referrer-Policy")}}-Header abgerufen wurde, der auf `no-referrer` oder `origin` gesetzt ist, gibt die Eigenschaft `null` zurück. Wenn das aktuelle Dokument nicht vollständig aktiv ist, gibt es einen leeren String zurück.
 
 ## Wert
 
-Ein String, der die URL oder `null` darstellt.
+Ein String, der die URL repräsentiert, oder `null`.
 
 ## Beispiele
 
@@ -31,5 +31,5 @@ console.log(current.url);
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

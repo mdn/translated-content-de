@@ -3,12 +3,10 @@ title: Temporal.PlainMonthDay.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay/toString
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`toString()`**-Methode von {{jsxref("Temporal.PlainMonthDay")}}-Instanzen gibt einen String zurück, der diesen Monat-Tag im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) darstellt.
+Die **`toString()`** Methode von {{jsxref("Temporal.PlainMonthDay")}} Instanzen gibt einen String zurück, der diesen Monat-Tag im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -22,19 +20,19 @@ toString(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `calendarName` {{optional_inline}}
-      - : Gibt an, ob die Kalender-Anmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
+      - : Ob die Kalenderanmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Schließen Sie die Kalender-Anmerkung ein, wenn der Kalender nicht `"iso8601"` ist. Das Referenzjahr wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderanmerkung wird hinzugefügt, wenn der Kalender nicht `"iso8601"` ist. Das Referenzjahr wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Immer die Kalender-Anmerkung einfügen. Das Referenzjahr wird ebenfalls immer einbezogen.
+          - : Die Kalenderanmerkung wird immer hinzugefügt. Das Referenzjahr wird ebenfalls immer berücksichtigt.
         - `"never"`
-          - : Die Kalender-Anmerkung nie einfügen. Dadurch kann der zurückgegebene String nicht in die gleiche {{jsxref("Temporal.PlainMonthDay")}}-Instanz zurückverwandelt werden, obwohl der Monat-Tag-Wert gleich bleibt. Das Referenzjahr wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalenderanmerkung wird nie hinzugefügt. Dies macht den zurückgegebenen String nicht auf die gleiche {{jsxref("Temporal.PlainMonthDay")}} Instanz rekonstruierbar, obwohl der Monat-Tag-Wert derselbe bleibt. Das Referenzjahr wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
         - `"critical"`
-          - : Immer die Kalender-Anmerkung einfügen und eine kritische Kennzeichnung hinzufügen: `[!u-ca=calendar_id]`. Nützlich beim Senden des Strings an bestimmte Systeme, jedoch nicht für Temporal selbst. Das Referenzjahr wird ebenfalls immer einbezogen.
+          - : Die Kalenderanmerkung wird immer hinzugefügt, und es wird ein kritisches Flag hinzugefügt: `[!u-ca=calendar_id]`. Nützlich, wenn der String an bestimmte Systeme gesendet wird, aber nicht nützlich für Temporal selbst. Das Referenzjahr wird ebenfalls immer berücksichtigt.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format), der diesen Monat-Tag darstellt. Die Kalender-Anmerkung ist wie angegeben enthalten. Das Referenzjahr wird einbezogen, wenn eine Kalender-Anmerkung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
+Ein String im [RFC 9557-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainMonthDay#rfc_9557_format), der diesen Monat-Tag darstellt. Die Kalenderanmerkung wird wie angegeben hinzugefügt. Das Referenzjahr wird einbezogen, wenn eine Kalenderanmerkung enthalten ist oder wenn der Kalender nicht `"iso8601"` ist.
 
 ### Ausnahmen
 
