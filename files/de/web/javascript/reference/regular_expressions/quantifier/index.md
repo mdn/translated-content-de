@@ -1,11 +1,11 @@
 ---
-title: "Quantifikatoren: *, +, ?, {n}, {n,}, {n,m}"
+title: "Quantor: *, +, ?, {n}, {n,}, {n,m}"
 slug: Web/JavaScript/Reference/Regular_expressions/Quantifier
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 0f6daa30cf89c66d37700c51b8a12e660fee29d9
 ---
 
-Ein **Quantifikator** wiederholt ein [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms) eine bestimmte Anzahl von Malen. Der Quantifikator wird nach dem Atom platziert, auf das er angewendet wird.
+Ein **Quantor** wiederholt ein [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms) eine bestimmte Anzahl von Malen. Der Quantor wird nach dem Atom platziert, auf das er angewendet wird.
 
 ## Syntax
 
@@ -27,31 +27,34 @@ atom{min,}?
 atom{min,max}?
 ```
 
+> [!NOTE]
+> Das Hinzufügen von `?` nach `{count}` ist syntaktisch korrekt, aber praktisch nutzlos. Da `{count}` immer genau `count` Mal übereinstimmt, verhält sich `atom{count}?` genauso wie `atom{count}`.
+
 ### Parameter
 
 - `atom`
   - : Ein einzelnes [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms).
 - `count`
-  - : Eine nicht-negative ganze Zahl. Die Anzahl der Wiederholungen des Atoms.
+  - : Eine nicht-negative ganze Zahl. Die Anzahl der Male, die das Atom wiederholt werden soll.
 - `min`
   - : Eine nicht-negative ganze Zahl. Die minimale Anzahl der Wiederholungen des Atoms.
 - `max` {{optional_inline}}
-  - : Eine nicht-negative ganze Zahl. Die maximale Anzahl der Wiederholungen des Atoms. Wenn weggelassen, kann das Atom so oft wie nötig wiederholt werden.
+  - : Eine nicht-negative ganze Zahl. Die maximale Anzahl der Wiederholungen des Atoms. Wenn sie weggelassen wird, kann das Atom so oft wie nötig wiederholt werden.
 
 ## Beschreibung
 
-Ein Quantifikator wird nach einem [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms) platziert, um es eine bestimmte Anzahl von Malen zu wiederholen. Er kann nicht alleine erscheinen. Jeder Quantifikator kann eine minimale und maximale Anzahl angeben, wie oft ein Muster wiederholt werden muss.
+Ein Quantor wird nach einem [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms) platziert, um es eine bestimmte Anzahl von Malen zu wiederholen. Er kann nicht alleine erscheinen. Jeder Quantor kann eine minimale und maximale Anzahl von Wiederholungen angeben, die ein Muster haben muss.
 
-| Quantifikator | Minimum | Maximum  |
-| ------------- | ------- | -------- |
-| `?`           | 0       | 1        |
-| `*`           | 0       | Infinity |
-| `+`           | 1       | Infinity |
-| `{count}`     | `count` | `count`  |
-| `{min,}`      | `min`   | Infinity |
-| `{min,max}`   | `min`   | `max`    |
+| Quantor     | Minimum | Maximum   |
+| ----------- | ------- | --------- |
+| `?`         | 0       | 1         |
+| `*`         | 0       | Unendlich |
+| `+`         | 1       | Unendlich |
+| `{count}`   | `count` | `count`   |
+| `{min,}`    | `min`   | Unendlich |
+| `{min,max}` | `min`   | `max`     |
 
-Für die Syntaxen `{count}`, `{min,}`, und `{min,max}` dürfen keine Leerzeichen um die Zahlen stehen — sonst wird es zu einem [literal](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster.
+Bei den Syntaxen `{count}`, `{min,}` und `{min,max}` dürfen keine Leerzeichen um die Zahlen vorhanden sein — andernfalls wird es zu einem [Literal-](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster.
 
 ```js example-bad
 const re = /a{1, 3}/;
@@ -59,27 +62,27 @@ re.test("aa"); // false
 re.test("a{1, 3}"); // true
 ```
 
-Dieses Verhalten ist im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) festgelegt, wo geschweifte Klammern nicht ohne [Escape-Zeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) wörtlich erscheinen können. Die Möglichkeit, `{` und `}` wörtlich ohne Escape-Zeichen zu verwenden, ist eine [veraltete Syntax zur Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
+Dieses Verhalten ist im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) behoben, in dem Klammern nicht wörtlich ohne [Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) erscheinen können. Die Fähigkeit, `{` und `}` wörtlich ohne Escape zu verwenden, ist eine [veraltete Syntax für die Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
 
 ```js-nolint example-bad
 /a{1, 3}/u; // SyntaxError: Invalid regular expression: Incomplete quantifier
 ```
 
-Es ist ein Syntaxfehler, wenn das Minimum größer als das Maximum ist.
+Es tritt ein Syntaxfehler auf, wenn das Minimum größer als das Maximum ist.
 
 ```js-nolint example-bad
 /a{3,2}/; // SyntaxError: Invalid regular expression: numbers out of order in {} quantifier
 ```
 
-Quantifikatoren können dazu führen, dass [Capturing-Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) mehrmals übereinstimmen. Weitere Informationen dazu finden Sie auf der Seite über Capturing-Gruppen.
+Quantoren können dazu führen, dass [erfassende Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) mehrmals übereinstimmen. Siehe die Seite über die erfassenden Gruppen für weitere Informationen zum Verhalten in diesem Fall.
 
-Jedes wiederholte Übereinstimmen muss nicht derselbe String sein.
+Jedes wiederholte Übereinstimmen muss nicht der gleiche String sein.
 
 ```js
 /[ab]*/.exec("aba"); // ['aba']
 ```
 
-Quantifikatoren sind standardmäßig _gierig_, was bedeutet, dass sie versuchen, so oft wie möglich übereinzustimmen, bis das Maximum erreicht ist oder es nicht mehr möglich ist, weiter zu übereinstimmen. Sie können einen Quantifikator _nicht-gierig_ machen, indem Sie ein `?` danach hinzufügen. In diesem Fall wird der Quantifikator versuchen, so wenig wie möglich übereinzustimmen, und nur mehr übereinstimmen, wenn es unmöglich ist, den Rest des Musters mit dieser Anzahl von Wiederholungen zu übereinstimmen.
+Quantoren sind standardmäßig _gierig_, was bedeutet, dass sie versuchen, so oft wie möglich zu arbeiten, bis das Maximum erreicht ist oder bis es nicht mehr möglich ist, weiter abzugleichen. Sie können einen Quantor _nicht-gierig_ machen, indem Sie ein `?` dahinter hinzufügen. In diesem Fall wird der Quantor versuchen, so wenig wie möglich zu arbeiten, und nur dann öfter übereinstimmen, wenn es unmöglich ist, den Rest des Musters mit dieser Anzahl von Wiederholungen abzugleichen.
 
 ```js
 /a*/.exec("aaa"); // ['aaa']; the entire input is consumed
@@ -87,31 +90,31 @@ Quantifikatoren sind standardmäßig _gierig_, was bedeutet, dass sie versuchen,
 /^a*?$/.exec("aaa"); // ['aaa']; it's not possible to consume fewer characters and still match successfully
 ```
 
-Sobald der Regex jedoch die Zeichenkette erfolgreich an einem bestimmten Index abgleicht, wird er nicht an nachfolgenden Indizes versuchen, selbst wenn dies zu weniger konsumierten Zeichen führen könnte.
+Jedoch, sobald der Regex den String an einem Index erfolgreich übereinstimmt, wird er nicht versuchen, nachfolgende Indizes zu prüfen, obwohl dies möglicherweise zu weniger konsumierten Zeichen führt.
 
 ```js
 /a*?$/.exec("aaa"); // ['aaa']; the match already succeeds at the first character, so the regex never attempts to start matching at the second character
 ```
 
-Gierige Quantifikatoren können weniger Wiederholungen versuchen, wenn es sonst unmöglich ist, den Rest des Musters zu erfüllen.
+Gierige Quantoren können weniger Wiederholungen versuchen, wenn es sonst unmöglich ist, den Rest des Musters abzugleichen.
 
 ```js
 /[ab]+[abc]c/.exec("abbc"); // ['abbc']
 ```
 
-In diesem Beispiel gleicht `[ab]+` zuerst gierig `"abb"` ab, aber `[abc]c` kann den Rest des Musters (`"c"`) nicht abgleichen, sodass der Quantifikator reduziert wird, um nur `"ab"` abzugleichen.
+In diesem Beispiel stimmt `[ab]+` zuerst gierig mit `"abb"` überein, aber `[abc]c` kann den Rest des Musters (`"c"`) nicht abgleichen, sodass der Quantor reduziert wird, um nur mit `"ab"` übereinzustimmen.
 
-Gierige Quantifikatoren vermeiden es, unendlich viele leere Zeichenfolgen abzugleichen. Wenn die Mindestanzahl an Übereinstimmungen erreicht ist und keine weiteren Zeichen durch das Atom an dieser Position konsumiert werden, hört der Quantifikator auf, abzugleichen. Dies ist der Grund, warum `/(a*)*/.exec("b")` nicht in einer Endlosschleife resultiert.
+Gierige Quantoren vermeiden es, unendlich viele leere Zeichenfolgen zu übereinstimmen. Wenn die minimale Anzahl von Übereinstimmungen erreicht ist und keine weiteren Zeichen von dem Atom an dieser Position konsumiert werden, hört der Quantor auf, übereinzustimmen. Deshalb resultiert `/(a*)*/.exec("b")` nicht in einer Endlosschleife.
 
-Gierige Quantifikatoren versuchen, so oft wie möglich übereinzustimmen; dies maximiert jedoch nicht die _Länge_ des Abgleichs. Zum Beispiel, `/(aa|aabaac|ba)*/.exec("aabaac")` gleicht `"aa"` und dann `"ba"` ab, anstatt `"aabaac"`.
+Gierige Quantoren versuchen, so oft wie möglich _immer wieder_ zu übereinstimmen; sie maximieren nicht die _Länge_ des Übereinstimmungstreffers. Zum Beispiel, `/(aa|aabaac|ba)*/.exec("aabaac")` stimmt mit `"aa"` und dann mit `"ba"` überein, anstatt mit `"aabaac"`.
 
-Quantifikatoren beziehen sich auf ein einzelnes Atom. Wenn Sie ein längeres Muster oder eine Disjunktion quantifizieren möchten, müssen Sie es [gruppieren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group). Quantifikatoren können nicht auf [Assertionen](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions) angewendet werden.
+Quantoren beziehen sich auf ein einzelnes Atom. Wenn Sie ein längeres Muster oder eine Disjunktion quantifizieren möchten, müssen Sie es [gruppieren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group). Quantoren können nicht auf [Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions) angewendet werden.
 
 ```js-nolint example-bad
 /^*/; // SyntaxError: Invalid regular expression: nothing to repeat
 ```
 
-Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) können [Lookahead-Assertionen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) quantifiziert werden. Dies ist eine [veraltete Syntax zur Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
+Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) können [Lookahead Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion) quantifiziert werden. Dies ist eine [veraltete Syntax für die Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
 
 ```js
 /(?=a)?b/.test("b"); // true; the lookahead is matched 0 time
@@ -119,7 +122,7 @@ Im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/Re
 
 ## Beispiele
 
-### Entfernen von HTML-Tags
+### HTML-Tags entfernen
 
 Das folgende Beispiel entfernt HTML-Tags, die in spitzen Klammern eingeschlossen sind. Beachten Sie die Verwendung von `?`, um zu vermeiden, dass zu viele Zeichen auf einmal konsumiert werden.
 
@@ -131,7 +134,7 @@ function stripTags(str) {
 stripTags("<p><em>lorem</em> <strong>ipsum</strong></p>"); // 'lorem ipsum'
 ```
 
-Der gleiche Effekt kann mit einem gierigen Abgleich erzielt werden, indem dem wiederholten Muster nicht erlaubt wird, `>` abzugleichen.
+Der gleiche Effekt kann mit einer gierigen Übereinstimmung erreicht werden, jedoch ohne dass das wiederholte Muster mit `>` übereinstimmen darf.
 
 ```js
 function stripTags(str) {
@@ -142,9 +145,9 @@ stripTags("<p><em>lorem</em> <strong>ipsum</strong></p>"); // 'lorem ipsum'
 ```
 
 > [!WARNING]
-> Dies ist nur zu Demonstrationszwecken — es behandelt `>` in Attributwerten nicht. Verwenden Sie stattdessen einen richtigen HTML-Sanitizer wie die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API).
+> Dies ist nur zur Demonstration — es behandelt nicht `>` in Attributwerten. Verwenden Sie stattdessen einen geeigneten HTML-Filter wie die [HTML Sanitizer API](/de/docs/Web/API/HTML_Sanitizer_API).
 
-### Lokalisieren von Markdown-Absätzen
+### Auffinden von Markdown-Absätzen
 
 In Markdown werden Absätze durch eine oder mehrere leere Zeilen getrennt. Das folgende Beispiel zählt alle Absätze in einem String, indem es zwei oder mehr Zeilenumbrüche abgleicht.
 
@@ -164,7 +167,7 @@ Another paragraph
 ```
 
 > [!WARNING]
-> Dies ist nur zu Demonstrationszwecken — es behandelt keine Zeilenumbrüche in Codeblöcken oder anderen Markdown-Blockelementen wie Überschriften. Verwenden Sie stattdessen einen passenden Markdown-Parser.
+> Dies ist nur zur Demonstration — es behandelt nicht Zeilenumbrüche in Codeblöcken oder anderen Markdown-Blockelementen wie Überschriften. Verwenden Sie stattdessen einen geeigneten Markdown-Parser.
 
 ## Spezifikationen
 
@@ -178,5 +181,5 @@ Another paragraph
 
 - [Quantifiers](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Disjunction: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
+- [Disjunktion: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
