@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout (yari)
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: mdn/yari
           path: mdn/yari
@@ -36,14 +36,14 @@ jobs:
           persist-credentials: false
 
       - name: Checkout (content)
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: mdn/content
           path: mdn/content
           persist-credentials: false
 
       - name: Checkout (translated-content-de)
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: mdn/translated-content-de
           persist-credentials: false
