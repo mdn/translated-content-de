@@ -2,12 +2,12 @@
 title: :interest-source
 slug: Web/CSS/Reference/Selectors/:interest-source
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 995f8bcede5aa8ca40921b030deef7524ce9e1a3
 ---
 
 {{SeeCompatTable}}
 
-Die **`:interest-source`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein [Interest-Invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element, wenn Interesse daran gezeigt wird.
+Die **`:interest-source`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element, wenn Interesse an ihm gezeigt wird.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ Die **`:interest-source`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/C
 
 ## Beispiele
 
-### Auswahl eines Interest-Invoker-Elements
+### Auswahl eines Interest Invoker-Elements
 
-In diesem Beispiel zeigen wir, wie `:interest-source` verwendet werden kann, um Stile auf ein Interest-Invoker-Element anzuwenden, wenn Interesse daran gezeigt wird.
+In diesem Beispiel zeigen wir, wie `:interest-source` verwendet werden kann, um einem Interest Invoker-Element Stile zuzuweisen, wenn Interesse an ihm gezeigt wird.
 
 #### HTML
 
-Das Markup umfasst ein {{htmlelement("button")}} und ein {{htmlelement("p")}}. Wir spezifizieren das `<button>` als Interest-Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt und dadurch den Absatz zum Zielelement macht. Der Absatz wird in ein Popover umgewandelt, indem ihm das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut gegeben wird, welches es anfänglich versteckt.
+Das Markup enthält ein {{htmlelement("button")}} und ein {{htmlelement("p")}}. Wir spezifizieren das `<button>` als Interest Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt, wodurch der Paragraph zum Ziel-Element wird. Der Paragraph wird zu einem Popover, indem wir ihm das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut geben, welches ihn zunächst ausblendet.
 
 ```html live-sample___interest-source
 <button interestfor="mypopover">Button</button>
-<p id="mypopover" popover>A hover toolip</p>
+<p id="mypopover" popover>A hover tooltip</p>
 ```
 
 #### CSS
 
-Im CSS spezifizieren wir eine Regel mit einem `:interest-source` Selektor, um eine spezifische Kombination von {{cssxref("background-color")}} und {{cssxref("color")}} auf das `<button>` anzuwenden, wenn Interesse daran gezeigt wird. Wir wenden auch einige andere Stile auf das `<button>` an, die der Kürze halber ausgeblendet sind.
+Im CSS spezifizieren wir eine Regel mit einem `:interest-source` Selektor, um eine spezifische Kombination aus {{cssxref("background-color")}} und {{cssxref("color")}} auf das `<button>` anzuwenden, wenn Interesse daran gezeigt wird. Wir wenden auch einige andere Stile auf das `<button>` an, die der Kürze halber nicht gezeigt werden.
 
 ```css hidden live-sample___interest-source
 button {
@@ -58,11 +58,11 @@ button:interest-source {
 
 #### Ergebnis
 
-Dies wird wie folgt gerendert:
+Das wird wie folgt dargestellt:
 
 {{embedlivesample("interest-source", "100%", "100")}}
 
-Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Hover oder Fokus), und beachten Sie, wie die `hotpink` und `purple` Farbgebung nur angewendet wird, wenn Interesse gezeigt wird.
+Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Darüberfahren oder Fokussieren), und beachten Sie, wie die `hotpink` und `purple` Farbgebung nur angewendet wird, wenn Interesse gezeigt wird.
 
 ## Spezifikationen
 
@@ -77,4 +77,4 @@ Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Hover oder Foku
 - {{cssxref(":interest-target")}}
 - [Popover API](/de/docs/Web/API/Popover_API)
 - [Using interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- [CSS Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
