@@ -2,33 +2,23 @@
 title: view()
 slug: Web/CSS/Reference/Properties/animation-timeline/view
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: b7534af9f369a80fe12556cba781890e87a171d9
 ---
 
-Die **`view()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann mit {{cssxref("animation-timeline")}} verwendet werden, um ein Bezugselement anzugeben, das eine anonyme Fortschrittszeitleiste zur Animation bereitstellt. Die Fortschrittszeitleiste des Sichtbereichs wird durch eine Änderung der Sichtbarkeit des Bezugselements innerhalb des nächstgelegenen Vorfahren-Scrollers fortschreiten. Die Sichtbarkeit des Elements innerhalb des Scrollers wird verfolgt — standardmäßig steht die Zeitleiste bei 0%, wenn das Element an einem Rand des Scrollers erstmals sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht.
-
-Die Funktionsparameter können die Achse der Bildlaufleiste angeben, entlang derer der Zeitleistenfortschritt verfolgt wird, sowie einen Versatz, der die Position des Bereichs anpasst, in dem das Bezugselement als sichtbar betrachtet wird.
-
-> [!NOTE]
-> Wenn die angegebene Achse keine Bildlaufleiste enthält, ist die Animationszeitleiste inaktiv (hat keinen Fortschritt).
-
-> [!NOTE]
-> Jede Verwendung von `view()` entspricht einer eigenen Instanz von [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) in der [Web Animations API](/de/docs/Web/API/Web_Animations_API).
+Die **`view()`** [CSS-Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wird mit der {{cssxref("animation-timeline")}}-Eigenschaft verwendet, um eine [anonyme View-Progress-Zeitachse](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#anonymous_view_progress_timelines_the_view_function) zu erstellen, basierend darauf, wann ein Element in seinem nächsten {{Glossary("scroll_container", "Scroll-Container")}} in den Blick kommt. Sie können die Verfolgungsachse und die optionalen Einzüge anpassen, um zu steuern, wann das Element als „in Sicht“ angesehen wird.
 
 ## Syntax
 
 ```css
-/* Function with no parameters set */
+/* No parameters */
 animation-timeline: view();
 
-/* Values for selecting the axis */
-animation-timeline: view(block); /* Default */
-animation-timeline: view(inline);
-animation-timeline: view(y);
+/* Axis parameter */
+animation-timeline: view(block);
 animation-timeline: view(x);
 
-/* Values for the inset */
-animation-timeline: view(auto); /* Default */
+/* Inset parameter */
+animation-timeline: view(auto);
 animation-timeline: view(20%);
 animation-timeline: view(200px);
 animation-timeline: view(20% 40%);
@@ -36,36 +26,32 @@ animation-timeline: view(20% 200px);
 animation-timeline: view(100px 200px);
 animation-timeline: view(auto 200px);
 
-/* Examples that specify axis and inset */
-animation-timeline: view(block auto); /* Default */
+/* Axis and inset parameters */
+animation-timeline: view(block auto);
 animation-timeline: view(inline 20%);
 animation-timeline: view(x 200px auto);
 ```
 
 ### Parameter
 
-- axis
-  - : Der Wert für die Bildlaufleistachse kann einer der folgenden sein:
-    - `block`
-      - : Die Bildlaufleiste auf der Block-Achse des Scroll-Containers, die im rechten Winkel zur Fließrichtung des Textes innerhalb einer Zeile liegt.
-        Für horizontale Schreibmodi, wie sie im Standardenglisch verwendet werden, entspricht dies `y`, während es für vertikale Schreibmodi `x` entspricht. Dies ist der Standardwert.
-    - `inline`
-      - : Die Bildlaufleiste auf der Inline-Achse des Scroll-Containers, die parallel zur Fließrichtung des Textes in einer Zeile liegt.
-        Für horizontale Schreibmodi entspricht dies `x`, während es für vertikale Schreibmodi `y` entspricht.
-    - `y`
-      - : Die Bildlaufleiste auf der vertikalen Achse des Scroll-Containers.
-    - `x`
-      - : Die Bildlaufleiste auf der horizontalen Achse des Scroll-Containers.
+- `<axis>`
+  - : Gibt die Scroll-Richtung an, die von der View-Progress-Zeitachse verwendet wird. Der Wert kann eines der {{cssxref("axis")}} Schlüsselwörter sein: `block`, `inline`, `x` oder `y`. Der Standardwert ist `block`.
+- `<view-timeline-inset>`
+  - : Gibt den Einzugsbereich an, der definiert, wann ein Element als „in Sicht“ angesehen wird. Der Wert kann das Schlüsselwort `auto` oder bis zu zwei {{cssxref("length-percentage")}} Werte sein.
 
-- inset
-  - : Der Inset-Wert kann ein oder zwei Werte sein, die entweder `auto` oder ein {{cssxref("length-percentage")}} sein können. Er gibt eine Einfügung (positiv) oder Ausfügung (negativ) des {{Glossary("Scroll_container#scrollport", "Scrollport")}} an. Der Inset wird verwendet, um zu bestimmen, ob das Element im Sichtbereich ist, was die Länge der Animationszeitleiste bestimmt. Mit anderen Worten, die Animation dauert so lange, wie das Element im angepassten Sichtbereich ist.
-    - start
-      - : Einwärtsversatz vom Beginn des Scrollports.
-    - end
-      - : Einwärtsversatz vom Ende des Scrollports.
+## Beschreibung
 
-> [!NOTE]
-> Die Werte für Scroller und Inset können in beliebiger Reihenfolge angegeben werden.
+Eine View-Progress-Zeitachse schreitet voran basierend auf Änderungen in der Sichtbarkeit eines Subjektelems in seinem nächsten Scroll-Container. Die `view()`-Funktion wird mit der {{cssxref("animation-timeline")}}-Eigenschaft verwendet, um eine solche View-Progress-Zeitachse zu erstellen.
+
+Die Parameter der Funktion können die Scrollbalkenachse spezifizieren, entlang derer der Fortschritt der Zeitachse verfolgt wird, sowie Einzüge, die die Position des Rahmens anpassen, in dem das Subjekt als sichtbar betrachtet wird.
+
+- **Achse**: Standardmäßig verwendet `view()` die Block-Achse. Sie können dies ändern, indem Sie einen expliziten `<axis>`-Wert angeben. Wenn die gewählte Achse keinen Scrollbalken enthält, ist die Animationszeitachse inaktiv (null Fortschritt).
+- **Einzug**: Standardmäßig befindet sich die Zeitachse bei `0%` (dem `from`-Keyframe in der {{cssxref("@keyframes")}}-Animation), wenn das Subjektelemen zuerst am einen Rand des Scrollers sichtbar ist, und bei `100%` (dem `to`-Keyframe), wenn der äußere Rand des Subjekt-Border den gegenüberliegenden Rand des Scrollers erreicht. Sie können diese Punkte mit den `<view-timeline-inset>`-Parametern steuern.
+  Die Animation dauert so lange, wie das Element in der einzugangepassten Sicht ist. Der Einzug wird verwendet, um zu bestimmen, ob das Element in Sicht ist, was wiederum die Länge der Animationszeitachse bestimmt. Der Einzug besteht aus bis zu zwei Werten, von denen jeder entweder `auto` oder ein {{cssxref("length-percentage")}} sein kann.
+  - Der erste Wert definiert den Beginn, einen inneren Versatz vom Anfang des Scrollports.
+  - Der zweite Wert, falls vorhanden, gibt das Ende an, einen inneren Versatz vom Ende des Scrollports. Wenn der Wert größer als `0` ist, gibt er einen Einzug (positiv) an. Ein negativer Wert definiert eine Korrektur nach außen zum {{Glossary("Scroll_container#scrollport", "Scrollport")}}.
+
+Die Achsen- und Einzugskomponenten können in beliebiger Reihenfolge angegeben werden. Innerhalb der Einzugskomponente definiert der erste Wert den Start-Einzug und der zweite Wert den End-Einzug.
 
 ## Formale Syntax
 
@@ -73,9 +59,9 @@ animation-timeline: view(x 200px auto);
 
 ## Beispiele
 
-### Festlegen einer anonymen Fortschrittszeitleiste
+### Erstellen einer anonymen View-Progress-Zeitachse mit `view()`
 
-Eine anonyme Fortschrittszeitleiste wird auf ein Element mit der Klasse `subject` gesetzt, indem `animation-timeline: view()` verwendet wird. Das Ergebnis ist, dass das `subject`-Element animiert wird, während es sich aufwärts durch das Dokument bewegt, während es gescrollt wird.
+In diesem Beispiel erstellen wir eine anonyme View-Progress-Zeitachse für das Element mit den Klassen `subject` und `animation` unter Verwendung von `animation-timeline: view()`. Das Ergebnis ist, dass während Sie das Dokument scrollen, dieses Element animiert wird, während es sich nach oben durch das Dokument bewegt.
 
 #### HTML
 
@@ -121,7 +107,7 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und die `content`-Elemente sind minimal gestylt, und dem Textinhalt werden einige grundlegende Schrifteinstellungen gegeben:
+Die Klassen `subject` und `content` sind minimal gestylt und der Textinhalt hat einige grundlegende Schriftart-Einstellungen:
 
 ```css
 .subject {
@@ -142,7 +128,7 @@ p {
 }
 ```
 
-Um das Verständnis des Ergebnisses zu erleichtern, wurden zusätzliche Elemente wie `subject-container`, `top` und `bottom` verwendet. Der `subject-container` zeigt die Grenzen der Animation. Und halbtransparente `top` und `bottom` Overlays markieren den mit Inset versetzten Scrollport.
+Um das Ergebnis zu verdeutlichen, haben wir ein paar zusätzliche Klassen definiert. Die Klasse `subject-container` zeigt die Grenzen der Animation. Und die halbtransparenten `top` und `bottom` Überlagerungen markieren den einzugangepassten Scrollport.
 
 ```css
 .subject-container {
@@ -174,18 +160,16 @@ Um das Verständnis des Ergebnisses zu erleichtern, wurden zusätzliche Elemente
 }
 ```
 
-Im folgenden Code wird dem `<div>` mit der Klasse `subject` auch eine Klasse `animation` zugewiesen. Die `grow`-Animation bewirkt, dass das `subject`-Element wächst oder schrumpft. Das `animation-timeline: view(block 55% 10%)` wird gesetzt, um anzugeben, dass es animiert wird, während es durch die Fortschrittszeitleiste fortschreitet, die von seinem scrollenden Vorfahren bereitgestellt wird (in diesem Fall das Wurzelelement des Dokuments).
+Dem `<div>`-Element mit der Klasse `subject` wird ebenfalls eine Klasse `animation` gegeben. Die `grow`-Animation bewirkt, dass das `subject`-Element wächst oder schrumpft. Die Regel `animation-timeline: view(block 55% 10%)` setzt das Element so, dass es animiert wird, während es durch die View-Progress-Zeitachse fortschreitet, die von seinem nächsten Scroll-Container erstellt wird (in diesem Fall das Wurzelelement des Dokuments).
 
-Beim Herunterscrollen beachten Sie, wie der Inset-Wert von `50% 10%` bewirkt, dass die Animation bei 10% vom unteren Rand beginnt und bei 50% vom oberen Rand endet. Während die Animation entlang der Zeitleiste voranschreitet, wächst das `subject`. Umgekehrt, beim Hochscrollen, verläuft die Animation in umgekehrter Richtung, beginnend bei 50% vom oberen Rand, rückwärts durch die Animation gehend, und endet bei 10% vom unteren Rand. So schrumpft das `subject` beim zurücklaufenden Animationsverlauf.
+Beim Herunterscrollen beachten Sie, wie die Einzugswerte `50% 10%` bewirken, dass die Animation startet, wenn das Element 10% vom unteren Ende des Scrollports entfernt ist und endet, wenn es 50% vom oberen Ende entfernt ist. Während die Animation entlang der Zeitachse fortschreitet, wächst das `subject`. Umgekehrt, wenn Sie hochscrollen, läuft die Animation rückwärts ab, beginnend bei 50% vom oberen Ende, bewegt sich rückwärts durch die Keyframes und endet bei 10% vom unteren Ende. Während die Animation rückwärts läuft, schrumpft das `subject`.
 
-Ein wichtiger Punkt zu beachten ist, dass die Animation so lange dauert, wie das `subject`-Element im Sichtbereich ist, der mit `50% 10%` Inset-Werten eingestellt und versetzt wurde.
+Ein wichtiger Punkt zu beachten ist, dass die Animation nur so lange dauert, wie das `subject`-Element in Sicht ist, was hier durch die Einzugswerte `50% 10%` definiert wird.
 
 ```css
 .animation {
   animation-timeline: view(block 50% 10%);
-
   animation-name: grow;
-  animation-fill-mode: both;
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
   animation-timing-function: linear;
 }
@@ -201,11 +185,25 @@ Ein wichtiger Punkt zu beachten ist, dass die Animation so lange dauert, wie das
 }
 ```
 
+```css hidden
+@layer no-support {
+  @supports not (animation-timeline: view()) {
+    body::before {
+      content: "Your browser doesn't support the CSS `view()` function.";
+      background-color: wheat;
+      display: block;
+      text-align: center;
+      padding: 1em;
+    }
+  }
+}
+```
+
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das `subject`-Element animiert wird.
+Scrollen Sie, um das Element mit der Klasse `subject` zu sehen, wie es animiert wird, wenn es in die angepasste Einzugsansicht ein- und austritt.
 
-{{EmbedLiveSample("Setting an anonymous view progress timeline", "100%", "480px")}}
+{{EmbedLiveSample("Examples", "100%", "480px")}}
 
 ## Spezifikationen
 
@@ -217,6 +215,10 @@ Scrollen Sie, um zu sehen, wie das `subject`-Element animiert wird.
 
 ## Siehe auch
 
-- [Scrollgesteuerte Animationen in CSS](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
 - {{cssxref("animation-timeline")}}
+- [Scroll-getriebene Animationszeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+- Modul [CSS scroll-getriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- Modul [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
+- [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
+- [Web Animations API](/de/docs/Web/API/Web_Animations_API)
