@@ -55,7 +55,7 @@ Die `:not()` Pseudoklasse erfordert eine [Selektor-Liste](/de/docs/Web/CSS/Guide
 
 Es gibt mehrere ungewöhnliche Effekte und Ergebnisse bei der Verwendung von `:not()`, die Sie berücksichtigen sollten:
 
-- Nutztlose Selektoren können mit dieser Pseudoklasse geschrieben werden. Zum Beispiel, `:not(*)` entspricht jedem Element, das kein Element ist, was offensichtlich Unsinn ist, so dass die begleitende Regel niemals angewendet wird.
+- Nutzlose Selektoren können mit dieser Pseudoklasse geschrieben werden. Zum Beispiel, `:not(*)` entspricht jedem Element, das kein Element ist, was offensichtlich Unsinn ist, so dass die begleitende Regel niemals angewendet wird.
 - Diese Pseudoklasse kann die [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) einer Regel erhöhen. Zum Beispiel, `#foo:not(#bar)` wird dasselbe Element wie das einfachere `#foo` auswählen, hat aber die höhere Spezifität von zwei `id` Selektoren.
 - Die Spezifität der `:not()` Pseudoklasse wird durch die Spezifität des spezifischsten Selektors in ihrem durch Kommas getrennten Argument an Selektoren ersetzt; sie bietet dieselbe Spezifität, als ob sie geschrieben worden wäre [`:not(:is(argument))`](/de/docs/Web/CSS/Reference/Selectors/:is).
 - `:not(.foo)` wird alles auswählen, was nicht `.foo` ist, _einschließlich {{HTMLElement("html")}} und {{HTMLElement("body")}}._
