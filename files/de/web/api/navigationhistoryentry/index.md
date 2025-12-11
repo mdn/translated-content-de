@@ -2,45 +2,45 @@
 title: NavigationHistoryEntry
 slug: Web/API/NavigationHistoryEntry
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: 0563b7d83916b234fa637483211889e573df9440
 ---
 
 {{APIRef("Navigation API")}}
 
-Die **`NavigationHistoryEntry`**-Schnittstelle der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert einen einzelnen Navigationseintrag in der Historie.
+Das **`NavigationHistoryEntry`**-Interface der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert einen einzelnen Navigationseintrag im Verlauf.
 
-Diese Objekte werden häufig über die Eigenschaft [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) und die Methode [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries) aufgerufen.
+Diese Objekte werden üblicherweise über die [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)-Eigenschaft und die [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries)-Methode aufgerufen.
 
-Die Navigation API stellt nur Historieneinträge bereit, die im aktuellen Browsing-Kontext erstellt wurden und denselben Ursprung wie die aktuelle Seite haben (z.B. keine Navigationen innerhalb eingebetteter {{htmlelement("iframe")}}s oder Cross-Origin-Navigationen), und bietet somit eine präzise Liste aller vorhergehenden Historieneinträge nur für Ihre App. Dies macht das Durchlaufen der Historie zu einem viel weniger fragilen Unterfangen als mit der älteren [History API](/de/docs/Web/API/History_API).
+Die Navigation API zeigt nur Verlaufs-Einträge an, die im aktuellen Browsing-Kontext erstellt wurden und denselben Ursprung wie die aktuelle Seite haben (z. B. keine Navigationen innerhalb eingebetteter {{htmlelement("iframe")}}s oder Navigationen mit unterschiedlichen Ursprüngen), und liefert eine genaue Liste aller vorherigen Verlaufs-Einträge nur für Ihre App. Dies macht das Durchlaufen des Verlaufs viel weniger anfällig als mit der älteren [History API](/de/docs/Web/API/History_API).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) {{ReadOnlyInline}}
-  - : Gibt die `id` des Historieneintrags zurück. Dies ist ein eindeutiger, vom Benutzeragenten generierter Wert, der immer einen spezifischen Historieneintrag darstellt und nützlich ist, um ihn mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
+  - : Gibt die `id` des Verlaufs-Eintrags zurück. Dies ist ein eindeutiger, vom Benutzeragenten generierter Wert, der immer einen spezifischen Verlaufs-Eintrag darstellt und nützlich ist, um diesen mit einer externen Ressource, wie einem Speicher-Cache, zu korrelieren.
 - [`index`](/de/docs/Web/API/NavigationHistoryEntry/index) {{ReadOnlyInline}}
-  - : Gibt den Index des Historieneintrags in der Liste der Historieneinträge zurück (das ist die Liste, die von [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries) zurückgegeben wird), oder `-1`, wenn der Eintrag nicht in der Liste erscheint.
+  - : Gibt den Index des Verlaufs-Eintrags in der Verlaufs-Einträge-Liste zurück (d.h. die Liste, die von [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries) zurückgegeben wird), oder `-1`, wenn der Eintrag nicht in der Liste erscheint.
 - [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) {{ReadOnlyInline}}
-  - : Gibt den `key` des Historieneintrags zurück. Dies ist ein eindeutiger, vom Benutzeragenten generierter Wert, der den Slot des Historieneintrags in der Eintragsliste darstellt, anstatt den Eintrag selbst. Er wird verwendet, um über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu diesem bestimmten Slot zu navigieren. Der `key` wird von anderen Einträgen, die den Eintrag in der Liste ersetzen, wiederverwendet (d.h. wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist).
+  - : Gibt den `key` des Verlaufs-Eintrags zurück. Dies ist ein eindeutiger, vom Benutzeragenten generierter Wert, der den Slot des Verlaufs-Eintrags in der Eintragsliste anstelle des Eintrags selbst darstellt. Er wird verwendet, um zu diesem bestimmten Slot über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu navigieren. Der `key` wird von anderen Einträgen wiederverwendet, die den Eintrag in der Liste ersetzen (d.h. wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist).
 - [`sameDocument`](/de/docs/Web/API/NavigationHistoryEntry/sameDocument) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn dieser Historieneintrag für dasselbe `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist, oder `false` andernfalls.
+  - : Gibt `true` zurück, wenn dieser Verlaufs-Eintrag für dasselbe `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist, oder `false` andernfalls.
 - [`url`](/de/docs/Web/API/NavigationHistoryEntry/url) {{ReadOnlyInline}}
-  - : Gibt die absolute URL dieses Historieneintrags zurück. Wenn der Eintrag auf ein anderes Dokument als das aktuelle verweist (wie die `sameDocument`-Eigenschaft `false` ist), und dieses Dokument mit einem {{httpheader("Referrer-Policy")}}-Header, der auf `no-referrer` oder `origin` gesetzt ist, abgerufen wurde, gibt die Eigenschaft `null` zurück.
+  - : Gibt die absolute URL dieses Verlaufs-Eintrags zurück. Wenn der Eintrag einem anderen Dokument als dem aktuellen entspricht (wie wenn die `sameDocument`-Eigenschaft `false` ist), und dieses Dokument mit einem {{httpheader("Referrer-Policy")}}-Header abgerufen wurde, der auf `no-referrer` oder `origin` gesetzt ist, gibt die Eigenschaft `null` zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState)
-  - : Gibt einen Klon des verfügbaren Zustands zurück, der mit diesem Historieneintrag verbunden ist.
+  - : Gibt einen Klon des verfügbaren Zustands zurück, der mit diesem Verlaufs-Eintrag verbunden ist.
 
 ## Ereignisse
 
-- [`dispose`](/de/docs/Web/API/NavigationHistoryEntry/dispose_event) {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn der Eintrag nicht mehr Teil der Historieneintragliste ist.
+- [`dispose`](/de/docs/Web/API/NavigationHistoryEntry/dispose_event)
+  - : Wird ausgelöst, wenn der Eintrag nicht mehr Teil der Verlaufs-Einträge-Liste ist.
 
 ## Beispiele
 
@@ -75,6 +75,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderner client-seitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- [Navigation API Live-Demo](https://mdn.github.io/dom-examples/navigation-api/) ([Democode anzeigen](https://github.com/mdn/dom-examples/tree/main/navigation-api))
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Navigation API Live-Demo](https://mdn.github.io/dom-examples/navigation-api/) ([Demo-Quellcode anzeigen](https://github.com/mdn/dom-examples/tree/main/navigation-api))

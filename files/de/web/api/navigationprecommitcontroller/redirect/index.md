@@ -3,13 +3,12 @@ title: "NavigationPrecommitController: redirect() Methode"
 short-title: redirect()
 slug: Web/API/NavigationPrecommitController/redirect
 l10n:
-  sourceCommit: 280e77d96ea10ee5169e5b9e5e329f10fe84869d
+  sourceCommit: 0563b7d83916b234fa637483211889e573df9440
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`redirect()`**-Methode des
-[`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController)-Interfaces leitet den Browser zu einer angegebenen URL um und spezifiziert das Verhalten der Verlaufshistorie sowie gewünschte Zustandsinformationen.
+Die **`redirect()`** Methode der [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) Schnittstelle leitet den Browser zu einer angegebenen URL um und spezifiziert das Verhalten der Historie sowie gewünschte Zustandsinformationen.
 
 ## Syntax
 
@@ -22,22 +21,22 @@ redirect(url, options)
 - `url`
   - : Die URL, zu der umgeleitet werden soll.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt, dessen Eigenschaften Folgendes umfassen können:
+  - : Ein Optionsobjekt, dessen Eigenschaften Folgendes beinhalten können:
     - `state` {{optional_inline}}
-      - : Enthält beliebige Zustandsinformationen, die Sie zusammen mit der Navigation übergeben möchten, z. B. für Protokollierungs- oder Nachverfolgungszwecke. Dies kann durch einen beliebigen Werttyp dargestellt werden. Der Zustand für die Navigation kann anschließend über die [`NavigationHistoryEntry.getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState)-Methode des resultierenden Verlaufs-Eintrags abgerufen werden.
+      - : Enthält beliebige Zustandsinformationen, die Sie zusammen mit der Navigation übergeben möchten; zum Beispiel für Protokollierungs- oder Verfolgungszwecke. Dies kann durch jeden Werttyp dargestellt werden. Der Zustand der Navigation kann anschließend über die [`NavigationHistoryEntry.getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState) Methode des resultierenden Historieneintrags abgerufen werden.
     - `history` {{optional_inline}}
-      - : Ein enumerierter Wert, der angibt, wie diese Weiterleitung zur Navigationshistorie hinzugefügt werden soll. Er kann einen der folgenden Werte annehmen:
+      - : Ein enumerierter Wert, der angibt, wie dieser Redirect zur Navigation-Historie hinzugefügt werden soll. Er kann einen der folgenden Werte annehmen:
         - `auto`
-          - : Der Standardwert, der dem Browser überlässt, wie er damit umgeht:
-            - Wenn die ursprüngliche Navigation durch einen Aufruf von [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate) erfolgte, wird der Wert verwendet, der in der `navigate()`-Aufrufoption [`history`](/de/docs/Web/API/Navigation/navigate#history) spezifiziert wurde.
-            - Andernfalls wird normalerweise `push` verwendet, es wird jedoch `replace`, wenn die Umleitung auf dieselbe URL wie die Vor-Navigations-URL zeigt.
+          - : Der Standardwert, der es dem Browser überlässt, wie damit umgegangen wird:
+            - Wenn die ursprüngliche Navigation durch einen Aufruf von [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate) erfolgt ist, wird der Wert verwendet, der in der `navigate()` Aufrufoption [`history`](/de/docs/Web/API/Navigation/navigate#history) angegeben wurde.
+            - Andernfalls wird normalerweise `push` verwendet, aber es wird `replace`, wenn der Redirect auf dieselbe URL verweist wie die vor der Navigation.
         - `push`
-          - : Fügt der Navigationshistorie einen neuen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) hinzu und löscht alle verfügbaren Vorwärtsnavigationen (das heißt, wenn der Benutzer zuvor zu anderen Orten navigiert hat, dann die Zurück-Taste verwendet hat, um durch die Historie zurückzukehren, bevor die Navigation, die die Umleitung verursacht hat, initiiert wurde).
+          - : Fügt einen neuen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zur Navigation-Historie hinzu und löscht jegliche verfügbare Vorwärtsnavigation (d.h. wenn der Benutzer zuvor zu anderen Orten navigiert und dann die Zurück-Taste verwendet hat, um durch die Historie zur Navigation zurückzukehren, die die Umleitung verursacht hat).
         - `replace`
           - : Ersetzt den [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) durch den resultierenden neuen `NavigationHistoryEntry`.
 
 > [!NOTE]
-> Die `redirect()`-Methode kann das Verlaufshandeln zwischen `auto`, `push` und `replace` konvertieren, jedoch kann sie keine `traverse`-Navigation in eine `push`/`replace`-Navigation umwandeln und umgekehrt.
+> Die `redirect()` Methode kann das Historieverhalten zwischen `auto`, `push` und `replace` umwandeln, aber sie kann keine `traverse`-Navigation in eine `push`/`replace`-Navigation und umgekehrt umwandeln.
 
 ### Rückgabewert
 
@@ -47,16 +46,16 @@ Keiner (`undefined`).
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Das ursprüngliche [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) nicht abgefangen wurde.
+    - Das auslösende [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) nicht abgefangen wurde.
     - Der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) nicht `push` oder `replace` ist.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die angegebene `url` ungültig ist.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn es dem aktuellen Dokument nicht möglich ist, seine URL auf die bereitgestellte Weiterleitungs-`url` umzuschreiben.
+  - : Wird ausgelöst, wenn das aktuelle Dokument nicht in der Lage ist, seine URL auf die angegebene Umleitungs-`url` umzuschreiben.
 
 ## Beispiele
 
-Siehe die Hauptseite von [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) für ein Beispiel.
+Siehe die Hauptseite [`NavigationPrecommitController`](/de/docs/Web/API/NavigationPrecommitController) für ein Beispiel.
 
 ## Spezifikationen
 
