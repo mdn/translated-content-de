@@ -131,9 +131,9 @@ p {
 
 In diesem Beispiel gibt der Stil für das {{HTMLElement("p")}}-Element an, dass die Animation 3 Sekunden dauern soll, um von Anfang bis Ende abzuspielen, unter Verwendung der {{cssxref("animation-duration")}}-Eigenschaft und dass der Name der {{ cssxref("@keyframes")}}-At-Regel, die die Keyframes für die Animationssequenz definiert, `slide-in` ist.
 
-In diesem Fall haben wir nur zwei Keyframes. Das erste tritt bei `0%` auf (unter Verwendung des Alias` `from`). Hier konfigurieren wir die {{cssxref("translate")}}-Eigenschaft des Elements bei `150vw`(das heißt, über den rechten Rand des enthaltenen Elements hinaus) und die {{cssxref("scale")}} des Elements auf 200% (oder das Doppelte seiner Standard-Inline-Größe), was dazu führt, dass der Absatz doppelt so breit ist wie sein`<body>`-enthaltender Block. Dies führt dazu, dass das erste Frame der Animation den Header vom rechten Rand des Browserfensters gezeichnet wird.
+In diesem Fall haben wir nur zwei Keyframes. Das erste tritt bei `0%` auf (unter Verwendung des Alias `from`). Hier konfigurieren wir die {{cssxref("translate")}}-Eigenschaft des Elements bei `150vw`(das heißt, über den rechten Rand des enthaltenen Elements hinaus) und die {{cssxref("scale")}} des Elements auf 200% (oder das Doppelte seiner Standard-Inline-Größe), was dazu führt, dass der Absatz doppelt so breit ist wie sein`<body>`-enthaltender Block. Dies führt dazu, dass das erste Frame der Animation den Header vom rechten Rand des Browserfensters gezeichnet wird.
 
-Das zweite Keyframe tritt bei `100%` auf (unter Verwendung des Alias` `to`). Die {{cssxref("translate")}}-Eigenschaft ist auf `0%`gesetzt und die {{cssxref("scale")}} des Elements auf`1`, also `100%`. Dies führt dazu, dass der Header seine Animation in seinem Standardzustand beendet, bündig am linken Rand des Inhaltsbereichs.
+Das zweite Keyframe tritt bei `100%` auf (unter Verwendung des Alias `to`). Die {{cssxref("translate")}}-Eigenschaft ist auf `0%`gesetzt und die {{cssxref("scale")}} des Elements auf`1`, also `100%`. Dies führt dazu, dass der Header seine Animation in seinem Standardzustand beendet, bündig am linken Rand des Inhaltsbereichs.
 
 ```html
 <p>
