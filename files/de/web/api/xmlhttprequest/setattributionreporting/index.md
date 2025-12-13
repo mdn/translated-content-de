@@ -3,13 +3,12 @@ title: "XMLHttpRequest: setAttributionReporting()-Methode"
 short-title: setAttributionReporting()
 slug: Web/API/XMLHttpRequest/setAttributionReporting
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{APIRef("Attribution Reporting API")}}{{securecontext_header}}{{SeeCompatTable}}
+{{APIRef("Attribution Reporting API")}}{{securecontext_header}}{{deprecated_header}}
 
-Die **`setAttributionReporting()`**-Methode der
-[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Schnittstelle gibt an, dass Sie möchten, dass die Antwort der Anfrage in der Lage ist, eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Attribution-Trigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren.
+Die **`setAttributionReporting()`**-Methode des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Interfaces zeigt an, dass Sie möchten, dass die Antwort der Anfrage in der Lage ist, eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren.
 
 Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
@@ -22,11 +21,11 @@ setAttributionReporting(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Optionen für das Attributionsreporting bereitstellt und die folgenden Eigenschaften umfasst:
+  - : Ein Objekt, das Optionen zur Attributionsberichterstattung bereitstellt und die folgenden Eigenschaften enthält:
     - `eventSourceEligible`
-      - : Ein boolean. Wenn auf `true` gesetzt, ist die Antwort der Anfrage berechtigt, eine Attributionsquelle zu registrieren. Wenn auf `false` gesetzt, ist sie es nicht.
+      - : Ein boolescher Wert. Wenn auf `true` gesetzt, ist die Antwort der Anfrage berechtigt, eine Attributionsquelle zu registrieren. Wenn auf `false` gesetzt, ist sie es nicht.
     - `triggerEligible`
-      - : Ein boolean. Wenn auf `true` gesetzt, ist die Antwort der Anfrage berechtigt, einen Attribution-Trigger zu registrieren. Wenn auf `false` gesetzt, ist sie es nicht.
+      - : Ein boolescher Wert. Wenn auf `true` gesetzt, ist die Antwort der Anfrage berechtigt, einen Attributionstrigger zu registrieren. Wenn auf `false` gesetzt, ist sie es nicht.
 
 ### Rückgabewert
 
@@ -35,9 +34,9 @@ Keiner (`undefined`).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das zugeordnete [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) noch nicht [geöffnet](/de/docs/Web/API/XMLHttpRequest/open) oder bereits [gesendet](/de/docs/Web/API/XMLHttpRequest/send) wurde.
+  - : Wird ausgelöst, wenn das zugehörige [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) noch nicht [geöffnet](/de/docs/Web/API/XMLHttpRequest/open) wurde oder bereits [gesendet](/de/docs/Web/API/XMLHttpRequest/send) wurde.
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Nutzung der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) durch eine [`attribution-reporting`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/attribution-reporting) im {{httpheader("Permissions-Policy")}} blockiert wird.
+  - : Wird ausgelöst, wenn die Verwendung der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) durch eine [`attribution-reporting`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/attribution-reporting) {{httpheader("Permissions-Policy")}} blockiert wird.
 
 ## Beispiele
 

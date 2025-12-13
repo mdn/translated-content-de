@@ -3,15 +3,15 @@ title: "Window: sharedStorage-Eigenschaft"
 short-title: sharedStorage
 slug: Web/API/Window/sharedStorage
 l10n:
-  sourceCommit: d71c12f2ab7cc289117e13513cb965c88a39065e
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("Shared Storage API")}}{{SecureContext_Header}}{{deprecated_header}}
 
-Die globale, schreibgeschützte **`sharedStorage`**-Eigenschaft gibt das [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Objekt für den aktuellen Ursprung zurück. Dies ist der Haupteinstiegspunkt für das Schreiben von Daten in den gemeinsamen Speicher mithilfe der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API).
+Die globale, schreibgeschützte **`sharedStorage`**-Eigenschaft gibt das [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Objekt für den aktuellen Ursprung zurück. Dies ist der Haupteinstiegspunkt zum Schreiben von Daten in den gemeinsamen Speicher mithilfe der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API).
 
 > [!NOTE]
-> `sharedStorage` ist innerhalb von Workern nicht verfügbar. Es wird von [`Window`](/de/docs/Web/API/Window) implementiert und ist auch in Worklets für gemeinsamen Speicher verfügbar (siehe [`SharedStorageWorkletGlobalScope.sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage), das [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) zurückgibt).
+> `sharedStorage` ist in Workern nicht verfügbar. Es wird von [`Window`](/de/docs/Web/API/Window) implementiert und ist auch in Worklets für geteilten Speicher verfügbar (siehe [`SharedStorageWorkletGlobalScope.sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage), welches [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) zurückgibt).
 
 ## Wert
 

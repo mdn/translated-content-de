@@ -2,10 +2,10 @@
 title: SharedStorageWorkletGlobalScope
 slug: Web/API/SharedStorageWorkletGlobalScope
 l10n:
-  sourceCommit: d484785e53cff16c020adc868415bb9b07b0f6af
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
 Das **`SharedStorageWorkletGlobalScope`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den globalen Gültigkeitsbereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls.
 
@@ -13,13 +13,13 @@ Das **`SharedStorageWorkletGlobalScope`**-Interface der [Shared Storage API](/de
 
 ## Instanz-Eigenschaften
 
-- [`sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) {{Experimental_Inline}}
-  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts, das den gemeinsamen Speicher für einen bestimmten Ursprung darstellt, wie er im Worklet-Kontext exponiert wird.
+- [`sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) {{deprecated_inline}}
+  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts, das den freigegebenen Speicher für einen bestimmten Ursprung darstellt, wie er in einem Worklet-Kontext zur Verfügung steht.
 
 ## Instanz-Methoden
 
-- [`register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) {{Experimental_Inline}}
-  - : Registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die innerhalb des aktuellen Worklet-Moduls definiert ist.
+- [`register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) {{deprecated_inline}}
+  - : Registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die im aktuellen Worklet-Modul definiert ist.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ class SelectURLOperation {
 register("ab-testing", SelectURLOperation);
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu anderen Beispielen.
+Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Startseite für eine Anleitung zu diesem Beispiel und Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

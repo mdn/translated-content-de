@@ -2,40 +2,40 @@
 title: "<script>: Das Script-Element"
 slug: Web/HTML/Reference/Elements/script
 l10n:
-  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-Das **`<script>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um ausführbaren Code oder Daten einzubetten; typischerweise wird es verwendet, um JavaScript-Code einzubetten oder darauf zu verweisen. Das `<script>`-Element kann auch mit anderen Sprachen verwendet werden, wie zum Beispiel der GLSL-Shader-Programmiersprache von [WebGL](/de/docs/Web/API/WebGL_API) und {{Glossary("JSON", "JSON")}}.
+Das **`<script>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um ausführbaren Code oder Daten einzubetten; dies wird typischerweise zum Einbetten oder Verweisen auf JavaScript-Code verwendet. Das `<script>`-Element kann auch mit anderen Sprachen verwendet werden, wie z.B. der GLSL-Shader-Programmiersprache von [WebGL](/de/docs/Web/API/WebGL_API) und {{Glossary("JSON", "JSON")}}.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `async`
-  - : Für klassische Skripte, wenn das `async`-Attribut vorhanden ist, wird das klassische Skript parallel zum Parsen abgerufen und sofort ausgewertet, sobald es verfügbar ist.
+  - : Bei klassischen Skripten, wenn das `async`-Attribut vorhanden ist, wird das klassische Skript parallel zum Parsen geladen und ausgewertet, sobald es verfügbar ist.
 
-    Für [Modul-Skripte](/de/docs/Web/JavaScript/Guide/Modules), wenn das `async`-Attribut vorhanden ist, werden die Skripte und alle ihre Abhängigkeiten parallel zum Parsen abgerufen und sofort ausgewertet, sobald sie verfügbar sind.
+    Bei [Modul-Skripten](/de/docs/Web/JavaScript/Guide/Modules), wenn das `async`-Attribut vorhanden ist, werden die Skripte und all ihre Abhängigkeiten parallel zum Parsen geladen und ausgewertet, sobald sie verfügbar sind.
 
     > [!WARNING]
-    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d.h. für Inline-Skripte bei klassischen Skripten), da es in diesem Fall keine Wirkung hätte.
+    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d.h. bei Inline-Skripten) für klassische Skripte, in diesem Fall hätte es keine Wirkung.
 
-    Dieses Attribut ermöglicht die Beseitigung von **parser-blockierendem JavaScript**, bei dem der Browser Skripte laden und auswerten müsste, bevor er mit dem Parsen fortfahren kann. `defer` hat in diesem Fall eine ähnliche Wirkung.
+    Dieses Attribut ermöglicht die Beseitigung von **parsersperrendem JavaScript**, bei dem der Browser Skripte laden und auswerten müsste, bevor er mit dem Parsen fortfahren kann. `defer` hat in diesem Fall einen ähnlichen Effekt.
 
-    Wenn das Attribut zusammen mit dem `defer`-Attribut angegeben wird, verhält sich das Element so, als ob nur das `async`-Attribut angegeben ist.
+    Wenn das Attribut zusammen mit dem `defer`-Attribut angegeben wird, verhält sich das Element, als wäre nur das `async`-Attribut angegeben.
 
-    Dies ist ein boolesches Attribut: Das Vorhandensein eines booleschen Attributs an einem Element repräsentiert den Wert „wahr“, und das Fehlen des Attributs repräsentiert den Wert „falsch“.
+    Dies ist ein boolesches Attribut: Die Anwesenheit eines booleschen Attributs an einem Element repräsentiert den Wert true, und das Fehlen des Attributs repräsentiert den Wert false.
 
-    Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Hinweise zur Browser-Unterstützung. Siehe auch [Async-Skripte für asm.js](/de/docs/Games/Techniques/Async_scripts).
+    Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Anmerkungen zur Browserunterstützung. Siehe auch [Async scripts for asm.js](/de/docs/Games/Techniques/Async_scripts).
 
-- `attributionsrc` {{experimental_inline}}
-  - : Gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit der Skriptressourcenanfrage sendet. Auf Serverseite wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine JavaScript-basierte [Zuweisungsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Zuweisungsauslöser](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren. Welcher Antwortheader zurückgesendet werden sollte, hängt vom Wert des `Attribution-Reporting-Eligible`-Headers ab, der die Registrierung ausgelöst hat.
+- `attributionsrc` {{deprecated_inline}}
+  - : Gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit der Skriptressourcenanfrage sendet. Auf der Serverseite wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren. Welcher Antwort-Header zurückgesendet werden soll, hängt vom Wert des `Attribution-Reporting-Eligible`-Headers ab, der die Registrierung ausgelöst hat.
 
     > [!NOTE]
-    > Alternativ können JavaScript-basierte Zuweisungsquellen oder -auslöser durch Senden einer [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage mit der `attributionReporting`-Option registriert werden (entweder direkt im `fetch()`-Aufruf festgelegt oder auf einem [`Request`](/de/docs/Web/API/Request)-Objekt, das in den `fetch()`-Aufruf übergeben wird), oder durch Senden eines [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) mit [`setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting), das am Anfrageobjekt aufgerufen wird.
+    > Alternativ können JavaScript-basierte Attributionsquellen oder -triggers registriert werden, indem eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage mit der Option `attributionReporting` gesendet wird (entweder direkt im `fetch()`-Aufruf eingestellt oder auf einem [`Request`](/de/docs/Web/API/Request)-Objekt, das im `fetch()`-Aufruf übergeben wird), oder indem eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) mit [`setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) aufgerufen wird.
 
-    Es gibt zwei Versionen dieses Attributs, die Sie setzen können:
-    - Boolesch, d.h. nur der `attributionsrc`-Name. Dies gibt an, dass Sie den {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server senden möchten, auf den das `src`-Attribut verweist. Dies ist in Ordnung, wenn Sie die Registrierung der Zuweisungsquelle oder des Auslösers auf demselben Server behandeln. Bei der Registrierung eines Zuweisungsauslösers ist diese Eigenschaft optional, und es wird ein leerer Zeichenfolgenwert verwendet, wenn sie weggelassen wird.
-    - Wert, der eine oder mehrere URLs enthält, zum Beispiel:
+    Es gibt zwei Versionen dieses Attributs, die Sie einstellen können:
+    - Boolesch, d.h. nur der Name `attributionsrc`. Dies gibt an, dass Sie möchten, dass der {{httpheader("Attribution-Reporting-Eligible")}}-Header an denselben Server gesendet wird, auf den das `src`-Attribut verweist. Dies ist in Ordnung, wenn Sie die Registrierung der Attributionsquelle oder des Triggers auf demselben Server durchführen. Beim Registrieren eines Attributionstriggers ist diese Eigenschaft optional, und es wird ein leerer Zeichenfolgenwert verwendet, wenn sie weggelassen wird.
+    - Wert mit einer oder mehreren URLs, zum Beispiel:
 
       ```html
       <script
@@ -43,89 +43,89 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
         attributionsrc="https://a.example/register-source https://b.example/register-source"></script>
       ```
 
-      Dies ist nützlich in Fällen, in denen die angeforderte Ressource sich nicht auf einem Server befindet, den Sie kontrollieren, oder Sie möchten die Registrierung der Zuweisungsquelle auf einem anderen Server handhaben. In diesem Fall können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanfrage erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header an die in `attributionSrc` angegebenen URL(s) gesendet, zusätzlich zum Ursprungsserver der Ressource. Diese URLs können dann mit einem entsprechenden {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header antworten, um die Registrierung abzuschließen.
+      Dies ist nützlich in Fällen, in denen die angeforderte Ressource sich nicht auf einem Server befindet, den Sie kontrollieren, oder wenn Sie die Registrierung der Attributionsquelle auf einem anderen Server durchführen möchten. In diesem Fall können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanfrage erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header zusätzlich zur Herkunft der Ressource an die in `attributionSrc` angegebenen URL(s) gesendet. Diese URLs können dann mit einem {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Header antworten, um die Registrierung abzuschließen.
 
       > [!NOTE]
-      > Das Angeben mehrerer URLs bedeutet, dass mehrere Zuweisungsquellen auf derselben Funktion registriert werden können. Sie könnten zum Beispiel verschiedene Kampagnen haben, deren Erfolg Sie messen möchten, die das Generieren unterschiedlicher Berichte zu unterschiedlichen Daten beinhalten.
+      > Die Angabe mehrerer URLs bedeutet, dass mehrere Attributionsquellen auf derselben Funktion registriert werden können. Sie könnten zum Beispiel verschiedene Kampagnen haben, deren Erfolg Sie messen möchten, was das Generieren verschiedener Berichte auf verschiedenen Daten umfasst.
 
     Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) für weitere Details.
 
 - `blocking`
-  - : Dieses Attribut gibt explizit an, dass bestimmte Operationen blockiert werden sollen, bis das Skript ausgeführt wurde. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste von Blockierungs-Token sein. Derzeit gibt es nur ein Token:
-    - `render`: Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
+  - : Dieses Attribut gibt explizit an, dass bestimmte Operationen blockiert werden sollten, bis das Skript ausgeführt wurde. Die zu blockierenden Operationen müssen eine durch Leerzeichen getrennte Liste von Sperr-Token sein. Derzeit gibt es nur ein Token:
+    - `render`: Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
 
     > [!NOTE]
-    > Nur `script`-Elemente im `<head>` des Dokuments können möglicherweise das Rendern blockieren. Skripte blockieren das Rendern nicht standardmäßig; wenn ein `script`-Element nicht `type="module"`, `async` oder `defer` enthält, blockiert es das _Parsen_, nicht das _Rendern_. Wenn ein solches `script`-Element dynamisch über ein Skript hinzugefügt wird, müssen Sie `blocking = "render"` setzen, damit es das Rendern blockiert.
+    > Nur `script`-Elemente im `<head>` des Dokuments können möglicherweise das Rendering blockieren. Skripte sind standardmäßig nicht render-blockierend; wenn ein `script`-Element nicht `type="module"`, `async` oder `defer` enthält, blockiert es das _Parsen_, nicht das _Rendering_. Wenn ein solches `script`-Element dynamisch über ein Skript hinzugefügt wird, muss `blocking = "render"` gesetzt werden, damit es das Rendering blockiert.
 
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
-  - : Normale `script`-Elemente übergeben minimale Informationen an [`window.onerror`](/de/docs/Web/API/Window/error_event) für Skripte, die die standardmäßigen {{Glossary("CORS", "CORS")}}-Prüfungen nicht bestehen. Um das Fehlerprotokoll für Websites zu ermöglichen, die eine separate Domain für statische Medien verwenden, verwenden Sie dieses Attribut. Siehe [CORS-Einstellung-Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für eine detailliertere Erklärung seiner gültigen Argumente.
+  - : Normale `script`-Elemente geben minimale Informationen an die [`window.onerror`](/de/docs/Web/API/Window/error_event) weiter für Skripte, die die standardmäßigen {{Glossary("CORS", "CORS")}}-Prüfungen nicht bestehen. Um die Fehlerprotokollierung für Sites zu erlauben, die eine separate Domäne für statische Medien verwenden, verwenden Sie dieses Attribut. Siehe [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Reference/Attributes/crossorigin) für eine ausführlichere Erklärung der gültigen Argumente.
 - `defer`
-  - : Dieses boolesche Attribut wird gesetzt, um einem Browser anzuzeigen, dass das Skript nach dem Parse des Dokuments, aber vor dem Auslösen des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignisses ausgeführt werden soll.
+  - : Dieses boolesche Attribut wird gesetzt, um dem Browser anzuzeigen, dass das Skript erst nach dem Parsen des Dokuments, aber vor dem Auslösen des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Events ausgeführt werden soll.
 
-    Skripte mit dem `defer`-Attribut verhindern, dass das `DOMContentLoaded`-Ereignis ausgelöst wird, bis das Skript geladen und die Auswertung abgeschlossen ist.
+    Skripte mit dem `defer`-Attribut verhindern das Auslösen des `DOMContentLoaded`-Events, bis das Skript geladen und ausgewertet wurde.
 
     > [!WARNING]
-    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d.h. für Inline-Skripte), da es in diesem Fall keine Wirkung hätte.
+    > Dieses Attribut darf nicht verwendet werden, wenn das `src`-Attribut fehlt (d.h. für Inline-Skripte), in diesem Fall hätte es keine Wirkung.
     >
     > Das `defer`-Attribut hat keine Wirkung auf [Modul-Skripte](/de/docs/Web/JavaScript/Guide/Modules) — sie werden standardmäßig verzögert.
 
     Skripte mit dem `defer`-Attribut werden in der Reihenfolge ausgeführt, in der sie im Dokument erscheinen.
 
-    Dieses Attribut ermöglicht die Beseitigung von **parser-blockierendem JavaScript**, bei dem der Browser Skripte laden und auswerten müsste, bevor er mit dem Parsen fortfahren kann. `async` hat in diesem Fall eine ähnliche Wirkung.
+    Dieses Attribut ermöglicht die Beseitigung von **parsersperrendem JavaScript**, bei dem der Browser Skripte laden und auswerten müsste, bevor er mit dem Parsen fortfahren kann. `async` hat in diesem Fall einen ähnlichen Effekt.
 
-    Wenn das Attribut zusammen mit dem `async`-Attribut angegeben wird, verhält sich das Element so, als ob nur das `async`-Attribut angegeben ist.
+    Wenn das Attribut zusammen mit dem `async`-Attribut angegeben wird, verhält sich das Element, als wäre nur das `async`-Attribut angegeben.
 
 - [`fetchpriority`](/de/docs/Web/HTML/Reference/Attributes/fetchpriority)
-  - : Bietet einen Hinweis auf die relative Priorität, die beim Abrufen eines externen Skripts verwendet werden soll. Erlaubte Werte:
+  - : Gibt einen Hinweis auf die relative Priorität, die beim Abrufen eines externen Skripts verwendet werden soll. Erlaubte Werte:
     - `high`
-      - : Ruft das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten ab.
+      - : Abrufen des externen Skripts mit hoher Priorität im Vergleich zu anderen externen Skripten.
     - `low`
-      - : Ruft das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten ab.
+      - : Abrufen des externen Skripts mit niedriger Priorität im Vergleich zu anderen externen Skripten.
     - `auto`
-      - : Legt keine Voreinstellung für die Abrufpriorität fest.
-        Dies ist der Standard.
-        Es wird verwendet, wenn kein Wert oder ein ungültiger Wert festgelegt ist.
+      - : Keine Präferenz für die Abrufpriorität festlegen.
+        Dies ist der Standardwert.
+        Wird verwendet, wenn kein Wert oder ein ungültiger Wert festgelegt ist.
 - `integrity`
-  - : Dieses Attribut enthält Inline-Metadaten, die ein Benutzeragent verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde. Das Attribut darf nicht angegeben werden, wenn das `src`-Attribut fehlt. Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
+  - : Dieses Attribut enthält Inline-Metadaten, die ein Benutzeragent verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation bereitgestellt wurde. Das Attribut darf nicht angegeben werden, wenn das `src`-Attribut fehlt. Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity).
 - `nomodule`
-  - : Dieses boolesche Attribut wird gesetzt, um anzuzeigen, dass das Skript in Browsern, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen, nicht ausgeführt werden sollte — tatsächlich kann dies verwendet werden, um Fallback-Skripte an ältere Browser zu liefern, die keinen modularen JavaScript-Code unterstützen.
+  - : Dieses boolesche Attribut wird gesetzt, um anzuzeigen, dass das Skript in Browsern, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen, nicht ausgeführt werden soll — dies kann verwendet werden, um Fallback-Skripte für ältere Browser bereitzustellen, die keinen modularen JavaScript-Code unterstützen.
 - `nonce`
-  - : Ein kryptografischer Zufallswert (nur einmal verwendete Nummer), um Skripte in einer [script-src Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) zuzulassen. Der Server muss jedes Mal einen eindeutigen Zufallswert generieren, wenn er eine Richtlinie überträgt. Es ist entscheidend, einen Zufallswert bereitzustellen, der nicht erraten werden kann, da das Umgehen der Richtlinie einer Ressource sonst trivial ist.
+  - : Ein kryptografischer Wert (Nummer, die einmal verwendet wird), um Skripte in einer [script-src Content-Security-Policy](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) zu erlauben. Der Server muss bei jeder Übertragung einer Richtlinie einen einzigartigen Nonce-Wert generieren. Es ist wichtig, einen Nonce bereitzustellen, der nicht erraten werden kann, da das Umgehen der Richtlinie einer Ressource ansonsten trivial ist.
 - `referrerpolicy`
-  - : Gibt an, welchen [Referrer](/de/docs/Web/API/Document/referrer) beim Abrufen des Skripts oder von Ressourcen, die vom Skript abgerufen werden, gesendet werden soll:
+  - : Gibt an, welchen [Referrer](/de/docs/Web/API/Document/referrer) beim Abrufen des Skripts oder der vom Skript abgerufenen Ressourcen gesendet werden soll:
     - `no-referrer`: Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
-    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Origin")}}s ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
-    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Scheme](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
-    - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Scheme, den Host und den Port beschränkt. Navigationen im selben Ursprung enthalten immer noch den Pfad.
-    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "gleichen Ursprung")}} gesendet, aber bei Anfragen über Ursprungsgrenzen hinweg wird kein Referrer gesendet.
-    - `strict-origin`: Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), sendet ihn aber nicht an eine weniger sichere Zieladresse (HTTPS→HTTP).
-    - `strict-origin-when-cross-origin` (Standard): Sendet eine vollständige URL, wenn eine Anfrage im gleichen Ursprung ausgeführt wird; sendet nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS); und sendet keinen Header an eine weniger sichere Zieladresse (HTTPS→HTTP).
-    - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad enthalten (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), das [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder den [Benutzernamen](/de/docs/Web/API/HTMLAnchorElement/username)). **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge durchleitet.
+    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "origin")}}s ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
+    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: ihr [schema](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL), {{Glossary("host", "host")}} und {{Glossary("port", "port")}}.
+    - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigationen im selben Ursprung enthalten weiterhin den Pfad.
+    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "same origin")}} gesendet, aber für Überquellungsanforderungen wird keine Referrer-Information enthalten sein.
+    - `strict-origin`: Nur den Ursprung des Dokuments als Referrer senden, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel senden (HTTPS→HTTP).
+    - `strict-origin-when-cross-origin` (Standard): Eine vollständige URL senden, wenn eine gleiche Ursprungsanforderung ausgeführt wird, nur den Ursprung senden, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und keinen Header an ein weniger sicheres Ziel senden (HTTPS→HTTP).
+    - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad (aber nicht das [fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [password](/de/docs/Web/API/HTMLAnchorElement/password) oder [username](/de/docs/Web/API/HTMLAnchorElement/username)) enthalten. **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergibt.
 
     > [!NOTE]
-    > Ein leerer Zeichenfolgenwert (`""`) ist sowohl der Standardwert als auch ein Fallback-Wert, falls `referrerpolicy` nicht unterstützt wird. Wenn `referrerpolicy` nicht explizit am `<script>`-Element angegeben wird, übernimmt es eine höhere Referrer-Richtlinie, d.h. eine auf dem gesamten Dokument oder der Domain festgelegte. Wenn keine höhere Richtlinie verfügbar ist, wird der leere String so behandelt, als wäre er gleichwertig mit `strict-origin-when-cross-origin`.
+    > Ein leerer Zeichenfolgenwert (`""`) ist sowohl der Standardwert als auch ein Fallback-Wert, wenn `referrerpolicy` nicht unterstützt wird. Wenn `referrerpolicy` nicht explizit am `<script>`-Element angegeben ist, wird es eine höherstufige Referrer-Richtlinie übernehmen, d.h. eine, die auf das gesamte Dokument oder die ganze Domain angewendet wird. Wenn keine höherstufige Richtlinie verfügbar ist, wird der leere Zeichenfolgenwert als äquivalent zu `strict-origin-when-cross-origin` behandelt.
 
 - `src`
   - : Dieses Attribut gibt die URI eines externen Skripts an; dies kann als Alternative zum direkten Einbetten eines Skripts innerhalb eines Dokuments verwendet werden.
 - [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)
-  - : Dieses Attribut gibt den Typ des dargestellten Skripts an.
+  - : Dieses Attribut gibt den Skripttyp an, der dargestellt wird.
     Der Wert dieses Attributs wird einer der folgenden sein:
-    - **Attribut ist nicht gesetzt (Standard), ein leerer String oder ein JavaScript-MIME-Typ**
+    - **Attribut ist nicht gesetzt (Standard), eine leere Zeichenfolge oder ein JavaScript-MIME-Typ**
       - : Gibt an, dass das Skript ein "klassisches Skript" ist, das JavaScript-Code enthält.
-        Autoren wird empfohlen, das Attribut wegzulassen, wenn es sich bei dem Skript um JavaScript-Code handelt, anstatt einen MIME-Typ anzugeben.
-        JavaScript-MIME-Typen sind [in der IANA-Medientypen-Spezifikation aufgelistet](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript).
+        Autoren werden ermutigt, das Attribut wegzulassen, wenn sich das Skript auf JavaScript-Code bezieht, anstatt einen MIME-Typ anzugeben.
+        JavaScript-MIME-Typen sind [in der IANA-Mediendefinition aufgelistet](/de/docs/Web/HTTP/Guides/MIME_types#textjavascript).
     - [`importmap`](/de/docs/Web/HTML/Reference/Elements/script/type/importmap)
-      - : Dieser Wert gibt an, dass der Body des Elements eine Importkarte enthält.
-        Die Importkarte ist ein JSON-Objekt, das Entwickler verwenden können, um zu steuern, wie der Browser Modulspezifikatoren auflöst, wenn er [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) importiert.
+      - : Dieser Wert gibt an, dass der Inhalt des Elements eine Importkarte enthält.
+        Die Importkarte ist ein JSON-Objekt, mit dem Entwickler steuern können, wie der Browser Modulspezifikatoren beim Importieren von [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) aufgelöst.
     - `module`
-      - : Dieser Wert bewirkt, dass der Code als JavaScript-Modul behandelt wird.
-        Die Verarbeitung des Skriptinhalts wird verzögert.
-        Die `charset` und `defer` Attribute wirken sich nicht aus.
-        Für Informationen zur Verwendung von `module`, siehe unseren [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules)-Leitfaden.
-        Im Gegensatz zu klassischen Skripten erfordern Modulscripte die Verwendung des CORS-Protokolls für abruferübergreifendes Fetching.
+      - : Dieser Wert führt dazu, dass der Code als JavaScript-Modul behandelt wird.
+        Die Verarbeitung der Skriptinhalte wird verzögert.
+        Die `charset`- und `defer`-Attribute haben keine Wirkung.
+        Für Informationen zur Verwendung von `module` siehe unseren [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules)-Leitfaden.
+        Im Gegensatz zu klassischen Skripten erfordern Modulscripte die Verwendung des CORS-Protokolls für das Abrufen über Kreuz.
     - [`speculationrules`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules) {{experimental_inline}}
-      - : Dieser Wert gibt an, dass der Body des Elements Spekulationsregeln enthält.
-        Spekulationsregeln nehmen die Form eines JSON-Objekts an, das bestimmt, welche Ressourcen vom Browser vorgeholt oder vorgerendert werden sollen. Dies ist Teil der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
+      - : Dieser Wert gibt an, dass der Inhalt des Elements Vermutungsregeln enthält.
+        Vermutungsregeln nehmen die Form eines JSON-Objekts an, das bestimmt, welche Ressourcen vom Browser vorab geladen oder vorgerendert werden sollen. Dies ist Teil der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
     - **Jeder andere Wert**
       - : Der eingebettete Inhalt wird als Datenblock behandelt und nicht vom Browser verarbeitet.
         Entwickler müssen einen gültigen MIME-Typ verwenden, der kein JavaScript-MIME-Typ ist, um Datenblöcke zu kennzeichnen.
@@ -134,28 +134,28 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Glob
 ### Veraltete Attribute
 
 - `charset` {{Deprecated_inline}}
-  - : Wenn vorhanden, muss sein Wert eine {{Glossary("ASCII", "ASCII")}}-fallunempfindliche Übereinstimmung mit `utf-8` sein. Es ist nicht notwendig, das `charset`-Attribut zu spezifizieren, da Dokumente UTF-8 verwenden müssen und das `script`-Element seine Zeichenkodierung vom Dokument erbt.
+  - : Wenn vorhanden, muss sein Wert eine {{Glossary("ASCII", "ASCII")}} klein-unempfindliche Übereinstimmung für `utf-8` sein. Es ist nicht erforderlich, das `charset`-Attribut anzugeben, da Dokumente UTF-8 verwenden müssen und das `script`-Element seine Zeichencodierung vom Dokument erbt.
 - `language` {{Deprecated_inline}} {{Non-standard_Inline}}
-  - : Wie das `type`-Attribut identifiziert dieses Attribut die verwendete Skriptsprache. Im Gegensatz zum `type`-Attribut wurden die möglichen Werte dieses Attributs jedoch nie standardisiert. Stattdessen sollte das `type`-Attribut verwendet werden.
+  - : Wie das `type`-Attribut identifiziert dieses Attribut die verwendete Skriptsprache. Im Gegensatz zum `type`-Attribut wurden die möglichen Werte dieses Attributs jedoch nie standardisiert. Das `type`-Attribut sollte stattdessen verwendet werden.
 
 ## Hinweise
 
-Skripte ohne [`async`](#async), [`defer`](#defer) oder `type="module"`-Attribute sowie Inline-Skripte ohne das `type="module"`-Attribut werden sofort abgerufen und ausgeführt, bevor der Browser mit dem Parsen der Seite fortfährt.
+Skripte ohne [`async`](#async), [`defer`](#defer) oder `type="module"` Attribute sowie Inline-Skripte ohne das `type="module"` Attribut werden sofort abgerufen und ausgeführt, bevor der Browser mit dem Parsen der Seite fortfährt.
 
-Das Skript sollte mit dem `text/javascript`-MIME-Typ serviert werden, aber Browser sind nachsichtig und blockieren sie nur, wenn das Skript mit einem Bildtyp (`image/*`), einem Videotyp (`video/*`), einem Audiotyp (`audio/*`) oder `text/csv` serviert wird.
-Wenn das Skript blockiert wird, wird ein [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignis an das Element gesendet; andernfalls wird ein [`load`](/de/docs/Web/API/HTMLElement/load_event)-Ereignis gesendet.
+Das Skript sollte mit dem `text/javascript` MIME-Typ bereitgestellt werden, aber Browser sind nachsichtig und blockieren sie nur, wenn das Skript mit einem Bildtyp (`image/*`), einem Videotyp (`video/*`), einem Audiotyp (`audio/*`) oder `text/csv` bereitgestellt wird.
+Wenn das Skript blockiert wird, wird ein [`error`](/de/docs/Web/API/HTMLElement/error_event)-Event an das Element gesendet; andernfalls wird ein [`load`](/de/docs/Web/API/HTMLElement/load_event)-Event gesendet.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man ein (externes) Skript mit dem `<script>`-Element importiert:
+Dieses Beispiel zeigt, wie ein (externes) Skript mit dem `<script>`-Element importiert wird:
 
 ```html
 <script src="javascript.js"></script>
 ```
 
-Das folgende Beispiel zeigt, wie man ein (Inline-)Skript innerhalb des `<script>`-Elements platziert:
+Das folgende Beispiel zeigt, wie ein (Inline-)Skript innerhalb des `<script>`-Elements platziert wird:
 
 ```html
 <script>
@@ -165,21 +165,21 @@ Das folgende Beispiel zeigt, wie man ein (Inline-)Skript innerhalb des `<script>
 
 ### async und defer
 
-Skripte, die mit dem `async`-Attribut geladen werden, laden das Skript, ohne die Seite zu blockieren, während das Skript abgerufen wird.
-Sobald der Download jedoch abgeschlossen ist, wird das Skript ausgeführt, was die Seite davon abhält, gerendert zu werden. Dies bedeutet, dass der Rest des Inhalts auf der Webseite daran gehindert wird, verarbeitet und dem Benutzer angezeigt zu werden, bis das Skript das Ausführen beendet hat.
-Es gibt keine Garantie, dass Skripte in einer bestimmten Reihenfolge ausgeführt werden.
-Es ist am besten, `async` zu verwenden, wenn die Skripte auf der Seite unabhängig voneinander laufen und nicht von anderen Skripten auf der Seite abhängen.
+Mit dem `async`-Attribut geladene Skripte laden das Skript, ohne die Seite zu blockieren, während das Skript abgefragt wird.
+Sobald der Download jedoch abgeschlossen ist, wird das Skript ausgeführt, was die Seite vom Rendern abhält. Dies bedeutet, dass der restliche Inhalt der Webseite daran gehindert wird, vom Benutzer verarbeitet und angezeigt zu werden, bis das Skript fertig ausgeführt ist.
+Sie erhalten keine Garantie, dass Skripte in einer bestimmten Reihenfolge ausgeführt werden.
+Es ist am besten, `async` zu verwenden, wenn die Skripte auf der Seite unabhängig voneinander ausgeführt werden und nicht von einem anderen Skript auf der Seite abhängig sind.
 
-Skripte, die mit dem `defer`-Attribut geladen werden, werden in der Reihenfolge geladen, in der sie auf der Seite erscheinen.
-Sie werden erst ausgeführt, nachdem der gesamte Seiteninhalt geladen ist, was nützlich ist, wenn Ihre Skripte davon abhängen, dass das DOM in Ordnung ist (z. B. wenn sie ein oder mehrere Elemente auf der Seite ändern).
+Mit dem `defer`-Attribut geladene Skripte werden in der Reihenfolge geladen, in der sie auf der Seite erscheinen.
+Sie werden nicht ausgeführt, bevor der gesamte Seiteninhalt geladen ist, was nützlich ist, wenn Ihre Skripte davon abhängen, dass das DOM vorhanden ist (z.B. wenn sie ein oder mehrere Elemente auf der Seite ändern).
 
-Hier ist eine visuelle Darstellung der verschiedenen Skriptlade-Methoden und was das für Ihre Seite bedeutet:
+Hier ist eine visuelle Darstellung der verschiedenen Methoden des Skriptladens und was das für Ihre Seite bedeutet:
 
-![Wie die drei Skriptlade-Methoden funktionieren: Standard hat das Parsen blockiert, während JavaScript abgerufen und ausgeführt wird. Mit async wird das Parsen nur für die Ausführung angehalten. Mit defer wird das Parsen nicht unterbrochen, aber die Ausführung passiert erst, nachdem alles andere geparst ist.](async-defer.jpg)
+![Wie die drei Skriptladungsmethoden funktionieren: Bei der Standardeinstellung wird das Parsen blockiert, während JavaScript abgefragt und ausgeführt wird. Mit async wird das Parsen nur für die Ausführung unterbrochen. Mit defer wird das Parsen nicht pausiert, aber die Ausführung erfolgt erst, nachdem alles andere geparst wurde.](async-defer.jpg)
 
-_Dieses Bild stammt aus der [HTML-Spezifikation](https://html.spec.whatwg.org/images/asyncdefer.svg), kopiert und auf eine reduzierte Version beschnitten, unter den Lizenzbedingungen von [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._
+_Dieses Bild stammt aus der [HTML-Spezifikation](https://html.spec.whatwg.org/images/asyncdefer.svg), kopiert und auf eine reduzierte Version zugeschnitten, unter den Lizenzbedingungen von [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)._
 
-Zum Beispiel, wenn Sie die folgenden Skriptelemente haben:
+Beispielsweise, wenn Sie die folgenden Skriptelemente haben:
 
 ```html
 <script async src="js/vendor/jquery.js"></script>
@@ -187,13 +187,13 @@ Zum Beispiel, wenn Sie die folgenden Skriptelemente haben:
 <script async src="js/script3.js"></script>
 ```
 
-Sie können sich nicht darauf verlassen, in welcher Reihenfolge die Skripte geladen werden.
-`jquery.js` könnte vor oder nach `script2.js` und `script3.js` laden, und falls dies der Fall ist, führen Funktionen in diesen Skripten, die von `jquery` abhängen, zu einem Fehler, da `jquery` zum Zeitpunkt der Skriptausführung nicht definiert ist.
+Sie können sich nicht auf die Reihenfolge verlassen, in der die Skripte geladen werden.
+`jquery.js` kann vor oder nach `script2.js` und `script3.js` geladen werden, und wenn dies der Fall ist, werden Funktionen in diesen Skripten, die von `jquery` abhängen, einen Fehler erzeugen, weil `jquery` zum Zeitpunkt der Skriptausführung nicht definiert sein wird.
 
-`async` sollte verwendet werden, wenn Sie eine Reihe von Hintergrund-Skripten zu laden haben und diese so schnell wie möglich bereitstellen wollen.
-Zum Beispiel, vielleicht haben Sie einige Spieldateien zu laden, die nötig sind, wenn das Spiel tatsächlich beginnt, aber vorerst möchten Sie einfach mit dem Anzeigen des Spiel-Intros, der Titel und der Lobby fortfahren, ohne dass diese vom Laden der Skripte blockiert werden.
+`async` sollte verwendet werden, wenn Sie eine Reihe von Hintergrundskripten laden müssen und Sie sie so schnell wie möglich an Ort und Stelle haben möchten.
+Zum Beispiel, vielleicht haben Sie einige Spieldateien zum Laden, die beim tatsächlichen Beginn des Spiels benötigt werden, aber fürs Erste wollen Sie nur mit dem Anzeigen des Spieleintros, der Titel und der Lobby fortfahren, ohne dass sie durch das Skriptladen blockiert werden.
 
-Skripte, die mit dem `defer`-Attribut geladen werden (siehe unten), werden in der Reihenfolge, in der sie sich auf der Seite befinden, geladen und ausgeführt, sobald das Skript und der Inhalt heruntergeladen sind:
+Mit dem `defer`-Attribut geladene Skripte (siehe unten) werden in der Reihenfolge ausgeführt, in der sie auf der Seite erscheinen, und werden ausgeführt, sobald das Skript und der Inhalt heruntergeladen wurden:
 
 ```html
 <script defer src="js/vendor/jquery.js"></script>
@@ -202,38 +202,38 @@ Skripte, die mit dem `defer`-Attribut geladen werden (siehe unten), werden in de
 ```
 
 Im zweiten Beispiel können wir sicher sein, dass `jquery.js` vor `script2.js` und `script3.js` geladen wird und dass `script2.js` vor `script3.js` geladen wird.
-Sie werden erst ausgeführt, nachdem der gesamte Seiteninhalt geladen ist, was nützlich ist, wenn Ihre Skripte davon abhängen, dass das DOM in Ordnung ist (z. B. wenn sie ein oder mehrere Elemente auf der Seite ändern).
+Sie werden nicht ausgeführt, bevor der gesamte Seiteninhalt geladen ist, was nützlich ist, wenn Ihre Skripte darauf angewiesen sind, dass das DOM vorhanden ist (z.B. wenn sie ein oder mehrere Elemente auf der Seite ändern).
 
 Zusammenfassend:
 
-- `async` und `defer` weisen den Browser beide an, das/die Skript(e) in einem separaten Thread herunterzuladen, während der Rest der Seite (das DOM, etc.) heruntergeladen wird, so dass der Seitenladevorgang während des Abrufprozesses nicht blockiert wird.
+- `async` und `defer` weisen den Browser an, das Skript in einem separaten Thread herunterzuladen, während der Rest der Seite (das DOM usw.) heruntergeladen wird, sodass das Laden der Seite während des Abrufvorgangs nicht blockiert wird.
 - Skripte mit einem `async`-Attribut werden ausgeführt, sobald der Download abgeschlossen ist.
   Dies blockiert die Seite und garantiert keine bestimmte Ausführungsreihenfolge.
-- Skripte mit einem `defer`-Attribut werden in der Reihenfolge geladen, in der sie im HTML stehen, und werden nur ausgeführt, sobald alles geladen ist.
+- Skripte mit einem `defer`-Attribut werden in der Reihenfolge geladen, die sie haben, und werden nur ausgeführt, wenn alles geladen ist.
 - Wenn Ihre Skripte sofort ausgeführt werden sollen und keine Abhängigkeiten haben, verwenden Sie `async`.
-- Wenn Ihre Skripte auf das Parsen warten müssen und von anderen Skripten und/oder dem DOM abhängen, laden Sie sie mit `defer` und setzen Sie deren entsprechende `<script>`-Elemente in der Reihenfolge, in der der Browser sie ausführen soll.
+- Wenn Ihre Skripte darauf warten müssen, dass das Parsen abgeschlossen ist und sie von anderen Skripten und/oder dem DOM abhängig sind, laden Sie sie mit `defer` und platzieren Sie die entsprechenden `<script>`-Elemente in der Reihenfolge, in der Sie möchten, dass der Browser sie ausführt.
 
-### Modul-Fallback
+### Modul-Backup
 
-Browser, die den `module`-Wert für das [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)-Attribut unterstützen, ignorieren jedes Skript mit einem `nomodule`-Attribut. Das ermöglicht Ihnen die Verwendung von Modul-Skripten, während Sie `nomodule`-markierte Fallback-Skripte für nicht unterstützende Browser bereitstellen.
+Browser, die den `module`-Wert für das [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)-Attribut unterstützen, ignorieren alle Skripte mit einem `nomodule`-Attribut. Dadurch können Sie Modul-Skripte verwenden und gleichzeitig nomodule-markierte Backup-Skripte für nicht unterstützende Browser bereitstellen.
 
 ```html
 <script type="module" src="main.js"></script>
 <script nomodule src="fallback.js"></script>
 ```
 
-### Module mit importmap importieren
+### Importieren von Modulen mit Importmap
 
-Beim Importieren von Modulen in Skripten, wenn Sie nicht die [`type=importmap`](/de/docs/Web/HTML/Reference/Elements/script/type/importmap)-Funktion verwenden, muss jedes Modul mit einem Modul-Spezifikator importiert werden, der entweder eine absolute oder eine relative URL ist.
-Im Beispiel unten ist der erste Modulspezifikator eine absolute URL, während die zweite (`"./shapes/square.js"`) relativ zur Basis-URL des Dokuments aufgelöst wird.
+Beim Importieren von Modulen in Skripten, falls Sie nicht die [`type=importmap`](/de/docs/Web/HTML/Reference/Elements/script/type/importmap)-Funktion verwenden, muss jedes Modul unter Verwendung eines Modulspezifikators importiert werden, der entweder eine absolute oder relative URL ist.
+Im folgenden Beispiel ist der erste Modulspezifikator eine absolute URL, während die zweite (`"./shapes/square.js"`) relativ zur Basis-URL des Dokuments aufgelöst wird.
 
 ```js
 import { name as circleName } from "https://example.com/shapes/circle.js";
 import { name as squareName, draw } from "./shapes/square.js";
 ```
 
-Eine Importkarte ermöglicht es Ihnen, eine Zuordnung bereitzustellen, die, wenn übereinstimmend, den Text im Modulspezifikator ersetzen kann.
-Die untenstehende Importkarte definiert die Schlüssel `circle` und `square`, die als Aliase für die in den Modulspezifikatoren gezeigten Module verwendet werden können.
+Eine Importkarte ermöglicht es Ihnen, eine Zuordnung bereitzustellen, die, falls sie übereinstimmt, den Text im Modulspezifikator ersetzen kann.
+Die folgende Importkarte definiert die Schlüssel `circle` und `square`, die als Aliase für die oben gezeigten Modulspezifikatoren verwendet werden können.
 
 ```html
 <script type="importmap">
@@ -253,11 +253,11 @@ import { name as circleName } from "circle";
 import { name as squareName, draw } from "square";
 ```
 
-Für weitere Beispiele, was Sie mit Importkarten tun können, siehe den Abschnitt [Module mit Importkarten importieren](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) im JavaScript-Module-Leitfaden.
+Für weitere Beispiele, was Sie mit Importkarten tun können, siehe den Abschnitt [Importieren von Modulen unter Verwendung von Importkarten](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) im JavaScript-Module-Leitfaden.
 
 ### Einbetten von Daten in HTML
 
-Sie können das `<script>`-Element auch verwenden, um Daten in HTML mit serverseitigem Rendern einzubetten, indem Sie einen gültigen Nicht-JavaScript-MIME-Typ im `type`-Attribut angeben.
+Sie können das `<script>`-Element auch verwenden, um Daten mit serverseitigem Rendering in HTML einzubetten, indem Sie im `type`-Attribut einen gültigen Nicht-JavaScript-MIME-Typ angeben.
 
 ```html
 <!-- Generated by the server -->
@@ -276,11 +276,11 @@ Sie können das `<script>`-Element auch verwenden, um Daten in HTML mit serverse
 </script>
 ```
 
-### Blockieren des Renderns bis ein Skript abgerufen und ausgeführt ist
+### Rendering blockieren, bis ein Skript abgefragt und ausgeführt wurde
 
-Sie können das `render`-Token innerhalb eines `blocking`-Attributes einschließen;
-das Rendern der Seite wird blockiert, bis das Skript abgerufen und ausgeführt ist. Im untenstehenden Beispiel blockieren wir das Rendern eines asynchronen Skripts,
-so dass das Skript nicht das Parsen blockiert, aber garantiert vor dem Start des Renderings ausgeführt wird.
+Sie können das `render`-Token innerhalb eines `blocking`-Attributs einfügen;
+das Rendering der Seite wird blockiert, bis das Skript abgefragt und ausgeführt wurde. Im folgenden Beispiel blockieren wir das Rendering eines asynchronen Skripts,
+so dass das Skript das Parsen nicht blockiert, aber garantiert vor Beginn des Renderings ausgewertet wird.
 
 ```html
 <script blocking="render" async src="async-script.js"></script>
@@ -295,9 +295,9 @@ so dass das Skript nicht das Parsen blockiert, aber garantiert vor dem Start des
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content">Metadaten-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fluss-Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasen-Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content">Metadateninhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließinhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalt</a>.
       </td>
     </tr>
     <tr>
@@ -306,13 +306,13 @@ so dass das Skript nicht das Parsen blockiert, aber garantiert vor dem Start des
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern-Elemente</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content">Metadaten-Inhalt</a> akzeptiert,
-        oder jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasen-Inhalt</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content">Metadateninhalt</a> akzeptiert,
+        oder jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierungsinhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
@@ -323,7 +323,7 @@ so dass das Skript nicht das Parsen blockiert, aber garantiert vor dem Start des
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Kein <code>role</code> erlaubt</td>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -343,5 +343,5 @@ so dass das Skript nicht das Parsen blockiert, aber garantiert vor dem Start des
 ## Siehe auch
 
 - [`document.currentScript`](/de/docs/Web/API/Document/currentScript)
-- [Flavio Copes' Artikel über effizientes Laden von JavaScript und die Unterschiede zwischen `async` und `defer` erklären](https://thevalleyofcode.com/javascript-async-defer/)
+- [Flavio Copes' Artikel über das effiziente Laden von JavaScript und die Erklärung der Unterschiede zwischen `async` und `defer`](https://thevalleyofcode.com/javascript-async-defer/)
 - [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) Leitfaden

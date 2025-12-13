@@ -3,12 +3,12 @@ title: "SharedStorageWorkletGlobalScope: register()-Methode"
 short-title: register()
 slug: Web/API/SharedStorageWorkletGlobalScope/register
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`register()`**-Methode des [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope)-Interfaces registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die innerhalb des aktuellen Worklet-Moduls definiert ist.
+Die **`register()`**-Methode der [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope)-Schnittstelle registriert eine im aktuellen Worklet-Modul definierte [Operation](/de/docs/Web/API/SharedStorageOperation).
 
 ## Syntax
 
@@ -19,9 +19,9 @@ register(name, operationCtor)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen repräsentiert, unter dem Sie die Operation registrieren möchten. Wenn die Operation aufgerufen wird (z. B. über [`WindowSharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) oder [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)), wird dieser Name verwendet, um die auszuführende Operation zu identifizieren.
+  - : Ein String, der den Namen darstellt, mit dem Sie die Operation registrieren möchten. Wenn die Operation aufgerufen wird (zum Beispiel über [`WindowSharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) oder [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)), wird dieser Name verwendet, um die gewünschte Operation zu identifizieren.
 - `operationCtor`
-  - : Ein String, der den Klassennamen der zu registrierenden Operation repräsentiert. Dies ist der Klassenkonstruktor, der aufgerufen wird, wenn die Operation ausgeführt wird.
+  - : Ein String, der den Klassennamen der zu registrierenden Operation darstellt. Dies ist der Klassenkonstruktor, der aufgerufen wird, wenn die Operation ausgeführt wird.
 
 ### Rückgabewert
 
@@ -30,9 +30,9 @@ Keiner (`undefined`).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn:
+  - : Wird ausgelöst, wenn:
     - Eine Operation bereits mit dem angegebenen Namen registriert wurde.
-    - `operationCtor` kein gültiger Konstruktor ist.
+    - Der `operationCtor` kein gültiger Konstruktor ist.
     - Die Klasse keine gültige `run()`-Methode enthält.
     - Das Worklet-Modul nicht mit [`SharedStorageWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
 
@@ -53,10 +53,10 @@ class SelectURLOperation {
 register("ab-testing", SelectURLOperation);
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für eine detaillierte Anleitung zu diesem Beispiel und für Links zu weiteren Beispielen.
+Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Landingpage für einen detaillierten Überblick über dieses Beispiel und Links zu weiteren Beispielen.
 
 > [!NOTE]
-> Es ist möglich, mehrere Operationen im selben Shared Storage Worklet-Modulskript mit verschiedenen Namen zu definieren und zu registrieren; siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
+> Es ist möglich, mehrere Operationen im selben Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
 
 ## Spezifikationen
 
