@@ -2,15 +2,15 @@
 title: Kontinuierliche Integration
 slug: Glossary/Continuous_integration
 l10n:
-  sourceCommit: 79f65d8322a4e55e9f3f4c91441c9188dbe670e0
+  sourceCommit: 7d4f930455a349e3c73836500add3d4840c76f5d
 ---
 
-Kontinuierliche Integration (CI) ist eine Softwareentwicklungspraxis, bei der Änderungen am Quellcode häufig in die Hauptcodebasis integriert werden.
+Kontinuierliche Integration (CI) ist eine Praktik in der Softwareentwicklung, bei der Änderungen am Quellcode häufig in die Hauptcodebasis integriert werden.
 
-Es ist eine wichtige Praxis, wann immer ein Entwicklerteam an einer gemeinsamen Codebasis arbeitet. In dieser Situation könnten verschiedene Entwickler zeitgleich überlappende Änderungen am Code vornehmen, jeder in seinen persönlichen Branches. Die häufige Integration der Änderungen jedes Entwicklers macht es viel weniger wahrscheinlich, dass Konflikte auftreten, und erleichtert deren Lösung erheblich, wenn sie doch auftreten.
+Es ist eine wichtige Praktik, wann immer ein Entwicklerteam an einer gemeinsamen Codebasis arbeitet. In dieser Situation könnten verschiedene Entwickler gleichzeitig sich überschneidende Änderungen am Code vornehmen, jeweils in ihren persönlichen Entwicklungszweigen. Häufige Integration der Änderungen jedes Entwicklers macht Konflikte weniger wahrscheinlich und intuitiver lösbar.
 
-Wie [Martin Fowler bemerkt](https://martinfowler.com/articles/continuousIntegration.html#EveryonePushesCommitsToTheMainlineEveryDay):
+Wie [Martin Fowler beobachtet](https://martinfowler.com/articles/continuousIntegration.html#EveryonePushesCommitsToTheMainlineEveryDay):
 
-> Integration dreht sich in erster Linie um Kommunikation. Integration ermöglicht es Entwicklern, anderen Entwicklern von den vorgenommenen Änderungen zu berichten. Häufige Kommunikation ermöglicht es den Beteiligten, schnell über Entwicklungen der Änderungen informiert zu sein.
+> Integration betrifft in erster Linie Kommunikation. Integration ermöglicht es Entwicklern, anderen Entwicklern von den Änderungen zu berichten, die sie vorgenommen haben. Häufige Kommunikation ermöglicht es, schnell über neue Entwicklungen informiert zu sein, während sich die Änderungen entwickeln.
 
-Ein wesentlicher Aspekt von CI ist automatisiertes Bauen und Testen: Typischerweise wird in einem CI-System, sobald ein Entwickler eine Pull-Anfrage stellt, um seine Änderungen an die Hauptbranch zu übergeben, ein automatisierter Prozess gestartet, der das Produkt baut und Tests durchführt. Sobald alle Tests bestanden sind, kann die Änderung von Kollegen überprüft werden.
+Ein wesentlicher Aspekt von CI ist der automatisierte Build und Test: Typischerweise wird in einem CI-System, sobald ein Entwickler einen Pull-Request öffnet, um seine Änderungen am Hauptzweig zu übernehmen, ein automatisierter Prozess ausgelöst, der das Produkt erstellt und Tests durchführt. Sobald alle Tests bestanden sind, kann die Änderung von Kollegen begutachtet werden.

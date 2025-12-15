@@ -1,24 +1,23 @@
 ---
-title: Source map
+title: Source Map
 slug: Glossary/Source_map
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 7d4f930455a349e3c73836500add3d4840c76f5d
 ---
 
-Ein **Source Map** ist ein {{Glossary("JSON", "JSON")}}-Dateiformat, das zwischen dem vom Browser empfangenen minifizierten oder transformierten Code und seiner ursprünglichen, unveränderten Form abbildet. Dies ermöglicht die Rekonstruktion und Nutzung des Originalcodes beim Debuggen.
+Ein **Source Map** ist ein {{Glossary("JSON", "JSON")}}-Dateiformat, das zwischen komprimiertem oder transformiertem Code, der vom Browser empfangen wird, und seiner ursprünglichen, unmodifizierten Form vermittelt, sodass der ursprüngliche Code rekonstruiert und beim Debuggen verwendet werden kann.
 
-Der von einem Browser ausgeführte Code wird häufig in irgendeiner Weise vom ursprünglichen Quellcode, der von einem Entwickler erstellt wurde, transformiert. Dafür gibt es verschiedene Gründe:
+Der vom Browser ausgeführte Code wird oft in irgendeiner Weise von der ursprünglichen Quelle, die vom Entwickler erstellt wurde, transformiert. Dafür gibt es mehrere Gründe:
 
-- Um die Auslieferung des Codes vom Server effizienter zu gestalten, indem Quellcode-Dateien kombiniert und minifiziert werden.
-- Um ältere Browser zu unterstützen, indem moderne Funktionen in ältere Entsprechungen umgewandelt werden.
+- Um die Bereitstellung von Code vom Server effizienter zu gestalten, indem Quelldateien kombiniert und minimiert werden.
+- Um ältere Browser zu unterstützen, indem moderne Funktionen in ältere Äquivalente transformiert werden.
 - Um Sprachen zu verwenden, die von Browsern nicht unterstützt werden, wie {{Glossary("TypeScript", "TypeScript")}} oder [Sass](https://sass-lang.com/).
 
-In diesen Situationen ist das Debuggen des ursprünglichen Quellcodes viel einfacher als der Code im transformierten Zustand, den der Browser heruntergeladen hat.
-Browser erkennen eine Source Map über den {{HTTPHeader("SourceMap")}} HTTP-Header für eine Ressource oder eine `sourceMappingURL`-Annotation im generierten Code.
+In diesen Situationen ist es intuitiver, den ursprünglichen Quellcode zu debuggen als den transformierten Code, den der Browser heruntergeladen hat. Browser erkennen ein Source Map über den {{HTTPHeader("SourceMap")}} HTTP-Header für eine Ressource oder eine `sourceMappingURL`-Annotation im generierten Code.
 
 ## Beispiel
 
-Betrachten Sie beispielsweise diese SCSS-Syntax von Sass:
+Beispielsweise betrachten wir diesen SCSS-Syntax von Sass:
 
 ```scss
 ul {
@@ -29,8 +28,7 @@ ul {
 }
 ```
 
-Während des Build-Prozesses wird das SCSS in CSS umgewandelt.
-Es wird eine Source Map-Datei `index.css.map` erzeugt und in einem Kommentar am Ende des CSS verlinkt:
+Während des Build-Prozesses wird das SCSS in CSS transformiert. Eine Source Map-Datei `index.css.map` wird generiert und in einem Kommentar am Ende des CSS verlinkt:
 
 ```css
 ul {
@@ -43,7 +41,7 @@ ul li {
 /*# sourceMappingURL=index.css.map */
 ```
 
-Diese Map-Datei enthält nicht nur Zuordnungen zwischen dem ursprünglichen SCSS und dem generierten CSS, sondern auch den originalen SCSS-Quellcode in kodierter Form. Sie wird vom CSS-Parser des Browsers ignoriert, aber von den DevTools des Browsers verwendet:
+Diese Map-Datei enthält nicht nur Zuordnungen zwischen dem ursprünglichen SCSS und dem generierten CSS, sondern auch den ursprünglichen SCSS-Quellcode in codierter Form. Sie wird vom CSS-Parser des Browsers ignoriert, aber von den DevTools des Browsers verwendet:
 
 ```json
 {
@@ -56,11 +54,11 @@ Diese Map-Datei enthält nicht nur Zuordnungen zwischen dem ursprünglichen SCSS
 }
 ```
 
-Die Source Map ermöglicht es den DevTools des Browsers, auf bestimmte Zeilen in der ursprünglichen SCSS-Datei zu verlinken und den Quellcode anzuzeigen:
+Die Source Map ermöglicht es den DevTools des Browsers, auf spezifische Zeilen in der ursprünglichen SCSS-Datei zu verlinken und den Quellcode anzuzeigen:
 
-![Firefox DevTools, fokussiert auf das `li`-Element im DOM-Inspektor. Das Stil-Panel zeigt transformiertes CSS ohne Verschachtelung und einen Link zur dritten Zeile der Datei `index.scss`.](inspector.png)
+![Firefox DevTools fokussiert auf das li-Element im DOM-Inspektor. Das Stil-Panel zeigt transformiertes CSS ohne Verschachtelung und einen Link zur dritten Zeile der index.scss-Datei.](inspector.png)
 
-![Firefox DevTools mit geöffneter `index.scss`-Datei im Stil-Editor. Der Editor ist auf die dritte Zeile des Quellcodes im SCSS-Format mit Verschachtelung fokussiert.](style-editor.png)
+![Firefox DevTools mit der index.scss-Datei im Style-Editor geöffnet. Der Editor fokussiert die dritte Zeile des Quellcodes im SCSS-Format mit Verschachtelung.](style-editor.png)
 
 ## Siehe auch
 

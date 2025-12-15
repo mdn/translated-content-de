@@ -2,10 +2,10 @@
 title: "@keyframes"
 slug: Web/CSS/Reference/At-rules/@keyframes
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 4779d7c77859441641c1e061b21f2c74024fe796
 ---
 
-Die **`@keyframes`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules) steuert die Zwischenschritte in einer CSS-Animationssequenz, indem sie Stile für Keyframes (oder Wegpunkte) entlang der Animationssequenz definiert. Dies bietet mehr Kontrolle über die Zwischenschritte der Animationssequenz als [Transitions](/de/docs/Web/CSS/Guides/Transitions).
+Die **`@keyframes`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/Guides/Syntax/At-rules) steuert die Zwischenschritte in einer CSS-Animationssequenz, indem sie Stile für Keyframes (oder Wegpunkte) entlang der Animationssequenz definiert. Dies bietet mehr Kontrolle über die Zwischenschritte der Animationssequenz als [Übergänge](/de/docs/Web/CSS/Guides/Transitions).
 
 ## Syntax
 
@@ -24,39 +24,39 @@ Die **`@keyframes`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/Guides/S
 ### Werte
 
 - {{cssxref("custom-ident")}}
-  - : Ein Name, der die Keyframe-Liste identifiziert. Dieser muss der Identifier-Produktion in der CSS-Syntax entsprechen.
+  - : Ein Name, der die Keyframe-Liste identifiziert. Dieser muss der Identifikatorproduktion in der CSS-Syntax entsprechen.
 - `from`
-  - : Ein Start-Offset von `0%`.
+  - : Ein Anfangsversatz von `0%`.
 - `to`
-  - : Ein End-Offset von `100%`.
+  - : Ein Endversatz von `100%`.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein Prozentwert der Zeit innerhalb der Animationssequenz, bei dem das angegebene Keyframe auftreten soll.
+  - : Ein Prozentsatz der Zeit durch die Animationssequenz, zu dem das angegebene Keyframe auftreten soll.
 - `<timeline-range-name>` {{cssxref("&lt;percentage&gt;")}}
-  - : Ein Prozentwert der Zeit innerhalb des angegebenen {{cssxref("animation-range")}}, bei dem das angegebene Keyframe auftreten soll. Weitere Informationen zu den Arten von Animationen, die benannte Zeitachsenbereiche verwenden, finden Sie unter [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations).
+  - : Ein Prozentsatz der Zeit durch den angegebenen {{cssxref("animation-range")}}, zu dem das angegebene Keyframe auftreten soll. Weitere Informationen zu den Arten von Animationen, die benannte Zeitstrahlbereiche verwenden, finden Sie in [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations).
 
 ## Beschreibung
 
-Um Keyframes zu verwenden, erstellen Sie eine `@keyframes`-Regel mit einem Namen, der dann durch die {{ cssxref("animation-name") }}-Eigenschaft verwendet wird, um eine Animation mit ihrer Keyframe-Deklaration abzugleichen. Jede `@keyframes`-Regel enthält eine Stil-Liste von Keyframe-Selektoren, die Prozentsätze entlang der Animation angeben, wenn das Keyframe auftritt, und einen Block, der die Stile für dieses Keyframe enthält.
+Um Keyframes zu verwenden, erstellen Sie eine `@keyframes`-Regel mit einem Namen, der dann von der {{ cssxref("animation-name") }}-Eigenschaft verwendet wird, um eine Animation mit ihrer Keyframe-Deklaration abzugleichen. Jede `@keyframes`-Regel enthält eine Stil-Liste von Keyframe-Selektoren, die Prozentsätze entlang der Animation angeben, wann das Keyframe auftritt, und einen Block, der die Stile für dieses Keyframe enthält.
 
-Sie können die Keyframe-Prozentsätze in beliebiger Reihenfolge auflisten; sie werden in der Reihenfolge behandelt, in der sie auftreten sollen.
+Sie können die Keyframe-Prozentsätze in beliebiger Reihenfolge auflisten; sie werden in der Reihenfolge verarbeitet, in der sie auftreten sollen.
 
-JavaScript kann auf die `@keyframes` at-rule mit dem CSS-Objektmodell-Interface [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule) zugreifen.
+JavaScript kann auf die `@keyframes` at-rule mit dem CSS-Objektmodell-Schnittstelle [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule) zugreifen.
 
 ### Gültige Keyframe-Listen
 
-Wenn eine Keyframe-Regel nicht die Start- oder Endzustände der Animation angibt (also `0%`/`from` und `100%`/`to`), verwenden Browser die bestehenden Stile des Elements für die Start-/Endzustände. Dies kann verwendet werden, um ein Element von seinem Anfangszustand aus und zurück zu animieren.
+Wenn eine Keyframe-Regel die Anfangs- oder Endzustände der Animation (also `0%`/`from` und `100%`/`to`) nicht angibt, verwenden Browser die bestehenden Stile des Elements für die Anfangs-/Endzustände. Dies kann verwendet werden, um ein Element von seinem Anfangszustand aus und zurück zu animieren.
 
-Eigenschaften, die in Keyframe-Regeln nicht animiert werden können, werden ignoriert, aber unterstützte Eigenschaften werden trotzdem animiert.
+Eigenschaften, die in Keyframe-Regeln nicht animiert werden können, werden ignoriert, aber unterstützte Eigenschaften werden dennoch animiert.
 
 ### Auflösen von Duplikaten
 
-Wenn mehrere Keyframe-Sätze für einen gegebenen Namen existieren, wird der letzte, den der Parser erkannt hat, verwendet. `@keyframes`-Regeln kaskadieren nicht, sodass Animationen nie Keyframes aus mehr als einem Regelset ableiten.
+Wenn mehrere Keyframe-Sätze für einen gegebenen Namen existieren, wird der letzte, der vom Parser gefunden wird, verwendet. `@keyframes`-Regeln kaskadieren nicht, sodass Animationen niemals Keyframes von mehr als einem Regelsatz ableiten.
 
-Wenn ein gegebener Animationszeit-Offset dupliziert wird, werden alle Keyframes in der `@keyframes`-Regel für diesen Prozentsatz für diesen Frame verwendet. Es gibt eine Kaskadierung innerhalb einer `@keyframes`-Regel, wenn mehrere Keyframes die gleichen Prozentsatzwerte angeben.
+Wenn ein gegebener Animationszeit-Versatz dupliziert wird, werden alle Keyframes in der `@keyframes`-Regel für diesen Prozentsatz für diesen Frame verwendet. Es gibt eine Kaskadierung innerhalb einer `@keyframes`-Regel, wenn mehrere Keyframes dieselben Prozentsatzwerte angeben.
 
-### Wenn Eigenschaften in einigen Keyframes weggelassen werden
+### Wenn Eigenschaften in einigen Keyframes ausgelassen werden
 
-Eigenschaften, die nicht in jedem Keyframe angegeben sind, werden, wenn möglich, interpoliert — Eigenschaften, die nicht interpoliert werden können, werden aus der Animation entfernt. Zum Beispiel:
+Eigenschaften, die nicht in jedem Keyframe angegeben sind, werden, wenn möglich, interpoliert — Eigenschaften, die nicht interpoliert werden können, werden von der Animation ausgeschlossen. Zum Beispiel:
 
 ```css
 @keyframes identifier {
@@ -78,11 +78,11 @@ Eigenschaften, die nicht in jedem Keyframe angegeben sind, werden, wenn möglich
 }
 ```
 
-Hier animiert die {{ cssxref("top") }}-Eigenschaft mit den `0%`, `30%` und `100%`-Keyframes, und {{ cssxref("left") }} animiert mit den `0%`, `68%`, `72%` und `100%`-Keyframes.
+Hier animiert die {{ cssxref("top") }}-Eigenschaft mit den Keyframes `0%`, `30%` und `100%`, und {{ cssxref("left") }} animiert mit den Keyframes `0%`, `68%`, `72%` und `100%`.
 
-### Wenn ein Keyframe mehrfach definiert wird
+### Wenn ein Keyframe mehrfach definiert ist
 
-Wenn ein Keyframe mehrfach definiert wird, jedoch nicht alle betroffenen Eigenschaften in jedem Keyframe enthalten sind, werden alle in diesen Keyframes angegebenen Werte berücksichtigt. Zum Beispiel:
+Wenn ein Keyframe mehrfach definiert ist, aber nicht alle betroffenen Eigenschaften in jedem Keyframe vorhanden sind, werden alle in diesen Keyframes angegebenen Werte berücksichtigt. Zum Beispiel:
 
 ```css
 @keyframes identifier {
@@ -102,7 +102,7 @@ Wenn ein Keyframe mehrfach definiert wird, jedoch nicht alle betroffenen Eigensc
 }
 ```
 
-In diesem Beispiel werden im `50%`-Keyframe die Werte `top: 10px` und `left: 20px` verwendet.
+In diesem Beispiel sind bei dem `50%`-Keyframe die verwendeten Werte `top: 10px` und `left: 20px`.
 
 Kaskadierende Keyframes werden ab Firefox 14 unterstützt.
 
@@ -143,7 +143,7 @@ Deklarationen in einem Keyframe, die mit `!important` qualifiziert sind, werden 
 
 ### CSS-Animationsbeispiele
 
-Für Beispiele siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) und [Elemente beim Scrollen mit Scroll-gesteuerten Animationen animieren](https://developer.chrome.com/docs/css-ui/scroll-driven-animations).
+Siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using) und [scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines) für Beispiele.
 
 ## Spezifikationen
 
@@ -155,9 +155,10 @@ Für Beispiele siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/An
 
 ## Siehe auch
 
-- {{cssxref("animation-range")}}
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- {{cssxref("animation-name")}}
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
-- [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animations)
-- [Elemente beim Scrollen mit Scroll-gesteuerten Animationen animieren](https://developer.chrome.com/docs/css-ui/scroll-driven-animations)
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
+- [CSS-Scroll-gesteuerte Animation-Zeitstrahlen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Elemente bei Bildlauf mit Scroll-gesteuerten Animationen animieren](https://developer.chrome.com/docs/css-ui/scroll-driven-animations)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
