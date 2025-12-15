@@ -1,17 +1,18 @@
 ---
-title: Firefox 147-Release-Hinweise für Entwickler (Beta)
+title: Firefox 147 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 147 (Beta)
 slug: Mozilla/Firefox/Releases/147
 l10n:
-  sourceCommit: 618d480ec934c834d8a37796dc691061c401ed5d
+  sourceCommit: 891ca0872fffab7dfec25bc56243e6f89d6089ab
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 147, die Entwickler betreffen. Firefox 147 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [13. Januar 2026](https://whattrainisitnow.com/release/?version=147) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 147, die Entwickler betreffen.
+Firefox 147 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [13. Januar 2026](https://whattrainisitnow.com/release/?version=147) veröffentlicht.
 
 > [!NOTE]
-> Die Release-Hinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Hinweise schreiben -->
+<!-- Autoren: Bitte heben Sie Kommentare zu Überschriften auf, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
@@ -19,7 +20,7 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 147, die E
 
 <!-- ### HTML -->
 
-<!-- Keine bedeutenden Änderungen. -->
+<!-- Keine nennenswerten Änderungen. -->
 
 <!-- #### Entfernungen -->
 
@@ -33,18 +34,27 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 147, die E
 
 ### CSS
 
-- Die `-webkit-`-präfixierte Version der {{cssxref("perspective")}}-Eigenschaft wird jetzt mit wertlosen Einheiten unterstützt — zum Beispiel `-webkit-perspective: 800` — für eine erhöhte Kompatibilität.
+- [CSS Anchor-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) ist jetzt standardmäßig aktiviert.
+  ([Firefox-Bug 1988225](https://bugzil.la/1988225)).
+  - Der Wert [`anchor-center`](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center), der eine bequeme Möglichkeit bietet, ein anchor-positioniertes Element auf seinem Anker zu zentrieren, wurde in Version 147 hinzugefügt. Er ist verfügbar in den {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}}, {{cssxref("justify-self")}}, {{cssxref("place-items")}} und {{cssxref("place-self")}} Eigenschaften.
+    ([Firefox-Bug 1909339](https://bugzil.la/1909339))
+  - Der Wert {{cssxref("position-anchor")}} `none` wurde in Version 147 hinzugefügt, was eine implizite oder explizite Verbindung zwischen einem [CSS Anker](/de/docs/Web/CSS/Guides/Anchor_positioning) und einem anchor-positionierten Element ermöglicht, um entfernt zu werden.
+    ([Firefox-Bug 1999972](https://bugzil.la/1999972)).
+- Die `-webkit-` vorangestellte Version der {{cssxref("perspective")}} Eigenschaft wird jetzt mit einheitslosen Werten unterstützt — zum Beispiel `-webkit-perspective: 800` — für erhöhte Kompatibilität.
   ([Firefox-Bug 1362499](https://bugzil.la/1362499)).
-- [View-Transitionstypen](/de/docs/Web/API/View_Transition_API/Using_types) werden jetzt unterstützt, die einen Mechanismus bieten, durch den verschiedene **Typen** für aktive View-Transitions angegeben werden können. CSS kann dann verwendet werden, um Animationen auf DOM-Elemente anzuwenden, wenn ihr Inhalt aktualisiert wird, abhängig vom angegebenen Transitionstyp. Firefox 147 unterstützt nur View-Transitionstypen für Single-Page-Apps (SPA), nicht jedoch für dokumentübergreifende View-Transitionstypen.
+- [Sichtübergangstypen](/de/docs/Web/API/View_Transition_API/Using_types) werden jetzt unterstützt, die eine Mechanik bieten, bei der verschiedene **Typen** für aktive Sichtübergänge spezifiziert werden können. CSS kann dann verwendet werden, um Animationen auf DOM-Elemente anzuwenden, wenn deren Inhalt aktualisiert wird, abhängig vom spezifizierten Übergangstyp. Firefox 147 unterstützt nur Sichtübergangstypen für Single-Page-Apps (SPA), nicht für dokumentübergreifende Übergangstypen.
   ([Firefox-Bug 2001878](https://bugzil.la/2001878)).
-- Die Eigenschaften {{cssxref("counter-increment")}}, {{cssxref("counter-reset")}}, {{cssxref("counter-set")}} und {{cssxref("quotes")}} werden jetzt auf dem {{cssxref("::marker")}}-Pseudo-Element unterstützt.
+- Die Eigenschaften {{cssxref("counter-increment")}}, {{cssxref("counter-reset")}}, {{cssxref("counter-set")}}, und {{cssxref("quotes")}} werden jetzt auf dem {{cssxref("::marker")}} Pseudo-Element unterstützt.
   ([Firefox-Bug 2000404](https://bugzil.la/2000404)).
 
 <!-- #### Entfernungen -->
 
-<!-- ### JavaScript -->
+### JavaScript
 
-<!-- Keine bedeutenden Änderungen. -->
+- CSS-Modulscripte werden jetzt unterstützt, was es ermöglicht, ein Stylesheet als Instanz von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) unter Verwendung des [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) Schlüsselworts und des [`type` Import-Attributs](/de/docs/Web/JavaScript/Reference/Statements/import/with) mit `type="css"` zu laden.
+  ([Firefox-Bug 1986681](https://bugzil.la/1986681)).
+
+<!-- Keine nennenswerten Änderungen. -->
 
 <!-- #### Entfernungen -->
 
@@ -58,10 +68,16 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 147, die E
 
 ### APIs
 
-- Die [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition)-Eigenschaft wird jetzt unterstützt und gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die derzeit aktive [View-Transition](/de/docs/Web/API/View_Transition_API) im Dokument darstellt. Dies bietet eine konsistente Möglichkeit, auf eine aktive View-Transition in jedem Kontext zuzugreifen, ohne sie manuell für eine spätere Verwendung speichern zu müssen. ([Firefox-Bug 2001836](https://bugzil.la/2001836)).
-- Die Unterstützung für das [WebGPU API](/de/docs/Web/API/WebGPU_API) ist nun für alle macOS-Versionen auf Geräten mit Apple Silicon-Prozessoren aktiviert (zuvor war nur die Unterstützung für macOS Tahoe aktiviert). ([Firefox-Bug 1993341](https://bugzil.la/1993341)).
-
-- Die [Navigation API](/de/docs/Web/API/Navigation_API) wird jetzt unterstützt. Diese bietet die Möglichkeit, Browser-Navigationsaktionen zu initiieren, abzufangen und zu verwalten sowie die Historieneinträge einer Anwendung zu prüfen. Dies ist ein Nachfolger früherer Webplattform-Features wie der [History API](/de/docs/Web/API/History_API) und [`window.location`](/de/docs/Web/API/Window/location), die deren Mängel behebt und speziell auf die Bedürfnisse von {{Glossary("SPA", "Single-Page-Applications (SPAs)")}} ausgerichtet ist. ([Firefox-Bug 1997962](https://bugzil.la/1997962)).
+- Die [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition) Eigenschaft wird jetzt unterstützt, die eine [`ViewTransition`](/de/docs/Web/API/ViewTransition) Instanz zurückgibt, die den [Sichtübergang](/de/docs/Web/API/View_Transition_API) repräsentiert, der aktuell auf dem Dokument aktiv ist. Dies bietet eine konsistente Möglichkeit, auf einen aktiven Sichtübergang in jedem Kontext zuzugreifen, ohne ihn manuell für eine spätere Verwendung speichern zu müssen. ([Firefox-Bug 2001836](https://bugzil.la/2001836)).
+- Unterstützung für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist jetzt für alle macOS-Versionen auf Geräten mit Apple-Silicon-Prozessoren aktiviert (zuvor war nur macOS Tahoe unterstützt). ([Firefox-Bug 1993341](https://bugzil.la/1993341)).
+- Die [Navigation API](/de/docs/Web/API/Navigation_API) wird jetzt unterstützt.
+  Dies bietet die Möglichkeit, Browsenavigationen zu initiieren, abzufangen und zu verwalten, sowie die Verlaufseinträge einer Anwendung zu untersuchen. Dies ist ein Nachfolger früherer Webplattform-Features wie der [History API](/de/docs/Web/API/History_API) und [`window.location`](/de/docs/Web/API/Window/location), der deren Schwächen löst und speziell auf die Bedürfnisse von {{Glossary("SPA", "Einzelseitenanwendungen (SPAs)")}} ausgerichtet ist.
+  ([Firefox-Bug 1997962](https://bugzil.la/1997962)).
+- Brotli-Kompression wird jetzt für sowohl [`CompressionStream`](/de/docs/Web/API/CompressionStream/CompressionStream#brotli) als auch [`DecompressionStream`](/de/docs/Web/API/DecompressionStream/DecompressionStream#brotli) unterstützt.
+  ([Firefox-Bug 1921583](https://bugzil.la/1921583)).
+- Service Workers können jetzt ECMAScript [Modulscripte](/de/docs/Web/JavaScript/Guide/Modules) sein.
+  Um ein Service Worker Modul zu laden, spezifizieren Sie einen [`type`](/de/docs/Web/API/ServiceWorkerContainer/register#type) von `'module'` beim Aufruf von [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register).
+  ([Firefox-Bug 1360870](https://bugzil.la/1360870)).
 
 <!-- #### DOM -->
 
@@ -81,7 +97,7 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 147, die E
 
 <!-- #### Marionette -->
 
-## Änderungen für Add-On-Entwickler
+## Änderungen für Add-on Entwickler
 
 <!-- ### Entfernungen -->
 
@@ -89,4 +105,6 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 147, die E
 
 ## Experimentelle Web-Features
 
-Diese Features sind in Firefox 147 enthalten, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solcher Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 147 enthalten, aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features) Seite.

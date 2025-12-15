@@ -1,14 +1,14 @@
 ---
-title: "DecompressionStream: DecompressionStream()-Konstruktor"
+title: "DecompressionStream: DecompressionStream() Konstruktor"
 short-title: DecompressionStream()
 slug: Web/API/DecompressionStream/DecompressionStream
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 58ea518e521a18a8930a67adc544cfd420d8f98f
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Der **`DecompressionStream()`**-Konstruktor erstellt ein neues [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Objekt, das einen Datenstrom dekomprimiert.
+Der **`DecompressionStream()`** Konstruktor erstellt ein neues [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Objekt, das einen Datenstrom dekomprimiert.
 
 ## Syntax
 
@@ -19,14 +19,18 @@ new DecompressionStream(format)
 ### Parameter
 
 - `format`
-  - : Einer der folgenden Komprimierungsformate:
+  - : Eines der folgenden Komprimierungsformate:
+    - `"brotli"`
+      - : Dekomprimiert den Stream mit dem [Brotli](https://www.rfc-editor.org/rfc/rfc1952)-Algorithmus.
     - `"gzip"`
-      - : Den Stream mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Format dekomprimieren.
+      - : Dekomprimiert den Stream mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Algorithmus.
     - `"deflate"`
-      - : Den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB-komprimierten Datenformat dekomprimieren.
-        Das ZLIB-Format beinhaltet einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Datenintegrität.
+      - : Dekomprimiert den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB-Komprimierte-Datenformat.
+        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Datenintegrität.
     - `"deflate-raw"`
-      - : Den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und abschließende Prüfsumme dekomprimieren.
+      - : Dekomprimiert den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und abschließende Prüfsumme.
+    - `"zstd"`
+      - : Dekomprimiert den Stream mit dem [ZSTD](https://datatracker.ietf.org/doc/html/rfc8478)-Algorithmus.
 
 ### Ausnahmen
 
@@ -35,7 +39,7 @@ new DecompressionStream(format)
 
 ## Beispiele
 
-In diesem Beispiel wird ein gzip-komprimierter Blob dekomprimiert.
+In diesem Beispiel wird ein gzip-komprimiertes Blob dekomprimiert.
 
 ```js
 const ds = new DecompressionStream("gzip");

@@ -2,128 +2,128 @@
 title: Globale Attribute
 slug: Web/HTML/Reference/Global_attributes
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: dc788bf0ea36cb1ebe809c82aaae2c77cb3e18c0
 ---
 
-**Globale Attribute** sind Attribute, die allen HTML-Elementen gemeinsam sind; sie können bei allen Elementen verwendet werden, obwohl sie bei einigen Elementen keine Wirkung haben können.
+**Globale Attribute** sind Attribute, die für alle HTML-Elemente gemeinsam sind; sie können auf allen Elementen verwendet werden, obwohl sie bei einigen Elementen keine Wirkung haben könnten.
 
-Globale Attribute können bei allen [HTML-Elementen](/de/docs/Web/HTML/Reference/Elements) angegeben werden, _auch bei denen, die nicht im Standard spezifiziert sind_. Das bedeutet, dass auch nicht-standardmäßige Elemente diese Attribute erlauben müssen, obwohl die Verwendung dieser Elemente bedeutet, dass das Dokument nicht mehr HTML5-konform ist. Beispielsweise verbergen HTML5-konforme Browser Inhalte, die als `<foo hidden>…</foo>` markiert sind, obwohl `<foo>` kein gültiges HTML-Element ist.
+Globale Attribute können für alle [HTML-Elemente](/de/docs/Web/HTML/Reference/Elements) angegeben werden, _auch für solche, die nicht im Standard angegeben sind_. Das bedeutet, dass auch nicht standardisierte Elemente diese Attribute zulassen müssen, auch wenn die Verwendung dieser Elemente bedeutet, dass das Dokument nicht mehr HTML5-konform ist. Beispielsweise blenden HTML5-konforme Browser Inhalte aus, die als `<foo hidden>…</foo>` gekennzeichnet sind, auch wenn `<foo>` kein gültiges HTML-Element ist.
 
 Zusätzlich zu den grundlegenden globalen HTML-Attributen existieren auch die folgenden globalen Attribute:
 
-- `xml:lang` und `xml:base` — sie stammen aus den XHTML-Spezifikationen und sind veraltet, aber aus Kompatibilitätsgründen beibehalten.
+- `xml:lang` und `xml:base` — diese sind aus den XHTML-Spezifikationen übernommen und veraltet, werden aber aus Kompatibilitätsgründen beibehalten.
 - Das ARIA-Attribut [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) und die verschiedenen [`aria-*`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes) Zustände und Eigenschaften, die zur Sicherstellung der Barrierefreiheit verwendet werden.
-- Die unten aufgeführten [Event-Handler-Attribute](#liste_der_globalen_event-handler-attribute).
+- Die unten aufgelisteten [Event-Handler-Attribute](#liste_der_globalen_event-handler-attribute).
 
 ## Liste der globalen Attribute
 
 - [`accesskey`](/de/docs/Web/HTML/Reference/Global_attributes/accesskey)
-  - : Bietet einen Hinweis zum Generieren einer Tastenkombination für das aktuelle Element. Dieses Attribut besteht aus einer durch Leerzeichen getrennten Liste von Zeichen. Der Browser sollte das erste verwenden, das auf der Computertastatur vorhanden ist.
+  - : Gibt einen Hinweis zur Erzeugung eines Tastaturkürzels für das aktuelle Element. Dieses Attribut besteht aus einer durch Leerzeichen getrennten Liste von Zeichen. Der Browser sollte das erste davon verwenden, das auf der Computertastatur vorhanden ist.
 - [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) {{non-standard_inline}}
-  - : Verknüpft ein positioniertes Element mit einem Ankerelement. Der Wert des Attributs ist der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Wert des Elements, an das Sie das positionierte Element anheften möchten. Das Element kann dann mit [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) positioniert werden.
+  - : Verknüpft ein positioniertes Element mit einem Anker-Element. Der Wert des Attributs ist der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Wert des Elements, an das das positionierte Element angedockt werden soll. Das Element kann dann [mittels CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using) positioniert werden.
 - [`autocapitalize`](/de/docs/Web/HTML/Reference/Global_attributes/autocapitalize)
-  - : Steuert, ob eingegebener Text automatisch großgeschrieben wird und wenn ja, in welcher Weise.
+  - : Steuert, ob eingegebener Text automatisch großgeschrieben wird und, wenn ja, auf welche Weise.
 - [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect)
-  - : Steuert, ob eingegebener Text automatisch auf Rechtschreibfehler überprüft und korrigiert wird.
-    Dies kann auf Elemente angewendet werden, die bearbeitbaren Text haben, mit Ausnahme von {{HTMLElement("input")}}-Elementen mit dem Attribut: [`type="password"`](/de/docs/Web/HTML/Reference/Elements/input/password), [`type="email"`](/de/docs/Web/HTML/Reference/Elements/input/email) oder [`type="url"`](/de/docs/Web/HTML/Reference/Elements/input/url).
+  - : Steuert, ob eingegebener Text automatisch auf Rechtschreibfehler korrigiert wird.
+    Dies kann auf Elemente angewendet werden, die bearbeitbaren Text enthalten, mit Ausnahme von {{HTMLElement("input")}}-Elementen mit dem Attribut: [`type="password"`](/de/docs/Web/HTML/Reference/Elements/input/password), [`type="email"`](/de/docs/Web/HTML/Reference/Elements/input/email) oder [`type="url"`](/de/docs/Web/HTML/Reference/Elements/input/url).
 - [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus)
-  - : Gibt an, dass ein Element bei der Seitenladung oder sobald das {{HTMLElement("dialog")}}, zu dem es gehört, angezeigt wird, fokussiert werden soll. Dieses Attribut ist ein boolescher Wert, der anfänglich falsch ist.
+  - : Gibt an, dass ein Element beim Laden der Seite oder sobald der {{HTMLElement("dialog")}}, zu dem es gehört, angezeigt wird, fokussiert werden soll. Dieses Attribut ist ein boolesches Attribut, das anfänglich auf `false` gesetzt ist.
 - [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)
-  - : Eine durch Leerzeichen getrennte Liste der Klassen eines Elements. Klassen ermöglichen es CSS und JavaScript, spezifische Elemente über [Klassen-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) oder Funktionen wie die Methode [`Document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und zuzugreifen.
+  - : Eine durch Leerzeichen getrennte Liste der Klassen des Elements. Klassen ermöglichen es CSS und JavaScript, bestimmte Elemente über die [Klassenselektoren](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) oder Funktionen wie die Methode [`Document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und zuzugreifen.
 - [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)
-  - : Ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. In diesem Fall modifiziert der Browser sein Widget, um die Bearbeitung zu ermöglichen. Das Attribut muss einen der folgenden Werte annehmen:
-    - `true` oder den _leeren String_, was anzeigt, dass das Element bearbeitbar sein muss;
-    - `false`, was anzeigt, dass das Element nicht bearbeitbar sein darf.
-    - `plaintext-only`, was anzeigt, dass der Rohtext des Elements bearbeitbar ist, aber die Formatierung von Rich-Text deaktiviert ist.
+  - : Ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das angibt, ob das Element durch den Benutzer bearbeitbar sein soll. Wenn ja, ändert der Browser sein Widget, um das Bearbeiten zu ermöglichen. Das Attribut muss einen der folgenden Werte annehmen:
+    - `true` oder der _leere String_, was darauf hinweist, dass das Element bearbeitbar sein muss;
+    - `false`, was darauf hinweist, dass das Element nicht bearbeitbar sein darf.
+    - `plaintext-only`, was darauf hinweist, dass der rohe Text des Elements bearbeitbar ist, aber die Formatierung von Rich-Text deaktiviert ist.
 
 - [`data-*`](/de/docs/Web/HTML/Reference/Global_attributes/data-*)
-  - : Bildet eine Klasse von Attributen, genannt benutzerdefinierte Datenattribute, die es erlauben, proprietäre Informationen zwischen dem [HTML](/de/docs/Web/HTML) und seiner {{Glossary("DOM", "DOM")}}-Darstellung auszutauschen, die von Skripten verwendet werden können. Alle solche benutzerdefinierten Daten sind über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle des Elements zugänglich, auf dem das Attribut gesetzt ist. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft ermöglicht den Zugriff auf sie.
+  - : Bildet eine Klasse von Attributen, sogenannte benutzerdefinierte Datenattribute, die den Austausch proprietärer Informationen zwischen dem [HTML](/de/docs/Web/HTML) und seiner {{Glossary("DOM", "DOM")}}-Darstellung ermöglichen, die von Skripten verwendet werden können. Alle solche benutzerdefinierten Daten sind über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle des Elements verfügbar, auf dem das Attribut gesetzt ist. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft ermöglicht den Zugriff darauf.
 - [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)
-  - : Ein enumeriertes Attribut, das die Richtung des Textes des Elements angibt. Es kann die folgenden Werte haben:
-    - `ltr`, was _von links nach rechts_ bedeutet und für Sprachen verwendet wird, die von links nach rechts geschrieben werden (wie Englisch);
-    - `rtl`, was _von rechts nach links_ bedeutet und für Sprachen verwendet wird, die von rechts nach links geschrieben werden (wie Arabisch);
-    - `auto`, was dem Benutzeragenten die Entscheidung überlässt. Er verwendet einen einfachen Algorithmus, indem er die Zeichen innerhalb des Elements parst, bis er ein Zeichen mit starker Richtung findet, dann wendet er diese Richtung auf das gesamte Element an.
+  - : Ein aufzählbares Attribut, das die Leserichtung des Texts des Elements angibt. Es kann die folgenden Werte haben:
+    - `ltr`, was bedeutet _von links nach rechts_ und für Sprachen verwendet wird, die von links nach rechts geschrieben werden (wie Englisch);
+    - `rtl`, was bedeutet _von rechts nach links_ und für Sprachen verwendet wird, die von rechts nach links geschrieben werden (wie Arabisch);
+    - `auto`, was den Benutzeragenten entscheiden lässt. Beim Parsen der Zeichen im Element wird ein Grundalgorithmus verwendet, bis ein Zeichen mit einer starken Leserichtung gefunden wird, dann wird diese Leserichtung auf das gesamte Element angewendet.
 
 - [`draggable`](/de/docs/Web/HTML/Reference/Global_attributes/draggable)
-  - : Ein enumeriertes Attribut, das angibt, ob das Element gezogen werden kann, unter Verwendung der [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API). Es kann die folgenden Werte haben:
-    - `true`, was darauf hinweist, dass das Element gezogen werden kann;
-    - `false`, was darauf hinweist, dass das Element nicht gezogen werden kann.
+  - : Ein aufzählbares Attribut, das angibt, ob das Element mit der [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) gezogen werden kann. Es kann die folgenden Werte haben:
+    - `true`, was bedeutet, dass das Element gezogen werden kann
+    - `false`, was bedeutet, dass das Element nicht gezogen werden kann.
 
 - [`enterkeyhint`](/de/docs/Web/HTML/Reference/Global_attributes/enterkeyhint)
-  - : Gibt einen Hinweis darauf, welche Aktionsbezeichnung (oder Ikone) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
+  - : Gibt an, welches Aktionslabel (oder Icon) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
 - [`exportparts`](/de/docs/Web/HTML/Reference/Global_attributes/exportparts)
-  - : Wird verwendet, um Schatten-Teile transitiv von einem verschachtelten Schattenbaum in einen umgebenden Lichtbaum zu exportieren.
+  - : Wird verwendet, um Schattenteile transitiv von einem verschachtelten Schattendokumentenbaum in einen beinhaltenden Lichtbaum zu exportieren.
 - [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden)
-  - : Ein enumeriertes Attribut, das angibt, dass das Element noch nicht oder nicht mehr _relevant_ ist. Es kann beispielsweise verwendet werden, um Elemente der Seite zu verstecken, die nicht genutzt werden können, bis der Anmeldeprozess abgeschlossen ist. Der Browser wird solche Elemente nicht rendern. Dieses Attribut darf nicht verwendet werden, um Inhalte zu verbergen, die legitim angezeigt werden könnten.
+  - : Ein aufzählbares Attribut, das anzeigt, dass das Element noch nicht oder nicht mehr _relevant_ ist. Beispielsweise kann es verwendet werden, um Elemente der Seite zu verbergen, die erst nach Abschluss des Anmeldevorgangs genutzt werden können. Der Browser wird solche Elemente nicht rendern. Dieses Attribut darf nicht verwendet werden, um Inhalte zu verstecken, die eigentlich angezeigt werden könnten.
 - [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)
-  - : Definiert einen eindeutigen Bezeichner (ID), der im gesamten Dokument einzigartig sein muss. Sein Zweck ist es, das Element beim Verknüpfen (mittels eines Fragmentbezeichners), Skripting oder Styling (mit CSS) zu identifizieren.
+  - : Definiert eine eindeutige Kennung (ID), die im gesamten Dokument einzigartig sein muss. Sein Zweck besteht darin, das Element beim Verknüpfen (unter Verwendung eines Fragmentkennzeichens), Skripting oder Styling (mit CSS) zu identifizieren.
 - [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)
-  - : Ein boolescher Wert, der den Browser veranlasst, Benutzereingabeereignisse für das Element zu ignorieren. Nützlich, wenn Klickereignisse vorhanden sind.
+  - : Ein boolescher Wert, der den Browser veranlasst, Benutzereingabeereignisse für das Element zu ignorieren. Nützlich, wenn Klickevents vorhanden sind.
 - [`inputmode`](/de/docs/Web/HTML/Reference/Global_attributes/inputmode)
-  - : Gibt den Browsern einen Hinweis zur Konfiguration der virtuellen Tastatur, die beim Bearbeiten dieses Elements oder seines Inhalts verwendet werden soll. Wird hauptsächlich auf {{HTMLElement("input")}}-Elementen verwendet, kann jedoch auf jedem Element im [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Modus verwendet werden.
+  - : Gibt den Browsern einen Hinweis auf die Art der virtuellen Tastaturkonfiguration, die beim Bearbeiten dieses Elements oder seines Inhalts verwendet werden soll. Wird hauptsächlich für {{HTMLElement("input")}}-Elemente verwendet, kann aber auf jedem Element im [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Modus verwendet werden.
 - [`is`](/de/docs/Web/HTML/Reference/Global_attributes/is)
-  - : Ermöglicht es, anzugeben, dass ein standardmäßiges HTML-Element wie ein registriertes angepasstes integriertes Element funktionieren soll (siehe [Verwendung benutzerdefinierter Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) für mehr Details).
+  - : Ermöglicht es, anzugeben, dass ein standardmäßiges HTML-Element wie ein registriertes, angepasstes eingebautes Element funktionieren soll (siehe [Verwendung von eigenen Elementen](/de/docs/Web/API/Web_components/Using_custom_elements) für weitere Informationen).
 
 > [!NOTE]
-> Die `item*` Attribute sind Teil der [WHATWG HTML Microdata-Funktion](https://html.spec.whatwg.org/multipage/microdata.html#microdata).
+> Die `item*`-Attribute sind Teil des [WHATWG HTML-Microdata-Features](https://html.spec.whatwg.org/multipage/microdata.html#microdata).
 
 - [`itemid`](/de/docs/Web/HTML/Reference/Global_attributes/itemid)
-  - : Der eindeutige, globale Bezeichner eines Elements.
+  - : Die eindeutige, globale Kennung eines Items.
 - [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop)
-  - : Wird verwendet, um Eigenschaften zu einem Element hinzuzufügen. Jedes HTML-Element kann ein `itemprop`-Attribut festgelegt haben, wobei ein `itemprop` aus einem Namen-Wert-Paar besteht.
+  - : Wird verwendet, um einem Item Eigenschaften hinzuzufügen. Jedes HTML-Element kann ein `itemprop`-Attribut spezifiziert haben, wobei ein `itemprop` aus einem Namen-Wert-Paar besteht.
 - [`itemref`](/de/docs/Web/HTML/Reference/Global_attributes/itemref)
-  - : Eigenschaften, die keine Nachkommen eines Elements mit dem `itemscope`-Attribut sind, können durch einen `itemref` mit dem Element in Verbindung gebracht werden. Es bietet eine Liste von Element-IDs (nicht `itemid`s) mit zusätzlichen Eigenschaften an anderer Stelle im Dokument.
+  - : Eigenschaften, die keine Nachkommen eines Elements mit dem `itemscope`-Attribut sind, können mit dem Item unter Verwendung eines `itemref` assoziiert werden. Es bietet eine Liste von Element-IDs (nicht `itemid`s) mit zusätzlichen Eigenschaften an anderer Stelle im Dokument.
 - [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope)
-  - : `itemscope` arbeitet (in der Regel) zusammen mit [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype), um anzugeben, dass das in einem Block enthaltene HTML sich auf ein bestimmtes Element bezieht. `itemscope` erstellt das Item und definiert den Umfang des `itemtype`, der damit verbunden ist. `itemtype` ist eine gültige URL eines Vokabulars (wie [schema.org](https://schema.org/)), das das Item und seine Eigenschaften beschreibt.
+  - : `itemscope` arbeitet (normalerweise) zusammen mit [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype), um anzugeben, dass das HTML innerhalb eines Blocks über ein bestimmtes Item handelt. `itemscope` erstellt das Item und definiert den Geltungsbereich des damit verbundenen `itemtype`. `itemtype` ist eine gültige URL eines Vokabulars (wie [schema.org](https://schema.org/)), das das Item und dessen Eigenschaften im Kontext beschreibt.
 - [`itemtype`](/de/docs/Web/HTML/Reference/Global_attributes/itemtype)
-  - : Gibt die URL des Vokabulars an, das verwendet wird, um `itemprop`s (Elementeigenschaften) in der Datenstruktur zu definieren. [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) wird verwendet, um den Umfang festzulegen, in dem in der Datenstruktur das von `itemtype` gesetzte Vokabular aktiv ist.
+  - : Gibt die URL des Vokabulars an, das verwendet wird, um `itemprop`'s (Item-Eigenschaften) in der Datenstruktur zu definieren. [`itemscope`](/de/docs/Web/HTML/Reference/Global_attributes/itemscope) wird verwendet, um den Geltungsbereich festzulegen, in dem das durch `itemtype` festgelegte Vokabular in der Datenstruktur aktiv sein wird.
 - [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)
-  - : Hilft, die Sprache eines Elements zu definieren: die Sprache, in der nicht editierbare Elemente geschrieben sind, oder die Sprache, in der editierbare Elemente vom Benutzer geschrieben werden sollten. Das Attribut sollte ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprache-Tag")}} enthalten. `xml:lang` hat Vorrang vor diesem.
+  - : Hilft, die Sprache eines Elements zu definieren: die Sprache, in der nicht bearbeitbare Elemente verfasst sind, oder die Sprache, in der bearbeitbare Elemente vom Benutzer geschrieben werden sollten. Das Attribut sollte ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}} enthalten. `xml:lang` hat Vorrang vor ihm.
 - [`nonce`](/de/docs/Web/HTML/Reference/Global_attributes/nonce)
-  - : Ein kryptografischer Nonce ("number used once"), der von der [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) verwendet werden kann, um zu bestimmen, ob ein gegebener Abruf fortgesetzt werden darf.
+  - : Ein kryptografischer {{Glossary("Nonce", "Nonce")}} ("einmal verwendete Nummer"), der von der [Content-Security-Policy](/de/docs/Web/HTTP/Guides/CSP) verwendet werden kann, um zu bestimmen, ob ein bestimmter Abruf zugelassen werden soll.
 - [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)
-  - : Eine durch Leerzeichen getrennte Liste der Teilnamen des Elements. Teilnamen ermöglichen es CSS, spezifische Elemente in einem Schattenbaum über das {{CSSxRef("::part")}}-Pseudoelement auszuwählen und zu stylen.
+  - : Eine durch Leerzeichen getrennte Liste von Teilnamen des Elements. Teilnamen ermöglichen es CSS, bestimmte Elemente in einem Schattenbaum über das {{CSSxRef("::part")}} Pseudoelement auszuwählen und zu stylen.
 - [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)
-  - : Wird verwendet, um ein Element als Popover-Element zu kennzeichnen (siehe [Popover-API](/de/docs/Web/API/Popover_API)). Popover-Elemente werden über `display: none` verborgen, bis sie über ein auslösendes/steuerndes Element (z. B. ein `<button>` oder ein `<input type="button">` mit einem [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget)-Attribut) oder einen [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover)-Aufruf geöffnet werden.
+  - : Wird verwendet, um ein Element als Popover-Element zu kennzeichnen (siehe [Popover API](/de/docs/Web/API/Popover_API)). Popover-Elemente sind über `display: none` verborgen, bis sie über ein aufrufendes/steuerndes Element (d.h. ein `<button>` oder `<input type="button">` mit einem [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget) Attribut) oder einen [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) Aufruf geöffnet werden.
 - [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles)
-  - : Rollen definieren die semantische Bedeutung von Inhalten und ermöglichen es Bildschirmlesegeräten und anderen Werkzeugen, mit einem Objekt zu interagieren und es auf eine Weise darzustellen, die mit den Benutzererwartungen für diesen Objekttyp übereinstimmt. `roles` werden HTML-Elementen unter Verwendung von `role="role_type"` hinzugefügt, wobei `role_type` der Name einer Rolle in der ARIA-Spezifikation ist.
+  - : Rollen definieren die semantische Bedeutung von Inhalten, sodass Screenreader und andere Tools Inhalte anzeigen und mit ihnen interagieren können, auf eine Weise, die den Erwartungen der Benutzer an diesen Objekttyp entspricht. `roles` werden HTML-Elementen mit `role="role_type"` hinzugefügt, wobei `role_type` der Name einer Rolle in der ARIA-Spezifikation ist.
 - [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)
-  - : Weist einem Element einen Slot in einem [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Schattenbaum zu: Ein Element mit einem `slot`-Attribut wird dem Slot zugewiesen, der von dem {{HTMLElement("slot")}}-Element erstellt wurde, dessen [`name`](/de/docs/Web/HTML/Reference/Elements/slot#name)-Attributswert mit dem des `slot`-Attributs übereinstimmt.
+  - : Weist einem Element einen Slot in einem [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) Schattenbaum zu: Ein Element mit einem `slot`-Attribut wird dem Slot zugewiesen, der von dem {{HTMLElement("slot")}}-Element erstellt wurde, dessen [`name`](/de/docs/Web/HTML/Reference/Elements/slot#name) Attributwert den `slot`-Attributwert entspricht.
 - [`spellcheck`](/de/docs/Web/HTML/Reference/Global_attributes/spellcheck)
-  - : Ein enumeriertes Attribut, das definiert, ob das Element auf Rechtschreibfehler überprüft werden kann. Es kann die folgenden Werte haben:
-    - ein leerer String oder `true`, was anzeigt, dass das Element, wenn möglich, auf Rechtschreibfehler überprüft werden soll;
-    - `false`, was anzeigt, dass das Element nicht auf Rechtschreibfehler überprüft werden soll.
+  - : Ein aufzählbares Attribut, das angibt, ob das Element auf Rechtschreibfehler überprüft werden kann. Es kann die folgenden Werte haben:
+    - leerer String oder `true`, was bedeutet, dass das Element, wenn möglich, auf Rechtschreibfehler überprüft werden sollte;
+    - `false`, was bedeutet, dass das Element nicht auf Rechtschreibfehler überprüft werden sollte.
 
 - [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)
-  - : Beinhaltet [CSS](/de/docs/Web/CSS)-Styling-Deklarationen, die auf das Element angewendet werden sollen. Es wird empfohlen, Styles in einer separaten Datei oder in separaten Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}}-Element haben hauptsächlich den Zweck, schnelle Styling-Möglichkeiten bereitzustellen, beispielsweise zu Testzwecken.
+  - : Enthält [CSS](/de/docs/Web/CSS)-Stylingdeklarationen, die auf das Element angewendet werden sollen. Beachten Sie, dass es empfohlen wird, Stile in einer separaten Datei oder Dateien zu definieren. Dieses Attribut und das {{HTMLElement("style")}} Element haben hauptsächlich den Zweck, schnell Styling zu ermöglichen, beispielsweise zu Testzwecken.
 - [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)
-  - : Ein ganzzahliges Attribut, das angibt, ob das Element den Eingabefokus erhalten kann (fokussierbar ist), ob es an der sequentiellen Tastaturnavigation teilnehmen soll, und wenn ja, an welcher Position. Es kann mehrere Werte annehmen:
-    - ein _negativer Wert_ bedeutet, dass das Element fokussierbar sein soll, aber nicht über die sequentielle Tastaturnavigation erreichbar sein soll;
-    - `0` bedeutet, dass das Element fokussierbar und über die sequentielle Tastaturnavigation erreichbar sein soll, aber seine relative Reihenfolge wird durch die Plattformkonvention definiert;
-    - ein _positiver Wert_ bedeutet, dass das Element fokussierbar und über die sequentielle Tastaturnavigation erreichbar sein soll; die Reihenfolge, in der die Elemente fokussiert sind, ist der steigende Wert des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex). Wenn mehrere Elemente denselben tabindex haben, folgt ihre relative Reihenfolge ihrer relativen Position im Dokument.
+  - : Ein ganzzahliges Attribut, das angibt, ob das Element den Eingabefokus erhalten kann (ist _fokussierbar_), ob es an der sequentiellen Tastaturnavigation teilnimmt und, wenn ja, an welcher Position. Es kann mehrere Werte annehmen:
+    - ein _negativer Wert_ bedeutet, dass das Element fokussierbar sein sollte, aber nicht über die sequentielle Tastaturnavigation erreichbar sein sollte;
+    - `0` bedeutet, dass das Element fokussierbar und über die sequentielle Tastaturnavigation erreichbar sein sollte, aber seine relative Reihenfolge durch die Plattformkonvention definiert ist;
+    - ein _positiver Wert_ bedeutet, dass das Element fokussierbar und über die sequentielle Tastaturnavigation erreichbar sein sollte; die Reihenfolge, in der die Elemente fokussiert werden, ergibt sich aus dem aufsteigenden Wert des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex). Wenn mehrere Elemente denselben Tabindex haben, folgt ihre relative Reihenfolge ihren relativen Positionen im Dokument.
 
 - [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)
-  - : Beinhaltet einen Text, der beratende Informationen im Zusammenhang mit dem Element enthält, zu dem er gehört. Solche Informationen können typischerweise, aber nicht unbedingt, dem Benutzer als Tooltip präsentiert werden.
+  - : Enthält einen Text, der beratende Informationen im Zusammenhang mit dem zugehörigen Element darstellt. Solche Informationen können typischerweise, aber nicht unbedingt, dem Benutzer als Tooltip präsentiert werden.
 - [`translate`](/de/docs/Web/HTML/Reference/Global_attributes/translate)
-  - : Ein enumeriertes Attribut, das verwendet wird, um festzulegen, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt oder unverändert bleiben sollen. Es kann die folgenden Werte haben:
-    - ein leerer String oder `yes`, was anzeigt, dass das Element übersetzt wird.
-    - `no`, was anzeigt, dass das Element nicht übersetzt wird.
+  - : Ein aufzählbares Attribut, das verwendet wird, um anzugeben, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt werden sollen oder ob sie unverändert bleiben sollen. Es kann die folgenden Werte haben:
+    - leerer String oder `yes`, was bedeutet, dass das Element übersetzt wird.
+    - `no`, was bedeutet, dass das Element nicht übersetzt wird.
 
 - [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy) {{Experimental_Inline}}
-  - : Ein {{Glossary("enumerated", "enumeriertes")}} Attribut, das verwendet wird, um das Verhalten der auf dem Bildschirm angezeigten virtuellen Tastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen möglicherweise keine Hardwaretastatur verfügbar ist, zu steuern. Dies gilt für Elemente, deren Inhalt bearbeitbar ist (z.B. es ist ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem gesetzten [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut).
-    - `auto` oder ein _leerer String_, was die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angeklickt wird.
-    - `manual`, was den Fokus und Klick auf das Element vom Status der virtuellen Tastatur entkoppelt.
+  - : Ein {{Glossary("enumerated", "aufzählbares")}} Attribut, das verwendet wird, um das Verhalten der Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten zu steuern, bei denen möglicherweise keine Hardwaretastatur verfügbar ist, für Elemente, deren Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}} oder {{htmlelement("textarea")}} Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut gesetzt).
+    - `auto` oder ein _leerer String_, der die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angetippt wird.
+    - `manual`, das den Fokus und das Tippen auf das Element vom Zustand der virtuellen Tastatur entkoppelt.
 
 - [`writingsuggestions`](/de/docs/Web/HTML/Reference/Global_attributes/writingsuggestions)
-  - : Ein {{Glossary("enumerated", "enumeriertes")}} Attribut, das angibt, ob browserseitige Schreibvorschläge unter dem Geltungsbereich des Elements aktiviert sein sollen oder nicht.
+  - : Ein {{Glossary("enumerated", "aufzählbares")}} Attribut, das angibt, ob browserbasierte Schreibvorschläge innerhalb des Geltungsbereichs des Elements aktiviert sein sollen oder nicht.
     - `false`, was die Schreibvorschläge des Browsers deaktiviert.
-    - `true` oder ein _leerer String_, was die Schreibvorschläge aktiviert.
+    - `true` oder ein _leerer String_, was Schreibvorschläge aktiviert.
 
 ## Liste der globalen Event-Handler-Attribute
 
-HTML-Event-Handler-Attribute werden nicht empfohlen; siehe [HTML Attributreferenz](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes) für Informationen über ihre Funktionsweise.
+HTML-Event-Handler-Attribute werden nicht empfohlen; siehe [HTML-Attribut-Referenz](/de/docs/Web/HTML/Reference/Attributes#event_handler_attributes), um zu erfahren, wie sie funktionieren.
 
-Obwohl die unten aufgeführten Attribute auf alle Elemente angewendet werden, sind sie nicht bei allen Elementen nützlich. Zum Beispiel wird das `onvolumechange`-HTML-Attribut bei allen Elementen akzeptiert und hängt einen Event-Listener für `volumechange` an, aber nur Mediaelemente werden jemals ein `volumechange`-Ereignis vom Browser erhalten. Für andere Elemente kann man nur [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) verwenden, um manuell ein solches Ereignis zu senden. [Einige Attribute](/de/docs/Web/HTML/Reference/Elements/body#event_attributes) können auf {{HTMLElement("body")}} angegeben werden, jedoch würden sie stattdessen Events am `window` hören.
+Obwohl die unten aufgeführten Attribute auf alle Elemente anwendbar sind, sind sie nicht auf allen Elementen nützlich. Beispielsweise wird das `onvolumechange`-HTML-Attribut von allen Elementen akzeptiert und fügt einen Event-Listener für `volumechange` hinzu, aber nur Medien-Elemente werden jemals ein vom Browser ausgelöstes `volumechange`-Ereignis empfangen. Für andere Elemente können Sie nur [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) verwenden, um ein solches manuell auszulösen. [Einige Attribute](/de/docs/Web/HTML/Reference/Elements/body#event_attributes) können auf {{HTMLElement("body")}} spezifiziert werden, aber sie würden dann stattdessen auf Ereignisse auf `window` lauschen.
 
 - [`onabort`](/de/docs/Web/API/HTMLMediaElement/abort_event)
 - [`onanimationcancel`](/de/docs/Web/API/Element/animationcancel_event)
