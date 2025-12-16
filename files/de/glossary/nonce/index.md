@@ -2,21 +2,21 @@
 title: Nonce
 slug: Glossary/Nonce
 l10n:
-  sourceCommit: dc788bf0ea36cb1ebe809c82aaae2c77cb3e18c0
+  sourceCommit: aefcc1599f9a67bfb4e0e5f48b2175eac61739fe
 ---
 
-In der Kryptographie und Computersicherheit ist ein **`nonce`** eine beliebige Zahl, die in einer kryptografischen Kommunikation **nur einmal** verwendet wird. Der Begriff leitet sich von „number used once“ ab und wird häufig eingesetzt, um Replay-Angriffe zu verhindern, die Aktualität von Nachrichten sicherzustellen und Zufälligkeit zu kryptografischen Protokollen hinzuzufügen.
+In der Kryptographie und Computersicherheit ist ein **`nonce`** eine willkürliche Zahl, die in einer kryptografischen Kommunikation **nur einmal** verwendet wird. Der Begriff leitet sich von "number used once" ab und wird häufig eingesetzt, um Replay-Angriffe zu verhindern, die Frische von Nachrichten sicherzustellen und Zufälligkeit zu kryptografischen Protokollen hinzuzufügen.
 
-Nonces werden häufig in Authentifizierungsprotokollen, Verschlüsselungsschemata, Hashing und digitalen Signaturen verwendet. Sie können zufällig oder pseudozufällig generiert oder deterministisch abgeleitet werden, abhängig von der Anwendung und den Sicherheitsanforderungen.
+Nonces werden häufig in Authentifizierungsprotokollen, Verschlüsselungsschemata, Hashing und digitalen Signaturen verwendet. Sie können zufällig oder pseudozufällig generiert oder deterministisch abgeleitet werden, je nach Anwendung und Sicherheitsanforderungen.
 
-Im Bereich der Web-Sicherheit werden Nonces häufig in Mechanismen wie der **Content Security Policy (CSP)** verwendet, um bestimmten Skripten die Ausführung zu erlauben, während Cross-Site-Scripting (XSS)-Angriffe verhindert werden. In kryptografischen Protokollen wie {{Glossary("TLS", "TLS")}} helfen Nonces, sicherzustellen, dass jede Sitzung einzigartig ist.
+In der Web-Sicherheit werden Nonces häufig in Mechanismen wie der **Content Security Policy (CSP)** verwendet, um bestimmten Skripten die Ausführung zu erlauben und Cross-Site Scripting (XSS)-Angriffe zu verhindern. In kryptografischen Protokollen wie {{Glossary("TLS", "TLS")}} helfen Nonces sicherzustellen, dass jede Sitzung einzigartig ist.
 
 ## Siehe auch
 
-- [Kryptographisches Nonce](https://de.wikipedia.org/wiki/Kryptographisches_Nonce) auf Wikipedia
+- [Kryptografischer Nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) auf Wikipedia
 - [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP)
-- [Replay-Angriff](https://de.wikipedia.org/wiki/Replay-Angriff) auf Wikipedia
-- Verwandte Glossareinträge:
+- [Replay-Angriff](https://en.wikipedia.org/wiki/Replay_attack) auf Wikipedia
+- Verwandte Glossarbegriffe:
   - {{Glossary("cryptography", "Kryptographie")}}
   - {{Glossary("encryption", "Verschlüsselung")}}
   - {{Glossary("hash", "Hash")}}
