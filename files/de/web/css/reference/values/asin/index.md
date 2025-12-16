@@ -2,10 +2,10 @@
 title: asin()
 slug: Web/CSS/Reference/Values/asin
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Zahl der Bogenmaß Einheiten darstellt und einen {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurückgibt.
+Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzige Berechnung, die einen {{cssxref("angle")}} zwischen `-90deg` und `90deg` zurückgibt.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ transform: rotate(asin(e / 3));
 
 ### Parameter
 
-Die `asin(number)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `asin(number)` akzeptiert nur einen Wert als Parameter.
 
 - `number`
-  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` führt.
+  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` auflöst.
 
 ### Rückgabewert
 
-Der Arkussinus einer `number` wird immer einen {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurückgeben.
+Der Arkussinus einer `number` gibt immer einen {{cssxref("angle")}} zwischen `-90deg` und `90deg` zurück.
 
 - Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
 - Wenn `number` `0⁻` ist, ist das Ergebnis `0⁻`.
@@ -39,9 +39,9 @@ Der Arkussinus einer `number` wird immer einen {{cssxref("&lt;angle&gt;")}} zwis
 
 ## Beispiele
 
-### Elemente rotieren
+### Elemente drehen
 
-Die `asin()` Funktion kann verwendet werden, um Elemente zu {{cssxref("transform-function/rotate", "rotieren")}}, da sie einen {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `asin()`-Funktion kann verwendet werden, um Elemente zu {{cssxref("transform-function/rotate", "drehen")}}, da sie einen {{cssxref("angle")}} zurückgibt.
 
 #### HTML
 

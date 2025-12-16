@@ -2,21 +2,21 @@
 title: color-gamut
 slug: Web/CSS/Reference/At-rules/@media/color-gamut
 l10n:
-  sourceCommit: 1dcf976e9b654679c762568812562b1a2361c755
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Das **`color-gamut`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wird verwendet, um CSS-Stile basierend auf dem ungefähren Umfang des von der {{Glossary("user_agent", "User-Agent")}} und dem Ausgabegerät unterstützten Farb-{{Glossary("gamut", "Gamuts")}} anzuwenden.
+Die **`color-gamut`** [CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wird verwendet, um CSS-Stile basierend auf dem ungefähren Bereich des vom {{Glossary("user_agent", "User Agent")}} und dem Ausgabegerät unterstützten Farb-{{Glossary("gamut", "Spektrums")}} anzuwenden.
 
 ## Syntax
 
-Das `color-gamut`-Merkmal wird als einer der folgenden {{Glossary("color_space", "Farbräume")}} als Schlüsselwortwerte angegeben:
+Die `color-gamut`-Funktion wird als eine der folgenden {{Glossary("color_space", "Farbräume")}} als Schlüsselwortwerte angegeben:
 
 - `srgb`
-  - : Der User-Agent und das Ausgabegerät können ungefähr den {{Glossary("Color_space#srgb", "sRGB")}}-Gamut oder mehr unterstützen. Dies umfasst die überwiegende Mehrheit der Farbdisplays.
+  - : Der User Agent und das Ausgabegerät können ungefähr das {{Glossary("Color_space#srgb", "sRGB")}}-Spektrum oder mehr unterstützen. Dies schließt die überwiegende Mehrheit der Farbdisplays ein.
 - `p3`
-  - : Der User-Agent und das Ausgabegerät können ungefähr den Gamut unterstützen, der durch den [Display P3](https://www.color.org/chardata/rgb/DisplayP3.xalter)-Farbraum spezifiziert ist oder mehr. Der P3-Gamut ist größer als und umfasst den sRGB-Gamut.
+  - : Der User Agent und das Ausgabegerät können ungefähr das durch den Farbraum [Display P3](https://www.color.org/chardata/rgb/DisplayP3.xalter) spezifizierte Spektrum oder mehr unterstützen. Das P3-Spektrum ist größer als und umfasst das sRGB-Spektrum.
 - `rec2020`
-  - : Der User-Agent und das Ausgabegerät können ungefähr den Gamut unterstützen, der durch den [ITU-R Empfehlung BT.2020](https://en.wikipedia.org/wiki/Rec._2020)-Farbraum spezifiziert ist oder mehr. Der REC. 2020-Gamut ist größer als und umfasst den P3-Gamut.
+  - : Der User Agent und das Ausgabegerät können ungefähr das durch den Farbraum [ITU-R Recommendation BT.2020](https://en.wikipedia.org/wiki/Rec._2020) spezifizierte Spektrum oder mehr unterstützen. Das REC. 2020-Spektrum ist größer als und umfasst das P3-Spektrum.
 
 ## Beispiele
 
@@ -55,9 +55,9 @@ p {
 
 ## Siehe auch
 
-- [`color()`](/de/docs/Web/CSS/Reference/Values/color_value/color)-Funktion, um Farben in einem definierten Farbraum anzugeben.
-- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
-- [`@media`](/de/docs/Web/CSS/Reference/At-rules/@media) At-Regel, die verwendet wird, um den Ausdruck `color-gamut` zu spezifizieren.
-- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using), um zu verstehen, wann und wie man eine Media Query verwendet.
-- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
+- Die [`color()`](/de/docs/Web/CSS/Reference/Values/color_value/color)-Funktion, um Farben in einem definierten Farbraum anzugeben.
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors)-Modul
+- {{cssxref("@media")}} At-Regel, die verwendet wird, um den color-gamut-Ausdruck zu spezifizieren.
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) um zu verstehen, wann und wie man eine Media Query verwendet.
+- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries)-Modul
 - [sRGB](https://en.wikipedia.org/wiki/SRGB) auf Wikipedia

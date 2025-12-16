@@ -1,17 +1,17 @@
 ---
-title: Formengenerator
+title: Formgenerator
 slug: Web/CSS/Guides/Shapes/Shape_generator
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Dieses Formengenerator-Tool kann verwendet werden, um die Koordinaten und Syntax für Funktionen zu definieren, die {{cssxref("&lt;basic-shape&gt;")}} verwenden.
+Dieses Formgenerator-Tool kann verwendet werden, um die Koordinaten und die Syntax für Funktionen zu definieren, die {{cssxref("basic-shape")}} verwenden
 
 - Das [`coords`](/de/docs/Web/HTML/Reference/Elements/area#coords)-Attribut des {{HTMLElement("area")}}-Elements
 - Die CSS-Funktionen {{cssxref("basic-shape/inset()")}}, {{cssxref("basic-shape/xywh()")}}, {{cssxref("basic-shape/rect()")}}, {{cssxref("basic-shape/circle()")}}, {{cssxref("basic-shape/polygon()")}}
 - Die SVG-Elemente {{SVGElement("rect")}}, {{SVGElement("circle")}}, {{SVGElement("polygon")}}
 
-Der Formengenerator hilft Ihnen, grundlegende Formen zu visualisieren, indem er die Koordinaten jedes Punktes ausgibt, überlagert mit Ihrem Bild. Laden Sie ein Bild hoch, indem Sie es entweder per Drag & Drop verschieben oder durch Klicken eine Datei auswählen. Wählen Sie dann den Formtyp, den Sie erstellen möchten, aus dem Dropdown-Menü aus. Optional können Sie auch die Skalierung der Leinwand über den Bereichseingang anpassen. Klicken Sie dann auf Punkte im Bild, um Referenzpunkte für die Form hinzuzufügen, die Sie erstellen möchten. Das Tool gibt dann das Markup für den HTML `coords` Attributwert, die CSS-Basisform-Funktion mit Koordinaten und die SVG-Form aus.
+Der Formgenerator hilft Ihnen, grundlegende Formen zu visualisieren, indem er die Koordinaten jedes Punktes ausgibt, die über Ihrem Bild überlagert sind. Laden Sie ein Bild hoch, indem Sie es entweder per Drag & Drop ziehen oder durch Klicken eine Datei auswählen. Wählen Sie dann den Typ der Form, die Sie erstellen möchten, aus dem Dropdown-Menü. Optional können Sie auch die Skalierung der Leinwand mit dem Bereichseingabefeld anpassen. Klicken Sie dann auf Punkte auf dem Bild, um Referenzpunkte für die anzulegende Form hinzuzufügen. Das Tool gibt dann das Markup für den Wert des HTML-Attributs `coords`, die CSS Basic Shape-Funktion mit Koordinaten und die SVG-Form aus.
 
 ```html hidden live-sample___shape-generator
 <fieldset>

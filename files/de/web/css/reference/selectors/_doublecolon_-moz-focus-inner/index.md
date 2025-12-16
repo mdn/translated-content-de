@@ -2,15 +2,15 @@
 title: ::-moz-focus-inner
 slug: Web/CSS/Reference/Selectors/::-moz-focus-inner
 l10n:
-  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 {{non-standard_header}}{{deprecated_header}}
 
-Das **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die einen inneren Fokus-Ring des {{HTMLElement("button")}}-Elements sowie der Typen {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} des {{HTMLElement("input")}}-Elements darstellt.
+Der **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die einen inneren Fokusrahmen des {{HTMLElement("button")}}-Elements sowie der {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} Typen des {{HTMLElement("input")}}-Elements darstellt.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-focus-inner` mit anderen als den unterstützten Schaltflächen bewirkt nichts und hat keine Wirkung.
+> Die Verwendung von `::-moz-focus-inner` mit anderen als den unterstützten Buttons führt zu keinem Treffer und hat keine Wirkung.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ input[type="submit"]::-moz-focus-inner {
 
 ## Spezifikationen
 
-Teil keines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -63,6 +63,6 @@ Teil keines Standards.
   - {{cssxref("-moz-user-focus")}}
 
 - Verwandte CSS-Selektoren:
-  - [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus)
-  - [`:focus-visible`](/de/docs/Web/CSS/Reference/Selectors/:focus-visible)
-  - [`:focus-within`](/de/docs/Web/CSS/Reference/Selectors/:focus-within)
+  - {{cssxref(":focus")}}
+  - {{cssxref(":focus-visible")}}
+  - {{cssxref(":focus-within")}}

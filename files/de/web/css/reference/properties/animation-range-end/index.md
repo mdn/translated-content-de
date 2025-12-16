@@ -2,7 +2,7 @@
 title: animation-range-end
 slug: Web/CSS/Reference/Properties/animation-range-end
 l10n:
-  sourceCommit: 995f8bcede5aa8ca40921b030deef7524ce9e1a3
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 Die **`animation-range-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Punkt auf der Zeitleiste fest, an dem eine Animation enden soll.
@@ -34,21 +34,21 @@ animation-range-end: unset;
 - `normal`
   - : Repräsentiert das Ende der Zeitleiste. Dies ist der Standardwert.
 - {{cssxref("length-percentage")}}
-  - : Gibt einen als Länge oder Prozentwert gemessenen Wert ab dem Beginn der Zeitleiste an.
-- [`<timeline-range-name>`](/de/docs/Web/CSS/Reference/Values/timeline-range-name)
+  - : Gibt einen Längen- oder Prozentwert an, der vom Anfang der Zeitleiste gemessen wird.
+- {{cssxref("timeline-range-name")}}
   - : Gibt einen benannten Zeitleistenbereich innerhalb der gesamten Zeitleiste an. Der Bereich beginnt bei `0%`.
 - `<timeline-range-name> <length-percentage>`
-  - : Gibt einen als Länge oder Prozentwert gemessenen Wert ab dem Beginn des angegebenen benannten Zeitleistenbereichs an.
+  - : Gibt einen Längen- oder Prozentwert an, der vom Anfang des angegebenen benannten Zeitleistenbereichs gemessen wird.
 
 ## Beschreibung
 
-Die `animation-range-end` Eigenschaft gibt das Ende des Anwendungsbereichs der Animation an. Das Ändern des Endes des Anwendungsbereichs kann potenziell das Ende der Animation verschieben, d.h. den Punkt, an dem die Keyframes bei `100%` Fortschritt landen, wenn die Wiederholungsanzahl `1` ist, und kann auch die effektive Dauer der Animation verkürzen.
+Die `animation-range-end` Eigenschaft spezifiziert das Ende des Anwendungsbereichs der Animation. Das Ändern des Endes des Anwendungsbereichs kann potenziell das Ende der Animation verschieben, also den Punkt, an dem Schlüsselbilder auf `100%` Fortschritt landen, wenn die Iterationsanzahl `1` ist, und kann auch die effektive Dauer der Animation verkürzen.
 
-Der Eigenschaftswert kann `normal`, ein `<length-percentage>` oder ein {{cssxref("timeline-range-name")}} mit einem optionalen `<length-percentage>` sein. Wenn der `<timeline-range-name>`-Wert keinen `<length-percentage>` enthält, wird der Prozentwert standardmäßig auf `100%` gesetzt.
+Der Eigenschaftswert kann `normal`, ein `<length-percentage>`, oder ein {{cssxref("timeline-range-name")}} mit einem optionalen `<length-percentage>` sein. Wenn der `<timeline-range-name>` Wert kein `<length-percentage>` enthält, beträgt der Standardwert des Prozentsatzes `100%`.
 
-Die `animation-range-end` Eigenschaft ist in der {{cssxref("animation")}} Kurzform als ein nur-Zurücksetzen-Wert enthalten. Das bedeutet, dass das Verwenden der `animation` Kurzform jeden zuvor deklarierten `animation-range-end` Wert auf `normal` zurücksetzt; die Kurzform kann nicht verwendet werden, um einen neuen `animation-range-end` Wert festzulegen. Beim Erstellen von [CSS Scroll-Driven-Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) sollten Sie `animation-range-end` _nach_ jeder `animation` Kurzform deklarieren, um zu vermeiden, dass der Wert auf `normal` zurückgesetzt wird.
+Die `animation-range-end` Eigenschaft ist als nur-zurücksetzbarer Wert in der {{cssxref("animation")}} Kurzschrift enthalten. Das bedeutet, dass die Verwendung der `animation` Kurzschrift einen zuvor deklarierten `animation-range-end` Wert auf `normal` zurücksetzt; die Kurzschrift kann nicht verwendet werden, um einen neuen `animation-range-end` Wert festzulegen. Beim Erstellen von [CSS-Scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) sollten Sie `animation-range-end` _nach_ der Deklaration einer `animation` Kurzschrift deklarieren, um zu vermeiden, dass der Wert auf `normal` zurückgesetzt wird.
 
-Die `animation-range-end` Eigenschaft kann zusammen mit der {{cssxref("animation-range-start")}} Eigenschaft auch durch die Kurzform {{cssxref("animation-range")}} festgelegt werden.
+Die Eigenschaft `animation-range-end`, zusammen mit der {{cssxref("animation-range-start")}} Eigenschaft, kann auch durch Verwendung der Kurzschrift {{cssxref("animation-range")}} gesetzt werden.
 
 ## Formale Definition
 
@@ -60,9 +60,9 @@ Die `animation-range-end` Eigenschaft kann zusammen mit der {{cssxref("animation
 
 ## Beispiele
 
-### Erstellen einer View-Progress-Zeitleiste mit einem Reichweitenende
+### Erstellen einer Fortschrittszeitleiste mit einem Bereichsende
 
-In diesem Beispiel wird die `animation-range-end` auf ein Element angewendet, das über eine View-Progress-Zeitleiste animiert wird. Dies sorgt dafür, dass die Animation ihr letztes Keyframe erreicht, bevor das Element das Ende des umgebenden Viewports erreicht.
+In diesem Beispiel wird `animation-range-end` auf ein Element angewendet, das über eine Fortschrittszeitleiste animiert wird. Dadurch erreicht die Animation ihr letztes Schlüsselbild, bevor das Element das Ende seines umgebenden Viewports erreicht.
 
 #### HTML
 
@@ -88,7 +88,7 @@ In diesem Beispiel wird die `animation-range-end` auf ein Element angewendet, da
 </div>
 ```
 
-In der Mitte eines langen Textblocks haben wir ein Element eingefügt, das wir animieren werden. Wir haben viel Text hinzugefügt, um sicherzustellen, dass der Inhalt seinen Container überläuft; der zusätzliche Text ist hier aus Gründen der Übersichtlichkeit ausgeblendet.
+In der Mitte eines langen Textblocks haben wir ein Element eingefügt, das wir animieren. Wir haben viel Text hinzugefügt, um sicherzustellen, dass der Inhalt seinen Container überläuft; der zusätzliche Text wird hier der Kürze halber ausgeblendet.
 
 ```html-nolint
 <div class="animatedElement">
@@ -108,7 +108,7 @@ In der Mitte eines langen Textblocks haben wir ein Element eingefügt, das wir a
 <p>
 ```
 
-Wir haben auch ein Kontrollkästchen hinzugefügt, das die {{cssxref("animation-fill-mode")}} Eigenschaft umschalten wird, damit Sie sehen können, wie sich diese Eigenschaft auf Animationen mit verkürzten Zeitleisten auswirkt.
+Wir haben auch ein Kontrollkästchen hinzugefügt, das die {{cssxref("animation-fill-mode")}} Eigenschaft umschaltet, sodass Sie sehen können, wie diese Eigenschaft Animationen mit verkürzten Zeitleisten beeinflusst.
 
 ```html
 <label>
@@ -123,9 +123,9 @@ Wir haben auch ein Kontrollkästchen hinzugefügt, das die {{cssxref("animation-
 
 #### CSS
 
-Wir haben eine View-Progress-Zeitleiste definiert, indem wir eine [`view()`](/de/docs/Web/CSS/Reference/Properties/animation-timeline/view) Funktion als Wert der {{cssxref("animation-timeline")}} Eigenschaft festgelegt haben. Diese wird **nach** der {{cssxref("animation")}} Kurzform deklariert, um zu vermeiden, dass der Langformwert zurückgesetzt wird.
+Wir haben eine Fortschrittszeitleiste definiert, indem wir eine {{cssxref("animation-timeline/view", "view()")}} Funktion als Wert der {{cssxref("animation-timeline")}} Eigenschaft gesetzt haben. Dies wird **nach** der {{cssxref("animation")}} Kurzschrift deklariert, um zu vermeiden, dass der Langformwert zurückgesetzt wird.
 
-Wir haben auch `animation-range-end` gesetzt, um die Animation früher als erwartet enden zu lassen.
+Wir haben auch `animation-range-end` gesetzt, um die Animation früher enden zu lassen als erwartet.
 
 ```css
 .animatedElement {
@@ -158,7 +158,7 @@ Wenn das Kontrollkästchen aktiviert ist, wird die `animation-fill-mode` Eigensc
 }
 ```
 
-Die anderen in diesem Beispiel angewendeten Stile sind aus Gründen der Übersichtlichkeit hier ausgeblendet.
+Die anderen in diesem Beispiel angewendeten Stile wurden hier der Kürze halber ausgeblendet.
 
 ```css hidden
 .animatedElement {
@@ -205,7 +205,7 @@ p {
 
 #### Ergebnis
 
-Scrollen Sie, um das Element zu animieren. Schalten Sie dann das Kontrollkästchen am Ende des Textblocks um und scrollen Sie erneut. Beachten Sie, wie das Element fertig animiert, wenn es 75% des Weges durch den Viewport erreicht, und wie es in seinen Standardzustand zurückkehrt, wenn die `animation-fill-mode` Eigenschaft nicht angewendet wird.
+Scrollen Sie, um das Element zu animieren. Schalten Sie dann das Kontrollkästchen am Ende des Textblocks um und scrollen Sie erneut. Beachten Sie, wie das Element die Animation beendet, wenn es 75% durch den Viewport ist und wie es in seinen Standardzustand zurückkehrt, wenn die `animation-fill-mode` Eigenschaft nicht angewendet wird.
 
 {{EmbedLiveSample("Creating a view progress timeline with a range end", "100%", "480px")}}
 
@@ -224,6 +224,6 @@ Scrollen Sie, um das Element zu animieren. Schalten Sie dann das Kontrollkästch
 - {{cssxref("animation-range-start")}}
 - {{cssxref("view-timeline-inset")}}
 - [`Element.animate()`](/de/docs/Web/API/Element/animate) `rangeStart` Eigenschaft
-- [Scroll-gesteuerte Animationen Zeitachsen](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
-- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
-- [View-Progress-Zeitleiste: Bereiche und Animation-Fortschrittsvisualisierer](https://scroll-driven-animations.style/tools/view-timeline/ranges/)
+- [Scroll-gesteuerte Animationszeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
+- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul
+- [Fortschrittszeitleiste anzeigen: Bereiche und Animationen Fortschrittsvisualisierer](https://scroll-driven-animations.style/tools/view-timeline/ranges/)

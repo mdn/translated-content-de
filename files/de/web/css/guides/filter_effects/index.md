@@ -3,14 +3,14 @@ title: CSS-Filtereffekte
 short-title: Filter effects
 slug: Web/CSS/Guides/Filter_effects
 l10n:
-  sourceCommit: 81f8fcd666952c1782653a3675347c392cc997ca
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es Ihnen, eine Methode zu definieren, um das Rendering eines Elements zu verarbeiten, bevor es im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
+Die Eigenschaften im **CSS-Filtereffekte**-Modul ermöglichen es Ihnen, eine Methode zur Verarbeitung der Darstellung eines Elements zu definieren, bevor das Element im Dokument angezeigt wird. Beispiele für solche Effekte sind das Weichzeichnen und das Ändern der Farbintensität eines Elements.
 
 ## Filtereffekte in Aktion
 
-Spielen Sie mit den verschiedenen Schiebereglern, um Filtereffekte auf das untenstehende Bild anzuwenden.
+Experimentieren Sie mit den verschiedenen Schiebereglern, um Filtereffekte auf das unten stehende Bild anzuwenden.
 
 ```html hidden live-sample___filters
 <article>
@@ -257,12 +257,12 @@ function sepia() {
 ## Leitfäden
 
 - [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/Guides/Filter_effects/Using)
-  - : Überblick über die Konzepte zu CSS-Filtereffekten, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Werteinteraktionen.
+  - : Überblick über die Konzepte zu CSS-Filtereffekten, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung zu Filterwerten, Quellreihenfolge und Wertinteraktionen.
 
 ## Verwandte Konzepte
 
-- {{CSSxRef("&lt;image&gt;")}} Datentyp
-- {{cssxref("&lt;filter-function&gt;")}} Datentyp
+- {{cssxref("image")}} Datentyp
+- {{cssxref("filter-function")}} Datentyp
 
 - {{cssxref("background-image")}} CSS-Eigenschaft
 - {{cssxref("background-blend-mode")}} CSS-Eigenschaft
@@ -278,5 +278,5 @@ function sepia() {
 
 ## Siehe auch
 
-- Eigenschaften im Modul [CSS-Komposition und -Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending) ermöglichen das Mischen von Hintergrundebenen eines Elements und das Mischen eines Elements mit seinem Container
-- Das SVG {{SVGElement("filter")}}-Element und die SVG-Filter-Primitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}
+- Eigenschaften im [CSS-Compositing und Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending) Modul ermöglichen das Blenden der Hintergrundschichten eines Elements sowie das Blenden eines Elements mit seinem Container.
+- Das SVG-{{SVGElement("filter")}}-Element und die SVG-Filterprimitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}

@@ -1,37 +1,39 @@
 ---
-title: WebKit (-webkit-) vendor-prefixed CSS-Erweiterungen
+title: WebKit (-webkit-) browser-spezifische CSS-Erweiterungen
 slug: Web/CSS/Reference/Webkit_extensions
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Ein {{Glossary("vendor_prefix", "Vendor-Prefix")}} wird verwendet, um anzuzeigen, dass ein Feature spezifisch für einen bestimmten Browser ist. Benutzeragenten basierend auf WebKit oder Blink (wie Safari und Chrome) unterstützen mehrere Erweiterungen zu [CSS](/de/docs/Web/CSS), die mit `-webkit-` vorangestellt sind.
+Ein {{Glossary("vendor_prefix", "Browser-Präfix")}} wird verwendet, um anzugeben, dass ein Feature spezifisch für einen bestimmten Browser ist.
+Benutzeragenten, die auf WebKit oder Blink basieren (wie Safari und Chrome), unterstützen mehrere Erweiterungen zu [CSS](/de/docs/Web/CSS), die mit `-webkit-` gekennzeichnet sind.
 
-## -webkit-präfixierte Eigenschaften ohne standardmäßige Entsprechungen
+## -webkit-geschützte Eigenschaften ohne standardisierte Entsprechungen
 
 > [!NOTE]
-> Diese Eigenschaften funktionieren in WebKit- oder Blink-basierten Browsern, außer wo Unterstützungshinweise etwas anderes sagen. Sie sollten vermieden werden, sie auf Produktionswebsites zu verwenden.
+> Diese Eigenschaften funktionieren in WebKit- oder Blink-basierten Browsern, es sei denn, die Unterstützungshinweise sagen etwas anderes.
+> Sie sollten sie in produktiven Websites vermeiden.
 
 ### A-C
 
-- `-webkit-app-region` {{deprecated_inline}}: Wird in Safari nicht mehr unterstützt.
+- `-webkit-app-region` {{deprecated_inline}}: Nicht mehr in Safari unterstützt.
 - `-webkit-border-horizontal-spacing`
 - `-webkit-border-vertical-spacing`
-- {{CSSxRef("-webkit-box-reflect")}}: Aus Gründen der Kompatibilität mit `-webkit-` von jedem Browser unterstützt.
-- `-webkit-column-axis`: Wird in Chrome nicht unterstützt.
-- `-webkit-column-progression`: Wird in Chrome nicht unterstützt.
-- `-webkit-cursor-visibility`: Wird in Chrome nicht unterstützt.
+- {{CSSxRef("-webkit-box-reflect")}}: Aus Kompatibilitätsgründen von jedem Browser mit `-webkit-` unterstützt.
+- `-webkit-column-axis`: Nicht in Chrome unterstützt.
+- `-webkit-column-progression`: Nicht in Chrome unterstützt.
+- `-webkit-cursor-visibility`: Nicht in Chrome unterstützt.
 
 ### D-L
 
 - `-webkit-font-smoothing`: Siehe {{CSSxRef("font-smooth")}}.
-- `-webkit-hyphenate-limit-after`: Wird in Chrome nicht unterstützt.
-- `-webkit-hyphenate-limit-before`: Wird in Chrome nicht unterstützt.
-- `-webkit-hyphenate-limit-lines`: Wird in Chrome nicht unterstützt.
-- `-webkit-line-align`: Wird in Chrome nicht unterstützt.
-- `-webkit-line-box-contain`: Wird in Chrome nicht unterstützt.
-- `-webkit-line-grid`: Wird in Chrome nicht unterstützt.
-- `-webkit-line-snap`: Wird in Chrome nicht unterstützt.
+- `-webkit-hyphenate-limit-after`: Nicht in Chrome unterstützt.
+- `-webkit-hyphenate-limit-before`: Nicht in Chrome unterstützt.
+- `-webkit-hyphenate-limit-lines`: Nicht in Chrome unterstützt.
+- `-webkit-line-align`: Nicht in Chrome unterstützt.
+- `-webkit-line-box-contain`: Nicht in Chrome unterstützt.
+- `-webkit-line-grid`: Nicht in Chrome unterstützt.
+- `-webkit-line-snap`: Nicht in Chrome unterstützt.
 - `-webkit-locale`
 - `-webkit-logical-height`
 - `-webkit-logical-width`
@@ -47,11 +49,11 @@ Ein {{Glossary("vendor_prefix", "Vendor-Prefix")}} wird verwendet, um anzuzeigen
 - {{CSSxRef("-webkit-mask-box-image", "-webkit-mask-box-image-source")}}: Siehe {{cssxref("mask-border")}} und {{cssxref("border-image")}}.
 - {{CSSxRef("-webkit-mask-box-image", "-webkit-mask-box-image-width")}}: Siehe {{cssxref("mask-border")}} und {{cssxref("border-image")}}.
 - {{CSSxRef("-webkit-mask-composite")}}: Siehe {{cssxref("mask-border")}} und {{cssxref("border-image")}}.
-- {{CSSxRef("-webkit-mask-position-x")}}: Aus Gründen der Kompatibilität mit `-webkit-` von jedem Browser unterstützt.
-- {{CSSxRef("-webkit-mask-position-y")}}: Aus Gründen der Kompatibilität mit `-webkit-` von jedem Browser unterstützt.
-- {{CSSxRef("-webkit-mask-repeat-x")}} {{deprecated_inline}}: Wird nicht mehr unterstützt; siehe {{CSSxRef("mask-repeat")}}.
-- {{CSSxRef("-webkit-mask-repeat-y")}} {{deprecated_inline}}: Wird nicht mehr unterstützt; siehe {{CSSxRef("mask-repeat")}}.
-- `-webkit-mask-source-type`: Wird in Chrome nicht unterstützt.
+- {{CSSxRef("-webkit-mask-position-x")}}: Aus Kompatibilitätsgründen von jedem Browser mit `-webkit-` unterstützt.
+- {{CSSxRef("-webkit-mask-position-y")}}: Aus Kompatibilitätsgründen von jedem Browser mit `-webkit-` unterstützt.
+- {{CSSxRef("-webkit-mask-repeat-x")}} {{deprecated_inline}}: Nicht mehr unterstützt; siehe {{CSSxRef("mask-repeat")}}.
+- {{CSSxRef("-webkit-mask-repeat-y")}} {{deprecated_inline}}: Nicht mehr unterstützt; siehe {{CSSxRef("mask-repeat")}}.
+- `-webkit-mask-source-type`: Nicht in Chrome unterstützt.
 - `-webkit-max-logical-height`
 - `-webkit-max-logical-width`
 - `-webkit-min-logical-height`
@@ -59,29 +61,31 @@ Ein {{Glossary("vendor_prefix", "Vendor-Prefix")}} wird verwendet, um anzuzeigen
 
 ### N-Z
 
-- `-webkit-nbsp-mode`: Wird in Chrome nicht unterstützt.
+- `-webkit-nbsp-mode`: Nicht in Chrome unterstützt.
 - `-webkit-perspective-origin-x`
 - `-webkit-perspective-origin-y`
 - `-webkit-rtl-ordering`
-- {{CSSxRef("-webkit-tap-highlight-color")}}: Nur in Safari auf iOS unterstützt.
-- `-webkit-text-decoration-skip`: Wird in Chrome nicht unterstützt.
+- {{CSSxRef("-webkit-tap-highlight-color")}}: Nur auf iOS in Safari unterstützt.
+- `-webkit-text-decoration-skip`: Nicht in Chrome unterstützt.
 - `-webkit-text-decorations-in-effect`
 - {{CSSxRef("-webkit-text-fill-color")}}
 - {{CSSxRef("-webkit-text-security")}}
 - {{CSSxRef("-webkit-text-stroke")}}
 - {{CSSxRef("-webkit-text-stroke-color")}}
 - {{CSSxRef("-webkit-text-stroke-width")}}
-- `-webkit-text-zoom`: Wird in Chrome nicht unterstützt.
-- {{CSSxRef("-webkit-touch-callout")}} {{deprecated_inline}}: Nur in Safari auf iOS unterstützt.
+- `-webkit-text-zoom`: Nicht in Chrome unterstützt.
+- {{CSSxRef("-webkit-touch-callout")}} {{deprecated_inline}}: Nur auf iOS in Safari unterstützt.
 - `-webkit-transform-origin-x`
 - `-webkit-transform-origin-y`
 - `-webkit-transform-origin-z`
 - `-webkit-user-drag`
 - `-webkit-user-modify`
 
-## -webkit-präfixierte Eigenschaften mit standardmäßigen Entsprechungen
+## -webkit-geschützte Eigenschaften mit standardisierten Entsprechungen
 
-Mehrere mit `-webkit-` vorangestellte Eigenschaften haben standardmäßige Entsprechungen. Auch wenn der Name und die Syntax unterschiedlich sein können, sollten sie nicht mehr verwendet werden. Für jede der unten aufgeführten Eigenschaften, verwenden Sie die standardmäßigen Entsprechungen.
+Mehrere mit `-webkit-` geschützte Eigenschaften haben standardisierte Entsprechungen.
+Auch wenn Name und Syntax unterschiedlich sein können, sollten sie nicht mehr verwendet werden.
+Für jede der unten aufgeführten Eigenschaften sollten Sie die standardisierten Entsprechungen verwenden.
 
 ### A-B
 
@@ -103,20 +107,20 @@ Mehrere mit `-webkit-` vorangestellte Eigenschaften haben standardmäßige Entsp
 - `-webkit-border-start-width`: Verwenden Sie {{CSSxRef("border-inline-start-width")}}.
 - `-webkit-box-align`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("align-items")}}.
 - `-webkit-box-direction`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
-- {{CSSxRef("box-flex-group", "-webkit-box-flex-group")}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-basis")}}, {{CSSxRef("flex-grow")}}, und {{CSSxRef("flex-shrink")}}.
+- {{CSSxRef("box-flex-group", "-webkit-box-flex-group")}}: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-basis")}}, {{CSSxRef("flex-grow")}} und {{CSSxRef("flex-shrink")}}.
 - `-webkit-box-flex`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-grow")}}.
 - `-webkit-box-lines`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-flow")}}.
 - `-webkit-box-ordinal-group`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("order")}}.
 - `-webkit-box-orient`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("flex-direction")}}.
 - `-webkit-box-pack`: Verwenden Sie [CSS Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) mit {{CSSxRef("justify-content")}}.
-- {{CSSxRef("-webkit-box-reflect")}}: Verwenden Sie die CSS {{CSSxRef("element", "element()")}} Funktion.
+- {{CSSxRef("-webkit-box-reflect")}}: Verwenden Sie die CSS {{cssxref("element()")}} Funktion.
 
 ### C-I
 
 - `-webkit-column-break-after`: Verwenden Sie [CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) mit {{CSSxRef("break-after")}}.
 - `-webkit-column-break-before`: Verwenden Sie [CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) mit {{CSSxRef("break-before")}}.
 - `-webkit-column-break-inside`: Verwenden Sie [CSS Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) mit {{CSSxRef("break-inside")}}.
-- `-webkit-font-feature-settings`: Verwenden Sie {{CSSxRef("font-feature-settings")}} (die vorangestellte Version wird in Safari nicht unterstützt).
+- `-webkit-font-feature-settings`: Verwenden Sie {{CSSxRef("font-feature-settings")}} (die mit Präfix versehene Version wird in Safari nicht unterstützt).
 - `-webkit-hyphenate-character`: Verwenden Sie {{CSSxRef("hyphenate-character")}}.
 - `-webkit-initial-letter`: Verwenden Sie {{CSSxRef("initial-letter")}}.
 
@@ -130,15 +134,16 @@ Mehrere mit `-webkit-` vorangestellte Eigenschaften haben standardmäßige Entsp
 - `-webkit-padding-end`: Verwenden Sie {{CSSxRef("padding-inline-end")}}.
 - `-webkit-padding-start`: Verwenden Sie {{CSSxRef("padding-inline-start")}}.
 
-## -webkit-präfixierte Eigenschaftswerte
+## -webkit-geschützte Eigenschaftswerte
 
 - `-webkit-fill-available`
-  - : Wird mit Größenangaben wie {{CSSxRef("width")}} und {{CSSxRef("height")}} verwendet, um Elementen zu erlauben, den gesamten verfügbaren Platz innerhalb ihres übergeordneten Containers einzunehmen. Der `stretch`-Wert bietet einen standardmäßigen Ersatz, aber `-webkit-fill-available` wird als Alias aus Gründen der Rückwärtskompatibilität von Browsern unterstützt.
+  - : Wird mit Größenangaben wie {{CSSxRef("width")}} und {{CSSxRef("height")}} verwendet, um Elementen zu erlauben, den gesamten verfügbaren Raum innerhalb ihres übergeordneten Containers auszufüllen.
+    Der `stretch`-Wert bietet einen standardmäßigen Ersatz, aber `-webkit-fill-available` wird aus Gründen der Abwärtskompatibilität von Browsern als Alias unterstützt.
 
-## Pseudo-Klassen
+## Pseudoklassen
 
 > [!NOTE]
-> Wenn es eine ungültige Pseudo-Klasse innerhalb in einer Kette oder Gruppe von Selektoren gibt, ist die gesamte Selektorliste ungültig.
+> Wenn eine ungültige Pseudoklasse innerhalb einer Kette oder Gruppe von Selektoren vorhanden ist, ist die gesamte Selektorliste ungültig.
 
 - `:-webkit-any()`: Verwenden Sie {{CSSxRef(":is")}}
 - `:-webkit-any-link`: Verwenden Sie {{CSSxRef(":any-link")}}
@@ -151,9 +156,11 @@ Mehrere mit `-webkit-` vorangestellte Eigenschaften haben standardmäßige Entsp
 - `:-webkit-full-screen-document`: Verwenden Sie {{CSSxRef(":fullscreen")}}
 - `:-webkit-full-screen-controls-hidden`: Verwenden Sie {{CSSxRef(":fullscreen")}}
 
-## Pseudo-Elemente
+## Pseudoelemente
 
-Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser alle Pseudo-Elemente, die mit `::-webkit-` beginnen, als gültig. Wenn es ein ungültiges Pseudo-Element oder eine ungültige Pseudo-Klasse innerhalb einer Kette oder Gruppe von Selektoren gibt, ist die gesamte Selektorliste ungültig. Wenn ein Pseudo-Element (aber nicht eine Pseudo-Klasse) ein `-webkit-` Prefix hat, gehen Blink-, WebKit- und Gecko-Browser davon aus, dass es gültig ist und invalideren die Selektorliste nicht.
+Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser alle Pseudoelemente, die mit `::-webkit-` beginnen, als gültig.
+Wenn ein ungültiges Pseudoelement oder eine ungültige Pseudoklasse innerhalb einer Kette oder Gruppe von Selektoren vorhanden ist, ist die gesamte Selektorliste ungültig.
+Wenn ein Pseudoelement (aber nicht eine Pseudoklasse) ein `-webkit-` Präfix hat, nehmen Blink-, WebKit- und Gecko-Browser an, dass es gültig ist, wodurch die Selektorliste nicht ungültig wird.
 
 - `::-webkit-file-upload-button`: Verwenden Sie {{CSSxRef("::file-selector-button")}}
 - {{CSSxRef("::-webkit-inner-spin-button")}}
@@ -171,7 +178,7 @@ Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser
 - {{CSSxRef("::-webkit-slider-runnable-track")}}
 - {{CSSxRef("::-webkit-slider-thumb")}}
 
-## Media-Features
+## Medienmerkmale
 
 - {{CSSxRef("@media/-webkit-animation")}} {{deprecated_inline}}
 - {{CSSxRef("@media/-webkit-device-pixel-ratio")}}: In allen Browsern unterstützt
@@ -181,6 +188,6 @@ Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser
 
 ## Siehe auch
 
-- [Mozilla (-moz-) vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- {{Glossary("Vendor_Prefix", "Vendor-Prefix")}} Glossar-Eintrag
-- [Styling Form Controls on the WebKit Trac](https://trac.webkit.org/wiki/Styling%20Form%20Controls)
+- [Mozilla (-moz-) browser-spezifische CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- {{Glossary("Vendor_Prefix", "Vendor Prefix")}} Glossareintrag
+- [Styling Form Controls auf dem WebKit Trac](https://trac.webkit.org/wiki/Styling%20Form%20Controls)

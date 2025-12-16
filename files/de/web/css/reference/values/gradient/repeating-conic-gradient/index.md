@@ -2,10 +2,10 @@
 title: repeating-conic-gradient()
 slug: Web/CSS/Reference/Values/gradient/repeating-conic-gradient
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`repeating-conic-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erstellt ein Bild, das aus einem sich wiederholenden Verlauf besteht (anstatt eines [einzelnen Verlaufs](/de/docs/Web/CSS/Reference/Values/gradient/conic-gradient)) mit Farbübergängen, die um einen Mittelpunkt rotieren (anstatt [vom Zentrum ausstrahlen](/de/docs/Web/CSS/Reference/Values/gradient/repeating-radial-gradient)).
+Die **`repeating-conic-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erstellt ein Bild, das aus einem sich wiederholenden Verlauf besteht (anstatt aus einem [einzelnen Verlauf](/de/docs/Web/CSS/Reference/Values/gradient/conic-gradient)), mit Farbverläufen, die um einen Mittelpunkt gedreht werden (anstatt [vom Zentrum ausstrahlen](/de/docs/Web/CSS/Reference/Values/gradient/repeating-radial-gradient)).
 
 {{InteractiveExample("CSS Demo: repeating-conic-gradient()")}}
 
@@ -54,36 +54,36 @@ repeating-conic-gradient(in hsl shorter hue, red, blue 90deg, green 180deg)
 
 ### Werte
 
-- {{CSSxRef("&lt;angle&gt;")}}
-  - : Mit dem Schlüsselwort `from` eingeleitet und ein Winkelwert, definiert die Rotation des Verlaufs im Uhrzeigersinn.
+- {{cssxref("angle")}}
+  - : Eingeleitet durch das Schlüsselwort `from` und nimmt einen Winkel als Wert ein. Er definiert die Gradientenrotation im Uhrzeigersinn.
 - `<position>`
-  - : Verwendet dieselben Längen-, Reihenfolge- und Schlüsselwortwerte wie die Eigenschaft [background-position](/de/docs/Web/CSS/Reference/Properties/background-position); die Position definiert das Zentrum des Verlaufs. Wenn weggelassen, ist der Standardwert `center`, was bedeutet, dass der Verlauf zentriert wird.
+  - : Verwendet dieselben Längen-, Reihenfolge- und Schlüsselwort-Werte wie die Eigenschaft [background-position](/de/docs/Web/CSS/Reference/Properties/background-position), wobei die Position das Zentrum des Gradienten definiert. Wenn sie weggelassen wird, ist der Standardwert `center`, was bedeutet, dass der Verlauf zentriert wird.
 - `<angular-color-stop>`
-  - : Ein Farb-Stoppwert {{CSSxRef("&lt;color&gt;")}}, gefolgt von einer oder zwei optionalen Stopp-Positionen (ein {{CSSxRef("&lt;angle&gt;")}} entlang der Achse des Umfangs des Verlaufs). Der letzte Farb-Stopp minus des Winkels des ersten Farb-Stopps definiert die Größe des sich wiederholenden Verlaufs.
+  - : Ein {{CSSxRef("&lt;color&gt;")}} Wert eines Farbstopps, gefolgt von ein oder zwei optionalen Stopp-Positionen, (ein {{cssxref("angle")}} entlang der Umfangsachse des Gradienten). Der letzte Farbstopwinkel minus des ersten Definiert die Größe des sich wiederholenden Gradienten.
 - `<color-hint>`
-  - : Ein {{Glossary("interpolation", "Interpolations-")}} Hinweis, der definiert, wie der Verlauf zwischen benachbarten Farb-Stopps fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farb-Stopps die Verlauf-Farbe den Mittelpunkt des Farbübergangs erreichen soll. Wird weggelassen, ist der Mittelpunkt des Farbübergangs der Mittelpunkt zwischen zwei Farb-Stopps.
+  - : Ein {{Glossary("interpolation", "Interpolations")}} Hinweis, der definiert, wie der Verlauf zwischen benachbarten Farbstops fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbstops die Verlaufsfarbe die Mitte des Farbübergangs erreichen sollte. Wenn sie weggelassen wird, ist die Mitte des Farbübergangs der Mittelpunkt zwischen zwei Farbstops.
 
 > [!NOTE]
-> Die Darstellung von Farb-Stopps in sich wiederholenden konischen Verläufen folgt denselben Regeln wie [Farb-Stopps in linearen Verläufen](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient#composition_of_a_linear_gradient).
+> Die Darstellung von Farbstops in wiederholenden konischen Verläufen folgt den gleichen Regeln wie [Farbverlaufsstops in linearen Verläufen](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient#composition_of_a_linear_gradient).
 
 ## Beschreibung
 
-Beispiele für sich wiederholende konische Verläufe umfassen Strahlenbündel. Das Ergebnis der Funktion `repeating-conic-gradient()` ist ein Objekt des {{CSSxRef("&lt;gradient&gt;")}} Datentyps, der eine spezielle Art von {{CSSxRef("&lt;image&gt;")}} ist.
+Beispiele für sich wiederholende konische Verläufe umfassen Strahlenbüsche. Das Ergebnis der `repeating-conic-gradient()` Funktion ist ein Objekt des Datentyps {{cssxref("gradient")}}, welcher eine spezielle Art von {{cssxref("image")}} ist.
 
-Wenn weder die ersten noch die letzten Farb-Stopps einen Farb-Stopp-Winkel größer als 0deg oder kleiner als 360 Grad enthalten, wird der konische Verlauf nicht wiederholt.
+Wenn weder der erste noch der letzte Farbstop einen Farbstopwinkel größer als 0deg oder weniger als 360 Grad respektive enthält, wird der konische Verlauf sich nicht wiederholen.
 
-Wie bei jedem Verlauf hat ein sich wiederholender konischer Verlauf [keine intrinsischen Abmessungen](/de/docs/Web/CSS/Reference/Values/image#description); das heißt, er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er angewendet wird, oder der Größe, auf die das `<image>` gesetzt ist, wenn es auf etwas anderes als die Größe des Elements gesetzt ist.
+Wie bei jedem Verlauf hat ein sich wiederholender konischer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); d.h. er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe wird der Größe des Elements entsprechen, auf das er sich bezieht, oder der Größe, auf die das `<image>` gesetzt wird, sofern es auf etwas anderes als die Elementgröße gesetzt ist.
 
-Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-conic-gradient()` nicht in {{CSSxRef("background-color")}} und anderen Eigenschaften, die den {{CSSxRef("&lt;color&gt;")}} Datentyp verwenden.
+Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-conic-gradient()` nicht auf {{CSSxRef("background-color")}} und anderen Eigenschaften, die den {{CSSxRef("&lt;color&gt;")}} Datentyp verwenden.
 
 > [!NOTE]
-> Um einen konischen Verlauf zu erstellen, der sich nicht wiederholt, machen Sie den Verlauf zu einer vollen 360-Grad-Drehung, oder verwenden Sie die {{cssxref("gradient/conic-gradient", "conic-gradient()")}} Funktion stattdessen.
+> Um einen nicht wiederholenden konischen Verlauf zu erzeugen, erstellen Sie den Verlauf mit einer vollen 360-Grad-Rotation oder verwenden Sie die {{cssxref("gradient/conic-gradient", "conic-gradient()")}} Funktion.
 
 ### Verständnis von sich wiederholenden konischen Verläufen
 
-Die Syntax für sich wiederholende konische Verläufe ähnelt der Syntax von {{cssxref("gradient/conic-gradient", "conic-gradient()")}} und {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}. Wie bei dem sich nicht wiederholenden konischen Verlauf werden die Farb-Stopps um einen Verlaufsbogen platziert. Wie beim sich wiederholenden radialen Verlauf ist die Größe des sich wiederholenden Abschnitts der erste Farb-Stopp, abzüglich des Winkels des letzten Farb-Stopps.
+Die Syntax für den sich wiederholenden konischen Verlauf ähnelt der von {{cssxref("gradient/conic-gradient", "conic-gradient()")}} und {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}. Wie beim sich nicht wiederholenden konischen Verlauf werden die Farbstops auf einem Gradientenbogen platziert. Wie beim sich wiederholenden radialen Verlauf ist die Größe des sich wiederholenden Abschnitts der erste Farbstop, der vom Winkel des letzten Farbstopps subtrahiert wird.
 
-![Vergleich der Farb-Stopps für sich wiederholende und sich nicht wiederholende konische und radiale Verläufe](repeatingconicgradient.png)
+![Vergleich der Farbstops für sich wiederholende und nicht wiederholende konische und radiale Verläufe](repeatingconicgradient.png)
 
 Die obigen Verläufe sind als ein Drittel blau, ein Drittel rot und ein Drittel gelb definiert.
 
@@ -97,30 +97,30 @@ conic-gradient(red 120deg, yellow 120deg 240deg, blue 240deg);
 radial-gradient(red 33%, yellow 33% 66%, blue 66%);
 ```
 
-Damit ein sich wiederholender Verlauf tatsächlich wiederholt wird, definieren wir die ersten und letzten Farb-Stopps. Wie in nicht wiederholenden Verläufen wird angenommen, dass die ersten und letzten Farb-Stopps 0 und entweder 100% oder 360deg sind, wenn sie nicht explizit deklariert werden. Bei diesen Standardwerten ist der sich wiederholende Bogen 360 Grad und wiederholt sich daher nicht.
+Um einen sich wiederholenden Verlauf zu erzeugen, definieren wir die ersten und letzten Farbstops. Wie bei nicht wiederholenden Verläufen werden die ersten und letzten Farbstops angenommen, 0 bzw. entweder 100% oder 360deg zu sein, wenn sie nicht explizit deklariert sind. Wenn sie auf diese Werte voreingestellt sind, beträgt der sich wiederholende Bogen 360 Grad und wiederholt sich daher nicht.
 
-Wie beim nicht wiederholenden konischen Verlauf werden die Farb-Stopps um einen Verlaufsbogen platziert — den Umfang eines Kreises, anstatt auf der Verlaufslinie, die vom Zentrum des Verlaufs ausgeht. Die Farben ändern sich so, als ob sie um das Zentrum eines Kreises gedreht werden, beginnend oben, wenn kein `from <angle>` angegeben ist, und im Uhrzeigersinn für die Größe des Winkels, der der Unterschied zwischen dem größten und kleinsten Farbwinkel ist, und dann sich wiederholt.
+Wie beim nicht wiederholenden konischen Verlauf werden die Farbstops um einen Gradientenbogen platziert — den Umfang eines Kreises, anstatt auf der Gradientenlinie, die vom Zentrum des Gradienten ausgeht. Die Farben wechseln, als ob sie um das Zentrum eines Kreises gedreht werden, beginnend oben, wenn kein `from <angle>` deklariert ist, und im Uhrzeigersinn für die Größe des Winkels, der die Differenz zwischen dem größten und dem kleinsten Farbwinkel ist und sich dann wiederholt.
 
-Ein sich wiederholender konischer Verlauf wird angegeben, indem ein Rotationswinkel, das Zentrum des Verlaufs, und dann eine Liste von Farb-Stopps spezifiziert werden. Wie bei nicht wiederholenden konischen Verläufen werden die Farb-Stopps eines sich wiederholenden konischen Verlaufs mit einem {{cssxref('angle')}} angegeben. Einheiten umfassen `deg` für Grad, `grad` für Gradienten, `rad` für Radiale und `turn` für Umdrehungen. Ein Kreis umfasst 360 Grad, 400 Gradient, 2π Radiale und 1 Umdrehung. Browser, die sich wiederholende konische Verläufe unterstützen, akzeptieren auch Prozentwerte, wobei 100% 360 Grad entspricht, aber dies ist nicht in der Spezifikation.
+Ein sich wiederholender konischer Verlauf wird durch Angabe eines Rotationswinkels, des Mittelpunkts des Gradienten und dann durch Angabe einer Liste von Farbstops spezifiziert. Wie bei nicht wiederholenden konischen Verläufen werden die Farbstops eines sich wiederholenden konischen Verlaufs mit einem {{cssxref('angle')}} angegeben. Einheiten umfassen `deg` für Grad, `grad` für Neugrad, `rad` für Radiant und `turn` für Umdrehungen. Es gibt 360 Grad, 400 Neugrad, 2π Radianten und 1 Umdrehung in einem Kreis. Browser, die sich wiederholende konische Verläufe unterstützen, akzeptieren auch Prozentwerte, wobei 100% gleich 360 Grad sind, aber dies ist nicht in der Spezifikation enthalten.
 
-Die Syntax für radiale und konische Verläufe ermöglicht es, das Zentrum des Verlaufs überall im oder sogar außerhalb des Bildes zu positionieren. Die Werte für die Positionierung sind der Syntax für die 2-Wert {{cssxref('background-position')}} ähnlich.
+Die Syntax für radiale und konische Verläufe bietet die Möglichkeit, das Zentrum des Verlaufs überall innerhalb oder sogar außerhalb des Bildes zu positionieren. Die Werte für die Position sind ähnlich der Syntax für 2-Wert {{cssxref('background-position')}}.
 
-Der Verlaufsbogen ist Teil des Umfangs des Verlaufs. 0 Grad ist Norden oder 12:00 Uhr. Die Farben des Verlaufs werden durch die gewinkelten Farb-Stopps, ihre Startpunkte, Endpunkte und, dazwischen, optionale gewinkelte Farb-Stopp-Punkte bestimmt. Die Übergänge zwischen den Farben können mit Farbhilfen zwischen den Farb-Stopps benachbarter Farben verändert werden.
+Der Gradientenbogen ist Teil des Umfangs des Gradienten. 0 Grad ist Norden, oder 12:00 Uhr. Die Farben des Verlaufs werden durch die angewinkelten Farbstops, ihre Startpunkte, Endpunkte und, dazwischen, und optionale angewinkelte Farbstoppunkte bestimmt. Die Übergänge zwischen Farben können mit Farbhints zwischen benachbarten Farbstopps verändert werden.
 
 #### Anpassen von Verläufen
 
-Durch Hinzufügen von mehr gewinkelten Farb-Stopp-Punkten auf dem Verlaufsbogen können Sie einen stark angepassten Übergang zwischen mehreren Farben erstellen. Die Position eines Farb-Stopps kann explizit durch Verwendung eines {{CSSxRef("&lt;angle&gt;")}} definiert werden. Wenn Sie die Lage eines Farb-Stopps nicht angeben, wird er in der Mitte zwischen dem, der ihm vorausgeht, und dem, der ihm folgt, platziert. Wie bei dem nicht wiederholenden Verlauf werden, wenn Sie keinen Winkel für den ersten oder letzten Farb-Stopp angeben, die Werte 0deg und 360deg sein. Wenn Sie keinen Winkel für beide angeben, erhalten Sie einen sich nicht wiederholenden konischen Verlauf. Wenn Sie bei dem ersten oder dem letzten einen anderen als 0 oder 360 Grad angeben, wird der Verlauf basierend auf diesem Wert wiederholt. Zum Beispiel, wenn Sie keinen Winkel für die erste Farbe angeben und 10% für den letzten Farb-Stopp festlegen, wird der Bogen 10 Mal wiederholt. Vielmehr ist der Startpunkt der erste deklarierte Farb-Stopp und der letzte Farb-Stopp ist der Winkel des letzten deklarierten Farb-Stopps. Die folgenden zwei Verläufe sind äquivalent:
+Durch Hinzufügen weiterer angewinkelter Farbstoppunkte auf dem Gradientenbogen können Sie einen hochgradig angepassten Übergang zwischen mehreren Farben erstellen. Die Position eines Farbstopps kann explizit durch Verwendung eines {{cssxref("angle")}} definiert werden. Wenn Sie den Ort eines Farbstopps nicht angeben, wird er in der Mitte zwischen dem davor liegenden und dem darauf folgenden platziert. Wie beim nicht wiederholten Verlaufspartner, wenn Sie keinen Winkel für den ersten oder letzten Farbstop angeben, werden die Werte 0deg und 360deg sein. Wenn Sie keinen Winkel für beide angeben, erhalten Sie einen nicht wiederholenden konischen Verlauf. Wenn Sie einen Wert ungleich 0 oder 360 Grad für den ersten oder letzten angeben, wird der Verlauf basierend auf diesem Wert wiederholt. Beispielsweise, wenn Sie keinen Winkel für die erste Farbe angeben und 10% für den letzten Farbstop deklarieren, wird der Bogen 10-mal wiederholt. Vielmehr ist der Startpunkt der zuerst deklarierte Farbstop und der letzte Farbstop ist der zuletzt deklarierte Farbstopwinkel. Die folgenden zwei Verläufe sind gleichwertig:
 
 ```css
 repeating-conic-gradient(red, orange, yellow, green, blue 50%);
 repeating-conic-gradient(from -45deg, red 45deg, orange, yellow, green, blue 225deg)
 ```
 
-Standardmäßig ändern sich die Farben nahtlos von der Farbe bei einem Farb-Stopp zur Farbe beim nächsten Farb-Stopp, wobei der Mittelpunkt zwischen den Farben der Mittelpunkt des Farbübergangs ist. Sie können diesen Farbübergangsmittelpunkt an jeden Punkt zwischen zwei Farb-Stopps verschieben, indem Sie einen Farbhinweis hinzufügen, der angibt, wo der Mittelpunkt des Farbübergangs sein soll.
+Standardmäßig verlaufen die Farben sanft von der Farbe an einem Farbstop zur Farbe am folgenden Farbstop, wobei der Mittelpunkt zwischen den Farben die Mitte des Farbübergangs ist. Sie können diesen Mittelpunkt des Farbübergangs auf jeden Punkt zwischen zwei Farbstops verschieben, indem Sie einen Farbhint hinzufügen, der angibt, wo die Mitte des Farbübergangs sein sollte.
 
-Wenn zwei oder mehr Farb-Stopps an derselben Position sind, wird der Übergang eine harte Linie zwischen der ersten und der letzten an dieser Position deklarierten Farbe sein.
+Wenn zwei oder mehr Farbstops an derselben Stelle sind, wird der Übergang eine harte Linie zwischen der zuerst und zuletzt an dieser Stelle deklarierten Farbe sein.
 
-Obwohl Sie unterschiedliche Winkeltypen mischen und anpassen können, sollten Sie dies nicht tun. Das macht CSS schwer lesbar.
+Obwohl Sie verschiedene Winkeleinheiten mischen und kombinieren können, tun Sie es nicht. Es macht das CSS schwer lesbar.
 
 ## Formale Syntax
 
@@ -128,14 +128,14 @@ Obwohl Sie unterschiedliche Winkeltypen mischen und anpassen können, sollten Si
 
 ## Barrierefreiheit
 
-Browser stellen assistierenden Technologien keine besonderen Informationen zu Hintergrundbildern bereit. Dies ist primär für Bildschirmlesegeräte wichtig, da ein Bildschirmleser dessen Vorhandensein nicht ansagt und daher nichts an seine Benutzer weitergibt. Obwohl es möglich ist, Torten-Diagramme, Schachbrettmuster und andere Effekte mit konischen Verläufen zu erstellen, bieten CSS-Bilder keine native Möglichkeit, Alternativtexte zuzuweisen, und daher wird das durch den konischen Verlauf dargestellte Bild für Bildschirmlesegeräte nicht zugänglich sein. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des gesamten Zwecks der Seite sind, ist es besser, diese semantisch im Dokument zu beschreiben.
+Browser geben keine besonderen Informationen über Hintergrundbilder an assistive Technologien weiter. Dies ist vor allem für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigt und somit nichts an seine Benutzer übermittelt. Während es möglich ist, Tortendiagramme, Schachbretter und andere Effekte mit konischen Verläufen zu erstellen, gibt es in CSS-Bildern keinen nativen Weg, um alternativen Text zuzuweisen, und daher wird das von dem konischen Verlauf dargestellte Bild für Benutzer von Screenreadern nicht zugänglich sein. Wenn das Bild Informationen enthält, die für das Verständnis des gesamten Zwecks der Seite kritisch sind, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Understanding WCAG, Guideline 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [MDN Verständnis von WCAG, Erklärung zu Richtlinie 1.1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
 - [Verständnis des Erfolgskriteriums 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Beispiele
 
-### Schwarz-Weiß-Stern
+### Schwarz-Weiß-Strahlenkranz
 
 ```css hidden
 div {
@@ -156,7 +156,7 @@ div {
 
 {{EmbedLiveSample("Black_and_white_starburst", 220, 220)}}
 
-### Verschobener Verlauf
+### Nicht zentrierter Verlauf
 
 Dieser Verlauf wiederholt sich 18 Mal, aber da wir nur die rechte Hälfte sehen, sehen wir nur 9 Wiederholungen.
 
@@ -186,7 +186,7 @@ div {
 
 {{EmbedLiveSample("Off-centered_gradient", 220, 220)}}
 
-### Interpolieren mit Farbton
+### Interpolation mit Farbton
 
 ```html hidden
 <div class="shorter"></div>
@@ -214,7 +214,7 @@ div {
 }
 ```
 
-In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl) Farbsystem verwendet, und [Farbton](/de/docs/Web/CSS/Reference/Values/hue) wird interpoliert.
+In diesem Beispiel für Interpolation wird das [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl) Farbsystem genutzt und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) interpoliert.
 
 ```css
 .shorter {
@@ -234,7 +234,7 @@ In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/Reference/Value
 }
 ```
 
-Das Kästchen links benutzt [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von rot zu blau geht, indem der kürzere Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} verwendet wird. Das Kästchen rechts benutzt [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von rot zu blau über den längeren Bogen geht, durchläuft Grün, Gelb und Orange.
+Die Box links verwendet die [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen des {{Glossary("Color_wheel", "Farbkreises")}} wechselt. Die Box rechts verwendet die [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen wechselt und durch Grün, Gelb und Orange verläuft.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 
@@ -253,11 +253,11 @@ Bitte sehen Sie sich [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Ima
 ## Siehe auch
 
 - [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
-- Andere Verlauf-Funktionen: {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
-- [`<hue-interpolation-method>`](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method)
-- [`<color-interpolation-method>`](/de/docs/Web/CSS/Reference/Values/color-interpolation-method)
-- {{cssxref("&lt;image&gt;")}}
+- Andere Verlaufsfunktionen: {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}
+- {{cssxref("hue-interpolation-method")}}
+- {{cssxref("color-interpolation-method")}}
+- {{cssxref("image")}}
 - {{cssxref("image/image","image()")}}
-- {{cssxref("element", "element()")}}
+- {{cssxref("element()")}}
 - {{cssxref("image/image-set","image-set()")}}
-- {{cssxref("cross-fade", "cross-fade()")}}
+- {{cssxref("cross-fade()")}}

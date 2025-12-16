@@ -2,16 +2,16 @@
 title: <dimension>
 slug: Web/CSS/Reference/Values/dimension
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert ein {{CSSxRef("&lt;number&gt;")}} mit einer Einheit, zum Beispiel `10px`.
+Der **`<dimension>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen {{CSSxRef("&lt;number&gt;")}} mit einer Einheit, z. B. `10px`.
 
-CSS verwendet Dimensionen, um Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{CSSxRef("&lt;resolution&gt;")}}) und andere Mengen anzugeben.
+CSS verwendet Dimensionen, um Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}), Auflösungen ({{cssxref("resolution")}}) und andere Größen anzugeben.
 
 ## Syntax
 
-Die Syntax von `<dimension>` besteht aus einem {{CSSxRef("&lt;number&gt;")}}, dem direkt eine Einheit folgt, die ein Bezeichner ist. Einheitsbezeichner sind nicht case-sensitiv.
+Die Syntax von `<dimension>` besteht aus einem {{CSSxRef("&lt;number&gt;")}}, dem sofort eine Einheit folgt, die ein Bezeichner ist. Einheitsbezeichner sind nicht case-sensitiv.
 
 ## Beispiele
 
@@ -46,5 +46,5 @@ Die Syntax von `<dimension>` besteht aus einem {{CSSxRef("&lt;number&gt;")}}, de
 ## Siehe auch
 
 - [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-- [Erlernen Sie das Styling von HTML mit CSS](/de/docs/Learn_web_development/Core/Styling_basics)
-- CSS-Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}) und Auflösungen ({{CSSxRef("&lt;resolution&gt;")}})
+- [HTML mit CSS gestalten lernen](/de/docs/Learn_web_development/Core/Styling_basics)
+- CSS-Entfernungen ({{CSSxRef("&lt;length&gt;")}}), Zeitdauern ({{CSSxRef("&lt;time&gt;")}}), Frequenzen ({{CSSxRef("&lt;frequency&gt;")}}) und Auflösungen ({{cssxref("resolution")}})

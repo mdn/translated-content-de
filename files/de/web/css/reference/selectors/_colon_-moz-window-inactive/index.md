@@ -2,17 +2,17 @@
 title: :-moz-window-inactive
 slug: Web/CSS/Reference/Selectors/:-moz-window-inactive
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element anspricht, während es sich in einem inaktiven Fenster befindet.
+Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element anspricht, während es sich in einem inaktiven Fenster befindet.
 
-`:-moz-window-inactive` funktioniert auch in HTML-Dokumenten.
+`:-moz-window-inactive` funktioniert auch in HTML-Inhaltsdokumenten.
 
 > [!NOTE]
-> Vor der Einführung dieser Pseudoklasse wurde das Anwenden unterschiedlicher Stile für Hintergrundfenster erreicht, indem ein Attribut (`active="true"`) am obersten XUL-Chrome-Fenster gesetzt wurde. Dieses Attribut wird nicht mehr verwendet.
+> Vor der Einführung dieser Pseudoklasse wurde das Stylen von Hintergrundfenstern erreicht, indem ein Attribut (`active="true"`) auf dem XUL-Chromfenster der obersten Ebene gesetzt wurde. Dieses Attribut wird nicht mehr verwendet.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel ändert das Aussehen des Hintergrunds eines Kastens abhängig davon, ob sein Fenster aktiv ist oder nicht.
+Dieses Beispiel ändert das Aussehen des Hintergrunds eines Kastens, je nachdem, ob sein Fenster aktiv ist oder nicht.
 
 ### HTML
 
@@ -50,13 +50,13 @@ Dieses Beispiel ändert das Aussehen des Hintergrunds eines Kastens abhängig da
 
 ### Ergebnis
 
-Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Beispiele', 'separate Seite')}} ansehen.
+Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} betrachten.
 
-{{EmbedLiveSample('Beispiele', 220, 220)}}
+{{EmbedLiveSample('Examples', 220, 220)}}
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -66,6 +66,6 @@ Kein Teil eines Standards.
 
 - [Mozilla CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
 - Verwandte CSS-Selektoren:
-  - [`:active`](/de/docs/Web/CSS/Reference/Selectors/:active)
+  - {{cssxref(":active")}}
 
-- Die [`Document.activeElement`](/de/docs/Web/API/Document/activeElement)-Eigenschaft für reguläre DOMs und die [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement)-Eigenschaft für [Shadow-DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Wurzeln.
+- Die [`Document.activeElement`](/de/docs/Web/API/Document/activeElement)-Eigenschaft für reguläre DOMs und die [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement)-Eigenschaft für [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Wurzeln.

@@ -2,10 +2,10 @@
 title: max()
 slug: Web/CSS/Reference/Values/max
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`max()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ermöglicht es Ihnen, den größten (positivsten) Wert aus einer Liste von durch Kommas getrennten Ausdrücken als Wert einer CSS-Eigenschaft festzulegen. Die `max()`-Funktion kann überall dort verwendet werden, wo ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, oder {{CSSxRef("&lt;integer&gt;")}} erlaubt ist.
+Die **`max()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ermöglicht es Ihnen, den größten (positivsten) Wert aus einer Liste kommagetrennter Ausdrücke als Wert einer CSS-Eigenschaft festzulegen. Die `max()` Funktion kann überall dort verwendet werden, wo ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{cssxref("angle")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, oder {{CSSxRef("&lt;integer&gt;")}} erlaubt ist.
 
 {{InteractiveExample("CSS Demo: max()")}}
 
@@ -32,7 +32,7 @@ width: max(5vw, 100px);
 </section>
 ```
 
-Im ersten oben gezeigten Beispiel wird die Breite mindestens 400px betragen, aber breiter sein, wenn der Viewport mehr als 2000px breit ist (in diesem Fall wären 1vw 20px, also wären 20vw 400px). Diese Technik verwendet eine absolute Einheit, um einen festen Mindestwert für die Eigenschaft anzugeben, und eine relative Einheit, um den Wert zu ermöglichen, sich an größere Viewports anzupassen.
+Im ersten Beispiel, das oben gezeigt wird, beträgt die Breite mindestens 400px, kann jedoch breiter sein, wenn der Viewport mehr als 2000px breit ist (in diesem Fall wären 1vw gleich 20px, sodass 20vw 400px wären). Diese Technik verwendet eine absolute Einheit, um einen festen Minimalwert für die Eigenschaft festzulegen, und eine relative Einheit, um den Wert an größere Viewports anzupassen.
 
 ## Syntax
 
@@ -43,18 +43,18 @@ max(1px, 2px, 3px)
 
 ### Parameter
 
-Die `max()`-Funktion nimmt ein oder mehrere durch Kommas getrennte Ausdrücke als Parameter, wobei der größte (positivste) Ausdruckswert als Wert für die Eigenschaft verwendet wird, der er zugewiesen ist.
+Die `max()` Funktion nimmt einen oder mehrere kommagetrennte Ausdrücke als Parameter, wobei der größte (positivste) Ausdruckswert als Wert der zugewiesenen Eigenschaft verwendet wird.
 
-Die Ausdrücke können mathematische Ausdrücke (unter Verwendung arithmetischer Operatoren), literale Werte oder andere Ausdrücke, wie z.B. {{CSSxRef("attr", "attr()")}}, sein, die zu einem gültigen Argumenttyp (wie {{CSSxRef("&lt;length&gt;")}}) auswerten, oder verschachtelte {{CSSxRef("min", "min()")}} und `max()` Funktionen.
+Die Ausdrücke können mathematische Ausdrücke (mit arithmetischen Operatoren), wörtliche Werte oder andere Ausdrücke sein, wie {{cssxref("attr()")}}, die zu einem gültigen Argumenttyp (wie {{CSSxRef("&lt;length&gt;")}}) auswerten, oder verschachtelte {{cssxref("min()")}} und `max()` Funktionen.
 
-Sie können unterschiedliche Einheiten für jeden Wert in Ihrem Ausdruck verwenden. Sie können auch Klammern verwenden, um die Rechenreihenfolge bei Bedarf festzulegen.
+Sie können unterschiedliche Einheiten für jeden Wert in Ihrem Ausdruck verwenden. Sie können auch Klammern verwenden, um die Reihenfolge der Berechnung festzulegen, falls erforderlich.
 
 ### Hinweise
 
-- Mathematische Ausdrücke mit Prozentwerten für Breiten und Höhen von Tabellenspalten, Tabellenspalten-Gruppen, Tabellenzeilen, Tabellenzeilen-Gruppen und Tabellenzellen in sowohl auto- als auch fixed-Layout-Tabellen _können_ so behandelt werden, als wäre `auto` angegeben worden.
-- Es ist erlaubt, `min()` und andere `max()`-Funktionen als Ausdruckswerte zu verschachteln. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division ohne Verwendung der calc()-Funktion selbst verwenden können.
-- Der Ausdruck kann Werte enthalten, die die Operatoren Addition (+), Subtraktion (-), Multiplikation (\*) und Division (/) kombinieren, unter Verwendung der Standard-Vorrangregeln der Operatoren. Stellen Sie sicher, dass auf jeder Seite der +- und --Operanden ein Leerzeichen steht. Die Operanden im Ausdruck können jeden \<length>-Syntaxwert haben.
-- Sie können (und sollten oft) `min()`- und `max()`-Werte kombinieren oder `max()` innerhalb einer `clamp()`- oder `calc()`-Funktion verwenden.
+- Mathematische Ausdrücke unter Einbeziehung von Prozentzahlen für Breiten und Höhen von Tabellenspalten, Tabellenkantengruppen, Tabellenzeilen, Tabellenzeilengruppen und Tabellenzellen in sowohl automatischen als auch festen Layout-Tabellen _können_ behandelt werden, als ob `auto` angegeben worden wäre.
+- Es ist erlaubt, `min()` und andere `max()` Funktionen als Ausdruckswerte zu verschachteln. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division ohne Verwendung der calc() Funktion selbst verwenden können.
+- Der Ausdruck kann Werte kombinieren, die die Addition ( + ), Subtraktion ( - ), Multiplikation ( \* ) und Division ( / ) Operatoren verwenden, wobei die Standardregeln zur Operatorpräzedenz gelten. Achten Sie darauf, auf jeder Seite der + und - Operanden ein Leerzeichen zu setzen. Die Operanden im Ausdruck können Werte im \<length> Syntax-Stil sein.
+- Sie können (und müssen oft) `min()` und `max()` Werte kombinieren oder `max()` innerhalb einer `clamp()` oder `calc()` Funktion verwenden.
 
 ## Formale Syntax
 
@@ -62,7 +62,7 @@ Sie können unterschiedliche Einheiten für jeden Wert in Ihrem Ausdruck verwend
 
 ## Barrierefreiheit
 
-Wenn `max()` zum Steuern der Textgröße verwendet wird, stellen Sie sicher, dass der Text immer groß genug zum Lesen ist. Ein Vorschlag ist, die Funktion {{CSSxRef("min", "min()")}} innerhalb eines `max()` zu verschachteln, das als zweiten Wert eine [relative Längeneinheit](/de/docs/Web/CSS/Reference/Values/length#relative_length_units) hat, die immer groß genug ist, um lesbar zu sein. Zum Beispiel:
+Wenn `max()` zur Steuerung der Textgröße verwendet wird, stellen Sie sicher, dass der Text immer groß genug zum Lesen ist. Ein Vorschlag ist, die {{cssxref("min()")}} Funktion innerhalb einer `max()` Funktion zu verwenden, die als zweiten Wert eine [relative Längeneinheit](/de/docs/Web/CSS/Reference/Values/length#relative_length_units) hat, die immer groß genug zum Lesen ist. Zum Beispiel:
 
 ```css
 small {
@@ -70,16 +70,16 @@ small {
 }
 ```
 
-Dies gewährleistet eine Mindestgröße von _1rem_, mit einer Textgröße, die skaliert, wenn die Seite gezoomt wird.
+Dies stellt eine Mindestgröße von _1rem_ sicher, mit einer Textgröße, die skaliert, wenn die Seite vergrößert wird.
 
-- [MDN Verstehen von WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgs-Kriteriums 1.4.4 | W3C Verstehen der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Beispiele
 
-### Festlegung einer Mindestgröße für eine Schriftart
+### Festlegen einer Mindestgröße für eine Schriftart
 
-Ein weiterer Anwendungsfall für `max()` ist es, eine Schriftgröße zu ermöglichen, die wächst, während sie gleichzeitig mindestens eine Mindestgröße sicherstellt, um reaktionsfähige Schriftgrößen zu ermöglichen und die Lesbarkeit sicherzustellen.
+Ein weiterer Anwendungsfall für `max()` ist es, eine Schriftgröße wachsen zu lassen und gleichzeitig sicherzustellen, dass sie mindestens eine Mindestgröße hat, was es ermöglicht, dass Schriftgrößen anpassungsfähig sind und die Lesbarkeit gewährleistet bleibt.
 
 Schauen wir uns etwas CSS an:
 
@@ -92,7 +92,7 @@ h1.responsive {
 }
 ```
 
-Die Schriftgröße wird mindestens 2rems betragen oder das Doppelte der Standardgröße der Schriftart für die Seite. Dies stellt sicher, dass sie lesbar und zugänglich ist.
+Die Schriftgröße wird mindestens 2rems betragen, oder das Doppelte der Standardschriftgröße der Seite. Dies gewährleistet, dass sie lesbar und zugänglich ist.
 
 ```html
 <h1>This text is always legible, but doesn't change size</h1>
@@ -103,7 +103,7 @@ Die Schriftgröße wird mindestens 2rems betragen oder das Doppelte der Standard
 
 {{EmbedLiveSample("Setting_a_minimum_size_for_a_font", "100%", "300")}}
 
-Betrachten Sie die `max()`-Funktion als das Finden des minimalen Wertes, der für eine Eigenschaft erlaubt ist.
+Denken Sie an die `max()` Funktion als eine Methode, den minimalen erlaubten Wert für eine Eigenschaft zu finden.
 
 ## Spezifikationen
 
@@ -115,7 +115,7 @@ Betrachten Sie die `max()`-Funktion als das Finden des minimalen Wertes, der fü
 
 ## Siehe auch
 
-- {{CSSxRef("calc", "calc()")}}
-- {{CSSxRef("clamp", "clamp()")}}
-- {{CSSxRef("min", "min()")}}
+- {{cssxref("calc()")}}
+- {{cssxref("clamp()")}}
+- {{cssxref("min()")}}
 - [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)

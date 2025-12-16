@@ -1,11 +1,11 @@
 ---
-title: Pseudo-Klassen
+title: Pseudoklassen
 slug: Web/CSS/Reference/Selectors/Pseudo-classes
 l10n:
-  sourceCommit: d85ca18fd3d87f63bd83f711bac919ddcb2eb632
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Eine [CSS](/de/docs/Web/CSS) **_Pseudo-Klasse_** ist ein Schlüsselwort, das an einen Selektor angehängt wird und es ermöglicht, Elemente basierend auf Informationen auszuwählen, die außerhalb des Dokumentbaums liegen, wie z.B. ein spezifischer Zustand der ausgewählten Elemente. Beispielsweise kann die Pseudo-Klasse {{CSSxRef(":hover")}} verwendet werden, um einen Button zu stylen, wenn ein Zeiger eines Benutzers darüber schwebt.
+Eine [CSS](/de/docs/Web/CSS) **_Pseudoklasse_** ist ein Schlüsselwort, das zu einem Selektor hinzugefügt wird, damit Sie Elemente basierend auf Informationen auswählen können, die außerhalb des Dokumentenbaums liegen, wie zum Beispiel einen bestimmten Zustand der ausgewählten Elemente. Beispielsweise kann die Pseudoklasse {{CSSxRef(":hover")}} verwendet werden, um eine Schaltfläche zu gestalten, wenn der Mauszeiger eines Benutzers darüber schwebt.
 
 ```css
 /* Any button over which the user's pointer is hovering */
@@ -14,239 +14,239 @@ button:hover {
 }
 ```
 
-Eine Pseudo-Klasse besteht aus einem Doppelpunkt (`:`) gefolgt vom Namen der Pseudo-Klasse (z.B. `:hover`). Eine funktionale Pseudo-Klasse enthält ebenfalls ein Klammerpaar, um die Argumente zu definieren (z.B. `:dir()`). Das Element, an das eine Pseudo-Klasse angefügt ist, wird als _Ankerelement_ definiert (z.B. `button` im Fall von `button:hover`).
+Eine Pseudoklasse besteht aus einem Doppelpunkt (`:`) gefolgt vom Namen der Pseudoklasse (z. B. `:hover`). Eine funktionale Pseudoklasse enthält auch ein Paar Klammern zur Definition der Argumente (z. B. `:dir()`). Das Element, an das eine Pseudoklasse angehängt ist, wird als _Anker-Element_ definiert (z. B. `button` im Fall von `button:hover`).
 
-Pseudo-Klassen ermöglichen es, einen Stil auf ein Element anzuwenden, nicht nur in Bezug auf den Inhalt des Dokumentbaums, sondern auch in Bezug auf externe Faktoren wie die Historie des Navigators (z.B. {{CSSxRef(":visited")}}), den Status seines Inhalts (wie {{CSSxRef(":checked")}} bei bestimmten Formularelementen) oder die Position der Maus (wie {{CSSxRef(":hover")}}, wobei ermittelt wird, ob sich die Maus über einem Element befindet oder nicht).
+Pseudoklassen ermöglichen es Ihnen, einem Element nicht nur in Bezug auf den Inhalt des Dokumentenbaums, sondern auch in Bezug auf externe Faktoren wie die Verlaufshistorie des Navigators (z. B. {{CSSxRef(":visited")}}), den Status seines Inhalts (wie {{CSSxRef(":checked")}} bei bestimmten Formularelementen) oder die Position der Maus (wie {{CSSxRef(":hover")}}, wodurch Sie wissen, ob sich die Maus über einem Element befindet oder nicht) einen Stil zuzuweisen.
 
 > [!NOTE]
-> Im Gegensatz zu Pseudo-Klassen können [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) verwendet werden, um einen _spezifischen Teil_ eines Elements zu stylen.
+> Im Gegensatz zu Pseudoklassen können [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) verwendet werden, um einen _spezifischen Teil_ eines Elements zu gestalten.
 
-## Elementare Pseudo-Klassen
+## Elementare Pseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf die grundlegende Identität der Elemente.
+Diese Pseudoklassen beziehen sich auf die grundlegende Identität von Elementen.
 
 - {{CSSxRef(":defined")}}
-  - : Entspricht jedem definierten Element.
+  - : Stimmt mit jedem Element überein, das definiert ist.
 - {{CSSxRef(":heading")}}
-  - : Entspricht jedem Überschriftenelement (`<h1>`-`<h6>`).
+  - : Stimmt mit jedem Überschriftenelement (`<h1>`-`<h6>`) überein.
 
-## Pseudo-Klassen des Anzeigezustands
+## Pseudoklassen für den Anzeigestatus von Elementen
 
-Diese Pseudo-Klassen ermöglichen die Auswahl von Elementen basierend auf ihrem Anzeigezustand.
+Diese Pseudoklassen ermöglichen die Auswahl von Elementen basierend auf ihrem Anzeigestatus.
 
 - {{CSSxRef(":open")}}
-  - : Entspricht einem Element, das entweder geöffnet oder geschlossen werden kann und derzeit geöffnet ist.
+  - : Stimmt mit einem Element überein, das entweder geöffnet oder geschlossen sein kann und derzeit geöffnet ist.
 - {{CSSxRef(":popover-open")}}
-  - : Entspricht einem Popover-Element, das sich derzeit im Anzeigestatus befindet.
+  - : Stimmt mit einem Popover-Element überein, das sich aktuell im Anzeigestatus befindet.
 - {{CSSxRef(":modal")}}
-  - : Entspricht einem Element, das sich in einem Zustand befindet, in dem es jede Interaktion mit Elementen außerhalb ausschließt, bis die Interaktion abgewiesen wurde.
+  - : Stimmt mit einem Element überein, das sich in einem Zustand befindet, in dem es alle Interaktionen mit außerhalb liegenden Elementen ausschließt, bis die Interaktion beendet wurde.
 - {{CSSxRef(":fullscreen")}}
-  - : Entspricht einem Element, das sich derzeit im Vollbildmodus befindet.
+  - : Stimmt mit einem Element überein, das derzeit im Vollbildmodus ist.
 - {{CSSxRef(":picture-in-picture")}}
-  - : Entspricht einem Element, das sich derzeit im Bild-im-Bild-Modus befindet.
+  - : Stimmt mit einem Element überein, das sich derzeit im Bild-in-Bild-Modus befindet.
 
-## Eingabe-Pseudo-Klassen
+## Eingabepseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf Formularelemente und ermöglichen die Auswahl von Elementen basierend auf HTML-Attributen und dem Zustand, in dem sich das Feld vor und nach der Interaktion befindet.
+Diese Pseudoklassen beziehen sich auf Formularelemente und ermöglichen die Auswahl von Elementen basierend auf HTML-Attributen und dem Zustand, in dem sich das Feld vor und nach der Interaktion befindet.
 
 - {{CSSxRef(":enabled")}}
-  - : Repräsentiert ein Benutzeroberflächenelement, das aktiviert ist.
+  - : Repräsentiert ein Benutzerschnittstellenelement, das aktiv ist.
 - {{CSSxRef(":disabled")}}
-  - : Repräsentiert ein Benutzeroberflächenelement, das deaktiviert ist.
+  - : Repräsentiert ein Benutzerschnittstellenelement, das deaktiviert ist.
 - {{CSSxRef(":read-only")}}
-  - : Repräsentiert ein Element, das vom Benutzer nicht geändert werden kann.
+  - : Repräsentiert jedes Element, das vom Benutzer nicht verändert werden kann.
 - {{CSSxRef(":read-write")}}
-  - : Repräsentiert ein Element, das vom Benutzer bearbeitet werden kann.
+  - : Repräsentiert jedes Element, das vom Benutzer bearbeitet werden kann.
 - {{CSSxRef(":placeholder-shown")}}
-  - : Entspricht einem Eingabeelement, das Platzhaltertext anzeigt. Beispielsweise wird das `placeholder`-Attribut in den {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elementen übereinstimmen.
+  - : Stimmt mit einem Eingabeelement überein, das Platzhaltertext anzeigt. Beispielsweise wird es mit dem `placeholder`-Attribut in den {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elementen übereinstimmen.
 - {{CSSxRef(":autofill")}}
-  - : Entspricht, wenn ein {{htmlelement("input")}} durch den Browser automatisch ausgefüllt wurde.
+  - : Stimmt überein, wenn ein {{htmlelement("input")}}-Element vom Browser automatisch ausgefüllt wurde.
 - {{CSSxRef(":default")}}
-  - : Entspricht einem oder mehreren UI-Elementen, die unter einem Satz von Elementen die Standardeinstellungen sind.
+  - : Stimmt mit einem oder mehreren UI-Elementen überein, die die Standardeinstellung innerhalb einer Gruppe von Elementen sind.
 - {{CSSxRef(":checked")}}
-  - : Entspricht, wenn Elemente wie Kontrollkästchen und Optionsfelder aktiviert sind.
+  - : Stimmt, wenn Elemente wie Kontrollkästchen und Optionsfelder aktiviert sind.
 - {{CSSxRef(":indeterminate")}}
-  - : Entspricht UI-Elementen, wenn sie sich in einem unbestimmten Zustand befinden.
+  - : Stimmt mit UI-Elementen überein, wenn sie sich in einem unbestimmten Zustand befinden.
 - {{CSSxRef(":blank")}}
-  - : Entspricht einem Benutzereingabeelement, das leer ist, entweder eine leere Zeichenkette oder eine andere null-Eingabe enthält.
+  - : Stimmt mit einem Benutzereingabeelement, das leer ist, d.h. eine leere Zeichenfolge oder eine andere nicht zugeordnete Eingabe enthält, überein.
 - {{CSSxRef(":valid")}}
-  - : Entspricht einem Element mit gültigem Inhalt. Zum Beispiel ein Eingabeelement mit dem Typ 'email', das eine korrekt formatierte E-Mail-Adresse enthält oder einen leeren Wert, wenn die Steuerung nicht erforderlich ist.
+  - : Stimmt mit einem Element mit gültigem Inhalt überein. Beispielsweise ein Eingabeelement vom Typ 'email', das eine gültig formatierte E-Mail-Adresse oder einen leeren Wert enthält, wenn die Eingabe nicht erforderlich ist.
 - {{CSSxRef(":invalid")}}
-  - : Entspricht einem Element mit ungültigem Inhalt. Zum Beispiel ein Eingabeelement mit Typ 'email' mit einem eingegebenen Namen.
+  - : Stimmt mit einem Element mit ungültigen Inhalten überein. Beispielsweise ein Eingabeelement mit Typ 'email' mit einem angegebenen Namen.
 - {{CSSxRef(":in-range")}}
-  - : Wird für Elemente mit Bereichsbeschränkungen angewendet. Zum Beispiel eine Schiebereglersteuerung, wenn der ausgewählte Wert im erlaubten Bereich liegt.
+  - : Gilt für Elemente mit Bereichsbeschränkungen. Beispielsweise ein Schieberegler, wenn der ausgewählte Wert innerhalb des erlaubten Bereichs liegt.
 - {{CSSxRef(":out-of-range")}}
-  - : Wird für Elemente mit Bereichsbeschränkungen angewendet. Zum Beispiel eine Schiebereglersteuerung, wenn der ausgewählte Wert außerhalb des erlaubten Bereichs liegt.
+  - : Gilt für Elemente mit Bereichsbeschränkungen. Beispielsweise ein Schieberegler, wenn der ausgewählte Wert außerhalb des erlaubten Bereichs liegt.
 - {{CSSxRef(":required")}}
-  - : Entspricht, wenn ein Formularelement erforderlich ist.
+  - : Stimmt, wenn ein Formularelement erforderlich ist.
 - {{CSSxRef(":optional")}}
-  - : Entspricht, wenn ein Formularelement optional ist.
+  - : Stimmt, wenn ein Formularelement optional ist.
 - {{CSSxRef(":user-valid")}}
-  - : Repräsentiert ein Element mit korrekter Eingabe, jedoch nur, wenn der Benutzer damit interagiert hat.
+  - : Repräsentiert ein Element mit korrekter Eingabe, aber nur, wenn der Benutzer damit interagiert hat.
 - {{CSSxRef(":user-invalid")}}
-  - : Repräsentiert ein Element mit inkorrekter Eingabe, jedoch nur, wenn der Benutzer damit interagiert hat.
+  - : Repräsentiert ein Element mit falscher Eingabe, aber nur, wenn der Benutzer damit interagiert hat.
 
-## Linguistische Pseudo-Klassen
+## Sprachbezogene Pseudoklassen
 
-Diese Pseudo-Klassen spiegeln die Dokumentensprache wider und ermöglichen die Auswahl von Elementen basierend auf Sprache oder Schreibrichtung.
+Diese Pseudoklassen spiegeln die Dokumentensprache wider und ermöglichen die Auswahl von Elementen basierend auf Sprache oder Schreibrichtung.
 
-- {{CSSxRef(":dir", ":dir()")}}
-  - : Die Dirigierendheitspseudo-Klasse wählt ein Element basierend auf seiner Dirigierendheit aus, wie sie durch die Dokumentensprache bestimmt wird.
-- {{CSSxRef(":lang", ":lang()")}}
-  - : Wählt ein Element basierend auf seiner Inhaltssprache aus.
+- {{cssxref(":dir()")}}
+  - : Die Dirigierungs-Pseudoklasse wählt ein Element basierend auf seiner Dirigierungsweise aus, die durch die Dokumentensprache bestimmt wird.
+- {{cssxref(":lang()")}}
+  - : Wählen Sie ein Element basierend auf seiner Inhaltsprache aus.
 
-## Standort-Pseudo-Klassen
+## Standort-Pseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf Links und auf gezielte Elemente innerhalb des aktuellen Dokuments.
+Diese Pseudoklassen beziehen sich auf Links und auf Ziel-Elemente innerhalb des aktuellen Dokuments.
 
 - {{CSSxRef(":any-link")}}
-  - : Entspricht einem Element, wenn das Element entweder {{CSSxRef(":link")}} oder {{CSSxRef(":visited")}} entspricht.
+  - : Stimmt mit einem Element überein, wenn das Element entweder mit {{CSSxRef(":link")}} oder {{CSSxRef(":visited")}} übereinstimmen würde.
 - {{CSSxRef(":link")}}
-  - : Entspricht Links, die noch nicht besucht wurden.
+  - : Stimmt mit Links überein, die noch nicht besucht wurden.
 - {{CSSxRef(":visited")}}
-  - : Entspricht Links, die besucht wurden.
+  - : Stimmt mit Links überein, die besucht wurden.
 - {{CSSxRef(":local-link")}}
-  - : Entspricht Links, deren absolute URL mit der Ziel-URL identisch ist. Zum Beispiel Ankerlinks zur selben Seite.
+  - : Stimmt mit Links, deren absolute URL die gleiche ist wie die Ziel-URL. Beispielsweise Anker-Links zur gleichen Seite.
 - {{CSSxRef(":target")}}
-  - : Entspricht dem Element, das das Ziel der Dokument-URL ist.
+  - : Stimmt mit dem Element überein, das das Ziel der Dokumenten-URL ist.
 - {{CSSxRef(":scope")}}
-  - : Repräsentiert Elemente, die einen Referenzpunkt für Selektoren darstellen, gegen den sie abgeglichen werden können.
+  - : Repräsentiert Elemente, die ein Referenzpunkt für Selektoren sind, um gegen diese überprüft zu werden.
 
 > [!NOTE]
-> Eine `:target-within` Pseudo-Klasse, um Elemente auszuwählen, die sind oder einen Nachkommen haben, der das Ziel der Dokument-URL ist, wurde definiert, aber aus der Spezifikation entfernt. Verwenden Sie `:has(:target)` für diesen Zweck.
+> Eine `:target-within`-Pseudoklasse, um Elemente abzugleichen, die oder deren Nachkommen das Ziel der Dokumenten-URL sind, wurde definiert, aber aus der Spezifikation entfernt. Verwenden Sie `:has(:target)` zu diesem Zweck.
 
-## Ressourcenstatus-Pseudo-Klassen
+## Ressourcenstatus-Pseudoklassen
 
-Diese Pseudo-Klassen gelten für Medien, die sich in einem Zustand befinden können, in dem sie als spielend beschrieben werden könnten, wie ein Video.
+Diese Pseudoklassen gelten für Medien, die sich in einem Zustand befinden können, in dem sie als spielend beschrieben werden können, wie z. B. ein Video.
 
 - {{CSSxRef(":playing")}}
-  - : Repräsentiert ein spielbares Element, das gerade abgespielt wird.
+  - : Repräsentiert ein abspielbares Element, das gerade abgespielt wird.
 - {{CSSxRef(":paused")}}
-  - : Repräsentiert ein spielbares Element, das pausiert.
+  - : Repräsentiert ein abspielbares Element, das pausiert ist.
 - {{CSSxRef(":seeking")}}
-  - : Repräsentiert ein spielbares Element, das derzeit eine Wiedergabeposition in der Medienressource sucht.
+  - : Repräsentiert ein abspielbares Element, das gerade nach einer Wiedergabeposition in der Medienressource sucht.
 - {{CSSxRef(":buffering")}}
-  - : Repräsentiert ein spielbares Element, das spielt, aber vorübergehend angehalten ist, weil es die Medienressource herunterlädt.
+  - : Repräsentiert ein abspielbares Element, das abgespielt wird, aber vorübergehend angehalten ist, weil es die Medienressource herunterlädt.
 - {{CSSxRef(":stalled")}}
-  - : Repräsentiert ein spielbares Element, das spielt, aber angehalten ist, weil es die Medienressource nicht herunterladen kann.
+  - : Repräsentiert ein abspielbares Element, das abgespielt wird, aber gestoppt ist, weil es die Medienressource nicht herunterladen kann.
 - {{CSSxRef(":muted")}}
-  - : Repräsentiert ein klangerzeugendes Element, das stummgeschaltet ist.
+  - : Repräsentiert ein tonproduzierendes Element, das stummgeschaltet ist.
 - {{CSSxRef(":volume-locked")}}
-  - : Repräsentiert ein klangerzeugendes Element, dessen Lautstärkepegel vom Browser gesperrt wurde.
+  - : Repräsentiert ein tonproduzierendes Element, das seine Lautstärke durch den Browser gesperrt hat.
 
-## Zeitdimensionale Pseudo-Klassen
+## Zeitdimensionale Pseudoklassen
 
-Diese Pseudo-Klassen gelten, wenn etwas angezeigt wird, das eine zeitliche Dimension hat, wie ein [WebVTT](/de/docs/Web/API/WebVTT_API) Untertiteltrack.
+Diese Pseudoklassen gelten, wenn etwas angezeigt wird, das eine zeitliche Komponente hat, wie z. B. eine [WebVTT](/de/docs/Web/API/WebVTT_API)-Untertitelspur.
 
 - {{CSSxRef(":current")}}
-  - : Repräsentiert das Element oder den Vorfahren des Elements, das gerade angezeigt wird.
+  - : Repräsentiert das Element oder den Vorfahren des Elements, der gerade angezeigt wird.
 - {{CSSxRef(":past")}}
-  - : Repräsentiert ein Element, das vollständig vor dem {{CSSxRef(":current")}}-Element vorkommt.
+  - : Repräsentiert ein Element, das sich vollständig vor dem {{CSSxRef(":current")}}-Element befindet.
 - {{CSSxRef(":future")}}
-  - : Repräsentiert ein Element, das vollständig nach dem {{CSSxRef(":current")}}-Element vorkommt.
+  - : Repräsentiert ein Element, das sich vollständig nach dem {{CSSxRef(":current")}}-Element befindet.
 
-## Baumstrukturelle Pseudo-Klassen
+## Baumstruktur-Pseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf den Standort eines Elements innerhalb des Dokumentbaums.
+Diese Pseudoklassen beziehen sich auf die Position eines Elements innerhalb des Dokumentenbaums.
 
 - {{CSSxRef(":root")}}
-  - : Repräsentiert ein Element, das die Wurzel des Dokuments ist. Im HTML ist dies normalerweise das `<html>`-Element.
+  - : Repräsentiert ein Element, das die Wurzel des Dokuments ist. In HTML ist dies normalerweise das `<html>`-Element.
 - {{CSSxRef(":empty")}}
-  - : Repräsentiert ein Element ohne Kinder außer Leerzeichenziffern.
-- {{CSSxRef(":nth-child", ":nth-child()")}}
-  - : Verwendet die `An+B`-Notation, um Elemente aus einer Liste von Geschwistern auszuwählen.
-- {{CSSxRef(":nth-last-child", ":nth-last-child()")}}
-  - : Verwendet die `An+B`-Notation, um Elemente aus einer Liste von Geschwistern auszuwählen, rückwärts von der Liste aus zählend.
+  - : Repräsentiert ein Element ohne Kinder außer Leerzeichensymbolen.
+- {{cssxref(":nth-child()")}}
+  - : Verwendet `An+B`-Notation zur Auswahl von Elementen aus einer Liste von Geschwisterelementen.
+- {{cssxref(":nth-last-child()")}}
+  - : Verwendet `An+B`-Notation zur Auswahl von Elementen aus einer Liste von Geschwisterelementen, rückwärts vom Ende der Liste gezählt.
 - {{CSSxRef(":first-child")}}
-  - : Entspricht einem Element, das das erste seiner Geschwister ist.
+  - : Stimmt mit einem Element überein, das das erste seiner Geschwister ist.
 - {{CSSxRef(":last-child")}}
-  - : Entspricht einem Element, das das letzte seiner Geschwister ist.
+  - : Stimmt mit einem Element überein, das das letzte seiner Geschwister ist.
 - {{CSSxRef(":only-child")}}
-  - : Entspricht einem Element, das keine Geschwister hat. Zum Beispiel ein Listenelement ohne andere Listenelemente in dieser Liste.
+  - : Stimmt mit einem Element überein, das keine Geschwister hat. Beispielsweise ein Listenelement, das keine weiteren Listenelemente in dieser Liste hat.
 - {{CSSXRef(":heading_function", ":heading()")}}
-  - : Verwendet die `An+B`-Notation, um Überschriftenelemente (`<h1>`-`<h6>`) auszuwählen.
-- {{CSSxRef(":nth-of-type", ":nth-of-type()")}}
-  - : Verwendet die `An+B`-Notation, um Elemente aus einer Liste von Geschwistern auszuwählen, die einem bestimmten Typ aus einer Liste von Geschwistern entsprechen.
-- {{CSSxRef(":nth-last-of-type", ":nth-last-of-type()")}}
-  - : Verwendet die `An+B`-Notation, um Elemente aus einer Liste von Geschwistern auszuwählen, die einem bestimmten Typ aus einer Liste von Geschwistern rückwärts entsprechen, vom Ende der Liste aus zählend.
+  - : Verwendet `An+B`-Notation zur Auswahl von Überschriftenelementen (`<h1>`-`<h6>`).
+- {{cssxref(":nth-of-type()")}}
+  - : Verwendet `An+B`-Notation zur Auswahl von Elementen aus einer Liste von Geschwisterelementen, die einem bestimmten Typ aus einer Liste von Geschwisterelementen entsprechen.
+- {{cssxref(":nth-last-of-type()")}}
+  - : Verwendet `An+B`-Notation zur Auswahl von Elementen aus einer Liste von Geschwisterelementen, die einem bestimmten Typ aus einer Liste von Geschwisterelementen entsprechen, rückwärts vom Ende der Liste gezählt.
 - {{CSSxRef(":first-of-type")}}
-  - : Entspricht einem Element, das das erste seiner Geschwister ist und auch einem bestimmten Typ-Selektor entspricht.
+  - : Stimmt mit einem Element überein, das das erste seiner Geschwister ist und auch einem bestimmten Typselektor entspricht.
 - {{CSSxRef(":last-of-type")}}
-  - : Entspricht einem Element, das das letzte seiner Geschwister ist und auch einem bestimmten Typ-Selektor entspricht.
+  - : Stimmt mit einem Element überein, das das letzte seiner Geschwister ist und auch einem bestimmten Typselektor entspricht.
 - {{CSSxRef(":only-of-type")}}
-  - : Entspricht einem Element, das keine Geschwister des gewählten Typ-Selektors hat.
+  - : Stimmt mit einem Element überein, das keine Geschwister des gewählten Typselektors hat.
 
-## Schattenstrukturelle Pseudo-Klassen
+## Schattenstruktur-Pseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf das Shadow DOM.
+Diese Pseudoklassen beziehen sich auf den Schatten-DOM.
 
 - {{CSSxRef(":host")}}
-  - : Entspricht dem Shadow-Host des Schattenbaums.
-- {{CSSxRef(":host_function", ":host()")}}
-  - : Entspricht einem Element, das {{CSSxRef(":host")}} entspricht und jedem der in der Liste bereitgestellten Selektoren entspricht.
-- {{CSSxRef(":host-context", ":host-context()")}}
-  - : Wählt Elemente außerhalb des Schattenbaums im Kontext des Schattenhosts aus.
+  - : Stimmt mit dem Schatten-Wirt des Schattenbaums überein.
+- {{cssxref(":host()")}}
+  - : Stimmt mit einem Element über ein Kriterium in der bereitgestellten Liste überein, wenn es auch mit {{CSSxRef(":host")}} übereinstimmt.
+- {{cssxref(":host-context()")}}
+  - : Wählt Elemente außerhalb des Schattenbaums im Kontext des Schatten-Wirts aus.
 - {{CSSxRef(":has-slotted")}}
-  - : Entspricht Slot-Elementen, denen Inhalt zugewiesen wurde.
+  - : Stimmt mit Slot-Elementen überein, denen Inhalte zugewiesen wurden.
 
-## Benutzeraktions-Pseudo-Klassen
+## Benutzeraktions-Pseudoklassen
 
-Diese Pseudo-Klassen erfordern eine Interaktion des Benutzers, um sie anzuwenden, wie z.B. das Halten eines Zeigers über einem Element.
+Diese Pseudoklassen erfordern einige Interaktionen durch den Benutzer, damit sie angewendet werden, wie z. B. das Halten eines Mauszeigers über einem Element.
 
 - {{CSSxRef(":hover")}}
-  - : Entspricht, wenn ein Benutzer ein Element mit einem Zeigegerät bezeichnet, z.B. das Halten des Mauszeigers über das Element.
+  - : Stimmt, wenn ein Benutzer ein Element mit einer Zeigegerät kennzeichnet, wie z. B. das Halten des Mauszeigers über dem Element.
 - {{CSSxRef(":active")}}
-  - : Entspricht, wenn ein Element vom Benutzer aktiviert wird. Zum Beispiel, wenn das Element angeklickt wird.
+  - : Stimmt, wenn ein Element vom Benutzer aktiviert wird. Zum Beispiel, wenn auf das Element geklickt wird.
 - {{CSSxRef(":focus")}}
-  - : Entspricht, wenn ein Element im Fokus steht.
+  - : Stimmt, wenn ein Element fokussiert ist.
 - {{CSSxRef(":focus-visible")}}
-  - : Entspricht, wenn ein Element im Fokus steht und der Benutzeragent feststellt, dass das Element sichtbar fokussiert sein sollte.
+  - : Stimmt, wenn ein Element fokussiert ist und der Benutzeragent erkennt, dass das Element sichtbar fokussiert sein sollte.
 - {{CSSxRef(":focus-within")}}
-  - : Entspricht einem Element, auf das {{CSSxRef(":focus")}} zutrifft, sowie jedem Element, das einen Nachkommen hat, auf den {{CSSxRef(":focus")}} zutrifft.
+  - : Stimmt mit einem Element überein, auf das {{CSSxRef(":focus")}} angewendet wird, plus jedes Element, das einen Nachfahren hat, auf das {{CSSxRef(":focus")}} angewendet wird.
 - {{CSSxRef(":target-current")}}
-  - : Entspricht dem {{cssxref("::scroll-marker")}} Pseudo-Element einer {{cssxref("scroll-marker-group")}}, die derzeit gescrollt wird, in anderen Worten, dem **aktiven** Scroll-Marker.
+  - : Stimmt mit dem {{cssxref("::scroll-marker")}}-Pseudoelement einer {{cssxref("scroll-marker-group")}}, die derzeit gescrollt wird, in anderen Worten, dem **aktiven** Scroll-Marker.
 
-## Funktionale Pseudo-Klassen
+## Funktionale Pseudoklassen
 
-Diese Pseudo-Klassen akzeptieren eine [Selektorenliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) oder [eine fehlertolerante Selektorenliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) als Parameter.
+Diese Pseudoklassen akzeptieren eine [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) oder eine [vergebende Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) als Parameter.
 
-- {{CSSxRef(":is", ":is()")}}
-  - : Die Übereinstimmung-mit-allen-Pseudo-Klasse entspricht jedem Element, das einem der in der Liste bereitgestellten Selektoren entspricht. Die Liste ist fehlertolerant.
-- {{CSSxRef(":not", ":not()")}}
-  - : Die Negations- oder Keine-Übereinstimmung-Pseudo-Klasse repräsentiert jedes Element, das nicht durch sein Argument dargestellt wird.
-- {{CSSxRef(":where", ":where()")}}
-  - : Die Spezifitätsanpassungs-Pseudo-Klasse entspricht jedem Element, das einem der in der Liste bereitgestellten Selektoren ohne Hinzufügung von Spezifitätsgewicht entspricht. Die Liste ist fehlertolerant.
-- {{CSSxRef(":has", ":has()")}}
-  - : Die relationale Pseudo-Klasse repräsentiert ein Element, wenn einer der relativen Selektoren übereinstimmt, wenn gegen das angehängte Element verankert.
+- {{cssxref(":is()")}}
+  - : Die Matches-Any-Pseudoklasse stimmt mit jedem Element überein, das mit einem der in der Liste angegebenen Selektoren übereinstimmt. Die Liste ist vergebend.
+- {{cssxref(":not()")}}
+  - : Die Negations- oder Matches-None-Pseudoklasse repräsentiert jedes Element, das nicht durch sein Argument repräsentiert wird.
+- {{cssxref(":where()")}}
+  - : Die spezifitätsanpassende Pseudoklasse stimmt mit jedem Element überein, das mit einem der in der Liste angegebenen Selektoren übereinstimmt, ohne dabei eine spezifische Gewichtung hinzuzufügen. Die Liste ist vergebend.
+- {{cssxref(":has()")}}
+  - : Die relationale Pseudoklasse repräsentiert ein Element, wenn einer der relativen Selektoren beim Verankern am zugehörigen Element übereinstimmt.
 
-## Benutzerdefinierte Zustandspseudo-Klassen
+## Benutzerdefinierte Zustands-Pseudoklassen
 
-Diese Pseudo-Klassen gelten für benutzerdefinierte Elemente.
+Diese Pseudoklassen gelten für benutzerdefinierte Elemente.
 
-- {{CSSxRef(":state", ":state()")}}
-  - : Entspricht benutzerdefinierten Elementen, die den angegebenen benutzerdefinierten Zustand haben.
+- {{cssxref(":state()")}}
+  - : Stimmt mit benutzerdefinierten Elementen überein, die den angegebenen benutzerdefinierten Zustand haben.
 
-## Seiten-Pseudo-Klassen
+## Seiten-Pseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf Seiten in einem gedruckten Dokument und werden mit der {{CSSxRef("@page")}} At-Regel verwendet.
+Diese Pseudoklassen beziehen sich auf Seiten in einem gedruckten Dokument und werden mit der {{CSSxRef("@page")}}-At-Regel verwendet.
 
 - {{CSSxRef(":left")}}
   - : Repräsentiert alle linken Seiten eines gedruckten Dokuments.
 - {{CSSxRef(":right")}}
   - : Repräsentiert alle rechten Seiten eines gedruckten Dokuments.
 - {{CSSxRef(":first")}}
-  - : Repräsentiert die erste Seite eines gedruckten Dokuments.
+  - : Repräsentiert die ersten Seite eines gedruckten Dokuments.
 - `:blank`
   - : Repräsentiert eine leere Seite in einem gedruckten Dokument.
 
-## Ansichtsübertragungs-Pseudo-Klassen
+## Ansichtsübergangs-Pseudoklassen
 
-Diese Pseudo-Klassen beziehen sich auf Elemente, die an einer [Ansichtsübertragung](/de/docs/Web/API/View_Transition_API) beteiligt sind.
+Diese Pseudoklassen beziehen sich auf Elemente, die an einem [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) beteiligt sind.
 
 - {{cssxref(":active-view-transition")}}
-  - : Entspricht dem Wurzelelement eines Dokuments, wenn eine [Ansichtsübertragung](/de/docs/Web/API/View_Transition_API#concepts_and_usage) im Gange ist (_aktiv_) und das Matchen stoppt, sobald die Übertragung abgeschlossen ist.
-- {{cssxref(":active-view-transition-type", ":active-view-transition-type()")}}
-  - : Entspricht dem Wurzelelement eines Dokuments, wenn eine angegebene [Ansichtsübertragung](/de/docs/Web/API/View_Transition_API#concepts_and_usage) im Gange ist (_aktiv_) und das Matchen stoppt, sobald die Übertragung abgeschlossen ist.
+  - : Stimmt mit dem Root-Element eines Dokuments überein, wenn ein [Ansichtsübergang](/de/docs/Web/API/View_Transition_API#concepts_and_usage) im Gange ist (_aktiv_) und stimmt nicht mehr überein, sobald der Übergang abgeschlossen ist.
+- {{cssxref(":active-view-transition-type()")}}
+  - : Stimmt mit dem Root-Element eines Dokuments überein, wenn ein bestimmter [Ansichtsübergang](/de/docs/Web/API/View_Transition_API#concepts_and_usage) im Gange ist (_aktiv_) und stimmt nicht mehr überein, sobald der Übergang abgeschlossen ist.
 
 ## Syntax
 
@@ -256,17 +256,17 @@ selector:pseudo-class {
 }
 ```
 
-Wie reguläre Klassen, können Sie so viele Pseudo-Klassen wie gewünscht in einem Selektor aneinander reihen.
+Wie bei regulären Klassen können Sie in einem Selektor so viele Pseudoklassen verketten, wie Sie möchten.
 
-## Alphabetischer Index
+## Alphabetisches Verzeichnis
 
-Pseudo-Klassen, die durch eine Reihe von CSS-Spezifikationen definiert sind, umfassen folgendes:
+Pseudoklassen, die durch eine Reihe von CSS-Spezifikationen definiert sind, umfassen:
 
 A
 
 - {{CSSxRef(":active")}}
 - {{CSSxRef(":active-view-transition")}}
-- {{cssxref(":active-view-transition-type", ":active-view-transition-type()")}}
+- {{cssxref(":active-view-transition-type()")}}
 - {{CSSxRef(":any-link")}}
 - {{CSSxRef(":autofill")}}
 
@@ -285,7 +285,7 @@ D
 
 - {{CSSxRef(":default")}}
 - {{CSSxRef(":defined")}}
-- {{CSSxRef(":dir", ":dir()")}}
+- {{cssxref(":dir()")}}
 - {{CSSxRef(":disabled")}}
 
 E
@@ -307,12 +307,12 @@ F
 H
 
 - {{CSSxRef(":has-slotted")}}
-- {{CSSxRef(":has", ":has()")}}
+- {{cssxref(":has()")}}
 - {{CSSXRef(":heading")}}
 - {{CSSXRef(":heading_function", ":heading()")}}
 - {{CSSxRef(":host")}}
-- {{CSSxRef(":host_function", ":host()")}}
-- {{CSSxRef(":host-context", ":host-context()")}}
+- {{cssxref(":host()")}}
+- {{cssxref(":host-context()")}}
 - {{CSSxRef(":hover")}}
 
 I
@@ -320,11 +320,11 @@ I
 - {{CSSxRef(":in-range")}}
 - {{CSSxRef(":indeterminate")}}
 - {{CSSxRef(":invalid")}}
-- {{CSSxRef(":is", ":is()")}}
+- {{cssxref(":is()")}}
 
 L
 
-- {{CSSxRef(":lang", ":lang()")}}
+- {{cssxref(":lang()")}}
 - {{CSSxRef(":last-child")}}
 - {{CSSxRef(":last-of-type")}}
 - {{CSSxRef(":left")}}
@@ -338,11 +338,11 @@ M
 
 N
 
-- {{CSSxRef(":not", ":not()")}}
-- {{CSSxRef(":nth-child", ":nth-child()")}}
-- {{CSSxRef(":nth-last-child", ":nth-last-child()")}}
-- {{CSSxRef(":nth-last-of-type", ":nth-last-of-type()")}}
-- {{CSSxRef(":nth-of-type", ":nth-of-type()")}}
+- {{cssxref(":not()")}}
+- {{cssxref(":nth-child()")}}
+- {{cssxref(":nth-last-child()")}}
+- {{cssxref(":nth-last-of-type()")}}
+- {{cssxref(":nth-of-type()")}}
 
 O
 
@@ -374,7 +374,7 @@ S
 - {{CSSxRef(":scope")}}
 - {{CSSxRef(":seeking")}}
 - {{CSSxRef(":stalled")}}
-- {{CSSxRef(":state", ":state()")}}
+- {{cssxref(":state()")}}
 
 T
 
@@ -394,11 +394,11 @@ V
 
 W
 
-- {{CSSxRef(":where", ":where()")}}
+- {{cssxref(":where()")}}
 
-### Nicht-standardisierte Pseudo-Klassen
+### Nicht standardisierte Pseudoklassen
 
-Nicht-standardisierte, anbieterpräfixierte Pseudo-Klassen umfassen:
+Nicht standardisierte herstellerspezifische Pseudoklassen umfassen:
 
 #### `-moz-` Präfix
 
@@ -424,5 +424,5 @@ Nicht-standardisierte, anbieterpräfixierte Pseudo-Klassen umfassen:
 
 ## Siehe auch
 
-- [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
+- [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
 - [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul

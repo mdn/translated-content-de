@@ -2,12 +2,12 @@
 title: "@function"
 slug: Web/CSS/Reference/At-rules/@function
 l10n:
-  sourceCommit: 1dcf976e9b654679c762568812562b1a2361c755
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 {{SeeCompatTable}}
 
-Die **`@function`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) ermöglicht das Definieren von [CSS-Benutzerfunktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions). Einmal definiert, kann eine Benutzerfunktion mit der {{cssxref("&lt;dashed-function>")}}-Syntax (zum Beispiel `--my-function(30px, 3)`) innerhalb eines beliebigen Eigenschaftswerts aufgerufen werden.
+Die **`@function`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) ermöglicht die Definition von [CSS benutzerdefinierten Funktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions). Sobald eine benutzerdefinierte Funktion definiert ist, kann sie mit der Syntax {{cssxref("&lt;dashed-function>")}} (zum Beispiel, `--my-function(30px, 3)`) innerhalb eines beliebigen Eigenschaftswertes aufgerufen werden.
 
 ## Syntax
 
@@ -22,32 +22,32 @@ Die **`@function`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/Guides/S
 Die verschiedenen Teile der `@function`-Syntax sind wie folgt:
 
 - `--function-name`
-  - : Der identifizierende Name der Funktion, ein [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident), der mit `--` beginnt und von einem gültigen, benutzerdefinierten Bezeichner gefolgt wird. Er ist case-sensitive.
+  - : Der identifizierende Name der Funktion, ein {{cssxref("dashed-ident")}}, der mit `--` beginnt und von einem gültigen, benutzerdefinierten Bezeichner gefolgt wird. Er ist groß- und kleinschreibungsempfindlich.
 - `<function-parameter>#?` {{optional_inline}}
   - : Null oder mehr Funktionsparameterdefinitionen. Mehrere Parameterdefinitionen werden durch Kommas getrennt. Jeder Parameter besteht aus:
     - `--param-name`
-      - : Ein [CSS-Benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) Name zur Identifizierung des Parameters, ein [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident), der mit `--` beginnt und von einem gültigen, benutzerdefinierten Bezeichner gefolgt wird. Er ist case-sensitive. Funktionsparameter können als benutzerdefinierte Eigenschaften betrachtet werden, die lokal auf den Funktionskörper beschränkt sind.
+      - : Ein [CSS benutzerdefiniertes Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) Name zur Identifizierung des Parameters, ein {{cssxref("dashed-ident")}}, der mit `--` beginnt und von einem gültigen, benutzerdefinierten Bezeichner gefolgt wird. Er ist groß- und kleinschreibungsempfindlich. Funktionsparameter können als benutzerdefinierte Eigenschaften betrachtet werden, die lokal auf den Funktionskörper beschränkt sind.
     - `<css-type>` {{optional_inline}}
-      - : Ein CSS-Datentyp oder eine {{cssxref("type()")}}-Funktion, die die akzeptierten Datentypen für den Parameter definiert. Wenn dies nicht angegeben ist, ist jeder Datentyp für den Parameter gültig (entspricht der Angabe von `type(*)`).
+      - : Ein CSS-Datentyp oder eine {{cssxref("type()")}} Funktion, die die akzeptierten Datentypen für den Parameter definiert. Wenn dies nicht angegeben ist, wird jeder Datentyp als gültig für den Parameter angesehen (ebenso wie die Angabe von `type(*)`).
     - `<default-value>` {{optional_inline}}
-      - : Ein CSS-Wert, der den Standardwert angibt, der dem Parameter zugewiesen wird, wenn er beim Aufruf der Funktion nicht angegeben wird. Dieser Wert muss gemäß dem `<css-type>` gültig sein, wenn angegeben. Der Standardwert wird durch einen Doppelpunkt (`:`) von den anderen Teilen der Parameterdefinition getrennt.
+      - : Ein CSS-Wert, der den Standardwert angibt, der dem Parameter zugewiesen wird, wenn er nicht beim Aufruf der Funktion angegeben wird. Dieser Wert muss gemäß dem `<css-type>`, falls angegeben, gültig sein. Der Standardwert wird durch einen Doppelpunkt (`:`) von den anderen Teilen der Parameterdefinition getrennt.
 - `[returns <css-type>]?` {{optional_inline}}
-  - : Ein CSS-Datentyp oder eine {{cssxref("type()")}}-Funktion, der/die durch das Schlüsselwort `returns` vorangestellt ist und die akzeptierten Rückgabetypen für den Parameter definiert. Wenn dies nicht angegeben ist, ist jeder Datentyp für den Parameter gültig (entspricht der Angabe von `returns type(*)`), obwohl zu beachten ist, dass die Funktion ungültig wird, wenn der Rückgabetyp nicht mit dem Typ übereinstimmt, der durch den `result`-Deskriptor erzeugt wird.
+  - : Ein CSS-Datentyp oder eine {{cssxref("type()")}} Funktion, vorangestellt durch das Schlüsselwort `returns`, die die akzeptierten Rückgabetypen für den Parameter definiert. Wenn dies nicht angegeben ist, wird jeder Datentyp als gültig für den Parameter angesehen (ebenso wie die Angabe von `returns type(*)`), wobei zu beachten ist, dass die Funktion ungültig wird, wenn der Rückgabewert nicht dem Typ entspricht, der durch den `result` Deskriptor erzeugt wird.
 - `<declaration-rule-list>`
-  - : Eine oder mehrere CSS-Deklarationen oder At-Regeln, die den Körper der Funktion definieren und deren Logik enthalten. Eingeschlossene Deklarationen können beinhalten:
-    - CSS-Benutzerdefinierte Eigenschaften, die lokal auf den Funktionskörper beschränkt sind.
-    - Der `result`-Deskriptor, entweder direkt innerhalb der `@function`-At-Regel oder innerhalb einer geschachtelten At-Regel.
+  - : Eine oder mehrere CSS-Deklarationen oder At-Regeln, die den Funktionskörper definieren und die Logik enthalten. Eingeschlossene Deklarationen können enthalten:
+    - CSS benutzerdefinierte Eigenschaften, die lokal auf den Funktionskörper beschränkt sind.
+    - Der `result` Deskriptor, entweder direkt innerhalb der `@function` At-Regel oder innerhalb einer verschachtelten At-Regel.
 
 ### Deskriptoren
 
 - `result`
-  - : Ein gültiger Eigenschaftswert, der das Ergebnis definiert, das von der CSS-Benutzerfunktion zurückgegeben wird. Der in den Wert enthaltene Ausdruck wird ausgewertet und das Ergebnis zurückgegeben.
+  - : Ein gültiger Eigenschaftswert, der das Ergebnis definiert, das von der CSS benutzerdefinierten Funktion zurückgegeben wird. Der Ausdruck im Wert wird ausgewertet und das Ergebnis zurückgegeben.
 
 ## Beschreibung
 
-CSS-Benutzerfunktionen ermöglichen es, wiederverwendbare Logikabschnitte zu definieren, die je nach den akzeptierten Eingabeparametern und der innerhalb des Funktionskörpers definierten Logik unterschiedliche Werte zurückgeben.
+CSS benutzerdefinierte Funktionen ermöglichen es Ihnen, wiederverwendbare Logikabschnitte zu definieren, die je nach den als Eingaben akzeptierten Parametern und der innerhalb des Funktionskörpers definierten Logik unterschiedliche Werte zurückgeben.
 
-Eine typische CSS-Funktion sieht folgendermaßen aus:
+Eine typische CSS-Funktion sieht so aus:
 
 ```css
 @function --transparent(--color, --alpha) {
@@ -55,9 +55,9 @@ Eine typische CSS-Funktion sieht folgendermaßen aus:
 }
 ```
 
-Die Funktion hat den Namen `--transparent` und nimmt zwei benutzerdefinierte Eigenschaften als Parameter, `--color` und `--alpha`, auf, die lokal innerhalb des Funktionskörpers verwendet werden können. Der Körper enthält eine einzelne Zeile, die ein `result`-Deskriptor ist, der den von der Funktion zurückgegebenen Wert definiert. Der Wert des `result`-Deskriptors verwendet [CSS-relative Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors), um den Eingabewert `--color` in eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch)-Farbe mit dem im Eingabewert `--alpha` angegebenen Alphakanalwert zu konvertieren.
+Die Funktion hat den Namen `--transparent` und nimmt zwei benutzerdefinierte Eigenschaften als Parameter an, `--color` und `--alpha`, die lokal im Funktionskörper verwendet werden können. Der Körper enthält eine einzige Zeile, die ein `result` Deskriptor ist, der den Wert definiert, der von der Funktion zurückgegeben wird. Der Wert des `result` Deskriptors verwendet die [CSS relative Farbensyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors), um den Eingabewert `--color` in eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch) Farbe mit dem im Eingabewert `--alpha` angegebenen Alphakanalwert zu konvertieren.
 
-Sie können diese Funktion dann überall dort aufrufen, wo Sie eine halbtransparente Version einer vorhandenen Farbe erzeugen möchten, zum Beispiel:
+Sie können diese Funktion dann überall aufrufen, wo Sie eine halbtransparente Version einer vorhandenen Farbe erzeugen möchten, zum Beispiel:
 
 ```css
 section {
@@ -66,14 +66,14 @@ section {
 }
 ```
 
-Die Funktion wird mit der {{cssxref("&lt;dashed-function>")}}-Syntax aufgerufen, bei der es sich um den Funktionsnamen mit Klammern am Ende handelt. Die gewünschten Argumentwerte werden innerhalb der Klammern angegeben.
+Die Funktion wird durch die Verwendung der {{cssxref("&lt;dashed-function>")}}-Syntax aufgerufen, das ist der Funktionsname mit Klammern am Ende. Die gewünschten Argumentwerte werden innerhalb der Klammern angegeben.
 
 > [!NOTE]
-> Wenn mehrere CSS-Funktionen denselben Namen haben, gewinnt die Funktion in der stärkeren Kaskade {{cssxref("@layer")}}. Wenn alle in derselben Ebene sind, gewinnt die Funktion, die zuletzt in der Quellreihenfolge definiert ist.
+> Wenn mehreren CSS-Funktionen derselbe Name gegeben wird, gewinnt die Funktion in der stärkeren Kaskade {{cssxref("@layer")}}. Wenn alle in derselben Schicht sind, gewinnt die zuletzt in der Quellreihenfolge definierte Funktion.
 
-### Datentypen spezifizieren
+### Festlegen von Datentypen
 
-Es ist möglich, Datentypen für die Funktionsparameter und Rückgabetypen zu spezifizieren. Zum Beispiel:
+Es ist möglich, Datentypen für die Funktionsparameter und Rückgabetypen festzulegen. Zum Beispiel:
 
 ```css
 @function --transparent(--color <color>, --alpha <number>) returns <color> {
@@ -81,7 +81,7 @@ Es ist möglich, Datentypen für die Funktionsparameter und Rückgabetypen zu sp
 }
 ```
 
-Nun produziert die Funktion nur dann einen gültigen Wert, wenn die Eingabeargumente ein {{cssxref("&lt;color>")}} und eine {{cssxref("&lt;number>")}} sind, und das `result` ist ein {{cssxref("&lt;color>")}}. Wenn nicht, zum Beispiel:
+Jetzt erzeugt die Funktion nur dann einen gültigen Wert, wenn die Eingabewerte ein {{cssxref("&lt;color>")}} und ein {{cssxref("&lt;number>")}} sind, und der `result` ein {{cssxref("&lt;color>")}} ist. Wenn nicht, zum Beispiel:
 
 ```css
 section {
@@ -90,9 +90,9 @@ section {
 }
 ```
 
-dann wird der Wert zur Berechnungszeit ungültig (da das angegebene `--alpha`-Argument ein `<percentage>` und keine `<number>` wie erwartet ist) und die `background-color` wird schließlich auf `transparent` gesetzt.
+wird der Wert zur Berechnungszeit ungültig (weil das angegebene `--alpha`-Argument ein `<percentage>` und nicht eine `<number>` ist) und die `background-color` wird schließlich auf `transparent` gesetzt.
 
-Sie können mehrere akzeptierte Datentypen mit einer {{cssxref("type()")}}-Funktion und dem `|`-Symbol als Trennzeichen angeben, zum Beispiel:
+Sie können mehrere akzeptierte Datentypen mit einer {{cssxref("type()")}} Funktion mit dem `|` Symbol als Separator angeben, zum Beispiel:
 
 ```css
 @function --transparent(--color <color>, --alpha type(<number> | <percentage>))
@@ -101,11 +101,11 @@ Sie können mehrere akzeptierte Datentypen mit einer {{cssxref("type()")}}-Funkt
 }
 ```
 
-Mit dieser Anpassung ist der Funktionsaufruf `--transparent(var(--base-color), 50%)` jetzt gültig.
+Mit dieser Anpassung ist der Funktionsaufruf `--transparent(var(--base-color), 50%)` nun gültig.
 
-### Standardwerte angeben
+### Angabe von Standardwerten
 
-Sie können auch Standardwerte für Parameter angeben, nach einem Doppelpunkt am Ende ihrer Definition. Zum Beispiel:
+Sie können auch Standardwerte für Parameter am Ende ihrer Definition nach einem Doppelpunkt angeben. Zum Beispiel:
 
 ```css
 @function --transparent(--color <color>, --alpha <number>: 0.8) returns <color> {
@@ -113,7 +113,7 @@ Sie können auch Standardwerte für Parameter angeben, nach einem Doppelpunkt am
 }
 ```
 
-Der Standardwert des `--alpha`-Parameters ist jetzt `0.8`. Wenn Sie diesen Wert verwenden möchten, können Sie das zweite Argument beim Aufruf der Funktion weglassen:
+Der Standardwert des Parameters `--alpha` ist nun `0.8`. Wenn Sie diesen Wert verwenden möchten, können Sie das zweite Argument beim Funktionsaufruf weglassen:
 
 ```css
 section {
@@ -123,11 +123,11 @@ section {
 ```
 
 > [!NOTE]
-> Wenn ein ungültiger Wert als Funktionsargument übergeben wird und ein Standardwert in dieser Parameterdefinition angegeben ist, wird der ungültige Wert ignoriert und der Standardwert stattdessen verwendet.
+> Wenn ein ungültiger Wert als Funktionsargument übergeben wird und ein Standardwert in dieser Parameterdefinition angegeben ist, wird der ungültige Wert ignoriert und stattdessen der Standardwert verwendet.
 
-### Übergabe von Komma-enthaltenden Werten als Argumente
+### Übergabe von Werten, die Kommas enthalten, als Argumente
 
-Im nächsten Beispiel erwartet die Funktion `--max-plus-x()`, dass eine kommagetrennte Liste von Längen und eine einzelne Länge als Argumente übergeben werden. Sie verwendet die CSS-{{cssxref("max()")}}-Funktion, um zu bestimmen, welche der Listenlängen die größte ist, addiert sie zur Einzellänge und gibt das Ergebnis zurück.
+Im nächsten Beispiel erwartet die Funktion `--max-plus-x()`, dass ihr eine kommagetrennte Liste von Längen und eine einzelne Länge als Argumente übergeben werden. Sie verwendet die CSS {{cssxref("max()")}} Funktion, um zu bestimmen, welches der Listen von Längen am größten ist, addiert sie zur einzelnen Länge, und gibt das Ergebnis zurück.
 
 ```css
 @function --max-plus-x(--list <length>#, --x <length>) {
@@ -135,7 +135,7 @@ Im nächsten Beispiel erwartet die Funktion `--max-plus-x()`, dass eine kommaget
 }
 ```
 
-Das erste Argument muss eine kommagetrennte Liste sein, die fälschlicherweise als drei separate Argumente interpretiert werden könnte. Um dieses Problem zu umgehen, können Sie den Wert beim Übergeben in den Funktionsaufruf in geschweifte Klammern einschließen:
+Das erste Argument muss eine kommagetrennte Liste sein, die als drei separate Argumente missverstanden werden könnte. Um dieses Problem zu umgehen, können Sie den Wert in geschweifte Klammern einschließen, wenn Sie ihn in den Funktionsaufruf übergeben:
 
 ```css
 div {
@@ -143,11 +143,11 @@ div {
 }
 ```
 
-### Benutzerdefinierte Eigenschaften innerhalb von Funktionen einbeziehen
+### Einbeziehung benutzerdefinierter Eigenschaften in Funktionen
 
-Wie wir bereits gesehen haben, werden Funktionsparameter als benutzerdefinierte Eigenschaften definiert, die dann innerhalb des Funktionskörpers verfügbar sind.
+Wie wir bereits gesehen haben, werden Funktionsparameter als benutzerdefinierte Eigenschaften definiert, die dann im Funktionskörper verfügbar sind.
 
-Sie können auch benutzerdefinierte Eigenschaften innerhalb des Funktionskörpers angeben, die als lokalbereichige Konstanten fungieren. Im folgenden Beispiel definieren wir eine Funktion namens `--anim-1s()`, die einen {{cssxref("animation")}}-Shorthand-Wert zurückgibt, bei dem die Dauer- und Entspannungswerte immer gleich sind, und nur der Animationsname und die Anzahl variieren.
+Sie können auch benutzerdefinierte Eigenschaften im Funktionskörper angeben, die als lokal-gescopedte Konstanten fungieren. Im folgenden Beispiel definieren wir eine Funktion namens `--anim-1s()`, die einen {{cssxref("animation")}}-Shortcode-Wert zurückgibt, bei dem die Dauer- und Überblendenwerte immer gleich bleiben, und nur der Animationsname und die Zählung variiert werden.
 
 ```css
 @function --anim-1s(--animation, --count) {
@@ -157,13 +157,13 @@ Sie können auch benutzerdefinierte Eigenschaften innerhalb des Funktionskörper
 }
 ```
 
-Diese Art der Verwendung ermöglicht es Ihnen, eine einfachere, ausdrucksstärkere Syntax für Animationen zu schreiben, vorausgesetzt, Sie möchten, dass die Dauer- und Entspannungsfunktion immer gleich sind:
+Diese Art der Nutzung ermöglicht es Ihnen, eine einfachere, ausdrucksstärkere Syntax für Animationen zu schreiben, vorausgesetzt, Sie wissen, dass Sie immer dieselbe Dauer und Überblendenfunktion verwenden wollen:
 
 ```css
 animation: --anim-1s(bounce, 2);
 ```
 
-Es ist auch erwähnenswert, dass Sie eine benutzerdefinierte Funktion innerhalb einer anderen aufrufen können. In solchen Fällen kann eine benutzerdefinierte Funktion auf lokale Variablen und Funktionsparameter von höher gesetzten Funktionen im Aufruf-Stack zugreifen. Hier sind der Parameter der äußeren Funktion und die lokale benutzerdefinierte Eigenschaft im Gültigkeitsbereich der inneren Funktion verfügbar:
+Es ist auch erwähnenswert, dass Sie eine benutzerdefinierte Funktion von einer anderen aus aufrufen können. In solchen Fällen kann eine benutzerdefinierte Funktion auf lokale Variablen und Funktionsparameter von Funktionen höher im Aufrufstack zugreifen. Hier wird der Parameter der äußeren Funktion und die lokale benutzerdefinierte Eigenschaft im Gültigkeitsbereich der inneren Funktion verfügbar sein:
 
 ```css
 @function --outer(--outer-arg) {
@@ -180,7 +180,7 @@ div {
 }
 ```
 
-Darüber hinaus sind benutzerdefinierte Eigenschaften, die auf demselben Element definiert sind, auf dem die benutzerdefinierte Funktion aufgerufen wird, für diese verfügbar:
+Zusätzlich werden benutzerdefinierte Eigenschaften, die auf demselben Element definiert sind, auf dem die benutzerdefinierte Funktion aufgerufen wird, verfügbar sein:
 
 ```css
 @function --double-z() returns <number> {
@@ -193,7 +193,7 @@ div {
 }
 ```
 
-Wenn eine benutzerdefinierte Eigenschaft gleichen Namens an mehreren Orten definiert ist, überschreiben Funktionsparameter benutzerdefinierte Eigenschaften, die auf demselben Element definiert sind, und lokalbereichige benutzerdefinierte Eigenschaften, die innerhalb des Funktionskörpers definiert sind, überschreiben beide. Im folgenden Beispiel verwendet die Funktion `--add-a-b-c()` die `--a`-Eigenschaft von der benutzerdefinierten Eigenschaft der `div`-Regel, die `--b`-Eigenschaft vom Funktionsparameter und die `--c` lokale benutzerdefinierte Eigenschaft.
+Wenn eine benutzerdefinierte Eigenschaft mit demselben Namen an mehreren Stellen definiert ist, überschreiben Funktionsparameter benutzerdefinierte Eigenschaften, die auf demselben Element definiert sind, und lokal definierte benutzerdefinierte Eigenschaften innerhalb des Funktionskörpers überschreiben beides. Im folgenden Beispiel verwendet die Funktion `--add-a-b-c()` die Eigenschaft `--a` aus der benutzerdefinierten Eigenschaft der `div`-Regel, die Eigenschaft `--b` aus dem Funktionsparameter und die lokal definierte benutzerdefinierte Eigenschaft `--c`.
 
 ```css
 @function --add-a-b-c(--b, --c) {
@@ -209,9 +209,9 @@ div {
 }
 ```
 
-### Einschließen von komplexer Logik
+### Einbeziehung komplexer Logik
 
-Sie können komplexere Logik in Funktionen einschließen, indem Sie Konstrukte wie {{cssxref("@media")}}-At-Regeln und {{cssxref("if()")}}-Funktionen verwenden. Zum Beispiel nimmt die nächste Funktion zwei Argumente, eines für ein Layout mit schmalem Bildschirm und eines für ein Layout mit breitem Bildschirm. Sie gibt standardmäßig das letztere zurück, gibt jedoch das erstere zurück, wenn die Viewportbreite weniger als `700px` beträgt, wie mittels einer Medienabfrage erkannt wird.
+Sie können komplexere Logik in Funktionen mit Konstrukten wie {{cssxref("@media")}} At-Regeln und {{cssxref("if()")}} Funktionen einbeziehen. Zum Beispiel nimmt die nächste Funktion zwei Argumente, eines für ein Layout mit schmalem Bildschirm und eines für ein Layout mit großem Bildschirm. Sie gibt standardmäßig letzteres zurück, gibt aber ersteres zurück, wenn die Viewport-Breite weniger als `700px` breit ist, wie durch eine Medienabfrage erkannt wird.
 
 ```css
 @function --narrow-wide(--narrow, --wide) {
@@ -222,14 +222,14 @@ Sie können komplexere Logik in Funktionen einschließen, indem Sie Konstrukte w
 }
 ```
 
-Sie können mehrere `result`-Deskriptoren enthalten, um unterschiedliche Ergebnisse für unterschiedliche logische Ergebnisse auszudrücken.
+Sie können mehrere `result` Deskriptoren einbeziehen, um unterschiedliche Ergebnisse für verschiedene Logikausgänge auszudrücken.
 
 > [!NOTE]
-> CSS-Funktionen verhalten sich in Bezug auf Konfliktlösung wie der Rest von CSS – zuletzt in der Quellreihenfolge gewinnt. Daher ist im obigen Beispiel das `result` `var(--wide)`, es sei denn, der Medienabfragetest ist wahr, in welchem Fall es durch `var(--narrow)` überschrieben wird.
+> CSS-Funktionen verhalten sich genauso wie der Rest von CSS in Bezug auf Konfliktlösung — die zuletzt in der Quellreihenfolge gewinnt. Daher ist im oben genannten Funktion der `result` `var(--wide)`, es sei denn, der Medientest ergibt wahr, in welchem Fall er von `var(--narrow)` überschrieben wird.
 >
-> Es gibt keine Früh-Rückgaben in CSS-Funktionen wie in JavaScript-Funktionen. Im obigen Beispiel, wenn die Medienabfrage zuerst geschrieben wurde, vor der einzigen `result`-Zeile, wäre das `result` immer `var(--wide)` , da es `var(--narrow)` in Fällen überschreiben würde, in denen der Medienabfragetest wahr ist.
+> Es gibt keine frühen Rückgaben in CSS-Funktionen wie in JavaScript-Funktionen. In der oben genannten Funktion, wenn die Medienabfrage zuerst geschrieben wurde, bevor die einzelne `result`-Zeile, wäre der `result` immer `var(--wide)`, weil es `var(--narrow)` überschreiben würde, in den Fällen, in denen der Medientest wahr ergibt.
 
-Wir könnten die CSS-Benutzerfunktion umschreiben, um eine `if()`-Funktion zu verwenden:
+Wir könnten die CSS benutzerdefinierte Funktion umschreiben, um eine `if()`-Funktion zu verwenden:
 
 ```css
 @function --narrow-wide(--narrow, --wide) {
@@ -237,21 +237,21 @@ Wir könnten die CSS-Benutzerfunktion umschreiben, um eine `if()`-Funktion zu ve
 }
 ```
 
-## Formale Syntax
+## Formalsyntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-Weitere Beispiele finden Sie in unserem [Verwendung von CSS-Benutzerfunktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions)-Leitfaden.
+Für weitere Beispiele siehe unseren [Using CSS custom functions](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions) Leitfaden.
 
 ### Grundlegende Verwendung von `@function`
 
-Dieses Beispiel zeigt eine grundlegende Funktion, die den übergebenen Wert verdoppelt.
+Dieses Beispiel zeigt eine grundlegende Funktion, die den Wert verdoppelt, der in sie übergeben wird.
 
 #### HTML
 
-Das Markup enthält ein {{htmlelement("p")}}-Element, das Textinhalt enthält:
+Das Markup enthält ein {{htmlelement("p")}}-Element mit einigen Textinhalten:
 
 ```html live-sample___basic-example
 <p>Some content</p>
@@ -259,7 +259,7 @@ Das Markup enthält ein {{htmlelement("p")}}-Element, das Textinhalt enthält:
 
 #### CSS
 
-In unseren Stilen definieren wir zuerst die CSS-Benutzerfunktion. Die Funktion heißt `--double` und akzeptiert einen einzigen Parameter eines beliebigen Typs, den wir `--value` genannt haben. Im Funktionskörper fügen wir einen `result`-Deskriptor ein, der die {{cssxref("calc()")}}-Funktion verwendet, um das übergebene Argument zu verdoppeln:
+In unseren Styles definieren wir zunächst die CSS benutzerdefinierte Funktion. Die Funktion heißt `--double` und akzeptiert einen einzigen Parameter vom beliebigen Typ, den wir `--value` genannt haben. Im Funktionskörper fügen wir einen `result` Deskriptor ein, der die {{cssxref("calc()")}}-Funktion verwendet, um das übergebene Argument zu verdoppeln:
 
 ```css live-sample___basic-example
 @function --double(--value) {
@@ -267,7 +267,7 @@ In unseren Stilen definieren wir zuerst die CSS-Benutzerfunktion. Die Funktion h
 }
 ```
 
-Dann definieren wir eine benutzerdefinierte Eigenschaft `--base-spacing` mit einem Wert von `10px`. Wir ordnen diese Eigenschaft dem Wert {{cssxref("border-radius")}} zu, verdoppeln sie jedoch für den {{cssxref("padding")}}-Wert mit der `--double()`-Benutzerfunktion.
+Als Nächstes definieren wir eine benutzerdefinierte Eigenschaft `--base-spacing` mit einem Wert von `10px`. Wir weisen diese Eigenschaft dem {{cssxref("border-radius")}} Wert zu, verdoppeln sie dann aber für den {{cssxref("padding")}} Wert mit der `--double()` benutzerdefinierten Funktion.
 
 ```css hidden live-sample___basic-example
 html,
@@ -307,8 +307,8 @@ p {
 
 ## Siehe auch
 
-- [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*)
-- {{cssxref("&lt;dashed-function>")}}-Datentyp
-- [`type()`](/de/docs/Web/CSS/Reference/Values/type)-Funktion
-- [Verwendung von CSS-Benutzerfunktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions)
-- [CSS-Benutzerfunktionen und Mixins](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins)-Modul
+- [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*)
+- {{cssxref("&lt;dashed-function>")}} Datentyp
+- [`type()`](/de/docs/Web/CSS/Reference/Values/type) Funktion
+- [Using CSS custom functions](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions)
+- [CSS benutzerdefinierte Funktionen und Mixins](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins) Modul

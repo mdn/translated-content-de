@@ -2,12 +2,12 @@
 title: ::slotted()
 slug: Web/CSS/Reference/Selectors/::slotted
 l10n:
-  sourceCommit: 730741c750cc299b85798f1adbaf7adbd6e2016d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Das **`::slotted()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert jedes Element, das in einen Slot innerhalb eines HTML-Templates eingefügt wurde (siehe [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
+Das **`::slotted()`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert jedes Element, das in einen Slot innerhalb eines HTML-Templates platziert wurde (siehe [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots) für weitere Informationen).
 
-Dies funktioniert nur, wenn es innerhalb von CSS verwendet wird, das im [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) platziert ist. Beachten Sie, dass dieser Selektor keinen Textknoten auswählt, der in einen Slot eingefügt wurde; er zielt nur auf tatsächliche Elemente ab.
+Dies funktioniert nur, wenn es innerhalb von CSS verwendet wird, das im [Shadow-DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) platziert ist. Beachten Sie, dass dieser Selektor keinen Textknoten wählt, der in einen Slot platziert wurde; er zielt nur auf tatsächliche Elemente ab.
 
 {{InteractiveExample("CSS Demo: ::slotted()", "tabbed-shorter")}}
 
@@ -91,7 +91,7 @@ customElements.define(
 
 ## Beispiele
 
-### Hervorheben von eingefügten Elementen
+### Hervorhebung von geslotteten Elementen
 
 In diesem Beispiel verwenden wir ein Template mit drei Slots:
 
@@ -108,7 +108,7 @@ In diesem Beispiel verwenden wir ein Template mit drei Slots:
 </template>
 ```
 
-Wir definieren das `<person-details>`-Custom-Element. In diesem Fall fügen wir Styles mit JavaScript hinzu, obwohl wir sie mit demselben Effekt in einem {{HTMLElement("style")}}-Block innerhalb des {{HTMLElement("template")}} hätten hinzufügen können:
+Wir definieren das benutzerdefinierte Element `<person-details>`. In diesem Fall fügen wir Stile mit JavaScript hinzu, obwohl wir sie auch in einem {{HTMLElement("style")}}-Block innerhalb des {{HTMLElement("template")}} mit dem gleichen Effekt hätten hinzufügen können:
 
 ```js
 customElements.define(
@@ -136,9 +136,9 @@ customElements.define(
 );
 ```
 
-Wenn Sie das `style`-Element mit Inhalt füllen, werden Sie sehen, dass wir alle eingefügten Elemente (`::slotted(*)`) auswählen und ihnen eine andere Schriftart und Farbe geben. Dies differenziert sie von den Slots, die nicht gefüllt wurden. Wir haben alle eingefügten {{HTMLElement("span")}}s (`::slotted(span)`) gestylt, um die `<span>`s von den {{HTMLElement("p")}}s zu unterscheiden.
+Wenn Sie das `style`-Element mit Inhalt füllen, werden Sie sehen, dass wir alle geslotteten Elemente (`::slotted(*)`) auswählen und ihnen eine andere Schriftart und Farbe geben. Dies differenziert sie von den Slots, die nicht gefüllt wurden. Wir haben alle geslotteten {{HTMLElement("span")}}s (`::slotted(span)`) gestylt, um die `<span>`s von den {{HTMLElement("p")}}s zu unterscheiden.
 
-Unser Markup enthält drei Custom-Elemente, einschließlich eines Custom-Elements mit einem ungültigen Slotnamen in einer Quellreihenfolge, die sich vom `<template>` unterscheidet:
+Unser Markup umfasst drei benutzerdefinierte Elemente, einschließlich eines benutzerdefinierten Elements mit einem ungültigen Slot-Namen in einer Quellreihenfolge, die vom `<template>` abweicht:
 
 ```html
 <person-details>
@@ -175,11 +175,11 @@ Unser Markup enthält drei Custom-Elemente, einschließlich eines Custom-Element
 ## Siehe auch
 
 - {{cssxref(":host")}}
-- {{cssxref(":host_function", ":host()")}}
-- {{cssxref(":host-context", ":host-context()")}}
+- {{cssxref(":host()")}}
+- {{cssxref(":host-context()")}}
 - {{cssxref(":has-slotted")}}
-- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping) -Modul
-- HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut
-- HTML {{HTMLElement("slot")}}-Element
-- HTML {{HTMLElement("template")}}-Element
-- [Webkomponenten](/de/docs/Web/API/Web_components)
+- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping) Modul
+- HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot) Attribut
+- HTML {{HTMLElement("slot")}} Element
+- HTML {{HTMLElement("template")}} Element
+- [Web-Komponenten](/de/docs/Web/API/Web_components)

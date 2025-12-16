@@ -2,20 +2,20 @@
 title: rule-list
 slug: Web/CSS/Reference/Values/rule-list
 l10n:
-  sourceCommit: 3ee2355c3c90cf92c3119b82f8ebfa5d16c91c53
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **`<rule-list>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine Sequenz von **null oder mehr CSS-Regeln**. Er wird verwendet, um Stellen in CSS zu definieren, an denen mehrere Regeln erscheinen können, wie beispielsweise die oberste Ebene eines Stylesheets oder innerhalb von Gruppierungs-Atrules wie `@media` oder `@supports`.
+Der **`<rule-list>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert eine Sequenz von **null oder mehr CSS-Regeln**. Er wird verwendet, um Stellen in CSS zu definieren, an denen mehrere Regeln erscheinen können, wie zum Beispiel die oberste Ebene eines Stylesheets oder innerhalb von Gruppen-At-Regeln wie `@media` oder `@supports`.
 
-Ein `<rule-list>` wird nicht direkt geschrieben. Stattdessen beschreibt er, wie der CSS-Parser Regeln innerhalb eines Blocks oder Stylesheets sammelt und interpretiert.
+Ein `<rule-list>` wird nicht direkt geschrieben. Vielmehr beschreibt es, wie der CSS-Parser Regeln innerhalb eines Blocks oder Stylesheets sammelt und interpretiert.
 
 ## Syntax
 
 Ein `<rule-list>` ist definiert als eine Sequenz von **null oder mehr**:
 
-- **Stilregeln** (z.B. `p { color: red; }`).
-- **Qualifizierte At-Rules** (z.B. `@media (width < 600px) { ... }`).
-- **Ignorierte Anweisungen** (z.B. vom Parser behandelte Parserfehler, die der Parser automatisch überspringt).
+- **Stilregeln** (z. B. `p { color: red; }`).
+- **Qualifizierte At-Regeln** (z. B. `@media (width < 600px) { ... }`).
+- **Ignorierte Anweisungen** (z. B. Parse-Fehler, die vom Parser behandelt und automatisch übersprungen werden).
 
 Alle Leerzeichen, Kommentare und ungültigen oder fehlerhaften Konstrukte werden gemäß den CSS-Parser-Regeln behandelt.
 
@@ -23,19 +23,19 @@ Alle Leerzeichen, Kommentare und ungültigen oder fehlerhaften Konstrukte werden
 
 Der `<rule-list>`-Typ erscheint in der Spezifikation überall dort, wo CSS definiert ist, um eine "Liste von Regeln" zu enthalten.
 
-Beispiele umfassen:
+Beispiele sind:
 
 - Die **oberste Ebene** eines Stylesheets.
-- Den Körper von **Gruppierungs-At-Rules** wie `@media`, `@custom-media`, `@supports`, `@layer`, `@container`.
-- Den Inhalt von **Verschachtelungsselektoren** (CSS-Verschachtelung).
+- Der Body von **Gruppen-At-Regeln** wie `@media`, `@custom-media`, `@supports`, `@layer`, `@container`.
+- Der Inhalt von **verschachtelten Selektoren** (CSS-Nesting).
 
-Obwohl Autoren nicht explizit `<rule-list>` schreiben können, ist es wichtig, ihn zu verstehen, wenn man interpretiert, wie CSS verschachtelte Strukturen analysiert, wie ungültige Regeln verworfen werden und wie der Kaskade innerhalb von bedingten Blöcken gebildet wird.
+Obwohl Autoren `<rule-list>` nicht explizit schreiben können, ist das Verständnis davon entscheidend, wenn es darum geht, wie CSS verschachtelte Strukturen parst, wie ungültige Regeln entfernt werden und wie sich die Kaskade innerhalb bedingter Blöcke formt.
 
 ## Beispiele
 
-### Eine `<rule-list>` in einem Stylesheet
+### Ein `<rule-list>` in einem Stylesheet
 
-Das folgende Stylesheet wird als `<rule-list>` behandelt, das zwei Stilregeln und ein At-Rule enthält.
+Das folgende Stylesheet wird als `<rule-list>` behandelt, das zwei Stilregeln und eine At-Regel enthält.
 
 ```css
 p {
@@ -53,9 +53,9 @@ h1 {
 }
 ```
 
-### Eine `<rule-list>` innerhalb einer `@media` At-Rule
+### Ein `<rule-list>` innerhalb von `@media` At-Regel
 
-Der Block, der innerhalb einer `@media` At-Rule enthalten ist, ist eine `<rule-list>`, die eine oder mehrere Stilregeln enthält. Das folgende Beispiel enthält zwei Stilregeln.
+Der Block innerhalb einer `@media` At-Regel ist ein `<rule-list>`, das eine oder mehrere Stilregeln enthält. Das folgende Beispiel enthält zwei Stilregeln.
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -70,9 +70,9 @@ Der Block, der innerhalb einer `@media` At-Rule enthalten ist, ist eine `<rule-l
 }
 ```
 
-### Ungültige Regeln innerhalb einer `<rule-list>`
+### Ungültige Regeln innerhalb eines `<rule-list>`
 
-Die ungültige Token-Sequenz (`!invalid-rule`) wird vom Parser ignoriert. Der Rest der Regeln bildet eine gültige `<rule-list>`.
+Die ungültige Token-Sequenz (`!invalid-rule`) wird vom Parser ignoriert. Die restlichen Regeln bilden eine gültige `<rule-list>`.
 
 ```plain
 body {
@@ -94,6 +94,6 @@ body {
 
 ## Siehe auch
 
-- CSS [`@supports`](/de/docs/Web/CSS/Reference/At-rules/@supports) At-Rule
-- CSS [`@media`](/de/docs/Web/CSS/Reference/At-rules/@media) At-Rule
-- CSS [`@custom-media`](/de/docs/Web/CSS/Reference/At-rules/@custom-media) At-Rule
+- CSS {{cssxref("@supports")}} At-Regel
+- CSS {{cssxref("@media")}} At-Regel
+- CSS {{cssxref("@custom-media")}} At-Regel

@@ -2,10 +2,10 @@
 title: :active-view-transition
 slug: Web/CSS/Reference/Selectors/:active-view-transition
 l10n:
-  sourceCommit: 8f7fa9e7aef0399c7a7f8e5a20476a0c2f287640
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`:active-view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) stimmt mit dem Wurzelelement eines Dokuments überein, wenn ein [View-Übergang](/de/docs/Web/API/View_Transition_API#concepts_and_usage) aktiv ist und hört auf abzugleichen, sobald der Übergang abgeschlossen ist.
+Die **`:active-view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) passt auf das Wurzelelement eines Dokuments, wenn ein [View-Übergang](/de/docs/Web/API/View_Transition_API#concepts_and_usage) gerade im Gange (_active_) ist und hört auf zu passen, sobald der Übergang abgeschlossen ist.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Die **`:active-view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/doc
 
 ### Styling eines aktiven View-Übergangs
 
-Dieses Beispiel erweitert das [Grundlegende View-Übergangsbeispiel](/de/docs/Web/API/Document/startViewTransition#basic_usage) auf der `startViewTransition`-Seite.
+Dieses Beispiel erweitert das [Grundlegende Sichtübergangsbeispiel](/de/docs/Web/API/Document/startViewTransition#basic_usage) auf der `startViewTransition`-Seite.
 
 ```html
 <main>
@@ -30,8 +30,7 @@ Dieses Beispiel erweitert das [Grundlegende View-Übergangsbeispiel](/de/docs/We
 </main>
 ```
 
-Ein `<h2>`-Element hat anfänglich einen Stil von `display: none`, und dies wird unter Verwendung der `:active-view-transition` Pseudoklasse überschrieben, indem der `<h2>`-Stil auf `display: block` gesetzt wird.
-Der Button wird während des View-Übergangs mit `visibility: hidden` verborgen:
+Ein `<h2>`-Element hat ursprünglich einen `display: none`-Stil, und dies wird mit der `:active-view-transition` Pseudoklasse überschrieben, indem der `<h2>`-Stil auf `display: block` gesetzt wird. Der Button wird mithilfe von `visibility: hidden` ausgeblendet, wenn der Sichtübergang im Gange ist:
 
 ```css hidden
 html {
@@ -102,9 +101,9 @@ changeColorButton.addEventListener("keypress", changeColor);
 
 ## Siehe auch
 
-- {{CSSXRef(":active-view-transition-type", ":active-view-transition-type()")}} Pseudoklasse
+- {{cssxref(":active-view-transition-type()")}} Pseudoklasse
 - [`startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) Methode
 - [`Document.activeViewTransition`](/de/docs/Web/API/Document/activeViewTransition)
 - [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [Verwendung der View Transition API](/de/docs/Web/API/View_Transition_API/Using)
-- [Verwendung von View-Übergangstypen](/de/docs/Web/API/View_Transition_API/Using_types)
+- [Verwendung von Sichtübergangstypen](/de/docs/Web/API/View_Transition_API/Using_types)

@@ -2,10 +2,10 @@
 title: radial-gradient()
 slug: Web/CSS/Reference/Values/gradient/radial-gradient
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`radial-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erstellt ein Bild, das aus einem progressiven Übergang zwischen zwei oder mehr Farben besteht, die von einem Ursprung ausstrahlen. Die Form kann ein Kreis oder eine Ellipse sein. Das Ergebnis der Funktion ist ein Objekt des {{cssxref("&lt;gradient&gt;")}} Datentyps, welcher eine spezielle Art von {{cssxref("&lt;image&gt;")}} ist.
+Die **`radial-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) erzeugt ein Bild, das aus einem allmählichen Übergang zwischen zwei oder mehr Farben besteht, die von einem Ursprung ausstrahlen. Die Form kann ein Kreis oder eine Ellipse sein. Das Ergebnis der Funktion ist ein Objekt vom Datentyp {{cssxref("gradient")}}, ein spezieller Typ von {{cssxref("image")}}.
 
 {{InteractiveExample("CSS Demo: radial-gradient()")}}
 
@@ -59,54 +59,54 @@ radial-gradient(circle at center, red 0, blue, green 100%)
 radial-gradient(circle at center in hsl longer hue, red 0, blue, green 100%)
 ```
 
-Ein radialer Verlauf wird durch die Angabe des Zentrums des Verlaufs (wo die 0% Ellipse sein wird) und die Größe und Form der _Endform_ (der 100% Ellipse) spezifiziert.
+Ein radialer Verlauf wird angegeben, indem das Zentrum des Verlaufs festgelegt wird (wo die 0%-Ellipse liegt) sowie die Größe und Form der _endenden Form_ (der 100%-Ellipse).
 
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Die Position des Verlaufs, interpretiert in derselben Weise wie {{cssxref("background-position")}} oder {{cssxref("transform-origin")}}. Wenn nicht angegeben, ist die Standardposition `center`.
+  - : Die Position des Verlaufs, interpretiert auf die gleiche Weise wie {{cssxref("background-position")}} oder {{cssxref("transform-origin")}}. Wenn nicht angegeben, ist der Standardwert `center`.
 - `<ending-shape>`
-  - : Die Endform des Verlaufs. Der Wert kann `circle` (bedeutet, dass die Form des Verlaufs ein Kreis mit konstantem Radius ist) oder `ellipse` (bedeutet, dass die Form eine achsengerechte Ellipse ist) sein. Wenn nicht angegeben, ist die Standardeinstellung `ellipse`.
+  - : Die endende Form des Verlaufs. Der Wert kann `circle` (was bedeutet, dass die Form des Verlaufs ein Kreis mit konstantem Radius ist) oder `ellipse` (was bedeutet, dass die Form eine achsen-ausgerichtete Ellipse ist) sein. Wenn nicht angegeben, ist der Standardwert `ellipse`.
 - `<size>`
-  - : Bestimmt die Größe der Endform des Verlaufs. Wenn es ausgelassen wird, ist die Standardeinstellung `farthest-corner`. Es kann explizit oder durch Schlüsselwort angegeben werden. Für die Bestimmung der Schlüsselwortdefinitionen werden die Kanten des Verlaufsbox als ins Unendliche in beide Richtungen ausgedehnt betrachtet, anstatt als begrenzte Linienabschnitte.
+  - : Bestimmt die Größe der endenden Form des Verlaufs. Wenn es weggelassen wird, ist der Standardwert `farthest-corner`. Es kann explizit oder durch ein Schlüsselwort angegeben werden. Für die Definition der Schlüsselwörter sollte man bedenken, dass sich die Ränder des Verlaufsrechtecks unendlich in beide Richtungen erstrecken, anstatt in endlichen Linienstücken.
 
-    Sowohl Kreis- als auch Ellipsenverläufe akzeptieren folgende Schlüsselwörter für ihre `<size>`:
+    Sowohl Kreis- als auch Ellipsenverläufe akzeptieren die folgenden Schlüsselwörter für ihre `<size>`:
 
-    | Schlüsselwort     | Beschreibung                                                                                                                                                                                                      |
-    | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `closest-side`    | Die Endform des Verlaufs trifft auf die Kante der Box, die seinem Zentrum am nächsten liegt (für Kreise) oder trifft auf die vertikalen und horizontalen Seiten, die dem Zentrum am nächsten sind (für Ellipsen). |
-    | `closest-corner`  | Die Endform des Verlaufs wird so bemessen, dass sie genau die nächste Ecke der Box von ihrem Zentrum aus erreicht.                                                                                                |
-    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die Endform so bemessen wird, dass sie die Seite der Box erreicht, die am weitesten vom Zentrum entfernt ist (oder die vertikalen und horizontalen Seiten).                |
-    | `farthest-corner` | Der Standardwert, die Endform des Verlaufs wird so bemessen, dass sie genau die am weitesten entfernte Ecke der Box von ihrem Zentrum aus erreicht.                                                               |
+    | Schlüsselwort     | Beschreibung                                                                                                                                                                                              |
+    | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `closest-side`    | Die endende Form des Verlaufs trifft auf die dem Zentrum am nächsten liegende Seite des Kastens (für Kreise) oder trifft auf beide vertikalen und horizontalen Seiten des Kastens (für Ellipsen).         |
+    | `closest-corner`  | Die endende Form des Verlaufs wird so bemessen, dass sie genau die der Mitte am nächsten gelegene Ecke des Kastens trifft.                                                                                |
+    | `farthest-side`   | Ähnlich wie `closest-side`, mit dem Unterschied, dass die endende Form so bemessen ist, dass sie die dem Zentrum am weitesten entfernte Seite des Kastens (oder vertikale und horizontale Seiten) trifft. |
+    | `farthest-corner` | Der Standardwert, die endende Form des Verlaufs wird so bemessen, dass sie genau die dem Zentrum am weitesten entfernte Ecke des Kastens trifft.                                                          |
 
-    Wenn `<ending-shape>` als `circle` angegeben ist, kann die Größe explizit als {{cssxref("length")}} angegeben werden, die einen expliziten Kreisradius bietet. Negative Werte sind ungültig.
+    Wenn `<ending-shape>` als `circle` angegeben ist, kann die Größe explizit als {{cssxref("length")}} angegeben werden, was den Kreisradius vorgibt. Negative Werte sind ungültig.
 
-    Wenn `<ending-shape>` als `ellipse` angegeben ist, kann die Größe als {{cssxref("length-percentage")}} mit zwei Werten angegeben werden, um eine explizite Ellipsengröße zu bieten. Der erste Wert stellt den horizontalen Radius dar und der zweite den vertikalen Radius. Prozentwerte sind relativ zu der entsprechenden Abmessung des Verlaufsbox. Negative Werte sind ungültig.
+    Wenn `<ending-shape>` als `ellipse` angegeben ist, kann die Größe als {{cssxref("length-percentage")}} mit zwei Werten angegeben werden, um die Größe der Ellipse explizit festzulegen. Der erste Wert repräsentiert den horizontalen Radius und der zweite den vertikalen Radius. Prozentwerte beziehen sich auf die entsprechende Dimension des Verlaufsrechtecks. Negative Werte sind ungültig.
 
-    Wenn das `<ending-shape>` Schlüsselwort weggelassen wird, wird die Verlaufsform durch die gegebene Größe bestimmt. Ein einziger `<length>` Wert ergibt einen Kreis, während zwei Werte in `<length-percentage>` Einheiten eine Ellipse ergeben. Ein einzelner `<percentage>` Wert ist nicht gültig.
+    Wenn das `<ending-shape>`-Schlüsselwort weggelassen wird, wird die Form des Verlaufs durch die angegebene Größe bestimmt. Ein einziger `<length>`-Wert ergibt einen Kreis, während zwei Werte in `<length-percentage>`-Einheiten eine Ellipse ergeben. Ein einziger `<percentage>`-Wert ist nicht gültig.
 
 - `<linear-color-stop>`
-  - : Der {{cssxref("&lt;color&gt;")}} Wert eines Farbverlaufsstopps, gefolgt von ein oder zwei optionalen Stopp-Positionen (entweder ein {{cssxref("&lt;percentage&gt;")}} oder ein {{cssxref("&lt;length&gt;")}} entlang der Achse des Verlaufs). Ein Prozentsatz von `0%`, oder eine Länge von `0`, repräsentiert das Zentrum des Verlaufs; der Wert `100%` repräsentiert den Schnittpunkt der Endform mit dem virtuellen Verlaufsstrahl. Dazwischen liegende Prozentwerte werden linear auf dem Verlaufsstrahl positioniert. Das Einbeziehen von zwei Stopp-Positionen entspricht der Deklaration von zwei Farbverlaufstopps mit derselben Farbe an den beiden Positionen.
+  - : Ein Color-Stop's {{cssxref("&lt;color&gt;")}}-Wert, gefolgt von einer oder zwei optionalen Stopp-Positionen (entweder ein {{cssxref("&lt;percentage&gt;")}} oder ein {{cssxref("&lt;length&gt;")}} entlang der Achse des Verlaufs). Ein Prozentsatz von `0%` oder eine Länge von `0` repräsentiert das Zentrum des Verlaufs; der Wert `100%` repräsentiert den Schnittpunkt der endenden Form mit dem virtuellen Verlaufsstrahl. Zwischenwerte werden linear auf dem Verlaufsstrahl positioniert. Die Angabe von zwei Stopp-Positionen entspricht der Deklaration von zwei Color Stops mit derselben Farbe an den beiden Positionen.
 - `<color-hint>`
-  - : Der Farbhinweis ist ein Interpolationshinweis, der definiert, wie der Verlauf zwischen benachbarten Farbverlaufstopps fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbverlaufstopps die Verlaufsfarbe den Mittelpunkt des Farbübergangs erreichen soll. Wenn weggelassen, ist der Mittelpunkt des Farbübergangs der Mittelpunkt zwischen zwei Farbverlaufstopps.
+  - : Der Farbhinweis ist ein Interpolationshinweis, der definiert, wie der Verlauf zwischen benachbarten Color Stops verläuft. Die Länge bestimmt, an welchem Punkt zwischen zwei Color Stops die Verlauffarbe den Mittelpunkt des Farbübergangs erreichen soll. Wird er weggelassen, ist der Mittelpunkt des Farbübergangs der Mittelpunkt zwischen zwei Color Stops.
 
 ## Beschreibung
 
-Wie bei jedem Verlauf hat ein radialer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); d.h. er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe stimmt mit der Größe des Elements überein, auf das es angewendet wird.
+Wie bei jedem Verlauf hat ein radialer Verlauf [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); das heißt, er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das es angewendet wird.
 
-Um einen radialen Verlauf zu erstellen, der sich wiederholt, um seinen Container auszufüllen, verwenden Sie die {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}} Funktion.
+Um einen radialen Verlauf zu erstellen, der sich wiederholt, um seinen Behälter zu füllen, verwenden Sie die {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}} Funktion stattdessen.
 
-Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `radial-gradient()` nicht auf {{cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}} Datentyp verwenden.
+Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `radial-gradient()` nicht bei {{Cssxref("background-color")}} und anderen Eigenschaften, die den {{cssxref("&lt;color&gt;")}} Datentyp verwenden.
 
 ### Zusammensetzung eines radialen Verlaufs
 
-![Grafik, die radiale Verläufe erklärt: der virtuelle Strahl ist horizontal und beginnt im Mittelpunkt. Der elliptische Verlauf und damit die Endform hat dasselbe Seitenverhältnis wie die Box, auf die er angewendet wird.](radial_gradient.png)
+![Grafik, die radiale Verläufe erklärt: Der virtuelle Gradientenstrahl ist horizontal, beginnend vom Mittelpunkt. Der elliptische Verlauf und damit die endende Form haben dasselbe Seitenverhältnis wie der Kasten, auf dem sie deklariert werden.](radial_gradient.png)
 
-Ein radialer Verlauf wird durch einen _Mittelpunkt_, eine _Endform_ und zwei oder mehr _Farbverlaufspunkt_ definieren.
+Ein radialer Verlauf wird durch einen _Mittelpunkt_, eine _endende Form_ und zwei oder mehr _Color-Stop-Punkte_ definiert.
 
-Um einen gleichmäßigen Verlauf zu erstellen, zieht die `radial-gradient()` Funktion eine Reihe konzentrischer Formen von der Mitte bis zur _Endform_ (und möglicherweise darüber hinaus). Die Endform kann entweder ein Kreis oder eine Ellipse sein.
+Um einen sanften Verlauf zu erzeugen, zeichnet die `radial-gradient()`-Funktion eine Serie von konzentrischen Formen, die sich vom Zentrum bis zur _endenden Form_ (und möglicherweise darüber hinaus) ausstrahlen. Die endende Form kann entweder ein Kreis oder eine Ellipse sein.
 
-Farbverlaufspunkte sind auf einem _virtuellen Verlaufsstrahl_ positioniert, der horizontal von der Mitte nach rechts verläuft. Prozentbasierte Farbverlaufspositionen sind relativ zum Schnittpunkt zwischen der Endform und diesem Verlaufsstrahl, der `100%` repräsentiert. Jede Form ist eine einzige Farbe, bestimmt durch die Farbe auf dem Verlaufsstrahl, den sie schneidet.
+Color-Stop-Punkte werden auf einem _virtuellen Verlaufsstrahl_ positioniert, der horizontal vom Zentrum nach rechts verläuft. Prozentuale Color-Stop-Positionen beziehen sich auf den Schnittpunkt zwischen der endenden Form und diesem Verlaufsstrahl, der `100%` repräsentiert. Jede Form ist eine einzelne Farbe, die durch die Farbe auf dem Verlaufsstrahl bestimmt wird, den sie schneidet.
 
 ## Formale Syntax
 
@@ -114,7 +114,7 @@ Farbverlaufspunkte sind auf einem _virtuellen Verlaufsstrahl_ positioniert, der 
 
 ## Beispiele
 
-### Einfacher Verlauf
+### Grundlegender Verlauf
 
 ```html hidden
 <div class="radial-gradient"></div>
@@ -135,7 +135,7 @@ Farbverlaufspunkte sind auf einem _virtuellen Verlaufsstrahl_ positioniert, der 
 
 {{EmbedLiveSample('Basic_gradient', 120, 120)}}
 
-### Nicht-zentrierter Verlauf
+### Nicht zentrierter Verlauf
 
 ```html hidden
 <div class="radial-gradient"></div>
@@ -188,7 +188,7 @@ div {
 }
 ```
 
-In diesem Beispiel für Interpolation wird das [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl) Farbsystem verwendet und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) wird interpoliert.
+In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/Reference/Values/color_value/hsl) Farbgebungssystem verwendet und der [Farbton](/de/docs/Web/CSS/Reference/Values/hue) wird interpoliert.
 
 ```css
 .shorter {
@@ -208,13 +208,13 @@ In diesem Beispiel für Interpolation wird das [hsl](/de/docs/Web/CSS/Reference/
 }
 ```
 
-Die Box auf der linken Seite verwendet [kürzeres Interpolieren](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} wechselt. Die Box auf der rechten Seite verwendet [längeres Interpolieren](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen wechselt und durch Grüntöne, Gelbtöne und Orangetöne hindurchgeht.
+Die Box auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau übergeht, indem der kürzere Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} verwendet wird. Die Box auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen verläuft und durch Grün, Gelb und Orange geht.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 
-### Weitere radial-gradient Beispiele
+### Weitere Beispiele für radial-gradient
 
-Bitte beziehen Sie sich auf [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients) für weitere Beispiele.
+Bitte sehen Sie [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients) für weitere Beispiele.
 
 ## Spezifikationen
 
@@ -228,10 +228,10 @@ Bitte beziehen Sie sich auf [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Gui
 
 - [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
 - Andere Verlauf-Funktionen: {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
-- [`<hue-interpolation-method>`](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method)
-- [`<color-interpolation-method>`](/de/docs/Web/CSS/Reference/Values/color-interpolation-method)
-- {{cssxref("&lt;image&gt;")}}
+- {{cssxref("hue-interpolation-method")}}
+- {{cssxref("color-interpolation-method")}}
+- {{cssxref("image")}}
 - {{cssxref("image/image","image()")}}
-- {{cssxref("element", "element()")}}
+- {{cssxref("element()")}}
 - {{cssxref("image/image-set","image-set()")}}
-- {{cssxref("cross-fade", "cross-fade()")}}
+- {{cssxref("cross-fade()")}}

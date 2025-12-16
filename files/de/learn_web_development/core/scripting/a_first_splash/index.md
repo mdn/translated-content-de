@@ -1,23 +1,23 @@
 ---
-title: Ein erster Einstieg in JavaScript
+title: Ein erster Sprung in JavaScript
 short-title: JavaScript walkthrough
 slug: Learn_web_development/Core/Scripting/A_first_splash
 l10n:
-  sourceCommit: 693106d7bc9aa28f22a3f234455f5496efd728c4
+  sourceCommit: 30cb9ca54d74a63bd95e0e0f5281e9ade578c044
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/What_is_JavaScript", "Learn_web_development/Core/Scripting/What_went_wrong", "Learn_web_development/Core/Scripting")}}
 
-Jetzt, da Sie etwas über die Theorie von JavaScript gelernt haben und was Sie damit machen können, möchten wir Ihnen eine Vorstellung davon geben, wie der Prozess der Erstellung eines einfachen JavaScript-Programms aussieht. Dazu führen wir Sie durch ein praktisches Tutorial. Dabei bauen Sie Schritt für Schritt ein einfaches "Errate die Zahl"-Spiel auf.
+Nachdem Sie nun einige Theorien über JavaScript und dessen Einsatzmöglichkeiten gelernt haben, werden wir Sie durch ein praktisches Tutorial führen, damit Sie sehen können, wie ein einfaches JavaScript-Programm erstellt wird. Hier erstellen Sie schrittweise ein einfaches "Errate die Zahl"-Spiel.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>.</td>
+      <td>Kenntnisse in <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>.</td>
     </tr>
     <tr>
-      <th scope="row">Lernziele:</th>
+      <th scope="row">Lernergebnisse:</th>
       <td>
         <ul>
           <li>Denken wie ein Programmierer.</li>
@@ -28,14 +28,17 @@ Jetzt, da Sie etwas über die Theorie von JavaScript gelernt haben und was Sie d
   </tbody>
 </table>
 
-Wir möchten hier klare Erwartungen setzen: Sie müssen nicht erwarten, JavaScript bis zum Ende dieses Artikels zu lernen oder sogar den gesamten Code zu verstehen, den wir Sie schreiben lassen. Stattdessen wollen wir Ihnen einen Eindruck davon vermitteln, wie die Funktionen von JavaScript zusammenarbeiten und wie es sich anfühlt, JavaScript zu schreiben. In den folgenden Artikeln werden Sie auf alle hier gezeigten Funktionen in viel detaillierterer Weise zurückkommen, also keine Sorge, wenn Sie nicht sofort alles verstehen!
+> [!NOTE]
+> Beginnend mit [Schreiben Sie Ihre erste JavaScript-Variable](https://scrimba.com/learn-javascript-c0v/~04?via=mdn) bietet Scrimba<sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> nützliche interaktive Lektionen, die Sie durch die Grundlagen von JavaScript führen.
+
+Wir wollen hier wirklich klare Erwartungen setzen: Es wird nicht erwartet, dass Sie JavaScript bis zum Ende dieses Artikels lernen oder sogar den gesamten Code verstehen, den wir von Ihnen schreiben lassen. Stattdessen möchten wir Ihnen eine Vorstellung davon geben, wie die Funktionen von JavaScript zusammenarbeiten und wie es sich anfühlt, JavaScript zu schreiben. In nachfolgenden Artikeln werden Sie alle hier gezeigten Funktionen viel detaillierter nochmals wiederholen, machen Sie sich also keine Sorgen, wenn Sie nicht sofort alles verstehen!
 
 > [!NOTE]
-> Viele der Codefunktionen, die Sie in JavaScript sehen werden, sind die gleichen wie in anderen Programmiersprachen – Funktionen, Schleifen, usw. Die Syntax sieht unterschiedlich aus, aber die Konzepte sind weitgehend die gleichen.
+> Viele der Code-Funktionen, die Sie in JavaScript sehen, sind denselben in anderen Programmiersprachen ähnlich — Funktionen, Schleifen usw. Die Syntax des Codes sieht anders aus, aber die Konzepte sind größtenteils gleich.
 
-## Einführung in unser Beispiel "Zahlenratespiel"
+## Einführung in unser "Zahlenraten"-Beispiel
 
-In diesem Artikel zeigen wir Ihnen, wie Sie das Spiel aufbauen können, das Sie unten sehen:
+In diesem Artikel zeigen wir Ihnen, wie Sie das folgende Spiel erstellen können:
 
 ```html hidden live-sample___guess-the-number
 <h1>Number guessing game</h1>
@@ -158,49 +161,49 @@ function resetGame() {
 
 {{EmbedLiveSample("guess-the-number", "100%", 300)}}
 
-Probieren Sie es aus — lernen Sie das Spiel kennen, bevor Sie weitermachen.
+Versuchen Sie, es zu spielen — machen Sie sich mit dem Spiel vertraut, bevor Sie weitermachen.
 
 ## Denken wie ein Programmierer
 
-Eine der schwierigsten Dinge beim Programmieren ist nicht die Syntax, die man lernen muss, sondern wie man sie anwendet, um reale Probleme zu lösen. Sie müssen anfangen, wie ein Programmierer zu denken – dies beinhaltet normalerweise das Betrachten von Beschreibungen dessen, was Ihr Programm tun muss, das Ermitteln, welche Codefunktionen benötigt werden, um diese Dinge zu erreichen, und wie man sie zusammenarbeiten lässt.
+Eines der schwierigsten Dinge, die man beim Programmieren lernen muss, ist nicht die Syntax, die man lernen muss, sondern wie man sie anwendet, um Probleme in der realen Welt zu lösen. Sie müssen beginnen, wie ein Programmierer zu denken — das bedeutet im Allgemeinen, sich Beschreibungen darüber anzusehen, was Ihr Programm tun muss, herauszufinden, welche Code-Funktionen benötigt werden, um diese Dinge zu erreichen, und wie man sie zusammenarbeiten lässt.
 
-Dies erfordert eine Mischung aus harter Arbeit, Erfahrung mit der Programmiersyntax und Übung – plus ein bisschen Kreativität. Je mehr Sie programmieren, desto besser werden Sie darin. Wir können nicht versprechen, dass Sie in fünf Minuten ein "Programmierergehirn" entwickeln werden, aber wir geben Ihnen hier und im restlichen Kurs viele Gelegenheiten, das Denken wie ein Programmierer zu üben.
+Dies erfordert eine Mischung aus harter Arbeit, Erfahrung mit der Programmiersyntax und Übung — plus ein bisschen Kreativität. Je mehr Sie programmieren, desto besser werden Sie darin. Wir können Ihnen nicht versprechen, dass Sie in fünf Minuten ein "Programmierergehirn" entwickeln werden, aber wir werden Ihnen hier und im gesamten weiteren Kurs zahlreiche Gelegenheiten geben, das Denken wie ein Programmierer zu üben.
 
-## Das anfängliche Designbriefing
+## Die anfängliche Design-Beschreibung
 
-Stellen wir uns vor, Ihr Chef hat Ihnen das folgende Briefing für die Erstellung dieses Spiels gegeben:
+Stellen wir uns vor, Ihr Chef hat Ihnen folgende Beschreibung zur Erstellung dieses Spiels gegeben:
 
-> Ich möchte, dass Sie ein einfaches "Errate die Zahl"-Spiel erstellen. Es sollte eine Zufallszahl zwischen 1 und 100 wählen und dann den Spieler herausfordern, die Zahl in 10 Zügen zu erraten. Nach jedem Zug sollte dem Spieler mitgeteilt werden, ob er richtig oder falsch liegt und, wenn er falsch liegt, ob die Vermutung zu niedrig oder zu hoch war. Es sollte dem Spieler auch mitteilen, welche Zahlen er bereits geraten hat. Das Spiel endet, sobald der Spieler richtig geraten hat oder ihm die Züge ausgehen. Wenn das Spiel endet, sollte der Spieler die Möglichkeit haben, erneut zu spielen.
+> Ich möchte, dass Sie ein einfaches "Errate die Zahl"-Spiel erstellen. Es sollte eine zufällige Zahl zwischen 1 und 100 wählen und dann den Spieler herausfordern, die Zahl in 10 Versuchen zu erraten. Nach jedem Versuch sollte dem Spieler mitgeteilt werden, ob er richtig oder falsch liegt und, wenn falsch, ob die Vermutung zu niedrig oder zu hoch war. Es sollte dem Spieler auch sagen, welche Zahlen er zuvor geraten hat. Das Spiel endet, sobald der Spieler richtig geraten hat oder keine Versuche mehr übrig sind. Wenn das Spiel endet, sollte dem Spieler eine Option zum erneuten Spielen angezeigt werden.
 
-Beim Betrachten dieses Briefings können wir als erstes anfangen, es in einfache umsetzbare Aufgaben zu zerlegen, so programmerisch wie möglich:
+Nachdem man diese Beschreibung betrachtet hat, kann man als erstes beginnen, sie in einfache, umsetzbare Aufgaben zu zerlegen, so weit wie möglich im Programmierdenken:
 
-1. Generieren Sie eine Zufallszahl zwischen 1 und 100.
-2. Notieren Sie die Zugnummer, bei der der Spieler ist. Beginnen Sie mit 1.
-3. Bieten Sie dem Spieler eine Möglichkeit, die Zahl zu erraten.
-4. Sobald eine Vermutung eingereicht wurde, notieren Sie sie zuerst irgendwo, damit der Nutzer seine vorherigen Vermutungen sehen kann.
-5. Prüfen Sie als Nächstes, ob es die richtige Zahl ist.
-6. Wenn sie korrekt ist:
-   1. Zeigen Sie eine Glückwunschnachricht an.
-   2. Verhindern Sie, dass der Spieler weitere Vermutungen eingibt (das würde das Spiel durcheinander bringen).
-   3. Zeigen Sie eine Steuerung an, die es dem Spieler ermöglicht, das Spiel neu zu starten.
+1. Eine zufällige Zahl zwischen 1 und 100 generieren.
+2. Die aktuelle Rundenzahl des Spielers zählen. Beginnen Sie mit 1.
+3. Dem Spieler eine Möglichkeit geben, die Zahl zu erraten.
+4. Sobald ein Versuch eingereicht wurde, ihn zunächst irgendwo aufzeichnen, damit der Nutzer seine früheren Vermutungen sehen kann.
+5. Dann überprüfen, ob es die richtige Zahl ist.
+6. Wenn es korrekt ist:
+   1. Glückwunsch-Nachricht anzeigen.
+   2. Den Spieler daran hindern, weitere Vermutungen einzugeben (dies würde das Spiel durcheinanderbringen).
+   3. Steuerung anzeigen, die dem Spieler ermöglicht, das Spiel neu zu starten.
 
-7. Wenn sie falsch ist und der Spieler noch Züge hat:
-   1. Teilen Sie dem Spieler mit, dass er falsch liegt und ob seine Vermutung zu hoch oder zu niedrig war.
-   2. Lassen Sie ihn eine weitere Vermutung eingeben.
-   3. Erhöhen Sie die Zugnummer um 1.
+7. Wenn es falsch ist und der Spieler noch Versuche übrig hat:
+   1. Dem Spieler mitteilen, dass er falsch liegt, und ob seine Vermutung zu hoch oder zu niedrig war.
+   2. Ihm erlauben, eine weitere Vermutung einzugeben.
+   3. Die Rundenzahl um 1 erhöhen.
 
-8. Wenn sie falsch ist und der Spieler keine Züge mehr hat:
-   1. Teilen Sie dem Spieler mit, dass das Spiel vorbei ist.
-   2. Verhindern Sie, dass der Spieler weitere Vermutungen eingibt (das würde das Spiel durcheinander bringen).
-   3. Zeigen Sie eine Steuerung an, die es dem Spieler ermöglicht, das Spiel neu zu starten.
+8. Wenn es falsch ist und der Spieler keine Versuche mehr übrig hat:
+   1. Dem Spieler mitteilen, dass es vorbei ist.
+   2. Den Spieler daran hindern, weitere Vermutungen einzugeben (dies würde das Spiel durcheinanderbringen).
+   3. Steuerung anzeigen, die dem Spieler ermöglicht, das Spiel neu zu starten.
 
-9. Sobald das Spiel neu startet, stellen Sie sicher, dass die Spiellogik und das UI vollständig zurückgesetzt sind, und kehren Sie dann zu Schritt 1 zurück.
+9. Wenn das Spiel neu startet, sicherstellen, dass die Spiellogik und das UI vollständig zurückgesetzt sind, dann zurück zu Schritt 1.
 
-Lassen Sie uns nun vorwärts gehen und schauen, wie wir diese Schritte in Code umwandeln können, wobei wir das Beispiel aufbauen und JavaScript-Funktionen erkunden, während wir weitermachen.
+Gehen wir nun weiter, indem wir uns ansehen, wie wir diese Schritte in Code umwandeln, das Beispiel aufbauen und dabei JavaScript-Funktionen erkunden.
 
 ## Erste Einrichtung
 
-Um dieses Tutorial zu beginnen, möchten wir, dass Sie mit Ihrem Code-Editor eine lokale Kopie des folgenden Codes in einer neuen HTML-Datei erstellen.
+Um mit diesem Tutorial zu beginnen, möchten wir, dass Sie eine lokale Kopie des folgenden Codes in einer neuen HTML-Datei mit Ihrem Code-Editor erstellen.
 
 ```html
 <!doctype html>
@@ -267,9 +270,9 @@ Um dieses Tutorial zu beginnen, möchten wir, dass Sie mit Ihrem Code-Editor ein
 </html>
 ```
 
-Halten Sie es in Ihrem Texteditor geöffnet und öffnen Sie es außerdem in Ihrem Webbrowser. Im Moment sehen Sie eine einfache Überschrift, Anweisungen und ein Formular zur Eingabe einer Vermutung, aber das Formular wird im Moment nichts tun.
+Halten Sie es in Ihrem Texteditor geöffnet und öffnen Sie es außerdem in Ihrem Webbrowser. Im Moment sehen Sie eine einfache Überschrift, einen Anweisungsabsatz und ein Formular zum Eingeben einer Vermutung, aber das Formular wird derzeit nichts tun.
 
-Sie fügen all Ihren JavaScript-Code innerhalb des {{htmlelement("script")}}-Elements am unteren Rand des HTMLs hinzu:
+Sie fügen Ihren gesamten JavaScript-Code in das {{htmlelement("script")}}-Element am unteren Ende des HTMLs ein:
 
 ```html
 <script>
@@ -277,9 +280,9 @@ Sie fügen all Ihren JavaScript-Code innerhalb des {{htmlelement("script")}}-Ele
 </script>
 ```
 
-## Hinzufügen von Variablen zum Speichern unserer Daten
+## Hinzufügen von Variablen zur Speicherung unserer Daten
 
-Lassen Sie uns beginnen. Fügen Sie zuerst die folgenden Zeilen innerhalb Ihres {{htmlelement("script")}}-Elements hinzu:
+Lassen Sie uns loslegen. Fügen Sie zunächst die folgenden Zeilen in Ihr {{htmlelement("script")}}-Element ein:
 
 ```js
 let randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -299,14 +302,14 @@ Dieser Abschnitt des Codes richtet die Variablen (und Konstanten) ein, die wir b
 
 Variablen sind im Grunde Namen für Werte (wie Zahlen oder Textketten). Sie erstellen eine Variable mit dem Schlüsselwort `let`, gefolgt von einem Namen für Ihre Variable.
 
-Konstanten werden auch verwendet, um Werte zu benennen, aber im Gegensatz zu Variablen können Sie den Wert nicht ändern, sobald er festgelegt ist. In diesem Fall verwenden wir Konstanten, um Verweise auf Teile unserer Benutzeroberfläche zu speichern. Der Text innerhalb einiger dieser Elemente könnte sich ändern, aber jede Konstante verweist immer auf das gleiche HTML-Element, mit dem sie initialisiert wurde. Sie erstellen eine Konstante mit dem Schlüsselwort `const`, gefolgt von einem Namen für die Konstante.
+Konstanten werden ebenfalls verwendet, um Werte zu benennen, aber im Gegensatz zu Variablen können Sie den Wert nicht mehr ändern, sobald er festgelegt ist. In diesem Fall verwenden wir Konstanten, um Referenzen auf Teile unserer Benutzeroberfläche zu speichern. Der Text in einigen dieser Elemente kann sich ändern, aber jede Konstante verweist immer auf dasselbe HTML-Element, mit dem sie initialisiert wurde. Sie erstellen eine Konstante mit dem Schlüsselwort `const`, gefolgt von einem Namen für die Konstante.
 
-Sie können einer Variablen oder Konstante einen Wert zuweisen, indem Sie ein Gleichheitszeichen (`=`) gefolgt von dem Wert, den Sie ihm geben möchten, verwenden.
+Sie können einer Variable oder Konstanten einen Wert zuweisen, indem Sie ein Gleichheitszeichen (`=`) und den Wert eingeben, den Sie ihr geben möchten.
 
 In unserem Beispiel:
 
-- Die erste Variable — `randomNumber` — wird eine Zufallszahl zwischen 1 und 100 zugewiesen, die mit einem mathematischen Algorithmus berechnet wird.
-- Die ersten drei Konstanten speichern jeweils einen Verweis auf die Ergebnisabsätze in unserem HTML und werden später im Code verwendet, um Werte in die Absätze einzufügen (beachten Sie, dass sie sich innerhalb eines `<div>`-Elements befinden, das selbst verwendet wird, um alle drei später zurückzusetzen, wenn wir das Spiel neu starten):
+- Die erste Variable — `randomNumber` — wird eine zufällige Zahl zwischen 1 und 100 zugewiesen, die mit einem mathematischen Algorithmus berechnet wurde.
+- Die ersten drei Konstanten dienen dazu, Referenzen auf die Ergebnissabsätze in unserem HTML zu speichern, und werden verwendet, um später im Code Werte in die Absätze einzufügen (beachten Sie, wie sie sich in einem `<div>`-Element befinden, das selbst verwendet wird, um alle drei später zum Zurücksetzen auszuwählen, wenn wir das Spiel neu starten):
 
   ```html
   <div class="resultParas">
@@ -316,7 +319,7 @@ In unserem Beispiel:
   </div>
   ```
 
-- Die nächsten beiden Konstanten speichern Verweise auf den Texteingabe- und Sende-Button des Formulars und werden verwendet, um später die Eingabe der Vermutung zu verarbeiten.
+- Die nächsten zwei Konstanten speichern Referenzen auf das Texteingabefeld des Formulars und den Absenden-Button und werden verwendet, um später das Einreichen der Vermutung zu handhaben.
 
   ```html
   <label for="guessField">Enter a guess: </label>
@@ -324,11 +327,11 @@ In unserem Beispiel:
   <input type="submit" value="Submit guess" class="guessSubmit" />
   ```
 
-- Unsere letzten beiden Variablen speichern die Anzahl der Vermutungen (anfangs 1), die der Spieler hatte, und einen Verweis auf einen Zurücksetzen-Button, den es noch nicht gibt (aber später geben wird).
+- Unsere letzten beiden Variablen speichern eine Vermutungszahl von 1 (wird verwendet, um zu verfolgen, wie viele Vermutungen der Spieler gemacht hat) und eine Referenz auf einen Zurücksetzen-Button, der noch nicht existiert (aber später eingefügt wird).
 
 ## Funktionen
 
-Fügen Sie als Nächstes das Folgende unter Ihrem vorherigen JavaScript hinzu:
+Als Nächstes fügen Sie folgendes unter Ihrem vorherigen JavaScript hinzu:
 
 ```js
 function checkGuess() {
@@ -336,21 +339,21 @@ function checkGuess() {
 }
 ```
 
-Funktionen sind wiederverwendbare Codeblöcke, die Sie einmal schreiben und immer wieder ausführen können, wodurch Sie vermeiden, denselben Code immer und immer wiederholen zu müssen. Es gibt mehrere Möglichkeiten, Funktionen zu definieren, aber wir konzentrieren uns jetzt auf eine einfache Art. Hier haben wir eine Funktion definiert, indem wir das Schlüsselwort `function` gefolgt von einem Namen verwendet haben, mit danach angefügten Klammern. Anschließend setzen wir zwei geschweifte Klammern (`{ }`). Innerhalb der geschweiften Klammern geht all der Code, den wir immer dann ausführen möchten, wenn wir die Funktion aufrufen.
+Funktionen sind wiederverwendbare Codeblöcke, die Sie einmal schreiben und immer wieder ausführen können, wodurch es nicht nötig ist, Code immer wieder zu wiederholen. Es gibt mehrere Möglichkeiten, Funktionen zu definieren, aber vorerst konzentrieren wir uns auf eine einfache Art. Hier haben wir eine Funktion mit dem Schlüsselwort `function` definiert, gefolgt von einem Namen, mit Klammern danach. Danach setzen wir zwei geschweifte Klammern (`{ }`). Innerhalb der geschweiften Klammern steht der gesamte Code, den wir ausführen möchten, wann immer wir die Funktion aufrufen.
 
-Wenn wir den Code ausführen wollen, geben wir den Namen der Funktion gefolgt von den Klammern ein.
+Wenn wir den Code ausführen möchten, geben wir den Namen der Funktion gefolgt von den Klammern ein.
 
-Probieren wir das jetzt. Speichern Sie Ihren Code und aktualisieren Sie die Seite in Ihrem Browser. Gehen Sie dann in die [JavaScript-Konsole der Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) und geben Sie die folgende Zeile ein:
+Probieren wir das jetzt aus. Speichern Sie Ihren Code und aktualisieren Sie die Seite in Ihrem Browser. Gehen Sie dann in die [Entwicklertools JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), und geben Sie die folgende Zeile ein:
 
 ```js
 checkGuess();
 ```
 
-Nach dem Drücken von <kbd>Return</kbd>/<kbd>Enter</kbd> sollten Sie `I am a placeholder` in der Konsole sehen; wir haben eine Funktion in unserem Code definiert, die eine Platzhalternachricht ausgibt, wann immer wir sie aufrufen.
+Nach dem Drücken von <kbd>Return</kbd>/<kbd>Enter</kbd> sollten Sie `I am a placeholder` in der Konsole protokolliert sehen; wir haben eine Funktion in unserem Code definiert, die eine Platzhalternachricht ausgibt, wann immer wir sie aufrufen.
 
-## Textketten
+## Textzeichenfolgen
 
-Textketten werden zur Darstellung von Text verwendet. Wir haben bereits eine String-Variable gesehen: im folgenden Code ist `"I am a placeholder"` eine Zeichenkette:
+Zeichenfolgen werden zur Darstellung von Text verwendet. Wir haben bereits eine stringförmige Variable gesehen: im folgenden Code ist `"I am a placeholder"` eine Zeichenfolge:
 
 ```js
 function checkGuess() {
@@ -358,9 +361,9 @@ function checkGuess() {
 }
 ```
 
-Sie können Strings entweder mit doppelten Anführungszeichen (`"`) oder einfachen Anführungszeichen (`'`) deklarieren, aber Sie müssen die gleiche Form für den Anfang und das Ende einer einzigen String-Deklaration verwenden: Sie können nicht aus `"I am a placeholder'` schreiben.
+Sie können Zeichenfolgen mit Anführungszeichen (`"`) oder einfachen Anführungszeichen (`'`) deklarieren, aber Sie müssen die gleiche Form für den Start und das Ende einer einfachen Zeichenfolgendeklaration verwenden: Sie können nicht `"I am a placeholder'` schreiben.
 
-Sie können Strings auch mit Backticks (`` ` ``) deklarieren. Strings, die so deklariert sind, werden _template literals_ genannt und haben einige spezielle Eigenschaften. Insbesondere können Sie andere Variablen oder sogar Ausdrücke in ihnen einbetten:
+Sie können auch Zeichenfolgen mit Backticks (`` ` ``) deklarieren. Zeichenfolgen, die so deklariert sind, heißen _template literals_ und haben einige besondere Eigenschaften. Insbesondere können Sie andere Variablen oder sogar Ausdrücke in sie einbetten:
 
 ```js
 const name = "Mahalia";
@@ -368,15 +371,15 @@ const name = "Mahalia";
 const greeting = `Hello ${name}`;
 ```
 
-Dies gibt Ihnen einen Mechanismus, um Strings zusammenzufügen.
+Dies gibt Ihnen einen Mechanismus, um Zeichenfolgen zusammenzufügen.
 
 ## Bedingte Anweisungen
 
-**Bedingte** Codeblöcke ermöglichen es Ihnen, Code selektiv auszuführen, abhängig davon, ob eine bestimmte Bedingung wahr ist oder nicht. Sie sehen ein bisschen aus wie eine Funktion, aber sie sind anders. Lassen Sie uns bedingte Anweisungen erkunden, indem wir unserem Beispiel etwas hinzufügen.
+**Bedingte Anweisungen** ermöglichen es Ihnen, Code selektiv auszuführen, je nachdem, ob eine bestimmte Bedingung erfüllt ist oder nicht. Sie sehen ein bisschen aus wie eine Funktion, sind aber anders. Lassen Sie uns bedingte Anweisungen erkunden, indem wir zu unserem Beispiel etwas hinzufügen.
 
-Ich denke, es ist sicher zu sagen, dass wir nicht wollen, dass unsere `checkGuess()`-Funktion einfach eine Platzhalternachricht ausgibt. Wir wollen, dass sie überprüft, ob die Vermutung eines Spielers korrekt ist oder nicht, und entsprechend reagiert.
+Ich denke, es ist sicher zu sagen, dass wir nicht wollen, dass unsere `checkGuess()`-Funktion einfach eine Platzhalternachricht ausgibt. Wir wollen, dass sie überprüft, ob die Vermutung eines Spielers richtig ist oder nicht, und entsprechend reagiert.
 
-Ersetzen Sie an diesem Punkt Ihre aktuelle `checkGuess()`-Funktion durch diese Version:
+Ersetzen Sie an dieser Stelle Ihre aktuelle `checkGuess()`-Funktion durch diese Version:
 
 ```js
 function checkGuess() {
@@ -413,26 +416,26 @@ function checkGuess() {
 
 Das ist eine Menge Code — puh! Lassen Sie uns jeden Abschnitt durchgehen und erklären, was er tut.
 
-- Die erste Zeile deklariert eine Konstante namens `userGuess` und setzt ihren Wert auf den aktuellen Wert, der im Textfeld eingegeben wurde. Wir führen diesen Wert auch durch den eingebauten `Number()`-Konstruktor, nur um sicherzustellen, dass der Wert definitiv eine Zahl ist.
-- Als nächstes stoßen wir auf unseren ersten bedingten Codeblock. Der einfachste bedingte Block beginnt mit dem Schlüsselwort `if`, dann einigen Klammern, dann einigen geschweiften Klammern. Innerhalb der Klammern führen wir einen Test durch. Wenn der Test `true` zurückgibt, führen wir den Code innerhalb der geschweiften Klammern aus. Wenn nicht, tun wir dies nicht und gehen zum nächsten Code über. In diesem Fall testen wir, ob die Variable `guessCount` gleich `1` ist (das heißt, ob dies der erste Versuch des Spielers ist oder nicht):
+- Die erste Zeile deklariert eine Konstante namens `userGuess` und setzt ihren Wert auf den aktuellen Wert, der in das Textfeld eingegeben wurde. Wir nutzen auch den eingebauten `Number()`-Konstruktor dafür, um sicherzustellen, dass der Wert definitiv eine Zahl ist.
+- Als nächstes stoßen wir auf unseren ersten bedingten Codeblock. Der einfachste bedingte Block beginnt mit dem Schlüsselwort `if`, dann ein paar Klammern, dann ein paar geschweiften Klammern. Innerhalb der Klammern enthalten wir einen Test. Wenn der Test `true` zurückgibt, führen wir den Code in den geschweiften Klammern aus. Wenn nicht, überspringen wir es und gehen zur nächsten Codezeile über. In diesem Fall prüfen wir, ob die `guessCount`-Variable gleich `1` ist (d.h. ob dies der erste Versuch des Spielers ist oder nicht):
 
   ```js
   guessCount === 1;
   ```
 
-  Falls dies der Fall ist, setzen wir den Textinhalt des Guesses-Absatzes gleich auf `Previous guesses:`. Falls nicht, tun wir es nicht.
+  Falls ja, machen wir den Textinhalt des Guesses-Absatzes gleich `Previous guesses:`. Wenn nicht, machen wir nichts.
 
-- Als Nächstes verwenden wir ein Template Literal, um den aktuellen `userGuess`-Wert an das Ende des Guesses-Absatzes mit einem Leerzeichen dazwischen anzuhängen.
+- Als nächstes verwenden wir einen Template Literal, um den aktuellen `userGuess`-Wert an das Ende des `guesses`-Absatzes zu hängen, mit einem Leerzeichen dazwischen.
 - Der nächste Block führt einige Überprüfungen durch:
-  - Die erste `if (){ }` überprüft, ob die Benutzervermutung gleich der `randomNumber` ist, die oben in unserem JavaScript gesetzt wurde. Falls dies der Fall ist, hat der Spieler korrekt geraten und das Spiel ist gewonnen, also zeigen wir dem Spieler eine Glückwunschnachricht an, die mit einer schönen grünen Farbe versehen ist, löschen den Inhalt des Hoch/Tief-Rateschafts-Informationskästchens und führen eine Funktion namens `setGameOver()` aus, die wir später besprechen werden.
-  - Jetzt haben wir einen anderen Test ans Ende des letzten mit einer `else if (){ }`-Struktur angehängt. Dieser testet, ob dieser Zug der letzte des Benutzers ist. Falls dies der Fall ist, macht das Programm dasselbe wie im vorherigen Block, außer dass es eine Game Over-Nachricht anzeigt anstelle einer Glückwunschnachricht.
-  - Der letzte Block, der am Ende dieses Codes angehängt ist (das `else { }`), enthält Code, der nur ausgeführt wird, wenn keiner der anderen beiden Tests `true` zurückgibt (der Spieler hat falsch geraten, aber er hat noch Züge übrig). In diesem Fall informieren wir den Spieler, dass er falsch liegt, dann führen wir einen weiteren bedingten Test durch, um zu überprüfen, ob die Vermutung höher oder niedriger als die Antwort war, und zeigen eine weitere Nachricht an, die ihm entsprechend mitteilt, höher oder niedriger.
+  - Das erste `if (){ }` überprüft, ob die Vermutung des Nutzers der `randomNumber` entspricht, die am Anfang unseres JavaScripts festgelegt wurde. Wenn es der Fall ist, hat der Spieler richtig geraten und das Spiel ist gewonnen, daher zeigen wir dem Spieler eine Glückwunsch-Nachricht mit einer schönen grünen Farbe, leeren den Inhalt des Hoch/Niedrig-Informationskastens und führen eine Funktion namens `setGameOver()` aus, die wir später besprechen werden.
+  - Jetzt haben wir einen weiteren Test an das Ende des letzten angefügt, indem wir eine `else if (){ }` Struktur verwenden. Diese überprüft, ob dies der letzte Versuch des Nutzers ist. Wenn es der Fall ist, tut das Programm dasselbe wie im vorherigen Block, außer mit einer Game-Over-Nachricht statt einer Glückwunsch-Nachricht.
+  - Der letzte Block, der an das Ende dieses Codes angehängt ist (das `else { }`) enthält Code, der nur ausgeführt wird, wenn keiner der anderen beiden Tests wahr ist (der Spieler hat nicht richtig geraten, hat aber noch Vermutungen übrig). In diesem Fall teilen wir ihnen mit, dass sie falsch liegen, führen dann einen weiteren bedingten Test durch, um zu überprüfen, ob die Vermutung höher oder niedriger als die Antwort war, und zeigen eine weitere Nachricht an, um ihnen höher oder niedriger mitzuteilen.
 
-- Die letzten drei Zeilen in der Funktion machen uns bereit für die nächste abzugebende Vermutung. Wir zählen zu der `guessCount`-Variablen eins hinzu, sodass der Spieler seinen Zug verbraucht (`++` ist eine inkrementelle Operation – Erhöhung um 1) und leeren den Wert des Formulartestfeldes, konzentrieren es wieder und machen es bereit für die Eingabe der nächsten Vermutung.
+- Die letzten drei Zeilen in der Funktion bereiten uns auf die nächste Vermutung vor, die eingereicht wird. Wir addieren 1 zur `guessCount`-Variable, sodass der Spieler seinen Zug macht (`++` ist eine Inkrementoperation — erhöht um 1), und leeren den Wert aus dem Formulartextfeld und fokussieren es erneut, bereit für die Eingabe der nächsten Vermutung.
 
 ## Ereignisse
 
-An diesem Punkt haben wir eine schön implementierte `checkGuess()`-Funktion, aber sie wird nichts tun, weil wir sie noch nicht aufgerufen haben. Idealerweise wollen wir sie aufrufen, wenn der "Submit guess"-Button gedrückt wird, und dafür müssen wir ein **Ereignis** verwenden. Ereignisse sind Dinge, die im Browser passieren – ein Button, der geklickt wird, eine Seite, die geladen wird, ein Video, das gespielt wird usw. – als Antwort darauf können wir Codeblöcke ausführen. **Ereignis-Listener** beobachten bestimmte Ereignisse und rufen **Ereignishandlerfunktionen** auf, die als Antwort auf das Auslösen eines Ereignisses ausgeführt werden.
+An diesem Punkt haben wir eine schön implementierte `checkGuess()`-Funktion, aber sie wird nichts tun, weil wir sie noch nicht aufgerufen haben. Idealerweise möchten wir sie aufrufen, wenn der "Vermutung abschicken"-Button gedrückt wird, und dazu müssen wir ein **Ereignis** verwenden. Ereignisse sind Dinge, die im Browser passieren —, ein Button wird geklickt, eine Seite wird geladen, ein Video wird abgespielt, usw. — in Reaktion auf diese können wir Codeblöcke ausführen. **Ereignis-Listener** beobachten spezifische Ereignisse und rufen **Ereignis-Handler-Funktionen** auf, die in Reaktion auf ein ausgelöstes Ereignis ausgeführt werden.
 
 Fügen Sie die folgende Zeile unter Ihrer `checkGuess()`-Funktion hinzu:
 
@@ -440,13 +443,13 @@ Fügen Sie die folgende Zeile unter Ihrer `checkGuess()`-Funktion hinzu:
 guessSubmit.addEventListener("click", checkGuess);
 ```
 
-Hier fügen wir dem `guessSubmit`-Button einen Event-Listener hinzu. Dies ist eine Methode, die zwei Eingabewerte (genannt _Argumente_) annimmt – den Typ des Ereignisses, auf das wir lauschen (in diesem Fall `click`) als String, und die Funktion, die wir ausführen wollen, wenn das Ereignis auftritt (in diesem Fall `checkGuess()`). Beachten Sie, dass wir die Klammern nicht angeben müssen, wenn wir sie in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) schreiben.
+Hier fügen wir einen Ereignis-Listener zum `guessSubmit`-Button hinzu. Dies ist eine Methode, die zwei Eingabewerte (Argumente genannt) nimmt — den Typ des Ereignisses, auf das wir achten (in diesem Fall `click`) als String und die Funktion, die wir ausführen möchten, wenn das Ereignis auftritt (in diesem Fall `checkGuess()`). Beachten Sie, dass wir die Klammern nicht angeben müssen, wenn wir es in [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) schreiben.
 
-Versuchen Sie jetzt, Ihren Code zu speichern und zu aktualisieren, und Ihr Beispiel sollte funktionieren — bis zu einem Punkt. Das einzige Problem jetzt ist, dass, wenn Sie die korrekte Antwort raten oder die Züge ausgehen, das Spiel fehlerhaft wird, weil wir die Funktion `setGameOver()`, die ausgeführt werden soll, sobald das Spiel vorbei ist, noch nicht definiert haben. Lassen Sie uns jetzt unseren fehlenden Code hinzufügen und die Beispiel-Funktionalität vervollständigen.
+Versuchen Sie jetzt, Ihren Code zu speichern und zu aktualisieren, dann sollte Ihr Beispiel funktionieren — bis zu einem Punkt. Das einzige Problem jetzt ist, dass, wenn Sie die richtige Antwort erraten oder keine Vermutungen mehr übrig haben, das Spiel kaputtgeht, weil wir die `setGameOver()`-Funktion noch nicht definiert haben, die ausgeführt werden soll, sobald das Spiel vorbei ist. Lassen Sie uns jetzt unseren fehlenden Code hinzufügen und die Beispiel-Funktionalität abschließen.
 
-## Fertigstellung der Spielfunktionalität
+## Abschluss der Spielfunktionalität
 
-Lassen Sie uns die `setGameOver()`-Funktion am Ende unseres Codes hinzufügen und dann durchgehen. Fügen Sie dies jetzt unten im Rest Ihres JavaScripts hinzu:
+Fügen Sie die `setGameOver()`-Funktion am Ende Ihres Codes hinzu und gehen Sie sie dann durch. Fügen Sie diese jetzt unter den Rest Ihres JavaScripts ein:
 
 ```js
 function setGameOver() {
@@ -459,11 +462,11 @@ function setGameOver() {
 }
 ```
 
-- Die ersten beiden Zeilen deaktivieren das Text-Eingabefeld und den Button, indem sie ihre `disabled`-Eigenschaften auf `true` setzen. Dies ist notwendig, da der Benutzer, wenn wir dies nicht tun würden, mehr Vermutungen abgeben könnte, nachdem das Spiel vorbei ist, was die Dinge durcheinanderbringen würde.
-- Die nächsten drei Zeilen generieren ein neues {{htmlelement("button")}}-Element, setzen dessen Textlabel auf "Neues Spiel starten" und fügen es am Ende unseres vorhandenen HTMLs hinzu.
-- Die letzte Zeile setzt ein Ereignis-Listener auf unseren neuen Button, so dass, wenn er geklickt wird, eine Funktion namens `resetGame()` ausgeführt wird.
+- Die ersten beiden Zeilen deaktivieren das Formulartexteingabe und den Button, indem sie deren `disabled`-Eigenschaften auf `true` setzen. Dies ist notwendig, da der Nutzer, wenn wir das nicht tun, mehr Vermutungen abschicken könnte, nachdem das Spiel vorbei ist, was die Sache durcheinanderbringen würde.
+- Die nächsten drei Zeilen erzeugen ein neues {{htmlelement("button")}}-Element, setzen seine Textbezeichnung auf "Neues Spiel starten" und fügen es am Ende unseres bestehenden HTMLs hinzu.
+- Die letzte Zeile setzt einen Ereignis-Listener auf unseren neuen Button, sodass, wenn dieser geklickt wird, eine Funktion namens `resetGame()` ausgeführt wird.
 
-Lassen Sie uns nun auch `resetGame()` definieren! Fügen Sie den folgenden Code ebenfalls am Ende Ihres JavaScripts hinzu:
+Jetzt müssen wir auch `resetGame()` definieren! Fügen Sie den folgenden Code, erneut am Ende Ihres JavaScripts hinzu:
 
 ```js
 function resetGame() {
@@ -487,26 +490,26 @@ function resetGame() {
 }
 ```
 
-Dieser recht lange Codeblock setzt alles vollständig auf den Anfang des Spiels zurück, so dass der Spieler einen weiteren Versuch haben kann.
+Dieser eher lange Codeblock setzt alles vollständig zurück, so wie es zu Beginn des Spiels war, sodass der Spieler einen weiteren Versuch starten kann.
 
 Konkret:
 
-- Setzt die `guessCount`-Variable zurück auf 1.
-- Leert den gesamten Text der Informationsparagrafen. Wir wählen alle Absätze innerhalb von `<div class="resultParas"></div>` aus und durchlaufen dann jeden einzelnen, setzen deren `textContent` auf `""` (eine leere Zeichenkette).
-- Entfernt den Zurücksetzen-Button aus unserem Code.
-- Reaktiviert die Formularelemente und leert und fokussiert das Textfeld, bereit für einen neuen Versuch.
-- Entfernt die Hintergrundfarbe des `lastResult`-Paragrafen.
-- Generiert eine neue Zufallszahl, so dass Sie nicht nur dieselbe Zahl erneut raten müssen!
+- Setzt den `guessCount` zurück auf 1.
+- Leert alle Texte aus den Informationsabsätzen. Wir wählen alle Absätze in `<div class="resultParas"></div>` aus, dann durchlaufen wir jeden einzelnen und setzen deren `textContent` auf `""` (eine leere Zeichenfolge).
+- Entfernt den Reset-Button aus unserem Code.
+- Aktiviert die Formularelemente wieder und leert und fokussiert das Textfeld, bereit für das Eingeben einer neuen Vermutung.
+- Entfernt die Hintergrundfarbe vom `lastResult`-Absatz.
+- Erzeugt eine neue zufällige Zahl, damit Sie nicht wieder dieselbe Zahl raten!
 
-**An diesem Punkt sollten Sie ein vollständig funktionierendes Spiel haben — Gratulation!**
+**An diesem Punkt sollten Sie ein grundlegendes vollständig funktionierendes Spiel haben — herzlichen Glückwunsch!**
 
-Alles, was wir jetzt noch in diesem Artikel tun müssen, ist, über ein paar andere wichtige Codefunktionen zu sprechen, die Sie bereits gesehen haben, obwohl Sie es vielleicht noch nicht realisiert haben.
+Alles, was wir jetzt noch in diesem Artikel tun müssen, ist, einige andere wichtige Code-Funktionen zu besprechen, die Sie bereits gesehen haben, obwohl Sie es vielleicht nicht bemerkt haben.
 
 ## Schleifen
 
 Oben haben wir **Schleifen** erwähnt, ein sehr wichtiges Konzept in der Programmierung, das es Ihnen ermöglicht, ein Stück Code immer wieder auszuführen, bis eine bestimmte Bedingung erfüllt ist.
 
-Lassen Sie uns ein einfaches Beispiel erkunden, um Ihnen zu zeigen, was das bedeutet. Gehen Sie erneut zu den [JavaScript-Entwicklertools Ihres Browsers](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), fügen Sie den folgenden Code in diese ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>:
+Lassen Sie uns ein einfaches Beispiel erkunden, um Ihnen zu zeigen, was das bedeutet. Gehen Sie erneut zu Ihren [Browser-Entwicklertools JavaScript-Konsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools), fügen Sie den folgenden Code ein und drücken Sie <kbd>Enter</kbd>/<kbd>Return</kbd>:
 
 ```js
 const fruits = ["apples", "bananas", "cherries"];
@@ -515,17 +518,17 @@ for (const fruit of fruits) {
 }
 ```
 
-Was ist passiert? Die Zeichenketten `'apples', 'bananas', 'cherries'` wurden in Ihrer Konsole ausgegeben.
+Was ist passiert? Die Strings `'apples', 'bananas', 'cherries'` wurden in Ihrer Konsole ausgegeben.
 
-Dies ist aufgrund der Schleife. Die Zeile `const fruits = ['apples', 'bananas', 'cherries'];` erstellt ein Array, das eine Sammlung von Werten (in diesem Fall Strings) enthält.
+Das liegt an der Schleife. Die Zeile `const fruits = ['apples', 'bananas', 'cherries'];` erstellt ein Array, das eine Sammlung von Werten ist (in diesem Fall Strings).
 
-Wir verwenden dann eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife, um jedes Element im Array zu bekommen und etwas JavaScript darauf auszuführen. Die Zeile `for (const fruit of fruits)` sagt:
+Wir verwenden dann eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife, um jedes Element im Array zu erhalten und ein bisschen JavaScript darauf auszuführen. Die Zeile `for (const fruit of fruits)` sagt:
 
-1. Holen Sie den ersten Wert in `fruits` und speichern Sie ihn in einer Variablen namens `fruit`.
-2. Führen Sie den Code zwischen den `{}`-geschweiften Klammern aus (der in diesem Fall den `fruit`-Wert in die Konsole druckt).
-3. Speichern Sie den nächsten Array-Wert in `fruit` und wiederholen Sie Punkt 2, bis Sie das Ende des `fruits`-Arrays erreicht haben.
+1. Holen Sie sich den ersten Wert in `fruits` und speichern Sie ihn in einer Variable namens `fruit`.
+2. Führen Sie den Code zwischen den `{}`-geschweiften Klammern aus (was in diesem Fall das Protokollieren des `fruit`-Wertes in die Konsole ist).
+3. Speichern Sie den nächsten Array-Wert in `fruit` und wiederholen Sie 2, bis Sie das Ende des `fruits`-Arrays erreichen.
 
-Nun wollen wir uns die Schleife in unserem Zahlenratespiel anschauen – das Folgende findet sich in der `resetGame()`-Funktion:
+Schauen wir uns nun die Schleife in unserem Zahlenraten-Spiel an — Folgendes finden Sie in der `resetGame()` Funktion:
 
 ```js
 const resetParas = document.querySelectorAll(".resultParas p");
@@ -534,14 +537,14 @@ for (const resetPara of resetParas) {
 }
 ```
 
-Dieser Code erstellt eine Variable, die eine Liste aller Absätze innerhalb von `<div class="resultParas">` mit der [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)-Methode enthält, und dann durchläuft er jeden einzelnen, löscht den Textinhalt eines jeden.
+Dieser Code erstellt eine Variable, die eine Liste aller Absätze innerhalb von `<div class="resultParas">` enthält, indem die [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) Methode verwendet wird. Dann durchlaufen wir jeden einzelnen und entfernen den Textinhalt.
 
-Beachten Sie, dass obwohl `resetPara` eine Konstante ist, wir dessen interne Eigenschaften wie `textContent` ändern können.
+Beachten Sie, dass, obwohl `resetPara` eine Konstante ist, wir ihre internen Eigenschaften wie `textContent` ändern können.
 
 ## Zusammenfassung
 
-Das war also alles, um das Beispiel zu erstellen. Sie sind bis zum Ende gekommen — gut gemacht! Probieren Sie Ihren endgültigen Code aus oder [spielen Sie hier mit unserer fertigen Version](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/first-splash/number-guessing-game.html). Wenn Sie Ihr Beispiel nicht zum Laufen bekommen, vergleichen Sie es mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/first-splash/number-guessing-game.html).
+Das war's also mit dem Erstellen des Beispiels. Sie sind am Ende angelangt — gut gemacht! Probieren Sie Ihren endgültigen Code aus oder [spielen Sie mit unserer fertigen Version hier](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/first-splash/number-guessing-game.html). Wenn Sie Ihr Beispiel nicht zum Laufen bringen können, vergleichen Sie es mit dem [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/first-splash/number-guessing-game.html).
 
-Die nächste Lektion kann auch helfen — darin diskutieren wir, was beim Schreiben von JavaScript-Code schiefgehen kann und beziehen uns dabei auf das "Errate die Zahl"-Spiel.
+Die nächste Lektion könnte ebenfalls helfen — darin besprechen wir, was beim Schreiben von JavaScript-Code schiefgehen kann, wobei wir uns auf das "Errate die Zahl"-Spiel beziehen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/What_is_JavaScript", "Learn_web_development/Core/Scripting/What_went_wrong", "Learn_web_development/Core/Scripting")}}

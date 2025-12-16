@@ -2,14 +2,14 @@
 title: <length-percentage>
 slug: Web/CSS/Reference/Values/length-percentage
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 Der **`<length-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert einen Wert, der entweder eine {{Cssxref("length")}} oder ein {{Cssxref("percentage")}} sein kann.
 
 ## Syntax
 
-Beziehen Sie sich auf die Dokumentation für {{Cssxref("length")}} und {{Cssxref("percentage")}} für Details zu den einzelnen erlaubten Syntaxen dieses Typs.
+Siehe die Dokumentation für {{Cssxref("length")}} und {{Cssxref("percentage")}} für Details zu den einzelnen Syntaxen, die von diesem Typ erlaubt sind.
 
 ## Formale Syntax
 
@@ -19,7 +19,7 @@ Beziehen Sie sich auf die Dokumentation für {{Cssxref("length")}} und {{Cssxref
 
 ### Beispiele für length-percentage
 
-Dieses Beispiel demonstriert mehrere Eigenschaften, die `<length-percentage>` Werte verwenden.
+Dieses Beispiel zeigt mehrere Eigenschaften, die `<length-percentage>`-Werte verwenden.
 
 #### HTML
 
@@ -56,7 +56,7 @@ p {
 
 ### Verwendung in calc()
 
-Wo ein `<length-percentage>` als erlaubter Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Länge aufgelöst wird und daher in einem {{cssxref("calc", "calc()")}} Ausdruck verwendet werden kann. Daher sind alle folgenden Werte für {{cssxref("width")}} zulässig:
+Wo ein `<length-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentwert auf eine Länge aufgelöst wird und daher in einem {{cssxref("calc()")}}-Ausdruck verwendet werden kann. Daher sind alle folgenden Werte für {{cssxref("width")}} akzeptabel:
 
 ```css example-good
 width: 200px;

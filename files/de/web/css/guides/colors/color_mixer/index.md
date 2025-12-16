@@ -1,13 +1,13 @@
 ---
-title: Farb-Mixer
+title: Farbmischer
 slug: Web/CSS/Guides/Colors/Color_mixer
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mit der {{cssxref("color_value/color-mix")}} Funktion zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
+Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mit der {{cssxref("color_value/color-mix")}}-Funktion zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
 
-Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene gemischte Farbe wird in der Mitte angezeigt. Klicken Sie auf die äußeren Muster, um neue Farben zum Mischen auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder Eingabefarbe im Mix zu ändern. Nutzen Sie das Dropdown-Menü, um den Farbraum der Ausgabe der Funktion zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle nach dem Widget und können kopiert werden. Sie können auch auf einen Farbnamen klicken, um mehr über ihn zu erfahren.
+Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene gemischte Farbe wird in der Mitte dargestellt. Klicken Sie auf die äußeren Farbfelder, um neue Farben zum Mischen auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze der einzelnen Eingabefarben im Mix zu ändern. Verwenden Sie das Dropdown-Menü, um den Farbraum des Funktionsergebnisses zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle unterhalb des Widgets und können kopiert werden. Sie können auch auf einen Farbnamen klicken, um mehr darüber zu erfahren.
 
 ```html hidden live-sample___color-mixer
 <div id="color-mixer">
@@ -887,5 +887,5 @@ init();
 
 - {{CSSXref("&lt;color&gt;")}}
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
-- {{cssxref("&lt;hue&gt;")}}
-- [Relative Farben in CSS](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- {{cssxref("hue")}}
+- [CSS relativ Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)

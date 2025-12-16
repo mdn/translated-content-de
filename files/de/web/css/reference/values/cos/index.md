@@ -2,10 +2,10 @@
 title: cos()
 slug: Web/CSS/Reference/Values/cos
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`cos()`**-Funktion in [CSS](/de/docs/Web/CSS) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, welcher ein Wert zwischen `-1` und `1` ist. Die Funktion enthält eine einzelne Berechnung, die entweder auf eine {{cssxref("&lt;number&gt;")}} oder einen {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird. Das heißt, `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` repräsentieren alle den gleichen Wert, ungefähr `0.707`.
+Die **`cos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Kosinus einer Zahl zurückgibt, welcher ein Wert zwischen `-1` und `1` ist. Die Funktion enthält eine einzelne Berechnung, die entweder zu einem {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("angle")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird. Das bedeutet, dass `cos(45deg)`, `cos(0.125turn)` und `cos(3.14159 / 4)` alle denselben Wert, ungefähr `0.707`, darstellen.
 
 {{InteractiveExample("CSS Demo: cos()")}}
 
@@ -91,27 +91,27 @@ width: calc(100px * cos(e / 2));
 Die Funktion `cos(angle)` akzeptiert nur einen Wert als ihren Parameter.
 
 - `angle`
-  - : Eine Berechnung, die sich auf eine {{cssxref("&lt;number&gt;")}} oder einen {{cssxref("&lt;angle&gt;")}} auflöst. Bei der Angabe von einheitenlosen Zahlen werden diese als Radianten interpretiert, die einen {{cssxref("&lt;angle&gt;")}} darstellen.
+  - : Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("angle")}} aufgelöst wird. Bei der Angabe von zahlenlosen Werten werden diese als Anzahl von Bogenmaßen interpretiert und repräsentieren einen {{cssxref("angle")}}.
 
 ### Rückgabewert
 
-Der Kosinus eines `angle` wird immer eine Zahl zwischen `−1` und `1` zurückgeben.
+Der Kosinus eines `angle` gibt immer eine Zahl zwischen `−1` und `1` zurück.
 
-- Wenn `angle` `unendlich`, `-unendlich` oder `NaN` ist, ist das Ergebnis `NaN`.
+- Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
 
-## Formale Syntax
+## Formaler Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Die Größe eines gedrehten Kästchens beibehalten
+### Die Größe einer gedrehten Box beibehalten
 
-Die `cos()`-Funktion kann verwendet werden, um die Größe eines gedrehten Kästchens beizubehalten.
+Die Funktion `cos()` kann verwendet werden, um die Größe einer gedrehten Box beizubehalten.
 
-Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, geht es über seine ursprüngliche Größe hinaus. Um dies zu korrigieren, verwenden wir `cos()`, um die Elementgröße anzupassen.
+Wenn das Element mit {{cssxref("transform-function/rotate", "rotate()")}} gedreht wird, geht es über seine ursprüngliche Größe hinaus. Um dies zu beheben, verwenden wir `cos()`, um die Größe des Elements zu aktualisieren.
 
-Zum Beispiel, wenn Sie ein `100px`/`100px` großes Quadrat um `45deg` drehen, wird der entstandene Diamant breiter und höher als das ursprüngliche Quadrat. Um den Diamanten auf die Größe des ursprünglichen Quadrats zu verkleinern, müssen Sie den Diamanten mit dieser Formel herunterskalieren: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
+Wenn Sie beispielsweise ein `100px`/`100px`-Quadrat um `45deg` drehen, wird der daraus entstehende Diamant breiter und höher als das ursprüngliche Quadrat. Um den Diamanten in das für das ursprüngliche Quadrat vorgesehene Feld zu verkleinern, müssten Sie den Diamanten mit dieser Formel verkleinern: `width = height = 100px * cos(45deg) = 100px * 0.707 = 70.7px`. Sie müssen auch den {{cssxref("transform-origin")}} anpassen und {{cssxref("transform-function/translate", "translate()")}} hinzufügen, um die Position zu korrigieren:
 
 #### HTML
 
