@@ -3,28 +3,30 @@ title: Sec-Private-State-Token-Crypto-Version header
 short-title: Sec-Private-State-Token-Crypto-Version
 slug: Web/HTTP/Reference/Headers/Sec-Private-State-Token-Crypto-Version
 l10n:
-  sourceCommit: f6e66d18205c93fcaeb2ea9ad51541b5b4d7d2b1
+  sourceCommit: ee03b8deb5423c80e1cb8f6930a6f52e3f49e678
 ---
 
-Der HTTP **`Sec-Private-State-Token-Crypto-Version`** {{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadata-Anforderungsheader")}} wird von der [Private State Token API](/de/docs/Web/API/Private_State_Token_API) während der [Token-Ausgabe](/de/docs/Web/API/Private_State_Token_API/Using#issuing_tokens_2) verwendet, um dem Ausstellerserver anzugeben, welche kryptografische Protokollversion zum Signieren von geblendeten Nonces bei der Token-Generierung verwendet werden soll.
+{{SeeCompatTable}}
 
-Zum Zeitpunkt der Erstellung dieses Textes wird nur eine Version unterstützt, aber dieser Mechanismus ermöglicht es, in Zukunft mehrere Versionen zu unterstützen.
+Der HTTP **`Sec-Private-State-Token-Crypto-Version`** {{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}} wird von der [Private State Token API](/de/docs/Web/API/Private_State_Token_API) während der [Token-Ausgabe](/de/docs/Web/API/Private_State_Token_API/Using#issuing_tokens_2) verwendet, um dem ausgebenden Server anzuzeigen, welche kryptografische Protokollversion zum Signieren von geblendeten Nonces bei der Generierung von Tokens verwendet werden soll.
 
-Beachten Sie, dass Entwickler keine `Sec-Private-State-Token-Crypto-Version`-Anforderungsheader generieren müssen – diese werden automatisch vom Browser erstellt, wenn private State Token `token-request` Fetch-Anfragen aufgerufen werden.
+Zum Zeitpunkt des Verfassens dieses Dokuments wird nur eine Version unterstützt, aber dieser Mechanismus ermöglicht es, in Zukunft mehrere Versionen zu unterstützen.
+
+Es ist zu beachten, dass von einem Entwickler nicht erwartet wird, `Sec-Private-State-Token-Crypto-Version`-Anfrageheader zu generieren – diese werden automatisch vom Browser erstellt, wenn private State-Token-`token-request`-Fetch-Anfragen aufgerufen werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadata-Anforderungsheader")}}</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrageheader")}}</th>
       <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-gesicherter Anfrageheader")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -42,7 +44,7 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 ## Direktiven
 
 - `<string>`
-  - : Ein String, der die kryptografische Protokollversion enthält, die vom Ausstellerserver verwendet werden soll, um geblendete Nonces bei der Token-Generierung zu signieren.
+  - : Ein String, der die kryptografische Protokollversion enthält, die vom ausgebenden Server zum Signieren von geblendeten Nonces bei der Generierung von Tokens verwendet werden soll.
 
 ## Beispiele
 

@@ -1,14 +1,14 @@
 ---
-title: "Dokument: hasRedemptionRecord()-Methode"
+title: "Dokument: hasRedemptionRecord() Methode"
 short-title: hasRedemptionRecord()
 slug: Web/API/Document/hasRedemptionRecord
 l10n:
-  sourceCommit: f6e66d18205c93fcaeb2ea9ad51541b5b4d7d2b1
+  sourceCommit: ee03b8deb5423c80e1cb8f6930a6f52e3f49e678
 ---
 
-{{APIRef("Storage Access API")}}
+{{APIRef("Storage Access API")}}{{SeeCompatTable}}
 
-Die **`hasRedemptionRecord()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein Promise zurück, das mit einem Boolean erfüllt wird, der angibt, ob der Browser über einen [Redemption-Record](/de/docs/Web/API/Private_State_Token_API/Using#redeeming_tokens) verfügt, der von einem bestimmten Aussteller stammt.
+Die **`hasRedemptionRecord()`** Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein Promise zurück, das mit einem booleschen Wert erfüllt wird, der angibt, ob der Browser ein [Redemption Record](/de/docs/Web/API/Private_State_Token_API/Using#redeeming_tokens) von einem bestimmten Herausgeber hat.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ hasRedemptionRecord(issuer)
 ### Parameter
 
 - `issuer`
-  - : Ein String, der die URL eines Ausstellerservers darstellt.
+  - : Ein String, der die URL eines Herausgeberservers darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Boolean-Wert aufgelöst wird, der anzeigt, ob der Browser einen Redemption-Record gespeichert hat, der vom angegebenen Ausstellerserver stammt.
+Ein {{jsxref("Promise")}}, das sich mit einem booleschen Wert auflöst, der angibt, ob der Browser ein Redemption Record gespeichert hat, das von dem angegebenen Herausgeberserver stammt.
 
 ### Ausnahmen
 

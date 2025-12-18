@@ -3,16 +3,17 @@ title: Sec-CH-Viewport-Height header
 short-title: Sec-CH-Viewport-Height
 slug: Web/HTTP/Reference/Headers/Sec-CH-Viewport-Height
 l10n:
-  sourceCommit: 53d1a4810a69dc436badd5b73c1a66c8764c835b
+  sourceCommit: ee03b8deb5423c80e1cb8f6930a6f52e3f49e678
 ---
 
-{{SecureContext_header}}
+{{SecureContext_header}}{{SeeCompatTable}}
 
-Der HTTP **`Sec-CH-Viewport-Height`** {{Glossary("request_header", "Request-Header")}} ist ein [Device Client Hint](/de/docs/Web/HTTP/Guides/Client_hints), der die Höhe des Layout Viewports des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} bereitstellt. Der Wert wird auf die nächstfolgende ganze Zahl aufgerundet (d.h. Deckenwert).
+Der HTTP **`Sec-CH-Viewport-Height`** {{Glossary("request_header", "Request-Header")}} ist ein [Device-Client-Hint](/de/docs/Web/HTTP/Guides/Client_hints), der die Höhe des Viewports des Clients im {{Glossary("CSS_pixel", "CSS-Pixel")}} angibt. Der Wert wird auf die kleinste folgende ganze Zahl aufgerundet (d.h. Deckenwert).
 
-Der Hint kann zusammen mit anderen, bildschirmbezogenen Hinweisen verwendet werden, um Bilder zu liefern, die für eine bestimmte Bildschirmgröße optimiert sind, oder um Ressourcen wegzulassen, die nicht für eine bestimmte Bildschirmhöhe erforderlich sind. Wenn der `Sec-CH-Viewport-Height` Header mehrmals in einer Nachricht erscheint, wird die letzte Vorkommen verwendet.
+Der Hint kann zusammen mit anderen spezifischen Bildschirm-Hints genutzt werden, um Bilder zu liefern, die für eine spezifische Bildschirmgröße optimiert sind, oder um Ressourcen auszuschließen, die für eine bestimmte Bildschirmhöhe nicht benötigt werden. Wenn der `Sec-CH-Viewport-Height`-Header mehr als einmal in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
 
-Ein Server muss sich entscheiden, den `Sec-CH-Viewport-Height` Header vom Client zu empfangen, indem er den Antwort-Header {{HTTPHeader("Accept-CH")}} sendet. Server, die sich dafür entscheiden, geben ihn typischerweise auch im {{HTTPHeader("Vary")}} Header an, der Caches darüber informiert, dass der Server unterschiedliche Antworten basierend auf dem Header-Wert in einer Anfrage senden kann.
+Ein Server muss sich anmelden, um den `Sec-CH-Viewport-Height`-Header vom Client zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Response-Header sendet.
+Server, die sich anmelden, geben ihn typischerweise auch im {{HTTPHeader("Vary")}}-Header an, was Caches darüber informiert, dass der Server basierend auf dem Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
 
 <table class="properties">
   <tbody>
@@ -39,19 +40,19 @@ Sec-CH-Viewport-Height: <number>
 ## Direktiven
 
 - `<number>`
-  - : Die Höhe des Viewports des Nutzers in {{Glossary("CSS_pixel", "CSS-Pixeln")}}, auf die nächstgelegene ganze Zahl aufgerundet.
+  - : Die Höhe des Viewports des Nutzers in {{Glossary("CSS_pixel", "CSS-Pixel")}}, aufgerundet auf den nächsten ganzen Wert.
 
 ## Beispiele
 
-### Nutzung von Sec-CH-Viewport-Height
+### Verwendung von Sec-CH-Viewport-Height
 
-Ein Server muss zunächst zustimmen, den `Sec-CH-Viewport-Height` Header zu empfangen, indem er den Antwort-Header {{HTTPHeader("Accept-CH")}} mit der Direktive `Sec-CH-Viewport-Height` sendet.
+Ein Server muss sich zuerst entscheiden, den `Sec-CH-Viewport-Height`-Header zu empfangen, indem er den Response-Header {{HTTPHeader("Accept-CH")}} sendet, der die Direktive `Sec-CH-Viewport-Height` enthält.
 
 ```http
 Accept-CH: Sec-CH-Viewport-Height
 ```
 
-In nachfolgenden Anfragen könnte der Client den `Sec-CH-Viewport-Height` Header senden:
+In nachfolgenden Anfragen könnte der Client den `Sec-CH-Viewport-Height`-Header senden:
 
 ```http
 Sec-CH-Viewport-Height: 480
@@ -63,10 +64,10 @@ Sec-CH-Viewport-Height: 480
 
 ## Siehe auch
 
-- [Verbesserung des Benutzerdatenschutzes und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Datenschutzes der Nutzer und der Erfahrungen der Entwickler mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - Device Client Hints
   - {{HTTPHeader("Sec-CH-Device-Memory")}}
   - {{HTTPHeader("Sec-CH-DPR")}}
   - {{HTTPHeader("Sec-CH-Viewport-Width")}}
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}} Header
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header

@@ -3,12 +3,12 @@ title: "Dokument: hasPrivateToken()-Methode"
 short-title: hasPrivateToken()
 slug: Web/API/Document/hasPrivateToken
 l10n:
-  sourceCommit: f6e66d18205c93fcaeb2ea9ad51541b5b4d7d2b1
+  sourceCommit: ee03b8deb5423c80e1cb8f6930a6f52e3f49e678
 ---
 
-{{APIRef("Storage Access API")}}
+{{APIRef("Storage Access API")}}{{SeeCompatTable}}
 
-Die **`hasPrivateToken()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein Promise zurück, das mit einem booleschen Wert erfüllt wird. Dieser gibt an, ob der Browser ein [private state token](/de/docs/Web/API/Private_State_Token_API) von einem bestimmten Herausgeber-Server gespeichert hat.
+Die **`hasPrivateToken()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interface gibt ein Promise zurück, das mit einem boolean erfüllt wird, der anzeigt, ob der Browser ein [Private-State-Token](/de/docs/Web/API/Private_State_Token_API) von einem bestimmten Ausstellerserver gespeichert hat.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ hasPrivateToken(issuer)
 ### Parameter
 
 - `issuer`
-  - : Ein String, der die URL eines Herausgeber-Servers darstellt.
+  - : Ein String, der die URL eines Ausstellerservers darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem booleschen Wert aufgelöst wird, der angibt, ob der Browser ein private state token vom angegebenen Herausgeber-Server gespeichert hat.
+Ein {{jsxref("Promise")}}, das mit einem booleanen Wert aufgelöst wird, der anzeigt, ob der Browser ein Private-State-Token von dem angegebenen Ausstellerserver gespeichert hat.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Ein {{jsxref("Promise")}}, das mit einem booleschen Wert aufgelöst wird, der an
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - Das aktuelle [`Document`](/de/docs/Web/API/Document) nicht in einem {{Glossary("Secure_Context", "sicheren Kontext")}} geladen ist.
-    - Die maximale Anzahl von Herausgebern pro oberster {{Glossary("Origin", "Origin")}} (zwei) überschritten wurde.
+    - Die maximale Anzahl von Ausstellern pro oberster {{Glossary("Origin", "Origin")}} (zwei) überschritten wurde.
 - `TypeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `issuer` keine gültige URL ist.
 

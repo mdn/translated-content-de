@@ -1,20 +1,20 @@
 ---
-title: "HTMLIFrameElement: privateToken-Eigenschaft"
+title: "HTMLIFrameElement: Eigenschaft privateToken"
 short-title: privateToken
 slug: Web/API/HTMLIFrameElement/privateToken
 l10n:
-  sourceCommit: f6e66d18205c93fcaeb2ea9ad51541b5b4d7d2b1
+  sourceCommit: ee03b8deb5423c80e1cb8f6930a6f52e3f49e678
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`privateToken`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt eine Zeichenfolgenrepräsentation eines Optionsobjekts zurück, das einen Vorgang im Zusammenhang mit einem [private state token](/de/docs/Web/API/Private_State_Token_API/Using) darstellt; dieses Objekt hat die gleiche Struktur wie die `RequestInit`-Dictionary-Eigenschaft [`privateToken`](/de/docs/Web/API/RequestInit#privatetoken).
+Die **`privateToken`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt eine Zeichenkette zurück, die ein Optionsobjekt darstellt. Dies steht im Zusammenhang mit einer [Private State Token](/de/docs/Web/API/Private_State_Token_API/Using)-Operation; dieses Objekt hat die gleiche Struktur wie die `RequestInit`-Wörterbuchseigenschaft [`privateToken`](/de/docs/Web/API/RequestInit#privatetoken).
 
-Dieses Attribut spiegelt den Inhalt des zugehörigen `<iframe>`-Elements im Attribut [`privateToken`](/de/docs/Web/HTML/Reference/Elements/iframe#privatetoken) wider.
+Dieses Attribut spiegelt den Inhalt des zugehörigen `<iframe>`-Elements und dessen [`privateToken`](/de/docs/Web/HTML/Reference/Elements/iframe#privatetoken)-Attribut wider.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 

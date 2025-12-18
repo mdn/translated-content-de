@@ -2,12 +2,12 @@
 title: CSSSkew
 slug: Web/API/CSSSkew
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Das **`CSSSkew`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ist Teil des [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Interfaces. Es repräsentiert den [`skew()`](/de/docs/Web/CSS/Reference/Values/transform-function/skew)-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
+Die **`CSSSkew`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ist Teil der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Schnittstelle. Sie repräsentiert den Wert von {{cssxref("transform-function/skew", "skew()")}} der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS.
 
 {{InheritanceDiagram}}
 
@@ -25,7 +25,7 @@ Das **`CSSSkew`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CS
 
 ## Beispiele
 
-In Bearbeitung
+To Do
 
 ## Spezifikationen
 

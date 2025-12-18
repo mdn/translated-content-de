@@ -2,13 +2,13 @@
 title: <mstyle>
 slug: Web/MathML/Reference/Element/mstyle
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 6b01bafc68dffb3a50f70882d2ba24cd6f9d886f
 ---
 
 Das **`<mstyle>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um den Stil seiner Kinderelemente zu ändern.
 
 > [!NOTE]
-> Historisch gesehen akzeptierte dieses Element fast alle MathML-Attribute und wurde verwendet, um die Standardattributwerte seiner Nachkommen zu überschreiben. Es wurde später auf nur wenige relevante Stilattribute beschränkt, die auf bestehenden Webseiten verwendet wurden. Heutzutage sind diese Stilattribute [allen MathML-Elementen gemeinsam](/de/docs/Web/MathML/Reference/Global_attributes), sodass `<mstyle>` tatsächlich nur einem [`<mrow>`](/de/docs/Web/MathML/Reference/Element/mrow)-Element entspricht. Dennoch kann `<mstyle>` immer noch relevant für die Kompatibilität mit MathML-Implementierungen außerhalb von Browsern sein.
+> Historisch gesehen akzeptierte dieses Element fast alle MathML-Attribute und wurde verwendet, um die Standardattributwerte seiner Nachkommen zu überschreiben. Später wurde es auf nur wenige relevante Stilattribute beschränkt, die in bestehenden Webseiten verwendet wurden. Heutzutage sind diese Stilattribute [allen MathML-Elementen gemeinsam](/de/docs/Web/MathML/Reference/Global_attributes) und daher ist `<mstyle>` im Grunde nur gleichwertig mit einem [`<mrow>`](/de/docs/Web/MathML/Reference/Element/mrow)-Element. Jedoch kann `<mstyle>` immer noch relevant für die Kompatibilität mit MathML-Implementierungen außerhalb von Browsern sein.
 
 ## Attribute
 
@@ -29,7 +29,7 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ### Attribute, die auf CSS abgebildet sind
 
-Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Reference/Global_attributes) `displaystyle` und `mathcolor`, um den [`math-style`](/de/docs/Web/CSS/Reference/Properties/math-style) und die [`color`](/de/docs/Web/CSS/Reference/Properties/color) der `<munder>`- und `<munderover>`-Kinder zu überschreiben:
+Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Reference/Global_attributes) `displaystyle` und `mathcolor`, um jeweils die {{cssxref("math-style")}} und {{cssxref("color")}} der `<munder>`- und `<munderover>`-Kinderelemente zu überschreiben:
 
 ```html
 <math display="block">
@@ -55,7 +55,7 @@ Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Referenc
 
 ### Veraltete Skript-Attribute
 
-Das folgende Beispiel zeigt eine Formel mit [`font-size`](/de/docs/Web/CSS/Reference/Properties/font-size) auf `128pt`. Es enthält Zahlen, die in verschachtelten Superskripten platziert sind, sowie ein `<mstyle>`-Element mit den veralteten Attributen `scriptsizemultiplier` und `scriptminsize`. Die `font-size` wird mit `0.5` multipliziert, wenn ein neuer Superskript betreten wird, solange sie dadurch nicht kleiner als `16pt` wird.
+Das folgende Beispiel zeigt eine Formel, bei der die {{cssxref("font-size")}} auf `128pt` gesetzt ist. Es enthält Zahlen, die in verschachtelten Superskripten platziert sind, sowie ein `<mstyle>`-Element mit den veralteten Attributen `scriptsizemultiplier` und `scriptminsize`. Die `font-size` wird mit `0.5` multipliziert, wenn man in jedes Superskript eintritt, solange dies nicht dazu führt, dass die Schriftgröße kleiner als `16pt` wird.
 
 ```html
 <math display="block">
@@ -96,7 +96,7 @@ math {
 <table class="properties">
   <tr>
     <th scope="row">
-      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizite ARIA-Rolle</a>
+      <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles">Implizierte ARIA-Rolle</a>
     </th>
     <td>
       Keine

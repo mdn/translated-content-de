@@ -3,18 +3,18 @@ title: "CanvasRenderingContext2D: fontVariantCaps-Eigenschaft"
 short-title: fontVariantCaps
 slug: Web/API/CanvasRenderingContext2D/fontVariantCaps
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.fontVariantCaps`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) spezifiziert eine alternative Großschreibung des gerenderten Textes.
+Die **`CanvasRenderingContext2D.fontVariantCaps`**-Eigenschaft der [Canvas-API](/de/docs/Web/API/Canvas_API) spezifiziert eine alternative Großschreibung des gerenderten Textes.
 
-Dies entspricht der CSS-Eigenschaft [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps).
+Dies entspricht der CSS-{{cssxref("font-variant-caps")}}-Eigenschaft.
 
 ## Wert
 
-Der alternative Großschreibungswert der Schriftart, der einer der folgenden sein kann:
+Der Wert der alternativen Großschreibung der Schrift, der einer der folgenden ist:
 
 - `normal` (Standard)
   - : Deaktiviert die Verwendung alternativer Glyphen.
@@ -24,25 +24,25 @@ Der alternative Großschreibungswert der Schriftart, der einer der folgenden sei
 - `all-small-caps`
   - : Aktiviert die Anzeige von Kapitälchen für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2sc`, `smcp`).
 - `petite-caps`
-  - : Aktiviert die Anzeige von kleinen Kapitälchen (OpenType-Funktion: `pcap`).
+  - : Aktiviert die Anzeige von Petiten-Kapitälchen (OpenType-Funktion: `pcap`).
 - `all-petite-caps`
-  - : Aktiviert die Anzeige von kleinen Kapitälchen für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2pc`, `pcap`).
+  - : Aktiviert die Anzeige von Petiten-Kapitälchen für sowohl Groß- als auch Kleinbuchstaben (OpenType-Funktionen: `c2pc`, `pcap`).
 - `unicase`
   - : Aktiviert die Anzeige einer Mischung aus Kapitälchen für Großbuchstaben mit normalen Kleinbuchstaben (OpenType-Funktion: `unic`).
 - `titling-caps`
-  - : Aktiviert die Anzeige von Titulierungs-Großbuchstaben (OpenType-Funktion: `titl`).
-    Glyphen für Großbuchstaben sind oft für die Verwendung mit Kleinbuchstaben entworfen.
-    Wenn sie in komplett groß geschriebenen Titulierungssequenzen verwendet werden, können sie zu stark wirken.
-    Titulierungs-Großbuchstaben sind speziell für diese Situation entworfen.
+  - : Aktiviert die Anzeige von Titelkapitälchen (OpenType-Funktion: `titl`).
+    Großbuchstabendesigns sind oft für die Verwendung mit Kleinbuchstaben konzipiert.
+    Wenn sie in rein großgeschriebenen Titelzeilen verwendet werden, können sie zu dominant wirken.
+    Titelkapitälchen sind speziell für diese Situation entwickelt.
 
-Die Eigenschaft kann verwendet werden, um den Schriftkapitalisierungswert zu erhalten oder zu setzen.
+Die Eigenschaft kann verwendet werden, um den Wert der Schrift-Großschreibung zu erhalten oder zu setzen.
 
-Beachten Sie, dass es Barrierefreiheitsbedenken bei einigen dieser gibt, die im entsprechenden Thema [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps#accessibility) dargelegt sind.
+Beachten Sie, dass es hinsichtlich Barrierefreiheit bei einigen davon Bedenken gibt, die im entsprechenden Thema [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps#accessibility) dargelegt sind.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text "Hello World" unter Verwendung jeder der unterstützten Werte der Eigenschaft `fontVariantCaps` an.
-Der Wert wird auch für jeden Fall durch Auslesen der Eigenschaft angezeigt.
+In diesem Beispiel wird der Text "Hello World" unter Verwendung jedes der unterstützten Werte der `fontVariantCaps`-Eigenschaft angezeigt.
+Der Wert wird für jeden Fall auch durch das Lesen der Eigenschaft angezeigt.
 
 ### HTML
 

@@ -3,14 +3,14 @@ title: "SVGTextContentElement: getSubStringLength()-Methode"
 short-title: getSubStringLength()
 slug: Web/API/SVGTextContentElement/getSubStringLength
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("SVG")}}
 
-Die `getSubStringLength()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die berechnete Länge der formatierten Textvorschubdistanz für einen Textsubstring innerhalb des Elements.
+Die `getSubStringLength()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die berechnete Länge der Abstandserweiterung für einen Textsubstring innerhalb des Elements.
 
-Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Substring und jeden zusätzlichen Abstand berücksichtigt, der durch die CSS-Eigenschaften [`letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing) und [`word-spacing`](/de/docs/Web/CSS/Reference/Properties/word-spacing) eingefügt wird. Visuelle Anpassungen des Abstands durch das [`x`](/de/docs/Web/CSS/Reference/Properties/x)-Attribut werden ignoriert.
+Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Substring und jeden zusätzlichen Abstand berücksichtigt, der durch die CSS-Eigenschaften {{cssxref("letter-spacing")}} und {{cssxref("word-spacing")}} eingefügt wird. Visuelle Abstandsanpassungen, die durch das {{cssxref("x")}}-Attribut vorgenommen werden, werden ignoriert.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Ein float.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `index` größer ist als der höchste Index oder `length` negativ ist.
+  - : Wird ausgelöst, wenn der `index` größer als der höchste Index ist oder `length` negativ ist.
 
 ## Beispiele
 

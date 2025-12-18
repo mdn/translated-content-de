@@ -3,12 +3,14 @@ title: Sec-Redemption-Record header
 short-title: Sec-Redemption-Record
 slug: Web/HTTP/Reference/Headers/Sec-Redemption-Record
 l10n:
-  sourceCommit: f6e66d18205c93fcaeb2ea9ad51541b5b4d7d2b1
+  sourceCommit: ee03b8deb5423c80e1cb8f6930a6f52e3f49e678
 ---
 
-Der HTTP **`Sec-Redemption-Record`** {{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}} wird von der [Private State Token API](/de/docs/Web/API/Private_State_Token_API) beim [Weiterleiten von Einlösungsnachweisen](/de/docs/Web/API/Private_State_Token_API/Using#redemption_record_usage_2) verwendet. Der Header enthält eine Liste von Ausstellern und Einlösungsnachweis-Paaren, die zu jedem Einlösungsnachweis gehören.
+{{SeeCompatTable}}
 
-Beachten Sie, dass Entwickler:innen nicht erwartet wird, `Sec-Redemption-Record`-Anfrage-Header selbst zu generieren – diese werden automatisch vom Browser erstellt, wenn private state token `send-redemption-record` Fetch-Anfragen ausgeführt werden.
+Der HTTP **`Sec-Redemption-Record`** {{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}} wird von der [Private State Token API](/de/docs/Web/API/Private_State_Token_API) verwendet, wenn [Einlösungsdatensätze weitergeleitet](/de/docs/Web/API/Private_State_Token_API/Using#redemption_record_usage_2) werden. Der Header enthält eine Liste von Aussteller- und Einlösungsdatensatzpaaren, die jedem Einlösungsdatensatz entsprechen.
+
+Beachten Sie, dass von einem Entwickler nicht erwartet wird, `Sec-Redemption-Record` Anfrage-Header zu generieren — diese werden automatisch vom Browser erstellt, wenn private state token `send-redemption-record` Fetch-Anfragen aufgerufen werden.
 
 <table class="properties">
   <tbody>
@@ -17,12 +19,12 @@ Beachten Sie, dass Entwickler:innen nicht erwartet wird, `Sec-Redemption-Record`
       <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
       <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungs-Header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -40,7 +42,7 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 ## Direktiven
 
 - `<string>`
-  - : Ein String, der Aussteller- und Einlösungsnachweis-Paare enthält.
+  - : Ein String, der Aussteller- und Einlösungsdatensatzpaare enthält.
 
 ## Beispiele
 

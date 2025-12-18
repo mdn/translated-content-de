@@ -2,14 +2,14 @@
 title: CSSImageValue
 slug: Web/API/CSSImageValue
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSImageValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild erfordern, wie zum Beispiel {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
+Das **`CSSImageValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild benötigen, zum Beispiel {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
 
-Das CSSImageValue-Objekt repräsentiert ein [`<image>`](/de/docs/Web/CSS/Reference/Values/image), das eine URL beinhaltet, wie [`url()`](/de/docs/Web/CSS/Reference/Values/url_function) oder [`image()`](/de/docs/Web/CSS/Reference/Values/image), aber nicht [`linear-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/Reference/Values/element).
+Das CSSImageValue-Objekt repräsentiert ein {{cssxref("image")}}, das eine URL beinhaltet, wie zum Beispiel {{cssxref("url_function", "url()")}} oder {{cssxref("image()")}}, jedoch nicht {{cssxref("gradient/linear-gradient", "linear-gradient()")}} oder {{cssxref("element()")}}.
 
 {{InheritanceDiagram}}
 
@@ -29,7 +29,7 @@ Wir erstellen ein Element
 <button>Magic Wand</button>
 ```
 
-Wir fügen etwas CSS hinzu, einschließlich eines Hintergrundbildes, das eine Binärdatei anfordert:
+Wir fügen etwas CSS hinzu, einschließlich eines Hintergrundbilds, das eine Binärdatei anfordert:
 
 ```css
 button {
@@ -40,7 +40,7 @@ button {
 }
 ```
 
-Wir holen die Style-Map des Elements. Dann rufen wir das `background-image` aus der Style-Map ab und konvertieren es in einen String:
+Wir erhalten die Stilkarte des Elements. Dann rufen wir get() für das Hintergrundbild von der Stilkarte auf und konvertieren es in einen String:
 
 ```js
 // get the element

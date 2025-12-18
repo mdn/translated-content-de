@@ -3,18 +3,18 @@ title: "CSSMathValue: operator-Eigenschaft"
 short-title: operator
 slug: Web/API/CSSMathValue/operator
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft **`CSSMathValue.operator`** des [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Interfaces gibt den Operator an, den der aktuelle Subtyp darstellt. Zum Beispiel, wenn der aktuelle `CSSMathValue`-Subtyp `CSSMathSum` ist, wird diese Eigenschaft den String `"sum"` zurückgeben.
+Die **`CSSMathValue.operator`** schreibgeschützte Eigenschaft des [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Interfaces gibt den Operator an, den der aktuelle Subtyp darstellt. Zum Beispiel, wenn der aktuelle `CSSMathValue` Subtyp `CSSMathSum` ist, gibt diese Eigenschaft den String `"sum"` zurück.
 
 ## Wert
 
 Ein {{jsxref('String')}}.
 
-| Interface                                           | Wert        |
+| Schnittstelle                                       | Wert        |
 | --------------------------------------------------- | ----------- |
 | [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)         | `"sum"`     |
 | [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) | `"product"` |
@@ -26,13 +26,13 @@ Ein {{jsxref('String')}}.
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/Reference/Properties/width), die durch eine [`calc()`](/de/docs/Web/CSS/Reference/Values/calc)-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` auszugeben.
+Wir erstellen ein Element mit einer {{cssxref("width")}}, die über eine {{cssxref("calc()")}}-Funktion bestimmt wird, und benutzen dann [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` auszugeben.
 
 ```html
 <div>My width has a <code>calc()</code> function</div>
 ```
 
-Wir weisen eine `width` mit einer Berechnung zu.
+Wir vergeben eine `width` mit einer Berechnung
 
 ```css
 div {
@@ -40,7 +40,7 @@ div {
 }
 ```
 
-Wir fügen das JavaScript hinzu.
+Wir fügen das JavaScript hinzu
 
 ```js
 const styleMap = document.querySelector("div").computedStyleMap();
@@ -53,7 +53,7 @@ console.log(styleMap.get("width").values[1].operator); // 'negate'
 
 {{EmbedLiveSample("Examples", 120, 300)}}
 
-Die `CSSMathValue.operator`-Eigenschaft gibt `sum` für die Gleichung und `negate` für den Operator auf dem zweiten Wert zurück.
+Das `CSSMathValue.operator` gibt `sum` für die Gleichung und `negate` für den Operator auf dem zweiten Wert zurück.
 
 ## Spezifikationen
 

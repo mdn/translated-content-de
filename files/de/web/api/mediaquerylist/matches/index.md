@@ -3,22 +3,22 @@ title: "MediaQueryList: matches-Eigenschaft"
 short-title: matches
 slug: Web/API/MediaQueryList/matches
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte **`matches`**-Eigenschaft des [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt, oder `false`, wenn dies nicht der Fall ist.
+Die schreibgeschützte **`matches`**-Eigenschaft der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle ist ein boolescher Wert, der `true` zurückgibt, wenn das [`document`](/de/docs/Web/API/Document) derzeit die Medienabfrageliste erfüllt, oder `false`, wenn nicht.
 
-Sie können benachrichtigt werden, wenn sich der Wert von `matches` ändert, indem Sie auf das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis lauschen, das bei der `MediaQueryList` ausgelöst wird.
+Sie können benachrichtigt werden, wenn sich der Wert von `matches` ändert, indem Sie auf das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis achten, das bei der `MediaQueryList` ausgelöst wird.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt; andernfalls ist er `false`.
+Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit die Medienabfrageliste erfüllt; andernfalls ist er `false`.
 
 ## Beispiele
 
-Dieses Beispiel erkennt Änderungen in der Ausrichtung des Ansichtsfensters, indem eine Medienabfrage mit dem [`orientation`](/de/docs/Web/CSS/Reference/At-rules/@media/orientation)-Medienmerkmal erstellt wird:
+Dieses Beispiel erkennt Änderungen der Ausrichtung des Ansichtsfensters, indem es eine Medienabfrage mit der {{cssxref("@media/orientation")}}-Medienfunktion erstellt:
 
 ```js
 const mql = window.matchMedia("(orientation:landscape)");

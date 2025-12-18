@@ -2,29 +2,29 @@
 title: prefers-contrast
 slug: Web/CSS/Reference/At-rules/@media/prefers-contrast
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: c4d3b34b77fcfc28dd1d1a7ecb051ee912d9d3dd
 ---
 
-Das **`prefers-contrast`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer angefordert hat, dass der Webinhalt mit einem niedrigeren oder höheren Kontrast dargestellt wird.
+Das **`prefers-contrast`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wird verwendet, um zu erkennen, ob der Nutzer die Darstellung des Webinhalts mit einem niedrigeren oder höheren Kontrast angefordert hat.
 
 ## Syntax
 
 - `no-preference`
-  - : Gibt an, dass der Benutzer kein Präferenz an das System übermittelt hat. Dieser Schlüsselwortwert wird im Booleschen Kontext als falsch ausgewertet.
+  - : Zeigt an, dass der Nutzer keine Vorlieben dem System mitgeteilt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch bewertet.
 - `more`
-  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit höherem Kontrast bevorzugt.
+  - : Zeigt an, dass der Nutzer das System darüber informiert hat, dass sie eine Oberfläche mit einem höheren Kontrastniveau bevorzugen.
 - `less`
-  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit niedrigerem Kontrast bevorzugt.
+  - : Zeigt an, dass der Nutzer das System darüber informiert hat, dass sie eine Oberfläche mit einem niedrigeren Kontrastniveau bevorzugen.
 - `custom`
-  - : Gibt an, dass der Benutzer dem System eine spezifische Farbpalette mitgeteilt hat und der durch diese Farben implizierte Kontrast weder `more` noch `less` entspricht. Dieser Wert entspricht der Farbpalette, die von Benutzern von [`forced-colors: active`](/de/docs/Web/CSS/Reference/At-rules/@media/forced-colors) angegeben wurde.
+  - : Zeigt an, dass der Nutzer das System gebeten hat, einen spezifischen Satz von Farben zu verwenden, und der durch diese Farben implizierte Kontrast weder `more` noch `less` entspricht. Dieser Wert wird mit der von Benutzern von [`forced-colors: active`](/de/docs/Web/CSS/Reference/At-rules/@media/forced-colors) angegebenen Farbpalette übereinstimmen.
 
-## Benutzerpräferenzen
+## Nutzervorlieben
 
-Verschiedene Betriebssysteme unterstützen solche Präferenzen, und es ist wahrscheinlich, dass Benutzeragenten auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
+Verschiedene Betriebssysteme unterstützen solche Vorlieben und Benutzeragenten werden voraussichtlich auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
 
 ## Beispiele
 
-Dieses Beispiel hat standardmäßig einen ärgerlich niedrigen Kontrast.
+Dieses Beispiel enthält ein Kästchen mit einer standardmäßig gesetzten gestrichelten {{cssxref("outline")}}. Wenn die `prefers-contrast: more` Media Query zutrifft, erhält die angewandte Umrandung stattdessen einen höher kontrastierten `solid` Stil.
 
 ### HTML
 
@@ -36,6 +36,7 @@ Dieses Beispiel hat standardmäßig einen ärgerlich niedrigen Kontrast.
 
 ```css
 .contrast {
+  margin: 5px;
   width: 100px;
   height: 100px;
   outline: 2px dashed black;
@@ -62,4 +63,4 @@ Dieses Beispiel hat standardmäßig einen ärgerlich niedrigen Kontrast.
 
 ## Siehe auch
 
-- CSS [forced-colors](/de/docs/Web/CSS/Reference/At-rules/@media/forced-colors) Medienabfrage
+- CSS [forced-colors](/de/docs/Web/CSS/Reference/At-rules/@media/forced-colors) Media Query
