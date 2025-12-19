@@ -3,24 +3,24 @@ title: "IdentityCredential: configURL-Eigenschaft"
 short-title: configURL
 slug: Web/API/IdentityCredential/configURL
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 798f5efbce403e2366323afea025e5729b902e46
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`configURL`**-Eigenschaft der [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Zeichenkette zurückgibt, die die URL der Konfigurationsdatei des {{Glossary("Identity_provider", "Identity Providers")}} (IdP) angibt, der für die Anmeldung verwendet wird.
+Die schreibgeschützte **`configURL`**-Eigenschaft der [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Schnittstelle gibt einen String zurück, der die URL der Konfigurationsdatei des {{Glossary("Identity_provider", "Identity Providers")}} (IdP) angibt, der für die Anmeldung verwendet wird.
 
-Weitere Informationen finden Sie unter [Konfigurationsdatei bereitstellen](/de/docs/Web/API/FedCM_API/IDP_integration#provide_a_config_file_and_endpoints).
+Weitere Informationen finden Sie unter [Bereitstellen einer Konfigurationsdatei](/de/docs/Web/API/FedCM_API/IDP_integration#provide_a_config_file_and_endpoints).
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-### Grundlagen der föderierten Anmeldung und Zugriff auf die `configURL`
+### Grundlegende föderierte Anmeldung und Zugriff auf `configURL`
 
-{{Glossary("Relying_party", "Vertrauenswürdige Parteien")}} (RP) können `navigator.credentials.get()` mit der `identity`-Option aufrufen, um eine Anfrage zu stellen, damit sich Benutzer über einen Identity Provider (IdP) bei der RP anmelden können, indem sie die Identitätsföderation nutzen. Eine Anfrage, die einen einzigen Anbieter angibt, würde folgendermaßen aussehen:
+{{Glossary("Relying_party", "Vertrauende Parteien")}} (RPs) können `navigator.credentials.get()` mit der Option `identity` aufrufen, um eine Anfrage zu stellen, damit sich Benutzer über einen Identity Provider (IdP) beim RP anmelden, unter Verwendung der Identitätsföderation. Eine Anfrage, die einen einzelnen Anbieter angibt, würde so aussehen:
 
 ```js
 async function signIn() {
@@ -30,7 +30,9 @@ async function signIn() {
         {
           configURL: "https://accounts.idp.example/config.json",
           clientId: "********",
-          nonce: "******",
+          params: {
+            /* IdP-specific parameters */
+          },
         },
       ],
     },
@@ -40,9 +42,9 @@ async function signIn() {
 }
 ```
 
-Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity`-Option enthält, wird mit einer `IdentityCredential`-Instanz erfüllt, die verwendet werden kann, um auf die `configURL` des IdP zuzugreifen, der für die Anmeldung verwendet wurde.
+Ein erfolgreicher Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get), der eine `identity`-Option enthält, wird mit einer `IdentityCredential`-Instanz erfüllt, die verwendet werden kann, um auf die `configURL` des für die Anmeldung verwendeten IdP zuzugreifen.
 
-Weitere Details, wie dies funktioniert, finden Sie in der [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API). Dieser Aufruf wird den Anmeldeablauf auslösen, der im [FedCM-Anmeldeablauf](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben wird.
+Weitere Einzelheiten darüber, wie dies funktioniert, finden Sie in der [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API). Dieser Aufruf wird den Anmeldeablauf starten, der im [FedCM-Anmeldeablauf](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow) beschrieben wird.
 
 ## Spezifikationen
 
