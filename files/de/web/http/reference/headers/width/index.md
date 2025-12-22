@@ -3,19 +3,21 @@ title: Width header
 short-title: Width
 slug: Web/HTTP/Reference/Headers/Width
 l10n:
-  sourceCommit: 53d1a4810a69dc436badd5b73c1a66c8764c835b
+  sourceCommit: 013f3148c4e85038bd961c984e357da703d315e3
 ---
 
 {{Deprecated_Header}}{{SecureContext_header}}{{Non-standard_Header}}
 
 > [!WARNING]
-> Der `Width`-Header wurde aus der Client-Hinweise-Spezifikation im [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt. Der vorgeschlagene Ersatz ist [`Sec-CH-Width`](https://wicg.github.io/responsive-image-client-hints/#sec-ch-width) (Responsive Image Client Hints).
+> Der `Width`-Header wurde als {{HTTPHeader("Sec-CH-Width")}} standardisiert und der neue Name wird jetzt bevorzugt.
 
-Der HTTP **`Width`**-{{Glossary("request_header", "Anforderungs-Header")}} ist ein [Geräte-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints), der die gewünschte Breite der Ressource in physischen Pixeln angibt — die intrinsische Größe eines Bildes. Der angegebene Pixelwert ist eine Zahl, die auf die kleinste folgende ganze Zahl aufgerundet wird (d.h. Deckenwert).
+Der HTTP **`Width`** {{Glossary("request_header", "Anforderungs-Header")}} ist ein [Device Client Hint](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints), der die gewünschte Ressourcenbreite in physischen Pixeln angibt — die intrinsische Größe eines Bildes. Der angegebene Pixelwert ist eine Zahl, die auf die kleinste folgende ganze Zahl gerundet wird (d.h. Deckenwert).
 
-Der Hinweis ermöglicht es dem Client, eine Ressource anzufordern, die sowohl für den Bildschirm als auch für das Layout optimal ist: Er berücksichtigt sowohl die dichtekorrigierte Breite des Bildschirms als auch die extrinsische Größe des Bildes innerhalb des Layouts.
+Der Hinweis wird nur bei Bildanforderungen gesendet.
 
-Wenn die gewünschte Breite der Ressource zum Zeitpunkt der Anfrage nicht bekannt ist oder die Ressource keine Anzeigebreite hat, kann das `Width`-Header-Feld weggelassen werden. Erscheint der `Width`-Header mehrmals in einer Nachricht, wird das letzte Vorkommen verwendet.
+Der Hinweis ermöglicht es dem Client, eine Ressource anzufordern, die sowohl für den Bildschirm als auch für das Layout optimal ist: Er berücksichtigt dabei sowohl die dichte-korrigierte Breite des Bildschirms als auch die extrinsische Größe des Bildes im Layout.
+
+Wenn die gewünschte Ressourcenbreite zum Zeitpunkt der Anforderung nicht bekannt ist oder die Ressource keine Anzeigebreite hat, kann das `Width`-Header-Feld weggelassen werden. Wenn der `Width`-Header mehr als einmal in einer Nachricht erscheint, wird die letzte Vorkommen verwendet.
 
 <table class="properties">
   <tbody>
@@ -23,7 +25,7 @@ Wenn die gewünschte Breite der Ressource zum Zeitpunkt der Anfrage nicht bekann
       <th scope="row">Header-Typ</th>
       <td>
         {{Glossary("Request_header", "Anforderungs-Header")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
@@ -46,13 +48,13 @@ Width: <number>
 
 ## Beispiele
 
-Der Server muss zuerst zustimmen, den `Width`-Header zu empfangen, indem er die Antwort-Header {{HTTPHeader("Accept-CH")}} mit `Width` sendet.
+Der Server muss zuerst zustimmen, den `Width`-Header zu erhalten, indem er die Antwort-Header {{HTTPHeader("Accept-CH")}} mit `Width` sendet.
 
 ```http
 Accept-CH: Width
 ```
 
-Dann kann der Client bei zukünftigen Anfragen den `Width`-Header zurücksenden:
+Dann könnte der Client bei nachfolgenden Bildanforderungen den `Width`-Header zurücksenden:
 
 ```http
 Width: 1920
@@ -64,16 +66,12 @@ Width: 1920
 
 ## Siehe auch
 
-- Geräte-Client-Hinweise
+- Device und Responsive Image Client Hints
+  - {{HTTPHeader("Sec-CH-Width")}}
   - {{HTTPHeader("Sec-CH-Viewport-Width")}}
   - {{HTTPHeader("Sec-CH-Viewport-Height")}}
   - {{HTTPHeader("Sec-CH-Device-Memory")}}
   - {{HTTPHeader("Sec-CH-DPR")}}
-  - {{HTTPHeader("DPR")}} {{deprecated_inline}}
-  - {{HTTPHeader("Content-DPR")}} {{deprecated_inline}}
-  - {{HTTPHeader("Device-Memory")}} {{deprecated_inline}}
-  - {{HTTPHeader("Viewport-Width")}} {{deprecated_inline}}
-  - {{HTTPHeader("Width")}} {{deprecated_inline}}
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}}-Header
-- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Guides/Caching#vary) und {{HTTPHeader("Vary")}} Header
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

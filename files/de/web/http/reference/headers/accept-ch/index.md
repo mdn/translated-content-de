@@ -3,22 +3,22 @@ title: Accept-CH header
 short-title: Accept-CH
 slug: Web/HTTP/Reference/Headers/Accept-CH
 l10n:
-  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
+  sourceCommit: 013f3148c4e85038bd961c984e357da703d315e3
 ---
 
 {{securecontext_header}}
 
-Der HTTP **`Accept-CH`** {{Glossary("response_header", "Antwort-Header")}} kann von einem Server gesetzt werden, um anzugeben, welche [Client Hint]-Header (/de/docs/Web/HTTP/Guides/Client_hints) vom Client in nachfolgenden Anfragen einbezogen werden sollen. Um sicherzustellen, dass Client-Hints zuverlässig gesendet werden, sollte der `Accept-CH`-Header bei allen sicheren Anfragen beibehalten werden.
+Der HTTP **`Accept-CH`** {{Glossary("response_header", "Response-Header")}} kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hint]-Header (/de/docs/Web/HTTP/Guides/Client_hints) vom Client in nachfolgenden Anfragen eingeschlossen werden sollen. Um sicherzustellen, dass Client-Hints zuverlässig gesendet werden, sollte der `Accept-CH`-Header für alle sicheren Anfragen gespeichert werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-sicherheitsliste Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -36,13 +36,13 @@ Accept-CH: <ch-header-one>, <ch-header-two>
 
 ## Beispiele
 
-### Client Hint Antwort-Header
+### Client-Hint-Response-Header
 
-Die folgenden Antwort-Header zeigen an, dass der Server `Viewport-Width` und `Width` [Geräte-Client Hints](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints) in nachfolgenden Anfragen akzeptiert. Der {{HTTPHeader("Vary")}}-Header zeigt an, welche Werte verwendet wurden, um die [Antwort basierend auf den akzeptierten Client Hints zu variieren](/de/docs/Web/HTTP/Guides/Client_hints#caching_and_client_hints).
+Die folgenden Response-Header zeigen an, dass der Server `Sec-CH-Viewport-Width` und `Sec-CH-Width` [Device-Client-Hints](/de/docs/Web/HTTP/Guides/Client_hints#device_client_hints) in nachfolgenden Anfragen akzeptiert. Der {{HTTPHeader("Vary")}}-Header gibt an, welche Werte verwendet wurden, um die Antwort basierend auf den akzeptierten Client-Hints [zu variieren](/de/docs/Web/HTTP/Guides/Client_hints#caching_and_client_hints).
 
 ```http
-Accept-CH: Viewport-Width, Width
-Vary: Viewport-Width, Width
+Accept-CH: Sec-CH-Viewport-Width, Sec-CH-Width
+Vary: Sec-CH-Viewport-Width, Sec-CH-Width
 ```
 
 ## Spezifikationen
