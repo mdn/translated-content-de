@@ -11,7 +11,7 @@ l10n:
 > [!WARNING]
 > Der `Viewport-Width`-Header wurde als {{HTTPHeader("Sec-CH-Viewport-Width")}} standardisiert, und der neue Name wird nun bevorzugt.
 
-Der HTTP **`Viewport-Width`** {{Glossary("request_header", "Request-Header")}} ist ein [Device Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints), der die Breite des Layout-Viewports des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} bereitstellt. Der Wert wird auf die nächstgrößere ganze Zahl aufgerundet (d. h. der Deckwert).
+Der HTTP **`Viewport-Width`** {{Glossary("request_header", "Request-Header")}} ist ein [Device Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints), der die Breite des Layout-Viewports des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} bereitstellt. Der Wert wird auf die nächstgrößere ganze Zahl aufgerundet (d.h. der Deckwert).
 
 Der Hinweis kann zusammen mit anderen bildschirmspezifischen Hinweisen verwendet werden, um Bilder zu liefern, die für eine bestimmte Bildschirmgröße optimiert sind, oder um Ressourcen, die für eine bestimmte Bildschirmbreite nicht benötigt werden, auszulassen. Wenn der `Viewport-Width`-Header mehr als einmal in einer Nachricht erscheint, wird die letzte Vorkommen verwendet.
 
