@@ -3,19 +3,18 @@ title: "Gamepad: index-Eigenschaft"
 short-title: index
 slug: Web/API/Gamepad/index
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad API")}}{{SecureContext_Header}}
+{{APIRef("Gamepad API")}}
 
-Die **`Gamepad.index`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)
-Interfaces gibt eine ganze Zahl zurück, die automatisch inkrementiert wird, um für jedes aktuell mit dem System verbundene Gerät eindeutig zu sein.
+Die **`Gamepad.index`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt eine Ganzzahl zurück, die automatisch inkrementiert wird, um für jedes derzeit mit dem System verbundene Gerät eindeutig zu sein.
 
-Dies kann verwendet werden, um mehrere Controller zu unterscheiden; ein Gamepad, das getrennt und wieder verbunden wird, behält denselben Index bei.
+Dies kann verwendet werden, um mehrere Controller zu unterscheiden; ein Gamepad, das getrennt und wieder verbunden wird, behält denselben Index.
 
 ## Wert
 
-Ein {{jsxref("number") }}.
+Eine {{jsxref("number") }}.
 
 ## Beispiele
 
@@ -36,4 +35,4 @@ window.addEventListener("gamepadconnected", () => {
 
 ## Siehe auch
 
-[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

@@ -3,17 +3,14 @@ title: "Gamepad: connected-Eigenschaft"
 short-title: connected
 slug: Web/API/Gamepad/connected
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad API")}}{{SecureContext_Header}}
+{{APIRef("Gamepad API")}}
 
-Die **`Gamepad.connected`**-Eigenschaft des
-[`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen Boolean-Wert zurück, der anzeigt, ob das Gamepad
-noch mit dem System verbunden ist.
+Die **`Gamepad.connected`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen Boolean zurück, der anzeigt, ob das Gamepad noch mit dem System verbunden ist.
 
-Wenn das Gamepad verbunden ist, ist der Wert `true`; andernfalls ist er
-`false`.
+Wenn das Gamepad verbunden ist, ist der Wert `true`; wenn nicht, ist er `false`.
 
 ## Wert
 

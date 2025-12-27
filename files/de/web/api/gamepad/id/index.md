@@ -1,28 +1,27 @@
 ---
-title: "Gamepad: id Eigenschaft"
+title: "Gamepad: id-Eigenschaft"
 short-title: id
 slug: Web/API/Gamepad/id
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad API")}}{{SecureContext_Header}}
+{{APIRef("Gamepad API")}}
 
-Die **`Gamepad.id`** Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)
-Interfaces gibt einen String zurück, der einige Informationen über den Controller enthält.
+Die **`Gamepad.id`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen String zurück, der einige Informationen über den Controller enthält.
 
-Die genaue Syntax ist nicht streng festgelegt, aber in Firefox enthält sie drei Informationen, die durch Bindestriche (`-`) getrennt sind:
+Die genaue Syntax ist nicht streng festgelegt, aber in Firefox wird sie drei Informationen enthalten, die durch Bindestriche (`-`) getrennt sind:
 
 - Zwei 4-stellige hexadezimale Zeichenfolgen, die die USB-Hersteller- und Produkt-ID des Controllers enthalten
-- Der Name des Controllers, wie er vom Treiber bereitgestellt wird.
+- Der vom Treiber angegebene Name des Controllers.
 
-Zum Beispiel kehrte ein PS2-Controller **810-3-USB Gamepad** zurück.
+Zum Beispiel gab ein PS2-Controller **810-3-USB Gamepad** zurück.
 
-Diese Informationen sollen Ihnen helfen, die Steuerung des Geräts zuzuordnen und nützliches Feedback an den Benutzer zu geben.
+Diese Informationen sollen Ihnen ermöglichen, eine Zuordnung für die Bedienelemente auf dem Gerät zu finden sowie nützliches Feedback für den Benutzer anzuzeigen.
 
 ## Wert
 
-Ein primitiver String.
+Ein Zeichenfolgen-Primitive.
 
 ## Beispiele
 
@@ -43,4 +42,4 @@ window.addEventListener("gamepadconnected", () => {
 
 ## Siehe auch
 
-[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

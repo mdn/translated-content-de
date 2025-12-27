@@ -2,27 +2,27 @@
 title: GamepadButton
 slug: Web/API/GamepadButton
 l10n:
-  sourceCommit: 32305cc3cf274fbfdcc73a296bbd400a26f38296
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad API")}}{{securecontext_header}}
+{{APIRef("Gamepad API")}}
 
-Die **`GamepadButton`**-Schnittstelle definiert einen einzelnen Knopf eines Gamepads oder eines anderen Controllers und ermöglicht den Zugriff auf den aktuellen Zustand verschiedener Arten von Knöpfen, die auf dem Steuergerät verfügbar sind.
+Die **`GamepadButton`**-Schnittstelle definiert eine einzelne Taste eines Gamepads oder eines anderen Controllers und ermöglicht den Zugriff auf den aktuellen Zustand verschiedener Arten von Tasten, die auf dem Steuergerät verfügbar sind.
 
-Ein `GamepadButton`-Objekt wird zurückgegeben, indem ein beliebiger Wert des Arrays abgefragt wird, das von der `buttons`-Eigenschaft der [`Gamepad`](/de/docs/Web/API/Gamepad)-Schnittstelle geliefert wird.
+Ein `GamepadButton`-Objekt wird zurückgegeben, wenn ein beliebiger Wert des Arrays abgefragt wird, das von der `buttons`-Eigenschaft der [`Gamepad`](/de/docs/Web/API/Gamepad)-Schnittstelle zurückgegeben wird.
 
 ## Instanz-Eigenschaften
 
 - [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob der Knopf derzeit gedrückt (`true`) oder nicht gedrückt (`false`) ist.
+  - : Ein boolescher Wert, der anzeigt, ob die Taste derzeit gedrückt (`true`) oder nicht gedrückt (`false`) ist.
 - [`GamepadButton.touched`](/de/docs/Web/API/GamepadButton/touched) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob der Knopf derzeit berührt (`true`) oder nicht berührt (`false`) ist.
+  - : Ein boolescher Wert, der anzeigt, ob die Taste derzeit berührt (`true`) oder nicht berührt (`false`) ist.
 - [`GamepadButton.value`](/de/docs/Web/API/GamepadButton/value) {{ReadOnlyInline}}
-  - : Ein Doppelwert, der verwendet wird, um den aktuellen Zustand von analogen Knöpfen darzustellen, wie zum Beispiel die Trigger auf vielen modernen Gamepads. Die Werte sind normalisiert im Bereich von 0,0 bis 1,0, wobei 0,0 einen nicht gedrückten Knopf und 1,0 einen vollständig gedrückten Knopf darstellt.
+  - : Ein doppelter Wert, der verwendet wird, um den aktuellen Zustand von analogen Tasten darzustellen, wie z.B. die Trigger bei vielen modernen Gamepads. Die Werte sind normalisiert im Bereich von 0,0 bis 1,0, wobei 0,0 für eine nicht gedrückte Taste steht und 1,0 für eine vollständig gedrückte Taste.
 
 ## Beispiel
 
-Die Knopfwerte im folgenden Beispiel werden als ein Array von `GamepadButton`-Objekten gespeichert. Dieses einfache Beispiel überprüft, ob der [`GamepadButton.value`](/de/docs/Web/API/GamepadButton/value) eines Knopfes größer als `0` ist oder ob die [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed)-Eigenschaft anzeigt, dass der Knopf gedrückt wurde.
+Die Tastenwerte im folgenden Beispiel werden als ein Array von `GamepadButton`-Objekten gespeichert. Dieses einfache Beispiel überprüft, ob der [`GamepadButton.value`](/de/docs/Web/API/GamepadButton/value) einer Taste größer als `0` ist oder ob die [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed)-Eigenschaft anzeigt, dass die Taste gedrückt wurde.
 
 ```js
 function gameLoop() {
@@ -55,4 +55,4 @@ function gameLoop() {
 
 ## Siehe auch
 
-[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

@@ -2,12 +2,12 @@
 title: GamepadEvent
 slug: Web/API/GamepadEvent
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad API")}}{{securecontext_header}}
+{{APIRef("Gamepad API")}}
 
-Die `GamepadEvent`-Schnittstelle der Gamepad-API enthält Referenzen auf Gamepads, die mit dem System verbunden sind. Dies ist der Grund, warum die Gamepad-Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) als Reaktion darauf ausgelöst werden.
+Das `GamepadEvent`-Interface der Gamepad API enthält Referenzen auf mit dem System verbundene Gamepads, auf die die Gamepad-Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) reagieren.
 
 {{InheritanceDiagram}}
 
@@ -19,11 +19,11 @@ Die `GamepadEvent`-Schnittstelle der Gamepad-API enthält Referenzen auf Gamepad
 ## Instanz-Eigenschaften
 
 - [`GamepadEvent.gamepad`](/de/docs/Web/API/GamepadEvent/gamepad) {{ReadOnlyInline}}
-  - : Gibt ein [`Gamepad`](/de/docs/Web/API/Gamepad) Objekt zurück, das Zugriff auf die zugehörigen Gamepad-Daten des ausgelösten Ereignisses bietet.
+  - : Gibt ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt zurück, das Zugriff auf die zugehörigen Gamepad-Daten für das ausgelöste Ereignis bietet.
 
 ## Beispiele
 
-Die `gamepad`-Eigenschaft, die bei einem ausgelösten [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis aufgerufen wird.
+Die Eigenschaft `gamepad`, die bei einem ausgelösten [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) Ereignis aufgerufen wird.
 
 ```js
 window.addEventListener("gamepadconnected", (e) => {
@@ -59,4 +59,4 @@ window.addEventListener("gamepaddisconnected", (e) => {
 
 ## Siehe auch
 
-[Nutzung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Nutzung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

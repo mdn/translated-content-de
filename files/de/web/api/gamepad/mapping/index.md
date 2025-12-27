@@ -3,18 +3,18 @@ title: "Gamepad: mapping-Eigenschaft"
 short-title: mapping
 slug: Web/API/Gamepad/mapping
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad API")}}{{SecureContext_Header}}
+{{APIRef("Gamepad API")}}
 
 Die **`Gamepad.mapping`**-Eigenschaft des
-[`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen String zurück, der angibt, ob der Browser die Steuerung des Geräts auf ein bekanntes Layout umgemappt hat.
+[`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt einen String zurück, der angibt, ob der Browser die Steuerelemente auf dem Gerät auf ein bekanntes Layout umgemappt hat.
 
 Die derzeit unterstützten bekannten Layouts sind:
 
-- "standard" für das [standard gamepad](https://w3c.github.io/gamepad/#remapping).
-- "xr-standard" für das [standard XR-Gamepad](https://immersive-web.github.io/webxr-gamepads-module/#xr-standard-heading). Siehe auch [`XRInputSource.gamepad`](/de/docs/Web/API/XRInputSource/gamepad).
+- "standard" für das [Standard-Gamepad](https://w3c.github.io/gamepad/#remapping).
+- "xr-standard" für das [Standard-XR-Gamepad](https://immersive-web.github.io/webxr-gamepads-module/#xr-standard-heading). Siehe auch [`XRInputSource.gamepad`](/de/docs/Web/API/XRInputSource/gamepad).
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ console.log(gp.mapping);
 
 ## Siehe auch
 
-[Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+[Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

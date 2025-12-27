@@ -3,15 +3,15 @@ title: "Gamepad: vibrationActuator-Eigenschaft"
 short-title: vibrationActuator
 slug: Web/API/Gamepad/vibrationActuator
 l10n:
-  sourceCommit: c28529c0cc75eb5d2de857c923f0a1ebd5145313
+  sourceCommit: 3020adac456187cf18edeb20613482fb73b38c1e
 ---
 
-{{APIRef("Gamepad")}}{{SecureContext_Header}}
+{{APIRef("Gamepad")}}
 
-Die schreibgeschützte **`vibrationActuator`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Objekt zurück, das die für den Controller verfügbare haptische Feedback-Hardware repräsentiert.
+Die schreibgeschützte **`vibrationActuator`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Objekt zurück, das die auf dem Controller verfügbare haptische Rückmeldungshardware darstellt.
 
 > [!NOTE]
-> Die Unterstützung dieser Eigenschaft kann je nach Kombination von Plattformen und Controllern variieren. Selbst wenn der Controller haptisches Feedback unterstützt, kann es sein, dass die Plattform es nicht unterstützt.
+> Die Unterstützung für diese Eigenschaft kann bei verschiedenen Kombinationen von Plattformen und Controllern variieren. Selbst wenn der Controller haptisches Feedback unterstützt, könnte es sein, dass die Plattform dies nicht unterstützt.
 
 ## Wert
 
@@ -40,4 +40,4 @@ gamepad.vibrationActuator.playEffect("dual-rumble", {
 
 ## Siehe auch
 
-- [Gamepad API](/de/docs/Web/API/Gamepad_API)
+- [Gamepad-API](/de/docs/Web/API/Gamepad_API)
