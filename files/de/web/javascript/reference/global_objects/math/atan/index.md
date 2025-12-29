@@ -3,14 +3,14 @@ title: Math.atan()
 short-title: atan()
 slug: Web/JavaScript/Reference/Global_Objects/Math/atan
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 0fb5a7e4cc045ba0b1dc453624f196309d9bea10
 ---
 
-Die statische Methode **`Math.atan()`** gibt den Arcustangens (im Bogenmaß) einer Zahl zurück, das heißt
+Die **`Math.atan()`** statische Methode gibt den Arcustangens (im Bogenmaß) einer Zahl zurück, das heißt
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚊𝚝𝚊𝚗</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mo lspace="0em" rspace="0em">arctan</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>das eindeutig&nbsp;</mtext><mi>y</mi><mo>∊</mo><mrow><mo>[</mo><mrow><mo>−</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>,</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><mo>]</mo></mrow><mtext>&nbsp;, sodass&nbsp;</mtext><mo lspace="0em" rspace="0em">tan</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.atan}(x)}} = \arctan(x) = \text{das eindeutig } y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \text{ , sodass } \tan(y) = x</annotation></semantics>
+  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚊𝚝𝚊𝚗</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mo lspace="0em" rspace="0em">arctan</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>the unique&nbsp;</mtext><mi>y</mi><mo>∊</mo><mrow><mo>[</mo><mrow><mo>−</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>,</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><mo>]</mo></mrow><mtext>&nbsp;such that&nbsp;</mtext><mo lspace="0em" rspace="0em">tan</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.atan}(x)}} = \arctan(x) = \text{the unique } y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \text{ such that } \tan(y) = x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -42,7 +42,7 @@ Math.atan(x)
 
 ### Rückgabewert
 
-Der Arcustangens (Winkel im Bogenmaß zwischen <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> und <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>, einschließlich) von `x`. Wenn `x` {{jsxref("Infinity")}} ist, gibt es <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> zurück. Wenn `x` `-Infinity` ist, gibt es <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> zurück.
+Der Arcustangens (Winkel im Bogenmaß zwischen <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> und <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>, inklusive) von `x`. Wenn `x` {{jsxref("Infinity")}} ist, gibt es <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> zurück. Wenn `x` `-Infinity` ist, gibt es <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> zurück.
 
 ## Beschreibung
 
@@ -63,7 +63,7 @@ Math.atan(Infinity); // 1.5707963267948966  (π/2)
 const theta = (x, y) => Math.atan(y / x);
 ```
 
-Beachten Sie, dass Sie möglicherweise die `theta`-Funktion vermeiden möchten und stattdessen {{jsxref("Math.atan2()")}} verwenden, die einen größeren Bereich hat (zwischen -π und π) und es vermeidet, `NaN` für Fälle wie wenn `x` `0` ist, auszugeben.
+Beachten Sie, dass Sie die `theta`-Funktion vermeiden und stattdessen {{jsxref("Math.atan2()")}} verwenden möchten, da sie einen größeren Bereich (zwischen -π und π) hat und `NaN` in Fällen wie wenn `x` `0` ist, vermeidet.
 
 ## Spezifikationen
 
@@ -81,3 +81,4 @@ Beachten Sie, dass Sie möglicherweise die `theta`-Funktion vermeiden möchten u
 - {{jsxref("Math.cos()")}}
 - {{jsxref("Math.sin()")}}
 - {{jsxref("Math.tan()")}}
+- CSS {{cssxref("atan()")}} Funktion

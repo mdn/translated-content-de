@@ -3,10 +3,10 @@ title: Math.tan()
 short-title: tan()
 slug: Web/JavaScript/Reference/Global_Objects/Math/tan
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 0fb5a7e4cc045ba0b1dc453624f196309d9bea10
 ---
 
-Die **`Math.tan()`** statische Methode gibt den Tangens einer Zahl in Radiant zurück.
+Die statische Methode **`Math.tan()`** gibt den Tangens einer Zahl in Bogenmaß zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.tan()")}}
 
@@ -34,18 +34,18 @@ Math.tan(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel in Radiant darstellt.
+  - : Eine Zahl, die einen Winkel in Bogenmaß darstellt.
 
 ### Rückgabewert
 
 Der Tangens von `x`. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 > [!NOTE]
-> Aufgrund der Gleitkommagenauigkeit ist es nicht möglich, den exakten Wert π/2 zu erhalten, daher ist das Ergebnis immer endlich, wenn es nicht `NaN` ist.
+> Aufgrund der Gleitkomma-Genauigkeit ist es nicht möglich, den exakten Wert von π/2 zu erhalten, daher ist das Ergebnis immer endlich, wenn es nicht `NaN` ist.
 
 ## Beschreibung
 
-Da `tan()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.tan()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `tan()` eine statische Methode von `Math` ist, verwenden Sie es immer als `Math.tan()` und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -71,7 +71,7 @@ Math.tan(Math.PI / 2 + Number.EPSILON); // -6218431163823738
 
 ### Verwendung von Math.tan() mit einem Gradwert
 
-Da die Funktion `Math.tan()` Radiant akzeptiert, es aber oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, konvertiert ihn in Radiant und gibt den Tangens zurück.
+Da die Funktion `Math.tan()` Bogenmaß akzeptiert, es jedoch oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, konvertiert ihn in Bogenmaß und gibt den Tangens zurück.
 
 ```js
 function getTanDeg(deg) {
@@ -96,3 +96,4 @@ function getTanDeg(deg) {
 - {{jsxref("Math.atan2()")}}
 - {{jsxref("Math.cos()")}}
 - {{jsxref("Math.sin()")}}
+- CSS {{cssxref("tan()")}} Funktion

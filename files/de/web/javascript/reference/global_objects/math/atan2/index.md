@@ -3,7 +3,7 @@ title: Math.atan2()
 short-title: atan2()
 slug: Web/JavaScript/Reference/Global_Objects/Math/atan2
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 0fb5a7e4cc045ba0b1dc453624f196309d9bea10
 ---
 
 Die statische Methode **`Math.atan2()`** gibt den Winkel in der Ebene (in Radiant) zwischen der positiven x-Achse und dem Strahl von (0, 0) zu dem Punkt (x, y) zurück, für `Math.atan2(y, x)`.
@@ -44,11 +44,11 @@ Der Winkel in Radiant (zwischen -π und π, inklusive) zwischen der positiven x-
 
 ## Beschreibung
 
-Die Methode `Math.atan2()` misst den gegen den Uhrzeigersinn gerichteten Winkel θ, in Radiant, zwischen der positiven x-Achse und dem Punkt `(x, y)`. Beachten Sie, dass die Argumente dieser Funktion zuerst die y-Koordinate und dann die x-Koordinate übergeben.
+Die `Math.atan2()`-Methode misst den gegen den Uhrzeigersinn gerichteten Winkel θ, in Radiant, zwischen der positiven x-Achse und dem Punkt `(x, y)`. Beachten Sie, dass die Argumente dieser Funktion zuerst die y-Koordinate und dann die x-Koordinate übergeben.
 
 ![Ein Diagramm, das den Winkel zeigt, der von atan2(y, x) zurückgegeben wird](atan2.png)
 
-`Math.atan2()` wird getrennte `x`- und `y`-Argumente übergeben, während [`Math.atan()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/atan) das Verhältnis dieser beiden Argumente übergeben wird. `Math.atan2(y, x)` unterscheidet sich von `Math.atan(y / x)` in den folgenden Fällen:
+`Math.atan2()` wird mit getrennten `x`- und `y`-Argumenten aufgerufen, während [`Math.atan()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/atan) mit dem Verhältnis dieser beiden Argumente aufgerufen wird. `Math.atan2(y, x)` unterscheidet sich in folgenden Fällen von `Math.atan(y / x)`:
 
 | `x`                       | `y`         | `Math.atan2(y, x)` | `Math.atan(y / x)` |
 | ------------------------- | ----------- | ------------------ | ------------------ |
@@ -65,9 +65,9 @@ Die Methode `Math.atan2()` misst den gegen den Uhrzeigersinn gerichteten Winkel 
 | `-Infinity`               | < 0         | -π                 | 0                  |
 | -0                        | < 0         | -π / 2             | π / 2              |
 
-Zusätzlich würde `Math.atan2()` für Punkte im zweiten und dritten Quadranten (`x < 0`) einen Winkel ausgeben, der kleiner als <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> oder größer als <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> ist.
+Zusätzlich, für Punkte im zweiten und dritten Quadranten (`x < 0`), würde `Math.atan2()` einen Winkel kleiner als <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> oder größer als <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> ausgeben.
 
-Da `atan2()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atan2()`, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `atan2()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atan2()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -80,7 +80,7 @@ Math.atan2(15, 90); // 0.16514867741462683
 
 ### Unterschied zwischen Math.atan2(y, x) und Math.atan(y / x)
 
-Das folgende Skript gibt alle Eingaben aus, die eine Differenz zwischen `Math.atan2(y, x)` und `Math.atan(y / x)` erzeugen.
+Das folgende Skript gibt alle Eingaben aus, die einen Unterschied zwischen `Math.atan2(y, x)` und `Math.atan(y / x)` erzeugen.
 
 ```js
 const formattedNumbers = new Map([
@@ -167,3 +167,4 @@ Die Ausgabe ist:
 - {{jsxref("Math.cos()")}}
 - {{jsxref("Math.sin()")}}
 - {{jsxref("Math.tan()")}}
+- CSS {{cssxref("atan2()")}} Funktion

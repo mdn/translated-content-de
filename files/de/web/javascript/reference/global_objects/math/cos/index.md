@@ -3,7 +3,7 @@ title: Math.cos()
 short-title: cos()
 slug: Web/JavaScript/Reference/Global_Objects/Math/cos
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 0fb5a7e4cc045ba0b1dc453624f196309d9bea10
 ---
 
 Die statische Methode **`Math.cos()`** gibt den Kosinus einer Zahl im Bogenmaß zurück.
@@ -42,7 +42,7 @@ Der Kosinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infi
 
 ## Beschreibung
 
-Da `cos()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cos()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `cos()` eine statische Methode von `Math` ist, wird sie immer als `Math.cos()` verwendet, anstatt als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -74,3 +74,4 @@ Math.cos(Infinity); // NaN
 - {{jsxref("Math.atan2()")}}
 - {{jsxref("Math.sin()")}}
 - {{jsxref("Math.tan()")}}
+- CSS {{cssxref("cos()")}} Funktion

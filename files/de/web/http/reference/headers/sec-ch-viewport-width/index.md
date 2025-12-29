@@ -3,28 +3,28 @@ title: Sec-CH-Viewport-Width header
 short-title: Sec-CH-Viewport-Width
 slug: Web/HTTP/Reference/Headers/Sec-CH-Viewport-Width
 l10n:
-  sourceCommit: 013f3148c4e85038bd961c984e357da703d315e3
+  sourceCommit: 423161782178b119c64cd0b41bff8df20dc84a56
 ---
 
 {{SecureContext_header}}{{SeeCompatTable}}
 
-Der HTTP **`Sec-CH-Viewport-Width`** {{Glossary("request_header", "Request-Header")}} ist ein [Client-Hint für Geräte](/de/docs/Web/HTTP/Guides/Client_hints), der die Breite des Layout-Viewports des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} bereitstellt. Der Wert wird auf die nächstgrößere ganze Zahl aufgerundet (d.h. Deckenwert).
+Der HTTP **`Sec-CH-Viewport-Width`** {{Glossary("request_header", "Anforderungs-Header")}} ist ein [Client-Hinweis des Geräts](/de/docs/Web/HTTP/Guides/Client_hints), der die Breite des Layout-Viewports des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt. Der Wert wird auf die kleinste folgende Ganzzahl aufgerundet (d.h. auf den Deckenwert).
 
-Der Hint kann zusammen mit anderen bildschirmbezogenen Hints verwendet werden, um Bilder bereitzustellen, die für eine bestimmte Bildschirmgröße optimiert sind, oder um Ressourcen wegzulassen, die für eine bestimmte Bildschirmbreite nicht benötigt werden. Wenn der `Sec-CH-Viewport-Width`-Header mehrmals in einer Nachricht erscheint, wird die letzte Vorkommen verwendet.
+Der Hinweis kann mit anderen bildschirmbezogenen Hinweisen genutzt werden, um Bilder bereitzustellen, die für eine bestimmte Bildschirmgröße optimiert sind, oder um Ressourcen auszulassen, die für eine bestimmte Bildschirmbreite nicht benötigt werden. Wenn der `Sec-CH-Viewport-Width`-Header mehrmals in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
 
-Ein Server muss sich dafür entscheiden, den `Sec-CH-Viewport-Width`-Header vom Client zu empfangen, indem er den {{HTTPHeader("Accept-CH")}}-Response-Header sendet. Server, die diese Entscheidung treffen, spezifizieren diesen Header typischerweise auch im {{HTTPHeader("Vary")}}-Header, der Caches darüber informiert, dass der Server je nach Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
+Ein Server muss zustimmen, den `Sec-CH-Viewport-Width`-Header vom Client zu erhalten, indem er den {{HTTPHeader("Accept-CH")}} Antwort-Header sendet. Server, die sich dafür entscheiden, geben diesen typischerweise auch im {{HTTPHeader("Vary")}} Header an, der Caches darüber informiert, dass der Server möglicherweise unterschiedliche Antworten basierend auf dem Header-Wert in einer Anfrage sendet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Request-Header")}},
-        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hint</a>
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        <a href="/de/docs/Web/HTTP/Guides/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -39,13 +39,13 @@ Sec-CH-Viewport-Width: <number>
 ## Direktiven
 
 - `<number>`
-  - : Die Breite des Viewports des Benutzers in {{Glossary("CSS_pixel", "CSS-Pixeln")}}, auf die nächste ganze Zahl aufgerundet.
+  - : Die Breite des Viewports des Benutzers in {{Glossary("CSS_pixel", "CSS-Pixeln")}}, auf die nächste Ganzzahl aufgerundet.
 
 ## Beispiele
 
 ### Verwendung von Sec-CH-Viewport-Width
 
-Ein Server muss zuerst optieren, um den `Sec-CH-Viewport-Width`-Header zu empfangen, indem er den Response-Header {{HTTPHeader("Accept-CH")}} sendet, der die Direktive `Sec-CH-Viewport-Width` enthält.
+Ein Server muss zuerst der Empfang des `Sec-CH-Viewport-Width`-Headers zustimmen, indem er den Antwort-Header {{HTTPHeader("Accept-CH")}} mit der Direktive `Sec-CH-Viewport-Width` sendet.
 
 ```http
 Accept-CH: Sec-CH-Viewport-Width
@@ -57,14 +57,18 @@ In nachfolgenden Anfragen könnte der Client den `Sec-CH-Viewport-Width`-Header 
 Sec-CH-Viewport-Width: 320
 ```
 
+## Spezifikationen
+
+{{Specifications}}
+
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verbesserung von Benutzer-Datenschutz und Entwicklererlebnis mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
-- Geräte- und responsive Bild-Client-Hints
+- [Verbesserung der Privatsphäre der Benutzer und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- Geräte- und responsive Bild-Client-Hinweise
   - {{HTTPHeader("Sec-CH-Device-Memory")}}
   - {{HTTPHeader("Sec-CH-DPR")}}
   - {{HTTPHeader("Sec-CH-Viewport-Height")}}

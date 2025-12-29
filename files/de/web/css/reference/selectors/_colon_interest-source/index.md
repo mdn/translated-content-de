@@ -2,12 +2,12 @@
 title: :interest-source
 slug: Web/CSS/Reference/Selectors/:interest-source
 l10n:
-  sourceCommit: 995f8bcede5aa8ca40921b030deef7524ce9e1a3
+  sourceCommit: 423161782178b119c64cd0b41bff8df20dc84a56
 ---
 
 {{SeeCompatTable}}
 
-Die **`:interest-source`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein [interest invoker](/de/docs/Web/API/Popover_API/Using_interest_invokers) Element, wenn Interesse an ihm gezeigt wird.
+Die **`:interest-source`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein [Interessenelement](/de/docs/Web/API/Popover_API/Using_interest_invokers), wenn Interesse daran gezeigt wird.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ Die **`:interest-source`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/C
 
 ## Beispiele
 
-### Auswahl eines Interest Invoker-Elements
+### Auswahl eines Interessenelements
 
-In diesem Beispiel zeigen wir, wie `:interest-source` verwendet werden kann, um einem Interest Invoker-Element Stile zuzuweisen, wenn Interesse an ihm gezeigt wird.
+In diesem Beispiel zeigen wir, wie `:interest-source` verwendet werden kann, um Stile auf ein Interessenelement anzuwenden, wenn Interesse daran gezeigt wird.
 
 #### HTML
 
-Das Markup enthält ein {{htmlelement("button")}} und ein {{htmlelement("p")}}. Wir spezifizieren das `<button>` als Interest Invoker, indem wir ihm das `interestfor` Attribut geben, dessen Wert mit der `id` des `<p>` Elements übereinstimmt, wodurch der Paragraph zum Ziel-Element wird. Der Paragraph wird zu einem Popover, indem wir ihm das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover) Attribut geben, welches ihn zunächst ausblendet.
+Das Markup enthält ein {{htmlelement("button")}} und ein {{htmlelement("p")}}. Wir spezifizieren den `<button>` als Interessenelement, indem wir ihm das `interestfor`-Attribut geben, dessen Wert mit der `id` des `<p>`-Elements übereinstimmt, wodurch der Absatz zum Zielelement wird. Der Absatz wird zu einem Popover, indem ihm das [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Attribut gegeben wird, welches es zunächst versteckt.
 
 ```html live-sample___interest-source
 <button interestfor="mypopover">Button</button>
@@ -34,16 +34,16 @@ Das Markup enthält ein {{htmlelement("button")}} und ein {{htmlelement("p")}}. 
 
 #### CSS
 
-Im CSS spezifizieren wir eine Regel mit einem `:interest-source` Selektor, um eine spezifische Kombination aus {{cssxref("background-color")}} und {{cssxref("color")}} auf das `<button>` anzuwenden, wenn Interesse daran gezeigt wird. Wir wenden auch einige andere Stile auf das `<button>` an, die der Kürze halber nicht gezeigt werden.
+Im CSS spezifizieren wir eine Regel mit einem `:interest-source`-Selektor, um eine spezifische Kombination von {{cssxref("background-color")}} und {{cssxref("color")}} auf den `<button>` anzuwenden, wenn Interesse daran gezeigt wird. Wir wenden auch einige andere Stile auf den `<button>` an, die der Kürze halber ausgeblendet sind.
 
 ```css hidden live-sample___interest-source
 button {
   margin: 10px;
   padding: 5px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 5px;
   font-size: 1.5em;
-  background-color: #eee;
+  background-color: #eeeeee;
 
   cursor: pointer;
 }
@@ -58,11 +58,11 @@ button:interest-source {
 
 #### Ergebnis
 
-Das wird wie folgt dargestellt:
+Dies wird wie folgt gerendert:
 
 {{embedlivesample("interest-source", "100%", "100")}}
 
-Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Darüberfahren oder Fokussieren), und beachten Sie, wie die `hotpink` und `purple` Farbgebung nur angewendet wird, wenn Interesse gezeigt wird.
+Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Schweben oder Fokussieren), und beachten Sie, wie die `hotpink` und `purple` Farbkombination nur dann angewendet wird, wenn Interesse gezeigt wird.
 
 ## Spezifikationen
 
@@ -75,6 +75,6 @@ Versuchen Sie, Interesse am Button zu zeigen (zum Beispiel durch Darüberfahren 
 ## Siehe auch
 
 - {{cssxref(":interest-target")}}
-- [Popover API](/de/docs/Web/API/Popover_API)
-- [Using interest invokers](/de/docs/Web/API/Popover_API/Using_interest_invokers)
-- [CSS Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- [Popover-API](/de/docs/Web/API/Popover_API)
+- [Verwendung von Interessenelementen](/de/docs/Web/API/Popover_API/Using_interest_invokers)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
