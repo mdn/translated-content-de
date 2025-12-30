@@ -3,25 +3,25 @@ title: "WorkerGlobalScope: setInterval() Methode"
 short-title: setInterval()
 slug: Web/API/WorkerGlobalScope/setInterval
 l10n:
-  sourceCommit: 9135ba88b6275dc9c5db0c85133e022b5ba810d6
+  sourceCommit: 21ed9a1338b207e8a39064583c19d9f720235235
 ---
 
 {{APIRef("HTML DOM")}} {{AvailableInWorkers("window_and_worker")}}
 
 > [!WARNING]
-> Wenn der `code` Parameter verwendet wird, führt diese Methode ihren Wert dynamisch als JavaScript aus.
-> Solche APIs sind bekannt als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe dar.
+> Wenn der `code` Parameter verwendet wird, führt diese Methode dessen Wert dynamisch als JavaScript aus.
+> Solche APIs sind als [Injektions-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe dar.
 >
-> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Strings zuweisen und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](/de/docs/Web/API/Window/setInterval#security_considerations) in `Window.setInterval()`.
+> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Zeichenfolgen zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsüberlegungen](/de/docs/Web/API/Window/setInterval#security_considerations) in `Window.setInterval()` für weitere Informationen.
 
-Die **`setInterval()`** Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interface ruft wiederholt eine Funktion auf oder führt einen Codeausschnitt aus, mit einem festen Zeitabstand zwischen jedem Aufruf.
+Die **`setInterval()`** Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interface ruft wiederholt eine Funktion auf oder führt ein Code-Snippet aus, mit einer festen Zeitverzögerung zwischen jedem Aufruf.
 
-Sie wird häufig verwendet, um eine Verzögerung für Funktionen einzustellen, die immer wieder ausgeführt werden, wie zum Beispiel bei Animationen.
+Sie wird häufig verwendet, um eine Verzögerung für Funktionen festzulegen, die immer wieder ausgeführt werden, wie z.B. Animationen.
 Sie können das Intervall mit [`clearInterval()`](/de/docs/Web/API/WorkerGlobalScope/clearInterval) abbrechen.
-Weitere Informationen finden Sie unter [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval).
+Siehe [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) für weitere Informationen.
 
-Wenn Sie möchten, dass Ihre Funktion _einmal_ nach der angegebenen Verzögerung aufgerufen wird, verwenden Sie [`setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout).
+Bitte beachten Sie, dass, wenn Sie wünschen, dass Ihre Funktion _einmal_ nach der angegebenen Verzögerung aufgerufen wird, [`setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout) verwendet werden sollte.
 
 ## Syntax
 
@@ -31,9 +31,9 @@ setInterval(code, delay)
 
 setInterval(func)
 setInterval(func, delay)
-setInterval(func, delay, arg1)
-setInterval(func, delay, arg1, arg2)
-setInterval(func, delay, arg1, arg2, /* …, */ argN)
+setInterval(func, delay, param1)
+setInterval(func, delay, param1, param2)
+setInterval(func, delay, param1, param3, /* …, */ paramN)
 ```
 
 ### Parameter
@@ -42,28 +42,28 @@ setInterval(func, delay, arg1, arg2, /* …, */ argN)
   - : Eine {{jsxref("function")}}, die alle `delay` Millisekunden ausgeführt wird.
     Die erste Ausführung erfolgt nach `delay` Millisekunden.
 - `code`
-  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder ein String von beliebigem Code, der alle `delay` Millisekunden kompiliert und ausgeführt wird.
-    Dies kann anstelle der Übergabe einer Funktion verwendet werden, ist jedoch _stark abzuraten_, aus den gleichen Gründen, die die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} zu einem Sicherheitsrisiko machen.
+  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder ein Zeichenfolgen-Codeschnipsel, das alle `delay` Millisekunden kompiliert und ausgeführt wird.
+    Dies kann anstelle einer Funktion übergeben werden, wird jedoch _stark abgeraten_, aus denselben Gründen, weshalb die Verwendung von {{jsxref("Global_Objects/eval", "eval()")}} ein Sicherheitsrisiko darstellt.
 - `delay` {{optional_inline}}
   - : Die Verzögerungszeit zwischen den Ausführungen der angegebenen Funktion oder des Codes, in Millisekunden.
-    Standardmäßig 0, wenn nicht angegeben.
-    Details zum erlaubten Bereich von `delay`-Werten finden Sie unter [Verzögerungsbeschränkungen](/de/docs/Web/API/Window/setInterval#delay_restrictions) in `Window.setInterval`.
-- `arg1`, …, `argN` {{optional_inline}}
-  - : Zusätzliche Argumente, die an die durch _func_ spezifizierte Funktion übergeben werden, sobald der Timer abläuft.
+    Standardwert ist 0, wenn nicht angegeben.
+    Siehe [Verzögerungsbeschränkungen](/de/docs/Web/API/Window/setInterval#delay_restrictions) in `Window.setInterval` für Details zum zulässigen Bereich der `delay` Werte.
+- `param1`, …, `paramN` {{optional_inline}}
+  - : Zusätzliche Argumente, die an die Funktion übergeben werden, die durch _func_ spezifiziert ist, sobald der Timer abläuft.
 
 ### Rückgabewert
 
-Eine positive ganze Zahl (typischerweise im Bereich von 1 bis 2.147.483.647), die den durch den Aufruf erstellten Intervall-Timer eindeutig identifiziert.
+Eine positive Ganzzahl (typischerweise im Bereich von 1 bis 2.147.483.647), die den durch den Aufruf erstellten Intervall-Timer eindeutig identifiziert.
 
-Dieser Bezeichner, oft als "Intervall-ID" bezeichnet, kann an [`clearInterval()`](/de/docs/Web/API/WorkerGlobalScope/clearInterval) übergeben werden, um die wiederholte Ausführung der angegebenen Funktion zu stoppen.
+Dieser Identifikator, oft als "Intervall-ID" bezeichnet, kann an [`clearInterval()`](/de/docs/Web/API/WorkerGlobalScope/clearInterval) übergeben werden, um die wiederholte Ausführung der angegebenen Funktion zu stoppen.
 
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
   - : Der `code` kann nicht als Skript geparst werden.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der `code` Parameter auf einen String gesetzt wird, wenn [vertrauenswürdige Typen](/de/docs/Web/API/Trusted_Types_API) [durch CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
-    Es wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, ein String oder `TrustedScript`.
+  - : Wird ausgelöst, wenn der `code` Parameter auf eine Zeichenfolge gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch CSP erzwungen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) werden, und keine Standardrichtlinie definiert ist.
+    Es wird auch ausgelöst, wenn der erste Parameter nicht einer der unterstützten Typen ist: eine Funktion, Zeichenfolge oder `TrustedScript`.
 
 ## Beispiele
 
