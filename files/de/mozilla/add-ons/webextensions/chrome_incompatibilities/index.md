@@ -2,44 +2,44 @@
 title: Chrome-Inkompatibilitäten
 slug: Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities
 l10n:
-  sourceCommit: 5da938df742b8cfe824e4e1447b42d1b779a08c3
+  sourceCommit: 44486ddd7fdf565786160ef8beda8528f67dafee
 ---
 
-Die WebExtension-APIs zielen darauf ab, Kompatibilität über alle Hauptbrowser hinweg bereitzustellen, damit Erweiterungen in jedem Browser mit minimalen Änderungen ausgeführt werden können.
+Die WebExtension-APIs zielen darauf ab, Kompatibilität in allen wichtigen Browsern bereitzustellen, sodass Erweiterungen in jedem Browser mit minimalen Änderungen laufen sollten.
 
-Es gibt jedoch erhebliche Unterschiede zwischen Chrome (und auf Chromium basierenden Browsern), Firefox und Safari. Im Besonderen:
+Es gibt jedoch signifikante Unterschiede zwischen Chrome (und Chromium-basierten Browsern), Firefox und Safari. Insbesondere:
 
-- Die Unterstützung für WebExtension-APIs unterscheidet sich je nach Browser. Details finden Sie unter [Browserunterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs).
-- Die Unterstützung für `manifest.json` Schlüssel unterscheidet sich je nach Browser. Details finden Sie im Abschnitt ["Browser-Kompatibilität"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json#browser_compatibility) auf der Seite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json).
-- Namensraum der Erweiterungs-API:
-  - **In Firefox und Safari:** Auf Erweiterungs-APIs wird unter dem Namensraum `browser` zugegriffen. Der Namensraum `chrome` wird ebenfalls für die Kompatibilität mit Chrome unterstützt.
-  - **In Chrome:** Auf Erweiterungs-APIs wird unter dem Namensraum `chrome` zugegriffen. (siehe [Chrome Bug 798169](https://crbug.com/798169))
+- Die Unterstützung für WebExtension-APIs variiert zwischen den Browsern. Details finden Sie unter [Browser-Unterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs).
+- Die Unterstützung für `manifest.json`-Keys variiert ebenfalls. Weitere Details finden Sie im Abschnitt ["Browser-Kompatibilität"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json#browser_compatibility) auf der [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Seite.
+- Erweiterungs-API-Namespace:
+  - **In Firefox und Safari:** Erweiterungs-APIs werden über den `browser` Namespace aufgerufen. Der `chrome` Namespace wird ebenfalls zur Kompatibilität mit Chrome unterstützt.
+  - **In Chrome:** Erweiterungs-APIs werden über den `chrome` Namespace aufgerufen. (siehe [Chrome bug 798169](https://crbug.com/798169))
 
 - Asynchrone APIs:
-  - **In Firefox und Safari:** Asynchrone APIs werden mit Promises implementiert.
-  - **In Chrome:** In Manifest V2 werden asynchrone APIs mit Rückruffunktionen implementiert. In Manifest V3 wird die Unterstützung für [Promises](https://developer.chrome.com/docs/extensions/develop/migrate#promises) bei den meisten geeigneten Methoden bereitgestellt. (siehe [Chrome Bug 328932](https://crbug.com/328932)) Rückruffunktionen werden in Manifest V3 für die Abwärtskompatibilität unterstützt.
+  - **In Firefox und Safari:** Asynchrone APIs werden mit Versprechen implementiert.
+  - **In Chrome:** In Manifest V2 werden asynchrone APIs mit Rückrufen implementiert. In Manifest V3 wird die Unterstützung von [Versprechen](https://developer.chrome.com/docs/extensions/develop/migrate#promises) für die meisten geeigneten Methoden geboten. (siehe [Chrome bug 328932](https://crbug.com/328932)) Rückrufe werden in Manifest V3 aus Gründen der Rückwärtskompatibilität unterstützt.
 
 Der Rest dieser Seite beschreibt diese und andere Inkompatibilitäten im Detail.
 
 ## JavaScript-APIs
 
-### chrome.\* und browser.\* Namensraum
+### chrome.\* und browser.\* Namespace
 
-- **In Firefox und Safari:** Die APIs werden mit dem Namensraum `browser` aufgerufen.
+- **In Firefox und Safari:** Die APIs werden über den `browser` Namespace aufgerufen.
 
   ```js
   browser.browserAction.setIcon({ path: "path/to/icon.png" });
   ```
 
-- **In Chrome:** Die APIs werden mit dem Namensraum `chrome` aufgerufen.
+- **In Chrome:** Die APIs werden über den `chrome` Namespace aufgerufen.
 
   ```js
   chrome.browserAction.setIcon({ path: "path/to/icon.png" });
   ```
 
-### Rückrufe und Promises
+### Rückrufe und Versprechen
 
-- **In Firefox und Safari (alle Versionen) und Chrome (ab Manifest Version 3):** Asynchrone APIs verwenden [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), um Werte zurückzugeben.
+- **In Firefox und Safari (alle Versionen) und Chrome (ab Manifest Version 3):** Asynchrone APIs verwenden [Versprechen](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), um Werte zurückzugeben.
 
   ```js
   function logCookie(c) {
@@ -56,7 +56,7 @@ Der Rest dieser Seite beschreibt diese und andere Inkompatibilitäten im Detail.
   setCookie.then(logCookie, logError);
   ```
 
-- **In Chrome:** In Manifest V2 verwenden asynchrone APIs Rückruffunktionen, um Werte zurückzugeben, und {{WebExtAPIRef("runtime.lastError")}}, um Fehler zu kommunizieren. In Manifest V3 werden Rückruffunktionen für die Abwärtskompatibilität unterstützt, zusammen mit der Unterstützung für [Promises](https://developer.chrome.com/docs/extensions/develop/migrate#promises) bei den meisten geeigneten Methoden.
+- **In Chrome:** In Manifest V2 verwenden asynchrone APIs Rückrufe, um Werte zurückzugeben und {{WebExtAPIRef("runtime.lastError")}} zur Fehlerkommunikation. In Manifest V3 werden Rückrufe aus Gründen der Rückwärtskompatibilität unterstützt, zusammen mit der Unterstützung von [Versprechen](https://developer.chrome.com/docs/extensions/develop/migrate#promises) bei den meisten geeigneten Methoden.
 
   ```js
   function logCookie(c) {
@@ -70,26 +70,26 @@ Der Rest dieser Seite beschreibt diese und andere Inkompatibilitäten im Detail.
   chrome.cookies.set({ url: "https://developer.mozilla.org/" }, logCookie);
   ```
 
-### Firefox unterstützt sowohl chrome- als auch browser-Namensräume
+### Firefox unterstützt sowohl die chrome als auch die browser Namensräume
 
-Als Unterstützung für das Portieren unterstützt die Firefox-Implementierung von WebExtensions `chrome` mit Rückruffunktionen und `browser` mit Promises. Das bedeutet, dass viele Chrome-Erweiterungen in Firefox ohne Änderungen funktionieren.
+Als Portierhilfe unterstützt die Firefox-Implementierung von WebExtensions `chrome` unter Verwendung von Rückrufen und `browser` unter Verwendung von Versprechen. Das bedeutet, dass viele Chrome-Erweiterungen in Firefox ohne Änderungen funktionieren.
 
 > [!NOTE]
-> Der Namensraum `browser` wird von Firefox und Safari unterstützt. Chrome bietet den `browser`-Namensraum nicht an, bis [Chrome Bug 798169](https://crbug.com/798169) behoben ist.
+> Der `browser` Namespace wird von Firefox und Safari unterstützt. Chrome bietet den `browser` Namespace nicht an, bis [Chrome bug 798169](https://crbug.com/798169) gelöst ist.
 
-Wenn Sie sich entscheiden, Ihre Erweiterung so zu schreiben, dass sie `browser` und Promises verwendet, stellt Firefox ein Polyfill bereit, das sie in Chrome ausführen soll: <https://github.com/mozilla/webextension-polyfill>.
+Wenn Sie sich entscheiden, Ihre Erweiterung so zu schreiben, dass sie `browser` und Versprechen verwendet, bietet Firefox ein Polyfill, das es ermöglichen sollte, sie in Chrome auszuführen: <https://github.com/mozilla/webextension-polyfill>.
 
 ### Teilweise unterstützte APIs
 
-Die Seite [Browserunterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs) enthält Kompatibilitätstabellen für alle APIs, die in Firefox in irgendeiner Form unterstützt werden. Wo es Einschränkungen bei der Unterstützung einer API-Methode, eines Eigenschafts, eines Typs oder eines Ereignisses gibt, wird dies in diesen Tabellen mit einem Sternchen "\*" angegeben. Das Auswählen des Sternchens erweitert die Tabelle, um eine Erläuterung der Einschränkung anzuzeigen.
+Die Seite [Browser-Unterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs) enthält Kompatibilitätstabellen für alle APIs, die in Firefox irgendeine Unterstützung haben. Wo es Hinweise bezüglich der Unterstützung einer API-Methode, Eigenschaft, Typ oder Ereignis gibt, wird dies in diesen Tabellen mit einem Sternchen "\*" angezeigt. Durch Auswahl des Sternchens wird die Tabelle erweitert, um eine Notiz zu erklären, die den Hinweis erklärt.
 
-Die Tabellen werden aus Kompatibilitätsdaten generiert, die als [JSON-Dateien in GitHub](https://github.com/mdn/browser-compat-data) gespeichert sind.
+Die Tabellen werden aus Kompatibilitätsdaten generiert, die als [JSON-Dateien auf GitHub](https://github.com/mdn/browser-compat-data) gespeichert sind.
 
-Der Rest dieses Abschnitts beschreibt die Hauptkompatibilitätsprobleme, die Sie bei der Entwicklung einer plattformübergreifenden Erweiterung berücksichtigen müssen. Vergessen Sie auch nicht, die Browser-Kompatibilitätstabellen zu überprüfen, da diese möglicherweise zusätzliche Kompatibilitätsinformationen enthalten.
+Im Folgenden werden die Hauptkompatibilitätsprobleme beschrieben, die Sie berücksichtigen müssen, wenn Sie eine plattformübergreifende Erweiterung erstellen. Denken Sie auch daran, die Browser-Kompatibilitätstabellen zu prüfen, da sie zusätzliche Kompatibilitätsinformationen enthalten können.
 
-#### Notifications API
+#### Benachrichtigungs-API
 
-Für `notifications.create()` mit `type "basic"`:
+Für `notifications.create()`, mit `type "basic"`:
 
 - **In Firefox**: `iconUrl` ist optional.
 - **In Chrome**: `iconUrl` ist erforderlich.
@@ -99,170 +99,174 @@ Wenn der Benutzer auf eine Benachrichtigung klickt:
 - **In Firefox**: Die Benachrichtigung wird sofort gelöscht.
 - **In Chrome**: Dies ist nicht der Fall.
 
-Wenn Sie `notifications.create()` mehrmals schnell hintereinander aufrufen:
+Wenn Sie `notifications.create()` mehrmals in schneller Folge aufrufen:
 
-- **In Firefox**: Die Benachrichtigungen werden möglicherweise nicht angezeigt. Das Warten auf nachfolgende Aufrufe innerhalb der `notifications.create()` Rückruffunktion ist keine ausreichende Verzögerung, um dies zu verhindern.
+- **In Firefox**: Die Benachrichtigungen werden möglicherweise nicht angezeigt. Das Warten auf die nachfolgenden Aufrufe innerhalb der `notifications.create()` Rückruffunktion ist keine ausreichende Verzögerung, um dies zu verhindern.
 
-#### Proxy API
+#### Proxy-API
 
-Firefox und Chrome enthalten eine Proxy-API. Das Design dieser beiden APIs ist jedoch nicht kompatibel.
+Firefox und Chrome enthalten eine Proxy-API. Das Design dieser beiden APIs ist jedoch inkompatibel.
 
-- **In Firefox**: Proxys werden mithilfe der Eigenschaft [proxy.settings](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/settings) oder [proxy.onRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/onRequest) dynamisch bereitgestellt, um [ProxyInfo](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/ProxyInfo) bereitzustellen.
+- **In Firefox**: Proxies werden mit der Eigenschaft [proxy.settings](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/settings) oder [proxy.onRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/onRequest) dynamisch [ProxyInfo](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy/ProxyInfo) gesetzt.
   Weitere Informationen zur API finden Sie unter [proxy](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy).
-- **In Chrome**: Proxy-Einstellungen werden in einem [`proxy.ProxyConfig`](https://developer.chrome.com/docs/extensions/reference/api/proxy#type-ProxyConfig)-Objekt definiert. Abhängig von den Proxy-Einstellungen von Chrome können die Einstellungen [`proxy.ProxyRules`](https://developer.chrome.com/docs/extensions/reference/api/proxy#type-ProxyRules) oder ein [`proxy.PacScript`](https://developer.chrome.com/docs/extensions/reference/api/proxy#type-PacScript) enthalten. Proxys werden über die Eigenschaft [proxy.settings](https://developer.chrome.com/docs/extensions/reference/api/proxy#property-settings) gesetzt.
+- **In Chrome**: Proxy-Einstellungen werden in einem [`proxy.ProxyConfig`](https://developer.chrome.com/docs/extensions/reference/api/proxy#type-ProxyConfig) Objekt definiert. Abhängig von Chromes Proxyeinstellungen können die Einstellungen [`proxy.ProxyRules`](https://developer.chrome.com/docs/extensions/reference/api/proxy#type-ProxyRules) oder ein [`proxy.PacScript`](https://developer.chrome.com/docs/extensions/reference/api/proxy#type-PacScript) enthalten. Proxies werden mit der Eigenschaft [proxy.settings](https://developer.chrome.com/docs/extensions/reference/api/proxy#property-settings) gesetzt.
   Weitere Informationen zur API finden Sie unter [chrome.proxy](https://developer.chrome.com/docs/extensions/reference/api/proxy).
 
-#### Sidebar API
+#### Sidebar-API
 
 Firefox und Chrome bieten inkompatible APIs für die Arbeit mit einer [Sidebar](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars).
 
-- **In Firefox (und Opera)**: Eine Sidebar wird mit dem Manifest-Schlüssel [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) angegeben und mit der API {{WebExtAPIRef("sidebarAction")}} manipuliert.
-- **In Chrome**: Eine anfängliche Sidebar kann mit dem Manifest-Schlüssel `side_panel` spezifiziert werden. Die [`sidePanel` API](https://developer.chrome.com/docs/extensions/reference/api/sidePanel) ermöglicht es dann, Panels zu manipulieren.
+- **In Firefox (und Opera)**: Eine Sidebar wird mit dem [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) Manifest-Key spezifiziert und mit der API {{WebExtAPIRef("sidebarAction")}} bearbeitet.
+- **In Chrome**: Eine initiale Sidebar kann mit dem Manifest-Key `side_panel` spezifiziert werden. Die [`sidePanel` API](https://developer.chrome.com/docs/extensions/reference/api/sidePanel) ermöglicht es dann, Panels zu bearbeiten.
 
-#### Tabs API
+#### Tabs-API
 
-Beim Verwenden von `tabs.executeScript()` oder `tabs.insertCSS()`:
+Wenn Sie `tabs.executeScript()` oder `tabs.insertCSS()` verwenden:
 
 - **In Firefox**: Relative URLs werden relativ zur aktuellen Seiten-URL aufgelöst.
 - **In Chrome**: Relative URLs werden relativ zur Basis-URL der Erweiterung aufgelöst.
 
-Um plattformübergreifend zu arbeiten, können Sie den Pfad als absolute URL angeben, beginnend am Stamm der Erweiterung, so:
+Um plattformübergreifend zu arbeiten, können Sie den Pfad als absolute URL angeben, beginnend am Root der Erweiterung, wie folgt:
 
 ```plain
 /path/to/script.js
 ```
 
-Beim Aufrufen von `tabs.remove()`:
+Beim Aufruf von `tabs.remove()`:
 
-- **In Firefox**: Das Promise von `tabs.remove()` wird nach dem `beforeunload`-Ereignis erfüllt.
+- **In Firefox**: Das `tabs.remove()` Versprechen wird nach dem `beforeunload` Ereignis erfüllt.
 - **In Chrome**: Der Rückruf wartet nicht auf `beforeunload`.
 
-#### WebRequest API
+#### WebRequest-API
 
 - **In Firefox:**
-  - Anfragen können nur umgeleitet werden, wenn ihre ursprüngliche URL das Schema `http:` oder `https:` verwendet.
-  - Die Berechtigung `activeTab` erlaubt es nicht, Netzwerkanforderungen im aktuellen Tab abzufangen. (Siehe [Bug 1617479](https://bugzil.la/1617479))
-  - Ereignisse werden nicht für Systemanfragen ausgelöst (zum Beispiel bei Erweiterungsupgrades oder Suchvorschlägen in der Suchleiste).
-    - **Ab Firefox 57:** Firefox macht eine Ausnahme für Erweiterungen, die {{WebExtAPIRef("webRequest.onAuthRequired")}} für die Proxy-Autorisierung abfangen müssen. Siehe die Dokumentation zu {{WebExtAPIRef("webRequest.onAuthRequired")}}.
+  - Anfragen können nur umgeleitet werden, wenn ihre ursprüngliche URL das `http:` oder `https:` Schema verwendet.
+  - Die `activeTab` Berechtigung erlaubt es nicht, Netzwerk-Anfragen im aktuellen Tab abzufangen. (Siehe [Bug 1617479](https://bugzil.la/1617479))
+  - Ereignisse werden nicht für Systemanfragen ausgelöst (z. B. Erweiterungs-Updates oder Suchleisten-Vorschläge).
+    - **Ab Firefox 57:** Firefox macht eine Ausnahme für Erweiterungen, die {{WebExtAPIRef("webRequest.onAuthRequired")}} zum Proxy-Authentifizierung abfangen müssen. Siehe die Dokumentation zu {{WebExtAPIRef("webRequest.onAuthRequired")}}.
 
-  - Wenn eine Erweiterung eine öffentliche (z. B. HTTPS) URL zu einer [Erweiterungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) umleiten möchte, muss die Datei `manifest.json` der Erweiterung einen Schlüssel [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) mit der URL der Erweiterungsseite enthalten.
+  - Wenn eine Erweiterung eine öffentliche (z. B. HTTPS) URL auf eine [Erweiterungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) umleiten möchte, muss die `manifest.json`-Datei der Erweiterung einen [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) Key mit der URL der Erweiterungsseite enthalten.
 
     > [!NOTE]
-    > _Jede_ Website kann einen Link zu dieser URL herstellen oder zu dieser URL umleiten, und Erweiterungen sollten jede Eingabe (z. B. POST-Daten) so behandeln, als ob sie von einer nicht vertrauenswürdigen Quelle stammt, wie es normale Webseiten tun sollten.
+    > _Jede_ Website kann zu dieser URL verlinken oder umleiten, und Erweiterungen sollten alle Eingaben (z. B. POST-Daten) so behandeln, als kämen sie von einer nicht vertrauenswürdigen Quelle, wie es bei einer normalen Webseite der Fall wäre.
 
-  - Einige der `browser.webRequest.*` APIs ermöglichen das Zurückgeben von Promises, die `webRequest.BlockingResponse` asynchron auflösen.
+  - Einige der `browser.webRequest.*` APIs erlauben es, Versprechen zurückzugeben, die `webRequest.BlockingResponse` asynchron auflösen.
 
-- **In Chrome:** Nur `webRequest.onAuthRequired` unterstützt asynchrone `webRequest.BlockingResponse`, indem `'asyncBlocking'` über einen Rückruf anstelle eines Promise bereitgestellt wird.
+- **In Chrome:** Nur `webRequest.onAuthRequired` unterstützt asynchrone `webRequest.BlockingResponse` durch die Bereitstellung von `'asyncBlocking'`, über einen Rückruf statt eines Versprechens.
 
-#### Windows API
+#### Windows-API
 
-- **In Firefox:** `onFocusChanged` der API {{WebExtAPIRef("windows")}} wird bei einer Fokusänderung mehrfach ausgelöst.
+- **In Firefox:** `onFocusChanged` der {{WebExtAPIRef("windows")}} API wird mehrmals für eine Fokussänderung ausgelöst.
 
 ### Nicht unterstützte APIs
 
-#### DeclarativeContent API
+#### Debugger-API
 
-- **In Firefox:** Die Chrome-API [declarativeContent](https://developer.chrome.com/docs/extensions/reference/api/declarativeContent) [ist nicht implementiert](https://bugzil.la/1435864). Darüber hinaus [wird Firefox die API declarativeContent.RequestContentScript nicht unterstützen](https://bugzil.la/1323433#c16) (die selten verwendet wird und in stabilen Versionen von Chrome nicht verfügbar ist).
+- **In Firefox:** Die [debugger](https://developer.chrome.com/docs/extensions/reference/api/debugger) API von Chrome [ist nicht implementiert](https://bugzil.la/1316741).
+
+#### DeclarativeContent-API
+
+- **In Firefox:** Die [declarativeContent](https://developer.chrome.com/docs/extensions/reference/api/declarativeContent) API von Chrome [ist nicht implementiert](https://bugzil.la/1435864). Außerdem [wird](https://bugzil.la/1323433#c16) Firefox die `declarativeContent.RequestContentScript` API nicht unterstützen (die selten verwendet und in stabilen Versionen von Chrome nicht verfügbar ist).
 
 ### Verschiedene Inkompatibilitäten
 
 #### URLs in CSS
 
-- **In Firefox:** URLs in injizierten CSS-Dateien werden relativ zur _CSS-Datei_ aufgelöst.
-- **In Chrome:** URLs in injizierten CSS-Dateien werden relativ zur _Seite, in die sie eingespeist werden_, aufgelöst.
+- **In Firefox:** URLs in eingefügten CSS-Dateien werden relativ zur _CSS-Datei_ aufgelöst.
+- **In Chrome:** URLs in eingefügten CSS-Dateien werden relativ zur _Seite, in die sie eingefügt werden_, aufgelöst.
 
-#### Unterstützung für Dialoge in Hintergrundseiten
+#### Unterstützung für Dialoge auf Hintergrundseiten
 
-- **In Firefox:** [`alert()`](/de/docs/Web/API/Window/alert), [`confirm()`](/de/docs/Web/API/Window/confirm), und [`prompt()`](/de/docs/Web/API/Window/prompt) werden in Hintergrundseiten nicht unterstützt.
+- **In Firefox:** [`alert()`](/de/docs/Web/API/Window/alert), [`confirm()`](/de/docs/Web/API/Window/confirm) und [`prompt()`](/de/docs/Web/API/Window/prompt) werden auf Hintergrundseiten nicht unterstützt.
 
 #### web_accessible_resources
 
-- **In Firefox:** Ressourcen werden einer zufälligen {{Glossary("UUID", "UUID")}} zugeordnet, die sich bei jeder Instanz von Firefox ändert: `moz-extension://«random-UUID»/«path»`. Diese Zufälligkeit kann Sie daran hindern, Dinge zu tun, wie z. B. die URL Ihrer Erweiterung zur CSP-Richtlinie einer anderen Domäne hinzuzufügen.
-- **In Chrome:** Wenn eine Ressource in `web_accessible_resources` aufgeführt ist, ist sie als `chrome-extension://«your-extension-id»/«path»` zugänglich. Die Erweiterungs-ID ist für eine Erweiterung fixiert.
+- **In Firefox:** Ressourcen werden einem zufälligen {{Glossary("UUID", "UUID")}} zugewiesen, das für jede Instanz von Firefox ändert: `moz-extension://«random-UUID»/«path»`. Diese Zufälligkeit kann verhindern, dass Sie Dinge tun, wie zum Beispiel die URL Ihrer Erweiterung zur CSP-Richtlinie eines anderen Domain hinzuzufügen.
+- **In Chrome:** Wenn eine Ressource in `web_accessible_resources` aufgeführt ist, ist sie zugänglich als `chrome-extension://«your-extension-id»/«path»`. Die Erweiterungs-ID ist für eine Erweiterung festgelegt.
 
 #### Manifest "key" Eigenschaft
 
-- **In Firefox:** Da Firefox zufällige UUIDs für `web_accessible_resources` verwendet, wird diese Eigenschaft nicht unterstützt. Firefox-Erweiterungen können ihre Erweiterungs-ID über den `browser_specific_settings.gecko.id` Manifest-Schlüssel festlegen (siehe [browser_specific_settings.gecko](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#firefox_gecko_properties)).
-- **In Chrome:** Beim Arbeiten mit einer ungepackten Erweiterung kann das Manifest eine [`"key"` Eigenschaft](https://developer.chrome.com/docs/extensions/reference/manifest/key) enthalten, um die Erweiterungs-ID auf verschiedenen Maschinen zu fixieren. Dies ist hauptsächlich nützlich, wenn mit `web_accessible_resources` gearbeitet wird.
+- **In Firefox:** Da Firefox zufällige UUIDs für `web_accessible_resources` verwendet, wird diese Eigenschaft nicht unterstützt. Firefox-Erweiterungen können ihre Erweiterungs-ID über den `browser_specific_settings.gecko.id` Manifest-Key fixieren (siehe [browser_specific_settings.gecko](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings#firefox_gecko_properties)).
+- **In Chrome:** Beim Arbeiten mit einer entpackten Erweiterung kann das Manifest eine [`"key"` Eigenschaft](https://developer.chrome.com/docs/extensions/reference/manifest/key) enthalten, um die Erweiterungs-ID über verschiedene Maschinen hinweg zu fixieren. Dies ist hauptsächlich nützlich, wenn mit `web_accessible_resources` gearbeitet wird.
 
-#### HTTP(S)-Anfragen von Content Scripts
+#### HTTP(S)-Anfragen durch Inhalts-Skript
 
-- **In Firefox:** Wenn ein Content Script eine HTTP(S)-Anfrage stellt, _muss_ eine absolute URL angegeben werden.
-- **In Chrome:** Wenn ein Content Script eine Anfrage stellt (zum Beispiel unter Verwendung von [`fetch()`](/de/docs/Web/API/Fetch_API/Using_Fetch)) zu einer relativen URL (wie `/api`), wird sie an `https://example.com/api` gesendet.
+- **In Firefox:** Wenn ein Inhalts-Skript eine HTTP(S)-Anfrage macht, müssen Sie absolute URLs bereitstellen.
+- **In Chrome:** Wenn ein Inhalts-Skript eine Anfrage macht (zum Beispiel mittels [`fetch()`](/de/docs/Web/API/Fetch_API/Using_Fetch)) an eine relative URL (wie `/api`), wird sie an `https://example.com/api` gesendet.
 
-#### Umgebung von Content Scripts
+#### Inhalts-Skriptumgebung
 
-- **In Firefox:** Der globale Scope der [Content Script Umgebung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#content_script_environment) ist nicht strikt gleich `window` ([Firefox Bug 1208775](https://bugzil.la/1208775)). Genauer gesagt setzt sich der globale Scope (`globalThis`) aus den üblichen Standard-JavaScript-Funktionen sowie `window` als Prototyp des globalen Scopes zusammen. Die meisten DOM-APIs werden über `window` von der Seite geerbt, durch [Xray Vision](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#xray_vision_in_firefox), um das Content Script vor Modifikationen der Webseite zu schützen. Ein Content Script kann entweder JavaScript-Objekte aus seinem globalen Scope oder Xray-umwickelte Versionen von der Webseite treffen.
-- **In Chrome:** Der globale Scope ist `window`, und die verfügbaren DOM-APIs sind im Allgemeinen unabhängig von der Webseite (abgesehen vom gemeinsamen DOM). Content-Skripte können nicht direkt auf JavaScript-Objekte der Webseite zugreifen.
+- **In Firefox:** Der globale Geltungsbereich der [Inhalts-Skriptumgebung](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#content_script_environment) ist nicht streng gleich `window` ([Firefox bug 1208775](https://bugzil.la/1208775)). Genauer gesagt, der globale Geltungsbereich (`globalThis`) besteht aus standardmäßigen JavaScript-Funktionen wie üblich, plus `window` als Prototyp des globalen Geltungsbereichs. Die meisten DOM-APIs werden von der Seite durch `window` vererbt, durch [Xray vision](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts#xray_vision_in_firefox), um das Inhalts-Skript vor Modifikationen durch die Webseite zu schützen. Ein Inhalts-Skript kann JavaScript-Objekte aus seinem globalen Geltungsbereich oder Xray-umhüllte Versionen von der Webseite antreffen.
+- **In Chrome:** Der globale Geltungsbereich ist `window`, und die verfügbaren DOM-APIs sind im Allgemeinen unabhängig von der Webseite (abgesehen von der gemeinsamen Nutzung des zugrunde liegenden DOMs). Inhalts-Skripte können nicht direkt auf JavaScript-Objekte von der Webseite zugreifen.
 
-#### Seitenereignishandler von Content Scripts
+#### Inhalts-Skript-Seitenereignis-Handler
 
-- **In Firefox:** Es wird kein separates Ereignishandling pro Welt gepflegt. Das bedeutet, dass das zuletzt angeforderte Content Script `element.onclick = xxx` die Seitenereignishandler oder die von anderen Erweiterungen überschreibt.
-- **In Chrome:** Es wird ein separates Ereignishandling pro Welt gepflegt, sodass Chrome Ereignishandler für eine Seite und jede anfordernde Erweiterung pflegt.
+- **In Firefox:** separate Ereignis-Handler werden nicht pro Welt gepflegt. Das bedeutet, dass das jüngste Inhalts-Skript, das `element.onclick = xxx` anfordert, die Ereignis-Handler der Seite oder anderer Erweiterungen überschreibt.
+- **In Chrome:** separate Ereignis-Handler werden pro Welt gepflegt, sodass Chrome Ereignis-Handler für eine Seite und jede anfordernde Erweiterung verwaltet.
 
-Um diese Inkonsistenz zu umgehen, verwenden Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Ereignis-Listener zu registrieren. Weitere Informationen finden Sie bei [Firefox Bug 1965975](https://bugzil.la/1965975#c5).
+Um diese Inkonsistenz zu umgehen, verwenden Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Ereignis-Listener zu registrieren. Siehe [Firefox bug 1965975](https://bugzil.la/1965975#c5) für weitere Informationen.
 
-#### Ausführen von Code in einer Webseite aus einem Content Script
+#### Ausführung von Code in einer Webseite aus Inhalts-Skript
 
-- **In Firefox:** {{jsxref("Global_Objects/eval", "eval")}} führt Code im Kontext des Content Scripts aus, und `window.eval` führt Code im Kontext der Seite aus. Siehe [Verwendung von `eval` in Content Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#using_eval_in_content_scripts).
-- **In Chrome:** {{jsxref("Global_Objects/eval", "eval")}} und `window.eval` führen immer Code im Kontext des Content Scripts aus, nicht im Kontext der Seite.
+- **In Firefox:** {{jsxref("Global_Objects/eval", "eval")}} führt Code im Kontext des Inhalts-Skripts aus und `window.eval` führt Code im Kontext der Seite aus. Siehe [Verwendung von `eval` in Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#using_eval_in_content_scripts).
+- **In Chrome:** {{jsxref("Global_Objects/eval", "eval")}} und `window.eval` führen immer Code im Kontext des Inhalts-Skripts, nicht im Kontext der Seite aus.
 
-#### Freigabe von Variablen zwischen Content Scripts
+#### Variablen zwischen Inhalts-Skripten teilen
 
-- **In Firefox:** Sie können keine Variablen zwischen Content Scripts freigeben, indem Sie sie einem Script zu `this.{variableName}` zuweisen und dann versuchen, sie mit `window.{variableName}` in einem anderen Script aufzurufen. Dies ist eine Einschränkung der Sandbox-Umgebung in Firefox. Diese Einschränkung könnte entfernt werden; siehe [Firefox Bug 1208775](https://bugzil.la/1208775).
+- **In Firefox:** Sie können keine Variablen zwischen Inhalts-Skripten teilen, indem Sie sie zu `this.{variableName}` in einem Skript zuweisen und dann versuchen, sie mit `window.{variableName}` in einem anderen abzurufen. Dieser ist eine Einschränkung der Sandbox-Umgebung in Firefox. Diese Einschränkung könnte entfernt werden; siehe [Firefox bug 1208775](https://bugzil.la/1208775).
 
-#### Lebenszyklus von Content Scripts während der Navigation
+#### Inhalts-Skript Lebenszyklus während der Navigation
 
-- **In Firefox:** Content Scripts bleiben in einer Webseite erheblich weitereingebetteter nach dem Benutzer wegge navigiert hat. Die Eigenschaften des Fensterobjekts werden jedoch zerstört. Wenn ein Content Script zum Beispiel `window.prop1 = "prop"` einstellt und der Benutzer dann weg navigiert und zur Seite zurückkehrt, ist `window.prop1` undefiniert. Dieses Problem wird im [Firefox Bug 1525400](https://bugzil.la/1525400) verfolgt.
+- **In Firefox:** Inhalts-Skripte bleiben in einer Webseite nach der Navigation bestehen. Die Eigenschaften des Fensterobjekts werden jedoch gelöscht. Zum Beispiel, wenn ein Inhalts-Skript `window.prop1 = "prop"` setzt und der Benutzer dann navigiert und zur Seite zurückkehrt, ist `window.prop1` undefiniert. Dieses Problem wird in [Firefox bug 1525400](https://bugzil.la/1525400) verfolgt.
 
-  Um das Verhalten von Chrome zu simulieren, hören Sie auf die [pageshow](/de/docs/Web/API/Window/pageshow_event)- und [pagehide](/de/docs/Web/API/Window/pagehide_event)-Ereignisse. Simulieren Sie dann das Einfügen oder Zerstören des Content Scripts.
+  Um das Verhalten von Chrome zu imitieren, hören Sie auf die [pageshow](/de/docs/Web/API/Window/pageshow_event)- und [pagehide](/de/docs/Web/API/Window/pagehide_event)-Ereignisse. Simulieren Sie dann das Einfügen oder die Zerstörung des Inhalts-Skripts.
 
-- **In Chrome:** Content Scripts werden zerstört, wenn der Benutzer von einer Webseite navigiert. Wenn der Benutzer durch Klick auf die Zurück-Taste durch die Historie zur Seite zurückkehrt, wird das Content Script in die Webseite eingefügt.
+- **In Chrome:** Inhalts-Skripte werden zerstört, wenn der Benutzer von einer Webseite weg navigiert. Wenn der Benutzer die Zurück-Taste klickt, um über die Historie zur Seite zurückzukehren, wird das Inhalts-Skript erneut in die Webseite eingefügt.
 
-#### "pro-Tab" Zoomverhalten
+#### "pro-Tab" Zoom-Verhalten
 
-- **In Firefox:** Der Zoomfaktor bleibt über das Seitenladen und die Navigation innerhalb des Tabs hinweg erhalten.
-- **In Chrome:** Zoomänderungen werden bei der Navigation zurückgesetzt; das Navigieren zu einer Seite lädt immer Seiten mit ihren Herkunfts-Zoomfaktoren.
+- **In Firefox:** Der Zoom-Level bleibt bei Lade- und Navigationsvorgängen innerhalb des Tabs erhalten.
+- **In Chrome:** Zoom-Änderungen werden beim Navigieren zurückgesetzt; das Navigieren eines Tabs lädt Seiten immer mit ihren pro-Herkunft-Zoomfaktoren.
 
 Siehe {{WebExtAPIRef("tabs.ZoomSettingsScope")}}.
 
-## manifest.json Schlüssel
+## manifest.json Keys
 
-Die Hauptseite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) enthält eine Tabelle, die die Browserunterstützung für `manifest.json` Schlüssel beschreibt. Wo es Einschränkungen bei der Unterstützung eines bestimmten Schlüssels gibt, wird dies in der Tabelle mit einem Sternchen "\*" angegeben. Das Auswählen des Sternchens erweitert die Tabelle, um eine Erläuterung der Einschränkung anzuzeigen.
+Die Hauptseite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) enthält eine Tabelle, die die Browser-Unterstützung für `manifest.json`-Keys beschreibt. Wo es Hinweise zur Unterstützung einer bestimmten Eigenschaft gibt, wird dies in der Tabelle mit einem Sternchen "\*" angezeigt. Durch Auswahl des Sternchens wird die Tabelle erweitert, um eine Notiz zu erklären, die den Hinweis erklärt.
 
-Die Tabellen werden aus Kompatibilitätsdaten generiert, die als [JSON-Dateien in GitHub](https://github.com/mdn/browser-compat-data) gespeichert sind.
+Die Tabellen werden aus Kompatibilitätsdaten generiert, die als [JSON-Dateien auf GitHub](https://github.com/mdn/browser-compat-data) gespeichert sind.
 
 ## Native Messaging
 
-### Argumente für verbindungsbasierte Nachrichten
+### Argumente für verbindungsbasiertes Messaging
 
-**Auf Linux und Mac:** Chrome übergibt ein Argument an die native App, welches der Ursprung der Erweiterung ist, die es gestartet hat, in der Form `chrome-extension://«extensionID/»` (einschließlich erforderlichem Schrägstrich). Dies ermöglicht der App, die Erweiterung zu identifizieren.
+**Auf Linux und Mac:** Chrome übergibt der nativen App ein Argument, nämlich die Herkunft der Erweiterung, die sie gestartet hat, in Form von `chrome-extension://«extensionID/»` (nachgestellter Schrägstrich erforderlich). Dies ermöglicht es der App, die Erweiterung zu identifizieren.
 
 **Auf Windows:** Chrome übergibt zwei Argumente:
 
-1. Den Ursprung der Erweiterung
-2. Ein Handle zum nativen Chrome Fenster, das die App gestartet hat
+1. Die Herkunft der Erweiterung
+2. Ein Handle zum nativen Chrome-Fenster, das die App gestartet hat
 
 ### allowed_extensions
 
-- **In Firefox:** Der Manifest-Schlüssel heißt `allowed_extensions`.
-- **In Chrome:** Der Manifest-Schlüssel heißt `allowed_origins`.
+- **In Firefox:** Der Manifest-Key heißt `allowed_extensions`.
+- **In Chrome:** Der Manifest-Key heißt `allowed_origins`.
 
 ### Speicherort des App-Manifests
 
-- **In Chrome:** Das App-Manifest wird an einem anderen Ort erwartet. Siehe [Speicherort des Native Messaging Hosts](https://developer.chrome.com/docs/apps/nativeMessaging/#native-messaging-host-location) in den Chrome-Dokumenten.
+- **In Chrome:** Das App-Manifest wird an einem anderen Ort erwartet. Siehe [Native messaging host location](https://developer.chrome.com/docs/apps/nativeMessaging/#native-messaging-host-location) in der Chrome-Dokumentation.
 
-### App-Persistenz
+### App-Bestand
 
-- **In Firefox:** Wenn eine Native Messaging-Verbindung geschlossen wird, beendet Firefox die Subprozesse, wenn diese sich nicht trennen. Auf Windows legt der Browser den Prozess der nativen Anwendung in ein [Job-Objekt](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects) und beendet den Job. Wenn die native Anwendung andere Prozesse startet und möchte, dass diese geöffnet bleiben, nachdem die native Anwendung beendet ist, muss die native Anwendung `CreateProcess` anstelle von `ShellExecute` verwenden, um den zusätzlichen Prozess mit dem [`CREATE_BREAKAWAY_FROM_JOB`](https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags)-Flag zu starten.
+- **In Firefox:** Wenn eine native Messaging-Verbindung geschlossen wird, beendet Firefox die Subprozesse, wenn sie nicht unterbrochen werden. Auf Windows platziert der Browser den Prozess der nativen Anwendung in ein [Job-Objekt](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects) und beendet den Job. Wenn die native Anwendung andere Prozesse startet und möchte, dass sie nach dem Beenden der nativen Anwendung geöffnet bleiben, muss die native Anwendung `CreateProcess` anstelle von `ShellExecute` verwenden, um den zusätzlichen Prozess mit dem [`CREATE_BREAKAWAY_FROM_JOB`](https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags) Flag zu starten.
 
-## Datenklon-Algorithmus
+## Daten-Klon-Algorithmus
 
-Einige Erweiterungs-APIs erlauben es einer Erweiterung, Daten von einem Teil der Erweiterung zu einem anderen zu senden, wie {{WebExtAPIRef("runtime.sendMessage()")}}, {{WebExtAPIRef("tabs.sendMessage()")}}, {{WebExtAPIRef("runtime.onMessage")}}, die `postMessage()`-Methode von {{WebExtAPIRef("runtime.port")}} und {{WebExtAPIRef("tabs.executeScript()")}}.
+Einige Erweiterungs-APIs erlauben es einer Erweiterung, Daten von einem Teil der Erweiterung zu einem anderen zu senden, wie {{WebExtAPIRef("runtime.sendMessage()")}}, {{WebExtAPIRef("tabs.sendMessage()")}}, {{WebExtAPIRef("runtime.onMessage")}}, die `postMessage()` Methode von {{WebExtAPIRef("runtime.port")}}, und {{WebExtAPIRef("tabs.executeScript()")}}.
 
-- **In Firefox:** Der [Strukturierter Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) wird verwendet.
-- **In Chrome:** Der [JSON-Serialisierungsalgorithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description) wird verwendet. Es könnte in Zukunft auf strukturiertes Klonen umgeschaltet werden ([Issue 248548](https://crbug.com/248548)).
+- **In Firefox:** Der [Structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) wird verwendet.
+- **In Chrome:** Der [JSON serialization algorithm](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description) wird verwendet. Er könnte in Zukunft zum strukturellen Klonen wechseln ([Issue 248548](https://crbug.com/248548)).
 
-Der Strukturierte Klon-Algorithmus unterstützt mehr Typen als der JSON-Serialisierungsalgorithmus. Eine bemerkenswerte Ausnahme sind (DOM-)Objekte mit einer `toJSON`-Methode. DOM-Objekte sind standardmäßig weder klonbar noch JSON-serialisierbar, aber mit einer `toJSON()`-Methode können diese JSON-serialisiert werden (aber immer noch nicht mit dem strukturierten Klon-Algorithmus geklont werden). Beispiele für JSON-serialisierbare Objekte, die nicht strukuriert klonbar sind, umfassen Instanzen von [`URL`](/de/docs/Web/API/URL) und [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
+Der Structured clone algorithm unterstützt mehr Typen als der JSON serialization algorithm. Eine bemerkenswerte Ausnahme sind (DOM-)Objekte mit einer `toJSON` Methode. DOM-Objekte sind weder klonbar noch JSON-serialisierbar standardmäßig, aber mit einer `toJSON()` Methode können diese JSON-serialisiert werden (aber immer noch nicht mit dem strukturellen Klonalgorithmus geklont werden). Beispiele für JSON-serialisierbare Objekte, die nicht strukturell klonbar sind, sind Instanzen von [`URL`](/de/docs/Web/API/URL) und [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
-Erweiterungen, die auf die `toJSON()`-Methode des JSON-Serialisierungsalgorithmus angewiesen sind, können {{jsxref("JSON.stringify()")}} gefolgt von {{jsxref("JSON.parse()")}} verwenden, um sicherzustellen, dass eine Nachricht ausgetauscht werden kann, da ein geparster JSON-Wert immer strukturell klonbar ist.
+Erweiterungen, die sich auf die `toJSON()` Methode des JSON serialization algorithm verlassen, können {{jsxref("JSON.stringify()")}} gefolgt von {{jsxref("JSON.parse()")}} verwenden, um sicherzustellen, dass eine Nachricht ausgetauscht werden kann, da ein geparster JSON-Wert immer strukturell klonbar ist.
