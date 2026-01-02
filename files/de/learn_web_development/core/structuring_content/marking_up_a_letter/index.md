@@ -1,18 +1,18 @@
 ---
-title: "Herausforderung: Ein Brief markieren"
-short-title: "Herausforderung: Briefmarkierung"
+title: "Herausforderung: Formatierung eines Briefes"
+short-title: "Herausforderung: Brief-Formatierung"
 slug: Learn_web_development/Core/Structuring_content/Marking_up_a_letter
 l10n:
-  sourceCommit: fd6595b667e89cee9f54e7d956a05e1fab175b33
+  sourceCommit: 39b59de03c08a5de12ce99a217988f6a0756407d
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
 
-Wir alle lernen früher oder später, einen Brief zu schreiben; es ist auch ein nützliches Beispiel, um unsere Fähigkeiten in der Textformatierung zu testen. In dieser Herausforderung geben wir Ihnen einen Brief, den Sie zur Prüfung Ihrer HTML-Textformatierungsfähigkeiten und Ihres Wissens über die Inhalte des HTML-`<head>`-Elements markieren sollen.
+Wir lernen alle früher oder später, wie man einen Brief schreibt; es ist auch ein nützliches Beispiel, um unsere Fähigkeiten zur Textformatierung zu testen. In dieser Herausforderung geben wir Ihnen einen Brief, den Sie als Test für Ihre HTML-Textformatierungsfähigkeiten und Kenntnisse über den Inhalt des HTML-`<head>` formatieren sollen.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche im Codesample-Panel unten, um den bereitgestellten Text im MDN Playground zu öffnen. Sie werden den Anweisungen in den folgenden Abschnitten folgen, um den Text entsprechend zu markieren.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche im Code-Beispiel-Panel unten, um den bereitgestellten Textkörper im MDN Playground zu öffnen. Sie folgen den Anweisungen in den nachfolgenden Abschnitten, um den Text angemessen zu markieren.
 
 ```html-nolint live-sample___start
 Dr. Eleanor Gaye
@@ -62,10 +62,10 @@ ideas you submitted we were most intrigued by are as follows, in order of
 priority:
 
 Turning H2O into wine, and the health benefits of Resveratrol
-(C14H12O3.)
+(C14H12O3).
 Measuring the effect on performance of funk bass players at temperatures
 exceeding 30°C (86°F), when the audience size exponentially increases
-(effect of 3 × 103 increasing to 3 × 104.)
+(effect of 3 × 103 increasing to 3 × 104).
 HTML, Hypertext Markup Language, and CSS,
 Cascading Style Sheets, constructs for representing musical scores.
 
@@ -107,34 +107,34 @@ The memoirs of Bill S Preston, Esq.
 
 {{embedlivesample("start", "100%", "200px")}}
 
-## Projektauftrag
+## Projektbeschreibung
 
-Für dieses Projekt besteht Ihre Aufgabe darin, einen Brief zu markieren, der auf einem Universitätsintranet gehostet werden muss. Der Brief ist eine Antwort eines Forschungsmitarbeiters an einen angehenden Doktoranden bezüglich seiner Bewerbung an der Universität.
+Bei diesem Projekt besteht Ihre Aufgabe darin, einen Brief zu formatieren, der auf einem Universitätsintranet gehostet werden soll. Der Brief ist eine Antwort eines Forschungsmitarbeiters an einen angehenden Doktoranden bezüglich seiner Bewerbung an der Universität.
 
-### Block-/strukturelle Semantik
+### Block-/Struktur-Semantik
 
-- Fügen Sie eine geeignete HTML-Struktur einschließlich Doctype sowie {{htmlelement("html")}}, {{htmlelement("head")}} und {{htmlelement("body")}} Elemente hinzu.
-- Im Allgemeinen sollte der Brief als eine Organisation von Überschriften und Absätzen markiert werden, mit Ausnahme der Adressen, die im nächsten Punkt erwähnt werden. Es gibt eine Hauptüberschrift (die „Re:“-Zeile) und drei Unterebenenüberschriften.
-- Setzen Sie die beiden Adressen in {{htmlelement("address")}} Elemente. Jede Zeile der Adresse sollte in einer neuen Zeile stehen, aber nicht in einem neuen Absatz.
-- Verwenden Sie einen geeigneten Listentyp, um die Semesteranfangszeiten, Studienfächer und exotischen Tänze zu markieren.
+- Fügen Sie eine geeignete HTML-Struktur einschließlich Doctype und {{htmlelement("html")}}, {{htmlelement("head")}} und {{htmlelement("body")}} Elementen hinzu.
+- Im Allgemeinen sollte der Brief als eine Organisation von Überschriften und Absätzen formatiert werden, mit Ausnahme der Adressen, die im nächsten Punkt erwähnt werden. Es gibt eine Überschrift der obersten Ebene (die "Re:"-Zeile) und drei Überschriften der zweiten Ebene.
+- Platzieren Sie die beiden Adressen in {{htmlelement("address")}}-Elementen. Jede Zeile der Adresse sollte in einer neuen Zeile stehen, jedoch nicht in einem neuen Absatz.
+- Verwenden Sie einen geeigneten Listentyp, um die Semesterstartdaten, Studienfächer und exotischen Tänze zu formatieren.
 
 ### Inline-Semantik
 
-- Die Namen des Absenders und Empfängers (und _Tel_ und _Email_) sollten mit starker Bedeutung markiert werden.
-- Die vier Daten im Dokument sollten in geeignete Elemente eingeschlossen werden, die maschinenlesbare Daten enthalten.
-- Die erste Adresse und das erste Datum im Brief sollten ein `class`-Attribut mit dem Wert `sender-column` haben. Das CSS, das Sie später hinzufügen, wird diese rechtsbündig ausrichten, wie es in einem klassischen Brieflayout der Fall sein sollte.
-- Markieren Sie die folgenden fünf Akronyme/Abkürzungen im Haupttext des Briefes — "PhD," "HTML," "CSS," "BCE," und "Esq." — um jeweils Erweiterungen bereitzustellen.
-- Die sechs Unter-/Hochzahlen sollten dementsprechend markiert werden — in den chemischen Formeln und den Zahlen 103 und 104 (sie sollten 10 hoch 3 bzw. 4 sein).
-- Markieren Sie mindestens zwei weitere geeignete Wörter im Text mit starker Bedeutung/Betonung.
-- Markieren Sie das Universitätsmotto-Zitat und die Zitierung mit geeigneten Elementen.
+- Die Namen des Absenders und Empfängers (und _Tel_ und _Email_) sollten mit starker Bedeutung hervorgehoben werden.
+- Die vier Daten im Dokument sollten in geeignete Elemente eingefasst werden, die maschinenlesbare Daten enthalten.
+- Die erste Adresse und das erste Datum im Brief sollten ein `class`-Attribut mit dem Wert `sender-column` erhalten. Das CSS, das Sie später hinzufügen werden, wird diese rechtsbündig ausrichten, wie es in einem klassischen Brief-Layout der Fall sein sollte.
+- Formatieren Sie die folgenden fünf Akronyme/Abkürzungen im Haupttext des Briefes — "PhD," "HTML," "CSS," "BCE," und "Esq." — um Entsprechungen für jedes zu bieten.
+- Die sechs Tief-/Hochstellungen sollten angemessen formatiert werden - in den chemischen Formeln und den Zahlen 103 und 104 (sie sollten 10 hoch 3 und 4 sein).
+- Formatieren Sie mindestens zwei weitere geeignete Wörter im Text mit starker Bedeutung/Betonung.
+- Formatieren Sie das Zitat des Universitätsmottos und die Quelle mit geeigneten Elementen.
 
 ### Der Kopf des Dokuments
 
-- Der Zeichensatz des Dokuments sollte mit dem passenden `<meta>`-Tag als `utf-8` gesetzt werden.
+- Der Zeichensatz des Dokuments sollte mit dem entsprechenden `<meta>`-Tag auf `utf-8` gesetzt werden.
 - Der Autor des Briefes sollte in einem geeigneten `<meta>`-Tag angegeben werden.
-- Sie sollten die Sprache des Dokuments als `en-US` festlegen.
-- Fügen Sie den folgenden Text innerhalb eines Dokumententitel-Elements ein: "Awesome science application correspondence".
-- Das folgende CSS sollte innerhalb eines geeigneten Elements im Kopf eingefügt werden:
+- Sie sollten die Sprache des Dokuments auf `en-US` setzen.
+- Fügen Sie den folgenden Text in ein Dokumenttitel-Element ein: "Awesome science application correspondence".
+- Das folgende CSS sollte in einem geeigneten Element im Kopf enthalten sein:
 
   ```css
   body {
@@ -154,14 +154,14 @@ Für dieses Projekt besteht Ihre Aufgabe darin, einen Brief zu markieren, der au
   }
   ```
 
-## Tipps und Hinweise
+## Hinweise und Tipps
 
-- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um Ihr HTML zu validieren. Belohnen Sie sich selbst mit Bonuspunkten, wenn es validiert wird.
-- Sie müssen kein CSS kennen, um diese Aufgabe zu erledigen. Sie müssen das bereitgestellte CSS nur in ein HTML-Element einfügen.
+- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um Ihr HTML zu validieren. Geben Sie sich Bonuspunkte, wenn es validiert.
+- Sie müssen kein CSS kennen, um diese Aufgabe zu erledigen. Sie müssen nur das bereitgestellte CSS in ein HTML-Element setzen.
 
 ## Beispiel
 
-Das folgende Live-Beispiel zeigt, wie der Brief nach der Markierung aussehen sollte. Wenn Sie Schwierigkeiten haben, dies zu erreichen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Das folgende Live-Beispiel zeigt, wie der Brief aussehen sollte, nachdem er formatiert wurde. Wenn Sie Schwierigkeiten haben, dies zu erreichen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
 
 {{embedlivesample("finish", "100%", "500px")}}
 
@@ -265,12 +265,12 @@ Ihr fertiges HTML sollte so aussehen:
     <ol>
       <li>
         Turning H<sub>2</sub>O into wine, and the health benefits of Resveratrol
-        (C<sub>14</sub>H<sub>12</sub>O<sub>3</sub>.)
+        (C<sub>14</sub>H<sub>12</sub>O<sub>3</sub>).
       </li>
       <li>
         Measuring the effect on performance of funk bass players at temperatures
         exceeding 30°C (86°F), when the audience size exponentially increases
-        (effect of 3 × 10<sup>3</sup> increasing to 3 × 10<sup>4</sup>.)
+        (effect of 3 × 10<sup>3</sup> increasing to 3 × 10<sup>4</sup>).
       </li>
       <li>
         <abbr>HTML</abbr>, Hypertext Markup Language, and <abbr>CSS</abbr>,
