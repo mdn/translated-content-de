@@ -106,7 +106,7 @@ Dieses Beispiel verwendet `<aside>`, um einen Paragraphen in einem Artikel zu ke
       </td>
     </tr>
     <tr>
-      <th scope="row">Weghlassen von Tags</th>
+      <th scope="row">Weglassen von Tags</th>
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
