@@ -2,188 +2,188 @@
 title: Speicherquoten und Löschkriterien
 slug: Web/API/Storage_API/Storage_quotas_and_eviction_criteria
 l10n:
-  sourceCommit: d64e1ee3cdbe602324fce3f7320d026f58186715
+  sourceCommit: d7a0ef33dfce20818a160557b5a72d6565cec254
 ---
 
 {{DefaultAPISidebar("Storage")}}
 
-Webentwickler können verschiedene Technologien nutzen, um Daten im Browser des Nutzers zu speichern (d.h. auf der lokalen Festplatte des Geräts, das der Nutzer zur Anzeige der Website verwendet).
+Webentwickler können eine Reihe von Technologien nutzen, um Daten im Browser des Nutzers zu speichern (d.h. auf der lokalen Festplatte des Geräts, das der Nutzer zum Betrachten der Website verwendet).
 
-Die Menge an Daten, die Browser Websites erlauben zu speichern, und die Mechanismen, die sie verwenden, um Daten zu löschen, wenn dieses Limit erreicht wird, unterscheiden sich zwischen den Browsern.
+Die Menge an Daten, die Browser erlauben, von Websites gespeichert zu werden, und die Mechanismen, die sie verwenden, um Daten zu löschen, wenn dieses Limit erreicht ist, unterscheiden sich zwischen den Browsern.
 
-Dieser Artikel beschreibt die Webtechnologien, die verwendet werden können, um Daten zu speichern, die Quoten, die Browser verwendet haben, um Websites daran zu hindern, zu viele Daten zu speichern, sowie die Mechanismen, die sie zum Löschen von Daten verwenden, wenn dies erforderlich ist.
+Dieser Artikel beschreibt die Webtechnologien, die zur Datenspeicherung verwendet werden können, die Quoten, die Browser festlegen, um Websites daran zu hindern, zu viele Daten zu speichern, und die Mechanismen, die sie zum Löschen von Daten bei Bedarf verwenden.
 
-## Wie trennen Browser Daten von verschiedenen Websites?
+## Wie trennen Browser die Daten von verschiedenen Websites?
 
-Browser speichern die Daten von Websites an verschiedenen Orten, auch als Buckets bezeichnet, um das Risiko zu verringern, dass Nutzer über das Web hinweg verfolgt werden. In den meisten Fällen verwalten Browser gespeicherte Daten _pro Ursprung_.
+Browser speichern die Daten von Websites an verschiedenen Orten, auch Buckets genannt, um das Risiko zu verringern, dass Nutzer über das Web verfolgt werden. In den meisten Fällen verwalten Browser gespeicherte Daten _pro Ursprung_.
 
-Der Begriff _{{Glossary("origin", "Ursprung")}}_ ist daher wichtig, um diesen Artikel zu verstehen. Ein Ursprung wird durch ein Schema (wie HTTPS), einen Hostnamen und einen Port definiert. Beispielsweise gehören `https://example.com` und `https://example.com/app/index.html` zum selben Ursprung, da sie dasselbe Schema (`https`), denselben Hostnamen (`example.com`) und denselben Standardport verwenden.
+Der Begriff _{{Glossary("origin", "Ursprung")}}_ ist daher wichtig, um diesen Artikel zu verstehen. Ein Ursprung wird durch ein Schema (wie HTTPS), einen Hostnamen und einen Port definiert. Zum Beispiel gehören `https://example.com` und `https://example.com/app/index.html` zum selben Ursprung, da sie dasselbe Schema (`https`), denselben Hostnamen (`example.com`) und den Standardport haben.
 
-Die in diesem Artikel beschriebenen Quoten und Löschkriterien gelten für einen gesamten Ursprung, selbst wenn dieser Ursprung verwendet wird, um mehrere Websites zu betreiben, wie `https://example.com/site1/` und `https://example.com/site2/`.
+Die in diesem Artikel beschriebenen Quoten und Löschkriterien gelten für einen gesamten Ursprung, selbst wenn dieser Ursprung verwendet wird, um mehrere Websites auszuführen, wie `https://example.com/site1/` und `https://example.com/site2/`.
 
-In einigen Fällen können Browser jedoch entscheiden, die von einem Ursprung gespeicherten Daten in verschiedenen Partitionen weiter zu trennen, beispielsweise in Fällen, in denen ein Ursprung innerhalb eines {{HTMLElement('iframe')}}-Elements in mehreren verschiedenen Drittanbieter-Ursprüngen geladen wird. Der Einfachheit halber wird in diesem Artikel jedoch angenommen, dass Daten immer pro Ursprung gespeichert werden.
+In einigen Fällen können Browser jedoch entscheiden, die von einem Ursprung gespeicherten Daten in verschiedenen Partitionen weiter zu trennen, zum Beispiel in Fällen, in denen ein Ursprung in einem {{HTMLElement('iframe')}}-Element in mehreren verschiedenen Drittanbieterursprüngen geladen wird. Aus Gründen der Einfachheit wird in diesem Artikel jedoch angenommen, dass Daten immer pro Ursprung gespeichert werden.
 
 ## Welche Technologien speichern Daten im Browser?
 
-Webentwickler können die folgenden Webtechnologien verwenden, um Daten im Browser zu speichern:
+Webentwickler können die folgenden Webtechnologien nutzen, um Daten im Browser zu speichern:
 
-| Technologie                                                                                      | Beschreibung                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Cookies](/de/docs/Web/HTTP/Guides/Cookies)                                                      | Ein HTTP-Cookie ist ein kleines Datenstück, das der Webserver und der Browser einander senden, um Statusinformationen über die Seitennavigation hinweg zu speichern.                                                                         |
-| [Web Storage](/de/docs/Web/API/Web_Storage_API)                                                  | Die Web Storage API bietet Mechanismen für Webseiten, um nur-String-Schlüssel/Wert-Paare zu speichern, einschließlich [`localStorage`](/de/docs/Web/API/Window/localStorage) und [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage). |
-| [IndexedDB](/de/docs/Web/API/IndexedDB_API)                                                      | IndexedDB ist eine Web-API zum Speichern großer Datenstrukturen im Browser und deren Indizierung für leistungsstarke Suchvorgänge.                                                                                                           |
-| [Cache API](/de/docs/Web/API/Cache)                                                              | Die Cache API bietet einen persistenten Speichermechanismus für Objekte von HTTP-Anforderungs- und Antwortpaaren, der dazu verwendet wird, Webseiten schneller zu laden.                                                                     |
-| [Origin Private File System (OPFS)](/de/docs/Web/API/File_System_API/Origin_private_file_system) | OPFS bietet ein Dateisystem, das dem Ursprung der Seite privat ist und zum Lesen und Schreiben von Verzeichnissen und Dateien verwendet werden kann.                                                                                         |
+| Technologie                                                                                      | Beschreibung                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Cookies](/de/docs/Web/HTTP/Guides/Cookies)                                                      | Ein HTTP-Cookie ist ein kleines Datenstück, das der Webserver und der Browser sich gegenseitig senden, um Statusinformationen über die Navigation zwischen Seiten hinweg zu speichern.                                                                                 |
+| [Web Storage](/de/docs/Web/API/Web_Storage_API)                                                  | Die Web Storage API bietet Mechanismen, damit Webseiten ausschließlich Schlüssel-/Wert-Paare als Zeichenfolgen speichern können, einschließlich [`localStorage`](/de/docs/Web/API/Window/localStorage) und [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage). |
+| [IndexedDB](/de/docs/Web/API/IndexedDB_API)                                                      | IndexedDB ist eine Web-API zum Speichern großer Datenstrukturen im Browser und deren Indizierung für hochleistungsfähiges Suchen.                                                                                                                                      |
+| [Cache API](/de/docs/Web/API/Cache)                                                              | Die Cache API bietet einen dauerhaften Speichermodul für HTTP-Anfrage- und Antwortobjektpaare, das genutzt wird, um Webseiten schneller zu laden.                                                                                                                      |
+| [Origin Private File System (OPFS)](/de/docs/Web/API/File_System_API/Origin_private_file_system) | OPFS bietet ein Dateisystem, das für den Ursprung der Seite privat ist und zum Lesen und Schreiben von Verzeichnissen und Dateien genutzt werden kann.                                                                                                                 |
 
-Beachten Sie, dass zusätzlich zu den oben genannten, Browser auch andere Arten von Daten für einen Ursprung im Browser speichern, wie das Caching von [WebAssembly](/de/docs/WebAssembly)-Code.
+Beachten Sie, dass zusätzlich zu den oben genannten Browsern auch andere Arten von Daten für einen Ursprung im Browser gespeichert werden, wie z.B. Caching von [WebAssembly](/de/docs/WebAssembly)-Code.
 
-## Verbleiben im Browser gespeicherte Daten?
+## Bleiben die im Browser gespeicherten Daten bestehen?
 
-Daten für einen Ursprung können im Browser auf zwei Arten gespeichert werden: _persistent_ und _Best-Effort_:
+Daten für einen Ursprung können auf zwei Arten in einem Browser gespeichert werden, _persistent_ und _best-effort_:
 
-- Best-Effort: Dies ist die Standardmethode, mit der Daten gespeichert werden. Best-Effort-Daten bleiben bestehen, solange der Ursprung unter seiner Quote liegt, das Gerät genügend Speicherplatz hat und der Nutzer nicht über die Einstellungen des Browsers entscheidet, die Daten zu löschen.
-- Persistent: Ein Ursprung kann sich dafür entscheiden, seine Daten auf eine beständige Weise zu speichern. Daten, die auf diese Weise gespeichert werden, werden nur entfernt oder gelöscht, wenn der Nutzer dies wünscht, indem er die Einstellungen seines Browsers verwendet. Weitere Informationen finden Sie unter [Wann werden Daten gelöscht?](#when_is_data_evicted).
+- Best-effort: Dies ist die Standardweise, wie Daten gespeichert werden. Best-effort-Daten bleiben bestehen, solange der Ursprung unter seiner Quote bleibt, das Gerät genügend Speicherplatz hat und der Nutzer sich nicht entscheidet, die Daten über die Einstellungen seines Browsers zu löschen.
+- Persistent: Ein Ursprung kann sich entscheiden, seine Daten auf eine beständige Weise zu speichern. Auf diese Weise gespeicherte Daten werden nur gelöscht oder entfernt, wenn der Nutzer dies über die Einstellungen seines Browsers wählt. Um mehr zu erfahren, siehe [Wann werden Daten gelöscht](#wann_werden_daten_gelöscht).
 
-Die im Browser von einem Ursprung gespeicherten Daten sind standardmäßig Best-Effort. Wenn Webtechnologien wie IndexedDB oder Cache verwendet werden, werden die Daten transparent gespeichert, ohne den Nutzer um Erlaubnis zu fragen. In ähnlicher Weise erfolgt das Löschen von Best-Effort-Daten durch den Browser, ohne den Nutzer dabei zu unterbrechen.
+Die im Browser von einem Ursprung gespeicherten Daten sind standardmäßig best-effort. Bei der Nutzung von Webtechnologien wie IndexedDB oder Cache werden die Daten transparent ohne die Erlaubnis des Nutzers gespeichert. Ebenso entfernt der Browser bei Bedarf best-effort-Daten, ohne den Nutzer zu unterbrechen.
 
-Wenn Entwickler aus irgendeinem Grund einen persistenten Speicher benötigen (z.B. wenn sie eine Web-App erstellen, die auf kritischen Daten beruht, die nirgendwo anders gespeichert sind), können sie dies durch die Verwendung der Methode [`navigator.storage.persist()`](/de/docs/Web/API/StorageManager/persist) der [Storage API](/de/docs/Web/API/Storage_API) tun.
+Wenn Entwickler aus irgendeinem Grund beständigen Speicher benötigen (z.B. beim Erstellen einer Webanwendung, die sich auf kritische Daten verlässt, die anderswo nicht persistiert sind), können sie dies durch die Verwendung der Methode [`navigator.storage.persist()`](/de/docs/Web/API/StorageManager/persist) der [Storage API](/de/docs/Web/API/Storage_API) tun.
 
-In Firefox wird der Nutzer durch ein UI-Popup darüber informiert, wenn eine Website sich entscheidet, persistenten Speicher zu verwenden, dass ihre Erlaubnis angefordert wird.
+In Firefox wird der Nutzer benachrichtigt, wenn eine Website wählt, persistente Speicherung zu verwenden, indem ein UI-Popup angezeigt wird, das seine Zustimmung erfordert.
 
-Safari und die meisten auf Chromium basierenden Browser wie Chrome oder Edge genehmigen oder verweigern die Anfrage automatisch basierend auf der Historie der Interaktionen des Nutzers mit der Seite, ohne den Nutzer damit zu belästigen.
+Safari und die meisten auf Chromium basierenden Browser, wie Chrome oder Edge, genehmigen oder verweigern die Anfrage automatisch basierend auf der Nutzerhistorie der Interaktion mit der Website und zeigen keine Aufforderungen an den Nutzer an.
 
-Hinweis: [Forschungen des Chrome-Teams](https://web.dev/articles/persistent-storage) zeigen, dass Daten sehr selten durch den Browser gelöscht werden. Wenn ein Nutzer regelmäßig eine Website besucht, besteht nur eine geringe Wahrscheinlichkeit, dass die dort gespeicherten Daten, selbst im Best-Effort-Modus, vom Browser entfernt werden.
+Beachten Sie, dass [Forschung des Chrome-Teams](https://web.dev/articles/persistent-storage) zeigt, dass Daten sehr selten vom Browser gelöscht werden. Wenn ein Nutzer eine Website regelmäßig besucht, besteht sehr wenig Wahrscheinlichkeit, dass deren gespeicherte Daten, selbst im best-effort-Modus, vom Browser entfernt werden.
 
-### Privater Modus
+### Privates Surfen
 
-Beachten Sie, dass Browser im privaten Modus (auch _Inkognito_ in Chrome und _InPrivate_ in Edge genannt) verschiedene Quoten anwenden können und gespeicherte Daten in der Regel gelöscht werden, wenn der private Modus beendet wird.
+Beachten Sie, dass im privaten Surfen (auch _Inkognito_ in Chrome und _InPrivate_ in Edge genannt) Browser möglicherweise andere Quoten anwenden und gespeicherte Daten in der Regel gelöscht werden, wenn der private Browsing-Modus endet.
 
 ## Wie viele Daten können gespeichert werden?
 
 ### Cookies
 
-Verschiedene Browser haben unterschiedliche Regeln darüber, wie viele Cookies pro Ursprung erlaubt sind und wie viel Platz diese Cookies auf der Festplatte beanspruchen können. Obwohl Cookies nützlich sind, um einige kleine geteilte Zustände zwischen dem Browser und dem Webserver über die Seitennavigation hinweg zu bewahren, wird davon abgeraten, Cookies zur Speicherung von Daten im Browser zu verwenden. Cookies werden mit jeder HTTP-Anfrage gesendet, sodass die Speicherung von Daten in Cookies, die mit einer anderen Webtechnologie gespeichert werden könnten, die Größe der Anfragen unnötig erhöht.
+Verschiedene Browser haben unterschiedliche Regeln hinsichtlich der Anzahl von erlaubten Cookies pro Ursprung und wie viel Speicherplatz diese Cookies auf der Festplatte nutzen können. Während Cookies nützlich sind, um einen kleinen gemeinsamen Zustand zwischen dem Browser und dem Webserver über die Navigation zwischen Seiten zu erhalten, wird die Nutzung von Cookies zur Speicherung von Daten im Browser nicht empfohlen. Cookies werden mit jeder einzelnen HTTP-Anfrage gesendet, daher erhöht das Speichern von Daten in Cookies, die mit einer anderen Webtechnologie gespeichert werden könnten, unnötig die Größe der Anfragen.
 
-Da Cookies nicht zur Speicherung von Daten im Browser verwendet werden sollten, werden die Browser-Limits für Cookiespeicher hier nicht behandelt.
+Da Cookies nicht zur Speicherung von Daten im Browser verwendet werden sollten, werden hier keine Cookie-Speichergrenzen behandelt.
 
 ### Web Storage
 
-Web Storage, das über die [`localStorage`](/de/docs/Web/API/Window/localStorage) und [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage) Eigenschaften des [`window`](/de/docs/Web/API/Window) Objekts zugänglich ist, ist auf maximal 10 MiB Daten in allen Browsern begrenzt.
+Web Storage, zugänglich über die [`localStorage`](/de/docs/Web/API/Window/localStorage)- und [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage)-Eigenschaften des [`window`](/de/docs/Web/API/Window)-Objekts, ist auf maximal 10 MiB Daten in allen Browsern begrenzt.
 
 Browser können bis zu 5 MiB lokalen Speicher und 5 MiB Sitzungsspeicher pro Ursprung speichern.
 
-Sobald dieses Limit erreicht ist, werfen Browser eine Ausnahme `QuotaExceededError`, die mit einem {{jsxref("Statements/try...catch","try...catch")}} Block behandelt werden sollte.
+Sobald dieses Limit erreicht ist, werfen Browser eine `QuotaExceededError`-Ausnahme, die mit einem {{jsxref("Statements/try...catch","try...catch")}}-Block behandelt werden sollte.
 
 ### Andere Webtechnologien
 
-Die mithilfe anderer Webtechnologien gespeicherten Daten, wie IndexedDB, Cache API oder File System API (die das Origin Private File System definiert), werden von einem speichermanagementsystem verwaltet, das für jeden Browser spezifisch ist.
+Die Daten, die mit anderen Webtechnologien wie IndexedDB, Cache API oder File System API (die das Origin Private File System definiert) gespeichert werden, werden von einem spezifischen Speichermanagementsystem jedes Browsers verwaltet.
 
-Dieses System regelt alle Daten, die ein Ursprung mit diesen APIs speichert.
+Dieses System reguliert alle Daten, die ein Ursprung mit diesen APIs speichert.
 
-Jeder Browser bestimmt mit einem von ihm gewählten Mechanismus die maximale Menge an Speicher, die ein gegebener Ursprung verwenden kann.
+Jeder Browser bestimmt, mit welchem Mechanismus auch immer er wählt, die maximale Menge an Speicher, die ein gegebener Ursprung nutzen kann.
 
 #### Firefox
 
-In Firefox ist der maximale Speicherplatz, den ein Ursprung im Best-Effort-Modus nutzen kann, der kleinere der folgenden Werte:
+In Firefox ist der maximale Speicherplatz, den ein Ursprung im Best-effort-Modus nutzen kann, jeweils der kleinere von:
 
-- 10% der gesamten Festplattengröße, auf der das Profil des Nutzers gespeichert wird.
-- Oder 10 GiB, was die _Gruppenbeschränkung_ ist, die Firefox auf alle Ursprünge, die Teil derselben {{Glossary("eTLD", "eTLD+1 Domain")}} sind, anwendet.
+- 10% der Gesamtdiskgröße, auf der das Profil des Nutzers gespeichert ist.
+- Oder 10 GiB, was das _Gruppenlimit_ ist, das Firefox auf alle Ursprünge anwendet, die Teil derselben {{Glossary("site", "Website")}} sind.
 
-Ursprünge, für die ein persistenter Speicher gewährt wurde, können bis zu 50% der gesamten Festplattengröße speichern, gedeckelt bei 8 TiB, und unterliegen nicht der eTLD+1 Gruppenbeschränkung.
+Ursprünge, für die beständige Speicherung gewährt wurde, können bis zu 50% der Gesamtdiskgröße speichern, begrenzt auf 8 TiB, und unterliegen nicht dem Gruppenlimit.
 
-Zum Beispiel, wenn das Gerät eine 500 GiB Festplatte hat, erlaubt Firefox einem Ursprung, bis zu folgendes zu speichern:
+Zum Beispiel, wenn das Gerät eine 500 GiB Festplatte hat, erlaubt Firefox einem Ursprung, bis zu:
 
-- Im Best-Effort-Modus: 10 GiB Daten, was das eTLD+1 Gruppenlimit ist.
-- Im Persistent-Modus: 250 GiB, was 50% der gesamten Festplattengröße entspricht.
+- Im Best-effort-Modus: 10 GiB Daten, was das Gruppenlimit ist.
+- Im Persistenzmodus: 250 GiB, was 50% der Gesamtdiskgröße entspricht.
 
-Beachten Sie, dass es möglicherweise nicht tatsächlich möglich ist, dass der Ursprung seine Quote erreicht, da sie auf der **gesamten** Festplattengröße und nicht auf dem derzeit verfügbaren Speicherplatz berechnet wird. Dies wird aus Sicherheitsgründen getan, um {{Glossary("fingerprinting", "Fingerprinting")}} zu vermeiden.
+Beachten Sie, dass es möglicherweise nicht möglich ist, das Kontingent des Ursprungs tatsächlich zu erreichen, da es auf der **Gesamtgröße** der Festplatte und nicht auf dem derzeit verfügbaren Speicherplatz berechnet wird. Dies wird aus Sicherheitsgründen getan, um {{Glossary("fingerprinting", "Fingerabdruckerkennung")}} zu vermeiden.
 
-#### Chrome und auf Chromium basierende Browser
+#### Chrome und Chromium-basierte Browser
 
-In Browsern, die auf dem [Chromium Open-Source-Projekt](https://www.chromium.org/Home/) basieren, einschließlich Chrome und Edge, kann ein Ursprung bis zu 60% der gesamten Festplattengröße sowohl im persistenten als auch im Best-Effort-Modus speichern.
+In Browsern, die auf dem [Chromium Open-Source-Projekt](https://www.chromium.org/Home/) basieren, einschließlich Chrome und Edge, kann ein Ursprung bis zu 60% der Gesamtdiskgröße sowohl im Best-effort- als auch im Persistenzmodus speichern.
 
-Zum Beispiel, wenn das Gerät eine 1 TiB Festplatte hat, erlaubt der Browser einem Ursprung, bis zu 600 GiB zu nutzen.
+Zum Beispiel wird in einem Gerät mit einer 1 TiB Festplatte der Browser einem Ursprung die Nutzung von bis zu 600 GiB erlauben.
 
-Ähnlich wie bei Firefox, weil diese Quote basierend auf der gesamten Festplattengröße berechnet wird, um Fingerprinting zu vermeiden, könnte es sein, dass ein Ursprung seine Quote nicht tatsächlich erreichen kann.
+Wie bei Firefox könnte es, weil dieses Kontingent basierend auf der Gesamtdiskgröße berechnet wird, um Fingerabdruckerkennung zu vermeiden, sein, dass ein Ursprung nicht tatsächlich in der Lage ist, sein Kontingent zu erreichen.
 
 #### Safari
 
-WebKit setzt unterschiedliche Quoten für _Browser-Apps_ und andere Anwendungen, die Webinhalte einbetten können (z.B. Apps, die WKWebView verwenden), durch. Eine Browser-App ist eine Anwendung, die als Standardbrowser des Systems festgelegt werden kann. Dies schließt Safari und einige andere auf WebKit basierende Drittanbieterbrowser ein.
+WebKit setzt unterschiedliche Quoten für _Browser-Apps_ und für andere Anwendungen, die Webinhalte einbetten können (zum Beispiel Apps, die WKWebView verwenden). Eine Browser-App ist eine Anwendung, die als Standardbrowser des Systems eingestellt werden kann. Dazu gehören Safari und einige andere WebKit-basierte Drittanbieterbrowser.
 
 Ab macOS 14 und iOS 17:
 
-- Für auf WebKit basierende Browser-Apps kann jeder Ursprung bis zu etwa 60% der gesamten Festplatte speichern.
-- Für andere auf WebKit basierende Apps, die Webinhalte einbetten, kann jeder Ursprung bis zu etwa 15% der gesamten Festplatte speichern. Falls der Nutzer die Seite als Web-App auf dem Startbildschirm oder im Dock gespeichert hat, verwendet sie dieselbe Ursprungsquote wie die Browser-App (ca. 60% des Speicherplatzes).
+- Für WebKit-basierte Browser-Apps kann jeder Ursprung bis zu etwa 60% der gesamten Festplatte speichern.
+- Für andere WebKit-basierte Apps, die Webinhalte einbetten, kann jeder Ursprung bis zu etwa 15% der gesamten Festplatte speichern. Wenn der Nutzer die Website als Web-App auf dem Home-Bildschirm oder im Dock gespeichert hat, verwendet sie das gleiche Ursprungskontingent wie die Browser-App (etwa 60% des Speicherplatzes).
 
-Zum Beispiel wird einem macOS-Gerät mit einer 1 TiB Festplatte innerhalb des Safari-Webbrowsers erlaubt, einen Ursprung auf etwa 600 GiB zu begrenzen. Ursprünge, die in einer eingebetteten WebView einer anderen App ausgeführt werden, haben ein geringeres Limit von etwa 150 GiB.
+Zum Beispiel wird ein macOS-Gerät mit einem 1 TiB Laufwerk jedes Herkunft innerhalb des Safari-Webbrowsers auf etwa 600 GiB beschränken. Ursprünge, die in der eingebetteten WebView einer anderen App laufen, erhalten ein geringeres Limit von etwa 150 GiB.
 
-Aus Datenschutzgründen haben {{Glossary("Same-origin_policy", "cross-origin")}} Frames ein separates Limit, das etwa 1/10 ihrer Eltern-Kontingente beträgt.
+Aus Datenschutzgründen haben {{Glossary("Same-origin_policy", "cross-origin")}}-Frames ein separates Kontingent, das etwa 1/10 ihrer Eltern ausmacht.
 
-Wie andere Browser auch, können die genauen durchgesetzten Grenzen der Quote variieren, um Fingerprinting zu vermeiden.
+Wie andere Browser können die genauen Grenzen des durch das Kontingent durchgesetzten Speichers variieren, um Fingerabdruckerkennung zu vermeiden.
 
-WebKit setzt auch ein allgemeines Limit durch, dass gespeicherte Daten über alle Ursprünge hinweg nicht mehr als 80% des Speicherplatzes für Browser-Apps und 20% des Speicherplatzes für Nicht-Browser-Apps, die Webinhalte anzeigen, wachsen dürfen.
+WebKit erzwingt auch ein allgemeines Kontingent, das gespeicherte Daten über alle Ursprünge nicht über 80% der Festplattengröße für Browser-Apps und 20% der Festplattengröße für Nicht-Browser-Apps, die Webinhalte anzeigen, wachsen darf.
 
-Weitere Informationen zu WebKits Speicherpolitik finden Sie im [WebKit-Blog](https://webkit.org/blog/14403/updates-to-storage-policy/).
+Weitere Informationen zu WebKit-Speicherpolitiken finden Sie auf dem [WebKit-Blog](https://webkit.org/blog/14403/updates-to-storage-policy/).
 
-In früheren Versionen von Safari erhält ein Ursprung ein anfängliches Quote von 1 GiB. Sobald der Ursprung dieses Limit erreicht, fragt Safari den Nutzer um Erlaubnis, um dem Ursprung zu gestatten, mehr Daten zu speichern. Dies geschieht unabhängig davon, ob der Ursprung Daten im Best-Effort-Modus oder im Persistent-Modus speichert.
+In älteren Safari-Versionen erhält ein Ursprung ein anfängliches 1 GiB-Kontingent. Sobald der Ursprung dieses Limit erreicht, fragt Safari den Nutzer um Erlaubnis, ob der Ursprung mehr Daten speichern darf. Dies passiert unabhängig davon, ob der Ursprung Daten im Best-effort- oder im Persistenzmodus speichert.
 
 > [!NOTE]
-> Unter iOS/iPadOS mussten Drittanbieterbrowser historisch gesehen WebKit verwenden, sodass diese WebKit-Quoten sowohl für sie als auch für Safari gelten. In der EU (iOS 17.4+) erlaubt Apple alternative Browser-Engines; in solchen Fällen gelten die eigenen Richtlinien dieser Browser-Engines anstelle von WebKits.
+> Auf iOS/iPadOS mussten Drittanbieter-Browser historisch gesehen WebKit verwenden, so dass diese WebKit-Quoten sowohl für sie als auch für Safari gelten. In der EU (iOS 17.4+) erlaubt Apple alternative Browser-Engines; in solchen Fällen gelten die eigenen Richtlinien der Browser-Engines anstelle der von WebKit.
 >
-> Auf macOS verwenden nicht-auf-WebKit basierende Browser (z.B. Chromium/Firefox) ihre eigenen Speicherpolitiken.
+> Auf macOS verwenden Nicht-WebKit-Browser (z.B. Chromium/Firefox) ihre eigenen Speicherpolitiken.
 >
-> Weitere Informationen zu den EU-spezifischen Informationen finden Sie auf der [Apple Developer Support Seite](https://developer.apple.com/support/alternative-browser-engines).
+> Weitere Informationen zur EU-spezifischen Information finden Sie auf der [Apple Developer Support Seite](https://developer.apple.com/support/alternative-browser-engines).
 
-## Wie kann der verfügbare Speicherplatz überprüft werden?
+## Wie kann man den verfügbaren Speicherplatz überprüfen?
 
-Webentwickler können mit der Methode [`navigator.storage.estimate()`](/de/docs/Web/API/StorageManager/estimate) der [Storage API](/de/docs/Web/API/Storage_API) überprüfen, wie viel Speicherplatz für ihren Ursprung verfügbar ist und wie viel vom Ursprung genutzt wird.
+Webentwickler können mit der Methode [`navigator.storage.estimate()`](/de/docs/Web/API/StorageManager/estimate) der [Storage API](/de/docs/Web/API/Storage_API) überprüfen, wie viel Speicherplatz für ihren Ursprung verfügbar ist und wie viel von diesem Ursprung genutzt wird.
 
-Beachten Sie, dass diese Methode nur den geschätzten Nutzungswert zurückgibt, nicht den tatsächlichen Wert. Einige der Ressourcen, die von einem Ursprung gespeichert werden, können von anderen Ursprüngen kommen, und Browser polstern die Größe der Daten von Cross-Origenen freiwillig auf, wenn sie den gesamten Nutzungswert melden.
+Beachten Sie, dass diese Methode nur den geschätzten Nutzungswert und nicht den tatsächlichen Wert zurückgibt. Einige der Ressourcen, die von einem Ursprung gespeichert werden, können von anderen Ursprüngen kommen und Browser polstern die Größe der ursprungsübergreifenden Daten absichtlich, wenn sie den gesamten Nutzungswert melden.
 
-## Was passiert, wenn ein Ursprung sein Kontingent erreicht?
+## Was passiert, wenn ein Ursprung sein Kontingent ausschöpft?
 
-Wenn versucht wird, mehr als das Kontingent eines Ursprungs unter Verwendung von IndexedDB, Cache oder OPFS zu speichern, schlägt dies mit einer Ausnahme `QuotaExceededError` fehl.
+Der Versuch, mehr als das Kontingent eines Ursprungs mit IndexedDB, Cache oder OPFS zu speichern, schlägt mit einer `QuotaExceededError`-Ausnahme fehl.
 
-Webentwickler sollten JavaScript, das in den Browserspeicher schreibt, in {{jsxref("Statements/try...catch","try...catch")}} Blöcke einschließen. Es wird auch empfohlen, Speicherplatz freizugeben, indem Daten gelöscht werden, bevor neue Daten gespeichert werden.
+Webentwickler sollten JavaScript, das in der Browser-Speicherung schreibt, in {{jsxref("Statements/try...catch","try...catch")}}-Blöcke einwickeln. Es wird auch empfohlen, Speicherplatz freizugeben, indem Daten gelöscht werden, bevor neue Daten gespeichert werden.
 
-## Wann werden Daten gelöscht?
+## Wann werden Daten entfernt?
 
-Das Löschen von Daten ist der Prozess, bei dem ein Browser die gespeicherten Daten eines Ursprungs löscht.
+Datenentfernung ist der Prozess, durch den ein Browser die gespeicherten Daten eines Ursprungs löscht.
 
-Das Löschen von Daten kann in mehreren Fällen auftreten:
+Datenentfernung kann in verschiedenen Fällen stattfinden:
 
-- Wenn das Gerät wenig Speicherplatz hat, auch bekannt als _Speicherdruck_.
-- Wenn alle im Browser gespeicherten Daten (über alle Ursprünge hinweg) die Menge an Speicherplatz überschreiten, die der Browser auf dem Gerät verwenden möchte.
-- Proaktiv, für Ursprünge, die nicht regelmäßig verwendet werden, was nur in Safari der Fall ist.
+- Wenn das Gerät einen niedrigen Speicherstand erreicht, auch bekannt als _Storage Pressure_.
+- Wenn alle im Browser gespeicherten Daten (über alle Ursprünge hinweg) die Gesamtmenge an Speicherplatz überschreiten, die der Browser auf dem Gerät verwenden möchte.
+- Proaktiv, für Ursprünge, die nicht regelmäßig genutzt werden, was nur in Safari passiert.
 
-### Speicherdrucklöschung
+### Storage Pressure Eviction
 
-Wenn ein Gerät wenig Speicherplatz hat, auch bekannt als _Speicherdruck_, kann es vorkommen, dass der Browser weniger verfügbaren Speicherplatz hat als er benötigt, um alle gespeicherten Daten des Ursprungs zu speichern.
+Wenn ein Gerät einen niedrigen Speicherstand hat, auch bekannt als _Storage Pressure_, kann es dazu kommen, dass der Browser weniger verfügbaren Platz hat, als er benötigt, um alle gespeicherten Daten des Ursprungs zu speichern.
 
-Browser verwenden eine Least Recently Used (LRU)-Richtlinie, um mit diesem Szenario umzugehen. Die Daten des am wenigsten kürzlich verwendeten Ursprungs werden gelöscht. Wenn der Speicherdruck anhält, wechselt der Browser zum zweitwenigsten kürzlich verwendeten Ursprung usw., bis das Problem gelöst ist.
+Browser verwenden eine Least Recently Used (LRU)-Policy, um mit diesem Szenario umzugehen. Die Daten des am wenigsten kürzlich genutzten Ursprungs werden gelöscht. Wenn der Speicherplatz weiterhin unter Druck steht, fährt der Browser mit dem zweitwenigsten kürzlich genutzten Ursprung fort und so weiter, bis das Problem behoben ist.
 
-Dieser Löschmechanismus betrifft nur Ursprünge, die nicht persistent sind und überspringt Ursprünge, denen durch die Verwendung von [`navigator.storage.persist()`](/de/docs/Web/API/StorageManager/persist) Datenbeständigkeit gewährt wurde.
+Dieser Löschmechanismus gilt nur für nicht-beständige Ursprünge und überspringt Ursprünge, für die durch die Nutzung von [`navigator.storage.persist()`](/de/docs/Web/API/StorageManager/persist) dauerhafte Datenspeicherung gewährt wurde.
 
-### Löschung bei Überschreitung des maximal erlaubten Browserspeicherplatzes
+### Überschreiten der maximalen Speichernutzung des Browsers
 
-Einige Browser definieren einen maximalen Speicherplatz, den sie auf der Festplatte des Geräts verwenden können. Zum Beispiel verwendet Chrome derzeit maximal 80% der gesamten Festplattengröße.
+Einige Browser definieren einen maximalen Speicherplatz, den sie auf der Festplatte des Geräts verwenden können. Beispielsweise verwendet Chrome derzeit höchstens 80% der Gesamtdiskgröße.
 
-Diese maximale Speicherplatzgröße bedeutet, dass es zu einem Punkt kommen kann, an dem die von allen kombinierten Ursprüngen gespeicherten Daten die maximale Größe überschreiten, ohne dass ein einzelner Ursprung über seinem individuellen Kontingent liegt.
+Diese maximale Speichergröße bedeutet, dass es einen Punkt geben kann, an dem die von allen kombinierten Ursprüngen gespeicherten Daten die maximale Größe überschreiten, ohne dass ein einzelner Ursprung über seinem individuellen Kontingent liegt.
 
-Wenn dies geschieht, beginnt der Browser mit der Löschung von Best-Effort-Ursprüngen, wie unter [Speicherdrucklöschung](#speicherdrucklöschung) beschrieben.
+Wenn dies geschieht, beginnt der Browser, Best-effort-Ursprünge wie im Abschnitt [Storage Pressure Eviction](#storage_pressure_eviction) beschrieben zu entfernen.
 
-### Proaktive Löschung
+### Proaktive Entfernung
 
-Safari löscht Daten proaktiv, wenn das Verhindern von Websitenübergreifendem Tracking aktiviert ist. Wenn ein Ursprung innerhalb der letzten sieben Tage der Nutzung des Browsers keine Nutzerinteraktion, wie Klicks oder Tippen, hatte, werden seine aus Skripten erstellten Daten gelöscht. Vom Server gesetzte Cookies sind von dieser Löschung ausgenommen.
+Safari entfernt proaktiv Daten, wenn die ursprungsübergreifende Verfolgungsprävention aktiviert ist. Wenn ein Ursprung in den letzten sieben Tagen der Browsernutzung keine Nutzerinteraktion, wie Klicken oder Tippen, hat, werden seine Daten, die durch Skript erstellt wurden, gelöscht. Serverseitig gesetzte Cookies sind von dieser Entfernung ausgeschlossen.
 
 ## Wie werden Daten gelöscht?
 
-Wenn die Daten eines Ursprungs vom Browser gelöscht werden, werden alle seine Daten, nicht Teile davon, gleichzeitig gelöscht. Wenn der Ursprung z.B. Daten mithilfe von IndexedDB und der Cache-API gespeichert hat, werden beide Datentypen gelöscht.
+Wenn die Daten eines Ursprungs vom Browser entfernt werden, werden alle seine Daten, nicht nur Teile davon, gleichzeitig gelöscht. Wenn der Ursprung zum Beispiel Daten sowohl mit IndexedDB als auch mit der Cache API gespeichert hat, werden beide Datentypen gelöscht.
 
-Das Löschen nur einiger der gespeicherten Daten eines Ursprungs könnte zu Konsistenzproblemen führen.
+Nur einen Teil der Daten eines Ursprungs zu löschen, könnte zu Konsistenzproblemen führen.
 
 ## Siehe auch
 
-- [Speicher für das Web auf web.dev](https://web.dev/articles/storage-for-the-web)
+- [Speicherung für das Web auf web.dev](https://web.dev/articles/storage-for-the-web)
 - [Persistenter Speicher auf web.dev](https://web.dev/articles/persistent-storage)
-- [Chrome-Webspeicher- und Quotenkonzepte](https://docs.google.com/document/d/19QemRTdIxYaJ4gkHYf2WWBNPbpuZQDNMpUVf8dQxj4U/edit)
+- [Chrome Web Storage und Quota-Konzepte](https://docs.google.com/document/d/19QemRTdIxYaJ4gkHYf2WWBNPbpuZQDNMpUVf8dQxj4U/edit)

@@ -3616,6 +3616,7 @@
 /de/docs/Glossary/XHR_(XMLHttpRequest)	/de/docs/Glossary/XMLHttpRequest
 /de/docs/Glossary/XSS	/de/docs/Glossary/Cross-site_scripting
 /de/docs/Glossary/block-level	/de/docs/Glossary/Block-level_content
+/de/docs/Glossary/eTLD	/de/docs/Glossary/Registrable_domain
 /de/docs/Glossary/entities	/de/docs/Glossary/Entity
 /de/docs/Glossary/inline-level	/de/docs/Glossary/Inline-level_content
 /de/docs/Glossary/l10n	/de/docs/Glossary/Localization

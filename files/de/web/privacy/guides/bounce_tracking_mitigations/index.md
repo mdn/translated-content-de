@@ -1,21 +1,21 @@
 ---
-title: Bounce Tracking Abschwächungen
+title: Abwehrmaßnahmen gegen Bounce-Tracking
 slug: Web/Privacy/Guides/Bounce_tracking_mitigations
 l10n:
-  sourceCommit: a73b189594f4dbed3dd953d263ebd93f28ba16d0
+  sourceCommit: d7a0ef33dfce20818a160557b5a72d6565cec254
 ---
 
-**Bounce Tracking Abschwächungen** (in einigen Browsern als **bounce tracking protection** bezeichnet) sind eine Funktion, die den Datenschutz des Nutzers verbessert, indem sie Schutz vor **bounce tracking** bietet. Dieser Artikel erklärt, was bounce tracking ist und wie Bounce Tracking Abschwächungen funktionieren.
+**Abwehrmaßnahmen gegen Bounce-Tracking** (in einigen Browsern als **Bounce-Tracking-Schutz** bezeichnet) ist eine Funktion, die den Schutz der Privatsphäre der Benutzer verbessert, indem sie gegen **Bounce-Tracking** schützt. Dieser Artikel erklärt, was Bounce-Tracking ist und wie Abwehrmaßnahmen gegen Bounce-Tracking funktionieren.
 
-## Definition von Bounce Tracking
+## Definition von Bounce-Tracking
 
-Bounce Tracking (auch bekannt als **redirect tracking**) ist ein Missbrauch der plattformübergreifenden Navigation, bei dem ein Tracker einen Benutzer auf seine Website weiterleitet, um ein First-Party-Cookie zu setzen, das den Benutzer über andere Websites hinweg verfolgt. Die Weiterleitung kann so schnell erfolgen, dass der Benutzer sie möglicherweise gar nicht bemerkt.
+Bounce-Tracking (auch bekannt als **Redirect-Tracking**) ist ein Missbrauch von Cross-Site-Navigation, bei dem ein Tracker einen Benutzer auf seine Website umleitet, um ein First-Party-Cookie zu setzen, das den Benutzer über andere Websites hinweg verfolgt. Die Umleitung kann so schnell erfolgen, dass ein Benutzer sie möglicherweise nicht einmal bemerkt.
 
-Effektiv ermöglicht Bounce Tracking das Setzen von Tracking-Cookies, auch wenn der Browser [Third-Party-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) deaktiviert hat.
+Effektiv ermöglicht Bounce-Tracking das Setzen von Tracking-Cookies, selbst wenn der Browser [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) deaktiviert hat.
 
-Bounce Tracking kann auf verschiedene Weisen durchgeführt werden:
+Bounce-Tracking kann auf verschiedene Arten durchgeführt werden:
 
-1. Als "bounce back". In diesem Fall beginnt der Benutzer auf einer Website (`site1.example`), wird zu einer Tracker-Website (`tracker.example`) navigiert, wo das Tracking-Cookie gesetzt wird, und wird dann zurück zu `site1.example` weitergeleitet.
+1. Als "Bounce back". In diesem Fall beginnt der Benutzer auf einer Website (`site1.example`), wird auf eine Tracker-Site (`tracker.example`) navigiert, wo das Tracking-Cookie gesetzt wird, und dann zurück zu `site1.example` umgeleitet.
 
    <!--
 
@@ -30,9 +30,9 @@ Bounce Tracking kann auf verschiedene Weisen durchgeführt werden:
 
    -->
 
-   ![Eine Illustration eines Bounce Back Beispiels](bounce-back.svg)
+   ![Eine Darstellung eines Bounce-Back-Beispiels](bounce-back.svg)
 
-2. Als "bounce through". In diesem Fall beginnt der Benutzer auf einer Website (`site1.example`), wird zu einer Tracker-Website (`tracker.example`) navigiert, wo das Tracking-Cookie gesetzt wird und wird dann zu einer anderen Website (`site2.example`) weitergeleitet.
+2. Als "Bounce through". In diesem Fall beginnt der Benutzer auf einer Website (`site1.example`), wird auf eine Tracker-Site (`tracker.example`) navigiert, wo das Tracking-Cookie gesetzt wird, und dann zu einer anderen Website (`site2.example`) umgeleitet.
 
       <!--
    
@@ -48,29 +48,29 @@ Bounce Tracking kann auf verschiedene Weisen durchgeführt werden:
    
    -->
 
-   ![Eine Illustration eines Bounce Through Beispiels](bounce-through.svg)
+   ![Eine Darstellung eines Bounce-Through-Beispiels](bounce-through.svg)
 
-In beiden Fällen sind Benutzer sich möglicherweise nicht bewusst, dass sie `tracker.example` besucht haben. Sie könnten glauben, dass sie nur `site1.example` besucht haben oder versuchen, zu `site2.example` zu navigieren.
+In beiden Fällen sind sich die Benutzer möglicherweise nicht bewusst, dass sie `tracker.example` besucht haben. Sie könnten glauben, nur `site1.example` besucht zu haben oder versucht haben, zu `site2.example` zu navigieren.
 
-## Funktionsweise der Bounce Tracking Abschwächungen
+## Wie Abwehrmaßnahmen gegen Bounce-Tracking funktionieren
 
-Bounce Tracking Abschwächungen funktionieren, indem sie Tracker-Websites mithilfe einer Heuristik identifizieren und regelmäßig Cookies und andere zugehörige Zustandsdaten löschen (weitere Beispiele sind [`localStorage`](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Cache API](/de/docs/Web/API/CacheStorage) und Netzwerkzustandsdaten). Die Funktion vermeidet die Verwendung von Block- oder Zulassungslisten, um zu entscheiden, welche Websites betroffen sind.
+Abwehrmaßnahmen gegen Bounce-Tracking funktionieren, indem sie Tracker-Sites mit Hilfe einer Heuristik identifizieren und regelmäßig Cookies und andere Zustandsdaten löschen, die mit ihnen verbunden sind (weitere Beispiele sind [`localStorage`](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Cache API](/de/docs/Web/API/CacheStorage) und Netzwerkzustandsdaten). Die Funktion vermeidet es, Block- oder Erlauben-Listen zu verwenden, um zu entscheiden, welche Websites betroffen sind.
 
-Es ist entscheidend, dass der Browser beim Schutz vor Bounce Tracking nicht legitime, nicht-tracking Weiterleitungsabläufe stört. Beispielsweise beinhalten Single Sign-On (SSO), [Identity Federation](/de/docs/Web/API/FedCM_API#fedcm_concepts) und Zahlungsdienste im Allgemeinen die Weiterleitung des Benutzers zu einer anderen Website, auf der er eine Aktion ausführt, Zustandsinformationen aktualisiert und dann zum ursprünglichen Standort zurückleitet.
+Es ist wichtig, dass der Browser, während er sich gegen Bounce-Tracking verteidigt, die legitimen, nicht-tracking-basierten Umleitungsabläufe nicht beeinträchtigt. Zum Beispiel beinhalten Single Sign-On (SSO), [Identitätsföderation](/de/docs/Web/API/FedCM_API#fedcm_concepts) und Zahlungsdienste in der Regel eine Umleitung des Benutzers zu einer anderen Website, auf der er eine Aktion ausführt, die zu einer Aktualisierung der Zustandsinformationen führt, bevor der Benutzer wieder zurück zur ursprünglichen Website geleitet wird.
 
 Der Prozess funktioniert wie folgt:
 
-1. Der Browser überwacht Navigationen und kennzeichnet Websites, die Teil eines "Bounce" sind, also Websites, über die eine Navigation umgeleitet wurde. Dies umfasst sowohl server-initiierte Weiterleitungen als auch clientseitige Weiterleitungen, bei denen JavaScript programmgesteuert eine Navigation auslöst.
-2. Der Browser untersucht regelmäßig seine Liste der gekennzeichneten Websites und überprüft, ob der Benutzer die Website aktiv genutzt hat, indem er in den letzten 45 Tagen mit ihr interagiert hat. Beispielinteraktionen umfassen das Klicken auf einen Button, das Eingeben von Daten in ein Formular und das Scrollen auf der Website. Die Interaktion kann vor, während oder nach dem Erkennen des Bounces erfolgen.
-3. Wenn die Website keine Benutzerinteraktion aufweist und Third-Party-Cookies blockiert sind, werden ihre Zustandsdaten gelöscht.
+1. Der Browser überwacht Navigationen und markiert Websites, die Teil eines "Bounces" sind, also Websites, durch die eine Navigation umgeleitet wurde. Dazu gehören sowohl serverinitiierte Umleitungen als auch clientseitige Umleitungen, bei denen JavaScript programmgesteuert eine Navigation auslöst.
+2. Der Browser untersucht regelmäßig seine Liste der markierten Websites und prüft, ob der Benutzer die Website aktiv genutzt hat, indem er innerhalb der letzten 45 Tage mit ihr interagiert hat. Beispielhafte Interaktionen umfassen das Klicken auf einen Button, das Eingeben von Daten in ein Formular und das Scrollen auf der Website. Die Interaktion kann vor, während oder nach der Erkennung des Bounce erfolgen.
+3. Falls die Website keine Benutzerinteraktion aufweist und Drittanbieter-Cookies blockiert sind, wird ihr Zustand gelöscht.
 
-Die Heuristik arbeitet auf {{Glossary("site", "Sites")}}, die durch {{Glossary("eTLD#etld1", "eTLD+1")}} definiert sind. Infolgedessen werden sowohl `foo.site1.example` als auch `bar.site1.example` als `site1.example` behandelt.
+Die Heuristik arbeitet auf {{Glossary("site", "Sites")}}. Daher werden sowohl `foo.site1.example` als auch `bar.site1.example` als `site1.example` behandelt.
 
-### Zustandsbehaftete vs. zustandslose Bounces
+### Stateful vs. Stateless Bounces
 
-Frühere Implementierungen haben nur Websites gekennzeichnet, die Teil eines "zustandsbehafteten Bounces" sind, also eines "Bounce", bei dem die Weiterleitungsseite Zustandsinformationen (wie ein Cookie) setzt. Dies wurde geändert, weil andere Formen von Zustand — wie Netzwerkzustand — automatisch gesetzt werden, aber immer noch manipuliert werden können, um Benutzer zu verfolgen. Wenn Sie diese Arten von Zustand betrachten, wird jeder Bounce effektiv zustandsbehaftet, sodass es nicht nützlich ist, "zustandsbehaftete Bounces" als eine separate Gruppe zu betrachten.
+Frühere Implementierungen markierten nur Websites, die Teil eines "stateful bounce" sind, also einem "Bounce", bei dem die Umleitungsseite Zustandsinformationen setzt (wie ein Cookie). Dies wurde geändert, da andere Formen von Zustand — wie Netzwerkzustand — automatisch gesetzt werden, aber trotzdem manipuliert werden können, um Benutzer zu verfolgen. Wenn man diese Arten von Zustand betrachtet, wird jeder Bounce effektiv stateful, sodass es nicht sinnvoll ist, "stateful bounces" als eigene Gruppe zu betrachten.
 
-Die Implementierungen wurden daher aktualisiert, um im "zustandslosen Modus" zu arbeiten.
+Implementierungen wurden daher aktualisiert, um im "stateless mode" zu arbeiten.
 
 ## Spezifikationen
 
@@ -78,8 +78,8 @@ Die Implementierungen wurden daher aktualisiert, um im "zustandslosen Modus" zu 
 
 ## Browser-Kompatibilität
 
-- Die Implementierung der Bounce Tracking Abschwächungen in Chromium wurde in Version 116 ausgeliefert und funktioniert, wenn Benutzereinstellungen Third-Party-Cookies blockieren. Chromium hat Third-Party-Cookies standardmäßig nur deaktiviert, wenn es im Inkognito-Modus von Chrome (oder dem entsprechenden Modus in anderen Browsern, wie dem InPrivate-Modus von Microsoft Edge) verwendet wird. Browser mit nicht auf Chromium basierenden Rendering-Engines blockieren standardmäßig immer Third-Party-Cookies.
-- Firefox [unterstützt Bounce Tracking Schutz](https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/bounce-tracking-protection/), wenn der [Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf den strikten Modus eingestellt ist.
-  - Firefox hat seine bestehenden Funktionen zum [Schutz vor Redirect-Tracking](/de/docs/Web/Privacy/Guides/Redirect_tracking_protection) neben dem Bounce Tracking Schutz beibehalten, da es einen plattformübergreifenden Ansatz bietet, der sich nicht auf eine bekannte Tracker-Liste verlässt.
-  - Firefox hat seine Implementierung in Version [145](/de/docs/Mozilla/Firefox/Releases/145) auf den zustandslosen Modus umgestellt.
-- Safari implementiert Bounce Tracking Abschwächungen nicht im Sinne der [Spezifikation](#spezifikationen). Safari hat eine eigene Listen-basierte Bounce Tracking Schutz, die erstmals in [ITP 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) eingeführt wurde. Siehe auch die [Safari](https://privacycg.github.io/nav-tracking-mitigations/#mitigations-safari) Beschreibung in der Spezifikation.
+- Die Implementierung von Bounce-Tracking-Abwehrmaßnahmen in Chromium wurde in Version 116 eingeführt und funktioniert, wenn Benutzereinstellungen Drittanbieter-Cookies blockieren. Chromium hat Drittanbieter-Cookies standardmäßig nur im Inkognito-Modus von Chrome deaktiviert (oder dem Äquivalent in anderen Browsern, wie dem InPrivate-Modus von Microsoft Edge). Browser, die auf Nicht-Chromium-Rendering-Engines basieren, blockieren standardmäßig immer Drittanbieter-Cookies.
+- Firefox [unterstützt Bounce-Tracking-Schutz](https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/bounce-tracking-protection/), wenn der [erweiterte Tracking-Schutz](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf den strengen Modus eingestellt ist.
+  - Firefox hat seine bestehenden [Redirect-Tracking-Schutz](/de/docs/Web/Privacy/Guides/Redirect_tracking_protection) Funktionen neben dem Bounce-Tracking-Schutz beibehalten, da es einen browserübergreifenden Ansatz bietet, der nicht auf eine bekannte Tracker-Liste angewiesen ist.
+  - Firefox hat seine Implementierung aktualisiert, um im Stateless-Modus in [Version 145](/de/docs/Mozilla/Firefox/Releases/145) zu laufen.
+- Safari implementiert keine Bounce-Tracking-Abwehrmaßnahmen wie in der [Spezifikation](#spezifikationen) definiert. Safari hat seinen eigenen Listen-basierten Bounce-Tracking-Schutz, der erstmals in [ITP 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) eingeführt wurde. Siehe auch die [Safari](https://privacycg.github.io/nav-tracking-mitigations/#mitigations-safari) Beschreibung in der Spezifikation.
