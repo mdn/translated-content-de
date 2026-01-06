@@ -2,10 +2,10 @@
 title: additive-symbols
 slug: Web/CSS/Reference/At-rules/@counter-style/additive-symbols
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 6ad108adad746bd7ed79b5b32d8d3e05e5ec685a
 ---
 
-Der **`additive-symbols`** Deskriptor der {{cssxref('@counter-style')}} At-Regel wird verwendet, um Zählersymbole festzulegen, wenn der `@counter-style` {{cssxref('@counter-style/system', 'system')}} Deskriptorwert auf `additive` gesetzt ist. Das additive System wird genutzt, um [Wert-Zahlen](https://en.wikipedia.org/wiki/Sign-value_notation) Systeme wie römische Ziffern zu konstruieren.
+Der **`additive-symbols`** Deskriptor der {{cssxref("@counter-style")}} Regel dient dazu, Zählersymbole zu spezifizieren, wenn der `@counter-style` {{cssxref('@counter-style/system', 'system')}} Deskriptorwert als `additive` festgelegt ist. Das additive System wird verwendet, um [Sign-value-Nummerierung](https://en.wikipedia.org/wiki/Sign-value_notation) Systeme wie römische Zahlen zu erstellen.
 
 ## Syntax
 
@@ -35,22 +35,22 @@ additive-symbols:
 
 ### Werte
 
-Der Deskriptor akzeptiert eine kommagetrennte Liste von _additiven Tupeln_, wobei jedes Tupel aus den folgenden zwei Werten besteht, die durch ein Leerzeichen getrennt sind:
+Der Deskriptor akzeptiert eine durch Kommas getrennte Liste von _additiven Tupeln_, wobei jedes Tupel aus den folgenden zwei durch ein Leerzeichen getrennten Werten besteht:
 
 - {{cssxref("integer")}}
-  - : Ein nicht-negativer ganzzahliger Wert, der das ganzzahlige Gewicht des zugehörigen Symbolwertes des Tupels angibt.
+  - : Ein nicht-negativer Ganzzahlwert, der das ganzzahlige Gewicht des zugehörigen Symbolwerts des Tupels angibt.
 
 - [`<symbol>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols#symbol)
-  - : Gibt das Zählersymbol an, das für den durch den zugehörigen `<integer>` Gewichts-Wert des Tupels definierten Gewichts-Wert verwendet werden soll.
+  - : Gibt das Zählersymbol an, das für den durch den zugehörigen `<integer>` Gewichtswert des Tupels definierten Wert verwendet werden soll.
 
 > [!NOTE]
-> Die additiven Tupel müssen in absteigender Reihenfolge des Gewichts angegeben werden; andernfalls ist die Deskriptor-Deklaration ungültig und wird ignoriert.
+> Die additiven Tupel müssen in absteigender Gewichtungsreihenfolge angegeben werden; andernfalls ist die Deskriptordeklaration ungültig und wird ignoriert.
 
 ## Beschreibung
 
-Der `additive-symbols` Deskriptor definiert eine kommagetrennte Liste von _additiven Tupeln_. Jedes _additive Tupel_ enthält einen durch Leerzeichen getrennten nicht-negativen Ganzzahlwert und ein Zählersymbol. Um gültig zu sein, muss die Liste in absteigender Reihenfolge der Ganzzahlen sein. Die Ganzzahl und das Symbol werden zusammengefügt, um das Zählersymbol zu bilden.
+Der `additive-symbols` Deskriptor definiert eine durch Kommas getrennte Liste von _additiven Tupeln_. Jedes _additive Tupel_ enthält eine durch Leerzeichen getrennte nicht-negative Ganzzahl und ein Zählersymbol. Um gültig zu sein, muss die Liste in absteigender Reihenfolge der Ganzzahlen stehen. Die Ganzzahl und das Symbol werden zusammengefügt, um das Zählersymbol zu bilden.
 
-Wenn der `system` Deskriptorwert `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, verwenden Sie den {{cssxref('symbols')}}-Deskriptor anstelle von `additive-symbols`.
+Wenn der `system` Deskriptorwert `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, verwenden Sie den {{cssxref('symbols')}} Deskriptor anstelle von `additive-symbols`.
 
 ## Formale Definition
 
@@ -62,11 +62,11 @@ Wenn der `system` Deskriptorwert `cyclic`, `numeric`, `alphabetic`, `symbolic` o
 
 ## Beispiele
 
-### Angabe additiver Symbole
+### Additive Symbole spezifizieren
 
 #### HTML
 
-In diesem Beispiel spezifizieren {{cssxref("@counter-style/system","system: additive")}} zusammen mit den `additive-symbols` Deskriptorwerten, wie Zahlen als römische Ziffern dargestellt werden sollen. Der Wert jedes {{HTMLElement("li")}} Elements in der Liste wird gemäß den im {{cssxref("@counter-style")}} definierten Regeln in eine römische Zahl umgewandelt.
+In diesem Beispiel geben {{cssxref("@counter-style/system","system: additive")}} zusammen mit den `additive-symbols` Deskriptorwerten an, wie Zahlen als römische Ziffern dargestellt werden sollen. Der Wert jedes {{HTMLElement("li")}} Elements in der Liste wird gemäß den in {{cssxref("@counter-style")}} definierten Regeln in eine römische Ziffer umgewandelt.
 
 ```html
 <ul>
@@ -111,7 +111,7 @@ ul {
 
 {{ EmbedLiveSample('Specifying_additive_symbols') }}
 
-Für das Listenelement mit dem Wert `109` repräsentiert die Ziffer `C` die `100`, und `IX` steht für `9`. Dies erzeugt den `CIX` Zähler für das Listenelement `109`. Das nächste Listenelement erhält automatisch den Wert `110`. Die römische Zahl `CX` leitet sich aus `C` für `100` und `X` für `10` ab.
+Für das Listenelement mit dem Wert `109` steht das Zahlzeichen `C` für `100` und `IX` für `9`. Dies ergibt `CIX` als Zähler für das Listenelement `109`. Das nächste Listenelement erhält automatisch den Wert `110`. Die römische Ziffer `CX` wird von `C` für `100` und `X` für `10` abgeleitet.
 
 ## Spezifikationen
 
@@ -124,6 +124,6 @@ Für das Listenelement mit dem Wert `109` repräsentiert die Ziffer `C` die `100
 ## Siehe auch
 
 - {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, {{cssxref("@counter-style/fallback", "fallback")}}
-- Listenstil-Eigenschaften: {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols()")}} Funktion, um anonyme Zählerstile zu erstellen
+- Listenszele-Eigenschaften: {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
+- {{cssxref("symbols()")}} Funktion zur Erstellung anonymer Zählerstile
 - [CSS Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul

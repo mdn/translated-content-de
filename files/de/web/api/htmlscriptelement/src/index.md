@@ -3,33 +3,33 @@ title: "HTMLScriptElement: src-Eigenschaft"
 short-title: src
 slug: Web/API/HTMLScriptElement/src
 l10n:
-  sourceCommit: 01768f6dcc74acdbd32d2e91512939003b86ac6c
+  sourceCommit: a809326f55025ca710b11e6c46414d73d031bf2b
 ---
 
 {{APIRef("HTML DOM")}}
 
 > [!WARNING]
-> Diese Eigenschaft repräsentiert die URI eines externen Skripts, das in das Skriptelement geladen wird. Abhängig vom Skript[`type`](/de/docs/Web/API/HTMLScriptElement/type) kann dies ausführbar sein.
-> Solche APIs werden als [injection sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und können potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe sein.
+> Diese Eigenschaft repräsentiert die URI eines externen Skripts, das in das Skriptelement geladen wird. Abhängig vom Skript kann dies ausführbar sein [`type`](/de/docs/Web/API/HTMLScriptElement/type).
+> Solche APIs werden als [Injection-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bezeichnet und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar.
 >
-> Sie können dieses Risiko durch eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mindern, die die Orte einschränkt, von denen Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
+> Sie können dieses Risiko mindern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) implementieren, die die Standorte einschränkt, von denen Skripte geladen werden können, und indem Sie stets [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`src`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der die URL eines externen Skripts darstellt; dies kann als Alternative zum direkten Einbetten eines Skripts in ein Dokument verwendet werden.
+Die **`src`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle ist ein String, der die URL eines externen Skripts repräsentiert; dies kann als Alternative zur direkten Einbettung eines Skripts in ein Dokument verwendet werden.
 
 Sie spiegelt das [`src`](/de/docs/Web/HTML/Reference/Elements/script#src)-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Das Abrufen der Eigenschaft gibt einen String zurück, der die Skript-URI des Elements enthält.
+Das Abrufen der Eigenschaft gibt einen String zurück, der die URI des Skript-Elements enthält.
 
-Beim Setzen der Eigenschaft wird entweder ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt oder ein String akzeptiert.
+Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt oder einen String.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft mit einem String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standard-Richtlinie definiert ist.
-    Dies wird auch ausgelöst, wenn die abgerufene URL nicht erfolgreich als ihr angegebener Typ, wie zum Beispiel ein Modul oder Importmap, geparst werden kann.
+  - : Wird ausgelöst, wenn die Eigenschaft mit einem String gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP durchgesetzt werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+    Dies wird auch ausgelöst, wenn die abgerufene URL nicht erfolgreich als ihr angegebener Typ, wie ein Modul oder Importmap, geparst werden kann.
 
 ## Beschreibung
 
@@ -39,37 +39,37 @@ Wenn gesetzt, werden Skripte, die über die Texteigenschaften [`text`](/de/docs/
 ### Sicherheitsüberlegungen
 
 Die `src`-Eigenschaft wird verwendet, um externe Skripte zu laden und auszuführen.
-Das abgerufene Skript wird im Kontext der aktuellen Seite ausgeführt und kann daher alles tun, was der eigene Website-Code tun kann (selbst wenn die URL nicht aus dem gleichen Ursprung wie Ihre Seite stammt).
+Das abgerufene Skript wird im Kontext der aktuellen Seite ausgeführt und kann daher alles tun, was auch der eigene Website-Code tun kann (selbst wenn die URL nicht von derselben Origin wie Ihre Seite stammt).
 Wenn die Eingabe von einem Benutzer bereitgestellt wird, ist dies ein potenzieller Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
 
 Es ist äußerst riskant, willkürliche URLs von nicht vertrauenswürdigen Ursprüngen zu akzeptieren und auszuführen.
-Eine Website sollte durch eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mit der [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src)-Direktive (oder einem Fallback definiert in [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src)) kontrollieren, welche Skripte ausgeführt werden dürfen.
-Dies kann Skripte darauf beschränken, nur von dem aktuellen Ursprung oder einer bestimmten Menge von Ursprüngen oder sogar von bestimmten Dateien zu stammen.
+Eine Website sollte kontrollieren, welche Skripte mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mit der [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src)-Direktive (oder einem Fallback, das in [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) definiert ist) ausgeführt werden dürfen.
+Dies kann Skripte auf solche vom aktuellen Ursprung oder einen spezifischen Satz von Ursprüngen oder sogar auf bestimmte Dateien beschränken.
 
-Wenn Sie diese Eigenschaft verwenden und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (mithilfe der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive), müssen Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Chance hat, die URL abzulehnen oder zu modifizieren, bevor sie injiziert wird.
+Wenn Sie diese Eigenschaft verwenden und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for)-CSP-Direktive), müssen Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte statt Strings zuweisen.
+Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion geleitet wird, die die Gelegenheit hat, die URL abzulehnen oder zu ändern, bevor sie injiziert wird.
 
-Selbst wenn die Ressource von Ihrer Website als vertrauenswürdig angesehen wird, kann sie dennoch bei einem [Supply-Chain-Angriff](/de/docs/Web/Security/Attacks/Supply_chain_attacks) kompromittiert werden.
-Um gegen diese Art von Angriffen zu schützen, sollten Sie das [Subresource Integrity](/de/docs/Web/Security/Attacks/Supply_chain_attacks#using_subresource_integrity)-Feature verwenden.
+Selbst wenn die Ressource von Ihrer Website vertrauenswürdig ist, kann sie in einem [Supply-Chain-Angriff](/de/docs/Web/Security/Attacks/Supply_chain_attacks) kompromittiert werden.
+Um sich gegen diese Art von Angriffen zu schützen, sollten Sie die [Subresource Integrity](/de/docs/Web/Security/Attacks/Supply_chain_attacks#using_subresource_integrity) verwenden.
 
 ## Beispiele
 
 ### Verwendung von TrustedScriptURL
 
-Um das Risiko von XSS zu mindern, sollten wir immer `TrustedScriptURL`-Instanzen der `src`-Eigenschaft zuweisen.
+Um das Risiko von XSS zu mindern, sollten Sie immer `TrustedScriptURL`-Instanzen der `src`-Eigenschaft zuweisen.
 Wir müssen dies auch tun, wenn wir aus anderen Gründen vertrauenswürdige Typen durchsetzen und einige Skriptquellen zulassen möchten, die erlaubt wurden (durch `CSP: script-src`).
 
 Vertrauenswürdige Typen werden noch nicht in allen Browsern unterstützt, daher definieren wir zuerst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies fungiert als transparenter Ersatz für die vertrauenswürdige Typen JavaScript-API:
+Dies fungiert als transparenter Ersatz für die JavaScript-API der vertrauenswürdigen Typen:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL)-Methode zur Transformation von Eingabestrings in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen definiert.
+Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL)-Methode definiert, um Eingabestrings in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen zu transformieren.
 
-Für dieses Beispiel nehmen wir an, dass wir eine vordefinierte Menge von URLs im `scriptAllowList`-Array zulassen und alle anderen Skripte protokollieren möchten.
+Für den Zweck dieses Beispiels nehmen wir an, dass wir eine vordefinierte Menge von URLs im `scriptAllowList`-Array zulassen und alle anderen Skripte protokollieren möchten.
 
 ```js
 const scriptAllowList = [
@@ -86,7 +86,7 @@ const policy = trustedTypes.createPolicy("script-url-policy", {
 });
 ```
 
-Als Nächstes erstellen wir das Skriptelement, dem wir den Wert zuweisen, und erhalten einen Handle auf das Element.
+Als Nächstes erstellen wir das Skriptelement, dem wir den Wert zuweisen werden, und erhalten einen Zugriff auf das Element.
 
 ```html
 <script id="el"></script>
@@ -97,15 +97,15 @@ Als Nächstes erstellen wir das Skriptelement, dem wir den Wert zuweisen, und er
 const el = document.getElementById("el");
 ```
 
-Dann verwenden wir das `policy`-Objekt, um ein `trustedScript`-Objekt aus dem potenziell unsicheren Eingabestring zu erstellen und das Ergebnis dem Element zuzuweisen:
+Dann verwenden wir das `policy`-Objekt, um eine `trustedScriptURL`-Instanz aus dem potenziell unsicheren Eingabestring zu erstellen und das Ergebnis dem Element zuzuweisen:
 
 ```js
 // The potentially malicious string
-// We won't be including untrustedScript in our scriptAllowList array
-const untrustedScript = "https://evil.example.com/naughty.js";
+// We won't be including untrustedScriptURL in our scriptAllowList array
+const untrustedScriptURL = "https://evil.example.com/naughty.js";
 
 // Create a TrustedScriptURL instance using the policy
-const trustedScriptURL = policy.createScriptURL(untrustedScript);
+const trustedScriptURL = policy.createScriptURL(untrustedScriptURL);
 
 // Inject the TrustedScriptURL (which contains a trusted URL)
 el.src = trustedScriptURL;
@@ -113,7 +113,7 @@ el.src = trustedScriptURL;
 
 ### Lesen der `src`-Eigenschaft
 
-Dieses Beispiel zeigt, wie Sie die `src`-Eigenschaft für die beiden unten stehenden Skriptelemente lesen können, wobei die Seiten-URL `https://example.com` ist.
+Dieses Beispiel zeigt, wie Sie die `src`-Eigenschaft für die beiden unten stehenden Skriptelemente lesen können, wobei angenommen wird, dass die Seiten-URL `https://example.com` lautet.
 
 ```html
 <script id="script-with-src" type="module" src="/main.js"></script>

@@ -1,55 +1,55 @@
 ---
-title: Hintergrundaudioverarbeitung mit AudioWorklet
+title: Hintergrund-Audiobearbeitung mit AudioWorklet
 slug: Web/API/Web_Audio_API/Using_AudioWorklet
 l10n:
-  sourceCommit: b1fd82d20c55c0ab4a591ea3420a7f0ec78586a8
+  sourceCommit: ddf6cf0b777f7c738dd3930e0ef964fec6c83535
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
 Dieser Artikel erklärt, wie Sie einen Audio-Worklet-Prozessor erstellen und in einer Web-Audio-Anwendung verwenden können.
 
-Als die Web Audio API erstmals in Browsern eingeführt wurde, beinhaltete sie die Fähigkeit, JavaScript-Code zu verwenden, um benutzerdefinierte Audioprozessoren zu erstellen, die aufgerufen werden, um Audio in Echtzeit zu manipulieren. Der Nachteil des `ScriptProcessorNode` war, dass er auf dem Hauptthread ausgeführt wurde und somit alles andere blockierte, bis die Ausführung abgeschlossen war. Dies war weit weniger ideal, insbesondere für etwas so rechenintensives wie Audiobearbeitung.
+Als die Web Audio API erstmals in Browser eingeführt wurde, beinhaltete sie die Möglichkeit, JavaScript-Code zu verwenden, um benutzerdefinierte Audio-Prozessoren zu erstellen, die für Echtzeit-Audiomanipulationen aufgerufen wurden. Der Nachteil von `ScriptProcessorNode` bestand darin, dass er im Hauptthread lief und somit alles andere blockierte, bis seine Ausführung abgeschlossen war. Dies war alles andere als ideal, insbesondere für etwas, das so rechenintensiv sein kann wie die Audiobearbeitung.
 
-Hier kommt [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ins Spiel. Ein Audio-Context's Audio-Worklet ist ein [`Worklet`](/de/docs/Web/API/Worklet), das nicht auf dem Hauptthread ausgeführt wird, sondern Audiobearbeitungscode ausführt, der ihm durch den Aufruf der Methode [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) des Contexts hinzugefügt wird. Der Aufruf von `addModule()` lädt die angegebene JavaScript-Datei, die die Implementierung des Audioprozessors enthalten sollte. Mit dem registrierten Prozessor können Sie einen neuen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellen, der das Audio durch den Code des Prozessors leitet, wenn der Knoten in die Kette von Audioknoten zusammen mit allen anderen Audioknoten eingefügt wird.
+Hier kommt [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ins Spiel. Ein Audio-Worklet eines Audio-Kontexts ist ein [`Worklet`](/de/docs/Web/API/Worklet), das außerhalb des Hauptthreads läuft und Audiobearbeitungscode ausführt, der hinzugefügt wird, indem die Methode [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) des Kontexts aufgerufen wird. Durch den Aufruf von `addModule()` wird die angegebene JavaScript-Datei geladen, die die Implementierung des Audioprozessors enthalten sollte. Mit dem registrierten Prozessor können Sie einen neuen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellen, der den Ton durch den Code des Prozessors leitet, wenn der Node in die Kette aus Audionodes zusammen mit anderen Audionodes eingefügt wird.
 
-Es ist erwähnenswert, dass Ihr Prozessor aufgrund der oft erheblichen Berechnungen bei der Audiobearbeitung erheblich davon profitieren kann, mit [WebAssembly](/de/docs/WebAssembly) erstellt zu werden, was nahezu native oder vollständig native Leistung für Web-Apps bringt. Die Implementierung Ihres Audiobearbeitungsalgorithmus mit WebAssembly kann seine Leistung deutlich verbessern.
+Es ist erwähnenswert, dass Ihr Prozessor aufgrund der oft erheblichen Berechnungen bei der Audiobearbeitung erheblich davon profitieren kann, mit [WebAssembly](/de/docs/WebAssembly) erstellt zu werden, was nahezu native oder vollständig native Leistung für Web-Apps bietet. Die Implementierung Ihres Audiobearbeitungsalgorithmus mit WebAssembly kann die Leistung deutlich verbessern.
 
 ## Überblick auf hoher Ebene
 
-Bevor wir uns die Verwendung von AudioWorklet schrittweise ansehen, beginnen wir mit einem kurzen Überblick auf hoher Ebene über die beteiligten Schritte.
+Bevor wir uns Schritt für Schritt mit der Verwendung von AudioWorklet befassen, beginnen wir mit einem kurzen Überblick über die beteiligten Schritte.
 
-1. Erstellen Sie ein Modul, das eine Audio-Worklet-Prozessorklasse definiert, basierend auf [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor), das Audio aus einer oder mehreren eingehenden Quellen entnimmt, seine Operation auf den Daten durchführt und die resultierenden Audiodaten ausgibt.
-2. Greifen Sie über die [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet)-Eigenschaft auf das Audio-Worklet des Audio-Contexts zu und rufen Sie die [`addModule()`](/de/docs/Web/API/Worklet/addModule)-Methode des Audio-Worklets auf, um das Modul des Audio-Worklet-Prozessors zu installieren.
-3. Erstellen Sie bei Bedarf Audiobearbeitungs-Knoten, indem Sie den Namen des Prozessors (der vom Modul definiert wird) an den [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode)-Konstruktor übergeben.
-4. Richten Sie alle Audioparameter ein, die der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) benötigt oder die Sie konfigurieren möchten. Diese sind im Modul des Audio-Worklet-Prozessors definiert.
-5. Verbinden Sie die erstellten `AudioWorkletNode`s mit Ihrer Audiobearbeitungspipeline, wie Sie es bei jedem anderen Knoten tun würden, und verwenden Sie dann Ihre Audiopipeline wie gewohnt.
+1. Erstellen Sie ein Modul, das eine Audio-Worklet-Prozessor-Klasse definiert, die auf [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) basiert, Audio von einer oder mehreren eingehenden Quellen übernimmt, die Verarbeitung der Daten durchführt und die resultierenden Audiodaten ausgibt.
+2. Greifen Sie auf das [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) des Audiokontexts über dessen [`audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet)-Eigenschaft zu und rufen Sie die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) des Audio-Worklets auf, um das Audio-Worklet-Prozessor-Modul zu installieren.
+3. Erstellen Sie bei Bedarf Audiobearbeitungs-Nodes, indem Sie den Namen des Prozessors (der vom Modul definiert wird) an den [`AudioWorkletNode()`](/de/docs/Web/API/AudioWorkletNode/AudioWorkletNode)-Konstruktor übergeben.
+4. Richten Sie alle Audioparameter ein, die der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) benötigt oder die Sie konfigurieren möchten. Diese werden im Audio-Worklet-Prozessor-Modul definiert.
+5. Verbinden Sie die erstellten `AudioWorkletNode`s in Ihre Audiobearbeitungskette ein, wie Sie es mit jedem anderen Node tun würden, und verwenden Sie dann Ihre Audiokette wie gewohnt.
 
-Im weiteren Verlauf dieses Artikels werden wir diese Schritte mit Beispielen näher betrachten, einschließlich funktionierender Beispiele, die Sie selbst ausprobieren können.
+Im Rest dieses Artikels werden wir diese Schritte ausführlicher betrachten, mit Beispielen (einschließlich funktionsfähiger Beispiele, die Sie selbst ausprobieren können).
 
-Der auf dieser Seite gefundene Beispielcode stammt von [diesem funktionierenden Beispiel](https://mdn.github.io/webaudio-examples/audioworklet/), das Teil von MDN's [GitHub-Repository von Web Audio-Beispielen](https://github.com/mdn/webaudio-examples/) ist. Das Beispiel erstellt einen Oszillator-Knoten und fügt ihm mit einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) weißes Rauschen hinzu, bevor der resultierende Klang abgespielt wird. Schieberegler sind vorhanden, um die Verstärkung sowohl des Oszillators als auch der Ausgabe des Audio-Worklets zu steuern.
+Der auf dieser Seite gefundene Beispielcode stammt aus [diesem funktionierenden Beispiel](https://mdn.github.io/webaudio-examples/audioworklet/), das Teil des [GitHub-Repositoriums der Web-Audio-Beispiele von MDN](https://github.com/mdn/webaudio-examples/) ist. Das Beispiel erstellt einen Oszillator-Node und fügt mit einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) weißes Rauschen hinzu, bevor der resultierende Ton abgespielt wird. Es gibt Schieberegler zur Steuerung des Verstärkers sowohl für den Oszillator als auch für die Ausgabe des Audioworklets.
 
-[**Sehen Sie den Code**](https://github.com/mdn/webaudio-examples/tree/main/audioworklet)
+[**Code ansehen**](https://github.com/mdn/webaudio-examples/tree/main/audioworklet)
 
-[**Probieren Sie es live aus**](https://mdn.github.io/webaudio-examples/audioworklet/)
+[**Live ausprobieren**](https://mdn.github.io/webaudio-examples/audioworklet/)
 
 ## Erstellen eines Audio-Worklet-Prozessors
 
-Grundsätzlich wird ein Audio-Worklet-Prozessor (den wir normalerweise entweder als "Audioprozessor" oder als "Prozessor" bezeichnen, da dieser Artikel ansonsten doppelt so lang wäre) mit einem JavaScript-Modul implementiert, das die benutzerdefinierte Audioprozessorklasse definiert und installiert.
+Ein Audio-Worklet-Prozessor (den wir meistens entweder als „Audio-Prozessor“ oder einfach als „Prozessor“ bezeichnen werden, da dieser Artikel sonst doppelt so lang wäre) wird mit einem JavaScript-Modul implementiert, das die benutzerdefinierte Audio-Prozessor-Klasse definiert und installiert.
 
 ### Struktur eines Audio-Worklet-Prozessors
 
-Ein Audio-Worklet-Prozessor ist ein JavaScript-Modul, das aus Folgendem besteht:
+Ein Audio-Worklet-Prozessor ist ein JavaScript-Modul, das aus folgenden Komponenten besteht:
 
-- Eine JavaScript-Klasse, die den Audioprozessor definiert. Diese Klasse erweitert die Klasse [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor).
-- Die Audioprozessorklasse muss eine [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode implementieren, die eingehende Audiodaten empfängt und die durch den Prozessor manipulierten Daten zurückschreibt.
-- Das Modul installiert die neue Audio-Worklet-Prozessorklasse durch Aufruf von [`registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor), wobei ein Name für den Audioprozessor und die Klasse angegeben werden, die den Prozessor definiert.
+- Eine JavaScript-Klasse, die den Audioprozessor definiert. Diese Klasse erweitert die [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Klasse.
+- Die Audioprozessor-Klasse muss eine [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode implementieren, die eingehende Audiodaten empfängt und die vom Prozessor manipulierten Daten zurückschreibt.
+- Das Modul installiert die neue Audio-Worklet-Prozessor-Klasse, indem es [`registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor) aufruft und einen Namen für den Audioprozessor und die Klasse, die den Prozessor definiert, angibt.
 
-Ein einzelnes Audio-Worklet-Prozessormodul kann mehrere Prozessorklassen definieren und jede davon mit individuellen Aufrufen von `registerProcessor()` registrieren. Solange jede einen eindeutigen Namen hat, funktioniert das einwandfrei. Es ist auch effizienter als das Laden mehrerer Module aus dem Netzwerk oder sogar von der lokalen Festplatte des Benutzers.
+Ein einzelnes Audio-Worklet-Prozessor-Modul kann mehrere Prozessorklassen definieren, wobei jede von ihnen mit einem individuellen Aufruf von `registerProcessor()` registriert wird. Solange jeder Prozessor einen eigenen, einzigartigen Namen hat, funktioniert dies problemlos. Es ist auch effizienter, als mehrere Module aus dem Netzwerk oder gar vom lokalen Datenträger des Benutzers zu laden.
 
-### Grundlegendes Code-Framework
+### Grundgerüst des Codes
 
-Das am wenigsten umfangreiche Framework einer Audioprozessorklasse sieht folgendermaßen aus:
+Das einfachste Gerüst einer Audio-Prozessor-Klasse sieht folgendermaßen aus:
 
 ```js
 class MyAudioProcessor extends AudioWorkletProcessor {
@@ -68,21 +68,21 @@ class MyAudioProcessor extends AudioWorkletProcessor {
 registerProcessor("my-audio-processor", MyAudioProcessor);
 ```
 
-Nach der Implementierung des Prozessors kommt ein Aufruf der globalen Funktion [`registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor), die nur im Gültigkeitsbereich des Audio-Contexts `AudioWorklet` verfügbar ist, das der Aufrufer des Prozessorskripts als Ergebnis Ihres Aufrufs von [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) ist. Dieser Aufruf von `registerProcessor()` registriert Ihre Klasse als Basis für alle [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)s, die erstellt werden, wenn [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)s eingerichtet werden.
+Nach der Implementierung des Prozessors folgt ein Aufruf der globalen Funktion [`registerProcessor()`](/de/docs/Web/API/AudioWorkletGlobalScope/registerProcessor), die nur im Rahmen des Audio-Worklets (`AudioWorklet`) des Audiokontexts verfügbar ist, das der Aufrufer des Prozessorskripts als Folge Ihres Aufrufs von [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) ist. Mit diesem Aufruf von `registerProcessor()` wird Ihre Klasse als Grundlage für alle [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) registriert, die beim Einrichten von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) erstellt werden.
 
-Dies ist das minimalste Framework und hat tatsächlich keine Wirkung, bis Code hinzugefügt wird, um in `process()` mit diesen Eingaben und Ausgaben etwas zu tun. Damit kommen wir zu den Eingaben und Ausgaben.
+Dies ist das einfachste Gerüst und hat tatsächlich keine Wirkung, bis Code in `process()` hinzugefügt wird, um etwas mit diesen Eingaben und Ausgaben zu tun. Was uns dazu bringt, über diese Eingaben und Ausgaben zu sprechen.
 
-### Die Eingabe- und Ausgabelisten
+### Die Listen der Eingaben und Ausgaben
 
-Die Listen der Eingaben und Ausgaben können zunächst etwas verwirrend sein, obwohl sie eigentlich sehr einfach sind, sobald Sie verstehen, was vor sich geht.
+Die Listen der Eingaben und Ausgaben können zunächst verwirrend sein, obwohl sie eigentlich sehr einfach sind, sobald man versteht, was vor sich geht.
 
-Beginnen wir von innen und arbeiten uns nach außen. Grundsätzlich wird das Audio für einen einzelnen Audiokanal (wie beispielsweise den linken Lautsprecher oder den Subwoofer) als [`Float32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Float32Array) repräsentiert, dessen Werte die einzelnen Audiosamples sind. Nach Spezifikation enthält jeder Audio-Block, den Ihre `process()`-Funktion erhält, 128 Frames (das heißt, 128 Samples für jeden Kanal), aber es ist geplant, dass _dieser Wert sich in Zukunft ändern wird_ und abhängig von den Umständen variieren kann. Daher sollten Sie _immer_ die [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/length) des Arrays überprüfen anstatt von einer bestimmten Größe auszugehen. Es ist jedoch garantiert, dass die Eingaben und Ausgaben die gleiche Blocklänge haben.
+Beginnen wir im Kern und arbeiten uns nach außen vor. Grundsätzlich wird der Ton für einen einzelnen Audiokanal (wie zum Beispiel den linken Lautsprecher oder den Subwoofer) als [`Float32Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Float32Array) dargestellt, dessen Werte die einzelnen Audiosamples sind. Laut Spezifikation enthält jeder Block von Audio, den Ihre `process()`-Funktion empfängt, 128 Frames (d.h. 128 Samples für jeden Kanal), aber es ist geplant, _dass sich dieser Wert in Zukunft ändern wird_, und er kann je nach Umständen variieren. Sie sollten _immer_ die [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/length) des Arrays überprüfen, anstatt von einer bestimmten Größe auszugehen. Es ist jedoch garantiert, dass die Eingaben und Ausgaben dieselbe Blocklänge haben.
 
-Jeder Input kann eine Anzahl von Kanälen haben. Ein Mono-Input hat einen einzelnen Kanal; ein Stereo-Input hat zwei Kanäle. Surround Sound könnte sechs oder mehr Kanäle haben. Daher ist jeder Input wiederum ein Array von Kanälen. Das heißt, ein Array von `Float32Array`-Objekten.
+Jede Eingabe kann eine Anzahl von Kanälen haben. Eine Mono-Eingabe hat einen einzelnen Kanal; eine Stereo-Eingabe hat zwei Kanäle. Surround-Sound kann sechs oder mehr Kanäle haben. Jede Eingabe ist also wiederum ein Array von Kanälen, das heißt ein Array von `Float32Array`-Objekten.
 
-Es kann dann mehrere Eingaben geben, sodass die `inputList` ein Array von Arrays von `Float32Array`-Objekten ist. Jede Eingabe kann eine unterschiedliche Anzahl von Kanälen haben, und jeder Kanal hat sein eigenes Array von Samples.
+Es kann mehrere Eingaben geben, also ist `inputList` ein Array von Arrays von `Float32Array`-Objekten. Jede Eingabe kann eine unterschiedliche Anzahl von Kanälen haben, und jeder Kanal hat sein eigenes Array von Samples.
 
-Daher, gegeben die Eingabeliste `inputList`:
+Daher sieht die Eingabeliste `inputList` folgendermaßen aus:
 
 ```js
 const numberOfInputs = inputList.length;
@@ -95,15 +95,15 @@ const firstChannelByteCount = firstInputFirstChannel.length;
 const firstByteOfFirstChannel = firstInputFirstChannel[0]; // (or inputList[0][0][0])
 ```
 
-Die Ausgabeliste ist genau gleich strukturiert; es ist ein Array von Ausgaben, von denen jede ein Array von Kanälen ist, von denen jeder ein `Float32Array`-Objekt ist, das die Samples für diesen Kanal enthält.
+Die Ausgabeliste ist genau gleich strukturiert; sie ist ein Array von Ausgaben, von denen jede ein Array von Kanälen ist, von denen jeder ein `Float32Array`-Objekt ist, das die Samples für diesen Kanal enthält.
 
-Wie Sie die Eingaben verwenden und wie Sie die Ausgaben generieren, hängt sehr stark von Ihrem Prozessor ab. Wenn Ihr Prozessor nur ein Generator ist, kann er die Eingaben ignorieren und einfach den Inhalt der Ausgaben mit den generierten Daten ersetzen. Oder Sie können jede Eingabe unabhängig voneinander verarbeiten, indem Sie einen Algorithmus auf die eingehenden Daten auf jedem Kanal jeder Eingabe anwenden und die Ergebnisse in die entsprechenden Kanäle der Ausgaben schreiben (wobei zu beachten ist, dass die Anzahl von Eingaben und Ausgaben unterschiedlich sein kann und auch die Kanalzahlen auf diesen Eingaben und Ausgaben unterschiedlich sein können). Oder Sie können alle Eingaben nehmen und Misch- oder andere Berechnungen durchführen, die dazu führen, dass eine einzige Ausgabe mit Daten gefüllt wird (oder alle Ausgaben mit den gleichen Daten gefüllt werden).
+Wie Sie die Eingaben verwenden und wie Sie die Ausgaben erzeugen, hängt stark von Ihrem Prozessor ab. Wenn Ihr Prozessor nur ein Generator ist, kann er die Eingaben ignorieren und einfach die Inhalte der Ausgaben mit den generierten Daten ersetzen. Oder Sie können jede Eingabe unabhängig verarbeiten, indem Sie einen Algorithmus auf die eingehenden Daten in jedem Kanal jeder Eingabe anwenden und die Ergebnisse in den entsprechenden Kanälen der Ausgaben schreiben (dabei bedenken, dass sich die Anzahl der Eingaben und Ausgaben sowie die Anzahl der Kanäle auf diesen Eingaben und Ausgaben unterscheiden können). Oder Sie können alle Eingaben nehmen und Misch- oder andere Berechnungen durchführen, die dazu führen, dass eine einzelne Ausgabe mit Daten gefüllt wird (oder alle Ausgaben mit denselben Daten gefüllt werden).
 
-Das liegt ganz bei Ihnen. Dies ist ein sehr leistungsfähiges Tool in Ihrem Audioprogrammier-Werkzeugkasten.
+Es liegt ganz bei Ihnen. Dies ist ein sehr leistungsfähiges Werkzeug in Ihrem Audio-Programmier-Werkzeugkasten.
 
 ### Verarbeitung mehrerer Eingaben
 
-Sehen wir uns die Implementierung von `process()` an, die mehrere Eingaben verarbeiten kann, wobei jede Eingabe verwendet wird, um die entsprechende Ausgabe zu erzeugen. Alle überschüssigen Eingaben werden ignoriert.
+Schauen wir uns eine Implementierung von `process()` an, die mehrere Eingaben verarbeiten kann, wobei jede Eingabe verwendet wird, um die entsprechende Ausgabe zu erzeugen. Überschüssige Eingaben werden ignoriert.
 
 ```js
 class MyAudioProcessor extends AudioWorkletProcessor {
@@ -129,11 +129,11 @@ class MyAudioProcessor extends AudioWorkletProcessor {
 }
 ```
 
-Beachten Sie, dass wir beim Bestimmen der Anzahl der Quellen, die bearbeitet und durch die entsprechenden Ausgaben gesendet werden sollen, [`Math.min()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/min) verwenden, um sicherzustellen, dass wir nur so viele Kanäle verarbeiten, wie wir Platz in der Ausgabeliste haben. Der gleiche Check wird durchgeführt, wenn es darum geht, wie viele Kanäle im aktuellen Input verarbeitet werden sollen; wir verarbeiten nur so viele, wie es Platz im Zieloutput gibt. Dies vermeidet Fehler durch Überschreiben dieser Arrays.
+Beachten Sie, dass wir bei der Bestimmung der Anzahl der Quellen, die zu verarbeiten und an die entsprechenden Ausgaben weiterzuleiten sind, [`Math.min()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/min) verwenden, um sicherzustellen, dass wir nur so viele Kanäle verarbeiten, wie es Platz in der Ausgabeliste gibt. Dieselbe Prüfung wird durchgeführt, wenn bestimmt wird, wie viele Kanäle in der aktuellen Eingabe zu verarbeiten sind; wir verarbeiten nur so viele, wie es Platz im Zielausgabepuffer gibt. Dies vermeidet Fehler durch Überschreiten dieser Arrays.
 
-### Mischen von Eingaben
+### Mischen der Eingaben
 
-Viele Knoten führen **Misch**-Operationen durch, bei denen die Eingaben auf irgendeine Weise in einer einzigen Ausgabe kombiniert werden. Dies wird im folgenden Beispiel demonstriert.
+Viele Nodes führen **Misch**-Operationen durch, bei denen die Eingaben auf irgendeine Weise zu einer einzelnen Ausgabe kombiniert werden. Dies wird im folgenden Beispiel demonstriert.
 
 ```js
 class MyAudioProcessor extends AudioWorkletProcessor {
@@ -165,30 +165,30 @@ class MyAudioProcessor extends AudioWorkletProcessor {
 }
 ```
 
-Es ist ein ähnlicher Code wie im vorherigen Beispiel in vielerlei Hinsicht, aber nur der erste Output—`outputList[0]`—wird verändert. Jede Probe wird zur entsprechenden Probe im Ausgabepuffer hinzugefügt, wobei ein einfaches Codefragment vorhanden ist, um zu verhindern, dass die Proben den legalen Bereich von -1.0 bis 1.0 überschreiten, indem die Werte begrenzt werden; es gibt andere Möglichkeiten, Clipping zu vermeiden, die vielleicht weniger anfällig für Verzerrungen sind, aber dies ist ein einfaches Beispiel, das besser ist als nichts.
+Dies ist in vielerlei Hinsicht ähnlicher Code wie beim vorhergehenden Beispiel, aber nur die erste Ausgabe—`outputList[0]`—wird verändert. Jedes Sample wird dem entsprechenden Sample im Ausgabepuffer hinzugefügt, mit einem einfachen Codefragment, um zu verhindern, dass die Samples den legalen Bereich von -1.0 bis 1.0 überschreiten, indem die Werte gecappt werden; es gibt andere Möglichkeiten, Clipping zu vermeiden, die möglicherweise weniger anfällig für Verzerrungen sind, aber das ist ein einfaches Beispiel, das besser als nichts ist.
 
 ## Lebensdauer eines Audio-Worklet-Prozessors
 
-Das einzige Mittel, mit dem Sie die Lebensdauer Ihres Audio-Worklet-Prozessors beeinflussen können, ist der Wert, der von `process()` zurückgegeben wird, der ein Boolean sein sollte, das angibt, ob die Entscheidung des {{Glossary("user_agent", "Nutzeragenten")}} bezüglich der Frage, ob Ihr Knoten noch in Verwendung ist, überschrieben werden soll oder nicht.
+Der einzige Weg, auf dem Sie die Lebensdauer Ihres Audio-Worklet-Prozessors beeinflussen können, ist über den Wert, den `process()` zurückgibt, der ein Boolean-Wert sein sollte, der angibt, ob die Entscheidung des {{Glossary("user_agent", "Benutzeragenten")}} überschrieben werden soll, ob Ihr Node noch in Gebrauch ist oder nicht.
 
-Im Allgemeinen ist die Lebensdauerrichtlinie eines jeden Audioknotens einfach: Wenn der Knoten noch als aktiv verarbeitetes Audio gilt, wird er weiterhin verwendet. Im Falle eines [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) wird der Knoten als aktiv angesehen, wenn seine `process()`-Funktion `true` zurückgibt _und_ der Knoten entweder Inhalte als Quelle für Audiodaten erstellt oder Daten von einem oder mehreren Eingängen empfängt.
+Im Allgemeinen ist die Lebensdauer-Politik eines Audioknotens einfach: Wenn der Knoten immer noch als Audio verarbeitend betrachtet wird, wird er weiterhin verwendet. Im Falle eines [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) wird der Node als aktiv betrachtet, wenn seine `process()`-Funktion `true` zurückgibt _und_ der Node entweder als Quelle für Audiodaten Inhalte erzeugt oder Daten von einem oder mehreren Eingaben empfängt.
 
-Ein Wert von `true` als Ergebnis Ihrer `process()`-Funktion gibt der Web Audio API im Wesentlichen zu verstehen, dass Ihr Prozessor weiterhin aufgerufen werden muss, auch wenn die API glaubt, dass es nichts mehr für Sie zu tun gibt. Mit anderen Worten, `true` überschreibt die Logik der API und gibt Ihnen die Kontrolle über die Lebensdauerrichtlinie Ihres Prozessors, wodurch der Prozessor den Besitz übernehmenden [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) am Laufen hält, selbst wenn er sonst entscheiden würde, den Knoten herunterzufahren.
+Wenn als Ergebnis Ihrer `process()`-Funktion der Wert `true` angegeben wird, teilt dies im Wesentlichen der Web Audio API mit, dass Ihr Prozessor weiter aufgerufen werden muss, auch wenn die API denkt, dass es für Sie nichts mehr zu tun gibt. Mit anderen Worten, `true` überschreibt die Logik der API und gibt Ihnen die Kontrolle über die Lebensdauer-Politik Ihres Prozessors, indem es den Prozessor-Eigentümer-Node [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) am Laufen hält, auch wenn die API sonst entscheiden würde, den Node herunterzufahren.
 
-Die Rückgabe von `false` aus der `process()`-Methode teilt der API mit, dass sie ihrer normalen Logik folgen und Ihren Prozessor-Knoten herunterfahren soll, wenn es als angemessen erachtet wird. Wenn die API feststellt, dass Ihr Knoten nicht mehr benötigt wird, wird `process()` nicht erneut aufgerufen.
+Rückgabe von `false` aus der `process()`-Methode teilt der API mit, dass sie ihrer normalen Logik folgen und Ihren Prozessor-Node abschalten soll, wenn dies als angemessen betrachtet wird. Wenn die API feststellt, dass Ihr Node nicht mehr benötigt wird, wird `process()` nicht erneut aufgerufen.
 
 > [!NOTE]
-> Zu diesem Zeitpunkt implementiert Chrome diesen Algorithmus leider nicht in einer Weise, die dem aktuellen Standard entspricht. Stattdessen wird der Knoten am Leben gehalten, wenn Sie `true` zurückgeben und heruntergefahren, wenn Sie `false` zurückgeben. Daher müssen Sie aus Kompatibilitätsgründen immer `true` aus `process()` zurückgeben, zumindest in Chrome. Sobald jedoch [dieses Chrome-Problem](https://crbug.com/921354) behoben ist, sollten Sie dieses Verhalten nach Möglichkeit ändern, da es möglicherweise eine geringe negative Auswirkung auf die Leistung hat.
+> Leider implementiert Chrome derzeit diesen Algorithmus nicht in einer Weise, die dem aktuellen Standard entspricht. Stattdessen hält es den Node am Leben, wenn Sie `true` zurückgeben, und schaltet ihn ab, wenn Sie `false` zurückgeben. Aus Kompatibilitätsgründen müssen Sie also immer `true` von `process()` zurückgeben, zumindest auf Chrome. Nachdem [dieses Chrome Problem](https://crbug.com/921354) behoben ist, möchten Sie dieses Verhalten möglicherweise ändern, soweit möglich, da es eine leichte negative Auswirkung auf die Leistung haben könnte.
 
-## Erstellen eines Audio-Prozessor-Worklet-Knotens
+## Erstellen eines Audio-Prozessor-Worklet-Nodes
 
-Um einen Audio-Knoten zu erstellen, der Blöcke von Audiodaten durch einen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) pumpt, müssen Sie die folgenden einfachen Schritte befolgen:
+Um einen Audio-Node zu erstellen, der Audio-Datenblöcke durch einen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) leitet, müssen Sie die folgenden einfachen Schritte ausführen:
 
-1. Laden und installieren Sie das Modul des Audioprozessors
-2. Erstellen Sie einen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), indem Sie das zu verwendende Audioprozessormodul über seinen Namen angeben
-3. Verbinden Sie Eingaben mit dem `AudioWorkletNode` und seine Ausgaben mit entsprechenden Zielen (entweder anderen Knoten oder mit der [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekteigenschaft [`destination`](/de/docs/Web/API/BaseAudioContext/destination)).
+1. Laden und installieren Sie das Audioprozessor-Modul
+2. Erstellen Sie einen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) und geben Sie das Audioprozessor-Modul an, das durch seinen Namen verwendet werden soll
+3. Verbinden Sie die Eingaben mit dem `AudioWorkletNode` und dessen Ausgaben mit geeigneten Zielen (entweder andere Nodes oder mit der [`destination`](/de/docs/Web/API/BaseAudioContext/destination)-Eigenschaft des [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekts).
 
-Um einen Audio-Worklet-Prozessor zu verwenden, können Sie einen Code ähnlich dem folgenden verwenden:
+Um einen Audio-Worklet-Prozessor zu verwenden, können Sie einen Code verwenden, der ähnlich dem folgenden ist:
 
 ```js
 let audioContext = null;
@@ -208,27 +208,27 @@ async function createMyAudioProcessor() {
 }
 ```
 
-Diese `createMyAudioProcessor()`-Funktion erstellt und gibt eine neue Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) zurück, die konfiguriert ist, um Ihren Audioprozessor zu verwenden. Sie behandelt auch die Erstellung des Audiokontexts, falls dies noch nicht geschehen ist.
+Diese `createMyAudioProcessor()`-Funktion erstellt und gibt eine neue Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) zurück, die so konfiguriert ist, dass sie Ihren Audioprozessor verwendet. Sie kümmert sich ebenfalls darum, den Audiokontext zu erstellen, falls er noch nicht vorhanden ist.
 
-Um sicherzustellen, dass der Kontext verwendbar ist, beginnt dies damit, den Kontext zu erstellen, falls er noch nicht verfügbar ist, und fügt dann dem Worklet das Modul hinzu, das den Prozessor enthält. Sobald dies geschehen ist, instanziiert es einen neuen `AudioWorkletNode` und gibt diese Instanz zurück. Sobald Sie diesen in der Hand haben, verbinden Sie ihn mit anderen Knoten und verwenden ihn wie jeden anderen Knoten.
+Um sicherzustellen, dass der Kontext nutzbar ist, wird zuerst der Kontext erstellt, falls er noch nicht verfügbar ist, und dann das Modul, das den Prozessor enthält, dem Worklet hinzugefügt. Sobald dies geschehen ist, wird eine neue Instanz von `AudioWorkletNode` instanziiert und zurückgegeben. Sobald Sie diese in der Hand haben, verbinden Sie sie mit anderen Nodes und verwenden sie, wie jeden anderen Node auch.
 
-Dann können Sie einen neuen Audioprozessorknoten folgendermaßen erstellen:
+Sie können anschließend einen neuen Audioprozessor-Node folgendermaßen erstellen:
 
 ```js
 let newProcessorNode = await createMyAudioProcessor();
 ```
 
-Wenn der zurückgegebene Wert, `newProcessorNode`, nicht `null` ist, haben wir einen gültigen Audiokontext mit seinem Rauschprozessor-Knoten bereit und einsatzbereit.
+Wenn der zurückgegebene Wert, `newProcessorNode`, nicht `null` ist, haben wir einen gültigen Audiokontext mit seinem Hiss-Prozessor-Node im Einsatz und bereit zur Verwendung.
 
 ## Unterstützung von Audioparametern
 
-Wie jeder andere Web Audio-Knoten unterstützt auch der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) Parameter, die mit dem [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) geteilt werden, der die eigentliche Arbeit erledigt.
+Wie jeder andere Web-Audio-Knoten unterstützt [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) Parameter, die mit dem [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) geteilt werden, der die eigentliche Arbeit erledigt.
 
-### Unterstützung für Parameter zum Prozessor hinzufügen
+### Hinzufügen der Parameter-Unterstützung zum Prozessor
 
-Um einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) Parameter hinzuzufügen, müssen Sie diese in Ihrer auf [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) basierenden Prozessor-Klasse in Ihrem Modul definieren. Dies geschieht, indem Sie den statischen Getter [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static) zu Ihrer Klasse hinzufügen. Diese Funktion sollte ein Array von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten zurückgeben, eines für jeden Parameter, den der Prozessor unterstützt.
+Um Parameter zu einem [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) hinzuzufügen, müssen Sie diese in Ihrer [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-basierten Prozessor-Klasse in Ihrem Modul definieren. Dies geschieht, indem Sie den statischen Getter [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors_static) zu Ihrer Klasse hinzufügen. Diese Funktion sollte ein Array von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten zurückgeben, eines für jeden Parameter, den der Prozessor unterstützt.
 
-In der folgenden Implementierung von `parameterDescriptors()` hat das zurückgegebene Array zwei `AudioParam`-Objekte. Das erste definiert `gain` als einen Wert zwischen 0 und 1 mit einem Standardwert von 0.5. Der zweite Parameter heißt `frequency` und hat einen Standardwert von 440.0, mit einem Bereich von 27.5 bis 4186.009, inklusive.
+Die folgende Implementierung von `parameterDescriptors()` gibt ein Array mit zwei `AudioParam`-Objekten zurück. Der erste definiert `gain` als einen Wert zwischen 0 und 1, mit einem Standardwert von 0,5. Der zweite Parameter ist `frequency`, standardmäßig auf 440,0 gesetzt, mit einem Bereich von 27,5 bis 4186,009, einschließlich.
 
 ```js
 class MyAudioProcessor extends AudioWorkletProcessor {
@@ -252,14 +252,18 @@ class MyAudioProcessor extends AudioWorkletProcessor {
 }
 ```
 
-Auf die Parameter Ihres Prozessorknotens zuzugreifen, ist so einfach, wie sie im `parameters`-Objekt zu suchen, das in Ihre Implementierung von [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process) übergeben wird. Innerhalb des `parameters`-Objekts gibt es Arrays, eines für jeden Ihrer Parameter, die die gleichen Namen wie Ihre Parameter haben.
+Wenn `automationRate` nicht in einem Parameter-Deskriptor angegeben ist, wird als Standard `"a-rate"` (sample-genaue Updates) angenommen.
 
-- A-rate-Parameter
-  - : Bei A-rate-Parametern—Parametern, deren Werte sich automatisch im Laufe der Zeit ändern—ist der Eintrag des Parameters im `parameters`-Objekt ein Array von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten, eines für jeden Frame im zu verarbeitenden Block. Diese Werte sind auf die entsprechenden Frames anzuwenden.
-- K-rate-Parameter
+Um Blockraten-Verarbeitung zu verwenden, muss `"k-rate"` explizit angefordert werden. Die Automatisierungsrate explizit zu machen, hilft, falsche Annahmen darüber zu vermeiden, ob ein Parameter standardmäßig sample-genau oder mit Blockrate ist.
+
+Der Zugriff auf die Parameter-Knoten Ihres Prozessors ist so einfach, wie sie im `parameters`-Objekt nachzuschlagen, das in Ihrer Implementierung von [`process()`](/de/docs/Web/API/AudioWorkletProcessor/process) übergeben wird. Innerhalb des `parameters`-Objekts befinden sich Arrays, eines für jeden Ihrer Parameter, und diese haben die gleichen Namen wie Ihre Parameter.
+
+- A-rate Parameter
+  - : Für A-rate-Parameter — Parameter, deren Werte sich über die Zeit automatisch ändern — ist der Eintrag des Parameters im `parameters`-Objekt ein Array von [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekten, eines für jeden Frame im zu verarbeitenden Block. Diese Werte sollen auf die entsprechenden Frames angewendet werden.
+- K-rate Parameter
   - : K-rate-Parameter hingegen können sich nur einmal pro Block ändern, sodass das Array des Parameters nur einen einzigen Eintrag hat. Verwenden Sie diesen Wert für jeden Frame im Block.
 
-Im folgenden Code sehen wir eine `process()`-Funktion, die einen `gain`-Parameter verarbeitet, der sowohl als A-rate- oder K-rate-Parameter verwendet werden kann. Unser Knoten unterstützt nur einen Eingang, daher nimmt er einfach den ersten Eingang in der Liste, wendet das Gain darauf an und schreibt die resultierenden Daten in den ersten Puffer der Ausgabe.
+Im folgenden Code sehen wir eine `process()`-Funktion, die einen `gain`-Parameter verarbeitet, der sowohl als A- als auch als K-rate-Parameter verwendet werden kann. Unser Node unterstützt nur eine Eingabe, sodass er nur die erste Eingabe in der Liste nimmt, den Gewinn darauf anwendet und die resultierenden Daten in den Puffer der ersten Ausgabe schreibt.
 
 ```js
 class MyAudioProcessor extends AudioWorkletProcessor {
@@ -293,27 +297,27 @@ class MyAudioProcessor extends AudioWorkletProcessor {
 }
 ```
 
-Hier wird, wenn `gain.length` anzeigt, dass es im Array der Werte des `gain`-Parameters nur einen einzelnen Wert gibt, der erste Eintrag im Array auf jeden Frame im Block angewendet. Andernfalls wird für jeden Frame im Block der entsprechende Eintrag in `gain[]` angewendet.
+Hier wird, falls `gain.length` anzeigt, dass es nur einen einzelnen Wert im Array der Werte des `gain`-Parameters gibt, der erste Eintrag im Array auf jeden Frame im Block angewandt. Andernfalls wird für jeden Frame im Block der entsprechende Eintrag in `gain[]` angewandt.
 
-### Zugriff auf Parameter vom Main-Thread-Skript
+### Zugriff auf Parameter aus dem Main-Thread-Skript
 
-Ihr Main-Thread-Skript kann auf die Parameter genau so zugreifen wie auf jeden anderen Knoten. Um dies zu tun, müssen Sie zunächst eine Referenz auf den Parameter erhalten, indem Sie die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Eigenschaft [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters) verwenden und die Methode [`get()`](/de/docs/Web/API/AudioParamMap#get) aufrufen:
+Ihr Main-Thread-Skript kann auf die Parameter zugreifen, wie es bei jedem anderen Node der Fall ist. Dazu müssen Sie zuerst über die Methode [`get()`](/de/docs/Web/API/AudioParamMap#get) der Eigenschaft [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters) des [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) eine Referenz auf den Parameter erhalten:
 
 ```js
 let gainParam = myAudioWorkletNode.parameters.get("gain");
 ```
 
-Der Wert, der zurückgegeben und in `gainParam` gespeichert wird, ist der [`AudioParam`](/de/docs/Web/API/AudioParam), der verwendet wird, um den `gain`-Parameter zu speichern. Sie können dann dessen Wert zu einem bestimmten Zeitpunkt ändern, indem Sie die Methode [`setValueAtTime()`](/de/docs/Web/API/AudioParam/setValueAtTime) des [`AudioParam`](/de/docs/Web/API/AudioParam) verwenden.
+Der Wert, der zurückgegeben und in `gainParam` gespeichert wird, ist das [`AudioParam`](/de/docs/Web/API/AudioParam), das den `gain`-Parameter speichert. Sie können dann dessen Wert mit der Methode [`setValueAtTime()`](/de/docs/Web/API/AudioParam/setValueAtTime) des [`AudioParam`](/de/docs/Web/API/AudioParam) zu einem gegebenen Zeitpunkt ändern.
 
-Hier setzen wir zum Beispiel den Wert auf `newValue`, der sofort wirksam wird.
+Hier setzen wir zum Beispiel den Wert auf `newValue`, mit sofortiger Wirkung.
 
 ```js
 gainParam.setValueAtTime(newValue, audioContext.currentTime);
 ```
 
-Sie können ähnlich jede der anderen Methoden in der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle verwenden, um Änderungen im Laufe der Zeit anzuwenden, um geplante Änderungen abzubrechen und so weiter.
+Ebenso können Sie jede der anderen Methoden in der Schnittstelle [`AudioParam`](/de/docs/Web/API/AudioParam) verwenden, um Änderungen im Laufe der Zeit anzuwenden, geplante Änderungen zu stornieren, und so weiter.
 
-Das Lesen des Werts eines Parameters ist so einfach wie der Blick auf seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft:
+Das Lesen des Wertes eines Parameters ist so einfach wie das Betrachten seiner [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft:
 
 ```js
 let currentGain = gainParam.value;

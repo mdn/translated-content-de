@@ -3,21 +3,21 @@ title: CSS-Bewegungspfad
 short-title: Motion path
 slug: Web/CSS/Guides/Motion_path
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 6ad108adad746bd7ed79b5b32d8d3e05e5ec685a
 ---
 
-Das **CSS Bewegungspfad**-Modul ermöglicht es Autoren, ein beliebiges grafisches Objekt entlang eines benutzerdefinierten Pfades zu animieren.
+Das **CSS-Bewegungspfad-Modul** ermöglicht es Entwicklern, beliebige grafische Objekte entlang eines benutzerdefinierten Pfads zu animieren.
 
-Das [CSS-Transformations](/de/docs/Web/CSS/Guides/Transforms)-Modul bietet Funktionen, die es ermöglichen, Kästen relativ zu ihrer angelegten Position neu zu positionieren, zu drehen, zu skalieren und zu verzerren, ohne das Layout anderer Elemente auf der Seite zu stören. Diese Transformationen können animiert und übergangen werden, jedoch nur in relativ einfachen Weisen.
+Das [CSS-Transformationsmodul](/de/docs/Web/CSS/Guides/Transforms) bietet Funktionen, die es ermöglichen, Boxen relativ zu ihrer ausgelegten Position zu verschieben, zu drehen, zu skalieren und zu scheren, ohne das Layout anderer Elemente auf der Seite zu stören. Diese Transformationen können animiert und übergegangen werden, jedoch nur auf relativ grundlegende Weise.
 
-Die Funktionen des CSS Bewegungspfad-Moduls bieten Offset-Transformationen: Transformationen, die einen Punkt auf einem Element an eine Offset-Distanz entlang eines Offset-Pfades ausrichten und optional das transformierte Element so drehen, dass es der Pfadrichtung folgt. Dieses Modul ermöglicht leistungsstarke Transformationsmöglichkeiten, zum Beispiel:
+Die Funktionen des CSS-Bewegungspfad-Moduls bieten Offset-Transformationen: Transformationen, die einen Punkt auf einem Element an eine Offset-Distanz entlang eines Offset-Pfads ausrichten, wobei das transformierte Element optional gedreht wird, um der Pfadrichtung zu folgen. Dieses Modul ermöglicht leistungsstarke Transformationsmöglichkeiten, zum Beispiel:
 
-- Positionierung mit Polarkoordinaten anstatt die Transformation auf die standardmäßigen rechteckigen {{cssxref("transform")}}-Funktionskoordinaten zu beschränken.
-- Animation eines Elements entlang eines definierten Pfades.
+- Positionierung mit polaren Koordinaten anstelle der Einschränkung der Transformation auf die standardmäßigen rechteckigen {{cssxref("transform")}}-Koordinaten.
+- Animieren eines Elements entlang eines definierten Pfads.
 
-CSS-Bewegungspfade ermöglichen die Definition komplexer zweidimensionaler räumlicher Übergänge mithilfe von [CSS-Formfunktionen](/de/docs/Web/CSS/Reference/Values/Functions#shape_functions).
+CSS-Bewegungspfade ermöglichen die Definition komplexer 2D-Raumübergänge, indem [CSS-Formfunktionen](/de/docs/Web/CSS/Reference/Values/Functions#shape_functions) genutzt werden.
 
-Zum Beispiel können Sie mit der {{cssxref("offset-path")}}-Eigenschaft einen bestimmten Pfad jeder gewünschten Form definieren. Sie können dann ein Element so animieren, dass es sich entlang dieses Pfades bewegt, indem Sie die {{cssxref("offset-distance")}}-Eigenschaft animieren und es an jedem Punkt mit der {{cssxref("offset-rotate")}}-Eigenschaft drehen.
+Sie können beispielsweise mit der {{cssxref("offset-path")}}-Eigenschaft einen spezifischen Pfad jeder gewünschten Form definieren. Anschließend können Sie ein Element animieren, das sich entlang dieses Pfads bewegt, indem Sie die {{cssxref("offset-distance")}}-Eigenschaft animieren und es an jedem Punkt mit der {{cssxref("offset-rotate")}}-Eigenschaft drehen.
 
 ## Bewegungspfade in Aktion
 
@@ -54,9 +54,9 @@ Zum Beispiel können Sie mit der {{cssxref("offset-path")}}-Eigenschaft einen be
 }
 ```
 
-{{EmbedLiveSample('Bewegungspfade in Aktion', '100%', 220)}}
+{{EmbedLiveSample('Motion paths in action', '100%', 220)}}
 
-In diesem Beispiel haben wir [CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking) und [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) verwendet, um einen Container mit einem hellrosa Hintergrund in Herzform zu klippen. Wir haben eine {{cssxref("basic-shape/path","path()")}}-Funktion als Wert der {{cssxref("clip-path")}}-Eigenschaft verwendet. Sein Kind ist ein rotes Kästchen mit der Größe `10px` mal `10px`, das entlang des Randes seines Elternteils geführt wird. Wir haben dies getan, indem wir dieselbe {{cssxref("basic-shape")}} als Pfad verwendet haben und die {{cssxref("offset-path")}}-Eigenschaft des Kästchens auf denselben `path()`-Funktionswert gesetzt haben. Wir haben [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) verwendet, um die {{cssxref("offset-distance")}} von `0%` auf `100%` über drei Sekunden zu ändern.
+In diesem Beispiel haben wir [CSS-Maskierungen](/de/docs/Web/CSS/Guides/Masking) und [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) verwendet, um einen Container mit einem hellrosa Hintergrund in eine Herzform zu schneiden. Wir haben eine {{cssxref("basic-shape/path","path()")}}-Funktion als Wert der {{cssxref("clip-path")}}-Eigenschaft verwendet. Sein Kind ist eine `10px` mal `10px` große rote Box, die entlang des Randes ihres Elternteils bewegt wird. Dies haben wir erreicht, indem wir dieselbe {{cssxref("basic-shape")}} als Pfad verwendet und die {{cssxref("offset-path")}}-Eigenschaft der Box auf denselben `path()`-Funktionswert gesetzt haben. Wir haben [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) verwendet, um die {{cssxref("offset-distance")}} von `0%` auf `100%` über drei Sekunden zu ändern.
 
 ## Referenz
 
@@ -75,23 +75,23 @@ In diesem Beispiel haben wir [CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking) u
 
 ## Leitfäden
 
-- [Verwenden von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
-  - : Schritt-für-Schritt-Anleitung zum Erstellen von Animationen mit CSS.
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+  - : Schritt-für-Schritt-Anleitung zur Erstellung von Animationen mit CSS.
 
 ## Verwandte Konzepte
 
-[CSS-Transformations](/de/docs/Web/CSS/Guides/Transforms)-Modul
+[CSS-Transforms](/de/docs/Web/CSS/Guides/Transforms) Modul
 
 - {{cssxref("transform")}}
 - {{cssxref("transform-origin")}}
 - {{cssxref("translate")}}
 
-[CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking)-Modul
+[CSS-Maskierungen](/de/docs/Web/CSS/Guides/Masking) Modul
 
 - {{cssxref("clip-path")}}
 - {{cssxref("clip-rule")}}
 
-[CSS-Formen](/de/docs/Web/CSS/Guides/Shapes)-Modul
+[CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
 
 - {{cssxref("basic-shape")}}
 - {{cssxref("basic-shape/circle","circle()")}}
@@ -103,12 +103,12 @@ In diesem Beispiel haben wir [CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking) u
 - {{cssxref("basic-shape/shape","shape()")}}
 - {{cssxref("basic-shape/xywh","xywh()")}}
 
-[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)-Modul
+[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
 
 - {{cssxref("animation")}} Kurzform
 - {{cssxref("@keyframes")}}
 
-[CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model)-Modul
+[CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul
 
 - [`<coord-box>`](/de/docs/Web/CSS/Reference/Properties/offset-path#coord-box)
 
@@ -118,8 +118,8 @@ In diesem Beispiel haben wir [CSS-Maskierung](/de/docs/Web/CSS/Guides/Masking) u
 
 ## Siehe auch
 
-- {{cssxref("position_value", "&lt;position&gt;")}}
+- {{cssxref("&lt;position&gt;")}}
 - {{cssxref("easing-function")}}
-- {{cssxref("radial-gradient")}} Funktion
-- [`prefers-reduced-motion`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) Media Query
+- {{cssxref("gradient/radial-gradient")}} Funktion
+- {{cssxref("@media/prefers-reduced-motion")}} Media-Query
 - {{cssxref("will-change")}} CSS-Eigenschaft

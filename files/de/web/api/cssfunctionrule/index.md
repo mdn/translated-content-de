@@ -2,12 +2,12 @@
 title: CSSFunctionRule
 slug: Web/API/CSSFunctionRule
 l10n:
-  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
+  sourceCommit: 6ad108adad746bd7ed79b5b32d8d3e05e5ec685a
 ---
 
 {{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`CSSFunctionRule`**-Schnittstelle des [CSS-Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert CSS {{cssxref("@function")}} (benutzerdefinierte Funktion) [At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules).
+Das **`CSSFunctionRule`** Schnittstelle des [CSS Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert CSS {{cssxref("@function")}} (benutzerdefinierte Funktion) [at-rules](/de/docs/Web/CSS/Guides/Syntax/At-rules).
 
 {{InheritanceDiagram}}
 
@@ -16,26 +16,26 @@ Die **`CSSFunctionRule`**-Schnittstelle des [CSS-Objektmodells](/de/docs/Web/API
 _Diese Schnittstelle erbt auch Eigenschaften von [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)._
 
 - [`CSSFunctionRule.name`](/de/docs/Web/API/CSSFunctionRule/name) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt einen String zurück, der den Namen der benutzerdefinierten Funktion repräsentiert.
+  - : Gibt einen String zurück, der den Namen der benutzerdefinierten Funktion darstellt.
 - [`CSSFunctionRule.returnType`](/de/docs/Web/API/CSSFunctionRule/returnType) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt einen String zurück, der den Rückgabewerttyp der benutzerdefinierten Funktion repräsentiert.
+  - : Gibt einen String zurück, der den Rückgabewert der benutzerdefinierten Funktion darstellt.
 
 ## Instanz-Methoden
 
 _Diese Schnittstelle erbt auch Methoden von [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)._
 
 - [`CSSFunctionRule.getParameters()`](/de/docs/Web/API/CSSFunctionRule/getParameters) {{experimental_inline}}
-  - : Gibt ein Array von Objekten zurück, die die Parameter der benutzerdefinierten Funktion repräsentieren.
+  - : Gibt ein Array von Objekten zurück, das die Parameter der benutzerdefinierten Funktion darstellt.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `CSSFunctionRule`
+### Grundlegende Nutzung von `CSSFunctionRule`
 
-In diesem Beispiel definieren wir eine benutzerdefinierte CSS-Funktion und greifen dann mit dem CSSOM darauf zu.
+In diesem Beispiel definieren wir eine benutzerdefinierte CSS-Funktion und greifen anschließend über das CSSOM darauf zu.
 
 #### CSS
 
-Unser CSS definiert eine benutzerdefinierte Funktion unter Verwendung der {{cssxref("@function")}}-At-Regel. Die Funktion wird `--lighter()` genannt und gibt eine aufgehellte Version einer Eingabefarbe aus. `--lighter()` akzeptiert zwei Parameter, eine {{cssxref("&lt;color>")}} und eine {{cssxref("&lt;number>")}}. Sie gibt eine {{cssxref("color_value/oklch", "oklch()")}}-Farbe zurück, die unter Verwendung der [relativen Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) erstellt wird; die Eingabefarbe wird in eine `oklch()`-Farbe umgewandelt und der Hellkanal wird um die Eingabeziffer erhöht.
+Unser CSS definiert eine benutzerdefinierte Funktion mittels der {{cssxref("@function")}} Regel. Die Funktion heißt `--lighter()` und gibt eine aufgehellte Version einer Eingabefarbe aus. `--lighter()` akzeptiert zwei Parameter, eine {{cssxref("&lt;color&gt;")}} und eine {{cssxref("&lt;number&gt;")}}. Es gibt einen {{cssxref("color_value/oklch", "oklch()")}}-Farbwert zurück, der mit Hilfe der [relativen Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) erstellt wurde; die Eingabefarbe wird in eine `oklch()`-Farbe umgewandelt und der Helligkeitskanal wird um die Eingabezahl erhöht.
 
 ```css live-sample___cssfunctionrule-basics
 @function --lighter(--color <color>, --lightness-adjust <number>: 0.2) returns
@@ -46,7 +46,7 @@ Unser CSS definiert eine benutzerdefinierte Funktion unter Verwendung der {{cssx
 
 #### JavaScript
 
-Unser Skript beginnt damit, eine Referenz auf das mit unserem Dokument verknüpfte Stylesheet mittels [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet) zu erhalten und dann eine Referenz auf die einzige Regel im Stylesheet, die `CSSFunctionRule` — über [`CSSStylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules). Anschließend protokollieren wir jedes der `CSSFunctionRule`-Mitglieder in der Konsole.
+Unser Skript beginnt mit dem Abruf einer Referenz auf das mit unserem Dokument verknüpfte Stylesheet, indem [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet) verwendet wird, und dann einer Referenz auf die einzige Regel im Stylesheet, die `CSSFunctionRule` — über [`CSSStylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules). Wir protokollieren dann jedes der `CSSFunctionRule`-Mitglieder in die Konsole.
 
 ```js live-sample___cssfunctionrule-basics
 // Get a CSSFunctionRule
