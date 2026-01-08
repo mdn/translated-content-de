@@ -1,29 +1,29 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Positionierung"
+title: "Testen Sie Ihr Können: Positionierung"
 short-title: "Test: Positionierung"
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Position
 l10n:
-  sourceCommit: 2a4d705a12d76ee17e013f8a50007fd25029e0fc
+  sourceCommit: 953bce9928ec0693e419f7c0e1c786f29a7570e9
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Positioning", "Learn_web_development/Core/CSS_layout/Flexbox", "Learn_web_development/Core/CSS_layout")}}
 
-Ziel dieses Fähigkeitentests ist es, Ihnen bei der Bewertung zu helfen, ob Sie [Positionierung in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mit der CSS-{{CSSxRef("position")}}-Eigenschaft und deren Werten verstehen. Sie werden an zwei kleinen Aufgaben arbeiten, die verschiedene Elemente des Materials verwenden, das Sie gerade behandelt haben.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie das [Positionieren in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mithilfe der CSS-{{CSSxRef("position")}}-Eigenschaft und ihren Werten verstehen. Sie werden zwei kleine Aufgaben durchgehen, die verschiedene Elemente des Materials verwenden, das Sie gerade behandelt haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills)-Leitfaden zur Verwendung. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-Um diese Aufgabe abzuschließen, positionieren Sie das Element mit einer Klasse von `target` oben rechts im Container, der den 5px grauen Rahmen hat.
+Um diese Aufgabe abzuschließen, positionieren Sie das Element mit der Klasse `target` oben rechts im Container, der die 5px graue Umrandung hat.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie diese fertige Darstellung aussehen:
 
-![Das grüne Feld befindet sich oben rechts in einem Container mit einem grauen Rahmen.](position-task1.png)
+{{EmbedLiveSample("position1-finish", "", "250px")}}
 
-**Bonusfrage:** Können Sie das Ziel so ändern, dass es unter dem Text angezeigt wird?
+**Bonusfrage:** Können Sie das Ziel unterhalb des Textes anzeigen lassen?
 
-```html live-sample___position1
+```html live-sample___position1-start live-sample___position1-finish
 <div class="container">
   <p>
     Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
@@ -38,7 +38,7 @@ Ihr Endergebnis sollte wie das Bild unten aussehen:
 </div>
 ```
 
-```css live-sample___position1
+```css live-sample___position1-start live-sample___position1-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -70,15 +70,16 @@ body {
 }
 ```
 
-{{EmbedLiveSample("position1", "", "400px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("position1-start", "", "400px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Dies erfordert `position: relative` und `position: absolute` und das Verständnis, wie sie in Bezug auf relative Positionierung, die einen neuen Positionierungskontext erstellt, miteinander verbunden sind.
-Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel gemäß dem Viewport positioniert.
+Dies erfordert `position: relative` und `position: absolute` und ein Verständnis dafür, wie sie zueinander in Bezug stehen, indem die relative Positionierung einen neuen Positionierungskontext erstellt. Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` auf das Kind anwenden, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel relativ zum Viewport positioniert.
 
-```css
+```css live-sample___position1-finish
 .container {
   position: relative;
 }
@@ -90,17 +91,17 @@ Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` dem Kin
 }
 ```
 
-Für die Bonusfrage müssen Sie dem Ziel einen negativen `z-index` hinzufügen, zum Beispiel `z-index: -2`.
+Für die Bonusfrage müssen Sie einen negativen `z-index` zum Ziel hinzufügen, zum Beispiel `z-index: -2`.
 
 </details>
 
 ## Aufgabe 2
 
-In dieser Aufgabe scrollt der Seitenbereich im unten stehenden Beispiel mit dem Inhalt mit, wenn Sie das Feld scrollen. Wir möchten, dass Sie den Code aktualisieren, sodass der Seitenbereich (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt.
+Im Anfangszustand dieser Aufgabe scrollt die Sidebar mit dem Inhalt, wenn Sie den Inhalt scrollen. Sie sollen den Code so aktualisieren, dass die Sidebar (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt, wie in dieser fertigen Darstellung gezeigt:
 
-![Der Inhalt wird gescrollt, aber der Seitenbereich bleibt an Ort und Stelle.](position-task2.png)
+{{EmbedLiveSample("position2-finish", "", "400px")}}
 
-```html live-sample___position2
+```html live-sample___position2-start live-sample___position2-finish
 <div class="container">
   <div class="sidebar">
     <p>
@@ -131,7 +132,7 @@ In dieser Aufgabe scrollt der Seitenbereich im unten stehenden Beispiel mit dem 
 </div>
 ```
 
-```css live-sample___position2
+```css live-sample___position2-start live-sample___position2-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -160,23 +161,21 @@ body {
   margin-left: 160px;
 }
 
-.container {
-  /* Add styles here */
-}
-
 .sidebar {
   /* Add styles here */
 }
 ```
 
-{{EmbedLiveSample("position2", "", "400px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("position2-start", "", "400px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Wir testen Ihr Verständnis für `position: fixed` mit einem etwas anderen Beispiel als denen im Lernmaterial.
+Ihr fertiges Sidebar-CSS sollte so aussehen:
 
-```css
+```css live-sample___position2-finish
 .sidebar {
   position: fixed;
 }

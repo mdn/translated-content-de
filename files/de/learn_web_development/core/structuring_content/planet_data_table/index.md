@@ -3,17 +3,17 @@ title: "Herausforderung: Strukturierung einer Planetendatentabelle"
 short-title: "Herausforderung: Planetendatentabelle"
 slug: Learn_web_development/Core/Structuring_content/Planet_data_table
 l10n:
-  sourceCommit: 4693bfe3aadfe74869eacb5602d147abfd22756b
+  sourceCommit: ee677b2c4d4a226fe4aedf05b2b156cae8a2bb95
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Table_accessibility", "Learn_web_development/Core/Structuring_content/HTML_forms", "Learn_web_development/Core/Structuring_content")}}
 
-In dieser Herausforderung stellen wir Ihnen einige Daten über die Planeten in unserem Sonnensystem zur Verfügung. Ihre Aufgabe ist es, diese in eine zugängliche HTML-Tabelle zu strukturieren.
+In dieser Herausforderung stellen wir Daten über die Planeten in unserem Sonnensystem zur Verfügung. Ihre Aufgabe ist es, diese in einer zugänglichen HTML-Tabelle zu strukturieren.
 
 ## Ausgangspunkt
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer, der `planet-data-table` heißt (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
-2. Speichern Sie das folgende HTML-Listing in einer Datei in Ihrem Ordner, die `index.html` heißt (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
+1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer, genannt `planet-data-table` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
+2. Speichern Sie die folgende HTML-Auflistung in einer Datei in Ihrem Ordner mit dem Namen `index.html` (oder fügen Sie sie in das HTML-Panel Ihres Online-Editors ein).
 
    ```html
    <!doctype html>
@@ -30,7 +30,7 @@ In dieser Herausforderung stellen wir Ihnen einige Daten über die Planeten in u
    </html>
    ```
 
-3. Speichern Sie das folgende CSS-Listing in einer Datei in Ihrem Ordner, die `style.css` heißt (oder fügen Sie es in das CSS-Feld Ihres Online-Editors ein).
+3. Speichern Sie die folgende CSS-Auflistung in einer Datei in Ihrem Ordner mit dem Namen `style.css` (oder fügen Sie sie in das CSS-Panel Ihres Online-Editors ein).
 
    ```css live-sample___planet-data-table
    html {
@@ -75,7 +75,7 @@ In dieser Herausforderung stellen wir Ihnen einige Daten über die Planeten in u
    }
    ```
 
-4. Halten Sie die folgenden Daten bereit; Sie müssen diese in eine HTML-Datentabelle innerhalb Ihres HTML-Dokuments umwandeln.
+4. Halten Sie die folgenden Daten bereit; Sie müssen sie in eine HTML-Datentabelle innerhalb Ihres HTML-Dokuments umwandeln.
 
    ```plain
    Rows
@@ -123,27 +123,27 @@ In dieser Herausforderung stellen wir Ihnen einige Daten über die Planeten in u
 
 ## Projektbeschreibung
 
-Sie arbeiten an einer Schule; derzeit studieren Ihre Schüler die Planeten unseres Sonnensystems und Sie möchten ihnen eine leicht verständliche Datensammlung zur Verfügung stellen, um Fakten und Zahlen über die Planeten nachzuschlagen. Eine HTML-Datentabelle wäre ideal — Sie müssen die verfügbaren Rohdaten nehmen und in eine Tabelle umwandeln, indem Sie die folgenden Schritte befolgen.
+Sie arbeiten an einer Schule; derzeit studieren Ihre Schüler die Planeten unseres Sonnensystems, und Sie möchten ihnen eine leicht verständliche Datensammlung bereitstellen, damit sie Fakten und Zahlen über die Planeten nachschlagen können. Eine HTML-Datentabelle wäre ideal — Sie müssen die vorhandenen rohen Daten in eine Tabelle umwandeln, indem Sie die folgenden Schritte ausführen.
 
-Alle benötigten Daten sind im oben bereitgestellten Datenlisting enthalten. Wenn Sie Schwierigkeiten haben, sich die Daten vorzustellen, sehen Sie sich das Live-Beispiel unten an oder versuchen Sie, ein Diagramm zu zeichnen.
+Alle benötigten Daten sind in der oben bereitgestellten Datenauflistung enthalten. Wenn Sie Schwierigkeiten haben, sich die Daten vorzustellen, schauen Sie sich das folgende Live-Beispiel an oder versuchen Sie, ein Diagramm zu zeichnen.
 
-1. Beginnen Sie die Tabelle, indem Sie ihr einen äußeren Container, einen Tabellenkopf und einen Tabellenkörper geben. Sie benötigen für dieses Beispiel keinen Tabellenfuß.
+1. Beginnen Sie die Tabelle mit einem äußeren Container, einer Tabellenüberschrift und einem Tabellenrumpf. Sie benötigen für dieses Beispiel keine Tabellenfußzeile.
 2. Fügen Sie die bereitgestellte Beschriftung zu Ihrer Tabelle hinzu.
-3. Fügen Sie eine Zeile zum Tabellenkopf hinzu, die alle Spaltenüberschriften enthält.
-4. Erstellen Sie alle Inhaltszeilen innerhalb des Tabellenkörpers und denken Sie daran, alle Zeilenüberschriften semantisch als Überschriften zu gestalten.
-5. Stellen Sie sicher, dass alle Inhalte in die richtigen Zellen gesetzt werden — in den Rohdaten wird jede Planetendatenzeile neben ihrem zugehörigen Planeten angezeigt.
-6. Fügen Sie Attribute hinzu, um die Zeilen- und Spaltenüberschriften eindeutig den Zeilen, Spalten oder Zeilengruppen zuzuordnen, für die sie als Überschriften fungieren.
-7. Fügen Sie nur um die Spalte, die alle Planetennamenszeilköpfe enthält, einen schwarzen [Rand](/de/docs/Web/CSS/Reference/Properties/border) hinzu. Tun Sie dies mit einer geeigneten `<colgroup>`/`<col>`-Struktur und dem `.column-border`-Klassenstil, der im CSS bereitgestellt wird.
+3. Fügen Sie der Tabellenüberschrift eine Zeile hinzu, die alle Spaltenüberschriften enthält.
+4. Erstellen Sie alle Inhaltszeilen innerhalb des Tabellenkörpers, wobei Sie daran denken, alle Zeilenüberschriften semantisch als Überschriften zu gestalten.
+5. Stellen Sie sicher, dass alle Inhalte in den richtigen Zellen platziert sind — in den Rohdaten wird jede Zeile der Planeteninformationen neben dem zugehörigen Planeten angezeigt.
+6. Fügen Sie Attribute hinzu, um die Zeilen- und Spaltenüberschriften eindeutig den Zeilen, Spalten oder Zeilengruppen zuzuordnen, für die sie als Überschriften dienen.
+7. Fügen Sie einen schwarzen [Rahmen](/de/docs/Web/CSS/Reference/Properties/border) nur um die Spalte hinzu, die alle Zeilenüberschriften der Planetennamen enthält. Verwenden Sie dazu eine geeignete `<colgroup>`/`<col>`-Struktur und den `.column-border`-Klassenstil, der im CSS bereitgestellt wird.
 
 ## Hinweise und Tipps
 
-- Die erste Zelle in der Kopfzeile muss leer sein und zwei Spalten überspannen.
-- Die Gruppenzeilenüberschriften (z.B. _Jovian planets_), die links von den Zeilenüberschriften der Planetennamen (z.B. _Saturn_) sitzen, sind etwas tricky zu handhaben — Sie müssen sicherstellen, dass jede die richtige Anzahl von Zeilen und Spalten überspannt.
-- Eine Methode zur Zuordnung von Überschriften zu ihren Zeilen/Spalten ist viel einfacher als die andere.
+- Die erste Zelle der Kopfzeile muss leer sein und zwei Spalten umfassen.
+- Die Gruppenzeilenüberschriften (z. B. _Jovian Planeten_), die links von den Zeilenüberschriften der Planetennamen (z. B. _Saturn_) stehen, sind ein wenig knifflig zu sortieren — Sie müssen sicherstellen, dass jede von ihnen die korrekte Anzahl an Zeilen und Spalten umfasst.
+- Eine Möglichkeit, Überschriften mit ihren Zeilen/Spalten zu verknüpfen, ist viel einfacher als die andere.
 
 ## Beispiel
 
-Die Tabelle sollte wie folgt aussehen, nachdem sie korrekt ausgezeichnet wurde. Wenn Sie sich bei einigen Punkten schwertun, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Die Tabelle sollte nach korrekter Auszeichnung wie folgt aussehen. Wenn Sie nicht weiterkommen, schauen Sie sich die Lösung unter dem Live-Beispiel an.
 
 {{embedlivesample("planet-data-table", "100%", 650)}}
 
@@ -284,7 +284,7 @@ Ihr fertiges HTML sollte so aussehen:
       <td></td>
     </tr>
     <tr>
-      <th colspan="2" scope="row">Dwarf planets</th>
+      <th colspan="2" scope="rowgroup">Dwarf planets</th>
       <th scope="row">Pluto</th>
       <td>0.0146</td>
       <td>2,370</td>

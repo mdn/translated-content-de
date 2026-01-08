@@ -1,17 +1,17 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Größenbestimmung"
-short-title: "Test: Größenbestimmung"
+title: "Testen Sie Ihre Fähigkeiten: Größenanpassung"
+short-title: "Test: Größenanpassung"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Sizing
 l10n:
-  sourceCommit: 774a81081f5688fcf0e7aa8f6a7b8e3cf86180c8
+  sourceCommit: ac71eeb9268655647693d99087c8992a4edf4b21
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Sizing", "Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu überprüfen, ob Sie die verschiedenen Methoden der [Größenbestimmung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie die verschiedenen Möglichkeiten des [Größenanpassens von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing) verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Verwendungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
@@ -19,15 +19,15 @@ In dieser Aufgabe haben Sie zwei Boxen.
 
 Um die Aufgabe abzuschließen:
 
-1. Bestimmen Sie die Größe der ersten Box so, dass die Höhe mindestens `100px` beträgt, selbst wenn es weniger Inhalt gibt, der sie auf diese Höhe anwachsen lassen würde. Der Inhalt sollte nicht überlaufen, wenn er nicht in die Box passt.
-2. Testen Sie dies, indem Sie den Inhalt aus dem HTML-Code entfernen, um sicherzustellen, dass Sie eine `100px` hohe Box erhalten, auch ohne Inhalt.
-3. Bestimmen Sie die Größe der zweiten Box so, dass sie fest auf `100px` Höhe eingestellt ist. In diesem Fall sollte der Inhalt überlaufen.
+1. Vergrößern Sie die erste Box so, dass die Höhe mindestens `100px` beträgt, auch wenn es weniger Inhalt gibt, der sie auf diese Höhe wachsen lassen würde. Der Inhalt sollte nicht überlaufen, wenn er nicht in die Box passt.
+2. Um dies zu testen, entfernen Sie den Inhalt aus dem HTML, um sicherzustellen, dass Sie eine `100px` hohe Box ohne Inhalt erhalten.
+3. Vergrößern Sie die zweite Box so, dass sie auf `100px` festgelegt ist. In diesem Fall sollte der Inhalt überlaufen.
 
-Ihr endgültiges Ergebnis sollte wie das untenstehende Bild aussehen:
+Ihr Endergebnis sollte wie folgt aussehen:
 
-![Zwei Boxen, eine mit überfließendem Inhalt](mdn-sizing-height-min-height.png)
+{{EmbedLiveSample("sizing1-finish", "", "500px")}}
 
-```html live-sample___height-min-height
+```html live-sample___sizing1-start live-sample___sizing1-finish
 <div class="box box1">
   <p>
     Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
@@ -45,7 +45,7 @@ Ihr endgültiges Ergebnis sollte wie das untenstehende Bild aussehen:
 </div>
 ```
 
-```css live-sample___height-min-height
+```css live-sample___sizing1-start live-sample___sizing1-finish
 body {
   font: 1.2em / 1.5 sans-serif;
   padding: 1em;
@@ -66,14 +66,16 @@ body {
 }
 ```
 
-{{EmbedLiveSample("height-min-height", "", "500px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("sizing1-start", "", "500px")}}
 
 <details>
-<summary>Hier klicken, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es gibt zwei Boxen. Die erste sollte eine `min-height` erhalten, damit sie sich erweitert, um zusätzlichen Inhalt aufzunehmen, aber nicht unter `100px` schrumpft, wenn der Inhalt entfernt wird. Die zweite Box erhält eine feste Höhe, wodurch Inhalt überläuft.
+Es gibt zwei Boxen. Der ersten sollte eine `min-height` gegeben werden, damit sie sich ausdehnt, um den zusätzlichen Inhalt zu umfassen, aber nicht unter `100px` schrumpft, wenn der Inhalt entfernt wird. Der zweiten Box wird eine feste Höhe gegeben, was dazu führt, dass der Inhalt überläuft.
 
-```css
+```css live-sample___sizing1-finish
 .box1 {
   min-height: 100px;
 }
@@ -87,24 +89,24 @@ Es gibt zwei Boxen. Die erste sollte eine `min-height` erhalten, damit sie sich 
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben Sie eine Box, die eine weitere Box enthält.
+In dieser Aufgabe haben Sie eine Box, die eine andere Box enthält.
 
 Um die Aufgabe abzuschließen:
 
-1. Machen Sie die Breite der inneren Box `60%` der Breite der äußeren Box. Die {{cssxref("box-sizing")}}-Eigenschaft ist auf `border-box` gesetzt, was bedeutet, dass die Gesamtbreite jegliches `padding` und `border` einschließt.
-2. Geben Sie der inneren Box `10%` `padding` auf allen Seiten.
+1. Machen Sie die Breite der inneren Box zu `60%` der Breite der äußeren Box. Die {{cssxref("box-sizing")}} Eigenschaft ist auf `border-box` gesetzt, was bedeutet, dass die Gesamtbreite jegliche `padding` und `border` beinhaltet.
+2. Geben Sie der inneren Box `10%` Padding auf allen Seiten.
 
-Ihr endgültiges Ergebnis sollte wie das untenstehende Bild aussehen:
+Ihr Endergebnis sollte wie folgt aussehen:
 
-![Eine Box mit einer weiteren Box darin verschachtelt](mdn-sizing-percentages.png)
+{{EmbedLiveSample("sizing2-finish", "", "250px")}}
 
-```html live-sample___percentages
+```html live-sample___sizing2-start live-sample___sizing2-finish
 <div class="box">
   <div class="inner">Make me 60% of my parent's width.</div>
 </div>
 ```
 
-```css live-sample___percentages
+```css live-sample___sizing2-start live-sample___sizing2-finish
 body {
   font: 1.2em / 1.5 sans-serif;
   padding: 1em;
@@ -130,18 +132,17 @@ body {
 }
 ```
 
-{{EmbedLiveSample("percentages", "", "250px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("sizing2-start", "", "250px")}}
 
 <details>
-<summary>Hier klicken, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Stellen Sie die Box-`width` auf `60%` und geben Sie ihr einen `padding`-Wert von `10%`.
-Alle Elemente haben bereits `box-sizing: border-box` gesetzt, damit Sie sich nicht um die Berechnung des `60%` `width`-Werts kümmern müssen:
+Setzen Sie die Box `width` auf `60%`, und geben Sie ihr einen `padding`-Wert von `10%`.
+Alle Elemente haben bereits `box-sizing: border-box` gesetzt, um Sie vom Berechnen der `60%` Breite zu entlasten:
 
-```css
-* {
-  box-sizing: border-box;
-}
+```css live-sample___sizing2-finish
 .inner {
   width: 60%;
   padding: 10%;
@@ -154,13 +155,13 @@ Alle Elemente haben bereits `box-sizing: border-box` gesetzt, damit Sie sich nic
 
 In dieser Aufgabe haben Sie zwei Bilder in Boxen. Ein Bild ist kleiner als die Box, während das andere größer ist, sodass es aus der Box herausragt.
 
-Um die Aufgabe abzuschließen, stellen Sie sich vor, dass die Box ansprechend ist und daher wachsen und schrumpfen könnte. Wenden Sie eine Deklaration auf die Bilder an, sodass das große Bild in die Box schrumpft, aber das kleine Bild sich nicht streckt.
+Um die Aufgabe abzuschließen, stellen Sie sich vor, dass die Box responsiv ist und daher wachsen und schrumpfen könnte. Wenden Sie eine Deklaration auf die Bilder an, sodass das große Bild in die Box schrumpft, das kleine Bild jedoch nicht gestreckt wird.
 
-Ihr endgültiges Ergebnis sollte so aussehen:
+Ihr Endergebnis sollte wie folgt aussehen:
 
-![Zwei Boxen mit Bildern darin](mdn-sizing-max-width.png)
+{{EmbedLiveSample("sizing3-finish", "", "720px")}}
 
-```html live-sample___max-width
+```html live-sample___sizing3-start live-sample___sizing3-finish
 <div class="box">
   <img
     alt="A pink star"
@@ -174,7 +175,7 @@ Ihr endgültiges Ergebnis sollte so aussehen:
 </div>
 ```
 
-```css live-sample___max-width
+```css live-sample___sizing3-start live-sample___sizing3-finish
 body {
   font: 1.2em / 1.5 sans-serif;
   padding: 1em;
@@ -190,14 +191,16 @@ img {
 }
 ```
 
-{{EmbedLiveSample("max-width", "", "700px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("sizing3-start", "", "700px")}}
 
 <details>
-<summary>Hier klicken, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Setzen Sie für die Bilder die `max-width`-Eigenschaft auf `100%`, um das große Bild in seiner Box zu halten. Wenn Sie `width: 100%` verwenden, wird das kleine Bild gestreckt.
+Setzen Sie die `max-width` Eigenschaft der Bilder auf `100%`, um das große Bild innerhalb seiner Box zu halten. Wenn Sie `width: 100%` verwenden, wird das kleine Bild gestreckt.
 
-```css
+```css live-sample___sizing3-finish
 img {
   max-width: 100%;
 }
