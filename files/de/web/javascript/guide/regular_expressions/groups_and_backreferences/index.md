@@ -2,10 +2,10 @@
 title: Gruppen und Rückverweise
 slug: Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: e166afc6dccac8ac4810a443c069cdb876cc4b5c
 ---
 
-Gruppen fassen mehrere Muster als Ganzes zusammen, und erfassende Gruppen liefern zusätzliche Informationen zu Untermatches, wenn ein regulärer Ausdruck verwendet wird, um eine Zeichenkette abzugleichen. Rückverweise beziehen sich auf eine zuvor erfasste Gruppe im gleichen regulären Ausdruck.
+Gruppen fassen mehrere Muster als Ganzes zusammen, und erfasste Gruppen liefern zusätzliche Teilübereinstimmungsinformationen, wenn ein regulärer Ausdruck verwendet wird, um mit einem String übereinzustimmen. Rückverweise beziehen sich auf eine zuvor erfasste Gruppe im selben regulären Ausdruck.
 
 {{InteractiveExample("JavaScript Demo: RegExp Groups and backreferences")}}
 
@@ -38,16 +38,26 @@ console.log(findDuplicates.match(regex));
       <td><code>(<em>x</em>)</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group"><strong>Erfassende Gruppe:</strong></a>
-          Passt zu <code><em>x</em></code> und merkt sich das Match. Zum Beispiel
-          passt <code>/(foo)/</code> zu "foo" in "foo bar" und merkt sich dies.
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group"><strong>Erfassungsgruppe:</strong></a>
+          Passt auf <code><em>x</em></code> und
+          merkt sich die Übereinstimmung. Zum Beispiel passt <code>/(foo)/</code> und
+          merkt sich "foo" in "foo bar".
         </p>
         <p>
-          Ein regulärer Ausdruck kann mehrere erfassende Gruppen haben. In den
-          Ergebnissen befinden sich die Matches der erfassenden Gruppen typischerweise in einem Array, dessen Elemente in der gleichen Reihenfolge wie die linken Klammern der erfassenden Gruppe sind. Dies ist normalerweise die Reihenfolge der erfassenden Gruppen selbst. Dies wird wichtig, wenn erfassende Gruppen verschachtelt sind. Matches werden mit dem Index der Elemente des Ergebnisses (<code>[1], …, [n]</code>) oder von den vordefinierten Eigenschaften des <code>RegExp</code>-Objekts (<code>$1, …, $9</code>) abgerufen.
+          Ein regulärer Ausdruck kann mehrere Erfassungsgruppen haben. In den Ergebnissen
+          sind Übereinstimmungen mit Erfassungsgruppen typischerweise in einem Array, dessen Mitglieder in
+          derselben Reihenfolge wie die linken Klammern in der Erfassungsgruppe sind. Das ist
+          normalerweise nur die Reihenfolge der Erfassungsgruppen selbst. Dies
+          wird wichtig, wenn Erfassungsgruppen geschachtelt sind. Auf Übereinstimmungen wird
+          mithilfe des Index der Elemente des Ergebnisses (<code
+            >[1], …, [n]</code
+          >) oder über die vordefinierten Eigenschaften des <code>RegExp</code>-Objekts
+          (<code>$1, …, $9</code>) zugegriffen.
         </p>
         <p>
-          Erfassende Gruppen haben einen Performance-Nachteil. Wenn Sie den erfassten Unterstring nicht erneut verwenden müssen, bevorzugen Sie nicht-erfassende Klammern (siehe unten).
+          Erfassungsgruppen haben eine Leistungsminderung. Falls Sie den
+          übereinstimmenden Teilstring nicht zurückrufen müssen, bevorzugen Sie Klammern ohne Erfassung
+          (siehe unten).
         </p>
         <p>
           <code
@@ -56,14 +66,14 @@ console.log(findDuplicates.match(regex));
               >String.prototype.match()</a
             ></code
           >
-          gibt keine Gruppen zurück, wenn das <code>/.../g</code> Flag gesetzt ist. Sie können jedoch weiterhin
+          gibt keine Gruppen zurück, wenn das <code>/.../g</code>-Flag gesetzt ist. Sie können jedoch weiterhin
           <code
             ><a
               href="/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll"
               >String.prototype.matchAll()</a
             ></code
           >
-          verwenden, um alle Matches zu erhalten.
+          verwenden, um alle Übereinstimmungen zu erhalten.
         </p>
       </td>
     </tr>
@@ -71,11 +81,16 @@ console.log(findDuplicates.match(regex));
       <td><code>(?&#x3C;Name>x)</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group"><strong>Benannte erfassende Gruppe:</strong></a>
-          Passt zu "x" und speichert es in der Eigenschaft `groups` der zurückgegebenen Matches unter dem angegebenen Namen <code>&#x3C;Name></code>. Die spitzen Klammern (<code>&#x3C;</code> und <code>></code>) sind für den Gruppennamen erforderlich.
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group"><strong>Benannte Erfassungsgruppe:</strong></a>
+          Passt auf "x" und speichert es in der
+          Gruppen-Eigenschaft der zurückgegebenen Übereinstimmungen unter dem angegebenen Namen
+          <code>&#x3C;Name></code>. Die Klammern (<code>&#x3C;</code>
+          und <code>></code>) sind für den Gruppennamen erforderlich.
         </p>
         <p>
-          Zum Beispiel, um die amerikanische Vorwahl aus einer Telefonnummer zu extrahieren, könnten wir <code>/\((?&#x3C;area>\d\d\d)\)/</code> verwenden. Die resultierende Nummer würde unter <code>matches.groups.area</code> erscheinen.
+          Zum Beispiel, um die Vorwahl der Vereinigten Staaten aus einer Telefonnummer
+          zu extrahieren, könnten wir <code>/\((?&#x3C;area>\d\d\d)\)/</code> verwenden. Die
+          resultierende Nummer würde unter <code>matches.groups.area</code> erscheinen.
         </p>
       </td>
     </tr>
@@ -83,17 +98,20 @@ console.log(findDuplicates.match(regex));
       <td><code>(?:<em>x</em>)</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group"><strong>Nicht-erfassende Gruppe:</strong></a>
-          Passt zu "x", merkt sich das Match aber nicht. Der abgeglichene Unterstring kann nicht aus den Elementen des resultierenden Arrays (<code>[1], …, [n]</code>) oder von den vordefinierten Eigenschaften des <code>RegExp</code>-Objekts (<code>$1, …, $9</code>) abgerufen werden.
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group"><strong>Ohne Erfassung Gruppe:</strong></a>
+          Passt auf "x", merkt sich aber
+          die Übereinstimmung nicht. Der übereinstimmende Teilstring kann nicht aus den Elementen des resultierenden
+          Arrays (<code>[1], …, [n]</code>) oder über die vordefinierten
+          Eigenschaften des <code>RegExp</code>-Objekts (<code>$1, …, $9</code>) aufgerufen werden.
         </p>
       </td>
     </tr>
     <tr>
-      <td><code>(?<em>flags</em>:<em>x</em>)</code>, <code>(?:<em>flags</em>-<em>flags</em>:<em>x</em>)</code></td>
+      <td><code>(?<em>flags</em>:<em>x</em>)</code>, <code>(?<em>flags</em>-<em>flags</em>:<em>x</em>)</code></td>
       <td>
         <p>
-          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier"><strong>Modifikator:</strong></a>
-          Aktiviert oder deaktiviert die angegebenen Flags nur für das eingeschlossene Muster. Nur die Flags <code>i</code>, <code>m</code> und <code>s</code> können in einem Modifikator verwendet werden.
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier"><strong>Modifier:</strong></a>
+          Aktiviert oder deaktiviert die angegebenen Flags nur für das eingeschlossene Muster. Nur die Flags <code>i</code>, <code>m</code> und <code>s</code> können in einem Modifier verwendet werden.
         </p>
       </td>
     </tr>
@@ -104,7 +122,11 @@ console.log(findDuplicates.match(regex));
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference"><strong>Rückverweis:</strong></a>
-          Wo "n" eine positive ganze Zahl ist. Passt zu dem gleichen Unterstring, der von der n-ten erfassenden Gruppe im regulären Ausdruck (linke Klammer zählend) abgeglichen wurde. Zum Beispiel, <code>/apple(,)\sorange\1/</code> passt zu "apple, orange," in "apple, orange, cherry, peach".
+          Dabei ist "n" eine positive Ganzzahl. Passt den gleichen Teilstring, der von
+          der n-ten Erfassungsgruppe im regulären Ausdruck
+          (zählend ab linken Klammern) übereinstimmt. Zum Beispiel,
+          <code>/apple(,)\sorange\1/</code> passt "apple, orange," in "apple,
+          orange, cherry, peach".
         </p>
       </td>
     </tr>
@@ -113,14 +135,19 @@ console.log(findDuplicates.match(regex));
       <td>
         <p>
           <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference"><strong>Benannter Rückverweis:</strong></a>
-          Ein Rückverweis auf das letzte Teilstring-Match der <strong>benannten erfassenden Gruppe</strong>, die durch <code>&#x3C;Name></code> angegeben ist.
+          Ein Rückverweis auf den letzten Teilstring, der die
+          <strong>Benannte Erfassungsgruppe</strong> übereinstimmt, die durch
+          <code>&#x3C;Name></code> angegeben ist.
         </p>
         <p>
-          Zum Beispiel, <code>/(?&#x3C;title>\w+), yes \k&#x3C;title>/</code> passt zu "Sir, yes Sir" in "Do you copy? Sir, yes Sir!".
+          Zum Beispiel,
+          <code>/(?&#x3C;title>\w+), yes \k&#x3C;title>/</code> passt auf "Sir,
+          yes Sir" in "Do you copy? Sir, yes Sir!".
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> <code>\k</code> wird hier wörtlich verwendet, um den Beginn eines Rückverweises auf eine benannte erfassende Gruppe anzuzeigen.
+            <strong>Hinweis:</strong> <code>\k</code> wird hier buchstäblich verwendet, um
+            den Beginn eines Rückverweises auf eine Benannte Erfassungsgruppe anzuzeigen.
           </p>
         </div>
       </td>
@@ -132,7 +159,7 @@ console.log(findDuplicates.match(regex));
 
 ### Verwendung von Gruppen
 
-In diesem Beispiel gleichen wir zwei Wörter in einem strukturierten Format ab, indem wir erfassende Gruppen verwenden, um sie sich zu merken. `\w+` passt zu einem oder mehreren Wortzeichen, und die Klammern `()` erstellen eine erfassende Gruppe. Das `g`-Flag wird verwendet, um alle Vorkommen abzugleichen.
+In diesem Beispiel passen wir zwei Wörter in einem strukturierten Format an, indem wir Erfassungsgruppen verwenden, um sie zu speichern. `\w+` entspricht einem oder mehreren Wortzeichen, und die Klammern `()` erstellen eine Erfassungsgruppe. Das `g`-Flag wird verwendet, um alle Vorkommen abzugleichen.
 
 ```js
 const personList = `First_Name: John, Last_Name: Doe
@@ -144,11 +171,11 @@ for (const match of personList.matchAll(regexpNames)) {
 }
 ```
 
-Weitere Beispiele finden Sie im [Referenzdokument zur erfassenden Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group).
+Siehe weitere Beispiele im [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)-Referenz.
 
 ### Verwendung benannter Gruppen
 
-Dieses Beispiel ist dasselbe wie oben, jedoch verwenden wir benannte erfassende Gruppen, um die abgeglichenen Wörter stattdessen zu merken. Auf diese Weise können wir auf die abgeglichenen Wörter nach ihren Bedeutungen zugreifen.
+Dieses Beispiel ist dasselbe wie das obige, aber wir verwenden benannte Erfassungsgruppen, um die übereinstimmenden Wörter zu speichern. Auf diese Weise können wir auf die übereinstimmenden Wörter anhand ihrer Bedeutungen zugreifen.
 
 ```js
 const personList = `First_Name: John, Last_Name: Doe
@@ -161,11 +188,11 @@ for (const match of personList.matchAll(regexpNames)) {
 }
 ```
 
-Weitere Beispiele finden Sie im [Referenzdokument zur benannten erfassenden Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group).
+Siehe weitere Beispiele im [benannte Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)-Referenz.
 
 ### Verwendung von Gruppen und Rückverweisen
 
-In diesem Beispiel gleichen wir zuerst ein einzelnes oder doppeltes Anführungszeichen mit `['"]` ab, merken es uns, gleichen eine beliebige Anzahl von Zeichen mit `.*?` ab (`*?` ist ein [nicht-gieriger Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)), bis wir das gemerkte Anführungszeichenzeichen wieder mit `\1` abgleichen. Die `\1` ist ein Rückverweis auf die erste erfassende Gruppe, die denselben Anführungszeichentyp abgleicht. Das Ergebnis sind daher zwei Zeichenfolgen: `"'"` und `'"'`.
+In diesem Beispiel passen wir zuerst ein einzelnes oder doppeltes Anführungszeichen mit `['"]`, speichern es, passen eine beliebige Anzahl von Zeichen mit `.*?` (`*?` ist ein [nicht-gieriger Quantor](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)), bis wir das gespeicherte Anführungszeichen erneut mit `\1` anpassen. Das `\1` ist ein Rückverweis auf die erste Erfassungsgruppe, die denselben Typ von Anführungszeichen übereinstimmt. Das Ergebnis sind also zwei Strings: `"'"` und `'"'`.
 
 ```js
 const quote = `Single quote "'" and double quote '"'`;
@@ -175,11 +202,11 @@ for (const match of quote.matchAll(regexpQuotes)) {
 }
 ```
 
-Weitere Beispiele finden Sie im [Referenzdokument zum Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference).
+Siehe weitere Beispiele im [Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)-Referenz.
 
-### Verwendung von Gruppen und Match-Indizes
+### Verwendung von Gruppen und Übereinstimmungsindizes
 
-Mit dem `d`-Flag werden die Indizes jeder erfassenden Gruppe zurückgegeben. Dies ist besonders nützlich, wenn Sie jede abgeglichene Gruppe mit dem ursprünglichen Text korrelieren möchten — zum Beispiel um Compiler-Diagnosen bereitzustellen.
+Indem Sie das `d`-Flag bereitstellen, werden die Indizes jeder Erfassungsgruppe zurückgegeben. Dies ist besonders nützlich, wenn Sie jede übereinstimmende Gruppe mit dem ursprünglichen Text in Verbindung bringen — zum Beispiel, um Compiler-Diagnosen bereitzustellen.
 
 ```js
 const code = `function add(x, y) {
@@ -204,14 +231,14 @@ console.log(lines.join("\n"));
 
 ## Siehe auch
 
-- [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
-- [Leitfaden zu Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)
-- [Leitfaden zu Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
-- [Leitfaden zu Quantifizierern](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Leitfaden
+- [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
+- [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
+- [Quantifiers](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) Leitfaden
 - [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [Referenz zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) Referenz
 - [Rückverweis: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
-- [Erfassende Gruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
+- [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
 - [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
-- [Benannte erfassende Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
-- [Nicht-erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
+- [Benannte Erfassungsgruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Nicht erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)

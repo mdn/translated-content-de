@@ -3,10 +3,10 @@ title: CSS-Eigenschaften
 short-title: Properties
 slug: Web/CSS/Reference/Properties
 l10n:
-  sourceCommit: 12b296d2b3937c45b2363f34ed8afadcf00ed166
+  sourceCommit: f8ef875113a7d3e9952f41de68be1e3a3a1e6988
 ---
 
-Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations) verwendet wird und es Ihnen ermöglicht, bestimmte Aspekte ausgewählter Elemente zu gestalten. Zum Beispiel wird die Eigenschaft {{CSSxRef("opacity")}} verwendet, um die Deckkraft eines ausgewählten Elements festzulegen, sodass Sie steuern können, ob Inhalte hinter diesem Element sichtbar sind:
+Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations) verwendet wird und es Ihnen ermöglicht, bestimmte Aspekte ausgewählter Elemente zu stylen. Zum Beispiel wird die {{CSSxRef("opacity")}}-Eigenschaft verwendet, um die Transparenz eines ausgewählten Elements festzulegen, sodass Sie steuern können, ob der Inhalt hinter diesem Element sichtbar ist:
 
 ```css
 /* Set 0.8 opacity on <img> elements */
@@ -15,7 +15,7 @@ img {
 }
 ```
 
-Jede Eigenschaft hat einen Namen (z.B. `opacity`), einen Wert (z.B. `0.8`) und ein definiertes Verhalten für die Darstellung des Dokuments. CSS definiert auch Kurzschreibweise-Eigenschaften, die es Ihnen ermöglichen, mehrere verwandte Eigenschaften in einer einzigen Deklaration anzugeben. Zum Beispiel ist die Eigenschaft {{CSSxRef("margin")}} eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}, die den Abstand aller vier Seiten eines Elements festlegt:
+Jede Eigenschaft hat einen Namen (z.B. `opacity`), einen Wert (z.B. `0.8`) und ein definiertes Verhalten bei der Darstellung des Dokuments. CSS definiert auch Kurzschreib-Eigenschaften, mit denen Sie mehrere verwandte Eigenschaften in einer einzigen Deklaration angeben können. Zum Beispiel ist die {{CSSxRef("margin")}}-Eigenschaft eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}, um den Rand aller vier Seiten eines Elements festzulegen:
 
 ```css
 /* Give <img> elements 1rem of margin */
@@ -34,11 +34,11 @@ selector {
 
 ## Alphabetisches Verzeichnis der Eigenschaften
 
-Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen Folgendes:
+Standard-Eigenschaften, die in CSS-Spezifikationen definiert sind, umfassen die folgenden:
 
 ### Verschiedenes
 
-- [Custom properties (`--*`): CSS-Variablen](/de/docs/Web/CSS/Reference/Properties/--*)
+- [Benutzerdefinierte Eigenschaften (`--*`): CSS-Variablen](/de/docs/Web/CSS/Reference/Properties/--*)
 
 ### A
 
@@ -49,6 +49,7 @@ Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen Folgendes:
 - {{CSSxRef("alignment-baseline")}}
 - {{CSSxRef("all")}} (Kurzschreibweise)
 - {{CSSxRef("anchor-name")}}
+- {{CSSxRef("anchor-scope")}}
 - {{CSSxRef("animation-composition")}}
 - {{CSSxRef("animation-delay")}}
 - {{CSSxRef("animation-direction")}}
@@ -82,6 +83,7 @@ Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen Folgendes:
 - {{CSSxRef("background-repeat")}}
 - {{CSSxRef("background-size")}}
 - {{CSSxRef("background")}} (Kurzschreibweise)
+- {{CSSxRef("baseline-source")}}
 - {{CSSxRef("block-size")}}
 
 ### Border-\*
@@ -314,6 +316,9 @@ Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen Folgendes:
 - {{CSSxRef("inset")}} (Kurzschreibweise)
 - {{CSSxRef("inset")}} (Kurzschreibweise)
 - {{CSSxRef("interactivity")}}
+- {{CSSxRef("interest-delay")}}
+- {{CSSxRef("interest-delay-end")}}
+- {{CSSxRef("interest-delay-start")}}
 - {{CSSxRef("interpolate-size")}}
 - {{CSSxRef("isolation")}}
 
@@ -589,9 +594,9 @@ Von den CSS-Spezifikationen definierte Standardeigenschaften umfassen Folgendes:
 
 ### Nicht standardisierte Eigenschaften
 
-Nicht standardisierte, vendor-präfixierte Eigenschaften umfassen:
+Nicht standardisierte, vendor-spezifische Präfix-Eigenschaften umfassen:
 
-#### `-moz-` Prefix
+#### `-moz-` Präfix
 
 - {{CSSxRef("-moz-float-edge")}}
 - {{CSSxRef("-moz-force-broken-image-icon")}}
@@ -599,7 +604,7 @@ Nicht standardisierte, vendor-präfixierte Eigenschaften umfassen:
 - {{CSSxRef("-moz-user-focus")}}
 - {{CSSxRef("-moz-user-input")}}
 
-#### `-webkit-` Prefix
+#### `-webkit-` Präfix
 
 - {{CSSxRef("-webkit-box-reflect")}}
 - {{CSSxRef("-webkit-border-before")}} (Kurzschreibweise)
@@ -625,6 +630,6 @@ Nicht standardisierte, vendor-präfixierte Eigenschaften umfassen:
 
 - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
 - [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
-- [Firefox (-moz-) vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [WebKit (-webkit-) vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
-- {{Glossary("Vendor_prefix", "Vendor-Präfix")}}
+- [Firefox (-moz-) vendor-spezifische CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- [WebKit (-webkit-) vendor-spezifische CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- {{Glossary("Vendor_prefix", "Vendor-Prefix")}}

@@ -2,10 +2,11 @@
 title: baseline-source
 slug: Web/CSS/Reference/Properties/baseline-source
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: f8ef875113a7d3e9952f41de68be1e3a3a1e6988
 ---
 
-Die **`baseline-source`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, welche [Baseline](/de/docs/Web/CSS/Reference/Values/baseline-position) verwendet werden soll, wenn Inline-Level-Boxen mehrere mögliche Baselines haben, wie z. B. mehrzeilige [Inline-Blöcke](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) oder Inline-[Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts#the_flex_container). Die Werte erlauben es, zwischen der Ausrichtung zur ersten Baseline der Box, der letzten Baseline oder einer automatischen Entscheidung des Browsers basierend auf dem Boxtyp zu wählen.
+Die **`baseline-source`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, welche [Baseline](/de/docs/Web/CSS/Reference/Values/baseline-position) verwendet werden soll, wenn Inline-Elemente mehrere mögliche Baselines haben, wie z.B. mehrzeilige [Inline-Blocks](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) oder Inline-[Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts#the_flex_container).
+Die Werte erlauben die Auswahl zwischen der Ausrichtung an der ersten Baseline, der letzten Baseline des Boxes, oder überlassen dem Browser die Entscheidung basierend auf dem Box-Typ.
 
 ## Syntax
 
@@ -26,13 +27,13 @@ baseline-source: unset;
 ### Werte
 
 - `auto`
-  - : Spezifiziert [`letzte Baseline`](/de/docs/Web/CSS/Reference/Values/baseline-position#last_baseline) Ausrichtung für inline-block, [`erste Baseline`](/de/docs/Web/CSS/Reference/Values/baseline-position#first_baseline) Ausrichtung für alle anderen.
+  - : Gibt die Ausrichtung an der [`letzten Baseline`](/de/docs/Web/CSS/Reference/Values/baseline-position#last_baseline) für Inline-Block-Elemente an und die Ausrichtung an der [`ersten Baseline`](/de/docs/Web/CSS/Reference/Values/baseline-position#first_baseline) für alles andere.
 - `first`
-  - : Spezifiziert `erste Baseline` Ausrichtung.
+  - : Gibt die Ausrichtung an der `ersten Baseline` an.
 - `last`
-  - : Spezifiziert `letzte Baseline` Ausrichtung.
+  - : Gibt die Ausrichtung an der `letzten Baseline` an.
 
-## Formale Definition
+## Formaldefinition
 
 {{cssinfo}}
 
@@ -42,13 +43,14 @@ baseline-source: unset;
 
 ## Beispiele
 
-### Auswahl der Baseline in Inline-Flex-Containern
+### Baseline-Auswahl in Inline-Flex-Containern
 
 Dieses Beispiel zeigt die Verwendung der `baseline-source` Eigenschaft zur Steuerung der Baseline-Ausrichtung von Inline-Flex-Containern.
 
 #### HTML
 
-Unser HTML enthält mehrere {{htmlelement("span")}} Elemente, die generische Inline-Container für phrasierte Inhalte sind. Drei der `<span>` Elemente enthalten verschachtelte `<span>` Kinder.
+Unser HTML enthält mehrere {{htmlelement("span")}}-Elemente, die generische Inline-Container für phrasierten Inhalt darstellen.
+Drei der `<span>`-Elemente enthalten geschachtelte `<span>`-Kinder.
 
 ```html
 <span>Baseline ___</span>
@@ -83,7 +85,7 @@ body {
 }
 
 .box {
-  border: 2px solid #888;
+  border: 2px solid #888 888;
   width: 50px;
 }
 
@@ -92,7 +94,8 @@ span {
 }
 ```
 
-Wir definieren alle Boxen als Inline-Flex-Container. Wir setzen die `.first` Box, um die erste Baseline zu verwenden, die `.auto` Box verwendet die Standard-Baseline (die für Inline-Flex-Container `first` ist) und die `.last` Box verwendet die letzte Baseline.
+Wir definieren alle Boxen als Inline-Flex-Container.
+Die `.first` Box soll die erste Baseline verwenden, die `.auto` Box verwendet die Standard-Baseline (was für Inline-Flex-Container die `erste` ist), und die `.last` Box verwendet die letzte Baseline.
 
 ```css
 .box {
@@ -128,4 +131,4 @@ Wir definieren alle Boxen als Inline-Flex-Container. Wir setzen die `.first` Box
 ## Siehe auch
 
 - {{cssxref("vertical-align")}} Eigenschaft
-- [CSS Box-Ausrichtung Übersicht](/de/docs/Web/CSS/Guides/Box_alignment/Overview)
+- [CSS Box-Ausrichtung Überblick](/de/docs/Web/CSS/Guides/Box_alignment/Overview)
