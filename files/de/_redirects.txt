@@ -11224,6 +11224,8 @@
 /de/docs/Web/API/event.view	/de/docs/Web/API/UIEvent/view
 /de/docs/Web/API/event.which	/de/docs/Web/API/UIEvent/which
 /de/docs/Web/API/fetch	/de/docs/Web/API/Window/fetch
+/de/docs/Web/API/fetchLater_API	/de/docs/Web/API/Fetch_API
+/de/docs/Web/API/fetchLater_API/fetchLater_quotas	/de/docs/Web/API/Fetch_API/Using_Deferred_Fetch
 /de/docs/Web/API/form.acceptCharset	/de/docs/Web/API/HTMLFormElement/acceptCharset
 /de/docs/Web/API/form.action	/de/docs/Web/API/HTMLFormElement/action
 /de/docs/Web/API/form.elements	/de/docs/Web/API/HTMLFormElement/elements
