@@ -1,11 +1,11 @@
 ---
-title: "<hr>: Das Thematische Trennelement (Horizontale Linie)"
+title: "<hr>: Das thematische Trennelement (Horizontale Linie)"
 slug: Web/HTML/Reference/Elements/hr
 l10n:
-  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
+  sourceCommit: 479f72f9279246685bcf6eec93527ac3f470f93e
 ---
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element stellt einen thematischen Wechsel zwischen absatzbezogenen Elementen dar: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Elemente auf Absatzebene: zum Beispiel ein Szenenwechsel in einer Erzählung oder ein Themenwechsel innerhalb eines Abschnitts.
 
 {{InteractiveExample("HTML Demo: &lt;hr&gt;", "tabbed-shorter")}}
 
@@ -36,22 +36,24 @@ hr::after {
 }
 ```
 
-Historisch gesehen wurde dies als horizontale Trennlinie oder Linie dargestellt. Während es in visuellen Browsern weiterhin als horizontale Trennlinie angezeigt werden kann, ist dieses Element jetzt in semantischen Begriffen definiert, anstatt in präsentativen Begriffen. Wenn Sie eine horizontale Linie zeichnen möchten, sollten Sie dies mit geeignetem CSS tun.
+Historisch gesehen wurde das `<hr>`-Element immer als horizontale Linie dargestellt. Während es in visuellen Browsern weiterhin als horizontale Linie angezeigt werden kann, wird dieses Element jetzt semantisch statt präsentationell definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies tun, indem Sie einem bestehenden Element über CSS einen Rahmen hinzufügen.
+
+Die Eigenschaften `border-*` (zum Beispiel {{cssxref("border-style")}} und {{cssxref("border-color")}}) ermöglichen es Ihnen, das Erscheinungsbild einer Linie erheblich anzupassen, unabhängig davon, ob Sie ein `<hr>`-Element oder einen auf einem anderen Element gezeichneten Rahmen anpassen.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
+  - : Setzt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert.
+  - : Setzt die Farbe der Linie über Farbnamen oder hexadezimale Werte.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt, dass die Linie keinen Schatten haben soll.
+  - : Legt fest, dass die Linie keine Schattierung hat.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Höhe der Linie in Pixeln.
+  - : Setzt die Höhe der Linie in Pixeln.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
+  - : Setzt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
 
 ## Beispiel
 
@@ -81,15 +83,19 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Guides/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
+          >Fließender Inhalt</a
+        >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <th scope="row">Erlaubter Inhalt</th>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
@@ -99,7 +105,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       <th scope="row">Zulässige Eltern</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a> akzeptiert</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">fließenden Inhalt</a> akzeptiert</li>
           <li><a href="/de/docs/Web/HTML/Reference/Elements/select"><code>&lt;select></code></a>-Element</li>
         </ul>
       </td>

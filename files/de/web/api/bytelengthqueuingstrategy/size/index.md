@@ -3,12 +3,13 @@ title: "ByteLengthQueuingStrategy: size()-Methode"
 short-title: size()
 slug: Web/API/ByteLengthQueuingStrategy/size
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: d9c005fd4617bd388c583e27ba6f1c001e4e80b8
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`size()`**-Methode der [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy)-Schnittstelle gibt die `byteLength`-Eigenschaft des gegebenen Datenchunks zurück.
+Die **`size()`**-Methode des
+[`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy)-Interfaces gibt die `byteLength`-Eigenschaft des gegebenen Datenblocks zurück.
 
 ## Syntax
 
@@ -19,11 +20,11 @@ size(chunk)
 ### Parameter
 
 - `chunk`
-  - : Ein Datenchunk, der durch den Stream übergeben wird.
+  - : Ein Datenblock, der durch den Stream geleitet wird.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der die Bytegröße des gegebenen Chunks darstellt.
+Ein Integer, der die Byte-Länge des gegebenen Datenblocks darstellt.
 
 ## Beispiele
 
@@ -45,7 +46,7 @@ const readableStream = new ReadableStream(
   queuingStrategy,
 );
 
-const size = queueingStrategy.size(chunk);
+const size = queuingStrategy.size(chunk);
 ```
 
 ## Spezifikationen
