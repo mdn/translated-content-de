@@ -1,13 +1,13 @@
 ---
-title: Verwenden mehrerer Hintergründe
+title: Verwendung mehrerer Hintergründe
 slug: Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds
 l10n:
-  sourceCommit: f3bff6f28c3f117b1a725d42971657f423136562
+  sourceCommit: 5ebca2edd6095fb3f61d442ed3146fa37fffbf7d
 ---
 
-Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste von Ihnen angegebene Hintergrund oben liegt und der zuletzt angegebene Hintergrund unten. Nur der letzte Hintergrund kann eine Hintergrundfarbe beinhalten.
+Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste angegebene Hintergrund oben liegt und der letzte in der Liste hinten. Nur der letzte Hintergrund kann eine Hintergrundfarbe beinhalten.
 
-Mehrere Hintergründe werden als durch Kommas getrennte Liste angegeben, wie zum Beispiel `background: background1, background2, ...;`. Diese Syntax wird sowohl von der Kurzform der {{cssxref("background")}}-Eigenschaft als auch von den einzelnen Eigenschaften akzeptiert, mit Ausnahme von {{cssxref("background-color")}}: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}}, {{cssxref("background-repeat")}}, {{cssxref("background-size")}}.
+Mehrere Hintergründe werden als durch Kommas getrennte Liste spezifiziert, wie `background: background1, background2, ...;`. Diese Syntax wird sowohl von der Kurzschreibweise der {{cssxref("background")}}-Eigenschaft als auch von den einzelnen Eigenschaften mit Ausnahme von {{cssxref("background-color")}} akzeptiert: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}}, {{cssxref("background-repeat")}}, {{cssxref("background-size")}}.
 
 ## Beispiel
 
@@ -40,11 +40,11 @@ In diesem Beispiel werden drei Hintergründe gestapelt: das Firefox-Logo, ein Bi
 
 {{EmbedLiveSample('Example','600','400')}}
 
-Wie Sie hier sehen können, liegt das Firefox-Logo (zuerst in {{ cssxref("background-image") }} aufgelistet) oben, direkt über der Blasengrafik, gefolgt vom Verlauf (zuletzt gelistet), der unter allen vorherigen "Bildern" liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) gilt für die entsprechenden Hintergründe. Der zuerst aufgelistete Wert für {{ cssxref("background-repeat") }} gilt also für den ersten (vordersten) Hintergrund, und so weiter.
+Wie Sie hier sehen können, ist das Firefox-Logo (zuerst innerhalb von {{ cssxref("background-image") }} aufgelistet) oben, direkt über der Blasengrafik, gefolgt von dem Verlauf (zuletzt aufgelistet), der unter allen vorherigen 'Bildern' liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) wird auf die entsprechenden Hintergründe angewendet. Der zuerst aufgelistete Wert für {{ cssxref("background-repeat") }} gilt also für den ersten (vordersten) Hintergrund, und so weiter.
 
 ## Wertwiederholung für mehrere Hintergründe
 
-Wenn Sie mehrere Hintergründe verwenden, und eine hintergrundbezogene Eigenschaft weniger durch Kommas getrennte Werte als die Anzahl der Hintergrundebenen erhält, wiederholt der Benutzeragent die Liste der Werte, bis genügend Werte für alle Ebenen vorhanden sind.
+Bei der Verwendung mehrerer Hintergründe, wenn einer hintergrundbezogenen Eigenschaft weniger durch Kommas getrennte Werte zugewiesen sind als die Anzahl der Hintergrundebenen, wiederholt der Benutzeragent die Werteliste, bis genügend Werte für alle Ebenen vorhanden sind.
 
 Zum Beispiel:
 
@@ -68,5 +68,5 @@ Dies ist gleichbedeutend mit:
 
 ## Siehe auch
 
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
-- [Verwenden von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
