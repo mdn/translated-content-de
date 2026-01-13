@@ -20,7 +20,7 @@ If no progress is made on a locale in these areas within 1 month, the locale wil
 
 The review teams for each locale are:
 
-- German (`de`) content — the [yari-content-de](https://github.com/orgs/mdn/teams/yari-content-de) team, which consists of:
+- German (`de`) content — the [de-content](https://github.com/orgs/mdn/teams/de-content) team, which consists of:
   - [caugner](https://github.com/caugner)
 
 ---
