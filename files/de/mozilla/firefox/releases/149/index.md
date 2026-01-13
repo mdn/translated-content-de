@@ -1,22 +1,22 @@
 ---
-title: Firefox 148 Versionshinweise für Entwickler (Beta)
-short-title: Firefox 148 (Beta)
-slug: Mozilla/Firefox/Releases/148
+title: Firefox 149 Versionshinweise für Entwickler (Nightly)
+short-title: Firefox 149 (Nightly)
+slug: Mozilla/Firefox/Releases/149
 l10n:
   sourceCommit: fa422ef89f5da5c7bc10a03f8e84b01b8132061c
 ---
 
-Dieser Artikel enthält Informationen über die Änderungen in Firefox 148, die Entwickler betreffen.
-Firefox 148 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [24. Februar 2026](https://whattrainisitnow.com/release/?version=148) veröffentlicht.
+Dieser Artikel liefert Informationen über die Änderungen in Firefox 149, die Entwickler betreffen.
+Firefox 149 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [24. März 2026](https://whattrainisitnow.com/release/?version=149) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, zu denen Sie Hinweise schreiben -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben. -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklertools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
@@ -76,8 +76,8 @@ Firefox 148 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
-Diese Funktionen sind in Firefox 148 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Diese Funktionen sind in Firefox 149 verfügbar, aber standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie in der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
 Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
