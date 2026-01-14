@@ -3,25 +3,25 @@ title: "Performance: eventCounts-Eigenschaft"
 short-title: eventCounts
 slug: Web/API/Performance/eventCounts
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: 9548e8228e0872c244e3a0622ed0448139995ad6
 ---
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft `performance.eventCounts` ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map, die die Anzahl der Ereignisse enthält, die pro Ereignistyp ausgelöst wurden.
+Die schreibgeschützte `performance.eventCounts`-Eigenschaft ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Karte, die die Anzahl der Ereignisse enthält, die pro Ereignistyp seit dem Laden der Seite ausgelöst wurden.
 
-Nicht alle Ereignistypen werden angezeigt. Sie können nur Zählungen für Ereignistypen erhalten, die von der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle unterstützt werden.
+Nicht alle Ereignistypen sind verfügbar. Sie können nur Zählungen für Ereignistypen erhalten, die von der Schnittstelle [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming) unterstützt werden.
 
 ## Wert
 
-Eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map.
+Eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Karte.
 (Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()` und `set()`).
 
 ## Beispiele
 
-### Ereignistypen und deren Zählungen berichten
+### Bericht über Ereignistypen und ihre Zählungen
 
-Wenn Sie Ereigniszählungen an Ihre Analysen senden möchten, können Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen aus der `performance.eventCounts`-Map entnimmt und dann den [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
+Wenn Sie die Ereigniszählungen an Ihre Analysen senden möchten, könnten Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen aus der `performance.eventCounts`-Karte entnimmt und dann die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
 
 ```js
 // Report all exposed events
