@@ -44,5 +44,5 @@
   "devDependencies": {
     "lefthook": "^2.0.14"
   },
-  "packageManager": "npm@11.6.2"
+  "packageManager": "npm@11.7.0"
 }
