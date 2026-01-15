@@ -3,29 +3,29 @@ title: "Testen Sie Ihre Fähigkeiten: Das Box-Modell"
 short-title: "Test: Box-Modell"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model
 l10n:
-  sourceCommit: e7d65ea71b4750f885176612b27869576d3432ba
+  sourceCommit: d0be159e6119ff73453bea6d224f0a2056307aa4
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics/Handling_conflicts", "Learn_web_development/Core/Styling_basics")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu bewerten, ob Sie das [CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen festzustellen, ob Sie das [CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Unterstützung zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Interaktive Herausforderung
 
-Zunächst geben wir Ihnen eine unterhaltsame, interaktive Herausforderung zum Thema Margen-Kurzschreibweise, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
+Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Herausforderung zur Verkürzung von Rändern, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
 
-Sehen Sie sich das eingebettete Scrim an und erledigen Sie die Aufgaben in der Zeitleiste (die kleinen Geistersymbole), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich das eingebettete Scrim an und erledigen Sie die Aufgaben in der Timeline (die kleinen Geistersymbole), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<mdn-scrim-inline url="https://scrimba.com/learn-html-and-css-c0p/~01s" scrimtitle="Margin shorthand" survey="true"></scrim-inline>
+<mdn-scrim-inline url="https://scrimba.com/learn-html-and-css-c0p/~01s" scrimtitle="Verkürzung von Rändern" survey="true"></mdn-scrim-inline>
 
 ## Aufgabe 1
 
-In dieser Aufgabe gibt es zwei Boxen unten, eine verwendet das Standard-Box-Modell, die andere das alternative Box-Modell. Wir möchten, dass Sie die Breite der zweiten Box ändern, indem Sie Deklarationen zur `.alternate`-Klasse hinzufügen, sodass sie mit der visuellen Breite der ersten Box übereinstimmt.
+In dieser Aufgabe gibt es unten zwei Boxen, eine verwendet das Standard-Box-Modell, die andere das alternative Box-Modell. Wir möchten, dass Sie die Breite der zweiten Box durch Hinzufügen von Deklarationen zur `.alternate` Klasse ändern, sodass sie der visuellen Breite der ersten Box entspricht.
 
-Ihr Endergebnis sollte folgender Darstellung entsprechen:
+Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
 
 {{EmbedLiveSample("box-model1-finish", "", "540px")}}
 
@@ -52,14 +52,14 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
 {{EmbedLiveSample("box-model1-start", "", "540px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Polsters und der Begrenzungslinie hinzuzufügen:
+Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Innenabstands und des Rahmens hinzuzufügen:
 
 ```css live-sample___box-model1-finish
 .alternate {
@@ -72,18 +72,18 @@ Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Polsters 
 
 ## Aufgabe 2
 
-Um diese Aufgabe abzuschließen, fügen Sie der bereitgestellten Box die folgenden Merkmale hinzu:
+Um diese Aufgabe abzuschließen, fügen Sie der bereitgestellten Box die folgenden Eigenschaften hinzu:
 
-- Eine `5px`, schwarze, gepunktete Begrenzungslinie.
-- Ein oberer Rand von `20px`.
-- Ein rechter Rand von `1em`.
-- Ein unterer Rand von `40px`.
-- Ein linker Rand von `2em`.
-- Polsterung auf allen Seiten von `1em`.
+- Einen `5px` breiten, schwarzen, gepunkteten Rahmen.
+- Einen oberen Rand von `20px`.
+- Einen rechten Rand von `1em`.
+- Einen unteren Rand von `40px`.
+- Einen linken Rand von `2em`.
+- Einen Innenabstand auf allen Seiten von `1em`.
 
-Ihr Endergebnis sollte folgender Darstellung entsprechen:
+Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
 
-{{EmbedLiveSample("box-model2-finish")}}
+{{EmbedLiveSample("box-model2-finish", "100%", "140px")}}
 
 ```html live-sample___box-model2-start live-sample___box-model2-finish
 <div class="box">I use the standard box model.</div>
@@ -98,15 +98,15 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
-{{EmbedLiveSample("box-model2-start")}}
+{{EmbedLiveSample("box-model2-start", "100%", "100px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe erfordert die korrekte Verwendung der Eigenschaften für Rand, Begrenzungslinie und Polsterung.
-Sie können sich entscheiden, die Langform-Eigenschaften zu verwenden ({{cssxref("margin-top")}}, {{cssxref("margin-right")}} usw.); jedoch ist bei der Festlegung eines Randes und einer Polsterung auf allen Seiten die Kurzschreibweise wahrscheinlich die bessere Wahl:
+Diese Aufgabe erfordert die korrekte Verwendung der Eigenschaften für Rand, Rahmen und Innenabstand.
+Sie könnten die Langform der Eigenschaften verwenden ({{cssxref("margin-top")}}, {{cssxref("margin-right")}}, usw.); allerdings ist die Kurzform wahrscheinlich die bessere Wahl, wenn der Rand und Innenabstand auf allen Seiten gesetzt wird:
 
 ```css live-sample___box-model2-finish
 .box {
@@ -120,13 +120,13 @@ Sie können sich entscheiden, die Langform-Eigenschaften zu verwenden ({{cssxref
 
 ## Aufgabe 3
 
-In dieser Aufgabe hat das Inline-Element einen Rand, eine Polsterung und eine Begrenzungslinie. Die Zeilen darüber und darunter überlappen es jedoch.
+In dieser Aufgabe hat das Inline-Element einen Rand, Innenabstand und Rahmen. Allerdings überlappen die Linien darüber und darunter es.
 
-Um diese Aufgabe abzuschließen, aktualisieren Sie das CSS, um sicherzustellen, dass die Größe des Randes, der Polsterung und der Begrenzungslinie von den anderen Zeilen respektiert wird, während das Element inline bleibt.
+Um diese Aufgabe abzuschließen, aktualisieren Sie das CSS, damit die Größe des Rands, Innenabstands und Rahmens von den anderen Linien respektiert wird, während das Element weiterhin inline bleibt.
 
-Ihr Endergebnis sollte folgender Darstellung entsprechen:
+Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
 
-{{EmbedLiveSample("box-model3-finish")}}
+{{EmbedLiveSample("box-model3-finish", "100%", "260px")}}
 
 ```html live-sample___box-model3-start live-sample___box-model3-finish
 <div class="box">
@@ -156,15 +156,15 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
-{{EmbedLiveSample("box-model3-start")}}
+{{EmbedLiveSample("box-model3-start", "100%", "220px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Um diese Aufgabe zu lösen, müssen Sie verstehen, wann verschiedene {{cssxref("display")}}-Werte verwendet werden sollten.
-Nachdem Sie `display: inline-block` hinzugefügt haben, wird der Rand, die Begrenzungslinie und die Polsterung in Blockrichtung die anderen Zeilen vom Element abstoßen:
+Um diese Aufgabe zu lösen, müssen Sie verstehen, wann unterschiedliche {{cssxref("display")}}-Werte verwendet werden sollten.
+Nach dem Hinzufügen von `display: inline-block` wird der Blockrichtungsrand, Rahmen und Innenabstand dazu führen, dass die anderen Linien vom Element weg geschoben werden:
 
 ```css live-sample___box-model3-finish
 .box span {

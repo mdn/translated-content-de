@@ -1,25 +1,25 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: CSS-Grids"
-short-title: "Test: CSS-Grid"
+title: "Testen Sie Ihre Fähigkeiten: CSS-Raster"
+short-title: "Test: CSS-Raster"
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Grid
 l10n:
-  sourceCommit: bff9d5ae566c9a5a1eefa61be229c08d9cb1e6da
+  sourceCommit: d0be159e6119ff73453bea6d224f0a2056307aa4
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Grids", "Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension", "Learn_web_development/Core/CSS_layout")}}
 
-Ziel dieses Fähigkeitentests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie ein [Grid und Grid-Elemente](/de/docs/Learn_web_development/Core/CSS_layout/Grids) funktionieren. Sie werden mehrere kleine Aufgaben durchgehen, die verschiedene Elemente des gerade behandelten Materials verwenden.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen festzustellen, ob Sie verstehen, wie ein [Raster und Rasterelemente](/de/docs/Learn_web_development/Core/CSS_layout/Grids) sich verhalten. Sie werden mehrere kleine Aufgaben bearbeiten, die verschiedene Elemente des Materials verwenden, das Sie gerade abgedeckt haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung: Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe sollen Sie ein Grid erstellen, in das die vier Kind-Elemente automatisch platziert werden. Das Grid sollte drei Spalten haben, die den verfügbaren Platz gleichmäßig teilen, und einen Abstand von 20 Pixeln zwischen den Spalten- und Reihen-Tracks. Anschließend versuchen Sie, mehr Kind-Container innerhalb des Eltern-Containers mit der Klasse `grid` hinzuzufügen und zu sehen, wie sie sich standardmäßig verhalten.
+In dieser Aufgabe möchten wir, dass Sie ein Raster erstellen, in das sich die vier Kind-Elemente automatisch einfügen. Das Raster sollte drei Spalten haben, die den verfügbaren Platz gleichmäßig teilen, und einen 20-Pixel-Abstand zwischen den Spalten- und Reihen-Spuren. Versuchen Sie danach, mehr Kindbehälter innerhalb des Elternbehälters mit der Klasse `grid` hinzuzufügen und beobachten Sie, wie sie sich standardmäßig verhalten.
 
-Ihr Endergebnis sollte wie die folgende fertige Darstellung aussehen:
+Ihr Endergebnis sollte wie folgt aussehen:
 
-{{EmbedLiveSample("grid1-finish", "", "200px")}}
+{{EmbedLiveSample("grid1-finish", "", "160px")}}
 
 ```html live-sample___grid1-start live-sample___grid1-finish
 <div class="grid">
@@ -48,14 +48,14 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
 {{EmbedLiveSample("grid1-start", "", "220px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Erstellen Sie ein Grid mit `display: grid` mit drei Spalten, indem Sie `grid-template-columns` und einen `gap` zwischen den Elementen verwenden:
+Erstellen Sie ein Raster mit `display: grid` mit drei Spalten unter Verwendung von `grid-template-columns` und einem `gap` zwischen den Elementen:
 
 ```css live-sample___grid1-finish
 .grid {
@@ -69,11 +69,11 @@ Erstellen Sie ein Grid mit `display: grid` mit drei Spalten, indem Sie `grid-tem
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben wir bereits ein Grid definiert. Sie sollen die CSS-Regeln für die beiden Kind-Elemente bearbeiten und diese dazu bringen, sich über mehrere Grid-Tracks zu erstrecken. Das zweite Element sollte das erste überlagern, wie in der folgenden fertigen Darstellung gezeigt:
+In dieser Aufgabe haben wir bereits ein definiertes Raster. Wir möchten, dass Sie die CSS-Regeln für die beiden Kind-Elemente bearbeiten, sodass sie jeweils mehrere Rasterspuren überspannen. Das zweite Element sollte das erste überlagern, wie in der folgenden Darstellung gezeigt:
 
 {{EmbedLiveSample("grid2-finish", "", "340px")}}
 
-**Zusatzfrage:** Können Sie jetzt das erste Element oben anzeigen, ohne die Reihenfolge der Elemente im Quelltext zu ändern?
+**Bonusfrage:** Können Sie jetzt bewirken, dass das erste Element ohne Änderung der Reihenfolge der Elemente im Quellcode oben angezeigt wird?
 
 ```html live-sample___grid2-start live-sample___grid2-finish
 <div class="grid">
@@ -118,15 +118,15 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
 {{EmbedLiveSample("grid2-start", "", "340px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist möglich, Elemente durch deren Platzierung über die gleichen Grid-Zellen zu schichten.
-Eine Möglichkeit ist, die folgenden Kurzschreibweisen zu verwenden, jedoch wäre es korrekt, die Langschreibweise `grid-row-start` zum Beispiel zu verwenden.
+Es ist möglich, Elemente zu schichten, indem sie dieselben Rasterzellen belegen.
+Eine Option ist die Verwendung der untenstehenden Kurzschreibweisen, jedoch wäre es auch korrekt, das Langkommando `grid-row-start` zu verwenden.
 
 ```css live-sample___grid2-finish
 .item1 {
@@ -140,7 +140,7 @@ Eine Möglichkeit ist, die folgenden Kurzschreibweisen zu verwenden, jedoch wär
 }
 ```
 
-Für die Zusatzfrage ist eine Möglichkeit, dies zu erreichen, die Verwendung von `order`, die wir im Flexbox-Tutorial kennengelernt haben.
+Für die Bonusfrage: Eine Möglichkeit, dies zu erreichen, besteht darin, `order` zu verwenden, das wir im Flexbox-Tutorial behandelt haben.
 
 ```css
 .item1 {
@@ -148,7 +148,7 @@ Für die Zusatzfrage ist eine Möglichkeit, dies zu erreichen, die Verwendung vo
 }
 ```
 
-Eine andere gültige Lösung ist die Verwendung von `z-index`:
+Eine andere valide Lösung ist die Verwendung von `z-index`:
 
 ```css
 .item1 {
@@ -160,9 +160,9 @@ Eine andere gültige Lösung ist die Verwendung von `z-index`:
 
 ## Aufgabe 3
 
-In dieser Aufgabe gibt es vier direkte Kinder in diesem Grid. Der Ausgangspunkt zeigt sie unter Verwendung der automatischen Platzierung an.
+In dieser Aufgabe gibt es vier direkte Kind-Elemente in diesem Raster. Der Ausgangspunkt ist, dass sie sich mittels automatischer Platzierung anzeigen.
 
-Um die Aufgabe abzuschließen, verwenden Sie die Eigenschaften `grid-area` und `grid-template-areas`, um die Elemente wie in der folgenden fertigen Darstellung anzuordnen:
+Um die Aufgabe abzuschließen, verwenden Sie die Eigenschaften `grid-area` und `grid-template-areas`, um die Elemente so anzuordnen, wie in der folgenden Darstellung gezeigt:
 
 {{EmbedLiveSample("grid3-finish", "", "200px")}}
 
@@ -194,14 +194,14 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
 {{EmbedLiveSample("grid3-start", "", "200px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Jeder Teil des Layouts benötigt einen Namen unter Verwendung der Eigenschaft `grid-area` und `grid-template-areas`, um sie anzuordnen. Mögliche Verwirrungen könnten darin bestehen, nicht zu erkennen, dass Sie einen Punkt `.` platzieren sollten, um eine Zelle leer zu lassen, oder dass Sie den Namen wiederholen sollten, um ein Element über mehr als einen Track zu spannen:
+Jeder Teil des Layouts benötigt einen Namen mit der Eigenschaft `grid-area` und `grid-template-areas`, um sie anzuordnen. Mögliche Verwirrungspunkte könnten sein, dass man nicht bemerkt, dass man einen `.` setzen muss, um eine Zelle leer zu lassen, oder dass man den Namen wiederholen muss, um ein Element über mehr als eine Spur zu spannen:
 
 ```css live-sample___grid3-finish
 .grid {
@@ -235,7 +235,7 @@ Jeder Teil des Layouts benötigt einen Namen unter Verwendung der Eigenschaft `g
 
 ## Aufgabe 4
 
-In dieser Aufgabe müssen Sie sowohl das Grid-Layout als auch Flexbox verwenden, um das Beispiel wie in der fertigen Darstellung unten zu rekonstruieren. Der Abstand zwischen den Spalten- und Reihen-Tracks sollte 10px betragen. Sie müssen keine Änderungen am HTML vornehmen, um dies zu erreichen.
+In dieser Aufgabe müssen Sie sowohl das Grid-Layout als auch Flexbox verwenden, um das unten gezeigte fertige Beispiel nachzubilden. Der Abstand zwischen den Spalten- und Reihen-Spuren sollte 10px betragen. Sie müssen keine Änderungen am HTML vornehmen, um dies zu erreichen.
 
 {{EmbedLiveSample("grid4-finish", "", "400px")}}
 
@@ -330,17 +330,17 @@ body {
 }
 ```
 
-Dies ist der Ausgangszustand der Aufgabe:
+Dies ist der Anfangszustand der Aufgabe:
 
 {{EmbedLiveSample("grid4-start", "", "400px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Der Container muss ein Grid-Layout sein, da wir eine Ausrichtung in Zeilen und Spalten haben - zweidimensional.
-Das `<ul>` muss ein Flex-Container sein, da die Tags (`<li>` Elemente) nicht in Spalten aneinander gereiht sind, sondern nur in Zeilen, und sie im Raum mit der Ausrichtungseigenschaft `justify-content` auf `center` zentriert sind.
+Der Container muss ein Raster-Layout sein, da wir eine Ausrichtung in Reihen und Spalten haben - zweidimensional.
+Das `<ul>` muss ein Flex-Container sein, da die Tags (`<li>` Elemente) nicht in Spalten, sondern nur in Reihen angeordnet sind und sie zentriert im Raum mit der Ausrichtungseigenschaft `justify-content` auf `center` gesetzt sind.
 
-Sie könnten versuchen, Flexbox auf den Container anzuwenden und die Karten mit Prozentwerten zu beschränken. Sie könnten auch versuchen, die Elemente in ein Grid-Layout zu lassen, in diesem Fall beachten Sie, dass die Elemente nicht in zwei Dimensionen ausgerichtet sind, sodass Flexbox nicht die beste Wahl ist.
+Es kann versucht werden, Flexbox auf dem Container zu verwenden und die Karten mit Prozentwerten zu beschränken. Es kann auch versucht werden, die Elemente in ein Raster-Layout zu verwandeln, wobei zu beachten ist, dass die Elemente in zwei Dimensionen nicht ausgerichtet sind, sodass Flexbox nicht die beste Wahl ist.
 
 ```css live-sample___grid4-finish
 .container {
