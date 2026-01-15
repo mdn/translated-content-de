@@ -3,38 +3,38 @@ title: "Testen Sie Ihre Fähigkeiten: Das Box-Modell"
 short-title: "Test: Box-Modell"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model
 l10n:
-  sourceCommit: 7524bc9075ab71beb764d32aaecd14d91bbc4038
+  sourceCommit: e7d65ea71b4750f885176612b27869576d3432ba
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics/Handling_conflicts", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie das [CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu bewerten, ob Sie das [CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Verwendung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) mit uns in Verbindung setzen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Interaktive Herausforderung
 
-Zuerst bieten wir Ihnen eine unterhaltsame, interaktive Herausforderung zur Margin-Kurzform, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
+Zunächst geben wir Ihnen eine unterhaltsame, interaktive Herausforderung zum Thema Margen-Kurzschreibweise, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
 
-Beobachten Sie das eingebettete Video und erledigen Sie die Aufgaben in der Timeline (die kleinen Geistersymbole), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Video weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich das eingebettete Scrim an und erledigen Sie die Aufgaben in der Zeitleiste (die kleinen Geistersymbole), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<mdn-scrim-inline url="https://scrimba.com/learn-html-and-css-c0p/~01s" scrimtitle="Margin-Kurzform" survey="true"></scrim-inline>
+<mdn-scrim-inline url="https://scrimba.com/learn-html-and-css-c0p/~01s" scrimtitle="Margin shorthand" survey="true"></scrim-inline>
 
 ## Aufgabe 1
 
-In dieser Aufgabe gibt es zwei Boxen unten, eine verwendet das Standard-Box-Modell, die andere das alternative Box-Modell. Wir möchten, dass Sie die Breite der zweiten Box ändern, indem Sie Deklarationen zur Klasse `.alternate` hinzufügen, sodass sie der visuellen Breite der ersten Box entspricht.
+In dieser Aufgabe gibt es zwei Boxen unten, eine verwendet das Standard-Box-Modell, die andere das alternative Box-Modell. Wir möchten, dass Sie die Breite der zweiten Box ändern, indem Sie Deklarationen zur `.alternate`-Klasse hinzufügen, sodass sie mit der visuellen Breite der ersten Box übereinstimmt.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte folgender Darstellung entsprechen:
 
-![Zwei gleich große Boxen](mdn-box-model1.png)
+{{EmbedLiveSample("box-model1-finish", "", "540px")}}
 
-```html live-sample___box-models
+```html live-sample___box-model1-start live-sample___box-model1-finish
 <div class="box">I use the standard box model.</div>
 <div class="box alternate">I use the alternate box model.</div>
 ```
 
-```css live-sample___box-models
+```css live-sample___box-model1-start live-sample___box-model1-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -52,14 +52,16 @@ body {
 }
 ```
 
-{{EmbedLiveSample("box-models", "", "540px")}}
+Dies ist der Ausgangszustand der Aufgabe:
+
+{{EmbedLiveSample("box-model1-start", "", "540px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Padding und des Rahmens hinzuzufügen:
+Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Polsters und der Begrenzungslinie hinzuzufügen:
 
-```css
+```css live-sample___box-model1-finish
 .alternate {
   box-sizing: border-box;
   width: 390px;
@@ -70,24 +72,24 @@ Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Padding u
 
 ## Aufgabe 2
 
-Um diese Aufgabe abzuschließen, fügen Sie der vorgegebenen Box die folgenden Funktionen hinzu:
+Um diese Aufgabe abzuschließen, fügen Sie der bereitgestellten Box die folgenden Merkmale hinzu:
 
-- Einen `5px` breiten, schwarzen, gepunkteten Rahmen.
-- Einen oberen Rand von `20px`.
-- Einen rechten Rand von `1em`.
-- Einen unteren Rand von `40px`.
-- Einen linken Rand von `2em`.
-- Ein Padding auf allen Seiten von `1em`.
+- Eine `5px`, schwarze, gepunktete Begrenzungslinie.
+- Ein oberer Rand von `20px`.
+- Ein rechter Rand von `1em`.
+- Ein unterer Rand von `40px`.
+- Ein linker Rand von `2em`.
+- Polsterung auf allen Seiten von `1em`.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte folgender Darstellung entsprechen:
 
-![Eine Box mit einem gepunkteten Rahmen](mdn-box-model2.png)
+{{EmbedLiveSample("box-model2-finish")}}
 
-```html live-sample___mbp
+```html live-sample___box-model2-start live-sample___box-model2-finish
 <div class="box">I use the standard box model.</div>
 ```
 
-```css live-sample___mbp
+```css live-sample___box-model2-start live-sample___box-model2-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -96,15 +98,17 @@ body {
 }
 ```
 
-{{EmbedLiveSample("mbp")}}
+Dies ist der Ausgangszustand der Aufgabe:
+
+{{EmbedLiveSample("box-model2-start")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe erfordert die korrekte Verwendung der Margin-, Rahmen- und Padding-Eigenschaften.
-Sie könnten sich entscheiden, die Langform-Eigenschaften ({{cssxref("margin-top")}}, {{cssxref("margin-right")}}, etc.) zu verwenden. Wenn Sie jedoch eine Margin und ein Padding auf allen Seiten festlegen, ist die Kurzform wahrscheinlich die bessere Wahl:
+Diese Aufgabe erfordert die korrekte Verwendung der Eigenschaften für Rand, Begrenzungslinie und Polsterung.
+Sie können sich entscheiden, die Langform-Eigenschaften zu verwenden ({{cssxref("margin-top")}}, {{cssxref("margin-right")}} usw.); jedoch ist bei der Festlegung eines Randes und einer Polsterung auf allen Seiten die Kurzschreibweise wahrscheinlich die bessere Wahl:
 
-```css
+```css live-sample___box-model2-finish
 .box {
   border: 5px dotted black;
   margin: 20px 1em 40px 2em;
@@ -116,15 +120,15 @@ Sie könnten sich entscheiden, die Langform-Eigenschaften ({{cssxref("margin-top
 
 ## Aufgabe 3
 
-In dieser Aufgabe hat das Inline-Element eine Margin, ein Padding und einen Rahmen. Die Linien darüber und darunter überlappen es jedoch.
+In dieser Aufgabe hat das Inline-Element einen Rand, eine Polsterung und eine Begrenzungslinie. Die Zeilen darüber und darunter überlappen es jedoch.
 
-Um diese Aufgabe abzuschließen, aktualisieren Sie das CSS, sodass die Größe der Margin, des Padding und des Rahmens von den anderen Linien respektiert wird, während das Element weiterhin Inline bleibt.
+Um diese Aufgabe abzuschließen, aktualisieren Sie das CSS, um sicherzustellen, dass die Größe des Randes, der Polsterung und der Begrenzungslinie von den anderen Zeilen respektiert wird, während das Element inline bleibt.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte folgender Darstellung entsprechen:
 
-![Eine Inline-Box mit Abstand zwischen ihr und dem umgebenden Text.](mdn-box-model3.png)
+{{EmbedLiveSample("box-model3-finish")}}
 
-```html live-sample___inline-block
+```html live-sample___box-model3-start live-sample___box-model3-finish
 <div class="box">
   <p>
     Veggies es bonus vobis, <span>proinde vos postulo</span> essum magis
@@ -140,7 +144,7 @@ Ihr Endergebnis sollte wie das Bild unten aussehen:
 </div>
 ```
 
-```css live-sample___inline-block
+```css live-sample___box-model3-start live-sample___box-model3-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -152,15 +156,17 @@ body {
 }
 ```
 
-{{EmbedLiveSample("inline-block")}}
+Dies ist der Ausgangszustand der Aufgabe:
+
+{{EmbedLiveSample("box-model3-start")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe zu lösen erfordert, dass Sie verstehen, wann Sie verschiedene {{cssxref("display")}}-Werte verwenden sollten.
-Nach dem Hinzufügen von `display: inline-block`, bewirken die Margin-, Rahmen- und Padding-Werte in Block-Richtung, dass die anderen Linien vom Element weggedrückt werden:
+Um diese Aufgabe zu lösen, müssen Sie verstehen, wann verschiedene {{cssxref("display")}}-Werte verwendet werden sollten.
+Nachdem Sie `display: inline-block` hinzugefügt haben, wird der Rand, die Begrenzungslinie und die Polsterung in Blockrichtung die anderen Zeilen vom Element abstoßen:
 
-```css
+```css live-sample___box-model3-finish
 .box span {
   background-color: pink;
   border: 5px solid black;
