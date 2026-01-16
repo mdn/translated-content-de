@@ -1,18 +1,18 @@
 ---
-title: "Sanitizer: removeElement()-Methode"
+title: "Sanitizer: removeElement() Methode"
 short-title: removeElement()
 slug: Web/API/Sanitizer/removeElement
 l10n:
-  sourceCommit: 8b449a5846c1de417894acfe9b4471447181b57f
+  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
 ---
 
-{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
+{{APIRef("HTML Sanitizer API")}}
 
-Die **`removeElement()`**-Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces sorgt dafür, dass das angegebene Element aus der Ausgabe entfernt wird, wenn der Sanitizer verwendet wird.
+Die **`removeElement()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass das angegebene Element entfernt wird, wenn der Sanitizer verwendet wird.
 
-Die Methode kann entweder mit einer [Zulassungskonfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) oder einer [Entfernungskonfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwendet werden.
-Wenn sie mit einer Entfernungskonfiguration verwendet wird, wird das angegebene Element dem `removeElements`-Array hinzugefügt.
-Wenn sie mit einer Zulassungskonfiguration verwendet wird, wird das Element aus dem `elements`-Array entfernt (falls vorhanden).
+Die Methode kann entweder mit einer [Allow-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) oder einer [Remove-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwendet werden.
+Bei Verwendung mit einer Remove-Konfiguration wird das angegebene Element dem `removeElements`-Array hinzugefügt.
+Bei Verwendung mit einer Allow-Konfiguration wird das Element aus dem `elements`-Array entfernt (falls vorhanden).
 
 ## Syntax
 
@@ -32,18 +32,18 @@ removeElement(element)
 
 ### Rückgabewert
 
-`true`, wenn die Operation die Konfiguration geändert hat, um das Element nicht zu erlauben, und `false`, wenn das Element bereits nicht erlaubt war.
+`true`, wenn die Operation die Konfiguration geändert hat, um das Element nicht zuzulassen, und `false`, wenn das Element bereits nicht zugelassen war.
 
-Beachten Sie, dass `false` zurückgegeben werden kann, wenn die interne Konfiguration:
+Beachten Sie, dass `false` zurückgegeben werden könnte, wenn die interne Konfiguration:
 
-- ein [`elements`](/de/docs/Web/API/SanitizerConfig#elements)-Array definiert und das Element bereits weggelassen wird (es muss nicht entfernt werden)
-- stattdessen ein [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Array definiert und das angegebene Element bereits vorhanden ist (und daher bereits gefiltert wird)
+- ein [`elements`](/de/docs/Web/API/SanitizerConfig#elements)-Array definiert und das Element bereits ausgelassen wird (es muss nicht entfernt werden),
+- stattdessen ein [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Array definiert und das angegebene Element bereits vorhanden ist (und daher bereits gefiltert wird).
 
 ## Beispiele
 
-### Anleitung zum Nicht-Erlauben von Elementen
+### Anleitung zur Nichtzulassung von Elementen
 
-Dieses Beispiel zeigt, wie `removeElement()` verwendet wird, um ein Element als "nicht erlaubt" zu spezifizieren.
+Dieses Beispiel zeigt, wie `removeElement()` verwendet wird, um ein Element als "nicht zulässig" zu kennzeichnen.
 
 ```html hidden
 <pre id="log"></pre>
@@ -67,10 +67,10 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das anfänglich {{htmlelement("div")}}- und {{htmlelement("script")}}-Elemente zulässt und {{htmlelement("span")}}-Elemente durch ihre Kind-Elemente ersetzt.
+Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das anfänglich {{htmlelement("div")}} und {{htmlelement("script")}}-Elemente zulässt und {{htmlelement("span")}}-Elemente durch ihre Kindelemente ersetzt.
 
-Der Code ruft dann `removeElement()` auf, um {{htmlelement("p")}}, `<script>`- und `<span>`-Elemente zur [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Liste in der Konfiguration hinzuzufügen.
-Beachten Sie, dass das Hinzufügen von `<script>` und `<span>` die Elemente aus ihren ursprünglichen Listen entfernt.
+Anschließend ruft der Code `removeElement()` auf, um {{htmlelement("p")}}, `<script>` und `<span>`-Elemente zur [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Liste in der Konfiguration hinzuzufügen.
+Beachten Sie, dass durch das Hinzufügen von `<script>` und `<span>` die Elemente aus ihren ursprünglichen Listen entfernt werden.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -103,15 +103,15 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 ```
 
 > [!NOTE]
-> Diese Konfiguration dient nur zu Demonstrationszwecken.
-> Sanitizer-Konfigurationen sollten entweder nur die erlaubten Elemente ([`elements`](/de/docs/Web/API/SanitizerConfig#elements)) oder nur die nicht erlaubten Elemente ([`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)) enthalten, aber nicht beides.
-> In diesem Fall ist nur das `<div>`-Element erlaubt und alle anderen Elemente werden aus der Eingabe entfernt: Die entfernten Elemente haben daher keine Wirkung.
+> Diese Konfiguration dient nur zur Demonstration.
+> Sanitizer-Konfigurationen sollten entweder nur die erlaubten Elemente ([`elements`](/de/docs/Web/API/SanitizerConfig#elements)) oder nur die nicht erlaubten Elemente ([`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)) enthalten, jedoch nicht beides.
+> In diesem Fall ist nur das `<div>`-Element erlaubt, und alle anderen Elemente werden aus dem Input entfernt: Die entfernten Elemente haben also keinen Effekt.
 
 #### Ergebnisse
 
 Die endgültige Konfiguration wird unten protokolliert.
 
-{{EmbedLiveSample("Anleitung zum Nicht-Erlauben von Elementen","100","480px")}}
+{{EmbedLiveSample("Anleitung zur Nichtzulassung von Elementen","100","480px")}}
 
 ## Spezifikationen
 

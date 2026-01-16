@@ -1,14 +1,14 @@
 ---
-title: "Sanitizer: Sanitizer() Konstruktor"
+title: "Sanitizer: Konstruktor von Sanitizer()"
 short-title: Sanitizer()
 slug: Web/API/Sanitizer/Sanitizer
 l10n:
-  sourceCommit: 8b449a5846c1de417894acfe9b4471447181b57f
+  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
 ---
 
-{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
+{{APIRef("HTML Sanitizer API")}}
 
-Der **`Sanitizer()`** Konstruktor erzeugt ein neues [`Sanitizer`](/de/docs/Web/API/Sanitizer) Objekt, welches verwendet werden kann, um unerwünschte Elemente und Attribute aus HTML oder Dokumenten herauszufiltern, bevor sie in den DOM eingefügt oder dort geparst werden.
+Der **`Sanitizer()`**-Konstruktor erstellt ein neues [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Objekt, das verwendet werden kann, um unerwünschte Elemente und Attribute aus HTML oder Dokumenten zu filtern, bevor sie in den DOM eingefügt/verarbeitet werden.
 
 ## Syntax
 
@@ -20,34 +20,37 @@ new Sanitizer(configuration)
 ### Parameter
 
 - `configuration` {{optional_inline}}
-  - : Ein [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), das eine [gültige Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) definiert, oder der String `"default"`, um die Standardkonfiguration anzuzeigen.
+  - : Eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die eine [gültige Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) definiert, oder der String `"default"`, um die Standardkonfiguration anzuzeigen.
 
 ### Rückgabewert
 
-Eine Instanz des [`Sanitizer`](/de/docs/Web/API/Sanitizer) Objekts.
+Eine Instanz des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Objekts.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der `configuration` Parameter wird mit einem der folgenden Werte übergeben:
-    - einem [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), das keine gültige Konfiguration ist. Zum Beispiel eine Konfiguration, die sowohl "zugelassene" als auch "entfernte" Konfigurationseinstellungen enthält.
+  - : Der `configuration`-Parameter wird mit einem der folgenden übergeben:
+    - einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die keine gültige Konfiguration ist. Zum Beispiel eine Konfiguration, die sowohl "allowed" als auch "removed" Konfigurationseinstellungen enthält.
     - einem String, der nicht den Wert `"default"` hat.
 
 ## Beschreibung
 
-Der Konstruktor erzeugt ein neues [`Sanitizer`](/de/docs/Web/API/Sanitizer) Objekt, das verwendet werden kann, um unerwünschte Elemente und Attribute aus HTML oder Dokumenten herauszufiltern, bevor sie in den DOM eingefügt oder dort geparst werden.
+Der Konstruktor erstellt ein neues [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Objekt, das verwendet werden kann, um unerwünschte Elemente und Attribute aus HTML oder Dokumenten zu filtern, bevor sie in den DOM eingefügt/verarbeitet werden.
 
-Der Standard-`Sanitizer` erlaubt standardmäßig nur XSS-sichere Eingaben, indem er Elemente wie {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}}, `<use>` und Event-Handler-Attribute aus ihren jeweiligen Erlaubnislisten auslässt und Datenattribute sowie Kommentare nicht zulässt. Er wird erstellt, wenn `"default"` oder kein Objekt an den Konstruktor übergeben wird.
+Der Standard-`Sanitizer` erlaubt standardmäßig nur XSS-sichere Eingaben und lässt Elemente wie {{HTMLElement("script")}}, {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}}, `<use>` und Ereignishandler-Attribute von ihren jeweiligen Erlaubnislisten aus und verbietet Datenattribute und Kommentare.
+Er wird erstellt, wenn `"default"` oder kein Objekt an den Konstruktor übergeben wird.
 
-Dem Konstruktor kann ein [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) mit einer [gültigen Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) übergeben werden, um das Verhalten des Sanitizers anzupassen.
+Dem Konstruktor kann eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) mit einer [gültigen Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) übergeben werden, um das Verhalten des Sanitizers anzupassen.
 
-Eine gültige Konfiguration kann entweder `elements`- oder `removeElements`-Arrays (aber nicht beide) und entweder die `attributes`- oder `removeAttributes`-Arrays (aber nicht beide) angeben. In den meisten Fällen ist es egal, welches dieser Arrays Sie verwenden, da die Methode [`allowAttribute()`](/de/docs/Web/API/Sanitizer/allowAttribute) dasselbe Verhalten durch Hinzufügen des Attributs zum `attributes`-Array oder durch Entfernen aus dem `removeAttributes`-Array implementieren kann. Wichtig zu beachten ist, dass wenn Sie eine Konfiguration mit `removeElements` haben, Sie keine pro-Element-Attribute haben können, da diese im `elements`-Array definiert werden müssen.
+Eine gültige Konfiguration kann entweder `elements` oder `removeElements` Arrays (aber nicht beides) und entweder die `attributes` oder `removeAttributes` Arrays (aber nicht beides) spezifizieren.
+In den meisten Fällen ist es irrelevant, welches dieser Arrays Sie verwenden, da beispielsweise die Methode [`allowAttribute()`](/de/docs/Web/API/Sanitizer/allowAttribute) dasselbe Verhalten implementieren kann, indem sie das Attribut zum `attributes` Array hinzufügt oder es aus dem `removeAttributes` Array entfernt.
+Das Hauptaugenmerk liegt darauf, dass, wenn Sie eine Konfiguration mit `removeElements` haben, Sie keine attributspezifischen Elemente haben können, da diese im `elements` Array definiert sein müssen.
 
 ## Beispiele
 
 ### Erstellen des Standard-Sanitizers
 
-Dieses Beispiel zeigt, wie Sie den Standard-`Sanitizer` erstellen und das resultierende Konfigurationsobjekt protokollieren können.
+Dieses Beispiel zeigt, wie Sie den Standard-`Sanitizer` erstellen und das resultierende Konfigurationsobjekt protokollieren.
 
 ```html hidden
 <pre id="log"></pre>
@@ -64,7 +67,8 @@ Dieses Beispiel zeigt, wie Sie den Standard-`Sanitizer` erstellen und das result
 
 #### JavaScript
 
-Der Code prüft zunächst, ob die `Sanitizer`-Schnittstelle unterstützt wird. Dann wird der Standard-`Sanitizer` erstellt, ohne Optionen zu übergeben, und anschließend die Konfiguration abgerufen und protokolliert.
+Der Code testet zunächst, ob die `Sanitizer`-Schnittstelle unterstützt wird.
+Dann erstellt er den Standard-`Sanitizer`, übergibt keine Optionen und erhält und protokolliert die Konfiguration.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -94,17 +98,18 @@ log(JSON.stringify(defaultConfig, null, 2));
 
 #### Ergebnisse
 
-Das Ergebnis wird unten protokolliert. Beachten Sie, dass die Standardkonfiguration eine Erlaubniskonfiguration ist, die sowohl `elements`- als auch `attributes`-Arrays enthält, welche die Elemente enthalten, die erlaubt sind, wenn der Sanitizer verwendet wird.
+Unten ist die Ausgabe protokolliert.
+Beachten Sie, dass die Standardkonfiguration eine Erlaubnis-Konfiguration ist, die sowohl `elements` als auch `attributes` Arrays enthält, die die Elemente enthalten, die erlaubt sind, wenn der Sanitizer verwendet wird.
 
 {{EmbedLiveSample("Creating the default sanitizer","100","480px")}}
 
 ### Erstellen eines Sanitizers und dessen Verwendung mit `setHTML()`
 
-Dieses Beispiel zeigt, wie Sie einen benutzerdefinierten Sanitizer in einer sicheren HTML-DOM-Einfügemethode erstellen und verwenden können.
+Dieses Beispiel zeigt, wie Sie einen benutzerdefinierten Sanitizer erstellen und in einer sicheren HTML-DOM-Einfügemethode verwenden könnten.
 
 #### HTML
 
-Hier definieren wir zwei {{htmlelement("pre")}}-Elemente, in denen sowohl das bereinigte als auch das unbereinigte HTML angezeigt wird.
+Hier definieren wir zwei {{htmlelement("pre")}}-Elemente, in denen wir sowohl das bereinigte als auch das unbereinigte HTML anzeigen werden.
 
 ```html
 <pre id="unmodified"></pre>
@@ -133,9 +138,12 @@ function log(text) {
 }
 ```
 
-Der folgende Code testet, ob die `Sanitizer`-Schnittstelle unterstützt wird. Dann wird ein String von "unsicherem HTML" definiert, der sowohl sichere Elemente, wie {{htmlelement("p")}} und {{htmlelement("span")}}, als auch XSS-unsichere Elemente wie {{htmlelement("script")}} enthält.
+Der folgende Code testet, ob die `Sanitizer`-Schnittstelle unterstützt wird.
+Dann definiert er einen String von "unsicherem HTML", das sowohl sichere Elemente, wie {{htmlelement("p")}} und {{htmlelement("span")}}, als auch XSS-unsichere Elemente wie {{htmlelement("script")}} enthält.
 
-Wir erstellen dann ein `Sanitizer`-Objekt mit einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die die HTML-Elemente: {{htmlelement("div")}}, {{htmlelement("p")}}, {{htmlelement("span")}} und {{htmlelement("script")}} erlaubt. Der Sanitizer wird mit dem unsicheren String in [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwendet. Sowohl der ursprüngliche als auch der bereinigte String werden als Textknoten angezeigt.
+Wir erstellen dann ein `Sanitizer`-Objekt mit einer [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die die HTML-Elemente erlaubt: {{htmlelement("div")}}, {{htmlelement("p")}}, {{htmlelement("span")}}, und {{htmlelement("script")}}.
+Der Sanitizer wird mit dem unsicheren String in [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwendet.
+Sowohl der ursprüngliche als auch der bereinigte String werden als Textknoten angezeigt.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -178,7 +186,9 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Der ursprüngliche String und das bereinigte HTML, das in den DOM geparst wurde, sind unten zu sehen. Beachten Sie, dass selbst wenn der Sanitizer `<script>`-Elemente erlaubt, diese aus dem eingefügten HTML entfernt werden, wenn [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwendet wird. Beachten Sie auch, dass die Konfiguration sowohl die Namen der Elemente als auch ihre Namensräume umfasst.
+Der ursprüngliche String und das bereinigte HTML, das in den DOM geparst wurde, werden unten angezeigt.
+Beachten Sie, dass auch wenn der Sanitizer `<script>`-Elemente erlaubt, diese aus dem eingefügten HTML entfernt werden, wenn [`Element.setHTML()`](/de/docs/Web/API/Element/setHTML) verwendet wird.
+Beachten Sie auch, dass die Konfiguration sowohl die Namen der Elemente als auch deren Namespaces umfasst.
 
 {{EmbedLiveSample("Creating the default sanitizer","100","650px")}}
 

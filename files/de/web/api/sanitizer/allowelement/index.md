@@ -3,14 +3,14 @@ title: "Sanitizer: allowElement() Methode"
 short-title: allowElement()
 slug: Web/API/Sanitizer/allowElement
 l10n:
-  sourceCommit: 2290fdbf9d5cf68482245d07d388b883156058ac
+  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
 ---
 
-{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
+{{APIRef("HTML Sanitizer API")}}
 
-Die **`allowElement()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle legt fest, dass das angegebene Element in der Ausgabe erlaubt ist, wenn der Sanitizer verwendet wird.
+Die **`allowElement()`** Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer) Schnittstelle legt fest, dass das angegebene Element in der Ausgabe erlaubt ist, wenn der Sanitizer verwendet wird.
 
-Sie kann auch verwendet werden, um für `Sanitizer`-Instanzen mit einer [Erlauben-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) erlaubte oder zu entfernende Attribute pro Element anzugeben.
+Sie kann auch verwendet werden, um auf `Sanitizer`-Instanzen Attribut-Erlauben- oder Entfernen-Arrays pro Element mit einer [Allow-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) festzulegen.
 
 ## Syntax
 
@@ -25,57 +25,56 @@ allowElement(element)
     - `name`
       - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
-      - : Ein String, der den Namensraum des Elements enthält.
-        Der Standard-Namensraum ist `"http://www.w3.org/1999/xhtml"`.
+      - : Ein String, der den Namespace des Elements enthält. Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
     - `attributes` {{optional_inline}}
-      - : Ein Array, das die Attribute angibt, die bei der Bereinigung von HTML auf diesem (erlaubten) Element erlaubt sind.
+      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element beim Sanitizing von HTML erlaubt sind.
 
-        Jedes Attribut kann durch den Namen (einen String) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+        Jedes Attribut kann durch seinen Namen (einen String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
         - `name`
           - : Ein String, der den Namen des Attributs enthält.
         - `namespace` {{optional_inline}}
-          - : Ein String, der den Namensraum des Attributs enthält, standardmäßig `null`.
+          - : Ein String, der den Namespace des Attributs enthält, der standardmäßig auf `null` gesetzt ist.
 
     - `removeAttributes` {{optional_inline}}
-      - : Ein Array, das die Attribute angibt, die bei der Bereinigung von HTML auf diesem (erlaubten) Element entfernt werden sollen.
+      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element beim Sanitizing von HTML entfernt werden.
 
-        Jedes Attribut kann durch den Namen (einen String) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+        Jedes Attribut kann durch seinen Namen (einen String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
         - `name`
           - : Ein String, der den Namen des Attributs enthält.
         - `namespace` {{optional_inline}}
-          - : Ein String, der den Namensraum des Attributs enthält, standardmäßig `null`.
+          - : Ein String, der den Namespace des Attributs enthält, der standardmäßig auf `null` gesetzt ist.
 
 ### Rückgabewert
 
-`true`, wenn die Operation die Konfiguration geändert hat, um das Element zu erlauben, und `false`, wenn die Konfiguration nicht geändert wurde (in der Regel, weil das Element bereits erlaubt war, möglicherweise aber auch, weil die Änderung nicht durchgeführt werden konnte).
+`true`, wenn die Operation die Konfiguration geändert hat, um das Element zu erlauben, und `false`, wenn die Konfiguration nicht geändert wurde (meistens, weil das Element bereits erlaubt ist, aber möglicherweise, weil die Änderung nicht vorgenommen werden konnte).
 
-Beachten Sie, dass `false` zurückgegeben werden könnte, wenn die interne Konfiguration:
+Beachten Sie, dass `false` zurückgegeben werden kann, wenn die interne Konfiguration:
 
-- das [`elements`](/de/docs/Web/API/SanitizerConfig#elements)-Array definiert und das Element bereits vorhanden ist (es muss nicht erneut hinzugefügt werden).
-- das [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Array definiert und das angegebene Element nicht vorhanden ist (und daher bereits nicht gefiltert wird).
-- das [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements)-Array definiert und versucht, ein Element mit per-Element-Attributen zuzulassen.
-  Diese Operation wird nicht unterstützt, weil man in einer [gültigen Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) nicht sowohl `removeElements` als auch `elements` Arrays haben kann, und per-Element-Attribute werden im `elements` Array hinzugefügt.
-  Der Aufruf ändert nicht die Konfiguration und erzeugt eine Konsolenwarnung.
+- das [`elements`](/de/docs/Web/API/SanitizerConfig#elements) Array definiert und das Element bereits vorhanden ist (es muss nicht nochmal hinzugefügt werden).
+- das [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) Array definiert und das angegebene Element nicht vorhanden ist (und somit bereits nicht gefiltert wird).
+- das [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) Array definiert und versucht, ein Element mit per-Element-Attributen zu erlauben.
+  Dieser Vorgang wird nicht unterstützt, da in einer [gültigen Konfiguration](/de/docs/Web/API/SanitizerConfig#valid_configuration) nicht beide `removeElements` und `elements` Arrays vorhanden sein dürfen und per-Element-Attribute im `elements` Array hinzugefügt werden.
+  Der Aufruf wird die Konfiguration nicht ändern und eine Konsolenwarnung generieren.
 
 ## Beschreibung
 
-Die `allowElement()`-Methode legt fest, dass das angegebene Element in der Ausgabe erlaubt ist, wenn der Sanitizer verwendet wird.
+Die `allowElement()` Methode legt fest, dass das angegebene Element in der Ausgabe erlaubt ist, wenn der Sanitizer verwendet wird.
 
-Die Methode kann entweder mit einer [Erlauben-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) oder einer [Entfernen-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwendet werden.
-Wenn sie mit einer Erlauben-Konfiguration verwendet wird, wird das angegebene Element dem `elements` Array hinzugefügt.
-Wenn sie mit einer Entfernen-Konfiguration verwendet wird, wird das Element aus dem `removeElements` Array entfernt (falls vorhanden).
-Falls vorhanden, wird es auch aus dem [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements)-Array entfernt.
+Die Methode kann entweder mit einer [Allow-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) oder einer [Remove-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwendet werden.
+Wird sie mit einer Allow-Konfiguration verwendet, wird das angegebene Element zum `elements`-Array hinzugefügt.
+Wird sie mit einer Remove-Konfiguration verwendet, wird das Element aus dem `removeElements`-Array entfernt (falls vorhanden).
+Falls vorhanden, würde es auch aus dem [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) Array entfernt werden.
 
-Zum Beispiel erstellt der folgende Code einen erlaubenden `Sanitizer`, der {{htmlelement("span")}}-Elemente erlaubt, und ruft dann `allowElement()` auf, um zusätzlich {{htmlelement("b")}}-Elemente zuzulassen.
+Zum Beispiel erstellt der folgende Code einen `Sanitizer` mit der Erlaubnis, {{htmlelement("span")}}-Elemente zu erlauben, und ruft dann `allowElement()` auf, um zusätzlich {{htmlelement("b")}}-Elemente zu erlauben.
 
 ```js
 const sanitizer = new Sanitizer({ elements: ["span"] });
 sanitizer.allowElement("b");
 ```
 
-Wenn Sie einen `Sanitizer` mit einer Erlauben-Konfiguration verwenden, können Sie die Methode auch verwenden, um Attribute für Elemente dieses Typs zuzulassen oder abzulehnen.
-Zum Beispiel erstellt der folgende Code zuerst eine erlaubende Sanitizer-Konfiguration, indem das `elements` Array spezifiziert wird (auch die Erstellung eines `Sanitizer` mit einem leeren Objekt oder keinem Konfigurationsobjekt würde zu einer "Erlauben-Konfiguration" führen).
-Dann wird `allowElement()` aufgerufen, um `div`-Elemente zuzulassen, das `class`-Attribut auf `<div>`-Elementen zu erlauben und das `lang`-Attribut auf `<div>`-Elementen zu entfernen.
+Bei der Verwendung eines `Sanitizer` mit einer Allow-Konfiguration können Sie die Methode auch verwenden, um Attribute anzugeben, die bei Elementen dieses Typs erlaubt oder nicht erlaubt sind.
+Zum Beispiel erstellt der folgende Code zunächst eine Allow-Sanitizer-Konfiguration, indem das `elements`-Array angegeben wird (das Erstellen eines `Sanitizer` mit einem leeren Objekt oder keinem Konfigurationsobjekt würde auch zu einer "Allow-Konfiguration" führen).
+Dann ruft es `allowElement()` auf, um `div`-Elemente zu erlauben, das `class`-Attribut auf `<div>`-Elementen zu erlauben, und das `lang`-Attribut auf `<div>`-Elementen zu entfernen.
 
 ```js
 const sanitizer = new Sanitizer({ elements: ["span"] });
@@ -86,11 +85,11 @@ sanitizer.allowElement({
 });
 ```
 
-Wenn Sie sowohl per-Element-Add-Attribute- und Remove-Attribute-Arrays wie oben gezeigt benötigen, müssen diese in einem einzigen Aufruf dieser Methode hinzugefügt werden.
-Wenn Sie dies in zwei Aufrufen tun würden, würde der zweite Aufruf die im ersten Aufruf hinzugefügte Elementdefinition ersetzen.
+Wenn Sie sowohl per-Element-Zusatzattribut- als auch Entfernungsattribut-Arrays wie oben gezeigt benötigen, müssen sie in einem einzigen Aufruf dieser Methode hinzugefügt werden.
+Würden Sie dies in zwei Aufrufen tun, würde der zweite Aufruf die im ersten Aufruf hinzugefügte Elementdefinition ersetzen.
 
-Wenn Sie einen `Sanitizer` mit einer [Entfernen-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwenden, wird ähnlicher Code zum Hinzufügen von Per-Element-Attribut-Arrays oder zum Entfernen solcher einen Konsolenwarnung generieren und `false` zurückgeben.
-Dies liegt daran, dass der Sanitizer intern nicht das `elements`-Array hat, das erforderlich ist, um Per-Element-Attribute zu spezifizieren, und die Konfiguration nicht verändern kann.
+Bei der Verwendung eines `Sanitizer` mit einer [Remove-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) wird ähnlicher Code zum Hinzufügen von per-Element-Attributerlauben- oder entfernen-Arrays eine Konsolenwarnung generieren und `false` zurückgeben.
+Dies liegt daran, dass der Sanitizer intern nicht das `elements`-Array hat, das für die Angabe von per-Element-Attributen erforderlich ist, und die Konfiguration nicht ändern wird.
 
 ```js example-bad
 // Define Sanitizer with a remove configuration
@@ -108,7 +107,7 @@ sanitizer.allowElement({
 
 ### Anleitung zur Erlaubnis von Elementen
 
-Dieses Beispiel zeigt, wie `allowElement()` verwendet wird, um ein Element zur [`elements` Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) des Sanitizers hinzuzufügen (die Liste der erlaubten Elemente).
+Dieses Beispiel zeigt, wie `allowElement()` verwendet wird, um ein Element zur [`elements`-Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) des Sanitizers (der Liste der erlaubten Elemente) hinzuzufügen.
 
 ```html hidden
 <pre id="log"></pre>
@@ -132,9 +131,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das initial {{htmlelement("div")}} und {{htmlelement("script")}} Elemente erlaubt.
-Anschließend wird `allowElement()` aufgerufen, um ein {{htmlelement("p")}}-Element hinzuzufügen, das als String-Parameter angegeben wird, und dann erneut, um ein {{htmlelement("span")}}-Element hinzuzufügen, das als Objekt spezifiziert ist.
-Wir holen uns dann die Konfiguration und protokollieren sie.
+Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das zunächst {{htmlelement("div")}}- und {{htmlelement("script")}}-Elemente erlaubt.
+Dann wird `allowElement()` aufgerufen, um ein {{htmlelement("p")}}-Element hinzuzufügen, das als String-Parameter angegeben wird, und dann erneut, um ein {{htmlelement("span")}}-Element hinzuzufügen, das als Objekt angegeben wird.
+Wir erhalten und protokollieren dann die Konfiguration.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -165,13 +164,13 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 #### Ergebnisse
 
 Die endgültige Konfiguration wird unten protokolliert.
-Diese schließt die ursprünglichen Elemente (`<div>` und `<script>`) und die beiden mit `allowElement()` hinzugefügten (`<p>` und `<span>`) ein.
+Diese umfasst die ursprünglichen Elemente (`<div>` und `<script>`) und die beiden mit `allowElement()` hinzugefügten (`<p>` und `<span>`).
 
-{{EmbedLiveSample("Anleitung zur Erlaubnis von Elementen","100","480px")}}
+{{EmbedLiveSample("How to allow elements","100","480px")}}
 
-### Erlauben von Elementen, die bereits erlaubt oder entfernt wurden
+### Erlauben von Elementen, die bereits erlaubt oder entfernt sind
 
-Dieses Beispiel zeigt die Wirkung der Verwendung von `allowElement()`, um Elemente hinzuzufügen, die bereits erlaubt sind oder die in der Konfiguration als "zu entfernen" gekennzeichnet sind.
+Dieses Beispiel zeigt die Auswirkungen der Verwendung von `allowElement()`, um Elemente hinzuzufügen, die bereits erlaubt sind oder in der Konfiguration als "zu entfernen" markiert sind.
 
 ```html hidden
 <pre id="log"></pre>
@@ -195,12 +194,12 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das initial {{htmlelement("div")}}-Elemente erlaubt (und Attribute außer `id` entfernt) und auch {{htmlelement("span")}}-Elemente durch deren Kind-Elemente ersetzt.
+Der Code erstellt zuerst ein neues `Sanitizer`-Objekt, das zunächst {{htmlelement("div")}}-Elemente erlaubt (die Attribute außer `id` entfernt) und außerdem {{htmlelement("span")}}-Elemente durch beliebige Kindelemente ersetzt.
 
-Dann wird `allowElement()` aufgerufen, um ein {{htmlelement("div")}}-Element hinzuzufügen, das `style`-Attribute entfernt.
-Da das `<div>`-Element bereits erlaubt ist, wird es aus der [`elements` Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) entfernt und die `<div>`-Element-Definition angehängt.
+Dann ruft es `allowElement()` auf, zunächst um ein {{htmlelement("div")}}-Element hinzuzufügen, das `style`-Attribute entfernt.
+Da das `<div>`-Element bereits erlaubt ist, wird es aus der [`elements`-Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) entfernt und die `<div>`-Elementdefinition angehängt.
 
-Ein {{htmlelement("span")}}-Element wird dann der Erlauben-Liste hinzugefügt, wodurch es aus der [`replaceWithChildrenElements` Konfigurationsliste](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt wird.
+Ein {{htmlelement("span")}}-Element wird dann zur Erlaubnisliste hinzugefügt, was es aus der [`replaceWithChildrenElements`-Konfigurationsliste](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -235,11 +234,11 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Die endgültige Konfiguration wird protokolliert und ist unten gezeigt.
-Aus dem Protokoll können wir sehen, dass der ursprüngliche Filter für das `<div>`-Element entfernt und die neue Definition zur `elements`-Liste hinzugefügt wurde.
+Die endgültige Konfiguration wird protokolliert und unten angezeigt.
+Aus dem Protokoll kann man erkennen, dass der ursprüngliche Filter für das `<div>`-Element entfernt und die neue Definition der `elements`-Liste hinzugefügt wurde.
 Das Hinzufügen des `<span>`-Elements zur `elements`-Liste hat es aus der `replaceWithChildrenElements`-Liste entfernt.
 
-{{EmbedLiveSample("Erlauben von Elementen, die bereits erlaubt oder entfernt wurden","100","480px")}}
+{{EmbedLiveSample("Allowing elements that are already allowed or removed","100","480px")}}
 
 ## Spezifikationen
 

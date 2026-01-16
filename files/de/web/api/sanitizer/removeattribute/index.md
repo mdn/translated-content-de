@@ -1,18 +1,20 @@
 ---
-title: "Sanitizer: Methode removeAttribute()"
+title: "Sanitizer: removeAttribute() Methode"
 short-title: removeAttribute()
 slug: Web/API/Sanitizer/removeAttribute
 l10n:
-  sourceCommit: 8b449a5846c1de417894acfe9b4471447181b57f
+  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
 ---
 
-{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
+{{APIRef("HTML Sanitizer API")}}
 
-Die **`removeAttribute()`**-Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces legt fest, dass ein Attribut bei der Verwendung des Sanitizers von allen Elementen entfernt werden soll.
+Die **`removeAttribute()`**-Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Interfaces legt ein Attribut fest, das beim Einsatz des Sanitizers von allen Elementen entfernt werden soll.
 
-Die Methode kann sowohl mit einer [Zulassungskonfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) als auch mit einer [Entfernungskonfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwendet werden. Bei Verwendung mit einer Entfernungskonfiguration wird das angegebene Attribut dem `removeAttributes`-Array hinzugefügt. Bei Verwendung mit einer Zulassungskonfiguration wird das Attribut aus dem `attributes`-Array entfernt (falls vorhanden).
+Die Methode kann entweder mit einer [Allow-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#allow_configurations) oder einer [Remove-Konfiguration](/de/docs/Web/API/HTML_Sanitizer_API#remove_configurations) verwendet werden.
+Wird sie mit einer Remove-Konfiguration verwendet, wird das angegebene Attribut zum `removeAttributes`-Array hinzugefügt.
+Wird sie mit einer Allow-Konfiguration verwendet, wird das Attribut aus dem `attributes`-Array entfernt (sofern vorhanden).
 
-Beachten Sie, dass zum Zulassen/Verweigern von Attributen nur bei bestimmten Elementen die Methode [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwendet werden soll.
+Beachten Sie, dass Sie zur gezielten Erlaubnis/Verweigerung von Attributen bei bestimmten Elementen [`Sanitizer.allowElement()`](/de/docs/Web/API/Sanitizer/allowElement) verwenden können.
 
 ## Syntax
 
@@ -23,7 +25,7 @@ removeAttribute(attribute)
 ### Parameter
 
 - `attribute`
-  - : Ein String, der den Namen des Attributs angibt, das global auf Elementen abgelehnt werden soll, oder ein Objekt mit den folgenden Eigenschaften:
+  - : Ein String, der den Namen des Attributs angibt, das global für Elemente verweigert werden soll, oder ein Objekt mit den folgenden Eigenschaften:
     - `name`
       - : Ein String, der den Namen des Attributs enthält.
     - `namespace` {{optional_inline}}
@@ -31,18 +33,18 @@ removeAttribute(attribute)
 
 ### Rückgabewert
 
-`true`, wenn die Operation die Konfiguration geändert hat, um das Attribut zu verweigern, und `false`, wenn das Attribut bereits verweigert wurde.
+`true`, wenn die Operation die Konfiguration geändert hat, um das Attribut zu verweigern, und `false`, wenn das Attribut bereits verweigert war.
 
-Beachten Sie, dass `false` zurückgegeben werden könnte, wenn die interne Konfiguration:
+Beachten Sie, dass `false` zurückgegeben werden kann, wenn die interne Konfiguration:
 
-- ein [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes)-Array definiert, das das angegebene Attribut bereits enthält (und daher schon gefiltert ist)
-- stattdessen ein [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes)-Array definiert, das das Attribut bereits ausschließt (und daher schon verweigert wird)
+- ein [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes)-Array definiert, das das angegebene Attribut bereits enthält (und somit bereits gefiltert ist)
+- stattdessen ein [`attributes`](/de/docs/Web/API/SanitizerConfig#attributes)-Array definiert, das das Attribut bereits ausschließt (und somit bereits verweigert ist)
 
 ## Beispiele
 
-### Anleitung zum Verweigern spezifischer Attribute
+### Anleitung: Bestimmte Attribute verweigern
 
-Dieses Beispiel zeigt, wie mit `removeAttribute()` angegeben werden kann, dass ein Attribut von Elementen entfernt werden soll.
+Dieses Beispiel zeigt, wie `removeAttribute()` verwendet wird, um festzulegen, dass ein Attribut von Elementen entfernt werden soll.
 
 ```html hidden
 <pre id="log"></pre>
@@ -66,7 +68,8 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfangs keine Attribute oder Elemente angibt. Dann rufen wir `removeAttribute()` mit den Attributen `title` und `mathcolor` auf.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das anfänglich keine Attribute oder Elemente spezifiziert.
+Dann rufen wir `removeAttribute()` mit den Attributen `title` und `mathcolor` auf.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -96,9 +99,10 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Die endgültige Konfiguration wird unten protokolliert. Beachten Sie, wie beide Attribute nun zur [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2)-Liste hinzugefügt wurden (diese Attribute werden entfernt, wenn sie bei der Verwendung des Sanitizers auf Elementen vorhanden sind).
+Die endgültige Konfiguration wird unten protokolliert.
+Beachten Sie, wie beide Attribute jetzt zur [`removeAttributes`](/de/docs/Web/API/SanitizerConfig#removeattributes_2)-Liste hinzugefügt sind (diese Attribute werden entfernt, wenn sie beim Einsatz des Sanitizers auf Elementen vorhanden sind).
 
-{{EmbedLiveSample("Anleitung zum Verweigern spezifischer Attribute","100","360px")}}
+{{EmbedLiveSample("How to disallow specific attributes","100","360px")}}
 
 ## Spezifikationen
 
