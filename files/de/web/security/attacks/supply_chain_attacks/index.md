@@ -2,88 +2,88 @@
 title: Lieferkettenangriffe
 slug: Web/Security/Attacks/Supply_chain_attacks
 l10n:
-  sourceCommit: 423161782178b119c64cd0b41bff8df20dc84a56
+  sourceCommit: 3251a58ecf1ded5df0e1aa5d23c8436247252b52
 ---
 
-Eine _Software-Lieferkette_ besteht aus allen Software- und Tools, die zur Erstellung und Pflege eines Softwareprodukts verwendet werden. Dies umfasst nicht nur die Software, die für das Produkt selbst entwickelt wurde, sondern auch alle Software und Tools, die in der Produktion verwendet werden.
+Eine _Software-Lieferkette_ besteht aus sämtlicher Software und allen Tools, die zur Erstellung und Wartung eines Softwareprodukts verwendet werden. Dazu gehört nicht nur die für das Produkt selbst entwickelte Software, sondern auch alle Software und Tools, die in seiner Produktion verwendet werden.
 
-Bei einem Lieferkettenangriff zielt der Angreifer auf einen Teil der Lieferkette des Produkts ab, um das Produkt selbst zu kompromittieren.
+Bei einem Lieferkettenangriff zielt der Angreifer darauf ab, einen Teil der Lieferkette des Produkts zu kompromittieren, um das Produkt selbst zu gefährden.
 
-Das offensichtlichste Beispiel hierfür ist eine Drittanbieterbibliothek. Wenn Sie beispielsweise ein von einem Drittanbieter entwickeltes [npm](https://www.npmjs.com/)-Paket verwenden, hat dieses die Möglichkeit, Ihre Seite zu kompromittieren. Dies kann absichtlich geschehen, wenn es bösartig ist, oder versehentlich, wenn es unbeabsichtigte Schwachstellen enthält. Im Wesentlichen müssen Sie Ihren Drittanbieter-Abhängigkeiten genauso viel Vertrauen entgegenbringen wie Ihrem eigenen Code.
+Das offensichtlichste Beispiel ist eine Drittanbieter-Bibliothek. Wenn Sie beispielsweise ein von einem Drittanbieter entwickeltes [npm](https://www.npmjs.com/)-Paket verwenden, hat dieses die Möglichkeit, Ihre Seite zu kompromittieren. Dies kann absichtlich geschehen, wenn es schädlich ist, oder versehentlich, wenn es unbeabsichtigte Schwachstellen enthält. Im Wesentlichen müssen Sie Ihren Drittanbieter-Abhängigkeiten genauso vertrauen wie Ihrem eigenen Code.
 
-Weniger offensichtlich ist, dass dasselbe Prinzip für alle Tools gilt, die Sie bei der Erstellung Ihrer Software verwenden, einschließlich Code-Editoren, Editor-Plugins, Versionskontrollsystemen, Build-Tools usw. Jedes dieser Tools könnte bösartigen oder anfälligen Code in Ihr endgültiges Softwareprodukt einfügen, während der Transformationen, die sie anwenden.
+Weniger offensichtlich gilt das gleiche Prinzip für alle Tools, die Sie bei der Erstellung Ihrer Software verwenden, einschließlich Code-Editoren, Editor-Plugins, Versionskontrollsysteme, Build-Tools und so weiter. Jedes dieser Tools könnte im Zuge der von ihnen angewendeten Transformationen bösartigen oder anfälligen Code in Ihr endgültiges Softwareprodukt einfügen.
 
-In diesem Dokument skizzieren wir Praktiken, die zu befolgen sind, um Ihre Software-Lieferkette zu sichern. Es ist in zwei Hauptabschnitte unterteilt:
+In diesem Dokument skizzieren wir Praktiken, die befolgt werden sollten, um Ihre Software-Lieferkette zu sichern. Es ist in zwei Hauptabschnitte gegliedert:
 
-- [Sicherung Ihrer Entwicklungsumgebung](#sicherung_ihrer_entwicklungsumgebung): Praktiken, die dazu beitragen, dass Ihr eigener Code nicht kompromittiert wird.
-- [Verwalten von Drittanbieter-Abhängigkeiten](#verwalten_von_drittanbieter-abhängigkeiten): Praktiken, die dazu beitragen, dass Ihre Abhängigkeiten nicht kompromittiert werden.
+- [Sichern Ihrer Entwicklungsumgebung](#sichern_ihrer_entwicklungsumgebung): Praktiken zur Sicherstellung, dass Ihr eigener Code nicht kompromittiert wird.
+- [Verwaltung von Drittanbieter-Abhängigkeiten](#verwaltung_von_drittanbieter-abhängigkeiten): Praktiken zur Sicherstellung, dass Ihre Abhängigkeiten nicht kompromittiert werden.
 
-## Sicherung Ihrer Entwicklungsumgebung
+## Sichern Ihrer Entwicklungsumgebung
 
-Ein Weg für einen Lieferkettenangriff ist es, dass ein Angreifer Schwachstellen oder bösartigen Code direkt in Ihr eigenes Produkt einführt. In diesem Abschnitt beschreiben wir einige Praktiken, die dieser Bedrohung entgegenwirken können.
+Ein möglicher Weg für einen Lieferkettenangriff ist, dass ein Angreifer Schwachstellen oder schädlichen Code direkt in Ihr eigenes Produkt einschleust. In diesem Abschnitt beschreiben wir einige Praktiken, die diese Bedrohung abwehren können.
 
-### Implementierung der Zugangskontrolle
+### Implementierung von Zugangskontrollen
 
-Implementieren Sie eine starke Zugangskontrolle für alle, die am Projekt arbeiten, einschließlich aller, die Schreibzugriff auf Ihr Code-Repository oder über die Berechtigungen zur Änderung der Build- oder Testkonfiguration verfügen. Gute Praktiken umfassen hier:
+Implementieren Sie starke Zugangskontrollen für alle, die an dem Projekt arbeiten, einschließlich aller, die Schreibzugriff auf Ihr Code-Repository haben oder die Berechtigungen zum Ändern der Build- oder Testkonfiguration besitzen. Gute Praktiken umfassen hier:
 
-- Erfordern der {{Glossary("multi-factor_authentication", "mehrstufigen Authentifizierung")}} für Teammitglieder.
-- Befolgen des {{Glossary("principle_of_least_privilege", "Prinzips der geringsten Privilegien")}}: das heißt, Teammitgliedern nur die Privilegien zu geben, die sie benötigen, und aktiv die Anzahl der Teammitglieder zu minimieren, die sehr mächtige Berechtigungen erhalten.
+- Erfordern von {{Glossary("multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} für Teammitglieder.
+- Befolgen des {{Glossary("principle_of_least_privilege", "Prinzips der minimalen Rechte")}}: das bedeutet, dass Teammitgliedern nur die Rechte eingeräumt werden, die sie benötigen, und die Anzahl der Teammitglieder, denen sehr mächtige Berechtigungen erteilt werden, aktiv minimiert wird.
 
 ### Absicherung von Tools
 
-Bewerten Sie das Sicherheitsrisiko aller Tools, die Sie bei der Erstellung Ihrer Website verwenden, einschließlich:
+Bewerten Sie das Sicherheitsrisiko jedes der Tools, die Sie bei der Produktion Ihrer Website verwenden, einschließlich:
 
 - Texteditoren und IDEs
 - Editor-Plugins
 - Versionskontrollsysteme
-- Alle Tools, die in Ihren Build-, Test- und Bereitstellungsprozessen involviert sind
+- Alle Tools, die an Ihren Build-, Test- und Bereitstellungsprozessen beteiligt sind
 
-Für Open-Source-Software-Abhängigkeiten können Sie den [Konkreten Leitfaden zur Evaluierung von Open-Source-Software](https://best.openssf.org/Concise-Guide-for-Evaluating-Open-Source-Software), veröffentlicht von der [OpenSSF](https://openssf.org/), als Leitfaden verwenden.
+Für Open-Source-Software-Abhängigkeiten können Sie den [Kompakten Leitfaden zur Bewertung von Open-Source-Software](https://best.openssf.org/Concise-Guide-for-Evaluating-Open-Source-Software) verwenden, veröffentlicht von der [OpenSSF](https://openssf.org/), als Leitfaden.
 
-### Sicherung Ihrer Konfiguration
+### Absicherung Ihrer Konfiguration
 
-Verstehen und wenden Sie sichere Einstellungen für Ihre Tools an, insbesondere Ihr Versionskontrollsystem. Wichtige Schutzmaßnahmen sind:
+Verstehen und übernehmen Sie sichere Einstellungen für Ihre Tools, insbesondere für Ihr Versionskontrollsystem. Zu den wichtigsten Schutzmaßnahmen gehören:
 
-- Sicherstellen, dass Pull-Requests (PRs) eine Überprüfung und explizite Genehmigung durch einen Codeinhaber durchlaufen, bevor sie zusammengeführt werden können.
-- Sicherstellen, dass PRs {{Glossary("continuous_integration", "kontinuierliche Integrationsprüfungen")}} bestehen, bevor sie zusammengeführt werden können.
-- Erfordern, dass Commits signiert sind.
+- Sicherstellen, dass Pull-Requests (PRs) von einem Code-Eigentümer geprüft und explizit genehmigt werden, bevor sie zusammengeführt werden können.
+- Sicherstellen, dass PRs {{Glossary("continuous_integration", "Continuous Integration")}}-Prüfungen bestehen, bevor sie zusammengeführt werden können.
+- Erfordern, dass Commits signiert werden.
 
-Siehe die [Best Practices für die Konfiguration von Quellcode-Verwaltungsplattformen](https://best.openssf.org/SCM-BestPractices/), die spezifische Checklisten für GitHub und GitLab enthalten.
+Sehen Sie die [Best Practices für Source Code Management Plattformkonfiguration](https://best.openssf.org/SCM-BestPractices/) der OpenSSF, die spezifische Checklisten für GitHub und GitLab beinhaltet.
 
-## Verwalten von Drittanbieter-Abhängigkeiten
+## Verwaltung von Drittanbieter-Abhängigkeiten
 
-Drittanbieter-Abhängigkeiten umfassen nicht nur Bibliotheken und Frameworks, die Ihr Code verwendet, sondern alle Drittanbieter-Tools, die im Entwicklungsprozess involviert sind, einschließlich Editoren, IDEs, Versionskontrollsysteme, Paketmanager und Build-Tools.
+Drittanbieter-Abhängigkeiten umfassen nicht nur Bibliotheken und Frameworks, die Ihr Code verwendet, sondern alle Drittanbieter-Tools, die am Entwicklungsprozess beteiligt sind, einschließlich Editoren, IDEs, Versionskontrollsystemen, Paketmanagern und Build-Tools.
 
-Um Probleme mit Drittanbieter-Abhängigkeiten zu mindern, werden wir vier Praktiken besprechen:
+Um Probleme mit Drittanbieter-Abhängigkeiten zu mildern, besprechen wir vier Praktiken:
 
 1. Bewertung neuer Abhängigkeiten
 2. Aktualisieren bestehender Abhängigkeiten
-3. Erhaltung einer _Software-Stückliste_ (SBOM)
-4. Verwendung der Subresource-Integrität für externe Skripte
+3. Pflege einer _Software-Stückliste_ (SBOM)
+4. Verwendung von Subresource Integrity für externe Skripte
 
 ### Bewertung neuer Abhängigkeiten
 
-Bevor Sie eine neue Abhängigkeit hinzufügen, sollten Sie bewerten, wie viel Sicherheitsrisiko sie darstellt. Sie müssen sicher sein, dass die Abhängigkeit aktiv gepflegt wird, dass sie in der Vergangenheit Probleme behoben hat und einen Prozess zum Melden und Reagieren auf Sicherheitslücken gibt.
+Bevor Sie eine neue Abhängigkeit hinzufügen, sollten Sie einschätzen, welches Sicherheitsrisiko sie darstellt. Sie müssen sicher sein, dass die Abhängigkeit aktiv gewartet wird, dass sie eine Historie zur Behebung von Problemen und einen Prozess zur Meldung und Reaktion auf Sicherheitslücken hat.
 
-Sie sollten überlegen, ob das Risiko, die Abhängigkeit hinzuzufügen, die Kosten überwiegt, die Funktionalität selbst zu implementieren.
+Sie sollten abwägen, ob das Risiko, die Abhängigkeit hinzuzufügen, die Kosten für die Implementierung der Funktion selbst überwiegt.
 
-Der [Konkrete Leitfaden zur Evaluierung von Open-Source-Software](https://best.openssf.org/Concise-Guide-for-Evaluating-Open-Source-Software), veröffentlicht von der [OpenSSF](https://openssf.org/), listet Fragen auf, die Sie stellen sollten, bevor Sie eine neue Abhängigkeit hinzufügen.
+Der [Kompakte Leitfaden zur Bewertung von Open-Source-Software](https://best.openssf.org/Concise-Guide-for-Evaluating-Open-Source-Software), veröffentlicht von der [OpenSSF](https://openssf.org/), listet Fragen auf, die Sie sich stellen sollten, bevor Sie eine neue Abhängigkeit hinzufügen.
 
 ### Aktualisieren von Abhängigkeiten
 
-Sobald Sie eine Abhängigkeit zu Ihrem Projekt hinzugefügt haben, wird der Anbieter der Abhängigkeit in der Regel neue Versionen mit neuen Funktionen, Bugfixes und Sicherheitskorrekturen veröffentlichen. Sie möchten in der Regel von diesen Updates profitieren, indem Sie einen Mechanismus implementieren, um die Abhängigkeit aktuell zu halten. Tools wie GitHubs [dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) können Ihnen dabei helfen, indem sie neue Versionen von Abhängigkeiten erkennen und automatisch Pull-Requests öffnen, um Ihr Projekt zu aktualisieren.
+Sobald Sie eine Abhängigkeit in Ihr Projekt aufgenommen haben, wird der Lieferant der Abhängigkeit in der Regel neue Versionen mit neuen Funktionen, Fehlerbehebungen und Sicherheitskorrekturen herausbringen. Sie werden normalerweise davon profitieren wollen, indem Sie einen Mechanismus implementieren, um die Abhängigkeit auf dem neuesten Stand zu halten. Tools wie GitHubs [dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide) können dabei helfen, indem sie neue Versionen von Abhängigkeiten erkennen und automatisch Pull-Requests zur Aktualisierung Ihres Projekts eröffnen.
 
-Es birgt jedoch eigene Risiken, Abhängigkeiten zu schnell zu aktualisieren. Beispielsweise nehmen wir an, Sie fügen eine Abhängigkeit von einem vertrauenswürdigen Drittanbieterpaket hinzu. Dann erlangt ein Angreifer die Kontrolle über das Konto des Paketentwicklers und veröffentlicht ein bösartiges Update. Wenn Sie das Update sofort akzeptieren, wird Ihr Projekt kompromittiert.
+Jedoch birgt das allzu eifrige Aktualisieren von Abhängigkeiten eigene Risiken. Angenommen, Sie fügen eine Abhängigkeit zu einem vertrauenswürdigen Drittanbieter-Paket hinzu. Ein Angreifer übernimmt dann die Kontrolle über das Konto des Paketentwicklers und veröffentlicht ein bösartiges Update. Wenn Sie das Update sofort akzeptieren, ist Ihr Projekt gefährdet.
 
-#### Verwendung einer Lock-Datei
+#### Verwendung einer Lockdatei
 
-Der erste Schritt zur Sicherung von Abhängigkeitsupdates ist die Verwendung einer _Lock-Datei_ für Abhängigkeiten, deren Einbindung in die Versionskontrolle und deren Verwendung beim Erstellen Ihres Projekts.
+Der erste Schritt zur Absicherung von Abhängigkeitsupdates besteht darin, eine _Lockdatei_ für Abhängigkeiten zu verwenden, diese in die Versionskontrolle einzuchecken und sie beim Erstellen Ihres Projekts zu verwenden.
 
-Paketmanager wie [npm](https://www.npmjs.com/) und [Yarn](https://yarnpkg.com/) ermöglichen Ihnen das Bereitstellen einer Datei wie [package.json](https://docs.npmjs.com/cli/configuring-npm/package-json/), die die Abhängigkeiten Ihres Projekts auflistet. Sie können dann einen Befehl ausführen, der die gegebenen Abhängigkeiten installiert, damit das Projekt sie verwenden kann.
+Paketmanager wie [npm](https://www.npmjs.com/) und [Yarn](https://yarnpkg.com/) ermöglichen es Ihnen, eine Datei wie [package.json](https://docs.npmjs.com/cli/configuring-npm/package-json/) bereitzustellen, die die Abhängigkeiten Ihres Projekts auflistet. Sie können dann einen Befehl ausführen, der die angegebenen Abhängigkeiten installiert, damit das Projekt sie nutzen kann.
 
-Die Abhängigkeitsliste bestimmt jedoch nicht die genaue Version jedes Pakets: Wenn der Paketlieferant eine neue Version veröffentlicht, kann diese möglicherweise automatisch in Ihr Projekt aufgenommen werden, wenn es gebaut wird. Wenn die neue Version der Abhängigkeit bösartig ist, könnte sie automatisch in Ihr Projekt integriert werden, ohne dass Sie es überhaupt bemerken.
+Allerdings bestimmt die Abhängigkeitsliste nicht die genaue Version jedes Pakets: Wenn der Paketanbieter eine neue Version veröffentlicht, kann diese automatisch in Ihr Projekt aufgenommen werden, wenn es gebaut wird. Wenn die neue Version der Abhängigkeit bösartig ist, kann sie automatisch in Ihr Projekt aufgenommen werden, ohne dass Sie sich dessen bewusst sind.
 
-Angenommen, Ihre package.json enthält eine Abhängigkeit mit dem Namen "example-dependency":
+Angenommen, Ihre package.json enthält eine Abhängigkeit namens "example-dependency":
 
 ```json
 {
@@ -95,92 +95,92 @@ Angenommen, Ihre package.json enthält eine Abhängigkeit mit dem Namen "example
 }
 ```
 
-Angenommen, der Build-Prozess Ihres Projekts wird automatisch ausgeführt, wenn Ihre Lieferanten neue Versionen veröffentlichen. Der Build-Prozess startet den Build durch Aufruf von `npm install`. Dies wird die neueste Version von "example-dependency" holen, vorbehaltlich des Versionsbereichs `"^1.0.2"`.
+Angenommen, der Buildprozess Ihres Projekts läuft automatisch, wenn Ihre Lieferanten neue Versionen veröffentlichen. Der Buildprozess startet den Build, indem er `npm install` aufruft. Dies wird die neueste Version von "example-dependency" abrufen, vorbehaltlich des Versionsbereichs `"^1.0.2"`.
 
-Bei Version `1.0.2`, die der Punkt war, an dem Sie sie dem Projekt hinzugefügt haben, ist "example-dependency" ein nützliches, harmloses Paket. Dann übernimmt ein Angreifer das Konto des Entwicklers von "example-dependency" und veröffentlicht eine bösartige Version `1.0.3`. Ihr Build-Prozess wird ausgeführt, installiert das bösartige Paket und Sie sind kompromittiert.
+In Version `1.0.2`, dem Punkt, an dem Sie sie dem Projekt hinzugefügt haben, ist "example-dependency" ein nützliches, harmloses Paket. Dann übernimmt ein Angreifer das Konto des Entwicklers von "example-dependency" und veröffentlicht eine bösartige `1.0.3`-Version. Ihr Buildprozess läuft, installiert das bösartige Paket, und Sie sind kompromittiert.
 
-All dies ist geschehen, ohne dass Änderungen an den direkten Artefakten Ihres Projekts vorgenommen wurden, oder ohne dass Sie die Möglichkeit hatten, das Update zu überprüfen und zu sehen, ob es verdächtig aussieht.
+All dies ist geschehen, ohne dass es Änderungen an den direkten Artefakten Ihres Projekts gegeben hat oder Sie die Möglichkeit gehabt hätten, das Update zu überprüfen und zu sehen, ob es verdächtig aussieht.
 
-Die Lösung dafür besteht darin, beim Erstellen Ihres Projekts eine Lock-Datei zu verwenden. Eine Lock-Datei wird automatisch generiert, wenn die Abhängigkeiten eines Projekts installiert werden, und listet die genauen Versionen der direkten und indirekten Abhängigkeiten auf, die in einem Projekt verwendet werden.
+Die Lösung hierfür besteht darin, beim Erstellen Ihres Projekts eine Lockdatei zu verwenden. Eine Lockdatei wird automatisch generiert, wann immer die Abhängigkeiten eines Projekts installiert werden, und sie listet die genauen Versionen der direkten und indirekten Abhängigkeiten auf, die in einem Projekt verwendet werden.
 
-Das heißt, wenn _package.json_ Ihnen sagt, dass Ihr Projekt "example-dependency" verwendet, dann wird _package.lock_ Ihnen genau mitteilen, welche Version von "example-dependency" zu verwenden ist und welche Versionen seiner Abhängigkeiten sind.
+Das heißt, wenn _package.json_ Ihnen mitteilt, dass Ihr Projekt "example-dependency" verwendet, dann wird _package.lock_ Ihnen genau sagen, welche Version von "example-dependency" zu verwenden ist und welche Versionen seiner Abhängigkeiten vorliegen.
 
-Die Lock-Datei Ihres Projekts sollte in die Versionskontrolle übernommen werden. Beim Bauen Ihres Projekts sollten Sie die Lock-Datei verwenden, um zu kontrollieren, welche Versionen Ihrer Abhängigkeiten installiert werden: in npm tun Sie dies, indem Sie [`npm ci`](https://docs.npmjs.com/cli/commands/npm-ci/) anstelle von `npm install` verwenden.
+Die Lockdatei Ihres Projekts sollte in die Versionskontrolle eingecheckt werden. Beim Erstellen Ihres Projekts sollten Sie die Lockdatei verwenden, um zu steuern, welche Versionen Ihrer Abhängigkeiten installiert werden: in npm tun Sie dies, indem Sie [`npm ci`](https://docs.npmjs.com/cli/commands/npm-ci/) anstelle von `npm install` verwenden.
 
 > [!NOTE]
-> Das Festlegen der Versionen Ihrer Abhängigkeiten auf diese Weise wird manchmal als "Version Pinning" bezeichnet.
+> Diese Art der Fixierung der Versionen Ihrer Abhängigkeiten wird manchmal "Version Pinning" genannt.
 
-Dies bedeutet, dass Ihr Build-System einen Pull-Request machen muss, um die Lock-Datei zu aktualisieren, und dies gibt Ihnen die Gelegenheit, das Update zu überprüfen und sicherzustellen, dass Sie es akzeptieren möchten.
+Dies bedeutet, dass Ihr Buildsystem, um Abhängigkeiten zu aktualisieren, einen Pull-Request durchführen muss, um die Lockdatei zu aktualisieren, und dies gibt Ihnen die Möglichkeit, das Update zu überprüfen und sicherzustellen, dass Sie es akzeptieren möchten.
 
-#### Überprüfung der Updates
+#### Überprüfung von Updates
 
-Bei der Überprüfung eines Updates für eine Abhängigkeit erwägen Sie, ob es sich um ein Update handelt, das Sie akzeptieren möchten:
+Bei der Überprüfung eines Updates einer Abhängigkeit überlegen Sie, ob es ein Update ist, das Sie akzeptieren möchten:
 
-- Lesen Sie das Änderungsprotokoll für die Veröffentlichung, um zu verstehen, was es bietet (und ob Sie es überhaupt annehmen müssen, zu diesem Zeitpunkt).
-- Prüfen Sie, ob es zusätzliche Abhängigkeiten einführt.
-- Wenn möglich, überprüfen Sie die Quellcode-Updates und sehen Sie, ob einige von ihnen unerklärlich sind oder nicht mit dem Änderungsprotokoll übereinstimmen.
-- Erwägen Sie, etwas zu warten, bevor Sie aktualisieren: oft werden Lieferkettenangriffe schnell von Sicherheitsforschern entdeckt, und es ist besser für Sie, wenn ein Update als bösartig erkannt wird, bevor Sie es akzeptiert haben.
+- Lesen Sie das Changelog der Veröffentlichung, um zu verstehen, was sie bietet (und ob Sie es überhaupt akzeptieren müssen).
+- Sehen Sie nach, ob es zusätzliche Abhängigkeiten einführt.
+- Überprüfen Sie, wenn möglich, die Quellcode-Updates und sehen Sie, ob einige davon unerklärlich sind oder nicht mit dem Changelog übereinstimmen.
+- Ziehen Sie in Betracht, ein wenig zu warten, bevor Sie aktualisieren: Oft werden Lieferkettenangriffe schnell von Sicherheitsforschern entdeckt, und es ist besser für Sie, wenn ein Update als bösartig erkannt wird, bevor Sie es akzeptiert haben.
 
-### Erhaltung einer Software-Stückliste
+### Pflege einer Software-Stückliste
 
-Um ein tieferes Verständnis Ihrer Abhängigkeiten zu erhalten, können Sie ein detailliertes Inventar von ihnen führen. Dies wird als _Software-Stückliste_ (SBOM) bezeichnet.
+Um einen tieferen Einblick in Ihre Abhängigkeiten zu erhalten, können Sie eine detaillierte Bestandsaufnahme dieser führen. Dies wird als _Software-Stückliste_ (SBOM) bezeichnet.
 
-Eine Lock-Datei ist wirklich eine Art von SBOM: jedoch bezieht sich der Begriff "SBOM" normalerweise auf ein separates Standardformat zur Darstellung von Abhängigkeiten. Diese Standards sind in der Regel sowohl breiter als auch tiefer als eine Lock-Datei. Das heißt:
+Eine Lockdatei ist wirklich eine Art SBOM: Der Begriff "SBOM" bezieht sich jedoch normalerweise auf ein separates Standardformat zur Darstellung von Abhängigkeiten. Diese Standards sind in der Regel sowohl breiter als auch tiefer als eine Lockdatei. Das heißt:
 
-- Sie können Abhängigkeiten erfassen, wie Web-Dienste, die nicht in einer Lock-Datei dargestellt sind.
-- Sie können zusätzliche Informationen über jede Abhängigkeit erfassen, die nicht in einer Lock-Datei dargestellt sind.
+- Sie können Abhängigkeiten erfassen, wie z.B. Webservices, die in einer Lockdatei nicht dargestellt sind.
+- Sie können zusätzliche Informationen zu jeder Abhängigkeit erfassen, die in einer Lockdatei nicht dargestellt sind.
 
-Die Verwendung eines Standardformats zur Darstellung eines SBOM bedeutet auch, dass Sie:
+Die Verwendung eines Standardformats zur Darstellung einer SBOM bedeutet auch, dass Sie:
 
-- Ihr SBOM mit Dritten teilen können
-- Tools integrieren können, die Ihr SBOM für Zwecke wie regulatorische Compliance oder Schwachstellenüberwachung verstehen können.
+- Ihre SBOM mit Dritten teilen können
+- Tools integrieren können, die Ihre SBOM verstehen können, zu Zwecken wie regulatorischer Konformität oder Schwachstellenüberwachung.
 
-Die beiden häufigsten Standards zur Darstellung einer Software-Stückliste sind:
+Die beiden gebräuchlichsten Standards zur Darstellung einer Software-Stückliste sind:
 
-- [CycloneDX](https://cyclonedx.org/), ursprünglich von [OWASP](https://owasp.org/) entwickelt.
+- [CycloneDX](https://cyclonedx.org/), ursprünglich entwickelt von [OWASP](https://owasp.org/).
 - [SPDX](https://spdx.dev/), gepflegt von der [Linux Foundation](https://www.linuxfoundation.org/).
 
-Beide Standards haben gute Unterstützung, und Sie können entweder verwenden, um das SBOM für Ihr Projekt darzustellen. SPDX war ursprünglich darauf ausgerichtet, Produkten zu helfen, sicherzustellen, dass sie konform mit Open-Source-Softwarelizenzen sind, hat aber Funktionen hinzugefügt, um Sicherheitsanwendungsfälle zu unterstützen. CycloneDX ist ein neuerer und leichterer Standard, der von Anfang an darauf ausgerichtet war, die Sicherheit der Lieferkette zu fördern.
+Beide Standards haben gute Unterstützung, und Sie können entweder verwenden, um die SBOM für Ihr Projekt darzustellen. SPDX war anfänglich darauf ausgerichtet, Produkten zu helfen, sicherzustellen, dass sie mit Open-Source-Softwarelizenzen konform sind, hat aber Funktionen hinzugefügt, um Sicherheitsanwendungsfälle zu unterstützen. CycloneDX ist ein neuerer und leichterer Standard, der von Anfang an darauf fokussiert war, die Sicherheit in der Lieferkette zu fördern.
 
-#### Anatomie eines SBOM
+#### Anatomie einer SBOM
 
 > [!NOTE]
 > In diesem Abschnitt verwenden wir CycloneDX als konkretes Beispiel für ein SBOM-Format.
 >
-> Dieser Abschnitt bietet nur eine kurze Einführung in einige der grundlegendsten Teile des CycloneDX-Objektmodells. Für alle Details siehe den CycloneDX [Authoritative Guide to SBOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-SBOM-en.pdf).
+> Dieser Abschnitt bietet nur eine kurze Einführung in einige der grundlegendsten Teile des CycloneDX-Objektmodells. Für die vollständigen Details siehe die CycloneDX [Authoritative Guide to SBOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-SBOM-en.pdf).
 
 In CycloneDX sind alle Abhängigkeiten entweder _Komponenten_ oder _Dienste_.
 
-- Komponenten umfassen, aber sind nicht beschränkt auf, Software-Frameworks, Bibliotheken, Anwendungen und Konfigurationsdaten.
+- Komponenten umfassen, aber sind nicht beschränkt auf Software-Frameworks, Bibliotheken, Anwendungen und Konfigurationsdaten.
 - Dienste repräsentieren externe APIs, die Software möglicherweise aufruft, zum Beispiel über Endpunkt-URIs.
 
-Jede in dem Produkt verwendete Komponente und jeder Dienst, entweder direkt oder indirekt, wird durch ein Objekt im SBOM dargestellt. Das Objekt enthält Informationen über das Element, einschließlich seines Namens, Version, Autor, Lizenz, Beschreibung, {{Glossary("hash_function", "Hashes")}} (für Komponenten) und Endpunkt-URIs (für Dienste).
+Jede direkt oder indirekt im Produkt verwendete Komponente und jeder Dienst wird durch ein Objekt in der SBOM dargestellt. Das Objekt enthält Informationen über das Element, einschließlich Name, Version, Autor, Lizenz, Beschreibung, {{Glossary("hash_function", "Hashes")}} (für Komponenten) und Endpunkt-URIs (für Dienste).
 
-Das SBOM listet auch Schwachstellen auf, die in den Abhängigkeiten des Produkts identifiziert wurden. Jedes Element in der Liste enthält Informationen über diese Schwachstelle, einschließlich einer Beschreibung, eines Satzes von [CWE](https://cwe.mitre.org/index.html)-Codes, Abmilderungsmethoden, Links zu Beratungen und den Identifikatoren für die Komponenten oder Dienste, die von der Schwachstelle betroffen sind.
+Die SBOM listet auch Schwachstellen auf, die in den Abhängigkeiten des Produkts identifiziert wurden. Jedes Element in der Liste enthält Informationen über diese Schwachstelle, einschließlich einer Beschreibung, einer Reihe von [CWE](https://cwe.mitre.org/index.html)-Codes, Abhilfen, Links zu Beratungsstellen und den Identifikatoren für die Komponenten oder Dienste, die die Schwachstelle betrifft.
 
-#### Erstellen eines SBOM
+#### Erstellen einer SBOM
 
-Sie können ein SBOM für ein Produkt mit einem separaten Tool wie [cdxgen](https://cdxgen.github.io/cdxgen/#/) oder einem Befehl wie [`npm sbom`](https://docs.npmjs.com/cli/commands/npm-sbom/) generieren. Ein SBOM wird in der Regel als Teil des Build-Prozesses generiert, obwohl es möglich ist, eines zu anderen Phasen des Softwarelebenszyklus zu erstellen.
+Sie können eine SBOM für ein Produkt mit einem separaten Tool wie [cdxgen](https://cdxgen.github.io/cdxgen/#/) oder einem Befehl wie [`npm sbom`](https://docs.npmjs.com/cli/commands/npm-sbom/) generieren. Eine SBOM wird normalerweise als Teil des Buildprozesses generiert, obwohl es möglich ist, sie in anderen Phasen des Software-Lebenszyklus zu erstellen.
 
-#### Verwendung eines SBOM
+#### Verwendung einer SBOM
 
-Ein SBOM ermöglicht es Ihnen, mehrere Verteidigungen gegen Lieferkettenangriffe zu implementieren, und wir werden hier drei wichtige auflisten:
+Eine SBOM ermöglicht es Ihnen, mehrere Abwehrmaßnahmen gegen Lieferkettenangriffe zu implementieren, und wir listen hier drei wichtige auf:
 
-- **Schwachstellenmanagement**: einer der Hauptanwendungsfälle für ein SBOM ist die Reaktion auf Schwachstellen, die in Ihren Abhängigkeiten identifiziert wurden. Sie können Drittanbieter-Tools wie OWASP's [Dependency-Track](https://dependencytrack.org/) verwenden, die dies automatisieren, indem sie Quellen von Schwachstellenberichten wie die [NIST National Vulnerability Database](https://nvd.nist.gov/) oder [GitHub Advisories](https://github.com/advisories) scannen.
-- **Integritätsüberprüfung**: wenn das SBOM Hashes für Abhängigkeiten enthält, ist es möglich zu überprüfen, dass die Quelle der Komponente, von der Sie abhängen, nicht von ihrer ursprünglich veröffentlichten Form geändert wurde.
-- **Lieferantenrisikomanagement**: Durch die Erfassung von Informationen über den Lieferanten Ihrer Abhängigkeiten kann ein SBOM Ihnen helfen zu verstehen, wann Sie sich auf Komponenten oder Dienstleistungen von Lieferanten verlassen, die nicht mehr als zuverlässig gelten.
+- **Schwachstellenverwaltung**: Eine der Hauptanwendungen für eine SBOM besteht darin, auf Schwachstellen zu reagieren, die in Ihren Abhängigkeiten identifiziert wurden. Sie können Drittanbietertools wie OWASPs [Dependency-Track](https://dependencytrack.org/) verwenden, die dies automatisieren, indem sie Quellen für Schwachstellenberichte durchsuchen, wie die [NIST National Vulnerability Database](https://nvd.nist.gov/) oder [GitHub Advisories](https://github.com/advisories).
+- **Integritätsprüfung**: Wenn die SBOM Hashes für Abhängigkeiten enthält, ist es möglich zu überprüfen, dass die Quelle der Komponente, von der Sie abhängen, nicht von ihrer ursprünglichen Freigabeform geändert wurde.
+- **Lieferantenrisikomanagement**: Indem Sie Informationen über den Lieferanten Ihrer Abhängigkeiten erfassen, kann Ihnen eine SBOM helfen zu verstehen, wann Sie von Komponenten oder Diensten von Lieferanten abhängen, die nicht mehr als zuverlässig gelten.
 
-### Verwendung der Subresource-Integrität
+### Verwendung von Subresource Integrity
 
-Viele Websites beinhalten extern gehostete Skripte: am bemerkenswertesten, aber nicht ausschließlich, Skripte, die von einem {{Glossary("CDN", "Content Delivery Network (CDN)")}} bedient werden:
+Viele Websites beinhalten extern gehostete Skripte: insbesondere, aber nicht ausschließlich, Skripte, die von einem {{Glossary("CDN", "Content Delivery Network (CDN)")}} bereitgestellt werden:
 
 ```html
 <script src="https://cdn.example.org/library.js"></script>
 ```
 
-Dies stellt ein Risiko für Ihre Lieferkette dar: Wenn ein Angreifer die Kontrolle über die `cdn.example.org`-Domain erlangt, kann er das Skript durch ein bösartiges Skript ersetzen und so Ihre Website kompromittieren.
+Dies stellt ein Risiko für Ihre Lieferkette dar: Wenn ein Angreifer die Kontrolle über die Domäne `cdn.example.org` erlangen kann, kann er das Skript durch ein bösartiges Skript ersetzen und so Ihre Seite gefährden.
 
-Externe Skripte, wie andere Softwareabhängigkeiten, sollten Teil Ihrer SBOM sein, aber eine zusätzliche Verteidigung besteht darin, das `integrity`-Attribut des Skripts festzulegen:
+Externe Skripte sollten, wie andere Software-Abhängigkeiten, Teil Ihrer SBOM sein, aber eine zusätzliche Verteidigung besteht darin, das [`integrity`](/de/docs/Web/HTML/Reference/Elements/script#integrity)-Attribut des Skripts festzulegen:
 
 ```html
 <script
@@ -188,29 +188,29 @@ Externe Skripte, wie andere Softwareabhängigkeiten, sollten Teil Ihrer SBOM sei
   integrity="sha256-d5f450f7ce715d827de27ca569e183f819d33c1e7601875fd61eccbc98f56c5b"></script>
 ```
 
-Der Wert dieses Attributs enthält einen {{Glossary("hash_function", "kryptografischen Hash")}} des Inhalts des Skripts. Wenn das Skript von einem Angreifer geändert wurde, wird der Browser es nicht laden und Sie werden geschützt.
+Der Wert dieses Attributs enthält einen {{Glossary("hash_function", "kryptografischen Hash")}} des Inhalts des Skripts. Wenn das Skript von einem Angreifer modifiziert wurde, wird der Browser es nicht laden, und Sie werden geschützt.
 
-Dies fügt eine zusätzliche Wartungsbelastung hinzu: Jedes Mal, wenn sich die Quelle ändert (zum Beispiel, wenn eine neue Version veröffentlicht wird), müssen Sie den Wert des Attributs in Ihrem Code aktualisieren.
+Dies fügt jedoch eine zusätzliche Wartungsbelastung hinzu: Jedes Mal, wenn sich die Quelle ändert (zum Beispiel, jedes Mal, wenn eine neue Version freigegeben wird), müssen Sie den Wert des Attributs in Ihrem Code aktualisieren.
 
-Das {{htmlelement("link")}}-Element unterstützt auch das `integrity`-Attribut, so dass Sie es (und sollten) für CSS-Stylesheets sowie Skripte verwenden.
+Das {{htmlelement("link")}}-Element unterstützt ebenfalls das `integrity`-Attribut, sodass Sie es sowohl für CSS-Stylesheets als auch für Skripte verwenden sollten.
 
 Siehe [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) für weitere Details.
 
-## Verteidigungs-Checkliste
+## Zusammenfassende Verteidigungskontrollliste
 
-- Erfordern der {{Glossary("multi-factor_authentication", "mehrstufigen Authentifizierung")}} für Teammitglieder und Minimieren der gewährten Berechtigungen.
-- Bewerten der Tools, die in Ihren Build-, Test- und Bereitstellungsprozessen involviert sind.
-- Sicherstellen, dass Pull-Requests eine Überprüfung durchlaufen und {{Glossary("continuous_integration", "kontinuierliche Integrationsprüfungen")}} bestehen.
-- Minimieren Ihrer Abhängigkeiten und Befolgen eines Verfahrens zur Bewertung neuer Abhängigkeiten.
-- Verwenden einer Lock-Datei, um Updates für Ihre Abhängigkeiten zu steuern, und Befolgen eines Verfahrens zur Annahme von Updates.
-- Pflegen eines SBOM und Verwenden desselben zur Überprüfung auf Schwachstellen.
-- Verwenden der Subresource-Integrität für extern referenzierte Skripte und Stylesheets.
+- Erfordern von {{Glossary("multi-factor_authentication", "Multi-Faktor-Authentifizierung")}} für Teammitglieder und Minimieren der gewährten Berechtigungen.
+- Bewertung der Tools, die an Ihren Build-, Test-, und Bereitstellungsprozessen beteiligt sind.
+- Sicherstellen, dass Pull-Requests eine Überprüfung durchlaufen und {{Glossary("continuous_integration", "Continuous Integration")}}-Prüfungen bestehen.
+- Minimieren Sie Ihre Abhängigkeiten und folgen Sie einem Prozess zur Bewertung neuer Abhängigkeiten.
+- Verwenden Sie eine Lockdatei zur Kontrolle von Updates Ihrer Abhängigkeiten und befolgen Sie einen Prozess zur Annahme von Updates.
+- Pflegen Sie eine SBOM und verwenden Sie sie, um nach Schwachstellen zu suchen.
+- Verwenden Sie Subresource Integrity für extern referenzierte Skripte und Stylesheets.
 
 ## Siehe auch
 
-- [Software-Lieferkettensicherheit](https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html) auf [owasp.org](https://owasp.org/)
-- [OpenJS Security Collaboration Space](https://github.com/openjs-foundation/security-collab-space?tab=readme-ov-file#documents--guides) - Ein zentraler Knotenpunkt für Sicherheitsanleitung und Ressourcen für das JavaScript-Ökosystem, einschließlich:
-  - [SBOM und Herausforderungen der Lieferkettensicherheit](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/SBOM/OpenJS-SBOM-CSCRM-Challenges-Recommendations.md) - Empfehlungen für JavaScript-SBOM und Software-Bestätigung
-  - [Sicherheits-Compliance-Richtlinien](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/OpenJS_Security_Compliance_Guidelines/v1/readme.md) - Eine umfassende Checkliste für die betriebliche Sicherheit
-  - [npm-Sicherheits-Best-Practice-Leitfaden](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/npm-security-best-practices.md) - Beste Praktiken für die Sicherung von npm-Paketen und Abhängigkeiten
-  - [Leitfaden für sichere Releases](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/Secure_Releases/secure-releases.md) - Richtlinien für die Erstellung sicherer Software-Releases
+- [Software Supply Chain Security](https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html) auf [owasp.org](https://owasp.org/)
+- [OpenJS Security Collaboration Space](https://github.com/openjs-foundation/security-collab-space?tab=readme-ov-file#documents--guides) - Ein zentraler Hub für Sicherheitsleitlinien und -ressourcen für das JavaScript-Ökosystem, einschließlich:
+  - [SBOM und Herausforderungen der Sicherheit in der Lieferkette](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/SBOM/OpenJS-SBOM-CSCRM-Challenges-Recommendations.md) - Empfehlungen für JavaScript-SBOM und Software-Attestierung
+  - [Richtlinien zur Sicherheitskonformität](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/OpenJS_Security_Compliance_Guidelines/v1/readme.md) - Eine umfassende Checkliste für die betriebliche Sicherheit
+  - [Anleitung zu den besten Sicherheitspraktiken für npm](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/npm-security-best-practices.md) - Beste Praktiken zur Sicherung von npm-Paketen und -Abhängigkeiten
+  - [Anleitung für sichere Veröffentlichungen](https://github.com/openjs-foundation/security-collab-space/blob/main/docs/Secure_Releases/secure-releases.md) - Richtlinien zur Erstellung sicherer Softwareveröffentlichungen
