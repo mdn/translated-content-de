@@ -3,22 +3,26 @@ title: DELETE request method
 short-title: DELETE
 slug: Web/HTTP/Reference/Methods/DELETE
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 531ab7d0f0572957de89f715de2adb981628d64e
 ---
 
-Die **`DELETE`**-HTTP-Methode fordert den Server auf, eine spezifizierte Ressource zu löschen.
+Die **`DELETE`** HTTP-Methode fordert den Server auf, eine angegebene Ressource zu löschen.
 
-Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichteninhalt, daher sollte dieser leer sein.
+Anfragen mit `DELETE` sollten nur zum Löschen von Daten verwendet werden und dürfen keinen Körper enthalten.
+
+> [!NOTE]
+> Die Semantik des Sendens eines Nachrichtentextes in `DELETE`-Anfragen ist nicht definiert.
+> Einige Server können die Anfrage mit einer [4XX-Client-Fehler](/de/docs/Web/HTTP/Reference/Status#client_error_responses)-Antwort ablehnen.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anforderung hat Inhalt</th>
-      <td>Darf</td>
+      <th scope="row">Anfrage hat einen Körper</th>
+      <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat Inhalt</th>
-      <td>Darf</td>
+      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
+      <td>Kann</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
@@ -29,7 +33,7 @@ Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichteninhalt
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable", "Zwischenspeicherbar")}}</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -48,11 +52,11 @@ DELETE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anforderung, wenn sie mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
-    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxy-Server (z. B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert das Ziel der Anfrage, wenn es mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
+    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, der ein Fragezeichen `?` vorangestellt ist.
-    Wird oft verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übermitteln.
+  - : Eine optionale Abfragekomponente, die einem Fragezeichen `?` folgt.
+    Oft verwendet, um Identifizierungsinformationen in Form von `key=value` Paaren zu tragen.
 
 ## Beispiele
 
@@ -73,7 +77,7 @@ HTTP/1.1 204 No Content
 Date: Wed, 04 Sep 2024 10:16:04 GMT
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung enthält, die das Ergebnis beschreibt:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort bedeutet, dass die Anfrage erfolgreich war und der Antwortkörper eine Darstellung des Ergebnisses beinhaltet:
 
 ```http
 HTTP/1.1 200 OK
@@ -111,11 +115,11 @@ Content-Length: 1234
 ## Browser-Kompatibilität
 
 Der Browser verwendet die `DELETE`-Methode nicht für benutzerinitiierte Aktionen, daher gilt "Browser-Kompatibilität" nicht.
-Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) setzen.
+Entwickler können diese Anfragemethode mit [`fetch()`](/de/docs/Web/API/Window/fetch) festlegen.
 
 ## Siehe auch
 
-- HTTP-Statuscodes: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
-- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Reference/Methods)
+- HTTP-Status: {{HTTPStatus("200")}}, {{HTTPStatus("202")}}, {{HTTPStatus("204")}}
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Reference/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers)
