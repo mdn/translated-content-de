@@ -1,18 +1,18 @@
 ---
-title: CSS-Schriftmodi
+title: CSS-Schreibmodi
 short-title: Writing modes
 slug: Web/CSS/Guides/Writing_modes
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: b292c71457401efd7184a0b98d519fde1317120c
 ---
 
-Das Modul **CSS-Schriftmodi** definiert Unterstützung für verschiedene internationale Schriftmodi und deren Kombinationen, einschließlich der Anordnung von Text von links nach rechts und von rechts nach links sowie horizontaler und vertikaler Ausrichtungen.
+Das **CSS-Schreibmodul** definiert die Unterstützung für verschiedene internationale Schreibmodi und deren Kombinationen, einschließlich links-nach-rechts und rechts-nach-links Textanordnung sowie horizontale und vertikale Ausrichtungen.
 
-Ein _Schriftmodus_ in CSS wird durch die Eigenschaften {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}, die in diesem Modul definiert sind, bestimmt. Er wird hauptsächlich in Bezug auf seine Inline-Basisrichtung und Blockflussrichtung definiert.
+Ein _Schreibmodus_ in CSS wird durch die Eigenschaften {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} bestimmt, die in diesem Modul definiert sind. Er wird hauptsächlich anhand seiner Inline-Basisrichtung und Blockflussrichtung definiert.
 
-Einige horizontale Sprachen, wie Latein- und Indische Schriften, werden von links nach rechts geschrieben. Andere horizontale Sprachen, wie Hebräisch und Arabische Schriften, werden von rechts nach links geschrieben. Manchmal muss Text bidirektional sein, zum Beispiel beim Mischen von links-nach-rechts und rechts-nach-links Schriften. Einige Sprachen können mit einer vertikalen Ausrichtung geschrieben werden, zum Beispiel Chinesische, Japanische und Koreanische (CJK) Schriften.
+Einige horizontale Sprachen sind links-nach-rechts, einschließlich lateinischer und indischer Schriften. Andere horizontale Sprachen werden rechts-nach-links geschrieben, einschließlich hebräischer und arabischer Schriften. Manchmal muss Text bidirektional sein, z. B. wenn links-nach-rechts und rechts-nach-links Schriften gemischt werden. Einige Sprachen können mit einer vertikalen Orientierung geschrieben werden, zum Beispiel chinesische, japanische und koreanische (CJK) Schriften.
 
-Das CSS-Schriftmodul behandelt die Ausrichtungen aller Schriftmodi. Andere Module, wie das [CSS-Rubylayout](/de/docs/Web/CSS) Modul, bieten Rendering-Modelle und Formatierungssteuerungen im Zusammenhang mit der Anzeige von Textanmerkungen.
+Das CSS-Schreibmodul behandelt die Ausrichtungen aller Schreibmodi. Andere Module, wie das [CSS-Ruby-Layout](/de/docs/Web/CSS) Modul, bieten Rendering-Modelle und Formatierungssteuerungen im Zusammenhang mit der Anzeige von Textanmerkungen.
 
 ## Referenz
 
@@ -34,14 +34,14 @@ Das CSS-Schriftmodul behandelt die Ausrichtungen aller Schriftmodi. Andere Modul
 
 ## Leitfäden
 
-- [Erstellen von vertikalen Formularelementen](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls)
-  - : Der Artikel erklärt, wie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwendet werden, um vertikale Formularelemente zu erstellen und zu konfigurieren.
-- [Einführung in Schriftmodussysteme](/de/docs/Web/CSS/Guides/Writing_modes/Writing_mode_systems)
-  - : Ein kurzer Überblick über Schriftmodussysteme und deren Ausrichtungen.
+- [Erstellen von vertikalen Formsteuerungen](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls)
+  - : Der Artikel erklärt, wie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwendet werden, um vertikale Formelemente zu erstellen und zu konfigurieren.
+- [Einführung in Schreibmodussysteme](/de/docs/Web/CSS/Guides/Writing_modes/Writing_mode_systems)
+  - : Ein kurzer Überblick über Schreibmodussysteme und ihre Richtungen.
 
 ## Verwandte Konzepte
 
-[CSS Text](/de/docs/Web/CSS/Guides/Text) Modul
+[CSS-Text](/de/docs/Web/CSS/Guides/Text) Modul
 
 - {{cssxref("hanging-punctuation")}}
 - {{cssxref("hyphens")}}
@@ -62,15 +62,15 @@ Das CSS-Schriftmodul behandelt die Ausrichtungen aller Schriftmodi. Andere Modul
 - {{cssxref("line-height")}}
 - {{cssxref("text-box-edge")}}
 - {{cssxref("text-box-trim")}}
-- {{cssxref("text-box")}} Abkürzung
+- {{cssxref("text-box")}} Kurzform
 - {{cssxref("text-edge")}}
 
-[CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
+[CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
 
 - {{Glossary("Flow_relative_values", "Fluss-relative Werte")}}
-- {{Glossary("Inset_properties", "Inset-Eigenschaften")}}
+- {{Glossary("Inset_properties", "Einsatzeigenschaften")}}
 - {{Glossary("Logical_properties", "Logische Eigenschaften")}}
-- {{Glossary("Physical_properties", "Physische Eigenschaften")}}
+- {{Glossary("Physical_properties", "Physikalische Eigenschaften")}}
 
 [CSS-Anzeige](/de/docs/Web/CSS/Guides/Display) Modul
 
@@ -112,10 +112,10 @@ Das CSS-Schriftmodul behandelt die Ausrichtungen aller Schriftmodi. Andere Modul
 ## Siehe auch
 
 - [CSS-Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul
-- [CSS-Rubylayout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
+- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
 - [CSS-Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) Modul
-- [CSS-Counterstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
 - [CSS-Listen](/de/docs/Web/CSS/Guides/Lists) Modul
-- [CSS-Einschluss](/de/docs/Web/CSS/Guides/Containment) Modul: {{CSSxRef("contain-intrinsic-block-size")}} und {{CSSxRef("contain-intrinsic-inline-size")}}
+- [CSS-Eingrenzung](/de/docs/Web/CSS/Guides/Containment) Modul: {{CSSxRef("contain-intrinsic-block-size")}} und {{CSSxRef("contain-intrinsic-inline-size")}}
 - [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul: {{CSSxRef("overflow-block")}} und {{CSSxRef("overflow-inline")}}
 - [CSS-Überlaufverhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul: {{CSSxRef("overscroll-behavior-block")}} und {{CSSxRef("overscroll-behavior-inline")}}
