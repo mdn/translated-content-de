@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **`<color-interpolation-method>`** [CSS](/de-DE/docs/Web/CSS) [Datentyp](/de-DE/docs/Web/CSS/Reference/Values/Data_types) repräsentiert den {{Glossary("Color_space", "Farbraum")}} für die Interpolation zwischen {{CSSXref("&lt;color&gt;")}}-Werten. Er kann verwendet werden, um den Standard-Interpolationsfarbraum für farbbezogene funktionale Notationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
+Der **`<color-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert den {{Glossary("Color_space", "Farbraum")}} für die Interpolation zwischen {{CSSXref("&lt;color&gt;")}}-Werten. Er kann verwendet werden, um den Standard-Interpolationsfarbraum für farbbezogene funktionale Notationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
 
 Bei der Interpolation von `<color>`-Werten ist der Standardfarbraum für die Interpolation Oklab.
 
@@ -31,7 +31,7 @@ in <polar-color-space>[ <hue-interpolation method>]
   - : Der Algorithmus für die Farbton-Interpolation. Standardmäßig wird der `shorter hue` verwendet.
 
 - `<custom-color-space>`
-  - : Ein [`<dashed-ident>`](/de-DE/docs/Web/CSS/Reference/Values/dashed-ident#using_with_color-profile), der auf ein benutzerdefiniertes [@color profile](/de-DE/docs/Web/CSS/Reference/At-rules/@color-profile) verweist.
+  - : Ein [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident#using_with_color-profile), der auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/Reference/At-rules/@color-profile) verweist.
 
 ## Formale Syntax
 
@@ -78,7 +78,7 @@ Das folgende Beispiel zeigt die Wirkung der Verwendung verschiedener Interpolati
 
 ### Farbinterpolation in sich wiederholenden Verläufen
 
-Das folgende Beispiel zeigt, wie ein Farbraum bei der Interpolation von Farben in sich wiederholenden Verläufen angegeben wird. Drei Boxen zeigen verschiedene Arten von sich wiederholenden Verläufen mithilfe der Funktionen [`repeating-conic-gradient()`](/de-DE/docs/Web/CSS/Reference/Values/gradient/repeating-conic-gradient), [`repeating-linear-gradient()`](/de-DE/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient) und [`repeating-radial-gradient()`](/de-DE/docs/Web/CSS/Reference/Values/gradient/repeating-radial-gradient).
+Das folgende Beispiel zeigt, wie ein Farbraum bei der Interpolation von Farben in sich wiederholenden Verläufen angegeben wird. Drei Boxen zeigen verschiedene Arten von sich wiederholenden Verläufen mithilfe der Funktionen [`repeating-conic-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-conic-gradient), [`repeating-linear-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient) und [`repeating-radial-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/repeating-radial-gradient).
 Die erste Box verwendet den Lab-Farbraum, um zwischen zwei Farbwerten zu interpolieren.
 Die zweite und dritte Box verwenden OkLCh und geben zusätzlich eine {{CSSXref("hue-interpolation-method")}} an, um zu spezifizieren, wie die Farbtonwerte interpoliert werden sollen.
 
