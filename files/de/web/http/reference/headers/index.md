@@ -370,7 +370,7 @@ HTTP [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) sind eine Reihe von A
 Server fordern proaktiv die vom Client gewünschten Client-Hint-Header an, indem sie {{HTTPHeader("Accept-CH")}} verwenden. Der Client kann dann wählen, ob er die angeforderten Header in nachfolgenden Anforderungen einschließt.
 
 - {{HTTPHeader("Accept-CH")}}
-  - : Server können Unterstützung für Client Hints mit dem `Accept-CH`-Headerfeld oder einem entsprechenden HTML-<meta>-Element mit [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv)-Attribut bewerben.
+  - : Server können Unterstützung für Client Hints mit dem `Accept-CH`-Headerfeld oder einem entsprechenden HTML-`<meta>`-Element mit [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv)-Attribut bewerben.
 - {{HTTPHeader("Critical-CH")}} {{experimental_inline}}
   - : Server verwenden `Critical-CH` zusammen mit {{HTTPHeader("Accept-CH")}}, um anzugeben, dass akzeptierte Client Hints auch [kritische Client Hints](/de/docs/Web/HTTP/Guides/Client_hints#critical_client_hints) sind.
 

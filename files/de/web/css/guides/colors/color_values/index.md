@@ -320,7 +320,7 @@ Die CIELAB- und Oklab-Farbräume repräsentieren den gesamten Bereich der Farben
 
 Die `lch()` und `oklch()` Funktionen verwenden Helligkeit (`L`), Chroma (`C`) und Farbton (`H`) und werden in diesem Abschnitt weiter erörtert. Die [`lab()` und `oklab()`](#lab_und_oklab) Funktionen arbeiten anders, da sie Helligkeit (`L`), Rot/Grün-ness (entlang der `a`-Achse) und Gelb/Blau-ness (entlang der `b`-Achse) verwenden. Diese Achsen werden als rechteckige Koordinaten bezeichnet. Der Hauptvorteil dieser Farbfunktionen ist, dass die `lightness` die wahrgenommene Helligkeit ist; es ist die Helligkeit einer Farbe, wie sie vom menschlichen Auge wahrgenommen wird, anstatt die Helligkeit im Vergleich zu anderen Farben.
 
-Ähnlich wie die sRGB-Farbton-Farbfunktionen ist der Farbton (`h`) in `lch()` und `oklch()` eine Zahl, ein Winkel oder das Schlüsselwort `none` (gleichbedeutend mit `0deg`), das den <hue>-Winkel der Farbe darstellt. Dabei sind jedoch die Farben bei jedem Winkelwert nicht gleich. Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich über die sRGB-, CIELAB- (verwendet von `lch()`) und Oklab- (verwendet von `oklch()`) Farbräume hinweg.
+Ähnlich wie die sRGB-Farbton-Farbfunktionen ist der Farbton (`h`) in `lch()` und `oklch()` eine Zahl, ein Winkel oder das Schlüsselwort `none` (gleichbedeutend mit `0deg`), das den `<hue>`-Winkel der Farbe darstellt. Dabei sind jedoch die Farben bei jedem Winkelwert nicht gleich. Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich über die sRGB-, CIELAB- (verwendet von `lch()`) und Oklab- (verwendet von `oklch()`) Farbräume hinweg.
 
 Die folgenden Verläufe zeigen die Farbtonfarben bei jedem Winkel von `0deg` bis `360deg` in den sRGB-, CIELAB- und Oklab-Farbräumen:
 

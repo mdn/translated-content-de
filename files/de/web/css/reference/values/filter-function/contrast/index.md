@@ -150,7 +150,7 @@ p {
 
 ### Mit url() und dem SVG contrast Filter
 
-Das SVG {{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann über [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Das <filter>‘s {{SVGElement("feComponentTransfer")}} Primitive ermöglicht die Farbumwandlung auf Pixelebene. Angesichts des folgenden:
+Das SVG {{SVGElement("filter")}} Element wird verwendet, um benutzerdefinierte Filtereffekte zu definieren, die dann über [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) referenziert werden können. Das `<filter>`‘s {{SVGElement("feComponentTransfer")}} Primitive ermöglicht die Farbumwandlung auf Pixelebene. Angesichts des folgenden:
 
 ```html live-sample___svg_filter
 <svg

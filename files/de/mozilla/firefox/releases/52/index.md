@@ -62,7 +62,7 @@ Firefox 52 wurde am 7. März 2017 veröffentlicht. Dieser Artikel listet wichtig
 - Unpräfierte Mehrspalten-Eigenschaften und die Rückkehr der `-moz` präfixierten Versionen als Aliase (vorerst) ([Firefox-Bug 1300895](https://bugzil.la/1300895)).
 - Aufheben des Einpackens abspos-Kinder des Flex-Containers in anonyme Flex-Objekte ([Firefox-Bug 1269045](https://bugzil.la/1269045)).
 - Rastercontainer-Baselines implementiert ([Firefox-Bug 1151204](https://bugzil.la/1151204)).
-- Entfernt <flex> Min-Größenanpassung aus dem Stil-System ([Firefox-Bug 1305244](https://bugzil.la/1305244)).
+- Entfernt `<flex>` Min-Größenanpassung aus dem Stil-System ([Firefox-Bug 1305244](https://bugzil.la/1305244)).
 - Entferne die Präferenz `layout.css.masking.enabled` ([Firefox-Bug 1308239](https://bugzil.la/1308239)).
 - Die proprietären `-moz-images-in-menus` und `-moz-images-in-buttons` [Medientypen](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wurden entfernt (siehe [Firefox-Bug 1302157](https://bugzil.la/1302157)).
 - Entfernt den `-moz-use-text-color` Wert aus Farbeigenschaften; verwenden Sie stattdessen [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) ([Firefox-Bug 1306214](https://bugzil.la/1306214)).
