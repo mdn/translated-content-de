@@ -60,11 +60,11 @@ opacity: unset;
 - `<alpha-value>`
   - : Eine {{cssxref("number")}} im Bereich von `0.0` bis `1.0`, inklusive, oder ein {{cssxref("percentage")}} im Bereich von `0%` bis `100%`, inklusive, die die Deckkraft des Kanals darstellen (das heißt, den Wert seines Alphakanals). Jeder Wert außerhalb des Intervalls ist zwar gültig, wird jedoch auf das nächstliegende Limit im Bereich begrenzt.
 
-    | Wert                                                    | Bedeutung                                                                        |
-    | ------------------------------------------------------- | -------------------------------------------------------------------------------- |
+    | Wert                                                    | Bedeutung                                                                       |
+    | ------------------------------------------------------- | ------------------------------------------------------------------------------- |
     | `0`                                                     | Das Element ist vollständig transparent (d.h. unsichtbar).                      |
     | Jeder {{cssxref("number")}} strikt zwischen `0` und `1` | Das Element ist durchscheinend (d.h. Inhalte hinter dem Element sind sichtbar). |
-    | `1` (Standardwert)                                      | Das Element ist vollständig opak (visuell solide).                               |
+    | `1` (Standardwert)                                      | Das Element ist vollständig opak (visuell solide).                              |
 
 ## Beschreibung
 
