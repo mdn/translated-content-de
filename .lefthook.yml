@@ -20,6 +20,8 @@ pre-commit:
             run: npx markdownlint-cli2 --fix {staged_files}
             stage_fixed: true
           - name: Check URLs per locale
+            env:
+              CI: true
             run: node ./scripts/check-url-locale.js --fix {staged_files}
             stage_fixed: true
           - name: Prettier
