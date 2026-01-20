@@ -1,19 +1,19 @@
 ---
-title: "HTMLElement: autofocus Eigenschaft"
+title: "HTMLElement: autofocus-Eigenschaft"
 short-title: autofocus
 slug: Web/API/HTMLElement/autofocus
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 01d5901fdbad83033fe1f86486f652d07db7ce2a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`autofocus`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert einen booleschen Wert, der das HTML-Globale-Attribut [`autofocus`](/de/docs/Web/HTML/Reference/Elements/select#autofocus) widerspiegelt. Dieses Attribut gibt an, ob das Steuerelement fokussiert werden soll, wenn die Seite geladen wird oder wenn ein Dialog oder Popover angezeigt wird, falls es in einem Element innerhalb von {{htmlelement("dialog")}}-Elementen oder Elementen mit gesetztem `popover`-Attribut angegeben ist.
+Die **`autofocus`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert einen booleschen Wert, der das HTML-Globale-Attribut [`autofocus`](/de/docs/Web/HTML/Reference/Global_attributes/autofocus) widerspiegelt. Dies gibt an, ob das Element beim Laden der Seite fokussiert sein soll oder, wenn es in einem {{htmlelement("dialog")}} oder [`popover`](/de/docs/Web/HTML/Reference/Global_attributes/popover)-Element verschachtelt ist, wenn das `<dialog>`- oder Popover-Element angezeigt wird.
 
-Nur ein formularassoziiertes Element innerhalb eines Dokuments, oder ein {{htmlelement("dialog")}}-Element, oder ein Element, dessen `popover`-Attribut gesetzt ist, kann dieses Attribut spezifizieren. Wenn es mehrere gibt, erhält das erste eingefügte Element mit gesetztem Attribut, in der Regel das erste solche Element auf der Seite, den initialen Fokus.
+Nur ein Element innerhalb eines Dokuments, eines `<dialog>`-Elements oder eines Popovers darf dieses Attribut spezifiziert haben. Wenn es auf mehrere Elemente angewendet wird, erhält das erste fokussierbare Element den Fokus.
 
 > [!NOTE]
-> Das Setzen dieser Eigenschaft fokussiert das zugehörige Element nicht: Es teilt dem Browser lediglich mit, dass es fokussiert werden soll, _wenn das Element in das Dokument eingefügt wird_. Das Setzen nach der Einfügung, das ist meistens nach dem Laden des Dokuments, hat keine sichtbare Wirkung.
+> Das Setzen dieser Eigenschaft setzt den Fokus nicht auf das zugehörige Element: Es weist den Browser lediglich an, den Fokus darauf zu setzen, wenn _das Element in das Dokument eingefügt ist_. Das Setzen nach der Einfügung, also meistens nach dem Laden des Dokuments, hat keine sichtbare Auswirkung.
 
 ## Wert
 

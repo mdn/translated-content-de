@@ -3,20 +3,20 @@ title: Firefox 148 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 148 (Beta)
 slug: Mozilla/Firefox/Releases/148
 l10n:
-  sourceCommit: fa422ef89f5da5c7bc10a03f8e84b01b8132061c
+  sourceCommit: 87412005ccbbd7a871e75c455e457254a456ac39
 ---
 
-Dieser Artikel enthält Informationen über die Änderungen in Firefox 148, die Entwickler betreffen.
-Firefox 148 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [24. Februar 2026](https://whattrainisitnow.com/release/?version=148) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 148, die Entwickler betreffen.
+Firefox 148 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und erscheint am [24. Februar 2026](https://whattrainisitnow.com/release/?version=148).
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen bei allen Überschriften, zu denen Sie Hinweise schreiben -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklertools -->
+<!-- ### Entwickler-Tools -->
 
 <!-- ### HTML -->
 
@@ -50,7 +50,10 @@ Firefox 148 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- #### Entfernungen -->
 
-<!-- ### APIs -->
+### APIs
+
+- Die Eigenschaft [`Location.ancestorOrigins`](/de/docs/Web/API/Location/ancestorOrigins) wird jetzt unterstützt, was es ermöglicht zu bestimmen, ob ein Dokument in einem {{htmlelement("iframe")}} eingebettet wird und, falls ja, von welcher(n) Seite(n).
+  ([Firefox Bug 1085214](https://bugzil.la/1085214)).
 
 <!-- #### DOM -->
 
@@ -74,10 +77,10 @@ Firefox 148 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- ### Entfernungen -->
 
-<!-- ### Sonstiges -->
+<!-- ### Andere -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
 Diese Funktionen sind in Firefox 148 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
-Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Um sie auszuprobieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features)-Seite.
