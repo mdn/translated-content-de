@@ -2,10 +2,12 @@
 title: AggregateError
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 1d2e1875bdfdd2fb8d0806535220bbd56d3a091d
 ---
 
-Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in einem einzelnen Fehler zusammengefasst werden müssen. Es wird ausgelöst, wenn mehrere Fehler bei einer Operation gemeldet werden müssen, zum Beispiel durch {{jsxref("Promise.any()")}}, wenn alle übergebenen `Promise`-Objekte abgelehnt werden.
+Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in einem einzigen Fehler zusammengefasst werden müssen. Es wird ausgelöst, wenn mehrere Fehler von einer Operation gemeldet werden müssen, zum Beispiel durch {{jsxref("Promise.any()")}}, wenn alle an sie übergebenen Versprechen abgelehnt werden.
+
+Im Vergleich zu {{jsxref("SuppressedError")}} repräsentiert `AggregateError` eine Liste von nicht zusammenhängenden Fehlern, während `SuppressedError` einen Fehler darstellt, der während der Behandlung eines anderen Fehlers auftrat.
 
 `AggregateError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -16,23 +18,23 @@ Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in 
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("Error")}}_.
 
 Diese Eigenschaften sind auf `AggregateError.prototype` definiert und werden von allen `AggregateError`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "AggregateError.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `AggregateError`-Instanzen ist der Anfangswert der {{jsxref("AggregateError/AggregateError", "AggregateError")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `AggregateError`-Instanzen ist der Anfangswert der {{jsxref("AggregateError/AggregateError", "AggregateError")}}-Konstruktor.
 - {{jsxref("Error/name", "AggregateError.prototype.name")}}
-  - : Repräsentiert den Namen für die Art des Fehlers. Bei `AggregateError.prototype.name` ist der Anfangswert `"AggregateError"`.
+  - : Repräsentiert den Namen des Fehlertyps. Für `AggregateError.prototype.name` ist der Anfangswert `"AggregateError"`.
 
-Diese Eigenschaften sind die eigenen Eigenschaften jeder `AggregateError`-Instanz.
+Diese Eigenschaften sind eigenständige Eigenschaften jeder `AggregateError`-Instanz.
 
 - {{jsxref("AggregateError/errors", "errors")}}
-  - : Ein Array, das die aggregierten Fehler repräsentiert.
+  - : Ein Array, das die aggregierten Fehler darstellt.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("Error")}}_.
+_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("Error")}}_.
 
 ## Beispiele
 

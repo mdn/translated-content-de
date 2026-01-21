@@ -3,12 +3,12 @@ title: WeakMap.prototype.getOrInsert()
 short-title: getOrInsert()
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap/getOrInsert
 l10n:
-  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
+  sourceCommit: d1860e2fa9f48a5e6393282f9bb08e6895220db2
 ---
 
-Die **`getOrInsert()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `WeakMap` entspricht. Ist der Schlüssel nicht vorhanden, fügt sie einen neuen Eintrag mit dem Schlüssel und einem angegebenen Standardwert ein und gibt den eingefügten Wert zurück.
+Die **`getOrInsert()`**-Methode von {{jsxref("WeakMap")}}-Instanzen gibt den Wert zurück, der dem angegebenen Schlüssel in diesem `WeakMap` entspricht. Wenn der Schlüssel nicht vorhanden ist, fügt sie einen neuen Eintrag mit dem Schlüssel und einem gegebenen Standardwert hinzu und gibt den eingefügten Wert zurück.
 
-Wenn die Berechnung des Standardwertes teuer ist, sollten Sie überlegen, stattdessen {{jsxref("WeakMap.prototype.getOrInsertComputed()")}} zu verwenden, das einen Rückruf akzeptiert, um den Standardwert nur dann zu berechnen, wenn er tatsächlich benötigt wird.
+Wenn die Berechnung des Standardwerts aufwendig ist, sollten Sie stattdessen {{jsxref("WeakMap.prototype.getOrInsertComputed()")}} verwenden, die einen Rückruf nimmt, um den Standardwert nur dann zu berechnen, wenn er tatsächlich benötigt wird.
 
 {{InteractiveExample("JavaScript Demo: WeakMap.prototype.getOrInsert()")}}
 
@@ -30,18 +30,18 @@ getOrInsert(key, defaultValue)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Wertes, der aus dem `WeakMap` Objekt zurückgegeben werden soll. Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Objekt-Schlüssel werden durch {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
+  - : Der Schlüssel des Wertes, der aus dem `WeakMap`-Objekt zurückgegeben wird. Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Objektschlüssel werden nach {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
 - `defaultValue`
-  - : Der Wert, der eingefügt und zurückgegeben wird, wenn der Schlüssel im `WeakMap` Objekt nicht bereits vorhanden ist.
+  - : Der Wert, der eingefügt und zurückgegeben wird, wenn der Schlüssel im `WeakMap`-Objekt noch nicht vorhanden ist.
 
 ### Rückgabewert
 
-Der Wert, der mit dem angegebenen Schlüssel im `WeakMap` Objekt verknüpft ist. Wenn der Schlüssel nicht gefunden werden kann, wird {{jsxref("undefined")}} zurückgegeben.
+Der mit dem angegebenen Schlüssel im `WeakMap`-Objekt verknüpfte Wert. Wenn der Schlüssel nicht gefunden werden kann, wird `defaultValue` eingefügt und zurückgegeben.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `key` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+  - : Wird ausgelöst, wenn `key` weder ein Objekt noch ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
