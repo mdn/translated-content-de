@@ -2,19 +2,19 @@
 title: Zeichnen von Grafiken
 slug: Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Client-side_APIs/Video_and_audio_APIs", "Learn_web_development/Extensions/Client-side_APIs/Client-side_storage", "Learn_web_development/Extensions/Client-side_APIs")}}
 
-Der Browser enthält einige sehr leistungsstarke Grafik-Programmierwerkzeuge, von der Scalable Vector Graphics ([SVG](/de/docs/Web/SVG)) Sprache bis hin zu APIs zum Zeichnen auf HTML-{{htmlelement("canvas")}}-Elementen (siehe [Die Canvas API](/de/docs/Web/API/Canvas_API) und [WebGL](/de/docs/Web/API/WebGL_API)). Dieser Artikel bietet eine Einführung in Canvas und weitere Ressourcen, um Ihnen zu ermöglichen, mehr zu lernen.
+Der Browser enthält einige sehr leistungsstarke Grafikprogrammierungstools, von der Scalable Vector Graphics ([SVG](/de/docs/Web/SVG)) Sprache bis hin zu APIs zum Zeichnen auf HTML-{{htmlelement("canvas")}}-Elementen (siehe [The Canvas API](/de/docs/Web/API/Canvas_API) und [WebGL](/de/docs/Web/API/WebGL_API)). Dieser Artikel bietet eine Einführung in Canvas und weiterführende Ressourcen, die es Ihnen ermöglichen, mehr darüber zu erfahren.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">JavaScript-Objektgrundlagen</a> und Kern-APIs wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
+        Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>, insbesondere <a href="/de/docs/Learn_web_development/Core/Scripting/Object_basics">Grundlagen von JavaScript-Objekten</a> und grundlegende API-Kenntnisse wie <a href="/de/docs/Learn_web_development/Core/Scripting/DOM_scripting">DOM-Scripting</a> und <a href="/de/docs/Learn_web_development/Core/Scripting/Network_requests">Netzwerkanfragen</a>.
       </td>
     </tr>
     <tr>
@@ -22,8 +22,8 @@ Der Browser enthält einige sehr leistungsstarke Grafik-Programmierwerkzeuge, vo
       <td>
         <ul>
           <li>Die Konzepte und Anwendungsfälle, die durch die in dieser Lektion behandelten APIs ermöglicht werden.</li>
-          <li>Grundlegende Syntax und Verwendung von <code>&lt;canvas&gt;</code> und zugehörigen APIs.</li>
-          <li>Verwenden von Timern und <code>requestAnimationFrame()</code>, um Animationsschleifen einzurichten.</li>
+          <li>Grundsyntax und Verwendung von <code>&lt;canvas&gt;</code> und zugehörigen APIs.</li>
+          <li>Verwendung von Timern und <code>requestAnimationFrame()</code>, um Animationsschleifen einzurichten.</li>
         </ul>
       </td>
     </tr>
@@ -32,13 +32,13 @@ Der Browser enthält einige sehr leistungsstarke Grafik-Programmierwerkzeuge, vo
 
 ## Grafiken im Web
 
-Das Web bestand ursprünglich nur aus Text, was sehr langweilig war, daher wurden Bilder eingeführt – zunächst über das {{htmlelement("img")}}-Element und später über CSS-Eigenschaften wie {{cssxref("background-image")}} und [SVG](/de/docs/Web/SVG).
+Das Web bestand ursprünglich nur aus Text, was sehr langweilig war, also wurden Bilder eingeführt — zunächst über das {{htmlelement("img")}}-Element und später über CSS-Eigenschaften wie {{cssxref("background-image")}} und [SVG](/de/docs/Web/SVG).
 
-Doch das war immer noch nicht genug. Während Sie [CSS](/de/docs/Learn_web_development/Core/Styling_basics) und [JavaScript](/de/docs/Learn_web_development/Core/Scripting) verwenden konnten, um SVG-Vektorbilder zu animieren (und anderweitig zu manipulieren) – da sie durch Markup dargestellt werden – gab es immer noch keine Möglichkeit, dasselbe mit Bitmap-Bildern zu tun, und die verfügbaren Werkzeuge waren eher begrenzt. Das Web hatte immer noch keine Möglichkeit, effektiv Animationen, Spiele, 3D-Szenen und andere Anforderungen zu erstellen, die in der Regel von niedrigeren Programmiersprachen wie C++ oder Java bewältigt werden.
+Dies war jedoch immer noch nicht genug. Während Sie [CSS](/de/docs/Learn_web_development/Core/Styling_basics) und [JavaScript](/de/docs/Learn_web_development/Core/Scripting) verwenden konnten, um SVG-Vektorbilder zu animieren (und auf andere Weise zu manipulieren) — da sie durch Markup dargestellt werden — gab es immer noch keine Möglichkeit, dasselbe für Bitmap-Bilder zu tun, und die verfügbaren Tools waren ziemlich begrenzt. Das Web hatte immer noch keine Möglichkeit, effektiv Animationen, Spiele, 3D-Szenen und andere Anforderungen zu erstellen, die üblicherweise von niedrigeren Programmiersprachen wie C++ oder Java bewältigt werden.
 
-Die Situation begann sich zu verbessern, als Browser im Jahr 2004 begonnen haben, das {{htmlelement("canvas")}}-Element und die zugehörige [Canvas API](/de/docs/Web/API/Canvas_API) zu unterstützen. Wie Sie unten sehen werden, bietet das Canvas einige nützliche Werkzeuge zum Erstellen von 2D-Animationen, Spielen, Datenvisualisierungen und anderen Arten von Anwendungen, insbesondere in Kombination mit einigen der anderen APIs, die die Webplattform bereitstellt. Dennoch kann es schwierig oder gar unmöglich sein, es zugänglich zu machen.
+Die Situation begann sich zu verbessern, als Browser im Jahr 2004 begannen, das {{htmlelement("canvas")}}-Element und die zugehörige [Canvas-API](/de/docs/Web/API/Canvas_API) zu unterstützen. Wie Sie weiter unten sehen werden, bietet Canvas einige nützliche Werkzeuge zur Erstellung von 2D-Animationen, Spielen, Datenvisualisierungen und anderen Arten von Anwendungen, insbesondere in Kombination mit einigen der anderen APIs, die die Webplattform bietet, jedoch kann es schwierig oder unmöglich sein, sie barrierefrei zu gestalten.
 
-Das folgende Beispiel zeigt eine einfache 2D-Collisionsball-Animation, die wir ursprünglich in unserem [Einführung in JavaScript-Objekte](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice) Modul kennengelernt haben:
+Das untenstehende Beispiel zeigt eine einfache 2D-Canvas-basierte Bälleanimation, die wir ursprünglich in unserem Modul [Einführung in JavaScript-Objekte](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object_building_practice) kennengelernt haben:
 
 ```html hidden live-sample___bouncing-balls
 <h1>bouncing balls</h1>
@@ -184,21 +184,21 @@ loop();
 
 {{EmbedLiveSample("bouncing-balls", '100%', 500)}}
 
-Um 2006–2007 begann Mozilla mit der Arbeit an einer experimentellen 3D-Canvas-Implementierung. Dies wurde zu [WebGL](/de/docs/Web/API/WebGL_API), gewann an Bedeutung unter Browser-Anbietern und wurde um 2009–2010 standardisiert. WebGL ermöglicht Ihnen, echte 3D-Grafiken in Ihrem Webbrowser zu erstellen.
+Um 2006-2007 begann Mozilla mit der Arbeit an einer experimentellen 3D-Canvas-Implementierung. Dies wurde zu [WebGL](/de/docs/Web/API/WebGL_API), das unter Browseranbietern an Popularität gewann und ungefähr 2009-2010 standardisiert wurde. WebGL ermöglicht das Erstellen echter 3D-Grafiken in Ihrem Webbrowser.
 
-Dieser Artikel wird sich hauptsächlich auf 2D-Canvas konzentrieren, da reiner WebGL-Code sehr komplex ist. Wir werden jedoch zeigen, wie man [eine WebGL-Bibliothek verwendet, um eine 3D-Szene einfacher zu erstellen](#webgl) und Sie können ein Tutorial zu WebGL an anderer Stelle finden — siehe [Erste Schritte mit WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL).
+Dieser Artikel wird sich hauptsächlich auf 2D-Canvas konzentrieren, da roher WebGL-Code sehr komplex ist. Wir werden jedoch zeigen, wie Sie [eine WebGL-Bibliothek verwenden können, um einfacher eine 3D-Szene zu erstellen](#webgl), und Sie finden ein Tutorial, das sich mit rohem WebGL befasst — siehe [Erste Schritte mit WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL).
 
 ## Erste Schritte mit einem `<canvas>`
 
-Wenn Sie eine 2D- _oder_ 3D-Szene auf einer Webseite erstellen möchten, müssen Sie mit einem HTML-{{htmlelement("canvas")}}-Element beginnen. Dieses Element wird verwendet, um den Bereich auf der Seite zu definieren, in den das Bild gezeichnet wird. Das Einbinden des Elements auf der Seite ist ganz einfach:
+Wenn Sie eine 2D- _oder_ 3D-Szene auf einer Webseite erstellen möchten, müssen Sie mit einem HTML-{{htmlelement("canvas")}}-Element beginnen. Dieses Element wird verwendet, um den Bereich auf der Seite zu definieren, in den das Bild gezeichnet wird. Dies ist so einfach wie das Einfügen des Elements auf der Seite:
 
 ```html
 <canvas width="320" height="240"></canvas>
 ```
 
-Dies wird ein Canvas auf der Seite mit einer Größe von 320 mal 240 Pixel erstellen.
+Dadurch wird auf der Seite ein Canvas mit einer Größe von 320 mal 240 Pixeln erstellt.
 
-Sie sollten einige alternative Inhalte innerhalb der `<canvas>`-Tags hinzufügen. Dies sollte den Canvas-Inhalt für Benutzer von Browsern beschreiben, die Canvas nicht unterstützen, oder für Benutzer von Bildschirmlesern.
+Sie sollten einige alternative Inhalte innerhalb der `<canvas>`-Tags platzieren. Dies sollte den Canvas-Inhalt für Benutzer von Browsern beschreiben, die Canvas nicht unterstützen, oder für Benutzer von Bildschirmlesegeräten.
 
 ```html
 <canvas width="320" height="240">
@@ -206,17 +206,17 @@ Sie sollten einige alternative Inhalte innerhalb der `<canvas>`-Tags hinzufügen
 </canvas>
 ```
 
-Der alternative Inhalt sollte nützliche Inhalte bieten, die den Canvas-Inhalt beschreiben. Zum Beispiel, wenn Sie ein sich ständig aktualisierendes Diagramm von Aktienkursen darstellen, könnte der alternative Inhalt ein statisches Bild des neuesten Kursdiagramms mit `alt`-Text sein, der die Preise in Textform angibt, oder eine Liste von Links zu den einzelnen Aktienseiten.
+Der Fallback sollte nützlichen alternativen Inhalt zu den Canvas-Inhalten bieten. Wenn Sie beispielsweise ein ständig aktualisiertes Diagramm von Aktienkursen rendern, könnten die alternativen Inhalte ein statisches Bild des neuesten Aktiencharts sein, mit `alt`-Text, der die Preise in Textform oder eine Liste von Links zu den einzelnen Aktienseiten angibt.
 
 > [!NOTE]
-> Canvas-Inhalt ist für Bildschirmleser nicht zugänglich. Fügen Sie einen beschreibenden Text als Wert des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attributs direkt auf dem Canvas-Element selbst hinzu oder fügen Sie enthaltene alternative Inhalte innerhalb der öffnenden und schließenden `<canvas>`-Tags hinzu. Canvas-Inhalt ist nicht Teil des DOM, aber verschachtelte alternative Inhalte sind es.
+> Canvas-Inhalte sind für Bildschirmleser nicht zugänglich. Fügen Sie beschreibenden Text als Wert des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attributes direkt auf dem Canvas-Element selbst hinzu oder fügen Sie alternative Inhalte ein, die innerhalb der öffnenden und schließenden `<canvas>`-Tags platziert werden. Canvas-Inhalte sind nicht Teil des DOM, aber verschachtelte Fallback-Inhalte sind es.
 
-### Erstellen und Anpassen unseres Canvas
+### Erstellen und Dimensionieren unseres Canvas
 
-Lassen Sie uns beginnen, unsere eigene Canvas-Vorlage zu erstellen, um zukünftige Experimente durchzuführen.
+Beginnen wir damit, unsere eigene Canvas-Vorlage zu erstellen, um zukünftige Experimente darin zu erstellen.
 
-1. Erstellen Sie zuerst ein Verzeichnis auf Ihrer lokalen Festplatte mit dem Namen `canvas-template`.
-2. Erstellen Sie eine neue Datei in diesem Verzeichnis mit dem Namen `index.html` und speichern Sie den folgenden Inhalt darin:
+1. Erstellen Sie zuerst ein Verzeichnis auf Ihrer lokalen Festplatte namens `canvas-template`.
+2. Erstellen Sie eine neue Datei in dem Verzeichnis mit dem Namen `index.html` und speichern Sie den folgenden Inhalt darin:
 
    ```html
    <!doctype html>
@@ -251,7 +251,7 @@ Lassen Sie uns beginnen, unsere eigene Canvas-Vorlage zu erstellen, um zukünfti
    }
    ```
 
-4. Erstellen Sie eine neue Datei im Verzeichnis mit dem Namen `script.js`. Lassen Sie diese Datei vorerst leer.
+4. Erstellen Sie eine neue Datei im Verzeichnis mit dem Namen `script.js`. Diese Datei bleibt vorerst leer.
 
 5. Öffnen Sie nun `script.js` und fügen Sie die folgenden Zeilen JavaScript hinzu:
 
@@ -261,97 +261,97 @@ Lassen Sie uns beginnen, unsere eigene Canvas-Vorlage zu erstellen, um zukünfti
    const height = (canvas.height = window.innerHeight);
    ```
 
-   Hier haben wir eine Referenz auf das Canvas in der `canvas`-Konstanten gespeichert. In der zweiten Zeile setzen wir sowohl eine neue Konstante `width` als auch die `width`-Eigenschaft des Canvas gleich [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) (was uns die Ansichtsfensterbreite gibt). In der dritten Zeile setzen wir sowohl eine neue Konstante `height` als auch die `height`-Eigenschaft des Canvas gleich [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight) (was uns die Ansichtsfensterhöhe gibt). Somit haben wir jetzt ein Canvas, das die gesamte Breite und Höhe des Browserfensters ausfüllt!
+   Hier haben wir eine Referenz auf das Canvas in der Konstante `canvas` gespeichert. In der zweiten Zeile setzen wir sowohl eine neue Konstante `width` als auch die `width`-Eigenschaft des Canvas gleich [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) (die uns die Ansichtsfensterbreite gibt). In der dritten Zeile setzen wir sowohl eine neue Konstante `height` als auch die `height`-Eigenschaft des Canvas gleich [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight) (die uns die Ansichtsfensterhöhe gibt). Jetzt haben wir also ein Canvas, das die gesamte Breite und Höhe des Browserfensters ausfüllt!
 
-   Sie werden auch sehen, dass wir Zuweisungen mit mehreren Gleichheitszeichen verketten – dies ist in JavaScript erlaubt und ist eine gute Technik, wenn Sie mehrere Variablen alle auf denselben Wert setzen möchten. Wir wollten die Canvas-Breite und Höhe einfach zugänglich in den width/height-Variablen machen, da dies nützliche Werte für später sind (zum Beispiel, wenn Sie etwas genau in der Mitte der Breite des Canvas zeichnen möchten).
+   Sie werden auch sehen, dass wir Zuweisungen mit mehreren Gleichheitszeichen miteinander verketten — dies ist in JavaScript erlaubt, und es ist eine gute Technik, wenn Sie mehrere Variablen auf denselben Wert setzen möchten. Wir wollten, dass die Canvas-Breite und -Höhe in den Variablen `width`/`height` leicht zugänglich sind, da es nützliche Werte sind, die später verfügbar sein sollten (zum Beispiel, wenn Sie etwas genau in der Mitte der Canvas-Breite zeichnen möchten).
 
 > [!NOTE]
-> Sie sollten die Größe des Canvas im Allgemeinen mit HTML-Attributen oder DOM-Eigenschaften festlegen, wie oben erklärt. Sie könnten CSS verwenden, aber das Problem ist dann, dass die Größenanpassung nach dem Rendern des Canvas erfolgt und wie bei jedem anderen Bild könnte das Canvas pixelig/verzerrt werden.
+> Sie sollten die Größe des Canvas in der Regel mithilfe von HTML-Attributen oder DOM-Eigenschaften festlegen, wie oben erklärt. Sie könnten CSS verwenden, aber das Problem ist dann, dass die Größenanpassung nach dem Rendern des Canvas erfolgt und wie bei jedem anderen Bild könnte das Canvas pixelig/verzerrt werden.
 
-### Den Canvas-Kontext abrufen und endgültige Einstellungen
+### Abrufen des Canvas-Kontexts und abschließendes Setup
 
-Wir müssen eine letzte Sache erledigen, bevor wir unsere Canvas-Vorlage als abgeschlossen betrachten können. Um auf das Canvas zu zeichnen, müssen wir eine spezielle Referenz auf den Zeichenbereich, den sogenannten Kontext, erhalten. Dies geschieht mit der Methode [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext), die für die grundlegende Verwendung eine einzelne Zeichenkette als Parameter benötigt, die den Typ des abgerufenen Kontexts angibt.
+Wir müssen eine letzte Sache erledigen, bevor wir unsere Canvas-Vorlage als fertig betrachten können. Um auf dem Canvas zu zeichnen, müssen wir eine spezielle Referenz auf den Zeichenbereich namens Kontext abrufen. Dies wird mithilfe der Methode [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) erledigt, die für die grundlegende Verwendung einen einzelnen Zeichenfolgenparameter benötigt, der den Typ des Kontexts darstellt, den Sie abrufen möchten.
 
-In diesem Fall wollen wir ein 2D-Canvas, also fügen Sie die folgende JavaScript-Zeile unter den anderen in `script.js` hinzu:
+In diesem Fall möchten wir ein 2D-Canvas, also fügen Sie die folgende JavaScript-Zeile unter den anderen in `script.js` hinzu:
 
 ```js live-sample___2-canvas-rectangles live-sample___3_canvas_paths live-sample___4-canvas-text live-sample___5-canvas-images live-sample___6-canvas-for-loop live-sample___7-canvas-walking-animation
 const ctx = canvas.getContext("2d");
 ```
 
 > [!NOTE]
-> Andere kontextbezogene Werte, die Sie wählen könnten, sind `webgl` für WebGL, `webgpu` für WebGPU, usw., aber diese werden wir in diesem Artikel nicht brauchen.
+> Andere Kontextwerte, die Sie wählen könnten, sind `webgl` für WebGL, `webgpu` für WebGPU usw., aber diese werden wir in diesem Artikel nicht benötigen.
 
-Das war's – unser Canvas ist nun bereit zum Zeichnen! Die Variable `ctx` enthält nun ein [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Objekt, und alle Zeichenoperationen auf dem Canvas werden die Manipulation dieses Objekts beinhalten.
+Das war's — unser Canvas ist jetzt bereit für das Zeichnen! Die Variable `ctx` enthält jetzt ein [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Objekt, und alle Zeichenoperationen auf dem Canvas beinhalten die Manipulation dieses Objekts.
 
-Lassen Sie uns eine letzte Sache tun, bevor wir weitermachen. Wir werden den Hintergrund des Canvas schwarz färben, um Ihnen einen ersten Eindruck von der Canvas-API zu geben. Fügen Sie am Ende Ihres JavaScript die folgenden Zeilen hinzu:
+Bevor wir fortfahren, wollen wir noch eine letzte Sache tun. Wir färben den Canvas-Hintergrund schwarz ein, um Ihnen einen ersten Eindruck von der Canvas-API zu vermitteln. Fügen Sie die folgenden Zeilen am Ende Ihres JavaScript-Codes hinzu:
 
 ```js live-sample___2-canvas-rectangles live-sample___3_canvas_paths live-sample___4-canvas-text live-sample___5-canvas-images live-sample___6-canvas-for-loop
 ctx.fillStyle = "black";
 ctx.fillRect(0, 0, width, height);
 ```
 
-Hier setzen wir eine Füllfarbe mit der `fillStyle`-Eigenschaft des Canvas (diese nimmt [Farbwerte](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) an, genau wie CSS-Eigenschaften), und zeichnen dann ein Rechteck, das den gesamten Bereich des Canvas mit der Methode [`fillRect`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) abdeckt (die ersten beiden Parameter sind die Koordinaten der oberen linken Ecke des Rechtecks; die letzten beiden sind die Breite und Höhe, in der Sie das Rechteck zeichnen möchten – wir haben Ihnen gesagt, dass diese `width`- und `height`-Variablen nützlich sein würden!).
+Hier setzen wir eine Füllfarbe mithilfe der [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle)-Eigenschaft des Canvas (dies nimmt [Farbwerte](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) genau wie CSS-Eigenschaften) und zeichnen dann ein Rechteck, das den gesamten Bereich des Canvas mit der Methode [`fillRect`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) abdeckt (die ersten beiden Parameter sind die Koordinaten der oberen linken Ecke des Rechtecks; die letzten beiden sind die Breite und Höhe, die Sie für das gezeichnete Rechteck wünschen — wir sagten ja, dass die Variablen `width` und `height` nützlich sein würden)!
 
-Okay, unsere Vorlage ist fertig und es ist Zeit, weiterzumachen.
+OK, unsere Vorlage ist fertig, und es ist an der Zeit, weiterzugehen.
 
 ## 2D-Canvas-Grundlagen
 
-Wie oben erwähnt, werden alle Zeichenoperationen durch die Manipulation eines [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Objekts durchgeführt (in unserem Fall `ctx`). Viele Operationen müssen Koordinaten erhalten, um genau festzulegen, wo etwas gezeichnet werden soll – die obere linke Ecke des Canvas ist Punkt (0, 0), die horizontale (x) Achse läuft von links nach rechts, und die vertikale (y) Achse läuft von oben nach unten.
+Wie oben erwähnt, werden alle Zeichnungsoperationen durch Manipulation eines [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Objekts (in unserem Fall `ctx`) ausgeführt. Viele Operationen müssen mit Koordinaten versehen werden, um genau festzulegen, wo etwas gezeichnet werden soll — die obere linke Ecke des Canvas ist Punkt (0, 0), die horizontale (x) Achse verläuft von links nach rechts, und die vertikale (y) Achse verläuft von oben nach unten.
 
-![Gitterpapier mit kleinen Quadraten, das seine Fläche mit einem stahlblauen Quadrat in der Mitte bedeckt. Die obere linke Ecke des Canvas ist Punkt (0, 0) der Canvas-x-Achse und y-Achse. Die horizontale (x) Achse verläuft von links nach rechts und gibt die Breite an, und die vertikale (y) Achse verläuft von oben nach unten und gibt die Höhe an. Die obere linke Ecke des blauen Quadrats ist als x-Einheiten von der y-Achse und y-Einheiten von der x-Achse entfernt gekennzeichnet.](/canvas_default_grid.png)
+![Ein kariertes Millimeterpapier mit kleinen Quadraten, die seine Fläche bedecken, mit einem stahlblauen Quadrat in der Mitte. Die obere linke Ecke des Canvas ist Punkt (0, 0) der Canvas-x-Achse und y-Achse. Die horizontale (x) Achse verläuft von links nach rechts und bezeichnet die Breite, und die vertikale (y) Achse verläuft von oben nach unten und bezeichnet die Höhe. Die obere linke Ecke des blauen Quadrats ist als x-Einheiten von der y-Achse und y-Einheiten von der x-Achse entfernt bezeichnet.](canvas_default_grid.png)
 
-Das Zeichnen von Formen wird oft mit dem Rechteckautomaten oder durch Nachzeichnen einer Linie entlang eines bestimmten Pfades und anschließendes Ausfüllen der Form durchgeführt. Unten zeigen wir, wie man beides macht.
+Das Zeichnen von Formen wird in der Regel mit dem Rechteck-Formprimitiv oder durch Nachzeichnen einer Linie entlang eines bestimmten Pfades und anschließendem Füllen der Form durchgeführt. Unten zeigen wir, wie beides funktioniert.
 
 ### Einfache Rechtecke
 
 Lassen Sie uns mit einigen einfachen Rechtecken beginnen.
 
-1. Machen Sie zunächst eine Kopie Ihres neu erstellten Canvas-Vorlagenverzeichnisses.
-2. Fügen Sie am Ende Ihrer JavaScript-Datei die folgenden Zeilen hinzu:
+1. Machen Sie zunächst eine Kopie Ihres neu codierten Canvas-Vorlagenverzeichnisses.
+2. Fügen Sie folgende Zeilen am Ende Ihrer JavaScript-Datei hinzu:
 
    ```js live-sample___2-canvas-rectangles
    ctx.fillStyle = "red";
    ctx.fillRect(50, 50, 100, 150);
    ```
 
-   Wenn Sie Ihr HTML im Browser laden, sollte ein rotes Rechteck auf Ihrem Canvas erscheinen. Seine obere linke Ecke ist 50 Pixel von der Oberseite und der linken Seite des Canvas-Randes entfernt (wie durch die ersten beiden Parameter definiert), und es ist 100 Pixel breit und 150 Pixel hoch (wie durch die dritten und vierten Parameter definiert).
+   Wenn Sie Ihr HTML im Browser laden, sollte ein rotes Rechteck auf Ihrem Canvas erscheinen. Die obere linke Ecke ist 50 Pixel vom oberen und linken Rand des Canvas entfernt (wie durch die ersten beiden Parameter definiert), und es ist 100 Pixel breit und 150 Pixel hoch (wie durch die dritten und vierten Parameter definiert).
 
-3. Lassen Sie uns noch ein Rechteck hinzufügen – diesmal ein grünes. Fügen Sie am Ende Ihres JavaScript die folgenden Zeilen hinzu:
+3. Lassen Sie uns ein weiteres Rechteck hinzufügen — diesmal ein grünes. Fügen Sie das folgende am Ende Ihres JavaScript-Codes hinzu:
 
    ```js live-sample___2-canvas-rectangles
    ctx.fillStyle = "green";
    ctx.fillRect(75, 75, 100, 100);
    ```
 
-   Speichern und aktualisieren Sie, und Sie werden Ihr neues Rechteck sehen. Dies bringt einen wichtigen Punkt zur Sprache: Grafikoperationen wie das Zeichnen von Rechtecken, Linien usw. werden in der Reihenfolge ausgeführt, in der sie auftreten. Denken Sie an das Malen einer Wand, bei der jede Farbschicht die darunter liegende überlappt oder sogar verbirgt. Sie können nichts tun, um dies zu ändern, daher müssen Sie sorgfältig über die Reihenfolge nachdenken, in der Sie die Grafiken zeichnen.
+   Speichern und aktualisieren Sie die Seite, und Sie werden Ihr neues Rechteck sehen. Dies wirft einen wichtigen Punkt auf: Grafische Operationen wie das Zeichnen von Rechtecken, Linien und so weiter werden in der Reihenfolge ausgeführt, in der sie auftreten. Denken Sie daran, dass es wie das Streichen einer Wand ist, bei der jeder Anstrich den darunter liegenden überlappt und ihn möglicherweise verdeckt. Sie können nichts daran ändern, daher müssen Sie sorgfältig über die Reihenfolge nachdenken, in der Sie die Grafiken zeichnen.
 
-4. Beachten Sie, dass Sie halbtransparente Grafiken zeichnen können, indem Sie eine halbtransparente Farbe angeben, z. B. durch die Verwendung von `rgb()`. Der „Alphakanal“ definiert den Grad der Transparenz, den die Farbe hat. Je höher der Wert ist, desto mehr wird es das verbergen, was dahinter liegt. Fügen Sie den folgenden Code hinzu:
+4. Beachten Sie, dass Sie halbdurchsichtige Grafiken zeichnen können, indem Sie eine halbdurchsichtige Farbe angeben, zum Beispiel durch die Verwendung von `rgb()`. Der "Alpha-Kanal" definiert die Menge an Transparenz, die die Farbe hat. Je höher der Wert, desto mehr verdeckt sie das, was sich dahinter befindet. Fügen Sie folgendes zu Ihrem Code hinzu:
 
    ```js live-sample___2-canvas-rectangles
    ctx.fillStyle = "rgb(255 0 255 / 75%)";
    ctx.fillRect(25, 100, 175, 50);
    ```
 
-5. Versuchen Sie nun, einige weitere Rechtecke zu zeichnen; viel Spaß dabei!
+5. Versuchen Sie nun, einige eigene Rechtecke zu zeichnen; haben Sie Spaß dabei!
 
-### Umrisse und Linienbreiten
+### Striche und Linienbreiten
 
-Bisher haben wir uns das Zeichnen von ausgefüllten Rechtecken angesehen, aber Sie können auch Rechtecke zeichnen, die nur Umrisse sind (in der Grafikdesignsprache als **Umrisse** bezeichnet). Um die gewünschte Farbe für den Umriss festzulegen, verwenden Sie die [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle)-Eigenschaft; das Zeichnen eines Umrissrechtecks erfolgt mit [`strokeRect`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect).
+Bisher haben wir uns das Zeichnen von gefüllten Rechtecken angesehen, aber Sie können auch Rechtecke zeichnen, die nur Umrandungen (im Grafikdesign als **Striche** bezeichnet) sind. Um die gewünschte Farbe für Ihren Strich einzustellen, verwenden Sie die [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle)-Eigenschaft; das Zeichnen eines Strichrechtecks erfolgt mit [`strokeRect`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect).
 
-1. Fügen Sie das folgende Beispiel zu dem vorherigen Beispiel hinzu, erneut unter den vorherigen JavaScript-Zeilen:
+1. Fügen Sie das folgende der vorherigen Beispielcode-Datei hinzu, wiederum unter den vorhandenen JavaScript-Zeilen:
 
    ```js
    ctx.strokeStyle = "white";
    ctx.strokeRect(25, 25, 175, 200);
    ```
 
-2. Die Standardbreite von Umrisslinien beträgt 1 Pixel; Sie können den Wert der [`lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)-Eigenschaft ändern, um dies zu ändern (er nimmt eine Zahl an, die die Anzahl der Pixel darstellt, die die Breite des Umrisses ist). Fügen Sie die folgende Zeile zwischen den vorherigen beiden Zeilen hinzu:
+2. Die Standardbreite von Strichen beträgt 1 Pixel; Sie können den Wert der [`lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)-Eigenschaft anpassen, um dies zu ändern (es nimmt eine Zahl an, die die Anzahl der Pixel darstellt, die der Strich breit ist). Fügen Sie die folgende Zeile zwischen den vorherigen beiden Zeilen hinzu:
 
    ```js
    ctx.lineWidth = 5;
    ```
 
-Jetzt sollten Sie sehen, dass Ihr weißer Umriss viel dicker geworden ist! Das war es für den Moment. Zu diesem Zeitpunkt sollte Ihr Beispiel so aussehen:
+Jetzt sollten Sie sehen, dass Ihre weiße Umrandung viel dicker geworden ist! Das war's fürs Erste. An diesem Punkt sollte Ihr Beispiel so aussehen:
 
 ```js hidden live-sample___2-canvas-rectangles
 ctx.strokeStyle = "white";
@@ -361,23 +361,23 @@ ctx.strokeRect(25, 25, 175, 200);
 
 {{EmbedLiveSample("2-canvas-rectangles", '100%', 250)}}
 
-Sie können die **Wiedergabe**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
+Sie können die **Play**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
 
-### Pfade zeichnen
+### Zeichnen von Pfaden
 
-Wenn Sie etwas Komplexeres als ein Rechteck zeichnen möchten, müssen Sie einen Pfad zeichnen. Grundsätzlich bedeutet dies, dass Sie Code schreiben müssen, der genau angibt, welchen Pfad der Stift auf Ihrem Canvas gehen soll, um die gewünschte Form zu zeichnen. Canvas enthält Funktionen zum Zeichnen von geraden Linien, Kreisen, Bézierkurven und mehr.
+Wenn Sie etwas Komplexeres als ein Rechteck zeichnen möchten, müssen Sie einen Pfad zeichnen. Im Wesentlichen bedeutet dies, Code zu schreiben, um genau festzulegen, auf welchem Pfad der Stift auf Ihrem Canvas entlanglaufen soll, um die gewünschte Form zu zeichnen. Canvas enthält Funktionen zum Zeichnen von geraden Linien, Kreisen, Bézier-Kurven und mehr.
 
-Beginnen Sie den Abschnitt, indem Sie eine frische Kopie Ihrer Canvas-Vorlage erstellen, in der Sie das neue Beispiel zeichnen.
+Starten Sie den Abschnitt, indem Sie eine frische Kopie Ihrer Canvas-Vorlage erstellen, in die Sie das neue Beispiel zeichnen können.
 
-Wir verwenden einige allgemeine Methoden und Eigenschaften über alle unten aufgeführten Abschnitte hinweg:
+Wir verwenden einige gängige Methoden und Eigenschaften in allen untenstehenden Abschnitten:
 
-- [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) — beginnt das Zeichnen eines Pfades an dem Punkt, an dem der Stift derzeit auf dem Canvas ist. Auf einem neuen Canvas beginnt der Stift bei (0, 0).
-- [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) — verschiebt den Stift auf einen anderen Punkt auf dem Canvas, ohne die Linie aufzuzeichnen oder nachzuzeichnen; der Stift „springt“ an die neue Position.
-- [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) — zeichnet eine ausgefüllte Form, indem der bisher verfolgte Pfad ausgefüllt wird.
-- [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) — zeichnet eine Umrissform, indem entlang des bisher gezeichneten Pfades eine Linie gezeichnet wird.
-- Sie können auch Funktionen wie `lineWidth` und `fillStyle`/`strokeStyle` mit Pfaden sowie Rechtecken verwenden.
+- [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) — Beginnen Sie einen Pfad an dem Punkt zu zeichnen, an dem sich der Stift derzeit auf dem Canvas befindet. Auf einem neuen Canvas beginnt der Stift bei (0, 0).
+- [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) — Bewegen Sie den Stift an einen anderen Punkt auf dem Canvas, ohne die Linie zu protokollieren oder nachzuziehen; der Stift "springt" zur neuen Position.
+- [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) — Zeichnet eine gefüllte Form, indem der bisher nachgezeichnete Pfad gefüllt wird.
+- [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) — Zeichnet eine Umrissform, indem ein Strich entlang des bisher gezeichneten Pfades gezeichnet wird.
+- Sie können auch Funktionen wie `lineWidth` und `fillStyle`/`strokeStyle` sowohl bei Pfaden als auch bei Rechtecken verwenden.
 
-Eine typische, einfache Pfad-Zeichenoperation könnte etwa so aussehen:
+Ein typischer, einfacher Pfad-Zeichenvorgang würde ungefähr so aussehen:
 
 ```js
 ctx.fillStyle = "red";
@@ -391,7 +391,7 @@ ctx.fill();
 
 Lassen Sie uns ein gleichseitiges Dreieck auf dem Canvas zeichnen.
 
-1. Fügen Sie zunächst die folgende Hilfsfunktion am Ende Ihres Codes hinzu. Dies konvertiert Gradwerte in Bogenmaß, was nützlich ist, da wann immer Sie in JavaScript einen Winkelwert angeben müssen, wird es fast immer im Bogenmaß sein, aber Menschen normalerweise in Grad denken.
+1. Fügen Sie zunächst die folgende Hilfsfunktion am Ende Ihres Codes hinzu. Diese konvertiert Gradwerte in Radianten, was nützlich ist, da immer, wenn Sie in JavaScript einen Winkelwert angeben müssen, dieser fast immer in Radianten sein wird, Menschen aber normalerweise in Grad denken.
 
    ```js live-sample___3_canvas_paths
    function degToRad(degrees) {
@@ -399,7 +399,7 @@ Lassen Sie uns ein gleichseitiges Dreieck auf dem Canvas zeichnen.
    }
    ```
 
-2. Beginnen Sie als nächstes mit Ihrem Pfad, indem Sie den folgenden Code unter Ihrem vorherigen Code hinzufügen; hier setzen wir eine Farbe für unser Dreieck, beginnen den Pfad und verschieben den Stift ohne Zeichnung auf (50, 50). Da beginnen wir, unser Dreieck zu zeichnen.
+2. Als nächstes beginnen Sie Ihren Pfad, indem Sie das folgende unter Ihrer vorherigen Ergänzung hinzufügen; hier setzen wir eine Farbe für unser Dreieck, beginnen einen Pfad zu zeichnen und bewegen den Stift dann zu (50, 50), ohne etwas zu zeichnen. Dort beginnen wir, unser Dreieck zu zeichnen.
 
    ```js live-sample___3_canvas_paths
    ctx.fillStyle = "red";
@@ -417,28 +417,28 @@ Lassen Sie uns ein gleichseitiges Dreieck auf dem Canvas zeichnen.
    ctx.fill();
    ```
 
-   Gehen wir dies der Reihe nach durch:
+   Gehen wir das in der Reihenfolge durch:
 
-   Zuerst zeichnen wir eine Linie bis (150, 50) – unser Pfad verläuft nun 100 Pixel nach rechts entlang der x-Achse.
+   Zuerst zeichnen wir eine Linie bis zu (150, 50) — unser Pfad verläuft jetzt 100 Pixel parallel zur x-Achse.
 
-   Zweitens berechnen wir die Höhe unseres gleichseitigen Dreiecks, indem wir ein wenig einfache Trigonometrie anwenden. Grundsätzlich zeichnen wir das Dreieck nach unten weisend. Die Winkel in einem gleichseitigen Dreieck sind immer 60 Grad; um die Höhe zu berechnen, können wir es in der Mitte in zwei rechtwinklige Dreiecke teilen, von denen jedes Winkel von 90 Grad, 60 Grad und 30 Grad hat. In Bezug auf die Seiten:
-   - Die längste Seite wird als **Hypotenuse** bezeichnet.
-   - Die Seite neben dem 60-Grad-Winkel wird als **Anliegende** bezeichnet – die wir, wie wir wissen, 50 Pixel beträgt, da sie die Hälfte der Linie ist, die wir gerade gezeichnet haben.
-   - Die gegenüberliegende Seite des 60-Grad-Winkels wird als **Gegenkathete** bezeichnet, die die Höhe des Dreiecks ist, die wir berechnen möchten.
+   Zweitens berechnen wir die Höhe unseres gleichseitigen Dreiecks mit etwas einfacher Trigonometrie. Im Grunde zeichnen wir das Dreieck nach unten zeigen. Die Winkel in einem gleichseitigen Dreieck sind immer 60 Grad; um die Höhe zu berechnen, können wir es in der Mitte in zwei rechtwinklige Dreiecke teilen, die jeweils Winkel von 90 Grad, 60 Grad und 30 Grad haben. In Bezug auf die Seiten:
+   - Die längste Seite wird als **Hypotenuse** bezeichnet
+   - Die Seite neben dem 60-Grad-Winkel wird als **Ankathete** bezeichnet — die wir wissen, ist 50 Pixel, da sie die Hälfte der gerade gezeichneten Linie ist.
+   - Die Seite gegenüber dem 60-Grad-Winkel wird als **Gegenkathete** bezeichnet, was die Höhe des Dreiecks ist, die wir berechnen möchten.
 
-   ![Ein gleichseitiges Dreieck, das nach unten zeigt, mit beschrifteten Winkeln und Seiten. Die horizontale Linie oben ist als 'Anliegende' beschriftet. Eine senkrechte gepunktete Linie, die aus der Mitte der angrenzenden Linie von dieser, als 'Gegenkathete' beschriftet, teilt das Dreieck, wodurch zwei gleiche Rechtwinkligedikdreiecke entstehen. Die rechte Seite des Dreiecks ist als Hypotenuse bezeichnet, da sie die Hypotenuse des rechtwinkligen Dreiecks ist, das durch die Linie mit der Bezeichnung 'Gegenkathete' gebildet wird. Während alle drei Seiten des Dreiecks gleich lang sind, ist die Hypotenuse die längste Seite des Rechtwinkligedikdreiecks.](trigonometry.png)
+   ![Ein gleichseitiges Dreieck, das nach unten zeigt, mit markierten Winkeln und Seiten. Die horizontale Linie oben ist als 'Ankathete' beschriftet. Eine senkrechte punktierte Linie, beginnend von der Mitte der Ankathete, bezeichnet als 'Gegenkathete', teilt das Dreieck und bildet zwei gleiche rechtwinklige Dreiecke. Die rechte Seite des Dreiecks ist als Hypotenuse beschriftet, da es die Hypotenuse des rechtwinkligen Dreiecks ist, das durch die Linie mit der Bezeichnung 'Gegenkathete' gebildet wird. Obwohl alle drei Seiten des Dreiecks die gleiche Länge haben, ist die Hypotenuse die längste Seite des rechtwinkligen Dreiecks.](trigonometry.png)
 
-   Eine der grundlegenden trigonometrischen Formeln besagt, dass die Länge der Anliegende multipliziert mit dem Tangens des Winkels der Gegenkathete gleich ist, daher kommen wir zu `50 * Math.tan(degToRad(60))`. Wir verwenden unsere `degToRad()`-Funktion, um 60 Grad in Bogenmaß zu konvertieren, da {{jsxref("Math.tan()")}} einen Eingabewert im Bogenmaß erwartet.
+   Eine der grundlegenden trigonometrischen Formeln besagt, dass das Produkt der Ankathete multipliziert mit dem Tangens des Winkels gleich der Gegenkathete ist, daher kommt `50 * Math.tan(degToRad(60))`. Wir verwenden unsere Funktion `degToRad()`, um 60 Grad in Radianten zu konvertieren, da {{jsxref("Math.tan()")}} ein Eingabewert in Radianten erwartet.
 
-4. Mit der berechneten Höhe zeichnen wir eine weitere Linie bis `(100, 50 + triHeight)`. Die X-Koordinate ist einfach; es muss genau zwischen den vorherigen beiden X-Werten liegen. Der Y-Wert hingegen muss 50 plus die Dreieckshöhe betragen, da wir wissen, dass die Oberseite des Dreiecks 50 Pixel vom oberen Rand des Canvas entfernt ist.
-5. Die nächste Linie zeichnet eine Linie zurück zum Ausgangspunkt des Dreiecks.
+4. Mit der berechneten Höhe ziehen wir eine weitere Linie nach `(100, 50 + triHeight)`. Die X-Koordinate ist einfach; sie muss in der Mitte zwischen den vorherigen beiden gesetzten X-Werten liegen. Der Y-Wert hingegen muss 50 plus die Höhe des Dreiecks betragen, da wir wissen, dass die Oberseite des Dreiecks 50 Pixel von der oberen Kante des Canvas entfernt ist.
+5. Die nächste Linie zieht eine Linie zurück zum Ausgangspunkt des Dreiecks.
 6. Zuletzt führen wir `ctx.fill()` aus, um den Pfad zu beenden und die Form auszufüllen.
 
 #### Kreise zeichnen
 
-Lassen Sie uns nun untersuchen, wie man einen Kreis im Canvas zeichnet. Dies erfolgt mit der Methode [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc), die einen Kreis oder Teil eines Kreises an einer bestimmten Stelle zeichnet.
+Betrachten wir nun, wie man einen Kreis auf dem Canvas zeichnet. Dies wird mit der Methode [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc) erreicht, die einen ganzen oder einen Teil eines Kreises an einem bestimmten Punkt zeichnet.
 
-1. Lassen Sie uns einen Bogen auf unser Canvas hinzufügen – fügen Sie den untenstehenden Code am Ende Ihres Codes hinzu:
+1. Fügen wir ein Arc zu unserem Canvas hinzu — fügen Sie das folgende am Ende Ihres Codes hinzu:
 
    ```js live-sample___3_canvas_paths
    ctx.fillStyle = "blue";
@@ -447,12 +447,12 @@ Lassen Sie uns nun untersuchen, wie man einen Kreis im Canvas zeichnet. Dies erf
    ctx.fill();
    ```
 
-   `arc()` benötigt sechs Parameter. Die ersten beiden geben die Position des Mittelpunktes des Bogens (X und Y bzw.). Der dritte ist der Radius des Kreises, der vierte und fünfte sind der Anfangs- und Endwinkel, um den Kreis zu zeichnen (angesichts 0 und 360 Grad erhalten wir einen vollständigen Kreis), und der sechste Parameter definiert, ob der Kreis gegen den Uhrzeigersinn (im Uhrzeigersinn) oder im Uhrzeigersinn gezeichnet werden soll (`false` ist im Uhrzeigersinn).
+   `arc()` nimmt sechs Parameter entgegen. Die ersten beiden spezifizieren die Position des Mittelpunkts des Bogens (X und Y, jeweils). Der dritte ist der Radius des Kreises, der vierte und fünfte sind der Start- und der Endwinkel, an dem der Kreis gezeichnet werden soll (also ergibt die Angabe von 0 und 360 Grad einen vollständigen Kreis), und der sechste Parameter definiert, ob der Kreis gegen den Uhrzeigersinn (entgegen der Uhrzeigerrichtung) oder im Uhrzeigersinn gezeichnet werden soll (`false` ist im Uhrzeigersinn).
 
    > [!NOTE]
-   > 0 Grad ist horizontal nach rechts gerichtet.
+   > 0 Grad liegt horizontal nach rechts.
 
-2. Lassen Sie uns einen weiteren Bogen hinzufügen:
+2. Versuchen wir, einen weiteren Bogen hinzuzufügen:
 
    ```js live-sample___3_canvas_paths
    ctx.fillStyle = "yellow";
@@ -462,35 +462,35 @@ Lassen Sie uns nun untersuchen, wie man einen Kreis im Canvas zeichnet. Dies erf
    ctx.fill();
    ```
 
-   Das Muster hier ist sehr ähnlich, aber mit zwei Unterschieden:
-   - Wir haben den letzten Parameter von `arc()` auf `true` gesetzt, was bedeutet, dass der Bogen gegen den Uhrzeigersinn gezeichnet wird, was bedeutet, dass obwohl der Bogen als von -45 Grad bis 45 Grad spezifiziert ist, wir den Bogen über die 270 Grad, die nicht in diesem Stück sind, zeichnen. Wenn Sie `true` in `false` ändern würden und den Code erneut ausführen würden, würde nur der 90-Grad-Keil des Kreises gezeichnet.
-   - Bevor wir `fill()` nennen, zeichnen wir eine Linie zum Mittelpunkt des Kreises. Dies bedeutet, dass wir den ziemlich schönen Pac-Man-Stil-Ausschnitt erhalten. Wenn Sie diese Zeile entfernen (versuchen Sie es!), dann den Code erneut ausführen, würden Sie nur eine Kante des Kreises zwischen dem Anfang und dem Endpunkt des Bogens abschneiden. Dies veranschaulicht einen weiteren wichtigen Punkt des Canvas – wenn Sie versuchen, einen unvollständigen Pfad zu füllen (d.h. einen Pfad, der nicht geschlossen ist), füllt der Browser eine gerade Linie zwischen dem Anfangs- und Endpunkt und füllt ihn dann aus.
+   Das Muster hier ist sehr ähnlich, allerdings mit zwei Unterschieden:
+   - Wir haben den letzten Parameter von `arc()` auf `true` gesetzt, was bedeutet, dass der Bogen gegen den Uhrzeigersinn gezeichnet wird, was bedeutet, dass selbst wenn der Bogen als Start bei -45 Grad und Ende bei 45 Grad angegeben ist, wir den Bogen um die 270 Grad zeichnen, die nicht innerhalb dieses Abschnitts liegen. Wenn Sie `true` in `false` ändern würden und dann den Code erneut ausführen würden, würde nur der 90-Grad-Schnitt des Kreises gezeichnet werden.
+   - Bevor Sie `fill()` aufrufen, zeichnen Sie eine Linie zum Mittelpunkt des Kreises. Das bedeutet, dass wir den ziemlich netten Pac-Man-artigen Ausschnitt gerendert bekommen. Wenn Sie diese Linie entfernen (probieren Sie es aus!) und den Code erneut ausführen würden, würden Sie nur einen Rand des Kreises abgeschnitten zwischen dem Start- und Endpunkt des Bogens bekommen. Dies veranschaulicht einen anderen wichtigen Punkt der Canvas — wenn Sie versuchen, einen unvollständigen Pfad zu füllen (d.h. einen, der nicht geschlossen ist), füllt der Browser eine gerade Linie zwischen dem Start- und Endpunkt aus und füllt ihn dann aus.
 
-Das war's fürs Erste; Ihr endgültiges Beispiel sollte folgendermaßen aussehen:
+Das war's fürs Erste; Ihr endgültiges Beispiel sollte so aussehen:
 
 {{EmbedLiveSample("3_canvas_paths", '100%', 200)}}
 
-Sie können die **Wiedergabe**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
+Sie können die **Play**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
 
 > [!NOTE]
-> Um mehr über erweiterte Pfadzeichnungsfunktionen wie Bézierkurven zu erfahren, schauen Sie sich unser [Zeichnen von Formen mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes)-Tutorial an.
+> Um mehr über fortgeschrittene Pfadzeichenfunktionen wie Bézier-Kurven zu erfahren, schauen Sie sich unser [Zeichnen von Formen mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes)-Tutorial an.
 
 ### Text
 
-Canvas hat auch Funktionen zum Zeichnen von Text. Lassen Sie uns diese kurz erkunden. Beginnen Sie, indem Sie eine weitere frische Kopie Ihrer Canvas-Vorlage erstellen, in der Sie das neue Beispiel zeichnen.
+Canvas verfügt auch über Funktionen zum Zeichnen von Text. Lassen Sie uns diese kurz erkunden. Machen Sie eine weitere frische Kopie Ihrer Canvas-Vorlage, um das neue Beispiel darin zu zeichnen.
 
 Text wird mit zwei Methoden gezeichnet:
 
-- [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText) — zeichnet gefüllten Text.
-- [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) — zeichnet Textkonturen (Umriss).
+- [`fillText()`](/de/docs/Web/API/CanvasRenderingContext2D/fillText) — Zeichnet gefüllten Text.
+- [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) — Zeichnet umrandeten (Strich) Text.
 
-Beide Methoden nehmen drei Eigenschaften in ihrer Grundverwendung: die zu zeichnende Textzeichenfolge und die X- und Y-Koordinaten des Punktes, an dem der Text gezeichnet werden soll. Dies zeigt sich als die **untere linke** Ecke des **Textfeldes** (wörtlich, das Feld, das den von Ihnen gezeichneten Text umgibt), was Sie verwirren könnte, da andere Grafikoperationen normalerweise an der oberen linken Ecke beginnen – beachten Sie dies.
+Beide nehmen in ihrer Grundverwendung drei Eigenschaften an: die Textzeichenfolge, die gezeichnet werden soll, und die X- und Y-Koordinaten des Punktes, an dem der Text gezeichnet werden soll. Dies ergibt sich als **untere linke Ecke** der **Textbox** (buchstäblich, die Box, die den Text umgibt, den Sie zeichnen), was Sie verwirren könnte, da andere Zeichenoperationen normalerweise an der oberen linken Ecke beginnen — beachten Sie dies.
 
-Es gibt auch eine Reihe von Eigenschaften, um die Textdarstellung zu steuern, wie z. B. [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), welches ermöglicht, Schriftfamilie, Größe usw. anzugeben. Es nimmt als Wert die gleiche Syntax wie die CSS-{{cssxref("font")}}-Eigenschaft.
+Es gibt auch eine Reihe von Eigenschaften, um die Textrendering zu steuern, z. B. [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font), mit der Sie Schriftfamilie, Größe usw. angeben können. Sie nimmt als Wert die gleiche Syntax wie die CSS-{{cssxref("font")}}-Eigenschaft an.
 
-Canvas-Inhalt ist für Bildschirmleser nicht zugänglich. Text, der auf das Canvas gemalt wird, ist nicht im DOM verfügbar, muss jedoch zugänglich gemacht werden, um barrierefrei zu sein. In diesem Beispiel binden wir den Text als Wert für `aria-label` ein.
+Canvas-Inhalte sind für Bildschirmleser nicht zugänglich. Text, der auf dem Canvas gemalt wird, ist nicht im DOM vorhanden, muss jedoch zugänglich gemacht werden, um zugänglich zu sein. In diesem Beispiel fügen wir den Text als Wert für `aria-label` hinzu.
 
-Versuchen Sie, den folgenden Block am Ende Ihres JavaScript hinzuzufügen:
+Versuchen Sie, den folgenden Block am Ende Ihres JavaScript-Codes hinzuzufügen:
 
 ```js live-sample___4-canvas-text
 ctx.strokeStyle = "white";
@@ -505,21 +505,21 @@ ctx.fillText("Canvas text", 50, 150);
 canvas.setAttribute("aria-label", "Canvas text");
 ```
 
-Hier zeichnen wir zwei Textzeilen, eine Umrisslinie und die andere gefüllt. Das Beispiel sollte so aussehen:
+Hier zeichnen wir zwei Textzeilen, eine Umrandung und die andere mit Strich. Das Beispiel sollte so aussehen:
 
 {{EmbedLiveSample("4-canvas-text", '100%', 180)}}
 
-Drücken Sie die **Wiedergabe**-Taste, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten. Spielen Sie ein wenig und sehen Sie, was Sie damit machen können! Weitere Informationen zu den in Canvas-Text verfügbaren Optionen finden Sie unter [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text).
+Drücken Sie den **Play**-Knopf, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten. Probieren Sie es aus und sehen Sie, was Sie sich einfallen lassen können! Weitere Informationen zu den für Canvas-Text verfügbaren Optionen finden Sie unter [Zeichnen von Text](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text).
 
 ### Bilder auf Canvas zeichnen
 
-Es ist möglich, externe Bilder auf Ihr Canvas zu rendern. Diese können einfache Bilder, Frames von Videos oder Inhalte anderer Canvas sein. Für den Moment werden wir uns nur den Fall ansehen, einige einfache Bilder auf unseren Canvas zu verwenden.
+Es ist möglich, externe Bilder auf Ihr Canvas zu rendern. Diese können einfache Bilder, Frames aus Videos oder der Inhalt anderer Canvas sein. Für den Moment betrachten wir nur den Fall, einige einfache Bilder auf unserem Canvas zu verwenden.
 
-1. Erstellen Sie wie zuvor eine weitere frische Kopie Ihrer Canvas-Vorlage, in der Sie das neue Beispiel zeichnen.
+1. Erstellen Sie eine weitere frische Kopie Ihrer Canvas-Vorlage, um das neue Beispiel darin zu zeichnen.
 
-   Bilder werden mit der Methode [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) auf Canvas gezeichnet. Die einfachste Version erfordert drei Parameter – eine Referenz auf das Bild, das Sie rendern möchten, und die X- und Y-Koordinaten der oberen linken Ecke des Bildes.
+   Bilder werden mit der Methode [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) auf den Canvas gezeichnet. Die einfachste Version nimmt drei Parameter an — eine Referenz auf das Bild, das Sie rendern möchten, und die X- und Y-Koordinaten der oberen linken Ecke des Bildes.
 
-2. Lassen Sie uns mit einer Bildquelle beginnen, die wir in unser Canvas einbetten möchten. Fügen Sie am Ende Ihres JavaScript die folgenden Zeilen hinzu:
+2. Beginnen wir damit, eine Bildquelle zu erhalten, die wir in unserem Canvas einbetten. Fügen Sie die folgenden Zeilen am Ende Ihres JavaScript-Codes hinzu:
 
    ```js live-sample___5-canvas-images
    const image = new Image();
@@ -527,17 +527,17 @@ Es ist möglich, externe Bilder auf Ihr Canvas zu rendern. Diese können einfach
      "https://mdn.github.io/shared-assets/images/examples/fx-nightly-512.png";
    ```
 
-   Hier erstellen wir ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Objekt mit dem Konstruktor [`Image()`](/de/docs/Web/API/HTMLImageElement/Image). Das zurückgegebene Objekt ist derselbe Typ wie das, wenn Sie eine Referenz auf ein bestehendes {{htmlelement("img")}}-Element erhalten. Dann setzen wir sein [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attribut auf unser Firefox-Logo-Bild. Zu diesem Zeitpunkt beginnt der Browser mit dem Laden des Bildes.
+   Hier erstellen wir ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Objekt mit dem Konstruktor [`Image()`](/de/docs/Web/API/HTMLImageElement/Image). Das zurückgegebene Objekt ist vom gleichen Typ wie das, das zurückgegeben wird, wenn Sie eine Referenz auf ein vorhandenes {{htmlelement("img")}}-Element erhalten. Wir setzen dann das [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attribut auf unser Firefox-Logo-Bild. Zu diesem Zeitpunkt beginnt der Browser, das Bild zu laden.
 
-3. Wir könnten jetzt versuchen, das Bild mit `drawImage()` einzubetten, aber wir müssen sicherstellen, dass die Bilddatei zuerst geladen wurde, da der Code sonst fehlschlagen könnte. Wir können dies mit dem `load`-Ereignis erreichen, welches ausgelöst wird, sobald das Bild vollständig geladen ist. Fügen Sie den folgenden Block unter dem vorherigen ein:
+3. Wir könnten nun versuchen, das Bild mit `drawImage()` einzubetten, aber wir müssen sicherstellen, dass die Bilddatei zuerst geladen wurde, ansonsten schlägt der Code fehl. Wir können dies erreichen, indem wir das `load`-Ereignis verwenden, das nur ausgelöst wird, wenn das Bild geladen wurde. Fügen Sie den folgenden Block unterhalb des vorherigen hinzu:
 
    ```js
    image.addEventListener("load", () => ctx.drawImage(image, 20, 20));
    ```
 
-   Wenn Sie Ihr Beispiel jetzt im Browser laden, sollten Sie das Bild auf dem Canvas eingebettet sehen, wenn auch etwas groß.
+   Wenn Sie Ihr Beispiel jetzt im Browser laden, sollten Sie das Bild im Canvas eingebettet sehen, wenn auch ziemlich groß.
 
-4. Aber es gibt noch mehr! Was wäre, wenn wir nur einen Teil des Bildes anzeigen oder es in der Größe ändern möchten? Wir können beides mit der komplexeren Version von `drawImage()` erreichen. Aktualisieren Sie Ihre `ctx.drawImage()`-Zeile wie folgt:
+4. Aber es gibt noch mehr! Was ist, wenn wir nur einen Teil des Bildes anzeigen oder es in der Größe ändern möchten? Beides können wir mit der komplexeren Version von `drawImage()` tun. Aktualisieren Sie Ihre `ctx.drawImage()`-Zeile wie folgt:
 
    ```js
    ctx.drawImage(image, 0, 0, 512, 512, 50, 40, 185, 185);
@@ -550,10 +550,10 @@ Es ist möglich, externe Bilder auf Ihr Canvas zu rendern. Diese können einfach
    ```
 
    - Der erste Parameter ist die Bildreferenz, wie zuvor.
-   - Parameter 2 und 3 definieren die Koordinaten der oberen linken Ecke des Bereichs, den Sie aus dem geladenen Bild ausschneiden möchten, relativ zur oberen linken Ecke des Bildes selbst. Nichts links vom ersten Parameter oder über dem zweiten wird gezeichnet.
+   - Parameter 2 und 3 definieren die Koordinaten der oberen linken Ecke des Bereichs, den Sie aus dem geladenen Bild ausschneiden möchten, relativ zur oberen linken Ecke des Bildes selbst. Nichts links des ersten Parameters oder oberhalb des zweiten wird gezeichnet.
    - Parameter 4 und 5 definieren die Breite und Höhe des Bereichs, den wir aus dem ursprünglich geladenen Bild ausschneiden möchten.
-   - Parameter 6 und 7 definieren die Koordinaten, bei denen Sie die obere linke Ecke des ausgeschnittenen Teils des Bildes, relativ zur oberen linken Ecke des Canvas, zeichnen möchten.
-   - Parameter 8 und 9 definieren die Breite und Höhe, um den ausgeschnittenen Bereich des Bildes zu zeichnen. In diesem Fall haben wir dieselben Dimensionen wie der ursprüngliche Ausschnitt spezifiziert, aber Sie könnten es neu skalieren, indem Sie andere Werte angeben.
+   - Parameter 6 und 7 definieren die Koordinaten, an denen Sie die obere linke Ecke des ausgeschnittenen Teils des Bildes auf dem Canvas zeichnen möchten, relativ zur oberen linken Ecke des Canvas.
+   - Parameter 8 und 9 definieren die Breite und Höhe, um den ausgeschnittenen Bereich des Bildes zu zeichnen. In diesem Fall haben wir die gleichen Dimensionen wie der ursprüngliche Ausschnitt angegeben, aber Sie könnten es durch Angabe unterschiedlicher Werte in der Größe ändern.
 
 5. Wenn das Bild sinnvoll aktualisiert wird, muss auch die Beschreibung aktualisiert werden.
 
@@ -561,32 +561,32 @@ Es ist möglich, externe Bilder auf Ihr Canvas zu rendern. Diese können einfach
    canvas.setAttribute("aria-label", "Firefox Logo");
    ```
 
-Das finale Beispiel sollte folgendermaßen aussehen:
+Das finale Beispiel sollte so aussehen:
 
 {{EmbedLiveSample("5-canvas-images", '100%', 260)}}
 
-Drücken Sie die **Wiedergabe**-Taste, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
+Drücken Sie den **Play**-Knopf, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
 
 ## Schleifen und Animationen
 
-Wir haben bisher einige sehr grundlegende Anwendungen von 2D-Canvas behandelt, aber wirklich erleben Sie die volle Leistung von Canvas, wenn Sie es in irgendeiner Weise aktualisieren oder animieren. Schließlich bietet Canvas skriptbare Bilder! Wenn Sie nichts ändern möchten, könnten Sie genauso gut statische Bilder verwenden und sich die ganze Arbeit sparen.
+Bisher haben wir einige sehr grundlegende Anwendungen von 2D-Canvas behandelt, aber wirklich werden Sie die volle Leistungsfähigkeit von Canvas nicht erleben, wenn Sie es nicht irgendwie aktualisieren oder animieren. Schließlich bietet Canvas skriptfähige Bilder! Wenn Sie nichts ändern, könnten Sie genauso gut statische Bilder verwenden und sich die ganze Arbeit sparen.
 
 ### Eine Schleife erstellen
 
-Mit Schleifen in Canvas zu spielen, macht ziemlich Spaß — Sie können Canvas-Befehle in einer [`for`](/de/docs/Web/JavaScript/Reference/Statements/for) (oder einem anderen Typ von) Schleife ausführen, genau wie bei jedem anderen JavaScript-Code.
+Das Spielen mit Schleifen in Canvas macht ziemlich Spaß — Sie können Canvas-Befehle innerhalb einer [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)- (oder einer anderen Art von) Schleife ausführen, genau wie bei jedem anderen JavaScript-Code.
 
-Lassen Sie uns ein Beispiel erstellen.
+Erstellen wir ein Beispiel.
 
 1. Erstellen Sie eine weitere frische Kopie Ihrer Canvas-Vorlage.
-2. Fügen Sie die folgende Zeile am Ende Ihres JavaScript hinzu. Dies enthält eine neue Methode, [`translate()`](/de/docs/Web/API/CanvasRenderingContext2D/translate), welche den Ursprungsort des Canvas verschiebt:
+2. Fügen Sie die folgende Zeile am Ende Ihres JavaScript-Codes hinzu. Diese enthält eine neue Methode, [`translate()`](/de/docs/Web/API/CanvasRenderingContext2D/translate), die den Ursprungspunkt des Canvas verschiebt:
 
    ```js live-sample___6-canvas-for-loop
    ctx.translate(width / 2, height / 2);
    ```
 
-   Dies verschiebt den Ursprungspunkt (0, 0) in die Mitte des Canvas, anstatt an der oberen linken Ecke zu sein. Dies ist in vielen Situationen sehr nützlich, wie dieser, in der wir unser Design relativ zur Mitte des Canvas zeichnen möchten.
+   Dadurch wird der Ursprung der Koordinaten (0, 0) in die Mitte des Canvas verschoben, anstatt in die obere linke Ecke. Dies ist in vielen Situationen nützlich, wie in dieser, in der wir möchten, dass unser Design relativ zur Mitte des Canvas gezeichnet wird.
 
-3. Fügen Sie nun den folgenden Code am Ende des JavaScript hinzu:
+3. Fügen Sie nun den folgenden Code am unteren Ende des JavaScript-Codes hinzu:
 
    ```js live-sample___6-canvas-for-loop
    function degToRad(degrees) {
@@ -601,9 +601,9 @@ Lassen Sie uns ein Beispiel erstellen.
    let moveOffset = 20;
    ```
 
-   Hier implementieren wir dieselbe `degToRad()`-Funktion, die wir im Dreiecksbeispiel oben gesehen haben, eine `rand()`-Funktion, die eine zufällige Zahl zwischen den angegebenen unteren und oberen Grenzen zurückgibt, und die Variablen `length` und `moveOffset` (über die wir später mehr erfahren).
+   Hier implementieren wir dieselbe `degToRad()`-Funktion, die wir oben im Dreieckbeispiel gesehen haben, eine `rand()`-Funktion, die eine Zufallszahl zwischen gegebenen unteren und oberen Grenzen zurückgibt, und die Variablen `length` und `moveOffset` (über die wir später mehr erfahren werden).
 
-4. Die Idee hier ist, dass wir etwas auf dem Canvas innerhalb der `for`-Schleife zeichnen und es bei jedem Durchlauf so iterieren, dass wir etwas Interessantes erstellen können. Fügen Sie den folgenden Code in Ihre `for`-Schleife ein:
+4. Die Idee hier ist, dass wir innerhalb der `for`-Schleife etwas auf dem Canvas zeichnen und es jedes Mal iterieren, damit wir etwas Interessantes erstellen können. Fügen Sie den folgenden Code in Ihre `for`-Schleife ein:
 
    ```js live-sample___6-canvas-for-loop
    for (let i = 0; i < length; i++) {
@@ -622,38 +622,38 @@ Lassen Sie uns ein Beispiel erstellen.
    }
    ```
 
-   Also in jeder Iteration:
-   - Setzen wir den `fillStyle` auf einen leicht transparenten Lilaton, der sich bei jedem Durchlauf basierend auf dem Wert von `length` ändert. Wie Sie später sehen werden, wird `length` bei jedem Durchlauf kleiner, also ist der Effekt hier, dass sich die Farbe bei jedem gezeichneten Dreieck aufhellt.
-   - Beginnen den Pfad.
-   - Verschieben den Stift auf eine Koordinate von `(moveOffset, moveOffset)`; Diese Variable definiert, wie weit wir bei jedem Zeichnen eines neuen Dreiecks verschieben möchten.
-   - Zeichnen eine Linie zu einer Koordinate von `(moveOffset+length, moveOffset)`. Dies zeichnet eine Linie der Länge `length`, parallel zur X-Achse.
-   - Berechnen die Höhe des Dreiecks, wie zuvor.
-   - Zeichnen eine Linie zur nach unten zeigenden Ecke des Dreiecks, dann eine Linie zurück zum Start des Dreiecks.
-   - Führen `fill()` aus, um das Dreieck auszufüllen.
-   - Aktualisieren die Variablen, die die Folge von Dreiecken beschreiben, so dass wir bereit sind, das nächste zu zeichnen. Wir reduzieren den Wert von `length` um 1, so dass die Dreiecke bei jedem Durchgang kleiner werden; erhöhen den Wert von `moveOffset` um einen kleinen Betrag, damit sich jedes aufeinanderfolgende Dreieck etwas weiter entfernt befindet, und verwenden eine weitere neue Funktion, [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate), welche uns erlaubt, das gesamte Canvas zu drehen! Wir drehen es um 5 Grad, bevor wir das nächste Dreieck zeichnen.
+   In jeder Iteration:
+   - Setzen wir `fillStyle` auf einen Farbton von leicht transparentem Violett, der sich jedes Mal basierend auf dem Wert von `length` ändert. Wie Sie später sehen werden, wird die Länge jedes Mal kleiner, wenn die Schleife läuft, sodass der Effekt hier ist, dass die Farbe heller wird, je mehr Dreiecke gezeichnet werden.
+   - Beginnen wir den Pfad.
+   - Bewegen wir den Stift zu einer Koordinate von `(moveOffset, moveOffset)`. Diese Variable gibt an, wie weit wir uns bewegen möchten, jedes Mal, wenn wir ein neues Dreieck zeichnen.
+   - Zeichnen wir eine Linie zu einer Koordinate von `(moveOffset+length, moveOffset)`. Dies zeichnet eine Linie der Länge `length` parallel zur X-Achse.
+   - Berechnen wir die Höhe des Dreiecks, wie zuvor.
+   - Zeichnen wir eine Linie zur nach unten zeigenden Ecke des Dreiecks und dann eine Linie zurück zum Anfang des Dreiecks.
+   - Rufen wir `fill()` auf, um das Dreieck zu füllen.
+   - Aktualisieren wir die Variablen, die die Sequenz der Dreiecke beschreiben, sodass wir bereit sind, das nächste zu zeichnen. Wir verringern den `length`-Wert um 1, sodass die Dreiecke jedes Mal kleiner werden; erhöhen `moveOffset` um einen kleinen Betrag, damit jedes nachfolgende Dreieck etwas weiter entfernt ist, und verwenden eine weitere neue Funktion, [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate), mit der wir den gesamten Canvas drehen können! Wir drehen ihn um 5 Grad, bevor wir das nächste Dreieck zeichnen.
 
-Das war's! Das finale Beispiel sollte folgendermaßen aussehen:
+Das war's! Das finale Beispiel sollte so aussehen:
 
 {{EmbedLiveSample("6-canvas-for-loop", '100%', 550)}}
 
-Drücken Sie die **Wiedergabe**-Taste, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten. Wir möchten Sie ermutigen, mit dem Beispiel herumzuspielen und es zu Ihrem eigenen zu machen! Zum Beispiel:
+Drücken Sie den **Play**-Knopf, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten. Wir möchten Sie ermutigen, mit dem Beispiel zu spielen und es zu Ihrem eigenen zu machen! Zum Beispiel:
 
-- Zeichnen Sie Rechtecke oder Bögen anstelle von Dreiecken oder betten Sie sogar Bilder ein.
-- Spielen Sie mit den Werten von `length` und `moveOffset`.
-- Fügen Sie einige Zufallszahlen mit der `rand()`-Funktion hinzu, die wir oben eingefügt haben, aber nicht verwendet haben.
+- Zeichnen Sie Rechtecke oder Kreise anstelle von Dreiecken oder betten Sie sogar Bilder ein.
+- Spielen Sie mit den `length`- und `moveOffset`-Werten.
+- Führen Sie einige Zufallszahlen ein, indem Sie die `rand()`-Funktion verwenden, die wir oben eingefügt haben, aber noch nicht genutzt haben.
 
 ### Animationen
 
-Das Schleifenbeispiel, das wir oben erstellt haben, war unterhaltsam, aber tatsächlich benötigen Sie eine konstante Schleife, die weiter läuft für ernsthafte Canvas-Anwendungen (wie Spiele und Echtzeit-Visualisierungen). Wenn Sie sich Ihr Canvas wie einen Film vorstellen, wollen Sie wirklich, dass das Display bei jedem Frame aktualisiert wird, um die aktualisierte Ansicht anzuzeigen, mit einer idealen Bildwiederholrate von 60 Bildern pro Sekunde, damit die Bewegung für das menschliche Auge schön und flüssig erscheint.
+Das Schleifenbeispiel, das wir oben erstellt haben, war unterhaltsam, aber wirklich benötigen Sie eine konstante Schleife, die für ernsthafte Canvas-Anwendungen (wie Spiele und Echtzeit-Visualisierungen) immer wieder läuft. Wenn Sie Ihren Canvas als Film betrachten, möchten Sie wirklich, dass die Anzeige bei jedem Bild aktualisiert wird, um den aktualisierten Anzeigebereich zu zeigen, idealerweise mit einer Bildwiederholrate von 60 Bildern pro Sekunde, damit die Bewegung vor dem menschlichen Auge schön und flüssig erscheint.
 
-Es gibt einige JavaScript-Funktionen, die Ihnen erlauben, Funktionen wiederholt, mehrmals pro Sekunde auszuführen, wobei die beste für unsere Zwecke hier [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) ist. Es nimmt einen Parameter an — den Namen der Funktion, die Sie für jeden Frame ausführen möchten. Das nächste Mal, wenn der Browser bereit ist, den Bildschirm zu aktualisieren, wird Ihre Funktion aufgerufen. Wenn diese Funktion das neue Update Ihrer Animation zeichnet und `requestAnimationFrame()` erneut kurz vor dem Ende der Funktion aufruft, wird die Animationsschleife weiterlaufen. Die Schleife endet, wenn Sie `requestAnimationFrame()` nicht mehr aufrufen oder wenn Sie [`window.cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) nach dem Aufrufen von `requestAnimationFrame()` aber vor dem Frame aufrufen.
+Es gibt einige JavaScript-Funktionen, die es Ihnen ermöglichen, Funktionen immer wieder, mehrmals pro Sekunde, auszuführen, wobei [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) die beste für unsere Zwecke hier ist. Sie nimmt einen Parameter — den Namen der Funktion, die Sie für jedes Bild ausführen möchten. Beim nächsten Mal, wenn der Browser bereit ist, den Bildschirm zu aktualisieren, wird Ihre Funktion aufgerufen. Wenn diese Funktion das neue Update Ihrer Animation zeichnet und dann `requestAnimationFrame()` erneut kurz vor dem Ende der Funktion aufruft, läuft die Animationsschleife weiter. Die Schleife endet, wenn Sie aufhören, `requestAnimationFrame()` aufzurufen oder wenn Sie [`window.cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) nach dem Aufrufen von `requestAnimationFrame()` aufrufen, jedoch bevor das Bild aufgerufen wird.
 
 > [!NOTE]
-> Es ist eine gute Praxis, `cancelAnimationFrame()` von Ihrem Hauptcode aus aufzurufen, wenn Sie die Animation nicht mehr verwenden, um sicherzustellen, dass keine Updates noch ausgeführt werden müssen.
+> Es ist eine gute Praxis, `cancelAnimationFrame()` aus Ihrem Hauptcode aufzurufen, wenn Sie mit der Animation fertig sind, um sicherzustellen, dass keine Updates mehr anstehen.
 
-Der Browser arbeitet komplexe Details wie das gleichmäßige Abspielen der Animation bei einer konsistenten Geschwindigkeit aus und verschwendet keine Ressourcen für die Animation von Dingen, die nicht gesehen werden können.
+Der Browser kümmert sich um komplexe Details wie das gleichmäßige Laufen der Animation und das Sparen von Ressourcen, indem er Dinge nicht animiert, die nicht gesehen werden können.
 
-Um zu sehen, wie es funktioniert, werfen wir noch einmal einen kurzen Blick auf unser [Bouncing Balls Beispiel](#frame_bouncing-balls). Der Code für die Schleife, die alles in Bewegung hält, sieht so aus:
+Um zu sehen, wie dies funktioniert, werfen wir einen schnellen Blick auf unser [Bouncing Balls-Beispiel](#frame_bouncing-balls). Der Code für die Schleife, die alles in Bewegung hält, sieht so aus:
 
 ```js
 function loop() {
@@ -672,30 +672,30 @@ function loop() {
 loop();
 ```
 
-Wir führen die `loop()`-Funktion einmal am Ende des Codes aus, um den Zyklus zu starten und den ersten Animationsframe zu zeichnen; die `loop()`-Funktion übernimmt dann das Aufrufen von `requestAnimationFrame(loop)`, um den nächsten Frame der Animation erneut und erneut auszuführen.
+Wir führen die `loop()`-Funktion einmal am Ende des Codes aus, um den Zyklus zu starten, das erste Animationsbild zu zeichnen; die `loop()`-Funktion übernimmt dann das Aufrufen von `requestAnimationFrame(loop)`, um das nächste Animationsbild immer wieder auszuführen.
 
-Beachten Sie, dass wir in jedem Frame das Canvas komplett löschen und alles neu zeichnen. Für jeden vorhandenen Ball zeichnen wir ihn, aktualisieren seine Position und prüfen, ob er mit anderen Bällen kollidiert. Sobald Sie eine Grafik auf ein Canvas gezeichnet haben, gibt es keine Möglichkeit, diese Grafik einzeln zu manipulieren, wie Sie es mit DOM-Elementen können. Sie können jeden Ball nicht umeinander auf dem Canvas bewegen, denn sobald er gezeichnet ist, ist er Teil des Canvas und kein einzeln zugängliches Element oder Objekt mehr. Stattdessen müssen Sie löschen und neu zeichnen, entweder indem Sie den gesamten Frame löschen und alles neu zeichnen oder indem Sie Code haben, der genau weiß, welche Teile gelöscht werden müssen und nur die notwendige Mindestfläche des Canvas löscht und neu zeichnet.
+Beachten Sie, dass wir bei jedem Bild den gesamten Canvas komplett löschen und alles neu zeichnen. Für jede vorhandene Kugel zeichnen wir sie, aktualisieren ihre Position und prüfen, ob sie mit anderen Kugeln kollidiert. Sobald Sie eine Grafik auf ein Canvas gezeichnet haben, gibt es keine Möglichkeit, diese Grafik individuell zu manipulieren, wie Sie es mit DOM-Elementen tun können. Sie können nicht jede Kugel auf dem Canvas bewegen, da sie, sobald sie gezeichnet ist, Teil des Canvas ist und kein einzelnes zugängliches Element oder Objekt ist. Stattdessen müssen Sie löschen und neu zeichnen, entweder indem Sie den gesamten Rahmen löschen und alles neu zeichnen, oder indem Sie einen Code haben, der genau weiß, welche Teile gelöscht werden müssen, und nur die minimale Fläche des Canvas löscht und neu zeichnet.
 
-Die Optimierung der Grafikanimation ist eine ganze Spezialität der Programmierung, mit vielen cleveren Techniken. Diese gehen jedoch über das hinaus, was wir für unser Beispiel benötigen!
+Die Optimierung von Grafikanimationen ist eine eigene Spezialität des Programmierens mit vielen cleveren Techniken. Das ist jedoch mehr, als wir für unser Beispiel benötigen!
 
-Im Allgemeinen besteht der Prozess des Erstellens einer Canvas-Animation aus den folgenden Schritten:
+Im Allgemeinen umfasst der Prozess zum Erstellen einer Canvas-Animation die folgenden Schritte:
 
-1. Den Canvas-Inhalt löschen (z. B. mit [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) oder [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)).
-2. Zustand speichern (falls erforderlich) unter Verwendung von [`save()`](/de/docs/Web/API/CanvasRenderingContext2D/save) — dies ist erforderlich, wenn Sie aktualisierte Einstellungen auf dem Canvas speichern möchten, bevor Sie fortfahren, was nützlich für fortgeschrittenere Anwendungen sein kann.
-3. Zeichnen der Grafiken, die Sie animieren.
-4. Wiederherstellen der in Schritt 2 gespeicherten Einstellungen unter Verwendung von [`restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore).
-5. `requestAnimationFrame()` aufrufen, um das Zeichnen des nächsten Animationsframes zu planen.
+1. Löschen Sie den Inhalt des Canvas (z. B. mit [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) oder [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)).
+2. Speichern Sie den Zustand (falls erforderlich) mit [`save()`](/de/docs/Web/API/CanvasRenderingContext2D/save) — dies ist notwendig, wenn Sie Einstellungen speichern möchten, die Sie auf dem Canvas vor der Fortsetzung aktualisiert haben, was für fortschrittlichere Anwendungen nützlich ist.
+3. Zeichnen Sie die Grafiken, die Sie animieren möchten.
+4. Stellen Sie die gespeicherten Einstellungen im Schritt 2 mit [`restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore) wieder her.
+5. Rufen Sie `requestAnimationFrame()` auf, um die Zeichnung des nächsten Animationsbildes zu planen.
 
 > [!NOTE]
-> Wir werden hier nicht `save()` und `restore()` behandeln, aber sie sind in unserem [Transformationen](/de/docs/Web/API/Canvas_API/Tutorial/Transformations)-Tutorial (und den darauf folgenden) gut erklärt.
+> Wir werden hier nicht `save()` und `restore()` behandeln, aber sie sind schön in unserem [Transformationen](/de/docs/Web/API/Canvas_API/Tutorial/Transformations)-Tutorial (und den darauf folgenden) erklärt.
 
-### Animierende Objektanimation
+### Walking-Objekt-Animation
 
-Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren ein sich bewegendes Objekt über den Bildschirm mit einem Sprite Sheet.
+Erstellen wir nun unsere eigene einfache Animation — wir animieren ein sich bewegendes Objekt über den Bildschirm mithilfe eines Spritesheets.
 
-1. Erstellen Sie eine weitere frische Kopie unserer Canvas-Vorlage und öffnen Sie sie in Ihrem Code-Editor.
+1. Machen Sie eine weitere frische Kopie unserer Canvas-Vorlage und öffnen Sie sie in Ihrem Code-Editor.
 
-2. Aktualisieren Sie das alternative HTML, um das Bild zu reflektieren:
+2. Aktualisieren Sie den alternativen HTML-Inhalt, um das Bild widerzuspiegeln:
 
    ```html live-sample___7-canvas-walking-animation
    <canvas class="myCanvas">
@@ -703,20 +703,20 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
    </canvas>
    ```
 
-3. Dieses Mal werden wir den Hintergrund nicht schwarz färben. Malen Sie nach dem Abrufen der `ctx`-Variable den Hintergrund stattdessen hellgrau:
+3. Dieses Mal werden wir den Hintergrund nicht schwarz färben. Bemalen Sie anstelle dessen nach dem Abrufen der `ctx`-Variablen den Hintergrund hellgrau:
 
    ```js live-sample___7-canvas-walking-animation
    ctx.fillStyle = "#e5e6e9";
    ctx.fillRect(0, 0, width, height);
    ```
 
-4. Fügen Sie am Ende des JavaScript die folgende Zeile hinzu, um den Koordinatenursprung wieder in die Mitte des Canvas zu setzen:
+4. Fügen Sie am Ende des JavaScript folgende Zeile hinzu, um den Koordinaten-Ursprungset erneut in die Mitte des Canvas zu legen:
 
    ```js live-sample___7-canvas-walking-animation
    ctx.translate(width / 2, height / 2);
    ```
 
-5. Lassen Sie uns nun ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Objekt erstellen, dessen [`src`](/de/docs/Web/API/HTMLImageElement/src) auf das Bild setzen, das wir laden möchten, und einen `onload`-Ereignishandler hinzufügen, der die `draw()`-Funktion auslöst, wenn das Bild geladen ist:
+5. Erstellen wir nun ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Objekt, setzen dessen [`src`](/de/docs/Web/API/HTMLImageElement/src) auf das Bild, das wir laden möchten, und fügen einen `onload`-Ereignishandler hinzu, der die `draw()`-Funktion auslöst, wenn das Bild geladen ist:
 
    ```js live-sample___7-canvas-walking-animation
    const image = new Image();
@@ -725,7 +725,7 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
    image.onload = draw;
    ```
 
-6. Nun fügen wir einige Variablen hinzu, um die Position des anzuzeigenden Sprites und die Nummer des anzuzeigenden Sprites zu verfolgen.
+6. Fügen Sie nun einige Variablen hinzu, um die Position zu verfolgen, an der das Sprite auf dem Bildschirm gezeichnet werden soll, und das Sprite, das wir anzeigen möchten.
 
    ```js live-sample___7-canvas-walking-animation
    let spriteIndex = 0;
@@ -735,13 +735,13 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
    const totalSprites = 12;
    ```
 
-   Das Sprite-Bild wurde freundlicherweise von [Rachel Nabors](https://nearestnabors.com/) erstellt und geteilt, für ihre Dokumentationsarbeit an der [Web Animations API](/de/docs/Web/API/Web_Animations_API). Es sieht wie folgt aus:
+   Das Sprite-Bild wurde von und wird freundlicherweise von [Rachel Nabors](https://nearestnabors.com/) bereitgestellt, für ihre Dokumentationsarbeit zur [Web-Animations-API](/de/docs/Web/API/Web_Animations_API). Es sieht so aus:
 
-   ![Ein Sprite-Sheet mit drei Spalten, jede Spalte enthält eine Sequenz von Bildern einer schwarzen Katze, die sich in unterschiedlichem Tempo nach links bewegt. Jedes Sprite ist 300 Pixel breit und 150 Pixel hoch.](/shared-assets/images/examples/web-animations/cat_sprite.png)
+   ![Ein Sprite-Sheet mit drei Spalten, jede Spalte enthält eine Sequenz von Bildern einer schwarzen Katze, die sich mit unterschiedlichem Tempo nach links bewegt. Jedes Sprite ist 300 Pixel breit und 150 Pixel hoch.](/shared-assets/images/examples/web-animations/cat_sprite.png)
 
-   Es hat drei Spalten. Jede Spalte ist eine Sequenz, die die Katze in einem anderen Tempo darstellt (Gehend, Trabend, Galoppierend). Jede Sequenz enthält entweder 12 oder 13 Sprites – jedes ist 300 Pixel breit und 150 Pixel hoch. Wir verwenden die linkste Sequenz, die 12 Sprites enthält. Um jedes Sprite sauber anzuzeigen, müssen wir `drawImage()` verwenden, um ein einzelnes Sprite-Bild aus dem Spritesheet herauszuschneiden und nur diesen Teil anzuzeigen, wie wir es oben mit dem Firefox-Logo gemacht haben. Die X- und Y-Koordinaten des Ausschnitts müssen das Vielfache von `spriteWidth` und `spriteHeight` sein, weil wir die linke Sequenz verwenden, ist der X-Wert immer 0. Die Größe des Ausschnitts ist immer `spriteWidth` mal `spriteHeight`.
+   Es hat drei Spalten. Jede Spalte ist eine Sequenz, die die Katze darstellt, die sich mit unterschiedlichem Tempo bewegt (gehen, traben, und galoppieren). Jede Sequenz enthält entweder 12 oder 13 Sprites — jedes ist 300 Pixel breit und 150 Pixel hoch. Wir werden die ganz links befindliche Laufsequenz verwenden, die 12 Sprites enthält. Um jedes Sprite sauber anzuzeigen, müssen wir `drawImage()` verwenden, um ein einzelnes Sprite-Bild aus dem Spritesheet auszuschneiden und nur diesen Teil anzuzeigen, wie wir es oben mit dem Firefox-Logo getan haben. Die X- und Y-Koordinaten des Ausschnitts müssen ein Vielfaches von `spriteWidth` und `spriteHeight` sein, da wir die links seitliche Sequenz verwenden, ist die X-Koordinate immer 0. Die Ausschnittgröße entspricht immer `spriteWidth` mal `spriteHeight`.
 
-7. Lassen Sie uns nun eine leere `draw()`-Funktion am Ende des Codes einfügen, bereit für die Füllung mit etwas Code:
+7. Fügen wir nun eine leere `draw()`-Funktion am Ende des Codes ein, die bereit ist, mit etwas Code gefüllt zu werden:
 
    ```js
    function draw() {}
@@ -751,13 +751,13 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
    function draw() {
    ```
 
-8. Der Rest des Codes in diesem Abschnitt gehört in `draw()`. Fügen Sie als Erstes die folgende Zeile hinzu, die das Canvas löscht, um jeden Frame vorzubereiten. Beachten Sie, dass wir die oberen linken Ecke des Rechtecks als `-(width / 2), -(height / 2)` angeben mussten, weil wir zuvor die Ursprungposition als `width/2, height/2` angegeben haben.
+8. Der Rest des Codes in diesem Abschnitt geht in `draw()`. Zuerst fügen Sie die folgende Zeile hinzu, die das Canvas löscht, um jedes Bild vorzubereiten. Beachten Sie, dass wir die obere linke Ecke des Rechtecks als `-(width / 2), -(height / 2)` angeben müssen, da wir zuvor den Ursprung als `width/2, height/2` angegeben haben.
 
    ```js live-sample___7-canvas-walking-animation
    ctx.fillRect(-(width / 2), -(height / 2), width, height);
    ```
 
-9. Als Nächstes werden wir unser Bild mit `drawImage` zeichnen – die Version mit 9 Parametern. Fügen Sie das Folgende hinzu:
+9. Als nächstes zeichnen wir unser Bild mit `drawImage` — die 9-Parameter-Version. Fügen Sie das folgende hinzu:
 
    ```js live-sample___7-canvas-walking-animation
    ctx.drawImage(
@@ -773,14 +773,14 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
    );
    ```
 
-   Wie Sie sehen können:
-   - Wir spezifizieren `image` als das einzuebettende Bild.
-   - Parameter 2 und 3 spezifizieren die obere linke Ecke des auszuschneidenden Bereichs aus dem Quellbild, wobei der X-Wert 0 ist (für die linkste Spalte) und der Y-Wert sich in einem Vielfachen von `spriteHeight` bewegt. Sie können den X-Wert durch `spriteWidth` oder `2 * spriteWidth` ersetzen, um die anderen Spalten auszuwählen.
-   - Parameter 4 und 5 spezifizieren die Größe des auszuschneidenden Bereichs – `spriteWidth` und `spriteHeight`.
-   - Parameter 6 und 7 spezifizieren die obere linke Ecke des Feldes, in das der ausgeschnittene Bereich des Bildes auf das Canvas gezeichnet werden soll – die X-Position ist 0 + `posX`, was bedeutet, dass wir die Zeichnungsposition ändern können, indem wir den `posX`-Wert ändern. Die Y-Position ist `-spriteHeight / 2`, was bedeutet, dass das Bild vertikal in der Mitte des Canvas zentriert wird.
-   - Parameter 8 und 9 spezifizieren die Größe des Bildes auf dem Canvas. Wir möchten einfach die Originalgröße beibehalten, also spezifizieren wir `spriteWidth` und `spriteHeight` als Breite und Höhe.
+   Wie Sie sehen:
+   - Wir geben `image` als das Bild an, das eingebettet werden soll.
+   - Parameter 2 und 3 geben die obere linke Ecke des ausgeschnittenen Teils aus dem Quellbild an, mit dem X-Wert als 0 (für die linksseitige Spalte) und dem Y-Wert, der durch ein Vielfaches von `spriteHeight` wechselt. Sie können den X-Wert mit `spriteWidth` oder `2 * spriteWidth` ersetzen, um die anderen Spalten auszuwählen.
+   - Parameter 4 und 5 geben die Größe des aus dem ursprünglich geladenen Bild ausgeschnittenen Ausschnitts an — `spriteWidth` und `spriteHeight`.
+   - Parameter 6 und 7 geben die obere linke Ecke der Box an, in die der Ausschnitt auf dem Canvas gezeichnet werden soll — die X-Position ist 0 + `posX`, was bedeutet, dass wir die Zeichenposition durch Ändern des `posX`-Werts ändern können. Die Y-Position ist `-spriteHeight / 2`, was bedeutet, dass das Bild vertikal zentriert auf dem Canvas sein wird.
+   - Parameter 8 und 9 geben die Größe des Bildes auf dem Canvas an. Wir möchten einfach seine ursprüngliche Größe beibehalten, sodass wir `spriteWidth` und `spriteHeight` als Breite und Höhe angeben.
 
-10. Als Nächstes ändern wir den `spriteIndex`-Wert nach jedem Zeichnen – zumindest nach einigen davon. Fügen Sie den folgenden Block am Ende der `draw()`-Funktion hinzu:
+10. Ändern wir nun den `spriteIndex`-Wert nach jeder Zeichnung — naja, zumindest nach einigen von ihnen. Fügen Sie folgenden Block am Ende der `draw()`-Funktion hinzu:
 
     ```js live-sample___7-canvas-walking-animation
     if (posX % 11 === 0) {
@@ -792,11 +792,11 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
     }
     ```
 
-    Wir packen den gesamten Block in `if (posX % 11 === 0) { }` ein. Wir verwenden den Modulo-Operator (`%`) (auch bekannt als [Remainder Operator](/de/docs/Web/JavaScript/Reference/Operators/Remainder)), um zu prüfen, ob der `posX`-Wert durch 11 genau geteilt werden kann, ohne dass ein Rest bleibt. Ist dies der Fall, gehen wir zum nächsten Sprite über, indem wir `spriteIndex` inkrementieren (der wieder auf 0 gesetzt wird, sobald wir mit dem letzten abgeschlossen haben). Dies bedeutet im Wesentlichen, dass wir das Sprite nur bei jedem 11. Frame, oder ungefähr 6 Frames pro Sekunde (wenn `requestAnimationFrame()` uns bis zu 60 Frames pro Sekunde aufruft und möglich ist), aktualisieren. Wir verlangsamen bewusst die Bildrate, weil wir nur 12 Sprites haben und wenn wir eines bei jedem 60-sten einer Sekunde anzeigen würden, würde sich unser Objekt viel zu schnell bewegen!
+    Wir fassen den gesamten Block in `if (posX % 11 === 0) { }` zusammen. Wir verwenden den Modulo (`%`)-Operator (auch bekannt als [Restoperator](/de/docs/Web/JavaScript/Reference/Operators/Remainder)), um zu überprüfen, ob der `posX`-Wert durch 11 genau teilbar ist, ohne einen Rest. Ist dies der Fall, wechseln wir zum nächsten Sprite, indem wir den `spriteIndex` inkrementieren (zurück auf 0 gehen, wenn wir mit dem letzten fertig sind). Dies bedeutet effektiv, dass wir das Sprite alle 11 Bilder, also etwa 6 Bilder pro Sekunde (`requestAnimationFrame()` ruft uns bis zu 60 Bilder pro Sekunde, wenn möglich, auf) aktualisieren. Wir verlangsamen bewusst die Bildrate, da wir nur 12 Sprites zur Verfügung haben, und wenn wir eines alle 60 Sekunden zeigen, bewegt sich unser Objekt viel zu schnell!
 
-    Innerhalb des äußeren Blocks verwenden wir eine [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung, um zu prüfen, ob der `spriteIndex`-Wert bei dem letzten angekommen ist. Wenn wir bereits das letzte Sprite anzeigen, setzen wir `spriteIndex` auf 0 zurück, andernfalls inkrementieren wir es um 1.
+    Innerhalb des äußeren Blocks verwenden wir eine [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung, um zu überprüfen, ob der `spriteIndex`-Wert am letzten ist. Wenn wir das letzte Sprite bereits anzeigen, setzen wir `spriteIndex` wieder auf 0; wenn nicht, erhöhen wir es einfach um 1.
 
-11. Als Nächstes müssen wir herausfinden, wie wir den `posX`-Wert bei jedem Frame ändern können – fügen Sie den folgenden Codeblock direkt unter Ihrem letzten ein.
+11. Als nächstes müssen wir herausfinden, wie wir den `posX`-Wert in jedem Bild ändern — fügen Sie den folgenden Codeblock direkt unter Ihrem letzten ein.
 
     ```js live-sample___7-canvas-walking-animation
     if (posX < -width / 2 - spriteWidth) {
@@ -807,11 +807,11 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
     }
     ```
 
-    Wir verwenden eine weitere `if...else`-Anweisung, um zu prüfen, ob der Wert von `posX` kleiner geworden ist als `-width/2 - spriteWidth`, was bedeutet, dass unsere Katze von der linken Seite des Bildschirms gegangen ist. Wenn das der Fall ist, berechnen wir eine Position, die die Katze direkt rechts von der rechten Bildschirmseite setzt.
+    Wir verwenden eine weitere `if...else`-Anweisung, um zu überprüfen, ob der Wert von `posX` kleiner geworden ist als `-width/2 - spriteWidth`, was bedeutet, dass unsere Katze den linken Rand des Bildschirms verlassen hat. Wenn ja, berechnen wir eine Position, die die Katze gerade rechts des rechten Bildschirms positionieren würde.
 
-    Wenn unsere Katze noch nicht vom Bildschirmrand gegangen ist, verringern wir `posX` um 2. Dies wird bewirken, dass sie sich ein wenig nach links bewegt, das nächste Mal, wenn wir sie zeichnen.
+    Wenn unsere Katze noch nicht den Rand des Bildschirms verlassen hat, verringern wir `posX` um 2. Damit wird sie beim nächsten Mal, wenn wir sie zeichnen, ein wenig nach links verschoben.
 
-12. Schließlich müssen wir die Animationsschleife durch Aufrufen von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) am Ende der `draw()`-Funktion erstellen:
+12. Schließlich müssen wir die Animationsschleife durch den Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) am unteren Ende der `draw()`-Funktion weiterlaufen lassen:
 
     ```js live-sample___7-canvas-walking-animation
     window.requestAnimationFrame(draw);
@@ -821,15 +821,15 @@ Lassen Sie uns nun unsere eigene einfache Animation erstellen – wir animieren 
 }
 ```
 
-Das war's! Das finale Beispiel sollte wie folgt aussehen:
+Das war's! Das finale Beispiel sollte so aussehen:
 
 {{EmbedLiveSample("7-canvas-walking-animation", '100%', 260)}}
 
-Sie können die **Wiedergabe**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
+Sie können den **Play**-Knopf drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
 
-### Eine einfache Zeichnungsanwendung
+### Eine einfache Zeichenanwendung
 
-Als letztes Animationsbeispiel möchten wir Ihnen eine sehr einfache Zeichnungsanwendung zeigen, um zu veranschaulichen, wie die Animationsschleife mit Benutzereingaben (wie der Mausbewegung, in diesem Fall) kombiniert werden kann. Wir lassen Sie dieses Mal nicht Schritt für Schritt bauen; wir werden einfach die interessantesten Teile des Codes erkunden.
+Als letztes Animationsbeispiel möchten wir Ihnen eine sehr einfache Zeichenanwendung zeigen, um zu veranschaulichen, wie die Animationsschleife mit Benutzereingaben (wie Mausbewegungen, in diesem Fall) kombiniert werden kann. Wir gehen nicht Schritt für Schritt mit Ihnen durch und erstellen diese, sondern werden nur die interessantesten Teile des Codes untersuchen.
 
 ```html hidden live-sample___8-canvas-drawing-app
 <div class="toolbar">
@@ -917,11 +917,11 @@ sizePicker.addEventListener(
 );
 ```
 
-Sie können das Beispiel unten live ausprobieren; Sie können auch die **Wiedergabe**-Taste drücken, um es im MDN Playground zu öffnen, wo Sie den Quellcode bearbeiten können:
+Sie können unten das Beispiel live ausprobieren; Sie können auch auf den **Play**-Knopf klicken, um es im MDN Playground zu öffnen, wo Sie den Quellcode bearbeiten können:
 
 {{EmbedLiveSample("8-canvas-drawing-app", '100%', 600)}}
 
-Schauen wir uns die interessantesten Teile an. Zunächst einmal behalten wir die X- und Y-Koordinaten der Maus und ob sie geklickt wird oder nicht mit drei Variablen: `curX`, `curY` und `pressed`. Wenn die Maus bewegt wird, feuern wir eine Funktion, die als `onmousemove`-Ereignishandler gesetzt ist, um die aktuellen X- und Y-Werte zu erfassen. Wir verwenden auch `onmousedown` und `onmouseup`-Ereignishandler, um den Wert von `pressed` zu ändern, wenn die Maustaste gedrückt wird, und wieder auf `false`, wenn Sie losgelassen wird.
+Schauen wir uns die interessantesten Teile an. Zuerst einmal verfolgen wir die X- und Y-Koordinaten der Maus und ob sie gedrückt wird oder nicht mit drei Variablen: `curX`, `curY` und `pressed`. Wenn sich die Maus bewegt, lösen wir eine Funktion aus, die als `onmousemove`-Ereignis-Handler festgelegt ist, die die aktuellen X- und Y-Werte erfasst. Wir verwenden auch `onmousedown`- und `onmouseup`-Ereignis-Handler, um den Wert von `pressed` auf `true` zu ändern, wenn die Maustaste gedrückt wird, und zurück auf `false`, wenn sie losgelassen wird.
 
 ```js live-sample___8-canvas-drawing-app
 let curX;
@@ -939,7 +939,7 @@ canvas.addEventListener("mousedown", () => (pressed = true));
 canvas.addEventListener("mouseup", () => (pressed = false));
 ```
 
-Bei jedem Drücken der Schaltfläche „Canvas löschen“ führen wir eine einfache Funktion aus, die das ganze Canvas wieder auf Schwarz zurücksetzt, auf die gleiche Weise, wie wir es bereits gesehen haben:
+Wenn der "Canvas löschen"-Knopf gedrückt wird, führen wir eine einfache Funktion aus, die den gesamten Canvas zurück auf schwarz setzt, auf dieselbe Weise, wie wir es bereits gesehen haben:
 
 ```js live-sample___8-canvas-drawing-app
 clearBtn.addEventListener("click", () => {
@@ -948,7 +948,7 @@ clearBtn.addEventListener("click", () => {
 });
 ```
 
-Die Zeichenschleife ist diesmal ziemlich einfach – wenn `pressed` `true` ist, zeichnen wir einen Kreis mit einem Füllstil, der dem Wert im Farbpicker und einem Radius entspricht, der dem im Bereicheingabefeld angegebenen Wert entspricht. Wir müssen den Kreis 85 Pixel über dem Platz, an dem wir ihn gemessen haben, zeichnen, weil die vertikale Messung vom oberen Teil des Ansichtsfensters genommen wird, wir aber den Kreis relativ zur Oberkante des Canvas zeichnen, welches unterhalb der 85 Pixel hohen Symbolleiste beginnt. Wenn wir ihn nur mit `curY` als Y-Koordinate zeichnen würden, würde er 85 Pixel tiefer erscheinen als die Mausposition.
+Die Zeichenschleife ist diesmal ziemlich einfach — wenn gedrückt `true` ist, zeichnen wir einen Kreis mit einer Füllfarbe, die dem Wert im Farbwähler entspricht, und einem Radius, der dem im Bereichseingabefeld angegebenen Wert entspricht. Wir müssen den Kreis 85 Pixel über der Stelle zeichnen, wo wir ihn gemessen haben, da die vertikale Messung vom oberen Rand des Viewports aus erfolgt, wir den Kreis aber relativ zum oberen Rand des Canvas zeichnen, der unterhalb der 85 Pixel hohen Toolbar beginnt. Wenn wir ihn nur mit `curY` als y-Koordinate zeichnen würden, würde er 85 Pixel unterhalb der Mausposition erscheinen.
 
 ```js live-sample___8-canvas-drawing-app
 function draw() {
@@ -972,26 +972,26 @@ function draw() {
 draw();
 ```
 
-Alle Eingabetypen im {{htmlelement("input")}} sind gut unterstützt. Wenn ein Browser einen Eingabetyp nicht unterstützt, fällt er auf ein einfaches Textfeld zurück.
+Alle {{htmlelement("input")}}-Typen werden gut unterstützt. Wenn ein Browser einen Eingabetyp nicht unterstützt, fällt er auf ein einfaches Textfeld zurück.
 
 ## WebGL
 
-Es ist nun an der Zeit, das 2D hinter sich zu lassen und einen kurzen Blick auf das 3D-Canvas zu werfen. 3D-Canvas-Inhalt wird mit der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert, die eine völlig separate API von der 2D-Canvas-API ist, auch wenn beide auf {{htmlelement("canvas")}}-Elemente rendern.
+Es ist nun an der Zeit, uns von 2D zu verabschieden und einen schnellen Blick auf 3D-Canvas zu werfen. 3D-Canvas-Inhalte werden mit der [WebGL-API](/de/docs/Web/API/WebGL_API) spezifiziert, die komplett von der 2D-Canvas-API getrennt ist, obwohl sie beide auf {{htmlelement("canvas")}}-Elemente rendern.
 
-WebGL basiert auf {{Glossary("OpenGL", "OpenGL")}} (Open Graphics Library) und ermöglicht es Ihnen, direkt mit der {{Glossary("GPU", "GPU")}} des Computers zu kommunizieren. Als solches ist das Schreiben von rohem WebGL näher an niedrigeren Sprachen wie C++ als regulärem JavaScript; es ist ziemlich komplex, aber unglaublich leistungsfähig.
+WebGL basiert auf {{Glossary("OpenGL", "OpenGL")}} (Open Graphics Library) und ermöglicht die direkte Kommunikation mit dem {{Glossary("GPU", "GPU")}} des Computers. Da das Schreiben von Raw WebGL eher einfachen Programmiersprachen wie C++ als regulärem JavaScript ähnelt, ist es ziemlich komplex, aber unglaublich leistungsstark.
 
 ### Verwendung einer Bibliothek
 
-Aufgrund seiner Komplexität schreiben die meisten Leute 3D-Grafikcode mit einer Drittanbieter-JavaScript-Bibliothek wie [Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js), [PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder [Babylon.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js). Die meisten funktionieren auf ähnliche Weise, indem sie Funktionen bieten, um primitive und benutzerdefinierte Formen zu erstellen, Kameras und Beleuchtung zu positionieren, Oberflächen mit Texturen zu versehen und mehr. Sie bearbeiten das WebGL für Sie, sodass Sie auf einer höheren Ebene arbeiten können.
+Aufgrund seiner Komplexität schreiben die meisten Menschen 3D-Grafik-Code mithilfe einer JavaScript-Bibliothek eines Drittanbieters wie [Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js), [PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder [Babylon.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js). Die meisten dieser Bibliotheken funktionieren ähnlich, bieten Funktionen zum Erstellen von primitiven und benutzerdefinierten Formen, Positionieren von Kameras und Beleuchtung, Überziehen von Oberflächen mit Texturen und mehr. Sie kümmern sich um das WebGL für Sie, damit Sie auf einer höheren Ebene arbeiten können.
 
-Ja, die Verwendung einer dieser bedeutet den Erwerb einer neuen API (in diesem Fall einer Drittanbieter-API), aber sie sind viel einfacher als das Codieren des rohen WebGL.
+Ja, die Verwendung einer dieser bedeutet, dass Sie eine weitere neue API (diesmal eine von Drittanbietern) lernen müssen, aber sie sind viel einfacher als reines WebGL-Programmieren.
 
-### Ein drehender Würfel
+### Ein rotierender Würfel
 
-Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt werden kann. Wir wählen [Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js), da es eine der beliebtesten ist. In diesem Tutorial erstellen wir einen 3D-drehenden Würfel.
+Werfen wir einen Blick darauf, wie man mit einer WebGL-Bibliothek etwas erstellt. Wir wählen [Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js), da es eine der beliebtesten ist. In diesem Tutorial werden wir einen 3D-rotierenden Würfel erstellen.
 
-1. Beginnen Sie damit, einen neuen Ordner auf Ihrer lokalen Festplatte mit dem Namen `webgl-cube` zu erstellen.
-2. Legen Sie darin eine neue Datei mit dem Namen `index.html` an und fügen Sie den folgenden Inhalt hinzu:
+1. Um zu beginnen, erstellen Sie auf Ihrer lokalen Festplatte ein neues Verzeichnis mit dem Namen `webgl-cube`.
+2. Erstellen Sie in diesem Verzeichnis eine neue Datei mit dem Namen `index.html` und fügen Sie den folgenden Inhalt hinzu:
 
    ```html
    <!doctype html>
@@ -1015,8 +1015,8 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
    <script src="https://cdn.jsdelivr.net/npm/three-js@79.0.0/three.min.js"></script>
    ```
 
-3. Erstellen Sie eine weitere neue Datei mit dem Namen `script.js`, wieder im gleichen Ordner wie zuvor. Lassen Sie diese zunächst leer.
-4. Erstellen Sie nun eine weitere neue Datei mit dem Namen `style.css`, erneut im gleichen Ordner, und fügen Sie den folgenden Inhalt hinzu:
+3. Erstellen Sie als nächstes eine weitere neue Datei mit dem Namen `script.js`, wiederum im selben Verzeichnis. Lassen Sie diese Datei vorerst leer.
+4. Erstellen Sie nun eine weitere neue Datei namens `style.css`, ebenfalls im gleichen Verzeichnis, und fügen Sie den folgenden Inhalt hinzu:
 
    ```css live-sample___9-webgl-cube
    html,
@@ -1029,15 +1029,15 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
    }
    ```
 
-5. Wir haben `three.js` in unserer Seite eingebunden (das ist es, was das erste `<script>`-Element in unserem HTML macht), also können wir nun beginnen, JavaScript zu schreiben, das es benutzt und in die `script.js`-Datei einfügen kann. Lassen Sie uns mit dem Erstellen eines neuen Szenarios beginnen – fügen Sie das Folgende in Ihre `script.js`-Datei ein:
+5. Wir haben `three.js` in unsere Seite integriert (dies ist das, was das erste `<script>`-Element in unserem HTML tut), also können wir nun JavaScript in `script.js` schreiben, das dieses verwendet. Lassen Sie uns damit beginnen, eine neue Szene zu erstellen — fügen Sie das folgende in Ihre `script.js`-Datei ein:
 
    ```js live-sample___9-webgl-cube
    const scene = new THREE.Scene();
    ```
 
-   Der Konstruktor [`Scene()`](https://threejs.org/docs/index.html#api/en/scenes/Scene) erstellt ein neues Szenario, das die gesamte 3D-Welt darstellt, die wir anzeigen möchten.
+   Der [`Scene()`](https://threejs.org/docs/index.html#api/en/scenes/Scene)-Konstruktor erstellt eine neue Szene, die die gesamte 3D-Welt darstellt, die wir anzeigen möchten.
 
-6. Als Nächstes brauchen wir eine **Kamera**, damit wir die Szene sehen können. In 3D-Bilderbegriffen stellt die Kamera die Position eines Betrachters in der Welt dar. Um eine Kamera zu erstellen, fügen Sie die nächsten Zeilen hinzu:
+6. Als nächstes benötigen wir eine **Kamera**, damit wir die Szene sehen können. In der 3D-Bildverarbeitung stellt die Kamera die Position des Betrachters in der Welt dar. Um eine Kamera zu erstellen, fügen Sie die folgenden Zeilen als nächstes hinzu:
 
    ```js live-sample___9-webgl-cube
    const camera = new THREE.PerspectiveCamera(
@@ -1049,15 +1049,15 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
    camera.position.z = 5;
    ```
 
-   Der Konstruktor [`PerspectiveCamera()`](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera) benötigt vier Argumente:
+   Der [`PerspectiveCamera()`](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera)-Konstruktor nimmt vier Argumente entgegen:
    - Das Sichtfeld: Wie breit der Bereich vor der Kamera ist, der auf dem Bildschirm sichtbar sein sollte, in Grad.
-   - Das {{Glossary("aspect_ratio", "Seitenverhältnis")}}: Normalerweise ist dies das Verhältnis der Breite der Szene geteilt durch die Höhe der Szene. Eine andere Zahl zu verwenden, würde die Szene verzerren (was das ist, was Sie wollen, normalerweise aber nicht).
-   - Die nahe Ebene: Wie nahe die Objekte an der Kamera sind, bevor wir aufhören, sie auf dem Bildschirm zu rendern. Denken Sie daran, wenn Sie Ihre Fingerspitze näher und näher an den Raum zwischen Ihren Augen bewegen, irgendwann können Sie sie nicht mehr sehen.
-   - Die ferne Ebene: Wie weit entfernt Dinge von der Kamera sind, bevor sie nicht mehr gerendert werden.
+   - Das {{Glossary("aspect_ratio", "Seitenverhältnis")}}: Normalerweise ist dies das Verhältnis der Breite der Szene durch die Höhe der Szene. Die Verwendung eines anderen Wertes verzerrt die Szene (was gewünscht sein kann, aber normalerweise nicht).
+   - Die Nahschnittfläche: Wie nahe Gegenstände an die Kamera sein können, bevor wir aufhören, sie auf den Bildschirm zu rendern. Denken Sie daran, wie Sie Ihre Fingerspitze näher und näher zwischen Ihre Augen bringen, bis Sie sie irgendwann nicht mehr sehen können.
+   - Die Fernschnittfläche: Wie weit entfernt Gegenstände von der Kamera entfernt sein können, bevor sie nicht mehr gerendert werden.
 
-   Wir setzen die Position der Kamera auch auf 5 Entfernungseinheiten auf der Z-Achse, was, wie in CSS, aus dem Bildschirm in Richtung des Betrachters ist.
+   Wir setzen auch die Position der Kamera auf 5 Einheiten auf der Z-Achse, die, wie in CSS, aus dem Bildschirm heraus in Richtung Ihnen, dem Betrachter, geht.
 
-7. Die dritte wichtige Zutat ist ein Renderer. Dies ist ein Objekt, das eine gegebene Szene, wie durch eine gegebene Kamera gesehen, rendert. Wir erstellen einen für jetzt mit dem Konstruktor [`WebGLRenderer()`](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer), aber wir werden ihn erst später nutzen. Fügen Sie die folgenden Zeilen als nächstes hinzu:
+7. Die dritte wesentliche Zutat ist ein Renderer. Dies ist ein Objekt, das eine gegebene Szene, wie sie durch eine gegebene Kamera betrachtet wird, rendert. Wir erstellen jetzt einen mit dem [`WebGLRenderer()`](https://threejs.org/docs/index.html#api/en/renderers/WebGLRenderer)-Konstruktor, verwenden ihn jedoch erst später. Fügen Sie die folgenden Zeilen als nächstes hinzu:
 
    ```js live-sample___9-webgl-cube
    const renderer = new THREE.WebGLRenderer();
@@ -1065,9 +1065,9 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
    document.body.appendChild(renderer.domElement);
    ```
 
-   Die erste Zeile erstellt einen neuen Renderer, die zweite Zeile setzt die Größe, in der der Renderer den Blick der Kamera zeichnet, und die dritte Zeile fügt das vom Renderer erstellte {{htmlelement("canvas")}}-Element dem Dokumentenkörper hinzu. Jetzt wird alles, was der Renderer zeichnet, in unserem Fenster angezeigt.
+   Die erste Zeile erstellt einen neuen Renderer, die zweite Zeile setzt die Größe, mit der der Renderer das Kamerabild zeichnen wird, und die dritte Zeile fügt das vom Renderer erstellte {{htmlelement("canvas")}}-Element an das Dokument's {{htmlelement("body")}} an. Nun wird alles, was der Renderer zeichnet, in unserem Fenster angezeigt.
 
-8. Als Nächstes wollen wir den Würfel erstellen, den wir auf der Leinwand anzeigen werden. Fügen Sie den folgenden Codeblock am Ende Ihres JavaScript hinzu:
+8. Als nächstes möchten wir den Würfel erstellen, den wir auf dem Canvas anzeigen. Fügen Sie den folgenden Codeblock am Ende Ihres JavaScript-Codes hinzu:
 
    ```js live-sample___9-webgl-cube
    let cube;
@@ -1091,13 +1091,13 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
    );
    ```
 
-   Es gibt hier ein wenig mehr zu verstehen, daher gehen wir es Schritt für Schritt durch:
-   - Zuerst erstellen wir eine `cube`-globale Variable, damit wir von überall im Code auf unseren Würfel zugreifen können.
-   - Als Nächstes erstellen wir ein neues [`TextureLoader`](https://threejs.org/docs/index.html#api/en/loaders/TextureLoader)-Objekt, und rufen `load()` darauf auf. `load()` nimmt in diesem Fall zwei Parameter an (obwohl es mehr nehmen kann): die zu ladende Textur (ein PNG) und eine Funktion, die gestartet wird, sobald die Textur geladen wurde.
-   - Innerhalb dieser Funktion verwenden wir Eigenschaften des [`texture`](https://threejs.org/docs/index.html#api/en/textures/Texture)-Objekts, um anzugeben, dass wir eine 2 x 2 Wiederholung des Bildes um alle Seiten des Würfels herum wünschen. Als Nächstes erstellen wir ein neues [`BoxGeometry`](https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry)-Objekt und ein neues [`MeshLambertMaterial`](https://threejs.org/docs/index.html#api/en/materials/MeshLambertMaterial)-Objekt, und fügen sie in einem [`Mesh`](https://threejs.org/docs/index.html#api/en/objects/Mesh) zusammen, um unseren Würfel zu erstellen. Ein Objekt erfordert normalerweise eine Geometrie (welche Form es hat) und ein Material (wie seine Oberfläche aussieht).
-   - Zuletzt fügen wir unseren Würfel in das Szenario ein und rufen dann unsere `draw()`-Funktion auf, um die Animation zu starten.
+   Es gibt hier einiges mehr zu verarbeiten, also gehen wir es in Etappen durch:
+   - Zunächst erstellen wir eine `cube` globale Variable, sodass wir in unserem Code überall auf unseren Würfel zugreifen können.
+   - Als nächstes erstellen wir ein neues [`TextureLoader`](https://threejs.org/docs/index.html#api/en/loaders/TextureLoader)-Objekt und rufen `load()` darauf auf. `load()` nimmt in diesem Fall zwei Parameter an (obwohl es mehr annehmen kann): die Textur, die wir laden möchten (eine PNG-Datei), und eine Funktion, die ausgeführt wird, wenn die Textur geladen wurde.
+   - Innerhalb dieser Funktion verwenden wir Eigenschaften des [`texture`](https://threejs.org/docs/index.html#api/en/textures/Texture)-Objekts, um anzugeben, dass wir eine 2 x 2 Wiederholung des Bildes um alle Seiten des Würfels gewickelt haben möchten. Danach erstellen wir ein neues [`BoxGeometry`](https://threejs.org/docs/index.html#api/en/geometries/BoxGeometry)-Objekt und ein neues [`MeshLambertMaterial`](https://threejs.org/docs/index.html#api/en/materials/MeshLambertMaterial)-Objekt und fügen sie in einem [`Mesh`](https://threejs.org/docs/index.html#api/en/objects/Mesh) zusammen, um unseren Würfel zu erstellen. Ein Objekt benötigt normalerweise eine Geometrie (welche Form es hat) und ein Material (wie seine Oberfläche aussieht).
+   - Zuletzt fügen wir unseren Würfel zur Szene hinzu und rufen dann unsere `draw()`-Funktion auf, um die Animation zu starten.
 
-9. Bevor wir zu `draw()` gehen, fügen wir ein paar Lichter in das Szenario hinzu, um die Dinge ein wenig zu beleben; fügen Sie die nächsten Blöcke hinzu:
+9. Bevor wir `draw()` definieren, fügen wir ein paar Lichter zur Szene hinzu, um sie ein bisschen lebendiger zu machen; fügen Sie die folgenden Blöcke als nächstes hinzu:
 
    ```js live-sample___9-webgl-cube
    const light = new THREE.AmbientLight("white"); // soft white light
@@ -1109,9 +1109,9 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
    scene.add(spotLight);
    ```
 
-   Ein [`AmbientLight`](https://threejs.org/docs/index.html#api/en/lights/AmbientLight)-Objekt ist eine Art weiches Licht, das die ganze Szene ein wenig aufhellt, wie die Sonne, wenn Sie draußen sind. Das [`SpotLight`](https://threejs.org/docs/index.html#api/en/lights/SpotLight)-Objekt hingegen ist ein zielgerichteter Lichtstrahl, mehr wie eine Taschenlampe/Lamp (oder in der Tat ein Scheinwerfer).
+   Ein [`AmbientLight`](https://threejs.org/docs/index.html#api/en/lights/AmbientLight)-Objekt ist eine Art weiches Licht, das die gesamte Szene ein wenig beleuchtet, wie die Sonne, wenn Sie draußen sind. Das [`SpotLight`](https://threejs.org/docs/index.html#api/en/lights/SpotLight)-Objekt hingegen ist ein gerichteter Lichtstrahl, mehr wie eine Taschenlampe (oder ein Scheinwerfer, in der Tat).
 
-10. Zuletzt fügen wir unsere `draw()`-Funktion am Ende des Codes hinzu:
+10. Zuletzt, fügen wir unsere `draw()`-Funktion am Ende des Codes hinzu:
 
     ```js live-sample___9-webgl-cube
     function draw() {
@@ -1123,31 +1123,31 @@ Schauen wir uns ein Beispiel an, wie etwas mit einer WebGL-Bibliothek erstellt w
     }
     ```
 
-    Dies ist recht intuitiv; bei jedem Frame rotieren wir unseren Würfel leicht auf seinen X- und Y-Achsen, dann rendern wir das Szenario aus Sicht unserer Kamera und schließlich rufen wir `requestAnimationFrame()` auf, um das Zeichnen unseres nächsten Frames zu planen.
+    Dies ist ziemlich intuitiv; bei jedem Bild drehen wir unseren Würfel leicht auf seinen X- und Y-Achsen, dann rendert die Szene so, wie sie von unserer Kamera betrachtet wird, und schließlich rufen wir `requestAnimationFrame()` auf, um das Zeichnen unseres nächsten Bildes einzuplanen.
 
 Das fertige Produkt sollte so aussehen:
 
 {{EmbedLiveSample("9-webgl-cube", "100%", 500)}}
 
 > [!NOTE]
-> In unserem GitHub-Repo finden Sie auch ein weiteres interessantes 3D-Würfel-Beispiel – [Three.js Video Cube](https://github.com/mdn/learning-area/tree/main/javascript/apis/drawing-graphics/threejs-video-cube) ([siehe es auch live](https://mdn.github.io/learning-area/javascript/apis/drawing-graphics/threejs-video-cube/)). Dies verwendet [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um einen Videostream von einer Computer-Webcam zu nehmen und es auf die Seite des Würfels als Textur zu projizieren!
+> In unserem GitHub-Repository finden Sie auch ein weiteres interessantes 3D-Würfelbeispiel — [Three.js Video Cube](https://github.com/mdn/learning-area/tree/main/javascript/apis/drawing-graphics/threejs-video-cube) ([sehen Sie es auch live](https://mdn.github.io/learning-area/javascript/apis/drawing-graphics/threejs-video-cube/)). Dies nutzt [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um einen Videostream von einer Computer-Webcam zu entnehmen und ihn als Textur auf die Seite des Würfels zu projizieren!
 
 ## Zusammenfassung
 
-An diesem Punkt sollten Sie eine nützliche Vorstellung von den Grundlagen der Grafikprogrammierung mit Canvas und WebGL und was Sie mit diesen APIs machen können, haben sowie eine gute Vorstellung davon, wohin Sie gehen können, um weitere Informationen zu finden. Viel Spaß!
+An dieser Stelle sollten Sie eine nützliche Vorstellung von den Grundlagen der Grafikprogrammierung mit Canvas und WebGL haben und was Sie mit diesen APIs anfangen können, sowie eine gute Vorstellung davon, wohin Sie für weitere Informationen gehen können. Viel Spaß!
 
 ## Siehe auch
 
-Hier haben wir nur die wirklichen Grundlagen des Canvas behandelt – es gibt noch so viel mehr zu lernen! Die unten aufgeführten Artikel führen Sie weiter.
+Hier haben wir nur die wirklichen Grundlagen von Canvas abgedeckt — es gibt noch so viel mehr zu lernen! Die unten stehenden Artikel werden Ihnen dabei helfen.
 
-- [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) — Eine sehr detaillierte Tutorialserie, die erklärt, was Sie über 2D-Canvas wissen sollten, viel detaillierter als hier behandelt. Unbedingt lesen.
-- [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) — Eine Serie, die die Grundlagen der rohen WebGL-Programmierung lehrt.
-- [Grundlagen einer Demo mit Three.js erstellen](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) — grundlegendes Three.js-Tutorial. Wir haben auch gleichwertige Leitfäden für [PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder [Babylon.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js).
-- [Spielentwicklung](/de/docs/Games) — die Einstiegsseite für die Web-Spiele-Entwicklung auf MDN. Hier gibt es einige wirklich nützliche Tutorials und Techniken im Zusammenhang mit 2D- und 3D-Canvas – siehe die Menüpunkte Techniken und Tutorials.
+- [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial) — Eine sehr detaillierte Tutorial-Serie, die erklärt, was Sie über 2D-Canvas wissen sollten, in viel mehr Details als hier behandelt wurde. Essentielle Lektüre.
+- [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) — Eine Serie, die die Grundlagen der Raw-WebGL-Programmierung lehrt.
+- [Aufbau einer grundlegenden Demo mit Three.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) — Einfaches Three.js-Tutorial. Wir haben auch gleichwertige Leitfäden für [PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder [Babylon.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js).
+- [Spielentwicklung](/de/docs/Games) — Die Startseite für die Entwicklung von Webspielen auf MDN. Dort gibt es wirklich nützliche Tutorials und Techniken in Bezug auf 2D- und 3D-Canvas — siehe die Optionen Techniken und Tutorials im Menü.
 
 ## Beispiele
 
-- [Violent theremin](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin) — Verwendet die Web Audio API, um Ton zu erzeugen, und Canvas, um eine schöne Visualisierung dazu zu erzeugen.
-- [Voice change-o-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) — Verwendet ein Canvas, um Echtzeitaudiodaten von der Web Audio API zu visualisieren.
+- [Violent theremin](https://github.com/mdn/webaudio-examples/tree/main/violent-theremin) — Verwendet die Web Audio API, um Klang zu erzeugen und Canvas, um eine hübsche Visualisierung dazu zu generieren.
+- [Voice change-o-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) — Verwendet ein Canvas zur Visualisierung von Echtzeit-Audiodaten von der Web Audio API.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Client-side_APIs/Video_and_audio_APIs", "Learn_web_development/Extensions/Client-side_APIs/Client-side_storage", "Learn_web_development/Extensions/Client-side_APIs")}}
