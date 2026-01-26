@@ -2,12 +2,12 @@
 title: :where()
 slug: Web/CSS/Reference/Selectors/:where
 l10n:
-  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
+  sourceCommit: 235f91c4deeb3a62492fdc82565afc56c11ec153
 ---
 
-Die **`:where()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Funktion nimmt eine Selektorliste als Argument und wählt jedes Element aus, das von einem der Selektoren in dieser Liste ausgewählt werden kann.
+Die **`:where()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Funktion nimmt eine Selektorliste als Argument und wählt jedes Element aus, das durch einen der Selektoren in dieser Liste ausgewählt werden kann.
 
-Der Unterschied zwischen `:where()` und {{cssxref(":is()")}} besteht darin, dass `:where()` immer eine [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) von 0 hat, während `:is()` die Spezifität des spezifischsten Selektors in seinen Argumenten übernimmt.
+Der Unterschied zwischen `:where()` und {{cssxref(":is()")}} besteht darin, dass `:where()` immer eine [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) von 0 hat, während `:is()` die Spezifität des spezifischsten Selektors in seinen Argumenten annimmt.
 
 {{InteractiveExample("CSS Demo: :where", "tabbed-shorter")}}
 
@@ -64,13 +64,13 @@ ol {
 
 ### Parameter
 
-Die `:where()`-Pseudo-Klasse erfordert eine [Selektorliste](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#selector_list), eine durch Kommas getrennte Liste von einem oder mehreren Selektoren, als Argument. Die Liste darf kein [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
+Die `:where()` Pseudoklasse erfordert eine [Selektorliste](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#selector_list), eine durch Kommata getrennte Liste von einem oder mehreren Selektoren als Argument. Die Liste darf kein [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthalten, aber alle anderen einfachen, zusammengesetzten und komplexen Selektoren sind erlaubt.
 
-### Nachsichtige Selektoranalyse
+### Nachsichtige Selektor-Analyse
 
-Die Spezifikation definiert `:is()` und `:where()` als akzeptierend eine [nachsichtige Selektorliste](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list).
+Die Spezifikation definiert `:is()` und `:where()` als akzeptierend eine [nachsichtige Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list).
 
-In CSS, wenn eine Selektorliste verwendet wird und einer der Selektoren ungültig ist, wird die gesamte Liste als ungültig angesehen. Bei der Verwendung von `:is()` oder `:where()` wird statt die gesamte Selektorliste als ungültig zu betrachten, wenn einer nicht analysiert werden kann, der falsche oder nicht unterstützte Selektor ignoriert und die anderen verwendet.
+In CSS, wenn eine Selektorliste verwendet wird und einer der Selektoren ungültig ist, wird die gesamte Liste als ungültig betrachtet. Bei der Verwendung von `:is()` oder `:where()` wird statt der gesamten Liste von Selektoren, wenn einer nicht analysiert werden kann, der falsche oder nicht unterstützte Selektor ignoriert und die anderen verwendet.
 
 ```css
 :where(:valid, :unsupported) {
@@ -78,7 +78,7 @@ In CSS, wenn eine Selektorliste verwendet wird und einer der Selektoren ungülti
 }
 ```
 
-Wird immer noch korrekt analysiert und passt zu `:valid`, selbst in Browsern, die `:unsupported` nicht unterstützen, während:
+Wird immer noch korrekt analysiert und `:valid` auch in Browsern gefunden, die `:unsupported` nicht unterstützen, während:
 
 ```css
 :valid,
@@ -87,15 +87,15 @@ Wird immer noch korrekt analysiert und passt zu `:valid`, selbst in Browsern, di
 }
 ```
 
-In Browsern ignoriert wird, die `:unsupported` nicht unterstützen, auch wenn sie `:valid` unterstützen.
+In Browsern ignoriert wird, die `:unsupported` nicht unterstützen, selbst wenn sie `:valid` unterstützen.
 
 ## Beispiele
 
 ### Vergleich von :where() und :is()
 
-Dieses Beispiel zeigt, wie `:where()` funktioniert und illustriert auch den Unterschied zwischen `:where()` und `:is()`.
+Dieses Beispiel zeigt, wie `:where()` funktioniert und illustriert den Unterschied zwischen `:where()` und `:is()`.
 
-Betrachten Sie das folgende HTML:
+Nehmen Sie das folgende HTML:
 
 ```html
 <article>
@@ -147,9 +147,9 @@ Betrachten Sie das folgende HTML:
 </article>
 ```
 
-In diesem etwas konstruierten Beispiel haben wir zwei Artikel, die jeweils einen Abschnitt, eine Seite und eine Fußzeile enthalten. Sie unterscheiden sich durch die Klassen, die zur Kennzeichnung der Kindelemente verwendet werden.
+In diesem etwas konstruierten Beispiel haben wir zwei Artikel, die jeweils einen Abschnitt, ein Aside und einen Footer enthalten. Sie unterscheiden sich durch die Klassen, mit denen die Kindelemente markiert werden.
 
-Um die Auswahl der Links zu gruppieren, während die `is-styling` und `where-styling` Stile getrennt bleiben, _könnten_ wir `:is()` oder `:where()` auf folgende Weise verwenden:
+Um die Auswahl von Links zu gruppieren und dabei die `is-styling` und `where-styling` Stile unterschiedlich zu halten, _könnten_ wir `:is()` oder `:where()` auf folgende Weise verwenden:
 
 ```css
 html {
@@ -166,7 +166,7 @@ html {
 }
 ```
 
-Was aber, wenn wir später die Farbe der Links in den Fußzeilen mit einem zusammengesetzten Selektor aus niedrig spezifischen Typselektoren überschreiben wollen?
+Was aber, wenn wir später die Farbe von Links in den Footern mit einem zusammengesetzten Selektor ändern möchten, der aus Selektoren mit geringer Spezifität besteht?
 
 ```css
 footer a {
@@ -174,12 +174,12 @@ footer a {
 }
 ```
 
-Dies wird für die roten Links nicht funktionieren, da die Selektoren innerhalb von `:is()` zur Spezifität des allgemeinen Selektors beitragen, und Klassenselektoren eine höhere Spezifität als Elementselektoren haben.
+Dies funktioniert nicht für die roten Links, weil die Selektoren innerhalb von `:is()` zur Spezifität des Gesamtselektors beitragen und Klassenselektoren eine höhere Spezifität als Elementselektoren haben.
 
-Jedoch haben Selektoren innerhalb von `:where()` eine Spezifität von 0, sodass der orangefarbene Footer-Link durch unseren typbasierten zusammengesetzten Selektor überschrieben wird.
+Jedoch haben Selektoren innerhalb von `:where()` eine Spezifität von 0, sodass der orangefarbene Footer-Link durch unseren nur auf Typen basierenden zusammengesetzten Selektor überschrieben wird.
 
 > [!NOTE]
-> Sie können dieses Beispiel auch auf GitHub finden; siehe [is-where](https://mdn.github.io/css-examples/is-where/).
+> Sie finden dieses Beispiel auch auf GitHub; siehe [is-where](https://mdn.github.io/css-examples/is-where/).
 
 {{EmbedLiveSample('Examples', '100%', 600)}}
 
@@ -195,4 +195,5 @@ Jedoch haben Selektoren innerhalb von `:where()` eine Spezifität von 0, sodass 
 
 - {{cssxref(":is()")}}
 - [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list)
-- [Web Components](/de/docs/Web/API/Web_components)
+- [Webkomponenten](/de/docs/Web/API/Web_components)
+- [Nachsichtige Selektorliste](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list) via csswg.org.

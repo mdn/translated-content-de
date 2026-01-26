@@ -1,39 +1,38 @@
 ---
-title: Anleitung zur Erstellung, Bearbeitung, Verschiebung oder Löschung von Seiten
-short-title: Seiten erstellen/bearbeiten/verschieben/löschen
+title: Anleitung zum Erstellen, Bearbeiten, Verschieben oder Löschen von Seiten
+short-title: Erstellen, Bearbeiten, Verschieben oder Löschen von Seiten
 slug: MDN/Writing_guidelines/Howto/Creating_moving_deleting
 l10n:
-  sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
+  sourceCommit: 0ff7ba5177bf2e66214bd90b58590c6bf3acb758
 ---
 
-Dieser Artikel beschreibt, wie Sie eine Seite erstellen, verschieben, löschen oder bearbeiten können. In all diesen Fällen ist es eine gute Idee, unsere Richtlinien für [Was wir schreiben](/de/docs/MDN/Writing_guidelines/What_we_write) zu überprüfen, um zu bestätigen, ob eine dieser Aktionen durchgeführt werden sollte, und es mit dem Team in einem der MDN Web Docs [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) zu besprechen, bevor Sie fortfahren.
+Dieser Artikel beschreibt, wie Sie eine Seite erstellen, verschieben, löschen oder bearbeiten können. In all diesen Fällen empfiehlt es sich, unsere Richtlinien für das [Was wir schreiben](/de/docs/MDN/Writing_guidelines/What_we_write) zu überprüfen, um zu bestätigen, ob eine dieser Maßnahmen ergriffen werden sollte, und dies mit dem Team in einem der MDN Web Docs [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) zu besprechen, bevor Sie fortfahren.
 
-## Erstellung von Seiten
+## Erstellen von Seiten
 
-Alle Seiten auf MDN Web Docs werden im Markdown-Format verfasst. Der Inhalt wird in einer Datei namens `index.md` geschrieben, die in einem eigenen einzigartigen Verzeichnis gespeichert wird. Der Verzeichnisname steht für den Namen der Seite. Wenn `align-content` beispielsweise eine neue CSS-Eigenschaft ist, für die Sie eine neue Referenzseite erstellen möchten, würden Sie im Verzeichnis `en-us/web/css` einen Ordner namens `align-content` erstellen und darin eine Datei mit dem Namen `index.md` erstellen.
+Alle Seiten auf den MDN Web Docs sind im Markdown-Format verfasst. Der Inhalt wird in einer Datei namens `index.md` geschrieben, die in einem eigenen eindeutigen Verzeichnis gespeichert ist. Der Verzeichnisname repräsentiert den Namen der Seite. Wenn `align-content` zum Beispiel eine neue CSS-Eigenschaft ist, für die Sie eine neue Referenzseite erstellen möchten, würden Sie einen Ordner in `en-us/web/css` mit dem Namen `align-content` erstellen und darin eine Datei namens `index.md` anlegen.
 
 > [!NOTE]
-> Der Verzeichnisname unterscheidet sich geringfügig vom Slug der Seite. Besonders hervorzuheben ist, dass der Slug der Satzschreibung folgt.
+> Der Name des Verzeichnisses unterscheidet sich leicht von der Slug der Seite. Am auffälligsten ist, dass die Slug der Satzschreibung folgt.
 
-Es gibt viele verschiedene [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) mit bestimmten Strukturen und unterstützenden Seitenvorlagen, die Sie kopieren können, um zu beginnen.
+Es gibt viele verschiedene [Seitentypen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) mit bestimmten Strukturen und unterstützenden Seitenschablonen, die Sie kopieren können, um den Anfang zu erleichtern.
 
-Eine `index.md`-Datei eines Dokuments muss mit den Front Matter-Daten beginnen, die `title`, `slug` und `page-type` definieren. Alle diese Front Matter-Informationen finden Sie in den oben genannten Seitenvorlagen. Alternativ kann es hilfreich sein, sich auf das Front Matter innerhalb eines ähnlichen Dokuments `index.md` zu beziehen.
+Die `index.md`-Datei eines Dokuments muss mit den Metadaten beginnen, die den `title`, `slug` und `page-type` definieren. Alle diese Metadateninformationen finden Sie in den genannten Seitenschablonen. Alternativ könnte es hilfreich sein, sich auf die Metadaten eines ähnlichen Dokuments in dessen `index.md` zu beziehen.
 
 Der allgemeine Schritt-für-Schritt-Prozess zur Erstellung einer Seite wäre:
 
-1. Starten Sie einen neuen, aktualisierten Branch, um darin zu arbeiten.
+1. Starten Sie einen frischen, aktuellen Branch, um darin zu arbeiten.
 
    ```bash
    cd ~/repos/mdn/content
    git checkout main
    git pull mdn main
-   # Run "yarn" again to ensure you've
-   # installed the latest Yari dependency.
-   yarn
+   # Run "npm install" to ensure dependencies are up to date.
+   npm install
    git checkout -b my-add
    ```
 
-2. Erstellen Sie ein oder mehrere neue Dokumentenverzeichnisse, jedes mit seiner eigenen `index.md`-Datei.
+2. Erstellen Sie ein oder mehrere neue Dokumentverzeichnisse, jedes mit eigenen `index.md`-Dateien.
 
 3. Fügen Sie Ihre neuen Dateien hinzu und committen Sie diese sowie pushen Sie Ihren neuen Branch zu Ihrem Fork.
 
@@ -45,39 +44,39 @@ Der allgemeine Schritt-für-Schritt-Prozess zur Erstellung einer Seite wäre:
 
 4. Erstellen Sie Ihren Pull-Request.
 
-## Verschiebung von Seiten
+## Verschieben von Seiten
 
-Das Verschieben von einem oder mehreren Dokumenten oder einem gesamten Dokumentenbaum ist einfach, da wir einen speziellen Befehl erstellt haben, der die Details für Sie übernimmt:
+Das Verschieben eines oder mehrerer Dokumente oder eines gesamten Dokumentenbaums ist einfach, da wir einen speziellen Befehl erstellt haben, der die Details für Sie übernimmt:
 
 ```bash
-yarn content move <from-slug> <to-slug> [locale]
+npm run content move <from-slug> <to-slug> [locale]
 ```
 
-Sie müssen lediglich den Slug des vorhandenen Dokuments angeben, das Sie verschieben möchten (z.B. `Web/HTTP/Guides/Authentication`), sowie den Slug des neuen Standorts (z.B. `Web/HTTP/Guides/Auth`), optional gefolgt von der Locale des bestehenden Dokuments (Standard ist `en-US`).
+Sie müssen lediglich die Slug des bestehenden Dokuments angeben, das Sie verschieben möchten (z.B. `Web/HTTP/Guides/Authentication`), sowie die Slug des neuen Speicherorts (z.B. `Web/HTTP/Guides/Auth`), optional gefolgt von der Sprache des bestehenden Dokuments (standardmäßig `en-US`).
 
-Wenn das bestehende Dokument, das Sie verschieben möchten, Kinddokumente hat (d.h. es stellt einen Dokumentenbaum dar), verschiebt der Befehl `yarn content move` den gesamten Baum.
+Wenn das bestehende Dokument, das Sie verschieben möchten, Kinddokumente hat (d.h. es repräsentiert einen Dokumentbaum), wird der Befehl `npm run content move` den gesamten Baum verschieben.
 
-Wenn Sie beispielsweise den gesamten Baum `/en-US/Web/HTTP/Guides/Authentication` nach `/en-US/Web/HTTP/Guides/Auth` verschieben möchten, würden Sie die folgenden Schritte ausführen:
+Zum Beispiel, wenn Sie den gesamten
+`/en-US/Web/HTTP/Guides/Authentication`-Baum nach `/en-US/Web/HTTP/Guides/Auth` verschieben möchten, würden Sie die folgenden Schritte ausführen:
 
-1. Sie starten einen neuen Branch, um darin zu arbeiten.
+1. Sie starten einen frischen Branch, um darin zu arbeiten.
 
    ```bash
    cd ~/repos/mdn/content
    git checkout main
    git pull mdn main
-   # Run "yarn" again just to ensure you've
-   # installed the latest Yari dependency.
-   yarn
+   # Run "npm install" again to ensure dependencies are up to date.
+   npm install
    git checkout -b my-move
    ```
 
-2. Führen Sie die Verschiebung durch (diese wird vorhandene Dateien löschen und ändern sowie neue Dateien erstellen).
+2. Führen Sie den Verschiebevorgang durch (der vorhandene Dateien löscht und ändert sowie neue Dateien erstellt).
 
    ```bash
-   yarn content move Web/HTTP/Guides/Authentication Web/HTTP/Guides/Auth
+   npm run content move Web/HTTP/Guides/Authentication Web/HTTP/Guides/Auth
    ```
 
-3. Sobald Dateien verschoben sind, müssen wir die Referenzen zu diesen Dateien in den anderen Inhaltsdateien ebenfalls aktualisieren. Verwenden Sie den folgenden Befehl, um alle Referenzen automatisch in einem Rutsch zu aktualisieren:
+3. Sobald Dateien verschoben sind, müssen wir auch die Verweise auf diese Dateien in den anderen Inhaltsdateien aktualisieren. Verwenden Sie den folgenden Befehl, um alle Verweise automatisch in einem Durchgang zu aktualisieren:
 
    ```bash
    node scripts/update-moved-file-links.js
@@ -94,77 +93,73 @@ Wenn Sie beispielsweise den gesamten Baum `/en-US/Web/HTTP/Guides/Authentication
 5. Erstellen Sie Ihren Pull-Request.
 
 > [!NOTE]
-> Der Befehl `yarn content move` fügt benötigte Weiterleitungen in der Datei `_redirects.txt` hinzu, damit der alte Standort auf den neuen umleitet. Bearbeiten Sie die Datei `_redirects.txt` nicht manuell! Fehler können sich leicht einschleichen, wenn Sie dies tun. Wenn Sie eine Weiterleitung hinzufügen müssen, ohne eine Datei zu verschieben, sprechen Sie darüber mit dem MDN Web Docs Team in den [MDN Web Docs Kommunikationskanälen](/de/docs/MDN/Community/Communication_channels).
+> Der Befehl `npm run content move` fügt im `_redirects.txt`-Datei die erforderlichen Weiterleitungen hinzu, damit der alte Speicherort auf den neuen umleitet. Bearbeiten Sie die `_redirects.txt`-Datei nicht manuell! Fehler können sich leicht einschleichen, wenn Sie dies tun. Wenn Sie eine Weiterleitung hinzufügen müssen, ohne eine Datei zu verschieben, sprechen Sie darüber mit dem MDN Web Docs Team über die [MDN Web Docs Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels).
 
-## Löschung von Seiten
+## Löschen von Seiten
 
-Dokumente sollten nur unter besonderen Umständen von MDN Web Docs entfernt werden. Wenn Sie über das Löschen von Seiten nachdenken, besprechen Sie dies bitte zuerst mit dem MDN Web Docs Team in den [MDN Web Docs Chatrooms](/de/docs/MDN/Community/Communication_channels#chat_rooms).
+Dokumente sollten nur unter besonderen Umständen aus den MDN Web Docs entfernt werden. Wenn Sie darüber nachdenken, Seiten zu löschen, besprechen Sie dies bitte zuerst mit dem MDN Web Docs Team in den [MDN Web Docs Chat-Räumen](/de/docs/MDN/Community/Communication_channels#chat_rooms).
 
-Das Löschen von einem oder mehreren Dokumenten oder einem gesamten Dokumentenbaum ist einfach, genau wie das Verschieben von Seiten, da wir einen speziellen Befehl erstellt haben, der die Details für Sie übernimmt:
+Das Löschen eines oder mehrerer Dokumente oder eines gesamten Dokumentenbaums ist ebenso einfach wie das Verschieben von Seiten, da wir einen speziellen Befehl erstellt haben, der die Details für Sie übernimmt:
 
 ```bash
-yarn content delete <document-slug> [locale]
+npm run content delete <document-slug> [locale] -- --redirect <redirect-slug-or-url>
 ```
 
+Beim Umleiten kann die Zielseite eine externe URL oder eine andere Seite auf den MDN Web Docs sein.
+
 > [!NOTE]
-> Sie müssen den Befehl `yarn content delete` verwenden, um Seiten von MDN Web Docs zu löschen. Löschen Sie nicht einfach deren Verzeichnisse aus dem Repo. Der Befehl `yarn content delete` behandelt auch andere notwendige Änderungen wie die Aktualisierung der Datei `_wikihistory.json`.
+> Sie müssen den Befehl `npm run content delete` verwenden, um Seiten aus den MDN Web Docs zu löschen. Löschen Sie nicht einfach deren Verzeichnisse aus dem Repository. Der Befehl `npm run content delete` kümmert sich auch um andere notwendige Änderungen wie die Aktualisierung der `_wikihistory.json`-Datei.
 
-Sie müssen lediglich den Slug des vorhandenen Dokuments angeben, das Sie löschen möchten (z.B. `Web/HTTP/Guides/Authentication`), optional gefolgt von der Locale des bestehenden Dokuments (Standard ist `en-US`).
+Sie müssen lediglich die Slug des bestehenden Dokuments angeben, das Sie löschen möchten (z.B. `Web/HTTP/Guides/Authentication`), optional gefolgt von der Sprache des bestehenden Dokuments (standardmäßig `en-US`).
 
-Wenn das bestehende Dokument, das Sie löschen möchten, Kinddokumente hat (d.h. es stellt einen Dokumentenbaum dar), müssen Sie auch die Option `-r, --recursive` angeben, andernfalls schlägt der Befehl fehl.
+Wenn das bestehende Dokument, das Sie löschen möchten, Kinddokumente hat (d.h. es repräsentiert einen Dokumentbaum), müssen Sie auch die Option `-r, --recursive` angeben, andernfalls wird der Befehl fehlschlagen.
 
-Wenn Sie beispielsweise den gesamten Baum `/en-US/Web/HTTP/Guides/Authentication` löschen möchten, würden Sie die folgenden Schritte ausführen:
+Zum Beispiel, wenn Sie den gesamten
+`/en-US/Web/HTTP/Guides/Authentication`-Baum löschen möchten, würden Sie die folgenden Schritte ausführen:
 
-1. Sie starten einen neuen Branch, um darin zu arbeiten.
+1. Sie starten einen frischen Branch, um darin zu arbeiten.
 
    ```bash
    cd ~/repos/mdn/content
    git checkout main
    git pull mdn main
-   # Run "yarn" again just to ensure you've
-   # installed the latest Yari dependency.
-   yarn
+   # Run "npm install" again to ensure dependencies are up to date.
+   npm install
    git checkout -b my-delete
    ```
 
-2. Führen Sie die Löschung durch.
+2. Führen Sie das Löschen mit einer Weiterleitung durch.
 
    ```bash
-   yarn content delete Web/HTTP/Guides/Authentication --recursive
+   npm run content delete Web/HTTP/Guides/Authentication --recursive -- --redirect /en-US/path/of/target/page
    ```
 
-3. Fügen Sie eine Weiterleitung hinzu. Die Zielseite kann eine externe URL oder eine andere Seite auf MDN Web Docs sein.
-
-   ```bash
-   yarn content add-redirect /en-US/path/of/deleted/page /en-US/path/of/target/page
-   ```
-
-4. Fügen Sie alle gelöschten Dateien hinzu und committen Sie diese sowie pushen Sie Ihren Branch zu Ihrem Fork.
+3. Fügen Sie alle gelöschten Dateien hinzu und committen Sie diese sowie pushen Sie Ihren Branch zu Ihrem Fork.
 
    ```bash
    git commit -a
    git push -u origin my-delete
    ```
 
-5. Erstellen Sie Ihren Pull-Request.
+4. Erstellen Sie Ihren Pull-Request.
 
 > [!NOTE]
-> Wenn der Slug der Seite, die Sie löschen möchten, Sonderzeichen enthält, schließen Sie ihn in Anführungszeichen ein, so:
+> Wenn die Slug der Seite, die Sie löschen möchten, Sonderzeichen enthält, setzen Sie sie in Anführungszeichen, so:
 >
 > ```bash
-> yarn content delete "Mozilla/Add-ons/WebExtensions/Debugging_(before_Firefox_50)"
+> npm run content delete "Mozilla/Add-ons/WebExtensions/Debugging_(before_Firefox_50)" -- --redirect <redirect-slug-or-url>
 > ```
 
-Das Entfernen von Inhalten aus MDN Web Docs wird unvermeidlich auch die Aktualisierung bestehender Inhalte zur Folge haben. Da viele Artikel auf andere verweisen, wird der entfernte Inhalt wahrscheinlich an anderer Stelle referenziert. Das Hinzufügen der Weiterleitung wird die Auswirkungen der Entfernung mildern; es ist jedoch best practice, den Inhalt zu bearbeiten, um die Änderung widerzuspiegeln und die Inhaltsbearbeitungen zusammen mit der Entferungspullrequest einzuschließen.
+Das Entfernen von Inhalten aus den MDN Web Docs wird zwangsläufig auch darin resultieren, den bestehenden Inhalt zu aktualisieren. Da viele Artikel auf andere verlinken, wird der entfernte Inhalt wahrscheinlich anderswo referenziert. Das Hinzufügen der Weiterleitung wird die Auswirkungen des Entfernens von Inhalten mildern; es ist jedoch am besten, den Inhalt zu bearbeiten, um die Änderung widerzuspiegeln, und die Inhaltsbearbeitungen zusammen mit dem Entfernungs-Pull-Request einzubeziehen.
 
-## Bearbeiten bestehender Seiten
+## Bearbeiten vorhandener Seiten
 
-Um eine Seite zu bearbeiten, müssen Sie die Seitenquelle in unserem [content](https://github.com/mdn/content) Repository finden. Der einfachste Weg, sie zu finden, besteht darin, zu der Seite zu navigieren, die Sie bearbeiten möchten, ans Ende der Seite zu gehen und auf den Link "View the source on GitHub" zu klicken.
+Um eine Seite zu bearbeiten, müssen Sie den Seitenquelltext in unserem [Inhalts-Repository](https://github.com/mdn/content) finden. Der einfachste Weg, ihn zu finden, ist, zur Seite zu navigieren, die Sie bearbeiten möchten, gehen Sie zum Ende der Seite und klicken Sie auf den Link "View the source on GitHub".
 
-### Änderungen anzeigen
+### Änderungen in der Vorschau anzeigen
 
-Wenn Sie die Seite lokal bearbeiten, können Sie, um zu sehen, wie Ihre Änderungen aussehen, in den Content-Repo-Ordner gehen, den CLI-Befehl `yarn start` ausführen, zu `localhost:5042` in Ihrem Browser navigieren und dann zu der Seite navigieren und sie anzeigen. Geben Sie den Titel in das Suchfeld ein, um ihn leicht zu finden. Die Vorschauseite wird im Browser aktualisiert, während Sie die Quelle bearbeiten.
+Wenn Sie die Seite lokal bearbeiten, um zu sehen, wie Ihre Änderungen aussehen, können Sie zum Inhalts-Repository-Ordner gehen, den CLI-Befehl `npm start` ausführen, zu `localhost:5042` in Ihrem Browser gehen, zur Seite navigieren und sie anzeigen. Geben Sie den Titel in das Suchfeld ein, um ihn einfach zu finden. Die Vorschau-Seite wird im Browser aktualisiert, während Sie die Quelle bearbeiten.
 
 ### Dateien anhängen
 
-Um eine Datei an Ihren Artikel anzuhängen, müssen Sie diese einfach in dasselbe Verzeichnis wie die `index.md`-Datei des Artikels einfügen. Fügen Sie die Datei in Ihre Seite ein, typischerweise über ein {{htmlelement("a")}}-Element.
+Um eine Datei an Ihren Artikel anzuhängen, müssen Sie sie nur im selben Verzeichnis wie die `index.md`-Datei des Artikels einfügen. Fügen Sie die Datei auf Ihrer Seite typischerweise über ein {{htmlelement("a")}}-Element ein.

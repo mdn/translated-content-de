@@ -3,21 +3,21 @@ title: "WorkerGlobalScope: importScripts() Methode"
 short-title: importScripts()
 slug: Web/API/WorkerGlobalScope/importScripts
 l10n:
-  sourceCommit: 25f4f226c72b5c7c6574857e34d75693e9de7b0a
+  sourceCommit: d359e01c8cbe5ace455a9d3d149a280dffcf0cf9
 ---
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
 > [!WARNING]
-> Die an diese Methode übergebenen Parameter repräsentieren die URLs von klassischen Skripten, die in einen Worker importiert werden sollen.
-> Solche APIs sind als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und stellen potenziell einen Vektor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar.
+> Die an diese Methode übergebenen Parameter stellen die URLs von klassischen Skripten dar, die in einen Worker importiert werden sollen.
+> Solche APIs sind als [Injection Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und stellen potenziell einen Vektor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar.
 >
-> Sie können dieses Risiko mindern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) haben, die die Orte einschränkt, von denen Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Zeichenfolgen zuweisen und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
+> Sie können dieses Risiko mindern, indem Sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) haben, die die Orte einschränkt, von denen Skripte geladen werden können, und indem Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für weitere Informationen.
 
-Die **`importScripts()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle importiert synchron ein oder mehrere Skripte in den Geltungsbereich eines [klassischen Workers](/de/docs/Web/API/Worker/Worker#module_and_classic_workers) (ein Worker, der aus einem klassischen Skript konstruiert wurde).
+Die **`importScripts()`** Methode des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces importiert synchron ein oder mehrere Skripte in den Geltungsbereich eines [klassischen Workers](/de/docs/Web/API/Worker/Worker#module_and_classic_workers) (einen Worker, der aus einem klassischen Skript erstellt wurde).
 
-Beachten Sie, dass die Methode nicht in [Modul-Workern](/de/docs/Web/API/Worker/Worker#module_and_classic_workers) verwendet werden kann, die stattdessen Abhängigkeiten mithilfe von [`import`-Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/import) laden.
+Beachten Sie, dass die Methode nicht in [Modul-Workern](/de/docs/Web/API/Worker/Worker#module_and_classic_workers) verwendet werden kann, die stattdessen Abhängigkeiten mittels [`import` Anweisungen](/de/docs/Web/JavaScript/Reference/Statements/import) laden.
 
 ## Syntax
 
@@ -30,74 +30,74 @@ importScripts(url0, url1, /* …, */ urlN)
 ### Parameter
 
 - `urlN`
-  - : Eine Instanz von [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) oder eine Zeichenkette, die die URL des zu importierenden Skripts darstellt.
+  - : Eine Instanz von [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) oder ein String, der die URL des zu importierenden Skripts darstellt.
     Die URL kann absolut oder relativ sein.
-    Wenn die URL relativ ist, ist sie relativ zur URL des Einstiegsskripts des Workers.
+    Ist sie relativ, bezieht sie sich auf die URL des Startskripts des Workers.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `NetworkError`
-  - : Importierte Skripte wurden ohne einen `text/javascript`-Medientyp (MIME) oder ohne einen der erlaubten [Legacy-JavaScript-MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#legacy_javascript_mime_types) bereitgestellt.
+  - : Importierte Skripte wurden ohne `text/javascript` Medien (MIME)-Typ oder ohne einen der erlaubten [veralteten JavaScript MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types#legacy_javascript_mime_types) bereitgestellt.
 - {{jsxref("SyntaxError")}}
-  - : Ausgelöst, wenn eine URL nicht aufgelöst werden kann.
+  - : Wird ausgelöst, wenn eine URL nicht aufgelöst werden kann.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn der aktuelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) ein Modul ist (verwenden Sie stattdessen [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)).
-    Dies kann auch passieren, wenn ein Parameter kein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) ist und die Seite [Trusted Types durchsetzt](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+  - : Wird ausgelöst, wenn der aktuelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) ein Modul ist (verwenden Sie stattdessen [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)).
+    Es kann auch passieren, wenn ein Parameter kein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) ist und die Seite [vertrauenswürdige Typen durchsetzt](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
 
 ## Beschreibung
 
-Die **`importScripts()`**-Methode importiert synchron ein oder mehrere Skripte in den Geltungsbereich eines klassischen Workers.
+Die **`importScripts()`** Methode importiert synchron ein oder mehrere Skripte in den Geltungsbereich eines klassischen Workers.
 
-Im Gegensatz zum anfänglichen klassischen Modulskript, das mit seinem Dokument gleichen Ursprungs sein muss, kann diese Methode skripte über Ursprungsgrenzen hinweg importieren, es sei denn, dies wird durch einen {{httpheader("Cross-Origin-Resource-Policy")}}, eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) oder einen anderen Sicherheitsmechanismus blockiert.
-Beachten Sie, dass klassische Skripte im `no-cors`-Modus abgerufen werden, sodass sie über Ursprungsgrenzen hinweg abgerufen werden können, selbst wenn der Server nicht die entsprechenden CORS-Header setzt.
+Im Gegensatz zu dem initialen klassischen Modulskript, das mit seinem Dokument gleichen Ursprungs sein muss, kann diese Methode plattformübergreifende Skripte importieren, es sei denn, es wird durch eine {{httpheader("Cross-Origin-Resource-Policy")}}, [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) oder einen anderen Sicherheitsmechanismus blockiert.
+Beachten Sie, dass klassische Skripte im `no-cors`-Modus abgerufen werden, sie können daher plattformübergreifend abgerufen werden, selbst wenn der Server nicht die passenden CORS-Header setzt.
 
 ### Sicherheitsüberlegungen
 
-Die Parameter geben Skripte an, die in den Geltungsbereich eines klassischen Workers importiert werden sollen.
-Wenn die URLs der Skripte von einem Benutzer bereitgestellt werden, ist dies ein möglicher Vektor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
+Die Parameter geben die Skripte an, die in den Geltungsbereich eines klassischen Workers importiert werden sollen.
+Wenn die URLs der Skripte von einem Benutzer bereitgestellt werden, ist dies ein potenzieller Vektor für [Cross-Site Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe.
 
-Es ist äußerst riskant, willkürliche URLs von unzuverlässigen Ursprüngen zu akzeptieren und auszuführen.
-Eine Website sollte kontrolle darüber haben, welche Skripte mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) und der ???directive [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src) (oder einem Fallback, das in [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) definiert ist) ausgeführt werden dürfen.
-Dies kann Skripte auf solche vom aktuellen Ursprung, einer bestimmten Menge von Ursprüngen oder sogar bestimmten Dateien beschränken.
+Es ist äußerst riskant, willkürliche URLs von nicht vertrauenswürdigen Ursprüngen zu akzeptieren und auszuführen.
+Eine Website sollte kontrollieren, welche Skripte ausgeführt werden dürfen, indem sie eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) mit der [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/worker-src)-Direktive verwendet (oder einen Fallback definiert in [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src)).
+Dies kann Skripte auf die aktuelle Herkunft, eine spezifische Menge an Ursprüngen oder sogar bestimmte Dateien beschränken.
 
-Wenn Sie diese Eigenschaft verwenden und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive), müssen Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Zeichenfolgen zuweisen.
-Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion weitergeleitet wird, die die Möglichkeit hat, die URL vor der Injektion abzulehnen oder zu ändern.
+Wenn Sie diese Eigenschaft verwenden und [vertrauenswürdige Typen durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) (unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive), müssen Sie immer [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekte anstelle von Strings zuweisen.
+Dies stellt sicher, dass der Eingabewert durch eine Transformationsfunktion übergeben wird, die die Möglichkeit hat, die URL abzulehnen oder zu verändern, bevor sie injiziert wird.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Wenn Sie einige Funktionen in einem separaten Skript namens `foo.js` im gleichen Verzeichnis wie `worker.js` geschrieben hätten, könnten Sie es mit der folgenden Zeile in den Worker importieren:
+Wenn Sie eine Funktionalität haben, die in einem separaten Skript namens `foo.js` im selben Verzeichnis wie `worker.js` geschrieben ist, könnten Sie es mit der folgenden Zeile in den Worker importieren:
 
 ```js
 importScripts("foo.js");
 ```
 
-`importScripts()` und `self.importScripts()` sind im Wesentlichen gleichwertig — beide repräsentieren `importScripts()`, das aus dem inneren Geltungsbereich des Workers aufgerufen wird.
+`importScripts()` und `self.importScripts()` sind effektiv gleichwertig — beide repräsentieren `importScripts()`, aufgerufen aus dem inneren Geltungsbereich des Workers.
 
-Beachten Sie, dass wir Ihnen im nächsten Abschnitt zeigen, wie Sie anstelle einer Zeichenfolge ein `TrustedScriptURL` übergeben können.
-Dies wurde in diesem Beispiel der Kürze halber weggelassen, wird jedoch in Produktivcode empfohlen.
+Beachten Sie, dass wir Ihnen im nächsten Abschnitt zeigen, wie man einen `TrustedScriptURL` anstelle eines Strings übergibt.
+Dies wurde in diesem Beispiel der Kürze halber weggelassen, wird jedoch im Produktionscode empfohlen.
 
 ### Verwendung von TrustedScriptURL
 
-Um das Risiko von XSS zu mindern, sollten wir stets `TrustedScriptURL`-Instanzen an jeden der Parameter zuweisen.
-Wir müssen dies auch tun, wenn wir aus anderen Gründen Trusted Types durchsetzen und einige Skriptquellen zulassen wollen, die erlaubt sind (zum Beispiel durch `CSP: script-src`).
+Um das Risiko von XSS zu mildern, sollten wir immer `TrustedScriptURL` Instanzen für jeden der Parameter zuweisen.
+Wir müssen dies auch tun, wenn wir vertrauenswürdige Typen aus anderen Gründen durchsetzen und wir einige zugelassene Skriptquellen zulassen wollen (zum Beispiel durch `CSP: script-src`).
 
-Trusted Types werden noch nicht von allen Browsern unterstützt, daher definieren wir zuerst die [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
-Dies dient als transparenter Ersatz für die Trusted Types JavaScript API:
+Vertrauenswürdige Typen werden noch nicht in allen Browsern unterstützt, daher definieren wir zunächst das [trusted types tinyfill](/de/docs/Web/API/Trusted_Types_API#trusted_types_tinyfill).
+Dies fungiert als transparenter Ersatz für die vertrauenswürdigen Typen der JavaScript-API:
 
 ```js
 if (typeof trustedTypes === "undefined")
   trustedTypes = { createPolicy: (n, rules) => rules };
 ```
 
-Als Nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL)-Methode definiert, um Eingabezeichenfolgen in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Instanzen zu transformieren.
+Als nächstes erstellen wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), die eine [`createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) Methode definiert, um Eingabestrings in [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL) Instanzen zu transformieren.
 
-Für den Zweck dieses Beispiels gehen wir davon aus, dass wir eine vordefinierte Menge von URLs im `scriptAllowList`-Array zulassen und andere Skripte protokollieren wollen.
+Für das Beispiel nehmen wir an, dass wir eine vordefinierte Menge von URLs im `scriptAllowList` Array erlauben und alle anderen Skripte protokollieren wollen.
 
 ```js
 const scriptAllowList = [
@@ -114,7 +114,7 @@ const policy = trustedTypes.createPolicy("script-url-policy", {
 });
 ```
 
-Dann verwenden wir das `policy`-Objekt, um ein `TrustedScript`-Objekt aus einer potenziell unsicheren Eingabezeichenfolge zu erstellen:
+Dann verwenden wir das `policy` Objekt, um ein `TrustedScript` Objekt von einem potenziell unsicheren Eingabestring zu erstellen:
 
 ```js
 // The potentially malicious string
@@ -125,7 +125,7 @@ const untrustedScript = "https://evil.example.com/import_worker.js";
 const trustedScriptURL = policy.createScriptURL(untrustedScript);
 ```
 
-Das `TrustedScriptURL`-Objekt kann jetzt beim Importieren des Skripts in einem klassischen Worker verwendet werden:
+Das `TrustedScriptURL` Objekt kann nun beim Importieren des Skripts in einem klassischen Worker verwendet werden:
 
 ```js
 importScripts(trustedScriptURL);
