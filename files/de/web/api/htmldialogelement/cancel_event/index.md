@@ -1,22 +1,28 @@
 ---
-title: "HTMLDialogElement: cancel-Ereignis"
+title: "HTMLDialogElement: cancel Ereignis"
 short-title: cancel
 slug: Web/API/HTMLDialogElement/cancel_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`cancel`**-Ereignis wird auf einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer den Browser anweist, das aktuell geöffnete Dialogfeld zu schließen. Der Browser löst dieses Ereignis aus, wenn der Benutzer die Taste <kbd>Esc</kbd> drückt.
+Das **`cancel`**-Ereignis wird auf einem {{HTMLElement("dialog")}}-Element ausgelöst, wenn der Benutzer eine Schließen-Anforderung auslöst.
 
-Dieses Ereignis ist abbruchbar, kann aber nicht gebubbelt werden.
+Der `cancel`-Ereignishandler kann verwendet werden, um das Standardverhalten beim Empfang einer Schließen-Anforderung zu überschreiben und zu verhindern, dass der Dialog geschlossen wird. Wenn das Standardverhalten nicht verhindert wird, wird der Dialog geschlossen und ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
 
-Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel`- als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
+Schließen-Anforderungen können durch folgende Aktionen ausgelöst werden:
+
+- Drücken der <kbd>Esc</kbd>-Taste auf Desktop-Plattformen
+- Aufrufen der Methode [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)
+- Die Zurück-Taste auf mobilen Plattformen
+
+Dieses Ereignis ist abbruchfähig und wird nicht hochgebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("cancel", (event) => { })
@@ -30,57 +36,88 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Ein Dialogfeld abbrechen
+### Einen Dialog abbrechen
+
+Das folgende Beispiel zeigt einen Button, der bei Klick einen {{htmlelement("dialog")}} mittels der Methode [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) öffnet.
+
+Sie können das `cancel`-Ereignis auslösen, indem Sie entweder den _Request Close_-Button anklicken, um den Dialog zu schließen (über die Methode [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)), oder indem Sie die <kbd>Esc</kbd>-Taste drücken.
+
+Beachten Sie, dass der `cancel`-Ereignishandler das Ereignis protokolliert und dann zurückgibt, wodurch der Dialog geschlossen wird (was wiederum das `close`-Ereignis auslöst).
+Sie können die Zeile, die `event.preventDefault()` enthält, auskommentieren, um das Ereignis abzubrechen.
 
 #### HTML
 
 ```html
-<dialog class="example-dialog">
-  <button class="close">Close</button>
+<dialog id="dialog">
+  <button type="button" id="request-close">Request Close</button>
 </dialog>
 
-<button class="open-dialog">Open dialog</button>
+<button id="open">Open dialog</button>
+```
 
-<div class="result"></div>
+```html hidden
+<pre id="log"></pre>
 ```
 
 ```css hidden
-button,
-div {
-  margin: 0.5rem;
+#log {
+  height: 170px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
 }
 ```
 
 #### JavaScript
 
-```js
-const result = document.querySelector(".result");
-
-const dialog = document.querySelector(".example-dialog");
-
-dialog.addEventListener("cancel", (event) => {
-  result.textContent = "dialog was canceled";
-});
-
-const openDialog = document.querySelector(".open-dialog");
-openDialog.addEventListener("click", () => {
-  if (typeof dialog.showModal === "function") {
-    dialog.showModal();
-    result.textContent = "";
-  } else {
-    result.textContent = "The dialog API is not supported by this browser";
+```js hidden
+const logElement = document.getElementById("log");
+function log(text, clear = false) {
+  if (clear) {
+    logElement.innerText = "";
   }
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
+```
+
+```js
+const dialog = document.getElementById("dialog");
+const openButton = document.getElementById("open");
+const requestCloseButton = document.getElementById("request-close");
+
+// Open button opens a modal dialog
+openButton.addEventListener("click", () => {
+  log("open button click event fired", true);
+  log("dialog showModal() called");
+  dialog.showModal();
 });
 
-const closeButton = document.querySelector(".close");
-closeButton.addEventListener("click", () => {
-  dialog.close();
+// Request close
+requestCloseButton.addEventListener("click", () => {
+  log("request close button click event fired");
+  log("dialog requestClose() called");
+  // Triggers the cancel event
+  dialog.requestClose();
+});
+
+// Fired when requestClose() is called
+// Prevent the dialog from closing by calling event.preventDefault()
+dialog.addEventListener("cancel", (event) => {
+  log("dialog cancel event fired");
+  // Uncomment the next two lines to prevent the dialog from closing
+  // log("dialog close cancelled");
+  // event.preventDefault();
+});
+
+dialog.addEventListener("close", (event) => {
+  log("dialog close event fired");
 });
 ```
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Canceling a dialog', '100%', '100px') }}
+{{ EmbedLiveSample('Canceling a dialog', '100%', '250px') }}
 
 ## Spezifikationen
 

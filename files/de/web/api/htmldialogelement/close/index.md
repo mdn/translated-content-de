@@ -1,15 +1,18 @@
 ---
-title: "HTMLDialogElement: close()-Methode"
+title: "HTMLDialogElement: close() Methode"
 short-title: close()
 slug: Web/API/HTMLDialogElement/close
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`close()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle schließt das {{htmlelement("dialog")}}.
-Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die **`close()`** Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Interfaces schließt das {{htmlelement("dialog")}}.
+Ein optionaler String kann als Argument übergeben werden, um den [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des Dialogs zu aktualisieren.
+
+Das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis wird ausgelöst, nachdem der Dialog geschlossen wurde.
+Im Gegensatz zu einem Aufruf von [`HTMLDialogElement.requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) kann der Schließvorgang nicht abgebrochen werden.
 
 ## Syntax
 
@@ -21,7 +24,7 @@ close(returnValue)
 ### Parameter
 
 - `returnValue` {{optional_inline}}
-  - : Ein String, der einen aktualisierten Wert für den [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des Dialogs darstellt.
+  - : Ein String, der den bestehenden Wert von [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) ersetzt.
 
 ### Rückgabewert
 
@@ -29,72 +32,84 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der bei Klick ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet.
-Von dort aus können Sie auf den _X_-Button klicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()`-Methode), oder das Formular über den Senden-Button einreichen.
+### Schließen eines Dialogs
+
+Das folgende Beispiel zeigt einen Button, der beim Klicken ein {{htmlelement("dialog")}} über die [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) Methode öffnet.
+Von dort können Sie auf einen der _Close_ Buttons klicken, um den Dialog zu schließen (über die `close()` Methode).
+
+Der _Close_ Button schließt den Dialog ohne [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue), während der _Close w/ return value_ Button den Dialog mit einem [`returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) schließt.
+
+#### HTML
 
 ```html
-<!-- Simple pop-up dialog box, containing a form -->
-<dialog id="favDialog">
-  <form method="dialog">
-    <button type="button" id="close" aria-label="close">X</button>
-    <section>
-      <p>
-        <label for="favAnimal">Favorite animal:</label>
-        <select id="favAnimal" name="favAnimal">
-          <option></option>
-          <option>Brine shrimp</option>
-          <option>Red panda</option>
-          <option>Spider monkey</option>
-        </select>
-      </p>
-    </section>
-    <menu>
-      <li>
-        <button type="reset">Reset</button>
-      </li>
-      <li>
-        <button type="submit">Confirm</button>
-      </li>
-    </menu>
-  </form>
+<dialog id="dialog">
+  <button type="button" id="close">Close</button>
+  <button type="button" id="close-w-value">Close w/ return value</button>
 </dialog>
 
-<button id="updateDetails">Update details</button>
+<button id="open">Open dialog</button>
+```
+
+```html hidden
+<pre id="log"></pre>
+```
+
+```css hidden
+#log {
+  height: 170px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+```
+
+#### JavaScript
+
+```js hidden
+const logElement = document.getElementById("log");
+function log(text) {
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
 ```
 
 ```js
-const updateButton = document.getElementById("updateDetails");
+const dialog = document.getElementById("dialog");
+const openButton = document.getElementById("open");
 const closeButton = document.getElementById("close");
-const dialog = document.getElementById("favDialog");
-dialog.returnValue = "favAnimal";
-
-function openCheck(dialog) {
-  if (dialog.open) {
-    console.log("Dialog open");
-  } else {
-    console.log("Dialog closed");
-  }
-}
+const closeWithValueButton = document.getElementById("close-w-value");
 
 // Update button opens a modal dialog
-updateButton.addEventListener("click", () => {
+openButton.addEventListener("click", () => {
+  // Reset the return value
+  dialog.returnValue = "";
+  // Show the dialog
   dialog.showModal();
-  openCheck(dialog);
+});
+
+// Close button closes the dialog box
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
+
+// Close button closes the dialog box with a return value
+closeWithValueButton.addEventListener("click", () => {
+  dialog.close(`Closed at ${new Date().toLocaleTimeString()}`);
 });
 
 // Form close button closes the dialog box
-closeButton.addEventListener("click", () => {
-  dialog.close("animalNotChosen");
-  openCheck(dialog);
+dialog.addEventListener("close", () => {
+  log(`Dialog closed. Return value: "${dialog.returnValue}"`);
 });
 ```
 
-Wenn der "X"-Button `type="submit"` wäre, hätte der Dialog ohne JavaScript geschlossen werden können.
-Eine Formulareinreichung schließt das `<dialog>`, in dem sie sich befindet, wenn die [Methode des Formulars `dialog` ist](/de/docs/Web/HTML/Reference/Elements/form#method), sodass kein "Schließen"-Button erforderlich ist.
+> [!NOTE]
+>
+> Wissen Sie, dass Sie einen `<dialog>` auch automatisch schließen können, indem Sie ein {{htmlelement("form")}} Element mit einem [`method="dialog"`](/de/docs/Web/HTML/Reference/Elements/form#method) Attribut übermitteln.
 
 ### Ergebnis
 
-{{ EmbedLiveSample('Examples', '100%', '200px') }}
+{{ EmbedLiveSample('Closing a dialog', '100%', '250px') }}
 
 ## Spezifikationen
 
@@ -106,4 +121,6 @@ Eine Formulareinreichung schließt das `<dialog>`, in dem sie sich befindet, wen
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- HTML {{htmlelement("dialog")}} Element
+- Das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis
+- [`HTMLDialogElement.requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose)
