@@ -1,5 +1,5 @@
 ---
-title: SyntaxError: octal escape sequences can't be used in untagged template literals or in strict mode code
+title: "SyntaxError: octal escape sequences can't be used in untagged template literals or in strict mode code"
 slug: Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence
 l10n:
   sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
