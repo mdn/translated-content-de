@@ -796,7 +796,7 @@ Wählen Sie den Webdienst aus und dann die Registerkarte Variablen. Wählen Sie 
 
 Wählen Sie dann **Hinzufügen**, um den Variablenbezug hinzuzufügen und schließlich **Bereitstellen** (dies wird in einem Popup angezeigt). Beachten Sie, dass Sie es auch hätten tun können, indem Sie die Postgres-Datenbank öffnen, dann auf ihre Registerkarte Variablen und die Variable kopieren.
 
-Wenn Sie das Projekt jetzt öffnen, sollte es genau wie lokal angezeigt werden. Beachten Sie jedoch, dass es keine Möglichkeit gibt, die Bibliothek mit Daten zu füllen, da wir noch keinen Superuser-Account erstellt haben. Wir werden das mit dem [CLI](https://docs.railway.com/guides/cli) -Werkzeug auf unserem lokalen Computer tun.
+Wenn Sie das Projekt jetzt öffnen, sollte es genau wie lokal angezeigt werden. Beachten Sie jedoch, dass es keine Möglichkeit gibt, die Bibliothek mit Daten zu füllen, da wir noch keinen Superuser-Account erstellt haben. Wir werden das mit dem [CLI](https://docs.railway.com/guides/cli)-Werkzeug auf unserem lokalen Computer tun.
 
 ### Den Client installieren
 

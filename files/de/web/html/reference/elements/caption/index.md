@@ -125,7 +125,7 @@ Ein solcher "Titel" ist hilfreich für Benutzer, die die Seite schnell durchblä
 
 #### HTML
 
-Ein `<caption>`-Element wird als erstes Kind des {{HTMLElement("table")}} verwendet, mit Textinhalt, der einem Titel ähnlich ist, um die Tabellendaten zu beschreiben. Drei Zeilen, wobei die erste eine Kopfzeile ist, mit zwei Spalten werden unter Verwendung der {{HTMLElement("tr")}}, {{HTMLElement("th")}} und {{HTMLElement("td")}} -Elemente nach dem `<caption>` erstellt.
+Ein `<caption>`-Element wird als erstes Kind des {{HTMLElement("table")}} verwendet, mit Textinhalt, der einem Titel ähnlich ist, um die Tabellendaten zu beschreiben. Drei Zeilen, wobei die erste eine Kopfzeile ist, mit zwei Spalten werden unter Verwendung der {{HTMLElement("tr")}}, {{HTMLElement("th")}} und {{HTMLElement("td")}}-Elemente nach dem `<caption>` erstellt.
 
 ```html
 <table>

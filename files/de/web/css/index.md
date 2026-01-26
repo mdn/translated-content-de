@@ -70,7 +70,7 @@ Sie können auch die folgenden Ressourcen nutzen:
 
 ## Referenz
 
-Durchstöbern Sie die vollständige [CSS-Referenz](/de/docs/Web/CSS/Reference) -Dokumentation.
+Durchstöbern Sie die vollständige [CSS-Referenz](/de/docs/Web/CSS/Reference)-Dokumentation.
 
 - [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties)
   - : Referenz für alle CSS-Eigenschaften.

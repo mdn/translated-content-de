@@ -19,7 +19,7 @@ Firefox 55 wurde am 8. August 2017 veröffentlicht. Dieser Artikel listet wichti
 
 ### HTML
 
-- Elemente, bei denen [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt wurde, verwenden nun {{htmlelement("div")}} -Elemente, um verschiedene Textzeilen zu trennen und Firefox damit an andere moderne Browser anzugleichen ([Firefox Bug 1297414](https://bugzil.la/1297414)).
+- Elemente, bei denen [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) auf `true` gesetzt wurde, verwenden nun {{htmlelement("div")}}-Elemente, um verschiedene Textzeilen zu trennen und Firefox damit an andere moderne Browser anzugleichen ([Firefox Bug 1297414](https://bugzil.la/1297414)).
 - Aktivierung von `dom.forms.datetime` standardmäßig in Nightly ([Firefox Bug 1366188](https://bugzil.la/1366188)).
 
 ### CSS

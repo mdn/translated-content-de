@@ -56,7 +56,7 @@ hwb(from lch(40% 70 240deg) h w calc(b - 30))
 
 Diese Farb-Funktion im {{Glossary("Color_space#srgb", "`sRGB` Farbraum")}} wird durch einen {{cssxref("hue")}} Winkelwert, einen Weißanteil, einen Schwarzanteil und optional einen Alphawert definiert, der die Transparenz der Farbe repräsentiert.
 
-Die Winkel, die bestimmten Farbtönen entsprechen, variieren zwischen den sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und `hwb()`), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}), und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) Farbräumen. `hwb()` befindet sich im selben Farbraum wie `hsl()` und hat daher die gleichen Farbwinkel. Siehe die {{cssxref("hue")}} Referenzseite für mehr Details und Beispiele, oder probieren Sie das Ändern der Farbtöne im [Farbauswahlinstrument](/de-DE/docs/Web/CSS/Guides/Colors#colors_in_action), um es in Aktion zu sehen.
+Die Winkel, die bestimmten Farbtönen entsprechen, variieren zwischen den sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und `hwb()`), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}), und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) Farbräumen. `hwb()` befindet sich im selben Farbraum wie `hsl()` und hat daher die gleichen Farbwinkel. Siehe die {{cssxref("hue")}} Referenzseite für mehr Details und Beispiele, oder probieren Sie das Ändern der Farbtöne im [Farbauswahlinstrument](/de/docs/Web/CSS/Guides/Colors#colors_in_action), um es in Aktion zu sehen.
 
 Eine `hwb()` Farbe ist vollständig gesättigt, wenn sowohl der Weißanteil (`W`) als auch der Schwarzanteil (`B`) `0` sind. Für jeden Farbtonwert `H` ist `hwb(H 0% 0%)` dieselbe Farbe wie `hsl(H 100% 50%)`. Wenn der Weißanteil erhöht wird, wird die Farbe heller. Erhöht man den Schwarzanteil, wird die Farbe dunkler.
 
@@ -64,7 +64,7 @@ Wenn sowohl Schwarzanteil als auch Weißanteil größer als 0 sind, wird die Far
 
 ## Werte
 
-Im Folgenden finden Sie Beschreibungen der erlaubten Werte für sowohl absolute als auch [relative Farben](/de-DE/docs/Web/CSS/Guides/Colors/Using_relative_colors).
+Im Folgenden finden Sie Beschreibungen der erlaubten Werte für sowohl absolute als auch [relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors).
 
 ### Absolute Wertsyntax
 
@@ -87,7 +87,7 @@ Die Parameter sind wie folgt:
   - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Farbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A` Kanalwert nicht explizit angegeben wird, ist der Standardwert 100%. Wenn er enthalten ist, geht ihm ein Schrägstrich (`/`) voraus.
 
 > [!NOTE]
-> Weitere Informationen zur Wirkung von `none` finden Sie unter [Fehlende Farbkomponenten](/de-DE/docs/Web/CSS/Reference/Values/color_value#missing_color_components).
+> Weitere Informationen zur Wirkung von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components).
 
 > [!NOTE]
 > Absolute `hwb()` Farben werden zu {{CSSXref("color_value/rgb", "rgb()")}} Werten serialisiert. Die Werte der Rot-, Grün- und Blaukomponenten können bei der Serialisierung gerundet werden.
@@ -194,7 +194,7 @@ hwb(from hsl(0 100% 50%) calc(h + 120) calc(w + 25) calc(b + 10) / calc(alpha - 
 
 Dieses Beispiel gestaltet drei {{htmlelement("div")}} Elemente mit unterschiedlichen Hintergrundfarben. Dem mittleren wird die unveränderte `--base-color` zugewiesen, während die linken und rechten eine aufgehellte bzw. abgedunkelte Variante dieser `--base-color` erhalten.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de-DE/docs/Web/CSS/Reference/Properties/--*) wird in eine `hwb()` Funktion übergeben, und die Ausgabefarben haben ihre Weiß- und Schwarzkanäle modifiziert, um die gewünschte Wirkung über eine `calc()` Funktion zu erzielen. Der aufgehellten Farbe werden 30 % zum Weißkanal hinzugefügt, und der abgedunkelten Farbe werden 30 % zum Schwarzkanal hinzugefügt.
+Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) wird in eine `hwb()` Funktion übergeben, und die Ausgabefarben haben ihre Weiß- und Schwarzkanäle modifiziert, um die gewünschte Wirkung über eine `calc()` Funktion zu erzielen. Der aufgehellten Farbe werden 30 % zum Weißkanal hinzugefügt, und der abgedunkelten Farbe werden 30 % zum Schwarzkanal hinzugefügt.
 
 ```html hidden
 <div id="container">
@@ -271,7 +271,7 @@ Die Ausgabe ist wie folgt:
 ## Siehe auch
 
 - {{CSSXref("&lt;color&gt;")}}: Für eine Liste aller Farbnotierungen
-- [Farbformat-Konverter Werkzeug](/de-DE/docs/Web/CSS/Guides/Colors/Color_format_converter)
-- [Verwendung relativer Farben](/de-DE/docs/Web/CSS/Guides/Colors/Using_relative_colors)
-- [CSS Farben](/de-DE/docs/Web/CSS/Guides/Colors) Modul
+- [Farbformat-Konverter Werkzeug](/de/docs/Web/CSS/Guides/Colors/Color_format_converter)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
 - {{cssxref("hue")}}: der Datentyp, der einen Farbtonwinkel einer Farbe repräsentiert

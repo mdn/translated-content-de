@@ -5,7 +5,7 @@ l10n:
   sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
 ---
 
-Der HTTP **`429 Too Many Requests`** [Client-Fehlerantwortstatus](/de/docs/Web/HTTP/Reference/Status#client_error_responses) -Code zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat. Dieser Mechanismus, der den Client auffordert, die Rate der Anfragen zu verlangsamen, wird allgemein als "{{Glossary("rate_limit", "Rate Limiting")}}" bezeichnet.
+Der HTTP **`429 Too Many Requests`** [Client-Fehlerantwortstatus](/de/docs/Web/HTTP/Reference/Status#client_error_responses)-Code zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat. Dieser Mechanismus, der den Client auffordert, die Rate der Anfragen zu verlangsamen, wird allgemein als "{{Glossary("rate_limit", "Rate Limiting")}}" bezeichnet.
 
 Ein {{HTTPHeader("Retry-After")}}-Header kann in diese Antwort aufgenommen werden, um anzugeben, wie lange ein Client warten sollte, bevor er die Anfrage erneut stellt.
 

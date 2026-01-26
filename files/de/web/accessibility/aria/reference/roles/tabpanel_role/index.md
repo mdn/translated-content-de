@@ -66,4 +66,4 @@ Siehe das [Beispiel für `tabpanel`, `tab`, und `tablist`](/de/docs/Web/Accessib
 - [ARIA `tab`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)
 - [ARIA `tablist`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)
 - [Beispiel: Tabs mit automatischer Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html) - W3C
-- [Beispiel: Tabs mit manueller Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html) -W3C
+- [Beispiel: Tabs mit manueller Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html)-W3C

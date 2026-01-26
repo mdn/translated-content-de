@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLDataListElement`**-Schnittstelle bietet spezielle Eigenschaften (über die Schnittstelle des [`HTMLElement`](/de/docs/Web/API/HTMLElement) -Objekts hinaus, die ihr ebenfalls durch Vererbung zur Verfügung stehen), um {{ HTMLElement("datalist") }}-Elemente und deren Inhalt zu manipulieren.
+Die **`HTMLDataListElement`**-Schnittstelle bietet spezielle Eigenschaften (über die Schnittstelle des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekts hinaus, die ihr ebenfalls durch Vererbung zur Verfügung stehen), um {{ HTMLElement("datalist") }}-Elemente und deren Inhalt zu manipulieren.
 
 {{InheritanceDiagram}}
 

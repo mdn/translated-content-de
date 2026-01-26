@@ -47,7 +47,7 @@ const signaler = new SignalingChannel();
 const pc = new RTCPeerConnection(config);
 ```
 
-Dieser Code erhält auch die {{HTMLElement("video")}} -Elemente mit den Klassen "self-view" und "remote-view"; diese enthalten jeweils die Selbstansicht des lokalen Benutzers und die Ansicht des eingehenden Streams vom entfernten Peer.
+Dieser Code erhält auch die {{HTMLElement("video")}}-Elemente mit den Klassen "self-view" und "remote-view"; diese enthalten jeweils die Selbstansicht des lokalen Benutzers und die Ansicht des eingehenden Streams vom entfernten Peer.
 
 ## Verbindung zu einem entfernten Peer
 
