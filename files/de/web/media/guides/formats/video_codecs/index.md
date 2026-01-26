@@ -1,26 +1,26 @@
 ---
-title: Leitfaden zu Web-Videocodecs
+title: Leitfaden für Web-Video-Codecs
 slug: Web/Media/Guides/Formats/Video_codecs
 l10n:
-  sourceCommit: 24ccd89b8d57061b886019467bb78a6968a7cf3c
+  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
 ---
 
-Dieser Leitfaden stellt die Videocodecs vor, die Sie im Internet am ehesten antreffen oder in Betracht ziehen werden, bietet Zusammenfassungen ihrer Fähigkeiten und etwaiger Kompatibilitäts- und Nutzungsbedenken sowie Ratschläge, die Ihnen helfen, den richtigen Codec für das Video Ihres Projekts zu wählen.
+Dieser Leitfaden stellt die Video-Codecs vor, die Sie am wahrscheinlichsten im Web verwenden oder in Betracht ziehen werden, fasst ihre Fähigkeiten sowie eventuelle Kompatibilitäts- und Nutzungsprobleme zusammen und gibt Ratschläge, die Ihnen helfen, den richtigen Codec für das Video Ihres Projekts auszuwählen.
 
-Aufgrund der schieren Größe unkomprimierter Videodaten ist es notwendig, diese erheblich zu komprimieren, um sie speichern zu können, geschweige denn über ein Netzwerk zu übertragen. Stellen Sie sich die Datenmenge vor, die nötig ist, um unkomprimiertes Video zu speichern:
+Aufgrund der enormen Größe von unkomprimierten Videodaten ist es notwendig, diese erheblich zu komprimieren, um sie zu speichern, geschweige denn über ein Netzwerk zu übertragen. Stellen Sie sich die Menge an Daten vor, die benötigt wird, um unkomprimiertes Video zu speichern:
 
-- Ein einzelnes Bild eines hochauflösenden (1920x1080) Videos in voller Farbdarstellung (4 Bytes pro Pixel) benötigt 8.294.400 Bytes.
-- Bei typischen 30 Bildern pro Sekunde würde jede Sekunde HD-Video 248.832.000 Bytes (\~249 MB) belegen.
+- Ein einzelnes Bild eines High-Definition-Videos (1920x1080) in voller Farbe (4 Bytes pro Pixel) benötigt 8.294.400 Bytes.
+- Bei typischen 30 Bildern pro Sekunde würde jede Sekunde HD-Video 248.832.000 Bytes (~249 MB) benötigen.
 - Eine Minute HD-Video würde 14,93 GB Speicherplatz benötigen.
-- Eine recht typische 30-minütige Videokonferenz würde etwa 447,9 GB Speicher erfordern, und ein 2-stündiger Film würde _fast 1,79 **TB** (das sind 1790 GB)_ beanspruchen.
+- Eine recht typische 30-minütige Videokonferenz würde etwa 447,9 GB Speicherplatz benötigen, und ein 2-stündiger Film würde _fast 1,79 **TB** (das sind 1790 GB)_ in Anspruch nehmen.
 
-Nicht nur der benötigte Speicherplatz ist enorm, sondern auch die Netzbandbreite, die erforderlich wäre, um ein solches unkomprimiertes Video zu übertragen, wäre enorm bei 249 MB/s - ohne Audio und Overhead. An dieser Stelle kommen Videocodecs ins Spiel. Genau wie Audiocodecs die Audiodaten komprimieren, komprimieren Videocodecs die Videodaten und codieren sie in ein Format, das später dekodiert und wiedergegeben oder bearbeitet werden kann.
+Nicht nur der benötigte Speicherplatz ist enorm, sondern auch die Netzwerkbandbreite, die benötigt wird, um ein unkomprimiertes Video zu übertragen. Diese würde 249 MB/Sek. betragen – Audio und Overhead nicht eingeschlossen. Hier kommen Video-Codecs ins Spiel. Genau wie Audio-Codecs es für die Klangdaten tun, komprimieren Video-Codecs die Videodaten und kodieren sie in ein Format, das später dekodiert und abgespielt oder bearbeitet werden kann.
 
-Die meisten Videocodecs sind **verlustbehaftet**, das heißt, das dekodierte Video stimmt nicht genau mit der Quelle überein. Einige Details können verloren gehen; das Ausmaß des Verlusts hängt vom Codec und seiner Konfiguration ab, aber in der Regel gilt: Je mehr Komprimierung Sie erreichen, desto mehr Detail- und Treueverluste treten auf. Es gibt einige verlustfreie Codecs, aber sie werden typischerweise für die Archivierung und Speicherung zur lokalen Wiedergabe verwendet, nicht für den Einsatz in einem Netzwerk.
+Die meisten Video-Codecs sind **verlustbehaftet**, was bedeutet, dass das dekodierte Video nicht genau mit der Quelle übereinstimmt. Einige Details können verloren gehen; der Grad des Verlusts hängt vom Codec und dessen Konfiguration ab, aber als allgemeine Regel gilt: Je mehr Kompression Sie erreichen, desto mehr Detail- und Treueverlust wird auftreten. Einige verlustfreie Codecs existieren, werden jedoch typischerweise zur Archivierung und Speicherung für die lokale Wiedergabe verwendet und nicht für die Verwendung im Netzwerk.
 
 ## Häufige Codecs
 
-Die folgenden Videocodecs werden im Internet am häufigsten verwendet. Für jeden Codec werden auch die Container (Dateitypen) aufgeführt, die sie unterstützen können. Jeder Codec führt zu einem Abschnitt weiter unten, der weitere Einzelheiten zum Codec bietet, einschließlich spezifischer Fähigkeiten und Kompatibilitätsprobleme, die Sie kennen sollten.
+Die folgenden Video-Codecs werden am häufigsten im Web verwendet. Für jeden Codec sind auch die Container (Dateitypen) aufgeführt, die ihn unterstützen können. Jeder Codec bietet einen Link zu einem Abschnitt weiter unten, der zusätzliche Details über den Codec enthält, einschließlich spezifischer Fähigkeiten und Kompatibilitätsprobleme, derer Sie sich bewusst sein sollten.
 
 <table class="standard-table">
   <thead>
@@ -112,142 +112,185 @@ Die folgenden Videocodecs werden im Internet am häufigsten verwendet. Für jede
   </tbody>
 </table>
 
-## Faktoren, die das codierte Video beeinflussen
+## Faktoren, die das kodierte Video beeinflussen
 
-Wie bei jedem Encoder gibt es zwei grundlegende Gruppen von Faktoren, die die Größe und Qualität des codierten Videos beeinflussen: die Spezifika des Formats und des Inhalts des Quellvideos und die Eigenschaften und Konfiguration des Codecs, der beim Kodieren des Videos verwendet wird.
+Wie bei jedem Encoder gibt es zwei grundlegende Gruppen von Faktoren, die die Größe und Qualität des kodierten Videos beeinflussen: Spezifische Informationen über das Format und den Inhalt des Quellvideos sowie die Eigenschaften und Konfiguration des Codecs, der bei der Kodierung des Videos verwendet wird.
 
-Die einfachste Richtlinie lautet: Alles, was das codierte Video mehr wie das ursprüngliche, unkomprimierte Video aussehen lässt, wird in der Regel auch die resultierenden Daten größer machen. Es ist also immer ein Kompromiss zwischen Größe und Qualität. In manchen Situationen ist ein größerer Qualitätseinbußen, um die Datengröße zu reduzieren, diesen Qualitätsverlust wert; andere Male ist der Qualitätsverlust nicht akzeptabel, und es ist notwendig, eine Codec-Konfiguration zu akzeptieren, die zu einer entsprechend größeren Datei führt.
+Die einfachste Richtlinie ist die folgende: Alles, was das kodierte Video mehr wie das ursprüngliche, unkomprimierte Video aussehen lässt, führt in der Regel auch dazu, dass die resultierenden Daten größer werden. Es ist also immer ein Kompromiss zwischen Größe und Qualität. In manchen Situationen lohnt es sich, mehr Qualität zu opfern, um die Datenmenge zu reduzieren; in anderen Fällen ist der Qualitätsverlust inakzeptabel, und es ist notwendig, eine Codec-Konfiguration zu akzeptieren, die zu einer entsprechend größeren Datei führt.
 
-### Einfluss des Quellvideoformats auf die kodierte Ausgabe
+### Einfluss des Quellvideoformats auf das kodierte Ausgabeergebnis
 
-Das Ausmaß, in dem das Format des Quellvideos die Ausgabe beeinflusst, variiert je nach Codec und seiner Funktionsweise. Wenn der Codec die Medien in ein internes Pixelformat umwandelt oder das Bild auf eine andere Weise als einfache Pixel darstellt, spielt das Format des ursprünglichen Bildes keine Rolle. Allerdings haben Dinge wie Bildrate und, offensichtlich, Auflösung immer einen Einfluss auf die Ausgabengröße der Medien.
+Der Grad, in dem das Format des Quellvideos das Ausgabeergebnis beeinflusst, variiert je nach Codec und seiner Funktionsweise. Wenn der Codec die Medien in ein internes Pixelformat umwandelt oder das Bild anderweitig mit einer anderen Methode als einfachen Pixeln darstellt, spielt das Format des Originalbildes keine Rolle. Dinge wie Bildrate und Auflösung werden jedoch immer einen Einfluss auf die Ausgabengröße der Medien haben.
 
-Darüber hinaus haben alle Codecs ihre Stärken und Schwächen. Einige haben Schwierigkeiten mit bestimmten Arten von Formen und Mustern, oder sind nicht gut darin, scharfe Kanten zu reproduzieren, oder neigen dazu, Details in dunklen Bereichen zu verlieren, oder andere mögliche Probleme. Es hängt alles von den Algorithmen und der Mathematik ab, die zugrunde liegen.
+Darüber hinaus hat jeder Codec seine Stärken und Schwächen. Einige haben Schwierigkeiten mit bestimmten Arten von Formen und Mustern, können scharfe Kanten nicht gut reproduzieren oder neigen dazu, Details in dunklen Bereichen zu verlieren oder jede andere mögliche Schwäche. Es hängt alles von den zugrunde liegenden Algorithmen und der Mathematik ab.
 
 <table class="standard-table">
   <caption>
-    Der mögliche Einfluss von Quellvideoformat und -inhalten auf die Qualität und Größe des codierten Videos
+    Der potenzielle Einfluss des Quellvideoformats und -inhalts auf die
+    kodierte Videoqualität und -größe
   </caption>
   <thead>
     <tr>
       <th scope="row">Merkmal</th>
-      <th scope="col">Auswirkung auf Qualität</th>
-      <th scope="col">Auswirkung auf Größe</th>
+      <th scope="col">Einfluss auf die Qualität</th>
+      <th scope="col">Einfluss auf die Größe</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">Farbtiefe (Bit-Tiefe)</th>
       <td>
-        Je höher die Farbbittiefe, desto höher die Qualität der Farbtreue im Video. Zusätzlich kann bei gesättigten Teilen des Bildes (d.h. dort, wo Farben rein und intensiv sind, wie ein helles, reines Rot: <code>rgb(255 0 0 / 100%)</code>), Farbtiefen unter 10 Bits pro Komponente (10-Bit-Farbe) Banding verursachen, wo Gradienten nicht dargestellt werden können, ohne dass man sichtbare Abstufungen der Farben sieht.
+        Je höher die Farbtiefe, desto höher ist die Qualität der
+        Farbtiefe im Video. In gesättigten Bildteilen (d.h. wo Farben rein und
+        intensiv sind, z. B. ein helles, reines Rot: <code>rgb(255 0 0 / 100%)</code>)
+        können Farbtiefen unter 10 Bit pro Komponente (10-Bit-Farbe) Streifenbildung
+        zulassen, bei der Farbverläufe nicht ohne sichtbare Abstufungen der
+        Farben dargestellt werden können.
       </td>
       <td>
-        Je nach Codec können höhere Farbtiefen zu größeren komprimierten Dateigrößen führen. Der bestimmende Faktor ist, welches interne Speicherformat für die komprimierten Daten verwendet wird.
+        Abhängig vom Codec können höhere Farbtiefen zu größeren
+        komprimierten Dateigrößen führen. Der bestimmende Faktor ist das
+        verwendete interne Speicherformat für die komprimierten Daten.
       </td>
     </tr>
     <tr>
       <th scope="row">Bildrate</th>
       <td>
-        Beeinflusst hauptsächlich die wahrgenommene Glätte der Bewegungen im Bild. Bis zu einem gewissen Punkt sorgt eine höhere Bildrate dafür, dass die Bewegungen glatter und realistischer erscheinen. Irgendwann wird jedoch der Punkt erreicht, an dem die zusätzlichen Bilder pro Sekunde keinen zusätzlichen Nutzen mehr bieten. Details siehe <a href="#reduced_frame_rate">Bildrate</a> unten.
+        Beeinflusst hauptsächlich die wahrgenommene Flüssigkeit der Bewegung im
+        Bild. Bis zu einem gewissen Grad, je höher die Bildrate, desto flüssiger
+        und realistischer wird die Bewegung erscheinen. Letztlich wird der
+        Punkt der abnehmenden Erträge erreicht. Siehe <a href="#reduced_frame_rate">Bildrate</a> unten für Details.
       </td>
       <td>
-        Unter der Annahme, dass die Bildrate während der Kodierung nicht reduziert wird, führen höhere Bildraten zu größeren komprimierten Videodateigrößen.
+        Vorausgesetzt, die Bildrate wird während der Kodierung nicht verringert,
+        führen höhere Bildraten zu größeren komprimierten Videodateigrößen.
       </td>
     </tr>
     <tr>
       <th scope="row">Bewegung</th>
       <td>
-        Die Komprimierung von Videos funktioniert typischerweise, indem man Bilder vergleicht, Unterschiede findet und Aufzeichnungen erstellt, die genügend Informationen enthalten, um das vorherige Bild zu aktualisieren, um das Erscheinungsbild des nächsten Bildes annähernd darzustellen. Je mehr aufeinanderfolgende Bilder sich voneinander unterscheiden, desto größer sind diese Unterschiede, und desto weniger effektiv ist die Komprimierung beim Vermeiden der Einführung von Artefakten im komprimierten Video.
+        Die Komprimierung von Video arbeitet typischerweise, indem
+        Frames verglichen, die Unterschiede erkannt und Datensätze erstellt
+        werden, die genügend Informationen enthalten, um den vorherigen Frame zu
+        aktualisieren und das Aussehen des folgenden Frames zu approximieren.
+        Je mehr aufeinanderfolgende Frames sich voneinander unterscheiden,
+        desto größer sind diese Unterschiede, und desto weniger effektiv ist die
+        Komprimierung beim Vermeiden der Einführung von Artefakten in das
+        komprimierte Video.
       </td>
       <td>
-        Die durch Bewegung eingeführte Komplexität führt zu größeren Zwischenbildern aufgrund der höheren Anzahl von Unterschieden zwischen den Bildern. Aus diesem und anderen Gründen, je mehr Bewegung in einem Video ist, desto größer wird typischerweise die Ausgabedatei.
+        Die Komplexität, die durch Bewegung eingeführt wird, führt zu größeren
+        Zwischen-Frames aufgrund der höheren Anzahl an Unterschieden zwischen
+        den Frames. Aus diesem und anderen Gründen gilt: Je mehr Bewegung in
+        einem Video vorhanden ist, desto größer wird die Ausgabedatei in der
+        Regel sein.
       </td>
     </tr>
     <tr>
       <th scope="row">Rauschen</th>
       <td>
-        Bildrauschen (wie Körnungseffekte, Staub oder andere Körnungen im Bild) bringt Variabilität mit sich. Variabilität macht Komprimierung im Allgemeinen schwieriger und führt zu mehr Qualitätsverlust aufgrund der Notwendigkeit, Details wegzulassen, um den gleichen Komprimierungsgrad zu erreichen.
+        Bildrauschen (wie Filmeffekte, Staub oder anderes Krümeliges im Bild)
+        führt zu Variabilität. Variabilität erschwert in der Regel die
+        Komprimierung, was zu mehr Qualitätsverlust führt, da Details
+        geopfert werden müssen, um dasselbe Kompressionsniveau zu erreichen.
       </td>
       <td>
-        Je mehr Variabilität - wie Rauschen - im Bild vorhanden ist, desto komplexer der Komprimierungsprozess und desto weniger Erfolg wird der Algorithmus beim Komprimieren des Bildes auf den gleichen Grad haben. Es sei denn, Sie konfigurieren den Encoder so, dass er einige oder alle durch Rauschen verursachten Variationen ignoriert, wird das komprimierte Video größer sein.
+        Je mehr Variabilität – wie Rauschen – im Bild vorhanden ist, desto
+        komplexer ist der Komprimierungsprozess, und desto weniger Erfolg wird
+        der Algorithmus beim Erreichen desselben Kompressionsgrades haben.
+        Sofern Sie den Encoder nicht so konfigurieren, dass er einige oder
+        alle durch Rauschen verursachten Variationen ignoriert, wird das
+        komprimierte Video größer sein.
       </td>
     </tr>
     <tr>
       <th scope="row">Auflösung (Breite und Höhe)</th>
       <td>
-        Höher aufgelöstes Video, das auf die gleiche Bildschirmgröße projiziert wird, kann typischerweise die ursprüngliche Szene genauer darstellen, abgesehen von Effekten, die während der Komprimierung eingeführt wurden.
+        Höhere Auflösungsqualität, dargestellt in derselben Bildschirmgröße,
+        wird normalerweise in der Lage sein, die Originalszene präziser
+        darzustellen, es sei denn, durch Kompressionsprozesse eingeführte
+        Effekte verhindern dies.
       </td>
       <td>
-        Je höher die Auflösung eines Videos, desto größer wird es. Dies spielt eine Schlüsselrolle in der finalen Größe des Videos.
+        Je höher die Auflösung eines Videos, desto größer wird es. Dies spielt
+        eine entscheidende Rolle bei der endgültigen Größe des Videos.
       </td>
     </tr>
   </tbody>
 </table>
 
-Das Ausmaß, in dem diese Faktoren das resultierende codierte Video beeinflussen, wird variieren, je nach den genauen Umständen, einschließlich welchen Encoder Sie verwenden und wie er konfiguriert ist. Zusätzlich zu den allgemeinen Codeceinstellungen könnte der Encoder so konfiguriert werden, dass er die Bildrate reduziert, Rauschen bereinigt und/oder die gesamte Auflösung des Videos während der Kodierung reduziert.
+Der Grad, zu dem diese Faktoren das resultierende kodierte Video beeinflussen, variiert je nach den genauen Details der Situation, einschließlich des verwendeten Encoders und seiner Konfiguration. Neben allgemeinen Codec-Optionen könnte der Encoder so konfiguriert sein, dass die Bildrate reduziert, das Rauschen entfernt und/oder die Gesamtauflösung des Videos während der Kodierung reduziert wird.
 
-### Einfluss der Codec-Konfiguration auf die kodierte Ausgabe
+### Einfluss der Codec-Konfiguration auf das kodierte Ausgabeergebnis
 
-Die zum Kodieren von Video eingesetzten Algorithmen verwenden typischerweise eine oder mehrere allgemeine Techniken zur Durchführung ihrer Codierung. Im Allgemeinen wird jede Konfigurationsoption, die dazu bestimmt ist, die Ausgabedateigröße des Videos zu reduzieren, wahrscheinlich einen negativen Einfluss auf die Gesamtqualität des Videos haben oder bestimmte Arten von Artefakten in das Video einführen. Es ist auch möglich, eine verlustfreie Form der Kodierung auszuwählen, die zu einer viel größeren codierten Datei führt, aber eine perfekte Reproduktion des ursprünglichen Videos beim Dekodieren ermöglicht.
+Die Algorithmen, die zur Kodierung von Videos verwendet werden, nutzen in der Regel eine oder mehrere allgemeine Methoden, um die Kodierung durchzuführen. Im Allgemeinen ist jede Konfigurationsoption, die darauf abzielt, die Ausgabegröße des Videos zu reduzieren, wahrscheinlich negativ betroffen auf die gesamte Qualität des Videos, oder wird bestimmte Arten von Artefakten in das Video einführen. Zudem ist es möglich, eine verlustfreie Form der Kodierung auszuwählen, die zu einer viel größeren kodierten Datei führt, aber eine perfekte Reproduktion des Originalvideos beim Decodieren erlaubt.
 
-Darüber hinaus kann jede Encoder-Software Variationen darin aufweisen, wie sie das Quellvideo verarbeitet, was zu Unterschieden in der Ausgabequalität und/oder Dateigröße führt.
+Darüber hinaus können die jeweiligen Encoder-Dienstprogramme Variationen darin aufweisen, wie sie das Quellvideo verarbeiten, was zu Unterschieden in der Ausgabequalität und/oder -größe führen kann.
 
 <table class="standard-table">
   <caption>
-    Auswirkungen der Videoencoder-Konfiguration auf Qualität und Größe
+    Auswirkungen der Video-Encoder-Konfiguration auf Qualität und Größe
   </caption>
   <thead>
     <tr>
       <th scope="row">Merkmal</th>
-      <th scope="col">Auswirkung auf Qualität</th>
-      <th scope="col">Auswirkung auf Größe</th>
+      <th scope="col">Auswirkungen auf die Qualität</th>
+      <th scope="col">Auswirkungen auf die Größe</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Verlustfreie Komprimierung</th>
+      <th scope="row">Verlustfreie Kompression</th>
       <td>Kein Qualitätsverlust</td>
       <td>
-        Verlustfreie Komprimierung kann die Gesamtdatengröße nicht so stark reduzieren wie verlustbehaftete Komprimierung; die resultierenden Dateien sind wahrscheinlich trotzdem noch zu groß für eine allgemeine Nutzung.
+        Verlustfreie Kompression kann die Gesamtgröße eines Videos bei weitem
+        nicht so stark reduzieren wie verlustbehaftete Kompression; die resultierenden
+        Dateien sind wahrscheinlich weiterhin zu groß für den allgemeinen
+        Gebrauch.
       </td>
     </tr>
     <tr>
-      <th scope="row">Verlustbehaftete Komprimierung</th>
+      <th scope="row">Verlustbehaftete Kompression</th>
       <td>
-        In gewissem Maße werden Artefakte und andere Formen der Qualitätsverschlechterung auftreten, abhängig vom spezifischen Codec und wie stark die Komprimierung angewendet wird.
+        In gewissem Maße werden Artefakte und andere Formen der Qualitätseinbuße
+        auftreten, abhängig vom spezifischen Codec und davon, wie stark die
+        Kompression ausfällt.
       </td>
       <td>
-        Je mehr das codierte Video von der Quelle abweichen darf, desto leichter ist es, höhere Komprimierungsraten zu erreichen.
+        Je mehr das kodierte Video von der Quelle abweichen darf, desto einfacher
+        ist es, höhere Kompressionsraten zu erzielen.
       </td>
     </tr>
     <tr>
       <th scope="row">Qualitätseinstellung</th>
       <td>
-        Je höher die Qualitätskonfiguration, desto mehr wird das codierte Video dem Originalmedium ähneln.
+        Je höher die Qualitätseinstellung, desto stärker wird das kodierte Video
+        dem Original-Video ähneln.
       </td>
       <td>
-        Im Allgemeinen führen höhere Qualitätseinstellungen zu größeren codierten Videodateien; die Auswirkung hängt im Einzelnen vom Codec ab.
+        Im Allgemeinen führen höhere Qualitätseinstellungen zu größeren kodierten
+        Videodateien; die Ausprägung dieser Regel variiert je nach Codec.
       </td>
     </tr>
     <tr>
       <th scope="row">Bitrate</th>
-      <td>Qualität verbessert sich im Allgemeinen mit höheren Bitraten.</td>
-      <td>Höhere Bitraten führen grundsätzlich zu größeren Ausgabedateien.</td>
+      <td>Qualität verbessert sich im Allgemeinen mit höheren Bitraten</td>
+      <td>Höhere Bitraten führen zwangsläufig zu größeren Ausgabedateien</td>
     </tr>
   </tbody>
 </table>
 
-Die beim Kodieren von Video verfügbaren Optionen und die Werte, die diesen Optionen zugewiesen werden, variieren nicht nur von einem Codec zum anderen, sondern auch je nach der verwendeten Kodierungssoftware. Die Dokumentation, die mit Ihrer Kodierungssoftware geliefert wird, wird Ihnen helfen, die spezifischen Auswirkungen dieser Optionen auf das codierte Video zu verstehen.
+Die beim Kodieren von Videos verfügbaren Optionen und die Werte, die diesen Optionen zugewiesen werden, variieren nicht nur von einem Codec zum anderen, sondern auch abhängig von der verwendeten Kodierungssoftware. Die Dokumentation, die Ihrer Kodierungssoftware beiliegt, hilft Ihnen zu verstehen, welche spezifischen Auswirkungen diese Optionen auf das kodierte Video haben.
 
 ## Kompressionsartefakte
 
-**Artefakte** sind Nebenwirkungen des verlustbehafteten Kodierungsprozesses, bei dem das verlorene oder umorganisierte Datenmaterial negative sichtbare Effekte bewirkt. Einmal aufgetreten, können Artefakte eine Weile bestehen bleiben, da Video auf eine Art und Weise angezeigt wird. Jedes Videobild wird angezeigt, indem eine Reihe von Änderungen auf das derzeit sichtbare Bild angewendet wird. Das bedeutet, dass Fehler oder Artefakte im Laufe der Zeit zusammentreffen, was zu Störungen oder seltsam aussehenden Abweichungen im Bild führt, die eine Zeit lang bestehen bleiben.
+**Artefakte** sind Nebenprodukte eines verlustbehafteten Kodierungsprozesses, bei dem verlorene oder umstrukturierte Daten zu sichtbaren negativen Effekten führen. Sobald ein Artefakt aufgetreten ist, kann es eine Weile bestehen bleiben, da Videos so dargestellt werden, dass jedes Bild durch das Anwenden von Änderungen auf das aktuell sichtbare Bild gezeigt wird. Das bedeutet, dass Fehler oder Artefakte sich im Laufe der Zeit summieren, was zu Störungen oder anderweitigen seltsamen oder unerwarteten Abweichungen im Bild führt, die eine Zeit lang verweilen können.
 
-Um dies zu beheben und die Suchzeit durch die Videodaten zu verbessern, werden in regelmäßigen Abständen **Schlüsselbilder** (auch als **Intra-Frames** oder **i-Frames** bekannt) in die Videodatei eingefügt. Die Schlüsselbilder sind vollständige Bilder, die dazu verwendet werden, sichtbare Schäden oder Artefaktrückstände zu reparieren.
+Um dies zu beheben und die Suchzeit durch die Videodaten zu verbessern, werden periodische **Schlüsselbilder** (auch bekannt als **Intra-Frames** oder **I-Frames**) in die Videodatei eingefügt. Die Schlüsselbilder sind vollständige Bilder, die verwendet werden, um eventuelle Schäden oder verbleibende Artefakte, die derzeit sichtbar sind, zu reparieren.
 
 ### Aliasing
 
-Aliasbildung ist ein allgemeiner Begriff für alles, was beim Rekonstruieren aus den kodierten Daten nicht genauso aussieht, wie es vor der Komprimierung aussah. Es gibt viele Formen der Aliasbildung; die häufigsten, die Sie sehen könnten, beinhalten:
+Aliasing ist ein allgemeiner Begriff für alles, was beim Rekonstruieren aus den kodierten Daten nicht mehr so aussieht wie vor der Kompression. Es gibt viele Formen von Aliasing; die häufigsten, die Sie sehen könnten, beinhalten:
 
 <table class="standard-table">
   <tbody>
@@ -259,123 +302,148 @@ Aliasbildung ist ein allgemeiner Begriff für alles, was beim Rekonstruieren aus
           <a href="https://en.wikipedia.org/wiki/Moir%C3%A9_pattern"
             ><strong>Moiré-Muster</strong></a
           >
-          ist ein großräumiges räumliches Interferenzmuster, das entsteht, wenn ein Muster im Quellbild und die Art und Weise, wie der Encoder arbeitet, räumlich geringfügig misaligned sind. Die vom Encoder generierten Artefakte führen dann zu seltsamen, wirbelnden Effekten im Muster des Quellbildes beim Dekodieren.
+          ist ein großräumiges räumliches Interferenzmuster, das entsteht, wenn
+          ein Muster im Quellbild und die Art und Weise, wie der Encoder
+          arbeitet, räumlich leicht verschoben sind. Die vom Encoder
+          erzeugten Artefakte führen dann zu seltsamen, wirbelnden Effekten
+          im Muster des Quellbildes bei der Dekodierung.
         </p>
       </td>
       <td>
-        <img alt="Eine Backsteinwand, die einen wirbelnden Effekt ähnlich Wellen zeigt, verursacht durch das Moire-Muster" src="moire-pattern.jpg" />
+        <img alt="eine Ziegelwand zeigt Wirbeleffekte ähnlich wie Wellen durch das Moiré-Muster" src="moire-pattern.jpg" />
       </td>
     </tr>
     <tr>
       <td>
         <h4 id="Staircase_effect">Treppeneffekt</h4>
         <p>
-          Der <strong>Treppeneffekt</strong> ist ein räumliches Artefakt, das auftritt, wenn diagonale gerade oder gekrümmte Kanten, die glatt sein sollten, eine gezackte Erscheinung bekommen, die etwas wie eine Treppe aussieht. Dies ist der Effekt, der von "Anti-Aliasing"-Filtern reduziert wird.
+          Der <strong>Treppeneffekt</strong> ist ein räumliches Artefakt, das
+          entsteht, wenn diagonale Gerade oder gekrümmte Kanten, die glatt
+          sein sollten, eine gezackte Erscheinung annehmen und etwas wie
+          Treppenstufen aussehen. Dies ist der Effekt, der durch "Anti-Aliasing"
+          Filter reduziert wird.
         </p>
       </td>
       <td>
-        <img alt="Foto von diagonalen Linien, die wegen Aliasing wie eine Treppe aussehen" src="staircase-effect.jpg" />
+        <img alt="Foto von diagonalen Linien, die durch Aliasing-Effekte wie Treppenstufen aussehen" src="staircase-effect.jpg" />
       </td>
     </tr>
     <tr>
       <td>
-        <h4 id="Wagon-wheel_effect">Wagonrad-Effekt</h4>
+        <h4 id="Wagon-wheel_effect">Wagenradeffekt</h4>
         <p>
-          Der <strong>Wagonrad-Effekt</strong> (oder
+          Der <strong>Wagenradeffekt</strong> (oder
           <strong
-            ><a href="https://en.wikipedia.org/wiki/Stroboscopic_effect">stroboskopischer Effekt</a></strong
-          >) ist der visuelle Effekt, den man häufig in Filmen sieht, bei dem ein drehendes Rad mit falscher Geschwindigkeit oder sogar rückwärts zu rotieren scheint, dank einer Interaktion zwischen Bildrate und Komprimierungsalgorithmus. Der gleiche Effekt kann bei jedem sich bewegenden wiederholenden Muster auftreten, wie zum Beispiel den Schienen eines Eisenbahngleises, Pfosten entlang einer Straße, usw. Es handelt sich um ein zeitbasiertes (temporales) Aliasing-Problem; die Rotationsgeschwindigkeit stört die Frequenz des Samplings, das während der Komprimierung oder Kodierung durchgeführt wird.
+            ><a href="https://en.wikipedia.org/wiki/Stroboscopic_effect">Stroboskopischer Effekt</a></strong
+          >) ist der visuelle Effekt, der häufig im Film zu sehen ist, bei
+          dem ein drehendes Rad sich mit der falschen Geschwindigkeit oder
+          sogar rückwärts zu drehen scheint, aufgrund einer Interaktion zwischen
+          Bildrate und Kompressionsalgorithmus. Der gleiche Effekt kann bei
+          jedem sich wiederholenden Muster auftreten, das sich bewegt, wie die
+          Räder entlang einer Eisenbahnlinie, Pfosten entlang einer Straße
+          usw. Dies ist ein temporales (zeitbasiertes) Aliasing-Problem; die
+          Geschwindigkeit der Drehung interferiert mit der Frequenz der
+          Abtastung, die während der Kompression oder Kodierung durchgeführt
+          wird.
         </p>
       </td>
       <td>
-        <img alt="Ein sich drehendes Rad, das durch Aliasing einen Wagonrad-Effekt verursacht." src="stroboscopic-effect.gif" />
+        <img alt="Drehendes Rad durch Aliasing, das einen Wagenradeffekt verursacht." src="stroboscopic-effect.gif" />
       </td>
     </tr>
   </tbody>
 </table>
 
-### Farbkantenbildung
+### Farbkonturen
 
-**Farbkantenbildung** ist eine Art von visuellen Artefakten, die als falsche Farben auftreten, die an den Rändern von farbigen Objekten innerhalb einer Szene hinzugefügt werden. Diese Farben haben keine bewusste Farbverbindung zum Inhalt des Rahmens.
+**Farbkonturen** sind eine Art visuelles Artefakt, das als falsche Farben entlang der Kanten von gefärbten Objekten innerhalb der Szene auftritt. Diese Farben haben keine absichtliche Farbzusammenhang zu den Inhalten des Frames.
 
 ### Verlust von Schärfe
 
-Das Entfernen von Daten im Prozess der Videokodierung erfordert den Verlust einiger Details. Wenn ausreichend Komprimierung angewendet wird, könnten Teile oder möglicherweise das gesamte Bild an Schärfe verlieren, was zu einem leicht verschwommenen oder trüben Erscheinungsbild führt.
+Der Prozess des Entfernens von Daten im Zuge der Kodierung von Videos erfordert, dass einige Details verloren gehen. Wenn genug Kompression angewendet wird, könnten Teile oder sogar das gesamte Bild an Schärfe verlieren, was zu einem leicht verschwommenen oder unscharfen Aussehen führt.
 
-Verlorene Schärfe kann es schwierig machen, Text im Bild zu lesen, da Text – insbesondere kleiner Text – sehr detailorientierter Inhalt ist, bei dem geringfügige Veränderungen die Lesbarkeit erheblich beeinflussen können.
+Verlorene Schärfe kann es schwierig machen, Text im Bild zu lesen, da Text – insbesondere kleiner Text – sehr detailorientierter Inhalt ist, bei dem geringfügige Änderungen die Lesbarkeit erheblich beeinträchtigen können.
 
 ### Klingeln
 
-Verlustbehaftete Komprimierungsalgorithmen können **[Klingeln](https://en.wikipedia.org/wiki/Ringing_artifacts)** einführen, einen Effekt, bei dem Bereiche außerhalb eines Objekts mit Farbpixeln kontaminiert werden, die vom Komprimierungsalgorithmus generiert wurden. Dies geschieht, wenn ein Algorithmus eingesetzt wird, der Blöcke verwendet, die sich über eine scharfe Grenze zwischen einem Objekt und seinem Hintergrund erstrecken. Dies ist besonders häufig bei höheren Komprimierungsgraden.
+Verlustbehaftete Kompressionsalgorithmen können **[Klingeln](https://en.wikipedia.org/wiki/Ringing_artifacts)** einführen, einen Effekt, bei dem Bereiche außerhalb eines Objekts mit farbigen Pixeln verunreinigt werden, die vom Kompressionsalgorithmus erzeugt wurden. Dies geschieht, wenn ein Algorithmus verwendet wird, der Blöcke verwendet, die über eine scharfe Grenze zwischen einem Objekt und seinem Hintergrund hinwegspannen. Dies ist besonders häufig bei höheren Kompressionsgraden zu beobachten.
 
-![Beispiel für Klingel-Effekt](ringing-effects.png)
+![Beispiel für den Klingeleffekt](ringing-effects.png)
 
-Beachten Sie die blauen und rosa Ränder um die Kanten des Sterns oben (sowie die Abstufung und andere signifikante Komprimierungsartefakte). Diese Ränder sind der Klingel-Effekt. Klingeln ähnelt in gewisser Hinsicht dem [Moskito-Rauschen](#moskito-rauschen), außer dass der Klingel-Effekt mehr oder weniger stabil und unverändert ist, während Moskito-Rauschen flimmert und sich bewegt.
+Beachten Sie die blauen und rosa Ränder um die Kanten des Sterns oben (sowie die Stufenbildung und andere signifikante Kompressionsartefakte). Diese Ränder sind der Klingeleffekt. Klingeln ist in gewisser Hinsicht dem [Moskito-Rauschen](#moskito-rauschen) ähnlich, außer dass das Klingeln mehr oder weniger konstant ist, während Moskito-Rauschen flimmert und sich bewegt.
 
-Klingeln ist eine weitere Art von Artefakt, die es besonders schwierig machen kann, Text, der in Ihren Bildern enthalten ist, zu lesen.
+Klingeln ist eine weitere Art des Artefakts, die es besonders schwierig machen kann, Text in Ihren Bildern zu lesen.
 
-### Posterisieren
+### Posterisierung
 
-**Posterisierung** tritt auf, wenn die Komprimierung zu einem Verlust von Farbdetails in Farbverläufen führt. Anstelle von sanften Übergängen durch die verschiedenen Farben in einem Bereich wird das Bild grobkörnig, mit Farbbatzen, die das ursprüngliche Erscheinungsbild des Bildes annähernd darstellen.
+**Posterisierung** tritt auf, wenn die Kompression zum Verlust von Farbdetails in Verläufen führt. Statt sanfter Übergänge durch die verschiedenen Farben in einem Bereich wird das Bild blockartig, mit Farbblasen, die das ursprüngliche Aussehen des Bildes approximieren.
 
 ![Weißkopfseeadler-Foto mit fleckiger Auflösung.](posterize-effect.jpg)
 
-Beachten Sie die Grobkörnigkeit der Farben im Gefieder des Weißkopfseeadlers im obigen Foto (und der Schneeeule im Hintergrund). Die Details der Federn gehen größtenteils aufgrund der Posterisierungseffekte verloren.
+Beachten Sie die Blockigkeit der Farben im Gefieder des Weißkopfseeadlers im obigen Foto (und der Schnee-Eule im Hintergrund). Die Details der Federn gehen weitgehend aufgrund dieser Posterisierungsartefakte verloren.
 
 ### Konturierung
 
-**Konturierung** oder **Farbbandbildung** ist eine spezifische Form der Posterisierung, bei der die Farbblöcke Bänder oder Streifen im Bild bilden. Dies geschieht, wenn das Video mit einer zu groben Quantisierungskonfiguration kodiert wird. Infolgedessen zeigt der Inhalt des Videos ein "geschichtetes" Erscheinungsbild, bei dem anstelle von glatten Farbverläufen und Übergängen die Übergänge von Farbe zu Farbe abrupt sind und Farbstreifen erscheinen.
+**Konturierung** oder **Farbabstufungen** ist eine spezifische Form der Posterisierung, bei der die Farbblöcke Bänder oder Streifen im Bild bilden. Dies tritt auf, wenn das Video mit einer zu groben Quantisierungskonfiguration kodiert wurde. Infolgedessen zeigen die Inhalte des Videos ein "geschichtetes" Aussehen, bei dem anstatt sanfter Verläufe und Übergänge die Übergänge von Farbe zu Farbe abrupt sind, was den Eindruck von Farbebenen hinterlässt.
 
-![Beispiel eines Bildes, dessen Komprimierung Konturierung eingeführt hat](contouring-effect.jpg)
+![Beispielauschnitt eines Bildes, dessen Kompression Konturierung eingeführt hat](contouring-effect.jpg)
 
-Im oben gezeigten Bild beachten Sie, wie der Himmel Bänder unterschiedlicher Blautöne hat, anstatt ein konsistenter Farbverlauf zu sein, wie die Himmelsfarbe sich Richtung Horizont verändert. Dies ist der Konturierungseffekt.
+In dem obigen Beispielbild fällt auf, dass der Himmel Bänder unterschiedlicher Blautöne aufweist, anstatt ein gleichmäßiger Verlauf zu sein, wenn sich die Himmelsfarbe dem Horizont nähert. Dies ist der Konturierungseffekt.
 
 ### Moskito-Rauschen
 
-**Moskito-Rauschen** ist ein zeitliches Artefakt, das als Rauschen oder **Kantengeschäftigkeit** auftritt, das als flimmernde Trübheit oder Schimmern auftritt, welches sich ungefähr entlang der Ränder von Objekten mit harten Kanten oder scharfen Übergängen zwischen Vordergrundobjekten und dem Hintergrund zeigt. Der Effekt kann dem [Klingeln](#klingeln) ähnlich aussehen.
+**Moskito-Rauschen** ist ein Temporalartefakt, das als Rauschen oder **Kantenunruhe** erscheint, die als flimmernde Unschärfe oder Schimmern um die Kanten von Objekten mit harten Kanten oder scharfen Übergängen zwischen Vordergrundobjekten und dem Hintergrund auftreten. Der Effekt kann dem ähnlich aussehen wie das [Klingeln](#klingeln).
 
-![Beispiel eines Bildes, dessen Komprimierung Moskito-Rauschen eingeführt hat.](mosquito-effect-sm.png)
+![Beispiel eines Bildes, dessen Kompression Moskito-Rauschen eingeführt hat.](mosquito-effect-sm.png)
 
-Das obige Foto zeigt Moskito-Rauschen an mehreren Stellen, einschließlich im Himmel um die Brücke. Im rechten oberen Eck zeigt ein Ausschnitt eine Nahaufnahme eines Teils des Bildes, der Moskito-Rauschen zeigt.
+Das obige Foto zeigt Moskito-Rauschen an mehreren Stellen, einschließlich im Himmel um die Brücke. Im oberen rechten Teil ist eine Nahaufnahme eines Bildausschnitts zu sehen, der Moskito-Rauschen aufweist.
 
-Moskito-Rausch-Artefakte treten am häufigsten bei MPEG-Videos auf, können aber immer dann auftreten, wenn ein diskreter Cosinus-Transformations-Algorithmus (DCT) verwendet wird; dazu gehören beispielsweise JPEG-Standbilder.
+Moskito-Rauschen wird am häufigsten im MPEG-Video gefunden, kann aber auftreten, wo auch immer ein diskreter Kosinustransformations-Algorithmus (DCT) verwendet wird; dies schließt beispielsweise JPEG-Bilder ein.
 
-### Bewegungs-Kompensationsblock-Grenzartefakte
+### Blockgrenzen-Artefakte der Bewegungsentschädigung
 
-Die Komprimierung von Video funktioniert generell, indem zwei Bilder verglichen und die Unterschiede zwischen ihnen aufgezeichnet werden, ein Bild nach dem anderen, bis zum Ende des Videos. Diese Technik funktioniert gut, wenn die Kamera fixiert ist oder die Objekte im Bild relativ stationär sind; aber wenn im Bild viel Bewegung ist, können die Anzahl der Unterschiede zwischen den Bildern so groß sein, dass die Komprimierung keinen Nutzen bringt.
+Die Kompression von Video funktioniert im Allgemeinen, indem zwei Frames verglichen und die Unterschiede zwischen ihnen von einem Frame zum nächsten aufgezeichnet werden, bis das Ende des Videos erreicht ist. Diese Technik funktioniert gut, wenn die Kamera fest an einem Ort steht oder die Objekte im Bild relativ stationär sind, aber wenn es im Bild viel Bewegung gibt, kann die Zahl der Unterschiede zwischen den Bildern so groß sein, dass die Kompression keinen Nutzen hat.
 
-**[Bewegungskompensation](https://en.wikipedia.org/wiki/Motion_compensation)** ist eine Technik, die nach Bewegungen (entweder der Kamera oder von Objekten im Sichtfeld) sucht und bestimmt, wie viele Pixel sich das bewegende Objekt in jede Richtung bewegt hat. Dann wird dieser Verschiebung gespeichert, zusammen mit einer Beschreibung der bewegten Pixel, die nicht nur durch diese Verschiebung beschrieben werden können. Im Wesentlichen findet der Encoder die bewegenden Objekte und erstellt dann eine Art internes Bild, das wie das Original aussieht, aber mit allen Objekten, die an ihren neuen Positionen verschoben sind. In der Theorie entspricht dies dem Erscheinungsbild des neuen Bildes. Um die Arbeit abzuschließen, werden die verbleibenden Unterschiede festgestellt, dann werden das Set von Objektverschiebungen und das Set von Pixeldifferenzen im Datensatz gespeichert, der das neue Bild repräsentiert. Dieses Objekt, das die Verschiebung und die Pixeldifferenzen beschreibt, wird **Residualbild** genannt.
+**[Bewegungskompensation](https://en.wikipedia.org/wiki/Motion_compensation)** ist eine Technik, die nach Bewegungen (entweder der Kamera oder der Objekte im Sichtfeld) sucht und ermittelt, um wie viele Pixel sich das bewegte Objekt in jede Richtung bewegt hat. Diese Verschiebung wird dann gespeichert, zusammen mit einer Beschreibung der Pixel, die sich bewegt haben und nicht nur durch diese Verschiebung beschrieben werden können. Im Wesentlichen findet der Encoder die bewegten Objekte, dann baut er eine interne Art von Frame, das aussieht wie das Original, aber mit allen Objekten, die an ihre neuen Positionen verschoben wurden. In der Theorie approximiert dies das Aussehen des neuen Frames. Um die Arbeit abzuschließen, werden die verbleibenden Unterschiede gefunden, dann werden die Menge der Objektverschiebungen und die Menge der Pixeldifferenzen in den Daten gespeichert, die den neuen Frame darstellen. Dieses Objekt, das die Schichten und die Pixeldifferenzen beschreibt, nennt man einen **Rückstand-Frame**.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col" style="width: 216px">Originalbild</th>
-      <th scope="col" style="width: 216px">Zwischenbildunterschiede</th>
+      <th scope="col" style="width: 216px">Original-Frame</th>
+      <th scope="col" style="width: 216px">Zwischenfabel Unterschiede</th>
       <th scope="col" style="width: 216px">
-        Differenz nach Bewegungs-Kompensation
+        Unterschied nach Bewegungsentschädigung
       </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><img alt="Originalbild des Videos" src="motion-comp-orig.jpg" /></td>
-      <td><img alt="Unterschiede zwischen dem ersten Bild und dem folgenden Bild." src="motion-comp-diff.jpg" /></td>
+      <td><img alt="Originalbild aus dem Video" src="motion-comp-orig.jpg" /></td>
+      <td><img alt="Unterschiede zwischen dem ersten Frame und dem folgenden Frame." src="motion-comp-diff.jpg" /></td>
       <td>
         <img
-          alt="Unterschiede zwischen den Bildern nach Verschiebung um zwei Pixel nach rechts"
+          alt="Unterschiede zwischen den Frames nach Verschieben um zwei Pixel nach rechts"
           src="motion-comp-compensated.jpg"
         />
       </td>
     </tr>
     <tr>
       <td style="vertical-align: top">
-        Das erste vollständige Bild, das vom Betrachter gesehen wird.
+        Der erste vollständige Frame, wie er vom Betrachter gesehen wird.
       </td>
       <td style="vertical-align: top">
-        Hier werden nur die Unterschiede zwischen dem ersten Bild und dem folgenden Bild gesehen. Alles andere ist schwarz. Bei genauerem Hinsehen können wir feststellen, dass der Großteil dieser Unterschiede von einer horizontalen Kamerabewegung stammt, wodurch dies ein guter Kandidat für die Bewegungskompensation ist.
+        Hier sind nur die Unterschiede zwischen dem ersten Frame und dem
+        folgenden Frame sichtbar. Alles andere ist schwarz. Bei genauer
+        Betrachtung kann man erkennen, dass die Mehrheit dieser Unterschiede
+        aus einer horizontalen Kamerabewegung resultiert, was dies zu einem
+        guten Kandidaten für eine Bewegungsentschädigung macht.
       </td>
       <td style="vertical-align: top">
-        Um die Anzahl der unterschiedlichen Pixel zu minimieren, berücksichtigen wir hier die Schwenkbewegung der Kamera, indem wir zuerst das erste Bild um zwei Pixel nach rechts verschieben und dann die Differenz bilden. Dies kompensiert die Schwenkung der Kamera, sodass mehr Überschneidungen zwischen den beiden Bildern möglich sind.
+        Um die Anzahl der unterschiedlichen Pixel zu minimieren, berücksichtigen
+        wir hier die Kameraschwenks, indem wir den ersten Rahmens um zwei Pixel
+        nach rechts verschieben und dann den Unterschied nehmen. Dies
+        kompensiert das Schwenken der Kamera und ermöglicht mehr Überlappung
+        zwischen den beiden Frames.
       </td>
     </tr>
     <tr>
@@ -396,33 +464,33 @@ Die Komprimierung von Video funktioniert generell, indem zwei Bilder verglichen 
   </tbody>
 </table>
 
-Es gibt zwei allgemeine Arten der Bewegungskompensation: **globale Bewegungskompensation** und **Blockbewegungskompensation**. Die globale Bewegungskompensation passt generell Kamera-Bewegungen wie Tracking, Dolly-Bewegungen, Schwenken, Neigung, Rollen und Auf- und Ab-Bewegungen an. Die Blockbewegungskompensation behandelt lokale Änderungen und sucht nach kleineren Abschnitten des Bildes, die mittels Bewegungskompensation kodiert werden können. Diese Blöcke sind normalerweise von fester Größe, in einem Raster, aber es gibt Formen der Bewegungskompensation, die variable Blockgrößen und sogar überlappende Blöcke zulassen.
+Es gibt zwei allgemeine Arten der Bewegungskompensation: **Globale Bewegungskompensation** und **Blockbewegungskompensation**. Die globale Bewegungskompensation passt im Allgemeinen Bewegungen der Kamera an, wie z. B. Tracking, Dollybewegeungen, Schwenken, Neigen, Rollen und Auf- und Abwärtsbewegungen. Die Blockbewegungskompensation behandelt lokalere Änderungen und sucht nach kleineren Bildausschnitten, die durch Bewegungskompensation sinnvoll kodiert werden können. Diese Blöcke sind normalerweise von fester Größe und befinden sich in einem Raster, aber es gibt Formen der Bewegungskompensation, die variable Blockgrößen erlauben, und sogar Blöcke zu überlappen.
 
-Es gibt jedoch Artefakte, die aufgrund der Bewegungskompression auftreten können. Diese treten an Blockgrenzen in Form von scharfen Kanten auf, die falsches Klingeln und andere Kanteneffekte erzeugen. Diese entstehen durch die Mathematik, die bei der Kodierung der Residualbilder verwendet wird, und können leicht bemerkt werden, bevor sie vom nächsten Schlüsselbild repariert werden.
+Es gibt jedoch auch Artefakte, die durch Bewegungskompensation auftreten können. Diese treten an Blockgrenzen als scharfe Kanten auf, die falsche Klingeln und andere Kanteneffekte erzeugen. Diese sind auf die Mathematik zurückzuführen, die in die Kodierung von Restbildern einfließt, und können leicht bemerkt werden, bevor sie vom nächsten Schlüsselbild korrigiert werden.
 
-### Reduzierte Bildgröße
+### Reduzierung der Bildgröße
 
-In bestimmten Situationen kann es nützlich sein, die Abmessungen des Videos zu reduzieren, um die endgültige Größe der Videodatei zu verbessern. Während der unmittelbare Verlust von Größe oder Glätte der Wiedergabe ein negativer Faktor sein kann, kann sorgfältiges Entscheiden zu einem guten Endergebnis führen. Wenn ein 1080p-Video vor der Kodierung auf 720p reduziert wird, kann das resultierende Video viel kleiner sein und eine viel höhere visuelle Qualität bieten; selbst nach einem Upscaling während der Wiedergabe könnte das Ergebnis besser sein, als das Originalvideo in voller Größe zu kodieren und die Qualitätsverschlechterung zu akzeptieren, die zur Erreichung Ihrer Größenanforderungen erforderlich wäre.
+In bestimmten Situationen kann es nützlich sein, die Dimensionen des Videos zu reduzieren, um die endgültige Größe der Videodatei zu verbessern. Während der unmittelbare Verlust an Größe oder Flüssigkeit der Wiedergabe ein negativer Faktor sein kann, können sorgfältige Entscheidungen ein gutes Endergebnis zur Folge haben. Wenn ein 1080p-Video vor der Kodierung auf 720p reduziert wird, kann das resultierende Video viel kleiner sein, während es eine viel höhere visuelle Qualität beibehält; selbst nach dem Skalieren bei der Wiedergabe kann das Ergebnis besser sein als die Kodierung des Originalvideos in voller Größe unter Akzeptanz des Qualitätsverlustes, der erforderlich ist, um Ihre Größenanforderungen zu erfüllen.
 
 ### Reduzierte Bildrate
 
-Ebenso können Sie Bilder vollständig aus dem Video entfernen und die Bildrate entsprechend verringern. Dies hat zwei Vorteile: Es macht das gesamte Video kleiner, und diese kleinere Größe ermöglicht es der Bewegungskompensation, noch mehr Arbeit zu leisten. Beispielsweise könnte anstatt die Bewegungsunterschiede für zwei Bilder, die aufgrund der Bewegung zwischen den Bildern zwei Pixel voneinander entfernt sind, jede zweite Bild entfernt werden, was zu einer Abweichung führt, die vier Pixel Bewegung ergibt. Dies ermöglicht, die gesamte Bewegung der Kamera mit weniger Residualbildern zu beschreiben.
+Ebenso können Sie Frames komplett aus dem Video entfernen und die Bildrate anpassen, um dies zu kompensieren. Dies hat zwei Vorteile: Es macht das gesamte Video kleiner, und diese kleinere Größe ermöglicht es der Bewegungskompensation, noch mehr zu leisten. Wenn Sie zum Beispiel jeden zweiten Frame überspringen, anstatt Bewegungsunterschiede für zwei Bilder zu berechnen, die sich wegen zwischenbildlicher Bewegung um zwei Pixel unterscheiden, könnte dies dazu führen, dass ein Unterschied von vier Pixeln an Bewegung berechnet wird. Dies ermöglicht die Darstellung der gesamten Bewegungen mit weniger Restbildern.
 
-Die absolut minimale Bildrate, die ein Video haben kann, bevor sein Inhalt nicht mehr als Bewegung vom menschlichen Auge wahrgenommen wird, liegt bei etwa 12 Bildern pro Sekunde. Unterhalb dessen wird das Video zu einer Serie von Standbildern. Kinofilme haben typischerweise 24 Bilder pro Sekunde, während Standardfernsehen etwa 30 Bilder pro Sekunde hat (leicht weniger, aber nah genug) und hochauflösendes Fernsehen zwischen 24 und 60 Bildern pro Sekunde liegt. Alles ab 24 FPS aufwärts wird in der Regel als ausreichend flüssig angesehen; 30 oder 60 FPS sind ein ideales Ziel, je nach Ihren Bedürfnissen.
+Die absolute Mindestbildrate, die ein Video aufweisen kann, bevor seine Inhalte vom menschlichen Auge nicht mehr als Bewegung wahrgenommen werden, beträgt etwa 12 Bilder pro Sekunde. Weniger als das, und das Video wird zu einer Serie von Standbildern. Kinofilme haben typischerweise 24 Bilder pro Sekunde, während Standard-Fernsehen etwa 30 Bilder pro Sekunde beträgt (etwas weniger, aber nahe genug), und Hochauflösendes Fernsehen liegt zwischen 24 und 60 Bildern pro Sekunde. Alles ab 24 FPS wird im Allgemeinen als ausreichend flüssig empfunden; 30 oder 60 FPS ist ein ideales Ziel, je nach Ihren Bedürfnissen.
 
-Im Endeffekt liegen die Entscheidungen darüber, welche Opfer Sie bereit sind in Kauf zu nehmen, vollständig bei Ihnen und/oder Ihrem Designteam.
+Letztendlich hängen die Entscheidungen darüber, welche Abstriche Sie machen können, ganz von Ihnen und/oder Ihrem Designteam ab.
 
-## Codecdetails
+## Codec-Details
 
 ### AV1
 
-Der **AOMedia Video 1** (**AV1**) Codec ist ein offenes Format, das von der [Alliance for Open Media](https://aomedia.org/) speziell für Internetvideos entwickelt wurde. Es erreicht höhere Datenkompressionsraten als [VP9](#vp9) und [H.265/HEVC](#hevc_h.265) und bis zu 50% höhere Raten als [AVC](#avc_h.264). AV1 ist vollständig lizenzgebührenfrei und für die Verwendung sowohl im {{HTMLElement("video")}}-Element als auch in [WebRTC](/de/docs/Web/API/WebRTC_API) konzipiert.
+Der **AOMedia Video 1** (**AV1**) Codec ist ein offenes Format, das von der [Alliance for Open Media](https://aomedia.org/) speziell für Internetvideos entwickelt wurde. Er erreicht höhere Datenkompressionsraten als [VP9](#vp9) und [H.265/HEVC](#hevc_h.265) und um bis zu 50% höhere Raten als [AVC](#avc_h.264). AV1 ist vollständig lizenzgebührenfrei und für den Einsatz sowohl mit dem {{HTMLElement("video")}}-Element als auch mit [WebRTC](/de/docs/Web/API/WebRTC_API) konzipiert.
 
-AV1 bietet derzeit drei Profile: **main**, **high** und **professional** mit zunehmender Unterstützung für Farbtiefen und Chroma-Subsampling. Darüber hinaus ist eine Reihe von **Leveln** spezifiziert, von denen jedes Grenzen für eine Reihe von Videoattributen definiert. Diese Attribute umfassen Bildabmessungen, Bildgröße in Pixeln, Anzeigen- und Dekodierungsraten, durchschnittliche und maximale Bitraten sowie Begrenzungen für die Anzahl der Kacheln und Kachelspalten, die im Kodierungs-/Dekodierungsprozess verwendet werden.
+AV1 bietet derzeit drei Profile: **main**, **high** und **professional** mit zunehmender Unterstützung für Farbtiefen und Chroma-Abtastung. Darüber hinaus sind eine Reihe von **Levels** spezifiziert, die jeweils Grenzen für eine Reihe von Videoattributen definieren. Diese Attribute umfassen Bildabmessungen, Bildfläche in Pixeln, Anzeige- und Decodierungsraten, durchschnittliche und maximale Bitraten sowie Beschränkungen hinsichtlich der Anzahl der Kacheln und Spaltengruppen, die im Codierungs-/Decodierungsprozess verwendet werden.
 
-Zum Beispiel bietet AV1 Level 2.0 eine maximale Bildbreite von 2048 Pixeln und eine maximale Höhe von 1152 Pixeln, aber die maximale Bildgröße in Pixeln beträgt 147.456, sodass Sie tatsächlich kein Video mit 2048x1152 bei Level 2.0 haben können. Es ist jedoch erwähnenswert, dass zumindest für Firefox und Chrome die Level beim Software-Decoding derzeit tatsächlich ignoriert werden und der Decoder einfach sein Bestes tut, um das Video mit den bereitgestellten Einstellungen abzuspielen. Für die zukünftige Kompatibilität sollten Sie jedoch innerhalb der Grenzen des gewählten Levels bleiben.
+Zum Beispiel bietet das Level 2.0 von AV1 eine maximale Bildbreite von 2048 Pixeln und eine maximale Höhe von 1152 Pixeln, aber die maximale Bildgröße in Pixeln beträgt 147.456, sodass Sie tatsächlich kein 2048x1152-Video auf Level 2.0 haben können. Es ist jedoch bemerkenswert, dass zumindest für Firefox und Chrome die Levels derzeit beim Software-Decodieren tatsächlich ignoriert werden und sich der Decoder lediglich bemüht, das Video entsprechend den bereitgestellten Einstellungen bestmöglich abzuspielen. Im Sinne der Kompatibilität in der Zukunft sollten Sie jedoch innerhalb der Grenzen des gewählten Levels bleiben.
 
-AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist auf Geräte beschränkt, die einen Hardware-Decoder haben, das heißt M3 MacBooks und später, iPhone 15 Pro und iPhone 16 und später. Viele mobile und Desktop-Geräte verfügen über Hardware-Decoder, was AV1 zu einer hervorragenden Wahl macht, um Videos im Web bereitzustellen, mit einer Fallback-Option für ältere Apple-Geräte.
+AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist auf Geräte mit Hardwaredecodern beschränkt, was bedeutet, dass M3 MacBooks und später, iPhone 15 Pro und iPhone 16 und später unterstützt werden. Viele mobile und Desktop-Geräte verfügen über Hardwaredecoder, was AV1 zu einer großartigen Wahl für das Bereitstellen von Videos im Web macht, mit einer Rückfallebene für frühere Apple-Geräte.
 
 <table class="standard-table">
   <tbody>
@@ -430,13 +498,13 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
       <th scope="row">Unterstützte Bitraten</th>
       <td>
         <p>
-          Variiert abhängig vom Videolevel; theoretisches Maximum erreicht 800 Mbit/s bei Level 6.3
+          Variiert je nach Level des Videos; das theoretische Maximum erreicht 800 Mbps bei Level 6.3
         </p>
         <p>
-          Siehe die
+          Siehe
           <a href="https://aomediacodec.github.io/av1-spec/#levels"
-            >Leveltabellen</a
-          > der AV1-Spezifikation, die die maximalen Auflösungen und Raten für jedes Level beschreiben.
+            >Tabellen der Levels</a
+          > in der AV1-Spezifikation, die die maximalen Auflösungen und Raten auf jedem Level beschreiben.
         </p>
       </td>
     </tr>
@@ -447,10 +515,10 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
       </td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -458,7 +526,7 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
     <tr>
       <th scope="row">Unterstützte Bildgrößen</th>
       <td>
-        8 x 8 Pixel bis 65.535 x 65.535 Pixel, wobei jede Dimension jeden Wert zwischen diesen annehmen kann
+        8 x 8 Pixel bis 65.535 x 65.535 Pixel, wobei jede Dimension jeden Wert innerhalb dieses Bereichs annehmen kann
       </td>
     </tr>
     <tr>
@@ -469,7 +537,7 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
             <tr>
               <th scope="row">Profil</th>
               <th scope="col">Farbtiefen</th>
-              <th scope="col">Chroma-Subsampling</th>
+              <th scope="col">Chroma-Abtastung</th>
             </tr>
           </thead>
           <tbody>
@@ -481,12 +549,12 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
             <tr>
               <th scope="row">High</th>
               <td>8 oder 10</td>
-              <td>4:0:0 (Graustufen), 4:2:0 oder 4:4:4</td>
+              <td>4:0:0 (Graustufen), 4:2:0, oder 4:4:4</td>
             </tr>
             <tr>
               <th scope="row">Professional</th>
-              <td>8, 10 oder 12</td>
-              <td>4:0:0 (Graustufen), 4:2:0, 4:2:2 oder 4:4:4</td>
+              <td>8, 10, oder 12</td>
+              <td>4:0:0 (Graustufen), 4:2:0, 4:2:2, oder 4:4:4</td>
             </tr>
           </tbody>
         </table>
@@ -497,7 +565,7 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -533,7 +601,7 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
     <tr>
       <th scope="row">Container-Unterstützung</th>
       <td>
-        <a href="https://de.wikipedia.org/wiki/ISO/IEC_base_media_file_format"
+        <a href="https://en.wikipedia.org/wiki/ISO/IEC_base_media_file_format"
           >ISOBMFF</a
         >, MPEG-TS,
         <a href="/de/docs/Web/Media/Guides/Formats/Containers#mpeg-4_mp4">MP4</a>,
@@ -548,7 +616,7 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://aomedia.org/">Alliance for Open Media</a></td>
     </tr>
     <tr>
@@ -568,17 +636,17 @@ AV1 wird in allen Browsern unterstützt, aber die Unterstützung in Safari ist a
 
 ### AVC (H.264)
 
-Der Advanced Video Coding (**AVC**) Standard der MPEG-4-Spezifikationssuite ist durch die identische ITU H.264-Spezifikation und die MPEG-4 Part 10-Spezifikation spezifiziert. Es handelt sich um einen auf Bewegungskompensation basierenden Codec, der heute weit verbreitet für alle Arten von Medien verwendet wird, einschließlich des Fernsehrundfunks, von {{Glossary("RTP", "RTP")}}-Videokonferenzen und als der Videocodec für Blu-Ray-Discs.
+Der **Advanced Video Coding** (**AVC**)-Standard der MPEG-4-Spezifikationsreihe ist durch die identische ITU H.264-Spezifikation und die MPEG-4 Part 10-Spezifikation definiert. Es ist ein bewegungskompensationsbasierter Codec, der heute weit verbreitet für alle Arten von Medien verwendet wird, einschließlich Rundfunkfernsehen, {{Glossary("RTP", "RTP")}}-Videokonferenzen und als Videocodec für Blu-Ray-Discs.
 
-AVC ist hochflexibel mit einer Reihe von Profilen mit unterschiedlichen Fähigkeiten; beispielsweise ist das Constrained Baseline Profile für den Einsatz in Videokonferenzen und mobilen Szenarien konzipiert und verwendet weniger Bandbreite als das Main Profile (das für Standard Definition Digital TV in einigen Regionen verwendet wird) oder das High Profile (das für Blu-Ray Disc-Video verwendet wird). Die meisten Profile verwenden 8-Bit-Farbkomponenten und 4:2:0 Chroma-Subsampling; das High 10 Profile fügt Unterstützung für 10-Bit-Farben hinzu, und fortgeschrittene Formen von High 10 fügen 4:2:2 und 4:4:4 Chroma-Subsampling hinzu.
+AVC ist sehr flexibel, mit einer Reihe von Profilen mit unterschiedlichen Fähigkeiten; zum Beispiel ist das Constrained Baseline Profile für den Einsatz in Videokonferenzen und mobilen Szenarien konzipiert und verwendet weniger Bandbreite als das Main Profile (das in einigen Regionen für Standard-Definition-Digital-TV verwendet wird) oder das High Profile (das für Blu-Ray-Disc-Videos verwendet wird). Die meisten Profile verwenden 8-Bit-Farbkomponenten und 4:2:0-Chroma-Sampling. Das High 10 Profile fügt Unterstützung für 10-Bit-Farbe hinzu, und erweiterte Formen von High 10 fügen 4:2:2 und 4:4:4 Chroma-Subsampling hinzu.
 
-AVC verfügt auch über spezielle Funktionen wie Unterstützung für mehrere Ansichten derselben Szene (Multiview Video Coding), die unter anderem die Produktion von stereoskopischem Video ermöglicht.
+AVC bietet auch spezielle Funktionen wie die Unterstützung für mehrere Ansichten derselben Szene (Multiview Video Coding), was unter anderem die Erstellung von stereoskopischen Videos ermöglicht.
 
-AVC ist jedoch ein proprietäres Format und zahlreiche Patente werden von mehreren Parteien in Bezug auf seine Technologien gehalten. Die kommerzielle Nutzung von AVC-Medien erfordert eine Lizenz, obwohl der Via LA-Patentpool keine Lizenzgebühren für das Streaming von Internetvideo im AVC-Format verlangt, solange das Video für Endnutzer kostenlos ist.
+AVC ist jedoch ein proprietäres Format, und zahlreiche Patente werden von mehreren Parteien bezüglich seiner Technologien gehalten. Die kommerzielle Nutzung von AVC-Medien erfordert eine Lizenz, obwohl der Via LA-Patentpool keine Lizenzgebühren für das Streaming von Internetvideos im AVC-Format verlangt, solange das Video für Endbenutzer kostenlos ist.
 
-Nicht-Webbrowser-Implementierungen von WebRTC (jede Implementierung, die nicht die JavaScript-APIs umfasst) sind _verpflichtet_, AVC als Codec in WebRTC-Anrufen zu unterstützen. Während Webbrowser nicht dazu verpflichtet sind, tun dies einige.
+Nicht-Webbrowser-Implementierungen von WebRTC (jede Implementierung, die nicht die JavaScript-APIs enthält) sind _verpflichtet_, AVC als Codec in WebRTC-Gesprächen zu unterstützen. Auch wenn Webbrowser nicht dazu verpflichtet sind, tun dies einige.
 
-In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattformen unterstützen die Hardware-Codierung und -Decodierung von AVC-Medien. Seien Sie sich jedoch der [Lizenzanforderungen](https://via-la.com/licensing-programs/avc-h-264/) bewusst, bevor Sie in Ihrem Projekt AVC verwenden!
+In HTML-Inhalten für Webbrowser ist AVC breit kompatibel, und viele Plattformen unterstützen Hardwarekodierung und -decodierung von AVC-Medien. Beachten Sie jedoch die [Lizenzanforderungen](https://via-la.com/licensing-programs/avc-h-264/), bevor Sie sich entscheiden, AVC in Ihrem Projekt zu verwenden!
 
 <table class="standard-table">
   <tbody>
@@ -591,10 +659,10 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
       <td>Variiert je nach Level; bis zu 300 FPS sind möglich</td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >, obwohl es möglich ist, verlustfreie Makroblöcke innerhalb des Bildes zu erstellen
       </td>
@@ -606,13 +674,13 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        <p>Einige der häufiger verwendeten oder interessanten Profile:</p>
+        <p>Einige der geläufigeren oder interessanteren Profile:</p>
         <table class="standard-table">
           <tbody>
             <tr>
               <th scope="row">Profil</th>
               <th scope="col">Farbtiefen</th>
-              <th scope="col">Chroma-Subsampling</th>
+              <th scope="col">Chroma-Sampling</th>
             </tr>
             <tr>
               <td>Constrained Baseline (CBP)</td>
@@ -666,14 +734,12 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
     <tr>
       <th scope="row">HDR-Unterstützung</th>
       <td>
-        Ja;
-        <a href="https://de.wikipedia.org/wiki/Hybrid-Log-Gamma"
-          >Hybrid-Log-Gamma</a
-        > oder Advanced HDR/SL-HDR; beide sind Teil von ATSC
+        Ja; <a href="https://en.wikipedia.org/wiki/Hybrid_Log-Gamma">Hybrid Log-Gamma</a> oder
+        Advanced HDR/SL-HDR; beide sind Teil von ATSC
       </td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -681,9 +747,7 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
       <td>
         Alle Versionen von Chrome, Edge, Firefox, Opera und Safari
         <p>
-          Die Unterstützung von AVC in Firefox hängt von den eingebauten oder
-          vorinstallierten Codecs des Betriebssystems für AVC und dessen Container ab, um
-          Patentprobleme zu vermeiden.
+          Die Unterstützung von Firefox für AVC hängt von den im Betriebssystem integrierten oder vorinstallierten Codecs für AVC und sein Container ab, um Patentsorgen zu vermeiden.
         </p>
       </td>
     </tr>
@@ -702,7 +766,7 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td>
         <a href="https://mpeg.chiariglione.org/">MPEG</a> /
         <a href="https://www.itu.int/">ITU</a>
@@ -725,7 +789,7 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
         Proprietär mit zahlreichen Patenten. Kommerzielle Nutzung
         <a href="https://via-la.com/licensing-programs/avc-h-264/"
           >erfordert eine Lizenz</a
-        >. Beachten Sie, dass mehrere Patentpools zutreffen können.
+        >. Beachten Sie, dass mehrere Patentpools gelten können.
       </td>
     </tr>
   </tbody>
@@ -733,31 +797,31 @@ In HTML-Inhalten für Webbrowser ist AVC weitgehend kompatibel und viele Plattfo
 
 ### H.263
 
-Der **H.263**-Codec der ITU wurde primär für den Einsatz bei niedriger Bandbreite entwickelt. Insbesondere ist er für Videokonferenzen auf PSTN (public switched telephone networks), {{Glossary("RTSP", "RTSP")}} und SIP (IP-basierte Videokonferenz) Systeme optimiert. Trotz der Optimierung für Netze mit niedriger Bandbreite ist er recht CPU-intensiv und könnte auf leistungsschwächeren Computern nicht zufriedenstellend arbeiten. Das Datenformat ist ähnlich dem der MPEG-4 Part 2.
+Der **H.263**-Codec der ITU wurde primär für die Nutzung in Situationen mit geringer Bandbreite entworfen. Insbesondere liegt sein Fokus auf Videokonferenzen im PSTN (Public Switched Telephone Networks), {{Glossary("RTSP", "RTSP")}} und SIP (IP-basierte Videokonferenzsysteme). Trotz Optimierung für Netzwerke mit geringer Bandbreite ist er relativ CPU-intensiv und kann möglicherweise auf Computern mit niedriger Leistung nicht ausreichend performen. Das Datenformat ist ähnlich dem von MPEG-4 Part 2.
 
-H.263 wurde nie weit verbreitet im Web genutzt. Varianten von H.263 wurden als Grundlage für andere proprietäre Formate wie Flash-Video oder den Sorenson-Codec verwendet. Kein bedeutender Browser hat jemals Standardunterstützung für H.263 integriert. Bestimmte Mediendienste haben Unterstützung für H.263-Medien aktiviert.
+H.263 wurde nie weit verbreitet im Web genutzt. Abwandlungen von H.263 wurden als Grundlage für andere proprietäre Formate, wie Flash-Video oder den Sorenson-Codec, verwendet. Allerdings hat kein großer Browser jemals von Haus aus H.263 unterstützt. Bestimmte Medien-Plugins haben die Unterstützung für H.263-Medien ermöglicht.
 
-Im Gegensatz zu den meisten Codecs definiert H.263 die Grundlagen eines kodierten Videos in Begriffe der maximalen Bitrate pro Bild (also pro "Picture"), oder **BPPmaxKb**. Während der Kodierung wird ein Wert für BPPmaxKb gewählt, und dann kann das Video diesen Wert pro Bild nicht überschreiten. Die endgültige Bitrate hängt von diesem Wert, der Bildrate, der Komprimierung sowie der gewählten Auflösung und Blockformatung ab.
+Im Gegensatz zu den meisten Codecs definiert H.263 die Grundlagen eines codierten Videos in Bezug auf die maximale Bitrate pro Frame (Bild) oder **BPPmaxKb**. Während des Codierens wird ein Wert für BPPmaxKb ausgewählt und dann kann das Video diesen Wert für jedes Frame nicht überschreiten. Die endgültige Bitrate hängt von diesem Wert, der Bildrate, der Kompression und der gewählten Auflösung und Blockformat ab.
 
-H.263 wurde durch H.264 abgelöst und gilt daher als veraltetes Medienformat, das Sie grundsätzlich vermeiden sollten, wenn Sie können. Der einzige wirkliche Grund, H.263 in neuen Projekten zu verwenden, besteht darin, dass Sie Unterstützung für sehr alte Geräte benötigen, auf denen H.263 Ihre beste Wahl darstellt.
+H.263 wurde durch H.264 ersetzt und wird daher als veraltetes Medienformat angesehen, das Sie generell vermeiden sollten, wenn es möglich ist. Der einzige wirkliche Grund, H.263 in neuen Projekten zu verwenden, besteht darin, extrem alte Geräte zu unterstützen, auf denen H.263 die beste Wahl ist.
 
-H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/recommendations/related_ps.aspx?id_prod=4242), die von zahlreichen Organisationen und Unternehmen wie Telenor, Fujitsu, Motorola, Samsung, Hitachi, Polycom, Qualcomm, und anderen gehalten werden. Um H.263 zu verwenden, sind Sie rechtlich verpflichtet, die entsprechenden Lizenzen zu erwerben.
+H.263 ist ein proprietäres Format, wobei [Patente](https://www.itu.int/ITU-T/recommendations/related_ps.aspx?id_prod=4242) von einer Reihe von Organisationen und Unternehmen gehalten werden, darunter Telenor, Fujitsu, Motorola, Samsung, Hitachi, Polycom, Qualcomm und so weiter. Um H.263 zu nutzen, sind Sie rechtlich verpflichtet, die entsprechenden Lizenzen zu erwerben.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
-      <td>Unbeschränkt, aber typischerweise unter 64 kbps</td>
+      <td>Unbegrenzt, aber typischerweise unter 64 kbps</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
-      <td>Jede</td>
+      <td>Beliebige</td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -767,7 +831,7 @@ H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/reco
       <td>
         <p>Bis zu 1408 x 1152 Pixel.</p>
         <p>
-          Version 1 von H.263 spezifiziert eine Gruppe von Bildgrößen, die
+          Version 1 von H.263 spezifiziert einen Satz von Bildgrößen, die
           unterstützt werden. Spätere Versionen können zusätzliche Auflösungen
           unterstützen.
         </p>
@@ -776,9 +840,9 @@ H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/reco
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        YCbCr; jedes Bildformat (sub-QCIF, QCIF, CIF, 4CIF oder 16CIF) definiert
-        die Bildgröße in Pixeln sowie die Anzahl der Reihen jeder Luminanz- und
-        Chrominanzproben, die für jedes Bild verwendet werden
+        YCbCr; jedes Bildformat (sub-QCIF, QCIF, CIF, 4CIF, oder 16CIF) definiert
+        die Bildgröße in Pixeln sowie wie viele Reihen von Luminanz- und
+        Chrominanzproben für jedes Bild verwendet werden
       </td>
     </tr>
     <tr>
@@ -786,7 +850,7 @@ H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/reco
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -832,7 +896,7 @@ H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/reco
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://www.itu.int/">ITU</a></td>
     </tr>
     <tr>
@@ -846,8 +910,8 @@ H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/reco
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Proprietär; geeignete Lizenz oder Lizenzen werden benötigt. Beachten
-        Sie, dass mehrere Patentpools zutreffen können.
+        Proprietär; entsprechende Lizenz oder Lizenzen sind erforderlich. Beachten Sie, dass
+        mehrere Patentpools gelten können.
       </td>
     </tr>
   </tbody>
@@ -855,13 +919,13 @@ H.263 ist ein proprietäres Format mit [Patenten](https://www.itu.int/ITU-T/reco
 
 ### HEVC (H.265)
 
-Der **High Efficiency Video Coding** (**HEVC**)-Codec wird durch ITUs **H.265** sowie durch MPEG-H Teil 2 (die sich noch in der Entwicklung befindliche Nachfolge von MPEG-4) definiert. HEVC wurde entwickelt, um das effiziente Kodieren und Dekodieren von Video in Größen bis hin zu sehr hohen Auflösungen (einschließlich 8K-Video) zu unterstützen, mit einer Struktur, die es der Software ermöglicht, moderne Prozessoren optimal zu nutzen. Theoretisch kann HEVC komprimierte Dateigrößen erreichen, die halb so groß sind wie die von [AVC](#avc_h.264), aber mit vergleichbarer Bildqualität.
+Der **High Efficiency Video Coding** (**HEVC**) Codec wird durch ITUs **H.265** sowie durch MPEG-H Teil 2 (der noch in der Entwicklung befindliche Nachfolger von MPEG-4) definiert. HEVC wurde entwickelt, um effizientes Codieren und Decodieren von Videos in verschiedenen Größen, einschließlich sehr hoher Auflösungen (einschließlich 8K-Video), zu unterstützen, und zwar mit einer Struktur, die speziell darauf ausgelegt ist, es Software zu ermöglichen, moderne Prozessoren effektiv zu nutzen. Theoretisch kann HEVC komprimierte Dateigrößen erreichen, die halb so groß wie bei [AVC](#avc_h.264) sind, jedoch mit vergleichbarer Bildqualität.
 
-Zum Beispiel besteht jede Kodier-Baumeinheit (CTU)—ähnlich dem Makroblock, der in früheren Codecs verwendet wurde—aus einem Baum von Luma-Werten für jedes Sample sowie einem Baum von Chroma-Werten für jedes Chroma-Sample, das in derselben Kodier-Baumeinheit verwendet wird, sowie allen erforderlichen Syntaxelementen. Diese Struktur ermöglicht eine einfache Verarbeitung durch mehrere Kerne.
+Zum Beispiel besteht jede Kodierungsbaum-Einheit (CTU) – ähnlich dem Makroblock, der in vorherigen Codecs verwendet wurde – aus einem Baum von Luma-Werten für jedes Sample sowie einem Baum von Chroma-Werten für jedes Chroma-Sample, das in derselben Kodierungsbaum-Einheit genutzt wird, sowie aus allen erforderlichen Syntaxelementen. Diese Struktur unterstützt eine einfache Verarbeitung durch mehrere Kerne.
 
-Ein interessantes Merkmal von HEVC ist, dass das Hauptprofil nur 8-Bit-pro-Komponente-Farbe mit 4:2:0 Chroma-Subsampling unterstützt. Ebenso interessant ist, dass 4:4:4 Video speziell behandelt wird. Anstatt die Luma-Proben (die die Pixel des Bildes in Graustufen darstellen) und die Cb- und Cr-Proben (die angeben, wie die Graustufen verändert werden, um Farbpixel zu erzeugen) zu haben, werden die drei Kanäle stattdessen als drei monochrome Bilder behandelt, eines für jede Farbe, die dann beim Rendering kombiniert werden, um ein vollfarbiges Bild zu erzeugen.
+Ein interessantes Merkmal von HEVC ist, dass das Hauptprofil nur eine 8-Bit-Komponentenfarbe mit 4:2:0-Chroma-Sampling unterstützt. Auch interessant ist, dass 4:4:4-Video speziell behandelt wird. Anstatt die Luma-Samples (die die Pixel des Bildes in Graustufen darstellen) und die Cb- und Cr-Samples (die angeben, wie die Graustufen zu Farb-Pixeln verändert werden sollen) zu speichern, werden die drei Kanäle stattdessen als drei monochrome Bilder behandelt, eines pro Farbe, die dann bei der Wiedergabe zu einem Vollfarbbild kombiniert werden.
 
-HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeckt. Die Lizenzierung wird von [Via LA](https://via-la.com/licensing-programs/hevc-vvc/) verwaltet; Gebühren werden an Entwickler erhoben und nicht an Inhaltsproduzenten und -verteiler. Stellen Sie sicher, die neuesten Lizenzbedingungen und Anforderungen zu überprüfen, bevor Sie entscheiden, ob Sie HEVC in Ihrer App oder Website verwenden möchten!
+HEVC ist ein proprietäres Format und wird von einer Reihe von Patenten abgedeckt. Die Lizenzierung wird von [Via LA verwaltet](https://via-la.com/licensing-programs/hevc-vvc/); Gebühren werden an Entwickler statt an Inhaltsproduzenten und -vertreiber erhoben. Überprüfen Sie unbedingt die neuesten Lizenzbedingungen und -anforderungen, bevor Sie eine Entscheidung darüber treffen, ob Sie HEVC in Ihrer App oder Website verwenden!
 
 <table class="standard-table">
   <tbody>
@@ -874,10 +938,10 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
       <td>Variiert je nach Level; bis zu 300 FPS sind möglich</td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -890,20 +954,21 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
         <p>
-          Informationen unten sind für die Hauptprofile bereitgestellt. Es gibt eine
-          Reihe anderer verfügbarer Profile, die hier nicht enthalten sind.
+          Die unten stehenden Informationen sind für die wichtigsten Profile
+          bereitgestellt. Es gibt eine Reihe anderer Profile, die hier nicht
+          enthalten sind.
         </p>
         <table class="standard-table">
           <thead>
             <tr>
               <th scope="col">Profil</th>
               <th scope="col">Farbtiefen</th>
-              <th scope="col">Chroma-Subsampling</th>
+              <th scope="col">Chroma-Sampling</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Hauptprofil</td>
+              <td>Main</td>
               <td>8</td>
               <td>4:2:0</td>
             </tr>
@@ -956,7 +1021,7 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -973,7 +1038,7 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
               <th scope="col">Safari</th>
             </tr>
             <tr>
-              <th scope="row">HEVC / H.265-Unterstützung</th>
+              <th scope="row">HEVC / H.265 Unterstützung</th>
               <td>107</td>
               <td>18</td>
               <td>120</td>
@@ -982,29 +1047,28 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
             </tr>
           </tbody>
         </table>
-        <p>Chrome unterstützt HEVC für Geräte mit Hardwareunterstützung auf Windows 8+, Linux und ChromeOS, für alle Geräte auf macOS Big Sur 11+ und Android 5.0+.</p>
-        <p>Edge (Chromium) unterstützt HEVC für Geräte mit Hardwareunterstützung auf Windows 10 1709+ wenn
-          <a href="https://apps.microsoft.com/detail/9nmzlz57r3t7">HEVC Videoerweiterungen aus dem Microsoft Store</a>
-          installiert sind und hat denselben Unterstützungsstatus wie Chrome auf anderen Plattformen. Edge (Legacy) unterstützt HEVC nur für Geräte mit einem Hardware-Decoder.
+        <p>Chrome unterstützt HEVC für Geräte mit Hardware-Support auf Windows 8+, Linux und ChromeOS, für alle Geräte auf macOS Big Sur 11+ und Android 5.0+.</p>
+        <p>Edge (Chromium) unterstützt HEVC für Geräte mit Hardware-Support auf Windows 10 1709+, wenn
+          <a href="https://apps.microsoft.com/detail/9nmzlz57r3t7">HEVC-Videoerweiterungen aus dem Microsoft Store</a>
+          installiert sind, und hat denselben Support-Status wie Chrome auf anderen Plattformen. Edge (Legacy) unterstützt HEVC nur für Geräte mit einem Hardware-Decoder.
         </p>
         <p>Firefox aktiviert HEVC auf:
           <ul>
-            <li>Windows ab Firefox 134 entweder mit Hardware (auf Geräten, die es unterstützen, wobei die Reichweite mit Edge übereinstimmt) oder Software (unter Windows muss der Benutzer eine Erweiterung erwerben und installieren)</li>
+            <li>Windows ab Firefox 134 entweder mit Hardware (auf Geräten, die es unterstützen, wobei die Reichweite die gleiche wie bei Edge ist) oder Software (auf Windows muss der Benutzer eine kostenpflichtige Erweiterung installieren)</li>
             <li>macOS ab Firefox 136 entweder mit Hardware oder Software.</li>
-            <li>Linux ab Firefox 137 entweder mit Hardware oder Software (über das System-ffmpeg).</li>
+            <li>Linux ab Firefox 137 entweder mit Hardware oder Software (über das System ffmpeg).</li>
             <li>Android ab Firefox 137 nur mit Hardware.</li>
           </ul>
         </p>
-        <p>Opera und andere auf Chromium basierende Browser haben denselben Unterstützungsstatus wie Chrome.</p>
-        <p>Safari unterstützt HEVC für alle Geräte auf macOS High Sierra oder neuer.</p>
+        <p>Opera und andere auf Chromium basierende Browser haben denselben Support-Status wie Chrome.</p>
+        <p>Safari unterstützt HEVC für alle Geräte auf macOS High Sierra oder später.</p>
       </td>
     </tr>
     <tr>
       <th scope="row">Container-Unterstützung</th>
       <td>
-        <a href="https://de.wikipedia.org/wiki/ISO/IEC_base_media_file_format"
-          >ISOBMFF</a
-        >, MPEG-TS,
+        <a href="https://en.wikipedia.org/wiki/ISO/IEC_base_media_file_format"
+          >ISOBMFF</a>, MPEG-TS,
         <a href="/de/docs/Web/Media/Guides/Formats/Containers#mpeg-4_mp4">MP4</a>
         <a href="/de/docs/Web/Media/Guides/Formats/Containers#quicktime">QuickTime</a>
       </td>
@@ -1017,14 +1081,14 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td>
         <a href="https://www.itu.int/">ITU</a> /
         <a href="https://mpeg.chiariglione.org/">MPEG</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Spezifikation</th>
+      <th scope="row">Spezifikationen</th>
       <td>
         <a href="https://www.itu.int/rec/T-REC-H.265"
           >http://www.itu.int/rec/T-REC-H.265</a
@@ -1036,10 +1100,10 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Proprietär; überprüfen Sie Ihre Übereinstimmung mit den
+        Proprietär; bestätigen Sie Ihre Konformität mit den
         <a href="https://via-la.com/licensing-programs/hevc-vvc/"
-          >Lizenzanforderungen</a
-        >. Beachten Sie, dass mehrere Patentpools zutreffen können.
+          >Lizenzierungsanforderungen</a
+        >. Beachten Sie, dass mehrere Patentpools gelten können.
       </td>
     </tr>
   </tbody>
@@ -1047,11 +1111,11 @@ HEVC ist ein proprietäres Format und ist durch eine Reihe von Patenten abgedeck
 
 ### MP4V-ES
 
-Das **MPEG-4 Video Elemental Stream** (**MP4V-ES**)-Format ist Teil des MPEG-4 Part 2 Visual-Standards. Obwohl MPEG-4 Teil 2 Video im Allgemeinen von niemandem verwendet wird, da es im Vergleich zu anderen Codecs keinen überzeugenden Mehrwert bietet, hat MP4V-ES einige Anwendungen im Mobilbereich. MP4V ist im Wesentlichen H.263-Kodierung in einem MPEG-4-Container.
+Das **MPEG-4 Video Esstream** (**MP4V-ES**) Format ist Teil des MPEG-4 Part 2 Visual Standards. Obwohl im Allgemeinen MPEG-4 Teil 2 Video von niemandem verwendet wird, da seine Vorteile gegenüber anderen Codecs nicht überzeugend sind, findet MP4V-ES einige Verwendung im Mobilbereich. MP4V ist im Wesentlichen H.263-Codierung in einem MPEG-4-Container.
 
-Sein Hauptzweck ist die Verwendung zur Übertragung von MPEG-4-Audio und -Video über eine {{Glossary("RTP", "RTP")}}-Sitzung. MP4V-ES wird jedoch auch verwendet, um MPEG-4-Audio und -Video über eine mobile Verbindung mithilfe von [3GP](/de/docs/Web/Media/Guides/Formats/Containers#3gp) zu übertragen.
+Sein Hauptzweck besteht darin, verwendet zu werden, um MPEG-4-Audio und -Video über eine {{Glossary("RTP", "RTP")}}-Sitzung zu streamen. Allerdings wird MP4V-ES auch verwendet, um MPEG-4-Audio und -Video über eine mobile Verbindung unter Verwendung von [3GP](/de/docs/Web/Media/Guides/Formats/Containers#3gp) zu übertragen.
 
-Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem großen Browser in nennenswerter Weise unterstützt wird und ziemlich obsolet ist. Dateien dieses Typs sollten die Erweiterung `.mp4v` haben, werden aber manchmal fälschlicherweise als `.mp4` bezeichnet.
+Sie wollen dieses Format wahrscheinlich nicht verwenden, da es nicht auf sinnvolle Weise von großen Browsern unterstützt wird und ziemlich veraltet ist. Dateien dieses Typs sollten die Erweiterung `.mp4v` haben, werden jedoch manchmal fälschlicherweise als `.mp4` bezeichnet.
 
 <table class="standard-table">
   <tbody>
@@ -1061,13 +1125,13 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
-      <td>Kein spezifisches Limit; nur durch die Datenrate beschränkt</td>
+      <td>Kein spezifisches Limit; nur durch die Datenrate eingeschränkt</td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -1080,7 +1144,7 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
         YCrCb mit Chroma-Subsampling (4:2:0, 4:2:2 und 4:4:4) unterstützt; bis zu
-        12 Bit pro Komponente
+        12 Bits pro Komponente
       </td>
     </tr>
     <tr>
@@ -1088,7 +1152,7 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -1105,7 +1169,7 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
               <th scope="col">Safari</th>
             </tr>
             <tr>
-              <th scope="row">MP4V-ES-Unterstützung</th>
+              <th scope="row">MP4V-ES Unterstützung</th>
               <td>Nein</td>
               <td>Nein</td>
               <td>Ja</td>
@@ -1119,7 +1183,7 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
           <a href="/de/docs/Web/Media/Guides/Formats/Containers#3gp">3GP</a>
           Containern.
         </p>
-        <p>Chrome unterstützt MP4V-ES nicht; jedoch ChromeOS schon.</p>
+        <p>Chrome unterstützt MP4V-ES nicht; jedoch tut ChromeOS dies.</p>
       </td>
     </tr>
     <tr>
@@ -1137,7 +1201,7 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://mpeg.chiariglione.org/">MPEG</a></td>
     </tr>
     <tr>
@@ -1149,7 +1213,7 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
       <td>
         Proprietär;
         <a href="https://via-la.com/licensing-programs/mpeg-4-visual/"
-          >Lizenz erwerben</a
+          >erhalten Sie eine Lizenz</a
         >
         über <a href="https://via-la.com/">Via LA</a> und/oder
         <a href="https://about.att.com/innovation/ip/patents"
@@ -1163,28 +1227,28 @@ Sie möchten dieses Format fast sicherlich nicht verwenden, da es von keinem gro
 
 ### MPEG-1 Teil 2 Video
 
-**MPEG-1 Teil 2 Video** wurde Anfang der 1990er Jahre vorgestellt. Im Gegensatz zu den späteren MPEG-Videostandards wurde MPEG-1 allein von MPEG ohne Beteiligung der {{Glossary("ITU", "ITU")}} entwickelt.
+**MPEG-1 Teil 2 Video** wurde zu Beginn der 1990er Jahre enthüllt. Anders als die späteren MPEG-Videostandards wurde MPEG-1 ausschließlich von MPEG erstellt, ohne die Beteiligung der {{Glossary("ITU", "ITU")}}.
 
-Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielzahl von Software und Hardware kompatibel. Es gibt keine aktiven Patente in Bezug auf MPEG-1-Video mehr, sodass es ohne Lizenzierungsprobleme verwendet werden kann. Allerdings unterstützen wenige Webbrowser MPEG-1-Video ohne Unterstützung eines Plugins, und da die Nutzung von Plugins in Webbrowsern abgelehnt wird, sind diese im Allgemeinen nicht mehr verfügbar. Dies macht MPEG-1 zu einer schlechten Wahl für die Verwendung in Websites und Webanwendungen.
+Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielzahl von Software- und Hardwaregeräten kompatibel. Es gibt keine aktiven Patente mehr in Bezug auf MPEG-1-Video, sodass es ohne Lizenzierungsprobleme verwendet werden kann. Allerdings unterstützen wenige Webbrowser MPEG-1-Video ohne die Unterstützung eines Plugins, und da die Nutzung von Plugins in Webbrowsern abgelehnt wird, sind diese in der Regel nicht mehr verfügbar. Dies macht MPEG-1 zu einer schlechten Wahl für Webseiten und Webanwendungen.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
-      <td>Bis zu 1,5 Mbit/s</td>
+      <td>Bis zu 1,5 Mbps</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
       <td>
-        23.976 FPS, 24 FPS, 25 FPS, 29.97 FPS, 30 FPS, 50 FPS, 59.94 FPS und 60
+        23,976 FPS, 24 FPS, 25 FPS, 29,97 FPS, 30 FPS, 50 FPS, 59,94 FPS, und 60
         FPS
       </td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -1196,7 +1260,7 @@ Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielz
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        Y'CbCr mit 4:2:0 Chroma-Subsampling mit bis zu 12 Bit pro Komponente
+        Y'CbCr mit 4:2:0-Chroma-Sampling mit bis zu 12 Bits pro Komponente
       </td>
     </tr>
     <tr>
@@ -1204,7 +1268,7 @@ Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielz
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -1221,7 +1285,7 @@ Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielz
               <th scope="col">Safari</th>
             </tr>
             <tr>
-              <th scope="row">MPEG-1-Unterstützung</th>
+              <th scope="row">MPEG-1 Unterstützung</th>
               <td>Nein</td>
               <td>Nein</td>
               <td>Nein</td>
@@ -1244,7 +1308,7 @@ Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielz
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://mpeg.chiariglione.org/">MPEG</a></td>
     </tr>
     <tr>
@@ -1259,7 +1323,7 @@ Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielz
       <th scope="row">Lizenzierung</th>
       <td>
         Proprietär; jedoch sind alle Patente abgelaufen, sodass MPEG-1 frei
-        genutzt werden kann
+        verwendet werden kann
       </td>
     </tr>
   </tbody>
@@ -1267,19 +1331,19 @@ Da jeder MPEG-2-Decoder auch MPEG-1-Video abspielen kann, ist es mit einer Vielz
 
 ### MPEG-2 Teil 2 Video
 
-**[MPEG-2 Part 2](https://en.wikipedia.org/wiki/H.262/MPEG-2_Part_2)** ist das Videoformat, das in der MPEG-2-Spezifikation definiert ist, und wird auch gelegentlich unter seiner {{Glossary("ITU", "ITU")}}-Bezeichnung, H.262, geführt. Es ähnelt sehr dem MPEG-1-Video—tatsächlich kann jeder MPEG-2-Player MPEG-1 automatisch ohne spezielle Arbeit wiedergeben—jedoch wurde es erweitert, um höhere Bitraten und verbesserte Kodierungstechniken zu unterstützen.
+**[MPEG-2 Teil 2](https://en.wikipedia.org/wiki/H.262/MPEG-2_Part_2)** ist das Videoformat, das durch die MPEG-2-Spezifikation definiert wird und wird gelegentlich auch durch seine {{Glossary("ITU", "ITU")}}-Bezeichnung, H.262, bezeichnet. Es ist MPEG-1-Video sehr ähnlich – in der Tat kann jeder MPEG-2-Player automatisch mit MPEG-1 umgehen, ohne besondere Arbeit – außer dass es erweitert wurde, um höhere Bitraten und verbesserte Codierungstechniken zu unterstützen.
 
-Das Ziel war es, MPEG-2 zu ermöglichen, Standard-Definition-Fernsehen zu komprimieren, sodass auch Interlaced-Video unterstützt wird. Die Kompressionsrate für Standard-Definition und die Qualität des resultierenden Videos erfüllten die Bedürfnisse so gut, dass MPEG-2 der primäre Videocodec für DVD-Video-Medien wurde.
+Das Ziel war, MPEG-2 zu ermöglichen, Standard-Definitionen Fernsehen zu komprimieren, sodass auch Interlaced-Video unterstützt wird. Die Standard-Definitionen Kompressionsrate und die Qualität des resultierenden Videos erfüllten die Anforderungen so gut, dass MPEG-2 der primäre Videocodec für DVD-Videomedien ist.
 
-MPEG-2 bietet mehrere Profile mit unterschiedlichen Fähigkeiten. Jedes Profil ist dann in vier Level unterteilt, von denen jedes Attribute des Videos wie Bildrate, Auflösung, Bitrate usw. steigert. Die meisten Profile verwenden Y'CbCr mit 4:2:0 Chroma-Subsampling, aber fortgeschrittenere Profile unterstützen auch 4:2:2. Darüber hinaus gibt es vier Level, von denen jedes Unterstützung für größere Bilddimensionen und Bitraten bietet. Zum Beispiel unterstützt die [ATSC](https://en.wikipedia.org/wiki/ATSC_standards)-Spezifikation für Fernsehen in Nordamerika MPEG-2 Video in High Definition mit dem Main Profile auf High Level, wobei 4:2:0-Video bei sowohl 1920 x 1080 (30 FPS) als auch 1280 x 720 (60 FPS) bei einer maximalen Bitrate von 80 Mbit/s erlaubt ist.
+MPEG-2 hat mehrere Profile mit unterschiedlichen Fähigkeiten. Jedes Profil ist dann in vier Levels verfügbar, die jeweils Attribute des Videos erhöhen, wie Bildrate, Auflösung, Bitrate und so weiter. Die meisten Profile verwenden Y'CbCr mit 4:2:0-Chroma-Subsampling, aber fortgeschrittenere Profile unterstützen auch 4:2:2. Darüber hinaus gibt es vier Levels, die jeweils Unterstützung für größere Bildabmessungen und Bitraten bieten. Zum Beispiel unterstützt die [ATSC](https://en.wikipedia.org/wiki/ATSC_standards)-Spezifikation für Fernsehen in Nordamerika MPEG-2-Video in hoher Auflösung mit dem Hauptprofil auf hohem Level, was 4:2:0-Video bei sowohl 1920 x 1080 (30 FPS) als auch 1280 x 720 (60 FPS) bei einer maximalen Bitrate von 80 Mbps erlaubt.
 
-Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plugins, und da die Nutzung von Plugins in Webbrowsern abgelehnt wird, sind diese im Allgemeinen nicht mehr verfügbar. Dies macht MPEG-2 zu einer schlechten Wahl für die Verwendung in Websites und Webanwendungen.
+Allerdings unterstützen wenige Webbrowser MPEG-2 ohne die Unterstützung eines Plugins, und da die Nutzung von Plugins in Webbrowsern abgelehnt wird, sind diese in der Regel nicht mehr verfügbar. Dies macht MPEG-2 zu einer schlechten Wahl für Webseiten und Webanwendungen.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
-      <td>Bis zu 100 Mbit/s; variiert je nach Level und Profil</td>
+      <td>Bis zu 100 Mbps; variiert je nach Level und Profil</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
@@ -1296,32 +1360,32 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
             <tr>
               <th scope="row">LL</th>
               <td>Low Level</td>
-              <td>23.9, 24, 25, 29.97, 30</td>
+              <td>23,9, 24, 25, 29,97, 30</td>
             </tr>
             <tr>
               <th scope="row">ML</th>
               <td>Main Level</td>
-              <td>23.976, 24, 25, 29.97, 30</td>
+              <td>23,976, 24, 25, 29,97, 30</td>
             </tr>
             <tr>
               <th scope="row">H-14</th>
               <td>High 1440</td>
-              <td>23.976, 24, 26, 29.97, 30, 50, 59.94, 60</td>
+              <td>23,976, 24, 26, 29,97, 30, 50, 59,94, 60</td>
             </tr>
             <tr>
               <th scope="row">HL</th>
               <td>High Level</td>
-              <td>23.976, 24, 26, 29.97, 30, 50, 59.94, 60</td>
+              <td>23,976, 24, 26, 29,97, 30, 50, 59,94, 60</td>
             </tr>
           </tbody>
         </table>
       </td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -1363,8 +1427,8 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        Y'CbCr mit 4:2:0 Chroma-Subsampling in den meisten Profilen; die Profile "High" und
-        "4:2:2" unterstützen auch 4:2:2 Chroma-Subsampling.
+        Y'CbCr mit 4:2:0-Chroma-Sampling in den meisten Profilen; die "High" und
+        "4:2:2" Profile unterstützen auch 4:2:2-Chroma-Sampling.
       </td>
     </tr>
     <tr>
@@ -1372,7 +1436,7 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -1389,7 +1453,7 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
               <th scope="col">Safari</th>
             </tr>
             <tr>
-              <th scope="row">MPEG-2-Unterstützung</th>
+              <th scope="row">MPEG-2 Unterstützung</th>
               <td>Nein</td>
               <td>Nein</td>
               <td>Nein</td>
@@ -1414,7 +1478,7 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td>
         <a href="https://mpeg.chiariglione.org/">MPEG</a> / <a href="https://www.itu.int/">ITU</a>
       </td>
@@ -1428,7 +1492,7 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Proprietär; alle Patente sind weltweit abgelaufen mit Ausnahme von Malaysia (ab dem 1. Oktober 2024), sodass MPEG-2 frei außerhalb von Malaysia verwendet werden kann.
+        Proprietär; alle Patente sind weltweit mit Ausnahme von Malaysia (ab dem 1. Oktober 2024) abgelaufen, sodass MPEG-2 außerhalb von Malaysia frei verwendet werden kann.
         Patente werden von <a href="https://via-la.com/licensing-programs/mpeg-2/">Via LA</a> lizenziert.
       </td>
     </tr>
@@ -1439,35 +1503,35 @@ Allerdings unterstützen wenige Webbrowser MPEG-2 ohne Unterstützung eines Plug
 
 > [!WARNING]
 > Dieser Codec wird nicht mehr empfohlen.
-> Er hat eine äußerst geringe Nutzung, und die Unterstützung wird aus Browsern entfernt.
+> Er hat extrem geringe Nutzung, und die Unterstützung wird aus den Browsern entfernt.
 
-**[Theora](https://de.wikipedia.org/wiki/Theora)**, entwickelt von [Xiph.org](https://xiph.org/), ist ein offener und kostenloser Videocodec, der ohne Lizenzgebühren oder Lizenzierung verwendet werden kann. Theora ist in Bezug auf Qualität und Kompressionsrate mit MPEG-4 Part 2 Visual und AVC vergleichbar, was ihn zu einer sehr guten, wenn auch nicht erstklassigen Wahl für die Videokodierung macht. Aber sein Status als frei von jeglichen Lizenzierungsproblemen und seine vergleichsweise geringen CPU-Ressourcenanforderungen machen ihn zu einer beliebten Wahl für viele Software- und Webprojekte. Die geringe CPU-Belastung ist besonders nützlich, da es keine Hardware-Decoder für Theora gibt.
+**[Theora](https://en.wikipedia.org/wiki/Theora)**, entwickelt von [Xiph.org](https://xiph.org/), ist ein offener und kostenloser Videocodec, der ohne Lizenzgebühren oder Lizenzen verwendet werden kann. Theora ist in Qualität und Kompressionsrate vergleichbar mit MPEG-4 Part 2 Visual und AVC, was ihn zu einer sehr guten, wenn auch nicht erstklassigen Wahl für die Videocodierung macht. Aber seine Freiheit von Lizenzierungsbedenken und sein relativ geringer CPU-Ressourcenbedarf machen ihn zu einer beliebten Wahl für viele Software- und Webprojekte. Die geringe CPU-Belastung ist besonders nützlich, da es für Theora keine Hardwaredecoder gibt.
 
-Theora basierte ursprünglich auf dem VC3-Codec von On2 Technologies. Der Codec und seine Spezifikation wurden unter der LGPL-Lizenz veröffentlicht und an Xiph.org anvertraut, das ihn dann zum Theora-Standard entwickelte.
+Theora basierte ursprünglich auf dem VC3-Codec von On2 Technologies. Der Codec und seine Spezifikation wurden unter der LGPL-Lizenz veröffentlicht und an Xiph.org übertragen, das ihn dann in den Theora-Standard entwickelte.
 
-Ein Nachteil von Theora ist, dass er nur 8 Bit pro Farbkomponente unterstützt, ohne die Möglichkeit, 10 oder mehr zu verwenden, um Farbbanding zu vermeiden. Das gesagt, 8 Bit pro Komponente ist dennoch das am häufigsten verwendete Farbformat heute, so dass dies nur ein kleiner Nachteil in den meisten Fällen ist. Auch kann Theora nur in einem Ogg-Container verwendet werden. Der größte Nachteil ist jedoch, dass er von Safari nicht unterstützt wird, sodass Theora nicht nur auf macOS, sondern auf allen Millionen von iPhones und iPads nicht verfügbar ist.
+Ein Nachteil von Theora ist, dass es nur 8 Bits pro Farbkomponente unterstützt, ohne die Möglichkeit, 10 oder mehr zu verwenden, um Farbbanding zu vermeiden. Das gesagt, sind 8 Bits pro Komponente immer noch das am häufigsten verwendete Farbformat heutzutage, sodass dies in den meisten Fällen nur ein geringfügiges Ärgernis ist. Außerdem kann Theora nur in einem Ogg-Container verwendet werden. Der größte Nachteil von allen ist jedoch, dass es nicht von Safari unterstützt wird, was Theora nicht nur auf macOS, sondern auf all den Millionen von iPhones und iPads unzugänglich macht.
 
-Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusätzliche Informationen zu Theora sowie zum Ogg-Containerformat, innerhalb dessen es verwendet wird.
+Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusätzliche Details zu Theora sowie zum Ogg-Containerformat, in dem es verwendet wird.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
-      <td>Bis zu 2 Gbit/s</td>
+      <td>Bis zu 2 Gbps</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
       <td>
-        Beliebig; jeder von Null verschiedener Wert wird unterstützt. Die Bildrate wird
-        als 32-Bit-Zähler und -Nenner spezifiziert, um nicht-ganzzahlige
+        Beliebig; jeder nicht-null Wert wird unterstützt. Die Bildrate wird
+        als 32-Bit-Zähler und ein 32-Bit-Nenner angegeben, um auch nicht-ganzzahlige
         Bildraten zu ermöglichen.
       </td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -1475,13 +1539,13 @@ Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusä
     <tr>
       <th scope="row">Unterstützte Bildgrößen</th>
       <td>
-        Jede Kombination von Breite und Höhe bis zu 1.048.560 x 1.048.560 Pixel
+        Jede Kombination von Breite und Höhe bis zu 1.048.560 x 1.048.560 Pixeln
       </td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        Y'CbCr mit 4:2:0, 4:2:2 und 4:4:4 Chroma-Subsampling bei 8 Bit pro
+        Y'CbCr mit 4:2:0, 4:2:2 und 4:4:4-Chroma-Subsampling bei 8 Bits pro
         Komponente
       </td>
     </tr>
@@ -1490,15 +1554,15 @@ Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusä
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>
         <p>Ja</p>
         <p>
-          Während Theora keine Unterstützung für Variable Frame Rate (VFR) innerhalb eines einzigen
-          Streams bietet, können mehrere Streams innerhalb einer einzigen Datei aneinandergereiht werden,
-          und jeder dieser Streams kann seine eigene Bildrate haben, was im
-          Grunde genommen VFR ermöglicht. Dies ist jedoch unpraktisch, wenn die
-          Bildrate häufig geändert werden muss.
+          Obwohl Theora keine variable Bildrate (VFR) innerhalb eines einzelnen
+          Streams unterstützt, können mehrere Streams in einer einzigen Datei
+          miteinander verkettet werden, und jeder davon kann seine eigene Bildrate
+          haben, was im Wesentlichen VFR ermöglicht. Dies ist jedoch unpraktisch, wenn
+          die Bildrate häufig geändert werden muss.
         </p>
       </td>
     </tr>
@@ -1516,7 +1580,7 @@ Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusä
               <th scope="col">Safari</th>
             </tr>
             <tr>
-              <th scope="row">Theora-Unterstützung</th>
+              <th scope="row">Theora Unterstützung</th>
               <td>3 bis 121</td>
               <td>12 bis 121</td>
               <td>3.5 bis 126</td>
@@ -1547,7 +1611,7 @@ Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusä
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://www.xiph.org/">Xiph.org</a></td>
     </tr>
     <tr>
@@ -1558,34 +1622,34 @@ Das [Theora Cookbook](https://archive.flossmanuals.net/ogg-theora/) bietet zusä
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
-      <td>Offen und frei von Lizenzgebühren und anderen Lizenzierungsvoraussetzungen</td>
+      <td>Offen und frei von Lizenzgebühren und sonstigen Lizenzanforderungen</td>
     </tr>
   </tbody>
 </table>
 
 ### VP8
 
-Der **Video Processor 8** (**VP8**)-Codec wurde ursprünglich von On2 Technologies entwickelt. Nach dem Kauf von On2 hat Google VP8 als offenes und lizenzgebührenfreies Videoformat veröffentlicht, mit dem Versprechen, die entsprechenden Patente nicht durchzusetzen. In Bezug auf Qualität und Kompressionsrate ist VP8 vergleichbar mit [AVC](#avc_h.264).
+Der **Video Processor 8** (**VP8**) Codec wurde ursprünglich von On2 Technologies erstellt. Nach dem Kauf von On2 veröffentlichte Google VP8 als ein offenes und lizenzfreies Videoformat mit dem Versprechen, die entsprechenden Patente nicht durchzusetzen. In Bezug auf Qualität und Kompressionsrate ist VP8 vergleichbar mit [AVC](#avc_h.264).
 
-Wenn es vom Browser unterstützt wird, erlaubt VP8 Video mit einem Alphakanal, wodurch das Video mit dem Hintergrund gespielt werden kann, sodass dieser durch das Video hindurchgesehen werden kann, in einem von jedem Pixel's Alphakomponente festgelegten Umfang. Safari unterstützt keine Alphatransparenz in VP8-Video.
+Wenn vom Browser unterstützt, ermöglicht VP8 Videos mit einem Alphakanal, was es dem Video ermöglicht, mit dem Hintergrund durch das Video in einem durch die Alphakomponente jedes Pixels spezifizierten Grad sichtbar zu sein. Safari unterstützt keine Alpha-Transparenz in VP8-Videos.
 
-Es gibt eine gute Browserunterstützung für VP8 in HTML-Inhalten, insbesondere innerhalb von [WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)-Dateien.
+Es gibt eine gute Browserunterstützung für VP8 in HTML-Inhalten, besonders innerhalb von [WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)-Dateien.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
-      <td>Beliebig; kein Maximum, es sei denn, basierend auf Levels-beschränkte Einschränkungen gelten</td>
+      <td>Beliebig; kein Maximum, es sei denn, Einschränkungen basierend auf Levels werden durchgesetzt</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
       <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -1596,20 +1660,20 @@ Es gibt eine gute Browserunterstützung für VP8 in HTML-Inhalten, insbesondere 
     </tr>
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
-      <td>Y'CbCr mit 4:2:0 Chroma-Subsampling bei 8 Bits pro Komponente</td>
+      <td>Y'CbCr mit 4:2:0-Chroma-Subsampling bei 8 Bits pro Komponente</td>
     </tr>
     <tr>
       <th scope="row">HDR-Unterstützung</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">Browser-Kompatibilität</th>
       <td>
-        <p>Alle Versionen von Chrome, Edge, Firefox, Opera und Safari. Safari unterstützt jedoch keine Alphatransparenz.</p>
+        <p>Alle Versionen von Chrome, Edge, Firefox, Opera und Safari. Safari unterstützt jedoch keine Alpha-Transparenz.</p>
       </td>
     </tr>
     <tr>
@@ -1625,10 +1689,10 @@ Es gibt eine gute Browserunterstützung für VP8 in HTML-Inhalten, insbesondere 
         {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
-      <td>Ja; VP8 ist einer der Spezifikation-erforderlichen Codecs für WebRTC</td>
+      <td>Ja; VP8 ist einer der spezifizierten Codecs für WebRTC</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://www.google.com/">Google</a></td>
     </tr>
     <tr>
@@ -1637,40 +1701,40 @@ Es gibt eine gute Browserunterstützung für VP8 in HTML-Inhalten, insbesondere 
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
-      <td>Offen und frei von Lizenzgebühren und anderen Lizenzierungsvoraussetzungen</td>
+      <td>Offen und frei von Lizenzgebühren und sonstigen Lizenzanforderungen</td>
     </tr>
   </tbody>
 </table>
 
 ### VP9
 
-**Video Processor 9** (**VP9**) ist der Nachfolger des älteren VP8-Standards von Google.
-Wie VP8 ist VP9 völlig offen und lizenzgebührenfrei.
-Seine Kodierungs- und Dekodierungsleistung ist vergleichbar mit oder etwas schneller als die von AVC, jedoch mit besserer Qualität.
-Die kodierte Videoqualität von VP9 ist vergleichbar mit der von HEVC bei ähnlichen Bitraten.
+**Video Processor 9** (**VP9**) ist der Nachfolger des älteren VP8-Standards, entwickelt von Google.
+Wie VP8 ist VP9 vollständig offen und lizenzfrei.
+Seine Codier- und Decodierleistung ist mit der von AVC vergleichbar oder etwas schneller, jedoch mit besserer Qualität.
+Die kodierte Videoqualität von VP9 ist mit der von HEVC bei ähnlichen Bitraten vergleichbar.
 
-Das Hauptprofil von VP9 unterstützt nur 8-Bit-Farbtiefe bei 4:2:0-Chroma-Subsampling-Stufen, aber seine Profile umfassen Unterstützung für tiefere Farben und die gesamte Palette der Chroma-Subsampling-Modi.
-Es unterstützt mehrere HDR-Implementierungen und bietet erhebliche Freiheit bei der Auswahl von Bildraten, Seitenverhältnissen und Bildgrößen.
+Das Hauptprofil von VP9 unterstützt nur 8-Bit-Farbtiefe bei 4:2:0-Chroma-Subsampling-Niveaus, aber seine Profile umfassen Unterstützung für tiefere Farben und die volle Bandbreite der Chroma-Subsampling-Modi.
+Es unterstützt mehrere HDR-Implementierungen und bietet beträchtliche Freiheit bei der Wahl von Bildraten, Seitenverhältnissen und Bildgrößen.
 
-VP9 wird von vielen Browsern unterstützt und Hardwareimplementierungen des Codecs sind ziemlich häufig.
-VP9 ist einer der beiden von [WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm) vorgeschriebenen Videocodecs (der andere ist [VP8](#vp8)).
+VP9 wird von vielen Browsern unterstützt, und Hardwareimplementierungen des Codecs sind recht häufig.
+VP9 ist einer der beiden von [WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm) geforderten Videocodecs (der andere ist [VP8](#vp8)).
 Beachten Sie jedoch, dass Safari in diesem Format keine Alphatransparenz unterstützt.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
-      <td>Beliebig; kein Maximum, es sei denn, level-basierte Einschränkungen werden durchgesetzt</td>
+      <td>Beliebig; kein Maximum, es sei denn, Einschränkungen basierend auf Levels werden durchgesetzt</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Bildraten</th>
       <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">Komprimierung</th>
+      <th scope="row">Kompression</th>
       <td>
         Verlustbehafteter
-        <a href="https://de.wikipedia.org/wiki/Diskrete_Kosinustransformation"
+        <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform"
           >DCT-basierter Algorithmus</a
         >
       </td>
@@ -1709,36 +1773,36 @@ Beachten Sie jedoch, dass Safari in diesem Format keine Alphatransparenz unterst
             <tr>
               <th scope="row">Profil 3</th>
               <td>10 bis 12</td>
-              <td>4:2:0, 4:2:2 und f:4:4</td>
+              <td>4:2:0, 4:2:2 und 4:4:4</td>
             </tr>
           </tbody>
         </table>
         <p>
           Unterstützte Farbräume:
-          <a href="https://de.wikipedia.org/wiki/Rec._601">Rec. 601</a>,
-          <a href="https://de.wikipedia.org/wiki/Rec._709">Rec. 709</a>,
-          <a href="https://de.wikipedia.org/wiki/Rec._2020">Rec. 2020</a>,
-          <a href="https://de.wikipedia.org/wiki/SMPTE_C">SMPTE C</a>, SMPTE-240M
-          (veraltet; ersetzt durch Rec. 709), und
-          <a href="https://de.wikipedia.org/wiki/SRGB">sRGB</a>.
+          <a href="https://en.wikipedia.org/wiki/Rec._601">Rec. 601</a>,
+          <a href="https://en.wikipedia.org/wiki/Rec._709">Rec. 709</a>,
+          <a href="https://en.wikipedia.org/wiki/Rec._2020">Rec. 2020</a>,
+          <a href="https://en.wikipedia.org/wiki/SMPTE_C">SMPTE C</a>, SMPTE-240M
+          (veraltet; ersetzt durch Rec. 709) und
+          <a href="https://en.wikipedia.org/wiki/SRGB">sRGB</a>.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">HDR-Unterstützung</th>
       <td>
-        Ja; HDR10+, <a href="https://de.wikipedia.org/wiki/Hybrid-Log-Gamma">HLG</a> und
-        <a href="https://de.wikipedia.org/wiki/Perceptual_Quantizer">PQ</a>
+        Ja; HDR10+, <a href="https://en.wikipedia.org/wiki/Hybrid_Log-Gamma">HLG</a> und
+        <a href="https://en.wikipedia.org/wiki/Perceptual_Quantizer">PQ</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung von variabler Bildrate (VFR)</th>
+      <th scope="row">Unterstützung variabler Bildraten (VFR)</th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">Browser-Kompatibilität</th>
       <td>
-        <p>Alle Versionen von Chrome, Edge, Firefox, Opera und Safari. Safari unterstützt jedoch keine Alphatransparenz.</p>
+        <p>Alle Versionen von Chrome, Edge, Firefox, Opera und Safari. Safari unterstützt jedoch keine Alpha-Transparenz.</p>
       </td>
     </tr>
     <tr>
@@ -1756,7 +1820,7 @@ Beachten Sie jedoch, dass Safari in diesem Format keine Alphatransparenz unterst
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützende/Verwaltende Organisation</th>
+      <th scope="row">Unterstützende/Erhaltende Organisation</th>
       <td><a href="https://www.google.com/">Google</a></td>
     </tr>
     <tr>
@@ -1767,29 +1831,29 @@ Beachten Sie jedoch, dass Safari in diesem Format keine Alphatransparenz unterst
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
-      <td>Offen und frei von Lizenzgebühren und anderen Lizenzierungsvoraussetzungen</td>
+      <td>Offen und frei von Lizenzgebühren und sonstigen Lizenzanforderungen</td>
     </tr>
   </tbody>
 </table>
 
-## Auswahl eines Videocodecs
+## Wahl eines Video-Codecs
 
-Die Entscheidung, welche Codec oder Codecs verwendet werden sollen, beginnt mit einer Reihe von Fragen zur Vorbereitung:
+Die Entscheidung, welcher Codec oder welche Codecs verwendet werden sollen, beginnt mit einer Reihe von Fragen zur Vorbereitung:
 
-- Möchten Sie ein offenes Format verwenden, oder sollen auch proprietäre Formate berücksichtigt werden?
-- Haben Sie die Ressourcen, mehr als ein Format für jedes Ihrer Videos zu produzieren? Die Fähigkeit, eine Fallback-Option bereitzustellen, vereinfacht den Entscheidungsprozess erheblich.
-- Gibt es Browser, bei denen Sie bereit sind, Kompatibilität zu opfern?
-- Wie alt ist die älteste Version eines Webbrowsers, die Sie unterstützen müssen? Beispielsweise, müssen Sie auf jedem in den letzten fünf Jahren ausgelieferten Browser arbeiten, oder nur im letzten Jahr?
+- Möchten Sie ein offenes Format verwenden oder sollen auch proprietäre Formate in Betracht gezogen werden?
+- Haben Sie die Ressourcen, um mehr als ein Format für jedes Ihrer Videos zu produzieren? Die Möglichkeit, eine Fallback-Option bereitzustellen, vereinfacht den Entscheidungsprozess erheblich.
+- Gibt es Browser, mit denen Sie bereit sind, die Kompatibilität zu opfern?
+- Wie alt ist die älteste Version des Webbrowsers, die Sie unterstützen müssen? Müssen Sie beispielsweise auf jedem Browser arbeiten, der in den letzten fünf Jahren ausgeliefert wurde, oder nur im letzten Jahr?
 
-In den folgenden Abschnitten bieten wir empfohlene Auswahlmöglichkeiten für spezifische Anwendungsfälle. Für jeden Anwendungsfall finden Sie bis zu zwei Empfehlungen. Wenn der Codec, der als der beste für den Anwendungsfall angesehen wird, proprietär ist oder Lizenzgebühren erfordern kann, werden zwei Optionen bereitgestellt: zuerst eine offene und gebührenfreie Option, gefolgt von der proprietären.
+In den folgenden Abschnitten bieten wir empfohlene Codec-Auswahlen für spezifische Anwendungsfälle an. Für jeden Anwendungsfall finden Sie bis zu zwei Empfehlungen. Wenn der als am besten für den Anwendungsfall geeignete Codec proprietär ist oder Lizenzgebühren erfordern könnte, werden zwei Optionen bereitgestellt: zunächst eine offene und lizenzfreie Option, gefolgt von der proprietären.
 
-Wenn Sie nur in der Lage sind, eine einzige Version jedes Videos anzubieten, können Sie das Format wählen, das am besten für Ihre Bedürfnisse geeignet ist. Die erste wird als eine gute Kombination aus Qualität, Leistung und Kompatibilität empfohlen. Die zweite Option wird die am breitesten kompatible Wahl sein, auf Kosten von etwas Qualität, Leistung und/oder Größe.
+Wenn Sie nur in der Lage sind, eine einzige Version jedes Videos anzubieten, können Sie das Format wählen, das Ihren Anforderungen am besten entspricht. Die erste wird als eine gute Kombination aus Qualität, Leistung und Kompatibilität empfohlen. Die zweite Option wird die am weitesten kompatible Wahl sein, auf Kosten von etwas Qualität, Leistung und/oder Größe.
 
 ### Empfehlungen für das Web
 
-Zuerst schauen wir uns die besten Optionen für Videos an, die auf einer typischen Website präsentiert werden, wie z. B. ein Blog, eine Informationsseite, eine kleine Geschäftswebsite, auf der Videos verwendet werden, um Produkte zu demonstrieren (aber nicht, wo die Videos selbst ein Produkt sind), und so weiter.
+Schauen wir uns zunächst die besten Optionen für Videos an, die auf einer typischen Website präsentiert werden, wie z.B. einem Blog, einer Informationsseite oder einer kleinen Unternehmenswebsite, auf der Videos zur Demonstration von Produkten verwendet werden (aber nicht, wo die Videos selbst ein Produkt sind).
 
-1. Ein **[WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)**-Container, der den **[AV1](#av1)**-Codec für Video und den **[Opus](/de/docs/Web/Media/Guides/Formats/Audio_codecs#opus)**-Codec für Audio verwendet. Diese sind alle offen, gebührenfrei und allgemein gut unterstützt, wobei die Ausnahme Safari auf älteren Apple-Geräten ist.
+1. Ein **[WebM](/de/docs/Web/Media/Guides/Formats/Containers#webm)**-Container mit dem **[AV1](#av1)**-Codec für Video und dem **[Opus](/de/docs/Web/Media/Guides/Formats/Audio_codecs#opus)**-Codec für Audio. Diese sind alle offene, lizenzfreie Formate, die im Allgemeinen gut unterstützt werden, mit Ausnahme von Safari auf älteren Apple-Geräten.
 
    ```html
    <video controls>
@@ -1797,7 +1861,7 @@ Zuerst schauen wir uns die besten Optionen für Videos an, die auf einer typisch
    </video>
    ```
 
-2. Ein **[MP4](/de/docs/Web/Media/Guides/Formats/Containers#mpeg-4_mp4)**-Container und der **[AVC](#avc_h.264)** (**H.264**)-Videocodec, idealerweise mit **[AAC](/de/docs/Web/Media/Guides/Formats/Audio_codecs#aac_advanced_audio_coding)** als Ihr Audiocodec. Dies liegt daran, dass der MP4-Container mit AVC- und AAC-Codecs in einer breiten Palette von Browsern unterstützt wird, und die Qualität ist in der Regel gut für die meisten Anwendungsfälle. Überprüfen Sie jedoch Ihre Einhaltung der Lizenzanforderungen.
+2. Ein **[MP4](/de/docs/Web/Media/Guides/Formats/Containers#mpeg-4_mp4)**-Container und der **[AVC](#avc_h.264)** (**H.264**)-Video-Codec, idealerweise mit **[AAC](/de/docs/Web/Media/Guides/Formats/Audio_codecs#aac_advanced_audio_coding)** als Audio-Codec. Dies liegt daran, dass der MP4-Container mit AVC- und AAC-Codecs eine weit unterstützte Kombination ist - tatsächlich von jedem großen Browser - und die Qualität typischerweise für die meisten Anwendungsfälle gut ist. Stellen Sie jedoch sicher, dass Sie Ihre Einhaltung der Lizenzanforderungen überprüfen.
 
    ```html
    <video controls>
@@ -1807,27 +1871,27 @@ Zuerst schauen wir uns die besten Optionen für Videos an, die auf einer typisch
    ```
 
 > [!NOTE]
-> Das {{HTMLElement("video")}}-Element erfordert ein abschließendes `</video>`-Tag, unabhängig davon, ob Sie {{HTMLElement("source")}}-Elemente darin haben oder nicht.
+> Das {{HTMLElement("video")}}-Element erfordert ein abschließendes `</video>`-Tag, unabhängig davon, ob sich darin {{HTMLElement("source")}}-Elemente befinden oder nicht.
 
 ### Empfehlungen für Archivierung, Bearbeitung oder Remixing
 
-Derzeit gibt es keine verlustfreien oder nahezu verlustfreien Videocodecs, die allgemein in Webbrowsern verfügbar sind. Der Grund dafür ist einfach: Video ist riesig. Verlustfreie Kompression ist per Definition weniger effektiv als verlustbehaftete Kompression. Beispielsweise benötigt unkomprimiertes 1080p-Video (1920 mal 1080 Pixel) mit 4:2:0-Farbunterabtastung mindestens 1,5 Gbps. Durch die Verwendung verlustfreier Kompression wie FFV1 (das nicht von Webbrowsern unterstützt wird) könnte dies möglicherweise auf etwa 600 Mbps reduziert werden, je nach Inhalt. Das sind immer noch riesige Mengen an Bits, die jede Sekunde durch eine Verbindung gepumpt werden müssen, und ist derzeit für den praktischen Einsatz nicht geeignet.
+Derzeit sind keine verlustfreien - oder auch nur nahezu verlustfreien - Video-Codecs allgemein in Webbrowsern verfügbar. Der Grund dafür ist einfach: Video ist riesig. Verlustfreie Komprimierung ist per Definition weniger effektiv als verlustbehaftete Komprimierung. Beispielsweise benötigt unkomprimiertes 1080p-Video (1920 x 1080 Pixel) mit 4:2:0-Chroma-Subsampling mindestens 1,5 Gbit/s. Durch die Verwendung verlustfreier Komprimierung wie FFV1 (das von Webbrowsern nicht unterstützt wird) könnte dies möglicherweise auf etwa 600 Mbit/s reduziert werden, je nach Inhalt. Das sind immer noch eine enorme Menge an Bits, die jede Sekunde durch eine Verbindung gepumpt werden müssen, und ist derzeit für keinen realen Anwendungsfall praktikabel.
 
-Dies ist der Fall, obwohl einige der verlustbehafteten Codecs einen verlustfreien Modus haben; die verlustfreien Modi sind jedoch in keinem aktuellen Webbrowser implementiert. Das Beste, was Sie tun können, ist, einen hochwertigen Codec zu wählen, der verlustbehaftete Kompression verwendet und ihn so zu konfigurieren, dass so wenig Kompression wie möglich durchgeführt wird. Eine Möglichkeit, dies zu tun, ist, den Codec für die Verwendung schneller Kompression zu konfigurieren, was automatisch bedeutet, dass weniger Kompression erreicht wird.
+Dies ist der Fall, obwohl einige der verlustbehafteten Codecs einen verlustfreien Modus bieten; die verlustfreien Modi sind in keinem aktuellen Webbrowser implementiert. Das Beste, was Sie tun können, ist, einen hochwertigen Codec auszuwählen, der verlustbehaftete Komprimierung verwendet und ihn so zu konfigurieren, dass so wenig Komprimierung wie möglich erfolgt. Eine Möglichkeit, dies zu tun, besteht darin, den Codec so zu konfigurieren, dass eine "schnelle" Komprimierung verwendet wird, was von Natur aus bedeutet, dass weniger Komprimierung erreicht wird.
 
-#### Externe Video-Vorbereitung
+#### Vorbereitung von Videos extern
 
-Um Video zu Archivierungszwecken außerhalb Ihrer Website oder App vorzubereiten, verwenden Sie ein Dienstprogramm, das Kompression auf die ursprünglichen unkomprimierten Videodaten anwendet. Beispielsweise kann das kostenlose [x264](https://www.videolan.org/developers/x264.html)-Dienstprogramm verwendet werden, um Video im [AVC](#avc_h.264)-Format mit einer sehr hohen Bitrate zu codieren:
+Um Videos für Archivierungszwecke außerhalb Ihrer Website oder App vorzubereiten, verwenden Sie ein Dienstprogramm, das die Komprimierung der ursprünglichen unkomprimierten Videodaten durchführt. Beispielsweise kann das kostenlose [x264](https://www.videolan.org/developers/x264.html)-Dienstprogramm verwendet werden, um Video im [AVC](#avc_h.264)-Format mit einer sehr hohen Bitrate zu kodieren:
 
 ```bash
 x264 --crf 18 -preset ultrafast --output out-file.mp4 in-file
 ```
 
-Während andere Codecs bessere Best-Case-Qualitätsniveaus haben können, wenn das Video erheblich komprimiert wird, sind ihre Encoder in der Regel so langsam, dass das fast verlustfreie Encoding, das Sie mit dieser Kompression erhalten, erheblich schneller ist und etwa das gleiche Gesamtniveau der Qualität erreicht.
+Andere Codecs können bessere Qualitätsstufen liefern, wenn das Video erheblich komprimiert wird. Ihre Encoder tendieren jedoch dazu, so langsam zu sein, dass die nahezu verlustfreie Kodierung, die Sie mit dieser Komprimierung erhalten, bei etwa gleicher Gesamtqualität erheblich schneller ist.
 
-#### Videoaufnahme
+#### Aufzeichnung von Videos
 
-Angesichts der Einschränkungen, wie nahe man verlustfrei kommen kann, könnten Sie in Betracht ziehen, [AVC](#avc_h.264) oder [AV1](#av1) zu verwenden. Beispielsweise, wenn Sie die [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) verwenden, um Video aufzunehmen, könnten Sie Code wie den folgenden verwenden, wenn Sie Ihr [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekt erstellen:
+Angesichts der Einschränkungen, wie nahe an verlustfrei man kommen kann, könnten Sie in Betracht ziehen, [AVC](#avc_h.264) oder [AV1](#av1) zu verwenden. Wenn Sie beispielsweise die [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) verwenden, um Videos aufzuzeichnen, könnten Sie Code wie den folgenden verwenden, um Ihr [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekt zu erstellen:
 
 ```js
 const kbps = 1024;
@@ -1841,34 +1905,34 @@ const options = {
 let recorder = new MediaRecorder(sourceStream, options);
 ```
 
-Dieses Beispiel erstellt einen `MediaRecorder`, der [AV1](#av1)-Video mit BT.2100 HDR in 12-Bit-Farbe mit 4:4:4-Farbunterabtastung und [FLAC](/de/docs/Web/Media/Guides/Formats/Audio_codecs#flac_free_lossless_audio_codec) für verlustfreies Audio aufzeichnet. Die resultierende Datei wird eine Bitrate von maximal 800 Mbps haben, die zwischen den Video- und Audiotracks aufgeteilt ist. Sie müssen diese Werte wahrscheinlich anpassen, abhängig von der Hardwareleistung, Ihren Anforderungen und den spezifischen Codecs, die Sie verwenden möchten. Diese Bitrate ist offensichtlich nicht realistisch für die Netzübertragung und würde wahrscheinlich nur lokal verwendet werden.
+Dieses Beispiel erstellt einen `MediaRecorder`, der konfiguriert ist, um [AV1](#av1)-Video mit BT.2100 HDR in 12-Bit-Farbe mit 4:4:4-Chroma-Subsampling und [FLAC](/de/docs/Web/Media/Guides/Formats/Audio_codecs#flac_free_lossless_audio_codec) für verlustfreies Audio aufzuzeichnen. Die resultierende Datei wird eine Bitrate von maximal 800 Mbit/s verwenden, die zwischen den Video- und Audiotracks geteilt wird. Sie werden diese Werte wahrscheinlich abhängig von der Hardwareleistung, Ihren Anforderungen und den spezifischen Codecs, die Sie verwenden möchten, anpassen müssen. Diese Bitrate ist offensichtlich nicht realistisch für die Übertragung über das Netzwerk und würde wahrscheinlich nur lokal verwendet werden.
 
-Wenn wir den Wert des `codecs`-Parameters in seine punktiert-durchgegliederten Eigenschaften aufschlüsseln, sehen wir Folgendes:
+Die Aufschlüsselung des Wertes des `codecs`-Parameters in seine Punkt-delineierten Eigenschaften ergibt Folgendes:
 
 | Wert   | Beschreibung                                                                                                                                                                                                                                                                                           |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `av01` | Die vierzeichenlange Codebezeichnung (4CC) zur Identifizierung des [AV1](#av1)-Codecs.                                                                                                                                                                                                                 |
-| `2`    | Das Profil. Ein Wert von 2 zeigt das Professional-Profil an. Ein Wert von 1 ist das High-Profil, während ein Wert von 0 das Main-Profil spezifizieren würde.                                                                                                                                           |
-| `19H`  | Die Stufe und Schicht. Dieser Wert stammt aus der Tabelle im Abschnitt [A.3](https://aomediacodec.github.io/av1-spec/#levels) der AV1-Spezifikation und zeigt die hohe Schicht von Level 6.3 an.                                                                                                       |
-| `12`   | Die Farbtiefe. Dies gibt 12 Bits pro Komponente an. Andere mögliche Werte sind 8 und 10, aber 12 ist die genaueste Farbdarstellung, die in AV1 verfügbar ist.                                                                                                                                          |
-| `0`    | Die monochrome Modus-Flagge. Wenn 1, würden keine Chromaplane aufgezeichnet, und alle Daten sollten streng genommen Luma-Daten sein, was zu einem Graustufenbild führt. Wir haben 0 spezifiziert, weil wir Farbe wollen.                                                                               |
-| `000`  | Der Modus der Farbunterabtastung, entnommen aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics) der AV1-Spezifikation. Ein Wert von 000 kombiniert mit dem Monochrommodus-Wert 0 zeigt an, dass wir eine 4:4:4-Farbunterabtastung oder keinen Farbverlust wünschen. |
-| `09`   | Die zu verwendenden Farbprimären. Dieser Wert stammt aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics) der AV1-Spezifikation; 9 gibt an, dass wir BT.2020-Farbe verwenden möchten, die für HDR verwendet wird.                                                    |
-| `16`   | Die zu verwendenden Übertragungscharakteristiken. Dies kommt ebenfalls aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics); 16 zeigt, dass wir die Charakteristiken für BT.2100 PQ-Farbe verwenden möchten.                                                         |
-| `09`   | Die zu verwendenden Matrixkoeffizienten, erneut aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics). Ein Wert von 9 gibt an, dass wir BT.2020 mit variabler Leuchtdichte verwenden möchten; dies ist auch als BT.2010 YbCbCr bekannt.                               |
-| `1`    | Die Video-„Vollbereich“-Flagge. Ein Wert von 1 zeigt an, dass wir den vollen Farbbereich verwenden möchten.                                                                                                                                                                                            |
+| `av01` | Der vierstellige Code (4CC), der den [AV1](#av1)-Codec kennzeichnet.                                                                                                                                                                                                                                   |
+| `2`    | Das Profil. Ein Wert von 2 gibt das Professional-Profil an. Ein Wert von 1 ist das High-Profil, während ein Wert von 0 das Main-Profil spezifizieren würde.                                                                                                                                            |
+| `19H`  | Das Level und die Stufe. Dieser Wert stammt aus der Tabelle in Abschnitt [A.3](https://aomediacodec.github.io/av1-spec/#levels) der AV1-Spezifikation und gibt die hohe Stufe von Level 6.3 an.                                                                                                        |
+| `12`   | Die Farbtiefe. Diese gibt 12 Bits pro Komponente an. Andere mögliche Werte sind 8 und 10, aber 12 ist die hochpräziseste Farbdarstellung, die in AV1 verfügbar ist.                                                                                                                                    |
+| `0`    | Das Monochrom-Mode-Flag. Wenn 1, würden keine Chroma-Ebenen aufgenommen und alle Daten sollten ausschließlich Luma-Daten sein, was zu einem Graustufenbild führt. Wir haben 0 angegeben, weil wir Farbe wollen.                                                                                        |
+| `000`  | Der Chroma-Subsampling-Modus, entnommen aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics) der AV1-Spezifikation. Ein Wert von 000 kombiniert mit dem Monochrom-Mode-Wert 0 zeigt an, dass wir 4:4:4-Chroma-Subsampling wollen, also keinen Verlust von Farbdaten. |
+| `09`   | Die zu verwendenden Farbprimärfarben. Dieser Wert stammt aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics) der AV1-Spezifikation; 9 gibt an, dass wir BT.2020-Farbe verwenden möchten, die für HDR verwendet wird.                                                |
+| `16`   | Die zu verwendenden Übertragungseigenschaften. Dies stammt ebenfalls aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics); 16 gibt an, dass wir die Eigenschaften für BT.2100 PQ-Farbe verwenden möchten.                                                            |
+| `09`   | Die zu verwendenden Matrix-Koeffizienten, ebenfalls aus [Abschnitt 6.4.2](https://aomediacodec.github.io/av1-spec/#color-config-semantics). Ein Wert von 9 gibt an, dass wir BT.2020 mit variabler Luminanz verwenden möchten; dies ist auch als BT.2010 YbCbCr bekannt.                               |
+| `1`    | Das Video-"Vollbereich"-Flag. Ein Wert von 1 gibt an, dass wir den vollständigen Farbbereich nutzen möchten.                                                                                                                                                                                           |
 
-Die Dokumentation zu Ihren Codec-Auswahlmöglichkeiten bietet wahrscheinlich Informationen, die Sie beim Erstellen Ihres `codecs`-Parameters verwenden werden.
+Die Dokumentation zu Ihren Codec-Auswahlen wird wahrscheinlich Informationen bieten, die Sie beim Erstellen Ihres `codecs`-Parameters verwenden können.
 
 ## Siehe auch
 
-- [Leitfaden für Web-Audiocodecs](/de/docs/Web/Media/Guides/Formats/Audio_codecs)
-- [Media-Container-Formate (Dateitypen)](/de/docs/Web/Media/Guides/Formats/Containers)
-- [Umgang mit Mediakompatibilitätsproblemen im Webinhalt](/de/docs/Web/Media/Guides/Formats/Support_issues)
-- [Codecs verwendet von WebRTC](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs)
-- {{RFC(6381)}}: Die „Codecs“ und „Profiles“-Parameter für „Bucket“-Medientypen
-- {{RFC(5334)}}: Ogg-Medientypen
+- [Web-Audio-Codec-Leitfaden](/de/docs/Web/Media/Guides/Formats/Audio_codecs)
+- [Mediencontainerformate (Dateitypen)](/de/docs/Web/Media/Guides/Formats/Containers)
+- [Umgang mit Medienunterstützungsproblemen in Webinhalten](/de/docs/Web/Media/Guides/Formats/Support_issues)
+- [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Guides/Formats/WebRTC_codecs)
+- {{RFC(6381)}}: Die "Codecs"- und "Profiles"-Parameter für "Bucket"-Medientypen
+- {{RFC(5334)}}: Ogg-Mediendateitypen
 - {{RFC(3839)}}: MIME-Typ-Registrierungen für 3GPP-Multimedia-Dateien
 - {{RFC(4381)}}: MIME-Typ-Registrierungen für 3GPP2-Multimedia-Dateien
 - {{RFC(4337)}}: MIME-Typ-Registrierungen für MPEG-4
-- [Video- und Audiocodecs in Chrome](https://www.chromium.org/audio-video/)
+- [Video- und Audio-Codecs in Chrome](https://www.chromium.org/audio-video/)

@@ -2,96 +2,96 @@
 title: Using the Private State Token API
 slug: Web/API/Private_State_Token_API/Using
 l10n:
-  sourceCommit: d7a0ef33dfce20818a160557b5a72d6565cec254
+  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
 ---
 
 {{DefaultAPISidebar("Private State Token API")}}
 
-Diese Seite erklärt, wie man die Private State Tokens API verwendet, um Vertrauen in die Authentizität eines Nutzers von einem Browsing-Kontext in einen anderen zu übertragen.
+Diese Seite erklärt, wie die Private State Tokens API verwendet wird, um Vertrauen in die Authentizität eines Benutzers von einem Browsing-Kontext in einen anderen zu übertragen.
 
 ## Überblick auf hoher Ebene
 
-Der Prozess, bei dem private State Tokens verwendet werden, kann in drei Phasen unterteilt werden:
+Der Prozess, wie private Zustands-Token verwendet werden, kann in drei Phasen unterteilt werden:
 
 1. Ausgabe von Tokens
 2. Einlösen von Tokens
-3. Verwendung der Einlösungsaufzeichnung
+3. Nutzung von Einlösungsaufzeichnungen
 
-Dieser Abschnitt fasst diese Phasen zusammen. In den nachfolgenden Abschnitten werden wir diese detaillierter betrachten.
+Dieser Abschnitt fasst diese Phasen zusammen. Wir werden diese in den folgenden Abschnitten detaillierter betrachten.
 
-Private State Tokens verwenden im Hintergrund das [Privacy Pass Protokoll](https://privacypass.github.io/), um die Ausgabe und den Transport von Tokens zu handhaben.
+Private Zustands-Token verwenden das [Privacy Pass Protokoll](https://privacypass.github.io/) im Hintergrund, um die Ausgabe und den Transport von Tokens usw. zu verwalten.
 
 ### Ausgabe von Tokens
 
-1. Nehmen wir an, ein Nutzer besucht eine Website, `issuer.example`.
-2. `issuer.example` kann Schritte unternehmen, um Vertrauen in den Nutzer _aufzubauen_. Dies kann durch Methoden wie ein [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA), die Bestätigung der E-Mail-Adresse, das Führen eines Nachweises über legitime Käufe des Nutzers oder eine Kombination mehrerer solcher Methoden geschehen.
+1. Angenommen, ein Benutzer besucht eine Website, `issuer.example`.
+2. `issuer.example` kann Schritte unternehmen, um Vertrauen in den Benutzer _zu etablieren_. Dies kann durch Methoden wie ein [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA), die Überprüfung ihrer E-Mail-Adresse, das Führen eines Protokolls der legitimen Käufe des Benutzers oder eine Kombination mehrerer solcher Methoden geschehen.
    > [!NOTE]
-   > Private State Tokens sind kein Ersatz für CAPTCHAs oder andere Mechanismen zur Vertrauensbildung. Private State Tokens bieten eine Möglichkeit, Vertrauen in einen Nutzer zu _vermitteln_, nicht Vertrauen in einen Nutzer zu _etablieren_.
-3. Sobald Vertrauen aufgebaut wurde, kann `issuer.example` eine Anfrage an einen Server stellen, um ein **private state token** auszustellen — ein kryptografisches Token, das Vertrauen in den verifizierten Nutzer darstellt. In diesem Kontext wird `issuer.example` als **Issuer** bezeichnet. Der Server wird als **Issuer Server** bezeichnet.
-4. Wenn die Anfrage erfolgreich ist, wird das Token sicher im Browser des Nutzers gespeichert.
+   > Private Zustandstokens sind kein Ersatz für CAPTCHAs oder andere Mechanismen zur Vertrauensetablierung. Private Zustandstokens bieten eine Möglichkeit, Vertrauen in einen Benutzer _zu übermitteln_, nicht _zu etablieren_.
+3. Sobald das Vertrauen etabliert ist, kann `issuer.example` eine Anfrage an einen Server senden, um ein **Private State Token** auszustellen — ein kryptografisches Token, das Vertrauen in den verifizierten Benutzer darstellt. In diesem Kontext wird `issuer.example` als **Issuer** bezeichnet. Der Server wird als **Issuer Server** bezeichnet.
+4. Wenn die Anfrage erfolgreich ist, wird das Token dann sicher im Browser des Benutzers gespeichert.
 
 ### Einlösen von Tokens
 
-Wenn eine andere Website Vertrauen in denselben Nutzer aufbauen möchte, kann sie dies durch das Einlösen eines an den Browser des Nutzers ausgestellten private state token tun, anstatt den Prozess der Vertrauensbildung von Grund auf neu durchlaufen zu müssen.
+Wenn eine andere Website das Vertrauen in denselben Benutzer herstellen möchte, kann sie dies tun, indem sie ein private Zustands-Token einlöst, das vom Browser des Benutzers von einer anderen Website ausgestellt wurde, anstatt den Prozess der Vertrauensetablierung von Grund auf neu durchzuführen.
 
-1. Nehmen wir an, der Nutzer besucht eine andere Website, `redeemer.example`.
-2. `redeemer.example` kann eine Anfrage an einen Server stellen, um ein Token für diesen spezifischen Nutzer und das Gerät einzulösen.
-3. Der Browser prüft, ob er ein Token für diesen Nutzer und das Gerät gespeichert hat. Ist dies der Fall und das Token ist nutzbar (es wurde noch nicht eingelöst und ist nicht abgelaufen), wird das Token an einen Server gesendet, um eingelöst zu werden. In diesem Kontext wird `redeemer.example` als **Redeemer** bezeichnet. Der Server wird als **Redeemer Server** bezeichnet.
-4. Wenn das Token erfolgreich eingelöst wird, sendet der Redeemer Server eine **Einlösungsaufzeichnung** an den Browser, um das Nutzervertrauen zu bestätigen.
+1. Angenommen, der Benutzer besucht eine andere Website, `redeemer.example`.
+2. `redeemer.example` kann eine Anfrage an einen Server stellen, um ein Token für diesen bestimmten Benutzer und sein Gerät einzulösen.
+3. Der Browser überprüft, ob er ein Token für diesen Benutzer und das Gerät gespeichert hat. Wenn ja, und das Token verwendbar ist (es wurde noch nicht eingelöst und ist nicht abgelaufen), sendet es das Token an einen Server zur Einlösung. In diesem Kontext wird `redeemer.example` als **Redeemer** bezeichnet. Der Server wird als **Redeemer Server** bezeichnet.
+4. Wenn das Token erfolgreich eingelöst wird, sendet der Redeemer-Server eine **Einlösungsaufzeichnung** an den Browser, um das Benutzervetrauen zu bestätigen.
 
-### Verwendung der Einlösungsaufzeichnung
+### Nutzung von Einlösungsaufzeichnungen
 
-Sobald der Browser die Einlösungsaufzeichnung erhalten hat, kann er sie als Vertrauenssignal für den aktuellen Nutzer in verschiedenen Kontexten verwenden, zum Beispiel, wenn er ihnen erlaubt, eine sensible Handlung wie das Anmelden, das Kaufen eines Produkts oder das Posten eines Kommentars auszuführen. Dieses Vertrauenssignal kann auch an andere Parteien weitergeleitet werden, um Vertrauen zu vermitteln.
+Sobald der Browser die Einlösungsaufzeichnung erhalten hat, kann er sie als Vertrauenssignal für den aktuellen Benutzer in verschiedenen Kontexten verwenden, z. B. wenn er ihnen erlaubt, eine sensible Aktion wie das Anmelden, den Kauf eines Produkts oder das Posten eines Kommentars durchzuführen. Dieses Vertrauenssignal kann auch an andere Parteien weitergegeben werden, um Vertrauen zu übertragen.
 
 ## Beispielimplementierung
 
-Sie können eine Beispielimplementierung von private state tokens unter [Private State Token Demo Issuer](https://privatetokens.dev/) finden (siehe den [Quellcode](https://github.com/GoogleChromeLabs/private-state-token-demo/)).
+Sie können eine Beispielimplementierung von private Zustandstokens bei [Private State Token Demo Issuer](https://privatetokens.dev/) finden (sehen Sie sich den [Quellcode](https://github.com/GoogleChromeLabs/private-state-token-demo/) an).
 
-## Ausgabe von Tokens
+## Token-Ausgabe
 
-Dieser Abschnitt führt Sie durch den Prozess der Einrichtung eines Issuer Servers und der Ausgabe von Tokens über die Website des Issuers.
+Dieser Abschnitt führt Sie durch den Prozess des Aufsetzens eines Issuer-Servers und der Ausgabe von Tokens über die Issuer-Website.
 
-### Registrierung zum Issuer
+### Anmeldung als Issuer
 
-Wenn Sie ein Issuer werden möchten und Ihre Website private state tokens ausstellen soll, müssen Sie sich zuerst registrieren, indem Sie den [Issuer registration process](https://github.com/GoogleChrome/private-tokens/blob/main/PST-Registration.md) abschließen. Öffnen Sie ein neues [Issue](https://github.com/GoogleChrome/private-tokens/issues/new) im [Google private-tokens GitHub Repository](https://github.com/GoogleChrome/private-tokens) mithilfe der "New PST Issuer"-Vorlage. Folgen Sie der Anleitung im Repository, um das Issue auszufüllen. Sobald ein Endpunkt verifiziert wurde, wird er in dieses Repository zusammengeführt und die Chrome-Server-Infrastruktur beginnt mit dem Abrufen dieser Schlüssel.
+Wenn Sie ein Issuer werden möchten und Ihre Website private Zustandstokens ausgeben soll, müssen Sie sich zuerst registrieren, indem Sie den [Issuer-Registrierungsprozess](https://github.com/GoogleChrome/private-tokens/blob/main/PST-Registration.md) abschließen. Öffnen Sie ein neues [Issue](https://github.com/GoogleChrome/private-tokens/issues/new) im [Google private-tokens GitHub-Repository](https://github.com/GoogleChrome/private-tokens) unter Verwendung der Vorlage "New PST Issuer". Folgen Sie den Anweisungen im Repository, um das Issue auszufüllen. Sobald ein Endpunkt verifiziert wurde, wird er in dieses Repository integriert und die Chrome-Server-Infrastruktur beginnt, diese Schlüssel abzurufen.
 
 > [!NOTE]
-> Dieser Prozess wird von Google betrieben und steuert die Token-Ausgabe über Chromium-Browser; andere Implementierungen können einen anderen Prozess verwenden.
+> Dieser Prozess wird von Google verwaltet und kontrolliert die Token-Ausgabe über Chrome-Browser; andere Implementierungen könnten einen anderen Prozess verwenden.
 
-### Erstellen eines Issuer Servers
+### Erstellung eines Issuer-Servers
 
 Um den Token-Issuer-Server zu implementieren, müssen Sie Ihre eigene serverseitige Anwendung erstellen, die HTTP-Endpunkte bereitstellt. Die Issuer-Komponente besteht aus zwei Hauptmodulen:
 
-1. Die Issuer App
-2. Der Token Issuer
+1. Die Issuer-App
+2. Der Token-Issuer
 
-![Die Hauptkomponenten des Issuer Servers: Issuer App, zum Beispiel mit Node.js gebaut, und Token Issuer (kryptografische Komponente verantwortlich für die Ausstellung von Tokens)](issuer.png)
+![Die Hauptkomponenten des Issuer-Servers: Issuer-App gebaut mit zum Beispiel, Node.js, und Token-Issuer (kryptografische Komponente, die für die Ausstellung von Tokens verantwortlich ist)](issuer.png)
 
 In der Beispielimplementierung:
 
-1. Die Issuer App ist ein [Node.js-Server, der das Express-Framework verwendet](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs), um die Issuer HTTP-Endpunkte zu hosten. Schauen Sie sich den [Beispielcode der App](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/main/src/index.js) an.
-2. Die kryptografische Komponente des Token-Issuers erfordert keine spezifische Sprache, aber aufgrund der Leistungsanforderungen dieser Komponente bieten wir eine C-Implementierung als Beispiel an, die die [Boring SSL](https://boringssl.googlesource.com/boringssl/) Bibliothek verwendet, um Tokens zu verwalten. Schauen Sie sich den [Beispielcode der kryptografischen Komponente und weitere Informationen zur Installation](https://github.com/GoogleChromeLabs/private-state-token-demo/tree/main?tab=readme-ov-file#private-state-token-demo) an.
-3. Die Token-Issuer-Komponente verwendet benutzerdefinierte elliptische Kurven (EC)-Schlüssel, um Tokens zu verschlüsseln. Diese Schlüssel müssen geschützt und in einem sicheren Speicher gespeichert werden.
+1. Die Issuer-App ist ein [Node.js-Server, der das Express-Framework verwendet](/de/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs), um die HTTP-Endpunkte des Issuers zu hosten. Sehen Sie sich den [Code der App-Beispiel](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/main/src/index.js) an.
+2. Die kryptografische Komponente des Token-Issuers erfordert keine spezielle Sprache, aber aufgrund der Leistungsanforderungen dieser Komponente stellen wir Ihnen eine C-Implementierung als Beispiel zur Verfügung, die die [Boring SSL](https://boringssl.googlesource.com/boringssl/)-Bibliothek verwendet, um Tokens zu verwalten. Sehen Sie sich das [Beispiel des kryptografischen Komponenten-Codes und weitere Informationen zur Installation](https://github.com/GoogleChromeLabs/private-state-token-demo/tree/main?tab=readme-ov-file#private-state-token-demo) an.
+3. Die Token-Issuer-Komponente verwendet benutzerdefinierte elliptische Kurven (EC)-Schlüssel zur Verschlüsselung von Tokens. Diese Schlüssel müssen geschützt und in einem sicheren Speicher aufbewahrt werden.
 
-#### Technische Anforderungen für den Issuer Server
+#### Technische Anforderungen an den Issuer-Server
 
-Laut dem Privacy Pass Protokoll müssen Sie mindestens zwei HTTP-Endpunkte in Ihrem Issuer Server implementieren:
+Entsprechend dem Privacy Pass Protokoll müssen Sie mindestens zwei HTTP-Endpunkte in Ihrem Issuer-Server implementieren:
 
-- Schlüsselbindung: Dieser Endpunkt ist dort, wo Ihre Verschlüsselungs-Schlüssel-Details für Browser verfügbar sein werden, um zu bestätigen, dass Ihr Server legitim ist. Dieser Endpunkt muss sich in einem bekannten Verzeichnis befinden, das sich auf der {{Glossary("registrable_domain", "registrierbaren Domain")}} des Issuer Servers unter `/.well-known/private-state-token/key-commitment` befindet. Schauen Sie sich das [Beispiel des Key-Commitment-Endpunktes](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/bf173919620f2b8203a628c3a1094c8846e6aff1/src/index.js#L55) an.
-- Token-Ausgabe: Der Token-Issue-Endpunkt ist dort, wo alle Token-Anfragen bearbeitet werden. Dieser Endpunkt wird der Integrationspunkt für die Token-Issuer-Komponente sein. Er muss sich auf dem Issuer Server bei `/.well-known/private-state-token/issuance` befinden. Schauen Sie sich das [Beispiel des Token-Issue-Endpunktes](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/bf173919620f2b8203a628c3a1094c8846e6aff1/src/index.js#L81) an.
+- Schlüsselselbstverpflichtung: Dieser Endpunkt ist dort, wo Ihre Verschlüsselungs-öffentliche-Schlüssel-Details für Browser verfügbar sind, um zu bestätigen, dass Ihr Server legitim ist. Dieser Endpunkt muss sich in einem bekannten Verzeichnis befinden, das sich innerhalb der {{Glossary("registrable_domain", "registrierbaren Domain")}} des Issuer-Servers bei `/.well-known/private-state-token/key-commitment` befindet. Sehen Sie sich das [Schlüsselselbstverpflichtungs-Endpunkt Beispiel](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/bf173919620f2b8203a628c3a1094c8846e6aff1/src/index.js#L55) an.
+- Token-Ausgabe: Der Token-Output-Endpunkt ist der, an dem alle Token-Anfragen bearbeitet werden. Dieser Endpunkt wird der Integrationspunkt für die Token-Issuer-Komponente sein. Er muss sich auf dem Issuer-Server bei `/.well-known/private-state-token/issuance` befinden. Sehen Sie sich das [Token-Output-Endpunkt Beispiel](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/bf173919620f2b8203a628c3a1094c8846e6aff1/src/index.js#L81) an.
 
-Aufgrund des zu erwartenden hohen Datenverkehrs auf einem solchen Server empfehlen wir, ihn mit einer skalierbaren Infrastruktur (zum Beispiel in einer Cloud-Umgebung) zu betreiben, um Ihr Backend je nach variablem Bedarf anpassen zu können.
+Aufgrund des erwarteten hohen Verkehrsaufkommens auf einem solchen Server empfehlen wir, ihn unter Verwendung einer skalierbaren Infrastruktur bereitzustellen (z. B. in einer Cloud-Umgebung), um Ihr Backend je nach variabler Nachfrage anpassen zu können.
 
-### Ein Token über Ihren Server ausgeben
+### Ausgabe eines Tokens über Ihren Server
 
-Mit dem eingerichteten Issuer Server kann Ihre Issuer Website nun ein neues Token ausstellen, indem sie eine fetch-Anfrage an Ihren Token-Issue-Endpunkt macht. Die fetch-Anfrage muss ein `privateToken`-Objekt enthalten, dessen obligatorische Eigenschaften sind:
+Mit dem aufgesetzten Issuer-Server kann Ihre Issuer-Website nun ein neues Token ausgeben, indem eine Fetch-Anfrage an Ihren Token-Output-Endpunkt gestellt wird. Die Fetch-Anfrage muss ein `privateToken`-Objekt enthalten, dessen obligatorische Eigenschaften sind:
 
 - `version`
-  - : Die Version des kryptografischen Protokolls, die Sie verwenden möchten, um das Token zu generieren. Derzeit ist dies immer auf `1` gesetzt, was die einzige Version ist, die die Spezifikation unterstützt.
+  - : Die Version des kryptografischen Protokolls, die Sie bei der Generierung des Tokens verwenden möchten. Derzeit wird dies immer auf `1` gesetzt, was die einzige von der Spezifikation unterstützte Version ist.
 - `operation`
-  - : Die Token-Operation, die Sie abzuschließen versuchen. In diesem Fall setzen wir sie auf `token-request`.
+  - : Die Token-Operation, die Sie ausführen möchten. In diesem Fall setzen wir sie auf `token-request`.
 
-Sie können dies mithilfe eines [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufrufs mit der `method` auf `POST` und einer `privateToken`-Option handhaben:
+Sie können dies mit einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf und mit der `method` auf `POST` festgelegt und einer `privateToken`-Option spezifiziert handhaben:
 
 ```js
 const hasToken = await Document.hasPrivateToken(`issuer.example`);
@@ -110,53 +110,53 @@ if (!hasToken) {
 ```
 
 > [!NOTE]
-> Sie können auch Token-Operationsanfragen ausstellen mit:
+> Sie können auch Token-Operationen mit folgenden Methoden anfordern:
 >
-> - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), wobei das `privateToken` in einem [`XMLHttpRequest.setPrivateToken()`](/de/docs/Web/API/XMLHttpRequest/setPrivateToken)-Aufruf angegeben wird
-> - {{htmlelement("iframe")}}-Elementen, wobei das `privateToken` als Zeichenfolge in das [`privateToken`](/de/docs/Web/HTML/Reference/Elements/iframe#privatetoken)-Attribut eingefügt wird.
+> - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) mit dem `privateToken`, das in einem [`XMLHttpRequest.setPrivateToken()`](/de/docs/Web/API/XMLHttpRequest/setPrivateToken)-Aufruf angegeben ist
+> - {{htmlelement("iframe")}} Elemente mit dem `privateToken`, das als Zeichenkette im [`privateToken`](/de/docs/Web/HTML/Reference/Elements/iframe#privatetoken)-Attribut eingeschlossen ist.
 
-Im Hintergrund generiert der Browser eine Reihe von Nonces, die benötigt werden, um das Token zu generieren, verschleiert sie, und sendet sie in einem {{httpheader("Sec-Private-State-Token")}}-Anfrage-Header als Teil der fetch-Anfrage an den Issuer-Server. Zusätzlich wird die Version des kryptografischen Protokolls, das zur Generierung der Nonces verwendet wird, in einem {{httpheader("Sec-Private-State-Token-Crypto-Version")}}-Anfrage-Header an den Issuer-Server gesendet. Zum Zeitpunkt der Erstellung dieses Dokuments gibt es nur eine unterstützte Version, aber dieser Mechanismus ermöglicht es, in der Zukunft mehrere Versionen zu unterstützen.
+Im Hintergrund generiert der Browser eine Reihe von Nonces, die zur Generierung des Tokens benötigt werden, verschleiert sie und sendet sie im Rahmen der Fetch-Anfrage in einem {{httpheader("Sec-Private-State-Token")}}-Request-Header an den Issuer-Server. Zusätzlich wird die Version des kryptografischen Protokolls, das zur Generierung der Nonces verwendet wird, in einem {{httpheader("Sec-Private-State-Token-Crypto-Version")}}-Request-Header an den Issuer-Server gesendet. Zum Zeitpunkt des Schreibens wird nur eine Version unterstützt, aber dieser Mechanismus ermöglicht es, in Zukunft mehrere Versionen zu unterstützen.
 
-Beachten Sie, wie Sie die Methode [`Document.hasPrivateToken()`](/de/docs/Web/API/Document/hasPrivateToken) verwenden können, um zu überprüfen, ob der Browser bereits ein Token von unserem Issuer gespeichert hat, bevor Sie ein weiteres anfordern.
+Beachten Sie, wie Sie die Methode [`Document.hasPrivateToken()`](/de/docs/Web/API/Document/hasPrivateToken) verwenden können, um zu überprüfen, ob der Browser bereits ein Token von unserem Issuer gespeichert hat, bevor Sie versuchen, ein weiteres anzufordern.
 
-Wenn die Token-Anfrage erfolgreich ist, enthält die Antwort einen {{httpheader("Sec-Private-State-Token")}}-Antwort-Header mit blind Signaturen. Der Browser entblößt sie und speichert sie zusammen mit den ursprünglichen unverschleierten Nonces in einem sicheren Token-Speicher. Diese Paarung von Signaturen und Nonces stellt ein privates State Token dar, das später eingelöst werden kann. Die rohen Tokens sind für JavaScript nicht zugänglich.
+Wenn die Token-Anfrage erfolgreich ist, wird die Antwort einen {{httpheader("Sec-Private-State-Token")}}-Response-Header mit blinden Signaturen enthalten. Der Browser hebt diese Verschleierung auf und speichert sie zusammen mit den ursprünglichen nicht verschleierten Nonces in einem sicheren Token-Store. Diese Paarung von Signaturen und Nonces stellt ein privates Zustandstoken dar, das später eingelöst werden kann. Die Rohtokens sind für JavaScript nicht zugänglich.
 
-### Einschränkungen bei der Tokenausgabe
+### Token-Ausgabelimitationen
 
-Jedes Gerät kann bis zu 500 Tokens pro oberster Website und Issuer speichern. Die maximale Anzahl von Issuern pro oberstem Ursprung ist zwei.
+Jedes Gerät kann bis zu 500 Tokens pro Top-Level-Website und Issuer speichern. Die maximale Anzahl von Issuers pro Top-Level-Herkunft ist zwei.
 
-Jedes Token enthält Metadaten, die angeben, welchen Schlüssel der Issuer zur Ausstellung verwendet hat. Diese Information kann verwendet werden, um zu entscheiden, ob Tokens im Einlösungsprozess eingelöst werden (oder nicht). Jedes Token kann mit einem und nur einem kryptografischen Schlüssel ausgestellt werden und jeder Issuer kann maximal 6 Schlüssel haben. Eine mögliche Verwendung dieser Variablen besteht darin, eine Reichweite des Vertrauens in Ihre Tokens basierend auf Ihren kryptografischen Schlüsseln zu definieren (z.B. Schlüssel 1: hohes Vertrauen; Schlüssel 6: kein Vertrauen).
+Jedes Token hat Metadaten, die angeben, welchen Schlüssel der Issuer zur Ausgabe verwendet hat. Diese Informationen können verwendet werden, um zu entscheiden, ob Tokens während des Einlösungsprozesses eingelöst werden sollen (oder nicht). Jedes Token kann nur mit einem einzigen kryptografischen Schlüssel ausgegeben werden und jeder Issuer kann maximal 6 Schlüssel besitzen. Eine potenzielle Möglichkeit, dies zu nutzen, besteht darin, Ihren Tokens basierend auf Ihren kryptografischen Schlüsseln einen Vertrauensbereich zu definieren (z. B. Schlüssel 1: hohes Vertrauen; Schlüssel 6: kein Vertrauen).
 
-Der Browser kann das aktuelle Set gültiger Schlüssel des Issuers von dem Key-Commitment-Endpunkt abrufen. Schlüssel sollten regelmäßig rotiert werden; dies kann alle 60 Tage mindestens geschehen; eine schnellere Rotation wird ignoriert. Alle Tokens, die mit ungültigen Schlüsseln ausgestellt wurden, werden ebenfalls als ungültig betrachtet.
+Der Browser kann die aktuelle Menge gültiger Schlüssel des Issuers von dem Schlüsselselbstverpflichtungs-Endpunkt erhalten. Schlüssel sollten regelmäßig rotiert werden; dies kann mindestens alle 60 Tage erfolgen; jede Rotation, die schneller erfolgt, wird ignoriert. Alle Tokens, die mit ungültigen Schlüsseln ausgegeben wurden, werden auch als ungültig angesehen.
 
-## Einlösen von Tokens
+## Einlösung von Tokens
 
-Dieser Abschnitt führt Sie durch den Prozess der Einrichtung eines Redeemer Servers, des Einlösens von Tokens und des Ausstellens von Einlösungsaufzeichnungen.
+Dieser Abschnitt führt Sie durch den Prozess des Aufsetzens eines Redeemer-Servers, des Einlösens von Tokens und der Ausgabe von Einlösungsaufzeichnungen.
 
-### Erstellen eines Redeemer Servers
+### Erstellung eines Redeemer-Servers
 
-Sie müssen einen Redeemer Server erstellen, um die von dem Issuer Server ausgestellten Tokens zu lesen. Die folgenden Schritte zeigen, wie Tokens eingelöst werden sowie wie die mit diesen Tokens verbundenen Einlösungsaufzeichnungen gelesen werden.
+Sie müssen einen Redeemer-Server erstellen, um die vom Issuer-Server ausgegebenen Tokens zu lesen. Die folgenden Schritte skizzieren, wie Tokens eingelöst werden können sowie wie die Einlösungsaufzeichnungen, die mit diesen Tokens verbunden sind, gelesen werden.
 
 Die Redeemer-Komponente besteht aus zwei Hauptmodulen:
 
-1. Die Redeemer App
-2. Der Token Redeemer
+1. Die Redeemer-App
+2. Der Token-Redeemer
 
-![Die Hauptkomponenten des Redeemer Servers: Redeemer App, zum Beispiel mit Node.js gebaut, und Token Redeemer (kryptografische Komponente verantwortlich für die Überprüfung von Signaturen und Tokens im Einlösungsprozess)](redeemer.png)
+![Die Hauptkomponenten des Redeemer-Servers: Redeemer-App gebaut mit zum Beispiel, Node.js, und Token-Redeemer (kryptografische Komponente, die für die Überprüfung von Signaturen und Tokens innerhalb des Einlösungsprozesses verantwortlich ist)](redeemer.png)
 
-Sie können wählen, den Issuer und den Redeemer im selben Server (oder der gleichen Gruppe von Servern) und kryptografischen Komponenten zu betreiben. Tatsächlich wurde dies in der Beispielimplementierung getan, um es etwas einfacher nachzuvollziehen. Schauen Sie sich den [Beispielcode der App](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/main/src/index.js) und das [Beispiel des kryptografischen Komponenten-Codes und Informationen zur Installation](https://github.com/GoogleChromeLabs/private-state-token-demo/tree/main?tab=readme-ov-file#private-state-token-demo) an.
+Sie können wählen, den Issuer und den Redeemer im selben Server (oder einer Gruppe von Servern) laufen zu lassen und gleiche kryptografische Komponenten zu verwenden. Tatsächlich wurde dies in der Beispielimplementierung gemacht, um es einfacher nachzuvollziehen. Sehen Sie sich wieder den [App-Beispielcode](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/main/src/index.js) und das [Beispiel des kryptografischen Komponenten-Codes und Informationen über die Installation](https://github.com/GoogleChromeLabs/private-state-token-demo/tree/main?tab=readme-ov-file#private-state-token-demo) an.
 
-#### Technische Anforderungen für den Redeemer Server
+#### Technische Anforderungen an den Redeemer-Server
 
-Laut dem Privacy Pass Protokoll müssen Sie mindestens einen HTTP-Endpunkt in Ihrem Redeemer Server implementieren:
+Entsprechend dem Privacy Pass Protokoll müssen Sie mindestens einen HTTP-Endpunkt in Ihrem Redeemer-Server implementieren:
 
-- Token-Einlösung: Hier werden alle Token-Einlösungen bearbeitet. Dieser Endpunkt wird der Integrationspunkt für die Token-Redeemer-Komponente sein. Er muss sich auf dem Issuer Server bei `/.well-known/private-state-token/redemption` befinden. Schauen Sie sich unser [Beispiel des Token-Einlösungsendpunkts](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/bf173919620f2b8203a628c3a1094c8846e6aff1/src/index.js#L98) an.
+- Token-Einlösung: Hier werden alle Token-Einlösungen bearbeitet. Dieser Endpunkt wird der Integrationspunkt für die Token-Redeemer-Komponente sein. Er muss sich auf dem Issuer-Server bei `/.well-known/private-state-token/redemption` befinden. Sehen Sie sich unser [Token-Einlösungsendpunkt Beispiel](https://github.com/GoogleChromeLabs/private-state-token-demo/blob/bf173919620f2b8203a628c3a1094c8846e6aff1/src/index.js#L98) an.
 
 ### Einlösen eines Tokens über Ihren Server
 
-Mit dem eingerichteten Redeemer Server kann Ihre Redeemer Website nun ein zuvor gespeichertes Token durch eine fetch-Anfrage an Ihren Token-Einlösungsendpunkt einlösen. Die fetch-Anfrage muss ein `privateToken`-Objekt enthalten, das dem in der Token-Ausstellungsanfrage entspricht, außer dass die angegebene `operation` auf `token-redemption` gesetzt sein sollte.
+Mit dem aufgesetzten Redeemer-Server kann Ihre Redeemer-Website nun ein zuvor gespeichertes Token einlösen, indem eine Fetch-Anfrage an Ihren Token-Einlösungsendpunkt gestellt wird. Die Fetch-Anfrage muss ein `privateToken`-Objekt enthalten, genau wie in der Token-Ausgabeanfrage, außer dass die spezifizierte `operation` `token-redemption` sein sollte.
 
-Sie können dies mit einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf handhaben, wobei die `method` auf {{httpmethod("POST")}} gesetzt ist und eine `privateToken`-Option angegeben ist.
+Sie können dies mit einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf und mit der `method` auf {{httpmethod("POST")}} festgelegt und einer `privateToken`-Option spezifiziert handhaben.
 
 ```js
 await fetch(
@@ -172,23 +172,23 @@ await fetch(
 );
 ```
 
-Hier setzen wir auch die Eigenschaft `refreshPolicy` auf `none`, was bedeutet, dass, falls ein zuvor gesetzter, nicht abgelaufener Einlösungsnachweis für diesen Nutzer und diese Seite existiert, dieser Einlösungsnachweis verwendet werden sollte und kein neuer ausgestellt werden sollte. Wenn wir `refreshPolicy: "refresh"` setzen, würde immer ein neuer Einlösungsnachweis ausgestellt werden. Beachten Sie, dass `none` der Standardwert ist, da dies das Verhalten ist, das Sie in den meisten Fällen wünschen werden, wir jedoch darauf aufmerksam machen wollten.
+Hier setzen wir auch die `refreshPolicy`-Eigenschaft auf `none`, was bedeutet, dass, wenn es eine zuvor gesetzte, nicht abgelaufene Einlösungsaufzeichnung für diesen Benutzer und diese Website gibt, diese Einlösungsaufzeichnung verwendet werden sollte und keine neue erstellt werden sollte. Wenn wir `refreshPolicy: "refresh"` setzen, würde immer eine neue Einlösungsaufzeichnung erstellt werden. Beachten Sie, dass `none` der Standardwert ist, da dies das Verhalten ist, das Sie in den meisten Fällen möchten, aber wir wollten darauf aufmerksam machen.
 
-Im Hintergrund sendet der Browser das Token (zusammen mit zugehörigen Einlösungsmetadaten) in einem {{httpheader("Sec-Private-State-Token")}}-Anfrage-Header. Der Redeemer sendet dann einen Einlösungsnachweis in einem `Sec-Private-State-Token`-Antwort-Header, um eine Einlösungsbestätigung als Vertrauenssignal zu liefern. Der Einlösungsnachweis wird in einem sicheren Datenspeicher gespeichert, der nicht direkt über JavaScript zugänglich ist.
+Im Hintergrund sendet der Browser das Token (zusammen mit relevanten Einlösungsmetadaten) in einem {{httpheader("Sec-Private-State-Token")}}-Request-Header. Der Redeemer sendet dann eine Einlösungsaufzeichnung in einem `Sec-Private-State-Token`-Response-Header, um eine Einlösungsbescheinigung zu geben, die verwendet werden kann, um Benutzervetrauen zu übermitteln. Die Einlösungsaufzeichnung wird in einem sicheren Datenspeicher gespeichert, der nicht direkt über JavaScript zugänglich ist.
 
-Zusätzlich kann der Redeemer einen {{httpheader("Sec-Private-State-Token-Lifetime")}}-Header in die Antwort einschließen, um dem Browser mitzuteilen, wie lange (in Sekunden) der Einlösungsnachweis zwischengespeichert werden soll. Wenn der `Sec-Private-State-Token-Lifetime`-Header weggelassen wird, wird die Lebensdauer des Einlösungsnachweises an die Lebensdauer des Token-Verifizierungsschlüssels gebunden, der die ausgestellte Token-Ausgabe bestätigt hat.
+Zusätzlich kann der Redeemer einen {{httpheader("Sec-Private-State-Token-Lifetime")}}-Header in die Antwort einfügen, um dem Browser anzuzeigen, wie lange (in Sekunden) die Einlösungsaufzeichnung zwischengespeichert werden soll. Wenn der `Sec-Private-State-Token-Lifetime`-Header weggelassen wird, wird die Lebensdauer der Einlösungsaufzeichnung an die Lebensdauer des Token-Verifikationsschlüssels gekoppelt, der die Ausgabe des eingelösten Tokens bestätigt hat.
 
-### Einschränkungen bei Einlösungsnachweisen
+### Einschränkungen bei Einlösungsaufzeichnungen
 
 Zwei Tokens können alle 48 Stunden pro Gerät, Seite und Issuer eingelöst werden.
 
-Die resultierenden Einlösungsnachweise werden als aktiv bis zum Ablauf betrachtet (wie durch den `Sec-Private-State-Token-Lifetime`-Antwort-Header angegeben).
+Die resultierenden Einlösungsaufzeichnungen gelten bis zum Ablauf (wie im `Sec-Private-State-Token-Lifetime`-Response-Header angegeben) als aktiv.
 
-## Verwendung von Einlösungsnachweisen
+## Nutzung der Einlösungsaufzeichnung
 
-Sobald der Browser den Einlösungsnachweis erhalten hat, kann er als Vertrauenssignal für den aktuellen Nutzer in anderen Kontexten verwendet werden, wie zum Beispiel beim Durchführen einer sensiblen Aktion wie der Anmeldung, dem Kauf eines Produkts oder dem Posten eines Kommentars.
+Sobald der Browser die Einlösungsaufzeichnung erhalten hat, kann sie als Vertrauenssignal für den aktuellen Benutzer in anderen Kontexten verwendet werden, beispielsweise wenn man ihm erlaubt, eine sensible Aktion wie das Anmelden, den Kauf eines Produkts oder das Posten eines Kommentars auszuführen.
 
-Dieses Vertrauenssignal kann an andere Parteien weitergeleitet werden, um Vertrauen zu vermitteln. Dazu fügen Sie eine `privateToken`-Option in fetch-Anfragen für zukünftige Ressourcen hinzu, mit einer `operation` von `send-redemption-record`:
+Dieses Vertrauenssignal kann an andere Parteien weitergegeben werden, um Vertrauen weiterzugeben. Um dies zu tun, schließen Sie eine `privateToken`-Option in Fetch-Aufrufe für zukünftige Ressourcen ein, mit der `operation` auf `send-redemption-record`:
 
 ```js
 const hasRR = await Document.hasRedemptionRecord(`issuer.example`);
@@ -204,27 +204,27 @@ if (hasRR) {
 }
 ```
 
-Die `send-redemption-record`-Token-Operation ist nur bei `fetch()`-Aufrufen im obersten Dokument verfügbar.
+Die `send-redemption-record`-Token-Operation ist nur verfügbar bei `fetch()`-Aufrufen, die im Top-Level-Dokument gemacht werden.
 
-Wir setzen auch die Eigenschaft `issuers` auf `[issuer.example]`, was angibt, von welchem Issuer wir erwarten, dass der Einlösungsnachweis stammt. Wenn keine Einlösungsnachweise für den angegebenen Issuer verfügbar sind, bleibt der Anfrage-Header leer. Beachten Sie, wie Sie die Methode [`Document.hasRedemptionRecord()`](/de/docs/Web/API/Document/hasRedemptionRecord) verwenden können, um zu überprüfen, ob der Browser einen Einlösungsnachweis von einem bestimmten Issuer hat, bevor Sie versuchen, ihn weiterzuleiten.
+Wir setzen auch die `issuers`-Eigenschaft auf `[issuer.example]`, was spezifiziert, von welchem Issuer wir erwarten, dass die Einlösungsaufzeichnung stammt. Wenn keine Einlösungsaufzeichnungen für die angegebenen Issuer verfügbar sind, wird der Anforderungs-Header leer sein. Beachten Sie, wie Sie die Methode [`Document.hasRedemptionRecord()`](/de/docs/Web/API/Document/hasRedemptionRecord) verwenden können, um zu überprüfen, ob der Browser eine Einlösungsaufzeichnung hat, die von einem bestimmten Issuer stammt, bevor Sie versuchen, sie weiterzugeben.
 
-Hinter den Kulissen werden die Einlösungsnachweise in einem {{httpheader("Sec-Redemption-Record")}}-Anfrage-Header eingeschlossen. Der Header enthält eine Liste von Issuer- und Einlösungsnachweispaaren, die jedem Einlösungsnachweis entsprechen.
+Im Hintergrund werden die Einlösungsaufzeichnungen in einem {{httpheader("Sec-Redemption-Record")}}-Anforderungs-Header enthalten sein. Der Header enthält eine Liste von Issuer- und Einlösungsaufzeichnungspaaren, die jeder Einlösungsaufzeichnung entsprechen.
 
-## Integration in Berechtigungsrichtlinien
+## Integration in die Berechtigungsrichtlinie
 
-`token-request`-Operationen werden durch die {{httpheader('Permissions-Policy/private-state-token-issuance','private-state-token-issuance')}} {{httpheader("Permissions-Policy")}}-Direktive gesteuert, während `token-redemption`- und `send-redemption-record`-Operationen durch die {{httpheader('Permissions-Policy/private-state-token-redemption','private-state-token-redemption')}}-Direktive gesteuert werden. Die Erlauben-Liste für diese Direktiven ist standardmäßig auf `*` (alle Ursprünge) gesetzt. Dies bedeutet, dass die Funktion für die oberste Seite, gleich-origine {{htmlelement("iframe")}}-Elemente und irrelevante `<iframe>`-Elemente verfügbar ist, ohne explizite Delegation.
+`token-request`-Operationen werden durch die {{httpheader('Permissions-Policy/private-state-token-issuance','private-state-token-issuance')}}-{{httpheader("Permissions-Policy")}}-Direktive kontrolliert, während `token-redemption`- und `send-redemption-record`-Operationen durch die {{httpheader('Permissions-Policy/private-state-token-redemption','private-state-token-redemption')}}-Direktive kontrolliert werden. Die Allowlist für diese Direktiven ist standardmäßig auf `*` (alle Herkünfte) gesetzt. Das bedeutet, dass die Funktion für die oberste Seite, gleichherkunftsbezogene {{htmlelement("iframe")}}-Elemente und fremdherkunftsbezogene `<iframe>`-Elemente ohne explizite Delegation verfügbar ist.
 
-Sie können sich entscheiden, die Token-Ausgabe oder -Einlösung für bestimmte Seiten auf Ihrer Website auszuschließen, indem Sie `private-state-token-issuance=()` und `private-state-token-redemption=()` in den `Permissions-Policy`-Header für jede Seite aufnehmen.
+Sie können die Token-Ausgabe oder -Einlösung für bestimmte Seiten auf Ihrer Website ablehnen, indem Sie `private-state-token-issuance=()` und `private-state-token-redemption=()` in den `Permissions-Policy`-Header für jede Seite einschließen.
 
-Sie können auch den `Permissions-Policy`-Header verwenden, um den Zugriff Dritter auf Token-Operationen zu steuern. Verwenden Sie als Parameter für die Header-Ursprungsliste self und alle Ursprünge, denen Sie den Zugriff auf die API erlauben möchten. Zum Beispiel, um die Verwendung von private state tokens innerhalb aller Browsing-Kontexte außer Ihrem eigenen Ursprung und `https://example.com` vollständig zu deaktivieren, setzen Sie den folgenden HTTP-Antwort-Header:
+Sie können auch den `Permissions-Policy`-Header verwenden, um den Zugriff Dritter auf Token-Operationen zu steuern. Verwenden Sie als Parameter zur Kopfzeilen-Herkuftsliste self und alle Herkünfte, denen Sie den Zugang zur API erlauben möchten. Zum Beispiel, um die Verwendung von privaten Zustandstokens in allen Browsing-Kontexten außer Ihrer eigenen Herkunft und `https://example.com` vollständig zu deaktivieren, setzen Sie den folgenden HTTP-Response-Header:
 
 ```http
 Permissions-Policy: private-state-token-issuance=(self "https://example.com"), private-state-token-redemption=(self "https://example.com")
 ```
 
-Um die API für alle Fremd-Ressourcen zu aktivieren, setzen Sie die Ursprungsliste auf `*`.
+Um die API für alle fremden Ressourcen zu aktivieren, setzen Sie die Herkuftsliste auf `*`.
 
-Obwohl die Standardrichtlinie `*` ist, muss ein `<iframe>` dennoch die `private-state-token-issuance`- und `private-state-token-redemption`-Direktiven in seinem allow-Attribut einschließen, um Zugriff auf die Funktion zu erhalten. Zum Beispiel, um die Verwendung beider Funktionen auf `example.com` zu erlauben:
+Obwohl die Standard-Politik `*` ist, muss ein `<iframe>` dennoch die Direktiven `private-state-token-issuance` und `private-state-token-redemption` in seinem Allow-Attribut enthalten, um Zugriff auf die Funktion zu erhalten. Zum Beispiel, um beide Funktionen auf `example.com` zuzulassen:
 
 ```html
 <iframe

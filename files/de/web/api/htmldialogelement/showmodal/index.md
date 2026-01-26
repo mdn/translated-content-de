@@ -3,12 +3,14 @@ title: "HTMLDialogElement: showModal() Methode"
 short-title: showModal()
 slug: Web/API/HTMLDialogElement/showModal
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`showModal()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle zeigt den Dialog als Modal über allen anderen möglicherweise vorhandenen Dialogen an. Es wird in der {{Glossary("top_layer", "oberen Ebene")}} zusammen mit einem {{cssxref('::backdrop')}} Pseudo-Element angezeigt. Elemente innerhalb desselben Dokuments wie der Dialog, außer dem Dialog selbst und seinen Nachkommen, werden _inert_ (als ob das [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert) Attribut festgelegt wäre). Nur das enthaltende Dokument wird blockiert; wenn der Dialog in einem iframe gerendert wird, bleibt der Rest der Seite interaktiv.
+Die **`showModal()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces zeigt das Dialogfeld als modales Dialogfeld an, das alle anderen sichtbaren Dialoge oder Elemente überlagert.
+
+Ein modales Dialogfeld wird in der {{Glossary("top_layer", "obersten Ebene")}} zusammen mit einem {{cssxref('::backdrop')}} Pseudo-Element angezeigt. Elemente im selben Dokument wie das Dialogfeld, mit Ausnahme des Dialogfelds und seiner Nachkommen, werden _inert_ (als ob das [`inert`](/de/docs/Web/HTML/Reference/Global_attributes/inert)-Attribut angegeben ist). Nur das umgebende Dokument wird blockiert; wenn das Dialogfeld in einem iframe gerendert wird, bleibt der Rest der Seite interaktiv.
 
 ## Syntax
 
@@ -22,78 +24,61 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Dialog bereits geöffnet und nicht modal ist (d.h. wenn der Dialog bereits mit [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show) geöffnet wurde).
+  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet und nicht-modal ist (d.h. wenn das Dialogfeld bereits mit [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show) geöffnet wurde).
 
 ## Beispiele
 
-### Öffnen eines modalen Dialogs
+### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt einen Button, der beim Klicken ein modales {{htmlelement("dialog")}} mit einem Formular über die `HTMLDialogElement.showModal()` Funktion öffnet. Während es geöffnet ist, ist alles außer dem Inhalt des modalen Dialogs inert. Von dort aus können Sie auf den _Abbrechen_-Button klicken, um den Dialog über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Funktion zu schließen, oder das Formular über den Abschicken-Button einreichen. Durch Drücken des Abbrechen-Buttons wird der Dialog geschlossen, wodurch ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis und kein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event) Ereignis erzeugt wird.
+Das folgende Beispiel zeigt einen einfachen Button, der bei einem Klick ein {{htmlelement("dialog")}} mit der `showModal()`-Methode öffnet.
+
+Wenn das Dialogfeld geöffnet ist, können Sie nicht mit dem Rest der Seite interagieren, einschließlich des Klickens auf den Button _Click me_, der andernfalls einen Alarm auslösen würde.
+
+Sie können auf den Button _Close dialog_ klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode).
 
 #### HTML
 
 ```html
-<!-- pop-up dialog box, containing a form -->
-<dialog id="favDialog">
-  <form method="dialog">
-    <p>
-      <label for="favAnimal">Favorite animal:</label>
-      <select id="favAnimal" name="favAnimal">
-        <option></option>
-        <option>Brine shrimp</option>
-        <option>Red panda</option>
-        <option>Spider monkey</option>
-      </select>
-    </p>
-    <div>
-      <button id="cancel" type="reset">Cancel</button>
-      <button type="submit">Confirm</button>
-    </div>
-  </form>
+<dialog id="dialog">
+  <button type="button" id="close">Close dialog</button>
 </dialog>
 
-<div>
-  <button id="updateDetails">Update details</button>
-</div>
+<p><button id="open">Open dialog</button></p>
+<p><button id="alert">Trigger alert</button></p>
 ```
 
 #### JavaScript
 
 ```js
-const updateButton = document.getElementById("updateDetails");
-const cancelButton = document.getElementById("cancel");
-const dialog = document.getElementById("favDialog");
-dialog.returnValue = "favAnimal";
+const dialog = document.getElementById("dialog");
+const openButton = document.getElementById("open");
+const closeButton = document.getElementById("close");
+const alertButton = document.getElementById("alert");
 
-function openCheck(dialog) {
-  if (dialog.open) {
-    console.log("Dialog open");
-  } else {
-    console.log("Dialog closed");
-  }
-}
-
-// Update button opens a modal dialog
-updateButton.addEventListener("click", () => {
+// Open button opens a modal dialog
+openButton.addEventListener("click", () => {
   dialog.showModal();
-  openCheck(dialog);
 });
 
-// Form cancel button closes the dialog box
-cancelButton.addEventListener("click", () => {
-  dialog.close("animalNotChosen");
-  openCheck(dialog);
+// Alert button triggers an alert
+alertButton.addEventListener("click", () => {
+  alert("you clicked me!");
+});
+
+// Close button closes the dialog box
+closeButton.addEventListener("click", () => {
+  dialog.close();
 });
 ```
 
 #### Ergebnis
 
-{{EmbedLiveSample("Opening a modal dialog")}}
+{{EmbedLiveSample("Basic usage", '100%', "250px")}}
 
 ## Spezifikationen
 
@@ -105,4 +90,5 @@ cancelButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- HTML {{htmlelement("dialog")}}-Element
+- [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show)

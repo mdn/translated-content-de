@@ -1,30 +1,36 @@
 ---
-title: "HTMLDialogElement: open Eigenschaft"
+title: "HTMLDialogElement: open-Eigenschaft"
 short-title: open
 slug: Web/API/HTMLDialogElement/open
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`open`**-Eigenschaft des
-[`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein boolescher Wert, der das
-[`open`](/de/docs/Web/HTML/Reference/Elements/dialog#open)-HTML-Attribut widerspiegelt und anzeigt, ob das {{htmlelement("dialog")}} zur Interaktion verfügbar ist.
+Die **`open`**-Eigenschaft der
+[`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle ist ein boolescher Wert, der das
+[`open`](/de/docs/Web/HTML/Reference/Elements/dialog#open) HTML-Attribut widerspiegelt und angibt, ob das {{htmlelement("dialog")}} zur Interaktion verfügbar ist.
 
 ## Wert
 
-Ein boolescher Wert, der den Zustand des [`open`](/de/docs/Web/HTML/Reference/Elements/dialog#open)-HTML-Attributs darstellt. Ein Wert von `true` bedeutet, dass der Dialog angezeigt wird, während `false` bedeutet, dass er nicht angezeigt wird.
+Ein boolescher Wert, der den Zustand des [`open`](/de/docs/Web/HTML/Reference/Elements/dialog#open) HTML-Attributs darstellt. Ein Wert von `true` bedeutet, dass das Dialogfeld angezeigt wird, während `false` bedeutet, dass es nicht angezeigt wird.
 
 > [!WARNING]
-> Auch wenn die `open`-Eigenschaft technisch gesehen nicht schreibgeschützt ist und direkt gesetzt werden kann, wird dies von der [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/interactive-elements.html#attr-dialog-closedby) dringend abgeraten, da dies die normalen Dialog-Interaktionen auf unerwartete Weise stören kann. Beispielsweise wird das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis nicht ausgelöst, wenn `open` programmgesteuert auf `false` gesetzt wird, und nachfolgende Aufrufe der Methoden [`close()`](/de/docs/Web/API/HTMLDialogElement/close) und [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) haben keine Wirkung. Stattdessen ist es besser, Methoden wie [`show()`](/de/docs/Web/API/HTMLDialogElement/show), [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal), `close()` und `requestClose()` zu verwenden, um den Wert des `open`-Attributs zu ändern.
+> Obwohl die `open`-Eigenschaft technisch gesehen nicht schreibgeschützt ist und direkt gesetzt werden kann, wird davon stark abgeraten. [Die HTML-Spezifikation](https://html.spec.whatwg.org/multipage/interactive-elements.html#note-dialog-remove-open-attribute) weist darauf hin, dass dies zu unerwartetem Verhalten bei der normalen Dialog-Interaktion führen kann.
+> Zum Beispiel wird das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis nicht ausgelöst, wenn `open` programmatisch auf `false` gesetzt wird, und nachfolgende Aufrufe der Methoden [`close()`](/de/docs/Web/API/HTMLDialogElement/close) und [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) haben keine Wirkung.
+> Stattdessen sollten Methoden wie [`show()`](/de/docs/Web/API/HTMLDialogElement/show), [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal), `close()` und `requestClose()` verwendet werden, um den Wert des `open`-Attributs zu ändern.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein
-{{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet.
-Von dort aus können Sie den _Abbrechen_-Button klicken, um den Dialog zu schließen (über die
-[`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Absenden-Button einreichen.
+### Öffnen eines Dialogs
+
+Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet.
+Von dort aus können Sie den _Abbrechen_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Senden-Button absenden.
+
+Der Code protokolliert den Wert von `open`, wenn sich der Dialogstatus ändert.
+
+#### HTML
 
 ```html
 <!-- Simple pop-up dialog box -->
@@ -34,27 +40,41 @@ Von dort aus können Sie den _Abbrechen_-Button klicken, um den Dialog zu schlie
   </form>
 </dialog>
 
-<p>
-  <button id="openDialog">Open Dialog</button>
-</p>
-<p id="dialogStatus"></p>
+<button id="open">Open Dialog</button>
+```
+
+```html hidden
+<pre id="log"></pre>
+```
+
+```css hidden
+#log {
+  height: 170px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+```
+
+#### JavaScript
+
+```js hidden
+const logElement = document.getElementById("log");
+function log(text) {
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
 ```
 
 ```js
-const openDialog = document.getElementById("openDialog");
 const dialog = document.getElementById("dialog");
-const text = document.getElementById("dialogStatus");
+const openButton = document.getElementById("open");
 
 function openCheck(dialog) {
-  if (dialog.open) {
-    text.innerText = "Dialog open";
-  } else {
-    text.innerText = "Dialog closed";
-  }
+  log(dialog.open ? "Dialog: open" : "Dialog: closed");
 }
 
-// Update button opens a modal dialog
-openDialog.addEventListener("click", () => {
+openButton.addEventListener("click", () => {
   dialog.showModal();
   openCheck(dialog);
 });
@@ -66,7 +86,7 @@ dialog.addEventListener("close", () => {
 
 ### Ergebnis
 
-{{ EmbedLiveSample('Examples', '100%', '200px') }}
+{{ EmbedLiveSample('Opening a dialog', '100%', '250px') }}
 
 ## Spezifikationen
 
@@ -78,4 +98,4 @@ dialog.addEventListener("close", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- HTML {{htmlelement("dialog")}}-Element

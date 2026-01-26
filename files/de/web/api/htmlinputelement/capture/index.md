@@ -3,16 +3,16 @@ title: "HTMLInputElement: capture-Eigenschaft"
 short-title: capture
 slug: Web/API/HTMLInputElement/capture
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`capture`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle spiegelt das [`capture`](/de/docs/Web/HTML/Reference/Attributes/capture)-Attribut des {{HTMLElement("input")}}-Elements wider. Sie ist nur für [`<input>` vom Typ `file`](/de/docs/Web/HTML/Reference/Elements/input/file) relevant und gibt an, ob eine neue Datei von einer benutzerseitigen (`user`) oder einer nach außen gerichteten (`environment`) Kamera oder einem Mikrofon erfasst werden soll. Der Dateityp wird durch das [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `capture`-Eigenschaft ein leerer String.
+Die **`capture`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle spiegelt das [`capture`](/de/docs/Web/HTML/Reference/Attributes/capture)-Attribut des {{HTMLElement("input")}}-Elements wider. Nur relevant für das [`<input>`-Element vom Typ `file`](/de/docs/Web/HTML/Reference/Elements/input/file), geben die Eigenschaft und das Attribut an, ob eine neue Datei von einer benutzerseitigen (`user`) oder einer nach außen gerichteten (`environment`) Kamera oder einem Mikrofon erfasst werden soll. Der Dateityp wird durch das [`accept`](/de/docs/Web/HTML/Reference/Attributes/accept)-Attribut definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `capture`-Eigenschaft ein leerer String.
 
 ## Wert
 
-Ein String; normalerweise entweder `user` oder `environment`, oder ein leerer String (`""`).
+Ein String; im Allgemeinen entweder `user` oder `environment`, oder ein leerer String (`""`).
 
 ## Beispiel
 
