@@ -1,6 +1,6 @@
 ---
 title: Anleitung zur Erstellung, Bearbeitung, Verschiebung oder Löschung von Seiten
-short-title: Erstellung, Bearbeitung, Verschiebung oder Löschung von Seiten
+short-title: Seiten erstellen/bearbeiten/verschieben/löschen
 slug: MDN/Writing_guidelines/Howto/Creating_moving_deleting
 l10n:
   sourceCommit: c6cab7f1aa7dc9f3495486a5b46020db320101cf
