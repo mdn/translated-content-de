@@ -1,13 +1,14 @@
 ---
-title: block
+title: "block: Wasm-Textinstruktion"
+short-title: block
 slug: WebAssembly/Reference/Control_flow/block
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` verzweigt werden kann.
+Die **`block`**-Anweisung erstellt ein Label, das später mit einem `br` verlassen werden kann.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, insofern, dass bei einer Verzweigung zu einer `loop`-Schleife zum Anfang der Schleife gesprungen wird, während bei einer Verzweigung zu einem `block` ans Ende des Blocks gesprungen wird; das heißt, aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass das Springen zu einem `loop` zum Anfang der Schleife führt, während das Springen zu einem `block` zum Ende des Blocks führt; das heißt, aus dem Block heraus.
 
 {{InteractiveExample("Wat Demo: block", "tabbed-taller")}}
 

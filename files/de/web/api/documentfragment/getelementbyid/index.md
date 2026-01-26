@@ -1,19 +1,19 @@
 ---
-title: "DocumentFragment: getElementById()-Methode"
+title: "DocumentFragment: getElementById() Methode"
 short-title: getElementById()
 slug: Web/API/DocumentFragment/getElementById
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 730741c750cc299b85798f1adbaf7adbd6e2016d
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`getElementById()`**-Methode des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) gibt ein [`Element`](/de/docs/Web/API/Element)-Objekt zurück, das das Element darstellt, dessen [`id`](/de/docs/Web/API/Element/id)-Eigenschaft mit dem angegebenen String übereinstimmt. Da Element-IDs, wenn sie angegeben sind, einzigartig sein müssen, sind sie eine nützliche Möglichkeit, schnell auf ein bestimmtes Element zuzugreifen.
+Die **`getElementById()`**-Methode des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) gibt ein [`Element`](/de/docs/Web/API/Element)-Objekt zurück, das das Element darstellt, dessen [`id`](/de/docs/Web/API/Element/id)-Eigenschaft mit dem angegebenen String übereinstimmt. Da Element-IDs, sofern angegeben, eindeutig sein müssen, sind sie ein nützliches Mittel, um schnell auf ein bestimmtes Element zuzugreifen.
 
-Wenn Sie auf ein Element zugreifen müssen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mit einem beliebigen {{Glossary("CSS_selector", "Selector")}} zu finden.
+Falls Sie auf ein Element zugreifen müssen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mit einem beliebigen {{Glossary("CSS_selector", "Selektor")}} zu finden.
 
 > [!NOTE]
-> IDs sollten innerhalb eines Dokumentfragments eindeutig sein. Wenn zwei oder mehr Elemente in einem Dokumentfragment die gleiche ID haben, gibt diese Methode das erste gefundene Element zurück.
+> IDs sollten innerhalb eines Dokumentfragments eindeutig sein. Falls zwei oder mehr Elemente in einem Dokumentfragment die gleiche ID haben, gibt diese Methode das erste gefundene Element zurück.
 
 ## Syntax
 
@@ -22,28 +22,28 @@ getElementById(id)
 ```
 
 > [!NOTE]
-> Die Großschreibung von `"Id"` im Namen dieser Methode _muss_ korrekt sein, damit der Code funktioniert; `getElementByID()` ist _nicht_ gültig und wird nicht funktionieren, so natürlich es auch erscheinen mag.
+> Die Groß- und Kleinschreibung von `"Id"` im Namen dieser Methode _muss_ korrekt sein, damit der Code funktioniert; `getElementByID()` ist _nicht_ gültig und wird nicht funktionieren, so natürlich es auch erscheinen mag.
 
 ### Parameter
 
 - `id`
-  - : Die ID des zu lokalisierenden Elements. Die ID ist ein case-sensitiver String, der innerhalb des Dokumentfragments eindeutig ist: Nur ein Element sollte eine gegebene ID haben.
+  - : Die ID des zu findenden Elements. Die ID ist ein case-sensitiver String und innerhalb des Dokumentfragments eindeutig: Nur ein Element sollte eine gegebene ID haben.
 
 ### Rückgabewert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das DOM-Elementobjekt beschreibt, das mit der angegebenen ID übereinstimmt, oder `null`, wenn kein übereinstimmendes Element im Dokumentfragment gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das DOM-Elementobjekt beschreibt, das der angegebenen ID entspricht, oder `null`, wenn kein übereinstimmendes Element im Dokumentfragment gefunden wurde.
 
 ## Beispiele
 
 ### Eine Liste von Elementen erweitern
 
-In diesem Beispiel enthält das Dokument eine Liste mit einem einzigen Eintrag `Cherry`. Wir erstellen außerdem ein Dokumentfragment, das vier weitere Einträge enthält: `Apple`, `Orange`, `Banana` und `Melon`.
+In diesem Beispiel enthält das Dokument eine Liste mit einem einzigen Element `Cherry`. Wir erstellen außerdem ein Dokumentfragment mit vier weiteren Elementen: `Apple`, `Orange`, `Banana` und `Melon`.
 
 Wir protokollieren dann das Ergebnis der Verwendung von `getElementById()`, um nach `Apple` und `Cherry` im Dokument und im Fragment zu suchen. Zu diesem Zeitpunkt erscheint `Cherry` nur im Dokument, während `Apple` nur im Fragment erscheint.
 
-Wenn Sie auf „Fragment zum Dokument hinzufügen“ klicken, fügen wir das Fragment der Liste im Dokument hinzu und protokollieren erneut das Ergebnis der Suche nach sowohl `Apple` als auch `Cherry` im Dokument und im Fragment. Dieses Mal erscheinen sowohl `Apple` als auch `Cherry` im Dokument und keines von beiden im Fragment.
+Wenn Sie auf "Add fragment to document" klicken, fügen wir das Fragment der Liste im Dokument hinzu und protokollieren erneut das Ergebnis der Suche nach `Apple` und `Cherry` im Dokument und im Fragment. Dieses Mal erscheinen sowohl `Apple` als auch `Cherry` im Dokument und keines von beiden im Fragment.
 
-Dies liegt daran, dass das Anhängen eines Fragments an ein Dokument die Knoten des Fragments in das DOM verschiebt, was ein leeres `DocumentFragment` hinterlässt.
+Dies liegt daran, dass das Anhängen eines Fragments an ein Dokument die Knoten des Fragments in das DOM verschiebt und ein leeres `DocumentFragment` zurücklässt.
 
 #### HTML
 
@@ -102,7 +102,7 @@ function displayStatus() {
   while (fragmentViewer.hasChildNodes()) {
     fragmentViewer.removeChild(fragmentViewer.lastChild);
   }
-  for (entry of fragment.children) {
+  for (const entry of fragment.children) {
     fragmentViewer.appendChild(entry.cloneNode(true));
   }
 }

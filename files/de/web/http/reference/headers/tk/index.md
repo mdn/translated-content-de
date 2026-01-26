@@ -3,26 +3,22 @@ title: Tk header
 short-title: Tk
 slug: Web/HTTP/Reference/Headers/Tk
 l10n:
-  sourceCommit: 9b17bed67d318be03edfd29c0d3e3cf3efcb3618
+  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
 ---
 
 {{Deprecated_header}}{{non-standard_header}}
 
 > [!NOTE]
-> Die DNT- (Do Not Track) Spezifikation wurde eingestellt. Weitere Informationen finden Sie unter [`Navigator.doNotTrack`](/de/docs/Web/API/Navigator/doNotTrack).
-> Eine Alternative ist [Global Privacy Control](https://globalprivacycontrol.org/), die den Servern über den {{HTTPHeader("Sec-GPC")}}-Header mitgeteilt wird und für Clients über [`navigator.globalPrivacyControl`](/de/docs/Web/API/Navigator/globalPrivacyControl) zugänglich ist.
+> Die DNT (Do Not Track)-Spezifikation wurde eingestellt. Siehe [`Navigator.doNotTrack`](/de/docs/Web/API/Navigator/doNotTrack) für weitere Informationen.
+> Eine Alternative ist [Global Privacy Control](https://globalprivacycontrol.org/), das mittels des {{HTTPHeader("Sec-GPC")}}-Headers an Server kommuniziert wird und für Clients von [`navigator.globalPrivacyControl`](/de/docs/Web/API/Navigator/globalPrivacyControl) zugänglich ist.
 
-Der HTTP **`Tk`** {{Glossary("response_header", "Antwort-Header")}} gibt den Tracking-Status an, der auf die entsprechende Anfrage angewendet wurde.
+Der HTTP-**`Tk`**-{{Glossary("response_header", "Antwortheader")}} gibt den Tracking-Status an, der auf die entsprechende Anfrage angewendet wurde.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
-      <td>Nein</td>
+      <th scope="row">Header-Typ</th>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
   </tbody>
 </table>
@@ -44,31 +40,32 @@ Tk: U  (updated)
 ### Direktiven
 
 - `!`
-  - : In Arbeit. Der Ursprungsserver testet derzeit die Kommunikation seines
+  - : Im Aufbau. Der Ursprungsserver testet derzeit seine Kommunikation des
     Tracking-Status.
 - `?`
-  - : Dynamisch. Der Ursprungsserver benötigt mehr Informationen, um den Tracking-Status zu bestimmen.
+  - : Dynamisch. Der Ursprungsserver benötigt weitere Informationen, um den Tracking-Status zu bestimmen.
 - `G`
-  - : Gateway oder mehrere Parteien. Der Server fungiert als Gateway zu einem Austausch,
-    an dem mehrere Parteien beteiligt sind.
+  - : Gateway oder mehrere Parteien. Der Server fungiert als Gateway zu einem Austausch
+    mit mehreren Parteien.
 - `N`
-  - : Kein Tracking.
+  - : Nicht verfolgen.
 - `T`
-  - : Tracking.
+  - : Verfolgen.
 - `C`
-  - : Tracking mit Zustimmung. Der Ursprungsserver geht davon aus, dass er eine vorherige
-    Zustimmung zum Tracking dieses Benutzers, User-Agents oder Geräts erhalten hat.
+  - : Verfolgen mit Einwilligung. Der Ursprungsserver glaubt, eine vorherige Einwilligung für
+    das Verfolgen dieses Benutzers, Benutzeragenten oder Geräts erhalten zu haben.
 - `P`
-  - : Potenzielle Zustimmung. Der Ursprungsserver weiß nicht in Echtzeit, ob er eine
-    vorherige Zustimmung zum Tracking dieses Benutzers, User-Agents oder Geräts erhalten hat, verspricht aber, keine `DNT:1`-Daten zu verwenden oder weiterzugeben, bis eine solche Zustimmung festgestellt wurde, und verspricht weiter, innerhalb von 48 Stunden alle erhaltenen `DNT:1`-Daten zu löschen oder dauerhaft zu de-identifizieren, für die keine solche Zustimmung erhalten wurde.
+  - : Potenzielle Einwilligung. Der Ursprungsserver weiß nicht in Echtzeit, ob er eine
+    vorherige Einwilligung zum Verfolgen dieses Benutzers, Benutzeragenten oder Geräts erhalten hat, verspricht jedoch, keine `DNT:1`-Daten zu verwenden oder weiterzugeben, bis diese Einwilligung festgestellt wurde, und verspricht außerdem, innerhalb von 48 Stunden alle empfangenen `DNT:1`-Daten zu löschen oder dauerhaft zu anonymisieren, für die eine solche Einwilligung nicht erhalten wurde.
 - `D`
-  - : Ignoriert DNT. Der Ursprungsserver kann oder will eine von der anfragenden Benutzer-Agent übermittelte Tracking-Präferenz nicht respektieren.
+  - : Missachtung von DNT. Der Ursprungsserver ist nicht in der Lage oder will nicht eine
+    vom anfragenden Benutzeragenten empfangene Tracking-Präferenz respektieren.
 - `U`
-  - : Aktualisiert. Die Anfrage führte zu einer möglichen Änderung des Tracking-Status, der für diesen Benutzer, User-Agent oder dieses Gerät gilt.
+  - : Aktualisiert. Die Anfrage führte zu einer potenziellen Änderung des auf diesen Benutzer, Benutzeragenten oder das Gerät anwendbaren Tracking-Status.
 
 ## Beispiele
 
-Ein `Tk`-Header für eine Ressource, die angibt, nicht zu tracken, würde folgendermaßen aussehen:
+Ein `Tk`-Header für eine Ressource, die behauptet, nicht zu verfolgen, würde folgendermaßen aussehen:
 
 ```http
 Tk: N
@@ -80,7 +77,7 @@ Tk: N
 
 ## Browser-Kompatibilität
 
-Dieser Antwort-Header löst kein Browser-Verhalten aus, daher ist die Browser-Kompatibilität irrelevant.
+Dieser Antwortheader löst kein Browserverhalten aus, sodass die Browser-Kompatibilität irrelevant ist.
 
 ## Siehe auch
 
@@ -90,4 +87,4 @@ Dieser Antwort-Header löst kein Browser-Verhalten aus, daher ist die Browser-Ko
 - [Was bedeutet das "Track" in "Do Not Track"? – EFF](https://www.eff.org/deeplinks/2011/02/what-does-track-do-not-track-mean)
 - [DNT bei der Electronic Frontier Foundation](https://www.eff.org/issues/do-not-track)
 - [GPC - Global Privacy Control](https://globalprivacycontrol.org/)
-  - [GPC in Firefox aktivieren](https://support.mozilla.org/en-US/kb/global-privacy-control?as=u&utm_source=inproduct)
+  - [Aktivieren von GPC in Firefox](https://support.mozilla.org/en-US/kb/global-privacy-control?as=u&utm_source=inproduct)

@@ -2,85 +2,85 @@
 title: CSS-Selektor-Seitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/CSS_selector_page_template
 l10n:
-  sourceCommit: 754b68246f4e69e404309fee4a1699e047e43994
+  sourceCommit: d2fb8cdc9422dd2b68ff23f616d70811729f1fbd
 ---
 
 > [!NOTE]
-> _Entfernen Sie diese gesamte erläuternde Notiz vor der Veröffentlichung_
+> _Entfernen Sie diese gesamte erläuternde Anmerkung vor der Veröffentlichung_
 >
 > ---
 >
-> **Seiten-Frontmatter:**
+> **Seiteneinleitung:**
 >
-> Das Frontmatter oben auf der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Frontmatter am Anfang der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
 > Die Werte sollten für den jeweiligen Selektor entsprechend aktualisiert werden.
 >
 > ```md
 > ---
-> title: :name-des-selektors
-> slug: Web/CSS/Reference/Selectors/:name-des-selektors
+> title: :name-of-the-selector
+> slug: Web/CSS/Reference/Selectors/:name-of-the-selector
 > page-type: css-selector OR css-pseudo-class OR css-pseudo-element OR css-combinator
 > status:
 >   - deprecated
 >   - experimental
 >   - non-standard
-> browser-compat: css.selectors.name-des-selektors
+> browser-compat: css.selectors.name-of-the-selector
 > sidebar: cssref
 > ---
 > ```
 >
 > - **title**
->   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Formatieren Sie wie _:NameDesSelektors_.
->     Zum Beispiel hat der [`:hover`](/de/docs/Web/CSS/Reference/Selectors/:hover) Selektor den Titel _:hover_.
+>   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Format als _:NameOfTheSelector_.
+>     Zum Beispiel hat der {{cssxref(":hover")}} Selektor einen Titel von _:hover_.
 > - **slug**
->   - : Der Ende des URL-Pfades nach `https://developer.mozilla.org/de/docs/`). Dies wird formatiert wie `Web/CSS/Reference/Selectors/:name-des-selektors`.
->     Zum Beispiel ist der Slug des [`:hover`](/de/docs/Web/CSS/Reference/Selectors/:hover) Selektors `Web/CSS/Reference/Selectors/:hover`.
+>   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`). Dieser wird wie folgt formatiert: `Web/CSS/Reference/Selectors/:name-of-the-selector`.
+>     Zum Beispiel hat der {{cssxref(":hover")}} Selektor den Slug `Web/CSS/Reference/Selectors/:hover`.
 > - **page-type**
->   - : Der `page-type`-Schlüssel für CSS-Eigenschaften ist entweder `css-selector`, `css-pseudo-class` oder `css-pseudo-element`, je nachdem, ob der Selektor eine [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), ein [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements), ein [Kombinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators) oder ein [einfacher Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#simple_selector) ist.
+>   - : Der `page-type` Schlüssel für CSS-Eigenschaften ist einer von `css-selector`, `css-pseudo-class`, oder `css-pseudo-element`, abhängig davon, ob der Selektor eine [pseudo-class](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), ein [pseudo-element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements), ein [combinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators), oder ein [simple selector](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#simple_selector) ist.
 > - **status**
->   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
+>   - : Kennzeichnungen, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Begriffe enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Wie Feature-Statuses hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated).
 > - **browser-compat**
->   - : Ersetzen Sie den Platzhalterwert <code>css.selectors.NameDesSelektors</code> durch den Abfrage-String für den Selektor im [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (wobei die `\{{Compat}}` und `\{{Specifications}}` Makros in diesen Abschnitten entsprechend ersetzt werden).
+>   - : Ersetzen Sie den Platzhalterwert <code>css.selectors.NameOfTheSelector</code> mit der Abfragezeichenfolge für den Selektor im [Browser-compat-Daten-Repo](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet automatisch den Schlüssel, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros in diesen Abschnitten, entsprechend).
 >
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den Selektor und seine Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-Kompatibilitätsdaten-Repo</a> erstellen/aktualisieren müssen.
->     Siehe unseren [Leitfaden, wie man das macht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den Selektor und seine Spezifikation in unserem <a href="https://github.com/mdn/browser-compat-data">Browser-compat-Daten-Repo</a> erstellen/aktualisieren müssen.
+>     Siehe unseren [Leitfaden, wie Sie dies tun können](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > - **sidebar**
 >   - : Dies ist `cssref` für alle CSS-Leitfaden- und Referenzseiten.
->     Siehe [Seitenstrukturen: Seitenleisten](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
+>     Siehe [Seitenstrukturen: Sidebars](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars) für Details.
 >
 > ---
 >
-> **Makros am Seitenanfang**
+> **Macros am Anfang der Seite**
 >
-> Eine Reihe von Makros erscheint oben im Inhaltsbereich unmittelbar nach dem Seiten-Frontmatter.
-> Diese Makros werden automatisch durch Tools hinzugefügt, daher vermeiden Sie es, sie hinzuzufügen oder zu entfernen:
+> Eine Reihe von Makros erscheint am Anfang des Inhaltsbereichs unmittelbar nach der Seiteneinleitung.
+> Diese Makros werden automatisch durch Werkzeuge hinzugefügt, vermeiden Sie das Hinzufügen oder Entfernen dieser:
 >
-> - `\{{SeeCompatTable}}` — dieses erzeugt ein **Dies ist eine experimentelle Technologie** Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es sich um eine experimentelle Technologie handelt und die Technologie hinter einem Pref in Firefox versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — dieses erzeugt ein **Veraltet** Banner, das anzeigt, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
-> - `\{{Non-standard_Header}}` — dieses erzeugt ein **Nicht standardisiert** Banner, das darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — dies generiert ein **Diese Technologie ist experimentell** Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn es experimentell ist und die Technologie hinter einem Pref in Firefox versteckt ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — dies generiert ein **Veraltet** Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+> - `\{{Non-standard_Header}}` — dies generiert ein **Nicht-standard** Banner, das darauf hinweist, dass das Merkmal nicht Teil einer Spezifikation ist.
 >
-> Sie sollten die folgenden Makros gemäß den unten stehenden Hinweisen aktualisieren oder löschen:
+> Sie sollten die folgenden Makros gemäß der unten stehenden Hinweise aktualisieren oder löschen:
 >
-> Stellen Sie Statusheader-Makros nicht manuell bereit. Beziehen Sie sich auf den Abschnitt ["Wie Feature-Status hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
+> Stellen Sie keine Statuskopfzeilen-Makros manuell bereit. Beziehen Sie sich auf den Abschnitt ["Wie Feature-Statuses hinzugefügt oder aktualisiert werden"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_feature_statuses_are_added_or_updated), um diese Status zur Seite hinzuzufügen.
 >
-> Beispiele für die **Experimentell**, **Veraltet** und **Nicht standardisiert** Banner werden direkt nach diesem Notizblock angezeigt.
+> Beispiele der **Experimentellen**, **Veralteten** und **Nicht-standard** Banner werden direkt nach diesem Hinweisblock gezeigt.
 >
 > ---
 >
-> **Syntax-Abschnitt (`\{{CSSSyntax}}`)**
+> **Syntax Abschnitt (`\{{CSSSyntax}}`)**
 >
-> Der Inhalt des Syntax-Abschnitts wird mit dem `\{{CSSSyntax}}` Makro generiert.
-> Damit diese angezeigt werden, müssen Sie sicherstellen, dass ein entsprechender Eintrag für den Selektor in unserer [selectors.json](https://github.com/mdn/data/blob/main/css/selectors.json) Datendatei ausgefüllt wurde.
-> Siehe [selectors.md](https://github.com/mdn/data/blob/main/css/selectors.md) für mehr Informationen.
+> Der Inhalt des Syntaxabschnitts wird mittels des `\{{CSSSyntax}}` Makros erzeugt.
+> Damit diese populiert werden, müssen Sie sicherstellen, dass ein entsprechender Eintrag für den Selektor in unserer [selectors.json](https://github.com/mdn/data/blob/main/css/selectors.json) Datendatei ausgefüllt wurde.
+> Siehe [selectors.md](https://github.com/mdn/data/blob/main/css/selectors.md) für weitere Informationen.
 >
-> _Denken Sie daran, diese gesamte erläuternde Notiz vor der Veröffentlichung zu entfernen_
+> _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen_
 
 {{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Der Zusammenfassungsabsatz — beginnen Sie mit dem Benennen des Selektors und beschreiben Sie, was er macht. Dies sollte idealerweise ein oder zwei kurze Sätze umfassen.
+Der zusammenfassende Absatz — beginnen Sie mit der Nennung des Selektors und was er tut. Dies sollte idealerweise ein oder zwei kurze Sätze sein.
 
 ```css
 /* Insert code block showing common use cases */
@@ -94,45 +94,45 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Barrierefreiheit
 
-Dies ist ein optionaler Abschnitt. Beinhaltet Richtlinien zur Barrierefreiheit, bewährte Verfahren und potenzielle Bedenken, die Entwickler beim Verwenden dieser Eigenschaft beachten sollten. Sie können auch Lösungen oder Workarounds einfügen, wo zutreffend.
+Dies ist ein optionaler Abschnitt. Fügen Sie Zugangsrichtlinien, bewährte Verfahren und potenzielle Bedenken ein, die Entwicklern bewusst sein sollten, wenn sie diese Eigenschaft verwenden. Sie können auch Lösungen oder Workarounds dort einbeziehen, wo zutreffend.
 
 ## Beispiele
 
-Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir den Plural "Beispiele" verwenden, selbst wenn die Seite nur ein Beispiel enthält.
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) mit der Benennung des Beispiels haben. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Sehen Sie sich unseren Leitfaden an, wie man [Codebeispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) hinzufügt.
+Siehe unsere Anleitung zum Hinzufügen von [Codebeispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben werden.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und weitere Beispiele auf einer anderen Seite haben:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite ein und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> ### Verwenden der Fetch-API
+> ### Verwendung der Fetch-API
 >
-> Beispiel von Fetch
+> Beispiel des Fetch
 >
 > ### Weitere Beispiele
 >
 > Links zu weiteren Beispielen auf anderen Seiten
 > ```
 >
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser Seite:
+> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu, sondern platzieren Sie die Links direkt unter der H2-Überschrift "Beispiele". Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie einfach die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieser API siehe [die Seite über fetch()](https://example.org/).
+> Für Beispiele dieser API, siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -149,7 +149,7 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Beinhaltet Links zu Referenzseiten und Leitfäden, die mit dem aktuellen Selektor zusammenhängen. Für weitere Richtlinien sehen Sie den [See als Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Writing Style Guide_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf den aktuellen Selektor beziehen. Für weitere Richtlinien siehe den [Siehe-auch-Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) in der _Schreibstil-Leitfaden_.
 
 - link1
 - link2

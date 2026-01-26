@@ -3,44 +3,44 @@ title: "HTMLScriptElement: text-Eigenschaft"
 short-title: text
 slug: Web/API/HTMLScriptElement/text
 l10n:
-  sourceCommit: 5c513c8e3075989886ae5f3b00d92f2b2988085a
+  sourceCommit: 65cbd4ff030e6763d6868917137d728c3ec29288
 ---
 
 {{APIRef("HTML DOM")}}
 
 > [!WARNING]
 > Diese Eigenschaft repräsentiert den Textinhalt eines Skriptelements, das je nach Skripttyp ausführbar sein kann.
-> Solche APIs sind bekannt als [injection sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe sein.
+> Solche APIs sind als [Injection-Sinks](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) bekannt und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS)-Angriffe dar.
 >
-> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenfolgen zuweisen und [trusted types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
-> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](#sicherheitsüberlegungen).
+> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekte anstelle von Zeichenketten zuweisen und [Trusted Types erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+> Siehe [Sicherheitsaspekte](#sicherheitsaspekte) für weitere Informationen.
 
 Die **`text`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle repräsentiert den Inline-Textinhalt des {{HTMLElement("script")}}-Elements.
-Sie verhält sich ähnlich wie die Eigenschaft [`textContent`](/de/docs/Web/API/HTMLScriptElement/textContent) und [`innerText`](/de/docs/Web/API/HTMLScriptElement/innerText).
+Sie verhält sich genauso wie die [`textContent`](/de/docs/Web/API/HTMLScriptElement/textContent)- und [`innerText`](/de/docs/Web/API/HTMLScriptElement/innerText)-Eigenschaft.
 
 ## Wert
 
-Das Abrufen der Eigenschaft gibt eine Zeichenfolge zurück, die den Text des Skripts enthält.
+Der Abruf der Eigenschaft gibt eine Zeichenkette zurück, die den Text des Skripts enthält.
 
-Beim Setzen der Eigenschaft wird entweder ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt oder eine Zeichenfolge akzeptiert.
+Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt oder eine Zeichenkette.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenfolge gesetzt wird, während [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
+  - : Wird ausgelöst, wenn die Eigenschaft auf eine Zeichenkette gesetzt wird und [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) werden und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
 Die **`text`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle repräsentiert den Textinhalt innerhalb des {{HTMLElement("script")}}-Elements.
 
-Für ein ausführbares Skript (d.h. ein Skript, dessen [`type`](/de/docs/Web/API/HTMLScriptElement/type) angibt, dass es sich um ein Modul- oder klassisches Skript handelt), ist dieser Text Inline-ausführbarer Code.
-Für andere Typen könnte es eine Importkarte, Spekulationsregeln oder eine andere Art von Datenblock darstellen.
+Für ein ausführbares Skript (d.h. ein Skript, dessen [`type`](/de/docs/Web/API/HTMLScriptElement/type) angibt, dass es sich um ein Modul- oder klassisches Skript handelt) ist dieser Text inline ausführbarer Code.
+Für andere Typen könnte es eine Importmap, Spekulationsregeln oder eine andere Art von Datenblock darstellen.
 
-Beachten Sie, dass, wenn die [`src`](/de/docs/Web/API/HTMLScriptElement/src)-Eigenschaft gesetzt ist, der Inhalt der `text`-Eigenschaft ignoriert wird.
+Beachten Sie, dass der Inhalt der `text`-Eigenschaft ignoriert wird, wenn die [`src`](/de/docs/Web/API/HTMLScriptElement/src)-Eigenschaft gesetzt ist.
 
-### Sicherheitsüberlegungen
+### Sicherheitsaspekte
 
-Siehe [Sicherheitsüberlegungen](/de/docs/Web/API/HTMLScriptElement/textContent#security_considerations) in [`HTMLScriptElement.textContent`](/de/docs/Web/API/HTMLScriptElement/textContent) (die Überlegungen sind die gleichen für die `text`, `textContent` und `innerText`-Eigenschaften).
+Siehe [Sicherheitsaspekte](/de/docs/Web/API/HTMLScriptElement/textContent#security_considerations) in [`HTMLScriptElement.textContent`](/de/docs/Web/API/HTMLScriptElement/textContent) (die Erwägungen sind dieselben für die `text`-, `textContent`- und `innerText`-Eigenschaften).
 
 ## Beispiele
 

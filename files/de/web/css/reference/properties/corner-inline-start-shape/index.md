@@ -2,18 +2,18 @@
 title: corner-inline-start-shape
 slug: Web/CSS/Reference/Properties/corner-inline-start-shape
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 133c1628ead5b32660a0096ea7b3881637dc355c
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-inline-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Form beider Ecken an der inline-start Kante einer Box innerhalb ihres {{cssxref("border-radius")}} Bereichs.
+Die **`corner-inline-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken an der inline-start Kante einer Box innerhalb ihres {{cssxref("border-radius")}} Bereichs fest.
 
-Für eine vollständige Beschreibung des Eckverhaltens und mehrere Beispiele lesen Sie bitte die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele, siehe die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Die Eigenschaft `corner-inline-start-shape` ist eine Kurzschreibweise für die folgenden physikalischen Eigenschaften:
+Die Eigenschaft `corner-inline-start-shape` ist eine Kurzform für die folgenden logischen Eigenschaften:
 
 - {{cssxref("corner-start-start-shape")}}
 - {{cssxref("corner-end-start-shape")}}
@@ -45,8 +45,8 @@ corner-inline-start-shape: unset;
 
 Die Eigenschaft `corner-inline-start-shape` wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, bestimmt dieser die Form **beider inline-start** Ecken.
-- Wenn **zwei Werte** verwendet werden, bestimmt der erste die Form der **block-start/inline-start** Ecke und der zweite die Form der **block-end/inline-start** Ecke.
+- Wird **ein Wert** verwendet, gibt er die Form beider **inline-start** Ecken an.
+- Werden **zwei Werte** verwendet, gibt der erste die Form der **block-start/inline-start** Ecke an, und der zweite die Form der **block-end/inline-start** Ecke.
 
 ## Formale Definition
 
@@ -58,7 +58,7 @@ Die Eigenschaft `corner-inline-start-shape` wird mit einem oder zwei {{cssxref("
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Andere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-inline-start-shape`
 
@@ -72,7 +72,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden außerdem einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und ein `corner-inline-start-shape` von `square bevel` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze halber verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-inline-start-shape` von `square bevel` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -106,7 +106,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 

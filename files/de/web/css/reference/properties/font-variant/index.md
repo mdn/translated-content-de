@@ -2,12 +2,12 @@
 title: font-variant
 slug: Web/CSS/Reference/Properties/font-variant
 l10n:
-  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`font-variant`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) ermöglicht es Ihnen, alle Schriftvarianten für eine Schriftart festzulegen.
+Die **`font-variant`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) ermöglicht es, alle Schriftvarianten für eine Schriftart festzulegen.
 
-Sie können auch die `<font-variant-css2>`-Werte von `font-variant`, die in CSS Level 2.1 definiert sind, (d.h. `normal` oder `small-caps`), über die [`font`](/de/docs/Web/CSS/Reference/Properties/font) Kurzform setzen.
+Sie können auch die `<font-variant-css2>` Werte von `font-variant`, die in CSS Level 2.1 definiert sind (das heißt, `normal` oder `small-caps`), durch die Nutzung der {{cssxref("font")}} Kurzschrift festlegen.
 
 {{InteractiveExample("CSS Demo: font-variant")}}
 
@@ -74,17 +74,17 @@ section {
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
-- [`font-variant-alternates`](/de/docs/Web/CSS/Reference/Properties/font-variant-alternates)
-- [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps)
-- [`font-variant-east-asian`](/de/docs/Web/CSS/Reference/Properties/font-variant-east-asian)
-- [`font-variant-emoji`](/de/docs/Web/CSS/Reference/Properties/font-variant-emoji)
-- [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures)
-- [`font-variant-numeric`](/de/docs/Web/CSS/Reference/Properties/font-variant-numeric)
-- [`font-variant-position`](/de/docs/Web/CSS/Reference/Properties/font-variant-position)
+- {{cssxref("font-variant-alternates")}}
+- {{cssxref("font-variant-caps")}}
+- {{cssxref("font-variant-east-asian")}}
+- {{cssxref("font-variant-emoji")}}
+- {{cssxref("font-variant-ligatures")}}
+- {{cssxref("font-variant-numeric")}}
+- {{cssxref("font-variant-position")}}
 
 ## Syntax
 
@@ -103,43 +103,43 @@ font-variant: unset;
 ### Werte
 
 - `normal`
-  - : Gibt eine normale Schriftart an. Jede Langform-Eigenschaft hat den Anfangswert `normal`.
+  - : Gibt ein normales Schriftbild an. Jede Langschreibweise besitzt den Anfangswert `normal`.
 
 - `none`
-  - : Setzt den Wert von [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures) auf `none` und die Werte der anderen Langform-Eigenschaften auf `normal`, ihrem Anfangswert.
+  - : Setzt den Wert von {{cssxref("font-variant-ligatures")}} auf `none` und die Werte der anderen Langschreibweisen auf `normal`, ihren Anfangswert.
 
 - `<common-lig-values>`, `<discretionary-lig-values>`, `<historical-lig-values>`, `<contextual-alt-values>`
-  - : Gibt die Schlüsselwörter an, die sich auf die Langform-Eigenschaft [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures) beziehen. Die möglichen Werte sind `common-ligatures`, `no-common-ligatures`, `discretionary-ligatures`, `no-discretionary-ligatures`, `historical-ligatures`, `no-historical-ligatures`, `contextual` und `no-contextual`.
+  - : Gibt die Schlüsselwörter im Zusammenhang mit der {{cssxref("font-variant-ligatures")}} Langschreibweise an. Mögliche Werte sind `common-ligatures`, `no-common-ligatures`, `discretionary-ligatures`, `no-discretionary-ligatures`, `historical-ligatures`, `no-historical-ligatures`, `contextual` und `no-contextual`.
 
 - `stylistic()`, `historical-forms`, `styleset()`, `character-variant()`, `swash()`, `ornaments()`, `annotation()`
-  - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures) beziehen.
+  - : Gibt die Schlüsselwörter und Funktionen im Zusammenhang mit der {{cssxref("font-variant-ligatures")}} Langschreibweise an.
 
 - `small-caps`, `all-small-caps`, `petite-caps`, `all-petite-caps`, `unicase`, `titling-caps`
-  - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps) beziehen. Der Wert `small-caps` ist die einzige nicht-`normal` Schriftvariante, die innerhalb der {{cssxref("font")}} Kurzform gültig ist.
+  - : Gibt die Schlüsselwörter und Funktionen im Zusammenhang mit der {{cssxref("font-variant-caps")}} Langschreibweise an. Der Wert `small-caps` ist die einzige nicht-`normal` Schriftvariante, die innerhalb der Kurzschrift-Eigenschaft {{cssxref("font")}} gültig ist.
 
 - `<numeric-figure-values>`, `<numeric-spacing-values>`, `<numeric-fraction-values>`, `ordinal`, `slashed-zero`
-  - : Gibt die Schlüsselwörter an, die sich auf die Langform-Eigenschaft [`font-variant-numeric`](/de/docs/Web/CSS/Reference/Properties/font-variant-numeric) beziehen. Die möglichen Werte sind `lining-nums`, `oldstyle-nums`, `proportional-nums`, `tabular-nums`, `diagonal-fractions`, `stacked-fractions`, `ordinal` und `slashed-zero`.
+  - : Gibt die Schlüsselwörter im Zusammenhang mit der {{cssxref("font-variant-numeric")}} Langschreibweise an. Mögliche Werte sind `lining-nums`, `oldstyle-nums`, `proportional-nums`, `tabular-nums`, `diagonal-fractions`, `stacked-fractions`, `ordinal`, und `slashed-zero`.
 
 - `<east-asian-variant-values>`, `<east-asian-width-values>`, `ruby`
-  - : Gibt die Schlüsselwörter an, die sich auf die Langform-Eigenschaft [`font-variant-east-asian`](/de/docs/Web/CSS/Reference/Properties/font-variant-east-asian) beziehen. Die möglichen Werte sind `jis78`, `jis83`, `jis90`, `jis04`, `simplified`, `traditional`, `full-width`, `proportional-width` und `ruby`.
+  - : Gibt die Schlüsselwörter im Zusammenhang mit der {{cssxref("font-variant-east-asian")}} Langschreibweise an. Mögliche Werte sind `jis78`, `jis83`, `jis90`, `jis04`, `simplified`, `traditional`, `full-width`, `proportional-width` und `ruby`.
 
 - `sub`, `super`
-  - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft [`font-variant-position`](/de/docs/Web/CSS/Reference/Properties/font-variant-position) beziehen.
+  - : Gibt die Schlüsselwörter und Funktionen im Zusammenhang mit der {{cssxref("font-variant-position")}} Langschreibweise an.
 
 - `text`, `emoji`, `unicode`
-  - : Gibt die Schlüsselwörter und Funktionen an, die sich auf die Langform-Eigenschaft [`font-variant-emoji`](/de/docs/Web/CSS/Reference/Properties/font-variant-emoji) beziehen.
+  - : Gibt die Schlüsselwörter und Funktionen im Zusammenhang mit der {{cssxref("font-variant-emoji")}} Langschreibweise an.
 
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formelle Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Die Schriftvariante small-caps setzen
+### Einstellen der small-caps Schriftvariante
 
 #### HTML
 

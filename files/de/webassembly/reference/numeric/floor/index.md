@@ -1,13 +1,14 @@
 ---
-title: Floor
-slug: WebAssembly/Reference/Numeric/Floor
+title: "floor: Wasm-Textinstruktion"
+short-title: floor
+slug: WebAssembly/Reference/Numeric/floor
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`floor`**-Anweisungen werden verwendet, um den Wert einer Zahl auf den nächsten ganzzahligen Wert abzurunden.
+Die **`floor`**-Instruktionen werden verwendet, um den Wert einer Zahl, abgerundet auf die nächste ganze Zahl, zu erhalten.
 
-**`floor`** unterscheidet sich von **`trunc`**, wenn sie bei negativen Zahlen verwendet werden. In diesen Fällen wird **`floor`** nach unten runden, während **`trunc`** nach oben runden wird.
+**`floor`** unterscheidet sich von **`trunc`** bei negativen Zahlen. **`floor`** rundet in diesen Fällen nach unten, während **`trunc`** nach oben rundet.
 
 {{InteractiveExample("Wat Demo: floor", "tabbed-standard")}}
 
@@ -42,7 +43,7 @@ f32.floor
 ;; the top item on the stack will now be -3
 ```
 
-| Anweisung   | Binärer Opcode |
+| Instruktion | Binärer Opcode |
 | ----------- | -------------- |
 | `f32.floor` | `0x8e`         |
 | `f64.floor` | `0x9c`         |

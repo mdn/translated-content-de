@@ -1,14 +1,14 @@
 ---
-title: "Navigator: userActivation-Eigenschaft"
+title: "Navigator: Eigenschaft userActivation"
 short-title: userActivation
 slug: Web/API/Navigator/userActivation
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`userActivation`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`UserActivation`](/de/docs/Web/API/UserActivation)-Objekt zurück, das Informationen über den Benutzeraktivierungszustand des aktuellen Fensters enthält.
+Die schreibgeschützte **`userActivation`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`UserActivation`](/de/docs/Web/API/UserActivation)-Objekt zurück, das Informationen über den aktuellen Benutzeraktivierungszustand des Fensters enthält.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein [`UserActivation`](/de/docs/Web/API/UserActivation)-Objekt.
 
 ## Beispiele
 
-### Überprüfen, ob kürzlich eine Benutzeraktion ausgeführt wurde
+### Überprüfen, ob kürzlich eine Benutzerhandlung durchgeführt wurde
 
-Verwenden Sie [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive), um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert ({{Glossary("Transient_activation", "Vorübergehende Aktivierung")}}).
+Verwenden Sie [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive), um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert ({{Glossary("Transient_activation", "Transiente Aktivierung")}}).
 
 ```js
 if (navigator.userActivation.isActive) {
@@ -26,9 +26,9 @@ if (navigator.userActivation.isActive) {
 }
 ```
 
-### Überprüfen, ob jemals eine Benutzeraktion ausgeführt wurde
+### Überprüfen, ob jemals eine Benutzerhandlung durchgeführt wurde
 
-Verwenden Sie [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive), um zu überprüfen, ob der Benutzer jemals mit der Seite interagiert hat ({{Glossary("Sticky_activation", "Dauerhafte Aktivierung")}}).
+Verwenden Sie [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive), um zu überprüfen, ob der Benutzer jemals mit der Seite interagiert hat ({{Glossary("Sticky_activation", "Stabile Aktivierung")}}).
 
 ```js
 if (navigator.userActivation.hasBeenActive) {
@@ -49,4 +49,4 @@ if (navigator.userActivation.hasBeenActive) {
 - [`UserActivation`](/de/docs/Web/API/UserActivation)
 - [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive)
 - [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)
-- [Merkmale, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/User_activation)
+- [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/Defenses/User_activation)

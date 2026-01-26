@@ -1,11 +1,12 @@
 ---
-title: br_if
+title: "br_if: Wasm Text-Instruktion"
+short-title: br_if
 slug: WebAssembly/Reference/Control_flow/br_if
 l10n:
-  sourceCommit: c81e6b0eabd3c4132767f8f422648247cd9cf3cd
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`br_if`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop)-, einer [`block`](/de/docs/WebAssembly/Reference/Control_flow/block)- oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung, basierend auf einer booleschen Bedingung (`0` oder `1`).
+Die **`br_if`**-Anweisung verzweigt zu einer [`loop`](/de/docs/WebAssembly/Reference/Control_flow/loop), einem [`block`](/de/docs/WebAssembly/Reference/Control_flow/block) oder einer [`if`](/de/docs/WebAssembly/Reference/Control_flow/if...else)-Anweisung, basierend auf einer booleschen (`0` oder `1`) Bedingung.
 
 {{InteractiveExample("Wat Demo: br_if", "tabbed-taller")}}
 

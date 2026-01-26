@@ -1,20 +1,20 @@
 ---
-title: "WorkerNavigator: deviceMemory Eigenschaft"
+title: "WorkerNavigator: deviceMemory-Eigenschaft"
 short-title: deviceMemory
 slug: Web/API/WorkerNavigator/deviceMemory
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 53d1a4810a69dc436badd5b73c1a66c8764c835b
 ---
 
 {{APIRef("Device Memory API")}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`deviceMemory`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt die ungefähre Menge an Gerätespeicher in Gigabyte zurück.
+Die schreibgeschützte **`deviceMemory`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
 
-Der angegebene Wert ist ungenau, um {{Glossary("fingerprinting", "Fingerprinting")}} zu erschweren. Er wird geschätzt, indem er auf die nächste Zweierpotenz abgerundet und diese Zahl dann durch 1024 geteilt wird. Anschließend wird er innerhalb bestimmter unterer und oberer Grenzen geklammert, um die Privatsphäre von Besitzern von Geräten mit sehr geringem oder hohem Speicher zu schützen.
+Der gemeldete Wert ist ungenau, um {{Glossary("fingerprinting", "Fingerprinting")}} zu begrenzen. Er wird approximiert, indem er auf die nächste Zweierpotenz abgerundet und dann diese Zahl durch 1024 geteilt wird. Anschließend wird er innerhalb von unteren und oberen Grenzen eingegrenzt, um die Privatsphäre der Besitzer von Geräten mit sehr wenig oder sehr viel Speicher zu schützen.
 
 ## Wert
 
-Eine Gleitkommazahl; eine der folgenden: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
+Eine Gleitkommazahl; einer der Werte `0.25`, `0.5`, `1`, `2`, `4`, `8`.
 
 ## Beispiele
 
@@ -35,4 +35,4 @@ console.log(`This device has at least ${memory}GiB of RAM.`);
 
 ## Siehe auch
 
-- {{HTTPHeader("Device-Memory")}} HTTP-Header
+- {{HTTPHeader("Sec-CH-Device-Memory")}} HTTP-Header

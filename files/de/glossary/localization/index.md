@@ -2,20 +2,20 @@
 title: Lokalisierung
 slug: Glossary/Localization
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 7d4f930455a349e3c73836500add3d4840c76f5d
 ---
 
-**Lokalisierung** (l10n) ist der Prozess der Anpassung einer Software-Benutzeroberfläche an eine spezifische Kultur.
+**Lokalisierung** (l10n) ist der Prozess der Anpassung einer Software-Benutzeroberfläche an eine bestimmte Kultur.
 
-Folgende Faktoren sind häufig zu berücksichtigen:
+Folgende Faktoren sollten dabei berücksichtigt werden:
 
 - Sprache
-- Maßeinheiten (z.B. Kilometer in Europa, Meilen in den USA)
-- Schreibrichtung (z.B. europäische Sprachen sind von links nach rechts, Arabisch von rechts nach links)
-- Großschreibung im lateinischen Schriftsystem (z.B. im Englischen werden Wochentage großgeschrieben, im Spanischen kleingeschrieben)
-- Anpassung von Redewendungen (z.B. "it's raining cats and dogs" ergibt keinen Sinn, wenn es wörtlich übersetzt wird)
-- Verwendung von Register (z.B. unterscheidet sich die respektvolle Sprache im Japanischen erheblich von der Umgangssprache)
-- Zahlenformat (z.B. 10 000,00 in Deutschland vs. 10,000.00 in den USA)
+- Maßeinheit (z. B. Kilometer in Europa, Meilen in den USA)
+- Textrichtung (z. B. sind europäische Sprachen von links nach rechts, Arabisch von rechts nach links)
+- Großschreibung in lateinischen Schriften (z. B. werden im Englischen Wochentage großgeschrieben, im Spanischen klein)
+- Anpassung von Redewendungen (z. B. ergibt "es regnet Katzen und Hunde" keinen Sinn, wenn es wörtlich übersetzt wird)
+- Verwendung des Registers (z. B. unterscheidet sich im Japanischen respektvolle Sprache erheblich von der Alltagssprache)
+- Zahlenformat (z. B. 10.000,00 in Deutschland vs. 10,000.00 in den USA)
 - Datumsformat
 - Währung
 - Kulturelle Referenzen
@@ -23,9 +23,9 @@ Folgende Faktoren sind häufig zu berücksichtigen:
 - Farbenpsychologie
 - Einhaltung lokaler Gesetze
 - Lokale Feiertage
-- Personennamen
+- Persönliche Namen
 
-Die komplementäre Praxis, ein System so zu entwerfen, dass es leicht zu lokalisieren ist, wird {{Glossary("Internationalization", "Internationalisierung")}} genannt.
+Die ergänzende Praxis, ein System leichter lokalisierbar zu machen, wird {{Glossary("Internationalization", "Internationalisierung")}} genannt.
 
 ## Siehe auch
 

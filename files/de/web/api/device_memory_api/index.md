@@ -2,20 +2,20 @@
 title: Device Memory API
 slug: Web/API/Device_Memory_API
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 53d1a4810a69dc436badd5b73c1a66c8764c835b
 ---
 
 {{DefaultAPISidebar("Device Memory API")}}{{securecontext_header}}{{AvailableInWorkers}}
 
-Die Fähigkeiten eines Client-Geräts hängen weitgehend von der verfügbaren Menge an RAM ab. Traditionell mussten Entwickler Heuristiken verwenden und entweder ein Gerät benchmarken oder die Fähigkeiten eines Geräts auf der Grundlage anderer Faktoren wie des Geräteherstellers oder der User-Agent-Strings ableiten.
+Die Fähigkeiten eines Clientgeräts hängen weitgehend von der Menge des verfügbaren RAM ab. Traditionell mussten Entwickler Heuristiken verwenden und entweder ein Gerät benchmarken oder die Geräteleistungsfähigkeit basierend auf anderen Faktoren wie dem Gerätehersteller oder User-Agent-Strings ableiten.
 
 ## Bestimmung des Gerätespeichers
 
-Es gibt zwei Möglichkeiten, die ungefähre Menge an RAM eines Geräts zu bestimmen: Verwenden Sie die Device Memory JavaScript-API oder akzeptieren Sie Client-Hints.
+Es gibt zwei Möglichkeiten, die ungefähre RAM-Menge eines Geräts zu bestimmen: Verwenden Sie die Device Memory JavaScript API oder akzeptieren Sie Client Hints.
 
-### JavaScript-API
+### JavaScript API
 
-Sie können die ungefähre Menge an RAM eines Geräts abfragen, indem Sie [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) oder [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) abrufen.
+Sie können die ungefähre RAM-Menge eines Geräts abfragen, indem Sie [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) oder [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) abrufen.
 
 ```js
 const RAM = navigator.deviceMemory;
@@ -27,12 +27,12 @@ Sie können auch den [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) HTTP-
 
 ## Schnittstellen
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen für andere Schnittstellen
 
 - [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory) {{ReadOnlyInline}}
-  - : Gibt die ungefähre Menge an Gerätespeicher in Gigabyte zurück.
+  - : Gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
 - [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory) {{ReadOnlyInline}}
-  - : Gibt die ungefähre Menge an Gerätespeicher in Gigabyte zurück.
+  - : Gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
 
 ## Spezifikationen
 
@@ -44,4 +44,4 @@ Sie können auch den [Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) HTTP-
 
 ## Siehe auch
 
-- {{HTTPHeader("Device-Memory")}} header
+- {{HTTPHeader("Sec-CH-Device-Memory")}}-Header

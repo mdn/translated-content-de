@@ -1,16 +1,16 @@
 ---
-title: "HTMLLinkElement: integrity-Eigenschaft"
+title: "HTMLLinkElement: Integritätseigenschaft"
 short-title: integrity
 slug: Web/API/HTMLLinkElement/integrity
 l10n:
-  sourceCommit: 49d15be653576c5f73ec527ee976c5881171b53c
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`integrity`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, dass eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde.
+Die **`integrity`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, dass ein abgerufenes Ressourcen ohne unerwartete Manipulation geliefert wurde.
 
-Sie spiegelt das `integrity`-Attribut des {{HTMLElement("link")}}-Elements wider.
+Sie entspricht dem `integrity`-Attribut des {{HTMLElement("link")}}-Elements.
 
 ## Wert
 
@@ -43,4 +43,4 @@ console.log(el.integrity); // Output: "sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYm
 ## Siehe auch
 
 - [`HTMLScriptElement.integrity`](/de/docs/Web/API/HTMLScriptElement/integrity)
-- [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)
+- [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)

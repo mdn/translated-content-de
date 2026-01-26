@@ -3,17 +3,17 @@ title: Early-Data header
 short-title: Early-Data
 slug: Web/HTTP/Reference/Headers/Early-Data
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP-**`Early-Data`**-{{Glossary("request_header", "Anforderungsheader")}} wird von einem Vermittler gesetzt, um anzuzeigen, dass die Anforderung in [TLS-Early-Data](/de/docs/Web/Security/Transport_Layer_Security#tls_1.3) übermittelt wurde und auch anzeigt, dass der Vermittler den {{HTTPStatus("425", "425 Too Early")}}-Statuscode versteht.
+Der HTTP-**`Early-Data`**-{{Glossary("request_header", "Anforderungsheader")}} wird von einem Vermittler gesetzt, um anzuzeigen, dass die Anfrage in [TLS early data](/de/docs/Web/Security/Defenses/Transport_Layer_Security#tls_1.3) übermittelt wurde, und gibt auch an, dass der Vermittler den {{HTTPStatus("425", "425 Too Early")}}-Statuscode versteht.
 
-Wenn ein Client kürzlich mit einem Server interagiert hat, ermöglicht es Early Data (auch bekannt als Zero Round-Trip Time [(0-RTT) Data](/de/docs/Web/Security/Transport_Layer_Security#tls_1.3)) dem Client, Daten in der ersten Runde eines Verbindungsaufbaus zu einem Server zu senden, ohne auf den Abschluss des TLS-{{Glossary("TCP_handshake", "Handshakes")}} zu warten.
-Dies reduziert die Latenz bei wiederholten Verbindungen zwischen einem Client und Server, hat jedoch sicherheitsrelevante Auswirkungen, da Early Data anfällig für Replay-Angriffe ist.
+Wenn ein Client kürzlich mit einem Server interagiert hat, ermöglicht frühe Daten (auch bekannt als Zero-Round-Trip-Zeit-[(0-RTT)-Daten](/de/docs/Web/Security/Defenses/Transport_Layer_Security#tls_1.3)) dem Client, Daten an einen Server in der ersten Round-Trip-Verbindung zu senden, ohne auf den Abschluss des TLS-{{Glossary("TCP_handshake", "Handshakes")}} zu warten.
+Dies reduziert die Latenz bei wiederholten Verbindungen zwischen einem Client und Server, hat jedoch Sicherheitsimplikationen, da frühe Daten anfällig für Replay-Angriffe sind.
 
-Der `Early-Data`-Header wird **nicht** vom Urheber der Anforderung (d.h. einem Browser) gesetzt.
+Der `Early-Data`-Header wird **nicht** vom Urheber der Anfrage gesetzt (d.h. einem Browser).
 
 <table class="properties">
   <tbody>
@@ -36,10 +36,10 @@ Early-Data: 1
 
 ## Beispiele
 
-### Eine GET-Anforderung mit einem Early-Data-Header
+### Eine GET-Anfrage mit einem Early-Data-Header
 
-Ein Client, der Early Data verwenden möchte, kann HTTP-Anfragen sofort nach dem Senden des TLS-`ClientHello` senden.
-Das Senden einer Anfrage in Early Data impliziert, dass der Client bereit ist, eine Anfrage erneut zu versuchen, wenn er als Antwort einen {{HTTPStatus("425", "425 Too Early")}}-Statuscode erhält, sodass der `Early-Data`-Header nicht enthalten ist:
+Ein Client, der frühe Daten verwenden möchte, kann HTTP-Anfragen sofort nach dem Senden des TLS `ClientHello` senden.
+Das Senden einer Anfrage in frühen Daten impliziert, dass der Client bereit ist, eine Anfrage als Antwort auf einen {{HTTPStatus("425", "425 Too Early")}}-Statuscode zu wiederholen, daher wird der `Early-Data`-Header nicht eingeschlossen:
 
 ```http
 GET /resource HTTP/1.1

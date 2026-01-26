@@ -3,12 +3,10 @@ title: Temporal.Duration.prototype.abs()
 short-title: abs()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/abs
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`abs()`**-Methode von {{jsxref("Temporal.Duration")}}-Instanzen gibt ein neues `Temporal.Duration`-Objekt mit dem absoluten Wert dieser Dauer zurück (alle Felder haben dieselbe Größe, aber das Vorzeichen wird positiv).
+Die **`abs()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen gibt ein neues `Temporal.Duration` Objekt mit dem absoluten Wert dieser Dauer zurück (alle Felder haben die gleiche Größe, aber das Vorzeichen wird positiv).
 
 ## Syntax
 
@@ -22,7 +20,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues `Temporal.Duration`-Objekt mit dem absoluten Wert dieser Dauer, das entweder dieselbe Dauer ist, wenn sie bereits positiv ist, oder ihre [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), wenn sie negativ ist.
+Ein neues `Temporal.Duration` Objekt mit dem absoluten Wert dieser Dauer, der entweder der gleiche wie diese Dauer ist, wenn sie bereits positiv ist, oder seine [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), wenn sie negativ ist.
 
 ## Beispiele
 

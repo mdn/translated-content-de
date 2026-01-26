@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Unheimliche Krabbeltiere-Startseite"
-short-title: "Herausforderung: Startseite"
+title: "Herausforderung: Gruselige Krabbeltiere-Splash-Seite"
+short-title: "Herausforderung: Splash-Seite"
 slug: Learn_web_development/Core/Structuring_content/Splash_page
 l10n:
-  sourceCommit: 03482f82cba9c871042bbf4972b754f65eb3cb90
+  sourceCommit: d133373571f0e77ed982a3645ced584fc0682497
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video", "Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content")}}
 
-In dieser Herausforderung testen wir Ihr Wissen über einige der in den letzten Lektionen besprochenen Techniken, indem Sie einige Bilder und ein Video zu einer Startseite hinzufügen, die sich ganz um Insekten und andere Krabbeltiere dreht.
+In dieser Herausforderung werden wir Ihr Wissen über einige der in den letzten Stunden besprochenen Techniken testen, indem wir Sie bitten, einige Bilder und ein Video zu einer Splash-Seite über Käfer und andere Krabbeltiere hinzuzufügen.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes wird bereits bereitgestellt.
+Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des Codes, den Sie benötigen, wird bereits bereitgestellt.
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `splash-page-challenge` (oder öffnen Sie einen Online-Editor und unternehmen Sie die erforderlichen Schritte, um ein neues Projekt zu erstellen).
-2. Speichern Sie die folgende HTML-Auflistung in einer Datei in Ihrem Ordner namens `index.html` (oder fügen Sie sie in den HTML-Bereich Ihres Online-Editors ein).
+1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `splash-page-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
+2. Speichern Sie das folgende HTML-Verzeichnis in einer Datei in Ihrem Ordner, die `index.html` heißt (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
 
    ```html
    <!doctype html>
@@ -248,7 +248,7 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
    </html>
    ```
 
-3. Speichern Sie die folgende CSS-Auflistung in einer Datei in Ihrem Ordner namens `style.css` (oder fügen Sie sie in den CSS-Bereich Ihres Online-Editors ein).
+3. Speichern Sie das folgende CSS-Verzeichnis in einer Datei in Ihrem Ordner, die `style.css` heißt (oder fügen Sie es in das CSS-Feld Ihres Online-Editors ein).
 
    ```css
    /* type */
@@ -344,7 +344,7 @@ Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website
    }
    ```
 
-Später müssen Sie die folgenden URLs in Ihre Seite aufnehmen.
+Später müssen Sie die folgenden URLs auf Ihrer Seite einfügen.
 
 - `bee.jpg`: [Bild für den Abschnitt "Bienen, Wespen, Ameisen (Hymenoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/bee.jpg).
 - `beetle.png`: [Bild für den Abschnitt "Käfer (Coleoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/beetle.png).
@@ -354,40 +354,39 @@ Später müssen Sie die folgenden URLs in Ihre Seite aufnehmen.
 - `true_bug.jpg`: [Bild für den Abschnitt "Wanzen (Hemiptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/true_bug.jpg).
 - `bug_video_640.mp4`: [Header-Video](https://mdn.github.io/shared-assets/videos/learn/bug_video_640.mp4).
 
-## Projektanweisung
+## Projektbeschreibung
 
-In dieser Bewertung präsentieren wir Ihnen eine fast fertige Startseite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen einige Medien hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte erläutern, was Sie tun müssen.
+In dieser Bewertung präsentieren wir Ihnen eine größtenteils fertiggestellte Splash-Seite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen etwas Medieninhalt hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte beschreiben, was Sie tun müssen.
 
 ### Hinzufügen eines Videos zum Header
 
-Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video in die Seite einbindet. Wir möchten, dass es Folgendes tut:
+Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video in die Seite einbettet. Wir möchten, dass es Folgendes tut:
 
-- Geben Sie den [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types) des Videos an.
-- Das Video soll bei Ladevorgang automatisch abgespielt werden (damit das in zumindest einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
+- Das Video beim Laden automatisch abspielen (damit dies zumindest in einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
 - Endlos schleifen, anstatt nur einmal abzuspielen.
-- Vorkonfigurieren des Videoinhalts.
-- Keine Steuerungselemente anzeigen.
+- Das Video im Voraus laden.
+- Keine Bedienelemente anzeigen.
 
 ### Hinzufügen von Abschnittsbildern
 
-In den erweiterten Informationsabschnitten zu jedem Insektstyp, fügen Sie unter jedem `<h2>` ein Bildelement hinzu, das das entsprechende Bild für jeden Abschnitt einbindet. Geben Sie jedem Bild einen geeigneten alternativen Text, um Bildschirmleseprogramm-Benutzern (und für den Fall, dass das Bild nicht geladen wird) zu helfen, und beschränken Sie jede Bildgröße auf 250 x 180.
+In den erweiterten Informationsabschnitten zu jedem Käfertyp möchten wir unter jedem `<h2>`, dass Sie ein Bild-Element hinzufügen, das das entsprechende Bild für jeden Abschnitt einbettet. Geben Sie jedem Bild einen geeigneten Alternativtext zum Nutzen von Bildschirmlesern (und falls das Bild nicht geladen wird), und beschränken Sie jedes Bild auf die Abmessungen von 250 x 180.
 
-Darüber hinaus möchten wir, dass Sie eine Bildunterschrift für jedes Bild einfügen; überlegen Sie, welches Containerelement benötigt wird, um die beiden semantisch miteinander zu verknüpfen. Lassen Sie die Bildunterschrift nicht nur den alternativen Text wiederholen; sie sollte zusammen mit dem alternativen Text und dem Bild funktionieren.
+Darüber hinaus möchten wir, dass Sie eine Bildunterschrift für jedes Bild hinzufügen; denken Sie darüber nach, welches Containerelement benötigt wird, um die beiden semantisch zu verknüpfen. Die Bildunterschrift sollte nicht einfach den Alternativtext wiederholen; sie sollte neben dem Alternativtext und dem Bild funktionieren.
 
-### Hinzufügen von Insekten-Emojis oder -Icons zum Navigationsmenü und zu `<h2>`
+### Fügen Sie dem Navigationsmenü und den `<h2>` Emoticons oder Icons von Käfern hinzu
 
-Zum Spaß möchten wir, dass Sie Icons zum Beginn jedes Navigationslistenelements hinzufügen, und das gleiche Icon zu Beginn jedes entsprechenden `<h2>`. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, passende Emojis zu finden und diese einfach in den HTML-Text selbst einzufügen.
+Zum Spaß möchten wir, dass Sie Icons zu Beginn jedes Navigationslistenelements hinzufügen und dasselbe Icon zu Beginn jedes entsprechenden `<h2>`. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, einfach entsprechende Emojis zu finden und in den HTML-Text selbst einzufügen.
 
-## Tipps und Hinweise
+## Hinweise und Tipps
 
-- Sie können den [W3C HTML-Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu erkennen.
-- Sie müssen kein CSS kennen, um diese Bewertung zu absolvieren; Sie müssen lediglich die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits für Sie erledigt.
+- Sie können den [W3C-HTML-Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu finden.
+- Sie müssen kein CSS kennen, um diese Bewertung durchzuführen; Sie müssen nur die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits fertiggestellt.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt, wie die Startseite aussehen sollte. Wenn Sie Probleme haben, einige dieser Anforderungen zu erfüllen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Der folgende Screenshot zeigt, wie die Splash-Seite aussehen sollte. Wenn Sie bei der Umsetzung Probleme haben, finden Sie unten das Beispiel zur Lösung.
 
-![Unser Beispiel für eine Startseite](finished-splash-example.png)
+![Unser Beispiel für eine Splash-Seite](finished-splash-example.png)
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -419,7 +418,6 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
         <video
           src="https://mdn.github.io/shared-assets/videos/learn/bug_video_640.mp4"
-          type="video/mp4"
           autoplay
           loop
           muted

@@ -1,14 +1,14 @@
 ---
-title: "WritableStream: abort()-Methode"
+title: "WritableStream: abort() Methode"
 short-title: abort()
 slug: Web/API/WritableStream/abort
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 6012fe912a34bb129d5f9848a2b01b63468950f8
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle bricht den Stream ab und signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann. Der Stream wird sofort in einen Fehlerzustand versetzt und alle angestauten Schreibvorgänge werden verworfen.
+Die **`abort()`**-Methode der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle bricht den Stream ab, signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann, und versetzt ihn umgehend in einen Fehlerzustand, wobei alle eingereihten Schreibvorgänge verworfen werden.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ abort(reason)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 ### Ausnahmen
 

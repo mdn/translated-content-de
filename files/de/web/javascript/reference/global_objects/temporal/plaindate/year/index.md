@@ -3,16 +3,14 @@ title: Temporal.PlainDate.prototype.year
 short-title: year
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/year
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`year`**-Accessor-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine Ganzzahl zurück, die die Anzahl der Jahre dieses Datums relativ zum Beginn eines kalenderspezifischen Epoche-Jahres darstellt. Sie ist [kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)-abhängig.
 
-Die **`year`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Jahre dieses Datums relativ zum Beginn eines kalenderspezifischen Epochenjahres darstellt. Sie ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Diese Eigenschaft hat die gleiche Funktion wie das {{jsxref("Temporal/PlainDate/era", "era")}}/{{jsxref("Temporal/PlainDate/eraYear", "eraYear")}} Paar als eindeutiger Bezeichner eines Jahres in einem Kalender. Normalerweise ist Jahr 1 entweder das erste Jahr der neuesten Epoche oder das ISO 8601 Jahr `0001`. Da `year` relativ zum Beginn des Epoche-Jahres ist, nicht zum Epoche-Datum, hat dieses Jahr denselben Wert vor und nach dem Startdatum der Epoche, wenn die Epoche mitten im Jahr beginnt.
 
-Diese Eigenschaft hat die gleiche Funktion wie das Paar {{jsxref("Temporal/PlainDate/era", "era")}}/{{jsxref("Temporal/PlainDate/eraYear", "eraYear")}} als eindeutiger Bezeichner eines Jahres in einem Kalender. Üblicherweise ist das Jahr 1 entweder das erste Jahr der jüngsten Ära oder das ISO 8601 Jahr `0001`. Da `year` relativ zum Beginn des Epochenjahres und nicht zum Epochendatum ist, hat dieses Jahr den gleichen Wert vor und nach dem Startdatum der Ära, falls die Epoche mitten im Jahr liegt.
-
-Der set-Accessor von `year` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `year` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/PlainDate/with", "with()")}} Methode, um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 

@@ -1,8 +1,9 @@
 ---
-title: Local
-slug: WebAssembly/Reference/Variables/Local
+title: "local: Wasm Textanweisung"
+short-title: local
+slug: WebAssembly/Reference/Variables/local
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
 Die **`local`**-Anweisung deklariert eine neue lokale Variable.

@@ -3,14 +3,14 @@ title: "WindowSharedStorage: worklet-Eigenschaft"
 short-title: worklet
 slug: Web/API/WindowSharedStorage/worklet
 l10n:
-  sourceCommit: d484785e53cff16c020adc868415bb9b07b0f6af
+  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`worklet`**-Schreibgeschützte Eigenschaft des [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Interfaces enthält die Instanz von [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet), die das Shared Storage Worklet für den aktuellen Ursprung darstellt.
+Die schreibgeschützte **`worklet`**-Eigenschaft der [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Schnittstelle enthält die [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Instanz, die den gemeinsamen Speicher-Worklet für den aktuellen Ursprung darstellt.
 
-`SharedStorageWorklet` enthält die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule), die verwendet wird, um ein Modul zum Shared Storage Worklet hinzuzufügen.
+`SharedStorageWorklet` enthält die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule), die verwendet wird, um ein Modul zum gemeinsamen Speicher-Worklet hinzuzufügen.
 
 ## Wert
 
@@ -52,7 +52,7 @@ async function injectContent() {
 injectContent();
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Übersichtsseite für eine Anleitung zu diesem Beispiel und für Links zu weiteren Beispielen.
+Schauen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite an für eine ausführliche Erklärung dieses Beispiels und Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

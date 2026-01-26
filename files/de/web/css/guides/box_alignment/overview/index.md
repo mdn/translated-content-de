@@ -1,66 +1,66 @@
 ---
-title: Überblick über die CSS-Box-Ausrichtung
+title: Übersicht über die CSS-Box-Ausrichtung
 short-title: Overview
 slug: Web/CSS/Guides/Box_alignment/Overview
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 32bdfdb82cf91ce9942b694286dec62be2cc20aa
 ---
 
-Das [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/Guides/Box_alignment) spezifiziert CSS-Funktionen, die sich auf die Ausrichtung von Boxen in den verschiedenen CSS-Box-Layout-Modellen beziehen. Das Ziel des Moduls ist die Schaffung einer konsistenten Ausrichtungsmethode für alle CSS-Elemente. Die Eigenschaften der CSS-Box-Ausrichtung bieten vollständige horizontale und vertikale Ausrichtungsfähigkeiten.
+Das [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment) Modul spezifiziert CSS-Funktionen, die sich auf die Ausrichtung von Boxen in den verschiedenen CSS-Box-Layout-Modellen beziehen. Das Modul zielt darauf ab, eine konsistente Methode zur Ausrichtung in ganz CSS zu schaffen. Die CSS-Ausrichtungseigenschaften bieten vollständige horizontale und vertikale Ausrichtungsfähigkeiten.
 
-Dieser Leitfaden beschreibt die allgemeinen Konzepte, die in diesem Modul enthalten sind. Weitere Leitfäden bieten zusätzliche Informationen zur Box-Ausrichtung in [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und [Block-, absolut positionierten und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables). Die Ausrichtung von Text wird durch die Module [CSS-Text](/de/docs/Web/CSS/Guides/Text) und [CSS-Inline-Layout](/de/docs/Web/CSS/Guides/Inline_layout) abgedeckt.
+Dieser Leitfaden beschreibt die allgemeinen Konzepte, die in diesem Modul zu finden sind. Zusätzliche Leitfäden bieten weitere Informationen zur Box-Ausrichtung in [Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox), [Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout), [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout) und [Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables). Die Ausrichtung von Text wird durch die Module [CSS Text](/de/docs/Web/CSS/Guides/Text) und [CSS Inline-Layout](/de/docs/Web/CSS/Guides/Inline_layout) abgedeckt.
 
-## Schlüsselkonzepte und Terminologie
+## Wichtige Konzepte und Terminologie
 
-Die Spezifikation beschreibt einige Ausrichtungsbegriffe, um die Diskussion dieser Ausrichtungseigenschaften außerhalb ihrer Implementierung in einer bestimmten Layoutmethode zu erleichtern. Es gibt auch einige Schlüsselkonzepte, die allen Layoutmethoden gemeinsam sind.
+Die Spezifikation beschreibt einige Ausrichtungsterminologien, um es einfacher zu machen, über diese Ausrichtungseigenschaften außerhalb ihrer Implementierung innerhalb einer bestimmten Layout-Methode zu sprechen. Es gibt auch einige Schlüsselkonzepte, die allen Layout-Methoden gemeinsam sind.
 
-### Beziehung zu Schreibrichtungen
+### Beziehung zu Schreibmodi
 
-Die Ausrichtung ist mit den Schreibrichtungen verbunden, da wir bei der Ausrichtung eines Elements nicht die physischen Dimensionen von oben, rechts, unten und links berücksichtigen. Stattdessen beschreiben wir die Ausrichtung anhand des Start- und Endpunktes der jeweiligen Dimension, mit der wir arbeiten. Dies stellt sicher, dass die Ausrichtung auf die gleiche Weise funktioniert, unabhängig von der Schreibrichtung des Dokuments.
+Die Ausrichtung ist mit den Schreibmodi verbunden, da wir bei der Ausrichtung eines Elements nicht berücksichtigen, ob wir es zu den physischen Dimensionen von oben, rechts, unten und links ausrichten. Stattdessen beschreiben wir die Ausrichtung in Bezug auf den Anfang und das Ende der jeweiligen Dimension, mit der wir arbeiten. Dies stellt sicher, dass die Ausrichtung unabhängig davon, welcher Schreibmodus das Dokument hat, auf die gleiche Weise funktioniert.
 
 ### Zwei Dimensionen der Ausrichtung
 
-Bei der Verwendung der Box-Ausrichtungs-Eigenschaften richten Sie Inhalte entlang einer von zwei Achsen aus — der Inline-(oder Haupt-)Achse und der Block-(oder Quer-)Achse. Die Inline-Achse ist die Achse, entlang derer Wörter in einem Satz in der verwendeten Schreibrichtung fließen. Für Englisch ist die Inline-Achse zum Beispiel horizontal. Die Block-Achse ist die Achse, entlang der Blocks wie Absatz-Elemente angeordnet werden; sie verläuft quer zur Inline-Achse.
+Bei der Nutzung der Box-Ausrichtungseigenschaften richten Sie Inhalte auf einer von zwei Achsen aus - der Inline- (oder Haupt-)Achse und der Block- (oder Kreuz-)Achse. Die Inline-Achse ist die Achse, entlang derer Wörter in einem Satz im verwendeten Schreibmodus fließen. Für Englisch beispielsweise ist die Inline-Achse horizontal. Die Block-Achse ist die Achse, entlang derer Blöcke, wie Absatzelemente, angeordnet werden; sie verläuft quer zur Inline-Achse.
 
 ![Die Inline-Achse ist die linke/rechte oder horizontale Richtung. Die Block-Achse ist vertikal oder oben/unten.](two-axes.png)
 
-Bei der Ausrichtung von Elementen entlang der Inline-Achse verwenden Sie die Eigenschaften, die mit `justify-` beginnen:
+Bei der Ausrichtung von Elementen auf der Inline-Achse verwenden Sie die Eigenschaften, die mit `justify-` beginnen:
 
 - {{cssxref("justify-items")}}
 - {{cssxref("justify-self")}}
 - {{cssxref("justify-content")}}
 
-Bei der Ausrichtung von Elementen entlang der Block-Achse verwenden Sie die Eigenschaften, die mit `align-` beginnen:
+Bei der Ausrichtung von Elementen auf der Block-Achse verwenden Sie die Eigenschaften, die mit `align-` beginnen:
 
 - {{cssxref("align-items")}}
 - {{cssxref("align-self")}}
 - {{cssxref("align-content")}}
 
-Flexbox fügt eine zusätzliche Komplikation hinzu, da das Obige gilt, wenn {{cssxref("flex-direction")}} auf `row` eingestellt ist. Die Eigenschaften werden vertauscht, wenn Flexbox auf `column` eingestellt ist. Daher ist es bei der Arbeit mit Flexbox einfacher, über die Haupt- und Querachse nachzudenken als über Inline und Block. Die `justify-`-Eigenschaften werden immer verwendet, um an der Hauptachse auszurichten, die `align-`-Eigenschaften an der Querachse.
+Flexbox fügt eine zusätzliche Komplikation hinzu, indem das obige wahr ist, wenn {{cssxref("flex-direction")}} auf `row` gesetzt ist. Die Eigenschaften werden ausgetauscht, wenn Flexbox auf `column` gesetzt ist. Daher ist es im Allgemeinen einfacher, sich bei der Arbeit mit Flexbox über die Haupt- und Kreuzachse Gedanken zu machen, anstatt über Inline und Block. Die `justify-`-Eigenschaften werden immer zur Ausrichtung auf der Hauptachse verwendet, die `align-`-Eigenschaften auf der Kreuzachse.
 
 ### Das Ausrichtungsobjekt
 
-Das **{{Glossary("alignment_subject", "Ausrichtungsobjekt")}}** ist das Element, das ausgerichtet wird. Für `justify-self` oder `align-self` oder wenn diese Werte als Gruppe mit `justify-items` oder `align-items` festgelegt werden, ist dies der Randbereich des Elements, auf das diese Eigenschaft angewendet wird. Die Eigenschaften `justify-content` und `align-content` unterscheiden sich je nach Layoutmethode.
+Das **{{Glossary("alignment_subject", "Ausrichtungsobjekt")}}** ist das Element, das ausgerichtet wird. Für `justify-self` oder `align-self`, oder wenn diese Werte als Gruppe mit `justify-items` oder `align-items` gesetzt werden, wird dies die Randbox des Elements sein, auf das diese Eigenschaft angewendet wird. Die `justify-content` und `align-content` Eigenschaften unterscheiden sich je nach Layout-Methode.
 
 ### Der Ausrichtungscontainer
 
-Der **{{Glossary("alignment_container", "Ausrichtungscontainer")}}** ist die Box, in die das Objekt ausgerichtet wird. Dies ist typischerweise der umgebende Block des Ausrichtungsobjekts. Ein Ausrichtungscontainer kann ein oder viele Ausrichtungsobjekte enthalten.
+Der **{{Glossary("alignment_container", "Ausrichtungscontainer")}}** ist die Box, in der das Objekt ausgerichtet wird. Dies wird typischerweise der enthaltende Block des Ausrichtungsobjekts sein. Ein Ausrichtungscontainer kann ein oder viele Ausrichtungsobjekte enthalten.
 
-Das folgende Bild zeigt einen Ausrichtungscontainer mit zwei Ausrichtungsobjekten darin.
+Das folgende Bild zeigt einen Ausrichtungscontainer mit zwei darin liegenden Ausrichtungsobjekten.
 
-![Eine Box, die zwei Rechtecke mit gleicher Breite, aber unterschiedlicher Höhe enthält. Die beiden Rechtecke sind oben ausgerichtet, was bedeutet, dass beide ihre Oberlinien etwa 10px innerhalb der Oberkante der Box haben, in der sie enthalten sind.](align-container-subjects.png)
+![Ein Kasten, der zwei Rechtecke gleicher Breite, aber unterschiedlicher Höhe enthält. Die beiden Rechtecke sind oben ausgerichtet, das bedeutet, dass beide ihre oberen Linien etwa 10px innerhalb des oberen Randes des Kastens, in dem sie enthalten sind, haben.](align-container-subjects.png)
 
 ## Arten der Ausrichtung
 
-Die Spezifikation beschreibt drei verschiedene Arten der Ausrichtung, die mit Schlüsselwortwerten verwendet werden.
+Es gibt drei verschiedene Arten der Ausrichtung, die die Spezifikation beschreibt; diese verwenden Schlüsselwortwerte.
 
-- [Positionale Ausrichtung](#positionale_ausrichtung)
-- [Grundlinienausrichtung](#grundlinienausrichtung)
+- [Positionelle Ausrichtung](#positionelle_ausrichtung)
+- [Basislinienausrichtung](#basislinienausrichtung)
 - [Verteilte Ausrichtung](#verteilte_ausrichtung)
 
-### Positionale Ausrichtung
+### Positionelle Ausrichtung
 
-**Positionale Ausrichtung** ist die Position eines Ausrichtungsobjekts in Bezug auf seinen Ausrichtungscontainer. Die Schlüsselwortwerte für die positionale Ausrichtung sind für die positionale Ausrichtung definiert und können als Werte für die Inhaltsausrichtung mit `justify-content` und `align-content` sowie für die Selbstausrichtung mit `justify-self` und `align-self` verwendet werden.
+**Positionelle Ausrichtung** ist die Position eines Ausrichtungsobjekts in Bezug auf seinen Ausrichtungscontainer. Die Schlüsselwortwerte für die positionelle Ausrichtung sind für die positionelle Ausrichtung definiert und können als Werte für Inhaltsausrichtung mit `justify-content` und `align-content` sowie für Selbstausrichtung mit `justify-self` und `align-self` verwendet werden.
 
 - `center`
 - `start`
@@ -72,52 +72,52 @@ Die Spezifikation beschreibt drei verschiedene Arten der Ausrichtung, die mit Sc
 - `left`
 - `right`
 
-Abgesehen von den physischen Werten `left` und `right`, die sich auf physische Attribute des Bildschirms beziehen, sind alle anderen Werte, die {{cssxref("self-position")}}- und {{cssxref("content-position")}}-Werte, logische Werte und beziehen sich auf die Schreibrichtung des Inhalts.
+Abgesehen von den physischen Werten `left` und `right`, die sich auf physische Attribute des Bildschirms beziehen, sind alle anderen Werte, die {{cssxref("self-position")}} und {{cssxref("content-position")}} Werte logische Werte und beziehen sich auf den Schreibmodus des Inhalts.
 
-Wenn Sie beispielsweise im CSS-Grid-Layout arbeiten und `justify-content` auf `start` setzen, werden die Elemente in der Inline-Dimension an den Anfang verschoben, was links sein wird da Sätze im Englischen auf der linken Seite der Seite beginnen. Wenn Sie Arabisch, eine von rechts nach links gehende Sprache, verwenden, würde derselbe Wert `start` dazu führen, dass die Elemente nach rechts verschoben werden, da Sätze im Arabischen auf der rechten Seite der Seite beginnen.
+Zum Beispiel, wenn Sie im CSS Grid-Layout arbeiten, falls Sie Englisch verwenden und `justify-content` auf `start` setzen, werden die Elemente in der Inline-Dimension zum Anfang verschoben, was links ist, da Sätze im Englischen auf der linken Seite der Seite beginnen. Wenn Sie Arabisch, eine von rechts nach links lesbare Sprache, verwenden, würde derselbe Wert `start` dazu führen, dass sich die Elemente nach rechts verschieben, da Sätze im Arabischen auf der rechten Seite der Seite beginnen.
 
-![Es gibt zwei Boxen, jede mit 3 Kindern unterschiedlicher Höhe, aber ähnlicher Breite. Die erste Box hat drei Kinder mit den Buchstaben A, B und C. Diese drei Boxen sind alle nach links ausgerichtet. Die zweite Box hat drei Kinder mit arabischen Buchstaben darin. Diese drei Boxen sind alle nach rechts ausgerichtet.](writing-mode-start.png)
+![Es gibt zwei Boxen, jede mit 3 Kindern von unterschiedlicher Höhe, aber ähnlicher Breite. Die erste Box hat drei Kinder mit den Buchstaben A, B und C. Diese drei Boxen sind alle links ausgerichtet. Die zweite Box hat drei Kinder mit arabischen Buchstaben. Diese drei Boxen sind alle rechts ausgerichtet.](writing-mode-start.png)
 
-Beide haben `justify-content: start`, aber der Ort der beiden Starts ist aufgrund der Schreibrichtung unterschiedlich.
+Beide haben `justify-content: start`, aber die Position der beiden Anfänge ist aufgrund des Schreibmodus unterschiedlich.
 
-### Grundlinienausrichtung
+### Basislinienausrichtung
 
-**Grundlinienausrichtung** ist das Verhältnis der Grundlinien mehrerer Ausrichtungsobjekte innerhalb eines Ausrichtungskontexts. Die Grundlinienausrichtung {{cssxref("baseline-position")}} Schlüsselwörter werden verwendet, um die Grundlinien von Boxen über eine Gruppe von Ausrichtungsobjekten hinweg auszurichten. Sie können als Werte für die Inhaltsausrichtung mit `justify-content` und `align-content` und Selbstausrichtung mit `justify-self` und `align-self` verwendet werden.
+**Basislinienausrichtung** ist die Beziehung zwischen den Basislinien mehrerer Ausrichtungsobjekte innerhalb eines Ausrichtungskontextes. Die Schlüsselwörter für Basislinienausrichtung {{cssxref("baseline-position")}} werden verwendet, um die Basislinien von Boxen über eine Gruppe von Ausrichtungsobjekten hinweg auszurichten. Sie können als Werte für Inhaltsausrichtung mit `justify-content` und `align-content` und für Selbstausrichtung mit `justify-self` und `align-self` verwendet werden.
 
 - `baseline`
 - `first baseline`
 - `last baseline`
 
-Die Grundlinieninhaltsausrichtung — das Festlegen eines Grundlinienausrichtungswertes für `justify-content` oder `align-content` — funktioniert in Layoutmethoden, die Elemente in Reihen anordnen. Die Ausrichtungsobjekte werden zueinander durch Hinzufügen von Auffüllungen innerhalb der Boxen anhand ihrer Grundlinien ausgerichtet.
+Basislinen-Inhaltsausrichtung — das Festlegen eines Basislinen-Ausrichtungswertes für `justify-content` oder `align-content` — funktioniert in Layout-Methoden, die Elemente in Zeilen anordnen. Die Ausrichtungsobjekte sind basislinienausgerichtet, indem innerhalb der Boxen Polsterung hinzugefügt wird.
 
-Die Grundlinienselbstausrichtung verschiebt die Boxen durch das Hinzufügen eines Randbereichs außerhalb der Boxen, um sie anhand der Grundlinien auszurichten. Die Selbstausrichtung wird für einzelne Boxen mit `justify-self` oder `align-self` oder für Gruppen von Boxen mit `justify-items` und `align-items` durchgeführt.
+Basislinen-Selbstausrichtung verschiebt die Boxen, um sich durch die Basislinie auszurichten, indem außerhalb der Boxen ein Rand hinzugefügt wird. Die Selbstausrichtung erfolgt für einzelne Boxen mit `justify-self` oder `align-self` oder für Gruppen von Boxen mit `justify-items` und `align-items`.
 
 ### Verteilte Ausrichtung
 
-**Verteilte Ausrichtung** definiert die Ausrichtung als Verteilung des Raums unter den Ausrichtungsobjekten. Die verteilten Ausrichtung {{cssxref("content-distribution")}}-Schlüsselwörter werden mit den Eigenschaften `align-content` und `justify-content` verwendet. Diese Schlüsselwörter definieren, was mit dem verfügbaren Raum passiert, nachdem die Ausrichtungsobjekte angezeigt wurden. Die Werte sind wie folgt:
+**Verteilte Ausrichtung** definiert die Ausrichtung als eine Verteilung des Raums unter Ausrichtungsobjekten. Die Schlüsselwörter für verteilte Ausrichtung {{cssxref("content-distribution")}} werden mit den Eigenschaften `align-content` und `justify-content` verwendet. Diese Schlüsselwörter definieren, was mit jedem zusätzlichen Raum passiert, nachdem die Ausrichtungsobjekte angezeigt wurden. Die Werte sind wie folgt:
 
 - `stretch`
 - `space-between`
 - `space-around`
 - `space-evenly`
 
-Beispielsweise werden im Flex-Layout die Elemente zuerst mit `flex-start` ausgerichtet. In einem horizontalen von oben nach unten Schreibrichtung, (mit einer Sprache wie Englisch), mit `flex-direction` auf `row` gesetzt, beginnen die Elemente ganz links, und der verfügbare Raum nach dem Anzeigen der Elemente wird hinter ihnen platziert.
+Beispielsweise werden in Flex Layout Elemente zunächst mit `flex-start` ausgerichtet. Bei einem horizontalen Schreibmodus von oben nach unten (mit einer Sprache wie Englisch), mit `flex-direction` auf `row` gesetzt, beginnen die Elemente ganz links und es wird nach der Anzeige der Elemente verfügbarer Raum danach eingefügt.
 
-![Drei Rechtecke unterschiedlicher Breite befinden sich in einer Box. Sie sind alle auf der linken Seite der enthaltenen Box ausgerichtet, mit etwa 10px dazwischen und 10px zwischen der linken Seite des ersten Rechtecks und dem Elterncontainer.](justify-content-start.png)
+![Drei Rechtecke unterschiedlicher Breite befinden sich in einer Box. Sie sind alle auf die linke Seite des enthaltenden Kastens ausgerichtet, mit etwa 10px dazwischen und 10px zwischen der linken Seite des ersten Rechtecks und dem übergeordneten Container.](justify-content-start.png)
 
-Wenn Sie `justify-content: space-between` auf dem Flex-Container festlegen, wird der verfügbare Raum nun aufgeteilt und zwischen den Elementen platziert.
+Wenn Sie `justify-content: space-between` auf dem Flex-Container setzen, wird der verfügbare Raum jetzt geteilt und zwischen den Elementen platziert.
 
-![Drei Rechtecke unterschiedlicher Breite befinden sich in einer Box. Das erste Rechteck ist auf der linken Seite der enthaltenen Box ausgerichtet, das dritte Rechteck ist rechts ausgerichtet, und das mittlere Rechteck ist gleichmäßig zwischen dem ersten und letzten platziert.](justify-content-space-between.png)
+![Drei Rechtecke unterschiedlicher Breite befinden sich in einer Box. Das erste Rechteck ist an der linken Seite des enthaltenden Kastens ausgerichtet, das dritte Rechteck ist rechts ausgerichtet, und das mittlere Rechteck ist gleichmäßig zwischen dem ersten und letzten beabstandet.](justify-content-space-between.png)
 
 Damit diese Schlüsselwörter wirksam werden, ist Raum entlang der Dimension erforderlich, in der Sie die Elemente ausrichten möchten. Ohne Raum gibt es nichts zu verteilen.
 
 ### Grundlegende Beispiele
 
-Die folgenden Beispiele zeigen, wie einige der Box-Ausrichtungs-Eigenschaften in [Grid](/de/docs/Web/CSS/Guides/Grid_layout) und [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) angewendet werden.
+Die folgenden Beispiele demonstrieren, wie einige der Box-Ausrichtungseigenschaften in [Grid](/de/docs/Web/CSS/Guides/Grid_layout) und [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) angewendet werden.
 
-#### Beispiel für CSS-Grid-Layout-Ausrichtung
+#### Beispiel zur CSS-Grid-Layout-Ausrichtung
 
-In diesem Grid-Layout-Beispiel gibt es zusätzlichen Raum im Grid-Container nach dem Anordnen der Spuren fester Breite auf der Inline-(Haupt-)Achse. Dieser Raum wird mithilfe von {{cssxref("justify-content")}} verteilt. Auf der Block-(Quer-)Achse wird die Ausrichtung der Elemente in ihren Grid-Bereichen mit {{cssxref("align-items")}} gesteuert. Das erste Element überschreibt den `align-items` Wert, der auf die Gruppe durch das Setzen von {{cssxref("align-self")}} auf `center` festgelegt ist.
+In diesem Grid-Layout-Beispiel gibt es zusätzlichen Raum im Grid-Container nach dem Anordnen der festen Breitenstrecken auf der Inline- (Haupt-) Achse. Dieser Raum wird unter Verwendung von {{cssxref("justify-content")}} verteilt. Auf der Block- (Kreuz-) Achse wird die Ausrichtung der Elemente innerhalb ihrer Gitterbereiche durch {{cssxref("align-items")}} gesteuert. Das erste Element überschreibt den `align-items` Wert, der auf die Gruppe gesetzt wurde, indem {{cssxref("align-self")}} auf `center` gesetzt wird.
 
 ```html live-sample___grid-align-items
 <div class="box">
@@ -164,7 +164,7 @@ body {
 
 #### Flexbox-Ausrichtungsbeispiel
 
-In diesem Beispiel werden drei Flex-Elemente auf der Hauptachse mit `justify-content` und auf der Querachse mit `align-items` ausgerichtet. Das erste Element überschreibt den `align-items` Wert, der auf die Gruppe durch das Setzen von `align-self` auf `center` festgelegt ist.
+In diesem Beispiel werden drei Flex-Elemente auf der Hauptachse mit `justify-content` und auf der Kreuzachse mit `align-items` ausgerichtet. Das erste Element überschreibt den `align-items` Satz auf die Gruppe, indem `align-self` auf `center` gesetzt wird.
 
 ```html live-sample___flex-align-items
 <div class="box">
@@ -207,21 +207,21 @@ body {
 
 ## Überlauf-Ausrichtung
 
-Die {{cssxref("overflow-position")}} Schlüsselwörter `safe` und `unsafe` definieren das Verhalten, wenn ein Ausrichtungsobjekt größer ist als der Ausrichtungscontainer. Das `safe`-Schlüsselwort wird die Ausrichtung auf `start` festlegen, falls eine angegebene Ausrichtung einen Überlauf verursacht, wobei das Ziel darin besteht, "Datenverlust" zu vermeiden, bei dem ein Teil des Elements außerhalb der Grenzen des Ausrichtungscontainers liegt und nicht gescrollt werden kann.
+Die {{cssxref("overflow-position")}} Schlüsselwörter `safe` und `unsafe` helfen dabei, das Verhalten zu definieren, wenn ein Ausrichtungsobjekt größer als der Ausrichtungscontainer ist. Das `safe` Schlüsselwort richtet sich im Fall einer angegebenen Ausrichtung, die einen Überlauf verursacht, am `start` aus, mit dem Ziel, "Datenverlust" zu vermeiden, bei dem ein Teil des Elements außerhalb der Grenzen des Ausrichtungscontainers ist und nicht gescrollt werden kann.
 
-Wenn Sie `unsafe` angeben, wird die Ausrichtung beachtet, selbst wenn dies zu einem solchen Datenverlust führen würde.
+Wenn Sie `unsafe` angeben, wird die Ausrichtung beibehalten, auch wenn dies zu einem solchen Datenverlust führen würde.
 
 ## Lücken zwischen Boxen
 
-Die Box-Ausrichtungs-Spezifikation umfasst auch die Eigenschaften `gap`, `row-gap` und `column-gap`. Diese Eigenschaften ermöglichen die Festlegung eines konsistenten Abstands zwischen Elementen in einer Reihe oder Spalte, in jeder Layoutmethode, die Elemente auf diese Weise anordnet.
+Die Spezifikation zur Box-Ausrichtung beinhaltet auch die `gap`, `row-gap` und `column-gap` Eigenschaften. Diese Eigenschaften ermöglichen die Einstellung einer konsistenten Lücke zwischen Elementen in einer Zeile oder Spalte, in jeder Layout-Methode, in der Elemente auf diese Weise angeordnet sind.
 
-Die Eigenschaft `gap` ist eine Kurzform für `row-gap` und `column-gap`, mit der wir diese Eigenschaften gleichzeitig festlegen können:
+Die `gap` Eigenschaft ist eine Kurzform für `row-gap` und `column-gap`, die uns ermöglicht, diese Eigenschaften auf einmal festzulegen:
 
 - {{cssxref("row-gap")}}
 - {{cssxref("column-gap")}}
 - {{cssxref("gap")}}
 
-Im folgenden Beispiel verwendet ein Grid-Layout die Kurzform `gap`, um eine `10px` Lücke zwischen den Reihen und eine `2em` Lücke zwischen den Spalten festzulegen.
+Im folgenden Beispiel verwendet ein Grid-Layout die `gap` Kurzform, um einen `10px` Abstand zwischen Zeilenstrecken und einen `2em` Abstand zwischen Spaltenstrecken festzulegen.
 
 ```html live-sample___grid-gap
 <div class="box">
@@ -265,24 +265,25 @@ body {
 
 {{EmbedLiveSample("grid-gap")}}
 
-Frühe Grid-Implementierungen enthielten `gap`-Eigenschaften mit dem Präfix `grid-`. Alle Browser unterstützen die unpräfixierten Eigenschaften, obwohl Sie die folgenden Eigenschaften in einem Code-Basis sehen könnten: {{cssxref("row-gap", "grid-row-gap")}}, {{cssxref("column-gap", "grid-column-gap")}}, und {{cssxref("gap", "grid-gap")}}. Die präfixierten Versionen sind Aliase der unpräfixierten.
+Frühe Gitterimplementierungen enthielten `gap`-Eigenschaften, die mit `grid-` präfixiert waren. Alle Browser unterstützen die unpräfixierten Eigenschaften, obwohl Sie möglicherweise die folgenden Eigenschaften in einem Code-Basis sehen: {{cssxref("row-gap", "grid-row-gap")}}, {{cssxref("column-gap", "grid-column-gap")}} und {{cssxref("gap", "grid-gap")}}. Die präfixierten Versionen sind Aliase der unpräfixierten.
 
-Beachten Sie, dass andere Dinge die visuelle Lücke erhöhen können, beispielsweise die Verwendung der Raumverteilungsschlüsselwörter oder das Hinzufügen von Rändern zu den Elementen.
+Seien Sie sich bewusst, dass andere Dinge den angezeigten visuellen Abstand vergrößern können, beispielsweise die Verwendung der Raumverteilungsschlüsselwörter oder das Hinzufügen von Rändern zu Elementen.
 
 ## Box-Ausrichtung nach Layout-Typ
 
-Da die CSS-Box-Ausrichtungs-Eigenschaften je nach Spezifikation, mit der sie interagieren, unterschiedlich implementiert werden, finden Sie in den folgenden Leitfäden Einzelheiten zur Verwendung der Ausrichtungseigenschaften mit jedem Layout-Typ:
+Da die CSS-Box-Ausrichtungseigenschaften je nach der Spezifikation, mit der sie interagieren, unterschiedlich implementiert werden, konsultieren Sie die folgenden Leitfäden, um Details zur Nutzung der Ausrichtungseigenschaften mit jedem Layouttyp zu erhalten:
 
 - [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox)
 - [Box-Ausrichtung im CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
 - [Box-Ausrichtung im Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout)
-- [Box-Ausrichtung im Block-, absolut positionierten und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables)
+- [Box-Ausrichtung für Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables)
 
 ## Siehe auch
 
-- [CSS-Display](/de/docs/Web/CSS/Guides/Display) Modul
-- [CSS-Flex-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
-- [Grundlegende Konzepte der Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
-- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
-- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Modul
+- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
 - [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
+- [CSS-Anzeigemodul](/de/docs/Web/CSS/Guides/Display)
+- [CSS-Flexlayout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul

@@ -1,18 +1,18 @@
 ---
-title: "WorkletSharedStorage: remainingBudget()-Methode"
+title: "WorkletSharedStorage: remainingBudget() Methode"
 short-title: remainingBudget()
 slug: Web/API/WorkletSharedStorage/remainingBudget
 l10n:
-  sourceCommit: 775df1c62a1cbe555c4374ff9122d4ef15bd6f60
+  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`remainingBudget()`**-Methode des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Interfaces gibt das verbleibende Navigationsbudget für den aktuellen Ursprung zurück.
+Die **`remainingBudget()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt das verbleibende Navigationsbudget für den aktuellen Ursprung zurück.
 
-Das Navigationsbudget ist die Anzahl der Entropie-Bits, die innerhalb eines {{htmlelement("fencedframe")}} aufgrund der [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)-Aufrufe pro Ursprung alle 24 Stunden erlaubt sind. Dies ist nicht dasselbe wie die Anzahl der Navigationen; es basiert vielmehr auf der Anzahl potenzieller Navigationen bei jedem Aufruf. Jedes Mal, wenn eine `selectURL()`-Navigation erfolgt, verringert sich das Budget des entsprechenden Ursprungs um den Logarithmus (zur Basis 2) der Anzahl der URL-Optionen.
+Das Navigationsbudget ist die Anzahl der Entropie-Bits, die innerhalb eines {{htmlelement("fencedframe")}} aufgrund der [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)-Aufrufe pro Ursprung alle 24 Stunden erlaubt sind. Dies entspricht nicht der Anzahl der Navigationen; vielmehr basiert es auf der Anzahl der potenziellen Navigationen bei jedem Aufruf. Jedes Mal, wenn eine `selectURL()`-Navigation erfolgt, verringert sich das entsprechende Ursprungsbudget um den Logarithmus (Basis 2) der Anzahl der URL-Auswahlmöglichkeiten.
 
-Das Navigationsbudget ist ein Mechanismus, der darauf abzielt, die Rate der Weitergabe von Cross-Site-Daten an die Zielseiten, zu denen in [fenced frames](/de/docs/Web/API/Fenced_frame_API) navigiert wird, zu begrenzen.
+Das Navigationsbudget ist ein Mechanismus, der entwickelt wurde, um die Rate der Datenlecks von einer Website zu den Zielseiten, zu denen in [fenced frames](/de/docs/Web/API/Fenced_frame_API) navigiert wird, zu begrenzen.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ein {{jsxref("Promise")}}, das mit einer Zahl erfüllt wird, die das verbleibend
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde oder wenn die aufrufende Seite die Shared Storage API nicht im Rahmen eines erfolgreichen [Privacy Sandbox-Einschreibungsprozesses](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) enthalten hat.
+  - : Wird ausgelöst, wenn das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde oder wenn die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) enthalten hat.
 
 ## Beispiele
 

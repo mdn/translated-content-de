@@ -1,33 +1,22 @@
 ---
-title: "Document: location-Eigenschaft"
+title: "Dokument: location-Eigenschaft"
 short-title: location
 slug: Web/API/Document/location
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Document.location`**-Schreibgeschützte-Eigenschaft gibt ein
-[`Location`](/de/docs/Web/API/Location)-Objekt zurück, das Informationen über die URL des Dokuments
-enthält und Methoden zum Ändern dieser URL und zum Laden einer anderen URL bietet.
+Die schreibgeschützte **`location`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`Location`](/de/docs/Web/API/Location)-Objekt zurück, das Informationen über die URL des Dokuments enthält und Methoden bereitstellt, um diese URL zu ändern und eine andere URL zu laden.
 
-Obwohl `Document.location` ein _schreibgeschütztes_ `Location`-
-Objekt ist, können Sie ihm auch einen String zuweisen. Das bedeutet, dass Sie
-mit `document.location` in den meisten Fällen so arbeiten können, als wäre es ein String:
-`document.location = 'http://www.example.com'` ist ein Synonym für
-`document.location.href = 'http://www.example.com'`. Wenn Sie ihm einen anderen
-String zuweisen, lädt der Browser die zugewiesene Website.
-
-Um die URL als String zurückzugeben, kann auch die schreibgeschützte [`document.URL`](/de/docs/Web/API/Document/URL)-
-Eigenschaft verwendet werden.
-
-Wenn sich das aktuelle Dokument nicht in einem Browsing-Kontext befindet, ist der zurückgegebene Wert
-`null`.
+Um nur die URL als Zeichenfolge abzurufen, kann auch die schreibgeschützte [`document.URL`](/de/docs/Web/API/Document/URL)-Eigenschaft verwendet werden.
 
 ## Wert
 
-Ein [`Location`](/de/docs/Web/API/Location)-Objekt.
+Ein [`Location`](/de/docs/Web/API/Location)-Objekt. Wenn sich das aktuelle Dokument nicht in einem Browsing-Kontext befindet, ist der zurückgegebene Wert `null`.
+
+Obwohl die `location`-Eigenschaft selbst im Sinne von "Sie können das `Location`-Objekt nicht ersetzen" schreibgeschützt ist, können Sie dennoch direkt der `location`-Eigenschaft zuweisen, was gleichbedeutend mit der Zuweisung zu ihrer [`href`](/de/docs/Web/API/Location/href)-Eigenschaft ist. Sie können das `Location`-Objekt auch mit den Methoden [`assign()`](/de/docs/Web/API/Location/assign) und [`replace()`](/de/docs/Web/API/Location/replace) modifizieren.
 
 ## Beispiele
 
@@ -46,6 +35,6 @@ console.log(document.location);
 
 ## Siehe auch
 
-- Die Schnittstelle des zurückgegebenen Wertes, [`Location`](/de/docs/Web/API/Location)
-- Ähnliche Informationen, jedoch angehängt an den {{Glossary("browsing_context", "Browsing-Kontext")}},
+- Das Interface des zurückgegebenen Wertes, [`Location`](/de/docs/Web/API/Location)
+- Eine ähnliche Information, aber bezogen auf den {{Glossary("browsing_context", "Browsing-Kontext")}},
   [`Window.location`](/de/docs/Web/API/Window/location)

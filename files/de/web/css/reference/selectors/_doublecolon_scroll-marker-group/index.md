@@ -2,12 +2,12 @@
 title: ::scroll-marker-group
 slug: Web/CSS/Reference/Selectors/::scroll-marker-group
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 9dbcd91284ec1ec64c4d8b343c3770880dd25129
 ---
 
 {{SeeCompatTable}}
 
-Das **`::scroll-marker-group`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wird innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} erzeugt und enthält alle auf Nachfahren des Scroll-Containers erzeugten {{cssxref("::scroll-marker")}} Pseudo-Elemente.
+Das **`::scroll-marker-group`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wird innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} generiert und enthält alle {{cssxref("::scroll-marker")}} Pseudo-Elemente, die bei Nachkommen des Scroll-Containers generiert werden.
 
 ## Syntax
 
@@ -19,28 +19,28 @@ Das **`::scroll-marker-group`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/doc
 
 ## Beschreibung
 
-Das **`::scroll-marker-group`** Pseudo-Element eines Scroll-Containers repräsentiert einen **Scroll-Marker-Gruppen-Container**. Dies ist ein Container, der automatisch alle auf ihm selbst oder seinen Nachfahren erzeugten {{cssxref("::scroll-marker")}} Pseudo-Elemente enthält. Dies erlaubt es, sie als Gruppe zu positionieren und zu stylen. Dieses Pseudo-Element wird typischerweise verwendet, wenn ein CSS-Karussell erstellt wird, um einen Anzeiger für die Scroll-Position bereitzustellen. Die einzelnen Scroll-Marker können genutzt werden, um zu ihren zugehörigen Inhaltselementen zu navigieren.
+Das **`::scroll-marker-group`** Pseudo-Element eines Scroll-Containers repräsentiert einen **Scroll-Marker-Gruppencontainer**. Dies ist ein Container, der automatisch alle auf sich selbst oder seinen Nachkommen generierten {{cssxref("::scroll-marker")}} Pseudo-Elemente enthält. Dadurch können sie als Gruppe positioniert und gestaltet werden. Dieses Pseudo-Element wird typischerweise verwendet, um bei der Erstellung eines CSS-Karussells einen Scroll-Positionsindikator bereitzustellen. Die einzelnen Scroll-Markierungen können verwendet werden, um zu ihren zugehörigen Inhaltsobjekten zu navigieren.
 
-Der Scroll-Container muss seine {{cssxref("scroll-marker-group")}} Eigenschaft auf einen anderen Wert als `none` setzen, damit das `::scroll-marker-group` Pseudo-Element erzeugt wird. Der Wert von {{cssxref("scroll-marker-group")}} bestimmt, wo der Scroll-Marker-Gruppen-Container in der Tab-Reihenfolge und der Layout-Box-Reihenfolge des Karussells erscheint (aber nicht in der DOM-Struktur) — `before` setzt ihn an den Anfang, während `after` ihn ans Ende setzt.
+Der Scroll-Container muss die {{cssxref("scroll-marker-group")}}-Eigenschaft auf einen Wert ungleich `none` gesetzt haben, damit das `::scroll-marker-group` Pseudo-Element generiert wird. Der {{cssxref("scroll-marker-group")}}-Wert bestimmt, wo der Scroll-Marker-Gruppencontainer in der Tab-Reihenfolge und in der Layout-Box-Reihenfolge des Karussells erscheint (aber nicht in der DOM-Struktur) — `before` platziert ihn am Anfang, während `after` ihn am Ende platziert.
 
 > [!NOTE]
-> Alternativ kann ein Scroll-Marker-Gruppen-Container aus einem vorhandenen Element erstellt werden, das eine Reihe von {{htmlelement("a")}} Elementen enthält, unter Verwendung von {{cssxref("scroll-target-group")}}.
+> Alternativ kann ein Scroll-Marker-Gruppencontainer aus einem vorhandenen Element erstellt werden, das eine Gruppe von {{htmlelement("a")}}-Elementen enthält, unter Verwendung von {{cssxref("scroll-target-group")}}.
 
-Als Best Practice zur Barrierefreiheit sollte die visuelle Anzeigeposition des Scroll-Marker-Gruppen-Containers mit der Tab-Reihenfolge übereinstimmen. Wenn die Gruppe am Anfang des Inhalts positioniert wird, setzen Sie sie mit `before` an den Anfang der Tab-Reihenfolge. Wenn die Gruppe am Ende des Inhalts positioniert wird, setzen Sie sie mit `after` ans Ende der Tab-Reihenfolge.
+Als bewährte Methode für die Barrierefreiheit sollte die visuelle Position des Scroll-Marker-Gruppencontainers mit der Tab-Reihenfolge übereinstimmen. Wenn die Gruppe am Anfang des Inhalts positioniert wird, setzen Sie sie mit `before` am Anfang der Tab-Reihenfolge. Wenn die Gruppe am Ende des Inhalts positioniert wird, setzen Sie sie mit `after` am Ende der Tab-Reihenfolge.
 
-Wenn ein Scroll-Marker-Gruppen-Container auf einem Scroll-Container unter Verwendung der `scroll-marker-group` Eigenschaft erstellt wird, wird der Scroll-Container mit [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) Semantik gerendert. Sie können mit der Tastatur mit <kbd>Tab</kbd> darauf zugreifen und dann mit den Pfeiltasten links und rechts (oder oben und unten) zwischen den verschiedenen „Seiten“ navigieren, was auch den Status der zugehörigen Scroll-Marker und Scroll-Schaltflächen wie erwartet ändert. Die Scroll-Marker können auch normal durchgetabbt werden, wie erwartet.
+Wenn ein Scroll-Marker-Gruppencontainer auf einem Scroll-Container mit der `scroll-marker-group` Eigenschaft erstellt wird, wird der Scroll-Container mit [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) Semantik gerendert. Sie können mit der Tastatur zu ihm <kbd>Tab</kbd> wechseln und dann mit den Links- und Rechts- (oder Auf- und Ab-) Pfeiltasten zwischen den verschiedenen "Seiten" wechseln, was auch den Zustand der zugehörigen Scroll-Markierungen und Scroll-Tasten wie erwartet ändert. Die Scroll-Markierungen können auch wie erwartet normal über die Tab-Taste durchlaufen werden.
 
 ## Beispiele
 
-Siehe [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels) für weitere Beispiele, die das `::scroll-marker` Pseudo-Element verwenden.
+Siehe [Erstellung von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels) für weitere Beispiele, die das `::scroll-marker` Pseudo-Element verwenden.
 
-### Scroll-Marker für Karussells erstellen
+### Erstellung von Karussell-Scroll-Markierungen
 
-Dieses Beispiel ist ein Karussell aus einzelnen Seiten, wobei jedes Element die gesamte Seite einnimmt. Wir haben Scroll-Marker hinzugefügt, damit der Benutzer mit einem Klick auf einen Marker zu einer beliebigen Seite navigieren kann.
+Diese Demo zeigt ein Karussell mit einzelnen Seiten, wobei jedes Element die gesamte Seite einnimmt. Wir haben Scroll-Markierungen hinzugefügt, um den Benutzer zu ermöglichen, mit einem Klick auf eine Markierung zu einer beliebigen Seite zu navigieren.
 
 #### HTML
 
-Das HTML besteht aus einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elements/ul), wobei jedes [Listenelement](/de/docs/Web/HTML/Reference/Elements/li) einige Beispielinhalte enthält:
+Das HTML besteht aus einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elements/ul) , wobei jeder [Listeneintrag](/de/docs/Web/HTML/Reference/Elements/li) einige Beispielinhalte enthält:
 
 ```html live-sample___carousel-example live-sample___carousel-example_final
 <ul>
@@ -61,7 +61,7 @@ Das HTML besteht aus einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elem
 
 #### CSS
 
-Zuerst wandeln wir unser `<ul>` in ein Karussell um, indem wir das {{cssxref("display")}} auf `flex` setzen, um eine einzelne, nicht umschlagende Zeile von `<li>` Elementen zu erstellen. Die {{cssxref("overflow-x")}} Eigenschaft ist auf `auto` gesetzt, was bedeutet, dass, wenn die Elemente ihren Container auf der x-Achse überlaufen, der Inhalt horizontal scrollt. Dann wandeln wir das `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} um, indem wir sicherstellen, dass Elemente immer einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}} Wert von `mandatory` gescrollt wird.
+Wir wandeln zuerst unsere `<ul>` in ein Karussell um, indem wir den {{cssxref("display")}} auf `flex` setzen, wodurch eine einzelne, nicht umschließende Zeile von `<li>`-Elementen entsteht. Die {{cssxref("overflow-x")}}-Eigenschaft wird auf `auto` gesetzt, was bedeutet, dass der Inhalt horizontal scrollt, wenn die Elemente an der x-Achse ihren Container überlaufen. Dann wandeln wir die `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} um, der sicherstellt, dass die Elemente immer einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}}-Wert von `mandatory` gescrollt wird.
 
 ```css hidden live-sample___carousel-example live-sample___carousel-example_final
 * {
@@ -85,7 +85,7 @@ ul {
 }
 ```
 
-Als nächstes stylen wir die `<li>` Elemente, indem wir die {{cssxref("flex")}} Eigenschaft verwenden, um sie `100%` der Breite des Containers einzunehmen. Der {{cssxref("scroll-snap-align")}} Wert von `start` bewirkt, dass die linke Seite des am weitesten links sichtbaren Elements beim Scrollen des Inhalts an die linke Kante des Containers einrastet.
+Als nächstes stylen wir die `<li>`-Elemente, indem wir die {{cssxref("flex")}}-Eigenschaft verwenden, um sie `100%` der Breite des Containers ausfüllen zu lassen. Der {{cssxref("scroll-snap-align")}} Wert von `start` bewirkt, dass die linke Seite des am weitesten links sichtbaren Elements beim Scrollen des Inhalts an die linke Kante des Containers anrastet.
 
 ```css live-sample___carousel-example live-sample___carousel-example_final
 li {
@@ -99,7 +99,7 @@ li {
 }
 ```
 
-Als nächstes wird die {{cssxref("scroll-marker-group")}} Eigenschaft der Liste auf `after` gesetzt, sodass das `::scroll-marker-group` Pseudo-Element nach dem DOM-Inhalt der Liste in der Tab-Reihenfolge und Layout-Box-Reihenfolge platziert wird; das bedeutet, dass es nach den Scroll-Schaltflächen kommt:
+Der nächsten Schritt besteht darin, die {{cssxref("scroll-marker-group")}} Eigenschaft der Liste auf `after` zu setzen, sodass das `::scroll-marker-group` Pseudo-Element nach dem DOM-Inhalt der Liste in der Tab-Reihenfolge und der Layout-Box-Reihenfolge platziert wird; das bedeutet, dass es nach den Scroll-Schaltflächen kommt:
 
 ```css live-sample___carousel-example live-sample___carousel-example_final
 ul {
@@ -107,7 +107,7 @@ ul {
 }
 ```
 
-Als nächstes wird das `::scroll-marker-group` Pseudo-Element der Liste mit Flexbox ausgelegt, mit einem {{cssxref("justify-content")}} Wert von `center` und einem {{cssxref("gap")}} von `20px`, sodass seine Kinder (die {{cssxref("::scroll-marker")}} Pseudo-Elemente) zentriert innerhalb der `::scroll-marker-group` mit einem Abstand zwischen jedem angeordnet sind.
+Anschließend wird das `::scroll-marker-group` Pseudo-Element der Liste mit Flexbox ausgelegt, wobei ein {{cssxref("justify-content")}} Wert von `center` und ein {{cssxref("gap")}} von `20px` verwendet wird, sodass seine Kinder (die {{cssxref("::scroll-marker")}} Pseudo-Elemente) in der Mitte des `::scroll-marker-group` mit einem Abstand zwischen jedem positioniert sind.
 
 ```css live-sample___carousel-example live-sample___carousel-example_final
 ul::scroll-marker-group {
@@ -117,7 +117,7 @@ ul::scroll-marker-group {
 }
 ```
 
-Dann werden die Scroll-Marker selbst gestylt. Das Aussehen jedes einzelnen wird durch das Setzen von {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("background-color")}}, {{cssxref("border")}} und {{cssxref("border-radius")}} gehandhabt, aber wir müssen auch einen anderen Wert als `none` für die {{cssxref("content")}} Eigenschaft setzen, damit sie tatsächlich erzeugt werden.
+Die Scroll-Markierungen selbst werden danach gestylt. Das Aussehen jeder Markierung wird durch die Einstellungen von {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("background-color")}}, {{cssxref("border")}} und {{cssxref("border-radius")}} gehandhabt, aber wir müssen auch einen Wert ungleich `none` für die {{cssxref("content")}} Eigenschaft setzen, damit sie tatsächlich generiert werden.
 
 ```css live-sample___carousel-example live-sample___carousel-example_final
 li::scroll-marker {
@@ -131,9 +131,9 @@ li::scroll-marker {
 ```
 
 > [!NOTE]
-> Erzeugter Inhalt ist standardmäßig inline; wir können `width` und `height` auf unsere Scroll-Marker anwenden, weil sie als Flex-Items angeordnet werden.
+> Generierter Inhalt ist standardmäßig inline; wir können `width` und `height` auf unsere Scroll-Markierungen anwenden, da sie als Flexitems ausgelegt werden.
 
-Schließlich wird die {{cssxref(":target-current")}} Pseudo-Klasse verwendet, um den Scroll-Marker auszuwählen, der der aktuell sichtbaren „Seite“ entspricht, und zeigt, wie weit der Benutzer durch den Inhalt gescrollt hat. In diesem Fall setzen wir die `background-color` auf `black`, sodass es als ausgefüllter Kreis gestylt ist.
+Schließlich wird die {{cssxref(":target-current")}} Pseudoklasse verwendet, um die Scroll-Markierung auszuwählen, die der aktuell sichtbaren "Seite" entspricht und zeigt, wie weit der Benutzer durch den Inhalt gescrollt hat. In diesem Fall setzen wir die `background-color` auf `black`, sodass sie als ausgefüllter Kreis gestylt wird.
 
 ```css live-sample___carousel-example live-sample___carousel-example_final
 li::scroll-marker:target-current {
@@ -145,13 +145,13 @@ li::scroll-marker:target-current {
 
 {{EmbedLiveSample("carousel-example", "100%", "280px")}}
 
-### Positionierung des Scroll-Marker-Gruppen-Containers mit Anker-Positionierung
+### Positionieren des Scroll-Marker-Gruppencontainers mit Anker-Positionierung
 
-Dieses Beispiel erweitert das vorherige, indem es die Verwendung von [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) demonstriert, um den Scroll-Marker-Gruppen-Container relativ zum Karussell zu positionieren.
+Dieses Beispiel erweitert das vorhergehende und zeigt die Verwendung der [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning), um den Scroll-Marker-Gruppencontainer relativ zum Karussell zu positionieren.
 
 #### CSS
 
-Das `::scroll-marker-group` Pseudo-Element der Liste wird relativ zum Karussell mit CSS-Anker-Positionierung positioniert, indem der Gruppe ein Wert für {{cssxref("position-anchor")}} gegeben wird, der mit dem {{cssxref("anchor-name")}} des `<ul>` übereinstimmt. Dann positionieren wir die Gruppe relativ zum Scroll-Container in der Block-Richtung, indem wir einen {{cssxref("top")}} Wert festlegen, der eine {{cssxref("anchor()")}} Funktion enthält. Wir fügen auch einen {{cssxref("justify-self")}} Wert von `anchor-center` hinzu, der die Gruppe in der Inline-Richtung im Zentrum des Scroll-Containers ausrichtet.
+Das `::scroll-marker-group` Pseudo-Element der Liste wird relativ zum Karussell unter Verwendung der CSS Anker-Positionierung positioniert, indem der Gruppe ein Wert für {{cssxref("position-anchor")}} gegeben wird, der mit dem {{cssxref("anchor-name")}} der `<ul>` übereinstimmt. Wir positionieren dann die Gruppe relativ zum Scroll-Container in Blockrichtung, indem wir einen {{cssxref("top")}} Wert setzen, der eine {{cssxref("anchor()")}} Funktion enthält. Wir fügen auch einen {{cssxref("justify-self")}} Wert von `anchor-center` hinzu, der die Gruppe im Inline-Richtung im Zentrum des Scroll-Containers ausrichtet.
 
 ```css live-sample___carousel-example_final
 ul {
@@ -190,7 +190,9 @@ ul::scroll-marker-group {
 - {{cssxref("::scroll-marker")}}
 - {{cssxref("::column")}}
 - {{cssxref(":target-current")}}
-- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels)
-- Modul für [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)
-- Modul für [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)
+- {{cssxref(":target-before")}}
+- {{cssxref(":target-after")}}
+- [Erstellung von CSS-Karussells](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
 - [CSS-Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)

@@ -2,23 +2,28 @@
 title: timeline-scope
 slug: Web/CSS/Reference/Properties/timeline-scope
 l10n:
-  sourceCommit: e316a03cc74a78004dbba837c9d5df297e2eb0aa
+  sourceCommit: f8ef875113a7d3e9952f41de68be1e3a3a1e6988
 ---
 
-Die **`timeline-scope`** [CSS](/de/docs/Web/CSS) Eigenschaft ändert den Geltungsbereich einer benannten Animations-Timeline.
-
-Standardmäßig kann eine benannte Timeline (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}) nur als Steuerungs-Timeline eines direkten Nachfahrenelements gesetzt werden (d.h. durch Setzen von {{cssxref("animation-timeline")}} auf dieses Element mit dem Namen der Timeline als Wert). Dies ist der Standard-"Scope" der Timeline.
-
-`timeline-scope` erhält den Namen einer Timeline, die auf einem Nachfahrenelement definiert ist; dies führt dazu, dass der Geltungsbereich der Timeline auf das Element, auf dem `timeline-scope` gesetzt ist, und auf alle seine Nachfahren erweitert wird. Mit anderen Worten, dieses Element und alle seine Nachfahrenelemente können nun mit dieser Timeline gesteuert werden.
-
-> [!NOTE]
-> Wenn keine Timeline (oder mehr als eine Timeline) mit dem für `timeline-scope` angegebenen Namen existiert, wird eine inaktive Timeline mit dem angegebenen Namen erstellt.
+Die **`timeline-scope`** [CSS](/de/docs/Web/CSS)-Eigenschaft modifiziert den Bereich einer benannten Animationszeitleiste.
 
 ## Syntax
 
 ```css
+/* Keyword values */
+timeline-scope: all;
 timeline-scope: none;
-timeline-scope: custom_name_for_timeline;
+
+/* Custom name values */
+timeline-scope: --custom_name_for_timeline;
+timeline-scope: --timeline_name_one, --timeline_name_two;
+
+/* Global values */
+timeline-scope: inherit;
+timeline-scope: initial;
+timeline-scope: revert;
+timeline-scope: revert-layer;
+timeline-scope: unset;
 ```
 
 ### Werte
@@ -26,12 +31,19 @@ timeline-scope: custom_name_for_timeline;
 Erlaubte Werte für `timeline-scope` sind:
 
 - `none`
-  - : Es gibt keine Änderung im Geltungsbereich der Timeline.
+  - : Es gibt keine Änderung im Zeitleistenbereich. Dies ist der Standardwert.
+- `all`
+  - : Die Namen aller von Nachfahren definierten Zeitleisten sind im Bereich für dieses Element und seine Nachfahren.
 - `<dashed-ident>`
-  - : Gibt den Namen einer bestehenden benannten Timeline an (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem Nachfahrenelement definiert ist. Dies führt dazu, dass der Geltungsbereich der Timeline auf das Element, auf dem `timeline-scope` gesetzt ist, und auf alle seine Nachfahren erweitert wird.
+  - : Gibt den Namen einer bestehenden benannten Zeitleiste an (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem nachfolgenden Element definiert ist. Dies erweitert den Zeitleistenbereich auf das aktuelle Element und alle seine Nachkommen.
 
-    > [!NOTE]
-    > [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/custom-ident) Werte müssen mit `--` beginnen, um Namenskollisionen mit Standard-CSS-Schlüsselwörtern zu vermeiden.
+## Beschreibung
+
+Die `timeline-scope`-Eigenschaft modifiziert den Bereich einer benannten Animationszeitleiste. Standardmäßig kann eine [benannte Zeitleiste](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#animation_timelines) (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}) nur als die kontrollierende Zeitleiste eines direkten Nachfahrenelements festgelegt werden (d.h. indem {{cssxref("animation-timeline")}} darauf mit dem Zeitleistennamen als Wert gesetzt wird). Dies ist der Standard-"Bereich" für die Zeitleiste.
+
+Der Wert von `timeline-scope` ist der Name einer auf einem nachfolgenden Element definierten Zeitleiste; dies ändert den Bereich der Zeitleiste, um das gezielte Element und seine Nachkommen einzuschließen. Mit anderen Worten, das Element, auf dem die `timeline-scope`-Eigenschaft definiert ist, und alle seine nachfolgenden Elemente können anhand dieser Zeitleiste gesteuert werden.
+
+Wenn keine Zeitleiste (oder mehrere Zeitleisten) mit dem für `timeline-scope` gegebenen Namen existieren, wird eine inaktive Zeitleiste mit dem angegebenen Namen erzeugt. Die `timeline-scope`-Eigenschaft funktioniert nur mit benannten Zeitleisten und kann daher nicht in Verbindung mit anonymen Zeitleisten verwendet werden, die mit den Funktionen {{cssxref("animation-timeline/view", "view()")}} oder {{cssxref("animation-timeline/scroll", "scroll()")}} erstellt werden.
 
 ## Formale Definition
 
@@ -43,11 +55,11 @@ Erlaubte Werte für `timeline-scope` sind:
 
 ## Beispiele
 
-In diesem Beispiel wird eine Scroll-Timeline mit dem Namen `--my-scroller` mit der Eigenschaft `scroll-timeline-name` auf dem Element mit der Klasse `scroller` (dem Scrolling-Element) definiert. Diese wird dann auf die Animation des Elements mit den Klassen `box` und `animation` (dem animierten Element) angewendet, mit `animation-timeline: --my-scroller`. Der entscheidende Punkt hier ist, dass das animierte Element kein Nachfahre des Scrolling-Elements ist — um dies zu ermöglichen, erweitern wir den Geltungsbereich der `--my-scroller` Timeline, indem wir `timeline-scope: --my-scroller` auf den {{htmlelement("body")}} setzen.
+In diesem Beispiel animieren wir ein Element als Reaktion auf das Scrollen eines anderen Elements, indem wir den Zeitleistenbereich mit der `timeline-scope`-Eigenschaft erweitern.
 
 ### HTML
 
-Das HTML für das Beispiel ist unten gezeigt.
+Das HTML enthält ein zu animierendes Element und ein Element zum Scrollen:
 
 ```html
 <div class="content">
@@ -61,9 +73,9 @@ Das HTML für das Beispiel ist unten gezeigt.
 
 ### CSS
 
-Das CSS ist wie folgt.
+Eine Scroll-Zeitleiste mit dem Namen `--my-scroller` wird unter Verwendung der {{cssxref("scroll-timeline-name")}}-Eigenschaft auf einem scrollbaren Element definiert. Dieser Scroll-Zeitleistenname wird an zwei weiteren Stellen verwendet: Er wird als {{cssxref("animation-timeline")}} auf das Element angewendet, das wir animieren möchten, und als `timeline-scope` auf einen Vorfahren sowohl des Scroll- als auch des animierten Elements, was den Bereich erweitert.
 
-Zuerst setzen wir die Höhe des `<body>` auf `100vh` und legen seine zwei Kindelemente als zwei gleiche Spalten mit Flexbox an. Wir setzen auch `timeline-scope: --my-scroller` darauf, damit die `--my-scroller` Timeline als Steuerungstimeline für eine Animation auf dem `<body>` und jedem darin befindlichen Element gesetzt werden kann.
+Wir setzen die Höhe des `<body>` auf `100vh` und platzieren seine zwei Kindelemente als zwei gleich große Spalten mit Flexbox. Um den Zeitleistenbereich vom `<div class="scroller">`-Element auf das gesamte `<body>` zu erweitern, setzen wir `timeline-scope: --my-scroller` darauf. Indem wir dies tun, kann die `--my-scroller`-Zeitleiste als die kontrollierende Zeitleiste für eine auf `<body>` oder einem darin verschachtelten Element gesetzte Animation festgelegt werden.
 
 ```css
 body {
@@ -71,8 +83,6 @@ body {
   height: 100vh;
   display: flex;
 
-  /* increases the timeline scope from the .scroller <div> element
-  to the whole <body> */
   timeline-scope: --my-scroller;
 }
 
@@ -82,7 +92,7 @@ body {
 }
 ```
 
-Als nächstes wird auf dem Scrolling-Element die `--my-scroller` Timeline gesetzt, `overflow`, damit es scrollen kann, und es erhält eine Hintergrundfarbe, damit sein Rand deutlich sichtbar ist. Das lange Kindelement des Scrolling-Elements erhält eine große Höhe, damit das Scrolling-Element tatsächlich scrollt.
+Wir setzen `--my-scroller` als die {{cssxref("scroll-timeline-name")}} auf das scrollbare Element, das die Scroll-Fortschrittszeitleiste für unser animiertes Element bereitstellen soll. Wir fügen {{cssxref("overflow")}} hinzu, um das Scrollen zu ermöglichen, und fügen eine Hintergrundfarbe hinzu, um seine Grenze sichtbar zu machen. Wir setzen eine große {{cssxref("height")}} auf den Inhalt unseres scrollbaren Elements, damit das Element tatsächlich scrollt.
 
 ```css
 .scroller {
@@ -96,7 +106,7 @@ Als nächstes wird auf dem Scrolling-Element die `--my-scroller` Timeline gesetz
 }
 ```
 
-Dann geben wir dem animierten Element ein einfaches Styling und wenden eine Animation darauf an. Wir setzen auch die `--my-scroller` Timeline darauf, indem wir `animation-timeline: --my-scroller` verwenden. Zur Wiederholung, dies ist nur möglich, weil wir zuvor `timeline-scope: --my-scroller` auf dem `<body>`-Element gesetzt haben — das animierte Element ist **kein** Nachfahre des Scrolling-Elements.
+Als nächstes geben wir dem animierten Element einige grundlegende Stile und wenden eine Animation darauf an, indem wir die {{cssxref("animation")}}-Kurzschreibweise verwenden. Wir setzen die {{cssxref("animation-timeline")}} auf die benannte Scroll-Zeitleiste: `--my-scroller`. Um es zu wiederholen: Das Animieren des Elements basierend auf dem Scroll-Fortschritt seines Cousin-Elements ist nur möglich, weil wir `timeline-scope` auf einen gemeinsamen Vorfahren gesetzt haben; das animierte Element ist **kein** Nachfahre des scrollbaren Elements.
 
 ```css
 .box {
@@ -104,34 +114,47 @@ Dann geben wir dem animierten Element ein einfaches Styling und wenden eine Anim
   height: 100px;
   border-radius: 10px;
   background-color: rebeccapurple;
-  position: fixed;
-  top: 20px;
-  left: 0%;
 }
 
 .animation {
-  animation: rotate-appear;
+  animation: rotate-appear 1ms linear;
   animation-timeline: --my-scroller;
 }
 
 @keyframes rotate-appear {
   from {
     rotate: 0deg;
-    left: 0%;
+    translate: 0;
   }
 
   to {
     rotate: 720deg;
-    left: 100%;
+    translate: 100%;
+  }
+}
+```
+
+```css hidden
+@layer supports {
+  @supports not (timeline-scope: none) {
+    body::before {
+      content: "Your browser does not support the 'timeline-scope' property.";
+      background-color: wheat;
+      display: block;
+      text-align: center;
+      padding: 1rem;
+    }
   }
 }
 ```
 
 ### Ergebnis
 
-Scrollen Sie die vertikale Leiste im rosa Bereich, um zu sehen, wie das Quadrat animiert wird.
+Scrollen Sie die vertikale Leiste im pinkfarbenen Bereich, um das Quadrat zu animieren.
 
 {{EmbedLiveSample("Examples", "100%", "320px")}}
+
+Der zentrale Punkt hier ist, dass das animierte Element kein Nachfahre des scrollbaren Elements ist — um dies zu ermöglichen, erweitern wir den Bereich der `--my-scroller`-Zeitleiste, indem wir `timeline-scope: --my-scroller` auf dem {{htmlelement("body")}} setzen.
 
 ## Spezifikationen
 
@@ -143,7 +166,7 @@ Scrollen Sie die vertikale Leiste im rosa Bereich, um zu sehen, wie das Quadrat 
 
 ## Siehe auch
 
-- [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)
-- [`scroll-timeline`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline), [`scroll-timeline-name`](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-name)
-- [`view-timeline`](/de/docs/Web/CSS/Reference/Properties/view-timeline), [`view-timeline-name`](/de/docs/Web/CSS/Reference/Properties/view-timeline-name)
-- [CSS Scroll-getriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- {{cssxref("animation-timeline")}}
+- {{cssxref("scroll-timeline")}}, {{cssxref("scroll-timeline-name")}}
+- {{cssxref("view-timeline")}}, {{cssxref("view-timeline-name")}}
+- [CSS-scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)

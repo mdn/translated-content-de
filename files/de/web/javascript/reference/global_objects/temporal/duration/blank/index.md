@@ -3,12 +3,10 @@ title: Temporal.Duration.prototype.blank
 short-title: blank
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/blank
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`blank`** Accessor-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt einen booleschen Wert zurück, der `true` ist, wenn diese Dauer eine Null-Dauer darstellt, und `false` andernfalls. Sie ist äquivalent zu `duration.sign === 0`.
+Die **`blank`** Accessor-Eigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt einen booleschen Wert zurück, der `true` ist, wenn diese Dauer eine Null-Dauer darstellt, und `false` andernfalls. Es ist äquivalent zu `duration.sign === 0`.
 
 ## Beispiele
 

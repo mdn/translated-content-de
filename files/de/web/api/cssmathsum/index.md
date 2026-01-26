@@ -2,14 +2,14 @@
 title: CSSMathSum
 slug: Web/API/CSSMathSum
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSMathSum`**-Schnittstelle der [CSS Typed Object Model-API](/de/docs/Web/API/CSS_Object_Model) repräsentiert das Ergebnis, das durch den Aufruf von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird.
+Das **`CSSMathSum`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert das Ergebnis, das durch Aufrufen von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird.
 
-Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get) bei einer CSS-Eigenschaft verwendet wird, deren Wert mit einer [`calc()`](/de/docs/Web/CSS/Reference/Values/calc)-Funktion erstellt wurde.
+Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get) auf einer CSS-Eigenschaft verwendet wird, deren Wert mit einer {{cssxref("calc()")}}-Funktion erstellt wurde.
 
 {{InheritanceDiagram}}
 
@@ -25,15 +25,15 @@ Ein CSSMathSum ist der Objekttyp, der zurückgegeben wird, wenn die Methode [`St
 
 ## Statische Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
+_Das Interface kann auch Methoden von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Instanz-Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
+_Das Interface kann auch Methoden von seinem übergeordneten Interface [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/Reference/Properties/width), die durch eine [`calc()`](/de/docs/Web/CSS/Reference/Values/calc)-Funktion bestimmt wird, dann verwenden wir [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` und die `values` anzuzeigen und untersuchen die Werte etwas genauer.
+Wir erstellen ein Element mit einer {{cssxref("width")}}, die durch eine {{cssxref("calc()")}}-Funktion bestimmt wird, dann verwenden wir [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` und die `values` auszugeben, und untersuchen die Werte ein wenig.
 
 ```html
 <div>has width</div>
@@ -65,7 +65,7 @@ console.log(styleMap.get("width").values[1].unit); // 'px'
 
 {{EmbedLiveSample("Examples", 120, 300)}}
 
-Die Spezifikation entwickelt sich noch. In Zukunft könnten wir die letzten drei Zeilen wie folgt schreiben:
+Die Spezifikation entwickelt sich noch weiter. In Zukunft könnten wir die letzten drei Zeilen wie folgt schreiben:
 
 ```js
 console.log(styleMap.get("width").values[1]); // CSSMathNegate {value: CSSUnitValue, operator: "negate"}

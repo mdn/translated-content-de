@@ -2,70 +2,70 @@
 title: CustomStateSet
 slug: Web/API/CustomStateSet
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("Web Components")}}
 
-Das **`CustomStateSet`**-Interface des [Document Object Model](/de/docs/Web/API/Document_Object_Model) speichert eine Liste von Zuständen für ein [autonomes benutzerdefiniertes Element](/de/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element) und ermöglicht das Hinzufügen und Entfernen von Zuständen aus dem Set.
+Die **`CustomStateSet`**-Schnittstelle des [Document Object Model](/de/docs/Web/API/Document_Object_Model) speichert eine Liste von Zuständen für ein [autonomes benutzerdefiniertes Element](/de/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element) und erlaubt es, Zustände zum Satz hinzuzufügen oder daraus zu entfernen.
 
-Das Interface kann verwendet werden, um die internen Zustände eines benutzerdefinierten Elements offenzulegen, sodass sie in CSS-Selektoren von Code verwendet werden können, der das Element benutzt.
+Die Schnittstelle kann verwendet werden, um die internen Zustände eines benutzerdefinierten Elements offenzulegen, sodass sie in CSS-Selektoren von Code, der das Element verwendet, genutzt werden können.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`CustomStateSet.size`](/de/docs/Web/API/CustomStateSet/size)
   - : Gibt die Anzahl der Werte im `CustomStateSet` zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`CustomStateSet.add()`](/de/docs/Web/API/CustomStateSet/add)
-  - : Fügt einen Wert zum Set hinzu.
+  - : Fügt einen Wert zum Satz hinzu.
 - [`CustomStateSet.clear()`](/de/docs/Web/API/CustomStateSet/clear)
   - : Entfernt alle Elemente aus dem `CustomStateSet`-Objekt.
 - [`CustomStateSet.delete()`](/de/docs/Web/API/CustomStateSet/delete)
   - : Entfernt einen Wert aus dem `CustomStateSet`-Objekt.
 - [`CustomStateSet.entries()`](/de/docs/Web/API/CustomStateSet/entries)
-  - : Gibt einen neuen Iterator mit den Werten für jedes Element im `CustomStateSet` in Einfügereihenfolge zurück.
+  - : Gibt einen neuen Iterator mit den Werten für jedes Element im `CustomStateSet` in der Reihenfolge der Einfügung zurück.
 - [`CustomStateSet.forEach()`](/de/docs/Web/API/CustomStateSet/forEach)
   - : Führt eine bereitgestellte Funktion für jeden Wert im `CustomStateSet`-Objekt aus.
 - [`CustomStateSet.has()`](/de/docs/Web/API/CustomStateSet/has)
-  - : Gibt ein {{jsxref("Boolean")}} zurück, das angibt, ob ein Element mit dem gegebenen Wert vorhanden ist.
+  - : Gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob ein Element mit dem angegebenen Wert vorhanden ist.
 - [`CustomStateSet.keys()`](/de/docs/Web/API/CustomStateSet/keys)
   - : Ein Alias für [`CustomStateSet.values()`](/de/docs/Web/API/CustomStateSet/values).
 - [`CustomStateSet.values()`](/de/docs/Web/API/CustomStateSet/values)
-  - : Gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `CustomStateSet`-Objekt in Einfügereihenfolge liefert.
+  - : Gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `CustomStateSet`-Objekt in der Reihenfolge der Einfügung liefert.
 
 ## Beschreibung
 
-Eingebaute HTML-Elemente können unterschiedliche _Zustände_ haben, wie "enabled" und "disabled", "checked" und "unchecked", "initial", "loading" und "ready".
-Einige dieser Zustände sind öffentlich und können über Eigenschaften/Attribute festgelegt oder abgefragt werden, während andere im Wesentlichen intern sind und nicht direkt festgelegt werden können.
-Ob extern oder intern, Elementzustände können im Allgemeinen mit [CSS-Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) als Selektoren ausgewählt und gestylt werden.
+In HTML eingebettete Elemente können verschiedene _Zustände_ haben, wie "aktiviert" und "deaktiviert", "ausgewählt" und "nicht ausgewählt", "initial", "lädt" und "bereit".
+Einige dieser Zustände sind öffentlich und können über Eigenschaften/Attribute gesetzt oder abgefragt werden, während andere effektiv intern sind und nicht direkt gesetzt werden können.
+Egal ob extern oder intern, Elementzustände können im Allgemeinen mit [CSS-Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) als Selektoren ausgewählt und gestylt werden.
 
-Das `CustomStateSet` ermöglicht es Entwicklern, Zustände für autonome benutzerdefinierte Elemente hinzuzufügen und zu löschen (aber nicht für Elemente, die von eingebauten Elementen abgeleitet sind).
-Diese Zustände können dann als benutzerdefinierte Zustands-Pseudoklassen-Selektoren ähnlich wie die Pseudoklassen für eingebaute Elemente verwendet werden.
+Das `CustomStateSet` ermöglicht es Entwickler\*innen, Zustände für autonome benutzerdefinierte Elemente hinzuzufügen und zu löschen (nicht für von eingebauten Elementen abgeleitete Elemente).
+Diese Zustände können dann als benutzerdefinierte Zustands-Pseudoklassenselektoren auf ähnliche Weise wie die Pseudoklassen für eingebaute Elemente verwendet werden.
 
-### Festlegung benutzerdefinierter Elementzustände
+### Benutzerdefinierte Zustände von Elementen setzen
 
-Um das `CustomStateSet` verfügbar zu machen, muss ein benutzerdefiniertes Element zuerst [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) aufrufen, um ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt anzuhängen.
-`CustomStateSet` wird dann von [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states) zurückgegeben.
-Beachten Sie, dass `ElementInternals` nicht an ein benutzerdefiniertes Element angehängt werden kann, das auf einem eingebauten Element basiert, sodass dieses Feature nur für autonome benutzerdefinierte Elemente funktioniert (siehe [github.com/whatwg/html/issues/5166](https://github.com/whatwg/html/issues/5166)).
+Um das `CustomStateSet` verfügbar zu machen, muss ein benutzerdefiniertes Element zunächst [`HTMLElement.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) aufrufen, um ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt anzuhängen.
+Das `CustomStateSet` wird dann von [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states) zurückgegeben.
+Beachten Sie, dass `ElementInternals` nicht an ein benutzerdefiniertes Element angehängt werden kann, das auf einem eingebauten Element basiert, sodass diese Funktion nur für autonome benutzerdefinierte Elemente funktioniert (siehe [github.com/whatwg/html/issues/5166](https://github.com/whatwg/html/issues/5166)).
 
-Die `CustomStateSet`-Instanz ist ein [`Set`-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), das eine geordnete Menge von Zustandswerten halten kann.
-Jeder Wert ist ein benutzerdefinierter Bezeichner.
-Bezeichner können zum Set hinzugefügt oder daraus gelöscht werden.
-Wenn ein Bezeichner im Set vorhanden ist, ist der entsprechende Zustand `true`, während der Zustand `false` ist, wenn er entfernt wird.
+Die `CustomStateSet`-Instanz ist ein [`Set`-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), das eine geordnete Menge von Zustandswerten enthalten kann.
+Jeder Wert ist ein benutzerdefinierter Identifikator.
+Identifikatoren können zur Menge hinzugefügt oder gelöscht werden.
+Wenn ein Identifikator in der Menge vorhanden ist, ist der jeweilige Zustand `true`, während er entfernt wird, wenn der Zustand `false` ist.
 
-Benutzerdefinierte Elemente, die Zustände mit mehr als zwei Werten haben, können sie mit mehreren booleschen Zuständen darstellen, von denen jeweils nur einer (`true`) zu einem Zeitpunkt im `CustomStateSet` vorhanden ist.
+Benutzerdefinierte Elemente, die Zustände mit mehr als zwei Werten haben, können diese mit mehreren booleschen Zuständen darstellen, von denen nur einer gleichzeitig `true` (in der `CustomStateSet` vorhanden) ist.
 
-Die Zustände können innerhalb des benutzerdefinierten Elements verwendet werden, sind aber von außerhalb der benutzerdefinierten Komponente nicht direkt zugänglich.
+Die Zustände können innerhalb des benutzerdefinierten Elements verwendet werden, sind jedoch außerhalb der benutzerdefinierten Komponente nicht direkt zugänglich.
 
 ### Interaktion mit CSS
 
-Sie können ein benutzerdefiniertes Element auswählen, das sich in einem bestimmten Zustand befindet, indem Sie die [`:state()`](/de/docs/Web/CSS/Reference/Selectors/:state) _benutzerdefinierte Zustands-Pseudoklasse_ verwenden.
-Das Format dieser Pseudoklasse ist `:state(mein-zustandsname)`, wobei `mein-zustandsname` der im Element definierte Zustand ist.
-Die benutzerdefinierte Zustands-Pseudoklasse passt nur, wenn der Zustand `true` ist (d.h. wenn `mein-zustandsname` im `CustomStateSet` vorhanden ist).
+Sie können ein benutzerdefiniertes Element auswählen, das sich in einem bestimmten Zustand befindet, indem Sie die {{cssxref(":state()")}} _benutzerdefinierte Zustands-Pseudoklasse_ verwenden.
+Das Format dieser Pseudoklasse ist `:state(mein-zustandsname)`, wobei `mein-zustandsname` der Zustand ist, wie im Element definiert.
+Die benutzerdefinierte Zustands-Pseudoklasse stimmt mit dem benutzerdefinierten Element nur überein, wenn der Zustand `true` ist (d.h. wenn `mein-zustandsname` im `CustomStateSet` enthalten ist).
 
-Zum Beispiel passt der folgende CSS-Code zu einem `labeled-checkbox`-benutzerdefinierten Element, wenn das `checked`-Element im `CustomStateSet` enthalten ist, und wendet einen `solid`-Rand auf das Kontrollkästchen an:
+Zum Beispiel stimmt das folgende CSS mit einem benutzerdefinierten `labeled-checkbox`-Element überein, wenn das `CustomStateSet` des Elements den `checked`-Zustand enthält, und wendet einen `solid`-Rand auf das Kontrollkästchen an:
 
 ```css
 labeled-checkbox:state(checked) {
@@ -73,30 +73,30 @@ labeled-checkbox:state(checked) {
 }
 ```
 
-CSS kann auch verwendet werden, um einen benutzerdefinierten Zustand [innerhalb des Shadow DOM eines benutzerdefinierten Elements](/de/docs/Web/CSS/Reference/Selectors/:state#matching_a_custom_state_in_a_custom_elements_shadow_dom) abzugleichen, indem `:state()` innerhalb der [`:host()`](/de/docs/Web/CSS/Reference/Selectors/:host_function)-Pseudoklassen-Funktion angegeben wird.
+CSS kann auch verwendet werden, um einen benutzerdefinierten Zustand [innerhalb eines benutzerdefinierten Elements im Shadow DOM](/de/docs/Web/CSS/Reference/Selectors/:state#matching_a_custom_state_in_a_custom_elements_shadow_dom) zu verwenden, indem `:state()` innerhalb der {{cssxref(":host()")}}-Pseudoklassenfunktion angegeben wird.
 
-Zusätzlich kann die `:state()` Pseudoklasse nach dem [`::part()`](/de/docs/Web/CSS/Reference/Selectors/::part)-Pseudoelement verwendet werden, um [Shadow-Parts](/de/docs/Web/CSS/Guides/Shadow_parts) eines benutzerdefinierten Elements abzugleichen, die sich in einem bestimmten Zustand befinden.
+Außerdem kann die `:state()`-Pseudoklasse nach dem {{cssxref("::part()")}}-Pseudo-Element verwendet werden, um die [Schatten-Teile (shadow parts)](/de/docs/Web/CSS/Guides/Shadow_parts) eines benutzerdefinierten Elements zu erfassen, die sich in einem bestimmten Zustand befinden.
 
 > [!WARNING]
-> Browser, die noch nicht `:state()` unterstützen, verwenden ein CSS `<dashed-ident>`, um benutzerdefinierte Zustände auszuwählen, was jetzt veraltet ist.
-> Informationen dazu, wie beide Ansätze unterstützt werden können, finden Sie im Abschnitt [Kompatibilität mit `<dashed-ident>`-Syntax](#compatibility_with_dashed-ident_syntax) weiter unten.
+> Browser, die {{cssxref(":state()")}} noch nicht unterstützen, verwenden ein CSS-`<dashed-ident>`, um benutzerdefinierte Zustände auszuwählen, das inzwischen veraltet ist.
+> Informationen darüber, wie Sie beide Ansätze unterstützen können, finden Sie im Abschnitt [Kompatibilität mit `<dashed-ident>`-Syntax](#compatibility_with_dashed-ident_syntax).
 
 ## Beispiele
 
-### Abgleich des benutzerdefinierten Zustands eines benutzerdefinierten Kontrollkästchenelements
+### Den benutzerdefinierten Zustand eines benutzerdefinierten Kontrollkästchenelements anpassen
 
-Dieses Beispiel, das aus der Spezifikation adaptiert wurde, demonstriert ein benutzerdefiniertes Kontrollkästchenelement, das einen internen "checked"-Zustand hat.
-Dieser wird dem benutzerdefinierten `checked`-Zustand zugeordnet, wodurch Stile mit der benutzerdefinierten `:state(checked)` Zustands-Pseudoklasse angewendet werden können.
+Dieses Beispiel, das aus der Spezifikation adaptiert wurde, zeigt ein benutzerdefiniertes Kontrollkästchenelement, das einen internen "checked"-Zustand hat.
+Dieser wird dem benutzerdefinierten `checked`-Zustand zugeordnet, wodurch Styling durch die `:state(checked)`-Pseudo-Klasse angewendet werden kann.
 
 #### JavaScript
 
-Zuerst definieren wir unsere Klasse `LabeledCheckbox`, die von `HTMLElement` erbt.
-Im Konstruktor rufen wir die Methode `super()` auf, fügen einen Listener für das Klickereignis hinzu und rufen [`this.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) auf, um ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt anzuhängen.
+Zuerst definieren wir unsere Klasse `LabeledCheckbox`, die von `HTMLElement` abgeleitet ist.
+Im Konstruktor rufen wir die `super()`-Methode auf, fügen einen Listener für das Klick-Ereignis hinzu und rufen [`this.attachInternals()`](/de/docs/Web/API/HTMLElement/attachInternals) auf, um ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt anzuhängen.
 
-Der Großteil der Arbeit wird dann `connectedCallback()` überlassen, das aufgerufen wird, wenn ein benutzerdefiniertes Element zur Seite hinzugefügt wird.
-Der Inhalt des Elements wird unter Verwendung eines `<style>`-Elements als der Text `[]` oder `[x]` gefolgt von einem Label definiert.
-Besonders hervorzuheben ist, dass die benutzerdefinierte Zustands-Pseudoklasse verwendet wird, um den anzuzeigenden Text auszuwählen: `:host(:state(checked))`.
-Nach dem Beispiel unten werden wir genauer erläutern, was im Snippet passiert.
+Der Großteil der verbleibenden "Arbeit" wird dann `connectedCallback()` überlassen, das aufgerufen wird, wenn ein benutzerdefiniertes Element zur Seite hinzugefügt wird.
+Der Inhalt des Elements wird mit Hilfe eines `<style>`-Elements definiert, das entweder den Text `[]` oder `[x]` gefolgt von einem Label anzeigt.
+Bemerkenswert ist hier, dass die benutzerdefinierte Zustands-Pseudoklasse verwendet wird, um den anzuzeigenden Text auszuwählen: `:host(:state(checked))`.
+Nach dem folgenden Beispiel werden wir im Detail darauf eingehen, was im Schnipsel geschieht.
 
 ```js
 class LabeledCheckbox extends HTMLElement {
@@ -166,12 +166,12 @@ if (!LabeledCheckbox.isStateSyntaxSupported()) {
 
 In der `LabeledCheckbox`-Klasse:
 
-- In `get checked()` und `set checked()` verwenden wir `ElementInternals.states`, um das `CustomStateSet` zu erhalten.
-- Die Methode `set checked(flag)` fügt den `"checked"`-Bezeichner dem `CustomStateSet` hinzu, wenn das Flag gesetzt ist, und löscht den Bezeichner, wenn das Flag `false` ist.
-- Die Methode `get checked()` prüft lediglich, ob die `checked`-Eigenschaft im Set definiert ist.
+- In den `get checked()` und `set checked()`-Methoden verwenden wir `ElementInternals.states`, um das `CustomStateSet` zu erhalten.
+- Die `set checked(flag)`-Methode fügt den `"checked"`-Identifikator dem `CustomStateSet` hinzu, wenn das Flag gesetzt ist, und entfernt den Identifikator, wenn das Flag `false` ist.
+- Die `get checked()`-Methode prüft nur, ob die `checked`-Eigenschaft im Satz definiert ist.
 - Der Eigenschaftswert wird umgeschaltet, wenn auf das Element geklickt wird.
 
-Dann rufen wir die [`define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode auf dem Objekt auf, das von [`Window.customElements`](/de/docs/Web/API/Window/customElements) zurückgegeben wird, um das benutzerdefinierte Element zu registrieren:
+Wir rufen dann die [`define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode auf dem Objekt auf, das von [`Window.customElements`](/de/docs/Web/API/Window/customElements) zurückgegeben wird, um das benutzerdefinierte Element zu registrieren:
 
 ```js
 customElements.define("labeled-checkbox", LabeledCheckbox);
@@ -179,7 +179,7 @@ customElements.define("labeled-checkbox", LabeledCheckbox);
 
 #### HTML
 
-Nachdem wir das benutzerdefinierte Element registriert haben, können wir das Element im HTML verwenden wie gezeigt:
+Nach der Registrierung des benutzerdefinierten Elements können wir das Element in HTML wie folgt verwenden:
 
 ```html
 <labeled-checkbox>You need to check this</labeled-checkbox>
@@ -187,7 +187,7 @@ Nachdem wir das benutzerdefinierte Element registriert haben, können wir das El
 
 #### CSS
 
-Schließlich verwenden wir die benutzerdefinierte Zustands-Pseudoklasse `:state(checked)`, um CSS auszuwählen, wenn das Kästchen markiert ist.
+Schließlich verwenden wir die `:state(checked)`-Pseudo-Klasse, um CSS für den Zustand des Kontrollkästchens auszuwählen, wenn es ausgewählt ist.
 
 ```css
 labeled-checkbox {
@@ -200,17 +200,17 @@ labeled-checkbox:state(checked) {
 
 #### Ergebnis
 
-Klicken Sie auf das Element, um einen anderen Rand zu sehen, der angewendet wird, wenn der `checked`-Zustand des Kontrollkästchens umgeschaltet wird.
+Klicken Sie auf das Element, um zu sehen, dass ein anderer Rahmen angewendet wird, während der `checked`-Zustand des Kontrollkästchens umgeschaltet wird.
 
 {{EmbedLiveSample("Labeled Checkbox", "100%", 50)}}
 
-### Abgleich eines benutzerdefinierten Zustands in einem Shadow-Part eines benutzerdefinierten Elements
+### Einen benutzerdefinierten Zustand in einem Schatten-Teil eines benutzerdefinierten Elements anpassen
 
-Dieses Beispiel, das aus der Spezifikation adaptiert wurde, zeigt, dass benutzerdefinierte Zustände verwendet werden können, um die [Shadow-Parts](/de/docs/Web/CSS/Guides/Shadow_parts) eines benutzerdefinierten Elements für das Styling anzusprechen.
-Shadow-Parts sind Abschnitte des Shadow-Baums, die absichtlich für Seiten offengelegt werden, die das benutzerdefinierte Element verwenden.
+Dieses Beispiel, das aus der Spezifikation adaptiert wurde, zeigt, dass benutzerdefinierte Zustände verwendet werden können, um die [Schatten-Teile (shadow parts)](/de/docs/Web/CSS/Guides/Shadow_parts) eines benutzerdefinierten Elements für das Styling zu erfassen.
+Schatten-Teile sind Abschnitte des Shadow DOMs, die absichtlich für Seiten freigegeben werden, die das benutzerdefinierte Element verwenden.
 
-Das Beispiel erstellt ein `<question-box>`-benutzerdefiniertes Element, das eine Frageaufforderung zusammen mit einem Kontrollkästchen mit der Beschriftung "Yes" anzeigt.
-Das Element verwendet das `<labeled-checkbox>` aus dem [vorherigen Beispiel](#abgleich_des_benutzerdefinierten_zustands_eines_benutzerdefinierten_kontrollkästchenelements) für das Kontrollkästchen.
+Das Beispiel erstellt ein `<question-box>`-benutzerdefiniertes Element, das eine Frageaufforderung zusammen mit einem Kontrollkästchen mit der Bezeichnung "Ja" anzeigt.
+Für das Kontrollkästchen wird das im [vorherigen Beispiel](#den_benutzerdefinierten_zustand_eines_benutzerdefinierten_kontrollkästchenelements_anpassen) definierte `<labeled-checkbox>` verwendet.
 
 #### JavaScript
 
@@ -279,9 +279,9 @@ if (!LabeledCheckbox.isStateSyntaxSupported()) {
 }
 ```
 
-Zuerst definieren wir die benutzerdefinierte Elementklasse `QuestionBox`, die `HTMLElement` erweitert.
-Wie immer ruft der Konstruktor zuerst die `super()`-Methode auf.
-Als nächstes hängen wir einen Shadow-DOM-Baum an das benutzerdefinierte Element, indem wir [`attachShadow()`](/de/docs/Web/API/Element/attachShadow) aufrufen.
+Zuerst definieren wir die benutzerdefinierte `QuestionBox`-Elementklasse, die von `HTMLElement` abgeleitet ist.
+Wie immer ruft der Konstruktor zunächst die `super()`-Methode auf.
+Als Nächstes fügen wir der benutzerdefinierten Komponente durch Aufruf von [`attachShadow()`](/de/docs/Web/API/Element/attachShadow) einen Schatten-DOM-Baum hinzu.
 
 ```js
 class QuestionBox extends HTMLElement {
@@ -295,14 +295,14 @@ class QuestionBox extends HTMLElement {
 }
 ```
 
-Der Inhalt der Shadow-Root wird mit [`innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) gesetzt.
-Dies definiert ein {{HTMLElement("slot")}}-Element, das den Standard-Aufforderungstext "Question" für das Element enthält.
-Dann definieren wir ein benutzerdefiniertes `<labeled-checkbox>`-Element mit dem Standardtext `"Yes"`.
-Dieses Kontrollkästchen wird als Shadow-Part der Fragebox mit dem Namen `checkbox` mittels des [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attributs offengelegt.
+Der Inhalt der Schattenwurzel wird mit [`innerHTML`](/de/docs/Web/API/ShadowRoot/innerHTML) festgelegt.
+Dies definiert ein {{HTMLElement("slot")}}-Element, das den Standardaufforderungstext "Question" für das Element enthält.
+Dann definieren wir ein benutzerdefiniertes `<labeled-checkbox>`-Element mit dem Standardtext "Ja".
+Dieses Kontrollkästchen wird als Schatten-Teil der Fragebox mit dem Namen `checkbox` über das [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part)-Attribut freigegeben.
 
-Beachten Sie, dass der Code und das Styling für das `<labeled-checkbox>`-Element genau dieselben sind wie im [vorherigen Beispiel](#abgleich_des_benutzerdefinierten_zustands_eines_benutzerdefinierten_kontrollkästchenelements) und deshalb hier nicht wiederholt werden.
+Beachten Sie, dass der Code und das Styling für das `<labeled-checkbox>`-Element genau das gleiche wie im [vorherigen Beispiel](#den_benutzerdefinierten_zustand_eines_benutzerdefinierten_kontrollkästchenelements_anpassen) sind und daher hier nicht wiederholt werden.
 
-Als nächstes rufen wir die [`define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode auf dem Objekt auf, das von [`Window.customElements`](/de/docs/Web/API/Window/customElements) zurückgegeben wird, um das benutzerdefinierte Element mit dem Namen `question-box` zu registrieren:
+Dann rufen wir die [`define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode auf dem Objekt auf, das von [`Window.customElements`](/de/docs/Web/API/Window/customElements) zurückgegeben wird, um das benutzerdefinierte Element mit dem Namen `question-box` zu registrieren:
 
 ```js
 customElements.define("question-box", QuestionBox);
@@ -310,7 +310,7 @@ customElements.define("question-box", QuestionBox);
 
 #### HTML
 
-Nach der Registrierung des benutzerdefinierten Elements können wir das Element im HTML wie unten gezeigt verwenden.
+Nach der Registrierung des benutzerdefinierten Elements können wir das Element in HTML wie folgt verwenden:
 
 ```html
 <!-- Question box with default prompt "Question" -->
@@ -322,7 +322,7 @@ Nach der Registrierung des benutzerdefinierten Elements können wir das Element 
 
 #### CSS
 
-Der erste CSS-Block passt den offengelegten Shadow-Part mit dem Namen `checkbox` mit dem [`::part()`](/de/docs/Web/CSS/Reference/Selectors/::part)-Selektor an und stylt es standardmäßig `rot`.
+Der erste CSS-Block erfasst den freigegebenen Schatten-Teil namens `checkbox` mithilfe des {{cssxref("::part()")}}-Selectors und stylt ihn standardmäßig `red`.
 
 ```css
 question-box::part(checkbox) {
@@ -330,7 +330,7 @@ question-box::part(checkbox) {
 }
 ```
 
-Der zweite Block folgt `::part()` mit `:state()`, um `checkbox`-Parts zu matchen, die sich im `checked`-Zustand befinden:
+Der zweite Block folgt `::part()` mit `:state()`, um `checkbox`-Teile zu erfassen, die sich im `checked`-Zustand befinden:
 
 ```css
 question-box::part(checkbox):state(checked) {
@@ -341,19 +341,19 @@ question-box::part(checkbox):state(checked) {
 
 #### Ergebnis
 
-Klicken Sie auf eines der Kontrollkästchen, um die Farbänderung von `rot` zu `grün` mit einer Umrandung zu sehen, wenn der `checked`-Zustand umgeschaltet wird.
+Klicken Sie auf eines der Kontrollkästchen, um den Farbwechsel von `rot` zu `grün` mit einer Umrandung zu beobachten, während der `checked`-Zustand umgeschaltet wird.
 
 {{EmbedLiveSample("Question box", "100%", 100)}}
 
 ### Nicht-boolesche interne Zustände
 
-Dieses Beispiel zeigt, wie man den Fall behandelt, dass das benutzerdefinierte Element eine interne Eigenschaft mit mehreren möglichen Werten hat.
+Dieses Beispiel zeigt, wie man mit dem Fall umgeht, in dem das benutzerdefinierte Element eine interne Eigenschaft mit mehreren möglichen Werten hat.
 
-Das benutzerdefinierte Element in diesem Fall hat eine `state`-Eigenschaft mit den zulässigen Werten: "loading", "interactive" und "complete".
-Um dies zum Laufen zu bringen, ordnen wir jeden Wert seinem benutzerdefinierten Zustand zu und erstellen Code, um sicherzustellen, dass nur der Bezeichner, der dem internen Zustand entspricht, gesetzt ist.
-Sie können dies in der Implementierung der `set state()`-Methode sehen: Wir setzen den internen Zustand, fügen den Bezeichner für den passenden benutzerdefinierten Zustand dem `CustomStateSet` hinzu und entfernen die Bezeichner, die mit allen anderen Werten verbunden sind.
+Das benutzerdefinierte Element in diesem Fall hat eine `state`-Eigenschaft mit erlaubten Werten: "loading", "interactive" und "complete".
+Um dies zu ermöglichen, ordnen wir jeden Wert seinem benutzerdefinierten Zustand zu und erstellen Code, um sicherzustellen, dass nur der Identifikator, der dem internen Zustand entspricht, gesetzt ist.
+Sie können dies in der Implementierung der `set state()`-Methode sehen: Wir setzen den internen Zustand, fügen den Identifikator für den passenden benutzerdefinierten Zustand zum `CustomStateSet` hinzu und entfernen die Identifikatoren, die mit allen anderen Werten verknüpft sind.
 
-Der Großteil des restlichen Codes ähnelt dem Beispiel, das einen einzigen booleschen Zustand demonstriert (wir zeigen unterschiedlichen Text für jeden Zustand, während der Benutzer durch sie schaltet).
+Der Großteil des restlichen Codes ähnelt dem Beispiel, das einen einzelnen booleschen Zustand zeigt (wir zeigen für jeden Zustand unterschiedlichen Text, während der Benutzer sie durchläuft).
 
 #### JavaScript
 
@@ -451,7 +451,7 @@ if (!LabeledCheckbox.isStateSyntaxSupported()) {
 #### HTML
 
 Nach der Registrierung des neuen Elements fügen wir es dem HTML hinzu.
-Dies ähnelt dem Beispiel, das einen einzigen booleschen Zustand demonstriert, außer dass wir keinen Wert angeben und den Standardwert vom Slot verwenden (`<slot>Click me</slot>`).
+Dies ähnelt dem Beispiel, das einen einzelnen booleschen Zustand zeigt, jedoch geben wir keinen Wert an und verwenden den Standardwert aus dem Slot (`<slot>Click me</slot>`).
 
 ```html
 <many-state-element></many-state-element>
@@ -460,7 +460,7 @@ Dies ähnelt dem Beispiel, das einen einzigen booleschen Zustand demonstriert, a
 #### CSS
 
 Im CSS verwenden wir die drei benutzerdefinierten Zustands-Pseudoklassen, um CSS für jeden der internen Zustandswerte auszuwählen: `:state(loading)`, `:state(interactive)`, `:state(complete)`.
-Beachten Sie, dass der Code des benutzerdefinierten Elements sicherstellt, dass jeweils nur einer dieser benutzerdefinierten Zustände definiert sein kann.
+Beachten Sie, dass der benutzerdefinierte Elementcode sicherstellt, dass nur einer dieser benutzerdefinierten Zustände gleichzeitig definiert werden kann.
 
 ```css
 many-state-element:state(loading) {
@@ -476,19 +476,19 @@ many-state-element:state(complete) {
 
 #### Ergebnisse
 
-Klicken Sie auf das Element, um einen anderen Rand zu sehen, der angewendet wird, wenn sich der Zustand ändert.
+Klicken Sie auf das Element, um zu sehen, dass bei der Änderung des Zustands ein anderer Rahmen angewendet wird.
 
 {{EmbedLiveSample("Non-boolean internal states", "100%", 50)}}
 
 ## Kompatibilität mit `<dashed-ident>`-Syntax
 
-Früher wurden benutzerdefinierte Elemente mit benutzerdefinierten Zuständen mit einem `<dashed-ident>` anstelle der [`:state()`](/de/docs/Web/CSS/Reference/Selectors/:state)-Funktion ausgewählt.
-Browserversionen, die `:state()` nicht unterstützen, werfen einen Fehler, wenn ein Bezeichner ohne den Doppelstrich-Präfix angegeben wird.
-Wenn die Unterstützung für diese Browser erforderlich ist, verwenden Sie entweder einen [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block, um beide Syntaxen zu unterstützen, oder verwenden Sie ein `<dashed-ident>` als Zustandswert und wählen Sie es sowohl mit dem `:--my-state` als auch dem `:state(--my-state)`-CSS-Selektor aus.
+Früher wurden benutzerdefinierte Elemente mit benutzerdefinierten Zuständen mit einem `<dashed-ident>` anstelle der {{cssxref(":state()")}}-Funktion ausgewählt.
+Browser-Versionen, die `:state()` nicht unterstützen, werfen einen Fehler, wenn ein Identifikator verwendet wird, der nicht mit dem doppelten Strich (double dash) präfixiert ist.
+Wenn Unterstützung für diese Browser erforderlich ist, verwenden Sie entweder einen [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch) Block, um beide Syntaxen zu unterstützen, oder verwenden Sie ein `<dashed-ident>` als Zustandswert und wählen Sie ihn sowohl mit dem `:--my-state` als auch mit dem `:state(--my-state)` CSS-Selektor aus.
 
-### Verwendung eines try...catch-Blocks
+### Verwendung eines try...catch Blocks
 
-Dieser Code zeigt, wie Sie `try...catch` verwenden können, um zu versuchen, einen Zustandsbezeichner hinzuzufügen, der kein `<dashed-ident>` verwendet, und zu `<dashed-ident>` zurückzukehren, wenn ein Fehler geworfen wird.
+Der nachstehende Code zeigt, wie Sie `try...catch` verwenden können, um zu versuchen, einen Zustands-Identifikator hinzuzufügen, der kein `<dashed-ident>` verwendet, und auf `<dashed-ident>` zurückzugreifen, wenn ein Fehler auftritt.
 
 #### JavaScript
 
@@ -519,10 +519,10 @@ compatible-state-element:is(:--loaded, :state(loaded)) {
 }
 ```
 
-### Verwendung von mit Doppelstrich präfixierten Bezeichnern
+### Verwendung der mit Doppelstrich verupakan Identifikatoren
 
-Eine alternative Lösung besteht darin, das `<dashed-ident>` innerhalb von JavaScript zu verwenden.
-Der Nachteil dieses Ansatzes ist, dass die Striche auch bei der Verwendung der CSS-` :state()`-Syntax enthalten sein müssen.
+Eine alternative Lösung kann die Verwendung des `<dashed-ident>` innerhalb von JavaScript sein.
+Der Nachteil bei diesem Ansatz ist, dass die Striche bei der Verwendung der CSS-`:state()`-Syntax eingeschlossen werden müssen.
 
 #### JavaScript
 

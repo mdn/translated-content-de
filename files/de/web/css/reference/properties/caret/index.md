@@ -2,12 +2,12 @@
 title: caret
 slug: Web/CSS/Reference/Properties/caret
 l10n:
-  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret`** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Aussehen und Verhalten des **Einfügemarkers** in einer einzigen Deklaration fest.
+Die **`caret`**-[Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-[CSS](/de/docs/Web/CSS)-Eigenschaft setzt das Erscheinungsbild und Verhalten des **Eingabecursors** in einer einzigen Deklaration.
 
 {{InteractiveExample("CSS Demo: caret")}}
 
@@ -48,13 +48,13 @@ div {
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
-- [`caret-color`](/de/docs/Web/CSS/Reference/Properties/caret-color)
-- [`caret-animation`](/de/docs/Web/CSS/Reference/Properties/caret-animation)
-- [`caret-shape`](/de/docs/Web/CSS/Reference/Properties/caret-shape)
+- {{cssxref("caret-color")}}
+- {{cssxref("caret-animation")}}
+- {{cssxref("caret-shape")}}
 
 ## Syntax
 
@@ -81,34 +81,34 @@ caret: revert-layer;
 caret: unset;
 ```
 
-Die `caret`-Eigenschaft wird als ein, zwei oder drei Werte aus den zusammengesetzten Eigenschaften angegeben. Werte können in beliebiger Reihenfolge angegeben werden, und ausgelassene Werte werden auf ihre Anfangswerte gesetzt.
+Die `caret`-Eigenschaft wird als ein, zwei oder drei Werte aus den Bestandteileigenschaften angegeben. Werte können in beliebiger Reihenfolge angegeben werden, und ausgelassene Werte werden auf ihre Anfangswerte gesetzt.
 
 ### Werte
 
 - {{cssxref("caret-color")}}
-  - : Legt die Farbe des Carets fest.
+  - : Setzt die Farbe des Cursors.
 
 - {{cssxref("caret-animation")}}
-  - : Steuert, ob das Caret blinkt.
+  - : Kontrolliert, ob der Cursor blinkt.
 
 - {{cssxref("caret-shape")}}
-  - : Legt die visuelle Form des Carets fest.
+  - : Setzt die visuelle Form des Cursors.
 
 ## Beschreibung
 
-Das `caret`-Shorthand ermöglicht es Ihnen, mehrere Caret-Eigenschaften in einer einzigen Deklaration festzulegen und damit das komplette Aussehen und Verhalten des Einfügemarkers bequem anzupassen.
+Die `caret`-Shorthand erlaubt es, mehrere Cursoreigenschaften in einer einzigen Deklaration zu setzen, was es bequem macht, das komplette Erscheinungsbild und Verhalten des Eingabecursors anzupassen.
 
-### Wertauflösung
+### Werteresolution
 
-Wenn Werte aus der Kurzform ausgelassen werden, werden sie auf ihre Anfangswerte zurückgesetzt:
+Wenn Werte aus der Shorthand weggelassen werden, setzen sie sich auf ihre Anfangswerte zurück:
 
-- `caret-color`: `auto` (wird zu `currentColor` aufgelöst).
-- `caret-animation`: `auto` (Caret blinkt).
-- `caret-shape`: `auto` (vom Browser bestimmte Form).
+- `caret-color`: `auto` (löst sich zu `currentColor` auf).
+- `caret-animation`: `auto` (Cursor blinkt).
+- `caret-shape`: `auto` (Browser-determinierte Form).
 
 ### Unabhängigkeit der Reihenfolge
 
-Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte in beliebiger Reihenfolge. Der Browser bestimmt, welcher Wert auf welche Eigenschaft angewendet wird, basierend auf dem Wertetyp:
+Anders als einige CSS-Shorthands akzeptiert die `caret`-Eigenschaft Werte in beliebiger Reihenfolge. Der Browser bestimmt, welcher Wert auf welche Eigenschaft angewendet wird, basierend auf dem Wertetyp:
 
 - {{cssxref("&lt;color>")}}-Werte gelten für `caret-color`.
 - `auto`/`manual`-Schlüsselwörter gelten für `caret-animation`.
@@ -124,11 +124,11 @@ Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte 
 
 ## Beispiele
 
-### Retro-Terminal mit animiertem Caret
+### Retro-Terminal mit animiertem Cursor
 
-Dieses Beispiel erstellt eine Vintage-Terminalschnittstelle, indem das `caret`-Shorthand verwendet wird, um mehrere Caret-Eigenschaften zu kombinieren. Dabei wird gezeigt, wie es ältere border-basierte Techniken ersetzt.
+Dieses Beispiel erstellt eine Vintage-Terminal-Oberfläche mit der `caret`-Shorthand, um mehrere Cursoreigenschaften zu kombinieren, und demonstriert, wie sie ältere, auf Grenzen basierende Techniken ersetzt.
 
-Der Hauptvorteil des `caret`-Shorthands ist die Kombination mehrerer Eigenschaften in einer Deklaration. Hier setzen wir die Form auf `block`, deaktivieren das standardmäßige Blinken und setzen die Farbe auf `green`, alles in einer einzigen Zeile.
+Der Hauptvorteil der `caret`-Shorthand ist die Kombination mehrerer Eigenschaften in einer Deklaration. Hier setzen wir die Form auf `block`, deaktivieren das standardmäßige Blinken und setzen die Farbe auf `green`, alles in einer einzigen Zeile.
 
 #### HTML
 
@@ -220,4 +220,4 @@ span {
 ## Siehe auch
 
 - {{cssxref("caret-color")}}, {{cssxref("caret-animation")}}, {{cssxref("caret-shape")}}
-- [CSS Basic-User-Interface](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul
+- [CSS Benutzeroberfläche Grundlagen](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul

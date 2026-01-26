@@ -1,16 +1,16 @@
 ---
-title: "IdentityCredential: disconnect()-Methode"
+title: "IdentityCredential: disconnect() statische Methode"
 short-title: disconnect()
 slug: Web/API/IdentityCredential/disconnect_static
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`disconnect()`**-statische Methode der [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Schnittstelle trennt ein angegebenes federiertes Anmeldekonto von dem {{Glossary("Identity_provider", "IdP")}}, der für die Bereitstellung der Berechtigungsnachweise verwendet wird.
+Die statische Methode **`disconnect()`** der Schnittstelle [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) trennt ein angegebenes föderiertes Anmeldekonto vom {{Glossary("Identity_provider", "IdP")}}, das verwendet wurde, um die Berechtigung zu erhalten.
 
-Danach erfordert die Nutzung dieses Kontos für eine federierte Anmeldung, dass der Prozess der federierten Anmeldung erneut gestartet wird.
+Danach erfordert die Verwendung dieses Kontos für die föderierte Anmeldung, dass der föderierte Anmeldeprozess erneut gestartet wird.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ IdentityCredential.disconnect(options)
 ### Parameter
 
 - `options`
-  - : Ein Optionsobjekt, das folgende Eigenschaften enthalten kann:
+  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthalten kann:
     - `accountHint`
-      - : Ein Zeichenfolgenhinweis, den der IdP verwendet, um das zu trennende Konto zu identifizieren. Der Hinweis kann eine beliebige Zeichenfolge sein, solange der [Disconnect-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_disconnect_endpoint) das Konto identifizieren kann – zum Beispiel eine E-Mail-Adresse oder Benutzer-ID. Dies wird nicht unbedingt mit der Kontonummer übereinstimmen, die vom [Kontenlisten-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) bereitgestellt wird.
+      - : Ein String, der einen Hinweis auf das Konto angibt, den der IdP verwendet, um das zu trennende Konto zu identifizieren. Der Hinweis kann ein beliebiger String sein, solange der [Trennendpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_disconnect_endpoint) das Konto identifizieren kann — beispielsweise eine E-Mail-Adresse oder Benutzer-ID. Dies muss nicht unbedingt mit der vom [Kontenlistenendpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) bereitgestellten Konto-ID übereinstimmen.
     - `clientId`
-      - : Eine Zeichenfolge, die den Client-Identifikator des {{Glossary("Relying_party", "RP")}} angibt, wie er im `clientId`-Attribut der `providers` [`IdentityCredentialRequestOptions`](/de/docs/Web/API/IdentityCredentialRequestOptions#clientid) während der Anmeldung angegeben ist.
+      - : Ein String, der den Mandanten-Identifikator (Client ID) des {{Glossary("Relying_party", "RP")}} angibt, wie im `providers` [`clientId`](/de/docs/Web/API/IdentityCredentialRequestOptions#clientid)-Eigentum während der Anmeldung angegeben.
     - `configURL`
-      - : Eine Zeichenfolge, die die Konfigurationsdatei-URL des IdP angibt, wie sie im `configURL`-Attribut der `providers` [`IdentityCredentialRequestOptions`](/de/docs/Web/API/IdentityCredentialRequestOptions#configurl) während der Anmeldung angegeben ist.
+      - : Ein String, der die URL der Konfigurationsdatei des IdP angibt, wie im `providers` [`configURL`](/de/docs/Web/API/IdentityCredentialRequestOptions#configurl)-Eigentum während der Anmeldung angegeben.
 
 ### Rückgabewert
 
@@ -37,23 +37,23 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Die `configURL` des IdP ungültig ist oder der `disconnect_endpoint` fehlt.
+    - Die `configURL` des IdP ungültig ist oder den `disconnect_endpoint` fehlt.
     - Der Ursprung des Dokuments nicht mit der `configURL` übereinstimmt.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - Der Browser keine Verbindung zum IdP herstellen kann.
-    - Die Anfrage von einer [`connect-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src) {{httpheader("Content-Security-Policy")}}-Richtlinie abgelehnt wird.
-    - Ein weiterer `disconnect()`-Aufruf zuvor gemacht wurde und noch nicht gelöst ist.
+    - Der Browser nicht in der Lage ist, sich mit dem IdP zu verbinden.
+    - Die Anfrage von einem [`connect-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src) {{httpheader("Content-Security-Policy")}} nicht erlaubt wird.
+    - Ein anderes `disconnect()` zuvor aufgerufen wurde, das noch nicht abgeschlossen ist.
     - Die FedCM API global deaktiviert wurde.
-    - Die `configURL` des IdP weder sicher noch [potenziell vertrauenswürdig](/de/docs/Web/Security/Secure_Contexts#potentially_trustworthy_origins) ist.
+    - Die `configURL` des IdP weder sicher noch [potenziell vertrauenswürdig](/de/docs/Web/Security/Defenses/Secure_Contexts#potentially_trustworthy_origins) ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das einbettende `<iframe>` keine passende {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesetzt hat, um die Nutzung von `disconnect()` zu erlauben, oder wenn die FedCM API global durch eine Richtlinie im übergeordneten Dokument deaktiviert ist.
+  - : Wird ausgelöst, wenn das eingebettete `<iframe>` nicht über eine {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) verfügt, um die Nutzung von `disconnect()` zu erlauben, oder wenn die FedCM API global durch eine auf dem Top-Level-Dokument gesetzte Richtlinie deaktiviert ist.
 
 ## Beispiele
 
 ### Grundlegende Nutzung von `disconnect()`
 
-Das RP kann ein angegebenes federiertes Anmeldekonto vom zugehörigen IdP trennen, indem es `disconnect()` aufruft. Diese Funktion kann aus einem übergeordneten RP-Frame aufgerufen werden.
+Das RP kann ein angegebenes föderiertes Anmeldekonto vom zugehörigen IdP trennen, indem es `disconnect()` aufruft. Diese Funktion kann von einem Top-Level-RP-Frame aus aufgerufen werden.
 
 ```js
 IdentityCredential.disconnect({
@@ -63,7 +63,7 @@ IdentityCredential.disconnect({
 });
 ```
 
-Damit ein `disconnect()`-Aufruf funktioniert, muss der IdP einen [`disconnect_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#disconnect_endpoint) in seine Konfigurationsdatei aufnehmen. Weitere Details zur zugrunde liegenden HTTP-Kommunikation finden Sie im Abschnitt [Der Disconnect-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_disconnect_endpoint).
+Damit ein `disconnect()`-Aufruf funktioniert, muss der IdP einen [`disconnect_endpoint`](/de/docs/Web/API/FedCM_API/IDP_integration#disconnect_endpoint) in seiner Konfigurationsdatei enthalten. Weitere Details zur zugrunde liegenden HTTP-Kommunikation finden Sie unter [Der Trennendpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_disconnect_endpoint).
 
 ## Spezifikationen
 

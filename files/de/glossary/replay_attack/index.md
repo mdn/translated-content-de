@@ -2,12 +2,12 @@
 title: Replay-Angriff
 slug: Glossary/Replay_attack
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: dc788bf0ea36cb1ebe809c82aaae2c77cb3e18c0
 ---
 
-In der Websicherheit tritt ein _Replay-Angriff_ auf, wenn ein Angreifer eine zuvor gesendete Nachricht abfängt und sie später erneut sendet, um dieselben Anmeldeinformationen wie die ursprüngliche Nachricht zu erhalten, möglicherweise mit einer anderen Nutzlast oder Anweisung.
+In der Web-Sicherheit tritt ein _Replay-Angriff_ auf, wenn ein Angreifer eine zuvor gesendete Nachricht abfängt und sie später erneut sendet, um die gleichen Anmeldedaten wie die ursprüngliche Nachricht zu erhalten, möglicherweise mit einer anderen Nutzlast oder Anweisung.
 
-Replay-Angriffe können verhindert werden, indem jeder Nachricht ein eindeutiger, nur einmal verwendbarer Identifikator beigefügt wird, den der Empfänger zur Überprüfung der Authentizität der Übertragung verwenden kann. Dieser Identifikator kann in Form eines Sitzungs-Tokens oder einer "nur einmal verwendeten Zahl" ("Nonce") vorliegen.
+Replay-Angriffe können verhindert werden, indem jeder Nachricht ein eindeutiger, nur einmal verwendbarer Bezeichner beigefügt wird, den der Empfänger verwenden kann, um die Authentizität der Übertragung zu überprüfen. Dieser Bezeichner kann die Form eines Sitzungstokens oder einer "Nummer, die nur einmal verwendet wird" ({{Glossary("Nonce", "Nonce")}}) annehmen.
 
 ## Siehe auch
 

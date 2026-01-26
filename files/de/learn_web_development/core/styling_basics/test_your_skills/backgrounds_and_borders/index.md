@@ -3,41 +3,41 @@ title: "Testen Sie Ihre Fähigkeiten: Hintergründe und Rahmen"
 short-title: "Test: Hintergründe und Rahmen"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Backgrounds_and_borders
 l10n:
-  sourceCommit: 001a6992ec60f0dccd073a3db223c320835188ad
+  sourceCommit: d0be159e6119ff73453bea6d224f0a2056307aa4
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen zu beurteilen, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Benutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung für das Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
 In dieser Aufgabe möchten wir, dass Sie einem Seitenkopf einen Hintergrund, einen Rahmen und einige grundlegende Stile hinzufügen.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Geben Sie der Box einen 5px breiten schwarzen festen Rahmen mit abgerundeten Ecken von 10px.
-2. Geben Sie dem `<h2>` einen halbtransparenten schwarzen Hintergrund und setzen Sie den Text in Weiß.
-3. Fügen Sie ein Hintergrundbild hinzu und skalieren Sie es so, dass es die Box bedeckt. Sie können das folgende Bild verwenden:
+1. Geben Sie der Box einen 5px schwarzen, soliden Rahmen mit abgerundeten Ecken von 10px.
+2. Geben Sie dem `<h2>` einen halbtransparenten schwarzen Hintergrund und machen Sie den Text weiß.
+3. Fügen Sie ein Hintergrundbild hinzu und skalieren Sie es so, dass es die Box abdeckt. Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/balloons.jpg
    ```
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte der folgenden Darstellung ähneln:
 
-![Das Bild zeigt eine Box mit einem Fotohintergrund, abgerundetem Rahmen und weißem Text auf einem halbtransparenten schwarzen Hintergrund.](backgrounds-task1.png)
+{{EmbedLiveSample("backgrounds1-finish", "", "160px")}}
 
-```html live-sample___backgrounds1
+```html live-sample___backgrounds1-start live-sample___backgrounds1-finish
 <div class="box">
   <h2>Backgrounds & Borders</h2>
 </div>
 ```
 
-```css live-sample___backgrounds1
+```css live-sample___backgrounds1-start live-sample___backgrounds1-finish
 body {
   padding: 1em;
   font: 1.2em / 1.5 sans-serif;
@@ -60,14 +60,16 @@ h2 {
 }
 ```
 
-{{EmbedLiveSample("backgrounds1", "", "200px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("backgrounds1-start", "", "160px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie sollten `border`, `border-radius`, `background-image` und `background-size` verwenden und verstehen, wie man RGB-Farben nutzt, um eine Hintergrundfarbe teilweise transparent zu machen:
+Sie sollten `border`, `border-radius`, `background-image` und `background-size` verwenden und verstehen, wie man RGB-Farben benutzt, um eine Hintergrundfarbe teilweise transparent zu machen:
 
-```css
+```css live-sample___backgrounds1-finish
 .box {
   border: 5px solid black;
   border-radius: 10px;
@@ -85,31 +87,31 @@ h2 {
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie dekorativen Boxen Hintergrundbilder, einen Rahmen und einige andere Stile hinzufügen.
+In dieser Aufgabe möchten wir, dass Sie Hintergrundbilder, einen Rahmen und einige andere Stile zu einer dekorativen Box hinzufügen.
 
-Um die Aufgabe zu vervollständigen:
+Um die Aufgabe abzuschließen:
 
-1. Geben Sie der Box einen 5px breiten hellblauen Rahmen und runden Sie die obere linke Ecke mit 20px und die untere rechte Ecke mit 40px ab.
-2. Der Überschrift `star.png` wird als Hintergrundbild verwendet, mit einem einzelnen zentrierten Stern links und einem sich wiederholenden Muster von Sternen rechts.
+1. Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke mit 20px und die untere rechte Ecke mit 40px ab.
+2. Die Überschrift verwendet das Bild `star.png` als Hintergrundbild, mit einem einzelnen zentrierten Stern auf der linken Seite und einem sich wiederholenden Muster von Sternen auf der rechten Seite.
    Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/star.png
    ```
 
-3. Stellen Sie sicher, dass der Überschriftstext nicht über dem Bild liegt und zentriert ist — Sie müssen Techniken anwenden, die Sie in vorherigen Lektionen gelernt haben, um dies zu erreichen.
+3. Stellen Sie sicher, dass der Überschriftentext nicht über dem Bild liegt und dass er zentriert ist — Sie müssen Techniken anwenden, die Sie in den vorherigen Lektionen gelernt haben, um dies zu erreichen.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte der folgenden Darstellung ähneln:
 
-![Das Bild zeigt eine Box mit einem blauen Rahmen, der an den oberen linken und unteren rechten Ecken abgerundet ist. Links vom Text befindet sich ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
+{{EmbedLiveSample("backgrounds2-finish", "", "220px")}}
 
-```html live-sample___backgrounds2
+```html live-sample___backgrounds2-start live-sample___backgrounds2-finish
 <div class="box">
   <h2>Backgrounds & Borders</h2>
 </div>
 ```
 
-```css live-sample___backgrounds2
+```css live-sample___backgrounds2-start live-sample___backgrounds2-finish
 body {
   padding: 1em;
   font: 1.2em / 1.5 sans-serif;
@@ -131,15 +133,17 @@ h2 {
 }
 ```
 
-{{EmbedLiveSample("backgrounds2", "", "220px")}}
+Dies ist der Anfangszustand der Aufgabe:
+
+{{EmbedLiveSample("backgrounds2-start", "", "200px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen der Überschrift Padding hinzufügen, damit sie nicht das Sternbild überlagert - dies verweist auf das Lernen aus der früheren [Boxmodell-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model).
-Der Text sollte mit der Eigenschaft `text-align` ausgerichtet werden:
+Sie müssen der Überschrift Polsterung hinzufügen, damit sie nicht über dem Sternbild liegt - das knüpft an das Lernen aus der früheren [Box-Modell-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) an.
+Der Text sollte mit der `text-align`-Eigenschaft ausgerichtet werden:
 
-```css
+```css live-sample___backgrounds2-finish
 .box {
   border: 5px solid lightblue;
   border-top-left-radius: 20px;

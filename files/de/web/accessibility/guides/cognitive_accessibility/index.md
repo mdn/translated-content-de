@@ -2,22 +2,22 @@
 title: Kognitive Barrierefreiheit
 slug: Web/Accessibility/Guides/Cognitive_accessibility
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 7ba6358a0ff684cc67c60b76d6d972722bbf0d18
 ---
 
-Kognitive Barrierefreiheit umfasst Überlegungen zur Barrierefreiheit für Menschen mit kognitiven und Lernbehinderungen. Dieses Dokument führt in die kognitive Barrierefreiheit ein und beschreibt, wie die Barrierefreiheit des Webs für Menschen mit kognitiven und Lernunterschieden verbessert werden kann.
+Kognitive Barrierefreiheit umfasst Überlegungen zur Zugänglichkeit für Menschen mit kognitiven und Lernbehinderungen. Dieses Dokument führt in die kognitive Barrierefreiheit ein und zeigt, wie die Zugänglichkeit des Webs für Menschen mit kognitiven und Lernunterschieden verbessert werden kann.
 
-Kognitive Beeinträchtigung bezieht sich auf ein breites Spektrum von Behinderungen, von Menschen mit geistigen Behinderungen, die möglicherweise die am meisten eingeschränkten Fähigkeiten haben, bis hin zu altersbedingten Problemen beim Denken und Erinnern. Das Spektrum umfasst Menschen mit psychischen Erkrankungen wie Depressionen und Schizophrenie. Dazu gehören auch Menschen mit Lernbehinderungen wie Legasthenie und Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS).
+Kognitive Beeinträchtigungen beziehen sich auf eine breite Palette von Behinderungen, von Menschen mit geistiger Behinderung, die möglicherweise die am stärksten eingeschränkten Fähigkeiten haben, bis hin zu altersbedingten Problemen mit Denken und Erinnern. Das Spektrum umfasst Menschen mit psychischen Erkrankungen wie Depressionen und Schizophrenie. Es umfasst auch Menschen mit Lernbehinderungen, wie Dyslexie und Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS).
 
-Obwohl es innerhalb der klinischen Definitionen von kognitiven Beeinträchtigungen große Unterschiede gibt, erleben Menschen mit diesen Beeinträchtigungen einen gemeinsamen Satz von funktionalen Problemen. Diese Probleme beinhalten Schwierigkeiten beim Verstehen von Inhalten, beim Erinnern, wie Aufgaben zu erledigen sind, und Verwirrung durch inkonsistente oder unkonventionelle Webseitenlayouts. In diesem Dokument konzentrieren wir uns auf Schritte, die Entwickler unternehmen sollten, um die kognitive Barrierefreiheit ihrer Websites und Anwendungen zu verbessern.
+Obwohl innerhalb der klinischen Definitionen von kognitiven Beeinträchtigungen eine große Vielfalt besteht, haben Menschen mit diesen Beeinträchtigungen gemeinsame funktionale Probleme. Diese Probleme umfassen Schwierigkeiten beim Verstehen von Inhalten, beim Erinnern, wie Aufgaben zu erledigen sind, und Verwirrung, die durch inkonsistente oder nicht traditionelle Webseitengestaltungen verursacht wird. Dieses Dokument konzentriert sich auf Schritte, die Entwickler unternehmen sollten, um die kognitive Barrierefreiheit ihrer Webseiten und Anwendungen zu verbessern.
 
 ## Überblick
 
-Kognitive und intellektuelle Behinderungen umfassen ein breites Spektrum und können momentane, temporäre oder permanente Zustände sein. Zum Beispiel sind Demenz und Alzheimer permanente kognitive Beeinträchtigungen, die sich progressiv verschlechtern. Andere permanente kognitive Beeinträchtigungen umfassen Aphasie, Sprach- und Sprachstörungen, Autismus, ADD/ADHS, Legasthenie und Dyskalkulie.
+Kognitive und intellektuelle Behinderungen umfassen ein breites Spektrum und können momentane, vorübergehende oder dauerhafte Zustände sein. Beispielsweise sind Demenz und Alzheimer dauerhafte kognitive Beeinträchtigungen, die sich verschlimmern. Andere dauerhafte kognitive Beeinträchtigungen umfassen Aphasie, Sprach- und Sprechstörungen, Autismus, ADD/ADHS, Dyslexie und Dyskalkulie.
 
-Ein Beispiel für eine temporäre kognitive Beeinträchtigung könnten Menschen sein, die von Substanzen wie Alkohol oder Drogen beeinflusst sind. Eine andere Form kann Depression sein, zum Beispiel beim Trauern um den Verlust eines geliebten Menschen oder wenn man vorübergehend durch einen Tweet oder ein Video, das sie gerade online gesehen haben, traurig ist. Ein drittes Beispiel könnte Schlafmangel sein.
+Ein Beispiel für eine vorübergehende kognitive Beeinträchtigung könnten Menschen sein, die von Substanzen wie Alkohol oder Drogen betroffen sind. Eine andere Form kann Depression sein, zum Beispiel beim Trauern um den Verlust eines geliebten Menschen oder wenn man durch einen Tweet oder ein Video, das man gerade online gesehen hat, vorübergehend traurig wird. Ein drittes Beispiel könnte Schlafmangel sein.
 
-Es mag wie eine überwältigende Herausforderung erscheinen, die breite Palette kognitiver Unterschiede anzugehen, insbesondere wenn Lösungen für zwei verschiedene Personen im Widerspruch stehen können. Eine Möglichkeit, damit umzugehen, ist, sich auf kognitive Fähigkeiten zu konzentrieren. Kognitive Fähigkeiten umfassen:
+Es mag wie eine überwältigende Herausforderung erscheinen, die große Bandbreite kognitiver Unterschiede zu berücksichtigen, insbesondere wenn Lösungen für zwei verschiedene Personen im Konflikt stehen können. Eine Möglichkeit, dies zu bewältigen, besteht darin, sich auf kognitive Fähigkeiten zu konzentrieren. Kognitive Fähigkeiten umfassen:
 
 - Aufmerksamkeit
 - Gedächtnis
@@ -27,255 +27,255 @@ Es mag wie eine überwältigende Herausforderung erscheinen, die breite Palette 
 - Zahlen, Symbole und Mathematik
 - Verstehen und Entscheidungen treffen
 
-Ein solider Ansatz, um zugängliche Lösungen für Menschen mit kognitiven Beeinträchtigungen bereitzustellen, umfasst:
+Ein solider Ansatz zur Bereitstellung zugänglicher Lösungen für Menschen mit kognitiven Beeinträchtigungen umfasst:
 
-- Bereitstellung von Inhalten in mehr als einer Weise, zum Beispiel durch Text-zu-Sprache oder Video;
-- Bereitstellung von leicht verständlichen Inhalten, wie Texten, die unter Verwendung von Standards für einfache Sprache verfasst sind;
-- Fokussierung der Aufmerksamkeit auf wichtige Inhalte;
-- Minimierung von Ablenkungen, wie unnötigen Inhalten oder Werbung;
-- Bereitstellung eines konsistenten Webseitendesigns und einer gemeinsamen Navigation;
-- Einbeziehung vertrauter Elemente, wie unterstrichene Links, die blau sind, wenn sie nicht besucht wurden und lila, wenn sie besucht wurden;
-- Aufteilen von Prozessen in logische, wesentliche Schritte mit Fortschrittsanzeigen;
-- Ermöglichung einer möglichst einfachen Authentifizierung der Website ohne Kompromittierung der Sicherheit; und
-- Vervollständigbare Formulare, beispielsweise mit klaren Fehlermeldungen und Fehlerbehebung.
+- Bereitstellung von Inhalten auf mehr als eine Art, wie z.B. durch Text-zu-Sprache oder durch Video;
+- Bereitstellung leicht verständlicher Inhalte, wie z.B. Texte, die auf einfachen Sprachstandards basieren;
+- Konzentration der Aufmerksamkeit auf wichtige Inhalte;
+- Minimierung von Ablenkungen, wie unnötige Inhalte oder Werbung;
+- Bereitstellung von konsistentem Webseiten-Layout und Navigation;
+- Integration vertrauter Elemente, wie z.B. unterstrichene Links, die blau sind, wenn sie nicht besucht wurden, und lila, wenn sie besucht wurden;
+- Aufteilung von Prozessen in logische, wesentliche Schritte mit Fortschrittsanzeigen;
+- Erleichterung der Website-Authentifizierung so einfach wie möglich, ohne die Sicherheit zu kompromittieren; und
+- Vereinfachung von Formularen, z.B. durch klare Fehlermeldungen und Fehlerbehebung.
 
 ## WCAG-Richtlinien
 
-WCAG, Web Content Accessibility Guidelines, umfasst mehrere Richtlinien zur Verbesserung der kognitiven Barrierefreiheit. Diese Richtlinien werden von der Web Accessibility Initiative (WAI) des World Wide Web Consortiums (W3C), der wichtigsten internationalen Standardisierungsorganisation für das Internet, veröffentlicht. Diese Gruppe ist auch verantwortlich für die [Accessible Rich Internet Application (ARIA)](/de/docs/Web/Accessibility/ARIA/Guides)-Richtlinien.
+WCAG, die Richtlinien für barrierefreie Webinhalte, enthalten mehrere Richtlinien zur Verbesserung der kognitiven Barrierefreiheit. Diese Richtlinien werden von der Web Accessibility Initiative (WAI) des World Wide Web Consortiums (W3C), der wichtigsten internationalen Normungsgremiumsorganisation für das Internet, veröffentlicht. Diese Gruppe ist auch für die [Accessible Rich Internet Application (ARIA)](/de/docs/Web/Accessibility/ARIA/Guides) Richtlinien verantwortlich.
 
-WCAG werden von vier Prinzipien geleitet: Websites müssen wahrnehmbar, bedienbar, verständlich und robust sein. Zu diesem Zweck definieren sie 17 spezifische Richtlinien, von denen sechs besonders relevant für kognitive Barrierefreiheit sind.
+WCAG wird von vier Prinzipien geleitet: Websites müssen wahrnehmbar, bedienbar, verständlich und robust sein. Zu diesem Zweck definieren sie 17 spezifische Richtlinien, von denen sechs besonders relevant für die kognitive Barrierefreiheit sind.
 
-Jede der folgenden Richtlinien hilft mehr als nur Menschen mit kognitiven Behinderungen. Zum Beispiel, die Möglichkeit, die Ablaufzeit eines Codes zur Authentifizierung zu verlängern, der an ein Mobilgerät per Textnachricht gesendet wird, hilft in den folgenden Szenarien:
+Alle folgenden Richtlinien helfen nicht nur Menschen mit kognitiven Behinderungen. Zum Beispiel hilft es in den folgenden Szenarien, die Ablaufzeit einer Anwendung, die einen Authentifizierungscode erfordert, der über eine Textnachricht an ein Mobilgerät gesendet wird, zu verlängern:
 
 - Menschen mit Aufmerksamkeits- oder Angststörungen.
-- Menschen mit schlechtem Kurzzeitgedächtnis oder die Multitasking betreiben.
-- Menschen mit weniger technologischem Wissen.
-- Menschen mit schlechter drahtloser Verbindung.
-- Menschen mit motorischen Kontrollproblemen.
+- Menschen, die ein schlechtes Kurzzeitgedächtnis haben oder die multitaskingfähig sind.
+- Menschen, die weniger technologisch versiert sind.
+- Menschen, die eine schlechte drahtlose Verbindung haben.
+- Menschen, die Probleme mit der Motorik haben.
 
-## Anpassbarkeit
+## Anpassungsfähigkeit
 
-[Richtlinie 1.3](https://www.w3.org/WAI/WCAG21/Understanding/adaptable) besagt "Inhalte sollten **anpassbar** sein". Erstellen Sie Inhalte, die auf verschiedene Weisen präsentiert werden können, ohne Informationen oder Struktur zu verlieren. Zum Beispiel, bieten Sie {{Glossary("responsive_web_design", "responsive")}} Layouts mit einem Einspalten-Design für Mobilgeräte an.
+[Leitlinie 1.3](https://www.w3.org/WAI/WCAG21/Understanding/adaptable) beschreibt, dass "Inhalte **anpassbar** sein sollten". Erstellen Sie Inhalte, die in verschiedenen Formen präsentiert werden können, ohne Informationen oder Struktur zu verlieren. Bereitstellen Sie beispielsweise {{Glossary("responsive_web_design", "responsive")}} Layouts, mit einem einspaltigen Design für Mobilgeräte.
 
-Alle Informationen, einschließlich der durch die Darstellung vermittelten Struktur und Beziehungen, sollten in einer Form verfügbar sein, die von allen Benutzern wahrgenommen werden kann, um dieses Ziel zu erreichen. Zum Beispiel könnten die Informationen über ein Erzählwerkzeug laut vorgelesen werden. Ihre Inhalte so zu gestalten, dass sie von Software verstanden werden können, ist eine gute Möglichkeit, sicherzustellen, dass sie in alternativen Präsentationsmodi verwendet werden können.
+Alle Informationen, einschließlich der durch die Präsentation vermittelten Struktur und Beziehungen, sollten in einer Form vorliegen, die von allen Nutzern wahrgenommen werden kann, um dieses Ziel zu erreichen. Beispielsweise könnten die Informationen von einem Erzählwerkzeug vorgelesen werden. Inhalte, die von Software verstanden werden können, sind eine gute Möglichkeit, um sicherzustellen, dass sie mit alternativen Präsentationsmodi verwendet werden können.
 
 ## Zeit
 
-Es ist wichtig, den Nutzern die Zeit zu geben, die sie benötigen, um Aufgaben zu erledigen. [Richtlinie 2.2](https://www.w3.org/WAI/WCAG21/Understanding/enough-time) besagt "Geben Sie den Benutzern genügend **Zeit**, um Inhalte zu lesen und zu nutzen".
+Es ist wichtig, den Nutzern die Zeit zu geben, die sie benötigen, um Aufgaben zu erledigen. [Leitlinie 2.2](https://www.w3.org/WAI/WCAG21/Understanding/enough-time) besagt, dass den Nutzern genügend **Zeit** gegeben werden muss, um Inhalte zu lesen und zu nutzen.
 
-Ein **Zeitlimit** ist jeder Prozess, der ohne Benutzereingabe nach einer festgelegten Zeit oder in regelmäßigen Abständen abläuft, wie beispielsweise das automatische Abmelden nach 30 Minuten oder das Vorsehen von 15 Minuten zum Tätigen eines Kaufs. Menschen mit kognitiven Beeinträchtigungen benötigen möglicherweise mehr Zeit, um Inhalte zu lesen oder Funktionen wie das Ausfüllen von Formularen zu nutzen. Lösungen umfassen, den Nutzern genügend zusätzliche Zeit zu geben, um Aufgaben zu absolvieren oder Zeitbeschränkungen ganz zu eliminieren.
+Ein **Zeitlimit** ist jeder Prozess, der ohne Benutzerinitiative nach einer festgelegten Zeit oder in regelmäßigen Abständen erfolgt, wie z.B. das automatische Abmelden nach 30 Minuten oder das Vorhandensein von 15 Minuten, um einen Kauf abzuschließen. Menschen mit kognitiven Behinderungen benötigen möglicherweise mehr Zeit, um Inhalte zu lesen oder Aufgaben wie das Ausfüllen von Formularen zu erledigen. Lösungen umfassen, den Nutzern genügend zusätzliche Zeit zum Ausführen von Aufgaben zu geben oder Zeitbeschränkungen ganz zu beseitigen.
 
 ### Timer
 
 Optionen zum Anpassen von Zeitanforderungen umfassen:
 
-- Dem Nutzer erlauben, die Zeit abzuschalten oder die Zeit auf mindestens das Zehnfache der ursprünglichen Begrenzung vor dem Erreichen zu erhöhen.
-- Den Nutzer benachrichtigen und ihm einen Puffer von mindestens 20 Sekunden anbieten, um die Ablaufdauer durch eine Aktion, wie das Drücken der Leertaste, um das Zehnfache zu verlängern.
+- Ermöglichen Sie dem Nutzer, die Zeit auszuschalten oder auf mindestens das 10-fache des ursprünglichen Limits zu verlängern, bevor er darauf stößt.
+- Warnen Sie den Nutzer und geben Sie einen Puffer von mindestens 20 Sekunden, um die Ablaufdauer um den Faktor 10 durch eine Aktion zu verlängern, z.B. durch Drücken der Leertaste.
 
-Bieten Sie eine Umschaltung bei Inhalten an, die es den Nutzern ermöglicht, eine längere Sitzungsablaufbeschränkung einzustellen oder ganz aufzuheben. Beispiele für zeitgesteuerte Inhalte umfassen Formulare, zeitgesteuerte Leseübungen und Schulungsmaterialien. Wenn die Zeitbegrenzung länger als 20 Stunden ist, sind keine Anpassungen erforderlich.
+Bereiten Sie einen Schalter für Inhalte bereit, mit dem Nutzer eine längere Sitzungszeit oder überhaupt keine Sitzungszeit einstellen können. Beispiele für zeitlich begrenzte Inhalte sind Formulare, zeitgesteuerte Leseübungen und Schulungsmaterialien. Wenn das Zeitlimit länger als 20 Stunden beträgt, sind keine Anpassungen erforderlich.
 
-### Bewegung, Blinken, Scrollen
+### Bewegen, Blinken, Scrollen
 
-Es ist wichtig, die Nutzer nicht abzulenken, insbesondere jene mit kognitiven Beeinträchtigungen.
+Es ist wichtig, Nutzer, insbesondere solche mit kognitiven Behinderungen, nicht abzulenken.
 
-Wenn sich bewegende, blinkende, scrollende oder automatisch aktualisierende Informationen automatisch starten, länger als fünf Sekunden dauern und parallel zu anderen Inhalten präsentiert werden, muss der Nutzer in der Lage sein, diese zu pausieren, zu stoppen, zu verbergen oder zu kontrollieren, es sei denn, es handelt sich um eine wesentliche Funktionalität. "Wesentlich" bedeutet, dass das Entfernen der bewegenden, blinkenden, scrollenden oder automatisch aktualisierenden Informationen grundsätzlich die Bedeutung des Inhalts und/oder der Funktionalität ändern würde, **und** Informationen und Funktionalitäten nicht auf eine andere Weise erreicht werden können, die konform wäre. Dies umfasst animierte GIFs, falls das GIF länger als 5 Sekunden animiert.
+Wenn sich bewegende, blinkende, scrollende oder automatisch aktualisierte Informationen automatisch starten, länger als fünf Sekunden dauern und parallel zu anderen Inhalten dargestellt werden, muss der Benutzer in der Lage sein, diese anzuhalten, zu stoppen, zu verbergen oder zu steuern, es sei denn, sie sind eine wesentliche Funktionalität. "Wesentlich" bedeutet, dass das Entfernen der bewegenden, blinkenden, scrollenden oder automatisch aktualisierten Informationen die Bedeutung des Inhalts und/oder die Funktionalität grundlegend verändern würde **und** Informationen und Funktionen auf andere Weise, die konform wäre, nicht erreicht werden können. Dies schließt animierte GIFs ein, wenn das GIF länger als 5 Sekunden animiert.
 
-Zusätzliche zeitliche Kriterien, die berücksichtigt werden sollten, sind:
+Zusätzliche zeitliche Kriterien, die berücksichtigt werden müssen, sind:
 
-- Menschen mit kognitiven oder sprachlichen Einschränkungen benötigen möglicherweise mehr Zeit, um zu lesen und zu verstehen. Zur Verbesserung der Usability entfernen Sie jegliche Zeitbegrenzung. Zeitgesteuerte Inhalte sollten ebenfalls vermieden werden, mit Ausnahmen für nicht-interaktive synchronisierte Medien und Echtzeitereignisse.
-- Menschen mit Aufmerksamkeitsdefizitsyndrom sollten in der Lage sein, sich ohne Ablenkungen auf den Inhalt zu konzentrieren. Der Nutzer sollte in der Lage sein, Unterbrechungen zu verschieben oder zu unterdrücken, außer in Situationen, in denen eine Person auf einen Notfall aufmerksam gemacht wird. Dies bietet Menschen mit kognitiven Beeinträchtigungen Zugang, indem sie sich auf den Hauptzweck des Inhalts konzentrieren können. Dem Nutzer die Möglichkeit geben, Inhaltsaktualisierungen zu verschieben, indem sie eine Möglichkeit bieten, Inhaltsaktualisierungen anzufordern, anstatt sie automatisch zu aktualisieren. Außerdem eine Möglichkeit bereitstellen, unwesentliche Warnungen optional zu machen.
-- Sicherstellen, dass Nutzer eine Aktivität ohne Datenverlust fortsetzen können, nachdem sie eine abgelaufene Sitzung erneut authentifiziert haben, beispielsweise indem der Zustand eines Fragebogens gespeichert wird. Stellen Sie sicher, dass Daten so gespeichert werden, dass sie nach einer erneuten Authentifizierung des Nutzers geändert werden können. Bevor neu authentifiziert wird, die Daten als versteckt oder verschlüsselt codieren.
-- Warnungen vor Inaktivität bereitstellen, die zu einem Datenverlust führen könnte. Wenn eine Zeitüberschreitung verwendet wird, sagen Sie den Menschen genau, wie viel Zeit verstreicht, bevor die Sitzung abläuft und Daten verloren gehen. Die Ausnahme hiervon ist die Datenerhaltung für mehr als 20 Stunden, wenn keine Aktionen unternommen werden.
+- Menschen mit kognitiven oder sprachlichen Einschränkungen benötigen möglicherweise mehr Zeit zum Lesen und Verstehen. Aus Gründen der Benutzerfreundlichkeit sollte jedes Zeitlimit entfernt werden. Zeitlich begrenzte Inhalte sollten ebenfalls vermieden werden, mit Ausnahmen für nicht-interaktive synchronisierte Medien und Echtzeitereignisse.
+- Menschen mit Aufmerksamkeitsdefizitstörungen sollten in der Lage sein, sich ohne Ablenkungen auf Inhalte zu konzentrieren. Der Nutzer sollte in der Lage sein, Unterbrechungen zu verschieben oder zu unterdrücken, mit Ausnahme von Situationen, in denen eine Person auf einen Notfall aufmerksam gemacht werden muss. Dies bietet Menschen mit kognitiven Behinderungen Zugang, indem sie in der Lage sind, sich auf den Hauptzweck der Inhalte zu konzentrieren. Ermöglichen Sie dem Benutzer, Inhaltsaktualisierungen zu verschieben, indem Sie eine Möglichkeit anbieten, Inhaltsaktualisierungen anzufordern, anstatt diese automatisch zu aktualisieren. Bieten Sie auch eine Möglichkeit, nicht wesentliche Warnmeldungen optional zu machen.
+- Stellen Sie sicher, dass Nutzer eine Aktivität ohne Datenverlust fortsetzen können, nachdem sie eine abgelaufene Sitzung erneut authentifiziert haben, z.B. durch das Speichern des Zustands eines Fragebogens. Speichern Sie Daten so, dass sie nach einer erneuten Authentifizierung des Nutzers geändert werden können. Kodieren Sie die Daten vor der erneuten Authentifizierung als versteckt oder verschlüsselt.
+- Warnungen über Inaktivität, die zu Datenverlust führen könnte, bereitstellen. Wenn ein Timeout verwendet wird, teilen Sie den Nutzern genau mit, wie viel Zeit erforderlich ist, um die Sitzung zu beenden und Datenverlust zu verursachen. Die Ausnahme hiervon ist das Speichern von Daten für mehr als 20 Stunden, wenn keine Maßnahmen ergriffen werden.
 
 ## Navigation
 
-[Richtlinie 2.4](https://www.w3.org/WAI/WCAG21/Understanding/navigable) besagt "Bieten Sie Möglichkeiten, um den Nutzern beim Navigieren, Finden von Inhalten und Bestimmen ihres Standortes zu helfen" und stellt 10 Richtlinien zur Verfügung, um sicherzustellen, dass die Seite navigierbar ist und Inhalte auffindbar sind:
+[Leitlinie 2.4](https://www.w3.org/WAI/WCAG21/Understanding/navigable) besagt, dass "Wege bereitgestellt werden müssen, um Nutzern zu helfen, sich zu orientieren, Inhalte zu finden und ihren Standort zu bestimmen", und bietet 10 Richtlinien, um sicherzustellen, dass die Seite navigierbar und Inhalte auffindbar sind:
 
-### Ein `<title>` einfügen
+### Einschließlich eines `<title>`
 
-Stellen Sie sicher, dass ein {{HTMLElement('title')}} für das Dokument enthalten ist, da Titel eine schnelle und einfache Möglichkeit bieten, den Hauptpunkt des Bildschirms zu beschreiben. Menschen mit kognitiven Behinderungen, eingeschränktem Kurzzeitgedächtnis und Leseschwierigkeiten profitieren davon, den Zweck der Inhalte auf diese Weise identifizieren zu können.
+Stellen Sie sicher, dass Sie ein {{HTMLElement('title')}} für das Dokument einschließen, da Titel eine schnelle und leicht zu referenzierende Beschreibung des Hauptpunktes des Bildschirms bieten. Menschen mit kognitiven Behinderungen, eingeschränktem Kurzzeitgedächtnis und Leseschwierigkeiten profitieren davon, den Zweck des Inhalts auf diese Weise identifizieren zu können.
 
 ### Überschriften und Beschriftungen
 
-Fügen Sie klare und beschreibende Überschriften ein, damit Nutzer Informationen leicht finden und Beziehungen zwischen den verschiedenen Inhaltsabschnitten verstehen können. Beschreibende Beschriftungen helfen Nutzern, bestimmte Komponenten innerhalb des Inhalts zu identifizieren. Menschen, die langsam lesen und Menschen mit eingeschränktem Kurzzeitgedächtnis profitieren davon, wenn Abschnittstitel es ermöglichen, vorherzusagen, was jeder Abschnitt enthält.
+Fügen Sie klare und aussagekräftige Überschriften hinzu, damit Benutzer Informationen leicht finden und Beziehungen zwischen verschiedenen Inhaltsabschnitten verstehen können. Beschreibende Beschriftungen helfen Benutzern, bestimmte Komponenten innerhalb des Inhalts zu identifizieren. Menschen, die langsam lesen, und Menschen mit eingeschränktem Kurzzeitgedächtnis profitieren davon, wenn Abschnittstitel es ermöglichen, vorherzusagen, was jeder Abschnitt enthält.
 
 ### Abschnittsüberschriften
 
-Überschriften helfen, die Gesamtorganisation der Seiteninhalte zu definieren. Sie helfen, die Navigation durch die Inhaltsabschnitte der Seite zu erleichtern und bieten einen Mechanismus, um das Verständnis zu unterstützen. Beispiele für Überschriften umfassen Kapitel, Abschnitte und Unterabschnitte von Inhalten und mehr.
+Überschriften helfen, die Gesamtorganisation des Seiteninhalts zu definieren. Sie erleichtern die Navigation durch Inhaltsabschnitte der Seite und bieten einen Mechanismus, der das Verständnis unterstützt. Beispiele für Überschriften umfassen Kapitel, Abschnitte und Unterabschnitte von Inhalten usw.
 
-Überschriften sind offensichtlichere Navigationselemente im Vergleich zu anderen Methoden zur Identifizierung von Seiteninhaltsabschnitten (Rahmen, Leerraum, horizontale Linien usw.).
+Überschriften sind offensichtlichere Navigationshilfen im Vergleich zu anderen Methoden, um Inhaltsabschnitte der Seite zu identifizieren (Ränder, Leerraum, horizontale Linien usw.).
 
-### Mehrere Möglichkeiten, um Inhalte zu finden
+### Mehrere Wege, um Inhalt zu finden
 
-Verschiedene Nutzer bevorzugen unterschiedliche Methoden, um Informationen zu finden, daher ist es wichtig, mehrere Möglichkeiten bereitzustellen, damit Nutzer Inhalte auf Ihrer Website lokalisieren können.
+Unterschiedliche Nutzer ziehen es vor, Informationen auf unterschiedliche Weisen zu finden. Daher ist es wichtig, mehrere Möglichkeiten anzubieten, um Inhalte auf Ihrer Seite zu lokalisieren.
 
-Die Bereitstellung von mehr als einer Möglichkeit, auf Ihrer Website zu navigieren, kann Menschen dabei helfen, Informationen schneller zu finden. Einige Nutzer ziehen es möglicherweise vor, ein Inhaltsverzeichnis, eine Sitemap oder eine Suchfunktionalität zu verwenden, anstatt mehrere Seiten zu lesen und zu durchqueren, um das zu finden, was sie benötigen. Andere ziehen es möglicherweise vor, die Website in einer sequenziellen Weise zu erkunden und von Seite zu Seite zu wechseln, um den Aufbau, die Inhalte und die Konzepte der Website am besten zu verstehen.
+Das Anbieten von mehr als einem Weg, Ihre Seite zu durchsuchen, kann Menschen helfen, Informationen schneller zu finden. Einige Nutzer ziehen es möglicherweise vor, ein Inhaltsverzeichnis, eine Sitemap oder eine Suchfunktion zu verwenden, anstatt durch mehrere Seiten zu lesen und zu navigieren, um das zu finden, was sie benötigen. Andere möchten möglicherweise die Seite auf eine sequentielle Weise erkunden, von Seite zu Seite wechseln, um das Layout, die Inhalte und die Konzepte der Seite am besten zu verstehen.
 
-### Möglichkeit, Inhaltsblöcke zu überspringen
+### Möglichkeit, Inhalte zu überspringen
 
-Bereitstellung eines Mechanismus, wie eines [Skip-Links](/de/docs/Web/HTML/Reference/Elements/a#skip_links), um Inhaltsblöcke zu überspringen, die auf mehreren Webseiten wiederholt werden.
+Stellen Sie einen Mechanismus bereit, wie einen [Überspringen-Link](/de/docs/Web/HTML/Reference/Elements/a#skip_links), um Inhalte zu überspringen, die auf mehreren Webseiten wiederholt werden.
 
-### Fokusreihenfolge ergibt Sinn
+### Fokus-Reihenfolge ist sinnvoll
 
-Die Fokusreihenfolge für interaktive Elemente sollte sinnvoll sein. Um dies zu erreichen, sollte die DOM-Reihenfolge mit der visuellen Reihenfolge übereinstimmen, die wiederum mit der Tabulatorreihenfolge übereinstimmen sollte. Wenn die Tabulatorreihenfolge auf eine Weise springt, die nicht der visuellen Reihenfolge beim Navigieren mit der Tastatur entspricht, können Nutzer desorientiert werden.
+Die Reihenfolge des Fokus für interaktive Elemente sollte sinnvoll sein. Um dies zu erreichen, sollte die DOM-Reihenfolge mit der visuellen Reihenfolge übereinstimmen, die wiederum mit der Tabulator-Reihenfolge übereinstimmen sollte. Wenn die Tabulator-Reihenfolge umher springt, insbesondere auf eine Weise, die nicht mit der visuellen Reihenfolge übereinstimmt, wenn mit der Tastatur navigiert wird, können Nutzer desorientiert werden.
 
 ### Fokussierte Elemente sollten sichtbar fokussiert sein
 
-Wenn ein Nutzer mit der Tastatur navigiert, sollte die Benutzeroberfläche offensichtlich machen, welches Element derzeit im Fokus steht. Ändern oder entfernen Sie nicht das Standard-[:focus](/de/docs/Web/CSS/Reference/Selectors/:focus)-Styling des Browsers, es sei denn, Sie machen den Fokus noch offensichtlicher.
+Wenn ein Nutzer mit einer Tastatur navigiert, sollte die Benutzeroberfläche offensichtlich machen, welches Element derzeit den Fokus hat. Verändern oder entfernen Sie nicht das Standard-{{cssxref(":focus")}}-Styling des Browsers, es sei denn, Sie machen den Fokus noch offensichtlicher.
 
 ### Linktext vermittelt Bedeutung
 
-Der Text des Links sollte klar und prägnant kommunizieren, zu welchem Ziel der User navigieren wird, wenn er ihn aktiviert. Schlecht formulierter Linktext kann Nutzer bezüglich seines Zwecks oder Ziels verwirren.
+Der Text des Links sollte klar und prägnant kommunizieren, wohin der Nutzer als Nächstes navigiert wird, wenn er ihn auswählt. Schlecht formulierter Linktext kann Nutzer über den Zweck oder das Ziel verwirren.
 
-Einige Formen assistiver Technologien erlauben Nutzern die Navigation durch Listen aller auf der Seite vorhandenen Links. Links werden aus dem Kontext ihres umgebenden Nicht-Link-Inhalts entfernt, was verständlichen Linktext umso wichtiger macht. Ein Beispiel für eine schlechte Erfahrung ist eine Seite voller Links, deren Text "Hier klicken" lautet. Ohne eine Angabe, wohin "hier" führen wird, ist der Zweck des Links unklar.
+Einige Formen von unterstützenden Technologien ermöglichen es Nutzern, durch Listen aller Links auf der Seite zu navigieren. Links werden aus dem Kontext ihres umgebenden Nicht-Link-Inhalts entfernt, was den Bedarf an verständlichem Linktext noch wichtiger macht. Ein Beispiel für eine schlechte Erfahrung ist eine Seite voller Links, deren Text "Hier klicken" lautet. Ohne zu kennzeichnen, wohin "hier" führt, ist der Zweck des Links unklar.
 
-Für Bildschirmlesegeräte ist es entscheidend, dass der verknüpfte Text den Zweck jedes Links beschreibt. Wenn Sie Inhalte für Bildschirmlesegeräte zu Links hinzugefügt haben und diese Inhalte ausführlich und potenziell verwirrend für sehende Leser sind, ziehen Sie in Betracht, den zusätzlichen Text auszuschneiden, um ihn für diejenigen zu verbergen, die keine assistiven Technologien verwenden.
+Für Screenreader ist es entscheidend, dass der verlinkte Text den Zweck jedes Links beschreibt. Wenn Sie Links für Screenreader-Inhalte hinzugefügt haben, und dieser Inhalt ausführlich und für sehende Leser potenziell verwirrend ist, sollten Sie in Erwägung ziehen, den zusätzlichen Text visuell zu verbergen.
 
-### Aktueller Standort ist verfügbar
+### Der aktuelle Ort ist verfügbar
 
-Nutzer sollten sich innerhalb einer Website oder Anwendung orientieren können. Dies ist besonders wichtig und hilfreich für Menschen mit kurzer Aufmerksamkeitsspanne, die bei einer langen Reihe von Navigationsschritten verwirrt werden können.
+Nutzer sollten in der Lage sein, sich innerhalb einer Website oder Anwendung zu orientieren. Dies ist besonders wichtig und hilfreich für Menschen mit kurzer Aufmerksamkeitsspanne, die möglicherweise verwirrt werden, wenn sie einer langen Serie von Navigationsschritten folgen.
 
-Alle Nutzer profitieren von Informationen darüber, wo sie sich in der Hierarchie einer Website befinden, insbesondere bei Websites oder Anwendungen mit großen Mengen an Inhalten oder vielen Unterabschnitten. {{Glossary("Breadcrumb", "Breadcrumbs")}}, {{Glossary("Site_map", "Sitemaps")}} und das Kennzeichnen der aktuellen Seite in der Navigation als "Aktuell" sind alles Techniken, die dabei helfen, den aktuellen Standort zu kommunizieren.
+Alle Nutzer profitieren von Informationen darüber, wo sie sich in der Hierarchie einer Website befinden, insbesondere bei Seiten oder Anwendungen mit einer großen Menge an Inhalten oder vielen Unterabschnitten. {{Glossary("Breadcrumbs", "Breadcrumbs")}}, {{Glossary("Site_map", "Sitemaps")}} und die Kennzeichnung der aktuellen Seite in der Navigation als "aktuell" sind alles Techniken, die helfen, den aktuellen Ort zu kommunizieren.
 
 ## Lesbarkeit
 
-[Richtlinie 3.1](https://www.w3.org/WAI/WCAG21/Understanding/readable) besagt "Machen Sie Textinhalte lesbar und verständlich". Für einige Nutzer ist es schwierig, die Bedeutung eines Wortes oder einer Phrase aus dem Kontext heraus abzuleiten, insbesondere wenn das Wort oder die Phrase auf ungewöhnliche Weise verwendet wird oder eine spezielle Bedeutung erhalten hat.
+[Leitlinie 3.1](https://www.w3.org/WAI/WCAG21/Understanding/readable) besagt, dass "Textinhalte lesbar und verständlich sein sollen". Für einige Nutzer ist es schwierig, die Bedeutung eines Wortes oder Satzes aus dem Kontext heraus zu erschließen, insbesondere wenn das Wort oder der Satz auf ungewöhnliche Weise verwendet wird oder eine spezielle Bedeutung erhält.
 
-Für diese Nutzer kann die Fähigkeit zu lesen und zu verstehen vom Vorhandensein spezifischer Definitionen oder der ausgeschriebenen Form von Akronymen oder Abkürzungen abhängen. Einige Nutzer haben große Schwierigkeiten, geschriebene Wörter zu erkennen, verstehen jedoch äußerst komplexe und anspruchsvolle Dokumente, wenn der Text laut gelesen wird oder wenn wichtige Prozesse und Ideen visuell veranschaulicht werden.
+Für diese Nutzer kann die Fähigkeit, zu lesen und zu verstehen, davon abhängen, ob spezifische Definitionen oder die erweiterten Formen von Akronymen oder Abkürzungen verfügbar sind. Einige Nutzer haben große Schwierigkeiten, schriftliche Wörter zu erkennen, aber sie verstehen äußerst komplexe und anspruchsvolle Dokumente, wenn der Text vorgelesen wird oder wenn wichtige Prozesse und Ideen visuell veranschaulicht werden.
 
-### Sprache der Seite und jeden Inhalt, der nicht in dieser Hauptsprache ist, angeben
+### Sprache der Seite und aller nicht in dieser Hauptsprache enthaltenen Inhalte deklarieren
 
-Die Sprache jeder Seite muss durch das Attribut [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) auf dem {{HTMLElement('html')}}-Element angegeben werden. Fügen Sie das `lang`-Attribut erneut auf Text ein, der in einer anderen Sprache als der Hauptsprache des Dokuments verfasst ist.
+Die Sprache jeder Seite muss deklariert werden, indem das [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang)-Attribut auf das {{HTMLElement('html')}}-Element angewendet wird. Fügen Sie das `lang`-Attribut erneut auf Text an, der in einer anderen Sprache als der Hauptsprache des Dokuments ist.
 
-Der korrekte Gebrauch von `lang` ermöglicht es einigen Bildschirmlesegeräten, den Text korrekt anzukündigen, wenn er in synthetische Sprache umgewandelt wird. Es hilft auch Menschen, die Text-to-Speech-Software verwenden.
+Die ordnungsgemäße Verwendung von `lang` ermöglicht einigen Screenreadern, den Text korrekt anzukündigen, wenn er in synthetische Sprache umgewandelt wird. Es hilft auch Menschen, die Text-to-Speech-Software verwenden.
 
-### Ungewöhnliche Wörter und Wortverwendungen definieren
+### Ungewöhnliche Wörter und Wortnutzung definieren
 
-Einige Behinderungen erschweren es, nicht-wörtlichen Wortgebrauch zu verstehen, wie Idiome, umgangssprachliche Ausdrücke und Fachjargon. Nicht-muttersprachliche Sprecher können ebenfalls Schwierigkeiten mit diesen Begriffen haben. Wenn ein Wort oder eine Phrase eine einzigartige Bedeutung hat, geben Sie im Dokument eine Definition direkt im Text oder verlinkt an, innerhalb eines Glossars oder zu einem Online-Wörterbuch. Wenn ein Wort oder eine Phrase mehr als eine Bedeutung hat, definieren Sie jede Verwendung.
+Einige Behinderungen erschweren es, den nicht-wörtlichen Sprachgebrauch zu verstehen, z.B. Idiome, umgangssprachliche Ausdrücke und spezialisierte Fachsprache. Nicht-Muttersprachler können auch Schwierigkeiten mit diesen Begriffen haben. Wenn ein Wort oder Satz eine einzigartige Bedeutung hat, geben Sie im Dokument eine Definition inline oder verlinkt an, in einem Glossar oder zu einem Online-Lexikon. Wenn ein Wort oder Satz verwendet wird, um mehr als eine Sache zu bedeuten, definieren Sie jede Verwendung.
 
 ### Abkürzungen definieren
 
 Abkürzungen können für Menschen verwirrend sein, die:
 
-- Schwierigkeiten beim Dekodieren von Wörtern haben.
-- Ein eingeschränktes Gedächtnis haben.
-- Schwierigkeiten haben, den Zusammenhang zur Unterstützung des Verständnisses zu nutzen.
-- Sich auf Bildschirmvergrößerer verlassen (die oft kontextuelle Hinweise reduzieren).
+- Schwierigkeiten beim Entziffern von Wörtern haben.
+- Eingeschränkte Gedächtnisleistung haben.
+- Schwierigkeiten haben, Kontext zur Unterstützung des Verständnisses zu nutzen.
+- Sich auf Bildschirmlupen verlassen (die oft die kontextbezogenen Hinweis reduzieren).
 
-Geben Sie beim ersten Mal, dass eine Abkürzung verwendet wird, die erweiterte Form an, gefolgt von der Abkürzung in einem {{HTMLElement('abbr')}}-Element. Wenn eine Abkürzung keine erweiterte Form hat oder eine Abkürzung für ein Wort ist, das nicht in der Hauptsprache des Dokuments ist (z. B. Latein), erklären Sie deren Bedeutung. Erwägen Sie auch, [ruby text](/de/docs/Web/HTML/Reference/Elements/ruby) für Initialismen (Aussprechung von Akronymen) zu verwenden.
+Geben Sie eine ausgeweitete Form der Abkürzung an, wenn sie das erste Mal verwendet wird, gefolgt von der Abkürzung innerhalb eines {{HTMLElement('abbr')}}-Elements. Wenn eine Abkürzung keine erweiterte Form hat oder eine Abkürzung für ein Wort ist, das nicht in der Hauptsprache des Dokuments vorliegt (wie Latein), erklären Sie die Bedeutung. Erwägen Sie auch die Verwendung von [Ruby-Text](/de/docs/Web/HTML/Reference/Elements/ruby) für Initialismen (Aussprache von Akronymen).
 
 ### Lesestufe
 
-Inhalte sollten so klar wie möglich geschrieben sein. Eine gute Regel ist, die Inhalte so einfach zu gestalten, dass sie beim ersten Lesen verstanden werden können. Methoden, um dies zu erreichen, umfassen:
+Inhalte sollten so klar wie möglich geschrieben werden. Eine gute Regel ist, Inhalte so einfach zu gestalten, dass sie beim ersten Mal verstanden werden können. Methoden, um dies zu erreichen, umfassen:
 
 - Verwendung kurzer, einfacher Wörter.
 - Schreiben kurzer Sätze.
-- Verwendung des Aktivsatzes in der Gegenwartsform.
+- Verwendung des Aktivstils im Präsens.
 - Verwendung korrekter Grammatik und Rechtschreibung.
 
-Es hilft Nutzern mit kognitiven Beeinträchtigungen, eine Textzusammenfassung (manchmal als TL;DR oder "zu lang; nicht gelesen" bezeichnet) auf einem niedrigen Leserniveau bereitzustellen. Eine weitere Technik, die Sie verwenden können, ist die Bereitstellung begleitender visueller Darstellungen, um Ideen, Ereignisse und Prozesse zu erklären.
+Es hilft Nutzern mit kognitiven Behinderungen, eine textliche Zusammenfassung (manchmal als TL;DR, also "too long; didn't read" bezeichnet) auf einem niedrigen Lesestufeniveau bereitzustellen. Eine weitere Technik besteht darin, begleitende visuelle Hilfen anzubieten, um Ideen, Ereignisse und Prozesse zu erklären.
 
-Es gibt Werkzeuge, die das Niveau Ihrer Inhalte bewerten können. Beispielsweise hat dieses Dokument einen durchschnittlichen Notenstand von etwa 11. Das bedeutet, dass es von einem englischsprachigen Muttersprachler im Alter von 16 bis 17 Jahren leicht verstanden werden sollte. Einige Werkzeuge können sogar Vorschläge zur Vereinfachung geben.
+Es gibt Werkzeuge, die das Niveau Ihrer Inhalte bewerten können. Beispielsweise hat dieses Dokument ein durchschnittliches Bildungsniveau von etwa 11. Das bedeutet, dass es von einem englischsprachigen Muttersprachler im Alter von 16 bis 17 Jahren leicht verstanden werden sollte. Einige Werkzeuge können sogar Vorschläge machen, um es zu vereinfachen.
 
 ### Aussprache
 
-Es gibt mehrere Techniken, die dabei helfen können, den Menschen beizubringen, wie man Wörter ausspricht:
+Es gibt mehrere Techniken, die helfen können, Menschen beizubringen, wie man Wörter ausspricht:
 
-- Geben Sie die Aussprache unmittelbar nach dem Wort an.
-- Einen Link zu einer Liste von Aussprachen bereitstellen.
-- Ein Glossar mit Aussprachen bereitstellen.
+- Geben Sie die Aussprache direkt nach dem Wort an.
+- Verlinken Sie zu einer Liste von Aussprachen.
+- Stellen Sie ein Glossar mit Aussprachen bereit.
 - Verwenden Sie das {{HTMLElement('ruby')}}-Element, um zu veranschaulichen, wie ein Wort ausgesprochen wird.
 
-Die Bereitstellung von Anleitungen zur Aussprache von Wörtern hilft vielen verschiedenen Menschen, einschließlich derjenigen, die bevorzugen, laut vorzulesen, nicht-muttersprachlichen Sprechern und Menschen, die nicht mit der Bedeutung eines Begriffs im Kontext vertraut sind.
+Die Bereitstellung von Anleitungen zur Aussprache von Wörtern hilft vielen verschiedenen Arten von Menschen, einschließlich solchen, die es vorziehen, laut zu lesen, Nicht-Muttersprachler, und Menschen, die mit der Bedeutung eines Begriffs im Kontext nicht vertraut sind.
 
-Eine andere Lösung besteht darin, Glyphen oder diakritische Zeichen zu verwenden, um die Aussprache zu veranschaulichen. Wenn diese Technik jedoch verwendet wird, muss es eine Möglichkeit geben, sie auszuschalten. Ferner ist es hilfreich, einen Link zu einer Anleitung zu den verwendeten Zeichen bereitzustellen, da deren Bedeutung möglicherweise nicht offensichtlich ist.
+Eine andere Lösung ist die Verwendung von Glyphe oder diakritischen Zeichen, um die Aussprache zu veranschaulichen. Wenn diese Technik verwendet wird, muss es jedoch einen Mechanismus geben, um sie auszuschalten. Darüber hinaus ist es hilfreich, auf einen Leitfaden für die verwendeten Zeichen zu verlinken, da deren Bedeutung möglicherweise nicht offensichtlich ist.
 
 ## Vorhersehbarkeit
 
-WCAG [Richtlinie 3.2](https://www.w3.org/WAI/WCAG21/Understanding/predictable) besagt "Webseiten müssen in vorhersehbarer Weise erscheinen und funktionieren". Dies ist ein Grundsatz des guten User-Experience-Designs. Konsistenz ist insbesondere für Menschen mit kognitiven Schwierigkeiten wichtig. Dazu gehört Konsistenz im Seitenlayout und vorhersehbare interaktive Komponenten.
+WCAG [Leitlinie 3.2](https://www.w3.org/WAI/WCAG21/Understanding/predictable) besagt, dass "Webseiten auf vorhersehbare Weise erscheinen und funktionieren sollen". Dies ist ein Grundsatz für gutes User Experience Design. Konsistenz ist besonders wichtig für Menschen mit kognitiven Schwierigkeiten. Dies umfasst Konsistenz im Seitenlayout und vorhersehbare interaktive Komponenten.
 
-### Verwenden Sie die Aktivierung, nicht den Fokus, um den Kontext zu ändern
+### Verwendung von Aktivierung, nicht Fokus, um Kontext zu ändern
 
-Das Herstellen eines Kontextwechsels sollte absichtlich erfolgen. Deshalb sollte, wenn ein UI-Feature die [Fokussierung](/de/docs/Web/API/HTMLElement/focus) erhält, es keine weiteren benutzerorientierten Aktionen auslösen. Vielmehr sollten Nutzer in der Lage sein, ein Feature zu "aktivieren", um den Wechsel auszulösen.
+Eine Änderung des Kontexts sollte absichtlich erfolgen. Aus diesem Grund sollte ein UI-Feature beim Erhalt des [Fokus](/de/docs/Web/API/HTMLElement/focus) keine fortführenden Funktionen für den Nutzer auslösen. Vielmehr sollten Nutzer ein Feature "aktivieren" müssen, um die Änderung auszulösen.
 
-### Ändern Sie die Einstellungen basierend auf einer aktiven Anfrage
+### Ändern Sie Einstellungen basierend auf einer aktiven Anfrage
 
-Die Bedienung von Formularsteuerelementen und der Dateneingabe sollte zu vorhersehbarem Verhalten führen. Kontextänderungen können Menschen mit kognitiven Beeinträchtigungen verwirren und sollten daher nur dann erfolgen, wenn klar ist, dass eine solche Änderung als Reaktion auf die Aktion des Nutzers erfolgt.
+Die Funktionsweise und Dateneingabe der Formularsteuerung sollte zu einem vorhersehbaren Verhalten führen. Änderungen im Kontext können Nutzer mit kognitiven Behinderungen verwirren und sollten daher nur auftreten, wenn klar ist, dass eine solche Änderung als Antwort auf die Aktion des Nutzers erfolgt.
 
-Zustandsänderungen sollten absichtliche Benutzerhandlungen erfordern. Beispiele hierfür sind das Ankreuzen eines Kontrollkästchens, die Eingabe von Daten oder das Ändern einer Auswahloption. Stellen Sie auch sicher, dass eine Absende-Schaltfläche bereitgestellt wird, um die Kontextänderung zu initiieren, und beschreiben Sie, was geschehen wird, bevor die Änderung vorgenommen wird.
+Das Ändern des Zustands sollte eine absichtliche Nutzeraktion erfordern. Beispiele hierfür sind das Aktivieren eines Kontrollkästchens, Eingabedaten oder das Ändern einer Auswahloption. Stellen Sie auch sicher, dass ein Absende-Button bereitgestellt wird, um die Kontextänderung einzuleiten, und beschreiben Sie, was passieren wird, bevor die Änderung vorgenommen wird.
 
-### Behalten Sie eine konsistente Navigation auf der gesamten Seite bei
+### Behalten Sie die Navigation auf der gesamten Website konsistent
 
-Behalten Sie die Navigationsreihenfolge zwischen Seiten bei. Wenn Sie beispielsweise eine Navigationsleiste auf mehreren Seiten haben, machen Sie diese Navigation auf der gesamten Site einheitlich und platzieren Sie die gleichen Links an denselben Stellen. Dies gilt nicht nur für die Navigation: Präsentieren Sie alle wiederkehrenden Komponenten in der gleichen relativen Reihenfolge, jedes Mal, wenn sie erscheinen.
+Behalten Sie die Navigationsreihenfolge auf allen Seiten konsistent bei. Wenn Sie beispielsweise eine Navigationsleiste auf mehreren Seiten haben, machen Sie diese Navigation auf der gesamten Website einheitlich mit denselben Links an derselben Stelle. Dies gilt nicht nur für die Navigation: Präsentieren Sie alle wiederholten Komponenten jedes Mal in derselben relativen Reihenfolge, wenn sie erscheinen.
 
-### Stellen Sie konsistente Beschriftungen bereit
+### Bieten Sie konsistente Beschriftungen
 
-Identische Funktionen sollten jedes Mal ähnliche Beschriftungen haben, wenn sie verwendet werden. Konsistente Beschriftungen von Schaltflächen, Alternativtext für Icons und Ikonographie für ähnliche Interaktionen und so weiter, auch in verschiedenen Abschnitten Ihrer Website, helfen allen Ihren Nutzern.
+Identische Funktionen sollten ähnliche Beschriftungen haben, jedes Mal, wenn sie genutzt werden. Konsistente Button-Beschriftungen, alternative Texte für Symbole und Ikonographie für ähnliche Interaktionen usw., auch in verschiedenen Abschnitten Ihrer Website, helfen all Ihren Nutzern.
 
-### Seien Sie konsistent und vorhersehbar, und verwenden Sie Normen
+### Seien Sie konsistent und vorhersehbar und verwenden Sie Normen
 
-Während unbeschriftete Ikonographie nicht die effektivste Methode zur Informationsvermittlung ist, hilft die Konsistenz in der Verwendung der Icons (und, wenn beschriftet, ihres Beschriftungstextes) den Menschen, zu verstehen, was das Icon repräsentiert. Ändern Sie ähnliche Defaults, wie die Rücktaste des Browsers, nicht. Wenn Sie einen Nutzer umleiten müssen, lassen Sie den Benutzer im Voraus darüber wissen.
+Während unbeschriftete Ikonographie nicht die effektivste Methode ist, um Informationen zu vermitteln, hilft die konsistente Verwendung der Symbole (und falls beschriftet, deren Beschriftungstext), den Menschen zu verstehen, was das Symbol darstellt. Ändern Sie auch keine Standardwerte wie die Zurück-Taste des Browsers. Wenn Sie einen Nutzer umleiten müssen, lassen Sie den Nutzer im Voraus darüber Bescheid wissen.
 
-## Eingabeunterstützung
+## Eingabehilfe
 
-[Richtlinie 3.3](https://www.w3.org/WAI/WCAG21/Understanding/input-assistance) soll die korrekte Dateneingabe sicherstellen und sagt "Hilfe für die Nutzer, Fehler zu vermeiden und zu korrigieren". Während wir alle Fehler machen, sind manche Menschen eher dazu geneigt, Fehler zu machen, weniger wahrscheinlich, einen Fehler zu bemerken oder es fällt ihnen schwerer, einen Fehler zu korrigieren, den sie gemacht haben.
+[Leitlinie 3.3](https://www.w3.org/WAI/WCAG21/Understanding/input-assistance) trägt dazu bei, eine genaue Dateneingabe sicherzustellen, indem sie besagt, dass "Nutzern geholfen werden soll, Fehler zu vermeiden und zu korrigieren". Während wir alle Fehler machen, sind einige Menschen eher dazu geneigt, sie zu begehen, weniger wahrscheinlich, einen Fehler zu bemerken, oder haben es schwerer, einen Fehler zu korrigieren, sobald sie einen gemacht haben.
 
-Die Eingabeunterstützungsrichtlinien zielen darauf ab, die Wahrscheinlichkeit zu verringern, dass Nutzer, insbesondere solche mit Behinderungen, einen Fehler machen, und im Falle eines Fehlers die Wahrscheinlichkeit zu erhöhen, dass sie die Fehlermeldung sehen und verstehen und den Fehler erfolgreich beheben können.
+Die Leitlinien zur Eingabehilfe zielen darauf ab, die Wahrscheinlichkeit zu verringern, dass Nutzer, insbesondere diejenigen mit Behinderungen, einen Fehler machen, und, falls sie einen Fehler machen, die Wahrscheinlichkeit zu erhöhen, dass sie die Fehlermeldung sehen und verstehen können und eventuelle Fehler erfolgreich beheben können.
 
-### Übermittlung von automatisierten Fehlererkennungen
+### Automatische Fehlererkennung übermitteln
 
-Nutzer müssen auf den Fehler aufmerksam gemacht werden und darüber informiert werden, was falsch ist. Wenn eine clientseitige Fehlererkennung vorhanden ist, halten Sie sich an die folgenden Richtlinien, um den Fehler effektiv an den Nutzer zu übermitteln:
+Nutzer müssen auf den Fehler hingewiesen werden und darüber informiert werden, was falsch ist. Wenn eine clientseitige Fehlererkennung vorliegt, beachten Sie die folgenden Richtlinien, um den Fehler so effektiv wie möglich zu gestalten, wenn er den Nutzern mitgeteilt wird:
 
 - Der Fehler muss im Text beschrieben werden.
 - Stellen Sie sicher, dass die Fehlermeldung so spezifisch wie möglich ist.
-- Geben Sie Text an, um nicht vollständige erforderliche Felder und Textbeschreibungen zu identifizieren, wenn ein eingegebener Wert ungültig ist.
-- Wenn der Fehler das Absenden eines Formulars verhindert, fokussieren Sie auf den Fehler. Wenn mehrere Fehler vorhanden sind, bieten Sie eine Zusammenfassung an, wobei jeder Fehler auf den zugehörigen Eingabebereich verlinkt ist.
-- Fügen Sie Text zusammen mit der Verwendung von Icons, Bildern, Farben und so weiter hinzu. Einige Menschen haben Schwierigkeiten, die Bedeutung von Icons und anderen visuellen Hinweisen zu verstehen.
-- Andere Menschen haben möglicherweise Schwierigkeiten, die Textversion Ihrer Fehlermeldung zu verstehen. Für diese Menschen bieten Sie auch Dinge wie Icons und Farben an.
-- Geben Sie auch Rückmeldungen, wenn ein Formular erfolgreich eingereicht wurde.
+- Stellen Sie Text bereit, um unvollständige erforderliche Felder und textliche Beschreibungen zu identifizieren, wenn ein eingegebener Wert ungültig ist.
+- Wenn der Fehler das Absenden eines Formulars verhindert hat, fokussieren Sie auf den Fehler. Bei mehreren Fehlern bieten Sie eine Zusammenfassung an, mit jeweils einem Link pro Fehler zum entsprechenden Eingabefeld.
+- Fügen Sie Text zusammen mit der Verwendung von Symbolen, Bildern, Farben usw. hinzu. Einige Menschen haben Schwierigkeiten, die Bedeutung von Symbolen und anderen visuellen Hinweisen zu verstehen.
+- Andere Menschen haben möglicherweise Schwierigkeiten, die textliche Version Ihrer Fehlermeldung zu verstehen. Für diese Menschen bieten Sie auch Dinge wie Symbole und Farben an.
+- Bieten Sie auch Feedback, wenn ein Formular erfolgreich abgeschickt wurde.
 
-### Anweisungen zur Nutzereingabe bereitstellen
+### Anleitungen für die Benutzereingabe bereitstellen
 
-Beginnen Sie das Formular mit Textanweisungen, wie es zu bedienen ist. Fügen Sie Beschriftungen oder Anweisungen ein, wenn Nutzer Informationen eingeben müssen, indem Sie die {{HTMLElement('label')}}, {{HTMLElement('fieldset')}} und {{HTMLElement('legend')}}-Elemente verwenden.
+Beginnen Sie das Formular mit Textanweisungen, wie es zu bedienen ist. Integrieren Sie Beschriftungen oder Anweisungen, wenn Nutzer Informationen eingeben müssen, indem Sie die {{HTMLElement('label')}}, {{HTMLElement('fieldset')}} und {{HTMLElement('legend')}}-Elemente verwenden.
 
-Beschriftungen sollten beschreibend und nah an der Eingabe positioniert sein, zu der sie gehören. Wenn ein spezifisches Format für die Eingabe erforderlich ist, bieten Sie ein Beispiel im korrekten Format an. Erwägen Sie auch die serverseitige Validierung, um Eingabedaten zu formatieren, was die Benutzerfreundlichkeit der Eingabe fördert.
+Beschriftungen sollten beschreibend sein und in der Nähe des Eingabefelds positioniert sein, auf das sie sich beziehen. Wenn ein bestimmtes Format für die Eingabe erforderlich ist, geben Sie ein Beispiel im richtigen Format an. Erwägen Sie außerdem die Durchführung einer serverseitigen Validierung, um Eingabedaten zu formatieren, um die Benutzereingabe zu erleichtern.
 
-Wenn ein Formularsteuerelement erforderlich ist, zeigen Sie es sowohl visuell als auch [durch Code](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required) an. Wenn ein Formularsteuerelement den Kontext ändert, beschreiben Sie, was geschehen wird, auf eine Weise, die der Nutzer versteht, bevor er die Kontextänderung verursacht.
+Wenn eine Formularsteuerung erforderlich ist, kennzeichnen Sie sie sowohl visuell als auch [per Code](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required). Wenn eine Formularsteuerung den Kontext ändert, beschreiben Sie, was passieren wird, auf eine Weise, die der Nutzer versteht, bevor er die Kontextänderung verursacht.
 
-### Fehlerbehebung
+### Fehler-Vorschläge
 
-Geben Sie Vorschläge zur Eingabe, wenn ein Eingabefehler automatisch erkannt wird und Vorschläge zur Korrektur verfügbar sind (es sei denn, diese würden die Sicherheit oder den Zweck der Inhalte gefährden).
+Geben Sie dem Nutzer vorgeschlagene Eingaben an, wenn ein Eingabefehler automatisch erkannt wurde und Korrekturvorschläge bekannt sind (es sei denn, dies würde die Sicherheit oder den Zweck des Inhalts gefährden).
 
-### Verhindern Sie Katastrophen
+### Katastrophen verhindern
 
-Für Einsendungen, die zu rechtlichen, finanziellen oder anderen wesentlichen Konsequenzen führen können oder führen, stellen Sie sicher, dass die Einsendungen überprüft, bestätigt und/oder zurücknehmbar sind.
+Für Einreichungen, die rechtliche, finanzielle oder andere wesentliche Folgen haben oder haben können, stellen Sie sicher, dass die Einreichungen überprüft, bestätigt und/oder rückgängig gemacht werden können.
 
-Von Benutzer eingegebene Daten sollten auf Fehler überprüft werden, bevor sie gesendet werden, und der Benutzer muss die Möglichkeit haben, diese zu korrigieren. Der Benutzer sollte in der Lage sein, die Informationen vor der endgültigen Einreichung zu überprüfen, zu bestätigen und zu korrigieren. Außerdem sicherstellen, dass ein Bestätigungsfeld neben einem Absende-Button vorhanden ist.
+Von den Nutzern eingegebene Daten sollten vor der Einreichung auf Fehler überprüft werden, und der Nutzer sollte die Möglichkeit haben, sie zu korrigieren. Der Benutzer sollte die Möglichkeit haben, Informationen vor der endgültigen Einreichung zu überprüfen, zu bestätigen und zu korrigieren. Stellen Sie außerdem sicher, dass ein Bestätigungskontrollkästchen neben einem Absende-Button vorhanden ist.
 
-Wenn eine Einreichung rechtliche oder finanzielle Transaktionen auslöst, geben Sie einen festgelegten Zeitraum an, innerhalb dessen der Nutzer die Anfrage ändern oder stornieren kann.
+Wenn eine Einreichung eine rechtliche oder finanzielle Transaktion bewirkt, geben Sie einen erklärten Zeitraum an, innerhalb dessen die Anfrage vom Nutzer geändert oder storniert werden kann.
 
 ### Hilfe bereitstellen
 
-Kontextbezogene Hilfe sollte verfügbar gemacht werden. Wenn ein Formular eine Texteingabe erfordert, geben Sie Formulareinweisungen zum Zweck und zur erforderlichen Eingabe. Integrieren Sie Rechtschreibprüfung und Vorschläge für Texteingaben sowie Links zu Hilfs- und Unterstützungsdokumenten. Wenn ein spezifisches Datenformat für Eingaben erwartet wird, bieten Sie ein Beispiel an.
+Kontextabhängige Hilfe sollte verfügbar gemacht werden. Wenn ein Formular eine Texteingabe erfordert, geben Sie Formulanweisungen ein, die den Zweck und die erforderlichen Eingabedaten beschreiben. Integrieren Sie Rechtschreibprüfung und Vorschläge für längere Texteingaben sowie Links zu Hilfe- und Unterstützungsmaterial. Wenn für Eingaben ein spezifisches Datenformat erwartet wird, geben Sie ein Beispiel an.
 
-## Hinweise
+## Anmerkungen
 
-Die oben genannten sind gute Designpraktiken. Sie werden jedem zugutekommen.
+Die oben genannten sind gute Designpraktiken. Sie werden allen zugutekommen.
 
-- Viele Menschen mit kognitiven Beeinträchtigungen haben auch körperliche Behinderungen. Websites müssen den [Web Content Accessibility Guidelines des W3C](https://www.w3.org/WAI/standards-guidelines/wcag/) entsprechen.
-- Die [Arbeitsgruppe für Barrierefreiheit bei kognitiven und Lernbehinderungen des W3C](https://www.w3.org/WAI/GL/task-forces/coga/) erstellt Web-Barrierefreiheitsrichtlinien für Menschen mit kognitiven Beeinträchtigungen.
-- WebAIM hat eine [Seite zu kognitiven Themen](https://webaim.org/articles/cognitive/) mit relevanten Informationen und Ressourcen.
-- Die US-amerikanischen Centers for Disease Control schätzen, dass im Jahr 2018 1 von 4 Bürgern der USA eine Behinderung hat und [kognitive Beeinträchtigung ist die häufigste für junge Menschen](https://archive.cdc.gov/www_cdc_gov/media/releases/2018/p0816-disability.html).
-- In den USA wurden "intellektuelle Behinderungen" früher als "geistige Behinderung" bezeichnet. In Großbritannien werden "intellektuelle Behinderungen" allgemein als "Lernbehinderungen" oder "Lernschwierigkeiten" bezeichnet.
+- Viele Menschen mit kognitiven Beeinträchtigungen haben auch körperliche Behinderungen. Webseiten müssen den [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) des W3C entsprechen.
+- Die [Task Force für kognitive und Lernbehinderungen] des W3C (https://www.w3.org/WAI/GL/task-forces/coga/) erstellt Richtlinien für die Barrierefreiheit im Web für Menschen mit kognitiven Beeinträchtigungen.
+- WebAIM hat eine [Cognitive-Seite](https://webaim.org/articles/cognitive/) mit relevanten Informationen und Ressourcen.
+- Die US-amerikanischen Zentren für Seuchenkontrolle schätzen, dass ab 2018 1 von 4 US-Bürgern eine Behinderung hat und davon [kognitive Beeinträchtigungen die häufigste bei jungen Menschen ist](https://archive.cdc.gov/www_cdc_gov/media/releases/2018/p0816-disability.html).
+- In den USA wurden "intellektuelle Behinderungen" früher als "geistige Behinderung" bezeichnet. Im Vereinigten Königreich werden "intellektuelle Behinderungen" allgemein als "Lernbehinderungen" oder "Lernschwierigkeiten" bezeichnet.
 
 ## Siehe auch
 
-- [Barrierefreiheitsrichtlinien](https://extensionworkshop.com/documentation/develop/build-an-accessible-extension/)
+- [Barrierefreiheit Richtlinien](https://extensionworkshop.com/documentation/develop/build-an-accessible-extension/)
 - [Was ist Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility)
 - [Barrierefreiheit für Anfallsstörungen](/de/docs/Web/Accessibility/Guides/Seizure_disorders)
-- [Verstehen der WCAG-Richtlinien](/de/docs/Web/Accessibility/Guides/Understanding_WCAG)
+- [WCAG Richtlinien verstehen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG)
 - [Überblick über Barrierefreiheit](/de/docs/Learn_web_development/Core/Accessibility)
-- [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/), einschließlich [Richtlinien zur kognitiven Barrierefreiheit](#wcag-richtlinien)
-- [Das W3C-Arbeitsgruppe für Barrierefreiheit bei kognitiven und Lernbehinderungen](https://www.w3.org/WAI/GL/task-forces/coga/)
-- [WebAIM-Kognitive Informationen](https://webaim.org/articles/cognitive/)
-- [CDC-Informationen zu Behinderungen](https://www.cdc.gov/disability-and-health/)
+- [Richtlinien für barrierefreie Webinhalte](https://www.w3.org/WAI/standards-guidelines/wcag/), einschließlich [Richtlinien für kognitive Barrierefreiheit](#wcag-richtlinien)
+- [Die Task Force für kognitive und Lernbehinderungen des W3C](https://www.w3.org/WAI/GL/task-forces/coga/)
+- [WebAIM Cognitive Information](https://webaim.org/articles/cognitive/)
+- [CDC Informationen zu Behinderungen](https://www.cdc.gov/disability-and-health/)

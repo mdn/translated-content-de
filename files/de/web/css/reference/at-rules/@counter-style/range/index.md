@@ -2,10 +2,10 @@
 title: range
 slug: Web/CSS/Reference/At-rules/@counter-style/range
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **`range`** Deskriptor ermöglicht es dem Autor, einen oder mehrere Bereiche von Zählerwerten anzugeben, für die der Stil angewendet wird, wenn benutzerdefinierte Zählerstile mit der {{cssxref("@counter-style")}} At-Regel definiert werden. Wenn der `range` Deskriptor enthalten ist, wird der definierte Zähler nur für Werte in den festgelegten Bereichen verwendet. Liegt der Zählerwert außerhalb des angegebenen Bereichs, wird der Fallback-Stil verwendet, um die Darstellung dieses Markers zu konstruieren.
+Der **`range`** Deskriptor ermöglicht es dem Autor, einen oder mehrere Bereiche von Zählerwerten anzugeben, für die der Stil angewendet wird, wenn benutzerdefinierte Zählerstile mit dem {{cssxref("@counter-style")}} At-Regel definiert werden. Wenn der `range` Deskriptor enthalten ist, wird der definierte Zähler nur für Werte innerhalb der festgelegten Bereiche verwendet. Liegt der Zählerwert außerhalb des angegebenen Bereichs, wird der Fallback-Stil verwendet, um die Darstellung des Markers zu konstruieren.
 
 ## Syntax
 
@@ -30,37 +30,37 @@ range:
 
 ### Werte
 
-Der Wert ist eine kommagetrennte Liste von Bereichen, von denen jeder eine untere und obere Grenze oder das Schlüsselwort `auto` enthält.
+Der Wert ist eine durch Kommas getrennte Liste von Bereichen, die jeweils ein unteres und ein oberes Limit oder das Schlüsselwort `auto` enthalten.
 
 - `auto`
-  - : Der gesamte Satz von Zahlen, die durch den Zähler darstellbar sind, hängt vom Zähler{{cssxref("@counter-style/system","system")}} ab. Diese Bereichswerte hängen vom Zählersystem ab:
+  - : Die gesamte Menge der durch den Zähler darstellbaren Zahlen {{cssxref("@counter-style/system","system")}}. Diese Bereichswerte hängen vom Zählsystem ab:
     - Für `cyclic`, `numeric` und `fixed` Systeme reicht der Bereich von negativer `Unendlichkeit` bis positiver `Unendlichkeit`.
-    - Für `alphabetic` und `symbolic` Systeme reicht der Bereich von `1` bis zur positiven `Unendlichkeit`.
-    - Für `additive` Systeme reicht der Bereich von `0` bis zur positiven Unendlichkeit.
-    - Wenn `extend` verwendet wird, um ein System zu erweitern, ist der Bereich das, was `auto` für das erweiterte System erzeugen würde, einschließlich Erweiterungen komplexer vordefinierter Stile, wie einige japanische, koreanische, chinesische und äthiopische Zählerstile.
+    - Für `alphabetic` und `symbolic` Systeme reicht der Bereich von `1` bis positive `Unendlichkeit`.
+    - Für `additive` Systeme reicht der Bereich von `0` bis positive `Unendlichkeit`.
+    - Bei der Verwendung von `extend`, um ein System zu erweitern, ist der Bereich das, was `auto` für das erweiterte System erzeugen würde, einschließlich Erweiterungen komplexer vordefinierter Stile, wie einige japanische, koreanische, chinesische und äthiopische Zählerstile.
 
 - `[ [ <integer> | infinite ]{2} ]#`
-  - : Jeder Bereich innerhalb der kommagetrennten Liste von Bereichen enthält zwei Werte, die jeweils entweder ein {{cssxref("integer")}} oder das Schlüsselwort `infinite` sind. Wenn `infinite` als erster Wert in einem Bereich verwendet wird, stellt es negative Unendlichkeit dar; wenn es als zweiter Wert verwendet wird, stellt es positive Unendlichkeit dar. Der erste Wert jedes Bereichs ist die Untergrenze für den Bereich und der zweite Wert ist die Obergrenze, inklusive. Wenn die Untergrenze eines Bereichs in der Liste höher als die Obergrenze ist, ist der gesamte `range` Deskriptor ungültig und wird ignoriert.
+  - : Jeder Bereich in der durch Kommas getrennten Liste von Bereichen umfasst zwei Werte, die entweder ein {{cssxref("integer")}} oder das Schlüsselwort `infinite` sind. Wenn `infinite` als erster Wert in einem Bereich verwendet wird, steht es für negative Unendlichkeit; wenn es als zweiter Wert verwendet wird, steht es für positive Unendlichkeit. Der erste Wert jedes Bereichs ist die untere Grenze für den Bereich und der zweite Wert ist die obere Grenze, inklusive. Wenn die untere Grenze eines Bereichs in der Liste höher ist als die obere Grenze, ist der gesamte `range` Deskriptor ungültig und wird ignoriert.
 
 ## Beschreibung
 
-Der Wert des `range` Deskriptors kann entweder `auto` oder eine kommagetrennte Liste von unteren und oberen Bereichsgrenzen sein, die unter Verwendung von negativen oder positiven Ganzzahlen oder dem Schlüsselwort `infinite` angegeben sind.
+Der Wert des `range` Deskriptors kann entweder `auto` oder eine durch Kommas getrennte Liste von unteren und oberen Grenzbereichen sein, die mit negativen oder positiven Ganzzahlen oder dem Schlüsselwort `infinite` angegeben werden.
 
 ### Verständnis von `auto`
 
-Wenn der Wert auf `auto` gesetzt ist, ist der Bereich der Standardbereich für das Zählersystem. Wenn das `system` `cyclic`, `numeric` oder `fixed` ist, reicht der Bereich von negativer Unendlichkeit bis positiver Unendlichkeit. Wenn das `system` `alphabetic` oder `symbolic` ist, reicht der Bereich von `1` bis zur positiven `Unendlichkeit`. Für `system: additive` ergibt `auto` den Bereich `0` bis zur positiven `Unendlichkeit`.
+Wenn der Wert auf `auto` eingestellt ist, ist der Bereich der Standardbereich für das Zählsystem. Ist das `system` `cyclic`, `numeric` oder `fixed`, reicht der Bereich von negativer Unendlichkeit bis positiver Unendlichkeit. Ist das `system` `alphabetic` oder `symbolic`, reicht der Bereich von `1` bis positive `Unendlichkeit`. Für `system: additive` ergibt `auto` den Bereich von `0` bis positive `Unendlichkeit`.
 
-Wenn ein Zähler erweitert wird und `range` auf `auto` gesetzt ist, wird der Bereichswert der Bereich des `systems` des erweiterten Zählers sein, nicht der `range` Wert, wenn vorhanden, dieses Zählers. Zum Beispiel, wenn Zähler "B" das `system: extends A` gesetzt hat, wobei Zähler ein `alphabetic` Zähler ist, setzt `range: auto` auf "B" den Bereich von "B" von `1` bis `Unendlichkeit`. Dies ist der Bereich des `alphabetic` Systems, nicht unbedingt der Bereich, der in der Definition des Zählerstils "A" festgelegt ist. Mit `range: auto` auf "B" gesetzt, wird der `range` auf den Standardbereich des `alphabetic` Systems gesetzt, nicht auf den `range` Wert, der in der Deskriptorliste von Zähler A festgelegt ist.
+Wenn ein Zähler erweitert wird, wird bei eingestelltem `range: auto` der Bereichswert der Bereich des `system` des erweiterten Zählers, nicht der `range` Wert, falls vorhanden, dieses Zählers. Wenn zum Beispiel der Zähler "B" das `system: extends A` hat, wobei der Zähler ein `alphabetic` Zähler ist, setzt `range: auto` auf "B" den Bereich von "B" von `1` bis `Unendlichkeit`. Dies ist der Bereich des `alphabetic` Systems, nicht unbedingt der Bereich, der in der "A" Zählerstildefinition festgelegt ist. Mit `range: auto` auf "B" wird der `range` auf den Standardbereich des `alphabetic` Systems gesetzt, nicht auf den `range` Wert, der in der Deskriptorliste des Zählers A festgelegt wurde.
 
-### `infinite` erklärt
+### Erklärung von `infinite`
 
-Wenn der Bereich als Ganzzahlen (im Gegensatz zu `auto`) angegeben ist, kann der Wert `infinite` verwendet werden, um Unendlichkeit zu kennzeichnen. Wenn _infinite_ als erster Wert in einem Bereich angegeben ist, dann wird es als negative Unendlichkeit interpretiert. Wenn es als obere Grenze verwendet wird, der zweite Wert im Bereichspaar, wird es als positive Unendlichkeit genommen.
+Wenn der Bereich als Ganzzahlen angegeben wird (im Gegensatz zu `auto`), kann der Wert `infinite` verwendet werden, um Unendlichkeit darzustellen. Wenn _infinite_ als erster Wert in einem Bereich angegeben wird, wird es als negative Unendlichkeit interpretiert. Wenn es als obere Grenze verwendet wird, also als zweiter Wert im Bereichspaar, wird es als positive Unendlichkeit betrachtet.
 
-### Liste von Bereichen
+### Liste der Bereiche
 
-Der Wert von `range` ist entweder `auto`, wie oben besprochen, oder eine kommagetrennte Liste von einem oder mehreren Bereichen. Der Bereich des Zählerstils ist die Vereinigung aller in der Liste definierten Bereiche.
+Der Wert von `range` ist entweder `auto`, wie oben besprochen, oder eine durch Kommas getrennte Liste von einem oder mehreren Bereichen. Der Bereich des Zählerstils ist die Vereinigung aller in der Liste definierten Bereiche.
 
-Jeder Bereich in der Liste der Bereiche nimmt zwei Werte an. Diese Werte sind entweder ein {{cssxref("integer")}} oder das Schlüsselwort `infinite`. Der erste Wert ist die _untere Grenze_, inklusive. Der zweite Wert ist die _obere Grenze_, inklusive. Bei zwei Ganzzahlenwerten muss der niedrigere Wert zuerst kommen. Wenn die untere Grenze eines Bereichs in der Liste höher als die obere Grenze ist, ist der gesamte `range` Deskriptor ungültig und wird ignoriert. Das `infinite` Schlüsselwort macht den Bereich nicht ungültig, da die Position von `infinite` seinen Wert bestimmt; entweder negative oder positive Unendlichkeit, basierend darauf, ob es die untere oder obere Grenze ist.
+Jeder Bereich in der Bereichsliste nimmt zwei Werte an. Diese Werte sind entweder ein {{cssxref("integer")}} oder das Schlüsselwort `infinite`. Der erste Wert ist die _untere Grenze_, inklusive. Der zweite Wert ist die _obere Grenze_, inklusive. Bei zwei Ganzzahlenwerten muss der niedrigere Wert zuerst kommen. Wenn die untere Grenze eines Bereichs in der Liste höher ist als die obere Grenze, ist der gesamte `range` Deskriptor ungültig und wird ignoriert. Das Schlüsselwort `infinite` macht den Bereich nicht ungültig, da die Position von `infinite` seinen Wert bestimmt; entweder negative oder positive Unendlichkeit, abhängig davon, ob es die untere oder obere Grenze ist.
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ Jeder Bereich in der Liste der Bereiche nimmt zwei Werte an. Diese Werte sind en
 
 ## Beispiele
 
-### Zählerstil über einen Bereich festlegen
+### Zählerstil über einen Bereich einstellen
 
 #### HTML
 
@@ -111,7 +111,7 @@ Jeder Bereich in der Liste der Bereiche nimmt zwei Werte an. Diese Werte sind en
 
 {{EmbedLiveSample('Setting counter style over a range')}}
 
-Der erste Bereich in der Liste von Bereichen enthält 2, 3 und 4. Der zweite enthält 7, 8 und 9. Der Bereich ist die Vereinigung dieser beiden Bereiche oder 2, 3, 4, 7, 8 und 9.
+Der erste Bereich in der Liste der Bereiche umfasst 2, 3 und 4. Der zweite umfasst 7, 8 und 9. Der Bereich ist die Vereinigung dieser beiden Bereiche, also 2, 3, 4, 7, 8 und 9.
 
 ## Spezifikationen
 
@@ -125,6 +125,6 @@ Der erste Bereich in der Liste von Bereichen enthält 2, 3 und 4. Der zweite ent
 
 - Andere {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/prefix", "prefix")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}}, und {{cssxref("@counter-style/fallback", "fallback")}}
 - {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}}: die funktionale Notation zur Erstellung anonymer Zählerstile.
+- {{cssxref("symbols()")}}: die funktionale Notation zur Erstellung anonymer Zählerstile.
 - [CSS Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
 - [CSS Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul

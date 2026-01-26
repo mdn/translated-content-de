@@ -3,12 +3,12 @@ title: "Navigation: currentEntry-Eigenschaft"
 short-title: currentEntry
 slug: Web/API/Navigation/currentEntry
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`currentEntry`**-Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort repräsentiert, an dem sich der Benutzer gerade befindet.
+Die **`currentEntry`** schreibgeschützte Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort darstellt, zu dem der Benutzer gerade navigiert ist.
 
 ## Wert
 

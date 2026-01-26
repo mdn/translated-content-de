@@ -3,20 +3,18 @@ title: "HTMLFormElement: relList-Eigenschaft"
 short-title: relList
 slug: Web/API/HTMLFormElement/relList
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`relList`**-Schreibgeschützte Eigenschaft der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle spiegelt das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut wider. Es handelt sich um eine live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die den Satz von Linktypen enthält, der die Beziehung zwischen der durch das {{HTMLElement("form")}}-Element dargestellten Ressource und dem aktuellen Dokument angibt.
-
-Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die Eigenschaft nicht mit einer anderen [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) neu zuweisen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
-
-Um eine Zeichenkette mit den Werten als leerzeichengetrennte Tokens abzurufen, verwenden Sie [`HTMLFormElement.rel`](/de/docs/Web/API/HTMLFormElement/rel). Die `rel`-Eigenschaft kann auch verwendet werden, um den `rel`-Attributwert festzulegen.
+Die schreibgeschützte **`relList`**-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) gibt ein dynamisches [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt zurück, das die Menge von Link-Typen enthält, die die Beziehung zwischen der Ressource, die durch das {{HTMLElement("form")}}-Element dargestellt wird, und dem aktuellen Dokument anzeigen. Sie spiegelt das [`rel`](/de/docs/Web/HTML/Reference/Attributes/rel)-Attribut des Inhalts des {{HTMLElement("form")}}-Elements wider.
 
 ## Wert
 
-Eine live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
+Ein dynamisches [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt.
+
+Obwohl die `relList`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `DOMTokenList`-Objekt nicht ersetzen können, können Sie dennoch direkt der `relList`-Eigenschaft einen Wert zuweisen, was dem Zuweisen zu ihrer [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft entspricht. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) ändern.
 
 ## Beispiele
 

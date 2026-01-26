@@ -3,14 +3,14 @@ title: "Navigator: deviceMemory-Eigenschaft"
 short-title: deviceMemory
 slug: Web/API/Navigator/deviceMemory
 l10n:
-  sourceCommit: ca577adc00ddc882765c131739ad2ed25edd2285
+  sourceCommit: 53d1a4810a69dc436badd5b73c1a66c8764c835b
 ---
 
 {{APIRef("Device Memory API")}}{{securecontext_header}}
 
-Die **`deviceMemory`** schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
+Die **`deviceMemory`**-Eigenschaft (schreibgeschützt) des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
 
-Der angegebene Wert ist ungenau, um {{Glossary("fingerprinting", "Fingerprinting")}} einzuschränken. Er wird angenähert, indem er auf die nächste Zweierpotenz abgerundet und dann durch 1024 geteilt wird. Anschließend wird er innerhalb unterer und oberer Grenzen geklemmt, um die Privatsphäre von Besitzern von Geräten mit sehr wenig oder sehr viel Speicher zu schützen.
+Der gemeldete Wert ist ungenau, um {{Glossary("fingerprinting", "Fingerprinting")}} einzuschränken. Er wird geschätzt, indem er auf die nächste Zweierpotenz abgerundet und dann diese Zahl durch 1024 geteilt wird. Anschließend wird er innerhalb von unteren und oberen Grenzen eingegrenzt, um die Privatsphäre der Besitzer von Geräten mit sehr geringem oder hohem Speicher zu schützen.
 
 ## Wert
 
@@ -33,4 +33,4 @@ console.log(`This device has at least ${memory}GiB of RAM.`);
 
 ## Siehe auch
 
-- {{HTTPHeader("Device-Memory")}} HTTP-Header
+- {{HTTPHeader("Sec-CH-Device-Memory")}} HTTP-Header

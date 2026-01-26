@@ -9,6 +9,7 @@
     ".github",
     "**/conflicting/**",
     "**/orphaned/**",
+    "**/_redirects.txt",
     "**/PROMPT.md",
   ],
 }

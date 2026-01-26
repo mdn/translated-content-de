@@ -2,21 +2,14 @@
 title: view-timeline
 slug: Web/CSS/Reference/Properties/view-timeline
 l10n:
-  sourceCommit: f28f4c26a3d95e41d01a505af3388881abd6e49c
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`view-timeline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) wird verwendet, um eine _benannte Fortschritts-Timeline_ zu definieren, die basierend auf der Sichtbarkeitsänderung eines Elements (bekannt als das _Subjekt_) in einem scrollbaren Element (_Scroller_) voranschreitet. `view-timeline` wird auf das Subjekt angewendet.
+Die **`view-timeline`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert den Namen, die Richtung und die Einfügewerte einer [benannten View-Progress-Timeline](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#named_view_progress_timeline).
 
-Die Sichtbarkeit des Subjekts im Scroller wird verfolgt – standardmäßig ist die Timeline bei 0%, wenn das Subjekt an einem Rand des Scrollers erstmals sichtbar ist, und 100%, wenn es den gegenüberliegenden Rand erreicht.
+## Bestandteile
 
-`view-timeline` kann zwei Bestandteile enthalten – einen Namen für die benannte Fortschritts-Timeline und einen optionalen Scroll-Achsenwert. Der Name wird dann in einer [`animation-timeline`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)-Deklaration referenziert, um das Element anzuzeigen, das animiert wird, wenn die Timeline fortschreitet. Dies kann das Subjektelement sein, muss es aber nicht – Sie können ein anderes Element animieren, während sich das Subjekt durch den Scrollbereich bewegt.
-
-> [!NOTE]
-> Wenn das Scroller-Element sein Container in der Achsdimension nicht überläuft oder der Überlauf ausgeblendet oder abgeschnitten ist, wird keine Scroll-Fortschritts-Timeline erstellt.
-
-## Bestandteileigenschaften
-
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("view-timeline-axis")}}
 - {{cssxref("view-timeline-inset")}}
@@ -25,29 +18,27 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Syntax
 
 ```css
-/* three values: one each for view-timeline-name, view-timeline-inset and view-timeline-axis */
+/* One component */
+view-timeline: none;
+view-timeline: --custom_name_for_timeline;
+
+/* Two components */
+view-timeline: --custom_name_for_timeline block;
+view-timeline: --custom_name_for_timeline y;
+view-timeline: none inline;
+view-timeline: none x;
+
+/* Three components */
 view-timeline: --custom_name_for_timeline block auto;
 view-timeline: --custom_name_for_timeline block 20% 200px;
 
-/* two values: one each for view-timeline-name and view-timeline-axis */
-view-timeline: --custom_name_for_timeline block;
-view-timeline: --custom_name_for_timeline inline;
-view-timeline: --custom_name_for_timeline y;
-view-timeline: --custom_name_for_timeline x;
-view-timeline: none block;
-view-timeline: none inline;
-view-timeline: none y;
-view-timeline: none x;
-
-/* one value: view-timeline-name */
-view-timeline: none;
-view-timeline: --custom_name_for_timeline;
+/* Global values */
+view-timeline: inherit;
+view-timeline: initial;
+view-timeline: revert;
+view-timeline: revert-layer;
+view-timeline: unset;
 ```
-
-Die `view-timeline`-Kurzschreibweise kann auf ein Container-Element als Kombination der `<view-timeline-name>`, `<view-timeline-inset>` und `<view-timeline-axis>` Werte angewendet werden. Mindestens einer der Werte muss angegeben werden. Wenn beide Werte angegeben sind, muss die Reihenfolge `<view-timeline-name>` gefolgt von dem `<view-timeline-axis>` Wert und/oder dem `<view-timeline-inset>` Wert befolgt werden.
-
-> [!NOTE]
-> `<view-timeline-name>`s müssen [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident)-Werte sein, was bedeutet, dass sie mit `--` beginnen müssen. Dies hilft, Namenskonflikte mit Standard-CSS-Schlüsselwörtern zu vermeiden.
 
 ### Werte
 
@@ -57,6 +48,18 @@ Die `view-timeline`-Kurzschreibweise kann auf ein Container-Element als Kombinat
   - : Siehe {{cssxref("view-timeline-inset")}}. Der Standardwert ist `auto`.
 - `<view-timeline-axis>`
   - : Siehe {{cssxref("view-timeline-axis")}}. Der Standardwert ist `block`.
+
+### Beschreibung
+
+Die `view-timeline`-Kurzform-Eigenschaft definiert eine _benannte View-Progress-Timeline_, die sich basierend auf Änderungen der Sichtbarkeit eines Elements (des _Subjekts_) in einem scrollbaren Element (_Scroller_) bewegt. Die `view-timeline`-Eigenschaft wird auf das Subjekt gesetzt. Wenn das Scroller-Element in der Achsenrichtung nicht über seinen Container hinausläuft oder wenn der Überlauf versteckt oder abgeschnitten ist, wird keine Scroll-Progress-Timeline erstellt.
+
+Die Sichtbarkeit des Subjekts innerhalb des Scrollers wird verfolgt — standardmäßig befindet sich die Timeline bei `0%`, wenn das Subjekt an einem Rand des Scrollers zuerst sichtbar ist, und bei `100%`, wenn es den gegenüberliegenden Rand erreicht.
+
+Die `view-timeline` kann drei Bestandteile enthalten: einen Namen für die benannte View-Progress-Timeline, einen Scrollachsenwert und bis zu zwei Timeline-Einfügewert. Wenn nur ein Wert deklariert ist, ist der Wert der `view-timeline-name`. Der Name wird dann in einer {{cssxref("animation-timeline")}}-Deklaration referenziert, um anzugeben, welches Element animiert wird, während die Timeline voranschreitet. Dies kann das Subjektelement sein, muss es aber nicht — Sie können ein anderes Element animieren, während sich das Subjekt durch den Scrollbereich bewegt.
+
+Die `view-timeline`-Kurzform-Eigenschaft kann auf ein Containerelement angewendet werden, um eine Kombination der Werte `<view-timeline-name>`, `<view-timeline-inset>` und `<view-timeline-axis>` festzulegen. Mindestens ein Wert muss angegeben werden. Wenn alle Werte angegeben werden, muss die Reihenfolge `<view-timeline-name>` gefolgt von `<view-timeline-axis>` und/oder `<view-timeline-inset>` sein.
+
+Die in der Komponente `<view-timeline-name>` angegebenen Namen müssen eine Liste von durch Kommas getrennten {{cssxref("dashed-ident")}}-Werten sein (sie müssen mit `--` beginnen) oder das Schlüsselwort `none`.
 
 ## Formale Definition
 
@@ -68,13 +71,13 @@ Die `view-timeline`-Kurzschreibweise kann auf ein Container-Element als Kombinat
 
 ## Beispiele
 
-### Erstellung einer benannten Fortschritts-Timeline
+### Erstellen einer benannten View-Progress-Timeline
 
-Eine Fortschritts-Timeline mit dem Namen `--subject-reveal` wird mithilfe der `view-timeline`-Eigenschaft auf einem Subjektelement mit der `class` `animation` definiert. Diese wird dann als Timeline für dasselbe Element mithilfe von `animation-timeline: --subject-reveal` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, während es sich beim Scrollen nach oben durch das Dokument bewegt.
+Eine View-Progress-Timeline mit dem Namen `--subject-reveal` wird mithilfe der `view-timeline`-Eigenschaft auf einem Subjektelement mit einer `class` von `animation` definiert. Dies wird dann als die Timeline für dasselbe Element mithilfe von `animation-timeline: --subject-reveal` festgelegt. Das Ergebnis ist, dass das Subjektelement animiert wird, wenn es nach oben durch das Dokument bewegt wird, während es gescrollt wird.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten gezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -113,7 +116,7 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und sein enthaltendes `content`-Element sind minimal gestylt, und dem Textinhalt werden einige grundlegende Schriftarteinstellungen gegeben:
+Das `subject`-Element und sein enthaltendes `content`-Element sind minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftart-Einstellungen:
 
 ```css
 .subject {
@@ -144,9 +147,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` erhält auch eine `animation`-Klasse — hier wird `view-timeline` gesetzt, um eine benannte Fortschritts-Timeline zu definieren. Es wird auch ein `animation-timeline`-Name mit demselben Wert angegeben, um zu deklarieren, dass dies das Element sein wird, das animiert wird, während die Fortschritts-Timeline voranschreitet.
+Dem `<div>` mit der Klasse `subject` wird auch eine Klasse `animation` gegeben — hier wird `view-timeline` gesetzt, um eine benannte View-Progress-Timeline zu definieren. Es erhält auch einen `animation-timeline`-Namen mit demselben Wert, um zu deklarieren, dass dies das Element sein wird, das animiert wird, während die View-Progress-Timeline voranschreitet.
 
-Schließlich wird auf dem Element eine Animation festgelegt, die dessen Opazität und Skalierung animiert und es beim Hochscrollen einblenden und vergrößern lässt.
+Schließlich wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Skalierung animiert und es beim Hochscrollen verblassen und wachsen lässt.
 
 ```css
 .animation {
@@ -171,9 +174,23 @@ Schließlich wird auf dem Element eine Animation festgelegt, die dessen Opazitä
 }
 ```
 
+```css hidden
+@layer no-support {
+  @supports not (view-timeline: none) {
+    body::before {
+      content: "Your browser doesn't support the `view-timeline` property.";
+      background-color: wheat;
+      display: block;
+      text-align: center;
+      padding: 1em;
+    }
+  }
+}
+```
+
 #### Ergebnis
 
-Scrollen Sie, um das animierte Subjektelement zu sehen.
+Scrollen Sie, um zu sehen, wie das Subjektelement animiert wird.
 
 {{EmbedLiveSample("Creating a named view progress timeline", "100%", "480px")}}
 
@@ -188,6 +205,7 @@ Scrollen Sie, um das animierte Subjektelement zu sehen.
 ## Siehe auch
 
 - {{cssxref("animation-timeline")}}
-- {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline-axis")}}, {{cssxref("view-timeline-inset")}}, {{cssxref("view-timeline-name")}}
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)
+- {{cssxref("animation-timeline/view", "view()")}}
+- [Leitfaden: CSS scrollgetriebene Animationstimelines](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines#named_view_progress_timeline)
+- [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations)

@@ -3,54 +3,51 @@ title: "HTMLElement: style-Eigenschaft"
 short-title: style
 slug: Web/API/HTMLElement/style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`style`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement) gibt den _Inline_-[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) eines Elements in Form eines dynamischen [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekts zurück.
-Dieses Objekt kann verwendet werden, um die Inline-Stile eines Elements abzurufen und festzulegen.
+Die schreibgeschützte **`style`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt den _Inline_-[`style`](/de/docs/Web/HTML/Reference/Global_attributes/style) eines Elements in Form eines Live-[`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekts zurück.
+Dieses Objekt kann verwendet werden, um die Inline-Stile eines Elements zu erhalten und zu setzen.
 
 ## Wert
 
-Ein dynamisches [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt.
+Ein Live-[`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation gaben eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurück (von denen [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) abgeleitet ist).
-> Siehe die Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Unterstützung in Browsern.
+> Frühere Versionen der Spezifikation lieferten ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) (von dem [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) abgeleitet ist).
+> Siehe die Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Browserunterstützung.
+
+Obwohl die `style`-Eigenschaft selbst im Sinne "schreibgeschützt" ist, dass Sie das `CSSStyleProperties`-Objekt nicht ersetzen können, können Sie immer noch direkt der `style`-Eigenschaft zuweisen, was dem Zuweisen zu ihrer [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft entspricht. Sie können das `CSSStyleProperties`-Objekt auch mithilfe der Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
 
 ## Beschreibung
 
-Die Werte der Inline-Stile, die im [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attribut des Elements festgelegt sind, werden durch entsprechende Eigenschaften des zurückgegebenen [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekts wiedergegeben.
+Die Werte der Inline-Stile, die im [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attribut des Elements gesetzt sind, werden durch entsprechende Eigenschaften des zurückgegebenen [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekts widergespiegelt.
 
 > [!NOTE]
-> [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) hat Bindestrich- und entsprechende {{Glossary("camel_case", "Camel-Case")}}-Eigenschaften für **alle** vom Browser unterstützten [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties) (nicht nur die mit Inline-Stilen).
-> Eigenschaften, die keinen entsprechenden Inline-Stil haben, werden auf `""` gesetzt.
+> [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) verfügt über Eigenschaften mit Bindestrichnamen und entsprechende {{Glossary("camel_case", "camel-case")}} benannte Eigenschaften für **alle** vom Browser unterstützten [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties) (nicht nur für solche mit Inline-Stilen).
+> Eigenschaften, die keinen entsprechenden Inline-Stil haben, sind auf `""` gesetzt.
 
-Kurzschrift-CSS-Eigenschaften des Elements werden in ihre entsprechenden Langform-Eigenschaften aufgeschlüsselt.
-Zum Beispiel würde ein Element mit dem Stil `"border-top: 1px solid black"` im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop` dargestellt sowie die entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle`, und {{cssxref("border-top-width")}} und `borderTopWidth`.
+Kurzschreibungs-CSS-Eigenschaften des Elements werden in ihre entsprechenden Langform-Eigenschaften expandiert.
+Zum Beispiel würde ein Element mit dem Stil `"border-top: 1px solid black"` im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop` sowie die entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle`, und {{cssxref("border-top-width")}} und `borderTopWidth` dargestellt werden.
 
-Die `style`-Eigenschaft ist schreibgeschützt, d.h. es ist nicht möglich, ein [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt zuzuweisen.
-Dennoch ist es möglich, einen Inline-Stil zu setzen, indem direkt ein _String_ an die Eigenschaft zugewiesen wird.
-In diesem Fall kann der String aus [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) gelesen werden.
-Die Verwendung von `style` auf diese Weise überschreibt alle Inline-Stile des Elements vollständig.
-
-Um einem Element spezifische Stile hinzuzufügen, ohne andere Stilwerte zu ändern, ist es im Allgemeinen vorzuziehen, einzelne Eigenschaften auf dem [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt festzulegen.
+Um bestimmten Stil zu einem Element hinzuzufügen, ohne andere Stilwerte zu ändern, ist es in der Regel bevorzugt, einzelne Eigenschaften auf dem [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties)-Objekt zu setzen.
 Zum Beispiel können Sie `element.style.backgroundColor = "red"` schreiben.
-Eine Stildeklaration wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z.B. `element.style.color = null`.
+Eine Stil-Deklaration wird zurückgesetzt, indem man sie auf `null` oder einen leeren String setzt, z.B. `element.style.color = null`.
 
-Die `style`-Eigenschaft hat die gleiche Priorität in der CSS-Kaskade wie eine über das `style`-Attribut gesetzte Inline-Stildeklaration.
+Die `style`-Eigenschaft hat die gleiche Priorität in der CSS-Kaskade wie eine Inline-Stildeklaration, die über das `style`-Attribut gesetzt wurde.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Dieses Codebeispiel zeigt, wie Sie die Inline-Stile eines Elements lesen können.
-In jedem Fall werden die mit Bindestrich benannten Stil-Eigenschaften mit [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority) gelesen und die Camel-Case-Eigenschaften mit dem Punkt-Operator abgerufen.
+Dieses Codebeispiel zeigt, wie Sie die Inline-Stile eines Elements auslesen können.
+In jedem Fall liest es die Eigenschaften mit Bindestrichnamen unter Verwendung von [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority) und erhält die camel case-Eigenschaften mit dem Punktoperator.
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("div")}}-Element und ein verschachteltes Element, das unterschiedliche Inline-Stile definiert, sowohl in Kurz- als auch in Langform.
+Zuerst definieren wir ein {{htmlelement("div")}}-Element und ein geschachteltes Element, die unterschiedliche Inline-Stile definieren, sowohl in der Kurzform als auch in der Langform.
 
 ```html
 <div style="font-weight: bold;">
@@ -80,7 +77,7 @@ function log(text) {
 }
 ```
 
-Der folgende Code bekommt das innere Element, liest seinen Stil und gibt die Bindestrich- und Camel-Case-benannten CSS-Stil-Eigenschaften aus.
+Der folgende Code holt das innere Element, liest seinen Stil und protokolliert die CSS-Stileigenschaften mit Bindestrichnamen und camel case.
 
 ```js
 const element = document.getElementById("elt");
@@ -118,21 +115,21 @@ log(`"fontWeight" = '${elementStyle.fontWeight}'`);
 #### Ergebnisse
 
 Das Ergebnis wird unten gezeigt.
-In jedem Fall sehen wir, dass die Stile, die mit den Bindestrich- und Camel-Case-beschrifteten Eigenschaften gelesen werden, gleich sind.
-Wir sehen auch, dass die {{cssxref("border-top")}}-Eigenschaft, die dem `style`-Attribut des Elements entspricht, vorhanden ist und dass eine Langform-Eigenschaft für jeden ihrer Teile definiert ist ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}).
+In jedem Fall sehen wir, dass die Stile, die mit den Eigenschaften mit Bindestrich- und camel case-Namen gelesen wurden, gleich sind.
+Wir sehen auch, dass die zur `style`-Attribut des Elements entsprechende {{cssxref("border-top")}}-Eigenschaft vorhanden ist, und dass eine Langform-Eigenschaft für jeden ihrer Teile definiert ist ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}}, und {{cssxref("border-top-width")}}).
 
 {{EmbedLiveSample("Basic usage", "100", "280")}}
 
 Beachten Sie, dass `font-weight` auf den `CSSStyleProperties` definiert ist (wie alle anderen CSS-Eigenschaften, obwohl wir sie nicht protokolliert haben).
-Es ist jedoch kein Inline-Stil für das verschachtelte Element, daher wird sein Wert auf den leeren String (`""`) gesetzt.
+Es handelt sich jedoch nicht um einen Inline-Stil für das geschachtelte Element, daher ist sein Wert auf den leeren String (`""`) gesetzt.
 
 ### Aufzählung von Stilinformationen
 
-Dieses Beispiel zeigt, wie wir die Bindestrich-Eigenschaften von [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) aufzählen können.
+Dieses Beispiel zeigt, wie wir die Eigenschaften mit Bindestrichnamen von [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) aufzählen können.
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("div")}}-Element und ein verschachteltes Element, das unterschiedliche Inline-Stile definiert, sowohl in Kurz- als auch in Langform.
+Zuerst definieren wir ein {{htmlelement("div")}}-Element und ein geschachteltes Element, die unterschiedliche Inline-Stile definieren, sowohl in der Kurzform als auch in der Langform.
 Dies ist das gleiche HTML wie im vorherigen Beispiel.
 
 ```html
@@ -163,7 +160,7 @@ function log(text) {
 }
 ```
 
-Der folgende Code iteriert über die aufzählbaren Eigenschaften der `CSSStyleProperties` und gibt das Ergebnis aus.
+Der folgende Code iteriert über die aufzählbaren Eigenschaften der `CSSStyleProperties` und protokolliert das Ergebnis.
 
 ```js
 const element = document.getElementById("elt");
@@ -189,11 +186,11 @@ for (const prop in elementStyle) {
 #### Ergebnisse
 
 Das Ergebnis wird unten gezeigt.
-Beachten Sie, dass nur die Langform-CSS-Eigenschaften des Elements aufgezählte Werte sind (die inline gesetzten Kurzschrifts-Eigenschaften werden nicht aufgezählt).
+Beachten Sie, dass nur die Langform-CSS-Eigenschaften des Elements aufgezählte Werte sind (die Inline-Kurzform-Eigenschaft wird nicht aufgezählt).
 
 {{EmbedLiveSample("Enumerating style information", "100", "180")}}
 
-### Aktualisierung des Randstils
+### Aktualisierung des Rahmenstils
 
 ```html
 <div id="box"></div>
@@ -229,7 +226,7 @@ document.getElementById("btn2").addEventListener("click", () => {
 
 ### Manipulation von Stilen
 
-In diesem Beispiel werden einige grundlegende Stil-Eigenschaften eines HTML-Absatzelements über das Stil-Objekt auf dem Element und die CSS-Stil-Eigenschaften dieses Objekts, die aus dem DOM abgerufen und gesetzt werden können, zugegriffen. In diesem Fall manipulieren Sie die einzelnen Stile direkt. Sie können auch [`styleSheets`](/de/docs/Web/API/Document/styleSheets) und deren Regeln verwenden, um Stile für ganze Dokumente zu ändern.
+In diesem Beispiel werden einige grundlegende Stileigenschaften eines HTML-Absatzelements über das Style-Objekt der Elemente aufgerufen und die CSS-Stileigenschaften dieses Objekts, die aus dem DOM abgerufen und gesetzt werden können. In diesem Fall manipulieren Sie die individuellen Stile direkt. Sie können auch [`styleSheets`](/de/docs/Web/API/Document/styleSheets) und deren Regeln verwenden, um Stile für ganze Dokumente zu ändern.
 
 ```html
 <p id="pid">Some text</p>
@@ -263,7 +260,7 @@ document.querySelector("button").addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Verwendung von dynamischen Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Dynamische Stilinformationen verwenden](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
 - [`SVGElement.style`](/de/docs/Web/API/SVGElement/style)
 - [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style)
 - [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap)

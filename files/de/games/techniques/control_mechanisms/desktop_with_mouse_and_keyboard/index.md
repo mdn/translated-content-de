@@ -2,28 +2,28 @@
 title: Desktop-Maus- und Tastatursteuerung
 slug: Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: 1a0be468b9e7c88a09ea3438a81341c4f6a619a6
 ---
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Mobile_touch", "Games/Techniques/Control_mechanisms/Desktop_with_gamepad", "Games/Techniques/Control_mechanisms")}}
 
-Jetzt, da wir unsere mobilen Steuerungen implementiert haben und das Spiel auf berührungsfähigen Geräten spielbar ist, wäre es gut, Maus- und Tastaturunterstützung hinzuzufügen, damit das Spiel auch auf dem Desktop spielbar ist. Auf diese Weise können wir die Liste der unterstützten Plattformen erweitern. Wir werden uns das unten ansehen.
+Nun, da wir unsere mobilen Steuerelemente implementiert haben und das Spiel auf touch-fähigen Geräten spielbar ist, wäre es gut, Maus- und Tastaturunterstützung hinzuzufügen, damit das Spiel auch auf dem Desktop gespielt werden kann. Auf diese Weise können wir die Liste der unterstützten Plattformen erweitern. Wir werden uns dies im Folgenden ansehen.
 
-Es ist auch einfacher, steuerungsunabhängige Funktionen wie das Gameplay auf dem Desktop zu testen, wenn Sie es dort entwickeln, sodass Sie die Dateien nicht jedes Mal auf ein mobiles Gerät übertragen müssen, wenn Sie eine Änderung im Quellcode vornehmen.
+Es ist auch einfacher, kontrollunabhängige Funktionen wie das Gameplay auf dem Desktop zu testen, wenn Sie es dort entwickeln. Dann müssen Sie nicht jedes Mal die Dateien auf ein mobiles Gerät übertragen, wenn Sie Änderungen im Quellcode vornehmen.
 
 > [!NOTE]
-> [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/) ist mit Phaser erstellt, und die Steuerung wird auf Phaser-Basis verwaltet, könnte aber auch in reinem JavaScript erfolgen. Der Vorteil von Phaser ist, dass es Hilfsvariablen und -funktionen für eine einfachere und schnellere Entwicklung bietet, aber es liegt ganz bei Ihnen, welche Methode Sie wählen.
+> Das [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/) ist mit Phaser gebaut und die Steuerung basiert auf Phaser, aber es könnte auch in reinem JavaScript gemacht werden. Der Vorteil der Verwendung von Phaser ist, dass es Hilfsvariablen und -funktionen für eine schnellere Entwicklung bietet, aber es liegt ganz bei Ihnen, welchen Ansatz Sie wählen.
 
-## Ansatz mit reinem JavaScript
+## Reiner JavaScript-Ansatz
 
-Lassen Sie uns zunächst überlegen, wie wir die Tastatur- und Maussteuerung mit reinem JavaScript im Spiel implementieren, um zu sehen, wie das funktionieren würde. Zunächst benötigen wir einen Event-Listener, um die gedrückten Tasten zu überwachen:
+Überlegen wir zuerst, wie wir die Steuerung mit reinem JavaScript über Tastatur/Maus im Spiel implementieren können, um zu sehen, wie es funktionieren würde. Zuerst brauchen wir einen Ereignis-Listener, um auf die gedrückten Tasten zu hören:
 
 ```js
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
 ```
 
-Wann immer eine Taste gedrückt wird, führen wir die `keyDownHandler`-Funktion aus, und wenn der Druck endet, führen wir die `keyUpHandler`-Funktion aus, sodass wir wissen, wann sie nicht mehr gedrückt wird. Dazu werden wir die Information speichern, ob die Tasten, die uns interessieren, gedrückt werden oder nicht:
+Jedes Mal, wenn eine Taste gedrückt wird, führen wir die Funktion `keyDownHandler` aus, und wenn das Drücken beendet wird, führen wir die Funktion `keyUpHandler` aus, sodass wir wissen, wann sie nicht mehr gedrückt ist. Dazu speichern wir die Information, ob die Tasten, die uns interessieren, gedrückt sind oder nicht:
 
 ```js
 let rightPressed = false;
@@ -32,7 +32,7 @@ let upPressed = false;
 let downPressed = false;
 ```
 
-Dann werden wir auf die `keydown`- und `keyup`-Events hören und entsprechend in beiden Handler-Funktionen handeln. Darin können wir den Code der gedrückten Taste aus der [`code`](/de/docs/Web/API/KeyboardEvent/code)-Eigenschaft des Ereignisobjekts abrufen, sehen, welche Taste es ist, und dann die entsprechende Variable setzen. Die Codes sind alle lesbare Zeichenketten, aber Sie können [sie nachschlagen](/de/docs/Web/API/UI_Events/Keyboard_event_code_values), um sicherzugehen; `"ArrowLeft"` ist der linke Pfeil:
+Dann werden wir auf die `keydown` und `keyup` Ereignisse hören und entsprechend in beiden Handler-Funktionen handeln. Innerhalb dieser Funktionen können wir den Code der gedrückten Taste aus der [`code`](/de/docs/Web/API/KeyboardEvent/code) Eigenschaft des Ereignisobjekts erhalten, sehen, welche Taste es ist, und dann die entsprechende Variable setzen. Die Codes sind alle lesbare String-Namen, aber Sie können [sie nachschlagen](/de/docs/Web/API/UI_Events/Keyboard_event_code_values), um sicher zu sein; `"ArrowLeft"` ist die linke Pfeiltaste:
 
 ```js
 function keyDownHandler(event) {
@@ -49,7 +49,7 @@ function keyDownHandler(event) {
 }
 ```
 
-Der `keyUpHandler` sieht fast genauso aus wie der `keyDownHandler` oben, aber anstatt die gedrückten Variablen auf `true` zu setzen, würden wir sie auf `false` setzen. Wenn der linke Pfeil (<kbd>⬅︎</kbd>; `"ArrowLeft"`) gedrückt wird, können wir die `leftPressed`-Variable auf `true` setzen und in der `draw`-Funktion die zugewiesene Aktion ausführen — das Schiff nach links bewegen:
+Der `keyUpHandler` sieht fast genau so aus wie der obige `keyDownHandler`, aber anstatt die gedrückten Variablen auf `true` zu setzen, würden wir sie auf `false` setzen. Wenn die linke Pfeiltaste gedrückt wird (<kbd>⬅︎</kbd>; `"ArrowLeft"`), können wir die Variable `leftPressed` auf `true` setzen und in der `draw` Funktion die zugeordnete Aktion ausführen — das Schiff nach links bewegen:
 
 ```js
 function draw() {
@@ -71,19 +71,19 @@ function draw() {
 }
 ```
 
-Die `draw`-Funktion löscht zuerst das gesamte Canvas — wir zeichnen alles von Grund auf in jedem einzelnen Frame neu. Dann werden die gedrückten Tastenzustandsvariablen überprüft, und die `playerX`- und `playerY`-Variablen (die wir früher direkt nach `leftPressed` und den anderen definieren), die die Position des Schiffs halten, werden um einen bestimmten Betrag, sagen wir 5 Pixel, angepasst. Dann wird das Spieler-Schiff auf dem Bildschirm gezeichnet und das nächste Zeichnen wird innerhalb von [requestAnimationFrame](/de/docs/Web/API/Window/requestAnimationFrame) aufgerufen.
+Die `draw` Funktion löscht zuerst das gesamte Canvas — wir zeichnen jedes einzelne Frame alles von Grund auf neu. Dann werden die Variablen der gedrückten Tasten überprüft, und die Variablen `playerX` und `playerY` (die wir zuvor direkt nach `leftPressed` und den anderen definieren), die die Position des Schiffs halten, werden um einen gegebenen Betrag angepasst, sagen wir 5 Pixel. Dann wird das Spieler-Schiff auf dem Bildschirm gezeichnet und das nächste Zeichnen wird von innerhalb der [requestAnimationFrame](/de/docs/Web/API/Window/requestAnimationFrame) aufgerufen.
 
-![Reines JavaScript-Demo mit dem Schiff des Spielers (mit Sternen im Hintergrund), das mit Tastatur und Maus gesteuert werden kann.](controls-purejsgame.png)
+![Reine JavaScript-Demo mit dem Schiff des Spielers (mit Sternen im Hintergrund), das mit Tastatur und Maus gesteuert werden kann.](controls-purejsgame.png)
 
-Dieses Beispiel können Sie online in Aktion sehen unter [end3r.github.io/JavaScript-Game-Controls](https://end3r.github.io/JavaScript-Game-Controls/), und der vollständige Quellcode ist auf [github.com/end3r/JavaScript-Game-Controls](https://github.com/end3r/JavaScript-Game-Controls/) zu finden.
+Sie können dieses Beispiel online in Aktion sehen bei [end3r.github.io/JavaScript-Game-Controls](https://end3r.github.io/JavaScript-Game-Controls/) und der vollständige Quellcode ist zu finden unter [github.com/end3r/JavaScript-Game-Controls](https://github.com/end3r/JavaScript-Game-Controls/).
 
 ## Phaser-Ansatz
 
-Wie bereits erwähnt, können Sie alles selbst schreiben, Sie können jedoch auch die integrierten Funktionen von Frameworks wie Phaser nutzen. Diese erleichtern Ihnen die Arbeit erheblich und beschleunigen die Entwicklung. Alle Sonderfälle – Unterschiede zwischen Browser-Implementierungen usw. – werden vom Framework behandelt, sodass Sie sich auf die eigentliche Aufgabe konzentrieren können, die Sie erledigen möchten.
+Wie ich bereits erwähnt habe, können Sie alles selbst schreiben, aber Sie können auch Vorteile von eingebauten Funktionen in Frameworks wie Phaser nutzen. Diese sollten die Entwicklung erheblich beschleunigen. Alle Randfälle — Unterschiede zwischen den Browserimplementierungen etc. — werden durch das Framework behandelt, sodass Sie sich auf die eigentliche Aufgabe konzentrieren können, die Sie erledigen möchten.
 
 ### Maus
 
-Die Mausinteraktionen im Spiel konzentrieren sich auf das Klicken der Schaltflächen. In Phaser werden die erstellten Schaltflächen jede Art von Eingabe entgegennehmen, egal ob es sich um eine Berührung auf einem Mobilgerät oder einen Klick auf einem Desktop handelt. Wenn Sie die Schaltflächen wie im Artikel [Mobile Touch-Steuerung](/de/docs/Games/Techniques/Control_mechanisms/Mobile_touch) gezeigt bereits implementiert haben, funktioniert dies auch auf dem Desktop ohne weiteres:
+Die Maus-Interaktionen im Spiel konzentrieren sich auf das Klicken der Tasten. In Phaser nehmen die von Ihnen erstellten Tasten jede Art von Eingabe an, sei es eine Berührung auf Mobilgeräten oder ein Klick auf dem Desktop. Auf diese Weise funktioniert es direkt aus der Kiste auf dem Desktop, wenn Sie die Tasten bereits wie im Artikel [Mobile touch controls](/de/docs/Games/Techniques/Control_mechanisms/Mobile_touch) gezeigt implementiert haben:
 
 ```js
 const buttonEnclave = this.add.button(
@@ -95,7 +95,7 @@ const buttonEnclave = this.add.button(
 );
 ```
 
-Die Schaltfläche wird zehn Pixel vom oberen linken Bildschirmrand entfernt platziert, verwendet das Bild `logo-enclave` und führt die Funktion `clickEnclave()` aus, wenn sie angeklickt wird. Wir können Aktionen direkt den Schaltflächen zuweisen:
+Die Taste wird zehn Pixel von der oberen linken Ecke des Bildschirms platziert, verwendet das Bild `logo-enclave` und wird die Funktion `clickEnclave()` beim Klicken ausführen. Wir können Aktionen direkt den Tasten zuweisen:
 
 ```js
 this.buttonShoot = this.add.button(
@@ -109,9 +109,9 @@ this.buttonShoot.onInputDown.add(this.shootingPressed, this);
 this.buttonShoot.onInputUp.add(this.shootingReleased, this);
 ```
 
-Die Schaltfläche zum Schießen funktioniert perfekt sowohl im mobilen als auch im Desktop-Ansatz.
+Die für das Schießen verwendete Taste funktioniert einwandfrei sowohl beim mobilen als auch beim Desktop-Ansatz.
 
-Wenn Sie die Position des Mauszeigers auf dem Bildschirm verwenden möchten, können Sie dies mit `this.game.input.mousePointer` tun. Angenommen, Sie möchten eine Kugel abschießen, wenn die rechte Hälfte des Bildschirms mit der Maus angeklickt wird, würde dies etwa so aussehen:
+Wenn Sie die Position des Mauszeigers auf dem Bildschirm verwenden möchten, können Sie dies mit `this.game.input.mousePointer` tun. Angenommen, Sie möchten ein Projektil abschießen, wenn die rechte Hälfte des Bildschirms mit einer Maus geklickt wird, würde dies wie folgt gemacht:
 
 ```js
 if (this.game.input.mousePointer.isDown) {
@@ -121,7 +121,7 @@ if (this.game.input.mousePointer.isDown) {
 }
 ```
 
-Wenn Sie unterschieden möchten, welche Maustasten gedrückt wurden, stehen Ihnen drei Standardoptionen zur Auswahl:
+Wenn Sie die verschiedenen gedrückten Maustasten unterscheiden möchten, gibt es drei Vorgaben, die Sie auswählen können:
 
 ```js
 this.game.input.mousePointer.leftButton.isDown;
@@ -129,34 +129,34 @@ this.game.input.mousePointer.middleButton.isDown;
 this.game.input.mousePointer.rightButton.isDown;
 ```
 
-Beachten Sie, dass es besser ist, `activePointer` anstelle von `mousePointer` zu verwenden, wenn Sie plattformunabhängige Eingaben ermöglichen möchten, um die Unterstützung für mobile Touch-Interaktionen beizubehalten.
+Beachten Sie, dass es besser ist, `activePointer` anstelle von `mousePointer` für plattformunabhängige Eingaben zu verwenden, wenn Sie die Unterstützung für mobile Berührungsinteraktionen beibehalten möchten.
 
 ### Tastatur
 
-Das ganze Spiel kann ausschließlich mit der Tastatur und nichts anderem gesteuert werden. Das eingebaute `this.game.input.keyboard`-Objekt verwaltet die Eingabe von der Tastatur und verfügt über [einige hilfreiche Methoden](https://phaser.io/docs/2.6.1/Phaser.Keyboard.html#methods) wie `addKey()` und `isDown()`. Es gibt auch das [Phaser.KeyCode](https://phaser.io/docs/2.6.1/Phaser.KeyCode.html#members)-Objekt, das alle verfügbaren Tastaturtasten enthält:
+Das ganze Spiel kann nur mit der Tastatur und nichts anderem gesteuert werden. Das eingebaute Objekt `this.game.input.keyboard` verwaltet die Eingaben von der Tastatur und hat [einige hilfreiche Methoden](https://phaser.io/docs/2.6.1/Phaser.Keyboard.html#methods) wie `addKey()` und `isDown()`. Es gibt auch das [Phaser.KeyCode](https://phaser.io/docs/2.6.1/Phaser.KeyCode.html#members) Objekt, das alle verfügbaren Tastaturtasten enthält:
 
-![Eine vollständige Liste der in einem Spiel verfügbaren Phaser-Tastencodes.](controls-keycodes.png)
+![Eine vollständige Liste der innerhalb des Spiels verfügbaren Phaser-Tastencodes.](controls-keycodes.png)
 
-Im Hauptmenü des Spiels können wir eine zusätzliche Möglichkeit hinzufügen, um das Spiel zu starten. Die Start-Schaltfläche kann angeklickt werden, aber wir können die <kbd>Enter</kbd>-Taste verwenden, um dasselbe zu tun:
+Im Hauptmenü des Spiels können wir eine zusätzliche Möglichkeit hinzufügen, das Spiel zu starten. Die Starttaste kann angeklickt werden, um dies zu tun, aber wir können die <kbd>Enter</kbd>-Taste verwenden, um dasselbe zu tun:
 
 ```js
 const keyEnter = this.game.input.keyboard.addKey(Phaser.KeyCode.ENTER);
 keyEnter.onDown.add(this.clickStart, this);
 ```
 
-Sie können `addKey()` verwenden, um jede Taste des `Phaser.KeyCode`-Objekts hinzuzufügen. Die `onDown()`-Funktion wird immer dann ausgeführt, wenn die <kbd>Enter</kbd>-Taste gedrückt wird. Sie führt die `clickStart()`-Methode aus, die ein neues Spiel startet.
+Sie können `addKey()` verwenden, um jede Taste hinzuzufügen, die das `Phaser.KeyCode` Objekt zu bieten hat. Die Funktion `onDown()` wird immer ausgeführt, wenn die <kbd>Enter</kbd>-Taste gedrückt wird. Sie startet die Methode `clickStart()`, die ein neues Spiel beginnt.
 
-Es ist nützlich, eine Möglichkeit anzubieten, das Spiel auf dem Desktop ohne Verwendung einer Maus zu spielen, damit Sie die Hände nicht von der Tastatur nehmen müssen.
+Es ist nützlich, eine Option bereitzustellen, das Spiel auf dem Desktop zu spielen, ohne eine Maus zu verwenden, sodass Sie Ihre Hände nicht von der Tastatur nehmen müssen.
 
-### Spielsteuerung
+### Steuerung des Spiels
 
-Wir können die Tastatureingabe in Spielen, die mit Phaser erstellt wurden, unterstützen, indem wir die grundlegenden Richtungstasten in der `create()`-Funktion mithilfe der `createCursorKeys()`-Funktion aktivieren:
+Wir können die Tastatureingabe in Spielen, die mit Phaser gebaut wurden, unterstützen, indem wir die grundlegenden Richtungspfeiltasten in der `create()` Funktion mit der `createCursorKeys()` Funktion aktivieren:
 
 ```js
 this.cursors = this.input.keyboard.createCursorKeys();
 ```
 
-Dies erstellt für uns vier Richtungspfeiltasten:
+Dies erzeugt vier Richtungspfeiltasten für uns:
 
 ```js
 this.cursors.left;
@@ -165,7 +165,7 @@ this.cursors.up;
 this.cursors.down;
 ```
 
-Sie können die Tasten auch selbst definieren und ein alternatives Steuermechanismus mit <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> anbieten. Zum Beispiel:
+Sie können auch die Tasten selbst definieren und eine alternative <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Steuermechanik anbieten. Zum Beispiel:
 
 ```js
 this.keyLeft = this.input.keyboard.addKey(Phaser.KeyCode.A);
@@ -174,7 +174,7 @@ this.keyUp = this.input.keyboard.addKey(Phaser.KeyCode.W);
 this.keyDown = this.input.keyboard.addKey(Phaser.KeyCode.S);
 ```
 
-Um sowohl die Pfeiltasten als auch die <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Tasten zu unterstützen, müssen wir Folgendes tun:
+Um sowohl die Pfeil- als auch die <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Tasten zu unterstützen, müssen wir dies tun:
 
 ```js
 if (this.cursors.left.isDown || this.keyLeft.isDown) {
@@ -190,16 +190,16 @@ if (this.cursors.up.isDown || this.keyUp.isDown) {
 }
 ```
 
-In der `update()`-Funktion können wir jetzt das Spielerschiff in jede Richtung mit einem der beiden Bewegungsetzentastenoptionen bewegen.
+In der `update()` Funktion können wir jetzt das Schiff des Spielers in jede Richtung mithilfe eines der beiden Bewegungstastenoptionen bewegen.
 
-Wir können auch alternative Feuersteuerungen anbieten. Für die Pfeiltasten wäre die natürliche Schusstaste auf der anderen Seite der Tastatur, damit der Spieler die andere Hand verwenden kann — zum Beispiel die <kbd>X</kbd>-Taste. Für die <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Tasten kann es die Leertaste sein:
+Wir können auch alternative Schießsteuerungen anbieten. Für Pfeiltasten wäre die natürliche Schusstaste auf der anderen Seite der Tastatur, sodass der Spieler die andere Hand benutzen kann — zum Beispiel die Taste <kbd>X</kbd>. Für <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Tasten könnte es die Leertaste sein:
 
 ```js
 this.keyFire1 = this.input.keyboard.addKey(Phaser.KeyCode.X);
 this.keyFire2 = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 ```
 
-In der `update()`-Funktion können wir leicht prüfen, ob eine dieser beiden Tasten in jedem Frame gedrückt wurde:
+In der `update()` Funktion können wir leicht überprüfen, ob eine dieser beiden bei jedem Frame gedrückt wurde:
 
 ```js
 if (this.keyFire1.isDown || this.keyFire2.isDown) {
@@ -207,7 +207,7 @@ if (this.keyFire1.isDown || this.keyFire2.isDown) {
 }
 ```
 
-Wenn ja, dann ist es Zeit, einige Kugeln abzufeuern!
+Wenn ja, dann ist es Zeit, einige Schüsse abzugeben!
 
 Wir können sogar eine geheime Cheat-Taste definieren:
 
@@ -215,7 +215,7 @@ Wir können sogar eine geheime Cheat-Taste definieren:
 this.keyCheat = this.input.keyboard.addKey(Phaser.KeyCode.C);
 ```
 
-Und dann in der `update()`-Funktion, wann immer <kbd>C</kbd> gedrückt wird, würden wir Folgendes tun:
+Und dann in der `update()` Funktion, wann immer <kbd>C</kbd> gedrückt wird, machen wir Folgendes:
 
 ```js
 if (this.keyCheat.isDown) {
@@ -225,9 +225,9 @@ if (this.keyCheat.isDown) {
 
 Wir können die Gesundheit des Spielers auf das Maximum setzen. Denken Sie daran: Es ist ein Geheimnis, also _sagen Sie es niemandem_!
 
-### Anleitung zum Spielen
+### Wie zu spielen
 
-Wir haben die Steuerelemente implementiert, und jetzt sollten wir den Spieler über die Möglichkeiten zur Steuerung des Spiels informieren. Sonst würden sie nicht davon wissen! Wenn wir den Anleitung-zum-Spielen-Bildschirm zeigen, auf dem die verschiedenen Möglichkeiten zur Steuerung des Schiffs im Spiel gezeigt werden, anstelle sie alle jedem zu zeigen, können wir erkennen, ob das Spiel auf einem Desktop oder einem Mobilgerät gestartet wird und einfach die entsprechenden Steuerelemente für das Gerät anzeigen:
+Wir haben die Steuerungen implementiert, und jetzt sollten wir den Spieler über ihre Optionen zur Steuerung des Spiels informieren. Sie würden sonst nichts darüber wissen! Wenn wir den Anleitung-Bildschirm zeigen, auf dem die verschiedenen Möglichkeiten zur Steuerung des Schiffs im Spiel angezeigt werden, können wir anstatt allen alles zu zeigen, erkennen, ob das Spiel auf dem Desktop oder mobil gestartet wird, und nur die entsprechenden Steuerungen für das Gerät zeigen:
 
 ```js
 if (this.game.device.desktop) {
@@ -239,11 +239,11 @@ if (this.game.device.desktop) {
 }
 ```
 
-Wenn das Spiel auf einem Desktop läuft, wird die Nachricht mit den Pfeiltasten und <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Tasten angezeigt. Wenn nicht, dann die Nachrichten zu den mobilen Touch-Steuerelementen.
+Wenn das Spiel auf dem Desktop läuft, wird die Meldung über die Cursor- und <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> Tasten angezeigt. Andernfalls wird die Meldung über die mobilen Berührungssteuerungen angezeigt.
 
-![Anleitung-zum-Spielen-Bildschirm eines Spielerschiffs (mit Sternen im Hintergrund), das mit Tastatur und Maus gesteuert werden kann, und die sichtbare Nachricht: "Pfeiltasten oder WASD zum Bewegen" und "X oder Leertaste zum Schießen".](controls-howtoplay.png)
+![Anleitung-Bildschirm eines Spielerschiffs (mit Sternen im Hintergrund), das sich über Tastatur und Maus steuern lässt, mit der sichtbaren Nachricht: "Pfeiltasten oder WASD zum Bewegen" und "X oder Space zum Schießen".](controls-howtoplay.png)
 
-Um den Anleitung-zum-Spielen-Bildschirm zu überspringen, können wir auf jede gedrückte Taste hören und weitermachen:
+Um den Anleitung-Bildschirm zu überspringen, können wir auf eine gedrückte Taste hören und weitermachen:
 
 ```js
 this.input.keyboard.onDownCallback = function () {
@@ -253,14 +253,14 @@ this.input.keyboard.onDownCallback = function () {
 };
 ```
 
-Dies verbirgt die Einleitung und startet das eigentliche Spiel, ohne dass wir eine andere neue Tastenkontrolle nur dafür einrichten müssen.
+Dies verbirgt das Intro und startet das eigentliche Spiel, ohne dass wir eine weitere neue Tastensteuerung nur dafür einrichten müssen.
 
-### Pause- und Game-Over-Bildschirme
+### Pause- und Spielende-Bildschirme
 
-Um das Spiel vollständig mit der Tastatur spielbar zu machen, sollte es möglich sein, über die Pause- und Game-Over-Bildschirme zum Hauptmenü zurückzukehren, weiterzuspielen oder das Spiel neu zu starten. Es kann genauso wie zuvor gemacht werden, indem Tastencodes erfasst und Aktionen ausgeführt werden. Beispielsweise können Sie durch Spezifizierung von `Phaser.KeyCode.Backspace` oder `Phaser.KeyCode.Delete` eine Aktion verknüpfen, die beim Drücken der `Delete/Backspace`-Taste ausgelöst wird.
+Um das Spiel vollständig mit der Tastatur spielbar zu machen, sollte es möglich sein, zum Hauptmenü zurückzukehren, weiterzuspielen oder das Spiel von den Pause- und Spielende-Bildschirmen neu zu starten. Dies kann genau wie zuvor gemacht werden, indem Tastencodes erfasst und Aktionen ausgeführt werden. Zum Beispiel, indem `Phaser.KeyCode.Backspace` oder `Phaser.KeyCode.Delete` angegeben wird, können Sie eine Aktion einhaken, die ausgeführt wird, wenn die `Delete/Backspace`-Taste gedrückt wird.
 
 ## Zusammenfassung
 
-Ok, wir haben uns mit Touch-, Tastatur- und Maussteuerung beschäftigt. Jetzt wollen wir uns ansehen, wie man das Spiel so einrichtet, dass es mit einem Konsolenspiel-Controller gesteuert werden kann, indem man die [Gamepad API](/de/docs/Web/API/Gamepad_API) verwendet.
+Ok, wir haben uns mit Touch-, Tastatur- und Maussteuerungen beschäftigt. Jetzt schauen wir uns an, wie man das Spiel so einrichtet, dass es mit einem Konsolengamepad gesteuert werden kann, unter Verwendung der [Gamepad API](/de/docs/Web/API/Gamepad_API).
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Mobile_touch", "Games/Techniques/Control_mechanisms/Desktop_with_gamepad", "Games/Techniques/Control_mechanisms")}}

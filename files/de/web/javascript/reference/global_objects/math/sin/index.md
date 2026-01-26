@@ -3,10 +3,10 @@ title: Math.sin()
 short-title: sin()
 slug: Web/JavaScript/Reference/Global_Objects/Math/sin
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 0fb5a7e4cc045ba0b1dc453624f196309d9bea10
 ---
 
-Die **`Math.sin()`** statische Methode gibt den Sinus einer Zahl in Bogenmaß zurück.
+Die **`Math.sin()`** statische Methode gibt den Sinus einer Zahl in Radianten zurück.
 
 {{InteractiveExample("JavaScript Demo: Math.sin()")}}
 
@@ -34,15 +34,15 @@ Math.sin(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel im Bogenmaß darstellt.
+  - : Eine Zahl, die einen Winkel in Radianten darstellt.
 
 ### Rückgabewert
 
-Der Sinus von `x`, zwischen -1 und 1, einschließlich. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Sinus von `x`, zwischen -1 und 1, inklusive. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -73,3 +73,4 @@ Math.sin(Infinity); // NaN
 - {{jsxref("Math.atan2()")}}
 - {{jsxref("Math.cos()")}}
 - {{jsxref("Math.tan()")}}
+- CSS {{cssxref("sin()")}} Funktion

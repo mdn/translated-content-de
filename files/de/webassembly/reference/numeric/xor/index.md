@@ -1,11 +1,12 @@
 ---
-title: XOR
-slug: WebAssembly/Reference/Numeric/XOR
+title: "xor: Wasm-Textinstruktion"
+short-title: xor
+slug: WebAssembly/Reference/Numeric/xor
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`xor`** Anweisungen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
+Die **`xor`** Instruktionen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich wie der **`^`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: xor", "tabbed-taller")}}
 
@@ -54,7 +55,7 @@ i32.xor
 ;; the top item on the stack will now be 6 (00000110)
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.xor` | `0x73`         |
-| `i64.xor` | `0x85`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.xor`   | `0x73`         |
+| `i64.xor`   | `0x85`         |

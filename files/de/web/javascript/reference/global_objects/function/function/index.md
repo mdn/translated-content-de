@@ -1,12 +1,20 @@
 ---
-title: Function() Konstruktor
+title: Funktion() Konstruktor
 short-title: Function()
 slug: Web/JavaScript/Reference/Global_Objects/Function/Function
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: fefa80c1e817377a0bbaf6a636ce6b8797f38fbb
 ---
 
-Der **`Function()`**-Konstruktor erstellt {{jsxref("Function")}}-Objekte. Der direkte Aufruf des Konstruktors kann Funktionen dynamisch erstellen, leidet jedoch unter Sicherheits- und ähnlichen (aber weit weniger signifikanten) Leistungsproblemen wie {{jsxref("Global_Objects/eval", "eval()")}}. Im Gegensatz zu `eval` (das möglicherweise Zugriff auf den lokalen Gültigkeitsbereich hat) erstellt der `Function`-Konstruktor Funktionen, die nur im globalen Gültigkeitsbereich ausgeführt werden.
+> [!WARNING]
+> Die Argumente, die an diesen Konstruktor übergeben werden, werden dynamisch geparst und als JavaScript ausgeführt.
+> APIs wie diese sind bekannt als [Injection-Punkte](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und stellen potenziell einen Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe dar.
+>
+> Sie können dieses Risiko mindern, indem Sie stets [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Strings übergeben und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+>
+> Siehe [Sicherheitsüberlegungen](#sicherheitsüberlegungen) für mehr Informationen.
+
+Der **`Function()`** Konstruktor erstellt {{jsxref("Function")}} Objekte. Das direkte Aufrufen des Konstruktors kann Funktionen dynamisch erstellen, leidet jedoch an Sicherheits- und ähnlichen (aber weit weniger signifikanten) Leistungsproblemen wie {{jsxref("Global_Objects/eval", "eval()")}}. Im Gegensatz zu `eval` (das Zugriff auf den lokalen Kontext haben kann) erstellen `Function`-Konstruktoren Funktionen, die nur im globalen Kontext ausgeführt werden.
 
 {{InteractiveExample("JavaScript Demo: Function() constructor", "shorter")}}
 
@@ -32,23 +40,30 @@ Function(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
 > [!NOTE]
-> `Function()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erstellen eine neue `Function`-Instanz.
+> `Function()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beides erstellt eine neue `Function` Instanz.
 
 ### Parameter
 
 - `arg1`, …, `argN` {{optional_inline}}
-  - : Namen, die von der Funktion als formale Argumentnamen verwendet werden sollen. Jeder muss ein String sein, der einem gültigen JavaScript-Parameter entspricht (entweder ein einfacher {{Glossary("Identifier", "Identifier")}}, [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) oder [destrukturierter](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter, eventuell mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)), oder eine Liste solcher Strings, durch Kommas getrennt.
+  - : [`TrustedScript`](/de/docs/Web/API/TrustedScript) Instanzen oder Strings, die die Namen spezifizieren, die von der Funktion als formale Argumentnamen verwendet werden sollen. Der Wert muss einem gültigen JavaScript-Parameter entsprechen (entweder ein einfacher {{Glossary("Identifier", "Identifier")}}, [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) oder [destrukturierter](/de/docs/Web/JavaScript/Reference/Operators/Destructuring) Parameter, wahlweise mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)), oder eine Liste solcher Strings, getrennt durch Kommata.
 
-    Da die Parameter auf dieselbe Weise analysiert werden wie Funktionsausdrücke, werden Leerzeichen und Kommentare akzeptiert. Zum Beispiel: `"x", "theValue = 42", "[a, b] /* numbers */"` — oder `"x, theValue = 42, [a, b] /* numbers */"`. (`"x, theValue = 42", "[a, b]"` ist ebenfalls korrekt, aber sehr schwer zu lesen.)
+    Da die Parameter auf die gleiche Weise wie Funktionsausdrücke geparst werden, sind Leerzeichen und Kommentare zulässig. Zum Beispiel: `"x", "theValue = 42", "[a, b] /* numbers */"` — oder `"x, theValue = 42, [a, b] /* numbers */"`. (`"x, theValue = 42", "[a, b]"` ist auch korrekt, obwohl sehr verwirrend zu lesen.)
 
 - `functionBody`
-  - : Ein String, der die JavaScript-Anweisungen enthält, die die Funktionsdefinition bilden.
+  - : Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript) oder ein String, der die JavaScript-Anweisungen enthält, die die Funktionsdefinition umfassen.
+
+### Ausnahmen
+
+- {{jsxref("SyntaxError")}}
+  - : Funktionsparameter-Argumente können nicht als gültige Parameterliste geparst werden, oder der `functionBody` kann nicht als gültige JavaScript-Anweisungen geparst werden.
+- {{jsxref("TypeError")}}
+  - : Ein Parameter ist ein String, wenn [Trusted Types](/de/docs/Web/API/Trusted_Types_API) [durch eine CSP erzwungen werden](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) und keine Standardrichtlinie definiert ist.
 
 ## Beschreibung
 
-`Function`-Objekte, die mit dem `Function`-Konstruktor erstellt werden, werden beim Erstellen der Funktion analysiert. Dies ist weniger effizient als das Erstellen einer Funktion mit einem [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) oder einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) und das Aufrufen innerhalb Ihres Codes, da solche Funktionen mit dem Rest des Codes analysiert werden.
+`Function`-Objekte, die mit dem `Function`-Konstruktor erstellt wurden, werden beim Erstellen der Funktion geparst. Dies ist weniger effizient als die Erstellung einer Funktion mit einem [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) oder einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) und deren Aufruf innerhalb Ihres Codes, da solche Funktionen mit dem restlichen Code geparst werden.
 
-Alle an die Funktion übergebenen Argumente, außer dem letzten, werden als die Namen der Identifikatoren der Parameter in der zu erstellenden Funktion betrachtet, in der Reihenfolge, in der sie übergeben werden. Die Funktion wird dynamisch als Funktionsausdruck kompiliert, wobei die Quelle in der folgenden Weise zusammengefügt wird:
+Alle an die Funktion übergebenen Argumente, außer dem letzten, werden als Namen der Bezeichner der zu erstellenden Parameter in der Reihenfolge behandelt, in der sie übergeben werden. Die Funktion wird dynamisch als Funktionsausdruck kompiliert, wobei die Quelle wie folgt zusammengestellt wird:
 
 ```js
 `function anonymous(${args.join(",")}
@@ -57,9 +72,9 @@ ${functionBody}
 }`;
 ```
 
-Dies kann durch Aufruf der [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/toString)-Methode der Funktion beobachtet werden.
+Dies ist beobachtbar durch den Aufruf der [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/toString) Methode der Funktion.
 
-Anders als bei normalen [Funktionsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/function) wird jedoch der Name `anonymous` nicht zum Gültigkeitsbereich von `functionBody` hinzugefügt, da `functionBody` nur Zugriff auf den globalen Gültigkeitsbereich hat. Wenn `functionBody` sich nicht im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet (der Körper selbst muss die `"use strict"`-Direktive haben, da er die Striktheit nicht aus dem Kontext übernimmt), können Sie [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) verwenden, um auf die Funktion selbst zu verweisen. Alternativ können Sie den rekursiven Teil als innere Funktion definieren:
+Im Gegensatz zu normalen [Funktionsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/function) wird der Name `anonymous` jedoch nicht dem `functionBody`-Scope hinzugefügt, da `functionBody` nur Zugriff auf den globalen Scope hat. Wenn sich `functionBody` nicht im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet (der Body selbst muss die `"use strict"` Direktive haben, da er die Striktheit nicht vom Kontext erbt), können Sie [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) verwenden, um auf die Funktion selbst zu verweisen. Alternativ können Sie den rekursiven Teil als innere Funktion definieren:
 
 ```js
 const recursiveFn = new Function(
@@ -76,7 +91,7 @@ const recursiveFn = new Function(
 );
 ```
 
-Beachten Sie, dass die beiden dynamischen Teile der zusammengefügten Quelle — die Parameterliste `args.join(",")` und `functionBody` — zuerst separat analysiert werden, um sicherzustellen, dass sie jeweils syntaktisch gültig sind. Dies verhindert versuchsweise Injection-ähnliche Manipulationen.
+Beachten Sie, dass die beiden dynamischen Teile der zusammengestellten Quelle — die Parameterliste `args.join(",")` und `functionBody` — zuerst separat geparst werden, um sicherzustellen, dass sie jeweils syntaktisch korrekt sind. Dies verhindert versuchsweise Injection-Versuche.
 
 ```js
 new Function("/*", "*/) {");
@@ -84,11 +99,34 @@ new Function("/*", "*/) {");
 // Doesn't become "function anonymous(/*) {*/) {}"
 ```
 
+### Sicherheitsüberlegungen
+
+Die Methode kann verwendet werden, um beliebige Eingaben auszuführen, die an einen Parameter übergeben werden. Wenn die Eingabe ein potenziell unsicherer String ist, der von einem Benutzer bereitgestellt wurde, ist dies ein potenzieller Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe. Zum Beispiel geht das folgende Beispiel davon aus, dass der `untrustedCode` von einem Nutzer bereitgestellt wurde:
+
+```js example-bad
+const untrustedCode = "alert('Potentially evil code!');";
+const adder = new Function("a", "b", untrustedCode);
+```
+
+Websites mit einer [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP), die [`script-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) oder [`default-src`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/default-src) spezifiziert, werden das Ausführen solchen Codes standardmäßig verhindern. Wenn Sie die Ausführung von Skripten über `Function()` zulassen müssen, können Sie diese Probleme mindern, indem Sie stets [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Strings zuweisen, und [Trusted Types durchsetzen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types) unter Verwendung der [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for) CSP-Direktive. Dies stellt sicher, dass die Eingabe durch eine Transformationsfunktion übergeben wird.
+
+Um `Function()` auszuführen, müssen Sie zusätzlich das [`trusted-types-eval` Schlüsselwort](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#trusted-types-eval) in Ihrer CSP `script-src` Direktive spezifizieren. Das [`unsafe-eval`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) Schlüsselwort erlaubt auch `Function()`, ist jedoch weit weniger sicher als `trusted-types-eval`, weil es die Ausführung auch in Browsern erlauben würde, die keine trusted types unterstützen.
+
+Zum Beispiel könnte die erforderliche CSP für Ihre Seite wie folgt aussehen:
+
+```http
+Content-Security-Policy: require-trusted-types-for 'script'; script-src '<your_allowlist>' 'trusted-types-eval'
+```
+
+Das Verhalten der Transformationsfunktion hängt vom spezifischen Anwendungsfall ab, der ein vom Benutzer bereitgestelltes Skript erfordert. Wenn möglich, sollten Sie die erlaubten Skripte auf genau den Code beschränken, dem Sie vertrauen, um ihn auszuführen. Wenn das nicht möglich ist, könnten Sie die Verwendung bestimmter Funktionen innerhalb des bereitgestellten Strings erlauben oder blockieren.
+
 ## Beispiele
 
-### Argumente mit dem Function-Konstruktor angeben
+Beachten Sie, dass in diesen Beispielen die Verwendung von Trusted Types aus Gründen der Kürze weggelassen wurde. Für Code, der den empfohlenen Ansatz zeigt, siehe [Verwendung von `TrustedScript`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#using_trustedscript) in `eval()`.
 
-Der folgende Code erstellt ein `Function`-Objekt, das zwei Argumente entgegennimmt.
+### Argumente mit dem Function-Konstruktor spezifizieren
+
+Der folgende Code erstellt ein `Function`-Objekt, das zwei Argumente verwendet.
 
 ```js
 // Example can be run directly in your JavaScript console
@@ -103,7 +141,7 @@ adder(2, 6);
 
 Die Argumente `a` und `b` sind formale Argumentnamen, die im Funktionskörper `return a + b` verwendet werden.
 
-### Ein Funktionsobjekt aus einer Funktionsdeklaration oder einem Funktionsausdruck erstellen
+### Erstellen eines Funktionsobjekts aus einer Funktionsdeklaration oder einem Funktionsausdruck
 
 ```js
 // The function constructor can take in multiple statements separated by a semicolon. Function expressions require a return statement with the function's name
@@ -146,6 +184,7 @@ sayHello("world");
 
 ## Siehe auch
 
+- [Verwendung des Funktionskonstruktors](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#using_the_function_constructor) in `eval()`
 - [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)
 - [`function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
-- {{jsxref("Functions", "Functions", "", 1)}}
+- {{jsxref("Functions", "Funktionen", "", 1)}}

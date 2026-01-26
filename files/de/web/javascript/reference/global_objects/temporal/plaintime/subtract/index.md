@@ -3,14 +3,12 @@ title: Temporal.PlainTime.prototype.subtract()
 short-title: subtract()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/subtract
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`subtract()`**-Methode von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt ein neues `Temporal.PlainTime`-Objekt zurück, das diese Zeit um eine gegebene Dauer (in einer Form, die von {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertiert werden kann) rückwärts verschoben darstellt und, falls erforderlich, die Uhr umwickelt.
 
-Die **`subtract()`** Methode von {{jsxref("Temporal.PlainTime")}} Instanzen gibt ein neues `Temporal.PlainTime` Objekt zurück, das die Zeit darstellt, die um eine gegebene Dauer (in einer Form, die durch {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} konvertierbar ist) zurückverschoben wurde, wobei bei Bedarf die Uhr umgangen wird.
-
-Wenn Sie zwei Zeiten subtrahieren und eine Dauer erhalten möchten, verwenden Sie stattdessen {{jsxref("Temporal/PlainTime/since", "since()")}} oder {{jsxref("Temporal/PlainTime/until", "until()")}}.
+Wenn Sie zwei Zeiten subtrahieren möchten, um eine Dauer zu erhalten, verwenden Sie stattdessen {{jsxref("Temporal/PlainTime/since", "since()")}} oder {{jsxref("Temporal/PlainTime/until", "until()")}}.
 
 ## Syntax
 
@@ -21,17 +19,17 @@ subtract(duration)
 ### Parameter
 
 - `duration`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}} Instanz, die eine von dieser Zeit abzuziehende Dauer repräsentiert. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration` Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.Duration")}}-Instanz, die eine zu subtrahierende Dauer von dieser Zeit darstellt. Es wird mit dem gleichen Algorithmus wie {{jsxref("Temporal/Duration/from", "Temporal.Duration.from()")}} in ein `Temporal.Duration`-Objekt konvertiert.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainTime` Objekt, das die durch das ursprüngliche `PlainTime` angegebene Zeit minus der Dauer darstellt.
+Ein neues `Temporal.PlainTime`-Objekt, das die durch die ursprüngliche `PlainTime` angegebene Zeit minus der Dauer darstellt.
 
-Das Subtrahieren einer Dauer ist gleichbedeutend mit dem [Addieren](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/add) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), daher gelten alle gleichen Überlegungen.
+Das Subtrahieren einer Dauer ist gleichbedeutend mit dem [Hinzufügen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/add) ihrer [Negation](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/negated), daher gelten alle gleichen Überlegungen.
 
 ## Beispiele
 
-### Subtraktion einer Dauer
+### Subtrahieren einer Dauer
 
 ```js
 const start = Temporal.PlainTime.from("12:34:56");
@@ -39,7 +37,7 @@ const end = start.subtract({ hours: 1, minutes: 30 });
 console.log(end.toString()); // 11:04:56
 ```
 
-Für weitere Beispiele siehe {{jsxref("Temporal/PlainTime/add", "add()")}}.
+Weitere Beispiele finden Sie unter {{jsxref("Temporal/PlainTime/add", "add()")}}.
 
 ## Spezifikationen
 

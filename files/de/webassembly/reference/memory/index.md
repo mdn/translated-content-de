@@ -2,20 +2,20 @@
 title: WebAssembly Speicheranweisungen
 slug: WebAssembly/Reference/Memory
 l10n:
-  sourceCommit: df9d06402163f77fc3e2d327ab63f9dd4af15b38
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
 WebAssembly Speicheranweisungen.
 
-- [`Grow`](/de/docs/WebAssembly/Reference/Memory/Grow)
+- [`grow`](/de/docs/WebAssembly/Reference/Memory/grow)
   - : Erhöhen Sie die Größe der Speicherinstanz.
-- [`Size`](/de/docs/WebAssembly/Reference/Memory/Size)
-  - : Erhalten Sie die Größe der Speicherinstanz.
-- [`Load`](/de/docs/WebAssembly/Reference/Memory/Load)
+- [`size`](/de/docs/WebAssembly/Reference/Memory/size)
+  - : Abrufen der Größe der Speicherinstanz.
+- [`load`](/de/docs/WebAssembly/Reference/Memory/load)
   - : Eine Zahl aus dem Speicher laden.
-- [`Store`](/de/docs/WebAssembly/Reference/Memory/Store)
-  - : Eine Zahl in den Speicher speichern.
-- [`Copy`](/de/docs/WebAssembly/Reference/Memory/Copy)
+- [`store`](/de/docs/WebAssembly/Reference/Memory/store)
+  - : Eine Zahl im Speicher speichern.
+- [`copy`](/de/docs/WebAssembly/Reference/Memory/copy)
   - : Daten von einem Bereich im Speicher in einen anderen kopieren
-- [`Fill`](/de/docs/WebAssembly/Reference/Memory/Fill)
+- [`fill`](/de/docs/WebAssembly/Reference/Memory/fill)
   - : Alle Werte in einem Bereich auf ein bestimmtes Byte setzen

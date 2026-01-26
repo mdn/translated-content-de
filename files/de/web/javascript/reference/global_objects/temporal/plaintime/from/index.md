@@ -3,12 +3,10 @@ title: Temporal.PlainTime.from()
 short-title: from()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/from
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die statische Methode **`Temporal.PlainTime.from()`** erstellt ein neues `Temporal.PlainTime`-Objekt aus einem anderen `Temporal.PlainTime`-Objekt, einem Objekt mit Zeiteigenschaften oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format)-String.
+Die statische Methode **`Temporal.PlainTime.from()`** erstellt ein neues `Temporal.PlainTime`-Objekt aus einem anderen `Temporal.PlainTime`-Objekt, einem Objekt mit Zeitangaben oder einem [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format)-String.
 
 ## Syntax
 
@@ -20,10 +18,10 @@ Temporal.PlainTime.from(info, options)
 ### Parameter
 
 - `info`
-  - : Eine der folgenden Möglichkeiten:
+  - : Eines der folgenden:
     - Eine {{jsxref("Temporal.PlainTime")}}-Instanz, die eine Kopie der Instanz erstellt.
-    - Eine {{jsxref("Temporal.PlainDateTime")}}-Instanz, die die Zeit in derselben Weise wie {{jsxref("Temporal/PlainDateTime/toPlainDate", "Temporal.PlainDateTime.prototype.toPlainTime()")}} bereitstellt.
-    - Eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die die Zeit in derselben Weise wie {{jsxref("Temporal/ZonedDateTime/toPlainDate", "Temporal.ZonedDateTime.prototype.toPlainTime()")}} bereitstellt.
+    - Eine {{jsxref("Temporal.PlainDateTime")}}-Instanz, die die Zeit auf die gleiche Weise bereitstellt wie {{jsxref("Temporal/PlainDateTime/toPlainDate", "Temporal.PlainDateTime.prototype.toPlainTime()")}}.
+    - Eine {{jsxref("Temporal.ZonedDateTime")}}-Instanz, die die Zeit auf die gleiche Weise bereitstellt wie {{jsxref("Temporal/ZonedDateTime/toPlainDate", "Temporal.ZonedDateTime.prototype.toPlainTime()")}}.
     - Ein [RFC 9557](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime#rfc_9557_format)-String, der eine Zeit enthält.
     - Ein Objekt, das mindestens eine der folgenden Eigenschaften enthält (in der Reihenfolge, in der sie abgerufen und validiert werden):
       - {{jsxref("Temporal/PlainTime/hour", "hour")}}
@@ -33,16 +31,16 @@ Temporal.PlainTime.from(info, options)
       - {{jsxref("Temporal/PlainTime/nanosecond", "nanosecond")}}
       - {{jsxref("Temporal/PlainTime/second", "second")}}
 
-      Diese werden auf Ganzzahlen gekürzt. Werte außerhalb des Bereichs werden durch die `overflow`-Option verwaltet.
+      Sie werden auf Ganzzahlen gekürzt. Werte außerhalb des gültigen Bereichs werden durch die `overflow`-Option behandelt.
 
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `overflow` {{optional_inline}}
-      - : Ein String, der das Verhalten angibt, wenn eine Zeitkomponente außerhalb des Bereichs liegt (bei Verwendung des Objekt-`info`). Mögliche Werte sind:
+      - : Ein String, der das Verhalten angibt, wenn ein Zeitbestandteil außerhalb des gültigen Bereichs liegt (bei Verwendung des Objekts `info`). Mögliche Werte sind:
         - `"constrain"` (Standard)
-          - : Die Zeitkomponente wird auf den gültigen Bereich begrenzt.
+          - : Der Zeitbestandteil wird auf den gültigen Bereich eingegrenzt.
         - `"reject"`
-          - : Es wird ein {{jsxref("RangeError")}} ausgelöst, wenn die Zeitkomponente außerhalb des Bereichs liegt.
+          - : Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Zeitbestandteil außerhalb des gültigen Bereichs liegt.
 
 ### Rückgabewert
 
@@ -52,10 +50,10 @@ Ein neues `Temporal.PlainTime`-Objekt, das die durch `info` angegebene Zeit dars
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `info` ist kein Objekt mit mindestens einer erkannten Eigenschaft oder ein String.
+    - `info` ist kein Objekt mit mindestens einer anerkannten Eigenschaft oder kein String.
     - `options` ist kein Objekt oder `undefined`.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn die angegebenen numerischen Eigenschaften außerhalb des Bereichs liegen und `options.overflow` auf `"reject"` gesetzt ist.
+  - : Wird ausgelöst, wenn die bereitgestellten numerischen Eigenschaften außerhalb des gültigen Bereichs liegen und `options.overflow` auf `"reject"` gesetzt ist.
 
 ## Beispiele
 
@@ -79,9 +77,9 @@ const t3 = Temporal.PlainTime.from({
 console.log(t3.toString()); // "12:34:56.123456789"
 ```
 
-### Steuerung des Überlaufverhaltens
+### Kontrollieren des Überlaufverhaltens
 
-Standardmäßig werden Werte außerhalb des Bereichs auf den gültigen Bereich begrenzt:
+Standardmäßig werden Werte außerhalb des gültigen Bereichs auf den gültigen Bereich begrenzt:
 
 ```js
 const t1 = Temporal.PlainTime.from({ hour: 25 });
@@ -91,7 +89,7 @@ const t2 = Temporal.PlainTime.from({ hour: 25, minute: 60 });
 console.log(t2.toString()); // "23:59:00"
 ```
 
-Sie können dieses Verhalten dahingehend ändern, dass stattdessen ein Fehler ausgelöst wird:
+Sie können dieses Verhalten ändern, um stattdessen einen Fehler auszulösen:
 
 ```js
 Temporal.PlainTime.from({ hour: 25 }, { overflow: "reject" });

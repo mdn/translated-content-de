@@ -1,37 +1,37 @@
 ---
-title: Box-Shadow-Generator
+title: Box-shadow-Generator
 slug: Web/CSS/Guides/Backgrounds_and_borders/Box-shadow_generator
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: ca5d9f9e63b460fc0c9e15ac57d9739e10e4ea0d
 ---
 
-Dieses Tool ermöglicht es Ihnen, CSS-{{cssxref("box-shadow")}}-Effekte zu erstellen, um Box-Schatten-Effekte zu Ihren CSS-Objekten hinzuzufügen.
+Dieses Tool ermöglicht es Ihnen, CSS-{{cssxref("box-shadow")}}-Effekte zu erstellen, um Box-Shadow-Effekte zu Ihren CSS-Objekten hinzuzufügen.
 
 {{EmbedGHLiveSample("css-examples/tools/box-shadow-generator/", '100%', 1000)}}
 
-Der Box-Shadow-Generator ermöglicht es Ihnen, einem Element einen oder mehrere Box-Schatten hinzuzufügen.
+Der Box-shadow-Generator ermöglicht es Ihnen, einem Element einen oder mehrere Box-Shadows hinzuzufügen.
 
-Beim Öffnen des Tools finden Sie einen rechteckigen Bereich im oberen rechten Abschnitt des Werkzeugs. Das ist das Element, auf das Sie Schatten anwenden werden. Wenn dieses Element ausgewählt ist (was beim ersten Laden der Seite der Fall ist), können Sie einige grundlegende Stiländerungen vornehmen:
+Beim Öffnen des Tools finden Sie ein Rechteck im oberen rechten Bereich des Tools. Das ist das Element, auf das Sie Schatten anwenden werden. Wenn dieses Element ausgewählt ist (wie es der Fall ist, wenn Sie die Seite zum ersten Mal laden), können Sie einige grundlegende Stilformatierungen darauf anwenden:
 
-- Setzen Sie die {{cssxref("color")}} des Elements mit dem Farbauswahl-Tool.
-- Geben Sie dem Element einen {{cssxref("border")}} mit dem "border"-Kontrollkästchen.
+- Stellen Sie die {{cssxref("color")}} des Elements mit dem Farbauswahl-Tool ein.
+- Geben Sie dem Element einen {{cssxref("border")}}, indem Sie das "border" Kontrollkästchen verwenden.
 - Verwenden Sie die Schieberegler, um die {{cssxref("top")}}, {{cssxref("left")}}, {{cssxref("width")}} und {{cssxref("height")}} Eigenschaften des Elements festzulegen.
 
-Um einen Box-Schatten hinzuzufügen, klicken Sie auf die "+"-Schaltfläche oben links. Dies fügt einen Schatten hinzu und listet ihn in der Spalte auf der linken Seite auf. Nun können Sie die Werte des neuen Schattens festlegen:
+Um einen Box-Shadow hinzuzufügen, klicken Sie auf die "+"-Taste oben links. Dies fügt einen Schatten hinzu und listet ihn in der Spalte auf der linken Seite auf. Jetzt können Sie die Werte des neuen Schattens festlegen:
 
-- Legen Sie die {{cssxref("color")}} des Schattens mit dem Farbauswahl-Tool fest.
-- Setzen Sie den Schatten auf "inset" mit dem "inset"-Kontrollkästchen.
-- Verwenden Sie die Schieberegler, um die Position, Unschärfe und Ausdehnung des Schattens festzulegen.
+- Stellen Sie die {{cssxref("color")}} des Schattens mit dem Farbauswahl-Tool ein.
+- Setzen Sie den Schatten mit dem "inset" Kontrollkästchen auf eingekerbt.
+- Verwenden Sie die Schieberegler, um die Position, Unschärfe und Ausbreitung des Elements festzulegen.
 
-Um einen weiteren Schatten hinzuzufügen, klicken Sie erneut auf "+". Nun werden alle gesetzten Werte auf diesen neuen Schatten angewendet. Ändern Sie die Reihenfolge, in der diese beiden Schatten angewendet werden, mit den ↑ und ↓ Schaltflächen oben links. Wählen Sie den ersten Schatten erneut aus, indem Sie ihn in der Spalte auf der linken Seite anklicken. Um die eigenen Stile des Elements zu aktualisieren, wählen Sie es durch Klicken auf die Schaltfläche mit der Bezeichnung "Element" oben aus.
+Um einen weiteren Schatten hinzuzufügen, klicken Sie erneut auf "+". Nun werden alle von Ihnen festgelegten Werte auf diesen neuen Schatten angewendet. Ändern Sie die Reihenfolge, in der diese beiden Schatten angewendet werden, mit den ↑ und ↓ Tasten oben links. Wählen Sie den ersten Schatten erneut aus, indem Sie ihn in der Spalte links anklicken. Um die eigenen Stile des Elements zu aktualisieren, wählen Sie es aus, indem Sie die mit "element" beschriftete Taste oben anklicken.
 
-Sie können dem Element {{cssxref("::before")}} und {{cssxref("::after")}} Pseudoelemente hinzufügen und ihnen ebenfalls Box-Schatten geben. Um zwischen dem Element und seinen Pseudoelementen zu wechseln, verwenden Sie die oben mit "Element", "::before" und "::after" beschrifteten Schaltflächen.
+Sie können dem Element {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelemente hinzufügen und ihnen ebenfalls Box-Shadows geben. Um zwischen dem Element und seinen Pseudoelementen umzuschalten, verwenden Sie die oben beschrifteten Tasten "element", "::before" und "::after".
 
-Die Box unten rechts enthält das CSS für das Element und alle `::before` oder `::after` Pseudoelemente.
+Das Feld unten rechts enthält das CSS für das Element und alle `::before`- oder `::after`-Pseudoelemente.
 
 ## Siehe auch
 
-- [Border-Image-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
-  - : Dieses interaktive Tool ermöglicht es Ihnen, Border-Images visuell zu erstellen (die {{cssxref("border-image")}}-Eigenschaft).
-- [Border-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
-  - : Dieses interaktive Tool ermöglicht es Ihnen, abgerundete Ecken visuell zu erstellen (die {{cssxref("border-radius")}}-Eigenschaft).
+- Andere Tools:
+  - [Border-image-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
+  - [Border-radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
+- [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)-Modul

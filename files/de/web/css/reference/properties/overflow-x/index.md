@@ -2,10 +2,10 @@
 title: overflow-x
 slug: Web/CSS/Reference/Properties/overflow-x
 l10n:
-  sourceCommit: f28f4c26a3d95e41d01a505af3388881abd6e49c
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`overflow-x`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn der Inhalt die linken und rechten Ränder eines Block-Elementes überläuft. Dies kann nichts sein, eine Scrollleiste oder der überlaufende Inhalt. Diese Eigenschaft kann auch durch die Verwendung der [`overflow`](/de/docs/Web/CSS/Reference/Properties/overflow) Kurzschreibweise festgelegt werden.
+Die **`overflow-x`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, was angezeigt wird, wenn der Inhalt die linken und rechten Ränder eines Block-Level-Elements überläuft. Dies kann nichts, eine Scrollleiste oder der überlaufende Inhalt sein. Diese Eigenschaft kann auch durch die Verwendung der Kurzschreibweise {{cssxref("overflow")}} festgelegt werden.
 
 {{InteractiveExample("CSS Demo: overflow-x")}}
 
@@ -66,25 +66,25 @@ overflow-x: revert-layer;
 overflow-x: unset;
 ```
 
-Die `overflow-x` Eigenschaft wird als ein einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben.
+Die `overflow-x`-Eigenschaft wird als einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben.
 
-Wenn {{cssxref("overflow-y")}} auf `hidden`, `scroll` oder `auto` gesetzt ist und die `overflow-x` Eigenschaft `visible` (Standardwert) ist, wird der Wert implizit als `auto` berechnet.
+Wenn {{cssxref("overflow-y")}} `hidden`, `scroll` oder `auto` ist und die `overflow-x`-Eigenschaft `visible` (Standard) ist, wird der Wert implizit als `auto` berechnet.
 
 ### Werte
 
 - `visible`
-  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Padding-Box des Elements auf den linken und rechten Rändern sichtbar sein. Der Element-Box ist kein {{Glossary("scroll_container", "Scroll-Container")}}.
+  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Randbereichs des Elements auf den linken und rechten Rändern sichtbar sein. Das Elementfeld ist kein {{Glossary("scroll_container", "scroll container")}}.
 - `hidden`
-  - : Überlaufender Inhalt wird abgeschnitten, wenn nötig, um horizontal in die Padding-Box des Elements zu passen. Scrollleisten werden nicht bereitgestellt.
+  - : Überlaufender Inhalt wird, falls erforderlich, abgeschnitten, um horizontal in den Randbereich des Elements zu passen. Es werden keine Scrollleisten bereitgestellt.
 - `clip`
-  - : Überlaufender Inhalt wird an der _overflow clip edge_ des Elements abgeschnitten, die mit der [`overflow-clip-margin`](/de/docs/Web/CSS/Reference/Properties/overflow-clip-margin) Eigenschaft definiert ist. Infolgedessen überläuft der Inhalt die Padding-Box des Elements um den {{cssxref("&lt;length&gt;")}} Wert von `overflow-clip-margin` oder um `0px`, wenn nicht gesetzt. Der Unterschied zwischen `clip` und `hidden` besteht darin, dass das `clip` Schlüsselwort jegliches Scrollen, einschließlich des programmgesteuerten Scrollens, verbietet. Es wird kein neuer Formatierungskontext erstellt. Um einen Formatierungskontext herzustellen, verwenden Sie `overflow: clip` zusammen mit {{cssxref("display", "display: flow-root", "#flow-root")}}. Der Element-Box ist kein Scroll-Container.
+  - : Überlaufender Inhalt wird am _overflow clip edge_ des Elements abgeschnitten, der mit der Eigenschaft {{cssxref("overflow-clip-margin")}} definiert wird. Infolgedessen läuft der Inhalt um den {{cssxref("&lt;length&gt;")}}-Wert von `overflow-clip-margin` oder um `0px`, falls nicht festgelegt, über den Randbereich des Elements hinaus. Der Unterschied zwischen `clip` und `hidden` besteht darin, dass das Schlüsselwort `clip` auch jegliches Scrollen, einschließlich programmgesteuertem Scrollen, verbietet. Es wird kein neuer Formatierungskontext erstellt. Um einen Formatierungskontext zu etablieren, verwenden Sie `overflow: clip` zusammen mit {{cssxref("display", "display: flow-root", "#flow-root")}}. Das Elementfeld ist kein Scroll-Container.
 - `scroll`
-  - : Überlaufender Inhalt wird gegebenenfalls abgeschnitten, um horizontal innerhalb der Padding-Box des Elements zu passen. Browser zeigen Scrollleisten in horizontaler Richtung an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird oder nicht. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können weiterhin überlaufenden Inhalt drucken.
+  - : Überlaufender Inhalt wird, falls erforderlich, abgeschnitten, um horizontal in den Randbereich des Elements zu passen. Browser zeigen Scrollleisten in horizontaler Richtung an, unabhängig davon, ob Inhalt tatsächlich abgeschnitten wird. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können weiterhin überlaufenden Inhalt drucken.
 - `auto`
-  - : Überlaufender Inhalt wird an der Padding-Box des Elements abgeschnitten, und überlaufender Inhalt kann in den Sichtbereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur an_, wenn der Inhalt überläuft und verstecken Scrollleisten standardmäßig. Wenn der Inhalt innerhalb der Padding-Box des Elements passt, sieht es genauso aus wie bei `visible`, stellt aber dennoch einen neuen Block-Formatierungskontext her. Desktop-Browser bieten Scrollleisten, wenn der Inhalt überläuft.
+  - : Überlaufender Inhalt wird im Randbereich des Elements abgeschnitten, und überlaufender Inhalt kann in den sichtbaren Bereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur an_, wenn der Inhalt überläuft, und verbergen Scrollleisten standardmäßig. Wenn der Inhalt in den Randbereich des Elements passt, sieht es genauso aus wie bei `visible`, etabliert jedoch trotzdem einen neuen Block-Formatierungskontext. Desktop-Browser stellen Scrollleisten bereit, wenn der Inhalt überläuft.
 
 > [!NOTE]
-> Der Schlüsselwortwert `overlay` ist ein veralteter Wert-Alias für `auto`. Mit `overlay` werden die Scrollleisten über dem Inhalt gezeichnet, anstatt Platz einzunehmen.
+> Der Schlüsselwortwert `overlay` ist ein veraltetes Wertalias für `auto`. Bei `overlay` werden die Scrollleisten über dem Inhalt gezeichnet, anstatt Platz einzunehmen.
 
 ## Formale Definition
 

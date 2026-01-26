@@ -1,19 +1,19 @@
 ---
-title: "Selection: getRangeAt()-Methode"
+title: "Auswahl: getRangeAt()-Methode"
 short-title: getRangeAt()
 slug: Web/API/Selection/getRangeAt
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 7a9bb2446815454a7f905e17e6f4d652c891316a
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`getRangeAt()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle gibt ein `Range`-Objekt zurück, das eine derzeit ausgewählte Range repräsentiert.
+Die **`getRangeAt()`**-Methode des [`Selection`](/de/docs/Web/API/Selection)-Interfaces gibt ein Range-Objekt zurück, das einen aktuell ausgewählten Bereich darstellt.
 
-Wenn sich die Endpunkte der ausgewählten Range innerhalb eines {{Glossary("shadow_tree", "Shadow-DOM-Baums")}} befinden, hat JavaScript keinen Zugriff auf die Schattenknoten, und die Methode sollte die Range um den Host-Element erweitern, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten bisher nicht, und die zurückgegebene Range ist unvorhersehbar.
+Wenn die Endpunkte des ausgewählten Bereichs innerhalb eines {{Glossary("shadow_tree", "Shadow-Baums")}} liegen, hat JavaScript keine Sichtbarkeit auf die Shadow-Knoten, und die Methode sollte den Bereich neu ausrichten, um das Host-Element einzuschließen, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten noch nicht, und der zurückgegebene Bereich ist unvorhersehbar.
 
 > [!NOTE]
-> Beim Selektieren innerhalb von Knoten, die eine Shadow-Root enthalten könnten, kann [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) (falls unterstützt) verwendet werden, um eine Auswahl-Range innerhalb eines Shadow-Baums zu erhalten oder um die Auswahl zuverlässig auf den Host-Knoten zu übertragen.
+> Wenn Sie innerhalb von Knoten auswählen, die möglicherweise eine Shadow-Root enthalten, können Sie [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) (falls unterstützt) verwenden, um einen Auswahlbereich innerhalb eines Shadow-Baums zu erhalten oder die Auswahl verlässlich auf den Host-Knoten neu auszurichten.
 
 ## Syntax
 
@@ -24,19 +24,19 @@ getRangeAt(index)
 ### Parameter
 
 - `index`
-  - : Der nullbasierte Index der zurückzugebenden Range.
+  - : Der nullbasierte Index des zurückzugebenden Bereichs.
     Eine negative Zahl oder eine Zahl, die größer oder gleich [`Selection.rangeCount`](/de/docs/Web/API/Selection/rangeCount) ist, führt zu einem Fehler.
 
 ### Rückgabewert
 
-Das spezifizierte [`Range`](/de/docs/Web/API/Range)-Objekt.
+Das angegebene [`Range`](/de/docs/Web/API/Range)-Objekt.
 
 ## Beispiele
 
 ```js
 let ranges = [];
 
-sel = window.getSelection();
+const sel = window.getSelection();
 
 for (let i = 0; i < sel.rangeCount; i++) {
   ranges[i] = sel.getRangeAt(i);
@@ -56,4 +56,4 @@ for (let i = 0; i < sel.rangeCount; i++) {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem es gehört.

@@ -3,12 +3,12 @@ title: CSS-Leitfäden
 short-title: Guides
 slug: Web/CSS/Guides
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 3e0ba995376cace7f08f0771635f86f0fb1753b3
 ---
 
-Auf dieser Seite finden Sie eine Liste der Leitfäden, die Sie verwenden können, um verschiedene CSS-Konzepte und -Techniken kennenzulernen.
+Diese Seite listet CSS-Module auf, die widerspiegeln, wie CSS-Spezifikationen strukturiert sind. Jedes Modul bietet einen Überblick über die Spezifikation, listet die Funktionen auf, die es bietet (wie Eigenschaften, At-Regeln und Datentypen), und zeigt, wie sie sich auf andere Teile von CSS und die Webplattform beziehen. Sie können die Modul-Seiten als Ausgangspunkt verwenden, um durch die zugehörigen Leitfäden zu navigieren und sich tiefer in die Referenzdokumentation zu spezifischen Funktionen zu vertiefen.
 
-Die Leitfäden sind nach Modulen organisiert, die die Struktur der CSS-Spezifikationen widerspiegeln. Jede Modulseite, wie zum Beispiel das [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model), bietet einen Überblick über die Spezifikation, listet die bereitgestellten Funktionen auf (wie Eigenschaften, At-Regeln und Datentypen) und zeigt, wie sie mit anderen Teilen von CSS und der Web-Plattform in Zusammenhang stehen. Sie können die Modulseiten als Ausgangspunkt nutzen, um durch die verwandten Leitfäden zu navigieren und tiefer in die Referenzdokumentation für spezifische Funktionen einzutauchen.
+Um auf die einzelnen Leitfäden innerhalb jedes Moduls zuzugreifen, klicken Sie auf einen Modulnamen aus der folgenden Liste, um seine Einstiegsseite zu besuchen, oder nutzen Sie die Seitenleiste, um direkt zu einem Thema zu navigieren und alle zugehörigen Leitfäden zu entdecken.
 
 {{subpageswithsummaries}}
 

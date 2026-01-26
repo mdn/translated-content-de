@@ -3,44 +3,65 @@ title: "HTMLDialogElement: closedBy-Eigenschaft"
 short-title: closedBy
 slug: Web/API/HTMLDialogElement/closedBy
 l10n:
-  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`closedBy`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces gibt die Arten von Benutzeraktionen an, die verwendet werden können, um das zugehörige {{htmlelement("dialog")}}-Element zu schließen. Sie setzt oder gibt den Wert des [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby)-Attributs des Dialogs zurück.
+Die **`closedBy`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces gibt an, welche Benutzereingaben verwendet werden können, um das zugehörige {{htmlelement("dialog")}}-Element zu schließen. Sie setzt oder gibt den Attributwert [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby) des Dialogs zurück.
 
 ## Wert
 
 Ein String; mögliche Werte sind:
 
 - `any`
-  - : Der Dialog kann durch eine leichte Abbruch-Benutzeraktion, eine plattformspezifische Benutzeraktion oder einen vom Entwickler festgelegten Mechanismus geschlossen werden.
+  - : Der Dialog kann mit einer leichten Entlassungsaktion des Benutzers, einer plattform-spezifischen Benutzereingabe oder einem vom Entwickler angegebenen Mechanismus geschlossen werden.
 - `closerequest`
-  - : Der Dialog kann durch eine plattformspezifische Benutzeraktion oder einen vom Entwickler festgelegten Mechanismus geschlossen werden.
+  - : Der Dialog kann mit einer plattform-spezifischen Benutzereingabe oder einem vom Entwickler angegebenen Mechanismus geschlossen werden.
 - `none`
-  - : Der Dialog kann nur durch einen vom Entwickler festgelegten Mechanismus geschlossen werden.
+  - : Der Dialog kann nur mit einem vom Entwickler angegebenen Mechanismus geschlossen werden.
+
+### Standardverhalten
+
+Wenn das `closedby`-Attribut fehlt oder ungültig ist, wird auf den **Auto**-Zustand zurückgegriffen. Im **Auto**-Zustand:
+
+- Wenn das `<dialog>` mit `showModal()` geöffnet wird, verhält es sich, als ob: `closedby="closerequest"`
+- Wenn das `<dialog>` auf andere Weise geöffnet wird, verhält es sich, als ob: `closedby="none"`
 
 ## Beispiele
 
 ### Grundlegende Verwendung von `closedBy`
 
 ```html
-<dialog open closedby="any">
-  <h2>My dialog</h2>
+<dialog closedby="any">
   <p>
-    Closable using the Esc key, or by clicking outside the dialog. "Light
-    dismiss" behavior.
+    Closable using the <kbd>Esc</kbd> key, or by clicking outside the dialog
+    ("light dismiss").
   </p>
 </dialog>
 ```
 
-```js
-const dialogElem = document.querySelector("dialog");
-
-// Logs "any" to the console
-console.log(dialogElem.closedBy);
+```html hidden
+<pre id="log"></pre>
 ```
+
+```js hidden
+const logElement = document.getElementById("log");
+function log(text) {
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
+```
+
+```js
+const dialog = document.querySelector("dialog");
+dialog.showModal();
+log(`closedBy: ${dialog.closedBy}`);
+```
+
+### Ergebnis
+
+{{ EmbedLiveSample('Basic `closedBy` usage', '100%', '250px') }}
 
 ## Spezifikationen
 
@@ -52,4 +73,4 @@ console.log(dialogElem.closedBy);
 
 ## Siehe auch
 
-- {{ HTMLElement("dialog") }}
+- HTML {{htmlelement("dialog")}}-Element

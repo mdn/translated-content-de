@@ -1,32 +1,32 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Overflow"
-short-title: "Test: Overflow"
+title: "Testen Sie Ihre Fähigkeiten: Überlauf"
+short-title: "Test: Überlauf"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Overflow
 l10n:
-  sourceCommit: 001a6992ec60f0dccd073a3db223c320835188ad
+  sourceCommit: d0be159e6119ff73453bea6d224f0a2056307aa4
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics/Size_decorate_content_panel", "Learn_web_development/Core/Styling_basics")}}
 
-Ziel dieses Fähigkeitentests ist es, Ihnen zu helfen, zu beurteilen, ob Sie [Overflow in CSS und wie man damit umgeht](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie [Überlauf in CSS und dessen Verwaltung](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe läuft der Inhalt über den Rand der Box hinaus, da sie eine feste Höhe hat.
+In dieser Aufgabe überläuft der Inhalt die Box, weil sie eine feste Höhe hat.
 
 Um die Aufgabe abzuschließen:
 
-1. Aktualisieren Sie das CSS so, dass die Höhe beibehalten wird und die Box nur dann Scrollleisten hat, wenn genügend Text vorhanden ist, um ein Überlaufen zu verursachen.
-2. Testen Sie Ihre Lösung, indem Sie etwas Text aus dem HTML entfernen und überprüfen, ob, wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft, keine Scrollleiste erscheint.
+1. Aktualisieren Sie das CSS so, dass die Höhe beibehalten wird und die Box nur dann Scrollbalken hat, wenn genügend Text vorhanden ist, um einen Überlauf zu verursachen.
+2. Testen Sie Ihre Lösung, indem Sie einen Teil des Textes aus dem HTML entfernen und überprüfen, ob bei nur einer kleinen Menge Text, die nicht überläuft, kein Scrollbalken erscheint.
 
-Ihr Endergebnis sollte wie das folgende Bild aussehen:
+Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
 
-![Eine kleine Box mit einem Rahmen und einem vertikalen Scrollbalken.](mdn-overflow1.png)
+{{EmbedLiveSample("overflow1-finish", "", "300px")}}
 
-```html live-sample___overflow-scroll
+```html live-sample___overflow1-start live-sample___overflow1-finish
 <div class="box">
   <p>
     Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
@@ -41,7 +41,7 @@ Ihr Endergebnis sollte wie das folgende Bild aussehen:
 </div>
 ```
 
-```css live-sample___overflow-scroll
+```css live-sample___overflow1-start live-sample___overflow1-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -54,14 +54,16 @@ body {
 }
 ```
 
-{{EmbedLiveSample("overflow-scroll", "", "450px")}}
+Dies ist der Ausgangszustand der Aufgabe:
+
+{{EmbedLiveSample("overflow1-start", "", "450px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie sollten `overflow: auto` hinzufügen, damit die Box nur dann Scrollleisten erhält, wenn der Inhalt zu groß ist:
+Sie sollten `overflow: auto` hinzufügen, damit die Box nur dann Scrollbalken erhält, wenn der Inhalt zu groß ist:
 
-```css
+```css live-sample___overflow1-finish
 .box {
   overflow: auto;
 }
@@ -71,13 +73,13 @@ Sie sollten `overflow: auto` hinzufügen, damit die Box nur dann Scrollleisten e
 
 ## Aufgabe 2
 
-In dieser Aufgabe befindet sich ein Bild in der Box, das größer als die Abmessungen der Box ist, sodass es sichtbar überläuft. Aktualisieren Sie das CSS so, dass jedes Bild außerhalb der Box ausgeblendet wird.
+In dieser Aufgabe gibt es ein Bild in der Box, das größer als die Dimensionen der Box ist, sodass es sichtbar überläuft. Aktualisieren Sie das CSS so, dass jedes Bild außerhalb der Box verborgen wird.
 
-Ihr Endergebnis sollte wie das folgende Bild aussehen:
+Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
 
-![Eine Box mit einem Bild, das die Box ausfüllt, aber nicht über die Ränder hinausragt.](mdn-overflow2.png)
+{{EmbedLiveSample("overflow2-finish", "", "260px")}}
 
-```html live-sample___overflow-hidden
+```html live-sample___overflow2-start live-sample___overflow2-finish
 <div class="box">
   <img
     alt="flowers"
@@ -85,7 +87,7 @@ Ihr Endergebnis sollte wie das folgende Bild aussehen:
 </div>
 ```
 
-```css live-sample___overflow-hidden
+```css live-sample___overflow2-start live-sample___overflow2-finish
 body {
   font: 1.2em / 1.5 sans-serif;
 }
@@ -96,14 +98,16 @@ body {
 }
 ```
 
-{{EmbedLiveSample("overflow-hidden", "", "300px")}}
+Dies ist der Ausgangszustand der Aufgabe:
+
+{{EmbedLiveSample("overflow2-start", "", "260px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie sollten `overflow: hidden` zum `.box`-Selektor hinzufügen:
+Sie sollten `overflow: hidden` dem `.box`-Selektor hinzufügen:
 
-```css
+```css live-sample___overflow2-finish
 .box {
   overflow: hidden;
 }

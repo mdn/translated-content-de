@@ -3,14 +3,18 @@ title: "Keyboard: lock() Methode"
 short-title: lock()
 slug: Web/API/Keyboard/lock
 l10n:
-  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`lock()`**-Methode des [`Keyboard`](/de/docs/Web/API/Keyboard)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, nachdem das Erfassen von Tastenanschlägen für beliebige oder alle Tasten auf der physischen Tastatur aktiviert wurde. Diese Methode kann nur Tasten erfassen, auf die das zugrunde liegende Betriebssystem Zugriff gewährt.
+Die **`lock()`** Methode der
+[`Keyboard`](/de/docs/Web/API/Keyboard) Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das nach Aktivierung der
+Erfassung von Tastenanschlägen für eine oder alle Tasten auf der physischen Tastatur erfüllt wird. Diese Methode
+kann nur Tasten erfassen, die vom zugrunde liegenden Betriebssystem Zugriff erhalten haben.
 
-Wenn `lock()` mehrfach aufgerufen wird, werden nur die Tastencodes, die im letzten Aufruf angegeben wurden, gesperrt. Alle Tasten, die durch einen vorherigen Aufruf von `lock()` gesperrt wurden, werden entsperrt.
+Wenn `lock()` mehrmals aufgerufen wird, werden nur die in dem jüngsten Aufruf angegebenen Tasten-Codes gesperrt.
+Alle Tasten, die durch einen früheren Aufruf von `lock()` gesperrt wurden, werden entsperrt.
 
 ## Syntax
 
@@ -22,28 +26,29 @@ lock(keyCodes)
 ### Parameter
 
 - `keyCodes` {{optional_inline}}
-  - : Ein {{jsxref('Array')}} aus einem oder mehreren zu sperrenden Tastencodes. Wenn keine Tastencodes angegeben sind, werden alle Tasten gesperrt. Eine Liste gültiger Code-Werte finden Sie in der [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/#key-alphanumeric-writing-system)-Spezifikation.
+  - : Ein {{jsxref('Array')}} von einem oder mehreren zu sperrenden Tasten-Codes. Wenn keine Tasten-Codes angegeben sind,
+    werden alle Tasten gesperrt. Eine Liste gültiger Code-Werte befindet sich in der Spezifikation [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/#key-alphanumeric-writing-system).
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}} das mit {{jsxref('undefined')}} aufgelöst wird, wenn die Sperre erfolgreich war.
+Ein {{jsxref('Promise')}} das mit {{jsxref('undefined')}} erfüllt wird, wenn die Sperrung erfolgreich war.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein neuer Aufruf von `lock()` gemacht wird, bevor der aktuelle abgeschlossen ist.
+  - : Wird ausgelöst, wenn ein neuer Aufruf von `lock()` erfolgt, bevor der aktuelle beendet ist.
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine Taste in `keyCodes` kein gültiger [Tastencode-Attributwert](https://w3c.github.io/uievents-code/#key-code-attribute-value) ist.
+  - : Wird ausgelöst, wenn irgendein Schlüssel in `keyCodes` kein gültiger [key code attribute value](https://w3c.github.io/uievents-code/#key-code-attribute-value) ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `lock()` nicht in einem aktiven Top-Level-Browsing-Kontext aufgerufen wird.
 
 ## Sicherheit
 
-[Temporäre Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem Benutzeroberflächenelement interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-### Alle Tasten erfassen
+### Erfassen aller Tasten
 
 Das folgende Beispiel erfasst alle Tastenanschläge.
 
@@ -51,9 +56,14 @@ Das folgende Beispiel erfasst alle Tastenanschläge.
 navigator.keyboard.lock();
 ```
 
-### Bestimmte Tasten erfassen
+### Erfassen spezifischer Tasten
 
-Das folgende Beispiel erfasst die Tasten "W", "A", "S" und "D". Es erfasst diese Tasten unabhängig davon, welche Modifikatoren mit dem Tastenanschlag verwendet werden. Bei einem standardmäßigen US-QWERTY-Layout sorgt die Registrierung von `"KeyW"` dafür, dass "W", Shift+"W", Control+"W", Control+Shift+"W" und alle anderen Tastenkombinationen mit Modifikatoren für "W" an die App gesendet werden. Das Gleiche gilt für `"KeyA"`, `"KeyS"` und `"KeyD"`.
+Das folgende Beispiel erfasst die Tasten "W", "A", "S" und "D". Es erfasst diese Tasten
+unabhängig davon, welche Modifikatoren mit dem Tastendruck verwendet werden. Angenommen, ein standardmäßiges US-QWERTY
+Layout, die Registrierung mit `"KeyW"` stellt sicher, dass "W", Umschalt+"W", Strg+"W",
+Strg+Umschalt+"W" und alle anderen Tastenkombinationen mit "W" an die Anwendung gesendet werden.
+Das Gleiche gilt für `"KeyA"`, `"KeyS"` und
+`"KeyD"`.
 
 ```js
 navigator.keyboard.lock(["KeyW", "KeyA", "KeyS", "KeyD"]);

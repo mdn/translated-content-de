@@ -3,12 +3,12 @@ title: "HTMLScriptElement: integrity-Eigenschaft"
 short-title: integrity
 slug: Web/API/HTMLScriptElement/integrity
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`integrity`**-Eigenschaft der Schnittstelle [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, dass eine abgerufene Ressource ohne unerwartete Manipulationen bereitgestellt wurde.
+Die **`integrity`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde.
 
 Sie spiegelt das `integrity`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -42,4 +42,4 @@ console.log(el.integrity); // Output: "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/u
 ## Siehe auch
 
 - [`HTMLLinkElement.integrity`](/de/docs/Web/API/HTMLLinkElement/integrity)
-- [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)
+- [Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity)

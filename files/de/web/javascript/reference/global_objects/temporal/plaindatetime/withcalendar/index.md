@@ -3,14 +3,12 @@ title: Temporal.PlainDateTime.prototype.withCalendar()
 short-title: withCalendar()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`withCalendar()`** Methode von {{jsxref("Temporal.PlainDateTime")}} Instanzen gibt ein neues `Temporal.PlainDateTime` Objekt zurück, das diesen Datum-Uhrzeit-Wert im neuen Kalendersystem interpretiert darstellt. Da alle `Temporal` Objekte so konzipiert sind, dass sie unveränderlich sind, fungiert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}} Eigenschaft des Datum-Uhrzeit-Wertes.
 
-Die Methode **`withCalendar()`** der Instanzen von {{jsxref("Temporal.PlainDateTime")}} gibt ein neues `Temporal.PlainDateTime`-Objekt zurück, das diesen Datum-Uhrzeit-Wert im neuen Kalendersystem interpretiert. Da alle `Temporal`-Objekte unveränderlich gestaltet sind, funktioniert diese Methode im Wesentlichen als Setter für die {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft der Datum-Uhrzeit.
-
-Um die Datums- und Uhrzeitkomponenten-Eigenschaften zu ersetzen, nutzen Sie stattdessen die Methode {{jsxref("Temporal/PlainDateTime/with", "with()")}}.
+Um die Eigenschaften der Datum-Uhrzeit-Komponente zu ersetzen, verwenden Sie stattdessen die {{jsxref("Temporal/PlainDateTime/with", "with()")}} Methode.
 
 ## Syntax
 
@@ -21,18 +19,18 @@ withCalendar(calendar)
 ### Parameter
 
 - `calendar`
-  - : Ein String, der der {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}}-Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
+  - : Ein String, der der {{jsxref("Temporal/PlainDateTime/calendarId", "calendarId")}} Eigenschaft entspricht. Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
 
 ### Rückgabewert
 
-Ein neues `Temporal.PlainDateTime`-Objekt, das die durch das ursprüngliche `PlainDateTime` angegebene Datum-Uhrzeit darstellt, interpretiert im neuen Kalendersystem.
+Ein neues `Temporal.PlainDateTime` Objekt, das das von der ursprünglichen `PlainDateTime` angegebene Datum-Uhrzeit-Wert darstellt, interpretiert im neuen Kalendersystem.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `calendar` kein String ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `calendar` kein gültiger Kalender-Identifikator ist.
+  - : Wird ausgelöst, wenn `calendar` keine gültige Kalenderkennung ist.
 
 ## Beispiele
 

@@ -3,12 +3,12 @@ title: "SharedStorage: set()-Methode"
 short-title: set()
 slug: Web/API/SharedStorage/set
 l10n:
-  sourceCommit: d71c12f2ab7cc289117e13513cb965c88a39065e
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`set()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle speichert entweder ein neues Schlüssel-Wert-Paar im geteilten Speicher des aktuellen Ursprungs oder aktualisiert ein bestehendes.
+Die **`set()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle speichert entweder ein neues Schlüssel-Wert-Paar im gemeinsam genutzten Speicher des aktuellen Ursprungs oder aktualisiert ein bestehendes.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ set(key, value, options)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel im Schlüssel-Wert-Paar darstellt, den Sie hinzufügen oder aktualisieren möchten.
+  - : Ein String, der den Schlüssel im Schlüssel-Wert-Paar darstellt, das Sie hinzufügen oder aktualisieren möchten.
 - `value`
   - : Ein String, der den Wert darstellt, den Sie hinzufügen oder aktualisieren möchten.
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `ignoreIfPresent`
-      - : Ein boolescher Wert. Der Wert `true` bewirkt, dass der Setzvorgang abgebrochen wird, wenn ein Schlüssel-Wert-Paar mit dem angegebenen `key` bereits existiert. Der Standardwert `false` führt dazu, dass der Setzvorgang den vorherigen Wert überschreibt.
+      - : Ein boolescher Wert. Der Wert `true` bewirkt, dass die set-Operation abgebrochen wird, wenn ein Schlüssel-Wert-Paar mit dem angegebenen `key` bereits existiert. Der Standardwert `false` bewirkt, dass die set-Operation den vorherigen Wert überschreibt.
 
 ### Rückgabewert
 
@@ -35,13 +35,13 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 ### Ausnahmen
 
 - Das `Promise` wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
-  - Der erstellte Eintrag aufgrund einer nicht verfügbaren geteilten Speicherung nicht erfolgreich in der Datenbank gespeichert wurde (zum Beispiel, wenn diese durch eine Browsereinstellung deaktiviert ist).
-  - `key` und/oder `value` die vom Browser definierte maximale Länge überschreiten.
-  - Die aufrufende Website die Shared Storage API nicht in einem erfolgreichen [Anmeldeprozess für die Datenschutzeinstellungen](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) aufgenommen hat.
+  - Der erstellte Eintrag aufgrund der Nichtverfügbarkeit des gemeinsam genutzten Speichers nicht erfolgreich in der Datenbank gespeichert wurde (zum Beispiel, wenn er durch eine Browsereinstellung deaktiviert ist).
+  - `key` und/oder `value` die vom Browser festgelegte maximale Länge überschreiten.
+  - Die aufrufende Website die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) eingeschlossen hat.
 - Im Fall von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) wird das `Promise` mit einem {{jsxref("TypeError")}} abgelehnt, wenn das Worklet-Modul nicht mit [`SharedStorageWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
 
 > [!NOTE]
-> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage) wird, wenn der `set()`-Vorgang aus einem anderen Grund als der Nichtverfügbarkeit des geteilten Speichers nicht erfolgreich in die Datenbank geschrieben wird, kein Fehler ausgelöst — der Vorgang wird trotzdem mit `undefined` erfüllt.
+> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), wenn die `set()`-Operation aus einem anderen Grund als der Nichtverfügbarkeit des gemeinsam genutzten Speichers nicht erfolgreich in die Datenbank schreibt, wird kein Fehler ausgelöst — die Operation wird trotzdem mit `undefined` erfüllt.
 
 ## Beispiele
 

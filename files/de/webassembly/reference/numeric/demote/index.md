@@ -1,11 +1,12 @@
 ---
-title: Demote
-slug: WebAssembly/Reference/Numeric/Demote
+title: "demote: Wasm-Text-Instruktion"
+short-title: demote
+slug: WebAssembly/Reference/Numeric/demote
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die Anweisung **`demote`** wird verwendet, um Zahlen des Typs `f64` in den Typ `f32` zu konvertieren (herabzustufen).
+Die **`demote`**-Instruktionen werden verwendet, um Zahlen des Typs `f64` in den Typ `f32` zu konvertieren (herabzustufen).
 
 {{InteractiveExample("Wat Demo: demote", "tabbed-taller")}}
 
@@ -42,6 +43,6 @@ f32.demote_f64
 ;; the top item on the stack will now be the value 10.5 of type f32
 ```
 
-| Anweisung        | Binärer Opcode |
+| Instruktion      | Binärer Opcode |
 | ---------------- | -------------- |
 | `f32.demote_f64` | `0xb6`         |

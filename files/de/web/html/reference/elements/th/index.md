@@ -1,11 +1,11 @@
 ---
-title: "<th>: Das Tabellenelement für Überschriften"
+title: "<th>: Das Tabellenkopf-Element"
 slug: Web/HTML/Reference/Elements/th
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 7c28cd21b705e7b7664d53b4d7822469ea8e6e15
 ---
 
-Das **`<th>`**-Element in [HTML](/de/docs/Web/HTML) definiert eine Zelle als Überschrift für eine Gruppe von Tabellenzellen und kann als Kind des {{HTMLElement("tr")}}-Elements verwendet werden. Die genaue Natur dieser Gruppe wird durch die Attribute [`scope`](#scope) und [`headers`](#headers) definiert.
+Das **`<th>`** [HTML](/de/docs/Web/HTML) Element definiert eine Zelle als Kopfzelle einer Gruppe von Tabellenzellen und kann als Kind des {{HTMLElement("tr")}} Elements verwendet werden. Die genaue Art dieser Gruppe wird durch die Attribute [`scope`](#scope) und [`headers`](#headers) definiert.
 
 {{InteractiveExample("HTML Demo: &lt;th&gt;", "tabbed-taller")}}
 
@@ -84,77 +84,77 @@ caption {
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `abbr`
-  - : Eine kurze, abgekürzte Beschreibung des Inhalts der Überschriftzelle, die als alternatives Label verwendet wird, um die Zelle in anderen Kontexten zu referenzieren. Einige Benutzeragenten, wie Screenreader, können diese Beschreibung vor dem eigentlichen Inhalt darstellen.
+  - : Eine kurze, abgekürzte Beschreibung des Inhalts der Kopfzelle, die als alternatives Label dient, wenn auf die Kopfzelle in anderen Kontexten verwiesen wird. Einige Benutzeragenten, wie z.B. Screenreader, können diese Beschreibung vor dem eigentlichen Inhalt anzeigen.
 - `colspan`
-  - : Ein nicht-negativer ganzzahliger Wert, der angibt, wie viele Spalten die Überschriftzelle überspannt oder erweitert. Der Standardwert ist `1`. Benutzeragenten verwerfen Werte über 1000 als falsch und setzen solche Werte standardmäßig auf `1`.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, wie viele Spalten die Kopfzelle umfasst oder erweitert. Der Standardwert ist `1`. Benutzeragenten verwerfen Werte über 1000 als falsch und setzen solche Werte standardmäßig auf `1`.
 - `headers`
-  - : Eine Liste von durch Leerzeichen getrennten Zeichenfolgen, die den `id`-Attributen der `<th>`-Elemente entsprechen, welche die Überschriften für diese Überschriftzelle bereitstellen.
+  - : Eine durch Leerzeichen getrennte Liste von Zeichenfolgen, die den `id`-Attributen der `<th>`-Elemente entsprechen, die die Kopfzeilen für diese Kopfzelle bereitstellen.
 - `rowspan`
-  - : Ein nicht-negativer ganzzahliger Wert, der angibt, wie viele Zeilen die Überschriftzelle überspannt oder erweitert. Der Standardwert ist `1`; wenn der Wert auf `0` gesetzt wird, erstreckt sich die Überschriftzelle bis zum Ende des Tabellenbereichs ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, auch wenn implizit definiert), zu dem das `<th>` gehört. Werte über `65534` werden bei `65534` abgeschnitten.
+  - : Ein nicht-negativer ganzzahliger Wert, der angibt, wie viele Zeilen die Kopfzelle umfasst oder erweitert. Der Standardwert ist `1`; wenn sein Wert auf `0` gesetzt ist, wird die Kopfzelle bis zum Ende des Tabellengruppierungsabschnitts ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, auch wenn implizit definiert) erweitert, zu dem das `<th>` gehört. Werte über `65534` werden auf `65534` gekappt.
 - `scope`
-  - : Definiert die Zellen, auf die sich die Überschrift (im `<th>`-Element definiert) bezieht. Mögliche {{Glossary("enumerated", "aufzählbare")}} Werte sind:
-    - `row`: Die Überschrift bezieht sich auf alle Zellen der Zeile, zu der sie gehört;
-    - `col`: Die Überschrift bezieht sich auf alle Zellen der Spalte, zu der sie gehört;
-    - `rowgroup`: Die Überschrift gehört zu einer Zeilengruppe und bezieht sich auf alle deren Zellen;
-    - `colgroup`: Die Überschrift gehört zu einer Spaltengruppe und bezieht sich auf alle deren Zellen.
+  - : Definiert die Zellen, zu denen die Kopfzeile (definiert im `<th>`) Element gehört. Mögliche {{Glossary("enumerated", "aufgezählte")}} Werte sind:
+    - `row`: die Kopfzeile bezieht sich auf alle Zellen der Zeile, zu der sie gehört;
+    - `col`: die Kopfzeile bezieht sich auf alle Zellen der Spalte, zu der sie gehört;
+    - `rowgroup`: die Kopfzeile gehört zu einer Zeilengruppe und bezieht sich auf alle ihre Zellen;
+    - `colgroup`: die Kopfzeile gehört zu einer Spaltengruppe und bezieht sich auf alle ihre Zellen.
 
-    Wenn das `scope`-Attribut nicht spezifiziert ist oder sein Wert nicht `row`, `col`, `rowgroup` oder `colgroup` ist, wählen Browser automatisch die Gruppe der Zellen aus, auf die sich die Überschriftzelle bezieht.
+    Wenn das `scope`-Attribut nicht spezifiziert ist oder sein Wert nicht `row`, `col`, `rowgroup` oder `colgroup` ist, wählen Browser automatisch die Gruppe von Zellen aus, auf die die Kopfzelle zutrifft.
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind unten dokumentiert, um vorhandenen Code zu aktualisieren und aus historischem Interesse.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier dokumentiert, um beim Aktualisieren vorhandenen Codes als Referenz zu dienen und aus geschichtlichem Interesse.
 
 - `align` {{deprecated_inline}}
-  - : Bestimmt die horizontale Ausrichtung der Überschriftzelle. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den textuellen Inhalt an dem im [`char`](#char)-Attribut definierten Zeichen aus, sowie an dem durch das [`charoff`](#charoff)-Attribut definierten Versatz. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft statt dieses Attributs, da es veraltet ist.
+  - : Gibt die horizontale Ausrichtung der Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den Textinhalt an dem Zeichen aus, das im [`char`](#char) Attribut definiert ist, und an dem Offset, das durch das [`charoff`](#charoff) Attribut definiert ist. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `axis` {{deprecated_inline}}
-  - : Enthält eine Liste von durch Leerzeichen getrennten Zeichenfolgen, die jeweils dem `id`-Attribut einer Gruppe von Zellen entsprechen, auf die die Überschriftzelle zutrifft. Verwenden Sie das [`scope`](#scope)-Attribut statt dieses Attributs, da es veraltet ist.
+  - : Enthält eine Liste von durch Leerzeichen getrennten Zeichenfolgen, die jeweils dem `id`-Attribut einer Gruppe von Zellen entsprechen, auf die die Kopfzelle zutrifft. Verwenden Sie stattdessen das [`scope`](#scope) Attribut, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
-  - : Definiert die Hintergrundfarbe der Überschriftzelle. Der Wert ist eine HTML-Farbe; entweder ein [sechsstelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/Reference/Values/hex-color), vorangestellt mit einem `#`, oder ein [Farb-Keyword](/de/docs/Web/CSS/Reference/Values/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt;")}}-Werte werden nicht unterstützt. Verwenden Sie die {{cssxref("background-color")}} CSS-Eigenschaft statt dieses Attributs, da es veraltet ist.
+  - : Definiert die Hintergrundfarbe der Kopfzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/Reference/Values/hex-color), dem ein `#` vorangestellt ist, oder ein [Farb-Begriff](/de/docs/Web/CSS/Reference/Values/named-color). Andere CSS {{cssxref("&lt;color&gt;")}} Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `char` {{deprecated_inline}}
-  - : Tut nichts. Es war ursprünglich gedacht, um die Ausrichtung des Inhalts an einem Zeichen der Überschriftzelle zu spezifizieren. Typische Werte hierfür beinhalten einen Punkt (`.`), wenn versucht wird, Zahlen oder Geldwerte auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
+  - : Macht nichts. Es war ursprünglich dazu gedacht, die Ausrichtung des Inhalts an einem Zeichen in der Kopfzelle anzugeben. Typische Werte hierfür beinhalten einen Punkt (`.`), wenn versucht wird, Zahlen oder Geldwerte auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
 
 - `charoff` {{deprecated_inline}}
-  - : Tut nichts. Es war ursprünglich gedacht, um die Anzahl der Zeichen anzugeben, mit denen der Inhalt der Überschriftzelle vom im [`char`](#char)-Attribut spezifizierten Ausrichtungszeichen versetzt werden soll.
+  - : Macht nichts. Es war ursprünglich dazu gedacht, die Anzahl der Zeichen anzugeben, die den Inhalt der Kopfzelle vom durch das [`char`](#char) Attribut definierten Ausrichtungszeichen versetzen.
 
 - `height` {{deprecated_inline}}
-  - : Definiert eine empfohlene Höhe der Überschriftzelle. Verwenden Sie die {{cssxref("height")}} CSS-Eigenschaft statt dieses Attributs, da es veraltet ist.
+  - : Definiert eine empfohlene Kopfzellenhöhe. Verwenden Sie stattdessen die {{cssxref("height")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `valign` {{deprecated_inline}}
-  - : Bestimmt die vertikale Ausrichtung der Überschriftzelle. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft statt dieses Attributs, da es veraltet ist.
+  - : Gibt die vertikale Ausrichtung der Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `width` {{deprecated_inline}}
-  - : Definiert eine empfohlene Breite der Überschriftzelle. Verwenden Sie die {{cssxref("width")}} CSS-Eigenschaft statt dieses Attributs, da es veraltet ist.
+  - : Definiert eine empfohlene Kopfzellenbreite. Verwenden Sie stattdessen die {{cssxref("width")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
-## Nutzungshinweise
+## Anwendungshinweise
 
-- Das `<th>`-Element darf nur innerhalb eines {{HTMLElement("tr")}}-Elements verwendet werden.
-- In einfachen Kontexten ist die Verwendung des [`scope`](#scope)-Attributs in Überschriftzellen (`<th>`-Elemente) redundant, da [`scope`](#scope) abgeleitet wird. Bestimmte unterstützende Technologien können jedoch möglicherweise nicht korrekt ableiten, daher kann die Angabe des Bereichs der Überschrift die Benutzererfahrung verbessern.
-- Beim Verwenden der Attribute [`colspan`](#colspan) und [`rowspan`](#rowspan), um Überschriftzellen über mehrere Spalten und Zeilen zu erstrecken, werden Zellen ohne definierte Attribute (mit einem Standardwert von `1`) automatisch in freie verfügbare Räume der Tabellenstruktur integriert, die 1x1-Zellen umfassen, wie im folgenden Bild veranschaulicht:
+- Das `<th>` kann nur innerhalb eines {{HTMLElement("tr")}} Elements verwendet werden.
+- In einfachen Kontexten ist die Verwendung des [`scope`](#scope) Attributs in Kopfzellen (`<th>` Elemente) redundant, da [`scope`](#scope) impliziert ist. Bestimmte unterstützende Technologien könnten jedoch nicht korrekt ableiten, daher kann das Angeben des Kopfbereichs die Benutzererfahrung verbessern.
+- Beim Verwenden der [`colspan`](#colspan) und [`rowspan`](#rowspan) Attribute, um Kopfzellen über mehrere Spalten und Zeilen zu erstrecken, werden Zellen ohne diese definierten Attribute (mit einem Standardwert von `1`) automatisch in freie verfügbare Räume in der Tabellenstruktur eingepasst, die 1x1 Zellen umfassen, wie in der folgenden Abbildung illustriert:
 
-  ![Abbildung, die das Spalten- und Zeilenspannen von Tabellenzellen veranschaulicht: Zellen 1, 3 und 4 über zwei Zeilen; Zelle 2 über zwei Spalten; Zellen 5 und 6 passen in die verfügbaren Zellen, die die zweite und dritte Spalte in der zweiten Zeile sind](/shared-assets/images/diagrams/html/table/column-row-span.png)
+  ![Abbildung, die zeigt, wie Tabellenzellen über Spalten und Zeilen erstreckt werden: Zellen 1, 3 und 4 erstrecken sich über zwei Zeilen; Zelle 2 erstreckt sich über zwei Spalten; Zellen 5 und 6 passen in die verfügbaren Zellen, die die zweite und dritte Spalte in der zweiten Zeile bilden](/shared-assets/images/diagrams/html/table/column-row-span.png)
 
   > [!NOTE]
   > Diese Attribute dürfen nicht verwendet werden, um Zellen zu überlappen.
 
 ## Beispiele
 
-Das {{HTMLElement("table")}} zeigt ein vollständiges Tabellenbeispiel, das gängige Standards und bewährte Praktiken einführt.
+Sehen Sie sich {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel an, das allgemeine Standards und bewährte Verfahren einführt.
 
-### Grundlegende Spalten- und Zeilenüberschriften
+### Einfache Spalten- und Zeilenköpfe
 
-In diesem Beispiel werden `<th>`-Elemente verwendet, um Spalten- und Zeilenüberschriften in einer grundlegenden Tabellenstruktur einzuführen.
+In diesem Beispiel werden `<th>` Elemente verwendet, um Spalten- und Zeilenköpfe in einer grundlegenden Tabellenstruktur einzuführen.
 
 #### HTML
 
-Die erste Zeile ({{HTMLElement("tr")}}-Element) enthält die Spaltenüberschriften (`<th>`-Elemente), die als "Titel" für die Spalten fungieren, um das Verständnis der Informationen in den Spalten und die Identifikation der Daten zu erleichtern. Um anzuzeigen, dass sich jede Spaltenüberschrift auf alle Zellen der entsprechenden Spalte bezieht, wird das [`scope`](#scope)-Attribut auf `col` (Spalte) gesetzt.
+Die erste Zeile ({{HTMLElement("tr")}} Element) enthält die Spaltenköpfe (`<th>` Elemente), die als "Titel" für die Spalten fungieren, um das Verstehen der Informationen in den Spalten zu erleichtern und die Daten zu identifizieren. Um anzuzeigen, dass sich jeder Spaltenkopf auf alle Zellen in der entsprechenden Spalte bezieht, ist das [`scope`](#scope) Attribut auf `col` (Spalte) gesetzt.
 
-Die verbleibenden Zeilen enthalten die Hauptdaten der Tabelle. Jede dieser Zeilen hat eine Zeilenüberschrift (`<th>`-Element), die als erste Zelle eingeführt wird. Dadurch entsteht eine Spalte mit Zeilenüberschriften als erste Spalte der Tabelle. Ähnlich wie bei den Spaltenüberschriften wird das [`scope`](#scope)-Attribut auf `row` gesetzt, um zu spezifizieren, auf welche Zellen sich jede Zeilenüberschrift bezieht, was im unten stehenden Beispiel alle Datenzellen ({{HTMLElement("td")}}-Elemente) in jeder `row` sind.
+Die verbleibenden Zeilen enthalten die Hauptdaten der Tabelle. Jede dieser Zeilen hat einen Zeilenkopf (`<th>` Element), der als erste Zelle eingeführt wird. Dadurch entsteht eine Spalte mit Zeilenköpfen als erste Spalte der Tabelle. Ähnlich wie bei den Spaltenköpfen ist das [`scope`](#scope) Attribut auf `row` gesetzt, um anzugeben, auf welche Zellen sich jeder Zeilenkopf bezieht, was in dem folgenden Beispiel alle Datenzellen ({{HTMLElement("td")}} Elemente) in jeder Zeile sind.
 
 > [!NOTE]
-> Normalerweise werden die Gruppierungselemente {{HTMLElement("thead")}} und {{HTMLElement("tbody")}} verwendet, um Zeilen mit Überschriften in die jeweiligen Tabellenkopf- und -körperabschnitte zu gruppieren. Diese Elemente werden in diesem Beispiel ausgelassen, um die Komplexität zu reduzieren und den Fokus auf die Verwendung von Überschriftzellen zu legen.
+> Normalerweise werden die Gruppierungselemente {{HTMLElement("thead")}} und {{HTMLElement("tbody")}} verwendet, um Zeilen mit Kopfzellen in die jeweiligen Kopf- und Hauptabschnitte der Tabelle zu gruppieren. Diese Elemente werden in diesem Beispiel ausgelassen, um die Komplexität zu reduzieren und sich auf die Verwendung von Kopfzellen zu konzentrieren.
 
 ```html
 <table>
@@ -188,7 +188,7 @@ Die verbleibenden Zeilen enthalten die Hauptdaten der Tabelle. Jede dieser Zeile
 
 #### CSS
 
-Einige grundlegende CSS-Regeln werden verwendet, um die Tabelle und ihre Zellen zu gestalten. Wir verwenden CSS-[Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), um Überschriftzellen basierend auf ihren [`scope`](#scope)-Attributwerten auszuwählen und Spalten- und Zeilenüberschriften (`<th>`-Elemente) zu kennzeichnen, um sie voneinander und von den Datenzellen ({{HTMLElement("td")}}) zu unterscheiden.
+Ein einfaches CSS wird verwendet, um die Tabelle und ihre Zellen zu stylen. Wir verwenden CSS [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), um Kopfzellen basierend auf ihren [`scope`](#scope) Attributwerten anzuvisieren, Spalten- und Zeilenköpfe (`<th>` Elemente) hervorzuheben und sie sowohl untereinander als auch von den Datenzellen ({{HTMLElement("td")}}) zu unterscheiden.
 
 ```css
 th,
@@ -225,18 +225,18 @@ table {
 
 {{EmbedLiveSample("Basic_column_and_row_headers", 650, 170)}}
 
-### Spalten- und Zeilenspannen
+### Spalten- und Zeilenübergreifend
 
-Dieses Beispiel erweitert und verbessert die Grundtabelle aus dem [vorherigen Beispiel](#grundlegende_spalten-_und_zeilenüberschriften) durch das Hinzufügen einer zweiten Zeile für zusätzliche Spaltenüberschriften.
+Dieses Beispiel erweitert und verbessert die Grundtabelle aus dem [vorherigen Beispiel](#einfache_spalten-_und_zeilenköpfe), indem eine zweite Zeile für zusätzliche Spaltenköpfe hinzugefügt wird.
 
 #### HTML
 
-Eine zusätzliche Tabellenzeile ({{HTMLElement("tr")}}-Element) wird als zweite Überschriftenzeile der Tabelle hinzugefügt, mit zwei zusätzlichen Spaltenüberschriften (`<th>`-Elemente). Auf diese Weise wird die "Aussprache"-Spalte in zwei Spalten aufgeteilt, eine für die IPA (Internationale Phonetische Alphabet)-Notation und eine für die erneute Buchstabierung (die ursprüngliche Aussprache-Spalte). Die entsprechenden Datenzellen ({{HTMLElement("td")}}-Elemente) werden zu jeder nachfolgenden Zeile hinzugefügt.
+Eine zusätzliche Tabellenzeile ({{HTMLElement("tr")}} Element) wird als zweite Kopfzeile der Tabelle hinzugefügt, mit zwei zusätzlichen Spaltenköpfen (`<th>` Elemente). Auf diese Weise wird die "Aussprache"-Spalte in zwei Spalten unterteilt, eine für die IPA (Internationale Phonetische Alphabet) Notation und eine für die Umschrift (die ursprüngliche Aussprache-Spalte). Die entsprechenden Datenzellen ({{HTMLElement("td")}} Elemente) werden jeder nachfolgenden Zeile hinzugefügt.
 
-Wie in den [Nutzungshinweisen](#nutzungshinweise) gezeigt, können die [`colspan`](#colspan) und [`rowspan`](#rowspan)-Attribute für die `<th>`-Elemente verwendet werden, um die Überschriftzellen den richtigen Spalten und Zeilen zuzuordnen. Um eine "zweizeilige" Überschrift in der Tabellenstruktur zu erreichen, werden die ersten beiden Überschriftzellen innerhalb des ersten {{HTMLElement("tr")}}-Elements auf zwei Zeilen erstreckt. Die dritte Überschriftzelle erstreckt sich über zwei Spalten (bleibt in der ersten Zeile). Diese Einrichtung lässt zwei verfügbare Bereiche in der dritten und vierten Spalte in der zweiten Zeile frei, in denen die beiden Überschriften innerhalb des zweiten {{HTMLElement("tr")}}-Elements automatisch platziert werden, wobei der Standardwert für die [`colspan`](#colspan) und [`rowspan`](#rowspan)-Attribute `1` ist.
+Wie in den [Anwendungshinweisen](#anwendungshinweise) gezeigt, können die [`colspan`](#colspan) und [`rowspan`](#rowspan) Attribute für die `<th>` Elemente verwendet werden, um die Kopfzellen den richtigen Spalten und Zeilen zuzuordnen. Um in der Tabellenstruktur einen "zwei-zeiligen" Kopf zu erreichen, werden die ersten beiden Kopfzellen innerhalb des ersten {{HTMLElement("tr")}} Elements über zwei Zeilen erstreckt. Die dritte Kopfzelle wird über zwei Spalten in der ersten Zeile erstreckt. Diese Anordnung lässt zwei verfügbare Bereiche in der dritten und vierten Spalte in der zweiten Zeile, wo die beiden Köpfe innerhalb des zweiten {{HTMLElement("tr")}} Elements automatisch platziert werden, wobei der Standardwert für die [`colspan`](#colspan) und [`rowspan`](#rowspan) Attribute auf `1` gesetzt ist.
 
 > [!NOTE]
-> Normalerweise werden {{HTMLElement("thead")}}- und {{HTMLElement("tbody")}}-Elemente verwendet, um Zeilen mit Überschriften in die jeweiligen Tabellenkopf- und Körperabschnitte zu gruppieren. Dies ist in diesem Beispiel nicht implementiert, um sich auf die Überschriften und das Spannen zu konzentrieren und die Komplexität des Beispiels zu reduzieren.
+> Normalerweise werden {{HTMLElement("thead")}} und {{HTMLElement("tbody")}} Elemente verwendet, um Zeilen mit Kopfzellen in die jeweiligen Kopf- und Hauptabschnitte der Tabelle zu gruppieren. Dies wird in diesem Beispiel nicht implementiert, um sich auf die Köpfe und deren Ausdehnung zu konzentrieren und die Komplexität des Beispiels zu reduzieren.
 
 ```html
 <table>
@@ -278,7 +278,7 @@ Wie in den [Nutzungshinweisen](#nutzungshinweise) gezeigt, können die [`colspan
 
 #### CSS
 
-Das CSS ist unverändert zum [vorherigen Beispiel](#grundlegende_spalten-_und_zeilenüberschriften).
+Das CSS ist unverändert gegenüber dem [vorherigen Beispiel](#einfache_spalten-_und_zeilenköpfe).
 
 ```css hidden
 table {
@@ -313,16 +313,16 @@ tr:nth-of-type(odd) td {
 
 {{EmbedLiveSample("Column_and_row_spanning", 650, 200)}}
 
-### Verknüpfen von Überschriftzellen mit anderen Überschriftzellen
+### Kopfzellen mit anderen Kopfzellen assoziieren
 
-Für komplexere Beziehungen zwischen Überschriftzellen kann die alleinige Nutzung von `th`-Elementen mit dem [`scope`](#scope)-Attribut für unterstützende Technologien, insbesondere Screenreader, nicht ausreichen.
+Für komplexere Beziehungen zwischen Kopfzellen reicht die Verwendung von `th` Elementen mit dem [`scope`](#scope) Attribut allein möglicherweise nicht aus, insbesondere für unterstützende Technologien wie Screenreader.
 
 #### HTML
 
-Um die {{Glossary("accessibility", "Zugänglichkeit")}} des [vorherigen Beispiels](#spalten-_und_zeilenspannen) zu verbessern und um beispielsweise Screenreadern das Vorlesen der mit jeder Überschriftzelle verbundenen Überschriften zu ermöglichen, kann das [`headers`](#headers)-Attribut zusammen mit [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributen eingeführt werden. Aufgrund der Art und Weise, wie die "Aussprache"-Spalte im Beispiel in zwei Spalten aufgeteilt wird, wobei eine "zweizeilige" Überschrift eingeführt wird, können unterstützende Technologien wie Screenreader möglicherweise nicht identifizieren, mit welchen zusätzlichen Überschriftzellen (`th`-Elemente) die "Aussprache"-Überschriftzelle in Beziehung steht und umgekehrt. Daher wird das [`headers`](#headers)-Attribut auf den "Aussprache"-, "IPA"- und "Respelling"-Überschriftzellen verwendet, um die entsprechenden Überschriftzellen basierend auf den Werten der einzigartigen Kennungen aus den hinzugefügten [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributen in Form einer durch Leerzeichen getrennten Liste zu verknüpfen.
+Um die {{Glossary("accessibility", "Barrierefreiheit")}} des [vorherigen Beispiels](#spalten-_und_zeilenübergreifend) zu verbessern und um Screenreader beispielsweise die zugeordneten Kopfzellen sprechen zu lassen, kann das [`headers`](#headers) Attribut zusammen mit [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attributen eingeführt werden. Durch die Art und Weise, wie die "Aussprache"-Spalte in zwei Spalten unterteilt wird, was einen "zwei-zeiligen" Kopf einführt, können unterstützende Technologien wie Screenreader möglicherweise nicht erkennen, mit welchen zusätzlichen Kopfzellen (`th` Elemente) die "Aussprache"-Kopfzelle verbunden ist und umgekehrt. Daher wird das [`headers`](#headers) Attribut auf den Kopfzellen "Aussprache", "IPA" und "Umschrift" verwendet, um die zugeordneten Kopfzellen basierend auf den Werten der eindeutigen Bezeichner, die aus den hinzugefügten [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attributen stammen, als durch Leerzeichen getrennte Liste zu assoziieren.
 
 > [!NOTE]
-> Es wird empfohlen, aussagekräftigere und nützlichere Werte für das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut zu verwenden. Jedes `id` in einem Dokument muss in diesem Dokument eindeutig sein. In diesem Beispiel sind die `id`-Werte Einzelbuchstaben, um den Fokus auf das Konzept des [`headers`](#headers)-Attributs zu legen.
+> Es wird empfohlen, beschreibende und nützliche Werte für das [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attribut zu verwenden. Jedes `id` in einem Dokument muss eindeutig für dieses Dokument sein. In diesem Beispiel sind die `id`-Werte einzelne Zeichen, um den Fokus auf das Konzept des [`headers`](#headers) Attributs zu legen.
 
 ```html
 <table>
@@ -364,7 +364,7 @@ Um die {{Glossary("accessibility", "Zugänglichkeit")}} des [vorherigen Beispiel
 
 #### Ergebnis
 
-Das [visuelle Ergebnis](#result_2) ist unverändert zum [vorherigen Tabellenbeispiel](#spalten-_und_zeilenspannen).
+Das [visuelle Ergebnis](#result_2) ist unverändert gegenüber der [vorherigen Tabelle](#spalten-_und_zeilenübergreifend).
 
 ## Technische Zusammenfassung
 
@@ -382,33 +382,33 @@ Das [visuelle Ergebnis](#result_2) ist unverändert zum [vorherigen Tabellenbeis
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
-        >, aber ohne Header, Footer, Abschnittsinhalte oder Überschrifteninhalte
-        als Nachkommen.
+          >Strukturierter Inhalt</a
+        >, jedoch ohne Überschriften, Fußzeilen, Strukturierungselemente oder
+        Überschriftselemente.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist obligatorisch.<br />Das End-Tag kann weggelassen
-        werden, wenn es unmittelbar von einem <code>&lt;th&gt;</code> oder
-        einem {{HTMLElement("td")}}-Element gefolgt wird oder wenn es keine
-        weiteren Daten in seinem Elternelement gibt.
+        Der Start-Tag ist obligatorisch.<br />Der End-Tag kann ausgelassen
+        werden, wenn er direkt von einem <code>&lt;th&gt;</code> oder
+        {{HTMLElement("td")}} Element gefolgt wird oder wenn keine weiteren Daten
+        in seinem Elternelement enthalten sind.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
-      <td>Ein {{HTMLElement("tr")}}-Element.</td>
+      <th scope="row">Zulässige Eltern</th>
+      <td>Ein {{HTMLElement("tr")}} Element.</td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/columnheader_role"><code>columnheader</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role"><code>rowheader</code></a>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Beliebige</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -427,12 +427,12 @@ Das [visuelle Ergebnis](#result_2) ist unverändert zum [vorherigen Tabellenbeis
 
 ## Siehe auch
 
-- [Lernen: Grundlegende HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
-- {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Überschriftzelle zu setzen
-- {{cssxref("border")}}: CSS-Eigenschaft, um die Begrenzungen der Überschriftzellen zu steuern
-- {{cssxref("height")}}: CSS-Eigenschaft, um die empfohlene Höhe der Überschriftzelle zu steuern
-- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Inhalt jeder Überschriftzelle horizontal auszurichten
-- {{cssxref("vertical-align")}}: CSS-Eigenschaft, um den Inhalt jeder Überschriftzelle vertikal auszurichten
-- {{cssxref("width")}}: CSS-Eigenschaft, um die empfohlene Breite der Überschriftzelle zu steuern
-- {{cssxref(":nth-of-type")}}, {{cssxref(":first-of-type")}}, {{cssxref(":last-of-type")}}: CSS-Pseudoklassen, um die gewünschten Überschriftzellen auszuwählen
+- [Lernen: Grundlagen von HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Weitere tabellenbezogene Elemente
+- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Kopfzelle festzulegen
+- {{cssxref("border")}}: CSS-Eigenschaft zur Steuerung der Ränder von Kopfzellen
+- {{cssxref("height")}}: CSS-Eigenschaft zur Steuerung der empfohlenen Kopfzellenhöhe
+- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts jeder Kopfzelle
+- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts jeder Kopfzelle
+- {{cssxref("width")}}: CSS-Eigenschaft zur Steuerung der empfohlenen Kopfzellenbreite
+- {{cssxref(":nth-of-type")}}, {{cssxref(":first-of-type")}}, {{cssxref(":last-of-type")}}: CSS-Pseudoklassen zur Auswahl der gewünschten Kopfzellen

@@ -1,49 +1,49 @@
 ---
-title: Serialisierung von CSS-Werten
+title: CSS-Wertserialisierung
 slug: Web/API/CSS_Object_Model/CSS_value_serialization
 l10n:
-  sourceCommit: fdd310ad3477ab07a9072b802a3adc92e5c52856
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSSOM")}}
 
-Einige CSSOM-APIs _serialisieren_ Eigenschaftswerte in standardisierte Zeichenfolgendarstellungen basierend auf dem [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) des Wertes. Sie könnten zum Beispiel eine Farbe mit der `hsl(240 100% 50%)`-Syntax festlegen, aber beim Zugriff über JavaScript wird der Wert im entsprechenden `"rgb(0, 0, 255)"`-Format zurückgegeben.
+Einige CSSOM-APIs _serialisieren_ Eigenschaftswerte in standardisierte Zeichenfolgenrepräsentationen basierend auf dem [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) des Wertes. Zum Beispiel könnte man eine Farbe mit der `hsl(240 100% 50%)`-Syntax festlegen, aber bei Zugriff über JavaScript wird der Wert in der entsprechenden `"rgb(0, 0, 255)"`-Syntax zurückgegeben.
 
-CSS-Datentypen können oft in mehreren Syntaxen ausgedrückt werden. Zum Beispiel kann der [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value)-Datentyp mit benannten Farben (`red`), hexadezimaler Notation (`#ff0000`), funktionaler Notation (`rgb(255 0 0)`) und mehr dargestellt werden. Diese unterschiedlichen Syntaxen sind in jeder Phase der [Verarbeitung von CSS-Werten](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing) exakt gleichwertig, ähnlich wie in JavaScript derselbe String mit einfachen oder doppelten Anführungszeichen geschrieben werden kann oder dieselbe Zahl in verschiedenen Formaten (wie `16`, `16.0` oder `0x10`) geschrieben werden kann.
+CSS-Datentypen können oft in mehreren Syntaxen ausgedrückt werden. Zum Beispiel kann der {{cssxref("&lt;color&gt;")}} Datentyp mit benannten Farben (`red`), hexadezimaler Notation (`#ff0000`), funktionaler Notation (`rgb(255 0 0)`) und mehr dargestellt werden. Diese unterschiedlichen Syntaxen sind auf jeder Stufe der [CSS-Wertverarbeitung](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing) genau gleichwertig, ähnlich wie im JavaScript derselbe String mit einfachen oder doppelten Anführungszeichen geschrieben werden kann oder dieselbe Zahl in unterschiedlichen Formaten geschrieben werden kann (wie `16`, `16.0` oder `0x10`).
 
-Da CSS all diese Oberflächenrepräsentationen während der Wertverarbeitung in denselben zugrunde liegenden Wert umwandelt, ist es oft unmöglich, die ursprüngliche Syntax aus dem bereits geparsten CSSOM zurückzugewinnen. Darüber hinaus ist eine _kanonische_ Darstellung für Skripte nützlicher, da sie Vergleiche und Berechnungen basierend auf der Darstellung des Inhalts für den Benutzer ermöglicht, anstatt darauf, wie er ursprünglich erstellt wurde.
+Da CSS all diese Oberflächenrepräsentationen während der Wertverarbeitung in denselben zugrunde liegenden Wert umwandelt, ist es oft unmöglich, die ursprüngliche Syntax aus dem bereits analysierten CSSOM wiederherzustellen. Außerdem ist eine _kanonische_ Darstellung oft nützlicher für Skripte, da sie Vergleiche und Berechnungen basierend darauf ermöglicht, wie der Inhalt dem Benutzer präsentiert wird, anstatt wie er ursprünglich verfasst wurde.
 
 ## Wann und wie Werte serialisiert werden
 
-Die Serialisierung erfolgt, wann immer CSS-Eigenschaftswerte über JavaScript-APIs als Zeichenfolgen gelesen werden, wie beispielsweise:
+Serialisierung passiert immer dann, wenn CSS-Eigenschaftswerte als Zeichenfolgen über JavaScript-APIs gelesen werden, wie zum Beispiel:
 
 - [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)
 - [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)
-- Direkter Zugriff auf Eigenschaften in [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekten (z. B. `element.style.backgroundColor`)
+- Direktzugriff auf Eigenschaften auf [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekten (z.B. `element.style.backgroundColor`)
 
-Verschiedene APIs geben `CSSStyleDeclaration`-Objekte in verschiedenen Stadien der [Wertverarbeitung](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing) zurück, die leicht unterschiedliche Serialisierungsverhalten aufweisen. Zum Beispiel geben [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) und [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) den [aufgelösten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value) von Eigenschaften zurück, während [`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style) _mehr oder weniger_ den [deklarierten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#declared_value) zurückgibt.
+Verschiedene APIs geben `CSSStyleDeclaration`-Objekte in unterschiedlichen Stadien der [Wertverarbeitung](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing) zurück, die leicht unterschiedliche Serialisierungsverhalten haben. Zum Beispiel geben [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) und [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) den [aufgelösten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#resolved_value) von Eigenschaften zurück, während [`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style) _mehr oder weniger_ den [deklarierten Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#declared_value) zurückgibt.
 
 > [!NOTE]
-> Die [CSS Typed OM API](/de/docs/Web/API/CSS_Typed_OM_API) kann Einheiten und andere CSS-Syntaxen darstellen; jedoch werden von einem Element abgerufene Stildeklarationen immer noch verarbeitet und behalten nicht die ursprüngliche Syntax bei. Zum Beispiel gibt `CSS.cm(1).toString()` `„1cm“` zurück, anstatt in Pixel zu serialisieren, aber `element.computedStyleMap().get("margin-left").toString()` gibt den aufgelösten Pixelwert zurück.
+> Die [CSS Typed OM API](/de/docs/Web/API/CSS_Typed_OM_API) kann Einheiten und andere CSS-Syntaxen darstellen; jedoch werden Stile, die aus einem Element abgerufen werden, weiterhin verarbeitet und bewahren nicht die ursprüngliche Syntax. Zum Beispiel gibt `CSS.cm(1).toString()` `"1cm"` zurück, anstatt in Pixel zu serialisieren, aber `element.computedStyleMap().get("margin-left").toString()` gibt den aufgelösten Pixelwert zurück.
 
-Jeder CSS-Werttyp hat ein zugehöriges Serialisierungsformat, das durch die CSS-Spezifikationen definiert ist. Einige allgemeine Regeln beinhalten:
+Jeder CSS-Werttyp hat ein zugehöriges Serialisierungsformat, das durch die CSS-Spezifikationen definiert ist. Einige allgemeine Regeln sind:
 
 - Schlüsselwörter (wie `auto`, `block`, `none`) werden in Kleinbuchstaben serialisiert.
-- [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle): wird in eine Winkel-Einheit serialisiert, abhängig vom Kontext (nicht spezifiziert). Für `element.style` und `getComputedStyle()` ist dies `deg`.
-- [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value):
-  - Für sRGB-Farben ({{cssxref("named-color")}}, `transparent`, {{cssxref("system-color")}}, {{cssxref("hex-color")}}, `rgb`, `hsl`, `hwb`): serialisiert im alten, durch Komma getrennten Syntax `rgb(R, G, B)` oder `rgba(R, G, B, A)`, wobei alle Argumente Zahlen sind. Die `rgb`-Form wird gewählt, wenn der Alpha-Wert genau `1` ist.
-  - Für `lab()`, `lch()`, `oklab()`, `oklch()`, und `color()`-Farben: Die Funktionsform wird beibehalten, mit numerischen Argumenten.
+- {{cssxref("angle")}}: wird in eine Winkelmaßeinheit serialisiert, abhängig vom Kontext (nicht spezifiziert). Für `element.style` und `getComputedStyle()` ist das `deg`.
+- {{cssxref("&lt;color&gt;")}}:
+  - Für sRGB-Farben ({{cssxref("named-color")}}, `transparent`, {{cssxref("system-color")}}, {{cssxref("hex-color")}}, `rgb`, `hsl`, `hwb`): serialisiert in die veraltete kommaseparierte Syntax `rgb(R, G, B)` oder `rgba(R, G, B, A)`, wobei alle Argumente Zahlen sind. Die `rgb`-Form wird ausgewählt, wenn der Alpha-Wert genau `1` ist.
+  - Für `lab()`, `lch()`, `oklab()`, `oklch()` und `color()` Farben: die Funktionsform bleibt erhalten, mit numerischen Argumenten.
   - Das Schlüsselwort `currentColor` wird als `currentcolor` serialisiert.
-- [`<percentage>`](/de/docs/Web/CSS/Reference/Values/percentage): wird als Prozentwert beibehalten.
-- [`<ratio>`](/de/docs/Web/CSS/Reference/Values/ratio): wird als zwei durch `" / "` getrennte Zahlen serialisiert.
-- [`<url>`](/de/docs/Web/CSS/Reference/Values/url_value): wird als zitierter {{cssxref("&lt;url&gt;")}} (`url("...")`) serialisiert, wobei die URL zu einer absoluten URL aufgelöst wird.
+- {{cssxref("percentage")}}: bleibt als Prozentwert erhalten.
+- {{cssxref("ratio")}}: wird in zwei durch `" / "` getrennte Zahlen serialisiert.
+- {{cssxref("url_value", "&lt;url&gt;")}}: wird als ein zitierter {{cssxref("url_value", "&lt;url&gt;")}} (`url("...")`) serialisiert, wobei die URL in eine absolute URL aufgelöst wird.
 
-Beachten Sie, dass `<percentage>`-Werte oft in absolute Dimensionen (wie `\<length>`) während der Wertverarbeitung umgerechnet werden, sodass sie möglicherweise nicht als Prozentsätze erscheinen, wenn sie aus berechneten Stilen serialisiert werden. Für Dimensionen mit Einheiten, wie {{cssxref("&lt;frequency&gt;")}}, {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;resolution&gt;")}}, und {{cssxref("&lt;time&gt;")}}, hängt die serialisierte Einheit vom Kontext ab und ist nicht gut spezifiziert. `getComputedStyle()` und `element.style` serialisieren sie in `Hz`, `px`, `dppx` und `s` jeweils.
+Beachten Sie, dass `<percentage>`-Werte oft in absolute Dimensionen (wie `<length>`) während der Wertverarbeitung umgewandelt werden, sodass sie möglicherweise nicht als Prozentsätze erscheinen, wenn sie aus berechneten Stilen serialisiert werden. Bei Dimensionen mit Einheiten, wie {{cssxref("&lt;frequency&gt;")}}, {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;resolution&gt;")}}, und {{cssxref("&lt;time&gt;")}}, hängt die serialisierte Einheit vom Kontext ab und ist nicht gut spezifiziert. `getComputedStyle()` und `element.style` serialisieren sie in `Hz`, `px`, `dppx` und `s` jeweils.
 
-Beim Serialisieren des Wertes für Kurzschrift-Eigenschaften werden die zugehörigen Langschreib-Eigenschaften gemäß der Regeln für diese Kurzschrift serialisiert und kombiniert.
+Bei der Serialisierung des Wertes für Kurzschreibweiseigenschaften werden seine konstituierenden Langform-Eigenschaften gemäß den Regeln für diese Kurzform serialisiert und kombiniert.
 
 > [!NOTE]
-> Es gibt viele komplexe Details dazu, wie CSS-Eigenschaften serialisiert werden, insbesondere für komplexe Eigenschaften wie `font`. Diese könnten in den Spezifikationen ungenau oder sogar zwischen verschiedenen Browsern inkonsistent sein. Sie müssen das Verhalten für Ihren speziellen Anwendungsfall testen und überprüfen.
+> Es gibt viele komplexe Details darüber, wie CSS-Eigenschaften serialisiert werden, insbesondere bei komplexen Eigenschaften wie `font`. Sie können in den Spezifikationen nicht spezifiziert oder sogar inkonsistent zwischen Browsern sein. Es ist notwendig, das Verhalten für Ihren speziellen Anwendungsfall zu testen und zu überprüfen.
 
 ```html
 <div>Example Element</div>
@@ -106,11 +106,11 @@ document.body.appendChild(table);
 
 ## Beispiele
 
-### Serialisierung von Farbwerten
+### Farbwertserialisierung
 
-Farben sind eine der häufigsten Typen, die von der Serialisierung betroffen sind. Unabhängig davon, ob Sie eine Farbe mit `hsl()`, `hwb()`, einem Schlüsselwort oder einem modernen Farbraum definieren, gibt JavaScript sie normalerweise im [alten `rgb()`- oder `rgba()`-Format](/de/docs/Web/CSS/Reference/Values/color_value/rgb#syntax) zurück.
+Farben gehören zu den am häufigsten von der Serialisierung betroffenen Typen. Unabhängig davon, ob man eine Farbe mit `hsl()`, `hwb()`, einem Schlüsselwort oder einem modernen Farbraum definiert, gibt JavaScript sie normalerweise im [veralteten `rgb()`- oder `rgba()`-Format](/de/docs/Web/CSS/Reference/Values/color_value/rgb#syntax) zurück.
 
-Die folgenden Beispiele zeigen, wie verschiedene Farbformate serialisiert werden, wenn über JavaScript darauf zugegriffen wird.
+Die folgenden Beispiele zeigen, wie verschiedene Farbformate serialisiert werden, wenn darauf über JavaScript zugegriffen wird.
 
 ```html
 <div class="example hsl">HSL Color</div>
@@ -154,11 +154,11 @@ examples.forEach((element) => {
 });
 ```
 
-{{EmbedLiveSample("Farbwert-Serialisierung", , 400)}}
+{{EmbedLiveSample("Farbwertserialisierung", , 400)}}
 
-### Serialisierung von Längenwerten
+### Längenwertserialisierung
 
-Längen sind ein weiterer häufiger Fall. Relative Einheiten (wie `em`, `%`) werden oft in absolute Pixel umgerechnet, wenn sie über JavaScript-APIs serialisiert werden.
+Längen sind ein weiterer häufiger Fall. Relative Einheiten (wie `em`, `%`) werden oft in absolute Pixel umgerechnet, wenn sie durch JavaScript-APIs serialisiert werden.
 
 ```js
 element.style.marginLeft = "2em";
@@ -177,5 +177,5 @@ Diese Normalisierung ermöglicht es Skripten, Längen konsistent zu vergleichen 
 - [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)
 - [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle)
 - [CSS-Farben](/de/docs/Web/CSS/Guides/Colors)
-- [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value)
+- {{cssxref("&lt;color&gt;")}}
 - [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul

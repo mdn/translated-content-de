@@ -3,36 +3,37 @@ title: Sec-Fetch-Storage-Access header
 short-title: Sec-Fetch-Storage-Access
 slug: Web/HTTP/Reference/Headers/Sec-Fetch-Storage-Access
 l10n:
-  sourceCommit: 1889aacdd5cb4dd3e6e5a5ef2f305fda0985c89b
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{SeeCompatTable}}
+Der HTTP **`Sec-Fetch-Storage-Access`** {{Glossary("fetch_metadata_request_header", "fetch metadata request header")}} liefert den "Speicherzugriffstatus" für den aktuellen `fetch`-Kontext.
 
-Der HTTP-**`Sec-Fetch-Storage-Access`**-{{Glossary("fetch_metadata_request_header", "Abruf-Metadatenanforderungs-Header")}} stellt den "Speicherzugriffsstatus" für den aktuellen Abrufkontext bereit.
-
-Der Status kann anzeigen, dass die Berechtigung zum Zugriff auf [unpartitionierte](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) Drittanbieter-Cookies:
+Der Status kann anzeigen, dass die Berechtigung zum Zugriff auf [nicht partitionierte](/de/docs/Web/Privacy/Guides/State_Partitioning#state_partitioning) Drittanbieter-Cookies:
 
 - Nicht erteilt wurde.
 - Erteilt wurde, aber nicht für den aktuellen Anfragekontext aktiviert ist.
-- Für den aktuellen Anfrageninhalt erteilt wurde und die Cookies mit der Anfrage gesendet wurden.
+- Für den aktuellen Anfrageinhalt erteilt wurde und die Cookies mit der Anfrage gesendet wurden.
 
-Unterstützende Browser müssen diesen Header bei standortübergreifenden Anfragen einschließen, wenn der Anmeldeinformationsmodus der Anfrage [`include`](/de/docs/Web/API/Request/credentials#include) ist. Der Header sollte nicht mit gleichseitigen Anfragen gesendet werden (da diese Anfragen keine standortübergreifenden Cookies einbeziehen können) oder wenn der Anmeldeinformationsmodus der Anfrage "omit" ist. Die angeforderte Ressource muss außerdem einen [potenziell vertrauenswürdigen Ursprung](/de/docs/Web/Security/Secure_Contexts#potentially_trustworthy_origins) haben.
+Unterstützende Browser müssen diesen Header bei Anfragen über Domains hinweg einfügen, wenn der Anmeldeinformationsmodus der Anfrage [`include`](/de/docs/Web/API/Request/credentials#include) ist.
+Der Header sollte nicht mit gleichen Domain-Anfragen gesendet werden (da diese Anfragen keine Drittanbieter-Cookies beinhalten können) oder wenn der [Anmeldeinformationsmodus](/de/docs/Web/API/Request/credentials) der Anfrage "omit" ist.
+Die angeforderte Ressource muss außerdem einen [potenziell vertrauenswürdigen Ursprung](/de/docs/Web/Security/Defenses/Secure_Contexts#potentially_trustworthy_origins) haben.
 
-Wenn eine Speicherzugriffsberechtigung erteilt wurde, aber nicht aktiviert ist, kann ein Server mit {{httpheader("Activate-Storage-Access")}} antworten, um die Aktivierung der Berechtigung für den Kontext zu beantragen. Weitere Informationen finden Sie unter [Speicherzugriffs-Header](/de/docs/Web/API/Storage_Access_API#storage_access_headers) in der Übersicht der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
+Wurde eine Zugriffsberechtigung auf den Speicher erteilt, aber nicht aktiviert, kann ein Server mit {{httpheader("Activate-Storage-Access")}} antworten, um die Aktivierung der Berechtigung für den Kontext anzufordern.
+Für weitere Informationen siehe [Speicherzugriffs-Header](/de/docs/Web/API/Storage_Access_API#storage_access_headers) in der Übersicht der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadatenanforderungs-Header")}}</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Anforderungsheader")}}</th>
       <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-sicher aufgelisteter Anforderungs-Header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
       </th>
       <td>Nein</td>
     </tr>
@@ -49,16 +50,17 @@ Sec-Fetch-Storage-Access: active
 
 ## Direktiven
 
-Ein Wert, der den Speicherzugriffsstatus für den aktuellen Abrufkontext angibt. Die folgenden Werte sind zulässig (Server sollten andere Werte ignorieren):
+Ein Wert, der den Speicherzugriffstatus für den aktuellen `fetch`-Kontext angibt.
+Die folgenden Werte sind zulässig (Server sollten andere Werte ignorieren):
 
 - `none`
-  - : Der Kontext hat keine `storage-access`-Berechtigung oder Zugriff auf unpartitionierte Cookies.
+  - : Der Kontext hat nicht die Berechtigung `storage-access` oder Zugriff auf nicht partitionierte Cookies.
 - `inactive`
-  - : Der Kontext hat die `storage-access`-Berechtigung, hat sich jedoch nicht dazu entschieden, diese zu verwenden (und hat keinen Zugriff auf unpartitionierte Cookies auf andere Weise).
-    Wenn dieser Wert gesetzt ist, sollte auch der {{httpheader("Origin")}}-Anforderungs-Header gesetzt werden.
+  - : Der Kontext hat die Berechtigung `storage-access`, hat sich aber nicht für deren Nutzung entschieden (und hat keinen Zugang zu nicht partitionierten Cookies auf anderem Wege).
+    Ist dieser Wert gesetzt, sollte auch der {{httpheader("Origin")}} Anforderungsheader gesetzt werden.
 - `active`
-  - : Der Kontext hat Zugriff auf unpartitionierte Cookies.
-    Wenn dieser Wert gesetzt ist, sollte auch der {{httpheader("Origin")}}-Anforderungs-Header gesetzt werden.
+  - : Der Kontext hat Zugriff auf nicht partitionierte Cookies.
+    Ist dieser Wert gesetzt, sollte auch der {{httpheader("Origin")}} Anforderungsheader gesetzt werden.
 
 ## Beispiele
 
@@ -76,6 +78,6 @@ Siehe [Beispiele](/de/docs/Web/HTTP/Reference/Headers/Activate-Storage-Access#ex
 
 - {{httpheader("Activate-Storage-Access")}}
 - [Speicherzugriffs-Header](/de/docs/Web/API/Storage_Access_API#storage_access_headers) in der _Storage Access API_
-- [Sequenzen der Speicherzugriffs-Header](/de/docs/Web/API/Storage_Access_API#storage_access_header_sequences) in der _Storage Access API_
+- [Speicherzugriffs-Header-Sequenzen](/de/docs/Web/API/Storage_Access_API#storage_access_header_sequences) in der _Storage Access API_
 - [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
 - [Fetch Metadata Request Headers playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

@@ -2,12 +2,12 @@
 title: WorkletSharedStorage
 slug: Web/API/WorkletSharedStorage
 l10n:
-  sourceCommit: a6c32a2d0add510c95ef74e85bd8e17551d508b6
+  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Das **`WorkletSharedStorage`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung innerhalb eines Worklet-Kontexts.
+Das **`WorkletSharedStorage`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den geteilten Speicher für einen bestimmten Ursprung innerhalb eines Worklet-Kontexts.
 
 Auf `WorkletSharedStorage` wird über [`SharedStorageWorkletGlobalScope.sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) zugegriffen.
 
@@ -15,38 +15,38 @@ Auf `WorkletSharedStorage` wird über [`SharedStorageWorkletGlobalScope.sharedSt
 
 ## Instanz-Eigenschaften
 
-- [`context`](/de/docs/Web/API/WorkletSharedStorage/context) {{Experimental_Inline}} {{non-standard_inline}}
-  - : Beinhaltet kontextbezogene Daten, die über die Methode [`FencedFrameConfig.setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) vom zugehörigen Browsing-Kontext in das gemeinsame Speicher-Worklet übergeben werden.
+- [`context`](/de/docs/Web/API/WorkletSharedStorage/context) {{Deprecated_Inline}} {{non-standard_inline}}
+  - : Enthält kontextbezogene Daten, die mittels der Methode [`FencedFrameConfig.setSharedStorageContext()`](/de/docs/Web/API/FencedFrameConfig/setSharedStorageContext) aus dem zugehörigen Browsing-Kontext in das geteilte Speicher-Worklet übergeben werden.
 
 ## Instanz-Methoden
 
-_`WorkletSharedStorage` erbt Eigenschaften von seinem übergeordneten Interface, [`SharedStorage`](/de/docs/Web/API/SharedStorage)._
+_`WorkletSharedStorage` erbt Eigenschaften von seinem Eltern-Interface, [`SharedStorage`](/de/docs/Web/API/SharedStorage)._
 
-- [`get()`](/de/docs/Web/API/WorkletSharedStorage/get) {{Experimental_Inline}}
-  - : Ruft einen Wert aus dem gemeinsamen Speicher ab.
-- [`length()`](/de/docs/Web/API/WorkletSharedStorage/length) {{Experimental_Inline}}
-  - : Gibt die Anzahl der Einträge zurück, die derzeit im gemeinsamen Speicher für den aktuellen Ursprung gespeichert sind.
-- [`remainingBudget()`](/de/docs/Web/API/WorkletSharedStorage/remainingBudget) {{Experimental_Inline}}
+- [`get()`](/de/docs/Web/API/WorkletSharedStorage/get) {{Deprecated_Inline}}
+  - : Ruft einen Wert aus dem geteilten Speicher ab.
+- [`length()`](/de/docs/Web/API/WorkletSharedStorage/length) {{Deprecated_Inline}}
+  - : Gibt die Anzahl der aktuell im geteilten Speicher für den aktuellen Ursprung gespeicherten Einträge zurück.
+- [`remainingBudget()`](/de/docs/Web/API/WorkletSharedStorage/remainingBudget) {{Deprecated_Inline}}
   - : Gibt das verbleibende Navigationsbudget für den aktuellen Ursprung zurück.
 
-`WorkletSharedStorage` enthält auch die folgenden Methoden, da es einen [async iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) definiert hat:
+`WorkletSharedStorage` beinhaltet zusätzlich die folgenden Methoden, da ein [async Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) darauf definiert ist:
 
-- [`entries()`](/de/docs/Web/API/WorkletSharedStorage/entries) {{Experimental_Inline}}
-  - : Gibt einen neuen async iterator für die Schlüssel-Wert-Paare der aufzählbaren Eigenschaften eines `WorkletSharedStorage` Objekt-Instanzes zurück.
-- [`keys()`](/de/docs/Web/API/WorkletSharedStorage/keys) {{Experimental_Inline}}
-  - : Gibt einen neuen async iterator zurück, der die Schlüssel für jedes Element in einer `WorkletSharedStorage` Objekt-Instanz enthält.
-- `WorkletSharedStorage[Symbol.asyncIterator]()` {{Experimental_Inline}}
+- [`entries()`](/de/docs/Web/API/WorkletSharedStorage/entries) {{Deprecated_Inline}}
+  - : Gibt einen neuen async Iterator für die Schlüssel-Wert-Paare der aufzählbaren Eigenschaften eines `WorkletSharedStorage`-Objektinstanzen zurück.
+- [`keys()`](/de/docs/Web/API/WorkletSharedStorage/keys) {{Deprecated_Inline}}
+  - : Gibt einen neuen async Iterator zurück, der die Schlüssel für jedes Element einer `WorkletSharedStorage`-Objektinstanz enthält.
+- `WorkletSharedStorage[Symbol.asyncIterator]()` {{Deprecated_Inline}}
   - : Gibt standardmäßig die Funktion [`entries()`](/de/docs/Web/API/WorkletSharedStorage/entries) zurück.
 
 ## Beispiele
 
-### Kontextbezogene Daten über `setSharedStorageContext()` übermitteln
+### Kontextbezogene Daten mit `setSharedStorageContext()` übergeben
 
-Sie können die [Private Aggregation API](https://privacysandbox.google.com/private-advertising/private-aggregation) verwenden, um Berichte zu erstellen, die Veranstaltungsdaten auf Ebene von Ereignissen innerhalb von geschützten Frames mit kontextbezogenen Daten aus dem einbettenden Dokument kombinieren. `setSharedStorageContext()` kann verwendet werden, um kontextbezogene Daten vom Einbettungselement an Worklets des gemeinsamen Speichers, die durch die [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) initiiert werden, zu übermitteln.
+Sie können die [Private Aggregation API](https://privacysandbox.google.com/private-advertising/private-aggregation) verwenden, um Berichte zu erstellen, die ereignisbezogene Daten innerhalb von Fenced Frames mit kontextuellen Daten aus dem Einbettungsdokument kombinieren. `setSharedStorageContext()` kann verwendet werden, um kontextbezogene Daten vom Einbettungsprogramm an geteilte Speicher-Worklets zu übermitteln, die von der [Protected Audience API](https://privacysandbox.google.com/private-advertising/protected-audience) initiiert werden.
 
-In diesem Beispiel speichern wir Daten sowohl von der einbettenden Seite als auch vom geschützten Frame mithilfe von [shared storage](https://privacysandbox.google.com/private-advertising/shared-storage).
+In diesem Beispiel speichern wir Daten sowohl von der Einbettungsseite als auch vom Fenced Frame mithilfe von [geteiltem Speicher](https://privacysandbox.google.com/private-advertising/shared-storage).
 
-Auf der einbettenden Seite setzen wir eine simulierte Ereignis-ID als gemeinsamen Speicher-Kontext mittels `setSharedStorageContext()`:
+Auf der Einbettungsseite setzen wir eine simulierte Ereignis-ID als geteilten Speicher-Kontext mit `setSharedStorageContext()`:
 
 ```js
 const frameConfig = await navigator.runAdAuction({ resolveToConfig: true });
@@ -58,7 +58,7 @@ const frame = document.createElement("fencedframe");
 frame.config = frameConfig;
 ```
 
-Innerhalb des geschützten Frames, nachdem das Worklet-Modul mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde, senden wir die Ereignis-Level-Daten in das Worklet-Modul für den gemeinsamen Speicher mittels [`window.sharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) (dies ist unabhängig von den kontextbezogenen Daten des einbettenden Dokuments):
+Innerhalb des Fenced Frames senden wir nach dem Hinzufügen des Worklet-Moduls mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) die ereignisbezogenen Daten in das geteilte Speicher-Worklet-Modul mit [`window.sharedStorage.run()`](/de/docs/Web/API/WindowSharedStorage/run) ein (dies steht in keinem Zusammenhang mit den kontextuellen Daten aus dem Einbettungsdokument):
 
 ```js
 const frameData = {
@@ -74,7 +74,7 @@ await window.sharedStorage.run("send-report", {
 });
 ```
 
-Im Worklet `reporting-worklet.js` lesen wir die Ereignis-ID des einbettenden Dokuments aus `sharedStorage.context` und die Ereignis-Level-Daten des Frames aus dem Datenobjekt. Wir berichten diese dann über Private Aggregation:
+Im `reporting-worklet.js`-Worklet lesen wir die Ereignis-ID des Einbettungsdokuments aus `sharedStorage.context` und die ereignisbezogenen Daten des Frames aus dem Datenobjekt aus. Dann berichten wir diese durch Private Aggregation:
 
 ```js
 class ReportingOperation {

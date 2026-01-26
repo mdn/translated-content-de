@@ -2,33 +2,33 @@
 title: <hue>
 slug: Web/CSS/Reference/Values/hue
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **`<hue>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert den Farbtonwinkel einer Farbe. Er wird in den Farb-Funktionen verwendet, die den Farbton als Einzelwert akzeptieren, speziell die funktionalen Notationen [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/Reference/Values/color_value/hwb), [`lch()`](/de/docs/Web/CSS/Reference/Values/color_value/lch) und [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch).
+Der **`<hue>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) repräsentiert den Farbtonwinkel einer Farbe. Er wird in den Farb-Funktionen verwendet, die den Farbton als Einzelwert akzeptieren, insbesondere in den funktionalen Notationen [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/Reference/Values/color_value/hwb), [`lch()`](/de/docs/Web/CSS/Reference/Values/color_value/lch) und [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch).
 
 ## Syntax
 
-Ein `<hue>` kann entweder ein `<angle>` oder ein `<number>` sein.
+Ein `<hue>` kann entweder ein `<angle>` oder eine `<number>` sein.
 
 ### Werte
 
-- {{CSSXref("&lt;angle&gt;")}}
-  - : Ein Winkel, ausgedrückt in Grad, Gon, Radiant oder Umdrehungen, unter Verwendung von `deg`, `grad`, `rad` oder `turn`.
+- {{cssxref("angle")}}
+  - : Ein Winkel, ausgedrückt in Grad, Graden, Radianten oder Umdrehungen unter Verwendung von `deg`, `grad`, `rad` oder `turn`, jeweils.
 - `<number>`
-  - : Eine reelle Zahl, die die Grad des Farbtonwinkels repräsentiert.
+  - : Eine reelle Zahl, die die Gradzahl des Farbtonwinkels darstellt.
 
-Da ein `<angle>` periodisch ist, wird `<hue>` normalisiert auf den Bereich `[0deg, 360deg)`. Es wickelt sich implizit so, dass `480deg` dasselbe ist wie `120deg`, `-120deg` ist dasselbe wie `240deg`, `-1turn` entspricht `1turn` und so weiter.
+Da ein `<angle>` periodisch ist, wird `<hue>` auf den Bereich `[0deg, 360deg)` normalisiert. Er umwickelt implizit, sodass `480deg` dasselbe wie `120deg` ist, `-120deg` dasselbe wie `240deg`, `-1turn` dasselbe wie `1turn` ist, und so weiter.
 
 ## Beschreibung
 
 ![Ein sRGB-Farbrad](color_wheel.svg)
 
-Das oben gezeigte Farbrad zeigt Farbtöne bei allen Winkeln im [sRGB](https://en.wikipedia.org/wiki/SRGB) {{Glossary("color_space", "Farbraum")}}. Im Besonderen liegt _rot_ bei `0deg`, _gelb_ bei `60deg`, _limette_ bei `120deg`, _cyan_ bei `180deg`, _blau_ bei `240deg` und _magenta_ bei `300deg`.
+Das oben gezeigte Farbrad zeigt die Farbtöne bei allen Winkeln im [sRGB](https://en.wikipedia.org/wiki/SRGB) {{Glossary("color_space", "Farbraum")}}. Insbesondere ist _Rot_ bei `0deg`, _Gelb_ bei `60deg`, _Lime_ bei `120deg`, _Cyan_ bei `180deg`, _Blau_ bei `240deg` und _Magenta_ bei `300deg`.
 
-Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich je nach Farbraum. Beispielsweise beträgt der Farbtonwinkel von sRGB-Grün `120deg` im sRGB-Farbraum, aber `134.39deg` im CIELAB Farbraum.
+Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich je nach Farbraum. Zum Beispiel liegt der Farbtonwinkel von sRGB Grün bei `120deg` im sRGB Farbraum, jedoch bei `134.39deg` im CIELAB-Farbraum.
 
-Die folgende Tabelle listet typische Farben bei verschiedenen Winkeln in den sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}), und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) Farbräumen auf:
+Die folgende Tabelle listet typische Farben bei verschiedenen Winkeln in den sRGB- (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB- (verwendet von {{CSSXref("color_value/lch", "lch()")}}) und Oklab-Farbräumen (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) auf:
 
 <table>
   <colgroup>
@@ -113,9 +113,9 @@ Die folgende Tabelle listet typische Farben bei verschiedenen Winkeln in den sRG
   </tbody>
 </table>
 
-## Interpolation von `<hue>`-Werten
+## Interpolation von `<hue>` Werten
 
-`<hue>`-Werte werden als {{CSSXref("&lt;angle&gt;")}}-Werte interpoliert, und der Standard-Interpolationsalgorithmus ist [`shorter`](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#values). In einigen farbbezogenen CSS-Funktionen kann dies durch die {{CSSXref("&lt;hue-interpolation-method&gt;")}} Komponente überschrieben werden.
+`<hue>` Werte werden als {{cssxref("angle")}} Werte interpoliert, und der Standard-Interpolationsalgorithmus ist [`shorter`](/de/docs/Web/CSS/Reference/Values/hue-interpolation-method#values). In einigen farbbezogenen CSS-Funktionen kann dies durch die Komponente {{CSSXref("&lt;hue-interpolation-method&gt;")}} überschrieben werden.
 
 ## Formale Syntax
 
@@ -125,7 +125,7 @@ Die folgende Tabelle listet typische Farben bei verschiedenen Winkeln in den sRG
 
 ### Ändern des Farbtons einer Farbe mit einem Schieberegler
 
-Das folgende Beispiel zeigt die Auswirkung der Änderung des `hue`-Wertes der [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl) funktionalen Notation auf eine Farbe.
+Das folgende Beispiel zeigt den Effekt des Änderns des `hue`-Wertes der [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl) funktionalen Notation auf eine Farbe.
 
 #### HTML
 
@@ -180,7 +180,7 @@ hue.addEventListener("input", () => {
 
 ### Annäherung von Rottönen in verschiedenen Farbräumen
 
-Das folgende Beispiel zeigt eine ähnliche rote Farbe in verschiedenen Farbräumen. Die Werte in den `lch()` und `oklch()` Funktionen sind zur besseren Lesbarkeit gerundet.
+Das folgende Beispiel zeigt eine ähnliche rote Farbe in verschiedenen Farbräumen. Die Werte in den `lch()`- und `oklch()`-Funktionen sind zur besseren Lesbarkeit gerundet.
 
 #### HTML
 
@@ -237,5 +237,5 @@ div {
 
 ## Siehe auch
 
-- [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value)
+- {{cssxref("&lt;color&gt;")}}
 - {{CSSXref("&lt;hue-interpolation-method&gt;")}}

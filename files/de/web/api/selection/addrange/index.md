@@ -1,14 +1,14 @@
 ---
-title: "Auswahl: addRange()-Methode"
+title: "Selection: Methode addRange()"
 short-title: addRange()
 slug: Web/API/Selection/addRange
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: da1442e0040419eb105f0720fd539adb5d5ca286
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.addRange()`**-Methode fügt einer [`Selection`](/de/docs/Web/API/Selection) ein [`Range`](/de/docs/Web/API/Range) hinzu.
+Die **`Selection.addRange()`**-Methode fügt einer [`Selection`](/de/docs/Web/API/Selection) einen [`Range`](/de/docs/Web/API/Range) hinzu.
 
 ## Syntax
 
@@ -27,8 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-> [!NOTE]
-> Derzeit unterstützt nur Firefox mehrere Auswahlbereiche, andere Browser werden keine neuen Bereiche zur Auswahl hinzufügen, wenn diese bereits einen enthält.
+Beachten Sie, dass nur Firefox mehrere Auswahlbereiche unterstützt. In diesem Beispiel werden andere Browser keine neuen Bereiche zur Auswahl hinzufügen, wenn bereits einer enthalten ist.
 
 ### HTML
 
@@ -75,4 +74,4 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der diese Methode gehört
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem diese Methode gehört

@@ -1,11 +1,12 @@
 ---
-title: Min
-slug: WebAssembly/Reference/Numeric/Min
+title: "min: Wasm-Textinstruktion"
+short-title: min
+slug: WebAssembly/Reference/Numeric/min
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`min`** Anweisungen werden verwendet, um die kleinere von zwei Zahlen zu erhalten.
+Die **`min`**-Instruktionen werden verwendet, um die kleinere von zwei Zahlen zu erhalten.
 
 {{InteractiveExample("Wat Demo: min", "tabbed-taller")}}
 
@@ -42,7 +43,7 @@ f32.min
 ;; the top item on the stack will now be 3
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `f32.min` | `0x96`         |
-| `f64.min` | `0xa4`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.min`   | `0x96`         |
+| `f64.min`   | `0xa4`         |

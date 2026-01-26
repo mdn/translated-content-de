@@ -1,11 +1,12 @@
 ---
-title: OR
-slug: WebAssembly/Reference/Numeric/OR
+title: "or: Wasm Text-Instruktion"
+short-title: or
+slug: WebAssembly/Reference/Numeric/or
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`or`** Anweisungen werden für eine bitweise ODER-Operation verwendet, ähnlich dem **`|`** Operator in anderen Sprachen.
+Die **`or`**-Instruktionen werden verwendet, um ein bitweises OR durchzuführen, ähnlich dem **`|`** Operator in anderen Sprachen.
 
 {{InteractiveExample("Wat Demo: or", "tabbed-taller")}}
 
@@ -54,7 +55,7 @@ i32.or
 ;; the top item on the stack will now be 7 (00000111)
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `i32.or`  | `0x72`         |
-| `i64.or`  | `0x84`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.or`    | `0x72`         |
+| `i64.or`    | `0x84`         |

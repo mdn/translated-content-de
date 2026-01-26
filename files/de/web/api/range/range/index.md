@@ -1,14 +1,14 @@
 ---
-title: "Range: Range()-Konstruktor"
+title: "Range: Range() Konstruktor"
 short-title: Range()
 slug: Web/API/Range/Range
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 2290fdbf9d5cf68482245d07d388b883156058ac
 ---
 
 {{ APIRef("DOM") }}
 
-Der **`Range()`**-Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Anfang und Ende bei Offset 0 des globalen [`document`](/de/docs/Web/API/Window/document)-Objekts liegen.
+Der **`Range()`**-Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Anfang und Ende bei Offset 0 des globalen [`document`](/de/docs/Web/API/Window/document)-Objekts sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()`-Konstruktor und setzen seine Anfangs- und Endpositionen mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter). Anschließend wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
+In diesem Beispiel erstellen wir mit dem `Range()`-Konstruktor einen neuen Bereich und legen dessen Anfangs- und Endposition mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter) fest. Anschließend wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
 
 ### HTML
 
@@ -68,6 +68,6 @@ selection.addRange(range);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interface-Index](/de/docs/Web/API/Document_Object_Model)
 - [`Document.createRange()`](/de/docs/Web/API/Document/createRange)
-- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)-Modul
+- [CSS-Anleitung zur benutzerdefinierten Hervorhebungs-API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul

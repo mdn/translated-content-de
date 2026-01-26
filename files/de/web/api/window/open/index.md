@@ -3,12 +3,12 @@ title: "Window: open() Methode"
 short-title: open()
 slug: Web/API/Window/open
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef}}
 
-Die **`open()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle lädt eine angegebene Ressource in einen neuen oder bestehenden Browsing-Kontext (das heißt, einen Tab, ein Fenster oder ein [iframe](/de/docs/Web/HTML/Reference/Elements/iframe)) unter einem bestimmten Namen.
+Die **`open()`** Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle lädt eine angegebene Ressource in einen neuen oder bestehenden Browsing-Kontext (z. B. ein Tab, ein Fenster oder ein [iframe](/de/docs/Web/HTML/Reference/Elements/iframe)) unter einem angegebenen Namen.
 
 ## Syntax
 
@@ -22,78 +22,77 @@ open(url, target, windowFeatures)
 ### Parameter
 
 - `url` {{optional_inline}}
-  - : Eine Zeichenkette, die die URL oder den Pfad der zu ladenden Ressource angibt. Wenn eine leere Zeichenkette (`""`) angegeben wird oder dieser Parameter weggelassen wird, wird eine leere Seite im anvisierten Browsing-Kontext geöffnet.
+  - : Ein String, der die URL oder den Pfad der zu ladenden Ressource angibt. Wenn ein leerer String (`""`) angegeben wird oder dieser Parameter weggelassen wird, wird eine leere Seite im anvisierten Browsing-Kontext geöffnet.
 
 - `target` {{optional_inline}}
-  - : Eine Zeichenkette ohne Leerzeichen, die den [Namen](/de/docs/Web/API/Window/name) des Browsing-Kontextes angibt, in den die Ressource geladen wird. Falls der Name keinen bestehenden Kontext identifiziert, wird ein neuer Kontext erstellt und mit dem angegebenen Namen versehen. Die speziellen [`target`-Schlüsselwörter](/de/docs/Web/HTML/Reference/Elements/a#target) `_self`, `_blank` (Standard), `_parent`, `_top` und `_unfencedTop` können ebenfalls verwendet werden. `_unfencedTop` ist nur relevant für [fenced frames](/de/docs/Web/API/Fenced_frame_API).
+  - : Ein String ohne Leerzeichen, der den [Namen](/de/docs/Web/API/Window/name) des Browsing-Kontextes angibt, in den die Ressource geladen wird. Wenn der Name keinen bestehenden Kontext identifiziert, wird ein neuer Kontext erstellt und mit dem angegebenen Namen versehen. Die speziellen [„target“-Schlüsselwörter](/de/docs/Web/HTML/Reference/Elements/a#target), `_self`, `_blank` (Voreinstellung), `_parent`, `_top` und `_unfencedTop` können ebenfalls verwendet werden. `_unfencedTop` ist nur relevant für [fenced frames](/de/docs/Web/API/Fenced_frame_API).
 
-    Dieser Name kann als `target`-Attribut von [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#target) oder [`<form>`](/de/docs/Web/HTML/Reference/Elements/form#target)-Elementen verwendet werden.
+    Dieser Name kann als `target`-Attribut von [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#target)- oder [`<form>`](/de/docs/Web/HTML/Reference/Elements/form#target)-Elementen verwendet werden.
 
 - `windowFeatures` {{optional_inline}}
-  - : Eine Zeichenkette, die eine durch Kommas getrennte Liste von Fenstermerkmalen in der Form `name=value` enthält. Boolesche Werte können mit einer der folgenden Optionen auf wahr gesetzt werden: `name`, `name=yes`, `name=true` oder `name=n`, wobei `n` eine beliebige nicht-null Zahl ist. Diese Merkmale umfassen Optionen wie die Standardgröße und -position des Fensters, ob ein minimales Popup-Fenster geöffnet werden soll und dergleichen. Die folgenden Optionen werden unterstützt:
+  - : Ein String, der eine kommagetrennte Liste von Fensterfunktionen in der Form `name=value` enthält. Boolesche Werte können mit einem der folgenden Werte auf wahr gesetzt werden: `name`, `name=yes`, `name=true` oder `name=n`, wobei `n` eine beliebige von null verschiedene Ganzzahl ist. Zu diesen Funktionen gehören Optionen wie die Standardgröße und -position des Fensters, ob ein minimales Popup-Fenster geöffnet werden soll und Ähnliches. Die folgenden Optionen werden unterstützt:
     - `attributionsrc` {{experimental_inline}}
-      - : Zeigt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit dem `open()`-Aufruf sendet. Dieser Aufruf muss mit {{Glossary("Transient_activation", "transient activation")}} (d.h. innerhalb eines Benutzerinteraktions-Ereignishandlers wie `click`), innerhalb von fünf Sekunden nach der Benutzerinteraktion erfolgen. Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}-Headers in der Antwort zum Abschluss der Registrierung einer Attributionsquelle auszulösen.
+      - : Zeigt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header gemeinsam mit dem `open()`-Aufruf sendet. Dieser Aufruf muss mit {{Glossary("Transient_activation", "transient activation")}} (d.h. innerhalb eines Benutzerinteraktionsereignishandlers wie `click`) durchgeführt werden, innerhalb von fünf Sekunden nach der Benutzerinteraktion. Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}-Headers in der Antwort auszulösen, um die Registrierung einer Attributionsquelle abzuschließen.
 
-        Zusätzlich wird der Browser auch ausgelöst, die zugehörigen Quelldaten (wie im Antwort-Header {{httpheader("Attribution-Reporting-Register-Source")}} bereitgestellt) zu speichern, wenn die `open()`-Methode abgeschlossen ist.
+        Darüber hinaus wird der Browser auch dazu veranlasst, die zugehörigen Quelldaten zu speichern (wie im {{httpheader("Attribution-Reporting-Register-Source")}}-Antwort-Header bereitgestellt), wenn die `open()`-Methode abgeschlossen ist.
 
         Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
         > [!NOTE]
-        > `open()`-Aufrufe können nicht verwendet werden, um einen Attributions-Trigger zu registrieren.
+        > `open()`-Aufrufe können nicht verwendet werden, um einen Attribuierungs-Trigger zu registrieren.
 
     - `popup`
-      - : Standardmäßig öffnet `window.open` die Seite in einem neuen Tab. Wenn `popup` auf wahr gesetzt wird, wird angefordert, dass ein minimales Popup-Fenster verwendet wird. Die UI-Funktionen, die im Popup-Fenster enthalten sind, werden automatisch vom Browser entschieden, in der Regel einschließlich einer Adressleiste. Wenn `popup` vorhanden ist und auf false gesetzt ist, wird trotzdem ein neuer Tab geöffnet.
+      - : Standardmäßig öffnet `window.open` die Seite in einem neuen Tab. Wenn `popup` auf wahr gesetzt ist, wird ein minimales Popup-Fenster angefordert. Die im Popup-Fenster enthaltenen UI-Funktionen werden automatisch vom Browser entschieden, in der Regel wird nur eine Adressleiste angezeigt. Wenn `popup` vorhanden ist und auf falsch gesetzt ist, wird dennoch ein neuer Tab geöffnet.
 
-        Es gibt einige veraltete Funktionen, die früher UI-Features des geöffneten Fensters steuerten. In modernen Browsern haben sie nur noch die Wirkung, ein Popup anzufordern. Wenn `popup` nicht angegeben ist und `windowFeatures` irgendwelche Features enthält (einschließlich nicht erkannter Funktionen) außer `noopener`, `noreferrer` oder `attributionsrc`, wird das Fenster auch als Popup geöffnet, wenn eine der folgenden Bedingungen zutrifft:
-        - `location` und `toolbar` sind beide false oder abwesend
-        - `menubar` ist false oder abwesend
-        - `resizable` ist false
-        - `scrollbars` ist false oder abwesend
-        - `status` ist false oder abwesend
+        Es gibt einige veraltete Funktionen, die dazu verwendet wurden, UI-Funktionen des geöffneten Fensters zu steuern. In modernen Browsern haben sie nur den Effekt, ein Popup anzufordern. Wenn `popup` nicht angegeben ist und `windowFeatures` andere Funktionen (einschließlich nicht erkannter) als `noopener`, `noreferrer` oder `attributionsrc` enthält, wird das Fenster ebenfalls als Popup geöffnet, wenn eine der folgenden Bedingungen zutrifft:
+        - `location` und `toolbar` sind beide falsch oder fehlen
+        - `menubar` ist falsch oder fehlt
+        - `resizable` ist falsch
+        - `scrollbars` ist falsch oder fehlt
+        - `status` ist falsch oder fehlt
 
         Andernfalls wird das Fenster als Tab geöffnet.
 
     - `width` oder `innerWidth`
-      - : Gibt die Breite des Inhaltsbereichs an, einschließlich der Scrollleisten. Der Mindestwert ist 100.
+      - : Gibt die Breite des Inhaltsbereichs einschließlich Bildlaufleisten an. Der mindestens erforderliche Wert beträgt 100.
 
     - `height` oder `innerHeight`
-      - : Gibt die Höhe des Inhaltsbereichs an, einschließlich der Scrollleisten. Der Mindestwert ist 100.
+      - : Gibt die Höhe des Inhaltsbereichs einschließlich Bildlaufleisten an. Der mindestens erforderliche Wert beträgt 100.
 
     - `left` oder `screenX`
-      - : Gibt den Abstand in Pixeln von der linken Seite des Arbeitsbereichs an, wie vom Betriebssystem des Benutzers definiert, wo das neue Fenster erstellt wird.
+      - : Gibt den Abstand in Pixeln von der linken Seite des Arbeitsbereichs an, wie es vom Betriebssystem des Benutzers definiert wird, wo das neue Fenster erzeugt wird.
 
     - `top` oder `screenY`
-      - : Gibt den Abstand in Pixeln von der oberen Seite des Arbeitsbereichs an, wie vom Betriebssystem des Benutzers definiert, wo das neue Fenster erstellt wird.
+      - : Gibt den Abstand in Pixeln von der oberen Seite des Arbeitsbereichs an, wie es vom Betriebssystem des Benutzers definiert wird, wo das neue Fenster erzeugt wird.
 
     - `noopener`
-      - : Wenn dieses Merkmal gesetzt ist, hat das neue Fenster keinen Zugriff auf das ursprüngliche Fenster über [`Window.opener`](/de/docs/Web/API/Window/opener) und gibt `null` zurück.
+      - : Wenn diese Funktion gesetzt ist, hat das neue Fenster keinen Zugriff auf das ursprüngliche Fenster über [`Window.opener`](/de/docs/Web/API/Window/opener) und gibt `null` zurück.
 
-        Wenn `noopener` verwendet wird, werden nicht-leere Zielnamen, die nicht `_top`, `_self` und `_parent` sind, in Bezug auf die Entscheidung, ob ein neuer Browsing-Kontext geöffnet wird, wie `_blank` behandelt.
+        Wenn `noopener` verwendet wird, werden nicht leere Zielnamen, außer `_top`, `_self` und `_parent`, in Bezug auf die Entscheidung, ob ein neuer Browsing-Kontext geöffnet wird, wie `_blank` behandelt.
 
     - `noreferrer`
-      - : Wenn dieses Merkmal gesetzt ist, lässt der Browser den [`Referer`](/de/docs/Web/HTTP/Reference/Headers/Referer)-Header aus und setzt `noopener` auf wahr. Weitere Informationen finden Sie unter [`rel="noreferrer"`](/de/docs/Web/HTML/Reference/Attributes/rel/noreferrer).
+      - : Wenn diese Funktion gesetzt ist, wird der [`Referer`](/de/docs/Web/HTTP/Reference/Headers/Referer)-Header ausgelassen, und `noopener` wird auf wahr gesetzt. Weitere Informationen finden Sie unter [`rel="noreferrer"`](/de/docs/Web/HTML/Reference/Attributes/rel/noreferrer).
 
-    Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird als leere Zeichenkette (`""`) behandelt.
+    Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird wie der leere String (`""`) behandelt.
 
 > [!NOTE]
-> Angefragte Position (`top`, `left`) und angefragte Dimensionen (`width`, `height`) in `windowFeatures` **werden korrigiert**, wenn ein solcher angefragter Wert es nicht ermöglicht, dass das gesamte Browser-Popup im Arbeitsbereich der Anwendungen des Betriebssystems des Benutzers gerendert wird. Mit anderen Worten, kein Teil des neuen Popups darf anfänglich außerhalb des Bildschirms positioniert sein.
+> Angeforderte Positionen (`top`, `left`) und angeforderte Abmessungen (`width`, `height`) in `windowFeatures` **werden korrigiert**, wenn einer dieser angeforderten Werte das vollständige Rendern des Browser-Popups im Arbeitsbereich der Anwendungen des Benutzers Betriebssystems nicht zulässt. Mit anderen Worten: Kein Teil des neuen Popups kann initial außerhalb des Bildschirms positioniert sein.
 
 ### Rückgabewert
 
-Wenn der Browser den neuen Browsing-Kontext erfolgreich öffnet, wird ein {{Glossary("WindowProxy", "`WindowProxy`")}}-Objekt zurückgegeben.
-Die zurückgegebene Referenz kann verwendet werden, um Eigenschaften und Methoden des neuen Kontextes zuzugreifen, solange sie die Sicherheitsanforderungen [der Same-origin policy](/de/docs/Web/Security/Same-origin_policy) erfüllt.
+Wenn der Browser den neuen Browsing-Kontext erfolgreich öffnet, wird ein {{Glossary("WindowProxy", "`WindowProxy`")}}-Objekt zurückgegeben. Der zurückgegebene Verweis kann verwendet werden, um auf Eigenschaften und Methoden des neuen Kontexts zuzugreifen, solange er den Sicherheitsanforderungen der [same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy) entspricht.
 
-Wenn der {{httpheader("Cross-Origin-Opener-Policy")}} HTTP-Header verwendet wird und die Dokumentrichtlinien so sind, dass das Dokument in einem neuen {{Glossary("Browsing_context", "Browsing-Kontext-Gruppe")}} geöffnet wird, werden die Referenzen zum geöffneten Fenster getrennt und das zurückgegebene Objekt wird anzeigen, dass das geöffnete Fenster geschlossen ist ([`closed`](/de/docs/Web/API/Window/closed) ist `true`).
+Wenn der {{httpheader("Cross-Origin-Opener-Policy")}} HTTP-Header verwendet wird und die Dokumentrichtlinien so sind, dass das Dokument in einer neuen {{Glossary("Browsing_context", "Browsing-Kontextgruppe")}} geöffnet wird, werden Verweise auf das geöffnete Fenster getrennt, und das zurückgegebene Objekt zeigt an, dass das geöffnete Fenster geschlossen ist ([`closed`](/de/docs/Web/API/Window/closed) ist `true`).
 
-`null` wird zurückgegeben, wenn der Browser den neuen Browsing-Kontext nicht öffnen kann, weil er beispielsweise durch einen Browser-Popup-Blocker blockiert wurde.
+`null` wird zurückgegeben, wenn der Browser den neuen Browsing-Kontext nicht öffnen kann, zum Beispiel weil er von einem Browser-Popup-Blocker blockiert wurde.
 
 ## Beschreibung
 
-Die `open()`-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle nimmt eine URL als Parameter und lädt die durch sie identifizierte Ressource in einen neuen oder bestehenden Tab oder ein Fenster. Der `target`-Parameter bestimmt, in welchem Fenster oder Tab die Ressource geladen wird, und der `windowFeatures`-Parameter kann verwendet werden, um ein neues Popup mit minimalen UI-Funktionen zu öffnen und dessen Größe und Position zu steuern.
+Die `open()`-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle nimmt eine URL als Parameter und lädt die Ressource, die sie identifiziert, in einen neuen oder bestehenden Tab oder ein Fenster. Der `target`-Parameter bestimmt, in welches Fenster oder Tab die Ressource geladen wird, und der `windowFeatures`-Parameter kann verwendet werden, um ein neues Popup mit minimalen UI-Funktionen zu eröffnen und dessen Größe und Position zu steuern.
 
-Entfernte URLs werden nicht sofort geladen. Wenn `window.open()` zurückkehrt, enthält das Fenster immer `about:blank`. Das tatsächliche Abrufen der URL wird verzögert und beginnt nachdem der aktuelle Skriptblock die Ausführung beendet hat. Die Fenstergenerierung und das Laden der referenzierten Ressource erfolgen asynchron.
+Remote-URLs werden nicht sofort geladen. Wenn `window.open()` zurückkehrt, enthält das Fenster immer `about:blank`. Das eigentliche Abrufen der URL wird verzögert und startet, nachdem der aktuelle Skriptblock die Ausführung beendet hat. Die Fenstergenerierung und das Laden der referenzierten Ressource erfolgen asynchron.
 
-Moderne Browser haben strenge Popup-Blocker-Richtlinien. Popup-Fenster müssen direkt als Antwort auf Benutzereingaben geöffnet werden, und für jeden `Window.open()`-Aufruf ist ein separates Benutzeraktionen-Ereignis erforderlich. Dies verhindert, dass Websites Benutzer mit vielen Fenstern zuspammen. Dies stellt jedoch ein Problem für Multi-Window-Anwendungen dar. Um diese Einschränkung zu umgehen, können Sie Ihre Anwendungen so gestalten, dass sie:
+Moderne Browser haben strikte Popup-Blocker-Richtlinien. Popup-Fenster müssen als direkte Reaktion auf Benutzeraktionen geöffnet werden, und jedes `Window.open()`-Aufruf erfordert ein separates Benutzeraktionsergeignis. Dies verhindert, dass Websites Benutzer mit vielen Fenstern belästigen. Es stellt jedoch ein Problem für Mehrfensteranwendungen dar. Um dieses Problem zu umgehen, können Sie Ihre Anwendungen so gestalten, dass sie:
 
 - Nicht mehr als ein neues Fenster gleichzeitig öffnen.
 - Bestehende Fenster wiederverwenden, um verschiedene Seiten anzuzeigen.
@@ -109,7 +108,7 @@ window.open("https://www.mozilla.org/", "mozillaTab");
 
 ### Öffnen eines Popups
 
-Alternativ zeigt das folgende Beispiel, wie man ein Popup mit dem Merkmal `popup` öffnet.
+Alternativ demonstriert das folgende Beispiel, wie man ein Popup mit der `popup`-Funktion öffnet.
 
 ```js
 window.open("https://www.mozilla.org/", "mozillaWindow", "popup");
@@ -133,11 +132,11 @@ if (!handle) {
 
 ## Progressive Verbesserung
 
-In einigen Fällen ist JavaScript deaktiviert oder nicht verfügbar und `window.open()` funktioniert nicht. Anstatt sich ausschließlich auf das Vorhandensein dieser Funktionalität zu verlassen, können wir eine alternative Lösung bieten, damit die Website oder Anwendung dennoch funktioniert.
+In einigen Fällen ist JavaScript deaktiviert oder nicht verfügbar und `window.open()` funktioniert nicht. Statt sich ausschließlich auf das Vorhandensein dieser Funktion zu verlassen, können wir eine alternative Lösung bieten, sodass die Website oder Anwendung weiterhin funktioniert.
 
-### Alternative Möglichkeiten bieten, wenn JavaScript deaktiviert ist
+### Alternativen bereitstellen, wenn JavaScript deaktiviert ist
 
-Wenn JavaScript-Unterstützung deaktiviert oder nicht existent ist, erstellt der User Agent entsprechend ein zweites Fenster oder rendert die referenzierte Ressource entsprechend seiner Handhabung des `target`-Attributs. Das Ziel und die Idee sind es, dem Benutzer eine Möglichkeit zu bieten (und _nicht aufzuerlegen_), die referenzierte Ressource zu öffnen.
+Wenn die Unterstützung für JavaScript deaktiviert oder nicht vorhanden ist, erstellt der Benutzeragent ein entsprechendes zweites Fenster oder rendert die referenzierte Ressource gemäß seiner Handhabung des `target`-Attributes. Das Ziel und die Idee ist es, dem Benutzer eine Möglichkeit zu bieten (und _nicht aufzuzwingen_), die referenzierte Ressource zu öffnen.
 
 #### HTML
 
@@ -167,16 +166,16 @@ link.addEventListener("click", (event) => {
 });
 ```
 
-Der obige Code löst einige Usability-Probleme im Zusammenhang mit Links, die Popups öffnen. Der Zweck von `event.preventDefault()` im Code ist es, die Standardaktion des Links abzubrechen: Wenn der Ereignis-Listener für `click` ausgeführt wird, besteht keine Notwendigkeit, die Standardaktion des Links auszuführen. Aber wenn die JavaScript-Unterstützung im Browser des Benutzers deaktiviert oder nicht vorhanden ist, wird der Ereignis-Listener für `click` ignoriert, und der Browser lädt die referenzierte Ressource im Zielrahmen oder Fenster, das den Namen `"WikipediaWindowName"` trägt. Wenn kein Rahmen oder Fenster den Namen `"WikipediaWindowName"` hat, erstellt der Browser ein neues Fenster und benennt es `"WikipediaWindowName"`.
+Der obige Code löst einige Usability-Probleme im Zusammenhang mit Links, die Popups öffnen. Der Zweck von `event.preventDefault()` im Code ist es, die Standardaktion des Links abzubrechen: Wenn der Ereignis-Listener für `click` ausgeführt wird, besteht keine Notwendigkeit, die Standardaktion des Links auszuführen. Aber wenn die Unterstützung für JavaScript auf dem Benutzerbrowser deaktiviert oder nicht vorhanden ist, wird der Ereignis-Listener für `click` ignoriert und der Browser lädt die referenzierte Ressource im Zielfenster oder -rahmen, das den Namen `"WikipediaWindowName"` hat. Wenn kein Rahmen oder Fenster den Namen `"WikipediaWindowName"` hat, erstellt der Browser ein neues Fenster und benennt es `"WikipediaWindowName"`.
 
 > [!NOTE]
-> Weitere Informationen zum `target`-Attribut finden Sie unter [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#target) oder [`<form>`](/de/docs/Web/HTML/Reference/Elements/form#target).
+> Für mehr Details zum `target`-Attribut, siehe [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#target) oder [`<form>`](/de/docs/Web/HTML/Reference/Elements/form#target).
 
-### Vorhandene Fenster wiederverwenden und `target="_blank"` vermeiden
+### Bestehende Fenster wiederverwenden und `target="_blank"` vermeiden
 
-Die Verwendung von `"_blank"` als Wert des target-Attributs erstellt mehrere neue und unbenannte Fenster auf dem Desktop des Benutzers, die weder recycelt noch wiederverwendet werden können. Versuchen Sie, Ihrem `target`-Attribut einen aussagekräftigen Namen zu geben, und verwenden Sie diesen `target`-Attribut auf Ihrer Seite wieder, so dass ein Klick auf einen anderen Link die referenzierte Ressource in einem bereits erstellten und gerenderten Fenster laden kann (was den Prozess für den Benutzer beschleunigt) und damit den Grund (und die Nutzerressourcen, die dafür aufgewendete Zeit) für die Erstellung eines zusätzlichen Fensters von Anfang an rechtfertigt. Die Verwendung eines einzigen `target`-Attributswerts und dessen Wiederverwendung in Links ist viel benutzerressourcenfreundlicher, da es nur ein einziges zusätzliches Fenster erstellt, das recycelt wird.
+Das Verwenden von `"_blank"` als Wert des target-Attributs wird mehrere neue und unbenannte Fenster auf dem Desktop des Benutzers erstellen, die nicht recycelt oder wiederverwendet werden können. Versuchen Sie, Ihrem `target`-Attribut einen sinnvollen Namen zu geben und diesen auf Ihrer Seite wiederzuverwenden, sodass ein Klick auf einen anderen Link die referenzierte Ressource in einem bereits erstellten und gerenderten Fenster laden kann (damit der Prozess für den Benutzer beschleunigt wird) und daher der Grund (und die Benutzung der Benutzersystemressourcen, verbrachte Zeit) für das Erstellen eines zweiten Fensters gerechtfertigt ist. Es ist viel benutzerressourcenfreundlicher, einen einzelnen `target`-Attributwert zu verwenden und ihn in Links wiederzuverwenden, da so nur ein einziges sekundäres Fenster erstellt wird, das recycelt wird.
 
-Hier ist ein Beispiel, wo ein sekundäres Fenster geöffnet und für andere Links wiederverwendet werden kann:
+Hier ist ein Beispiel, bei dem ein zweites Fenster geöffnet und für andere Links wiederverwendet werden kann:
 
 #### HTML
 
@@ -232,7 +231,7 @@ for (const link of links) {
 
 ## Same-origin policy
 
-Wenn der neu geöffnete Browsing-Kontext nicht den gleichen {{Glossary("Origin", "Ursprung")}} teilt, kann das öffnende Skript nicht mit dem Inhalt des Browsing-Kontextes interagieren (lesen oder schreiben).
+Wenn der neu geöffnete Browsing-Kontext nicht den selben {{Glossary("Origin", "Ursprung")}} teilt, kann das öffnende Skript nicht mit dem Inhalt des Browsing-Kontextes interagieren (lesen oder schreiben).
 
 ```js example-bad
 // Script from example.com
@@ -252,7 +251,7 @@ console.log(sameOriginContext.origin);
 // https://example.com
 ```
 
-Für weitere Informationen siehe den Artikel zur [Same-origin policy](/de/docs/Web/Security/Same-origin_policy).
+Für mehr Informationen siehe den Artikel [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy).
 
 ## Barrierefreiheitsbedenken
 
@@ -260,22 +259,22 @@ Für weitere Informationen siehe den Artikel zur [Same-origin policy](/de/docs/W
 
 Es ist vorzuziehen, die Verwendung von `window.open()` zu vermeiden, aus mehreren Gründen:
 
-- Moderne Browser bieten eine Popup-Blockierfunktion.
-- Moderne Browser bieten Tab-Browsing und Tab-fähige Browserbenutzer bevorzugen es in den meisten Situationen, neue Tabs anstelle neuer Fenster zu öffnen.
-- Benutzer können eingebaute Browservorlagen oder Erweiterungen verwenden, um zu entscheiden, ob ein Link in einem neuen Fenster, im gleichen Fenster, in einem neuen Tab, im gleichen Tab oder im Hintergrund geöffnet werden soll. Das Erzwingen einer bestimmten Art des Öffnens mit `window.open()` wird sie verwirren und ihre Gewohnheiten ignorieren.
-- Popups haben keine Menütoolbar, während neue Tabs die Benutzeroberfläche des Browserfensters verwenden; daher ziehen viele Benutzer das Tab-Browsing vor, weil die Benutzeroberfläche stabil bleibt.
+- Moderne Browser bieten eine Popup-Blocking-Funktion.
+- Moderne Browser bieten ein Tab-Browsing, und Tab-fähige Browser-Nutzer ziehen es vor, neue Tabs zu öffnen statt neue Fenster in den meisten Situationen zu öffnen.
+- Benutzer können integrierte Browserfunktionen oder Erweiterungen verwenden, um zu entscheiden, ob ein Link in einem neuen Fenster, im gleichen Fenster, in einem neuen Tab, im gleichen Tab oder im Hintergrund geöffnet wird. Das Erzwingen des Öffnens auf eine bestimmte Weise, unter Verwendung von `window.open()`, wird sie verwirren und ihre Gewohnheiten ignorieren.
+- Popups haben keine Menü-Symbolleiste, während neue Tabs die Benutzeroberfläche des Browserfensters verwenden; daher bevorzugen viele Benutzer das Tab-Browsing, da die Oberfläche stabil bleibt.
 
 ### Verwenden Sie niemals window.open() inline in HTML
 
 Vermeiden Sie `<a href="#" onclick="window.open(…);">` oder `<a href="javascript:window\.open(…)" …>`.
 
-Diese falschen `href`-Werte verursachen unerwartetes Verhalten beim Kopieren/Ziehen von Links, Öffnen von Links in einem neuen Tab/Fenster, Lesezeichen setzen oder wenn JavaScript geladen wird, Fehler auftreten oder deaktiviert ist. Sie vermitteln auch falsche Semantik an unterstützende Technologien, wie Screenreader.
+Diese fehlerhaften `href`-Werte verursachen unerwartetes Verhalten beim Kopieren/Ziehen von Links, Öffnen von Links in einem neuen Tab/Fenster, beim Bookmarken oder wenn JavaSkript lädt, Fehler auftreten oder deaktiviert ist. Sie vermitteln auch falsche Semantik an unterstützende Technologien wie Bildschirmleser.
 
-Falls notwendig, verwenden Sie ein [`<button>`](/de/docs/Web/HTML/Reference/Elements/button)-Element. Im Allgemeinen _sollten Sie nur einen Link für die Navigation zu einer echten URL_ verwenden.
+Falls notwendig, verwenden Sie stattdessen ein [`<button>`](/de/docs/Web/HTML/Reference/Elements/button)-Element. Im Allgemeinen _sollten Sie nur einen Link zur Navigation zu einer echten URL verwenden_.
 
-### Kennzeichnen Sie immer Links, die zu einem sekundären Fenster führen
+### Identifizieren Sie immer Links, die zu einem zweiten Fenster führen
 
-Kennzeichnen Sie Links, die neue Fenster öffnen, auf eine Weise, die Navigation für Benutzer erleichtert.
+Identifizieren Sie Links, die neue Fenster öffnen werden, auf eine Weise, die die Navigation für Benutzer unterstützt.
 
 ```html
 <a target="WikipediaWindow" href="https://www.wikipedia.org">
@@ -283,14 +282,14 @@ Kennzeichnen Sie Links, die neue Fenster öffnen, auf eine Weise, die Navigation
 </a>
 ```
 
-Zweck ist es, Benutzer auf Kontextwechsel hinzuweisen, um Verwirrung auf Seiten des Benutzers zu minimieren: Das Wechseln des aktuellen Fensters oder das Öffnen neuer Fenster kann für Benutzer sehr irritierend sein (im Fall eines Popups gibt es keine Toolbar mit einer "Zurück" Schaltfläche, um zum vorherigen Fenster zurückzukehren).
+Der Zweck ist es, Benutzer vor Kontextänderungen zu warnen, um Verwirrungen auf Seiten des Benutzers zu minimieren: Das Ändern des aktuellen Fensters oder das Öffnen neuer Fenster kann für Benutzer sehr verwirrend sein (im Fall eines Popups bietet keine Symbolleiste eine "Zurück"-Schaltfläche, um zum vorherigen Fenster zurückzukehren).
 
-Wenn extreme Änderungen im Kontext explizit identifiziert werden, bevor sie auftreten, können Benutzer bestimmen, ob sie fortfahren möchten oder sich auf den Wechsel vorbereiten können: Sie werden nicht verwirrt oder desorientiert sein, und erfahrenere Benutzer können besser entscheiden, wie sie solche Links öffnen möchten (in einem neuen Fenster oder nicht, im gleichen Fenster, in einem neuen Tab oder nicht, im "Hintergrund" oder nicht).
+Wenn extreme Kontextänderungen explizit identifiziert werden, bevor sie auftreten, können die Benutzer bestimmen, ob sie fortfahren möchten oder sie können sich auf die Änderung vorbereiten: nicht nur werden sie nicht verwirrt oder desorientiert fühlen, sondern erfahrenere Benutzer können besser entscheiden, wie sie solche Links öffnen (in einem neuen Fenster oder nicht, im selben Fenster, in einem neuen Tab oder nicht, im "Hintergrund" oder nicht).
 
-- [WebAIM: Links und Hypertext - Hypertext Links](https://webaim.org/techniques/hypertext/hypertext_links)
-- [MDN / Understanding WCAG, Leitfaden 3.2](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.2_—_predictable_make_web_pages_appear_and_operate_in_predictable_ways)
+- [WebAIM: Links und Hypertext - Hypertext-Links](https://webaim.org/techniques/hypertext/hypertext_links)
+- [MDN / Verständnis von WCAG, Leitlinie 3.2](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.2_—_predictable_make_web_pages_appear_and_operate_in_predictable_ways)
 - [G200: Öffnen neuer Fenster und Tabs von einem Link nur bei Bedarf](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
-- [G201: Benutzer im Voraus warnen, wenn ein neues Fenster geöffnet wird](https://www.w3.org/TR/WCAG20-TECHS/G201.html)
+- [G201: Benutzern eine Vorwarnung geben, wenn ein neues Fenster geöffnet wird](https://www.w3.org/TR/WCAG20-TECHS/G201.html)
 
 ## Spezifikationen
 
@@ -302,7 +301,7 @@ Wenn extreme Änderungen im Kontext explizit identifiziert werden, bevor sie auf
 
 ## Siehe auch
 
-- Dokumentation zum `target`-Attribut:
+- `target`-Attribut-Dokumentation:
   - [`<a>`](/de/docs/Web/HTML/Reference/Elements/a#target)
   - [`<form>`](/de/docs/Web/HTML/Reference/Elements/form#target)
 - [`window.close()`](/de/docs/Web/API/Window/close)
@@ -310,4 +309,4 @@ Wenn extreme Änderungen im Kontext explizit identifiziert werden, bevor sie auf
 - [`window.focus()`](/de/docs/Web/API/Window/focus)
 - [`window.opener`](/de/docs/Web/API/Window/opener)
 - [`rel="opener"`](/de/docs/Web/HTML/Reference/Attributes/rel#opener) und [`rel="noopener"`](/de/docs/Web/HTML/Reference/Attributes/rel#noopener)
-- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
+- [Same-origin policy](/de/docs/Web/Security/Defenses/Same-origin_policy)

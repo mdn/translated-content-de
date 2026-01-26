@@ -2,7 +2,7 @@
 title: transition-property
 slug: Web/CSS/Reference/Properties/transition-property
 l10n:
-  sourceCommit: e316a03cc74a78004dbba837c9d5df297e2eb0aa
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
 Die **`transition-property`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die CSS-Eigenschaften fest, auf die ein [Übergangseffekt](/de/docs/Web/CSS/Guides/Transitions/Using) angewendet werden soll.
@@ -49,7 +49,7 @@ transition-property: none;
 }
 ```
 
-Wenn Sie eine Kurzschreibweise angeben (z.B. {{cssxref("background")}}), werden alle dazugehörigen Langform-Untereigenschaften, die animiert werden können, auch betroffen sein.
+Wenn Sie eine Kurznotationseigenschaft angeben (z.B. {{cssxref("background")}}), werden alle ihre ungekürzten Untereigenschaften, die animiert werden können, berücksichtigt.
 
 ## Syntax
 
@@ -82,11 +82,11 @@ transition-property: unset;
 ### Werte
 
 - `none`
-  - : Es werden keine Eigenschaften transformiert.
+  - : Es werden keine Eigenschaften animiert.
 - `all`
-  - : Alle Eigenschaften, die transformierbar sind, werden transformiert.
+  - : Alle Eigenschaften, die animierbar sind, werden animiert.
 - {{cssxref("&lt;custom-ident&gt;")}}
-  - : Ein Zeichenfolgenbezeichner für die Eigenschaft, auf die ein Übergangseffekt angewendet werden soll, wenn sich ihr Wert ändert.
+  - : Ein String, der die Eigenschaft identifiziert, auf die ein Übergangseffekt angewendet werden soll, wenn sich ihr Wert ändert.
 
 ## Formale Definition
 
@@ -98,9 +98,9 @@ transition-property: unset;
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-Wenn der Button fokussiert oder gehovert wird, durchläuft er einen einsekündigen Farbwechsel; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color).
+Wenn der Button schwebend (hovered) oder fokussiert ist, durchläuft er einen einsekündigen Farbwechsel; die `transition-property` ist {{cssxref("background-color")}}.
 
 #### HTML
 
@@ -139,7 +139,7 @@ button {
 
 {{EmbedLiveSample('Basic_example', 600, 100)}}
 
-Siehe unseren [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using) für weitere `transition-property` Beispiele.
+Sehen Sie sich unseren [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using) für weitere Beispiele zur `transition-property` an.
 
 ## Spezifikationen
 
@@ -151,7 +151,7 @@ Siehe unseren [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/G
 
 ## Siehe auch
 
-- [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
 - {{cssxref('transition')}}
 - {{cssxref('transition-duration')}}
 - {{cssxref('transition-timing-function')}}

@@ -2,21 +2,19 @@
 title: url()
 slug: Web/CSS/Reference/Values/url_function
 l10n:
-  sourceCommit: 8fd626a7b7f1fcb19193325bbac5b87e719f83ea
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`url()`**-Funktion von [CSS](/de/docs/Web/CSS) wird verwendet, um eine Datei einzubinden. Der Parameter kann eine absolute URL, eine relative URL, eine Blob-URL oder eine Data-URL sein. Die **`url()`**-Funktion kann als Parameter einer anderen CSS-Funktion, wie der {{cssxref("attr")}}-Funktion, übergeben werden. Abhängig von der Eigenschaft, für die sie verwendet wird, kann die gesuchte Ressource ein Bild, eine Schriftart oder ein Stylesheet sein. Die `url()`-Funktionsnotation ist der Wert für den `<url>`-Datentyp.
+Die **`url()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) wird verwendet, um eine Datei einzubinden. Der Parameter ist eine absolute URL, eine relative URL, eine Blob-URL oder eine Daten-URL. Die **`url()`**-Funktion kann als Parameter einer anderen CSS-Funktion übergeben werden, wie der {{cssxref("attr")}} Funktion. Abhängig von der Eigenschaft, für die sie ein Wert ist, kann die gesuchte Ressource ein Bild, eine Schriftart oder ein Stylesheet sein. Die funktionale Notation `url()` ist der Wert für den `<url>` Datentyp.
 
 > [!NOTE]
-> Es gibt einen Unterschied zwischen einem {{Glossary("URI", "URI")}} und einer {{Glossary("URL", "URL")}}. Ein URI identifiziert eine Ressource. Eine URL ist ein Typ von URI und beschreibt die _Lage_ einer Ressource. Ein URI kann entweder eine URL oder ein Name ({{Glossary("URN", "URN")}}) einer Ressource sein.
+> Es gibt einen Unterschied zwischen einem {{Glossary("URI", "URI")}} und einer {{Glossary("URL", "URL")}}. Ein URI identifiziert eine Ressource. Eine URL ist ein Typ von URI und beschreibt den _Standort_ einer Ressource. Ein URI kann entweder eine URL oder ein Name ({{Glossary("URN", "URN")}}) einer Ressource sein.
 >
-> In CSS Level 1 beschrieb die `url()`-Funktionsnotation nur echte URLs. In CSS Level 2 wurde die Definition von `url()` erweitert, um jeden URI zu beschreiben, sei es eine URL oder ein URN. Verwirrenderweise bedeutete das, dass `url()` verwendet werden konnte, um einen `<uri>` CSS-Datentyp zu erstellen. Diese Änderung war nicht nur ungeschickt, sondern, diskutierbar, unnötig, da URNs fast nie in tatsächlichem CSS verwendet werden. Um die Verwirrung zu lindern, kehrte CSS Level 3 zur engeren, anfänglichen Definition zurück. Jetzt bezeichnet `url()` nur noch echte `<url>`s.
+> In CSS Level 1 beschrieb die `url()` Funktionale Notation nur echte URLs. In CSS Level 2 wurde die Definition von `url()` erweitert, um jeden URI zu beschreiben, ob URL oder URN. Verwirrenderweise bedeutete dies, dass `url()` verwendet werden konnte, um einen `<uri>` CSS-Datentyp zu erstellen. Diese Änderung war nicht nur ungeschickt, sondern, fragwürdig, unnötig, da URNs fast nie tatsächlich in CSS verwendet werden. Um die Verwirrung zu verringern, kehrte CSS Level 3 zur engeren, ursprünglichen Definition zurück. Jetzt bezeichnet `url()` nur echte `<url>`s.
 
-Wenn relative URLs verwendet werden, sind sie relativ zur URL des Stylesheets (nicht zur URL der Webseite).
+Wenn relative URLs verwendet werden, beziehen sie sich auf die URL des Stylesheets (nicht auf die URL der Webseite).
 
-Die **`url()`**-Funktion kann als Wert einbezogen werden für
-{{cssxref('background')}}, {{cssxref('background-image')}}, {{cssxref('border')}}, {{cssxref('border-image')}}, {{cssxref('border-image-source')}}, {{cssxref('content')}}, {{cssxref('cursor')}}, {{cssxref('filter')}}, {{cssxref('list-style')}}, {{cssxref('list-style-image')}}, {{cssxref('mask')}}, {{cssxref('mask-image')}}, {{cssxref('offset-path')}}, {{cssxref('clip-path')}},
-[src](/de/docs/Web/CSS/Reference/At-rules/@font-face/src) als Teil eines [`@font-face`](/de/docs/Web/CSS/Reference/At-rules/@font-face) Blocks, und [@counter-style/`symbol`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols)
+Die **`url()`**-Funktion kann als Wert für {{cssxref('background')}}, {{cssxref('background-image')}}, {{cssxref('border')}}, {{cssxref('border-image')}}, {{cssxref('border-image-source')}}, {{cssxref('content')}}, {{cssxref('cursor')}}, {{cssxref('filter')}}, {{cssxref('list-style')}}, {{cssxref('list-style-image')}}, {{cssxref('mask')}}, {{cssxref('mask-image')}}, {{cssxref('offset-path')}}, {{cssxref('clip-path')}}, [src](/de/docs/Web/CSS/Reference/At-rules/@font-face/src) als Teil eines {{cssxref("@font-face")}} Blocks und [@counter-style/`symbol`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols) eingeschlossen werden.
 
 ## Syntax
 
@@ -62,12 +60,12 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
 ### Werte
 
 - `<string>`
-  - : Ein String, der eine URL spezifiziert, welche eine relative oder absolute Adresse, oder ein Hinweis auf die einzubindende Webressource ist, oder eine Data-URL. Sie können auch eine Hash-URL verwenden, um die ID einer [SVG-Form](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes) oder eines [SVG-Filters](/de/docs/Web/SVG/Reference/Element/filter) zu referenzieren.
+  - : Ein String, der eine URL angibt, die eine relative oder absolute Adresse oder Zeiger auf die einzubindende Webressource oder eine Daten-URL ist. Sie können auch eine Hash-URL verwenden, um die ID einer [SVG-Form](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes) oder eines [SVG-Filters](/de/docs/Web/SVG/Reference/Element/filter) zu referenzieren.
 
-    Anführungszeichen sind im Allgemeinen optional—sie sind erforderlich, wenn die URL Klammern, Leerzeichen oder Anführungszeichen (es sei denn, diese Zeichen sind maskiert) enthält, oder wenn die Adresse Steuerzeichen oberhalb von 0x7e enthält. Es gelten die normalen Regeln für Strings: Doppelte Anführungszeichen können nicht innerhalb doppelter Anführungszeichen stehen und einfache Anführungszeichen können nicht innerhalb einfacher Anführungszeichen stehen, es sei denn, sie sind maskiert.
+    Die Anführungszeichen sind im Allgemeinen optional—sie sind erforderlich, wenn die URL Klammern, Leerzeichen oder Anführungszeichen enthält (es sei denn, diese Zeichen sind maskiert), oder wenn die Adresse Steuerzeichen über 0x7e enthält. Normale String-Syntaxregeln gelten: doppelte Anführungszeichen können nicht innerhalb doppelter Anführungszeichen auftreten und einfache Anführungszeichen können nicht innerhalb einfacher Anführungszeichen auftreten, es sei denn, sie sind maskiert.
 
 - `<url-modifier>`
-  - : In der Zukunft könnte die `url()`-Funktion die Angabe eines Modifikators unterstützen, eines Identifikators oder einer Funktionsnotation, die die Bedeutung der URL-Zeichenkette ändert. Dies wird derzeit nicht unterstützt und ist in der Spezifikation nicht vollständig definiert.
+  - : In Zukunft könnte die `url()`-Funktion die Angabe eines Modifikators unterstützen, eines Identifikators oder einer funktionalen Notation, die die Bedeutung des URL-Strings verändert. Dies wird nicht unterstützt und ist nicht vollständig in der Spezifikation definiert.
 
 ## Formale Syntax
 
@@ -75,7 +73,7 @@ content: url(star.svg) url(star.svg) url(star.svg) url(star.svg) url(star.svg);
 
 ## Beispiele
 
-### Als Wert der Hintergrund-Eigenschaft
+### Als Hintergrund-Eigenschaftswert
 
 ```css
 body {
@@ -84,9 +82,9 @@ body {
 }
 ```
 
-{{EmbedLiveSample("As the background property value", "100%", "200")}}
+{{EmbedLiveSample("Als Hintergrund-Eigenschaftswert", "100%", "200")}}
 
-### Für die Einstellung eines Bildes als Listenkugel
+### Zum Einstellen eines Bildes als Listenkugel
 
 ```html hidden
 <ul>
@@ -110,9 +108,9 @@ ul {
 }
 ```
 
-{{EmbedLiveSample("For setting an image as a list bullet", "100%", "200")}}
+{{EmbedLiveSample("Zum Einstellen eines Bildes als Listenkugel", "100%", "200")}}
 
-### Verwendung in der content-Eigenschaft
+### Verwendung in der Content-Eigenschaft
 
 #### HTML
 
@@ -135,9 +133,9 @@ li::after {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Usage_in_the_content_property", "100%", "110")}}
+{{EmbedLiveSample("Verwendung_in_der_Content-Eigenschaft", "100%", "110")}}
 
-### Verwendung einer Data-URL
+### Verwendung einer Daten-URL
 
 #### CSS
 
@@ -147,14 +145,14 @@ body {
 }
 ```
 
-{{EmbedLiveSample("Using_a_data_URL", "100%", 100)}}
+{{EmbedLiveSample("Verwendung_einer_Daten-URL", "100%", 100)}}
 
 ### Verwendung in Filtern
 
 Wenn eine URL als Pfad für einen Filter verwendet wird, muss die URL eine der folgenden sein:
 
-1. Der Pfad zu einer SVG-Datei mit der ID des Filters angehängt.
-2. die ID des Filters, wenn die SVG bereits auf der Seite existiert.
+1. Der Pfad zu einer SVG-Datei mit der angehängten ID des Filters.
+2. die ID des Filters, wenn das SVG bereits auf der Seite vorhanden ist.
 
 ```css
 .blur {
@@ -176,8 +174,8 @@ Wenn eine URL als Pfad für einen Filter verwendet wird, muss die URL eine der f
 
 ## Siehe auch
 
-- {{cssxref("&lt;gradient&gt;")}}
-- {{cssxref("element", "element()")}}
+- {{cssxref("gradient")}}
+- {{cssxref("element()")}}
 - {{cssxref("image/image", "image()")}}
 - {{cssxref("image/image-set", "image-set()")}}
-- {{cssxref("cross-fade", "cross-fade()")}}
+- {{cssxref("cross-fade()")}}

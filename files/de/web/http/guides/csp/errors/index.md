@@ -1,49 +1,49 @@
 ---
-title: Content-Security-Policy-Fehler und -Warnungen
+title: Fehler und Warnungen der Content Security Policy
 short-title: Fehler und Warnungen
 slug: Web/HTTP/Guides/CSP/Errors
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: dc788bf0ea36cb1ebe809c82aaae2c77cb3e18c0
 ---
 
-Wenn Sie eine der folgenden Meldungen in der Konsole der Entwicklerwerkzeuge des Browsers sehen, weist das darauf hin, dass ein Problem im Zusammenhang mit der [CSP](/de/docs/Web/HTTP/Guides/CSP) aufgetreten ist.
+Wenn Sie eine der folgenden Meldungen in der Konsole der Entwicklerwerkzeuge des Browsers sehen, weist dies auf ein Problem im Zusammenhang mit der [CSP](/de/docs/Web/HTTP/Guides/CSP) hin.
 
 - [Die Einstellungen der Seite haben das Laden einer Ressource blockiert: %1$S](/de/docs/Web/HTTP/Guides/CSP/Errors/CSPViolation)
 - Die Einstellungen der Seite haben das Laden einer Ressource bei %2$S ("%1$S") blockiert.
-- Ein Verstoß gegen eine CSP-Richtlinie im Reporting-Modus ist aufgetreten ("%1$S"). Das Verhalten war erlaubt und ein CSP-Bericht wurde gesendet.
+- Eine Verletzung ist für eine nur-Bericht-CSP-Richtlinie aufgetreten ("%1$S"). Das Verhalten wurde erlaubt und ein CSP-Bericht wurde gesendet.
 - Die Einstellungen der Seite haben das Laden einer Ressource bei %2$S ("%1$S") beobachtet. Ein CSP-Bericht wird gesendet.
 - Versuch, Bericht an ungültige URI zu senden: "%1$S"
-- Bericht-URI konnte nicht geparst werden: %1$S
-- Unbekannte Direktive '%1$S' konnte nicht verarbeitet werden
+- Konnte Bericht-URI nicht analysieren: %1$S
+- Konnte unbekannte Direktive '%1$S' nicht verarbeiten
 - Unbekannte Option %1$S wird ignoriert
-- Duplizierte Quelle %1$S wird ignoriert
-- Quelle '%1$S' wird ignoriert (Nicht unterstützt, wenn über das Meta-Element geliefert).
-- Ignoriere "%1$S" innerhalb von script-src oder style-src: nonce-source oder hash-source angegeben
-- Ignoriere "%1$S" innerhalb von script-src: 'strict-dynamic' angegeben
+- Doppelte Quelle %1$S wird ignoriert
+- Quelle '%1$S' wird ignoriert (Nicht unterstützt, wenn über Meta-Element geliefert).
+- "%1$S" wird innerhalb von script-src oder style-src ignoriert: nonce-source oder hash-source angegeben
+- "%1$S" wird innerhalb von script-src ignoriert: 'strict-dynamic' angegeben
 - Quelle "%1$S" wird ignoriert (Nur innerhalb von script-src unterstützt).
-- Schlüsselwort 'strict-dynamic' innerhalb von "%1$S" ohne gültige nonce oder hash könnte das Laden aller Skripte blockieren
+- Schlüsselwort 'strict-dynamic' innerhalb "%1$S" ohne gültigen {{Glossary("Nonce", "nonce")}} oder Hash könnte das Laden aller Skripte blockieren
 - Die Bericht-URI (%1$S) sollte eine HTTP- oder HTTPS-URI sein.
-- Diese Seite (%1$S) hat eine Report-Only-Richtlinie ohne Bericht-URI. CSP wird nicht blockieren und kann keine Verstöße gegen diese Richtlinie melden.
-- Unbekannte Quelle %1$S konnte nicht geparst werden
+- Diese Seite (%1$S) hat eine nur-Bericht-Richtlinie ohne Bericht-URI. CSP wird nicht blockieren und kann Verstöße gegen diese Richtlinie nicht melden.
+- Konnte unerkannte Quelle %1$S nicht analysieren
 - Ein Versuch, Inline-Skripte auszuführen, wurde blockiert
 - Ein Versuch, Inline-Stylesheets anzuwenden, wurde blockiert
-- Ein Versuch, JavaScript aus einem String aufzurufen (durch Aufrufen einer Funktion wie eval), wurde blockiert
-- Unsichere Anfrage '%1$S' wird auf '%2$S' umgestellt
+- Ein Versuch, JavaScript aus einem String (durch Aufruf einer Funktion wie eval) auszuführen, wurde blockiert
+- Unsichere Anfrage '%1$S' wird auf '%2$S' aufgewertet
 - Quellen für Direktive '%1$S' werden ignoriert
-- Interpretiere %1$S als Hostname, nicht als Schlüsselwort. Wenn Sie dies als Schlüsselwort verwenden wollten, benutzen Sie '%2$S' (eingeschlossen in einfachen Anführungszeichen).
+- %1$S wird als Hostname interpretiert, nicht als Schlüsselwort. Wenn Sie dies als Schlüsselwort beabsichtigt haben, verwenden Sie '%2$S' (in einfachen Anführungszeichen eingeschlossen).
 - Direktive '%1$S' wird nicht unterstützt. Direktive und Werte werden ignoriert.
 - Unsichere Anfrage '%1$S' wird blockiert.(/de/docs/Web/HTTP/Guides/CSP/Errors/blockAllMixedContent)
-- '%1$S' wird ignoriert, da es keine Parameter enthält.
-- Sandkasten-Direktive wird ignoriert, wenn in einer Report-Only-Richtlinie geliefert '%1$S'
+- '%1$S' wird ignoriert, da sie keine Parameter enthält.
+- Sandkasten-Direktive wird ignoriert, wenn sie in einer nur-Bericht-Richtlinie '%1$S' geliefert wird
 - Referrer-Direktive '%1$S' wurde veraltet. Bitte verwenden Sie stattdessen den Referrer-Policy-Header.
 - '%1$S' wird wegen der Direktive '%2$S' ignoriert.
-- Ungültige Quelle %1$S konnte nicht geparst werden
-- Ungültiger Host %1$S konnte nicht geparst werden
-- Scheme in %1$S konnte nicht geparst werden
-- Port in %1$S konnte nicht geparst werden
+- Konnte ungültige Quelle %1$S nicht analysieren
+- Ungültigen Host %1$S konnte nicht analysieren
+- Konnte Schema in %1$S nicht analysieren
+- Konnte Port in %1$S nicht analysieren
 - Doppelte %1$S-Direktiven erkannt. Alle außer der ersten Instanz werden ignoriert.
-- Direktive '%1$S' wurde veraltet. Bitte verwenden Sie die Direktive 'worker-src', um Arbeiter zu steuern, oder die Direktive 'frame-src', um Frames zu steuern.
-- Ungültiges Sandkasten-Flag '%1$S' konnte nicht geparst werden
+- Direktive '%1$S' wurde veraltet. Bitte verwenden Sie die Direktive 'worker-src' zur Steuerung von Arbeitern oder die Direktive 'frame-src' zur Steuerung von Frames.
+- Konnte ungültiges Sandkasten-Flag '%1$S' nicht analysieren
 
 ## Siehe auch
 

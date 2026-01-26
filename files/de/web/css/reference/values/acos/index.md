@@ -2,10 +2,10 @@
 title: acos()
 slug: Web/CSS/Reference/Values/acos
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`acos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Arkuskosinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaß-Radianten zurückgibt, die ein {{cssxref("&lt;angle&gt;")}} zwischen `0deg` und `180deg` darstellen.
+Die **`acos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) ist eine trigonometrische Funktion, die den Arkuskosinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die einen {{cssxref("angle")}} zwischen `0deg` und `180deg` zurückgibt.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ transform: rotate(acos(e / 3));
 
 ### Parameter
 
-Die `acos(number)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `acos(number)` akzeptiert nur einen Wert als ihren Parameter.
 
 - `number`
-  - : Eine Berechnung, die sich auf ein {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` auflöst.
+  - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` auflöst.
 
 ### Rückgabewert
 
-Der Arkuskosinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwischen `0deg` und `180deg` zurück.
+Der Arkuskosinus einer `number` gibt immer einen {{cssxref("angle")}} zwischen `0deg` und `180deg` zurück.
 
 - Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
 - Wenn `number` genau `1` ist, ist das Ergebnis `0`.
@@ -39,9 +39,9 @@ Der Arkuskosinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwis
 
 ## Beispiele
 
-### Elemente rotieren
+### Elemente drehen
 
-Die `acos()` Funktion kann verwendet werden, um Elemente mit der {{cssxref("transform-function/rotate", "rotate")}}-Funktion zu rotieren, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `acos()` Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie einen {{cssxref("angle")}} zurückgibt.
 
 #### HTML
 

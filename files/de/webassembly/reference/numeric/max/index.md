@@ -1,11 +1,12 @@
 ---
-title: Max
-slug: WebAssembly/Reference/Numeric/Max
+title: "max: Wasm Text-Instruktion"
+short-title: max
+slug: WebAssembly/Reference/Numeric/max
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`max`** Anweisungen werden verwendet, um die größere von zwei Zahlen zu erhalten.
+Die **`max`**-Instruktionen werden verwendet, um die höhere von zwei Zahlen zu erhalten.
 
 {{InteractiveExample("Wat Demo: max", "tabbed-taller")}}
 
@@ -42,7 +43,7 @@ f32.max
 ;; the top item on the stack will now be 10
 ```
 
-| Anweisung | Binärer Opcode |
-| --------- | -------------- |
-| `f32.max` | `0x97`         |
-| `f64.max` | `0xa5`         |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `f32.max`   | `0x97`         |
+| `f64.max`   | `0xa5`         |

@@ -2,12 +2,12 @@
 title: prefix
 slug: Web/CSS/Reference/At-rules/@counter-style/prefix
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **`prefix`** Deskriptor der {{cssxref('@counter-style')}} Regel gibt an, welcher Inhalt am Anfang der Zählermarkierung hinzugefügt wird.
+Der **`prefix`** Deskriptor der {{cssxref('@counter-style')}} Regel spezifiziert Inhalte, die dem Anfang der Markerdarstellung des Zählers hinzugefügt werden.
 
-Wenn der Zählerwert negativ ist, kommt der `prefix` vor dem Minuszeichen und allen anderen durch den {{cssxref("@counter-style/negative", "negative")}} Deskriptor hinzugefügten `<symbol>`.
+Wenn der Zählerwert negativ ist, kommt der `prefix` vor dem Minuszeichen und allen anderen `<symbol>`en, die durch den {{cssxref("@counter-style/negative", "negative")}} Deskriptor hinzugefügt werden.
 
 ## Syntax
 
@@ -20,10 +20,10 @@ prefix: url("bullet.png");
 
 ### Werte
 
-Der **`prefix`** Deskriptor nimmt als Wert ein einzelnes `<symbol>` an:
+Der **`prefix`** Deskriptor nimmt als Wert ein einziges `<symbol>`:
 
 - `<symbol>`
-  - : Gibt ein `<symbol>` an — eine {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}} oder ein {{cssxref("&lt;custom-ident&gt;")}} — das der Markierungsdarstellung vorangestellt wird.
+  - : Spezifiziert ein `<symbol>` — eine {{cssxref("&lt;string&gt;")}}, ein {{cssxref("image")}} oder ein {{cssxref("&lt;custom-ident&gt;")}} — das der Markerdarstellung vorangestellt wird.
 
 ## Formale Definition
 
@@ -35,9 +35,9 @@ Der **`prefix`** Deskriptor nimmt als Wert ein einzelnes `<symbol>` an:
 
 ## Beispiele
 
-### Hinzufügen eines Prefix zu einem Zähler
+### Hinzufügen eines Präfixes zu einem Zähler
 
-In diesem Beispiel wird jeder Zählernummer "Book " (mit einem Leerzeichen) vorangestellt und gefolgt von einem Doppelpunkt (`:`). Der Doppelpunkt wird mit dem {{cssxref("@counter-style/suffix", "suffix")}} Deskriptor hinzugefügt.
+In diesem Beispiel wird jeder Zählernummer "Buch " (mit einem Leerzeichen) vorangestellt und ein Doppelpunkt (`:`) angehängt. Der Doppelpunkt wird mit dem {{cssxref("@counter-style/suffix", "suffix")}} Deskriptor hinzugefügt.
 
 #### HTML
 
@@ -83,6 +83,6 @@ In diesem Beispiel wird jeder Zählernummer "Book " (mit einem Leerzeichen) vora
 
 - Andere {{cssxref("@counter-style")}} Deskriptoren: {{cssxref("@counter-style/system","system")}}, {{cssxref("@counter-style/symbols", "symbols")}}, {{cssxref("@counter-style/additive-symbols", "additive-symbols")}}, {{cssxref("@counter-style/negative", "negative")}}, {{cssxref("@counter-style/suffix", "suffix")}}, {{cssxref("@counter-style/range", "range")}}, {{cssxref("@counter-style/pad", "pad")}}, {{cssxref("@counter-style/speak-as", "speak-as")}} und {{cssxref("@counter-style/fallback", "fallback")}}
 - {{Cssxref("list-style")}}, {{Cssxref("list-style-image")}}, {{Cssxref("list-style-position")}}
-- {{cssxref("symbols", "symbols()")}}: die funktionale Notation zum Erstellen anonymer Zählerstile
+- {{cssxref("symbols()")}}: die funktionale Notation zur Erstellung anonymer Zählerstile
 - [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
 - [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul

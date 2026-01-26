@@ -3,20 +3,21 @@ title: CSS-Ankerpositionierung
 short-title: Anchor positioning
 slug: Web/CSS/Guides/Anchor_positioning
 l10n:
-  sourceCommit: 81f8fcd666952c1782653a3675347c392cc997ca
+  sourceCommit: 8300697ca75ca1e77175912110d4fe9ef48cb0bb
 ---
 
-Das **CSS-Ankerpositionierungsmodul** definiert Funktionen, die es ermöglichen, Elemente miteinander zu verbinden. Bestimmte Elemente werden als **Ankerelemente** definiert; **ankerpositionierte Elemente** können dann basierend auf der Größe und Position der Ankerelemente, an die sie gebunden sind, in ihrer Größe und Position festgelegt werden.
+Das **CSS-Ankerpositionierungsmodul** definiert Funktionen, die es ermöglichen, Elemente miteinander zu verbinden. Bestimmte Elemente werden als **Ankerelemente** definiert; **ankerpositionierte Elemente** können dann ihre Größe und Position basierend auf der Größe und Lage der Ankerelemente, mit denen sie verbunden sind, festlegen.
 
-Darüber hinaus bietet die Spezifikation CSS-exklusive Mechanismen, um:
+Darüber hinaus bietet die Spezifikation rein CSS-basierte Mechanismen, um:
 
-- Eine Reihe von alternativen Positionen für ein Ankerelement anzugeben; wenn die Standard-Renderposition dazu führt, dass es seinen enthaltenden Block überläuft und/oder außerhalb des Bildschirms angezeigt wird, versucht der Browser, das Ankerelement stattdessen in den alternativen Positionen darzustellen.
-- Bedingungen zu deklarieren, unter denen ankerpositionierte Elemente ausgeblendet werden sollten, in Situationen, in denen es nicht angebracht ist, sie mit Ankerelementen zu verbinden.
+- Eine Reihe von alternativen Positionen für ein verankertes Element anzugeben; wenn die Standardpositionierung dazu führt, dass es seinen enthaltenen Block überläuft und/oder außerhalb des Bildschirms dargestellt wird, wird der Browser versuchen, das verankerte Element in den alternativen Positionen darzustellen.
+- Bedingungen festzulegen, unter denen ankerpositionierte Elemente ausgeblendet werden sollten, in Situationen, in denen es nicht angemessen ist, sie mit Ankerelementen zu verbinden.
 
 ## Referenz
 
 ### Eigenschaften
 
+- {{cssxref("anchor-scope")}}
 - {{cssxref("anchor-name")}}
 - {{cssxref("position-anchor")}}
 - {{cssxref("position-area")}}
@@ -25,9 +26,7 @@ Darüber hinaus bietet die Spezifikation CSS-exklusive Mechanismen, um:
 - {{cssxref("position-try")}} Kurzform
 - {{cssxref("position-visibility")}}
 
-Das CSS-Ankerpositionierungsmodul führt auch die Eigenschaft `anchor-scope` ein. Derzeit unterstützt kein Browser diese Funktion.
-
-### At-rules und Deskriptoren
+### At-Regeln und Deskriptoren
 
 - {{cssxref("@position-try")}}
 
@@ -57,15 +56,15 @@ Das CSS-Ankerpositionierungsmodul führt auch die Eigenschaft `anchor-scope` ein
 
 ## Leitfäden
 
-- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
-  - : Ein einführender Leitfaden zu grundlegenden Konzepten der Ankerpositionierung, einschließlich der Zuordnung, Positionierung und Größenanpassung von Elementen relativ zu ihrem Anker.
+- [CSS-Ankerpositionierung verwenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+  - : Ein einführender Leitfaden zu grundlegenden Konzepten der Ankerpositionierung, einschließlich der Zuordnung, Positionierung und Größenanpassung von Elementen im Verhältnis zu ihrem Anker.
 
 - [Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)
-  - : Ein Leitfaden zu den Mechanismen, die die CSS-Ankerpositionierung bietet, um zu verhindern, dass ankerpositionierte Elemente ihre beinhaltenden Elemente oder den Viewport überlaufen, einschließlich Position-Try-Fallback-Optionen und bedingtem Ausblenden von Elementen.
+  - : Ein Leitfaden zu den Mechanismen, die die CSS-Ankerpositionierung bietet, um zu verhindern, dass ankerpositionierte Elemente ihre enthaltenen Elemente oder den Viewport überlaufen, einschließlich Fallback-Optionen bei der Positionierung und bedingt ausblendbaren Elementen.
 
 ## Verwandte Konzepte
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul:
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul:
   - {{cssxref("inset-block-start")}}
   - {{cssxref("inset-block-end")}}
   - {{cssxref("inset-inline-start")}}
@@ -85,13 +84,13 @@ Das CSS-Ankerpositionierungsmodul führt auch die Eigenschaft `anchor-scope` ein
   - {{cssxref("margin-inline")}}
   - {{cssxref("margin-inline-end")}}
   - {{cssxref("margin-inline-start")}}
-  - {{Glossary("Inset_properties", "Inset-Eigenschaften")}} Glossar-Begriff
-- [CSS Positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul:
+  - {{Glossary("Inset_properties", "Inset-Eigenschaften")}} Glossarbegriff
+- [CSS-positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul:
   - {{cssxref("top")}}
   - {{cssxref("left")}}
   - {{cssxref("bottom")}}
   - {{cssxref("right")}}
-- [CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul:
+- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul:
   - {{cssxref("width")}}
   - {{cssxref("height")}}
   - {{cssxref("min-width")}}
@@ -103,7 +102,7 @@ Das CSS-Ankerpositionierungsmodul führt auch die Eigenschaft `anchor-scope` ein
   - {{cssxref("margin-left")}}
   - {{cssxref("margin-right")}}
   - {{cssxref("margin-top")}}
-- [CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul:
+- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul:
   - {{cssxref("align-items")}}
   - {{cssxref("align-self")}}
   - {{cssxref("justify-items")}}
@@ -117,7 +116,7 @@ Das CSS-Ankerpositionierungsmodul führt auch die Eigenschaft `anchor-scope` ein
 
 ## Siehe auch
 
-- [CSS Scroll-Anker](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul
+- [CSS-Scrollverankerung](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul
 - [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
 - [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)

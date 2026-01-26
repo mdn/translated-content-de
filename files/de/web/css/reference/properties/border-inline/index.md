@@ -2,10 +2,10 @@
 title: border-inline
 slug: Web/CSS/Reference/Properties/border-inline
 l10n:
-  sourceCommit: 1bfe630bd8538b64c97c7f684f5ee647a76c1a28
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`border-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zum Festlegen der individuellen logischen Inline-Randwerte an einem einzigen Ort im Stylesheet.
+Die **`border-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft ist eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zum Setzen der einzelnen logischen Inline-Rand-Werte an einer Stelle im Stylesheet.
 
 {{InteractiveExample("CSS Demo: border-inline")}}
 
@@ -44,13 +44,13 @@ direction: rtl;
 }
 ```
 
-## Zugehörige Eigenschaften
+## Bestandteile der Eigenschaft
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
-- [`border-inline-color`](/de/docs/Web/CSS/Reference/Properties/border-inline-color)
-- [`border-inline-style`](/de/docs/Web/CSS/Reference/Properties/border-inline-style)
-- [`border-inline-width`](/de/docs/Web/CSS/Reference/Properties/border-inline-width)
+- {{cssxref("border-inline-color")}}
+- {{cssxref("border-inline-style")}}
+- {{cssxref("border-inline-width")}}
 
 ## Syntax
 
@@ -69,20 +69,20 @@ border-inline: unset;
 
 ### Werte
 
-Die `border-inline` wird mit einem oder mehreren der folgenden Werte in beliebiger Reihenfolge angegeben:
+Die `border-inline` wird mit einem oder mehreren der folgenden Werte angegeben, in beliebiger Reihenfolge:
 
 - `<'border-width'>`
-  - : Die Breite des Rahmens. Siehe {{cssxref("border-width")}}.
+  - : Die Breite des Rands. Siehe {{cssxref("border-width")}}.
 - `<'border-style'>`
-  - : Der Linienstil des Rahmens. Siehe {{cssxref("border-style")}}.
+  - : Der Linienstil des Rands. Siehe {{cssxref("border-style")}}.
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Rahmens.
+  - : Die Farbe des Rands.
 
 ## Beschreibung
 
-Die physischen Rahmen, auf die `border-inline` verweist, hängen vom Schreibmodus, der Ausrichtung und der Textorientierung des Elements ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}}, und {{cssxref("border-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die physischen Ränder, auf die `border-inline` abbildet, hängen vom Schreibmodus, der Richtung und der Textorientierung des Elements ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}} und {{cssxref("border-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Die Rahmen in der anderen Dimension können mit {{cssxref("border-block")}} gesetzt werden, welches {{cssxref("border-block-start")}}, und {{cssxref("border-block-end")}} setzt.
+Die Ränder in der anderen Dimension können mit {{cssxref("border-block")}} gesetzt werden, was {{cssxref("border-block-start")}} und {{cssxref("border-block-end")}} festlegt.
 
 ## Formale Definition
 
@@ -94,7 +94,7 @@ Die Rahmen in der anderen Dimension können mit {{cssxref("border-block")}} gese
 
 ## Beispiele
 
-### Rahmen mit vertikalem Text
+### Rand mit vertikalem Text
 
 #### HTML
 
@@ -134,5 +134,5 @@ div {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Diese Eigenschaft bezieht sich auf eine der physischen Rahmen-Eigenschaften: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
+- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}} oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

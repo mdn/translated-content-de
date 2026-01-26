@@ -3,12 +3,10 @@ title: Temporal.PlainDate.compare()
 short-title: compare()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/compare
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die statische Methode **`Temporal.PlainDate.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob das erste Datum vor, gleich oder nach dem zweiten Datum liegt. Dies entspricht dem Vergleich der Jahr-, Monat- und Tag-Felder der zugrunde liegenden ISO 8601-Daten.
+Die statische Methode **`Temporal.PlainDate.compare()`** gibt eine Zahl (-1, 0 oder 1) zurück, die angibt, ob das erste Datum vor, gleich oder nach dem zweiten Datum liegt. Das entspricht dem Vergleichen der Jahr-, Monat- und Tagesfelder der zugrunde liegenden ISO 8601-Daten.
 
 ## Syntax
 
@@ -19,13 +17,13 @@ Temporal.PlainDate.compare(date1, date2)
 ### Parameter
 
 - `date1`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDate")}}-Instanz, die das erste zu vergleichende Datum darstellt. Es wird mithilfe des gleichen Algorithmus wie {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate`-Objekt konvertiert.
+  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.PlainDate")}}, die das erste zu vergleichende Datum darstellt. Es wird in ein `Temporal.PlainDate`-Objekt umgewandelt, indem derselbe Algorithmus wie in {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} verwendet wird.
 - `date2`
-  - : Das zweite Datum, das verglichen werden soll, wird mit dem gleichen Algorithmus wie `date1` in ein `Temporal.PlainDate`-Objekt konvertiert.
+  - : Das zweite zu vergleichende Datum, das mit demselben Algorithmus wie `date1` in ein `Temporal.PlainDate`-Objekt umgewandelt wird.
 
 ### Rückgabewert
 
-Gibt `-1` zurück, wenn `date1` vor `date2` liegt, `0` wenn sie gleich sind, und `1` wenn `date1` nach `date2` kommt. Sie werden anhand ihrer zugrunde liegenden Datumswerte verglichen, wobei ihre Kalender ignoriert werden.
+Gibt `-1` zurück, wenn `date1` vor `date2` liegt, `0`, wenn sie gleich sind, und `1`, wenn `date1` nach `date2` liegt. Sie werden anhand ihrer zugrunde liegenden Datumswerte verglichen, ohne Berücksichtigung ihrer Kalender.
 
 ## Beispiele
 
@@ -65,7 +63,7 @@ console.log(Temporal.PlainDate.compare(date1, date3)); // 1
 
 ### Sortieren eines Arrays von Daten
 
-Der Zweck dieser `compare()`-Funktion besteht darin, als Vergleichsfunktion zu dienen, die an {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen übergeben wird.
+Das Ziel dieser `compare()`-Funktion ist es, als Vergleichsfunktion für {{jsxref("Array.prototype.sort()")}} und verwandte Funktionen zu dienen.
 
 ```js
 const dates = [

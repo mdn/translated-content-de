@@ -1,20 +1,28 @@
 ---
-title: AsyncFunction()-Konstruktor
+title: AsyncFunction() Konstruktor
 short-title: AsyncFunction()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncFunction/AsyncFunction
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: fefa80c1e817377a0bbaf6a636ce6b8797f38fbb
 ---
 
-Der **`AsyncFunction()`**-Konstruktor erstellt {{jsxref("AsyncFunction")}}-Objekte.
+> [!WARNING]
+> Die an diesen Konstruktor übergebenen Argumente werden dynamisch als JavaScript geparst und ausgeführt.
+> Solche APIs sind bekannt als [Injection-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und können potenziell ein Angriffsvektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe sein.
+>
+> Sie können dieses Risiko mindern, indem Sie immer [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Zeichenfolgen übergeben und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+>
+> Weitere Informationen finden Sie unter [Sicherheitsüberlegungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function#security_considerations) in der Referenz zum `Function()` Konstruktor.
 
-Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit folgendem Code erhalten werden:
+Der **`AsyncFunction()`** Konstruktor erstellt {{jsxref("AsyncFunction")}} Objekte.
+
+Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
 
 ```js
 const AsyncFunction = async function () {}.constructor;
 ```
 
-Der `AsyncFunction()`-Konstruktor ist nicht dafür vorgesehen, direkt verwendet zu werden, und alle Einschränkungen, die in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnt werden, gelten auch für `AsyncFunction()`.
+Der `AsyncFunction()` Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnten Warnhinweise gelten für `AsyncFunction()`.
 
 ## Syntax
 
@@ -31,7 +39,7 @@ AsyncFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
 > [!NOTE]
-> `AsyncFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Methoden erstellen eine neue Instanz von `AsyncFunction`.
+> `AsyncFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `AsyncFunction` Instanz.
 
 ### Parameter
 
@@ -39,7 +47,9 @@ Siehe {{jsxref("Function/Function", "Function()")}}.
 
 ## Beispiele
 
-### Erstellen einer asynchronen Funktion aus einem AsyncFunction()-Konstruktor
+Beachten Sie, dass in diesen Beispielen zur Kürze auf die Verwendung vertrauenswürdiger Typen verzichtet wird. Für Code, der den empfohlenen Ansatz zeigt, siehe [Verwendung von `TrustedScript`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#using_trustedscript) in `eval()`.
+
+### Erstellen einer asynchronen Funktion mit einem AsyncFunction() Konstruktor
 
 ```js
 function resolveAfter2Seconds(x) {
@@ -74,5 +84,5 @@ fn(10, 20).then((v) => {
 ## Siehe auch
 
 - [`async function`](/de/docs/Web/JavaScript/Reference/Statements/async_function)
-- [`async function` expression](/de/docs/Web/JavaScript/Reference/Operators/async_function)
-- [`Function()` constructor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
+- [`async function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function)
+- [`Function()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)

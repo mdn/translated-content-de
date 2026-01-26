@@ -2,12 +2,12 @@
 title: CSSSkewY
 slug: Web/API/CSSSkewY
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSS Typed OM")}}{{AvailableInWorkers}}
 
-Die **`CSSSkewY`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den [`skewY()`](/de/docs/Web/CSS/Reference/Values/transform-function/skewY)-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem übergeordneten [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+Das **`CSSSkewY`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert den Wert von {{cssxref("transform-function/skewY", "skewY()")}} der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Es erbt Eigenschaften und Methoden von seinem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
@@ -16,16 +16,16 @@ Die **`CSSSkewY`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/A
 - [`CSSSkewY()`](/de/docs/Web/API/CSSSkewY/CSSSkewY)
   - : Erstellt ein neues `CSSSkewY`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Vorfahren_ [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+_Erbt Eigenschaften von seinem Vorfahren_ [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 - [`ay`](/de/docs/Web/API/CSSSkewY/ay)
-  - : Gibt den Wert für die y-Achse zurück oder legt ihn fest.
+  - : Gibt den Wert der y-Achse zurück oder setzt ihn.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von ihrem Vorfahren_ [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
+_Erbt Methoden von seinem Vorfahren_ [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 ## Beispiele
 

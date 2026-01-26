@@ -2,12 +2,12 @@
 title: -webkit-tap-highlight-color
 slug: Web/CSS/Reference/Properties/-webkit-tap-highlight-color
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 {{Non-standard_header}}
 
-**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe der Hervorhebung festlegt, die über einem Link erscheint, während darauf getippt wird. Die Hervorhebung zeigt dem Benutzer an, dass das Tippen erfolgreich erkannt wird und zeigt, welches Element angetippt wird.
+**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Highlights festlegt, das über einem Link erscheint, während dieser angetippt wird. Das Highlight zeigt dem Benutzer, dass sein Tippen erfolgreich erkannt wird, und zeigt an, welches Element er antippt.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ Ein {{Cssxref("&lt;color&gt;")}}.
 
 ## Spezifikationen
 
-Teil keiner Norm. Apple hat [eine Beschreibung im Safari-Web-Inhalts-Leitfaden](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
+Nicht Teil eines Standards. Apple hat [eine Beschreibung im Safari Web Content Guide](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
 
 ## Browser-Kompatibilität
 
@@ -47,6 +47,6 @@ Teil keiner Norm. Apple hat [eine Beschreibung im Safari-Web-Inhalts-Leitfaden](
 
 - [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
 - Verwandte CSS-Pseudoklassen:
-  - [`:hover`](/de/docs/Web/CSS/Reference/Selectors/:hover)
-  - [`:active`](/de/docs/Web/CSS/Reference/Selectors/:active)
-  - [`:visited`](/de/docs/Web/CSS/Reference/Selectors/:visited)
+  - {{cssxref(":hover")}}
+  - {{cssxref(":active")}}
+  - {{cssxref(":visited")}}

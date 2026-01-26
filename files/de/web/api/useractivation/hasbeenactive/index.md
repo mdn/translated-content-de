@@ -1,24 +1,24 @@
 ---
-title: "UserActivation: Eigenschaft hasBeenActive"
+title: "UserActivation: hasBeenActive-Eigenschaft"
 short-title: hasBeenActive
 slug: Web/API/UserActivation/hasBeenActive
 l10n:
-  sourceCommit: 7907a38073627c84ff795b1c0ea20513a90b4a4e
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`hasBeenActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine {{Glossary("sticky_activation", "sticky user activation")}} aufweist.
+Die schreibgeschützte **`hasBeenActive`**-Eigenschaft der [`UserActivation`](/de/docs/Web/API/UserActivation)-Schnittstelle zeigt an, ob das aktuelle Fenster über eine {{Glossary("sticky_activation", "sticky user activation")}} verfügt.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 
-### Überprüfen, ob jemals eine Benutzeraktion ausgeführt wurde
+### Überprüfen, ob jemals eine Benutzergeste durchgeführt wurde
 
-Verwenden Sie die `hasBeenActive`-Eigenschaft, um zu überprüfen, ob der Benutzer seit dem Laden der Seite mit dieser interagiert hat.
+Verwenden Sie die `hasBeenActive`-Eigenschaft, um zu überprüfen, ob der Benutzer seit dem Laden der Seite mit ihr interagiert hat.
 
 ```js
 if (navigator.userActivation.hasBeenActive) {
@@ -38,4 +38,4 @@ if (navigator.userActivation.hasBeenActive) {
 
 - [`UserActivation`](/de/docs/Web/API/UserActivation)
 - [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)
-- [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/User_activation)
+- [Funktionen, die durch Benutzeraktivierung beschränkt sind](/de/docs/Web/Security/Defenses/User_activation)

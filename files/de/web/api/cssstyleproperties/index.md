@@ -2,23 +2,23 @@
 title: CSSStyleProperties
 slug: Web/API/CSSStyleProperties
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: f3bf315cc3f26a6c96cfa6fa4898e7def28ca78a
 ---
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSStyleProperties`**-Interface des [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) repräsentiert Inline- oder berechnete Styles, die auf einem Element verfügbar sind, oder die mit einer CSS-Style-Regel verbundenen Styles.
+Das **`CSSStyleProperties`** Interface des [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model) repräsentiert Inline- oder berechnete Stile, die auf einem Element verfügbar sind, oder die Stile, die einer CSS-Style-Regel zugeordnet sind.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Dieses Interface erbt auch Eigenschaften seines Elternteils, [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
 - Benannte Eigenschaften
-  - : Mit Bindestrich benannte und in Camelcase benannte Eigenschaften für alle vom Browser unterstützten CSS-Eigenschaften.
+  - : Mit Bindestrich benannte und im Camel-Case benannte Eigenschaften für alle vom Browser unterstützten CSS-Eigenschaften.
 - [`CSSStyleProperties.cssFloat`](/de/docs/Web/API/CSSStyleProperties/cssFloat)
-  - : Spezieller Alias für die {{CSSxRef("float")}} CSS-Eigenschaft.
+  - : Spezielles Alias für die {{CSSxRef("float")}} CSS-Eigenschaft.
 
 ## Instanzmethoden
 
@@ -26,34 +26,34 @@ _Dieses Interface erbt die Methoden seines Elternteils, [`CSSStyleDeclaration`](
 
 ## Beschreibung
 
-Ein Objekt dieses Typs hat mit Bindestrich benannte Eigenschaften für **alle** vom Browser unterstützen [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties), einschließlich [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) und Langform-Eigenschaften, sowie solche mit `-moz` und `-webkit` Präfixen.
-Diese können mit den von der Basisklasse [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) geerbten Methoden wie [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority) und [`setPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority) zugegriffen werden.
+Ein Objekt dieses Typs verfügt über mit Bindestrich benannte Eigenschaften für **alle** vom Browser unterstützten [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties), einschließlich sowohl [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)- als auch Langform-Eigenschaften und diejenigen mit den Präfixen `-moz` und `-webkit`.
+Diese können mit Methoden abgerufen werden, die von der [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) Basisklasse geerbt wurden, wie z.B. [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority) und [`setPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority).
 
-Darüber hinaus hat jede mit Bindestrich benannte Eigenschaft eine entsprechende in {{Glossary("camel_case", "camel case")}} benannte Eigenschaft, wobei der Name durch Entfernen der Bindestriche und Kapitalisierung jedes Wortes nach dem ersten generiert wird.
-Dies ermöglicht es Ihnen beispielsweise, auf die CSS-Eigenschaft `margin-top` mit der Syntax `style.marginTop` zuzugreifen (wobei `style` ein `CSSStyleProperties` ist), anstatt auf die umständlichere Methode `style.getPropertyValue("margin-top")` oder `style["margin-top"]`.
-Die CSS-Eigenschaft `float`, ein reserviertes JavaScript-Schlüsselwort, wird durch die `cssFloat`-Eigenschaft dargestellt.
+Darüber hinaus hat jede mit Bindestrich benannte Eigenschaft eine entsprechende im {{Glossary("camel_case", "Camel Case")}} benannte Eigenschaft, bei der die Dashes entfernt und jedes nachfolgende Wort nach dem ersten kapitalisiert wird.
+Dies erlaubt es Ihnen beispielsweise, auf die `margin-top` CSS-Eigenschaft mit der Syntax `style.marginTop` (wobei `style` ein `CSSStyleProperties` ist) zuzugreifen, anstatt auf die umständlichere Weise `style.getPropertyValue("margin-top")` oder `style["margin-top"]`.
+Die CSS-Eigenschaft `float`, die ein reserviertes JavaScript-Schlüsselwort ist, wird durch die Eigenschaft `cssFloat` dargestellt.
 
-Shorthand-CSS-Eigenschaften des Elements werden in ihre entsprechenden Langform-Eigenschaften erweitert.
-Zum Beispiel würde ein Element mit dem Style `"border-top: 1px solid black"` im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop`, sowie die entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle`, sowie {{cssxref("border-top-width")}} und `borderTopWidth` dargestellt werden.
+Kurzschriftige CSS-Eigenschaften des Elements werden in ihre entsprechenden Langform-Eigenschaften umgesetzt.
+Zum Beispiel würde ein Element mit dem Stil `"border-top: 1px solid black"` im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop`, sowie den entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle`, und {{cssxref("border-top-width")}} und `borderTopWidth` dargestellt.
 
-Eigenschaften und Attribute ohne definierten Wert haben standardmäßig den leeren String (`""`).
-Für ein Objekt, das eine Inline-Style-Deklaration repräsentiert (nicht berechnete Styles), wird dies bei jedem Style der Fall sein, der nicht im Deklarationsblock definiert ist.
+Eigenschaften und Attribute ohne definierten Wert standardmäßig auf den leeren String (`""`).
+Für ein Objekt, das eine Inline-Style-Deklaration repräsentiert (nicht berechnete Stile), ist dies jeder Style, der nicht im Deklarationsblock definiert ist.
 
-`CSSStyleProperties`-Objektinstanzen werden über die folgenden APIs bereitgestellt:
+`CSSStyleProperties` Objektinstanzen werden durch die folgenden APIs bereitgestellt:
 
-- [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style), [`SVGElement.style`](/de/docs/Web/API/SVGElement/style), und [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style): Wird verwendet, um den _inline style_ eines einzelnen Elements zu erhalten oder zu setzen (z.B. `<div style="…">`).
-- [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle): Wird verwendet, um den (nur lesbaren) berechneten Style eines Elements zu erhalten, der sowohl Inline- als auch externe Styles umfasst.
-- [`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style): Wird verwendet, um die Styles einer Style-Regel ([`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)) zu erhalten oder zu setzen.
+- [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style), [`SVGElement.style`](/de/docs/Web/API/SVGElement/style), und [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style): Verwendet, um den _Inline-Style_ eines einzelnen Elements zu erhalten und festzulegen (z. B. `<div style="…">`).
+- [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle): Verwendet, um den (nur lesbaren) berechneten Stil eines Elements zu erhalten, der die Effekte sowohl von Inline- als auch von externen Styles umfasst.
+- [`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style): Verwendet, um die Styles einer Style-Regel ([`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)) zu erhalten und festzulegen.
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses Beispiel zeigt, wie lokale und berechnete Element-Styles sowohl mit Camelcase als auch mit Bindestrich benannten Eigenschaften abgerufen und gesetzt werden.
+Dieses Beispiel demonstriert, wie Sie lokale und berechnete Elementstile unter Verwendung von Camel-Case- und mit Bindestrich benannten Eigenschaften abrufen und festlegen können.
 
 #### HTML
 
-Das HTML definiert ein {{htmlelement("div")}} mit einer Anzahl von gesetzten Styles, die in einem anderen verschachtelt sind, das das `font-weight` als `bold` setzt.
+Das HTML definiert ein {{htmlelement("div")}} mit einer Anzahl an Styles, die festgelegt sind und in einem anderen verschachtelt sind, das `font-weight` auf `bold` setzt.
 
 ```html
 <div style="font-weight: bold;">
@@ -90,7 +90,7 @@ function log(text) {
 }
 ```
 
-Zuerst die lokalen und berechneten Styles für das Element mit der ID `"elt"` abrufen.
+Zuerst erhalten Sie den lokalen und berechneten Stil für das Element mit der ID `"elt"`.
 
 ```js
 const element = document.querySelector("#elt");
@@ -98,8 +98,8 @@ const elementStyle = element.style;
 const computedStyle = window.getComputedStyle(element);
 ```
 
-Dann holen wir die `borderTop` Shorthand-Eigenschaft der `CSSStyleProperties` mithilfe der Punktnotation sowohl für lokale als auch berechnete Styles.
-Die Verwendung der Punktnotation mit einer Camelcase-Eigenschaft ist der einfachste Weg, um auf eine beliebige Eigenschaft zuzugreifen.
+Dann holen wir die `borderTop` Kurzschrift-Eigenschaft der `CSSStyleProperties` unter Verwendung der Punktnotation für sowohl lokale als auch berechnete Stile.
+Die Punktnotation mit einer im Camel-Case benannten Eigenschaft zu verwenden, ist der einfachste Weg, um auf eine Eigenschaft zuzugreifen.
 
 ```js
 // Get style using dot notation
@@ -110,7 +110,7 @@ log('Format: Style = "Element" / "Computed"');
 log(`"borderTop" = "${elemBorderTop}" / "${compBorderTop}"'`);
 ```
 
-Wir können dieselbe Eigenschaft auch mithilfe der [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority)-Methode oder der Klammernotation erhalten.
+Wir können dieselbe Eigenschaft auch mit der [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority) Methode oder der Klammernotation abrufen.
 
 ```js
 // Get style using dashed-name property value
@@ -119,7 +119,7 @@ const compBorderTop = computedStyle.getPropertyValue("border-top");
 log(`"border-top" = "${elemBorderTop}" / "${compBorderTop}"'`);
 ```
 
-Der folgende Code holt jede der Langform-Eigenschaften, die der Shorthand-Eigenschaft `border-top` entsprechen, indem die Punktnotation für die Einfachheit verwendet wird.
+Der folgende Code holt jede der Langform-Eigenschaften, die der Kurzschrift-Eigenschaft `border-top` entsprechen, unter Verwendung der Punktnotation für die Einfachheit.
 
 ```js
 // Get shorthand properties using dot notation
@@ -140,8 +140,8 @@ const compFontWeight = computedStyle.fontWeight;
 log(`"fontWeight" = "${elemFontWeight}" / "${compFontWeight}"'`);
 ```
 
-Schließlich zeigen wir, wie Sie die Punktnotation verwenden können, um einen Eigenschaftswert zu setzen.
-In der folgenden Ergebnissektion werden Sie feststellen, dass der untere Rand des Elements eine solide grüne Linie ist.
+Zuletzt demonstrieren wir, wie Sie die Punktnotation verwenden können, um einen Eigenschaftswert festzulegen.
+In dem folgenden Ergebnisabschnitt werden Sie feststellen, dass die untere Umrandung des Elements ein solides, grünes Linie ist.
 
 ```js
 // Set the bottom border style using dot notation
@@ -150,20 +150,20 @@ elementStyle.borderBottom = "5px solid green";
 
 #### Ergebnisse
 
-Die Ergebnisse sind unten gezeigt.
-Beachten Sie, wie die Werte von den entsprechenden Camelcase- (`borderTop`) und Bindestrich-named (`border-top`) Eigenschaften gleich sind.
-Die lokalen und berechneten Werte für die Langform-Eigenschaften sind oft auch gleich, außer dass berechnete Eigenschaften die `rgb()`-Syntax für Farben verwenden und zusätzlich Styles enthalten, die auf dem übergeordneten `<div>` gesetzt sind, wie z.B. das `font-weight`.
+Die Ergebnisse werden unten angezeigt.
+Beachten Sie, wie die Werte der entsprechenden Camel-Case (`borderTop`) und mit Bindestrich benannten (`border-top`) Eigenschaften gleich sind.
+Die lokalen und berechneten Werte für die Langform-Eigenschaften sind oft auch gleich, mit der Ausnahme, dass berechnete Eigenschaften für Farben `rgb()` Syntax verwenden und zusätzlich Styles beinhalten, die im übergeordneten `<div>` gesetzt sind, wie das `font-weight`.
 
 {{EmbedLiveSample("Basic usage", "100", "250")}}
 
-### Enumerierung der mit Bindestrich benannten Style-Eigenschaften
+### Aufzählen von mit Bindestrich benannten Style-Eigenschaften
 
-Dieses Beispiel zeigt, wie die Werte der mit Bindestrich benannten Eigenschaften eines Elements sowohl für den Inline- als auch den berechneten Style aufgezählt werden.
+Dieses Beispiel demonstriert, wie Sie die mit Bindestrich benannten Eigenschaftswerte eines Elements für sowohl den Inline- als auch den berechneten Stil aufzählen können.
 
 #### HTML
 
-Das HTML definiert ein {{htmlelement("div")}} mit einer Anzahl von gesetzten Styles, verschachtelt in einem anderen, das das `font-weight` setzt.
-Es gibt auch Schaltflächen, um die Inline-Styles und berechneten Styles für das Element abzurufen (und versteckter Code für eine Zurücksetzen-Schaltfläche und Protokollierung).
+Das HTML definiert ein {{htmlelement("div")}} mit einer Anzahl an Styles, die festgelegt sind und in einem anderen, das `font-weight` setzt, verschachtelt sind.
+Es gibt auch Schaltflächen, um die Inline-Styles und die berechneten Styles für das Element zu erhalten (und versteckten Code für eine Reset-Taste und das Logging).
 
 ```html
 <div style="font-weight: bold;">
@@ -210,7 +210,7 @@ reload.addEventListener("click", () => {
 #### JavaScript
 
 Der Code definiert zuerst die Funktion, die wir verwenden werden, um die Eigenschaften unseres Elements mit der ID `elt` aufzuzählen.
-Diese verwendet [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue), um den Wert jeder mit Bindestrich benannten Eigenschaft zu erhalten, die von dem Objekt besessen wird, das einen numerischen Index hat.
+Dies verwendet [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue), um den Wert jeder mit Bindestrich benannten Eigenschaft zu erhalten, die dem Objekt gehört, das einen numerischen Index hat.
 
 ```js
 function getPopulatedProperties(elementStyles) {
@@ -232,7 +232,7 @@ function getPopulatedProperties(elementStyles) {
 ```
 
 Der folgende Code überprüft und protokolliert, ob `CSSStyleProperties` definiert ist.
-Wenn es vorhanden ist, erstellen wir Ereignishandler für die Schaltflächen, um die Inline- oder berechneten Styles für das Element zu erhalten und ihre Namen und Werte zu protokollieren.
+Falls ja, erstellen wir Schaltflächen-Ereignishandler, um die Inline- oder berechneten Styles für das Element zu erhalten und ihre Namen und Werte zu protokollieren.
 
 ```js
 if (typeof window.CSSStyleProperties === "undefined") {
@@ -258,9 +258,9 @@ if (typeof window.CSSStyleProperties === "undefined") {
 
 #### Ergebnisse
 
-Drücken Sie die Schaltflächen, um die Namen und Werte der mit Bindestrich benannten Eigenschaften für die Inline- und berechneten Styles des Elements anzuzeigen.
-Beachten Sie, dass die Inline-Styles nur die auf dem tatsächlichen Element definierten Styles enthalten: alle anderen Eigenschaften haben den Wert `""` und werden nicht angezeigt.
-Die berechneten Styles enthalten auch `font-weight`, das auf dem übergeordneten Element definiert ist, sowie viele andere berechnete Styles.
+Drücken Sie die Schaltflächen, um die mit Bindestrich benannten Eigenschaften-Namen und -Werte für die Inline- und berechneten Styles des Elements anzuzeigen.
+Beachten Sie, dass die Inline-Styles nur die tatsächlich auf dem Element definierten Styles beinhalten: alle anderen Eigenschaften haben den Wert `""` und werden nicht angezeigt.
+Die berechneten Styles beinhalten auch `font-weight`, das im Elternteil definiert ist, und viele andere berechnete Styles.
 
 {{EmbedLiveSample("Enumerate dash-named style properties", "100", "400")}}
 

@@ -2,10 +2,10 @@
 title: background_color
 slug: Web/Progressive_web_apps/Manifest/Reference/background_color
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 1351f23f494656e58195ab8e186cd8946e90adcf
 ---
 
-Der `background_color` Manifest-Mitglied wird verwendet, um eine anfängliche Hintergrundfarbe für Ihre Webanwendung anzugeben. Diese Farbe erscheint im Anwendungsfenster, bevor die Stylesheets Ihrer Anwendung geladen wurden.
+Das `background_color`-Manifestmitglied wird verwendet, um eine anfängliche Hintergrundfarbe für Ihre Webanwendung festzulegen. Diese Farbe erscheint im Anwendungsfenster, bevor die Stylesheets Ihrer Anwendung geladen sind.
 
 ## Syntax
 
@@ -27,24 +27,24 @@ Der `background_color` Manifest-Mitglied wird verwendet, um eine anfängliche Hi
 
 ## Beschreibung
 
-Das `background_color` Mitglied dient folgenden Zwecken:
+Das `background_color`-Mitglied dient folgenden Zwecken:
 
-- Bietet einen sanften visuellen Übergang vom anfänglichen Start der App bis zum vollständig geladenen Zustand.
-- Verbessert das Benutzererlebnis, während die App-Dateien über das Netzwerk geladen oder von Speichermedien abgerufen werden.
-- Trägt zum Erscheinungsbild des Startbildschirms bei, wenn eine installierte progressive Webanwendung (PWA) in einigen Browsern und Betriebssystemen gestartet wird.
+- Es ermöglicht einen reibungslosen visuellen Übergang vom ersten Start der App bis zum vollständig geladenen Zustand.
+- Es verbessert die Benutzererfahrung, während die App-Dateien über das Netzwerk geladen oder von Speichermedien abgerufen werden.
+- Es trägt zum Erscheinungsbild des Begrüßungsbildschirms in manchen Browsern und Betriebssystemen bei, wenn eine installierte Progressive Web App (PWA) gestartet wird.
 
-Es wird empfohlen, dass der Farbwert, den Sie für das `background_color` Manifest-Mitglied angeben, dem Wert der {{cssxref("background-color")}} Eigenschaft im Stylesheet Ihrer App entspricht. Dies stellt eine visuelle Konsistenz zwischen der anfänglichen Darstellung (einschließlich des Startbildschirms, falls zutreffend) und der vollständig geladene Anwendung sicher. Durch die Angleichung dieser Farben können Sie ein eleganteres und nahtloseres Erlebnis für Ihre Benutzer schaffen.
+Es wird empfohlen, dass der für das `background_color`-Manifestmitglied angegebene Farbwert mit dem Wert der {{cssxref("background-color")}}-Eigenschaft im Stylesheet Ihrer App übereinstimmt. Dies gewährleistet visuelle Konsistenz zwischen der anfänglichen Anzeige (einschließlich des Begrüßungsbildschirms, falls zutreffend) und der vollständig geladenen Anwendung. Indem Sie diese Farben abstimmen, schaffen Sie ein polierteres und nahtloses Erlebnis für Ihre Benutzer.
 
-Nach dem Laden einer App hat die `background-color` im Stylesheet Vorrang. Das `background_color` im Manifest wird nur als temporäre Maßnahme während der anfänglichen Ladephase und zur Erstellung von Startbildschirmen in einigen Umgebungen verwendet.
+Nachdem eine App geladen ist, hat die `background-color` im Stylesheet Vorrang. Das `background_color` des Manifests wird nur während der anfänglichen Ladephase und zur Erstellung von Begrüßungsbildschirmen in einigen Umgebungen als temporäre Maßnahme verwendet.
 
 > [!NOTE]
-> Browser können den `background_color` Manifestwert überschreiben, um jede [`prefers-color-scheme`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme) Media Query zu unterstützen, die in Ihrem CSS der App definiert sind.
+> Browser können den `background_color`-Manifestwert überschreiben, um jede in Ihrem CSS definierte {{cssxref("@media/prefers-color-scheme")}}-Media Query zu unterstützen.
 
 ## Beispiele
 
 ### Eine konsistente Hintergrundfarbe für Ihre App festlegen
 
-Stellen Sie sich vor, Sie erstellen eine Wetter-App, und die Hintergrundfarbe im Stylesheet Ihrer App ist wie unten gezeigt gesetzt:
+Stellen Sie sich vor, Sie bauen eine Wetter-App und die Hintergrundfarbe im Stylesheet Ihrer App ist wie unten gezeigt festgelegt:
 
 ```css
 body {
@@ -52,7 +52,7 @@ body {
 }
 ```
 
-Um sicherzustellen, dass Ihre Benutzer eine konsistente Hintergrundfarbe vom Start bis zum vollständigen Laden Ihrer App sehen, würden Sie dieselbe Hintergrundfarbe in der Manifestdatei Ihrer App wie folgt festlegen:
+Um sicherzustellen, dass Ihre Benutzer von Start bis zum vollständigen Laden Ihrer App eine konsistente Hintergrundfarbe sehen, würden Sie dieselbe Hintergrundfarbe in der Manifestdatei Ihrer App wie folgt festlegen:
 
 ```json
 {
@@ -80,6 +80,6 @@ Um sicherzustellen, dass Ihre Benutzer eine konsistente Hintergrundfarbe vom Sta
 
 ## Siehe auch
 
-- [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display) Manifest-Mitglied
-- [`theme_color`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/theme_color) Manifest-Mitglied
-- [Passen Sie die Themen- und Hintergrundfarben Ihrer App an](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors) beim Erstellen von PWAs
+- [`display`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display)-Manifestmitglied
+- [`theme_color`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/theme_color)-Manifestmitglied
+- [Passen Sie die Themen- und Hintergrundfarben Ihrer App an](/de/docs/Web/Progressive_web_apps/How_to/Customize_your_app_colors), wenn Sie PWAs erstellen.

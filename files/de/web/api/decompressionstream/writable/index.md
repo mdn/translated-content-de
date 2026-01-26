@@ -3,12 +3,12 @@ title: "DecompressionStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/DecompressionStream/writable
 l10n:
-  sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
+  sourceCommit: ae6626ec9a5729a51f202b77586f37958088ed77
 ---
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`writable`**-Eigenschaft der [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
+Die **`writable`** schreibgeschützte Eigenschaft des [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Interfaces gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück, der komprimierte Daten zur Dekomprimierung in Form von {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}-Chunks akzeptiert.
 
 ## Wert
 
@@ -16,11 +16,31 @@ Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) von einem `DecompressionStream` zurück.
+Dieses Beispiel erstellt einen `DecompressionStream`, der eine gzip-Dekomprimierung durchführt. Es schreibt einige komprimierte Binärdaten in den `writable`-Stream und liest dann die dekomprimierten Daten aus dem `readable`-Stream, wobei es diese als UTF-8-Text decodiert.
 
 ```js
-let stream = new DecompressionStream("gzip");
-console.log(stream.writable); // A WritableStream
+const stream = new DecompressionStream("gzip");
+
+// Write data to be compressed
+const data = Uint8Array.fromBase64(
+  "H4sIAAAAAAAAE/NIzcnJ11Eozy/KSVEEAObG5usNAAAA",
+);
+const writer = stream.writable.getWriter();
+writer.write(data);
+writer.close();
+
+// Read compressed data
+const reader = stream.readable.getReader();
+let done = false;
+let output = [];
+while (!done) {
+  const result = await reader.read();
+  if (result.value) {
+    output.push(...result.value);
+  }
+  done = result.done;
+}
+console.log(new TextDecoder().decode(new Uint8Array(output))); // Hello, world!
 ```
 
 ## Spezifikationen
@@ -30,3 +50,7 @@ console.log(stream.writable); // A WritableStream
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`TransformStream.writable`](/de/docs/Web/API/TransformStream/writable)

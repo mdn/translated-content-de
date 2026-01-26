@@ -3,12 +3,10 @@ title: Temporal.ZonedDateTime.prototype.toString()
 short-title: toString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/toString
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
-
-Die **`toString()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt einen String zurück, der dieses Datum-Uhrzeit in dem [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt.
+Die **`toString()`** Methode von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt einen String zurück, der dieses Datum-Zeit-Wert im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format) darstellt.
 
 ## Syntax
 
@@ -20,41 +18,41 @@ toString(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgende Eigenschaft enthält:
+  - : Ein Objekt mit der folgenden Eigenschaft:
     - `calendarName` {{optional_inline}}
-      - : Ob die Kalenderannotation (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
+      - : Ob die Kalender-Anmerkung (`[u-ca=calendar_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Inkludieren Sie die Kalenderannotation, wenn der Kalender nicht `"iso8601"` ist.
+          - : Die Kalender-Anmerkung wird einbezogen, wenn der Kalender nicht `"iso8601"` ist.
         - `"always"`
-          - : Die Kalenderannotation immer inkludieren.
+          - : Die Kalender-Anmerkung wird immer einbezogen.
         - `"never"`
-          - : Die Kalenderannotation nie inkludieren. Dies macht den zurückgegebenen String nicht wiederherstellbar zur gleichen {{jsxref("Temporal.ZonedDateTime")}} Instanz, obwohl der Datumswert gleich bleibt.
+          - : Die Kalender-Anmerkung wird nie einbezogen. Dadurch kann der zurückgegebene String nicht in dieselbe {{jsxref("Temporal.ZonedDateTime")}} Instanz zurückverwandelt werden, obwohl der Datumswert gleich bleibt.
         - `"critical"`
-          - : Immer die Kalenderannotation inkludieren und ein kritisches Flag hinzufügen: `[!u-ca=calendar_id]`. Nützlich, wenn Sie den String an bestimmte Systeme senden, aber nicht für Temporal selbst.
+          - : Die Kalender-Anmerkung wird immer einbezogen und ein kritisches Flag wird hinzugefügt: `[!u-ca=calendar_id]`. Nützlich, wenn der String an bestimmte Systeme gesendet wird, jedoch nicht nützlich für Temporal selbst.
     - `fractionalSecondDigits` {{optional_inline}}
-      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Der Standard ist `"auto"`. Wenn `"auto"`, dann werden nachgestellte Nullen von den Bruchteilen der Sekunden entfernt. Andernfalls enthält der Bruchteil der Sekundeneinheit so viele Ziffern, die mit Nullen aufgefüllt oder bei Bedarf gerundet werden.
+      - : Entweder eine ganze Zahl von 0 bis 9 oder der String `"auto"`. Die Standardeinstellung ist `"auto"`. Wenn `"auto"`, werden führende Nullen von den Bruchteilen der Sekunden entfernt. Ansonsten enthält der Bruchteil der Sekundenkomponente so viele Ziffern, die bei Bedarf mit Nullen aufgefüllt oder gerundet werden.
     - `roundingMode` {{optional_inline}}
-      - : Ein String, der angibt, wie die Bruchteile der Sekundenziffern über `fractionalSecondDigits` hinaus gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standard ist `"trunc"`.
+      - : Ein String, der angibt, wie die Bruchteile von Sekundenziffern jenseits von `fractionalSecondDigits` gerundet werden sollen. Siehe [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). Standardmäßig `"trunc"`.
     - `smallestUnit` {{optional_inline}}
-      - : Ein String, der die kleinste Einheit angibt, die in der Ausgabe inkludiert werden soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"` oder deren Pluralformen, die (außer `"minute"`) den `fractionalSecondDigits` Werten von `0`, `3`, `6`, `9` entsprechen. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
+      - : Ein String, der die kleinste Einheit angibt, die in der Ausgabe enthalten sein soll. Mögliche Werte sind `"minute"`, `"second"`, `"millisecond"`, `"microsecond"` und `"nanosecond"` oder deren Pluralformen, die (außer `"minute"`) den `fractionalSecondDigits` Werten `0`, `3`, `6`, `9` entsprechen. Wenn angegeben, wird `fractionalSecondDigits` ignoriert.
     - `timeZoneName` {{optional_inline}}
       - : Ob der Name der Zeitzone (`[time_zone_id]`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Immer den Namen der Zeitzone inkludieren.
+          - : Der Zeitzonenname wird immer einbezogen.
         - `"never"`
-          - : Den Namen der Zeitzone nie inkludieren. Dies macht den zurückgegebenen String nicht wiederherstellbar zur gleichen {{jsxref("Temporal.ZonedDateTime")}} Instanz.
+          - : Der Zeitzonenname wird nie einbezogen. Dies macht den zurückgegebenen String nicht zu derselben {{jsxref("Temporal.ZonedDateTime")}} Instanz rückverwandelt.
         - `"critical"`
-          - : Immer den Namen der Zeitzone inkludieren und ein kritisches Flag hinzufügen: `[!time)zone_id]`. Nützlich, wenn Sie den String an bestimmte Systeme senden, aber nicht für Temporal selbst.
+          - : Der Zeitzonenname wird immer einbezogen und ein kritisches Flag wird hinzugefügt: `[!time)zone_id]`. Nützlich, wenn der String an bestimmte Systeme gesendet wird, jedoch nicht nützlich für Temporal selbst.
     - `offset` {{optional_inline}}
       - : Ob der Offset (`±HH:mm`) im Rückgabewert angezeigt werden soll. Mögliche Werte sind:
         - `"auto"` (Standard)
-          - : Immer den Offset inkludieren.
+          - : Der Offset wird immer einbezogen.
         - `"never"`
-          - : Den Offset nie inkludieren. Dies macht den zurückgegebenen String nicht wiederherstellbar zur gleichen {{jsxref("Temporal.ZonedDateTime")}} Instanz, wenn die Zeitzone inkludiert ist, die Uhrzeit jedoch mehrdeutig ist, oder wenn die Zeitzone auch nicht inkludiert ist.
+          - : Der Offset wird nie einbezogen. Dies macht den zurückgegebenen String nicht zu derselben {{jsxref("Temporal.ZonedDateTime")}} Instanz rückverwandelt, wenn die Zeitzone enthalten ist, aber die Zeit mehrdeutig ist oder wenn die Zeitzone ebenfalls nicht enthalten ist.
 
 ### Rückgabewert
 
-Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format), der diese Datum-Uhrzeit darstellt. Der Offset und die Kalender-/Zeitzonen-Annotationen sind wie angegeben inkludiert.
+Ein String im [RFC 9557 Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime#rfc_9557_format), der dieses Datum-Zeit-Wert darstellt. Der Offset und Kalender/Zeitzonen-Anmerkungen sind wie angegeben enthalten.
 
 ### Ausnahmen
 
@@ -74,7 +72,7 @@ const zdt = Temporal.ZonedDateTime.from(
 console.log(zdt.toString()); // '2021-08-01T12:34:56-04:00[America/New_York]'
 ```
 
-Auch für die `UTC` Zeitzone ist der Offset `+00:00`, nicht `Z`:
+Selbst für die `UTC` Zeitzone ist der Offset `+00:00`, nicht `Z`:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from("2021-08-01T12:34:56[UTC]");
@@ -83,7 +81,7 @@ console.log(zdt.toString()); // '2021-08-01T12:34:56+00:00[UTC]'
 
 ### Verwendung von Optionen
 
-Für Beispiele mit gerundeten Zeiten siehe {{jsxref("Temporal/PlainTime/toString", "Temporal.PlainTime.prototype.toString()")}}. Für Beispiele zur Anzeige von Kalendern siehe {{jsxref("Temporal/PlainDate/toString", "Temporal.PlainDate.prototype.toString()")}}. Hier zeigen wir, wie die Anzeige von Zeitzone und Offset gesteuert wird:
+Für Beispiele mit Rundungszeiten siehe {{jsxref("Temporal/PlainTime/toString", "Temporal.PlainTime.prototype.toString()")}}. Für Beispiele mit der Anzeige von Kalendern siehe {{jsxref("Temporal/PlainDate/toString", "Temporal.PlainDate.prototype.toString()")}}. Hier zeigen wir die Steuerung der Anzeige von Zeitzone und Offset:
 
 ```js
 const zdt = Temporal.ZonedDateTime.from(

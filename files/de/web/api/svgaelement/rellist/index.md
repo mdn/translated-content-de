@@ -3,23 +3,22 @@ title: "SVGAElement: relList-Eigenschaft"
 short-title: relList
 slug: Web/API/SVGAElement/relList
 l10n:
-  sourceCommit: 99d723c4f77d7f537292a07dd7b5e5c13cb610da
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("SVG")}}
 
-Die **`relList`** schreibgeschützte Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die die durch Leerzeichen getrennten Zeichenfolgen [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel)-Werte des `rel`-Attributs des SVG {{svgelement("a")}}-Elements widerspiegelt.
-
-Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die
-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht durch eine andere ersetzen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
+Die schreibgeschützte **`relList`**-Eigenschaft des [`SVGAElement`](/de/docs/Web/API/SVGAElement) gibt eine Live-Instanz von [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die die durch Leerzeichen getrennte Zeichenkettenwerte [`<list-of-Link-Types>`](/de/docs/Web/HTML/Reference/Attributes/rel) des `rel`-Attributs des SVG-{{svgelement("a")}}-Elements widerspiegelt.
 
 ## Wert
 
-Eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
+Eine Live-Instanz von [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
+
+Obwohl die `relList`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `DOMTokenList`-Objekt nicht ersetzen können, können Sie dennoch direkt auf die `relList`-Eigenschaft zuweisen, was gleichbedeutend mit einer Zuweisung zu ihrer [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft ist. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) ändern.
 
 ## Beispiele
 
-Angenommen, das folgende SVG:
+Gegeben sei folgendes SVG:
 
 ```html
 <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">

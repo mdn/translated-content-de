@@ -3,25 +3,27 @@ title: "NavigateEvent: sourceElement-Eigenschaft"
 short-title: sourceElement
 slug: Web/API/NavigateEvent/sourceElement
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 06ab986fc58ffb4e12b9f9962ee3c2783ce1290b
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`sourceElement`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt ein [`Element`](/de/docs/Web/API/Element)-Objekt zurück, das das auslösende Element darstellt, in Fällen, in denen die Navigation durch ein Element initiiert wurde.
+Die **`sourceElement`**-Eigenschaft der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein [`Element`](/de/docs/Web/API/Element)-Objekt zurückgibt, das das auslösende Element darstellt, falls die Navigation von einem Element initiiert wurde.
 
 Das auslösende Element kann sein:
 
-- Ein HTML {{htmlelement("a")}}-Element (oder SVG [`<a>`](/de/docs/Web/SVG/Reference/Element/a)-Element).
+- Ein HTML {{htmlelement("a")}}-Element (oder ein SVG [`<a>`](/de/docs/Web/SVG/Reference/Element/a)-Element).
 - Ein {{htmlelement("area")}}-Element.
-- Ein Submit-Button ([`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit) oder [`<button type="submit">`](/de/docs/Web/HTML/Reference/Elements/button)).
-- Ein übermitteltes {{htmlelement("form")}}-Element.
+- Eine Schaltfläche zum Absenden ([`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit) oder [`<button type="submit">`](/de/docs/Web/HTML/Reference/Elements/button)).
+- Ein abgesendetes {{htmlelement("form")}}-Element.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das Element darstellt, das die Navigation initiiert hat, oder `null`, wenn die Navigation nicht durch ein Element initiiert wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das Element darstellt, das die Navigation initiiert hat, oder `null`, wenn die Navigation nicht von einem Element initiiert wurde.
 
 ## Beispiele
+
+### Abrufen des `sourceElement` für ein Ereignis
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -39,5 +41,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Beschreibung](https://github.com/WICG/navigation-api/blob/main/README.md)

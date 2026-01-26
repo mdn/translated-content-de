@@ -1,11 +1,12 @@
 ---
-title: Ceil
-slug: WebAssembly/Reference/Numeric/Ceil
+title: "ceil: Wasm-Textanweisung"
+short-title: ceil
+slug: WebAssembly/Reference/Numeric/ceil
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`ceil`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, die auf die nächste ganze Zahl aufgerundet wird.
+Die **`ceil`**-Anweisungen werden verwendet, um den Wert einer Zahl abzurufen, die auf die nächste ganze Zahl aufgerundet wird.
 
 {{InteractiveExample("Wat Demo: ceil", "tabbed-standard")}}
 

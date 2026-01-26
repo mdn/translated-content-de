@@ -1,58 +1,58 @@
 ---
-title: CSS-Skopierung
+title: CSS Scoping
 short-title: Scoping
 slug: Web/CSS/Guides/Scoping
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Das **CSS-Skopierungsmodul** definiert die Mechanismen der CSS-Skopierung und -Kapselung, wobei der Fokus auf dem [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) [Skopierungsmechanismus](https://css.oddbird.net/scope/) liegt.
+Das **CSS Scoping**-Modul definiert die Mechanismen zur CSS-Eingrenzung und -Kapselung und konzentriert sich auf den [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) [Eingrenzungs](https://css.oddbird.net/scope/)-Mechanismus.
 
-CSS-Stile sind entweder global im Umfang oder auf einen {{Glossary("shadow_tree", "shadow tree")}} beschränkt. Global skopierte Stile gelten für alle Elemente im Knotenbaum, die dem Selektor entsprechen, einschließlich benutzerdefinierter Elemente in diesem Baum, jedoch nicht für die Schattenbäume, die jedes benutzerdefinierte Element zusammensetzen. Selektoren und ihre zugehörigen Stildefinitionen durchdringen keine Skopen.
+CSS-Stile sind entweder global oder auf einen {{Glossary("shadow_tree", "shadow tree")}} beschränkt. Global eingrenzte Stile gelten für alle Elemente im Knotenbaum, die dem Selektor entsprechen, einschließlich benutzerdefinierter Elemente in diesem Baum, jedoch nicht für die Shadow Trees, die jedes benutzerdefinierte Element zusammensetzen. Selektoren und ihre zugehörigen Stildefinitionen bluten nicht zwischen den Eingrenzungen.
 
-Innerhalb des CSS eines shadow trees wählen Selektoren keine Elemente außerhalb des Baums, weder im globalen Skopus noch in anderen shadow trees. Jedes benutzerdefinierte Element hat seinen eigenen shadow tree, der alle Komponenten enthält, die das benutzerdefinierte Element ausmachen (jedoch nicht das benutzerdefinierte Element oder den "Host" selbst).
+Innerhalb des CSS eines Shadow Trees wählen Selektoren keine Elemente außerhalb des Baums aus, weder im globalen Bereich noch in anderen Shadow Trees. Jedes benutzerdefinierte Element hat seinen eigenen Shadow Tree, der alle Komponenten enthält, die das benutzerdefinierte Element ausmachen (aber nicht das benutzerdefinierte Element oder den "Host" selbst).
 
-Manchmal ist es nützlich, einen Host aus dem Kontext des shadow trees heraus zu stylen. Das CSS-Skopierungsmodul macht dies möglich, indem es Selektoren definiert, die:
+Manchmal ist es nützlich, einen Host aus dem Kontext des Shadow Trees heraus zu gestalten. Das CSS Scoping-Modul macht dies möglich, indem es Selektoren definiert, die:
 
-- einem shadow tree ermöglichen, seinen Host zu stylen.
-- externem CSS erlauben, Elemente innerhalb eines Shadow DOM zu stylen (jedoch nur, wenn das zugehörige benutzerdefinierte Element so eingerichtet ist, externe Stile zu akzeptieren).
+- Es einem Shadow Tree ermöglichen, seinen Host zu gestalten.
+- Externem CSS ermöglichen, Elemente innerhalb eines Shadow DOM zu gestalten (aber nur, wenn das zugehörige benutzerdefinierte Element so eingerichtet ist, dass es externe Stile akzeptiert).
 
 ## Referenz
 
 ### Selektoren
 
 - {{CSSXref(":host")}}
-- {{CSSXref(":host_function", ":host()")}}
-- {{CSSXref(":host-context", ":host-context()")}}
+- {{CSSXref(":host()")}}
+- {{cssxref(":host-context()")}}
 - {{CSSXref("::slotted")}}
 
 ## Leitfäden
 
-- [Webkomponenten](/de/docs/Web/API/Web_components)
-  - : Eine Einführung in die verschiedenen Technologien zur Erstellung wiederverwendbarer Webkomponenten — benutzerdefinierte Elemente, deren Funktionalität vom Rest Ihres Codes gekapselt ist.
+- [Web Components](/de/docs/Web/API/Web_components)
+  - : Eine Einführung in die verschiedenen Technologien, die verwendet werden, um wiederverwendbare Webkomponenten zu erstellen — benutzerdefinierte Elemente, deren Funktionalität vom Rest Ihres Codes gekapselt ist.
 
 - [Verwendung von Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
-  - : Grundlagen des Shadow DOM, einschließlich des Anbindens eines Shadow DOM an ein Element, Hinzufügens zum Shadow DOM-Baum und Styling.
+  - : Grundlagen des Shadow DOM, einschließlich der Anfügung eines Shadow DOM an ein Element, der Hinzufügung zum Shadow DOM-Baum und der Gestaltung.
 
 - [Verwendung von Vorlagen und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
-  - : Definition wiederverwendbarer HTML-Strukturen mit Hilfe der Elemente {{htmlelement("template")}} und {{htmlelement("slot")}} und Nutzung dieser Strukturen innerhalb von Webkomponenten.
+  - : Definition einer wiederverwendbaren HTML-Struktur mit den {{htmlelement("template")}} - und {{htmlelement("slot")}}-Elementen und Verwendung dieser Struktur in Webkomponenten.
 
-- [Verwendung benutzerdefinierter Elemente](/de/docs/Web/API/Web_components/Using_custom_elements)
-  - : Einführung in die benutzerdefinierte Elemente-API, die JavaScript-API zur Erstellung benutzerdefinierter Elemente, die Funktionalität kapseln.
+- [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)
+  - : Einführung in die Custom Elements API, die JavaScript-API, die verwendet wird, um benutzerdefinierte Elemente zu erstellen, die Funktionalität kapseln.
 
 ## Verwandte Konzepte
 
-- CSS {{CSSXref(":defined")}} Pseudoklasse
-- CSS {{CSSXref("::part")}} Pseudoelement
+- CSS {{CSSXref(":defined")}} Pseudo-Klasse
+- CSS {{CSSXref("::part")}} Pseudo-Element
 
 - HTML {{HTMLElement("template")}} Element
 - HTML {{HTMLElement("slot")}} Element
 - HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot) Attribut
 
-- {{Glossary("Shadow_tree", "Shadow tree")}} Glossarbegriff
+- {{Glossary("Shadow_tree", "Verzeichnisbaum")}} Glossarbegriff
 - {{Glossary("DOM", "DOM")}} Glossarbegriff
-- [Zusammengesetzter Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) Begriff
-- [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) Begriff
+- [Verbundener Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) Begriff
+- [Selektoren-Liste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) Begriff
 
 - [Webkomponenten](/de/docs/Web/API/Web_components) Schnittstellen, Eigenschaften und Methoden
   - [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) Schnittstelle
@@ -65,7 +65,7 @@ Manchmal ist es nützlich, einen Host aus dem Kontext des shadow trees heraus zu
   - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
 
 > [!NOTE]
-> Trotz des Namens wird die {{CSSXref(":scope")}} Pseudoklasse, die Elemente repräsentiert, die einen Referenzpunkt (oder Skopus) für Selektoren darstellen, in dem [Selectors](/de/docs/Web/CSS/Guides/Selectors) Modul definiert. Sie ist ansonsten nicht mit dem CSS-Skopierungsmodul verwandt, das sich auf das Skopieren im Hinblick auf den Shadow DOM-Skopierungsmechanismus konzentriert.
+> Trotz des Namens wird die {{CSSXref(":scope")}} Pseudo-Klasse, die Elemente darstellt, die einen Referenzpunkt (oder Scope) für Selektoren darstellen, im [Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul definiert. Sie ist ansonsten nicht mit dem CSS Scoping-Modul verwandt, das sich auf Eingrenzungen bezieht, die den Shadow DOM Scoping-Mechanismus betreffen.
 
 ## Spezifikationen
 
@@ -73,9 +73,9 @@ Manchmal ist es nützlich, einen Host aus dem Kontext des shadow trees heraus zu
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
-- [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
-- [CSS-Namespace](/de/docs/Web/CSS/Guides/Namespaces) Modul
-- [CSS-Shadow-Parts](/de/docs/Web/CSS/Guides/Shadow_parts) Modul
-- [Vorlage, Slot und Shadow](https://web.dev/learn/html/template/) auf web.dev (2023)
-- [Beste Praktiken für benutzerdefinierte Elemente](https://web.dev/articles/custom-elements-best-practices) auf web.dev (2019)
+- [CSS Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- [CSS Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
+- [CSS Namespaces](/de/docs/Web/CSS/Guides/Namespaces) Modul
+- [CSS Shadow-Parts](/de/docs/Web/CSS/Guides/Shadow_parts) Modul
+- [Template, Slot und Shadow](https://web.dev/learn/html/template/) auf web.dev (2023)
+- [Best Practices für benutzerdefinierte Elemente](https://web.dev/articles/custom-elements-best-practices) auf web.dev (2019)

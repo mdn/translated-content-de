@@ -3,16 +3,14 @@ title: Temporal.PlainYearMonth.prototype.calendarId
 short-title: calendarId
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainYearMonth/calendarId
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die Zugriffseigenschaft **`calendarId`** von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen String zurück, der den [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) repräsentiert, mit dem das interne ISO 8601-Datum interpretiert wird.
 
-Die **`calendarId`** Accessor-Eigenschaft von {{jsxref("Temporal.PlainYearMonth")}}-Instanzen gibt einen String zurück, der den verwendeten [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) zur Interpretation des internen ISO 8601-Datums darstellt.
+Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste der häufig unterstützten Kalendertypen.
 
-Siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) für eine Liste häufig unterstützter Kalendertypen.
-
-Der set-Accessor von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, ein neues `Temporal.PlainYearMonth`-Objekt mit einem anderen Kalender zu erstellen, das denselben Jahr-Monat darstellt. Daher müssen Sie es zuerst in ein {{jsxref("Temporal.PlainDate")}}-Objekt mit {{jsxref("Temporal/PlainYearMonth/toPlainDate", "toPlainDate()")}} umwandeln, den Kalender ändern und es dann zurückkonvertieren.
+Der Set-Zugriff von `calendarId` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Es gibt keinen offensichtlichen Weg, um ein neues `Temporal.PlainYearMonth`-Objekt mit einem anderen Kalender zu erstellen, das dasselbe Jahr-Monat repräsentiert, daher müssen Sie es zuerst in ein {{jsxref("Temporal.PlainDate")}}-Objekt umwandeln, den Kalender ändern und es dann zurück konvertieren.
 
 ## Beispiele
 
@@ -45,11 +43,11 @@ console.log(newYM2.year, newYM2.monthCode); // 2021 "M06"
 
 ## Spezifikationen
 
-{{Specifications}}
+{{Spezifikationen}}
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+{{Kompatibilität}}
 
 ## Siehe auch
 

@@ -2,21 +2,22 @@
 title: SVGAnimatedString
 slug: Web/API/SVGAnimatedString
 l10n:
-  sourceCommit: 226ac33eb70ed5411dd2d68bd602c80cafd780b6
+  sourceCommit: a809326f55025ca710b11e6c46414d73d031bf2b
 ---
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimatedString`**-Schnittstelle repräsentiert Zeichenfolgenattribute, die von jeder SVG-Deklaration animiert werden können. Sie müssen zunächst ein SVG-Attribut erstellen, bevor Sie irgendetwas anderes tun. Alles sollte darin deklariert werden.
+Die **`SVGAnimatedString`**-Schnittstelle repräsentiert Zeichenfolgenattribute, die von jeder SVG-Deklaration aus animiert werden können. Sie müssen zuerst ein SVG-Attribut erstellen, bevor Sie irgendetwas anderes tun. Alles sollte innerhalb davon deklariert werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`SVGAnimatedString.animVal`](/de/docs/Web/API/SVGAnimatedString/animVal) {{ReadOnlyInline}}
-  - : Dies ist eine Zeichenfolge, die den Animationswert darstellt. Wenn das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es den gleichen Wert wie `baseVal`.
+  - : Eine Zeichenfolge, die den animierten Wert des reflektierten Attributwerts darstellt.
+    Wenn das angegebene Attribut derzeit nicht animiert wird, enthält es denselben Wert wie `baseVal`.
 - [`SVGAnimatedString.baseVal`](/de/docs/Web/API/SVGAnimatedString/baseVal)
-  - : Dies ist eine Zeichenfolge, die den Basiswert darstellt. Der Basiswert des gegebenen Attributs vor Anwendung von Animationen. Der Setter wirft einen `DOMException`.
+  - : Eine Zeichenfolge, die den Basiswert des reflektierten Attributs darstellt, bevor irgendwelche Animationen angewendet werden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Die `SVGAnimatedString`-Schnittstelle bietet keine spezifischen Methoden._
 
@@ -27,3 +28,7 @@ _Die `SVGAnimatedString`-Schnittstelle bietet keine spezifischen Methoden._
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href), ein Objekt dieses Typs.

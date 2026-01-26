@@ -2,11 +2,10 @@
 title: ::cue
 slug: Web/CSS/Reference/Selectors/::cue
 l10n:
-  sourceCommit: 21da3683d67c91c9a75a1c3fe98d406c82d8bf8b
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Der **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) stimmt mit [WebVTT](/de/docs/Web/API/WebVTT_API) Cues innerhalb eines ausgewählten Elements überein.
-Dies kann verwendet werden, um [Untertitel und andere Cues zu stylen](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks.
+Das **`::cue`** [CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) stimmt mit [WebVTT](/de/docs/Web/API/WebVTT_API)-Hinweisen innerhalb eines ausgewählten Elements überein. Dies kann verwendet werden, um [Beschriftungen und andere Hinweise](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks zu gestalten.
 
 {{InteractiveExample("CSS Demo: ::cue", "tabbed-shorter")}}
 
@@ -36,9 +35,9 @@ video::cue {
 </video>
 ```
 
-Die Eigenschaften werden auf die gesamte Menge von Cues angewendet, als ob sie eine einzelne Einheit wären. Die einzige Ausnahme ist, dass `background` und seine Langschreibweisen auf jeden Cue einzeln angewendet werden, um zu vermeiden, dass Boxen entstehen und unerwartet große Bereiche des Mediums verdeckt werden.
+Die Eigenschaften werden auf das gesamte Set von Hinweisen angewendet, als ob sie eine einzige Einheit wären. Die einzige Ausnahme ist, dass `background` und seine Einzel-Eigenschaften auf jeden Hinweis einzeln angewendet werden, um das Erstellen von Kästen und das unerwartet große Bereiche der Medien verdecken zu vermeiden.
 
-Im obigen Beispiel wählt der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u) Elemente innerhalb [des Cue-Texts](https://github.com/mdn/shared-assets/blob/main/misc/friday.vtt) aus.
+Im obigen Beispiel wählt der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u)-Elemente innerhalb [des Hinweistextes](https://github.com/mdn/shared-assets/blob/main/misc/friday.vtt) aus.
 
 ## Syntax
 
@@ -52,45 +51,45 @@ Im obigen Beispiel wählt der `::cue(u)`-Selektor alle [`<u>`](/de/docs/Web/HTML
 
 Regeln, deren Selektoren dieses Element einschließen, dürfen nur die folgenden CSS-Eigenschaften verwenden:
 
-- [`background`](/de/docs/Web/CSS/Reference/Properties/background)
-- [`background-attachment`](/de/docs/Web/CSS/Reference/Properties/background-attachment)
-- [`background-clip`](/de/docs/Web/CSS/Reference/Properties/background-clip)
-- [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color)
-- [`background-image`](/de/docs/Web/CSS/Reference/Properties/background-image)
-- [`background-origin`](/de/docs/Web/CSS/Reference/Properties/background-origin)
-- [`background-position`](/de/docs/Web/CSS/Reference/Properties/background-position)
-- [`background-repeat`](/de/docs/Web/CSS/Reference/Properties/background-repeat)
-- [`background-size`](/de/docs/Web/CSS/Reference/Properties/background-size)
-- [`color`](/de/docs/Web/CSS/Reference/Properties/color)
-- [`font`](/de/docs/Web/CSS/Reference/Properties/font)
-- [`font-family`](/de/docs/Web/CSS/Reference/Properties/font-family)
-- [`font-size`](/de/docs/Web/CSS/Reference/Properties/font-size)
-- [`font-stretch`](/de/docs/Web/CSS/Reference/Properties/font-stretch)
-- [`font-style`](/de/docs/Web/CSS/Reference/Properties/font-style)
-- [`font-variant`](/de/docs/Web/CSS/Reference/Properties/font-variant)
-- [`font-weight`](/de/docs/Web/CSS/Reference/Properties/font-weight)
-- [`line-height`](/de/docs/Web/CSS/Reference/Properties/line-height)
-- [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity)
-- [`outline`](/de/docs/Web/CSS/Reference/Properties/outline)
-- [`outline-color`](/de/docs/Web/CSS/Reference/Properties/outline-color)
-- [`outline-style`](/de/docs/Web/CSS/Reference/Properties/outline-style)
-- [`outline-width`](/de/docs/Web/CSS/Reference/Properties/outline-width)
-- [`ruby-position`](/de/docs/Web/CSS/Reference/Properties/ruby-position)
-- [`text-combine-upright`](/de/docs/Web/CSS/Reference/Properties/text-combine-upright)
-- [`text-decoration`](/de/docs/Web/CSS/Reference/Properties/text-decoration)
-- [`text-decoration-color`](/de/docs/Web/CSS/Reference/Properties/text-decoration-color)
-- [`text-decoration-line`](/de/docs/Web/CSS/Reference/Properties/text-decoration-line)
-- [`text-decoration-style`](/de/docs/Web/CSS/Reference/Properties/text-decoration-style)
-- [`text-decoration-thickness`](/de/docs/Web/CSS/Reference/Properties/text-decoration-thickness)
-- [`text-shadow`](/de/docs/Web/CSS/Reference/Properties/text-shadow)
-- [`visibility`](/de/docs/Web/CSS/Reference/Properties/visibility)
-- [`white-space`](/de/docs/Web/CSS/Reference/Properties/white-space)
+- {{cssxref("background")}}
+- {{cssxref("background-attachment")}}
+- {{cssxref("background-clip")}}
+- {{cssxref("background-color")}}
+- {{cssxref("background-image")}}
+- {{cssxref("background-origin")}}
+- {{cssxref("background-position")}}
+- {{cssxref("background-repeat")}}
+- {{cssxref("background-size")}}
+- {{cssxref("color")}}
+- {{cssxref("font")}}
+- {{cssxref("font-family")}}
+- {{cssxref("font-size")}}
+- {{cssxref("font-stretch")}}
+- {{cssxref("font-style")}}
+- {{cssxref("font-variant")}}
+- {{cssxref("font-weight")}}
+- {{cssxref("line-height")}}
+- {{cssxref("opacity")}}
+- {{cssxref("outline")}}
+- {{cssxref("outline-color")}}
+- {{cssxref("outline-style")}}
+- {{cssxref("outline-width")}}
+- {{cssxref("ruby-position")}}
+- {{cssxref("text-combine-upright")}}
+- {{cssxref("text-decoration")}}
+- {{cssxref("text-decoration-color")}}
+- {{cssxref("text-decoration-line")}}
+- {{cssxref("text-decoration-style")}}
+- {{cssxref("text-decoration-thickness")}}
+- {{cssxref("text-shadow")}}
+- {{cssxref("visibility")}}
+- {{cssxref("white-space")}}
 
 ## Beispiele
 
-### Styling von WebVTT-Cues als Weiß-auf-Schwarz
+### Gestaltung von WebVTT-Hinweisen als Weiß-auf-Schwarz
 
-Das folgende CSS setzt den Cue-Stil so, dass der Text weiß ist und der Hintergrund eine transparente schwarze Box ist.
+Der folgende CSS-Code setzt den Stil der Hinweise so, dass der Text weiß ist und der Hintergrund ein durchsichtiges schwarzes Feld ist.
 
 ```css
 ::cue {
@@ -99,18 +98,16 @@ Das folgende CSS setzt den Cue-Stil so, dass der Text weiß ist und der Hintergr
 }
 ```
 
-### Styling von WebVTT internen Knotenobjekten
+### Styling von internen WebVTT-Knotenobjekten
 
-Cue-Text kann _interne Knotenobjekte_ als Tags (ähnlich wie HTML-Elemente) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` enthalten.
-Der `::cue()`-Selektor kann verwendet werden, um Stile auf den Inhalt innerhalb dieser Tags anzuwenden, um anzupassen, wie der WebVTT-Track dargestellt wird.
-Betrachten Sie den folgenden Cue-Text, der das `<u>`-Tag verwendet, um Text zu unterstreichen:
+Hinweistext kann _interne Knotenobjekte_ wie die Tags (ähnlich zu HTML-Elementen) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` enthalten. Der `::cue()`-Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um anzupassen, wie der WebVTT-Track angezeigt wird. Betrachten Sie den folgenden Hinweistext, der das `<u>`-Tag verwendet, um einigen Text zu unterstreichen:
 
 ```plain
 00:00:01.500 --> 00:00:02.999 line:80%
 Tell me, is the <u>lord of the universe</u> in?
 ```
 
-Die folgende CSS-Regel passt den Text innerhalb des `<u>`-Tags mit einer Farbe und einer [text-decoration](/de/docs/Web/CSS/Reference/Properties/text-decoration) an:
+Die folgende CSS-Regel passt den Text innerhalb des `<u>`-Tags mit einer Farbe und einer [Textdekoration](/de/docs/Web/CSS/Reference/Properties/text-decoration) an:
 
 ```css
 ::cue(u) {

@@ -3,18 +3,26 @@ title: GeneratorFunction() Konstruktor
 short-title: GeneratorFunction()
 slug: Web/JavaScript/Reference/Global_Objects/GeneratorFunction/GeneratorFunction
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: fefa80c1e817377a0bbaf6a636ce6b8797f38fbb
 ---
 
-Der **`GeneratorFunction()`**-Konstruktor erstellt {{jsxref("GeneratorFunction")}} Objekte.
+> [!WARNING]
+> Die an diesen Konstruktor übergebenen Argumente werden dynamisch als JavaScript geparst und ausgeführt.
+> Solche APIs sind bekannt als [Einschleusungs-Senken](/de/docs/Web/API/Trusted_Types_API#concepts_and_usage) und sind potenziell ein Vektor für [Cross-Site-Scripting (XSS)](/de/docs/Web/Security/Attacks/XSS) Angriffe.
+>
+> Sie können dieses Risiko mindern, indem Sie stets [`TrustedScript`](/de/docs/Web/API/TrustedScript) Objekte anstelle von Zeichenfolgen übergeben und [vertrauenswürdige Typen erzwingen](/de/docs/Web/API/Trusted_Types_API#using_a_csp_to_enforce_trusted_types).
+>
+> Siehe [Sicherheitsüberlegungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function#security_considerations) im `Function()` Konstruktorreferenz für mehr Informationen.
 
-Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erlangt werden:
+Der **`GeneratorFunction()`** Konstruktor erstellt {{jsxref("GeneratorFunction")}} Objekte.
+
+Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
 ```
 
-Der `GeneratorFunction()`-Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle in der {{jsxref("Function/Function", "Function()")}}-Beschreibung erwähnten Warnungen gelten auch für `GeneratorFunction()`.
+Der `GeneratorFunction()` Konstruktor ist nicht zur direkten Verwendung gedacht, und alle im {{jsxref("Function/Function", "Function()")}} genannten Einschränkungen gelten auch für `GeneratorFunction()`.
 
 ## Syntax
 
@@ -31,7 +39,7 @@ GeneratorFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
 > [!NOTE]
-> `GeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `GeneratorFunction`.
+> `GeneratorFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `GeneratorFunction` Instanz.
 
 ### Parameter
 
@@ -39,7 +47,9 @@ Siehe {{jsxref("Function/Function", "Function()")}}.
 
 ## Beispiele
 
-### Erstellen und Verwenden eines GeneratorFunction()-Konstruktors
+Beachten Sie, dass diese Beispiele aus Gründen der Kürze die Verwendung von vertrauenswürdigen Typen weglassen. Für Code, der den empfohlenen Ansatz zeigt, siehe [Verwendung von `TrustedScript`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#using_trustedscript) in `eval()`.
+
+### Erstellen und Verwenden eines GeneratorFunction() Konstruktors
 
 ```js
 const GeneratorFunction = function* () {}.constructor;

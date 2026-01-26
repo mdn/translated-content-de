@@ -1,11 +1,12 @@
 ---
-title: if...else
+title: "if...else: Wasm Textanweisung"
+short-title: if...else
 slug: WebAssembly/Reference/Control_flow/if...else
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`if`** Anweisung führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (nicht null) ist. Ist die Bedingung falsch (0), kann eine andere Anweisung ausgeführt werden.
+Die **`if`**-Anweisung führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (ungleich null) ist. Wenn die Bedingung falsch (0) ist, kann eine andere Anweisung ausgeführt werden.
 
 {{InteractiveExample("Wat Demo: if...else", "tabbed-taller")}}
 
@@ -51,7 +52,7 @@ i32.const 0
 )
 ```
 
-Um Rückgabewerte auf dem Stapel zu belassen, fügen Sie die `result` Anweisung hinzu.
+Um Rückgabewerte auf dem Stapel zu lassen, fügen Sie die `result`-Anweisung hinzu.
 
 ```wat
 i32.const 0

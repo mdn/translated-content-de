@@ -3,16 +3,16 @@ title: "PaymentRequest: shippingOption-Eigenschaft"
 short-title: shippingOption
 slug: Web/API/PaymentRequest/shippingOption
 l10n:
-  sourceCommit: d666d5ed812b56cbc9c6cba853494976da1f1dd2
+  sourceCommit: 06e6e54baef7032c4e81ca93291fde0a0585de8b
 ---
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das **`shippingOption`**-Nur-Lese-Attribut des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt entweder die ID einer ausgewählten Versandoption, `null` (wenn keine Versandoption ausgewählt wurde) oder eine vom Benutzer ausgewählte Versandoption zurück.
-Es ist anfangs `null`, wenn keine "ausgewählten" Versandoptionen bereitgestellt werden.
+Das **`shippingOption`** schreibgeschützte Attribut des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt entweder die ID einer ausgewählten Versandoption, `null` (wenn keine Versandoption zur Auswahl festgelegt wurde) oder eine vom Benutzer ausgewählte Versandoption zurück.
+Es ist zunächst `null`, wenn keine "ausgewählten" Versandoptionen bereitgestellt werden.
 
-Dieses Attribut wird nur gefüllt, wenn der Konstruktor mit dem auf `true` gesetzten `requestShipping`-Flag aufgerufen wird.
-Wenn `requestShipping` `false` (oder fehlend) war, gibt `shippingOption` `null` zurück, selbst wenn der Entwickler eine ausgewählte Versandoption bereitstellt.
+Dieses Attribut wird nur gefüllt, wenn der Konstruktor mit dem `requestShipping`-Flag auf `true` gesetzt aufgerufen wird.
+Wenn `requestShipping` `false` (oder fehlend) ist, gibt `shippingOption` `null` zurück, selbst wenn der Entwickler eine ausgewählte Versandoption bereitstellt.
 
 ## Wert
 
@@ -20,9 +20,9 @@ Ein Objekt oder `null`.
 
 ## Beispiele
 
-Im folgenden Beispiel werden die [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)- und die [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)-Ereignisse ausgelöst.
-In jedem werden Aufrufe an `updateDetails()` gemacht, einmal mit einem Promise und das andere Mal mit einem einfachen JS-Objekt.
-Dies demonstriert synchrone und asynchrone Aktualisierungen eines Zahlungsblatts.
+Im folgenden Beispiel werden die Ereignisse [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event) und [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event) ausgelöst.
+Bei jedem Ereignis wird `updateWith()` aufgerufen, einmal mit einem Promise und das andere Mal mit einem normalen JS-Objekt.
+Dies demonstriert synchrone und asynchrone Aktualisierungen eines Zahlungsblattes.
 
 ```js
 const request = new PaymentRequest(methodData, details, options);

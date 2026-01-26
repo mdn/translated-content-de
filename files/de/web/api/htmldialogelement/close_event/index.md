@@ -1,20 +1,20 @@
 ---
-title: "HTMLDialogElement: close event"
+title: "HTMLDialogElement: close Event"
 short-title: close
 slug: Web/API/HTMLDialogElement/close_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das `close`-Ereignis wird auf einem `HTMLDialogElement`-Objekt ausgelöst, wenn das von ihm dargestellte {{htmlelement("dialog")}} geschlossen wurde.
+Das `close`-Ereignis wird auf einem `HTMLDialogElement`-Objekt ausgelöst, wenn das von ihm repräsentierte {{htmlelement("dialog")}} geschlossen wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("close", (event) => { })
@@ -28,56 +28,80 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Live-Beispiel
+### Behandlung von `close`-Ereignissen
+
+Dieses Beispiel zeigt, wie `close`-Ereignisse, die durch mehrere verschiedene Methoden zum Schließen eines Dialogs ausgelöst werden, erfasst werden können:
+
+- Aufruf der [`close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode
+- Ein Formular mit `method="dialog"`. Das Absenden des Formulars schließt den `dialog` und löst ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis aus, ohne Daten zu übermitteln oder das Formular zu löschen
+- Die <kbd>Esc</kbd>-Taste.
+  Siehe [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis
 
 #### HTML
 
 ```html
-<dialog class="example-dialog">
+<dialog id="dialog">
   <form method="dialog">
-    <button>Close via method="dialog"</button>
+    <button type="submit">Close via method="dialog"</button>
   </form>
-  <button class="close">Close via .close() method</button>
+  <p><button id="close">Close via .close() method</button></p>
   <p>Or hit the <kbd>Esc</kbd> key</p>
 </dialog>
 
-<button class="open-dialog">Open dialog</button>
+<button id="open">Open dialog</button>
+```
 
-<div class="result"></div>
+```html hidden
+<pre id="log"></pre>
 ```
 
 ```css hidden
-button,
-div {
-  margin: 0.5rem;
+#log {
+  height: 170px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+```
+
+```js hidden
+const logElement = document.getElementById("log");
+function log(text, clear = false) {
+  if (clear) {
+    logElement.innerText = "";
+  }
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
 }
 ```
 
 #### JavaScript
 
 ```js
-const result = document.querySelector(".result");
+const dialog = document.getElementById("dialog");
+const openButton = document.getElementById("open");
+const closeButton = document.getElementById("close");
 
-const dialog = document.querySelector(".example-dialog");
-dialog.addEventListener("close", (event) => {
-  result.textContent = "dialog was closed";
-});
-
-const openDialog = document.querySelector(".open-dialog");
-openDialog.addEventListener("click", () => {
+openButton.addEventListener("click", () => {
+  log("open button click event fired", true);
+  log("dialog showModal() called");
   dialog.showModal();
-  result.textContent = "";
 });
 
-const closeButton = document.querySelector(".close");
 closeButton.addEventListener("click", () => {
+  log("close button click event fired");
+  log("dialog close() called");
   dialog.close();
+});
+
+dialog.addEventListener("close", (event) => {
+  log("dialog close event fired");
 });
 ```
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Live_example', '100%', '200px') }}
+{{EmbedLiveSample('Handling `close` events', '100%', '250px')}}
 
 ## Spezifikationen
 
@@ -89,5 +113,4 @@ closeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- HTML [`<dialog>`](/de/docs/Web/HTML/Reference/Elements/dialog) Element
-- Die [`Event`](/de/docs/Web/API/Event) Schnittstelle
+- HTML {{htmlelement("dialog")}}-Element

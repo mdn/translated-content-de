@@ -1,21 +1,21 @@
 ---
-title: Pseudoklassen und Pseudo-Elemente
-short-title: Pseudoklassen und -elemente
+title: Pseudo-Klassen und Pseudo-Elemente
+short-title: Pseudo-Klassen und Elemente
 slug: Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 2b4a2ad5d9ba084a9eaa2f9204102655e7b575c4
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Attribute_selectors", "Learn_web_development/Core/Styling_basics/Combinators", "Learn_web_development/Core/Styling_basics")}}
 
-Die nächste Gruppe von Selektoren, die wir betrachten werden, sind sogenannte **Pseudoklassen** und **Pseudo-Elemente**. Es gibt eine große Anzahl davon, und sie dienen oft sehr spezifischen Zwecken. Sobald Sie wissen, wie man sie verwendet, können Sie die verschiedenen Typen durchsehen, um zu sehen, ob es etwas gibt, das zu der Aufgabe passt, die Sie erreichen möchten.
+Die nächste Gruppe von Selektoren, die wir uns ansehen werden, wird als **Pseudo-Klassen** und **Pseudo-Elemente** bezeichnet. Es gibt eine große Anzahl davon, und sie dienen oft sehr spezifischen Zwecken. Sobald Sie wissen, wie man sie benutzt, können Sie die verschiedenen Typen durchsehen, um zu sehen, ob etwas für die Aufgabe funktioniert, die Sie erreichen möchten.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        HTML-Grundlagen (lernen Sie
+        Grundlagen von HTML (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
         >), <a href="/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors">Grundlegende CSS-Selektoren</a>.
@@ -25,25 +25,25 @@ Die nächste Gruppe von Selektoren, die wir betrachten werden, sind sogenannte *
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Pseudoklassen und Pseudo-Elemente.</li>
-          <li>Der Unterschied zwischen den beiden.</li>
-          <li>Das Kombinieren von Pseudoklassen und Pseudo-Elementen.</li>
-          <li>Erzeugter Inhalt.</li>
+          <li>Pseudo-Klassen und Pseudo-Elemente.</li>
+          <li>Der Unterschied zwischen beiden.</li>
+          <li>Kombinieren von Pseudo-Klassen und Pseudo-Elementen.</li>
+          <li>Generierte Inhalte.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Was ist eine Pseudoklasse?
+## Was ist eine Pseudo-Klasse?
 
-Eine Pseudoklasse ist ein Selektor, der Elemente auswählt, die sich in einem bestimmten Zustand befinden, zum Beispiel das erste Element ihres Typs sind oder vom Mauszeiger überfahren werden. Sie verhalten sich oft so, als hätten Sie einer bestimmten Stelle Ihres Dokuments eine Klasse hinzugefügt, was Ihnen hilft, überflüssige Klassen in Ihrem Markup zu reduzieren und flexibleren, wartbareren Code zu erhalten.
+Eine Pseudo-Klasse ist ein Selektor, der Elemente auswählt, die sich in einem bestimmten Zustand befinden, zum Beispiel, wenn sie das erste Element ihres Typs sind oder wenn sie vom Mauszeiger überfahren werden. Sie verhalten sich oft so, als hätten Sie einer Textstelle Ihres Dokuments eine Klasse hinzugefügt, wodurch Sie überflüssige Klassen in Ihrem Markup reduzieren und flexibleren, besser wartbaren Code erstellen können.
 
-Pseudoklassen sind Schlüsselwörter, die mit einem Doppelpunkt beginnen. Zum Beispiel ist `:hover` eine Pseudoklasse.
+Pseudo-Klassen sind Schlüsselwörter, die mit einem Doppelpunkt beginnen. Zum Beispiel ist `:hover` eine Pseudo-Klasse.
 
-### Einfaches Beispiel für eine Pseudoklasse
+### Einfaches Beispiel für eine Pseudo-Klasse
 
-Sehen wir uns ein einfaches Beispiel an. Wenn wir den ersten Absatz in einem Artikel größer und fett machen wollten, könnten wir diesem Absatz eine Klasse hinzufügen und dann CSS zu dieser Klasse hinzufügen:
+Schauen wir uns ein einfaches Beispiel an. Wenn wir möchten, dass der erste Absatz in einem Artikel größer und fett ist, könnten wir diesem Absatz eine Klasse hinzufügen und dann CSS in dieser Klasse anwenden:
 
 ```html live-sample___first-child
 <article>
@@ -69,7 +69,7 @@ Sehen wir uns ein einfaches Beispiel an. Wenn wir den ersten Absatz in einem Art
 
 {{EmbedLiveSample("first-child")}}
 
-Dies könnte jedoch ärgerlich zu warten sein — was wäre, wenn ein neuer Absatz an den Anfang des Dokuments hinzugefügt würde? Wir müssten die Klasse zum neuen Absatz verschieben. Anstatt die Klasse hinzuzufügen, könnten wir den {{cssxref(":first-child")}} Pseudoklassen-Selektor verwenden — dieser wird _immer_ das erste Kindelement eines Elements anvisieren (in diesem Fall das `<article>`), und wir müssten das HTML nicht mehr bearbeiten (was möglicherweise ohnehin nicht immer möglich ist, vielleicht weil es von einem CMS generiert wird).
+Dies könnte jedoch mühsam zu pflegen sein – was, wenn ein neuer Absatz oben im Dokument hinzugefügt wird? Wir müssten die Klasse in den neuen Absatz verschieben. Anstelle des Hinzufügens der Klasse könnten wir den {{cssxref(":first-child")}} Pseudo-Klassen-Selektor verwenden – dieser wird _immer_ das erste Kind-Element eines Elements ansprechen (in diesem Fall das `<article>`), und wir müssten das HTML nicht mehr bearbeiten (was möglicherweise sowieso nicht immer möglich ist, vielleicht, weil es von einem CMS generiert wird).
 
 ```html live-sample___first-child2
 <article>
@@ -95,17 +95,17 @@ article p:first-child {
 
 {{EmbedLiveSample("first-child2")}}
 
-Alle Pseudoklassen verhalten sich so. Sie zielen auf einen Teil Ihres Dokuments, der sich in einem bestimmten Zustand befindet, und verhalten sich so, als hätten Sie eine Klasse zu Ihrem HTML hinzugefügt.
+Alle Pseudo-Klassen verhalten sich auf diese Weise. Sie zielen auf einen bestimmten Teil Ihres Dokuments, der sich in einem bestimmten Zustand befindet, und verhalten sich so, als hätten Sie eine Klasse in Ihr HTML hinzugefügt.
 
 > [!NOTE]
-> Es ist zulässig, Pseudoklassen und -elemente ohne vorausgehenden Element-Selektor zu schreiben. Im obigen Beispiel könnten Sie `:first-child` schreiben und die Regel würde auf _jedes_ Element angewendet, das das erste Kind eines `<article>` Elements ist, und nicht nur auf einen Absatz als erstes Kind — `:first-child` ist gleichbedeutend mit `*:first-child`. In der Regel möchten Sie jedoch mehr Kontrolle, daher müssen Sie spezifischer sein.
+> Es ist zulässig, Pseudo-Klassen und -Elemente ohne vorangestellten Element-Selektor zu schreiben. Im obigen Beispiel könnten Sie `:first-child` schreiben und die Regel würde auf _jedes_ Element angewendet, das das erste Kind eines `<article>`-Elements ist, nicht nur ein Absatz-Erstkind — `:first-child` ist gleichbedeutend mit `*:first-child`. Normalerweise möchten Sie jedoch mehr Kontrolle als das, also müssen Sie spezifischer sein.
 
-### Pseudo-Klassen für Benutzeraktionen
+### Benutzeraktions-Pseudo-Klassen
 
-Einige Pseudoklassen gelten nur, wenn der Benutzer in irgendeiner Weise mit dem Dokument interagiert. Diese **Benutzeraktions-Pseudoklassen**, manchmal als **dynamische Pseudoklassen** bezeichnet, verhalten sich so, als wäre eine Klasse zum Element hinzugefügt worden, wenn der Benutzer damit interagiert. Beispiele beinhalten:
+Einige Pseudo-Klassen gelten nur, wenn der Benutzer in irgendeiner Weise mit dem Dokument interagiert. Diese **Benutzeraktions-Pseudo-Klassen**, manchmal auch als **dynamische Pseudo-Klassen** bezeichnet, verhalten sich so, als wäre eine Klasse dem Element hinzugefügt worden, wenn der Benutzer mit ihm interagiert. Beispiele hierfür sind:
 
-- [`:hover`](/de/docs/Web/CSS/Reference/Selectors/:hover) — oben erwähnt; dies gilt nur, wenn der Benutzer seinen Zeiger über ein Element bewegt, typischerweise einen Link.
-- [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus) — gilt nur, wenn der Benutzer das Element durch Klicken oder mit Tastatursteuerungen fokussiert.
+- {{cssxref(":hover")}} — wie oben erwähnt; dies gilt nur, wenn der Benutzer den Zeiger über ein Element bewegt, typischerweise einen Link.
+- {{cssxref(":focus")}} — gilt nur, wenn der Benutzer das Element durch Klicken oder Verwenden von Tastatursteuerungen fokussiert.
 
 ```html live-sample___hover
 <p><a href="">Hover over me</a></p>
@@ -125,27 +125,27 @@ a:hover {
 
 {{EmbedLiveSample("hover")}}
 
-### Mit Pseudoklassen experimentieren
+### Spielen mit Pseudo-Klassen
 
-Gehen Sie zu unserem [ersten Pseudoklassen-Beispiel](#einfaches_beispiel_für_eine_pseudoklasse) zurück und bearbeiten Sie das CSS mithilfe des MDN Playground:
+Gehen Sie zurück zu unserem [ersten Pseudo-Klassen-Beispiel](#einfaches_beispiel_für_eine_pseudo-klasse) und bearbeiten Sie das CSS mithilfe des MDN-Playgrounds:
 
-1. Fügen Sie eine Regel hinzu, die den Text des Absatzes `blau` färbt, wenn er von der Maus überfahren wird.
-2. Fügen Sie eine Regel hinzu, die nur den letzten Absatz innerhalb des Artikels auswählt und ihm eine `orange` `Hintergrundfarbe` gibt.
+1. Fügen Sie eine Regel hinzu, die den Absatztext `blau` färbt, wenn er überfahren wird.
+2. Fügen Sie eine Regel hinzu, die nur den letzten Absatz im Artikel auswählt und ihm einen `orangen` `Hintergrund` gibt.
 
-Informationen zu allen anderen verfügbaren Pseudoklassen finden Sie auf der MDN-Referenzseite [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes).
+Sie können Informationen über alle anderen verfügbaren Pseudo-Klassen auf der MDN-[Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)-Referenzseite finden.
 
 ## Was ist ein Pseudo-Element?
 
-Pseudo-Elemente verhalten sich ähnlich. Sie agieren jedoch so, als ob Sie ein völlig neues HTML-Element in das Markup eingefügt hätten, statt einer bestehenden Klasse.
+Pseudo-Elemente verhalten sich auf ähnliche Weise. Sie verhalten sich jedoch so, als hätten Sie ein komplett neues HTML-Element in das Markup eingefügt, anstatt einer vorhandenen Elementen eine Klasse hinzuzufügen.
 
 Pseudo-Elemente beginnen mit einem Doppel-Doppelpunkt `::`. `::before` ist ein Beispiel für ein Pseudo-Element.
 
 > [!NOTE]
-> Einige frühe Pseudo-Elemente verwendeten die einfache Doppelpunktsyntax, daher kann es sein, dass Sie dies in Code oder Beispielen sehen. Moderne Browser unterstützen die frühen Pseudo-Elemente mit ein- oder zwei-Doppelpunkt-Syntax zur Abwärtskompatibilität.
+> Einige frühe Pseudo-Elemente verwendeten die Ein-Doppelpunkt-Syntax, sodass Sie diese manchmal in Code oder Beispielen sehen können. Moderne Browser unterstützen die frühen Pseudo-Elemente mit Einzel- oder Doppel-Doppelpunkt-Syntax für die rückwärts Kompatibilität.
 
-Wenn Sie beispielsweise die erste Zeile eines Absatzes auswählen möchten, könnten Sie es in ein `<span>` Element einfügen und einen Element-Selektor verwenden; jedoch würde dies fehlschlagen, wenn die Anzahl der eingefügten Wörter länger oder kürzer als die Breite des Elternelements ist. Da wir in der Regel nicht wissen, wie viele Wörter in eine Zeile passen — da sich das ändern würde, wenn sich die Bildschirmbreite oder Schriftgröße ändert — ist es unmöglich, dies durch Hinzufügen von HTML robust zu tun.
+Wenn Sie beispielsweise die erste Zeile eines Absatzes auswählen möchten, könnten Sie sie in ein `<span>`-Element einwickeln und einen Element-Selektor verwenden; das würde jedoch scheitern, wenn die Anzahl der von Ihnen umschlossenen Wörter länger oder kürzer als die Breite des übergeordneten Elements wäre. Da wir normalerweise nicht wissen, wie viele Wörter in eine Zeile passen – da sich das ändert, wenn sich die Bildschirmbreite oder Schriftgröße ändert – ist es unmöglich, dies robust durch das Hinzufügen von HTML zu tun.
 
-Der `::first-line` Pseudo-Element-Selektor erledigt dies zuverlässig für Sie — wenn die Anzahl der Wörter zu- oder abnimmt, wird weiterhin nur die erste Zeile ausgewählt.
+Der Pseudo-Element-Selektor `::first-line` wird dies zuverlässig für Sie tun – wenn die Anzahl der Wörter zu- oder abnimmt, wird immer noch nur die erste Zeile ausgewählt.
 
 ```html live-sample___first-line
 <article>
@@ -171,28 +171,28 @@ article p::first-line {
 
 {{EmbedLiveSample("first-line")}}
 
-Es verhält sich so, als ob ein `<span>` magisch um diese erste formatierte Zeile gewickelt wurde und aktualisiert, wenn sich die Zeilenlänge ändert.
+Es verhält sich so, als wäre ein `<span>` magisch um diese erste formatierte Zeile gewickelt und aktualisiert sich jedes Mal, wenn sich die Zeilenlänge ändert.
 
-Sie können sehen, dass dies die erste Zeile beider Absätze auswählt.
+Sie sehen, dass dies die erste Zeile beider Absätze auswählt.
 
-### Mit Pseudo-Elementen experimentieren
+### Spielen mit Pseudo-Elementen
 
-Bearbeiten Sie das CSS des vorherigen Beispiels mithilfe des MDN Playgrounds:
+Bearbeiten Sie das CSS des vorherigen Beispiels mithilfe des MDN-Playgrounds:
 
-1. Fügen Sie eine Regel hinzu, die dem mit dem Mauszeiger ausgewählten Text einen `roten` `Hintergrund` gibt (Sie benötigen dazu das {{cssxref("::selection")}} Pseudo-Element). Wählen Sie etwas Text aus, um es zu testen.
-2. Fügen Sie eine Regel hinzu, die den ersten Buchstaben jedes `<p>` innerhalb des `<article>` gibt:
+1. Fügen Sie eine Regel hinzu, die dem mit dem Mauscursor ausgewählten Text einen `roten` `Hintergrund` gibt (Sie benötigen dafür das {{cssxref("::selection")}} Pseudo-Element). Wählen Sie etwas Text aus, um es auszuprobieren.
+2. Fügen Sie eine Regel hinzu, die den ersten Buchstaben jedes `<p>` innerhalb des `<article>`-Elements mit folgenden Eigenschaften versieht:
 
-- Eine `gelbe` `Hintergrundfarbe`.
-- Einen `1px schwarzen Rand`.
+- Ein `gelber` `Hintergrund`.
+- Ein `1px solid black` `Rahmen`.
 - Eine `Schriftgröße` von `2rem`.
 
-Informationen zu allen anderen verfügbaren Pseudo-Elementen finden Sie auf der MDN-Referenzseite [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements).
+Sie können Informationen über alle anderen verfügbaren Pseudo-Elemente auf der MDN-[Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)-Referenzseite finden.
 
-## Pseudoklassen und Pseudo-Elemente kombinieren
+## Kombinieren von Pseudo-Klassen und Pseudo-Elementen
 
-Wenn Sie die erste Zeile des ersten Absatzes fett machen möchten, könnten Sie die `:first-child` und `::first-line` Selektoren miteinander verketten.
+Wenn Sie die erste Zeile des ersten Absatzes fett machen möchten, könnten Sie die `:first-child`- und `::first-line`-Selektoren zusammenführen.
 
-Versuchen Sie, das vorherige Beispiel so zu bearbeiten, dass es das folgende CSS verwendet. Wir sagen, dass wir die erste Zeile des ersten `<p>` Elements auswählen möchten, das sich innerhalb eines `<article>` Elements befindet.
+Versuchen Sie, das vorherige Beispiel so zu bearbeiten, dass es das folgende CSS verwendet. Wir sagen, dass wir die erste Zeile des ersten `<p>`-Elements auswählen möchten, das sich innerhalb eines `<article>`-Elements befindet.
 
 ```css
 article p:first-child::first-line {
@@ -203,9 +203,9 @@ article p:first-child::first-line {
 
 ## Inhalt mit ::before und ::after generieren
 
-Es gibt ein paar spezielle Pseudo-Elemente, die zusammen mit der [`content`](/de/docs/Web/CSS/Reference/Properties/content) Eigenschaft verwendet werden, um Inhalte mit CSS in Ihr Dokument einzufügen. Diese Technik wird als **erzeugter Inhalt** bezeichnet.
+Es gibt ein paar spezielle Pseudo-Elemente, die zusammen mit der {{cssxref("content")}}-Eigenschaft verwendet werden, um Inhalte mit CSS in Ihr Dokument einzufügen. Diese Technik wird als **generierter Inhalt** bezeichnet.
 
-Sie könnten es verwenden, um eine Textzeichenfolge einzufügen, wie im folgenden Beispiel. Wir haben dem erzeugten Inhalt auch eine `gelbe` Hintergrundfarbe gegeben, damit er sich leicht vom Inhalt des Absatzes unterscheiden lässt.
+Sie können es verwenden, um eine Textzeichenfolge einzufügen, wie im Beispiel unten. Wir haben dem generierten Inhalt auch eine `gelbe` Hintergrundfarbe gegeben, damit er leicht vom Absatzinhalt unterschieden werden kann.
 
 ```html live-sample___before
 <p class="box">Content in the box in my HTML page.</p>
@@ -220,16 +220,16 @@ Sie könnten es verwenden, um eine Textzeichenfolge einzufügen, wie im folgende
 
 {{EmbedLiveSample("before")}}
 
-### Mit erzeugtem Inhalt experimentieren
+### Spielen mit generierten Inhalten
 
 Versuchen Sie, das vorherige Beispiel wie folgt zu bearbeiten:
 
-- Ändern Sie den Textwert der {{cssxref("content")}} Eigenschaft und sehen Sie, wie er sich im Ergebnis ändert.
-- Ändern Sie das `::before` Pseudo-Element in `::after` und beobachten Sie, wie der Text am Ende des Elements statt am Anfang eingefügt wird.
+- Ändern Sie den Textwert der {{cssxref("content")}}-Eigenschaft und sehen Sie, wie er sich in der Ausgabe ändert.
+- Ändern Sie das `::before` Pseudo-Element in `::after` und sehen Sie, wie der Text am Ende des Elements anstelle des Anfangs eingefügt wird.
 
-### Generierte Inhaltsicons
+### Generierte Inhalts-Icons
 
-Das obige Beispiel ist gültiges CSS. Allerdings ist es nicht sehr häufig, Zeichenketten von Text mit CSS einzufügen, da dieser Text für einige Screenreader unzugänglich ist und möglicherweise schwer von jemandem zu finden und in der Zukunft zu bearbeiten ist. Eine gültigere Verwendung dieser Pseudo-Elemente ist das Einfügen eines Symbols, zum Beispiel dem kleinen Pfeil, der im folgenden Beispiel hinzugefügt wird, der ein visueller Indikator ist, den wir nicht von einem Screenreader vorgelesen haben möchten:
+Das obige Beispiel ist gültiges CSS. Das Einfügen von Textzeichenfolgen aus CSS ist jedoch nicht wirklich etwas, das wir sehr oft tun, da dieser Text für einige Bildschirmleser unzugänglich ist und jemandem schwer zugänglich sein könnte, um ihn in Zukunft zu finden und zu bearbeiten. Eine gültigere Nutzung dieser Pseudo-Elemente ist das Einfügen eines Symbols, zum Beispiel des kleinen Pfeils, der im folgenden Beispiel hinzugefügt wurde, der ein visueller Indikator ist, den wir nicht möchten, dass ein Bildschirmleser vorgelesen wird:
 
 ```html live-sample___after-icon
 <p class="box">Content in the box in my HTML page.</p>
@@ -245,9 +245,9 @@ Das obige Beispiel ist gültiges CSS. Allerdings ist es nicht sehr häufig, Zeic
 
 ### Generierte Formen
 
-Generierter Inhalt wird auch häufig verwendet, um eine leere Zeichenfolge einzufügen, die dann wie jedes andere Element auf der Seite gestylt werden kann.
+Generierte Inhalte werden auch häufig verwendet, um eine leere Zeichenfolge einzufügen, die dann wie jedes andere Element auf der Seite gestylt werden kann.
 
-Im nächsten Beispiel haben wir eine leere Zeichenfolge mit dem `::before` Pseudo-Element hinzugefügt. Wir haben es auf `display: block` gesetzt, um es mit einer Breite und Höhe zu stylen und eine quadratische Form zu erstellen. Dann verwenden wir CSS, um es wie jedes andere Element zu stylen.
+In diesem nächsten Beispiel haben wir eine leere Zeichenfolge mit dem `::before` Pseudo-Element hinzugefügt. Wir haben es so eingestellt, dass es `display: block` ist, damit wir es mit einer Breite und Höhe stylen können, um eine quadratische Form zu erstellen. Dann verwenden wir CSS, um es wie jedes andere Element zu stylen.
 
 ```html live-sample___before-styled
 <p class="box">Content in the box in my HTML page.</p>
@@ -266,21 +266,21 @@ Im nächsten Beispiel haben wir eine leere Zeichenfolge mit dem `::before` Pseud
 
 {{EmbedLiveSample("before-styled", "", "160")}}
 
-Probieren Sie das obige CSS aus, um das Aussehen und Verhalten der generierten Form zu ändern.
+Versuchen Sie, mit dem obigen CSS zu experimentieren, um zu ändern, wie die generierte Form aussieht und sich verhält.
 
-Sie werden regelmäßig sehen, dass generierter Inhalt für verschiedene andere Aufgaben verwendet wird. Ein großartiges Beispiel ist die Seite [CSS Arrow Please](https://cssarrowplease.com/), die Ihnen hilft, einen Pfeil mit CSS zu generieren. Schauen Sie sich das CSS an, während Sie Ihren Pfeil erstellen, und Sie werden die {{cssxref("::before")}} und {{cssxref("::after")}} Pseudo-Elemente in Verwendung sehen. Wann immer Sie diese Selektoren sehen, schauen Sie sich die {{cssxref("content")}} Eigenschaft an, um zu sehen, was dem HTML-Element hinzugefügt wird.
+Sie werden regelmäßig sehen, dass generierte Inhalte für verschiedene andere Aufgaben verwendet werden. Ein großartiges Beispiel ist die Seite [CSS Arrow Please](https://cssarrowplease.com/), die Ihnen hilft, einen Pfeil mit CSS zu generieren. Schauen Sie sich das CSS an, während Sie Ihren Pfeil erstellen, und Sie werden die {{cssxref("::before")}} und {{cssxref("::after")}} Pseudo-Elemente in der Anwendung sehen. Jedes Mal, wenn Sie diese Selektoren sehen, schauen Sie sich die {{cssxref("content")}}-Eigenschaft an, um zu sehen, was dem HTML-Element hinzugefügt wird.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir CSS Pseudoklassen und Pseudo-Elemente eingeführt, die besondere Arten von Selektoren sind.
+In diesem Artikel haben wir CSS-Pseudo-Klassen und Pseudo-Elemente eingeführt, die spezielle Typen von Selektoren sind.
 
-Pseudoklassen ermöglichen es Ihnen, ein Element auszuwählen, wenn es sich in einem bestimmten Zustand befindet, als hätten Sie eine Klasse für diesen Zustand im DOM hinzugefügt. Pseudo-Elemente verhalten sich so, als hätten Sie ein völlig neues Element zum DOM hinzugefügt, und ermöglichen es Ihnen, dieses zu stylen. Die `::before` und `::after` Pseudo-Elemente ermöglichen es Ihnen, Inhalt mit CSS in das Dokument einzufügen.
+Pseudo-Klassen ermöglichen es Ihnen, ein Element anzusprechen, wenn es sich in einem bestimmten Zustand befindet, als ob Sie dem DOM für diesen Zustand eine Klasse hinzugefügt hätten. Pseudo-Elemente verhalten sich so, als hätten Sie dem DOM ein ganz neues Element hinzugefügt, und ermöglichen es Ihnen, dieses zu stylen. Die Pseudo-Elemente `::before` und `::after` ermöglichen es Ihnen, mit CSS Inhalte in das Dokument einzufügen.
 
-Im nächsten Artikel werden wir über Kombinatoren lernen.
+Im nächsten Artikel werden wir Kombinatoren kennenlernen.
 
 ## Siehe auch
 
-- [Referenz der Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
-- [Referenz der Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
+- [Pseudo-Klassen-Referenz](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
+- [Pseudo-Elemente-Referenz](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Attribute_selectors", "Learn_web_development/Core/Styling_basics/Combinators", "Learn_web_development/Core/Styling_basics")}}

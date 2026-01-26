@@ -3,14 +3,14 @@ title: "Permissions-Policy: gamepad-Direktive"
 short-title: gamepad
 slug: Web/HTTP/Reference/Headers/Permissions-Policy/gamepad
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 527d0001797dff2707921a4fb20a3441e20321d5
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der `gamepad`-Direktive steuert, ob das aktuelle Dokument die [Gamepad-API](/de/docs/Web/API/Gamepad_API) verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der `gamepad`-Direktive steuert, ob das aktuelle Dokument die [Gamepad API](/de/docs/Web/API/Gamepad_API) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, führen Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) zu einem `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException). Außerdem werden die Events [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen. Darüber hinaus werden die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
 
 ## Syntax
 
@@ -19,17 +19,18 @@ Permissions-Policy: gamepad=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `gamepad` ist `self`.
+Die Standard-Whitelist für `gamepad` ist `*`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Gamepad-API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und für Ursprünge, deren Ursprung `https://example.com` ist. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
+SecureCorp Inc. möchte die Gamepad API in allen Browsing-Kontexten deaktivieren, außer für ihren eigenen Ursprung und solche, deren Ursprung `https://example.com` ist.
+Dies kann durch Auslieferung des folgenden HTTP-Response-Headers zur Definition einer Permissions Policy erreicht werden:
 
 ```http
 Permissions-Policy: gamepad=(self "https://example.com")
@@ -37,19 +38,20 @@ Permissions-Policy: gamepad=(self "https://example.com")
 
 ### Mit einem `<iframe>`-Element
 
-FastCorp Inc. möchte `gamepad` für alle fremden Kinderframes deaktivieren, außer für ein spezifisches `<iframe>`. Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:
+FastCorp Inc. möchte `gamepad` für alle fremden Kindrahmen deaktivieren, außer für ein bestimmtes `<iframe>`.
+Dies kann durch Auslieferung des folgenden HTTP-Response-Headers zur Definition einer Permissions Policy erreicht werden:
 
 ```http
 Permissions-Policy: gamepad=(self)
 ```
 
-Dann fügen Sie dem `<iframe>`-Element ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut hinzu:
+Fügen Sie dann ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut zum `<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/game" allow="gamepad"></iframe>
 ```
 
-Iframe-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente aus demselben Ursprung enthalten.
+`iframe`-Attribute können Features in bestimmten Frames selektiv aktivieren und in anderen nicht, selbst wenn diese Frames Dokumente mit demselben Ursprung enthalten.
 
 ## Spezifikationen
 

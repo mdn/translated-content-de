@@ -3,14 +3,14 @@ title: CSS-Listen und -Zähler
 short-title: Listen und Zähler
 slug: Web/CSS/Guides/Lists
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Das **CSS-Listen und -Zähler** Modul ermöglicht das Stylen und Positionieren von Aufzählungszeichen bei Listenelementen und das Manipulieren ihrer Werte mit einer Kombination aus Zeichenketten, Zählern und anderen Funktionen.
+Das **CSS-Listen-und-Zähler**-Modul ermöglicht die Gestaltung und Positionierung von Listenelement-Punkten und die Manipulation ihrer Werte mithilfe einer Kombination aus Zeichenketten, Zählern und anderen Funktionen.
 
-Das Markierungszeichen eines Listenelements, ob Symbol oder Ordnungszähler, ist sein definierendes Merkmal. Listenelemente sind nicht auf {{HTMLElement("li")}}-Elemente beschränkt, die innerhalb von {{HTMLElement("ol")}}- oder {{HTMLElement("ul")}}-Elementen verschachtelt sind. Vielmehr sind Listenelemente alle Elemente mit `display: list-item`.
+Das Markierungsmerkmal eines Listenelements, ob es sich um ein Bullet-Symbol oder einen Ordnungszähler handelt, ist sein definierendes Merkmal. Listenelemente sind nicht auf {{HTMLElement("li")}}-Elemente beschränkt, die innerhalb von {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}-Elementen verschachtelt sind. Vielmehr sind Listenelemente alle Elemente mit `display: list-item` eingestellt.
 
-Dieses Modul definiert CSS-Funktionen, um die Zähler einer Liste zu setzen und zurückzusetzen, um festzulegen, welche [Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) oder Symbole als Markierungen verwendet werden sollen, und um diese Markierungen zu positionieren. Es ermöglicht Entwicklern auch das Erstellen von benutzerdefinierten Markierungen.
+Dieses Modul definiert CSS-Funktionen, um die Zähler einer Liste zu setzen und zurückzusetzen, festzulegen, welche [counter-styles](/de/docs/Web/CSS/Guides/Counter_styles) oder Symbole als Marker verwendet werden sollen, und diese Marker zu positionieren. Es bietet Entwicklern auch die Möglichkeit, benutzerdefinierte Marker zu erstellen.
 
 ## Referenz
 
@@ -22,9 +22,9 @@ Dieses Modul definiert CSS-Funktionen, um die Zähler einer Liste zu setzen und 
 - {{cssxref("list-style-image")}}
 - {{cssxref("list-style-type")}}
 - {{cssxref("list-style-position")}}
-- {{cssxref("list-style")}} Kurzschreibweise
+- {{cssxref("list-style")}} Kurzform
 
-Es gibt auch eine `marker-side`-Eigenschaft, die noch vollständig definiert oder implementiert werden muss.
+Es gibt auch eine `marker-side`-Eigenschaft, die noch nicht vollständig definiert oder implementiert ist.
 
 ### Pseudo-Elemente
 
@@ -44,10 +44,10 @@ Es gibt auch eine `marker-side`-Eigenschaft, die noch vollständig definiert ode
 ## Leitfäden
 
 - [Konsistente Listen-Einrückung](/de/docs/Web/CSS/Guides/Lists/Indenting)
-  - : Erklärt, wie man eine konsistente Listen-Einrückung in verschiedenen Browsern erreicht.
+  - : Erklärt, wie man eine konsistente Listen-Einrückung über verschiedene Browser hinweg erreicht.
 
 - [Verwendung von CSS-Zählern](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters)
-  - : Erklärt, wie man die CSS-Zählereigenschaften verwendet, um Listenzähler zu steuern.
+  - : Erklärt, wie man die CSS-Zähleigenschaften verwendet, um Listen-Zähler zu kontrollieren.
 
 ## Verwandte Konzepte
 
@@ -55,11 +55,11 @@ Es gibt auch eine `marker-side`-Eigenschaft, die noch vollständig definiert ode
   - {{cssxref("@counter-style")}} At-Regel
   - [`<counter-style-name>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style#counter-style-name) Datentyp
   - [`<symbol>`](/de/docs/Web/CSS/Reference/At-rules/@counter-style/symbols#values) Datentyp
-  - {{cssxref("symbols", "symbols()")}} Funktion
+  - {{cssxref("symbols()")}} Funktion
 
-- {{HTMLElement("ol")}} `start`-, `reversed`- und `type`-Attribute
-- {{HTMLElement("ul")}} `type`-Attribut
-- {{HTMLElement("li")}} `type`- und `value`-Attribute
+- {{HTMLElement("ol")}} `start`, `reversed` und `type` Attribute
+- {{HTMLElement("ul")}} `type` Attribut
+- {{HTMLElement("li")}} `type` und `value` Attribute
 
 ## Spezifikationen
 
@@ -69,4 +69,4 @@ Es gibt auch eine `marker-side`-Eigenschaft, die noch vollständig definiert ode
 
 - [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
 - [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
-- [CSS-generierter Inhalt](/de/docs/Web/CSS/Guides/Generated_content) Modul
+- [CSS-generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content) Modul

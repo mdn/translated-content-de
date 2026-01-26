@@ -3,12 +3,12 @@ title: "SharedStorageSelectURLOperation: run()-Methode"
 short-title: run()
 slug: Web/API/SharedStorageSelectURLOperation/run
 l10n:
-  sourceCommit: d484785e53cff16c020adc868415bb9b07b0f6af
+  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`run()`**-Methode der [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation)-Schnittstelle definiert die Struktur, der die `run()`-Methode innerhalb einer Ausgabeschleuse zur URL-Auswahl entsprechen sollte.
+Die **`run()`**-Methode der [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation)-Schnittstelle definiert die Struktur, welcher die `run()`-Methode in einer URL-Auswahl-Ausgabegate-Operation entsprechen sollte.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ run(urls, data)
 ### Parameter
 
 - `urls`
-  - : Ein Array von Objekten, die die von der URL-Auswahloperation auszuwählenden URLs repräsentieren. Jedes Objekt enthält zwei Eigenschaften:
+  - : Ein Array von Objekten, die die URLs darstellen, die von der URL-Auswahloperation ausgewählt werden sollen. Jedes Objekt enthält zwei Eigenschaften:
     - `url`
       - : Ein String, der die URL darstellt.
     - `reportingMetadata` {{optional_inline}}
-      - : Ein Objekt, das Eigenschaften enthält, bei denen die Namen Ereignistypen und die Werte URLs sind, die auf Berichtsziele verweisen, z. B. `"click" : "my-reports/report1.html"`. Die URLs dienen als Ziele für Berichte, die mit einem Zieltyp von `"shared-storage-select-url"` eingereicht werden, typischerweise über einen Aufruf der Methode [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent) oder [`Fence.setReportEventDataForAutomaticBeacons()`](/de/docs/Web/API/Fence/setReportEventDataForAutomaticBeacons).
+      - : Ein Objekt, das Eigenschaften enthält, deren Namen Ereignistypen sind und deren Werte URLs darstellen, die auf Berichterstattungsziele verweisen, zum Beispiel `"click" : "my-reports/report1.html"`. Die URLs dienen als Ziele für Berichte, die mit einem Ziel des Typs `"shared-storage-select-url"` eingereicht werden, typischerweise eingereicht über einen Aufruf der [`Fence.reportEvent()`](/de/docs/Web/API/Fence/reportEvent) oder [`Fence.setReportEventDataForAutomaticBeacons()`](/de/docs/Web/API/Fence/setReportEventDataForAutomaticBeacons)-Methode.
 - `data`
-  - : Ein Objekt, das alle für die Ausführung der Operation erforderlichen Daten repräsentiert.
+  - : Ein Objekt, das alle Daten darstellt, die für die Durchführung der Operation erforderlich sind.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Zahl erfüllt wird, die den Array-Index der von der Operation ausgewählten URL definiert.
+Ein {{jsxref("Promise")}}, das mit einer Nummer erfüllt wird, die den Array-Index der von der Operation ausgewählten URL definiert.
 
 ## Beispiele
 

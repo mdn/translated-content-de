@@ -3,18 +3,18 @@ title: "HTMLIFrameElement: sandbox-Eigenschaft"
 short-title: sandbox
 slug: Web/API/HTMLIFrameElement/sandbox
 l10n:
-  sourceCommit: 9a9ff6734f2ea1d27b048045a62a38acd4670baf
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`sandbox`**-Eigenschaft (nur lesbar) des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Interface gibt eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die zusätzliche Einschränkungen für das Verhalten des verschachtelten Inhalts angibt.
-
-Sie spiegelt das `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements wider.
+Die schreibgeschützte **`sandbox`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) gibt ein dynamisches [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt zurück, das zusätzliche Einschränkungen für das Verhalten des eingebetteten Inhalts anzeigt. Sie spiegelt das [`sandbox`](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox)-Inhaltsattribut des {{HTMLElement("iframe")}}-Elements wider.
 
 ## Wert
 
-Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList). Jedes Element muss einer der im `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements aufgeführten Token sein.
+Ein dynamisches [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt.
+
+Obwohl die `sandbox`-Eigenschaft selbst im Sinne einer nicht austauschbaren `DOMTokenList`-Objekt schreibgeschützt ist, kann man der `sandbox`-Eigenschaft direkt einen Wert zuweisen, was dem Zuweisen zu ihrer [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft entspricht. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) verändern.
 
 ## Beispiele
 

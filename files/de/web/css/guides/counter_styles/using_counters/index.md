@@ -1,47 +1,54 @@
 ---
-title: Verwenden von CSS-Kontenzählern
-short-title: Verwenden von Kontenzählern
+title: Verwenden von CSS-Zählern
+short-title: Verwenden von Zählern
 slug: Web/CSS/Guides/Counter_styles/Using_counters
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-**CSS-Kontenzähler** ermöglichen Ihnen, das Erscheinungsbild von Inhalten basierend auf ihrer Position in einem Dokument anzupassen. Zum Beispiel können Sie Kontenzähler verwenden, um die Überschriften auf einer Webseite automatisch zu nummerieren oder um die Nummerierung in geordneten Listen zu ändern.
+**CSS-Zähler** ermöglichen es Ihnen, das Erscheinungsbild von Inhalten basierend auf ihrer Position in einem Dokument anzupassen.
+Zum Beispiel können Sie Zähler verwenden, um die Überschriften auf einer Webseite automatisch zu nummerieren oder um die Nummerierung in nummerierten Listen zu ändern.
 
-Kontenzähler sind im Wesentlichen Variablen, die von CSS verwaltet werden und deren Werte durch CSS-Regeln erhöht oder verringert werden können, die verfolgen, wie oft sie verwendet werden. Folgende Faktoren beeinflussen die Kontenzählerwerte eines Elements:
+Zähler sind im Wesentlichen Variablen, die von CSS verwaltet werden und deren Werte durch CSS-Regeln, die verfolgen, wie oft sie verwendet werden, erhöht oder verringert werden können. Die folgenden Dinge beeinflussen die Zählerwerte eines Elements:
 
-1. Kontenzähler werden [geerbt](#vererbung_und_weitergabe_von_kontenzählern) vom Elternelement oder von einem vorherigen Geschwisterelement erhalten.
-2. Neue Kontenzähler werden mit der Eigenschaft {{cssxref("counter-reset")}} instanziiert.
-3. Kontenzähler werden mit der Eigenschaft {{cssxref("counter-increment")}} erhöht.
-4. Kontenzähler werden direkt auf einen bestimmten Wert mit der Eigenschaft {{cssxref("counter-set")}} gesetzt.
+1. Zähler werden vom Elternelement [geerbt](#vererbung_und_weitergabe_von_zählern) oder von einem vorherigen Geschwisterelement übernommen.
+2. Neue Zähler werden mit der Eigenschaft {{cssxref("counter-reset")}} instanziiert.
+3. Zähler werden mit der Eigenschaft {{cssxref("counter-increment")}} erhöht.
+4. Zähler werden mit der Eigenschaft {{cssxref("counter-set")}} direkt auf einen Wert festgelegt.
 
-Sie können eigene benannte Kontenzähler definieren und auch den `list-item`-Kontenzähler manipulieren, der standardmäßig für alle geordneten Listen erstellt wird.
+Sie können eigene benannte Zähler definieren und auch den `list-item`-Zähler manipulieren, der standardmäßig für alle nummerierten Listen erstellt wird.
 
-## Verwenden von Kontenzählern
+## Verwenden von Zählern
 
-Um einen Kontenzähler zu verwenden, muss er zunächst mit der Eigenschaft {{cssxref("counter-reset")}} auf einen Wert initialisiert werden. Der Wert des Kontenzählers kann mit der Eigenschaft {{cssxref("counter-increment")}} erhöht oder verringert werden und kann mit der Eigenschaft {{cssxref("counter-set")}} direkt auf einen bestimmten Wert gesetzt werden. Der aktuelle Wert eines Kontenzählers wird normalerweise mit der Funktion {{cssxref("counter", "counter()")}} oder {{cssxref("counters", "counters()")}} innerhalb einer [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) {{CSSxRef("content")}}-Eigenschaft angezeigt.
+Um einen Zähler zu verwenden, muss er zuerst mit der Eigenschaft {{cssxref("counter-reset")}} auf einen Wert initialisiert werden.
+Der Wert des Zählers kann mit der Eigenschaft {{cssxref("counter-increment")}} erhöht oder verringert werden und kann mit der Eigenschaft {{cssxref("counter-set")}} direkt auf einen bestimmten Wert festgelegt werden.
+Der aktuelle Wert eines Zählers wird durch die {{cssxref("counter()")}}- oder {{cssxref("counters()")}}-Funktion angezeigt, typischerweise innerhalb einer [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) {{CSSxRef("content")}}-Eigenschaft.
 
-Kontenzähler können nur in Elementen gesetzt, zurückgesetzt oder erhöht werden, die Boxen generieren. Beispielsweise wird jede Zähleroperation an einem Element ignoriert, wenn dieses Element auf `display: none` gesetzt ist.
+Zähler können nur in Elementen gesetzt, zurückgesetzt oder erhöht werden, die Boxen generieren.
+Zum Beispiel, wenn ein Element auf `display: none` gesetzt ist, wird jede Zähleroperation auf diesem Element ignoriert.
 
-Die Eigenschaften von Kontenzählern können auf spezifische Elemente beschränkt werden, indem Stil-Kapselung verwendet wird, die im Detail in der {{cssxref("contain")}}-Eigenschaft beschrieben ist.
+Die Eigenschaften von Zählern können auf bestimmte Elemente mit Stilcontainment beschränkt werden, was in der Eigenschaft {{cssxref("contain")}} genauer beschrieben wird.
 
-### Manipulation des Wertes eines Kontenzählers
+### Manipulation eines Zählerwertes
 
-Um einen CSS-Kontenzähler zu verwenden, muss er zunächst mit der {{cssxref("counter-reset")}}-Eigenschaft auf einen Wert initialisiert werden. Diese Eigenschaft kann auch verwendet werden, um den Zählerwert auf jede beliebige Zahl zu ändern.
+Um einen CSS-Zähler zu verwenden, muss er zuerst mit der Eigenschaft {{cssxref("counter-reset")}} auf einen Wert initialisiert werden.
+Die Eigenschaft kann auch verwendet werden, um den Zählerwert auf eine bestimmte Zahl zu ändern.
 
-Im folgenden Beispiel initialisieren wir einen Kontenzähler namens `section` auf den Standardwert (0).
+Im Folgenden initialisieren wir einen Zähler namens `section` auf den Standardwert (0).
 
 ```css
 counter-reset: section;
 ```
 
-Sie können auch mehrere Kontenzähler initialisieren und dabei optional einen Anfangswert für jeden angeben. Unten initialisieren wir die `section`- und `topic`-Kontenzähler auf den Standardwert und den `page`-Kontenzähler auf 3.
+Sie können auch mehrere Zähler initialisieren und optional einen Anfangswert für jeden angeben.
+Im Folgenden initialisieren wir die Zähler `section` und `topic` auf den Standardwert und den Zähler `page` auf 3.
 
 ```css
 counter-reset: section page 3 topic;
 ```
 
-Sobald ein Kontenzähler initialisiert ist, kann sein Wert mit {{cssxref("counter-increment")}} erhöht oder verringert werden. Zum Beispiel würde die folgende Deklaration den `section`-Kontenzähler bei jedem `h3`-Tag um eins erhöhen.
+Nachdem sie initialisiert wurden, kann der Wert eines Zählers mit {{cssxref("counter-increment")}} erhöht oder verringert werden.
+Zum Beispiel würde die folgende Anweisung den `section`-Zähler bei jedem `h3`-Tag um eins erhöhen.
 
 ```css
 h3::before {
@@ -49,9 +56,9 @@ h3::before {
 }
 ```
 
-Sie können den Betrag, um den erhöht oder verringert werden soll, nach dem Namen des Kontenzählers angeben. Es kann eine positive oder negative Zahl sein, jedoch wird standardmäßig `1` verwendet, wenn keine ganze Zahl angegeben wird.
+Sie können den Erhöhungs- oder Verringerungsbetrag nach dem Zählernamen angeben. Es kann eine positive oder negative Zahl sein, standardmäßig `1`, wenn keine ganze Zahl angegeben ist.
 
-Abgesehen von der Erhöhung oder Verringerung können Kontenzähler auch explizit mit der Eigenschaft {{cssxref("counter-set")}} auf einen Wert gesetzt werden.
+Neben der Erhöhung oder Verringerung können Zähler mit der Eigenschaft {{cssxref("counter-set")}} auch explizit auf einen Wert gesetzt werden.
 
 ```css
 .done::before {
@@ -59,13 +66,13 @@ Abgesehen von der Erhöhung oder Verringerung können Kontenzähler auch explizi
 }
 ```
 
-Der Name des Kontenzählers darf nicht `none`, `inherit` oder `initial` sein; andernfalls wird die Deklaration ignoriert.
+Der Name des Zählers darf nicht `none`, `inherit` oder `initial` sein, sonst wird die Anweisung ignoriert.
 
-### Anzeige eines Kontenzählers
+### Anzeigen eines Zählers
 
-Der Wert eines Kontenzählers kann entweder mit der Funktion {{cssxref("counter", "counter()")}} oder {{cssxref("counters", "counters()")}} in einer {{cssxref("content")}}-Eigenschaft angezeigt werden.
+Der Wert eines Zählers kann entweder mit der {{cssxref("counter()")}}- oder {{cssxref("counters()")}}-Funktion in einer {{cssxref("content")}}-Eigenschaft angezeigt werden.
 
-Zum Beispiel verwendet die folgende Deklaration `counter()`, um jedem `h3`-Überschrift den Text `Section <number>:` voranzustellen, wobei `<number>` der Wert des Zählers in dezimaler Darstellung ist (der Standardanzeigestil):
+Zum Beispiel verwendet die folgende Anweisung `counter()`, um jedem `h3`-Überschrift den Text `Section <number>:` voranzustellen, wobei `<number>` den Wert des Zählers in Dezimaldarstellung (der Standardanzeigestil) darstellt:
 
 ```css
 body {
@@ -78,7 +85,8 @@ h3::before {
 }
 ```
 
-Die Funktion {{cssxref("counter", "counter()")}} wird verwendet, wenn die Nummerierung der Verschachtelungsebenen den Kontext der Elternebenen nicht einschließen soll. Zum Beispiel beginnt hier jede verschachtelte Ebene von eins an:
+Die {{cssxref("counter()")}}-Funktion wird verwendet, wenn die Nummerierung von Verschachtelungsebenen den Kontext der Elternebenen nicht einschließt.
+Zum Beispiel beginnt hier jede verschachtelte Ebene wieder bei eins:
 
 ```plain
 1 One
@@ -91,7 +99,8 @@ Die Funktion {{cssxref("counter", "counter()")}} wird verwendet, wenn die Nummer
 3 Three
 ```
 
-Die Funktion {{cssxref("counters", "counters()")}} wird verwendet, wenn der Zähler für verschachtelte Ebenen den Zähler von Elternebenen einschließen muss. Zum Beispiel könnten Sie dies verwenden, um Abschnitte wie folgt zu gestalten:
+Die {{cssxref("counters()")}}-Funktion wird verwendet, wenn der Zähler für verschachtelte Ebenen die Zählung aus Elternebenen einschließen muss.
+Zum Beispiel können Sie dies verwenden, um Abschnitte wie folgt darzustellen:
 
 ```plain
 1 One
@@ -104,43 +113,48 @@ Die Funktion {{cssxref("counters", "counters()")}} wird verwendet, wenn der Zäh
 3 Three
 ```
 
-Die Funktion {{cssxref("counter", "counter()")}} hat zwei Formen: `counter(<counter-name>)` und `counter(<counter-name>, <counter-style>)`. Der generierte Text ist der Wert des innersten Kontenzählers mit dem angegebenen Namen im Geltungsbereich des Pseudo-Elements.
+Die {{cssxref("counter()")}}-Funktion hat zwei Formen: `counter(<counter-name>)` und `counter(<counter-name>, <counter-style>)`.
+Der erzeugte Text ist der Wert des innersten Zählers mit dem angegebenen Namen im Geltungsbereich beim Pseudo-Element.
 
-Die Funktion {{cssxref("counters", "counters()")}} hat ebenfalls zwei Formen: `counters(<counter-name>, <separator>)` und `counters(<counter-name>, <separator>, <counter-style>)`. Der generierte Text ist der Wert aller Kontenzähler mit dem angegebenen Namen im Geltungsbereich des angegebenen Pseudo-Elements, von außen nach innen, getrennt durch den angegebenen String (`<separator>`).
+Die {{cssxref("counters()")}}-Funktion hat ebenfalls zwei Formen: `counters(<counter-name>, <separator>)` und `counters(<counter-name>, <separator>, <counter-style>)`.
+Der erzeugte Text ist der Wert aller Zähler mit dem angegebenen Namen im Geltungsbereich beim angegebenen Pseudo-Element, vom äußersten bis zum innersten, getrennt durch die angegebene Zeichenkette (`<separator>`).
 
-Der Zähler wird in dem angegebenen `<counter-style>` für beide Methoden gerendert (`decimal` ist der Standard). Sie können jeden der Werte von {{cssxref("list-style-type")}} oder Ihre eigenen [benutzerdefinierten Stile](/de/docs/Web/CSS/Guides/Counter_styles) verwenden.
+Der Zähler wird in dem angegebenen `<counter-style>` für beide Methoden gerendert (`decimal` ist der Standard).
+Sie können jeden der {{cssxref("list-style-type")}}-Werte oder Ihre eigenen [benutzerdefinierten Stile](/de/docs/Web/CSS/Guides/Counter_styles) verwenden.
 
-Beispiele zur Verwendung von `counter()` und `counters()` finden Sie unten im [grundlegenden Beispiel](#grundlegendes_beispiel) und [Beispiel eines verschachtelten Kontenzählers](#beispiel_eines_verschachtelten_kontenzählers).
+Beispiele für die Verwendung von `counter()` und `counters()` finden sich unten im [Grundlegenden Beispiel](#grundlegendes_beispiel) und im [Beispiel für einen verschachtelten Zähler](#beispiel_für_einen_verschachtelten_zähler).
 
-### Umgekehrte Kontenzähler
+### Umgekehrte Zähler
 
-Ein umgekehrter Kontenzähler ist einer, der herunterzählen (dekrementieren) soll, anstatt hochzuzählen (inkrementieren). Umgekehrte Kontenzähler werden mit der `reversed()`-Funktion-Notation erstellt, wenn der Kontenzähler im {{cssxref("counter-reset")}} benannt wird.
+Ein umgekehrter Zähler ist einer, der dazu gedacht ist, herunterzuzählen (zu verringern) statt hochzuzählen (zu erhöhen).
+Umgekehrte Zähler werden mit der Notation `reversed()` erstellt, wenn der Zähler in {{cssxref("counter-reset")}} benannt wird.
 
-Umgekehrte Kontenzähler haben einen Standardanfangswert, der der Anzahl der Elemente entspricht (anders als normale Kontenzähler, die einen Standardwert von 0 haben). Dies erleichtert das Implementieren eines Zählers, der von der Anzahl der Elemente bis auf eins herunterzählt.
+Umgekehrte Zähler haben einen Standardanfangswert, der der Anzahl der Elemente entspricht (im Gegensatz zu normalen Zählern, die einen Standardwert von 0 haben).
+Dies ermöglicht die Implementierung eines Zählers, der von der Anzahl der Elemente bis zu eins herunterzählt.
 
-Zum Beispiel würden Sie einen umgekehrten Kontenzähler namens `section` mit einem Standardanfangswert mit der folgenden Syntax erstellen:
+Zum Beispiel, um einen umgekehrten Zähler namens `section` mit einem Standardanfangswert zu erstellen, würden Sie die folgende Syntax verwenden:
 
 ```css
 counter-reset: reversed(section);
 ```
 
-Sie können natürlich auch jeden Anfangswert angeben, den Sie möchten.
+Natürlich können Sie jeden gewünschten Anfangswert angeben.
 
-Der Zählerwert wird verringert, indem ein negativer Wert für {{cssxref("counter-increment")}} angegeben wird.
+Der Zählerwert wird durch die Angabe eines negativen Werts für {{cssxref("counter-increment")}} verringert.
 
 > [!NOTE]
-> Sie können auch {{cssxref("counter-increment")}} verwenden, um einen nicht umgekehrten Kontenzähler zu verringern.
-> Der Hauptvorteil der Verwendung eines umgekehrten Kontenzählers ist der Standardanfangswert, und dass der `list-item`-Kontenzähler automatisch umgekehrte Kontenzähler dekrementiert.
+> Sie können {{cssxref("counter-increment")}} auch verwenden, um einen nicht umgekehrten Zähler zu verringern.
+> Der Hauptvorteil der Verwendung eines umgekehrten Zählers ist der Standardanfangswert, und dass der `list-item`-Zähler umgekehrte Zähler automatisch verringert.
 
-### Vererbung und Weitergabe von Kontenzählern
+### Vererbung und Weitergabe von Zählern
 
-Jedes Element oder Pseudo-Element hat eine Reihe von Kontenzählern im Geltungsbereich dieses Elements. Initiale Kontenzähler in der Menge werden vom Elternelement und dem vorherigen Geschwisterelement erhalten. Die Werte der Kontenzähler werden vom letzten Nachkommen des vorherigen Geschwisterelements, dem letzten Geschwisterelement oder dem Elternteil erhalten.
+Jedes Element oder Pseudo-Element hat eine Reihe von Zählern im Geltungsbereich dieses Elements. Anfangszähler im Set werden vom Elter-Element und dem vorhergehenden Geschwisterelement übernommen. Die Zählerwerte werden vom letzten Nachkommen des vorherigen Geschwisterelements, dem letzten Geschwisterelement oder dem Elter-Element übernommen.
 
-Wenn ein Element einen Kontenzähler deklariert, wird der Kontenzähler in den Kontenzähler desselben Namens geschachtelt, der vom Elternteil erhalten wurde. Falls das Elternteil keinen Kontenzähler mit demselben Namen hat, wird der Kontenzähler wie er ist zur Kontenzählermenge des Elements hinzugefügt. Ein vom vorherigen Geschwisterelement erhaltener Kontenzähler mit demselben Namen wird aus der Kontenzählermenge entfernt.
+Wenn ein Element einen Zähler deklariert, wird der Zähler innerhalb des Zählers mit demselben Namen verschachtelt, der vom Elter-Element empfangen wurde. Wenn das Elter-Element keinen Zähler mit demselben Namen hat, wird der Zähler so wie er ist zum Zählerset des Elements hinzugefügt. Ein Zähler mit demselben Namen, der vom vorherigen Geschwisterelement empfangen wurde, wird aus dem Zählerset entfernt.
 
-Die {{cssxref("counter", "counter()")}}-Funktion ruft den innersten Kontenzähler mit dem bereitgestellten Namen ab. Und die {{cssxref("counters", "counters()")}}-Funktion ruft den gesamten Kontenzähler-Baum mit dem gegebenen Namen ab.
+Die {{cssxref("counter()")}}-Funktion ruft den innersten Zähler mit dem angegebenen Namen ab. Und die {{cssxref("counters()")}}-Funktion ruft den gesamten Zählerbaum mit dem angegebenen Namen ab.
 
-Im folgenden Beispiel demonstrieren wir einen geerbten Kontenzähler namens `primary` und einen Geschwisterkontenzähler namens `secondary`. Alle `<div>`-Elemente zeigen ihre Kontenzähler mit der `counters()`-Funktion an. Beachten Sie, dass alle Kontenzähler mit der `counter-reset`-Eigenschaft erstellt wurden und keiner der Kontenzähler erhöht wurde.
+Im folgenden Beispiel demonstrieren wir einen geerbten Zähler namens `primary` und einen Geschwisterzähler namens `secondary`. Alle `<div>`-Elemente zeigen ihre Zähler mit der `counters()`-Funktion an. Beachten Sie, dass alle Zähler mit der Eigenschaft `counter-reset` erstellt wurden und keiner der Zähler inkrementiert wurde.
 
 ```html
 <section>
@@ -206,15 +220,15 @@ div::after {
 
 {{EmbedLiveSample("Counter inheritance and propagation", "100%", 250)}}
 
-Das Abschnittelement initialisiert einen Kontenzähler namens `primary` mit dem Wert `3`, und alle untergeordneten `<div>`-Elemente erhalten den geerbten `primary`-Kontenzähler. Das Element 'D' erstellt einen neuen `primary` (Wert `6`) Kontenzähler, der im von den Elternelementen erhaltenen Kontenzähler geschachtelt wird, sodass das Element zwei Kontenzähler namens `primary` hat mit den Werten `3` und `6`.
+Das Abschnittselement initialisiert einen Zähler namens `primary` mit dem Wert `3`, und alle Kind-`<div>`s erhalten den geerbten `primary`-Zähler. Das Element 'D' erstellt einen neuen `primary`-Zähler (Wert `6`), der im vom Elter-Element empfangenen Zähler verschachtelt wird, sodass das Element zwei Zähler namens `primary` mit den Werten `3` und `6` hat.
 
-Das Element 'F' erstellt den `secondary` (Wert `5`) Kontenzähler zum ersten Mal, und er übergibt den Kontenzähler an das nächste Geschwisterelement 'G'. Das Element 'G' übergibt den Kontenzähler an das nächste Element 'H' und so weiter. Das Element 'I' erstellt einen neuen Kontenzähler mit demselben Namen `secondary` (Wert `10`), entfernt jedoch den `secondary` (Wert `5`) Kontenzähler, der vom vorhergehenden Geschwisterelement 'H' erhalten wurde, und übergibt seinen eigenen Kontenzähler an 'J'.
+Das Element 'F' erstellt den `secondary`-Zähler (Wert `5`) zum ersten Mal und gibt den Zähler an das nächste Geschwisterelement 'G' weiter. Das Element 'G' gibt den Zähler an das nächste Element 'H' weiter und so weiter. Als nächstes erstellt das Element 'I' einen neuen Zähler mit demselben Namen `secondary` (Wert `10`), aber es verwirft den `secondary` (Wert `5`)-Zähler, den es vom vorherigen Geschwisterelement 'H' erhalten hat, und gibt seinen eigenen Zähler an 'J' weiter.
 
 ### Unterschied zwischen counter-set und counter-reset
 
-Die {{cssxref("counter-set")}}-Eigenschaft aktualisiert einen bestehenden Kontenzähler und wenn kein Kontenzähler mit dem Namen existiert, wird ein neuer Kontenzähler instanziiert. Die {{cssxref("counter-reset")}}-Eigenschaft erstellt _immer_ einen neuen Kontenzähler.
+Die Eigenschaft {{cssxref("counter-set")}} aktualisiert einen vorhandenen Zähler und falls kein Zähler mit diesem Namen existiert, wird ein neuer Zähler instanziiert. Die Eigenschaft {{cssxref("counter-reset")}} erstellt _immer_ einen neuen Zähler.
 
-Im folgenden Beispiel haben wir zwei Unterlisten in einer übergeordneten Liste. Jedes Listenelement wurde mit einem Kontenzähler namens 'item' nummeriert. Die erste Unterliste verwendet die {{cssxref("counter-set")}}-Eigenschaft und die zweite Unterliste verwendet die {{cssxref("counter-reset")}}-Eigenschaft, um den 'item'-Kontenzähler zu ändern.
+Im folgenden Beispiel haben wir zwei Unterlisten innerhalb einer übergeordneten Liste. Jedes Listenelement wurde mit einem Zähler namens 'item' nummeriert. Die erste Unterliste verwendet die Eigenschaft {{cssxref("counter-set")}} und die zweite Unterliste verwendet die Eigenschaft {{cssxref("counter-reset")}}, um den 'item'-Zähler zu ändern.
 
 ```html
 <ul class="parent">
@@ -276,21 +290,23 @@ li::before {
 
 {{EmbedLiveSample("Difference between counter-set and counter-reset", "100%", 300)}}
 
-Beachten Sie, wie die Elemente der ersten Unterliste mit `11` zu nummerieren beginnen, und die Nummerierung wird in der übergeordneten Liste fortgesetzt. Dies liegt daran, dass die `counter-set`-Eigenschaft denselben 'item'-Kontenzähler aktualisiert, der auf dem `.parent`-Element deklariert ist. Beachten Sie dann, wie die Elemente der zweiten Unterliste mit einer neuen Nummerierung beginnen und die übergeordnete Liste nach dieser Nummerierung nicht fortgesetzt wird. Dies liegt daran, dass die `counter-reset`-Eigenschaft einen neuen Kontenzähler mit demselben Namen erstellt, sodass die übergeordnete Liste weiterhin den alten Kontenzähler verwendet.
+Beachten Sie, wie die Elemente der ersten Unterliste mit `11` nummeriert werden und die Nummerierung in der übergeordneten Liste fortgesetzt wird. Dies liegt daran, dass die Eigenschaft `counter-set` denselben 'item'-Zähler aktualisiert, der auf dem `.parent`-Element deklariert wurde. Beachten Sie dann, wie die Elemente der zweiten Unterliste eine neue Nummerierung ab '1' erhalten und die übergeordneten Listenelemente danach die Nummerierung nicht fortsetzen. Dies liegt daran, dass die Eigenschaft `counter-reset` einen neuen Zähler mit demselben Namen erstellt hat, sodass die übergeordneten Listenelemente weiterhin den alten Zähler verwenden.
 
-### Listenelement-Kontenzähler
+### Listeneintrag-Zähler
 
-Geordnete Listen, erstellt mit {{HTMLElement("ol")}}-Elementen, haben implizit einen Kontenzähler namens `list-item`.
+Nummerierte Listen, die mit {{HTMLElement("ol")}}-Elementen erstellt wurden, haben implizit einen Zähler namens `list-item`.
 
-Wie andere Kontenzähler hat dieser einen Standardanfangswert von 0 für aufwärtszählende Kontenzähler und "Anzahl der Elemente" für umgekehrte Kontenzähler. Im Gegensatz zu benutzererstellten Kontenzählern wird `list-item` _automatisch_ um eins erhöht oder verringert für jedes Listenelement, je nachdem, ob der Kontenzähler umgekehrt ist oder nicht.
+Wie andere Zähler hat dieser einen Standardanfangswert von 0 für aufwärtszählende Zähler und "Anzahl der Elemente" für umgekehrte Zähler.
+Im Gegensatz zu vom Autor erstellten Zählern wird `list-item` _automatisch_ um eins für jedes Listenelement inkrementiert oder dekrementiert, abhängig davon, ob der Zähler umgekehrt ist oder nicht.
 
-Der `list-item`-Kontenzähler kann verwendet werden, um das Standardverhalten von geordneten Listen mit CSS zu manipulieren. Zum Beispiel können Sie den Standardanfangswert ändern oder {{cssxref("counter-increment")}} verwenden, um zu ändern, wie sich die Listenelemente erhöhen oder verringern.
+Der `list-item`-Zähler kann verwendet werden, um das Standardverhalten von nummerierten Listen mit CSS zu manipulieren.
+Zum Beispiel können Sie den Standardanfangswert ändern oder {{cssxref("counter-increment")}} verwenden, um die Art zu ändern, in der die Listenelemente inkrementiert oder dekrementiert werden.
 
 ## Beispiele
 
 ### Grundlegendes Beispiel
 
-In diesem Beispiel wird jeder Überschrift der Text "Section \[der Wert des Kontenzählers]:" vorangestellt.
+Dieses Beispiel fügt den Text "Section \[der Wert des Zählers]:" an den Anfang jeder Überschrift hinzu.
 
 #### CSS
 
@@ -319,11 +335,12 @@ h3::before {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-### Grundlegendes Beispiel: Umgekehrter Kontenzähler
+### Grundlegendes Beispiel: umgekehrter Zähler
 
-Dieses Beispiel ist dasselbe wie das obige, verwendet jedoch einen umgekehrten Kontenzähler. Wenn Ihr Browser die `reversed()`-Funktionsnotation unterstützt, sieht das Ergebnis so aus:
+Dieses Beispiel ist dasselbe wie das obige, verwendet jedoch einen umgekehrten Zähler.
+Wenn Ihr Browser die `reversed()`-Funktionalität unterstützt, sieht das Ergebnis wie folgt aus:
 
-![umgekehrter Kontenzähler](reversed_headings_basic.png)
+![reversed counter](reversed_headings_basic.png)
 
 #### CSS
 
@@ -354,9 +371,10 @@ h3::before {
 
 {{EmbedLiveSample("Basic example: reversed counter", "100%", 150)}}
 
-### Ein ausgefeilteres Beispiel
+### Ein anspruchsvolleres Beispiel
 
-Ein Kontenzähler muss nicht unbedingt jedes Mal angezeigt werden, wenn er erhöht wird. In diesem Beispiel werden alle Links gezählt, wobei der Zähler nur angezeigt wird, wenn ein Link keinen Text hat, als praktischer Ersatz.
+Ein Zähler muss nicht unbedingt jedes Mal angezeigt werden, wenn er inkrementiert wird.
+Dieses Beispiel zählt alle Links mit dem Zähler, der nur angezeigt wird, wenn ein Link keinen Text hat, als praktische Ersatzdarstellung.
 
 #### CSS
 
@@ -386,9 +404,10 @@ a[href]:empty::after {
 
 {{EmbedLiveSample("A_more_sophisticated_example", "100%", 150)}}
 
-### Beispiel eines verschachtelten Kontenzählers
+### Beispiel für einen verschachtelten Zähler
 
-Ein CSS-Kontenzähler kann besonders nützlich für das Erstellen von Gliederungslisten sein, da in den Kindelementen automatisch eine neue Instanz des Kontenzählers erstellt wird. Mithilfe der Funktion {{cssxref("counters", "counters()")}} kann zwischen verschiedenen Ebenen von verschachtelten Kontenzählern Trennungstext eingefügt werden.
+Ein CSS-Zähler kann besonders nützlich für die Erstellung von Gliederungslisten sein, da eine neue Instanz des Zählers automatisch in Kindelementen erstellt wird.
+Mit der {{cssxref("counters()")}}-Funktion kann Trenntext zwischen verschiedenen Ebenen verschachtelter Zähler eingefügt werden.
 
 #### CSS
 
@@ -456,5 +475,5 @@ li::before {
 - {{cssxref("counter-set")}}
 - {{cssxref("counter-increment")}}
 - {{cssxref("@counter-style")}}
-- [CSS-Kontenzählstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
-- [CSS-Listen und -Kontenzähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles)-Modul
+- [CSS-Listen und -Zähler](/de/docs/Web/CSS/Guides/Lists)-Modul

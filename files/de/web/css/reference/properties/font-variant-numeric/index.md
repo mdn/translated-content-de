@@ -2,10 +2,10 @@
 title: font-variant-numeric
 slug: Web/CSS/Reference/Properties/font-variant-numeric
 l10n:
-  sourceCommit: 13f5bce7caf7be6e4156655d827e5927091310b9
+  sourceCommit: 1dbba9f7a2c2e35c6e01e8a63159e2aac64b601b
 ---
 
-Die **`font-variant-numeric`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für Zahlen, Brüche und Ordnungsmarker.
+Die **`font-variant-numeric`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert die Verwendung alternativer Glyphen für Zahlen, Brüche und Ordnungsmarker.
 
 {{InteractiveExample("CSS Demo: font-variant-numeric", "taller")}}
 
@@ -41,7 +41,7 @@ font-variant-numeric: proportional-nums;
 font-variant-numeric: diagonal-fractions;
 ```
 
-<!-- Source Sans Pro unterstützt keine gestapelten Brüche -->
+<!-- Source Sans Pro doesn't support stacked-fractions -->
 
 ```html interactive-example
 <section id="default-example">
@@ -117,7 +117,7 @@ font-variant-numeric: revert-layer;
 font-variant-numeric: unset;
 ```
 
-Diese Eigenschaft kann in zwei Formen angenommen werden:
+Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 - entweder den Schlüsselwortwert `normal`
 - oder einen oder mehrere der unten aufgeführten Werte, durch Leerzeichen getrennt, in beliebiger Reihenfolge.
@@ -128,25 +128,25 @@ Diese Eigenschaft kann in zwei Formen angenommen werden:
   - : Dieses Schlüsselwort deaktiviert die Verwendung solcher alternativen Glyphen.
 
 - `ordinal`
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für die Ordnungsmarker, wie z. B. 1st, 2nd, 3rd, 4th im Englischen oder 1a im Italienischen. Es entspricht den OpenType-Werten `ordn`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für Ordnungsmarker, wie 1st, 2nd, 3rd, 4th in Englisch oder a 1a in Italienisch. Es entspricht den OpenType-Werten `ordn`.
 
 - `slashed-zero`
-  - : Dieses Schlüsselwort erzwingt die Verwendung einer 0 mit einem Schrägstrich; dies ist nützlich, wenn eine klare Unterscheidung zwischen O und 0 erforderlich ist. Es entspricht den OpenType-Werten `zero`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung einer 0 mit einem Schrägstrich; dies ist nützlich, wenn eine eindeutige Unterscheidung zwischen O und 0 erforderlich ist. Es entspricht den OpenType-Werten `zero`.
 
 - _`<numeric-figure-values>`_
-  - : Diese Werte steuern die Ziffern, die für Zahlen verwendet werden. Zwei Werte sind möglich:
-    - `lining-nums` aktiviert das Set von Ziffern, bei denen alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
-    - `oldstyle-nums` aktiviert das Set von Ziffern, bei denen einige Zahlen wie 3, 4, 7, 9 Unterlängen haben. Es entspricht den OpenType-Werten `onum`.
+  - : Diese Werte steuern die verwendeten Zahlenfiguren. Zwei Werte sind möglich:
+    - `lining-nums`, das die Zahlen aktiviert, bei denen alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
+    - `oldstyle-nums`, das die Zahlen aktiviert, bei denen einige Zahlen, wie 3, 4, 7, 9, Nachschwünge haben. Es entspricht den OpenType-Werten `onum`.
 
 - _`<numeric-spacing-values>`_
-  - : Diese Werte steuern die Größeneinstellung der für Zahlen verwendeten Ziffern. Zwei Werte sind möglich:
-    - `proportional-nums` aktiviert das Set von Ziffern, bei denen die Zahlen nicht alle gleich groß sind. Es entspricht den OpenType-Werten `pnum`.
-    - `tabular-nums` aktiviert das Set von Ziffern, bei denen alle Zahlen gleich groß sind, was es ermöglicht, sie leicht anzupassen, z. B. in Tabellen. Es entspricht den OpenType-Werten `tnum`.
+  - : Diese Werte steuern die Größen der verwendeten Zahlenfiguren. Zwei Werte sind möglich:
+    - `proportional-nums`, das die Zahlen aktiviert, bei denen die Zahlen nicht alle gleich groß sind. Es entspricht den OpenType-Werten `pnum`.
+    - `tabular-nums`, das die Zahlen aktiviert, bei denen die Zahlen alle gleich groß sind, sodass sie leicht, wie in Tabellen, ausgerichtet werden können. Es entspricht den OpenType-Werten `tnum`.
 
 - _`<numeric-fraction-values>`_
   - : Diese Werte steuern die Glyphen, die zur Darstellung von Brüchen verwendet werden. Zwei Werte sind möglich:
-    - `diagonal-fractions` aktiviert das Set von Ziffern, bei denen Zähler und Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
-    - `stacked-fractions` aktiviert das Set von Ziffern, bei denen Zähler und Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
+    - `diagonal-fractions`, das die Zahlen aktiviert, bei denen Zähler und Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
+    - `stacked-fractions`, das die Zahlen aktiviert, bei denen Zähler und Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
 
 ## Formale Definition
 
@@ -158,9 +158,9 @@ Diese Eigenschaft kann in zwei Formen angenommen werden:
 
 ## Beispiele
 
-### Ordnungsziffern festlegen
+### Festlegen von Ordnungszahlen
 
-Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___font-variant-numeric-example
 <p class="ordinal">1st, 2nd, 3rd, 4th, 5th</p>
@@ -194,10 +194,10 @@ Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playgr
 
 ## Siehe auch
 
-- [`font-variant`](/de/docs/Web/CSS/Reference/Properties/font-variant)
-- [`font-variant-alternates`](/de/docs/Web/CSS/Reference/Properties/font-variant-alternates)
-- [`font-variant-caps`](/de/docs/Web/CSS/Reference/Properties/font-variant-caps)
-- [`font-variant-east-asian`](/de/docs/Web/CSS/Reference/Properties/font-variant-east-asian)
-- [`font-variant-emoji`](/de/docs/Web/CSS/Reference/Properties/font-variant-emoji)
-- [`font-variant-ligatures`](/de/docs/Web/CSS/Reference/Properties/font-variant-ligatures)
-- [`font-variant-position`](/de/docs/Web/CSS/Reference/Properties/font-variant-position)
+- {{cssxref("font-variant")}}
+- {{cssxref("font-variant-alternates")}}
+- {{cssxref("font-variant-caps")}}
+- {{cssxref("font-variant-east-asian")}}
+- {{cssxref("font-variant-emoji")}}
+- {{cssxref("font-variant-ligatures")}}
+- {{cssxref("font-variant-position")}}

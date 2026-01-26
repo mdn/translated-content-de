@@ -2,7 +2,7 @@
 title: Device Posture API
 slug: Web/API/Device_Posture_API
 l10n:
-  sourceCommit: 01e8b5077df6d79e52f2521dfbe734e0923d1fc4
+  sourceCommit: 142dfee579b161c487fd438599a7d8506e2cdbed
 ---
 
 {{DefaultAPISidebar("Device Posture API")}}{{seecompattable}}
@@ -11,18 +11,18 @@ Die **Device Posture API** ermöglicht es Entwicklern, Benutzeroberflächen zu e
 
 ## Konzepte und Verwendung
 
-Faltbare Geräte stellen Entwickler vor einzigartige Designherausforderungen – sie können wie ein herkömmlicher flacher Bildschirm oder wie ein Buch verwendet werden. Darüber hinaus verfügen einige Geräte über einen einzigen faltbaren Bildschirm, während andere zwei Bildschirme mit einem Scharnier in der Mitte haben. Es ist darauf zu achten, dass der physische Übergang keine Inhalte verdeckt oder diese wegen der Nähe zur zentralen Falte schwer lesbar sind.
+Faltbare Geräte stellen Entwickler vor einzigartige Designherausforderungen – sie können wie ein normaler Flachbildschirm oder wie ein Buch verwendet werden. Darüber hinaus verfügen einige über einen einzigen gefalteten Bildschirm, während andere zwei Bildschirme mit einem Scharnier in der Mitte haben. Es muss darauf geachtet werden, dass der Inhalt nicht durch das physische Scharnier verdeckt wird oder aufgrund der Nähe zur zentralen Falte schwer lesbar ist.
 
-Die Device Posture API definiert **Posturen**, die den aktuellen physischen Faltzustand eines Geräts anzeigen. Die derzeit verfügbaren Posturen sind:
+Die Device Posture API definiert **Haltungen**, die den aktuellen physischen Faltzustand eines Geräts anzeigen. Die derzeit verfügbaren Haltungen sind:
 
 - `continuous`
-  - : Gibt einen flachen Bildschirmzustand an. Faltbare Geräte sind `continuous`, wenn sie flach sind; entweder vollständig geöffnet oder vollständig geschlossen. Geräte, die nicht faltbar sind, gelten als flach und sind daher immer `continuous` — dies schließt nahtlose gebogene Displays sowie Standard-Desktop-, Laptop-, Tablet- und Mobilbildschirme ein.
-    ![Eine Auswahl flacher Bildschirme, einschließlich Mobilgeräte, Tablets und einem nahtlos gebogenen Display](continuous-screens.png)
+  - : Zeigt einen Flachbildschirmzustand an. Faltbare Geräte sind `continuous`, während sie flach sind; entweder vollständig geöffnet oder vollständig geschlossen. Nicht faltbare Geräte werden als flach betrachtet und sind daher immer `continuous` – dies schließt nahtlose gebogene Displays sowie Standard-Desktop-, Laptop-, Tablet- und Mobilbildschirme ein.
+    ![Eine Auswahl an Flachbildschirmen, darunter Mobiltelefone und Tablets, sowie ein nahtlos gebogenes Display](continuous-screens.png)
 - `folded`
-  - : Gibt einen gefalteten Bildschirmzustand an. Faltbare Geräte sind `folded`, wenn sie in einer Buch- oder Laptop-Haltung verwendet werden.
-    ![Eine Auswahl gefalteter Bildschirme, einschließlich faltbarer Mobilgeräte und Tablets in Buch- und Laptop-Posturen](folded-screens.png)
+  - : Zeigt einen gefalteten Bildschirmzustand an. Faltbare Geräte sind `folded`, während sie in einer Buch- oder Laptop-Haltung verwendet werden.
+    ![Eine Auswahl an gefalteten Bildschirmen, darunter faltbare Mobiltelefone und Tablets in Buch- und Laptop-Haltungen](folded-screens.png)
 
-Die Device Posture API umfasst Funktionen, mit denen Sie Skripte ausführen und Layouts abhängig von der aktuellen Haltung des Geräts und deren Änderungen variieren können.
+Die Device Posture API enthält Funktionen, mit denen Sie Skripte ausführen und Layouts je nach aktueller Gerätehaltung und Haltungsänderungen variieren können.
 
 ## CSS-Funktionen
 
@@ -32,18 +32,18 @@ Die Device Posture API umfasst Funktionen, mit denen Sie Skripte ausführen und 
 ## Schnittstellen
 
 - [`DevicePosture`](/de/docs/Web/API/DevicePosture)
-  - : Repräsentiert die Haltung des Geräts und bietet Zugriff auf den aktuellen `type` der Haltung sowie ein `change`-Ereignis, das bei einer Haltungsänderung ausgelöst wird.
+  - : Repräsentiert die Haltung des Geräts und bietet Zugriff auf den aktuellen Haltungstyp und ein `change`-Ereignis, das bei einer Haltungsänderung ausgelöst wird.
 
-### Erweiterungen anderer Schnittstellen
+### Erweiterungen zu anderen Schnittstellen
 
 - [`Navigator.devicePosture`](/de/docs/Web/API/Navigator/devicePosture)
-  - : Der Einstiegspunkt für die Device Posture API — gibt das `DevicePosture`-Objekt des Browsers zurück.
+  - : Der Einstiegspunkt für die Device Posture API – gibt das `DevicePosture`-Objekt des Browsers zurück.
 
 ## Beispiele
 
-Ein vollständiges Beispiel, das alle Funktionen in Aktion zeigt, finden Sie in der [Device Posture API-Demo](https://mdn.github.io/dom-examples/device-posture-api/).
+Ein vollständiges Beispiel mit allen Funktionen finden Sie im [Demo zur Device Posture API](https://mdn.github.io/dom-examples/device-posture-api/).
 
-Wenn möglich, sollten Sie diese auf einem faltbaren Gerät betrachten. Aktuelle Entwicklertools für Browser ermöglichen die Emulation faltbarer Geräte, jedoch nicht von teilweise gefalteten Geräten – nur vollständig geöffnet oder geschlossen – sodass diese immer `continuous` zurückgeben.
+Wenn möglich, sollten Sie dies auf einem faltbaren Gerät ansehen. Aktuelle Entwicklertools des Browsers ermöglichen die Emulation faltbarer Geräte, beinhalten jedoch keine Emulation teilweise gefalteter Geräte – nur vollständig geöffnete oder geschlossene – daher wird immer `continuous` zurückgegeben.
 
 ## Spezifikationen
 
@@ -55,4 +55,5 @@ Wenn möglich, sollten Sie diese auf einem faltbaren Gerät betrachten. Aktuelle
 
 ## Siehe auch
 
-- [Origin trial for Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)
+- [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API)
+- [Origin trial für Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)

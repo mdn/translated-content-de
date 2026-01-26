@@ -3,16 +3,14 @@ title: Temporal.PlainDate.prototype.weekOfYear
 short-title: weekOfYear
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/weekOfYear
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`weekOfYear`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Wochenindex im {{jsxref("Temporal/PlainDate/yearOfWeek", "yearOfWeek")}} dieses Datums darstellt, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Die erste Woche des Jahres ist `1`. Sie ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)).
 
-Die Zugriffs-Eigenschaft **`weekOfYear`** von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Wochenindex im {{jsxref("Temporal/PlainDate/yearOfWeek", "yearOfWeek")}} dieses Datums darstellt, oder `undefined`, wenn der Kalender kein gut definiertes Wochensystem hat. Die erste Woche des Jahres ist `1`. Sie ist abhängig vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars).
+Beachten Sie, dass für ISO 8601 die ersten und letzten Tage des Jahres der letzten Woche des Vorjahres oder der ersten Woche des nächsten Jahres zugeordnet werden können. Das heißt, wenn eine Woche zwei Jahre überschreitet, gehört sie zu dem Jahr, das die Mehrheit ihrer Tage hat. Um das Jahr zu erhalten, zu dem die `weekOfYear` gehört, verwenden Sie die {{jsxref("Temporal/PlainDate/yearOfWeek", "yearOfWeek")}} Eigenschaft, nicht die {{jsxref("Temporal/PlainDate/year", "year")}} Eigenschaft.
 
-Beachten Sie, dass für ISO 8601 die ersten und letzten Tage des Jahres der letzten Woche des Vorjahres oder der ersten Woche des nächsten Jahres zugeschrieben werden können. Wenn eine Woche zwei Jahre überschreitet, gehört sie zu dem Jahr, in dem sie die meisten Tage hat. Um das Jahr zu erhalten, zu dem die `weekOfYear` gehört, verwenden Sie die Eigenschaft {{jsxref("Temporal/PlainDate/yearOfWeek", "yearOfWeek")}}, nicht die Eigenschaft {{jsxref("Temporal/PlainDate/year", "year")}}.
-
-Der Set-Zugriff von `weekOfYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen `weekOfYear`-Wert zu erstellen, verwenden Sie die Methode {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} mit der entsprechenden Anzahl von `weeks`.
+Der Set-Zugriff von `weekOfYear` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen `weekOfYear` Wert zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} Methode mit der entsprechenden Anzahl von `weeks`.
 
 ## Beispiele
 
@@ -43,7 +41,7 @@ console.log(date4.yearOfWeek); // 2020
 
 ### Ändern von weekOfYear
 
-`PlainDate` unterstützt das direkte Ändern von `weekOfYear` nicht. Um die Woche zu ändern, müssen Sie zuerst den Unterschied in Wochen zu Ihrer gewünschten Woche feststellen und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Um beispielsweise zur vorherigen Woche zu wechseln:
+`PlainDate` unterstützt das direkte Ändern von `weekOfYear` nicht. Um die Woche zu ändern, müssen Sie zuerst den Unterschied in Wochen zu Ihrer gewünschten Woche ermitteln und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Zum Beispiel, um zur vorherigen Woche zu wechseln:
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01");

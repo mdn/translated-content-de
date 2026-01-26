@@ -2,10 +2,10 @@
 title: counter-reset
 slug: Web/CSS/Reference/Properties/counter-reset
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`counter-reset`** [CSS](/de/docs/Web/CSS) Eigenschaft erstellt benannte [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) und initialisiert sie auf einen bestimmten Wert. Sie unterstützt das Erstellen von Zählern, die von eins bis zur Anzahl der Elemente zählen, sowie von solchen, die von der Anzahl der Elemente bis eins herunterzählen.
+Die **`counter-reset`**-Eigenschaft von [CSS](/de/docs/Web/CSS) erstellt benannte [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) und initialisiert sie auf einen bestimmten Wert. Sie unterstützt das Erstellen von Zählern, die von eins bis zur Anzahl der Elemente hochzählen, sowie von denen, die von der Anzahl der Elemente bis eins herunterzählen.
 
 {{InteractiveExample("CSS Demo: counter-reset")}}
 
@@ -93,31 +93,31 @@ counter-reset: unset;
 
 ### Werte
 
-Die `counter-reset` Eigenschaft akzeptiert eine Liste von einem oder mehreren durch Leerzeichen getrennten Zählernamen oder das Schlüsselwort `none`. Bei Zählernamen verwenden reguläre Zähler das Format `<counter-name>`, und umgekehrte Zähler verwenden `reversed(<counter-name>)`, wobei `<counter-name>` ein {{cssxref("custom-ident", "&lt;custom-ident&gt;")}} oder `list-item` für den eingebauten {{HTMLElement("ol")}} Zähler ist. Optional kann jedem Zählernamen ein `<integer>` folgen, um seinen Anfangswert festzulegen.
+Die `counter-reset`-Eigenschaft akzeptiert eine Liste von einem oder mehreren durch Leerzeichen getrennten Zählernamen oder das Schlüsselwort `none`. Für Zählernamen verwenden reguläre Zähler das Format `<counter-name>`, während umgekehrte Zähler `reversed(<counter-name>)` verwenden, wobei `<counter-name>` entweder ein {{cssxref("custom-ident", "&lt;custom-ident&gt;")}} oder `list-item` für den integrierten {{HTMLElement("ol")}}-Zähler ist. Optional kann jedem Zählernamen ein `<integer>` folgen, um seinen Anfangswert festzulegen.
 
 - {{cssxref("custom-ident", "&lt;custom-ident&gt;")}}
-  - : Gibt den Namen des zu erstellenden und zu initialisierenden Zählers im {{cssxref("custom-ident", "&lt;custom-ident&gt;")}} Format an. Die Funktionalnotation `reversed()` kann verwendet werden, um den Zähler umgekehrt zu markieren.
+  - : Gibt den Namen des Zählers an, der erstellt und initialisiert werden soll, unter Verwendung des Formats {{cssxref("custom-ident", "&lt;custom-ident&gt;")}}. Die `reversed()`-Notierung kann verwendet werden, um den Zähler als umgekehrt zu kennzeichnen.
 - {{cssxref("&lt;integer&gt;")}}
   - : Der Anfangswert, der auf den neu erstellten Zähler gesetzt werden soll.
-    Standardmäßig `0`, falls nicht angegeben.
+    Standardmäßig `0`, wenn nicht angegeben.
 - `none`
   - : Gibt an, dass keine Zählerinitialisierung erfolgen soll.
-    Dieser Wert ist nützlich, um `counter-reset` Werte in weniger spezifischen Regeln zu überschreiben.
+    Dieser Wert ist nützlich, um `counter-reset`-Werte in weniger spezifischen Regeln zu überschreiben.
 
 ## Beschreibung
 
-Die `counter-reset` Eigenschaft kann sowohl reguläre als auch in unterstützenden Browsern umgekehrte Zähler erstellen. Sie können mehrere reguläre und umgekehrte Zähler erstellen, die jeweils durch ein Leerzeichen getrennt sind. Zähler können ein eigenständiger Name oder ein durch Leerzeichen getrennter Name-Wert-Paar sein.
+Die `counter-reset`-Eigenschaft kann sowohl reguläre als auch, in Browsern, die sie unterstützen, umgekehrte Zähler erstellen. Sie können mehrere reguläre und umgekehrte Zähler erstellen, die jeweils durch ein Leerzeichen getrennt sind. Zähler können ein eigenständiger Name oder ein durch ein Leerzeichen getrenntes Namens-Wert-Paar sein.
 
 > [!WARNING]
-> Es gibt [einen Unterschied zwischen den Eigenschaften `counter-reset` und `counter-set`](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters#difference_between_counter-set_and_counter-reset). Nachdem Sie einen Zähler mit `counter-reset` erstellt haben, können Sie seinen Wert mit der {{cssxref("counter-set")}} Eigenschaft anpassen. Dies ist kontraintuitiv, da die `counter-reset` Eigenschaft trotz ihres Namens zum Erstellen und Initialisieren von Zählern verwendet wird, während die `counter-set` Eigenschaft zum Zurücksetzen des Werts eines bestehenden Zählers verwendet wird.
+> Es gibt [einen Unterschied zwischen den Eigenschaften `counter-reset` und `counter-set`](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters#difference_between_counter-set_and_counter-reset). Nachdem Sie einen Zähler mit `counter-reset` erstellt haben, können Sie seinen Wert mit der Eigenschaft {{cssxref("counter-set")}} anpassen. Dies ist kontraintuitiv, da die Eigenschaft `counter-reset` trotz ihres Namens zum Erstellen und Initialisieren von Zählern verwendet wird, während die Eigenschaft `counter-set` dazu dient, den Wert eines bestehenden Zählers zurückzusetzen.
 
-Das Setzen von `counter-increment: none` auf einem Selektor mit höherer Spezifität überschreibt die Erstellung des benannten Zählers, der auf Selektoren mit geringerer Spezifität festgelegt ist.
+Das Setzen von `counter-increment: none` auf einem Selektor mit höherer Spezifität überschreibt die Erstellung des benannten Zählers, der auf Selektoren mit niedrigerer Spezifität gesetzt wurde.
 
 ### Standardanfangswerte
 
-Die Standardanfangswerte sowohl regulärer als auch umgekehrter Zähler machen es einfach, die beiden häufigsten Nummerierungsmuster zu implementieren: Zählung von eins bis zur Anzahl der Elemente und Zählung von der Anzahl der Elemente bis eins. Durch das Hinzufügen eines Zählwerts für einen benannten Zähler kann Ihr Zähler auf- oder abwärts zählen, beginnend bei einem ganzzahligen Wert.
+Die Standardanfangswerte von sowohl regulären als auch umgekehrten Zählern ermöglichen die Implementierung der beiden häufigsten Nummerierungsmuster: Hochzählen von eins bis zur Anzahl der Elemente und Herunterzählen von der Anzahl der Elemente bis eins. Durch das Hinzufügen eines Zählwerts zu einem benannten Zähler kann Ihr Zähler aufwärts oder abwärts zählen, beginnend bei einem ganzen Zahlenwert.
 
-Reguläre Zähler beginnen standardmäßig bei `0`, wenn kein Rücksetzungswert angegeben ist. Standardmäßig erhöhen sich reguläre Zähler um eins, was mit der {{cssxref("counter-increment")}} Eigenschaft angepasst werden kann.
+Reguläre Zähler werden, wenn kein Rücksetzungswert angegeben ist, standardmäßig auf `0` gesetzt. Standardmäßig erhöhen sich reguläre Zähler um eins, was mit der Eigenschaft {{cssxref("counter-increment")}} angepasst werden kann.
 
 ```css
 h1 {
@@ -129,7 +129,7 @@ h1 {
 
 ### Umgekehrte Zähler
 
-Beim Erstellen umgekehrter Zähler ohne einen Wert beginnt der Zähler mit dem Wert, der der Anzahl der Elemente im Set entspricht, und zählt so herunter, dass das letzte Element im Set `1` ist. Standardmäßig dekrementieren umgekehrte Zähler um eins; dies kann auch mit der `counter-increment` Eigenschaft geändert werden.
+Beim Erstellen von umgekehrten Zählern ohne einen Wert beginnt der Zähler mit dem Wert, der der Anzahl der Elemente im Set entspricht, und zählt herunter, sodass das letzte Element im Set `1` ist. Standardmäßig verringern sich Rückwärtszähler um eins; dies kann ebenfalls mit der Eigenschaft `counter-increment` geändert werden.
 
 ```css
 h1 {
@@ -142,7 +142,7 @@ h1 {
 
 ### Eingebauter `list-item` Zähler
 
-Geordnete Listen ({{HTMLElement("ol")}}) haben eingebaute `list-item` Zähler, die ihre Nummerierung steuern. Diese Zähler erhöhen oder verringern sich automatisch um eins mit jedem Listenelement. Die `counter-reset` Eigenschaft kann verwendet werden, um die `list-item` Zähler zurückzusetzen. Wie bei anderen Zählern können Sie den Standardinkrementwert der `list-item` Zähler mit der {{cssxref("counter-increment")}} Eigenschaft überschreiben.
+Geordnete Listen ({{HTMLElement("ol")}}) haben eingebaute `list-item` Zähler, die ihre Nummerierung steuern. Diese Zähler erhöhen oder verringern sich automatisch um eins bei jedem Listenelement. Die `counter-reset`-Eigenschaft kann verwendet werden, um die `list-item` Zähler zurückzusetzen. Wie bei anderen Zählern können Sie den Standardinkrementwert für `list-item` Zähler überschreiben, indem Sie die Eigenschaft {{cssxref("counter-increment")}} verwenden.
 
 ## Formale Definition
 
@@ -156,7 +156,7 @@ Geordnete Listen ({{HTMLElement("ol")}}) haben eingebaute `list-item` Zähler, d
 
 ### Überschreiben des `list-item` Zählers
 
-In diesem Beispiel wird die `counter-reset` Eigenschaft verwendet, um einen Startwert für einen impliziten `list-item` Zähler festzulegen.
+In diesem Beispiel wird die `counter-reset`-Eigenschaft verwendet, um einen Startwert für einen impliziten `list-item` Zähler festzulegen.
 
 #### HTML
 
@@ -172,7 +172,7 @@ In diesem Beispiel wird die `counter-reset` Eigenschaft verwendet, um einen Star
 
 #### CSS
 
-Mit `counter-reset` setzen wir den impliziten `list-item` Zähler, um bei einem anderen Wert als dem Standardwert `1` zu beginnen:
+Mit `counter-reset` setzen wir den impliziten `list-item` Zähler, um mit einem anderen Wert als dem Standardwert `1` zu starten:
 
 ```css
 ol {
@@ -184,9 +184,9 @@ ol {
 
 {{EmbedLiveSample("Overriding the list-item counter", 140, 300)}}
 
-Mit `counter-reset` setzen wir den impliziten `list-item` Zähler, damit er bei jedem `ol` bei `3` zu zählen beginnt. Dann wäre das erste Element mit 4 nummeriert, das zweite mit 5 usw., ähnlich dem Effekt, als wenn man [`<ol start="4">`](/de/docs/Web/HTML/Reference/Elements/ol#start) in HTML schreibt.
+Mit `counter-reset` setzen wir den impliziten `list-item` Zähler, um bei jedem `ol` ab `3` zu zählen. Dann würde das erste Element mit 4 nummeriert werden, das zweite mit 5 usw., ähnlich dem Effekt, den das Schreiben von [`<ol start="4">`](/de/docs/Web/HTML/Reference/Elements/ol#start) in HTML hätte.
 
-### Verwenden eines umgekehrten Zählers
+### Verwendung eines umgekehrten Zählers
 
 Im folgenden Beispiel haben wir einen umgekehrten Zähler namens 'priority' deklariert. Der Zähler wird verwendet, um fünf Aufgaben zu nummerieren.
 
@@ -225,7 +225,7 @@ li::before {
 
 {{EmbedLiveSample("Using a reverse counter", 140, 150)}}
 
-Im Ergebnis sind die Elemente in umgekehrter Reihenfolge von 5 bis 1 nummeriert. Beachten Sie, dass wir im Code keinen Anfangswert für den Zähler angegeben haben. Der Browser berechnet den Anfangswert automatisch zur Layout-Zeit unter Verwendung des Zähler-Inkrementwerts.
+Im Ausgabeergebnis sind die Elemente in umgekehrter Reihenfolge von 5 bis 1 nummeriert. Beachten Sie, dass im Code der Anfangswert des Zählers nicht angegeben wurde. Der Browser berechnet den Anfangswert automatisch zur Layout-Zeit unter Verwendung des Inkrementwertes des Zählers.
 
 ## Spezifikationen
 
@@ -241,7 +241,7 @@ Im Ergebnis sind die Elemente in umgekehrter Reihenfolge von 5 bis 1 nummeriert.
 - {{cssxref("counter-increment")}} Eigenschaft
 - {{cssxref("counter-set")}} Eigenschaft
 - {{cssxref("@counter-style")}} At-Regel
-- {{cssxref("counter", "counter()")}} und {{cssxref("counters", "counters()")}} Funktionen
+- Funktionen {{cssxref("counter()")}} und {{cssxref("counters()")}}
 - {{cssxref("content")}} Eigenschaft
 - {{cssxref("::marker")}} Pseudo-Klasse
 - [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul

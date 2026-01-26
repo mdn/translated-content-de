@@ -2,14 +2,14 @@
 title: image-resolution
 slug: Web/CSS/Reference/Properties/image-resolution
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
 {{SeeCompatTable}}
 
-Die **`image-resolution`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die intrinsische Auflösung aller Rasterbilder fest, die im oder auf dem Element verwendet werden. Sie beeinflusst Inhaltsbilder wie ersetzte Elemente und generierten Inhalt sowie dekorative Bilder wie `background-image`.
+Die **`image-resolution`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die intrinsische Auflösung aller Rasterbilder an, die in oder auf dem Element verwendet werden. Sie beeinflusst Inhaltsbilder wie ersetzte Elemente und generierte Inhalte sowie dekorative Bilder wie `background-image` Bilder.
 
-Die Bildauflösung wird als Anzahl von Bildpixeln pro Längeneinheit definiert, z. B. Pixel pro Zoll. Standardmäßig geht CSS von einer Auflösung von einem Bildpixel pro CSS-Px-Einheit aus; jedoch erlaubt die Eigenschaft `image-resolution`, eine andere Auflösung anzugeben.
+Die Bildauflösung wird als Anzahl der Bildpixel pro Längeneinheit definiert, z. B. Pixel pro Zoll. Standardmäßig nimmt CSS eine Auflösung von einem Bildpixel pro CSS-Px-Einheit an; jedoch ermöglicht die `image-resolution` Eigenschaft die Angabe einer anderen Auflösung.
 
 ## Syntax
 
@@ -29,15 +29,15 @@ image-resolution: unset;
 
 ### Werte
 
-- {{cssxref("&lt;resolution&gt;")}}
+- {{cssxref("resolution")}}
   - : Gibt die intrinsische Auflösung explizit an.
 - `from-image`
-  - : Verwendet die intrinsische Auflösung, wie sie vom Bildformat angegeben wird. Wenn das Bild keine eigene Auflösung angibt, wird die explizit angegebene Auflösung verwendet (falls gegeben), andernfalls wird standardmäßig `1dppx` (1 Bildpixel pro CSS-Px-Einheit) angenommen.
+  - : Verwendet die intrinsische Auflösung, wie sie durch das Bildformat spezifiziert wurde. Wenn das Bild keine eigene Auflösung angibt, wird die explizit angegebene Auflösung verwendet (falls vorhanden), andernfalls wird standardmäßig `1dppx` (1 Bildpixel pro CSS-Px-Einheit) verwendet.
 - `snap`
-  - : Wenn das `snap` Schlüsselwort angegeben ist, wird die berechnete Auflösung auf den nächstgelegenen Wert gerundet, der ein Bildpixel einer ganzzahligen Anzahl von {{Glossary("device_pixel", "Gerätepixeln")}} zuordnet. Wenn die Auflösung vom Bild stammt, wird die verwendete intrinsische Auflösung analog angepasst.
+  - : Wenn das Schlüsselwort `snap` angegeben ist, wird die berechnete Auflösung auf den nächsten Wert gerundet, der ein Bildpixel auf eine ganzzahlige Anzahl von {{Glossary("device_pixel", "Gerätepixeln")}} abbilden würde. Wenn die Auflösung aus dem Bild genommen wird, ist die verwendete intrinsische Auflösung die native Auflösung des Bildes, ähnlich angepasst.
 
 > [!NOTE]
-> Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keine Wirkung auf Vektorbilder.
+> Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keinen Effekt auf Vektorbilder.
 
 ## Formale Definition
 
@@ -49,9 +49,9 @@ image-resolution: unset;
 
 ## Beispiele
 
-### Einstellung einer hohen DPI für den Druck
+### Einstellung einer hohen dpi für den Druck
 
-Beim Drucken des Dokuments wird eine höhere Auflösung verwendet.
+Beim Drucken des Dokuments verwenden Sie eine höhere Auflösung.
 
 ```css
 @media print {
@@ -61,9 +61,9 @@ Beim Drucken des Dokuments wird eine höhere Auflösung verwendet.
 }
 ```
 
-### Verwendung der Bildauflösung mit Fallback
+### Bildauflösung mit Fallback verwenden
 
-Verwendet die Auflösung vom Bild. Falls das Bild keine Auflösung hat, wird 300dpi anstelle des Standardwerts 1dppx verwendet.
+Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300dpi anstelle des Standardwerts 1dppx.
 
 ```css
 .my-image {
@@ -77,7 +77,7 @@ Verwendet die Auflösung vom Bild. Falls das Bild keine Auflösung hat, wird 300
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützen keine Browser dieses Feature.
+Derzeit unterstützt kein Browser diese Funktion.
 
 ## Siehe auch
 

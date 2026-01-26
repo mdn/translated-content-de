@@ -1,24 +1,24 @@
 ---
-title: Implementierung von Subresource Integrity (SRI)
+title: Implementierung der Subresource Integrity (SRI)
 short-title: Subresource Integrity (SRI)
 slug: Web/Security/Practical_implementation_guides/SRI
 l10n:
-  sourceCommit: ade8d870ed7e18a71dc51fe25aa13d812fb82558
+  sourceCommit: 423161782178b119c64cd0b41bff8df20dc84a56
 ---
 
-[Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity) (SRI) ermöglicht es Browsern, zu überprüfen, dass Ressourcen, die sie abrufen (z. B. von einem CDN), ohne unerwartete Manipulationen geliefert werden. Dies funktioniert durch das Bereitstellen eines kryptografischen Hashes, den die abgerufene Ressource erfüllen muss.
+[Subresource Integrity](/de/docs/Web/Security/Defenses/Subresource_Integrity) (SRI) ermöglicht es Browsern, zu überprüfen, ob die von ihnen abgerufenen Ressourcen (zum Beispiel von einem CDN) ohne unerwartete Manipulationen geliefert werden. Dies funktioniert, indem Sie einen kryptografischen Hash bereitstellen, mit dem die abgerufene Ressource übereinstimmen muss.
 
 ## Problem
 
-Wenn ein Angreifer ein Content Delivery Network (CDN) ausnutzt und den Inhalt von JavaScript-Bibliotheken auf diesem CDN modifiziert, würde dies Schwachstellen auf allen Websites schaffen, die diese Bibliotheken verwenden.
+Wenn ein Angreifer ein Content Delivery Network (CDN) ausnutzen und den Inhalt von auf diesem CDN gehosteten JavaScript-Bibliotheken ändern würde, würde dies Schwachstellen in allen Websites schaffen, die diese Bibliotheken verwenden.
 
-Zum Beispiel kann JavaScript, das auf `library.org` gehostet wird und von `example.org` geladen wird, auf den gesamten Inhalt von `example.org` zugreifen. Wenn ein Angreifer dieses gehostete JavaScript ändert, um bösartigen Code einzuschließen, könnte er Download-Links verändern, die Website verunstalten, Anmeldedaten stehlen, Denial-of-Service (DoS)-Angriffe ausführen usw.
+Ein Beispiel: JavaScript von `library.org`, das von `example.org` geladen wird, kann auf die gesamten Inhalte von `example.org` zugreifen. Wenn ein Angreifer dieses gehostete JavaScript ändert, um bösartigen Code einzuschließen, könnte er Download-Links verändern, die Website verunstalten, Anmeldedaten stehlen, Denial-of-Service (DoS)-Angriffe ausführen und so weiter.
 
 ## Lösung
 
-Verwenden Sie SRI, um eine externe JavaScript-Ressource auf deren bekannte Inhalte zu einem bestimmten Zeitpunkt festzulegen. Dies wird durch einen base64-kodierten kryptografischen Hash überprüft. Geben Sie diesen Hash im `integrity`-Attribut an, wenn Sie die Ressource laden.
+Verwenden Sie SRI, um eine externe JavaScript-Ressource an ihre bekannten Inhalte zu einem bestimmten Zeitpunkt zu binden. Dies wird durch einen Base64-kodierten kryptografischen Hash verifiziert. Geben Sie diesen Hash im `integrity`-Attribut an, wenn Sie die Ressource laden.
 
-Wenn die Datei nach diesem Zeitpunkt modifiziert wird, stimmt der Hash nicht überein, und unterstützende Webbrowser werden sich weigern, sie zu laden.
+Wenn die Datei nach diesem Zeitpunkt geändert wird, stimmt der Hash nicht mehr überein, und unterstützende Webbrowser laden sie nicht.
 
 SRI sollte verwendet werden, wenn externe JavaScript- oder Stylesheet-Ressourcen geladen werden. Die Ressourcen sollten über HTTPS geladen werden.
 
@@ -58,4 +58,4 @@ r1y8TJcloKTvouxnYsi4PJAx+nHNr90ibsEn3zznzDzWBN9X3o3kbHLSgcIPtzAp
 
 - {{htmlelement("link")}}
 - {{htmlelement("script")}}
-- [SRI Hash Generator](https://www.srihash.org/) auf `srihash.org`: Generiert die erforderlichen {{htmlelement("script")}}-Elemente für Sie und informiert, ob das CDN CORS-Unterstützung fehlt.
+- [SRI Hash Generator](https://srihash.org/) auf `srihash.org`: Generiert die erforderlichen {{htmlelement("script")}}-Elemente für Sie und informiert Sie, wenn das CDN keine CORS-Unterstützung bietet.

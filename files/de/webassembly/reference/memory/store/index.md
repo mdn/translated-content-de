@@ -1,18 +1,14 @@
 ---
-title: "store: Wasm Textanweisung"
+title: "store: Wasm-Textbefehl"
 short-title: store
-slug: WebAssembly/Reference/Memory/Store
+slug: WebAssembly/Reference/Memory/store
 l10n:
-  sourceCommit: d47940f987297e6d5202c55576afef1ddc8565e7
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`store`**-Anweisungen der [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stack in einem Speicher abzulegen.
+Die **`store`** [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl aus dem Stack im Speicher abzulegen.
 
-Es gibt `store`-Anweisungen zum Speichern eines `i32`, `i64`, `f32` und `f64` im Speicher.
-Für die ganzzahligen Zahlen gibt es separate Anweisungsvarianten zum Speichern einer weit getypten Zahl in einer schmaleren Zahl im Speicher.
-Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher mit `i32.store8` speichern.
-Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umgebrochen.
-Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
+Es gibt `store`-Anweisungen, um `i32`, `i64`, `f32` und `f64` im Speicher abzulegen. Für die Ganzzahlen gibt es separate Anweisungsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher abzulegen. Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Speicherplatz speichern, indem Sie `i32.store8` verwenden. Wenn die Zahl nicht in den engeren Zahlentyp passt, wird sie umgewickelt. Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
 
 {{InteractiveExample("Wat Demo: store", "tabbed-taller")}}
 
@@ -63,7 +59,7 @@ i32.store ;; store in default memory
 (i32.store (i32.const 0) (i32.const 20))
 ```
 
-Speichern im angegebenen Speicher (falls Multi-Speicher unterstützt wird)
+Speichern in einem angegebenen Speicher (falls Mehrfachspeicher unterstützt wird)
 
 ```wat
 ;; Store in memory referenced by its index
@@ -103,4 +99,4 @@ i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 {{Compat}}
 
 > [!NOTE]
-> Die `multiMemory`-Kompatibilitätstabelle gibt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
+> Die `multiMemory`-Kompatibilitätstabelle gibt die Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.

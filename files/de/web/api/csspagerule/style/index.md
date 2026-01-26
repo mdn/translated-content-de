@@ -3,27 +3,28 @@ title: "CSSPageRule: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSPageRule/style
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte Eigenschaft **`style`** des [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)-Interfaces gibt ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt zurück.
-Dies repräsentiert einen [CSS-Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block) für eine CSS {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) und stellt Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften für die Seite bereit.
+Die schreibgeschützte **`style`**-Eigenschaft der [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)-Schnittstelle enthält ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt, das die in der {{cssxref("@page")}}-Regel verfügbaren Deskriptoren darstellt.
 
 ## Wert
 
-Ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt mit Eigenschaften, die der zugehörigen {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) entsprechen.
+Ein [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors)-Objekt.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation definierten diese Eigenschaft als [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration).
-> Überprüfen Sie die untenstehende Kompatibilitätsdaten für Ihren Browser.
+> Frühere Versionen der Spezifikation definierten diese Eigenschaft als ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration).
+> Überprüfen Sie die Kompatibilitätsdaten unten für Ihren Browser.
+
+Obwohl die `style`-Eigenschaft selbst insofern schreibgeschützt ist, dass Sie das `CSSPageDescriptors`-Objekt nicht ersetzen können, können Sie der `style`-Eigenschaft direkt etwas zuweisen, was dem Zuweisen ihrer `cssText`-Eigenschaft entspricht. Sie können das `CSSPageDescriptors`-Objekt auch mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
 
 ## Beispiele
 
 ### Untersuchen einer Seitenregel
 
-Dieses Beispiel verwendet die Web-API, um den Inhalt einer {{cssxref("@page")}}-Regel zu inspizieren.
+Dieses Beispiel verwendet die Web-API, um den Inhalt einer {{cssxref("@page")}}-Regel zu untersuchen.
 
 ```html hidden
 <pre id="log"></pre>
@@ -49,9 +50,9 @@ function log(text) {
 #### CSS
 
 Unten definieren wir Stile für die Seite mit einer {{cssxref("@page")}}-Regel.
-Wir weisen jeder Margin-Eigenschaft unterschiedliche Werte mit dem `margin`-Shorthand zu und geben auch die `size` an.
-Wir setzen die `page-orientation` nicht.
-Dies ermöglicht es uns zu sehen, wie die Eigenschaften im Web-API-Objekt abgebildet werden.
+Wir weisen jedem Rand-Eigenschaft mit der `margin`-Kurzform unterschiedliche Werte zu und spezifizieren auch die `size`.
+Wir setzen nicht die `page-orientation`.
+Dies ermöglicht es uns zu sehen, wie die Eigenschaften im Web-API-Objekt zugeordnet werden.
 
 ```css
 @page {
@@ -63,14 +64,14 @@ Dies ermöglicht es uns zu sehen, wie die Eigenschaften im Web-API-Objekt abgebi
 
 #### JavaScript
 
-Die MDN-[Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Infrastruktur kombiniert alle CSS-Blöcke im Beispiel zu einem einzelnen Inline-Stil mit der ID `css-output`, daher verwenden wir zunächst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
+Die MDN [Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Infrastruktur kombiniert alle CSS-Blöcke im Beispiel in einem einzigen Inline-Stil mit der ID `css-output`, daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Blatt zu finden.
 
 ```js
 const myRules = document.getElementById("css-output").sheet.cssRules;
 ```
 
-Wir iterieren dann durch die für das Live-Beispiel definierten Regeln und vergleichen sie mit denen vom Typ `CSSPageRule`, da diese `@page`-Regeln entsprechen.
-Für die übereinstimmenden Objekte protokollieren wir dann den `style` und alle dessen Werte.
+Wir durchlaufen dann die im Live-Beispiel definierten Regeln und suchen die, die vom Typ `CSSPageRule` sind, da diese den `@page`-Regeln entsprechen.
+Bei den übereinstimmenden Objekten protokollieren wir dann den `style` und alle seine Werte.
 
 ```js
 for (const rule of myRules) {
@@ -100,9 +101,8 @@ for (const rule of myRules) {
 
 #### Ergebnisse
 
-Die Ergebnisse werden unten gezeigt.
-Beachten Sie, dass das Objekt ein `CSSPageDescriptors` sein sollte, um der aktuellen Spezifikation zu entsprechen, aber in einigen Browsern ein `CSSStyleDeclaration` sein kann.
-Beachten Sie auch, dass die entsprechenden Werte für Eigenschaften in Camel- und Snake-Case zueinander und zur `@page`-Deklaration passen und dass die `page-orientation` der leere String `""` ist, da es in `@page` nicht definiert ist.
+Die Ergebnisse werden unten gezeigt. Beachten Sie, dass das Objekt ein `CSSPageDescriptors` sein sollte, um der aktuellen Spezifikation zu entsprechen, aber in einigen Browsern möglicherweise ein `CSSStyleDeclaration` ist.
+Auch die entsprechenden Werte für Eigenschaften im Camel- und Snake-Case stimmen sowohl miteinander als auch mit der `@page`-Deklaration überein, und dass `page-orientation` der leere String `""` ist, da es in der `@page` nicht definiert ist.
 
 {{EmbedLiveSample("Inspecting a page rule", "100%", "300px")}}
 

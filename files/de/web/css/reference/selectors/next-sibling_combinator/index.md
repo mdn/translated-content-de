@@ -1,11 +1,11 @@
 ---
-title: Next-Sibling-Kombinator
+title: Direkt-Nachfolger-Kombinator
 slug: Web/CSS/Reference/Selectors/Next-sibling_combinator
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Der **Next-Sibling-Kombinator** (`+`) trennt zwei Selektoren und wählt das zweite Element nur aus, wenn es dem ersten Element _unmittelbar_ folgt und beide dasselbe übergeordnete [`Element`](/de/docs/Web/API/Element) haben.
+Der **Direkt-Nachfolger-Kombinator** (`+`) trennt zwei Selektoren und wählt das zweite Element nur aus, wenn es _unmittelbar_ auf das erste Element folgt und beide Kinder desselben übergeordneten [`Elements`](/de/docs/Web/API/Element) sind.
 
 ```css
 /* Paragraphs that come immediately after any image */
@@ -23,9 +23,9 @@ former_element + target_element { style properties }
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses Beispiel demonstriert, wie man das nächste Geschwisterelement auswählt, wenn dieses von einem bestimmten Typ ist.
+Dieses Beispiel zeigt, wie man den nächsten Nachbarn auswählt, wenn dieser nächste Nachbar von einem bestimmten Typ ist.
 
 #### CSS
 
@@ -52,13 +52,13 @@ li:first-of-type + li {
 
 {{EmbedLiveSample("Basic usage", "100%", 100)}}
 
-### Ein vorheriges Geschwisterelement auswählen
+### Auswahl eines vorherigen Nachbarn
 
-Der Next-Sibling-Kombinator kann innerhalb des {{cssxref(":has", ":has()")}} Funktionsselektors verwendet werden, um das vorherige Geschwisterelement auszuwählen.
+Der Direkt-Nachfolger-Kombinator kann innerhalb des funktionalen Selektors {{cssxref(":has()")}} verwendet werden, um den vorherigen Nachbarn auszuwählen.
 
 #### CSS
 
-Wir stylen nur das `<li>`, das ein nächstes Geschwisterelement hat, das ein `<li>` ist und das letzte seiner Art:
+Wir stylen nur das `<li>`, das einen nächsten Nachbarn hat, der ein `<li>` ist, das das letzte seiner Art ist:
 
 ```css
 li:has(+ li:last-of-type) {
@@ -92,4 +92,4 @@ li:has(+ li:last-of-type) {
 
 ## Siehe auch
 
-- [Subsequent-Sibling-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator)
+- [Benachbarter Nachfolger-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator)

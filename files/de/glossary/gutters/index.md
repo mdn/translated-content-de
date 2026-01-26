@@ -1,15 +1,15 @@
 ---
-title: Gitterzwischenräume
+title: Rinnen
 slug: Glossary/Gutters
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: cee38200097c0261de3067165362100b830a580d
 ---
 
-**Gitterzwischenräume** oder _Allee_ sind Abstände zwischen Inhalts- {{Glossary("grid_tracks", "Spuren")}}. Diese können im [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) mithilfe der Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}} oder {{cssxref("gap")}} erstellt werden.
+**Rinnen**, auch _Gassen_ genannt, sind Abstände zwischen den Inhalts-{{Glossary("grid_tracks", "Tracks")}}. Diese können im [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout), [Flex-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) und [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) mit den Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}}, oder {{cssxref("gap")}} erstellt werden.
 
 ## Beispiel
 
-Im folgenden Beispiel haben wir ein Raster mit drei Spalten und zwei Zeilen, mit `20px` Abständen zwischen sowohl Spalten- als auch Zeilenspuren.
+Im folgenden Beispiel haben wir ein Gitter mit drei Spalten und zwei Zeilen, mit `20px` Zwischenräumen sowohl zwischen den Spaltentracks als auch den Zeilentracks.
 
 ```css hidden
 * {
@@ -53,16 +53,16 @@ Im folgenden Beispiel haben wir ein Raster mit drei Spalten und zwei Zeilen, mit
 
 {{EmbedLiveSample('Example', '300', '280')}}
 
-In Bezug auf die Rastergröße verhalten sich Lücken so, als wären sie eine reguläre Rasterspur, jedoch kann nichts in die Lücke platziert werden. Die Lücke verhält sich, als ob die Rasterlinie an dieser Stelle eine zusätzliche Größe erhalten hätte, sodass jedes Rasterelement, das nach dieser Linie platziert wird, am Ende der Lücke beginnt.
+Bezüglich der Rastergrößen wirken Lücken wie ein regulärer Raster-Track, jedoch kann nichts in die Lücke platziert werden. Die Lücke wirkt, als ob die Rasterlinie an diesem Ort an Größe gewonnen hätte, so dass jedes Rasterelement, das nach dieser Linie platziert wird, am Ende der Lücke beginnt.
 
-Die Eigenschaften `row-gap` und `column-gap` sind nicht die einzigen Dinge, die dazu führen können, dass sich Spuren auseinander bewegen. Ränder, Abstände oder die Verwendung der Raumverteilungseigenschaften in der [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) können alle zum sichtbaren Abstand beitragen – daher sollten die Eigenschaften `row-gap` und `column-gap` nicht gleichbedeutend mit der "Gitterzwischenraumgröße" angesehen werden, es sei denn, Sie wissen, dass Ihr Design keinen zusätzlichen Raum mit einer dieser Methoden eingeführt hat.
+Die Eigenschaften `row-gap` und `column-gap` sind nicht die einzigen Dinge, die dazu führen können, dass Tracks sich auseinanderziehen. Ränder, Abstände oder die Verwendung von Raumausrichteeigenschaften in der [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) können alle zur sichtbaren Lücke beitragen – daher sollten die Eigenschaften `row-gap` und `column-gap` nicht als gleichbedeutend mit der "Rinnengröße" angesehen werden, es sei denn, Sie wissen, dass Ihr Design keinen zusätzlichen Raum mit einer dieser Methoden eingeführt hat.
 
 ## Siehe auch
 
 - [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
-- Eigenschaftenreferenz
+- Eigenschaftsreferenz
   - {{cssxref("column-gap")}}
   - {{cssxref("row-gap")}}
   - {{cssxref("gap")}}
 
-- [Definition von Gitterzwischenräumen](https://drafts.csswg.org/css-grid/#gutters) in der CSS-Grid-Layout-Spezifikation
+- [Definition von Rinnen](https://drafts.csswg.org/css-grid/#gutters) in der CSS-Grid-Layout-Spezifikation

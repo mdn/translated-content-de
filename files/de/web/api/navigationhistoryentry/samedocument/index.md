@@ -3,16 +3,16 @@ title: "NavigationHistoryEntry: sameDocument-Eigenschaft"
 short-title: sameDocument
 slug: Web/API/NavigationHistoryEntry/sameDocument
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`sameDocument`**-Eigenschaft der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt `true` zurück, wenn dieser Verlaufseintrag für dasselbe `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist und das aktuelle Dokument vollständig aktiv ist, oder `false` andernfalls.
+Die schreibgeschützte Eigenschaft **`sameDocument`** der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt `true` zurück, wenn dieser Verlaufs-Eintrag für dasselbe `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist und das aktuelle Dokument voll aktiv ist, oder andernfalls `false`.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -32,5 +32,5 @@ console.log(current.sameDocument);
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Dokumentation zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)

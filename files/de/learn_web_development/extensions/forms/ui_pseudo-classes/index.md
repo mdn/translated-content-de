@@ -2,12 +2,12 @@
 title: UI-Pseudoklassen
 slug: Learn_web_development/Extensions/Forms/UI_pseudo-classes
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 2b4a2ad5d9ba084a9eaa2f9204102655e7b575c4
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Customizable_select", "Learn_web_development/Extensions/Forms/Form_validation", "Learn_web_development/Extensions/Forms")}}
 
-In den vorherigen Artikeln haben wir die Gestaltung verschiedener Formularsteuerungen auf allgemeine Weise behandelt. Dazu gehörte die Verwendung von Pseudoklassen, zum Beispiel `:checked`, um ein Kontrollkästchen nur dann zu selektieren, wenn es ausgewählt ist. In diesem Artikel erkunden wir die verschiedenen UI-Pseudoklassen, die für das Styling von Formularen in unterschiedlichen Zuständen verfügbar sind.
+In den vorherigen Artikeln haben wir besprochen, wie verschiedene Formularelemente allgemein gestaltet werden können. Dies beinhaltete auch die Verwendung von Pseudoklassen, zum Beispiel die Verwendung von `:checked`, um ein Kontrollkästchen nur dann zu stylen, wenn es ausgewählt ist. In diesem Artikel erkunden wir die verschiedenen UI-Pseudoklassen, die zum Stylen von Formularen in verschiedenen Zuständen verfügbar sind.
 
 <table>
   <tbody>
@@ -16,7 +16,8 @@ In den vorherigen Artikeln haben wir die Gestaltung verschiedener Formularsteuer
       <td>
         Ein grundlegendes Verständnis von
         <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, einschließlich allgemeiner Kenntnisse über
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, einschließlich allgemeiner
+        Kenntnisse über
         <a
           href="/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements"
           >Pseudoklassen und -elemente</a
@@ -26,38 +27,38 @@ In den vorherigen Artikeln haben wir die Gestaltung verschiedener Formularsteuer
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, welche Teile von Formularen schwer zu stylen sind und warum; lernen, was getan werden kann, um diese anzupassen.
+        Zu verstehen, welche Teile von Formularen schwer zu stylen sind und warum; zu lernen, was getan werden kann, um sie anzupassen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Welche Pseudoklassen stehen uns zur Verfügung?
+## Welche Pseudoklassen stehen zur Verfügung?
 
-Sie sind möglicherweise bereits mit den folgenden Pseudoklassen vertraut:
+Sie kennen möglicherweise bereits die folgenden Pseudoklassen:
 
-- {{cssxref(":hover")}}: Selektiert ein Element nur, wenn es von einem Mauszeiger überfahren wird.
-- {{cssxref(":focus")}}: Selektiert ein Element nur, wenn es fokussiert ist (d.h. wenn es per Tastatur angesteuert wird).
-- {{cssxref(":active")}}: Selektiert ein Element nur, wenn es aktiviert wird (d.h. während darauf geklickt wird oder wenn die <kbd>Return</kbd> / <kbd>Enter</kbd>-Taste bei einer Tastaturaktivierung gedrückt wird).
+- {{cssxref(":hover")}}: Wählt ein Element nur aus, wenn es von einem Mauszeiger überfahren wird.
+- {{cssxref(":focus")}}: Wählt ein Element nur aus, wenn es den Fokus hat (z.B. durch Tab-Taste über die Tastatur erreicht).
+- {{cssxref(":active")}}: wählt ein Element nur aus, wenn es aktiviert wird (z.B. während es angeklickt wird oder wenn die <kbd>Return</kbd> / <kbd>Enter</kbd>-Taste im Fall einer Tastaturaktivierung gedrückt wird).
 
-[CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) bieten mehrere andere Pseudoklassen, die sich auf HTML-Formulare beziehen. Diese bieten verschiedene nützliche Targeting-Bedingungen, die Sie nutzen können. Wir werden diese weiter unten im Detail besprechen, aber kurz gesagt, die Hauptpunkte, die wir uns ansehen werden, sind:
+[CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) bieten mehrere andere Pseudoklassen im Zusammenhang mit HTML-Formularen. Diese bieten mehrere nützliche Zielkriterien, die Sie nutzen können. Wir werden diese im Folgenden näher besprechen, aber kurz gesagt, die wichtigsten, die wir uns ansehen werden, sind:
 
-- {{cssxref(':required')}} und {{cssxref(':optional')}}: Element-Targets, die erforderlich sein können (z. B. Elemente, die das [`required`](/de/docs/Web/HTML/Reference/Attributes/required) HTML-Attribut unterstützen), basierend darauf, ob sie erforderlich oder optional sind.
-- {{cssxref(":valid")}} und {{cssxref(":invalid")}}, sowie {{cssxref(":in-range")}} und {{cssxref(":out-of-range")}}: Targets von Formularsteuerungen, die gültig/ungültig gemäß den auf sie gesetzten Formularvalidierungsbeschränkungen sind, oder im Bereich/außerhalb des Bereichs liegen.
-- {{cssxref(":enabled")}} und {{cssxref(":disabled")}}, sowie {{cssxref(":read-only")}} und {{cssxref(":read-write")}}: Targets für Elemente, die deaktiviert werden können (z. B. Elemente, die das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) HTML-Attribut unterstützen), basierend darauf, ob sie derzeit aktiviert oder deaktiviert sind, und für schreibgeschützte oder beschreibbare Formularsteuerungen (z. B. Elemente mit dem [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) HTML-Attribut).
-- {{cssxref(":checked")}}, {{cssxref(":indeterminate")}}, und {{cssxref(":default")}}: Ziel-Checkboxen und Radiobuttons, die ausgewählt, in einem unbestimmten Zustand (weder ausgewählt noch nicht ausgewählt) sind, sowie die standardmäßig ausgewählte Option, wenn die Seite geladen wird (z. B. ein [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) mit dem Attribut [`checked`](/de/docs/Web/HTML/Reference/Elements/input#checked) gesetzt, oder ein [`<option>`](/de/docs/Web/HTML/Reference/Elements/option) mit dem Attribut [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected)).
+- {{cssxref(':required')}} und {{cssxref(':optional')}}: Zielelemente, die erforderlich sein können (z.B. Elemente, die das [`required`](/de/docs/Web/HTML/Reference/Attributes/required) HTML-Attribut unterstützen) basierend darauf, ob sie erforderlich oder optional sind.
+- {{cssxref(":valid")}} und {{cssxref(":invalid")}} sowie {{cssxref(":in-range")}} und {{cssxref(":out-of-range")}}: Ziele Formularelemente, die gültig/ungültig gemäß den auf sie angewendeten Validierungseinschränkungen sind oder in-/außerhalb des Bereichs.
+- {{cssxref(":enabled")}} und {{cssxref(":disabled")}} sowie {{cssxref(":read-only")}} und {{cssxref(":read-write")}}: Zielgerichtete Elemente, die deaktiviert werden können (z.B. Elemente, die das [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) HTML-Attribut unterstützen), basierend darauf, ob sie derzeit aktiviert oder deaktiviert sind, sowie schreibgeschützte oder lese/schreibbare Formularelemente (z.B. Elemente mit dem [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) HTML-Attribut).
+- {{cssxref(":checked")}}, {{cssxref(":indeterminate")}}, und {{cssxref(":default")}}: Ziele, je nachdem, ob Kontrollkästchen und Optionsfelder aktiviert, in einem unbestimmten Zustand (weder aktiviert noch deaktiviert) sind und die standardmäßig ausgewählte Option beim Laden der Seite (z.B. ein [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) mit dem [`checked`](/de/docs/Web/HTML/Reference/Elements/input#checked) Attribute oder ein [`<option>`](/de/docs/Web/HTML/Reference/Elements/option) Element mit dem [`selected`](/de/docs/Web/HTML/Reference/Elements/option#selected) Attribute).
 
-Es gibt viele andere, aber die oben genannten sind die offensichtlich nützlichsten. Einige sind darauf ausgelegt, sehr spezifische Nischenprobleme zu lösen. Die oben aufgeführten UI-Pseudoklassen haben eine hervorragende Browser-Kompatibilität, aber natürlich sollten Sie Ihre Formulumsetzungen sorgfältig testen, um sicherzustellen, dass sie für Ihre Zielgruppe funktionieren.
+Es gibt noch viele andere, aber die oben aufgeführten sind die offensichtlich nützlichsten. Einige von ihnen sind darauf ausgelegt, sehr spezifische Nischenprobleme zu lösen. Die oben aufgeführten UI-Pseudoklassen bieten eine hervorragende Browser-Kompatibilität, aber natürlich sollten Sie Ihre Formularimplementierungen sorgfältig testen, um sicherzustellen, dass sie für Ihr Zielpublikum funktionieren.
 
 > [!NOTE]
-> Einige der hier diskutierten Pseudoklassen befassen sich mit dem Styling von Formularsteuerungen basierend auf ihrem Validierungsstatus (ist ihre Eingabe gültig oder nicht?). Sie werden viel mehr darüber erfahren, wie Validierungsbeschränkungen gesetzt und kontrolliert werden, in unserem nächsten Artikel — [Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) — aber fürs Erste werden wir die Formularvalidierung einfach halten, um keine Verwirrung zu stiften.
+> Einige der hier besprochenen Pseudoklassen befassen sich mit der Gestaltung von Formularelementen basierend auf ihrem Validierungsstatus (sind ihre Daten gültig oder nicht?). Sie werden viel mehr über das Festlegen und Steuern von Validierungseinschränkungen in unserem nächsten Artikel erfahren — [Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) — aber vorerst werden wir die Formularvalidierung einfach halten, damit es nicht verwirrend wird.
 
-## Styling von Eingaben basierend darauf, ob sie erforderlich sind oder nicht
+## Eingaben stylen basierend darauf, ob sie erforderlich sind oder nicht
 
-Eines der grundlegendsten Konzepte bezüglich der Client-seitigen Formularvalidierung ist, ob eine Formulareingabe erforderlich ist (sie muss ausgefüllt werden, bevor das Formular eingereicht werden kann) oder optional.
+Eines der grundlegendsten Konzepte in der clientseitigen Formularvalidierung ist, ob eine Formulareingabe erforderlich ist (sie muss ausgefüllt werden, bevor das Formular gesendet werden kann) oder optional.
 
-{{htmlelement('input')}}, {{htmlelement('select')}} und {{htmlelement('textarea')}} Elemente haben ein `required`-Attribut, das, wenn es gesetzt ist, bedeutet, dass Sie diese Steuerung ausfüllen müssen, bevor das Formular erfolgreich übermittelt wird.
-Zum Beispiel sind der Vorname und der Nachname im untenstehenden Formular erforderlich, die E-Mail-Adresse ist jedoch optional:
+{{htmlelement('input')}}, {{htmlelement('select')}} und {{htmlelement('textarea')}} Elemente verfügen über ein `required` Attribut, das, wenn gesetzt, bedeutet, dass Sie dieses Element ausfüllen müssen, bevor das Formular erfolgreich gesendet wird.
+Zum Beispiel sind Vorname und Nachname im folgenden Formular erforderlich, aber die E-Mail-Adresse ist optional:
 
 ```html live-sample___optional-required-styles
 <form>
@@ -80,7 +81,7 @@ Zum Beispiel sind der Vorname und der Nachname im untenstehenden Formular erford
 </form>
 ```
 
-Sie können diese beiden Zustände mit den {{cssxref(':required')}} und {{cssxref(':optional')}} Pseudoklassen abgleichen. Wenn wir zum Beispiel das folgende CSS auf das obige HTML anwenden:
+Sie können diese beiden Zustände mithilfe der {{cssxref(':required')}} und {{cssxref(':optional')}} Pseudoklassen abgleichen. Wenn wir beispielsweise das folgende CSS auf das obige HTML anwenden:
 
 ```css hidden live-sample___optional-required-styles
 body {
@@ -141,11 +142,12 @@ input:optional {
 }
 ```
 
-Die erforderlichen Steuerungen haben einen durchgezogenen Rand und die optionale Steuerung hat einen gestrichelten Rand. Sie können auch versuchen, das Formular einzureichen, ohne es auszufüllen, um die standardmäßigen Client-seitigen Validierungsfehlermeldungen von Browsern anzuzeigen:
+Die erforderlichen Felder haben einen festen Rahmen und das optionale Feld hat einen gestrichelten Rahmen.
+Sie können auch versuchen, das Formular abzusenden, ohne es auszufüllen, um die standardmäßigen clientseitigen Validierungsfehlermeldungen der Browser zu sehen:
 
 {{EmbedLiveSample("optional-required-styles", , "400px", , , , , "allow-forms")}}
 
-Im Allgemeinen sollten Sie vermeiden, 'erforderliche' gegenüber 'optionalen' Elementen in Formularen nur mit Farben zu stylen, da dies für farbenblinde Menschen nicht ideal ist:
+Im Allgemeinen sollten Sie vermeiden, erforderlich gegenüber optional Elemente in Formularen nur mit Farbe zu stylen, da dies für farbenblinde Menschen nicht ideal ist:
 
 ```css example-bad
 input:required {
@@ -157,22 +159,22 @@ input:optional {
 }
 ```
 
-Der Standard auf dem Web für den Status 'erforderlich' ist ein Sternchen (`*`) oder das Wort "erforderlich", das den jeweiligen Steuerungen zugeordnet ist.
-Im nächsten Abschnitt werden wir uns ein besseres Beispiel für die Kennzeichnung erforderlicher Felder mit `:required` und generierten Inhalten ansehen.
+Der Standard auf dem Web für die erforderlichen Felder ist ein Sternchen (`*`) oder das Wort "erforderlich", das mit den jeweiligen Feldern in Verbindung steht.
+Im nächsten Abschnitt werden wir uns ein besseres Beispiel ansehen, um erforderliche Felder mit `:required` und generiertem Inhalt zu kennzeichnen.
 
 > [!NOTE]
-> Sie werden wahrscheinlich nicht oft die `:optional` Pseudoklasse verwenden. Formularelemente sind standardmäßig optional, sodass Sie Ihr optionales Styling standardmäßig anwenden und zusätzliche Stile für erforderliche Steuerelemente hinzufügen könnten.
+> Sie werden wahrscheinlich nicht oft die `:optional` Pseudoklasse verwenden. Formularelemente sind standardmäßig optional, daher könnten Sie einfach Ihr optionales Styling standardmäßig anwenden und für erforderliche Felder zusätzliche Stile hinzufügen.
 
 > [!NOTE]
-> Wenn ein Radiobutton in einer gleichnamigen Gruppe von Radiobuttons das `required`-Attribut gesetzt hat, sind alle Radiobuttons ungültig, bis einer ausgewählt wird, aber nur derjenige mit zugewiesenem Attribut wird tatsächlich mit {{cssxref(':required')}} übereinstimmen.
+> Wenn ein Radiobutton in einer Gruppe von Radiobuttons mit demselben Namen das `required` Attribut gesetzt hat, sind alle Radiobuttons ungültig, bis einer ausgewählt wird, aber nur der mit dem Attribut passt tatsächlich zu {{cssxref(':required')}}.
 
-## Verwendung von generierten Inhalten mit Pseudoklassen
+## Verwendung von generiertem Inhalt mit Pseudoklassen
 
-In früheren Artikeln haben wir die Verwendung von [generierten Inhalten](/de/docs/Web/CSS/Guides/Generated_content) gesehen, aber wir dachten, jetzt wäre ein guter Zeitpunkt, ausführlicher darüber zu sprechen.
+In früheren Artikeln haben wir bereits die Verwendung von [generiertem Inhalt](/de/docs/Web/CSS/Guides/Generated_content) gesehen, aber wir dachten, dass jetzt ein guter Zeitpunkt wäre, um es etwas detaillierter zu besprechen.
 
-Die Idee ist, dass wir die Pseudoelemente [`::before`](/de/docs/Web/CSS/Reference/Selectors/::before) und [`::after`](/de/docs/Web/CSS/Reference/Selectors/::after) zusammen mit der [`content`](/de/docs/Web/CSS/Reference/Properties/content) Eigenschaft verwenden, um ein Stück Inhalt vor oder nach dem betroffenen Element erscheinen zu lassen. Das Stück Inhalt wird nicht dem DOM hinzugefügt, sodass es für einige Screenreader unsichtbar sein kann. Da es sich um ein Pseudoelement handelt, kann es mit Stilen genauso behandelt werden wie jedes tatsächliche DOM-Node.
+Die Idee ist, dass wir die {{cssxref("::before")}} und {{cssxref("::after")}} Pseudoelemente zusammen mit der {{cssxref("content")}} Eigenschaft verwenden können, um ein Stück Inhalt vor oder nach dem betroffenen Element erscheinen zu lassen. Der Inhalt wird nicht zum DOM hinzugefügt, daher kann er für einige Screenreader unsichtbar sein. Da es sich um ein Pseudoelement handelt, kann es auf dieselbe Weise mit Styles versehen werden wie jedes tatsächliche DOM-Element.
 
-Dies ist wirklich nützlich, wenn Sie einen visuellen Indikator zu einem Element hinzufügen möchten, wie ein Label oder ein Symbol, wenn alternative Indikatoren ebenfalls verfügbar sind, um die Zugänglichkeit für alle Benutzer sicherzustellen. Zum Beispiel können wir generierten Inhalt verwenden, um die Platzierung und Animation des inneren Kreises eines benutzerdefinierten Radiobuttons zu steuern, wenn ein Radiobutton ausgewählt wird:
+Das ist wirklich nützlich, wenn Sie einen visuellen Indikator zu einem Element hinzufügen möchten, wie zum Beispiel ein Etikett oder Symbol, wenn alternative Indikatoren verfügbar sind, um die Zugänglichkeit für alle Benutzer zu gewährleisten. Beispielsweise können wir generierten Inhalt verwenden, um die Platzierung und Animation des inneren Kreises des benutzerdefinierten Radiobuttons zu steuern, wenn ein Radiobutton ausgewählt ist:
 
 ```css
 input[type="radio"]::before {
@@ -194,21 +196,21 @@ input[type="radio"]:checked::before {
 }
 ```
 
-Dies ist wirklich nützlich — Bildschirmlesegeräte teilen ihren Benutzern bereits mit, wann ein Radiobutton oder Checkbox, auf das sie treffen, aktiviert/ausgewählt ist, sodass Sie nicht möchten, dass ein weiteres DOM-Element vorgelesen wird, das eine Auswahl anzeigt — das könnte verwirrend sein. Ein rein visueller Indikator löst dieses Problem.
+Dies ist wirklich nützlich — Screenreader lassen ihre Benutzer bereits wissen, wenn ein Radiobutton oder ein Kontrollkästchen, auf das sie stoßen, aktiviert / ausgewählt ist, daher möchten Sie nicht, dass sie ein weiteres DOM-Element lesen, das eine Auswahl anzeigt — das könnte verwirrend sein. Ein rein visueller Indikator löst dieses Problem.
 
-Nicht alle `<input>` Typen unterstützen das Hinzufügen von generiertem Inhalt. Alle Eingabetypen, die dynamischen Text darin anzeigen, wie `text`, `password` oder `button`, zeigen keinen generierten Inhalt an. Andere, inklusive `range`, `color`, `checkbox`, usw., zeigen generierten Inhalt an.
+Nicht alle `<input>` Typen unterstützen generierten Inhalt. Alle Eingabetypen, die dynamischen Text enthalten, wie `text`, `password` oder `button`, zeigen keinen generierten Inhalt an. Andere, einschließlich `range`, `color`, `checkbox`, usw. zeigen generierten Inhalt an.
 
-Zurück zu unserem erforderlichen/optionalen Beispiel von zuvor, diesmal werden wir nicht das Erscheinungsbild der Eingabe selbst ändern — wir werden generierten Inhalt verwenden, um ein anzeigendes Label hinzuzufügen.
+Zurück zu unserem vorherigen Beispiel mit erforderlichen / optionalen Feldern. Dieses Mal werden wir das Aussehen der Eingabe selbst nicht verändern — wir werden generierten Inhalt verwenden, um ein Etikett hinzuzufügen.
 
-Zunächst fügen wir einen Absatz oben im Formular hinzu, der erklärt, was gesucht wird:
+Zuerst fügen wir einen Absatz an die Oberseite des Formulars hinzu, um zu sagen, wonach Sie suchen:
 
 ```html
 <p>Required fields are labeled with "required".</p>
 ```
 
-Screenreader-Benutzer hören "erforderlich" als zusätzliche Information, wenn sie zu jeder erforderlichen Eingabe kommen, während sehende Benutzer unser Label sehen.
+Benutzer von Screenreadern hören "erforderlich", vorgelesen als zusätzliche Information, wenn sie zu jeder erforderlichen Eingabe gelangen, während sehende Benutzer unser Etikett erhalten.
 
-Wie bereits erwähnt, unterstützen Texteingaben keinen generierten Inhalt, daher fügen wir einen leeren [`<span>`](/de/docs/Web/HTML/Reference/Elements/span) hinzu, um den generierten Inhalt darauf zu platzieren:
+Wie bereits erwähnt, unterstützen Texteingaben keinen generierten Inhalt, daher fügen wir ein leeres [`<span>`](/de/docs/Web/HTML/Reference/Elements/span) hinzu, um den generierten Inhalt daran aufzuhängen:
 
 ```html
 <div>
@@ -218,7 +220,7 @@ Wie bereits erwähnt, unterstützen Texteingaben keinen generierten Inhalt, dahe
 </div>
 ```
 
-Das unmittelbare Problem hierbei war, dass das `<span>` in eine neue Zeile unter der Eingabe gezogen wurde, weil die Eingabe und das Label beide mit `width: 100%` gesetzt sind. Um dies zu beheben, stylen wir das übergeordnete `<div>`-Element so, dass es ein Flex-Container wird, sagen ihm aber auch, dass es seine Inhalte auf neue Zeilen umbrechen soll, wenn der Inhalt zu lang wird:
+Das unmittelbare Problem dabei war, dass das Span auf eine neue Linie unter der Eingabe fiel, weil die Eingabe und das Etikett beide auf `width: 100%` gesetzt sind. Um dies zu beheben, gestalten wir das übergeordnete `<div>` als Flex-Container, der seine Inhalte auch auf neue Zeilen umbricht, wenn der Inhalt zu lang wird:
 
 ```css
 fieldset > div {
@@ -228,9 +230,9 @@ fieldset > div {
 }
 ```
 
-Der Effekt, den dies hat, ist, dass das Label und die Eingabe auf separaten Zeilen sitzen, da sie beide `width: 100%` haben, aber das `<span>` hat eine Breite von `0`, sodass es auf derselben Zeile wie die Eingabe sitzen kann.
+Die Auswirkung davon ist, dass das Etikett und die Eingabe auf separaten Linien sitzen, weil beide `width: 100%` haben, aber das `<span>` hat eine Breite von `0`, sodass es auf derselben Linie wie die Eingabe sitzen kann.
 
-Jetzt kommen wir zum generierten Inhalt. Wir erstellen ihn mit diesem CSS:
+Nun zum generierten Inhalt. Wir erstellen ihn mit diesem CSS:
 
 ```css
 input + span {
@@ -249,9 +251,9 @@ input:required + span::after {
 }
 ```
 
-Wir setzen das `<span>` auf `position: relative`, sodass wir den generierten Inhalt auf `position: absolute` setzen und relativ zum `<span>` positionieren können, anstatt relativ zum `<body>` (Der generierte Inhalt verhält sich so, als wäre er ein Knoten des Elements, auf dem er generiert wurde, was das Positionieren betrifft).
+Wir setzen das `<span>` auf `position: relative`, sodass wir den generierten Inhalt auf `position: absolute` setzen und relativ zum `<span>` positionieren können anstatt zum `<body>` (der generierte Inhalt verhält sich für die Positionierung so, als wäre er ein Knoten des Elements, auf dem er generiert wurde).
 
-Dann geben wir dem generierten Inhalt den Inhalt "required", was unser Label aussagen sollte, und stylen und positionieren ihn wie gewünscht. Das Ergebnis ist unten zu sehen (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten).
+Dann geben wir dem generierten Inhalt den Inhalt "erforderlich", was wir wollten, dass unser Etikett aussagt, und gestylen und positionieren es nach unseren Wünschen. Das Ergebnis sieht folgendermaßen aus (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten).
 
 ```html hidden live-sample___required-optional-generated
 <form>
@@ -359,23 +361,23 @@ form.addEventListener("submit", (e) => {
 
 {{EmbedLiveSample("required-optional-generated", "100%", 430, , , , , "allow-forms")}}
 
-## Styling von Steuerungen basierend darauf, ob ihre Daten gültig sind
+## Steuerelemente basierend darauf stylen, ob ihre Daten gültig sind
 
-Das andere wirklich wichtige, grundlegende Konzept bei der Formularvalidierung ist, ob die Daten einer Formularsteuerung gültig oder ungültig sind (im Fall von numerischen Daten können wir auch von Daten im Bereich und außerhalb des Bereichs sprechen). Formularsteuerungen mit [Einschränkungsbeschränkungen](/de/docs/Web/HTML/Guides/Constraint_validation) können basierend auf diesen Zuständen gezielt werden.
+Das andere wirklich wichtige, grundlegende Konzept in der Formularvalidierung ist, ob die Daten eines Formularelements gültig sind oder nicht (im Fall von numerischen Daten können wir auch von inner- und außerhalbranging sprechen). Formularelemente mit [Einschränkungen durch Validierung](/de/docs/Web/HTML/Guides/Constraint_validation) können basierend auf diesen Zuständen gezielt werden.
 
 ### :valid und :invalid
 
-Sie können Formularsteuerungen mit den {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen ansprechen. Einige Punkte, die es zu beachten gilt:
+Sie können Formularelemente mit den Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} gezielt ansprechen. Einige Punkte, die Sie beachten sollten:
 
-- Steuerungen ohne Einschränkungsvalidierung sind immer gültig und werden daher mit `:valid` übereinstimmen.
-- Steuerungen mit gesetztem `required`, die keinen Wert haben, gelten als ungültig — sie stimmen mit `:invalid` und `:required` überein.
-- Steuerungen mit integrierter Validierung, wie `<input type="email">` oder `<input type="url">`, sind (übereinstimmend mit) `:invalid`, wenn die eingegebenen Daten nicht dem gesuchten Muster entsprechen (aber sie sind gültig, wenn leer).
-- Steuerungen, deren aktueller Wert außerhalb der durch die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) spezifizierten Bereichsgrenzen liegt, sind (übereinstimmend mit) `:invalid`, aber auch mit {{cssxref(":out-of-range")}}, wie Sie später sehen werden.
-- Es gibt einige andere Möglichkeiten, ein Element mit `:valid`/`:invalid` abzugleichen, wie Sie im Artikel [Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) sehen werden. Aber wir halten die Dinge vorerst einfach.
+- Elemente ohne Einschränkungsvalidierung sind immer gültig und somit unter `:valid` abgängig.
+- Elemente mit gesetztem `required` ohne Wert werden als ungültig angesehen — sie werden sowohl unter `:invalid` als auch `:required` erfasst.
+- Elemente mit eingebauter Validierung wie `<input type="email">` oder `<input type="url">` sind mit `:invalid` abgeglichen, wenn die eingegebenen Daten nicht dem erwarteten Muster entsprechen (aber sie sind gültig, wenn leer).
+- Elemente, deren aktueller Wert außerhalb der durch die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) angegebenen Bereichsgrenzen liegt, sind `:invalid`, aber auch durch {{cssxref(":out-of-range")}} abgedeckt, wie Sie später sehen werden.
+- Es gibt einige andere Möglichkeiten, ein Element durch `:valid`/`:invalid` zu erzielen, wie Sie im Artikel [Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) sehen werden. Aber wir halten es vorerst einfach.
 
-Lassen Sie uns ein Beispiel für `:valid`/`:invalid` ansehen.
+Schauen wir uns ein Beispiel für `:valid`/`:invalid` an.
 
-Wie im vorherigen Beispiel haben wir zusätzliche `<span>`s, um Inhalte zu generieren, die wir verwenden werden, um Indikatoren für gültige/ungültige Daten bereitzustellen:
+Wie im vorherigen Beispiel haben wir zusätzliche `<span>`s, um generierten Inhalt zu erzeugen, den wir verwenden, um Indikatoren für gültige/ungültige Daten bereitzustellen:
 
 ```html
 <div>
@@ -413,12 +415,12 @@ input:valid + span::before {
 }
 ```
 
-Wie zuvor setzten wir die `<span>`s auf `position: relative`, sodass wir den generierten Inhalt relativ zu ihnen positionieren können. Wir positionieren dann unterschiedlichen generierten Inhalt je nach Gültigkeit der Formulardaten relativ zueinander — ein grüner Haken oder ein rotes Kreuz, je nachdem. Um ein wenig zusätzliche Dringlichkeit für die ungültigen Daten hinzuzufügen, haben wir den Eingaben auch einen dicken roten Rand gegeben, wenn sie ungültig sind.
+Wie zuvor setzen wir die `<span>`s auf `position: relative`, damit wir den generierten Inhalt relativ dazu positionieren können. Dann positionieren wir den unterschiedlichen generierten Inhalt absolut, je nachdem ob die Formulardaten gültig oder ungültig sind — ein grüner Haken oder ein rotes Kreuz, jeweils. Um ein wenig zusätzlichen Nachdruck bei ungültigen Daten zu leisten, haben wir den Eingaben auch einen dicken roten Rahmen gegeben, wenn sie ungültig sind.
 
 > [!NOTE]
-> Wir haben `::before` verwendet, um diese Beschriftungen hinzuzufügen, da wir bereits `::after` für die "Erforderlich"-Beschriftungen verwendet haben.
+> Wir haben `::before` verwendet, um diese Labels hinzuzufügen, da wir bereits `::after` für die "erforderlich" Labels verwendet haben.
 
-Sie können es unten ausprobieren (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Sie können es unten ausprobieren (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___valid-invalid
 <form>
@@ -546,18 +548,18 @@ form.addEventListener("submit", (e) => {
 
 {{EmbedLiveSample("valid-invalid", "100%", 430, , , , , "allow-forms")}}
 
-Beachten Sie, wie die erforderlichen Texteingaben ungültig sind, wenn sie leer sind, aber gültig, wenn sie etwas ausgefüllt haben. Die E-Mail-Eingabe hingegen ist gültig, wenn sie leer ist, da sie nicht erforderlich ist, aber ungültig, wenn sie etwas enthält, das keine gültige E-Mail-Adresse ist.
+Beachten Sie, wie die erforderlichen Texteingaben ungültig sind, wenn sie leer sind, aber gültig, wenn sie ausgefüllt sind. Die Eingabeseite für die E-Mail-Adresse hingegen ist gültig, wenn leer, da sie nicht erforderlich ist, jedoch ungültig, wenn sie einzugeben ohne gültige E-Mail-Adresse ist.
 
-### Daten im Bereich und außerhalb des Bereichs
+### Inner- und Außerranging-Daten
 
-Wie wir oben angedeutet haben, gibt es zwei weitere verwandte Pseudoklassen zu berücksichtigen — {{cssxref(":in-range")}} und {{cssxref(":out-of-range")}}. Diese entsprechen numerischen Eingaben, bei denen Bereichsgrenzen durch die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) angegeben sind, wenn ihre Daten innerhalb oder außerhalb des angegebenen Bereichs liegen.
+Wie oben angedeutet, gibt es zwei andere verwandte Pseudoklassen zu beachten — {{cssxref(":in-range")}} und {{cssxref(":out-of-range")}}. Diese entsprechen numerischen Eingaben, bei denen Bereichsgrenzen durch die Attribute [`min`](/de/docs/Web/HTML/Reference/Elements/input#min) und [`max`](/de/docs/Web/HTML/Reference/Elements/input#max) spezifiziert sind, wenn ihre Daten innerhalb oder außerhalb des angegebenen Bereichs sind, jeweils.
 
 > [!NOTE]
 > Numerische Eingabetypen sind `date`, `month`, `week`, `time`, `datetime-local`, `number` und `range`.
 
-Es ist wichtig zu beachten, dass Eingaben, deren Daten im Bereich liegen, auch mit der `:valid` Pseudoklasse übereinstimmen und Eingaben, deren Daten außerhalb des Bereichs liegen, auch mit der `:invalid` Pseudoklasse übereinstimmen. Warum also beides haben? Das Problem ist wirklich eines der Semantik — "außerhalb des Bereichs" ist eine spezifischere Form der ungültigen Kommunikation, sodass Sie möglicherweise eine andere Nachricht für Eingaben außerhalb des Bereichs bereitstellen möchten, die für Benutzer hilfreicher ist als nur "ungültig" zu sagen. Möglicherweise möchten Sie sogar beides bereitstellen.
+Es ist bemerkenswert, dass Eingaben mit Daten im gültigen Bereich auch durch die Pseudoklasse `:valid` abgedeckt werden und Eingaben, deren Daten außerhalb des Bereichs liegen, auch durch die Pseudoklasse `:invalid` abgedeckt werden. Warum also beide haben? Es ist vielmehr eine Frage der Semantik — das Preisgeben von "außerhalb des gültigen Bereichs" ist eine spezifischere Art der ungültigen Kommunikation, daher möchten Sie möglicherweise eine andere Nachricht für aus dem Bereich liegende Eingaben bereitstellen, die für Benutzer hilfreicher ist als nur "ungültig" zu sagen. Möglicherweise möchten Sie sogar beide bereitstellen.
 
-Schauen wir uns ein Beispiel an, das genau das tut und auf dem vorherigen Beispiel aufbaut, um Nachrichten außerhalb des Bereichs für die numerischen Eingaben bereitzustellen, sowie anzeigt, ob sie erforderlich sind.
+Schauen wir uns ein Beispiel an, das genau das tut: Aufbauend auf dem vorherigen Beispiel, um Nachrichten außerhalb des Bereichs für numerische Eingaben bereitzustellen, zusätzlich zur Angabe, ob sie erforderlich sind.
 
 Die numerische Eingabe sieht so aus:
 
@@ -599,7 +601,7 @@ input:out-of-range + span::after {
 }
 ```
 
-Dies ist eine ähnliche Geschichte zu dem, was wir zuvor im `:required` Beispiel hatten, außer dass wir hier die Deklarationen, die auf jeglichen `::after` Inhalt zutreffen, in eine separate Regel aufgeteilt haben und dem separaten `::after` Inhalt für `:required` und `:out-of-range` Zustände ihren eigenen Inhalt und Styling gegeben haben. Sie können es hier ausprobieren (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Dies ist eine ähnliche Geschichte wie die, die wir zuvor im `:required` Beispiel hatten, außer dass wir hier die Deklarationen, die für jeden `::after`-Inhalt gelten, in einer separaten Regel aufgeteilt haben und den separaten `::after`-Inhalt für die `:required` und `:out-of-range` Zustände ihren eigenen Inhalt und eigenen Stil gegeben haben. Sie können es hier ausprobieren (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___out-of-range
 <form>
@@ -738,20 +740,20 @@ form.addEventListener("submit", (e) => {
 
 {{EmbedLiveSample("out-of-range", "100%", 430, , , , , "allow-forms")}}
 
-Es ist möglich, dass die Zahleneingabe gleichzeitig erforderlich und außerhalb des Bereichs ist. Was passiert dann? Da die `:out-of-range`-Regel später im Quellcode erscheint als die `:required`-Regel, kommen die [Kaskadenregeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#understanding_the_cascade) ins Spiel, und die Meldung "Außerhalb des zulässigen Wertebereichs" wird angezeigt.
+Es ist möglich, dass die Zahlen-Eingabe sowohl erforderlich als auch außerhalb des Bereichs zur selben Zeit ist, was passiert dann? Da die `:out-of-range` Regel später im Quellcode als die `:required` Regel erscheint, greifen die [Cascade-Regeln](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts#understanding_the_cascade), und die Meldung außerhalb des Bereichs wird angezeigt.
 
-Das funktioniert ziemlich gut — wenn die Seite zuerst lädt, wird "Erforderlich" angezeigt, zusammen mit einem roten Kreuz und Rand. Wenn Sie ein gültiges Alter eingegeben haben (d.h. im Bereich von 12-120), wird die Eingabe als gültig angesehen. Wenn Sie jedoch das Alter auf einen Wert ändern, der außerhalb des Bereichs liegt, erscheint dann die Meldung "Außerhalb zulässiger Werte" anstelle von "Erforderlich".
+Das funktioniert ziemlich gut — wenn die Seite zum ersten Mal geladen wird, wird "Erforderlich" angezeigt, zusammen mit Kreuz und Rahmen. Wenn Sie ein gültiges Alter eingeben (d.h. im Bereich von 12-120), wird die Eingabe gültig. Wenn Sie jedoch das Alter ändern und einen außerhalb des Bereichs liegenden Eintrag eingeben, erscheint die Meldung "Außerhalb des erlaubten Wertes" an Stelle von "Erforderlich".
 
 > [!NOTE]
-> Um einen ungültigen Wert einzugeben, müssen Sie tatsächlich den Wert im Formular fokussieren und mit der Tastatur eingeben. Die Spinnertasten erlauben es Ihnen nicht, den Wert außerhalb des zulässigen Bereichs zu erhöhen/herabzusetzen.
+> Um einen ungültigen/außerhalb des Bereichs liegenden Wert einzugeben, müssen Sie das Formular tatsächlich fokussieren und es über die Tastatur eingeben. Die Spinner-Tasten lassen Sie die Werte innerhalb der erlaubten Bereichsgrenzen nicht erhöhen/verringern.
 
-## Styling von Steuerungen basierend darauf, ob sie aktiviert oder deaktiviert sind, sowie ob sie schreibgeschützt oder beschreibbar sind
+## Eingaben basierend darauf stylen, ob sie aktiviert oder deaktiviert sind, und ob sie schreibgeschützt oder schreibbar sind
 
-Ein aktiviertes Element ist ein Element, das aktiviert werden kann; es kann ausgewählt, angeklickt oder eingeben werden, etc. Ein deaktiviertes Element hingegen kann in keiner Weise interagiert werden, und seine Daten werden nicht einmal an den Server gesendet.
+Ein aktiviertes Element ist eines, das aktiviert werden kann; Es kann ausgewählt, angeklickt, beschrieben werden, usw. Ein deaktiviertes Element hingegen kann in keiner Weise interagiert werden, und seine Daten werden nicht einmal an den Server gesendet.
 
-Diese beiden Zustände können mit {{cssxref(":enabled")}} und {{cssxref(":disabled")}} anvisiert werden. Warum sind deaktivierte Eingaben nützlich? Nun, manchmal, wenn einige Daten für einen bestimmten Benutzer nicht gelten, möchten Sie möglicherweise diese Daten nicht einmal senden, wenn er das Formular abschickt. Ein klassisches Beispiel ist ein Versandformular — üblicherweise wird gefragt, ob Sie dieselbe Adresse für Rechnungs- und Versandzwecke verwenden möchten; wenn ja, können Sie einfach eine einzige Adresse an den Server senden und vielleicht die Rechnungsadressfelder deaktivieren.
+Diese zwei Zustände können mit {{cssxref(":enabled")}} und {{cssxref(":disabled")}} anvisiert werden. Warum sind deaktivierte Eingaben nützlich? Nun, manchmal, wenn einige Daten für einen bestimmten Benutzer nicht gelten, möchten Sie möglicherweise diese Daten nicht einmal senden, wenn das Formular gesendet wird. Ein klassisches Beispiel ist ein Versandformular — häufig werden Sie gefragt, ob Sie dieselbe Adresse für die Rechnungs- und Lieferadresse verwenden möchten; wenn ja, können Sie einfach eine einzige Adresse an den Server senden und können genauso gut die Rechnungsadresse-Felder deaktivieren.
 
-Lassen Sie uns ein Beispiel dazu ansehen. Zunächst ist das HTML ein einfaches Formular, das Texteingaben enthält, plus eine Checkbox, um zwischen Aktivierung/Deaktivierung der Rechnungsadresse umzuschalten. Die Rechnungsadressfelder sind standardmäßig deaktiviert.
+Werfen wir einen Blick auf ein Beispiel, das dies genau tut. Zuerst ist das HTML ein einfaches Formular mit Texteingaben, plus ein Kontrollkästchen, um das Deaktivieren der Rechnungsadresse ein-/auszuschalten. Die Rechnungsadresse-Felder sind standardmäßig deaktiviert.
 
 ```html
 <form>
@@ -811,9 +813,9 @@ label:has(+ :disabled) {
 }
 ```
 
-Wir haben die Eingaben, die wir deaktivieren wollten, direkt mit `input[type="text"]:disabled` ausgewählt, aber wir wollten auch die entsprechenden Textlabels ausgrauen. Da die Labels sich direkt vor ihren Eingaben befinden, haben wir sie mit der Pseudoklasse [`:has`](/de/docs/Web/CSS/Reference/Selectors/:has) ausgewählt.
+Wir haben die Eingaben, die wir deaktivieren möchten, direkt mit `input[type="text"]:disabled` ausgewählt, aber wir wollten auch die entsprechenden Textlabels ausgrauen. Da die Labels direkt vor ihren Eingaben stehen, haben wir diese mit der Pseudoklasse {{cssxref(":has")}} ausgewählt.
 
-Schließlich haben wir etwas JavaScript verwendet, um die Deaktivierung der Rechnungsadressfelder umzuschalten:
+Nun schließlich haben wir etwas JavaScript verwendet, um das Deaktivieren der Rechnungsadresse-Felder umzuschalten:
 
 ```js
 function toggleBilling() {
@@ -832,9 +834,9 @@ document
   .addEventListener("change", toggleBilling);
 ```
 
-Es verwendet das [`change`-Ereignis](/de/docs/Web/API/HTMLElement/change_event), um dem Benutzer zu ermöglichen, die Rechnungsfelder zu aktivieren/deaktivieren und das Styling der zugehörigen Labels umzuschalten.
+Es verwendet das [`change`-Ereignis](/de/docs/Web/API/HTMLElement/change_event), um dem Benutzer zu ermöglichen, die Rechnungsfelder ein-/auszuschalten und das Styling der zugehörigen Labels umzustellen.
 
-Unten können Sie das Beispiel in Aktion sehen (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Sie können das Beispiel unten in Aktion sehen (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___enabled-disabled-shipping
 <form>
@@ -964,15 +966,15 @@ form.addEventListener("submit", (e) => {
 
 {{EmbedLiveSample("enabled-disabled-shipping", "100%", 580, , , , , "allow-forms")}}
 
-### Schreibgeschützt und beschreibbar
+### Schreibgeschützt und schreibbar
 
-Ähnlich wie `:disabled` und `:enabled` zielen die `:read-only` und `:read-write` Pseudoklassen auf zwei Zustände, zwischen denen Formulareingaben wechseln. Wie bei deaktivierten Eingaben, kann der Benutzer schreibgeschützte Eingaben nicht bearbeiten. Anders als bei deaktivierten Eingaben werden jedoch schreibgeschützte Eingabewerte an den Server gesendet. Schreibbar bedeutet, dass sie bearbeitet werden können — ihr Standardzustand.
+In ähnlicher Weise zu `:disabled` und `:enabled` zielen die Pseudoklassen `:read-only` und `:read-write` auf zwei Zustände ab, zwischen denen Formulareingaben umschalten. Genau wie bei deaktivierten Eingaben können die Benutzer schreibgeschützte Eingaben nicht bearbeiten. Im Gegensatz zu deaktivierten Eingaben werden jedoch schreibgeschützte Eingabewerte an den Server gesendet. Schreibbar bedeutet, dass sie bearbeitet werden können — ihr Standardzustand.
 
-Eine Eingabe wird als schreibgeschützt gesetzt, indem das `readonly`-Attribut verwendet wird. Stellen Sie sich zum Beispiel eine Bestätigungsseite vor, auf der der Entwickler die auf vorherigen Seiten ausgefüllten Details auf diese Seite überträgt, mit dem Ziel, den Benutzer alles an einem Ort überprüfen zu lassen, alle weiteren erforderlichen Daten hinzuzufügen und dann die Bestellung zu bestätigen. An diesem Punkt können alle endgültigen Formulardaten in einem Rutsch an den Server gesendet werden.
+Eine Eingabe wird mit dem `readonly` Attribut auf schreibgeschützt gesetzt. Stellen Sie sich als Beispiel eine Bestätigungsseite vor, auf der der Entwickler die auf vorherigen Seiten ausgefüllten Daten an diese Seite gesendet hat, mit dem Ziel, den Benutzer dazu zu bringen, sie an einem Ort zu überprüfen, eventuell nötige Daten hinzuzufügen und dann die Bestellung zu bestätigen, indem er sendet. An diesem Punkt können alle endgültigen Formulardaten auf einmal an den Server gesendet werden.
 
 Schauen wir uns an, wie ein Formular aussehen könnte.
 
-Ein Fragment des HTML ist wie folgt — beachten Sie das readonly Attribut:
+Ein Fragment des HTML sieht wie folgt aus - beachten Sie das readonly-Attribut:
 
 ```html
 <div>
@@ -981,7 +983,7 @@ Ein Fragment des HTML ist wie folgt — beachten Sie das readonly Attribut:
 </div>
 ```
 
-Wenn Sie das Live-Beispiel ausprobieren, werden Sie sehen, dass die obere Gruppe von Formularelementen nicht bearbeitet werden kann, die Werte jedoch übermittelt werden, wenn das Formular abgeschickt wird. Wir haben die Formularsteuerungen mit den `:read-only`- und `:read-write`-Pseudoklassen wie folgt gestylt:
+Wenn Sie das Live-Beispiel ausprobieren, können Sie sehen, dass die obere Datensatz von Formularelementen nicht bearbeitet werden kann, jedoch werden die Werte eingereicht, wenn das Formular gesendet wird. Wir haben die Formularelemente mit den Pseudoklassen `:read-only` und `:read-write` formatiert, wie folgt:
 
 ```css
 input:read-only,
@@ -997,7 +999,7 @@ textarea:read-write {
 }
 ```
 
-Das vollständige Beispiel sieht so aus (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Das vollständige Beispiel sieht so aus (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___readonly-confirmation
 <form>
@@ -1127,22 +1129,23 @@ form.addEventListener("submit", (e) => {
 
 {{EmbedLiveSample("readonly-confirmation", "100%", 660, , , , , "allow-forms")}}
 
-> [!NOTE] > `:enabled` und `:read-write` sind zwei weitere Pseudoklassen, die Sie wahrscheinlich selten verwenden werden, da sie die Standardzustände von Eingabeelementen beschreiben.
+> [!NOTE]
+> `:enabled` und `:read-write` sind zwei weitere Pseudoklassen, die Sie wahrscheinlich selten verwenden werden, da sie die Standardzustände von Eingabefeldern beschreiben.
 
-## Radiobutton- und Checkbox-Zustände — ausgewählt, Standard, unbestimmt
+## Radio- und Checkbox-Zustände — geprüft, Standard, unbestimmt
 
-Wie wir bereits in früheren Artikeln des Moduls gesehen haben, können {{HTMLElement("input/radio", "Radiobuttons")}} und {{HTMLElement("input/checkbox", "Checkboxen")}} ausgewählt oder nicht ausgewählt werden. Aber es gibt ein paar andere Zustände, die ebenfalls berücksichtigt werden müssen:
+Wie wir in früheren Artikeln des Moduls gesehen haben, können {{HTMLElement("input/radio", "Radiobuttons")}} und {{HTMLElement("input/checkbox", "Kontrollkästchen")}} aktiviert oder deaktiviert sein. Aber es gibt auch ein paar andere Zustände:
 
-- {{cssxref(":default")}}: Trifft auf Radiobuttons/Checkboxen zu, die standardmäßig beim Laden der Seite ausgewählt sind (d.h. durch Setzen des `checked`-Attributs auf ihnen). Diese stimmen mit der {{cssxref(":default")}} Pseudoklasse überein, selbst wenn der Benutzer sie abwählt.
-- {{cssxref(":indeterminate")}}: Wenn Radiobuttons/Checkboxen weder ausgewählt noch nicht ausgewählt sind, gelten sie als _unbestimmt_ und stimmen mit der {{cssxref(":indeterminate")}} Pseudoklasse überein. Mehr dazu weiter unten.
+- {{cssxref(":default")}}: Entspricht Radios/Checkboxen, die standardmäßig beim Laden der Seite ausgewählt sind (d.h. durch Setzen des `checked`-Attributs auf ihnen). Diese entsprechen der {{cssxref(":default")}} Pseudo-Klasse, selbst wenn der Benutzer sie abwählt.
+- {{cssxref(":indeterminate")}}: Wenn Radios/Checkboxen weder aktiviert noch deaktiviert sind, gelten sie als _unbestimmt_ und entsprechen der {{cssxref(":indeterminate")}} Pseudo-Klasse. Mehr dazu unten.
 
 ### :checked
 
-Wenn sie ausgewählt sind, stimmen sie mit der {{cssxref(":checked")}} Pseudoklasse überein.
+Wenn sie aktiviert sind, werden sie durch die {{cssxref(":checked")}} Pseudoklasse abgedeckt.
 
-Die häufigste Verwendung dafür ist, einen anderen Stil auf die Checkbox oder den Radiobutton anzuwenden, wenn er ausgewählt ist, in Fällen, in denen Sie das systemdefinierte Standardstyling mit [`appearance: none;`](/de/docs/Web/CSS/Reference/Properties/appearance) entfernt haben und die Stile selbst aufbauen möchten. Wir sahen Beispiele hierfür im vorherigen Artikel, als wir über [Styling von Checkboxen und Radiobuttons mit `appearance`](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling#styling_checkboxes_and_radio_buttons_using_appearance) sprachen.
+Die häufigste Verwendung hierfür ist, dem Formular einen anderen Stil hinzuzufügen, wenn das Kontrollkästchen oder der Radiobutton bei Fällen aktiviert ist, bei denen Sie das systemseitige Standardstyling mit [`appearance: none;`](/de/docs/Web/CSS/Reference/Properties/appearance) entfernt haben und das Styling selbst wieder aufbauen möchten. Wir haben Beispiele dafür im vorherigen Artikel gesehen, als wir über [Styling von Kontrollkästchen und Radiobuttons mit `appearance`](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling#styling_checkboxes_and_radio_buttons_using_appearance) gesprochen haben.
 
-Als Rückblick sieht der `:checked` Code unseres stilisierten Radio-Button-Beispiels wie folgt aus:
+Zur Wiederholung: Der `:checked`-Code aus unserem gestylten Radiobuttons-Beispiel sieht so aus:
 
 ```css
 input[type="radio"]::before {
@@ -1164,7 +1167,7 @@ input[type="radio"]:checked::before {
 }
 ```
 
-Sie können es hier ausprobieren (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Sie können es hier ausprobieren (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___radios-styled
 <form>
@@ -1228,21 +1231,21 @@ input[type="radio"]:checked::before {
 
 {{EmbedLiveSample("radios-styled", "100%", 200, , , , , "allow-forms")}}
 
-Im Wesentlichen bauen wir das Styling für den "inneren Kreis" eines Radiobuttons mit dem `::before` Pseudoelement auf, setzen aber einen `scale(0)` [`transform`](/de/docs/Web/CSS/Reference/Properties/transform) darauf. Wir verwenden dann eine [`transition`](/de/docs/Web/CSS/Reference/Properties/transition), um den generierten Inhalt auf dem Label schön animiert ins Sichtfeld zu bringen, wenn das Radio ausgewählt/geprüft ist. Der Vorteil der Verwendung eines Transforms im Vergleich zur Animation von [`width`](/de/docs/Web/CSS/Reference/Properties/width)/[`height`](/de/docs/Web/CSS/Reference/Properties/height) besteht darin, dass Sie [`transform-origin`](/de/docs/Web/CSS/Reference/Properties/transform-origin) verwenden können, um es aus der Mitte des Kreises herauswachsen zu lassen, anstatt den Anschein zu haben, als würde es aus der Ecke des Kreises herauswachsen, und es gibt kein Sprungverhalten, da keine Boxmodell-Attributwerte aktualisiert werden.
+Im Wesentlichen erstellen wir das Styling für den "inneren Kreis" eines Radiobuttons mit dem `::before` Pseudoelement, setzen aber einen `scale(0)` {{cssxref("transform")}} darauf. Wir verwenden dann eine {{cssxref("transition")}}, damit sich der generierte Inhalt am Label schön animiert, wenn das Radio ausgewählt / aktiviert wird. Der Vorteil der Verwendung eines Transforms anstelle eines Übergangs von {{cssxref("width")}}/{{cssxref("height")}} ist, dass Sie {{cssxref("transform-origin")}} verwenden können, um es aus der Mitte des Kreises wachsen zu lassen, anstatt vom Rand des Kreises zu wachsen, und es gibt kein springendes Verhalten, da keine Boxmodell-Eigenschaftswerte aktualisiert werden.
 
 ### :default und :indeterminate
 
-Wie oben erwähnt, stimmt die {{cssxref(":default")}} Pseudoklasse mit Radiobuttons/Checkboxen überein, die standardmäßig beim Laden der Seite ausgewählt sind, selbst wenn sie abgewählt sind. Dies könnte nützlich sein, um einen Indikator zu einer Liste von Optionen hinzuzufügen, um den Benutzer daran zu erinnern, was die Standardeinstellungen (oder Startoptionen) waren, falls sie ihre Auswahl zurücksetzen möchten.
+Wie oben erwähnt, entspricht die {{cssxref(":default")}} Pseudoklasse Radios/Checkboxen, die standardmäßig bei Seite geladen sind, auch wenn deaktiviert. Dies könnte nützlich sein, um einen Indikator in einer Liste von Optionen hinzuzufügen, um dem Benutzer daran zu erinnern, was die Standardeinstellungen (oder Ausgangsoptionen) waren, falls er seine Auswahl zurücksetzen möchte.
 
-Ebenso werden die oben erwähnten Radiobuttons/Checkboxen von der {{cssxref(":indeterminate")}} Pseudoklasse ausgewählt, wenn sie in einem Zustand sind, in dem sie weder ausgewählt noch nicht ausgewählt sind. Aber was bedeutet das? Elemente, die unbestimmt sind, umfassen:
+Auch die oben erwähnten Radios/Checkboxen entsprechen der {{cssxref(":indeterminate")}} Pseudo-Klasse, wenn sie in einem Zustand sind, in dem sie weder aktiviert noch deaktiviert sind. Was bedeutet das? Elemente, die unbestimmt sind, umfassen:
 
-- {{HTMLElement("input/radio")}} Eingaben, wenn alle Radiobuttons in einer gleichnamigen Gruppe nicht ausgewählt sind
-- {{HTMLElement("input/checkbox")}} Eingaben, deren `indeterminate`-Eigenschaft über JavaScript auf `true` gesetzt ist
+- {{HTMLElement("input/radio")}} Inputs, wenn alle Radiobuttons in einer gleichnamigen Gruppe nicht aktiviert sind
+- {{HTMLElement("input/checkbox")}} Inputs, deren `indeterminate` Property über JavaScript auf `true` gesetzt ist
 - {{HTMLElement("progress")}} Elemente, die keinen Wert haben.
 
-Das ist etwas, das Sie wahrscheinlich nicht sehr oft verwenden werden. Ein Anwendungsfall könnte ein Hinweis sein, der dem Benutzer mitteilt, dass er wirklich einen Radiobutton auswählen muss, bevor er fortfährt.
+Das ist etwas, was Sie wahrscheinlich nicht sehr oft verwenden werden. Ein Anwendungsfall könnte ein Indikator sein, um Benutzern zu zeigen, dass sie wirklich ein Radiobutton auswählen müssen, bevor sie weitermachen.
 
-Schauen wir uns ein paar modifizierte Versionen des vorherigen Beispiels an, die den Benutzer daran erinnern, was die Standardoption war, und die Labels von Radiobuttons im unbestimmten Zustand stylen. Beide haben die folgende HTML-Struktur für die Eingaben:
+Schauen wir uns ein paar modifizierte Versionen des vorherigen Beispiels an, das den Benutzer daran erinnert, welche die Standardoption war, und die Labels von Radiobuttons stylt, wenn sie unbestimmt sind. Beide haben die folgende HTML-Struktur für die Eingaben:
 
 ```html
 <p>
@@ -1252,7 +1255,7 @@ Schauen wir uns ein paar modifizierte Versionen des vorherigen Beispiels an, die
 </p>
 ```
 
-Für das `:default`-Beispiel haben wir das `checked`-Attribut auf den mittleren Radiobutton gesetzt, sodass er standardmäßig ausgewählt wird, wenn die Seite geladen wird. Wir stylen dies mit folgendem CSS:
+Für das `:default` Beispiel haben wir das `checked`-Attribut auf den Mittelwert gesetzt, sodass er beim Laden standardmäßig ausgewählt wird. Wir stylen dies dann mit dem folgenden CSS:
 
 ```css
 input ~ span {
@@ -1271,9 +1274,9 @@ input:default ~ span::after {
 }
 ```
 
-Dies fügt dem ursprünglich ausgewählten Element beim Laden der Seite ein kleines "Standard"-Label hinzu. Beachten Sie, dass wir hier den Nachfolger-Geschwisterkombinator (`~`) anstelle des nächsten Geschwisterkombinators (`+`) verwenden — wir müssen dies tun, da das `<span>` nicht direkt nach dem `<input>` in der Quellreihenfolge kommt.
+Dies liefert ein kleines "Standard"-Label auf dem Element, das ursprünglich ausgewählt war, als die Seite geladen wurde. Beachten Sie hier, dass wir den nachfolgenden Geschwister-Kombinator (`~`) anstelle des nächsten Geschwister-Kombinators (`+`) verwenden — wir müssen dies tun, da das `<span>` nicht direkt nach dem `<input>` in der Quellreihenfolge kommt.
 
-Sehen Sie sich das Live-Ergebnis unten an (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Sehen Sie das Live-Ergebnis unten (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___radios-checked-default
 <form>
@@ -1356,7 +1359,7 @@ input:default ~ span::after {
 
 {{EmbedLiveSample("radios-checked-default", "100%", 200, , , , , "allow-forms")}}
 
-Für das `:indeterminate`-Beispiel haben wir keinen standardmäßig angeklickten Radiobutton — das ist wichtig — wenn es einen gäbe, gäbe es keinen unbestimmten Zustand zu stylen. Wir stylen die unbestimmten Radiobuttons mit folgendem CSS:
+Für das `:indeterminate` Beispiel haben wir keinen standardmäßig ausgewählten Radiobutton — dies ist wichtig — wenn es einen gegeben hätte, gäbe es keinen unbestimmten Zustand zum Stylen. Wir stylen die unbestimmten Radiobuttons mit dem folgenden CSS:
 
 ```css
 input[type="radio"]:indeterminate {
@@ -1375,9 +1378,9 @@ input[type="radio"]:indeterminate {
 }
 ```
 
-Dies erstellt eine lustige kleine animierte Kontur auf den Radiobuttons, die hoffentlich anzeigt, dass Sie einen von ihnen auswählen müssen!
+Dies erzeugt eine unterhaltsame kleine animierte Umrandung auf den Radiobuttons, die hoffentlich darauf hinweist, dass Sie einen von ihnen auswählen müssen!
 
-Sehen Sie sich das Live-Ergebnis unten an (drücken Sie die **Play**-Schaltfläche, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
+Sehen Sie sich das Live-Ergebnis unten an (drücken Sie die **Play**-Taste, um das Beispiel im MDN Playground auszuführen und den Quellcode zu bearbeiten):
 
 ```html hidden live-sample___radios-checked-indeterminate
 <form>
@@ -1461,23 +1464,23 @@ input[type="radio"]:indeterminate {
 {{EmbedLiveSample("radios-checked-indeterminate", "100%", 200, , , , , "allow-forms")}}
 
 > [!NOTE]
-> Sie können ein [interessantes Beispiel mit `unbestimmten` Zuständen](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes) auf der Seite [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) finden.
+> Sie finden ein [interessantes Beispiel für unbestimmte Zustände](/de/docs/Web/HTML/Reference/Elements/input/checkbox#indeterminate_state_checkboxes) auf der [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox) Referenzseite.
 
 ## Weitere Pseudoklassen
 
-Es gibt eine Reihe weiterer Pseudoklassen von Interesse, und wir haben nicht den Platz, über alle im Detail zu schreiben. Lassen Sie uns einige weitere erwähnen, die Sie genauer untersuchen sollten.
+Es gibt noch eine Reihe weiterer interessanter Pseudoklassen, und wir haben hier nicht genug Platz, um alle im Detail zu besprechen. Lassen Sie uns über einige weitere sprechen, denen Sie Zeit zum Recherchieren widmen sollten.
 
-- Die {{cssxref(":focus-within")}} Pseudoklasse trifft auf ein Element zu, das den Fokus erhalten hat oder _ein_ Element enthält, das den Fokus erhalten hat. Dies ist nützlich, wenn Sie möchten, dass ein gesamtes Formular auf eine bestimmte Weise hervorgehoben wird, wenn ein Eingabeelement darin fokussiert ist.
-- Die {{cssxref(":focus-visible")}} Pseudoklasse trifft auf fokussierte Elemente zu, die den Fokus über Tastaturinteraktion erhalten haben (anstatt durch Berührung oder Maus) — nützlich, wenn Sie einen anderen Stil für den Tastaturfokus im Vergleich zum Maus- (oder anderen) Fokus anzeigen möchten.
-- Die {{cssxref(":placeholder-shown")}} Pseudoklasse trifft auf {{htmlelement('input')}} und {{htmlelement('textarea')}} Elemente zu, die ihren Platzhalter anzeigen (d.h. den Inhalt des [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) Attributs), weil der Wert des Elements leer ist.
+- Die {{cssxref(":focus-within")}} Pseudoklasse entspricht einem Element, das den Fokus erhalten hat oder _ein_ Element enthält, das den Fokus erhalten haben. Dies ist nützlich, wenn Sie möchten, dass in irgendeiner Weise ein ganzes Formular hervorgehoben wird, wenn ein in ihm enthaltenes Eingabeelement fokussiert ist.
+- Die {{cssxref(":focus-visible")}} Pseudoklasse entspricht fokussierten Elementen, die über eine Tastaturinteraktion (anstatt durch Berührung) Fokus erhielten — nützlich, wenn Sie für eine Tastaturinteraktion zusätzlich zu einer Maus (oder anderen) Interaktion eine andere Stilprobe zeigen möchten.
+- Die {{cssxref(":placeholder-shown")}} Pseudoklasse entspricht {{htmlelement('input')}} und {{htmlelement('textarea')}} Elementen, deren Platzhalter angezeigt wird (d.h. der Inhalt des [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder) Attributes), weil der Wert des Elements leer ist.
 
 Die folgenden sind ebenfalls interessant, aber noch nicht gut in Browsern unterstützt:
 
-- Die {{cssxref(":blank")}} Pseudoklasse wählt leere Formularelemente aus. {{cssxref(":empty")}} trifft ebenfalls auf Elemente zu, die keine Kinder haben, wie {{HTMLElement("input")}}, ist jedoch allgemeiner — es trifft auch auf andere {{Glossary("void_element", "void elements")}} wie {{HTMLElement("br")}} und {{HTMLElement("hr")}} zu. `:empty` hat eine vernünftige Browserunterstützung; die `:blank` Pseudoklasse ist in ihrer Spezifikation noch nicht abgeschlossen, daher wird sie noch in keinem Browser unterstützt.
-- Die [`:user-invalid`](/de/docs/Web/CSS/Reference/Selectors/:user-invalid) Pseudoklasse wird, wenn sie unterstützt wird, ähnlich {{cssxref(":invalid")}} sein, jedoch mit besserer Benutzererfahrung. Wenn der Wert gültig ist, wenn die Eingabe den Fokus erhält, wird das Element möglicherweise als `:invalid` übereinstimmen, wenn der Benutzer Daten eingibt, wenn der Wert vorübergehend ungültig ist, aber nur dann `:user-invalid` sein, wenn das Element den Fokus verliert. Wenn der Wert ursprünglich ungültig war, wird er während der gesamten Fokusdauer sowohl mit `:invalid` als auch mit `:user-invalid` übereinstimmen. In ähnlicher Weise zu `:invalid`, wird er aufhören, `:user-invalid` zu sein, wenn der Wert gültig wird.
+- Die {{cssxref(":blank")}} Pseudoklasse wählt leere Formularelemente. {{cssxref(":empty")}} stimmt ebenfalls mit Elementen überein, die keine Kinder haben, wie {{HTMLElement("input")}}, es ist jedoch allgemeiner — es stimmt auch mit anderen {{Glossary("void_element", "leeren Elementen")}} wie {{HTMLElement("br")}} und {{HTMLElement("hr")}} überein. `:empty` hat eine angemessene Browser-Unterstützung; die Spezifikation der `:blank` Pseudoklasse ist noch nicht abgeschlossen, sodass es in keinem Browser noch unterstützt wird.
+- Die {{cssxref(":user-invalid")}} Pseudoklasse wird unterstützt, ähnlich wie {{cssxref(":invalid")}}, mit besserer Benutzererfahrung. Wenn der Wert gültig ist, wenn die Eingabe den Fokus erhält, kann das Element mit `:invalid` als Benutzer unter Umständen kurz ungültige Werte eingeben, aber es wird nur mit `:user-invalid` erfasst, wenn das Element den Fokus verlässt. Wenn der Wert ursprünglich ungültig war, wird es für die gesamte Dauer des Fokus mit sowohl `:invalid` als auch `:user-invalid` erfasst. In ähnlicher Weise wie `:invalid`, wird es aufhören, mit `:user-invalid` übereinzustimmen, wenn der Wert gültig wird.
 
 ## Zusammenfassung
 
-Damit schließen wir unseren Blick auf UI-Pseudoklassen ab, die sich auf Formulareingaben beziehen. Spielen Sie weiter damit herum und erstellen Sie einige unterhaltsame Formularstile! Als Nächstes werden wir zu etwas anderem übergehen — [Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
+Damit abschließen wir unseren Blick auf UI-Pseudoklassen, die sich auf Formulareingaben beziehen. Spielen Sie weiter mit ihnen, und kreieren Sie einige unterhaltsame Formstile! Als nächstes gehen wir zu etwas anderem über — [clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Customizable_select", "Learn_web_development/Extensions/Forms/Form_validation", "Learn_web_development/Extensions/Forms")}}

@@ -3,14 +3,12 @@ title: Temporal.PlainDate.prototype.until()
 short-title: until()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/until
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`until()`** Methode von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von diesem Datum zu einem anderen Datum darstellt (in einer Form, die durch {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn das andere Datum nach diesem Datum liegt, und negativ, wenn es davor liegt.
 
-Die **`until()`**-Methode der {{jsxref("Temporal.PlainDate")}}-Instanzen gibt ein neues {{jsxref("Temporal.Duration")}}-Objekt zurück, das die Dauer von diesem Datum bis zu einem anderen Datum darstellt (in einer Form, die durch {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} umwandelbar ist). Die Dauer ist positiv, wenn das andere Datum nach diesem Datum liegt, und negativ, wenn es davor liegt.
-
-Diese Methode führt `other - this` aus. Um `this - other` durchzuführen, verwenden Sie die {{jsxref("Temporal/PlainDate/since", "since()")}}-Methode.
+Diese Methode führt `other - this` aus. Verwenden Sie die {{jsxref("Temporal/PlainDate/since", "since()")}} Methode, um `this - other` auszuführen.
 
 ## Syntax
 
@@ -22,13 +20,13 @@ until(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainDate")}}-Instanz, die ein Datum repräsentiert, von dem dieses Datum subtrahiert wird. Es wird unter Verwendung desselben Algorithmus wie {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate`-Objekt umgewandelt. Es muss denselben Kalender wie `this` haben.
+  - : Ein String, ein Objekt oder eine Instanz von {{jsxref("Temporal.PlainDate")}}, die ein Datum darstellt, von dem dieses Datum subtrahiert werden soll. Es wird mit demselben Algorithmus wie {{jsxref("Temporal/PlainDate/from", "Temporal.PlainDate.from()")}} in ein `Temporal.PlainDate` Objekt konvertiert. Es muss denselben Kalender wie `this` haben.
 - `options` {{optional_inline}}
   - : Dieselben Optionen wie [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/since#options).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Temporal.Duration")}}-Objekt, das die Dauer von diesem Datum _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum liegt, und negativ, wenn es davor liegt.
+Ein neues {{jsxref("Temporal.Duration")}} Objekt, das die Dauer von diesem Datum _bis_ `other` darstellt. Die Dauer ist positiv, wenn `other` nach diesem Datum liegt, und negativ, wenn es davor liegt.
 
 ### Ausnahmen
 

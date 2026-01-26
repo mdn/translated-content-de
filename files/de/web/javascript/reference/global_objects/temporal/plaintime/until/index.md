@@ -3,14 +3,12 @@ title: Temporal.PlainTime.prototype.until()
 short-title: until()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/until
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`until()`** Methode von {{jsxref("Temporal.PlainTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von dieser Zeit bis zu einer anderen Zeit darstellt (in einer Form, die durch {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} umgewandelt werden kann). Die Dauer ist positiv, wenn die andere Zeit nach dieser liegt, und negativ, wenn sie davor liegt.
 
-Die **`until()`** Methode der {{jsxref("Temporal.PlainTime")}} Instanzen gibt ein neues {{jsxref("Temporal.Duration")}} Objekt zurück, das die Dauer von dieser Zeit bis zu einer anderen Zeit darstellt (in einer Form, die von {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} konvertierbar ist). Die Dauer ist positiv, wenn die andere Zeit nach dieser Zeit liegt, und negativ, wenn sie davor liegt.
-
-Diese Methode führt `other - this` aus. Um `this - other` durchzuführen, verwenden Sie die {{jsxref("Temporal/PlainTime/since", "since()")}} Methode.
+Diese Methode führt `other - this` aus. Um `this - other` auszuführen, verwenden Sie die Methode {{jsxref("Temporal/PlainTime/since", "since()")}}.
 
 ## Syntax
 
@@ -22,7 +20,7 @@ until(other, options)
 ### Parameter
 
 - `other`
-  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die eine Zeit darstellt, von der diese Zeit subtrahiert werden soll. Es wird unter Verwendung desselben Algorithmus wie {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} in ein `Temporal.PlainTime` Objekt konvertiert. Es muss denselben Kalender wie `this` haben.
+  - : Ein String, ein Objekt oder eine {{jsxref("Temporal.PlainTime")}} Instanz, die eine Zeit darstellt, von der diese Zeit subtrahiert werden soll. Sie wird in ein `Temporal.PlainTime` Objekt umgewandelt, wobei derselbe Algorithmus wie bei {{jsxref("Temporal/PlainTime/from", "Temporal.PlainTime.from()")}} verwendet wird. Sie muss denselben Kalender haben wie `this`.
 - `options` {{optional_inline}}
   - : Dieselben Optionen wie bei [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/since#options).
 
@@ -47,7 +45,7 @@ console.log(`It will be ${duration.toLocaleString("en-US")} until lunch`);
 // Example output: "It will be 3 hr, 42 min, 21 sec, 343 ms, 131 μs, 718 ns until lunch"
 ```
 
-Für weitere Beispiele, siehe [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/since).
+Für weitere Beispiele siehe [`since()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/since).
 
 ## Spezifikationen
 

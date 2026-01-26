@@ -3,10 +3,10 @@ title: "NavigateEvent: navigationType-Eigenschaft"
 short-title: navigationType
 slug: Web/API/NavigateEvent/navigationType
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 06ab986fc58ffb4e12b9f9962ee3c2783ce1290b
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
 Die schreibgeschützte **`navigationType`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Typ der Navigation zurück — `push`, `reload`, `replace` oder `traverse`.
 
@@ -16,16 +16,20 @@ Ein enumerierter Wert, der den Typ der Navigation darstellt.
 
 Die möglichen Werte sind:
 
-- `push`: Es wird zu einem neuen Standort navigiert, wodurch ein neuer Eintrag zur Historienliste hinzugefügt wird.
-- `reload`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
-- `replace`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
-- `traverse`: Der Browser navigiert von einem bestehenden Verlaufseintrag zu einem anderen bestehenden Verlaufseintrag.
+- `push`
+  - : Ein neuer Standort wird angesteuert, wodurch ein neuer Eintrag in die Verlaufsliste eingefügt wird.
+- `reload`
+  - : Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
+- `replace`
+  - : Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Historieneintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
+- `traverse`
+  - : Der Browser navigiert von einem bestehenden Historieneintrag zu einem anderen bestehenden Historieneintrag.
 
 ## Beispiele
 
-### Asynchrone Übergänge mit spezieller Behandlung von Zurück-/Vorwärts-Navigationen
+### Asynchrone Übergänge mit spezieller Behandlung von Zurück-/Vorwärtsnavigation
 
-Manchmal ist es wünschenswert, Zurück-/Vorwärts-Navigationen speziell zu behandeln, z. B. durch Wiederverwendung zwischengespeicherter Ansichten, indem sie auf den Bildschirm gebracht werden. Dies kann wie folgt durch Verzweigungen erreicht werden:
+Manchmal ist es wünschenswert, Zurück-/Vorwärtsnavigationen speziell zu behandeln, z. B. durch Wiederverwendung von zwischengespeicherten Ansichten, indem sie auf den Bildschirm verschoben werden. Dies kann durch Verzweigung wie folgt erreicht werden:
 
 ```js
 navigation.addEventListener("navigate", (event) => {

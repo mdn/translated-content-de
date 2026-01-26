@@ -1,21 +1,20 @@
 ---
-title: "HTMLInputElement: showPicker()-Methode"
+title: "HTMLInputElement: showPicker() Methode"
 short-title: showPicker()
 slug: Web/API/HTMLInputElement/showPicker
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.showPicker()`**-Methode zeigt den Browser-Auswahldialog für ein `input`-Element an.
+Die **`HTMLInputElement.showPicker()`** Methode zeigt den Browser-Auswahldialog für ein `input`-Element an.
 
-Dies ist derselbe Auswahldialog, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, kann jedoch durch einen Tastendruck oder eine andere Benutzerinteraktion ausgelöst werden.
+Dies ist derselbe Auswahldialog, der normalerweise angezeigt wird, wenn das Element ausgewählt wird, aber er kann durch einen Tastendruck oder eine andere Benutzerinteraktion ausgelöst werden.
 
-Browser implementieren diese Methode häufig für Eingaben der folgenden Typen: `"date"`, `"month"`, `"week"`, `"time"`, `"datetime-local"`, `"color"` oder `"file"`.
-Es kann auch mit Elementen aus einem {{htmlelement("datalist")}}-Element oder dem [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut vorab ausgefüllt werden.
+In der Regel implementieren Browser dies für Eingaben der Typen: `"date"`, `"month"`, `"week"`, `"time"`, `"datetime-local"`, `"color"` oder `"file"`. Es kann auch mit Elementen aus einem {{htmlelement("datalist")}}-Element oder dem [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Attribut vorab ausgefüllt werden.
 
-Allgemeiner gesagt sollte diese Methode idealerweise den Auswahldialog für jedes Eingabefeld auf der Plattform anzeigen, das über einen solchen Dialog verfügt.
+Allgemeiner sollte diese Methode idealerweise den Auswahldialog für jedes Eingabeelement auf der Plattform anzeigen, das einen Auswahldialog hat.
 
 ## Syntax
 
@@ -34,21 +33,21 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn das Element nicht änderbar ist, was bedeutet, dass der Benutzer es nicht modifizieren und/oder es nicht automatisch vorab ausgefüllt werden kann.
+  - : Wird ausgelöst, wenn das Element nicht veränderbar ist, was bedeutet, dass der Nutzer es nicht ändern kann und/oder es nicht automatisch vorab ausgefüllt werden kann.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn es nicht explizit durch eine Benutzeraktion wie eine Berührungsgeste oder einen Mausklick aktiviert wird (der Auswahldialog erfordert {{Glossary("Transient_activation", "vorübergehende Aktivierung")}}).
+  - : Wird ausgelöst, wenn der Vorgang nicht explizit durch eine Benutzeraktion wie eine Berührungs- oder Mausklickgeste ausgelöst wird (der Auswahldialog erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn in einem Cross-Origin-Iframe aufgerufen, außer bei Datei- und Farbdialogen (aus historischen Gründen ausgenommen).
+  - : Wird ausgelöst, wenn es in einem Cross-Origin-Iframe aufgerufen wird, ausgenommen Datei- und Farbauswahldialoge (aus historischen Gründen ausgenommen).
 
 ## Sicherheit
 
-[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Transiente Benutzeraktivierung](/de/docs/Web/Security/Defenses/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
 ### Feature-Erkennung
 
-Der folgende Code zeigt, wie überprüft werden kann, ob `showPicker()` unterstützt wird:
+Der folgende Code zeigt, wie überprüft wird, ob `showPicker()` unterstützt wird:
 
 ```js
 if ("showPicker" in HTMLInputElement.prototype) {
@@ -56,13 +55,12 @@ if ("showPicker" in HTMLInputElement.prototype) {
 }
 ```
 
-### Normale Eingabeauswahldialoge
+### Normale Eingabedialoge
 
-Dieses Beispiel zeigt, wie diese Funktion für `color`- und `file`-Eingabeauswahldialoge verwendet werden kann.
+Dieses Beispiel zeigt, wie diese Funktion für `color`- und `file`-Eingabedialoge verwendet werden kann.
 
 > [!NOTE]
-> Auswahldialoge für `date`, `datetime-local`, `month`, `time`, `week` werden auf die gleiche Weise gestartet.
-> Sie können hier nicht angezeigt werden, da Live-Beispiele in einem Cross-Origin-Frame ausgeführt werden und einen [`SecurityError`](#securityerror) verursachen würden.
+> Auswahldialoge für `date`, `datetime-local`, `month`, `time`, `week` werden auf die gleiche Weise gestartet. Sie können hier nicht gezeigt werden, da Live-Beispiele in einem Cross-Origin-Frame ausgeführt werden und einen [`SecurityError`](#securityerror) verursachen würden.
 
 #### HTML
 
@@ -80,7 +78,7 @@ Dieses Beispiel zeigt, wie diese Funktion für `color`- und `file`-Eingabeauswah
 
 #### JavaScript
 
-Der Code holt einfach das vorherige Element des ausgewählten Buttons und ruft `showPicker()` darauf auf.
+Der Code erhält einfach das vorherige Element des ausgewählten Buttons und ruft `showPicker()` darauf auf.
 
 ```js
 document.querySelectorAll("button").forEach((button) => {
@@ -97,15 +95,15 @@ document.querySelectorAll("button").forEach((button) => {
 
 #### Ergebnis
 
-Klicken Sie auf die Schaltfläche neben jedem Eingabetyp, um dessen Auswahldialog anzuzeigen.
+Klicken Sie auf den Button neben jedem Eingabetyp, um seinen Auswahldialog anzuzeigen.
 
-{{EmbedLiveSample("Normal input pickers", "100%", "140px")}}
+{{EmbedLiveSample("Normale Eingabedialoge", "100%", "140px")}}
 
-### showPicker() für ein datalist-Eingabe
+### showPicker() für ein datalist input
 
 `showPicker()` kann den Auswahldialog für eine Liste von Optionen starten, die in einem [`<datalist>`](/de/docs/Web/HTML/Reference/Elements/datalist) definiert sind.
 
-Zuerst definieren wir ein `<datalist>` in HTML, das aus einer Anzahl von Internetbrowsern besteht, eine Eingabe vom Typ `text`, die es verwendet, und eine Schaltfläche.
+Zuerst definieren wir ein `<datalist>` in HTML, bestehend aus einer Anzahl von Internet-Browsern, einer Eingabe vom Typ `text`, die es verwendet, und einem Button.
 
 ```html
 <datalist id="browsers">
@@ -120,7 +118,7 @@ Zuerst definieren wir ein `<datalist>` in HTML, das aus einer Anzahl von Interne
 <button>Select browser</button>
 ```
 
-Der folgende Code fügt einen Ereignislistener hinzu, der `showPicker()` aufruft, wenn die Schaltfläche angeklickt wird.
+Der folgende Code fügt einen Ereignislistener hinzu, der `showPicker()` aufruft, wenn der Button geklickt wird.
 
 ```js
 const button = document.querySelector("button");
@@ -135,17 +133,17 @@ button.addEventListener("click", () => {
 });
 ```
 
-### showPicker() für Autovervollständigung
+### showPicker() für autocomplete
 
-`showPicker()` kann einen Auswahldialog für ein [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Eingabefeld starten.
+`showPicker()` kann einen Auswahldialog für eine [`autocomplete`](/de/docs/Web/HTML/Reference/Attributes/autocomplete)-Eingabe starten.
 
-Hier definieren wir eine Eingabe, die eine Autovervollständigungsoption von "name" akzeptiert.
+Hier definieren wir eine Eingabe, die eine Autovervollständigungsoption "name" annimmt.
 
 ```html
 <input autocomplete="name" /> <button>Show autocomplete options</button>
 ```
 
-Der folgende Code zeigt den Auswahldialog für die Eingabe an, wenn die Schaltfläche geklickt wird.
+Der folgende Code zeigt den Auswahldialog für die Eingabe, wenn der Button geklickt wird.
 
 ```js
 const button = document.querySelector("button");

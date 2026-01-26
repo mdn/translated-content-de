@@ -3,18 +3,18 @@ title: "Navigation: navigatesuccess Ereignis"
 short-title: navigatesuccess
 slug: Web/API/Navigation/navigatesuccess_event
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: e7ffb2866dc8b67280801535c7f58bf073a5aaf9
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
 Das **`navigatesuccess`** Ereignis der [`Navigation`](/de/docs/Web/API/Navigation) Schnittstelle wird ausgelöst, wenn eine erfolgreiche Navigation abgeschlossen ist.
 
-Im Fall einer abgefangenen Navigation würde dies nach Erfüllung aller von Ihrem [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) Handler zurückgegebenen Versprechen (Promises) eintreten. Das [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Versprechen wird ebenfalls zur gleichen Zeit erfüllt.
+Im Falle einer abgefangenen Navigation würde dies auftreten, nachdem alle Versprechen, die von Ihrem [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) Handler zurückgegeben wurden, erfüllt sind. Das [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Versprechen wird ebenfalls zur selben Zeit erfüllt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("navigatesuccess", (event) => { })
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie könnten eine erfolgreiche Navigation handhaben, indem Sie einen zuvor angezeigten Fortschrittsanzeiger ausblenden, wie hier:
+Sie könnten eine erfolgreiche Navigation behandeln, indem Sie einen zuvor angezeigten Fortschrittsanzeiger ausblenden, zum Beispiel so:
 
 ```js
 navigation.addEventListener("navigatesuccess", (event) => {
@@ -36,7 +36,7 @@ navigation.addEventListener("navigatesuccess", (event) => {
 });
 ```
 
-Oder Sie könnten eine Fehlermeldung bei einem Fehler anzeigen:
+Oder Sie könnten bei einem Fehler eine Fehlermeldung anzeigen:
 
 ```js
 navigation.addEventListener("navigateerror", (event) => {
@@ -55,5 +55,5 @@ navigation.addEventListener("navigateerror", (event) => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)

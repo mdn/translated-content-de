@@ -3,12 +3,12 @@ title: "NavigateEvent: formData-Eigenschaft"
 short-title: formData
 slug: Web/API/NavigateEvent/formData
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die schreibgeschützte **`formData`**-Eigenschaft der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle gibt das [`FormData`](/de/docs/Web/API/FormData)-Objekt zurück, das die gesendeten Daten im Fall einer [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Formularübertragung darstellt, oder `null`, wenn keine vorliegt.
+Die **`formData`**-Eigenschaft der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle gibt das [`FormData`](/de/docs/Web/API/FormData)-Objekt zurück, das die übermittelten Daten im Falle einer [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Formularübermittlung darstellt, oder `null` sonst.
 
 ## Wert
 
@@ -51,5 +51,5 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne Client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)

@@ -3,14 +3,14 @@ title: "CSSMatrixComponent: matrix-Eigenschaft"
 short-title: matrix
 slug: Web/API/CSSMatrixComponent/matrix
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 0c13af55e869cbc54830fd1a601fd05f60717375
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`matrix`**-Eigenschaft des [`CSSMatrixComponent`](/de/docs/Web/API/CSSMatrixComponent)-Interfaces ruft eine 2D- oder 3D-Matrix ab und setzt sie.
+Die **`matrix`**-Eigenschaft des [`CSSMatrixComponent`](/de/docs/Web/API/CSSMatrixComponent)-Interfaces liest und setzt eine 2D- oder 3D-Matrix.
 
-Siehe die Seiten [matrix()](/de/docs/Web/CSS/Reference/Values/transform-function/matrix) und [matrix3d()](/de/docs/Web/CSS/Reference/Values/transform-function/matrix3d) für Beispiele.
+Siehe die Seiten {{cssxref("transform-function/matrix", "matrix()")}} und {{cssxref("transform-function/matrix3d", "matrix3d()")}} für Beispiele.
 
 ## Wert
 
@@ -18,7 +18,7 @@ eine Matrix.
 
 ## Beispiele
 
-Müssen erstellt werden.
+Noch zu tun.
 
 ## Spezifikationen
 

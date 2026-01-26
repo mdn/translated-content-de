@@ -1,14 +1,14 @@
 ---
-title: "WorkletSharedStorage: get()-Methode"
+title: "WorkletSharedStorage: get() Methode"
 short-title: get()
 slug: Web/API/WorkletSharedStorage/get
 l10n:
-  sourceCommit: 1eabc08d295e60d7d8eab6bce858d2fb0833be2b
+  sourceCommit: 923adb616baa87402ca965ebd18a73380cc84d27
 ---
 
-{{APIRef("Shared Storage API")}}{{SeeCompatTable}}
+{{APIRef("Shared Storage API")}}{{deprecated_header}}
 
-Die **`get()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle ruft einen Wert aus dem gemeinsamen Speicher ab.
+Die **`get()`** Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) Schnittstelle ruft einen Wert aus dem Shared Storage ab.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ get(key)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das entweder mit einem String aufgelöst wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder `undefined`, wenn der angegebene `key` im gemeinsamen Speicher nicht gefunden wird.
+Ein {{jsxref("Promise")}}, das entweder mit einem String erfüllt wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder mit `undefined`, wenn der angegebene `key` im Shared Storage nicht gefunden wird.
 
 ### Ausnahmen
 
@@ -31,15 +31,15 @@ Ein {{jsxref("Promise")}}, das entweder mit einem String aufgelöst wird, der de
   - : Wird ausgelöst, wenn:
     - Das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
     - `key` die vom Browser definierte maximale Länge überschreitet.
-    - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Registrierungsprozess](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) enthalten hat.
+    - Die aufrufende Stelle nicht den Shared Storage API in einem erfolgreichen [Einschreibungsprozess in die Privacy Sandbox](/de/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment) enthalten hat.
 
 ## Beispiele
 
-### K+-Frequenzmessung
+### Messung der K+ Frequenz
 
-Das folgende Beispiel misst die K+-Frequenz von Inhaltsaufrufen. Manchmal als "effektive Frequenz" bezeichnet, bezieht sich die K-Frequenz auf die minimale Anzahl von Ansichten, die erforderlich sind, damit ein Benutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenansichten verwendet).
+Das folgende Beispiel misst die K+ Frequenz von Inhaltsaufrufen. Manchmal als "effektive Frequenz" bezeichnet, bezieht sich die K-Frequenz auf die Mindestanzahl von Aufrufen, bevor ein Benutzer bestimmte Inhalte erkennen oder sich an sie erinnern wird (häufig im Kontext von Anzeigenaufrufen verwendet).
 
-Das Hauptseitenskript:
+Das Hauptseite-Skript:
 
 ```js
 // k-frequency-measurement.js
@@ -115,7 +115,7 @@ class KFreqMeasurementOperation {
 register("k-freq-measurement", KFreqMeasurementOperation);
 ```
 
-Für weitere Details zu diesem Beispiel siehe [K+-Frequenzmessung](https://privacysandbox.google.com/private-advertising/private-aggregation/k-freq-reach). Weitere Beispiele finden Sie auf der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite.
+Weitere Details zu diesem Beispiel finden Sie unter [K+ Frequenzmessung](https://privacysandbox.google.com/private-advertising/private-aggregation/k-freq-reach). Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Hauptseite für Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

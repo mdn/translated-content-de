@@ -3,20 +3,18 @@ title: Temporal.Duration.prototype.weeks
 short-title: weeks
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/weeks
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`weeks`** Zugriffseigenschaft von {{jsxref("Temporal.Duration")}} Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Wochen in der Dauer repräsentiert.
 
-Die **`weeks`** Zugriffs-Eigenschaft von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine ganze Zahl zurück, die die Anzahl der Wochen in der Dauer darstellt.
+Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Bereich dieses Wertes nicht annehmen, aber Sie können dessen Vorzeichen kennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign) Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit über Wochen ausgeglichen ist, hängt der Bereich des absoluten Wertes von `weeks` vom Kalender ab (wie viele Wochen in einem Monat oder Jahr sind).
 
-Sofern die Dauer nicht [ausgeglichen](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration#duration_balancing) ist, können Sie den Wertebereich dieses Werts nicht annehmen, aber Sie können das Vorzeichen erkennen, indem Sie die [`sign`](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration/sign)-Eigenschaft der Dauer überprüfen. Wenn sie auf eine Einheit oberhalb von Wochen ausgeglichen ist, hängt der Wertebereich des absoluten Werts der `weeks` vom Kalender ab (wie viele Wochen in einem Monat oder Jahr sind).
-
-Der Set-Zugriff von `weeks` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}}-Methode, um ein neues `Temporal.Duration`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Accessor von `weeks` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/Duration/with", "with()")}} Methode, um ein neues `Temporal.Duration` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
-### Verwendung von weeks
+### Verwendung von Wochen
 
 ```js
 const d1 = Temporal.Duration.from({ weeks: 1, days: 1 });

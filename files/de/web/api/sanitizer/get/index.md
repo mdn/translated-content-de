@@ -1,18 +1,18 @@
 ---
-title: "Sanitizer: get() Methode"
+title: "Sanitizer: get()-Methode"
 short-title: get()
 slug: Web/API/Sanitizer/get
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: ba886c384e385689ce8feffacf4f7ce1d8c5e736
 ---
 
-{{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
+{{APIRef("HTML Sanitizer API")}}
 
-Die **`get()`** Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer) Schnittstelle gibt eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig) Wörterbuchinstanz zurück, die die aktuelle `Sanitizer`-Konfiguration darstellt.
+Die **`get()`**-Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer)-Schnittstelle gibt eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig)-Wörterbuchinstanz zurück, die die aktuelle `Sanitizer`-Konfiguration darstellt.
 
-Diese Methode kann verwendet werden, um einen leicht modifizierten `Sanitizer` von der Standardkonfiguration zu erstellen; indem Sie zunächst die Standardkonfiguration abrufen, dann modifizieren und sie dann zum Erstellen eines neuen Sanitizers verwenden.
+Diese kann verwendet werden, um einen leicht modifizierten `Sanitizer` gegenüber dem Standard zu erstellen; indem man zuerst die Standard-Sanitizer-Konfiguration abruft und dann modifiziert, um anschließend einen neuen `Sanitizer` zu konstruieren.
 
-Die zurückgegebene Konfiguration kann auch zur Überprüfung der Konfiguration verwendet werden und kann direkt an die HTML-Parsing-Funktionen übergeben werden. Beachten Sie jedoch, dass es effizienter ist, einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) zu übergeben, anstatt ein Konfigurationswörterbuch, insbesondere wenn der `Sanitizer` mehrfach verwendet werden soll.
+Die zurückgegebene Konfiguration kann auch zur Überprüfung der Konfiguration verwendet werden und direkt an die HTML-Parsing-Funktionen übergeben werden. Beachten Sie jedoch, dass es effizienter ist, einen [`Sanitizer`](/de/docs/Web/API/Sanitizer) anstelle eines Konfigurationswörterbuchs zu übergeben, insbesondere wenn der `Sanitizer` mehrfach verwendet werden soll.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ Keine
 
 ### Rückgabewert
 
-Ein [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig).
+Eine [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig).
 
 ## Beispiele
 
-### Abrufen einer Konfiguration
+### Eine Konfiguration abrufen
 
-Dieses Beispiel zeigt, wie Sie einen neuen `Sanitizer` erstellen und seine Konfiguration abrufen können.
+Dieses Beispiel zeigt, wie man einen neuen `Sanitizer` erstellt und dessen Konfiguration erhält.
 
 ```html hidden
 <pre id="log"></pre>
@@ -56,7 +56,7 @@ function log(text) {
 
 #### JavaScript
 
-Der folgende Code testet, ob die `Sanitizer` Schnittstelle unterstützt wird, und erstellt, falls ja, ein neues `Sanitizer` Objekt mit einer einfachen [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die die HTML-Elemente: {{htmlelement("div")}}, {{htmlelement("p")}}, {{htmlelement("span")}}, {{htmlelement("script")}} zulässt.
+Der folgende Code testet, ob die `Sanitizer`-Schnittstelle unterstützt wird, und erstellt, falls ja, ein neues `Sanitizer`-Objekt unter Verwendung einer einfachen [`SanitizerConfig`](/de/docs/Web/API/SanitizerConfig), die die HTML-Elemente {{htmlelement("div")}}, {{htmlelement("p")}}, {{htmlelement("span")}}, {{htmlelement("script")}} zulässt.
 Anschließend wird die Konfiguration abgerufen und protokolliert.
 
 ```js hidden
@@ -81,13 +81,13 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Das Ergebnis wird unten protokolliert.
-Beachten Sie, dass die gleichen Elemente, die beim Erstellen des Sanitizers eingestellt wurden, zurückgegeben werden, die neuen Elemente jedoch auch einen Namensraum haben.
-Beachten Sie auch hier, dass Kommentare und Datenattribute zugelassen werden.
+Die Ausgabe wird unten protokolliert.
+Beachten Sie, dass dieselben Elemente, die beim Konstruieren des Sanitizers festgelegt wurden, zurückgegeben werden, aber die neuen Elemente auch einen Namensraum haben.
+Beachten Sie auch, dass hier Kommentare und Datenattribute erlaubt sind.
 
-{{EmbedLiveSample("Getting a configuration","100","480px")}}
+{{EmbedLiveSample("Getting a configuration", "100", "480px")}}
 
-### Abrufen des Standardsanitizers
+### Den Standard-Sanitizer abrufen
 
 Dieses Beispiel zeigt, wie Sie die Konfiguration für den Standard-`Sanitizer` abrufen können.
 Diese kann dann modifiziert und verwendet werden, um einen neuen `Sanitizer` zu erstellen, der Ihren spezifischen Anforderungen entspricht.
@@ -107,8 +107,8 @@ Diese kann dann modifiziert und verwendet werden, um einen neuen `Sanitizer` zu 
 
 #### JavaScript
 
-Der folgende Code testet, ob die `Sanitizer` Schnittstelle unterstützt wird.
-Dann erstellt er den Standard-`Sanitizer`, ohne Optionen zu übergeben, und ruft anschließend die Konfiguration ab und protokolliert sie.
+Der folgende Code testet, ob die `Sanitizer`-Schnittstelle unterstützt wird.
+Er erstellt dann den Standard-`Sanitizer`, ohne Optionen zu übergeben, und ruft anschließend die Konfiguration ab und protokolliert sie.
 
 ```js hidden
 const logElement = document.querySelector("#log");
@@ -140,9 +140,9 @@ log(JSON.stringify(defaultConfig, null, 2));
 #### Ergebnisse
 
 Die Standard-Sanitizer-Konfiguration wird unten protokolliert.
-Beachten Sie, dass die Standardkonfiguration ziemlich groß ist und viele Elemente und Attribute zulässt.
+Beachten Sie, dass die Standardkonfiguration recht umfangreich ist und viele Elemente und Attribute zulässt.
 
-{{EmbedLiveSample("Getting the default sanitizer","100","480px")}}
+{{EmbedLiveSample("Getting the default sanitizer", "100", "480px")}}
 
 ## Spezifikationen
 

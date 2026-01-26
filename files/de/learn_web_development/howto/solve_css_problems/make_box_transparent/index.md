@@ -3,22 +3,22 @@ title: Wie man eine Box halbtransparent macht
 short-title: Eine Box halbtransparent machen
 slug: Learn_web_development/Howto/Solve_CSS_problems/Make_box_transparent
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 2b4a2ad5d9ba084a9eaa2f9204102655e7b575c4
 ---
 
-Dieser Leitfaden hilft Ihnen zu verstehen, wie Sie eine Box mithilfe von CSS halbtransparent machen können.
+Dieser Leitfaden hilft Ihnen, die Methoden zu verstehen, um mit CSS eine Box halbtransparent zu gestalten.
 
-## Ändern der Deckkraft der Box und des Inhalts
+## Ändern der Opazität der Box und Inhalte
 
-Wenn Sie möchten, dass die Box und der gesamte Inhalt der Box die Deckkraft ändern, ist die CSS-Eigenschaft {{cssxref("opacity")}} das passende Werkzeug. Deckkraft ist das Gegenteil von Transparenz; daher ist `opacity: 1` vollständig undurchsichtig – Sie werden die Box überhaupt nicht durchsehen können.
+Wenn Sie die Opazität der Box und aller Inhalte darin ändern möchten, dann ist die CSS-Eigenschaft {{cssxref("opacity")}} das richtige Werkzeug. Opazität ist das Gegenteil von Transparenz; daher ist `opacity: 1` völlig undurchsichtig—Sie werden die Box überhaupt nicht durchsehen können.
 
-Ein Wert von `0` würde die Box vollständig transparent machen, und Werte dazwischen ändern die Deckkraft, wobei höhere Werte weniger Transparenz ergeben.
+Die Verwendung eines Wertes von `0` würde die Box völlig transparent machen, und Werte dazwischen ändern die Opazität, wobei höhere Werte weniger Transparenz bieten.
 
-## Ändern der Deckkraft nur der Hintergrundfarbe
+## Nur die Opazität der Hintergrundfarbe ändern
 
-In vielen Fällen möchten Sie nur die Hintergrundfarbe teilweise transparent machen und gleichzeitig den Text und andere Elemente vollständig undurchsichtig halten. Um dies zu erreichen, verwenden Sie einen [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value) Wert mit einem Alphakanal, wie `rgb()`. Wie bei `opacity` macht ein Wert von `1` für den Alphakanal die Farbe vollständig undurchsichtig. Daher setzt `background-color: rgb(0 0 0 / 50%);` die Hintergrundfarbe auf 50 % Deckkraft.
+In vielen Fällen möchten Sie nur die Hintergrundfarbe teilweise transparent machen und den Text sowie andere Elemente völlig undurchsichtig lassen. Um dies zu erreichen, verwenden Sie einen {{cssxref("&lt;color&gt;")}}-Wert, der einen Alphakanal hat, wie `rgb()`. Wie bei `opacity` macht ein Wert von `1` für den Alphakanal die Farbe völlig undurchsichtig. Daher setzt `background-color: rgb(0 0 0 / 50%);` die Hintergrundfarbe auf 50% Opazität.
 
-Versuchen Sie, die Werte für Deckkraft und Alphakanal in den untenstehenden Beispielen zu ändern, um mehr oder weniger von dem Hintergrundbild hinter der Box zu sehen.
+Versuchen Sie, die Opazitäts- und Alphakanal-Werte in den untenstehenden Beispielen zu ändern, um mehr oder weniger vom Hintergrundbild hinter der Box zu sehen.
 
 ```html live-sample___opacity
 <div class="wrapper">
@@ -69,8 +69,8 @@ body {
 {{EmbedLiveSample("opacity", "", "280px")}}
 
 > [!NOTE]
-> Achten Sie darauf, dass Ihr Text genügend Kontrast zum Hintergrund behält, insbesondere wenn Sie ein Bild überlagern; sonst könnte der Inhalt schwer lesbar werden.
+> Achten Sie darauf, dass Ihr Text genügend Kontrast zum Hintergrund behält, insbesondere wenn Sie ein Bild überlagern; andernfalls könnte der Inhalt schwer lesbar werden.
 
 ## Siehe auch
 
-- [Anwenden von Farben auf HTML-Elemente mit CSS.](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [Farbe auf HTML-Elemente anwenden mit CSS.](/de/docs/Web/CSS/Guides/Colors/Applying_color)

@@ -3,12 +3,14 @@ title: "HTMLDialogElement: show() Methode"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt das Dialogfeld modelless an, d.h. sie ermöglicht weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
+Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle zeigt das Dialogfeld als ein nicht-modales Dialogfeld an.
+
+Ein nicht-modales Dialogfeld ist eines, bei dem Benutzer mit dem Inhalt außerhalb/hinter dem geöffneten Dialog interagieren können.
 
 ## Syntax
 
@@ -31,63 +33,52 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()` Methode öffnet. Von dort aus können Sie den _Cancel_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über den Absenden-Button einreichen.
+### Grundlegende Verwendung
+
+Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird, ein {{htmlelement("dialog")}} mit der `show()` Methode öffnet.
+
+Wenn das Dialogfeld geöffnet ist, können Sie weiterhin mit dem Rest der Seite interagieren, einschließlich des Klickens auf den Button _Click me_, der einen Alert auslöst.
+
+Sie können auf den Button _Close dialog_ klicken, um das Dialogfeld zu schließen (über die [`close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode).
+
+#### HTML
 
 ```html
-<!-- Simple pop-up dialog box, containing a form -->
-<dialog id="favDialog">
-  <form method="dialog">
-    <section>
-      <p>
-        <label for="favAnimal">Favorite animal:</label>
-        <select id="favAnimal" name="favAnimal">
-          <option></option>
-          <option>Brine shrimp</option>
-          <option>Red panda</option>
-          <option>Spider monkey</option>
-        </select>
-      </p>
-    </section>
-    <menu>
-      <li>
-        <button type="reset">Reset</button>
-      </li>
-      <li>
-        <button type="submit">Confirm</button>
-      </li>
-    </menu>
-  </form>
+<dialog id="dialog">
+  <button type="button" id="close">Close dialog</button>
 </dialog>
 
-<button id="updateDetails">Update details</button>
+<p><button id="open">Open dialog</button></p>
+<p><button id="alert">Trigger alert</button></p>
 ```
+
+#### JavaScript
 
 ```js
-const updateButton = document.getElementById("updateDetails");
-const cancelButton = document.getElementById("cancel");
-const dialog = document.getElementById("favDialog");
-dialog.returnValue = "favAnimal";
+const dialog = document.getElementById("dialog");
+const openButton = document.getElementById("open");
+const closeButton = document.getElementById("close");
+const alertButton = document.getElementById("alert");
 
-function openCheck(dialog) {
-  if (dialog.open) {
-    console.log("Dialog open");
-  } else {
-    console.log("Dialog closed");
-  }
-}
-
-// Update button opens a modeless dialog
-updateButton.addEventListener("click", () => {
+// Open button opens a modeless dialog
+openButton.addEventListener("click", () => {
   dialog.show();
-  openCheck(dialog);
 });
 
-// Form cancel button closes the dialog box
-cancelButton.addEventListener("click", () => {
-  dialog.close("animalNotChosen");
-  openCheck(dialog);
+// Alert button triggers an alert
+alertButton.addEventListener("click", () => {
+  alert("you clicked me!");
+});
+
+// Close button closes the dialog box
+closeButton.addEventListener("click", () => {
+  dialog.close();
 });
 ```
+
+#### Ergebnis
+
+{{EmbedLiveSample("Basic usage", '100%', "250px")}}
 
 ## Spezifikationen
 
@@ -99,4 +90,5 @@ cancelButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- HTML {{htmlelement("dialog")}} Element
+- [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)

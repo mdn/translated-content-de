@@ -2,22 +2,22 @@
 title: menus.ItemType
 slug: Mozilla/Add-ons/WebExtensions/API/menus/ItemType
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 7c5cdb65b3f9b9cfe05e34a602eaf08d61195b3e
 ---
 
 Der Typ des Menüelements.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
-- normal
-  - : Ein Menüpunkt, der einfach ein Label anzeigt.
-- checkbox
-  - : Ein Menüpunkt, der einen binären Zustand darstellt. Er zeigt ein Häkchen neben dem Label an. Durch Klicken auf das Element wird das Häkchen umgeschaltet. Der {{WebExtAPIRef("menus.onClicked")}} Listener erhält zwei zusätzliche Eigenschaften: "checked", die angibt, ob das Element jetzt markiert ist, und "wasChecked", die angibt, ob das Element vor dem Klickereignis markiert war.
-- radio
-  - : Ein Menüpunkt, der eine von mehreren Auswahlmöglichkeiten darstellt. Wie bei einer Checkbox wird auch hier ein Häkchen neben dem Label angezeigt, und sein {{WebExtAPIRef("menus.onClicked")}} Listener erhält "checked" und "wasChecked". Wenn Sie jedoch mehr als ein Radioelement erstellen, funktionieren die Elemente als Gruppe von Radioelementen: Nur ein Element in der Gruppe kann markiert sein, und ein Klick auf ein Element macht es zum markierten Element.
-- separator
+- `normal`
+  - : Ein Menüelement, das lediglich ein Label anzeigt.
+- `checkbox`
+  - : Ein Menüelement, das einen binären Zustand darstellt. Es zeigt ein Häkchen neben dem Label an. Ein Klick auf das Element schaltet das Häkchen um. Der {{WebExtAPIRef("menus.onClicked")}}-Listener wird zwei zusätzliche Eigenschaften übergeben: "checked", das angibt, ob das Element jetzt aktiviert ist, und "wasChecked", das angibt, ob das Element vor dem Klickereignis aktiviert war.
+- `radio`
+  - : Ein Menüelement, das eine von mehreren Auswahlmöglichkeiten darstellt. Ähnlich wie bei einer Checkbox wird ein Häkchen neben dem Label angezeigt, und sein {{WebExtAPIRef("menus.onClicked")}}-Listener erhält "checked" und "wasChecked". Wenn Sie jedoch mehr als ein Radio-Element erstellen, funktionieren die Elemente als Gruppe von Radio-Elementen: Nur ein Element in der Gruppe kann aktiviert sein, und durch Anklicken eines Elements wird es zum aktivierten Element.
+- `separator`
   - : Eine Linie, die eine Gruppe von Elementen trennt.
 
 {{WebExtExamples}}
@@ -27,34 +27,36 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-ItemType). Diese Dokumentation ist entnommen aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-ItemType). Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Die Weiterverbreitung und Verwendung in Quell- und Binärformen, mit oder ohne
+// Änderungen, sind unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen das obige Urheberrecht
+// und diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverbreitungen in binärer Form müssen das obige
+// Urheberrecht, diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien enthalten, die mit der
+// Distribution bereitgestellt werden.
+//    * Weder der Name Google Inc. noch die Namen der
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet
+// wurden, zu unterstützen oder zu bewerben, ohne vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN
+// GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, SIND
+// AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER MITWIRKENDEN
+// HAFTBAR FÜR JEGLICHE DIREKTE, INDIREKTE, BEILÄUFIGE,
+// SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN;
+// NUTZUNGSAUSFALL, DATENVERLUST ODER ENTGANGENEN GEWINNS; ODER
+// GESCHÄFTSUNTERBRECHUNG), WIE AUCH IMMER VERURSACHT UND AUF WELCHER
+// THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), AUS EINEM NGEO AB FÜR DIE NUTZUNG
+// DIESER SOFTWARE ENTSTANDEN SIND, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER
+// SCHÄDEN HINGEWIESEN WURDE.
 -->

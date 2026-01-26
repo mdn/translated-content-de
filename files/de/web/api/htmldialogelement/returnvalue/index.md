@@ -3,79 +3,98 @@ title: "HTMLDialogElement: returnValue-Eigenschaft"
 short-title: returnValue
 slug: Web/API/HTMLDialogElement/returnValue
 l10n:
-  sourceCommit: 892f5d7d285d5ed9d79012b5e19c459392a7669e
+  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein String, der den Rückgabewert für ein {{htmlelement("dialog")}}-Element repräsentiert, wenn es geschlossen wird.
-Sie können den Wert direkt festlegen (`dialog.returnValue = "result"`) oder den Wert als String-Argument an [`close()`](/de/docs/Web/API/HTMLDialogElement/close) oder [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) übergeben.
+Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ist ein String, der den Rückgabewert für ein {{htmlelement("dialog")}}-Element repräsentiert, wenn es geschlossen wird. Sie können den Wert direkt setzen (`dialog.returnValue = "result"`) oder den Wert als String-Argument an [`close()`](/de/docs/Web/API/HTMLDialogElement/close) oder [`requestClose()`](/de/docs/Web/API/HTMLDialogElement/requestClose) übergeben.
 
 ## Wert
 
 Ein String, der den `returnValue` des Dialogs repräsentiert.
-Standardmäßig ein leerer String (`""`).
+Standardmäßig ist dies ein leerer String (`""`).
 
 ## Beispiele
 
-### Überprüfung des Rückgabewerts
+### Überprüfen des Rückgabewerts
 
-Das folgende Beispiel zeigt eine Schaltfläche, um einen Dialog zu öffnen. Der Dialog fragt den Benutzer, ob er einen Nutzungsbedingungen-Prompt akzeptieren möchte.
+Das folgende Beispiel zeigt eine Schaltfläche, um einen Dialog zu öffnen. Der Dialog fragt den Benutzer, ob er einer Aufforderung zu den Nutzungsbedingungen zustimmen möchte.
 
-Der Dialog enthält die Schaltflächen "Akzeptieren" oder "Ablehnen": Wenn der Benutzer auf eine der Schaltflächen klickt, schließt der Klick-Handler der Schaltfläche den Dialog und übergibt seine Wahl an die [`close()`](/de/docs/Web/API/HTMLDialogElement/close)-Funktion. Dies weist der Wahl die `returnValue`-Eigenschaft des Dialogs zu.
+Der Dialog enthält die Schaltflächen "Akzeptieren" oder "Ablehnen": Wenn der Benutzer auf eine der Schaltflächen klickt, schließt der Klick-Handler der Schaltfläche den Dialog und übergibt seine Wahl an die [`close()`](/de/docs/Web/API/HTMLDialogElement/close)-Funktion. Dies weist die Wahl der `returnValue`-Eigenschaft des Dialogs zu.
 
-Im [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignishandler des Dialogs aktualisiert das Beispiel den Status-Text der Hauptseite, um den `returnValue` aufzuzeichnen.
+Im [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignishandler des Dialogs wird der Status-Text der Hauptseite aktualisiert, um den `returnValue` zu protokollieren.
 
-Wenn der Benutzer den Dialog schließt, ohne auf eine Schaltfläche zu klicken (z. B. durch Drücken der <kbd>Esc</kbd>-Taste), wird der Rückgabewert nicht gesetzt.
+Wenn der Benutzer den Dialog ohne Klicken auf eine Schaltfläche schließt (z. B. durch Drücken der <kbd>Esc</kbd>-Taste), wird kein Rückgabewert gesetzt.
 
 #### HTML
 
 ```html
-<dialog id="termsDialog">
+<dialog id="dialog">
   <p>Do you agree to the Terms of Service (link)?</p>
-  <button id="declineButton" value="declined">Decline</button>
-  <button id="acceptButton" value="accepted">Accept</button>
+  <button id="decline" value="declined">Decline</button>
+  <button id="accept" value="accepted">Accept</button>
 </dialog>
-<p>
-  <button id="openDialogButton">Review ToS</button>
-</p>
-<p id="statusText"></p>
+<button id="open">Open dialog</button>
+```
+
+```html hidden
+<pre id="log"></pre>
+```
+
+```css hidden
+#log {
+  height: 170px;
+  overflow: scroll;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+```
+
+```js hidden
+const logElement = document.getElementById("log");
+function log(text) {
+  logElement.innerText = `${logElement.innerText}${text}\n`;
+  logElement.scrollTop = logElement.scrollHeight;
+}
 ```
 
 #### JavaScript
 
 ```js
-const dialog = document.getElementById("termsDialog");
-const statusText = document.getElementById("statusText");
+const dialog = document.getElementById("dialog");
+const openButton = document.getElementById("open");
+const declineButton = document.getElementById("decline");
+const acceptButton = document.getElementById("accept");
 
-const openDialogButton = document.getElementById("openDialogButton");
-const declineButton = document.getElementById("declineButton");
-const acceptButton = document.getElementById("acceptButton");
-
-openDialogButton.addEventListener("click", () => {
+openButton.addEventListener("click", () => {
+  // Reset the return value on each open
+  dialog.returnValue = "";
+  updateReturnValue();
+  // Show the dialog
   dialog.showModal();
 });
-
-declineButton.addEventListener("click", closeDialog);
-acceptButton.addEventListener("click", closeDialog);
 
 function closeDialog(event) {
   const button = event.target;
   dialog.close(button.value);
 }
 
-dialog.addEventListener("close", () => {
-  statusText.innerText = dialog.returnValue
-    ? `Return value: ${dialog.returnValue}`
-    : "There was no return value";
-});
+function updateReturnValue() {
+  log(`Return value: "${dialog.returnValue}"`);
+}
+
+declineButton.addEventListener("click", closeDialog);
+acceptButton.addEventListener("click", closeDialog);
+
+dialog.addEventListener("close", updateReturnValue);
 ```
 
 #### Ergebnis
 
-Probieren Sie aus, "Nutzungsbedingungen überprüfen" zu klicken, dann die Schaltflächen "Akzeptieren" oder "Ablehnen" im Dialog auszuwählen oder den Dialog durch Drücken der <kbd>Esc</kbd>-Taste zu schließen und beobachten Sie die unterschiedlichen Statusaktualisierungen.
+Klicken Sie auf "Dialog öffnen", wählen Sie dann die Schaltflächen "Akzeptieren" oder "Ablehnen" im Dialog oder schließen Sie den Dialog, indem Sie die <kbd>Esc</kbd>-Taste drücken. Beobachten Sie die verschiedenen Statusaktualisierungen.
 
-{{ EmbedLiveSample('Checking the return value', '100%', '200px') }}
+{{ EmbedLiveSample('Checking the return value', '100%', "250px")}}
 
 ## Spezifikationen
 
@@ -87,4 +106,4 @@ Probieren Sie aus, "Nutzungsbedingungen überprüfen" zu klicken, dann die Schal
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- HTML {{htmlelement("dialog")}}-Element

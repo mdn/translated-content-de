@@ -2,10 +2,10 @@
 title: opacity
 slug: Web/CSS/Reference/Properties/opacity
 l10n:
-  sourceCommit: f28f4c26a3d95e41d01a505af3388881abd6e49c
+  sourceCommit: 33094d735e90b4dcae5733331b79c51fee997410
 ---
 
-Die **`opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Opazität eines Elements. Opazität ist der Grad, in dem der Inhalt hinter einem Element verborgen ist und stellt das Gegenteil von Transparenz dar.
+Die **`opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Deckkraft eines Elements fest. Deckkraft ist das Maß, in dem Inhalte hinter einem Element verborgen sind, und ist das Gegenteil von Transparenz.
 
 {{InteractiveExample("CSS Demo: opacity")}}
 
@@ -58,33 +58,33 @@ opacity: unset;
 ### Werte
 
 - `<alpha-value>`
-  - : Eine {{cssxref("number")}} im Bereich von `0.0` bis `1.0`, inklusive, oder ein {{cssxref("percentage")}} im Bereich von `0%` bis `100%`, inklusive, die die Opazität des Kanals darstellt (also der Wert des Alphakanals). Jeder Wert außerhalb dieses Intervalls, obwohl gültig, wird auf den nächstgelegenen Grenzwert im Bereich begrenzt.
+  - : Eine {{cssxref("number")}} im Bereich von `0.0` bis `1.0`, inklusive, oder ein {{cssxref("percentage")}} im Bereich von `0%` bis `100%`, inklusive, die die Deckkraft des Kanals darstellen (das heißt, den Wert seines Alphakanals). Jeder Wert außerhalb des Intervalls ist zwar gültig, wird jedoch auf das nächstliegende Limit im Bereich begrenzt.
 
-    | Wert                                                   | Bedeutung                                                                       |
-    | ------------------------------------------------------ | ------------------------------------------------------------------------------- |
-    | `0`                                                    | Das Element ist vollständig transparent (d.h. unsichtbar).                      |
-    | Jede {{cssxref("number")}} streng zwischen `0` und `1` | Das Element ist durchsichtig (d.h. der Inhalt hinter dem Element ist sichtbar). |
-    | `1` (Standardwert)                                     | Das Element ist vollständig opak (visuell fest).                                |
+    | Wert                                                    | Bedeutung                                                                       |
+    | ------------------------------------------------------- | ------------------------------------------------------------------------------- |
+    | `0`                                                     | Das Element ist vollständig transparent (d.h. unsichtbar).                      |
+    | Jeder {{cssxref("number")}} strikt zwischen `0` und `1` | Das Element ist durchscheinend (d.h. Inhalte hinter dem Element sind sichtbar). |
+    | `1` (Standardwert)                                      | Das Element ist vollständig opak (visuell solide).                              |
 
 ## Beschreibung
 
-`opacity` wird auf das Element als Ganzes angewendet, einschließlich seines Inhalts, auch wenn der Wert nicht von Kind-Elementen geerbt wird. Daher haben das Element und seine Kinder alle dieselbe Opazität im Verhältnis zum Hintergrund des Elements, auch wenn sie unterschiedliche Opazitäten zueinander haben.
+`opacity` gilt für das gesamte Element, einschließlich seiner Inhalte, auch wenn der Wert nicht von Kindelementen geerbt wird. Daher haben das Element und seine Kinder alle die gleiche Deckkraft relativ zum Hintergrund des Elements, selbst wenn sie unterschiedliche Deckkräfte relativ zueinander haben.
 
-Um die Opazität nur des Hintergrunds zu ändern, verwenden Sie die {{cssxref("background")}} Eigenschaft mit einem [Farbwert](/de/docs/Web/CSS/Reference/Values/color_value), der einen Alphakanal ermöglicht. Zum Beispiel:
+Um die Deckkraft nur eines Hintergrunds zu ändern, verwenden Sie die {{cssxref("background")}} Eigenschaft mit einem [Farbwert](/de/docs/Web/CSS/Reference/Values/color_value), der einen Alphakanal zulässt. Zum Beispiel:
 
 ```css
 background: rgb(0 0 0 / 40%);
 ```
 
-Wenn der `opacity`-Wert auf `0` gesetzt ist, erscheinen das Element und alle seine Kinder unsichtbar, sind jedoch immer noch Teil des DOM. Das bedeutet, dass sie immer noch [Zeigerereignisse](/de/docs/Web/API/Pointer_events) registrieren und, wenn die Elemente in einer Tab-Reihenfolge sind, erhalten sie auch Fokus. Für eine gute Benutzerfreundlichkeit stellen Sie sicher, solche Elemente sichtbar zu machen, wenn sie Benutzerinteraktionen erhalten, oder verwenden Sie die CSS [`pointer-events`](/de/docs/Web/CSS/Reference/Properties/pointer-events) Eigenschaft, um Zeigerereignisse zu deaktivieren und das Element aus der Tab-Reihenfolge herauszunehmen, indem Sie das `disabled`-Attribut deaktivieren oder [`tab-index="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) für nicht formularbezogene interaktive Elemente setzen.
+Wenn der `opacity`-Wert auf `0` gesetzt ist, erscheinen das Element und alle seine Kinder unsichtbar, sind aber weiterhin Teil des DOM. Das bedeutet, dass sie weiterhin [Zeigerereignisse](/de/docs/Web/API/Pointer_events) registrieren und, wenn die Elemente in einer Tabulatorreihenfolge sind, sie den Fokus erhalten. Zur guten Benutzerfreundlichkeit, stellen Sie sicher, dass solche Elemente sichtbar werden, wenn sie Benutzerinteraktionen erhalten, oder verwenden Sie die CSS {{cssxref("pointer-events")}} Eigenschaft, um Zeigerereignisse zu deaktivieren und das Element aus der Tabulatorreihenfolge zu entfernen, indem Sie das Attribut `disabled` deaktivieren oder [`tab-index="-1"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) für nicht formularbezogene interaktive Elemente setzen.
 
-Die Verwendung von `opacity` mit einem anderen Wert als `1` versetzt das Element in einen neuen [stapelnden Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context).
+Die Verwendung von `opacity` mit einem anderen Wert als `1` platziert das Element in einem neuen [Stapelfluss](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context).
 
-Allein die Opazität sollte nicht verwendet werden, um Informationen für Screenreader bereitzustellen. Verwenden Sie das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden), CSS [`visibility`](/de/docs/Web/CSS/Reference/Properties/visibility) oder CSS [`display`](/de/docs/Web/CSS/Reference/Properties/display) Stil-Eigenschaften. Es ist am besten, das Attribut [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) zu vermeiden, aber wenn das Element mit Opazität versteckt ist, verbergen Sie es auch vor Screenreadern.
+Allein Deckkraft sollte nicht verwendet werden, um Informationen für Screenreader bereitzustellen. Verwenden Sie das HTML [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) Attribut, CSS {{cssxref("visibility")}}, oder CSS {{cssxref("display")}} Stil-Eigenschaften. Am besten ist es, die Verwendung des [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) Attributs zu vermeiden, aber wenn das Element mit Deckkraft verborgen ist, dann verbergen Sie es auch vor Screenreadern.
 
-### Übergang der Opazität
+### Übergang der Deckkraft
 
-Beim [Übergang](/de/docs/Web/CSS/Guides/Transitions) der Opazität von Elementen, wenn Sie sie zur Seite hinzufügen, nachdem der Inhalt zuvor mit [`visibility: hidden`](/de/docs/Web/CSS/Reference/Properties/visibility#hidden), [`display: none`](/de/docs/Web/CSS/Reference/Properties/display#none) oder [`content-visibility: hidden`](/de/docs/Web/CSS/Reference/Properties/content-visibility#hidden) verborgen wurde, müssen Sie sowohl ein [`@starting-style`](/de/docs/Web/CSS/Reference/At-rules/@starting-style) als auch [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/Reference/Properties/transition-behavior#allow-discrete) beinhalten:
+Beim [Übergang](/de/docs/Web/CSS/Guides/Transitions) der Deckkraft von Elementen, wenn sie zur Seite hinzugefügt werden, wenn der Inhalt zuvor mit [`visibility: hidden`](/de/docs/Web/CSS/Reference/Properties/visibility#hidden), [`display: none`](/de/docs/Web/CSS/Reference/Properties/display#none) oder [`content-visibility: hidden`](/de/docs/Web/CSS/Reference/Properties/content-visibility#hidden) verborgen war, müssen Sie sowohl ein {{cssxref("@starting-style")}} als auch [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/Reference/Properties/transition-behavior#allow-discrete) einschließen:
 
 ```css
 .card {
@@ -105,21 +105,21 @@ Beim [Übergang](/de/docs/Web/CSS/Guides/Transitions) der Opazität von Elemente
 }
 ```
 
-Um erste Stilübergänge zu ermöglichen, sind `@starting-style` Regeln erforderlich. Im obigen Code wird `opacity: 0` im `@starting-style` gesetzt, um einen Ausgangspunkt für den Übergang zu schaffen, wenn das Element sein initiales Stil-Update erhält. Für weitere Details siehe [`@starting-style`](/de/docs/Web/CSS/Reference/At-rules/@starting-style).
+Um Übergänge im ersten Stil zu ermöglichen, sind `@starting-style` Regeln erforderlich. Im obigen Code bietet das Setzen von `opacity: 0` im `@starting-style` einen Ausgangspunkt für den Übergang, wenn das Element seine anfängliche Stilaktualisierung erhält. Weitere Details finden Sie unter {{cssxref("@starting-style")}}.
 
-Das Setzen von `transition-behavior: allow-discrete` ist erforderlich, um zu `display: none` zu wechseln. Sehen Sie sich die [`transition-behavior`](/de/docs/Web/CSS/Reference/Properties/transition-behavior) Eigenschaft für weitere Details an.
+Das Setzen von `transition-behavior: allow-discrete` ist erforderlich, um den Übergang zu `display: none` zu ermöglichen. Weitere Details finden Sie bei der {{cssxref("transition-behavior")}} Eigenschaft.
 
 ## Barrierefreiheit
 
-Wenn die Textopazität angepasst wird, ist es wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Farbe des Textes und dem Hintergrund, über dem der Text platziert ist, hoch genug ist, damit Personen mit Sehbehinderungen den Inhalt der Seite lesen können.
+Wenn die Deckkraft von Text angepasst wird, ist es wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Farbe des Textes und dem Hintergrund, über dem der Text platziert ist, hoch genug ist, damit Menschen mit Sehschwäche in der Lage sind, den Inhalt der Seite zu lesen.
 
-Das Farbkontrastverhältnis wird durch Vergleich der Leuchtdichte der opazitätangepassten Text- und Hintergrundfarbwerte bestimmt. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text wird definiert als 18.66px und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight) oder größer, oder 24px oder größer.
+Das Farbkontrastverhältnis wird ermittelt, indem die Helligkeit der deckkraftangepassten Text- und Hintergrundfarben verglichen wird. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4.5:1 für Textinhalt und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text wird definiert als 18.66px und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight) oder größer, oder 24px oder größer.
 
-- [WebAIM: Farbkontrast-Checker](https://webaim.org/resources/contrastchecker/)
+- [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [MDN Verständnis der WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis Erfolgskriterium 1.4.3 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [Verständnis der Erfolgskriterien 1.4.3 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
-Verschiedene Betriebssysteme bieten eine Präferenz für die Reduzierung der Transparenz. Um die `opacity` basierend auf den Transparenzeinstellungen des Betriebssystems des Benutzers zu setzen, verwenden Sie die [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency) Media-Query.
+Verschiedene Betriebssysteme bieten eine Präferenz für die Reduzierung von Transparenz. Um die `opacity` basierend auf den Transparenzeinstellungen des Betriebssystems des Nutzers einzustellen, verwenden Sie die [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency) Media Query.
 
 ## Formale Definition
 
@@ -131,9 +131,9 @@ Verschiedene Betriebssysteme bieten eine Präferenz für die Reduzierung der Tra
 
 ## Beispiele
 
-### Opazität setzen
+### Festlegen der Deckkraft
 
-Das folgende Beispiel zeigt, wie die `opacity`-Eigenschaft die Opazität des gesamten Elements und Inhalts ändert und somit den Text sehr schwer lesbar macht.
+Das folgende Beispiel zeigt, wie die `opacity` Eigenschaft die Deckkraft des gesamten Elements und Inhalts verändert, wodurch der Text sehr schwer lesbar wird.
 
 #### HTML
 
@@ -166,9 +166,9 @@ div {
 
 {{EmbedLiveSample('Setting_opacity', '640', '105')}}
 
-### Opazität beim Hover setzen
+### Festlegen der Deckkraft beim Hovern
 
-Im folgenden Beispiel wird die Opazität beim Hover geändert, sodass das gestreifte Hintergrundbild auf dem Elternelement durch das Bild hindurchscheint.
+Im folgenden Beispiel wird die Deckkraft beim Hovern geändert, sodass das gestreifte Hintergrundbild des übergeordneten Elements durch das Bild hindurch sichtbar wird.
 
 #### HTML
 
@@ -211,9 +211,9 @@ img.opacity:hover {
 
 {{EmbedLiveSample('Setting_opacity_on_hover', '150', '200')}}
 
-### Stil basierend auf Benutzerpräferenzen
+### Styling basierend auf Benutzereinstellungen
 
-Um Elemente basierend auf den Transparenzeinstellungen des Betriebssystems des Benutzers zu gestalten, verwenden Sie die [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency) Media-Query. Das folgende Beispiel zeigt, wie die `prefers-color-scheme` Media-Query verwendet wird, um die gewünschte `opacity` basierend auf den Präferenzen des Benutzers anzugeben.
+Um Elemente basierend auf den Transparenzeinstellungen des Betriebssystems des Benutzers zu stylen, verwenden Sie die [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency) Media Query. Das folgende Beispiel zeigt, wie die `prefers-color-scheme` Media Query verwendet wird, um die gewünschte `opacity` basierend auf den Präferenzen des Benutzers festzulegen.
 
 ```css
 .element {
@@ -237,6 +237,6 @@ Um Elemente basierend auf den Transparenzeinstellungen des Betriebssystems des B
 
 ## Siehe auch
 
-- [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency) Media-Query
-- [CSS Farbe](/de/docs/Web/CSS/Guides/Colors) Modul
+- [`prefers-reduced-transparency`](/de/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-transparency) Media Query
+- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
 - SVG {{SVGAttr("opacity")}} Attribut

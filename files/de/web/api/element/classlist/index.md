@@ -1,30 +1,28 @@
 ---
-title: "Element: Eigenschaft classList"
+title: "Element: classList-Eigenschaft"
 short-title: classList
 slug: Web/API/Element/classList
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Element.classList`** ist eine schreibgeschützte Eigenschaft, die eine Live-[`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Sammlung der `class`-Attribute des Elements zurückgibt. Diese kann dann verwendet werden, um die Klassenliste zu manipulieren.
+Die schreibgeschützte **`classList`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle enthält eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Sammlung, die das `class`-Attribut des Elements darstellt. Diese kann dann verwendet werden, um die Klassenliste zu manipulieren.
 
-Die Verwendung von `classList` ist eine bequeme Alternative zum Zugriff auf die Klassenliste eines Elements als durch Leerzeichen getrennten String über [`element.className`](/de/docs/Web/API/Element/className).
+`classList` zu verwenden, ist eine bequeme Alternative zum Zugriff auf die Liste der Klassen eines Elements als leerzeichengetrennter String über [`element.className`](/de/docs/Web/API/Element/className).
 
 ## Wert
 
-Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die den Inhalt des `class`-Attributs des Elements darstellt. Wenn das `class`-Attribut nicht gesetzt ist oder leer ist, wird eine leere `DOMTokenList` zurückgegeben, d.h. eine `DOMTokenList` mit der Eigenschaft `length` gleich `0`.
+Ein [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Objekt, das die Inhalte des `class`-Attributs des Elements darstellt. Wenn das `class`-Attribut nicht gesetzt oder leer ist, wird eine leere `DOMTokenList` zurückgegeben, d.h. eine `DOMTokenList` mit der `length`-Eigenschaft gleich `0`.
 
-Obwohl die `classList`-Eigenschaft selbst schreibgeschützt ist, können Sie ihre zugehörige `DOMTokenList` mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) modifizieren.
-
-Sie können testen, ob das Element eine bestimmte Klasse enthält, indem Sie die Methode [`classList.contains()`](/de/docs/Web/API/DOMTokenList/contains) verwenden.
+Obwohl die `classList`-Eigenschaft in dem Sinne schreibgeschützt ist, dass Sie das `DOMTokenList`-Objekt nicht ersetzen können, können Sie dennoch direkt der `classList`-Eigenschaft zuweisen, was dem Zuweisen der [`value`](/de/docs/Web/API/DOMTokenList/value)-Eigenschaft entspricht. Sie können das `DOMTokenList`-Objekt auch mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) ändern.
 
 ## Beispiele
 
 ```js
 const div = document.createElement("div");
-div.className = "foo";
+div.classList = "foo"; // forwarded to classList.value
 
 // our starting state: <div class="foo"></div>
 console.log(div.outerHTML);
@@ -68,6 +66,5 @@ div.classList.replace("foo", "bar");
 
 ## Siehe auch
 
-- [`element.className`](/de/docs/Web/API/Element/className)
+- [`Element.className`](/de/docs/Web/API/Element/className)
 - [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)
-- [`classList.js`](https://github.com/eligrey/classList.js) (ein plattformübergreifendes JavaScript-Polyfill, das `element.classList` vollständig implementiert)

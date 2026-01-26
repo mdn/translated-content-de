@@ -3,18 +3,18 @@ title: "HTMLImageElement: attributionSrc-Eigenschaft"
 short-title: attributionSrc
 slug: Web/API/HTMLImageElement/attributionSrc
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: e936e7271df947f25184a5ba8a21445bbd4d056c
 ---
 
-{{APIRef("Attribution Reporting API")}}{{securecontext_header}}{{SeeCompatTable}}
+{{APIRef("Attribution Reporting API")}}{{securecontext_header}}{{deprecated_header}}
 
-Die **`attributionSrc`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit der Bildanfrage sendet. Sie spiegelt das [`attributionsrc`](/de/docs/Web/HTML/Reference/Elements/img#attributionsrc)-Inhaltsattribut des `<img>`-Elements wider.
+Die **`attributionSrc`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces, die Sie verwenden können, um dem Browser mitzuteilen, dass er einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit der Bildanforderung senden soll. Sie spiegelt das [`attributionsrc`](/de/docs/Web/HTML/Reference/Elements/img#attributionsrc)-Inhaltsattribut des `<img>`-Elements wider.
 
-Weitere Informationen finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
+Weitere Einzelheiten finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
 ## Wert
 
-Ein String, der entweder leer ist oder eine durch Leerzeichen getrennte Liste von URLs enthält. Für die Interpretation dieses Attributs siehe die HTML-Referenz des [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#attributionsrc)-Elements.
+Ein String, der entweder leer ist oder eine durch Leerzeichen getrennte Liste von URLs enthält. Für die Interpretation dieses Attributs siehe den HTML [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#attributionsrc)-Referenz.
 
 ## Beispiele
 

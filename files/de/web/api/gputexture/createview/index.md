@@ -3,12 +3,12 @@ title: "GPUTexture: createView() Methode"
 short-title: createView()
 slug: Web/API/GPUTexture/createView
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 8d8030c3bc728b1318b5147bc99bf5e6c24c75b9
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createView()`**-Methode des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces erstellt ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView), das eine spezifische Ansicht der `GPUTexture` darstellt.
+Die **`createView()`**-Methode des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces erstellt eine [`GPUTextureView`](/de/docs/Web/API/GPUTextureView), die eine spezifische Ansicht der `GPUTexture` repräsentiert.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ createView(descriptor)
 - `descriptor` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `arrayLayerCount` {{optional_inline}}
-      - : Eine Zahl, die definiert, wie viele Array-Ebenen für die Ansicht zugänglich sind, ausgehend von dem Wert `baseArrayLayer`.
+      - : Eine Zahl, die angibt, wie viele Array-Schichten für die Ansicht zugänglich sind, beginnend mit dem Wert von `baseArrayLayer`.
 
-        Wenn `arrayLayerCount` weggelassen wird, erhält es einen Wert wie folgt:
+        Wenn `arrayLayerCount` weggelassen wird, erhält es folgenden Wert:
         - Wenn `dimension` `"1d"`, `"2d"` oder `"3d"` ist, ist `arrayLayerCount` 1.
         - Wenn `dimension` `"cube"` ist, ist `arrayLayerCount` 6.
         - Wenn `dimension` `"2d-array"` oder `"cube-array"` ist, ist `arrayLayerCount` [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) - `baseArrayLayer`.
@@ -32,62 +32,82 @@ createView(descriptor)
     - `aspect` {{optional_inline}}
       - : Ein enumerierter Wert, der angibt, welche Aspekte der Textur für die Texturansicht zugänglich sind. Mögliche Werte sind:
         - `"all"`
-          - : Alle verfügbaren Aspekte des Texturformats sind für die Ansicht zugänglich, was Farbe, Tiefe und Schablone bedeuten kann, abhängig von der Art des Formats.
+          - : Alle verfügbaren Aspekte des Texturformats sind für die Ansicht zugänglich, dies kann je nach Art des Formats Farbe, Tiefe und/oder Stencil umfassen.
         - `"depth-only"`
-          - : Nur der Tiefenaspekt eines [Tiefen- oder Schablonenformats](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) wird für die Ansicht zugänglich sein.
+          - : Nur der Tiefenaspekt eines [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist für die Ansicht zugänglich.
         - `"stencil-only"`
-          - : Nur der Schablonen-Aspekt eines Tiefen- oder Schablonenformats wird für die Ansicht zugänglich sein.
+          - : Nur der Stencil-Aspekt eines depth-or-stencil Formats ist für die Ansicht zugänglich.
 
-        Wenn weggelassen, nimmt `aspect` den Wert `"all"` an.
+        Wenn weggelassen, erhält `aspect` den Wert `"all"`.
 
     - `baseArrayLayer` {{optional_inline}}
-      - : Eine Zahl, die den Index der ersten Array-Ebene definiert, die für die Ansicht zugänglich ist. Wenn weggelassen, nimmt `baseArrayLayer` den Wert 0 an.
+      - : Eine Zahl, die den Index der ersten zugänglichen Array-Schicht der Ansicht definiert. Wenn weggelassen, nimmt `baseArrayLayer` den Wert 0 an.
     - `baseMipLevel` {{optional_inline}}
-      - : Eine Zahl, die die erste (detaillierteste) Mipmap-Ebene repräsentiert, die für die Ansicht zugänglich ist. Wenn weggelassen, nimmt `baseMipLevel` den Wert 0 an.
+      - : Eine Zahl, die den ersten (detailliertesten) Mipmap-Level definiert, der für die Ansicht zugänglich ist. Wenn weggelassen, nimmt `baseMipLevel` den Wert 0 an.
     - `dimension` {{optional_inline}}
-      - : Ein enumerierter Wert, der das Format angibt, wie die Textur betrachtet wird. Mögliche Werte sind:
-        - `"1d"`: Die Textur wird als eindimensionales Bild betrachtet.
-        - `"2d"`: Die Textur wird als einzelnes zweidimensionales Bild betrachtet.
-        - `"2d-array"`: Die Textur wird als ein Array von zweidimensionalen Bildern betrachtet.
-        - `"cube"`: Die Textur wird als Würfelansicht betrachtet. Die Ansicht hat 6 Array-Ebenen, die den `[+X, -X, +Y, -Y, +Z, -Z]`-Seiten des Würfels entsprechen. Das Sampling erfolgt nahtlos über die Seiten des Würfels.
-        - `"cube-array"`: Die Textur wird als gepacktes Array von N Würfeln betrachtet, jeder mit 6 Array-Ebenen, die den `[+X, -X, +Y, -Y, +Z, -Z]`-Seiten des Würfels entsprechen. Das Sampling erfolgt nahtlos über die Seiten der Würfel.
-        - `"3d"`: Die Textur wird als dreidimensionales Bild betrachtet.
+      - : Ein enumerierter Wert, der das Format angibt, wie die Textur angezeigt werden soll. Mögliche Werte sind:
+        - `"1d"`: Die Textur wird als eindimensionales Bild dargestellt.
+        - `"2d"`: Die Textur wird als einzelnes zweidimensionales Bild dargestellt.
+        - `"2d-array"`: Die Textur wird als Array von zweidimensionalen Bildern dargestellt.
+        - `"cube"`: Die Textur wird als Cubemap dargestellt. Die Ansicht hat 6 Array-Schichten, die den `[+X, -X, +Y, -Y, +Z, -Z]`-Flächen des Würfels entsprechen. Das Sampling erfolgt nahtlos über die Flächen der Cubemap.
+        - `"cube-array"`: Die Textur wird als gepacktes Array von N Cubemaps dargestellt, jede mit 6 Array-Schichten, die den `[+X, -X, +Y, -Y, +Z, -Z]`-Flächen des Würfels entsprechen. Das Sampling erfolgt nahtlos über die Flächen der Cubemaps.
+        - `"3d"`: Die Textur wird als dreidimensionales Bild dargestellt.
 
-        Wenn `dimension` weggelassen wird, erhält es einen Wert wie folgt:
+        Wenn `dimension` weggelassen wird, erhält es folgenden Wert:
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"1d"` ist, ist `dimension` `"1d"`.
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"2d"` ist und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) 1 ist, ist `dimension` `"2d"`.
-        - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"2d"` ist und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) mehr als 1 ist, ist `dimension` `"2d-array"`.
+        - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"2d"` ist und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers) größer als 1 ist, ist `dimension` `"2d-array"`.
         - Wenn [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) `"3d"` ist, ist `dimension` `"3d"`.
 
     - `format` {{optional_inline}}
       - : Ein enumerierter Wert, der das Format der Texturansicht angibt. Siehe den Abschnitt [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
 
-        Wenn `format` weggelassen wird, wird es einen Wert wie folgt erhalten:
-        - Wenn `aspect` `"depth-only"` oder `"stencil-only"` ist, und [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) ein [Tiefen- oder Schablonenformat](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist, wird `format` auf das entsprechende [aspektspezifische Format](https://gpuweb.github.io/gpuweb/#aspect-specific-format) gesetzt.
-        - Andernfalls wird es gleich [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) gesetzt.
+        Wenn `format` weggelassen wird, wird es folgendermaßen festgelegt:
+        - Wenn `aspect` `"depth-only"` oder `"stencil-only"` ist und [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) ein [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist, wird `format` auf das entsprechende [aspekt-spezifische Format](https://gpuweb.github.io/gpuweb/#aspect-specific-format) gesetzt.
+        - Andernfalls wird es auf [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) gesetzt.
 
     - `label` {{optional_inline}}
-      - : Eine Zeichenkette zur Bereitstellung einer Kennzeichnung, die zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
+      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `mipLevelCount` {{optional_inline}}
-      - : Eine Zahl, die angibt, wie viele Mipmap-Ebenen für die Ansicht zugänglich sind, beginnend mit dem Wert `baseMipLevel`.
+      - : Eine Zahl, die angibt, wie viele Mipmap-Level für die Ansicht zugänglich sind, angefangen mit dem Wert von `baseMipLevel`.
 
-        Wenn `mipLevelCount` weggelassen wird, erhält es den Wert [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount) - `baseMipLevel`.
+        Wenn `mipLevelCount` weggelassen wird, wird es auf einen Wert von [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount) - `baseMipLevel` gesetzt.
+
+    - `swizzle` {{optional_inline}}
+      - : Ein String bestehend aus vier Zeichen. Die Position jedes Zeichens entspricht den roten, grünen, blauen und Alpha-Kanalwerten der Texturansicht. Der Wert jedes Zeichens gibt an, welchen Wert jeder dieser Kanäle einnimmt, wenn die Ansicht von einem Shader aufgerufen wird. Mögliche Werte sind:
+        - `r`
+          - : Der rote Kanalwert der Textur.
+        - `g`
+          - : Der grüne Kanalwert der Textur.
+        - `b`
+          - : Der blaue Kanalwert der Textur.
+        - `a`
+          - : Der Alpha-Kanalwert der Textur.
+        - `0`
+          - : Erzwingt einen Wert von `0`.
+        - `1`
+          - : Erzwingt einen Wert von `1`.
+
+        Zum Beispiel würde `swizzle: "grba"` zu einem Austausch der roten und grünen Kanalwerte der Textur führen, wenn ein Shader die Ansicht aufruft. Die Swizzle-Komponente der Textur ermöglicht es Entwicklern, die Leistung zu optimieren, Fehler in der Komponentenreihenfolge zu korrigieren und Shader-Code effizient wiederzuverwenden, um verschiedene Texturformate bei der Abtastung von Texturen zu handhaben.
+
+        > [!NOTE]
+        > Um die `swizzle`-Eigenschaft zu nutzen, müssen Sie das `texture-component-swizzle` [Feature](/de/docs/Web/API/GPUSupportedFeatures) in Ihrem [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktivieren, indem Sie es im Array `requiredFeatures` des Deskriptors [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) angeben. Wenn dieses Feature nicht aktiviert ist, wird die `swizzle`-Eigenschaft keine Wirkung haben.
 
     - `usage` {{optional_inline}}
-      - : Eine Menge von {{Glossary("bitwise_flags", "bitweise Flags")}}, die eine Teilmenge der Nutzungsflags der Quelltextur (verfügbar in der [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage)-Eigenschaft) darstellen, die mit dem ausgewählten Ansichtformat kompatibel sind. Dies kann verwendet werden, um die erlaubte Nutzung der Ansicht zu beschränken, wenn das Ansichtformat mit bestimmten Nutzungen inkompatibel ist. Die verfügbaren Nutzungsflags sind im [`GPUTexture.usage` Wertetabelle](/de/docs/Web/API/GPUTexture/usage#value) aufgeführt.
+      - : Eine Menge von {{Glossary("bitwise_flags", "Bitweise-Flags")}}, die eine Teilmenge der Nutzungs-Flags der Quelltextur darstellt (verfügbar in der [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage)-Eigenschaft), die mit dem gewählten Ansicht-Format kompatibel sind. Dies kann verwendet werden, um die erlaubte Nutzung der Ansicht in Fällen einzuschränken, in denen das Ansicht-Format mit bestimmten Nutzungen inkompatibel ist. Die verfügbaren Nutzungs-Flags sind in der Tabelle der [`GPUTexture.usage`](#value) Werte aufgeführt.
 
-        Der Standardwert ist `0`, was die vollständige Menge von Nutzungsflags der Quelltextur repräsentiert. Wenn das `format` der Ansicht nicht alle Nutzungen der Textur unterstützt, schlägt der Standard fehl, und die Nutzung der Ansicht muss explizit angegeben werden.
+        Der Standardwert ist `0`, was die vollständige Menge der Nutzungs-Flags der Quelltextur darstellt. Wenn das [`format`](#format) der Ansicht nicht alle Nutzungen der Textur unterstützt, schlägt der Standardfehl, und die Nutzungen der Ansicht müssen explizit angegeben werden.
 
 ### Rückgabewert
 
-Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objektinstanz.
+Eine Instanz des [`GPUTextureView`](/de/docs/Web/API/GPUTextureView) Objekts.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createView()`** aufgerufen wird, ansonsten wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt wird zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createView()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUTextureView`](/de/docs/Web/API/GPUTextureView) Objekt wird zurückgegeben:
 
-- Wenn `aspect` `"all"` ist, ist `format` gleich [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) oder einer der `viewFormats`, die im ursprünglichen [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture)-Aufruf übergeben wurden.
-- Wenn `aspect` `"depth-only"` oder `"stencil-only"` ist, ist `format` gleich dem entsprechenden [aspektspezifischen Format](https://gpuweb.github.io/gpuweb/#aspect-specific-format) des [Tiefen- oder Schablonenformats](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format).
+- Wenn `aspect` `"all"` ist, ist `format` gleich [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) oder einem der in der Ursprungsanfrage [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) angegebenen `viewFormats`.
+- Wenn `aspect` `"depth-only"` oder `"stencil-only"` ist, ist `format` gleich dem entsprechenden [aspekt-spezifischen Format](https://gpuweb.github.io/gpuweb/#aspect-specific-format) des [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format).
 - `mipLevelCount` ist größer als 0.
 - `mipLevelCount` + `baseMipLevel` ist kleiner oder gleich [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount).
 - `arrayLayerCount` ist größer als 0.
@@ -113,13 +133,13 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`createView()`** aufgerufe
   - `"3d"`
     - [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension) ist `"3d"`
     - `arrayLayerCount` ist 1
-- Das `format` der Ansicht unterstützt alle in der [`usage`](#usage)-Eigenschaft spezifizierten Nutzungen.
+- Das [`format`](#format) der Ansicht unterstützt alle in der [`usage`](#usage)-Eigenschaft angegebenen Nutzungen.
 
 ## Beispiele
 
-### Typische `createView()`-Verwendung
+### Typische Verwendung von `createView()`
 
-Im WebGPU-Beispiel [Cubemap-Demo](https://webgpu.github.io/webgpu-samples/samples/cubemap/) sehen Sie mehrere Beispiele, wie `createView()` verwendet wird, sowohl um eine `resource`-Ansicht für einen Aufruf zu [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) zu erstellen, als auch um eine `view` im `depthStencilAttachment`-Objekt eines [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Descriptors bereitzustellen.
+Im WebGPU-Beispiele [Cubemap-Demo](https://webgpu.github.io/webgpu-samples/samples/cubemap/) sehen Sie mehrere Beispiele, wie `createView()` verwendet wird, sowohl um eine Ansicht als `resource` für einen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf zu erstellen, als auch um eine `view` im `depthStencilAttachment`-Objekt eines [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Deskriptors bereitzustellen.
 
 ```js
 const uniformBindGroup = device.createBindGroup({
@@ -171,9 +191,9 @@ const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 // …
 ```
 
-### `createView()` mit Nutzungsbeschränkung
+### `createView()` mit Nutzungseinschränkung
 
-In diesem Snippet erstellen wir eine Textur und dann eine Ansicht, deren Nutzung über die `usage`-Eigenschaft eingeschränkt wurde.
+In diesem Beispiel erstellen wir eine Textur und dann eine Ansicht, deren Nutzung über die Eigenschaft `usage` eingeschränkt ist.
 
 ```js
 const texture = myDevice.createTexture({

@@ -3,19 +3,19 @@ title: Anwenden von SVG-Effekten auf HTML-Inhalte
 short-title: SVG-Effekte für HTML
 slug: Web/SVG/Guides/Applying_SVG_effects_to_HTML_content
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 3ee333bf5e414ac81c452ec10fed7af645c96740
 ---
 
 Moderne Browser unterstützen die Verwendung von [SVG](/de/docs/Web/SVG) innerhalb von [CSS](/de/docs/Web/CSS)-Stilen, um grafische Effekte auf HTML-Inhalte anzuwenden.
 
-Sie können SVG in Stilen entweder innerhalb desselben Dokuments oder in einem externen Stylesheet angeben. Es gibt 3 Eigenschaften, die Sie verwenden können: [`mask`](/de/docs/Web/CSS/Reference/Properties/mask), [`clip-path`](/de/docs/Web/CSS/Reference/Properties/clip-path) und [`filter`](/de/docs/Web/CSS/Reference/Properties/filter).
+Sie können SVG in Stilen entweder innerhalb desselben Dokuments oder eines externen Stylesheets angeben. Es gibt drei Eigenschaften, die Sie verwenden können: {{cssxref("mask")}}, {{cssxref("clip-path")}} und {{cssxref("filter")}}.
 
 > [!NOTE]
-> Verweise auf SVG in externen Dateien müssen auf demselben [Ursprung](/de/docs/Web/Security/Same-origin_policy) wie das referenzierende Dokument liegen.
+> Verweise auf SVG in externen Dateien müssen zum [gleichen Ursprung](/de/docs/Web/Security/Defenses/Same-origin_policy) wie das verweisende Dokument gehören.
 
-## Verwendung eingebetteter SVGs
+## Verwendung von eingebettetem SVG
 
-Um einen SVG-Effekt mithilfe von CSS-Stilen anzuwenden, müssen Sie zuerst den CSS-Stil erstellen, der das anzuwendende SVG referenziert.
+Um einen SVG-Effekt mit CSS-Stilen anzuwenden, müssen Sie zuerst den CSS-Stil erstellen, der auf das anzuwendende SVG verweist.
 
 ```css
 p {
@@ -23,11 +23,11 @@ p {
 }
 ```
 
-Im obigen Beispiel werden alle Absätze mit einer [SVG-`<mask>`](/de/docs/Web/SVG/Reference/Element/mask) mit der [ID](/de/docs/Web/HTML/Reference/Global_attributes/id) `my-mask` maskiert.
+Im obigen Beispiel werden alle Absätze mit einem [SVG `<mask>`](/de/docs/Web/SVG/Reference/Element/mask) mit der [ID](/de/docs/Web/HTML/Reference/Global_attributes/id) `my-mask` maskiert.
 
 ### Beispiel: Maskierung
 
-Zum Beispiel können Sie eine Verlaufsmaskierung für HTML-Inhalte mithilfe von SVG und CSS-Code erstellen, der ähnlich dem folgenden in Ihr HTML-Dokument eingefügt wird:
+Zum Beispiel können Sie eine Verläufen-Maske für HTML-Inhalte erstellen, indem Sie SVG- und CSS-Code wie den folgenden in Ihr HTML-Dokument einfügen:
 
 ```html
 <svg height="0">
@@ -56,9 +56,9 @@ p.target {
 }
 ```
 
-Beachten Sie, dass in der CSS die Maske unter Verwendung einer URL zur ID `#mask-1` spezifiziert wird, die die ID der unten angegebenen SVG-Maske ist. Alles andere spezifiziert Details über die Verlaufsmaskierung selbst.
+Beachten Sie, dass die Maske im CSS mithilfe einer URL zur ID `#mask-1` angegeben wird, was die ID der darunter angegebenen SVG-Maske ist. Alles andere spezifiziert Details über die Verlaufmaske selbst.
 
-Das Anwenden des SVG-Effekts auf HTML wird erreicht, indem die oben definierte Klasse `target` einem Element zugewiesen wird, wie folgt:
+Das Anwenden des SVG-Effekts auf HTML erfolgt durch Zuweisen der oben definierten `target`-Klasse zu einem Element, so:
 
 ```html
 <p class="target">
@@ -75,13 +75,13 @@ Das Anwenden des SVG-Effekts auf HTML wird erreicht, indem die oben definierte K
 </p>
 ```
 
-Das obige Beispiel würde mit der angewendeten Maske gerendert werden.
+Das obige Beispiel würde mit der darauf angewendeten Maske gerendert.
 
 {{EmbedLiveSample('Example_Masking', 650, 200)}}
 
 ### Beispiel: Clipping
 
-Dieses Beispiel zeigt die Verwendung von SVG zum Schneiden von HTML-Inhalten. Beachten Sie, dass sogar die anklickbaren Bereiche für Links geschnitten werden.
+Dieses Beispiel demonstriert die Verwendung von SVG, um HTML-Inhalte zu clippen. Beachten Sie, dass sogar die anklickbaren Bereiche für Links getrimmt werden.
 
 ```html
 <p class="target">
@@ -121,9 +121,9 @@ p.target {
 }
 ```
 
-Dies etabliert einen Schnittbereich, der aus einem Kreis und einem Rechteck besteht, weist diesem die ID `#clipping-path-1` zu und referenziert ihn dann in der CSS. Der Clip-Pfad kann jedem Element mit der Klasse `target` zugewiesen werden.
+Dies legt einen Clipbereich bestehend aus einem Kreis und Rechteck fest, weist ihm die ID `#clipping-path-1` zu und verweist darauf im CSS. Der Clip-Pfad kann jedem Element mit der `target`-Klasse zugewiesen werden.
 
-Sie können Änderungen am SVG in Echtzeit vornehmen und sehen, wie sie sofort das Rendering des HTML beeinflussen. Zum Beispiel können Sie den Kreis im oben festgelegten Clip-Pfad vergrößern:
+Sie können Änderungen am SVG in Echtzeit vornehmen und sie sehen sofort die Auswirkungen auf das Rendering des HTML. Zum Beispiel können Sie den Kreis im oben festgelegten Clip-Pfad vergrößern:
 
 ```js
 const circle = document.getElementById("circle");
@@ -137,9 +137,9 @@ document.querySelector("button").addEventListener("click", toggleRadius);
 
 {{EmbedLiveSample('Example_Clipping', 650, 200)}}
 
-### Beispiel: Filtern
+### Beispiel: Filterung
 
-Dies demonstriert die Anwendung eines Filters auf HTML-Inhalte mithilfe von SVG. Es werden mehrere Filter erstellt, die mit CSS auf drei Elemente sowohl im normalen als auch im Maus-[Hover](/de/docs/Web/CSS/Reference/Selectors/:hover)-Zustand angewendet werden.
+Dies demonstriert das Anwenden eines Filters auf HTML-Inhalte mithilfe von SVG. Es stellt mehrere Filter bereit, die mit CSS auf drei Elemente sowohl im normalen als auch im Maus-[hover](/de/docs/Web/CSS/Reference/Selectors/:hover)-Zuständen angewendet werden.
 
 ```html
 <p class="target">
@@ -163,7 +163,7 @@ p.target {
 }
 ```
 
-Jeder SVG-Filter kann auf diese Weise angewendet werden. Beispielsweise, um einen Weichzeichnungseffekt anzuwenden, könnten Sie verwenden:
+Jeder SVG-Filter kann auf diese Weise angewendet werden. Um zum Beispiel einen Unschärfeeffekt anzuwenden, könnten Sie verwenden:
 
 ```html
 <svg height="0">
@@ -187,7 +187,7 @@ Sie könnten auch eine Farbmatrix anwenden:
 </svg>
 ```
 
-Und einige weitere Filter:
+Und noch weitere Filter:
 
 ```html
 <svg height="0">
@@ -248,7 +248,7 @@ pre.target:hover {
 
 ### Beispiel: Verschwommener Text
 
-Um Text zu verwischen, gibt es eine CSS-Filterfunktion namens [`blur()`](/de/docs/Web/CSS/Reference/Values/filter-function/blur). Sie können denselben Effekt mithilfe von SVG-Filtern erzielen.
+Um Text zu verwischen, gibt es die CSS-Filterfunktion {{cssxref("filter-function/blur")}}. Sie können denselben Effekt mit SVG-Filtern erzielen.
 
 ```html
 <p class="blur">Time to clean my glasses</p>
@@ -271,13 +271,13 @@ Sie können den SVG- und den CSS-Filter in derselben Klasse anwenden:
 
 {{ EmbedLiveSample('Example_Blurred_Text', 300, 100) }}
 
-Das Verwischen ist rechenintensiv, also stellen Sie sicher, es sparsam zu verwenden, insbesondere bei Elementen, die gescrollt oder animiert werden.
+Unschärfe ist rechenintensiv, daher sollten Sie sie sparsam verwenden, insbesondere in Elementen, die gescrollt oder animiert werden.
 
 ### Beispiel: Texteffekte
 
-SVG-Effekte können auch verwendet werden, um einen dynamischeren und flexibleren Ansatz beim Hinzufügen von Text im Vergleich zu einfachem HTML-Text zu bieten.
+SVG-Effekte können auch verwendet werden, um einen dynamischeren und flexibleren Ansatz beim Hinzufügen von Text im Vergleich zu einfachem HTML-Text zu ermöglichen.
 
-Indem Sie den Text mit SVG-Elementen in Kombination mit HTML erstellen, können Sie eine Vielzahl von unterschiedlichen Texteffekten erzielen. Sie können den Text rotieren:
+Indem Sie den Text mit SVG-Elementen in Kombination mit HTML erstellen, können Sie eine Vielzahl verschiedener Texteffekte erstellen. Sie können den Text rotieren:
 
 ```html
 <svg height="60" width="200">
@@ -289,9 +289,9 @@ Indem Sie den Text mit SVG-Elementen in Kombination mit HTML erstellen, können 
 
 ## Verwendung externer Referenzen
 
-SVGs, die zum Clipping, Maskierung und Filtern verwendet werden, können von einer externen Quelle geladen werden, solange diese Quelle vom gleichen Ursprung wie das HTML-Dokument stammt, auf das es angewendet wird.
+SVG, das zum Clipping, Maskieren und Filtern verwendet wird, kann aus einer externen Quelle geladen werden, solange diese Quelle vom gleichen Ursprung wie das HTML-Dokument stammt, auf das es angewendet wird.
 
-Zum Beispiel, wenn Ihr CSS in einer Datei namens `default.css` ist, kann es so aussehen:
+Wenn Ihr CSS zum Beispiel in einer Datei namens `default.css` ist, könnte es so aussehen:
 
 ```css
 .target {
@@ -299,11 +299,11 @@ Zum Beispiel, wenn Ihr CSS in einer Datei namens `default.css` ist, kann es so a
 }
 ```
 
-Das SVG wird dann aus einer Datei namens `resources.svg` importiert, indem der Clip-Pfad mit der ID `c1` verwendet wird.
+Das SVG wird dann aus einer Datei namens `resources.svg` importiert, unter Verwendung des Clip-Pfads mit der ID `c1`.
 
 ## Siehe auch
 
 - [SVG](/de/docs/Web/SVG)
-- Eigenschaft {{CSSXref('clip-path')}}
-- Eigenschaft {{CSSXref('mask')}}
-- [Formen in Clipping und Maskierung – und wie man sie verwendet](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)
+- {{CSSXref('clip-path')}} Eigenschaft
+- {{CSSXref('mask')}} Eigenschaft
+- [Formen beim Clippen und Maskieren – und wie man sie verwendet](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)

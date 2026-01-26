@@ -3,16 +3,14 @@ title: Temporal.PlainDate.prototype.dayOfWeek
 short-title: dayOfWeek
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/dayOfWeek
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`dayOfWeek`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt eine positive Ganzzahl zurück, die den auf 1 basierenden Tagesindex in der Woche dieses Datums darstellt. Tage in einer Woche sind sequenziell von `1` bis {{jsxref("Temporal/PlainDate/daysInWeek", "daysInWeek")}} nummeriert, wobei jede Zahl ihrem Namen zugeordnet ist. Es ist vom [Kalender](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars) abhängig. In den meisten Kalendern steht die 1 für Montag, selbst wenn in den Kalendern verwendeten Lokalen ein anderer Tag als erster Tag der Woche gilt (siehe {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}).
 
-Die **`dayOfWeek`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainDate")}} Instanzen gibt eine positive ganze Zahl zurück, die den 1-basierten Tagesindex in der Woche dieses Datums darstellt. Die Tage in einer Woche werden von `1` bis {{jsxref("Temporal/PlainDate/daysInWeek", "daysInWeek")}} durchnummeriert, wobei jede Zahl ihrem Namen zugeordnet ist. Diese Eigenschaft ist kalenderabhängig ([calendar](/de/docs/Web/JavaScript/Reference/Global_Objects/Temporal#calendars)). In der Regel steht 1 für Montag im Kalender, auch wenn in einigen Regionen, die denselben Kalender verwenden, ein anderer Tag als erster Wochentag betrachtet wird (siehe {{jsxref("Intl/Locale/getWeekInfo", "Intl.Locale.prototype.getWeekInfo()")}}).
+Alle gängigen unterstützten Kalender verwenden Wochen mit 7 Tagen, und Sie können im Allgemeinen erwarten, dass diese Eigenschaft denselben Wert für dasselbe Datum in verschiedenen Kalendern zurückgibt.
 
-Alle gängig unterstützten Kalender verwenden Wochen mit 7 Tagen, und Sie können im Allgemeinen erwarten, dass diese Eigenschaft für dasselbe Datum in verschiedenen Kalendern denselben Wert zurückgibt.
-
-Der Set-Zugriffsoperator von `dayOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate` Objekt mit dem gewünschten neuen `dayOfWeek` Wert zu erstellen, verwenden Sie die Methode {{jsxref("Temporal/PlainDate/add", "add()")}} oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}} mit der entsprechenden Anzahl von `days`.
+Der Set-Accessor von `dayOfWeek` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen `dayOfWeek`-Wert zu erstellen, verwenden Sie die {{jsxref("Temporal/PlainDate/add", "add()")}}- oder {{jsxref("Temporal/PlainDate/subtract", "subtract()")}}-Methode mit der entsprechenden Anzahl von `days`.
 
 ## Beispiele
 
@@ -26,9 +24,9 @@ const date2 = Temporal.PlainDate.from("2021-07-01[u-ca=chinese]");
 console.log(date2.dayOfWeek); // 4
 ```
 
-### Ändern von dayOfWeek
+### Änderung von dayOfWeek
 
-`PlainDate` unterstützt das direkte Ändern von `dayOfWeek` nicht. Um den Wochentag zu ändern, müssen Sie zuerst die Differenz in Tagen zu Ihrem gewünschten Wochentag ermitteln und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Zum Beispiel, um auf den Freitag dieser Woche (ob davor oder danach) zu wechseln:
+`PlainDate` unterstützt keine direkte Änderung von `dayOfWeek`. Um den Wochentag zu ändern, müssen Sie zuerst den Unterschied in Tagen zu Ihrem gewünschten Wochentag herausfinden und dann `add` oder `subtract` verwenden, um das Datum entsprechend anzupassen. Um beispielsweise auf den Freitag dieser Woche zu wechseln (ob davor oder danach):
 
 ```js
 function getDayInSameWeek(date, destDayOfWeek) {

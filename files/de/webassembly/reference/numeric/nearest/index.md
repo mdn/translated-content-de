@@ -1,11 +1,12 @@
 ---
-title: Nearest
-slug: WebAssembly/Reference/Numeric/Nearest
+title: "nearest: Wasm-Textanweisung"
+short-title: nearest
+slug: WebAssembly/Reference/Numeric/nearest
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`nearest`**-Anweisungen werden verwendet, um den Wert einer Zahl auf die nächste ganze Zahl zu runden.
+Die **`nearest`** Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, die auf die nächste ganze Zahl gerundet ist.
 
 {{InteractiveExample("Wat Demo: nearest", "tabbed-standard")}}
 

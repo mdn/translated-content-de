@@ -3,12 +3,12 @@ title: "HTMLIFrameElement: contentDocument-Eigenschaft"
 short-title: contentDocument
 slug: Web/API/HTMLIFrameElement/contentDocument
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: ca26363fcc6fc861103d40ac0205e5c5b79eb2fa
 ---
 
 {{APIRef("HTML DOM")}}
 
-Wenn das `<iframe>` und das übergeordnete Dokument des `<iframe>` [Same Origin](/de/docs/Web/Security/Same-origin_policy) sind, wird ein [`Document`](/de/docs/Web/API/Document) zurückgegeben (das ist das aktive Dokument im verschachtelten Browsing-Kontext des Inline-Frames), andernfalls wird `null` zurückgegeben.
+Wenn das `iframe` und das übergeordnete Dokument des `iframe` [Same Origin](/de/docs/Web/Security/Defenses/Same-origin_policy) sind, wird ein [`Document`](/de/docs/Web/API/Document) zurückgegeben (das ist das aktive Dokument im eingebetteten Browsing-Kontext des Inline-Frames), andernfalls wird `null` zurückgegeben.
 
 ## Beispiel für contentDocument
 

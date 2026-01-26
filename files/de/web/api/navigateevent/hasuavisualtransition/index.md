@@ -3,14 +3,14 @@ title: "NavigateEvent: hasUAVisualTransition-Eigenschaft"
 short-title: hasUAVisualTransition
 slug: Web/API/NavigateEvent/hasUAVisualTransition
 l10n:
-  sourceCommit: 0496643fbc14a6bad2bf46c94ab27c541f6928ff
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{APIRef("Navigation API")}}{{SeeCompatTable}}
+{{APIRef("Navigation API")}}
 
-Die **`hasUAVisualTransition`**-Eigenschaft (nur lesbar) des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Interfaces gibt `true` zurück, wenn der User-Agent vor dem Auslösen dieses Ereignisses eine visuelle Transition für diese Navigation durchgeführt hat, andernfalls `false`.
+Die schreibgeschützte Eigenschaft **`hasUAVisualTransition`** der [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Schnittstelle gibt `true` zurück, wenn der Benutzer-Agent eine visuelle Transition für diese Navigation durchgeführt hat, bevor dieses Ereignis ausgelöst wurde, andernfalls `false`.
 
-User-Agents können eine eingebaute visuelle Transition bei der Ausführung von Seitennavigationen bereitstellen. Wenn der Seitenautor ebenfalls eine visuelle Transition hinzufügt, können der User-Agent und die Autor-Transitionen in Konflikt geraten und einen Besucher verwirren. Die Eigenschaft lässt Sie erkennen, ob eine UA-Transition bereitgestellt wurde, sodass Sie Autor-Transitionen für eine bessere Benutzererfahrung überspringen können.
+Benutzer-Agenten können eine integrierte visuelle Transition bereitstellen, wenn sie Site-Navigationen ausführen. Wenn der Site-Autor ebenfalls eine visuelle Transition hinzufügt, können sich Benutzer-Agent und Autoren-Transitions widersprechen und den Besucher verwirren. Die Eigenschaft ermöglicht es Ihnen zu erkennen, ob eine Benutzer-Agent-Transition zur Verfügung gestellt wurde, sodass Sie Autoren-Transitions auslassen können, um eine bessere Benutzererfahrung zu bieten.
 
 ## Wert
 
@@ -65,6 +65,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routen: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- [Same-document view transitions für Single-Page-Anwendungen](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)
+- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Gleiche-Dokument-Ansichtstransitionen für Single-Page-Anwendungen](https://developer.chrome.com/docs/web-platform/view-transitions/same-document)

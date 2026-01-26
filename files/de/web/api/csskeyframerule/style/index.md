@@ -3,30 +3,23 @@ title: "CSSKeyframeRule: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSKeyframeRule/style
 l10n:
-  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`CSSKeyframeRule.style`**-Eigenschaft ist die [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Schnittstelle für den Deklarationsblock der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule).
+Die schreibgeschützte **`style`**-Eigenschaft der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle enthält ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das die im Körper der {{cssxref("@keyframes")}}-Regel verfügbaren Deskriptoren darstellt.
 
 ## Wert
 
-Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt mit den folgenden Eigenschaften:
+Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt.
 
-- berechnetes Flag
-  - : Nicht gesetzt.
-- Deklarationen
-  - : Die in der Regel deklarierten Deklarationen, in der Reihenfolge, in der sie angegeben wurden, zusammengefasste Eigenschaften erweitert zu Einzelheiten.
-- übergeordnete CSS-Regel
-  - : Das Kontextobjekt, das ein Alias für [`this`](https://heycam.github.io/webidl/#this) ist.
-- Eigentümerknoten
-  - : Null.
+Obwohl die `style`-Eigenschaft selbst in dem Sinne schreibgeschützt ist, dass Sie das `CSSStyleDeclaration`-Objekt nicht ersetzen können, können Sie dennoch direkt der `style`-Eigenschaft etwas zuweisen, was gleichbedeutend mit der Zuweisung zu ihrer [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft ist. Sie können das `CSSStyleDeclaration`-Objekt auch mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) ändern.
 
 ## Beispiele
 
 Das CSS enthält eine {{cssxref("@keyframes")}}-At-Regel. Diese wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule)-Objekte für jedes Keyframe enthält.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyframeRule)-Objekte für jedes Keyframe enthalten wird.
 
 ```css
 @keyframes slide-in {

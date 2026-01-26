@@ -3,20 +3,22 @@ title: "CSSPositionTryRule: style-Eigenschaft"
 short-title: style
 slug: Web/API/CSSPositionTryRule/style
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c053b4b3bb0f34736e9f4402d4254830670af723
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die in der Hauptdeklaration der `@position-try`-At-Regel gesetzten Deklarationen darstellt.
+Die schreibgeschützte **`style`**-Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle enthält ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt, das die in der {{cssxref("@position-try")}}-Regel verfügbaren Deskriptoren darstellt.
 
 ## Wert
 
 Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt.
 
+Obwohl die `style`-Eigenschaft selbst im Sinne eines Austauschs des `CSSPositionTryDescriptors`-Objekts schreibgeschützt ist, können Sie der `style`-Eigenschaft direkt Werte zuweisen, was gleichbedeutend mit einer Zuweisung an ihre [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)-Eigenschaft ist. Sie können auch das `CSSPositionTryDescriptors`-Objekt mit den Methoden [`setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty) und [`removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty) modifizieren.
+
 ## Beispiele
 
-Das CSS enthält eine `@position-try`-At-Regel mit einem Namen `--custom-right` und drei Deskriptoren.
+Das CSS enthält eine `@position-try`-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
@@ -47,6 +49,6 @@ console.log(tryOption.style.positionArea); // ""; no position-area specified
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul
-- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
-- [Umgang mit Überlauf: Versuchsoptionen und bedingtes Verbergen](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning)-Modul
+- [Verwendung der CSS-Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
+- [Umgang mit Überlauf: Optionen für `try` und bedingte Ausblendung](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)

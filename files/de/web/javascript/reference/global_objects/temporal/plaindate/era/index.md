@@ -3,17 +3,15 @@ title: Temporal.PlainDate.prototype.era
 short-title: era
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/era
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7e14795a6ef2bf5e760c315ce64800dd1cd98c29
 ---
 
-{{SeeCompatTable}}
+Die **`era`** Zugriffseigenschaft von {{jsxref("Temporal.PlainDate")}}-Instanzen gibt einen kalenderspezifischen Kleinbuchstaben-String zurück, der die Epoche dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Epochen verwendet (z. B. ISO 8601). `era` und `eraYear` identifizieren zusammen eindeutig ein Jahr in einem Kalender, so wie es `year` tut. Es ist kalenderabhängig. Für den gregorianischen Kalender ist es entweder `"gregory"` oder `"gregory-inverse"`.
 
-Die Zugriffseigenschaft **`era`** von Instanzen des {{jsxref("Temporal.PlainDate")}} gibt einen kalenderspezifischen Kleinbuchstaben-String zurück, der die Epoche dieses Datums darstellt, oder `undefined`, wenn der Kalender keine Epochen verwendet (z. B. ISO 8601). `era` und `eraYear` gemeinsam identifizieren ein Jahr in einem Kalender eindeutig, genauso wie `year`. Es ist kalenderabhängig. Für den Gregorianischen Kalender ist es entweder `"gregory"` oder `"gregory-inverse"`.
-
-Der Set-Accessor von `era` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDate/with", "with()")}}, um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert zu erstellen. Beim Festlegen von Epochen kann jeder Code einige Aliase haben; zum Beispiel sind `"ce"` und `"ad"` gleichbedeutend mit `"gregory"`, und `"bce"` und `"bc"` sind gleichbedeutend mit `"gregory-inverse"`.
+Der Setzer von `era` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainDate/with", "with()")}}, um ein neues `Temporal.PlainDate`-Objekt mit dem gewünschten neuen Wert zu erstellen. Beim Setzen von Epochen kann jeder Code einige Aliase haben; zum Beispiel sind `"ce"` und `"ad"` gleichbedeutend mit `"gregory"`, und `"bce"` und `"bc"` sind gleichbedeutend mit `"gregory-inverse"`.
 
 > [!NOTE]
-> Dieser String ist nicht zur Anzeige für Benutzer bestimmt. Verwenden Sie {{jsxref("Temporal/PlainDate/toLocaleString", "toLocaleString()")}} mit den entsprechenden Optionen, um einen lokalisierten String zu erhalten.
+> Dieser String ist nicht für die Anzeige an Benutzer gedacht. Verwenden Sie {{jsxref("Temporal/PlainDate/toLocaleString", "toLocaleString()")}} mit den entsprechenden Optionen, um einen lokalisierten String zu erhalten.
 
 ## Beispiele
 
@@ -33,9 +31,9 @@ const date4 = Temporal.PlainDate.from("2021-07-01[u-ca=japanese]");
 console.log(date4.era); // reiwa
 ```
 
-### Ändern von era
+### Ändern der Epoche
 
-Sie können `era` nur für Kalender festlegen, die sie unterstützen. Zum Beispiel hat der ISO 8601-Kalender keine Epochen. Beachten Sie, dass Sie `era` und `eraYear` zusammen angeben müssen.
+Sie können `era` nur für Kalender festlegen, die sie unterstützen. Beispielsweise hat der ISO 8601-Kalender keine Epochen. Beachten Sie, dass Sie `era` und `eraYear` zusammen angeben müssen.
 
 ```js
 const date = Temporal.PlainDate.from("2021-07-01[u-ca=gregory]");

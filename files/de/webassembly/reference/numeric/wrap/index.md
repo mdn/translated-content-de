@@ -1,13 +1,14 @@
 ---
-title: Wrap
-slug: WebAssembly/Reference/Numeric/Wrap
+title: "wrap: Wasm-Textanweisung"
+short-title: wrap
+slug: WebAssembly/Reference/Numeric/wrap
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: ebf92d37f836b490640a7881c4e5db5c1dea8fe7
 ---
 
-Die **`wrap`**-Anweisung wird verwendet, um Zahlen vom Typ `i64` in den Typ `i32` zu konvertieren. Wenn die Zahl größer ist, als ein `i32` aufnehmen kann, wird diese Operation eine Umwicklung durchführen, was zu einer anderen Zahl führt.
+Die **`wrap`**-Anweisung wird verwendet, um Zahlen vom Typ `i64` in den Typ `i32` zu konvertieren. Wenn die Zahl größer ist als das, was ein `i32` halten kann, wird diese Operation `wrap`, was zu einer anderen Zahl führt.
 
-Man kann sich `wrap` entweder als Reduktion des Wertes [mod](https://en.wikipedia.org/wiki/Modular_arithmetic) 2<sup>32</sup> vorstellen oder als Verwerfen der oberen 32 Bits, um einen Wert zu erhalten, der nur die unteren 32 Bits enthält.
+Man kann sich wrap entweder als Reduzierung des Wertes [mod](https://en.wikipedia.org/wiki/Modular_arithmetic) 2<sup>32</sup> vorstellen oder als das Verwerfen der oberen 32 Bits, um einen Wert zu erzeugen, der nur die unteren 32 Bits enthält.
 
 {{InteractiveExample("Wat Demo: wrap", "tabbed-taller")}}
 
@@ -43,6 +44,6 @@ i32.wrap_i64
 ;; the top item on the stack will now be the value 10 of type `i32`
 ```
 
-| Anweisung      | Binärer Opcode |
-| -------------- | -------------- |
-| `i32.wrap_i64` | `0xa7`         |
+| Anweisung      | Binärer Operationscode |
+| -------------- | ---------------------- |
+| `i32.wrap_i64` | `0xa7`                 |

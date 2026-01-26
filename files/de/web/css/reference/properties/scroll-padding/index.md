@@ -2,10 +2,10 @@
 title: scroll-padding
 slug: Web/CSS/Reference/Properties/scroll-padding
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 57b9e55cd708d8ff4bfd9dc65c568bdee4089453
 ---
 
-Die **`scroll-padding`** [Shorthand-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) setzt den Scroll-Abstand auf allen Seiten eines Elements gleichzeitig, ähnlich wie die {{cssxref("padding")}}-Eigenschaft den Abstand eines Elements festlegt.
+Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) legt den Scroll-Abstand auf allen Seiten eines Elements gleichzeitig fest. Sie gibt Versätze an, die den optimalen Anzeigebereich eines Scrollports innerhalb eines {{Glossary("scroll_container", "Scrollcontainers")}} definieren.
 
 {{InteractiveExample("CSS Demo: scroll-padding")}}
 
@@ -18,7 +18,7 @@ scroll-padding: 20px;
 ```
 
 ```css interactive-example-choice
-scroll-padding: 2em;
+scroll-padding: 20%;
 ```
 
 ```html interactive-example
@@ -69,9 +69,7 @@ scroll-padding: 2em;
 }
 ```
 
-Die `scroll-padding-*`-Eigenschaften definieren Abstände für den _optimalen Anzeigebereich_ des Scroll-Containers: den Bereich, der als Zielregion verwendet wird, um Elemente in den Blick des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scroll-Containers auszuschließen, die durch anderen Inhalt (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Raum zwischen einem anvisierten Element und den Rändern des Scroll-Containers zu schaffen.
-
-## Zusätzliche Eigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -102,9 +100,17 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein nach innen gerichteter Abstand von der entsprechenden Kante des Scroll-Containers, als gültige {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein innerer Versatz von der entsprechenden Kante des Scrollports, entweder als gültige {{cssxref("&lt;length&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Der Abstand wird vom Benutzeragenten bestimmt. In der Regel wird dies `0px` sein, aber der Benutzeragent kann auch etwas anderes tun, wenn ein nicht-Null-Wert angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen `0px`, aber der User-Agent kann auch einen anderen Wert wählen, wenn dieser passender ist.
+
+## Beschreibung
+
+Die `scroll-padding`-Eigenschaft ist eine Kurzform, die {{CSSXref("scroll-padding-top")}}, {{CSSXref("scroll-padding-right")}}, {{CSSXref("scroll-padding-bottom")}} und {{CSSXref("scroll-padding-left")}} in der Reihenfolge setzt und damit den oberen, rechten, unteren und linken Scroll-Abstand eines Scrollcontainers festlegt.
+
+Nützlich bei der Erstellung von Scroll-Snap-Containern ermöglicht die `scroll-padding`-Eigenschaft die Definition von Versätzen für den _optimalen Anzeigebereich_ des Scrollports: der Bereich, der als Zielregion für die Platzierung von Elementen zur Ansicht des Benutzers verwendet wird. Dies erlaubt es, Einzüge im Scrollport zu erstellen, um Platz für Objekte zu schaffen, die den Inhalt verdecken könnten, wie z.B. fixierte Werkzeugleisten oder Seitenleisten, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+
+Obwohl sie im [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul definiert ist, gilt diese Eigenschaft für alle Scrollcontainer, unabhängig vom Wert der {{cssxref("scroll-snap-type")}}-Eigenschaft.
 
 ## Formale Definition
 
@@ -124,5 +130,8 @@ scroll-padding: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- {{cssxref("scroll-snap-type")}}
+- [Grundkonzepte von Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts)
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Scrollgesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul

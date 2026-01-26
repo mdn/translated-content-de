@@ -3,12 +3,13 @@ title: "Content-Security-Policy: require-trusted-types-for Richtlinie"
 short-title: require-trusted-types-for
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: ecd02ce48a6a6076e244396747a1d31eb4d9747a
 ---
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`require-trusted-types-for`** Richtlinie weist Benutzeragenten an, die Daten, die an DOM XSS-Senkenfunktionen übergeben werden, zu kontrollieren, wie zum Beispiel den [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)-Setter.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`require-trusted-types-for`**-Richtlinie weist Benutzeragenten an, die Daten zu kontrollieren, die an DOM XSS-Sink-Funktionen übergeben werden, wie den [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) Setter.
 
-Wenn verwendet, akzeptieren diese Funktionen nur nicht manipulierbare, getypte Werte, die durch Trusted Type-Policies erstellt wurden, und lehnen Zeichenfolgen ab. Zusammen mit der **[`trusted-types`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types)** Richtlinie, die die Erstellung von Trusted Type-Policies schützt, ermöglicht dies Autoren, Regeln zu definieren, die das Schreiben von Werten in den DOM bewachen und somit die Angriffsfläche von DOM XSS auf kleine, isolierte Teile des Webanwendungs-Codebase reduzieren. Dies erleichtert deren Überwachung und Code-Review.
+Wenn diese verwendet wird, akzeptieren diese Funktionen nur nicht manipulierbare, typisierte Werte, die durch [Trusted Type](/de/docs/Web/API/Trusted_Types_API) Richtlinien erstellt wurden, und lehnen Zeichenfolgen ab.
+Zusammen mit der **[`trusted-types`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types)**-Richtlinie, die die Erstellung von Trusted Type-Richtlinien überwacht, können Autoren Regeln definieren, die das Schreiben von Werten in das DOM schützen. Dadurch wird die Angriffsfläche für DOM XSS auf kleine, isolierte Teile der Codebasis einer Webanwendung reduziert, was deren Überwachung und Codeprüfung erleichtert.
 
 ## Syntax
 
@@ -17,7 +18,7 @@ Content-Security-Policy: require-trusted-types-for 'script';
 ```
 
 - `'script'`
-  - : Verbietet die Verwendung von Zeichenfolgen mit DOM XSS-Injektionssenkenfunktionen und erfordert übereinstimmende Typen, die durch Trusted Type-Policies erstellt wurden.
+  - : Verbietet die Verwendung von Zeichenfolgen mit DOM XSS-Injektions-Sink-Funktionen und erfordert passende Typen, die durch Trusted Type-Richtlinien erstellt wurden.
 
 ## Beispiele
 
@@ -50,8 +51,8 @@ if (typeof trustedTypes !== "undefined") {
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
+  - [`trusted-types` Richtlinie](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types)
+  - [`trusted-types-eval` Schlüsselwort](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#trusted-types-eval)
+- [Trusted Types API](/de/docs/Web/API/Trusted_Types_API)
+  - [Injection sink Schnittstellen](/de/docs/Web/API/Trusted_Types_API#injection_sink_interfaces)
 - {{Glossary("Cross-site_scripting", "Cross-Site Scripting (XSS)")}}
-- [Von Trusted Types abgedeckte DOM XSS-Injektionssenken](https://w3c.github.io/trusted-types/dist/spec/#injection-sinks)
-- [Verhindern von DOM-basierten Cross-Site Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
-- Trusted Types mit [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Filter
-- [Trusted Types Polyfill](https://github.com/w3c/trusted-types#polyfill)

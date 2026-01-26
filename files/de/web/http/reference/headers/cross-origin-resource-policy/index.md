@@ -3,22 +3,18 @@ title: Cross-Origin-Resource-Policy (CORP) header
 short-title: Cross-Origin-Resource-Policy
 slug: Web/HTTP/Reference/Headers/Cross-Origin-Resource-Policy
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 7f6778934020a9b5b82b4dd8ca79a99bc9950c2a
 ---
 
-Der HTTP-**`Cross-Origin-Resource-Policy`**-{{Glossary("response_header", "Antwortheader")}} (CORP) gibt an, dass der Browser [`no-cors`](/de/docs/Web/API/RequestInit#no-cors)-Cross-Origin- oder Cross-Site-Anfragen zu der angegebenen Ressource blockieren soll.
+Der HTTP-**`Cross-Origin-Resource-Policy`**-{{Glossary("response_header", "Antwort-Header")}} (CORP) gibt an, dass der Browser [`no-cors`](/de/docs/Web/API/RequestInit#no-cors) Cross-Origin- oder Cross-Site-Anfragen zur angegebenen Ressource blockieren sollte.
 
-Er legt die Richtlinie des Ressourceneigentümers fest, welche Sites/Ursprünge diese Ressource laden dürfen.
+Er legt die Richtlinie des Ressourcenbesitzers fest, welche Seiten/Ursprünge zum Laden dieser Ressource berechtigt sein sollen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
-    </tr>
-    <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
-      <td>Nein</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
   </tbody>
 </table>
@@ -32,21 +28,21 @@ Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin
 ### Direktiven
 
 - `same-site`
-  - : Ressourcen können nur von derselben Site geladen werden.
+  - : Ressourcen können nur von derselben Website geladen werden.
 
 - `same-origin`
   - : Ressourcen können nur vom selben Ursprung geladen werden.
 
 - `cross-origin`
-  - : Ressourcen können von jedem anderen Ursprung/Webseite geladen werden.
+  - : Ressourcen können von jedem anderen Ursprung/Website geladen werden.
 
 ## Beispiele
 
 Für weitere Beispiele siehe https://resourcepolicy.fyi/.
 
-### Verhindern von `no-cors`-Cross-Origin-Anfragen
+### Verhindern von Cross-Origin no-cors-Anfragen
 
-Der folgende `Cross-Origin-Resource-Policy`-Header bewirkt, dass kompatible Benutzeragenten `no-cors`-Cross-Origin-Anfragen verhindern:
+Der untenstehende `Cross-Origin-Resource-Policy`-Header wird dazu führen, dass kompatible Benutzeragenten Cross-Origin no-cors-Anfragen verhindern:
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
@@ -62,7 +58,7 @@ Cross-Origin-Resource-Policy: same-origin
 
 ## Siehe auch
 
-- [Cross-Origin Resource Policy (CORP) Erklärer](/de/docs/Web/HTTP/Guides/Cross-Origin_Resource_Policy)
-- [Erwägen Sie die Bereitstellung der Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
+- [Erläuterung zur Cross-Origin Resource Policy (CORP)](/de/docs/Web/HTTP/Guides/Cross-Origin_Resource_Policy)
+- [Erwägen Sie die Implementierung der Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
 - {{HTTPHeader("Cross-Origin-Embedder-Policy")}}
 - {{HTTPHeader("Access-Control-Allow-Origin")}}
