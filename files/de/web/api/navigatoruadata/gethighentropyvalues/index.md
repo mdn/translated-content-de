@@ -3,18 +3,21 @@ title: "NavigatorUAData: getHighEntropyValues() Methode"
 short-title: getHighEntropyValues()
 slug: Web/API/NavigatorUAData/getHighEntropyValues
 l10n:
-  sourceCommit: b579560f51582bb91e2cc1a3253ed0a5cf61d5f1
+  sourceCommit: 2dcdbed09ec5ca28a73d82e259601459c468508c
 ---
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`getHighEntropyValues()`** Methode der [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData) Schnittstelle ist ein {{jsxref("Promise")}}, das mit einem Wörterbuchobjekt aufgelöst wird, das die _high entropy_ Werte enthält, die der User-Agent zurückgibt.
+Die **`getHighEntropyValues()`** Methode des [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem Wörterbuch-Objekt aufgelöst wird, das sowohl Informationen mit geringer Entropie als auch die angeforderten Informationen mit hoher Entropie über den Browser enthält.
+
+Das aufgelöste Objekt enthält die ["geringe Entropie" Eigenschaften](/de/docs/Web/API/NavigatorUAData#instance_properties), die standardmäßig im `NavigatorUAData` Objekt enthalten sind — dies sind die Werte, die wahrscheinlich kein Fingerprinting des Benutzers ermöglichen.
+Es enthält auch die Teilmenge der "hohen Entropie"-Werte, die im Parameterobjekt angefordert wurden und für die die Erlaubnis erteilt wurde.
+Dies sind die Werte, die eher ein Fingerprinting ermöglichen.
+Beachten Sie, dass die Bedeutung der Begriffe [geringe Entropie](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints) und [hohe Entropie](/de/docs/Web/HTTP/Guides/Client_hints#high_entropy_hints) der im HTTP [User Agent Client Hints](/de/docs/Web/HTTP/Guides/Client_hints) Mechanismus definierten Bedeutung entspricht.
 
 > [!NOTE]
-> Die Begriffe _high entropy_ und _low entropy_ beziehen sich auf die Menge an Informationen, die diese Werte über den Browser offenbaren.
-> Die als Eigenschaften zurückgegebenen Werte werden als low entropy betrachtet und identifizieren einen Benutzer wahrscheinlich nicht.
-> Die Werte, die von `getHighEntropyValues()` zurückgegeben werden, könnten potenziell mehr Informationen preisgeben.
-> Diese Werte werden daher über ein {{jsxref("Promise")}} abgerufen, was dem Browser Zeit gibt, die Erlaubnis des Benutzers anzufordern oder andere Überprüfungen durchzuführen.
+> Die Verwendung der `getHighEntropyValues()` Methode zum Abrufen von Benutzeragent-Daten mit hoher Entropie kann über die {{HTTPHeader('Permissions-Policy/ch-ua-high-entropy-values', 'ch-ua-high-entropy-values')}} {{HTTPHeader('Permissions-Policy')}} gesteuert werden.
+> Wenn die Erlaubnis nicht erteilt ist, gibt die Methode nur die Daten mit geringer Entropie `brands`, `mobile` und `platform` zurück.
 
 ## Syntax
 
@@ -25,7 +28,8 @@ getHighEntropyValues(hints)
 ### Parameter
 
 - `hints`
-  - : Ein Array, das die zurückzugebenden Hinweise enthält, eine oder mehrere der folgenden:
+  - : Ein Array, das die zurückzugebenden Hinweise mit hoher Entropie enthält.
+    Dies kann eines oder mehrere der folgenden Elemente umfassen:
     - `"architecture"`
     - `"bitness"`
     - `"formFactors"`
@@ -37,53 +41,53 @@ getHighEntropyValues(hints)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, das einige oder alle der folgenden Werte enthält (basierend auf den angeforderten Hinweisen):
+Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das einige oder alle der folgenden Werte enthält (basierend auf den angeforderten und gewährten Hinweisen):
 
 - `brands`
-  - : Gibt ein Array von Objekten zurück, das `brand` und `version` enthält, die die Browsermarke und deren Version angeben (dieselben Informationen wie bereitgestellt von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands)).
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA")}} Header (ein [niedrig-Entropy-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) gesendet werden können.
+  - : Gibt ein Array von Objekten zurück, das `brand` und `version` enthält und die Browsermarke und deren Version angibt (dieselben Informationen wie bereitgestellt von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands)).
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA")}} Kopfzeile (ein [low-entropy client hint](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) an einen Server gesendet werden können.
 - `mobile`
-  - : Gibt `true` zurück, wenn der User-Agent auf einem mobilen Gerät ausgeführt wird (dieselben Informationen wie bereitgestellt von [`NavigatorUAData.mobile`](/de/docs/Web/API/NavigatorUAData/mobile)).
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Mobile")}} Header (ein [niedrig-Entropy-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) gesendet werden können.
+  - : Gibt `true` zurück, wenn der Benutzeragent auf einem mobilen Gerät läuft (dieselben Informationen wie bereitgestellt von [`NavigatorUAData.mobile`](/de/docs/Web/API/NavigatorUAData/mobile)).
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Mobile")}} Kopfzeile (ein [low-entropy client hint](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) an einen Server gesendet werden können.
 - `platform`
-  - : Gibt einen String zurück, der die Plattform beschreibt, auf der der User-Agent ausgeführt wird, wie `"Windows"` (dieselben Informationen wie bereitgestellt von [`NavigatorUAData.platform`](/de/docs/Web/API/NavigatorUAData/platform)).
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Platform")}} Header (ein [niedrig-Entropy-Client-Hinweis](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) gesendet werden können.
+  - : Gibt einen String zurück, der die Plattform beschreibt, auf der der Benutzeragent läuft, wie `"Windows"` (dieselben Informationen wie bereitgestellt von [`NavigatorUAData.platform`](/de/docs/Web/API/NavigatorUAData/platform)).
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Platform")}} Kopfzeile (ein [low-entropy client hint](/de/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints)) an einen Server gesendet werden können.
 - `architecture`
   - : Ein String, der die Plattformarchitektur enthält. Zum Beispiel `"x86"`.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Arch")}} Header gesendet werden können, nachdem der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header angefordert hat.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Arch")}} Kopfzeile gesendet werden können, nachdem der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile angefordert hat.
 - `bitness`
-  - : Ein String, der die Bitzahl der Architektur enthält. Zum Beispiel `"32"` oder `"64"`.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Bitness")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+  - : Ein String, der die Architektur-Bissigkeit enthält. Zum Beispiel `"32"` oder `"64"`.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Bitness")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 - `formFactors`
   - : Ein Array von Strings, das die Formfaktoren eines Geräts enthält. Zum Beispiel `["Tablet", "XR"]`.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Form-Factors")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Form-Factors")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 - `fullVersionList`
-  - : Ein Array von Objekten mit den Eigenschaften `"brand"` und `"version"`, das jeweils den Browsernamen und die vollständige Version repräsentiert.
+  - : Ein Array von Objekten mit den Eigenschaften `"brand"` und `"version"`, die den Browsernamen und die vollständige Version repräsentieren.
     Zum Beispiel `{"brand": "Google Chrome", "version": "103.0.5060.134"}, {"brand": "Chromium", "version": "103.0.5060.134"}`.
     Bitte beachten Sie, dass ein Objekt absichtlich ungültige Informationen enthalten kann, um zu verhindern, dass Websites sich auf eine feste Liste von Browsern verlassen.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Full-Version-List")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 - `model`
-  - : Ein String, der das Modell eines mobilen Geräts enthält. Zum Beispiel `"Pixel 2XL"`. Wenn das Gerät kein mobiles Gerät ist oder das Gerätemodell unbekannt ist, wird `model` `""` sein.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Model")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+  - : Ein String, der das Modell des mobilen Endgeräts enthält. Zum Beispiel `"Pixel 2XL"`. Wenn das Gerät kein mobiles Gerät ist oder das Gerätemodell nicht bekannt ist, wird `model` `""` sein.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Model")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 - `platformVersion`
-  - : Ein String, der die Plattformversion enthält. Der Plattformname selbst ist immer als low-entropy Hinweis `platform` verfügbar. Zum Beispiel `"10.0"`.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Platform-Version")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+  - : Ein String, der die Plattformversion enthält. Der Plattformname selbst ist immer als Hinweis mit geringer Entropie `platform` verfügbar. Zum Beispiel `"10.0"`.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Platform-Version")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 - `uaFullVersion` {{Deprecated_Inline}}
   - : Ein String, der die vollständige Browserversion enthält. Zum Beispiel `"103.0.5060.134"`. Veraltet zugunsten von `fullVersionList`.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Full-Version")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-Full-Version")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 - `wow64`
-  - : Ein Boolean, der angibt, ob das Binärprogramm des User-Agent im 32-Bit-Modus auf 64-Bit-Windows läuft.
-    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-WoW64")}} Header gesendet werden können, wenn der Server dies explizit im {{HTTPHeader("Accept-CH")}} Header anfordert.
+  - : Ein Boolean, der angibt, ob das Benutzeragent-Binärprogramm im 32-Bit-Modus auf 64-Bit Windows läuft.
+    Beachten Sie, dass diese Informationen in der {{HTTPHeader("Sec-CH-UA-WoW64")}} Kopfzeile gesendet werden können, wenn der Server sie explizit in der {{HTTPHeader("Accept-CH")}} Kopfzeile anfordert.
 
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der User-Agent entscheidet, dass einer oder mehrere der angeforderten `hints` nicht zurückgegeben werden sollten.
+  - : Wird ausgelöst, wenn der Benutzeragent entscheidet, dass einer oder mehrere der angeforderten `hints` nicht zurückgegeben werden sollten.
 
 ## Beispiele
 
 Im folgenden Beispiel werden eine Reihe von Hinweisen mit der `getHighEntropyValues()` Methode angefordert.
-Wenn das Promise aufgelöst wird, werden diese Informationen in der Konsole ausgegeben.
+Wenn das Versprechen aufgelöst wird, werden diese Informationen in die Konsole ausgegeben.
 
 ```js
 navigator.userAgentData
@@ -106,12 +110,12 @@ navigator.userAgentData
 
 ## Siehe auch
 
-- Diese Werte sind auch über HTTP-Anforderungsheader verfügbar:
-  - Low-entropy Client-Hinweise werden automatisch gesendet:
+- Diese Werte sind auch als HTTP-Anfrage-Header verfügbar:
+  - Hinweise mit geringer Entropie werden automatisch gesendet:
     - {{HTTPHeader("Sec-CH-UA")}}
     - {{HTTPHeader("Sec-CH-UA-Mobile")}}
     - {{HTTPHeader("Sec-CH-UA-Platform")}}
-  - Server können anfordern, dass sie bei nachfolgenden Anfragen high-entropy Client-Hinweise erhalten, indem sie den {{HTTPHeader("Accept-CH")}} Header verwenden:
+  - Server können anfordern, dass sie Hinweise mit hoher Entropie bei nachfolgenden Anforderungen erhalten, indem sie den {{HTTPHeader("Accept-CH")}} Header verwenden:
     - {{HTTPHeader("Sec-CH-UA-Arch")}}
     - {{HTTPHeader("Sec-CH-UA-Bitness")}}
     - {{HTTPHeader("Sec-CH-UA-Full-Version")}}

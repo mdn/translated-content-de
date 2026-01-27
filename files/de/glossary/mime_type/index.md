@@ -2,18 +2,18 @@
 title: MIME-Typ
 slug: Glossary/MIME_type
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 5af7eee008b191ba354db23bd9d0ad299eb77678
 ---
 
-Ein **MIME-Typ** (jetzt korrekt als "Media-Typ" bezeichnet, aber manchmal auch "Content-Typ" genannt) ist ein String, der zusammen mit einer Datei gesendet wird und den Dateityp angibt (beschreibt das Inhaltsformat, zum Beispiel könnte eine Sounddatei als `audio/ogg` oder eine Bilddatei als `image/png` gekennzeichnet sein).
+Ein **MIME-Typ** (nun korrekt "Medientyp" genannt, aber manchmal auch "Inhaltstyp") ist ein String, der zusammen mit einer Datei gesendet wird, um den Typ der Datei anzugeben (er beschreibt das Inhaltsformat, zum Beispiel könnte eine Audiodatei als `audio/ogg` gekennzeichnet sein oder eine Bilddatei als `image/png`).
 
-Er erfüllt denselben Zweck wie Dateinamenerweiterungen traditionell unter Windows. Der Name stammt vom {{Glossary("mime", "MIME")}}-Standard, der ursprünglich in E-Mails verwendet wurde.
+Er erfüllt denselben Zweck wie Dateierweiterungen traditionell unter Windows. Der Name stammt vom {{Glossary("mime", "MIME")}}-Standard, der ursprünglich in E-Mails verwendet wurde.
 
 ## Siehe auch
 
-- [Internet-Medientyp](https://en.wikipedia.org/wiki/Internet_media_type) auf Wikipedia
-- [Liste der MIME-Typen](https://www.iana.org/assignments/media-types/media-types.xhtml)
-- [Server-seitig konfigurierte MIME-Typen richtig konfigurieren](/de/docs/Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types)
-- Detaillierte Informationen über die Verwendung von [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) in einem Web-Kontext.
-- [Unvollständige Liste der MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types/Common_types)
+- [Server-MIME-Typen richtig konfigurieren](/de/docs/Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types)
+- Detaillierte Informationen über die Verwendung von [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) im Web-Kontext.
+- [Unvollständige Liste von MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types/Common_types)
 - [MediaRecorder.mimeType](/de/docs/Web/API/MediaRecorder/mimeType)
+- [Internet Media Type](https://en.wikipedia.org/wiki/Internet_media_type) auf Wikipedia
+- [Liste der MIME-Typen](https://www.iana.org/assignments/media-types/media-types.xhtml)
