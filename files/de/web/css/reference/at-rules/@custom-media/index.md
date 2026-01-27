@@ -2,12 +2,12 @@
 title: "@custom-media"
 slug: Web/CSS/Reference/At-rules/@custom-media
 l10n:
-  sourceCommit: 4b6027efb86db472ca6c37390fe9402b16b2716c
+  sourceCommit: ad20400adefa435897ee28e55cb8dfa7419e29f8
 ---
 
 {{SeeCompatTable}}
 
-Die **`@custom-media`** CSS-[At-Regel](/de/docs/Web/CSS/Reference/At-rules) definiert Aliase für lange oder komplexe [Media Queries](/de/docs/Web/CSS/Guides/Media_queries). Anstatt die gleiche fest codierte `<media-query-list>` in mehreren {{cssxref("@media")}} At-Regeln zu wiederholen, kann sie einmal in einer `@custom-media` At-Regel definiert und im Stylesheet überall dort referenziert werden, wo sie benötigt wird.
+Die **`@custom-media`** CSS-[At-Regel](/de/docs/Web/CSS/Reference/At-rules) definiert Aliase für lange oder komplexe [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries). Anstatt die gleiche fest codierte `<media-query-list>` in mehreren {{cssxref("@media")}}-At-Regeln zu wiederholen, kann sie einmal in einer `@custom-media`-At-Regel definiert und bei Bedarf im Stylesheet referenziert werden.
 
 ## Syntax
 
@@ -21,35 +21,35 @@ Die **`@custom-media`** CSS-[At-Regel](/de/docs/Web/CSS/Reference/At-rules) defi
 ### Werte
 
 - `<extension-name>`
-  - : Ein {{cssxref("dashed-ident")}}; der Name, der die benutzerdefinierte Media Query identifiziert.
+  - : Ein {{cssxref("dashed-ident")}}; der Name zur Identifizierung der benutzerdefinierten Medienabfrage.
 - Repräsentierter Wert
-  - : Der Wert, der durch die benutzerdefinierte Media Query aliasiert wird. Mögliche Werte sind:
+  - : Der Wert, der von der benutzerdefinierten Medienabfrage aliasiert wird. Mögliche Werte sind:
     - `<media-query-list>`
-      - : Eine durch Kommas getrennte [Liste von `<media-query>` Werten](/de/docs/Web/CSS/Reference/At-rules/@media#description).
+      - : Eine kommagetrennte [Liste von `<media-query>`-Werten](/de/docs/Web/CSS/Reference/At-rules/@media#description).
     - `true`
-      - : Der `@custom-media` Wert wird immer als `true` ausgewertet.
+      - : Der `@custom-media`-Wert wird immer als `true` ausgewertet.
     - `false`
-      - : Der `@custom-media` Wert wird immer als `false` ausgewertet.
+      - : Der `@custom-media`-Wert wird immer als `false` ausgewertet.
 
 ## Beschreibung
 
-Beim Erstellen reaktionsfähiger Oberflächen muss dieselbe Medienbedingung häufig über mehrere {{cssxref("@media")}} At-Regeln hinweg, manchmal über verschiedene Dateien und Teams, wiederholt werden. Das Duplizieren von Media Queries erhöht das Risiko von Fehlern, erschwert Refactoring und verursacht unnötige Wartungsaufwände. Wann immer sich eine Media Query ändert, muss jeder Einzelfall manuell gefunden und aktualisiert werden — ein Prozess, der in großen Codebasen sowohl fehleranfällig als auch schwer nachvollziehbar sein kann.
+Beim Erstellen von responsiven Schnittstellen muss oft die gleiche Medienbedingung in mehreren {{cssxref("@media")}}-At-Regeln wiederholt werden, manchmal über verschiedene Dateien und Teams hinweg. Das Duplizieren von Medienabfragen erhöht das Risiko von Fehlern, erschwert das Refactoring und erzeugt unnötigen Wartungsaufwand. Jedes Mal, wenn sich eine Medienabfrage ändert, muss jede Instanz manuell gefunden und aktualisiert werden—ein Prozess, der in großen Codebasen sowohl fehleranfällig als auch schwer nachvollziehbar sein kann.
 
-Die `@custom-media` At-Regel löst dieses Problem, indem Sie **benannte Aliase** für Media Queries definieren können. Anstatt die gesamte Media Query überall zu wiederholen, erklären Sie die Medienbedingung einmal als benutzerdefinierte Media Query und verweisen in Ihren Stylesheets auf ihren Alias. Mit dieser Methode erfordert das Aktualisieren der zugrunde liegenden Media Query eine einzige Änderung an einem Ort.
+Die `@custom-media`-At-Regel löst dieses Problem, indem sie **benannte Aliase** für Medienabfragen ermöglicht. Anstatt die vollständige Medienabfrage überall zu wiederholen, deklarieren Sie die Medienbedingung einmal als benutzerdefinierte Medienabfrage und beziehen sich im gesamten Stylesheet auf deren Alias. Mit dieser Einrichtung erfordert das Aktualisieren der zugrunde liegenden Medienabfrage nur eine Änderung an einer Stelle.
 
-Benutzerdefinierte Media Queries können aus anderen zusammengesetzt werden, indem ihre Aliasnamen innerhalb der Media-Query-Features referenziert werden. Dies ermöglicht es, ausdrucksstärkere, geschichtete Bedingungen zu erstellen. Eine benutzerdefinierte Media Query kann jedoch nicht auf sich selbst verweisen, noch kann sie Teil einer zirkulären Referenzkette sein. Jeder zirkuläre Abhängigkeitskreis — direkt oder indirekt — macht alle daran beteiligten benutzerdefinierten Media Queries ungültig.
+Benutzerdefinierte Medienabfragen können aus anderen zusammengesetzt werden, indem auf deren Alias-Namen innerhalb der Medienabfrage-Funktionen verwiesen wird. Dies ermöglicht den Aufbau von ausdrucksstärkeren, geschichteten Bedingungen. Eine benutzerdefinierte Medienabfrage kann sich jedoch nicht auf sich selbst beziehen, noch kann sie Teil einer zirkulären Referenzkette sein. Jede zirkuläre Abhängigkeit—direkt oder indirekt—macht alle benutzerdefinierten Medienabfragen ungültig, die in dieser Schleife beteiligt sind.
 
-Wenn mehrere `@custom-media`-Regeln denselben `<dashed-ident>`-Namen definieren, gilt nur die letzte Deklaration in der Quellreihenfolge. Alle früheren Deklarationen werden ignoriert.
+Wenn mehrere `@custom-media`-Regeln denselben `<dashed-ident>`-Namen definieren, wird die Regel verwendet, die zum Zeitpunkt der Auswertung einer `@media`-Regel im Geltungsbereich steht. Frühere Referenzen werden nicht rückwirkend aktualisiert, wenn später eine `@custom-media`-Regel deklariert wird.
 
-### Auswertung von Media Queries mit logischen Operatoren
+### Auswerten von Medienabfragen mit logischen Operatoren
 
-Benutzerdefinierte Media Queries akzeptieren das gesamte Spektrum der logischen CSS-Operatoren — `not`, `and` und `or` (durch Kommas getrennt oder mit dem `or` Schlüsselwort).
+Benutzerdefinierte Medienabfragen akzeptieren das vollständige Spektrum an CSS-Logikoperatoren—`not`, `and` und `or` (kommagetrennt oder mit dem `or`-Schlüsselwort).
 
-Da ein `@custom-media` Wert nur eine normale `<media-query-list>` ist, können Sie Bedingungen kombinieren, negieren oder gruppieren, genau wie in einer regulären `@media`-Regel.
+Da ein `@custom-media`-Wert nur eine normale `<media-query-list>` ist, können Sie Bedingungen kombinieren, invertieren oder gruppieren, genau wie in einer regulären `@media`-Regel.
 
-#### Verwendung des `not` Operators
+#### Verwendung des `not`-Operators
 
-Der `not` Operator negiert eine ganze Medienbedingung. Dies ist nützlich, wenn Sie möchten, dass eine Regel nur angewendet wird, wenn eine bestimmte Bedingung `false` ist.
+Der `not`-Operator negiert eine gesamte Medienbedingung. Dies ist nützlich, wenn Sie möchten, dass eine Regel nur dann gilt, wenn eine bestimmte Bedingung `false` ist.
 
 ```css
 @custom-media --no-script not (script);
@@ -58,9 +58,9 @@ Der `not` Operator negiert eine ganze Medienbedingung. Dies ist nützlich, wenn 
 }
 ```
 
-#### Verwendung des `and` Operators
+#### Verwendung des `and`-Operators
 
-Der `and` Operator ermöglicht es Ihnen, mehrere Bedingungen zu kombinieren, die alle `true` sein müssen.
+Der `and`-Operator ermöglicht es Ihnen, mehrere Bedingungen zu kombinieren, die alle `true` sein müssen.
 
 ```css
 @custom-media --medium-screen (min-width: 40em) and (max-width: 60em);
@@ -69,11 +69,11 @@ Der `and` Operator ermöglicht es Ihnen, mehrere Bedingungen zu kombinieren, die
 }
 ```
 
-Dieser Alias trifft nur dann zu, wenn sich der Viewport innerhalb des angegebenen Breitenbereichs befindet.
+Dieser Alias passt nur, wenn der Ansichtsbereich innerhalb des angegebenen Breitenbereichs liegt.
 
-#### Verwendung des `or` Operators
+#### Verwendung des `or`-Operators
 
-Der logische `or` Operator (oder dessen Komma-Alias) erstellt eine Media Query, die zutrifft, wenn eine der aufgelisteten Bedingungen `true` ist.
+Der logische `or`-Operator (oder sein Komma-Alias) erstellt eine Medienabfrage, die übereinstimmt, wenn eine der aufgelisteten Bedingungen `true` ist.
 
 ```css
 @custom-media --screen-or-print-1 screen, print;
@@ -86,7 +86,7 @@ Der logische `or` Operator (oder dessen Komma-Alias) erstellt eine Media Query, 
 }
 ```
 
-Die beiden Aliase sind identisch. Sie werden sowohl für Bildschirm- als auch für Druckumgebungen aktiviert.
+Die beiden Aliase sind identisch. Sie werden sowohl für Bildschirm- als auch Druckumgebungen aktiviert.
 
 ## Formale Syntax
 
@@ -94,9 +94,9 @@ Die beiden Aliase sind identisch. Sie werden sowohl für Bildschirm- als auch f�
 
 ## Beispiele
 
-### Aktualisierung mehrerer Media Queries
+### Aktualisieren mehrerer Medienabfragen
 
-In diesem Beispiel wird die `@custom-media` At-Regel auf einer responsiven Website verwendet, die in mehreren Stellen einen bestimmten Breakpoint verwendet:
+In diesem Beispiel wird die `@custom-media`-At-Regel auf einer responsiven Website verwendet, die an mehreren Stellen einen bestimmten Breakpoint verwendet:
 
 ```css
 @custom-media --narrow-window (width < 32em);
@@ -111,11 +111,11 @@ In diesem Beispiel wird die `@custom-media` At-Regel auf einer responsiven Websi
 }
 ```
 
-Wenn der Breakpoint geändert werden muss, kann er an einer Stelle aktualisiert werden, um alle abhängigen Media Queries auf der gesamten Site anzupassen.
+Wenn der Breakpoint geändert werden muss, kann er an einer Stelle aktualisiert werden, um alle abhängigen Medienabfragen auf der gesamten Site anzupassen.
 
 ### Gruppierung mehrerer responsiver Breakpoints
 
-Hier wird die `@custom-media` At-Regel verwendet, um mehrere Breakpoints an einem einzigen Ort zu setzen, was die Wartung erleichtert und das Management des responsiven Designs über mehrere Stylesheets hinweg vereinfacht:
+Hier wird die `@custom-media`-At-Regel verwendet, um mehrere Breakpoints an einem Ort festzulegen, wodurch die Wartbarkeit verbessert und das Management des responsiven Designs über mehrere Stylesheets vereinfacht wird:
 
 ```css
 /* general.css */
@@ -176,11 +176,11 @@ Hier wird die `@custom-media` At-Regel verwendet, um mehrere Breakpoints an eine
 }
 ```
 
-Die Gruppierung aller Breakpoints an einem einzigen Ort erleichtert die Wartung des responsiven Designs. Wenn ein Breakpoint angepasst werden muss, erfordert es nur ein Update der zugehörigen `@custom-media`-Definition, um Konsistenz über alle Stylesheets hinweg sicherzustellen.
+Alle Breakpoints an einem einzigen Ort zu gruppieren, erleichtert die Wartung des responsiven Designs. Wenn ein Breakpoint angepasst werden muss, erfordert dies nur ein einziges Update der zugehörigen `@custom-media`-Definition, um Konsistenz über alle Stylesheets hinweg sicherzustellen.
 
-### Verwendung der `true` und `false` Schlüsselwörter
+### Verwendung der Schlüsselwörter `true` und `false`
 
-Das folgende Beispiel zeigt, wie die `true` und `false` Schlüsselwörter mit `@custom-media` verwendet werden können, um Media Queries zu erstellen, die immer oder nie zutreffen.
+Das folgende Beispiel zeigt, wie die Schlüsselwörter `true` und `false` mit `@custom-media` verwendet werden können, um Medienabfragen zu erstellen, die immer oder nie übereinstimmen.
 
 ```css
 @custom-media --enabled true;
@@ -203,9 +203,9 @@ Das folgende Beispiel zeigt, wie die `true` und `false` Schlüsselwörter mit `@
 
 Dies kann nützlich für Feature-Flags oder bedingte Logik innerhalb von Stylesheets sein.
 
-### Überschreibung bestehender `@custom-media` Regeln
+### Überschreiben bestehender `@custom-media`-Regeln
 
-In diesem Beispiel wird eine `@custom-media` Regel durch eine andere `@custom-media` Regel mit demselben `<dashed-ident>` Namen überschrieben.
+In diesem Beispiel wird eine `@custom-media`-Regel durch eine andere `@custom-media`-Regel mit demselben `<dashed-ident>`-Namen überschrieben.
 
 ```css
 @custom-media --mobile-breakpoint (width < 320px);
@@ -219,7 +219,12 @@ In diesem Beispiel wird eine `@custom-media` Regel durch eine andere `@custom-me
 @custom-media --mobile-breakpoint (width < 480px);
 ```
 
-Die initiale Definition von `--mobile-breakpoint` wird überschrieben und daher ignoriert. Die endgültige Deklaration wird der aktive Wert, der von allen Verweisen auf diese benutzerdefinierte Media Query verwendet wird.
+Wenn mehrere `@custom-media`-Regeln denselben Namen verwenden, wird die Regel verwendet, die zum Zeitpunkt der Auswertung einer `@media`-Regel im Geltungsbereich steht. Frühere Referenzen werden nicht rückwirkend aktualisiert, wenn später eine `@custom-media`-Regel deklariert wird.
+
+Zum Beispiel wird im obigen Code die `--mobile-breakpoint`-Referenz innerhalb der `@media`-Regel als `(width < 320px)` ausgewertet, sodass die `.container`-Regel nur angewendet wird, wenn der Ansichtsbereich weniger als 320px breit ist, obwohl `--mobile-breakpoint` später im Stylesheet als `(width < 480px)` neu definiert wird.
+
+> [!NOTE]
+> Das Überschreibungsverhalten von `@custom-media` wird in der CSS-Spezifikation noch diskutiert und könnte sich in Zukunft ändern. Siehe den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität) für den aktuellen Unterstützungsstatus.
 
 ## Spezifikationen
 
@@ -234,4 +239,4 @@ Die initiale Definition von `--mobile-breakpoint` wird überschrieben und daher 
 - CSS {{cssxref("@media")}} At-Regel
 - CSS {{cssxref("@import")}} At-Regel
 - [Responsives Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)
-- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
+- [CSS Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries) Modul
