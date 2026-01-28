@@ -3,30 +3,30 @@ title: "HTMLDialogElement: closedBy-Eigenschaft"
 short-title: closedBy
 slug: Web/API/HTMLDialogElement/closedBy
 l10n:
-  sourceCommit: 661a04e7a61abe3d8c7245f04cdd1d0bc865fe69
+  sourceCommit: 6aca3e5157dbc163fe8209d9bf8cc3f2e8ec3f9d
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`closedBy`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces gibt an, welche Benutzereingaben verwendet werden können, um das zugehörige {{htmlelement("dialog")}}-Element zu schließen. Sie setzt oder gibt den Attributwert [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby) des Dialogs zurück.
+Die **`closedBy`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces gibt die Arten von Benutzeraktionen an, mit denen das zugehörige {{htmlelement("dialog")}}-Element geschlossen werden kann. Sie setzt oder gibt den Wert des [`closedby`](/de/docs/Web/HTML/Reference/Elements/dialog#closedby)-Attributs des Dialogs zurück.
 
 ## Wert
 
 Ein String; mögliche Werte sind:
 
 - `any`
-  - : Der Dialog kann mit einer leichten Entlassungsaktion des Benutzers, einer plattform-spezifischen Benutzereingabe oder einem vom Entwickler angegebenen Mechanismus geschlossen werden.
+  - : Der Dialog kann durch eine leichte Löschaktion des Benutzers, eine plattformabhängige Benutzeraktion oder einen entwicklerspezifischen Mechanismus geschlossen werden.
 - `closerequest`
-  - : Der Dialog kann mit einer plattform-spezifischen Benutzereingabe oder einem vom Entwickler angegebenen Mechanismus geschlossen werden.
+  - : Der Dialog kann durch eine plattformabhängige Benutzeraktion oder einen entwicklerspezifischen Mechanismus geschlossen werden.
 - `none`
-  - : Der Dialog kann nur mit einem vom Entwickler angegebenen Mechanismus geschlossen werden.
+  - : Der Dialog kann nur durch einen entwicklerspezifischen Mechanismus geschlossen werden.
 
 ### Standardverhalten
 
 Wenn das `closedby`-Attribut fehlt oder ungültig ist, wird auf den **Auto**-Zustand zurückgegriffen. Im **Auto**-Zustand:
 
-- Wenn das `<dialog>` mit `showModal()` geöffnet wird, verhält es sich, als ob: `closedby="closerequest"`
-- Wenn das `<dialog>` auf andere Weise geöffnet wird, verhält es sich, als ob: `closedby="none"`
+- wenn das `<dialog>` mit `showModal()` geöffnet wird, verhält es sich, als ob: `closedby="closerequest"`
+- wenn das `<dialog>` auf andere Weise geöffnet wird, verhält es sich, als ob: `closedby="none"`
 
 ## Beispiele
 

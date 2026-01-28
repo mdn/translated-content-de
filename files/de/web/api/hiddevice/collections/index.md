@@ -3,59 +3,59 @@ title: "HIDDevice: collections-Eigenschaft"
 short-title: collections
 slug: Web/API/HIDDevice/collections
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 6aca3e5157dbc163fe8209d9bf8cc3f2e8ec3f9d
 ---
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`collections`**-Eigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces, die schreibgeschützt ist, gibt ein Array von Berichtsformaten zurück.
+Die **`collections`**-Eigenschaft der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle gibt ein Array von Berichtsformaten zurück.
 
 ## Wert
 
 Ein Array von Berichtsformaten. Jedes Element enthält Folgendes:
 
 - `usagePage`
-  - : Ein Integer, der die "Usage Page"-Komponente der HID-Nutzung darstellt, die mit dieser Sammlung verbunden ist. Die Nutzung eines obersten Sammelobjekts wird verwendet, um den Gerätetyp zu identifizieren.
+  - : Ein Integer, der die Usage Page-Komponente des HID-Usage repräsentiert, die mit dieser Sammlung verbunden ist. Die Verwendung für eine oberste Sammlungsebene wird verwendet, um den Gerätetyp zu identifizieren.
 
-    Standardwerte für HID-Nutzungen finden Sie im Dokument [HID Usage Tables](https://usb.org/document-library/hid-usage-tables-16).
+    Standard-HID-Usage-Werte finden Sie im Dokument [HID Usage Tables](https://usb.org/document-library/hid-usage-tables-17)
 
 - `usage`
-  - : Ein Integer, der die Nutzungs-ID-Komponente der HID-Nutzung darstellt, die mit dieser Sammlung verbunden ist.
+  - : Ein Integer, der die Usage-ID-Komponente des HID-Usage repräsentiert, die mit dieser Sammlung verbunden ist.
 - `type`
-  - : Ein 8-Bit-Wert, der den Sammlungstyp darstellt, welcher eine unterschiedliche Beziehung zwischen den gruppierten Elementen beschreibt. Einer der folgenden:
+  - : Ein 8-Bit-Wert, der den Sammlungstyp repräsentiert, welcher eine unterschiedliche Beziehung zwischen den gruppierten Elementen beschreibt. Einer von:
     - `0x00`
       - : Physikalisch (Gruppe von Achsen)
     - `0x01`
       - : Anwendung (Maus, Tastatur)
     - `0x02`
-      - : Logisch (verknüpfte Daten)
+      - : Logisch (zusammenhängende Daten)
     - `0x03`
       - : Bericht
     - `0x04`
-      - : Benannte Anordnung
+      - : Benanntes Array
     - `0x05`
-      - : Nutzungsumschaltung
+      - : Usage-Schalter
     - `0x06`
-      - : Veränderte Nutzung
+      - : Verwendung modifiziert
     - `0x07` bis `0x7F`
-      - : Für zukünftige Verwendung reserviert
+      - : Für zukünftige Nutzung reserviert
     - `0x80` bis `0xFF`
-      - : Vom Hersteller definiert
+      - : Vom Anbieter definiert
 
     Weitere Informationen zu diesen Typen finden Sie im Dokument [Device Class Definition](https://www.usb.org/document-library/device-class-definition-hid-111).
 
 - `children`
-  - : Ein Array von Unter-Sammlungen, die dasselbe Format wie eine oberste Sammlung haben.
+  - : Ein Array von Unter-Sammlungen, das dasselbe Format wie eine Sammlung auf oberster Ebene hat.
 - `inputReports`
-  - : Ein Array von `inputReport`-Elementen, die einzelne Eingabemeldungen darstellen, die in dieser Sammlung beschrieben sind.
+  - : Ein Array von `inputReport`-Elementen, die einzelne Eingabereports darstellen, die in dieser Sammlung beschrieben werden.
 - `outputReports`
-  - : Ein Array von `outputReport`-Elementen, die einzelne Ausgabemeldungen darstellen, die in dieser Sammlung beschrieben sind.
+  - : Ein Array von `outputReport`-Elementen, die einzelne Ausgabereports darstellen, die in dieser Sammlung beschrieben werden.
 - `featureReports`
-  - : Ein Array von `featureReport`-Elementen, die einzelne Merkmalberichte darstellen, die in dieser Sammlung beschrieben sind.
+  - : Ein Array von `featureReport`-Elementen, die einzelne Feature-Reports darstellen, die in dieser Sammlung beschrieben werden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie auf die verschiedenen Elemente zugreifen können, nachdem die `collections`-Eigenschaft zurückgegeben wurde. Weitere Beispiele und Live-Demos finden Sie im Artikel [Anschluss an ungewöhnliche HID-Geräte](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt, wie Sie auf die verschiedenen Elemente zugreifen können, nachdem die `collections`-Eigenschaft zurückgegeben wurde. Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 for (const collection of device.collections) {
