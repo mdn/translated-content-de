@@ -6081,6 +6081,7 @@
 /de/docs/MDN/User_guide/Troubleshooting_KumaScript_errors	https://github.com/mdn/yari/tree/main/docs/kumascript/troubleshooting-errors.md
 /de/docs/MDN/Writing_guidelines/Creating_moving_deleting	/de/docs/MDN/Writing_guidelines/Howto/Creating_moving_deleting
 /de/docs/MDN/Writing_guidelines/Howto/Tag	/de/docs/MDN/Writing_guidelines/Howto
+/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_module_landing_page_template	/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_module_page_template
 /de/docs/MDN/Writing_guidelines/Page_structures/Quicklinks	/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars
 /de/docs/MDN/Writing_guidelines/Research_technology	/de/docs/MDN/Writing_guidelines/Howto/Research_technology
 /de/docs/MDN/Writing_guidelines/What_we_write/Criteria_for_inclusion	/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion
