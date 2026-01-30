@@ -1,25 +1,27 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: CSS-Raster"
-short-title: "Test: CSS-Raster"
+title: "Testen Sie Ihre Fähigkeiten: CSS-Grids"
+short-title: "Test: CSS-Grid"
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Grid
 l10n:
-  sourceCommit: d0be159e6119ff73453bea6d224f0a2056307aa4
+  sourceCommit: 143f7345a4276156679d816a153470fe1fc6f3f8
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Grids", "Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension", "Learn_web_development/Core/CSS_layout")}}
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen festzustellen, ob Sie verstehen, wie ein [Raster und Rasterelemente](/de/docs/Learn_web_development/Core/CSS_layout/Grids) sich verhalten. Sie werden mehrere kleine Aufgaben bearbeiten, die verschiedene Elemente des Materials verwenden, das Sie gerade abgedeckt haben.
+Ziel dieses Fähigkeitstests ist es, zu prüfen, ob Sie verstehen, wie ein [Grid und Grid-Elemente](/de/docs/Learn_web_development/Core/CSS_layout/Grids) funktionieren. Sie werden mehrere kleine Aufgaben bearbeiten, die verschiedene Elemente des gerade behandelten Materials nutzen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung: Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## Aufgabe 1
+## CSS-Grids 1
 
-In dieser Aufgabe möchten wir, dass Sie ein Raster erstellen, in das sich die vier Kind-Elemente automatisch einfügen. Das Raster sollte drei Spalten haben, die den verfügbaren Platz gleichmäßig teilen, und einen 20-Pixel-Abstand zwischen den Spalten- und Reihen-Spuren. Versuchen Sie danach, mehr Kindbehälter innerhalb des Elternbehälters mit der Klasse `grid` hinzuzufügen und beobachten Sie, wie sie sich standardmäßig verhalten.
+In dieser Aufgabe möchten wir, dass Sie ein Grid erstellen, in das die vier Kind-Elemente automatisch platziert werden. Das Grid sollte drei Spalten haben, die den verfügbaren Platz gleichmäßig teilen, mit einem `20px` Abstand zwischen Spalten- und Zeilenspuren. Danach versuchen Sie, weitere Kind-Elemente im übergeordneten Container mit der `grid`-Klasse hinzuzufügen und beobachten, wie sie sich standardmäßig verhalten.
 
-Ihr Endergebnis sollte wie folgt aussehen:
+Der Ausgangspunkt der Aufgabe sieht so aus:
 
-{{EmbedLiveSample("grid1-finish", "", "160px")}}
+{{EmbedLiveSample("grid1-start", "", "220px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___grid1-start live-sample___grid1-finish
 <div class="grid">
@@ -48,14 +50,14 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Das fertige Layout sollte so aussehen:
 
-{{EmbedLiveSample("grid1-start", "", "220px")}}
+{{EmbedLiveSample("grid1-finish", "", "160px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu anzeigen</summary>
 
-Erstellen Sie ein Raster mit `display: grid` mit drei Spalten unter Verwendung von `grid-template-columns` und einem `gap` zwischen den Elementen:
+Erstellen Sie ein Grid mit `display: grid` und drei Spalten mit `grid-template-columns` sowie einem `gap` zwischen den Elementen:
 
 ```css live-sample___grid1-finish
 .grid {
@@ -67,13 +69,17 @@ Erstellen Sie ein Raster mit `display: grid` mit drei Spalten unter Verwendung v
 
 </details>
 
-## Aufgabe 2
+## CSS-Grids 2
 
-In dieser Aufgabe haben wir bereits ein definiertes Raster. Wir möchten, dass Sie die CSS-Regeln für die beiden Kind-Elemente bearbeiten, sodass sie jeweils mehrere Rasterspuren überspannen. Das zweite Element sollte das erste überlagern, wie in der folgenden Darstellung gezeigt:
+In dieser Aufgabe haben wir bereits ein definiertes Grid. Wir möchten, dass Sie die CSS-Regeln für die beiden Kind-Elemente so bearbeiten, dass jedes von ihnen mehrere Grid-Spuren überspannt. Das zweite Element sollte das erste überlagern.
 
-{{EmbedLiveSample("grid2-finish", "", "340px")}}
+**Bonusfrage:** Können Sie nun das erste Element oben anzeigen, ohne die Reihenfolge der Elemente im Quellcode zu ändern?
 
-**Bonusfrage:** Können Sie jetzt bewirken, dass das erste Element ohne Änderung der Reihenfolge der Elemente im Quellcode oben angezeigt wird?
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{EmbedLiveSample("grid2-start", "", "340px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___grid2-start live-sample___grid2-finish
 <div class="grid">
@@ -118,15 +124,14 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Das Layout sollte so aussehen, nachdem Sie die Aufgabe abgeschlossen haben:
 
-{{EmbedLiveSample("grid2-start", "", "340px")}}
+{{EmbedLiveSample("grid2-finish", "", "340px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
-Es ist möglich, Elemente zu schichten, indem sie dieselben Rasterzellen belegen.
-Eine Option ist die Verwendung der untenstehenden Kurzschreibweisen, jedoch wäre es auch korrekt, das Langkommando `grid-row-start` zu verwenden.
+Es ist möglich, Elemente zu überlagern, indem sie dieselben Grid-Zellen belegen. Eine Option ist die Verwendung der untenstehenden Kurzform, es wäre jedoch korrekt, die Langform wie `grid-row-start` zu nutzen.
 
 ```css live-sample___grid2-finish
 .item1 {
@@ -140,15 +145,15 @@ Eine Option ist die Verwendung der untenstehenden Kurzschreibweisen, jedoch wär
 }
 ```
 
-Für die Bonusfrage: Eine Möglichkeit, dies zu erreichen, besteht darin, `order` zu verwenden, das wir im Flexbox-Tutorial behandelt haben.
+Für die Bonusfrage ist eine Möglichkeit, dies zu erreichen, die Verwendung von `order`, welcher wir im Tutorial zu Flexbox begegnet sind.
 
-```css
+```css live-sample___grid2-finish
 .item1 {
   order: 1;
 }
 ```
 
-Eine andere valide Lösung ist die Verwendung von `z-index`:
+Eine weitere gültige Lösung ist die Verwendung von `z-index`:
 
 ```css
 .item1 {
@@ -158,13 +163,15 @@ Eine andere valide Lösung ist die Verwendung von `z-index`:
 
 </details>
 
-## Aufgabe 3
+## CSS-Grids 3
 
-In dieser Aufgabe gibt es vier direkte Kind-Elemente in diesem Raster. Der Ausgangspunkt ist, dass sie sich mittels automatischer Platzierung anzeigen.
+In dieser Aufgabe enthält das Grid vier direkte Kinder. Sie werden derzeit automatisch im Grid platziert.
 
-Um die Aufgabe abzuschließen, verwenden Sie die Eigenschaften `grid-area` und `grid-template-areas`, um die Elemente so anzuordnen, wie in der folgenden Darstellung gezeigt:
+Der Ausgangspunkt der Aufgabe sieht so aus:
 
-{{EmbedLiveSample("grid3-finish", "", "200px")}}
+{{EmbedLiveSample("grid3-start", "", "200px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___grid3-start live-sample___grid3-finish
 <div class="grid">
@@ -194,14 +201,14 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Um diese Aufgabe zu vervollständigen, nutzen Sie die Eigenschaften `grid-area` und `grid-template-areas`, um die Elemente so zu layouten, wie hier gezeigt:
 
-{{EmbedLiveSample("grid3-start", "", "200px")}}
+{{EmbedLiveSample("grid3-finish", "", "200px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Jeder Teil des Layouts benötigt einen Namen mit der Eigenschaft `grid-area` und `grid-template-areas`, um sie anzuordnen. Mögliche Verwirrungspunkte könnten sein, dass man nicht bemerkt, dass man einen `.` setzen muss, um eine Zelle leer zu lassen, oder dass man den Namen wiederholen muss, um ein Element über mehr als eine Spur zu spannen:
+Jeder Teil des Layouts braucht einen Namen, indem man die Eigenschaft `grid-area` und `grid-template-areas` nutzt. Mögliche Verwirrung könnte entstehen, wenn man vergisst, dass man ein `.` setzen sollte, um eine Zelle leer zu lassen, oder dass man den Namen wiederholen sollte, um ein Element über mehr als eine Spur zu spannen:
 
 ```css live-sample___grid3-finish
 .grid {
@@ -233,11 +240,15 @@ Jeder Teil des Layouts benötigt einen Namen mit der Eigenschaft `grid-area` und
 
 </details>
 
-## Aufgabe 4
+## CSS-Grids 4
 
-In dieser Aufgabe müssen Sie sowohl das Grid-Layout als auch Flexbox verwenden, um das unten gezeigte fertige Beispiel nachzubilden. Der Abstand zwischen den Spalten- und Reihen-Spuren sollte 10px betragen. Sie müssen keine Änderungen am HTML vornehmen, um dies zu erreichen.
+In dieser Aufgabe müssen Sie sowohl das Grid-Layout als auch Flexbox verwenden, um das fertige Layout neu zu erstellen. Der Abstand zwischen den Spalten- und Zeilenspuren sollte `10px` betragen. Sie müssen keine Änderungen an der HTML vornehmen, um dies zu erreichen.
 
-{{EmbedLiveSample("grid4-finish", "", "400px")}}
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{EmbedLiveSample("grid4-start", "", "400px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___grid4-start live-sample___grid4-finish
 <div class="container">
@@ -330,17 +341,16 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Das Layout sollte so aussehen, nachdem Sie die Aufgabe abgeschlossen haben:
 
-{{EmbedLiveSample("grid4-start", "", "400px")}}
+{{EmbedLiveSample("grid4-finish", "", "400px")}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
-Der Container muss ein Raster-Layout sein, da wir eine Ausrichtung in Reihen und Spalten haben - zweidimensional.
-Das `<ul>` muss ein Flex-Container sein, da die Tags (`<li>` Elemente) nicht in Spalten, sondern nur in Reihen angeordnet sind und sie zentriert im Raum mit der Ausrichtungseigenschaft `justify-content` auf `center` gesetzt sind.
+Der Container muss ein Grid-Layout sein, da wir Ausrichtungen in Reihen und Spalten haben - zweidimensional. Die `<ul>` muss ein Flex-Container sein, da die Tags (`<li>`-Elemente) nicht in Spalten, sondern nur in Reihen ausgerichtet sind und sie mit der Eigenschaften `justify-content` auf `center` in den Raum zentriert werden.
 
-Es kann versucht werden, Flexbox auf dem Container zu verwenden und die Karten mit Prozentwerten zu beschränken. Es kann auch versucht werden, die Elemente in ein Raster-Layout zu verwandeln, wobei zu beachten ist, dass die Elemente in zwei Dimensionen nicht ausgerichtet sind, sodass Flexbox nicht die beste Wahl ist.
+Sie können versuchen, Flexbox auf den Container anzuwenden und die Karten mit Prozentwerten einzuschränken. Sie können auch versuchen, die Elemente in ein Grid-Layout zu verwandeln. Beachten Sie in diesem Fall, dass die Elemente nicht in zwei Dimensionen ausgerichtet sind, daher ist Flexbox nicht die beste Wahl.
 
 ```css live-sample___grid4-finish
 .container {

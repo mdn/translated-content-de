@@ -1,27 +1,29 @@
 ---
-title: "Testen Sie Ihr Können: Positionierung"
+title: "Testen Sie Ihre Fähigkeiten: Positionierung"
 short-title: "Test: Positionierung"
 slug: Learn_web_development/Core/CSS_layout/Test_your_skills/Position
 l10n:
-  sourceCommit: 953bce9928ec0693e419f7c0e1c786f29a7570e9
+  sourceCommit: 143f7345a4276156679d816a153470fe1fc6f3f8
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Positioning", "Learn_web_development/Core/CSS_layout/Flexbox", "Learn_web_development/Core/CSS_layout")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie das [Positionieren in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mithilfe der CSS-{{CSSxRef("position")}}-Eigenschaft und ihren Werten verstehen. Sie werden zwei kleine Aufgaben durchgehen, die verschiedene Elemente des Materials verwenden, das Sie gerade behandelt haben.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie das [Positionieren in CSS](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) mithilfe der CSS-{{CSSxRef("position")}}-Eigenschaft und deren Werte verstanden haben. Sie werden an zwei kleinen Aufgaben arbeiten, die verschiedene Elemente des Materials nutzen, das Sie gerade durchgearbeitet haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung des Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
-## Aufgabe 1
+## Positionierung 1
 
-Um diese Aufgabe abzuschließen, positionieren Sie das Element mit der Klasse `target` oben rechts im Container, der die 5px graue Umrandung hat.
+Um diese Aufgabe abzuschließen, positionieren Sie das Element mit der Klasse `target` in der oberen rechten Ecke des Containers, der einen `5px` grauen Rahmen hat.
 
-Ihr Endergebnis sollte wie diese fertige Darstellung aussehen:
+**Bonusfrage:** Können Sie das Ziel ändern, sodass es unterhalb des Textes angezeigt wird?
 
-{{EmbedLiveSample("position1-finish", "", "250px")}}
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
 
-**Bonusfrage:** Können Sie das Ziel unterhalb des Textes anzeigen lassen?
+{{EmbedLiveSample("position1-start", "", "400px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___position1-start live-sample___position1-finish
 <div class="container">
@@ -70,14 +72,15 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Wenn Sie diese Aufgabe abgeschlossen haben, sollte die Platzierung des Ziels so aussehen:
 
-{{EmbedLiveSample("position1-start", "", "400px")}}
+{{EmbedLiveSample("position1-finish", "", "250px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Dies erfordert `position: relative` und `position: absolute` und ein Verständnis dafür, wie sie zueinander in Bezug stehen, indem die relative Positionierung einen neuen Positionierungskontext erstellt. Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` auf das Kind anwenden, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel relativ zum Viewport positioniert.
+Dafür benötigen Sie `position: relative` und `position: absolute` und das Verständnis, wie sie zueinander in Bezug auf die Erstellung eines neuen Positionierungskontexts durch relative Positionierung stehen.
+Ein wahrscheinliches Problem könnte sein, dass Sie `position: absolute` zum Kind hinzufügen, ohne `position: relative` auf den Container anzuwenden. In diesem Fall wird das Ziel relativ zum Viewport positioniert.
 
 ```css live-sample___position1-finish
 .container {
@@ -91,15 +94,19 @@ Dies erfordert `position: relative` und `position: absolute` und ein Verständni
 }
 ```
 
-Für die Bonusfrage müssen Sie einen negativen `z-index` zum Ziel hinzufügen, zum Beispiel `z-index: -2`.
+Für die Bonusfrage müssen Sie dem Ziel einen negativen `z-index` hinzufügen, zum Beispiel `z-index: -2`.
 
 </details>
 
-## Aufgabe 2
+## Positionierung 2
 
-Im Anfangszustand dieser Aufgabe scrollt die Sidebar mit dem Inhalt, wenn Sie den Inhalt scrollen. Sie sollen den Code so aktualisieren, dass die Sidebar (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt, wie in dieser fertigen Darstellung gezeigt:
+Im Ausgangszustand dieser Aufgabe scrollt die Seitenleiste mit dem Inhalt, wenn Sie den Inhalt scrollen. Wir möchten, dass Sie den Code so aktualisieren, dass die Seitenleiste (`<div class="sidebar">`) an Ort und Stelle bleibt und nur der Inhalt scrollt.
 
-{{EmbedLiveSample("position2-finish", "", "400px")}}
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+
+{{EmbedLiveSample("position2-start", "", "400px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___position2-start live-sample___position2-finish
 <div class="container">
@@ -166,14 +173,14 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Das fertige Layout sollte so aussehen (scrollen Sie, um das Verhalten zu sehen):
 
-{{EmbedLiveSample("position2-start", "", "400px")}}
+{{EmbedLiveSample("position2-finish", "", "400px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges Sidebar-CSS sollte so aussehen:
+Ihr fertiges CSS für die Seitenleiste sollte so aussehen:
 
 ```css live-sample___position2-finish
 .sidebar {
