@@ -3,7 +3,7 @@ title: "Testen Sie Ihre Fähigkeiten: Formulare und Schaltflächen"
 short-title: "Test: Formulare und Schaltflächen"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 1cf3cb0fb22bf89c780fefe74c3db7f1b9e8ca09
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_forms", "Learn_web_development/Core/Structuring_content/Forms_challenge", "Learn_web_development/Core/Structuring_content")}}
@@ -11,21 +11,21 @@ l10n:
 Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie verstehen, wie [HTML-Formulare und Schaltflächen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_forms) funktionieren.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unser [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills)-Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Hilfe zu erhalten, lesen Sie bitte unseren [Leitfaden zur Nutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Formulare und Schaltflächen 1
 
-Diese Aufgabe beginnt sanft, indem Sie zwei `<input>`-Elemente für die ID und das Passwort eines Benutzers sowie eine Senden-Schaltfläche erstellen sollen.
+Diese Aufgabe beginnt vorsichtig und fordert Sie auf, zwei `<input>`-Elemente für die Benutzer-ID und das Passwort zu erstellen, zusammen mit einer Abschicken-Schaltfläche.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu erfüllen:
 
-1. Erstellen Sie geeignete Eingaben für Benutzer-ID und Passwort.
+1. Erstellen Sie geeignete Eingabefelder für Benutzer-ID und Passwort.
 2. Sie sollten diese auch semantisch mit ihren Textetiketten verknüpfen.
-3. Erstellen Sie innerhalb des verbleibenden Listenelements eine Senden-Schaltfläche mit dem Text "Log in".
+3. Erstellen Sie eine Abschicken-Schaltfläche im verbleibenden Listenelement, mit dem Schaltflächentext "Log in".
 
 <!-- Code shared across examples -->
 
-```css hidden live-sample___forms-buttons-1 live-sample___forms-buttons-2 live-sample___forms-buttons-3 live-sample___forms-buttons-4 live-sample___forms-buttons-5 live-sample___forms-buttons-6
+```css hidden live-sample___forms-buttons-1 live-sample___forms-buttons-2 live-sample___forms-buttons-3 live-sample___forms-buttons-4 live-sample___forms-buttons-5 live-sample___forms-buttons-6 live-sample___forms-buttons-1-finished live-sample___forms-buttons-2-finished live-sample___forms-buttons-3-finished live-sample___forms-buttons-4-finished live-sample___forms-buttons-5-finished live-sample___forms-buttons-6-finished
 body {
   background-color: white;
   color: #333333;
@@ -45,6 +45,12 @@ body {
 
 <!-- Example-specific code -->
 
+Der Ausgangspunkt der Aufgabe sieht wie folgt aus:
+
+{{ EmbedLiveSample("forms-buttons-1", "100%", 150) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
+
 ```html live-sample___forms-buttons-1
 <form>
   <ul>
@@ -55,14 +61,16 @@ body {
 </form>
 ```
 
-{{ EmbedLiveSample("forms-buttons-1", "100%", 150) }}
+Das aktualisierte Formular sollte wie folgt aussehen:
+
+{{ EmbedLiveSample("forms-buttons-1-finished", "100%", 150) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___forms-buttons-1-finished
 <form>
   <ul>
     <li>
@@ -84,14 +92,20 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## Formulare und Schaltflächen 2
 
-Die nächste Aufgabe erfordert, dass Sie funktionierende Gruppen von Kontrollkästchen und Optionsfeldern aus den bereitgestellten Textetiketten erstellen.
+Die nächste Aufgabe erfordert, dass Sie funktionsfähige Sets von Kontrollkästchen und Optionsfeldern aus den bereitgestellten Textetiketten erstellen.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu erfüllen:
 
-1. Verwandeln Sie den Inhalt des ersten `<fieldset>` in eine Gruppe von Optionsfeldern - Sie sollten nur ein Pony-Charakter gleichzeitig auswählen können.
+1. Wandeln Sie den Inhalt des ersten `<fieldset>` in eine Gruppe von Optionsfeldern um – Sie sollten nur einen Pony-Charakter gleichzeitig auswählen können.
 2. Stellen Sie sicher, dass das erste Optionsfeld beim Laden der Seite ausgewählt ist.
-3. Verwandeln Sie den Inhalt des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen.
-4. Fügen Sie ein paar weitere Hotdog-Optionen Ihrer Wahl hinzu.
+3. Wandeln Sie den Inhalt des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen um.
+4. Fügen Sie ein paar zusätzliche Hotdog-Optionen Ihrer Wahl hinzu.
+
+Der Ausgangspunkt der Aufgabe sieht wie folgt aus:
+
+{{ EmbedLiveSample("forms-buttons-2", "100%", 350) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___forms-buttons-2
 <form>
@@ -124,14 +138,16 @@ Um die Aufgabe abzuschließen:
 </form>
 ```
 
-{{ EmbedLiveSample("forms-buttons-2", "100%", 350) }}
+Das aktualisierte Formular sollte wie folgt aussehen:
+
+{{ EmbedLiveSample("forms-buttons-2-finished", "100%", 360) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___forms-buttons-2-finished
 <form>
   <fieldset>
     <legend>Who is your favorite pony?</legend>
@@ -180,12 +196,18 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## Formulare und Schaltflächen 3
 
-In dieser Aufgabe erkunden Sie einige spezifischere Eingabetypen. Wir möchten, dass Sie geeignete Eingaben erstellen, damit ein Benutzer seine Details für folgende Punkte aktualisieren kann:
+In dieser Aufgabe erkunden Sie einige spezifische Eingabetypen. Wir möchten, dass Sie geeignete Eingabefelder für folgende Nutzerinformationen erstellen:
 
 1. E-Mail
 2. Website
 3. Telefonnummer
 4. Lieblingsfarbe
+
+Der Ausgangspunkt der Aufgabe sieht wie folgt aus:
+
+{{ EmbedLiveSample("forms-buttons-3", "100%", 250) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___forms-buttons-3
 <form>
@@ -210,14 +232,16 @@ In dieser Aufgabe erkunden Sie einige spezifischere Eingabetypen. Wir möchten, 
 </form>
 ```
 
-{{ EmbedLiveSample("forms-buttons-3", "100%", 250) }}
+Das aktualisierte Formular sollte wie folgt aussehen:
+
+{{ EmbedLiveSample("forms-buttons-3-finished", "100%", 250) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___forms-buttons-3-finished
 <form>
   <h2>Edit your preferences</h2>
   <ul>
@@ -248,13 +272,19 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## Formulare und Schaltflächen 4
 
-Jetzt ist es an der Zeit, ein Dropdown-Auswahlmenü zu implementieren, damit ein Benutzer sein Lieblingsessen aus den bereitgestellten Optionen auswählen kann.
+Jetzt ist es an der Zeit, ein Dropdown-Auswahlmenü zu implementieren, das es einem Benutzer ermöglicht, sein Lieblingsessen aus den bereitgestellten Optionen auszuwählen.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu erfüllen:
 
-1. Erstellen Sie eine grundlegende Auswahlbox-Struktur.
-2. Verknüpfen Sie diese semantisch mit dem bereitgestellten "Essen"-Etikett.
-3. Teilen Sie die Optionen innerhalb der Liste in zwei Untergruppen auf - "Hauptgerichte" und "Snacks".
+1. Erstellen Sie eine grundlegende Struktur für eine Auswahlliste.
+2. Verknüpfen Sie diese semantisch mit dem bereitgestellten "Food"-Label.
+3. Teilen Sie die Auswahlmöglichkeiten in der Liste in 2 Untergruppen auf — "Hauptgerichte" und "Snacks".
+
+Der Ausgangspunkt der Aufgabe sieht wie folgt aus:
+
+{{ EmbedLiveSample("forms-buttons-4", "100%", 120) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___forms-buttons-4
 <form>
@@ -271,14 +301,16 @@ Um die Aufgabe abzuschließen:
 </form>
 ```
 
-{{ EmbedLiveSample("forms-buttons-4", "100%", 250) }}
+Das aktualisierte Formular sollte wie folgt aussehen:
+
+{{ EmbedLiveSample("forms-buttons-4-finished", "100%", 120) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___forms-buttons-4-finished
 <form>
   <ul>
     <li>
@@ -309,13 +341,19 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## Formulare und Schaltflächen 5
 
-In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularfunktionen strukturieren.
+In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularelemente strukturieren.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu erfüllen:
 
-1. Teilen Sie die ersten beiden und zweiten beiden Formularfelder in zwei separate Container auf, jeder mit einer beschreibenden Legende (verwenden Sie "Persönliche Details" für die ersten beiden und "Kommentarinformationen" für die zweiten beiden).
-2. Markieren Sie jedes Textetikett mit einem geeigneten Element, sodass es semantisch mit seinem jeweiligen Formularfeld verknüpft ist.
-3. Fügen Sie eine geeignete Gruppe von strukturellen Elementen um die Etikett/Feld-Paare hinzu, um sie zu trennen.
+1. Trennen Sie die ersten beiden und die zweiten beiden Formularfelder in zwei getrennte Container, jeweils mit einer beschreibenden Legende (verwenden Sie "Persönliche Daten" für die ersten beiden und "Kommentarinformationen" für die zweiten beiden).
+2. Markieren Sie jedes Textetikett mit einem geeigneten Element, damit es semantisch mit seinem jeweiligen Formularfeld verknüpft ist.
+3. Fügen Sie eine geeignete Gruppe von Strukturelementen um die Label/Feld-Paare hinzu, um sie voneinander zu trennen.
+
+Der Ausgangspunkt der Aufgabe sieht wie folgt aus:
+
+{{ EmbedLiveSample("forms-buttons-5", "100%", 120) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___forms-buttons-5
 <form>
@@ -333,14 +371,16 @@ Um die Aufgabe abzuschließen:
 </form>
 ```
 
-{{ EmbedLiveSample("forms-buttons-5", "100%", 250) }}
+Das aktualisierte Formular sollte wie folgt aussehen:
+
+{{ EmbedLiveSample("forms-buttons-5-finished", "100%", 300) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___forms-buttons-5-finished
 <form>
   <fieldset>
     <legend>Personal details</legend>
@@ -375,15 +415,21 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## Formulare und Schaltflächen 6
 
-In dieser Aufgabe stellen wir Ihnen ein einfaches Support-Anfrageformular zur Verfügung, und wir möchten, dass Sie einige Validierungsfunktionen hinzufügen. Diese Aufgabe erfordert Wissen, das wir im Artikel „Formulare und Schaltflächen in HTML“ nicht lehren, sodass Sie möglicherweise woanders recherchieren müssen.
+In dieser Aufgabe stellen wir Ihnen ein einfaches Anfrageformular zur Verfügung und möchten, dass Sie einige Validierungsfunktionen hinzufügen. Diese Aufgabe erfordert Kenntnisse, die im Artikel "Formulare und Schaltflächen in HTML" nicht vermittelt werden, daher müssen Sie möglicherweise an anderer Stelle recherchieren.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu erfüllen:
 
-1. Machen Sie alle Eingabefelder verpflichtend, bevor das Formular abgesendet werden kann.
-2. Ändern Sie den Typ der Felder "E-Mail-Adresse" und "Telefonnummer", damit der Browser spezifischere Validierung anwendet, die für die angeforderten Daten geeignet ist.
-3. Geben Sie dem Feld "Benutzername" eine erforderliche Länge von 5 bis 20 Zeichen, dem Feld "Telefonnummer" eine maximale Länge von 15 Zeichen und dem Feld "Kommentar" eine maximale Länge von 200 Zeichen.
+1. Machen Sie alle Eingabefelder obligatorisch, damit das Formular erst abgeschickt werden kann, wenn alle ausgefüllt sind.
+2. Ändern Sie den Typ der Felder "Email address" und "Phone number", sodass der Browser eine spezifische Validierung entsprechend der angefragten Daten durchführt.
+3. Geben Sie dem Feld „User name“ eine erforderliche Länge von 5 bis 20 Zeichen, dem Feld „Phone number“ eine maximale Länge von 15 Zeichen und dem Feld „Comment“ eine maximale Länge von 200 Zeichen.
 
-Versuchen Sie, Ihr Formular zu senden — es sollte sich weigern, gesendet zu werden, bis die oben genannten Anforderungen erfüllt sind, und geeignete Fehlermeldungen anzeigen.
+Versuchen Sie, Ihr Formular abzusenden — es sollte die Einreichung verweigern, bis die oben genannten Einschränkungen eingehalten werden, und geeignete Fehlermeldungen ausgeben.
+
+Der Ausgangspunkt der Aufgabe sieht wie folgt aus:
+
+{{ EmbedLiveSample("forms-buttons-6", "100%", 300) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___forms-buttons-6
 <form>
@@ -412,14 +458,14 @@ Versuchen Sie, Ihr Formular zu senden — es sollte sich weigern, gesendet zu we
 </form>
 ```
 
-{{ EmbedLiveSample("forms-buttons-6", "100%", 300) }}
+Wir haben für diese Aufgabe keinen fertigen Inhalt bereitgestellt, da er genauso aussieht wie der Ausgangspunkt.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___forms-buttons-6-finished
 <form>
   <h2>Enter your support query</h2>
   <ul>

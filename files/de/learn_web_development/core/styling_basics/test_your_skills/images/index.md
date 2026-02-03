@@ -1,25 +1,27 @@
 ---
-title: "Testen Sie Ihr Können: Bilder und Formularelemente"
+title: "Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente"
 short-title: "Test: Bilder und Formulare"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Images
 l10n:
-  sourceCommit: d0be159e6119ff73453bea6d224f0a2056307aa4
+  sourceCommit: a623d4459e2aa00d17dc0fd6b6bc44f56c589950
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}
 
-Ziel dieses Tests ist es, zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
+Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Skill-Tests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu bekommen, lesen Sie unseren Leitfaden zur [Nutzung von Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt mit uns aufnehmen.
 
-## Aufgabe 1
+## Bilder und Formulare 1
 
-In dieser Aufgabe haben Sie ein Bild, das über den Rahmen hinausragt. Wir möchten, dass das Bild verkleinert wird, um in den Rahmen zu passen, ohne zusätzlichen weißen Raum, aber es stört uns nicht, wenn ein Teil des Bildes beschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
+In dieser Aufgabe haben Sie ein Bild, das über den Kasten hinausragt. Wir möchten, dass Sie das Bild so verkleinern, dass es in den Kasten passt, ohne dass zusätzlicher Leerraum bleibt. Es macht uns nichts aus, wenn ein Teil des Bildes abgeschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
 
-Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
 
-{{EmbedLiveSample("images-forms1-finish", "", "260px")}}
+{{EmbedLiveSample("images-forms1-start", "", "260px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___images-forms1-start live-sample___images-forms1-finish
 <div class="box">
@@ -41,15 +43,15 @@ img {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Die aktualisierte Gestaltung sollte wie folgt aussehen:
 
-{{EmbedLiveSample("images-forms1-start", "", "260px")}}
+{{EmbedLiveSample("images-forms1-finish", "", "260px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist in Ordnung, wenn Teile des Bildes beschnitten werden.
-`object-fit: cover` ist die beste Wahl, zudem müssen Sie die Breite und Höhe auf `100%` setzen:
+Es ist in Ordnung, wenn einige Teile des Bildes abgeschnitten werden.
+Die Verwendung von `object-fit: cover` ist die beste Wahl, Sie müssen außerdem die Breite und Höhe auf `100%` setzen:
 
 ```css live-sample___images-forms1-finish
 img {
@@ -61,20 +63,22 @@ img {
 
 </details>
 
-## Aufgabe 2
+## Bilder und Formulare 2
 
 In dieser Aufgabe haben Sie ein einfaches Formular.
 
-Zum Abschließen der Aufgabe:
+Um die Aufgabe abzuschließen:
 
-1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` zu markieren.
-2. Stellen Sie sicher, dass das Formularfeld und der Button dieselbe Schriftgröße wie der Rest des Formulars verwenden.
+1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` anzusprechen.
+2. Geben Sie dem Formularfeld und dem Button die gleiche Textgröße wie dem Rest des Formulars.
 3. Geben Sie dem Formularfeld und dem Button `10px` Abstand.
-4. Geben Sie dem Button einen Hintergrund in `rebeccapurple`, einen weißen Vordergrund, keinen Rahmen und abgerundete Ecken von 5px.
+4. Geben Sie dem Button einen Hintergrund von `rebeccapurple`, weißen Vordergrund, keine Umrandung und abgerundete Ecken von 5px.
 
-Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
 
-{{EmbedLiveSample("images-forms2-finish", "", "80px")}}
+{{EmbedLiveSample("images-forms2-start", "", "80px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___images-forms2-start live-sample___images-forms2-finish
 <form action="" class="my-form" method="post">
@@ -96,14 +100,14 @@ body {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Die aktualisierte Gestaltung sollte wie folgt aussehen:
 
-{{EmbedLiveSample("images-forms2-start", "", "80px")}}
+{{EmbedLiveSample("images-forms2-finish", "", "80px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Hier ist eine Beispiel-Lösung für die Aufgabe:
+Hier ist eine beispielhafte Lösung für die Aufgabe:
 
 ```css live-sample___images-forms2-finish
 .my-form {
@@ -128,15 +132,21 @@ Hier ist eine Beispiel-Lösung für die Aufgabe:
 
 </details>
 
-## Aufgabe 3
+## Bilder und Formulare 3
 
-Die Lösung für diese Aufgabe ist relativ frei gestaltet, und Sie haben viel Flexibilität, was Sie hier tun können. Deshalb bieten wir keine Beispiel-Darstellung an.
+Die Lösung für diese Bewertung ist ziemlich flexibel, und Sie haben viel Spielraum, was Sie hier tun können. Daher bieten wir keine Beispielanzeige an.
 
-Ihr CSS muss Folgendes enthalten:
+Ihr CSS muss Folgendes beinhalten:
 
-1. Einen leichten "Reset", um Schriften, Abstände, Ränder und Größen von Anfang an konsistenter zu machen, wie beschrieben in [Normalizing form behavior](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior).
+1. Einen leichten "Reset", um Schriftarten, Abstände, Ränder und Größen zu Beginn konsistenter zu machen, wie in [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
 2. Eine schöne, konsistente Gestaltung für die Eingabefelder und den Button.
-3. Eine Layout-Technik, um die Eingabefelder und Labels sauber auszurichten.
+3. Eine Layoutechnik, um die Eingabefelder und Labels ordentlich auszurichten.
+
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+
+{{ EmbedLiveSample("forms-2", "100%", 250) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html hidden live-sample___forms-2
 <form>
@@ -193,14 +203,12 @@ body {
 /* Add your code here */
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
-
-{{ EmbedLiveSample("forms-2", "100%", 250) }}
+Wir haben keinen fertigen Inhalt für diese Aufgabe bereitgestellt, da viele gültige Lösungen möglich sind.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges CSS könnte in etwa so aussehen:
+Ihr fertiges CSS könnte so aussehen:
 
 ```css
 /* ... */

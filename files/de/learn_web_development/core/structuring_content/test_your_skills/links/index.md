@@ -3,29 +3,35 @@ title: "Testen Sie Ihre Fähigkeiten: Links"
 short-title: "Test: Links"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Links
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 1cf3cb0fb22bf89c780fefe74c3db7f1b9e8ca09
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content", "Learn_web_development/Core/Structuring_content")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
+Ziel dieser Fähigkeitsprüfung ist es, Ihnen zu helfen zu beurteilen, ob Sie verstanden haben, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills)-Leitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Verwendung der Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 > [!NOTE]
-> Einige der Links im Startcode für diese Aufgaben haben das Attribut `target="_blank"`, sodass beim Klicken darauf die verlinkte Seite in einem neuen Tab geöffnet wird, anstatt im gleichen Tab. Dies ist nicht unbedingt Best Practice, aber wir haben es hier getan, damit die Seiten nicht im MDN Playground Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode dadurch verloren geht!
+> Einige der Links im Startcode für diese Aufgaben haben das Attribut `target="_blank"` gesetzt, so dass bei einem Klick darauf die verlinkte Seite in einem neuen Tab öffnet, anstatt im gleichen Tab. Dies ist nicht die streng beste Praxis, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground Ausgabe-`<iframe>` geöffnet werden und dadurch Ihr Beispielcode entfernt wird!
 
-## Aufgabe 1
+## Links 1
 
-Bei dieser Aufgabe möchten wir, dass Sie helfen, die Links auf unserer Informationsseite über Wale zu vervollständigen.
+In dieser Aufgabe möchten wir, dass Sie uns helfen, die Links auf unserer Informationsseite über Wale zu vervollständigen.
 
 Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte auf eine Seite namens `whales.html` verlinken, die sich im gleichen Verzeichnis wie die aktuelle Seite befindet.
-2. Geben Sie ihm einen Tooltip, der dem Benutzer beim Überfahren mit der Maus mitteilt, dass die Seite Informationen über Blauwale und Pottwale enthält.
-3. Der zweite Link sollte in einen anklickbaren Link verwandelt werden, um eine E-Mail im Standard-Mailprogramm des Benutzers zu öffnen, wobei der Empfänger auf "whales\@example.com" gesetzt ist.
-4. Bonuspunkte, wenn Sie es auch so einrichten, dass die Betreffzeile der E-Mail automatisch als "Frage über Wale" ausgefüllt wird.
+1. Der erste Link sollte mit einer Seite namens `whales.html` verlinkt werden, die im gleichen Verzeichnis wie die aktuelle Seite liegt.
+2. Geben Sie ihm ein Tooltip, das dem Benutzer bei Hover anzeigt, dass die Seite Informationen über Blauwale und Pottwale enthält.
+3. Der zweite Link sollte in einen Link umgewandelt werden, auf den Sie klicken können, um eine E-Mail in der Standard-Mailanwendung des Benutzers zu öffnen, mit dem Empfänger "whales\@example.com".
+4. Bonuspunkte, wenn Sie es auch so einstellen, dass die Betreffzeile der E-Mail automatisch mit "Frage zu Walen" ausgefüllt wird.
+
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+
+{{ EmbedLiveSample('links-1', "100%", 170) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___links-1
 <h1>Information on Whales</h1>
@@ -41,7 +47,7 @@ Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 </p>
 ```
 
-```css hidden live-sample___links-1
+```css hidden live-sample___links-1 live-sample___links-1-finished
 body {
   background-color: white;
   color: #333333;
@@ -70,14 +76,16 @@ p {
 }
 ```
 
-{{ EmbedLiveSample('links-1', "100%", 170) }}
+Der aktualisierte Inhalt sollte folgendermaßen aussehen:
+
+{{ EmbedLiveSample('links-1-finished', "100%", 170) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiges HTML sollte folgendermaßen aussehen:
 
-```html-nolint
+```html-nolint live-sample___links-1-finished
 <h1>Information on Whales</h1>
 
 <p>
@@ -95,16 +103,22 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Aufgabe 2
+## Links 2
 
-In dieser Aufgabe möchten wir, dass Sie die vier Links ausfüllen, damit sie zu den entsprechenden Orten verlinken.
+In dieser Aufgabe möchten wir, dass Sie die vier Links ausfüllen, sodass sie an die entsprechenden Stellen verlinken.
 
 Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte zu einem Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
-2. Der zweite Link sollte zu einem Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, das eine Verzeichnisebene über dem aktuellen Verzeichnis liegt.
-3. Der dritte Link sollte zur UK Google Bilder-Suche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildsuche befindet sich in einem Unterverzeichnis namens `imghp`.
-4. Der vierte Link sollte zu dem Absatz am Ende der aktuellen Seite verlinken. Er hat die ID `bottom`.
+1. Der erste Link sollte zu einem Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` innerhalb des aktuellen Verzeichnisses befindet.
+2. Der zweite Link sollte zu einem Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, welches sich eine Verzeichnisebene über dem aktuellen Verzeichnis befindet.
+3. Der dritte Link sollte zur UK-Google-Bildersuche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
+4. Der vierte Link sollte zu dem Absatz am Ende der aktuellen Seite verlinken. Dieser hat die ID `bottom`.
+
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+
+{{ EmbedLiveSample('links-2', "100%", 200) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___links-2
 <h1>List path tests</h1>
@@ -121,7 +135,7 @@ Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 <p id="bottom">The bottom of the page!</p>
 ```
 
-```css hidden live-sample___links-2
+```css hidden live-sample___links-2 live-sample___links-2-finished
 body {
   background-color: white;
   color: #333333;
@@ -150,14 +164,16 @@ div {
 }
 ```
 
-{{ EmbedLiveSample('links-2', "100%", 200) }}
+Der aktualisierte Inhalt sollte folgendermaßen aussehen:
+
+{{ EmbedLiveSample('links-2-finished', "100%", 200) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiges HTML sollte folgendermaßen aussehen:
 
-```html-nolint
+```html-nolint live-sample___links-2-finished
 <h1>List path tests</h1>
 
 <ul>
@@ -182,14 +198,20 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Aufgabe 3
+## Links 3
 
-Die folgenden Links verweisen auf eine Informationsseite über Narwale, eine Support-E-Mail-Adresse und ein PDF-Datenblatt, das 4MB groß ist.
+Die folgenden Links verweisen auf eine Informationsseite über Narwale, eine Support-E-Mail-Adresse und eine 4MB große PDF-Datei mit Fakten.
 
 Um die Aufgabe abzuschließen:
 
-1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Link-Text und überarbeiten Sie sie so, dass sie einen guten Link-Text enthalten.
+1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Linktext und schreiben Sie sie so um, dass sie guten Linktext haben.
 2. Fügen Sie eine Warnung zu allen Links hinzu, die eine Warnung benötigen.
+
+Der Ausgangspunkt der Aufgabe sieht folgendermaßen aus:
+
+{{ EmbedLiveSample('links-3', "100%", 200) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___links-3
 <p>
@@ -231,12 +253,12 @@ p {
 }
 ```
 
-{{ EmbedLiveSample('links-3', "100%", 200) }}
+Wir haben keine abgeschlossene Inhaltserstellung für diese Aufgabe bereitgestellt, da dies die Lösung verraten würde.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiges HTML sollte folgendermaßen aussehen:
 
 ```html-nolint
 <p>

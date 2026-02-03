@@ -1,29 +1,33 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Werte und Einheiten"
+title: "Testen Sie Ihr Können: Werte und Einheiten"
 short-title: "Test: Werte und Einheiten"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Values
 l10n:
-  sourceCommit: 9793615d7d2055dd13f5d3c588307e4dc2a7b92a
+  sourceCommit: a623d4459e2aa00d17dc0fd6b6bc44f56c589950
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Values_and_units", "Learn_web_development/Core/Styling_basics/Sizing", "Learn_web_development/Core/Styling_basics")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie die verschiedenen Arten von [Werten und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie die verschiedenen [Werte und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Verwendung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Aufgabe 1
+## Werte und Einheiten 1
 
-In dieser Aufgabe hat der erste Listeneintrag eine Hintergrundfarbe mit einem hexadezimalen Farbcode erhalten. Vervollständigen Sie das CSS, indem Sie dieselbe Farbe in verschiedenen Formaten verwenden, plus einem letzten Listeneintrag, bei dem Sie den Hintergrund halbtransparent machen sollten.
+In dieser Aufgabe wurde dem ersten Listenelement eine Hintergrundfarbe mit einem Hex-Farbcode zugewiesen. Vervollständigen Sie das CSS mit derselben Farbe in verschiedenen Formaten, plus ein letztes Listenelement, bei dem Sie den Hintergrund halbtransparent machen sollten.
 
-- Der zweite Listeneintrag sollte die RGB-Farbe verwenden.
-- Der dritte sollte HSL-Farbe verwenden.
-- Der vierte sollte RGB-Farbe verwenden, jedoch mit einem Alphakanal, der auf `0.6` gesetzt ist.
+- Das zweite Listenelement sollte RGB-Farbe verwenden.
+- Das dritte sollte HSL-Farbe verwenden.
+- Das vierte sollte RGB-Farbe verwenden, jedoch mit dem Alpha-Kanal auf `0.6` gesetzt.
 
-Sie [können die hexadezimale Farbe unter convertingcolors.com umwandeln](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie Sie die Werte in CSS verwenden. Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
+Sie können die Hex-Farbe mit [convertingcolors.com](https://convertingcolors.com/hex-color-86DEFA.html) konvertieren. Sie müssen herausfinden, wie Sie die Werte in CSS verwenden.
 
-{{EmbedLiveSample("values1-finish", "", "300px")}}
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{EmbedLiveSample("values1-start", "", "300px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___values1-start live-sample___values1-finish
 <ul>
@@ -56,14 +60,14 @@ li {
 /* Add styles here */
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Die aktualisierte Gestaltung sollte so aussehen:
 
-{{EmbedLiveSample("values1-start", "", "300px")}}
+{{EmbedLiveSample("values1-finish", "", "300px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Durch die Verwendung eines [Farbumwandlungstools](https://convertingcolors.com/hex-color-86DEFA.html) sollten Sie in der Lage sein, verschiedene [Farbfunktionen](/de/docs/Web/CSS/Reference/Values/color_value#syntax) zu verwenden, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
+Indem Sie ein [Farbkonvertierungstool](https://convertingcolors.com/hex-color-86DEFA.html) verwenden, sollten Sie in der Lage sein, verschiedene [Farbfunktionen](/de/docs/Web/CSS/Reference/Values/color_value#syntax) zu verwenden, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
 
 ```css live-sample___values1-finish
 .rgb {
@@ -81,18 +85,20 @@ Durch die Verwendung eines [Farbumwandlungstools](https://convertingcolors.com/h
 
 </details>
 
-## Aufgabe 2
+## Werte und Einheiten 2
 
-In dieser Aufgabe möchten wir, dass Sie die Schriftgröße verschiedener Textelemente festlegen:
+In dieser Aufgabe möchten wir, dass Sie die Schriftgröße verschiedener Textteile festlegen:
 
-- Das `<h1>` Element sollte `50px` sein.
-- Das `<h2>` Element sollte `2em` sein.
-- Alle `<p>` Elemente sollten `16px` sein.
-- Ein `<p>` Element, das direkt nach einem `<h1>` steht, sollte `120%` sein.
+- Das `<h1>`-Element sollte `50px` sein.
+- Das `<h2>`-Element sollte `2em` sein.
+- Alle `<p>`-Elemente sollten `16px` sein.
+- Ein `<p>`-Element, das direkt nach einem `<h1>` kommt, sollte `120%` sein.
 
-Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
+Der Ausgangspunkt der Aufgabe sieht so aus:
 
-{{EmbedLiveSample("values2-finish", "", "420px")}}
+{{EmbedLiveSample("values2-start", "", "420px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___values2-start live-sample___values2-finish
 <h1>Level 1 heading</h1>
@@ -130,9 +136,11 @@ h1 + p {
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Die aktualisierte Gestaltung sollte so aussehen:
 
-{{EmbedLiveSample("values2-start", "", "420px")}}
+{{EmbedLiveSample("values2-finish", "", "430px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -159,13 +167,15 @@ h1 + p {
 
 </details>
 
-## Aufgabe 3
+## Werte und Einheiten 3
 
-Um die Aufgabe abzuschließen, aktualisieren Sie das CSS, um das Hintergrundbild so zu verschieben, dass es horizontal zentriert ist und `20%` von der Oberseite des Kastens entfernt ist.
+Um die Aufgabe zu vervollständigen, aktualisieren Sie das CSS, um das Hintergrundbild so zu verschieben, dass es horizontal zentriert und `20%` von der Oberseite des Kastens entfernt ist.
 
-Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
+Der Ausgangspunkt der Aufgabe sieht so aus:
 
-{{EmbedLiveSample("values3-finish", "", "400px")}}
+{{EmbedLiveSample("values3-start", "", "400px")}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___values3-start live-sample___values3-finish
 <div class="box"></div>
@@ -183,9 +193,9 @@ Ihr Endergebnis sollte wie die folgende Darstellung aussehen:
 }
 ```
 
-Dies ist der Anfangszustand der Aufgabe:
+Die aktualisierte Gestaltung sollte so aussehen:
 
-{{EmbedLiveSample("values3-start", "", "400px")}}
+{{EmbedLiveSample("values3-finish", "", "400px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>

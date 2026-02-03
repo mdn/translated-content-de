@@ -2,10 +2,10 @@
 title: var()
 slug: Web/CSS/Reference/Values/var
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: 98bbdcd90e5487539cebe19b12fe3d731fb5a03e
 ---
 
-Die **`var()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann verwendet werden, um den Wert einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) (manchmal als "CSS-Variable" bezeichnet) anstelle eines Teils eines Wertes einer anderen Eigenschaft einzufügen.
+Die **`var()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann verwendet werden, um den Wert einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) (manchmal als "CSS-Variable" bezeichnet) anstelle eines beliebigen Teils eines Wertes einer anderen Eigenschaft einzufügen.
 
 {{InteractiveExample("CSS Demo: var()")}}
 
@@ -43,7 +43,7 @@ border-color: var(--color-c);
 }
 ```
 
-Die `var()`-Funktion kann nicht in Eigenschaftsnamen, Selektoren oder anderen Bereichen außerhalb von Eigenschaftswerten verwendet werden. (Die Verwendung führt gewöhnlich zu ungültiger Syntax oder zu einem Wert, dessen Bedeutung keinen Bezug zur Variablen hat.)
+Die `var()`-Funktion kann nicht in Eigenschaftsnamen, Selektoren oder etwas anderem als Eigenschaftswerten verwendet werden. (Dies führt normalerweise zu ungültiger Syntax oder zu einem Wert, dessen Bedeutung keine Verbindung zur Variablen hat.)
 
 ## Syntax
 
@@ -59,19 +59,20 @@ var(--custom-prop, var(--default-value));
 var(--custom-prop, var(--default-value, red));
 ```
 
-Das erste Argument der Funktion ist der Name der benutzerdefinierten Eigenschaft, die ersetzt werden soll. Ein optionales zweites Argument der Funktion dient als Fallback-Wert. Falls die durch das erste Argument referenzierte benutzerdefinierte Eigenschaft nicht definiert ist oder einem [CSS-weiten Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) entspricht, verwendet die Funktion den zweiten Wert.
+Das erste Argument der Funktion ist der Name der benutzerdefinierten Eigenschaft, die ersetzt werden soll. Ein optionales zweites Argument der Funktion dient als Fallback-Wert. Wenn die durch das erste Argument referenzierte benutzerdefinierte Eigenschaft nicht definiert ist oder einem [CSS-weiten Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) entspricht, verwendet die Funktion den zweiten Wert.
 
-Die Syntax des Fallbacks erlaubt wie bei benutzerdefinierten Eigenschaften Kommas. Zum Beispiel definiert `var(--foo, red, blue)` einen Fallback von `red, blue`; das heißt, alles zwischen dem ersten Komma und dem Ende der Funktion wird als Fallback-Wert betrachtet.
+Die Syntax des Fallbacks erlaubt, wie bei benutzerdefinierten Eigenschaften, Kommas. Zum Beispiel definiert `var(--foo, red, blue)` einen Fallback von `red, blue`; das heißt, alles zwischen dem ersten Komma und dem Ende der Funktion wird als Fallback-Wert betrachtet.
 
 ### Werte
 
 - `<custom-property-name>`
-  - : Der Name der benutzerdefinierten Eigenschaft, dargestellt durch einen Bezeichner, der mit zwei Bindestrichen beginnt. Benutzerdefinierte Eigenschaften sind ausschließlich für die Verwendung durch Autoren und Benutzer bestimmt; CSS wird ihnen nie eine Bedeutung über das hier Präsentierte hinaus geben.
+  - : Der Name einer benutzerdefinierten Eigenschaft, dargestellt durch einen Bezeichner, der mit zwei Bindestrichen beginnt. Benutzerdefinierte Eigenschaften sind ausschließlich für die Nutzung durch Autoren und Benutzer gedacht; CSS wird ihnen niemals eine Bedeutung über das hinaus geben, was hier präsentiert wird.
 
 - `<declaration-value>`
-  - : Der Fallback-Wert der benutzerdefinierten Eigenschaft, der verwendet wird, falls die benutzerdefinierte Eigenschaft nicht definiert ist oder einem [CSS-weiten Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) entspricht. Dieser Wert darf jedes Zeichen außer einigen mit spezieller Bedeutung wie Zeilenumbrüchen, nicht übereinstimmenden schließenden Klammern, d.h. `)`, `]` oder `}`, höchsten Ebenen Semikolons oder Ausrufezeichen enthalten. Der Fallback-Wert kann selbst eine benutzerdefinierte Eigenschaft unter Verwendung der `var()`-Syntax sein. Falls der Fallback-Wert weggelassen wird und die benutzerdefinierte Eigenschaft nicht definiert ist, löst die `var()`-Funktion auf einen [ungültigen Wert](#ungültige_werte) auf.
+  - : Der Fallback-Wert der benutzerdefinierten Eigenschaft, der verwendet wird, wenn die benutzerdefinierte Eigenschaft nicht definiert ist oder einem [CSS-weiten Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) entspricht. Dieser Wert kann jedes Zeichen enthalten, außer einigen Zeichen mit spezieller Bedeutung wie Zeilenumbrüchen, nicht übereinstimmenden schließenden Klammern, d.h. `)`, `]` oder `}`, Semikolons auf oberster Ebene oder Ausrufezeichen. Der Fallback-Wert kann selbst eine benutzerdefinierte Eigenschaft unter Verwendung der `var()`-Syntax sein. Wenn der Fallback-Wert weggelassen wird und die benutzerdefinierte Eigenschaft nicht definiert ist, löst die `var()`-Funktion sich zu einem [ungültigen Wert](#ungültige_werte) auf.
 
-    > [!NOTE] > `var(--a,)` ist gültig und gibt an, dass, wenn die benutzerdefinierte Eigenschaft `--a` nicht definiert ist oder einem [CSS-weiten Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) entspricht, `var()` durch nichts ersetzt werden sollte.
+    > [!NOTE]
+    > `var(--a,)` ist gültig und gibt an, dass die `var()` ersetzt werden sollte, wenn die benutzerdefinierte Eigenschaft `--a` nicht definiert ist oder einem [CSS-weiten Schlüsselwort](/de/docs/Web/CSS/Reference/Values/Data_types#css-wide_keywords) entspricht.
 
 ## Formale Syntax
 
@@ -79,7 +80,7 @@ Die Syntax des Fallbacks erlaubt wie bei benutzerdefinierten Eigenschaften Komma
 
 ## Beispiele
 
-### Verwendung einer benutzerdefinierten Eigenschaft, die auf :root festgelegt ist
+### Verwendung einer benutzerdefinierten Eigenschaft auf `:root`
 
 #### CSS
 
@@ -97,9 +98,9 @@ body {
 
 {{EmbedLiveSample("Using a custom property set on :root")}}
 
-Hier wird der Wert der `background-color`-Eigenschaft über die benutzerdefinierte Eigenschaft `--main-bg-color` eingestellt. Dadurch wird die Hintergrundfarbe des HTML-Körpers rosa.
+Hier wurde der Wert der `background-color`-Eigenschaft über die benutzerdefinierte Eigenschaft `--main-bg-color` gesetzt. So wird die Hintergrundfarbe des HTML-Körpers rosa.
 
-### Verwendung einer benutzerdefinierten Eigenschaft, bevor sie festgelegt ist
+### Verwendung einer benutzerdefinierten Eigenschaft, bevor sie gesetzt ist
 
 #### CSS
 
@@ -155,9 +156,9 @@ body {
 
 {{EmbedLiveSample("Using a custom property set in another file")}}
 
-In diesem Fall wird die Hintergrundfarbe des HTML-Körpers rosa, obwohl die benutzerdefinierte Eigenschaft in einer anderen Datei deklariert ist.
+Die Hintergrundfarbe des HTML-Körpers wird in diesem Fall rosa, obwohl die benutzerdefinierte Eigenschaft in einer anderen Datei deklariert ist.
 
-### Benutzerdefinierte Eigenschaften mit Fallbacks für den Fall, dass die Eigenschaft nicht gesetzt wurde
+### Benutzerdefinierte Eigenschaften mit Fallback-Werten zur Verwendung, wenn die Eigenschaft nicht gesetzt ist
 
 #### HTML
 
@@ -191,7 +192,7 @@ In diesem Fall wird die Hintergrundfarbe des HTML-Körpers rosa, obwohl die benu
 
 {{EmbedLiveSample("Custom properties with fallbacks for use when the property has not been set")}}
 
-Da `--header-color` nicht festgelegt ist, wird der Text "Header" blau, der Fallback-Wert.
+Da `--header-color` nicht gesetzt ist, wird der Text "Header" blau, der Fallback-Wert.
 
 ### Verwendung einer benutzerdefinierten Eigenschaft als Fallback
 
@@ -211,16 +212,16 @@ body {
 
 {{EmbedLiveSample("Using a custom property as a fallback")}}
 
-Da `--main-bg-color` nicht gesetzt ist, fällt die `background-color` des Körpers auf `--backup-bg-color` zurück, die türkis ist.
+Da `--main-bg-color` nicht gesetzt ist, fällt die `background-color` des Körpers auf `--backup-bg-color` zurück, das teal ist.
 
 ### Ungültige Werte
 
-`var()`-Funktionen können auf ungültige Werte auflösen, wenn:
+`var()`-Funktionen können sich zu ungültigen Werten auflösen, wenn:
 
 - Die benutzerdefinierte Eigenschaft nicht definiert ist und kein Fallback-Wert bereitgestellt wird.
 - Die benutzerdefinierte Eigenschaft definiert ist, aber ihr Wert für die Eigenschaft, in der sie verwendet wird, ungültig ist.
 
-Wenn dies geschieht, wird die Eigenschaft behandelt, als hätte sie den Wert {{cssxref("unset")}}. Das liegt daran, dass Variablen nicht „frühzeitig fehlschlagen“ können, wie es bei anderen Syntaxfehlern der Fall ist. Wenn der Benutzeragent bemerkt, dass ein Eigenschaftswert ungültig ist, hat er die anderen kaskadierten Werte bereits verworfen.
+Wenn dies geschieht, wird die Eigenschaft behandelt, als ob sie den Wert {{cssxref("unset")}} hätte. Dies liegt daran, dass Variablen nicht "frühzeitig fehlschlagen" können wie andere Syntaxfehler, so dass der Benutzeragent, wenn er erkennt, dass ein Eigenschaftswert ungültig ist, bereits die anderen kaskadierten Werte verworfen hat.
 
 Zum Beispiel:
 
@@ -257,7 +258,7 @@ p {
 
 {{EmbedLiveSample("Invalid values")}}
 
-Beachten Sie, wie die Absätze, die `var()` verwenden, auf das Standard-Schwarz zurückgesetzt werden, aber der Absatz mit einer ungültigen literalen Farbe bleibt rot, weil die `color: 20px`-Deklaration einfach ignoriert wird.
+Beachten Sie, wie die Absätze, die `var()` verwenden, auf das standardmäßige Schwarz zurückgesetzt werden, aber der Absatz mit einer ungültigen wörtlichen Farbe immer noch rot ist, da die Deklaration `color: 20px` einfach ignoriert wird.
 
 ## Spezifikationen
 
@@ -269,7 +270,8 @@ Beachten Sie, wie die Absätze, die `var()` verwenden, auf das Standard-Schwarz 
 
 ## Siehe auch
 
-- {{cssxref("env","env(…)")}} – schreibgeschützte Umgebungsvariablen, die vom Benutzeragenten gesteuert werden.
-- [Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
+- {{cssxref("env","env(…)")}} – schreibgeschützte Umgebungsvariablen, die durch den Benutzeragenten gesteuert werden.
+- [Verwendung benutzerdefinierter CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
 - {{cssxref("@property")}} At-Regel
-- [CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables)-Modul
+- [Registrieren benutzerdefinierter CSS-Eigenschaften](/de/docs/Web/CSS/Guides/Properties_and_values_API/Registering_properties)
+- [CSS-Benutzereigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul

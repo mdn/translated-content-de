@@ -3,7 +3,7 @@ title: "Testen Sie Ihre Fähigkeiten: HTML-Zugänglichkeit"
 short-title: "Test: HTML a11y"
 slug: Learn_web_development/Core/Accessibility/Test_your_skills/HTML
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 2bda943b59604eb44f5d759708845c5f56970635
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Accessibility/HTML","Learn_web_development/Core/Accessibility/CSS_and_JavaScript", "Learn_web_development/Core/Accessibility")}}
@@ -11,17 +11,17 @@ l10n:
 Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel [HTML: A good basis for accessibility](/de/docs/Learn_web_development/Core/Accessibility/HTML) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Verwendung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## HTML-Zugänglichkeit 1
 
-In dieser Aufgabe prüfen wir Ihr Verständnis von semantischem HTML und warum es gut für die Zugänglichkeit ist. Der gegebene Text ist ein Informationsfeld mit Aktionsschaltflächen, aber das HTML ist wirklich schlecht.
+In dieser Aufgabe testen wir Ihr Verständnis für semantisches HTML und warum es gut für die Zugänglichkeit ist. Der gegebene Text ist ein Informationsfeld mit Aktionsschaltflächen, aber das HTML ist wirklich schlecht.
 
-Um die Aufgabe abzuschließen, aktualisieren Sie das Markup, um geeignetes semantisches HTML zu verwenden. Sie müssen sich nicht allzu sehr darum kümmern, das _exakt_ gleiche Erscheinungsbild und die gleiche Textgröße zu reproduzieren, solange die Semantik stimmt.
+Um die Aufgabe abzuschließen, aktualisieren Sie das Markup, um angemessenes semantisches HTML zu verwenden. Sie müssen sich nicht allzu sehr darum kümmern, dass das _genau_ gleiche Aussehen und die Textgröße wiederhergestellt werden, solange die Semantik gut ist.
 
 <!-- Code shared across examples -->
 
-```css hidden live-sample___html-ally-1 live-sample___html-ally-2 live-sample___html-ally-3 live-sample___html-ally-4
+```css hidden live-sample___html-ally-1 live-sample___html-ally-2 live-sample___html-ally-3 live-sample___html-ally-4 live-sample___html-ally-2-finish
 body {
   background-color: white;
   color: #333333;
@@ -40,6 +40,12 @@ body {
 ```
 
 <!-- Example-specific code -->
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample("html-ally-1", "100%", 630) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___html-ally-1
 <font size="7">Need help?</font> <br /><br />
@@ -78,7 +84,7 @@ answer you're looking for.
 }
 ```
 
-{{ EmbedLiveSample("html-ally-1", "100%", 400) }}
+Wir haben keinen fertigen Inhalt für diese Aufgabe bereitgestellt, da er sich nicht signifikant vom Ausgangszustand unterscheidet.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -116,10 +122,10 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 <button>Access forums</button>
 ```
 
-Zusätzliche Punkte für:
+Zusatzpunkte für:
 
-- Nur `<button>` verwenden, nicht `<button class="button">` (wiederholten Semantik ist nicht notwendig), und den CSS-Selektor aktualisieren, um sicherzustellen, dass die Schaltfläche die Stile beibehält.
-- Eine ungeordnete Liste verwenden, nicht eine geordnete Liste — die Liste der Gegenstände muss eigentlich nicht in einer bestimmten Reihenfolge sein.
+- Verwenden Sie nur `<button>`, nicht `<button class="button">` (Wiederholung der Semantik ist unnötig) und aktualisieren Sie den CSS-Selektor, um sicherzustellen, dass die Schaltfläche weiterhin die Stile übernimmt.
+- Verwenden Sie eine ungeordnete Liste anstelle einer geordneten Liste — die Liste der Elemente muss nicht unbedingt in einer bestimmten Reihenfolge sein.
 
 </details>
 
@@ -129,9 +135,15 @@ In der zweiten Aufgabe haben Sie ein Formular mit drei Eingabefeldern.
 
 Um die Aufgabe abzuschließen:
 
-1. Verknüpfen Sie semantisch die Eingaben mit ihren Labels.
-2. Gehen Sie davon aus, dass diese Eingaben Teil eines größeren Formulars sein werden, und umschließen Sie sie mit einem Element, das sie alle als eine einzige verwandte Gruppe zusammenbringt.
-3. Geben Sie der Gruppe eine Beschreibung/Titel, die alle Informationen als persönliche Daten zusammenfasst.
+1. Verbinden Sie die Eingaben semantisch mit ihren Beschriftungen.
+2. Nehmen Sie an, dass diese Eingaben Teil eines größeren Formulars sein werden, und umschließen Sie sie in einem Element, das alle zusammen als eine einzelne verwandte Gruppe verbindet.
+3. Geben Sie der Gruppe eine Beschreibung/Titel, der alle Informationen als persönliche Daten zusammenfasst.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample("html-ally-2", "100%", 200) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___html-ally-2
 <form>
@@ -152,7 +164,7 @@ Um die Aufgabe abzuschließen:
 </form>
 ```
 
-```css live-sample___html-ally-2
+```css live-sample___html-ally-2 live-sample___html-ally-2-finish
 form {
   width: 400px;
 }
@@ -165,14 +177,16 @@ li {
 }
 ```
 
-{{ EmbedLiveSample("html-ally-2", "100%", 200) }}
+Das aktualisierte Formular sollte so aussehen:
+
+{{ EmbedLiveSample("html-ally-2-finish", "100%", 220) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte ungefähr so aussehen:
 
-```html
+```html live-sample___html-ally-2-finish
 <form>
   <fieldset>
     <legend>Personal data</legend>
@@ -201,10 +215,16 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 In dieser Aufgabe müssen Sie alle Informationslinks im Absatz in gute, zugängliche Links verwandeln.
 
 - Die ersten beiden Links führen zu regulären Webseiten.
-- Der dritte Link führt zu einem PDF und ist groß - 8MB.
-- Der vierte Link führt zu einem Word-Dokument, daher benötigt der Benutzer eine Anwendung, die damit umgehen kann.
+- Der dritte Link führt zu einem PDF, und es ist groß — 8MB.
+- Der vierte Link führt zu einem Word-Dokument, sodass der Benutzer eine Anwendung installiert haben muss, die damit umgehen kann.
 
-Um die Aufgabe abzuschließen, aktualisieren Sie die Links entsprechend den obigen Beschreibungen.
+Um die Aufgabe abzuschließen, aktualisieren Sie die Links entsprechend den oben beschriebenen Beschreibungen.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample("html-ally-3", "100%", 140) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html-nolint live-sample___html-ally-3
 <p>
@@ -218,9 +238,9 @@ Um die Aufgabe abzuschließen, aktualisieren Sie die Links entsprechend den obig
 ```
 
 > [!NOTE]
-> Die Links im Ausgangscode haben das Attribut `target="_blank"` gesetzt, sodass sie, wenn Sie darauf klicken, versuchen, die verlinkten Seiten in einem neuen Tab und nicht im selben Tab zu öffnen. Dies ist nicht unbedingt eine Best Practice, aber wir haben es hier gemacht, damit die Seiten nicht im MDN Playground-Ausgabeframe `<iframe>` geöffnet werden und Ihr Beispielcode dabei verloren geht!
+> Die Links im Startcode haben das Attribut `target="_blank"` gesetzt, sodass sie versuchen, die verlinkten Seiten in einem neuen Tab anstelle des gleichen Tabs zu öffnen, wenn Sie darauf klicken. Dies ist nicht unbedingt eine beste Praxis, aber wir haben es hier getan, damit die Seiten nicht im MDN Playground-Ausgabeframe `<iframe>` geöffnet werden und Ihr Beispielcode dadurch verloren geht!
 
-{{ EmbedLiveSample("html-ally-3", "100%", 140) }}
+Wir haben keinen fertigen Inhalt für diese Aufgabe bereitgestellt, da dies die Lösung verraten würde.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -245,12 +265,18 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 ## HTML-Zugänglichkeit 4
 
-In unserer letzten HTML-Zugänglichkeitsaufgabe wird Ihnen eine Bildergalerie gegeben, die einige Zugänglichkeitsprobleme aufweist. Können Sie sie beheben?
+In unserer letzten HTML-Zugänglichkeitsaufgabe erhalten Sie eine Bildergalerie, die einige Zugänglichkeitsprobleme aufweist. Können Sie sie beheben?
 
-- Das Kopfzeilenbild hat ein Zugänglichkeitsproblem und die Galeriebilder ebenfalls.
-- Sie könnten das Kopfzeilenbild weiter ausführen und es mit CSS für eine möglicherweise bessere Zugänglichkeit implementieren. Wie würden Sie eine solche Lösung erstellen?
+- Das Header-Bild weist ein Zugänglichkeitsproblem auf, ebenso die Galerie-Bilder.
+- Sie könnten das Header-Bild weiterführen und es mit CSS für besser zugängliche Möglichkeiten implementieren. Wie würden Sie eine solche Lösung erstellen?
 
 Aktualisieren Sie den Code, um die oben beschriebenen Probleme zu beheben.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample("html-ally-4", "100%", 400) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___html-ally-4
 <header>
@@ -288,15 +314,15 @@ header {
 }
 ```
 
-{{ EmbedLiveSample("html-ally-4", "100%", 400) }}
+Wir haben keinen fertigen Inhalt für diese Aufgabe bereitgestellt, da er sich vom Ausgangspunkt nicht verändert.
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Die Zugänglichkeitsprobleme sind:
 
-1. Das Kopfzeilenbild ist dekorativ und benötigt daher keinen Alt-Text. Die beste Lösung, wenn Sie dekorative HTML-Bilder verwenden, besteht darin, `alt=""` zu setzen, sodass ein Screenreader einfach nichts vorliest - anstatt einer Beschreibung oder des Bilddateinamens. Es ist nicht Teil des Inhalts.
-2. Die Galeriebilder benötigen Alt-Text, da sie Teil des Inhalts sind.
+1. Das Header-Bild ist dekorativ und benötigt daher keinen Alt-Text. Die beste Lösung, wenn Sie dekorative HTML-Bilder verwenden, besteht darin, `alt=""` zu setzen, sodass ein Screenreader nichts vorliest – anstatt einer Beschreibung oder des Bilddateinamens. Es ist nicht Teil des Inhalts.
+2. Die Galerie-Bilder benötigen Alt-Text, da sie Teil des Inhalts sind.
 
 Das aktualisierte HTML könnte ungefähr so aussehen:
 
@@ -317,7 +343,7 @@ Das aktualisierte HTML könnte ungefähr so aussehen:
 </main>
 ```
 
-Es wäre möglicherweise besser, das Hintergrund-Kopfzeilenbild mit CSS-Hintergrundbildern zu implementieren. Dazu würden Sie das erste `<img>`-Element aus dem Markup entfernen und eine Regel zum CSS hinzufügen, wie folgt:
+Es wäre wohl besser, das Hintergrund-Header-Bild mit CSS-Hintergrundbildern zu implementieren. Um dies zu tun, würden Sie das erste `<img>`-Element aus dem Markup entfernen und eine Regel in CSS wie folgt hinzufügen:
 
 ```css
 h1 {

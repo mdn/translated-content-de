@@ -3,7 +3,7 @@ title: "Testen Sie Ihre Fähigkeiten: Audio und Video"
 short-title: "Test: Audio und Video"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 1cf3cb0fb22bf89c780fefe74c3db7f1b9e8ca09
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_video_and_audio", "Learn_web_development/Core/Structuring_content/Splash_page", "Learn_web_development/Core/Structuring_content")}}
@@ -11,16 +11,22 @@ l10n:
 Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man [Video- und Audioinhalte in HTML einbettet](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt mit uns aufnehmen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können sich auch an uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) wenden.
 
-## Aufgabe 1
+## Audio und Video 1
 
-Bei dieser Aufgabe sollen Sie eine Audiodatei auf der Seite einbetten.
+In dieser Aufgabe möchten wir, dass Sie eine Audiodatei auf die Seite einbetten.
 
 Um diese Aufgabe abzuschließen:
 
-1. Fügen Sie den Pfad zur Audiodatei als Attribut hinzu, um sie auf der Seite einzubetten. Die Audiodatei heißt `audio.mp3` und ist unter dem Pfad `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/audio.mp3` verfügbar.
-2. Fügen Sie ein Attribut hinzu, damit Browser einige Standard-Steuerelemente anzeigen.
+1. Fügen Sie den Pfad zur Audiodatei in ein geeignetes Attribut ein, um sie auf der Seite einzubetten. Das Audio heißt `audio.mp3` und ist unter dem Pfad `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/audio.mp3` verfügbar.
+2. Fügen Sie ein Attribut hinzu, damit die Browser einige Standardsteuerungen anzeigen.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample('audio-1', "100%", 150) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___audio-1
 <h1>Basic audio embed</h1>
@@ -30,7 +36,7 @@ Um diese Aufgabe abzuschließen:
 
 <!-- Gemeinsame Stile -->
 
-```css hidden live-sample___video-1 live-sample___audio-1
+```css hidden live-sample___video-1 live-sample___audio-1 live-sample___video-1-finished live-sample___audio-1-finished
 body {
   background-color: white;
   color: #333333;
@@ -53,14 +59,16 @@ video {
 }
 ```
 
-{{ EmbedLiveSample('audio-1', "100%", 150) }}
+Der aktualisierte Inhalt sollte so aussehen:
+
+{{ EmbedLiveSample('audio-1-finished', "100%", 180) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
-```html
+```html live-sample___audio-1-finished
 <h1>Basic audio embed</h1>
 
 <audio
@@ -70,21 +78,27 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Aufgabe 2
+## Audio und Video 2
 
-In dieser Aufgabe sollen Sie einen etwas komplexeren Videoplayer markieren, mit mehreren Quellen, Untertiteln und weiteren Funktionen.
+In dieser Aufgabe möchten wir, dass Sie einen etwas komplexeren Videoplayer markieren, mit mehreren Quellen, Untertiteln und weiteren Funktionen.
 
 Um diese Aufgabe abzuschließen:
 
-1. Fügen Sie ein Attribut hinzu, damit Browser einige Standard-Steuerelemente anzeigen.
+1. Fügen Sie ein Attribut hinzu, damit die Browser einige Standardsteuerungen anzeigen.
 2. Fügen Sie mehrere Quellen hinzu, die die Pfade zu den Videodateien enthalten. Die Dateien heißen `video.mp4` und `video.webm` und sind unter den folgenden Pfaden verfügbar:
    1. `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/video.mp4`
    2. `https://github.com/mdn/learning-area/raw/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/video.webm`
-3. Teilen Sie dem Browser im Voraus mit, auf welche Videoformate die Quellen verweisen, damit er eine fundierte Entscheidung treffen kann, welche er im Voraus herunterladen soll.
+3. Teilen Sie dem Browser im Voraus mit, auf welche Videoformate die Quellen verweisen, damit er eine informierte Entscheidung treffen kann, welches er vorab herunterladen soll.
 4. Geben Sie dem `<video>` eine Breite und Höhe, die seiner intrinsischen Größe entspricht (320 x 240 Pixel).
-5. Stellen Sie sicher, dass das Video standardmäßig stummgeschaltet ist.
-6. Zeigen Sie die Textspuren im `media`-Ordner an, in einer Datei namens `https://raw.githubusercontent.com/mdn/learning-area/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/subtitles_en.vtt`, während das Video abgespielt wird. Sie müssen den Typ explizit als Untertitel festlegen und die Untertitelsprache auf Englisch setzen.
-7. Stellen Sie sicher, dass die Leser die Untertitelsprache identifizieren können, wenn sie die Standard-Steuerelemente verwenden.
+5. Das Video sollte standardmäßig stumm geschaltet sein.
+6. Zeigen Sie die Textspuren an, die im Ordner `media` in einer Datei namens `https://raw.githubusercontent.com/mdn/learning-area/refs/heads/main/html/multimedia-and-embedding/tasks/media-embed/media/subtitles_en.vtt` enthalten sind, wenn das Video abgespielt wird. Sie müssen den Typ explizit als Untertitel setzen und die Untertitelsprache auf Englisch.
+7. Stellen Sie sicher, dass die Leser die Untertitelsprache identifizieren können, wenn sie die Standardsteuerungen verwenden.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{EmbedLiveSample('video-1', "100%", 300)}}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___video-1
 <h1>Video embed</h1>
@@ -92,14 +106,16 @@ Um diese Aufgabe abzuschließen:
 <video></video>
 ```
 
-{{EmbedLiveSample('video-1', "100%", 300)}}
+Der aktualisierte Inhalt sollte so aussehen:
+
+{{EmbedLiveSample('video-1-finished', "100%", 380)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
-```html
+```html live-sample___video-1-finished
 <h1>Video embed</h1>
 
 <video controls width="320" height="240" muted>

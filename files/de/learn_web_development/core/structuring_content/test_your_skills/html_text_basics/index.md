@@ -1,21 +1,27 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Grundlagen der HTML-Textverarbeitung"
-short-title: "Test: Grundlagen der HTML-Textverarbeitung"
+title: "Testen Sie Ihre Fähigkeiten: Grundlagen von HTML-Text"
+short-title: "Test: Grundlagen von HTML-Text"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 1cf3cb0fb22bf89c780fefe74c3db7f1b9e8ca09
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man Text in HTML auszeichnet, um ihm Struktur und Bedeutung zu verleihen.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen dabei zu helfen, zu beurteilen, ob Sie verstehen, wie man Text in HTML auszeichnet, um ihm Struktur und Bedeutung zu verleihen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Verwendung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie bitte unseren [Leitfaden zur Verwendung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Aufgabe 1
+## Grundlagen von Text 1
 
-In dieser Aufgabe sollen Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatzelementen auszeichnen.
+In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatzelementen auszeichnen.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample('text-basics-1', "100%", 130) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html-nolint live-sample___text-basics-1
 Basic HTML Animals
@@ -31,7 +37,7 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsame/Setup-CSS-Code -->
+<!-- Gemeinsamer/setup CSS-Code -->
 
 ```css hidden live-sample___text-basics-1 live-sample___text-basics-1-finished live-sample___text-basics-2 live-sample___text-basics-2-finished live-sample___text-basics-3 live-sample___text-basics-3-finished live-sample___text-basics-4 live-sample___text-basics-4-finished
 body {
@@ -75,16 +81,14 @@ p {
 }
 ```
 
-{{ EmbedLiveSample('text-basics-1', "100%", 130) }}
-
-Das fertige Beispiel sollte so aussehen:
+Der aktualisierte Inhalt sollte so aussehen:
 
 {{ EmbedLiveSample('text-basics-1-finished', "100%", 320) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html live-sample___text-basics-1-finished
 <h1>Basic HTML Animals</h1>
@@ -108,9 +112,15 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Aufgabe 2
+## Grundlagen von Text 2
 
-In dieser Aufgabe sollen Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
+In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample('text-basics-2', "100%", 220) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html-nolint live-sample___text-basics-2
 <h1>Looking at lists</h1>
@@ -150,16 +160,14 @@ ul {
 }
 ```
 
-{{ EmbedLiveSample('text-basics-2', "100%", 220) }}
-
-Das fertige Beispiel sollte so aussehen:
+Der aktualisierte Inhalt sollte so aussehen:
 
 {{ EmbedLiveSample('text-basics-2-finished', "100%", 400) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html live-sample___text-basics-2-finished
 <h1>Looking at lists</h1>
@@ -185,9 +193,15 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Aufgabe 3
+## Grundlagen von Text 3
 
-In dieser Aufgabe sollen Sie die bereitgestellten Tiere und deren Definitionen in eine Definitionsliste umwandeln.
+In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample('text-basics-3', "100%", 160) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html-nolint live-sample___text-basics-3
 <h1>Advanced HTML Animals</h1>
@@ -216,16 +230,14 @@ dt {
 }
 ```
 
-{{ EmbedLiveSample('text-basics-3', "100%", 160) }}
+Der aktualisierte Inhalt sollte so aussehen:
 
-Das fertige Beispiel sollte so aussehen:
-
-{{ EmbedLiveSample('text-basics-3-finished', "100%", 250) }}
+{{ EmbedLiveSample('text-basics-3-finished', "100%", 260) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html live-sample___text-basics-3-finished
 <h1>Advanced HTML Animals</h1>
@@ -248,9 +260,15 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Aufgabe 4
+## Grundlagen von Text 4
 
-In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige geeignete Wörter mit starker Wichtigkeit und einige mit Betonung durch Inline-Elemente auszuzeichnen.
+In dieser Aufgabe wird Ihnen ein Absatz bereitgestellt, und Ihr Ziel ist es, einige Inline-Elemente zu verwenden, um ein paar geeignete Wörter mit starker Bedeutung auszuzeichnen und ein paar mit Betonung.
+
+Der Ausgangspunkt der Aufgabe sieht so aus:
+
+{{ EmbedLiveSample('text-basics-4', "100%", 160) }}
+
+Hier ist der zugrunde liegende Code für diesen Ausgangspunkt:
 
 ```html live-sample___text-basics-4
 <h1>Emphasis and importance</h1>
@@ -277,16 +295,14 @@ em {
 }
 ```
 
-{{ EmbedLiveSample('text-basics-4', "100%", 160) }}
-
-Das fertige Beispiel sollte ungefähr so aussehen:
+Der aktualisierte Inhalt sollte ungefähr so aussehen:
 
 {{ EmbedLiveSample('text-basics-4-finished', "100%", 140) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiger HTML-Code sollte so aussehen:
 
 ```html live-sample___text-basics-4-finished
 <h1>Emphasis and importance</h1>

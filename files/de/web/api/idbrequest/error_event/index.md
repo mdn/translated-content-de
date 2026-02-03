@@ -1,20 +1,18 @@
 ---
-title: "IDBRequest: error-Ereignis"
+title: "IDBRequest: error Ereignis"
 short-title: error
 slug: Web/API/IDBRequest/error_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 2055b7ecf76d97c34db90fa9e499391ec2354088
 ---
 
 {{APIRef("IndexedDB")}}
 
-Der `error`-Handler wird ausgeführt, wenn ein Fehler dazu geführt hat, dass eine Anfrage fehlgeschlagen ist. Im `error`-Ereignishandler können Sie auf den Fehler der Anfrage zugreifen und weitere Anfragen zu derselben Transaktion stellen.
-
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Der `error`-Handler wird ausgeführt, wenn ein Fehler eine Anfrage fehlgeschlagen lässt. Im `error`-Ereignis-Handler können Sie auf den Fehler der Anfrage zugreifen und auch weitere Anfragen an die gleiche Transaktion stellen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("error", (event) => { })
@@ -28,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen, wobei es auf das `error`-Ereignis für die `add()`-Operation hört (dies tritt beispielsweise auf, wenn bereits ein Datensatz mit dem angegebenen `taskTitle` existiert):
+Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen. Es wird auf das `error`-Ereignis für die `add()`-Operation gehört (dies tritt auf, wenn zum Beispiel bereits ein Datensatz mit dem angegebenen `taskTitle` existiert):
 
 ```js
 // Open the database
@@ -76,7 +74,7 @@ DBOpenRequest.addEventListener("success", (event) => {
 });
 ```
 
-Dasselbe Beispiel, das die `onerror`-Eigenschaft anstelle von `addEventListener()` verwendet:
+Das gleiche Beispiel unter Verwendung der `onerror`-Eigenschaft anstelle von `addEventListener()`:
 
 ```js
 // Open the database
