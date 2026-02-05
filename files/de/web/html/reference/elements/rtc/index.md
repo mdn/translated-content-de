@@ -2,12 +2,12 @@
 title: "<rtc>: Das Ruby Text Container-Element"
 slug: Web/HTML/Reference/Elements/rtc
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
 ---
 
 {{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Annotationen von Zeichen, die in einer Ruby-Darstellung der {{HTMLElement("rb")}}-Elemente verwendet werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements genutzt werden. {{HTMLElement("rb")}}-Elemente können sowohl eine Aussprache- ({{HTMLElement("rt")}}) als auch eine semantische (`<rtc>`) Annotation haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Annotationen von Zeichen, die in einem Ruby von {{HTMLElement("rb")}}-Elementen innerhalb eines {{HTMLElement("ruby")}}-Elements dargestellt werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Annotationen haben.
 
 {{InteractiveExample("HTML Demo: &lt;rtc&gt;", "tabbed-standard")}}
 
@@ -77,29 +77,29 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierter Inhalt</a
+          >Phrasierungsinhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
+      <th scope="row">Tag-Weglassen</th>
       <td>
-        Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem
+        Das Schluss-Tag kann weggelassen werden, wenn es unmittelbar von einem
         {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder
-        {{HTMLElement("rt")}}-Element öffnenden Tag oder vom Elternschließtag
-        gefolgt wird.
+        {{HTMLElement("rt")}}-Element-Öffnungstag oder durch das Schlusstag seines
+        Elternelements gefolgt wird.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>Ein {{HTMLElement("ruby")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -123,3 +123,4 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/
 - {{HTMLElement("rp")}}
 - {{HTMLElement("rb")}}
 - {{HTMLElement("rt")}}
+- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul

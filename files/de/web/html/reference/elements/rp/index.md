@@ -1,11 +1,11 @@
 ---
-title: "<rp>: Das Ruby-Fallback-Klammer-Element"
+title: "<rp>: Das Ruby Fallback-Klammer-Element"
 slug: Web/HTML/Reference/Elements/rp
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 038bda33048810c222cc32b71f52f14d53495a1d
 ---
 
-Das **`<rp>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um Fallback-Klammern bereitzustellen, für Browser, die keine Ruby-Annotationen mit dem {{HTMLElement("ruby") }}-Element unterstützen. Ein `<rp>`-Element sollte jede der öffnenden und schließenden Klammern umschließen, die das {{HTMLElement("rt")}}-Element umgeben, das den Text der Annotation enthält.
+Das **`<rp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Ersatzklammern für Browser bereitzustellen, die die Anzeige von Ruby-Anmerkungen mit dem {{HTMLElement("ruby")}}-Element nicht unterstützen. Ein `<rp>`-Element sollte jede der öffnenden und schließenden Klammern umschließen, die das {{HTMLElement("rt")}}-Element enthalten, das den Text der Anmerkung enthält.
 
 {{InteractiveExample("HTML Demo: &lt;rp&gt;", "tabbed-shorter")}}
 
@@ -25,15 +25,15 @@ ruby {
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-- Ruby-Annotationen dienen der Anzeige der Aussprache von ostasiatischen Zeichen, wie zum Beispiel japanische Furigana oder taiwanesische Bopomofo-Zeichen. Das `<rp>`-Element wird im Fall von fehlender Unterstützung des {{HTMLElement("ruby")}}-Elements verwendet; der `<rp>`-Inhalt stellt dar, was angezeigt werden sollte, um die Präsenz einer Ruby-Annotation anzuzeigen, üblicherweise in Form von Klammern.
+- Ruby-Anmerkungen werden verwendet, um die Aussprache ostasiatischer Zeichen zu zeigen, wie z.B. japanische Furigana oder taiwanesische Bopomofo-Zeichen. Das `<rp>`-Element wird im Falle eines Mangels an Unterstützung des {{HTMLElement("ruby")}}-Elements genutzt; der `<rp>`-Inhalt stellt das dar, was angezeigt werden sollte, um das Vorhandensein einer Ruby-Anmerkung anzuzeigen, in der Regel Klammern.
 
 ## Beispiele
 
-### Verwendung von Ruby-Annotationen
+### Verwendung von Ruby-Anmerkungen
 
-Dieses Beispiel verwendet Ruby-Annotationen, um die [Romaji](https://en.wikipedia.org/wiki/Romaji)-Entsprechungen für jedes Zeichen anzuzeigen.
+Dieses Beispiel verwendet Ruby-Anmerkungen, um die [Romaji](https://en.wikipedia.org/wiki/Romaji)-Äquivalente für jedes Zeichen anzuzeigen.
 
 ```html
 <ruby>
@@ -55,7 +55,7 @@ Siehe den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispie
 
 ### Ohne Ruby-Unterstützung
 
-Wenn Ihr Browser keine Ruby-Annotationen unterstützt, sieht das Ergebnis stattdessen so aus:
+Wenn Ihr Browser Ruby-Anmerkungen nicht unterstützt, sieht das Ergebnis stattdessen so aus:
 
 ```html hidden
 漢 (Kan) 字 (ji)
@@ -88,21 +88,21 @@ body {
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Element unmittelbar gefolgt wird von einem
-        {{HTMLElement("rt")}}- oder einem weiteren <code>&#x3C;rp></code>-Element,
-        oder wenn kein weiterer Inhalt im Elternelement vorhanden ist.
+        Der End-Tag kann weggelassen werden, wenn das Element unmittelbar von einem
+        {{HTMLElement("rt")}}- oder einem weiteren <code>&#x3C;rp></code>-Element
+        gefolgt wird oder wenn es keinen weiteren Inhalt im Elternelement gibt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Ein {{HTMLElement("ruby")}}-Element. <code>&#x3C;rp></code> muss
         unmittelbar vor oder nach einem
-        {{HTMLElement("rt")}}-Element positioniert sein.
+        {{HTMLElement("rt")}}-Element positioniert werden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -134,3 +134,4 @@ body {
 - {{HTMLElement("rt")}}
 - {{HTMLElement("rb")}}
 - {{HTMLElement("rtc")}}
+- [CSS Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout)-Modul
