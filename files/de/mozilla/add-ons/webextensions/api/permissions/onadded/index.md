@@ -2,10 +2,10 @@
 title: permissions.onAdded
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/onAdded
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: aa2535b8d83223b53fe57bb0c3daaf1c6851d781
 ---
 
-Wird ausgelöst, wenn der Erweiterung neue Berechtigungen gewährt werden.
+Wird ausgelöst, wenn der Erweiterung Berechtigungen erteilt werden.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ browser.permissions.onAdded.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Zuhörer hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Zuhörer.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn Zuhören aktiv ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
     - `permissions`
-      - : {{WebExtAPIRef("permissions.Permissions")}}-Objekt, das die gewährten Berechtigungen enthält.
+      - : {{WebExtAPIRef("permissions.Permissions")}}-Objekt, das die erteilten Berechtigungen enthält.
 
 ## Beispiele
 
@@ -39,6 +39,9 @@ Ereignisse haben drei Funktionen:
 function handleAdded(permissions) {
   console.log(`New API permissions: ${permissions.permissions}`);
   console.log(`New host permissions: ${permissions.origins}`);
+  console.log(
+    `New data collection permissions: ${permissions.data_collection}`,
+  );
 }
 
 browser.permissions.onAdded.addListener(handleAdded);
@@ -51,4 +54,4 @@ browser.permissions.onAdded.addListener(handleAdded);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.
+> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions)-API von Chromium.

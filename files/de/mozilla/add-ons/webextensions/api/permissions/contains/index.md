@@ -2,14 +2,10 @@
 title: permissions.contains()
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/contains
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: aa2535b8d83223b53fe57bb0c3daaf1c6851d781
 ---
 
-Überprüfen Sie, ob die Erweiterung die im angegebenen {{WebExtAPIRef("permissions.Permissions")}}-Objekt aufgelisteten Berechtigungen hat.
-
-Das `Permissions`-Argument kann entweder eine `origins`-Eigenschaft enthalten, die ein Array von [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) ist, oder eine `permissions`-Eigenschaft, die ein Array von [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) ist, oder beides.
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt. Das Promise wird mit `true` aufgelöst, wenn die Erweiterung alle angegebenen Berechtigungen hat. Bei Host-Berechtigungen wird angenommen, dass die Berechtigungen übereinstimmen, wenn die Berechtigungen der Erweiterung die in `origins` aufgelisteten Berechtigungen [bereichsübereinstimmen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns).
+Prüft, ob die Erweiterung über spezifische Berechtigungen verfügt.
 
 ## Syntax
 
@@ -22,21 +18,22 @@ let getContains = browser.permissions.contains(
 ### Parameter
 
 - `permissions`
-  - : Ein {{WebExtAPIRef("permissions.Permissions")}}-Objekt.
+  - : Ein {{WebExtAPIRef("permissions.Permissions")}} Objekt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Erweiterung bereits alle im `permissions`-Argument aufgelisteten Berechtigungen hat, oder `false` andernfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Erweiterung alle im `permissions` Argument aufgeführten Berechtigungen hat, oder mit `false` ansonsten. Für Host-Berechtigungen gilt, wenn die Berechtigungen der Erweiterung die Berechtigungen in `origins` [musterartig übereinstimmen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), dann werden sie als übereinstimmend betrachtet.
 
 ## Beispiele
 
 ```js
 // Extension permissions are:
-// "webRequest", "tabs", "*://*.mozilla.org/*"
+// "webRequest", "tabs", "*://*.mozilla.org/*", and "healthInfo" in "data_collection"
 
 let testPermissions1 = {
   origins: ["*://mozilla.org/"],
   permissions: ["tabs"],
+  data_collection: ["healthInfo"],
 };
 
 const testResult1 = await browser.permissions.contains(testPermissions1);
@@ -64,6 +61,13 @@ let testPermissions4 = {
 
 const testResult4 = await browser.permissions.contains(testPermissions4);
 console.log(testResult4); // false: "https://example.org/", `origins` doesn't match
+
+let testPermissions5 = {
+  data_collection: ["searchTerms"],
+};
+
+const testResult5 = await browser.permissions.contains(testPermissions4);
+console.log(testResult5); // false: "searchTerms" doesn't match data type in `data_collection`
 ```
 
 {{WebExtExamples}}

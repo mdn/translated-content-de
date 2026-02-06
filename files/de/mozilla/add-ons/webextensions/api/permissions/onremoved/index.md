@@ -2,10 +2,10 @@
 title: permissions.onRemoved
 slug: Mozilla/Add-ons/WebExtensions/API/permissions/onRemoved
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: aa2535b8d83223b53fe57bb0c3daaf1c6851d781
 ---
 
-Wird ausgelöst, wenn einige Berechtigungen aus der Erweiterung entfernt werden.
+Wird ausgelöst, wenn Berechtigungen von der Erweiterung entfernt werden.
 
 ## Syntax
 
@@ -15,23 +15,23 @@ browser.permissions.onRemoved.removeListener(listener)
 browser.permissions.onRemoved.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Event einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören bei diesem Event. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Event registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
 
 ## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Event eintritt. Der Funktion wird folgendes Argument übergeben:
     - `permissions`
-      - : {{WebExtAPIRef("permissions.Permissions")}}-Objekt, das die entfernten Berechtigungen enthält.
+      - : {{WebExtAPIRef("permissions.Permissions")}} Objekt, das die entfernten Berechtigungen enthält.
 
 ## Beispiele
 
@@ -39,6 +39,9 @@ Ereignisse haben drei Funktionen:
 function handleRemoved(permissions) {
   console.log(`Removed API permissions: ${permissions.permissions}`);
   console.log(`Removed host permissions: ${permissions.origins}`);
+  console.log(
+    `Removed data collection permissions: ${permissions.data_collection}`,
+  );
 }
 
 browser.permissions.onRemoved.addListener(handleRemoved);
