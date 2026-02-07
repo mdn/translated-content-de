@@ -3,12 +3,12 @@ title: "ClipboardChangeEvent: types-Eigenschaft"
 short-title: types
 slug: Web/API/ClipboardChangeEvent/types
 l10n:
-  sourceCommit: eb38a196911f92a7c99a1a2000fac1cd29d23db9
+  sourceCommit: c534ba0cb925657de5e99ab8c540eae31afd9382
 ---
 
-{{securecontext_header}}{{APIRef("Clipboard API")}}
+{{securecontext_header}}{{APIRef("Clipboard API")}}{{SeeCompatTable}}
 
-Die **`types`** schreibgeschützte Eigenschaft der [`ClipboardChangeEvent`](/de/docs/Web/API/ClipboardChangeEvent)-Schnittstelle gibt ein Array von Zeichenfolgen zurück, das die obligatorischen {{Glossary("MIME_type", "MIME-Typen")}} darstellt, die auf der Systemzwischenablage verfügbar sind, wenn das `ClipboardChangeEvent`-Ereignis ausgelöst wurde. Optionale Typen und benutzerdefinierte Formate sind nicht enthalten, um {{Glossary("fingerprinting", "Fingerabdrücke")}} einzuschränken.
+Die **`types`**-Eigenschaft der [`ClipboardChangeEvent`](/de/docs/Web/API/ClipboardChangeEvent)-Schnittstelle ist schreibgeschützt und gibt ein Array von Zeichenfolgen zurück, das die obligatorischen {{Glossary("MIME_type", "MIME-Typen")}} darstellt, die beim Auslösen des `ClipboardChangeEvent`-Ereignisses im System-Clipboard verfügbar sind. Optionale Typen und benutzerdefinierte Formate sind nicht enthalten, um das {{Glossary("fingerprinting", "Fingerprinting")}} zu begrenzen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein Array von Zeichenfolgen.
 
 ## Beispiele
 
-In diesem Beispiel protokolliert der Ereignislistener bei Änderungen der Zwischenablageinhalte jede Zeichenfolgenangabe eines [MIME-Typs](/de/docs/Web/HTTP/Guides/MIME_types) in der Konsole, die im Array, das von der `ClipboardChangeEvent.types`-Eigenschaft zurückgegeben wird, verfügbar ist.
+In diesem Beispiel protokolliert der Ereignislistener, wenn sich der Inhalt der Zwischenablage ändert, in der Konsole jede Zeichenfolge, die einen [MIME-Typ](/de/docs/Web/HTTP/Guides/MIME_types) darstellt und im Array vorhanden ist, das von der `ClipboardChangeEvent.types`-Eigenschaft zurückgegeben wird.
 
 ```js
 navigator.clipboard.addEventListener("clipboardchange", (event) => {

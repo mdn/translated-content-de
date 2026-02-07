@@ -2,36 +2,36 @@
 title: ClipboardChangeEvent
 slug: Web/API/ClipboardChangeEvent
 l10n:
-  sourceCommit: eb38a196911f92a7c99a1a2000fac1cd29d23db9
+  sourceCommit: c534ba0cb925657de5e99ab8c540eae31afd9382
 ---
 
-{{APIRef("Clipboard API")}}
+{{APIRef("Clipboard API")}}{{SeeCompatTable}}
 
-Das **`ClipboardChangeEvent`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert Ereignisse, die ausgelöst werden, wenn sich der Inhalt der Systemzwischenablage ändert.
+Das **`ClipboardChangeEvent`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert Ereignisse, die immer dann ausgelöst werden, wenn sich der Inhalt der Systemzwischenablage ändert.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`ClipboardChangeEvent()`](/de/docs/Web/API/ClipboardChangeEvent/ClipboardChangeEvent)
-  - : Erstellt ein neues `ClipboardChangeEvent`-Ereignis mit den gegebenen Parametern.
+- [`ClipboardChangeEvent()`](/de/docs/Web/API/ClipboardChangeEvent/ClipboardChangeEvent) {{experimental_inline}}
+  - : Erstellt ein neues `ClipboardChangeEvent`-Ereignis mit den angegebenen Parametern.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
-- [`ClipboardChangeEvent.types`](/de/docs/Web/API/ClipboardChangeEvent/types) {{ReadOnlyInline}}
-  - : Ein Array von Zeichenfolgen, das die obligatorischen Datentypen darstellt, die bei Auslösung des Ereignisses auf der Systemzwischenablage verfügbar sind.
-- [`ClipboardChangeEvent.changeId`](/de/docs/Web/API/ClipboardChangeEvent/changeId) {{ReadOnlyInline}}
-  - : Ein 128-Bit-Integer, der eine eindeutige Kennung für diesen spezifischen Zwischenablageänderungsvorgang darstellt.
+- [`ClipboardChangeEvent.types`](/de/docs/Web/API/ClipboardChangeEvent/types) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein Array von Zeichenfolgen, das die obligatorischen Datentypen repräsentiert, die auf der Systemzwischenablage verfügbar sind, als das Ereignis ausgelöst wurde.
+- [`ClipboardChangeEvent.changeId`](/de/docs/Web/API/ClipboardChangeEvent/changeId) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein 128-Bit-Ganzzahlwert, der einen eindeutigen Bezeichner für diesen speziellen Clipboard-Änderungsvorgang darstellt.
 
 ## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 ## Beispiele
 
-In diesem Beispiel protokolliert der Ereignis-Listener beim Ändern des Inhalts der Zwischenablage die Datentypen, die Änderungskennung und das gesamte Ereignisobjekt in der Konsole. Dies ist ein `ClipboardChangeEvent`-Objekt vom Typ `clipboardchange`.
+In diesem Beispiel werden bei einer Änderung der Inhalte der Zwischenablage die Datentypen, die Änderungs-ID und das gesamte Ereignisobjekt in der Konsole protokolliert. Dies ist ein `ClipboardChangeEvent`-Objekt vom Typ `clipboardchange`.
 
 ```js
 navigator.clipboard.addEventListener("clipboardchange", (event) => {
