@@ -3,33 +3,40 @@ title: Formulare und Schaltflächen in HTML
 short-title: Formulare und Schaltflächen
 slug: Learn_web_development/Core/Structuring_content/HTML_forms
 l10n:
-  sourceCommit: 30cb9ca54d74a63bd95e0e0f5281e9ade578c044
+  sourceCommit: 8b1662a185211610f2ccf60ba14dd77ecab24b1b
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Planet_data_table", "Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons", "Learn_web_development/Core/Structuring_content")}}
 
-HTML-Formulare und -Schaltflächen sind leistungsstarke Werkzeuge zur Interaktion mit den Benutzern einer Website. Üblicherweise bieten sie den Benutzern Steuerelemente, um eine Benutzeroberfläche (UI) zu manipulieren oder Daten einzugeben, wenn dies erforderlich ist.
+HTML-Formulare und -Schaltflächen sind leistungsfähige Werkzeuge zur Interaktion mit den Benutzern einer Website. Am häufigsten bieten sie den Nutzern Steuerungen, um eine Benutzeroberfläche (UI) zu manipulieren oder Daten einzugeben, wenn dies erforderlich ist.
 
-In diesem Artikel bieten wir eine Einführung in die Grundlagen von Formularen und Schaltflächen. Es gibt viel mehr zu wissen — viele Eingabetypen und Formulareigenschaften werden nicht erwähnt — aber dieser Artikel wird Ihnen eine solide Grundlage für die meisten Fälle geben. Sie können die fortgeschrittene oder spezialisierte Nutzung nach Bedarf als Teil des ständigen Lernens, das Sie während Ihrer Karriere tun werden, erlernen.
+In diesem Artikel bieten wir eine Einführung in die Grundlagen von Formularen und Schaltflächen. Es gibt noch viel mehr zu wissen – viele Eingabetypen und Formularfunktionen werden nicht erwähnt – aber dieser Artikel wird Ihnen eine solide Grundlage für die meisten Fälle geben. Sie können fortgeschrittene oder spezialisierte Anwendungen bei Bedarf erlernen, als Teil des kontinuierlichen Lernens, das Sie während Ihrer Karriere durchlaufen werden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Kenntnisse, wie sie in
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">Grundlegende HTML-Syntax</a> behandelt werden. Textuelle Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs">Überschriften und Absätze</a> und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists">Listen</a>. <a href="/de/docs/Learn_web_development/Core/Structuring_content/Structuring_documents">Strukturelles HTML</a>.
+        Grundlegende HTML-Vertrautheit, wie sie im
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
+          >Grundlegende HTML-Syntax</a
+        >. Semantiken auf Textebene wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+          >Überschriften und Absätze</a
+        > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
+          >Listen</a
+        >. <a href="/de/docs/Learn_web_development/Core/Structuring_content/Structuring_documents"
+          >Strukturelles HTML</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Ein Verständnis dafür, dass Formulare und Schaltflächen zusammen mit Links die Hauptwerkzeuge für Benutzer sind, um mit einer Website zu interagieren.</li>
+          <li>Ein Verständnis dafür, dass Formulare und Schaltflächen, zusammen mit Links, die Hauptwerkzeuge sind, mit denen Benutzer mit einer Website interagieren.</li>
           <li>Unterschiedliche Schaltflächentypen.</li>
           <li>Gängige <code>&lt;input&gt;</code>-Typen.</li>
           <li>Gängige Attribute wie <code>name</code> und <code>value</code>.</li>
-          <li>Das <code>&lt;form&gt;</code>-Element und die Grundlagen der Formularübertragung.</li>
+          <li>Das <code>&lt;form&gt;</code>-Element und die Grundlagen der Formularübermittlung.</li>
           <li>Formulare zugänglich machen mit Labels und korrekter Semantik.</li>
           <li>Andere Steuerungstypen: <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code> und <code>&lt;option&gt;</code>.</li>
           <li>Grundlagen der clientseitigen Validierung.</li>
@@ -41,28 +48,28 @@ In diesem Artikel bieten wir eine Einführung in die Grundlagen von Formularen u
 
 ## Interaktion mit Benutzern
 
-Bisher im Kurs haben Sie einige Möglichkeiten gesehen, wie Benutzer mit dem Web interagieren können:
+Bisher im Kurs haben Sie ein paar Möglichkeiten gesehen, wie Benutzer mit dem Web interagieren können:
 
-- [Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links) können verwendet werden, um zu verschiedenen Inhaltsabschnitten zu navigieren, entweder auf derselben Seite oder einer anderen Seite.
-- [`<video>` und `<audio>`](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio)-Elemente bieten in der Regel Steuerelemente wie Play/Pause, Vor- und Zurückspulen usw., mit denen Benutzer Medieninhalte nach Belieben konsumieren können.
+- [Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links) können verwendet werden, um zu verschiedenen Inhaltsabschnitten zu navigieren, entweder auf derselben Seite oder auf einer anderen Seite.
+- [`<video>` und `<audio>`](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio)-Elemente enthalten in der Regel Steuerungen wie Abspielen/Pause, Vorlauf, Rücklauf usw., die es den Benutzern ermöglichen, Medieninhalte nach Wunsch zu konsumieren.
 
-Diese Funktionen bieten jedoch tendenziell eine einseitige Interaktion, bei der Benutzer Inhalte passiv konsumieren. Das ist in Ordnung, aber das Web ist eine zweiseitige Erfahrung. Webseitenbenutzer legen Präferenzen fest, wie sie Inhalte und Dienste erleben möchten. Sie bestellen Taxis und fordern Rückrufe an. Sie geben Feedback und beschweren sich. Sie kaufen Produkte und lassen sie sich nach Hause liefern.
+Diese Funktionen erleichtern jedoch eher einseitige Interaktionen, bei denen Benutzer Inhalte passiv konsumieren. Das ist in Ordnung, aber das Web ist ein zweiseitiges Erlebnis. Website-Benutzer legen Präferenzen dafür fest, wie sie Inhalte und Dienste erleben möchten. Sie bestellen Taxis und bitten um Rückrufe. Sie geben Feedback und machen Beschwerden. Sie kaufen Produkte und lassen sie sich nach Hause liefern.
 
-Um diese zweiseitige Erfahrung zu bieten, müssen Sie Schaltflächen und Formulare verwenden.
+Um dieses zweiseitige Erlebnis zu bieten, müssen Sie Schaltflächen und Formulare verwenden.
 
-Schaltflächen werden normalerweise mit HTML-{{htmlelement("button")}}-Elementen erstellt (sie werden manchmal auch mit {{htmlelement("input")}}-Elementen erstellt, deren `type`-Attribute auf einen Wert wie `button` oder `submit` gesetzt sind). Diese Druckknöpfe sind Allzweck-Schaltflächen — Sie können sie an eine beliebige Funktionalität koppeln, die Sie wollen, begrenzt nur durch Ihre Fantasie und Ihre Programmierfähigkeiten.
+Schaltflächen werden in der Regel mit HTML-{{htmlelement("button")}}-Elementen erstellt (sie werden auch manchmal mit {{htmlelement("input")}}-Elementen erstellt, deren `type`-Attribute auf einen Wert wie `button` oder `submit` gesetzt sind). Diese Druckknöpfe sind vielseitig einsetzbar – Sie können sie so verdrahten, dass sie jede gewünschte Funktionalität auslösen, die nur durch Ihre Vorstellungskraft und Ihre Kodierungsfähigkeiten begrenzt ist.
 
-Formulare werden mit Elementen wie {{htmlelement("form")}}, {{htmlelement("label")}}, {{htmlelement("input")}} und {{htmlelement("select")}} erstellt. Formularelemente können verwendet werden, um komplexere Steuerelemente zu erstellen, als es einfache Schaltflächen erlauben — zum Beispiel ein Dropdown-Menü mit mehreren Optionen, aus denen Sie zwischen verschiedenen Themen für ein Benutzeroberflächenelement wählen können.
+Formulare werden mit Elementen wie {{htmlelement("form")}}, {{htmlelement("label")}}, {{htmlelement("input")}} und {{htmlelement("select")}} erstellt. Formularelemente können verwendet werden, um komplexere Steuerelemente als einfache Schaltflächen zu erstellen – zum Beispiel ein Dropdown-Menü mit mehreren Optionen, das es Ihnen ermöglicht, zwischen verschiedenen Themen für ein Benutzeroberflächenelement zu wählen.
 
-Entscheidend ist jedoch, dass sie auch verwendet werden können, um Formulare zu erstellen, die Benutzer ausfüllen müssen, wenn sie Informationen an einen Website-Server übermitteln müssen. Denken Sie an E-Commerce-Sites — wenn Sie nach einem Produkt suchen möchten, das Sie kaufen möchten, verwenden Sie ein Formular, um Suchbegriffe einzugeben. Wenn Sie einige Artikel bezahlen und die Lieferung abschließen möchten, verwenden Sie ein Formular, um Ihre Postanschrift einzugeben, und ein weiteres Formular, um Ihre Kreditkartendaten einzugeben.
+Allerdings können sie auch entscheidend zur Erstellung von Formularen verwendet werden, die Benutzer ausfüllen müssen, wenn sie Informationen an einen Website-Server übermitteln. Denken Sie an E-Commerce-Websites – wenn Sie ein Produkt kaufen möchten, verwenden Sie ein Formular, um Suchbegriffe einzugeben. Wenn Sie einige Artikel bezahlen und die Lieferung abschließen möchten, verwenden Sie ein Formular, um Ihre Postadresse einzugeben, und ein weiteres Formular, um Ihre Kreditkartendaten einzugeben.
 
-Wir konzentrieren uns hauptsächlich darauf — die traditionellere — Verwendung von Formularelementen in diesem Artikel. Beachten Sie, dass Schaltflächen in Formularen häufig verwendet werden, um die eingegebenen Daten an den Server zu senden.
+Wir werden uns hauptsächlich auf diese – traditionellere – Nutzung von Formularelementen in diesem Artikel konzentrieren. Beachten Sie, dass Schaltflächen auch häufig in Formularen verwendet werden, um die eingegebenen Daten an den Server zu übermitteln.
 
-Nachdem diese wichtige Theorie geklärt ist, wollen wir den Code erkunden und sehen, wie Schaltflächen und Formulare implementiert werden.
+Nachdem wir diese wichtige Theorie geklärt haben, lassen Sie uns fortfahren, um den Code zu erkunden und zu sehen, wie Schaltflächen und Formulare implementiert werden.
 
 ## Schaltflächen
 
-Wie oben angedeutet, haben Schaltflächen einige Hauptverwendungszwecke im Internet. Zunächst werden sie verwendet, um Funktionen auszulösen, was nützlich ist, wenn man Benutzeroberflächensteuerungen erstellt. Die einfachste Schaltfläche wird mit dem folgenden Code implementiert:
+Wie oben angedeutet, haben Schaltflächen ein paar Hauptanwendungen im Web. Zunächst einmal werden sie verwendet, um Funktionalität auszulösen, was nützlich ist, wenn Sie UI-Steuerungen erstellen. Die einfachste Schaltfläche wird mit dem folgenden Code implementiert:
 
 ```html live-sample___basic-button
 <button>Press me</button>
@@ -72,9 +79,9 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample("basic-button", "100%", "60")}}
 
-Der Text, der zwischen den `<button></button>`-Tags erscheint, wird innerhalb der Schaltfläche gerendert und erhält vom Browser ein grundlegendes Styling, damit er standardmäßig wie eine Schaltfläche aussieht und sich verhält. So weit, so gut. Es gibt jedoch ein Problem — unsere einsame Schaltfläche wird alleine nichts Sinnvolles tun. Um sie sinnvoll zu machen, müssen Sie sie in ein Formular einfügen (was wir später behandeln werden) oder etwas JavaScript hinzufügen.
+Der Text, der zwischen den `<button></button>`-Tags erscheint, wird innerhalb der Schaltfläche gerendert, und er erhält vom Browser ein grundlegendes Styling, sodass er standardmäßig wie eine Schaltfläche aussieht und sich verhält. Soweit, so gut. Es gibt jedoch ein Problem hier – unsere einsame Schaltfläche wird nichts Nützliches alleine tun. Um sie nützlich zu machen, müssen Sie sie in ein Formular einfügen (was wir später behandeln werden) oder ein wenig JavaScript hinzufügen.
 
-Wenn Sie zum Beispiel das folgende JavaScript auf die obige Schaltfläche anwenden:
+Zum Beispiel, wenn Sie das folgende JavaScript auf die obige Schaltfläche anwenden:
 
 ```html hidden live-sample___basic-button-with-js
 <button>Press me</button>
@@ -90,25 +97,25 @@ btn.addEventListener("click", () => {
 });
 ```
 
-würde es Ihnen die folgende Ausgabe geben — versuchen Sie, darauf zu klicken:
+Es würde Ihnen die folgende Ausgabe geben – versuchen Sie, darauf zu klicken:
 
 {{EmbedLiveSample("basic-button-with-js", "100%", "60")}}
 
-Es wird nicht erwartet, dass Sie jetzt verstehen, wie das JavaScript funktioniert. Sie werden später im Kurs mehr darüber lernen.
+Sie müssen derzeit nicht verstehen, wie das JavaScript funktioniert. Sie werden später im Kurs mehr darüber lernen.
 
-Im nächsten Abschnitt sehen Sie eine Demonstration der zweiten Hauptverwendung von Schaltflächen — das Übermitteln von Formularen.
+Im nächsten Abschnitt sehen Sie eine Demonstration des zweiten Haupteinsatzes von Schaltflächen – das Übermitteln von Formularen.
 
 ## Die Anatomie eines Formulars
 
 Ein einfaches Formular enthält drei Dinge:
 
-- Ein {{htmlelement("form")}}-Element, das den gesamten anderen Formularinhalt umschließt. Alle Formularsteuerungen innerhalb der `<form></form>`-Tags sind Teil desselben Formulars, und ihre Daten werden gesammelt, wenn das Formular übermittelt wird.
-- Ein oder mehrere Paare, die jeweils aus einem {{htmlelement("label")}}-Element und einem Formulareingabeelement bestehen (meistens ein {{htmlelement("input")}}-Element, aber es gibt auch andere Typen, wie zum Beispiel {{htmlelement("select")}}):
-  - Das Formulareingabeelement ermöglicht es dem Benutzer, einige Daten auszuwählen oder einzugeben, die an den Server gesendet werden, wenn das Formular übermittelt wird.
-  - Das `<label>`-Element liefert ein identifizierendes Label, das mit der Formulareingabe verknüpft ist und die Daten beschreibt, die darin eingegeben werden sollen.
-- Ein {{htmlelement("button")}}-Element, das zur Übermittlung des Formulars verwendet wird.
+- Ein {{htmlelement("form")}}-Element, das den gesamten anderen Formularinhalt umschließt. Alle Formularelemente innerhalb der `<form></form>`-Tags gehören zum selben Formular und deren Daten werden eingeschlossen, wenn das Formular abgesendet wird.
+- Ein oder mehrere Paare, die jeweils aus einem {{htmlelement("label")}}-Element und einem Formularelement (normalerweise ein {{htmlelement("input")}}-Element, es gibt jedoch auch andere Typen wie {{htmlelement("select")}}) bestehen:
+  - Das Formularelement ermöglicht es dem Benutzer, Daten auszuwählen oder einzugeben, die bei der Formularübermittlung an den Server gesendet werden.
+  - Das `<label>`-Element bietet eine beschreibende Bezeichnung, die dem Formularelement zugeordnet ist und die Daten beschreibt, die eingegeben werden sollen.
+- Ein {{htmlelement("button")}}-Element, das zum Absenden des Formulars verwendet wird.
 
-Schauen wir uns ein einfaches Beispiel an, das die oben genannten drei Elemente enthält. Dieses Formular könnte verwendet werden, um nach dem Namen und der E-Mail eines Benutzers zu fragen, um ihn für einen Newsletter anzumelden (keine Sorge — es ist mit keinem Server verbunden, sodass es derzeit nichts bewirken wird).
+Schauen wir uns ein einfaches Beispiel an, das die oben genannten drei Elemente enthält. Dieses Formular könnte verwendet werden, um nach dem Namen und der E-Mail-Adresse eines Benutzers zu fragen, um ihn für einen Newsletter anzumelden (keine Sorge – es ist mit keinem Server verbunden, daher wird es derzeit nichts tun).
 
 ```html live-sample___form-anatomy
 <!doctype html>
@@ -140,43 +147,43 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample("form-anatomy", "100%", "200", , , , , "allow-forms")}}
 
-Wenn Sie sofort auf "Sign me up!" klicken, sehen Sie einen Validierungsfehler, weil keine Daten eingegeben wurden. Wenn Sie die Felder mit einem Namen und einer E-Mail-Adresse ausfüllen und dann auf "Sign me up!" klicken, erhalten Sie eine `404`-Fehlermeldung.
+Wenn Sie "Melden Sie mich an!" sofort klicken, sehen Sie einen Validierungsfehler, weil keine Daten eingegeben wurden. Wenn Sie die Felder mit einem Namen und einer E-Mail-Adresse ausfüllen und dann "Melden Sie mich an!" klicken, sehen Sie eine `404`-Fehlermeldung.
 
-Wir werden später erklären, warum. Bevor Sie fortfahren, kopieren Sie die vorherige HTML-Codeauflistung in eine neue HTML-Datei mit Ihrem [Code-Editor](/de/docs/Learn_web_development/Getting_started/Environment_setup/Code_editors) und öffnen Sie sie in einer neuen Browser-Registerkarte.
+Wir erklären Ihnen später, warum. Bevor Sie fortfahren, kopieren Sie die vorherige HTML-Codeübersicht in eine neue HTML-Datei mit Ihrem [Code-Editor](/de/docs/Learn_web_development/Getting_started/Environment_setup/Code_editors) und öffnen Sie sie in einem neuen Browser-Tab.
 
 ### Das `<form>`-Element
 
-Wie wir bereits gesagt haben, fungiert das {{htmlelement("form")}}-Element als äußerer Wrapper für das Formular und gruppiert alle Formularsteuerungen darin zusammen. Wenn die `<button>`-Taste gedrückt wird, werden alle von den Formulareingaben dargestellten Daten an den Server gesendet. Das `<form>`-Element kann viele Attribute enthalten, aber die beiden wichtigsten, die wir in unserem Beispiel aufgenommen haben, sind wie folgt:
+Wie wir bereits gesagt haben, fungiert das {{htmlelement("form")}}-Element als äußere Umhüllung für das Formular und gruppiert alle die darin enthaltenen Formularelemente zusammen. Wenn die `<button>` gedrückt wird, werden alle durch die Formularelemente dargestellten Daten an den Server gesendet. Das `<form>`-Element kann viele Attribute aufnehmen, aber die beiden wichtigsten, die wir in unserem Beispiel verwendet haben, sind wie folgt:
 
-- `action`: Enthält einen Pfad zur Seite, an die wir die übermittelten Formulardaten zur Verarbeitung senden möchten. Später, nach dem Absenden des Formulars, sehen Sie `/submit_page` in der URL enthalten. Sie werden auch eine {{HTTPStatus("404")}}-Fehlerantwort erhalten, da die Seite tatsächlich nicht existiert, aber das ist für jetzt in Ordnung.
-- `method`: Gibt die Datenübertragungsmethode an [method](/de/docs/Web/HTTP/Reference/Methods), die Sie zum Senden der Formulardaten an den Server verwenden möchten. Machen Sie sich darüber im Moment keine großen Sorgen; Der Wert "get" bewirkt, dass die Daten als Parameter am Ende der URL gesendet werden.
+- `action`: Enthält einen Pfad zur Seite, an die wir die übermittelten Formulardaten zur Verarbeitung senden möchten. Später, nachdem Sie das Formular übermittelt haben, sehen Sie `/submit_page` in der URL enthalten. Sie erhalten auch eine {{HTTPStatus("404")}} Fehlerantwort, weil die Seite tatsächlich nicht existiert, aber das ist jetzt in Ordnung.
+- `method`: Gibt die Datenübertragungsmethode an, die Sie zum Senden der Formulardaten an den Server verwenden möchten. Machen Sie sich darüber momentan keine Sorgen; der `get`-Wert führt dazu, dass die Daten als Parameter angehängt an die URL gesendet werden.
 
-#### Überprüfung der übermittelten Daten
+#### Überprüfen der übermittelten Daten
 
-1. Gehen Sie zum Beispiel in der separaten Registerkarte und versuchen Sie, einen Namen wie "Bob" und eine E-Mail-Adresse wie "bob@bob.com" einzugeben.
-2. Drücken Sie die `<button>`-Taste.
+1. Gehen Sie zu dem Beispiel im separaten Tab, versuchen Sie, einen Namen "Bob" und eine E-Mail-Adresse "bob@bob.com" einzugeben.
+2. Drücken Sie den `<button>`.
 
-Die `action`- und `method`-Attribute führen dazu, dass die Formulardaten in einer URL ähnlich der folgenden übermittelt werden:
+Die `action`- und `method`-Attribute führen dazu, dass die Formulardaten in einer URL ungefähr nach folgendem Muster eingereicht werden:
 
 ```plain
 /some/url/submit_page?name=Bob&email=bob%40bob.com
 ```
 
-#### Formulare strukturieren
+#### Formularstrukturierung
 
-Sie können beliebige HTML-Elemente innerhalb eines `<form>`-Elements einfügen, um die Formularelemente selbst zu strukturieren und Container bereitzustellen, die mit CSS zum Stylen usw. angesprochen werden können.
+Sie können beliebige HTML-Elemente in einem `<form>`-Element einfügen, um die Formularelemente selbst zu strukturieren und Container bereitzustellen, die mit CSS für das Styling usw. gezielt angesprochen werden können.
 
-In unserem Beispiel haben wir ein [Überschriftenelement](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) (`<h2>`) aufgenommen, um den Zweck des Formulars zu beschreiben.
+In unserem Beispiel haben wir ein [Überschriftenelement](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) (`<h2>`) eingefügt, um den Zweck des Formulars zu beschreiben.
 
-Wir haben auch jedes Eingabe-/Label-Paar und die Absenden-Schaltfläche in ein separates {{htmlelement("p")}} gesetzt, sodass jedes in einer eigenen Zeile erscheint. Diese Elemente sind standardmäßig inline, was bedeutet, dass sie alle in derselben Zeile sitzen würden, wenn wir dies nicht tun würden.
+Wir haben auch jedes Paar aus Eingabe/Label und die Absenden-Schaltfläche in ein separates {{htmlelement("p")}}-Element eingefügt, sodass jedes in einer separaten Zeile angezeigt wird. Diese Elemente sind standardmäßig inline, was bedeutet, dass sie alle in derselben Zeile erscheinen würden, wenn wir dies nicht tun würden.
 
-Dies ist ein häufiges Muster für die Formularstrukturierung. Einige Leute verwenden `<p>`-Elemente, um ihre Formularelemente voneinander zu trennen, andere verwenden {{htmlelement("div")}}, {{htmlelement("section")}} oder sogar {{htmlelement("li")}}-Elemente. Es spielt keine große Rolle, solange die verwendeten Elemente semantischen Sinn ergeben. Zum Beispiel macht es Sinn, Formularelementgruppen in separate Absätze oder Abschnitte von Inhalten zu unterteilen oder sogar Elemente in einer Liste. Es wäre weniger sinnvoll, sie als [Blockzitate](/de/docs/Web/HTML/Reference/Elements/blockquote), [Nebenelemente](/de/docs/Web/HTML/Reference/Elements/aside) oder [Adressen](/de/docs/Web/HTML/Reference/Elements/address) darzustellen.
+Dies ist ein häufiges Muster zur Formularstrukturierung. Einige verwenden `<p>`-Elemente, um ihre Formularelemente zu trennen, einige verwenden {{htmlelement("div")}}, {{htmlelement("section")}} oder sogar {{htmlelement("li")}}-Elemente. Es spielt keine große Rolle, solange die verwendeten Elemente semantischen Sinn ergeben. Zum Beispiel ergibt es Sinn, Formularelementgruppen in separate Absätze oder Inhaltsabschnitte oder sogar Elemente in einer Liste zu unterteilen. Es wäre weniger sinnvoll, sie als [Blockzitate](/de/docs/Web/HTML/Reference/Elements/blockquote), [Nebenelemente](/de/docs/Web/HTML/Reference/Elements/aside) oder [Adressen](/de/docs/Web/HTML/Reference/Elements/address) darzustellen.
 
-Es gibt ein spezialisiertes Element zum Gruppieren von Formularelementen, das {{htmlelement("fieldset")}} genannt wird. Dies ist in bestimmten Situationen nützlich, z. B. in komplexen Formularen und beim Gruppieren mehrerer Kontrollkästchen und Radiobuttons. Später werden wir ein paar `<fieldset>`-Beispiele ansehen.
+Es gibt ein spezialisiertes Element zum Gruppieren von Formularelementen, das {{htmlelement("fieldset")}} genannt wird. Dies ist in bestimmten Umständen nützlich, wie in komplexen Formularen und beim Gruppieren mehrerer Kontrollkästchen und Optionsfelder. Wir werden später ein paar `<fieldset>`-Beispiele betrachten.
 
 ### `<input>`-Elemente
 
-Die {{htmlelement("input")}}-Elemente repräsentieren die verschiedenen Datenelemente, die in das Formular eingegeben werden. Sehen wir uns ein Beispiel aus unserem Basisformular an:
+Die {{htmlelement("input")}}-Elemente stehen für die unterschiedlichen Datenelemente, die in das Formular eingegeben wurden. Lassen Sie uns eines der Beispiele aus unserem Basisformular studieren:
 
 ```html
 <input type="text" name="name" id="name" required />
@@ -184,30 +191,30 @@ Die {{htmlelement("input")}}-Elemente repräsentieren die verschiedenen Datenele
 
 Die Attribute sind wie folgt:
 
-- `type`: Gibt den Typ des Formularelementes an, das erstellt werden soll. Es gibt viele verschiedene Typen von Formularelementen, von einfachen Textfeldern unterschiedlicher Art bis hin zu Radiobuttons, Checkboxen und mehr. Der Typ "text" rendert ein einfaches Textfeld, das jeden Wert akzeptieren kann.
-- `name`: Gibt einen Namen für das Datenelement an. Wenn das Formular übermittelt wird, werden die Daten in Name/Wert-Paaren gesendet. In jedem Fall ist der Name gleich dem Wert des `name`-Attributs, und der Wert entspricht dem im Textfeld eingegebenen Text.
-- `id`: Gibt eine ID an, die zur Identifizierung des Elements verwendet werden kann. In diesem Fall wird es verwendet, um das Formularelement mit seinem `<label>` zu verknüpfen.
-- `required`: Gibt an, dass ein Wert in das Formularelement eingegeben werden muss, bevor das Formular übermittelt werden kann. Dies sollte nur bei Eingaben festgelegt werden, die erforderlich sind, nicht bei optionalen Feldern.
+- `type`: Gibt den Typ des zu erstellenden Formularelements an. Es gibt viele verschiedene Arten von Formularelementen, von einfachen Textfeldern unterschiedlicher Art bis hin zu Optionsfeldern, Kontrollkästchen und mehr. Der Typ `text` rendert ein Basis-Textfeld, das beliebige Werte akzeptieren kann.
+- `name`: Gibt einen Namen für das Datenelement an. Wenn das Formular übermittelt wird, werden die Daten in Namens-/Wertpaaren gesendet. In jedem Fall ist der Name gleich dem Wert dieses `name`-Attributs und der Wert gleich dem im Textfeld eingegebenen Text.
+- `id`: Gibt eine ID an, die verwendet werden kann, um das Element zu identifizieren. In diesem Fall wird es verwendet, um das Formularelement mit seinem `<label>` zu verknüpfen.
+- `required`: Gibt an, dass ein Wert in das Formularelement eingegeben werden muss, bevor das Formular übermittelt werden kann. Dies sollte nur auf erforderlichen Eingaben gesetzt werden, nicht auf optionalen Feldern.
 
-Sie sollten wissen, dass einige Eingabetypen ihre Werte normalerweise nicht aus einem in ein Feld eingegebenen Text beziehen. Zum Beispiel rendert `<input type="color">` ein Farbwähl-Widget, aus dem Sie eine Farbe auswählen können, während `<input type="radio">` ein Radiobutton-Element rendert, das ausgewählt oder nicht ausgewählt werden kann.
+Sie sollten wissen, dass einige Eingabetypen ihre Werte normalerweise nicht aus im Feld eingegebenem Text erhalten. Zum Beispiel rendert [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color) ein Farbauswahl-Widget, aus dem Sie eine Farbe auswählen, während [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio) ein Auswahlknopf-Steuerelement wiedergibt, das ausgewählt oder nicht ausgewählt sein kann.
 
-Im Fall von Radiobuttons müssen Sie in der Regel den Wert, der übermittelt werden soll, falls er ausgewählt wird, in einem bestimmten `value`-Attribut angeben. Beachten Sie, dass Sie _können_ ein `value`-Attribut bei Eingabetypen wie "text" und "color" angeben — die Auswirkung ist, dass der Wert in das Formularfeld vorab ausgefüllt wird, wenn es zuerst gerendert wird.
+Im Fall von Optionsfeldern müssen Sie im Allgemeinen den Wert, der eingereicht werden soll, wenn es ausgewählt ist, in einem spezifischen `value`-Attribut angeben. Beachten Sie, dass Sie ein `value`-Attribut auf Eingabetypen wie `text` und `color` angeben _können_ – die Wirkung ist, dass der Wert beim ersten Darstellen der Formularelement in das Feld eingetragen wird.
 
 #### `required`- und `value`-Attribute in Aktion
 
-1. Gehen Sie erneut zu dem geladenen Beispiel in einer separaten Registerkarte und versuchen Sie, das Formular ohne Eingabe eines Wertes in einem der Felder zu übermitteln. Sie werden eine Fehlermeldung neben dem Feld "Name" sehen, in der etwas steht wie "Please fill in this field" (es variiert je nach verwendetem Browser). Dies ist das `required`-Attribut — und die standardmäßige clientseitige Formularvalidierung des Browsers — in Aktion.
-2. Jetzt versuchen Sie, das Formular mit einem gültigen Namen im ersten Feld einzugeben, aber einem Wert, der keine gültige E-Mail-Adresse im zweiten Feld ist (etwas wie "aaaa" genügt). Dieses Mal sehen Sie eine Fehlermeldung neben dem Feld "Email", in der etwas steht wie "Please enter an email address".
-3. Versuchen Sie, das Formular so zu bearbeiten, dass `value="Bob"` im ersten Eingabefeld enthalten ist. Wenn Sie den Code neu laden, werden Sie sehen, dass das erste Feld standardmäßig den Wert "Bob" enthält.
+1. Gehen Sie erneut zu dem Beispiel, das Sie in einem separaten Tab geladen haben, und versuchen Sie, das Formular ohne Eingabe eines Wertes in einem der beiden Felder abzusenden. Sie werden eine Fehlermeldung neben dem "Name"-Feld sehen, die in etwa so lautet: "Bitte füllen Sie dieses Feld aus" (es variiert in verschiedenen Browsern). Dies ist das `required`-Attribut – und die Standard-Client-Formularüberprüfung des Browsers – in Aktion.
+2. Versuchen Sie nun, das Formular mit einem gültigen Namen im ersten Feld, aber einem Wert, der keine gültige E-Mail-Adresse ist, im zweiten Feld zu senden (etwas wie "aaaa" reicht aus). Diesmal sehen Sie eine Fehlermeldung neben dem "E-Mail"-Feld, die in etwa so lautet: "Bitte geben Sie eine E-Mail-Adresse ein".
+3. Versuchen Sie, das Formular so zu bearbeiten, dass es `value="Bob"` im ersten Eingabefeld enthält. Wenn Sie den Code neu laden, sehen Sie, dass das erste Feld standardmäßig den Wert "Bob" enthält.
 
-#### Spezialisierte Textfeldeingaben
+#### Spezialisierte Textfeld-Eingaben
 
-Die zweite Übung oben wirft einen interessanten Punkt auf. Das zweite Eingabefeld erwartet speziell eine E-Mail-Adresse und validiert die eingegebenen Werte entsprechend. Wenn Sie den Formularcode erneut ansehen, werden Sie sehen, warum — das zweite `<input>` hat einen `type` von `email`. Es gibt mehrere spezialisierte Textfeldeingabetypen, die für spezifische Datentypen entworfen wurden — `<input type="number">`, `<input type="password">`, `<input type="tel">`, usw.
+Die zweite oben erwähnte Übung wirft einen interessanten Punkt auf. Das zweite Eingabefeld erwartet speziell eine E-Mail-Adresse und validiert die eingegebenen Werte entsprechend. Wenn Sie sich den Formularcode erneut ansehen, werden Sie sehen, warum – das zweite `<input>` hat einen `type` von `email`. Es gibt mehrere spezialisierte Textfeld-Eingabetypen, die verwendet werden, um bestimmte Arten von Daten zu verarbeiten – [`<input type="number">`](/de/docs/Web/HTML/Reference/Elements/input/number), [`<input type="password">`](/de/docs/Web/HTML/Reference/Elements/input/password), [`<input type="tel">`](/de/docs/Web/HTML/Reference/Elements/input/tel), usw.
 
-Folgen Sie einigen der obigen Links, um herauszufinden, wofür diese Eingabetypen verwendet werden. Schauen Sie sich unsere [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Referenz an und sehen Sie, ob Sie noch mehr spezialisierte Textfeldeingabetypen finden können.
+Folgen Sie einigen der oben genannten Links, um herauszufinden, wofür diese Eingabetypen verwendet werden. Werfen Sie einen Blick auf unsere [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Referenz und sehen Sie, ob Sie weitere spezialisierte Textfeld-Eingabetypen finden können.
 
 ### `<label>`-Elemente
 
-Wie wir oben schon gesagt haben, liefern {{htmlelement("label")}}-Elemente identifizierende Labels, die mit Formularelementen verknüpft sind und die Daten beschreiben, die in sie eingegeben werden sollen. Sie können beliebigen Textinhalt in `<label>`-Elemente einfügen, aber sie sollten genau beschreiben, welche Daten das zugeordnete Formularelement erwartet. Die Zuordnung wird erstellt, indem man dem Formularelement ein `id`-Attribut gibt und dann das `<label>`-Element mit einem `for`-Attribut versehen wird, das den gleichen Wert wie die `id` des Steuerelements hat.
+Wie wir oben gesagt haben, bieten {{htmlelement("label")}}-Elemente beschreibende Bezeichnungen, die den Formularelementen zugeordnet sind und die Daten beschreiben, die in sie eingegeben werden sollen. Sie können beliebigen Textinhalt in `<label>`-Elemente einfügen, aber er sollte genau beschreiben, welche Daten das zugehörige Formularelement erwartet. Die Verbindung wird hergestellt, indem dem Formularelement ein `id`-Attribut gegeben wird, dann dem `<label>`-Element ein `for`-Attribut mit dem gleichen Wert wie die `id` des Elements.
 
 Zum Beispiel:
 
@@ -218,12 +225,12 @@ Zum Beispiel:
 
 `<label>`-Elemente sind aus mehreren Gründen wichtig, insbesondere weil:
 
-- Wenn sehbehinderte Benutzer einen Bildschirmleser verwenden, um ihnen beim Lesen und Interagieren mit Webseiteninhalten zu helfen, liest der Bildschirmleser den zugeordneten Labeltext vor, wenn sich ein Steuerelement im Fokus befindet. dies erleichtert es den Benutzern zu verstehen, welche Inhalte in jedes Steuerelement eingegeben werden sollen.
-- Sie ermöglichen es Ihnen, die Formularelemente durch Klicken auf ihren Labeltext sowie die Steuerelemente selbst in den Fokus zu setzen. Dies ist besonders nützlich für mobile Benutzer, bei denen es schwierig sein kann, ein Formularelement genau mit dem Finger auf einem Touchscreen auszuwählen. Die Vergrößerung des **Trefferbereichs** ist in solchen Situationen nützlich.
+- Wenn sehbehinderte Benutzer einen Screenreader verwenden, um ihnen bei der Navigation durch und Interaktion mit Webseiten-Inhalten zu helfen, liest der Screenreader den zugehörigen Beschriftungstext vor, wenn jedes Steuerungselement aufgerufen wird. Dies erleichtert es den Benutzern, zu verstehen, welche Inhalte in jedes Steuerungselement eingegeben werden sollen.
+- Sie ermöglichen es Ihnen, die Formularelemente durch Klicken auf ihren Beschriftungstext sowie die Steuerelemente zu fokussieren. Dies ist besonders nützlich für Mobiltelefonbenutzer, bei denen es schwierig sein kann, ein Formularelement mit dem Finger auf einem Touchscreen genau auszuwählen. Das Vergrößern der **Trefferzone** ist in solchen Fällen nützlich.
 
-#### Explizite und implizite Formulareingabelabels
+#### Explizite und implizite Formularelemente
 
-Der oben gezeigte Formulareingabelabelstil wird als **explizites Formulareingabelabel** bezeichnet — die Zuordnung zwischen Steuerelement und Label wird explizit über die `id`- und `for`-Attribute hergestellt. Sie können auch ein **implizites Formulareingabelabel** implementieren, indem Sie das Steuerelement innerhalb des Labels verschachteln, wie folgt:
+Der oben gezeigte Formularstil wird als **explizites Formularelement** bezeichnet – die Verbindung zwischen Steuerung und Bezeichnung wird explizit über die `id`- und `for`-Attribute hergestellt. Sie können auch ein **implizites Formularelement** implementieren, indem Sie die Steuerung innerhalb der Beschriftung verschachteln, wie folgt:
 
 ```html
 <label>
@@ -232,47 +239,47 @@ Der oben gezeigte Formulareingabelabelstil wird als **explizites Formulareingabe
 </label>
 ```
 
-Die Verschachtelung erzeugt eine implizite Zuordnung zwischen Steuerelement und Label, und Sie benötigen nicht mehr die `id`- und `for`-Attribute.
+Die Verschachtelung schafft eine implizite Verbindung zwischen Steuerung und Bezeichnung, und die `id`- und `for`-Attribute sind nicht mehr erforderlich.
 
-Jeder Ansatz ist in Ordnung, aber wir würden empfehlen, die explizite Labeling-Methode zu verwenden. Dies liegt daran, dass die explizite Zuordnung in der Regel einfacher zu identifizieren und zu verstehen ist, insbesondere wenn Ihr HTML-Code komplexer wird. Darüber hinaus verarbeiten Bildschirmleser (und andere unterstützende Technologien) nicht immer implizite Labels korrekt.
+Beide Ansätze sind in Ordnung, aber wir würden empfehlen, den expliziten Beschriftungsansatz zu verwenden. Dies liegt daran, dass die explizite Verbindung normalerweise einfacher zu identifizieren und zu verstehen ist, insbesondere wenn Ihr HTML-Code komplexer wird. Darüber hinaus handhaben Screenreader (und andere unterstützende Technologien) implizite Beschriftungen nicht immer korrekt.
 
-Sie können mehr über Best Practices zur Formulareingabelabels in [HTML Inputs and Labels: A Love Story](https://css-tricks.com/html-inputs-and-labels-a-love-story/), csstricks.com (2021) lesen.
+Sie können mehr über beste Praktiken beim Beschriften von Formularen in [HTML Inputs and Labels: A Love Story](https://css-tricks.com/html-inputs-and-labels-a-love-story/), csstricks.com (2021) erfahren.
 
 ### Das `<button>`-Element
 
-Wenn ein {{htmlelement("button")}}-Element innerhalb eines `<form>`-Elements enthalten ist, besteht seine Standardfunktion darin, das Formular zu übermitteln, vorausgesetzt, es sind keine ungültigen Daten vorhanden, die die Übermittlung durch die clientseitige Formularvalidierung blockieren. Dieses Verhalten haben Sie bereits beim Spielen mit unserem Basisformbeispiel oben gesehen.
+Wenn ein {{htmlelement("button")}}-Element in einem `<form>`-Element enthalten ist, ist sein Standardverhalten, dass es das Formular absendet, vorausgesetzt, es sind keine ungültigen Daten vorhanden, die die Übermittlung durch die clientseitige Formularüberprüfung blockieren. Sie haben dieses Verhalten bereits gesehen, als Sie mit unserem Basisform-Beispiel oben gespielt haben.
 
 Es gibt andere Schaltflächenverhalten, die über das `type`-Attribut des `<button>`-Elements angegeben werden können:
 
-- `<button type="submit">` erklärt explizit, dass eine Schaltfläche wie eine Absende-Schaltfläche funktionieren soll. Sie müssen dies nicht wirklich deklarieren, es sei denn, Sie haben aus irgendeinem Grund andere Schaltflächen in Ihrem `<form>` enthalten, und Sie möchten klarstellen, welche die Abschicken-Schaltfläche ist. Dies wird sehr selten vorkommen.
-- `<button type="reset">` erstellt eine _Zurücksetzen-Schaltfläche_ — das löscht sofort alle Daten aus dem Formular und setzt es in seinen Ausgangszustand zurück. **Verwenden Sie keine Zurücksetzen-Schaltflächen** — sie waren in den frühen Tagen des Webs beliebt, sind aber in der Regel nerviger als hilfreich. Die meisten Leute haben erlebt, ein langes Formular auszufüllen, nur um versehentlich auf die Zurücksetzen- statt auf die Abschicken-Schaltfläche zu klicken, was bedeutet, dass sie von vorne anfangen müssen.
-- `<button type="button">` erstellt eine Schaltfläche mit demselben Verhalten wie Schaltflächen, die außerhalb von `<form>`-Elementen angegeben sind. Wie wir zuvor gesehen haben, tun sie standardmäßig absolut nichts und benötigen JavaScript, um ihnen Funktionalität zu geben.
+- `<button type="submit">` gibt ausdrücklich an, dass eine Schaltfläche wie eine Absenden-Schaltfläche verhalten soll. Sie brauchen dies nie wirklich anzugeben, es sei denn, Sie schließen aus irgendeinem Grund andere Schaltflächen in Ihr `<form>` ein und möchten klarstellen, welche die Absenden-Schaltfläche ist. Dies wird sehr selten sein.
+- `<button type="reset">` erstellt eine _Rücksetztaste_ – dies löscht sofort alle Daten aus dem Formular, setzt es auf seinen ursprünglichen Zustand zurück. **Verwenden Sie keine Rücksetztasten** – sie waren früher im Internet beliebt, aber sie sind normalerweise eher nervig als hilfreich. Die meisten Menschen haben die Erfahrung gemacht, ein langes Formular auszufüllen, nur um versehentlich die Rücksetztaste statt der Absenden-Schaltfläche zu drücken, was bedeutet, dass sie von vorne beginnen müssen.
+- `<button type="button">` erstellt eine Schaltfläche mit dem gleichen Verhalten wie Schaltflächen außerhalb von `<form>`-Elementen. Wie wir bereits gesehen haben, tun sie standardmäßig absolut nichts, und es wird JavaScript benötigt, um ihnen Funktionalität zu verleihen.
 
-Obwohl Sie diese Schaltflächentypen erstellen können, indem Sie ein `<input>`-Element mit denselben `type`-Werten verwenden – wie [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit), [`<input type="reset">`](/de/docs/Web/HTML/Reference/Elements/input/reset) und [`<input type="button">`](/de/docs/Web/HTML/Reference/Elements/input/button) – haben sie viele Nachteile im Vergleich zu ihren `<button>`-Gegenstücken. Daher sollten Sie `<button>` verwenden.
+Obwohl Sie diese Schaltflächentypen durch die Verwendung eines `<input>`-Elements mit denselben `type`-Werten – wie etwa [`<input type="submit">`](/de/docs/Web/HTML/Reference/Elements/input/submit), [`<input type="reset">`](/de/docs/Web/HTML/Reference/Elements/input/reset), und [`<input type="button">`](/de/docs/Web/HTML/Reference/Elements/input/button) – erstellen können, haben sie viele Nachteile im Vergleich zu ihren `<button>`-Gegenstücken. Sie sollten daher `<button>` verwenden.
 
 > [!NOTE]
-> Scrimba<sup>[_MDN learning partner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine kostenlose Lektion an — [The very basics of forms](https://scrimba.com/learn-responsive-web-design-c029/~031?via=mdn) — die eine nützliche interaktive Wiederholung der zuvor in diesem Artikel behandelten Grundlagen von Formularen bietet.
+> Scrimba<sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine kostenlose Lektion — [Die Grundlagen der Formulare](https://scrimba.com/learn-responsive-web-design-c029/~031?via=mdn) — an, die eine nützliche interaktive Zusammenfassung der Grundlagen bietet, die wir zuvor in diesem Artikel behandelt haben.
 
-## Ein Exkurs zur Zugänglichkeit
+## Ein Hinweis zur Barrierefreiheit
 
-Wir haben bereits über die Bedeutung von Formulareingabelabels für die Zugänglichkeit gesprochen, aber wir wollten auch einige Kommentare zur allgemeinen Bedeutung der Verwendung der korrekten semantischen Elemente bei der Erstellung von Formularen einfügen (zum Beispiel verwenden Sie eine `<button>`, um Ihr Formular abzusenden und nicht ein `<div>`, das programmiert wurde, um wie eine `<button>` zu funktionieren). Es ist durchaus möglich, eine Kombination aus CSS und JavaScript zu verwenden, um fast jedes HTML-Element so aussehen und verhalten zu lassen wie ein Formularelement. Entwickler tun dies normalerweise aus gestalterischen Gründen — einige Formularelemente sind schwer zu gestalten.
+Wir haben bereits über die Bedeutung von Formularbezeichnungen für die Barrierefreiheit gesprochen, möchten jedoch auch einige Anmerkungen zur allgemeinen Bedeutung der Verwendung der richtigen semantischen Elemente zur Erstellung von Formularen machen (z. B. verwenden Sie eine `<button>`, um Ihr Formular abzusenden, und nicht ein `<div>`, das wie eine `<button>`-programmierte wurde). Es ist durchaus möglich, eine Kombination aus CSS und JavaScript zu verwenden, um praktisch jedes HTML-Element wie ein Formularelement aussehen und sich verhalten zu lassen. Entwickler tun dies normalerweise aus Designgründen – einige Formularelemente sind schwer zu gestalten.
 
-Wenn Sie dies jedoch tun, machen Sie sich das Leben schwerer und auch Ihren Benutzern. Der Browser bietet mehrere Funktionen für `<button>`- und Formularelemente standardmäßig an, ohne dass JavaScript oder anderer zusätzlicher Code erforderlich ist, um Formulare für alle Benutzer benutzerfreundlicher zu machen.
+Wenn Sie dies jedoch tun, machen Sie sich und Ihren Benutzern das Leben schwerer. Der Browser stellt mehrere `<button>`- und Formularelementfunktionen standardmäßig bereit, ohne dass JavaScript oder anderer zusätzlicher Code erforderlich ist, um Formulare für alle Benutzer benutzerfreundlicher zu gestalten.
 
 Zum Beispiel:
 
-- Semantische Elemente werden von unterstützender Technologie wie Bildschirmlesern verstanden, die ihre Bedeutung für Benutzer kommunizieren, die sie nicht sehen können.
-- Formularelemente und Schaltflächen sind standardmäßig tastaturzugänglich. Im vorherigen Beispiel versuchen Sie, mit <kbd>Tab</kbd> und <kbd>Shift</kbd> + <kbd>Tab</kbd> (sogenanntes "Tabbing") vorwärts und rückwärts zwischen den Formularelementen zu wechseln.
-- Beachten Sie auch, wie das Tabben zwischen den Formularelementen dazu führt, dass das fokussierte Element mit einem blauen Umriss hervorgehoben wird (genannt **Fokusumriss**). Dies ist ein wichtiges Feature für Tastaturnutzer, um zu wissen, wo sie sich gerade im Formular befinden.
+- Semantische Elemente werden von unterstützender Technologie wie Screenreadern verstanden, die ihre Bedeutung an Benutzer übermitteln, die sie nicht sehen können.
+- Formularelemente und Schaltflächen sind standardmäßig mit der Tastatur zugänglich. Im vorherigen Beispiel versuchen Sie, sich vorwärts und rückwärts zwischen den Formelementen mithilfe von <kbd>Tab</kbd> und <kbd>Shift</kbd> + <kbd>Tab</kbd> (auch "Tabbing" genannt) zu bewegen.
+- Beachten Sie auch, wie das Tabben zwischen den Formelementen dazu führt, dass das fokussierte Element mit einem blauen Umriss hervorgehoben wird (genannt **Fokus-Umriss**). Dies ist eine wichtige Funktion für Tastaturnutzer, um zu wissen, wo sie sich derzeit im Formular befinden.
 
-Wenn Sie nicht die richtigen semantischen Elemente verwenden, um Ihre Formulare zu implementieren, müssen Sie all diese Funktionalität neu implementieren, sonst verhalten sich Ihre Formularelemente nicht wie erwartet und erscheinen daher defekt. Es summiert sich alles.
+Wenn Sie nicht die richtigen semantischen Elemente verwenden, um Ihre Formulare zu implementieren, müssen Sie all diese Funktionen neu implementieren, sonst verhalten sich Ihre Formularelemente nicht so, wie die Benutzer es erwarten, und erscheinen daher als defekt. Alles summiert sich.
 
 ## Andere Steuerungstypen
 
-Es gibt viele andere Steuerungstypen, die Sie verwenden können, um Daten in einem Formular zu sammeln. Schauen wir uns ein etwas komplexeres Beispiel an und dann werden wir es untersuchen und erklären.
+Es gibt viele andere Steuerungstypen, die Sie verwenden können, um Daten in einem Formular zu sammeln. Lassen Sie uns ein etwas komplexeres Beispiel ansehen und dann untersuchen und erklären.
 
 > [!NOTE]
-> In diesem Beispiel gehen wir davon aus, dass der Benutzer bereits registriert und angemeldet ist, daher müssen keine Details wie Name und E-Mail abgefragt werden.
+> In diesem Beispiel gehen wir davon aus, dass der Benutzer bereits registriert und angemeldet ist und daher keine Details wie Name und E-Mail gesammelt werden müssen.
 
 ```html live-sample___form-other-controls
 <!doctype html>
@@ -348,15 +355,15 @@ Dies wird wie folgt gerendert:
 
 {{EmbedLiveSample("form-other-controls", "100%", "500", , , , , "allow-forms")}}
 
-Wir empfehlen Ihnen, dieses Beispiel in einem separaten Browser-Tab zu öffnen, während Sie die nächsten Abschnitte durchgehen, in denen wir jeden Steuerungstyp der Reihe nach anschauen. Um dies zu erreichen, kopieren Sie den Code in eine HTML-Datei mit Ihrem Code-Editor und öffnen Sie sie in einem Browser-Tab.
+Wir empfehlen Ihnen, dieses Beispiel in einem separaten Browser-Tab zu öffnen, während Sie die nächsten Abschnitte durchgehen, in denen wir jeden Steuerungstyp der Reihe nach untersuchen. Um dies zu erreichen, kopieren Sie den Code in eine HTML-Datei mit Ihrem Code-Editor und öffnen Sie ihn in einem Browser-Tab.
 
-Bevor Sie fortfahren, spielen Sie mit den verschiedenen Formularelementen in Ihrer lokalen Kopie und wählen Sie einige Werte aus. Versuchen Sie, das Formular zu übermitteln und sehen Sie, wie die gesendeten Daten in der URL aussehen.
+Bevor Sie fortfahren, spielen Sie mit den verschiedenen Formularelementen in Ihrer lokalen Kopie und wählen Sie einige Werte aus. Versuchen Sie, das Formular abzusenden und sehen Sie, wie die eingereichten Daten in der URL aussehen.
 
-### Radiobuttons
+### Optionsfelder
 
-Die Schaltflächen "Zimmerkategorie auswählen" werden mit [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)-Steuerungen implementiert. Diese werden als eine Reihe von Druckschaltflächen gerendert, bei denen nur eine der Reihe gleichzeitig ausgewählt werden kann — Sie können nicht mehr als eine gleichzeitig auswählen. Sie sind benannt nach den Tasten, die auf altmodischen Radios zu finden sind, bei denen Sie eine Taste drücken und die zuvor ausgewählte herausspringt.
+Die Schaltflächen "Zimmerart wählen" sind mithilfe von [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)-Steuerelementen implementiert. Diese werden als eine Reihe von Druckknöpfen dargestellt, von denen jeweils nur einer ausgewählt werden kann – Sie können nicht mehr als einen gleichzeitig auswählen. Sie sind nach den Tasten der altmodischen Radios benannt, bei denen Sie eine Taste drücken und die zuvor ausgewählte wieder herauspringt.
 
-Unser Beispielcode sieht folgendermaßen aus:
+Unser Beispielcode sieht so aus:
 
 ```html
 <fieldset>
@@ -384,30 +391,30 @@ Unser Beispielcode sieht folgendermaßen aus:
 </fieldset>
 ```
 
-´radio´-Eingabetypen funktionieren meist wie ´text´-Eingabetypen, jedoch mit einigen Unterschieden:
+`radio`-Eingabetypen funktionieren im Wesentlichen wie `text`-Eingabetypen, jedoch mit einigen Unterschieden:
 
-- Die `name`-Attribute für jede Gruppe von Radiobuttons müssen denselben Wert enthalten, um sie als eine Gruppe zusammenzufassen. Wenn sie unterschiedliche Werte enthalten, sind sie effektiv separate Gruppen mit unterschiedlichen Werten bei der Übermittlung.
-- Sie müssen ein `value`-Attribut enthalten, das den zu übermittelnden Wert für jede Radio-Schaltfläche angibt. Der übermittelte Wert wird ein Name/Wert-Paar sein, aber der Name wird immer derselbe sein, zum Beispiel `hotel=economy` oder `hotel=superior`.
-- Das `<label>` für jede Radio-Schaltfläche sollte diese bestimmte Wertauswahl beschreiben, anstatt den Gesamtwert, den Sie auswählen. Der bevorzugte Weg, bietet eine Beschreibung der Gesamtwertauswahl, besteht darin, sie in ein {{htmlelement("fieldset")}}-Element einzuwickeln, das ein {{htmlelement("legend")}}-Element als Kind enthält, das die Beschreibung enthält.
+- Die `name`-Attribute für jede Gruppe von Optionsfeldern müssen denselben Wert enthalten, um sie zusammen als ein Satz zu verbinden. Wenn sie unterschiedliche Werte enthalten, werden sie effektiv separate Sätze mit unterschiedlichen Werten bei der Einreichung sein.
+- Sie müssen ein `value`-Attribut angeben, das den Wert enthält, der für jeden Radio-Knopf eingereicht wird. Der eingereichte Wert wird ein Namens-/Wertpaar sein, aber der Name wird immer derselbe sein, z.B. `hotel=economy` oder `hotel=superior`.
+- Die `<label>` für jede Radio-Taste sollte diese spezifische Wertwahl beschreiben, anstatt den gesamten gewählten Wert. Der bevorzugte Weg, um eine Beschreibung der gesamten Wertwahl bereitzustellen, besteht darin, die Radiobuttons in ein {{htmlelement("fieldset")}} einzuschließen, das ein {{htmlelement("legend")}} Element als Kind enthält, das die Beschreibung enthält.
 
 > [!NOTE]
-> Neben der Strukturierung und Beschriftung von Formularen haben Fieldsets weitere Verwendungen, wie zum Beispiel [Deaktivieren](#deaktivieren_von_formularelementen) eines gesamten Satzes von Steuerungen als eine Einheit.
+> Neben der Strukturierung und Beschriftung von Formularen haben Fieldsets andere Verwendungsmöglichkeiten, wie zum Beispiel [Deaktivieren](#deaktivieren_von_formularelementen) einer gesamten Gruppe von Steuerelementen als eine Einheit.
 
-Es ist auch erwähnenswert, dass wir das `checked`-Attribut auf die erste Radio-Schaltfläche angewendet haben — dies bewirkt, dass es beim ersten Laden der Seite ausgewählt wird. Das bedeutet, dass immer eine Option ausgewählt wird und Sie eine Radio-Schaltfläche nicht abwählen können, ohne eine andere auszuwählen.
+Es ist auch erwähnenswert, dass wir das `checked`-Attribut auf das erste Radio-Knopf angewendet haben – dies bewirkt, dass es ausgewählt wird, wenn die Seite das erste Mal geladen wird. Dies bedeutet, dass eine Option immer ausgewählt sein wird und Sie ein Radio-Knopf nicht abwählen können, ohne ein anderes zu wählen.
 
-Versuchen Sie, das `checked`-Attribut aus der ersten Radio-Schaltfläche zu entfernen, speichern Sie und laden Sie erneut, um den Effekt zu sehen, den es hat. Legen Sie es wieder an, bevor Sie fortfahren.
+Versuchen Sie, das `checked`-Attribut aus dem ersten Radio-Knopf zu entfernen, speichern Sie und laden Sie dann neu, um den Effekt zu sehen, den es hat. Setzen Sie es zurück, bevor Sie fortfahren.
 
 #### Deaktivieren von Formularelementen
 
-Im Beispiel der Radio-Schaltflächen werden Sie bemerken, dass die dritte Radio-Schaltfläche das `disabled`-Attribut eingestellt hat. Dies bewirkt, dass die gerenderte Steuerung ausgegraut und nicht auswählbar ist. Dies ist in vielen Situationen nützlich, in denen eine Option normalerweise verfügbar ist, nur nicht in diesem Moment. Zum Beispiel könnte ein Produkt nicht vorrätig sein oder, wie in unserem Beispiel, sind die Penthouse-Suiten alle ausgebucht!
+Im Optionsfeld-Beispiel werden Sie feststellen, dass das dritte Radio-Knopf das Attribut `disabled` gesetzt hat. Dies bewirkt, dass das gerenderte Steuerelement ausgegraut und nicht auswählbar ist. Dies ist in vielen Situationen nützlich, in denen eine Option normalerweise verfügbar ist, nur gerade nicht. Beispielsweise könnte ein Produkt ausverkauft sein, oder wie in unserem Beispiel sind die Penthouse-Suiten alle ausgebucht!
 
-Sie können das `disabled`-Attribut auf jedes Formularelement einstellen, einschließlich `<button>`-Elemente. `<fieldset>`-Elemente können auch das `disabled`-Attribut akzeptieren — dies bewirkt, dass jede Formularelement innerhalb des Fieldsets deaktiviert wird.
+Sie können das `disabled`-Attribut auf jedes Formularelement setzen, einschließlich `<button>`-Elementen. `<fieldset>`-Elemente können ebenfalls das `disabled`-Attribut akzeptieren – dies bewirkt, dass jedes Formularelement innerhalb des Fieldsets deaktiviert wird.
 
-Versuchen Sie, das `disabled`-Attribut auf die beiden `<fieldset>`-Elemente zu setzen, speichern Sie und laden Sie erneut, um den Effekt zu sehen, den es hat. Entfernen Sie sie wieder, bevor Sie fortfahren.
+Versuchen Sie, das `disabled`-Attribut auf den beiden `<fieldset>`-Elementen zu setzen, speichern Sie und laden Sie dann neu, um den Effekt zu sehen, den es hat. Entfernen Sie es wieder, bevor Sie weitermachen.
 
 ### Kontrollkästchen
 
-Unsere "Klassen, die besucht werden sollen"-Auswahlen werden mit [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Steuerungen implementiert. Diese werden als eine Reihe von An/Aus-Zustand-Kontrollkästchen gerendert. Im Gegensatz zu Radio-Schaltflächen können Sie mehr als eine gleichzeitig auswählen.
+Unsere Auswahlmöglichkeiten "Kurse, an denen Sie teilnehmen möchten" werden mithilfe von [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)-Steuerelementen implementiert. Diese werden als eine Reihe von An-/Aus-Zustand-Kontrollkästchen gerendert. Im Gegensatz zu Optionsfeldern können Sie mehr als eins gleichzeitig auswählen.
 
 ```html
 <fieldset>
@@ -425,16 +432,16 @@ Unsere "Klassen, die besucht werden sollen"-Auswahlen werden mit [`<input type="
 </fieldset>
 ```
 
-Wie Sie aus den Code-Snippets sehen können, sind Radio-Schaltflächen und Kontrollkästchen auf sehr ähnliche Weise implementiert (sie können auch `checked`-Attribute haben, um sie als vorausgewählt zu rendern, wenn die Seite geladen wird). Sie verhalten sich auch auf ziemlich ähnliche Weise, außer dass Radio-Schaltflächen es Ihnen ermöglichen, null oder ein Element aus vielen auszuwählen, und Kontrollkästchen es Ihnen ermöglichen, null oder mehr Elemente aus vielen auszuwählen.
+Wie Sie an den Codeausschnitten erkennen können, werden Optionsfelder und Kontrollkästchen auf sehr ähnliche Weise implementiert (sie können auch `checked`-Attribute annehmen, um sie vorab ausgewählt zu rendern, wenn die Seite geladen wird). Sie verhalten sich auch sehr ähnlich, außer dass Optionsfelder es Ihnen erlauben, null oder ein Element aus vielen auszuwählen, und Kontrollkästchen es Ihnen erlauben, null oder mehr aus vielen auszuwählen.
 
-Der Hauptunterschied (abgesehen vom `type`-Wert!) besteht darin, dass jedes Kontrollkästchen einen anderen `name`-Wert hat, und sie haben in der Regel keine `value`-Attribute. Vom Verhalten her bedeutet dies, dass sie verschiedene Datenwerte repräsentieren, während ein Radio-Schaltflächensatz nur einen repräsentiert. Bei der Übermittlung wird jeder Wert mit einem Wert von `on` übermittelt, wenn das Kontrollkästchen markiert wurde — `yoga=on`, `balloon=on` usw.
+Der Hauptunterschied (abgesehen vom `type`-Wert!) besteht darin, dass jedes Kontrollkästchen einen anderen `name`-Wert hat und sie im Allgemeinen keine `value`-Attribute erhalten. Verhaltenstechnisch bedeutet dies, dass sie unterschiedliche Datenwerte darstellen, während ein Satz von Optionsfeldern nur einen repräsentiert. Bei der Einreichung wird jeder Wert mit einem Wert von `on` gesendet, wenn das Kontrollkästchen angekreuzt war – `yoga=on`, `balloon=on` usw.
 
 > [!NOTE]
-> Es ist möglich, den übermittelten Wert für ein Kontrollkästchen durch Hinzufügen eines `value`-Attributs zu ändern, zum Beispiel: `<input type="checkbox" id="yoga" name="yoga" value="yes" />` würde beim Markieren `yoga=yes` übermitteln. Es gibt jedoch keinen großen Grund, dies zu tun. Ein Kontrollkästchen wird entweder mit einem einzigen Wert übermittelt, wenn es markiert ist, oder es wird überhaupt nicht übermittelt. Es spielt wirklich keine Rolle, welcher Wert an den Server gesendet wird.
+> Es ist möglich, den Wert, der beim Ankreuzen eines Kontrollkästchens gesendet wird, durch Hinzufügen eines `value`-Attributs zu ändern, z.B.: `<input type="checkbox" id="yoga" name="yoga" value="yes" />` würde `yoga=yes` senden, wenn es angekreuzt ist. Allerdings hat dies keinen wirklichen Wert. Ein Kontrollkästchen wird entweder mit einem einzigen Wert gesendet, wenn es angekreuzt ist, oder es wird gar nicht gesendet. Es spielt keine große Rolle, welcher Wert an den Server gesendet wird.
 
 ### Dropdown-Menüs
 
-Dropdown-Menüs, wie das "Wie kommen Sie hierher"-Steuerelement in unserem Beispiel, werden nicht mit einem `<input>`-Typ implementiert, sondern mit den {{htmlelement("select")}}- und {{htmlelement("option")}}-Elementen:
+Dropdown-Menüs, wie zum Beispiel das Auswahlkontrolle "Wie kommen Sie dorthin" in unserem Beispiel, werden nicht mit einem `<input>`-Typ erstellt, sondern mit den {{htmlelement("select")}} und {{htmlelement("option")}}-Elementen:
 
 ```html
 <label for="transport">How are you getting here:</label>
@@ -449,48 +456,48 @@ Dropdown-Menüs, wie das "Wie kommen Sie hierher"-Steuerelement in unserem Beisp
 </select>
 ```
 
-Das `<select>`-Element umschließt alle verschiedenen Wertauswahlen. Hier legen Sie das `id`-Attribut fest, das die Steuerung mit ihrem Label verknüpft, und das `name`-Attribut, das den Namen des Datenelements festlegt, das übermittelt werden soll.
+Das `<select>`-Element umschließt alle verschiedenen Wertauswahlmöglichkeiten. Es ist der Ort, an dem Sie das `id`-Attribut festlegen, das die Steuerung mit ihrem Label verbindet, und das `name`-Attribut, das den Namen des Datenelements für die Übermittlung festlegt.
 
-Jede mögliche Wertauswahl für das Datenelement wird durch ein `<option>`-Element dargestellt, das innerhalb des `<select>`-Elements verschachtelt ist. Jedes `<option>`-Element kann ein `value`-Attribut haben, das den Wert angibt, der beim Auswählen dieser Option aus der Dropdown-Liste übermittelt werden soll. Wenn kein `value` angegeben ist, wird der Text innerhalb der `<option></option>`-Tags als Wert verwendet.
+Jede mögliche Wahl für das Datenelement wird durch ein `<option>`-Element dargestellt, das im `<select>`-Element verschachtelt ist. Jedes `<option>`-Element kann ein `value`-Attribut haben, das angibt, welcher Wert übermittelt wird, wenn diese Option aus der Dropdown-Liste ausgewählt wird. Wenn Sie keinen `value` angeben, wird der Text innerhalb der `<option></option>`-Tags als Wert verwendet.
 
 > [!NOTE]
-> Wenn Sie möchten, dass eine bestimmte Option beim Laden der Seite ausgewählt ist, können Sie ein `selected`-Attribut zu dem entsprechenden `<option>`-Element hinzufügen.
+> Wenn Sie möchten, dass bei der ersten Seitenerstellung eine bestimmte Option ausgewählt wird, können Sie ein `selected`-Attribut zu dem entsprechenden `<option>`-Element hinzufügen.
 
-### Mehrzeilige Texteingabefelder
+### Mehrzeilige Text-Eingabefelder
 
-Mehrzeilige Texteingabefelder werden mit {{htmlelement("textarea")}}-Elementen erstellt:
+Mehrzeilige Text-Eingabefelder werden mithilfe von {{htmlelement("textarea")}}-Elementen erstellt:
 
 ```html
 <label for="comments">Any other comments:</label>
 <textarea id="comments" name="comments" rows="5" cols="33"></textarea>
 ```
 
-Sie verhalten sich auf die gleiche Weise wie `<input type="text">`-Elemente, außer dass sie die Eingabe von mehreren Textzeilen ermöglichen. Das `rows`-Attribut gibt an, wie viele Zeilen hoch das Textgebiet standardmäßig sein wird, während das `cols`-Attribut angibt, wie viele Spalten breit das Textgebiet standardmäßig sein wird. Wenn sie nicht angegeben sind, werden die Werte `cols="20"` und `rows="2"` verwendet.
+Sie verhalten sich wie `<input type="text">`-Elemente, außer dass sie mehrere Textzeilen eingeben lassen. Das `rows`-Attribut gibt die Anzahl der Zeilen an, die das Textfeld standardmäßig hoch sein wird, während das `cols`-Attribut die Anzahl der Spalten angibt, die das Textfeld standardmäßig breit sein wird. Wenn sie nicht angegeben sind, werden die Werte `cols="20"` und `rows="2"` verwendet.
 
-Die meisten Browser rendern Textgebiete mit einem Ziehgriff in einer Ecke, mit dem es in der Größe verändert werden kann. Versuchen Sie, dies zu verwenden, um das Textgebiet in unserem Demo zu skalieren.
+Die meisten Browser rendern Texteingabefelder mit einem Ziehgriff in einer Ecke, die verwendet werden kann, um es zu skalieren. Probieren Sie aus, das Texteingabefeld in unserem Demo zu skalieren.
 
 ## Formularvalidierung
 
-Früher haben wir einige der grundlegenden clientseitigen Formularvalidierungen betrachtet, die der Browser bereitstellt. Das `required`-Attribut wird verwendet, um anzugeben, dass ein Feld ausgefüllt werden muss, bevor das Formular übermittelt werden kann; es überprüft auch, ob der richtige Werttyp für bestimmte Wertypen wie E-Mail-Adressen, URLs, Zahlen usw. eingegeben wird. Die Validierung ist aus zwei Hauptgründen wichtig:
+Früher haben wir uns einige der grundlegenden clientseitigen Formularüberprüfung angesehen, die der Browser bereitstellt. Das `required`-Attribut wird verwendet, um anzugeben, dass ein Feld ausgefüllt werden muss, bevor das Formular eingereicht werden kann. Es überprüft auch, ob der richtige Werttyp für bestimmte Wertetypen wie E-Mail-Adressen, URLs, Zahlen usw. eingegeben wurde. Validierung ist aus zwei Hauptgründen wichtig:
 
-- Sicherstellen, dass Daten im richtigen Format übermittelt werden, sodass sie in Ihrer Anwendung keine Fehler verursachen.
-- Sicherstellen, dass Daten keine Sicherheitsprobleme verursachen. Böse Menschen wissen, wie man Daten in einem bestimmten Format sendet, sodass sie auf unsicheren Anwendungen Befehle zur Löschung von Datenbanken ausführen oder ein System übernehmen können.
+- Sicherstellen, dass Daten im richtigen Format übermittelt werden, damit sie keine Fehler in Ihrer Anwendung verursachen.
+- Sicherstellen, dass die Daten keine Sicherheitsprobleme verursachen. Böse Menschen wissen, wie Daten speziell so formatiert übermittelt werden, dass sie in unsicheren Anwendungen möglicherweise Befehle zum Löschen von Datenbanken ausführen oder die Kontrolle über ein System übernehmen können.
 
-Die Formularvalidierung ist ein riesiges Thema, das über den Umfang dieses Artikels hinausgeht, daher belassen wir es hier für jetzt. Beachten Sie jedoch, dass es zwei Arten der Formularvalidierung gibt:
+Formularvalidierung ist ein umfangreiches Thema, das über den Umfang dieses Artikels hinausgeht, so dass wir es hier belassen werden. Nur im Hinterkopf behalten, dass es zwei Arten der Formvalidierung gibt:
 
-- Clientseitige Validierung, die im Browser erfolgt, implementiert durch eine Kombination aus Formularvaliderungsattributen (wie `required`) und JavaScript. Clientseitige Validierung ist nützlich, um Benutzern sofortige Hinweise zu geben, wenn sie falsche Daten eingegeben haben, aber ist nicht so effektiv beim Verhindern, dass böswillige Daten durchkommen. Es ist zu einfach, JavaScript auszuschalten oder den clientseitigen Code so zu ändern, dass die Validierung nicht mehr funktioniert.
-- Serverseitige Validierung, die auf dem Server erfolgt, implementiert mit welcher Sprache der Server auch immer verwendet. Schlecht geformte Nachrichten können versehentlich oder absichtlich an einen Server gesendet werden. Konventionelle Weisheit besagt, dass Ihr Server nichts von dem vertrauen sollte, was ein Client sendet, um Fehler oder Sicherheitsprobleme zu vermeiden, die durch fehlerhafte Nachrichten verursacht werden. Serverseitige Validierung ist großartig, um böswillige Nachrichten zu stoppen, da es schwer ist, den auf dem Server laufenden Code zu manipulieren. Serverseitige Validierung ist nicht so gut beim Bereitstellen von Benutzerhinweisen über falsche Daten, da Daten zum Server gesendet werden müssen, um validiert zu werden, dann muss das Ergebnis an den Client zurückgesendet werden, bevor der Benutzer benachrichtigt werden kann.
+- Clientseitige Validierung, die im Browser stattfindet, implementiert durch eine Kombination aus Formvalidierungsattributen (wie `required`) und JavaScript. Clientseitige Validierung ist nützlich, um Benutzern sofortige Hinweise zu geben, wenn sie falsche Daten eingegeben haben, aber es ist nicht so effektiv beim Stoppen von böswilligen Daten. Es ist zu einfach, JavaScript auszuschalten oder Client-seitigen Code so zu ändern, dass die Validierung nicht mehr funktioniert.
+- Serverseitige Validierung, die auf dem Server stattfindet, implementiert in welcher Sprache auch immer der Server verwendet. Fehlerhafte Nachrichten können an einen Server geschickt werden, entweder zufällig oder absichtlich. Konventionelle Weisheit ist es, sicherzustellen, dass Ihr Server nichts von einem Client vertraut, um Fehler oder Sicherheitsprobleme durch fehlerhafte Nachrichten zu vermeiden. Serverseitige Validierung ist großartig, um böswillige Nachrichten zu stoppen, da es schwerer ist, den auf dem Server laufenden Code zu manipulieren. Serverseitige Validierung ist nicht so gut darin, Benutzern Hinweise auf falsche Daten zu geben, weil die Daten an den Server gesendet werden müssen, um validiert zu werden, dann muss das Ergebnis zurück an den Client gesendet werden, bevor der Benutzer benachrichtigt werden kann.
 
-Kurz gesagt, entscheiden Sie sich nicht zwischen der Verwendung von clientseitiger und serverseitiger Validierung - Sie werden beides benötigen. Sie benötigen clientseitige Validierung, um den Benutzern Feedback zu ihren Eingaben zu geben, und serverseitige Validierung, um sicherzustellen, dass Nachrichten in einem Format sind, mit dem Ihr Server sicher umgehen kann. Wenn Sie mehr über Validierung lernen möchten, ist ein guter Ausgangspunkt [Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
+Kurz gesagt, wählen Sie nicht zwischen der Verwendung von entweder clientseitiger oder serverseitiger Validierung – Sie benötigen beides. Sie benötigen clientseitige Validierung, um den Benutzern Rückmeldungen zu ihren Eingaben zu geben und serverseitige Validierung, um sicherzustellen, dass Nachrichten in einem Format vorliegen, das Ihr Server sicher behandeln kann. Wenn Sie anfangen möchten, mehr über Validierung zu lernen, ist [Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) ein guter Ausgangspunkt.
 
 ## Zusammenfassung
 
-Das war alles für jetzt. Es gibt noch viel mehr über Formulare zu wissen, aber im Moment haben wir Ihnen genug Verständnis gegeben, um in Ihrem Studium weiterzukommen.
+Das war's für den Moment. Es gibt noch viel mehr über Formulare zu wissen, aber für den Moment haben wir Ihnen ausreichend Verständnis vermittelt, um in Ihren Studien fortzufahren.
 
-Als nächstes werden wir Ihnen einige Tests geben, mit denen Sie überprüfen können, wie gut Sie die Informationen zu HTML-Formularen verstanden und behalten haben.
+Als Nächstes geben wir Ihnen einige Tests, mit denen Sie überprüfen können, wie gut Sie die Informationen über HTML-Formulare, die wir bereitgestellt haben, verstanden und behalten haben.
 
 ## Siehe auch
 
-- [Web forms — Working with user data](/de/docs/Learn_web_development/Extensions/Forms)
+- [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Planet_data_table", "Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons", "Learn_web_development/Core/Structuring_content")}}
