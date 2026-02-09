@@ -1,36 +1,66 @@
 ---
-title: Erkennung der Geräteausrichtung
+title: Erkennen der Geräteorientierung
 slug: Web/API/Device_orientation_events/Detecting_device_orientation
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: bcfc05aac40b47aecad69d44c54e33bf5f9b4e41
 ---
 
 {{DefaultAPISidebar("Device Orientation Events")}}{{securecontext_header}}
 
-Immer mehr webfähige Geräte sind in der Lage, ihre **Ausrichtung** zu bestimmen; das heißt, sie können Daten über Änderungen ihrer Ausrichtung im Verhältnis zur Anziehungskraft melden. Insbesondere handgehaltene Geräte wie Mobiltelefone können diese Informationen nutzen, um das Display automatisch zu drehen und eine Breitbildansicht der Webinhalte darzustellen, wenn das Gerät so gedreht wird, dass seine Breite größer ist als seine Höhe.
+Zunehmend können webfähige Geräte ihre **Orientierung** bestimmen; das heißt, sie können Daten melden, die Änderungen ihrer Ausrichtung im Verhältnis zur Schwerkraft anzeigen. Insbesondere Handgeräte wie Mobiltelefone können diese Information nutzen, um das Display automatisch so zu drehen, dass es aufrecht bleibt und eine Breitbildansicht der Webinhalte bietet, wenn das Gerät so gedreht wird, dass seine Breite größer als seine Höhe ist.
 
-Es gibt zwei JavaScript-Ereignisse, die mit Ausrichtungsinformationen umgehen. Das erste ist das [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent), das gesendet wird, wenn das Beschleunigungsmessgerät eine Änderung der Ausrichtung des Geräts erkennt. Durch das Empfangen und Verarbeiten der von diesen Ausrichtungsereignissen gemeldeten Daten ist es möglich, interaktiv auf Rotations- und Elevationsänderungen zu reagieren, die durch das Bewegen des Geräts durch den Benutzer verursacht werden.
+Es gibt zwei JavaScript-Ereignisse, die mit Orientierungsinformationen umgehen. Das erste ist das [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent), das gesendet wird, wenn der Beschleunigungsmesser eine Änderung der Ausrichtung des Geräts erkennt. Durch den Empfang und die Verarbeitung der von diesen Orientierungsevents gemeldeten Daten ist es möglich, interaktiv auf Rotations- und Erhöhungsänderungen zu reagieren, die durch die Bewegung des Geräts durch den Benutzer verursacht werden.
 
-Das zweite Ereignis ist das [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent), das gesendet wird, wenn eine Beschleunigungsänderung hinzugefügt wurde. Es unterscheidet sich vom [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent), da es auf Änderungen der Beschleunigung im Gegensatz zur Ausrichtung lauscht. Sensoren, die häufig in der Lage sind, ein [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent) zu erkennen, umfassen Sensoren in Laptops zum Schutz beweglicher Speichermedien. Das [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent) ist häufiger auf mobilen Geräten zu finden.
+Das zweite Ereignis ist das [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent), das gesendet wird, wenn eine Änderung der Beschleunigung auftritt. Es unterscheidet sich vom [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent), da es auf Änderungen der Beschleunigung und nicht der Ausrichtung achtet. Sensoren, die gewöhnlich das [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent) erkennen können, umfassen Sensoren in Laptops zum Schutz beweglicher Speichermedien. Das [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent) findet sich häufiger in mobilen Geräten.
 
-## Verarbeitung von Ausrichtungsereignissen
+## Erlaubnis anfordern
 
-Alles, was Sie tun müssen, um Änderungen der Ausrichtung zu empfangen, ist, das [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis abzuhören:
+Einige {{Glossary("user_agent", "User Agents")}} erfordern eine ausdrückliche Erlaubnis vom Benutzer, bevor auf Geräteorientierungs- und Bewegungsdaten zugegriffen werden kann. In Umgebungen, in denen dies erforderlich ist, können die statischen Methoden [`DeviceOrientationEvent.requestPermission()`](/de/docs/Web/API/DeviceOrientationEvent/requestPermission_static) und [`DeviceMotionEvent.requestPermission()`](/de/docs/Web/API/DeviceMotionEvent/requestPermission_static) verwendet werden, um diese Erlaubnis anzufordern. Beide Methoden geben ein {{jsxref("Promise")}} zurück, das mit `"granted"` oder `"denied"` aufgelöst wird, und beide müssen innerhalb einer Benutzeraktion (wie einem `click`-Ereignishandler) aufgerufen werden.
+
+Da nicht alle User Agents diese Methoden implementieren, sollten Sie diese vor dem Aufrufen überprüfen. Das folgende Beispiel zeigt, wie Sie beide Erlaubnisse von einem Button-Klick-Handler anfordern können:
+
+```js
+function handleClick() {
+  if (typeof DeviceMotionEvent.requestPermission === "function") {
+    // The API requires permission — request it
+    Promise.all([
+      DeviceMotionEvent.requestPermission(),
+      DeviceOrientationEvent.requestPermission(),
+    ]).then(([motionPermission, orientationPermission]) => {
+      if (
+        motionPermission === "granted" &&
+        orientationPermission === "granted"
+      ) {
+        window.addEventListener("devicemotion", handleMotion);
+        window.addEventListener("deviceorientation", handleOrientation);
+      }
+    });
+  } else {
+    // No permission needed, add event listeners directly
+    window.addEventListener("devicemotion", handleMotion);
+    window.addEventListener("deviceorientation", handleOrientation);
+  }
+}
+```
+
+## Verarbeitung von Orientierungsevents
+
+Alles, was Sie tun müssen, um Orientierungänderungen zu empfangen, ist das [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis zu überwachen:
 
 ```js
 window.addEventListener("deviceorientation", handleOrientation);
 ```
 
-Nachdem Sie Ihren Ereignis-Listener registriert haben (in diesem Fall eine JavaScript-Funktion namens `handleOrientation()`), wird Ihre Listener-Funktion regelmäßig mit aktualisierten Ausrichtungsdaten aufgerufen.
+Nach der Registrierung Ihres Event-Listeners (in diesem Fall eine JavaScript-Funktion namens `handleOrientation()`) wird Ihre Listener-Funktion periodisch mit aktualisierten Orientierungsdaten aufgerufen.
 
-Das Ausrichtungsereignis enthält vier Werte:
+Das Orientierungsevent enthält vier Werte:
 
 - [`DeviceOrientationEvent.absolute`](/de/docs/Web/API/DeviceOrientationEvent/absolute)
 - [`DeviceOrientationEvent.alpha`](/de/docs/Web/API/DeviceOrientationEvent/alpha)
 - [`DeviceOrientationEvent.beta`](/de/docs/Web/API/DeviceOrientationEvent/beta)
 - [`DeviceOrientationEvent.gamma`](/de/docs/Web/API/DeviceOrientationEvent/gamma)
 
-Die Ereignis-Handler-Funktion kann wie folgt aussehen:
+Die Event-Handler-Funktion könnte folgendermaßen aussehen:
 
 ```js
 function handleOrientation(event) {
@@ -44,21 +74,21 @@ function handleOrientation(event) {
 ```
 
 > [!NOTE]
-> [parallax](https://github.com/wagerfield/parallax) ist ein Polyfill zur Normalisierung der Beschleunigungs- und Gyroskopdaten auf mobilen Geräten. Dies ist nützlich, um einige der Unterschiede in der Geräteunterstützung für die Geräteausrichtung zu überwinden.
+> [parallax](https://github.com/wagerfield/parallax) ist ein Polyfill zum Normalisieren der Daten von Beschleunigungsmesser und Gyroskop auf mobilen Geräten. Dies ist nützlich, um einige der Unterschiede bei der Geräteunterstützung für die Geräteorientierung zu überwinden.
 
-### Erklärung der Ausrichtungswerte
+### Erklärung der Orientierungswerte
 
-Der für jede Achse gemeldete Wert gibt den Grad der Rotation um eine bestimmte Achse in Bezug auf ein standardmäßiges Koordinatenrahmen an. Diese werden ausführlicher im Artikel [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) beschrieben, der unten zusammengefasst ist.
+Der für jede Achse gemeldete Wert gibt die Menge der Rotation um eine gegebene Achse in Bezug auf einen Standardkoordinatenrahmen an. Diese werden im Artikel [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) ausführlicher beschrieben, der unten zusammengefasst ist.
 
-- Der [`DeviceOrientationEvent.alpha`](/de/docs/Web/API/DeviceOrientationEvent/alpha)-Wert repräsentiert die Bewegung des Geräts um die z-Achse, dargestellt in Gradwerten von 0 (einschließlich) bis 360 (ausschließlich).
-- Der [`DeviceOrientationEvent.beta`](/de/docs/Web/API/DeviceOrientationEvent/beta)-Wert repräsentiert die Bewegung des Geräts um die x-Achse, dargestellt in Gradwerten von -180 (einschließlich) bis 180 (ausschließlich). Dies stellt eine Vorwärts- und Rückwärtsbewegung des Geräts dar.
-- Der [`DeviceOrientationEvent.gamma`](/de/docs/Web/API/DeviceOrientationEvent/gamma)-Wert repräsentiert die Bewegung des Geräts um die y-Achse, dargestellt in Gradwerten von -90 (einschließlich) bis 90 (ausschließlich). Dies stellt eine Links- und Rechtsbewegung des Geräts dar.
+- Der Wert [`DeviceOrientationEvent.alpha`](/de/docs/Web/API/DeviceOrientationEvent/alpha) repräsentiert die Bewegung des Geräts um die z-Achse, angegeben in Grad mit Werten von 0 (einschließlich) bis 360 (ausschließlich).
+- Der Wert [`DeviceOrientationEvent.beta`](/de/docs/Web/API/DeviceOrientationEvent/beta) repräsentiert die Bewegung des Geräts um die x-Achse, angegeben in Grad mit Werten von -180 (einschließlich) bis 180 (ausschließlich). Dies stellt eine Vorwärts-Rückwärts-Bewegung des Geräts dar.
+- Der Wert [`DeviceOrientationEvent.gamma`](/de/docs/Web/API/DeviceOrientationEvent/gamma) repräsentiert die Bewegung des Geräts um die y-Achse, angegeben in Grad mit Werten von -90 (einschließlich) bis 90 (ausschließlich). Dies stellt eine Links-Rechts-Bewegung des Geräts dar.
 
-### Ausrichtungsbeispiel
+### Orientierungsbeispiel
 
-Dieses Beispiel funktioniert in jedem Browser, der das [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis unterstützt und auf einem Gerät ausgeführt wird, das seine Ausrichtung erkennen kann.
+Dieses Beispiel funktioniert in jedem Browser, der das [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) unterstützt und auf einem Gerät läuft, das seine Ausrichtung erkennen kann.
 
-Also stellen wir uns einen Ball in einem Garten vor:
+Stellen wir uns also einen Ball in einem Garten vor:
 
 ```html
 <div class="garden">
@@ -91,7 +121,7 @@ Dieser Garten ist 200 Pixel breit (ja, es ist ein kleiner), und der Ball befinde
 }
 ```
 
-Nun, wenn wir unser Gerät bewegen, wird sich der Ball entsprechend bewegen:
+Wenn wir jetzt unser Gerät bewegen, wird sich der Ball entsprechend bewegen:
 
 ```js
 const ball = document.querySelector(".ball");
@@ -131,19 +161,19 @@ function handleOrientation(event) {
 window.addEventListener("deviceorientation", handleOrientation);
 ```
 
-{{LiveSampleLink("Orientation_example", "Klicken Sie hier")}} um dieses Beispiel in einem neuen Fenster zu öffnen; da [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) nicht in einem fremdursprünglichen {{HTMLElement("iframe")}} in allen Browsern funktioniert.
+{{LiveSampleLink("Orientation_example", "Klicken Sie hier")}}, um dieses Beispiel in einem neuen Fenster zu öffnen; weil [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) in einem cross-origin {{HTMLElement("iframe")}} in allen Browsern nicht funktioniert.
 
 {{EmbedLiveSample('Orientation_example', '230', '260')}}
 
 ## Verarbeitung von Bewegungsevents
 
-Bewegungsevents werden auf die gleiche Weise wie Ausrichtungsereignisse behandelt, haben jedoch ihren eigenen Ereignisnamen: [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event)
+Bewegungsevents werden auf die gleiche Weise wie Orientierungsevents verarbeitet, mit dem Unterschied, dass sie ihren eigenen Eventnamen haben: [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event)
 
 ```js
 window.addEventListener("devicemotion", handleMotion);
 ```
 
-Was sich wirklich geändert hat, sind die Informationen, die innerhalb des [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Objekts bereitgestellt werden, das als Parameter des Ereignis-Listeners (`handleMotion()` in unserem Beispiel) übergeben wird.
+Was sich wirklich geändert hat, sind die Informationen, die innerhalb des [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Objekts bereitgestellt werden, das als Parameter des Event-Listeners (`handleMotion()` in unserem Beispiel) übergeben wird.
 
 Das Bewegungsevent enthält vier Eigenschaften:
 
@@ -154,27 +184,27 @@ Das Bewegungsevent enthält vier Eigenschaften:
 
 ### Erklärung der Bewegungswerte
 
-Die [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Objekte liefern Webentwicklern Informationen über die Geschwindigkeit der Änderungen der Position und Ausrichtung des Geräts. Die Änderungen werden entlang von drei Achsen bereitgestellt (siehe [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details).
+Die [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Objekte liefern Webentwicklern Informationen über die Geschwindigkeit der Änderungen für die Position und Ausrichtung des Geräts. Die Änderungen werden entlang dreier Achsen bereitgestellt (siehe [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details).
 
-Für [`acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) und [`accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) entsprechen diese Achsen Folgendem:
+Bei [`acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) und [`accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) entsprechen diese Achsen den folgenden:
 
 - `x`
-  - : Repräsentiert die Achse von West nach Ost
+  - : Repräsentiert die Achse von Westen nach Osten
 - `y`
-  - : Repräsentiert die Achse von Süd nach Nord
+  - : Repräsentiert die Achse von Süden nach Norden
 - `z`
-  - : Repräsentiert die Achse, die senkrecht zum Boden verläuft
+  - : Repräsentiert die Achse senkrecht zum Boden
 
-Für [`rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) ist die Situation etwas anders; die Information entspricht Folgendem in jedem Fall:
+Bei [`rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) ist die Situation etwas anders; die Informationen entsprechen den folgenden Fällen:
 
 - `alpha`
-  - : Repräsentiert eine Rotationsrate entlang der Achse, die senkrecht zum Bildschirm verläuft (oder zur Tastatur bei Desktop-Geräten).
+  - : Repräsentiert eine Rotationsrate entlang der Achse senkrecht zum Bildschirm (oder der Tastatur für Desktop).
 - `beta`
-  - : Repräsentiert eine Rotationsrate entlang der Achse, die von links nach rechts der Bildschirmfläche verläuft (oder zur Tastatur bei Desktop-Geräten).
+  - : Repräsentiert eine Rotationsrate entlang der Achse von links nach rechts der Ebene des Bildschirms (oder der Tastatur für Desktop).
 - `gamma`
-  - : Repräsentiert eine Rotationsrate entlang der Achse, die von unten nach oben der Bildschirmfläche verläuft (oder zur Tastatur bei Desktop-Geräten).
+  - : Repräsentiert eine Rotationsrate entlang der Achse von unten nach oben der Ebene des Bildschirms (oder der Tastatur für Desktop).
 
-Schließlich stellt [`interval`](/de/docs/Web/API/DeviceMotionEvent/interval) das Zeitintervall in Millisekunden dar, in dem Daten vom Gerät bezogen werden.
+Schließlich repräsentiert [`interval`](/de/docs/Web/API/DeviceMotionEvent/interval) das Zeitintervall in Millisekunden, in dem Daten vom Gerät abgerufen werden.
 
 ## Spezifikationen
 
@@ -190,4 +220,4 @@ Schließlich stellt [`interval`](/de/docs/Web/API/DeviceMotionEvent/interval) da
 - [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)
 - [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
 - [Using deviceorientation in 3D Transforms](/de/docs/Web/API/Device_orientation_events/Using_device_orientation_with_3D_transforms)
-- [Cyber Orb: 2D Maze-Spiel mit Geräteausrichtung](/de/docs/Games/Tutorials/HTML5_Gamedev_Phaser_Device_Orientation)
+- [Cyber Orb: 2D Maze-Spiel mit Geräteorientierung](/de/docs/Games/Tutorials/HTML5_Gamedev_Phaser_Device_Orientation)

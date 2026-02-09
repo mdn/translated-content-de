@@ -3,12 +3,12 @@ title: "PublicKeyCredential: isConditionalMediationAvailable() statische Methode
 short-title: isConditionalMediationAvailable()
 slug: Web/API/PublicKeyCredential/isConditionalMediationAvailable_static
 l10n:
-  sourceCommit: cc41ecd796870c2b6c77ad0b04fcb8d8c7d877d2
+  sourceCommit: a060aa315813bd1e69e4a43d7aed241f649e7e0d
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`isConditionalMediationAvailable()`** der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das auf `true` aufgelöst wird, wenn [bedingte Vermittlung](/de/docs/Web/API/Web_Authentication_API#discoverable_credentials_and_conditional_mediation) verfügbar ist.
+Die **`isConditionalMediationAvailable()`** statische Methode der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich auf `true` auflöst, wenn [bedingte Vermittlung](/de/docs/Web/API/Web_Authentication_API#autofill_ui) verfügbar ist.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem Booleschen Wert aufgelöst wird, der angibt, ob bedingte Vermittlung verfügbar ist oder nicht.
+Ein {{jsxref("Promise")}}, das sich auf einen booleschen Wert auflöst und anzeigt, ob die bedingte Vermittlung verfügbar ist oder nicht.
 
 ### Ausnahmen
 
 Das zurückgegebene {{jsxref("Promise")}} kann mit folgenden Werten abgelehnt werden:
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die RP-Domain ist ungültig.
+  - : Die RP-Domain ist nicht gültig.
 
 ## Beispiele
 
-Bevor Sie einen bedingten WebAuthn-API-Aufruf tätigen, prüfen Sie, ob:
+Bevor Sie einen bedingten WebAuthn-API-Aufruf durchführen, überprüfen Sie:
 
-- Der Browser die Web Authentication API unterstützt.
-- Der Browser die WebAuthn-bedingte UI unterstützt.
+- Ob der Browser die Web Authentication API unterstützt.
+- Ob der Browser die bedingte Vermittlung unterstützt.
 
 ```js
 // Availability of `window.PublicKeyCredential` means WebAuthn is usable.
@@ -64,9 +64,6 @@ if (
   }
 }
 ```
-
-> [!NOTE]
-> Weitere Informationen zur Verwendung von bedingter Vermittlung finden Sie unter [Mit einem Passkey über die automatische Formularausfüllung anmelden](https://web.dev/articles/passkey-form-autofill).
 
 ## Spezifikationen
 

@@ -7269,7 +7269,7 @@
 /de/docs/Security/CSP/Using_CSP_reports	/de/docs/Web/HTTP/Guides/CSP
 /de/docs/Security/CSP/Using_CSP_violation_reports	/de/docs/Web/HTTP/Guides/CSP
 /de/docs/Security/CSP/Using_Content_Security_Policy	/de/docs/Web/HTTP/Guides/CSP
-/de/docs/Security/Firefox_Security_Guidelines	/de/docs/Web/Security/Firefox_Security_Guidelines
+/de/docs/Security/Firefox_Security_Guidelines	/de/docs/Web/Security
 /de/docs/Security/HTTP_Strict_Transport_Security	/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security
 /de/docs/Security/InsecurePasswords	/de/docs/Web/Security/Authentication/Passwords
 /de/docs/Security/Insecure_passwords	/de/docs/Web/Security/Authentication/Passwords
@@ -16317,6 +16317,7 @@
 /de/docs/Web/Security/Do_not_track_field_guide/Tutorials/2_Displaying_DNT_status_with_caching	/de/docs/Web/HTTP/Reference/Headers/DNT
 /de/docs/Web/Security/Do_not_track_field_guide/Tutorials/3_Collecting_aggregate_data_based_on_DNT	/de/docs/Web/HTTP/Reference/Headers/DNT
 /de/docs/Web/Security/Do_not_track_field_guide/Tutorials/Additional_resources	/de/docs/Web/HTTP/Reference/Headers/DNT
+/de/docs/Web/Security/Firefox_Security_Guidelines	/de/docs/Web/Security
 /de/docs/Web/Security/HTTP_strict_transport_security	/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security
 /de/docs/Web/Security/IFrame_credentialless	/de/docs/Web/HTTP/Guides/IFrame_credentialless
 /de/docs/Web/Security/Insecure_passwords	/de/docs/Web/Security/Authentication/Passwords

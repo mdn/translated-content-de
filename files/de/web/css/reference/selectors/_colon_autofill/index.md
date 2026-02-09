@@ -2,49 +2,66 @@
 title: :autofill
 slug: Web/CSS/Reference/Selectors/:autofill
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 1c68ccea9621d3b67d9e3bff8f9f2e948e4e7e54
 ---
 
-Die **`:autofill`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wird angewendet, wenn ein {{HTMLElement("input")}}-Element vom Browser automatisch mit einem Wert ausgefüllt wurde. Die Klasse hört auf zu matchen, wenn der Benutzer das Feld bearbeitet.
+Die **`:autofill`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) trifft zu, wenn ein {{HTMLElement("input")}}-Element vom Browser automatisch mit einem Wert ausgefüllt wurde. Die Klasse trifft nicht mehr zu, wenn der Benutzer das Feld bearbeitet.
 
 {{InteractiveExample("CSS Demo: :autofill", "tabbed-shorter")}}
 
 ```css interactive-example
-label {
-  display: block;
-  margin-top: 1em;
+input {
+  border: 3px solid black;
 }
-
-input:is(:-webkit-autofill, :autofill) {
-  border: 3px solid darkorange;
+input:autofill {
+  outline: 5px solid magenta;
+  border: 3px dashed yellow;
 }
 ```
 
 ```html interactive-example
 <form>
   <p>Click on the text box and choose any option suggested by your browser.</p>
-
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text" autocomplete="name" />
-
-  <label for="email">Email Address</label>
-  <input id="email" name="email" type="email" autocomplete="email" />
-
-  <label for="country">Country</label>
-  <input id="country" name="country" type="text" autocomplete="country-name" />
+  <p>
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" autocomplete="given-name" />
+  </p>
+  <p>
+    <label for="email">Email Address</label>
+    <input id="email" name="email" type="email" autocomplete="email" />
+  </p>
+  <p>
+    <label for="country">Country</label>
+    <input
+      id="country"
+      name="country"
+      type="text"
+      autocomplete="country-name" />
+  </p>
 </form>
 ```
 
-> [!NOTE]
-> Die Benutzeragent-Stylesheets vieler Browser verwenden `!important` in ihren `:-webkit-autofill`-Stildeklarationen, sodass sie von Webseiten nicht überschrieben werden können, ohne auf JavaScript-Tricks zurückzugreifen. Zum Beispiel hat Chrome das Folgende in seinem internen Stylesheet:
->
-> ```css
-> background-color: rgb(232 240 254) !important;
-> background-image: none !important;
-> color: -internal-light-dark(black, white) !important;
-> ```
->
-> Dies bedeutet, dass Sie die {{cssxref('background-color')}}, {{cssxref('background-image')}}, oder {{cssxref('color')}} in Ihren eigenen Regeln nicht festlegen können.
+## Beschreibung
+
+Die `:autofill`-Pseudoklasse selektiert {{htmlelement("input")}}-Elemente, die nicht bearbeitete Inhalte enthalten, die vom User-Agent automatisch ausgefüllt wurden. Die Autovervollständigung kann erfolgen, wenn die Browsereinstellungen so konfiguriert sind, dass Autovervollständigung aktiviert ist, oder wenn das [`autocomplete`-Attribut](/de/docs/Web/HTML/Reference/Attributes/autocomplete) auf dem Element selbst gesetzt ist.
+
+Wenn der Benutzer die Autovervollständigungsfunktion des Browsers verwendet, um ein Eingabefeld automatisch auszufüllen, werden alle Formularsteuerelemente, die basierend auf der Auswahl ausgefüllt werden können, befüllt. Diese entsprechen alle dem `:autofill`-UI-Status. Wenn der Benutzer ein Steuerelement bearbeitet, wird dieses Steuerelement nicht mehr `:autofill` entsprechen, selbst wenn der Wert derselbe wie der automatisch ausgefüllte Wert ist.
+
+Die Spezifikation enthält die browser-spezifische Pseudoklasse `:-webkit-autofill` als Alias. Diese trifft ebenfalls auf Eingabeelemente zu, die vom User-Agent automatisch ausgefüllt wurden, und trifft nicht mehr zu, wenn der Benutzer das automatisch ausgefüllte Feld bearbeitet.
+
+Beachten Sie, dass viele Browser in ihren Benutzer-Agent-Stylesheets `!important` in ihren Stil-Deklarationen verwenden, wodurch einige Stile nicht überschreibbar sind. Zum Beispiel enthält Chrome das Folgende in seinem internen Stylesheet:
+
+```css-nolint
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color:
+    light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+  color: fieldtext !important;
+}
+```
+
+Das bedeutet, dass Sie die Standardwerte für {{cssxref('background-color')}}, {{cssxref('background-image')}} oder {{cssxref('color')}} für ausgewählte automatisch ausgefüllte Eingabeelemente in Ihren eigenen Regeln nicht überschreiben können, aber Sie können das {{cssxref('appearance')}} überschreiben, und Sie können diese Eigenschaften für die nicht fokussierten automatisch ausgefüllten Elemente überschreiben.
 
 ## Syntax
 
@@ -56,27 +73,63 @@ input:is(:-webkit-autofill, :autofill) {
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert die Verwendung der `:autofill`-Pseudoklasse, um den Rahmen eines Textfeldes zu ändern, das vom Browser automatisch ausgefüllt wurde.
-Um zu gewährleisten, dass wir keine [ungültige Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#invalid_selector_list) erstellen, werden sowohl `:-webkit-autofill` als auch `:autofill` mit einer toleranten Selektorliste unter Verwendung von {{cssxref(":is()")}} abgeglichen.
+Das folgende Beispiel demonstriert die Verwendung der `:autofill`-Pseudoklasse, um die Umrandung eines Textfeldes zu ändern, das vom Browser automatisch ausgefüllt wurde.
 
-```css
-input {
-  border-radius: 3px;
-}
+### HTML
 
-input:is(:-webkit-autofill, :autofill) {
-  border: 3px dotted orange;
-}
-```
+Wir fügen drei HTML-`<input>`-Elemente hinzu, jeweils mit einem zugehörigen {{htmlelement("label")}}. Der `name` und `email` werden wahrscheinlich automatisch vervollständigt und `:autofill` entsprechen, während der `pet`-Wert dies wahrscheinlich nicht tut.
 
 ```html
 <form method="post" action="">
-  <label for="email">Email</label>
-  <input type="email" name="email" id="email" autocomplete="email" />
+  <p>
+    <label for="name">Name: </label>
+    <input name="n" id="name" autocomplete="given-name" />
+  </p>
+  <p>
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email" autocomplete="email" />
+  </p>
+  <p>
+    <label for="pet">Your pet's name: </label>
+    <input name="pet" id="pet" />
+  </p>
 </form>
 ```
 
+### CSS
+
+Wir wenden einen {{cssxref("border-radius")}}, {{cssxref("outline")}} und {{cssxref("border-color")}} auf die `<input>`-Elemente an, wenn sie dem `:autofill`-Status entsprechen.
+
+```css
+input {
+  border-radius: 0px;
+}
+
+input:autofill {
+  border-radius: 0.5lh;
+  outline: 5px dashed magenta;
+  border-color: yellow;
+}
+```
+
+```css hidden
+@supports not selector(:autofill) {
+  body::before {
+    content: "Your browser doesn't support the :autofill selector.";
+    background-color: wheat;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+  }
+}
+```
+
+### Ergebnisse
+
 {{EmbedLiveSample('Examples')}}
+
+Wenn Sie zulassen, dass der `name` automatisch vervollständigt wird, haben sowohl `name` als auch `email` eine abgerundete Umrandung und eine magentafarbene Umrandung, obwohl sich die Umrandung wahrscheinlich nicht ändert aufgrund des `!important`-Flags im Benutzer-Agent-Stylesheet. Versuchen Sie, eines der Felder zu bearbeiten: Beachten Sie, wie nach der Bearbeitung des Wertes, selbst wenn Sie ihn auf den Autovervollständigungswert zurücksetzen, die `:autofill`-Stile nicht mehr angewendet werden.
 
 ## Spezifikationen
 
@@ -88,7 +141,5 @@ input:is(:-webkit-autofill, :autofill) {
 
 ## Siehe auch
 
-- [Chromium Issue 46543: Auto-filled input text box yellow background highlight cannot be turned off](https://crbug.com/46543)
-- [WebKit Bug 66032: Allow site authors to override autofilled fields' colors.](https://webkit.org/b/66032)
-- [Mozilla Bug 740979: implement `:-moz-autofill` pseudo-class on input elements with an autofilled value](https://bugzil.la/740979)
-- [User Interface Module Level 4: more selectors](https://wiki.csswg.org/spec/css4-ui#more-selectors)
+- [`<input>` Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#input_pseudo-classes)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
