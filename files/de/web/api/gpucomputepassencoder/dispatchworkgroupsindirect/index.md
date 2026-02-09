@@ -1,14 +1,14 @@
 ---
-title: "GPUComputePassEncoder: Methode dispatchWorkgroupsIndirect()"
+title: "GPUComputePassEncoder: dispatchWorkgroupsIndirect()-Methode"
 short-title: dispatchWorkgroupsIndirect()
 slug: Web/API/GPUComputePassEncoder/dispatchWorkgroupsIndirect
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 4b47c0aad363dcc69a6ccca5940055491fa03594
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`dispatchWorkgroupsIndirect()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle startet ein Raster von Workgroups, das durch die Parameter eines [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) definiert wird, um die vom aktuellen [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) ausgeführte Arbeit (d.h. festgelegt über [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline)) zu erledigen.
+Die **`dispatchWorkgroupsIndirect()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle dispatcht ein Gitter von Workgroups, das durch die Parameter eines [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) definiert ist, um die Arbeit auszuführen, die durch die aktuelle [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) (d.h. gesetzt über [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline)) verrichtet wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ dispatchWorkgroupsIndirect(indirectBuffer, indirectOffset)
 ### Parameter
 
 - `indirectBuffer`
-  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die X-, Y- und Z-Dimensionen des Rasters von Workgroups enthält, die gestartet werden sollen. Der Puffer muss einen fest gepackten Block von drei 32-Bit-Ganzzahlen ohne Vorzeichen enthalten, der die Dimensionen (insgesamt 12 Bytes) in der gleichen Reihenfolge wie die Argumente für [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) darstellt. Zum Beispiel:
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die X-, Y- und Z-Dimensionen des zu dispatchenden Workgroup-Gitters enthält. Der Buffer muss einen dicht gepackten Block von drei 32-Bit-unsigned-Integer-Werten enthalten, die die Dimensionen darstellen (insgesamt 12 Bytes), und in der gleichen Reihenfolge wie die Argumente für [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) angegeben sind. Zum Beispiel:
 
     ```js
     const uint32 = new Uint32Array(3);
@@ -32,10 +32,10 @@ dispatchWorkgroupsIndirect(indirectBuffer, indirectOffset)
     ```
 
 - `indirectOffset`
-  - : Der Offset in Bytes innerhalb von `indirectBuffer`, an dem die Dimensionsdaten beginnen.
+  - : Der Offset, in Bytes, in `indirectBuffer`, wo die Dimensionsdaten beginnen.
 
 > [!NOTE]
-> Die X-, Y- und Z-Dimensionen, die an [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) und `dispatchWorkgroupsIndirect()` übergeben werden, sind die Anzahl der Workgroups, die für jede Dimension gestartet werden sollen, nicht die Anzahl von Shader-Aufrufen, die über jede Dimension ausgeführt werden sollen. Dies entspricht dem Verhalten moderner nativer GPU-APIs, unterscheidet sich jedoch vom Verhalten von OpenCL. Das bedeutet, wenn ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) einen Einstiegspunkt mit `@workgroup_size(4, 4)` definiert und Arbeit mit dem Aufruf `dispatchWorkgroupsIndirect(indirectBuffer);` gestartet wird, wobei `indirectBuffer` die X- und Y-Dimensionen von 8 und 8 angibt, wird der Einstiegspunkt insgesamt 1024 Mal aufgerufen — ein 4 x 4 Workgroup wird 8 Mal entlang der X- und Y-Achsen gestartet. `4 * 4 * 8 * 8 = 1024`.
+> Die X-, Y- und Z-Dimensionswerte, die an [`GPUComputePassEncoder.dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) und `dispatchWorkgroupsIndirect()` übergeben werden, sind die Anzahl der Workgroups, die für jede Dimension dispatcht werden sollen, nicht die Anzahl der Shader-Aktivierungen, die über jede Dimension ausgeführt werden sollen. Dies entspricht dem Verhalten moderner nativer GPU-APIs, unterscheidet sich jedoch vom Verhalten von OpenCL. Das bedeutet, wenn ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) einen Einstiegspunkt mit `@workgroup_size(4, 4)` definiert und die Arbeit mit dem Aufruf `dispatchWorkgroupsIndirect(indirectBuffer);` dispatcht wird, wobei `indirectBuffer` X- und Y-Dimensionen von 8 und 8 spezifiziert, wird der Einstiegspunkt insgesamt 1024 Mal aufgerufen — ein 4 x 4-Workgroup wird 8 Mal entlang sowohl der X- als auch der Y-Achsen dispatcht. `4 * 4 * 8 * 8 = 1024`.
 
 ### Rückgabewert
 
@@ -43,10 +43,10 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`dispatchWorkgroupsIndirect()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`dispatchWorkgroupsIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
 
-- [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `indirectBuffer` enthält das Flag `GPUBufferUsage.INDIRECT`.
-- `indirectOffset` + die durch die Dimensionen `X`, `Y` und `Z` angegebene Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `indirectBuffer`.
+- `indirectBuffer`'s [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) enthält das `GPUBufferUsage.INDIRECT`-Flag.
+- `indirectOffset` + die durch die `X`-, `Y`- und `Z`-Dimensionen spezifizierte Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `indirectBuffer`.
 - `indirectOffset` ist ein Vielfaches von 4.
 
 ## Beispiele
@@ -71,7 +71,7 @@ var<storage, read_write> output: array<f32>;
 // Create GPUCommandEncoder to encode commands to issue to the GPU
 const commandEncoder = device.createCommandEncoder();
 
-// Initiate render pass
+// Initiate compute pass
 const passEncoder = commandEncoder.beginComputePass();
 
 // Issue commands

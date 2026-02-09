@@ -3,12 +3,12 @@ title: "VideoEncoder: isConfigSupported() statische Methode"
 short-title: isConfigSupported()
 slug: Web/API/VideoEncoder/isConfigSupported_static
 l10n:
-  sourceCommit: 21b6abb0fae5d6df0fef94506995a781e3f5d49f
+  sourceCommit: e5ccdde5b77f66395e754e019c67468e43b72ac9
 ---
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die statische Methode **`isConfigSupported()`** der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle prüft, ob [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) erfolgreich mit der angegebenen Konfiguration konfiguriert werden kann.
+Die **`isConfigSupported()`** statische Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle überprüft, ob [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) erfolgreich mit der angegebenen Konfiguration konfiguriert werden kann.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ VideoEncoder.isConfigSupported(config)
 ### Parameter
 
 - `config`
-  - : Das Wörterbuch-Objekt, das von [`VideoEncoder.configure`](/de/docs/Web/API/VideoEncoder/configure) akzeptiert wird.
+  - : Das Wörterbuchobjekt, das von [`VideoEncoder.configure`](/de/docs/Web/API/VideoEncoder/configure) akzeptiert wird.
 
 ### Rückgabewert
 
@@ -33,12 +33,12 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgend
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte vorhanden sind (wie eine negative `width`).
+  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte enthalten (wie eine negative `width`).
 
 ## Beispiele
 
-Das folgende Beispiel testet, ob der Browser beschleunigte und nicht-beschleunigte
-Versionen mehrerer Videocodecs unterstützt.
+Das folgende Beispiel testet, ob der Browser beschleunigte und unbeschleunigte
+Versionen verschiedener Videocodecs unterstützt.
 
 ```js
 const codecs = [
@@ -83,3 +83,8 @@ for (const config of configs) {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`VideoEncoder.configure()`](/de/docs/Web/API/VideoEncoder/configure)
+- [Codec String Support Table](https://webcodecsfundamentals.org/datasets/codec-support-table/)
