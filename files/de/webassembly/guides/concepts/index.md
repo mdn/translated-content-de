@@ -1,133 +1,133 @@
 ---
-title: WebAssembly-Konzepte
+title: Konzepte von WebAssembly
 slug: WebAssembly/Guides/Concepts
 l10n:
-  sourceCommit: dc9d517589ac7b74bc205f49492b0450dfdb78de
+  sourceCommit: 6bd3e7771f8923879bec44469547265e38f4ef75
 ---
 
-Dieser Artikel erklärt die Konzepte, wie WebAssembly funktioniert, einschließlich seiner Ziele, die Probleme, die es löst, und wie es innerhalb der JavaScript-Engine des Webbrowsers läuft.
+Dieser Artikel erklärt die Konzepte hinter WebAssembly, einschließlich seiner Ziele, der Probleme, die es löst, und wie es innerhalb der JavaScript-Engine des Webbrowsers ausgeführt wird.
 
 ## Was ist WebAssembly?
 
-WebAssembly ist eine neue Art von Code, der in modernen Webbrowsern ausgeführt werden kann und neue Funktionen sowie bedeutende Leistungssteigerungen bietet. Es ist nicht primär dafür gedacht, von Hand geschrieben zu werden, sondern es ist als effektives Kompilierungsziel für Quellsprachen wie C, C++, Rust usw. entwickelt worden.
+WebAssembly (abgekürzt als _Wasm_) ist ein Low-Level-Bytecode-Format, das ursprünglich für das Web entwickelt wurde. Es soll nicht primär von Hand geschrieben werden, sondern es ist als effektives Kompilierungsziel für Quellsprachen wie C, C++, Rust usw. konzipiert.
 
-Dies hat enorme Auswirkungen auf die Web-Plattform – es ermöglicht die Ausführung von Code, der in mehreren Sprachen geschrieben ist, im Web in fast nativer Geschwindigkeit, mit clientseitigen Apps, die im Web laufen und zuvor nicht hätten ausgeführt werden können.
+Dies hat große Auswirkungen auf die Webplattform — es bietet eine Möglichkeit, Code in verschiedenen Sprachen im Web mit nahezu nativer Geschwindigkeit auszuführen, wobei Client-Apps im Web laufen, die dies zuvor nicht konnten.
 
-Und was noch wichtiger ist, Sie müssen nicht einmal wissen, wie man WebAssembly-Code erstellt, um davon zu profitieren. WebAssembly-Module können in eine Web- (oder Node.js) App importiert werden und WebAssembly-Funktionen über JavaScript zur Nutzung bereitstellen. JavaScript-Frameworks könnten WebAssembly nutzen, um massive Leistungsverbesserungen und neue Funktionen zu bieten, während sie die Funktionalität weiterhin Webentwicklern leicht zugänglich machen.
+Darüber hinaus müssen Sie nicht einmal wissen, wie man WebAssembly-Code erstellt, um dessen Vorteile zu nutzen. WebAssembly-Module können in eine Web- (oder Node.js-) App importiert werden und WebAssembly-Funktionen zur Nutzung über JavaScript bereitstellen. JavaScript-Frameworks können WebAssembly nutzen, um massive Leistungsverbesserungen und neue Funktionen zu bieten, während die Funktionalität für Webentwickler einfach verfügbar bleibt.
 
 ## Ziele von WebAssembly
 
-WebAssembly wird als offener Standard innerhalb der [W3C WebAssembly Community Group](https://www.w3.org/community/webassembly/) mit folgenden Zielen entwickelt:
+WebAssembly ist ein offener Standard, der innerhalb der [W3C WebAssembly Community Group](https://www.w3.org/community/webassembly/) mit den folgenden Zielen entwickelt wurde:
 
-- Schnell, effizient und portabel sein — WebAssembly-Code kann mit nahezu nativer Geschwindigkeit über verschiedene Plattformen hinweg ausgeführt werden, indem [gemeinsame Hardwarefähigkeiten](https://webassembly.org/docs/portability/#assumptions-for-efficient-execution) genutzt werden.
-- Lesbar und debugbar sein — WebAssembly ist eine low-level Assemblersprache, besitzt jedoch ein menschenlesbares Textformat (dessen Spezifikation noch finalisiert wird), das es ermöglicht, Code von Hand zu schreiben, anzuzeigen und zu debuggen.
-- Sicher bleiben — WebAssembly ist so spezifiziert, dass es in einer sicheren, isolierten Ausführungsumgebung läuft. Wie anderer Webcode wird es die Same-Origin- und Berechtigungspolitiken des Browsers durchsetzen.
-- Das Web nicht zerstören — WebAssembly ist so konzipiert, dass es gut mit anderen Webtechnologien zusammenspielt und die Rückwärtskompatibilität beibehält.
+- Schnell, effizient und portabel sein — WebAssembly-Code kann mit nahezu nativer Geschwindigkeit auf verschiedenen Plattformen ausgeführt werden, indem er die [gemeinsamen Hardwarefähigkeiten](https://webassembly.org/docs/portability/#assumptions-for-efficient-execution) nutzt.
+- Lesbar und debuggbar sein — WebAssembly ist eine Low-Level-Assemblersprache, hat jedoch ein menschenlesbares Textformat (die Spezifikation dafür wird noch abgeschlossen), das es ermöglicht, Code von Hand zu schreiben, anzusehen und zu debuggen.
+- Sicherheit gewährleisten — WebAssembly ist so spezifiziert, dass es in einer sicheren, abgeschotteten Ausführungsumgebung läuft. Wie anderer Web-Code werden die Same-Origin- und Berechtigungsrichtlinien des Browsers durchgesetzt.
+- Web nicht brechen — WebAssembly ist so konzipiert, dass es gut mit anderen Webtechnologien zusammenarbeitet und die Abwärtskompatibilität erhält.
 
 > [!NOTE]
-> WebAssembly wird auch außerhalb von Web- und JavaScript-Umgebungen Anwendung finden (siehe [Nicht-Web-Einbettungen](https://webassembly.org/docs/non-web/)).
+> Obwohl WebAssembly ursprünglich für das Web entwickelt wurde, hat es viele Anwendungen außerhalb von Browsern und JavaScript-Umgebungen (siehe [Non-web embeddings](https://webassembly.org/docs/non-web/)).
 
-## Wie passt WebAssembly in die Web-Plattform?
+## Wie passt WebAssembly in die Webplattform?
 
-Die Web-Plattform kann als aus zwei Teilen bestehend betrachtet werden:
+Die Webplattform kann als bestehend aus zwei Teilen betrachtet werden:
 
-- Eine virtuelle Maschine (VM), die den Code der Web-App ausführt, z.B. der JavaScript-Code, der Ihre Apps antreibt.
-- Ein Satz von [Web-APIs](/de/docs/Web/API), die die Web-App aufrufen kann, um die Funktionalität des Webbrowsers/Geräts zu steuern und Dinge geschehen zu lassen ([DOM](/de/docs/Web/API/Document_Object_Model), [CSSOM](/de/docs/Web/API/CSS_Object_Model), [WebGL](/de/docs/Web/API/WebGL_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Web Audio API](/de/docs/Web/API/Web_Audio_API) usw.).
+- Eine virtuelle Maschine (VM), die den Code der Web-App ausführt, z.B. den JavaScript-Code, der Ihre Apps antreibt.
+- Ein Satz von [Web-APIs](/de/docs/Web/API), die von der Web-App aufgerufen werden können, um die Funktionalität des Webbrowsers bzw. Geräts zu steuern und Dinge zu bewirken ([DOM](/de/docs/Web/API/Document_Object_Model), [CSSOM](/de/docs/Web/API/CSS_Object_Model), [WebGL](/de/docs/Web/API/WebGL_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Web Audio API](/de/docs/Web/API/Web_Audio_API) usw.).
 
-Historisch gesehen konnte die VM nur JavaScript laden. Das hat gut funktioniert, da JavaScript mächtig genug ist, um die meisten Probleme zu lösen, die Menschen heute im Web haben. Wir sind jedoch auf Leistungsprobleme gestoßen, wenn wir versuchen, JavaScript für intensivere Anwendungsfälle zu verwenden, wie z.B. 3D-Spiele, Virtual und Augmented Reality, Computer Vision, Bild-/Video-Bearbeitung und eine Reihe anderer Domänen, die native Leistung erfordern (siehe [WebAssembly-Anwendungsfälle](https://webassembly.org/docs/use-cases/) für mehr Ideen).
+Historisch gesehen konnte die VM nur JavaScript laden. Das hat gut funktioniert, da JavaScript mächtig genug ist, um die meisten Probleme zu lösen, die Menschen im Web heute haben. Bei leistungsintensiveren Anwendungsfällen wie 3D-Spielen, Virtueller und Erweiterter Realität, Computer Vision, Bild-/Videobearbeitung und anderen Bereichen, die native Leistung erfordern, stößt JavaScript jedoch an seine Grenzen (siehe [WebAssembly-Anwendungsfälle](https://webassembly.org/docs/use-cases/) für weitere Ideen).
 
-Zusätzlich können die Kosten für das Herunterladen, Parsen und Kompilieren sehr großer JavaScript-Anwendungen prohibitiv sein. Mobile und andere ressourcenbeschränkte Plattformen können diese Leistungsengpässe weiter verstärken.
+Zudem können die Kosten für das Herunterladen, Parsen und Kompilieren sehr großer JavaScript-Anwendungen prohibitiv sein. Mobile und andere ressourcenbeschränkte Plattformen können diese Leistungsengpässe weiter verstärken.
 
-WebAssembly ist eine andere Sprache als JavaScript, aber es ist nicht als Ersatz gedacht. Stattdessen ist es dazu gedacht, JavaScript zu ergänzen und mit ihm zusammenzuarbeiten, so dass Webentwickler die starken Punkte beider Sprachen nutzen können:
+WebAssembly ist eine andere Sprache als JavaScript, aber sie ist nicht als Ersatz gedacht. Vielmehr ist sie darauf ausgelegt, JavaScript zu ergänzen und zusammenzuarbeiten, sodass Webentwickler von den Stärken beider Sprachen profitieren können:
 
-- JavaScript ist eine hochstufige Sprache, flexibel und ausdrucksstark genug, um Webanwendungen zu schreiben. Es hat viele Vorteile — es ist dynamisch typisiert, erfordert keine Kompilierung und hat ein riesiges Ökosystem, das mächtige Frameworks, Bibliotheken und andere Tools bietet.
-- WebAssembly ist eine low-level, assemblerartige Sprache mit einem kompakten Binärformat, das mit nahezu nativer Leistung läuft und Sprachen mit low-level Speichermodellen wie C++ und Rust ein Kompilierungsziel bietet, so dass sie im Web laufen können. (Beachten Sie, dass WebAssembly das [hochstufige Ziel](https://webassembly.org/docs/high-level-goals/) hat, in Zukunft Sprachen mit speicherbereinigten Speichermodellen zu unterstützen.)
+- JavaScript ist eine Hochsprache, flexibel und ausdrucksstark genug, um Webanwendungen zu schreiben. Es hat viele Vorteile — es ist dynamisch typisiert, erfordert keinen Kompilierschritt und hat ein riesiges Ökosystem, das leistungsstarke Frameworks, Bibliotheken und andere Tools bietet.
+- WebAssembly ist eine Low-Level-Assembler-ähnliche Sprache mit einem kompakten binären Format, das mit nahezu nativer Performance ausgeführt wird. Es bietet Sprachen mit Low-Level-Speichermodellen wie C++ und Rust ein Kompilierungsziel, damit sie im Web laufen können. (Beachten Sie, dass WebAssembly das [hochgesteckte Ziel](https://webassembly.org/docs/high-level-goals/) hat, in Zukunft Sprachen mit speicherverwaltenden Modellen zu unterstützen.)
 
-Mit dem Aufkommen von WebAssembly in Browsern wird die virtuelle Maschine, von der wir vorhin gesprochen haben, nun zwei Arten von Code laden und ausführen — JavaScript UND WebAssembly.
+Mit der Einführung von WebAssembly in Browsern wird die zuvor erwähnte virtuelle Maschine jetzt zwei Arten von Code laden und ausführen — JavaScript UND WebAssembly.
 
-Die verschiedenen Code-Typen können sich bei Bedarf gegenseitig aufrufen — die [WebAssembly JavaScript API](/de/docs/WebAssembly/Reference/JavaScript_interface) verpackt exportierten WebAssembly-Code mit JavaScript-Funktionen, die normal aufgerufen werden können, und WebAssembly-Code kann normale JavaScript-Funktionen importieren und synchron aufrufen. Tatsächlich ist die Grundeinheit des WebAssembly-Codes ein Modul, und WebAssembly-Module sind in vielerlei Hinsicht symmetrisch zu ES-Modulen.
+Die verschiedenen Codetypen können sich gegenseitig wie erforderlich aufrufen — die [WebAssembly JavaScript API](/de/docs/WebAssembly/Reference/JavaScript_interface) umgibt exportierten WebAssembly-Code mit JavaScript-Funktionen, die normal aufgerufen werden können, und WebAssembly-Code kann normale JavaScript-Funktionen importieren und synchron aufrufen. Tatsächlich wird die Grundeinheit von WebAssembly-Code als Modul bezeichnet, und WebAssembly-Module sind in vielerlei Hinsicht symmetrisch zu ES-Modulen.
 
 ### Schlüsselkonzepte von WebAssembly
 
-Es gibt mehrere Schlüsselkonzepte, die notwendig sind, um zu verstehen, wie WebAssembly im Browser läuft. All diese Konzepte werden 1:1 in der [WebAssembly JavaScript API](/de/docs/WebAssembly/Reference/JavaScript_interface) widergespiegelt.
+Es gibt mehrere Schlüsselkonzepte, die nötig sind, um zu verstehen, wie WebAssembly im Browser läuft. Alle diese Konzepte sind 1:1 in der [WebAssembly JavaScript API](/de/docs/WebAssembly/Reference/JavaScript_interface) abgebildet.
 
-- **Modul**: Stellt eine WebAssembly-Binärdatei dar, die vom Browser in ausführbaren Maschinencode kompiliert wurde. Ein Modul ist zustandslos und kann somit, wie ein [`Blob`](/de/docs/Web/API/Blob), explizit zwischen Fenstern und Workern (über [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage)) geteilt werden. Ein Modul deklariert Importe und Exporte genau wie ein ES-Modul.
-- **Speicher**: Ein anpassbares ArrayBuffer, das das lineare Array von Bytes enthält, das von WebAssemblys low-level Speicherzugriffsanweisungen gelesen und geschrieben wird.
-- **Tabelle**: Ein anpassbares typisiertes Array von Referenzen (z.B. auf Funktionen), die aus Sicherheits- und Portabilitätsgründen nicht als rohe Bytes im Speicher gespeichert werden können.
-- **Instanz**: Ein Modul kombiniert mit dem gesamten Zustand, den es zur Laufzeit verwendet, einschließlich Speicher, Tabelle und Satz importierter Werte. Eine Instanz ist wie ein ES-Modul, das in eine bestimmte Umgebung mit einem bestimmten Satz von Importen geladen wurde.
+- **Module**: Repräsentiert einen WebAssembly-Binärcode, der vom Browser in ausführbaren Maschinencode kompiliert wurde. Ein Modul ist zustandslos und kann daher, ähnlich wie ein [`Blob`](/de/docs/Web/API/Blob), explizit zwischen Fenstern und Arbeitern (über [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage)) geteilt werden. Ein Modul deklariert Importe und Exporte, genau wie ein ES-Modul.
+- **Memory**: Ein skalierbarer ArrayBuffer, der das lineare Byte-Array enthält, das von WebAssemblys Low-Level-Speicherzugriffsinstruktionen gelesen und beschrieben wird.
+- **Table**: Ein skalierbares typisiertes Array von Referenzen (z.B. auf Funktionen), die aus Sicherheits- und Portabilitätsgründen nicht als rohe Bytes im Speicher gespeichert werden könnten.
+- **Instance**: Ein Modul gepaart mit allem Zustand, den es zur Laufzeit verwendet, einschließlich eines Speichers, einer Tabelle und eines Satzes von importierten Werten. Eine Instanz ist wie ein ES-Modul, das in einem bestimmten Globalen mit einem bestimmten Satz von Importen geladen wurde.
 
-Die JavaScript-API bietet Entwicklern die Möglichkeit, Module, Speicher, Tabellen und Instanzen zu erstellen. Angesichts einer WebAssembly-Instanz kann JavaScript-Code deren Exporte synchron aufrufen, die als normale JavaScript-Funktionen verfügbar sind. Beliebige JavaScript-Funktionen können auch synchron von WebAssembly-Code aufgerufen werden, indem diese JavaScript-Funktionen als Import für eine WebAssembly-Instanz übergeben werden.
+Die JavaScript-API bietet Entwicklern die Möglichkeit, Module, Speicher, Tabellen und Instanzen zu erstellen. Gegeben eine WebAssembly-Instanz, kann JavaScript-Code ihre Exporte synchron aufrufen, die als normale JavaScript-Funktionen bereitgestellt werden. Beliebige JavaScript-Funktionen können auch synchron von WebAssembly-Code aufgerufen werden, indem diese JavaScript-Funktionen als Importe zu einer WebAssembly-Instanz übergeben werden.
 
-Da JavaScript die vollständige Kontrolle darüber hat, wie WebAssembly-Code heruntergeladen, kompiliert und ausgeführt wird, könnten JavaScript-Entwickler WebAssembly sogar einfach als JavaScript-Funktion betrachten, um effizient hochleistungsfähige Funktionen zu generieren.
+Da JavaScript die vollständige Kontrolle darüber hat, wie WebAssembly-Code heruntergeladen, kompiliert und ausgeführt wird, können JavaScript-Entwickler WebAssembly sogar einfach als JavaScript-Feature für effizientes Erzeugen von Hochleistungsfunktionen betrachten.
 
-In Zukunft werden WebAssembly-Module [genauso wie ES-Module ladbar sein](https://github.com/WebAssembly/proposals/issues/12) (unter Verwendung von `<script type='module'>`), was bedeutet, dass JavaScript in der Lage sein wird, ein WebAssembly-Modul genauso einfach abzurufen, zu kompilieren und zu importieren wie ein ES-Modul.
+In Zukunft werden WebAssembly-Module [genauso wie ES-Module ladbar sein](https://github.com/WebAssembly/proposals/issues/12) (mittels `<script type='module'>`), was bedeutet, dass JavaScript ein WebAssembly-Modul ebenso einfach wie ein ES-Modul abrufen, kompilieren und importieren können wird.
 
 ## Wie verwende ich WebAssembly in meiner App?
 
-Oben haben wir über die rohen Primitiven gesprochen, die WebAssembly zur Web-Plattform hinzufügt: ein Binärformat für Code und APIs zum Laden und Ausführen dieses Binärcodes. Nun sprechen wir darüber, wie wir diese Primitiven in der Praxis nutzen können.
+Oben haben wir über die grundlegenden Primitiven gesprochen, die WebAssembly zur Webplattform hinzufügt: ein binäres Format für Code und APIs zum Laden und Ausführen dieses binären Codes. Nun wollen wir darüber sprechen, wie wir diese Primitiven praktisch nutzen können.
 
-Das WebAssembly-Ökosystem befindet sich noch in einem frühen Stadium; zweifellos werden in Zukunft mehr Tools entstehen. Derzeit gibt es vier Hauptansatzpunkte:
+Das WebAssembly-Ökosystem ist noch im Anfangsstadium; mehr Tools werden in Zukunft unweigerlich entstehen. Derzeit gibt es vier Hauptansatzpunkte:
 
-- Portierung einer C/C++-Anwendung mit [Emscripten](https://emscripten.org/).
-- Schreiben oder Generieren von WebAssembly direkt auf Assembler-Ebene.
-- Schreiben einer Rust-Anwendung und Ausrichten des Outputs auf WebAssembly.
-- Verwenden von [AssemblyScript](https://www.assemblyscript.org/), das ähnlich aussieht wie TypeScript und in WebAssembly-Binärdateien kompiliert.
+- Portieren einer C/C++-Anwendung mit [Emscripten](https://emscripten.org/).
+- Schreiben oder direktes Generieren von WebAssembly auf der Assemblierebene.
+- Schreiben einer Rust-Anwendung und Zielrichtung auf WebAssembly als Ausgabemedium.
+- Verwendung von [AssemblyScript](https://www.assemblyscript.org/), das TypeScript ähnlich sieht und zu WebAssembly-Binär kompilieren kann.
 
 Lassen Sie uns diese Optionen besprechen:
 
-### Portierung von C/C++
+### Portieren von C/C++
 
-Zwei der vielen Optionen, um Wasm-Code zu erstellen, sind ein Online-Wasm-Assembler oder [Emscripten](https://emscripten.org/). Es gibt eine Reihe von Online-Wasm-Assembler-Optionen, wie zum Beispiel:
+Zwei der vielen Optionen zur Erstellung von Wasm-Code sind ein Online-Wasm-Assembler oder [Emscripten](https://emscripten.org/). Es gibt mehrere Online-Wasm-Assembler-Optionen, wie:
 
 - [WasmFiddle++](https://anonyco.github.io/WasmFiddlePlusPlus/)
 - [WasmExplorer](https://mbebenita.github.io/WasmExplorer/)
 
-Dies sind großartige Ressourcen für Menschen, die herausfinden möchten, wo sie anfangen sollen, aber sie fehlen einige der Tools und Optimierungen von Emscripten.
+Dies sind großartige Ressourcen für Menschen, die herausfinden wollen, wo sie anfangen sollen, aber sie fehlen an einigen der Werkzeugen und Optimierungen von Emscripten.
 
-Das Emscripten-Tool kann nahezu jeden C/C++-Quellcode nehmen und ihn in ein Wasm-Modul kompilieren, plus den notwendigen JavaScript-"Leim"-Code zum Laden und Ausführen des Moduls und ein HTML-Dokument, um die Ergebnisse des Codes anzuzeigen.
+Das Emscripten-Tool kann so ziemlich jeden C/C++-Quellcode nehmen und ihn in ein Wasm-Modul kompilieren, plus den notwendigen JavaScript-"Klebe"-Code zum Laden und Ausführen des Moduls, und ein HTML-Dokument, um die Ergebnisse des Codes anzuzeigen.
 
-![Diagramm: Emscripten kompiliert C/C++-Quellcode in ein Wasm-Modul, ein HTML-Dokument zusammen mit dem JavaScript-Leim-Code.](emscripten-diagram.png)
+![Diagramm: Emscripten kompiliert C/C++-Quellcode in ein Wasm-Modul, ein HTML-Dokument zusammen mit dem JavaScript-Klebe-Code.](emscripten-diagram.png)
 
 Kurz gesagt funktioniert der Prozess wie folgt:
 
-1. Emscripten speist zuerst das C/C++ in clang+LLVM ein — eine ausgereifte Open-Source-C/C++-Compiler-Toolchain, die beispielsweise als Teil von Xcode auf macOS bereitgestellt wird.
-2. Emscripten transformiert das compilierte Ergebnis von clang+LLVM in eine Wasm-Binärdatei.
-3. An sich kann WebAssembly derzeit nicht direkt auf das DOM zugreifen; es kann nur JavaScript aufrufen, wobei primitive Ganzzahlen- und Fließkomma-Datentypen übergeben werden. Um also auf eine Web-API zuzugreifen, muss WebAssembly JavaScript aufrufen, das dann den Web-API-Aufruf ausführt. Emscripten erstellt daher den notwendigen HTML- und JavaScript-Leim-Code, um dies zu erreichen.
+1. Emscripten gibt zuerst das C/C++ in clang+LLVM ein — eine ausgereifte Open-Source-C/C++-Compiler-Toolchain, die zum Beispiel als Teil von Xcode auf macOS ausgeliefert wird.
+2. Emscripten transformiert das kompilierte Ergebnis von clang+LLVM in ein Wasm-Binärformat.
+3. WebAssembly kann derzeit von sich aus nicht direkt auf das DOM zugreifen; es kann nur JavaScript aufrufen und dabei ganzzahlige und Gleitkomma-Primitivdatentypen übergeben. Daher muss WebAssembly, um auf eine Web-API zuzugreifen, JavaScript aufrufen, das dann den Web-API-Aufruf macht. Emscripten erstellt daher den HTML- und JavaScript-"Klebe"-Code, der dazu erforderlich ist.
 
 > [!NOTE]
-> Es gibt zukünftige Pläne, [WebAssembly zu erlauben, Web-APIs direkt aufzurufen](https://github.com/WebAssembly/gc/blob/master/README.md).
+> Es gibt zukünftige Pläne [um WebAssembly direkten Zugang zu Web-APIs zu ermöglichen](https://github.com/WebAssembly/gc/blob/master/README.md).
 
-Der JavaScript-Leim-Code ist nicht so einfach, wie man es sich vielleicht vorstellen könnte. Zunächst einmal implementiert Emscripten beliebte C/C++-Bibliotheken wie [SDL](https://de.wikipedia.org/wiki/Simple_DirectMedia_Layer), [OpenGL](https://de.wikipedia.org/wiki/OpenGL), [OpenAL](https://de.wikipedia.org/wiki/OpenAL) und Teile von [POSIX](https://de.wikipedia.org/wiki/POSIX). Diese Bibliotheken werden in Bezug auf Web-APIs implementiert, daher benötigt jede einen gewissen JavaScript-Leim-Code, um WebAssembly mit der zugrunde liegenden Web-API zu verbinden.
+Der JavaScript-Klebe-Code ist nicht so einfach, wie Sie sich vielleicht vorstellen. Zum Beispiel implementiert Emscripten beliebte C/C++-Bibliotheken wie [SDL](https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer), [OpenGL](https://en.wikipedia.org/wiki/OpenGL), [OpenAL](https://en.wikipedia.org/wiki/OpenAL) und Teile von [POSIX](https://en.wikipedia.org/wiki/POSIX). Diese Bibliotheken werden in Bezug auf Web-APIs implementiert und daher erfordert jede von ihnen etwas JavaScript-Klebe-Code, um WebAssembly mit der zugrunde liegenden Web-API zu verbinden.
 
-Ein Teil des Leim-Codes besteht also darin, die Funktionalität der jeweiligen vom C/C++-Code verwendeten Bibliothek zu implementieren. Der Leim-Code enthält auch die Logik, um die oben genannten WebAssembly-JavaScript-APIs aufzurufen, um die Wasm-Datei abzurufen, zu laden und auszuführen.
+Ein Teil des Klebe-Codes besteht darin, die Funktionalität jeder jeweiligen von dem C/C++-Code genutzten Bibliothek zu implementieren. Der Klebe-Code enthält auch die Logik zum Aufrufen der oben genannten WebAssembly-JavaScript-APIs, um die Wasm-Datei abzurufen, zu laden und auszuführen.
 
-Das generierte HTML-Dokument lädt die JavaScript-Leimdatei und schreibt stdout in ein {{htmlelement("textarea")}}. Wenn die Anwendung OpenGL verwendet, enthält das HTML auch ein {{htmlelement("canvas")}}-Element, das als Rendering-Ziel verwendet wird. Es ist sehr einfach, die Emscripten-Ausgabe zu modifizieren und sie in jede gewünschte Web-App zu verwandeln.
+Das generierte HTML-Dokument lädt die JavaScript-"Klebe"-Datei und schreibt stdout in ein {{htmlelement("textarea")}}. Wenn die Anwendung OpenGL nutzt, enthält das HTML auch ein {{htmlelement("canvas")}}-Element, das als Rendering-Ziel dient. Es ist sehr einfach, die Emscripten-Ausgabe zu modifizieren und in jede gewünschte Webanwendung zu verwandeln.
 
-Sie finden eine vollständige Dokumentation zu Emscripten auf [emscripten.org](https://emscripten.org/), und einen Leitfaden zum Implementieren der Toolchain und Kompilieren Ihrer eigenen C/C++-App in Wasm auf [Kompilieren von C/C++ zu WebAssembly](/de/docs/WebAssembly/Guides/C_to_Wasm).
+Sie finden die vollständige Dokumentation zu Emscripten auf [emscripten.org](https://emscripten.org/), und einen Leitfaden zur Implementierung der Toolchain und zur Kompilierung Ihrer eigenen C/C++-App auf Wasm bei [Kompilieren von C/C++ zu WebAssembly](/de/docs/WebAssembly/Guides/C_to_Wasm).
 
-### WebAssembly direkt schreiben
+### Schreiben von WebAssembly direkt
 
-Möchten Sie Ihren eigenen Compiler bauen, Ihre eigenen Tools erstellen oder eine JavaScript-Bibliothek entwickeln, die zur Laufzeit WebAssembly generiert?
+Möchten Sie Ihren eigenen Compiler oder Ihre eigenen Werkzeuge erstellen oder eine JavaScript-Bibliothek, die WebAssembly zur Laufzeit generiert?
 
-Ähnlich wie physische Assemblersprachen hat das WebAssembly-Binärformat eine Textdarstellung — die beiden haben eine 1:1-Entsprechung. Sie können dieses Format von Hand schreiben oder generieren und es dann mit einem der mehreren [WebAssembly Text-zu-Binär-Tools](https://webassembly.org/getting-started/advanced-tools/) in das Binärformat umwandeln.
+In der gleichen Art und Weise wie physikalische Assemblysprachen hat das WebAssembly-Binärformat eine Textdarstellung — die beiden haben eine 1:1-Korrespondenz. Sie können dieses Format von Hand schreiben oder generieren und es dann mit einem der mehreren [WebAssembly-Text-zu-Binär-Tools](https://webassembly.org/getting-started/advanced-tools/) in das Binärformat konvertieren.
 
-Für eine einfache Anleitung, wie Sie dies tun können, sehen Sie sich unseren Artikel [Konvertieren des WebAssembly-Textformats zu Wasm](/de/docs/WebAssembly/Guides/Text_format_to_Wasm) an.
+Für eine einfache Anleitung dazu lesen Sie unseren Artikel [Konvertieren von WebAssembly-Textformat zu Wasm](/de/docs/WebAssembly/Guides/Text_format_to_Wasm).
 
-### Schreiben von Rust mit Ziel WebAssembly
+### Schreiben von Rust, das auf WebAssembly abzielt
 
-Es ist auch möglich, Rust-Code zu schreiben und nach WebAssembly zu kompilieren, dank der unermüdlichen Arbeit der Rust WebAssembly Working Group. Sie können damit beginnen, die notwendige Toolchain zu installieren, ein Beispiel-Rust-Programm in ein WebAssembly-npm-Paket zu kompilieren und es in einer Beispiel-Web-App zu verwenden. Schauen Sie sich dazu unseren Artikel [Kompilieren von Rust zu WebAssembly](/de/docs/WebAssembly/Guides/Rust_to_Wasm) an.
+Es ist auch möglich, Rust-Code zu schreiben und nach WebAssembly zu kompilieren, dank der unermüdlichen Arbeit der Rust WebAssembly Working Group. Sie können mit der Installation der notwendigen Toolchain beginnen, ein Beispiel-Rust-Programm in ein WebAssembly-npm-Paket kompilieren und dieses in einer Beispiel-Web-App verwenden, indem Sie unseren Artikel [Kompilieren von Rust zu WebAssembly](/de/docs/WebAssembly/Guides/Rust_to_Wasm) lesen.
 
 ### Verwendung von AssemblyScript
 
-Für Webentwickler, die WebAssembly ausprobieren möchten, ohne die Details von C oder Rust lernen zu müssen, und die in der Komfortzone einer vertrauten Sprache wie TypeScript bleiben möchten, ist AssemblyScript die beste Option. AssemblyScript kompiliert eine strikte Variante von TypeScript zu WebAssembly, sodass Webentwickler weiterhin TypeScript-kompatible Tools verwenden können, die ihnen vertraut sind — wie Prettier, ESLint, VS Code IntelliSense usw. Sie können die Dokumentation auf <https://www.assemblyscript.org/> einsehen.
+Für Webentwickler, die WebAssembly ausprobieren möchten, ohne die Details von C oder Rust lernen zu müssen, und in der vertrauten Umgebung einer ähnlichen Sprache wie TypeScript bleiben möchten, wird AssemblyScript die beste Option sein. AssemblyScript kompiliert eine strenge Variante von TypeScript zu WebAssembly, sodass Webentwickler die ihnen bekannten TypeScript-kompatiblen Werkzeuge weiterhin verwenden können — wie Prettier, ESLint, VS Code IntelliSense usw. Sie können die Dokumentation unter <https://www.assemblyscript.org/> einsehen.
 
 ## Zusammenfassung
 
-Dieser Artikel hat Ihnen eine Erklärung gegeben, was WebAssembly ist, warum es so nützlich ist, wie es sich in das Web einfügt und wie Sie es verwenden können.
+Dieser Artikel hat Ihnen eine Erklärung gegeben, was WebAssembly ist, warum es so nützlich ist, wie es in das Web passt und wie Sie es nutzen können.
 
 ## Siehe auch
 
-- [WebAssembly-Artikel auf dem Mozilla Hacks Blog](https://hacks.mozilla.org/category/webassembly/)
-- [WebAssembly bei Mozilla Research](https://research.mozilla.org/)
-- [Laden und Ausführen von WebAssembly-Code](/de/docs/WebAssembly/Guides/Loading_and_running) — erfahren Sie, wie Sie Ihr eigenes WebAssembly-Modul in eine Webseite laden.
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API) — erfahren Sie, wie Sie die anderen Hauptfunktionen der WebAssembly-JavaScript-API nutzen können.
+- [WebAssembly-Artikel auf dem Mozilla Hacks-Blog](https://hacks.mozilla.org/category/webassembly/)
+- [WebAssembly auf Mozilla Research](https://research.mozilla.org/)
+- [Laden und Ausführen von WebAssembly-Code](/de/docs/WebAssembly/Guides/Loading_and_running) — erfahren Sie, wie Sie Ihr eigenes WebAssembly-Modul in eine Webseite laden können.
+- [Verwenden der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Guides/Using_the_JavaScript_API) — erfahren Sie, wie Sie die anderen Hauptfunktionen der WebAssembly-JavaScript-API nutzen können.
