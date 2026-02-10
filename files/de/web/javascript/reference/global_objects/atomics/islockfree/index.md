@@ -3,10 +3,10 @@ title: Atomics.isLockFree()
 short-title: isLockFree()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/isLockFree
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 48f29758dbe9036bd04baf519b8e35d1f989e532
 ---
 
-Die statische Methode **`Atomics.isLockFree()`** wird verwendet, um festzustellen, ob die `Atomics`-Methoden Sperren oder atomare Hardware-Operationen verwenden, wenn sie auf typisierte Arrays mit der angegebenen Element-Byte-Größe angewendet werden. Sie ist als Optimierungsprimitive gedacht, damit Hochleistungsalgorithmen feststellen können, ob sie in kritischen Abschnitten Sperren oder atomare Operationen verwenden sollen. Wenn eine atomare Primitive nicht frei von Sperren ist, ist es oft effizienter, dass ein Algorithmus seine eigene Sperre bereitstellt.
+Die statische Methode **`Atomics.isLockFree()`** wird verwendet, um festzustellen, ob die `Atomics`-Methoden Sperren oder atomare Hardware-Operationen verwenden, wenn sie auf typisierte Arrays mit der gegebenen Element-Byte-Größe angewendet werden. Sie ist als Optimierungsprimitive gedacht, sodass Hochleistungsalgorithmen feststellen können, ob sie in kritischen Abschnitten Sperren oder atomare Operationen verwenden sollen. Wenn eine atomare Primitive nicht sperrfrei ist, ist es oft effizienter, wenn ein Algorithmus eine eigene Sperrung bereitstellt.
 
 {{InteractiveExample("JavaScript Demo: Atomics.isLockFree()")}}
 
@@ -33,14 +33,14 @@ Atomics.isLockFree(size)
 
 ### Rückgabewert
 
-Ein `true`- oder `false`-Wert, der angibt, ob die Operation frei von Sperren ist.
+Ein `true` oder `false` Wert, der angibt, ob die Operation sperrfrei ist.
 
 - Immer `true`, wenn `size` 4 ist, da alle bekannten Plattformen 4-Byte-atomare Operationen unterstützen.
-- Immer `false`, wenn die angegebene Größe nicht eine der [`BYTES_PER_ELEMENT`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT)-Eigenschaften der ganzzahligen TypedArray-Typen ist.
+- Immer `false`, wenn die gegebene Größe nicht eine der [`BYTES_PER_ELEMENT`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT) Eigenschaften der integer-TypedArray-Typen ist.
 
 ## Beispiele
 
-### Verwendung von isLockFree
+### Verwendung von Atomics.isLockFree()
 
 ```js
 Atomics.isLockFree(1); // true (platform-dependent)

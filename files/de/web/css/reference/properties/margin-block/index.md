@@ -2,10 +2,10 @@
 title: margin-block
 slug: Web/CSS/Reference/Properties/margin-block
 l10n:
-  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
+  sourceCommit: c3c0f615b9b35e1ce3c799927eb21732b2f05926
 ---
 
-Die **`margin-block`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert die logischen Blockanfangs- und Blockend-Ränder eines Elements, die je nach Schreibmodus, Richtung und Textorientierung des Elements auf physische Ränder abgebildet werden.
+Die **`margin-block`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) definiert die logischen Blockanfang- und Blockend-Margen eines Elements, die je nach Schreibweise, Richtung und Textausrichtung des Elements auf physische Margen abgebildet werden.
 
 {{InteractiveExample("CSS Demo: margin-block")}}
 
@@ -64,9 +64,9 @@ writing-mode: vertical-lr;
 }
 ```
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("margin-block-start")}}
 - {{cssxref("margin-block-end")}}
@@ -93,16 +93,16 @@ margin-block: revert-layer;
 margin-block: unset;
 ```
 
-Diese Eigenschaft entspricht den Eigenschaften {{CSSxRef("margin-top")}} und {{CSSxRef("margin-bottom")}}, oder den Eigenschaften {{CSSxRef("margin-right")}} und {{CSSxRef("margin-left")}}, je nach den für {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}} und {{CSSxRef("text-orientation")}} definierten Werten.
+Diese Eigenschaft entspricht den Eigenschaften {{CSSxRef("margin-top")}} und {{CSSxRef("margin-bottom")}}, oder den Eigenschaften {{CSSxRef("margin-right")}} und {{CSSxRef("margin-left")}}, je nach den definierten Werten für {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}} und {{CSSxRef("text-orientation")}}.
 
 Die `margin-block` Eigenschaft kann mit einem oder zwei Werten angegeben werden.
 
-- Wird **ein** Wert angegeben, so wird derselbe Rand auf **beide, Anfang und Ende** angewendet.
-- Werden **zwei** Werte angegeben, gilt der erste Rand für den **Anfang**, der zweite für das **Ende**.
+- Wenn **ein** Wert angegeben wird, gilt die gleiche Marge für **sowohl Anfang als auch Ende**.
+- Wenn **zwei** Werte angegeben werden, gilt die erste Marge für den **Anfang**, die zweite für das **Ende**.
 
 ### Werte
 
-Die `margin-block` Eigenschaft nimmt dieselben Werte wie die {{CSSxRef("margin", "", "#values")}} Eigenschaft.
+Die `margin-block` Eigenschaft nimmt die gleichen Werte wie die {{CSSxRef("margin-top", "", "#values")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -114,7 +114,7 @@ Die `margin-block` Eigenschaft nimmt dieselben Werte wie die {{CSSxRef("margin",
 
 ## Beispiele
 
-### Festlegen von Blockanfangs- und Blockend-Rändern
+### Festlegen von Blockanfangs- und Blockend-Margen
 
 #### CSS
 
@@ -163,5 +163,5 @@ p {
 ## Siehe auch
 
 - [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values)
-- Die zugeordneten physischen Eigenschaften: {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}}, und {{CSSxRef("margin-left")}}
+- Die zugeordneten physischen Eigenschaften: {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}
 - {{CSSxRef("writing-mode")}}, {{CSSxRef("direction")}}, {{CSSxRef("text-orientation")}}

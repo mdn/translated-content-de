@@ -3,7 +3,7 @@ title: SharedArrayBuffer.prototype.grow()
 short-title: grow()
 slug: Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/grow
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 48f29758dbe9036bd04baf519b8e35d1f989e532
 ---
 
 Die **`grow()`**-Methode von {{jsxref("SharedArrayBuffer")}}-Instanzen vergrößert den `SharedArrayBuffer` auf die angegebene Größe in Bytes.
@@ -17,7 +17,7 @@ grow(newLength)
 ### Parameter
 
 - `newLength`
-  - : Die neue Länge in Bytes, auf die der `SharedArrayBuffer` vergrößert werden soll.
+  - : Die neue Länge in Bytes, auf die der `SharedArrayBuffer` geändert werden soll.
 
 ### Rückgabewert
 
@@ -26,15 +26,17 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der `SharedArrayBuffer` nicht vergrößert werden kann.
+  - : Wird ausgelöst, wenn der `SharedArrayBuffer` nicht vergrößerbar ist.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `newLength` größer ist als die {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}} des `SharedArrayBuffer` oder kleiner als die {{jsxref("SharedArrayBuffer/byteLength", "byteLength")}}.
+  - : Wird ausgelöst, wenn `newLength` größer als das {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}} des `SharedArrayBuffer` oder kleiner als das {{jsxref("SharedArrayBuffer/byteLength", "byteLength")}} ist.
 
 ## Beschreibung
 
-Die `grow()`-Methode vergrößert einen `SharedArrayBuffer` auf die Größe, die durch den `newLength`-Parameter angegeben ist, vorausgesetzt, dass der `SharedArrayBuffer` [vergrößerbar](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/growable) ist und die neue Größe kleiner oder gleich der {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}} des `SharedArrayBuffer` ist. Neue Bytes werden auf 0 gesetzt.
+Die `grow()`-Methode vergrößert einen `SharedArrayBuffer` auf die durch den `newLength`-Parameter angegebene Größe, vorausgesetzt, der `SharedArrayBuffer` ist [vergrößerbar](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/growable) und die neue Größe ist kleiner oder gleich dem {{jsxref("SharedArrayBuffer/maxByteLength", "maxByteLength")}} des `SharedArrayBuffer`. Neue Bytes werden auf 0 gesetzt.
 
 ## Beispiele
+
+Beachten Sie, dass diese Beispiele nicht direkt von der Konsole oder einer beliebigen Webseite ausgeführt werden können, da `SharedArrayBuffer` nur definiert ist, wenn seine [Sicherheitsanforderungen](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) erfüllt sind.
 
 ### Verwendung von grow()
 

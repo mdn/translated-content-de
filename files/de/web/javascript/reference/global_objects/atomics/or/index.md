@@ -3,29 +3,10 @@ title: Atomics.or()
 short-title: or()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/or
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 48f29758dbe9036bd04baf519b8e35d1f989e532
 ---
 
-Die **`Atomics.or()`** statische
-Methode berechnet ein bitweises OR mit einem gegebenen Wert an einer bestimmten Position im Array und
-gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer
-Schreibvorgang erfolgt, bis der modifizierte Wert zurückgeschrieben wird.
-
-{{InteractiveExample("JavaScript Demo: Atomics.or()")}}
-
-```js interactive-example
-// Create a SharedArrayBuffer with a size in bytes
-const buffer = new SharedArrayBuffer(16);
-const uint8 = new Uint8Array(buffer);
-uint8[0] = 5;
-
-// 5 (0101) OR 2 (0010) = 7 (0111)
-console.log(Atomics.or(uint8, 0, 2));
-// Expected output: 5
-
-console.log(Atomics.load(uint8, 0));
-// Expected output: 7
-```
+Die statische Methode **`Atomics.or()`** berechnet ein bitweises OR mit einem bestimmten Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang erfolgt, bis der geänderte Wert zurückgeschrieben wird.
 
 ## Syntax
 
@@ -36,31 +17,26 @@ Atomics.or(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typ-Array. Eine der folgenden: {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
-    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
-    {{jsxref("BigUint64Array")}}.
+  - : Ein ganzzahliges typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der das bitweise OR berechnet werden soll.
+  - : Die Position im `typedArray`, um das bitweise OR zu berechnen.
 - `value`
-  - : Die Zahl, mit der das bitweise OR berechnet wird.
+  - : Die Zahl, mit der das bitweise OR berechnet werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der gegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integertypen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beschreibung
 
-Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 sind.
-Die Wahrheitstabelle für die OR-Operation ist:
+Die bitweise OR-Operation ergibt 1, wenn entweder `a` oder `b` 1 sind. Die Wahrheitstabelle für die OR-Operation ist:
 
 | `a` | `b` | `a \| b` |
 | --- | --- | -------- |
@@ -69,8 +45,7 @@ Die Wahrheitstabelle für die OR-Operation ist:
 | 1   | 0   | 1        |
 | 1   | 1   | 1        |
 
-Ein Beispiel: Ein bitweises OR von `5 | 1` ergibt `0101`, was 5
-im Dezimalsystem ist.
+Zum Beispiel ergibt ein bitweises OR von `5 | 1` `0101`, was dezimal 5 ist.
 
 ```plain
 5  0101
@@ -81,15 +56,20 @@ im Dezimalsystem ist.
 
 ## Beispiele
 
-### Verwendung von or
+Beachten Sie, dass diese Beispiele nicht direkt von der Konsole oder einer beliebigen Webseite ausgeführt werden können, da `SharedArrayBuffer` nicht definiert ist, es sei denn, die [Sicherheitsanforderungen](/de/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) sind erfüllt.
+
+### Verwendung von Atomics.or()
 
 ```js
+// Create a SharedArrayBuffer with a size in bytes
 const sab = new SharedArrayBuffer(1024);
+// Create a view and set the value of the 0 index
 const ta = new Uint8Array(sab);
-ta[0] = 2;
+ta[0] = 7;
 
-Atomics.or(ta, 0, 1); // returns 2, the old value
-Atomics.load(ta, 0); // 3
+// 7 (0111) OR 10 (1010) = 15 (1111)
+console.log(Atomics.or(ta, 0, 10)); // 7, the old value
+console.log(Atomics.load(ta, 0)); // 15, the new/current value
 ```
 
 ## Spezifikationen
