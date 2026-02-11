@@ -2,14 +2,14 @@
 title: WebDriver
 slug: Web/WebDriver
 l10n:
-  sourceCommit: 2d19a88d0cc560f031a07585bf57f005fec02670
+  sourceCommit: 225de04b84b717433ffeb3bb0cf5ceddac9653ea
 ---
 
-WebDriver ist eine Fernsteuerungsschnittstelle, die die Untersuchung und Steuerung von User Agents ermöglicht. Es bietet ein plattform- und sprachneutrales Drahtprotokoll als Mittel, um Prozessen außerhalb des Browsers Anweisungen zu geben, das Verhalten von Webbrowsern fernzusteuern.
+WebDriver ist eine Fernsteuerungsschnittstelle, die die Untersuchung und Steuerung von Benutzeragenten ermöglicht. Sie bietet ein plattform- und sprachunabhängiges Drahtprotokoll, um externen Programmen eine Möglichkeit zu geben, das Verhalten von Webbrowsern aus der Ferne zu steuern.
 
-Die Fähigkeit, Anweisungssätze zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Nutzern eine konsistente Erfahrung zu bieten. Mit der neuen Welle der Entwicklungen auf der Webplattform, der zunehmenden Vielfalt an Geräten und der Nachfrage nach echter Interoperabilität zwischen den Technologien bietet WebDriver Werkzeuge für das [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
+Die Fähigkeit, Satzanweisungen zu schreiben, die auf verschiedenen Plattformen in vielen Browsern austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Welle von Entwicklungen auf der Webplattform, der zunehmenden Vielfalt der Geräte und dem Bedarf an echter Interoperabilität zwischen den Technologien, bietet WebDriver Werkzeuge für [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
 
-Bereitgestellt wird eine Reihe von Schnittstellen, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und um das Verhalten eines User Agents zu steuern. Es ist in erster Linie dafür gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen User Agent von einem separaten Steuerungsprozess aus automatisieren können, es kann jedoch auch so verwendet werden, dass Skripte im Browser einen — möglicherweise separaten — Browser steuern.
+Es wird ein Satz von Schnittstellen bereitgestellt, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und um das Verhalten eines Benutzeragenten zu steuern. Es ist in erster Linie dazu gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen Benutzeragenten von einem separaten Steuerprozess aus automatisieren, kann aber auch in einer Weise verwendet werden, dass In-Browser-Skripte einen — möglicherweise separaten — Browser steuern.
 
 ## Verwendung
 
@@ -36,7 +36,7 @@ with webdriver.Firefox() as driver:
         print(f'#{i} {elem.text} ({elem.get_attribute("href")})')
 ```
 
-Dies könnte eine Ausgabe ähnlich dieser erzeugen:
+Dies könnte eine Ausgabe erzeugen, die in etwa so aussieht:
 
 ```plain
 #1 Cheese - Wikipedia (https://en.wikipedia.org/wiki/Cheese)
@@ -44,21 +44,21 @@ Dies könnte eine Ausgabe ähnlich dieser erzeugen:
 
 ## Referenz
 
-Die [WebDriver-Referenz](/de/docs/Web/WebDriver/Reference) bietet detaillierte Informationen über die WebDriver-API, einschließlich der verfügbaren Befehle, Fähigkeiten und Fehler.
+Durchsuchen Sie die vollständige [WebDriver-Referenz](/de/docs/Web/WebDriver/Reference) Dokumentation.
 
-- [Timeouts](/de/docs/Web/WebDriver/Reference/Timeouts)
+### Klassische WebDriver-Referenz
 
-### [Befehle](/de/docs/Web/WebDriver/Reference/Commands)
+- [Befehle](/de/docs/Web/WebDriver/Reference/Classic/Commands)
+  - : Referenz für alle klassischen WebDriver-Befehle.
 
-{{ListSubpages("/de/docs/Web/WebDriver/Reference/Commands")}}
+- [Fähigkeiten](/de/docs/Web/WebDriver/Reference/Classic/Capabilities)
+  - : Referenz für alle klassischen WebDriver-Fähigkeiten.
 
-### [Fähigkeiten](/de/docs/Web/WebDriver/Reference/Capabilities)
+- [Fehler](/de/docs/Web/WebDriver/Reference/Classic/Errors)
+  - : Referenz für klassische WebDriver-Fehler.
 
-{{ListSubpages("/de/docs/Web/WebDriver/Reference/Capabilities")}}
-
-### [Fehler](/de/docs/Web/WebDriver/Reference/Errors)
-
-{{ListSubpages("/de/docs/Web/WebDriver/Reference/Errors")}}
+- [Timeouts](/de/docs/Web/WebDriver/Reference/Classic/Timeouts)
+  - : Referenz für klassische WebDriver-Timeouts.
 
 ## Spezifikationen
 
@@ -67,4 +67,4 @@ Die [WebDriver-Referenz](/de/docs/Web/WebDriver/Reference) bietet detaillierte I
 ## Siehe auch
 
 - [Testing](/de/docs/Learn_web_development/Extensions/Testing)
-- [Selenium-Dokumentation](https://www.selenium.dev/documentation/)
+- [Selenium Dokumentation](https://www.selenium.dev/documentation/)

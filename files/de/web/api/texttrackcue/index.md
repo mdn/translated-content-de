@@ -2,31 +2,31 @@
 title: TextTrackCue
 slug: Web/API/TextTrackCue
 l10n:
-  sourceCommit: 3975bcf6caa09c9c5f7fddf2eef2be6c021d00f6
+  sourceCommit: fb241f60d2c42614b106f3b4647cc6a4eb2e1bc8
 ---
 
 {{APIRef("WebVTT")}}
 
-Die **`TextTrackCue`**-Schnittstelle der [WebVTT API](/de/docs/Web/API/WebVTT_API) ist die abstrakte Basisklasse für die verschiedenen abgeleiteten Cue-Typen, wie z.B. [`VTTCue`](/de/docs/Web/API/VTTCue); Sie werden mit diesen abgeleiteten Typen arbeiten statt mit der Basisklasse.
+Das **`TextTrackCue`**-Interface der [WebVTT-API](/de/docs/Web/API/WebVTT_API) ist die abstrakte Basisklasse für die verschiedenen abgeleiteten Cue-Typen wie [`VTTCue`](/de/docs/Web/API/VTTCue) und [`DataCue`](/de/docs/Web/API/DataCue); Sie werden mit diesen abgeleiteten Typen und nicht mit der Basisklasse arbeiten.
 
-Diese Cues repräsentieren Textstrings, die während der Leistung eines [`TextTrack`](/de/docs/Web/API/TextTrack) für eine bestimmte Dauer angezeigt werden. Der Cue enthält die Startzeit (die Zeit, zu der der Text angezeigt wird) und die Endzeit (die Zeit, zu der er von der Anzeige entfernt wird), sowie weitere Informationen.
+Diese Cues repräsentieren Textzeilen, die für eine bestimmte Dauer während der Wiedergabe eines [`TextTrack`](/de/docs/Web/API/TextTrack) angezeigt werden. Der Cue enthält die Startzeit (die Zeit, zu der der Text angezeigt wird) und die Endzeit (die Zeit, zu der er von der Anzeige entfernt wird), sowie weitere Informationen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`TextTrackCue.track`](/de/docs/Web/API/TextTrackCue/track) {{ReadOnlyInline}}
-  - : Der [`TextTrack`](/de/docs/Web/API/TextTrack), zu dem dieser Cue gehört, oder `null`, wenn er zu keinem gehört.
+  - : Das [`TextTrack`](/de/docs/Web/API/TextTrack), zu dem dieser Cue gehört, oder `null`, wenn er zu keinem gehört.
 - [`TextTrackCue.id`](/de/docs/Web/API/TextTrackCue/id)
   - : Ein String, der den Cue identifiziert.
 - [`TextTrackCue.startTime`](/de/docs/Web/API/TextTrackCue/startTime)
-  - : Ein `double`, das die Videozeit in Sekunden darstellt, zu der der Cue angezeigt werden soll.
+  - : Ein `double`, das die Videozeit angibt, zu der der Cue angezeigt wird, in Sekunden.
 - [`TextTrackCue.endTime`](/de/docs/Web/API/TextTrackCue/endTime)
-  - : Ein `double`, das die Videozeit in Sekunden darstellt, zu der der Cue nicht mehr angezeigt wird.
+  - : Ein `double`, das die Videozeit angibt, zu der der Cue nicht mehr angezeigt wird, in Sekunden.
 - [`TextTrackCue.pauseOnExit`](/de/docs/Web/API/TextTrackCue/pauseOnExit)
-  - : Ein `boolean`, der angibt, ob das Video angehalten wird, wenn dieser Cue nicht mehr angezeigt wird.
+  - : Ein `boolean`, der angibt, ob das Video pausiert, wenn dieser Cue nicht mehr angezeigt wird.
 
 ## Ereignisse
 
